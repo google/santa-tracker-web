@@ -1,0 +1,29 @@
+$ease-elf-arm: $easeInOutQuad;
+$duration-elf-arm: 1.8;
+
+##{$name} {
+  .elf-arm {
+    position: absolute;
+    top: 377px;
+    left: 50%;
+    margin-left: 53px;
+    transform-origin: 30px 35px;
+    transform: rotate(-20deg);
+    @media (min-height: 650px) {
+      animation: $ease-elf-arm #{$duration-elf-arm}s infinite #{$name}-elf-waving;
+    }
+  }
+
+}
+
+@keyframes #{$name}-elf-waving {
+  0% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-20deg);
+  }
+}

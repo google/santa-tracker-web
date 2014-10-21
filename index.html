@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>Google Santa Tracker</title>
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Lobster&subset=all" rel="stylesheet">
+  <script src="/components/platform/platform.js"></script>
+  <link rel="import" href="elements/elements.html">
+  <!-- <link rel="stylesheet" href="styles.css" shim-shadowdom> -->
+  <style>
+    html, body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body unresolved fullbleed layout vertical>
+
+<style>
+/* TODO: remove */
+#tempnavigator {
+  z-index: 1000000;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  color: white;
+  background-color: black;
+  font-size: 14px;
+}
+#tempnavigator a {
+  color: currentcolor;
+  text-decoration: none;
+}
+</style>
+
+<core-toolbar id="tempnavigator" class="core-narrow">
+  <a href="#workshop">Workshop</a>
+  <a href="#windtunnel">Windtunnel</a>
+  <a href="#rollercoaster">Rollercoaster</a>
+</core-toolbar>
+
+<template is="auto-binding" id="t">
+
+  <!-- Route controller -->
+  <flatiron-director route="{{route}}" autoHash></flatiron-director>
+
+  <!-- Preloading scene overlay -->
+  <preload-overlay value="{{selectedScene.preloadProgress}}" active?="{{!selectedScene.loaded}}"></preload-overlay>
+
+  <lazy-pages selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route">
+    <workshop-scene route="workshop"
+                    path="scenes/workshop/workshop-scene.html" hidden></workshop-scene>
+    <windtunnel-scene route="windtunnel"
+                      path="scenes/windtunnel/windtunnel-scene.html" hidden></windtunnel-scene>
+    <rollercoaster-scene route="rollercoaster"
+                      path="scenes/rollercoaster/rollercoaster-scene.html" hidden></rollercoaster-scene>
+  </lazy-pages>
+
+</template>
+
+<script src="app.js"></script>
+</body>
+</html> 

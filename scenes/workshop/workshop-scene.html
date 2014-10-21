@@ -1,0 +1,248 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../base-scene.html">
+
+<!--
+Workshop scene.
+
+@element workshop-scene
+@extends base-scene
+-->
+<polymer-element name="workshop-scene" extends="base-scene">
+  <template>
+    <link rel="stylesheet" href="workshop-scene.css">
+
+    <div id="module-workshop" class="{{moving_ ? 'on' : ''}}">
+      <div class="scene">
+        <div class="workshop">
+          <div class="view">
+            <div class="elf e1">
+              <div class="head"></div>
+            </div>
+
+            <div class="elf e2">
+              <div class="head"></div>
+            </div>
+
+            <div class="elf e3">
+              <div class="head"></div>
+            </div>
+          </div>
+
+          <div class="belt">
+            <div class="items">
+              <div class="item i1">
+                <div class="item-inner i1" style="background-position: {{backgroundPosition_}}"></div>
+              </div>
+              <div class="item i2">
+                <div class="item-inner i2" style="background-position: {{backgroundPosition_}}"></div>
+              </div>
+              <div class="item i3">
+                <div class="item-inner i3" style="background-position: {{backgroundPosition_}}"></div>
+              </div>
+              <div class="item i4">
+                <div class="item-inner i4" style="background-position: {{backgroundPosition_}}"></div>
+              </div>
+            </div>
+
+            <div class="machine left"></div>
+
+            <div class="machine right"></div>
+
+            <div class="bolts">
+              <div class="bolt"></div>
+              <div class="bolt"></div>
+              <div class="bolt"></div>
+              <div class="bolt"></div>
+              <div class="bolt"></div>
+              <div class="bolt"></div>
+              <div class="bolt"></div>
+              <div class="bolt"></div>
+              <div class="bolt"></div>
+              <div class="bolt"></div>
+              <div class="bolt"></div>
+            </div>
+          </div>
+
+          <div class="view before-belt">
+            <div class="elf e4"></div>
+
+            <div class="elf e5">
+              <div class="head">
+                <div class="mouth"></div>
+              </div>
+
+              <div class="notes">
+                <div class="note"><div class="note-inner"></div></div>
+                <div class="note"><div class="note-inner"></div></div>
+                <div class="note"><div class="note-inner"></div></div>
+                <div class="note"><div class="note-inner"></div></div>
+                <div class="note"><div class="note-inner"></div></div>
+                <div class="note"><div class="note-inner"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="objects">
+            <div class="lever" on-tap="{{toggle_}}"></div>
+            <div class="present p1"></div>
+            <div class="present p2"></div>
+            <div class="present p3"></div>
+          </div>
+
+          <div class="wall">
+            <div class="roof">
+              <div class="decoration"></div>
+            </div>
+
+            <div class="windows">
+              <div class="window">
+                <div class="window-wrap"></div>
+              </div>
+
+              <div class="window">
+                <div class="window-wrap"></div>
+              </div>
+
+              <div class="window">
+                <div class="window-wrap"></div>
+              </div>
+
+              <div class="window">
+                <div class="window-wrap"></div>
+              </div>
+
+              <div class="window">
+                <div class="window-wrap"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- TODO(bckenny): part of site nav: <div class="sceneboard"></div> -->
+    </div>
+  </template>
+  <script>
+    (function() {
+      Polymer({
+        /**
+         * @private {boolean}
+         */
+        moving_: false,
+
+        /**
+         * @private {number}
+         */
+        position_: 0,
+
+        /**
+         * @private {string}
+         */
+        backgroundPosition_: '0px bottom',
+
+        /**
+         * @private {number}
+         */
+        speed_: 0,
+
+        /**
+         * @private {number}
+         * @const
+         */
+        MAX_SPEED_: 20,
+
+        /**
+         * @private {number}
+         */
+        accelFrame_: 0,
+
+        /**
+         * @private {number}
+         */
+        decelFrame_: 0,
+
+        /**
+         * @private
+         */
+        start_: function() {
+          // if already moving, the belt was paused, so no need to reset
+          if (!this.moving_) {
+            this.moving_ = true;
+            this.speed_ = 0.1;
+
+            window.cancelAnimationFrame(this.decelFrame_);
+          }
+          
+          this.accelerate_();
+        },
+
+        /**
+         * @private
+         */
+        accelerate_: function() {
+          this.speed_ = Math.min(this.MAX_SPEED_, this.speed_ *= 1.1);
+          this.move_();
+
+          var that = this;
+          this.accelFrame_ = window.requestAnimationFrame(function() {
+            that.accelerate_();
+          });
+        },
+
+        /**
+         * @private
+         */
+        decelerate_: function() {
+          this.speed_ *= 0.9;
+          this.move_();
+
+          var that = this;
+          if (this.speed_ > 0.005) {
+            this.decelFrame_ = window.requestAnimationFrame(function() {
+              that.decelerate_();
+            });
+          }
+        },
+
+        /**
+         * @private
+         */
+        move_: function() {
+          this.position_ = this.position_ + this.speed_ * 0.1;
+          this.backgroundPosition_ = this.position_ + 'px bottom';
+        },
+
+        /**
+         * @private
+         */
+        stop_: function() {
+          this.moving_ = false;
+          window.cancelAnimationFrame(this.accelFrame_);
+          this.decelerate_();
+        },
+
+        /**
+         * @private
+         */
+        pause_: function() {
+          window.cancelAnimationFrame(this.accelFrame_);
+        },
+
+        /**
+         * @private
+         */
+        toggle_: function() {
+          !this.moving_ ? this.start_() : this.stop_();
+        },
+
+        onShow: function() {
+          this.start_();
+        },
+
+        onHide: function() {
+           this.pause_();
+        }
+
+      });
+    })();
+  </script>
+</polymer-element>

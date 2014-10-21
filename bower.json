@@ -1,0 +1,31 @@
+{
+  "name": "SantaTracker",
+  "version": "0.0.1",
+  "private": true,
+  "authors": [
+    "Eric Bidelman <ebidel@gmail.com>"
+  ],
+  "description": "Google Santa Tracker",
+  "main": "index.html",
+  "keywords": [
+    "webcomponents",
+    "web components",
+    "polymer",
+    "santa"
+  ],
+  "license": "Apache-2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "core-elements": "Polymer/core-elements#master",
+    "paper-elements": "Polymer/paper-elements#master",
+    "paper-spinner": "PolymerLabs/paper-spinner",
+    "app-router": "erikringsmuth/app-router",
+    "flatiron-director": "PolymerLabs/flatiron-director#master"
+  }
+}

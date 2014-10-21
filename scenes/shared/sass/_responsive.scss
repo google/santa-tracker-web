@@ -1,0 +1,43 @@
+##{$name} .scene {
+  transform-origin: 0 0;
+}
+
+@media (min-width: 1000px) and (max-width: 1200px) {
+  ##{$name} .scene {
+    transform: scale(0.8);
+    width: 125%;
+    height: 125%;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1000px) {
+  ##{$name} .scene {
+    transform: scale(0.7);
+    width: 143%;
+    height: 143%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 800px) {
+  ##{$name} .scene {
+    transform: scale(0.55);
+    width: 182%;
+    height: 182%;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 600px) {
+  ##{$name} .scene {
+    transform: scale(0.4);
+    width: 250%;
+    height: 250%;
+  }
+}
+
+@media (max-width: 400px) {
+  ##{$name} .scene {
+    transform: scale(0.35);
+    width: 286%;
+    height: 286%;
+  }
+}

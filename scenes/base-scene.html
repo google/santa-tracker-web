@@ -1,0 +1,66 @@
+<link rel="import" href="../components/polymer/polymer.html">
+
+<!--
+A base class element for Santa Tracker scenes. Should not be declared directly,
+but extended by other elements.
+
+**Note** Subclass scene elements are expected to implement an onShow/onHide
+method. Upon the scene becoming active/hidden, those methods will be called.
+
+@element base-scene
+-->
+<polymer-element name="base-scene" attributes="active path">
+  <script>
+    Polymer({
+      publish: {
+        /**
+         * If `true`, the scene is selected.
+         *
+         * @attribute active
+         * @type bool
+         * @default false
+         */
+        active: {value: false, reflect: true}
+      },
+
+      /**
+       * The path of the scene file to load.
+       *
+       * @attribute path
+       * @type string
+       * @default null
+       */
+      path: null,
+
+      /**
+       * True if the scene has previously been loaded.
+       *
+       * @property loaded
+       * @type bool
+       * @default false
+       */
+      loaded: false,
+
+      /**
+       * Preloading progress (percentage) of the loaded scene.
+       *
+       * @attribute property
+       * @type number
+       * @default 0
+       */
+      preloadProgress: 0,
+
+      activeChanged: function() {
+        if (this.active) {
+          //console.debug(this.localName + ' is active');
+          // if (!this.loaded)  {
+          //   this.onPreload();
+          // }
+          this.onShow && this.onShow();
+        } else {
+          this.onHide && this.onHide();
+        }
+      }
+    });
+  </script>
+</polymer-element>

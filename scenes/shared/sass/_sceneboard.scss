@@ -1,0 +1,72 @@
+$sceneboard-bg: #9ece2b !default;
+$sceneboard-backbg: darken($sceneboard-bg, 10%) !default;
+
+##{$name} {
+  .sceneboard {
+    background: $sceneboard-bg url(img/logo.svg) no-repeat 50% 72.5%;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.23);
+    height: 200px;
+    left: 20px;
+    position: fixed;
+    top: 0;
+    width: 204px;
+    z-index: 200;
+  }
+
+  .sceneboard--withButton {
+    background: $sceneboard-bg url(img/logo.svg) no-repeat 50% 50%;
+    height: 252px;
+  }
+
+  .sceneboard-back {
+    background: $sceneboard-backbg;
+    height: 45px;
+  }
+
+  .sceneboard-button {
+    background: #12b319;
+    border-radius: 0 0 5px 5px;
+    bottom: 0;
+    color: #fff;
+    font-size: 1.4em;
+    font-weight: 700;
+    height: 52px;
+    line-height: 52px;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    width: 204px;
+  }
+
+  @media (max-width: 1024px) {
+    .sceneboard {
+      background: none;
+      bottom: 10px;
+      box-shadow: none;
+      height: 44px;
+      left: auto;
+      right: 0;
+      top: auto;
+      transform-origin: 140px 44px;
+      width: 140px;
+    }
+
+    .sceneboard-back {
+      display: none;
+    }
+
+    .sceneboard-button {
+      border-radius: 22px 0 0 22px;
+      height: 44px;
+      line-height: 44px;
+      width: 140px;
+    }
+  }
+
+  @media (max-width: 660px) {
+    .sceneboard {
+      transform: scale(0.71);
+    }
+  }
+}

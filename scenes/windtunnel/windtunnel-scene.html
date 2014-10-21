@@ -1,0 +1,116 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../base-scene.html">
+
+<!--
+Windtunnel scene.
+
+@element windtunnel-scene
+@extends base-scene
+-->
+<polymer-element name="windtunnel-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="windtunnel-scene.css">
+
+  <div id="module-windtunnel">
+  <div class="wrap active">
+    <div class="windtunnel">
+      <div class="main">
+        <div class="machine">
+          <div class="lights">
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+          </div>
+
+          <div class="rudolf-wrap">
+            <div class="rudolf"></div>
+
+            <div class="parachute-wrap">
+              <div class="parachute"></div>
+              <div class="parachute-shadow"></div>
+            </div>
+          </div>
+
+          <div class="lift-wrap">
+            <div class="lift"></div>
+          </div>
+
+          <div class="fan-base">
+            <div class="fan">
+              <div class="threads">
+                <div class="thread"></div>
+                <div class="thread"></div>
+                <div class="thread"></div>
+                <div class="thread"></div>
+                <div class="thread"></div>
+                <div class="thread"></div>
+                <div class="thread"></div>
+                <div class="thread"></div>
+                <div class="thread"></div>
+                <div class="thread"></div>
+              </div>
+
+              <div class="arrow-wrap">
+                <div class="arrow"></div>
+              </div>
+
+              <div class="controller">
+                <div class="elf"></div>
+                <div class="shadow"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="consoles">
+            <div class="console c1"></div>
+            <div class="console c2">
+              <div class="meters"></div>
+            </div>
+            <div class="console c3">
+              <div class="tapes">
+                <div class="tape"></div>
+                <div class="tape"></div>
+              </div>
+            </div>
+            <div class="console c4">
+              <div class="graph"></div>
+              <div class="blibs"></div>
+            </div>
+            <div class="console c5"></div>
+            <div class="console c6">
+              <div class="tapes">
+                <div class="tape"></div>
+                <div class="tape"></div>
+              </div>
+              <div class="lights"></div>
+            </div>
+          </div>
+
+          <div class="screen-frame">
+            <div class="screen"></div>
+            <div class="shadow"></div>
+          </div>
+
+          <div class="window"></div>
+
+          <div class="cogs">
+            <div class="cog small"></div>
+            <div class="cog big"></div>
+          </div>
+
+          <div class="wind-balloon"></div>
+        </div>
+      </div>
+      <div class="split"></div>
+    </div>
+  </div>
+  </div>
+
+</template>
+<script>
+  Polymer({
+
+  });
+</script>
+</polymer-element>

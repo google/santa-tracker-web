@@ -1,0 +1,600 @@
+$name: 'module-windtunnel';
+
+@import "../shared/sass/sceneboard";
+
+@import "sass/animations";
+
+##{$name} {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: #58595b;
+
+  .main {
+    $height: 575px;
+
+    position: absolute;
+    z-index: 1;
+
+    top: 50%;
+    left: 0;
+    right: 0;
+
+    margin-top: -$height / 2;
+
+    height: $height;
+
+    background: bottom url('img/base-back.png') repeat-x #929497;
+
+    .machine {
+      $offset: -12px;
+
+      position: relative;
+
+      top: $height - 526px;
+
+      margin: 0 auto;
+
+      width: 1195px;
+      height: 526px;
+
+      background: url('img/machine-base.png') no-repeat;
+
+      .rudolf-wrap {
+        position: absolute;
+        z-index: 11;
+
+        top: 110px;
+        left: 460px;
+
+        width: 112px + 50px;
+        height: 144px + 60px;
+
+        background: right bottom url('img/rudolf-shadow.png') no-repeat;
+
+        animation: 1.5s #{$name}-hover infinite alternate ease-in-out;
+
+        .rudolf {
+          width: 112px;
+          height: 144px;
+
+          background: 0 0 url('img/rudolf.png') no-repeat;
+        }
+
+        .parachute-wrap {
+          position: absolute;
+
+          top: 45px;
+          left: -160px;
+
+          width: 181px + 50px;
+          height: 96px + 60px;
+
+          .parachute,
+          .parachute-shadow {
+            position: absolute;
+
+            width: 181px;
+            height: 96px;
+
+            background: 0 0 url('img/parachute.png') no-repeat;
+
+            transform-origin: 100% 50%;
+            animation: .6s #{$name}-parachute infinite alternate ease-in-out;
+          }
+
+          .parachute-shadow {
+            right: 12px;
+            bottom: 0;
+
+            width: 181px - 10px;
+
+            background: 0 0 url('img/parachute-shadow.png') no-repeat;
+          }
+        }
+      }
+
+      .lift-wrap {
+        position: absolute;
+        z-index: 12;
+
+        left: 410px;
+        bottom: -5px;
+
+        width: 194px + 50px;
+        height: 264px;
+
+        background: right 60px url('img/lift-shadow.png') no-repeat;
+
+        .lift {
+          width: 194px;
+          height: 264px;
+
+          background: 0 0 url('img/lift.png') no-repeat;
+        }
+      }
+
+      .lights {
+        position: absolute;
+
+        top: -45px;
+        left: 190px;
+
+        width: 800px;
+        height: 68px;
+
+        .light {
+          position: relative;
+          float: left;
+
+          margin: 0 60px;
+
+          width: 80px;
+          height: 100%;
+
+          background: bottom url('img/light.png') no-repeat;
+
+          &:after {
+            content: "";
+            position: absolute;
+            left: 39px;
+            top: -1000px;
+            height: 1000px;
+            width: 2px;
+            background: #58595b;
+          }
+        }
+      }
+
+      .fan-base {
+        position: absolute;
+        z-index: 50;
+
+        bottom: $offset;
+        right: 195px;
+
+        width: 277px;
+        height: 426px;
+
+
+        background: right 45px url('img/fan-shadow.png') no-repeat;
+
+        .fan {
+          position: absolute;
+
+          top: 0;
+          left: 0;
+
+          width: 100%;
+          height: 100%;
+
+          background: url('img/fan-base.png');
+
+          .threads {
+            position: absolute;
+
+            top: 5px;
+            left: -30px;
+
+            padding-top: 3px;
+
+            width: 30px;
+            height: 190px;
+
+            overflow: hidden;
+
+            .thread {
+              $size: 10px;
+
+              margin-bottom: 7px;
+
+              width: 35px;
+              height: $size;
+
+              background: url('img/fan-threads.png') no-repeat;
+
+              transform-origin: 100% 50%;
+              animation: 100ms #{$name}-thread infinite alternate ease-in-out;
+
+              &:nth-child(2n) {
+                background-position: 0 -10px;
+
+                animation: 110ms #{$name}-thread infinite alternate-reverse ease-in-out;
+              }
+
+              &:nth-child(2n+1) {
+                animation: 120ms #{$name}-thread infinite alternate-reverse ease-in-out;
+              }
+
+              &:nth-child(3n) {
+                background-position: 0 -30px;
+              }
+
+              &:nth-child(4n) {
+                background-position: 0 -20px;
+              }
+            }
+          }
+
+          .arrow-wrap {
+            position: absolute;
+
+            bottom: 49px;
+            right: 44px;
+
+
+            width: 65px;
+            height: 35px;
+
+            overflow: hidden;
+
+            .arrow {
+              position: absolute;
+
+              top: 0;
+              left: 25px;
+
+              width: 13px;
+              height: 50px;
+
+              transform-origin: 50% 100%;
+              transform: rotateZ(-35deg);
+              animation: 5s #{$name}-fanArrow infinite alternate ease-in-out;
+
+              background: url('img/fan-arrow.png') no-repeat;
+            }
+          }
+        }
+
+        .controller {
+          position: absolute;
+
+          top: 208px;
+          right: 53px;
+
+          .elf {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 44px;
+            height: 96px;
+
+            background: url('img/fan-controller.png');
+          }
+
+          .shadow {
+            position: absolute;
+
+            top: 28px;
+            left: 45px;
+
+            width: 43px;
+            height: 89px;
+
+            background: top right url('img/fan-controller-shadow.png');
+          }
+        }
+      }
+
+      .consoles {
+        position: absolute;
+        z-index: 15;
+
+        bottom: $offset;
+        left: 190px;
+
+        width: 665px;
+        height: 150px;
+
+        background: 75px 40px url('img/wires.png') no-repeat;
+
+        .console {
+          position: relative;
+          float: left;
+
+          margin-right: 8px;
+
+          width: 87px;
+          height: 150px;
+
+          background: url('img/consoles.png') no-repeat;
+
+          .tapes {
+            position: absolute;
+
+            top: 10px;
+            left: 8px;
+
+            width: 66px;
+            height: 31px;
+
+            .tape {
+              position: absolute;
+
+              top: 0;
+              left: 0;
+
+              width: 31px;
+              height: 31px;
+
+              background: url('img/console-tape.png');
+
+              animation: 2s #{$name}-spin infinite reverse linear;
+
+              &:last-child {
+                left: auto;
+                right: 0;
+              }
+            }
+          }
+
+          &:before,
+          &:after {
+            content: "";
+            position: absolute;
+          }
+
+          $elf-width: 34px;
+
+          &:before {
+            left: 50%;
+            bottom: 0;
+
+            z-index: 1;
+
+            margin-bottom: -10px;
+            margin-left: -$elf-width / 2;
+
+            width: $elf-width;
+            height: 114px;
+
+            background: url('img/elfs.png');
+          }
+
+          &:after {
+            top: 15px;
+            right: -15px;
+
+            width: 15px;
+            height: 135px;
+
+            background: rgba(0,0,0,.12);
+          }
+
+          &.c1 {
+
+          }
+          &.c2 {
+            background-position: -87px * 1 0;
+
+            .meters {
+              position: absolute;
+
+              top: 10px;
+              left: 6px;
+
+              width: 69px;
+              height: 94px;
+
+              background: 0 0;
+              background-image: url('img/console-meters.png');
+
+              animation: 1s #{$name}-consoleMeters infinite alternate-reverse step-start;
+            }
+
+
+            &:before {
+              background-position: -$elf-width * 1 0;
+            }
+          }
+          &.c3 {
+            margin-right: 75px;
+
+            background-position: -87px * 2 0;
+
+            &:before {
+              background-position: -$elf-width * 2 0;
+            }
+          }
+          &.c4 {
+            background-position: -87px * 3 0;
+
+            .graph {
+              position: absolute;
+
+              top: 4px;
+              left: 14px;
+
+              width: 54px;
+              height: 48px;
+
+              background: center center repeat-x;
+              background-image: url('img/console-graph.png');
+
+              animation: 4s #{$name}-consoleGraph infinite linear;
+            }
+
+            .blibs {
+              position: absolute;
+
+              top: 60px;
+              left: 16px;
+
+              width: 50px;
+              height: 30px;
+
+              background: center center;
+              background-image: url('img/console-blibs.png');
+
+              animation: 4s #{$name}-lights infinite step-start;
+            }
+
+
+
+            &:before {
+              background-position: -$elf-width * 3 0;
+            }
+          }
+          &.c5 {
+            background-position: -87px * 4 0;
+
+            &:before {
+              background-position: -$elf-width * 4 0;
+            }
+          }
+          &.c6 {
+            background-position: -87px * 5 0;
+
+            .lights {
+              position: absolute;
+
+              top: 50px;
+              left: 10px;
+
+              width: 62px;
+              height: 48px;
+
+              background: 0 0 #000;
+              background-image: url('img/console-lights.png');
+
+              animation: 3s #{$name}-lights infinite step-start;
+            }
+
+            &:before {
+              background-position: -$elf-width * 5 0;
+            }
+          }
+        }
+      }
+
+      .screen-frame {
+        position: absolute;
+        z-index: 10;
+
+        top: 49px;
+        left: 120px;
+
+        width: 935px;
+        height: 389px;
+
+        overflow: hidden;
+
+        .screen {
+          background-image: url('img/screen.png');
+          width: 2805px;
+          height: 389px;
+
+          animation: 12s #{$name}-screenRotation infinite linear;
+        }
+
+        .shadow {
+          position: absolute;
+
+          top: 1px;
+          right: 0;
+          bottom: 0;
+
+          width: 14px;
+
+          background: rgba(0,0,0,.10);
+        }
+      }
+
+      .window {
+        position: absolute;
+
+        bottom: 202px;
+        right: 31px;
+
+        width: 69px;
+        height: 96px;
+
+        background: repeat-y;
+
+        background-image: url('img/snow-layer1.png'),
+                  url('img/snow-layer2.png'),
+                  url('img/snow-layer3.png'),
+                  url('img/snow-layer4.png');
+
+        background-position: center 0%;
+
+        animation: 4s #{$name}-snow infinite linear;
+      }
+
+      .cogs {
+        position: absolute;
+
+        top: -30px;
+        right: 25px;
+
+        width: 115px;
+        height: 205px;
+
+        background: 20px bottom url('img/cogs-base.png') no-repeat;
+
+        .cog {
+          position: absolute;
+
+          top: -3px;
+          left: -3px;
+
+          &.small {
+            width: 51px;
+            height: 51px;
+
+            background-image: url('img/cog-small.png');
+
+            animation: 5s #{$name}-spin infinite linear;
+          }
+
+          &.big {
+            top: 38px;
+            left: 20px;
+
+            width: 86px;
+            height: 86px;
+
+            background-image: url('img/cog-big.png');
+
+            animation: 9.95s #{$name}-spin infinite reverse linear;
+          }
+        }
+      }
+
+      .wind-balloon {
+        position: absolute;
+
+        top: 200px;
+        left: -3px;
+
+        width: 99px;
+        height: 32px;
+
+        background: url('img/wind-balloon.png');
+
+        transform-origin: 100% 50%;
+        animation: .5s #{$name}-parachute infinite alternate-reverse ease-in-out;
+      }
+    }
+  }
+
+  .split {
+    position: absolute;
+    z-index: 0;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+
+    background: #929497;
+  }
+}
+
+@import "../shared/sass/responsive";

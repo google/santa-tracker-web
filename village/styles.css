@@ -1,0 +1,278 @@
+html, body {
+  font-family: 'Open Sans';
+  font-size: 12px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #47c6ee;
+}
+
+#page-village {
+  background: #47c6ee;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+#elf {
+  position: absolute;
+  bottom: 0;
+  left: 768px;
+}
+
+#village-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+#village-wrapper #trees {
+  position: absolute;
+  width: 17504px;
+  left: 0;
+  bottom: 0;
+  z-index: 20;
+}
+
+#page-village #village-wrapper #snow,
+#page-village #village-wrapper #ground {
+  bottom: 0;
+  height: 144px;
+}
+
+#village-parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 12;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  transform: translateZ(0);
+}
+
+#village, #ground {
+  position: absolute;
+  width: 10940px;
+}
+
+#village {
+  bottom: 107px;
+  left: -730px;
+  top: 0;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+#village #trees-back {
+  z-index: 0;
+  bottom: 34px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  height: 264px;
+}
+
+#rail #train {
+  position: absolute;
+  height: 55px;
+  width: 424px;
+  top: -55px;
+  left: 300px;
+}
+
+svg, object {
+  height: 100%;
+}
+
+#village-wrapper #ground, #village-wrapper .ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  height: 143px;
+  z-index: 10;
+}
+
+#rail {
+  position: absolute;
+  width: 8752px;
+  z-index: 9;
+  bottom: 140px;
+  height: 196px;
+}
+
+#page-village #mountains, #page-village .mountains {
+  position: absolute;
+  width: 2735px;
+  z-index: 7;
+  bottom: 90px;
+}
+
+#page-village #clouds {
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 143px;
+}
+
+#page-village #plane {
+  cursor: pointer;
+  z-index: 8;
+  position: absolute;
+  top: 45px;
+  height: 82px;
+  width: 171px;
+}
+
+#page-village #spaceship {
+  cursor: pointer;
+  z-index: 8;
+  position: absolute;
+  height: 84px;
+  width: 130px;
+  top: 45px;
+}
+
+#page-village #sun, #page-village #moon {
+  z-index: 3;
+  cursor: pointer;
+  top: 100%;
+  top: 10px;
+  left: 250px;
+  position: absolute;
+  width: 180px;
+  height: 180px;
+}
+
+#page-village #sky, #page-village .sky {
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 143px;
+}
+
+#village #houses {
+  z-index: 3;
+  position: absolute;
+  bottom: 31px;
+}
+
+#village #houses .house {
+  position: absolute;
+  bottom: 0;
+  float: left;
+}
+
+#village #houses #house1 {
+  left: 938px;
+}
+
+#village #houses #house2 {
+    left: 1523px;
+}
+
+#house3 {
+    left: 1911px;
+}
+
+#house4 {
+    left: 2331px;
+}
+
+#house5 {
+    left: 2905px;
+}
+
+#house6 {
+    left: 3135px;
+}
+
+#house7 {
+    left: 3402px;
+}
+
+#house8 {
+    left: 3756px;
+}
+
+#house9 {
+    left: 4200px;
+}
+
+#house11 {
+    left: 4884px;
+}
+
+#house12 {
+    left: 5192px;
+}
+
+#house13 {
+    left: 5552px;
+}
+
+#house14 {
+    left: 5918px;
+}
+
+#house15 {
+    left: 6362px;
+}
+
+#house16 {
+    left: 6660px;
+}
+
+#house17 {
+    left: 7006px;
+}
+
+#house18 {
+    left: 7284px;
+}
+
+#house19 {
+    left: 7716px;
+}
+
+#house20 {
+    left: 8156px;
+}
+
+#house21 {
+    left: 8576px;
+}
+
+#house22 {
+    left: 8886px;
+}
+
+#house23 {
+    left: 9222px;
+}
+
+#house24 {
+    left: 9580px;
+}
+
+#house25 {
+    left: 10104px;
+}
+
+#house26 {
+    left: 10579px;
+}
+

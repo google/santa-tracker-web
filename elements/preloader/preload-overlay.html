@@ -1,0 +1,41 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/core-range/core-range.html">
+
+<!--
+Candy cane progress bar.
+
+@element preload-overlay
+@extends core-range
+-->
+<polymer-element name="preload-overlay" extends="core-range" attributes="active"
+                 on-transitionend="{{onTransitionEnd}}" fit>
+  <template>
+    <link rel="stylesheet" href="preloader.css">
+    <div id="page-progress" layout vertical center-center>
+      <div class="preload">
+          <img src="/images/village.gif">
+          <div class="preload-bar">
+            <div class="preload-progress" style="width:{{ratio}}%;"></div>
+          </div>
+      </div>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      publish: {
+        /**
+         * If `true`, the preloader displays itself. 
+         *
+         * @attribute active
+         * @type bool
+         * @default false
+         */
+        active: {value: false, reflect: true}
+      },
+
+      onTransitionEnd: function(e, detail, sender) {
+        //this.style.display = 'none';
+      }
+    });
+  </script>
+</polymer-element>

@@ -1,0 +1,235 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/core-animated-pages/core-animated-pages.html">
+
+<!--
+Lazy loads children "pages".
+
+@element lazy-pages
+@extends core-pages
+-->
+<polymer-element name="lazy-pages" extends="core-animated-pages" attributes="indicateLoading">
+<template>
+  <style>
+    :host {
+      position: initial;
+    }
+    #loading {
+      z-index: 1000;
+      position: absolute;
+      top: 4px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    #loading.isLoading {
+      opacity: 1;
+    }
+
+    #loadIndicator {
+      background: red;
+      color: white;
+      padding: 4px 8px;
+    }
+    .hide {
+      display: none;
+    }
+  </style>
+  <shadow></shadow>
+  <div id="loading" on-transitionend="{{loadTransitionEnd}}" class="hide">
+    <span id="loadIndicator">Loading...</span>
+  </div>
+</template>
+<script>
+  Polymer({
+    /**
+     * When `true`, a loading spinner is shown when a new page is loaded.
+     *
+     * @attribute indicateLoading
+     * @type bool
+     * @default false
+     */
+    indicateLoading: false,
+
+    loading: false,
+
+    selectedChanged: function() {
+      this.super();
+
+      var scene = this.selectedItem;
+
+      if (!this.selected) {
+        return;
+      } else if (scene.loaded) {
+        this.onSceneLoaded();
+        return;
+      }
+
+      this.loading = true;
+
+      // Can't use scene.path because element definition may not be loaded yet
+      // and .path property won't exist.
+      var path = scene.getAttribute('path');
+      Polymer.import([path], function(e) {
+
+        // TODO: shouldn't have to do this. I believe 2-way binding on the preload-overlay
+        // is causing the next scene to start at 100 instead of 0. Probably need
+        // to fire an event instead of binding to its .value directly.
+        scene.preloadProgress = 0;
+
+        // TODO(ericbidelman): faking loading progress.
+        var id = setInterval(function() {
+          scene.preloadProgress += 10;
+          if (scene.preloadProgress >= 100) {
+            clearInterval(id);
+
+            // Wait 2 rAFs for scene to have painted.
+            this.async(function() {
+              this.async(function() {
+                this.onSceneLoaded();
+              });
+            });
+          }
+        }.bind(this), 250);
+
+      }.bind(this));
+
+    },
+
+    onSceneLoaded: function() {
+      var scene = this.selectedItem;
+      scene.removeAttribute('hidden');
+      scene.loaded = true;
+
+      this.loading = false;
+
+      this.fire('scene-loaded', {scene: scene});
+    },
+
+    loadingChanged: function() {
+      if (this.indicateLoading) {
+        this.$.loading.classList.remove('hide');
+        this.async(function() {
+          this.$.loading.classList.toggle('isLoading', this.loading);
+        });
+      }
+    },
+
+    loadTransitionEnd: function() {
+      if (!this.loading) {
+        this.$.loading.classList.add('hide');
+      }
+    }
+  });
+</script>
+</polymer-element>
+
+<!-- <polymer-element name="lazy-pages" extends="core-pages" attributes="indicateLoading" on-tap="{{onTap}}">
+<template>
+  <style>
+    #loading {
+      z-index: 1000;
+      position: absolute;
+      top: 4px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    #loading.isLoading {
+      opacity: 1;
+    }
+
+    #loadIndicator {
+      background: orange;
+      padding: 4px 8px;
+    }
+  </style>
+  <shadow></shadow>
+  <div id="loading" on-transitionend="{{loadTransitionEnd}}" style="display: none;">
+    <span id="loadIndicator">Loading...</span>
+  </div>
+</template>
+<script>
+  Polymer({
+    inflating: false,
+
+    /**
+     * When `true`, a loading spinner is shown when a new page is loaded.
+     *
+     * @attribute indicateLoading
+     * @type bool
+     * @default false
+     */
+    indicateLoading: false,
+
+    onTap: function() {
+      var c = this.items.length, s = Number(this.selected);
+      this.selected = s >= c - 1 ? 0 : s + 1;
+    },
+
+    // TODO(sorvell): items can be templates here; better factoring would
+    // avoid having to re-implement this.
+    get items() {
+      var nodes = this.target !== this ? (this.itemsSelector ?
+          this.target.querySelectorAll(this.itemsSelector) :
+              this.target.children) : this.$.items.getDistributedNodes();
+      return nodes;
+    },
+
+    selectedChanged: function(oldValue) {
+//       if (this.selected == undefined) {
+//         return;
+//       }
+// console.log(this.selected, this.valueToIndex(this.selected))
+      var selectedItem = this.items[this.valueToIndex(this.selected)];
+      if (selectedItem.localName === 'template') {
+        this.inflateTemplateItem(selectedItem, this.selected);
+        this.selected = oldValue;
+      } else {
+        this.super();
+      }
+    },
+
+    inflateTemplateItem: function(template, select) {
+      // make a suitable instance
+      var i = this.templateInstance,
+          model = i ? i.model : this,
+          syntax = model.syntax || this.syntax;
+      var item = template.createInstance(model, syntax);
+      if (item.children.length > 1) {
+        var w = document.createElement('div');
+        w.appendChild(item);
+        item = w;
+      }
+      // replace template with instance
+      this.replaceChild(item, template);
+      this.loading = true;
+      // when ready, update selection
+      Polymer.whenReady(function() {
+        //this.async(function() {
+          this.loading = false;
+          this.selected = select;
+        //}, null, 1000);
+      }.bind(this));
+    },
+    loadingChanged: function() {
+      if (this.indicateLoading) {
+        this.$.loading.style.display = '';
+        this.async(function() {
+          this.$.loading.classList.toggle('isLoading', this.loading);
+        });
+      }
+    },
+    loadTransitionEnd: function() {
+      if (!this.loading) {
+        this.$.loading.style.display = 'none';
+      }
+    }
+  });
+</script>
+</polymer-element> -->
