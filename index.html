@@ -14,33 +14,34 @@
       font-size: 12px;
       overflow: hidden;
     }
+
+    /* TODO(ericbidelman): remove. For testing. */
+    #tempnav {
+      z-index: 10000;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      color: white;
+    }
+    #tempnav a {
+      color: currentcolor;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+    }
+    /* ---- */
   </style>
 </head>
 <body unresolved fullbleed layout vertical>
 
-<style>
-/* TODO: remove */
-#tempnavigator {
-  z-index: 1000000;
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  color: white;
-  background-color: black;
-  font-size: 14px;
-}
-#tempnavigator a {
-  color: currentcolor;
-  text-decoration: none;
-}
-</style>
-
-<core-toolbar id="tempnavigator" class="core-narrow">
+<!-- TODO(ericbidelman): Remove. Just for testing -->
+<paper-menu-button icon="view-carousel" id="tempnav" title="Select a scene">
   <a href="#workshop">Workshop</a>
   <a href="#windtunnel">Windtunnel</a>
   <a href="#rollercoaster">Rollercoaster</a>
   <a href="#undersea">Undersea</a>
-</core-toolbar>
+</paper-menu-button>
+<!-- ******************************************* -->
 
 <template is="auto-binding" id="t">
 
