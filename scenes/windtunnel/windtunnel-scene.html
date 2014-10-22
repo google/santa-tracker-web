@@ -111,6 +111,34 @@ Windtunnel scene.
 <script>
   Polymer({
 
+    onPreload: function() {
+
+      console.debug('windtunnel onPreload');
+
+      // TODO(ericbidelman): faking loading progress.
+      var id = setInterval(function() {
+        this.preloadProgress += 10;
+
+console.log(this.preloadProgress);
+
+        if (this.preloadProgress >= 100) {
+          // TODO: actually preload images
+          clearInterval(id);
+
+          this.signalPreloadComplete_();
+        }
+      }.bind(this), 150);
+
+    },
+
+    onShow: function() {
+      console.debug('windtunnel onShow');
+    },
+
+    onHide: function() {
+      console.debug('windtunnel onHide');
+    }
+
   });
 </script>
 </polymer-element>

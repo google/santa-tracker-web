@@ -21,7 +21,7 @@
       position: fixed;
       top: 10px;
       left: 10px;
-      color: white;
+      color: #222;
     }
     #tempnav a {
       color: currentcolor;
@@ -49,7 +49,8 @@
   <flatiron-director route="{{route}}" autoHash></flatiron-director>
 
   <!-- Preloading scene overlay -->
-  <preload-overlay value="{{selectedScene.preloadProgress}}" active?="{{!selectedScene.loaded}}"></preload-overlay>
+  <preload-overlay value="{{selectedScene.preloadProgress}}"
+                   active?="{{!selectedScene.loaded}}"></preload-overlay>
 
   <lazy-pages selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route">
     <workshop-scene route="workshop"
