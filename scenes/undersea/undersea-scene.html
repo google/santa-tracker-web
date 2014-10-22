@@ -1,0 +1,133 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../base-scene.html">
+
+<!--
+Undersea scene.
+
+@element undersea-scene
+@extends base-scene
+-->
+<polymer-element name="undersea-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="undersea-scene.css" no-shim>
+
+  <div id="module-undersea" fit>
+    <div class="scene">
+      <div class="santa">
+        <ul class="bubbles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+
+      <div class="elf-wrap">
+        <div class="elf-track">
+          <div class="elf">
+            <ul class="bubbles">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mermaids">
+        <div class="mermaid lady"></div>
+        <div class="mermaid boy"></div>
+        <div class="mermaid girl"></div>
+      </div>
+
+      <div class="boat"></div>
+
+      <div class="fish-wrap">
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+        <div class="fish"></div>
+      </div>
+
+      <div class="bottom">
+        <div class="view">
+          <div class="presents"></div>
+          <div class="chest"></div>
+          <div class="object tree-big"></div>
+          <div class="object tree-medium"></div>
+          <div class="object tree-small"></div>
+          <div class="object flask-big"></div>
+          <div class="object flask-medium"></div>
+          <div class="object flask-small"></div>
+        </div>
+
+        <div class="crabby-path">
+          <div class="crabby">
+            <div class="body">
+              <div class="leg"></div>
+              <div class="leg"></div>
+              <div class="leg"></div>
+              <div class="leg"></div>
+              <div class="leg"></div>
+              <div class="leg"></div>
+            </div>
+            <div class="steps"></div>
+          </div>
+        </div>
+
+        <div class="sand"></div>
+        <div class="sand-away"></div>
+        <div class="reefs"></div>
+      </div>
+
+      <div class="mega-bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+      </div>
+
+      <div class="crabby-large-path">
+        <div class="crabby">
+          <div class="eye"></div>
+          <div class="eye"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+<script>
+  Polymer({
+
+    // onPreload: function(preloader) {
+    //   preloader.addKlang('undersea_load_sounds', 20);
+    //   imagePreloader = new ImagePreloader('undersea', preloader, [
+    //     'img/logo.svg',
+    //     'img/boat.png'
+    //   ]);
+    // },
+    // onShow: function(div) {
+    //   Klang.triggerEvent('undersea_start');
+
+    //   if (imagePreloader) {
+    //     imagePreloader.dispose();
+    //     imagePreloader = null;
+    //   }
+    // },
+    // onHide: function() {
+    //   Klang.triggerEvent('undersea_end');
+    // }
+
+  });
+</script>
+</polymer-element>

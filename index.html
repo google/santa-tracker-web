@@ -39,6 +39,7 @@
   <a href="#workshop">Workshop</a>
   <a href="#windtunnel">Windtunnel</a>
   <a href="#rollercoaster">Rollercoaster</a>
+  <a href="#undersea">Undersea</a>
 </core-toolbar>
 
 <template is="auto-binding" id="t">
@@ -51,11 +52,13 @@
 
   <lazy-pages selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route">
     <workshop-scene route="workshop"
-                    path="scenes/workshop/workshop-scene.html" hidden></workshop-scene>
+        path="scenes/workshop/workshop-scene.html" hidden></workshop-scene>
     <windtunnel-scene route="windtunnel"
-                      path="scenes/windtunnel/windtunnel-scene.html" hidden></windtunnel-scene>
+        path="scenes/windtunnel/windtunnel-scene.html" hidden></windtunnel-scene>
     <rollercoaster-scene route="rollercoaster"
-                      path="scenes/rollercoaster/rollercoaster-scene.html" hidden></rollercoaster-scene>
+        path="scenes/rollercoaster/rollercoaster-scene.html" hidden></rollercoaster-scene>
+    <undersea-scene route="undersea"
+        path="scenes/undersea/undersea-scene.html" hidden></undersea-scene>
   </lazy-pages>
 
 </template>
