@@ -119,35 +119,12 @@ Workshop scene.
      */
     decelFrame_: 0,
 
-    /**
-     * @private {number}
-     */
-    NUM_ITEMS_: 4,
-
-    /**
-     * @private {number}
-     */
-    NUM_BOLTS_: 11,
-
-    /**
-     * @private {number}
-     */
-    NUM_NOTES_: 6,
-
-    /**
-     * @private {number}
-     */
-    NUM_WINDOWS_: 5,
-
     ready: function() {
-      this.items =  Array.prototype.slice.call(
-          new Uint8Array(this.NUM_ITEMS_));
-      this.bolts =  Array.prototype.slice.call(
-          new Uint8Array(this.NUM_BOLTS_));
-      this.notes =  Array.prototype.slice.call(
-          new Uint8Array(this.NUM_NOTES_));
-      this.windows =  Array.prototype.slice.call(
-          new Uint8Array(this.NUM_WINDOWS_));
+      // <template repeat> needs a real array to repeat over.
+      this.items = [0, 0, 0, 0];
+      this.bolts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      this.notes = [0, 0, 0, 0, 0, 0];
+      this.windows = [0, 0, 0, 0, 0];
     },
 
     /**
