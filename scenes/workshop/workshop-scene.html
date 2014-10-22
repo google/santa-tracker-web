@@ -8,241 +8,225 @@ Workshop scene.
 @extends base-scene
 -->
 <polymer-element name="workshop-scene" extends="base-scene">
-  <template>
-    <link rel="stylesheet" href="workshop-scene.css">
+<template>
+  <link rel="stylesheet" href="workshop-scene.css" no-shim>
 
-    <div id="module-workshop" class="{{moving_ ? 'on' : ''}}">
-      <div class="scene">
-        <div class="workshop">
-          <div class="view">
-            <div class="elf e1">
-              <div class="head"></div>
-            </div>
+  <div id="module-workshop" class="{{ {on: moving_} | tokenList }}">
+    <div class="scene">
+      <div class="workshop">
+        <div class="view">
+          <div class="elf e1"><div class="head"></div></div>
+          <div class="elf e2"><div class="head"></div></div>
+          <div class="elf e3"><div class="head"></div></div>
+        </div>
 
-            <div class="elf e2">
-              <div class="head"></div>
-            </div>
-
-            <div class="elf e3">
-              <div class="head"></div>
-            </div>
+        <div id="belt">
+          <div class="items">
+            <template repeat="{{item, i in items}}">
+              <div class="item i{{i + 1}}">
+                <div class="item-inner i{{i + 1}}"
+                     style="background-position:{{bgPosition_}}px 100%"></div>
+              </div>
+            </template>
           </div>
 
-          <div class="belt">
-            <div class="items">
-              <div class="item i1">
-                <div class="item-inner i1" style="background-position: {{backgroundPosition_}}"></div>
-              </div>
-              <div class="item i2">
-                <div class="item-inner i2" style="background-position: {{backgroundPosition_}}"></div>
-              </div>
-              <div class="item i3">
-                <div class="item-inner i3" style="background-position: {{backgroundPosition_}}"></div>
-              </div>
-              <div class="item i4">
-                <div class="item-inner i4" style="background-position: {{backgroundPosition_}}"></div>
-              </div>
-            </div>
+          <div class="machine left"></div>
+          <div class="machine right"></div>
 
-            <div class="machine left"></div>
-
-            <div class="machine right"></div>
-
-            <div class="bolts">
+          <div id="bolts">
+            <template repeat="{{bolts}}">
               <div class="bolt"></div>
-              <div class="bolt"></div>
-              <div class="bolt"></div>
-              <div class="bolt"></div>
-              <div class="bolt"></div>
-              <div class="bolt"></div>
-              <div class="bolt"></div>
-              <div class="bolt"></div>
-              <div class="bolt"></div>
-              <div class="bolt"></div>
-              <div class="bolt"></div>
-            </div>
+            </template>
           </div>
+        </div>
 
-          <div class="view before-belt">
-            <div class="elf e4"></div>
+        <div class="view before-belt">
+          <div class="elf e4"></div>
 
-            <div class="elf e5">
-              <div class="head">
-                <div class="mouth"></div>
-              </div>
-
-              <div class="notes">
-                <div class="note"><div class="note-inner"></div></div>
-                <div class="note"><div class="note-inner"></div></div>
-                <div class="note"><div class="note-inner"></div></div>
-                <div class="note"><div class="note-inner"></div></div>
-                <div class="note"><div class="note-inner"></div></div>
-                <div class="note"><div class="note-inner"></div></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="objects">
-            <div class="lever" on-tap="{{toggle_}}"></div>
-            <div class="present p1"></div>
-            <div class="present p2"></div>
-            <div class="present p3"></div>
-          </div>
-
-          <div class="wall">
-            <div class="roof">
-              <div class="decoration"></div>
+          <div class="elf e5">
+            <div class="head">
+              <div class="mouth"></div>
             </div>
 
-            <div class="windows">
-              <div class="window">
-                <div class="window-wrap"></div>
-              </div>
-
-              <div class="window">
-                <div class="window-wrap"></div>
-              </div>
-
-              <div class="window">
-                <div class="window-wrap"></div>
-              </div>
-
-              <div class="window">
-                <div class="window-wrap"></div>
-              </div>
-
-              <div class="window">
-                <div class="window-wrap"></div>
-              </div>
+            <div class="notes">
+              <template repeat="{{notes}}">
+                <div class="note"><div class="note-inner"></div></div>
+              </template>
             </div>
           </div>
         </div>
+
+        <div class="objects">
+          <div class="lever" on-tap="{{toggle_}}"></div>
+          <div class="present p1"></div>
+          <div class="present p2"></div>
+          <div class="present p3"></div>
+        </div>
+
+        <div class="wall">
+          <div class="roof">
+            <div class="decoration"></div>
+          </div>
+
+          <div id="windows">
+            <template repeat="{{windows}}">
+              <div class="window">
+                <div class="window-wrap"></div>
+              </div>
+            </template>
+          </div>
+        </div>
       </div>
-      <!-- TODO(bckenny): part of site nav: <div class="sceneboard"></div> -->
     </div>
-  </template>
-  <script>
-    (function() {
-      Polymer({
-        /**
-         * @private {boolean}
-         */
-        moving_: false,
+    <!-- TODO(bckenny): part of site nav: <div class="sceneboard"></div> -->
+  </div>
+</template>
+<script>
+  Polymer({
+    /**
+     * @private {boolean}
+     */
+    moving_: false,
 
-        /**
-         * @private {number}
-         */
-        position_: 0,
+    /**
+     * @private {number}
+     */
+    position_: 0,
 
-        /**
-         * @private {string}
-         */
-        backgroundPosition_: '0px bottom',
+    /**
+     * @private {string}
+     */
+    bgPosition_: '0',
 
-        /**
-         * @private {number}
-         */
-        speed_: 0,
+    /**
+     * @private {number}
+     */
+    speed_: 0,
 
-        /**
-         * @private {number}
-         * @const
-         */
-        MAX_SPEED_: 20,
+    /**
+     * @private {number}
+     * @const
+     */
+    MAX_SPEED_: 20,
 
-        /**
-         * @private {number}
-         */
-        accelFrame_: 0,
+    /**
+     * @private {number}
+     */
+    accelFrame_: 0,
 
-        /**
-         * @private {number}
-         */
-        decelFrame_: 0,
+    /**
+     * @private {number}
+     */
+    decelFrame_: 0,
 
-        /**
-         * @private
-         */
-        start_: function() {
-          // if already moving, the belt was paused, so no need to reset
-          if (!this.moving_) {
-            this.moving_ = true;
-            this.speed_ = 0.1;
+    /**
+     * @private {number}
+     */
+    NUM_ITEMS_: 4,
 
-            window.cancelAnimationFrame(this.decelFrame_);
-          }
-          
-          this.accelerate_();
-        },
+    /**
+     * @private {number}
+     */
+    NUM_BOLTS_: 11,
 
-        /**
-         * @private
-         */
-        accelerate_: function() {
-          this.speed_ = Math.min(this.MAX_SPEED_, this.speed_ *= 1.1);
-          this.move_();
+    /**
+     * @private {number}
+     */
+    NUM_NOTES_: 6,
 
-          var that = this;
-          this.accelFrame_ = window.requestAnimationFrame(function() {
-            that.accelerate_();
-          });
-        },
+    /**
+     * @private {number}
+     */
+    NUM_WINDOWS_: 5,
 
-        /**
-         * @private
-         */
-        decelerate_: function() {
-          this.speed_ *= 0.9;
-          this.move_();
+    ready: function() {
+      this.items =  Array.prototype.slice.call(
+          new Uint8Array(this.NUM_ITEMS_));
+      this.bolts =  Array.prototype.slice.call(
+          new Uint8Array(this.NUM_BOLTS_));
+      this.notes =  Array.prototype.slice.call(
+          new Uint8Array(this.NUM_NOTES_));
+      this.windows =  Array.prototype.slice.call(
+          new Uint8Array(this.NUM_WINDOWS_));
+    },
 
-          var that = this;
-          if (this.speed_ > 0.005) {
-            this.decelFrame_ = window.requestAnimationFrame(function() {
-              that.decelerate_();
-            });
-          }
-        },
+    /**
+     * @private
+     */
+    start_: function() {
+      // if already moving, the belt was paused, so no need to reset
+      if (!this.moving_) {
+        this.moving_ = true;
+        this.speed_ = 0.1;
 
-        /**
-         * @private
-         */
-        move_: function() {
-          this.position_ = this.position_ + this.speed_ * 0.1;
-          this.backgroundPosition_ = this.position_ + 'px bottom';
-        },
+        window.cancelAnimationFrame(this.decelFrame_);
+      }
+      
+      this.accelerate_();
+    },
 
-        /**
-         * @private
-         */
-        stop_: function() {
-          this.moving_ = false;
-          window.cancelAnimationFrame(this.accelFrame_);
-          this.decelerate_();
-        },
+    /**
+     * @private
+     */
+    accelerate_: function() {
+      this.speed_ = Math.min(this.MAX_SPEED_, this.speed_ *= 1.1);
+      this.move_();
 
-        /**
-         * @private
-         */
-        pause_: function() {
-          window.cancelAnimationFrame(this.accelFrame_);
-        },
+      this.accelFrame_ = window.requestAnimationFrame(this.accelerate_.bind(this));
+    },
 
-        /**
-         * @private
-         */
-        toggle_: function() {
-          !this.moving_ ? this.start_() : this.stop_();
-        },
+    /**
+     * @private
+     */
+    decelerate_: function() {
+      this.speed_ *= 0.9;
+      this.move_();
 
-        onShow: function() {
-          this.start_();
-        },
+      if (this.speed_ > 0.005) {
+        this.decelFrame_ = window.requestAnimationFrame(this.decelerate_.bind(this));
+      }
+    },
 
-        onHide: function() {
-           this.pause_();
-        }
+    /**
+     * @private
+     */
+    move_: function() {
+      this.position_ = this.position_ + this.speed_ * 0.1;
+      this.bgPosition_ = this.position_;
+      WebComponents.flush(); // ensure bindings are updated under polyfill.
+    },
 
-      });
-    })();
-  </script>
+    /**
+     * @private
+     */
+    stop_: function() {
+      this.moving_ = false;
+      window.cancelAnimationFrame(this.accelFrame_);
+      this.decelerate_();
+    },
+
+    /**
+     * @private
+     */
+    pause_: function() {
+      window.cancelAnimationFrame(this.accelFrame_);
+    },
+
+    /**
+     * @private
+     */
+    toggle_: function() {
+      !this.moving_ ? this.start_() : this.stop_();
+    },
+
+    onShow: function() {
+      this.start_();
+    },
+
+    onHide: function() {
+       this.pause_();
+    }
+
+  });
+</script>
 </polymer-element>

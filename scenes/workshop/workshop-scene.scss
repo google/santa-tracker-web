@@ -191,7 +191,7 @@ $name: 'module-workshop';
     }
   }
 
-  .belt {
+ #belt {
     position: absolute;
     z-index: 20;
 
@@ -307,7 +307,7 @@ $name: 'module-workshop';
       }
     }
 
-    .bolts {
+    #bolts {
       position: absolute;
 
       top: 10px;
@@ -327,43 +327,43 @@ $name: 'module-workshop';
 
         background: url('img/belt-bolt.png');
 
-        &:nth-child(n+2) {
+        &:nth-of-type(n+2) {
           left: 130px;
         }
 
-        &:nth-child(n+3) {
+        &:nth-of-type(n+3) {
           left: 240px;
         }
 
-        &:nth-child(n+4) {
+        &:nth-of-type(n+4) {
           left: 360px;
         }
 
-        &:nth-child(n+5) {
+        &:nth-of-type(n+5) {
           left: 475px;
         }
 
-        &:nth-child(n+6) {
+        &:nth-of-type(n+6) {
           left: 595px;
         }
 
-        &:nth-child(n+7) {
+        &:nth-of-type(n+7) {
           left: 705px;
         }
 
-        &:nth-child(n+8) {
+        &:nth-of-type(n+8) {
           left: 823px;
         }
 
-        &:nth-child(n+9){
+        &:nth-of-type(n+9) {
           left: 938px;
         }
 
-        &:nth-child(n+10){
+        &:nth-of-type(n+10) {
           left: 1053px;
         }
 
-        &:nth-child(n+11){
+        &:nth-of-type(n+11) {
           left: 1170px;
         }
       }
@@ -466,7 +466,7 @@ $name: 'module-workshop';
       background: rgba(0,0,0,.2);
     }
 
-    .windows {
+    #windows {
       position: absolute;
 
       top: 70px;
@@ -527,7 +527,7 @@ $name: 'module-workshop';
           background-image: url('img/snow1.png'), url('img/snow2.png');
         }
 
-        &:nth-child(2n) .window-wrap {
+        &:nth-of-type(2n) .window-wrap {
           transform: rotateY(180deg);
 
           background-image: #000;
@@ -603,23 +603,23 @@ $name: 'module-workshop';
   .note {
     animation: 2s #{$name}-noteFloat infinite linear;
 
-    &:nth-child(n+2){
+    &:nth-of-type(n+2){
       animation: 2.45s 3s #{$name}-noteFloat infinite linear;
     }
 
-    &:nth-child(n+3){
+    &:nth-of-type(n+3){
       animation: 2.25s 2s #{$name}-noteFloat infinite linear;
     }
 
-    &:nth-child(n+4){
+    &:nth-of-type(n+4){
       animation: 1.5s 1s #{$name}-noteFloat infinite linear;
     }
 
-    &:nth-child(n+5){
+    &:nth-of-type(n+5){
       animation: 2.5s 1.5s #{$name}-noteFloat infinite linear;
     }
 
-    &:nth-child(n+6){
+    &:nth-of-type(n+6){
       animation: 3.5s 2.5s #{$name}-noteFloat infinite linear;
     }
   }
