@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
+  </style>
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link href="scene.css" rel="stylesheet">
+</head>
+<body>
+  <div class="wrap">
+    <div id="module-undersea"></div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="../../shared/lib/underscore.min.js"></script>
+  <script src="http://klangfiles.s3.amazonaws.com/uploads/projects/9b8619251a19057cff70779273e95aa6/klang.js"></script>
+
+  <script src="../../shared/js/imagepreloader.js"></script>
+  <script src="../../shared/js/devloader.js"></script>
+  <script>
+    devloader('undersea');
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
