@@ -1,0 +1,835 @@
+$name: 'module-village';
+
+@import "compass/css3";
+@import "compass/css3/transform";
+@import "compass/css3/border-radius";
+
+@import "sass/variables";
+@import "sass/animations";
+@import "sass/keyframe_animations";
+
+.touch {
+  ##{$name} {
+    // HACK: hide buttons for touch, since we don't handle the touch events
+    // properly.
+    #hit-area-left, #hit-area-right {
+      display: none;
+    }
+  }
+}
+
+.posttakeoff {
+  ##{$name} {
+    // These selectors are for the house with the telescope that becomes active
+    // after takeoff
+    #house3 {
+      &.interactive {
+        cursor: pointer !important;
+      }
+    }
+
+    #marker2 {
+      display: block !important;
+    }
+  }
+}
+
+##{$name} {
+  @import "sass/countdown_mini";
+
+  background: #47c6ee;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+
+  #village,
+  #ground {
+    position: absolute;
+    width: $villageWidth;
+  }
+
+  #village-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
+
+  #village-parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 12;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    @include transform(translateZ(0));
+  }
+
+  #hit-area-left,
+  #hit-area-right {
+    position: absolute;
+    top: 50%;
+    margin-top: -75px; 
+    width: 150px;
+    height: 150px;
+    z-index: 1000;
+    cursor: pointer;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  #hit-area-left {
+    left: 50px;
+    background-position: -1810px -336px;
+  }
+
+  #hit-area-right {
+    right: 50px;
+    background-position: -1399px -336px;
+  }
+
+  #countdown h1.logo,
+  #hit-area-left, #hit-area-right,
+  #sun, #moon, #plane,
+  #spaceship, #train {
+    background-image: url(img/assets_sprite.png);
+    background-repeat: no-repeat;
+    background-size: 1934px 463px;
+  }
+
+  #village-wrapper {
+    #trees {
+      position: absolute;
+      width: $treeWidth;
+      left: 0;
+      bottom: 0;
+      z-index: 20;
+      .tree {
+        position: absolute;
+        width: 198px;
+        height: 332px;
+        background: url(img/tree-foreground.png) no-repeat;
+        bottom: 0;
+        pointer-events: none;
+      }
+    }
+
+    #snow, .snow {
+      position: absolute;
+      width: $snowWidth;
+      left: 0;
+      bottom: 0;
+      height: 143px;
+      z-index: 15;
+      background: url(img/snow.png) repeat-x;
+    }
+
+    #ground, .ground {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      height: 143px;
+      z-index: 10;
+    }
+
+    .snow-flake {
+      position: absolute;
+      z-index: 19;
+      pointer-events: none;
+      @include transform(translateY(-20px));
+      opacity: 0;
+
+      .snow-flake-inner {
+        background: url(img/snow-flake.png) no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+
+    .snow-flake-large {
+      @include transition(transform 15s ease-in-out, opacity 15s ease-in-out);
+      .snow-flake-inner {
+        width: 8px;
+        height: 8px;
+      }
+      &.snow-flake-animated {
+        .snow-flake-inner {
+          @include experimental(animation, snow 15s infinite ease-in-out);
+        }
+      }
+    }
+
+    .snow-flake-medium {
+      @include transition(transform 20s ease-in-out, opacity 20s ease-in-out);
+      .snow-flake-inner {
+        width: 5px;
+        height: 5px;
+      }
+      &.snow-flake-animated {
+        .snow-flake-inner {
+          @include experimental(animation, snow 20s infinite ease-in-out);
+        }
+      }
+    }
+
+    .snow-flake-small {
+      @include transition(transform 25s ease-in-out, opacity 20s ease-in-out);
+      .snow-flake-inner {
+        width: 3px;
+        height: 3px;
+      }
+      &.snow-flake-animated {
+        .snow-flake-inner {
+          @include experimental(animation, snow 25s infinite ease-in-out);
+        }
+      }
+    }
+  }
+
+  #village {
+    bottom: 92px;
+    left: -730px;
+    top: 0;
+    overflow: hidden;
+    @include transform(translateZ(0));
+
+    #trees-back {
+      z-index: 0;
+      bottom: 34px;
+      left: 0;
+      right: 0;
+      position: absolute;
+      height: 264px;
+      background-image: url(img/trees.png);
+      background-repeat: no-repeat;
+      background-size: 10284px 264px;
+      background-position: 690px 0;
+    }
+
+    @import "sass/houses";
+
+    .interactive {
+      cursor: pointer;
+    }
+
+    .elf {
+      position: absolute;
+      background-image: url(img/elves_sprite.png);
+      background-repeat: no-repeat;
+      background-size: 2150px 95px;
+      bottom: 0;
+      z-index: 10;
+    }
+
+    .elf-green-sit {
+      background-position: -2110px -21px;
+      width: 22px;
+      height: 54px;
+    }
+
+    .elf-green-dig {
+      width: 28px;
+      height: 56px;
+      background-position: -1669px -19px;
+    }
+
+    .elf-green {
+      width: 18px;
+      height: 56px;
+      background-position: -1806px -19px;
+    }
+
+    .elf-green-left {
+      width: 20px;
+      height: 53px;
+      background-position: -1871px -21px;
+    }
+
+    .elf-green-dig-right {
+      width: 38px;
+      height: 49px;
+      background-position: -1928px -23px;
+    }
+
+    .elf-green-right {
+      width: 20px;
+      height: 53px;
+      background-position: -2003px -21px;
+    }
+
+    .elf-green-snow {
+      width: 26px;
+      height: 36px;
+      background-position: -1736px -29px;
+    }
+
+    .elf-orange-snow {
+      width: 25px;
+      height: 36px;
+      background-position: -87px -30px;
+    }
+
+    .elf-orange {
+      width: 18px;
+      height: 56px;
+      background-position: -156px -19px;
+    }
+
+    .elf-orange-dig {
+      width: 29px;
+      height: 56px;
+      background-position: -283px -20px;
+    }
+
+    .elf-orange-right {
+      width: 20px;
+      height: 54px;
+      background-position: -23px -21px;
+    }
+
+    .elf-orange-dig-left {
+      width: 38px;
+      height: 48px;
+      background-position: -344px -25px;
+    }
+
+    .elf-orange-left {
+      width: 19px;
+      height: 54px;
+      background-position: -222px -21px;
+    }
+
+    .elf-orange-snowmobile-left {
+      width: 66px;
+      height: 65px;
+      background-position: -396px -15px;
+    }
+
+    .elf-blue {
+      width: 18px;
+      height: 56px;
+      background-position: -948px -19px;
+    }
+
+    .elf-blue-dig {
+      width: 28px;
+      height: 56px;
+      background-position: -1207px -20px;
+    }
+
+    .elf-blue-dig-right {
+      width: 38px;
+      height: 49px;
+      background-position: -1004px -23px;
+    }
+
+    .elf-blue-left {
+      width: 20px;
+      height: 53px;
+      background-position: -1079px -21px;
+    }
+
+    .elf-blue-dig-left {
+      width: 38px;
+      height: 49px;
+      background-position: -1136px -23px;
+    }
+
+    .elf-purple {
+      width: 18px;
+      height: 56px;
+      background-position: -552px -19px;
+    }
+
+    .elf-purple-right {
+      width: 20px;
+      height: 54px;
+      background-position: -485px -21px;
+    }
+
+    .elf-purple-dig-right {
+      width: 38px;
+      height: 49px;
+      background-position: -609px -23px;
+    }
+
+    .elf-purple-dig {
+      width: 29px;
+      height: 54px;
+      background-position: -679px -21px;
+    }
+
+    .elf-purple-snowmobile-left {
+      width: 66px;
+      height: 65px;
+      background-position: -792px -15px;
+    }
+
+    .elf-purple-snowmobile-right {
+      width: 66px;
+      height: 65px;
+      background-position: -726px -15px;
+    }
+
+    .elf-purple-snow {
+      width: 26px;
+      height: 36px;
+      background-position: -878px -29px;
+    }
+
+    .elf-red-right {
+      width: 20px;
+      height: 53px;
+      background-position: -1277px -21px;
+    }
+
+    .elf-red-sit {
+      width: 22px;
+      height: 54px;
+      background-position: -2058px -21px;
+    }
+
+    .elf-red-dig {
+      width: 28px;
+      height: 56px;
+      background-position: -1339px -19px;
+    }
+
+    .elf-red-snow {
+      width: 26px;
+      height: 36px;
+      background-position: -1406px -29px;
+    }
+
+    .elf-red-left {
+      width: 20px;
+      height: 53px;
+      background-position: -1475px -21px;
+    }
+
+    .elf-red-unicycle {
+      width: 36px;
+      height: 95px;
+      background-position: -1533px 0;
+      @include apply-origin(bottom center, false);
+      @include experimental(animation, unicycle 2s ease infinite);
+    }
+
+    .elf-red-dig-left {
+      width: 38px;
+      height: 49px;
+      background-position: -1598px -24px;
+    }
+
+    #snowman {
+      width: 109px;
+      height: 73px;
+      background: url(img/snowman_sprite.png) no-repeat;
+      left: 5775px;
+      bottom: -8px;
+      @include transform(translateZ(0));
+
+      &.snowman-fall {
+        @include experimental(animation, snowman .5s step-end 1);
+        background-position: 0 -252px;
+      }
+    }
+
+    #busstop1 {
+      position: absolute;
+      width: 96px;
+      height: 93px;
+      bottom: 0;
+      left: 2267px;
+      background: url(img/busstop.png) no-repeat;
+      z-index: 9;
+
+      .elf {
+        bottom: -1px;
+      }
+
+      .elf1 {
+        left: 3px;
+      }
+
+      .elf2 {
+        left: 25px;
+      }
+
+      .elf3 {
+        left: 50px;
+      }
+    }
+
+    #busstop2 {
+      bottom: 0;
+      position: absolute;
+      width: 65px;
+      left: 7011px;
+      z-index: 9;
+
+      .elf2 {
+        left: 30px;
+      }
+
+      .elf3 {
+        left: 48px;
+      }
+    }
+
+    #busstop3 {
+      bottom: 0;
+      position: absolute;
+      width: 70px;
+      height: 53px;
+      left: 7152px;
+      z-index: 9;
+
+      .elf2 {
+        left: 17px;
+      }
+
+      .elf3 {
+        left: 49px;
+      }
+    }
+
+    #busstop1, #busstop2, #busstop3 {
+      .elf {
+        opacity: 1;
+        @include transition(opacity 600ms linear);
+      }
+
+      &.stop-empty .elf {
+        opacity: 0;
+      }
+   
+      &.stop-waiting {
+        .elf {
+          @include experimental(animation, 600ms bounce linear infinite);
+        }
+
+        :nth-child(1) {
+          @include experimental(animation-delay, 25ms);
+        }
+
+        :nth-child(2) {
+          @include experimental(animation-delay, 50ms);
+        }
+
+        :nth-child(3) {
+          @include experimental(animation-delay, 75ms);
+        }
+      }
+    }
+
+    #snowmobile1 {
+      left: 6240px;
+    }
+
+    #snowmobile2 {
+      left: 7615px;
+    }
+
+    #snowmobile3 {
+      left: 9122px;
+    }
+
+    .snowmobile-right.gogo-snowmobile {
+      @include apply-origin(bottom center, false);
+      @include experimental(animation, burnout 25s linear);
+    }
+
+    .snowmobile-left.gogo-snowmobile {
+      @include apply-origin(bottom center, false);
+      @include experimental(animation, burnout 25s linear);
+      @include experimental(animation-direction, reverse);
+    }
+
+    #bus {
+      z-index: 10;
+      position: absolute;
+      bottom: 0;
+      width: 215px;
+      height: 123px;
+      background: url(img/elves_bus_sprite.png) 0 0 no-repeat;
+      @include transform(translateX($villageWidth));
+      @include transform(translateZ(0) translateX($villageWidth));
+
+      &.bus-load {
+        @include experimental(animation, busload 2s step-end 1);
+        background-position: 0 -798px;
+      }
+
+      &.bus-unload {
+        @include experimental(animation, busunload 2s step-end 1);
+        background-position: 0 0;
+      }
+
+      $busOffset: 50px;
+
+      // TODO(bckenny): better ease functions
+      &.to-stop1 {
+        @include transition-transform(8s, ease-out);
+        @include transform(translateX(2267px - $busOffset));
+        @include transform(translateZ(0) translateX(2267px - $busOffset));
+      }
+      &.to-stop2 {
+        @include transition-transform(8s, ease-out);
+        @include transform(translateX(7011px - $busOffset));
+        @include transform(translateZ(0) translateX(7011px - $busOffset));
+      }
+      &.to-stop3 {
+        @include transition-transform(8s, ease-out);
+        @include transform(translateX(7152px - $busOffset));
+        @include transform(translateZ(0) translateX(7152px - $busOffset));
+      }
+      &.leave-stop {
+        @include transition-transform(10s, ease-in, 3s);
+        @include transform(translateX(-300px));
+        @include transform(translateZ(0) translateX(-300px));
+      }
+    }
+  }
+
+  #rail {
+    position: absolute;
+    width: $railWidth;
+    z-index: 9;
+    bottom: 140px;
+    height: 196px;
+    background-image: url(img/monorail.png);
+    background-position: 220px 0;
+    background-repeat: repeat-x;
+    background-size: 296px 397px;
+
+    &.night {
+      background-position: 220px -201px;
+    }
+
+    #train {
+      position: absolute;
+      height: 55px;
+      width: 424px;
+      top: -55px;
+      background-position: 0 -60px;
+      @include experimental(animation, train 55s 0s linear infinite);
+    }
+  }
+
+  #mountains, .mountains {
+    position: absolute;
+    width: $mountainWidth;
+    z-index: 7;
+    bottom: 90px;
+
+    #mountains-day, #mountains-night, .mountains-day {
+      position: absolute;
+      bottom: 0;
+      height: 450px;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      @include transition(opacity .5s ease);
+
+      &.visible {
+        opacity: 1;
+      }
+    }
+
+    #mountains-day, .mountains-day {
+      background: url(img/mountain-day-tile.png) top left repeat-x;
+    }
+
+    #mountains-night {
+      background: url(img/mountain-night-tile.png) top left repeat-x;
+    }
+  }
+
+  #clouds {
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 143px;
+
+    .cloud {
+      height: 71px;
+      width: 190px;
+      overflow: hidden;
+      position: absolute;
+    }
+
+    .cloud-fly {
+       @include transition-transform(120s, linear);
+    }
+
+    .cloud div {
+      width: 200px;
+      height: 60px;
+      background: #fff;
+      top: 35px;
+
+      @include border-radius(200px);
+      position: absolute;
+    }
+
+    .cloud div:before, .cloud div:after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      width: 100px;
+      height: 80px;
+      position: absolute;
+      top: -15px;
+      left: 10px;
+
+      @include border-radius(100px);
+      @include transform(rotate(30deg));
+    }
+
+    .cloud div:after {
+      width: 120px;
+      height: 120px;
+      top: -55px;
+      left: auto;
+      right: 15px;
+    }
+
+    .cloud1 {
+      div {
+        @include transform(scale(0.6));
+        opacity: 0.4;
+      }
+    }
+
+    .cloud2 {
+      div {
+        @include transform(scale(0.3));
+        opacity: 0.7;
+      }
+    }
+
+    .cloud3 {
+      div {
+        @include transform(scale(0.7));
+        opacity: 0.3;
+      }
+    }
+  }
+
+  #plane {
+    cursor: pointer;
+    z-index: 8;
+    position: absolute;
+    top: 45px;
+    height: 82px;
+    width: 171px;
+    background-position: -126px -221px;
+    @include experimental(animation, plane 60s 0s linear infinite);
+  }
+
+  #spaceship {
+    cursor: pointer;
+    z-index: 8;
+    position: absolute;
+    height: 84px;
+    width: 130px;
+    top: 45px;
+    background-position: -988px -45px; 
+    @include experimental(animation, plane 75s 0s linear infinite);
+    @include experimental(animation-direction, reverse);
+  }
+
+  #sun, #moon, #fakesun, #fakemoon {
+    z-index: 3;
+    cursor: pointer;
+    top: 100%;
+    top: 10px;
+    left: 250px;
+    position: absolute;
+    width: 180px;
+    height: 180px;
+
+    &.up {
+      top: 10px;
+    }
+
+    &.go-up {
+      @include experimental(animation, sunrise 1s);
+    }
+
+    &.down {
+      top: 100%;
+    }
+    &.go-down {
+      @include experimental(animation, sunset 1s);
+    }
+  }
+
+  #fakesun, #fakemoon {
+    z-index: 50;
+  }
+
+  #sun {
+    background-position: -544px 0;
+  }
+
+  #moon {
+    background-position: -574px -195px;
+  }
+
+  #sky, .sky {
+    z-index: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 143px;
+
+    #sky-day, .sky-day, #sky-night {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      opacity: 0;
+      @include transition(opacity .5s ease);
+
+      &.visible {
+        opacity: 1;
+      }
+    }
+
+    #sky-day, .sky-day {
+      background: #87bad6;
+    }
+
+    #sky-night {
+      background: #2f617b;
+    }
+  }
+
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 1.25),
+    only screen and ( min--moz-device-pixel-ratio: 1.25),
+    only screen and ( -o-min-device-pixel-ratio: 1.25/1),
+    only screen and ( min-device-pixel-ratio: 1.25),
+    only screen and ( min-resolution: 200dpi),
+    only screen and ( min-resolution: 1.25dppx) {
+    @import "sass/hdpi";
+  }
+
+  @import "sass/responsive";
+}

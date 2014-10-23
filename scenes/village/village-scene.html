@@ -1,0 +1,400 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../base-scene.html">
+
+<!--
+Village scene.
+
+@element village-scene
+@extends base-scene
+-->
+<polymer-element name="village-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="village-scene.css">
+
+  <div id="module-village">
+    <div id="village-wrapper">
+      <div id="countdown">
+        <h1 class="logo">Google</h1>
+        <h1>Santa Tracker</h1>
+        <div id="counter">
+          <h3 class="counter-days-title">Days</h3>
+          <h3 class="counter-hours-title">Hours</h3>
+          <h3 class="counter-minutes-title">Minutes</h3>
+          <h3 class="counter-seconds-title">Seconds</h3>
+        </div>
+        <h2>Until Santa Departs &ndash; <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">Learn More</a></h2>
+        <div id="finished-tracker">
+          <a href="#/tracker/dashboard"><!----></a>
+        </div>
+        <h2 style="display:none">Santa's finished his journey for the year! He and the elves are still having some fun in the North Pole before their annual vacation.</h2>
+      </div>
+      <div id="hit-area-left"></div>
+      <div id="hit-area-right"></div>
+      <div id="trees" class="parallax-layer"></div>
+      <div id="snow" class="parallax-layer"></div>
+      <div id="village-parallax">
+        <div id="village">
+          <div id="trees-back"></div>
+          <div id="houses">
+            <div id="house1" class="house melt" data-module="airport">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-green-snow elf1"></div>
+                <div class="elf elf-orange-dig elf2"></div>
+                <div class="elf elf-blue-dig elf3"></div>
+                <div class="elf elf-red-dig-left elf4"></div>
+                <div class="elf elf-orange-right elf5"></div>
+                <div class="elf elf-purple-right elf6"></div>
+                <div class="elf elf-blue elf7"></div>
+                <div class="elf elf-purple elf8"></div>
+                <div class="elf elf-red-right elf9"></div>
+              </div>
+              <div class="house-marker marker1"></div>
+            </div>
+            <div id="house2" class="house iced" data-module="racer">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-blue-dig-right elf1"></div>
+                <div class="elf elf-red-dig elf2"></div>
+                <div class="elf elf-orange-snow elf3"></div>
+                <div class="elf elf-purple elf4"></div>
+              </div>
+              <div class="house-marker marker2"></div>
+            </div>
+            <div id="house3" class="house iced" data-module="trailer">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-purple-right elf1"></div>
+                <div class="elf elf-red-snow elf2"></div>
+                <div class="elf elf-green-dig elf3"></div>
+                <div class="elf elf-blue-left elf4"></div>
+                <div class="elf elf-red-left elf5"></div>
+              </div>
+              <div class="house-marker marker3"></div>
+            </div>
+            <div id="house4" class="house iced" data-module="windtunnel">
+              <div class="building"></div>
+
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-green-right elf1"></div>
+                <div class="elf elf-green-snow elf2"></div>
+                <div class="elf elf-blue-dig-left elf3"></div>
+                <div class="elf elf-orange elf4"></div>
+                <div class="elf elf-orange-snow elf5"></div>
+                <div class="elf elf-blue elf6"></div>
+                <div class="elf elf-purple-dig-right elf7"></div>
+              </div>
+              <div class="house-marker marker21"></div>
+            </div>
+            <div id="house5" class="house iced" data-module="boatload">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-green-snow elf1"></div>
+                <div class="elf elf-purple-dig elf2"></div>
+                <div class="elf elf-orange-left elf3"></div>
+                <div class="elf elf-purple elf4"></div>
+              </div>
+              <div class="house-marker marker5"></div>
+            </div>
+            <div id="house6" class="house">
+              <div class="building"></div>
+              <div class="house-elves">
+                <div class="elf elf-blue-left"></div>
+              </div>
+            </div>
+            <div id="house7" class="house iced" data-module="streets">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-orange-dig elf1"></div>
+                <div class="elf elf-red-snow elf2"></div>
+                <div class="elf elf-red-unicycle elf3"></div>
+              </div>
+              <div class="house-marker marker6"></div>
+            </div>
+            <div id="house8" class="house iced" data-module="factory">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-green elf1"></div>
+                <div class="elf elf-orange-dig-left elf2"></div>
+                <div class="elf elf-red-snow elf3"></div>
+                <div class="elf elf-blue-dig-left elf4"></div>
+                <div class="elf elf-green elf5"></div>
+              </div>
+              <div class="house-marker marker7"></div>
+            </div>
+            <div id="house9" class="house iced" data-module="rollercoaster">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-green-snow elf1"></div>
+                <div class="elf elf-red-dig-left elf2"></div>
+                <div class="elf elf-blue-dig elf3"></div>
+                <div class="elf elf-orange-right elf4"></div>
+                <div class="elf elf-blue elf5"></div>
+              </div>
+              <div class="house-marker marker8"></div>
+            </div>
+            <div id="house10" class="house"></div>
+            <div id="house10-elf1" class="elf elf-orange-right"></div>
+            <div id="house10-elf2" class="elf elf-red-left"></div>
+            <div id="house10-ropes" class="house"></div>
+            <div id="house11" class="house iced" data-module="commandcentre">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-orange-dig elf1"></div>
+                <div class="elf elf-red-snow elf2"></div>
+                <div class="elf elf-green-snow elf3"></div>
+                <div class="elf elf-blue elf4"></div>
+                <div class="elf elf-red elf5"></div>
+              </div>
+              <div class="house-marker marker9"></div>
+            </div>
+            <div id="house12" class="house iced" data-module="callfromsanta">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-purple-snow elf1"></div>
+                <div class="elf elf-green-snow elf2"></div>
+                <div class="elf elf-blue-dig-left elf3"></div>
+                <div class="elf elf-green elf4"></div>
+                <div class="elf elf-orange elf5"></div>
+                <div class="elf elf-red-right elf6"></div>
+              </div>
+              <div class="house-marker marker10"></div> 
+            </div>
+            <div id="house13" class="house iced" data-module="gumballs">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-orange-dig elf1"></div>
+                <div class="elf elf-red-snow elf2"></div>
+                <div class="elf elf-blue elf3"></div>
+              </div>
+              <div class="house-marker marker11"></div>
+            </div>
+            <div id="house14" class="house iced" data-module="sendamessage">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-blue-dig elf1"></div>
+                <div class="elf elf-green-snow elf2"></div>
+                <div class="elf elf-purple elf3"></div>
+                <div class="elf elf-blue elf4"></div>
+                <div class="elf elf-orange-right elf5"></div>
+                <div class="elf elf-green-left elf6"></div>
+              </div>
+              <div class="house-marker marker12"></div>
+            </div>
+            <div id="house15" class="house iced" data-module="mountain">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-red-snow elf1"></div>
+                <div class="elf elf-orange-dig elf2"></div>
+                <div class="elf elf-red-dig-left elf3"></div>
+              </div>
+              <div class="house-marker marker13"></div>
+            </div>
+            <div id="house16" class="house iced" data-module="playground">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-green-snow elf1"></div>
+                <div class="elf elf-orange elf2"></div>
+                <div class="elf elf-green-dig-right elf3"></div>
+                <div class="elf elf-blue-dig elf4"></div>
+              </div>
+              <div class="house-marker marker14"></div>
+            </div>
+            <div id="house17" class="house">
+              <a href="http://www.youtube.com/watch?v=cWCkSYdFlU0&list=PL5aqr5w5fRe5wRtzE91sksc_Fbov3SiB0"><div class="building"></div></a>
+            </div>
+            <div id="house18" class="house iced" data-module="ferriswheel">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-orange-snow elf1"></div>
+                <div class="elf elf-green-snow elf2"></div>
+                <div class="elf elf-blue-dig elf3"></div>
+                <div class="elf elf-blue-dig-left elf4"></div>
+                <div class="elf elf-purple-snow elf5"></div>
+                <div class="elf elf-orange elf6"></div>
+                <div class="elf elf-blue elf7"></div>
+              </div>
+              <div class="house-marker marker15"></div>
+            </div>
+            <div id="house19" class="house iced" data-module="briefing">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-blue elf1"></div>
+                <div class="elf elf-orange-dig elf2"></div>
+                <div class="elf elf-green-dig-right elf3"></div>
+                <div class="elf elf-red-snow elf4"></div>
+                <div class="elf elf-purple-dig-right elf5"></div>
+              </div>
+              <div class="house-marker marker16"></div>
+            </div>
+            <div id="house20" class="house iced" data-module="matching">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-orange elf1"></div>
+                <div class="elf elf-purple-snow elf2"></div>
+                <div class="elf elf-blue-dig elf3"></div>
+                <div class="elf elf-red-dig-left elf4"></div>
+                <div class="elf elf-green-left elf5"></div>
+                <div class="elf elf-blue elf6"></div>
+              </div>
+              <div class="house-marker marker17"></div>
+            </div>
+            <div id="house21" class="house iced" data-module="choir">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-red-dig elf1"></div>
+                <div class="elf elf-red-left elf2"></div>
+              </div>
+              <div class="house-marker marker18"></div>
+            </div>
+            <div id="house22" class="house iced" data-module="jetpack">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-orange elf1"></div>
+                <div class="elf elf-green-snow elf2"></div>
+                <div class="elf elf-purple-snow elf3"></div>
+              </div>
+              <div class="house-marker marker19"></div>
+            </div>
+            <div id="house23" class="house iced" data-module="presentdrop">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-blue elf1"></div>
+                <div class="elf elf-red-snow elf2"></div>
+                <div class="elf elf-orange-dig elf3"></div>
+                <div class="elf elf-purple-snow elf4"></div>
+              </div>
+              <div class="house-marker marker20"></div>
+            </div>
+            <div id="house24" class="house iced" data-module="traditions">
+              <div class="building"></div>
+
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-purple-dig-right elf1"></div>
+                <div class="elf elf-orange-snow elf2"></div>
+                <div class="elf elf-red-dig elf3"></div>
+                <div class="elf elf-green-snow elf4"></div>
+                <div class="elf elf-blue elf5"></div>
+                <div class="elf elf-orange elf6"></div>
+              </div>
+              <div class="house-marker marker4"></div>
+            </div>
+            <div id="house25" class="house iced" data-module="workshop">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-red-dig-left elf1"></div>
+                <div class="elf elf-blue-dig elf2"></div>
+                <div class="elf elf-purple-snow elf3"></div>
+                <div class="elf elf-green elf4"></div>
+              </div>
+              <div class="house-marker marker22"></div>
+            </div>
+            <div id="house26" class="house iced" data-module="finalprep">
+              <div class="building"></div>
+              
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="elf elf-blue-dig-right elf1"></div>
+                <div class="elf elf-red-snow elf2"></div>
+                <div class="elf elf-orange-dig elf3"></div>
+                <div class="elf elf-green-right elf4"></div>
+                <div class="elf elf-blue elf5"></div>
+                <div class="elf elf-orange elf6"></div>
+              </div>
+              <div class="house-marker marker23"></div>
+            </div>
+
+            <div id="snowman" class="elf interactive"></div>
+            <div id="bus" class="bus-unload"></div>
+            <div id="busstop1" class="interactive">
+              <div class="elf elf-red-sit elf1"></div>
+              <div class="elf elf-green elf2"></div>
+              <div class="elf elf-orange elf3"></div>
+            </div>
+            <div id="busstop2" class="interactive">
+              <div class="elf elf-red-sit elf1"></div>
+              <div class="elf elf-green elf2"></div>
+              <div class="elf elf-orange elf3"></div>
+            </div>
+            <div id="busstop3" class="interactive">
+              <div class="elf elf-blue elf1"></div>
+              <div class="elf elf-purple elf2"></div>
+              <div class="elf elf-green-sit elf3"></div>
+            </div>
+            <div id="snowmobile1" class="elf elf-purple-snowmobile-right interactive snowmobile-right"></div>
+            <div id="snowmobile2" class="elf elf-orange-snowmobile-left interactive snowmobile-left"></div>
+            <div id="snowmobile3" class="elf elf-purple-snowmobile-left interactive snowmobile-left"></div>
+          </div>
+        </div>
+      </div>
+      <div id="ground"></div>
+      <div id="rail" class="parallax-layer">
+        <div id="train"></div>
+      </div>
+      <div id="mountains" class="parallax-layer">
+        <div id="mountains-day"></div>
+        <div id="mountains-night" class="visible"></div>
+      </div>
+      <div id="clouds"></div>
+      <div id="plane"></div>
+      <div id="spaceship"></div>
+      <div id="fakesun"></div>
+      <div id="fakemoon"></div>
+      <div id="sun" class="down"></div>
+      <div id="moon" class="up"></div>
+      <div id="sky">
+        <div id="sky-day"></div>
+        <div id="sky-night" class="visible"></div>
+      </div>
+    </div>
+  </div>
+
+</template>
+<script>
+  Polymer({
+
+  });
+</script>
+</polymer-element>
