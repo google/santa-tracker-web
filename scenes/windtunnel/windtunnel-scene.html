@@ -110,7 +110,10 @@ Windtunnel scene.
 </template>
 <script>
   Polymer({
+
     onPreload: function() {
+      console.debug('windtunnel onPreload');
+
       preloadImages(this, [
         'img/logo.svg',
         'img/base-back.png',
@@ -145,6 +148,14 @@ Windtunnel scene.
         'img/wind-balloon.png',
         'img/wires.png'
       ]);
+    },
+
+    onShow: function() {
+      console.debug('windtunnel onShow');
+    },
+
+    onHide: function() {
+      console.debug('windtunnel onHide');
     }
   });
 </script>
