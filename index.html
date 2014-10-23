@@ -63,7 +63,7 @@
   <flatiron-director route="{{route}}" autoHash></flatiron-director>
 
   <!-- Preloading scene overlay -->
-  <preload-overlay value="{{selectedScene.preloadProgress}}"
+  <preload-overlay value="{{selectedScene.preloadProgress || 0}}"
                    active?="{{!selectedScene.loaded}}"></preload-overlay>
 
   <lazy-pages selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route">

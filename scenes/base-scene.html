@@ -1,5 +1,4 @@
 <link rel="import" href="../components/polymer/polymer.html">
-<link rel="import" href="shared/js/image-preloader.html">
 
 <!--
 A base class element for Santa Tracker scenes. Should not be declared directly,
@@ -25,6 +24,34 @@ but extended by other elements.
         active: {value: false, reflect: true}
       },
 
+      computed: {
+        /**
+         * Preloading progress (percentage) of the loaded scene.
+         *
+         * @attribute property
+         * @type number
+         * @default 0
+         */
+        preloadProgress: 'loaded ? 100 : totalAssets ? (assetsLoaded / totalAssets * 100) : 0',
+      },
+
+      /**
+       * Total number of assets that will need to be preloaded. Must be set
+       * in onPreload or will be ignored.
+       * @property totalAssets
+       * @type {number}
+       * @default 0
+       */
+      totalAssets: 0,
+
+      /**
+       * Assets loaded so far (out of totalAssets).
+       * @property assetsLoaded
+       * @type {number}
+       * @default 0
+       */
+      assetsLoaded: 0,
+
       /**
        * The path of the scene file to load.
        *
@@ -44,25 +71,61 @@ but extended by other elements.
       loaded: false,
 
       /**
-       * Preloading progress (percentage) of the loaded scene.
-       *
-       * @attribute property
-       * @type number
-       * @default 0
+       * Max number of milliseconds to wait before timing out and abandoning
+       * preload.
+       * @property MAX_PRELOAD_TIME
+       * @type {number}
+       * @default 30000
        */
-      preloadProgress: 0,
+      MAX_PRELOAD_TIME: 30 * 1000,
+
+      /**
+       * A helper method for preloading an array of image URLs.
+       * @param {!Array.<string>} imageUrls
+       */
+      preloadImages: function(imageUrls) {
+        this.totalAssets += imageUrls.length;
+
+        var onload = function() {
+          this.assetsLoaded++;
+        }.bind(this);
+
+        for (var i = 0; i < imageUrls.length; i++) {
+          var img = new Image();
+          img.onerror = img.onload = onload;
+          img.src = this.resolvePath(imageUrls[i]);
+        }
+      },
+
+      preloadProgressChanged: function() {
+        if (this.preloadProgress === 100) {
+          this.unhideScene();
+        }
+      },
 
       unhideScene: function() {
-        this.onShow && this.onShow();
-        this.hidden = false;
         this.loaded = true;
+
+        if (this.active) {
+          this.onShow && this.onShow();
+          this.hidden = false;
+        }
       },
 
       activeChanged: function() {
         if (this.active) {
           if (!this.loaded) {
-            // If subclass defines preloading, call it. Otherwise, signal ready.
-            this.onPreload ? this.onPreload() : this.unhideScene();
+            // If subclass defines preloading, call it. If not, if nothing needs
+            // to be loaded, or if timeout exceeded, signal ready.
+            if (this.onPreload) {
+              this.onPreload();
+              if (this.totalAssets > 0) {
+                window.setTimeout(this.unhideScene.bind(this),
+                    this.MAX_PRELOAD_TIME);
+                return;
+              }
+            }
+            this.unhideScene();
           } else {
             this.unhideScene();
           }
