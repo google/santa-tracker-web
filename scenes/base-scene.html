@@ -28,7 +28,7 @@ but extended by other elements.
         /**
          * Preloading progress (percentage) of the loaded scene.
          *
-         * @attribute property
+         * @property preloadProgress
          * @type number
          * @default 0
          */
@@ -37,17 +37,17 @@ but extended by other elements.
 
       /**
        * Total number of assets that will need to be preloaded. Must be set
-       * in onPreload or will be ignored.
+       * in `onPreload` or will be ignored.
        * @property totalAssets
-       * @type {number}
+       * @type number
        * @default 0
        */
       totalAssets: 0,
 
       /**
-       * Assets loaded so far (out of totalAssets).
+       * Assets loaded so far (out of `totalAssets`).
        * @property assetsLoaded
-       * @type {number}
+       * @type number
        * @default 0
        */
       assetsLoaded: 0,
@@ -74,7 +74,7 @@ but extended by other elements.
        * Max number of milliseconds to wait before timing out and abandoning
        * preload.
        * @property MAX_PRELOAD_TIME
-       * @type {number}
+       * @type number
        * @default 30000
        */
       MAX_PRELOAD_TIME: 30 * 1000,
@@ -120,8 +120,7 @@ but extended by other elements.
             if (this.onPreload) {
               this.onPreload();
               if (this.totalAssets > 0) {
-                window.setTimeout(this.unhideScene.bind(this),
-                    this.MAX_PRELOAD_TIME);
+                this.async(this.unhideScene, null, this.MAX_PRELOAD_TIME);
                 return;
               }
             }
