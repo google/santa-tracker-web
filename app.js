@@ -1,6 +1,6 @@
 (function() {
 
-var DEFAULT_ROUTE = 'workshop';
+var DEFAULT_ROUTE = 'village';
 
 var template = document.querySelector('#t');
 
