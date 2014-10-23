@@ -51,23 +51,19 @@ but extended by other elements.
        */
       preloadProgress: 0,
 
-      signalPreloadComplete_: function() {
-        this.fire('scene-preload', {scene: this});
+      unhideScene: function() {
         this.onShow && this.onShow();
+        this.hidden = false;
+        this.loaded = true;
       },
 
       activeChanged: function() {
         if (this.active) {
           if (!this.loaded) {
-            // If subclass defines onPreload, call it.
-            if (this.onPreload) {
-              this.onPreload();
-            } else {
-              // If subclass has no preload, just signal it's ready.
-              this.signalPreloadComplete_();
-            }
+            // If subclass defines preloading, call it. Otherwise, signal ready.
+            this.onPreload ? this.onPreload() : this.unhideScene();
           } else {
-            this.onShow && this.onShow();
+            this.unhideScene();
           }
         } else {
           this.onHide && this.onHide();

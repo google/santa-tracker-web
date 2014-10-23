@@ -7,8 +7,7 @@ Lazy loads children "pages".
 @element lazy-pages
 @extends core-pages
 -->
-<polymer-element name="lazy-pages" extends="core-animated-pages"
-                 on-scene-preload="{{onSceneLoaded}}">
+<polymer-element name="lazy-pages" extends="core-animated-pages">
 <template>
   <style>
     :host {
@@ -19,21 +18,15 @@ Lazy loads children "pages".
 </template>
 <script>
   Polymer({
-    loading: false,
 
     selectedChanged: function() {
       this.super();
 
       var scene = this.selectedItem;
 
-      if (!this.selected) {
-        return;
-      } else if (scene.loaded) {
-        this.onSceneLoaded();
+      if (!this.selected || scene.loaded) {
         return;
       }
-
-      this.loading = true;
 
       // Can't use scene.path because element definition may not be loaded yet
       // and .path property won't exist.
@@ -47,16 +40,6 @@ Lazy loads children "pages".
 
       }.bind(this));
 
-    },
-
-    onSceneLoaded: function() {
-      this.loading = false;
-
-      var scene = this.selectedItem;
-      scene.hidden = false;
-      scene.loaded = true;
-
-      // this.fire('scene-load', {scene: scene});
     }
   });
 </script>

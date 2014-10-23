@@ -125,7 +125,7 @@ console.log(this.preloadProgress);
           // TODO: actually preload images
           clearInterval(id);
 
-          this.signalPreloadComplete_();
+          this.unhideScene();
         }
       }.bind(this), 150);
 
