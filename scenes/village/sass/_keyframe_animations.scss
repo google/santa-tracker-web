@@ -1,25 +1,8 @@
 @import "variables";
 @import "compass/css3/transform";
+@import "compass/css3/animation";
 
-@mixin keyframes($name) {
-  @-webkit-keyframes #{$name} {
-    @content;
-  }
-  @-moz-keyframes #{$name} {
-    @content;
-  }
-  @-ms-keyframes #{$name} {
-    @content;
-  }
-  @-o-keyframes #{$name} {
-    @content;
-  }
-  @keyframes #{$name} {
-    @content;
-  }
-}
-
-@include keyframes(snow) {
+@include keyframes('snow') {
   10%, 30%, 50%, 70%, 90% {
     @include transform(translateX(-80px));
   }

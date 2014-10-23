@@ -39,7 +39,7 @@
       position: absolute;
       @include translate3d(0, -561px, 0);
       @include transition(all 1.5s);
-      @include experimental(timing-function, cubic-bezier(0.4, 1.6, 0.2, 1));
+      @include transition-timing-function(cubic-bezier(0.4, 1.6, 0.2, 1));
 
       a {
         display: block;
