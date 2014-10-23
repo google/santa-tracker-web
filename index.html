@@ -27,6 +27,9 @@
       font-family: 'Open Sans', sans-serif;
       font-size: 12px;
       overflow: hidden;
+      height: 100%;
+      margin: 0;
+      padding: 0;
     }
 
     /* TODO(ericbidelman): remove. For testing. */
@@ -50,6 +53,25 @@
 
 <!-- TODO(ericbidelman): Remove. Just for testing -->
 <paper-menu-button icon="view-carousel" id="tempnav" title="Select a scene">
+<style>
+/* TODO: remove */
+#tempnavigator {
+  z-index: 1000000;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  color: white;
+  background-color: black;
+  font-size: 14px;
+}
+#tempnavigator a {
+  color: currentcolor;
+  text-decoration: none;
+}
+</style>
+
+<core-toolbar id="tempnavigator" class="core-narrow">
+  <a href="#village">Village</a>
   <a href="#workshop">Workshop</a>
   <a href="#windtunnel">Windtunnel</a>
   <a href="#rollercoaster">Rollercoaster</a>
@@ -67,6 +89,8 @@
                    active?="{{!selectedScene.loaded}}"></preload-overlay>
 
   <lazy-pages selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route">
+    <village-scene route="village"
+                   path="scenes/village/village-scene.html" hidden></village-scene>
     <workshop-scene route="workshop"
         path="scenes/workshop/workshop-scene.html" hidden></workshop-scene>
     <windtunnel-scene route="windtunnel"
