@@ -7,7 +7,8 @@ Candy cane progress bar.
 @element preload-overlay
 @extends core-range
 -->
-<polymer-element name="preload-overlay" extends="core-range" attributes="active"
+<polymer-element name="preload-overlay" extends="core-range"
+                 attributes="active color src"
                  on-transitionend="{{onTransitionEnd}}" fit>
   <template>
     <!-- TODO: CSS separated because of
@@ -19,24 +20,43 @@ Candy cane progress bar.
       z-index: 1000;
       transition: opacity 500ms ease-out;
       opacity: 0;
-      visibility: hidden;
+      pointer-events: none;
+      /*visibility: hidden;*/
     }
     :host([active]) {
       opacity: 1;
-      visibility: visible;
+      /*visibility: visible;*/
     }
     </style>
     <div id="page-progress" layout vertical center-center>
       <div class="preload">
-          <img src="/images/village.gif">
-          <div class="preload-bar">
-            <div class="preload-progress" style="width:{{ratio}}%;"></div>
-          </div>
+        <img _src="{{src}}">
+        <div class="preload-bar">
+          <div class="preload-progress" _style="width:{{ratio}}%;"></div>
+        </div>
       </div>
     </div>
   </template>
   <script>
     Polymer({
+      /**
+       * Background color of the loading screen.
+       *
+       * @attribute color
+       * @type string
+       * @default '#3ec4f0'
+       */
+      color: '#3ec4f0',
+
+      /**
+       * Loading image
+       *
+       * @attribute src
+       * @type string
+       * @default '/images/village.gif'
+       */
+      src: '/images/village.gif',
+
       publish: {
         /**
          * If `true`, the preloader displays itself. 
@@ -46,6 +66,10 @@ Candy cane progress bar.
          * @default false
          */
         active: {value: false, reflect: true}
+      },
+
+      colorChanged: function() {
+        this.style.backgroundColor = this.color;
       },
 
       onTransitionEnd: function(e, detail, sender) {

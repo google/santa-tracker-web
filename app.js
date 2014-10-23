@@ -2,9 +2,9 @@
 
 var DEFAULT_ROUTE = 'workshop';
 
-var t = document.querySelector('#t');
+var template = document.querySelector('#t');
 
-t.addEventListener('template-bound', function(e) {
+template.addEventListener('template-bound', function(e) {
   t.route = t.route || DEFAULT_ROUTE;
 });
 

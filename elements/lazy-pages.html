@@ -18,59 +18,28 @@ Lazy loads children "pages".
 </template>
 <script>
   Polymer({
-    loading: false,
 
     selectedChanged: function() {
       this.super();
 
       var scene = this.selectedItem;
 
-      if (!this.selected) {
-        return;
-      } else if (scene.loaded) {
-        this.onSceneLoaded();
+      if (!this.selected || scene.loaded) {
         return;
       }
-
-      this.loading = true;
 
       // Can't use scene.path because element definition may not be loaded yet
       // and .path property won't exist.
       var path = scene.getAttribute('path');
       Polymer.import([path], function(e) {
-
-        // TODO: shouldn't have to do this. I believe 2-way binding on the preload-overlay
-        // is causing the next scene to start at 100 instead of 0. Probably need
-        // to fire an event instead of binding to its .value directly.
+        // TODO: shouldn't have to do this. I believe 2-way binding on the
+        // preload-overlay is causing the next scene to start at 100 instead
+        // of 0. Probably need to fire an event instead of binding to its
+        // .value directly.
         scene.preloadProgress = 0;
-
-        // TODO(ericbidelman): faking loading progress.
-        var id = setInterval(function() {
-          scene.preloadProgress += 10;
-          if (scene.preloadProgress >= 100) {
-            clearInterval(id);
-
-            // Wait 2 rAFs for scene to have painted.
-            this.async(function() {
-              this.async(function() {
-                this.onSceneLoaded();
-              });
-            });
-          }
-        }.bind(this), 250);
 
       }.bind(this));
 
-    },
-
-    onSceneLoaded: function() {
-      var scene = this.selectedItem;
-      scene.removeAttribute('hidden');
-      scene.loaded = true;
-
-      this.loading = false;
-
-      this.fire('scene-loaded', {scene: scene});
     }
   });
 </script>

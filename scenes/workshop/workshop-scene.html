@@ -148,7 +148,6 @@ Workshop scene.
     accelerate_: function() {
       this.speed_ = Math.min(this.MAX_SPEED_, this.speed_ *= 1.1);
       this.move_();
-
       this.accelFrame_ = window.requestAnimationFrame(this.accelerate_.bind(this));
     },
 

@@ -4,8 +4,9 @@
 A base class element for Santa Tracker scenes. Should not be declared directly,
 but extended by other elements.
 
-**Note** Subclass scene elements are expected to implement an onShow/onHide
-method. Upon the scene becoming active/hidden, those methods will be called.
+**Note** Subclass scene elements are expected to implement an
+         `onPreload`/`onShow`/`onHide` method. Upon the scene becoming
+         active/hidden, those methods will be called.
 
 @element base-scene
 -->
@@ -50,13 +51,20 @@ method. Upon the scene becoming active/hidden, those methods will be called.
        */
       preloadProgress: 0,
 
+      unhideScene: function() {
+        this.onShow && this.onShow();
+        this.hidden = false;
+        this.loaded = true;
+      },
+
       activeChanged: function() {
         if (this.active) {
-          //console.debug(this.localName + ' is active');
-          // if (!this.loaded)  {
-          //   this.onPreload();
-          // }
-          this.onShow && this.onShow();
+          if (!this.loaded) {
+            // If subclass defines preloading, call it. Otherwise, signal ready.
+            this.onPreload ? this.onPreload() : this.unhideScene();
+          } else {
+            this.unhideScene();
+          }
         } else {
           this.onHide && this.onHide();
         }
