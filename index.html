@@ -13,6 +13,9 @@
       font-family: 'Open Sans', sans-serif;
       font-size: 12px;
       overflow: hidden;
+      height: 100%;
+      margin: 0;
+      padding: 0;
     }
   </style>
 </head>
@@ -36,6 +39,7 @@
 </style>
 
 <core-toolbar id="tempnavigator" class="core-narrow">
+  <a href="#village">Village</a>
   <a href="#workshop">Workshop</a>
   <a href="#windtunnel">Windtunnel</a>
   <a href="#rollercoaster">Rollercoaster</a>
@@ -50,6 +54,8 @@
   <preload-overlay value="{{selectedScene.preloadProgress}}" active?="{{!selectedScene.loaded}}"></preload-overlay>
 
   <lazy-pages selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route">
+    <village-scene route="village"
+                   path="scenes/village/village-scene.html" hidden></village-scene>
     <workshop-scene route="workshop"
                     path="scenes/workshop/workshop-scene.html" hidden></workshop-scene>
     <windtunnel-scene route="windtunnel"

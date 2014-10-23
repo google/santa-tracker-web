@@ -7,7 +7,7 @@ var path = require('path');
 var autoprefixer = require('gulp-autoprefixer');
 var foreach = require('gulp-foreach');
 
-var COMPASS_FILES = '{scenes,sass,village,elements}/**/*.scss';
+var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 
 gulp.task('compass', function() {
   return gulp.src(COMPASS_FILES)

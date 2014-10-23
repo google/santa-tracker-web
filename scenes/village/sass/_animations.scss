@@ -1,0 +1,42 @@
+@mixin animation(
+  $name: false,       // animation-name.
+  $duration: false,   // animation-duration.
+  $function: false,   // animation-timing-function(ease | linear | ease-in | ease-out | ease-in-out).
+  $delay: false,      // animation-delay.
+  $count: false,      // animation-iteration-count(number[0...n] | infinite).
+  $direction: false  // animation-direction(normal | alternate).
+) {
+  @if $name!=false {
+    @include experimental(animation-name, $name);
+  }
+  @if $duration!=false {
+    @include experimental(animation-duration, $duration);
+  }
+  @if $function!=false {
+    @include experimental(animation-timing-function, $function);
+  }
+  @if $delay!=false {
+    @include experimental(animation-delay, $delay);
+  }
+  @if $count!=false {
+    @include experimental(animation-iteration-count, $count);
+  }
+  @if $direction!=false {
+    @include experimental(animation-direction, $direction);
+  }
+}
+
+// all browsers currently without transition and transform prefixes retired them simultaneously.
+@mixin transition-transform($duration: 1s, $timing: ease, $delay: 0s) {
+  // TODO(bckenny): currently unsupported in our SASS compiler
+  // see https://github.com/chriseppstein/sass/commit/d5ec0586cd5cf40c31c5d99abf740a3b83204b5d
+  // @each $prefix in webkit, moz, ms, o {
+  //   -#{$prefix}-transition: -#{$prefix}-transform $duration $timing $delay;
+  // }
+
+  -webkit-transition: -webkit-transform $duration $timing $delay;
+  -moz-transition: -moz-transform $duration $timing $delay;
+  -ms-transition: -ms-transform $duration $timing $delay;
+  -o-transition: -o-transform $duration $timing $delay;
+  transition: transform $duration $timing $delay;
+}
