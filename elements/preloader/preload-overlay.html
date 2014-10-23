@@ -8,8 +8,7 @@ Candy cane progress bar.
 @extends core-range
 -->
 <polymer-element name="preload-overlay" extends="core-range"
-                 attributes="active color src"
-                 on-transitionend="{{onTransitionEnd}}" fit>
+                 attributes="active color src" fit>
   <template>
     <!-- TODO: CSS separated because of
          https://github.com/Polymer/polymer/issues/811 -->
@@ -18,14 +17,12 @@ Candy cane progress bar.
     :host {
       background: #3ec4f0;
       z-index: 1000;
-      transition: opacity 500ms ease-out;
+      transition: opacity 500ms ease-in-out;
       opacity: 0;
       pointer-events: none;
-      /*visibility: hidden;*/
     }
     :host([active]) {
       opacity: 1;
-      /*visibility: visible;*/
     }
     </style>
     <div id="page-progress" layout vertical center-center>
@@ -70,10 +67,6 @@ Candy cane progress bar.
 
       colorChanged: function() {
         this.style.backgroundColor = this.color;
-      },
-
-      onTransitionEnd: function(e, detail, sender) {
-        //this.style.display = 'none';
       }
     });
   </script>

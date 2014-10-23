@@ -68,7 +68,7 @@
 
   <!-- Preloading scene overlay -->
   <preload-overlay value="{{selectedScene.preloadProgress || 0}}"
-                   active?="{{!selectedScene.loaded}}"></preload-overlay>
+                   active?="{{selectedScene && !selectedScene.loaded}}"></preload-overlay>
 
   <lazy-pages selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route">
     <village-scene route="village"
