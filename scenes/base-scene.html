@@ -99,11 +99,11 @@ but extended by other elements.
 
       preloadProgressChanged: function() {
         if (this.preloadProgress === 100) {
-          this.unhideScene();
+          this.showScene();
         }
       },
 
-      unhideScene: function() {
+      showScene: function() {
         this.loaded = true;
 
         if (this.active) {
@@ -113,24 +113,25 @@ but extended by other elements.
       },
 
       activeChanged: function() {
-        if (this.active) {
-          if (!this.loaded) {
-            // If subclass defines preloading, call it. If not, if nothing needs
-            // to be loaded, or if timeout exceeded, signal ready.
-            if (this.onPreload) {
-              this.onPreload();
-              if (this.totalAssets > 0) {
-                this.async(this.unhideScene, null, this.MAX_PRELOAD_TIME);
-                return;
-              }
-            }
-            this.unhideScene();
-          } else {
-            this.unhideScene();
-          }
-        } else {
+        if (!this.active) {
           this.onHide && this.onHide();
+          return;
         }
+
+        // If subclass defines preloading, call it. If not, or nothing needs to
+        // be preloaded, signal ready.
+        if (!this.loaded && this.onPreload) {
+          this.onPreload();
+
+          // If assets are queued to preload, schedule showScene on timeout in
+          // case preloading fails.
+          if (this.totalAssets > 0) {
+            this.async(this.showScene, null, this.MAX_PRELOAD_TIME);
+            return;
+          }
+        }
+
+        this.showScene();
       }
     });
   </script>
