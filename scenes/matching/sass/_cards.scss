@@ -1,0 +1,60 @@
+##{$name} {
+  .card {
+    background-color: transparent;
+    background-image: url(img/sprite-doors.svg);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    width: 121px;
+    height: 193px;
+    margin-left: 14px;
+    margin-top: 14px;
+  }
+
+  .card--figure-1 {
+    background-position: 0 0px;
+  }
+
+  .card--figure-2 {
+    background-position: -156px 0px;
+  }
+
+  .card--figure-3 {
+    background-position: -311px -1px;
+  }
+
+  .card--figure-4 {
+    background-position: -465px 0px;
+  }
+
+  .card--figure-5 {
+    background-position: -619px -1px;
+  }
+
+  .card--figure-6 {
+    background-position: -772px -1px;
+  }
+
+  .card--figure-7 {
+    background-position: -3px -240px;
+  }
+
+  .card--figure-8 {
+    background-position: -157px -240px;
+  }
+
+  .card--figure-9 {
+    background-position: -310px -240px;
+  }
+
+  .card--figure-10 {
+    background-position: -464px -240px;
+  }
+
+  .card--figure-11 {
+    background-position: -617px -240px;
+  }
+
+  .card--figure-12 {
+    background-position: -771px -240px;
+  }
+}
