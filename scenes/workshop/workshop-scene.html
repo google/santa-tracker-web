@@ -195,6 +195,33 @@ Workshop scene.
       !this.moving_ ? this.start_() : this.stop_();
     },
 
+    onPreload: function() {
+      this.preloadImages([
+        'img/logo.svg',
+        'img/belt-bolt.png',
+        'img/belt.png',
+        'img/elfs.png',
+        'img/items1.png',
+        'img/items2.png',
+        'img/items3.png',
+        'img/items4.png',
+        'img/machine-block.png',
+        'img/machine-markers.png',
+        'img/note.png',
+        'img/notes.png',
+        'img/object-lever.png',
+        'img/object-presents.png',
+        'img/roof-back.png',
+        'img/roof.png',
+        'img/snow1.png',
+        'img/snow2.png',
+        'img/wall-decoration.png',
+        'img/wall-pattern.png',
+        'img/wall-tree.png',
+        'img/window.png'
+      ]);
+    },
+
     onShow: function() {
       this.start_();
     },
@@ -202,7 +229,6 @@ Workshop scene.
     onHide: function() {
        this.pause_();
     }
-
   });
 </script>
 </polymer-element>

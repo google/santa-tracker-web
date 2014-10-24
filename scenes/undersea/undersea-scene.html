@@ -108,26 +108,41 @@ Undersea scene.
 </template>
 <script>
   Polymer({
+    onPreload: function(preloader) {
+      // preloader.addKlang('undersea_load_sounds', 20);
+      this.preloadImages([
+        'img/boat.png',
+        'img/bottom-sand.png',
+        'img/crabby-small.png',
+        'img/fish.png',
+        'img/santa.png',
+        'img/bottom-objects.png',
+        'img/chest.png',
+        'img/crabby-steps-fade.png',
+        'img/mega-bubble.png',
+        'img/bottom-reefs.png',
+        'img/crabby-large.png',
+        'img/crabby-steps.png',
+        'img/mermaids.png',
+        'img/bottom-sand-away.png',
+        'img/crabby-leg.png',
+        'img/elf.png',
+        'img/presents.png'
+      ]);
+    },
 
-    // onPreload: function(preloader) {
-    //   preloader.addKlang('undersea_load_sounds', 20);
-    //   imagePreloader = new ImagePreloader('undersea', preloader, [
-    //     'img/logo.svg',
-    //     'img/boat.png'
-    //   ]);
-    // },
-    // onShow: function(div) {
-    //   Klang.triggerEvent('undersea_start');
+    onShow: function() {
+      Klang.triggerEvent('undersea_start');
 
     //   if (imagePreloader) {
     //     imagePreloader.dispose();
     //     imagePreloader = null;
     //   }
-    // },
-    // onHide: function() {
-    //   Klang.triggerEvent('undersea_end');
-    // }
+    },
 
+    onHide: function() {
+      Klang.triggerEvent('undersea_end');
+    }
   });
 </script>
 </polymer-element>
