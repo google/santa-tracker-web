@@ -1,0 +1,53 @@
+<!doctype html>
+<meta name="viewport" content="width=device-width,user-scalable=no">
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
+  </style>
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link href="game.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrap">
+    <div id="module-matching"></div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="../../shared/lib/underscore.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.0/modernizr.min.js"></script>
+  <script src="http://klangfiles.s3.amazonaws.com/uploads/projects/9b8619251a19057cff70779273e95aa6/klang.js"></script>
+
+  <script src="../../shared/js/utils.js"></script>
+  <script src="../../shared/js/levelup.js"></script>
+  <script src="../../shared/js/gameover.js"></script>
+  <script src="../../shared/js/tutorial.js"></script>
+  <script src="../../shared/js/scoreboard.js"></script>
+  <script src="../../shared/js/startbutton.js"></script>
+  <script src="../../shared/js/imagepreloader.js"></script>
+  <script src="../../shared/js/devloader.js"></script>
+  <script>
+    devloader('matching');
+  </script>
+
+  <script src="js/css_animation_helper.js"></script>
+  <script src="js/underscore.js"></script>
+  <script src="js/constants.js"></script>
+  <script src="js/door.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/level_model.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

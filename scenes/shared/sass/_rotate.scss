@@ -1,0 +1,39 @@
+
+##{$name} {
+  .force-rotate {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2000; // Sorry guys.
+
+    background: $scoreboard-bg;
+  }
+
+  .force-rotate-explanation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    margin-top: -105px;
+    padding-top: 210px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+
+    background: url('img/rotate.svg') 50% top / contain no-repeat;
+  }
+}
+
+// Hopefully this matches all phones in portrait mode.
+@media screen and (max-width: 479px) {
+  ##{$name} {
+    .force-rotate.landscape {
+      display: block;
+    }
+  }
+}

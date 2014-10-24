@@ -1,0 +1,164 @@
+##{$name} {
+  .tutorial {
+    display: none;
+    height: 290px;
+    left: 50%;
+    margin-left: -137px;
+    margin-top: -130px;
+    position: fixed;
+    overflow: hidden;
+    top: 50%;
+    width: 275px;
+    z-index: 100;
+
+    &:after {
+      background: url(img/tutorial/shadow.svg) no-repeat;
+      content: "";
+      height: 270px;
+      left: 0;
+      opacity: 0.15;
+      position: absolute;
+      top: 20px;
+      width: 275px;
+      z-index: 1;
+    }
+
+    .tutorial-inner {
+      animation: 2s #{$name}-tutorial-step-4 infinite step-start;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      height: 270px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 1100px;
+      z-index: 2;
+    }
+
+    @mixin tutorial($image, $steps: 4) {
+      animation: $steps * 500ms #{$name}-tutorial-step-#{$steps} infinite step-start;
+      background-image: url(img/tutorial/#{$image}.svg);
+      width: $steps * 275px;
+    }
+
+    // Keyboard
+    &.keys-arrows .tutorial-inner {
+      @include tutorial('keys-arrows', 4);
+    }
+
+    &.keys-space .tutorial-inner {
+      @include tutorial('keys-space', 2);
+    }
+
+    &.keys-leftright .tutorial-inner {
+      @include tutorial('keys-leftright', 2);
+    }
+
+    &.keys-up .tutorial-inner {
+      @include tutorial('keys-up', 2);
+    }
+
+    &.keys-updown .tutorial-inner {
+      @include tutorial('keys-updown', 2);
+    }
+
+    // Mouse
+    &.mouse-leftright .tutorial-inner {
+      @include tutorial('mouse-leftright', 2);
+    }
+
+    &.mouse-matching .tutorial-inner {
+      @include tutorial('mouse-matching', 5);
+    }
+
+    // Touch
+    &.touch-updown .tutorial-inner {
+      @include tutorial('touch-updown-landscape', 4);
+    }
+
+    @media (orientation: portrait) {
+      &.touch-updown .tutorial-inner {
+        background-image: url(img/tutorial/touch-updown-portrait.svg);
+      }
+    }
+
+    &.touch-leftright .tutorial-inner {
+      @include tutorial('touch-leftright-landscape', 4);
+    }
+
+    &.touch-matching .tutorial-inner {
+      @include tutorial('touch-matching', 5);
+    }
+
+    // Device
+    &.device-tilt .tutorial-inner {
+      @include tutorial('device-tilt', 3);
+    }
+  }
+}
+
+@keyframes #{$name}-tutorial-step-2 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-275px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes #{$name}-tutorial-step-3 {
+  0% {
+    transform: translateX(0);
+  }
+  33% {
+    transform: translateX(-275px);
+  }
+  66% {
+    transform: translateX(-550px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes #{$name}-tutorial-step-4 {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-275px);
+  }
+  50% {
+    transform: translateX(-550px);
+  }
+  75% {
+    transform: translateX(-825px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes #{$name}-tutorial-step-5 {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-275px);
+  }
+  40% {
+    transform: translateX(-550px);
+  }
+  60% {
+    transform: translateX(-825px);
+  }
+  80% {
+    transform: translateX(-1100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

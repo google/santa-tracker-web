@@ -52,8 +52,9 @@
 <body unresolved fullbleed layout vertical>
 
 <!-- TODO(ericbidelman): Remove. Just for testing -->
-<paper-menu-button icon="view-carousel" id="tempnav" title="Select a scene">
+<paper-menu-button icon="apps" id="tempnav" title="Select a scene">
   <a href="#village">Village</a>
+  <a href="#matching">Matching</a>
   <a href="#workshop">Workshop</a>
   <a href="#windtunnel">Windtunnel</a>
   <a href="#rollercoaster">Rollercoaster</a>
@@ -72,7 +73,9 @@
 
   <lazy-pages selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route">
     <village-scene route="village"
-                   path="scenes/village/village-scene.html" hidden></village-scene>
+        path="scenes/village/village-scene.html" hidden></village-scene>
+    <matching-scene route="matching"
+        path="scenes/matching/matching-scene.html" hidden></matching-scene>
     <workshop-scene route="workshop"
         path="scenes/workshop/workshop-scene.html" hidden></workshop-scene>
     <windtunnel-scene route="windtunnel"
