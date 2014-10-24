@@ -26,6 +26,7 @@
     "paper-elements": "Polymer/paper-elements#master",
     "paper-spinner": "PolymerLabs/paper-spinner",
     "app-router": "erikringsmuth/app-router",
-    "flatiron-director": "PolymerLabs/flatiron-director#master"
+    "flatiron-director": "PolymerLabs/flatiron-director#master",
+    "jquery": "2.1.1"
   }
 }
