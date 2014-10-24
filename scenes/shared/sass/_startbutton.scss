@@ -1,0 +1,26 @@
+##{$name} {
+  .start {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .start-button {
+    background: url(img/startbutton/button.svg);
+    content: '';
+    cursor: pointer;
+    height: 210px;
+    left: 50%;
+    margin-left: -88px;
+    margin-top: -90px;
+    position: absolute;
+    top: 50%;
+    width: 177px;
+
+    &:hover {
+      background-position: -176px 0;
+    }
+  }
+}

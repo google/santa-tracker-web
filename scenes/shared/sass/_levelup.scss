@@ -1,0 +1,44 @@
+##{$name} {
+  .levelup {
+    border: 0 solid #ea4437;
+    border-radius: 50%;
+    box-sizing: border-box;
+    pointer-events: none;
+    position: absolute;
+    transition: border-width 500ms ease;
+  }
+
+  .levelup--number {
+    color: #fff;
+    font-family: 'Lobster', sans-serif;
+    font-size: 8em;
+    font-weight: 400;
+    height: 200px;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -75px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: scale(0);
+    transform-origin: 50% 30%;
+    transition: 200ms opacity;
+    opacity: 1;
+    width: 400px;
+
+    &.show {
+      animation: 1s #{$name}-levelup 250ms ease-out forwards;
+      animation-timing-function: cubic-bezier(0.255, 1.005, 0.380, 0.950);
+    }
+
+    &.hide {
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes #{$name}-levelup {
+  100% {
+    transform: scale(1);
+  }
+}

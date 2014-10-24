@@ -1,0 +1,185 @@
+##{$name} {
+  .scoreboard {
+    background-color: $scoreboard-buttons;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.23);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    left: 20px;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 204px;
+
+    .back {
+      background: darken($scoreboard-bg, 5%);
+      height: 45px;
+    }
+
+    .logo {
+      display: none;
+    }
+
+    .score, .level {
+      background: $scoreboard-score-bg;
+      box-sizing: border-box;
+      float: left;
+      font-size: 10px;
+      height: 52px;
+      padding: 8px;
+      width: 102px;
+    }
+
+    .label {
+      text-transform: uppercase;
+    }
+
+    .value {
+      font-size: 22px;
+      line-height: 22px;
+    }
+
+    .level {
+      border-left: 1px solid $scoreboard-score-border;
+    }
+
+    .countdown {
+      background-color: $scoreboard-tracker-bg;
+      clear: left;
+      height: 36px;
+      position: relative;
+    }
+
+    .tracker {
+      background: $scoreboard-tracker-fg;
+      font-size: 18px;
+      line-height: 36px;
+      position: absolute;
+      top: 0;
+      transform: translateZ(0);
+      width: 54px;
+
+      &.losing {
+        animation: 0.6s #{$name}-flashRed infinite alternate ease;
+      }
+    }
+
+    .actions {
+      height: 52px;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .restart, .pause, .play {
+      border-left: 1px solid #19991f;
+      box-sizing: border-box;
+      cursor: pointer;
+      float: left;
+      height: 52px;
+      list-style: none;
+      width: 102px;
+    }
+
+    .restart {
+      background: url(img/scoreboard/restart.svg) no-repeat 50% 50%;
+      border-left: none;
+    }
+
+    .pause {
+      background: url(img/scoreboard/pause.svg) no-repeat 50% 50%;
+    }
+
+    .paused {
+      background: url(img/scoreboard/play.svg) no-repeat 50% 50%;
+    }
+  }
+
+  @media (min-width: 1350px) {
+    .scoreboard .logo {
+      background: $scoreboard-bg url(img/logo.svg) no-repeat 50% 50%;
+      box-sizing: border-box;
+      display: block;
+      height: 156px;
+      padding-top: 26px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .scoreboard {
+      border-radius: 22px 0 0 22px;
+      box-shadow: none;
+      top: auto;
+      bottom: 10px;
+      height: 45px;
+      left: auto;
+      right: 0;
+      transform-origin: 300px 45px;
+      width: 300px;
+
+      // Reset styles
+      .restart, .level, .logo, .back, .label {
+        display: none;
+      }
+
+      .score, .countdown, .tracker {
+        background: none;
+        border: none;
+        font-size: 22px;
+      }
+
+      .score .value {
+        bottom: 0;
+        left: 0;
+        line-height: 45px;
+        position: absolute;
+        top: 0;
+        width: 40%;
+      }
+
+      .countdown {
+        border-left: 1px solid #19991f;
+        bottom: 0;
+        height: auto;
+        left: 40%;
+        position: absolute;
+        top: 0;
+        width: 40%;
+      }
+
+      .tracker {
+        line-height: 45px;
+        position: static;
+        text-align: center;
+        transform: translateX(0) !important; // disable animation
+        width: auto;
+      }
+
+      .pause {
+        border-left: 1px solid #19991f;
+        bottom: 0;
+        height: auto;
+        left: 80%;
+        position: absolute;
+        top: 0;
+        width: 20%;
+      }
+    }
+  }
+
+  @media (max-width: 660px) {
+    .scoreboard {
+      transform: scale(0.71);
+    }
+  }
+}
+
+@keyframes #{$name}-flashRed {
+  0% {
+    background-color: red;
+  }
+  100% {
+    background-color: #bd84af;
+  }
+}

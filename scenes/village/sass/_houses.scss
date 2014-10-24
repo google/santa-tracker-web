@@ -59,7 +59,7 @@
   }
 
   .house-marker {
-    background-image: url(../images/markers_sprite.png);
+    background-image: url(img/markers_sprite.png);
     background-size: 2529px 352px;
     background-repeat: no-repeat;
     width: 108px;
@@ -82,13 +82,13 @@
     left: 938px;
 
     .building {
-      background-image: url(../images/house_1.png);
+      background-image: url(img/house_1.png);
       width: 433px;
       height: 351px;
     }
 
     .house-snow {
-      background-image: url(../images/house_1_snow.png);
+      background-image: url(img/house_1_snow.png);
       width: 525px;
       height: 431px;
       bottom: -49px;
@@ -155,14 +155,14 @@
     left: 1523px;
 
     .building {
-      background-image: url(../images/house_2.png);
+      background-image: url(img/house_2.png);
       width: 196px;
       height: 164px;
       bottom: -3px;
     }
 
     .house-snow {
-      background-image: url(../images/house_2_snow.png);
+      background-image: url(img/house_2_snow.png);
       width: 380px;
       height: 262px;
       bottom: -48px;
@@ -212,13 +212,13 @@
     left: 1911px;
 
     .building {
-      background-image: url(../images/house_3.png);
+      background-image: url(img/house_3.png);
       width: 242px;
       height: 246px;
     }
 
     .house-snow {
-      background-image: url(../images/house_3_snow.png);
+      background-image: url(img/house_3_snow.png);
       width: 446px;
       height: 325px;
       bottom: -52px;
@@ -280,13 +280,13 @@
     left: 2331px;
 
     .building {
-      background-image: url(../images/house_24.png);
+      background-image: url(img/house_24.png);
       width: 522px;
       height: 301px;
     }
 
     .house-snow {
-      background-image: url(../images/house_24_snow.png);
+      background-image: url(img/house_24_snow.png);
       width: 647px;
       height: 375px;
       bottom: -45px;
@@ -356,14 +356,14 @@
     left: 2905px;
 
     .building {
-      background-image: url(../images/house_5.png);
+      background-image: url(img/house_5.png);
       width: 215px;
       height: 178px;
       bottom: -2px;
     }
 
     .house-snow {
-      background-image: url(../images/house_5_snow.png);
+      background-image: url(img/house_5_snow.png);
       width: 322px;
       height: 243px;
       bottom: -44px;
@@ -417,7 +417,7 @@
     left: 3135px;
 
     .building {
-      background-image: url(../images/house_6.png);
+      background-image: url(img/house_6.png);
       width: 228px;
       height: 150px;
     }
@@ -433,13 +433,13 @@
     left: 3402px;
 
     .building {
-      background-image: url(../images/house_7.png);
+      background-image: url(img/house_7.png);
       width: 285px;
       height: 208px;
     }
 
     .house-snow {
-      background-image: url(../images/house_7_snow.png);
+      background-image: url(img/house_7_snow.png);
       width: 412px;
       height: 334px;
       bottom: -67px;
@@ -481,13 +481,13 @@
     left: 3756px;
 
     .building {
-      background-image: url(../images/house_8.png);
+      background-image: url(img/house_8.png);
       width: 335px;
       height: 264px;
     }
 
     .house-snow {
-      background-image: url(../images/house_8_snow.png);
+      background-image: url(img/house_8_snow.png);
       width: 421px;
       height: 377px;
       bottom: -75px;
@@ -538,13 +538,13 @@
     left: 4200px;
 
     .building {
-      background-image: url(../images/house_9.png);
+      background-image: url(img/house_9.png);
       width: 306px;
       height: 243px;
     }
 
     .house-snow {
-      background-image: url(../images/house_9_snow.png);
+      background-image: url(img/house_9_snow.png);
       width: 395px;
       height: 327px;
       bottom: -52px;
@@ -601,7 +601,7 @@
 
   #house10 {
     // Baloon
-    background: url(../images/house_10.png) no-repeat;
+    background: url(img/house_10.png) no-repeat;
     background-position: 0 -628px;
     bottom: -37px;
     width: 327px;
@@ -634,7 +634,7 @@
   }
 
   #house10-ropes {
-    background: url(../images/house_10-ropes.png) no-repeat;
+    background: url(img/house_10-ropes.png) no-repeat;
     width: 282px;
     height: 50px;
     left: 4579px;
@@ -647,13 +647,13 @@
     left: 4884px;
 
     .building {
-      background-image: url(../images/house_11.png);
+      background-image: url(img/house_11.png);
       width: 272px;
       height: 295px;
     }
 
     .house-snow {
-      background-image: url(../images/house_11_snow.png);
+      background-image: url(img/house_11_snow.png);
       width: 320px;
       height: 361px;
       bottom: -27px;
@@ -704,13 +704,13 @@
     left: 5192px;
 
     .building {
-      background-image: url(../images/house_12.png);
+      background-image: url(img/house_12.png);
       width: 262px;
       height: 335px;
     }
 
     .house-snow {
-      background-image: url(../images/house_12_snow.png);
+      background-image: url(img/house_12_snow.png);
       width: 336px;
       height: 405px;
       bottom: -46px;
@@ -773,13 +773,13 @@
     left: 5552px;
 
     .building {
-      background-image: url(../images/house_13.png);
+      background-image: url(img/house_13.png);
       width: 156px;
       height: 272px;
     }
 
     .house-snow {
-      background-image: url(../images/house_13_snow.png);
+      background-image: url(img/house_13_snow.png);
       width: 268px;
       height: 387px;
       bottom: -49px;
@@ -821,13 +821,13 @@
     left: 5918px;
 
     .building {
-      background-image: url(../images/house_14.png);
+      background-image: url(img/house_14.png);
       width: 240px;
       height: 228px;
     }
 
     .house-snow {
-      background-image: url(../images/house_14_snow.png);
+      background-image: url(img/house_14_snow.png);
       width: 349px;
       height: 344px;
       bottom: -70px;
@@ -889,13 +889,13 @@
     left: 6362px;
 
     .building {
-      background-image: url(../images/house_15.png);
+      background-image: url(img/house_15.png);
       width: 234px;
       height: 332px;
     }
 
     .house-snow {
-      background-image: url(../images/house_15_snow.png);
+      background-image: url(img/house_15_snow.png);
       width: 338px;
       height: 423px;
       bottom: -53px;
@@ -938,13 +938,13 @@
     left: 6660px;
 
     .building {
-      background-image: url(../images/house_16.png);
+      background-image: url(img/house_16.png);
       width: 285px;
       height: 278px;
     }
 
     .house-snow {
-      background-image: url(../images/house_16_snow.png);
+      background-image: url(img/house_16_snow.png);
       width: 378px;
       height: 368px;
       bottom: -47px;
@@ -995,7 +995,7 @@
     left: 7006px;
 
     .building {
-      background-image: url(../images/house_17.png);
+      background-image: url(img/house_17.png);
       width: 221px;
       height: 384px;
     }
@@ -1005,14 +1005,14 @@
     left: 7284px;
 
     .building {
-      background-image: url(../images/house_18.png);
+      background-image: url(img/house_18.png);
       width: 311px;
       height: 326px;
       bottom: -1px;
     }
 
     .house-snow {
-      background-image: url(../images/house_18_snow.png);
+      background-image: url(img/house_18_snow.png);
       width: 437px;
       height: 389px;
       bottom: -35px;
@@ -1077,13 +1077,13 @@
     left: 7716px;
 
     .building {
-      background-image: url(../images/house_19.png);
+      background-image: url(img/house_19.png);
       width: 276px;
       height: 328px;
     }
 
     .house-snow {
-      background-image: url(../images/house_19_snow.png);
+      background-image: url(img/house_19_snow.png);
       width: 422px;
       height: 407px;
       bottom: -39px;
@@ -1135,13 +1135,13 @@
     left: 8156px;
 
     .building {
-      background-image: url(../images/house_20.png);
+      background-image: url(img/house_20.png);
       width: 316px;
       height: 241px;
     }
 
     .house-snow {
-      background-image: url(../images/house_20_snow.png);
+      background-image: url(img/house_20_snow.png);
       width: 421px;
       height: 308px;
       bottom: -33px;
@@ -1204,13 +1204,13 @@
     left: 8576px;
 
     .building {
-      background-image: url(../images/house_21.png);
+      background-image: url(img/house_21.png);
       width: 255px;
       height: 199px;
     }
 
     .house-snow {
-      background-image: url(../images/house_21_snow.png);
+      background-image: url(img/house_21_snow.png);
       width: 306px;
       height: 285px;
       bottom: -55px;
@@ -1243,13 +1243,13 @@
     left: 8886px;
 
     .building {
-      background-image: url(../images/house_22.png);
+      background-image: url(img/house_22.png);
       width: 212px;
       height: 252px;
     }
 
     .house-snow {
-      background-image: url(../images/house_22_snow.png);
+      background-image: url(img/house_22_snow.png);
       width: 294px;
       height: 376px;
       bottom: -39px;
@@ -1286,13 +1286,13 @@
     left: 9222px;
 
     .building {
-      background-image: url(../images/house_23.png);
+      background-image: url(img/house_23.png);
       width: 231px;
       height: 427px;
     }
 
     .house-snow {
-      background-image: url(../images/house_23_snow.png);
+      background-image: url(img/house_23_snow.png);
       width: 361px;
       height: 547px;
       bottom: -61px;
@@ -1336,14 +1336,14 @@
     left: 9580px;
 
     .building {
-      background-image: url(../images/house_4.png);
+      background-image: url(img/house_4.png);
       width: 413px;
       height: 294px;
       bottom: -1px;
     }
 
     .house-snow {
-      background-image: url(../images/house_4_snow.png);
+      background-image: url(img/house_4_snow.png);
       width: 489px;
       height: 374px;
       bottom: -50px;
@@ -1406,13 +1406,13 @@
     left: 10104px;
 
     .building {
-      background-image: url(../images/house_25.png);
+      background-image: url(img/house_25.png);
       width: 425px;
       height: 255px;
     }
 
     .house-snow {
-      background-image: url(../images/house_25_snow.png);
+      background-image: url(img/house_25_snow.png);
       width: 461px;
       height: 359px;
       bottom: -70px;
@@ -1465,14 +1465,14 @@
     left: 10579px;
 
     .building {
-      background-image: url(../images/house_26.png);
+      background-image: url(img/house_26.png);
       width: 212px;
       height: 285px;
       bottom: -1px;
     }
 
     .house-snow {
-      background-image: url(../images/house_26_snow.png);
+      background-image: url(img/house_26_snow.png);
       width: 302px;
       height: 370px;
       bottom: -51px;
