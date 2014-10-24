@@ -34,8 +34,8 @@
 
     .house-snow {
       opacity: 1;
-      @include experimental(transition, opacity 500ms ease-out);
-      @include experimental(timing-function, cubic-bezier(0.4, 1.6, 0.2, 1));
+      @include transition(opacity 500ms ease-out);
+      @include transition-timing-function(cubic-bezier(0.4, 1.6, 0.2, 1));
     }
 
     &.melt {
@@ -46,7 +46,7 @@
 
       &:hover {
         .house-marker {
-          @include experimental(animation, 600ms bounce linear infinite);
+          @include animation(bounce 600ms linear infinite);
         }
       }
     }
@@ -621,7 +621,7 @@
     &.flying {
       z-index: 10;
       @include apply-origin(top center, false);
-      @include experimental(animation, fly 55s 1 linear, float 5s infinite linear);
+      @include animation(fly 55s 1 linear, float 5s infinite linear);
     }
   }
 

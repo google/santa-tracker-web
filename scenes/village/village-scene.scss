@@ -166,7 +166,7 @@ $name: 'module-village';
       }
       &.snow-flake-animated {
         .snow-flake-inner {
-          @include experimental(animation, snow 15s infinite ease-in-out);
+          @include animation(snow 15s infinite ease-in-out);
         }
       }
     }
@@ -179,7 +179,7 @@ $name: 'module-village';
       }
       &.snow-flake-animated {
         .snow-flake-inner {
-          @include experimental(animation, snow 20s infinite ease-in-out);
+          @include animation(snow 20s infinite ease-in-out);
         }
       }
     }
@@ -192,7 +192,7 @@ $name: 'module-village';
       }
       &.snow-flake-animated {
         .snow-flake-inner {
-          @include experimental(animation, snow 25s infinite ease-in-out);
+          @include animation(snow 25s infinite ease-in-out);
         }
       }
     }
@@ -424,7 +424,7 @@ $name: 'module-village';
       height: 95px;
       background-position: -1533px 0;
       @include apply-origin(bottom center, false);
-      @include experimental(animation, unicycle 2s ease infinite);
+      @include animation(unicycle 2s ease infinite);
     }
 
     .elf-red-dig-left {
@@ -442,7 +442,7 @@ $name: 'module-village';
       @include transform(translateZ(0));
 
       &.snowman-fall {
-        @include experimental(animation, snowman .5s step-end 1);
+        @include animation(snowman .5s step-end 1);
         background-position: 0 -252px;
       }
     }
@@ -518,19 +518,19 @@ $name: 'module-village';
    
       &.stop-waiting {
         .elf {
-          @include experimental(animation, 600ms bounce linear infinite);
+          @include animation(600ms bounce linear infinite);
         }
 
         :nth-child(1) {
-          @include experimental(animation-delay, 25ms);
+          @include animation-delay(25ms);
         }
 
         :nth-child(2) {
-          @include experimental(animation-delay, 50ms);
+          @include animation-delay(50ms);
         }
 
         :nth-child(3) {
-          @include experimental(animation-delay, 75ms);
+          @include animation-delay(75ms);
         }
       }
     }
@@ -549,13 +549,13 @@ $name: 'module-village';
 
     .snowmobile-right.gogo-snowmobile {
       @include apply-origin(bottom center, false);
-      @include experimental(animation, burnout 25s linear);
+      @include animation(burnout 25s linear);
     }
 
     .snowmobile-left.gogo-snowmobile {
       @include apply-origin(bottom center, false);
-      @include experimental(animation, burnout 25s linear);
-      @include experimental(animation-direction, reverse);
+      @include animation(burnout 25s linear);
+      @include animation-direction(reverse);
     }
 
     #bus {
@@ -569,12 +569,12 @@ $name: 'module-village';
       @include transform(translateZ(0) translateX($villageWidth));
 
       &.bus-load {
-        @include experimental(animation, busload 2s step-end 1);
+        @include animation(busload 2s step-end 1);
         background-position: 0 -798px;
       }
 
       &.bus-unload {
-        @include experimental(animation, busunload 2s step-end 1);
+        @include animation(busunload 2s step-end 1);
         background-position: 0 0;
       }
 
@@ -625,7 +625,7 @@ $name: 'module-village';
       width: 424px;
       top: -55px;
       background-position: 0 -60px;
-      @include experimental(animation, train 55s 0s linear infinite);
+      @include animation(train 55s 0s linear infinite);
     }
   }
 
@@ -739,7 +739,7 @@ $name: 'module-village';
     height: 82px;
     width: 171px;
     background-position: -126px -221px;
-    @include experimental(animation, plane 60s 0s linear infinite);
+    @include animation(plane 60s 0s linear infinite);
   }
 
   #spaceship {
@@ -750,8 +750,8 @@ $name: 'module-village';
     width: 130px;
     top: 45px;
     background-position: -988px -45px; 
-    @include experimental(animation, plane 75s 0s linear infinite);
-    @include experimental(animation-direction, reverse);
+    @include animation(plane 75s 0s linear infinite);
+    @include animation-direction(reverse);
   }
 
   #sun, #moon, #fakesun, #fakemoon {
@@ -769,14 +769,14 @@ $name: 'module-village';
     }
 
     &.go-up {
-      @include experimental(animation, sunrise 1s);
+      @include animation(sunrise 1s);
     }
 
     &.down {
       top: 100%;
     }
     &.go-down {
-      @include experimental(animation, sunset 1s);
+      @include animation(sunset 1s);
     }
   }
 

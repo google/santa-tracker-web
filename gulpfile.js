@@ -47,7 +47,7 @@ gulp.task('vulcanize', ['compass'], function () {
 });
 
 // copy needed assets (images, sounds, polymer elements, etc) to dist directory
-gulp.task('copy-assets', function() {
+gulp.task('copy-assets', ['vulcanize'], function() {
   return gulp.src([
     '!dist/**',
     'index.html',
