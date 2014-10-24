@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <meta property="og:image" itemprop="image" name="thumbnail" content="https://maps.gstatic.com/mapfiles/santatracker/13/images/apple-touch-icon-144x144-precomposed.png">
+  <meta name="description" content="Use Google Santa Tracker to follow Santa Claus on Google Maps as he makes his journey around the world.">
+
+  <title>Google Santa Tracker</title>
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Lobster|Roboto&subset=all">
+
+  <link rel="apple-touch-icon-precomposed" href="//maps.gstatic.com/mapfiles/santatracker/13/images/apple-touch-icon-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="//maps.gstatic.com/mapfiles/santatracker/13/images/apple-touch-icon-57x57-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="//maps.gstatic.com/mapfiles/santatracker/13/images/apple-touch-icon-72x72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="//maps.gstatic.com/mapfiles/santatracker/13/images/apple-touch-icon-114x114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="//maps.gstatic.com/mapfiles/santatracker/13/images/apple-touch-icon-144x144-precomposed.png">
+  <link rel="shortcut icon" href="//maps.gstatic.com/mapfiles/santatracker/13/images/favicon.ico" >
+
+  <script src="/components/webcomponentsjs/webcomponents.min.js"></script>
+  <link rel="import" href="elements/elements.html">
+
+  <style>
+    html, body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12px;
+      overflow: hidden;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* TODO(ericbidelman): remove. For testing. */
+    #tempnav {
+      z-index: 10000;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      color: #222;
+    }
+    #tempnav a {
+      color: currentcolor;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+    }
+    /* ---- */
+  </style>
+</head>
+<body unresolved fullbleed layout vertical>
+
+<!-- TODO(ericbidelman): Remove. Just for testing -->
+<paper-menu-button icon="apps" id="tempnav" title="Select a scene">
+  <a href="#village">Village</a>
+  <a href="#matching">Matching</a>
+  <a href="#workshop">Workshop</a>
+  <a href="#windtunnel">Windtunnel</a>
+  <a href="#rollercoaster">Rollercoaster</a>
+  <a href="#undersea">Undersea</a>
+</paper-menu-button>
+<!-- ******************************************* -->
+
+<template is="auto-binding" id="t">
+
+  <!-- Route controller -->
+  <flatiron-director route="{{route}}" autoHash></flatiron-director>
+
+  <!-- Preloading scene overlay -->
+  <preload-overlay value="{{selectedScene.preloadProgress || 0}}"
+                   active?="{{selectedScene && !selectedScene.loaded}}"></preload-overlay>
+
+  <lazy-pages selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route">
+    <village-scene route="village"
+        path="scenes/village/village-scene.html" hidden></village-scene>
+    <matching-scene route="matching"
+        path="scenes/matching/matching-scene.html" hidden></matching-scene>
+    <workshop-scene route="workshop"
+        path="scenes/workshop/workshop-scene.html" hidden></workshop-scene>
+    <windtunnel-scene route="windtunnel"
+        path="scenes/windtunnel/windtunnel-scene.html" hidden></windtunnel-scene>
+    <rollercoaster-scene route="rollercoaster"
+        path="scenes/rollercoaster/rollercoaster-scene.html" hidden></rollercoaster-scene>
+    <undersea-scene route="undersea"
+        path="scenes/undersea/undersea-scene.html" hidden></undersea-scene>
+  </lazy-pages>
+
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>
