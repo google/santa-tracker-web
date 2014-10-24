@@ -1,0 +1,150 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../base-scene.html">
+
+<!--
+Briefing scene.
+
+@element briefing-scene
+@extends base-scene
+-->
+<polymer-element name="briefing-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="briefing-scene.css" no-shim>
+
+  <div id="module-briefing">
+
+    <div class="scene">
+      <div class="flightbriefing">
+        <div class="wall"></div>
+        <div class="decorations"></div>
+        <div class="view">
+          <div class="dashboard">
+            <div class="clock-pointer cp1"></div>
+            <div class="clock-pointer cp2"></div>
+            <div class="clock-pointer cp3"></div>
+            <div class="clock-pointer cp4"></div>
+          </div>
+
+          <div class="screen">
+            <div class="projector"></div>
+            <div class="projector-beam"></div>
+            <div class="image" id="screen"></div>
+          </div>
+
+          <div class="lady">
+            <div class="body"></div>
+            <div class="hand"></div>
+          </div>
+
+          <div class="controller">
+            <div class="arrow left" id="arrow-left" on-tap="{{prevSlide_}}"></div>
+            <div class="arrow right" id="arrow-right" on-tap="{{nextSlide_}}"></div>
+          </div>
+
+          <div class="elevator">
+            <div class="panel">
+              <div class="button"></div>
+            </div>
+
+            <div class="status">
+              <div class="arrow"></div>
+            </div>
+
+            <div class="frame">
+              <div class="door left"></div>
+
+              <div class="door right"></div>
+
+              <div class="penguin">
+                <div class="eye"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="audience"></div>
+        </div>
+        <div class="floor"></div>
+      </div>
+    </div>
+
+    <!-- TODO(bckenny): part of site nav:
+         <div class="sceneboard"><div class="sceneboard-back"></div></div> -->
+  </div>
+</template>
+<script>
+  Polymer({
+
+    ready: function() {
+      this.currentSlide_ = 0;
+      this.slideshowTimer_ = -1;
+      this.start_();
+    },
+
+    /**
+     * @private
+     */
+    changeSlide_: function() {
+      Klang.triggerEvent('briefing_change_slide');
+      this.$.screen.style.backgroundPosition = -392 * this.currentSlide_ + 'px 0';
+    },
+
+    /**
+     * @private
+     */
+    prevSlide_: function() {
+      window.clearInterval(this.slideshowTimer_);
+      this.currentSlide_--;
+
+      this.changeSlide_();
+      this.start_();
+    },
+
+    /**
+     * @private
+     */
+    nextSlide_: function() {
+      window.clearInterval(this.slideshowTimer_);
+      this.currentSlide_++;
+
+      this.changeSlide_();
+      this.start_();
+    },
+
+    stop: function() {
+      window.clearInterval(this.slideshowTimer_);
+    },
+
+    /**
+     * @private
+     */
+    start_: function() {
+      window.clearInterval(this.slideshowTimer_);
+      this.slideshowTimer_ = window.setInterval(
+          this.nextSlide_.bind(this), 7 * 1000);
+    },
+
+    onPreload: function(preloader) {
+      // TODO(ericbidelman): add this to klang
+      // preloader.addKlang('briefing_load_sounds', 30);
+      this.preloadImages([
+        'img/logo.svg',
+        'img/audience.png',
+        'img/decorations.png',
+        'img/floor.png',
+        'img/objects.png',
+        'img/plan.png'
+      ]);
+    },
+
+    onShow: function() {
+      // Klang.triggerEvent('briefing_start');
+    },
+
+    onHide: function() {
+      Klang.triggerEvent('briefing_end');
+      this.stop();
+    }
+
+  });
+</script>
+</polymer-element>
