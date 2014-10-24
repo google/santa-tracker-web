@@ -1,0 +1,223 @@
+@import "compass/css3/transform";
+
+@keyframes #{$name}-handMovement {
+  0% {
+    transform: rotateZ(-10deg);
+  }
+
+  50% {
+    transform: rotateZ(-10deg);
+  }
+
+  60% {
+    transform: rotateZ(10deg);
+  }
+
+  100% {
+    transform: rotateZ(10deg);
+  }
+}
+
+@keyframes #{$name}-beamFlicker {
+  0% {
+    opacity: .8;
+  }
+
+  33% {
+    opacity: .9;
+  }
+
+  66% {
+    opacity: .7;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes #{$name}-slideshowAnimation {
+  0% {
+    background-position: -392px * 0 0;
+  }
+
+  20% {
+    background-position: -392px * 0 0;
+  }
+
+  25% {
+    background-position: -392px * 1 0;
+  }
+
+  45% {
+    background-position: -392px * 1 0;
+  }
+
+  50% {
+    background-position: -392px * 2 0;
+  }
+
+  70% {
+    background-position: -392px * 2 0;
+  }
+
+  75% {
+    background-position: -392px * 3 0;
+  }
+
+  95% {
+    background-position: -392px * 3 0;
+  }
+
+  100% {
+    background-position: -392px * 4 0;
+  }
+}
+
+@keyframes #{$name}-clockPointerMovement {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes #{$name}-clockPointer2Movement {
+  0% {
+    transform: rotateZ(45deg);
+  }
+
+  100% {
+    transform: rotateZ(405deg);
+  }
+}
+
+@keyframes #{$name}-clockPointer3Movement {
+  0% {
+    transform: rotateZ(95deg);
+  }
+
+  100% {
+    transform: rotateZ(455deg);
+  }
+}
+
+@keyframes #{$name}-clockPointer4Movement {
+  0% {
+    transform: rotateZ(150deg);
+  }
+
+  100% {
+    transform: rotateZ(510deg);
+  }
+}
+
+@keyframes #{$name}-doorLeftAnimation {
+  0% {
+    width: 94px;
+  }
+
+  59% {
+    width: 94px;
+  }
+
+  64% {
+    width: 0px;
+  }
+
+  80% {
+    width: 0px;
+  }
+
+  85% {
+    width: 94px;
+  }
+
+  100% {
+    width: 94px;
+  }
+}
+
+@keyframes #{$name}-liftStatusAnimation {
+  0% {
+    transform: rotateZ(-80deg);
+  }
+
+  40% {
+    transform: rotateZ(-80deg);
+  }
+
+  55% {
+    transform: rotateZ(0deg);
+  }
+
+  85% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(-80deg);
+  }
+}
+
+@keyframes #{$name}-penguinBlink {
+  69% {
+    transform: rotateX(0deg);
+  }
+
+  70% {
+    transform: rotateX(180deg);
+  }
+
+  71% {
+    transform: rotateX(0deg);
+  }
+
+  75% {
+    transform: rotateX(0deg);
+  }
+
+  76% {
+    transform: rotateX(180deg);
+  }
+
+  78% {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes #{$name}-liftPanelAnimation {
+  0% {
+    background-position: -561px -546px;
+  }
+
+  2% {
+    background-position: -561px -546px;
+  }
+
+  4% {
+    background-position: -561px -567px;
+  }
+
+  6% {
+    background-position: -561px -546px;
+  }
+
+  55% {
+    background-position: -561px -546px;
+  }
+
+  57% {
+    background-position: -561px -567px;
+  }
+
+  59% {
+    background-position: -561px -546px;
+  }
+
+  100% {
+    background-position: -561px -546px;
+  }
+}
