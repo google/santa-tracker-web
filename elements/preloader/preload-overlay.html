@@ -19,10 +19,11 @@ Candy cane progress bar.
       z-index: 1000;
       transition: opacity 500ms ease-in-out;
       opacity: 0;
-      pointer-events: none;
+      visibility: hidden;
     }
     :host([active]) {
       opacity: 1;
+      visibility: visible;
     }
     </style>
     <div id="page-progress" layout vertical center-center>
