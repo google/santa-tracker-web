@@ -17,53 +17,12 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="//maps.gstatic.com/mapfiles/santatracker/13/images/apple-touch-icon-72x72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="//maps.gstatic.com/mapfiles/santatracker/13/images/apple-touch-icon-114x114-precomposed.png">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="//maps.gstatic.com/mapfiles/santatracker/13/images/apple-touch-icon-144x144-precomposed.png">
-  <link rel="shortcut icon" href="//maps.gstatic.com/mapfiles/santatracker/13/images/favicon.ico" >
+  <link rel="shortcut icon" href="//maps.gstatic.com/mapfiles/santatracker/13/images/favicon.ico">
 
   <script src="/components/webcomponentsjs/webcomponents.min.js"></script>
   <link rel="import" href="elements/elements.html">
 
-  <style>
-    html, body {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 12px;
-      overflow: hidden;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      background-color: #3ec4f0;
-    }
-
-    body[unresolved] {
-      opacity: 1 !important; /* Override Polymer's FOUC. Control it ourselves. */
-    }
-
-    body:not([unresolved]) #preload_placeholder {
-      display: none;
-    }
-
-    #preload_placeholder {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('images/village.gif') no-repeat 50% 50%;
-      margin-top: -104px;
-    }
-
-    /* TODO(ericbidelman): remove. For testing. */
-    #tempnav {
-      z-index: 10000;
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      color: #fff;
-    }
-    #tempnav core-item {
-      padding: 0 5px;
-    }
-    /* ---- */
-  </style>
+  <link rel="stylesheet" href="sass/santatracker.css">
 </head>
 <body unresolved fullbleed layout vertical>
 
@@ -71,6 +30,7 @@
 <paper-menu-button icon="view-carousel" id="tempnav" title="Select a scene" noTransition>
   <core-item label="Village"><a href="#village"></a></core-item>
   <core-item label="Briefing"><a href="#briefing"></a></core-item>
+  <core-item label="Matching"><a href="#matching"></a></core-item>
   <core-item label="Rollercoaster"><a href="#rollercoaster"></a></core-item>
   <core-item label="Undersea"><a href="#undersea"></a></core-item>
   <core-item label="Windtunnel"><a href="#windtunnel"></a></core-item>
@@ -108,6 +68,6 @@
 
 <div id="preload_placeholder"></div>
 
-<script src="app.js"></script>
+<script src="js/santatracker.js"></script>
 </body>
 </html>

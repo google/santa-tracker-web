@@ -4,5 +4,6 @@ components
 *.DS_Store
 .sass-cache
 dist
+sass/*.css
 scenes/*/*.css
 elements/*/*.css

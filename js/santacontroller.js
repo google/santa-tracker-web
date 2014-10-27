@@ -15,7 +15,7 @@ function SantaController(lang, moduleLoader, analytics) {
     window.location = 'error.html';
   });
 
-  this.moduleLoader_ = moduleLoader;
+  // this.moduleLoader_ = moduleLoader;
 
   this.sitenav_ = new SiteNav();
 
