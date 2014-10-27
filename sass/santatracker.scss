@@ -1,0 +1,44 @@
+html, body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #3ec4f0;
+}
+
+// Override Polymer's FOUC. Control it ourselves.
+body {
+  &[unresolved] {
+    opacity: 1 !important;
+  }
+
+  &:not([unresolved]) #preload_placeholder {
+    display: none;
+  }
+}
+
+#preload_placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/images/village.gif') no-repeat 50% 50%;
+  margin-top: -104px;
+}
+
+/* TODO(ericbidelman): remove. For testing. --------------------------------- */
+#tempnav {
+  z-index: 10000;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  color: #fff;
+
+  core-item {
+    padding: 0 5px;
+  }
+}
+/* -------------------------------------------------------------------------- */

@@ -5,7 +5,7 @@ window.santatracker.DEFAULT_ROUTE_ = 'village';
  * @const
  * @type {number}
  */
-window.santatracker.COUNTDOWN_END_DATE = 1419415200000;
+window.santatracker.COUNTDOWN_END_DATE = 1419415200000; // Dec 24, 2014
 
 /**
  * @const
@@ -45,7 +45,7 @@ window.santatracker.setup = function() {
 };
 
 window.santatracker.checkLang = function() {
-  var lang = $('html').attr('lang');
+  var lang = document.documentElement.lang;
   if (window['DEV']) {
     // Force the language using the "hl" parameter when testing.
     // Useful for sending a different language to the API.
@@ -122,3 +122,16 @@ window.santatracker.addErrorHandler = function() {
     } catch (e){}
   };
 };
+
+
+// TODO(ericbidelman): temp stub.
+window.santatracker.analytics = {
+  trackGameStart: function(){},
+  trackGameQuit: function(){}
+};
+
+Klang = {
+  triggerEvent: function(){},
+};
+
+window.santatracker.setup();
