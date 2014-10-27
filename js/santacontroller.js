@@ -19,7 +19,7 @@ function SantaController(lang, moduleLoader, analytics) {
 
   this.sitenav_ = new SiteNav();
 
-  //TODO(lukem): Tracker moves to sceme
+  //TODO(lukem): Tracker moves to scene
 
   /*
   TODO(lukem): Add back in preload manager
