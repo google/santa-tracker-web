@@ -125,11 +125,6 @@ window.santatracker.addErrorHandler = function() {
 
 
 // TODO(ericbidelman): temp stub.
-window.santatracker.analytics = {
-  trackGameStart: function(){},
-  trackGameQuit: function(){}
-};
-
 Klang = {
   triggerEvent: function(){},
 };
