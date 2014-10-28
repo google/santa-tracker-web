@@ -1,0 +1,4823 @@
+{
+    "audio": {
+        "ag_Computer": {
+            "content": [
+                "as_Computer_1", 
+                "as_Computer_2", 
+                "as_Computer_3", 
+                "as_Computer_4"
+            ], 
+            "destination_name": "bu_pause", 
+            "group_type": 2, 
+            "type": "AudioGroup"
+        }, 
+        "ag_FX_Shoot": {
+            "content": [
+                "as_FX_Shoot_1", 
+                "as_FX_Shoot_2"
+            ], 
+            "destination_name": "bu_fx", 
+            "group_type": 1, 
+            "type": "AudioGroup"
+        }, 
+        "ag_FX_rc_crash": {
+            "content": [
+                "as_FX_crash_1", 
+                "as_FX_crash_2", 
+                "as_FX_crash_3"
+            ], 
+            "destination_name": "bu_pause", 
+            "group_type": 2, 
+            "retrig": false, 
+            "type": "AudioGroup", 
+            "volume": 0.5
+        }, 
+        "ag_FX_rc_score": {
+            "content": [
+                "as_FX_playerScore_racer_1", 
+                "as_FX_playerScore_racer_2", 
+                "as_FX_playerScore_racer_3"
+            ], 
+            "destination_name": "bu_pause", 
+            "group_type": 2, 
+            "type": "AudioGroup", 
+            "volume": 0.2
+        }, 
+        "ag_airport_speaker": {
+            "content": [
+                "as_FX_AirportAnnouncement_3", 
+                "as_FX_AirportAnnouncement_2", 
+                "as_FX_AirportAnnouncement_1"
+            ], 
+            "destination_name": "bu_pause", 
+            "group_type": 2, 
+            "type": "AudioGroup", 
+            "volume": 3
+        }, 
+        "ag_cafeteriaWindow": {
+            "content": [
+                "as_FX_CafeteriaWindow_2", 
+                "as_FX_CafeteriaWindow_1"
+            ], 
+            "destination_name": "bu_fx", 
+            "group_type": 2, 
+            "type": "AudioGroup", 
+            "volume": 1.3
+        }, 
+        "ag_elf": {
+            "content": [
+                "as_Elf_1", 
+                "as_Elf_2", 
+                "as_Elf_3", 
+                "as_Elf_4", 
+                "as_Elf_5", 
+                "as_Elf_6"
+            ], 
+            "destination_name": "bu_pause", 
+            "group_type": 2, 
+            "type": "AudioGroup"
+        }, 
+        "ag_fx_rc_santa_voice": {
+            "content": [
+                "as_FX_santaVoice_1", 
+                "as_FX_santaVoice_2", 
+                "as_FX_santaVoice_3"
+            ], 
+            "destination_name": "bu_pause", 
+            "group_type": 1, 
+            "type": "AudioGroup"
+        }, 
+        "ag_gb_FX_bounce": {
+            "content": [
+                "as_Gumballs_FX_BallBounce_1", 
+                "as_Gumballs_FX_BallBounce_2", 
+                "as_Gumballs_FX_BallBounce_3"
+            ], 
+            "destination_name": "bu_fx", 
+            "group_type": 2, 
+            "type": "AudioGroup"
+        }, 
+        "ag_gb_squeeks": {
+            "content": [
+                "as_Gumballs_FX_BoxTurnSqueek_4", 
+                "as_Gumballs_FX_BoxTurnSqueek_3", 
+                "as_Gumballs_FX_BoxTurnSqueek_2"
+            ], 
+            "destination_name": "bu_pause", 
+            "group_type": 0, 
+            "type": "AudioGroup"
+        }, 
+        "ag_icecave_talk": {
+            "content": [
+                "as_FX_IceCaveTalk_3", 
+                "as_FX_IceCaveTalk_2", 
+                "as_FX_IceCaveTalk_1"
+            ], 
+            "destination_name": "bu_fx", 
+            "group_type": 2, 
+            "type": "AudioGroup"
+        }, 
+        "ag_jp_pickup": {
+            "content": [
+                "as_FX_ScoreSmall_3", 
+                "as_FX_ScoreSmall_2", 
+                "as_FX_ScoreSmall_1"
+            ], 
+            "destination_name": "bu_pause", 
+            "group_type": 2, 
+            "type": "AudioGroup", 
+            "volume": 0.4
+        }, 
+        "ag_m_open_door": {
+            "content": [
+                "as_FX_OpenDoor_3", 
+                "as_FX_OpenDoor_2", 
+                "as_FX_OpenDoor_1"
+            ], 
+            "destination_name": "bu_pause", 
+            "group_type": 2, 
+            "type": "AudioGroup"
+        }, 
+        "ag_pd_miss": {
+            "content": [
+                "as_FX_Miss_1", 
+                "as_FX_Miss_2"
+            ], 
+            "destination_name": "bu_pause", 
+            "group_type": 2, 
+            "type": "AudioGroup", 
+            "volume": 0.4
+        }, 
+        "ag_pd_player_score": {
+            "content": [
+                "as_FX_playerScore_1", 
+                "as_FX_playerScore_2", 
+                "as_FX_playerScore_3"
+            ], 
+            "destination_name": "bu_pause", 
+            "group_type": 2, 
+            "type": "AudioGroup", 
+            "volume": 0.2
+        }, 
+        "ag_snowman": {
+            "content": [
+                "as_Snowman_1", 
+                "as_Snowman_2", 
+                "as_Snowman_3", 
+                "as_Snowman_4", 
+                "as_Snowman_5"
+            ], 
+            "destination_name": "bu_pause", 
+            "group_type": 2, 
+            "type": "AudioGroup"
+        }, 
+        "ag_switch_background": {
+            "content": [
+                "as_FX_SwitchBackground_3", 
+                "as_FX_SwitchBackground_2", 
+                "as_FX_SwitchBackground_1"
+            ], 
+            "destination_name": "bu_fx", 
+            "group_type": 2, 
+            "type": "AudioGroup"
+        }, 
+        "ag_switch_character": {
+            "content": [
+                "as_FX_SwitchCharacter_3", 
+                "as_FX_SwitchCharacter_1", 
+                "as_FX_SwitchCharacter_2"
+            ], 
+            "destination_name": "bu_fx", 
+            "group_type": 2, 
+            "type": "AudioGroup"
+        }, 
+        "ag_village_sounds": {
+            "content": [
+                "as_Village_Bird_1", 
+                "as_Village_PlaneFlyBy", 
+                "as_Village_Snowmobile", 
+                "as_Village_Elf_2", 
+                "as_Village_Elf_1", 
+                "as_Village_Rollercoaster", 
+                "as_Village_Bus_driveby", 
+                "as_Village_Footsteps_2", 
+                "as_Village_Footsteps_1", 
+                "as_Village_Laughter_3", 
+                "as_Village_Laughter_2", 
+                "as_Village_Laughter_1", 
+                "as_FX_SantaTrainDeparting"
+            ], 
+            "destination_name": "bu_village", 
+            "group_type": 3, 
+            "retrig": false, 
+            "type": "AudioGroup"
+        }, 
+        "as_AMB_AirportAmbience_4875": {
+            "destination_name": "bu_pause", 
+            "file_id": 719, 
+            "loop": true, 
+            "loop_end": 4.875, 
+            "loop_start": 0, 
+            "type": "AudioSource", 
+            "volume": 3
+        }, 
+        "as_AMB_BoatAmbience_3989": {
+            "destination_name": "bu_fx", 
+            "file_id": 471, 
+            "loop": true, 
+            "loop_end": 3.989, 
+            "loop_start": 0, 
+            "type": "AudioSource"
+        }, 
+        "as_AMB_Cafeteria_5000": {
+            "destination_name": "bu_fx", 
+            "file_id": 826, 
+            "loop": true, 
+            "loop_end": 5, 
+            "type": "AudioSource"
+        }, 
+        "as_AMB_Commandcentre_10000": {
+            "destination_name": "bu_pause", 
+            "file_id": 741, 
+            "loop": true, 
+            "loop_end": 10, 
+            "loop_start": 0, 
+            "type": "AudioSource"
+        }, 
+        "as_AMB_FactoryAmbience2_7000": {
+            "destination_name": "bu_pause", 
+            "file_id": 761, 
+            "loop": true, 
+            "loop_end": 7, 
+            "loop_start": 0, 
+            "type": "AudioSource"
+        }, 
+        "as_AMB_Factory_7000": {
+            "destination_name": "bu_fx", 
+            "file_id": 835, 
+            "loop": true, 
+            "loop_end": 7, 
+            "type": "AudioSource"
+        }, 
+        "as_AMB_Ferriswheel_10000": {
+            "destination_name": "bu_pause", 
+            "file_id": 746, 
+            "loop": true, 
+            "loop_end": 10, 
+            "loop_start": 0, 
+            "type": "AudioSource", 
+            "volume": 0.6
+        }, 
+        "as_AMB_IceCave_5000": {
+            "destination_name": "bu_fx", 
+            "file_id": 823, 
+            "loop": true, 
+            "loop_end": 5, 
+            "type": "AudioSource"
+        }, 
+        "as_AMB_Jetpack_5000": {
+            "destination_name": "bu_jetpack", 
+            "file_id": 590, 
+            "loop": true, 
+            "loop_end": 5, 
+            "loop_start": 0, 
+            "type": "AudioSource", 
+            "volume": 0.5
+        }, 
+        "as_AMB_Mountain_10000": {
+            "destination_name": "bu_pause", 
+            "file_id": 747, 
+            "loop": true, 
+            "loop_end": 10, 
+            "loop_start": 0, 
+            "type": "AudioSource", 
+            "volume": 0.6
+        }, 
+        "as_AMB_Playground_10000": {
+            "destination_name": "bu_pause", 
+            "file_id": 753, 
+            "loop": true, 
+            "loop_end": 10, 
+            "loop_start": 0, 
+            "type": "AudioSource", 
+            "volume": 0.4
+        }, 
+        "as_AMB_Rollercoaster_10000": {
+            "destination_name": "bu_pause", 
+            "file_id": 754, 
+            "loop": true, 
+            "loop_end": 10, 
+            "loop_start": 0, 
+            "type": "AudioSource", 
+            "volume": 0.7
+        }, 
+        "as_AMB_RopeStretch_3250": {
+            "destination_name": "bu_fx", 
+            "file_id": 470, 
+            "loop": true, 
+            "loop_end": 3.25, 
+            "loop_start": 0, 
+            "type": "AudioSource"
+        }, 
+        "as_AMB_UnderSea_5000": {
+            "destination_name": "bu_fx", 
+            "file_id": 827, 
+            "loop": true, 
+            "loop_end": 5, 
+            "type": "AudioSource"
+        }, 
+        "as_AMB_WindAmbience_7000": {
+            "destination_name": "bu_pause", 
+            "file_id": 723, 
+            "loop": true, 
+            "loop_end": 7, 
+            "loop_start": 0, 
+            "type": "AudioSource"
+        }, 
+        "as_AMB_WindTunnel_5000": {
+            "destination_name": "bu_fx", 
+            "file_id": 831, 
+            "loop": true, 
+            "loop_end": 5, 
+            "type": "AudioSource", 
+            "volume": 0.2
+        }, 
+        "as_AMB_Wind_5000": {
+            "destination_name": "bu_jetpack", 
+            "file_id": 591, 
+            "loop": true, 
+            "loop_end": 5, 
+            "loop_start": 0, 
+            "type": "AudioSource"
+        }, 
+        "as_AMB_Workshop_5000": {
+            "destination_name": "bu_fx", 
+            "file_id": 830, 
+            "loop": true, 
+            "loop_end": 5, 
+            "type": "AudioSource", 
+            "volume": 0.5
+        }, 
+        "as_AMB_playerMoveLoop_3000": {
+            "destination_name": "bu_pd_slide", 
+            "file_id": 703, 
+            "loop": true, 
+            "loop_end": 3, 
+            "type": "AudioSource"
+        }, 
+        "as_AMB_playerRide_8000": {
+            "destination_name": "bu_rc_ride", 
+            "file_id": 739, 
+            "loop": true, 
+            "loop_end": 8, 
+            "loop_start": 0, 
+            "type": "AudioSource"
+        }, 
+        "as_Computer_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 742, 
+            "type": "AudioSource"
+        }, 
+        "as_Computer_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 743, 
+            "type": "AudioSource"
+        }, 
+        "as_Computer_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 744, 
+            "type": "AudioSource"
+        }, 
+        "as_Computer_4": {
+            "destination_name": "bu_pause", 
+            "file_id": 745, 
+            "type": "AudioSource"
+        }, 
+        "as_Elf_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 755, 
+            "type": "AudioSource"
+        }, 
+        "as_Elf_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 756, 
+            "type": "AudioSource"
+        }, 
+        "as_Elf_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 757, 
+            "type": "AudioSource"
+        }, 
+        "as_Elf_4": {
+            "destination_name": "bu_pause", 
+            "file_id": 758, 
+            "type": "AudioSource"
+        }, 
+        "as_Elf_5": {
+            "destination_name": "bu_pause", 
+            "file_id": 759, 
+            "type": "AudioSource"
+        }, 
+        "as_Elf_6": {
+            "destination_name": "bu_pause", 
+            "file_id": 760, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_AirportAnnouncement_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 722, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_AirportAnnouncement_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 721, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_AirportAnnouncement_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 720, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_BallIntoMachine_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 714, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_Blimp_5000": {
+            "destination_name": "bu_fx", 
+            "file_id": 828, 
+            "loop": true, 
+            "loop_end": 5, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_BounceIn_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 584, 
+            "type": "AudioSource", 
+            "volume": 0.5
+        }, 
+        "as_FX_BounceOut_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 583, 
+            "type": "AudioSource", 
+            "volume": 0.5
+        }, 
+        "as_FX_BriefingElevatorClose_1": {
+            "destination_name": "bu_fx", 
+            "file_id": 832, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_BriefingElevatorOpen_1": {
+            "destination_name": "bu_fx", 
+            "file_id": 833, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_CafeteriaWindow_1": {
+            "destination_name": "bu_fx", 
+            "file_id": 825, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_CafeteriaWindow_2": {
+            "destination_name": "bu_fx", 
+            "file_id": 824, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_CharacterDeer": {
+            "destination_name": "bu_fx", 
+            "file_id": 793, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_CharacterGirl": {
+            "destination_name": "bu_fx", 
+            "file_id": 788, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_CharacterLumberjack": {
+            "destination_name": "bu_fx", 
+            "file_id": 790, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_CharacterNarwhal": {
+            "destination_name": "bu_fx", 
+            "file_id": 794, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_CharacterPogo": {
+            "destination_name": "bu_fx", 
+            "file_id": 795, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_CharacterSanta": {
+            "destination_name": "bu_fx", 
+            "file_id": 792, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_CharacterSnowman": {
+            "destination_name": "bu_fx", 
+            "file_id": 791, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_CharacterYeti": {
+            "destination_name": "bu_fx", 
+            "file_id": 789, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_Click": {
+            "destination_name": "bu_fx", 
+            "file_id": 836, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_CloseDoor": {
+            "destination_name": "bu_pause", 
+            "file_id": 687, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_ColorOver_3_bitrate320": {
+            "destination_name": "bu_fx", 
+            "file_id": 847, 
+            "type": "AudioSource", 
+            "volume": 0.5
+        }, 
+        "as_FX_FactoryShoot_1": {
+            "destination_name": "bu_fx", 
+            "file_id": 834, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_GiftFlying": {
+            "destination_name": "bu_fx", 
+            "file_id": 466, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_HitIce": {
+            "destination_name": "bu_fx", 
+            "file_id": 467, 
+            "type": "AudioSource", 
+            "volume": 0.7
+        }, 
+        "as_FX_HitWater": {
+            "destination_name": "bu_fx", 
+            "file_id": 465, 
+            "type": "AudioSource", 
+            "volume": 1.2
+        }, 
+        "as_FX_IceCaveTalk_1": {
+            "destination_name": "bu_fx", 
+            "file_id": 822, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_IceCaveTalk_2": {
+            "destination_name": "bu_fx", 
+            "file_id": 821, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_IceCaveTalk_3": {
+            "destination_name": "bu_fx", 
+            "file_id": 820, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_LevelUp_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 585, 
+            "type": "AudioSource", 
+            "volume": 0.3
+        }, 
+        "as_FX_Miss_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 694, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_Miss_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 695, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_OpenDoor_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 692, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_OpenDoor_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 691, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_OpenDoor_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 690, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_Right": {
+            "destination_name": "bu_pause", 
+            "file_id": 688, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_SantaTrainDeparting": {
+            "destination_name": "bu_pause", 
+            "file_id": 724, 
+            "type": "AudioSource", 
+            "volume": 0.5
+        }, 
+        "as_FX_ScoreBig_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 586, 
+            "type": "AudioSource", 
+            "volume": 0.4
+        }, 
+        "as_FX_ScoreRedBoat": {
+            "destination_name": "bu_fx", 
+            "file_id": 463, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_ScoreSmall_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 589, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_ScoreSmall_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 588, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_ScoreSmall_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 587, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_ScoreYellowBoat": {
+            "destination_name": "bu_fx", 
+            "file_id": 464, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_Shoot_1": {
+            "destination_name": "bu_fx", 
+            "file_id": 469, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_Shoot_2": {
+            "destination_name": "bu_fx", 
+            "file_id": 468, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_SwitchBackground_1": {
+            "destination_name": "bu_master", 
+            "file_id": 799, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_SwitchBackground_2": {
+            "destination_name": "bu_master", 
+            "file_id": 798, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_SwitchBackground_3": {
+            "destination_name": "bu_master", 
+            "file_id": 797, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_SwitchCharacter_1": {
+            "destination_name": "bu_master", 
+            "file_id": 801, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_SwitchCharacter_2": {
+            "destination_name": "bu_master", 
+            "file_id": 802, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_SwitchCharacter_3": {
+            "destination_name": "bu_master", 
+            "file_id": 800, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_WorkshopLever_1": {
+            "destination_name": "bu_fx", 
+            "file_id": 829, 
+            "type": "AudioSource", 
+            "volume": 0.5
+        }, 
+        "as_FX_Wrong": {
+            "destination_name": "bu_pause", 
+            "file_id": 689, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_crash_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 729, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_crash_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 730, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_crash_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 731, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_playerDrop_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 696, 
+            "type": "AudioSource", 
+            "volume": 0.5
+        }, 
+        "as_FX_playerScore_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 697, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_playerScore_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 698, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_playerScore_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 699, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_playerScore_racer_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 732, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_playerScore_racer_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 733, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_playerScore_racer_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 734, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_playerStop_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 735, 
+            "type": "AudioSource", 
+            "volume": 0.5
+        }, 
+        "as_FX_santaVoice_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 736, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_santaVoice_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 737, 
+            "type": "AudioSource"
+        }, 
+        "as_FX_santaVoice_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 738, 
+            "type": "AudioSource"
+        }, 
+        "as_GameOver_1_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 608, 
+            "type": "AudioSource"
+        }, 
+        "as_Gumballs_AMB_BallRolling_3500": {
+            "destination_name": "bu_gb_ball", 
+            "file_id": 520, 
+            "loop": true, 
+            "loop_end": 3.5, 
+            "loop_start": 0, 
+            "type": "AudioSource"
+        }, 
+        "as_Gumballs_AMB_FactoryAmbience_4000": {
+            "destination_name": "bu_fx", 
+            "file_id": 515, 
+            "loop": true, 
+            "loop_end": 4, 
+            "loop_start": 0, 
+            "type": "AudioSource"
+        }, 
+        "as_Gumballs_AMB_GearsTurning_5000": {
+            "destination_name": "bu_gb_gears_turning", 
+            "file_id": 762, 
+            "loop": true, 
+            "loop_end": 1.669, 
+            "loop_start": 0, 
+            "type": "AudioSource"
+        }, 
+        "as_Gumballs_FX_BallBounce_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 514, 
+            "type": "AudioSource"
+        }, 
+        "as_Gumballs_FX_BallBounce_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 513, 
+            "type": "AudioSource"
+        }, 
+        "as_Gumballs_FX_BallBounce_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 512, 
+            "type": "AudioSource"
+        }, 
+        "as_Gumballs_FX_BallFallOut": {
+            "destination_name": "bu_pause", 
+            "file_id": 516, 
+            "type": "AudioSource"
+        }, 
+        "as_Gumballs_FX_BallIntoMachine": {
+            "destination_name": "bu_pause", 
+            "file_id": 511, 
+            "type": "AudioSource"
+        }, 
+        "as_Gumballs_FX_BoxTurnSqueek_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 519, 
+            "type": "AudioSource"
+        }, 
+        "as_Gumballs_FX_BoxTurnSqueek_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 518, 
+            "type": "AudioSource"
+        }, 
+        "as_Gumballs_FX_BoxTurnSqueek_4": {
+            "destination_name": "bu_pause", 
+            "file_id": 517, 
+            "type": "AudioSource"
+        }, 
+        "as_Gumballs_FX_NewBallDrop": {
+            "destination_name": "bu_pause", 
+            "file_id": 522, 
+            "type": "AudioSource"
+        }, 
+        "as_HurryUp_1_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 612, 
+            "type": "AudioSource"
+        }, 
+        "as_HurryUp_1_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 611, 
+            "type": "AudioSource"
+        }, 
+        "as_HurryUp_1_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 610, 
+            "type": "AudioSource"
+        }, 
+        "as_HurryUp_1_4": {
+            "destination_name": "bu_pause", 
+            "file_id": 609, 
+            "type": "AudioSource"
+        }, 
+        "as_LoungeA_1_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 628, 
+            "type": "AudioSource"
+        }, 
+        "as_LoungeA_1_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 627, 
+            "type": "AudioSource"
+        }, 
+        "as_LoungeA_1_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 626, 
+            "type": "AudioSource"
+        }, 
+        "as_LoungeA_1_4": {
+            "destination_name": "bu_pause", 
+            "file_id": 625, 
+            "type": "AudioSource"
+        }, 
+        "as_LoungeA_1_5": {
+            "destination_name": "bu_pause", 
+            "file_id": 624, 
+            "type": "AudioSource"
+        }, 
+        "as_LoungeA_1_6": {
+            "destination_name": "bu_pause", 
+            "file_id": 623, 
+            "type": "AudioSource"
+        }, 
+        "as_LoungeA_1_7": {
+            "destination_name": "bu_pause", 
+            "file_id": 622, 
+            "type": "AudioSource"
+        }, 
+        "as_LoungeA_1_8": {
+            "destination_name": "bu_pause", 
+            "file_id": 621, 
+            "type": "AudioSource"
+        }, 
+        "as_LoungeLoop": {
+            "destination_name": "bu_master", 
+            "file_id": 816, 
+            "loop": true, 
+            "loop_end": 49.773, 
+            "loop_start": 0, 
+            "type": "AudioSource"
+        }, 
+        "as_PartA_1_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 660, 
+            "type": "AudioSource"
+        }, 
+        "as_PartA_1_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 659, 
+            "type": "AudioSource"
+        }, 
+        "as_PartA_1_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 658, 
+            "type": "AudioSource"
+        }, 
+        "as_PartA_1_4": {
+            "destination_name": "bu_pause", 
+            "file_id": 657, 
+            "type": "AudioSource"
+        }, 
+        "as_PartA_1_5": {
+            "destination_name": "bu_pause", 
+            "file_id": 656, 
+            "type": "AudioSource"
+        }, 
+        "as_PartA_1_6": {
+            "destination_name": "bu_pause", 
+            "file_id": 655, 
+            "type": "AudioSource"
+        }, 
+        "as_PartA_1_7": {
+            "destination_name": "bu_pause", 
+            "file_id": 654, 
+            "type": "AudioSource"
+        }, 
+        "as_PartA_1_8": {
+            "destination_name": "bu_pause", 
+            "file_id": 653, 
+            "type": "AudioSource"
+        }, 
+        "as_PartB_1_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 652, 
+            "type": "AudioSource"
+        }, 
+        "as_PartB_1_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 651, 
+            "type": "AudioSource"
+        }, 
+        "as_PartB_1_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 650, 
+            "type": "AudioSource"
+        }, 
+        "as_PartB_1_4": {
+            "destination_name": "bu_pause", 
+            "file_id": 649, 
+            "type": "AudioSource"
+        }, 
+        "as_PartB_1_5": {
+            "destination_name": "bu_pause", 
+            "file_id": 648, 
+            "type": "AudioSource"
+        }, 
+        "as_PartB_1_6": {
+            "destination_name": "bu_pause", 
+            "file_id": 647, 
+            "type": "AudioSource"
+        }, 
+        "as_PartB_1_7": {
+            "destination_name": "bu_pause", 
+            "file_id": 646, 
+            "type": "AudioSource"
+        }, 
+        "as_PartB_1_8": {
+            "destination_name": "bu_pause", 
+            "file_id": 645, 
+            "type": "AudioSource"
+        }, 
+        "as_PartC_1_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 644, 
+            "type": "AudioSource"
+        }, 
+        "as_PartC_1_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 643, 
+            "type": "AudioSource"
+        }, 
+        "as_PartC_1_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 642, 
+            "type": "AudioSource"
+        }, 
+        "as_PartC_1_4": {
+            "destination_name": "bu_pause", 
+            "file_id": 641, 
+            "type": "AudioSource"
+        }, 
+        "as_PartC_1_5": {
+            "destination_name": "bu_pause", 
+            "file_id": 640, 
+            "type": "AudioSource"
+        }, 
+        "as_PartC_1_6": {
+            "destination_name": "bu_pause", 
+            "file_id": 639, 
+            "type": "AudioSource"
+        }, 
+        "as_PartC_1_7": {
+            "destination_name": "bu_pause", 
+            "file_id": 638, 
+            "type": "AudioSource"
+        }, 
+        "as_PartC_1_8": {
+            "destination_name": "bu_pause", 
+            "file_id": 637, 
+            "type": "AudioSource"
+        }, 
+        "as_PartD_1_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 636, 
+            "type": "AudioSource"
+        }, 
+        "as_PartD_1_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 635, 
+            "type": "AudioSource"
+        }, 
+        "as_PartD_1_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 634, 
+            "type": "AudioSource"
+        }, 
+        "as_PartD_1_4": {
+            "destination_name": "bu_pause", 
+            "file_id": 633, 
+            "type": "AudioSource"
+        }, 
+        "as_PartD_1_5": {
+            "destination_name": "bu_pause", 
+            "file_id": 632, 
+            "type": "AudioSource"
+        }, 
+        "as_PartD_1_6": {
+            "destination_name": "bu_pause", 
+            "file_id": 631, 
+            "type": "AudioSource"
+        }, 
+        "as_PartD_1_7": {
+            "destination_name": "bu_pause", 
+            "file_id": 630, 
+            "type": "AudioSource"
+        }, 
+        "as_PartD_1_8": {
+            "destination_name": "bu_pause", 
+            "file_id": 629, 
+            "type": "AudioSource"
+        }, 
+        "as_Snowman_1": {
+            "destination_name": "bu_pause", 
+            "file_id": 748, 
+            "type": "AudioSource"
+        }, 
+        "as_Snowman_2": {
+            "destination_name": "bu_pause", 
+            "file_id": 749, 
+            "type": "AudioSource"
+        }, 
+        "as_Snowman_3": {
+            "destination_name": "bu_pause", 
+            "file_id": 750, 
+            "type": "AudioSource"
+        }, 
+        "as_Snowman_4": {
+            "destination_name": "bu_pause", 
+            "file_id": 751, 
+            "type": "AudioSource"
+        }, 
+        "as_Snowman_5": {
+            "destination_name": "bu_pause", 
+            "file_id": 752, 
+            "type": "AudioSource"
+        }, 
+        "as_UltraLoungeLoop": {
+            "destination_name": "bu_master", 
+            "file_id": 817, 
+            "loop": true, 
+            "loop_end": 33.75, 
+            "loop_start": 0, 
+            "type": "AudioSource"
+        }, 
+        "as_UltraLoungeTransition_1_1": {
+            "destination_name": "bu_music", 
+            "file_id": 787, 
+            "type": "AudioSource"
+        }, 
+        "as_UltraLounge_1_1": {
+            "destination_name": "bu_ultralounge", 
+            "file_id": 769, 
+            "type": "AudioSource"
+        }, 
+        "as_UltraLounge_1_2": {
+            "destination_name": "bu_ultralounge", 
+            "file_id": 768, 
+            "type": "AudioSource"
+        }, 
+        "as_UltraLounge_1_3": {
+            "destination_name": "bu_ultralounge", 
+            "file_id": 770, 
+            "type": "AudioSource"
+        }, 
+        "as_UltraLounge_1_4": {
+            "destination_name": "bu_ultralounge", 
+            "file_id": 767, 
+            "type": "AudioSource"
+        }, 
+        "as_UltraLounge_1_5": {
+            "destination_name": "bu_ultralounge", 
+            "file_id": 766, 
+            "type": "AudioSource"
+        }, 
+        "as_UltraLounge_1_6": {
+            "destination_name": "bu_ultralounge", 
+            "file_id": 765, 
+            "type": "AudioSource"
+        }, 
+        "as_UltraLounge_1_7": {
+            "destination_name": "bu_ultralounge", 
+            "file_id": 764, 
+            "type": "AudioSource"
+        }, 
+        "as_UltraLounge_1_8": {
+            "destination_name": "bu_ultralounge", 
+            "file_id": 763, 
+            "type": "AudioSource"
+        }, 
+        "as_VIllage_AMB_Birds_11493": {
+            "destination_name": "bu_village", 
+            "file_id": 776, 
+            "loop": true, 
+            "loop_end": 11.493, 
+            "type": "AudioSource"
+        }, 
+        "as_Village_Bird_1": {
+            "destination_name": "bu_village", 
+            "file_id": 772, 
+            "type": "AudioSource"
+        }, 
+        "as_Village_Bus_driveby": {
+            "destination_name": "bu_village", 
+            "file_id": 780, 
+            "type": "AudioSource", 
+            "volume": 0.5
+        }, 
+        "as_Village_Elf_1": {
+            "destination_name": "bu_village", 
+            "file_id": 778, 
+            "type": "AudioSource"
+        }, 
+        "as_Village_Elf_2": {
+            "destination_name": "bu_village", 
+            "file_id": 777, 
+            "type": "AudioSource"
+        }, 
+        "as_Village_Footsteps_1": {
+            "destination_name": "bu_village", 
+            "file_id": 782, 
+            "type": "AudioSource", 
+            "volume": 0.5
+        }, 
+        "as_Village_Footsteps_2": {
+            "destination_name": "bu_village", 
+            "file_id": 781, 
+            "type": "AudioSource", 
+            "volume": 0.5
+        }, 
+        "as_Village_HotAirBalloon": {
+            "destination_name": "bu_pause", 
+            "file_id": 775, 
+            "type": "AudioSource", 
+            "volume": 0.8
+        }, 
+        "as_Village_Laughter_1": {
+            "destination_name": "bu_village", 
+            "file_id": 785, 
+            "type": "AudioSource"
+        }, 
+        "as_Village_Laughter_2": {
+            "destination_name": "bu_village", 
+            "file_id": 784, 
+            "type": "AudioSource"
+        }, 
+        "as_Village_Laughter_3": {
+            "destination_name": "bu_village", 
+            "file_id": 783, 
+            "type": "AudioSource"
+        }, 
+        "as_Village_PlaneFlyBy": {
+            "destination_name": "bu_village", 
+            "file_id": 773, 
+            "type": "AudioSource", 
+            "volume": 0.5
+        }, 
+        "as_Village_Rollercoaster": {
+            "destination_name": "bu_village", 
+            "file_id": 779, 
+            "type": "AudioSource", 
+            "volume": 0.5
+        }, 
+        "as_Village_Snowmobile": {
+            "destination_name": "bu_village", 
+            "file_id": 774, 
+            "type": "AudioSource"
+        }, 
+        "as_Village_pin_jump": {
+            "destination_name": "bu_village", 
+            "file_id": 786, 
+            "type": "AudioSource"
+        }, 
+        "as_santa_generic_click": {
+            "destination_name": "bu_fx", 
+            "file_id": 842, 
+            "type": "AudioSource", 
+            "volume": 0.5
+        }, 
+        "as_santa_music_loop": {
+            "destination_name": "bu_master", 
+            "file_id": 814, 
+            "loop": true, 
+            "loop_end": 48, 
+            "loop_start": 0, 
+            "type": "AudioSource"
+        }, 
+        "as_snowman_falling": {
+            "destination_name": "bu_fx", 
+            "file_id": 841, 
+            "type": "AudioSource"
+        }, 
+        "as_transition_close": {
+            "destination_name": "bu_pause", 
+            "file_id": 726, 
+            "type": "AudioSource"
+        }, 
+        "as_transition_open": {
+            "destination_name": "bu_pause", 
+            "file_id": 843, 
+            "type": "AudioSource"
+        }, 
+        "pt_fallback_GameOver": {
+            "beat_subscription": 0.25, 
+            "content": [
+                {
+                    "audio": "as_GameOver_1_1", 
+                    "step": 0
+                }
+            ], 
+            "destination_name": "bu_music", 
+            "length": 4, 
+            "loop": false, 
+            "sequencer": "sq_sequencer1", 
+            "tail": true, 
+            "type": "Pattern"
+        }, 
+        "pt_fallback_HurryUp": {
+            "beat_subscription": 0.25, 
+            "content": [
+                {
+                    "audio": "as_HurryUp_1_1", 
+                    "step": 0
+                }, 
+                {
+                    "audio": "as_HurryUp_1_2", 
+                    "step": 4
+                }, 
+                {
+                    "audio": "as_HurryUp_1_3", 
+                    "step": 8
+                }, 
+                {
+                    "audio": "as_HurryUp_1_4", 
+                    "step": 12
+                }
+            ], 
+            "destination_name": "bu_music", 
+            "length": 16, 
+            "loop": true, 
+            "sequencer": "sq_sequencer1", 
+            "tail": true, 
+            "type": "Pattern"
+        }, 
+        "pt_fallback_Lounge": {
+            "beat_subscription": 0.25, 
+            "content": [
+                {
+                    "audio": "as_LoungeA_1_1", 
+                    "step": 0
+                }, 
+                {
+                    "audio": "as_LoungeA_1_2", 
+                    "step": 4
+                }, 
+                {
+                    "audio": "as_LoungeA_1_3", 
+                    "step": 8
+                }, 
+                {
+                    "audio": "as_LoungeA_1_4", 
+                    "step": 12
+                }, 
+                {
+                    "audio": "as_LoungeA_1_5", 
+                    "step": 16
+                }, 
+                {
+                    "audio": "as_LoungeA_1_6", 
+                    "step": 20
+                }, 
+                {
+                    "audio": "as_LoungeA_1_7", 
+                    "step": 24
+                }, 
+                {
+                    "audio": "as_LoungeA_1_8", 
+                    "step": 28
+                }
+            ], 
+            "destination_name": "bu_lounge", 
+            "length": 32, 
+            "loop": true, 
+            "sequencer": "sq_sequencer1", 
+            "tail": true, 
+            "type": "Pattern"
+        }, 
+        "pt_fallback_Parts": {
+            "beat_subscription": 0.25, 
+            "content": [
+                {
+                    "audio": "as_PartA_1_1", 
+                    "step": 0
+                }, 
+                {
+                    "audio": "as_PartA_1_2", 
+                    "step": 4
+                }, 
+                {
+                    "audio": "as_PartA_1_3", 
+                    "step": 8
+                }, 
+                {
+                    "audio": "as_PartA_1_4", 
+                    "step": 12
+                }, 
+                {
+                    "audio": "as_PartA_1_5", 
+                    "step": 16
+                }, 
+                {
+                    "audio": "as_PartA_1_6", 
+                    "step": 20
+                }, 
+                {
+                    "audio": "as_PartA_1_7", 
+                    "step": 24
+                }, 
+                {
+                    "audio": "as_PartA_1_8", 
+                    "step": 28
+                }, 
+                {
+                    "audio": "as_PartB_1_1", 
+                    "step": 32
+                }, 
+                {
+                    "audio": "as_PartB_1_2", 
+                    "step": 36
+                }, 
+                {
+                    "audio": "as_PartB_1_3", 
+                    "step": 40
+                }, 
+                {
+                    "audio": "as_PartB_1_4", 
+                    "step": 44
+                }, 
+                {
+                    "audio": "as_PartB_1_5", 
+                    "step": 48
+                }, 
+                {
+                    "audio": "as_PartB_1_6", 
+                    "step": 52
+                }, 
+                {
+                    "audio": "as_PartB_1_7", 
+                    "step": 56
+                }, 
+                {
+                    "audio": "as_PartB_1_8", 
+                    "step": 60
+                }, 
+                {
+                    "audio": "as_PartC_1_1", 
+                    "step": 64
+                }, 
+                {
+                    "audio": "as_PartC_1_2", 
+                    "step": 68
+                }, 
+                {
+                    "audio": "as_PartC_1_3", 
+                    "step": 72
+                }, 
+                {
+                    "audio": "as_PartC_1_4", 
+                    "step": 76
+                }, 
+                {
+                    "audio": "as_PartC_1_5", 
+                    "step": 80
+                }, 
+                {
+                    "audio": "as_PartC_1_6", 
+                    "step": 84
+                }, 
+                {
+                    "audio": "as_PartC_1_7", 
+                    "step": 88
+                }, 
+                {
+                    "audio": "as_PartC_1_8", 
+                    "step": 92
+                }, 
+                {
+                    "audio": "as_PartD_1_1", 
+                    "step": 96
+                }, 
+                {
+                    "audio": "as_PartD_1_2", 
+                    "step": 100
+                }, 
+                {
+                    "audio": "as_PartD_1_3", 
+                    "step": 104
+                }, 
+                {
+                    "audio": "as_PartD_1_4", 
+                    "step": 108
+                }, 
+                {
+                    "audio": "as_PartD_1_5", 
+                    "step": 112
+                }, 
+                {
+                    "audio": "as_PartD_1_6", 
+                    "step": 116
+                }, 
+                {
+                    "audio": "as_PartD_1_7", 
+                    "step": 120
+                }, 
+                {
+                    "audio": "as_PartD_1_8", 
+                    "step": 124
+                }
+            ], 
+            "destination_name": "bu_music", 
+            "length": 128, 
+            "loop": true, 
+            "sequencer": "sq_sequencer1", 
+            "tail": true, 
+            "type": "Pattern"
+        }, 
+        "pt_ultralounge": {
+            "beat_subscription": 0.25, 
+            "content": [
+                {
+                    "audio": "as_UltraLounge_1_1", 
+                    "step": 0
+                }, 
+                {
+                    "audio": "as_UltraLounge_1_2", 
+                    "step": 4
+                }, 
+                {
+                    "audio": "as_UltraLounge_1_3", 
+                    "step": 8
+                }, 
+                {
+                    "audio": "as_UltraLounge_1_4", 
+                    "step": 12
+                }, 
+                {
+                    "audio": "as_UltraLounge_1_5", 
+                    "step": 16
+                }, 
+                {
+                    "audio": "as_UltraLounge_1_6", 
+                    "step": 20
+                }, 
+                {
+                    "audio": "as_UltraLounge_1_7", 
+                    "step": 24
+                }, 
+                {
+                    "audio": "as_UltraLounge_1_8", 
+                    "step": 28
+                }
+            ], 
+            "destination_name": "bu_ultralounge", 
+            "length": 32, 
+            "loop": true, 
+            "sequencer": "sq_sequencer1", 
+            "tail": true, 
+            "type": "Pattern"
+        }, 
+        "pt_ultraloungetransition": {
+            "beat_subscription": 0.25, 
+            "content": [
+                {
+                    "audio": "as_UltraLoungeTransition_1_1", 
+                    "step": 0
+                }
+            ], 
+            "destination_name": "bu_music", 
+            "length": 4, 
+            "loop": false, 
+            "sequencer": "sq_sequencer1", 
+            "tail": true, 
+            "type": "Pattern"
+        }
+    }, 
+    "busses": {
+        "bu_focus": {
+            "destination_name": "bu_master", 
+            "effects": [], 
+            "input_vol": 1, 
+            "output_vol": 1, 
+            "type": "Bus"
+        }, 
+        "bu_fx": {
+            "destination_name": "bu_pause", 
+            "effects": [], 
+            "input_vol": 1, 
+            "output_vol": 1, 
+            "type": "Bus"
+        }, 
+        "bu_gb_ball": {
+            "destination_name": "bu_pause", 
+            "effects": [], 
+            "input_vol": 1, 
+            "output_vol": 0, 
+            "type": "Bus"
+        }, 
+        "bu_gb_gears_turning": {
+            "destination_name": "bu_pause", 
+            "effects": [], 
+            "input_vol": 1, 
+            "output_vol": 3, 
+            "type": "Bus"
+        }, 
+        "bu_instruments": {
+            "destination_name": "bu_pause", 
+            "effects": [], 
+            "input_vol": 1, 
+            "output_vol": 1, 
+            "type": "Bus"
+        }, 
+        "bu_jetpack": {
+            "destination_name": "bu_pause", 
+            "effects": [
+                {
+                    "pan": 0, 
+                    "type": "StereoPanner"
+                }
+            ], 
+            "input_vol": 1, 
+            "output_vol": 0.5, 
+            "type": "Bus"
+        }, 
+        "bu_lounge": {
+            "destination_name": "bu_pause", 
+            "effects": [], 
+            "input_vol": 1, 
+            "output_vol": 1, 
+            "type": "Bus"
+        }, 
+        "bu_master": {
+            "destination_name": "$OUT", 
+            "effects": [
+                {
+                    "Q": 0, 
+                    "filter_type": 0, 
+                    "frequency": 22050, 
+                    "gain": 0, 
+                    "type": "BiquadFilter"
+                }
+            ], 
+            "input_vol": 1, 
+            "output_vol": 1, 
+            "type": "Bus"
+        }, 
+        "bu_mel": {
+            "destination_name": "bu_pause", 
+            "effects": [], 
+            "input_vol": 1, 
+            "output_vol": 1, 
+            "type": "Bus"
+        }, 
+        "bu_music": {
+            "destination_name": "bu_pause", 
+            "effects": [], 
+            "input_vol": 1, 
+            "output_vol": 1, 
+            "type": "Bus"
+        }, 
+        "bu_pause": {
+            "destination_name": "bu_video", 
+            "effects": [], 
+            "input_vol": 1, 
+            "output_vol": 1, 
+            "type": "Bus"
+        }, 
+        "bu_pd_slide": {
+            "destination_name": "bu_pause", 
+            "effects": [
+                {
+                    "pan": 0, 
+                    "type": "StereoPanner"
+                }
+            ], 
+            "input_vol": 1, 
+            "output_vol": 0.7, 
+            "type": "Bus"
+        }, 
+        "bu_rc_ride": {
+            "destination_name": "bu_pause", 
+            "effects": [], 
+            "input_vol": 1, 
+            "output_vol": 0, 
+            "type": "Bus"
+        }, 
+        "bu_ultralounge": {
+            "destination_name": "bu_pause", 
+            "effects": [], 
+            "input_vol": 1, 
+            "output_vol": 1, 
+            "type": "Bus"
+        }, 
+        "bu_video": {
+            "destination_name": "bu_focus", 
+            "effects": [], 
+            "input_vol": 1, 
+            "output_vol": 1, 
+            "type": "Bus"
+        }, 
+        "bu_village": {
+            "destination_name": "bu_pause", 
+            "effects": [
+                {
+                    "pan": 0, 
+                    "type": "StereoPanner"
+                }
+            ], 
+            "input_vol": 1.3, 
+            "output_vol": 1, 
+            "type": "Bus"
+        }
+    }, 
+    "events": {
+        "airport_end": [
+            "p_airport_end"
+        ], 
+        "airport_load_sounds": [
+            "p_airport_load_sounds", 
+            "p_village_stop"
+        ], 
+        "airport_start": [
+            "p_sc_airport_start", 
+            "p_music_samples_lounge"
+        ], 
+        "bl_end_game": [
+            "p_rope_stretch_stop", 
+            "p_bl_boat_stop"
+        ], 
+        "bl_game_end": [
+            "p_rope_stretch_stop", 
+            "p_bl_boat_stop"
+        ], 
+        "bl_game_start": "p_bl_game_start", 
+        "bl_game_stop": "p_bl_game_over", 
+        "bl_hit_ice": "p_hit_ice", 
+        "bl_hit_water": "p_hit_water", 
+        "bl_level_up": "p_bl_level_up", 
+        "bl_load_sounds": [
+            "p_bl_load_sounds", 
+            "p_village_stop"
+        ], 
+        "bl_rope_stretch": "p_rope_stretch", 
+        "bl_score_red": "p_score_red", 
+        "bl_score_yellow": "p_score_yellow", 
+        "bl_shoot": "p_Shoot", 
+        "blimp_end": "p_blimp_end", 
+        "blimp_load_sounds": "p_blimp_load_sounds", 
+        "blimp_start": [
+            "p_blimp_start", 
+            "p_music_samples_lounge"
+        ], 
+        "briefing_change_slide": "p_briefing_change_slide", 
+        "briefing_elevator_close": "p_briefing_elevator_close", 
+        "briefing_elevator_open": "p_briefing_elevator_open", 
+        "briefing_load_sounds": "p_briefing_load_sounds", 
+        "briefing_start": "p_music_samples_lounge", 
+        "cafeteria_end": "p_cafeteria_end", 
+        "cafeteria_load_sounds": "p_cafeteria_load_sounds", 
+        "cafeteria_start": [
+            "p_cafeteria_start", 
+            "p_music_samples_lounge"
+        ], 
+        "callfromsanta_load_sounds": [
+            "p_callfromsanta_load_sounds", 
+            "p_village_stop"
+        ], 
+        "command_end": [
+            "p_command_end"
+        ], 
+        "command_load_sounds": [
+            "p_command_load_sounds", 
+            "p_village_stop"
+        ], 
+        "command_start": [
+            "p_command_start", 
+            "p_music_samples_lounge"
+        ], 
+        "factory_end": "p_factory_end", 
+        "factory_load_sounds": [
+            "p_factory_load_sounds", 
+            "p_village_stop"
+        ], 
+        "factory_shootball": "p_factory_shootball", 
+        "factory_start": [
+            "p_factory_start", 
+            "p_music_samples_lounge"
+        ], 
+        "ferris_end": [
+            "p_ferris_end"
+        ], 
+        "ferris_load_sounds": [
+            "p_ferris_load_sounds", 
+            "p_village_stop"
+        ], 
+        "ferris_start": [
+            "p_ferris_start", 
+            "p_music_samples_lounge"
+        ], 
+        "game_hurry_up": "p_music_samples_hurry_up", 
+        "game_hurry_up_end": "p_music_samples_normal_start", 
+        "gb_ball_bounce": "p_gb_ball_bounce", 
+        "gb_ball_into_machine": "p_gb_ball_into_machine", 
+        "gb_ball_rolling": "p_gb_ball_rolling", 
+        "gb_ballfallout": "p_gb_ballfallout", 
+        "gb_box_turn_squeek": "p_gb_box_turn_squeek", 
+        "gb_box_turn_start": "p_gb_box_turn_start", 
+        "gb_box_turn_stop": "p_gb_box_turn_stop", 
+        "gb_end_game": "p_gb_end_game", 
+        "gb_factory_amb": "p_gb_factory_amb", 
+        "gb_game_over": "p_gb_game_over", 
+        "gb_game_pause": "p_placeholder", 
+        "gb_game_start": "p_gb_game_start", 
+        "gb_game_unpause": "p_placeholder", 
+        "gb_hurry_up": "p_gb_hurry_up", 
+        "gb_hurry_up_end": "p_gb_hurry_up_end", 
+        "gb_level_up": "p_gb_level_up", 
+        "gb_load_sounds": [
+            "p_gb_load_sounds", 
+            "p_village_stop"
+        ], 
+        "gb_new_ball": "p_gb_new_ball", 
+        "generic_button_click": "p_generic_button_click", 
+        "generic_button_over": "p_generic_button_over", 
+        "global_blur": "p_blur", 
+        "global_focus": "p_focus", 
+        "global_pause": "p_game_pause", 
+        "global_sound_off": "p_global_sound_off", 
+        "global_sound_on": "p_global_sound_on", 
+        "global_unpause": "p_game_unpause", 
+        "icecave_end": "p_icecave_end", 
+        "icecave_load_sounds": "p_icecave_load_sounds", 
+        "icecave_start": [
+            "p_icecave_start", 
+            "p_music_samples_lounge"
+        ], 
+        "ios_hack": "p_ios_hack", 
+        "jp_back_to_screen": "p_jp_back_to_screen", 
+        "jp_end_game": [
+            "p_jp_game_end"
+        ], 
+        "jp_game_over": "p_jp_game_over", 
+        "jp_game_pause": "p_game_pause", 
+        "jp_game_unpause": "p_game_unpause", 
+        "jp_hurry_up": "p_jp_hurry_up", 
+        "jp_hurry_up_end": "p_jp_hurry_up_end", 
+        "jp_load_sounds": [
+            "p_jp_load_sounds", 
+            "p_village_stop"
+        ], 
+        "jp_out_of_screen": "p_jp_out_of_screen", 
+        "jp_pickup_item": "p_jp_pickup_item", 
+        "jp_pickup_parachute_item": "p_jp_pickup_parachute_item", 
+        "jp_player_level_up": "p_jp_level_up", 
+        "jp_player_moving": "p_jp_player_moving", 
+        "jp_player_position": "p_jp_player_position", 
+        "jp_start_game": "p_jp_start_game", 
+        "level_transition_close": "p_level_transition_close", 
+        "level_transition_open": "p_level_transition_open", 
+        "load_music": "p_load_music", 
+        "m_door_close": "p_m_door_close", 
+        "m_door_open": "p_m_door_open", 
+        "m_end_game": "p_m_end_game", 
+        "m_game_hurryup": "p_m_game_hurryup", 
+        "m_game_over": "p_m_game_over", 
+        "m_game_pause": "p_placeholder", 
+        "m_game_start": "p_m_game_start", 
+        "m_game_unpause": "p_placeholder", 
+        "m_level_up": "p_m_level_up", 
+        "m_load_sounds": [
+            "p_m_load_sounds", 
+            "p_village_stop"
+        ], 
+        "m_match": "p_m_match", 
+        "m_mismatch": "p_m_mismatch", 
+        "menu_close": "p_muffled_off", 
+        "menu_open": [
+            "p_muffled_on"
+        ], 
+        "mountain_end": [
+            "p_mountain_end"
+        ], 
+        "mountain_load_sounds": [
+            "p_mountain_load_sounds", 
+            "p_village_stop"
+        ], 
+        "mountain_start": [
+            "p_mountain_start", 
+            "p_music_samples_lounge"
+        ], 
+        "music_game_over": "p_music_samples_game_over", 
+        "music_hurry_up": "p_music_samples_hurry_up", 
+        "music_samples_game_over": "p_music_samples_game_over", 
+        "music_samples_hurry_up": "p_music_samples_hurry_up", 
+        "music_samples_normal_start": "p_music_samples_normal_start", 
+        "music_samples_start": "p_music_samples_start", 
+        "pd_end_game": "p_pd_end_game", 
+        "pd_game_over": "p_pd_game_over", 
+        "pd_game_pause": "p_placeholder", 
+        "pd_game_unpause": "p_placeholder", 
+        "pd_item_drop": "p_pd_item_drop", 
+        "pd_item_miss": "p_pd_item_miss", 
+        "pd_landing_page": "p_placeholder", 
+        "pd_load_sounds": [
+            "p_pd_load_sounds", 
+            "p_village_stop"
+        ], 
+        "pd_player_crash": "p_placeholder", 
+        "pd_player_level_up": "p_pd_player_level_up", 
+        "pd_player_present_pickup": "p_pd_player_present_pickup", 
+        "pd_pull_start": "p_pd_pull_start", 
+        "pd_pull_stop": "p_pd_pull_stop", 
+        "pd_sled_position": "p_pd_sled_position", 
+        "pd_start_game": "p_music_samples_start", 
+        "playground_end": [
+            "p_playground_end"
+        ], 
+        "playground_load_sounds": [
+            "p_playground_load_sounds", 
+            "p_village_stop"
+        ], 
+        "playground_start": [
+            "p_playground_start", 
+            "p_music_samples_lounge"
+        ], 
+        "rc_end_game": [
+            "p_rc_player_ride_stop", 
+            "p_rc_sled_stop"
+        ], 
+        "rc_game_over": "p_rc_game_over", 
+        "rc_game_paused": "p_placeholder", 
+        "rc_game_unpaused": "p_placeholder", 
+        "rc_landing_page": "p_rc_landing_page", 
+        "rc_load_sounds": [
+            "p_rc_load_sounds", 
+            "p_village_stop"
+        ], 
+        "rc_player_crash": "p_rc_player_crash", 
+        "rc_player_level_up": "p_rc_player_level_up", 
+        "rc_player_present_pickup": "p_rc_player_present_pickup", 
+        "rc_player_ride_start": "p_rc_player_ride_start", 
+        "rc_player_ride_stop": "p_rc_player_ride_stop", 
+        "rc_sled_speed": "p_rc_sled_speed", 
+        "rc_start_game": "p_music_samples_start", 
+        "rollercoaster_end": [
+            "p_rollercoaster_end"
+        ], 
+        "rollercoaster_load_sounds": [
+            "p_rollercoaster_load_sounds", 
+            "p_village_stop"
+        ], 
+        "rollercoaster_start": [
+            "p_rollercoaster_start", 
+            "p_music_samples_lounge"
+        ], 
+        "sm_change_bg": "p_sm_change_bg", 
+        "sm_change_fg": "p_sm_change_fg", 
+        "sm_end": [
+            "p_sm_end"
+        ], 
+        "sm_load_sounds": [
+            "p_sm_load_sounds", 
+            "p_village_stop"
+        ], 
+        "sm_start": [
+            "p_sm_start", 
+            "p_music_samples_lounge"
+        ], 
+        "snowdome_load_sounds": "p_sm_load_sounds", 
+        "sound_off": "p_global_sound_off", 
+        "sound_on": "p_global_sound_on", 
+        "start_music": "p_start", 
+        "stop_music": "p_stop_music", 
+        "streetview_end": [
+            "p_village_stop", 
+            "p_streetview_end"
+        ], 
+        "streetview_load_sounds": "p_streetview_load_sounds", 
+        "streetview_start": [
+            "p_village_start", 
+            "p_music_samples_lounge", 
+            "p_streetview_start"
+        ], 
+        "undersea_end": "p_undersea_end", 
+        "undersea_load_sounds": "p_undersea_load_sounds", 
+        "undersea_start": [
+            "p_undersea_start", 
+            "p_music_samples_lounge"
+        ], 
+        "videoplayer_end": "p_videoplayer_stop", 
+        "videoplayer_start": "p_videoplayer_start", 
+        "videoplayer_stop": "p_videoplayer_stop", 
+        "village_balloon_click": "p_village_balloon_click", 
+        "village_end": [
+            "p_village_stop"
+        ], 
+        "village_load_sounds": "p_village_load_sounds", 
+        "village_pin_jump": "p_village_pin_jump", 
+        "village_snowman_click": "p_village_snowman_click", 
+        "village_start": [
+            "p_village_start", 
+            "p_music_ultralounge"
+        ], 
+        "windtunnel_end": "p_windtunnel_end", 
+        "windtunnel_load_sounds": "p_windtunnel_load_sounds", 
+        "windtunnel_start": [
+            "p_windtunnel_start", 
+            "p_music_samples_lounge"
+        ], 
+        "workshop_belt_start": [
+            "p_workshop_belt_start", 
+            "p_music_samples_lounge"
+        ], 
+        "workshop_belt_stop": "p_workshop_belt_stop", 
+        "workshop_end": "p_workshop_belt_stop", 
+        "workshop_load_sounds": "p_workshop_load_sounds", 
+        "workshop_start": "p_music_samples_lounge"
+    }, 
+    "files": [
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 463, 
+            "load_group": "boatload", 
+            "name": "FX_ScoreRedBoat.wav", 
+            "url": "463_9375955a35087411a26816073a29e057_FX_ScoreRedBoat"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 464, 
+            "load_group": "boatload", 
+            "name": "FX_ScoreYellowBoat.wav", 
+            "url": "464_56a262e9152f25ec1604f63861c64ccd_FX_ScoreYellowBoat"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 465, 
+            "load_group": "boatload", 
+            "name": "FX_HitWater.wav", 
+            "url": "465_b5ebb2046336ea5f79728daf078ba184_FX_HitWater"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 466, 
+            "load_group": "boatload", 
+            "name": "FX_GiftFlying.wav", 
+            "url": "466_515a5b47c1527ccf8d49bb0d8e320ed2_FX_GiftFlying"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 467, 
+            "load_group": "boatload", 
+            "name": "FX_HitIce.wav", 
+            "url": "467_5d0c672c92c063384a8abb41acc2c57f_FX_HitIce"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 468, 
+            "load_group": "boatload", 
+            "name": "FX_Shoot_2.wav", 
+            "url": "468_702e2915c09d3a9f303b1ededbc47ee6_FX_Shoot_2"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 469, 
+            "load_group": "boatload", 
+            "name": "FX_Shoot_1.wav", 
+            "url": "469_3d340d57285ea6be59ebd5dac7985bae_FX_Shoot_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 470, 
+            "load_group": "boatload", 
+            "name": "AMB_RopeStretch_3250.wav", 
+            "url": "470_f91d854d113ee842ee440561e909483c_AMB_RopeStretch_3250"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 471, 
+            "load_group": "boatload", 
+            "name": "AMB_BoatAmbience_3989.wav", 
+            "url": "471_1be7b4ab2c02dbfe7e6ffd8b404f9420_AMB_BoatAmbience_3989"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 511, 
+            "load_group": "gumball", 
+            "name": "Gumballs_FX_BallIntoMachine", 
+            "url": "511_886e736df33e2d53a702dc3e10f1f142_Gumballs_FX_BallIntoMachine"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 512, 
+            "load_group": "gumball", 
+            "name": "Gumballs_FX_BallBounce_3", 
+            "url": "512_d4a68b3f895680cf4b1f0eb563965782_Gumballs_FX_BallBounce_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 513, 
+            "load_group": "gumball", 
+            "name": "Gumballs_FX_BallBounce_2", 
+            "url": "513_cd1f0268d332ad460dbf87601a516844_Gumballs_FX_BallBounce_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 514, 
+            "load_group": "gumball", 
+            "name": "Gumballs_FX_BallBounce_1", 
+            "url": "514_8d108e27e0c45c2e98e09d4e78dd67f5_Gumballs_FX_BallBounce_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 515, 
+            "load_group": "gumball", 
+            "name": "Gumballs_AMB_FactoryAmbience_4000", 
+            "url": "515_95ead0b7ae68d54ebe8eb1b21847c199_Gumballs_AMB_FactoryAmbience_4000"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 516, 
+            "load_group": "gumball", 
+            "name": "Gumballs_FX_BallFallOut", 
+            "url": "516_a576c1996de4ec26306f231626c50dd5_Gumballs_FX_BallFallOut"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 517, 
+            "load_group": "gumball", 
+            "name": "Gumballs_FX_BoxTurnSqueek_4", 
+            "url": "517_6ebc2fdc7bf34574f31a2ce1456ab874_Gumballs_FX_BoxTurnSqueek_4"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 518, 
+            "load_group": "gumball", 
+            "name": "Gumballs_FX_BoxTurnSqueek_3", 
+            "url": "518_d9dbb55be5f223dfe399d755c62e3154_Gumballs_FX_BoxTurnSqueek_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 519, 
+            "load_group": "gumball", 
+            "name": "Gumballs_FX_BoxTurnSqueek_2", 
+            "url": "519_d914ce81b02dd6b31f9709d10f31c384_Gumballs_FX_BoxTurnSqueek_2"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 520, 
+            "load_group": "gumball", 
+            "name": "Gumballs_AMB_BallRolling_3500", 
+            "url": "520_8638dc8561fcf013b890889b7f2857f6_Gumballs_AMB_BallRolling_3500"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 762, 
+            "load_group": "gumball", 
+            "name": "AMB_GearsTurning_1669.wav", 
+            "url": "762_46578d08adbf14e5e6c6fd8b736c56a4_AMB_GearsTurning_1669"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 522, 
+            "load_group": "gumball", 
+            "name": "Gumballs_FX_NewBallDrop", 
+            "url": "522_c9ac6db70eda9f0d086907c6b3f9ca30_Gumballs_FX_NewBallDrop"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 583, 
+            "load_group": "jetpack", 
+            "name": "FX_BounceOut_1", 
+            "url": "583_e85dacb5c2b3c09c8cf956fd9882fe0a_FX_BounceOut_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 584, 
+            "load_group": "jetpack", 
+            "name": "FX_BounceIn_1", 
+            "url": "584_49525e43ecf09919b56225926df8d998_FX_BounceIn_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 585, 
+            "load_group": "generic", 
+            "name": "FX_LevelUp_1", 
+            "url": "585_77cb677bd941778c53702baed0568512_FX_LevelUp_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 586, 
+            "load_group": "generic", 
+            "name": "FX_ScoreBig_1", 
+            "url": "586_899eddff58c2184e6c930f87d5d70156_FX_ScoreBig_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 587, 
+            "load_group": "generic", 
+            "name": "FX_ScoreSmall_3", 
+            "url": "587_f18ef156665f623636386471d7ec8861_FX_ScoreSmall_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 588, 
+            "load_group": "generic", 
+            "name": "FX_ScoreSmall_2", 
+            "url": "588_8de3e32d4f31672bc9d979c5fc9fb190_FX_ScoreSmall_2"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 589, 
+            "load_group": "generic", 
+            "name": "FX_ScoreSmall_1", 
+            "url": "589_01e57393e1a2e3593aac88930a17f4cf_FX_ScoreSmall_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 590, 
+            "load_group": "jetpack", 
+            "name": "AMB_Jetpack_5000", 
+            "url": "590_da0e09a1d35dd4b1b40c461c543d2c82_AMB_Jetpack_5000"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 591, 
+            "load_group": "jetpack", 
+            "name": "AMB_Wind_5000", 
+            "url": "591_0509acb61588745cc3d405e4cbf11434_AMB_Wind_5000"
+        }, 
+        {
+            "audio_tag": 1, 
+            "file_type": "audio", 
+            "id": 608, 
+            "load_group": "music", 
+            "name": "GameOver_1_1", 
+            "url": "608_8b9abec52dcc05ad4dda1967891546a1_GameOver_1_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 609, 
+            "load_group": "music", 
+            "name": "HurryUp_1_4", 
+            "url": "609_7cec5a23e02d0b4c76fac9f002b2c579_HurryUp_1_4"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 610, 
+            "load_group": "music", 
+            "name": "HurryUp_1_3", 
+            "url": "610_9a43e2fb9a73f390e898c2b0ab395fc3_HurryUp_1_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 611, 
+            "load_group": "music", 
+            "name": "HurryUp_1_2", 
+            "url": "611_d3d6363913b70d8adf7c679e50b2efc2_HurryUp_1_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 612, 
+            "load_group": "music", 
+            "name": "HurryUp_1_1", 
+            "url": "612_060b3d608854d0829d33a2d2861df804_HurryUp_1_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 621, 
+            "load_group": "lounge", 
+            "name": "LoungeA_1_8", 
+            "url": "621_8d2e249f6f447ee34c309864742a6cfd_LoungeA_1_8"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 622, 
+            "load_group": "lounge", 
+            "name": "LoungeA_1_7", 
+            "url": "622_064dd10f83e364193dc623da25f39f23_LoungeA_1_7"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 623, 
+            "load_group": "lounge", 
+            "name": "LoungeA_1_6", 
+            "url": "623_aaa5b78b7557c8577dbd4d193173a7ff_LoungeA_1_6"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 624, 
+            "load_group": "lounge", 
+            "name": "LoungeA_1_5", 
+            "url": "624_728379fe2ad950480e19b005386f64fd_LoungeA_1_5"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 625, 
+            "load_group": "lounge", 
+            "name": "LoungeA_1_4", 
+            "url": "625_cb6c6e07d03ee89317e0420a3019fede_LoungeA_1_4"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 626, 
+            "load_group": "lounge", 
+            "name": "LoungeA_1_3", 
+            "url": "626_e3cbfe19770f6fd82165b153a1ce8a7a_LoungeA_1_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 627, 
+            "load_group": "lounge", 
+            "name": "LoungeA_1_2", 
+            "url": "627_92a2212e8820e12b76194038c3bb88c2_LoungeA_1_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 628, 
+            "load_group": "lounge", 
+            "name": "LoungeA_1_1", 
+            "url": "628_55ff2cf628b49d08166e817bba99a967_LoungeA_1_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 629, 
+            "load_group": "music", 
+            "name": "PartD_1_8", 
+            "url": "629_eb652362aa609e9516c74dee1efa442f_PartD_1_8"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 630, 
+            "load_group": "music", 
+            "name": "PartD_1_7", 
+            "url": "630_12b9da728eaa220b228b2df9f7432708_PartD_1_7"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 631, 
+            "load_group": "music", 
+            "name": "PartD_1_6", 
+            "url": "631_db4c68a6d774def4f7ed446d431a8147_PartD_1_6"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 632, 
+            "load_group": "music", 
+            "name": "PartD_1_5", 
+            "url": "632_ccde05352b291c1d503948f53a89b23e_PartD_1_5"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 633, 
+            "load_group": "music", 
+            "name": "PartD_1_4", 
+            "url": "633_91a45553525ecc5696cd65ae5aac8c17_PartD_1_4"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 634, 
+            "load_group": "music", 
+            "name": "PartD_1_3", 
+            "url": "634_473744dd148be739392b42f0724375a3_PartD_1_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 635, 
+            "load_group": "music", 
+            "name": "PartD_1_2", 
+            "url": "635_03923ca0df4fd3b209c452a0058f2d74_PartD_1_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 636, 
+            "load_group": "music", 
+            "name": "PartD_1_1", 
+            "url": "636_2d662c722d4feb158e859009abb2104d_PartD_1_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 637, 
+            "load_group": "music", 
+            "name": "PartC_1_8", 
+            "url": "637_ec1872e214bbab0d02daaff57f85eb8f_PartC_1_8"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 638, 
+            "load_group": "music", 
+            "name": "PartC_1_7", 
+            "url": "638_7b8a4fbbfe28b39094e80dc314981c88_PartC_1_7"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 639, 
+            "load_group": "music", 
+            "name": "PartC_1_6", 
+            "url": "639_68e5224a1eeec4baa55b4712d9d0902c_PartC_1_6"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 640, 
+            "load_group": "music", 
+            "name": "PartC_1_5", 
+            "url": "640_46678b6276447563d006dc3c66d9a5d9_PartC_1_5"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 641, 
+            "load_group": "music", 
+            "name": "PartC_1_4", 
+            "url": "641_ec76eacf4b8c31037dc8d3196bcbc9ab_PartC_1_4"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 642, 
+            "load_group": "music", 
+            "name": "PartC_1_3", 
+            "url": "642_8d061d10349f424ab308457959cd7eb8_PartC_1_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 643, 
+            "load_group": "music", 
+            "name": "PartC_1_2", 
+            "url": "643_a0ad74713130ba7243548737074f8f2a_PartC_1_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 644, 
+            "load_group": "music", 
+            "name": "PartC_1_1", 
+            "url": "644_33cdbe583ad8ad327c4e5df5421ccbc9_PartC_1_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 645, 
+            "load_group": "music", 
+            "name": "PartB_1_8", 
+            "url": "645_7e9fbcabfb72cdce3ec37d14e0822bb6_PartB_1_8"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 646, 
+            "load_group": "music", 
+            "name": "PartB_1_7", 
+            "url": "646_0cdb14d1cd4eb2e29f4e25a831afebd3_PartB_1_7"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 647, 
+            "load_group": "music", 
+            "name": "PartB_1_6", 
+            "url": "647_864e9d6291f81432636e5f5df5be446d_PartB_1_6"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 648, 
+            "load_group": "music", 
+            "name": "PartB_1_5", 
+            "url": "648_d278a537233fc54631c5e7d2f1fd1ab3_PartB_1_5"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 649, 
+            "load_group": "music", 
+            "name": "PartB_1_4", 
+            "url": "649_4f7a13299b226f56573e70147fa48f19_PartB_1_4"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 650, 
+            "load_group": "music", 
+            "name": "PartB_1_3", 
+            "url": "650_816fea3221357ffbd72fb07fd6219c41_PartB_1_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 651, 
+            "load_group": "music", 
+            "name": "PartB_1_2", 
+            "url": "651_a1af7bbcdc17eb71a5a719783ebce7c2_PartB_1_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 652, 
+            "load_group": "music", 
+            "name": "PartB_1_1", 
+            "url": "652_f521d1412aa7af613d32ffdb49e1b569_PartB_1_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 653, 
+            "load_group": "music", 
+            "name": "PartA_1_8", 
+            "url": "653_08140bf0504adf69d669431817feea92_PartA_1_8"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 654, 
+            "load_group": "music", 
+            "name": "PartA_1_7", 
+            "url": "654_d965a152c5ca3ba8f2c8f4745a9617b6_PartA_1_7"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 655, 
+            "load_group": "music", 
+            "name": "PartA_1_6", 
+            "url": "655_654a653e9752f553422da5515c59b89e_PartA_1_6"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 656, 
+            "load_group": "music", 
+            "name": "PartA_1_5", 
+            "url": "656_099dc1daf87632639a40ad07003c8cd4_PartA_1_5"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 657, 
+            "load_group": "music", 
+            "name": "PartA_1_4", 
+            "url": "657_177f0aba97e0dff17b672f5e1c5a96eb_PartA_1_4"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 658, 
+            "load_group": "music", 
+            "name": "PartA_1_3", 
+            "url": "658_38b6ac19462cb17d4534e03cfa30d804_PartA_1_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 659, 
+            "load_group": "music", 
+            "name": "PartA_1_2", 
+            "url": "659_617372d9d07da63e37b989a491cf3552_PartA_1_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 660, 
+            "load_group": "music", 
+            "name": "PartA_1_1", 
+            "url": "660_5f53f2fdb32d848d5568c8cc320f7e6d_PartA_1_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 687, 
+            "load_group": "matching", 
+            "name": "FX_CloseDoor", 
+            "url": "687_60ab3f727615d7ee453893dda368a683_FX_CloseDoor"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 688, 
+            "load_group": "matching", 
+            "name": "FX_Right", 
+            "url": "688_3afd9c658ba336f6055eff1475397898_FX_Right"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 689, 
+            "load_group": "matching", 
+            "name": "FX_Wrong", 
+            "url": "689_1fd0b3ed65429785efea3d0211e65849_FX_Wrong"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 690, 
+            "load_group": "matching", 
+            "name": "FX_OpenDoor_3", 
+            "url": "690_2ebe25d8ce091160b78259557984ae91_FX_OpenDoor_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 691, 
+            "load_group": "matching", 
+            "name": "FX_OpenDoor_2", 
+            "url": "691_635fca98974b1f851af7175913f48409_FX_OpenDoor_2"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 692, 
+            "load_group": "matching", 
+            "name": "FX_OpenDoor_1", 
+            "url": "692_418efdd93853500f44137646ab7f4b91_FX_OpenDoor_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 694, 
+            "load_group": "presentdrop", 
+            "name": "FX_Miss_1", 
+            "url": "694_fd4873070d9a5f0d8cf2496e80096bb5_FX_Miss_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 695, 
+            "load_group": "presentdrop", 
+            "name": "FX_Miss_2", 
+            "url": "695_86fde4dcd0ef9b3992b17052baf0b4d3_FX_Miss_2"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 696, 
+            "load_group": "presentdrop", 
+            "name": "FX_playerDrop_1", 
+            "url": "696_2902615b050f159347cd8b0d23824d8a_FX_playerDrop_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 697, 
+            "load_group": "presentdrop", 
+            "name": "FX_playerScore_1", 
+            "url": "697_25dde8a80aca27324c4198293b14fc93_FX_playerScore_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 698, 
+            "load_group": "presentdrop", 
+            "name": "FX_playerScore_2", 
+            "url": "698_6c61543f90a203b6b539eb5217eeb047_FX_playerScore_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 699, 
+            "load_group": "presentdrop", 
+            "name": "FX_playerScore_3", 
+            "url": "699_4c5fe80b00855e1c9b29618fd91147ad_FX_playerScore_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 703, 
+            "load_group": "presentdrop", 
+            "name": "AMB_playerMoveLoop_3000", 
+            "url": "703_2876acb857524cb9e4b4299eb39f7ce4_AMB_playerMoveLoop_3000"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 714, 
+            "load_group": "gumball", 
+            "name": "FX_BallIntoMachine_2", 
+            "url": "714_13b48830de388322151c71349b2b2d49_FX_BallIntoMachine_2"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 719, 
+            "load_group": "airport", 
+            "name": "AMB_AirportAmbience_4875", 
+            "url": "719_60217049cfda48ff4167236776ac4111_AMB_AirportAmbience_4875"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 720, 
+            "load_group": "airport", 
+            "name": "FX_AirportAnnouncement_3", 
+            "url": "720_a85201e3790ad2ecac9a3876b1cdedbd_FX_AirportAnnouncement_3"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 721, 
+            "load_group": "airport", 
+            "name": "FX_AirportAnnouncement_2", 
+            "url": "721_83fe2a1f24f1e87e7589980249453d88_FX_AirportAnnouncement_2"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 722, 
+            "load_group": "airport", 
+            "name": "FX_AirportAnnouncement_1", 
+            "url": "722_e58bb6af92414e5c35d2e00a27e26d76_FX_AirportAnnouncement_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 723, 
+            "load_group": "village", 
+            "name": "AMB_WindAmbience_7000", 
+            "url": "723_df77e6b61aaf7a7155e17e92f5cb36f3_AMB_WindAmbience_7000"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 724, 
+            "load_group": "village", 
+            "name": "FX_SantaTrainDeparting", 
+            "url": "724_9d866ffbdddd0553132d5f8960151d45_FX_SantaTrainDeparting"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 843, 
+            "load_group": "generic", 
+            "name": "transition_open_1_2.wav", 
+            "url": "843_1fab1cacecb645fc85342cf2f59f2320_transition_open_1_2"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 726, 
+            "load_group": "generic", 
+            "name": "transition_close", 
+            "url": "726_639da7eea949dac584c372619545cc67_transition_close"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 729, 
+            "load_group": "racer", 
+            "name": "FX_crash_1", 
+            "url": "729_809f4eeac8b17ddd4c56094079f47456_FX_crash_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 730, 
+            "load_group": "racer", 
+            "name": "FX_crash_2", 
+            "url": "730_b8459037e072392075f3cdb1f0a95a4d_FX_crash_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 731, 
+            "load_group": "racer", 
+            "name": "FX_crash_3", 
+            "url": "731_7f70bec42562f8d10b201be763a13937_FX_crash_3"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 732, 
+            "load_group": "racer", 
+            "name": "FX_playerScore_racer_1", 
+            "url": "732_adb58a03638f8a7469f779b18c473074_FX_playerScore_racer_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 733, 
+            "load_group": "racer", 
+            "name": "FX_playerScore_racer_2", 
+            "url": "733_2fdb571ea8cffbeb656b99f61f512362_FX_playerScore_racer_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 734, 
+            "load_group": "racer", 
+            "name": "FX_playerScore_racer_3", 
+            "url": "734_9334f8e0a7de300d746a0f5f15edaf41_FX_playerScore_racer_3"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 735, 
+            "load_group": "racer", 
+            "name": "FX_playerStop_3", 
+            "url": "735_a26c7afeea3e42595accd1c172551283_FX_playerStop_3", 
+            "volume": 0.75
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 736, 
+            "load_group": "racer", 
+            "name": "FX_santaVoice_1", 
+            "url": "736_476ca7cb8a4c733bad6291f1d6b70692_FX_santaVoice_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 737, 
+            "load_group": "racer", 
+            "name": "FX_santaVoice_2", 
+            "url": "737_42fca39dc2b650884a8d843dd94b6a67_FX_santaVoice_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 738, 
+            "load_group": "racer", 
+            "name": "FX_santaVoice_3", 
+            "url": "738_8c536766eecc848c180b6287f2e22699_FX_santaVoice_3"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 739, 
+            "load_group": "racer", 
+            "name": "AMB_playerRide_8000", 
+            "url": "739_ceac1f8a498984421bb9c5c546973bb9_AMB_playerRide_8000"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 741, 
+            "load_group": "command", 
+            "name": "AMB_Commandcentre_10000", 
+            "url": "741_9f27e26cd56b71955528cc35277a07cb_AMB_Commandcentre_10000"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 742, 
+            "load_group": "command", 
+            "name": "Computer_1", 
+            "url": "742_37edd08ad5c6ac04131e9511554b8700_Computer_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 743, 
+            "load_group": "command", 
+            "name": "Computer_2", 
+            "url": "743_e4f7085691dbcc6bde01e1601af8708c_Computer_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 744, 
+            "load_group": "command", 
+            "name": "Computer_3", 
+            "url": "744_3e11a196141f4f1e5f47b8072ff2e893_Computer_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 745, 
+            "load_group": "command", 
+            "name": "Computer_4", 
+            "url": "745_005aaff9cf06010ec048df713767f2b6_Computer_4"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 746, 
+            "load_group": "ferris", 
+            "name": "AMB_Ferriswheel_10000", 
+            "url": "746_3f6419fe5ed70f72d7ef62c8980e4f60_AMB_Ferriswheel_10000"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 747, 
+            "load_group": "mountain", 
+            "name": "AMB_Mountain_10000", 
+            "url": "747_4d10377e455d2aba1745c4347b65d839_AMB_Mountain_10000"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 748, 
+            "load_group": "mountain", 
+            "name": "Snowman_1", 
+            "url": "748_532728f9ee4688bc80f85b596f4627d0_Snowman_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 749, 
+            "load_group": "mountain", 
+            "name": "Snowman_2", 
+            "url": "749_c3fd057773cbddb91dfc2c8e960c569c_Snowman_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 750, 
+            "load_group": "mountain", 
+            "name": "Snowman_3", 
+            "url": "750_8467d0119ef33f1cd32241ca5618b196_Snowman_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 751, 
+            "load_group": "mountain", 
+            "name": "Snowman_4", 
+            "url": "751_66458233e5e9a6243fb5956ded41b9a2_Snowman_4"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 752, 
+            "load_group": "mountain", 
+            "name": "Snowman_5", 
+            "url": "752_ab480fd7062d627d40eb6bb08bf165f5_Snowman_5"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 753, 
+            "load_group": "playground", 
+            "name": "AMB_Playground_10000", 
+            "url": "753_60a0745ccede11378ef628294a1aa683_AMB_Playground_10000"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 754, 
+            "load_group": "rollercoaster", 
+            "name": "AMB_Rollercoaster_10000", 
+            "url": "754_8d7fa0ba0b6b66dfed95cea2de059e07_AMB_Rollercoaster_10000"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 755, 
+            "load_group": "rollercoaster", 
+            "name": "Elf_1", 
+            "url": "755_43512988d2f89ed1835f4a9dc563644f_Elf_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 756, 
+            "load_group": "rollercoaster", 
+            "name": "Elf_2", 
+            "url": "756_e1238e08ed29850c77d2e0a11d36f44e_Elf_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 757, 
+            "load_group": "rollercoaster", 
+            "name": "Elf_3", 
+            "url": "757_8df9d4797bf279bc16e0a7397d3cd09c_Elf_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 758, 
+            "load_group": "rollercoaster", 
+            "name": "Elf_4", 
+            "url": "758_77440cf35838b92c1d5762a813e92a38_Elf_4"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 759, 
+            "load_group": "rollercoaster", 
+            "name": "Elf_5", 
+            "url": "759_0ab533758352815117b90513430cc228_Elf_5"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 760, 
+            "load_group": "rollercoaster", 
+            "name": "Elf_6", 
+            "url": "760_f6ba72863575d970fcabc9f9941d4637_Elf_6"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 761, 
+            "load_group": "message", 
+            "name": "AMB_FactoryAmbience2_7000", 
+            "url": "761_04dd27eb30d67b860e770454d8c462ec_AMB_FactoryAmbience2_7000"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 763, 
+            "load_group": "village", 
+            "name": "UltraLounge_1_8", 
+            "url": "763_5e5de734395de7b9d4c0b79b89a0c01f_UltraLounge_1_8"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 764, 
+            "load_group": "village", 
+            "name": "UltraLounge_1_7", 
+            "url": "764_a05c159dc26544976693f770473c48d4_UltraLounge_1_7"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 765, 
+            "load_group": "village", 
+            "name": "UltraLounge_1_6", 
+            "url": "765_f52e73138f5b2e164a189fe4aa75da07_UltraLounge_1_6"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 766, 
+            "load_group": "village", 
+            "name": "UltraLounge_1_5", 
+            "url": "766_cac04f332b3c30bd1de5398fc188f166_UltraLounge_1_5"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 767, 
+            "load_group": "village", 
+            "name": "UltraLounge_1_4", 
+            "url": "767_daf99e81fba9417c52fecdd7025cf018_UltraLounge_1_4"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 768, 
+            "load_group": "village", 
+            "name": "UltraLounge_1_2", 
+            "url": "768_c5359877fd1ab72e4504d6a866884b1c_UltraLounge_1_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 769, 
+            "load_group": "village", 
+            "name": "UltraLounge_1_1", 
+            "url": "769_3a4bb573126ad877b3639d42419985bf_UltraLounge_1_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 770, 
+            "load_group": "village", 
+            "name": "UltraLounge_1_3", 
+            "url": "770_5302cc8a9127316a90811873e7a53cbc_UltraLounge_1_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 772, 
+            "load_group": "village", 
+            "name": "Village_Bird_1", 
+            "url": "772_a5257fd8af265be6df0f30c202d21f1c_Village_Bird_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 773, 
+            "load_group": "village", 
+            "name": "Village_PlaneFlyBy", 
+            "url": "773_1f3927a2d1ec13ed3fccf4faa00eecfe_Village_PlaneFlyBy"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 774, 
+            "load_group": "village", 
+            "name": "Village_Snowmobile", 
+            "url": "774_e887c6dd9bb938453cd7bb626fadef36_Village_Snowmobile"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 775, 
+            "load_group": "village", 
+            "name": "Village_HotAirBalloon", 
+            "url": "775_9022da010f4fbb1955bcc8d7da2e936c_Village_HotAirBalloon"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 776, 
+            "load_group": "village", 
+            "name": "VIllage_AMB_Birds_11493", 
+            "url": "776_6354a1bba07128aabbe272983448121d_VIllage_AMB_Birds_11493"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 777, 
+            "load_group": "village", 
+            "name": "Village_Elf_2", 
+            "url": "777_e7cf6df1ede7c127aa558aadea5f0d12_Village_Elf_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 778, 
+            "load_group": "village", 
+            "name": "Village_Elf_1", 
+            "url": "778_494c5e352c2dac10eed46803e7b0455d_Village_Elf_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 779, 
+            "load_group": "village", 
+            "name": "Village_Rollercoaster", 
+            "url": "779_219c0d2c117cc5d5ba956cbc0f667e30_Village_Rollercoaster"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 780, 
+            "load_group": "village", 
+            "name": "Village_Bus_driveby", 
+            "url": "780_c5836dd3a0766c131d6497e115f945aa_Village_Bus_driveby"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 781, 
+            "load_group": "village", 
+            "name": "Village_Footsteps_2", 
+            "url": "781_0fbadc37ce1ecb921438cddabf752bf5_Village_Footsteps_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 782, 
+            "load_group": "village", 
+            "name": "Village_Footsteps_1", 
+            "url": "782_0c2d0323fecb06d32e643474ff45b8c8_Village_Footsteps_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 783, 
+            "load_group": "village", 
+            "name": "Village_Laughter_3", 
+            "url": "783_889d1578f32b298e2d60cc26783e2edd_Village_Laughter_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 784, 
+            "load_group": "village", 
+            "name": "Village_Laughter_2", 
+            "url": "784_6febef06bac79625244aeb870a17b8a1_Village_Laughter_2"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 785, 
+            "load_group": "village", 
+            "name": "Village_Laughter_1", 
+            "url": "785_099e5fca2581dfc7144f83aa845b1691_Village_Laughter_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 786, 
+            "load_group": "village", 
+            "name": "Village_pin_jump", 
+            "url": "786_457e92bcca0197c1a36c2172c3fd50ce_Village_pin_jump"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 787, 
+            "load_group": "village", 
+            "name": "UltraLoungeTransition_1_1", 
+            "url": "787_cb89907b5ee6f6eb23b196cd43194fa5_UltraLoungeTransition_1_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 788, 
+            "load_group": "message", 
+            "name": "FX_CharacterGirl", 
+            "url": "788_f6d3ad62c1de1d9cc73827c8ea06996f_FX_CharacterGirl"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 789, 
+            "load_group": "genericscene", 
+            "name": "FX_CharacterYeti", 
+            "url": "789_5b0a4558603240f96b1f90a700090322_FX_CharacterYeti"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 790, 
+            "load_group": "message", 
+            "name": "FX_CharacterLumberjack", 
+            "url": "790_50d1f0d75f394415e24f19d96c410b57_FX_CharacterLumberjack"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 791, 
+            "load_group": "message", 
+            "name": "FX_CharacterSnowman", 
+            "url": "791_1f4197e6311da86dadf3549b8796ae60_FX_CharacterSnowman"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 792, 
+            "load_group": "message", 
+            "name": "FX_CharacterSanta", 
+            "url": "792_dfad25289920cbb6814e3b0c9f8bbf08_FX_CharacterSanta"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 793, 
+            "load_group": "message", 
+            "name": "FX_CharacterDeer", 
+            "url": "793_1de3c8f18b2cecca06c30db6fe58f2cf_FX_CharacterDeer"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 794, 
+            "load_group": "message", 
+            "name": "FX_CharacterNarwhal", 
+            "url": "794_28dfc2e87c11a595c79d4b2c59f0f51c_FX_CharacterNarwhal"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 795, 
+            "load_group": "message", 
+            "name": "FX_CharacterPogo", 
+            "url": "795_578c435415cc4fc78bc7fa8193549bde_FX_CharacterPogo"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 797, 
+            "load_group": "message", 
+            "name": "FX_SwitchBackground_3", 
+            "url": "797_3d8d03187dbb452ddb5ffc2a8bcbea72_FX_SwitchBackground_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 798, 
+            "load_group": "message", 
+            "name": "FX_SwitchBackground_2", 
+            "url": "798_c8a154b106729ed86d87fe491cffc75e_FX_SwitchBackground_2"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 799, 
+            "load_group": "message", 
+            "name": "FX_SwitchBackground_1", 
+            "url": "799_7c1a68dbfec874b42c03b4243a7973bd_FX_SwitchBackground_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 800, 
+            "load_group": "genericscene", 
+            "name": "FX_SwitchCharacter_3", 
+            "url": "800_be618d6e2aee819bd7da87eec2d5d29d_FX_SwitchCharacter_3"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 801, 
+            "load_group": "genericscene", 
+            "name": "FX_SwitchCharacter_1", 
+            "url": "801_7558ccbba939841051c290439ca46c2d_FX_SwitchCharacter_1"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 802, 
+            "load_group": "genericscene", 
+            "name": "FX_SwitchCharacter_2", 
+            "url": "802_aa90f93c7ce90753651b9c85bb9ac5b0_FX_SwitchCharacter_2"
+        }, 
+        {
+            "audio_tag": 1, 
+            "file_type": "audio", 
+            "id": 814, 
+            "load_group": "autotag", 
+            "name": "santa_music_loop", 
+            "url": "814_d4bd362d8e33234b0600d57e1c898bba_santa_music_loop"
+        }, 
+        {
+            "audio_tag": 1, 
+            "file_type": "audio", 
+            "id": 816, 
+            "load_group": "autotag", 
+            "name": "LoungeLoop", 
+            "url": "816_9f4e57a77e4efc769bb99a4958d1d9e6_LoungeLoop"
+        }, 
+        {
+            "audio_tag": 1, 
+            "file_type": "audio", 
+            "id": 817, 
+            "load_group": "autotag", 
+            "name": "UltraLoungeLoop", 
+            "url": "817_3b12eb0124ffd05ce7e524642b7f58ec_UltraLoungeLoop"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 820, 
+            "load_group": "icecave", 
+            "name": "FX_IceCaveTalk_3", 
+            "url": "820_2e0cdbce08cc1785f1fd921127c8aafb_FX_IceCaveTalk_3"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 821, 
+            "load_group": "icecave", 
+            "name": "FX_IceCaveTalk_2", 
+            "url": "821_e894a86145908ffe8f12cab3a2587837_FX_IceCaveTalk_2"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 822, 
+            "load_group": "icecave", 
+            "name": "FX_IceCaveTalk_1", 
+            "url": "822_5bff2a75cf404b8eeba680610fc60a60_FX_IceCaveTalk_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 823, 
+            "load_group": "icecave", 
+            "name": "AMB_IceCave_5000", 
+            "url": "823_0c8896df20dde3dcd7fb92cb23ae5322_AMB_IceCave_5000"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 824, 
+            "load_group": "cafeteria", 
+            "name": "FX_CafeteriaWindow_2", 
+            "url": "824_8ff5551da1374c41ea199ef74e57cb41_FX_CafeteriaWindow_2"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 825, 
+            "load_group": "cafeteria", 
+            "name": "FX_CafeteriaWindow_1", 
+            "url": "825_5a31f2964ccd29cb00e662c23b784034_FX_CafeteriaWindow_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 826, 
+            "load_group": "cafeteria", 
+            "name": "AMB_Cafeteria_5000", 
+            "url": "826_485a781698ec74a96209d4cbf7f896ec_AMB_Cafeteria_5000"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 827, 
+            "load_group": "undersea", 
+            "name": "AMB_UnderSea_5000", 
+            "url": "827_94cd67c33c5bc90b8415c4759fb41cb9_AMB_UnderSea_5000"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 828, 
+            "load_group": "blimp", 
+            "name": "FX_Blimp_5000", 
+            "url": "828_bd7bb0d87785334ee93ff045e3dbf7dd_FX_Blimp_5000"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 829, 
+            "load_group": "workshop", 
+            "name": "FX_WorkshopLever_1", 
+            "url": "829_ff5b7febe424bf4fe8be3dfa673441dc_FX_WorkshopLever_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 830, 
+            "load_group": "workshop", 
+            "name": "AMB_Workshop_5000", 
+            "url": "830_533d77ed619dc6f8718ff1321f245c7c_AMB_Workshop_5000"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 831, 
+            "load_group": "windtunnel", 
+            "name": "AMB_WindTunnel_5000", 
+            "url": "831_11f2d302cd443aa160872d6ab3ed7430_AMB_WindTunnel_5000"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 832, 
+            "load_group": "briefing", 
+            "name": "FX_BriefingElevatorClose_1", 
+            "url": "832_732266b4fa78ff5971d84359194e2d76_FX_BriefingElevatorClose_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 833, 
+            "load_group": "briefing", 
+            "name": "FX_BriefingElevatorOpen_1", 
+            "url": "833_c2ba36c7761015c2388cf73944426ca1_FX_BriefingElevatorOpen_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 834, 
+            "load_group": "factory", 
+            "name": "FX_FactoryShoot_1", 
+            "url": "834_b06747e32c4a54530dd00946349651af_FX_FactoryShoot_1"
+        }, 
+        {
+            "audio_tag": 2, 
+            "file_type": "audio", 
+            "id": 835, 
+            "load_group": "factory", 
+            "name": "AMB_Factory_7000", 
+            "url": "835_fd2cdd2f92b5b406d9e53a1780f49fa7_AMB_Factory_7000"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 836, 
+            "load_group": "village", 
+            "name": "FX_Click", 
+            "url": "836_ddbbb9b7939edfec15d116881bdc746d_FX_Click"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 847, 
+            "load_group": "generic", 
+            "name": "FX_ColorOver_3.wav", 
+            "url": "847_1c5c80f0ff585a55b9c8644d38226013_FX_ColorOver_3"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 841, 
+            "load_group": "village", 
+            "name": "snowman_falling", 
+            "url": "841_96f7127363737e89c762b9afa4e4a158_snowman_falling"
+        }, 
+        {
+            "file_type": "audio", 
+            "id": 842, 
+            "load_group": "village", 
+            "name": "santa_generic_click", 
+            "url": "842_b589b55999ec0e0ce0051e14d78f4f71_santa_generic_click"
+        }
+    ], 
+    "log_ignore": {
+        "gb_ball_rolling": true, 
+        "jp_player_moving": true, 
+        "jp_player_position": true, 
+        "pd_pull_start": false, 
+        "pd_pull_stop": false, 
+        "pd_sled_position": true, 
+        "rc_player_ride_start": true, 
+        "rc_player_ride_stop": true, 
+        "rc_sled_speed": true
+    }, 
+    "processes": {
+        "p_Shoot": {
+            "action": "me.ag_FX_Shoot.play();me.as_FX_GiftFlying.play(); me.as_AMB_RopeStretch_3250.stop();", 
+            "at_action": "me.as_FX_Shoot_1.play();me.as_FX_GiftFlying.play(); me.as_AMB_RopeStretch_3250.stop();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "ag_FX_Shoot", 
+                "as_AMB_RopeStretch_3250", 
+                "as_FX_GiftFlying", 
+                "as_FX_Shoot_1"
+            ]
+        }, 
+        "p_airport_end": {
+            "action": "me.as_AMB_AirportAmbience_4875.fadeOutAndStop(1); me.p_airport_speaker_interval.stop();", 
+            "at_action": "Klang.audioTagHandler.stopAll();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_AirportAmbience_4875", 
+                "p_airport_speaker_interval"
+            ]
+        }, 
+        "p_airport_load_sounds": {
+            "action": "Klang.load(['airport', 'lounge'], args[0], args[1], args[2]); ", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_airport_speaker_interval": {
+            "actions": [
+                {
+                    "operation": "wait", 
+                    "script": "return Util.random(15, 5);"
+                }, 
+                {
+                    "operation": "exec", 
+                    "script": "me.ag_airport_speaker.play();"
+                }
+            ], 
+            "loop": true, 
+            "type": "AdvancedProcess", 
+            "vars": [
+                "ag_airport_speaker"
+            ]
+        }, 
+        "p_bl_boat_stop": {
+            "action": "me.as_AMB_BoatAmbience_3989.fadeOutAndStop(0.3);", 
+            "at_action": "Klang.audioTagHandler.stopAll();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_BoatAmbience_3989"
+            ]
+        }, 
+        "p_bl_game_over": {
+            "action": "me.p_music_samples_game_over.start();me.as_AMB_BoatAmbience_3989.fadeOutAndStop(0.3);", 
+            "at_action": "me.as_AMB_BoatAmbience_3989.stop();me.as_santa_music_loop.stop();me.as_GameOver_1_1.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_BoatAmbience_3989", 
+                "p_music_samples_game_over", 
+                "as_santa_music_loop", 
+                "as_GameOver_1_1"
+            ]
+        }, 
+        "p_bl_game_start": {
+            "action": "me.p_music_samples_start.start();me.as_AMB_BoatAmbience_3989.play();\n", 
+            "at_action": "me.as_santa_music_loop.play();me.as_AMB_BoatAmbience_3989.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "p_music_samples_start", 
+                "as_AMB_BoatAmbience_3989", 
+                "as_santa_music_loop"
+            ]
+        }, 
+        "p_bl_level_up": {
+            "action": "me.as_FX_LevelUp_1.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_LevelUp_1"
+            ]
+        }, 
+        "p_bl_load_sounds": {
+            "action": "Klang.load(['boatload', 'music', 'lounge', 'generic'], args[0], args[1], args[2]); ", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_blimp_end": {
+            "action": "me.as_FX_Blimp_5000.fadeOutAndStop(1.5);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_Blimp_5000"
+            ]
+        }, 
+        "p_blimp_load_sounds": {
+            "action": "Klang.load(['blimp', 'lounge'], args[0], args[1], args[2]);", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_blimp_start": {
+            "action": "me.as_FX_Blimp_5000.fadeInAndPlay(1.5);", 
+            "at_action": "me.as_FX_Blimp_5000.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_Blimp_5000"
+            ]
+        }, 
+        "p_blur": {
+            "action": "Util.curveParamLin(me.bu_focus.output.gain, 0, 0.2);", 
+            "at_action": "Klang.audioTagHandler.setGlobalVolume(0);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_focus"
+            ]
+        }, 
+        "p_briefing_change_slide": {
+            "action": "me.ag_switch_character.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "ag_switch_character"
+            ]
+        }, 
+        "p_briefing_elevator_close": {
+            "action": "me.as_FX_BriefingElevatorClose_1.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_BriefingElevatorClose_1"
+            ]
+        }, 
+        "p_briefing_elevator_open": {
+            "action": "me.as_FX_BriefingElevatorOpen_1.play(); me.as_FX_CharacterYeti.play(Util.now()+2)", 
+            "at_action": "me.as_FX_BriefingElevatorOpen_1.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_BriefingElevatorOpen_1", 
+                "as_FX_CharacterYeti"
+            ]
+        }, 
+        "p_briefing_load_sounds": {
+            "action": "Klang.load(['briefing', 'genericscene', 'lounge'], args[0], args[1], args[2]);", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_cafeteria_end": {
+            "action": "me.p_cafeteria_interval.stop(); me.as_AMB_Cafeteria_5000.fadeOutAndStop(1.5);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Cafeteria_5000", 
+                "p_cafeteria_interval"
+            ]
+        }, 
+        "p_cafeteria_interval": {
+            "actions": [
+                {
+                    "operation": "wait", 
+                    "script": "return Util.random(8, 5);"
+                }, 
+                {
+                    "operation": "exec", 
+                    "script": "me.ag_cafeteriaWindow.play();"
+                }
+            ], 
+            "loop": true, 
+            "type": "AdvancedProcess", 
+            "vars": [
+                "ag_cafeteriaWindow"
+            ]
+        }, 
+        "p_cafeteria_load_sounds": {
+            "action": "Klang.load(['cafeteria', 'lounge'], args[0], args[1], args[2]);", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_cafeteria_start": {
+            "action": "me.p_cafeteria_interval.start(); me.as_AMB_Cafeteria_5000.fadeInAndPlay(1.5);", 
+            "at_action": "me.as_AMB_Cafeteria_5000.play(); Klang.audioTagHandler.playPeriodic(me.ag_cafeteriaWindow, 8, 5);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Cafeteria_5000", 
+                "p_cafeteria_interval"
+            ]
+        }, 
+        "p_callfromsanta_load_sounds": {
+            "action": "Klang.load(['santacall'], args[0], args[1], args[2]);", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_command_end": {
+            "action": "me.as_AMB_Commandcentre_10000.fadeOutAndStop(0.3); me.p_command_interval.stop();", 
+            "at_action": "Klang.audioTagHandler.stopAll();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Commandcentre_10000", 
+                "p_command_interval"
+            ]
+        }, 
+        "p_command_interval": {
+            "actions": [
+                {
+                    "operation": "wait", 
+                    "script": "return Util.random(4, 2);"
+                }, 
+                {
+                    "operation": "exec", 
+                    "script": "me.ag_Computer.play();"
+                }
+            ], 
+            "loop": true, 
+            "type": "AdvancedProcess", 
+            "vars": [
+                "ag_Computer"
+            ]
+        }, 
+        "p_command_load_sounds": {
+            "action": "Klang.load(['command', 'lounge'], args[0], args[1], args[2]);", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_command_start": {
+            "action": "me.as_AMB_Commandcentre_10000.fadeInAndPlay(0.3); me.p_command_interval.start();", 
+            "at_action": "me.as_AMB_Commandcentre_10000.play()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Commandcentre_10000", 
+                "p_command_interval"
+            ]
+        }, 
+        "p_factory_end": {
+            "action": "me.as_AMB_Factory_7000.fadeOutAndStop(1.5);", 
+            "at_action": "Klang.audioTagHandler.stopAll();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Factory_7000"
+            ]
+        }, 
+        "p_factory_load_sounds": {
+            "action": "Klang.load(['factory', 'lounge'], args[0], args[1], args[2]);", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_factory_shootball": {
+            "action": "me.as_FX_FactoryShoot_1.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_FactoryShoot_1"
+            ]
+        }, 
+        "p_factory_start": {
+            "action": "me.as_AMB_Factory_7000.fadeInAndPlay(1.5);", 
+            "at_action": "me.as_AMB_Factory_7000.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Factory_7000"
+            ]
+        }, 
+        "p_ferris_end": {
+            "action": "me.as_AMB_Ferriswheel_10000.fadeOutAndStop(0.3);", 
+            "at_action": "Klang.audioTagHandler.stopAll();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Ferriswheel_10000"
+            ]
+        }, 
+        "p_ferris_load_sounds": {
+            "action": "Klang.load(['ferris', 'lounge'], args[0], args[1], args[2]);", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_ferris_start": {
+            "action": "me.as_AMB_Ferriswheel_10000.fadeInAndPlay(0.3);", 
+            "at_action": "me.as_AMB_Ferriswheel_10000.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Ferriswheel_10000"
+            ]
+        }, 
+        "p_focus": {
+            "action": "Util.curveParamLin(me.bu_focus.output.gain, 1, 0.2);", 
+            "at_action": "Klang.audioTagHandler.setGlobalVolume(1);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_focus"
+            ]
+        }, 
+        "p_game_over": {
+            "action": "me.p_music_samples_game_over.start();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "p_music_samples_game_over"
+            ]
+        }, 
+        "p_game_pause": {
+            "action": "if (!Util.menuOpen) {Util.curveParamLin(me.bu_pause.output.gain, 0, 0.2);}", 
+            "at_action": "Klang.audioTagHandler.setGlobalVolume(0);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_pause"
+            ]
+        }, 
+        "p_game_unpause": {
+            "action": "Util.curveParamLin(me.bu_pause.output.gain, 1, 0.2);", 
+            "at_action": "Klang.audioTagHandler.setGlobalVolume(1);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_pause"
+            ]
+        }, 
+        "p_gb_ball_bounce": {
+            "action": "me.ag_gb_FX_bounce.play();", 
+            "at_Action": "me.as_Gumballs_FX_BallBounce_1.play()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "ag_gb_FX_bounce", 
+                "as_Gumballs_FX_BallBounce_1"
+            ]
+        }, 
+        "p_gb_ball_into_machine": {
+            "action": "me.as_Gumballs_FX_BallIntoMachine.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_Gumballs_FX_BallIntoMachine"
+            ]
+        }, 
+        "p_gb_ball_rolling": {
+            "action": "me.bu_gb_ball.output.gain.value = args[0];", 
+            "at_action": "me.as_Gumballs_AMB_BallRolling_3500.getOutput().setVolume(args[0]);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_gb_ball", 
+                "as_Gumballs_AMB_BallRolling_3500"
+            ]
+        }, 
+        "p_gb_ballfallout": {
+            "action": "me.as_Gumballs_FX_BallFallOut.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_Gumballs_FX_BallFallOut"
+            ]
+        }, 
+        "p_gb_box_turn_squeek": {
+            "action": "me.ag_gb_squeeks.play();", 
+            "at_action": "me.Gumballs_FX_BoxTurnSqueek_4.play()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "ag_gb_squeeks", 
+                "as_Gumballs_FX_BoxTurnSqueek_4"
+            ]
+        }, 
+        "p_gb_box_turn_start": {
+            "action": "me.ag_gb_squeeks.play(); me.as_Gumballs_AMB_GearsTurning_5000.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "ag_gb_squeeks", 
+                "as_Gumballs_AMB_GearsTurning_5000"
+            ]
+        }, 
+        "p_gb_box_turn_stop": {
+            "action": "me.as_Gumballs_AMB_GearsTurning_5000.stop();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_Gumballs_AMB_GearsTurning_5000"
+            ]
+        }, 
+        "p_gb_end_game": {
+            "action": "me.as_Gumballs_AMB_BallRolling_3500.fadeOutAndStop(0.2);", 
+            "at_action": "Klang.audioTagHandler.stopAll();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_Gumballs_AMB_BallRolling_3500"
+            ]
+        }, 
+        "p_gb_factory_amb": {
+            "action": "me.as_Gumballs_AMB_FactoryAmbience_4000.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_Gumballs_AMB_FactoryAmbience_4000"
+            ]
+        }, 
+        "p_gb_game_over": {
+            "action": "me.p_music_samples_game_over.start();", 
+            "at_action": "Klang.audioTagHandler.stopAll();me.as_GameOver_1_1.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "p_music_samples_game_over", 
+                "as_GameOver_1_1"
+            ]
+        }, 
+        "p_gb_game_start": {
+            "action": "me.as_Gumballs_AMB_BallRolling_3500.play(); me.p_music_samples_start.start();", 
+            "at_action": "me.as_santa_music_loop.play();me.as_Gumballs_AMB_BallRolling_3500.play().getOutput().setVolume(0);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_Gumballs_AMB_BallRolling_3500", 
+                "as_santa_music_loop", 
+                "p_music_samples_start"
+            ]
+        }, 
+        "p_gb_hurry_up": {
+            "action": "me.p_music_samples_hurry_up.start();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "p_music_samples_hurry_up"
+            ]
+        }, 
+        "p_gb_hurry_up_end": {
+            "action": "me.p_music_samples_normal_start.start();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "p_music_samples_normal_start"
+            ]
+        }, 
+        "p_gb_level_up": {
+            "action": "me.as_FX_LevelUp_1.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_LevelUp_1"
+            ]
+        }, 
+        "p_gb_load_sounds": {
+            "action": "Klang.load(['gumball', 'music', 'lounge', 'generic'], args[0], args[1], args[2]); ", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_gb_new_ball": {
+            "action": "me.as_Gumballs_FX_NewBallDrop.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_Gumballs_FX_NewBallDrop"
+            ]
+        }, 
+        "p_generic_button_click": {
+            "action": "me.as_santa_generic_click.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_santa_generic_click"
+            ]
+        }, 
+        "p_generic_button_over": {
+            "action": "me.as_FX_ColorOver_3_bitrate320.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_ColorOver_3_bitrate320"
+            ]
+        }, 
+        "p_global_sound_off": {
+            "action": "Util.curveParamLin(me.bu_master.output.gain, 0, 1);", 
+            "at_action": "Klang.audioTagHandler.setGlobalVolume(0);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_master"
+            ]
+        }, 
+        "p_global_sound_on": {
+            "action": "Util.curveParamLin(me.bu_master.output.gain, 1, 1);", 
+            "at_action": "Klang.audioTagHandler.setGlobalVolume(1);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_master"
+            ]
+        }, 
+        "p_hit_ice": {
+            "action": "me.as_FX_HitIce.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_HitIce"
+            ]
+        }, 
+        "p_hit_water": {
+            "action": "me.as_FX_HitWater.play()", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_HitWater"
+            ]
+        }, 
+        "p_icecave_end": {
+            "action": "me.as_AMB_IceCave_5000.fadeOutAndStop(1.5); me.p_icecave_interval.stop();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_IceCave_5000", 
+                "p_icecave_interval"
+            ]
+        }, 
+        "p_icecave_interval": {
+            "actions": [
+                {
+                    "operation": "wait", 
+                    "script": "return Util.random(8, 5);"
+                }, 
+                {
+                    "operation": "exec", 
+                    "script": "me.ag_icecave_talk.play();"
+                }
+            ], 
+            "loop": true, 
+            "type": "AdvancedProcess", 
+            "vars": [
+                "ag_icecave_talk"
+            ]
+        }, 
+        "p_icecave_load_sounds": {
+            "action": "Klang.load(['icecave', 'lounge'], args[0], args[1], args[2]);", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_icecave_start": {
+            "action": "me.p_icecave_interval.start(); me.as_AMB_IceCave_5000.fadeInAndPlay(1.5);", 
+            "at_action": "me.as_AMB_IceCave_5000.play(); Klang.audioTagHandler.playPeriodic(me.ag_icecave_talk, 8, 5);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_IceCave_5000", 
+                "p_icecave_interval"
+            ]
+        }, 
+        "p_ios_hack": {
+            "action": "Klang.initIOS();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_jp_back_to_screen": {
+            "action": "me.as_FX_BounceIn_1.play()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_BounceIn_1"
+            ]
+        }, 
+        "p_jp_game_end": {
+            "action": "me.as_AMB_Wind_5000.fadeOutAndStop(0.3);me.as_AMB_Jetpack_5000.fadeOutAndStop(0.3);", 
+            "at_action": "Klang.audioTagHandler.stopAll();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Wind_5000", 
+                "as_AMB_Jetpack_5000"
+            ]
+        }, 
+        "p_jp_game_over": {
+            "action": "me.p_music_samples_game_over.start();me.as_AMB_Wind_5000.fadeOutAndStop(0.3);me.as_AMB_Jetpack_5000.fadeOutAndStop(0.3);", 
+            "at_action": "Klang.audioTagHandler.stopAll();me.as_GameOver_1_1.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Wind_5000", 
+                "as_AMB_Jetpack_5000", 
+                "p_music_samples_game_over", 
+                "as_GameOver_1_1"
+            ]
+        }, 
+        "p_jp_hurry_up": {
+            "action": "me.p_music_samples_hurry_up.start();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "p_music_samples_hurry_up"
+            ]
+        }, 
+        "p_jp_hurry_up_end": {
+            "action": "//me.p_music_samples_start.start();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "p_music_samples_start"
+            ]
+        }, 
+        "p_jp_level_up": {
+            "action": "me.as_FX_LevelUp_1.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_LevelUp_1"
+            ]
+        }, 
+        "p_jp_load_sounds": {
+            "action": "Klang.load(['jetpack', 'music', 'lounge', 'generic'], args[0], args[1], args[2]); ", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_jp_out_of_screen": {
+            "action": "me.as_FX_BounceOut_1.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_BounceOut_1"
+            ]
+        }, 
+        "p_jp_pickup_item": {
+            "action": "me.ag_jp_pickup.play();", 
+            "at_action": "me.as_FX_ScoreSmall_1.play()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "ag_jp_pickup", 
+                "as_FX_ScoreSmall_1"
+            ]
+        }, 
+        "p_jp_pickup_parachute_item": {
+            "action": "me.as_FX_ScoreBig_1.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_ScoreBig_1"
+            ]
+        }, 
+        "p_jp_player_moving": {
+            "action": "me.bu_jetpack.output.gain.value = Math.max(args[0], 0.5);", 
+            "at_action": "me.as_AMB_Jetpack_5000.getOutput().setVolume(Math.max(args[0], 0.5));", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_jetpack", 
+                "as_AMB_Jetpack_5000"
+            ]
+        }, 
+        "p_jp_player_position": {
+            "action": "var panValue = args[0] > 0 ? Math.min(args[0], 0.75) : Math.max(args[0], -0.75);\nme.bu_jetpack.effects[0].pan = panValue;", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_jetpack"
+            ]
+        }, 
+        "p_jp_start_game": {
+            "action": "me.as_AMB_Wind_5000.fadeInAndPlay(0.3);me.as_AMB_Jetpack_5000.fadeInAndPlay(0.3); me.p_music_samples_start.start();", 
+            "at_action": "me.as_santa_music_loop.play();me.as_AMB_Wind_5000.play();me.as_AMB_Jetpack_5000.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Wind_5000", 
+                "as_AMB_Jetpack_5000", 
+                "p_music_samples_start", 
+                "as_santa_music_loop"
+            ]
+        }, 
+        "p_level_transition_close": {
+            "action": "me.as_transition_close.play();", 
+            "at_action": "me.as_transition_close.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_transition_close"
+            ]
+        }, 
+        "p_level_transition_open": {
+            "action": "me.as_transition_open.play(Util.now()+0.3);", 
+            "at_action": "me.as_transition_open.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_transition_open"
+            ]
+        }, 
+        "p_load_music": {
+            "action": "Klang.load('music', args[0], args[1]); ", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_m_door_close": {
+            "action": "me.as_FX_CloseDoor.play(Util.now()+0.2);", 
+            "at_action": "me.as_FX_CloseDoor.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_CloseDoor"
+            ]
+        }, 
+        "p_m_door_open": {
+            "action": "me.ag_m_open_door.play(Util.now()+0.2);", 
+            "at_action": "me.as_FX_OpenDoor_1.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "ag_m_open_door", 
+                "as_FX_OpenDoor_1"
+            ]
+        }, 
+        "p_m_end_game": {
+            "action": "", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_m_game_hurryup": {
+            "action": "me.p_music_samples_hurry_up.start();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "p_music_samples_hurry_up"
+            ]
+        }, 
+        "p_m_game_over": {
+            "action": "me.p_music_samples_game_over.start();", 
+            "at_action": "Klang.audioTagHandler.stopAll();me.as_GameOver_1_1.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "p_music_samples_game_over", 
+                "as_GameOver_1_1"
+            ]
+        }, 
+        "p_m_game_start": {
+            "action": "me.p_music_samples_start.start();", 
+            "at_action": "me.as_santa_music_loop.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "p_music_samples_start", 
+                "as_santa_music_loop"
+            ]
+        }, 
+        "p_m_level_up": {
+            "action": "me.as_FX_LevelUp_1.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_LevelUp_1"
+            ]
+        }, 
+        "p_m_load_sounds": {
+            "action": "Klang.load(['matching', 'music', 'lounge', 'generic'], args[0], args[1], args[2]); ", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_m_match": {
+            "action": "me.as_FX_Right.play(Util.now()+0.2);", 
+            "at_action": "me.as_FX_Right.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_Right"
+            ]
+        }, 
+        "p_m_mismatch": {
+            "action": "me.as_FX_Wrong.play(Util.now()+0.4);", 
+            "at_action": "me.as_FX_Wrong.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_Wrong"
+            ]
+        }, 
+        "p_mountain_end": {
+            "action": "me.as_AMB_Mountain_10000.fadeOutAndStop(0.3); me.p_mountain_snowman_interval.stop();", 
+            "at_action": "Klang.audioTagHandler.stopAll();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Mountain_10000", 
+                "p_mountain_snowman_interval"
+            ]
+        }, 
+        "p_mountain_load_sounds": {
+            "action": "Klang.load(['mountain', 'lounge'], args[0], args[1], args[2]);", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_mountain_snowman_interval": {
+            "actions": [
+                {
+                    "operation": "wait", 
+                    "script": "return Util.random(4, 2);"
+                }, 
+                {
+                    "operation": "exec", 
+                    "script": "me.ag_snowman.play();"
+                }
+            ], 
+            "loop": true, 
+            "type": "AdvancedProcess", 
+            "vars": [
+                "ag_snowman"
+            ]
+        }, 
+        "p_mountain_start": {
+            "action": "me.as_AMB_Mountain_10000.fadeInAndPlay(0.3);me.p_mountain_snowman_interval.start();", 
+            "at_action": "me.as_AMB_Mountain_10000.play()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Mountain_10000", 
+                "p_mountain_snowman_interval"
+            ]
+        }, 
+        "p_muffled_off": {
+            "action": "Util.menuOpen = false; Util.curveParamExp(me.bu_master.effects[0].frequency, 22050, 1);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_master"
+            ]
+        }, 
+        "p_muffled_on": {
+            "action": "Util.menuOpen = true; Util.curveParamExp(me.bu_master.effects[0].frequency, 350, 1);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_master"
+            ]
+        }, 
+        "p_music_game_over": {
+            "action": "me.sq_sequencer1.syncPattern({beat:0},me.pt_fallback_GameOver)", 
+            "at_action": "me.as_GameOver_1_1.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "sq_sequencer1", 
+                "pt_fallback_GameOver", 
+                "as_GameOver_1_1"
+            ]
+        }, 
+        "p_music_samples_game_over": {
+            "action": "Util.hurry_up = false; me.sq_sequencer1.syncPattern({beat:4, duration:0.1},me.pt_fallback_GameOver); me.sq_sequencer1.stopAll({beat:4},me.pt_fallback_GameOver);\nme.sq_sequencer1.syncPattern({beat:8, absolute: 4, duration:0.1},me.pt_fallback_Lounge);", 
+            "at_action": "Klang.audioTagHandler.stopAll(1);me.as_GameOver_1_1.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "sq_sequencer1", 
+                "pt_fallback_GameOver", 
+                "pt_fallback_Lounge", 
+                "pt_fallback_HurryUp", 
+                "as_GameOver_1_1"
+            ]
+        }, 
+        "p_music_samples_hurry_up": {
+            "action": "Util.hurry_up = true;me.sq_sequencer1.stopAll({beat:4},me.pt_fallback_HurryUp); me.sq_sequencer1.syncPattern({beat:4, duration:0.1},me.pt_fallback_HurryUp);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "sq_sequencer1", 
+                "pt_fallback_HurryUp"
+            ]
+        }, 
+        "p_music_samples_lounge": {
+            "action": "Util.hurry_up = false;me.sq_sequencer1.stopAll({beat:4},me.pt_fallback_Lounge); me.sq_sequencer1.syncPattern({beat:4},me.pt_fallback_Lounge)", 
+            "at_action": "me.as_LoungeLoop.play()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "sq_sequencer1", 
+                "pt_fallback_Lounge", 
+                "as_LoungeLoop"
+            ]
+        }, 
+        "p_music_samples_normal_start": {
+            "action": "if (Util.hurry_up) {me.sq_sequencer1.stopAll({beat:4},me.pt_fallback_Parts);me.sq_sequencer1.syncPattern({beat:4, duration:0.1},me.pt_fallback_Parts);Util.hurry_up = false;}", 
+            "at_action": "Klang.audioTagHandler.stopAll(1);me.as_santa_music_loop.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "sq_sequencer1", 
+                "pt_fallback_Parts", 
+                "as_santa_music_loop"
+            ]
+        }, 
+        "p_music_samples_start": {
+            "action": "Util.hurry_up = false; me.sq_sequencer1.stopAll({beat:4}, me.pt_fallback_Parts); me.sq_sequencer1.syncPattern({beat:4},me.pt_fallback_Parts)", 
+            "at_action": "Klang.audioTagHandler.stopAll(1);me.as_santa_music_loop.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "sq_sequencer1", 
+                "pt_fallback_Parts", 
+                "as_santa_music_loop"
+            ]
+        }, 
+        "p_music_samples_stop": {
+            "action": "me.sq_sequencer1.stopAll({beat:0});Util.hurry_up = false;", 
+            "at_action": "Klang.audioTagHandler.stopAll(1);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "sq_sequencer1"
+            ]
+        }, 
+        "p_music_ultralounge": {
+            "action": "Util.hurry_up = false;me.sq_sequencer1.stopAll({beat:4},me.pt_ultralounge, me.pt_ultraloungetransition);  if (Util.ultraloungestarted) {me.sq_sequencer1.syncPattern({beat:8},me.pt_ultralounge); me.sq_sequencer1.syncPattern({beat:4},me.pt_ultraloungetransition);} else {me.sq_sequencer1.syncPattern({beat:4},me.pt_ultralounge);}; Util.ultraloungestarted = true;", 
+            "at_action": "me.as_UltraLoungeLoop.play()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "sq_sequencer1", 
+                "pt_ultralounge", 
+                "pt_ultraloungetransition", 
+                "as_UltraLoungeLoop"
+            ]
+        }, 
+        "p_music_ultralounge_first_start": {
+            "action": "Util.hurry_up = false;me.sq_sequencer1.stopAll({beat:4},me.pt_ultralounge);  me.sq_sequencer1.syncPattern({beat:4},me.pt_ultralounge);", 
+            "at_action": "me.as_UltraLoungeLoop.play()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "sq_sequencer1", 
+                "pt_ultralounge", 
+                "as_UltraLoungeLoop"
+            ]
+        }, 
+        "p_pd_end_game": {
+            "action": "", 
+            "at_action": "Klang.audioTagHandler.stopAll();", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_pd_game_over": {
+            "action": "me.p_music_samples_game_over.start(); me.p_pd_pull_stop.start();", 
+            "at_action": "Klang.audioTagHandler.stopAll();me.as_GameOver_1_1.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "p_music_samples_game_over", 
+                "p_pd_pull_stop", 
+                "as_GameOver_1_1"
+            ]
+        }, 
+        "p_pd_item_drop": {
+            "action": "me.as_FX_playerDrop_1.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_playerDrop_1"
+            ]
+        }, 
+        "p_pd_item_miss": {
+            "action": "me.ag_pd_miss.play();", 
+            "at_action": "me.as_FX_Miss_1.play()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "ag_pd_miss", 
+                "as_FX_Miss_1"
+            ]
+        }, 
+        "p_pd_load_sounds": {
+            "action": "Klang.load(['presentdrop', 'music', 'lounge', 'generic'], args[0], args[1], args[2]); ", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_pd_player_level_up": {
+            "action": "me.as_FX_LevelUp_1.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_LevelUp_1"
+            ]
+        }, 
+        "p_pd_player_present_pickup": {
+            "action": "me.ag_pd_player_score.play();", 
+            "at_action": "me.as_FX_playerScore_1.play()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "ag_pd_player_score", 
+                "as_FX_playerScore_1"
+            ]
+        }, 
+        "p_pd_pull_start": {
+            "action": "me.as_AMB_playerMoveLoop_3000.fadeInAndPlay(0.3);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_playerMoveLoop_3000"
+            ]
+        }, 
+        "p_pd_pull_stop": {
+            "action": "me.as_AMB_playerMoveLoop_3000.fadeOutAndStop(0.3);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_playerMoveLoop_3000"
+            ]
+        }, 
+        "p_pd_sled_position": {
+            "action": "var panValue = args[0] > 0 ? Math.min(args[0], 0.5) : Math.max(args[0], -0.5);\nme.bu_pd_slide.effects[0].pan = panValue;", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_pd_slide"
+            ]
+        }, 
+        "p_placeholder": {
+            "action": "", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_playground_end": {
+            "action": "me.as_AMB_Playground_10000.fadeOutAndStop(0.3);", 
+            "at_action": "Klang.audioTagHandler.stopAll();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Playground_10000"
+            ]
+        }, 
+        "p_playground_load_sounds": {
+            "action": "Klang.load(['playground', 'lounge'], args[0], args[1], args[2]);", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_playground_start": {
+            "action": "me.as_AMB_Playground_10000.fadeInAndPlay(0.3);", 
+            "at_action": "me.as_AMB_Playground_10000.play()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Playground_10000"
+            ]
+        }, 
+        "p_rc_game_over": {
+            "action": "Util.rc_started = false;me.p_music_samples_game_over.start();me.as_AMB_playerRide_8000.fadeOutAndStop(0.3);", 
+            "at_action": "Util.rc_started = false;Klang.audioTagHandler.stopAll();me.as_GameOver_1_1.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "p_music_samples_game_over", 
+                "as_AMB_playerRide_8000", 
+                "as_GameOver_1_1"
+            ]
+        }, 
+        "p_rc_landing_page": {
+            "action": "me.as_AMB_playerRide_8000.fadeInAndPlay(0.3); Util.rc_started = true; Util.rc_first_level = false;", 
+            "at_action": "me.as_AMB_playerRide_8000.play().getOutput().setVolume(0);Util.rc_started = true;Util.rc_first_level = false;", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_playerRide_8000"
+            ]
+        }, 
+        "p_rc_load_sounds": {
+            "action": "Klang.load(['racer', 'music', 'lounge', 'generic'], args[0], args[1], args[2]); ", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_rc_player_crash": {
+            "action": "if(Util.rc_started) {me.ag_FX_rc_crash.play();}", 
+            "at_action": "if(Util.rc_started) {me.as_FX_crash_1.play();}", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "ag_FX_rc_crash", 
+                "as_FX_crash_1"
+            ]
+        }, 
+        "p_rc_player_level_up": {
+            "action": "me.ag_fx_rc_santa_voice.play(); me.as_FX_LevelUp_1.play();if(!Util.rc_first_level){me.p_music_samples_normal_start.start();Util.rc_first_level = true;}", 
+            "at_action": "me.as_FX_santaVoice_1.play(); me.as_FX_LevelUp_1.play();if(!Util.rc_first_level){me.as_santa_music_loop.play();Util.rc_first_level = true;}", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_LevelUp_1", 
+                "p_music_samples_normal_start", 
+                "ag_fx_rc_santa_voice", 
+                "as_FX_santaVoice_1", 
+                "as_santa_music_loop"
+            ]
+        }, 
+        "p_rc_player_present_pickup": {
+            "action": "me.ag_FX_rc_score.play();", 
+            "at_action": "me.as_FX_playerScore_racer_1.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "ag_FX_rc_score", 
+                "as_FX_playerScore_racer_1"
+            ]
+        }, 
+        "p_rc_player_ride_start": {
+            "action": "Util.rc_ride_start = true;", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_rc_player_ride_stop": {
+            "action": "if (Util.rc_ride_start) {me.as_FX_playerStop_3.play();Util.rc_ride_start = false;}", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_playerStop_3"
+            ]
+        }, 
+        "p_rc_sled_speed": {
+            "action": "var inval = Math.min(args[0], 0.5); me.bu_rc_ride.output.gain.value = inval;", 
+            "at_action": "var inval = Math.min(args[0], 0.5);me.as_AMB_playerRide_8000.getOutput().setVolume(inval);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_rc_ride", 
+                "as_AMB_playerRide_8000"
+            ]
+        }, 
+        "p_rc_sled_stop": {
+            "action": "me.as_AMB_playerRide_8000.fadeOutAndStop(1)", 
+            "at_action": "me.as_AMB_playerRide_8000.stop();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_playerRide_8000"
+            ]
+        }, 
+        "p_rollercoaster_end": {
+            "action": "me.as_AMB_Rollercoaster_10000.fadeOutAndStop(0.3); me.p_rollercoaster_interval.stop();", 
+            "at_action": "Klang.audioTagHandler.stopAll();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Rollercoaster_10000", 
+                "p_rollercoaster_interval"
+            ]
+        }, 
+        "p_rollercoaster_interval": {
+            "actions": [
+                {
+                    "operation": "wait", 
+                    "script": "return Util.random(4, 2);"
+                }, 
+                {
+                    "operation": "exec", 
+                    "script": "me.ag_elf.play();"
+                }
+            ], 
+            "loop": true, 
+            "type": "AdvancedProcess", 
+            "vars": [
+                "ag_elf"
+            ]
+        }, 
+        "p_rollercoaster_load_sounds": {
+            "action": "Klang.load(['rollercoaster', 'lounge'], args[0], args[1], args[2]);", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_rollercoaster_start": {
+            "action": "me.as_AMB_Rollercoaster_10000.fadeInAndPlay(0.3);me.p_rollercoaster_interval.start();", 
+            "at_action": "me.as_AMB_Rollercoaster_10000.play()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Rollercoaster_10000", 
+                "p_rollercoaster_interval"
+            ]
+        }, 
+        "p_rope_stretch": {
+            "action": "me.as_AMB_RopeStretch_3250.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_RopeStretch_3250"
+            ]
+        }, 
+        "p_rope_stretch_stop": {
+            "action": "me.as_AMB_RopeStretch_3250.stop();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_RopeStretch_3250"
+            ]
+        }, 
+        "p_sc_airport_start": {
+            "action": "me.as_AMB_AirportAmbience_4875.fadeInAndPlay(1); me.p_airport_speaker_interval.start(); \n", 
+            "at_action": "me.as_AMB_AirportAmbience_4875.play();Klang.audioTagHandler.playPeriodic(me.ag_airport_speaker, 15, 5);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_AirportAmbience_4875", 
+                "p_airport_speaker_interval", 
+                "ag_airport_speaker"
+            ]
+        }, 
+        "p_score_red": {
+            "action": "me.as_FX_ScoreRedBoat.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_ScoreRedBoat"
+            ]
+        }, 
+        "p_score_yellow": {
+            "action": "me.as_FX_ScoreYellowBoat.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_ScoreYellowBoat"
+            ]
+        }, 
+        "p_sm_change_bg": {
+            "action": "me.ag_switch_background.play();", 
+            "at_action": "me.as_FX_SwitchBackground_1.play()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "ag_switch_background", 
+                "as_FX_SwitchBackground_1"
+            ]
+        }, 
+        "p_sm_change_fg": {
+            "action": "var sounds = [me.as_FX_CharacterNarwhal, me.as_FX_CharacterSnowman, me.as_FX_CharacterLumberjack, me.as_FX_CharacterDeer, me.as_FX_CharacterGirl, me.as_FX_CharacterYeti, me.as_FX_CharacterSanta, me.as_FX_CharacterPogo];\nvar num = args[0]-1;\nsounds[num].play(Util.now()+0.5);\nme.ag_switch_character.play();", 
+            "at_action": "me.as_FX_SwitchCharacter_1.play();var sounds = [me.as_FX_CharacterNarwhal, me.as_FX_CharacterSnowman, me.as_FX_CharacterLumberjack, me.as_FX_CharacterDeer, me.as_FX_CharacterGirl, me.as_FX_CharacterYeti, me.as_FX_CharacterSanta, me.as_FX_CharacterPogo];\nvar num = args[0]-1;\nsounds[num].play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_FX_CharacterNarwhal", 
+                "as_FX_CharacterSnowman", 
+                "as_FX_CharacterLumberjack", 
+                "as_FX_CharacterDeer", 
+                "as_FX_CharacterGirl", 
+                "as_FX_CharacterYeti", 
+                "as_FX_CharacterSanta", 
+                "as_FX_CharacterPogo", 
+                "ag_switch_character", 
+                "as_FX_SwitchCharacter_1"
+            ]
+        }, 
+        "p_sm_end": {
+            "action": "me.as_AMB_FactoryAmbience2_7000.fadeOutAndStop(0.3);", 
+            "at_action": "Klang.audioTagHandler.stopAll();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_FactoryAmbience2_7000"
+            ]
+        }, 
+        "p_sm_load_sounds": {
+            "action": "Klang.load(['message', 'genericscene', 'lounge'], args[0], args[1], args[2]);", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_sm_start": {
+            "action": "me.as_AMB_FactoryAmbience2_7000.fadeInAndPlay(0.3);", 
+            "at_action": "me.as_AMB_FactoryAmbience2_7000.play()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_FactoryAmbience2_7000"
+            ]
+        }, 
+        "p_start": {
+            "action": "me.p_music_samples_start.start();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "p_music_samples_start"
+            ]
+        }, 
+        "p_stop_music": {
+            "action": "me.sq_sequencer1.stopAll({beat:0}); me.as_AMB_BoatAmbience_3989.stop()", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "sq_sequencer1", 
+                "as_AMB_BoatAmbience_3989"
+            ]
+        }, 
+        "p_streetview_end": {
+            "action": "Util.curveParamLin(me.bu_lounge.output.gain, 1, 0.5); Util.curveParamLin(me.bu_village.output.gain, 1.3, 0.5);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_lounge", 
+                "bu_village"
+            ]
+        }, 
+        "p_streetview_load_sounds": {
+            "action": "Klang.load(['village', 'lounge'], args[0], args[1], args[2]); ", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_streetview_start": {
+            "action": "Util.curveParamLin(me.bu_lounge.output.gain, 0.6, 0.5); Util.curveParamLin(me.bu_village.output.gain, 1.7, 0.5);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_lounge", 
+                "bu_village"
+            ]
+        }, 
+        "p_undersea_end": {
+            "action": "me.as_AMB_UnderSea_5000.fadeOutAndStop(1.5);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_UnderSea_5000"
+            ]
+        }, 
+        "p_undersea_load_sounds": {
+            "action": "Klang.load(['undersea', 'lounge'], args[0], args[1], args[2]);", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_undersea_start": {
+            "action": "me.as_AMB_UnderSea_5000.fadeInAndPlay(1.5);", 
+            "at_action": "me.as_AMB_UnderSea_5000.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_UnderSea_5000"
+            ]
+        }, 
+        "p_videoplayer_start": {
+            "action": "Util.curveParamLin(me.bu_video.output.gain, 0, 0.2);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_video"
+            ]
+        }, 
+        "p_videoplayer_stop": {
+            "action": "Util.curveParamLin(me.bu_video.output.gain, 1, 0.2);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "bu_video"
+            ]
+        }, 
+        "p_village_balloon_click": {
+            "action": "me.as_Village_HotAirBalloon.play()", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_Village_HotAirBalloon"
+            ]
+        }, 
+        "p_village_interval": {
+            "actions": [
+                {
+                    "operation": "wait", 
+                    "script": "return Util.random(8, 3);"
+                }, 
+                {
+                    "operation": "exec", 
+                    "script": "var randomPan = Util.randomFloat(0.75, -0.75); me.bu_village.effects[0].linPanTo(randomPan, 0.2); me.ag_village_sounds.play();"
+                }
+            ], 
+            "loop": true, 
+            "type": "AdvancedProcess", 
+            "vars": [
+                "ag_village_sounds", 
+                "bu_village"
+            ]
+        }, 
+        "p_village_load_sounds": {
+            "action": "Klang.load(['village'], args[0], args[1], args[2]); ", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_village_pin_jump": {
+            "action": "me.as_Village_pin_jump.play();", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_Village_pin_jump"
+            ]
+        }, 
+        "p_village_snowman_click": {
+            "action": "me.as_snowman_falling.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_snowman_falling"
+            ]
+        }, 
+        "p_village_start": {
+            "action": "me.as_VIllage_AMB_Birds_11493.fadeInAndPlay(1); me.as_AMB_WindAmbience_7000.fadeInAndPlay(1);me.p_village_interval.start();", 
+            "at_action": "Klang.audioTagHandler.stopAll();me.as_AMB_WindAmbience_7000.play();me.as_VIllage_AMB_Birds_11493.play();me.as_UltraLoungeLoop.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_WindAmbience_7000", 
+                "p_village_interval", 
+                "as_VIllage_AMB_Birds_11493", 
+                "as_UltraLoungeLoop"
+            ]
+        }, 
+        "p_village_stop": {
+            "action": "me.as_VIllage_AMB_Birds_11493.fadeOutAndStop(1); me.as_AMB_WindAmbience_7000.fadeOutAndStop(1);me.p_village_interval.stop();", 
+            "at_action": "Klang.audioTagHandler.stopAll();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_WindAmbience_7000", 
+                "p_village_interval", 
+                "as_VIllage_AMB_Birds_11493"
+            ]
+        }, 
+        "p_windtunnel_end": {
+            "action": "me.as_AMB_WindTunnel_5000.fadeOutAndStop(1);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_WindTunnel_5000"
+            ]
+        }, 
+        "p_windtunnel_load_sounds": {
+            "action": "Klang.load(['windtunnel', 'lounge'], args[0], args[1], args[2]);", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }, 
+        "p_windtunnel_start": {
+            "action": "me.as_AMB_WindTunnel_5000.fadeInAndPlay(1.5);", 
+            "at_action": "me.as_AMB_WindTunnel_5000.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_WindTunnel_5000"
+            ]
+        }, 
+        "p_workshop_belt_start": {
+            "action": "me.as_FX_WorkshopLever_1.play(); me.as_AMB_Workshop_5000.fadeInAndPlay(1.5)", 
+            "at_action": "me.as_AMB_Workshop_5000.play();", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Workshop_5000", 
+                "as_FX_WorkshopLever_1"
+            ]
+        }, 
+        "p_workshop_belt_stop": {
+            "action": "me.as_FX_WorkshopLever_1.play(); me.as_AMB_Workshop_5000.fadeOutAndStop(1);", 
+            "type": "SimpleProcess", 
+            "vars": [
+                "as_AMB_Workshop_5000", 
+                "as_FX_WorkshopLever_1"
+            ]
+        }, 
+        "p_workshop_load_sounds": {
+            "action": "Klang.load(['workshop', 'lounge'], args[0], args[1], args[2]);", 
+            "at_action": "copy", 
+            "type": "SimpleProcess", 
+            "vars": []
+        }
+    }, 
+    "sequencers": {
+        "sq_sequencer1": {
+            "bar_length": 4, 
+            "beat_length": 1, 
+            "bpm": 120, 
+            "type": "Sequencer"
+        }
+    }, 
+    "settings": {
+        "blur_fade_time": -1, 
+        "file_root": "klangaudiofiles/", 
+        "sequencer_lookahead": 50, 
+        "sequencer_resolution": 0.25, 
+        "sequencer_schedule_ahead": 0.4, 
+        "sequencer_schedule_ahead_ios": 0.3, 
+        "timehandler_lookahead": 50
+    }
+}

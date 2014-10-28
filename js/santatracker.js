@@ -36,6 +36,7 @@ window.santatracker.setup = function() {
       window.santatracker, window.santatracker.analytics);
 
   // TODO(lukem) Add sound setup here
+  window.soundController = new SoundController();
 
   // Routing setup is done last.
   var template = document.querySelector('#t');
