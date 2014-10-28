@@ -3,7 +3,8 @@
  *
  * @constructor
  */
-function VillageSnow() {
+function VillageSnow(el) {
+  this.container_ = el;
   /**
    * @type {boolean}
    * @private
@@ -55,11 +56,11 @@ function VillageSnow() {
    * Bound reclaim callback.
    * @private {function(SnowFlake)}
    */
-  this.reclaimCallback_ = _.bind(this.reclaimSnowFlake_, this);
+  this.reclaimCallback_ = this.reclaimSnowFlake_.bind(this);
 
   this.calcAndAssignMaxNumFlakes_();
 
-  $(window).resize(_.bind(this.calcAndAssignMaxNumFlakes_, this));
+  $(window).resize(this.calcAndAssignMaxNumFlakes_.bind(this));
 }
 
 /**
@@ -125,7 +126,7 @@ VillageSnow.prototype.calcAndAssignMaxNumFlakes_ = function() {
       VillageSnow.MAX_SNOW_FLAKES_);
 
   if (maxFlakes > this.maxNumFlakes_) {
-    var parent = $('#village-wrapper');
+    var parent = $('#village-wrapper', this.container_);
 
     // Create any new needed snowflakes and add them to snowflake pool.
     for (var i = 0; i < (maxFlakes - this.maxNumFlakes_); i++) {
@@ -194,6 +195,6 @@ VillageSnow.prototype.scheduleSnowFlake_ = function() {
   if (this.snowing_ && !this.snowTimeout_) {
     var timeout = Math.random() * VillageSnow.SNOW_FLAKE_TIME_;
     this.snowTimeout_ =
-        window.setTimeout(_.bind(this.addSnowFlake_, this), timeout);
+        window.setTimeout(this.addSnowFlake_.bind(this), timeout);
   }
 };

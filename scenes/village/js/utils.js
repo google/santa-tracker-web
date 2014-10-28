@@ -17,7 +17,7 @@ VillageUtils.forwardEvent = function(origin, eventName, target, newEventName) {
     newEventName = eventName;
   }
   return Events.addListener(origin, eventName,
-      _.bind(Events.trigger, window, target, newEventName));
+      Events.trigger.bind(window, target, newEventName));
 };
 
 /**
@@ -34,3 +34,14 @@ VillageUtils.CSS_TRANSFORM = Modernizr.csstransforms ?
  * @const
  */
 VillageUtils.TRANSITIONS_SUPPORTED = Modernizr.csstransitions;
+
+VillageUtils.once = function(func) {
+  var ran = false, memo;
+  return function() {
+    if (ran) return memo;
+    ran = true;
+    memo = func.apply(this, arguments);
+    func = null;
+    return memo;
+  };
+};

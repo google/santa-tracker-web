@@ -124,6 +124,9 @@ window.santatracker.addErrorHandler = function() {
   };
 };
 
+window.santatracker.getService = function() {
+  return window.santatracker.controller.getService();
+};
 
 // TODO(ericbidelman): temp stub.
 Klang = {
