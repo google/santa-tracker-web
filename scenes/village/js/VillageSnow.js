@@ -55,11 +55,11 @@ function VillageSnow() {
    * Bound reclaim callback.
    * @private {function(SnowFlake)}
    */
-  this.reclaimCallback_ = _.bind(this.reclaimSnowFlake_, this);
+  this.reclaimCallback_ = this.reclaimSnowFlake_.bind(this);
 
   this.calcAndAssignMaxNumFlakes_();
 
-  $(window).resize(_.bind(this.calcAndAssignMaxNumFlakes_, this));
+  $(window).resize(this.calcAndAssignMaxNumFlakes_.bind(this));
 }
 
 /**
@@ -194,6 +194,6 @@ VillageSnow.prototype.scheduleSnowFlake_ = function() {
   if (this.snowing_ && !this.snowTimeout_) {
     var timeout = Math.random() * VillageSnow.SNOW_FLAKE_TIME_;
     this.snowTimeout_ =
-        window.setTimeout(_.bind(this.addSnowFlake_, this), timeout);
+        window.setTimeout(this.addSnowFlake_.bind(this), timeout);
   }
 };

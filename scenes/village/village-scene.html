@@ -397,7 +397,22 @@ Village scene.
 </template>
 <script>
   Polymer({
+    VillageController: null,
 
+    onPreload: function() {
+      this.preloadImages([
+      ]);
+    },
+    ready: function() {
+      this.villageController = new VillageController(window.santatracker.getService());
+    },
+    onShow: function() {
+      var module = this.$['module-village'];
+      this.villageController.showVillage();
+    },
+    onHide: function() {
+      this.villageController.hideVillage();
+    }
   });
 </script>
 </polymer-element>

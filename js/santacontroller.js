@@ -145,3 +145,7 @@ SantaController.prototype.postCountdown_ = function() {
   this.trackerController_.setupRoutes();
   $(document.body).addClass('posttakeoff');
 };
+
+SantaController.prototype.getService = function() {
+  return this.santaService_;
+};

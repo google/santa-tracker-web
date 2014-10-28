@@ -71,5 +71,5 @@ VillageSnowMobile.prototype.scheduleRandomSnowMobile_ = function() {
   var randomSnowMobileTime = VillageSnowMobile.MIN_BURNOUT_TIME_ +
       Math.random() * VillageSnowMobile.MAX_BURNOUT_TIME_;
   this.randomSnowMobileTimeoutID_ = window.setTimeout(
-      _.bind(this.sendRandomSnowMobile_, this), randomSnowMobileTime);
+      this.sendRandomSnowMobile_.bind(this), randomSnowMobileTime);
 };

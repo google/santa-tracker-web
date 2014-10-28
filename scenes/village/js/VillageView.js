@@ -10,7 +10,7 @@ function VillageView(santaService, el) {
   this.soundsLoaded_ = false;
   this.santaService_ = santaService;
   this.container_ = $(el);
-  this.initOnce_ = _.once(_.bind(this.init_, this));
+  this.initOnce_ = VillageUtils.once(this.init_.bind(this));
 
   this.updateScheduled_ = false;
   this.villageWidth_ = 12000;
@@ -68,14 +68,16 @@ VillageView.prototype.init_ = function() {
   this.villageBus_ = new VillageBus();
   this.villageSnowMobile_ = new VillageSnowMobile();
 
-  var onSoundsLoaded = _.bind(this.playSounds_, this);
-  window.santatracker.klangLoadPromise.done(function() {
+  var onSoundsLoaded = this.playSounds_.bind(this);
+  
+  //TODO(bckenny): Hook up sounds
+  /*window.santatracker.klangLoadPromise.done(function() {
     // Load all of the heavy assets 1 second later - should give the browser
     // a chance to start loading all of the images (which are more important).
     window.setTimeout(function() {
       Klang.triggerEvent('village_load_sounds', onSoundsLoaded, null, klangLoadFailed);
     }, 1000);
-  });
+  });*/
 
   // No Android spaceship for iOS devices
   if (navigator.userAgent.match(/iPhone|iPod|iPad/i)) {
@@ -159,8 +161,10 @@ VillageView.prototype.panToHouse = function(el, opt_time) {
  * @private
  */
 VillageView.prototype.addCounter_ = function() {
-  if (this.santaService_.now() < Countdown.END_DATE) {
-    var countdown = this.countdown_ = new Countdown(this.santaService_,
+  if (this.santaService_.now() < window.santatracker.COUNTDOWN_END_DATE) {
+    // TODO(ebidel): Add Countdown
+
+    /*var countdown = this.countdown_ = new Countdown(this.santaService_,
                                                     $('#counter'));
 
     countdown.start();
@@ -172,7 +176,7 @@ VillageView.prototype.addCounter_ = function() {
       countdown.stop();
       $('#countdown').addClass('finished');
       that.addPostLaunchHouseEvents_();
-    });
+    });*/
   } else {
     $('#countdown').addClass('finished');
   }
@@ -214,14 +218,14 @@ VillageView.prototype.addHouseEvents_ = function() {
     }, 20000);
   });
 
-  $('#house10').on('click', _.bind(this.takeoffBaloon_, this));
+  $('#house10').on('click', this.takeoffBaloon_.bind(this));
 
   for (var i = 1; i < 4; i++) {
-    $('#busstop' + i).on('click', _.bind(this.sendBusToStop_, this, i));
+    $('#busstop' + i).on('click', this.sendBusToStop_.bind(this, i));
   }
 
   for (var i = 1; i < 4; i++) {
-    $('#snowmobile' + i).on('click', _.bind(this.driveSnowMobile_, this, i));
+    $('#snowmobile' + i).on('click', this.driveSnowMobile_.bind(this, i));
   }
 };
 
@@ -319,7 +323,7 @@ VillageView.prototype.addEvents_ = function() {
   // parallax.
   // TODO(bckenny): expand parallax support to touch devices like the Pixel
   if (!Modernizr.touch) {
-    var parallaxScheduleFunction = _.bind(this.scheduleParallaxUpdate_, this);
+    var parallaxScheduleFunction = this.scheduleParallaxUpdate_.bind(this);
     this.scrollContainer_.scroll(parallaxScheduleFunction);
   }
   $(window).resize(parallaxScheduleFunction);
@@ -331,21 +335,21 @@ VillageView.prototype.addEvents_ = function() {
   if (Modernizr.touch) {
     $('#hit-area-left').on('touchstart', function() {
       that.panTo(0, VillageView.SCROLL_TIME_, polynomialEasing);
-    }).on('touchend', _.bind(this.cancelScrollAnimation_, this));
+    }).on('touchend', this.cancelScrollAnimation_.bind(this));
 
     $('#hit-area-right').on('touchstart', function() {
       that.panTo(/** @type {number} */(that.villageWidth_),
                  VillageView.SCROLL_TIME_, polynomialEasing);
-    }).on('touchend', _.bind(this.cancelScrollAnimation_, this));
+    }).on('touchend', this.cancelScrollAnimation_,bind(this));
   } else {
     $('#hit-area-left').on('mouseenter', function() {
       that.panTo(0, VillageView.SCROLL_TIME_, polynomialEasing);
-    }).on('mouseleave', _.bind(this.cancelScrollAnimation_, this));
+    }).on('mouseleave', this.cancelScrollAnimation_.bind(this));
 
     $('#hit-area-right').on('mouseenter', function() {
       that.panTo(/** @type {number} */(that.villageWidth_),
                  VillageView.SCROLL_TIME_, polynomialEasing);
-    }).on('mouseleave', _.bind(this.cancelScrollAnimation_, this));
+    }).on('mouseleave', this.cancelScrollAnimation_.bind(this));
   }
 };
 
@@ -456,7 +460,7 @@ VillageView.prototype.scheduleParallaxUpdate_ = function() {
 
   if (!this.updateScheduled_) {
     this.updateScheduled_ = true;
-    window.requestAnimationFrame(_.bind(this.updateParallax_, this));
+    window.requestAnimationFrame(this.updateParallax_.bind(this));
   }
 };
 
