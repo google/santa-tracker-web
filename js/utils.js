@@ -78,6 +78,7 @@ function assert(condition, opt_message) {
   }
 }
 
+// TODO: remove this. All browsers support it.
 /**
  * Shim for Element.textContent.
  * @type {function(Element, string)}
