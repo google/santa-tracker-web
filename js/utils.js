@@ -1,14 +1,6 @@
-if (!window.requestAnimationFrame) {
-  window.requestAnimationFrame =
-      /** @type {function(function(number): ?): number} */(Modernizr.prefixed(
-      'requestAnimationFrame', window) || function(callback) {
-        return window.setTimeout(callback, 1000 / 60);
-      });
-}
-
 // Add Modernizr webaudio test since third_party version doesn't include it.
 Modernizr.addTest('webaudio',
-    !!(window.webkitAudioContext || window.AudioContext));
+    !!(window.AudioContext || window.webkitAudioContext));
 
 /**
  * Converts a Santa LatLng object to a Maps API LatLng.
@@ -36,7 +28,7 @@ function noop() {}
  */
 function forwardMapsEvent(origin, eventName, target) {
   return origin.addListener(eventName,
-      _.bind(google.maps.event.trigger, this, target, eventName));
+      google.maps.event.trigger.bind(this, target, eventName));
 }
 
 /**
