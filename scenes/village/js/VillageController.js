@@ -1,11 +1,11 @@
 /**
  * @param {SantaService} santaService
+ * @param {Element} container
  * @constructor
  */
-function VillageController(santaService) {
+function VillageController(santaService, container) {
   this.santaService_ = santaService;
 
-  var container = $('#page-village');
   this.view_ = new VillageView(santaService, container);
   VillageUtils.forwardEvent(this.view_, 'countdown_finished', this);
 

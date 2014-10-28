@@ -3,7 +3,8 @@
  *
  * @constructor
  */
-function VillageSnow() {
+function VillageSnow(el) {
+  this.container_ = el;
   /**
    * @type {boolean}
    * @private
@@ -125,7 +126,7 @@ VillageSnow.prototype.calcAndAssignMaxNumFlakes_ = function() {
       VillageSnow.MAX_SNOW_FLAKES_);
 
   if (maxFlakes > this.maxNumFlakes_) {
-    var parent = $('#village-wrapper');
+    var parent = $('#village-wrapper', this.container_);
 
     // Create any new needed snowflakes and add them to snowflake pool.
     for (var i = 0; i < (maxFlakes - this.maxNumFlakes_); i++) {

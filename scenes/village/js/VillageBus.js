@@ -1,8 +1,9 @@
 /**
  * @constructor
  */
-function VillageBus() {
-  this.bus_ = $('#bus');
+function VillageBus(el) {
+  this.container_ = el;
+  this.bus_ = $('#bus', this.container_);
 }
 
 /**
@@ -58,7 +59,7 @@ VillageBus.prototype.stop = function() {
  * @param {number} stopNumber
  */
 VillageBus.prototype.sendBusToStop = function(stopNumber) {
-  var stop = $('#busstop' + stopNumber);
+  var stop = $('#busstop' + stopNumber, this.container_);
   var stopEmpty = stop.hasClass('stop-empty');
 
   if (this.busInTransit_) {
@@ -148,5 +149,5 @@ VillageBus.prototype.scheduleRandomBus_ = function() {
       Math.random() * (VillageBus.ANIMATION_TIMES_.RANDOM_BUS_MAX_TIME -
       VillageBus.ANIMATION_TIMES_.RANDOM_BUS_MIN_TIME);
   this.randomBusTimeoutID_ = window.setTimeout(
-      _.bind(this.sendRandomBus_, this), randomBusTime);
+      this.sendRandomBus_.bind(this), randomBusTime);
 };

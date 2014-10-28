@@ -1,7 +1,9 @@
 /**
  * @constructor
  */
-function VillageSnowMobile() {}
+function VillageSnowMobile(el) {
+  this.container_ = el;
+}
 
 /**
  * @private
@@ -40,7 +42,7 @@ VillageSnowMobile.prototype.stop = function() {
  * @param {number} snowMobileId
  */
 VillageSnowMobile.prototype.driveSnowMobile = function(snowMobileId) {
-  var snowMobile = $('#snowmobile' + snowMobileId);
+  var snowMobile = $('#snowmobile' + snowMobileId, this.container_);
   this.scheduleRandomSnowMobile_();
 
   // If the snow mobile isn't interactive then do nothing.
