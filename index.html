@@ -21,6 +21,7 @@
   <link rel="shortcut icon" href="//maps.gstatic.com/mapfiles/santatracker/13/images/favicon.ico">
 
   <script src="components/webcomponentsjs/webcomponents.min.js"></script>
+  <!-- <link rel="import" href="components/polymer/polymer.html"> -->
   <link rel="import" href="elements/elements.html">
 
   <link rel="stylesheet" href="sass/santatracker.css">
@@ -39,8 +40,9 @@
 </paper-menu-button>
 <!-- ******************************************* -->
 
+<!-- {% raw %} Note: comment makes vulcanize happy. -->
+
 <template is="auto-binding" id="t">
-  {% raw %}
 
   <!-- Route controller -->
   <flatiron-director route="{{route}}" autoHash></flatiron-director>
@@ -65,11 +67,36 @@
     <undersea-scene route="undersea"
         path="scenes/undersea/undersea-scene.html" hidden></undersea-scene>
   </lazy-pages>
-  {% endraw %}
 
 </template>
 
+<!-- {% endraw %} -->
+
 <div id="preload_placeholder"></div>
+
+<script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
+<script src="components/jquery/dist/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.0/modernizr.min.js"></script>
+
+<!-- TODO(bckenny): concat js -->
+<!-- Statuses -->
+<script src="js/statuses/picker.js"></script>
+
+<!-- Santa API -->
+<script src="js/service/events.js"></script>
+<script src="js/service/lat_lng.js"></script>
+<script src="js/service/spherical.js"></script>
+<script src="js/service/details.js"></script>
+<script src="js/service/location.js"></script>
+<script src="js/service/state.js"></script>
+<script src="js/service/transport.js"></script>
+<script src="js/service/santa_client.js"></script>
+
+<!-- Santa Tracker -->
+<script src="js/consts.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/sitenav.js"></script>
+<script src="js/santacontroller.js"></script>
 
 <script src="js/santatracker.js"></script>
 </body>
