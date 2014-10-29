@@ -40,6 +40,7 @@
 <!-- ******************************************* -->
 
 <template is="auto-binding" id="t">
+  {% raw %}
 
   <!-- Route controller -->
   <flatiron-director route="{{route}}" autoHash></flatiron-director>
@@ -64,6 +65,7 @@
     <undersea-scene route="undersea"
         path="scenes/undersea/undersea-scene.html" hidden></undersea-scene>
   </lazy-pages>
+  {% endraw %}
 
 </template>
 
