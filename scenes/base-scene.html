@@ -73,11 +73,23 @@ but extended by other elements.
       /**
        * Max number of milliseconds to wait before timing out and abandoning
        * preload.
+       *
        * @property MAX_PRELOAD_TIME
        * @type number
        * @default 30000
        */
       MAX_PRELOAD_TIME: 30 * 1000,
+
+      /**
+       * Santa service.
+       *
+       * TODO(ericbidelman): Don't call global function.
+       *
+       * @property santaService
+       * @type SantaService
+       * @default {}
+       */
+      santaService: window.santatracker.controller.getService(),
 
       /**
        * A helper method for preloading an array of image URLs.
