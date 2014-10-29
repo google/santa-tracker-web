@@ -4813,7 +4813,7 @@
     }, 
     "settings": {
         "blur_fade_time": -1, 
-        "file_root": "klangaudiofiles/", 
+        "file_root": "audio/",
         "sequencer_lookahead": 50, 
         "sequencer_resolution": 0.25, 
         "sequencer_schedule_ahead": 0.4, 

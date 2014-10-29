@@ -35,7 +35,7 @@ window.santatracker.setup = function() {
   window.santatracker.controller = new SantaController(window.santatracker.lang,
       window.santatracker, window.santatracker.analytics);
 
-  // TODO(lukem) Add sound setup here
+  // Sound setup
   window.soundController = new SoundController();
 
   // Routing setup is done last.
