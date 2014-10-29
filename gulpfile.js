@@ -56,7 +56,9 @@ gulp.task('copy-assets', ['vulcanize'], function() {
     'scenes/base-scene.html',
     'images/*.{png,svg,gif}',
     'scenes/**/img/*.{png,svg,gif}',
-    'components/**'
+    'components/platform/*',
+    'components/polymer/*',
+    'components/webcomponentsjs/webcomponents.min.js'
   ], {base: './'})
   .pipe(gulp.dest('dist'));
 });
