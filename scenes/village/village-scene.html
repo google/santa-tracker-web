@@ -1,4 +1,3 @@
-<link rel="import" href="../../components/polymer/polymer.html">
 <link rel="import" href="../base-scene.html">
 
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
@@ -22,8 +21,7 @@ Village scene.
                           class="{{ {finished: finished} | tokenList}}">
         <h1 class="logo">Google</h1>
         <h1>Santa Tracker</h1>
-        <countdown-timer santaService="{{santaService}}"
-                         on-countdown-timer-ready="{{startTimer}}"
+        <countdown-timer id="count" santaService="{{santaService}}"
                          finished="{{finished}}">
           <h3>Days</h3>
           <h3>Hours</h3>
@@ -412,24 +410,24 @@ Village scene.
           this.santaService, this.$['module-village']);
     },
 
-    startTimer: function(e, detail, sender) {
-      sender.start();
-    },
-
     onPreload: function() {
       console.debug('village: onPreload');
       this.preloadImages([
-        // TODO(lukem): add images.
+        // TODO(lukem): add other images. One image prevents onShow()
+        // from being called twice.
+        'img/house_25_snow.png'
       ]);
     },
 
     onShow: function() {
       console.debug('village: onShow');
       this.villageController.showVillage();
+      this.$.count.start();
     },
 
     onHide: function() {
       console.debug('village: onHide');
+      this.$.count.stop();
       this.villageController.hideVillage();
     }
   });
