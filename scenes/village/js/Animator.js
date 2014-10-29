@@ -11,7 +11,7 @@ function Animator() {
    */
   this.animations_ = [];
 
-  this.updateFunction_ = _.bind(this.update_, this);
+  this.updateFunction_ = this.update_.bind(this);
 
   this.updateScheduled_ = false;
 }

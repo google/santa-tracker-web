@@ -1,179 +1,103 @@
-@import "compass/css3";
-
 .postflight #finished-tracker {
   display: none;
 }
 
-#module-village {
-  #countdown {
-    position: absolute;
-    top: 75px;
+#countdown {
+  z-index: 1000;
+  color: #fff;
+  top: 75px;
+  position: absolute;
+  width: 100%;
+
+  $counterPadding: 19px;
+
+  #finished-tracker {
+    background-image: url(img/sign.png);
+    background-size: 541px 561px;
+    background-repeat: no-repeat;
+    width: 541px;
+    height: 561px;
     left: 50%;
-    z-index: 1000;
-    text-align: center;
-    color: #fff;
-    min-width: 350px;
+    bottom: -170px;
+    margin-left: -270px;
+    position: absolute;
+    -webkit-transform: translate3d(0, -561px, 0);
+    transform: translate3d(0, -561px, 0);
+    -webkit-transition: all 1.5s cubic-bezier(0.4, 1.6, 0.2, 1);
+    transition: all 1.5s cubic-bezier(0.4, 1.6, 0.2, 1);
 
-    $counterBorder: 1px;
-    $counterPadding: 19px;
-    $counterWidth: 96px;
-    $counterMargin: 7px;
+    a {
+      display: block;
+      position: absolute;
+      left: 30px;
+      right: 30px;
+      bottom: 47px;
+      height: 120px;
+    }
+  }
 
-    width: (4 * $counterWidth) + 2 * $counterPadding + 2 * $counterBorder + 2;
-    margin-left: -((4 * $counterWidth) + 2 * $counterPadding + 2) / 2;
-
-    &.digits6 {
-      width: (3 * $counterWidth) + 2 * $counterPadding + 2 * $counterBorder;
-      margin-left: -((3 * $counterWidth) + 2 * $counterPadding) / 2;
+  &.finished {
+    countdown-timer, h2 {
+      display: none;
     }
 
     #finished-tracker {
-      background-image: url(img/sign.png);
-      background-size: 541px 561px;
-      background-repeat: no-repeat;
-      width: 541px;
-      height: 561px;
-      left: 50%;
-      bottom: -170px;
-      margin-left: -270px;
-      position: absolute;
-      @include translate3d(0, -561px, 0);
-      @include transition(all 1.5s);
-      @include transition-timing-function(cubic-bezier(0.4, 1.6, 0.2, 1));
-
-      a {
-        display: block;
-        position: absolute;
-        left: 30px;
-        right: 30px;
-        bottom: 47px;
-        height: 120px;
-      }
-    }
-
-    &.finished {
-      #finished-tracker {
-        @include translate3d(0, 0, 0);
-      }
-    }
-
-    h1 {
-      margin: 0 0 10px 0;
-      padding: 0;
-      font-family: 'Lobster', sans-serif;
-      font-size: 50px;
-      line-height: 50px;
-      font-weight: normal;
-
-      &.logo {
-        display: inline-block;
-        line-height: 0;
-        text-indent: -3000em;
-        background-position: -1863px -251px;
-        font-size: 0;
-        height: 23px;
-        width: 71px;
-      }
-    }
-
-    h2 {
-      font-size: 16px;
-      font-weight: 700;
-      margin: ($counterPadding / 2) 0;
-      @include text-shadow(1px 1px 0 rgba(0, 0, 0, 0.14));
-      a {
-        color: #fff;
-      }
-    }
-
-    #counter {
-      background: rgba(255, 255, 255, .24);
-      border: 1px solid rgba(255, 255, 255, .24);
-      @include border-radius(6px);
-      padding: 19px;
-    }
-
-    &.digits6 #counter {
-      position: relative;
-      left: 50%;
-      width: 288px;
-      margin-left: -161px;
-    }
-
-    #counter:after {
-      content: ".";
-      display: block;
-      clear: both;
-      visibility: hidden;
-      line-height: 0;
-      height: 0;
-    }
-
-    $digitWidth: 38px;
-    $digitHeight: 27px;
-    $digitLineHeight: 53px;
-
-    .counter-box {
-      width: $counterWidth - ($counterMargin * 2);
-      margin: 0 $counterMargin;
-
-      .digit {
-        line-height: $digitLineHeight;
-        font-size: 39px;
-        margin-right: 3px;
-
-        .digit-top {
-          height: $digitHeight;
-          width: $digitWidth;
-        }
-
-        .digit-bottom {
-          height: $digitHeight - 3;
-          width: $digitWidth;
-          top: $digitHeight;
-
-          span {
-            top: -($digitHeight - 1);
-            width: $digitWidth;
-          }
-        }
-
-        .digit-bg {
-          width: $digitWidth;
-          height: $digitLineHeight;
-        }
-      }
-
-      h2 {
-        font-size: 9pt;
-        margin: 0 0 13px 0;
-      }
-    }
-
-    &.finished {
-      #counter, h2 {
-        display: none;
-      }
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
     }
   }
+
+  h1 {
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-family: 'Lobster', sans-serif;
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: normal;
+
+    &.logo {
+      display: inline-block;
+      line-height: 0;
+      text-indent: -3000em;
+      background-position: -1863px -251px;
+      font-size: 0;
+      height: 23px;
+      width: 71px;
+    }
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: ($counterPadding / 2) 0;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.14);
+    a {
+      color: #fff;
+    }
+  }
+
 }
 
+
 .no-3d-transforms #page-village {
-  #counter {
+  countdown-timer {
     .digit-ani .digit-flip {
-      @include transition-property(none);
+      -webkit-transition-property: none;
+      transition-property: none;
     }
     .digit-bottom, .digit-top-behind {
       display: none;
     }
     .digit .digit-top-front {
       height: 53px;
-      @include rotateX(0deg);
+      -webkit-transform: rotateX(0);
+      transform: rotateX(0);
       border-top: 1px solid transparent;
       border-radius: 4px;
     }
     .digit-top-front.digit-flip {
-      @include rotateX(0deg);
+      -webkit-transform: rotateX(0);
+      transform: rotateX(0);
       border-top: 1px solid transparent;
     }
   }

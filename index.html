@@ -20,12 +20,12 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="//maps.gstatic.com/mapfiles/santatracker/13/images/apple-touch-icon-144x144-precomposed.png">
   <link rel="shortcut icon" href="//maps.gstatic.com/mapfiles/santatracker/13/images/favicon.ico">
 
-  <script src="/components/webcomponentsjs/webcomponents.min.js"></script>
+  <script src="components/webcomponentsjs/webcomponents.min.js"></script>
   <link rel="import" href="elements/elements.html">
 
   <link rel="stylesheet" href="sass/santatracker.css">
 </head>
-<body unresolved fullbleed layout vertical>
+<body unresolved fullbleed>
 
 <!-- TODO(ericbidelman): Remove. Just for testing -->
 <paper-menu-button icon="view-carousel" id="tempnav" title="Select a scene" noTransition>
@@ -40,6 +40,7 @@
 <!-- ******************************************* -->
 
 <template is="auto-binding" id="t">
+  {% raw %}
 
   <!-- Route controller -->
   <flatiron-director route="{{route}}" autoHash></flatiron-director>
@@ -64,6 +65,7 @@
     <undersea-scene route="undersea"
         path="scenes/undersea/undersea-scene.html" hidden></undersea-scene>
   </lazy-pages>
+  {% endraw %}
 
 </template>
 

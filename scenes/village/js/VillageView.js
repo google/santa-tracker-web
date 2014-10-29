@@ -9,8 +9,8 @@ function VillageView(santaService, el) {
   this.visible_ = false;
   this.soundsLoaded_ = false;
   this.santaService_ = santaService;
-  this.container_ = $(el);
-  this.initOnce_ = _.once(_.bind(this.init_, this));
+  this.container_ = el;
+  this.initOnce_ = VillageUtils.once(this.init_.bind(this));
 
   this.updateScheduled_ = false;
   this.villageWidth_ = 12000;
@@ -45,7 +45,7 @@ VillageView.SCROLL_TIME_ = 5000;
  * @private
  */
 VillageView.prototype.init_ = function() {
-  this.scrollContainer_ = $('#village-parallax');
+  this.scrollContainer_ = $('#village-parallax', this.container_);
   this.addEvents_();
   this.addTrees_();
   this.addCounter_();
@@ -58,24 +58,26 @@ VillageView.prototype.init_ = function() {
   } else {
     this.setTime('night');
   }
-  this.villageWidth_ = $('#village').width();
+  this.villageWidth_ = $('#village', this.container_).width();
   this.parallaxLayers_ = $('.parallax-layer', this.container_);
   this.scheduleParallaxUpdate_();
 
   // Pan to the last melted house
-  this.panToHouse($('#village #houses .melt').last(), 0);
-  this.villageSnow_ = new VillageSnow();
-  this.villageBus_ = new VillageBus();
-  this.villageSnowMobile_ = new VillageSnowMobile();
+  this.panToHouse($('#village #houses .melt', this.container_).last(), 0);
+  this.villageSnow_ = new VillageSnow(this.container_);
+  this.villageBus_ = new VillageBus(this.container_);
+  this.villageSnowMobile_ = new VillageSnowMobile(this.container_);
 
-  var onSoundsLoaded = _.bind(this.playSounds_, this);
-  window.santatracker.klangLoadPromise.done(function() {
+  var onSoundsLoaded = this.playSounds_.bind(this);
+  
+  //TODO(bckenny): Hook up sounds
+  /*window.santatracker.klangLoadPromise.done(function() {
     // Load all of the heavy assets 1 second later - should give the browser
     // a chance to start loading all of the images (which are more important).
     window.setTimeout(function() {
       Klang.triggerEvent('village_load_sounds', onSoundsLoaded, null, klangLoadFailed);
     }, 1000);
-  });
+  });*/
 
   // No Android spaceship for iOS devices
   if (navigator.userAgent.match(/iPhone|iPod|iPad/i)) {
@@ -140,8 +142,8 @@ VillageView.prototype.show = function() {
  * @param {string} houseId
  */
 VillageView.prototype.unlockHouse = function(houseId) {
-  $('#' + houseId).removeClass('iced').addClass('melt');
-  $('#calendar-' + houseId).removeClass('iced').addClass('melt');
+  $('#' + houseId, this.container_).removeClass('iced').addClass('melt');
+  $('#calendar-' + houseId, this.container_).removeClass('iced').addClass('melt');
 };
 
 /**
@@ -149,7 +151,7 @@ VillageView.prototype.unlockHouse = function(houseId) {
  * @param {number=} opt_time
  */
 VillageView.prototype.panToHouse = function(el, opt_time) {
-  var villageOffset = parseFloat($('#village').css('left'));
+  var villageOffset = parseFloat($('#village', this.container_).css('left'));
   var left = parseFloat(el.css('left'));
   var width = parseFloat($('.building', el).css('width'));
   this.panTo(left + width / 2 + villageOffset, opt_time || 0);
@@ -159,8 +161,10 @@ VillageView.prototype.panToHouse = function(el, opt_time) {
  * @private
  */
 VillageView.prototype.addCounter_ = function() {
-  if (this.santaService_.now() < Countdown.END_DATE) {
-    var countdown = this.countdown_ = new Countdown(this.santaService_,
+  if (this.santaService_.now() < window.santatracker.COUNTDOWN_END_DATE) {
+    // TODO(ebidel): Add Countdown
+
+    /*var countdown = this.countdown_ = new Countdown(this.santaService_,
                                                     $('#counter'));
 
     countdown.start();
@@ -172,7 +176,7 @@ VillageView.prototype.addCounter_ = function() {
       countdown.stop();
       $('#countdown').addClass('finished');
       that.addPostLaunchHouseEvents_();
-    });
+    });*/
   } else {
     $('#countdown').addClass('finished');
   }
@@ -182,7 +186,7 @@ VillageView.prototype.addCounter_ = function() {
  *  @private
  */
 VillageView.prototype.addPostLaunchHouseEvents_ = function() {
-  $('#house3, #marker2').on('click', function() {
+  $('#house3, #marker2', this.container_).on('click', function() {
     window.location.hash = '/tracker/dashboard';
   });
 };
@@ -203,25 +207,27 @@ VillageView.prototype.addHouseEvents_ = function() {
     window.location.hash = '/village/' + module;
   });
 
-  $('#snowman').on('click', function() {
-    $(this).addClass('snowman-fall');
+  var snowmanClickFn = function() {
+    $('#snowman', this.container_).addClass('snowman-fall');
     Klang.triggerEvent('village_snowman_click');
     window.santatracker.analytics.trackEvent('village', 'click', 'snowman');
 
     // Lets be nice and bring the snowman back
     window.setTimeout(function() {
-      $('#snowman').removeClass('snowman-fall');
+      $('#snowman', this.container_).removeClass('snowman-fall');
     }, 20000);
-  });
+  };
 
-  $('#house10').on('click', _.bind(this.takeoffBaloon_, this));
+  $('#snowman', this.container_).on('click', snowmanClickFn.bind(this));
+
+  $('#house10', this.container_).on('click', this.takeoffBaloon_.bind(this));
 
   for (var i = 1; i < 4; i++) {
-    $('#busstop' + i).on('click', _.bind(this.sendBusToStop_, this, i));
+    $('#busstop' + i, this.container_).on('click', this.sendBusToStop_.bind(this, i));
   }
 
   for (var i = 1; i < 4; i++) {
-    $('#snowmobile' + i).on('click', _.bind(this.driveSnowMobile_, this, i));
+    $('#snowmobile' + i, this.container_).on('click', this.driveSnowMobile_.bind(this, i));
   }
 };
 
@@ -251,7 +257,7 @@ VillageView.prototype.sendBusToStop_ = function(stopId) {
  */
 VillageView.prototype.takeoffBaloon_ = function() {
   window.santatracker.analytics.trackEvent('village', 'click', 'balloon');
-  var baloon = $('#house10');
+  var baloon = $('#house10', this.container_);
   if (baloon.hasClass('flying')) {
     // If its already flying then do nothing.
     return;
@@ -263,10 +269,10 @@ VillageView.prototype.takeoffBaloon_ = function() {
   var ANIMATION_TIME = 55000;
 
   baloon.addClass('takeoff');
-  $('#house10-ropes').show();
+  $('#house10-ropes', this.container_).show();
 
-  $('#house10-elf1').hide();
-  $('#house10-elf2').hide();
+  $('#house10-elf1', this.container_).hide();
+  $('#house10-elf2', this.container_).hide();
 
   var WAIT = 500; // Seems nice enough
   var timeout = 1000;
@@ -288,9 +294,9 @@ VillageView.prototype.takeoffBaloon_ = function() {
   timeout += WAIT;
   window.setTimeout(function() {
     baloon.removeClass('takeoff');
-    $('#house10-ropes').hide();
-    $('#house10-elf1').show();
-    $('#house10-elf2').show();
+    $('#house10-ropes', this.container_).hide();
+    $('#house10-elf1', this.container_).show();
+    $('#house10-elf2', this.container_).show();
 
     Klang.triggerEvent('village_balloon_landing');
   }, timeout);
@@ -301,25 +307,25 @@ VillageView.prototype.takeoffBaloon_ = function() {
  */
 VillageView.prototype.addEvents_ = function() {
   var that = this;
-  $('#fakesun').on('click', function() {
+  $('#fakesun', this.container_).on('click', function() {
     window.santatracker.analytics.trackEvent('village', 'click', 'sun');
     that.setTime('night');
   });
 
-  $('#fakemoon').on('click', function() {
+  $('#fakemoon', this.container_).on('click', function() {
     window.santatracker.analytics.trackEvent('village', 'click', 'moon');
     that.setTime('day');
   });
 
-  $('#onthego-nav').on('click', '.arrow, h2', function() {
-    $('#onthego-nav').toggleClass('close').toggleClass('open');
+  $('#onthego-nav', this.container_).on('click', '.arrow, h2', function() {
+    $('#onthego-nav', this.container_).toggleClass('close').toggleClass('open');
   });
 
   // Use touch event support as a rough heuristic of when we shouldn't use
   // parallax.
   // TODO(bckenny): expand parallax support to touch devices like the Pixel
   if (!Modernizr.touch) {
-    var parallaxScheduleFunction = _.bind(this.scheduleParallaxUpdate_, this);
+    var parallaxScheduleFunction = this.scheduleParallaxUpdate_.bind(this);
     this.scrollContainer_.scroll(parallaxScheduleFunction);
   }
   $(window).resize(parallaxScheduleFunction);
@@ -329,23 +335,23 @@ VillageView.prototype.addEvents_ = function() {
   }
 
   if (Modernizr.touch) {
-    $('#hit-area-left').on('touchstart', function() {
+    $('#hit-area-left', this.container_).on('touchstart', function() {
       that.panTo(0, VillageView.SCROLL_TIME_, polynomialEasing);
-    }).on('touchend', _.bind(this.cancelScrollAnimation_, this));
+    }).on('touchend', this.cancelScrollAnimation_.bind(this));
 
-    $('#hit-area-right').on('touchstart', function() {
+    $('#hit-area-right', this.container_).on('touchstart', function() {
       that.panTo(/** @type {number} */(that.villageWidth_),
                  VillageView.SCROLL_TIME_, polynomialEasing);
-    }).on('touchend', _.bind(this.cancelScrollAnimation_, this));
+    }).on('touchend', this.cancelScrollAnimation_,bind(this));
   } else {
-    $('#hit-area-left').on('mouseenter', function() {
+    $('#hit-area-left', this.container_).on('mouseenter', function() {
       that.panTo(0, VillageView.SCROLL_TIME_, polynomialEasing);
-    }).on('mouseleave', _.bind(this.cancelScrollAnimation_, this));
+    }).on('mouseleave', this.cancelScrollAnimation_.bind(this));
 
-    $('#hit-area-right').on('mouseenter', function() {
+    $('#hit-area-right', this.container_).on('mouseenter', function() {
       that.panTo(/** @type {number} */(that.villageWidth_),
                  VillageView.SCROLL_TIME_, polynomialEasing);
-    }).on('mouseleave', _.bind(this.cancelScrollAnimation_, this));
+    }).on('mouseleave', this.cancelScrollAnimation_.bind(this));
   }
 };
 
@@ -363,7 +369,7 @@ VillageView.prototype.addTrees_ = function() {
                        Math.random() * maxDistanceBetweenTrees);
     left += pos;
     if (left > width) return;
-    $('#trees').append($('<div>').addClass('tree').css('left', left));
+    $('#trees', this.container_).append($('<div>').addClass('tree').css('left', left));
   }
 };
 
@@ -375,33 +381,33 @@ VillageView.prototype.setTime = function(type) {
   var day = type == 'day';
 
   if (day) {
-    $('#sun').addClass('up go-up').removeClass('down go-down');
-    $('#moon').removeClass('up go-up').addClass('down go-down');
-    $('#fakesun').show();
-    $('#fakemoon').hide();
-    $('#sky-day').addClass('visible');
-    $('#sky-night').removeClass('visible');
-    $('#mountains-day').addClass('visible');
-    $('#mountains-night').removeClass('visible');
-    $('#rail').removeClass('night');
+    $('#sun', this.container_).addClass('up go-up').removeClass('down go-down');
+    $('#moon', this.container_).removeClass('up go-up').addClass('down go-down');
+    $('#fakesun', this.container_).show();
+    $('#fakemoon', this.container_).hide();
+    $('#sky-day', this.container_).addClass('visible');
+    $('#sky-night', this.container_).removeClass('visible');
+    $('#mountains-day', this.container_).addClass('visible');
+    $('#mountains-night', this.container_).removeClass('visible');
+    $('#rail', this.container_).removeClass('night');
   } else {
-    $('#sun').removeClass('up go-up').addClass('down go-down');
-    $('#moon').addClass('up go-up').removeClass('down go-down');
-    $('#fakesun').hide();
-    $('#fakemoon').show();
-    $('#sky-day').removeClass('visible');
-    $('#sky-night').addClass('visible');
-    $('#mountains-day').removeClass('visible');
-    $('#mountains-night').addClass('visible');
-    $('#rail').addClass('night');
+    $('#sun', this.container_).removeClass('up go-up').addClass('down go-down');
+    $('#moon', this.container_).addClass('up go-up').removeClass('down go-down');
+    $('#fakesun', this.container_).hide();
+    $('#fakemoon', this.container_).show();
+    $('#sky-day', this.container_).removeClass('visible');
+    $('#sky-night', this.container_).addClass('visible');
+    $('#mountains-day', this.container_).removeClass('visible');
+    $('#mountains-night', this.container_).addClass('visible');
+    $('#rail', this.container_).addClass('night');
   }
 
   // Remove animations so they don't play when village becomes visible.
   // TODO(bckenny): there may be a better, more centralized way to make sure
   // animations don't play every time we come back from display:none.
   window.setTimeout(function() {
-    $('#sun').removeClass('go-up').removeClass('go-down');
-    $('#moon').removeClass('go-up').removeClass('go-down');
+    $('#sun', this.container_).removeClass('go-up').removeClass('go-down');
+    $('#moon', this.container_).removeClass('go-up').removeClass('go-down');
   }, 1500);
 };
 
@@ -456,7 +462,7 @@ VillageView.prototype.scheduleParallaxUpdate_ = function() {
 
   if (!this.updateScheduled_) {
     this.updateScheduled_ = true;
-    window.requestAnimationFrame(_.bind(this.updateParallax_, this));
+    window.requestAnimationFrame(this.updateParallax_.bind(this));
   }
 };
 

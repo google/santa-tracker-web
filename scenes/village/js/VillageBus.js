@@ -1,8 +1,9 @@
 /**
  * @constructor
  */
-function VillageBus() {
-  this.bus_ = $('#bus');
+function VillageBus(el) {
+  this.container_ = el;
+  this.bus_ = $('#bus', this.container_);
 }
 
 /**
@@ -58,7 +59,7 @@ VillageBus.prototype.stop = function() {
  * @param {number} stopNumber
  */
 VillageBus.prototype.sendBusToStop = function(stopNumber) {
-  var stop = $('#busstop' + stopNumber);
+  var stop = $('#busstop' + stopNumber, this.container_);
   var stopEmpty = stop.hasClass('stop-empty');
 
   if (this.busInTransit_) {
@@ -107,7 +108,7 @@ VillageBus.prototype.sendBusToStop = function(stopNumber) {
       VillageBus.ANIMATION_TIMES_.BUS_DEPARTURE_TIME +
       VillageBus.ANIMATION_TIMES_.BUS_PAD_TIME;
 
-    window.setTimeout(_.bind(function() {
+    var arriveAtStopFn = function() {
       // reset the bus now that animation is complete
       this.bus_.removeClass('leave-stop');
       this.busInTransit_ = false;
@@ -117,15 +118,17 @@ VillageBus.prototype.sendBusToStop = function(stopNumber) {
       if (this.busStopQueue_.length) {
         // Call this in a timeout after reset otherwise the bus drives backwards
         var stopId = this.busStopQueue_.shift();
-        window.setTimeout(_.bind(this.sendBusToStop, this, stopId), 1);
+        window.setTimeout(this.sendBusToStop.bind(this, stopId), 1);
       } else {
         this.scheduleRandomBus_();
       }
-    }, this), timeUntilReset);
+    };
+
+    window.setTimeout(arriveAtStopFn.bind(this), timeUntilReset);
   };
 
   this.leaveStopTimeoutID_ =
-      window.setTimeout(_.bind(leaveStopFn, this), timeUntilLoad);
+      window.setTimeout(leaveStopFn.bind(this), timeUntilLoad);
 };
 
 /**
@@ -146,5 +149,5 @@ VillageBus.prototype.scheduleRandomBus_ = function() {
       Math.random() * (VillageBus.ANIMATION_TIMES_.RANDOM_BUS_MAX_TIME -
       VillageBus.ANIMATION_TIMES_.RANDOM_BUS_MIN_TIME);
   this.randomBusTimeoutID_ = window.setTimeout(
-      _.bind(this.sendRandomBus_, this), randomBusTime);
+      this.sendRandomBus_.bind(this), randomBusTime);
 };

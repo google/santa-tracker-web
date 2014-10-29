@@ -1,6 +1,8 @@
 <link rel="import" href="../../components/polymer/polymer.html">
 <link rel="import" href="../base-scene.html">
 
+<link rel="import" href="../../elements/countdown/countdown-timer.html">
+
 <link rel="import" href="dependencies.html">
 
 <!--
@@ -13,17 +15,21 @@ Village scene.
 <template>
   <link rel="stylesheet" href="village-scene.css" no-shim>
 
-  <div id="module-village">
-    <div id="village-wrapper">
-      <div id="countdown">
+  <div id="module-village" fit>
+    <div id="village-wrapper" fit>
+
+      <div id="countdown" layout vertical center relative
+                          class="{{ {finished: finished} | tokenList}}">
         <h1 class="logo">Google</h1>
         <h1>Santa Tracker</h1>
-        <div id="counter">
-          <h3 class="counter-days-title">Days</h3>
-          <h3 class="counter-hours-title">Hours</h3>
-          <h3 class="counter-minutes-title">Minutes</h3>
-          <h3 class="counter-seconds-title">Seconds</h3>
-        </div>
+        <countdown-timer santaService="{{santaService}}"
+                         on-countdown-timer-ready="{{startTimer}}"
+                         finished="{{finished}}">
+          <h3>Days</h3>
+          <h3>Hours</h3>
+          <h3>Minutes</h3>
+          <h3>Seconds</h3>
+        </countdown-timer>
         <!-- <h2>Until Santa Departs &ndash; <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">Learn More</a></h2> -->
         <h2>Until Santa Departs &ndash; <a href="//www.google.com/santatracker/about.html">Learn More</a></h2>
         <div id="finished-tracker">
@@ -31,11 +37,12 @@ Village scene.
         </div>
         <h2 style="display:none">Santa's finished his journey for the year! He and the elves are still having some fun in the North Pole before their annual vacation.</h2>
       </div>
+
       <div id="hit-area-left"></div>
       <div id="hit-area-right"></div>
       <div id="trees" class="parallax-layer"></div>
       <div id="snow" class="parallax-layer"></div>
-      <div id="village-parallax">
+      <div id="village-parallax" fit>
         <div id="village">
           <div id="trees-back"></div>
           <div id="houses">
@@ -398,6 +405,33 @@ Village scene.
 <script>
   Polymer({
 
+    ready: function() {
+      // TODO: this.santaService could be null/undefined here. Define
+      // santaServiceChanged() and do this setup there.
+      this.villageController = new VillageController(
+          this.santaService, this.$['module-village']);
+    },
+
+    startTimer: function(e, detail, sender) {
+      sender.start();
+    },
+
+    onPreload: function() {
+      console.debug('village: onPreload');
+      this.preloadImages([
+        // TODO(lukem): add images.
+      ]);
+    },
+
+    onShow: function() {
+      console.debug('village: onShow');
+      this.villageController.showVillage();
+    },
+
+    onHide: function() {
+      console.debug('village: onHide');
+      this.villageController.hideVillage();
+    }
   });
 </script>
 </polymer-element>

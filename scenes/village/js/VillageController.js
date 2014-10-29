@@ -1,11 +1,11 @@
 /**
  * @param {SantaService} santaService
+ * @param {Element} container
  * @constructor
  */
-function VillageController(santaService) {
+function VillageController(santaService, container) {
   this.santaService_ = santaService;
 
-  var container = $('#page-village');
   this.view_ = new VillageView(santaService, container);
   VillageUtils.forwardEvent(this.view_, 'countdown_finished', this);
 
@@ -18,12 +18,12 @@ function VillageController(santaService) {
 
   this.checkSchedule_(true);
 
-  this.preloader_ = new PreloadManager;
+  /*this.preloader_ = new PreloadManager;
   this.preloader_.setOnHide(_.bind(this.view_.hide, this.view_));
   this.preloader_.setOnShow(_.bind(this.view_.show, this.view_));
   this.preloader_.setOnPreload(_.bind(this.view_.preload, this.view_));
   this.preloader_.setLoadingGraphics('#47c6ee',
-      STATIC_DIR + '/images/village_loading.gif');
+      STATIC_DIR + '/images/village_loading.gif');*/
 }
 
 /**
@@ -57,7 +57,7 @@ VillageController.SCHEDULE_ = [
   'house27' // tracker
 ];
 
-VillageController.prototype.setupRoutes = function() {
+/*VillageController.prototype.setupRoutes = function() {
   var crossroads = window.crossroads;
   var route;
   route = crossroads.addRoute('village', null, 10);
@@ -66,16 +66,15 @@ VillageController.prototype.setupRoutes = function() {
   route.switched.add(_.bind(this.hideVillage_, this));
 
   // NOTE: routes for houses are set up in web/js/ModuleController.js
-};
+};*/
 
 /**
  * Shows the village and starts the schedule checker
  * @private
  */
-VillageController.prototype.showVillage_ = function() {
-  this.preloader_.show($('#page-progress').show()[0]);
-  window.clearTimeout(this.scheduleTimeout_);
+VillageController.prototype.showVillage = function() {
   this.checkSchedule_();
+  this.view_.show();
 };
 
 /**
@@ -117,7 +116,7 @@ VillageController.prototype.checkSchedule_ = function(opt_once) {
 
   // Check again at the next hour tick
   var timeTillHour = (60 - date.getMinutes()) * 60 * 1000;
-  this.scheduleTimeout_ = window.setTimeout(_.bind(this.checkSchedule_, this),
+  this.scheduleTimeout_ = window.setTimeout(this.checkSchedule_.bind(this),
       timeTillHour);
 };
 
@@ -125,7 +124,7 @@ VillageController.prototype.checkSchedule_ = function(opt_once) {
  * Hides the village and stops the schedule checker
  * @private
  */
-VillageController.prototype.hideVillage_ = function() {
+VillageController.prototype.hideVillage = function() {
   window.clearTimeout(this.scheduleTimeout_);
-  this.preloader_.hide();
+  this.view_.hide();
 };

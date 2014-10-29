@@ -1,7 +1,9 @@
 /**
  * @constructor
  */
-function VillageSnowMobile() {}
+function VillageSnowMobile(el) {
+  this.container_ = el;
+}
 
 /**
  * @private
@@ -40,7 +42,7 @@ VillageSnowMobile.prototype.stop = function() {
  * @param {number} snowMobileId
  */
 VillageSnowMobile.prototype.driveSnowMobile = function(snowMobileId) {
-  var snowMobile = $('#snowmobile' + snowMobileId);
+  var snowMobile = $('#snowmobile' + snowMobileId, this.container_);
   this.scheduleRandomSnowMobile_();
 
   // If the snow mobile isn't interactive then do nothing.
@@ -71,5 +73,5 @@ VillageSnowMobile.prototype.scheduleRandomSnowMobile_ = function() {
   var randomSnowMobileTime = VillageSnowMobile.MIN_BURNOUT_TIME_ +
       Math.random() * VillageSnowMobile.MAX_BURNOUT_TIME_;
   this.randomSnowMobileTimeoutID_ = window.setTimeout(
-      _.bind(this.sendRandomSnowMobile_, this), randomSnowMobileTime);
+      this.sendRandomSnowMobile_.bind(this), randomSnowMobileTime);
 };
