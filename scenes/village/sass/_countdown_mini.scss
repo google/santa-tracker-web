@@ -5,6 +5,9 @@
 #countdown {
   z-index: 1000;
   color: #fff;
+  top: 75px;
+  position: fixed;
+  width: 100%;
 
   $counterPadding: 19px;
 
