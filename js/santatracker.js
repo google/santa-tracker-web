@@ -1,5 +1,8 @@
+(function() {
+
+var DEFAULT_ROUTE = 'village';
+
 window.santatracker = {};
-window.santatracker.DEFAULT_ROUTE_ = 'village';
 
 /**
  * @const
@@ -41,7 +44,7 @@ window.santatracker.setup = function() {
   // Routing setup is done last.
   var template = document.querySelector('#t');
   template.addEventListener('template-bound', function(e) {
-    template.route = template.route || window.santatracker.DEFAULT_ROUTE_;
+    this.route = this.route || DEFAULT_ROUTE;
   });
 };
 
@@ -130,3 +133,5 @@ Klang = {
 };
 
 window.santatracker.setup();
+
+})();
