@@ -1,8 +1,7 @@
 $name: 'module-village';
 
-@import "compass/css3";
 @import "compass/css3/transform";
-@import "compass/css3/border-radius";
+@import "compass/css3/transition";
 
 @import "sass/variables";
 @import "sass/animations";
@@ -38,11 +37,6 @@ $name: 'module-village';
   @import "sass/countdown_mini";
 
   background: #47c6ee;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   overflow: hidden;
 
   #village,
@@ -52,20 +46,10 @@ $name: 'module-village';
   }
 
   #village-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     overflow: hidden;
   }
 
   #village-parallax {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     z-index: 12;
     -webkit-overflow-scrolling: touch;
     overflow-x: scroll;
@@ -683,7 +667,7 @@ $name: 'module-village';
       background: #fff;
       top: 35px;
 
-      @include border-radius(200px);
+      border-radius: 200px;
       position: absolute;
     }
 
@@ -696,8 +680,7 @@ $name: 'module-village';
       position: absolute;
       top: -15px;
       left: 10px;
-
-      @include border-radius(100px);
+      border-radius: 100px;
       @include transform(rotate(30deg));
     }
 
