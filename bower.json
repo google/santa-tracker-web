@@ -22,10 +22,11 @@
     "tests"
   ],
   "dependencies": {
-    "core-elements": "Polymer/core-elements#master",
-    "paper-elements": "Polymer/paper-elements#master",
-    "paper-spinner": "PolymerLabs/paper-spinner",
-    "app-router": "erikringsmuth/app-router",
+    "polymer": "Polymer/polymer#master",
+    "core-pages": "Polymer/core-pages#master",
+    "core-range": "Polymer/core-range#master",
+    "core-item": "Polymer/core-item#master",
+    "paper-menu-button": "Polymer/paper-menu-button#master",
     "flatiron-director": "PolymerLabs/flatiron-director#master",
     "jquery": "2.1.1"
   }

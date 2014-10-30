@@ -112,13 +112,13 @@ VillageView.prototype.hide = function() {
   window.console.log('village hide');
   this.visible_ = false;
   Klang.triggerEvent('village_end');
-  $(this.container_).hide();
+  // $(this.container_).hide();
   this.villageSnow_.stop();
   this.villageBus_.stop();
   this.villageSnowMobile_.stop();
-  if (this.countdown_) {
-    this.countdown_.stop();
-  }
+  // if (this.countdown_) {
+  //   this.countdown_.stop();
+  // }
 };
 
 VillageView.prototype.show = function() {
@@ -128,14 +128,14 @@ VillageView.prototype.show = function() {
   if (this.soundsLoaded_) {
     Klang.triggerEvent('village_start');
   }
-  $(this.container_).show();
+  // $(this.container_).show();
   this.initOnce_();
   this.villageSnow_.start();
   this.villageBus_.start();
   this.villageSnowMobile_.start();
-  if (this.countdown_) {
-    this.countdown_.start();
-  }
+  // if (this.countdown_) {
+  //   this.countdown_.start();
+  // }
 };
 
 /**

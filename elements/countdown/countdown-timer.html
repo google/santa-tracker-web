@@ -43,6 +43,7 @@ Countdown timer.
   <script>
   (function() {
 
+    // TODO(ericbidelman): use end date in santatracker.js
     var END_DATE = 1419415200000;
     var TRANSITION_TIME_ = 300;
 
@@ -143,14 +144,21 @@ Countdown timer.
 
         if (this.render) {
           this.container = this.container || this;
-          this.titles = this.$.content.getDistributedNodes().array();
+        }
+      },
+
+      attached: function() {
+        if (this.render) {
+          this.titles = Array.prototype.slice.call(
+              this.$.content.getDistributedNodes());
         }
       },
 
       domReady: function() {
         // Needs to wait one rAF so titles has populated the template repeat.
         if (this.render) {
-          this.digits = this.$.counter.querySelectorAll('.digit').array();
+          this.digits = Array.prototype.slice.call(
+              this.$.counter.querySelectorAll('.digit'));
         }
 
         this.fire('countdown-timer-ready', this);
