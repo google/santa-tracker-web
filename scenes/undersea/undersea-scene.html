@@ -109,7 +109,7 @@ Undersea scene.
 <script>
   Polymer({
     onPreload: function(preloader) {
-      // preloader.addKlang('undersea_load_sounds', 20);
+      this.preloadSounds('undersea_load_sounds', 20);
       this.preloadImages([
         'img/boat.png',
         'img/bottom-sand.png',
@@ -132,16 +132,11 @@ Undersea scene.
     },
 
     onShow: function() {
-      Klang.triggerEvent('undersea_start');
-
-    //   if (imagePreloader) {
-    //     imagePreloader.dispose();
-    //     imagePreloader = null;
-    //   }
+      this.playAmbientSounds('undersea_start');
     },
 
     onHide: function() {
-      Klang.triggerEvent('undersea_end');
+      this.playAmbientSounds('undersea_end');
     }
   });
 </script>
