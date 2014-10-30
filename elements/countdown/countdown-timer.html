@@ -236,8 +236,8 @@ Countdown timer.
        * @param {string} val
        */
       setDigit: function(digit, val) {
-        var oldDigit = digit.dataset.digit;
-        digit.dataset.digit = val;
+        var oldDigit = digit.getAttribute('data-digit');
+        digit.setAttribute('data-digit', val);
 
         if (oldDigit == val) {
           return;
