@@ -51,7 +51,8 @@
   <preload-overlay value="{{selectedScene.preloadProgress || 0}}"
                    active?="{{selectedScene && !selectedScene.loaded}}"></preload-overlay>
 
-  <lazy-pages selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route" unresolved>
+  <lazy-pages selected="{{route}}" selectedItem="{{selectedScene}}"
+              valueattr="route" santaService="{{santaService}}">
     <village-scene route="village"
         path="scenes/village/village-scene.html" hidden></village-scene>
     <briefing-scene route="briefing"
@@ -74,30 +75,18 @@
 
 <div id="preload_placeholder"></div>
 
-<script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
-<script src="components/jquery/dist/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.0/modernizr.min.js"></script>
+<!-- <script src="components/jquery/dist/jquery.min.js"></script> -->
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.0/modernizr.min.js"></script> -->
 
-<!-- TODO(bckenny): concat js -->
-<!-- Statuses -->
-<script src="js/statuses/picker.js"></script>
-
-<!-- Santa API -->
-<script src="js/service/events.js"></script>
-<script src="js/service/lat_lng.js"></script>
-<script src="js/service/spherical.js"></script>
-<script src="js/service/details.js"></script>
-<script src="js/service/location.js"></script>
-<script src="js/service/state.js"></script>
-<script src="js/service/transport.js"></script>
-<script src="js/service/santa_client.js"></script>
-
-<!-- Santa Tracker -->
-<script src="js/consts.js"></script>
-<script src="js/analytics.js"></script>
-<script src="js/sitenav.js"></script>
-<script src="js/santacontroller.js"></script>
-
-<script src="js/santatracker.js"></script>
+<script>
+// Delay loading santatracker.js until the page imports have loaded.
+// santatracker.js has deps in elements.htm and loading under the polyfill
+// creates timing errors.
+document.addEventListener('HTMLImportsLoaded', function() {
+  var script = document.createElement('script');
+  script.src = 'js/santatracker.js';
+  document.head.appendChild(script);
+});
+</script>
 </body>
 </html>
