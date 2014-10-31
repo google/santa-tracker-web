@@ -83,13 +83,20 @@ but extended by other elements.
       /**
        * Santa service.
        *
-       * TODO(ericbidelman): Don't call global function.
+       * @property santaService
+       * @type SantaService
+       * @default null
+       */
+      santaService: null,
+
+      /**
+       * Santa service.
        *
        * @property santaService
        * @type SantaService
-       * @default {}
+       * @default null
        */
-      santaService: window.santatracker.controller.getService(),
+      analyticsService: null,
 
       /**
        * A helper method for preloading an array of image URLs.
