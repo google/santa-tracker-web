@@ -557,11 +557,7 @@ Village scene.
       // Between 6am and 6pm it's day time.
       // Note: Not scientifically correct but it makes children happier.
       var hour = new Date().getHours();
-      if (6 <= hour && hour <= 18) {
-        this.timeOfDay = 'day';
-      } else {
-        this.timeOfDay = 'night';
-      }
+      this.timeOfDay = (6 <= hour && hour <= 18) ? 'day' : 'night';
 
       this.parallaxLayers_ = Array.prototype.slice.call(
           this.container_.querySelectorAll('.parallax-layer'));

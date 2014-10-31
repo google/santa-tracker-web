@@ -39,7 +39,7 @@ VillageSnowMobile.prototype.stop = function() {
 
 /**
  * Send a snow mobile for a drive
- * @param {Element} snowMobile
+ * @param {!Element} snowMobile
  */
 VillageSnowMobile.prototype.driveSnowMobile = function(snowMobile) {
   this.scheduleRandomSnowMobile_();

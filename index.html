@@ -76,18 +76,6 @@
 
 <div id="preload_placeholder"></div>
 
-<!-- <script src="components/jquery/dist/jquery.min.js"></script> -->
-<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.0/modernizr.min.js"></script> -->
-
-<script>
-// Delay loading santatracker.js until the page imports have loaded.
-// santatracker.js has deps in elements.htm and loading under the polyfill
-// creates timing errors.
-document.addEventListener('HTMLImportsLoaded', function() {
-  var script = document.createElement('script');
-  script.src = 'js/santatracker.js';
-  document.head.appendChild(script);
-});
-</script>
+<script src="js/santatracker.js"></script>
 </body>
 </html>
