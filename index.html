@@ -52,7 +52,8 @@
                    active?="{{selectedScene && !selectedScene.loaded}}"></preload-overlay>
 
   <lazy-pages selected="{{route}}" selectedItem="{{selectedScene}}"
-              valueattr="route" santaService="{{santaService}}">
+              valueattr="route" santaService="{{santaService}}"
+              analyticsService="{{analyticsService}}">
     <village-scene route="village"
         path="scenes/village/village-scene.html" hidden></village-scene>
     <briefing-scene route="briefing"

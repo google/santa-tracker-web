@@ -46,6 +46,7 @@ window.santatracker.setup = function() {
   template.addEventListener('template-bound', function(e) {
     this.route = this.route || DEFAULT_ROUTE;
     this.santaService = window.santatracker.controller.getService();
+    this.analyticsService = window.santatracker.analytics;
   });
 };
 

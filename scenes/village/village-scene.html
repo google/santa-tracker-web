@@ -631,7 +631,7 @@ Village scene.
       this.$.snowman.classList.add('snowman-fall');
       Klang.triggerEvent('village_snowman_click');
 
-      window.santatracker.analytics.trackEvent('village', 'click', 'snowman');
+      this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'snowman');
 
       // Lets be nice and bring the snowman back.
       this.async(function() {
@@ -640,7 +640,7 @@ Village scene.
     },
 
     onBalloonClick: function(e, detail, sender) {
-      window.santatracker.analytics.trackEvent('village', 'click', 'balloon');
+      this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'balloon');
 
       if (sender.classList.contains('flying')) {
         // If its already flying then do nothing.
@@ -693,26 +693,26 @@ Village scene.
     onSendBusToStop: function(e, detail, sender) {
       var stopId = parseInt(sender.id.split('busstop')[1]);
 
-      window.santatracker.analytics.trackEvent('village', 'click',
-                                               'busstop' + stopId);
+      this.analyticsService && this.analyticsService.trackEvent('village', 'click',
+                                                                'busstop' + stopId);
       this.villageBus_.sendBusToStop(stopId);
     },
 
     onDriveSnowMobile: function(e, detail, sender) {
       var snowMobileId = parseInt(sender.id.split('snowmobile')[1]);
 
-      window.santatracker.analytics.trackEvent('village', 'click',
-                                               'snowmobile' + snowMobileId);
+      this.analyticsService && this.analyticsService.trackEvent('village', 'click',
+                                                                'snowmobile' + snowMobileId);
 
       this.villageSnowMobile_.driveSnowMobile(sender);
     },
 
     onFakeElementClick: function(e, detail, sender) {
       if (sender.id == 'fakesun') {
-        window.santatracker.analytics.trackEvent('village', 'click', 'sun');
+        this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'sun');
         this.setTime('night');
       } else if (sender.id == 'fakemoon') {
-        window.santatracker.analytics.trackEvent('village', 'click', 'moon');
+        this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'moon');
         this.setTime('day');
       }
     },
