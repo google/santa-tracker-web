@@ -401,23 +401,25 @@ Village scene.
         </div>
       </div>
       <div id="ground"></div>
-      <div id="rail" class="parallax-layer">
+      <div id="rail" class="parallax-layer {{timeOfDay}}">
         <div id="train"></div>
       </div>
       <div id="mountains" class="parallax-layer">
-        <div id="mountains-day"></div>
-        <div id="mountains-night" class="visible"></div>
+        <div id="mountains-day" class="{{ {visible: timeOfDay == 'day'} | tokenList }}"></div>
+        <div id="mountains-night" class="{{ {visible: timeOfDay == 'night'} | tokenList }}"></div>
       </div>
       <div id="clouds"></div>
       <div id="plane"></div>
       <div id="spaceship"></div>
-      <div id="fakesun" on-tap="{{onFakeElementClick}}"></div>
-      <div id="fakemoon" on-tap="{{onFakeElementClick}}"></div>
-      <div id="sun" class="down"></div>
-      <div id="moon" class="up"></div>
+      <div id="fakesun" on-tap="{{onFakeElementClick}}"
+                        hidden?="{{timeOfDay == 'night'}}"></div>
+      <div id="fakemoon" on-tap="{{onFakeElementClick}}"
+                         hidden?="{{timeOfDay == 'day'}}"></div>
+      <div id="sun" class="{{timeOfDay == 'day' ? 'up go-up' : 'down go-down'}}"></div>
+      <div id="moon" class="{{timeOfDay == 'night' ? 'up go-up' : 'down go-down'}}"></div>
       <div id="sky">
-        <div id="sky-day"></div>
-        <div id="sky-night" class="visible"></div>
+        <div id="sky-day" class="{{ {visible: timeOfDay == 'day'} | tokenList }}"></div>
+        <div id="sky-night" class="{{ {visible: timeOfDay == 'night'} | tokenList }}"></div>
       </div>
     </div>
   </div>
@@ -426,7 +428,6 @@ Village scene.
 <script>
   Polymer({
 
-    visible_: false,
     // soundsLoaded_: false,
 
     updateScheduled_: false,
@@ -468,6 +469,15 @@ Village scene.
      * @private
      */
      scheduleDay_: 1,
+
+    /**
+     * The time of day to display. Values are 'day' or 'night'.
+     *
+     * @property timeOfDay
+     * @type {string}
+     * @default 'day'
+     */
+    timeOfDay: 'day',
 
     /**
      * The schedule of houses that open based on the day. Day - 1 is the index.
@@ -527,6 +537,16 @@ Village scene.
       }
     },
 
+    timeOfDayChanged: function() {
+      // Remove animations so they don't play when village becomes visible.
+      // TODO(bckenny): there may be a better, more centralized way to make sure
+      // animations don't play every time we come back from display:none.
+      this.async(function() {
+        this.$.sun.classList.remove('go-down', 'go-up');
+        this.$.moon.classList.remove('go-down', 'go-up');
+      }, null, 1500);
+    },
+
     /**
      * @private
      */
@@ -538,9 +558,9 @@ Village scene.
       // Note: Not scientifically correct but it makes children happier.
       var hour = new Date().getHours();
       if (6 <= hour && hour <= 18) {
-        this.setTime('day');
+        this.timeOfDay = 'day';
       } else {
-        this.setTime('night');
+        this.timeOfDay = 'night';
       }
 
       this.parallaxLayers_ = Array.prototype.slice.call(
@@ -579,7 +599,7 @@ Village scene.
     //  * @private
     //  */
     // playSounds_: function() {
-    //   if (!this.visible_ || this.soundsLoaded_) return;
+    //   if (!this.active || this.soundsLoaded_) return;
     //   this.soundsLoaded_ = true;
     //   Klang.triggerEvent('village_start');
     // },
@@ -710,10 +730,10 @@ Village scene.
     onFakeElementClick: function(e, detail, sender) {
       if (sender.id == 'fakesun') {
         this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'sun');
-        this.setTime('night');
+        this.timeOfDay = 'night';
       } else if (sender.id == 'fakemoon') {
         this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'moon');
-        this.setTime('day');
+        this.timeOfDay = 'day';
       }
     },
 
@@ -789,52 +809,6 @@ Village scene.
     },
 
     /**
-     * Sets the time of day: day or night.
-     * @param {string} type The type of day.
-     */
-    setTime: function(type) {
-      var day = type == 'day';
-
-      if (day) {
-        this.$.sun.classList.switch('down', 'up');
-        this.$.sun.classList.switch('go-down', 'go-up');
-        this.$.moon.classList.switch('go-up', 'go-down');
-        this.$.moon.classList.switch('up', 'down');
-
-        this.$.fakesun.hidden = false;
-        this.$.fakemoon.hidden = true;
-
-        this.$['sky-day'].classList.add('visible');
-        this.$['sky-night'].classList.remove('visible');
-        this.$['mountains-day'].classList.add('visible');
-        this.$['mountains-night'].classList.remove('visible');
-        this.$.rail.classList.remove('night');
-      } else {
-        this.$.sun.classList.switch('up', 'down');
-        this.$.sun.classList.switch('go-up', 'go-down');
-        this.$.moon.classList.switch('go-down', 'go-up');
-        this.$.moon.classList.switch('down', 'up');
-
-        this.$.fakesun.hidden = true;
-        this.$.fakemoon.hidden = false;
-
-        this.$['sky-day'].classList.remove('visible');
-        this.$['sky-night'].classList.add('visible');
-        this.$['mountains-day'].classList.remove('visible');
-        this.$['mountains-night'].classList.add('visible');
-        this.$.rail.classList.add('night');
-      }
-
-      // Remove animations so they don't play when village becomes visible.
-      // TODO(bckenny): there may be a better, more centralized way to make sure
-      // animations don't play every time we come back from display:none.
-      this.async(function() {
-        this.$.sun.classList.remove('go-down', 'go-up');
-        this.$.moon.classList.remove('go-down', 'go-up');
-      }, null, 1500);
-    },
-
-    /**
      * Centers the view on this position within the village (or as close as the
      * bounds of the view allow).
      * @param {number} value New center position, in pixels.
@@ -881,7 +855,9 @@ Village scene.
      * @private
      */
     scheduleParallaxUpdate_: function() {
-      if (!this.visible_) return;
+      if (!this.active) {
+        return;
+      }
 
       if (!this.updateScheduled_) {
         this.updateScheduled_ = true;
@@ -992,7 +968,7 @@ Village scene.
     },
 
     onShow: function() {
-      if (this.visible_) {
+      if (this.active) {
         return;
       }
 
@@ -1000,7 +976,6 @@ Village scene.
 
       this.checkSchedule_();
 
-      this.visible_ = true;
       // if (this.soundsLoaded_) {
       //   Klang.triggerEvent('village_start');
       // }
@@ -1012,7 +987,7 @@ Village scene.
     },
 
     onHide: function() {
-      if (!this.visible_) {
+      if (!this.active) {
         return;
       }
 
@@ -1020,7 +995,6 @@ Village scene.
 
       window.clearTimeout(this.scheduleTimeout_);
 
-      this.visible_ = false;
       Klang.triggerEvent('village_end');
       this.villageSnow_.stop();
       this.villageBus_.stop();
