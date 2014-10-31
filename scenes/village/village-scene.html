@@ -164,7 +164,7 @@ Village scene.
             <div id="house10" class="house" on-tap="{{onBalloonClick}}"></div>
             <div id="house10-elf1" class="elf elf-orange-right"></div>
             <div id="house10-elf2" class="elf elf-red-left"></div>
-            <div id="house10-ropes" class="house"></div>
+            <div id="house10-ropes" class="house" hidden></div>
             <div id="house11" class="house iced" data-module="commandcentre" on-tap="{{onHouseClick}}">
               <div class="building"></div>
 
@@ -651,9 +651,9 @@ Village scene.
 
       sender.classList.add('takeoff');
 
-      this.$['house10-ropes'].style.display = 'block';
-      this.$['house10-elf1'].style.display = 'none';
-      this.$['house10-elf2'].style.display = 'none';
+      this.$['house10-ropes'].hidden = false;
+      this.$['house10-elf1'].hidden = true;
+      this.$['house10-elf2'].hidden = true;
 
       var WAIT = 500; // Seems nice enough.
       var timeout = 1000;
@@ -682,9 +682,9 @@ Village scene.
 
       this.async(function() {
         sender.classList.remove('takeoff');
-        this.$['house10-ropes'].style.display = 'none';
-        this.$['house10-elf1'].style.display = 'block';
-        this.$['house10-elf2'].style.display = 'block';
+        this.$['house10-ropes'].hidden = true;
+        this.$['house10-elf1'].hidden = false;
+        this.$['house10-elf2'].hidden = false;
 
         Klang.triggerEvent('village_balloon_landing');
       }, null, timeout);
