@@ -546,7 +546,7 @@ Village scene.
           this.container_.querySelectorAll('.parallax-layer'));
       this.scheduleParallaxUpdate_();
 
-      // TODO(ericbidelman): This doesn't scroll properly. likely because the 
+      // TODO(ericbidelman): This doesn't scroll properly. likely because the
       // images aren't ready and setup isn't complete. use domReady instead.
       // Pan to the last melted house
       var melts = this.$.houses.querySelectorAll('.melt');
@@ -581,18 +581,6 @@ Village scene.
     //   if (!this.visible_ || this.soundsLoaded_) return;
     //   this.soundsLoaded_ = true;
     //   Klang.triggerEvent('village_start');
-    // },
-
-    // /**
-    //  * @param {!ProgressGroup} progressGroup
-    //  */
-    // preload: function(progressGroup) {
-    //   var suffix = window.devicePixelRatio > 1.5 ? '_2x.png' : '.png';
-    //   for (var i = 1; i <= 26; i++) {
-    //     progressGroup.addImage(STATIC_DIR + '/images/house_' + i + suffix);
-    //   }
-    //   progressGroup.addImage(STATIC_DIR + '/images/menuicons' + suffix);
-    //   progressGroup.addImage(STATIC_DIR + '/images/markers_sprite' + suffix);
     // },
 
     /**
@@ -981,11 +969,25 @@ Village scene.
 
     onPreload: function() {
       console.debug('village: onPreload');
-      this.preloadImages([
-        // TODO(lukem): add other images. One image prevents onShow()
-        // from being called twice.
-        'img/house_25_snow.png'
-      ]);
+
+      var suffix = window.devicePixelRatio > 1.5 ? '_2x.png' : '.png';
+
+      var images = [
+        'img/assets_sprite' + suffix,
+        'img/markers_sprite' + suffix,
+        'img/elves_sprite' + suffix,
+        'img/trees' + suffix,
+        'img/monorail' + suffix,
+        'img/mountain-day-tile' + suffix,
+        'img/mountain-night-tile' + suffix,
+        //'img/menuicons' + suffix
+      ];
+
+      for (var i = 1; i <= 26; ++i) {
+        images.push('img/house_' + i + suffix);
+      }
+
+      this.preloadImages(images);
     },
 
     onShow: function() {
