@@ -39,18 +39,19 @@ VillageSnowMobile.prototype.stop = function() {
 
 /**
  * Send a snow mobile for a drive
- * @param {number} snowMobileId
+ * @param {!Element} snowMobile
  */
-VillageSnowMobile.prototype.driveSnowMobile = function(snowMobileId) {
-  var snowMobile = $('#snowmobile' + snowMobileId, this.container_);
+VillageSnowMobile.prototype.driveSnowMobile = function(snowMobile) {
   this.scheduleRandomSnowMobile_();
 
   // If the snow mobile isn't interactive then do nothing.
-  if (!snowMobile.hasClass('interactive')) return;
+  if (!snowMobile.classList.contains('interactive')) {
+    return;
+  }
 
-  snowMobile.addClass('gogo-snowmobile').removeClass('interactive');
+  snowMobile.classList.switch('interactive', 'gogo-snowmobile');
   window.setTimeout(function() {
-    snowMobile.removeClass('gogo-snowmobile').addClass('interactive');
+    snowMobile.classList.switch('gogo-snowmobile', 'interactive');
   }, VillageSnowMobile.BURNOUT_ANIMATION_TIME_);
 };
 
@@ -60,7 +61,8 @@ VillageSnowMobile.prototype.driveSnowMobile = function(snowMobileId) {
  */
 VillageSnowMobile.prototype.sendRandomSnowMobile_ = function() {
   var snowMobileId = Math.floor(Math.random() * 3) + 1;
-  this.driveSnowMobile(snowMobileId);
+  this.driveSnowMobile(
+      this.container_.querySelector('#snowmobile' + snowMobileId));
 };
 
 /**

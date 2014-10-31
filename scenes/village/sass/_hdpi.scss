@@ -1,15 +1,13 @@
-#page-village {
-  #countdown {
-    #finished-tracker {
-      background-image: url(img/sign_2x.png);
-    }
+#countdown {
+  #finished-tracker {
+    background-image: url(img/sign_2x.png);
   }
 }
 
 #countdown h1.logo,
 #hit-area-left, #hit-area-right,
-#page-village #sun, #page-village #moon, #page-village #plane,
-#page-village #spaceship, #page-village #train {
+#sun, #moon, #plane,
+#spaceship, #train {
   background-image: url(img/assets_sprite_2x.png);
 }
 
@@ -298,20 +296,19 @@
   }
 }
 
-#page-village {
-  #rail {
-    background-image: url(img/monorail_2x.png);
+
+#rail {
+  background-image: url(img/monorail_2x.png);
+}
+
+#mountains, .mountains {
+  #mountains-day, .mountains-day {
+    background: url(img/mountain-day-tile_2x.png) top left repeat-x;
+    background-size: 100% auto;
   }
 
-  #mountains, .mountains {
-    #mountains-day, .mountains-day {
-      background: url(img/mountain-day-tile_2x.png) top left repeat-x;
-      background-size: 100% auto;
-    }
-
-    #mountains-night {
-      background: url(img/mountain-night-tile_2x.png) top left repeat-x;
-      background-size: 100% auto;
-    }
+  #mountains-night {
+    background: url(img/mountain-night-tile_2x.png) top left repeat-x;
+    background-size: 100% auto;
   }
 }

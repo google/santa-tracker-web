@@ -87,10 +87,11 @@ Countdown timer.
       endDate: END_DATE,
 
       /**
-       * The current time as dictated by the `santaService`.
+       * Santa service.
        *
        * @attribute santaService
        * @type SantaService
+       * @default null
        */
        santaService: null,
 
@@ -185,7 +186,9 @@ Countdown timer.
        * @return {Object.<string>}
        */
       getCurrentTime_: function() {
-        var diff = Math.max(0, this.endDate - this.santaService.now());
+        var now = this.santaService ? this.santaService.now() : Date.now();
+
+        var diff = Math.max(0, this.endDate - now);
         var msPerDay = 24 * 60 * 60 * 1000;
 
         var daysX = diff / msPerDay;

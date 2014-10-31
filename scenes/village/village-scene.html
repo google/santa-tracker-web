@@ -38,15 +38,20 @@ Village scene.
 
       <div id="hit-area-left"></div>
       <div id="hit-area-right"></div>
-      <div id="trees" class="parallax-layer"></div>
+
+      <div id="trees" class="parallax-layer">
+        <template repeat="{{tree in trees}}">
+          <div class="tree" _style="left:{{tree.left}}px"></div>
+        </template>
+      </div>
       <div id="snow" class="parallax-layer"></div>
       <div id="village-parallax" fit>
         <div id="village">
           <div id="trees-back"></div>
           <div id="houses">
-            <div id="house1" class="house melt" data-module="airport">
+            <div id="house1" class="house melt" data-module="airport" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-green-snow elf1"></div>
@@ -61,9 +66,9 @@ Village scene.
               </div>
               <div class="house-marker marker1"></div>
             </div>
-            <div id="house2" class="house iced" data-module="racer">
+            <div id="house2" class="house iced" data-module="racer" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-blue-dig-right elf1"></div>
@@ -73,9 +78,9 @@ Village scene.
               </div>
               <div class="house-marker marker2"></div>
             </div>
-            <div id="house3" class="house iced" data-module="trailer">
+            <div id="house3" class="house iced" data-module="trailer" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-purple-right elf1"></div>
@@ -86,7 +91,7 @@ Village scene.
               </div>
               <div class="house-marker marker3"></div>
             </div>
-            <div id="house4" class="house iced" data-module="windtunnel">
+            <div id="house4" class="house iced" data-module="windtunnel" on-tap="{{onHouseClick}}">
               <div class="building"></div>
 
               <div class="house-snow"></div>
@@ -101,9 +106,9 @@ Village scene.
               </div>
               <div class="house-marker marker21"></div>
             </div>
-            <div id="house5" class="house iced" data-module="boatload">
+            <div id="house5" class="house iced" data-module="boatload" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-green-snow elf1"></div>
@@ -119,9 +124,9 @@ Village scene.
                 <div class="elf elf-blue-left"></div>
               </div>
             </div>
-            <div id="house7" class="house iced" data-module="streets">
+            <div id="house7" class="house iced" data-module="streets" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-orange-dig elf1"></div>
@@ -130,9 +135,9 @@ Village scene.
               </div>
               <div class="house-marker marker6"></div>
             </div>
-            <div id="house8" class="house iced" data-module="factory">
+            <div id="house8" class="house iced" data-module="factory" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-green elf1"></div>
@@ -143,9 +148,9 @@ Village scene.
               </div>
               <div class="house-marker marker7"></div>
             </div>
-            <div id="house9" class="house iced" data-module="rollercoaster">
+            <div id="house9" class="house iced" data-module="rollercoaster" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-green-snow elf1"></div>
@@ -156,13 +161,13 @@ Village scene.
               </div>
               <div class="house-marker marker8"></div>
             </div>
-            <div id="house10" class="house"></div>
+            <div id="house10" class="house" on-tap="{{onBalloonClick}}"></div>
             <div id="house10-elf1" class="elf elf-orange-right"></div>
             <div id="house10-elf2" class="elf elf-red-left"></div>
-            <div id="house10-ropes" class="house"></div>
-            <div id="house11" class="house iced" data-module="commandcentre">
+            <div id="house10-ropes" class="house" hidden></div>
+            <div id="house11" class="house iced" data-module="commandcentre" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-orange-dig elf1"></div>
@@ -173,9 +178,9 @@ Village scene.
               </div>
               <div class="house-marker marker9"></div>
             </div>
-            <div id="house12" class="house iced" data-module="callfromsanta">
+            <div id="house12" class="house iced" data-module="callfromsanta" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-purple-snow elf1"></div>
@@ -185,11 +190,11 @@ Village scene.
                 <div class="elf elf-orange elf5"></div>
                 <div class="elf elf-red-right elf6"></div>
               </div>
-              <div class="house-marker marker10"></div> 
+              <div class="house-marker marker10"></div>
             </div>
-            <div id="house13" class="house iced" data-module="gumballs">
+            <div id="house13" class="house iced" data-module="gumballs" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-orange-dig elf1"></div>
@@ -198,9 +203,9 @@ Village scene.
               </div>
               <div class="house-marker marker11"></div>
             </div>
-            <div id="house14" class="house iced" data-module="sendamessage">
+            <div id="house14" class="house iced" data-module="sendamessage" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-blue-dig elf1"></div>
@@ -212,9 +217,9 @@ Village scene.
               </div>
               <div class="house-marker marker12"></div>
             </div>
-            <div id="house15" class="house iced" data-module="mountain">
+            <div id="house15" class="house iced" data-module="mountain" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-red-snow elf1"></div>
@@ -223,9 +228,9 @@ Village scene.
               </div>
               <div class="house-marker marker13"></div>
             </div>
-            <div id="house16" class="house iced" data-module="playground">
+            <div id="house16" class="house iced" data-module="playground" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-green-snow elf1"></div>
@@ -238,9 +243,9 @@ Village scene.
             <div id="house17" class="house">
               <a href="http://www.youtube.com/watch?v=cWCkSYdFlU0&list=PL5aqr5w5fRe5wRtzE91sksc_Fbov3SiB0"><div class="building"></div></a>
             </div>
-            <div id="house18" class="house iced" data-module="ferriswheel">
+            <div id="house18" class="house iced" data-module="ferriswheel" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-orange-snow elf1"></div>
@@ -253,9 +258,9 @@ Village scene.
               </div>
               <div class="house-marker marker15"></div>
             </div>
-            <div id="house19" class="house iced" data-module="briefing">
+            <div id="house19" class="house iced" data-module="briefing" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-blue elf1"></div>
@@ -266,9 +271,9 @@ Village scene.
               </div>
               <div class="house-marker marker16"></div>
             </div>
-            <div id="house20" class="house iced" data-module="matching">
+            <div id="house20" class="house iced" data-module="matching" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-orange elf1"></div>
@@ -280,9 +285,9 @@ Village scene.
               </div>
               <div class="house-marker marker17"></div>
             </div>
-            <div id="house21" class="house iced" data-module="choir">
+            <div id="house21" class="house iced" data-module="choir" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-red-dig elf1"></div>
@@ -290,9 +295,9 @@ Village scene.
               </div>
               <div class="house-marker marker18"></div>
             </div>
-            <div id="house22" class="house iced" data-module="jetpack">
+            <div id="house22" class="house iced" data-module="jetpack" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-orange elf1"></div>
@@ -301,9 +306,9 @@ Village scene.
               </div>
               <div class="house-marker marker19"></div>
             </div>
-            <div id="house23" class="house iced" data-module="presentdrop">
+            <div id="house23" class="house iced" data-module="presentdrop" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-blue elf1"></div>
@@ -313,7 +318,7 @@ Village scene.
               </div>
               <div class="house-marker marker20"></div>
             </div>
-            <div id="house24" class="house iced" data-module="traditions">
+            <div id="house24" class="house iced" data-module="traditions" on-tap="{{onHouseClick}}">
               <div class="building"></div>
 
               <div class="house-snow"></div>
@@ -327,9 +332,9 @@ Village scene.
               </div>
               <div class="house-marker marker4"></div>
             </div>
-            <div id="house25" class="house iced" data-module="workshop">
+            <div id="house25" class="house iced" data-module="workshop" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-red-dig-left elf1"></div>
@@ -339,9 +344,9 @@ Village scene.
               </div>
               <div class="house-marker marker22"></div>
             </div>
-            <div id="house26" class="house iced" data-module="finalprep">
+            <div id="house26" class="house iced" data-module="finalprep" on-tap="{{onHouseClick}}">
               <div class="building"></div>
-              
+
               <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-blue-dig-right elf1"></div>
@@ -354,47 +359,67 @@ Village scene.
               <div class="house-marker marker23"></div>
             </div>
 
-            <div id="snowman" class="elf interactive"></div>
+            <!-- <template repeat="{{house, i in houses}}">
+              <div id="house{{i + 1}}" class="house iced" data-module="finalprep"
+                                on-tap="{{onHouseClick}}">
+                <div class="building"></div>
+
+                <div class="house-snow"></div>
+                <div class="house-elves">
+                  <div class="elf elf-blue-dig-right elf1"></div>
+                  <div class="elf elf-red-snow elf2"></div>
+                  <div class="elf elf-orange-dig elf3"></div>
+                  <div class="elf elf-green-right elf4"></div>
+                  <div class="elf elf-blue elf5"></div>
+                  <div class="elf elf-orange elf6"></div>
+                </div>
+                <div class="house-marker marker23"></div>
+              </div>
+            </template> -->
+
+            <div id="snowman" class="elf interactive" on-tap="{{onSnowManClick}}"></div>
             <div id="bus" class="bus-unload"></div>
-            <div id="busstop1" class="interactive">
+            <div id="busstop1" class="interactive" on-tap="{{onSendBusToStop}}">
               <div class="elf elf-red-sit elf1"></div>
               <div class="elf elf-green elf2"></div>
               <div class="elf elf-orange elf3"></div>
             </div>
-            <div id="busstop2" class="interactive">
+            <div id="busstop2" class="interactive" on-tap="{{onSendBusToStop}}">
               <div class="elf elf-red-sit elf1"></div>
               <div class="elf elf-green elf2"></div>
               <div class="elf elf-orange elf3"></div>
             </div>
-            <div id="busstop3" class="interactive">
+            <div id="busstop3" class="interactive" on-tap="{{onSendBusToStop}}">
               <div class="elf elf-blue elf1"></div>
               <div class="elf elf-purple elf2"></div>
               <div class="elf elf-green-sit elf3"></div>
             </div>
-            <div id="snowmobile1" class="elf elf-purple-snowmobile-right interactive snowmobile-right"></div>
-            <div id="snowmobile2" class="elf elf-orange-snowmobile-left interactive snowmobile-left"></div>
-            <div id="snowmobile3" class="elf elf-purple-snowmobile-left interactive snowmobile-left"></div>
+            <div id="snowmobile1" class="elf elf-purple-snowmobile-right interactive snowmobile-right" on-tap="{{onDriveSnowMobile}}"></div>
+            <div id="snowmobile2" class="elf elf-orange-snowmobile-left interactive snowmobile-left" on-tap="{{onDriveSnowMobile}}"></div>
+            <div id="snowmobile3" class="elf elf-purple-snowmobile-left interactive snowmobile-left" on-tap="{{onDriveSnowMobile}}"></div>
           </div>
         </div>
       </div>
       <div id="ground"></div>
-      <div id="rail" class="parallax-layer">
+      <div id="rail" class="parallax-layer {{timeOfDay}}">
         <div id="train"></div>
       </div>
       <div id="mountains" class="parallax-layer">
-        <div id="mountains-day"></div>
-        <div id="mountains-night" class="visible"></div>
+        <div id="mountains-day" class="{{ {visible: timeOfDay == 'day'} | tokenList }}"></div>
+        <div id="mountains-night" class="{{ {visible: timeOfDay == 'night'} | tokenList }}"></div>
       </div>
       <div id="clouds"></div>
       <div id="plane"></div>
       <div id="spaceship"></div>
-      <div id="fakesun"></div>
-      <div id="fakemoon"></div>
-      <div id="sun" class="down"></div>
-      <div id="moon" class="up"></div>
+      <div id="fakesun" on-tap="{{onFakeElementClick}}"
+                        hidden?="{{timeOfDay == 'night'}}"></div>
+      <div id="fakemoon" on-tap="{{onFakeElementClick}}"
+                         hidden?="{{timeOfDay == 'day'}}"></div>
+      <div id="sun" class="{{timeOfDay == 'day' ? 'up go-up' : 'down go-down'}}"></div>
+      <div id="moon" class="{{timeOfDay == 'night' ? 'up go-up' : 'down go-down'}}"></div>
       <div id="sky">
-        <div id="sky-day"></div>
-        <div id="sky-night" class="visible"></div>
+        <div id="sky-day" class="{{ {visible: timeOfDay == 'day'} | tokenList }}"></div>
+        <div id="sky-night" class="{{ {visible: timeOfDay == 'night'} | tokenList }}"></div>
       </div>
     </div>
   </div>
@@ -403,32 +428,574 @@ Village scene.
 <script>
   Polymer({
 
+    // soundsLoaded_: false,
+
+    updateScheduled_: false,
+    villageWidth_: 12000,
+    parallaxLayers_: null,
+    scrollContainer_: null,
+
+    animator_: null,
+
+    /**
+     * Time taken to scroll across entire village, in milliseconds.
+     *
+     * @property SCROLL_TIME_
+     * @type number
+     * @default 5000
+     * @const
+     * @private
+     */
+    SCROLL_TIME_: 5000,
+
+    /**
+     * The current scroll animation, if any.
+     *
+     * @property scrollAnimation_
+     * @type {Animation}
+     * @default null
+     * @private
+     */
+    scrollAnimation_: null,
+
+    randomBusTimeoutID_: -1,
+
+    /**
+     * The current day in the calendar schedule.
+     *
+     * @property scheduleDay_
+     * @type {number}
+     * @default 1
+     * @private
+     */
+     scheduleDay_: 1,
+
+    /**
+     * The time of day to display. Values are 'day' or 'night'.
+     *
+     * @property timeOfDay
+     * @type {string}
+     * @default 'day'
+     */
+    timeOfDay: 'day',
+
+    /**
+     * The schedule of houses that open based on the day. Day - 1 is the index.
+     * @private
+     */
+    SCHEDULE_: [
+      'house1', // airport
+      'house2', // racer
+      'house3', // trailer
+      'house4', // windtunnel
+      'house5', // boatload
+      'house7', // streets
+      'house8', // factory
+      'house9', // rollercoaster
+      'house11', // commandcentre
+      'house12', // callfromsanta
+      'house13', // gumballs
+      'house14', // sendamessage
+      'house15', // mountain
+      'house16', // playground
+      'house18', // ferriswheel
+      'house19', // briefing
+      'house20', // matching
+      'house21', // choir
+      'house22', // jetpack
+      'house23', // presentdrop
+      'house24', // traditions
+      'house25', // workshop
+      'house26', // finalprep
+      'house27' // tracker
+    ],
+
+    created: function() {
+      this.trees = [];
+    },
+
     ready: function() {
-      // TODO: this.santaService could be null/undefined here. Define
-      // santaServiceChanged() and do this setup there.
-      this.villageController = new VillageController(
-          this.santaService, this.$['module-village']);
+      this.container_ = this.$['module-village'];
+      this.scrollContainer_ = this.$['village-parallax'];
+
+      this.animator_ = new Animator();
+
+      this.villageWidth_ = parseFloat(getComputedStyle(this.$.village).width);
+
+      this.init_();
+    },
+
+    // domReady: function() {
+    //   // Pan to the last melted house
+    //   var melts = this.$.houses.querySelectorAll('.melt');
+    //   this.panToHouse(melts[melts.length - 1], 0);
+    // },
+
+    santaServiceChanged: function() {
+      if (this.santaService) {
+        this.checkSchedule_(true);
+      }
+    },
+
+    timeOfDayChanged: function() {
+      // Remove animations so they don't play when village becomes visible.
+      // TODO(bckenny): there may be a better, more centralized way to make sure
+      // animations don't play every time we come back from display:none.
+      this.async(function() {
+        this.$.sun.classList.remove('go-down', 'go-up');
+        this.$.moon.classList.remove('go-down', 'go-up');
+      }, null, 1500);
+    },
+
+    /**
+     * @private
+     */
+    init_: function() {
+      this.addEvents_();
+      this.addTrees_();
+
+      // Between 6am and 6pm it's day time.
+      // Note: Not scientifically correct but it makes children happier.
+      var hour = new Date().getHours();
+      this.timeOfDay = (6 <= hour && hour <= 18) ? 'day' : 'night';
+
+      this.parallaxLayers_ = Array.prototype.slice.call(
+          this.container_.querySelectorAll('.parallax-layer'));
+      this.scheduleParallaxUpdate_();
+
+      // TODO(ericbidelman): This doesn't scroll properly. likely because the
+      // images aren't ready and setup isn't complete. use domReady instead.
+      // Pan to the last melted house
+      var melts = this.$.houses.querySelectorAll('.melt');
+      this.panToHouse(melts[melts.length - 1], 0);
+
+      this.villageSnow_ = new VillageSnow(this.container_);
+      this.villageBus_ = new VillageBus(this.container_);
+      this.villageSnowMobile_ = new VillageSnowMobile(this.container_);
+
+      // var onSoundsLoaded = this.playSounds_.bind(this);
+
+      //TODO(bckenny): Hook up sounds
+      /*window.santatracker.klangLoadPromise.done(function() {
+        // Load all of the heavy assets 1 second later - should give the browser
+        // a chance to start loading all of the images (which are more important).
+        window.setTimeout(function() {
+          Klang.triggerEvent('village_load_sounds', onSoundsLoaded, null, klangLoadFailed);
+        }, 1000);
+      });*/
+
+      // No Android spaceship for iOS devices
+      if (navigator.userAgent.match(/iPhone|iPod|iPad/i)) {
+        this.$.spaceship.parentElement.removeChild(this.$.spaceship);
+      }
+    },
+
+    // /**
+    //  * Play sounds once they have loaded from Klang.
+    //  * @private
+    //  */
+    // playSounds_: function() {
+    //   if (!this.active || this.soundsLoaded_) return;
+    //   this.soundsLoaded_ = true;
+    //   Klang.triggerEvent('village_start');
+    // },
+
+    /**
+     * @param {string} houseId
+     */
+    unlockHouse: function(houseId) {
+      var house = this.$[houseId];
+      house.classList.switch('iced', 'melt');
+
+      // var calendar = this.$['calendar-' + houseId];
+      // calendar.classList.remove('iced');
+      // calendar.classList.add('melt');
+    },
+
+    /**
+     * @param {Element} el
+     * @param {number=} opt_time
+     */
+    panToHouse: function(el, opt_time) {
+      var villageOffset = parseFloat(getComputedStyle(this.$.village).left);
+      var left = parseFloat(getComputedStyle(el).left);
+      var width = parseFloat(getComputedStyle(el.querySelector('.building')).width);
+      this.panTo(left + width / 2 + villageOffset, opt_time || 0);
+    },
+
+    // /**
+    //  *  @private
+    //  */
+    // addPostLaunchHouseEvents_: function() {
+    //   $('#house3, #marker2', this.container_).on('click', function() {
+    //     window.location.hash = '/tracker/dashboard';
+    //   });
+    // },
+
+    onHouseClick: function(e, detail, sender) {
+      // House is not melted so don't do anything.
+      if (!sender.classList.contains('melt')) {
+        return;
+      }
+
+      // Note: IE10 doesn't support .dataset.
+      var module = sender.getAttribute('data-module');
+      window.location.hash = module; //'/village/' + module;
+    },
+
+    onSnowManClick: function(e, detail, sender) {
+      this.$.snowman.classList.add('snowman-fall');
+      Klang.triggerEvent('village_snowman_click');
+
+      this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'snowman');
+
+      // Lets be nice and bring the snowman back.
+      this.async(function() {
+        this.$.snowman.classList.remove('snowman-fall');
+      }, null, 20000);
+    },
+
+    onBalloonClick: function(e, detail, sender) {
+      this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'balloon');
+
+      if (sender.classList.contains('flying')) {
+        // If its already flying then do nothing.
+        return;
+      }
+
+      Klang.triggerEvent('village_balloon_click');
+
+      sender.classList.add('takeoff');
+
+      this.$['house10-ropes'].hidden = false;
+      this.$['house10-elf1'].hidden = true;
+      this.$['house10-elf2'].hidden = true;
+
+      var WAIT = 500; // Seems nice enough.
+      var timeout = 1000;
+
+      this.async(function() {
+        sender.classList.remove('takeoff');
+        sender.classList.add('fly', 'flying', 'float');
+      }, null, timeout);
+
+      // The same amount of time we set in the CSS animation.
+      var ANIMATION_TIME = 55000;
+
+      timeout += ANIMATION_TIME;
+
+      this.async(function() {
+        sender.classList.remove('flying', 'float');
+      }, null, timeout);
+
+      timeout += WAIT;
+
+      this.async(function() {
+        sender.classList.switch('fly', 'takeoff');
+      }, null, timeout);
+
+      timeout += WAIT;
+
+      this.async(function() {
+        sender.classList.remove('takeoff');
+        this.$['house10-ropes'].hidden = true;
+        this.$['house10-elf1'].hidden = false;
+        this.$['house10-elf2'].hidden = false;
+
+        Klang.triggerEvent('village_balloon_landing');
+      }, null, timeout);
+    },
+
+    onSendBusToStop: function(e, detail, sender) {
+      var stopId = parseInt(sender.id.split('busstop')[1]);
+
+      this.analyticsService && this.analyticsService.trackEvent('village', 'click',
+                                                                'busstop' + stopId);
+      this.villageBus_.sendBusToStop(stopId);
+    },
+
+    onDriveSnowMobile: function(e, detail, sender) {
+      var snowMobileId = parseInt(sender.id.split('snowmobile')[1]);
+
+      this.analyticsService && this.analyticsService.trackEvent('village', 'click',
+                                                                'snowmobile' + snowMobileId);
+
+      this.villageSnowMobile_.driveSnowMobile(sender);
+    },
+
+    onFakeElementClick: function(e, detail, sender) {
+      if (sender.id == 'fakesun') {
+        this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'sun');
+        this.timeOfDay = 'night';
+      } else if (sender.id == 'fakemoon') {
+        this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'moon');
+        this.timeOfDay = 'day';
+      }
+    },
+
+    /**
+     * @private
+     */
+    addEvents_: function() {
+      var that = this;
+
+      // $('#onthego-nav', this.container_).on('click', '.arrow, h2', function() {
+      //   $('#onthego-nav', this.container_).toggleClass('close').toggleClass('open');
+      // });
+
+      // Use touch event support as a rough heuristic of when we shouldn't use
+      // parallax.
+      // TODO(bckenny): expand parallax support to touch devices like the Pixel
+      if (!Modernizr.touch) {
+        this.scrollContainer_.addEventListener('scroll',
+            this.scheduleParallaxUpdate_.bind(this));
+        window.addEventListener('resize',
+            this.scheduleParallaxUpdate_.bind(this));
+      }
+
+      var polynomialEasing = function(t) {
+        return t * t;
+      };
+
+      if (Modernizr.touch) {
+        $(this.$['hit-area-left']).on('touchstart', function() {
+          that.panTo(0, this.SCROLL_TIME_, polynomialEasing);
+        }).on('touchend', this.cancelScrollAnimation_.bind(this));
+
+        $(this.$['hit-area-right']).on('touchstart', function() {
+          that.panTo(/** @type {number} */(that.villageWidth_),
+                     this.SCROLL_TIME_, polynomialEasing);
+        }).on('touchend', this.cancelScrollAnimation_,bind(this));
+      } else {
+        $(this.$['hit-area-left']).on('mouseenter', function() {
+          that.panTo(0, this.SCROLL_TIME_, polynomialEasing);
+        }).on('mouseleave', this.cancelScrollAnimation_.bind(this));
+
+        $(this.$['hit-area-right']).on('mouseenter', function() {
+          that.panTo(/** @type {number} */(that.villageWidth_),
+                     this.SCROLL_TIME_, polynomialEasing);
+        }).on('mouseleave', this.cancelScrollAnimation_.bind(this));
+      }
+    },
+
+    /**
+     * @private
+     */
+    addTrees_: function() {
+      var numTrees = Math.max(3, Math.ceil(Math.random() * 10));
+      var width = parseFloat(getComputedStyle(this.$.trees).width);
+      var left = 0;
+      var minDistanceBetweenTrees = 2000;
+      var maxDistanceBetweenTrees = width / numTrees;
+
+      var trees = [];
+
+      for (var i = 0; i < numTrees; i++) {
+        var pos = Math.max(minDistanceBetweenTrees,
+                           Math.random() * maxDistanceBetweenTrees);
+        left += pos;
+        if (left > width) {
+          return;
+        }
+
+        trees.push({left: left});
+      }
+
+      this.trees = trees;
+    },
+
+    /**
+     * Centers the view on this position within the village (or as close as the
+     * bounds of the view allow).
+     * @param {number} value New center position, in pixels.
+     */
+    setPosition: function(value) {
+      // put desired position at center of current view
+      value -= this.scrollContainer_.offsetWidth / 2;
+      this.scrollContainer_.scrollLeft = value;
+    },
+
+    /**
+     * Animates the view to centers on this position within the village (or as
+     * close as the bounds of the view allow).
+     * @param {number} value New center position, in pixels.
+     * @param {number=} opt_duration Duration of animation. Defaults to 600ms.
+     * @param {Function=} opt_easing Animation easing function.
+     */
+    panTo: function(value, opt_duration, opt_easing) {
+      this.cancelScrollAnimation_();
+
+      var scrollee = this.scrollContainer_;
+      var currentScroll = scrollee.scrollLeft;
+      var targetScroll = value - (scrollee.offsetWidth / 2);
+      var duration = (opt_duration != null) ? opt_duration : 600;
+
+      this.scrollAnimation_ = this.animator_.animate(function(t) {
+        var scrollPos = currentScroll + t * (targetScroll - currentScroll);
+        scrollee.scrollLeft = /** @type {number} */(scrollPos);
+      }, duration, opt_easing);
+    },
+
+    /**
+     * @private
+     */
+    cancelScrollAnimation_: function() {
+      if (this.scrollAnimation_) {
+        this.scrollAnimation_.cancel();
+        this.scrollAnimation_ = null;
+      }
+    },
+
+    /**
+     * Schedule a parallax update for next browser repaint.
+     * @private
+     */
+    scheduleParallaxUpdate_: function() {
+      if (!this.active) {
+        return;
+      }
+
+      if (!this.updateScheduled_) {
+        this.updateScheduled_ = true;
+        window.requestAnimationFrame(this.updateParallax_.bind(this));
+      }
+    },
+
+    /**
+     * Update the village layers in relation to village scroll.
+     * @private
+     */
+    updateParallax_: function() {
+      this.updateScheduled_ = false;
+
+      var scrollLeft = /** @type {number} */(this.scrollContainer_.scrollLeft);
+      var viewWidth = /** @type {number} */(this.scrollContainer_.offsetWidth);
+      var villageWidth = /** @type {number} */(this.villageWidth_);
+
+      for (var i = 0, layer; layer = this.parallaxLayers_[i]; i++) {
+        this.scrollLayer_(layer, scrollLeft, viewWidth, villageWidth);
+      }
+    },
+
+    /**
+     * Scroll an element in the view relative to a reference width.
+     * @param {!Element} el The element to translate.
+     * @param {number} scrollLeft The reference element's current scrollLeft.
+     * @param {number} viewWidth The width of the view of the element.
+     * @param {number} refrenceWidth
+     * @private
+     */
+    scrollLayer_: function(el, scrollLeft, viewWidth, refrenceWidth) {
+      var scrollScale = (el.offsetWidth - viewWidth) / (refrenceWidth - viewWidth);
+      var translate = -scrollLeft * scrollScale;
+      var translateStyle = 'translateX(' + translate + 'px)';
+      el.style[VillageUtils.CSS_TRANSFORM] = translateStyle;
+      el.style[VillageUtils.CSS_TRANSFORM] = 'translateZ(0) ' + translateStyle;
+    },
+
+    /**
+     * Unlocks the correct houses based on the day (index).
+     * @param {boolean=} opt_once check only once.
+     * @private
+     */
+    checkSchedule_: function(opt_once) {
+      var now = this.santaService ? this.santaService.now() : Date.now();
+
+      var date = new Date(now);
+      // TODO: Remove this hack before the 2014 release.
+      // Hard coding the date to the 30th so houses don't refreeze in January.
+      var day = 31;
+      // var day = date.getDate();
+
+      // Houses unlock at 6am
+      if (date.getHours() < 6) {
+        day--;
+      }
+
+      // We don't want users still in November seeing all the Houses unlocked.
+      // The site will be shut down before November the following year.
+      if (day >= this.scheduleDay_ && date.getMonth() != 10) {
+        for (var i = this.scheduleDay_; i <= day; ++i) {
+          var houseId = this.SCHEDULE_[i - 1];
+          if (!houseId) {
+            // Nothing more to unlock.
+            break;
+          }
+
+          if (this.$[houseId] && houseId.indexOf('disable') !== 0 &&
+              !this.$[houseId].getAttribute('disabled')) {
+            this.unlockHouse(houseId);
+          }
+        }
+
+        this.scheduleDay_ = day;
+      }
+
+      if (opt_once) {
+        return;
+      }
+
+      // Check again at the next hour tick.
+      var timeTillHour = (60 - date.getMinutes()) * 60 * 1000;
+      this.scheduleTimeout_ = this.async(this.checkSchedule_, null, timeTillHour);
     },
 
     onPreload: function() {
       console.debug('village: onPreload');
-      this.preloadImages([
-        // TODO(lukem): add other images. One image prevents onShow()
-        // from being called twice.
-        'img/house_25_snow.png'
-      ]);
+
+      var suffix = window.devicePixelRatio > 1.5 ? '_2x.png' : '.png';
+
+      var images = [
+        'img/assets_sprite' + suffix,
+        'img/markers_sprite' + suffix,
+        'img/elves_sprite' + suffix,
+        'img/trees' + suffix,
+        'img/monorail' + suffix,
+        'img/mountain-day-tile' + suffix,
+        'img/mountain-night-tile' + suffix,
+        //'img/menuicons' + suffix
+      ];
+
+      for (var i = 1; i <= 26; ++i) {
+        images.push('img/house_' + i + suffix);
+      }
+
+      this.preloadImages(images);
     },
 
     onShow: function() {
+      if (this.active) {
+        return;
+      }
+
       console.debug('village: onShow');
-      this.villageController.showVillage();
+
+      this.checkSchedule_();
+
+      // if (this.soundsLoaded_) {
+      //   Klang.triggerEvent('village_start');
+      // }
+
+      this.villageSnow_.start();
+      this.villageBus_.start();
+      this.villageSnowMobile_.start();
       this.$.count.start();
     },
 
     onHide: function() {
+      if (!this.active) {
+        return;
+      }
+
       console.debug('village: onHide');
+
+      window.clearTimeout(this.scheduleTimeout_);
+
+      Klang.triggerEvent('village_end');
+      this.villageSnow_.stop();
+      this.villageBus_.stop();
+      this.villageSnowMobile_.stop();
       this.$.count.stop();
-      this.villageController.hideVillage();
     }
   });
 </script>

@@ -3,7 +3,7 @@
  */
 function VillageBus(el) {
   this.container_ = el;
-  this.bus_ = $('#bus', this.container_);
+  this.bus_ = this.container_.querySelector('#bus');
 }
 
 /**
@@ -51,7 +51,7 @@ VillageBus.prototype.start = function() {
 VillageBus.prototype.stop = function() {
   window.clearTimeout(this.randomBusTimeoutID_);
   window.clearTimeout(this.leaveStopTimeoutID_);
-  this.bus_.removeClass();
+  this.bus_.className = '';
 };
 
 /**
@@ -59,14 +59,15 @@ VillageBus.prototype.stop = function() {
  * @param {number} stopNumber
  */
 VillageBus.prototype.sendBusToStop = function(stopNumber) {
-  var stop = $('#busstop' + stopNumber, this.container_);
-  var stopEmpty = stop.hasClass('stop-empty');
+  var stop = this.container_.querySelector('#busstop' + stopNumber);
+
+  var stopEmpty = stop.classList.contains('stop-empty');
 
   if (this.busInTransit_) {
     // Queue up the stop for next time
-    if (!_.contains(this.busStopQueue_, stopNumber)) {
+    if (!this.busStopQueue_.indexOf(stopNumber) != -1) {
       if (!stopEmpty) {
-        stop.addClass('stop-waiting');
+        stop.classList.add('stop-waiting');
       }
       this.busStopQueue_.push(stopNumber);
     }
@@ -79,13 +80,13 @@ VillageBus.prototype.sendBusToStop = function(stopNumber) {
     this.randomBusTimeoutID_ = -1;
   }
 
-  this.bus_.addClass('to-stop' + stopNumber);
+  this.bus_.classList.add('to-stop' + stopNumber);
   this.busInTransit_ = true;
 
   if (stopEmpty) {
-    this.bus_.addClass('bus-load').removeClass('bus-unload');
+    this.bus_.classList.switch('bus-unload', 'bus-load');
   } else {
-    this.bus_.addClass('bus-unload').removeClass('bus-load');
+    this.bus_.classList.switch('bus-load', 'bus-unload');
   }
 
   // time for bus to arrive at stop
@@ -94,13 +95,17 @@ VillageBus.prototype.sendBusToStop = function(stopNumber) {
 
   // after bus arrives at stop, toggle load state and switch to leave animation
   var leaveStopFn = function() {
-    this.bus_.toggleClass('bus-unload bus-load' +
-        ' to-stop' + stopNumber + ' leave-stop');
+    var classList = this.bus_.classList;
+    classList.toggle('bus-unload');
+    classList.toggle('bus-load');
+    classList.toggle('to-stop' + stopNumber);
+    classList.toggle('leave-stop');
     this.busEmpty_ = !this.busEmpty_;
 
     // switch bus stop state
     window.setTimeout(function() {
-      stop.toggleClass('stop-empty').removeClass('stop-waiting');
+      stop.classList.toggle('stop-empty');
+      stop.classList.remove('stop-waiting');
     }, VillageBus.ANIMATION_TIMES_.BUS_LOAD_TIME / 2);
 
     // time to load/unload bus, and drive off screen
@@ -110,7 +115,7 @@ VillageBus.prototype.sendBusToStop = function(stopNumber) {
 
     var arriveAtStopFn = function() {
       // reset the bus now that animation is complete
-      this.bus_.removeClass('leave-stop');
+      this.bus_.classList.remove('leave-stop');
       this.busInTransit_ = false;
 
       // If the user has queued up a stop for the bus then send it right away,

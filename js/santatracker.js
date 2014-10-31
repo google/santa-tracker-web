@@ -17,8 +17,6 @@ window.santatracker.COUNTDOWN_END_DATE = 1419415200000; // Dec 24, 2014
 window.santatracker.FLIGHT_FINISHED =
     window.santatracker.COUNTDOWN_END_DATE + 25 * 60 * 60 * 1000;
 
-window.santatracker.analytics = new Analytics();
-
 /**
  * @type {!MuteState}
  */
@@ -26,6 +24,8 @@ window.santatracker.analytics = new Analytics();
 //window.santatracker.visibility = new VisibilityManager;
 
 window.santatracker.setup = function() {
+  window.santatracker.analytics = new Analytics();
+
   window.santatracker.addErrorHandler();
   if (!window.santatracker.isValidDomain()) {
     window.location.pathname = '';
@@ -45,6 +45,8 @@ window.santatracker.setup = function() {
   var template = document.querySelector('#t');
   template.addEventListener('template-bound', function(e) {
     this.route = this.route || DEFAULT_ROUTE;
+    this.santaService = window.santatracker.controller.getService();
+    this.analyticsService = window.santatracker.analytics;
   });
 };
 
@@ -127,11 +129,13 @@ window.santatracker.addErrorHandler = function() {
   };
 };
 
+document.addEventListener('HTMLImportsLoaded', function() {
+  window.santatracker.setup();
+});
+
 // TODO(ericbidelman): temp stub.
 Klang = {
   triggerEvent: function(){},
 };
-
-window.santatracker.setup();
 
 })();
