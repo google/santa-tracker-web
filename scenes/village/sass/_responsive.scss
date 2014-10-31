@@ -7,21 +7,19 @@ $mobilePortraitBreakpoint: 400px;
     @include transform(scale(0.8));
   }
 
-  #page-village {
-    #hit-area-left, #hit-area-right {
-      width: 81px;
-      height: 81px;
-    }
+  #hit-area-left, #hit-area-right {
+    width: 81px;
+    height: 81px;
+  }
 
-    #hit-area-left {
-      left: 5px;
-      background-position: -1846px -376px;
-    }
+  #hit-area-left {
+    left: 5px;
+    background-position: -1846px -376px;
+  }
 
-    #hit-area-right {
-      background-position: -1437px -376px;
-      right: 5px;
-    }
+  #hit-area-right {
+    background-position: -1437px -376px;
+    right: 5px;
   }
 
   #countdown {
