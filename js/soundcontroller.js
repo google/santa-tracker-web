@@ -10,7 +10,7 @@ function SoundController() {
   klangScript.src = SoundController.klangSrc_;
 
   klangScript.addEventListener('load', this.loadKlangConfig_.bind(this));
-  document.getElementsByTagName('head')[0].appendChild(klangScript);
+  document.head.appendChild.appendChild(klangScript);
 
   /**
    * A queue of the sounds to load as soon as Klang is ready to go.
@@ -29,7 +29,7 @@ function SoundController() {
    * Whether Klang has finished loading.
    * @private {boolean}
    */
-  this.klangLoaded_ = false;
+  this.loaded_ = false;
 
   /**
    * Whether sounds are currently loading so sound triggers should be queued.
@@ -57,7 +57,7 @@ SoundController.prototype.loadKlangConfig_ = function() {
   Klang.init(SoundController.klangConfigSrc_, function(success) {
     if (success) {
       console.log('Klang loaded');
-      this.klangLoaded_ = true;
+      this.loaded_ = true;
 
     } else {
       console.log('Klang failed to load');
@@ -75,10 +75,10 @@ SoundController.prototype.loadSounds = function(loadEvent) {
 
   // a new load has been triggered, so cancel any existing queued ambient sounds
   // TODO(bckenny): this appears to be the correct behavior, but it's possible
-  // that loads, plays, and scenes may be less correlated than I've assumed here
+  // that loads, plays, and scenes may be less correlated than I've assumed.
   this.soundQueue_ = [];
 
-  if (!this.klangLoaded_) {
+  if (!this.loaded_) {
     // sound loads predominantly only happen in onPreload, so will only be
     // called once, so if Klang has yet to load, queue them up so all will be
     // loaded.
@@ -122,7 +122,7 @@ SoundController.prototype.loadSounds = function(loadEvent) {
 SoundController.prototype.playAmbientSounds = function(loadEvent) {
   // ambient sounds are important, so queue them up if the last load (or Klang
   // itself) hasn't finished yet
-  if (!this.klangLoaded_ || this.loadingSounds_) {
+  if (!this.loaded_ || this.loadingSounds_) {
     this.soundQueue_.push(loadEvent.detail);
   } else {
     console.log('Klang: playing sound ' + loadEvent.detail);
@@ -140,7 +140,7 @@ SoundController.prototype.playSound = function(loadEvent) {
   // loaded, even if the scene's sounds are not. Some sounds are shared between
   // scenes, so it's possible it's already loaded, and if not, this particular
   // sound event likely won't be relevent by the time it is loaded.
-  if (this.klangLoaded_) {
+  if (this.loaded_) {
     Klang.triggerEvent(loadEvent.detail);
   }
 };
