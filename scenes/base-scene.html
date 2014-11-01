@@ -116,6 +116,34 @@ but extended by other elements.
         }
       },
 
+      /**
+       * Preload a set of sounds for this scene via Klang.
+       * @method preloadSounds
+       * @param string soundSetName
+       */
+      preloadSounds: function(soundSetName) {
+        this.fire('sound-preload', soundSetName);
+      },
+
+      /**
+       * Play an ambient sound script for the scene via Klang. This is typically
+       * called in onShow and onHide.
+       * @method playAmbientSounds
+       * @param string soundName
+       */
+      playAmbientSounds: function(soundName) {
+        this.fire('sound-ambient', soundName);
+      },
+
+      /**
+       * Play a single sound via Klang.
+       * @method playSound
+       * @param string soundName
+       */
+      playSound: function(soundName) {
+        this.fire('sound-trigger', soundName);
+      },
+
       preloadProgressChanged: function() {
         if (this.preloadProgress === 100) {
           this.showScene();

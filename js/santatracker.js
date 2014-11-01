@@ -38,8 +38,16 @@ window.santatracker.setup = function() {
   window.santatracker.controller = new SantaController(window.santatracker.lang,
       window.santatracker, window.santatracker.analytics);
 
-  // TODO(lukem) Add sound setup here
-  // window.soundController = new SoundController();
+  // Sound setup
+  var soundController = new SoundController();
+  // TODO(bckenny): for now, add listeners to document, but preferably do this
+  // declaratively
+  document.addEventListener('sound-preload', soundController.loadSounds
+      .bind(soundController));
+  document.addEventListener('sound-ambient', soundController.playAmbientSounds
+      .bind(soundController));
+  document.addEventListener('sound-trigger', soundController.playSound
+      .bind(soundController));
 
   // Routing setup is done last.
   var template = document.querySelector('#t');
