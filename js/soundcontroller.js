@@ -10,7 +10,7 @@ function SoundController() {
   klangScript.src = SoundController.klangSrc_;
 
   klangScript.addEventListener('load', this.loadKlangConfig_.bind(this));
-  document.head.appendChild.appendChild(klangScript);
+  document.head.appendChild(klangScript);
 
   /**
    * A queue of the sounds to load as soon as Klang is ready to go.
