@@ -14,11 +14,13 @@ function VisibilityManager() {
   this.locks_ = 0;
 
   window.addEventListener('blur', function() {
+    // TODO:(bckenny): switch to new sound controller.
     Klang.triggerEvent('global_blur');
     this.pause();
   }.bind(this));
 
   window.addEventListener('focus', function() {
+    // TODO:(bckenny): switch to new sound controller.
     Klang.triggerEvent('global_focus');
     this.resume();
   }.bind(this));
@@ -38,7 +40,7 @@ VisibilityManager.prototype.addOnPauseListener = function(callback) {
 /**
  * @param {!Function} callback
  */
-VisibilityManager.prototype.addonResumeListener = function(callback) {
+VisibilityManager.prototype.addOnResumeListener = function(callback) {
   Events.addListener(this, 'resume', callback);
 };
 
@@ -49,6 +51,7 @@ VisibilityManager.prototype.pause = function() {
   if (!this.locks_) {
     Events.trigger(this, 'pause');
     // window.santatracker.setPaused(true);
+    // TODO:(bckenny): switch to new sound controller.
     Klang.triggerEvent('global_pause');
   }
   this.locks_++;
@@ -64,6 +67,7 @@ VisibilityManager.prototype.resume = function() {
   if (!this.locks_) {
     Events.trigger(this, 'resume');
     // window.santatracker.setPaused(false);
+    // TODO:(bckenny): switch to new sound controller.
     Klang.triggerEvent('global_unpause');
   }
   window.console.log('resume', this.locks_);
