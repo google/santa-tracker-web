@@ -440,8 +440,6 @@ Village scene.
 
   Polymer({
 
-    // soundsLoaded_: false,
-
     updateScheduled_: false,
     villageWidth_: 12000,
     parallaxLayers_: null,
@@ -556,17 +554,6 @@ Village scene.
       this.villageBus_ = new VillageBus(this.container_);
       this.villageSnowMobile_ = new VillageSnowMobile(this.container_);
 
-      // var onSoundsLoaded = this.playSounds_.bind(this);
-
-      //TODO(bckenny): Hook up sounds
-      /*window.santatracker.klangLoadPromise.done(function() {
-        // Load all of the heavy assets 1 second later - should give the browser
-        // a chance to start loading all of the images (which are more important).
-        window.setTimeout(function() {
-          Klang.triggerEvent('village_load_sounds', onSoundsLoaded, null, klangLoadFailed);
-        }, 1000);
-      });*/
-
       // No Android spaceship for iOS devices
       if (navigator.userAgent.match(/iPhone|iPod|iPad/i)) {
         this.$.spaceship.parentElement.removeChild(this.$.spaceship);
@@ -588,16 +575,6 @@ Village scene.
         this.$.moon.classList.remove('go-down', 'go-up');
       }, null, 1500);
     },
-
-    // /**
-    //  * Play sounds once they have loaded from Klang.
-    //  * @private
-    //  */
-    // playSounds_: function() {
-    //   if (!this.active || this.soundsLoaded_) return;
-    //   this.soundsLoaded_ = true;
-    //   Klang.triggerEvent('village_start');
-    // },
 
     /**
      * @param {string} houseId
@@ -644,7 +621,7 @@ Village scene.
 
     onSnowManClick: function(e, detail, sender) {
       this.$.snowman.classList.add('snowman-fall');
-      Klang.triggerEvent('village_snowman_click');
+      this.playSound('village_snowman_click');
 
       this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'snowman');
 
@@ -662,7 +639,7 @@ Village scene.
         return;
       }
 
-      Klang.triggerEvent('village_balloon_click');
+      this.playSound('village_balloon_click');
 
       sender.classList.add('takeoff');
 
@@ -701,7 +678,7 @@ Village scene.
         this.$['house10-elf1'].hidden = false;
         this.$['house10-elf2'].hidden = false;
 
-        Klang.triggerEvent('village_balloon_landing');
+        this.playSound('village_balloon_landing');
       }, null, timeout);
     },
 
@@ -920,6 +897,8 @@ Village scene.
     onPreload: function() {
       console.debug('village: onPreload');
 
+      this.preloadSounds('village_load_sounds');
+
       var suffix = window.devicePixelRatio > 1.5 ? '_2x.png' : '.png';
 
       var images = [
@@ -949,9 +928,7 @@ Village scene.
 
       this.checkSchedule_();
 
-      // if (this.soundsLoaded_) {
-      //   Klang.triggerEvent('village_start');
-      // }
+      this.playAmbientSounds('village_start');
 
       this.villageSnow_.start();
       this.villageBus_.start();
@@ -968,7 +945,7 @@ Village scene.
 
       window.clearTimeout(this.scheduleTimeout_);
 
-      Klang.triggerEvent('village_end');
+      this.playAmbientSounds('village_end');
       this.villageSnow_.stop();
       this.villageBus_.stop();
       this.villageSnowMobile_.stop();

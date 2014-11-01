@@ -288,7 +288,7 @@ Matching scene.
     game: null,
 
     onPreload: function() {
-      // preloader.addKlang('m_load_sounds', 20);
+      this.preloadSounds('m_load_sounds', 20);
       this.preloadImages([
         'img/logo.svg',
         'img/house.svg',
@@ -324,7 +324,7 @@ Matching scene.
       this.animationHelper = null;
       this.game.destroy();
       this.game = null;
-      Klang.triggerEvent('m_end_game');
+      this.playAmbientSounds('m_end_game');
     }
 
     // utils.globalPause(module, function() {

@@ -83,7 +83,7 @@ Briefing scene.
      * @private
      */
     changeSlide_: function() {
-      Klang.triggerEvent('briefing_change_slide');
+      this.playSound('briefing_change_slide');
       this.$.screen.style.backgroundPosition = -392 * this.currentSlide_ + 'px 0';
     },
 
@@ -123,8 +123,7 @@ Briefing scene.
     },
 
     onPreload: function(preloader) {
-      // TODO(ericbidelman): add this to klang
-      // preloader.addKlang('briefing_load_sounds', 30);
+      this.preloadSounds('briefing_load_sounds', 30);
       this.preloadImages([
         'img/logo.svg',
         'img/audience.png',
@@ -136,11 +135,11 @@ Briefing scene.
     },
 
     onShow: function() {
-      // Klang.triggerEvent('briefing_start');
+      this.playAmbientSounds('briefing_start');
     },
 
     onHide: function() {
-      Klang.triggerEvent('briefing_end');
+      this.playAmbientSounds('briefing_end');
       this.stop();
     }
 
