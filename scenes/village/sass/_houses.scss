@@ -30,6 +30,7 @@
 
     .house-elves {
       z-index: 4;
+      display: none !important;
     }
 
     .house-snow {
@@ -82,15 +83,15 @@
     left: 938px;
 
     .building {
-      background-image: url(img/house_1.png);
-      width: 433px;
-      height: 351px;
+      background-image: url(img/house1.svg);
+      width: 416px;
+      height: 339px;
     }
 
     .house-snow {
-      background-image: url(img/house_1_snow.png);
-      width: 525px;
-      height: 431px;
+      background-image: url(img/house1-ice.svg);
+      width: 504px;
+      height: 414px;
       bottom: -49px;
       left: -36px;
     }
@@ -152,19 +153,19 @@
   }
 
   #house2 {
-    left: 1523px;
+    left: 1501px;
 
     .building {
-      background-image: url(img/house_2.png);
-      width: 196px;
-      height: 164px;
+      background-image: url(img/house2.svg);
+      width: 189px;
+      height: 159px;
       bottom: -3px;
     }
 
     .house-snow {
-      background-image: url(img/house_2_snow.png);
-      width: 380px;
-      height: 262px;
+      background-image: url(img/house2-ice.svg);
+      width: 365px;
+      height: 251px;
       bottom: -48px;
       left: -87px;
     }
@@ -209,18 +210,18 @@
   }
 
   #house3 {
-    left: 1911px;
+    left: 1873px;
 
     .building {
-      background-image: url(img/house_3.png);
-      width: 242px;
-      height: 246px;
+      background-image: url(img/house3.svg);
+      width: 233px;
+      height: 238px;
     }
 
     .house-snow {
-      background-image: url(img/house_3_snow.png);
-      width: 446px;
-      height: 325px;
+      background-image: url(img/house3-ice.svg);
+      width: 406px;
+      height: 312px;
       bottom: -52px;
       left: -59px;
     }
@@ -277,18 +278,18 @@
   }
 
   #house4 {
-    left: 2331px;
+    left: 2265px;
 
     .building {
-      background-image: url(img/house_24.png);
-      width: 522px;
-      height: 301px;
+      background-image: url(img/house4.svg);
+      width: 152px;
+      height: 363px;
     }
 
     .house-snow {
-      background-image: url(img/house_24_snow.png);
-      width: 647px;
-      height: 375px;
+      background-image: url(img/house4-ice.svg);
+      width: 323px;
+      height: 405px;
       bottom: -45px;
       left: -38px;
     }
@@ -353,19 +354,19 @@
   }
 
   #house5 {
-    left: 2905px;
+    left: 2537px;
 
     .building {
-      background-image: url(img/house_5.png);
-      width: 215px;
-      height: 178px;
+      background-image: url(img/house5.svg);
+      width: 217px;
+      height: 287px;
       bottom: -2px;
     }
 
     .house-snow {
-      background-image: url(img/house_5_snow.png);
-      width: 322px;
-      height: 243px;
+      background-image: url(img/house5-ice.svg);
+      width: 355px;
+      height: 342px;
       bottom: -44px;
       left: -19px;
     }
@@ -414,12 +415,20 @@
   }
 
   #house6 {
-    left: 3135px;
+    left: 2855px;
 
     .building {
-      background-image: url(img/house_6.png);
-      width: 228px;
-      height: 150px;
+      background-image: url(img/house6.svg);
+      width: 208px;
+      height: 173px;
+    }
+
+    .house-snow {
+      background-image: url(img/house6-ice.svg);
+      width: 314px;
+      height: 244px;
+      bottom: -44px;
+      left: -19px;
     }
 
     .house-elves {
@@ -430,18 +439,18 @@
   }
 
   #house7 {
-    left: 3402px;
+    left: 3154px;
 
     .building {
-      background-image: url(img/house_7.png);
-      width: 285px;
-      height: 208px;
+      background-image: url(img/house7.svg);
+      width: 219px;
+      height: 297px;
     }
 
     .house-snow {
-      background-image: url(img/house_7_snow.png);
-      width: 412px;
-      height: 334px;
+      background-image: url(img/house7-ice.svg);
+      width: 405px;
+      height: 373px;
       bottom: -67px;
       left: -87px;
     }
@@ -478,18 +487,18 @@
   }
 
   #house8 {
-    left: 3756px;
+    left: 3389px;
 
     .building {
-      background-image: url(img/house_8.png);
-      width: 335px;
-      height: 264px;
+      background-image: url(img/house8.svg);
+      width: 219px;
+      height: 146px;
     }
 
     .house-snow {
-      background-image: url(img/house_8_snow.png);
-      width: 421px;
-      height: 377px;
+      background-image: url(img/house8-ice.svg);
+      width: 278px;
+      height: 256px;
       bottom: -75px;
       left: -28px;
     }
@@ -538,15 +547,15 @@
     left: 4200px;
 
     .building {
-      background-image: url(img/house_9.png);
-      width: 306px;
-      height: 243px;
+      background-image: url(img/house9.svg);
+      width: 305px;
+      height: 233px;
     }
 
     .house-snow {
-      background-image: url(img/house_9_snow.png);
-      width: 395px;
-      height: 327px;
+      background-image: url(img/house9-ice.svg);
+      width: 438px;
+      height: 362px;
       bottom: -52px;
       left: -35px;
     }
@@ -599,6 +608,8 @@
     }
   }
 
+  /*
+  BALLOON
   #house10 {
     // Baloon
     background: url(img/house_10.png) no-repeat;
@@ -642,20 +653,21 @@
     bottom: -36px;
     display: none;
   }
+  */
 
-  #house11 {
+  #house10 {
     left: 4884px;
 
     .building {
-      background-image: url(img/house_11.png);
-      width: 272px;
-      height: 295px;
+      background-image: url(img/house10.svg);
+      width: 174px;
+      height: 412px;
     }
 
     .house-snow {
-      background-image: url(img/house_11_snow.png);
-      width: 320px;
-      height: 361px;
+      background-image: url(img/house10-ice.svg);
+      width: 392px;
+      height: 492px;
       bottom: -27px;
       left: -29px;
     }
@@ -700,6 +712,26 @@
     }
   }
 
+  #house11 {
+    left: 4884px;
+
+    .building {
+      background-image: url(img/house10.svg);
+      width: 289px;
+      height: 202px;
+    }
+
+    .house-snow {
+      background-image: url(img/house10-ice.svg);
+      width: 371px;
+      height: 278px;
+      bottom: -27px;
+      left: -29px;
+    }
+  }
+
+  /*
+  Balloon
   #house12 {
     left: 5192px;
 
@@ -768,20 +800,21 @@
       }
     }
   }
+  */
 
   #house13 {
     left: 5552px;
 
     .building {
-      background-image: url(img/house_13.png);
-      width: 156px;
-      height: 272px;
+      background-image: url(img/house13.svg);
+      width: 179px;
+      height: 251px;
     }
 
     .house-snow {
-      background-image: url(img/house_13_snow.png);
-      width: 268px;
-      height: 387px;
+      background-image: url(img/house13-ice.svg);
+      width: 338px;
+      height: 389px;
       bottom: -49px;
       left: -45px;
     }
@@ -821,15 +854,15 @@
     left: 5918px;
 
     .building {
-      background-image: url(img/house_14.png);
-      width: 240px;
-      height: 228px;
+      background-image: url(img/house14.svg);
+      width: 253px;
+      height: 254px;
     }
 
     .house-snow {
-      background-image: url(img/house_14_snow.png);
-      width: 349px;
-      height: 344px;
+      background-image: url(img/house14-ice.svg);
+      width: 358px;
+      height: 378px;
       bottom: -70px;
       left: -33px;
     }
@@ -889,15 +922,15 @@
     left: 6362px;
 
     .building {
-      background-image: url(img/house_15.png);
-      width: 234px;
-      height: 332px;
+      background-image: url(img/house15.svg);
+      width: 437px;
+      height: 242px;
     }
 
     .house-snow {
-      background-image: url(img/house_15_snow.png);
-      width: 338px;
-      height: 423px;
+      background-image: url(img/house15-ice.svg);
+      width: 487px;
+      height: 330px;
       bottom: -53px;
       left: -63px;
     }
@@ -938,15 +971,15 @@
     left: 6660px;
 
     .building {
-      background-image: url(img/house_16.png);
-      width: 285px;
-      height: 278px;
+      background-image: url(img/house16.svg);
+      width: 179px;
+      height: 251px;
     }
 
     .house-snow {
-      background-image: url(img/house_16_snow.png);
-      width: 378px;
-      height: 368px;
+      background-image: url(img/house16-ice.svg);
+      width: 344px;
+      height: 406px;
       bottom: -47px;
       left: -27px;
     }
@@ -995,9 +1028,17 @@
     left: 7006px;
 
     .building {
-      background-image: url(img/house_17.png);
-      width: 221px;
-      height: 384px;
+      background-image: url(img/house17.svg);
+      width: 290px;
+      height: 321px;
+    }
+
+    .house-snow {
+      background-image: url(img/house17-ice.svg);
+      width: 435px;
+      height: 396px;
+      bottom: -47px;
+      left: -27px;
     }
   }
 
@@ -1005,16 +1046,16 @@
     left: 7284px;
 
     .building {
-      background-image: url(img/house_18.png);
-      width: 311px;
-      height: 326px;
+      background-image: url(img/house18.svg);
+      width: 262px;
+      height: 286px;
       bottom: -1px;
     }
 
     .house-snow {
-      background-image: url(img/house_18_snow.png);
-      width: 437px;
-      height: 389px;
+      background-image: url(img/house18-ice.svg);
+      width: 481px;
+      height: 374px;
       bottom: -35px;
       left: -59px;
     }
@@ -1077,15 +1118,15 @@
     left: 7716px;
 
     .building {
-      background-image: url(img/house_19.png);
-      width: 276px;
-      height: 328px;
+      background-image: url(img/house19.svg);
+      width: 274px;
+      height: 269px;
     }
 
     .house-snow {
-      background-image: url(img/house_19_snow.png);
-      width: 422px;
-      height: 407px;
+      background-image: url(img/house19-ice.svg);
+      width: 347px;
+      height: 343px;
       bottom: -39px;
       left: -50px;
     }
@@ -1135,15 +1176,15 @@
     left: 8156px;
 
     .building {
-      background-image: url(img/house_20.png);
-      width: 316px;
-      height: 241px;
+      background-image: url(img/house20.svg);
+      width: 204px;
+      height: 260px;
     }
 
     .house-snow {
-      background-image: url(img/house_20_snow.png);
-      width: 421px;
-      height: 308px;
+      background-image: url(img/house20-ice.svg);
+      width: 405px;
+      height: 309px;
       bottom: -33px;
       left: -51px;
     }
@@ -1204,15 +1245,15 @@
     left: 8576px;
 
     .building {
-      background-image: url(img/house_21.png);
-      width: 255px;
-      height: 199px;
+      background-image: url(img/house21.svg);
+      width: 204px;
+      height: 244px;
     }
 
     .house-snow {
-      background-image: url(img/house_21_snow.png);
-      width: 306px;
-      height: 285px;
+      background-image: url(img/house21-ice.svg);
+      width: 367px;
+      height: 343px;
       bottom: -55px;
       left: -32px;
     }
@@ -1243,15 +1284,15 @@
     left: 8886px;
 
     .building {
-      background-image: url(img/house_22.png);
-      width: 212px;
-      height: 252px;
+      background-image: url(img/house22.svg);
+      width: 322px;
+      height: 256px;
     }
 
     .house-snow {
-      background-image: url(img/house_22_snow.png);
-      width: 294px;
-      height: 376px;
+      background-image: url(img/house22-ice.svg);
+      width: 393px;
+      height: 313px;
       bottom: -39px;
       left: -33px;
     }
@@ -1286,15 +1327,15 @@
     left: 9222px;
 
     .building {
-      background-image: url(img/house_23.png);
+      background-image: url(img/house23.svg);
       width: 231px;
-      height: 427px;
+      height: 220px;
     }
 
     .house-snow {
-      background-image: url(img/house_23_snow.png);
-      width: 361px;
-      height: 547px;
+      background-image: url(img/house23-ice.svg);
+      width: 473px;
+      height: 312px;
       bottom: -61px;
       left: -75px;
     }
@@ -1336,16 +1377,16 @@
     left: 9580px;
 
     .building {
-      background-image: url(img/house_4.png);
-      width: 413px;
-      height: 294px;
+      background-image: url(img/house24.svg);
+      width: 398px;
+      height: 285px;
       bottom: -1px;
     }
 
     .house-snow {
-      background-image: url(img/house_4_snow.png);
-      width: 489px;
-      height: 374px;
+      background-image: url(img/house24-ice.svg);
+      width: 527px;
+      height: 350px;
       bottom: -50px;
       left: -36px;
     }
@@ -1406,15 +1447,15 @@
     left: 10104px;
 
     .building {
-      background-image: url(img/house_25.png);
-      width: 425px;
-      height: 255px;
+      background-image: url(img/house25.svg);
+      width: 502px;
+      height: 291px;
     }
 
     .house-snow {
-      background-image: url(img/house_25_snow.png);
-      width: 461px;
-      height: 359px;
+      background-image: url(img/house25-ice.svg);
+      width: 575px;
+      height: 375px;
       bottom: -70px;
       left: -13px;
     }
@@ -1465,16 +1506,16 @@
     left: 10579px;
 
     .building {
-      background-image: url(img/house_26.png);
-      width: 212px;
-      height: 285px;
+      background-image: url(img/house26.svg);
+      width: 151px;
+      height: 262px;
       bottom: -1px;
     }
 
     .house-snow {
-      background-image: url(img/house_26_snow.png);
-      width: 302px;
-      height: 370px;
+      background-image: url(img/house26-ice.svg);
+      width: 288px;
+      height: 341px;
       bottom: -51px;
       left: -29px;
     }
@@ -1535,6 +1576,44 @@
       .elf6 {
         display: none;
       }
+    }
+  }
+
+  #house27 {
+    left: 10579px;
+
+    .building {
+      background-image: url(img/house27.svg);
+      width: 216px;
+      height: 335px;
+      bottom: -1px;
+    }
+
+    .house-snow {
+      background-image: url(img/house27-ice.svg);
+      width: 327px;
+      height: 405px;
+      bottom: -51px;
+      left: -29px;
+    }
+  }
+
+  #house28 {
+    left: 10579px;
+
+    .building {
+      background-image: url(img/house28.svg);
+      width: 203px;
+      height: 274px;
+      bottom: -1px;
+    }
+
+    .house-snow {
+      background-image: url(img/house28-ice.svg);
+      width: 342px;
+      height: 342px;
+      bottom: -51px;
+      left: -29px;
     }
   }
 }
