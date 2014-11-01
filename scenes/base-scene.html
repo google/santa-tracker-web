@@ -108,6 +108,7 @@ but extended by other elements.
       visibilityService: null,
 
       visibilityServiceChanged: function() {
+console.log( this.visibilityService)
         this.visibilityService.addOnPauseListener(this.onHide.bind(this));
         this.visibilityService.addOnResumeListener(this.onShow.bind(this));
       },

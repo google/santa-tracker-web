@@ -7,7 +7,7 @@ Lazy loads children "pages".
 @element lazy-pages
 @extends core-pages
 -->
-<polymer-element name="lazy-pages" extends="core-pages" attributes="santaService analyticsService">
+<polymer-element name="lazy-pages" extends="core-pages" attributes="santaService analyticsService visibilityService">
 <template>
   <style>
     :host {
@@ -37,6 +37,15 @@ Lazy loads children "pages".
      */
     analyticsService: null,
 
+    /**
+     * Page/Scene visibility manager.
+     *
+     * @property visibilityService
+     * @type VisiblityManager
+     * @default null
+     */
+    visibilityService: null,
+
     selectedChanged: function() {
       this.super();
 
@@ -57,6 +66,7 @@ Lazy loads children "pages".
         scene.preloadProgress = 0;
         scene.santaService = this.santaService;
         scene.analyticsService = this.analyticsService;
+        scene.visibilityService = this.visibilityService;
 
       }.bind(this));
 
