@@ -55,6 +55,7 @@ window.santatracker.setup = function() {
     this.route = this.route || DEFAULT_ROUTE;
     this.santaService = window.santatracker.controller.getService();
     this.analyticsService = window.santatracker.analytics;
+    this.visibilityService = window.santatracker.visibility;
   });
 };
 

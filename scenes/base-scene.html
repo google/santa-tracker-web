@@ -99,6 +99,20 @@ but extended by other elements.
       analyticsService: null,
 
       /**
+       * Page/Scene visibility manager.
+       *
+       * @property visibilityService
+       * @type VisiblityManager
+       * @default null
+       */
+      visibilityService: null,
+
+      visibilityServiceChanged: function() {
+        this.visibilityService.addOnPauseListener(this.onHide.bind(this));
+        this.visibilityService.addOnResumeListener(this.onShow.bind(this));
+      },
+
+      /**
        * A helper method for preloading an array of image URLs.
        * @param {!Array.<string>} imageUrls
        */
