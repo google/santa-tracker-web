@@ -21,9 +21,9 @@ window.santatracker.FLIGHT_FINISHED =
  * @type {!MuteState}
  */
 //window.santatracker.muteState = new MuteState;
-//window.santatracker.visibility = new VisibilityManager;
 
 window.santatracker.setup = function() {
+  window.santatracker.visibility = new VisibilityManager();
   window.santatracker.analytics = new Analytics();
 
   window.santatracker.addErrorHandler();
@@ -140,10 +140,5 @@ window.santatracker.addErrorHandler = function() {
 document.addEventListener('HTMLImportsLoaded', function() {
   window.santatracker.setup();
 });
-
-// TODO(ericbidelman): temp stub.
-Klang = {
-  triggerEvent: function(){},
-};
 
 })();
