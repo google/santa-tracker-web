@@ -920,10 +920,6 @@ Village scene.
     },
 
     onShow: function() {
-      if (this.active) {
-        return;
-      }
-
       console.debug('village: onShow');
 
       this.checkSchedule_();
@@ -937,10 +933,6 @@ Village scene.
     },
 
     onHide: function() {
-      if (!this.active) {
-        return;
-      }
-
       console.debug('village: onHide');
 
       window.clearTimeout(this.scheduleTimeout_);
