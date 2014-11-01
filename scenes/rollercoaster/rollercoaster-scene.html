@@ -205,16 +205,8 @@ Rollercoaster scene.
        */
       cartAnimationFront_: null,
 
-      // TODO(bckenny): preloading
-      /* onPreload: function(preloader) {
-        preloader.addKlang('rollercoaster_load_sounds', 40);
-        imagePreloader = new ImagePreloader('rollercoaster', preloader, [
-          'img/logo.svg',
-          'img/gradient_60percent-01.svg'
-        ]);
-      },*/
-
       onPreload: function(preloader) {
+        this.preloadSounds('rollercoaster_load_sounds', 40);
         this.preloadImages([
           'img/logo.svg',
           'img/gradient_60percent-01.svg'
@@ -222,9 +214,7 @@ Rollercoaster scene.
       },
 
       onShow: function() {
-        // TODO(bckenny): sound
-        // Klang.triggerEvent('rollercoaster_start');
-        // 
+        this.playAmbientSounds('rollercoaster_start');
         var container = this.$['module-rollercoaster'];
 
         this.cartAnimationBack_ = new CSSAnimationInterval(container);
@@ -257,8 +247,7 @@ Rollercoaster scene.
         this.cartAnimationBack_ = null;
         this.cartAnimationFront_ = null;
 
-        // TODO(bckenny): sound
-        // Klang.triggerEvent('rollercoaster_end');
+        this.playAmbientSounds('rollercoaster_end');
       }
     });
   })();

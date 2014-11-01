@@ -1,3 +1,6 @@
+// TODO(bckenny): should not call Klang.triggerEvent directly. Either play
+// sound through scene or fire 'sound-trigger', etc events.
+
 /**
  * Main game class.
  * @param {Element} el DOM element containing the game.
