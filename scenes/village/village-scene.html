@@ -36,8 +36,14 @@ Village scene.
         <h2 style="display:none">Santa's finished his journey for the year! He and the elves are still having some fun in the North Pole before their annual vacation.</h2>
       </div>
 
-      <div id="hit-area-left"></div>
-      <div id="hit-area-right"></div>
+      <div id="hit-area-left" on-mouseenter="{{onHitArea}}"
+                              on-mouseleave="{{cancelScrollAnimation}}"
+                              on-down="{{onHitArea}}"
+                              on-up="{{cancelScrollAnimation}}"></div>
+      <div id="hit-area-right" on-mouseenter="{{onHitArea}}"
+                               on-mouseleave="{{cancelScrollAnimation}}"
+                               on-down="{{onHitArea}}"
+                               on-up="{{cancelScrollAnimation}}"></div>
 
       <div id="trees" class="parallax-layer">
         <template repeat="{{tree in trees}}">
@@ -426,6 +432,12 @@ Village scene.
 
 </template>
 <script>
+(function() {
+
+  function polynomialEasing_(t) {
+    return t * t;
+  }
+
   Polymer({
 
     // soundsLoaded_: false,
@@ -522,35 +534,6 @@ Village scene.
 
       this.villageWidth_ = parseFloat(getComputedStyle(this.$.village).width);
 
-      this.init_();
-    },
-
-    // domReady: function() {
-    //   // Pan to the last melted house
-    //   var melts = this.$.houses.querySelectorAll('.melt');
-    //   this.panToHouse(melts[melts.length - 1], 0);
-    // },
-
-    santaServiceChanged: function() {
-      if (this.santaService) {
-        this.checkSchedule_(true);
-      }
-    },
-
-    timeOfDayChanged: function() {
-      // Remove animations so they don't play when village becomes visible.
-      // TODO(bckenny): there may be a better, more centralized way to make sure
-      // animations don't play every time we come back from display:none.
-      this.async(function() {
-        this.$.sun.classList.remove('go-down', 'go-up');
-        this.$.moon.classList.remove('go-down', 'go-up');
-      }, null, 1500);
-    },
-
-    /**
-     * @private
-     */
-    init_: function() {
       this.addEvents_();
       this.addTrees_();
 
@@ -588,6 +571,22 @@ Village scene.
       if (navigator.userAgent.match(/iPhone|iPod|iPad/i)) {
         this.$.spaceship.parentElement.removeChild(this.$.spaceship);
       }
+    },
+
+    santaServiceChanged: function() {
+      if (this.santaService) {
+        this.checkSchedule_(true);
+      }
+    },
+
+    timeOfDayChanged: function() {
+      // Remove animations so they don't play when village becomes visible.
+      // TODO(bckenny): there may be a better, more centralized way to make sure
+      // animations don't play every time we come back from display:none.
+      this.async(function() {
+        this.$.sun.classList.remove('go-down', 'go-up');
+        this.$.moon.classList.remove('go-down', 'go-up');
+      }, null, 1500);
     },
 
     // /**
@@ -752,30 +751,11 @@ Village scene.
         window.addEventListener('resize',
             this.scheduleParallaxUpdate_.bind(this));
       }
+    },
 
-      var polynomialEasing = function(t) {
-        return t * t;
-      };
-
-      if (Modernizr.touch) {
-        $(this.$['hit-area-left']).on('touchstart', function() {
-          that.panTo(0, this.SCROLL_TIME_, polynomialEasing);
-        }).on('touchend', this.cancelScrollAnimation_.bind(this));
-
-        $(this.$['hit-area-right']).on('touchstart', function() {
-          that.panTo(/** @type {number} */(that.villageWidth_),
-                     this.SCROLL_TIME_, polynomialEasing);
-        }).on('touchend', this.cancelScrollAnimation_,bind(this));
-      } else {
-        $(this.$['hit-area-left']).on('mouseenter', function() {
-          that.panTo(0, this.SCROLL_TIME_, polynomialEasing);
-        }).on('mouseleave', this.cancelScrollAnimation_.bind(this));
-
-        $(this.$['hit-area-right']).on('mouseenter', function() {
-          that.panTo(/** @type {number} */(that.villageWidth_),
-                     this.SCROLL_TIME_, polynomialEasing);
-        }).on('mouseleave', this.cancelScrollAnimation_.bind(this));
-      }
+    onHitArea: function(e, detail, sender) {
+      var left = sender == this.$['hit-area-right'] ? this.villageWidth_: 0;
+      this.panTo(left, this.SCROLL_TIME_, polynomialEasing_);
     },
 
     /**
@@ -823,7 +803,7 @@ Village scene.
      * @param {Function=} opt_easing Animation easing function.
      */
     panTo: function(value, opt_duration, opt_easing) {
-      this.cancelScrollAnimation_();
+      this.cancelScrollAnimation();
 
       var scrollee = this.scrollContainer_;
       var currentScroll = scrollee.scrollLeft;
@@ -836,10 +816,7 @@ Village scene.
       }, duration, opt_easing);
     },
 
-    /**
-     * @private
-     */
-    cancelScrollAnimation_: function() {
+    cancelScrollAnimation: function(e, detail, sender) {
       if (this.scrollAnimation_) {
         this.scrollAnimation_.cancel();
         this.scrollAnimation_ = null;
@@ -998,5 +975,7 @@ Village scene.
       this.$.count.stop();
     }
   });
+
+})();
 </script>
 </polymer-element>
