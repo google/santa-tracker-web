@@ -4,9 +4,16 @@
 A base class element for Santa Tracker scenes. Should not be declared directly,
 but extended by other elements.
 
-**Note** Subclass scene elements are expected to implement an
-         `onPreload`/`onShow`/`onHide` method. Upon the scene becoming
-         active/hidden, those methods will be called.
+### Scene methods
+
+Subclass scene elements are expected to implement the following methods as needed.
+These methods will be called at the appropriate times:
+
+- `onPreload` - called to preload assets. Scenes should call `preloadImages` and/or `preloadSounds` inside this method.
+- `onShow` - if applicable, preloading has completed. The scene is revealed.
+- `onHide` - the scene is hidden.
+- `onPause` - the scene has been paused due to page visibility hidden or window blur. Scenes should use this method to stop animations, sounds, etc.
+- `onResume` - the scene has been resumed due to page visibility unhidden or window focus. Scenes should use this method to restart animations, sounds, etc.
 
 @element base-scene
 -->
@@ -108,8 +115,12 @@ but extended by other elements.
       visibilityService: null,
 
       visibilityServiceChanged: function() {
-        this.visibilityService.addOnPauseListener(this.onHide.bind(this));
-        this.visibilityService.addOnResumeListener(this.onShow.bind(this));
+        if (this.onPause) {
+          this.visibilityService.addOnPauseListener(this.onPause.bind(this));
+        }
+        if (this.onResume) {
+          this.visibilityService.addOnResumeListener(this.onResume.bind(this));
+        }
       },
 
       /**
@@ -194,6 +205,7 @@ but extended by other elements.
 
         this.showScene();
       }
+
     });
   </script>
 </polymer-element>
