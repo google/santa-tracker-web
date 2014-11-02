@@ -9,7 +9,7 @@ but extended by other elements.
 Subclass scene elements are expected to implement the following methods as needed.
 These methods will be called at the appropriate times:
 
-- `onPreload` - called to repload assets. Scenes should call `preloadImages` and/or `preloadSounds` inside this method.
+- `onPreload` - called to preload assets. Scenes should call `preloadImages` and/or `preloadSounds` inside this method.
 - `onShow` - if applicable, preloading has completed. The scene is revealed.
 - `onHide` - the scene is hidden.
 - `onPause` - the scene has been paused. Scenes should use this method to stop animations, sounds, etc.
