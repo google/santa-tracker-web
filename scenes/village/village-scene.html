@@ -943,6 +943,14 @@ Village scene.
       this.villageBus_.stop();
       this.villageSnowMobile_.stop();
       this.$.count.stop();
+    },
+
+    onPause: function() {
+      this.onHide();
+    },
+
+    onResume: function() {
+      this.onShow();
     }
   });
 
