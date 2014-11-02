@@ -522,13 +522,12 @@ Village scene.
 
     created: function() {
       this.trees = [];
+      this.animator_ = new Animator();
     },
 
     ready: function() {
       this.container_ = this.$['module-village'];
       this.scrollContainer_ = this.$['village-parallax'];
-
-      this.animator_ = new Animator();
 
       this.villageWidth_ = parseFloat(getComputedStyle(this.$.village).width);
 
@@ -560,21 +559,16 @@ Village scene.
       }
     },
 
+    domReady: function() {
+      this.$.sun.classList.remove('go-down', 'go-up');
+      this.$.moon.classList.remove('go-down', 'go-up');
+    },
+
     santaServiceChanged: function() {
       this.super();
       if (this.santaService) {
         this.checkSchedule_(true);
       }
-    },
-
-    timeOfDayChanged: function() {
-      // Remove animations so they don't play when village becomes visible.
-      // TODO(bckenny): there may be a better, more centralized way to make sure
-      // animations don't play every time we come back from display:none.
-      this.async(function() {
-        this.$.sun.classList.remove('go-down', 'go-up');
-        this.$.moon.classList.remove('go-down', 'go-up');
-      }, null, 1500);
     },
 
     /**
