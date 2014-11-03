@@ -543,11 +543,13 @@ Village scene.
           this.container_.querySelectorAll('.parallax-layer'));
       this.scheduleParallaxUpdate_();
 
-      // TODO(ericbidelman): This doesn't scroll properly. likely because the
-      // images aren't ready and setup isn't complete. use domReady instead.
-      // Pan to the last melted house
-      var melts = this.$.houses.querySelectorAll('.melt');
-      this.panToHouse(melts[melts.length - 1], 0);
+      this.async(function() {
+        this.async(function() {
+          var melts = this.$.houses.querySelectorAll('.melt');
+          this.panToHouse(melts[melts.length - 1], 0);
+        });
+      });
+
 
       this.villageSnow_ = new VillageSnow(this.container_);
       this.villageBus_ = new VillageBus(this.container_);
