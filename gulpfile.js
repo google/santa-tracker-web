@@ -51,10 +51,11 @@ gulp.task('copy-assets', ['vulcanize'], function() {
   return gulp.src([
     '!dist/**',
     'index.html',
+    'audio/*',
+    'images/*.{png,svg,gif}',
     'js/**',
     'sass/*',
     'scenes/base-scene.html',
-    'images/*.{png,svg,gif}',
     'scenes/**/img/*.{png,svg,gif}',
     'components/platform/*',
     'components/polymer/*',
