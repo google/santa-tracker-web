@@ -124,8 +124,9 @@ Village scene.
               </div>
               <div class="house-marker marker5"></div>
             </div>
-            <div id="house6" class="house">
+            <div id="house6" class="house iced">
               <div class="building"></div>
+              <div class="house-snow"></div>
               <div class="house-elves">
                 <div class="elf elf-blue-left"></div>
               </div>
@@ -167,10 +168,21 @@ Village scene.
               </div>
               <div class="house-marker marker8"></div>
             </div>
-            <div id="house10" class="house" on-tap="{{onBalloonClick}}"></div>
-            <div id="house10-elf1" class="elf elf-orange-right"></div>
-            <div id="house10-elf2" class="elf elf-red-left"></div>
-            <div id="house10-ropes" class="house" hidden></div>
+
+            <!--<div id="house10" class="house iced" data-module="" on-tap="{{onHouseClick}}">
+              <div class="building"></div>
+
+              <div class="house-snow"></div>
+              <div class="house-elves">
+              </div>
+              <div class="house-marker marker8"></div>
+            </div>
+
+            Balloon goes here
+
+            -->
+
+            
             <div id="house11" class="house iced" data-module="commandcentre" on-tap="{{onHouseClick}}">
               <div class="building"></div>
 
@@ -246,8 +258,9 @@ Village scene.
               </div>
               <div class="house-marker marker14"></div>
             </div>
-            <div id="house17" class="house">
-              <a href="http://www.youtube.com/watch?v=cWCkSYdFlU0&list=PL5aqr5w5fRe5wRtzE91sksc_Fbov3SiB0"><div class="building"></div></a>
+            <div id="house17" class="house iced">
+              <div class="building"></div>
+              <div class="house-snow"></div>
             </div>
             <div id="house18" class="house iced" data-module="ferriswheel" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -264,6 +277,9 @@ Village scene.
               </div>
               <div class="house-marker marker15"></div>
             </div>
+
+            <!-- Tree goes here -->
+
             <div id="house19" class="house iced" data-module="briefing" on-tap="{{onHouseClick}}">
               <div class="building"></div>
 
@@ -364,6 +380,15 @@ Village scene.
               </div>
               <div class="house-marker marker23"></div>
             </div>
+            <div id="house27" class="house iced" data-module="" on-tap="{{onHouseClick}}">
+              <div class="building"></div>
+              <div class="house-snow"></div>
+            </div>
+            <div id="house28" class="house iced" data-module="" on-tap="{{onHouseClick}}">
+              <div class="building"></div>
+              <div class="house-snow"></div>
+            </div>
+
 
             <!-- <template repeat="{{house, i in houses}}">
               <div id="house{{i + 1}}" class="house iced" data-module="finalprep"

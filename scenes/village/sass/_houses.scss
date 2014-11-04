@@ -1,7 +1,7 @@
 #houses {
   z-index: 3;
   position: absolute;
-  bottom: 36px;
+  bottom: 49px;
 
   .house {
     position: absolute;
@@ -79,7 +79,77 @@
   }
 
 
-  #house1 {
+  // ID houseWidth houseHeight iceWidth iceHeight houseLeft houseBottom iceLeft iceBottom x y
+  //  id        hw    hh    iw    ih    hl  hb  il    ib    x   y 
+  $houses: 
+      "house1"  416   339   504   414   0   0   -42   -33   0     0,
+      "house2"  189   158   365   251   0   -2  -80   -39   60    0,
+      "house3"  233   238   406   312   0   2   -56   -45   0     0,
+      "house4"  152   363   322   405   0   2   -85   -30   0    0,
+      "house5"  217   287   355   341   0   0   -66   -31   25   0,
+      "house6"  208   172   314   244   0   0   -24   -44   -40   0,
+      "house7"  219   297   405   373   0   2   -90   -38   65   0,
+      "house8"  219   146   278   258   0   1   -30   -23   -50  0,
+      "house9"  305   233   437   362   0   2   -35   -69   10   0,
+      "house10" 174   412   392   491   0   0   -85   -51   0   0,
+      "house11" 289   202   370   278   0   2   -42   -26   0   0,
+      "house13" 179   251   338   388   0   2   -65   -55   320   0,
+      "house14" 253   253   358   378   0   -2  -50   -54   0   0,
+      "house15" 437   242   487   329   0   -4  -17   -65   -33   0,
+      "house16" 179   251   344   406   0   1   -99   -50   85    0,
+      "house17" 290   321   435   395   0   1   -99   -56   0   0,
+      "house18" 262   286   481   373   0   -1  -110  -41   30    0,
+      "house19" 274   269   345   343   0   0   -26   -43   35    0,
+      "house20" 203   260   405   308   0   -1  -93   -27   80    0,
+      "house21" 204   243   367   342   0   2   -60   -47   0  0,
+      "house22" 322   256   393   313   0   -1  -35   -40   -20   0,
+      "house23" 231   220   473   311   0   2   -120  -58   85    0,
+      "house24" 397   285   527   349   0   -1  -40   -40   0  0,
+      "house25" 502   290   575   374   0   -2  -30   -70   0  0,
+      "house26" 151   262   288   341   0   2   -70   -50   40     0,
+      "house27" 216   335   327   405   0   2   -70   -50   20    0,
+      "house28" 203   274   342   342   0   2   -80   -50   50    0;
+  $houseId: 1;
+  $houseWidth: 2;
+  $houseHeight: 3;
+  $iceWidth: 4;
+  $iceHeight: 5;
+  $houseLeft: 6;
+  $houseBottom: 7;
+  $iceLeft: 8;
+  $iceBottom: 9;
+  $houseX: 10;
+  $houseY: 11;
+
+  $left: 938;
+
+  @each $house in $houses {
+    ##{nth($house, $houseId)} {
+      left: #{$left + nth($house, $houseX)}px;
+      bottom: #{nth($house, $houseY)}px;
+
+      .building {
+        background-image: url(img/#{nth($house, $houseId)}.svg);
+        width: #{nth($house, $houseWidth)}px;
+        height: #{nth($house, $houseHeight)}px;
+        left: #{nth($house, $houseLeft)}px;
+        bottom: #{nth($house, $houseBottom)}px;
+      }
+
+      .house-snow {
+        background-image: url(img/#{nth($house, $houseId)}-ice.svg);
+        width: #{nth($house, $iceWidth)}px;
+        height: #{nth($house, $iceHeight)}px;
+        left: #{nth($house, $iceLeft)}px;
+        bottom: #{nth($house, $iceBottom)}px;
+      }
+    }
+
+    $left: $left + nth($house, $iceWidth) + nth($house, $houseX);
+  }
+
+
+  /*#house1 {
     left: 938px;
 
     .building {
@@ -166,7 +236,7 @@
       background-image: url(img/house2-ice.svg);
       width: 365px;
       height: 251px;
-      bottom: -48px;
+      bottom: -55px;
       left: -87px;
     }
 
@@ -290,8 +360,8 @@
       background-image: url(img/house4-ice.svg);
       width: 323px;
       height: 405px;
-      bottom: -45px;
-      left: -38px;
+      bottom: -29px;
+      left: -82px;
     }
 
     .house-elves {
@@ -367,8 +437,8 @@
       background-image: url(img/house5-ice.svg);
       width: 355px;
       height: 342px;
-      bottom: -44px;
-      left: -19px;
+      bottom: -27px;
+      left: -64px;
     }
 
     .house-elves {
@@ -428,7 +498,7 @@
       width: 314px;
       height: 244px;
       bottom: -44px;
-      left: -19px;
+      left: -30px;
     }
 
     .house-elves {
@@ -451,7 +521,7 @@
       background-image: url(img/house7-ice.svg);
       width: 405px;
       height: 373px;
-      bottom: -67px;
+      bottom: -32px;
       left: -87px;
     }
 
@@ -499,8 +569,8 @@
       background-image: url(img/house8-ice.svg);
       width: 278px;
       height: 256px;
-      bottom: -75px;
-      left: -28px;
+      bottom: -31px;
+      left: -18px;
     }
 
     .house-elves {
@@ -556,7 +626,7 @@
       background-image: url(img/house9-ice.svg);
       width: 438px;
       height: 362px;
-      bottom: -52px;
+      bottom: -68px;
       left: -35px;
     }
 
@@ -608,8 +678,7 @@
     }
   }
 
-  /*
-  BALLOON
+  // BALLOON
   #house10 {
     // Baloon
     background: url(img/house_10.png) no-repeat;
@@ -652,7 +721,6 @@
     z-index: 1;
     bottom: -36px;
   }
-  */
 
   #house10 {
     left: 4884px;
@@ -724,13 +792,12 @@
       background-image: url(img/house10-ice.svg);
       width: 371px;
       height: 278px;
-      bottom: -27px;
+      bottom: -30px;
       left: -29px;
     }
   }
 
-  /*
-  Balloon
+  // Balloon
   #house12 {
     left: 5192px;
 
@@ -799,7 +866,6 @@
       }
     }
   }
-  */
 
   #house13 {
     left: 5552px;
@@ -814,7 +880,7 @@
       background-image: url(img/house13-ice.svg);
       width: 338px;
       height: 389px;
-      bottom: -49px;
+      bottom: -56px;
       left: -45px;
     }
 
@@ -862,7 +928,7 @@
       background-image: url(img/house14-ice.svg);
       width: 358px;
       height: 378px;
-      bottom: -70px;
+      bottom: -56px;
       left: -33px;
     }
 
@@ -929,9 +995,9 @@
     .house-snow {
       background-image: url(img/house15-ice.svg);
       width: 487px;
-      height: 330px;
-      bottom: -53px;
-      left: -63px;
+      height: 390px;
+      bottom: -97px;
+      left: -58px;
     }
 
     .house-elves {
@@ -1615,4 +1681,5 @@
       left: -29px;
     }
   }
+  */
 }
