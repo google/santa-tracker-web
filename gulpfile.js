@@ -6,8 +6,14 @@ var compass = require('gulp-compass');
 var path = require('path');
 var autoprefixer = require('gulp-autoprefixer');
 var foreach = require('gulp-foreach');
+var rename = require('gulp-rename');
+var del = require('del');
 
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
+
+gulp.task('clean', function(cleanCallback) {
+  del(['dist'], cleanCallback);
+});
 
 gulp.task('compass', function() {
   return gulp.src(COMPASS_FILES)
@@ -28,8 +34,12 @@ gulp.task('vulcanize', ['compass'], function () {
       'elements/elements.html',
       'scenes/*/*-scene.html'
     ])
+    // TODO(bckenny): possibly use --strip-excludes instead
+    .pipe(rename({
+      extname: '.vulcanized.html'
+    }))
     .pipe(foreach(function(stream, file) {
-      var dest = path.join('dist',
+      var dest = path.join('.',
           path.dirname(path.relative(__dirname, file.path)));
       return stream.pipe(vulcanize({
         excludes: {
@@ -47,10 +57,11 @@ gulp.task('vulcanize', ['compass'], function () {
 });
 
 // copy needed assets (images, sounds, polymer elements, etc) to dist directory
-gulp.task('copy-assets', ['vulcanize'], function() {
+gulp.task('copy-assets', ['clean', 'vulcanize'], function() {
   return gulp.src([
-    '!dist/**',
     'index.html',
+    'elements/elements.vulcanized.{js,html}',
+    'scenes/*/*-scene.vulcanized.{js,html}',
     'audio/*',
     'images/*.{png,svg,gif}',
     'js/**',
@@ -61,11 +72,29 @@ gulp.task('copy-assets', ['vulcanize'], function() {
     'components/polymer/*',
     'components/webcomponentsjs/webcomponents.min.js'
   ], {base: './'})
+  .pipe(rename(function(path) {
+    if (path.extname !== '.html') {
+      return;
+    }
+
+    // if a vulcanized html file, drop 'vulcanized' from filename
+    var index = path.basename.indexOf('.vulcanized');
+    if (index !== -1 && index === path.basename.length - '.vulcanized'.length) {
+      path.basename = path.basename.substring(0, index);
+    }
+  }))
   .pipe(gulp.dest('dist'));
+});
+
+gulp.task('clean-vulcanized', ['copy-assets'], function(cleanCallback) {
+  del([
+      'elements/elements.vulcanized.{js,html}',
+      'scenes/*/*-scene.vulcanized.{js,html}'
+  ], cleanCallback);
 });
 
 gulp.task('watch', function() {
   gulp.watch(COMPASS_FILES, ['compass']);
 });
 
-gulp.task('default', ['vulcanize', 'copy-assets']);
+gulp.task('default', ['clean-vulcanized']);
