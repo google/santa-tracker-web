@@ -45,6 +45,11 @@ $name: 'module-village';
     width: $villageWidth;
   }
 
+  #village {
+    //background: url(/scenes/village/img/villagefull.png);
+    //background-position: -1233px -241px;
+  }
+
   #village-wrapper {
     overflow: hidden;
   }
@@ -93,6 +98,10 @@ $name: 'module-village';
   }
 
   #village-wrapper {
+    #trees, #snow, #trees-back, .house-marker {
+      display: none !important;
+    }
+
     #trees {
       position: absolute;
       width: $treeWidth;
@@ -618,15 +627,20 @@ $name: 'module-village';
     width: $mountainWidth;
     z-index: 7;
     bottom: 90px;
+    top: 0;
 
     #mountains-day, #mountains-night, .mountains-day {
       position: absolute;
       bottom: 0;
-      height: 450px;
+      //height: 450px;
+      top: 0;
       left: 0;
       right: 0;
       opacity: 0;
       @include transition(opacity .5s ease);
+      background-position: bottom left;
+      background-repeat: repeat-x;
+      background-size: 460% 100%;
 
       &.visible {
         opacity: 1;
@@ -634,11 +648,11 @@ $name: 'module-village';
     }
 
     #mountains-day, .mountains-day {
-      background: url(img/mountain-day-tile.png) top left repeat-x;
+      background-image: url(img/daymountains.svg);
     }
 
     #mountains-night {
-      background: url(img/mountain-night-tile.png) top left repeat-x;
+      background-image: url(img/nightmountains.svg);
     }
   }
 
@@ -800,11 +814,12 @@ $name: 'module-village';
     }
 
     #sky-night {
-      background: #2f617b;
+      background: #4d7e92;
+      // 4d7e92 2e607a
     }
   }
 
-  @media
+  /*@media
     only screen and (-webkit-min-device-pixel-ratio: 1.25),
     only screen and ( min--moz-device-pixel-ratio: 1.25),
     only screen and ( -o-min-device-pixel-ratio: 1.25/1),
@@ -812,7 +827,7 @@ $name: 'module-village';
     only screen and ( min-resolution: 200dpi),
     only screen and ( min-resolution: 1.25dppx) {
     @import "sass/hdpi";
-  }
+  }*/
 
   @import "sass/responsive";
 }
