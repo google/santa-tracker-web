@@ -6,7 +6,6 @@ var compass = require('gulp-compass');
 var path = require('path');
 var autoprefixer = require('gulp-autoprefixer');
 var foreach = require('gulp-foreach');
-var rename = require('gulp-rename');
 var del = require('del');
 
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
@@ -29,20 +28,18 @@ gulp.task('compass', function() {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('vulcanize', ['compass'], function () {
+gulp.task('vulcanize-scenes', ['clean', 'compass'], function() {
   return gulp.src([
-      'elements/elements.html',
       'scenes/*/*-scene.html'
-    ])
-    // TODO(bckenny): possibly use --strip-excludes instead
-    .pipe(rename({
-      extname: '.vulcanized.html'
-    }))
+    ], {base: './'})
+    // gulp-vulcanize doesn't currently handle multiple files in multiple
+    // directories well right now, so vulcanize them one at a time
     .pipe(foreach(function(stream, file) {
-      var dest = path.join('.',
+      var dest = path.join('dist',
           path.dirname(path.relative(__dirname, file.path)));
       return stream.pipe(vulcanize({
         excludes: {
+          // these are inlined in elements.html
           imports: [
             'polymer.html$',
             'base-scene.html$'
@@ -52,16 +49,30 @@ gulp.task('vulcanize', ['compass'], function () {
         csp: true,
         inline: true,
         dest: dest
-      }));
+      }))
+      .pipe(gulp.dest(dest));
     }));
 });
+
+// vulcanize elements separately as we want to inline polymer.html and
+// base-scene.html here
+gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
+  return gulp.src('elements/elements.html', {base: './'})
+    .pipe(vulcanize({
+      strip: true,
+      csp: true,
+      inline: true,
+      dest: 'dist/elements/'
+    }))
+    .pipe(gulp.dest('dist/elements/'));
+});
+
+gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
 // copy needed assets (images, sounds, polymer elements, etc) to dist directory
 gulp.task('copy-assets', ['clean', 'vulcanize'], function() {
   return gulp.src([
     'index.html',
-    'elements/elements.vulcanized.{js,html}',
-    'scenes/*/*-scene.vulcanized.{js,html}',
     'audio/*',
     'images/*.{png,svg,gif}',
     'js/**',
@@ -72,29 +83,11 @@ gulp.task('copy-assets', ['clean', 'vulcanize'], function() {
     'components/polymer/*',
     'components/webcomponentsjs/webcomponents.min.js'
   ], {base: './'})
-  .pipe(rename(function(path) {
-    if (path.extname !== '.html') {
-      return;
-    }
-
-    // if a vulcanized html file, drop 'vulcanized' from filename
-    var index = path.basename.indexOf('.vulcanized');
-    if (index !== -1 && index === path.basename.length - '.vulcanized'.length) {
-      path.basename = path.basename.substring(0, index);
-    }
-  }))
   .pipe(gulp.dest('dist'));
-});
-
-gulp.task('clean-vulcanized', ['copy-assets'], function(cleanCallback) {
-  del([
-      'elements/elements.vulcanized.{js,html}',
-      'scenes/*/*-scene.vulcanized.{js,html}'
-  ], cleanCallback);
 });
 
 gulp.task('watch', function() {
   gulp.watch(COMPASS_FILES, ['compass']);
 });
 
-gulp.task('default', ['clean-vulcanized']);
+gulp.task('default', ['copy-assets']);
