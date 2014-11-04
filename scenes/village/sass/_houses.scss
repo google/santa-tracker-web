@@ -148,6 +148,60 @@
     $left: $left + nth($house, $iceWidth) + nth($house, $houseX);
   }
 
+  #balloon {
+    position: absolute;
+    background: url(img/balloon.svg) no-repeat;
+    bottom: -2px;
+    left: 4469px;
+    width: 235px;
+    height: 269px;
+    z-index: 2;
+    @include transform(translateZ(0) translateY(0) translateX(0));
+
+    &.takeoff {
+      background: url(img/balloon-flight.svg) no-repeat;
+      bottom: 2px;
+    }
+
+    /*&.fly {
+      background: url(img/balloon.svg) no-repeat;
+    }*/
+
+    &.flying {
+      z-index: 10;
+      @include apply-origin(top center, false);
+      @include animation(fly 55s 1 linear, float 5s infinite linear);
+    }
+  }
+
+  #balloon-ropes {
+    position: absolute;
+    background: url(img/balloon-ropes.svg) no-repeat;
+    bottom: -39px;
+    left: 4440px;
+    width: 295px;
+    height: 54px;
+    z-index: 2;
+  }
+
+  /*#house10-elf1 {
+    left: 4650px;
+  }
+
+  #house10-elf2 {
+    left: 4745px;
+  }
+
+  #house10-ropes {
+    background: url(img/house_10-ropes.png) no-repeat;
+    width: 282px;
+    height: 50px;
+    left: 4579px;
+    z-index: 1;
+    bottom: -36px;
+  }*/
+
+
 
   /*#house1 {
     left: 938px;

@@ -169,19 +169,8 @@ Village scene.
               <div class="house-marker marker8"></div>
             </div>
 
-            <!--<div id="house10" class="house iced" data-module="" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-              </div>
-              <div class="house-marker marker8"></div>
-            </div>
-
-            Balloon goes here
-
-            -->
-
+            <div id="balloon" on-tap="{{onBalloonClick}}"></div>
+            <div id="balloon-ropes" hidden></div>
             
             <div id="house11" class="house iced" data-module="commandcentre" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -652,26 +641,26 @@ Village scene.
     },
 
     onBalloonClick: function(e, detail, sender) {
-      this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'balloon');
-
       if (sender.classList.contains('flying')) {
         // If its already flying then do nothing.
         return;
       }
 
+      this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'balloon');
+
       this.playSound('village_balloon_click');
 
       sender.classList.add('takeoff');
 
-      this.$['house10-ropes'].hidden = false;
-      this.$['house10-elf1'].hidden = true;
-      this.$['house10-elf2'].hidden = true;
+      this.$['balloon-ropes'].hidden = false;
+      //this.$['house10-elf1'].hidden = true;
+      //this.$['house10-elf2'].hidden = true;
 
       var WAIT = 500; // Seems nice enough.
       var timeout = 1000;
 
       this.async(function() {
-        sender.classList.remove('takeoff');
+        //sender.classList.remove('takeoff');
         sender.classList.add('fly', 'flying', 'float');
       }, null, timeout);
 
@@ -687,16 +676,10 @@ Village scene.
       timeout += WAIT;
 
       this.async(function() {
-        sender.classList.switch('fly', 'takeoff');
-      }, null, timeout);
-
-      timeout += WAIT;
-
-      this.async(function() {
         sender.classList.remove('takeoff');
-        this.$['house10-ropes'].hidden = true;
-        this.$['house10-elf1'].hidden = false;
-        this.$['house10-elf2'].hidden = false;
+        this.$['balloon-ropes'].hidden = true;
+        //this.$['house10-elf1'].hidden = false;
+        //this.$['house10-elf2'].hidden = false;
 
         this.playSound('village_balloon_landing');
       }, null, timeout);
