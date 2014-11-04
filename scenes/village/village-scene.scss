@@ -627,15 +627,20 @@ $name: 'module-village';
     width: $mountainWidth;
     z-index: 7;
     bottom: 90px;
+    top: 0;
 
     #mountains-day, #mountains-night, .mountains-day {
       position: absolute;
       bottom: 0;
-      height: 450px;
+      //height: 450px;
+      top: 0;
       left: 0;
       right: 0;
       opacity: 0;
       @include transition(opacity .5s ease);
+      background-position: bottom left;
+      background-repeat: repeat-x;
+      background-size: 460% 100%;
 
       &.visible {
         opacity: 1;
@@ -643,11 +648,11 @@ $name: 'module-village';
     }
 
     #mountains-day, .mountains-day {
-      background: url(img/mountain-day-tile.png) top left repeat-x;
+      background-image: url(img/daymountains.svg);
     }
 
     #mountains-night {
-      background: url(img/mountain-night-tile.png) top left repeat-x;
+      background-image: url(img/nightmountains.svg);
     }
   }
 
@@ -809,7 +814,8 @@ $name: 'module-village';
     }
 
     #sky-night {
-      background: #2f617b;
+      background: #4d7e92;
+      // 4d7e92 2e607a
     }
   }
 
