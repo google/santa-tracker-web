@@ -90,15 +90,14 @@ $name: 'module-village';
 
   #countdown h1.logo,
   #hit-area-left, #hit-area-right,
-  #sun, #moon, #plane,
-  #spaceship, #train {
+  #spaceship {
     background-image: url(img/assets_sprite.png);
     background-repeat: no-repeat;
     background-size: 1934px 463px;
   }
 
   #village-wrapper {
-    #trees, #snow, #trees-back, .house-marker {
+    #snow, .house-marker {
       display: none !important;
     }
 
@@ -112,9 +111,10 @@ $name: 'module-village';
         position: absolute;
         width: 198px;
         height: 332px;
-        background: url(img/tree-foreground.png) no-repeat;
+        background: url(img/tree.svg) no-repeat;
         bottom: 0;
         pointer-events: none;
+        -webkit-filter: blur(2px);
       }
     }
 
@@ -205,10 +205,56 @@ $name: 'module-village';
       right: 0;
       position: absolute;
       height: 264px;
-      background-image: url(img/trees.png);
+      /*background-image: url(img/trees.png);
       background-repeat: no-repeat;
       background-size: 10284px 264px;
-      background-position: 690px 0;
+      background-position: 690px 0;*/
+
+      .tree {
+        position: absolute;
+        bottom: 15px;
+      }
+
+      $trees: 
+        "tree1"  "trees1"   246   197   697,
+        "tree2"  "trees2"   197   215   1357,
+        "tree3"  "trees3"   166   202   1707,
+        "tree4"  "trees4"   181   201   2112,
+        "tree5"  "trees5"   126   127   2837,
+        "tree6"  "trees6"   180   201   3137,
+        "tree7"  "trees7"   177   231   3537,
+        "tree8"  "trees8"   211   224   4277,
+        "tree9"  "trees9"   226   182   4637,
+        "tree10"  "trees1"   246   197   5637,
+        "tree11"  "trees2"   197   215   6557,
+        "tree12"  "trees3"   166   202   6927,
+        "tree13"  "trees4"   181   201   7347,
+        "tree14"  "trees5"   126   127   8337,
+        "tree15"  "trees6"   180   201   7887,
+        "tree16"  "trees7"   177   231   8707,
+        "tree17"  "trees8"   211   224   9107,
+        "tree18"  "trees9"   226   182   9557,
+        "tree19"  "trees1"   246   197   9957,
+        "tree20"  "trees2"   197   215   10577,
+        "tree21"  "trees3"   166   202   11207,
+        "tree22"  "trees4"   181   201   11497,
+        "tree23"  "trees5"   126   127   11857,
+        "tree24"  "trees6"   180   201   12217;
+
+      $treeId: 1;
+      $treeFile: 2;
+      $treeWidth: 3;
+      $treeHeight: 4;
+      $treeLeft: 5;
+
+      @each $tree in $trees {
+        ##{nth($tree, $treeId)} {
+          background: url(img/#{nth($tree, $treeFile)}.svg) no-repeat;
+          width: #{nth($tree, $treeWidth)}px;
+          height: #{nth($tree, $treeHeight)}px;
+          left: #{nth($tree, $treeLeft)}px;
+        }
+      }
     }
 
     @import "sass/houses";
@@ -430,7 +476,7 @@ $name: 'module-village';
       width: 109px;
       height: 73px;
       background: url(img/snowman_sprite.png) no-repeat;
-      left: 5775px;
+      left: 6115px;
       bottom: -8px;
       @include transform(translateZ(0));
 
@@ -557,18 +603,18 @@ $name: 'module-village';
       bottom: 0;
       width: 215px;
       height: 123px;
-      background: url(img/elves_bus_sprite.png) 0 0 no-repeat;
+      background: url(img/bus.svg) no-repeat;
       @include transform(translateX($villageWidth));
       @include transform(translateZ(0) translateX($villageWidth));
 
       &.bus-load {
-        @include animation(busload 2s step-end 1);
-        background-position: 0 -798px;
+        //@include animation(busload 2s step-end 1);
+        //background-position: 0 -798px;
       }
 
       &.bus-unload {
-        @include animation(busunload 2s step-end 1);
-        background-position: 0 0;
+        //@include animation(busunload 2s step-end 1);
+        //background-position: 0 0;
       }
 
       $busOffset: 50px;
@@ -617,7 +663,7 @@ $name: 'module-village';
       height: 55px;
       width: 424px;
       top: -55px;
-      background-position: 0 -60px;
+      background: url(img/train.svg) no-repeat;
       @include animation(train 55s 0s linear infinite);
     }
   }
@@ -735,7 +781,7 @@ $name: 'module-village';
     top: 45px;
     height: 82px;
     width: 171px;
-    background-position: -126px -221px;
+    background: url(img/plane.svg) no-repeat;
     @include animation(plane 60s 0s linear infinite);
   }
 
@@ -746,7 +792,7 @@ $name: 'module-village';
     height: 84px;
     width: 130px;
     top: 45px;
-    background-position: -988px -45px; 
+    background: url(img/spaceship.svg) no-repeat;
     @include animation(plane 75s 0s linear infinite);
     @include animation-direction(reverse);
   }
@@ -782,11 +828,11 @@ $name: 'module-village';
   }
 
   #sun {
-    background-position: -544px 0;
+    background: url(img/sun.svg) no-repeat;
   }
 
   #moon {
-    background-position: -574px -195px;
+    background: url(img/moon.svg) no-repeat;
   }
 
   #sky, .sky {
