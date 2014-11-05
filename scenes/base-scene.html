@@ -187,6 +187,7 @@ These methods will be called at the appropriate times:
       activeChanged: function() {
         if (!this.active) {
           this.onHide && this.onHide();
+          this.hidden = true;
           return;
         }
 
