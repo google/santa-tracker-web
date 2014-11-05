@@ -486,13 +486,36 @@ $name: 'module-village';
       }
     }
 
+    .busstop-sign {
+      bottom: 0;
+      position: absolute;
+      width: 38px;
+      height: 89px;
+      background: url(img/busstop.svg) no-repeat;
+    }
+
+    .bus-bench {
+      bottom: 0;
+      left: 45px;
+      position: absolute;
+      width: 49px;
+      height: 26px;
+      background: url(img/bench.svg) no-repeat;
+    }
+
+    .bus-chair {
+      bottom: 0;
+      left: 25px;
+      position: absolute;
+      width: 15px;
+      height: 26px;
+      background: url(img/chair.svg) no-repeat;
+    }
+
     #busstop1 {
       position: absolute;
-      width: 96px;
-      height: 93px;
       bottom: 0;
-      left: 2267px;
-      background: url(img/busstop.png) no-repeat;
+      left: 2497px;
       z-index: 9;
 
       .elf {
@@ -515,8 +538,7 @@ $name: 'module-village';
     #busstop2 {
       bottom: 0;
       position: absolute;
-      width: 65px;
-      left: 7011px;
+      left: 6971px;
       z-index: 9;
 
       .elf2 {
@@ -533,7 +555,7 @@ $name: 'module-village';
       position: absolute;
       width: 70px;
       height: 53px;
-      left: 7152px;
+      left: 7912px;
       z-index: 9;
 
       .elf2 {
@@ -574,27 +596,44 @@ $name: 'module-village';
       }
     }
 
+    #snowmobile1, #snowmobile2, #snowmobile3 {
+      position: absolute;
+      width: 64px;
+      height: 62px;
+      bottom: 0;
+      z-index: 10;
+    }
+
     #snowmobile1 {
       left: 6240px;
+      background: url(img/snowmobile1.svg) no-repeat;
+
+      &.gogo-snowmobile {
+        @include apply-origin(bottom center, false);
+        @include animation(burnout 25s linear);
+        @include animation-direction(reverse);
+      }
     }
 
     #snowmobile2 {
       left: 7615px;
+      background: url(img/snowmobile2.svg) no-repeat;
+
+      &.gogo-snowmobile {
+        @include apply-origin(bottom center, false);
+        @include animation(burnout 25s linear);
+      }
     }
 
     #snowmobile3 {
       left: 9122px;
-    }
+      background: url(img/snowmobile3.svg) no-repeat;
 
-    .snowmobile-right.gogo-snowmobile {
-      @include apply-origin(bottom center, false);
-      @include animation(burnout 25s linear);
-    }
-
-    .snowmobile-left.gogo-snowmobile {
-      @include apply-origin(bottom center, false);
-      @include animation(burnout 25s linear);
-      @include animation-direction(reverse);
+      &.gogo-snowmobile {
+        @include apply-origin(bottom center, false);
+        @include animation(burnout 25s linear);
+        @include animation-direction(reverse);
+      }
     }
 
     #bus {
