@@ -10,7 +10,7 @@ Village scene.
 @element village-scene
 @extends base-scene
 -->
-<polymer-element name="village-scene" extends="base-scene">
+<polymer-element name="village-scene" extends="base-scene" attributes="countDownEndDate">
 <template>
   <link rel="stylesheet" href="village-scene.css" no-shim>
 
@@ -22,7 +22,7 @@ Village scene.
         <h1 class="logo">Google</h1>
         <h1>Santa Tracker</h1>
         <countdown-timer id="count" santaService="{{santaService}}"
-                         finished="{{finished}}">
+                         finished="{{finished}}" countDownEndDate="[[countDownEndDate]]">
           <h3>Days</h3>
           <h3>Hours</h3>
           <h3>Minutes</h3>
@@ -196,7 +196,7 @@ Village scene.
 
             <div id="balloon" on-tap="{{onBalloonClick}}"></div>
             <div id="balloon-ropes" hidden></div>
-            
+
             <div id="house11" class="house iced" data-module="commandcentre" on-tap="{{onHouseClick}}">
               <div class="building"></div>
 
@@ -567,6 +567,14 @@ Village scene.
       'house26', // finalprep
       'house27' // tracker
     ],
+
+    /**
+     * End of Santa's flight (ms).
+     *
+     * @attribute countDownEndDate
+     * @type number
+     * @default null
+     */
 
     created: function() {
       this.trees = [];

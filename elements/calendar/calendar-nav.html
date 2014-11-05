@@ -1,49 +1,22 @@
 <link rel="import" href="../../components/polymer/polymer.html">
 
-<script src="audiocontroller.js"></script>
-
 <!--
-Countdown timer.
+Calendar village nav.
 
-@element countdown-timer
+@element calendar-nav
 -->
-<polymer-element name="countdown-timer" attributes="santaService countDownEndDate playSounds finished">
+<polymer-element name="calendar-nav">
   <template>
-    <link rel="stylesheet" href="countdown-timer.css" no-shim>
+    <link rel="stylesheet" href="calendar-nav.css" no-shim>
     <style>
       :host {
         display: block;
       }
     </style>
 
-    <div hidden>
-      <content id="content" select="*"></content>
-    </div>
-
-    <div id="counter" layout horizontal>
-      <template repeat="{{title, i in titles}}">
-        <div class="counter-box" layout vertical center hidden?="{{i == 0 && displayDigits < 8}}">
-          <h2>{{title.textContent}}</h2>
-          <div class="digits" layout horizontal>
-            <template repeat="{{digits in [0, 1]}}">
-              <div class="digit digit-ani">
-                <div class="digit-top digit-top-front"><span></span></div>
-                <div class="digit-top digit-top-behind"><span></span></div>
-                <div class="digit-bottom digit-bottom-front"><span></span></div>
-                <div class="digit-bottom digit-bottom-behind"><span></span></div>
-                <div class="digit-bg"></div>
-              </div>
-            </template>
-          </div>
-        </div>
-      </template>
-    </div>
-
   </template>
   <script>
   (function() {
-
-    var TRANSITION_TIME_ = 300;
 
     Polymer({
 
@@ -78,11 +51,11 @@ Countdown timer.
       /**
        * The end time for this countdown, in milliseconds.
        *
-       * @attribute countDownEndDate
+       * @property endDate
        * @type number
-       * @default 1419415200000
+       * @default 1387879200000
        */
-      countDownEndDate: 1419415200000, // Dec 24, 2014
+      endDate: END_DATE,
 
       /**
        * Santa service.
@@ -113,7 +86,7 @@ Countdown timer.
 
        publish: {
         /**
-         * True when the countdown has reached `countDownEndDate`.
+         * True when the countdown has reached `endDate`.
          *
          * @attribute finished
          * @type bool
@@ -166,12 +139,6 @@ Countdown timer.
         this.tickTock();
       },
 
-      countDownEndDateChanged: function() {
-        // string - number type cohesion works, but let's be explicit when
-        // we get a new countDownEndDate.
-        this.countDownEndDate = parseInt(this.countDownEndDate);
-      },
-
       /**
        * Pads a number with leading zeros.
        *
@@ -192,7 +159,7 @@ Countdown timer.
       getCurrentTime_: function() {
         var now = this.santaService ? this.santaService.now() : Date.now();
 
-        var diff = Math.max(0, this.countDownEndDate - now);
+        var diff = Math.max(0, this.endDate - now);
         var msPerDay = 24 * 60 * 60 * 1000;
 
         var daysX = diff / msPerDay;

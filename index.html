@@ -51,12 +51,9 @@
   <preload-overlay value="{{selectedScene.preloadProgress || 0}}"
                    active?="{{selectedScene && !selectedScene.loaded}}"></preload-overlay>
 
-  <lazy-pages selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route"
-              santaService="{{santaService}}"
-              analyticsService="{{analyticsService}}"
-              visibilityService="{{visibilityService}}">
+  <lazy-pages id="lazypages" selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route">
     <village-scene route="village"
-        path="scenes/village/village-scene.html" hidden></village-scene>
+        path="scenes/village/village-scene.html" countDownEndDate="{{countDownEndDate}}" hidden></village-scene>
     <briefing-scene route="briefing"
         path="scenes/briefing/briefing-scene.html" hidden></briefing-scene>
     <matching-scene route="matching"
