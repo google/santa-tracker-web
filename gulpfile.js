@@ -35,8 +35,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass'], function() {
     // gulp-vulcanize doesn't currently handle multiple files in multiple
     // directories well right now, so vulcanize them one at a time
     .pipe(foreach(function(stream, file) {
-      var dest = path.join('dist',
-          path.dirname(path.relative(__dirname, file.path)));
+      var dest = path.dirname(path.relative(__dirname, file.path));
       return stream.pipe(vulcanize({
         excludes: {
           // these are inlined in elements.html
@@ -50,7 +49,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass'], function() {
         inline: true,
         dest: dest
       }))
-      .pipe(gulp.dest(dest));
+      .pipe(gulp.dest(path.join('dist', dest)));
     }));
 });
 
@@ -62,7 +61,7 @@ gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
       strip: true,
       csp: true,
       inline: true,
-      dest: 'dist/elements/'
+      dest: 'elements/'
     }))
     .pipe(gulp.dest('dist/elements/'));
 });
