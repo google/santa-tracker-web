@@ -90,7 +90,7 @@ gulp.task('watch', function() {
   gulp.watch(COMPASS_FILES, ['compass']);
 });
 
-gulp.task('goro', ['copy-assets'], function() {
+gulp.task('wrap', ['copy-assets'], function() {
   return gulp.src([
     'dist/scenes/*/*-scene.{html,js}',
     'dist/elements/elements.{html,js}',
