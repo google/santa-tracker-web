@@ -7,6 +7,7 @@ var path = require('path');
 var autoprefixer = require('gulp-autoprefixer');
 var foreach = require('gulp-foreach');
 var del = require('del');
+var wrap = require('gulp-wrap');
 
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 
@@ -87,6 +88,16 @@ gulp.task('copy-assets', ['clean', 'vulcanize'], function() {
 
 gulp.task('watch', function() {
   gulp.watch(COMPASS_FILES, ['compass']);
+});
+
+gulp.task('goro', ['copy-assets'], function() {
+  return gulp.src([
+    'dist/scenes/*/*-scene.{html,js}',
+    'dist/elements/elements.{html,js}',
+    'dist/index.html'
+  ], {base: './'})
+  .pipe(wrap('{% set_tidy "off" %}{% raw %}<%= contents %>{% endraw %}'))
+  .pipe(gulp.dest('.'));
 });
 
 gulp.task('default', ['copy-assets']);
