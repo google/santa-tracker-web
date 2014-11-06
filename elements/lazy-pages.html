@@ -50,27 +50,27 @@ Lazy loads children "pages".
       this.super();
 
       var scene = this.selectedItem;
-      if (!scene || !this.selected || scene.loaded) {
-        return;
-      }
 
       // Can't use scene.path because element definition may not be loaded yet
       // and .path property won't exist.
       var path = scene.getAttribute('path');
-      if (path) {
-        Polymer.import([path], function(e) {
-          // TODO: shouldn't have to do this. I believe 2-way binding on the
-          // preload-overlay is causing the next scene to start at 100 instead
-          // of 0. Probably need to fire an event instead of binding to its
-          // .value directly.
-          scene.preloadProgress = 0;
 
-          scene.santaService = this.santaService;
-          scene.analyticsService = this.analyticsService;
-          scene.visibilityService = this.visibilityService;
-
-        }.bind(this));
+      if (!path || !scene || !this.selected || scene.loaded) {
+        return;
       }
+
+      Polymer.import([path], function(e) {
+        // TODO: shouldn't have to do this. I believe 2-way binding on the
+        // preload-overlay is causing the next scene to start at 100 instead
+        // of 0. Probably need to fire an event instead of binding to its
+        // .value directly.
+        scene.preloadProgress = 0;
+
+        scene.santaService = this.santaService;
+        scene.analyticsService = this.analyticsService;
+        scene.visibilityService = this.visibilityService;
+
+      }.bind(this));
 
     }
   });
