@@ -52,7 +52,10 @@ window.santatracker.setup = function() {
   // Routing setup is done last.
   var template = document.querySelector('#t');
   template.addEventListener('template-bound', function(e) {
-    this.route = this.route || DEFAULT_ROUTE;
+    // Wait one rAF to set route. Firefoxs needs this, no other browsers do :\
+    this.async(function() {
+      this.route = this.route || DEFAULT_ROUTE;
+    });
     this.$.lazypages.santaService = window.santatracker.controller.getService();
     this.$.lazypages.analyticsService = window.santatracker.analytics;
     this.$.lazypages.visibilityService = window.santatracker.visibility;
