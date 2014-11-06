@@ -7,7 +7,7 @@ Countdown timer.
 
 @element countdown-timer
 -->
-<polymer-element name="countdown-timer" attributes="santaService endDate playSounds finished">
+<polymer-element name="countdown-timer" attributes="santaService countDownEndDate playSounds finished">
   <template>
     <link rel="stylesheet" href="countdown-timer.css" no-shim>
     <style>
@@ -43,8 +43,6 @@ Countdown timer.
   <script>
   (function() {
 
-    // TODO(ericbidelman): use end date in santatracker.js
-    var END_DATE = 1419415200000;
     var TRANSITION_TIME_ = 300;
 
     Polymer({
@@ -80,11 +78,11 @@ Countdown timer.
       /**
        * The end time for this countdown, in milliseconds.
        *
-       * @property endDate
+       * @attribute countDownEndDate
        * @type number
-       * @default 1387879200000
+       * @default 1419415200000
        */
-      endDate: END_DATE,
+      countDownEndDate: 1419415200000, // Dec 24, 2014
 
       /**
        * Santa service.
@@ -115,7 +113,7 @@ Countdown timer.
 
        publish: {
         /**
-         * True when the countdown has reached `endDate`.
+         * True when the countdown has reached `countDownEndDate`.
          *
          * @attribute finished
          * @type bool
@@ -168,6 +166,12 @@ Countdown timer.
         this.tickTock();
       },
 
+      countDownEndDateChanged: function() {
+        // string - number type cohesion works, but let's be explicit when
+        // we get a new countDownEndDate.
+        this.countDownEndDate = parseInt(this.countDownEndDate);
+      },
+
       /**
        * Pads a number with leading zeros.
        *
@@ -188,7 +192,7 @@ Countdown timer.
       getCurrentTime_: function() {
         var now = this.santaService ? this.santaService.now() : Date.now();
 
-        var diff = Math.max(0, this.endDate - now);
+        var diff = Math.max(0, this.countDownEndDate - now);
         var msPerDay = 24 * 60 * 60 * 1000;
 
         var daysX = diff / msPerDay;
