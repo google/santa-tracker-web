@@ -1,0 +1,403 @@
+<link rel="import" href="../../scenes/base-scene.html">
+
+<!--
+Village calendar navigation.
+
+@element calendar-nav
+@extends base-scene
+-->
+<polymer-element name="calendar-nav" extends="base-scene">
+  <template>
+    <link rel="stylesheet" href="calendar-nav.css" no-shim>
+
+    <div id="module-nav">
+
+    <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
+      <a id="global-nav-btn" href="#village{{!active ? '/calendar' : ''}}" layout horizontal>
+        <div class="nav-santa-icon"></div>
+        <div class="nav-santa-bar"></div>
+      </a>
+      <div id="global-nav-body">
+        <div id="global-nav-header" layout horizontal on-transitionend="{{onHeaderTransition}}">
+          <a id="global-back-to-village" href="{{baseURI}}#village" title="Go to the Village" class="back" on-tap="{{close}}">Go to the Village</a>
+          <ul>
+            <li><a href="{{baseURI}}#village/calendar" class="{{ {active: route == 'village/calendar'} | tokenList }}">The Calendar</a></li>
+            <li><a href="{{baseURI}}#village/onthego" class="{{ {active: route == 'village/onthego'} | tokenList }}">Santa on the go</a></li>
+          </ul>
+        </div>
+
+        <div id="global-nav-content">
+          <div id="nav-calendar">
+            <ul>
+              <li>
+                <a id="calendar-house1" href="#" class="melt" data-module="airport">
+                  <div class="menu-marker marker1"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house2" href="#" class="iced" data-module="racer">
+                  <div class="menu-marker marker2"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house3" href="#" class="iced" data-module="trailer">
+                  <div class="menu-marker marker3"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house4" href="#" class="iced" data-module="windtunnel">
+                  <div class="menu-marker marker4"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house5" href="#" class="iced" data-module="boatload">
+                  <div class="menu-marker marker5"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house7" href="#" class="iced" data-module="streets">
+                  <div class="menu-marker marker6"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house8" href="#" class="iced" data-module="factory">
+                  <div class="menu-marker marker7"></div>
+                </a>
+              </li>
+              <li>
+                <a  id="calendar-house9" href="#" class="iced" data-module="rollercoaster">
+                  <div class="menu-marker marker8"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house11" href="#" class="iced" data-module="commandcentre">
+                  <div class="menu-marker marker9"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house12" href="#" class="iced" data-module="callfromsanta">
+                  <div class="menu-marker marker10"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house13" href="#" class="iced" data-module="gumballs">
+                  <div class="menu-marker marker11"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house14" href="#" class="iced" data-module="sendamessage">
+                  <div class="menu-marker marker12"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house15" href="#" class="iced" data-module="mountain">
+                  <div class="menu-marker marker13"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house16" href="#" class="iced" data-module="playground">
+                  <div class="menu-marker marker14"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house18" href="#" class="iced" data-module="ferriswheel">
+                  <div class="menu-marker marker15"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house19" href="#" class="iced" data-module="briefing">
+                  <div class="menu-marker marker16"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house20" href="#" class="iced" data-module="matching">
+                  <div class="menu-marker marker17"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house21" href="#" class="iced" data-module="choir">
+                  <div class="menu-marker marker18"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house22" href="#" class="iced" data-module="jetpack">
+                  <div class="menu-marker marker19"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house23" href="#" class="iced" data-module="presentdrop">
+                  <div class="menu-marker marker20"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house24" href="#" class="iced" data-module="traditions">
+                  <div class="menu-marker marker21"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house25" href="#" class="iced" data-module="workshop">
+                  <div class="menu-marker marker22"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house26" href="#" class="iced" data-module="finalprep">
+                  <div class="menu-marker marker23"></div>
+                </a>
+              </li>
+              <li>
+                <a id="calendar-house27" href="#" class="iced">
+                  <div class="menu-marker marker24"></div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div id="nav-onthego">
+
+            <div class="onthego-item onthego-android">
+              <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker">
+                <div class="logo"></div>
+                <h2>Play</h2>
+                <p>Play with friends in the Santa Tracker Android App.</p>
+              </a>
+            </div>
+            <div class="onthego-item onthego-chrome">
+              <a href="//www.google.com/chrome/santatracker/">
+                <div class="logo"></div>
+                <h2>Deck out</h2>
+                <p>Deck out your browser with a Santa Chrome extension.</p>
+              </a>
+            </div>
+            <div class="onthego-item onthego-cast">
+              <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker">
+                <div class="logo"></div>
+                <h2>Light up</h2>
+                <p>Light up your TV with the Santa Tracker Android app and Chromecast.</p>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div id="global-nav-footer">
+        <!-- TODO(lukem): put back goro stuff -->
+        <!-- <div style="display:inline"><a href="#" id="select-lang">{% msg %}Language{% endmsg %}</a> &bull;</div>
+        <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">About</a>
+        &bull;
+        <a href="http://www.google.com/policies/">Terms &amp; Privacy</a>
+        &bull; -->
+        <a href="http://maps.google.com/help/maps/helloworld/index.html">Get Google Maps</a>
+      </div>
+    </div>
+
+    <div id="sound">
+      <a href="#" class="on"><i></i></a>
+    </div>
+
+    <div id="site-nav">
+      <h2>Santa Tracker</h2>
+      <div class="share">
+        <ul>
+          <li><a href="#" class="gplus" on-tap="{{shareGplus}}"><i>Google+</i></a></li>
+          <li><a href="#" class="fb" on-tap="{{shareFB}}"><i>Facebook</i></a></li>
+          <li><a href="#" class="twitter" on-tap="{{shareTwitter}}"><i>Twitter</i></a></li>
+        </ul>
+      </div>
+    </div>
+
+    </div>
+
+  </template>
+  <script>
+  (function() {
+
+    Polymer({
+
+      //TODO(lukem): Rewrite this whole thing when new nav comes from designers
+
+      ready: function() {
+
+        // this.addEvents();
+      },
+
+      opened: false,
+      opening: false,
+      closed: true,
+      closing: false,
+
+      TIMEOUT_DELAY: 300 + (24 * 42),
+
+      // onHeaderTransition: function(e, detail, sender) {
+      //   // this.scrollable = !this.scrollable;
+      // },
+
+      onShow: function() {
+        this.cancelAsync(this.closeTimeout_);
+
+        this.$['global-nav-content'].scrollTop = 0;
+
+        this.closed = false;
+        this.closing = false;
+        this.scrollable = false;
+        this.opening = true;
+
+        this.async(function() {
+          this.opened = true;
+
+          this.async(function() {
+            this.scrollable = true;
+          }, null, this.TIMEOUT);
+        });
+
+        this.playSound('menu_open');
+         // TODO(ericbidelman): throws errors with visibilityService being undefined.
+        this.visibilityService.pause();
+      },
+
+      onHide: function() {
+        this.opening = false;
+        this.opened = false;
+        this.scrollable = false;
+        this.closing = true;
+
+        this.closeTimeout_ = this.async(function() {
+          this.closed = true;
+        }, null, this.TIMEOUT_DELAY);
+
+        this.playSound('menu_close');
+
+         // TODO(ericbidelman): throws errors with visibilityService being undefined.
+        this.visibilityService.resume();
+      },
+
+      /**
+       * @param {Event} e
+       * @return {boolean} false to cancel the bubble
+       * @private
+       */
+      changeNavTab: function(e) {
+
+        // $('#global-nav-header .active').removeClass('active');
+        // var link = $(e.target);
+        // link.addClass('active');
+        // var type = link.attr('href').substring(1);
+
+        // if (type == 'calendar') {
+        //   $('#nav-calendar').show();
+        //   $('#nav-onthego').hide();
+        // } else {
+        //   $('#nav-onthego').show();
+        //   $('#nav-calendar').hide();
+        // }
+        // return false;
+
+      },
+
+      addEvents: function() {
+
+        var container = this.$['#site-nav'];
+
+        $('#global-nav-content li').on('click', 'a.melt', _.bind(this.close, this));
+
+        $('#nav-calendar ul li').on('click', 'a', function() {
+          if ($(this).hasClass('iced')) return false;
+        });
+
+        $('#global-nav-header ul li').on('click', 'a',
+            _.bind(this.changeNavTab, this));
+        this.addLanguageSelectEvents_();
+
+        $('#nav-onthego a').on('click', function() {
+          var href = $(this).attr('href');
+          window.santatracker.analytics.trackEvent('outbound', 'click', href);
+          window.setTimeout(function() {
+            document.location.href = href;
+          }.bind(this), 100);
+          return false;
+        });
+
+      },
+
+      /**
+       * @private
+       */
+      addLanguageSelectEvents_: function() {
+        /*
+        $('#select-lang').on('click', function(e) {
+          $('#page-language').show();
+          e.preventDefault(); // necessary for standalone village, but not web.
+        });
+
+        // Prevent a click on the language select from closing the form.
+        $('#language-content').on('click', function(e) {
+          return false;
+        });
+
+        var hidePopup = function() {
+          $('#page-language').hide();
+          return false;
+        };
+
+        $('#page-language').on('click', hidePopup);
+        $('#close-lang').on('click', hidePopup);
+
+        $('#language').val(window.santatracker.lang);
+
+        $('#language').on('change', function() {
+          var lang = $(this).val();
+          window.santatracker.analytics.trackEvent('language', 'click', 'change',
+              lang);
+          window.setTimeout(function() {
+            window.location = '/intl/' + lang + '/santatracker/' +
+                window.location.hash;
+          }, 100);
+        });
+        */
+      },
+
+
+      shareGplus: function() {
+        /*
+        window.santatracker.analytics.trackSocial('googleplus', 'share',
+            'http://www.google.com/santatracker');
+        this.openPage_('https://plus.google.com/share?url=' +
+                       encodeURIComponent('http://www.google.com/santatracker'));
+        */
+      },
+
+      shareFB: function() {
+        /*
+        window.santatracker.analytics.trackSocial('facebook', 'share',
+            'http://www.google.com/santatracker');
+
+        this.openPage_('http://www.facebook.com/sharer.php?u=' +
+                       encodeURIComponent('http://www.google.com/santatracker') +
+                       '&t=' + encodeURIComponent('Google Santa Tracker'));
+        */
+      },
+
+      shareTwitter: function() {
+        /*
+        window.santatracker.analytics.trackSocial('twitter', 'share',
+            'http://www.google.com/santatracker');
+
+        this.openPage_('http://twitter.com/share?text=' +
+                       encodeURIComponent('Google Santa Tracker - ' +
+                       'Follow Santa on his journey around the ' +
+                       'world -') + '&url=' +
+                       encodeURIComponent('http://www.google.com/santatracker'));
+        */
+      },
+
+      /**
+       * Open a fixed size window to a url
+       * @param {string} url
+       */
+      openPage_: function(url) {
+        window.open(url, 'Share', 'toolbar=0,status=0,width=626,height=480');
+      }
+
+    });
+
+  })();
+  </script>
+</polymer-element>
