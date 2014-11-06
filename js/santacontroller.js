@@ -17,7 +17,7 @@ function SantaController(lang, moduleLoader, analytics) {
 
   // this.moduleLoader_ = moduleLoader;
 
-  this.sitenav_ = new SiteNav();
+  // this.sitenav_ = new SiteNav();
 
   //TODO(lukem): Tracker moves to scene
 

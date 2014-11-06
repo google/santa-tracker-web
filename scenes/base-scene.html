@@ -17,7 +17,16 @@ These methods will be called at the appropriate times:
 
 @element base-scene
 -->
-<polymer-element name="base-scene" attributes="active path">
+
+<!-- Outside base-scene so we don't have to create extra an Shadow DOM. -->
+<style shim-shadowdom>
+  body /deep/ [alwaysActive] {
+    visibility: visible;
+    z-index: initial;
+  }
+</style>
+
+<polymer-element name="base-scene" attributes="active alwaysActive path">
   <script>
     Polymer({
       publish: {
@@ -28,7 +37,17 @@ These methods will be called at the appropriate times:
          * @type bool
          * @default false
          */
-        active: {value: false, reflect: true}
+        active: {value: false, reflect: true},
+
+        /**
+         * If `true`, the scene is always visible and `hidden` won't be applied
+         * when the page's `onHide()` is called.
+         *
+         * @attribute alwaysActive
+         * @type bool
+         * @default false
+         */
+        alwaysActive: {value: false, reflect: true}
       },
 
       computed: {
@@ -187,7 +206,9 @@ These methods will be called at the appropriate times:
       activeChanged: function() {
         if (!this.active) {
           this.onHide && this.onHide();
-          this.hidden = true;
+          if (!this.alwaysActive) {
+            this.hidden = true;
+          }
           return;
         }
 
