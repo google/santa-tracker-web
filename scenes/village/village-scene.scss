@@ -122,7 +122,7 @@ $name: 'module-village';
       width: $snowWidth;
       left: 0;
       bottom: 0;
-      height: 143px;
+      height: 140px;
       z-index: 15;
       background: url(img/snow.svg) repeat-x;
     }
@@ -264,225 +264,32 @@ $name: 'module-village';
       z-index: 10;
     }
 
-    /*$elfColors: "blue", "green", "organge", "purple", "red";
+    $elfColors: "blue", "green", "orange", "purple", "red";
     $elves:
-      "" 17 54
-      "left" 19 52,
-      "right" 19 52,
-      "girl-left" 19 52,
-      "girl-right" 19 52,
-      "snow" 27 54,
-      "snow-left" 36 47,
-      "snow-right" 36 47,
-      "snow-hide" 25 34,
-      "girl-snow-left" 36 47,
-      "girl-snow-right" 36 47;
+      "" 17 54,
+      "-left" 19 52,
+      "-right" 19 52,
+      "-girl-left" 19 52,
+      "-girl-right" 19 52,
+      "-snow" 27 54,
+      "-snow-left" 36 47,
+      "-snow-right" 36 47,
+      "-snow-hide" 25 34,
+      "-girl-snow-left" 36 47,
+      "-girl-snow-right" 36 47;
     $elfType: 1;
     $elfWidth: 2;
     $elfHeight: 3;
 
     @each $elfColor in $elfColors {
       @each $elf in $elves {
-        background: url(img/elf-#{$elfColor}-#{nth($elf, $elfType)}.svg) no-repeat;
-        width: #{nth($elf, $elfWidth)}px;
-        height: #{nth($elf, $elfHeight)}px;
+        .elf-#{$elfColor}#{nth($elf, $elfType)} {
+          background: url(img/elf-#{$elfColor}#{nth($elf, $elfType)}.svg) no-repeat;
+          width: #{nth($elf, $elfWidth)}px;
+          height: #{nth($elf, $elfHeight)}px;
+        }
       }
-    }*/
-
-
-
-    /*.elf-green-sit {
-      background-position: -2110px -21px;
-      width: 22px;
-      height: 54px;
     }
-
-    .elf-green-dig {
-      width: 28px;
-      height: 56px;
-      background-position: -1669px -19px;
-    }
-
-    .elf-green {
-      width: 18px;
-      height: 56px;
-      background-position: -1806px -19px;
-    }
-
-    .elf-green-left {
-      width: 20px;
-      height: 53px;
-      background-position: -1871px -21px;
-    }
-
-    .elf-green-dig-right {
-      width: 38px;
-      height: 49px;
-      background-position: -1928px -23px;
-    }
-
-    .elf-green-right {
-      width: 20px;
-      height: 53px;
-      background-position: -2003px -21px;
-    }
-
-    .elf-green-snow {
-      width: 26px;
-      height: 36px;
-      background-position: -1736px -29px;
-    }
-
-    .elf-orange-snow {
-      width: 25px;
-      height: 36px;
-      background-position: -87px -30px;
-    }
-
-    .elf-orange {
-      width: 18px;
-      height: 56px;
-      background-position: -156px -19px;
-    }
-
-    .elf-orange-dig {
-      width: 29px;
-      height: 56px;
-      background-position: -283px -20px;
-    }
-
-    .elf-orange-right {
-      width: 20px;
-      height: 54px;
-      background-position: -23px -21px;
-    }
-
-    .elf-orange-dig-left {
-      width: 38px;
-      height: 48px;
-      background-position: -344px -25px;
-    }
-
-    .elf-orange-left {
-      width: 19px;
-      height: 54px;
-      background-position: -222px -21px;
-    }
-
-    .elf-orange-snowmobile-left {
-      width: 66px;
-      height: 65px;
-      background-position: -396px -15px;
-    }
-
-    .elf-blue {
-      width: 18px;
-      height: 56px;
-      background-position: -948px -19px;
-    }
-
-    .elf-blue-dig {
-      width: 28px;
-      height: 56px;
-      background-position: -1207px -20px;
-    }
-
-    .elf-blue-dig-right {
-      width: 38px;
-      height: 49px;
-      background-position: -1004px -23px;
-    }
-
-    .elf-blue-left {
-      width: 20px;
-      height: 53px;
-      background-position: -1079px -21px;
-    }
-
-    .elf-blue-dig-left {
-      width: 38px;
-      height: 49px;
-      background-position: -1136px -23px;
-    }
-
-    .elf-purple {
-      width: 18px;
-      height: 56px;
-      background-position: -552px -19px;
-    }
-
-    .elf-purple-right {
-      width: 20px;
-      height: 54px;
-      background-position: -485px -21px;
-    }
-
-    .elf-purple-dig-right {
-      width: 38px;
-      height: 49px;
-      background-position: -609px -23px;
-    }
-
-    .elf-purple-dig {
-      width: 29px;
-      height: 54px;
-      background-position: -679px -21px;
-    }
-
-    .elf-purple-snowmobile-left {
-      width: 66px;
-      height: 65px;
-      background-position: -792px -15px;
-    }
-
-    .elf-purple-snowmobile-right {
-      width: 66px;
-      height: 65px;
-      background-position: -726px -15px;
-    }
-
-    .elf-purple-snow {
-      width: 26px;
-      height: 36px;
-      background-position: -878px -29px;
-    }
-
-    .elf-red-right {
-      width: 20px;
-      height: 53px;
-      background-position: -1277px -21px;
-    }
-
-    .elf-red-sit {
-      width: 22px;
-      height: 54px;
-      background-position: -2058px -21px;
-    }
-
-    .elf-red-dig {
-      width: 28px;
-      height: 56px;
-      background-position: -1339px -19px;
-    }
-
-    .elf-red-snow {
-      width: 26px;
-      height: 36px;
-      background-position: -1406px -29px;
-    }
-
-    .elf-red-left {
-      width: 20px;
-      height: 53px;
-      background-position: -1475px -21px;
-    }
-
-    .elf-red-dig-left {
-      width: 38px;
-      height: 49px;
-      background-position: -1598px -24px;
-    }
-    */
 
     .elf-red-unicycle {
       width: 35px;
@@ -711,10 +518,6 @@ $name: 'module-village';
     background-image: url(img/monorail.svg);
     background-repeat: repeat-x;
     background-size: 296px 231px;
-
-    &.night {
-      background-position: 220px -201px;
-    }
 
     #train {
       position: absolute;
