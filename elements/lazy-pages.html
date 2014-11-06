@@ -7,7 +7,7 @@ Lazy loads children "pages".
 @element lazy-pages
 @extends core-pages
 -->
-<polymer-element name="lazy-pages" extends="core-pages" attributes="santaService analyticsService visibilityService">
+<polymer-element name="lazy-pages" extends="core-pages">
 <template>
   <style>
     :host {
@@ -22,7 +22,7 @@ Lazy loads children "pages".
     /**
      * Santa service.
      *
-     * @attribute santaService
+     * @property santaService
      * @type SantaService
      * @default null
      */
@@ -31,7 +31,7 @@ Lazy loads children "pages".
     /**
      * Analytics service.
      *
-     * @attribute analyticsService
+     * @property analyticsService
      * @type Analytics
      * @default null
      */
@@ -64,6 +64,7 @@ Lazy loads children "pages".
           // of 0. Probably need to fire an event instead of binding to its
           // .value directly.
           scene.preloadProgress = 0;
+
           scene.santaService = this.santaService;
           scene.analyticsService = this.analyticsService;
           scene.visibilityService = this.visibilityService;

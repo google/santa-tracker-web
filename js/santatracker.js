@@ -53,9 +53,10 @@ window.santatracker.setup = function() {
   var template = document.querySelector('#t');
   template.addEventListener('template-bound', function(e) {
     this.route = this.route || DEFAULT_ROUTE;
-    this.santaService = window.santatracker.controller.getService();
-    this.analyticsService = window.santatracker.analytics;
-    this.visibilityService = window.santatracker.visibility;
+    this.$.lazypages.santaService = window.santatracker.controller.getService();
+    this.$.lazypages.analyticsService = window.santatracker.analytics;
+    this.$.lazypages.visibilityService = window.santatracker.visibility;
+    this.countDownEndDate = window.santatracker.COUNTDOWN_END_DATE;
   });
 };
 
