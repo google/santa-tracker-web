@@ -43,7 +43,7 @@
 <template is="auto-binding" id="t">
 
   <!-- Route controller -->
-  <flatiron-director route="{{route}}" autoHash></flatiron-director>
+  <flatiron-director route="{{route}}" autoHash on-director-route="{{onRouteChange}}"></flatiron-director>
 
   <!-- Preloading scene overlay -->
   <preload-overlay value="{{selectedScene.preloadProgress || 0}}"
