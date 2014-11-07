@@ -32,16 +32,28 @@
       z-index: 4;
     }
 
-    .house-snow {
+    .house-snow, .snow-elves, .melt-elves {
       opacity: 1;
       @include transition(opacity 500ms ease-out);
       @include transition-timing-function(cubic-bezier(0.4, 1.6, 0.2, 1));
+    }
+
+    .melt-elves {
+      opacity: 0;
     }
 
     &.melt {
       cursor: pointer;
       .house-snow {
         opacity: 0;
+      }
+
+      .snow-elves {
+        opacity: 0;
+      }
+
+      .melt-elves {
+        opacity: 1;
       }
 
       &:hover {
@@ -81,7 +93,7 @@
   // ID houseWidth houseHeight iceWidth iceHeight houseLeft houseBottom iceLeft iceBottom x y
   //  id        hw    hh    iw    ih    hl  hb  il    ib    x   y 
   $houses: 
-      "house1"  416   339   504   414   0   0   -42   -33   0     0,
+      "house1"  416   339   504   414   0   0   -42   -43   0     0,
       "house2"  189   158   365   251   0   -2  -80   -39   60    0,
       "house3"  233   238   406   312   0   2   -56   -45   0     0,
       "house4"  152   363   322   405   0   2   -85   -30   0    0,
@@ -202,1537 +214,134 @@
 
 
 
-  /*#house1 {
-    left: 938px;
+  $houseElves: (
+    "house1": (
+      "iced": (120 20, 230 0, 265 90, 320 30),
+      "melt": (0 0)
+    ),
+    "house2": (
+      "iced": (40 25, 80 60, 135 50, 170 0),
+      "melt": (0 0)
+    ),
+    "house3": (
+      "iced": (40 0, 100 70, 155 90, 200 0),
+      "melt": (0 0)
+    ),
+    "house4": (
+      "iced": (10 50, 75 110, 150 45),
+      "melt": (0 0)
+    ),
+    "house5": (
+      "iced": (10 45, 75 55, 160 0),
+      "melt": (0 0)
+    ),
+    "house6": (
+      "iced": (60 40, 155 55, 170 10),
+      "melt": (0 0)
+    ),
+    "house7": (
+      "iced": (70 55, 130 115, 190 25),
+      "melt": (0 0)
+    ),
+    "house8": (
+      "iced": (50 20, 180 0, 120 50),
+      "melt": (0 0)
+    ),
+    "house9": (
+      "iced": (105 20, 135 95, 185 40, 265 0),
+      "melt": (0 0)
+    ),
+    "house11": (
+      "iced": (65 20, 115 75, 175 35, 265 0),
+      "melt": (0 0)
+    ),
+    "house13": (
+      "iced": (60 55, 125 0, 0 30, 200 45),
+      "melt": (0 0)
+    ),
+    "house14": (
+      "iced": (70 50, 115 0, 0 30, 200 75),
+      "melt": (0 0)
+    ),
+    "house15": (
+      "iced": (155 0, 320 0, 135 90, 250 70, 300 80),
+      "melt": (0 0)
+    ),
+    "house16": (
+      "iced": (20 70, 120 20, 75 120, -10 10),
+      "melt": (0 0)
+    ),
+    "house17": (
+      "iced": (40 90, 105 50, 165 100, 190 10),
+      "melt": (0 0)
+    ),
+    "house18": (
+      "iced": (50 100, 25 0, 150 30, 245 0),
+      "melt": (0 0)
+    ),
+    "house19": (
+      "iced": (70 0, 75 90, 130 60, 175 0),
+      "melt": (0 0)
+    ),
+    "house20": (
+      "iced": (50 100, 25 0, 150 30, 245 0),
+      "melt": (0 0)
+    ),
+    "house21": (
+      "iced": (50 100, 25 0, 110 30, 185 50),
+      "melt": (0 0)
+    ),
+    "house22": (
+      "iced": (100 100, 65 40, 180 60, 245 20),
+      "melt": (0 0)
+    ),
+    "house23": (
+      "iced": (50 100, 25 40, 110 40, 195 70),
+      "melt": (0 0)
+    ),
+    "house24": (
+      "iced": (140 100, 25 0, 220 60, 315 0),
+      "melt": (0 0)
+    ),
+    "house25": (
+      "iced": (140 90, 75 40, 310 60, 255 0),
+      "melt": (0 0)
+    ),
+    "house26": (
+      "iced": (50 100, 5 0, 90 30, 145 0),
+      "melt": (0 0)
+    ),
+    "house27": (
+      "iced": (50 100, 25 0, 150 30, 105 0),
+      "melt": (0 0)
+    ),
+    "house28": (
+      "iced": (50 100, -5 50, 150 30, 75 20),
+      "melt": (0 0)
+    ),
+  );
 
-    .building {
-      background-image: url(img/house1.svg);
-      width: 416px;
-      height: 339px;
-    }
+  @each $id, $elves in $houseElves {
+    ##{$id} {
+      $iced: map-get($elves, "iced");
+      $melt: map-get($elves, "melt");
 
-    .house-snow {
-      background-image: url(img/house1-ice.svg);
-      width: 504px;
-      height: 414px;
-      bottom: -49px;
-      left: -36px;
-    }
-
-    .house-elves {
-      left: 184px;
-    }
-
-    &.melt {
-      .elf1, .elf2, .elf3, .elf4 {
-        display: none;
+      &.iced {
+        .snow-elves {
+          @for $i from 1 to length($iced)+1 {
+            $elf: nth($iced, $i);
+            $idx:$i - 1;
+            :nth-child(#{$i}) {
+              left: #{nth($elf, 1)}px;
+              bottom: #{nth($elf, 2)}px;
+            }
+          }
+        }
       }
 
-      .elf6 {
-        left: 68px;
-      }
+      &.melt {
 
-      .elf7 {
-        left: 170px;
-      }
-
-      .elf8 {
-        left: 190px;
-      }
-
-      .elf9 {
-        left: 261px;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        left: 160px;
-        bottom: 14px;
-      }
-
-      .elf1 {
-        bottom: 13px;
-      }
-
-      .elf2 {
-        left: 83px;
-      }
-
-      .elf3 {
-        left: 112px;
-        bottom: 87px;
-      }
-
-      .elf4 {
-        left: 178px;
-        bottom: 5px;
-      }
-
-      .elf5, .elf6, .elf7, .elf8, .elf9 {
-        display: none;
-      }
-    }
-  }
-
-  #house2 {
-    left: 1501px;
-
-    .building {
-      background-image: url(img/house2.svg);
-      width: 189px;
-      height: 159px;
-      bottom: -3px;
-    }
-
-    .house-snow {
-      background-image: url(img/house2-ice.svg);
-      width: 365px;
-      height: 251px;
-      bottom: -55px;
-      left: -87px;
-    }
-
-    .house-elves {
-      width: 17px;
-      height: 55px;
-      left: 160px;
-    }
-
-    &.melt {
-      .elf1, .elf2, .elf3 {
-        display: none;
-      }
-      .elf4 {
-        left: 0;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 183px;
-        height: 104px;
-        left: 35px;
-        bottom: 3px;
-      }
-
-      .elf2 {
-        bottom: 48px;
-        left: 38px;
-      }
-
-      .elf3 {
-        bottom: 29px;
-        left: 100px;
-      }
-
-      .elf4 {
-        left: 165px;
-      }
-    }
-  }
-
-  #house3 {
-    left: 1873px;
-
-    .building {
-      background-image: url(img/house3.svg);
-      width: 233px;
-      height: 238px;
-    }
-
-    .house-snow {
-      background-image: url(img/house3-ice.svg);
-      width: 406px;
-      height: 312px;
-      bottom: -52px;
-      left: -59px;
-    }
-
-    .house-elves {
-      width: 96px;
-      height: 53px;
-      left: 216px;
-    }
-
-    &.melt {
-      .elf2, .elf3 {
-        display: none;
-      }
-
-      .elf4 {
-        left: 28px;
-      }
-
-      .elf5 {
-        left: 76px;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 198px;
-        height: 119px;
-        left: 65px;
-      }
-
-      .elf1 {
-        left: 0;
-      }
-
-      .elf2 {
-        left: 21px;
-        bottom: 84px;
-      }
-
-      .elf3 {
-        left: 100px;
-        bottom: 53px;
-      }
-
-      .elf4 {
-        left: 178px;
-      }
-
-      .elf5 {
-        display: none;
       }
     }
   }
-
-  #house4 {
-    left: 2265px;
-
-    .building {
-      background-image: url(img/house4.svg);
-      width: 152px;
-      height: 363px;
-    }
-
-    .house-snow {
-      background-image: url(img/house4-ice.svg);
-      width: 323px;
-      height: 405px;
-      bottom: -29px;
-      left: -82px;
-    }
-
-    .house-elves {
-      width: 89px;
-      height: 55px;
-      left: 40px;
-    }
-
-    &.melt {
-      .elf2, .elf3, .elf4, .elf5, .elf7 {
-        display: none;
-      }
-
-      .elf1 {
-        left: 69px;
-      }
-
-      .elf2 {
-        left: 0;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 351px;
-        height: 184px;
-        left: 111px;
-        bottom: 1px;
-      }
-
-      .elf2 {
-        left: 102px;
-        bottom: 30px;
-      }
-
-      .elf3 {
-        left: 138px;
-        bottom: 119px;
-      }
-
-      .elf4 {
-        left: 192px;
-        bottom: 25px;
-      }
-
-      .elf5 {
-        left: 240px;
-        bottom: 148px;
-      }
-
-      .elf6 {
-        left: 264px;
-      }
-
-      .elf7 {
-        left: 315px;
-        bottom: 76px;
-      }
-    }
-  }
-
-  #house5 {
-    left: 2537px;
-
-    .building {
-      background-image: url(img/house5.svg);
-      width: 217px;
-      height: 287px;
-      bottom: -2px;
-    }
-
-    .house-snow {
-      background-image: url(img/house5-ice.svg);
-      width: 355px;
-      height: 342px;
-      bottom: -27px;
-      left: -64px;
-    }
-
-    .house-elves {
-      width: 38px;
-      height: 55px;
-      left: 200px;
-    }
-
-    &.melt {
-      .elf1, .elf2 {
-        display: none;
-      }
-
-      .elf3 {
-        left: 19px;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 186px;
-        height: 77px;
-        left: 89px;
-        bottom: 1px;
-      }
-
-      .elf1 {
-        bottom: 13px;
-      }
-
-      .elf2 {
-        left: 79px;
-        bottom: 23px;
-      }
-
-      .elf3 {
-        left: 167px;
-      }
-
-      .elf4 {
-        display: none;
-      }
-    }
-  }
-
-  #house6 {
-    left: 2855px;
-
-    .building {
-      background-image: url(img/house6.svg);
-      width: 208px;
-      height: 173px;
-    }
-
-    .house-snow {
-      background-image: url(img/house6-ice.svg);
-      width: 314px;
-      height: 244px;
-      bottom: -44px;
-      left: -30px;
-    }
-
-    .house-elves {
-      width: 19px;
-      height: 53px;
-      left: 233px;
-    }
-  }
-
-  #house7 {
-    left: 3154px;
-
-    .building {
-      background-image: url(img/house7.svg);
-      width: 219px;
-      height: 297px;
-    }
-
-    .house-snow {
-      background-image: url(img/house7-ice.svg);
-      width: 405px;
-      height: 373px;
-      bottom: -32px;
-      left: -87px;
-    }
-
-    .house-elves {
-      width: 36px;
-      height: 95px;
-      left: 200px;
-    }
-
-    &.melt {
-      .elf1, .elf2 {
-        display: none;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 82px;
-        height: 113px;
-        left: 87px;
-        bottom: 18px;
-      }
-
-      .elf2 {
-        left: 56px;
-        bottom: 77px;
-      }
-
-      .elf3 {
-        display: none;
-      }
-    }
-  }
-
-  #house8 {
-    left: 3389px;
-
-    .building {
-      background-image: url(img/house8.svg);
-      width: 219px;
-      height: 146px;
-    }
-
-    .house-snow {
-      background-image: url(img/house8-ice.svg);
-      width: 278px;
-      height: 256px;
-      bottom: -31px;
-      left: -18px;
-    }
-
-    .house-elves {
-      width: 17px;
-      height: 55px;
-      left: 205px;
-    }
-
-    &.melt {
-      .elf1, .elf2, .elf3, .elf4 {
-        display: none;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 161px;
-        height: 148px;
-        left: 148px;
-      }
-
-      .elf2 {
-        left: 5px;
-        bottom: 99px;
-      }
-
-      .elf3 {
-        bottom: 73px;
-        left: 77px;
-      }
-
-      .elf4 {
-        left: 123px;
-        bottom: 18px;
-      }
-
-      .elf5 {
-        display: none;
-      }
-    }
-  }
-
-  #house9 {
-    left: 4200px;
-
-    .building {
-      background-image: url(img/house9.svg);
-      width: 305px;
-      height: 233px;
-    }
-
-    .house-snow {
-      background-image: url(img/house9-ice.svg);
-      width: 438px;
-      height: 362px;
-      bottom: -68px;
-      left: -35px;
-    }
-
-    .house-elves {
-      width: 43px;
-      height: 55px;
-      left: 220px;
-    }
-
-    &.melt {
-      .elf1, .elf2, .elf3 {
-        display: none;
-      }
-
-      .elf5 {
-        left: 25px;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 182px;
-        height: 126px;
-        left: 119px;
-      }
-
-      .elf1 {
-        bottom: 22px;
-      }
-
-      .elf2 {
-        left: 46px;
-        bottom: 76px;
-      }
-
-      .elf3 {
-        bottom: 2px;
-        left: 91px;
-      }
-
-      .elf4 {
-        left: 162px;
-      }
-
-
-      .elf5 {
-        display: none;
-      }
-    }
-  }
-
-  // BALLOON
-  #house10 {
-    // Baloon
-    background: url(img/house_10.png) no-repeat;
-    background-position: 0 -628px;
-    bottom: -37px;
-    width: 327px;
-    height: 304px;
-    left: 4569px;
-    z-index: 2;
-    @include transform(translateZ(0) translateY(0) translateX(0));
-
-    &.takeoff {
-      background-position: 0 -314px;
-    }
-
-    &.fly {
-      background-position: 0 -1px;
-    }
-
-    &.flying {
-      z-index: 10;
-      @include apply-origin(top center, false);
-      @include animation(fly 55s 1 linear, float 5s infinite linear);
-    }
-  }
-
-  #house10-elf1 {
-    left: 4650px;
-  }
-
-  #house10-elf2 {
-    left: 4745px;
-  }
-
-  #house10-ropes {
-    background: url(img/house_10-ropes.png) no-repeat;
-    width: 282px;
-    height: 50px;
-    left: 4579px;
-    z-index: 1;
-    bottom: -36px;
-  }
-
-  #house10 {
-    left: 4884px;
-
-    .building {
-      background-image: url(img/house10.svg);
-      width: 174px;
-      height: 412px;
-    }
-
-    .house-snow {
-      background-image: url(img/house10-ice.svg);
-      width: 392px;
-      height: 492px;
-      bottom: -27px;
-      left: -29px;
-    }
-
-    .house-elves {
-      width: 40px;
-      height: 61px;
-      left: 115px;
-    }
-
-    &.melt {
-      .elf1, .elf2, .elf3 {
-        display: none;
-      }
-
-      .elf4 {
-        bottom: 6px;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 87px;
-        height: 123px;
-        left: 112px;
-        bottom: 17px;
-      }
-
-      .elf2 {
-        left: 14px;
-        bottom: 87px;
-      }
-
-      .elf3 {
-        bottom: 9px;
-        left: 62px;
-      }
-
-      .elf4, .elf5 {
-        display: none;
-      }
-    }
-  }
-
-  #house11 {
-    left: 4884px;
-
-    .building {
-      background-image: url(img/house10.svg);
-      width: 289px;
-      height: 202px;
-    }
-
-    .house-snow {
-      background-image: url(img/house10-ice.svg);
-      width: 371px;
-      height: 278px;
-      bottom: -30px;
-      left: -29px;
-    }
-  }
-
-  // Balloon
-  #house12 {
-    left: 5192px;
-
-    .building {
-      background-image: url(img/house_12.png);
-      width: 262px;
-      height: 335px;
-    }
-
-    .house-snow {
-      background-image: url(img/house_12_snow.png);
-      width: 336px;
-      height: 405px;
-      bottom: -46px;
-      left: -27px;
-    }
-
-    .house-elves {
-      width: 190px;
-      height: 55px;
-      left: 79px;
-    }
-
-    &.melt {
-      .elf1, .elf2, .elf3 {
-        display: none;
-      }
-
-      .elf5 {
-        left: 19px;
-      }
-
-      .elf6 {
-        left: 170px;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 181px;
-        height: 158px;
-        left: 87px;
-        bottom: 45px;
-      }
-
-      .elf1 {
-        bottom: 24px;
-      }
-
-      .elf2 {
-        left: 45px;
-        bottom: 123px;
-      }
-
-      .elf3 {
-        left: 85px;
-        bottom: 43px;
-      }
-
-      .elf4, .elf5 {
-        display: none;
-      }
-
-      .elf6 {
-        left: 161px;
-      }
-    }
-  }
-
-  #house13 {
-    left: 5552px;
-
-    .building {
-      background-image: url(img/house13.svg);
-      width: 179px;
-      height: 251px;
-    }
-
-    .house-snow {
-      background-image: url(img/house13-ice.svg);
-      width: 338px;
-      height: 389px;
-      bottom: -56px;
-      left: -45px;
-    }
-
-    .house-elves {
-      width: 17px;
-      height: 55px;
-      left: 206px;
-    }
-
-    &.melt {
-      .elf1, .elf2 {
-        display: none;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 60px;
-        height: 91px;
-        left: 81px;
-        bottom: 6px;
-      }
-
-      .elf2 {
-        left: 35px;
-        bottom: 56px;
-      }
-
-      .elf3 {
-        display: none;
-      }
-    }
-  }
-
-  #house14 {
-    left: 5918px;
-
-    .building {
-      background-image: url(img/house14.svg);
-      width: 253px;
-      height: 254px;
-    }
-
-    .house-snow {
-      background-image: url(img/house14-ice.svg);
-      width: 358px;
-      height: 378px;
-      bottom: -56px;
-      left: -33px;
-    }
-
-    .house-elves {
-      width: 144px;
-      height: 55px;
-      left: 165px;
-    }
-
-    &.melt {
-      .elf1, .elf2 {
-        display: none;
-      }
-
-      .elf4 {
-        left: 54px;
-      }
-
-      .elf5 {
-        left: 100px;
-      }
-
-      .elf6 {
-        left: 124px;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 112px;
-        height: 148px;
-        left: 102px;
-        bottom: 1px;
-      }
-
-      .elf1 {
-        bottom: 39px;
-      }
-
-      .elf2 {
-        left: 30px;
-        bottom: 112px;
-      }
-
-      .elf3 {
-        left: 94px;
-      }
-
-      .elf4, .elf5, .elf6 {
-        display: none;
-      }
-    }
-  }
-
-  #house15 {
-    left: 6362px;
-
-    .building {
-      background-image: url(img/house15.svg);
-      width: 437px;
-      height: 242px;
-    }
-
-    .house-snow {
-      background-image: url(img/house15-ice.svg);
-      width: 487px;
-      height: 390px;
-      bottom: -97px;
-      left: -58px;
-    }
-
-    .house-elves {
-      width: 44px;
-      height: 53px;
-      left: -83px;
-    }
-
-    &.melt {
-      .elf1, .elf2, .elf3 {
-        display: none;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 96px;
-        height: 151px;
-        left: 70px;
-        bottom: 16px;
-      }
-
-      .elf2 {
-        left: 68px;
-        bottom: 5px;
-      }
-
-      .elf3 {
-        left: 46px;
-        bottom: 101px;
-      }
-    }
-  }
-
-  #house16 {
-    left: 6660px;
-
-    .building {
-      background-image: url(img/house16.svg);
-      width: 179px;
-      height: 251px;
-    }
-
-    .house-snow {
-      background-image: url(img/house16-ice.svg);
-      width: 344px;
-      height: 406px;
-      bottom: -47px;
-      left: -27px;
-    }
-
-    .house-elves {
-      width: 17px;
-      height: 55px;
-      left: 178px;
-    }
-
-    &.melt {
-      .elf1, .elf3, .elf4 {
-        display: none;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 213px;
-        height: 129px;
-        left: 70px;
-        bottom: 16px;
-      }
-
-      .elf1 {
-        bottom: 16px;
-      }
-
-      .elf2 {
-        left: 82px;
-      }
-
-      .elf3 {
-        left: 133px;
-        bottom: 80px;
-      }
-
-      .elf4 {
-        bottom: 12px;
-        left: 185px;
-      }
-    }
-  }
-
-  #house17 {
-    left: 7006px;
-
-    .building {
-      background-image: url(img/house17.svg);
-      width: 290px;
-      height: 321px;
-    }
-
-    .house-snow {
-      background-image: url(img/house17-ice.svg);
-      width: 435px;
-      height: 396px;
-      bottom: -47px;
-      left: -27px;
-    }
-  }
-
-  #house18 {
-    left: 7284px;
-
-    .building {
-      background-image: url(img/house18.svg);
-      width: 262px;
-      height: 286px;
-      bottom: -1px;
-    }
-
-    .house-snow {
-      background-image: url(img/house18-ice.svg);
-      width: 481px;
-      height: 374px;
-      bottom: -35px;
-      left: -59px;
-    }
-
-    .house-elves {
-      width: 18px;
-      height: 55px;
-      left: 275px;
-    }
-
-    &.melt {
-      .elf1, .elf2, .elf3, .elf4, .elf5, .elf6 {
-        display: none;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 287px;
-        height: 211px;
-        left: 7px;
-        bottom: 2px;
-      }
-
-      .elf1 {
-        bottom: 13px;
-      }
-
-      .elf2 {
-        left: 77px;
-        bottom: 176px;
-      }
-
-      .elf3 {
-        bottom: 27px;
-        left: 139px;
-      }
-
-      .elf4 {
-        left: 196px;
-        bottom: 125px;
-      }
-
-      .elf5 {
-        left: 232px;
-        bottom: 66px;
-      }
-
-      .elf6 {
-        left: 269px;
-      }
-
-      .elf7 {
-        display: none;
-      }
-    }
-  }
-
-  #house19 {
-    left: 7716px;
-
-    .building {
-      background-image: url(img/house19.svg);
-      width: 274px;
-      height: 269px;
-    }
-
-    .house-snow {
-      background-image: url(img/house19-ice.svg);
-      width: 347px;
-      height: 343px;
-      bottom: -39px;
-      left: -50px;
-    }
-
-    .house-elves {
-      width: 17px;
-      height: 55px;
-      left: -4px;
-    }
-
-    &.melt {
-      .elf2, .elf3, .elf4, .elf5 {
-        display: none;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 270px;
-        height: 232px;
-        left: -4px;
-      }
-
-      .elf2 {
-        left: 149px;
-        bottom: 25px;
-      }
-
-      .elf3 {
-        left: 124px;
-        bottom: 183px;
-      }
-
-      .elf4 {
-        left: 185px;
-        bottom: 131px;
-      }
-
-      .elf5 {
-        left: 233px;
-        bottom: 14px;
-      }
-    }
-  }
-
-  #house20 {
-    left: 8156px;
-
-    .building {
-      background-image: url(img/house20.svg);
-      width: 204px;
-      height: 260px;
-    }
-
-    .house-snow {
-      background-image: url(img/house20-ice.svg);
-      width: 405px;
-      height: 309px;
-      bottom: -33px;
-      left: -51px;
-    }
-
-    .house-elves {
-      width: 49px;
-      height: 67px;
-      left: 145px;
-    }
-
-    &.melt {
-      .elf1, .elf2, .elf3, .elf4 {
-        display: none;
-      }
-
-      .elf5 {
-        bottom: 4px;
-      }
-
-      .elf6 {
-        left: 31px;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 265px;
-        height: 131px;
-        left: 12px;
-        bottom: 8px;
-      }
-
-      .elf1 {
-        bottom: 5px;
-      }
-
-      .elf2 {
-        left: 122px;
-        bottom: 13px;
-      }
-
-      .elf3 {
-        bottom: 74px;
-        left: 146px;
-      }
-
-      .elf4 {
-        left: 227px;
-      }
-
-      .elf5, .elf6 {
-        display: none;
-      }
-    }
-  }
-
-  #house21 {
-    left: 8576px;
-
-    .building {
-      background-image: url(img/house21.svg);
-      width: 204px;
-      height: 244px;
-    }
-
-    .house-snow {
-      background-image: url(img/house21-ice.svg);
-      width: 367px;
-      height: 343px;
-      bottom: -55px;
-      left: -32px;
-    }
-
-    &.melt {
-      .elf1 {
-        display: none;
-      }
-
-      .elf2 {
-        left: 75px;
-      }
-    }
-
-    &.iced {
-      .elf1 {
-        bottom: 50px;
-        left: 140px;
-      }
-
-      .elf2 {
-        display: none;
-      }
-    }
-  }
-
-  #house22 {
-    left: 8886px;
-
-    .building {
-      background-image: url(img/house22.svg);
-      width: 322px;
-      height: 256px;
-    }
-
-    .house-snow {
-      background-image: url(img/house22-ice.svg);
-      width: 393px;
-      height: 313px;
-      bottom: -39px;
-      left: -33px;
-    }
-
-    &.melt {
-      .elf1, .elf2, .elf3 {
-        display: none;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 190px;
-        height: 103px;
-        left: 12px;
-        bottom: 8px;
-      }
-
-      .elf2 {
-        left: 115px;
-        bottom: 68px;
-      }
-
-      .elf3 {
-        left: 165px;
-        bottom: 5px;
-      }
-    }
-  }
-
-  #house23 {
-    left: 9222px;
-
-    .building {
-      background-image: url(img/house23.svg);
-      width: 231px;
-      height: 220px;
-    }
-
-    .house-snow {
-      background-image: url(img/house23-ice.svg);
-      width: 473px;
-      height: 312px;
-      bottom: -61px;
-      left: -75px;
-    }
-
-    &.melt {
-      .elf1, .elf2, .elf3, .elf4 {
-        display: none;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 124px;
-        height: 216px;
-        left: 43px;
-      }
-
-      .elf1 {
-        bottom: 132px;
-      }
-
-      .elf2 {
-        left: 39px;
-      }
-
-      .elf3 {
-        left: 42px;
-        bottom: 160px;
-      }
-
-      .elf4 {
-        left: 99px;
-        bottom: 82px;
-      }
-    }
-  }
-
-  #house24 {
-    left: 9580px;
-
-    .building {
-      background-image: url(img/house24.svg);
-      width: 398px;
-      height: 285px;
-      bottom: -1px;
-    }
-
-    .house-snow {
-      background-image: url(img/house24-ice.svg);
-      width: 527px;
-      height: 350px;
-      bottom: -50px;
-      left: -36px;
-    }
-
-    .house-elves {
-      bottom: -1px;
-      width: 38px;
-      height: 55px;
-      left: 301px;
-    }
-
-    &.melt {
-      .elf1, .elf2, .elf3, .elf4 {
-        display: none;
-      }
-
-      .elf5 {
-        left: 20px
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 203px;
-        height: 150px;
-        left: 136px;
-      }
-
-      .elf1 {
-        bottom: 48px;
-      }
-
-      .elf2 {
-        bottom: 114px;
-        height: 51px;
-      }
-
-      .elf3 {
-        left: 52px;
-      }
-
-      .elf4 {
-        left: 115px;
-        bottom: 56px;
-      }
-
-      .elf5 {
-        left: 185px;
-      }
-
-      .elf6 {
-        display: none;
-      }
-    }
-  }
-
-  #house25 {
-    left: 10104px;
-
-    .building {
-      background-image: url(img/house25.svg);
-      width: 502px;
-      height: 291px;
-    }
-
-    .house-snow {
-      background-image: url(img/house25-ice.svg);
-      width: 575px;
-      height: 375px;
-      bottom: -70px;
-      left: -13px;
-    }
-
-    .house-elves {
-      width: 17px;
-      height: 55px;
-      left: 327px;
-    }
-
-    &.melt {
-      .elf1, .elf2, .elf3 {
-        display: none;
-      }
-
-      .elf4 {
-        left: 0;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 126px;
-        height: 148px;
-        left: 180px;
-      }
-
-      .elf1 {
-        bottom: 15px;
-      }
-
-      .elf2 {
-        bottom: 89px;
-      }
-
-      .elf3 {
-        left: 90px;
-        bottom: 93px;
-      }
-
-      .elf4 {
-        left: 108px;
-      }
-    }
-  }
-
-  #house26 {
-    left: 10579px;
-
-    .building {
-      background-image: url(img/house26.svg);
-      width: 151px;
-      height: 262px;
-      bottom: -1px;
-    }
-
-    .house-snow {
-      background-image: url(img/house26-ice.svg);
-      width: 288px;
-      height: 341px;
-      bottom: -51px;
-      left: -29px;
-    }
-
-    .house-elves {
-      width: 176px;
-      height: 68px;
-      left: 145px;
-    }
-
-    &.melt {
-      .elf1, .elf2, .elf3 {
-        display: none;
-      }
-
-      .elf4 {
-        left: 136px;
-      }
-
-      .elf5 {
-        left: 158px;
-      }
-
-      .elf6 {
-        bottom: 12px;
-      }
-    }
-
-    &.iced {
-      .house-elves {
-        width: 158px;
-        height: 154px;
-        left: 58px;
-      }
-
-      .elf1 {
-        bottom: 35px;
-      }
-
-      .elf2 {
-        left: 24px;
-        bottom: 118px;
-      }
-
-      .elf3 {
-        left: 68px;
-        bottom: 11px;
-      }
-
-      .elf4 {
-        left: 118px;
-      }
-
-      .elf5 {
-        left: 140px;
-      }
-
-      .elf6 {
-        display: none;
-      }
-    }
-  }
-
-  #house27 {
-    left: 10579px;
-
-    .building {
-      background-image: url(img/house27.svg);
-      width: 216px;
-      height: 335px;
-      bottom: -1px;
-    }
-
-    .house-snow {
-      background-image: url(img/house27-ice.svg);
-      width: 327px;
-      height: 405px;
-      bottom: -51px;
-      left: -29px;
-    }
-  }
-
-  #house28 {
-    left: 10579px;
-
-    .building {
-      background-image: url(img/house28.svg);
-      width: 203px;
-      height: 274px;
-      bottom: -1px;
-    }
-
-    .house-snow {
-      background-image: url(img/house28-ice.svg);
-      width: 342px;
-      height: 342px;
-      bottom: -51px;
-      left: -29px;
-    }
-  }
-  */
 }
