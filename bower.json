@@ -29,6 +29,7 @@
     "paper-menu-button": "Polymer/paper-menu-button#master",
     "paper-tabs": "Polymer/paper-tabs#master",
     "flatiron-director": "PolymerLabs/flatiron-director#master",
-    "jquery": "2.1.1"
+    "jquery": "2.1.1",
+    "modernizr": "2.8.3"
   }
 }
