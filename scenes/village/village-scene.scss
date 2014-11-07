@@ -283,6 +283,7 @@ $name: 'module-village';
 
     @each $elfColor in $elfColors {
       @each $elf in $elves {
+        // Class looks like .elf-[elfColor]-[elfType] eg: elf-blue-snow-hide
         .elf-#{$elfColor}#{nth($elf, $elfType)} {
           background: url(img/elf-#{$elfColor}#{nth($elf, $elfType)}.svg) no-repeat;
           width: #{nth($elf, $elfWidth)}px;
