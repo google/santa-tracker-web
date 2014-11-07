@@ -61,6 +61,19 @@ window.santatracker.setup = function() {
     this.$.lazypages.visibilityService = window.santatracker.visibility;
     this.countDownEndDate = window.santatracker.COUNTDOWN_END_DATE;
   });
+
+  template.onRouteChange = function(e) {
+    var route = e.detail;
+
+    // Special case certain routes. The rest are handled by lazy-pages.
+    switch (route) {
+      case 'now':
+        this.route = 'village';
+        break;
+      default:
+        // TODO(ericbidelman): validate route. If does note exist, redirect to village.
+    };
+  };
 };
 
 window.santatracker.checkLang = function() {
