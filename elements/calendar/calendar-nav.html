@@ -1,4 +1,5 @@
 <link rel="import" href="../../scenes/base-scene.html">
+<link rel="import" href="../../components/paper-tabs/paper-tabs.html">
 
 <!--
 Village calendar navigation.
@@ -9,6 +10,14 @@ Village calendar navigation.
 <polymer-element name="calendar-nav" extends="base-scene">
   <template>
     <link rel="stylesheet" href="calendar-nav.css" no-shim>
+    <style>
+      paper-tabs::shadow #selectionBar {
+        background-color: #fede32;
+      }
+      paper-tab::shadow #ink {
+        color: #fede32;
+      }
+    </style>
 
     <div id="module-nav">
 
@@ -17,13 +26,20 @@ Village calendar navigation.
         <div class="nav-santa-icon"></div>
         <div class="nav-santa-bar"></div>
       </a>
+      <div id="sound">
+        <a href="#" class="on"><i></i></a>
+      </div>
       <div id="global-nav-body">
-        <div id="global-nav-header" layout horizontal on-transitionend="{{onHeaderTransition}}">
-          <a id="global-back-to-village" href="{{baseURI}}#village" title="Go to the Village" class="back" on-tap="{{close}}">Go to the Village</a>
-          <ul>
-            <li><a href="{{baseURI}}#village/calendar" class="{{ {active: route == 'village/calendar'} | tokenList }}">The Calendar</a></li>
-            <li><a href="{{baseURI}}#village/onthego" class="{{ {active: route == 'village/onthego'} | tokenList }}">Santa on the go</a></li>
-          </ul>
+        <div id="global-nav-header" layout horizontal center-center>
+          <a id="global-back-to-village" href="{{baseURI}}#village" title="Go to the Village" class="back">Go to the Village</a>
+          <paper-tabs id="tabs" selected="{{route}}" valueattr="data-href" link>
+            <paper-tab data-href="village/videos">Videos</paper-tab>
+            <paper-tab data-href="village/games">Games</paper-tab>
+            <paper-tab data-href="village/calendar">The Calendar</paper-tab>
+            <paper-tab data-href="village/education">Education</paper-tab>
+            <paper-tab data-href="village/themes">Themes</paper-tab>
+            <paper-tab data-href="village/onthego">Santa on the go</paper-tab>
+          </paper-tabs>
         </div>
 
         <div id="global-nav-content">
@@ -189,10 +205,6 @@ Village calendar navigation.
       </div>
     </div>
 
-    <div id="sound">
-      <a href="#" class="on"><i></i></a>
-    </div>
-
     <div id="site-nav">
       <h2>Santa Tracker</h2>
       <div class="share">
@@ -226,18 +238,12 @@ Village calendar navigation.
 
       TIMEOUT_DELAY: 300 + (24 * 42),
 
-      // onHeaderTransition: function(e, detail, sender) {
-      //   // this.scrollable = !this.scrollable;
-      // },
-
       onShow: function() {
         this.cancelAsync(this.closeTimeout_);
 
         this.$['global-nav-content'].scrollTop = 0;
 
-        this.closed = false;
-        this.closing = false;
-        this.scrollable = false;
+        this.closed = this.closing = this.scrollable = false;
         this.opening = true;
 
         this.async(function() {
@@ -249,14 +255,13 @@ Village calendar navigation.
         });
 
         this.playSound('menu_open');
+
          // TODO(ericbidelman): throws errors with visibilityService being undefined.
         this.visibilityService.pause();
       },
 
       onHide: function() {
-        this.opening = false;
-        this.opened = false;
-        this.scrollable = false;
+        this.opening = this.opened = this.scrollable = false;
         this.closing = true;
 
         this.closeTimeout_ = this.async(function() {

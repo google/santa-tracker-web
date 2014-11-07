@@ -10,6 +10,8 @@ $animationDuration: 300ms;
 $markerAnimationDuration: 583ms;
 $markerTranslateDistance: 2000px;
 
+$headerPadding: 30px;
+$backButtonWidth: 160px;
 
 #global-nav .nav-santa-icon, #global-nav .nav-santa-bar,
 #close-lang, .share, .gplus i, .share .fb i, .share .twitter i,
@@ -75,7 +77,7 @@ $markerTranslateDistance: 2000px;
   }
 
   #global-nav-btn {
-    z-index: 1000;
+    z-index: 10000;
     position: absolute;
     @include transition(top ease $animationDuration);
     top: 20px;
@@ -83,6 +85,7 @@ $markerTranslateDistance: 2000px;
     height: 44px;
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
+    @include transform(translateZ(0)); // Safari
 
     cursor: pointer;
 
@@ -109,6 +112,7 @@ $markerTranslateDistance: 2000px;
     background: #6541a4;
     text-align: center;
     line-height: 84px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
     @include transition(transform $animationDuration);
     @include transform(translateY(-84px));
 
@@ -120,31 +124,29 @@ $markerTranslateDistance: 2000px;
       font-size: 14px;
       font-weight: 400;
       color: #fff;
-      width: 160px;
+      width: $backButtonWidth;
       line-height: 84px;
-      padding: 0 0 0 30px;
+      padding: 0 0 0 $headerPadding;
       background: url(img/village-nav-bg.png) 50% 100% no-repeat,
                   url(img/back-arrow.png) 10px 50% no-repeat;
     }
 
-    ul {
-      margin: 0 auto;
-      padding: 0;
-      li {
-        display: inline;
-        margin: 0;
-        padding: 0 60px 25px 60px;
-        a {
-          line-height: 0;
-          padding: 29px 0;
-          font-size: 16px;
-          text-decoration: none;
-          color: #fff;
-          font-weight: 600;
+    paper-tabs {
+      height: 100%;
+      width: 100%;
+      max-width: 800px;
+      font-size: 16px;
+      color: #fede32;
+      font-weight: 600;
+      padding: 0 $headerPadding + $backButtonWidth;
 
-          &.active {
-            border-bottom: 4px solid #fede32;
-          }
+      paper-tab {
+        opacity: 0.5;
+
+        &.core-selected {
+          color: #fff;
+          border-bottom: 4px solid #fede32;
+          opacity: 1;
         }
       }
     }
@@ -502,9 +504,10 @@ $markerTranslateDistance: 2000px;
 
 #sound {
   position: absolute;
-  bottom: 10px;
+  top: 75px;
   right: 0;
   z-index: 1000;
+  @include transform(translateZ(0)); // Safari
 
   a {
     width: 40px;
