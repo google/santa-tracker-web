@@ -52,13 +52,14 @@ Lazy loads children "pages".
 
       var scene = this.selectedItem;
 
-      if (!this.selected || scene.loaded) {
-        return;
-      }
-
       // Can't use scene.path because element definition may not be loaded yet
       // and .path property won't exist.
       var path = scene.getAttribute('path');
+
+      if (!path || !scene || !this.selected || scene.loaded) {
+        return;
+      }
+
       Polymer.import([path], function(e) {
         // TODO: shouldn't have to do this. I believe 2-way binding on the
         // preload-overlay is causing the next scene to start at 100 instead
