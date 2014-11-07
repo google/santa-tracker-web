@@ -66,9 +66,9 @@ $name: 'module-village';
   #hit-area-right {
     position: absolute;
     top: 50%;
-    margin-top: -75px; 
-    width: 150px;
-    height: 150px;
+    margin-top: -50px; 
+    width: 100px;
+    height: 100px;
     z-index: 1000;
     cursor: pointer;
     opacity: 0.5;
@@ -80,24 +80,23 @@ $name: 'module-village';
 
   #hit-area-left {
     left: 50px;
-    background-position: -1810px -336px;
+    background: url(img/arrows_left.svg) no-repeat;
   }
 
   #hit-area-right {
     right: 50px;
-    background-position: -1399px -336px;
+    background: url(img/arrows_right.svg) no-repeat;
   }
 
-  #countdown h1.logo,
-  #hit-area-left, #hit-area-right,
-  #spaceship {
-    background-image: url(img/assets_sprite.png);
-    background-repeat: no-repeat;
-    background-size: 1934px 463px;
+  #countdown h1.logo {
+    height: 29px;
+    width: 84px;
+    background: url(img/google_logo.png) no-repeat;
+    background-size: 100% 100%;
   }
 
   #village-wrapper {
-    #snow, .house-marker {
+    .house-marker {
       display: none !important;
     }
 
@@ -123,9 +122,9 @@ $name: 'module-village';
       width: $snowWidth;
       left: 0;
       bottom: 0;
-      height: 143px;
+      height: 140px;
       z-index: 15;
-      background: url(img/snow.png) repeat-x;
+      background: url(img/snow.svg) repeat-x;
     }
 
     #ground, .ground {
@@ -146,7 +145,7 @@ $name: 'module-village';
       opacity: 0;
 
       .snow-flake-inner {
-        background: url(img/snow-flake.png) no-repeat;
+        background: url(img/snow-flake.svg) no-repeat;
         background-size: 100% 100%;
       }
     }
@@ -205,10 +204,6 @@ $name: 'module-village';
       right: 0;
       position: absolute;
       height: 264px;
-      /*background-image: url(img/trees.png);
-      background-repeat: no-repeat;
-      background-size: 10284px 264px;
-      background-position: 690px 0;*/
 
       .tree {
         position: absolute;
@@ -224,7 +219,7 @@ $name: 'module-village';
         "tree6"  "trees6"   180   201   3137,
         "tree7"  "trees7"   177   231   3537,
         "tree8"  "trees8"   211   224   4277,
-        "tree9"  "trees9"   226   182   4637,
+        "tree9"  "trees9"   226   182   4647,
         "tree10"  "trees1"   246   197   5637,
         "tree11"  "trees2"   197   215   6557,
         "tree12"  "trees3"   166   202   6927,
@@ -265,225 +260,58 @@ $name: 'module-village';
 
     .elf {
       position: absolute;
-      background-image: url(img/elves_sprite.png);
-      background-repeat: no-repeat;
-      background-size: 2150px 95px;
       bottom: 0;
       z-index: 10;
     }
 
-    .elf-green-sit {
-      background-position: -2110px -21px;
-      width: 22px;
-      height: 54px;
-    }
+    $elfColors: "blue", "green", "orange", "purple", "red";
+    $elves:
+      "" 17 54,
+      "-left" 19 52,
+      "-right" 19 52,
+      "-girl-left" 19 52,
+      "-girl-right" 19 52,
+      "-snow" 27 54,
+      "-snow-left" 36 47,
+      "-snow-right" 36 47,
+      "-snow-hide" 25 34,
+      "-girl-snow-left" 36 47,
+      "-girl-snow-right" 36 47;
+    $elfType: 1;
+    $elfWidth: 2;
+    $elfHeight: 3;
 
-    .elf-green-dig {
-      width: 28px;
-      height: 56px;
-      background-position: -1669px -19px;
-    }
-
-    .elf-green {
-      width: 18px;
-      height: 56px;
-      background-position: -1806px -19px;
-    }
-
-    .elf-green-left {
-      width: 20px;
-      height: 53px;
-      background-position: -1871px -21px;
-    }
-
-    .elf-green-dig-right {
-      width: 38px;
-      height: 49px;
-      background-position: -1928px -23px;
-    }
-
-    .elf-green-right {
-      width: 20px;
-      height: 53px;
-      background-position: -2003px -21px;
-    }
-
-    .elf-green-snow {
-      width: 26px;
-      height: 36px;
-      background-position: -1736px -29px;
-    }
-
-    .elf-orange-snow {
-      width: 25px;
-      height: 36px;
-      background-position: -87px -30px;
-    }
-
-    .elf-orange {
-      width: 18px;
-      height: 56px;
-      background-position: -156px -19px;
-    }
-
-    .elf-orange-dig {
-      width: 29px;
-      height: 56px;
-      background-position: -283px -20px;
-    }
-
-    .elf-orange-right {
-      width: 20px;
-      height: 54px;
-      background-position: -23px -21px;
-    }
-
-    .elf-orange-dig-left {
-      width: 38px;
-      height: 48px;
-      background-position: -344px -25px;
-    }
-
-    .elf-orange-left {
-      width: 19px;
-      height: 54px;
-      background-position: -222px -21px;
-    }
-
-    .elf-orange-snowmobile-left {
-      width: 66px;
-      height: 65px;
-      background-position: -396px -15px;
-    }
-
-    .elf-blue {
-      width: 18px;
-      height: 56px;
-      background-position: -948px -19px;
-    }
-
-    .elf-blue-dig {
-      width: 28px;
-      height: 56px;
-      background-position: -1207px -20px;
-    }
-
-    .elf-blue-dig-right {
-      width: 38px;
-      height: 49px;
-      background-position: -1004px -23px;
-    }
-
-    .elf-blue-left {
-      width: 20px;
-      height: 53px;
-      background-position: -1079px -21px;
-    }
-
-    .elf-blue-dig-left {
-      width: 38px;
-      height: 49px;
-      background-position: -1136px -23px;
-    }
-
-    .elf-purple {
-      width: 18px;
-      height: 56px;
-      background-position: -552px -19px;
-    }
-
-    .elf-purple-right {
-      width: 20px;
-      height: 54px;
-      background-position: -485px -21px;
-    }
-
-    .elf-purple-dig-right {
-      width: 38px;
-      height: 49px;
-      background-position: -609px -23px;
-    }
-
-    .elf-purple-dig {
-      width: 29px;
-      height: 54px;
-      background-position: -679px -21px;
-    }
-
-    .elf-purple-snowmobile-left {
-      width: 66px;
-      height: 65px;
-      background-position: -792px -15px;
-    }
-
-    .elf-purple-snowmobile-right {
-      width: 66px;
-      height: 65px;
-      background-position: -726px -15px;
-    }
-
-    .elf-purple-snow {
-      width: 26px;
-      height: 36px;
-      background-position: -878px -29px;
-    }
-
-    .elf-red-right {
-      width: 20px;
-      height: 53px;
-      background-position: -1277px -21px;
-    }
-
-    .elf-red-sit {
-      width: 22px;
-      height: 54px;
-      background-position: -2058px -21px;
-    }
-
-    .elf-red-dig {
-      width: 28px;
-      height: 56px;
-      background-position: -1339px -19px;
-    }
-
-    .elf-red-snow {
-      width: 26px;
-      height: 36px;
-      background-position: -1406px -29px;
-    }
-
-    .elf-red-left {
-      width: 20px;
-      height: 53px;
-      background-position: -1475px -21px;
+    @each $elfColor in $elfColors {
+      @each $elf in $elves {
+        // Class looks like .elf-[elfColor]-[elfType] eg: elf-blue-snow-hide
+        .elf-#{$elfColor}#{nth($elf, $elfType)} {
+          background: url(img/elf-#{$elfColor}#{nth($elf, $elfType)}.svg) no-repeat;
+          width: #{nth($elf, $elfWidth)}px;
+          height: #{nth($elf, $elfHeight)}px;
+        }
+      }
     }
 
     .elf-red-unicycle {
-      width: 36px;
-      height: 95px;
-      background-position: -1533px 0;
+      width: 35px;
+      height: 92px;
+      background: url(img/elf-unicycle.svg) no-repeat;
       @include apply-origin(bottom center, false);
       @include animation(unicycle 2s ease infinite);
-    }
-
-    .elf-red-dig-left {
-      width: 38px;
-      height: 49px;
-      background-position: -1598px -24px;
     }
 
     #snowman {
       width: 109px;
       height: 73px;
-      background: url(img/snowman_sprite.png) no-repeat;
+      background: url(img/snowman_01.svg) no-repeat;
       left: 6115px;
       bottom: -8px;
       @include transform(translateZ(0));
 
-      &.snowman-fall {
+      /*&.snowman-fall {
         @include animation(snowman .5s step-end 1);
         background-position: 0 -252px;
-      }
+      }*/
     }
 
     .busstop-sign {
@@ -688,14 +516,9 @@ $name: 'module-village';
     z-index: 9;
     bottom: 140px;
     height: 196px;
-    background-image: url(img/monorail.png);
-    background-position: 220px 0;
+    background-image: url(img/monorail.svg);
     background-repeat: repeat-x;
-    background-size: 296px 397px;
-
-    &.night {
-      background-position: 220px -201px;
-    }
+    background-size: 296px 231px;
 
     #train {
       position: absolute;
