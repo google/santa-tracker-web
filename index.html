@@ -50,7 +50,7 @@
                    active?="{{selectedScene && !selectedScene.loaded}}"></preload-overlay>
 
   <lazy-pages id="lazypages" selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route">
-    <calendar-nav route="village/calendar" alwaysActive
+    <calendar-nav route="calendar" alwaysActive
                   visibilityService="{{$.lazypages.visibilityService}}"
                   analyticsService="{{$.lazypages.analyticsService}}"></calendar-nav>
     <village-scene route="village"

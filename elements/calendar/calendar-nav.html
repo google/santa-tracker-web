@@ -24,7 +24,7 @@ Village calendar navigation.
     <div id="module-nav">
 
       <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
-        <a id="global-nav-btn" href="#village{{!active ? '/calendar' : ''}}" layout horizontal>
+        <a id="global-nav-btn" href="#{{active ? 'village' : 'calendar'}}" layout horizontal>
           <div class="nav-santa-icon"></div>
           <div class="nav-santa-bar"></div>
         </a>
@@ -48,7 +48,7 @@ Village calendar navigation.
           <div id="global-nav-content">
 
             <core-animated-pages transitions="cross-fade" selected="{{route}}" valueattr="route">
-              <section route="village/calendar">
+              <section route="calendar">
                 <div id="nav-calendar" cross-fade class="{{filterOn}}">
                   <div layout horizontal wrap>
                     <div class="card"></div>
@@ -75,7 +75,7 @@ Village calendar navigation.
                   </div>
                 </div>
               </section>
-              <section route="village/onthego">
+              <section route="onthego">
                 <div id="nav-onthego" cross-fade>
                   <div class="onthego-item onthego-android">
                     <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker" on-click="{{trackOutboundLink}}">
@@ -188,7 +188,7 @@ Village calendar navigation.
       onNavSelect: function(e, detail, sender) {
         // Ensure the calendar comes back up when a filter nav item is clicked.
         if (detail.item.hasAttribute('filterOn')) {
-          this.route = 'village/calendar';
+          this.route = 'calendar';
         }
       },
 
@@ -201,7 +201,7 @@ Village calendar navigation.
 
       onTheGo: function(e, detail, sender) {
         e.preventDefault();
-        this.route = 'village/onthego';
+        this.route = 'onthego';
       },
 
       trackOutboundLink: function(e, detail, sender) {
@@ -241,7 +241,7 @@ Village calendar navigation.
         this.closing = true;
 
         this.closeTimeout_ = this.async(function() {
-          this.route = 'village/calendar';
+          this.route = 'calendar';
           this.closed = true;
         }, null, this.TIMEOUT_DELAY);
 
