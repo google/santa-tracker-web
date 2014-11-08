@@ -176,9 +176,31 @@ $cardColor: #6541a4;
       $cardWidth: 160px;
 
       max-width: $cardWidth * 7;
-      margin: 30px auto;
+      margin: 20px auto;
       position: initial;
       box-shadow: 12px 12px $headerFooterColor;
+
+      $categories: 'calendar', 'play', 'watch', 'learn', 'scene';
+      @each $category in $categories {
+        &.#{$category} {
+
+          .card.#{$category} {
+            &::before {
+              visibility: visible;
+            }
+            &::after {
+              // opacity: 1;
+              visibility: visible;
+            }
+          }
+
+          .menu-marker.#{$category},
+          .category {
+            // opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
 
       div {
         .card {
@@ -194,46 +216,17 @@ $cardColor: #6541a4;
           font-size: 14px;
           box-sizing: border-box;
 
-          &[data-index="1"] {
-            $smallMarkerWidth: 55px;
-
-            .menu-marker {
-              width: $smallMarkerWidth;
-              height: $smallMarkerWidth;
-              position: absolute;
-            }
-
-            a:nth-of-type(1) .menu-marker {
-              background-image: url(img/village-menu-icons-1-airport.svg);
-              left: 12px;
-              top: $cardWidth / 2 - $smallMarkerWidth / 2;
-            }
-            a:nth-of-type(2) .menu-marker {
-              background-image: url(img/village-menu-icons-1-video.svg);
-              left: $cardWidth / 2 - $smallMarkerWidth / 2;
-              top: 10px;
-            }
-            a:nth-of-type(3) .menu-marker{
-              background-image: url(img/village-menu-icons-1-racer.svg);
-              right: 10px;
-              top: $cardWidth / 2 - $smallMarkerWidth / 2;
-            }
-            a:nth-of-type(4) .menu-marker {
-              background-image: url(img/village-menu-icons-1-playstore.svg);
-              bottom: 10px;
-              left: $cardWidth / 2 - $smallMarkerWidth / 2;
-            }
-          }
-
           &::before {
             position: absolute;
             top: 10px;
             left: 10px;
             content: attr(data-index) '';
             color: rgb(86,45,153);
+            visibility: hidden;
           }
 
-          .category {
+          &::after {
+            content: attr(data-category) '';
             text-transform: capitalize;
             color: #fff;
             position: absolute;
@@ -241,10 +234,59 @@ $cardColor: #6541a4;
             left: 0;
             bottom: 5px;
             text-align: center;
+            // transition: opacity 200ms ease-in-out;
+            // opacity: 0;
+            visibility: hidden;
+          }
+
+          &[data-index="1"] {
+            $smallMarkerWidth: 55px;
+
+            a {
+              width: $smallMarkerWidth;
+              height: $smallMarkerWidth;
+              position: absolute;
+
+              .menu-marker {
+                width: 100%;
+                height: 100%;
+              }
+
+              &:nth-of-type(1) {
+                left: 12px;
+                top: $cardWidth / 2 - $smallMarkerWidth / 2;
+                .menu-marker {
+                  background-image: url(img/village-menu-icons-1-airport.svg);
+                }
+              }
+              &:nth-of-type(2) {
+                left: $cardWidth / 2 - $smallMarkerWidth / 2;
+                top: 10px;
+                .menu-marker {
+                  background-image: url(img/village-menu-icons-1-video.svg);
+                }
+              }
+              &:nth-of-type(3) {
+                right: 10px;
+                top: $cardWidth / 2 - $smallMarkerWidth / 2;
+                .menu-marker {
+                  background-image: url(img/village-menu-icons-1-racer.svg);
+                }
+              }
+              &:nth-of-type(4) {
+                bottom: 10px;
+                left: $cardWidth / 2 - $smallMarkerWidth / 2;
+                .menu-marker {
+                  background-image: url(img/village-menu-icons-1-playstore.svg);
+                }
+              }
+            }
           }
 
           a {
             text-decoration: none;
+            border-radius: 50%;
+            background-color: rgb(93, 59, 149);
 
             .menu-marker {
               background-size: contain;
@@ -252,6 +294,9 @@ $cardColor: #6541a4;
               width: $markerWidth;
               height: $markerWidth;
               position: relative;
+              // transition: opacity 200ms ease-in-out;
+              // opacity: 0;
+              visibility: hidden;
             }
 
             &.iced {

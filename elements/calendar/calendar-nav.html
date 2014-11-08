@@ -34,38 +34,37 @@ Village calendar navigation.
         <div id="global-nav-body">
           <div id="global-nav-header" layout horizontal center-center>
             <a id="global-back-to-village" href="{{baseURI}}#village" title="Go to the Village" class="back">Go to the Village</a>
-            <paper-tabs id="tabs" selected="{{route}}" valueattr="data-route" link>
-              <paper-tab data-route="village/videos">Videos</paper-tab>
-              <paper-tab data-route="village/games">Games</paper-tab>
-              <paper-tab data-route="village/calendar">The Calendar</paper-tab>
-              <paper-tab data-route="village/education">Education</paper-tab>
-              <paper-tab data-route="village/themes">Scenes</paper-tab>
-              <paper-tab data-route="village/onthego">Santa on the go</paper-tab>
+            <paper-tabs id="tabs" valueattr="filterOn" selected="{{filterOn}}">
+              <paper-tab filterOn="watch">Videos</paper-tab>
+              <paper-tab filterOn="play">Games</paper-tab>
+              <paper-tab filterOn="calendar">The Calendar</paper-tab>
+              <paper-tab filterOn="learn">Education</paper-tab>
+              <paper-tab filterOn="scene">Scenes</paper-tab>
             </paper-tabs>
           </div>
 
           <div id="global-nav-content">
 
-            <core-animated-pages transitions="cross-fade" selected="{{route}}" valueattr="data-route">
-              <section data-route="village/calendar">
-                <div id="nav-calendar" cross-fade>
+            <core-animated-pages transitions="cross-fade" selected="{{route}}" valueattr="route">
+              <section route="village/calendar">
+                <div id="nav-calendar" cross-fade class="{{filterOn}}">
                   <div layout horizontal wrap>
                     <div class="card"></div>
 
-                    <div class="card" layout vertical center-center data-index="1">
-                      <template repeat="{{house, i in firstCouple}}">
-                        <a href="{{baseURI}}#{{house.module}}" class="{{ {iced: house.iced, melt: !house.iced} | tokenList }}">
-                          <div class="menu-marker" style="background-image:url({{componentURL}}img/village-menu-icons-1-{{house.module}}.svg);"></div>
+                    <div layout vertical center-center data-index="1"
+                         class="card calendar scene video play learn">
+                      <template repeat="{{house, i in firstFour}}">
+                        <a href="{{baseURI}}#{{house.module}}">
+                          <div class="menu-marker calendar {{house.category}}" style="background-image:url({{componentURL}}img/village-menu-icons-1-{{house.module}}.svg);"></div>
                         </a>
                       </template>
                     </div>
 
                     <template repeat="{{house, i in regularSchedule}}">
-                      <div class="card" layout vertical center-center data-index="{{i + 2}}">
-                        <a href="{{baseURI}}#{{house.module}}" class="{{ {iced: house.iced, melt: !house.iced} | tokenList }}">
-                          <div class="menu-marker marker{{i + 2}}" style="background-image:url({{componentURL}}img/village-menu-icons-{{i + 2}}-{{house.module}}.svg);"></div>
+                      <div layout vertical center-center data-index="{{i + 2}}" data-category="{{house.category}}" class="card calendar {{house.category}} {{ {iced: house.iced, melt: !house.iced} | tokenList }}">
+                        <a href="{{baseURI}}#{{house.module}}">
+                          <div class="menu-marker marker{{i + 2}} calendar {{house.category}}" style="background-image:url({{componentURL}}img/village-menu-icons-{{i + 2}}-{{house.module}}.svg);"></div>
                         </a>
-                        <div class="category">{{house.category}}</div>
                       </div>
                     </template>
                     <div class="card"></div>
@@ -74,7 +73,7 @@ Village calendar navigation.
                   </div>
                 </div>
               </section>
-              <section data-route="village/onthego">
+              <section route="village/onthego">
                 <div id="nav-onthego" cross-fade>
                   <div class="onthego-item onthego-android">
                     <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker">
@@ -111,6 +110,7 @@ Village calendar navigation.
           <a href="http://www.google.com/policies/">Terms &amp; Privacy</a>
           &bull; -->
           <a href="http://maps.google.com/help/maps/helloworld/index.html">Get Google Maps</a>
+          <a href="" on-click="{{route='asdf'}}">Santa on the go</a>
         </div>
       </div>
 
@@ -155,7 +155,7 @@ Village calendar navigation.
 
       ready: function() {
         this.houses = [
-          {module: 'airport', iced: false, category: 'play'},
+          {module: 'airport', iced: false, category: 'scene'},
           {module: 'racer', iced: false, category: 'play'},
           {module: 'video', iced: false, category: 'play'},
           {module: 'playstore', iced: false, category: 'play'},
@@ -185,7 +185,7 @@ Village calendar navigation.
           {module: 'tracker', iced: true, category: 'Tracker'}
         ];
 
-        this.firstCouple = this.houses.slice(0, 4);
+        this.firstFour = this.houses.slice(0, 4);
         this.regularSchedule = this.houses.slice(4);
       },
 
@@ -193,6 +193,7 @@ Village calendar navigation.
         this.cancelAsync(this.closeTimeout_);
 
         this.$['global-nav-content'].scrollTop = 0;
+        this.$.tabs.selected = 'calendar';
 
         this.closed = this.closing = this.scrollable = false;
         this.opening = true;
