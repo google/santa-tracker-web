@@ -232,13 +232,6 @@ $cardColor: #6541a4;
             visibility: hidden;
           }
 
-          &.melt {
-            a {
-              border-radius: 50%;
-              background-color: rgb(93, 59, 149);
-            }
-          }
-
           @for $i from 1 through 24 {
             // .marker#{$i} {
             //   // background-position: -(($i * $navMarkerSpriteGap) - $navMarkerSpriteGap) $navMarkerSpriteUnlockedY;
@@ -297,6 +290,8 @@ $cardColor: #6541a4;
 
           a {
             text-decoration: none;
+            border-radius: 50%;
+            background-color: rgb(93, 59, 149);
 
             .menu-marker {
               background-size: contain;
