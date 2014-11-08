@@ -119,9 +119,9 @@ Village calendar navigation.
         <h2>Santa Tracker</h2>
         <div class="share">
           <ul>
-            <li><a href="#" class="gplus" on-tap="{{shareGplus}}"><i>Google+</i></a></li>
-            <li><a href="#" class="fb" on-tap="{{shareFB}}"><i>Facebook</i></a></li>
-            <li><a href="#" class="twitter" on-tap="{{shareTwitter}}"><i>Twitter</i></a></li>
+            <li><a href="#" class="gplus" on-click="{{shareGplus}}"><i>Google+</i></a></li>
+            <li><a href="#" class="fb" on-click="{{shareFB}}"><i>Facebook</i></a></li>
+            <li><a href="#" class="twitter" on-click="{{shareTwitter}}"><i>Twitter</i></a></li>
           </ul>
         </div>
       </div>
@@ -288,29 +288,31 @@ Village calendar navigation.
       },
 
 
-      shareGplus: function() {
-        /*
-        window.santatracker.analytics.trackSocial('googleplus', 'share',
+      shareGplus: function(e) {
+        e.preventDefault();
+
+        this.analyticsService.trackSocial('googleplus', 'share',
             'http://www.google.com/santatracker');
         this.openPage_('https://plus.google.com/share?url=' +
                        encodeURIComponent('http://www.google.com/santatracker'));
-        */
       },
 
-      shareFB: function() {
-        /*
-        window.santatracker.analytics.trackSocial('facebook', 'share',
+      shareFB: function(e) {
+        e.preventDefault();
+
+        this.analyticsService.trackSocial('facebook', 'share',
             'http://www.google.com/santatracker');
 
         this.openPage_('http://www.facebook.com/sharer.php?u=' +
                        encodeURIComponent('http://www.google.com/santatracker') +
                        '&t=' + encodeURIComponent('Google Santa Tracker'));
-        */
+
       },
 
-      shareTwitter: function() {
-        /*
-        window.santatracker.analytics.trackSocial('twitter', 'share',
+      shareTwitter: function(e) {
+        e.preventDefault();
+
+        this.analyticsService.trackSocial('twitter', 'share',
             'http://www.google.com/santatracker');
 
         this.openPage_('http://twitter.com/share?text=' +
@@ -318,7 +320,6 @@ Village calendar navigation.
                        'Follow Santa on his journey around the ' +
                        'world -') + '&url=' +
                        encodeURIComponent('http://www.google.com/santatracker'));
-        */
       },
 
       /**
