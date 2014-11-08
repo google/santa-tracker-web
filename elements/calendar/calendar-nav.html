@@ -49,17 +49,28 @@ Village calendar navigation.
             <core-animated-pages transitions="cross-fade" selected="{{route}}" valueattr="data-route">
               <section data-route="village/calendar">
                 <div id="nav-calendar" cross-fade>
-                  <div layout horizontal center-center wrap>
+                  <div layout horizontal wrap>
                     <div class="card"></div>
-                    <div class="card" data-index="1"></div>
-                    <template repeat="{{house, i in houses}}">
+
+                    <div class="card" layout vertical center-center data-index="1">
+                      <template repeat="{{house, i in firstCouple}}">
+                        <a href="{{baseURI}}#{{house.module}}" class="{{ {iced: house.iced, melt: !house.iced} | tokenList }}">
+                          <div class="menu-marker" style="background-image:url({{componentURL}}img/village-menu-icons-1-{{house.module}}.svg);"></div>
+                        </a>
+                      </template>
+                    </div>
+
+                    <template repeat="{{house, i in regularSchedule}}">
                       <div class="card" layout vertical center-center data-index="{{i + 2}}">
-                        <a id="calendar-house{{i + 1}}" href="{{baseURI}}#{{house.module}}" class="{{ {iced: house.iced, melt: !house.iced} | tokenList }}">
-                          <div class="menu-marker marker{{i + 1}}" style="background-image:url({{componentURL}}img/village-menu-icons-{{i + 1}}-{{house.module}}.svg);"></div>
+                        <a href="{{baseURI}}#{{house.module}}" class="{{ {iced: house.iced, melt: !house.iced} | tokenList }}">
+                          <div class="menu-marker marker{{i + 2}}" style="background-image:url({{componentURL}}img/village-menu-icons-{{i + 2}}-{{house.module}}.svg);"></div>
                         </a>
                         <div class="category">{{house.category}}</div>
                       </div>
                     </template>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
                   </div>
                 </div>
               </section>
@@ -145,6 +156,10 @@ Village calendar navigation.
       ready: function() {
         this.houses = [
           {module: 'airport', iced: false, category: 'play'},
+          {module: 'racer', iced: false, category: 'play'},
+          {module: 'video', iced: false, category: 'play'},
+          {module: 'playstore', iced: false, category: 'play'},
+
           {module: 'selfie', iced: true, category: 'play'},
           {module: 'boatload', iced: true, category: 'play'},
           {module: 'radar', iced: true, category: 'play'},
@@ -169,6 +184,9 @@ Village calendar navigation.
           {module: 'video', iced: true, category: 'watch'},
           {module: 'tracker', iced: true, category: 'Tracker'}
         ];
+
+        this.firstCouple = this.houses.slice(0, 4);
+        this.regularSchedule = this.houses.slice(4);
       },
 
       onShow: function() {

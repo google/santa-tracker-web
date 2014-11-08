@@ -13,6 +13,9 @@ $markerTranslateDistance: 2000px;
 $headerPadding: 30px;
 $backButtonWidth: 160px;
 
+$headerFooterColor: #6f41a4;
+$cardColor: #6541a4;
+
 #global-nav .nav-santa-icon, #global-nav .nav-santa-bar,
 #close-lang, .share, .gplus i, .share .fb i, .share .twitter i,
 #sound a i {
@@ -28,10 +31,6 @@ $backButtonWidth: 160px;
   top: 0;
   right: 0;
   z-index: 2000;
-
-  // #nav-calendar, #nav-onthego {
-  //   display: none;
-  // }
 
   #nav-onthego {
     margin: 40px auto;
@@ -79,7 +78,7 @@ $backButtonWidth: 160px;
   #global-nav-btn {
     z-index: 10000;
     position: absolute;
-    @include transition(top ease $animationDuration);
+    @include transition(top ease $animationDuration); // TODO: don't animate top.
     top: 20px;
     right: 0;
     height: 44px;
@@ -109,7 +108,7 @@ $backButtonWidth: 160px;
   }
 
   #global-nav-header {
-    background: #6541a4;
+    background: $cardColor;
     text-align: center;
     line-height: 84px;
     border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -145,7 +144,6 @@ $backButtonWidth: 160px;
 
         &.core-selected {
           color: #fff;
-          border-bottom: 4px solid #fede32;
           opacity: 1;
         }
       }
@@ -157,7 +155,7 @@ $backButtonWidth: 160px;
     bottom: 0;
     left: 0;
     right: 0;
-    background: #6f41a4;
+    background: $headerFooterColor;
     text-align: center;
     color: #fff;
     @include transition(transform $animationDuration);
@@ -175,21 +173,57 @@ $backButtonWidth: 160px;
     overflow: auto;
 
     #nav-calendar {
-      max-width: 1100px;
-      margin: 30px auto 0 auto;
+      $cardWidth: 160px;
+
+      max-width: $cardWidth * 7;
+      margin: 30px auto;
       position: initial;
+      box-shadow: 12px 12px $headerFooterColor;
 
       div {
-
         .card {
-          padding: 15px;
-          width: 125px;
-          height: 125px;
+          $markerWidth: 100px;
+
+          width: $cardWidth;
+          height: $cardWidth;
           border: 1px solid #7847b2;
-          background: #6541a4;
+          border-width: 2px 0 0 2px;
+          background: $cardColor;
           position: relative;
           font-weight: 600;
           font-size: 14px;
+          box-sizing: border-box;
+
+          &[data-index="1"] {
+            $smallMarkerWidth: 55px;
+
+            .menu-marker {
+              width: $smallMarkerWidth;
+              height: $smallMarkerWidth;
+              position: absolute;
+            }
+
+            a:nth-of-type(1) .menu-marker {
+              background-image: url(img/village-menu-icons-1-airport.svg);
+              left: 12px;
+              top: $cardWidth / 2 - $smallMarkerWidth / 2;
+            }
+            a:nth-of-type(2) .menu-marker {
+              background-image: url(img/village-menu-icons-1-video.svg);
+              left: $cardWidth / 2 - $smallMarkerWidth / 2;
+              top: 10px;
+            }
+            a:nth-of-type(3) .menu-marker{
+              background-image: url(img/village-menu-icons-1-racer.svg);
+              right: 10px;
+              top: $cardWidth / 2 - $smallMarkerWidth / 2;
+            }
+            a:nth-of-type(4) .menu-marker {
+              background-image: url(img/village-menu-icons-1-playstore.svg);
+              bottom: 10px;
+              left: $cardWidth / 2 - $smallMarkerWidth / 2;
+            }
+          }
 
           &::before {
             position: absolute;
@@ -201,8 +235,12 @@ $backButtonWidth: 160px;
 
           .category {
             text-transform: capitalize;
-            margin-top: 10px;
             color: #fff;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 5px;
+            text-align: center;
           }
 
           a {
@@ -211,8 +249,8 @@ $backButtonWidth: 160px;
             .menu-marker {
               background-size: contain;
               background-repeat: no-repeat;
-              width: 100px;
-              height: 100px;
+              width: $markerWidth;
+              height: $markerWidth;
               position: relative;
             }
 
@@ -282,8 +320,10 @@ $backButtonWidth: 160px;
 
   &.opening {
     .menu-marker {
-      top: $markerTranslateDistance;
-      @include transition(top $markerAnimationDuration ease);
+      -webkit-transform: translateY($markerTranslateDistance);
+      transform: translateY($markerTranslateDistance);
+      -webkit-transition: -webkit-transform $markerAnimationDuration ease;
+      transition: transform $markerAnimationDuration ease;
     }
   }
 
@@ -298,8 +338,10 @@ $backButtonWidth: 160px;
     }
 
     .menu-marker {
-      top: 0;
-      @include transition(top $markerAnimationDuration ease);
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-transition: -webkit-transform $markerAnimationDuration ease;
+      transition: transform $markerAnimationDuration ease;
     }
 
     @for $i from 1 through 24 {
@@ -316,8 +358,10 @@ $backButtonWidth: 160px;
     }
 
     .menu-marker {
-      top: $markerTranslateDistance;
-      @include transition(top 883ms ease);
+      -webkit-transform: translateY($markerTranslateDistance);
+      transform: translateY($markerTranslateDistance);
+      -webkit-transition: -webkit-transform 883ms ease;
+      transition: transform 883ms ease;
     }
 
     @for $i from 1 through 24 {
