@@ -78,6 +78,7 @@ Village scene.
             <div id="tree22" class="tree"></div>
             <div id="tree23" class="tree"></div>
             <div id="tree24" class="tree"></div>
+            <div id="tree25" class="tree"></div>
           </div>
           <div id="houses">
             <div id="house1" class="house melt" data-module="airport" on-tap="{{onHouseClick}}">
@@ -98,7 +99,7 @@ Village scene.
                   <div class="elf elf-red-girl"></div>
                 </div>
               </div>
-              <div class="house-marker marker1"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house2" class="house iced" data-module="racer" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -118,7 +119,7 @@ Village scene.
                   <div class="elf elf-purple"></div>
                 </div>
               </div>
-              <div class="house-marker marker2"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house3" class="house iced" data-module="trailer" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -138,7 +139,7 @@ Village scene.
                   <div class="elf elf-blue-left"></div>
                 </div>
               </div>
-              <div class="house-marker marker3"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house4" class="house iced" data-module="windtunnel" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -156,7 +157,7 @@ Village scene.
                   <div class="elf elf-blue"></div>
                 </div>
               </div>
-              <div class="house-marker marker21"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house5" class="house iced" data-module="boatload" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -176,7 +177,7 @@ Village scene.
                   <div class="elf elf-red-girl-right"></div>
                 </div>
               </div>
-              <div class="house-marker marker5"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house6" class="house iced">
               <div class="building"></div>
@@ -186,15 +187,14 @@ Village scene.
                   <div class="elf elf-blue-girl-snow-right"></div>
                   <div class="elf elf-orange-snow-hide"></div>
                   <div class="elf elf-green-snow-right"></div>
-                  <div class="elf elf-purple-snow"></div>
                 </div>
                 <div class="melt-elves">
                   <div class="elf elf-blue-girl-right"></div>
                   <div class="elf elf-orange"></div>
                   <div class="elf elf-green-right"></div>
-                  <div class="elf elf-purple"></div>
                 </div>
               </div>
+              <div class="house-marker"></div>
             </div>
             <div id="house7" class="house iced" data-module="streets" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -213,25 +213,20 @@ Village scene.
                   <div class="elf elf-purple-girl-left"></div>
                 </div>
               </div>
-              <div class="house-marker marker6"></div>
+              <div class="house-marker"></div>
             </div>
-            <div id="house8" class="house iced" data-module="factory" on-tap="{{onHouseClick}}">
+            <div id="house8" class="house melt" data-module="factory" on-tap="{{onHouseClick}}">
               <div class="building"></div>
 
               <div class="house-snow"></div>
               <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-red-girl-snow-right"></div>
-                  <div class="elf elf-blue-left"></div>
-                  <div class="elf elf-green-snow-hide"></div>
-                </div>
                 <div class="melt-elves">
                   <div class="elf elf-red-girl-right"></div>
                   <div class="elf elf-blue-left"></div>
                   <div class="elf elf-green"></div>
                 </div>
               </div>
-              <div class="house-marker marker7"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house9" class="house iced" data-module="rollercoaster" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -251,10 +246,31 @@ Village scene.
                   <div class="elf elf-red"></div>
                 </div>
               </div>
-              <div class="house-marker marker8"></div>
+              <div class="house-marker"></div>
             </div>
 
-            <div id="balloon" on-tap="{{onBalloonClick}}"></div>
+            <div id="house10" class="house iced" data-module="rollercoaster" on-tap="{{onHouseClick}}">
+              <div class="building"></div>
+
+              <div class="house-snow"></div>
+              <div class="house-elves">
+                <div class="snow-elves">
+                  <div class="elf elf-red"></div>
+                  <div class="elf elf-purple-snow-hide"></div>
+                  <div class="elf elf-red-girl-snow-left"></div>
+                  <div class="elf elf-blue-snow-right"></div>
+                </div>
+                <div class="melt-elves">
+                  <div class="elf elf-red"></div>
+                  <div class="elf elf-purple"></div>
+                  <div class="elf elf-red-girl-left"></div>
+                  <div class="elf elf-blue-right"></div>
+                </div>
+              </div>
+              <div class="house-marker"></div>
+            </div>
+
+            <div id="balloon" class="interactive" on-tap="{{onBalloonClick}}"></div>
             <div id="balloon-ropes" hidden></div>
 
             <div id="house11" class="house iced" data-module="commandcentre" on-tap="{{onHouseClick}}">
@@ -275,10 +291,18 @@ Village scene.
                   <div class="elf elf-green"></div>
                 </div>
               </div>
-              <div class="house-marker marker9"></div>
+              <div class="house-marker"></div>
             </div>
 
-            <div id="xmastree"></div>
+            <div id="xmastree">
+              <div class="elf elf-red-sit-right elf1"></div>
+              <div class="elf elf-blue elf2"></div>
+              <div class="elf elf-purple elf3"></div>
+
+              <div class="elf elf-orange elf4"></div>
+              <div class="elf elf-blue elf5"></div>
+              <div class="elf elf-green-girl-sit-left elf6"></div>
+            </div>
 
             <div id="house13" class="house iced" data-module="gumballs" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -298,7 +322,7 @@ Village scene.
                   <div class="elf elf-blue"></div>
                 </div>
               </div>
-              <div class="house-marker marker11"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house14" class="house iced" data-module="sendamessage" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -318,7 +342,7 @@ Village scene.
                   <div class="elf elf-red"></div>
                 </div>
               </div>
-              <div class="house-marker marker12"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house15" class="house iced" data-module="mountain" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -340,7 +364,7 @@ Village scene.
                   <div class="elf elf-purple-right"></div>
                 </div>
               </div>
-              <div class="house-marker marker13"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house16" class="house iced" data-module="playground" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -360,7 +384,7 @@ Village scene.
                   <div class="elf elf-purple"></div>
                 </div>
               </div>
-              <div class="house-marker marker14"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house17" class="house iced">
               <div class="building"></div>
@@ -379,6 +403,7 @@ Village scene.
                   <div class="elf elf-orange"></div>
                 </div>
               </div>
+              <div class="house-marker"></div>
             </div>
             <div id="house18" class="house iced" data-module="ferriswheel" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -398,7 +423,7 @@ Village scene.
                   <div class="elf elf-blue-right"></div>
                 </div>
               </div>
-              <div class="house-marker marker15"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house19" class="house iced" data-module="briefing" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -418,7 +443,7 @@ Village scene.
                   <div class="elf elf-purple"></div>
                 </div>
               </div>
-              <div class="house-marker marker16"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house20" class="house iced" data-module="matching" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -438,7 +463,7 @@ Village scene.
                   <div class="elf elf-purple"></div>
                 </div>
               </div>
-              <div class="house-marker marker17"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house21" class="house iced" data-module="choir" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -458,7 +483,7 @@ Village scene.
                   <div class="elf elf-red-right"></div>
                 </div>
               </div>
-              <div class="house-marker marker18"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house22" class="house iced" data-module="jetpack" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -478,7 +503,7 @@ Village scene.
                   <div class="elf elf-red"></div>
                 </div>
               </div>
-              <div class="house-marker marker19"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house23" class="house iced" data-module="presentdrop" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -498,7 +523,7 @@ Village scene.
                   <div class="elf elf-purple"></div>
                 </div>
               </div>
-              <div class="house-marker marker20"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house24" class="house iced" data-module="traditions" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -518,7 +543,7 @@ Village scene.
                   <div class="elf elf-red"></div>
                 </div>
               </div>
-              <div class="house-marker marker4"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house25" class="house iced" data-module="workshop" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -538,7 +563,7 @@ Village scene.
                   <div class="elf elf-blue"></div>
                 </div>
               </div>
-              <div class="house-marker marker22"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house26" class="house iced" data-module="finalprep" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -558,7 +583,7 @@ Village scene.
                   <div class="elf elf-blue"></div>
                 </div>
               </div>
-              <div class="house-marker marker23"></div>
+              <div class="house-marker"></div>
             </div>
             <div id="house27" class="house iced" data-module="" on-tap="{{onHouseClick}}">
               <div class="building"></div>
@@ -576,6 +601,7 @@ Village scene.
                   <div class="elf elf-red-left"></div>
                   <div class="elf elf-purple"></div>
                 </div>
+                <div class="house-marker"></div>
               </div>
             </div>
             <div id="house28" class="house iced" data-module="" on-tap="{{onHouseClick}}">
@@ -594,34 +620,35 @@ Village scene.
                   <div class="elf elf-purple-left"></div>
                   <div class="elf elf-blue"></div>
                 </div>
+                <div class="house-marker"></div>
               </div>
             </div>
 
             <div id="snowman" class="elf interactive" on-tap="{{onSnowManClick}}"></div>
             <div id="bus" class="bus-unload"></div>
-            <div id="busstop1" class="interactive" on-tap="{{onSendBusToStop}}">
+            <div id="busstop1" class="interactive busstop" on-tap="{{onSendBusToStop}}">
               <div class="busstop-sign"></div>
               <div class="bus-bench"></div>
               <div class="bus-chair"></div>
-              <div class="elf elf-red-sit"></div>
-              <div class="elf elf-green"></div>
-              <div class="elf elf-orange"></div>
+              <div class="elf elf-red-sit-right elf1"></div>
+              <div class="elf elf-green elf2"></div>
+              <div class="elf elf-orange elf3"></div>
             </div>
-            <div id="busstop2" class="interactive" on-tap="{{onSendBusToStop}}">
+            <div id="busstop2" class="interactive busstop" on-tap="{{onSendBusToStop}}">
               <div class="busstop-sign"></div>
               <div class="bus-bench"></div>
               <div class="bus-chair"></div>
-              <div class="elf elf-red-sit"></div>
-              <div class="elf elf-green"></div>
-              <div class="elf elf-orange"></div>
+              <div class="elf elf-green-sit-right elf1"></div>
+              <div class="elf elf-purple elf2"></div>
+              <div class="elf elf-orange elf3"></div>
             </div>
-            <div id="busstop3" class="interactive" on-tap="{{onSendBusToStop}}">
+            <div id="busstop3" class="interactive busstop" on-tap="{{onSendBusToStop}}">
               <div class="busstop-sign"></div>
               <div class="bus-bench"></div>
               <div class="bus-chair"></div>
-              <div class="elf elf-blue"></div>
-              <div class="elf elf-purple"></div>
-              <div class="elf elf-green-sit"></div>
+              <div class="elf elf-blue-sit-right elf1"></div>
+              <div class="elf elf-red elf2"></div>
+              <div class="elf elf-purple elf3"></div>
             </div>
             <div id="snowmobile1" class="interactive" on-tap="{{onDriveSnowMobile}}"></div>
             <div id="snowmobile2" class="interactive" on-tap="{{onDriveSnowMobile}}"></div>

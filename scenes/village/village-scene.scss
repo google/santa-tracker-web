@@ -96,10 +96,6 @@ $name: 'module-village';
   }
 
   #village-wrapper {
-    .house-marker {
-      display: none !important;
-    }
-
     #trees {
       position: absolute;
       width: $treeWidth;
@@ -122,7 +118,7 @@ $name: 'module-village';
       width: $snowWidth;
       left: 0;
       bottom: 0;
-      height: 140px;
+      height: 125px;
       z-index: 15;
       background: url(img/snow.svg) repeat-x;
     }
@@ -221,20 +217,21 @@ $name: 'module-village';
         "tree8"  "trees8"   211   224   4277,
         "tree9"  "trees9"   226   182   4647,
         "tree10"  "trees1"   246   197   5637,
-        "tree11"  "trees2"   197   215   6557,
-        "tree12"  "trees3"   166   202   6927,
+        "tree11"  "trees2"   197   215   6447,
+        "tree12"  "trees3"   166   202   6987,
         "tree13"  "trees4"   181   201   7347,
-        "tree14"  "trees5"   126   127   8337,
-        "tree15"  "trees6"   180   201   7887,
+        "tree14"  "trees5"   126   127   7767,
+        "tree15"  "trees6"   180   201   8277,
         "tree16"  "trees7"   177   231   8707,
         "tree17"  "trees8"   211   224   9107,
         "tree18"  "trees9"   226   182   9557,
         "tree19"  "trees1"   246   197   9957,
-        "tree20"  "trees2"   197   215   10577,
-        "tree21"  "trees3"   166   202   11207,
-        "tree22"  "trees4"   181   201   11497,
-        "tree23"  "trees5"   126   127   11857,
-        "tree24"  "trees6"   180   201   12217;
+        "tree20"  "trees2"   197   215   10357,
+        "tree21"  "trees3"   166   202   10897,
+        "tree22"  "trees4"   181   201   11517,
+        "tree23"  "trees5"   126   127   11827,
+        "tree24"  "trees6"   180   201   12157,
+        "tree25"  "trees7"   180   201   12577;
 
       $treeId: 1;
       $treeFile: 2;
@@ -292,12 +289,37 @@ $name: 'module-village';
       }
     }
 
+    .elf-red-sit-right {
+      width: 21px;
+      height: 53px;
+      background: url(img/elf-red-sit-right.svg) no-repeat;
+    }
+
+    .elf-green-sit-right {
+      width: 21px;
+      height: 53px;
+      background: url(img/elf-green-sit-right.svg) no-repeat;
+    }
+
+    .elf-blue-sit-right {
+      width: 21px;
+      height: 53px;
+      background: url(img/elf-blue-sit-right.svg) no-repeat;
+    }
+
+    .elf-green-girl-sit-left {
+      width: 24px;
+      height: 53px;
+      background: url(img/elf-green-girl-sit-left.svg) no-repeat;
+    }
+
     .elf-red-unicycle {
       width: 35px;
       height: 92px;
       background: url(img/elf-unicycle.svg) no-repeat;
       @include apply-origin(bottom center, false);
       @include animation(unicycle 2s ease infinite);
+      left: 270px;
     }
 
     #snowman {
@@ -340,42 +362,32 @@ $name: 'module-village';
       background: url(img/chair.svg) no-repeat;
     }
 
-    #busstop1 {
-      position: absolute;
-      bottom: 0;
-      left: 2497px;
-      z-index: 9;
-
-      .elf {
-        bottom: -1px;
-      }
-
+    .busstop {
       .elf1 {
-        left: 3px;
+        left: 27px;
       }
 
       .elf2 {
-        left: 25px;
+        left: 50px;
       }
 
       .elf3 {
-        left: 50px;
+        left: 70px;
       }
+    }
+
+    #busstop1 {
+      position: absolute;
+      bottom: 0;
+      left: 2487px;
+      z-index: 9;
     }
 
     #busstop2 {
       bottom: 0;
       position: absolute;
-      left: 6971px;
+      left: 7024px;
       z-index: 9;
-
-      .elf2 {
-        left: 30px;
-      }
-
-      .elf3 {
-        left: 48px;
-      }
     }
 
     #busstop3 {
@@ -383,16 +395,8 @@ $name: 'module-village';
       position: absolute;
       width: 70px;
       height: 53px;
-      left: 7912px;
+      left: 8322px;
       z-index: 9;
-
-      .elf2 {
-        left: 17px;
-      }
-
-      .elf3 {
-        left: 49px;
-      }
     }
 
     #busstop1, #busstop2, #busstop3 {
@@ -433,7 +437,7 @@ $name: 'module-village';
     }
 
     #snowmobile1 {
-      left: 6240px;
+      left: 1740px;
       background: url(img/snowmobile1.svg) no-repeat;
 
       &.gogo-snowmobile {
@@ -444,7 +448,7 @@ $name: 'module-village';
     }
 
     #snowmobile2 {
-      left: 7615px;
+      left: 7805px;
       background: url(img/snowmobile2.svg) no-repeat;
 
       &.gogo-snowmobile {
@@ -454,7 +458,7 @@ $name: 'module-village';
     }
 
     #snowmobile3 {
-      left: 9122px;
+      left: 9192px;
       background: url(img/snowmobile3.svg) no-repeat;
 
       &.gogo-snowmobile {
