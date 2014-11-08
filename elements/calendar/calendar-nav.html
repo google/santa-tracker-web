@@ -203,8 +203,7 @@ Village calendar navigation.
 
         this.playSound('menu_open');
 
-         // TODO(ericbidelman): throws errors with visibilityService being undefined.
-        this.visibilityService.pause();
+        this.visibilityService && this.visibilityService.pause();
       },
 
       onHide: function() {
@@ -218,8 +217,7 @@ Village calendar navigation.
 
         this.playSound('menu_close');
 
-         // TODO(ericbidelman): throws errors with visibilityService being undefined.
-        this.visibilityService.resume();
+        this.visibilityService && this.visibilityService.resume();
       },
 
       /**
