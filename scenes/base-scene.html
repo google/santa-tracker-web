@@ -26,7 +26,7 @@ These methods will be called at the appropriate times:
   }
 </style>
 
-<polymer-element name="base-scene" attributes="active alwaysActive path route visibilityService">
+<polymer-element name="base-scene" attributes="active alwaysActive path route visibilityService analyticsService">
   <script>
     Polymer({
       publish: {
@@ -128,7 +128,7 @@ These methods will be called at the appropriate times:
       /**
        * Analytics service.
        *
-       * @property analyticsService
+       * @attribute analyticsService
        * @type Analytics
        * @default null
        */

@@ -34,12 +34,14 @@ Village calendar navigation.
         <div id="global-nav-body">
           <div id="global-nav-header" layout horizontal center-center>
             <a id="global-back-to-village" href="{{baseURI}}#village" title="Go to the Village" class="back">Go to the Village</a>
-            <paper-tabs id="tabs" valueattr="filterOn" selected="{{filterOn}}">
+            <paper-tabs id="tabs" valueattr="filterOn" selected="{{filterOn}}"
+                        on-core-activate="{{onNavSelect}}">
               <paper-tab filterOn="watch">Videos</paper-tab>
               <paper-tab filterOn="play">Games</paper-tab>
               <paper-tab filterOn="calendar">The Calendar</paper-tab>
               <paper-tab filterOn="learn">Education</paper-tab>
               <paper-tab filterOn="scene">Scenes</paper-tab>
+              <paper-tab on-tap="{{onTheGo}}">Santa on the go</paper-tab>
             </paper-tabs>
           </div>
 
@@ -54,7 +56,7 @@ Village calendar navigation.
                     <div layout vertical center-center data-index="1"
                          class="card calendar scene video play learn">
                       <template repeat="{{house, i in firstFour}}">
-                        <a href="{{baseURI}}#{{house.module}}">
+                        <a href="{{baseURI}}#{{house.module}}" on-click="{{onCalendarClick}}">
                           <div class="menu-marker calendar {{house.category}}" style="background-image:url({{componentURL}}img/village-menu-icons-1-{{house.module}}.svg);"></div>
                         </a>
                       </template>
@@ -62,7 +64,7 @@ Village calendar navigation.
 
                     <template repeat="{{house, i in regularSchedule}}">
                       <div layout vertical center-center data-index="{{i + 2}}" data-category="{{house.category}}" class="card calendar {{house.category}} {{ {iced: house.iced, melt: !house.iced} | tokenList }}">
-                        <a href="{{baseURI}}#{{house.module}}">
+                        <a href="{{baseURI}}#{{house.module}}" on-click="{{onCalendarClick}}">
                           <div class="menu-marker marker{{i + 2}} calendar {{house.category}}" style="background-image:url({{componentURL}}img/village-menu-icons-{{i + 2}}-{{house.module}}.svg);"></div>
                         </a>
                       </div>
@@ -76,21 +78,21 @@ Village calendar navigation.
               <section route="village/onthego">
                 <div id="nav-onthego" cross-fade>
                   <div class="onthego-item onthego-android">
-                    <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker">
+                    <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker" on-click="{{trackOutboundLink}}">
                       <div class="logo"></div>
                       <h2>Play</h2>
                       <p>Play with friends in the Santa Tracker Android App.</p>
                     </a>
                   </div>
                   <div class="onthego-item onthego-chrome">
-                    <a href="//www.google.com/chrome/santatracker/">
+                    <a href="//www.google.com/chrome/santatracker/" on-click="{{trackOutboundLink}}">
                       <div class="logo"></div>
                       <h2>Deck out</h2>
                       <p>Deck out your browser with a Santa Chrome extension.</p>
                     </a>
                   </div>
                   <div class="onthego-item onthego-cast">
-                    <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker">
+                    <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker" on-click="{{trackOutboundLink}}">
                       <div class="logo"></div>
                       <h2>Light up</h2>
                       <p>Light up your TV with the Santa Tracker Android app and Chromecast.</p>
@@ -110,7 +112,6 @@ Village calendar navigation.
           <a href="http://www.google.com/policies/">Terms &amp; Privacy</a>
           &bull; -->
           <a href="http://maps.google.com/help/maps/helloworld/index.html">Get Google Maps</a>
-          <a href="" on-click="{{route='asdf'}}">Santa on the go</a>
         </div>
       </div>
 
@@ -184,6 +185,35 @@ Village calendar navigation.
         this.regularSchedule = this.houses.slice(4);
       },
 
+      onNavSelect: function(e, detail, sender) {
+        // Ensure the calendar comes back up when a filter nav item is clicked.
+        if (detail.item.hasAttribute('filterOn')) {
+          this.route = 'village/calendar';
+        }
+      },
+
+      onCalendarClick: function(e, detail, sender) {
+        var iced = sender.templateInstance.model.house.iced;
+        if (iced) {
+          e.preventDefault();
+        }
+      },
+
+      onTheGo: function(e, detail, sender) {
+        e.preventDefault();
+        this.route = 'village/onthego';
+      },
+
+      trackOutboundLink: function(e, detail, sender) {
+        e.preventDefault();
+
+        this.analyticsService.trackEvent('outbound', 'click', sender.href);
+
+        this.async(function() {
+          document.location.href = sender.href;
+        }, null, 100);
+      },
+
       onShow: function() {
         this.cancelAsync(this.closeTimeout_);
 
@@ -218,54 +248,6 @@ Village calendar navigation.
         this.playSound('menu_close');
 
         this.visibilityService && this.visibilityService.resume();
-      },
-
-      /**
-       * @param {Event} e
-       * @return {boolean} false to cancel the bubble
-       * @private
-       */
-      changeNavTab: function(e) {
-
-        // $('#global-nav-header .active').removeClass('active');
-        // var link = $(e.target);
-        // link.addClass('active');
-        // var type = link.attr('href').substring(1);
-
-        // if (type == 'calendar') {
-        //   $('#nav-calendar').show();
-        //   $('#nav-onthego').hide();
-        // } else {
-        //   $('#nav-onthego').show();
-        //   $('#nav-calendar').hide();
-        // }
-        // return false;
-
-      },
-
-      addEvents: function() {
-
-        var container = this.$['#site-nav'];
-
-        $('#global-nav-content li').on('click', 'a.melt', _.bind(this.close, this));
-
-        $('#nav-calendar ul li').on('click', 'a', function() {
-          if ($(this).hasClass('iced')) return false;
-        });
-
-        $('#global-nav-header ul li').on('click', 'a',
-            _.bind(this.changeNavTab, this));
-        this.addLanguageSelectEvents_();
-
-        $('#nav-onthego a').on('click', function() {
-          var href = $(this).attr('href');
-          window.santatracker.analytics.trackEvent('outbound', 'click', href);
-          window.setTimeout(function() {
-            document.location.href = href;
-          }.bind(this), 100);
-          return false;
-        });
-
       },
 
       /**
