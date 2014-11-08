@@ -4,7 +4,9 @@
  * @constructor
  */
 function Analytics() {
-  this.init();
+  if (window.gweb) {
+    this.init();
+  }
 }
 
 Analytics.prototype.THROTTLE_TIME_ = 10; // 10ms
@@ -18,7 +20,7 @@ Analytics.prototype.init = function() {
     'profile': window['DEV'] ? 'UA-37048309-2' : 'UA-37048309-1',
     'trackClicks': false,
     'disableTrackPageview': true
-  });  
+  });
 
   var client = getUrlParameter('embed_client');
   if (client) {

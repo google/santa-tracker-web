@@ -13,6 +13,9 @@ $markerTranslateDistance: 2000px;
 $headerPadding: 30px;
 $backButtonWidth: 160px;
 
+$headerFooterColor: #6f41a4;
+$cardColor: #6541a4;
+
 #global-nav .nav-santa-icon, #global-nav .nav-santa-bar,
 #close-lang, .share, .gplus i, .share .fb i, .share .twitter i,
 #sound a i {
@@ -28,10 +31,6 @@ $backButtonWidth: 160px;
   top: 0;
   right: 0;
   z-index: 2000;
-
-  #nav-calendar, #nav-onthego {
-    display: none;
-  }
 
   #nav-onthego {
     margin: 40px auto;
@@ -79,7 +78,7 @@ $backButtonWidth: 160px;
   #global-nav-btn {
     z-index: 10000;
     position: absolute;
-    @include transition(top ease $animationDuration);
+    @include transition(top ease $animationDuration); // TODO: don't animate top.
     top: 20px;
     right: 0;
     height: 44px;
@@ -109,7 +108,7 @@ $backButtonWidth: 160px;
   }
 
   #global-nav-header {
-    background: #6541a4;
+    background: $cardColor;
     text-align: center;
     line-height: 84px;
     border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -145,7 +144,6 @@ $backButtonWidth: 160px;
 
         &.core-selected {
           color: #fff;
-          border-bottom: 4px solid #fede32;
           opacity: 1;
         }
       }
@@ -157,7 +155,7 @@ $backButtonWidth: 160px;
     bottom: 0;
     left: 0;
     right: 0;
-    background: #6f41a4;
+    background: $headerFooterColor;
     text-align: center;
     color: #fff;
     @include transition(transform $animationDuration);
@@ -175,47 +173,136 @@ $backButtonWidth: 160px;
     overflow: auto;
 
     #nav-calendar {
-      max-width: 1160px;
-      margin: 30px auto 0 auto;
+      $cardWidth: 160px;
 
-      ul {
-        margin: 0;
-        padding: 0;
+      max-width: $cardWidth * 7;
+      margin: 20px auto;
+      position: initial;
+      box-shadow: 12px 12px $headerFooterColor;
 
-        li {
-          list-style: none;
-          display: inline-block;
-          width: 16%;
-          text-align: center;
-          a {
-            position: relative;
-            display: inline-block;
-            text-decoration: none;
+      $categories: 'calendar', 'play', 'watch', 'learn', 'scene';
+      @each $category in $categories {
+        &.#{$category} {
 
-            .menu-marker {
-              background-image: url(img/menuicons.png);
-              background-size: 2868px 228px;
-              background-repeat: no-repeat;
-              width: 108px;
-              height: 108px;
-              position: relative;
+          .card.#{$category} {
+            &::before, &::after {
+              visibility: visible;
             }
+          }
 
+          .menu-marker.#{$category},
+          .category {
+            visibility: visible;
+          }
+        }
+      }
+
+      div {
+        .card {
+          $markerWidth: 100px;
+
+          width: $cardWidth;
+          height: $cardWidth;
+          border: 1px solid #7847b2;
+          border-width: 2px 0 0 2px;
+          background: $cardColor;
+          position: relative;
+          font-weight: 600;
+          font-size: 14px;
+          box-sizing: border-box;
+
+          &::before {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            content: attr(data-index) '';
+            color: rgb(86,45,153);
+            visibility: hidden;
+          }
+
+          &::after {
+            content: attr(data-category) '';
+            text-transform: capitalize;
+            color: #fff;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 5px;
+            text-align: center;
+            visibility: hidden;
+          }
+
+          @for $i from 1 through 24 {
+            // .marker#{$i} {
+            //   // background-position: -(($i * $navMarkerSpriteGap) - $navMarkerSpriteGap) $navMarkerSpriteUnlockedY;
+            //   // background-image: url(img/village-menu-numbers-#{$i}.svg);
+            // }
             &.iced {
-                cursor: pointer;
-            }
-
-            @for $i from 1 through 24 {
               .marker#{$i} {
-                background-position: -(($i * $navMarkerSpriteGap) - $navMarkerSpriteGap) $navMarkerSpriteUnlockedY;
+                background-image: url(img/village-menu-numbers-#{$i}.svg) !important;
               }
-              &.iced {
-                .marker#{$i} {
-                  background-position: -(($i * $navMarkerSpriteGap) - $navMarkerSpriteGap) 0;
+            }
+          }
+
+          &[data-index="1"] {
+            $smallMarkerWidth: 55px;
+
+            a {
+              width: $smallMarkerWidth;
+              height: $smallMarkerWidth;
+              position: absolute;
+
+              .menu-marker {
+                width: 100%;
+                height: 100%;
+              }
+
+              &:nth-of-type(1) {
+                left: 12px;
+                top: $cardWidth / 2 - $smallMarkerWidth / 2;
+                .menu-marker {
+                  background-image: url(img/village-menu-icons-1-airport.svg);
+                }
+              }
+              &:nth-of-type(2) {
+                left: $cardWidth / 2 - $smallMarkerWidth / 2;
+                top: 10px;
+                .menu-marker {
+                  background-image: url(img/village-menu-icons-1-video.svg);
+                }
+              }
+              &:nth-of-type(3) {
+                right: 10px;
+                top: $cardWidth / 2 - $smallMarkerWidth / 2;
+                .menu-marker {
+                  background-image: url(img/village-menu-icons-1-racer.svg);
+                }
+              }
+              &:nth-of-type(4) {
+                bottom: 10px;
+                left: $cardWidth / 2 - $smallMarkerWidth / 2;
+                .menu-marker {
+                  background-image: url(img/village-menu-icons-1-playstore.svg);
                 }
               }
             }
           }
+
+          a {
+            text-decoration: none;
+            border-radius: 50%;
+            background-color: rgb(93, 59, 149);
+
+            .menu-marker {
+              background-size: contain;
+              background-repeat: no-repeat;
+              width: $markerWidth;
+              height: $markerWidth;
+              position: relative;
+              visibility: hidden;
+            }
+          }
+
         }
       }
     }
@@ -264,8 +351,10 @@ $backButtonWidth: 160px;
 
   &.opening {
     .menu-marker {
-      top: $markerTranslateDistance;
-      @include transition(top $markerAnimationDuration ease);
+      -webkit-transform: translateY($markerTranslateDistance);
+      transform: translateY($markerTranslateDistance);
+      -webkit-transition: -webkit-transform $markerAnimationDuration ease;
+      transition: transform $markerAnimationDuration ease;
     }
   }
 
@@ -280,8 +369,10 @@ $backButtonWidth: 160px;
     }
 
     .menu-marker {
-      top: 0;
-      @include transition(top $markerAnimationDuration ease);
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-transition: -webkit-transform $markerAnimationDuration ease;
+      transition: transform $markerAnimationDuration ease;
     }
 
     @for $i from 1 through 24 {
@@ -298,8 +389,10 @@ $backButtonWidth: 160px;
     }
 
     .menu-marker {
-      top: $markerTranslateDistance;
-      @include transition(top 883ms ease);
+      -webkit-transform: translateY($markerTranslateDistance);
+      transform: translateY($markerTranslateDistance);
+      -webkit-transition: -webkit-transform 883ms ease;
+      transition: transform 883ms ease;
     }
 
     @for $i from 1 through 24 {

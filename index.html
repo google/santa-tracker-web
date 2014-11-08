@@ -43,15 +43,16 @@
 <template is="auto-binding" id="t">
 
   <!-- Route controller -->
-  <flatiron-director route="{{route}}" autoHash></flatiron-director>
+  <flatiron-director route="{{route}}" autoHash on-director-route="{{onRouteChange}}"></flatiron-director>
 
   <!-- Preloading scene overlay -->
   <preload-overlay value="{{selectedScene.preloadProgress || 0}}"
                    active?="{{selectedScene && !selectedScene.loaded}}"></preload-overlay>
 
   <lazy-pages id="lazypages" selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route">
-    <calendar-nav route="village/calendar" alwaysActive
-                  visibilityService="{{$.lazypages.visibilityService}}"></calendar-nav>
+    <calendar-nav route="calendar" alwaysActive
+                  visibilityService="{{$.lazypages.visibilityService}}"
+                  analyticsService="{{$.lazypages.analyticsService}}"></calendar-nav>
     <village-scene route="village"
         path="scenes/village/village-scene.html" countDownEndDate="{{countDownEndDate}}" hidden></village-scene>
     <briefing-scene route="briefing"

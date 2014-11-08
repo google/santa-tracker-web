@@ -1,5 +1,7 @@
 <link rel="import" href="../../scenes/base-scene.html">
 <link rel="import" href="../../components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../components/core-animated-pages/transitions/cross-fade.html">
 
 <!--
 Village calendar navigation.
@@ -15,206 +17,114 @@ Village calendar navigation.
         background-color: #fede32;
       }
       paper-tab::shadow #ink {
-        color: #fede32;
+        color: rgba(254, 222, 50, 0.5);
       }
     </style>
 
     <div id="module-nav">
 
-    <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
-      <a id="global-nav-btn" href="#village{{!active ? '/calendar' : ''}}" layout horizontal>
-        <div class="nav-santa-icon"></div>
-        <div class="nav-santa-bar"></div>
-      </a>
-      <div id="sound">
-        <a href="#" class="on"><i></i></a>
-      </div>
-      <div id="global-nav-body">
-        <div id="global-nav-header" layout horizontal center-center>
-          <a id="global-back-to-village" href="{{baseURI}}#village" title="Go to the Village" class="back">Go to the Village</a>
-          <paper-tabs id="tabs" selected="{{route}}" valueattr="data-href" link>
-            <paper-tab data-href="village/videos">Videos</paper-tab>
-            <paper-tab data-href="village/games">Games</paper-tab>
-            <paper-tab data-href="village/calendar">The Calendar</paper-tab>
-            <paper-tab data-href="village/education">Education</paper-tab>
-            <paper-tab data-href="village/themes">Themes</paper-tab>
-            <paper-tab data-href="village/onthego">Santa on the go</paper-tab>
-          </paper-tabs>
+      <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
+        <a id="global-nav-btn" href="#{{active ? 'village' : 'calendar'}}" layout horizontal>
+          <div class="nav-santa-icon"></div>
+          <div class="nav-santa-bar"></div>
+        </a>
+        <div id="sound">
+          <a href="#" class="on"><i></i></a>
         </div>
-
-        <div id="global-nav-content">
-          <div id="nav-calendar">
-            <ul>
-              <li>
-                <a id="calendar-house1" href="#" class="melt" data-module="airport">
-                  <div class="menu-marker marker1"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house2" href="#" class="iced" data-module="racer">
-                  <div class="menu-marker marker2"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house3" href="#" class="iced" data-module="trailer">
-                  <div class="menu-marker marker3"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house4" href="#" class="iced" data-module="windtunnel">
-                  <div class="menu-marker marker4"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house5" href="#" class="iced" data-module="boatload">
-                  <div class="menu-marker marker5"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house7" href="#" class="iced" data-module="streets">
-                  <div class="menu-marker marker6"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house8" href="#" class="iced" data-module="factory">
-                  <div class="menu-marker marker7"></div>
-                </a>
-              </li>
-              <li>
-                <a  id="calendar-house9" href="#" class="iced" data-module="rollercoaster">
-                  <div class="menu-marker marker8"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house11" href="#" class="iced" data-module="commandcentre">
-                  <div class="menu-marker marker9"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house12" href="#" class="iced" data-module="callfromsanta">
-                  <div class="menu-marker marker10"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house13" href="#" class="iced" data-module="gumballs">
-                  <div class="menu-marker marker11"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house14" href="#" class="iced" data-module="sendamessage">
-                  <div class="menu-marker marker12"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house15" href="#" class="iced" data-module="mountain">
-                  <div class="menu-marker marker13"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house16" href="#" class="iced" data-module="playground">
-                  <div class="menu-marker marker14"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house18" href="#" class="iced" data-module="ferriswheel">
-                  <div class="menu-marker marker15"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house19" href="#" class="iced" data-module="briefing">
-                  <div class="menu-marker marker16"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house20" href="#" class="iced" data-module="matching">
-                  <div class="menu-marker marker17"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house21" href="#" class="iced" data-module="choir">
-                  <div class="menu-marker marker18"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house22" href="#" class="iced" data-module="jetpack">
-                  <div class="menu-marker marker19"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house23" href="#" class="iced" data-module="presentdrop">
-                  <div class="menu-marker marker20"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house24" href="#" class="iced" data-module="traditions">
-                  <div class="menu-marker marker21"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house25" href="#" class="iced" data-module="workshop">
-                  <div class="menu-marker marker22"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house26" href="#" class="iced" data-module="finalprep">
-                  <div class="menu-marker marker23"></div>
-                </a>
-              </li>
-              <li>
-                <a id="calendar-house27" href="#" class="iced">
-                  <div class="menu-marker marker24"></div>
-                </a>
-              </li>
-            </ul>
+        <div id="global-nav-body">
+          <div id="global-nav-header" layout horizontal center-center>
+            <a id="global-back-to-village" href="{{baseURI}}#village" title="Go to the Village" class="back">Go to the Village</a>
+            <paper-tabs id="tabs" valueattr="filterOn" selected="{{filterOn}}"
+                        on-core-activate="{{onNavSelect}}">
+              <paper-tab filterOn="watch">Videos</paper-tab>
+              <paper-tab filterOn="play">Games</paper-tab>
+              <paper-tab filterOn="calendar">The Calendar</paper-tab>
+              <paper-tab filterOn="learn">Education</paper-tab>
+              <paper-tab filterOn="scene">Scenes</paper-tab>
+              <paper-tab on-tap="{{onTheGo}}">Santa on the go</paper-tab>
+            </paper-tabs>
           </div>
-          <div id="nav-onthego">
 
-            <div class="onthego-item onthego-android">
-              <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker">
-                <div class="logo"></div>
-                <h2>Play</h2>
-                <p>Play with friends in the Santa Tracker Android App.</p>
-              </a>
-            </div>
-            <div class="onthego-item onthego-chrome">
-              <a href="//www.google.com/chrome/santatracker/">
-                <div class="logo"></div>
-                <h2>Deck out</h2>
-                <p>Deck out your browser with a Santa Chrome extension.</p>
-              </a>
-            </div>
-            <div class="onthego-item onthego-cast">
-              <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker">
-                <div class="logo"></div>
-                <h2>Light up</h2>
-                <p>Light up your TV with the Santa Tracker Android app and Chromecast.</p>
-              </a>
-            </div>
+          <div id="global-nav-content">
 
+            <core-animated-pages transitions="cross-fade" selected="{{route}}" valueattr="route">
+              <section route="calendar">
+                <div id="nav-calendar" cross-fade class="{{filterOn}}">
+                  <div layout horizontal wrap>
+                    <div class="card"></div>
+
+                    <div layout vertical center-center data-index="1"
+                         class="card calendar scene video play learn">
+                      <template repeat="{{house, i in firstFour}}">
+                        <a href="{{baseURI}}#{{house.module}}" on-click="{{onCalendarClick}}">
+                          <div class="menu-marker calendar {{house.category}}" style="background-image:url({{componentURL}}img/village-menu-icons-1-{{house.module}}.svg);"></div>
+                        </a>
+                      </template>
+                    </div>
+
+                    <template repeat="{{house, i in regularSchedule}}">
+                      <div layout vertical center-center data-index="{{i + 2}}" data-category="{{house.category}}" class="card calendar {{house.category}} {{ {iced: house.iced, melt: !house.iced} | tokenList }}">
+                        <a href="{{baseURI}}#{{house.module}}" on-click="{{onCalendarClick}}">
+                          <div class="menu-marker marker{{i + 2}} calendar {{house.category}}" style="background-image:url({{componentURL}}img/village-menu-icons-{{i + 2}}-{{house.module}}.svg);"></div>
+                        </a>
+                      </div>
+                    </template>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                  </div>
+                </div>
+              </section>
+              <section route="onthego">
+                <div id="nav-onthego" cross-fade>
+                  <div class="onthego-item onthego-android">
+                    <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker" on-click="{{trackOutboundLink}}">
+                      <div class="logo"></div>
+                      <h2>Play</h2>
+                      <p>Play with friends in the Santa Tracker Android App.</p>
+                    </a>
+                  </div>
+                  <div class="onthego-item onthego-chrome">
+                    <a href="//www.google.com/chrome/santatracker/" on-click="{{trackOutboundLink}}">
+                      <div class="logo"></div>
+                      <h2>Deck out</h2>
+                      <p>Deck out your browser with a Santa Chrome extension.</p>
+                    </a>
+                  </div>
+                  <div class="onthego-item onthego-cast">
+                    <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker" on-click="{{trackOutboundLink}}">
+                      <div class="logo"></div>
+                      <h2>Light up</h2>
+                      <p>Light up your TV with the Santa Tracker Android app and Chromecast.</p>
+                    </a>
+                  </div>
+                </div>
+              </section>
+            </core-animated-pages>
           </div>
+
+        </div>
+        <div id="global-nav-footer">
+          <!-- TODO(lukem): put back goro stuff -->
+          <!-- <div style="display:inline"><a href="#" id="select-lang">{% msg %}Language{% endmsg %}</a> &bull;</div>
+          <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">About</a>
+          &bull;
+          <a href="http://www.google.com/policies/">Terms &amp; Privacy</a>
+          &bull; -->
+          <a href="http://maps.google.com/help/maps/helloworld/index.html">Get Google Maps</a>
         </div>
       </div>
-      <div id="global-nav-footer">
-        <!-- TODO(lukem): put back goro stuff -->
-        <!-- <div style="display:inline"><a href="#" id="select-lang">{% msg %}Language{% endmsg %}</a> &bull;</div>
-        <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">About</a>
-        &bull;
-        <a href="http://www.google.com/policies/">Terms &amp; Privacy</a>
-        &bull; -->
-        <a href="http://maps.google.com/help/maps/helloworld/index.html">Get Google Maps</a>
-      </div>
-    </div>
 
-    <div id="site-nav">
-      <h2>Santa Tracker</h2>
-      <div class="share">
-        <ul>
-          <li><a href="#" class="gplus" on-tap="{{shareGplus}}"><i>Google+</i></a></li>
-          <li><a href="#" class="fb" on-tap="{{shareFB}}"><i>Facebook</i></a></li>
-          <li><a href="#" class="twitter" on-tap="{{shareTwitter}}"><i>Twitter</i></a></li>
-        </ul>
+      <div id="site-nav">
+        <h2>Santa Tracker</h2>
+        <div class="share">
+          <ul>
+            <li><a href="#" class="gplus" on-click="{{shareGplus}}"><i>Google+</i></a></li>
+            <li><a href="#" class="fb" on-click="{{shareFB}}"><i>Facebook</i></a></li>
+            <li><a href="#" class="twitter" on-click="{{shareTwitter}}"><i>Twitter</i></a></li>
+          </ul>
+        </div>
       </div>
-    </div>
 
     </div>
 
@@ -222,14 +132,11 @@ Village calendar navigation.
   <script>
   (function() {
 
+    var importURL = document._currentScript.ownerDocument.baseURI + '/../';
+
     Polymer({
 
       //TODO(lukem): Rewrite this whole thing when new nav comes from designers
-
-      ready: function() {
-
-        // this.addEvents();
-      },
 
       opened: false,
       opening: false,
@@ -238,10 +145,80 @@ Village calendar navigation.
 
       TIMEOUT_DELAY: 300 + (24 * 42),
 
+      get componentURL() {
+        return importURL;
+      },
+
+      ready: function() {
+        this.houses = [
+          {module: 'airport', iced: false, category: 'scene'},
+          {module: 'racer', iced: false, category: 'play'},
+          {module: 'video', iced: false, category: 'play'},
+          {module: 'playstore', iced: false, category: 'play'},
+
+          {module: 'selfie', iced: true, category: 'play'},
+          {module: 'boatload', iced: true, category: 'play'},
+          {module: 'radar', iced: true, category: 'play'},
+          {module: 'memory', iced: true, category: 'play'},
+          {module: 'presentdrop', iced: true, category: 'play'},
+          {module: 'toyfactory', iced: true, category: 'play'},
+          {module: 'jamband', iced: true, category: 'code'},
+          {module: 'codelab', iced: true, category: 'listen'},
+          {module: 'translations', iced: true, category: 'watch'},
+          {module: 'video', iced: true, category: 'play'},
+          {module: 'mercator', iced: true, category: 'play'},
+          {module: 'controlroom', iced: true, category: 'play'},
+          {module: 'play', iced: true, category: 'draw'},
+          {module: 'candy', iced: true, category: 'play'},
+          {module: 'jetpack', iced: true, category: 'watch'},
+          {module: 'streetview', iced: true, category: 'send'},
+          {module: 'postcard', iced: true, category: 'learn'},
+          {module: 'traditions', iced: true, category: 'play'},
+          {module: 'testing', iced: true, category: 'play'},
+          {module: 'gumball', iced: true, category: 'play'},
+          {module: 'citylights', iced: true, category: 'play'},
+          {module: 'video', iced: true, category: 'watch'},
+          {module: 'tracker', iced: true, category: 'Tracker'}
+        ];
+
+        this.firstFour = this.houses.slice(0, 4);
+        this.regularSchedule = this.houses.slice(4);
+      },
+
+      onNavSelect: function(e, detail, sender) {
+        // Ensure the calendar comes back up when a filter nav item is clicked.
+        if (detail.item.hasAttribute('filterOn')) {
+          this.route = 'calendar';
+        }
+      },
+
+      onCalendarClick: function(e, detail, sender) {
+        var iced = sender.templateInstance.model.house.iced;
+        if (iced) {
+          e.preventDefault();
+        }
+      },
+
+      onTheGo: function(e, detail, sender) {
+        e.preventDefault();
+        this.route = 'onthego';
+      },
+
+      trackOutboundLink: function(e, detail, sender) {
+        e.preventDefault();
+
+        this.analyticsService.trackEvent('outbound', 'click', sender.href);
+
+        this.async(function() {
+          document.location.href = sender.href;
+        }, null, 100);
+      },
+
       onShow: function() {
         this.cancelAsync(this.closeTimeout_);
 
         this.$['global-nav-content'].scrollTop = 0;
+        this.$.tabs.selected = 'calendar';
 
         this.closed = this.closing = this.scrollable = false;
         this.opening = true;
@@ -256,8 +233,7 @@ Village calendar navigation.
 
         this.playSound('menu_open');
 
-         // TODO(ericbidelman): throws errors with visibilityService being undefined.
-        this.visibilityService.pause();
+        this.visibilityService && this.visibilityService.pause();
       },
 
       onHide: function() {
@@ -265,61 +241,13 @@ Village calendar navigation.
         this.closing = true;
 
         this.closeTimeout_ = this.async(function() {
+          this.route = 'calendar';
           this.closed = true;
         }, null, this.TIMEOUT_DELAY);
 
         this.playSound('menu_close');
 
-         // TODO(ericbidelman): throws errors with visibilityService being undefined.
-        this.visibilityService.resume();
-      },
-
-      /**
-       * @param {Event} e
-       * @return {boolean} false to cancel the bubble
-       * @private
-       */
-      changeNavTab: function(e) {
-
-        // $('#global-nav-header .active').removeClass('active');
-        // var link = $(e.target);
-        // link.addClass('active');
-        // var type = link.attr('href').substring(1);
-
-        // if (type == 'calendar') {
-        //   $('#nav-calendar').show();
-        //   $('#nav-onthego').hide();
-        // } else {
-        //   $('#nav-onthego').show();
-        //   $('#nav-calendar').hide();
-        // }
-        // return false;
-
-      },
-
-      addEvents: function() {
-
-        var container = this.$['#site-nav'];
-
-        $('#global-nav-content li').on('click', 'a.melt', _.bind(this.close, this));
-
-        $('#nav-calendar ul li').on('click', 'a', function() {
-          if ($(this).hasClass('iced')) return false;
-        });
-
-        $('#global-nav-header ul li').on('click', 'a',
-            _.bind(this.changeNavTab, this));
-        this.addLanguageSelectEvents_();
-
-        $('#nav-onthego a').on('click', function() {
-          var href = $(this).attr('href');
-          window.santatracker.analytics.trackEvent('outbound', 'click', href);
-          window.setTimeout(function() {
-            document.location.href = href;
-          }.bind(this), 100);
-          return false;
-        });
-
+        this.visibilityService && this.visibilityService.resume();
       },
 
       /**
@@ -360,29 +288,31 @@ Village calendar navigation.
       },
 
 
-      shareGplus: function() {
-        /*
-        window.santatracker.analytics.trackSocial('googleplus', 'share',
+      shareGplus: function(e) {
+        e.preventDefault();
+
+        this.analyticsService.trackSocial('googleplus', 'share',
             'http://www.google.com/santatracker');
         this.openPage_('https://plus.google.com/share?url=' +
                        encodeURIComponent('http://www.google.com/santatracker'));
-        */
       },
 
-      shareFB: function() {
-        /*
-        window.santatracker.analytics.trackSocial('facebook', 'share',
+      shareFB: function(e) {
+        e.preventDefault();
+
+        this.analyticsService.trackSocial('facebook', 'share',
             'http://www.google.com/santatracker');
 
         this.openPage_('http://www.facebook.com/sharer.php?u=' +
                        encodeURIComponent('http://www.google.com/santatracker') +
                        '&t=' + encodeURIComponent('Google Santa Tracker'));
-        */
+
       },
 
-      shareTwitter: function() {
-        /*
-        window.santatracker.analytics.trackSocial('twitter', 'share',
+      shareTwitter: function(e) {
+        e.preventDefault();
+
+        this.analyticsService.trackSocial('twitter', 'share',
             'http://www.google.com/santatracker');
 
         this.openPage_('http://twitter.com/share?text=' +
@@ -390,7 +320,6 @@ Village calendar navigation.
                        'Follow Santa on his journey around the ' +
                        'world -') + '&url=' +
                        encodeURIComponent('http://www.google.com/santatracker'));
-        */
       },
 
       /**
