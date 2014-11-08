@@ -185,18 +185,13 @@ $cardColor: #6541a4;
         &.#{$category} {
 
           .card.#{$category} {
-            &::before {
-              visibility: visible;
-            }
-            &::after {
-              // opacity: 1;
+            &::before, &::after {
               visibility: visible;
             }
           }
 
           .menu-marker.#{$category},
           .category {
-            // opacity: 1;
             visibility: visible;
           }
         }
@@ -234,9 +229,26 @@ $cardColor: #6541a4;
             left: 0;
             bottom: 5px;
             text-align: center;
-            // transition: opacity 200ms ease-in-out;
-            // opacity: 0;
             visibility: hidden;
+          }
+
+          &.melt {
+            a {
+              border-radius: 50%;
+              background-color: rgb(93, 59, 149);
+            }
+          }
+
+          @for $i from 1 through 24 {
+            // .marker#{$i} {
+            //   // background-position: -(($i * $navMarkerSpriteGap) - $navMarkerSpriteGap) $navMarkerSpriteUnlockedY;
+            //   // background-image: url(img/village-menu-numbers-#{$i}.svg);
+            // }
+            &.iced {
+              .marker#{$i} {
+                background-image: url(img/village-menu-numbers-#{$i}.svg) !important;
+              }
+            }
           }
 
           &[data-index="1"] {
@@ -285,8 +297,6 @@ $cardColor: #6541a4;
 
           a {
             text-decoration: none;
-            border-radius: 50%;
-            background-color: rgb(93, 59, 149);
 
             .menu-marker {
               background-size: contain;
@@ -294,29 +304,10 @@ $cardColor: #6541a4;
               width: $markerWidth;
               height: $markerWidth;
               position: relative;
-              // transition: opacity 200ms ease-in-out;
-              // opacity: 0;
               visibility: hidden;
             }
-
-            &.iced {
-              cursor: pointer;
-            }
-
-            @for $i from 1 through 24 {
-              .marker#{$i} {
-                // background-position: -(($i * $navMarkerSpriteGap) - $navMarkerSpriteGap) $navMarkerSpriteUnlockedY;
-                // background-image: url(img/village-menu-numbers-#{$i}.svg);
-              }
-              &.iced {
-                .marker#{$i} {
-                  // background-position: -(($i * $navMarkerSpriteGap) - $navMarkerSpriteGap) 0;
-                  // background-image: url(img/village-menu-icons-#{$i}-selfie.svg);
-                  background-image: url(img/village-menu-numbers-#{$i}.svg);
-                }
-              }
-            }
           }
+
         }
       }
     }
