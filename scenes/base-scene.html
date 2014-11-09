@@ -17,9 +17,12 @@ These methods will be called at the appropriate times:
 
 ### Scene properties
 
-Subclass scene elements
+Subclass scene elements can define the following properties:
 
-- `componentDir` - the relative path tot eh component's root folder from the main app folder (e.g 'scenes/village/').
+- `componentDir` - the relative path to the component's root folder from the main app folder (e.g 'scenes/village/').
+- `loadingColor` - an optional loading screen background color.
+- `loadingSrc` - an optional loading screen background image. The path should be relative to the
+  component's folder (e.g 'img/loading.gif').
 
 @element base-scene
 -->
