@@ -15,6 +15,12 @@ These methods will be called at the appropriate times:
 - `onPause` - the scene has been paused due to page visibility hidden or window blur. Scenes should use this method to stop animations, sounds, etc.
 - `onResume` - the scene has been resumed due to page visibility unhidden or window focus. Scenes should use this method to restart animations, sounds, etc.
 
+### Scene properties
+
+Subclass scene elements
+
+- `componentDir` - the relative path tot eh component's root folder from the main app folder (e.g 'scenes/village/').
+
 @element base-scene
 -->
 
@@ -89,13 +95,23 @@ These methods will be called at the appropriate times:
       assetsLoaded: 0,
 
       /**
-       * The path of the scene file to load.
+       * The path of the scene file (html import) to load.
        *
        * @attribute path
        * @type string
        * @default null
        */
       path: null,
+
+      /**
+       * The relative path of the scene folder from the main app root folder.
+       * (e.g 'scenes/village/').
+       *
+       * @property componentDir
+       * @type string
+       * @default null
+       */
+      componentDir: null,
 
       /**
        * True if the scene has previously been loaded.
@@ -152,6 +168,12 @@ These methods will be called at the appropriate times:
        */
       get componentBaseDir() {
         return this.baseURI + this.componentDir || '';
+      },
+
+      ready: function() {
+        if (this.loadingSrc) {
+          this.loadingSrc = this.componentBaseDir + this.loadingSrc;
+        }
       },
 
       visibilityServiceChanged: function() {

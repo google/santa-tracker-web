@@ -284,8 +284,9 @@ Matching scene.
 <script>
 (function() {
   Polymer({
-    color: 'rgb(184,81,199)',
-    src: document._currentScript.ownerDocument.baseURI + '/../img/loading.gif',
+    loadingBgColor: 'rgb(184,81,199)',
+    componentDir: 'scenes/matching/',
+    loadingSrc: 'img/loading.gif',
 
     animationHelper: null,
     game: null,
@@ -293,6 +294,7 @@ Matching scene.
     onPreload: function() {
       this.preloadSounds('m_load_sounds', 20);
       this.preloadImages([
+        'img/loading.gif',
         'img/logo.svg',
         'img/house.svg',
         'img/cloud.svg',

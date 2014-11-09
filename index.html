@@ -48,8 +48,8 @@
   <!-- Preloading scene overlay -->
   <preload-overlay value="{{selectedScene.preloadProgress || 0}}"
                    active?="{{selectedScene && !selectedScene.loaded}}"
-                   color="{{selectedScene.color}}"
-                   src="{{selectedScene.src}}"></preload-overlay>
+                   color="{{selectedScene.loadingBgColor}}"
+                   src="{{selectedScene.loadingSrc}}"></preload-overlay>
 
   <lazy-pages id="lazypages" selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route">
     <calendar-nav route="calendar" alwaysActive
