@@ -29,7 +29,7 @@ Village calendar navigation.
           <div class="nav-santa-bar"></div>
         </a>
         <div id="sound">
-          <a href="#" class="on"><i></i></a>
+          <a href="#" class="on" on-click="{{toggleSounds}}"><i></i></a>
         </div>
         <div id="global-nav-body">
           <div id="global-nav-header" layout horizontal center-center>
@@ -328,6 +328,18 @@ Village calendar navigation.
        */
       openPage_: function(url) {
         window.open(url, 'Share', 'toolbar=0,status=0,width=626,height=480');
+      },
+
+      toggleSounds: function(e, detail, sender) {
+        e.preventDefault();
+
+        if (sender.classList.contains('off')) {
+          this.playAmbientSounds('global_sound_on');
+          sender.classList.switch('off', 'on');
+        } else {
+          this.playAmbientSounds('global_sound_off');
+          sender.classList.switch('on', 'off');
+        }
       }
 
     });
