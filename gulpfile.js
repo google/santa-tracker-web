@@ -77,7 +77,7 @@ gulp.task('copy-assets', ['clean', 'vulcanize'], function() {
     'images/*.{png,svg,gif}',
     'js/**',
     'sass/*',
-    'scenes/**/img/*.{png,svg,gif}',
+    'scenes/**/img/**/*.{png,svg,gif}',
     'elements/**/img/*.{png,svg,gif}',
     'components/platform/*',
     'components/polymer/*',
