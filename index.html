@@ -76,5 +76,19 @@
 <div id="preload_placeholder"></div>
 
 <script src="js/santatracker.js"></script>
+
+<!-- TODO(bckenny): remove fro prod. -->
+<script>
+window.DEV = true;
+
+if (window.DEV) {
+  document.addEventListener('HTMLImportsLoaded', function() {
+    console.debug('HTMLImportsLoaded @', performance.now(), 'ms');
+  });
+  document.addEventListener('polymer-ready', function() {
+    console.debug('polymer-ready @', performance.now(), 'ms');
+  });
+}
+</script>
 </body>
 </html>
