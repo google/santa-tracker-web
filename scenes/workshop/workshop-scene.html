@@ -82,6 +82,8 @@ Workshop scene.
 </template>
 <script>
   Polymer({
+    loadingBgColor: 'rgb(129,208,0)',
+
     /**
      * @private {boolean}
      */
@@ -137,7 +139,7 @@ Workshop scene.
 
         window.cancelAnimationFrame(this.decelFrame_);
       }
-      
+
       this.accelerate_();
     },
 

@@ -57,7 +57,7 @@ Village calendar navigation.
                          class="card calendar scene video play learn">
                       <template repeat="{{house, i in firstFour}}">
                         <a href="{{baseURI}}#{{house.module}}" on-click="{{onCalendarClick}}">
-                          <div class="menu-marker calendar {{house.category}}" style="background-image:url({{componentURL}}img/village-menu-icons-1-{{house.module}}.svg);"></div>
+                          <div class="menu-marker calendar {{house.category}}" style="background-image:url({{componentBaseDir}}img/village-menu-icons-1-{{house.module}}.svg);"></div>
                         </a>
                       </template>
                     </div>
@@ -65,7 +65,7 @@ Village calendar navigation.
                     <template repeat="{{house, i in regularSchedule}}">
                       <div layout vertical center-center data-index="{{i + 2}}" data-category="{{house.category}}" class="card calendar {{house.category}} {{ {iced: house.iced, melt: !house.iced} | tokenList }}">
                         <a href="{{baseURI}}#{{house.module}}" on-click="{{onCalendarClick}}">
-                          <div class="menu-marker marker{{i + 2}} calendar {{house.category}}" style="background-image:url({{componentURL}}img/village-menu-icons-{{i + 2}}-{{house.module}}.svg);"></div>
+                          <div class="menu-marker marker{{i + 2}} calendar {{house.category}}" style="background-image:url({{componentBaseDir}}img/village-menu-icons-{{i + 2}}-{{house.module}}.svg);"></div>
                         </a>
                       </div>
                     </template>
@@ -131,13 +131,7 @@ Village calendar navigation.
   </template>
   <script>
   (function() {
-
-    var importURL = document._currentScript.ownerDocument.baseURI + '/../';
-
     Polymer({
-
-      //TODO(lukem): Rewrite this whole thing when new nav comes from designers
-
       opened: false,
       opening: false,
       closed: true,
@@ -145,9 +139,7 @@ Village calendar navigation.
 
       TIMEOUT_DELAY: 300 + (24 * 42),
 
-      get componentURL() {
-        return importURL;
-      },
+      componentDir: 'elements/calendar/',
 
       ready: function() {
         this.houses = [
@@ -158,10 +150,10 @@ Village calendar navigation.
 
           {module: 'selfie', iced: true, category: 'play'},
           {module: 'boatload', iced: true, category: 'play'},
-          {module: 'radar', iced: true, category: 'play'},
-          {module: 'memory', iced: true, category: 'play'},
+          {module: 'briefing', iced: true, category: 'play'},
+          {module: 'matching', iced: true, category: 'play'},
           {module: 'presentdrop', iced: true, category: 'play'},
-          {module: 'toyfactory', iced: true, category: 'play'},
+          {module: 'workshop', iced: true, category: 'play'},
           {module: 'jamband', iced: true, category: 'code'},
           {module: 'codelab', iced: true, category: 'listen'},
           {module: 'translations', iced: true, category: 'watch'},
@@ -174,7 +166,7 @@ Village calendar navigation.
           {module: 'streetview', iced: true, category: 'send'},
           {module: 'postcard', iced: true, category: 'learn'},
           {module: 'traditions', iced: true, category: 'play'},
-          {module: 'testing', iced: true, category: 'play'},
+          {module: 'windtunnel', iced: true, category: 'play'},
           {module: 'gumball', iced: true, category: 'play'},
           {module: 'citylights', iced: true, category: 'play'},
           {module: 'video', iced: true, category: 'watch'},
