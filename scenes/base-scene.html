@@ -143,6 +143,17 @@ These methods will be called at the appropriate times:
        */
       visibilityService: null,
 
+      /**
+       * The component's directory. Can be used to reference assets in HTML.
+       *
+       * @property componentBaseDir
+       * @type string
+       * @default
+       */
+      get componentBaseDir() {
+        return this.baseURI + this.componentDir || '';
+      },
+
       visibilityServiceChanged: function() {
         if (this.onPause) {
           this.visibilityService.addOnPauseListener(this.onPause.bind(this));

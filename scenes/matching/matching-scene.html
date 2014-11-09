@@ -282,7 +282,10 @@ Matching scene.
 
 </template>
 <script>
+(function() {
   Polymer({
+    color: 'rgb(184,81,199)',
+    src: document._currentScript.ownerDocument.baseURI + '/../img/loading.gif',
 
     animationHelper: null,
     game: null,
@@ -340,5 +343,7 @@ Matching scene.
     // });
 
   });
+
+})();
 </script>
 </polymer-element>
