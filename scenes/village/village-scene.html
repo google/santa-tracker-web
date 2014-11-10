@@ -617,16 +617,50 @@ Village scene.
     },
 
     arrowHandler: function(e, detail, sender) {
-console.log(e, detail)
+      // console.log(e, detail);
+      console.log('arrow key');
       switch(detail.key) {
         case 'up':
         case 'left':
-          this.onHitArea(e, detail, sender);
+          this.moveScreen(-1);
           break;
         case 'down':
         case 'right':
-          this.onHitArea(e, detail, sender);
+          this.moveScreen(1);
           break;
+      }
+    },
+
+    moveScreen: function(direction) {
+      // polyfill doesn't support this.shadowRoot.activeElement. Remove fallback
+      // to document.activeElement when
+      // https://github.com/Polymer/ShadowDOM/issues/478 is fixed
+      var activeElement = this.shadowRoot.activeElement ?
+          this.shadowRoot.activeElement : document.activeElement;
+      var currentMarker;
+      if (activeElement && activeElement.classList.contains('house-marker')) {
+        currentMarker = activeElement;
+      }
+      
+      if (currentMarker) {
+        var house = currentMarker.parentElement;
+        if (!house.classList.contains('house')) {
+          throw new Error('marker not child to house');
+        }
+        var number = parseInt(house.id.substring(5));
+
+        var markers = [].slice.call(
+            this.shadowRoot.querySelectorAll('house-marker'));
+
+
+
+        var newMarkerQuery = '#house' + (number + direction) + ' .house-marker';
+        var newMarker = this.shadowRoot.querySelector(newMarkerQuery);
+        if (newMarker) {
+          newMarker.focus();
+        } else {
+          console.log('no more markers');
+        }
       }
     },
 
