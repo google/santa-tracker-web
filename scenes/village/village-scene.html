@@ -1,4 +1,5 @@
 <link rel="import" href="../base-scene.html">
+<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
 
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
 
@@ -13,6 +14,8 @@ Village scene.
 <polymer-element name="village-scene" extends="base-scene" attributes="countDownEndDate">
 <template>
   <link rel="stylesheet" href="village-scene.css" no-shim>
+
+  <core-a11y-keys target="{{}}" keys="up down left right" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
 
   <div id="module-village" fit>
     <div id="village-wrapper" fit>
@@ -31,7 +34,7 @@ Village scene.
         <!-- <h2>Until Santa Departs &ndash; <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">Learn More</a></h2> -->
         <h2>Until Santa Departs &ndash; <a href="//www.google.com/santatracker/about.html">Learn More</a></h2>
         <div id="finished-tracker">
-          <a href="#/tracker/dashboard"><!----></a>
+          <a href="{{baseURI}}#tracker"><!----></a>
         </div>
         <h2 style="display:none">Santa's finished his journey for the year! He and the elves are still having some fun in the North Pole before their annual vacation.</h2>
       </div>
@@ -39,11 +42,11 @@ Village scene.
       <div id="hit-area-left" on-mouseenter="{{onHitArea}}"
                               on-mouseleave="{{cancelScrollAnimation}}"
                               on-down="{{onHitArea}}"
-                              on-up="{{cancelScrollAnimation}}"></div>
+                              on-up="{{cancelScrollAnimation}}" tabindex="0"></div>
       <div id="hit-area-right" on-mouseenter="{{onHitArea}}"
                                on-mouseleave="{{cancelScrollAnimation}}"
                                on-down="{{onHitArea}}"
-                               on-up="{{cancelScrollAnimation}}"></div>
+                               on-up="{{cancelScrollAnimation}}" tabindex="0"></div>
 
       <div id="trees" class="parallax-layer">
         <template repeat="{{tree in trees}}">
@@ -1142,6 +1145,20 @@ Village scene.
       // Check again at the next hour tick.
       var timeTillHour = (60 - date.getMinutes()) * 60 * 1000;
       this.scheduleTimeout_ = this.async(this.checkSchedule_, null, timeTillHour);
+    },
+
+    arrowHandler: function(e, detail, sender) {
+console.log(e, detail)
+      switch(detail.key) {
+        case 'up':
+        case 'left':
+          this.onHitArea(e, detail, sender);
+          break;
+        case 'down':
+        case 'right':
+          this.onHitArea(e, detail, sender);
+          break;
+      }
     },
 
     onPreload: function() {
