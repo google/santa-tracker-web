@@ -28,17 +28,3 @@ body {
   background: url('../images/village.gif') no-repeat 50% 50%;
   margin-top: -104px;
 }
-
-/* TODO(ericbidelman): remove. For testing. --------------------------------- */
-#tempnav {
-  z-index: 1500000;
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  color: #fff;
-
-  core-item {
-    padding: 0 5px;
-  }
-}
-/* -------------------------------------------------------------------------- */
