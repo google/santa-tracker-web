@@ -220,7 +220,7 @@ $name: 'module-village';
         "tree11"  "trees2"   197   215   6447,
         "tree12"  "trees3"   166   202   6987,
         "tree13"  "trees4"   181   201   7347,
-        "tree14"  "trees5"   126   127   7767,
+        "tree14"  "trees5"   126   127   7787,
         "tree15"  "trees6"   180   201   8277,
         "tree16"  "trees7"   177   231   8707,
         "tree17"  "trees8"   211   224   9107,
@@ -231,7 +231,8 @@ $name: 'module-village';
         "tree22"  "trees4"   181   201   11517,
         "tree23"  "trees5"   126   127   11827,
         "tree24"  "trees6"   180   201   12157,
-        "tree25"  "trees7"   180   201   12577;
+        "tree25"  "trees7"   180   201   12577,
+        "tree17"  "trees8"   211   224   2412;
 
       $treeId: 1;
       $treeFile: 2;
@@ -316,8 +317,9 @@ $name: 'module-village';
     #unicycle {
       position: absolute;
       left: 0;
-      bottom: 50px; 
-      @include animation(plane 460s 0s linear infinite);
+      bottom: 0; 
+      @include animation(train 460s 0s linear infinite);
+      animation-direction: reverse;
 
       .cycle {
         background: url(img/elf-unicycle.svg) no-repeat;
@@ -381,6 +383,27 @@ $name: 'module-village';
 
       .elf3 {
         left: 70px;
+      }
+    }
+
+    #garage {
+      position: absolute;
+      width: 219px;
+      height: 146px;
+      background: url(img/garage.svg) no-repeat;
+      left: 3654px;
+      bottom: 0;
+
+      :nth-child(1) {
+        left: 50px;
+      }
+
+      :nth-child(2) {
+        left: 180px;
+      }
+
+      :nth-child(3) {
+        left: 120px;
       }
     }
 

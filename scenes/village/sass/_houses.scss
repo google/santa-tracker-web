@@ -99,35 +99,34 @@
 
 
   // ID houseWidth houseHeight iceWidth iceHeight houseLeft houseBottom iceLeft iceBottom x y markerLock markerUnlock markerLeft markerBottom
-  //  id        hw    hh    iw    ih    hl  hb  il    ib    x     y   ml              mul   ml  mb
+  //  id              hw    hh    iw    ih    hl  hb  il    ib    x     y   ml                mul
   $houses:
-      "house1"  416   339   504   414   0   0   -42   -43   0     0   "marker1-lock"    "marker-airport",
-      "house2"  189   158   365   251   0   -2  -80   -39   60    0   "marker1_2-lock"  "marker-racer",
-      "house3"  233   238   406   312   0   2   -56   -45   0     0   "marker1_3-lock"  "marker-intro",
-      "house4"  152   363   322   405   0   2   -85   -30   0     0   "marker1_4-lock"  "marker-app",
-      "house5"  217   287   355   341   0   0   -66   -31   25    0   "marker2-lock"    "marker-selfie",
-      "house6"  208   172   314   244   0   0   -24   -44   -40   0   "marker3-lock"    "marker-boat",
-      "house7"  219   297   405   373   0   2   -90   -38   65    0   "marker4-lock"    "marker-briefing",
-      "house8"  219   146   278   258   0   1   -30   -23   -50   0   false             false,
-      "house9"  305   233   437   362   0   2   -35   -83   10    0   "marker5-lock"    "marker-matching",
-      "house10" 174   412   392   491   0   0   -85   -51   420   0   "marker6-lock"    "marker-presentdrop",
-      "house11" 289   202   370   278   0   2   -42   -26   240   0   "marker7-lock"    "marker-workshop",
-      "house13" 179   251   338   388   0   2   -65   -55   10    0   "marker8-lock"    "marker-jamband",
-      "house14" 253   253   358   378   0   -2  -50   -59   60    0   "marker9-lock"    "marker-codelab",
-      "house15" 437   242   487   329   0   -4  -17   -65   -3    0   "marker10-lock"   "marker-translations",
-      "house16" 179   251   344   406   0   1   -99   -50   85    0   "marker11-lock"   "marker-video",
-      "house17" 290   321   435   395   0   1   -99   -56   0     0   "marker12-lock"   "marker-mercator",
-      "house18" 262   286   481   373   0   -1  -110  -41   30    0   "marker13-lock"   "marker-controlroom",
-      "house19" 274   269   345   343   0   0   -26   -43   35    0   "marker14-lock"   "marker-play",
-      "house20" 203   260   405   308   0   -1  -93   -27   80    0   "marker15-lock"   "marker-charity",
-      "house21" 204   243   367   342   0   2   -60   -47   0     0   "marker16-lock"   "marker-jetpack",
-      "house22" 322   256   393   313   0   -3  -35   -40   -20   0   "marker17-lock"   "marker-candy",
-      "house23" 231   220   473   311   0   2   -120  -58   85    0   "marker18-lock"   "marker-postcard",
-      "house24" 397   285   527   349   0   -1  -40   -40   -90   0   "marker19-lock"   "marker-traditions",
-      "house25" 502   290   575   374   0   -2  -30   -70   0     0   "marker20-lock"   "marker-windtunnel",
-      "house26" 151   262   288   341   0   2   -70   -50   40    0   "marker21-lock"   "marker-gumball",
-      "house27" 216   335   327   405   0   2   -70   -50   20    0   "marker22-lock"   "marker-citylights",
-      "house28" 203   274   342   342   0   2   -80   -50   50    0   "marker23-lock"   "marker-santa";
+      "airport"       416   339   504   414   0   0   -42   -43   0     0   "marker1-lock"    "marker-airport",
+      "racer"         189   158   365   251   0   -2  -80   -39   60    0   "marker1_2-lock"  "marker-racer",
+      "intro"         233   238   406   312   0   2   -56   -45   0     0   "marker1_3-lock"  "marker-intro",
+      "app"           152   363   322   405   0   2   -85   -30   0     0   "marker1_4-lock"  "marker-app",
+      "selfie"        217   287   355   341   0   0   -66   -31   25    0   "marker2-lock"    "marker-selfie",
+      "boatload"      208   172   314   244   0   0   -24   -44   -40   0   "marker3-lock"    "marker-boat",
+      "briefing"      219   297   405   373   0   2  -90   -38   65    0   "marker4-lock"    "marker-briefing",
+      "matching"      305   233   437   362   0   2   -35   -83   220   0   "marker5-lock"    "marker-matching",
+      "presentdrop"   174   412   392   491   0   1   -85   -51   450   0   "marker6-lock"    "marker-presentdrop",
+      "streetview"    289   202   370   278   0   2   -42   -26   240   0   "marker7-lock"    "marker-workshop",
+      "jamband"       179   251   338   388   0   2   -65   -75   10    0   "marker8-lock"    "marker-jamband",
+      "codelab"       253   253   358   378   0   0   -50   -59   60    0   "marker9-lock"    "marker-codelab",
+      "translations"  437   242   487   329   0   -4  -17   -65   -3    0   "marker10-lock"   "marker-translations",
+      "video"         179   251   344   406   0   1   -99   -50   85    0   "marker11-lock"   "marker-video",
+      "mercator"      290   321   435   395   0   1   -99   -56   0     0   "marker12-lock"   "marker-mercator",
+      "controlroom"   262   286   481   373   0   -1  -110  -41   30    0   "marker13-lock"   "marker-controlroom",
+      "play"          274   269   345   343   0   0   -26   -43   35    0   "marker14-lock"   "marker-play",
+      "charity"       203   260   405   308   0   -1  -93   -27   80    0   "marker15-lock"   "marker-charity",
+      "jetpack"       204   243   367   342   0   2   -60   -47   0     0   "marker16-lock"   "marker-jetpack",
+      "candy"         322   256   393   313   0   -3  -35   -40   -20   0   "marker17-lock"   "marker-candy",
+      "postcard"      231   220   473   311   0   2   -120  -58   85    0   "marker18-lock"   "marker-postcard",
+      "traditions"    397   285   527   349   0   -1  -40   -40   -90   0   "marker19-lock"   "marker-traditions",
+      "windtunnel"    502   290   575   374   0   -2  -30   -70   0     0   "marker20-lock"   "marker-windtunnel",
+      "gumball"       151   262   288   341   0   2   -45   -50   40    0   "marker21-lock"   "marker-gumball",
+      "citylights"    216   335   327   405   0   2   -70   -50   20    0   "marker22-lock"   "marker-citylights",
+      "santa"         203   274   342   342   0   2   -80   -50   50    0   "marker23-lock"   "marker-santa";
   $houseId: 1;
   $houseWidth: 2;
   $houseHeight: 3;
@@ -145,12 +144,12 @@
   $left: 938;
 
   @each $house in $houses {
-    ##{nth($house, $houseId)} {
+    #house-#{nth($house, $houseId)} {
       left: #{$left + nth($house, $houseX)}px;
       bottom: #{nth($house, $houseY)}px;
 
       .building {
-        background-image: url(img/#{nth($house, $houseId)}.svg);
+        background-image: url(img/house-#{nth($house, $houseId)}.svg);
         width: #{nth($house, $houseWidth)}px;
         height: #{nth($house, $houseHeight)}px;
         left: #{nth($house, $houseLeft)}px;
@@ -158,7 +157,7 @@
       }
 
       .house-snow {
-        background-image: url(img/#{nth($house, $houseId)}-ice.svg);
+        background-image: url(img/house-#{nth($house, $houseId)}-ice.svg);
         width: #{nth($house, $iceWidth)}px;
         height: #{nth($house, $iceHeight)}px;
         left: #{nth($house, $iceLeft)}px;
@@ -260,118 +259,114 @@
 
 
   $houseElves: (
-    "house1": (
+    "airport": (
       "iced": (120 20, 230 0, 265 90, 320 30),
       "melt": (120 0, 230 0, 265 0, 320 0)
     ),
-    "house2": (
-      "iced": (40 25, 80 60, 135 50, 170 0),
+    "racer": (
+      "iced": (50 25, 80 60, 135 50, 170 0),
       "melt": (40 0, 80 0, 135 0, 170 0)
     ),
-    "house3": (
+    "intro": (
       "iced": (40 0, 100 70, 155 90, 200 0),
       "melt": (40 0, 100 0, 155 0, 200 0)
     ),
-    "house4": (
-      "iced": (70 40, 115 110, 150 45),
-      "melt": (110 0, 75 0, 150 0)
+    "app": (
+      "iced": (70 40, 115 110, 150 45, 100 10),
+      "melt": (110 0, 75 0, 150 0, 50 0)
     ),
-    "house5": (
+    "selfie": (
       "iced": (80 15, 75 55, 160 0, 120 45),
       "melt": (100 0, 75 0, 50 0, 210 0)
     ),
-    "house6": (
+    "boatload": (
       "iced": (60 40, 155 55, 170 10),
-      "melt": (60 0, 155 0, 170 0)
+      "melt": (60 0, 155 9, 130 0)
     ),
-    "house7": (
+    "briefing": (
       "iced": (70 55, 130 115, 190 25),
       "melt": (70 0, 130 0, 190 0)
     ),
-    "house8": (
-      "iced": (50 20, 180 0, 120 50),
-      "melt": (50 0, 180 0, 120 0)
-    ),
-    "house9": (
+    "matching": (
       "iced": (105 20, 135 95, 185 40, 265 0),
       "melt": (105 0, 135 0, 185 0, 265 0)
     ),
-    "house10": (
+    "presentdrop": (
       "iced": (105 0, 135 95, 85 190, 195 30),
       "melt": (115 0, 135 0, 80 0, 55 0)
     ),
-    "house11": (
+    "streetview": (
       "iced": (65 20, 115 75, 175 35, 265 0),
       "melt": (65 0, 115 0, 175 0, 265 0)
     ),
-    "house13": (
+    "jamband": (
       "iced": (60 15, 125 0, 90 100, 200 45),
       "melt": (60 0, 125 0, 90 0, 200 0)
     ),
-    "house14": (
+    "codelab": (
       "iced": (70 50, 115 0, 140 160, 200 75),
       "melt": (70 0, 115 0, 160 0, 200 0)
     ),
-    "house15": (
+    "translations": (
       "iced": (155 0, 320 0, 135 90, 250 70, 300 80),
       "melt": (170 11, 320 3, 205 3, 250 26, 300 3)
     ),
-    "house16": (
+    "video": (
       "iced": (100 70, 150 0, 75 120, 70 10),
-      "melt": (150px 0, 120 0, 75 0, -10 0)
+      "melt": (150 0, 120 0, 75 0, -10 0)
     ),
-    "house17": (
+    "mercator": (
       "iced": (60 15, 105 80, 165 100, 190 10),
       "melt": (60 0, 105 0, 165 0, 190 0)
     ),
-    "house18": (
+    "controlroom": (
       "iced": (200 120, 85 0, 150 30, 245 0),
       "melt": (50 0, 95 13, 150 0, 245 0)
     ),
-    "house19": (
+    "play": (
       "iced": (70 0, 75 90, 130 60, 175 0),
       "melt": (70 0, 215 0, 130 0, 175 0)
     ),
-    "house20": (
+    "charity": (
       "iced": (110 100, 75 0, 150 30, 245 0),
       "melt": (50 0, 75 0, 150 0, 180 0)
     ),
-    "house21": (
+    "jetpack": (
       "iced": (50 100, 45 0, 110 30, 185 50),
       "melt": (50 0, 210 0, 110 0, 185 0)
     ),
-    "house22": (
+    "candy": (
       "iced": (100 100, 65 40, 180 60, 245 20),
       "melt": (140 6, 65 11, 180 0, 245 0)
     ),
-    "house23": (
+    "postcard": (
       "iced": (50 100, 85 120, 110 40, 195 70),
       "melt": (50 0, 90 0, 110 0, 195 0)
     ),
-    "house24": (
+    "traditions": (
       "iced": (140 100, 105 0, 220 60, 315 0),
       "melt": (180 7, 105 0, 220 7, 315 0)
     ),
-    "house25": (
+    "windtunnel": (
       "iced": (140 90, 75 40, 310 60, 255 0),
       "melt": (140 0, 75 0, 310 0, 255 0)
     ),
-    "house26": (
-      "iced": (80 70, -35 0, 60 10, 145 0),
+    "gumball": (
+      "iced": (80 60, -35 0, 60 10, 145 0),
       "melt": (150 0, -25 0, 90 0, 50 7)
     ),
-    "house27": (
+    "citylights": (
       "iced": (130 100, 75 60, 150 30, 105 0),
       "melt": (50 0, 225 0, 150 0, 105 0)
     ),
-    "house28": (
+    "santa": (
       "iced": (90 80, -5 50, 150 30, 75 20),
       "melt": (50 9, 125 0, 150 24, 75 17)
-    ),
+    )
   );
 
   @each $id, $elves in $houseElves {
-    ##{$id} {
+    #house-#{$id} {
       $iced: map-get($elves, "iced");
       $melt: map-get($elves, "melt");
 
@@ -379,7 +374,7 @@
         .snow-elves {
           @for $i from 1 to length($iced)+1 {
             $elf: nth($iced, $i);
-            :nth-child(#{$i}) {
+            :nth-child(#{$i+1}) {
               left: #{nth($elf, 1)}px;
               bottom: #{nth($elf, 2)}px;
             }
@@ -389,9 +384,9 @@
 
       &.melt {
         .melt-elves {
-          @for $i from 1 to length($iced)+1 {
+          @for $i from 1 to length($melt)+1 {
             $elf: nth($melt, $i);
-            :nth-child(#{$i}) {
+            :nth-child(#{$i+1}) {
               left: #{nth($elf, 1)}px;
               bottom: #{nth($elf, 2)}px;
             }
