@@ -325,15 +325,17 @@ $name: 'module-village';
     #snowman {
       width: 109px;
       height: 73px;
-      background: url(img/snowman_01.svg) no-repeat;
-      left: 6115px;
+      background-image: url(img/snowman_01.svg);
+      background-repeat: no-repeat;
+      background-position: bottom left;
+      left: 6100px;
       bottom: -8px;
       @include transform(translateZ(0));
 
-      /*&.snowman-fall {
+      &.snowman-fall {
+        background-image: url(img/snowman_04.svg);
         @include animation(snowman .5s step-end 1);
-        background-position: 0 -252px;
-      }*/
+      }
     }
 
     .busstop-sign {
@@ -483,13 +485,42 @@ $name: 'module-village';
       @include transform(translateZ(0) translateX($villageWidth));
 
       &.bus-load {
-        //@include animation(busload 2s step-end 1);
-        //background-position: 0 -798px;
+        .elf {
+          opacity: 1;
+        }
       }
 
       &.bus-unload {
-        //@include animation(busunload 2s step-end 1);
-        //background-position: 0 0;
+        .elf {
+          opacity: 0;
+        }
+      }
+
+      .elf {
+        position: absolute;
+        left: 32px;
+        bottom: 44px;
+        background: url(img/bus-elf.svg) no-repeat;
+        background-size: contain;
+        width: 15px;
+        height: 19px;
+      }
+
+      :nth-child(1) {
+        opacity: 1 !important;
+      }
+
+      $elfStart: 64;
+      $elfGap: 24;
+      $elfDelay: 350, 1150, 50, 900, 1500, 2000;
+      @for $i from 2 through 7 {
+        $idx: $i - 2;
+        :nth-child(#{$i}) {
+          left: #{$elfStart + ($idx * $elfGap)}px;
+          opacity: 0;
+          @include transition(opacity .5s ease);
+          @include transition-delay(#{nth($elfDelay, $idx+1)}ms);
+        }
       }
 
       $busOffset: 50px;
