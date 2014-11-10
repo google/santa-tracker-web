@@ -57,7 +57,7 @@ Village scene.
           <div id="houses">
 
             <template repeat="{{house, i in houses}}">
-              <div id="house{{i+1}}" class="house {{house.category}} {{ {iced: house.iced, melt: !house.iced} | tokenList }}">
+              <div id="house-{{house.module}}" class="house {{house.category}} {{ {iced: house.iced, melt: !house.iced} | tokenList }}">
                 <div class="building"></div>
 
                 <div class="house-snow"></div>
@@ -78,6 +78,12 @@ Village scene.
                 </a>
               </div>
             </template>
+
+            <div id="garage">
+              <div class="elf elf-red-girl-right"></div>   
+              <div class="elf elf-blue-left"></div>    
+              <div class="elf elf-green"></div>
+            </div>
 
             <div id="balloon" class="interactive" on-tap="{{onBalloonClick}}"></div>
             <div id="balloon-ropes" hidden></div>
@@ -258,7 +264,7 @@ Village scene.
 
     created: function() {
       this.trees = [];
-      this.treesBg = new Array(25);
+      this.treesBg = new Array(28);
       this.animator_ = new Animator();
     },
 
