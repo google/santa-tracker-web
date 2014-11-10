@@ -81,7 +81,7 @@ gulp.task('copy-assets', ['clean', 'vulcanize'], function() {
     'elements/**/img/*.{png,svg,gif}',
     'components/platform/*',
     'components/polymer/*',
-    'components/webcomponentsjs/webcomponents.min.js'
+    'components/webcomponentsjs/webcomponents.js'
   ], {base: './'})
   .pipe(gulp.dest('dist'));
 });
