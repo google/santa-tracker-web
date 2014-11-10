@@ -85,8 +85,10 @@ Village scene.
               <div class="elf elf-green"></div>
             </div>
 
-            <div id="balloon" class="interactive" on-tap="{{onBalloonClick}}"></div>
+            <div id="balloon" class="interactive" on-tap="{{onBalloonClick}}"><div></div></div>
             <div id="balloon-ropes" hidden></div>
+            <div id="balloon-elf1" class="elf elf-purple"></div>
+            <div id="balloon-elf2" class="elf elf-green-girl-left"></div>
 
             <div id="xmastree">
               <div class="elf elf-red-sit-right elf1"></div>
@@ -375,14 +377,13 @@ Village scene.
       sender.classList.add('takeoff');
 
       this.$['balloon-ropes'].hidden = false;
-      //this.$['house10-elf1'].hidden = true;
-      //this.$['house10-elf2'].hidden = true;
+      this.$['balloon-elf1'].hidden = true;
+      this.$['balloon-elf2'].hidden = true;
 
       var WAIT = 500; // Seems nice enough.
       var timeout = 1000;
 
       this.async(function() {
-        //sender.classList.remove('takeoff');
         sender.classList.add('fly', 'flying', 'float');
       }, null, timeout);
 
@@ -400,8 +401,8 @@ Village scene.
       this.async(function() {
         sender.classList.remove('takeoff');
         this.$['balloon-ropes'].hidden = true;
-        //this.$['house10-elf1'].hidden = false;
-        //this.$['house10-elf2'].hidden = false;
+        this.$['balloon-elf1'].hidden = false;
+        this.$['balloon-elf2'].hidden = false;
 
         this.playSound('village_balloon_landing');
       }, null, timeout);

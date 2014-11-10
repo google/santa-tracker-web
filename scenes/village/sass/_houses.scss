@@ -182,16 +182,23 @@
 
   #balloon {
     position: absolute;
-    background: url(img/balloon.svg) no-repeat;
+
+    div {
+      background: url(img/balloon.svg) no-repeat;    
+      width: 235px;
+      height: 269px;
+    }
+
     bottom: -2px;
     left: 4469px;
-    width: 235px;
-    height: 269px;
     z-index: 2;
     @include transform(translateZ(0) translateY(0) translateX(0));
 
     &.takeoff {
-      background: url(img/balloon-flight.svg) no-repeat;
+      div {
+        background: url(img/balloon-flight.svg) no-repeat;
+      }
+
       bottom: 2px;
     }
 
@@ -202,8 +209,21 @@
     &.flying {
       z-index: 10;
       @include apply-origin(top center, false);
-      @include animation(fly 55s 1 linear, float 5s infinite linear);
+      @include animation(fly 55s 1 linear);
+
+      div {
+        @include animation(float 3s 1 linear);
+        @include animation-delay(500ms);
+      }
     }
+  }
+
+  #balloon-elf1 {
+    left: 4520px;
+  }
+
+  #balloon-elf2 {
+    left: 4605px;
   }
 
   #balloon-ropes {
