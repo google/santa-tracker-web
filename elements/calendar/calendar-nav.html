@@ -9,7 +9,7 @@ Village calendar navigation.
 @element calendar-nav
 @extends base-scene
 -->
-<polymer-element name="calendar-nav" extends="base-scene">
+<polymer-element name="calendar-nav" extends="base-scene" attributes="houses">
   <template>
     <link rel="stylesheet" href="calendar-nav.css" no-shim>
     <style>
@@ -141,40 +141,10 @@ Village calendar navigation.
 
       componentDir: 'elements/calendar/',
 
-      ready: function() {
-        this.houses = [
-          {module: 'airport', iced: false, category: 'scene'},
-          {module: 'racer', iced: false, category: 'play'},
-          {module: 'video', iced: false, category: 'play'},
-          {module: 'playstore', iced: false, category: 'play'},
-
-          {module: 'selfie', iced: true, category: 'play'},
-          {module: 'boatload', iced: true, category: 'play'},
-          {module: 'briefing', iced: true, category: 'play'},
-          {module: 'matching', iced: true, category: 'play'},
-          {module: 'presentdrop', iced: true, category: 'play'},
-          {module: 'workshop', iced: true, category: 'play'},
-          {module: 'jamband', iced: true, category: 'code'},
-          {module: 'codelab', iced: true, category: 'listen'},
-          {module: 'translations', iced: true, category: 'watch'},
-          {module: 'video', iced: true, category: 'play'},
-          {module: 'mercator', iced: true, category: 'play'},
-          {module: 'controlroom', iced: true, category: 'play'},
-          {module: 'play', iced: true, category: 'draw'},
-          {module: 'candy', iced: true, category: 'play'},
-          {module: 'jetpack', iced: true, category: 'watch'},
-          {module: 'streetview', iced: true, category: 'send'},
-          {module: 'postcard', iced: true, category: 'learn'},
-          {module: 'traditions', iced: true, category: 'play'},
-          {module: 'windtunnel', iced: true, category: 'play'},
-          {module: 'gumball', iced: true, category: 'play'},
-          {module: 'citylights', iced: true, category: 'play'},
-          {module: 'video', iced: true, category: 'watch'},
-          {module: 'tracker', iced: true, category: 'Tracker'}
-        ];
-
+      housesChanged: function() {
         this.firstFour = this.houses.slice(0, 4);
         this.regularSchedule = this.houses.slice(4);
+
       },
 
       onNavSelect: function(e, detail, sender) {
