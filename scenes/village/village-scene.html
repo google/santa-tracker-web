@@ -169,7 +169,7 @@ Village scene.
     componentDir: 'scenes/village/',
 
     updateScheduled_: false,
-    villageWidth_: 12740,
+    villageWidth_: 12740, // Defined in _variables.scss, but also recalculated below.
     parallaxLayers_: null,
     scrollContainer_: null,
 
@@ -301,7 +301,7 @@ Village scene.
       }
 
       // Know when template house stamping is done to scroll to the last one.
-      this.onMutation(this.$.houses, function(e, e2) {
+      this.onMutation(this.$.houses, function(observer, records) {
         var melts = this.$.houses.querySelectorAll('.melt');
         this.panToHouse(melts[melts.length - 1], 0);
       });
