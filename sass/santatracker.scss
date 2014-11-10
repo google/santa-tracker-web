@@ -3,9 +3,11 @@ html, body {
   font-size: 12px;
   overflow: hidden;
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
   background-color: #3ec4f0;
+  position: absolute;
 }
 
 // Override Polymer's FOUC. Control it ourselves.
