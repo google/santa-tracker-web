@@ -56,6 +56,13 @@
         opacity: 1;
       }
 
+      .house-marker:focus {
+        outline: none;
+        /* TODO(bckenny): come up with a non-stupid focus style */
+        border: 2px solid red;
+        @include animation(bounce 600ms linear infinite);
+      }
+
       &:hover {
         .house-marker {
           @include animation(bounce 600ms linear infinite);
