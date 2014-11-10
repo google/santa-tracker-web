@@ -376,17 +376,21 @@ $name: 'module-village';
       }
     }
 
+    $busstop1: 2487px;
+    $busstop2: 7024px;
+    $busstop3: 8322px;
+
     #busstop1 {
       position: absolute;
       bottom: 0;
-      left: 2487px;
+      left: $busstop1;
       z-index: 9;
     }
 
     #busstop2 {
       bottom: 0;
       position: absolute;
-      left: 7024px;
+      left: $busstop2;
       z-index: 9;
     }
 
@@ -395,7 +399,7 @@ $name: 'module-village';
       position: absolute;
       width: 70px;
       height: 53px;
-      left: 8322px;
+      left: $busstop3;
       z-index: 9;
     }
 
@@ -493,18 +497,18 @@ $name: 'module-village';
       // TODO(bckenny): better ease functions
       &.to-stop1 {
         @include transition-transform(8s, ease-out);
-        @include transform(translateX(2267px - $busOffset));
-        @include transform(translateZ(0) translateX(2267px - $busOffset));
+        @include transform(translateX($busstop1 - $busOffset));
+        @include transform(translateZ(0) translateX($busstop1 - $busOffset));
       }
       &.to-stop2 {
         @include transition-transform(8s, ease-out);
-        @include transform(translateX(7011px - $busOffset));
-        @include transform(translateZ(0) translateX(7011px - $busOffset));
+        @include transform(translateX($busstop2 - $busOffset));
+        @include transform(translateZ(0) translateX($busstop2 - $busOffset));
       }
       &.to-stop3 {
         @include transition-transform(8s, ease-out);
-        @include transform(translateX(7152px - $busOffset));
-        @include transform(translateZ(0) translateX(7152px - $busOffset));
+        @include transform(translateX($busstop3 - $busOffset));
+        @include transform(translateZ(0) translateX($busstop3 - $busOffset));
       }
       &.leave-stop {
         @include transition-transform(10s, ease-in, 3s);
