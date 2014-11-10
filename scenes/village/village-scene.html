@@ -73,7 +73,7 @@ Village scene.
                     </template>
                   </div>
                 </div>
-                <a href="{{baseURI}}#{{house.module}}" class="house-marker" tabindex="0"
+                <a href="{{baseURI}}#{{house.module}}" class="house-marker" tabindex="{{house.iced || house.disabled ? -1 : 0}}"
                    on-click="{{onHouseClick}}"></a>
                 </a>
               </div>
