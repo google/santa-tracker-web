@@ -287,16 +287,16 @@
 
 @include keyframes(snowman) {
   0% {
-    background-position: 0 0;
+    background-image: url(img/snowman_01.svg);
   }
   25% {
-    background-position: 0 -88px;
+    background-image: url(img/snowman_02.svg);
   }
   50% {
-    background-position: 0 -169px;
+    background-image: url(img/snowman_03.svg);
   }
   75% {
-    background-position: 0 -252px;
+    background-image: url(img/snowman_04.svg);
   }
 }
 
