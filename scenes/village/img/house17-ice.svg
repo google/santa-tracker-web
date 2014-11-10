@@ -1,46 +1,38 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 61.245 149.991 137.834" style="enable-background:new 0 61.245 149.991 137.834;" xml:space="preserve">
-<path style="opacity:0.5;fill:#75CEF4;enable-background:new    ;" d="M29.807,180.95l1.293-41.945l9.902-11.632l-12.047-20.889
-	l42.211-31.069l33.089-12.266l13.839,32.276l-16.778,13.292c0,0,8.643,19.707,7.26,19.938c-1.383,0.231,9.147,4.491,9.147,4.491
-	l27.411,47.747"/>
-<path style="fill:none;stroke:#75CEF4;stroke-width:3;stroke-miterlimit:10;" d="M29.807,180.95l1.293-41.945l9.902-11.632
-	l-12.047-20.889l42.211-31.069l33.089-12.266l13.839,32.276l-16.778,13.292c0,0,8.643,19.707,7.26,19.938
-	c-1.383,0.231,9.147,4.491,9.147,4.491l27.411,47.747"/>
-<path style="opacity:0.36;fill:#0A3575;enable-background:new    ;" d="M30.371,180.583l0.522-28.189l11.968-13.745l1.86-28.977
-	l25.986,38.511l10.287-34.23l7.279,42.467l7.438-29.838l8.545,54.369L30.371,180.583z"/>
+	 viewBox="0 123.1 150 132.8" enable-background="new 0 123.1 150 132.8" xml:space="preserve">
+<path opacity="0.5" fill="#75CEF4" enable-background="new    " d="M29.8,242.8l1.3-41.9l9.9-11.6l-12-20.9l42.2-31.1l33.1-12.3
+	l13.8,32.3l-16.8,13.3c0,0,8.6,19.7,7.3,19.9c-1.4,0.2,9.1,4.5,9.1,4.5l27.4,47.7"/>
+<path fill="none" stroke="#75CEF4" stroke-width="3" stroke-miterlimit="10" d="M29.8,242.8l1.3-41.9l9.9-11.6l-12-20.9l42.2-31.1
+	l33.1-12.3l13.8,32.3l-16.8,13.3c0,0,8.6,19.7,7.3,19.9c-1.4,0.2,9.1,4.5,9.1,4.5l27.4,47.7"/>
+<path opacity="0.36" fill="#0A3575" enable-background="new    " d="M30.4,242.5l0.5-28.2l12-13.7l1.9-29l26,38.5L81,175.8l7.3,42.5
+	l7.4-29.8l8.5,54.4L30.4,242.5z"/>
 <g>
-	<circle style="fill:#FFFFFF;" cx="4.663" cy="181.527" r="4.663"/>
-	<circle style="fill:#FFFFFF;" cx="33.697" cy="183.758" r="13.6"/>
-	<circle style="fill:#FFFFFF;" cx="43.933" cy="147.543" r="13.6"/>
-	<circle style="fill:#FFFFFF;" cx="56.136" cy="128.645" r="13.6"/>
-	<circle style="fill:#FFFFFF;" cx="66.766" cy="145.966" r="13.6"/>
-	<circle style="fill:#FFFFFF;" cx="85.66" cy="147.149" r="13.6"/>
-	<circle style="fill:#FFFFFF;" cx="98.257" cy="131.007" r="13.6"/>
-	<circle style="fill:#FFFFFF;" cx="49.348" cy="169.587" r="24.503"/>
-	<circle style="fill:#FFFFFF;" cx="82.544" cy="170.77" r="21.225"/>
-	<circle style="fill:#FFFFFF;" cx="100.259" cy="153.445" r="21.225"/>
-	<circle style="fill:#FFFFFF;" cx="118.762" cy="177.855" r="21.225"/>
-	<circle style="fill:#FFFFFF;" cx="26.363" cy="171.959" r="5.309"/>
-	<circle style="fill:#FFFFFF;" cx="19.842" cy="179.726" r="5.309"/>
-	<circle style="fill:#FFFFFF;" cx="42.75" cy="134.157" r="5.309"/>
-	<circle style="fill:#FFFFFF;" cx="54.559" cy="114.471" r="5.309"/>
-	<circle style="fill:#FFFFFF;" cx="60.465" cy="118.804" r="5.309"/>
-	<circle style="fill:#FFFFFF;" cx="73.062" cy="133.369" r="5.309"/>
-	<circle style="fill:#FFFFFF;" cx="84.868" cy="132.504" r="7.425"/>
-	<circle style="fill:#FFFFFF;" cx="78.574" cy="136.913" r="5.309"/>
-	<circle style="fill:#FFFFFF;" cx="94.716" cy="118.41" r="5.309"/>
-	<circle style="fill:#FFFFFF;" cx="142.407" cy="174.929" r="7.584"/>
-	<circle style="fill:#FFFFFF;" cx="136.837" cy="168.408" r="5.309"/>
-	<circle style="fill:#FFFFFF;" cx="136.837" cy="166.043" r="5.309"/>
-	<circle style="fill:#FFFFFF;" cx="120.304" cy="155.807" r="5.309"/>
-	<circle style="fill:#FFFFFF;" cx="128.178" cy="157.384" r="5.309"/>
-	<circle style="fill:#FFFFFF;" cx="135.263" cy="160.531" r="5.309"/>
-	<circle style="fill:#FFFFFF;" cx="132.902" cy="153.84" r="5.309"/>
-	<circle style="fill:#FFFFFF;" cx="119.087" cy="150.98" r="7.719"/>
-	<circle style="fill:#FFFFFF;" cx="110.463" cy="128.251" r="5.309"/>
-	<circle style="fill:#FFFFFF;" cx="114.793" cy="134.946" r="5.309"/>
+	<circle fill="#FFFFFF" cx="4.7" cy="243.4" r="4.7"/>
+	<circle fill="#FFFFFF" cx="43.9" cy="209.4" r="13.6"/>
+	<circle fill="#FFFFFF" cx="56.1" cy="190.5" r="13.6"/>
+	<circle fill="#FFFFFF" cx="98.3" cy="192.9" r="13.6"/>
+	<circle fill="#FFFFFF" cx="49.3" cy="231.5" r="24.5"/>
+	<circle fill="#FFFFFF" cx="100.3" cy="215.3" r="21.2"/>
+	<circle fill="#FFFFFF" cx="26.4" cy="233.8" r="5.3"/>
+	<circle fill="#FFFFFF" cx="19.8" cy="241.6" r="5.3"/>
+	<circle fill="#FFFFFF" cx="42.7" cy="196" r="5.3"/>
+	<circle fill="#FFFFFF" cx="54.6" cy="176.3" r="5.3"/>
+	<circle fill="#FFFFFF" cx="60.5" cy="180.7" r="5.3"/>
+	<circle fill="#FFFFFF" cx="73.1" cy="195.2" r="5.3"/>
+	<circle fill="#FFFFFF" cx="84.9" cy="194.4" r="7.4"/>
+	<circle fill="#FFFFFF" cx="94.7" cy="180.3" r="5.3"/>
+	<circle fill="#FFFFFF" cx="142.4" cy="236.8" r="7.6"/>
+	<circle fill="#FFFFFF" cx="136.8" cy="227.9" r="5.3"/>
+	<circle fill="#FFFFFF" cx="128.2" cy="219.3" r="5.3"/>
+	<circle fill="#FFFFFF" cx="135.3" cy="222.4" r="5.3"/>
+	<circle fill="#FFFFFF" cx="132.9" cy="215.7" r="5.3"/>
+	<circle fill="#FFFFFF" cx="119.1" cy="212.8" r="7.7"/>
+	<circle fill="#FFFFFF" cx="110.5" cy="190.1" r="5.3"/>
+	<circle fill="#FFFFFF" cx="114.8" cy="196.8" r="5.3"/>
 </g>
+<rect x="51.8" y="196.8" fill="#FFFFFF" width="58.6" height="52.5"/>
+<rect x="102.7" y="219.3" fill="#FFFFFF" width="34.1" height="32.3"/>
 </svg>
