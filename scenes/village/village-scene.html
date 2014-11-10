@@ -36,14 +36,10 @@ Village scene.
         <h2 style="display:none">Santa's finished his journey for the year! He and the elves are still having some fun in the North Pole before their annual vacation.</h2>
       </div>
 
-      <div id="hit-area-left" on-mouseenter="{{onHitArea}}"
-                              on-mouseleave="{{cancelScrollAnimation}}"
-                              on-down="{{onHitArea}}"
-                              on-up="{{cancelScrollAnimation}}"></div>
-      <div id="hit-area-right" on-mouseenter="{{onHitArea}}"
-                               on-mouseleave="{{cancelScrollAnimation}}"
-                               on-down="{{onHitArea}}"
-                               on-up="{{cancelScrollAnimation}}"></div>
+      <div id="hit-area-left" on-mouseenter="{{onHitArea}}" on-mouseleave="{{cancelScrollAnimation}}"
+                              on-down="{{onHitArea}}" on-up="{{cancelScrollAnimation}}"></div>
+      <div id="hit-area-right" on-mouseenter="{{onHitArea}}" on-mouseleave="{{cancelScrollAnimation}}"
+                               on-down="{{onHitArea}}" on-up="{{cancelScrollAnimation}}"></div>
 
       <div id="trees" class="parallax-layer">
         <template repeat="{{tree in trees}}">
@@ -54,245 +50,37 @@ Village scene.
       <div id="village-parallax" fit>
         <div id="village">
           <div id="trees-back">
-            <div id="tree1" class="tree"></div>
-            <div id="tree2" class="tree"></div>
-            <div id="tree3" class="tree"></div>
-            <div id="tree4" class="tree"></div>
-            <div id="tree5" class="tree"></div>
-            <div id="tree6" class="tree"></div>
-            <div id="tree7" class="tree"></div>
-            <div id="tree8" class="tree"></div>
-            <div id="tree9" class="tree"></div>
-            <div id="tree10" class="tree"></div>
-            <div id="tree11" class="tree"></div>
-            <div id="tree12" class="tree"></div>
-            <div id="tree13" class="tree"></div>
-            <div id="tree14" class="tree"></div>
-            <div id="tree15" class="tree"></div>
-            <div id="tree16" class="tree"></div>
-            <div id="tree17" class="tree"></div>
-            <div id="tree18" class="tree"></div>
-            <div id="tree19" class="tree"></div>
-            <div id="tree20" class="tree"></div>
-            <div id="tree21" class="tree"></div>
-            <div id="tree22" class="tree"></div>
-            <div id="tree23" class="tree"></div>
-            <div id="tree24" class="tree"></div>
-            <div id="tree25" class="tree"></div>
+            <template repeat="{{tree, i in treesBg}}">
+              <div id="tree{{i + 1}}" class="tree"></div>
+            </template>
           </div>
           <div id="houses">
-            <div id="house1" class="house melt" data-module="airport" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
 
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-green-snow-hide"></div>
-                  <div class="elf elf-orange-snow"></div>
-                  <div class="elf elf-blue-snow"></div>
-                  <div class="elf elf-red-girl-snow-left"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-green"></div>
-                  <div class="elf elf-orange"></div>
-                  <div class="elf elf-blue"></div>
-                  <div class="elf elf-red-girl"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house2" class="house iced" data-module="racer" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
+            <template repeat="{{house, i in houses}}">
+              <div id="house{{i+1}}" class="house {{house.category}} {{ {iced: house.iced, melt: !house.iced} | tokenList }}">
+                <div class="building"></div>
 
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-blue-girl-snow-right"></div>
-                  <div class="elf elf-red-snow"></div>
-                  <div class="elf elf-orange-snow-hide"></div>
-                  <div class="elf elf-purple"></div>
+                <div class="house-snow"></div>
+                <div class="house-elves">
+                  <div class="snow-elves">
+                    <template repeat="{{house.elves.snow}}">
+                      <div class="elf {{}}"></div>
+                    </template>
+                  </div>
+                  <div class="melt-elves">
+                    <template repeat="{{house.elves.melt}}">
+                      <div class="elf {{}}"></div>
+                    </template>
+                  </div>
                 </div>
-                <div class="melt-elves">
-                  <div class="elf elf-blue-girl-right"></div>
-                  <div class="elf elf-red"></div>
-                  <div class="elf elf-orange"></div>
-                  <div class="elf elf-purple"></div>
-                </div>
+                <a href="{{baseURI}}#{{house.module}}" class="house-marker" tabindex="0"
+                   on-click="{{onHouseClick}}"></a>
+                </a>
               </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house3" class="house iced" data-module="trailer" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-purple-right"></div>
-                  <div class="elf elf-red-snow-hide"></div>
-                  <div class="elf elf-green-snow"></div>
-                  <div class="elf elf-blue-left"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-purple-right"></div>
-                  <div class="elf elf-red"></div>
-                  <div class="elf elf-green"></div>
-                  <div class="elf elf-blue-left"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house4" class="house iced" data-module="windtunnel" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-purple-girl-snow-right"></div>
-                  <div class="elf elf-red-snow"></div>
-                  <div class="elf elf-blue-snow-hide"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-purple-girl-right"></div>
-                  <div class="elf elf-red"></div>
-                  <div class="elf elf-blue"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house5" class="house iced" data-module="boatload" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-green-snow-hide"></div>
-                  <div class="elf elf-purple-snow"></div>
-                  <div class="elf elf-orange-left"></div>
-                  <div class="elf elf-red-girl-right-snow"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-green"></div>
-                  <div class="elf elf-purple"></div>
-                  <div class="elf elf-orange-left"></div>
-                  <div class="elf elf-red-girl-right"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house6" class="house iced">
-              <div class="building"></div>
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-blue-girl-snow-right"></div>
-                  <div class="elf elf-orange-snow-hide"></div>
-                  <div class="elf elf-green-snow-right"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-blue-girl-right"></div>
-                  <div class="elf elf-orange"></div>
-                  <div class="elf elf-green-right"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house7" class="house iced" data-module="streets" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="elf elf-red-unicycle"></div>
-                <div class="snow-elves">
-                  <div class="elf elf-orange-snow"></div>
-                  <div class="elf elf-red-snow-hide"></div>
-                  <div class="elf elf-purple-girl-snow-left"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-orange"></div>
-                  <div class="elf elf-red-"></div>
-                  <div class="elf elf-purple-girl-left"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house8" class="house melt" data-module="factory" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="melt-elves">
-                  <div class="elf elf-red-girl-right"></div>
-                  <div class="elf elf-blue-left"></div>
-                  <div class="elf elf-green"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house9" class="house iced" data-module="rollercoaster" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-purple-snow"></div>
-                  <div class="elf elf-green-snow-hide"></div>
-                  <div class="elf elf-orange-girl-snow-left"></div>
-                  <div class="elf elf-red-snow"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-purple"></div>
-                  <div class="elf elf-green"></div>
-                  <div class="elf elf-orange-girl-left"></div>
-                  <div class="elf elf-red"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-
-            <div id="house10" class="house iced" data-module="rollercoaster" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-red"></div>
-                  <div class="elf elf-purple-snow-hide"></div>
-                  <div class="elf elf-red-girl-snow-left"></div>
-                  <div class="elf elf-blue-snow-right"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-red"></div>
-                  <div class="elf elf-purple"></div>
-                  <div class="elf elf-red-girl-left"></div>
-                  <div class="elf elf-blue-right"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
+            </template>
 
             <div id="balloon" class="interactive" on-tap="{{onBalloonClick}}"></div>
             <div id="balloon-ropes" hidden></div>
-
-            <div id="house11" class="house iced" data-module="commandcentre" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-orange-girl-snow-right"></div>
-                  <div class="elf elf-blue-snow"></div>
-                  <div class="elf elf-red-girl-snow-left"></div>
-                  <div class="elf elf-green"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-orange-girl-right"></div>
-                  <div class="elf elf-blue"></div>
-                  <div class="elf elf-red-girl-left"></div>
-                  <div class="elf elf-green"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
 
             <div id="xmastree">
               <div class="elf elf-red-sit-right elf1"></div>
@@ -302,326 +90,6 @@ Village scene.
               <div class="elf elf-orange elf4"></div>
               <div class="elf elf-blue elf5"></div>
               <div class="elf elf-green-girl-sit-left elf6"></div>
-            </div>
-
-            <div id="house13" class="house iced" data-module="gumballs" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-red"></div>
-                  <div class="elf elf-purple"></div>
-                  <div class="elf elf-orange-snow-left"></div>
-                  <div class="elf elf-blue-snow-hide"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-red"></div>
-                  <div class="elf elf-purple"></div>
-                  <div class="elf elf-orange-left"></div>
-                  <div class="elf elf-blue"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house14" class="house iced" data-module="sendamessage" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-green-girl-snow-left"></div>
-                  <div class="elf elf-blue-snow"></div>
-                  <div class="elf elf-green-snow-right"></div>
-                  <div class="elf elf-red-snow-hide"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-green-girl-left"></div>
-                  <div class="elf elf-blue"></div>
-                  <div class="elf elf-green-right"></div>
-                  <div class="elf elf-red"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house15" class="house iced" data-module="mountain" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-green"></div>
-                  <div class="elf elf-blue"></div>
-                  <div class="elf elf-orange-girl-snow-left"></div>
-                  <div class="elf elf-red-snow-hide"></div>
-                  <div class="elf elf-purple-snow-right"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-green"></div>
-                  <div class="elf elf-blue"></div>
-                  <div class="elf elf-orange-girl-left"></div>
-                  <div class="elf elf-red"></div>
-                  <div class="elf elf-purple-right"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house16" class="house iced" data-module="playground" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-green-girl-snow-right"></div>
-                  <div class="elf elf-red-snow"></div>
-                  <div class="elf elf-purple-snow-left"></div>
-                  <div class="elf elf-purple-snow"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-green-girl-right"></div>
-                  <div class="elf elf-red"></div>
-                  <div class="elf elf-purple-left"></div>
-                  <div class="elf elf-purple"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house17" class="house iced">
-              <div class="building"></div>
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-red-girl-snow-right"></div>
-                  <div class="elf elf-green-snow-hide"></div>
-                  <div class="elf elf-blue-snow-right"></div>
-                  <div class="elf elf-orange-snow"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-red-girl-right"></div>
-                  <div class="elf elf-green"></div>
-                  <div class="elf elf-blue-right"></div>
-                  <div class="elf elf-orange"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house18" class="house iced" data-module="ferriswheel" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-red-snow-left"></div>
-                  <div class="elf elf-green"></div>
-                  <div class="elf elf-blue-snow"></div>
-                  <div class="elf elf-blue"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-red-left"></div>
-                  <div class="elf elf-green"></div>
-                  <div class="elf elf-blue"></div>
-                  <div class="elf elf-blue-right"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house19" class="house iced" data-module="briefing" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-red"></div>
-                  <div class="elf elf-orange-girl-snow-left"></div>
-                  <div class="elf elf-blue-snow-hide"></div>
-                  <div class="elf elf-purple-snow"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-red"></div>
-                  <div class="elf elf-orange-girl-left"></div>
-                  <div class="elf elf-blue"></div>
-                  <div class="elf elf-purple"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house20" class="house iced" data-module="matching" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-green-girl-snow-left"></div>
-                  <div class="elf elf-red-snow"></div>
-                  <div class="elf elf-purple-snow-right"></div>
-                  <div class="elf elf-purple"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-green-girl-left"></div>
-                  <div class="elf elf-red"></div>
-                  <div class="elf elf-purple-right"></div>
-                  <div class="elf elf-purple"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house21" class="house iced" data-module="choir" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-green"></div>
-                  <div class="elf elf-green-girl-snow-left"></div>
-                  <div class="elf elf-orange-snow"></div>
-                  <div class="elf elf-red-snow-right"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-green"></div>
-                  <div class="elf elf-green-girl-left"></div>
-                  <div class="elf elf-orange"></div>
-                  <div class="elf elf-red-right"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house22" class="house iced" data-module="jetpack" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-red-girl-snow-right"></div>
-                  <div class="elf elf-orange-snow-hide"></div>
-                  <div class="elf elf-blue-snow-right"></div>
-                  <div class="elf elf-red-snow"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-red-girl-right"></div>
-                  <div class="elf elf-orange"></div>
-                  <div class="elf elf-blue-right"></div>
-                  <div class="elf elf-red"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house23" class="house iced" data-module="presentdrop" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-green"></div>
-                  <div class="elf elf-orange-snow-hide"></div>
-                  <div class="elf elf-blue-girl-snow-right"></div>
-                  <div class="elf elf-purple-snow"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-green"></div>
-                  <div class="elf elf-orange"></div>
-                  <div class="elf elf-blue-girl-right"></div>
-                  <div class="elf elf-purple"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house24" class="house iced" data-module="traditions" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-red-snow"></div>
-                  <div class="elf elf-blue"></div>
-                  <div class="elf elf-orange-girl-snow-left"></div>
-                  <div class="elf elf-red-snow"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-red"></div>
-                  <div class="elf elf-blue"></div>
-                  <div class="elf elf-orange-girl-left"></div>
-                  <div class="elf elf-red"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house25" class="house iced" data-module="workshop" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-blue-snow-left"></div>
-                  <div class="elf elf-green-snow-hide"></div>
-                  <div class="elf elf-red-snow-right"></div>
-                  <div class="elf elf-blue"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-blue-left"></div>
-                  <div class="elf elf-green"></div>
-                  <div class="elf elf-red-right"></div>
-                  <div class="elf elf-blue"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house26" class="house iced" data-module="finalprep" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-red-girl-snow-left"></div>
-                  <div class="elf elf-orange"></div>
-                  <div class="elf elf-orange-snow-right"></div>
-                  <div class="elf elf-blue-snow"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-red-girl-left"></div>
-                  <div class="elf elf-orange"></div>
-                  <div class="elf elf-orange-right"></div>
-                  <div class="elf elf-blue"></div>
-                </div>
-              </div>
-              <div class="house-marker" tabindex="0"></div>
-            </div>
-            <div id="house27" class="house iced" data-module="" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-green-girl-snow-right"></div>
-                  <div class="elf elf-blue-snow"></div>
-                  <div class="elf elf-red-snow-left"></div>
-                  <div class="elf elf-purple-snow"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-green-girl-right"></div>
-                  <div class="elf elf-blue"></div>
-                  <div class="elf elf-red-left"></div>
-                  <div class="elf elf-purple"></div>
-                </div>
-                <div class="house-marker" tabindex="0"></div>
-              </div>
-            </div>
-            <div id="house28" class="house iced" data-module="" on-tap="{{onHouseClick}}">
-              <div class="building"></div>
-              <div class="house-snow"></div>
-              <div class="house-elves">
-                <div class="snow-elves">
-                  <div class="elf elf-purple-snow-right"></div>
-                  <div class="elf elf-red-snow-hide"></div>
-                  <div class="elf elf-purple-snow-left"></div>
-                  <div class="elf elf-blue-snow-hide"></div>
-                </div>
-                <div class="melt-elves">
-                  <div class="elf elf-purple-right"></div>
-                  <div class="elf elf-red"></div>
-                  <div class="elf elf-purple-left"></div>
-                  <div class="elf elf-blue"></div>
-                </div>
-                <div class="house-marker" tabindex="0"></div>
-              </div>
             </div>
 
             <div id="unicycle" class="elf"><div class="cycle"></div></div>
@@ -701,7 +169,7 @@ Village scene.
     componentDir: 'scenes/village/',
 
     updateScheduled_: false,
-    villageWidth_: 12000,
+    villageWidth_: 12740, // Defined in _variables.scss, but also recalculated below.
     parallaxLayers_: null,
     scrollContainer_: null,
 
@@ -790,17 +258,29 @@ Village scene.
 
     created: function() {
       this.trees = [];
+      this.treesBg = new Array(25);
       this.animator_ = new Animator();
     },
 
     ready: function() {
+      this.super();
+
       this.container_ = this.$['module-village'];
       this.scrollContainer_ = this.$['village-parallax'];
 
       this.villageWidth_ = parseFloat(getComputedStyle(this.$.village).width);
 
-      this.addEvents_();
       this.addTrees_();
+
+      // Use touch event support as a rough heuristic of when we shouldn't use
+      // parallax.
+      // TODO(bckenny): expand parallax support to touch devices like the Pixel
+      if (!Modernizr.touch) {
+        this.scrollContainer_.addEventListener('scroll',
+            this.scheduleParallaxUpdate_.bind(this));
+        window.addEventListener('resize',
+            this.scheduleParallaxUpdate_.bind(this));
+      }
 
       // Between 6am and 6pm it's day time.
       // Note: Not scientifically correct but it makes children happier.
@@ -811,14 +291,6 @@ Village scene.
           this.container_.querySelectorAll('.parallax-layer'));
       this.scheduleParallaxUpdate_();
 
-      this.async(function() {
-        this.async(function() {
-          var melts = this.$.houses.querySelectorAll('.melt');
-          this.panToHouse(melts[melts.length - 1], 0);
-        });
-      });
-
-
       this.villageSnow_ = new VillageSnow(this.container_);
       this.villageBus_ = new VillageBus(this.container_);
       this.villageSnowMobile_ = new VillageSnowMobile(this.container_);
@@ -827,6 +299,12 @@ Village scene.
       if (navigator.userAgent.match(/iPhone|iPod|iPad/i)) {
         this.$.spaceship.parentElement.removeChild(this.$.spaceship);
       }
+
+      // Know when template house stamping is done to scroll to the last one.
+      this.onMutation(this.$.houses, function(observer, records) {
+        var melts = this.$.houses.querySelectorAll('.melt');
+        this.panToHouse(melts[melts.length - 1], 0);
+      });
     },
 
     domReady: function() {
@@ -842,15 +320,10 @@ Village scene.
     },
 
     /**
-     * @param {string} houseId
+     * @param {int} index
      */
-    unlockHouse: function(houseId) {
-      var house = this.$[houseId];
-      house.classList.switch('iced', 'melt');
-
-      // var calendar = this.$['calendar-' + houseId];
-      // calendar.classList.remove('iced');
-      // calendar.classList.add('melt');
+    unlockHouse: function(idx) {
+      this.houses[idx].iced = false;
     },
 
     /**
@@ -864,24 +337,11 @@ Village scene.
       this.panTo(left + width / 2 + villageOffset, opt_time || 0);
     },
 
-    // /**
-    //  *  @private
-    //  */
-    // addPostLaunchHouseEvents_: function() {
-    //   $('#house3, #marker2', this.container_).on('click', function() {
-    //     window.location.hash = '/tracker/dashboard';
-    //   });
-    // },
-
     onHouseClick: function(e, detail, sender) {
-      // House is not melted so don't do anything.
-      if (!sender.classList.contains('melt')) {
-        return;
+      var iced = sender.templateInstance.model.house.iced;
+      if (iced) {
+        e.preventDefault();
       }
-
-      // Note: IE10 doesn't support .dataset.
-      var module = sender.getAttribute('data-module');
-      window.location.hash = module; //'/village/' + module;
     },
 
     onSnowManClick: function(e, detail, sender) {
@@ -965,27 +425,6 @@ Village scene.
       } else if (sender.id == 'fakemoon') {
         this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'moon');
         this.timeOfDay = 'day';
-      }
-    },
-
-    /**
-     * @private
-     */
-    addEvents_: function() {
-      var that = this;
-
-      // $('#onthego-nav', this.container_).on('click', '.arrow, h2', function() {
-      //   $('#onthego-nav', this.container_).toggleClass('close').toggleClass('open');
-      // });
-
-      // Use touch event support as a rough heuristic of when we shouldn't use
-      // parallax.
-      // TODO(bckenny): expand parallax support to touch devices like the Pixel
-      if (!Modernizr.touch) {
-        this.scrollContainer_.addEventListener('scroll',
-            this.scheduleParallaxUpdate_.bind(this));
-        window.addEventListener('resize',
-            this.scheduleParallaxUpdate_.bind(this));
       }
     },
 
@@ -1129,15 +568,14 @@ Village scene.
       // The site will be shut down before November the following year.
       if (day >= this.scheduleDay_ && date.getMonth() != 10) {
         for (var i = this.scheduleDay_; i <= day; ++i) {
-          var houseId = this.SCHEDULE_[i - 1];
-          if (!houseId) {
+          // var houseIdx = this.SCHEDULE_[i - 1];
+          // if (!houseIdx) {
             // Nothing more to unlock.
-            break;
-          }
+            // break;
+          // }
 
-          if (this.$[houseId] && houseId.indexOf('disable') !== 0 &&
-              !this.$[houseId].getAttribute('disabled')) {
-            this.unlockHouse(houseId);
+          if (!this.houses[i - 1].disabled) {
+            this.unlockHouse(i - 1);
           }
         }
 

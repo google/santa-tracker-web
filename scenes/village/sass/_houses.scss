@@ -100,18 +100,18 @@
 
   // ID houseWidth houseHeight iceWidth iceHeight houseLeft houseBottom iceLeft iceBottom x y markerLock markerUnlock markerLeft markerBottom
   //  id        hw    hh    iw    ih    hl  hb  il    ib    x     y   ml              mul   ml  mb
-  $houses: 
+  $houses:
       "house1"  416   339   504   414   0   0   -42   -43   0     0   "marker1-lock"    "marker-airport",
       "house2"  189   158   365   251   0   -2  -80   -39   60    0   "marker1_2-lock"  "marker-racer",
       "house3"  233   238   406   312   0   2   -56   -45   0     0   "marker1_3-lock"  "marker-intro",
       "house4"  152   363   322   405   0   2   -85   -30   0     0   "marker1_4-lock"  "marker-app",
       "house5"  217   287   355   341   0   0   -66   -31   25    0   "marker2-lock"    "marker-selfie",
       "house6"  208   172   314   244   0   0   -24   -44   -40   0   "marker3-lock"    "marker-boat",
-      "house7"  219   297   405   373   0   2   -90   -38   65    0   "marker4-lock"    "marker-mission",
+      "house7"  219   297   405   373   0   2   -90   -38   65    0   "marker4-lock"    "marker-briefing",
       "house8"  219   146   278   258   0   1   -30   -23   -50   0   false             false,
-      "house9"  305   233   437   362   0   2   -35   -83   10    0   "marker5-lock"    "marker-memory",
+      "house9"  305   233   437   362   0   2   -35   -83   10    0   "marker5-lock"    "marker-matching",
       "house10" 174   412   392   491   0   0   -85   -51   420   0   "marker6-lock"    "marker-presentdrop",
-      "house11" 289   202   370   278   0   2   -42   -26   240   0   "marker7-lock"    "marker-streetview",
+      "house11" 289   202   370   278   0   2   -42   -26   240   0   "marker7-lock"    "marker-workshop",
       "house13" 179   251   338   388   0   2   -65   -55   10    0   "marker8-lock"    "marker-jamband",
       "house14" 253   253   358   378   0   -2  -50   -59   60    0   "marker9-lock"    "marker-codelab",
       "house15" 437   242   487   329   0   -4  -17   -65   -3    0   "marker10-lock"   "marker-translations",
@@ -124,7 +124,7 @@
       "house22" 322   256   393   313   0   -3  -35   -40   -20   0   "marker17-lock"   "marker-candy",
       "house23" 231   220   473   311   0   2   -120  -58   85    0   "marker18-lock"   "marker-postcard",
       "house24" 397   285   527   349   0   -1  -40   -40   -90   0   "marker19-lock"   "marker-traditions",
-      "house25" 502   290   575   374   0   -2  -30   -70   0     0   "marker20-lock"   "marker-testing",
+      "house25" 502   290   575   374   0   -2  -30   -70   0     0   "marker20-lock"   "marker-windtunnel",
       "house26" 151   262   288   341   0   2   -70   -50   40    0   "marker21-lock"   "marker-gumball",
       "house27" 216   335   327   405   0   2   -70   -50   20    0   "marker22-lock"   "marker-citylights",
       "house28" 203   274   342   342   0   2   -80   -50   50    0   "marker23-lock"   "marker-santa";
@@ -169,7 +169,7 @@
         .house-marker {
           background-image: url(img/#{nth($house, $markerUnlock)}.svg);
         }
-      
+
         &.iced {
           .house-marker {
             background-image: url(img/#{nth($house, $markerLock)}.svg);
@@ -238,7 +238,7 @@
     }
 
     .elf4 {
-      left: 140px; 
+      left: 140px;
     }
 
     .elf5 {

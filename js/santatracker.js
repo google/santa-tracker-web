@@ -56,9 +56,14 @@ window.santatracker.setup = function() {
     this.async(function() {
       this.route = this.route || DEFAULT_ROUTE;
     });
+
     this.$.lazypages.santaService = window.santatracker.controller.getService();
     this.$.lazypages.analyticsService = window.santatracker.analytics;
     this.$.lazypages.visibilityService = window.santatracker.visibility;
+
+    this.$.lazypages.houses = window.HOUSES;
+    delete window.HOUSES; // cleanup
+
     this.countDownEndDate = window.santatracker.COUNTDOWN_END_DATE;
   });
 
