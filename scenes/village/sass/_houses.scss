@@ -107,10 +107,10 @@
       "app"           152   363   322   405   0   2   -85   -30   0     0   "marker1_4-lock"  "marker-app",
       "selfie"        217   287   355   341   0   0   -66   -31   25    0   "marker2-lock"    "marker-selfie",
       "boatload"      208   172   314   244   0   0   -24   -44   -40   0   "marker3-lock"    "marker-boat",
-      "briefing"      219   297   405   373   0   2  -90   -38   65    0   "marker4-lock"    "marker-briefing",
+      "briefing"      219   297   405   373   0   2   -90   -38   65    0   "marker4-lock"     "marker-briefing",
       "matching"      305   233   437   362   0   2   -35   -83   220   0   "marker5-lock"    "marker-matching",
       "presentdrop"   174   412   392   491   0   1   -85   -51   450   0   "marker6-lock"    "marker-presentdrop",
-      "streetview"    289   202   370   278   0   2   -42   -26   240   0   "marker7-lock"    "marker-workshop",
+      "streetview"    289   202   370   278   0   2   -42   -26   240   0   "marker7-lock"    "marker-streetview",
       "jamband"       179   251   338   388   0   2   -65   -75   10    0   "marker8-lock"    "marker-jamband",
       "codelab"       253   253   358   378   0   0   -50   -59   60    0   "marker9-lock"    "marker-codelab",
       "translations"  437   242   487   329   0   -4  -17   -65   -3    0   "marker10-lock"   "marker-translations",
@@ -182,11 +182,11 @@
 
   #balloon {
     position: absolute;
-    background: url(img/balloon.svg) no-repeat;
-    bottom: -2px;
-    left: 4469px;
+    background: url(img/balloon.svg) no-repeat;    
     width: 235px;
     height: 269px;
+    bottom: -2px;
+    left: 4469px;
     z-index: 2;
     @include transform(translateZ(0) translateY(0) translateX(0));
 
@@ -202,8 +202,16 @@
     &.flying {
       z-index: 10;
       @include apply-origin(top center, false);
-      @include animation(fly 55s 1 linear, float 5s infinite linear);
+      @include animation(fly 55s 1 linear);
     }
+  }
+
+  #balloon-elf1 {
+    left: 4520px;
+  }
+
+  #balloon-elf2 {
+    left: 4605px;
   }
 
   #balloon-ropes {

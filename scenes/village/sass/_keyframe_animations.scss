@@ -74,12 +74,6 @@
   }
 }
 
-@include keyframes(float) {
-  0% { @include transform(rotateZ(2deg));}
-  50% { @include transform(rotateZ(-2deg));}
-  100% { @include transform(rotateZ(2deg));}
-}
-
 @include keyframes(fly) {
   0% {
     @include transform(translateY(0) translateX(0));
