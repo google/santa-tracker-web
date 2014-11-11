@@ -36,21 +36,21 @@ VillagePegman.MAX_SKYDIVE_TIME_ = 200000;
 VillagePegman.LAND_TIME_ = 15000;
 
 /**
- * Start sending random snow mobiles for a ride
+ * Start a skydive
  */
 VillagePegman.prototype.start = function() {
   this.skyDive_();
 };
 
 /**
- * Stop sending snow mobiles and clear any timeouts
+ * Stop skydiving
  */
 VillagePegman.prototype.stop = function() {
   window.clearTimeout(this.pickupPegmanTimeoutID_);
 };
 
 /**
- * Send a snow mobile for a drive
+ * Sky dive
  * @param {!Element} snowMobile
  */
 VillagePegman.prototype.skyDive_ = function() {
