@@ -120,7 +120,6 @@ Polymer({
   },
 
   trackEvent: function(e, detail, sender) {
-console.log('HERERE')
     this.analyticsService.trackEvent(
         detail.category, detail.action, detail.label);
   },
