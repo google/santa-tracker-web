@@ -35,7 +35,7 @@ Subclass scene elements can define the following properties:
   }
 </style>
 
-<polymer-element name="base-scene" attributes="active alwaysActive path route visibilityService analyticsService">
+<polymer-element name="base-scene" attributes="active alwaysActive path route visibilityService">
   <script>
     Polymer({
       publish: {
@@ -152,15 +152,6 @@ Subclass scene elements can define the following properties:
        * @default null
        */
       santaService: null,
-
-      /**
-       * Analytics service.
-       *
-       * @attribute analyticsService
-       * @type Analytics
-       * @default null
-       */
-      analyticsService: null,
 
       /**
        * Page/Scene visibility manager.
