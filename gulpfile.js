@@ -74,14 +74,14 @@ gulp.task('copy-assets', ['clean', 'vulcanize'], function() {
   return gulp.src([
     'index.html',
     'audio/*',
-    'images/*.{png,svg,gif}',
+    'images/*.{png,svg,gif,ico}',
     'js/**',
     'sass/*',
     'scenes/**/img/**/*.{png,svg,gif}',
     'elements/**/img/*.{png,svg,gif}',
     'components/platform/*',
     'components/polymer/*',
-    'components/webcomponentsjs/webcomponents.js'
+    'components/webcomponentsjs/webcomponents.min.js'
   ], {base: './'})
   .pipe(gulp.dest('dist'));
 });
