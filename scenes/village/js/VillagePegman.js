@@ -21,13 +21,13 @@ VillagePegman.FREEFALL_TIME_ = 0.301 * VillagePegman.SKYDIVE_TIME_;
  * @private
  * @type {number}
  */
-VillagePegman.MIN_SKYDIVE_TIME_ = 45000;
+VillagePegman.MIN_SKYDIVE_TIME_ = 90000;
 
 /**
  * @private
  * @type {number}
  */
-VillagePegman.MAX_SKYDIVE_TIME_ = 120000;
+VillagePegman.MAX_SKYDIVE_TIME_ = 200000;
 
 /**
  * @private
