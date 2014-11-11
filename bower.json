@@ -22,11 +22,11 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#master",
-    "core-pages": "Polymer/core-pages#master",
-    "core-animated-pages": "Polymer/core-animated-pages#master",
-    "core-range": "Polymer/core-range#master",
-    "paper-tabs": "Polymer/paper-tabs#master",
+    "polymer": "Polymer/polymer#^0.5.0",
+    "core-pages": "Polymer/core-pages#^0.5.0",
+    "core-animated-pages": "Polymer/core-animated-pages#^0.5.0",
+    "core-range": "Polymer/core-range#^0.5.0",
+    "paper-tabs": "Polymer/paper-tabs#^0.5.0",
     "flatiron-director": "PolymerLabs/flatiron-director#master",
     "jquery": "2.1.1",
     "modernizr": "2.8.3"
