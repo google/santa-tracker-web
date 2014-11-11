@@ -208,15 +208,12 @@
     }
 
     &.dive {
-      //margin-left: -80px;
-      //@include translateX(-80px);
       background-position: 50% 0%;
       background-size: 42px 77px;
       background-image: url(img/pegman-dive.svg);
     }
 
     &.chute {
-      //@include translateX(-80px);
       background-size: 107px 142px;
       background-image: url(img/pegman-chute.svg);
     }
