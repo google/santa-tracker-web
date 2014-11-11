@@ -39,8 +39,6 @@ VillagePegman.LAND_TIME_ = 15000;
  * Start sending random snow mobiles for a ride
  */
 VillagePegman.prototype.start = function() {
-  //this.scheduleRandomSkyDive_();
-  console.log('skyDive start');
   this.skyDive_();
 };
 
@@ -79,13 +77,11 @@ VillagePegman.prototype.schedulePegmanPickup_ = function() {
 
   var pickupTime = VillagePegman.MIN_SKYDIVE_TIME_ +
       Math.random() * VillagePegman.MAX_SKYDIVE_TIME_;
-  console.log('pickup in', pickupTime);
   this.pickupPegmanTimeoutID_ = window.setTimeout(
       this.pickupPegman_.bind(this), pickupTime);
 };
 
 VillagePegman.prototype.pickupPegman_ = function() {
-  console.log('picking up the pegman');
   var pegman = this.container_.querySelector('#pegman');
 
   var spaceship = this.container_.querySelector('#spaceship');
