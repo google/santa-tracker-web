@@ -85,31 +85,18 @@
     height: 175px;
   }
 
-  /*@for $i from 1 through 24 {
-    .marker#{$i} {
-      background-image: url(img/marker#{$i}-lock.svg)
-      //background-position: -(($i * $markerSpriteGap) - $markerSpriteGap)  0;
-    }
-    .iced {
-      .marker#{$i} {
-        background-image: url(img/marker#{$i}-lock.svg);
-      }
-    }
-  }*/
-
-
   // ID houseWidth houseHeight iceWidth iceHeight houseLeft houseBottom iceLeft iceBottom x y markerLock markerUnlock markerLeft markerBottom
   //  id              hw    hh    iw    ih    hl  hb  il    ib    x     y   ml                mul
   $houses:
       "airport"       416   339   504   414   0   0   -42   -43   0     0   "marker1-lock"    "marker-airport",
       "racer"         189   158   365   251   0   -2  -80   -39   60    0   "marker1_2-lock"  "marker-racer",
       "intro"         233   238   406   312   0   2   -56   -45   0     0   "marker1_3-lock"  "marker-intro",
-      "app"           152   363   322   405   0   2   -85   -30   0     0   "marker1_4-lock"  "marker-app",
+      "app"           152   363   322   405   0   2   -85   -30   50    0   "marker1_4-lock"  "marker-app",
       "selfie"        217   287   355   341   0   0   -66   -31   25    0   "marker2-lock"    "marker-selfie",
       "boatload"      208   172   314   244   0   0   -24   -44   -40   0   "marker3-lock"    "marker-boat",
       "briefing"      219   297   405   373   0   2   -90   -38   65    0   "marker4-lock"     "marker-briefing",
       "matching"      305   233   437   362   0   2   -35   -83   220   0   "marker5-lock"    "marker-matching",
-      "presentdrop"   174   412   392   491   0   1   -85   -51   450   0   "marker6-lock"    "marker-presentdrop",
+      "presentdrop"   174   412   392   491   0   1   -85   -51   420   0   "marker6-lock"    "marker-presentdrop",
       "streetview"    289   202   370   278   0   2   -42   -26   240   0   "marker7-lock"    "marker-streetview",
       "jamband"       179   251   338   388   0   2   -65   -75   10    0   "marker8-lock"    "marker-jamband",
       "codelab"       253   253   358   378   0   0   -50   -59   60    0   "marker9-lock"    "marker-codelab",
@@ -195,14 +182,54 @@
       bottom: 2px;
     }
 
-    /*&.fly {
-      background: url(img/balloon.svg) no-repeat;
-    }*/
-
     &.flying {
       z-index: 10;
       @include apply-origin(top center, false);
       @include animation(fly 55s 1 linear);
+    }
+  }
+
+  #pegman {
+    width: 180px;
+    height: 142px;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    left: 2117px;
+    bottom: 0;
+    position: absolute;
+    z-index: 10;
+    opacity: 1;
+    background-size: 180px 60px;
+    background-image: url(img/pegman-land.svg);
+    @include transform(translateZ(0) translateY(0) translateX(0));
+
+    &.diving {
+      @include animation(skydive 25s 0 linear);
+    }
+
+    &.dive {
+      //margin-left: -80px;
+      //@include translateX(-80px);
+      background-position: 50% 0%;
+      background-size: 42px 77px;
+      background-image: url(img/pegman-dive.svg);
+    }
+
+    &.chute {
+      //@include translateX(-80px);
+      background-size: 107px 142px;
+      background-image: url(img/pegman-chute.svg);
+    }
+
+    &.land {
+      background-size: 180px 60px;
+      background-image: url(img/pegman-land.svg);
+    }
+
+    &.takeoff {
+      opacity: 0;
+      @include transition(opacity 500ms ease-out);
+      @include transition-timing-function(cubic-bezier(0.4, 1.6, 0.2, 1));
     }
   }
 
@@ -255,16 +282,6 @@
       left: 187px;
     }
   }
-
-  /*#house10-elf1 {
-    left: 4650px;
-  }
-
-  #house10-elf2 {
-    left: 4745px;
-  }*/
-
-
 
   $houseElves: (
     "airport": (

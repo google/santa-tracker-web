@@ -100,6 +100,9 @@ Village scene.
               <div class="elf elf-green-girl-sit-left elf6"></div>
             </div>
 
+            <a href="{{baseURI}}#santadive" id="pegman" class="landed"></a>
+            <div id="pegman-spaceship"></div>
+
             <div id="unicycle" class="elf"><div class="cycle"></div></div>
             <div id="snowman" class="elf interactive" on-tap="{{onSnowManClick}}"></div>
             <div id="bus" class="bus-unload">
@@ -311,6 +314,7 @@ Village scene.
 
       this.villageSnow_ = new VillageSnow(this.container_);
       this.villageBus_ = new VillageBus(this.container_);
+      this.villagePegman_ = new VillagePegman(this.container_);
       this.villageSnowMobile_ = new VillageSnowMobile(this.container_);
 
       // No Android spaceship for iOS devices
@@ -614,21 +618,64 @@ Village scene.
 
       this.preloadSounds('village_load_sounds');
 
-      var suffix = window.devicePixelRatio > 1.5 ? '_2x.png' : '.png';
-
       var images = [
-        'img/assets_sprite' + suffix,
-        'img/markers_sprite' + suffix,
-        'img/elves_sprite' + suffix,
-        'img/trees' + suffix,
-        'img/monorail' + suffix,
-        'img/mountain-day-tile' + suffix,
-        'img/mountain-night-tile' + suffix,
-        //'img/menuicons' + suffix
+        'img/arrows_left.svg',
+        'img/arrows_right.svg',
+        'img/tree.svg',
+        'img/snow.svg',
+        'img/snow-flake.svg',
+        'img/elf-red-sit-right.svg',
+        'img/elf-green-sit-right.svg',
+        'img/elf-blue-sit-right.svg',
+        'img/elf-green-girl-sit-left.svg',
+        'img/elf-unicycle.svg',
+        'img/snowman_01.svg',
+        'img/snowman_02.svg',
+        'img/snowman_03.svg',
+        'img/snowman_04.svg',
+        'img/busstop.svg',
+        'img/bench.svg',
+        'img/chair.svg',
+        'img/snowmobile1.svg',
+        'img/snowmobile2.svg',
+        'img/snowmobile3.svg',
+        'img/bus.svg',
+        'img/bus-elf.svg',
+        'img/monorail.svg',
+        'img/train.svg',
+        'img/daymountains.svg',
+        'img/nightmountains.svg',
+        'img/plane.svg',
+        'img/spaceship.svg',
+        'img/sun.svg',
+        'img/moon.svg',
+        'img/balloon.svg',
+        'img/balloon-flight.svg',
+        'img/balloon-ropes.svg',
+        'img/pegman-land.svg',
+        'img/pegman-dive.svg',
+        'img/pegman-chute.svg',
+        'img/xmastree.svg',
+        'img/marker1-lock.svg',
+        'img/marker1_2-lock.svg',
+        'img/marker1_2-lock.svg',
+        'img/marker1_3-lock.svg',
+        'img/marker1_4-lock.svg',
       ];
 
-      for (var i = 1; i <= 26; ++i) {
-        images.push('img/house_' + i + suffix);
+      //var suffix = window.devicePixelRatio > 1.5 ? '_2x.png' : '.png';
+
+      for (var i = 2; i <= 23; i++) {
+        images.push('img/marker' + i + '-lock.svg');
+      }
+
+      var houses = ['airport', 'racer', 'intro', 'app', 'selfie', 'boatload',
+          'briefing', 'matching', 'presentdrop', 'streetview', 'jamband',
+          'codelab', 'translations', 'video', 'mercator', 'controlroom',
+          'play', 'charity', 'jetpack', 'candy', 'postcard', 'traditions',
+          'windtunnel', 'gumball', 'citylights', 'santa'];
+      for (var i = 0, house; house = houses[i]; i++) {
+        images.push('img/house-' + house + '.svg');
       }
 
       this.preloadImages(images);
@@ -639,12 +686,13 @@ Village scene.
 
       this.checkSchedule_();
 
-      this.playAmbientSounds('village_start');
-
       this.villageSnow_.start();
       this.villageBus_.start();
+      this.villagePegman_.start();
       this.villageSnowMobile_.start();
       this.$.count.start();
+
+      this.playAmbientSounds('village_start');
     },
 
     onHide: function() {
@@ -653,18 +701,20 @@ Village scene.
       window.clearTimeout(this.scheduleTimeout_);
 
       this.playAmbientSounds('village_end');
+      
       this.villageSnow_.stop();
       this.villageBus_.stop();
+      this.villagePegman_.stop();
       this.villageSnowMobile_.stop();
       this.$.count.stop();
     },
 
     onPause: function() {
-      this.onHide();
+      //this.onHide();
     },
 
     onResume: function() {
-      this.onShow();
+      //this.onShow();
     }
   });
 
