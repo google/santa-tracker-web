@@ -4,15 +4,15 @@
  * @constructor
  */
 function Analytics() {
-  if (window.gweb) {
-    this.init();
-  }
+  this.init();
 }
 
 Analytics.prototype.THROTTLE_TIME_ = 10; // 10ms
 
 Analytics.prototype.init = function() {
-  if (this.ga) return;
+  if (this.ga_) {
+    return;
+  }
 
   var domain = document.domain.replace(/www\./, '');
 

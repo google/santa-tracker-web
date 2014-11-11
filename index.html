@@ -20,7 +20,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144x144-precomposed.png">
   <link rel="shortcut icon" href="images/favicon.ico">
 
-  <script src="components/webcomponentsjs/webcomponents.js"></script>
+  <script src="components/webcomponentsjs/webcomponents.min.js"></script>
   <link rel="import" href="elements/elements.html">
 
   <link rel="stylesheet" href="sass/santatracker.css">
@@ -29,8 +29,10 @@
 
 <template is="auto-binding" id="t">
 
+<santa-app houses="{{houses}}" countDownEndDate="{{countDownEndDate}}">
+
   <!-- Route controller -->
-  <flatiron-director route="{{route}}" autoHash on-director-route="{{onRouteChange}}"></flatiron-director>
+  <flatiron-director route="{{route}}" on-director-route="{{onRouteChange}}" autoHash></flatiron-director>
 
   <!-- Preloading scene overlay -->
   <preload-overlay value="{{selectedScene.preloadProgress || 0}}"
@@ -38,17 +40,17 @@
                    color="{{selectedScene.loadingBgColor}}"
                    src="{{selectedScene.loadingSrc}}"></preload-overlay>
 
-  <lazy-pages id="lazypages" selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route">
+  <lazy-pages id="lazypages" selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route"
+              houses="{{houses}}">
     <!--
       Note: we can data bind on calendar-nav because its definition is loaded
-      at pageload The other scenes are lazy loaded and the bindings would be
+      at pageload. The other scenes are lazy loaded and the bindings would be
       incorrect. countDownEndDate is bindable on village-scene because it's an
       int (not an object) and the one-way bindings are good with that.
     -->
     <calendar-nav route="calendar" alwaysActive
                   visibilityService="{{$.lazypages.visibilityService}}"
-                  analyticsService="{{$.lazypages.analyticsService}}"
-                  houses="{{$.lazypages.houses}}"></calendar-nav>
+                  houses="{{houses}}"></calendar-nav>
     <village-scene route="village"
         path="scenes/village/village-scene.html" countDownEndDate="{{countDownEndDate}}" hidden></village-scene>
     <briefing-scene route="briefing"
@@ -64,6 +66,8 @@
     <undersea-scene route="undersea"
         path="scenes/undersea/undersea-scene.html" hidden></undersea-scene>
   </lazy-pages>
+
+</santa-app>
 
 </template>
 

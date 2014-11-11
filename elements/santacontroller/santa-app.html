@@ -1,0 +1,167 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<!-- Analytics -->
+<script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
+
+<!-- TODO; get rid of this. Really only need for getUrlParameter() -->
+<script src="../../js/consts.js"></script>
+
+<script src="../../js/analytics.js"></script>
+<script src="../../js/visibilitymanager.js"></script>
+<script src="../../js/soundcontroller.js"></script>
+
+<script src="../../js/statuses/picker.js"></script>
+
+<!-- Santa API -->
+<script src="../../js/service/events.js"></script>
+<script src="../../js/service/lat_lng.js"></script>
+<script src="../../js/service/spherical.js"></script>
+<script src="../../js/service/details.js"></script>
+<script src="../../js/service/location.js"></script>
+<script src="../../js/service/state.js"></script>
+<script src="../../js/service/transport.js"></script>
+<script src="../../js/service/santa_client.js"></script>
+
+<!-- Houses/pin metadata -->
+<link rel="import" href="../../js/houses.html">
+
+<!--
+Santa Track app.
+
+@element santa-app
+-->
+<polymer-element name="santa-app" attributes="language houses countDownEndDate"
+                 on-analytics-track-event="{{trackEvent}}"
+                 on-analytics-track-social="{{trackSocial}}">
+<script>
+(function() {
+
+var COUNTDOWN_END_DATE_ = 1419415200000; // Dec 24, 2014
+
+var FLIGHT_FINISHED_ = COUNTDOWN_END_DATE_ + 25 * 60 * 60 * 1000;
+
+Polymer({
+
+  /**
+   * When Santa's flight is finished.
+   *
+   * @property FLIGHT_FINISHED
+   * @type number
+   * @default COUNTDOWN_END_DATE + 25 * 60 * 60 * 1000
+   * @const
+   */
+  FLIGHT_FINISHED: FLIGHT_FINISHED_,
+
+  /**
+   * The house meta data shared across scenes.
+   *
+   * @attribute houses
+   * @type array
+   * @default []
+   */
+   houses: [],
+
+  /**
+   * The current language locale.
+   *
+   * @attribute language
+   * @type string
+   * @default 'en'
+   */
+  language: document.documentElement.lang || 'en',
+
+  /**
+   * When Santa's flight is finished.
+   *
+   * @attribute countDownEndDate
+   * @type number
+   * @default 1419415200000
+   */
+   countDownEndDate: COUNTDOWN_END_DATE_,
+
+  /**
+   * Analytics service.
+   *
+   * @property analyticsService
+   * @type Analytics
+   * @default null
+   */
+  analyticsService: null,
+
+  ready: function() {
+    this.analyticsService = new Analytics();
+
+    this.houses = window.HOUSES;
+    delete window.HOUSES; // cleanup
+
+    var sc = new SoundController();
+    this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
+    this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
+    this.addEventListener('sound-trigger', sc.playSound.bind(sc));
+
+    var apiClient = getUrlParameter('api_client') || 'web';
+
+    this.santaService = new SantaService(apiClient, this.language);
+    this.santaService.addListener('kill', function() {
+      window.location = 'error.html';
+    });
+
+    if (this.santaService.now() > this.countDownEndDate) {
+      if (this.santaService.now() < this.FLIGHT_FINISHED) {
+        this.postCountdown();
+      } else {
+        this.postFlight();
+      }
+    }
+  },
+
+  languageChanged: function() {
+    this.santaService.lang_ = this.language;
+  },
+
+  trackEvent: function(e, detail, sender) {
+    this.analyticsService.trackEvent(
+        detail.category, detail.action, detail.label);
+  },
+
+  trackSocial: function(e, detail, sender) {
+    this.analyticsService.trackSocial(
+        detail.network, detail.action, detail.target);
+  },
+
+  /**
+   * When the flight finishes, redirect the user to the village.
+   * @private
+   */
+  postFlight: function() {
+    if (document.body.classList.contains('postflight')) {
+      return;
+    }
+
+    document.body.classList.switch('posttakeoff', 'postflight');
+
+    // TODO(lukem): lock houses that need locking.
+  },
+
+  /**
+   * When the countdown finishes, redirect the user to the tracker.
+   * @private
+   */
+  postCountdown: function() {
+    if (this.santaService.now() > this.FLIGHT_FINISHED) {
+      this.postFlight();
+      return;
+    }
+
+    if (document.body.classList.contains('posttakeoff')) {
+      return;
+    }
+
+    document.body.classList.add('posttakeoff');
+  }
+
+});
+
+})();
+</script>
+</polymer-element>

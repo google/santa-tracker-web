@@ -4,67 +4,32 @@ var DEFAULT_ROUTE = 'village';
 
 window.santatracker = {};
 
-/**
- * @const
- * @type {number}
- */
-window.santatracker.COUNTDOWN_END_DATE = 1419415200000; // Dec 24, 2014
-
-/**
- * @const
- * @type {number}
- */
-window.santatracker.FLIGHT_FINISHED =
-    window.santatracker.COUNTDOWN_END_DATE + 25 * 60 * 60 * 1000;
-
-/**
- * @type {!MuteState}
- */
-//window.santatracker.muteState = new MuteState;
-
 window.santatracker.setup = function() {
   window.santatracker.visibility = new VisibilityManager();
-  window.santatracker.analytics = new Analytics();
 
   window.santatracker.addErrorHandler();
+
   if (!window.santatracker.isValidDomain()) {
     window.location.pathname = '';
     return;
   }
 
-  window.santatracker.checkLang();
   window.santatracker.setupForCast();
-
-  window.santatracker.controller = new SantaController(window.santatracker.lang,
-      window.santatracker, window.santatracker.analytics);
-
-  // Sound setup
-  var soundController = new SoundController();
-  // TODO(bckenny): for now, add listeners to document, but preferably do this
-  // declaratively
-  document.addEventListener('sound-preload', soundController.loadSounds
-      .bind(soundController));
-  document.addEventListener('sound-ambient', soundController.playAmbientSounds
-      .bind(soundController));
-  document.addEventListener('sound-trigger', soundController.playSound
-      .bind(soundController));
 
   // Routing setup is done last.
   var template = document.querySelector('#t');
   template.addEventListener('template-bound', function(e) {
-    // Wait one rAF to set route. Firefoxs needs this, no other browsers do :\
+    window.santaApp = document.querySelector('santa-app');
+
+    santaApp.language = getUrlParameter('hl') || santaApp.language;
+
+    // Wait one rAF to set route. Firefox needs this, no other browsers do :\
     this.async(function() {
       this.route = this.route || DEFAULT_ROUTE;
     });
 
-    this.$.lazypages.santaService = window.santatracker.controller.getService();
-    this.$.lazypages.analyticsService = window.santatracker.analytics;
+    this.$.lazypages.santaService = window.santaApp.santaService;
     this.$.lazypages.visibilityService = window.santatracker.visibility;
-
-    this.$.lazypages.houses = window.HOUSES;
-    delete window.HOUSES; // cleanup
-
-    this.countDownEndDate = window.santatracker.COUNTDOWN_END_DATE;
   });
 
   template.onRouteChange = function(e) {
@@ -79,17 +44,6 @@ window.santatracker.setup = function() {
         // TODO(ericbidelman): validate route. If does note exist, redirect to village.
     };
   };
-};
-
-window.santatracker.checkLang = function() {
-  var lang = document.documentElement.lang;
-  if (window['DEV']) {
-    // Force the language using the "hl" parameter when testing.
-    // Useful for sending a different language to the API.
-    lang = getUrlParameter('hl') || lang;
-  }
-
-  window.santatracker.lang = lang;
 };
 
 window.santatracker.isValidDomain = function() {
@@ -154,8 +108,9 @@ window.santatracker.addErrorHandler = function() {
     // We don't want to trigger any errors inside window.onerror otherwise
     // things will get real bad, real quick.
     try {
-      window.santatracker.analytics.trackEvent('error', file + ':' + lineNumber,
-        '' + message);
+      window.santaApp.fire('analytics-track-event', {
+          category: 'error', action: file + ':' + lineNumber,
+          label: '' + message});
     } catch (e){}
   };
 };

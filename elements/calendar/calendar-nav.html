@@ -141,6 +141,26 @@ Village calendar navigation.
 
       componentDir: 'elements/calendar/',
 
+      /**
+       * Fired when a general tracking event should be recorded in analytics.
+       *
+       * @event analytics-track-event
+       * @param {Object} detail
+       *   @param {string} detail.category
+       *   @param {string} detail.action
+       *   @param {string} detail.label
+       */
+
+      /**
+       * Fired when a social/share should be recorded in analytics.
+       *
+       * @event analytics-track-social
+       * @param {Object} detail
+       *   @param {string} detail.network
+       *   @param {string} detail.action
+       *   @param {string} detail.target
+       */
+
       housesChanged: function() {
         this.firstFour = this.houses.slice(0, 4);
         this.regularSchedule = this.houses.slice(4);
@@ -169,7 +189,8 @@ Village calendar navigation.
       trackOutboundLink: function(e, detail, sender) {
         e.preventDefault();
 
-        this.analyticsService.trackEvent('outbound', 'click', sender.href);
+        this.fire('analytics-track-event', {category: 'outbound', action: 'click',
+                                            label: sender.href});
 
         this.async(function() {
           document.location.href = sender.href;
@@ -190,7 +211,7 @@ Village calendar navigation.
 
           this.async(function() {
             this.scrollable = true;
-          }, null, this.TIMEOUT);
+          }, null, this.TIMEOUT_DELAY);
         });
 
         this.playSound('menu_open');
@@ -212,49 +233,14 @@ Village calendar navigation.
         this.visibilityService && this.visibilityService.resume();
       },
 
-      /**
-       * @private
-       */
-      addLanguageSelectEvents_: function() {
-        /*
-        $('#select-lang').on('click', function(e) {
-          $('#page-language').show();
-          e.preventDefault(); // necessary for standalone village, but not web.
-        });
-
-        // Prevent a click on the language select from closing the form.
-        $('#language-content').on('click', function(e) {
-          return false;
-        });
-
-        var hidePopup = function() {
-          $('#page-language').hide();
-          return false;
-        };
-
-        $('#page-language').on('click', hidePopup);
-        $('#close-lang').on('click', hidePopup);
-
-        $('#language').val(window.santatracker.lang);
-
-        $('#language').on('change', function() {
-          var lang = $(this).val();
-          window.santatracker.analytics.trackEvent('language', 'click', 'change',
-              lang);
-          window.setTimeout(function() {
-            window.location = '/intl/' + lang + '/santatracker/' +
-                window.location.hash;
-          }, 100);
-        });
-        */
-      },
-
-
       shareGplus: function(e) {
         e.preventDefault();
 
-        this.analyticsService.trackSocial('googleplus', 'share',
-            'http://www.google.com/santatracker');
+        this.fire('analytics-track-social', {
+          network: 'googleplus', action: 'share',
+          target: 'http://www.google.com/santatracker'
+        });
+
         this.openPage_('https://plus.google.com/share?url=' +
                        encodeURIComponent('http://www.google.com/santatracker'));
       },
@@ -262,8 +248,10 @@ Village calendar navigation.
       shareFB: function(e) {
         e.preventDefault();
 
-        this.analyticsService.trackSocial('facebook', 'share',
-            'http://www.google.com/santatracker');
+        this.fire('analytics-track-social', {
+          network: 'facebook', action: 'share',
+          target: 'http://www.google.com/santatracker'
+        });
 
         this.openPage_('http://www.facebook.com/sharer.php?u=' +
                        encodeURIComponent('http://www.google.com/santatracker') +
@@ -274,8 +262,10 @@ Village calendar navigation.
       shareTwitter: function(e) {
         e.preventDefault();
 
-        this.analyticsService.trackSocial('twitter', 'share',
-            'http://www.google.com/santatracker');
+        this.fire('analytics-track-social', {
+          network: 'twitter', action: 'share',
+          target: 'http://www.google.com/santatracker'
+        });
 
         this.openPage_('http://twitter.com/share?text=' +
                        encodeURIComponent('Google Santa Tracker - ' +

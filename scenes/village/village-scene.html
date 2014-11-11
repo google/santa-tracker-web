@@ -10,7 +10,7 @@ Village scene.
 @element village-scene
 @extends base-scene
 -->
-<polymer-element name="village-scene" extends="base-scene" attributes="countDownEndDate">
+<polymer-element name="village-scene" extends="base-scene" attributes="countDownEndDate houses">
 <template>
   <link rel="stylesheet" href="village-scene.css" no-shim>
 
@@ -80,8 +80,8 @@ Village scene.
             </template>
 
             <div id="garage">
-              <div class="elf elf-red-girl-right"></div>   
-              <div class="elf elf-blue-left"></div>    
+              <div class="elf elf-red-girl-right"></div>
+              <div class="elf elf-blue-left"></div>
               <div class="elf elf-green"></div>
             </div>
 
@@ -264,6 +264,16 @@ Village scene.
      * @default null
      */
 
+    /**
+     * Fired when a general tracking event should be recorded in analytics.
+     *
+     * @event analytics-track-event
+     * @param {Object} detail
+     *   @param {string} detail.category
+     *   @param {string} detail.action
+     *   @param {string} detail.label
+     */
+
     created: function() {
       this.trees = [];
       this.treesBg = new Array(28);
@@ -356,7 +366,7 @@ Village scene.
       this.$.snowman.classList.add('snowman-fall');
       this.playSound('village_snowman_click');
 
-      this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'snowman');
+      this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'snowman'});
 
       // Lets be nice and bring the snowman back.
       this.async(function() {
@@ -370,7 +380,7 @@ Village scene.
         return;
       }
 
-      this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'balloon');
+      this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'balloon'});
 
       this.playSound('village_balloon_click');
 
@@ -411,26 +421,27 @@ Village scene.
     onSendBusToStop: function(e, detail, sender) {
       var stopId = parseInt(sender.id.split('busstop')[1]);
 
-      this.analyticsService && this.analyticsService.trackEvent('village', 'click',
-                                                                'busstop' + stopId);
+      this.fire('analytics-track-event', {category: 'village', action: 'click',
+                                          label: 'busstop' + stopId});
+
       this.villageBus_.sendBusToStop(stopId);
     },
 
     onDriveSnowMobile: function(e, detail, sender) {
       var snowMobileId = parseInt(sender.id.split('snowmobile')[1]);
 
-      this.analyticsService && this.analyticsService.trackEvent('village', 'click',
-                                                                'snowmobile' + snowMobileId);
+      this.fire('analytics-track-event', {category: 'village', action: 'click',
+                                          label: 'snowmobile' + snowMobileId});
 
       this.villageSnowMobile_.driveSnowMobile(sender);
     },
 
     onFakeElementClick: function(e, detail, sender) {
       if (sender.id == 'fakesun') {
-        this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'sun');
+        this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'sun'});
         this.timeOfDay = 'night';
       } else if (sender.id == 'fakemoon') {
-        this.analyticsService && this.analyticsService.trackEvent('village', 'click', 'moon');
+        this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'moon'});
         this.timeOfDay = 'day';
       }
     },
