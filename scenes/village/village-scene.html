@@ -1,4 +1,5 @@
 <link rel="import" href="../base-scene.html">
+<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
 
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
 
@@ -14,6 +15,7 @@ Village scene.
 <template>
   <link rel="stylesheet" href="village-scene.css" no-shim>
 
+  <core-a11y-keys target="{{}}" keys="up down left right" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
   <div id="module-village" fit>
     <div id="village-wrapper" fit>
 
@@ -31,7 +33,7 @@ Village scene.
         <!-- <h2>Until Santa Departs &ndash; <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">Learn More</a></h2> -->
         <h2>Until Santa Departs &ndash; <a href="//www.google.com/santatracker/about.html">Learn More</a></h2>
         <div id="finished-tracker">
-          <a href="#/tracker/dashboard"><!----></a>
+          <a href="{{baseURI}}#tracker"><!----></a>
         </div>
         <h2 style="display:none">Santa's finished his journey for the year! He and the elves are still having some fun in the North Pole before their annual vacation.</h2>
       </div>
@@ -611,6 +613,58 @@ Village scene.
       // Check again at the next hour tick.
       var timeTillHour = (60 - date.getMinutes()) * 60 * 1000;
       this.scheduleTimeout_ = this.async(this.checkSchedule_, null, timeTillHour);
+    },
+
+    arrowHandler: function(e, detail, sender) {
+      var direction = 0;
+      if (detail.key === 'up' || detail.key === 'left') {
+        direction = -1;
+      } else if (detail.key === 'down' || detail.key === 'right') {
+        direction = 1;
+      } else {
+        return;
+      }
+
+      // debounce so only done once per rAF
+      this.job('arrowMarkerMove', function() {
+        // polyfill doesn't support this.shadowRoot.activeElement. Remove
+        // fallback to document.activeElement when
+        // https://github.com/Polymer/ShadowDOM/issues/478 is fixed
+        var activeElement = this.shadowRoot.activeElement ?
+        this.shadowRoot.activeElement : document.activeElement;
+        var currentMarker;
+        if (activeElement && activeElement.classList.contains('house-marker')) {
+          currentMarker = activeElement;
+        }
+
+        var markers = [].slice.call(
+        this.$.houses.querySelectorAll('.house-marker[tabindex="0"]'));
+        var newIndex = -1;
+
+        if (currentMarker) {
+          var index = markers.indexOf(currentMarker);
+          if (index !== -1 && markers[index + direction]) {
+            newIndex = index + direction;
+          }
+        } else {
+          // markers' DOM order and display order may be different so can't
+          // bisect. just do a linear search
+          var windowMiddle = window.innerWidth / 2;
+          var closestDistance = Number.MAX_VALUE;
+          for (var i = 0; i < markers.length; i++) {
+            var distance = Math.abs(markers[i].getBoundingClientRect().left -
+            windowMiddle);
+            if (distance < closestDistance) {
+              closestDistance = distance;
+              newIndex = i;
+            }
+          }
+        }
+
+        if (markers[newIndex]) {
+          markers[newIndex].focus();
+        }
+      });
     },
 
     onPreload: function() {
