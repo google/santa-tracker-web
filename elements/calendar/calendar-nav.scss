@@ -555,21 +555,21 @@ $cardColor: #6541a4;
             width: 26px;
             height: 25px;
             margin-left: -13px;
-            background-position: -1462px -250px;
+            background: url(img/plus.svg) no-repeat;
           }
 
           &.fb i {
             width: 11px;
             height: 23px;
             margin-left: -5px;
-            background-position: -630px -426px;
+            background: url(img/facebook.svg) no-repeat;
           }
 
           &.twitter i {
             width: 25px;
             height: 21px;
             margin-left: -12px;
-            background-position: -203px -427px;
+            background: url(img/twitter.svg) no-repeat;
           }
         }
 
