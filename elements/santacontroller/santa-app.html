@@ -30,7 +30,7 @@ Santa Track app.
 
 @element santa-app
 -->
-<polymer-element name="santa-app" attributes="language houses countDownEndDate"
+<polymer-element name="santa-app" attributes="language houses countDownEndDate selectedScene"
                  on-analytics-track-event="{{trackEvent}}"
                  on-analytics-track-social="{{trackSocial}}">
 <script>
@@ -51,6 +51,35 @@ Polymer({
    * @const
    */
   FLIGHT_FINISHED: FLIGHT_FINISHED_,
+
+  // TODO(bckenny): right now, event.data values are "left", "right",
+  // "up", "down", "return", "space". Finalize these.
+  CAST_KEY_MAPPING_: {
+    left: {
+      keyIdentifier: 'Left',
+      key: 'ArrowLeft'
+    },
+    right: {
+      keyIdentifier: 'Right',
+      key: 'ArrowRight'
+    },
+    up: {
+      keyIdentifier: 'Up',
+      key: 'ArrowUp'
+    },
+    down: {
+      keyIdentifier: 'Down',
+      key: 'ArrowDown'
+    },
+    return: {
+      keyIdentifier: 'Enter',
+      key: 'Enter'
+    },
+    space: {
+      keyIdentifier: ' ',
+      key: 'U+0020'
+    }
+  },
 
   /**
    * The house meta data shared across scenes.
@@ -106,6 +135,10 @@ Polymer({
       window.location = 'error.html';
     });
 
+    if (apiClient === 'web_chromecast') {
+      this.initChromecast();
+    }
+
     if (this.santaService.now() > this.countDownEndDate) {
       if (this.santaService.now() < this.FLIGHT_FINISHED) {
         this.postCountdown();
@@ -117,6 +150,59 @@ Polymer({
 
   languageChanged: function() {
     this.santaService.lang_ = this.language;
+  },
+
+  initChromecast: function() {
+    // TODO(bckenny): remove noisy chromecast debugging logging
+    // dynamically import the Cast Reciever SDK if in chromecast mode
+    Polymer.import(['../../js/chromecast.html'], function(e) {
+      // `cast` is added to global scope by SDK
+      var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
+      console.log('Starting Cast Receiver Manager');
+      castReceiverManager.onReady = function(event) {
+        console.log('Received Cast Ready event: ' + JSON.stringify(event.data));
+        castReceiverManager.setApplicationState('Santa Tracker');
+      };
+      castReceiverManager.onSenderConnected = function(event) {
+        console.log('Received Cast Sender Connected event: ' + event.data);
+        console.log(castReceiverManager.getSender(event.data).userAgent);
+      };
+      castReceiverManager.onSenderDisconnected = function(event) {
+        console.log('Received Cast Sender Disconnected event: ' + event.data);
+        if (castReceiverManager.getSenders().length === 0 &&
+          event.reason ===
+              cast.receiver.system.DisconnectReason.REQUESTED_BY_SENDER) {
+            window.close();
+        }
+      };
+      castReceiverManager.onSystemVolumeChanged = function(event) {
+        console.log('Received Cast System Volume Changed event: ' +
+            event.data.level + ' ' + event.data.muted);
+      };
+
+      var messageBus = castReceiverManager
+          .getCastMessageBus('urn:x-cast:com.google.cast.santatracker');
+      messageBus.onMessage = function(event) {
+        console.log('Message [' + event.senderId + ']: ' + event.data);
+
+        // fire KeyboardEvent on current scene
+        // since this is Chromecast only, we can assume it supports the modern
+        // KeyboardEvent constructor and skip the initKeyboardEvent silliness
+        var keyDetails = this.CAST_KEY_MAPPING_[event.data];
+        if (keyDetails) {
+          var e = new KeyboardEvent('keydown', {
+            bubbles: true,
+            cancelable: true,
+            keyIdentifier: keyDetails.keyIdentifier,
+            key: keyDetails.key
+          });
+          this.selectedScene.dispatchEvent(e);
+        }
+      };
+
+      castReceiverManager.start({statusText: 'Santa Tracker is starting'});
+      console.log('Cast Receiver Manager started');
+    }.bind(this));
   },
 
   trackEvent: function(e, detail, sender) {

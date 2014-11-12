@@ -21,6 +21,7 @@ window.santatracker.setup = function() {
   template.addEventListener('template-bound', function(e) {
     window.santaApp = document.querySelector('santa-app');
 
+    // TODO(bckenny): move language detection inside of santaApp
     santaApp.language = getUrlParameter('hl') || santaApp.language;
 
     // Wait one rAF to set route. Firefox needs this, no other browsers do :\
