@@ -2,6 +2,7 @@ $name: 'module-nav';
 
 @import "compass/css3/transform";
 @import "compass/css3/transition";
+@import "../../scenes/shared/sass/_mixins.scss";
 
 $navMarkerSpriteGap: 120px;
 $navMarkerSpriteUnlockedY: -120px;
@@ -16,9 +17,7 @@ $backButtonWidth: 160px;
 $headerFooterColor: #6f41a4;
 $cardColor: #6541a4;
 
-#global-nav .nav-santa-icon, #global-nav .nav-santa-bar,
-#close-lang, .share, .gplus i, .share .fb i, .share .twitter i,
-#sound a i {
+#close-lang, .share, .gplus i, .share .fb i, .share .twitter i {
   background-image: url(../../scenes/village/img/assets_sprite.png);
   background-repeat: no-repeat;
   background-size: 1934px 463px;
@@ -90,20 +89,18 @@ $cardColor: #6541a4;
 
     .nav-santa-icon, .nav-santa-bar {
       height: 100%;
-      background-color: #e61f2d;
-      background-image: url(../../scenes/village/img/assets_sprite.png);
     }
 
     .nav-santa-icon {
       width: 44px;
       border-top-left-radius: 50%;
       border-bottom-left-radius: 50%;
-      background-position: -1873px -65px;
+      background: #e61f2d url(img/santa-icon.svg) 50% 50%/26px 35px no-repeat;
     }
 
     .nav-santa-bar {
       width: 35px;
-      background-position: -1036px -241px;
+      background: #e61f2d url(img/santa-bar.svg) 50% 50%/16px 19px no-repeat;
     }
   }
 
@@ -127,8 +124,8 @@ $cardColor: #6541a4;
       width: $backButtonWidth;
       line-height: 84px;
       padding: 0 0 0 $headerPadding;
-      background: url(img/village-nav-bg.png) 50% 100% no-repeat,
-                  url(img/back-arrow.png) 10px 50% no-repeat;
+      background: url(img/village-nav-bg.svg) 50% 100%/204px 45px no-repeat,
+                  url(img/back-arrow.svg) 10px 50%/31px 31px no-repeat;
     }
 
     paper-tabs {
@@ -311,9 +308,6 @@ $cardColor: #6541a4;
     right: 0;
     position: absolute;
     overflow: hidden;
-  }
-
-  &.scrollable #global-nav-content {
     overflow-y: auto;
     overflow-x: hidden;
   }
@@ -609,20 +603,19 @@ $cardColor: #6541a4;
       float: left;
       width: 31px;
       height: 30px;
-      background-image: url(../../scenes/village/img/assets_sprite.png);
-      background-position: -1445px -72px;
+      background: url(img/sound-on.svg) 50% 50% no-repeat;
     }
 
     &.off {
       i {
-        background-position: -1476px -72px;
+        background: url(img/sound-off.svg) 50% 50% no-repeat;
       }
     }
   }
 }
 
 
-@media
+/*@media
   only screen and (-webkit-min-device-pixel-ratio: 1.25),
   only screen and ( min--moz-device-pixel-ratio: 1.25),
   only screen and ( -o-min-device-pixel-ratio: 1.25/1),
@@ -630,6 +623,6 @@ $cardColor: #6541a4;
   only screen and ( min-resolution: 200dpi),
   only screen and ( min-resolution: 1.25dppx) {
   @import "sass/hdpi";
-}
+}*/
 
 }

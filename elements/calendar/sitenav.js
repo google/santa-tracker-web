@@ -54,12 +54,9 @@ SiteNavImpl.prototype.open = function() {
   $('#global-nav-content').scrollTop(0);
   $('#global-nav-header ul li a').first().click();
 
-  $('#global-nav').removeClass('closed closing scrollable').addClass('opening');
+  $('#global-nav').removeClass('closed closing').addClass('opening');
   window.setTimeout(function() {
     $('#global-nav').addClass('opened');
-    window.setTimeout(function() {
-      $('#global-nav').addClass('scrollable');
-    }, 300 + (24 * 42));
   }, 0);
 
   Klang.triggerEvent('menu_open');
@@ -69,7 +66,7 @@ SiteNavImpl.prototype.open = function() {
 SiteNavImpl.prototype.close = function() {
   if (!this.open_) return;
   this.open_ = false;
-  $('#global-nav').removeClass('opening opened scrollable').addClass('closing');
+  $('#global-nav').removeClass('opening opened').addClass('closing');
   this.closeTimeout_ = window.setTimeout(function() {
     $('#global-nav').addClass('closed');
   }, 300 + (24 * 42));

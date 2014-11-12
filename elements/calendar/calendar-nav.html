@@ -57,7 +57,7 @@ Village calendar navigation.
                          class="card calendar scene video play learn">
                       <template repeat="{{house, i in firstFour}}">
                         <a href="{{baseURI}}#{{house.module}}" on-click="{{onCalendarClick}}">
-                          <div class="menu-marker calendar {{house.category}}" style="background-image:url({{componentBaseDir}}img/menu-{{house.module}}.svg);"></div>
+                          <div class="menu-marker marker1 calendar {{house.category}}" style="background-image:url({{componentBaseDir}}img/menu-{{house.module}}.svg);"></div>
                         </a>
                       </template>
                     </div>
@@ -138,7 +138,7 @@ Village calendar navigation.
       closed: true,
       closing: false,
 
-      TIMEOUT_DELAY: 300 + (24 * 42),
+      TIMEOUT_DELAY: 300 + (25 * 42),
 
       componentDir: 'elements/calendar/',
 
@@ -204,15 +204,11 @@ Village calendar navigation.
         this.$['global-nav-content'].scrollTop = 0;
         this.$.tabs.selected = 'calendar';
 
-        this.closed = this.closing = this.scrollable = false;
+        this.closed = this.closing = false;
         this.opening = true;
 
         this.async(function() {
           this.opened = true;
-
-          this.async(function() {
-            this.scrollable = true;
-          }, null, this.TIMEOUT_DELAY);
         });
 
         this.playSound('menu_open');
@@ -221,7 +217,7 @@ Village calendar navigation.
       },
 
       onHide: function() {
-        this.opening = this.opened = this.scrollable = false;
+        this.opening = this.opened = false;
         this.closing = true;
 
         this.closeTimeout_ = this.async(function() {
