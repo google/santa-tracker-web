@@ -112,3 +112,4 @@ VillagePegman.prototype.pickupPegman_ = function() {
 
   window.setTimeout(this.skyDive_.bind(this), t);
 };
+
