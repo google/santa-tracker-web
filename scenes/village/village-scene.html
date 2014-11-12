@@ -20,13 +20,13 @@ Village scene.
       <div id="countdown" layout vertical center relative
                           class="{{ {finished: finished} | tokenList}}">
         <h1 class="logo">Google</h1>
-        <h1><i18n-msg msgid="santatracker_msg_id">Santa Tracker</i18n-msg></h1>
+        <h1><i18n-msg msgid="santatracker">Santa Tracker</i18n-msg></h1>
         <countdown-timer id="count" santaService="{{santaService}}"
                          finished="{{finished}}" countDownEndDate="[[countDownEndDate]]">
-          <h3><i18n-msg msgid="days_msg_id">Days</i18n-msg></h3>
-          <h3><i18n-msg msgid="hours_msg_id">Hours</i18n-msg></h3>
-          <h3><i18n-msg msgid="minutes_msg_id">Minutes</i18n-msg></h3>
-          <h3><i18n-msg msgid="seconds_msg_id">Seconds</i18n-msg></h3>
+          <h3><i18n-msg msgid="days">Days</i18n-msg></h3>
+          <h3><i18n-msg msgid="hours">Hours</i18n-msg></h3>
+          <h3><i18n-msg msgid="minutes">Minutes</i18n-msg></h3>
+          <h3><i18n-msg msgid="seconds">Seconds</i18n-msg></h3>
         </countdown-timer>
         <!-- <h2>Until Santa Departs &ndash; <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">Learn More</a></h2> -->
         <h2>Until Santa Departs &ndash; <a href="//www.google.com/santatracker/about.html">Learn More</a></h2>
