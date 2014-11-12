@@ -35,7 +35,7 @@ Subclass scene elements can define the following properties:
   }
 </style>
 
-<polymer-element name="base-scene" attributes="active alwaysActive path route visibilityService">
+<polymer-element name="base-scene" tabindex="0" attributes="active alwaysActive path route visibilityService">
   <script>
     Polymer({
       publish: {
@@ -246,6 +246,9 @@ Subclass scene elements can define the following properties:
         if (this.active) {
           this.onShow && this.onShow();
           this.hidden = false;
+
+          // focus in case element needs keyboard events
+          this.focus();
         }
       },
 
