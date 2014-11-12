@@ -34,14 +34,14 @@ Village calendar navigation.
         </div>
         <div id="global-nav-body">
           <div id="global-nav-header" layout horizontal center-center>
-            <a id="global-back-to-village" href="{{baseURI}}#village" title="Go to the Village" class="back">Go to the Village</a>
+            <a id="global-back-to-village" href="{{baseURI}}#village" title="Go to the Village" class="back"><i18n-msg msgid="gotovillage">Go to the Village</i18n-msg></a>
             <paper-tabs id="tabs" valueattr="filterOn" selected="{{filterOn}}"
                         on-core-activate="{{onNavSelect}}">
-              <paper-tab filterOn="calendar">The Calendar</paper-tab>
-              <paper-tab filterOn="watch">Watch</paper-tab>
-              <paper-tab filterOn="play">Play</paper-tab>
-              <paper-tab filterOn="learn">Learn</paper-tab>
-              <paper-tab on-tap="{{onTheGo}}">Santa on the go</paper-tab>
+              <paper-tab filterOn="calendar"><i18n-msg msgid="calendar">The Calendar</i18n-msg></paper-tab>
+              <paper-tab filterOn="watch"><i18n-msg msgid="watch">Watch</i18n-msg></paper-tab>
+              <paper-tab filterOn="play"><i18n-msg msgid="play">Play</i18n-msg></paper-tab>
+              <paper-tab filterOn="learn"><i18n-msg msgid="learn">Learn</i18n-msg></paper-tab>
+              <paper-tab on-tap="{{onTheGo}}"><i18n-msg msgid="onthego">Santa on the go</i18n-msg></paper-tab>
             </paper-tabs>
           </div>
 
@@ -112,12 +112,12 @@ Village calendar navigation.
           &bull;
           <a href="http://www.google.com/policies/">Terms &amp; Privacy</a>
           &bull; -->
-          <a href="http://maps.google.com/help/maps/helloworld/index.html">Get Google Maps</a>
+          <a href="http://maps.google.com/help/maps/helloworld/index.html"><i18n-msg msgid="getgooglemaps">Get Google Maps</i18n-msg></a>
         </div>
       </div>
 
       <div id="site-nav">
-        <h2>Santa Tracker</h2>
+        <h2><i18n-msg msgid="santatracker">Santa Tracker</i18n-msg></h2>
         <div class="share">
           <ul>
             <li><a href="#" class="gplus" on-click="{{shareGplus}}"><i>Google+</i></a></li>
