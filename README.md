@@ -1,5 +1,7 @@
-santatracker
+Google Santa Tracker
 ============
+
+# Setup
 
 You'll need node installed, then bower (`npm install -g bower`).
 
@@ -16,3 +18,7 @@ served out of `./dist`.
 
 To wrap source files for serving via crazy django-like servers, use `gulp wrap`
 to build.
+
+# Design 
+
+TODO
