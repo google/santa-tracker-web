@@ -7,7 +7,50 @@
     position: absolute;
     bottom: 0;
     float: left;
-    .building, .house-snow, .house-elves {
+
+    &.current {
+      .house-marker {
+        @include transform(scale3d(1.5, 1.5, 1));
+        -webkit-transform-origin: 50% 100%;
+        transform-origin: 50% 100%;
+
+        &:focus {
+          @include animation(bigbounce 600ms linear infinite !important);
+        }
+      }
+
+      &:hover {
+        .house-marker {
+          @include animation(bigbounce 600ms linear infinite !important);
+        }
+      }
+
+      .marker-next {
+        display: block;
+        background-image: url(img/new-banner.svg);
+        height: 80px;
+        width: 140px;
+        z-index: 15;
+        left: -44px;
+
+        > * {
+          line-height: 28px;
+          position: relative;
+          color: #fff;
+          text-align: center;
+          width: 100%;
+          display: inline-block;
+          text-transform: uppercase;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .marker-next {
+      display: none;
+    }
+
+    .building, .house-snow, .house-elves, .marker-next {
       position: absolute;
       background-repeat: no-repeat;
       background-position: 0 0;
@@ -169,7 +212,7 @@
 
   #balloon {
     position: absolute;
-    background: url(img/balloon.svg) no-repeat;    
+    background: url(img/balloon.svg) no-repeat;
     width: 235px;
     height: 269px;
     bottom: -2px;

@@ -76,9 +76,9 @@ Village scene.
                     </template>
                   </div>
                 </div>
-                <a href="{{baseURI}}#{{house.module}}" class="house-marker" tabindex="{{house.iced || house.disabled ? -1 : 0}}"
-                   on-click="{{onHouseClick}}"></a>
-                </a>
+                <div class="marker-next"><div><i18n-msg msgid="newtoday">New Today</i18n-msg></div></div>
+                <a href="{{baseURI}}#{{house.module}}" class="house-marker"
+                   tabindex="{{house.iced || house.disabled ? -1 : 0}}" on-click="{{onHouseClick}}"></a>
               </div>
             </template>
 
@@ -579,19 +579,18 @@ Village scene.
       var now = this.santaService ? this.santaService.now() : Date.now();
 
       var date = new Date(now);
-      // TODO: Remove this hack before the 2014 release.
-      // Hard coding the date to the 30th so houses don't refreeze in January.
-      var day = 31;
-      // var day = date.getDate();
+      var day = date.getDate();
 
-      // Houses unlock at 6am
+      // Houses unlock at 6AM.
       if (date.getHours() < 6) {
         day--;
       }
 
-      // We don't want users still in November seeing all the Houses unlocked.
+      var NOVEMBER = 10;
+
+      // We don't want users still in November seeing all the houses unlocked.
       // The site will be shut down before November the following year.
-      if (day >= this.scheduleDay_ && date.getMonth() != 10) {
+      if (day >= this.scheduleDay_ && date.getMonth() != NOVEMBER) {
         for (var i = this.scheduleDay_; i <= day; ++i) {
           // var houseIdx = this.SCHEDULE_[i - 1];
           // if (!houseIdx) {

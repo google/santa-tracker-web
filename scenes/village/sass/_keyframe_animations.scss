@@ -26,6 +26,16 @@
   100%  { @include transform(translateY(0)); }
 }
 
+@include keyframes(bigbounce) {
+  0%    { @include transform(translateY(0) scale3d(1.5,1.5,1)); }
+  25%   { @include transform(translateY(-40px * .9) scale3d(1.5,1.5,1)); }
+  35%   { @include transform(translateY(-40px * .95) scale3d(1.5,1.5,1)); }
+  50%   { @include transform(translateY(-40px * 1) scale3d(1.5,1.5,1)); }
+  65%   { @include transform(translateY(-40px * .95) scale3d(1.5,1.5,1)); }
+  75%   { @include transform(translateY(-40px * .9) scale3d(1.5,1.5,1)); }
+  100%  { @include transform(translateY(0) scale3d(1.5,1.5,1)); }
+}
+
 @include keyframes(skydive) {
   0% {
     @include transform(rotateZ(0) translateY(-1000px) translateX(-80px));
