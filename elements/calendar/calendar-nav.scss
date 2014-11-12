@@ -52,6 +52,9 @@ $cardColor: #6541a4;
         background-image: url(img/onthego.png);
         background-repeat: no-repeat;
         background-size: 594px 147px;
+        @include media-hdpi(2) {
+          background-image: url(img/onthego_2x.png);
+        }
         width: 147px;
         height: 147px;
       }
@@ -138,6 +141,7 @@ $cardColor: #6541a4;
       padding: 0 $headerPadding + $backButtonWidth;
 
       paper-tab {
+        cursor: pointer;
         &.core-selected {
           color: #fff;
           opacity: 1;
