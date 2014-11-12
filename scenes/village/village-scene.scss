@@ -6,6 +6,7 @@ $name: 'module-village';
 @import "sass/variables";
 @import "sass/animations";
 @import "sass/keyframe_animations";
+@import "../shared/sass/_mixins.scss";
 
 .touch {
   ##{$name} {
@@ -129,8 +130,12 @@ $name: 'module-village';
       left: 0;
       right: 0;
       background: #fff;
-      height: 143px;
+      height: 158px;
       z-index: 10;
+
+      @include media-hdpi(2) {
+        height: 143px;
+      }
     }
 
     .snow-flake {
