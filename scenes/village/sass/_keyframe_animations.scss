@@ -26,6 +26,24 @@
   100%  { @include transform(translateY(0)); }
 }
 
+@include keyframes(skydive) {
+  0% {
+    @include transform(rotateZ(0) translateY(-1000px) translateX(-80px));
+  }
+  30% {
+    @include transform(rotateZ(0) translateY(-380px) translateX(-80px));
+  }
+  31% {
+    @include transform(rotateZ(0) translateY(-382px) translateX(-80px));
+  }
+  96% {
+    @include transform(rotateZ(0) translateY(-5px) translateX(-80px));
+  }
+  100% {
+    @include transform(rotateZ(0) translateY(0px) translateX(-80px));
+  }
+}
+
 @include keyframes(busload) {
   0% {
     background-position: 0 0;
@@ -117,16 +135,16 @@
 }
 
 @include keyframes(sunrise) {
-  100% { top: 0; }
-  80% { top: -10px; }
-  0% { top: 100%; }
+  100% { @include translateY(0); }
+  80% { @include translateY(-10px); }
+  0% { @include translateY(1000px); }
 }
 
 @include keyframes(sunset) {
-  0% { top: 0; }
-  20% { top: -30px; }
-  25% { top: 0; }
-  100% { top: 100%; }
+  0% { @include translateY(0); }
+  20% { @include translateY(-30px); }
+  25% { @include translateY(0); }
+  100% { @include translateY(1000px); }
 }
 
 @include keyframes(plane) {

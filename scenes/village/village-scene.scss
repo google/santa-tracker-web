@@ -717,22 +717,41 @@ $name: 'module-village';
     @include animation(plane 60s 0s linear infinite);
   }
 
-  #spaceship {
+  #spaceship, #pegman-spaceship {
     cursor: pointer;
     z-index: 8;
     position: absolute;
     height: 84px;
     width: 130px;
-    top: 45px;
     background: url(img/spaceship.svg) no-repeat;
+  }
+
+  #spaceship  {
+    top: 45px;
     @include animation(plane 75s 0s linear infinite);
     @include animation-direction(reverse);
+    @include transition(transform .5s ease);
+
+    &.to-space {
+      @include transform(translateX(-100px));
+    }
+  }
+
+  #pegman-spaceship {
+    z-index: 11;
+    bottom: 0;
+    left: 2067px;
+    @include transition(transform 15s ease-out);
+    @include transform(rotateZ(0) translateY(-1000px));
+    
+    &.land {
+      @include transform(rotateZ(0) translateY(-2px));
+    }
   }
 
   #sun, #moon, #fakesun, #fakemoon {
     z-index: 3;
     cursor: pointer;
-    top: 100%;
     top: 10px;
     left: 250px;
     position: absolute;
@@ -740,7 +759,7 @@ $name: 'module-village';
     height: 180px;
 
     &.up {
-      top: 10px;
+      @include translateY(0);
     }
 
     &.go-up {
@@ -748,8 +767,9 @@ $name: 'module-village';
     }
 
     &.down {
-      top: 100%;
+      @include translateY(1000px);
     }
+
     &.go-down {
       @include animation(sunset 1s);
     }
