@@ -15,6 +15,7 @@ Village calendar navigation.
     <style>
       paper-tabs::shadow #selectionBar {
         background-color: #fede32;
+        height: 4px;
       }
       paper-tab::shadow #ink {
         color: rgba(254, 222, 50, 0.5);
@@ -36,11 +37,10 @@ Village calendar navigation.
             <a id="global-back-to-village" href="{{baseURI}}#village" title="Go to the Village" class="back">Go to the Village</a>
             <paper-tabs id="tabs" valueattr="filterOn" selected="{{filterOn}}"
                         on-core-activate="{{onNavSelect}}">
-              <paper-tab filterOn="watch">Videos</paper-tab>
-              <paper-tab filterOn="play">Games</paper-tab>
               <paper-tab filterOn="calendar">The Calendar</paper-tab>
-              <paper-tab filterOn="learn">Education</paper-tab>
-              <paper-tab filterOn="scene">Scenes</paper-tab>
+              <paper-tab filterOn="watch">Watch</paper-tab>
+              <paper-tab filterOn="play">Play</paper-tab>
+              <paper-tab filterOn="learn">Learn</paper-tab>
               <paper-tab on-tap="{{onTheGo}}">Santa on the go</paper-tab>
             </paper-tabs>
           </div>
@@ -69,6 +69,7 @@ Village calendar navigation.
                         </a>
                       </div>
                     </template>
+                    <div class="card"></div>
                     <div class="card"></div>
                     <div class="card"></div>
                     <div class="card"></div>
