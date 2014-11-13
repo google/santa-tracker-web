@@ -1,110 +1,278 @@
 {
-  "gotovillage": {
-    "message": "Go to the Village",
-    "description": "A link to Santa's Village. One method of site navigation."
-  }, 
-  "calendar": {
-    "message": "The Calendar",
-    "description": "A link to a calendar view of the site navigation."
-  }, 
-  "watch": {
-    "message": "Watch",
-    "description": "A label on an activity that will show the user a video."
-  }, 
-  "play": {
-    "message": "Play",
-    "description": "A label on an activity that will let the user play a game."
-  }, 
-  "learn": {
-    "message": "Learn",
-    "description": "A label on an activity that will show educational content."
-  }, 
-  "onthego": {
-    "message": "Santa on the go",
-    "description": "Link text. This will show a map of where Santa is located."
-  }, 
-  "getgooglemaps": {
-    "message": "Get Google Maps",
-    "description": "Link text to an external site."
-  }, 
-  "santatracker": {
-    "message": "Santa Tracker",
-    "description": "The name of the website."
-  },
-  "days": {
-    "message": "Days",
-    "description": "Label for a counter showing the days left until Dec 24."
-  }, 
-  "hours": {
-    "message": "Hours",
-    "description": "Label for the hours portion of a countdown clock"
-  }, 
-  "minutes": {
-    "message": "Minutes",
-    "description": "Label for the minutes portion of a countdown clock"
-  }, 
-  "seconds": {
-    "message": "Seconds",
-    "description": "Label for the seconds portion of a countdown clock"
-  }, 
-  "light": {
-    "message": "Light Up",
-    "description": "Link text."
-  }, 
-  "deck": {
-    "message": "Deck Out",
-    "description": "Link text. Deck out implies decorating."
-  }, 
-  "deckdescription": {
-    "message": "Deck out your browser with a Santa Chrome extension.",
-    "description": "Describes what happens when you click the deck link"
-  }, 
-  "lightdescription": {
-    "message": "Light up your TV with the Santa Tracker Android app and Chromecast.",
-    "description": "Describes what happens when you click the light link"
-  }, 
-  "gplus": {
-    "message": "Google+",
-    "description": "A link to Google+"
-  }, 
-  "facebook": {
-    "message": "Facebook",
-    "description": "A link to Facebook"
-  }, 
-  "twitter": {
-    "message": "Twitter",
-    "description": "A link to Twitter"
-  }, 
-  "playdescription": {
-    "message": "Play with friends in the Santa Tracker Android App.",
-    "description": "Text describing the play button."
-  }, 
-  "tilt": {
-    "message": "Tilt your device!",
-    "description": "Game play instructions. Tilt your phone left or right to move."
-  }, 
-  "score": {
-    "message": "Score",
-    "description": "Label for a numeric score."
-  }, 
-  "level": {
-    "message": "Level",
-    "description": "Label describing the game level you are on."
-  }, 
-  "playagain": {
-    "message": "Play again",
-    "description": "When you finish playing a game, we ask you to play again."
-  }, 
-  "endofjourneymessage": {
-    "message": "Santa's finished his journey for the year! He and the elves are still having some fun in the North Pole before their annual vacation.",
-    "description": ""
-  }, 
-  "countdownlabel": {
-    "message": "Until Santa Departs",
-    "description": "Labels the countdown clock. Appears under a timer."
-  }, 
-  "learnmore": {
-    "message": "Learn More",
-    "description": "Link to learn more about Santa Tracker"
-  }
+    "ar_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "Argentina"
+    },
+    "ar_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "In Argentina, Christmas begins promptly at midnight. Many families kick off the holiday by hosting festive celebrations in their homes, opening gifts with their loved ones, and lighting fireworks in the early hours of the morning."
+    },
+    "au_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "Australia"
+    },
+    "au_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "Australia's Southern Hemisphere location means it's summer time in December. Instead of sleigh bells and cocoa, many Australians head to the beach to celebrate the holidays with a prawn lunch and a few rounds of cricket."
+    },
+    "br_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "Brazil"
+    },
+    "br_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "Christmas celebrations start near midnight, usually with big family dinners, gift opening, and the celebration of the 'Missa do Galo' (the rooster's mass) in churches. Despite the warm tropical summer weather, themes of winter and snow are not uncommon."
+    },
+    "ca_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "Canada"
+    },
+    "ca_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "Canadian children usually celebrate a snowy, white Christmas. They bundle up in their scarves and toques, a Canadian woolen hat, to play in the snow, ice-skate, and toboggan! On Christmas Eve, they leave milk and cookies by the fireplace for Santa (and sometimes a carrot for his reindeer)."
+    },
+    "calendar": {
+        "description": "A link to a calendar view of the site navigation.",
+        "message": "The Calendar"
+    },
+    "close-this": {
+        "description": "Button text. 15char limit. Closes a menu.",
+        "message": "Cancel"
+    },
+    "copy-me": {
+        "description": "Label. Users will see a URL that they can copy to email to a friend, or share on Facebook/G+",
+        "message": "Copy this link to share your message"
+    },
+    "countdownlabel": {
+        "description": "Labels the countdown clock. Appears under a timer.",
+        "message": "Until Santa Departs"
+    },
+    "days": {
+        "description": "Label for a counter showing the days left until Dec 24.",
+        "message": "Days"
+    },
+    "de_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "Germany"
+    },
+    "de_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "In nearly Every German town Christmas markets open in town squares. Townspeople gather to hear brass bands, and enjoy traditional fare of the region. They eat gingerbread hearts, sugar-roasted almonds, sweets of all kinds, and drink mulled wine (Gl\u00fchwein) or apple cider."
+    },
+    "deck": {
+        "description": "Link text. Deck out implies decorating.",
+        "message": "Deck Out"
+    },
+    "deckdescription": {
+        "description": "Describes what happens when you click the deck link",
+        "message": "Deck out your browser with a Santa Chrome extension."
+    },
+    "endofjourneymessage": {
+        "description": "",
+        "message": "Santa's finished his journey for the year! He and the elves are still having some fun in the North Pole before their annual vacation."
+    },
+    "facebook": {
+        "description": "A link to Facebook",
+        "message": "Facebook"
+    },
+    "fr_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "France"
+    },
+    "fr_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "In France, children traditionally put their shoes out next to the fireplace in anticipation of P\u00e8re No\u00ebl's arrival. If children have been good throughout the year, P\u00e8re No\u00ebl will fill the shoes with gifts."
+    },
+    "getgooglemaps": {
+        "description": "Link text to an external site.",
+        "message": "Get Google Maps"
+    },
+    "gh_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "Ghana"
+    },
+    "gh_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "Christmas in Ghana includes the whole family. Adults dress up in costumes and hand out candy and sweets around the neighborhood. Children decorate their homes with paper ornaments and drawings they make at school."
+    },
+    "gotovillage": {
+        "description": "A link to Santa's Village. One method of site navigation.",
+        "message": "Go to the Village"
+    },
+    "gplus": {
+        "description": "A link to Google+",
+        "message": "Google+"
+    },
+    "gr_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "Greece"
+    },
+    "gr_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "In Greece, friendly but troublesome creatures called 'kallik\u00e1ntzari' live most of the year in the center of the earth. But at Christmas, they love to hide in people's houses, frightening people, playing tricks, or devouring Christmas foods. Greeks perform rituals to keep these hobgoblins away."
+    },
+    "gt_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "Guatemala"
+    },
+    "gt_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "Guatemalans celebrate Christmas with fun and dancing. They wear hats called Puritina, eat Guatemalan style tamales, light firecrackers at midnight, and dance the night away with various styles of dancing."
+    },
+    "hours": {
+        "description": "Label for the hours portion of a countdown clock",
+        "message": "Hours"
+    },
+    "is_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "Iceland"
+    },
+    "is_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "At Christmas time in Iceland, families give gifts of warm clothing to each member of their household. According to legend, there is a frightening Christmas Cat who gobbles up anyone not equipped for the cold and wintery weather. Families work together to ensure nobody will 'go to the Christmas Cat.'"
+    },
+    "kg_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "Kyrgyzstan"
+    },
+    "kg_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "In Kyrgyzstan, Ayaz Ata (Grandfather Frost) comes at midnight on New Year's Eve and leaves presents under the New Year tree. When the clock strikes midnight, families throughout the country light fireworks to celebrate this beautiful occasion. The cities become as bright as day."
+    },
+    "learn": {
+        "description": "Button text. 15char limit. A label on an activity that will show educational content.",
+        "message": "Learn"
+    },
+    "learnmore": {
+        "description": "Link to learn more about Santa Tracker. This appears on the front page.",
+        "message": "Learn More"
+    },
+    "level": {
+        "description": "15 char limit. Label describing the game level you are on.",
+        "message": "Level"
+    },
+    "light": {
+        "description": "Link text.",
+        "message": "Light Up"
+    },
+    "lightdescription": {
+        "description": "Describes what happens when you click the light link",
+        "message": "Light up your TV with the Santa Tracker Android app and Chromecast."
+    },
+    "minutes": {
+        "description": "Label for the minutes portion of a countdown clock",
+        "message": "Minutes"
+    },
+    "mx_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "Mexico"
+    },
+    "mx_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "In Mexico, kids of all ages celebrate Christmas by breaking pinatas. Adults and children have fun by wearing a blindfold, spinning around, and swinging a stick to break open the star-shaped hanging pots. When the pinata is smashed open, nuts, fruit and candy spill out for everyone to enjoy."
+    },
+    "nz_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "New Zealand"
+    },
+    "nz_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "Because Christmas is in the summer in New Zealand, friends and family gather round a barbecue. Typical Christmas meals include roast lamb, sometimes cooked in a 'hangi' - an underground pit or earth oven. A favorite dessert is pavlova: meringue covered in fresh fruit like strawberries and kiwifruit."
+    },
+    "onthego": {
+        "description": "Link text. This will show a map of where Santa is located.",
+        "message": "Santa on the go"
+    },
+    "ph_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "Philippines"
+    },
+    "ph_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "The Philippines is known for having the world's longest Christmas season. Four months are considered Christmas months: September, October, November, December. Christmas carols can oftentimes be heard as early as the beginning of September."
+    },
+    "play": {
+        "description": "Button text. 15char limit. A label on an activity that will let the user play a game.",
+        "message": "Play"
+    },
+    "playagain": {
+        "description": "When you finish playing a game, we ask you to play again.",
+        "message": "Play again"
+    },
+    "playdescription": {
+        "description": "Text describing the play button.",
+        "message": "Play with friends in the Santa Tracker Android App."
+    },
+    "ru_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "Russia"
+    },
+    "ru_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "Russian children decorate a New Year's tree, instead of a Christmas tree. Children wait with longing for Grandfather Frost who travels with his granddaughter Snowmaiden, delivering presents across the land. Grandfather Frost lives deep in the woods in Velikii Ustug, in northern Russia."
+    },
+    "santatracker": {
+        "description": "Product name. The name of the website.",
+        "message": "Santa Tracker"
+    },
+    "score": {
+        "description": "15 char limit. Label for a numeric score.",
+        "message": "Score"
+    },
+    "seconds": {
+        "description": "Label for the seconds portion of a countdown clock",
+        "message": "Seconds"
+    },
+    "share-this": {
+        "description": "Button text. 15char limit. Shares an image on Google+ or Facebook.",
+        "message": "Share"
+    },
+    "shareButton": {
+        "description": "",
+        "message": "Share with your friends on Google+"
+    },
+    "shareText": {
+        "description": "Appears as a message attached to a virtual postcard.",
+        "message": "I created this postcard for you in the Google Santa Tracker. Happy holidays!"
+    },
+    "tilt": {
+        "description": "Game play instructions. Tilt your phone left or right to move.",
+        "message": "Tilt your device!"
+    },
+    "traditions-next": {
+        "description": "Button text. Please keep short. User can move through a set of cards describing local traditions of a country.",
+        "message": "Next Tradition"
+    },
+    "traditions-prev": {
+        "description": "Button text. Please keep short. User can move through a set of cards describing local traditions of a country.",
+        "message": "Previous Tradition"
+    },
+    "traditions-world": {
+        "description": "Button text. Please keep short. Used to change a map from a zoomed in view of a country, to a view of the whole world.",
+        "message": "World"
+    },
+    "twitter": {
+        "description": "A link to Twitter",
+        "message": "Twitter"
+    },
+    "uk_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "United Kingdom"
+    },
+    "uk_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "In the United Kingdom, merrymakers of all ages enjoy Christmas crackers on the table at dinner. Crackers are tubes wrapped in colorful paper, with pull tabs on each end. When you pull the tabs, the tube bursts with a loud snap! Inside are paper hats, toys and candy to enjoy during Christmas night."
+    },
+    "us_country_name": {
+        "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
+        "message": "United States"
+    },
+    "us_tradition": {
+        "description": "Describes a local holiday tradition. Restrict to 300 characters.",
+        "message": "In the United States, stockings are hung on Christmas Eve. The legend goes that St Nicholas heard of a family in need. To surprise them, he climbed down their chimney and placed precious bags of gold in hanging stockings. From this point, St Nicholas was known as Santa Claus, giver of gifts."
+    },
+    "watch": {
+        "description": "Button text. 15char limit. A label on an activity that will show the user a video.",
+        "message": "Watch"
+    }
 }
