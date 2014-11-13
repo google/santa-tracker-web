@@ -76,7 +76,12 @@ Village scene.
                     </template>
                   </div>
                 </div>
-                <div class="marker-next"><div><i18n-msg msgid="newtoday">New Today</i18n-msg></div></div>
+                <div class="marker-today">
+                  <div><i18n-msg msgid="newtoday">New Today</i18n-msg></div>
+                </div>
+                <div class="marker-tomorrow">
+                  <div layout vertical center-center><i18n-msg msgid="openingtomorrow">Grand opening tomorrow</i18n-msg></div>
+                </div>
                 <a href="{{baseURI}}#{{house.module}}" class="house-marker"
                    tabindex="{{house.iced || house.disabled ? -1 : 0}}" on-click="{{onHouseClick}}"></a>
               </div>

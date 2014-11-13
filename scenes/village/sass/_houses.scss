@@ -8,7 +8,7 @@
     bottom: 0;
     float: left;
 
-    &.current {
+    &.today {
       .house-marker {
         @include transform(scale3d(1.5, 1.5, 1));
         -webkit-transform-origin: 50% 100%;
@@ -25,32 +25,52 @@
         }
       }
 
-      .marker-next {
+      .marker-today {
         display: block;
         background-image: url(img/new-banner.svg);
         height: 80px;
         width: 140px;
-        z-index: 15;
         left: -44px;
 
         > * {
           line-height: 28px;
-          position: relative;
-          color: #fff;
-          text-align: center;
           width: 100%;
           display: inline-block;
           text-transform: uppercase;
-          font-weight: 600;
         }
       }
     }
 
-    .marker-next {
-      display: none;
+    &.tomorrow.iced {
+      .marker-tomorrow {
+        display: block;
+        background-image: url(img/village-comeback-tomorrow.svg);
+        background-position: 50% 10px;
+        height: 115px;
+        width: 120px;
+        left: 130px;
+
+        > * {
+          height: 100%;
+          top: 15px;
+          left: 3px;
+        }
+      }
     }
 
-    .building, .house-snow, .house-elves, .marker-next {
+    .marker-today, .marker-tomorrow {
+      display: none;
+      z-index: 15;
+
+      > * {
+        position: relative;
+        color: #fff;
+        text-align: center;
+        font-weight: 600;
+      }
+    }
+
+    .building, .house-snow, .house-elves, .marker-today, .marker-tomorrow {
       position: absolute;
       background-repeat: no-repeat;
       background-position: 0 0;
