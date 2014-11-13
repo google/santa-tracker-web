@@ -100,14 +100,14 @@
       "streetview"    289   202   370   278   0   2   -42   -30   200   0   "marker7-lock"    "marker-streetview",
       "jamband"       612   404   612   484   0   2   -15   -75   100   0   "marker8-lock"    "marker-jamband",
       "codelab"       253   253   358   378   0   0   -50   -59   90    0   "marker9-lock"    "marker-codelab",
-      "translations"  437   242   487   329   0   -4  -17   -65   -3    0   "marker10-lock"   "marker-translations",
+      "translations"  437   242   487   329   0   -4  -17   -65   200   0   "marker10-lock"   "marker-translations",
       "video"         306   351   415   450   0   1   -99   -50   85    0   "marker11-lock"   "marker-video",
       "mercator"      290   321   445   405   0   1   -103  -70   50    0   "marker12-lock"   "marker-mercator",
-      "controlroom"   262   286   481   373   0   -1  -110  -41   30    0   "marker13-lock"   "marker-controlroom",
+      "controlroom"   262   286   481   373   0   -1  -110  -41   100   0   "marker13-lock"   "marker-controlroom",
       "play"          274   269   345   343   0   0   -26   -43   35    0   "marker14-lock"   "marker-play",
       "charity"       203   260   405   308   0   -1  -93   -27   80    0   "marker15-lock"   "marker-charity",
       "jetpack"       204   243   367   342   0   2   -60   -47   0     0   "marker16-lock"   "marker-jetpack",
-      "candy"         322   256   393   313   0   -3  -35   -40   -20   0   "marker17-lock"   "marker-candy",
+      "candy"         322   256   393   313   0   -3  -35   -50   -20   0   "marker17-lock"   "marker-candy",
       "postcard"      231   220   473   311   0   2   -120  -58   85    0   "marker18-lock"   "marker-postcard",
       "traditions"    397   285   527   349   0   -1  -40   -40   -90   0   "marker19-lock"   "marker-traditions",
       "windtunnel"    502   290   575   374   0   -2  -30   -70   0     0   "marker20-lock"   "marker-windtunnel",
@@ -179,7 +179,7 @@
 
     &.takeoff {
       background: url(img/balloon-flight.svg) no-repeat;
-      bottom: 2px;
+      margin-left: 1px;
     }
 
     &.flying {
