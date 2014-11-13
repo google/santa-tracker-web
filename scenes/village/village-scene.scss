@@ -343,7 +343,7 @@ $name: 'module-village';
       background-image: url(img/snowman_01.svg);
       background-repeat: no-repeat;
       background-position: bottom left;
-      left: 6100px;
+      left: 5780px;
       bottom: -8px;
       @include transform(translateZ(0));
 
@@ -615,15 +615,14 @@ $name: 'module-village';
     #mountains-day, #mountains-night, .mountains-day {
       position: absolute;
       bottom: 0;
-      //height: 450px;
-      top: 0;
+      height: 450px;
       left: 0;
       right: 0;
       opacity: 0;
       @include transition(opacity .5s ease);
       background-position: bottom left;
       background-repeat: repeat-x;
-      background-size: 460% 100%;
+      background-size: 2971px 450px;
 
       &.visible {
         opacity: 1;

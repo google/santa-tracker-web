@@ -97,12 +97,12 @@
       "briefing"      219   297   405   373   0   2   -90   -38   65    0   "marker4-lock"     "marker-briefing",
       "matching"      305   233   437   362   0   2   -35   -83   220   0   "marker5-lock"    "marker-matching",
       "presentdrop"   174   412   392   491   0   1   -85   -51   420   0   "marker6-lock"    "marker-presentdrop",
-      "streetview"    289   202   370   278   0   2   -42   -26   240   0   "marker7-lock"    "marker-streetview",
-      "jamband"       179   251   338   388   0   2   -65   -75   10    0   "marker8-lock"    "marker-jamband",
-      "codelab"       253   253   358   378   0   0   -50   -59   60    0   "marker9-lock"    "marker-codelab",
+      "streetview"    289   202   370   278   0   2   -42   -30   200   0   "marker7-lock"    "marker-streetview",
+      "jamband"       612   404   612   484   0   2   -15   -75   100   0   "marker8-lock"    "marker-jamband",
+      "codelab"       253   253   358   378   0   0   -50   -59   90    0   "marker9-lock"    "marker-codelab",
       "translations"  437   242   487   329   0   -4  -17   -65   -3    0   "marker10-lock"   "marker-translations",
-      "video"         179   251   344   406   0   1   -99   -50   85    0   "marker11-lock"   "marker-video",
-      "mercator"      290   321   435   395   0   1   -99   -56   0     0   "marker12-lock"   "marker-mercator",
+      "video"         306   351   415   450   0   1   -99   -50   85    0   "marker11-lock"   "marker-video",
+      "mercator"      290   321   445   405   0   1   -103  -70   50    0   "marker12-lock"   "marker-mercator",
       "controlroom"   262   286   481   373   0   -1  -110  -41   30    0   "marker13-lock"   "marker-controlroom",
       "play"          274   269   345   343   0   0   -26   -43   35    0   "marker14-lock"   "marker-play",
       "charity"       203   260   405   308   0   -1  -93   -27   80    0   "marker15-lock"   "marker-charity",
@@ -322,8 +322,8 @@
       "melt": (65 0, 115 0, 175 0, 265 0)
     ),
     "jamband": (
-      "iced": (60 15, 125 0, 90 100, 200 45),
-      "melt": (60 0, 125 0, 90 0, 200 0)
+      "iced": (140 55, 295 0, 230 170, 400 45),
+      "melt": (60 0, 295 14, 90 0, 400 0)
     ),
     "codelab": (
       "iced": (70 50, 115 0, 140 160, 200 75),
@@ -334,8 +334,8 @@
       "melt": (170 11, 320 3, 205 3, 250 26, 300 3)
     ),
     "video": (
-      "iced": (100 70, 150 0, 75 120, 70 10),
-      "melt": (150 0, 120 0, 75 0, -10 0)
+      "iced": (100 0, 150 0, 115 120, 70 10),
+      "melt": (150 0, 120 0, 115 0, -10 0)
     ),
     "mercator": (
       "iced": (60 15, 105 80, 165 100, 190 10),
