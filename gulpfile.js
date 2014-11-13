@@ -42,7 +42,8 @@ gulp.task('vulcanize-scenes', ['clean', 'compass'], function() {
           // these are inlined in elements.html
           imports: [
             'polymer.html$',
-            'base-scene.html$'
+            'base-scene.html$',
+            'i18n-msg.html$'
           ]
         },
         strip: true,
@@ -73,6 +74,7 @@ gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 gulp.task('copy-assets', ['clean', 'vulcanize'], function() {
   return gulp.src([
     'index.html',
+    '_locales/**',
     'audio/*',
     'images/*.{png,svg,gif,ico}',
     'js/**',

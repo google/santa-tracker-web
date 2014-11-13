@@ -1,0 +1,111 @@
+<link rel="import" href="../components/polymer/polymer.html">
+
+<!--
+Custom element to do localization (i18n) messages.
+
+@element i18n-msg
+-->
+<polymer-element name="i18n-msg" attributes="msgid">
+<template>
+  {{msg}}
+</template>
+<script>
+(function() {
+
+  window.I18nMsg = window.I18nMsg || {
+    lang: null,
+    locales: {}
+  };
+
+  var instances = [];
+
+  Polymer({
+
+    /**
+     * The message id (key) for this message.
+     *
+     * @attribute msgid
+     * @type string
+     * @default null
+     */
+    msgid: null,
+
+    /**
+     * The message string to display.
+     *
+     * @attribute msg
+     * @type string
+     * @default null
+     */
+    msg: null,
+
+    /**
+     * An object contains the language locales with translated messages.
+     *
+     * @property locales
+     * @type object
+     * @default {}
+     */
+    locales: I18nMsg.locales, // static
+
+    ready: function() {
+      this.language = I18nMsg.lang;
+
+      // First time an instance is created, observe window.I18nMsg.lang changes
+      // and go fetch the localized messages.json file.
+      if (!instances.length) {
+        var observer = new PathObserver(window.I18nMsg, 'lang');
+        observer.open(function(newValue, oldValue) {
+          this.language = newValue;
+        }.bind(this));
+      }
+
+      instances.push(this);
+    },
+
+    attached: function() {
+      this.msg = this.textContent; // use fallback as default.
+      if (this.language in this.locales) {
+        this.msg = this.locales[this.language][this.msgid].message;
+      }
+    },
+
+    languageChanged: function() {
+      if (!this.language || this.language in this.locales) {
+        return;
+      }
+
+      var url = '_locales/' + this.language + '/messages.json';
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url);
+      xhr.onload = function(e) {
+        if (e.target.status != 200) {
+          return;
+        }
+
+        var resp = JSON.parse(e.target.response);
+        if (!this.msgid in resp) {
+          throw Error('"' + this.msgid + '" message id was not found in ' + url);
+          return;
+        }
+
+        this.locales[this.language] = resp; // cache this locale.
+
+        this.notifyInstances();
+      }.bind(this);
+      xhr.send();
+    },
+
+    notifyInstances: function() {
+      for (var i = 0, instance; instance = instances[i]; ++i) {
+        instance.language = I18nMsg.lang;
+        instance.msg = instance.locales[instance.language][instance.msgid].message;
+      }
+    }
+
+  });
+
+})();
+</script>
+</polymer-element>
