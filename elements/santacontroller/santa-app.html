@@ -3,6 +3,9 @@
 <!-- Analytics -->
 <script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
 
+<!-- TODO; get rid of this. Really only need for getUrlParameter() -->    
+-<script src="../../js/consts.js"></script>
+
 <script src="../../js/analytics.js"></script>
 <script src="../../js/visibilitymanager.js"></script>
 <script src="../../js/soundcontroller.js"></script>
@@ -126,22 +129,6 @@ Polymer(Polymer.mixin({
         this.postFlight();
       }
     }
-  },
-
-  /**
-   * @param {string} param URL parameter to look for.
-   * @return {string|undefined} undefined if the URL parameter does not exist.
-   */
-  getUrlParameter: function(param) {
-    if (!window.location.search) {
-      return;
-    }
-    var m = new RegExp(param + '=([^&]*)').exec(
-        window.location.search.substring(1));
-    if (!m) {
-      return;
-    }
-    return decodeURIComponent(m[1]);
   },
 
   languageChanged: function() {
