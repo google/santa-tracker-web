@@ -21,6 +21,8 @@ window.santatracker.setup = function() {
   template.addEventListener('template-bound', function(e) {
     window.santaApp = document.querySelector('santa-app');
 
+    I18nMsg.lang = santaApp.language; // Set locale for entire site (e.g. i18n-msg elements).
+
     // Wait one rAF to set route. Firefox needs this, no other browsers do :\
     this.async(function() {
       this.route = this.route || DEFAULT_ROUTE;
