@@ -171,6 +171,7 @@ $cardColor: #6541a4;
 
   #global-nav-body {
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
 
     #nav-calendar {
       $cardWidth: 160px;
