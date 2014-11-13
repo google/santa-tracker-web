@@ -1,0 +1,110 @@
+{
+  "gotovillage": {
+    "message": "Go to the Village",
+    "description": "A link to Santa's Village. One method of site navigation."
+  }, 
+  "calendar": {
+    "message": "The Calendar",
+    "description": "A link to a calendar view of the site navigation."
+  }, 
+  "watch": {
+    "message": "Watch",
+    "description": "A label on an activity that will show the user a video."
+  }, 
+  "play": {
+    "message": "Play",
+    "description": "A label on an activity that will let the user play a game."
+  }, 
+  "learn": {
+    "message": "Learn",
+    "description": "A label on an activity that will show educational content."
+  }, 
+  "onthego": {
+    "message": "Santa on the go",
+    "description": "Link text. This will show a map of where Santa is located."
+  }, 
+  "getgooglemaps": {
+    "message": "Get Google Maps",
+    "description": "Link text to an external site."
+  }, 
+  "santatracker": {
+    "message": "Santa Tracker",
+    "description": "The name of the website."
+  },
+  "days": {
+    "message": "Days",
+    "description": "Label for a counter showing the days left until Dec 24."
+  }, 
+  "hours": {
+    "message": "Hours",
+    "description": "Label for the hours portion of a countdown clock"
+  }, 
+  "minutes": {
+    "message": "Minutes",
+    "description": "Label for the minutes portion of a countdown clock"
+  }, 
+  "seconds": {
+    "message": "Seconds",
+    "description": "Label for the seconds portion of a countdown clock"
+  }, 
+  "light": {
+    "message": "Light Up",
+    "description": "Link text."
+  }, 
+  "deck": {
+    "message": "Deck Out",
+    "description": "Link text. Deck out implies decorating."
+  }, 
+  "deckdescription": {
+    "message": "Deck out your browser with a Santa Chrome extension.",
+    "description": "Describes what happens when you click the deck link"
+  }, 
+  "lightdescription": {
+    "message": "Light up your TV with the Santa Tracker Android app and Chromecast.",
+    "description": "Describes what happens when you click the light link"
+  }, 
+  "gplus": {
+    "message": "Google+",
+    "description": "A link to Google+"
+  }, 
+  "facebook": {
+    "message": "Facebook",
+    "description": "A link to Facebook"
+  }, 
+  "twitter": {
+    "message": "Twitter",
+    "description": "A link to Twitter"
+  }, 
+  "playdescription": {
+    "message": "Play with friends in the Santa Tracker Android App.",
+    "description": "Text describing the play button."
+  }, 
+  "tilt": {
+    "message": "Tilt your device!",
+    "description": "Game play instructions. Tilt your phone left or right to move."
+  }, 
+  "score": {
+    "message": "Score",
+    "description": "Label for a numeric score."
+  }, 
+  "level": {
+    "message": "Level",
+    "description": "Label describing the game level you are on."
+  }, 
+  "playagain": {
+    "message": "Play again",
+    "description": "When you finish playing a game, we ask you to play again."
+  }, 
+  "endofjourneymessage": {
+    "message": "Santa's finished his journey for the year! He and the elves are still having some fun in the North Pole before their annual vacation.",
+    "description": ""
+  }, 
+  "countdownlabel": {
+    "message": "Until Santa Departs",
+    "description": "Labels the countdown clock. Appears under a timer."
+  }, 
+  "learnmore": {
+    "message": "Learn More",
+    "description": "Link to learn more about Santa Tracker"
+  }
+}
