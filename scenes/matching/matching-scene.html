@@ -314,7 +314,7 @@ Matching scene.
     onShow: function() {
       var module = this.$['module-matching'];
       this.animationHelper = new CSSAnimationHelper(module);
-      this.game = new Game(module);
+      this.game = new Game(module, this);
 
       startButton(module, function() {
         this.game.start();
