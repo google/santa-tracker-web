@@ -31,5 +31,10 @@
     "flatiron-director": "PolymerLabs/flatiron-director#master",
     "jquery": "2.1.1",
     "modernizr": "2.8.3"
+  },
+  "resolutions": {
+    "polymer": "^0.5.1",
+    "core-component-page": "^0.5.1",
+    "webcomponentsjs": "^0.5.1"
   }
 }
