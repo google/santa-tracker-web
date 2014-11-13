@@ -71,7 +71,7 @@ Custom element to do localization (i18n) messages.
     },
 
     languageChanged: function() {
-      if (!this.language || this.language in this.locales) {
+      if (!this.language || this.locales[this.language]) {
         return;
       }
 
