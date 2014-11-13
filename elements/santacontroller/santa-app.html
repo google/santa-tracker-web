@@ -9,6 +9,7 @@
 <script src="../../js/analytics.js"></script>
 <script src="../../js/visibilitymanager.js"></script>
 <script src="../../js/soundcontroller.js"></script>
+<script src="chromecast.js"></script>
 
 <script src="../../js/statuses/picker.js"></script>
 
@@ -30,7 +31,7 @@ Santa Track app.
 
 @element santa-app
 -->
-<polymer-element name="santa-app" attributes="language houses countDownEndDate"
+<polymer-element name="santa-app" attributes="language houses countDownEndDate selectedScene"
                  on-analytics-track-event="{{trackEvent}}"
                  on-analytics-track-social="{{trackSocial}}">
 <script>
@@ -40,7 +41,7 @@ var COUNTDOWN_END_DATE_ = 1419415200000; // Dec 24, 2014
 
 var FLIGHT_FINISHED_ = COUNTDOWN_END_DATE_ + 25 * 60 * 60 * 1000;
 
-Polymer({
+Polymer(Polymer.mixin({
 
   /**
    * When Santa's flight is finished.
@@ -80,6 +81,15 @@ Polymer({
    countDownEndDate: COUNTDOWN_END_DATE_,
 
   /**
+   * The currently open scene.
+   *
+   * @attribute selectedScene
+   * @type Element
+   * @default null
+   */
+   selectedScene: null,
+
+  /**
    * Analytics service.
    *
    * @property analyticsService
@@ -105,6 +115,10 @@ Polymer({
     this.santaService.addListener('kill', function() {
       window.location = 'error.html';
     });
+
+    if (apiClient === 'web_chromecast') {
+      this.initChromecast();
+    }
 
     if (this.santaService.now() > this.countDownEndDate) {
       if (this.santaService.now() < this.FLIGHT_FINISHED) {
@@ -160,7 +174,7 @@ Polymer({
     document.body.classList.add('posttakeoff');
   }
 
-});
+}, chromecastMixin));
 
 })();
 </script>
