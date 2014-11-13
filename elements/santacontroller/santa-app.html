@@ -109,6 +109,8 @@ Polymer(Polymer.mixin({
     this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
     this.addEventListener('sound-trigger', sc.playSound.bind(sc));
 
+    this.language = getUrlParameter('hl') || santaApp.language;
+
     var apiClient = getUrlParameter('api_client') || 'web';
 
     this.santaService = new SantaService(apiClient, this.language);
