@@ -6,8 +6,10 @@
  * @param {Element} el DOM element containing the game.
  * @constructor
  */
-var Game = function (elem) {
+var Game = function (elem, sceneElement) {
   this.elem = $(elem);
+  this.sceneElement = sceneElement;
+
   this.isPlaying = false;
 
   this.doors = [];
@@ -72,8 +74,8 @@ Game.prototype.start = function() {
  */
 Game.prototype.destroy = function() {
   if (this.isPlaying) {
-    window.santatracker.analytics.trackGameQuit(
-        'matching', new Date - this.gameStartTime);
+    this.sceneElement.fire('analytics-track-game-quit',
+        {gameid: 'matching', timePlayed: new Date - this.gameStartTime});
   }
   if (this.mismatchTimeout != null) {
     window.clearTimeout( this.mismatchTimeout );
@@ -353,7 +355,7 @@ Game.prototype.restart = function() {
 
   // Reset the scoreboard
   this.scoreboard.reset();
-  window.santatracker.analytics.trackGameStart('matching');
+  this.sceneElement.fire('analytics-track-game-start', {gameid: 'matching'});
 };
 
 /**
@@ -501,9 +503,11 @@ Game.prototype.updateTime = function() {
 Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverDialog.show(0, this.levelModel.get());
-  window.santatracker.analytics.trackGameOver(
-      'matching', this.scoreboard.score, this.levelModel.get() - 1,
-      new Date - this.gameStartTime);
+  this.sceneElement.fire('analytics-track-game-over', {
+    gameId: 'matching', score: this.scoreboard.score,
+    level: this.levelModel.get() - 1,
+    timePlayed: new Date - this.gameStartTime
+  });
 };
 
 /**
