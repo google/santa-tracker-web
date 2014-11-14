@@ -37,7 +37,8 @@ var chromecastMixin = {
   initChromecast: function() {
     // TODO(bckenny): remove noisy chromecast debugging logging
     // dynamically import the Cast Reciever SDK if in chromecast mode
-    Polymer.import(['../../js/chromecastsdk.html'], function(e) {
+    var sdkImportPath = this.resolvePath('../../js/chromecastsdk.html');
+    Polymer.import([sdkImportPath], function(e) {
       // `cast` is added to global scope by SDK
       var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
       console.log('Starting Cast Receiver Manager');
