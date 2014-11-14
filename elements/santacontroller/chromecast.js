@@ -83,7 +83,7 @@ var chromecastMixin = {
           });
           this.selectedScene.dispatchEvent(e);
         }
-      };
+      }.bind(this);
 
       castReceiverManager.start({statusText: 'Santa Tracker is starting'});
       console.log('Cast Receiver Manager started');
