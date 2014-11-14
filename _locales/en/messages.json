@@ -1,4 +1,20 @@
 {
+    "about-content-one": {
+        "description": "One of three paragraphs describing the Santa Tracker website. Tone should be whimsical. The Dashboard will be a google map with information displayed on top, like the name of the city he's in, the number of presents delivered, the current temperature, etc.",
+        "message": "On Christmas Eve we\u2019ll be proudly showcasing a Santa\u2019s dashboard, the technology that powers his sleigh during his around-the-world journey. We\u2019ve received this special preview from one of Santa\u2019s many developer elves, who are hard at work in the North Pole helping Santa prepare for his big day. Santa\u2019s dashboard - featuring the latest and greatest in Google Maps technology and sleigh engineering - will allow you to follow his progress around the world, and also learn a little about some of his stops along the way."
+    },
+    "about-content-three": {
+        "description": "One of three paragraphs describing the Santa Tracker website. Tone should be light, but direct, as it links people to more help.",
+        "message": "The Google Maps Santa Tracker is created and developed by Google, with a little help from Santa\u2019s elves. Need help or have another question? Visit our <a href='//support.google.com/santatracker'>Help Center</a>."
+    },
+    "about-content-two": {
+        "description": "One of three paragraphs describing the Santa Tracker website. Tone should be whimsical. The Village is the main navigation for Santa Tracker.",
+        "message": "Our friendly elves have also invited you to explore Santa\u2019s village while Santa gets ready for his journey. So go ahead and explore his village, you might just find some fun activities and meet some interesting elves."
+    },
+    "about-santa": {
+        "description": "Link text. Please keep this short. Links to the Santa Tracker About page. Page supplies more info about the project.",
+        "message": "About"
+    },
     "ar_country_name": {
         "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
         "message": "Argentina"
@@ -32,7 +48,7 @@
         "message": "Canadian children usually celebrate a snowy, white Christmas. They bundle up in their scarves and toques, a Canadian woolen hat, to play in the snow, ice-skate, and toboggan! On Christmas Eve, they leave milk and cookies by the fireplace for Santa (and sometimes a carrot for his reindeer)."
     },
     "calendar": {
-        "description": "A link to a calendar view of the site navigation.",
+        "description": "A link to a calendar view of the site navigation. Refers to an advent calendar of the month of December.",
         "message": "The Calendar"
     },
     "close-this": {
@@ -48,7 +64,7 @@
         "message": "Until Santa Departs"
     },
     "days": {
-        "description": "Label for a counter showing the days left until Dec 24.",
+        "description": "Label for a counter showing the days left until Dec 24. Keep short/one word.",
         "message": "Days"
     },
     "de_country_name": {
@@ -71,9 +87,17 @@
         "description": "",
         "message": "Santa's finished his journey for the year! He and the elves are still having some fun in the North Pole before their annual vacation."
     },
-    "facebook": {
-        "description": "A link to Facebook",
-        "message": "Facebook"
+    "error-lost-connection": {
+        "description": "Paragraph text that appears on our error page. The error page might appear in the event of a 404, or other similar problems. Text should be non-specific and light hearted.",
+        "message": "Looks like we just lost our connection with the North Pole. Santa's elves are working hard to fix it - stay tuned!"
+    },
+    "error-try-again": {
+        "description": "Link text. Please keep this short. Link appears on an error page. Clicking the link will reload the application.",
+        "message": "Try again"
+    },
+    "finished-text": {
+        "description": "Paragraph text that appears as the sole text on a landing page. This page is displayed when the Santa Tracker is not active.",
+        "message": "Happy Holidays! Santa has completed his journey around the world and is taking a much deserved break. Visit us again next year!"
     },
     "fr_country_name": {
         "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
@@ -120,7 +144,7 @@
         "message": "Guatemalans celebrate Christmas with fun and dancing. They wear hats called Puritina, eat Guatemalan style tamales, light firecrackers at midnight, and dance the night away with various styles of dancing."
     },
     "hours": {
-        "description": "Label for the hours portion of a countdown clock",
+        "description": "Label for the hours portion of a countdown clock. Keep short/one word.",
         "message": "Hours"
     },
     "is_country_name": {
@@ -152,15 +176,15 @@
         "message": "Level"
     },
     "light": {
-        "description": "Link text.",
+        "description": "Link text. This is in reference to Christmas lights.",
         "message": "Light Up"
     },
     "lightdescription": {
-        "description": "Describes what happens when you click the light link",
+        "description": "Describes what happens when you click the 'light up' link",
         "message": "Light up your TV with the Santa Tracker Android app and Chromecast."
     },
     "minutes": {
-        "description": "Label for the minutes portion of a countdown clock",
+        "description": "Label for the minutes portion of a countdown clock. Keep short/one word.",
         "message": "Minutes"
     },
     "mx_country_name": {
@@ -170,6 +194,30 @@
     "mx_tradition": {
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "In Mexico, kids of all ages celebrate Christmas by breaking pinatas. Adults and children have fun by wearing a blindfold, spinning around, and swinging a stick to break open the star-shaped hanging pots. When the pinata is smashed open, nuts, fruit and candy spill out for everyone to enjoy."
+    },
+    "nonprofit-jane-description": {
+        "description": "The description of a non-profit organization. Descriptions are supplied by the non-profit organization. Please do not translate the name of the non-profit.",
+        "message": "Chimpanzees are human being's closest living relatives in the animal kingdom! The Jane Goodall Institute (JGI) protects chimpanzees like Glitter and Gossamer by observing and understanding their behaviors as well as the habitats in which they live. JGI also works to build a community of people who are protecting and conserving wildlife and the environment we share. Check out <a href='//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/'>Street View</a> of the chimpanzees in Gombe, Tanzania."
+    },
+    "nonprofit-jane-type": {
+        "description": "The type of work that the non-profit supports. Work is defined very broadly. eg. a type of animal, water, sun, etc.",
+        "message": "Chimpanzee"
+    },
+    "nonprofit-nature-description": {
+        "description": "The description of a non-profit organization. Descriptions are supplied by the non-profit organization. Please do not translate the name of the non-profit.",
+        "message": "The Nature Conservancy works to protect and restore forests in the United States and around the world. These iconic forests sustain life around the planet. They filter water, clean our air, support communities of people and provide habitat for thousands of important plant and animal species. At the current rate of deforestation, our forests will be wiped out within 100 years. That\u2019s why The Nature Conservancy\u2019s Plant a Billion Trees program is working to plant one billion trees by 2025 and restore the world\u2019s most critical forests."
+    },
+    "nonprofit-nature-type": {
+        "description": "The type of work that the non-profit supports. Work is defined very broadly. eg. a type of animal, water, sun, etc.",
+        "message": "Forests"
+    },
+    "nonprofit-wwf-description": {
+        "description": "The description of a non-profit organization. Descriptions are supplied by the non-profit organization. Please do not translate the name of the non-profit.",
+        "message": "Climate change continues to disrupt the balance of many of the world\u2019s ecosystems, both warm and cold places. In the Arctic, polar bears are losing their sea ice habitat with rising temperatures, and face added threats from human activities, such as oil and gas development and shipping. World Wildlife Fund works to ensure the survival of the species through scientific research and working in partnership with Arctic native communities. Google.org is proud to be a <a href='https//www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime'>longtime supporter</a> with World Wildlife Fund."
+    },
+    "nonprofit-wwf-type": {
+        "description": "The type of work that the non-profit supports. Work is defined very broadly. eg. a type of animal, water, sun, etc.",
+        "message": "Polar Bear"
     },
     "nz_country_name": {
         "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
@@ -212,7 +260,7 @@
         "message": "Russian children decorate a New Year's tree, instead of a Christmas tree. Children wait with longing for Grandfather Frost who travels with his granddaughter Snowmaiden, delivering presents across the land. Grandfather Frost lives deep in the woods in Velikii Ustug, in northern Russia."
     },
     "santatracker": {
-        "description": "Product name. The name of the website.",
+        "description": "Product name. The name of the website. Please keep relatively short.",
         "message": "Santa Tracker"
     },
     "score": {
@@ -220,20 +268,24 @@
         "message": "Score"
     },
     "seconds": {
-        "description": "Label for the seconds portion of a countdown clock",
+        "description": "Label for the seconds portion of a countdown clock. Keep short/one word.",
         "message": "Seconds"
+    },
+    "share-button": {
+        "description": "",
+        "message": "Share with your friends on Google+"
+    },
+    "share-text": {
+        "description": "Appears as a message attached to a virtual postcard.",
+        "message": "I created this postcard for you in the Google Santa Tracker. Happy holidays!"
     },
     "share-this": {
         "description": "Button text. 15char limit. Shares an image on Google+ or Facebook.",
         "message": "Share"
     },
-    "shareButton": {
-        "description": "",
-        "message": "Share with your friends on Google+"
-    },
-    "shareText": {
-        "description": "Appears as a message attached to a virtual postcard.",
-        "message": "I created this postcard for you in the Google Santa Tracker. Happy holidays!"
+    "terms-and-privacy": {
+        "description": "Link text. Please keep this short. Links to Google's terms of service.",
+        "message": "Terms &amp; Privacy"
     },
     "tilt": {
         "description": "Game play instructions. Tilt your phone left or right to move.",
