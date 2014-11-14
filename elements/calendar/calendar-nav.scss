@@ -80,31 +80,25 @@ $cardColor: #6541a4;
   #global-nav-btn {
     z-index: 10000;
     position: absolute;
-    @include transition(top ease $animationDuration); // TODO: don't animate top.
     top: 20px;
-    right: 0;
-    height: 44px;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
+    right: 20px;
     @include transform(translateZ(0)); // Safari
 
-    cursor: pointer;
+    // .nav-santa-icon, .nav-santa-bar {
+    //   height: 100%;
+    // }
 
-    .nav-santa-icon, .nav-santa-bar {
-      height: 100%;
-    }
+    // .nav-santa-icon {
+    //   width: 44px;
+    //   border-top-left-radius: 50%;
+    //   border-bottom-left-radius: 50%;
+    //   background: #e61f2d url(img/santa-icon.svg) 50% 50%/26px 35px no-repeat;
+    // }
 
-    .nav-santa-icon {
-      width: 44px;
-      border-top-left-radius: 50%;
-      border-bottom-left-radius: 50%;
-      background: #e61f2d url(img/santa-icon.svg) 50% 50%/26px 35px no-repeat;
-    }
-
-    .nav-santa-bar {
-      width: 35px;
-      background: #e61f2d url(img/santa-bar.svg) 50% 50%/16px 19px no-repeat;
-    }
+    // .nav-santa-bar {
+    //   width: 35px;
+    //   background: #e61f2d url(img/santa-bar.svg) 50% 50%/16px 19px no-repeat;
+    // }
   }
 
   #global-nav-header {
@@ -506,6 +500,7 @@ $cardColor: #6541a4;
   max-width: 300px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .16);
   border-radius: 4px 4px 0 0;
+  background: #22b129;
 
   h2 {
     margin: 0;
@@ -516,14 +511,12 @@ $cardColor: #6541a4;
     font-weight: normal;
     color: #fff;
     text-align: center;
-    background: #ea4437;
     border-radius: 4px 4px 0 0;
   }
 
   .share {
     height: 36px;
-    background: #ea4537;
-    border-top: 1px solid #c32926;
+    border-top: 1px solid rgba(0,0,0,0.2);
 
     ul {
       margin: 0;
@@ -540,7 +533,7 @@ $cardColor: #6541a4;
           display: block;
           font-size: 0;
           line-height: 36px;
-          background-color: #ea4537;
+          // background-color: #ea4537;
           text-align: center;
           overflow: hidden;
           position: relative;
@@ -578,11 +571,11 @@ $cardColor: #6541a4;
         }
 
         &:first-child a {
-          border-right: 1px solid #c32926;
+          border-right: 1px solid rgba(0,0,0,0.2);
         }
 
         &:last-child a {
-          border-left: 1px solid #c32926;
+          border-left: 1px solid rgba(0,0,0,0.2);
         }
       }
     }
@@ -591,10 +584,9 @@ $cardColor: #6541a4;
 
 #sound {
   position: absolute;
-  top: 75px;
+  bottom: 20px;
   right: 0;
-  z-index: 1000;
-  @include transform(translateZ(0)); // Safari
+  z-index: 10000;
 
   a {
     width: 40px;

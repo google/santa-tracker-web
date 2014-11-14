@@ -2,6 +2,7 @@
 <link rel="import" href="../../components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../../components/core-animated-pages/core-animated-pages.html">
 <link rel="import" href="../../components/core-animated-pages/transitions/cross-fade.html">
+<link rel="import" href="../../components/paper-fab/paper-fab.html">
 
 <!--
 Village calendar navigation.
@@ -24,14 +25,12 @@ Village calendar navigation.
 
     <div id="module-nav">
 
+
       <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
         <a id="global-nav-btn" href="#{{active ? 'village' : 'calendar'}}" layout horizontal>
-          <div class="nav-santa-icon"></div>
-          <div class="nav-santa-bar"></div>
+          <!-- <paper-fab src="{{componentBaseDir}}img/santa-icon.svg"></paper-fab> -->
+          <paper-fab icon="today"></paper-fab>
         </a>
-        <div id="sound">
-          <a href="#" class="on" on-click="{{toggleSounds}}"><i></i></a>
-        </div>
         <div id="global-nav-body">
           <div id="global-nav-header" layout horizontal center-center>
             <a id="global-back-to-village" href="{{baseURI}}#village" title="Go to the Village" class="back"><i18n-msg msgid="gotovillage">Go to the Village</i18n-msg></a>
@@ -125,6 +124,10 @@ Village calendar navigation.
             <li><a href="#" class="twitter" on-click="{{shareTwitter}}"><i><i18n-msg msgid="twitter">Twitter</i18n-msg></i></a></li>
           </ul>
         </div>
+      </div>
+
+      <div id="sound">
+        <a href="#" class="on" on-click="{{toggleSounds}}"><i></i></a>
       </div>
 
     </div>
