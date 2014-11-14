@@ -60,7 +60,7 @@ Village scene.
           <div id="houses">
 
             <template repeat="{{house, i in houses}}">
-              <div id="house-{{house.module}}" class="house {{house.category}} {{ {today: todayHouseIdx > -1 && todayHouseIdx < 4 || todayHouseIdx == i, tomorrow: todayHouseIdx + 1 == i, iced: house.iced, melt: !house.iced} | tokenList }}">
+              <div id="house-{{house.module}}" class="house {{house.category}} {{ {today: showOnLaunch && todayHouseIdx > -1 && todayHouseIdx < 4 || todayHouseIdx == i, tomorrow: todayHouseIdx + 1 == i, iced: house.iced, melt: !house.iced} | tokenList }}">
                 <div class="building"></div>
 
                 <div class="house-snow"></div>
@@ -300,10 +300,12 @@ Village scene.
 
       // Know when template house stamping is done to scroll to the last one.
       this.onMutation(this.$.houses, function(observer, records) {
-        var melts = this.$.houses.querySelectorAll('.melt');
-        if (melts.length) {
-          this.panToHouse(melts[melts.length - 1], 0);
-        }
+        this.async(function() {
+          var todayEls = this.$.houses.querySelectorAll('.today');
+          if (todayEls.length) {
+            this.panToHouse(todayEls[todayEls.length - 1], 0);
+          }
+        }, null, 350);
       });
     },
 
