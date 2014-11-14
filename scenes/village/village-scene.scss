@@ -67,7 +67,7 @@ $name: 'module-village';
   #hit-area-right {
     position: absolute;
     top: 50%;
-    margin-top: -50px; 
+    margin-top: -50px;
     width: 100px;
     height: 100px;
     z-index: 1000;
@@ -89,11 +89,14 @@ $name: 'module-village';
     background: url(img/arrows_right.svg) no-repeat;
   }
 
-  #countdown h1.logo {
-    height: 29px;
-    width: 84px;
-    background: url(img/google_logo.png) no-repeat;
-    background-size: 100% 100%;
+  #countdown {
+    pointer-events: none;
+    h1.logo {
+      height: 29px;
+      width: 84px;
+      background: url(img/google_logo.png) no-repeat;
+      background-size: 100% 100%;
+    }
   }
 
   #village-wrapper {
@@ -212,7 +215,7 @@ $name: 'module-village';
         bottom: 15px;
       }
 
-      $trees: 
+      $trees:
         "tree1"  "trees1"   246   197   697,
         "tree2"  "trees2"   197   215   1357,
         "tree3"  "trees3"   166   202   1707,
@@ -326,7 +329,7 @@ $name: 'module-village';
     #unicycle {
       position: absolute;
       left: 0;
-      bottom: 0; 
+      bottom: 0;
       @include animation(train 460s 0s linear infinite);
       animation-direction: reverse;
 
@@ -452,7 +455,7 @@ $name: 'module-village';
       &.stop-empty .elf {
         opacity: 0;
       }
-   
+
       &.stop-waiting {
         .elf {
           @include animation(600ms bounce linear infinite);
@@ -749,7 +752,7 @@ $name: 'module-village';
     left: 2067px;
     @include transition(transform 15s ease-out);
     @include transform(rotateZ(0) translateY(-1000px));
-    
+
     &.land {
       @include transform(rotateZ(0) translateY(-2px));
     }
