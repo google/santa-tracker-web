@@ -25,596 +25,599 @@ $cardColor: #6541a4;
 
 ##{$name} {
 
-#global-nav {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2000;
-
-  #nav-onthego {
-    margin: 40px auto;
-    max-width: 660px; //880px;
-
-    .onthego-item {
-      text-align: center;
-      width: 170px;
-      float: left;
-      margin: 0 25px;
-      color: #fff;
-
-      a {
-        color: #fff;
-        text-decoration: none;
-      }
-
-      .logo {
-        margin: 0 auto;
-        background-image: url(img/onthego.png);
-        background-repeat: no-repeat;
-        background-size: 594px 147px;
-        @include media-hdpi(2) {
-          background-image: url(img/onthego_2x.png);
-        }
-        width: 147px;
-        height: 147px;
-      }
-    }
-
-    .onthego-android .logo {
-      background-position: 0 0;
-    }
-
-    .onthego-chrome .logo {
-      background-position: -149px 0;
-    }
-
-    .onthego-iphone .logo {
-      background-position: -299px 0;
-    }
-
-    .onthego-cast .logo {
-      background-position: -447px 0;
-    }
-  }
-
-  #global-nav-btn {
-    z-index: 10000;
+  #global-nav {
     position: absolute;
-    @include transition(top ease $animationDuration); // TODO: don't animate top.
-    top: 20px;
+    top: 0;
     right: 0;
-    height: 44px;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    @include transform(translateZ(0)); // Safari
+    z-index: 2000;
 
-    cursor: pointer;
+    #nav-onthego {
+      margin: 40px auto;
+      max-width: 660px; //880px;
 
-    .nav-santa-icon, .nav-santa-bar {
-      height: 100%;
+      .onthego-item {
+        text-align: center;
+        width: 170px;
+        float: left;
+        margin: 0 25px;
+        color: #fff;
+
+        a {
+          color: #fff;
+          text-decoration: none;
+        }
+
+        .logo {
+          margin: 0 auto;
+          background-image: url(img/onthego.png);
+          background-repeat: no-repeat;
+          background-size: 594px 147px;
+          @include media-hdpi(2) {
+            background-image: url(img/onthego_2x.png);
+          }
+          width: 147px;
+          height: 147px;
+        }
+      }
+
+      .onthego-android .logo {
+        background-position: 0 0;
+      }
+
+      .onthego-chrome .logo {
+        background-position: -149px 0;
+      }
+
+      .onthego-iphone .logo {
+        background-position: -299px 0;
+      }
+
+      .onthego-cast .logo {
+        background-position: -447px 0;
+      }
     }
 
-    .nav-santa-icon {
-      width: 44px;
+    #global-nav-btn {
+      z-index: 10000;
+      position: absolute;
+      @include transition(top ease $animationDuration); // TODO: don't animate top.
+      top: 20px;
+      right: 0;
+      height: 44px;
       border-top-left-radius: 50%;
       border-bottom-left-radius: 50%;
-      background: #e61f2d url(img/santa-icon.svg) 50% 50%/26px 35px no-repeat;
+      @include transform(translateZ(0)); // Safari
+
+      cursor: pointer;
+
+      .nav-santa-icon, .nav-santa-bar {
+        height: 100%;
+      }
+
+      .nav-santa-icon {
+        width: 44px;
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        background: #e61f2d url(img/santa-icon.svg) 50% 50%/26px 35px no-repeat;
+      }
+
+      .nav-santa-bar {
+        width: 35px;
+        background: #e61f2d url(img/santa-bar.svg) 50% 50%/16px 19px no-repeat;
+      }
     }
 
-    .nav-santa-bar {
-      width: 35px;
-      background: #e61f2d url(img/santa-bar.svg) 50% 50%/16px 19px no-repeat;
-    }
-  }
-
-  #global-nav-header {
-    background: $cardColor;
-    text-align: center;
-    line-height: 84px;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    @include transition(transform $animationDuration);
-    @include transform(translateY(-84px));
-
-    .back {
-      position: absolute;
-      top: 0;
-      left: 0;
+    #global-nav-header {
+      background: $cardColor;
       text-align: center;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 400;
-      color: #fff;
-      width: $backButtonWidth;
       line-height: 84px;
-      padding: 0 0 0 $headerPadding;
-      background: url(img/village-nav-bg.svg) 50% 100%/204px 45px no-repeat,
-                  url(img/back-arrow.svg) 10px 50%/31px 31px no-repeat;
-    }
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      @include transition(transform $animationDuration);
+      @include transform(translateY(-84px));
 
-    paper-tabs {
-      height: 100%;
-      width: 100%;
-      max-width: 800px;
-      font-size: 16px;
-      color: #fede32;
-      font-weight: bold;
-      padding: 0 $headerPadding + $backButtonWidth;
+      .back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 400;
+        color: #fff;
+        width: $backButtonWidth;
+        line-height: 84px;
+        padding: 0 0 0 $headerPadding;
+        background: url(img/village-nav-bg.svg) 50% 100%/204px 45px no-repeat,
+        url(img/back-arrow.svg) 10px 50%/31px 31px no-repeat;
+      }
 
-      paper-tab {
-        cursor: pointer;
-        &.core-selected {
-          color: #fff;
-          opacity: 1;
+      paper-tabs {
+        height: 100%;
+        width: 100%;
+        max-width: 800px;
+        font-size: 16px;
+        color: #fcdb32;
+        font-weight: 600;
+        padding: 0 $headerPadding + $backButtonWidth;
+
+        paper-tab {
+          cursor: pointer;
+          &.core-selected {
+            color: #fff;
+            opacity: 1;
+          }
         }
       }
     }
-  }
 
-  #global-nav-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: $headerFooterColor;
-    text-align: center;
-    color: #fff;
-    @include transition(transform $animationDuration);
-    @include transform(translateY(41px));
-
-    a {
-      text-decoration: none;
+    #global-nav-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: $headerFooterColor;
+      text-align: center;
       color: #fff;
-      line-height: 41px;
+      @include transition(transform $animationDuration);
+      @include transform(translateY(41px));
+
+      a {
+        text-decoration: none;
+        color: #fff;
+        line-height: 41px;
+      }
     }
-  }
 
 
-  #global-nav-body {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+    #global-nav-body {
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
 
-    #nav-calendar {
-      $cardWidth: 160px;
+      #nav-calendar {
+        $cardWidth: 160px;
 
-      max-width: $cardWidth * 7;
-      margin: 20px auto;
-      position: initial;
-      box-shadow: 12px 12px $headerFooterColor;
+        max-width: $cardWidth * 7;
+        margin: 20px auto;
+        position: initial;
+        box-shadow: 12px 12px $headerFooterColor;
 
-      $categories: 'calendar', 'play', 'watch', 'learn', 'scene';
-      @each $category in $categories {
-        &.#{$category} {
+        $categories: 'calendar', 'play', 'watch', 'learn', 'scene';
+        @each $category in $categories {
+          &.#{$category} {
 
-          .card.#{$category} {
-            &::before, &::after {
+            .card.#{$category} {
+              &::before, &::after {
+                visibility: visible;
+              }
+            }
+
+            .menu-marker.#{$category},
+            .category {
               visibility: visible;
             }
           }
-
-          .menu-marker.#{$category},
-          .category {
-            visibility: visible;
-          }
         }
-      }
 
-      div {
-        .card {
-          $markerWidth: 100px;
+        div {
+          .card {
+            $markerWidth: 100px;
 
-          width: $cardWidth;
-          height: $cardWidth;
-          border: 1px solid #7847b2;
-          border-width: 2px 0 0 2px;
-          background: $cardColor;
-          position: relative;
-          font-weight: 600;
-          font-size: 14px;
-          box-sizing: border-box;
-          overflow: hidden;
+            width: $cardWidth;
+            height: $cardWidth;
+            border: 1px solid #7847b2;
+            border-width: 2px 0 0 2px;
+            background: $cardColor;
+            position: relative;
+            font-weight: 600;
+            font-size: 14px;
+            box-sizing: border-box;
+            overflow: hidden;
 
-          &::before {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            content: attr(data-index) '';
-            color: rgb(86,45,153);
-            visibility: hidden;
-          }
-
-          &::after {
-            content: attr(data-category) '';
-            text-transform: capitalize;
-            color: #fff;
-            position: absolute;
-            width: 100%;
-            left: 0;
-            bottom: 5px;
-            text-align: center;
-            visibility: hidden;
-          }
-
-          @for $i from 1 through 24 {
-            &.iced {
-              .marker#{$i} {
-                background-image: url(img/village-menu-numbers-#{$i}.svg) !important;
-              }
-            }
-          }
-
-          &[data-index="1"] {
-            $smallMarkerWidth: 55px;
-
-            a {
-              width: $smallMarkerWidth;
-              height: $smallMarkerWidth;
+            &::before {
               position: absolute;
-
-              .menu-marker {
-                width: 100%;
-                height: 100%;
-              }
-
-              &:nth-of-type(1) {
-                left: 12px;
-                top: $cardWidth / 2 - $smallMarkerWidth / 2;
-                .menu-marker {
-                  background-image: url(img/village-menu-icons-1-airport.svg);
-                }
-              }
-              &:nth-of-type(2) {
-                left: $cardWidth / 2 - $smallMarkerWidth / 2;
-                top: 10px;
-                .menu-marker {
-                  background-image: url(img/village-menu-icons-1-video.svg);
-                }
-              }
-              &:nth-of-type(3) {
-                right: 10px;
-                top: $cardWidth / 2 - $smallMarkerWidth / 2;
-                .menu-marker {
-                  background-image: url(img/village-menu-icons-1-racer.svg);
-                }
-              }
-              &:nth-of-type(4) {
-                bottom: 10px;
-                left: $cardWidth / 2 - $smallMarkerWidth / 2;
-                .menu-marker {
-                  background-image: url(img/village-menu-icons-1-playstore.svg);
-                }
-              }
-            }
-          }
-
-          a {
-            text-decoration: none;
-            border-radius: 50%;
-            background-color: rgb(93, 59, 149);
-
-            .menu-marker {
-              background-size: contain;
-              background-repeat: no-repeat;
-              width: $markerWidth;
-              height: $markerWidth;
-              position: relative;
+              top: 10px;
+              left: 10px;
+              content: attr(data-index) '';
+              color: rgb(86,45,153);
               visibility: hidden;
             }
-          }
 
+            &::after {
+              content: attr(data-category) '';
+              text-transform: capitalize;
+              color: #fff;
+              position: absolute;
+              width: 100%;
+              left: 0;
+              bottom: 5px;
+              text-align: center;
+              visibility: hidden;
+            }
+
+            @for $i from 1 through 24 {
+              &.iced {
+                .marker#{$i} {
+                  background-image: url(img/village-menu-numbers-#{$i}.svg) !important;
+                }
+              }
+            }
+
+            &[data-index="1"] {
+              $smallMarkerWidth: 55px;
+
+              a {
+                width: $smallMarkerWidth;
+                height: $smallMarkerWidth;
+                position: absolute;
+
+                .menu-marker {
+                  width: 100%;
+                  height: 100%;
+                }
+
+                &:nth-of-type(1) {
+                  left: 12px;
+                  top: $cardWidth / 2 - $smallMarkerWidth / 2;
+                  .menu-marker {
+                    background-image: url(img/village-menu-icons-1-airport.svg);
+                  }
+                }
+                &:nth-of-type(2) {
+                  left: $cardWidth / 2 - $smallMarkerWidth / 2;
+                  top: 10px;
+                  .menu-marker {
+                    background-image: url(img/village-menu-icons-1-video.svg);
+                  }
+                }
+                &:nth-of-type(3) {
+                  right: 10px;
+                  top: $cardWidth / 2 - $smallMarkerWidth / 2;
+                  .menu-marker {
+                    background-image: url(img/village-menu-icons-1-racer.svg);
+                  }
+                }
+                &:nth-of-type(4) {
+                  bottom: 10px;
+                  left: $cardWidth / 2 - $smallMarkerWidth / 2;
+                  .menu-marker {
+                    background-image: url(img/village-menu-icons-1-playstore.svg);
+                  }
+                }
+              }
+            }
+
+            a {
+              text-decoration: none;
+              border-radius: 50%;
+              background-color: rgb(93, 59, 149);
+
+              .menu-marker {
+                background-size: contain;
+                background-repeat: no-repeat;
+                width: $markerWidth;
+                height: $markerWidth;
+                position: relative;
+                visibility: hidden;
+              }
+            }
+
+          }
         }
       }
     }
-  }
 
-  #global-nav-content {
-    top: 85px;
-    bottom: 41px;
-    left: 0;
-    right: 0;
-    position: absolute;
-    overflow: hidden;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-
-  &.opening,
-  &.closing {
-    overflow: hidden;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-
-    #global-nav-body {
+    #global-nav-content {
+      top: 85px;
+      bottom: 41px;
+      left: 0;
+      right: 0;
       position: absolute;
+      overflow: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    &.opening,
+    &.closing {
+      overflow: hidden;
       top: 0;
       left: 0;
       bottom: 0;
       right: 0;
-      opacity: 0;
-      display: block;
-      background: #7847b2;
-      @include transition(opacity $animationDuration);
-    }
-  }
 
-  &.opened,
-  &.closing {
-    left: 0;
-    bottom: 0;
-  }
-
-  &.opening {
-    .menu-marker {
-      -webkit-transform: translateY($markerTranslateDistance);
-      transform: translateY($markerTranslateDistance);
-      -webkit-transition: -webkit-transform $markerAnimationDuration ease;
-      transition: transform $markerAnimationDuration ease;
-    }
-  }
-
-  &.opened {
-    #global-nav-body {
-      opacity: 1;
-    }
-
-    #global-nav-header,
-    #global-nav-footer {
-      @include transform(translateY(0));
-    }
-
-    .menu-marker {
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-      -webkit-transition: -webkit-transform $markerAnimationDuration ease;
-      transition: transform $markerAnimationDuration ease;
-    }
-
-    @for $i from 1 through 24 {
-      .marker#{$i} {
-        @include transition-delay(42ms * $i);
-      }
-    }
-  }
-
-  &.closing {
-    #global-nav-header,
-    #global-nav-body {
-      @include transition-delay(0ms + (24 * 42));
-    }
-
-    .menu-marker {
-      -webkit-transform: translateY($markerTranslateDistance);
-      transform: translateY($markerTranslateDistance);
-      -webkit-transition: -webkit-transform 883ms ease;
-      transition: transform 883ms ease;
-    }
-
-    @for $i from 1 through 24 {
-      .marker#{$i} {
-        @include transition-delay(42ms * (24 - $i));
-      }
-    }
-  }
-
-  &.closed {
-    overflow: visible;
-    #global-nav-body,
-    #global-nav-footer {
-      display: none;
-    }
-    bottom: auto;
-    left: auto;
-  }
-}
-
-#footer {
-  position: absolute;
-  z-index: 1000000000;
-  bottom: 14px;
-  right: 12px;
-  background: rgba(0, 0, 0, .23);
-  padding: 6px;
-  border-radius: 4px;
-  color: #fff;
-
-  a {
-    color: #fff;
-    font-size: 10px;
-    font-weight: bold;
-    text-decoration: none;
-  }
-}
-
-#page-language {
-  z-index: 100000000;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, .31);
-  display: none;
-
-  #language-content {
-    width: 355px;
-    position: absolute;
-    top: -16px;
-    left: 50%;
-    margin-left: -177.6px;
-    border: 16px solid rgba(0, 0, 0, .14);
-    border-radius: 16px;
-
-    #language-inner {
-      background: #f9f9f9;
-      padding: 24px;
-
-      h2 {
-        margin: 0 0 16px 0;
-        padding: 0;
-        font-family: 'Lobster', sans-serif;
-        font-size: 40px;
-        line-height: 40px;
-        font-weight: normal;
-        text-align: center;
-      }
-
-      #language {
-        width: 100%;
-        margin: 0;
-        padding: 0 19px;
-        background: transparent;
-        border: 1px solid #d9d9d9;
-        font-family: 'Open Sans';
-        font-size: 12px;
-        height: 51px;
-        -webkit-appearance: none;
-        outline: 0;
-        z-index: 2;
-      }
-
-      #close-lang {
+      #global-nav-body {
         position: absolute;
         top: 0;
-        right: -30px;
-        width: 55px;
-        height: 53px;
-        background-position: -1029px -412px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0;
+        display: block;
+        background: #7847b2;
+        @include transition(opacity $animationDuration);
       }
     }
+
+    &.opened,
+    &.closing {
+      left: 0;
+      bottom: 0;
+    }
+
+    &.opening {
+      .menu-marker {
+        -webkit-transform: translateY($markerTranslateDistance);
+        transform: translateY($markerTranslateDistance);
+        -webkit-transition: -webkit-transform $markerAnimationDuration ease;
+        transition: transform $markerAnimationDuration ease;
+      }
+    }
+
+    &.opened {
+      #global-nav-body {
+        opacity: 1;
+      }
+
+      #global-nav-header,
+      #global-nav-footer {
+        @include transform(translateY(0));
+      }
+
+      .menu-marker {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-transition: -webkit-transform $markerAnimationDuration ease;
+        transition: transform $markerAnimationDuration ease;
+      }
+
+      @for $i from 1 through 24 {
+        .marker#{$i} {
+          @include transition-delay(42ms * $i);
+        }
+      }
+    }
+
+    &.closing {
+      #global-nav-header,
+      #global-nav-body {
+        @include transition-delay(0ms + (24 * 42));
+      }
+
+      .menu-marker {
+        -webkit-transform: translateY($markerTranslateDistance);
+        transform: translateY($markerTranslateDistance);
+        -webkit-transition: -webkit-transform 883ms ease;
+        transition: transform 883ms ease;
+      }
+
+      @for $i from 1 through 24 {
+        .marker#{$i} {
+          @include transition-delay(42ms * (24 - $i));
+        }
+      }
+    }
+
+    &.closed {
+      overflow: visible;
+      #global-nav-body,
+      #global-nav-footer {
+        display: none;
+      }
+      bottom: auto;
+      left: auto;
+    }
   }
-}
 
-// TODO(lukem): Add a class to the body body if the map is visible so the
-// footer can shift above the copyrights
-.bump #footer {
-  bottom: 21px;
-}
-
-.touch {
-  .nav-flag {
-    display: none;
-  }
-}
-
-#site-nav {
-  position: absolute;
-  z-index: 1000000000; // Above everything!
-  bottom: 0;
-  left: 20px;
-  min-width: 204px;
-  max-width: 300px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .16);
-  border-radius: 4px 4px 0 0;
-
-  h2 {
-    margin: 0;
-    padding: 12px 16px;
-    font-family: 'Lobster', sans-serif;
-    font-size: 28px;
-    line-height: 35px;
-    font-weight: normal;
+  #footer {
+    position: absolute;
+    z-index: 1000000000;
+    bottom: 14px;
+    right: 12px;
+    background: rgba(0, 0, 0, .23);
+    padding: 6px;
+    border-radius: 4px;
     color: #fff;
-    text-align: center;
-    background: #ea4437;
-    border-radius: 4px 4px 0 0;
+
+    a {
+      color: #fff;
+      font-size: 10px;
+      font-weight: bold;
+      text-decoration: none;
+    }
   }
 
-  .share {
-    height: 36px;
-    background: #ea4537;
-    border-top: 1px solid #c32926;
+  #page-language {
+    z-index: 100000000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .31);
+    display: none;
 
-    ul {
-      margin: 0;
-      padding: 0;
+    #language-content {
+      width: 355px;
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      margin-left: -177.6px;
+      border: 16px solid rgba(0, 0, 0, .14);
+      border-radius: 16px;
 
-      li {
-        float: left;
-        width: 33%;
-        overflow: hidden;
-        list-style-type: none;
+      #language-inner {
+        background: #f9f9f9;
+        padding: 24px;
 
-        a {
-          text-decoration: none;
-          display: block;
-          font-size: 0;
-          line-height: 36px;
-          background-color: #ea4537;
+        h2 {
+          margin: 0 0 16px 0;
+          padding: 0;
+          font-family: 'Lobster', sans-serif;
+          font-size: 40px;
+          line-height: 40px;
+          font-weight: normal;
           text-align: center;
+        }
+
+        #language {
+          width: 100%;
+          margin: 0;
+          padding: 0 19px;
+          background: transparent;
+          border: 1px solid #d9d9d9;
+          font-family: 'Open Sans';
+          font-size: 12px;
+          height: 51px;
+          -webkit-appearance: none;
+          outline: 0;
+          z-index: 2;
+        }
+
+        #close-lang {
+          position: absolute;
+          top: 0;
+          right: -30px;
+          width: 55px;
+          height: 53px;
+          background-position: -1029px -412px;
+        }
+      }
+    }
+  }
+
+  // TODO(lukem): Add a class to the body body if the map is visible so the
+  // footer can shift above the copyrights
+  .bump #footer {
+    bottom: 21px;
+  }
+
+  .touch {
+    .nav-flag {
+      display: none;
+    }
+  }
+
+  #site-nav {
+    position: absolute;
+    z-index: 1000000000; // Above everything!
+    bottom: 0;
+    left: 20px;
+    min-width: 204px;
+    max-width: 300px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .16);
+    border-radius: 4px 4px 0 0;
+
+    h2 {
+      margin: 0;
+      padding: 12px 16px;
+      font-family: 'Lobster', sans-serif;
+      font-size: 28px;
+      line-height: 35px;
+      font-weight: normal;
+      color: #fff;
+      text-align: center;
+      background: #22ae28;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .share {
+      height: 36px;
+      background: #22ae28;
+      border-top: 1px solid rgba(0,0,0,0.2);
+
+      ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+          float: left;
+          width: 33%;
           overflow: hidden;
-          position: relative;
-          height: 36px;
+          list-style-type: none;
 
-          i {
-            position: absolute;
+          a {
+            text-decoration: none;
+            display: block;
+            font-size: 0;
+            line-height: 36px;
+            background-color: #22ae28;
+            text-align: center;
             overflow: hidden;
-            text-indent: 1000em;
-            white-space: nowrap;
-            left: 50%;
-            top: 8px;
+            position: relative;
+            height: 36px;
+
+            i {
+              position: absolute;
+              overflow: hidden;
+              text-indent: 1000em;
+              white-space: nowrap;
+              left: 50%;
+              top: 8px;
+            }
+
+            &.gplus i {
+              width: 26px;
+              height: 25px;
+              margin-left: -13px;
+              background: url(img/plus.svg) no-repeat;
+            }
+
+            &.fb i {
+              width: 11px;
+              height: 23px;
+              margin-left: -5px;
+              background: url(img/facebook.svg) no-repeat;
+            }
+
+            &.twitter i {
+              width: 25px;
+              height: 21px;
+              margin-left: -12px;
+              background: url(img/twitter.svg) no-repeat;
+            }
           }
 
-          &.gplus i {
-            width: 26px;
-            height: 25px;
-            margin-left: -13px;
-            background: url(img/plus.svg) no-repeat;
+          &:first-child a {
+            border-right: 1px solid rgba(0,0,0,0.2);
           }
 
-          &.fb i {
-            width: 11px;
-            height: 23px;
-            margin-left: -5px;
-            background: url(img/facebook.svg) no-repeat;
+          &:last-child a {
+            border-left: 1px solid rgba(0,0,0,0.2);
           }
-
-          &.twitter i {
-            width: 25px;
-            height: 21px;
-            margin-left: -12px;
-            background: url(img/twitter.svg) no-repeat;
-          }
-        }
-
-        &:first-child a {
-          border-right: 1px solid #c32926;
-        }
-
-        &:last-child a {
-          border-left: 1px solid #c32926;
         }
       }
     }
   }
-}
 
-#sound {
-  position: absolute;
-  top: 75px;
-  right: 0;
-  z-index: 1000;
-  @include transform(translateZ(0)); // Safari
+  #sound {
+    position: absolute;
+    top: 75px;
+    right: 0;
+    z-index: 1000;
+    @include transform(translateZ(0)); // Safari
 
-  a {
-    width: 40px;
-    height: 45px;
-    float: left;
-    background-color: #22b129;
-    border-radius: 20px 0 0 20px;
-    i {
-      margin: 7px 0 0 7px;
+    a {
+      width: 40px;
+      height: 45px;
       float: left;
-      width: 31px;
-      height: 30px;
-      background: url(img/sound-on.svg) 50% 50% no-repeat;
-    }
-
-    &.off {
+      background-color: #22b129;
+      border-radius: 20px 0 0 20px;
       i {
-        background: url(img/sound-off.svg) 50% 50% no-repeat;
+        margin: 7px 0 0 7px;
+        float: left;
+        width: 31px;
+        height: 30px;
+        background: url(img/sound-on.svg) 50% 50% no-repeat;
+      }
+
+      &.off {
+        i {
+          background: url(img/sound-off.svg) 50% 50% no-repeat;
+        }
       }
     }
   }
 }
-}
+
+@import "sass/_responsive.scss";
+

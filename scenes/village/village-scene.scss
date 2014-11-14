@@ -121,6 +121,7 @@ $name: 'module-village';
       bottom: 0;
       height: 125px;
       z-index: 15;
+      background-size: 612px 43px;
       background: url(img/snow.svg) repeat-x;
     }
 
@@ -621,7 +622,7 @@ $name: 'module-village';
       right: 0;
       opacity: 0;
       @include transition(opacity .5s ease);
-      background-position: bottom left;
+      background-position: top left;
       background-repeat: repeat-x;
       background-size: 2971px 450px;
 
