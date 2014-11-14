@@ -10,7 +10,7 @@
 
     &.today:not(.iced) {
       .house-marker {
-        @include transform(scale3d(1.5, 1.5, 1));
+        @include transform(scale(1.5, 1.5));
         -webkit-transform-origin: 50% 100%;
         transform-origin: 50% 100%;
 
