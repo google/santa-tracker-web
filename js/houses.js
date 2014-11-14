@@ -1,7 +1,7 @@
-<script>
 window.HOUSES = [{
   module: "airport",
   iced: false,
+  showOnLaunch: true,
   category: "scene",
   elves: {
     melt: [
@@ -20,6 +20,7 @@ window.HOUSES = [{
 }, {
   module: "racer",
   iced: false,
+  showOnLaunch: true,
   category: "play",
   elves: {
     melt: [
@@ -38,6 +39,7 @@ window.HOUSES = [{
 }, {
   module: "intro",
   iced: false,
+  showOnLaunch: true,
   category: "play",
   elves: {
     melt: [
@@ -56,6 +58,7 @@ window.HOUSES = [{
 }, {
   module: "app",
   iced: false,
+  showOnLaunch: true,
   category: "play",
   elves: {
     melt: [
@@ -464,4 +467,3 @@ window.HOUSES = [{
     ]
   }
 }];
-</script>

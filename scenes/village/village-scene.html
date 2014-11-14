@@ -60,7 +60,7 @@ Village scene.
           <div id="houses">
 
             <template repeat="{{house, i in houses}}">
-              <div id="house-{{house.module}}" class="house {{house.category}} {{ {iced: house.iced, melt: !house.iced} | tokenList }}">
+              <div id="house-{{house.module}}" class="house {{house.category}} {{ {today: todayHouseIdx > -1 && todayHouseIdx < 4 || todayHouseIdx == i, tomorrow: todayHouseIdx + 1 == i, iced: house.iced, melt: !house.iced} | tokenList }}">
                 <div class="building"></div>
 
                 <div class="house-snow"></div>
@@ -79,7 +79,7 @@ Village scene.
                 <div class="marker-today">
                   <div><i18n-msg msgid="newtoday">New Today</i18n-msg></div>
                 </div>
-                <div class="marker-tomorrow">
+                <div class="marker-tomorrow" hidden?="{{house.today}}">
                   <div layout vertical center-center><i18n-msg msgid="openingtomorrow">Grand opening tomorrow</i18n-msg></div>
                 </div>
                 <a href="{{baseURI}}#{{house.module}}" class="house-marker"
@@ -218,16 +218,6 @@ Village scene.
     randomBusTimeoutID_: -1,
 
     /**
-     * The current day in the calendar schedule.
-     *
-     * @property scheduleDay_
-     * @type {number}
-     * @default 1
-     * @private
-     */
-     scheduleDay_: 1,
-
-    /**
      * The time of day to display. Values are 'day' or 'night'.
      *
      * @property timeOfDay
@@ -237,35 +227,13 @@ Village scene.
     timeOfDay: 'day',
 
     /**
-     * The schedule of houses that open based on the day. Day - 1 is the index.
-     * @private
+     * The index of the current day's house in the list of houses.
+     *
+     * @property todayHouseIdx
+     * @type number
+     * @default 1
      */
-    SCHEDULE_: [
-      'house1', // airport
-      'house2', // racer
-      'house3', // trailer
-      'house4', // windtunnel
-      'house5', // boatload
-      'house7', // streets
-      'house8', // factory
-      'house9', // rollercoaster
-      'house11', // commandcentre
-      'house12', // callfromsanta
-      'house13', // gumballs
-      'house14', // sendamessage
-      'house15', // mountain
-      'house16', // playground
-      'house18', // ferriswheel
-      'house19', // briefing
-      'house20', // matching
-      'house21', // choir
-      'house22', // jetpack
-      'house23', // presentdrop
-      'house24', // traditions
-      'house25', // workshop
-      'house26', // finalprep
-      'house27' // tracker
-    ],
+    todayHouseIdx: 1,
 
     /**
      * End of Santa's flight (ms).
@@ -333,7 +301,9 @@ Village scene.
       // Know when template house stamping is done to scroll to the last one.
       this.onMutation(this.$.houses, function(observer, records) {
         var melts = this.$.houses.querySelectorAll('.melt');
-        this.panToHouse(melts[melts.length - 1], 0);
+        if (melts.length) {
+          this.panToHouse(melts[melts.length - 1], 0);
+        }
       });
     },
 
@@ -350,10 +320,29 @@ Village scene.
     },
 
     /**
-     * @param {int} index
+     * @param number index
      */
     unlockHouse: function(idx) {
-      this.houses[idx].iced = false;
+      if (!this.houses[idx] || this.houses[idx].disabled) {
+        this.todayHouseIdx = -1; // Don't put "new today" banner on any house.
+        return;
+      }
+      this.todayHouseIdx = idx;
+      this.houses[this.todayHouseIdx].iced = false;
+    },
+
+    unlockAllHouses: function() {
+      for (var i = 0, house; house = this.houses[i]; ++i) {
+        this.unlockHouse(i);
+      }
+      this.todayHouseIdx = -1;
+    },
+
+    lockAllHouses: function() {
+      for (var i = 0, house; house = this.houses[i]; ++i) {
+        this.houses[i].iced = true;
+      }
+      this.todayHouseIdx = 1;
     },
 
     /**
@@ -586,29 +575,36 @@ Village scene.
       var date = new Date(now);
       var day = date.getDate();
 
-      // Houses unlock at 6AM.
-      if (date.getHours() < 6) {
-        day--;
-      }
+      // // Houses unlock at 6AM.
+      // if (date.getHours() < 6) {
+      //   day--;
+      // }
 
-      var NOVEMBER = 10;
+      var JAN = 0;
+      var DECEMBER = 11;
 
-      // We don't want users still in November seeing all the houses unlocked.
-      // The site will be shut down before November the following year.
-      if (day >= this.scheduleDay_ && date.getMonth() != NOVEMBER) {
-        for (var i = this.scheduleDay_; i <= day; ++i) {
-          // var houseIdx = this.SCHEDULE_[i - 1];
-          // if (!houseIdx) {
-            // Nothing more to unlock.
-            // break;
-          // }
-
-          if (!this.houses[i - 1].disabled) {
-            this.unlockHouse(i - 1);
+      switch(date.getMonth()) {
+        case DECEMBER:
+          // First four houses are unlocked on 12/1.
+          if (day == 1) {
+            this.unlockHouse(0);
+            this.unlockHouse(1);
+            this.unlockHouse(2);
+            this.unlockHouse(3);
+          } else {
+            // Unlock all houses up to and including today's.
+            for (var i = 0; i <= day + 2; ++i) {
+              this.unlockHouse(i);
+            }
           }
-        }
-
-        this.scheduleDay_ = day;
+          break;
+        case JAN:
+          // All houses in Jan are unlocked. Full experience baby!
+          this.unlockAllHouses();
+          break;
+        default:
+          // noop
+          this.lockAllHouses();
       }
 
       if (opt_once) {
@@ -673,8 +669,6 @@ Village scene.
     },
 
     onPreload: function() {
-      console.debug('village: onPreload');
-
       this.preloadSounds('village_load_sounds');
 
       var images = [
@@ -741,8 +735,6 @@ Village scene.
     },
 
     onShow: function() {
-      console.debug('village: onShow');
-
       this.checkSchedule_();
 
       this.villageSnow_.start();
@@ -755,8 +747,6 @@ Village scene.
     },
 
     onHide: function() {
-      console.debug('village: onHide');
-
       window.clearTimeout(this.scheduleTimeout_);
 
       this.playAmbientSounds('village_end');
