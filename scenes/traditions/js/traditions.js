@@ -194,6 +194,8 @@ Traditions.prototype.nextCountry_ = function() {
  */
 Traditions.prototype.showWorld_ = function() {
   this.showDefault_();
+
+  //TODO(lukem): Add this back in when @ebidel fixes the routing
   //window.location.replace('#traditions');
   return false;
 };
@@ -251,6 +253,7 @@ Traditions.prototype.addCountryMarkers_ = function() {
  * @private
  */
 Traditions.prototype.showCountry_ = function(country) {
+  //TODO(lukem): Add this back in when @ebidel fixes the routing
   //window.location.replace('#traditions/' + country);
   this.show(country);
 };
