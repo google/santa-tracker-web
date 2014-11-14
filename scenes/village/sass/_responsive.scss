@@ -54,10 +54,13 @@ $mobilePortraitBreakpoint: 400px;
       bottom: 73px;
     }
 
-    #snow,
-    #ground,  {
+    #ground  {
       bottom: 0;
       height: 73px;
+    }
+
+    #snow {
+      height: 50px;
     }
 
     #mountains {
