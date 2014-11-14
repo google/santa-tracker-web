@@ -1,0 +1,282 @@
+@import "compass/css3";
+@import "compass/css3/transform";
+@import "compass/css3/border-radius";
+
+$tabletBreakpoint: 1024px;
+$mobileBreakpoint: 660px;
+
+$name: 'module-traditions';
+
+##{$name} {
+  width: 100%;
+  height: 100%;
+
+  #tradition-img {
+    position: absolute;
+    right: -400px;
+    top: -400px;
+    width: 300px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+    @include transition(all .2s ease);
+
+    &.active {
+      right: 90px;
+      top: -20px;
+    }
+
+    &.ar {
+      background-image: url(img/ar.png);
+    }
+
+    &.au {
+      background-image: url(img/au.png);
+    }
+
+    &.br {
+      background-image: url(img/br.png);
+    }
+
+    &.ca {
+      background-image: url(img/ca.png);
+    }
+
+    &.cl {
+      background-image: url(img/cl.png);
+    }
+
+    &.de {
+      background-image: url(img/de.png);
+    }
+
+    &.dk {
+      background-image: url(img/dk.png);
+    }
+
+    &.fr {
+      background-image: url(img/fr.png);
+    }
+
+    &.gh {
+      background-image: url(img/gh.png);
+    }
+
+    &.gr {
+      background-image: url(img/gr.png);
+    }
+
+    &.gt {
+      background-image: url(img/gt.png);
+    }
+
+    &.is {
+      background-image: url(img/is.png);
+    }
+
+    &.kg {
+      background-image: url(img/kg.png);
+    }
+
+    &.mx {
+      background-image: url(img/mx.png);
+    }
+
+    &.nz {
+      background-image: url(img/nz.png);
+    }
+
+    &.ph {
+      background-image: url(img/ph.png);
+    }
+
+    &.ru {
+      background-image: url(img/ru.png);
+    }
+
+    &.uk {
+      background-image: url(img/uk.png);
+    }
+
+    &.us {
+      background-image: url(img/us.png);
+    }
+  }
+
+  #traditions-map {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .traditions-tradition {
+    display: none;
+    //background: rgba(246, 239, 226, .8);
+
+    position: absolute;
+    max-width: 390px;
+    left: 250px;
+    top: 50%;
+
+    h2 {
+      font-family: 'Lobster', sans-serif;
+      font-size: 55px;
+      color: #424242;
+      white-space: nowrap;
+      margin: 0;
+    }
+
+    p {
+      color: #504f4a;
+      font-size: 1.2em;
+      //background: rgba(246, 239, 226, .8);
+      //box-shadow: 0 0 20px 20px rgba(246, 239, 226, .8);
+      //border-radius: 20px;
+    }
+  }
+
+  .tradition-active {
+    display: block;
+  }
+
+  .sceneboard {
+    background: #fed83c url(img/traditions_icon.svg) no-repeat 50% 5px;
+    @include box-shadow(0 2px 3px rgba(0, 0, 0, 0.23));
+    @include border-radius(0 0 4px 4px);
+    border-top: 45px solid #ddb40a;
+    height: 207px;
+    left: 20px;
+    position: fixed;
+    top: 0;
+    width: 204px;
+    z-index: 200;
+
+    .controls {
+      background: #22b129;
+      @include border-radius(0 0 4px 4px);
+      position: absolute;
+      bottom: 0;
+      width: 204px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          @include box-sizing(border-box);
+          width: 33%;
+          float: left;
+
+          &:nth-child(2) {
+            border-left: 1px solid #19991f;
+            border-right: 1px solid #19991f;
+          }
+
+          a {
+            display: block;
+            height: 52px;
+            text-indent: -3000em;
+          }
+
+          #traditions-world {
+            background-image: url(img/smallglobe.svg);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+          }
+
+          #traditions-prev {
+            background-image: url(img/left.svg);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+          }
+
+          #traditions-next {
+            background-image: url(img/right.svg);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $tabletBreakpoint) {
+  #module-traditions {
+    .sceneboard {
+      border-top: 45px solid #ddb40a;
+      @include border-radius(22px 0 0 22px);
+      @include box-shadow(none);
+      top: auto;
+      left: auto;
+      bottom: 10px;
+      right: 0;
+      height: auto;
+
+     .controls {
+        @include border-radius(22px 0 0 22px);
+      }
+    }
+
+    .traditions-tradition {
+      left: 20px;
+
+      h2 {
+        font-size: 45px;
+      }
+    }
+
+    #tradition-img {
+      @include transform(scale(0.8));
+      &.active {
+        right: 70px;
+        top: -40px;
+      }
+    }
+  } 
+}
+
+@media (max-width: $mobileBreakpoint) {
+  #module-traditions {
+    .sceneboard {
+      @include border-radius(22px 0 0 22px);
+      @include box-shadow(none);
+      border-top: 0;
+      top: auto;
+      left: auto;
+      bottom: 10px;
+      right: 0;
+      height: 35px;
+
+      .controls {
+        @include border-radius(22px 0 0 22px);
+        ul li a {
+          height: 35px;
+          background-size: 30px;
+        }
+      }
+    }
+
+    .traditions-tradition {
+      left: 20px;
+      right: 20px;
+      margin-top: 0 !important;
+      max-width: 100%;
+      bottom: 50px;
+      top: auto;
+
+      h2 {
+        font-size: 35px;
+      }
+    }
+
+    #tradition-img {
+      @include transform(scale(0.5));
+      &.active {
+        top: -80px;
+        right: -10px;
+      }
+    }
+  } 
+}
