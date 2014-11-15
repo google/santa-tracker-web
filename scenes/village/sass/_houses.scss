@@ -120,8 +120,8 @@
 
       .house-marker:focus {
         outline: none;
-        /* TODO(bckenny): come up with a non-stupid focus style */
-        border: 2px solid red;
+        -webkit-filter: drop-shadow(0 0 15px #fff);
+        filter: drop-shadow(0 0 15px #fff);
         @include animation(bounce 600ms linear infinite);
       }
 
@@ -221,6 +221,7 @@
         &.iced {
           .house-marker {
             background-image: url(img/#{nth($house, $markerLock)}.svg);
+            outline: none;
           }
         }
       }

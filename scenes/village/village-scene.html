@@ -34,7 +34,7 @@ Village scene.
         <!-- <h2>Until Santa Departs &ndash; <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">Learn More</a></h2> -->
         <h2><i18n-msg msgid="countdownlabel">Until Santa Departs</i18n-msg> &centerdot; <a href="//www.google.com/santatracker/about.html"><i18n-msg msgid="learnmore">Learn More</i18n-msg></a></h2>
         <div id="finished-tracker">
-          <a href="{{baseURI}}#tracker"><!----></a>
+          <a href="[[baseURI]]#tracker"><!----></a>
         </div>
         <h2 style="display:none"><i18n-msg msgid="endofjourneymessage">Santa's finished his journey for the year! He and the elves are still having some fun in the North Pole before their annual vacation.</i18n-msg></h2>
       </div>
@@ -46,7 +46,7 @@ Village scene.
 
       <div id="trees" class="parallax-layer">
         <template repeat="{{tree in trees}}">
-          <div class="tree" _style="left:{{tree.left}}px"></div>
+          <div class="tree" _style="left:[[tree.left]]px"></div>
         </template>
       </div>
       <div id="snow" class="parallax-layer"></div>
@@ -60,29 +60,30 @@ Village scene.
           <div id="houses">
 
             <template repeat="{{house, i in houses}}">
-              <div id="house-{{house.module}}" class="house {{house.category}} {{ {today: house.showOnLaunch && todayHouseIdx > -1 && todayHouseIdx < 4 || todayHouseIdx == i, tomorrow: todayHouseIdx + 1 == i, iced: house.iced, melt: !house.iced} | tokenList }}">
+              <!-- TODO(ericbidelman_): Non-[[]] bindings are being evaluated on-scroll! -->
+              <div id="house-[[house.module]]" class="house {{house.category}} {{house.iced ? 'iced' : 'melt'}} {{ {today: house.today, tomorrow: house.tomorrow} | tokenList }}">
                 <div class="building"></div>
 
                 <div class="house-snow"></div>
                 <div class="house-elves">
                   <div class="snow-elves">
-                    <template repeat="{{house.elves.snow}}">
-                      <div class="elf {{}}"></div>
+                    <template repeat="[[house.elves.snow]]">
+                      <div class="elf [[]]"></div>
                     </template>
                   </div>
                   <div class="melt-elves">
-                    <template repeat="{{house.elves.melt}}">
-                      <div class="elf {{}}"></div>
+                    <template repeat="[[house.elves.melt]]">
+                      <div class="elf [[]]"></div>
                     </template>
                   </div>
                 </div>
                 <div class="marker-today">
                   <div><i18n-msg msgid="newtoday">New Today</i18n-msg></div>
                 </div>
-                <div class="marker-tomorrow" hidden?="{{house.today}}">
+                <div class="marker-tomorrow">
                   <div layout vertical center-center><i18n-msg msgid="openingtomorrow">Grand opening tomorrow</i18n-msg></div>
                 </div>
-                <a href="{{baseURI}}#{{house.module}}" class="house-marker"
+                <a href="[[baseURI]]#{{house.module}}" class="house-marker"
                    tabindex="{{house.iced || house.disabled ? -1 : 0}}" on-click="{{onHouseClick}}"></a>
               </div>
             </template>
@@ -108,7 +109,7 @@ Village scene.
               <div class="elf elf-green-girl-sit-left elf6"></div>
             </div>
 
-            <a href="{{baseURI}}#santadive" id="pegman" class="landed"></a>
+            <a href="[[baseURI]]#santadive" id="pegman" class="landed"></a>
             <div id="pegman-spaceship"></div>
 
             <div id="unicycle" class="elf"><div class="cycle"></div></div>
@@ -180,6 +181,13 @@ Village scene.
 <script>
 (function() {
 
+  // Check if date1 is the same date as date2.
+  function isToday_(date1, date2) {
+    return date1.getMonth() == date2.getMonth() &&
+           date1.getDate() == date2.getDate() &&
+           date1.getYear() == date2.getYear();
+  }
+
   function polynomialEasing_(t) {
     return t * t;
   }
@@ -233,7 +241,7 @@ Village scene.
      * @type number
      * @default 1
      */
-    todayHouseIdx: 1,
+    //todayHouseIdx: 1,
 
     /**
      * End of Santa's flight (ms).
@@ -301,9 +309,9 @@ Village scene.
       // Know when template house stamping is done to scroll to the last one.
       this.onMutation(this.$.houses, function(observer, records) {
         this.async(function() {
-          var todayEls = this.$.houses.querySelectorAll('.today');
-          if (todayEls.length) {
-            this.panToHouse(todayEls[todayEls.length - 1], 0);
+          var todayEl = this.$.houses.querySelector('.today');
+          if (todayEl) {
+            this.panToHouse(todayEl, 0);
           }
         }, null, 350);
       });
@@ -325,26 +333,25 @@ Village scene.
      * @param number index
      */
     unlockHouse: function(idx) {
-      if (!this.houses[idx] || this.houses[idx].disabled) {
-        this.todayHouseIdx = -1; // Don't put "new today" banner on any house.
+      var house = this.houses[idx];
+
+      if (!house || house.disabled) {
         return;
       }
-      this.todayHouseIdx = idx;
-      this.houses[this.todayHouseIdx].iced = false;
+
+      house.iced = false;
     },
 
     unlockAllHouses: function() {
       for (var i = 0, house; house = this.houses[i]; ++i) {
         this.unlockHouse(i);
       }
-      this.todayHouseIdx = -1;
     },
 
     lockAllHouses: function() {
       for (var i = 0, house; house = this.houses[i]; ++i) {
-        this.houses[i].iced = true;
+        house.iced = true;
       }
-      this.todayHouseIdx = 1;
     },
 
     /**
@@ -527,7 +534,6 @@ Village scene.
       if (!this.active) {
         return;
       }
-
       if (!this.updateScheduled_) {
         this.updateScheduled_ = true;
         window.requestAnimationFrame(this.updateParallax_.bind(this));
@@ -574,29 +580,41 @@ Village scene.
     checkSchedule_: function(opt_once) {
       var now = this.santaService ? this.santaService.now() : Date.now();
 
-      var date = new Date(now);
-      var day = date.getDate();
+      var todayDate = new Date(now);
+      var day = todayDate.getDate();
+
+// this.todayDate = date;
 
       // // Houses unlock at 6AM.
-      // if (date.getHours() < 6) {
+      // if (todayDate.getHours() < 6) {
       //   day--;
       // }
 
       var JAN = 0;
       var DECEMBER = 11;
 
-      switch(date.getMonth()) {
+      switch(todayDate.getMonth()) {
         case DECEMBER:
           // First four houses are unlocked on 12/1.
           if (day == 1) {
-            this.unlockHouse(0);
-            this.unlockHouse(1);
-            this.unlockHouse(2);
-            this.unlockHouse(3);
+            for (var i = 0; i < 4; ++i) {
+              this.houses[i].today = true;
+            }
+            this.houses[4].tomorrow = true;
           } else {
             // Unlock all houses up to and including today's.
             for (var i = 0; i <= day + 2; ++i) {
               this.unlockHouse(i);
+
+              var house = this.houses[i];
+              if (house && isToday_(house.launchDate, todayDate)) {
+                house.today = true;
+
+                var nextHouse = this.houses[i + 1];
+                if (nextHouse) {
+                  nextHouse.tomorrow = true;
+                }
+              }
             }
           }
           break;
@@ -614,7 +632,7 @@ Village scene.
       }
 
       // Check again at the next hour tick.
-      var timeTillHour = (60 - date.getMinutes()) * 60 * 1000;
+      var timeTillHour = (60 - todayDate.getMinutes()) * 60 * 1000;
       this.scheduleTimeout_ = this.async(this.checkSchedule_, null, timeTillHour);
     },
 
