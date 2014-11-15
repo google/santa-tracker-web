@@ -345,12 +345,16 @@ Village scene.
     unlockAllHouses: function() {
       for (var i = 0, house; house = this.houses[i]; ++i) {
         this.unlockHouse(i);
+        house.today = false;
+        house.tomorrow = false;
       }
     },
 
     lockAllHouses: function() {
       for (var i = 0, house; house = this.houses[i]; ++i) {
         house.iced = true;
+        house.today = false;
+        house.tomorrow = false;
       }
     },
 
@@ -583,18 +587,13 @@ Village scene.
       var todayDate = new Date(now);
       var day = todayDate.getDate();
 
-// this.todayDate = date;
-
       // // Houses unlock at 6AM.
       // if (todayDate.getHours() < 6) {
       //   day--;
       // }
 
-      var JAN = 0;
-      var DECEMBER = 11;
-
       switch(todayDate.getMonth()) {
-        case DECEMBER:
+        case 11: // DECEMBER
           // First four houses are unlocked on 12/1.
           if (day == 1) {
             for (var i = 0; i < 4; ++i) {
@@ -604,21 +603,28 @@ Village scene.
           } else {
             // Unlock all houses up to and including today's.
             for (var i = 0; i <= day + 2; ++i) {
-              this.unlockHouse(i);
-
               var house = this.houses[i];
-              if (house && isToday_(house.launchDate, todayDate)) {
-                house.today = true;
 
-                var nextHouse = this.houses[i + 1];
-                if (nextHouse) {
-                  nextHouse.tomorrow = true;
+              if (house) {
+                house.today = false; // reset previous houses.
+                house.tomorrow = false;
+
+                this.unlockHouse(i);
+
+                if (isToday_(house.launchDate, todayDate)) {
+
+                  house.today = true;
+
+                  var nextHouse = this.houses[i + 1];
+                  if (nextHouse) {
+                    nextHouse.tomorrow = true;
+                  }
                 }
               }
             }
           }
           break;
-        case JAN:
+        case 0: // JAN
           // All houses in Jan are unlocked. Full experience baby!
           this.unlockAllHouses();
           break;
