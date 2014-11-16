@@ -87,6 +87,8 @@ if (window.DEV) {
   document.addEventListener('polymer-ready', function() {
     console.debug('polymer-ready @', performance.now(), 'ms');
   });
+} else {
+  console.log = function(){};
 }
 </script>
 </body>

@@ -7,7 +7,69 @@
     position: absolute;
     bottom: 0;
     float: left;
-    .building, .house-snow, .house-elves {
+
+    &.today:not(.iced) {
+      .house-marker {
+        @include transform(scale(1.5, 1.5));
+        transform-origin: 50% 100%;
+
+        &:focus {
+          @include animation(bigbounce 600ms linear infinite !important);
+        }
+      }
+
+      &:hover {
+        .house-marker {
+          @include animation(bigbounce 600ms linear infinite !important);
+        }
+      }
+
+      .marker-today {
+        display: block;
+        background-image: url(img/new-banner.svg);
+        height: 80px;
+        width: 140px;
+        left: -44px;
+
+        > * {
+          line-height: 28px;
+          width: 100%;
+          display: inline-block;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    &.tomorrow.iced {
+      .marker-tomorrow {
+        display: block;
+        background-image: url(img/village-comeback-tomorrow.svg);
+        background-position: 50% 10px;
+        height: 115px;
+        width: 120px;
+        left: 130px;
+
+        > * {
+          height: 100%;
+          top: 15px;
+          left: 3px;
+        }
+      }
+    }
+
+    .marker-today, .marker-tomorrow {
+      display: none;
+      z-index: 15;
+
+      > * {
+        position: relative;
+        color: #fff;
+        text-align: center;
+        font-weight: 600;
+      }
+    }
+
+    .building, .house-snow, .house-elves, .marker-today, .marker-tomorrow {
       position: absolute;
       background-repeat: no-repeat;
       background-position: 0 0;
@@ -58,8 +120,9 @@
 
       .house-marker:focus {
         outline: none;
-        /* TODO(bckenny): come up with a non-stupid focus style */
-        border: 2px solid red;
+        // TODO(lukem): add something for IE
+        -webkit-filter: drop-shadow(0 0 15px #fff);
+        filter: drop-shadow(0 0 15px #fff);
         @include animation(bounce 600ms linear infinite);
       }
 
@@ -159,6 +222,7 @@
         &.iced {
           .house-marker {
             background-image: url(img/#{nth($house, $markerLock)}.svg);
+            outline: none;
           }
         }
       }
@@ -169,7 +233,7 @@
 
   #balloon {
     position: absolute;
-    background: url(img/balloon.svg) no-repeat;    
+    background: url(img/balloon.svg) no-repeat;
     width: 235px;
     height: 269px;
     bottom: -2px;
