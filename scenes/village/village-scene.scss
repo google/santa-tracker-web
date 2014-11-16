@@ -113,7 +113,9 @@ $name: 'module-village';
         background: url(img/tree.svg) no-repeat;
         bottom: 0;
         pointer-events: none;
+        // TODO(lukem): add something for IE
         -webkit-filter: blur(2px);
+        filter: blur(2px);
       }
     }
 

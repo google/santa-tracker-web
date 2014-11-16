@@ -182,7 +182,7 @@ Village scene.
 (function() {
 
   // Check if date1 is the same date as date2.
-  function isToday_(date1, date2) {
+  function isSameDay_(date1, date2) {
     return date1.getMonth() == date2.getMonth() &&
            date1.getDate() == date2.getDate() &&
            date1.getYear() == date2.getYear();
@@ -585,31 +585,24 @@ Village scene.
 
       switch(todayDate.getMonth()) {
         case 11: // DECEMBER
-          // First four houses are unlocked on 12/1.
-          if (day == 1) {
-            for (var i = 0; i < 4; ++i) {
-              this.houses[i].today = true;
-            }
-            this.houses[4].tomorrow = true;
-          } else {
-            // Unlock all houses up to and including today's.
-            for (var i = 0; i <= day + 2; ++i) {
-              var house = this.houses[i];
+          // Unlock all houses up to and including today's.
+          for (var i = 0; i <= day + 2; ++i) {
+            var house = this.houses[i];
 
-              if (house) {
-                house.today = false; // reset previous houses.
-                house.tomorrow = false;
+            if (house) {
+              house.today = false; // reset previous houses.
+              house.tomorrow = false;
 
-                this.unlockHouse(i);
+              this.unlockHouse(i);
 
-                if (isToday_(house.launchDate, todayDate)) {
+              // Check if house's unlocking date it today!
+              if (isSameDay_(house.launchDate, todayDate)) {
 
-                  house.today = true;
+                house.today = true;
 
-                  var nextHouse = this.houses[i + 1];
-                  if (nextHouse) {
-                    nextHouse.tomorrow = true;
-                  }
+                var nextHouse = this.houses[i + 1];
+                if (nextHouse) {
+                  nextHouse.tomorrow = true;
                 }
               }
             }
