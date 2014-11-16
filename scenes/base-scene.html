@@ -165,7 +165,7 @@ Subclass scene elements can define the following properties:
       /**
        * Max preload async handler
        *
-       * @type Number
+       * @type Number|Function
        * @default null
        */
       maxPreloadAsync_: null,
@@ -251,6 +251,7 @@ Subclass scene elements can define the following properties:
       showScene: function() {
         this.loaded = true;
 
+        // Cancel the max preload async
         this.cancelAsync(this.maxPreloadAsync_);
 
         if (this.active) {
