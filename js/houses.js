@@ -1,7 +1,11 @@
+// Note: launch dates need to be parsed in 'Dec 1, 2014' formatted.
+// Date('yyyy-mm-dd') produces a UTC date. We want local dates.
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse#Differences_in_assumed_time-zone
+
 window.HOUSES = [{
   module: "airport",
   iced: false,
-  launchDate: new Date('2014-12-01'),
+  launchDate: new Date('Dec 1, 2014'),
   category: "scene",
   elves: {
     melt: [
@@ -20,7 +24,7 @@ window.HOUSES = [{
 }, {
   module: "racer",
   iced: false,
-  launchDate: new Date('2014-12-01'),
+  launchDate: new Date('Dec 1, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -39,7 +43,7 @@ window.HOUSES = [{
 }, {
   module: "intro",
   iced: false,
-  launchDate: new Date('2014-12-01'),
+  launchDate: new Date('Dec 1, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -58,7 +62,7 @@ window.HOUSES = [{
 }, {
   module: "app",
   iced: false,
-  launchDate: new Date('2014-12-01'),
+  launchDate: new Date('Dec 1, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -76,7 +80,7 @@ window.HOUSES = [{
   module: "selfie",
   iced: true,
   category: "play",
-  launchDate: new Date('2014-12-02'),
+  launchDate: new Date('Dec 2, 2014'),
   elves: {
     melt: [
     "elf-green",
@@ -95,7 +99,7 @@ window.HOUSES = [{
   module: "boatload",
   iced: true,
   category: "play",
-  launchDate: new Date('2014-12-03'),
+  launchDate: new Date('Dec 3, 2014'),
   elves: {
     melt: [
     "elf-blue-girl-right",
@@ -111,7 +115,7 @@ window.HOUSES = [{
 }, {
   module: "briefing",
   iced: true,
-  launchDate: new Date('2014-12-04'),
+  launchDate: new Date('Dec 4, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -128,7 +132,7 @@ window.HOUSES = [{
 }, {
   module: "matching",
   iced: true,
-  launchDate: new Date('2014-12-05'),
+  launchDate: new Date('Dec 5, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -147,7 +151,7 @@ window.HOUSES = [{
 }, {
   module: "presentdrop",
   iced: true,
-  launchDate: new Date('2014-12-06'),
+  launchDate: new Date('Dec 6, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -166,7 +170,7 @@ window.HOUSES = [{
 }, {
   module: "streetview",
   iced: true,
-  launchDate: new Date('2014-12-07'),
+  launchDate: new Date('Dec 7, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -185,7 +189,7 @@ window.HOUSES = [{
 }, {
   module: "jamband",
   iced: true,
-  launchDate: new Date('2014-12-08'),
+  launchDate: new Date('Dec 8, 2014'),
   category: "code",
   elves: {
     melt: [
@@ -204,7 +208,7 @@ window.HOUSES = [{
 }, {
   module: "codelab",
   iced: true,
-  launchDate: new Date('2014-12-09'),
+  launchDate: new Date('Dec 9, 2014'),
   category: "listen",
   elves: {
     melt: [
@@ -223,7 +227,7 @@ window.HOUSES = [{
 }, {
   module: "translations",
   iced: true,
-  launchDate: new Date('2014-12-10'),
+  launchDate: new Date('Dec 10, 2014'),
   category: "watch",
   elves: {
     melt: [
@@ -244,7 +248,7 @@ window.HOUSES = [{
 }, {
   module: "video",
   iced: true,
-  launchDate: new Date('2014-12-11'),
+  launchDate: new Date('Dec 11, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -263,7 +267,7 @@ window.HOUSES = [{
 }, {
   module: "mercator",
   iced: true,
-  launchDate: new Date('2014-12-12'),
+  launchDate: new Date('Dec 12, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -282,7 +286,7 @@ window.HOUSES = [{
 }, {
   module: "controlroom",
   iced: true,
-  launchDate: new Date('2014-12-13'),
+  launchDate: new Date('Dec 13, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -301,7 +305,7 @@ window.HOUSES = [{
 }, {
   module: "play",
   iced: true,
-  launchDate: new Date('2014-12-14'),
+  launchDate: new Date('Dec 14, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -320,7 +324,7 @@ window.HOUSES = [{
 }, {
   module: "charity",
   iced: true,
-  launchDate: new Date('2014-12-15'),
+  launchDate: new Date('Dec 15, 2014'),
   category: "draw",
   elves: {
     melt: [
@@ -339,7 +343,7 @@ window.HOUSES = [{
 }, {
   module: "jetpack",
   iced: true,
-  launchDate: new Date('2014-12-16'),
+  launchDate: new Date('Dec 16, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -358,7 +362,7 @@ window.HOUSES = [{
 }, {
   module: "candy",
   iced: true,
-  launchDate: new Date('2014-12-17'),
+  launchDate: new Date('Dec 17, 2014'),
   category: "watch",
   elves: {
     melt: [
@@ -377,7 +381,7 @@ window.HOUSES = [{
 }, {
   module: "postcard",
   iced: true,
-  launchDate: new Date('2014-12-18'),
+  launchDate: new Date('Dec 18, 2014'),
   category: "send",
   elves: {
     melt: [
@@ -396,7 +400,7 @@ window.HOUSES = [{
 }, {
   module: "traditions",
   iced: true,
-  launchDate: new Date('2014-12-19'),
+  launchDate: new Date('Dec 19, 2014'),
   category: "learn",
   elves: {
     melt: [
@@ -415,7 +419,7 @@ window.HOUSES = [{
 }, {
   module: "windtunnel",
   iced: true,
-  launchDate: new Date('2014-12-20'),
+  launchDate: new Date('Dec 20, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -434,7 +438,7 @@ window.HOUSES = [{
 }, {
   module: "gumball",
   iced: true,
-  launchDate: new Date('2014-12-21'),
+  launchDate: new Date('Dec 21, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -453,7 +457,7 @@ window.HOUSES = [{
 }, {
   module: "citylights",
   iced: true,
-  launchDate: new Date('2014-12-22'),
+  launchDate: new Date('Dec 22, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -472,7 +476,7 @@ window.HOUSES = [{
 }, {
   module: "santa",
   iced: true,
-  launchDate: new Date('2014-12-23'),
+  launchDate: new Date('Dec 23, 2014'),
   category: "watch",
   elves: {
     melt: [
