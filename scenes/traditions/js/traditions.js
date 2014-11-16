@@ -69,7 +69,7 @@ Traditions.prototype.setup = function() {
 Traditions.prototype.onShow = function() {
   this.visible_ = true;
 
-  this.map_ = new google.maps.Map(this.el_.querySelectorAll('#traditions-map')[0], {
+  this.map_ = new google.maps.Map(this.el_.querySelector('#traditions-map'), {
     center: new google.maps.LatLng(0, 0),
     zoom: 1,
     disableDefaultUI: true,

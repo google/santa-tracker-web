@@ -6,7 +6,7 @@
 <!--
 Traditions scene.
 
-@element matching-scene
+@element traditions-scene
 @extends base-scene
 -->
 <polymer-element name="traditions-scene" extends="base-scene">
@@ -107,11 +107,38 @@ Traditions scene.
   Polymer({
     loadingBgColor: 'rgb(255,224,0)',
     componentDir: 'scenes/traditions/',
-    googleMapsAPI: null,
+    googleMapsAPI: false,
 
     onPreload: function() {
       this.preloadImages([
         'img/loading.gif',
+        'img/ar.png',
+        'img/de.png',
+        'img/gt.png',
+        'img/mx.png',
+        'img/pins_small.png',
+        'img/traditions_icon.svg',
+        'img/au.png',
+        'img/dk.png',
+        'img/is.png',
+        'img/nz.png',
+        'img/pins_small_2x.png',
+        'img/uk.png',
+        'img/br.png',
+        'img/fr.png',
+        'img/kg.png',
+        'img/ph.png',
+        'img/right.svg',
+        'img/us.png',
+        'img/ca.png',
+        'img/gh.png',
+        'img/left.svg',
+        'img/pins_large.png',
+        'img/ru.png',
+        'img/cl.png',
+        'img/gr.png',
+        'img/pins_large_2x.png',
+        'img/smallglobe.svg'
       ]);
     },
     ready: function() {
@@ -119,11 +146,11 @@ Traditions scene.
       var me = this;
 
       mapsAPI.addEventListener('api-load', function() {
-        if (!me.googleMapsAPI) {
-          me.googleMapsAPI = this.api;
-          me.apiReady();
+        if (!this.googleMapsAPI) {
+          this.googleMapsAPI = true;
+          this.apiReady();
         }
-      });
+      }.bind(this));
     },
     apiReady: function() {
       var module = this.$['module-traditions'];
