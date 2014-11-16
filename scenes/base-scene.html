@@ -163,6 +163,14 @@ Subclass scene elements can define the following properties:
       visibilityService: null,
 
       /**
+       * Max preload async handler
+       *
+       * @type Number|Function
+       * @default null
+       */
+      maxPreloadAsync_: null,
+
+      /**
        * The component's directory. Can be used to reference assets in HTML.
        *
        * @property componentBaseDir
@@ -243,6 +251,9 @@ Subclass scene elements can define the following properties:
       showScene: function() {
         this.loaded = true;
 
+        // Cancel the max preload async
+        this.cancelAsync(this.maxPreloadAsync_);
+
         if (this.active) {
           this.onShow && this.onShow();
           this.hidden = false;
@@ -269,7 +280,7 @@ Subclass scene elements can define the following properties:
           // If assets are queued to preload, schedule showScene on timeout in
           // case preloading fails.
           if (this.totalAssets > 0) {
-            this.async(this.showScene, null, this.MAX_PRELOAD_TIME);
+            this.maxPreloadAsync_ = this.async(this.showScene, null, this.MAX_PRELOAD_TIME);
             return;
           }
         }
