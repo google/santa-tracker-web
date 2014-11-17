@@ -779,10 +779,10 @@ $name: 'module-village';
     top: 45px;
     @include animation(plane 75s 0s linear infinite);
     @include animation-direction(reverse);
-    @include transition(transform .5s ease);
+    @include transition(transform .5s ease, top 0.5s ease);
 
     &.to-space {
-      @include transform(translateX(-100px));
+      top: -100px;
     }
   }
 
@@ -791,7 +791,7 @@ $name: 'module-village';
     bottom: 0;
     left: 2067px;
     @include transition(transform 15s ease-out);
-    @include transform(rotateZ(0) translateY(-1000px));
+    @include transform(rotateZ(0) translateY(-5000px));
 
     &.land {
       @include transform(rotateZ(0) translateY(-2px));
@@ -816,7 +816,7 @@ $name: 'module-village';
     }
 
     &.down {
-      @include translateY(1000px);
+      @include translateY(5000px);
     }
 
     &.go-down {
