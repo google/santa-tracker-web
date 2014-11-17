@@ -5,6 +5,8 @@ function VillagePegman(el) {
   this.container_ = el;
 
   this.isPaused_ = true;
+
+  this.pegman_ = this.container_.querySelector('#pegman');
 }
 
 /**
@@ -52,9 +54,7 @@ VillagePegman.prototype.pause = function() {
 VillagePegman.prototype.resume = function() {
   this.isPaused_ = false;
 
-  var pegman = this.container_.querySelector('#pegman');
-
-  if (pegman.classList.contains('landed')) {
+  if (this.pegman_.classList.contains('landed')) {
     this.schedulePegmanPickup_();
   } else {
     this.skyDive_();
@@ -75,7 +75,7 @@ VillagePegman.prototype.stop = function() {
 VillagePegman.prototype.skyDive_ = function() {
   if (this.isPaused_) return;
 
-  var pegman = this.container_.querySelector('#pegman');
+  var pegman = this.pegman_;
 
   pegman.classList.switch('landed', 'dive');
   pegman.classList.add('diving');
@@ -107,7 +107,7 @@ VillagePegman.prototype.schedulePegmanPickup_ = function() {
 VillagePegman.prototype.pickupPegman_ = function() {
   if (this.isPaused_) return;
 
-  var pegman = this.container_.querySelector('#pegman');
+  var pegman = this.pegman_;
 
   var spaceship = this.container_.querySelector('#spaceship');
   spaceship.classList.add('to-space');
