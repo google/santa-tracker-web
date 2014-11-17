@@ -1,0 +1,170 @@
+<link rel="import" href="../base-scene.html">
+<link rel="import" href="../../elements/i18n-msg.html">
+
+<link rel="import" href="dependencies.html">
+
+<!--
+Traditions scene.
+
+@element traditions-scene
+@extends base-scene
+-->
+<polymer-element name="traditions-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="traditions-scene.css" no-shim>
+
+  <div id="module-traditions">
+
+    <div class="scene">
+      <!-- TODO(bckenny): make client id work -->
+      <google-maps-api clientId="" version="3.exp" id="google-maps-api"></google-maps-api>
+      <div id="traditions-map"></div>
+      <div id="tradition-img"></div>
+      <div class="traditions-all">
+        <div class="traditions-tradition" data-id="us">
+          <h2><i18n-msg msgid="us_country_name">United States</i18n-msg></h2>
+          <p><i18n-msg msgid="us_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="mx">
+          <h2><i18n-msg msgid="mx_country_name">Mexico</i18n-msg></h2>
+          <p><i18n-msg msgid="mx_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="gt">
+          <h2><i18n-msg msgid="gt_country_name">Guatemala</i18n-msg></h2>
+          <p><i18n-msg msgid="gt_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="ca">
+          <h2><i18n-msg msgid="ca_country_name">Canada</i18n-msg></h2>
+          <p><i18n-msg msgid="ca_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="ar">
+          <h2><i18n-msg msgid="ar_country_name">Argentina</i18n-msg></h2>
+          <p><i18n-msg msgid="ar_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="br">
+          <h2><i18n-msg msgid="br_country_name">Brazil</i18n-msg></h2>
+          <p><i18n-msg msgid="br_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="is">
+          <h2><i18n-msg msgid="is_country_name">Iceland</i18n-msg></h2>
+          <p><i18n-msg msgid="is_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="uk">
+          <h2><i18n-msg msgid="uk_country_name">United Kingdom</i18n-msg></h2>
+          <p><i18n-msg msgid="uk_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="gh">
+          <h2><i18n-msg msgid="gh_country_name">Ghana</i18n-msg></h2>
+          <p><i18n-msg msgid="gh_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="fr">
+          <h2><i18n-msg msgid="fr_country_name">France</i18n-msg></h2>
+          <p><i18n-msg msgid="fr_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="de">
+          <h2><i18n-msg msgid="de_country_name">Germany</i18n-msg></h2>
+          <p><i18n-msg msgid="de_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="gr">
+          <h2><i18n-msg msgid="gr_country_name">Greece</i18n-msg></h2>
+          <p><i18n-msg msgid="gr_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="kg">
+          <h2><i18n-msg msgid="kg_country_name">Kyrgyzstan</i18n-msg></h2>
+          <p><i18n-msg msgid="kg_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="ru">
+          <h2><i18n-msg msgid="ru_country_name">Russia</i18n-msg></h2>
+          <p><i18n-msg msgid="ru_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="ph">
+          <h2><i18n-msg msgid="ph_country_name">Philippines</i18n-msg></h2>
+          <p><i18n-msg msgid="ph_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="au">
+          <h2><i18n-msg msgid="au_country_name">Australia</i18n-msg></h2>
+          <p><i18n-msg msgid="au_tradition"></i18n-msg></p>
+        </div>
+        <div class="traditions-tradition" data-id="nz">
+          <h2><i18n-msg msgid="nz_country_name">New Zealand</i18n-msg></h2>
+          <p><i18n-msg msgid="nz_tradition"></i18n-msg></p>
+        </div>
+      </div>
+      <div class="sceneboard">
+        <div class="controls">
+          <ul>
+            <li><a href="#" id="traditions-world" class="active"><i18n-msg msgid="traditions-world">World</i18n-msg></a></li>
+            <li><a href="#" id="traditions-prev"><i18n-msg msgid="traditions-prev">Previous Tradition</i18n-msg></a></li>
+            <li><a href="#" id="traditions-next"><i18n-msg msgid="traditions-next">Next Tradition</i18n-msg></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+(function() {
+  Polymer({
+    loadingBgColor: 'rgb(255,224,0)',
+    componentDir: 'scenes/traditions/',
+    googleMapsAPI: false,
+
+    onPreload: function() {
+      this.preloadImages([
+        'img/loading.gif',
+        'img/ar.png',
+        'img/de.png',
+        'img/gt.png',
+        'img/mx.png',
+        'img/pins_small.png',
+        'img/traditions_icon.svg',
+        'img/au.png',
+        'img/dk.png',
+        'img/is.png',
+        'img/nz.png',
+        'img/pins_small_2x.png',
+        'img/uk.png',
+        'img/br.png',
+        'img/fr.png',
+        'img/kg.png',
+        'img/ph.png',
+        'img/right.svg',
+        'img/us.png',
+        'img/ca.png',
+        'img/gh.png',
+        'img/left.svg',
+        'img/pins_large.png',
+        'img/ru.png',
+        'img/cl.png',
+        'img/gr.png',
+        'img/pins_large_2x.png',
+        'img/smallglobe.svg'
+      ]);
+    },
+    ready: function() {
+      var mapsAPI = this.$['google-maps-api'];
+      var me = this;
+
+      mapsAPI.addEventListener('api-load', function() {
+        if (!this.googleMapsAPI) {
+          this.googleMapsAPI = true;
+          this.apiReady();
+        }
+      }.bind(this));
+    },
+    apiReady: function() {
+      var module = this.$['module-traditions'];
+      if (this.googleMapsAPI) {
+        new Traditions(module, this.componentDir);
+      }
+    },
+    onShow: function() {
+      
+    },
+    onHide: function() {
+    }
+  });
+
+})();
+</script>
+</polymer-element>
