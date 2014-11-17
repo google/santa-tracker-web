@@ -15,7 +15,7 @@ VillagePegman.SKYDIVE_TIME_ = 25000;
  * @private
  * @type {number}
  */
-VillagePegman.FREEFALL_TIME_ = 0.301 * VillagePegman.SKYDIVE_TIME_;
+VillagePegman.FREEFALL_TIME_ = 0.305 * VillagePegman.SKYDIVE_TIME_;
 
 /**
  * @private
@@ -106,6 +106,7 @@ VillagePegman.prototype.pickupPegman_ = function() {
 
   window.setTimeout(function() {
     pegman.classList.remove('landed');
+    spaceship.classList.remove('to-space');
   }, t);
 
   t += 5000;
