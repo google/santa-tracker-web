@@ -345,18 +345,56 @@ $name: 'module-village';
     }
 
     #snowman {
-      width: 109px;
-      height: 73px;
-      background-image: url(img/snowman_01.svg);
-      background-repeat: no-repeat;
-      background-position: bottom left;
       left: 5780px;
       bottom: -8px;
       @include transform(translateZ(0));
 
-      &.snowman-fall {
+      div {
+        background-repeat: no-repeat;
+        background-position: bottom left;
+        width: 109px;
+        height: 73px;
+        position: absolute;
+        bottom: 0;
+        @include transition(opacity 100ms linear);
+        opacity: 0;
+      }
+
+      #snowman1 {
+        background-image: url(img/snowman_01.svg);
+        opacity: 1;
+      }
+
+      #snowman2 {
+        background-image: url(img/snowman_02.svg);
+      }
+
+      #snowman3 {
+        background-image: url(img/snowman_03.svg);
+      }
+
+      #snowman4 {
         background-image: url(img/snowman_04.svg);
-        @include animation(snowman .5s step-end 1);
+      }
+
+      &.snowman-fall {
+        #snowman1 {
+          opacity: 0;
+        }
+
+        #snowman2 {
+          @include animation(200ms snowman linear);
+        }
+
+        #snowman3 {
+          @include animation(200ms snowman linear);
+          @include animation-delay(75ms);
+        }
+
+        #snowman4 {
+          opacity: 1;
+          @include transition-delay(150ms);
+        }
       }
     }
 

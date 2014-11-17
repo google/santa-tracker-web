@@ -309,16 +309,13 @@
 
 @include keyframes(snowman) {
   0% {
-    background-image: url(img/snowman_01.svg);
-  }
-  25% {
-    background-image: url(img/snowman_02.svg);
+    opacity: 0;
   }
   50% {
-    background-image: url(img/snowman_03.svg);
+    opacity: 1;
   }
-  75% {
-    background-image: url(img/snowman_04.svg);
+  100% {
+    opacity: 0;
   }
 }
 
