@@ -178,7 +178,8 @@ Subclass scene elements can define the following properties:
        * @default
        */
       get componentBaseDir() {
-        return this.baseURI + this.componentDir || '';
+        return location.protocol + '//' + location.host + location.pathname +
+               (this.componentDir || '');
       },
 
       ready: function() {
