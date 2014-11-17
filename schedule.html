@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Google Santa Tracker Schedule</title>
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Lobster|Roboto&subset=all">
+  <link rel="stylesheet" href="sass/santatracker.css">
+</head>
+<body style="padding: 20px; overflow: auto">
+  <h1>Schedule</h1>
+  <ul id="schedule" style="padding: 10px; background: #fff; list-style: none;"></ul>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="js/houses.js"></script>
+
+  <script>
+    for (var i = 0; i < HOUSES.length; i++) {
+      var house = HOUSES[i];
+      var module = house.module;
+      var date = house.launchDate;
+      var dom = $('<li data-date="' + date.getTime() + '">' + 
+        date + ' - ' +
+        module +
+        ': Tracker  <a href="#village">Village</a> - <a href="#' + 
+        module + '">Scene</a></li>');
+      $('#schedule').append(dom);
+
+    }
+    
+    $('#schedule a').on('click', function() {
+      var d = $(this).parent().data('date');
+      var h = $(this).attr('href');
+
+      var date = new Date(d);
+      var t = date.getTime() - 10 * 1000; // Minus 10 seconds so we can watch the house open
+      var url = '/?timestamp_override=' + t + h;
+      document.location = url;
+
+      return false;
+    });
+  </script>
+</body>
+</html>
