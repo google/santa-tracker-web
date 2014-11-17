@@ -4,6 +4,8 @@
 function VillageBus(el) {
   this.container_ = el;
   this.bus_ = this.container_.querySelector('#bus');
+
+  this.isPaused_ = true;
 }
 
 /**
@@ -42,7 +44,28 @@ VillageBus.prototype.start = function() {
    */
   this.busStopQueue_ = [];
 
+  this.isPaused_ = false;
+
   this.sendRandomBus_();
+};
+
+/**
+ * Works over, stop the bus!
+ */
+VillageBus.prototype.resume = function() {
+  this.isPaused_ = false;
+
+  if (!this.busInTransit_) {
+    this.scheduleRandomBus_();
+  }
+};
+
+/**
+ * Works over, stop the bus!
+ */
+VillageBus.prototype.pause = function() {
+  this.isPaused_ = true;
+  window.clearTimeout(this.randomBusTimeoutID_);
 };
 
 /**
@@ -58,7 +81,7 @@ VillageBus.prototype.stop = function() {
  * Send the bus to a bus stop, if not currently in transit.
  * @param {number} stopNumber
  */
-VillageBus.prototype.sendBusToStop = function(stopNumber) {
+VillageBus.prototype.sendBusToStop = function(stopNumber) {  
   var stop = this.container_.querySelector('#busstop' + stopNumber);
 
   var stopEmpty = stop.classList.contains('stop-empty');
@@ -141,6 +164,8 @@ VillageBus.prototype.sendBusToStop = function(stopNumber) {
  * @private
  */
 VillageBus.prototype.sendRandomBus_ = function() {
+  if (this.isPaused_) return;
+
   var stopNumber = Math.floor(Math.random() * 3) + 1;
   this.sendBusToStop(stopNumber);
 };
