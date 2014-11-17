@@ -7,11 +7,12 @@ var path = require('path');
 var autoprefixer = require('gulp-autoprefixer');
 var foreach = require('gulp-foreach');
 var del = require('del');
+var i18n_replace = require('./gulp_scripts/i18n_replace')
 
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 
 gulp.task('clean', function(cleanCallback) {
-  del(['dist'], cleanCallback);
+  del(['dist', 'dist_i18n'], cleanCallback);
 });
 
 gulp.task('compass', function() {
@@ -69,12 +70,20 @@ gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
 
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
+gulp.task('i18n', ['copy-assets'], function() {
+  gulp.src(['dist/**/*.html'], {base: './dist/'})
+    .pipe(i18n_replace({
+      path: '_messages'
+    }))
+    .pipe(gulp.dest('dist_i18n'));
+});
+
 // copy needed assets (images, sounds, polymer elements, etc) to dist directory
 gulp.task('copy-assets', ['clean', 'vulcanize'], function() {
   return gulp.src([
     'index.html',
     'manifest.json',
-    '_locales/**',
+    '_messages/*.json',
     'audio/*',
     'images/*.{png,svg,gif,ico}',
     'js/**',
