@@ -24,14 +24,21 @@ module.exports = function replaceMessages(opts) {
         }
 
         var i18nfile = file.clone();
+        var somethingReplaced = false;
 
         replaced = src.replace(REGEX, function replacer(match, msgid) {
+          somethingReplaced = true;
           var msg = msgs[msgid];
           if (!msg) {
             throw "Could not find message " + msgid + " for " + lang;
           }
           return msg.message;
         });
+
+        if (!somethingReplaced) {
+          // Don't create a new file if nothing was replaced.
+          break;
+        }
 
         // NOTE(cbro): file.relative is inferred on base and path. clear base so
         // we can set relative.
