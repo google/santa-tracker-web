@@ -73,6 +73,7 @@ gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 gulp.task('copy-assets', ['clean', 'vulcanize'], function() {
   return gulp.src([
     'index.html',
+    'manifest.json',
     '_locales/**',
     'audio/*',
     'images/*.{png,svg,gif,ico}',
