@@ -1,18 +1,18 @@
-var dir = require('node-dir'),
-    gutil = require('gulp-util'),
-    through = require('through2'),
-    path = require('path');
+var dir = require('node-dir');
+var gutil = require('gulp-util');
+var through = require('through2');
+var path = require('path');
 
-const NAME = 'i18n_replace';
+var NAME = 'i18n_replace';
 
-const REGEX = /<i18n-msg msgid="([^"]*)">[^<]*<\/i18n-msg>/gm
+var REGEX = /<i18n-msg msgid="([^"]*)">[^<]*<\/i18n-msg>/gm
 
 module.exports = function replaceMessages(opts) {
   var msgPromise = getMsgs(opts.path);
 
   var stream = through.obj(function(file, enc, cb) {
     if (file.isNull()) return stream.queue(file);
-    if (file.isStream()) throw "No support for streams";
+    if (file.isStream()) throw new Error('No support for streams');
 
     msgPromise.then(function(messagesByLang) {
       var src = file.contents.toString();
@@ -20,23 +20,21 @@ module.exports = function replaceMessages(opts) {
       for (var lang in messagesByLang) {
         var msgs = messagesByLang[lang];
         if (!msgs) {
-          throw "No messages for lang " + lang;
+          throw new Error('No messages for lang ' + lang);
         }
 
         var i18nfile = file.clone();
-        var somethingReplaced = false;
 
-        replaced = src.replace(REGEX, function replacer(match, msgid) {
-          somethingReplaced = true;
+        var replaced = src.replace(REGEX, function replacer(match, msgid) {
           var msg = msgs[msgid];
           if (!msg) {
-            throw "Could not find message " + msgid + " for " + lang;
+            throw new Error('Could not find message ' + msgid + ' for ' + lang);
           }
           return msg.message;
         });
 
-        if (!somethingReplaced) {
-          // Don't create a new file if nothing was replaced.
+        if (replaced == src) {
+          // Don't create a new file if the source didn't change.
           break;
         }
 
