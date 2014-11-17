@@ -3,6 +3,8 @@
  */
 function VillagePegman(el) {
   this.container_ = el;
+
+  this.isPaused_ = true;
 }
 
 /**
@@ -21,13 +23,13 @@ VillagePegman.FREEFALL_TIME_ = 0.305 * VillagePegman.SKYDIVE_TIME_;
  * @private
  * @type {number}
  */
-VillagePegman.MIN_SKYDIVE_TIME_ = 90000;
+VillagePegman.MIN_SKYDIVE_TIME_ = 60000;
 
 /**
  * @private
  * @type {number}
  */
-VillagePegman.MAX_SKYDIVE_TIME_ = 200000;
+VillagePegman.MAX_SKYDIVE_TIME_ = 120000;
 
 /**
  * @private
@@ -39,7 +41,24 @@ VillagePegman.LAND_TIME_ = 15000;
  * Start a skydive
  */
 VillagePegman.prototype.start = function() {
+  this.isPaused_ = false;
   this.skyDive_();
+};
+
+VillagePegman.prototype.pause = function() {
+  this.isPaused_ = true;
+};
+
+VillagePegman.prototype.resume = function() {
+  this.isPaused_ = false;
+
+  var pegman = this.container_.querySelector('#pegman');
+
+  if (pegman.classList.contains('landed')) {
+    this.schedulePegmanPickup_();
+  } else {
+    this.skyDive_();
+  }
 };
 
 /**
@@ -54,6 +73,8 @@ VillagePegman.prototype.stop = function() {
  * @param {!Element} snowMobile
  */
 VillagePegman.prototype.skyDive_ = function() {
+  if (this.isPaused_) return;
+
   var pegman = this.container_.querySelector('#pegman');
 
   pegman.classList.switch('landed', 'dive');
@@ -73,6 +94,8 @@ VillagePegman.prototype.skyDive_ = function() {
 };
 
 VillagePegman.prototype.schedulePegmanPickup_ = function() {
+  if (this.isPaused_) return;
+
   window.clearTimeout(this.pickupPegmanTimeoutID_);
 
   var pickupTime = VillagePegman.MIN_SKYDIVE_TIME_ +
@@ -82,6 +105,8 @@ VillagePegman.prototype.schedulePegmanPickup_ = function() {
 };
 
 VillagePegman.prototype.pickupPegman_ = function() {
+  if (this.isPaused_) return;
+
   var pegman = this.container_.querySelector('#pegman');
 
   var spaceship = this.container_.querySelector('#spaceship');
@@ -90,7 +115,7 @@ VillagePegman.prototype.pickupPegman_ = function() {
   var pegmanSpaceship = this.container_.querySelector('#pegman-spaceship');
   pegmanSpaceship.classList.add('land');
 
-  var t = VillagePegman.LAND_TIME_+200;
+  var t = VillagePegman.LAND_TIME_ + 200;
 
   window.setTimeout(function() {
     pegman.classList.add('takeoff');

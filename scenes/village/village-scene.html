@@ -769,11 +769,21 @@ Village scene.
     },
 
     onPause: function() {
-      this.onHide();
+      this.playAmbientSounds('village_end');
+
+      this.villageBus_.pause();
+      this.villagePegman_.pause();
+      this.villageSnowMobile_.stop();
+      this.villageSnow_.stop();
     },
 
     onResume: function() {
-      this.onShow();
+      this.villageBus_.resume();
+      this.villagePegman_.resume();
+      this.villageSnowMobile_.start();
+      this.villageSnow_.start();
+
+      this.playAmbientSounds('village_start');
     }
   });
 

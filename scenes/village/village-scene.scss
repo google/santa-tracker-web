@@ -119,7 +119,7 @@ $name: 'module-village';
       }
     }
 
-    #snow, .snow {
+    #snow {
       position: absolute;
       width: $snowWidth;
       left: 0;
@@ -128,9 +128,10 @@ $name: 'module-village';
       z-index: 15;
       background-size: 612px 43px;
       background: url(img/snow.svg) repeat-x;
+      pointer-events: none;
     }
 
-    #ground, .ground {
+    #ground {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -138,6 +139,7 @@ $name: 'module-village';
       background: #fff;
       height: 158px;
       z-index: 10;
+      pointer-events: none;
 
       @include media-hdpi(2) {
         height: 143px;
