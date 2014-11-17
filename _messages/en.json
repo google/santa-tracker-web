@@ -195,6 +195,10 @@
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "In Mexico, kids of all ages celebrate Christmas by breaking pinatas. Adults and children have fun by wearing a blindfold, spinning around, and swinging a stick to break open the star-shaped hanging pots. When the pinata is smashed open, nuts, fruit and candy spill out for everyone to enjoy."
     },
+    "newtoday": {
+      "description": "Each scene in Santa's village is available by clicking on a building. Buildings are frozen in ice until a specific date. This label indicates a building that is newly available",
+      "message": "New Today"
+    },
     "nonprofit-jane-description": {
         "description": "The description of a non-profit organization. Descriptions are supplied by the non-profit organization. Please do not translate the name of the non-profit.",
         "message": "Chimpanzees are human being's closest living relatives in the animal kingdom! The Jane Goodall Institute (JGI) protects chimpanzees like Glitter and Gossamer by observing and understanding their behaviors as well as the habitats in which they live. JGI also works to build a community of people who are protecting and conserving wildlife and the environment we share. Check out <a href='//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/'>Street View</a> of the chimpanzees in Gombe, Tanzania."
@@ -230,6 +234,10 @@
     "onthego": {
         "description": "Link text. This will show a map of where Santa is located.",
         "message": "Santa on the go"
+    },
+    "openingtomorrow": {
+      "description": "Each scene in Santa's village is available by clicking on a building. Buildings are frozen in ice until a specific date. This label indicates ice will melt, and the scene will be available tomorrow.",
+      "message": "Grand opening tomorrow"
     },
     "ph_country_name": {
         "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
