@@ -35,7 +35,7 @@ Subclass scene elements can define the following properties:
   }
 </style>
 
-<polymer-element name="base-scene" attributes="active alwaysActive path route visibilityService" tabindex="0">
+<polymer-element name="base-scene" attributes="active alwaysActive path route visibilityService mode" tabindex="0">
   <script>
     Polymer({
       publish: {
@@ -59,7 +59,6 @@ Subclass scene elements can define the following properties:
         alwaysActive: {value: false, reflect: true}
       },
 
-
       /**
        * URL route for this scene.
        *
@@ -68,6 +67,15 @@ Subclass scene elements can define the following properties:
        * @default null
        */
       route: null,
+
+      /**
+       * The mode of the scene. Possible values are: 'cast'.
+       *
+       * @attribute mode
+       * @type string
+       * @default ''
+       */
+      mode: '',
 
       computed: {
         /**
