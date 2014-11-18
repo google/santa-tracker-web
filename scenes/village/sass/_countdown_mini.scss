@@ -8,7 +8,9 @@
   top: 75px;
   position: absolute;
   width: 100%;
-  pointer-events: none;
+  &:not(.finished) {
+    pointer-events: none;
+  }
 
   $counterPadding: 19px;
 
