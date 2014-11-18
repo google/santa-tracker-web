@@ -5,12 +5,14 @@ var through = require('through2');
 var path = require('path');
 
 var REGEX = /<i18n-msg msgid="([^"]*)">([^<]*)<\/i18n-msg>/gm;
+var FILENAME_REGEX = /_en\.html$/
 
 module.exports = function replaceMessages(opts) {
   var msgPromise = getMsgs(opts.path);
 
   var stream = through.obj(function(file, enc, cb) {
-    if (file.isNull()) return stream.queue(file);
+    // TODO(cbro): only read HTML files.
+    if (file.isNull()) return stream.push(file);
     if (file.isStream()) throw new Error('No support for streams');
 
     msgPromise.then(function(messagesByLang) {
@@ -21,8 +23,6 @@ module.exports = function replaceMessages(opts) {
         if (!msgs) {
           throw new Error('No messages for lang ' + lang);
         }
-
-        var i18nfile = file.clone();
 
         var replaced = src.replace(REGEX, function replacer(match, msgid, tagBody) {
           var msg = msgs[msgid];
@@ -38,13 +38,15 @@ module.exports = function replaceMessages(opts) {
 
         if (replaced == src) {
           // Don't create a new file if the source didn't change.
+          stream.push(file);
           break;
         }
+        if (!file.path.match(FILENAME_REGEX)) {
+          throw new Error('Files with i18n-msg should end in _en.html: ' + file.relative);
+        }
 
-        // NOTE(cbro): file.relative is inferred on base and path. clear base so
-        // we can set relative.
-        i18nfile.base = '.';
-        i18nfile.path = getPath(lang) + '/' + file.relative;
+        var i18nfile = file.clone();
+        i18nfile.path = file.path.replace(FILENAME_REGEX, '_' + lang + '.html');
         i18nfile.contents = new Buffer(replaced);
 
         stream.push(i18nfile);
@@ -55,19 +57,6 @@ module.exports = function replaceMessages(opts) {
 
   return stream;
 };
-
-function getPath(lang) {
-  // English goes in the base directory.
-  if (lang == 'en') {
-    return '.';
-  }
-  // Locale specific (e.g. en-uk)
-  if (lang.indexOf('_')) {
-    return './intl/' + lang;
-  }
-  // Language for all locales
-  return './intl/' + lang + '_ALL';
-}
 
 /**
  * Read messages from _messages/*.json into a map.

@@ -31,7 +31,7 @@ gulp.task('compass', function() {
 
 gulp.task('vulcanize-scenes', ['clean', 'compass'], function() {
   return gulp.src([
-      'scenes/*/*-scene.html'
+      'scenes/*/*-scene*.html'
     ], {base: './'})
     // gulp-vulcanize doesn't currently handle multiple files in multiple
     // directories well right now, so vulcanize them one at a time
@@ -51,6 +51,9 @@ gulp.task('vulcanize-scenes', ['clean', 'compass'], function() {
         inline: true,
         dest: dest
       }))
+      .pipe(i18n_replace({
+        path: '_messages'
+      }))
       .pipe(gulp.dest(path.join('dist', dest)));
     }));
 });
@@ -58,25 +61,20 @@ gulp.task('vulcanize-scenes', ['clean', 'compass'], function() {
 // vulcanize elements separately as we want to inline polymer.html and
 // base-scene.html here
 gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
-  return gulp.src('elements/elements.html', {base: './'})
+  return gulp.src('elements/elements_en.html', {base: './'})
     .pipe(vulcanize({
       strip: true,
       csp: true,
       inline: true,
       dest: 'elements/'
     }))
+    .pipe(i18n_replace({
+      path: '_messages'
+    }))
     .pipe(gulp.dest('dist/elements/'));
 });
 
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
-
-gulp.task('i18n', ['copy-assets'], function() {
-  gulp.src(['dist/**/*.html'], {base: './dist/'})
-    .pipe(i18n_replace({
-      path: '_messages'
-    }))
-    .pipe(gulp.dest('dist_i18n'));
-});
 
 // copy needed assets (images, sounds, polymer elements, etc) to dist directory
 gulp.task('copy-assets', ['clean', 'vulcanize'], function() {
@@ -84,7 +82,6 @@ gulp.task('copy-assets', ['clean', 'vulcanize'], function() {
     'index.html',
     'schedule.html',
     'manifest.json',
-    '_messages/*.json',
     'audio/*',
     'images/*.{png,svg,gif,ico}',
     'js/**',
