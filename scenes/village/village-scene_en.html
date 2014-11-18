@@ -15,6 +15,13 @@ Village scene.
 <polymer-element name="village-scene" extends="base-scene" attributes="countDownEndDate">
 <template>
   <link rel="stylesheet" href="village-scene.css" no-shim>
+  <style>
+  /* TODO: hide more stuff, or remove this. */
+  :host([mode="cast"]) .snow-flake,
+  :host([mode="cast"]) #trees {
+    display: none;
+  }
+  </style>
 
   <core-a11y-keys target="{{}}" keys="up down left right" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
   <div id="module-village" fit>
@@ -325,6 +332,14 @@ Village scene.
       this.super();
       if (this.santaService) {
         this.checkSchedule_(true);
+      }
+    },
+
+    modeChanged: function() {
+      this.super();
+
+      if (this.mode == 'cast') {
+        // TODO(luke,bckenny): shut off stuff.
       }
     },
 

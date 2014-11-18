@@ -101,6 +101,15 @@ Polymer(Polymer.mixin({
    */
   analyticsService: null,
 
+  /**
+   * The mode of the scene. Possible values are: 'cast'.
+   *
+   * @property mode
+   * @type string
+   * @default ''
+   */
+  mode: '',
+
   ready: function() {
     this.analyticsService = new Analytics();
 
@@ -122,6 +131,7 @@ Polymer(Polymer.mixin({
     });
 
     if (apiClient === 'web_chromecast') {
+      this.mode = 'cast';
       this.initChromecast();
     }
 
