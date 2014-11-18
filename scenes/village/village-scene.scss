@@ -90,7 +90,9 @@ $name: 'module-village';
   }
 
   #countdown {
-    pointer-events: none;
+    &:not(.finished) {
+      pointer-events: none;
+    }
     h1.logo {
       height: 29px;
       width: 84px;
