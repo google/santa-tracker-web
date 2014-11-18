@@ -4,7 +4,11 @@
  * @constructor
  */
 function Analytics() {
-  this.init();
+  if (window.gweb) {
+    this.init();
+  } else {
+    console.error('Analytics not defined.');
+  }
 }
 
 Analytics.prototype.THROTTLE_TIME_ = 10; // 10ms
