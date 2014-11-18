@@ -16,6 +16,7 @@
     "gulp-foreach": "0.0.1",
     "gulp-vulcanize": "^4.0.0",
     "load-grunt-tasks": "~0.2.1",
+    "merge-stream": "^0.1.6",
     "node-dir": "0.1.6",
     "through2": "0.6.3",
     "vinyl-map": "1.0.1"

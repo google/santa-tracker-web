@@ -9,6 +9,8 @@ var foreach = require('gulp-foreach');
 var del = require('del');
 var i18n_replace = require('./gulp_scripts/i18n_replace');
 var closureCompiler = require('gulp-closure-compiler');
+var sceneClosureConfig = require('./gulp_scripts/scene_compile_config.js');
+var mergeStream = require('merge-stream');
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
@@ -32,45 +34,48 @@ gulp.task('compass', function() {
 });
 
 gulp.task('compile-scenes', function() {
-  // TODO(bckenny): for now, whitelist scenes for compilation. switch to
-  // blacklist when we're ready.
+  // scenes are whitelisted into compilation through the config file
+  var sceneNames = Object.keys(sceneClosureConfig);
 
-  var sceneName = 'airport';
-  return gulp.src([
-    'scenes/' + sceneName + '/js/*.js',
-    // 'third_party/lib/TweenMax.js',
-    'third_party/externs/greensock/*.js',
-    'third_party/externs/jquery/*.js',
-    'third_party/lib/base.js'
-  ], {base: './'})
-    .pipe(closureCompiler({
-      compilerPath: COMPILER_PATH,
-      fileName: sceneName + '-scene.min.js',
-      closure_entry_point: 'app.Belt',
-      compilerFlags: {
-        compilation_level: 'ADVANCED_OPTIMIZATIONS',
-        // warning_level: 'VERBOSE',
-        jscomp_off: 'checkRegExp', // TODO(bckenny)
-        language_in: 'ECMASCRIPT5_STRICT',
-        process_closure_primitives: null,
-        generate_exports: null,
-        // manage_closure_dependencies: null,
-        jscomp_warning: [
-          // https://github.com/google/closure-compiler/wiki/Warnings
-          'accessControls',
-          'const',
-          'visibility'
-        ],
-        output_wrapper:
-            'var scenes = scenes || {};\n' +
-            'scenes.' + sceneName + ' = scenes.' + sceneName + ' || {};\n' +
-            '(function(){%output%}).call({ app: scenes.' + sceneName + ' });'
-      }
-    }))
-    .pipe(gulp.dest('scenes/' + sceneName));
+  // compile each scene, merging them into a single gulp stream as we go
+  return sceneNames.reduce(function(stream, sceneName) {
+    var config = sceneClosureConfig[sceneName];
+
+    return stream.add(gulp.src([
+      'scenes/' + sceneName + '/js/*.js',
+      'third_party/externs/greensock/*.js',
+      'third_party/externs/jquery/*.js',
+      'third_party/lib/base.js'
+    ])
+      .pipe(closureCompiler({
+        compilerPath: COMPILER_PATH,
+        fileName: sceneName + '-scene.min.js',
+        closure_entry_point: config.entryPoint,
+        compilerFlags: {
+          compilation_level: 'ADVANCED_OPTIMIZATIONS',
+          // warning_level: 'VERBOSE',
+          language_in: 'ECMASCRIPT5_STRICT',
+          process_closure_primitives: null,
+          generate_exports: null,
+          jscomp_warning: [
+            // https://github.com/google/closure-compiler/wiki/Warnings
+            'accessControls',
+            'const',
+            'visibility'
+          ],
+          // scenes namespace themselves to `app.*`. Move this namespace into
+          // the global `scenes.sceneName`
+          output_wrapper:
+              'var scenes = scenes || {};\n' +
+              'scenes.' + sceneName + ' = scenes.' + sceneName + ' || {};\n' +
+              '(function(){%output%}).call({ app: scenes.' + sceneName + ' });'
+        }
+      }))
+      .pipe(gulp.dest('scenes/' + sceneName)));
+  }, mergeStream());
 });
 
-gulp.task('vulcanize-scenes', ['clean', 'compass'], function() {
+gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function() {
   return gulp.src([
       'scenes/*/*-scene*.html'
     ], {base: './'})
@@ -101,7 +106,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass'], function() {
 
 // vulcanize elements separately as we want to inline polymer.html and
 // base-scene.html here
-gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
+gulp.task('vulcanize-elements', ['clean', 'compass', 'compile-scenes'], function() {
   return gulp.src('elements/elements_en.html', {base: './'})
     .pipe(vulcanize({
       strip: true,
