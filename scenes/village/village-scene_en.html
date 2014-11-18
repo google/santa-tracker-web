@@ -328,6 +328,14 @@ Village scene.
       }
     },
 
+    modeChanged: function() {
+      this.super();
+
+      if (this.mode == 'cast') {
+        alert('cast mode!');
+      }
+    },
+
     /**
      * @param number index
      */
