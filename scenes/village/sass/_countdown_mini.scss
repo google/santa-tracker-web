@@ -13,27 +13,26 @@
   $counterPadding: 19px;
 
   #finished-tracker {
-    background-image: url(img/sign.png);
+    background-image: url(img/sign.svg);
     background-size: 541px 561px;
     background-repeat: no-repeat;
-    width: 541px;
-    height: 561px;
+    width: 536px;
+    height: 647px;
     left: 50%;
-    bottom: -170px;
-    margin-left: -270px;
+    //bottom: -170px;
+    margin-left: #{-536/2}px;
+    top: -200px;
     position: absolute;
-    -webkit-transform: translate3d(0, -561px, 0);
-    transform: translate3d(0, -561px, 0);
-    -webkit-transition: all 1.5s cubic-bezier(0.4, 1.6, 0.2, 1);
-    transition: all 1.5s cubic-bezier(0.4, 1.6, 0.2, 1);
+    @include transform(translate3d(0, -1000px, 0));
+    @include transition(all 1.5s cubic-bezier(0.4, 1.6, 0.2, 1));
 
     a {
       display: block;
       position: absolute;
-      left: 30px;
-      right: 30px;
-      bottom: 47px;
-      height: 120px;
+      left: 25px;
+      right: 25px;
+      bottom: 120px;
+      height: 210px;
     }
   }
 
