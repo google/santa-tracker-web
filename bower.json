@@ -32,7 +32,8 @@
     "flatiron-director": "PolymerLabs/flatiron-director#master",
     "jquery": "2.1.1",
     "modernizr": "2.8.3",
-    "google-apis": "GoogleWebComponents/google-apis#^0.4.2"
+    "google-apis": "GoogleWebComponents/google-apis#^0.4.2",
+    "closure-compiler": "http://dl.google.com/closure-compiler/compiler-latest.zip"
   },
   "resolutions": {
     "polymer": "^0.5.1",
