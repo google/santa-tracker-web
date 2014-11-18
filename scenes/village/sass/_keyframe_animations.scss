@@ -54,54 +54,6 @@
   }
 }
 
-@include keyframes(busload) {
-  0% {
-    background-position: 0 0;
-  }
-  16% {
-    background-position: 0 -133px;
-  }
-  32% {
-    background-position: 0 -266px;
-  }
-  48% {
-    background-position: 0 -399px;
-  }
-  64% {
-    background-position: 0 -532px;
-  }
-  80% {
-    background-position: 0 -665px;
-  }
-  96% {
-    background-position: 0 -798px;
-  }
-}
-
-@include keyframes(busunload) {
-  0% {
-    background-position: 0 -798px;
-  }
-  16% {
-    background-position: 0 -665px;
-  }
-  32% {
-    background-position: 0 -532px;
-  }
-  48% {
-    background-position: 0 -399px;
-  }
-  64% {
-    background-position: 0 -266px;
-  }
-  80% {
-    background-position: 0 -133px;
-  }
-  96% {
-    background-position: 0 0px;
-  }
-}
-
 @include keyframes(fly) {
   0% {
     @include transform(translateY(0) translateX(0));

@@ -588,8 +588,8 @@ $name: 'module-village';
       }
       &.leave-stop {
         @include transition-transform(10s, ease-in, 3s);
-        @include transform(translateX(-300px));
-        @include transform(translateZ(0) translateX(-300px));
+        @include transform(translateX(-500px));
+        @include transform(translateZ(0) translateX(-500px));
       }
     }
   }
@@ -746,7 +746,7 @@ $name: 'module-village';
     @include transition(transform .5s ease, top 0.5s ease);
 
     &.to-space {
-      top: -100px;
+      top: -1000px;
     }
   }
 
