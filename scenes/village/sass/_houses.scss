@@ -53,6 +53,7 @@
           height: 100%;
           top: 15px;
           left: 3px;
+          @include transform(rotateY(-27deg) rotateX(-4deg));
         }
       }
     }

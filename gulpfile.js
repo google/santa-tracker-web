@@ -82,6 +82,7 @@ gulp.task('i18n', ['copy-assets'], function() {
 gulp.task('copy-assets', ['clean', 'vulcanize'], function() {
   return gulp.src([
     'index.html',
+    'schedule.html',
     'manifest.json',
     '_messages/*.json',
     'audio/*',
