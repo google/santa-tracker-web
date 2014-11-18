@@ -37,7 +37,7 @@
 
 <template is="auto-binding" id="t">
 
-<santa-app id="santaApp" countDownEndDate="{{countDownEndDate}}" selectedScene="{{selectedScene}}">
+<santa-app id="santaApp" selectedScene="{{selectedScene}}">
 
   <!-- Route controller -->
   <flatiron-director route="{{route}}" on-director-route="{{onRouteChange}}" autoHash></flatiron-director>
@@ -49,7 +49,7 @@
                    src="{{selectedScene.loadingSrc}}"></preload-overlay>
 
   <lazy-pages id="lazypages" selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route"
-              houses="{{$.santaApp.houses}}">
+              santaApp="{{$.santaApp}}">
     <!--
       Note: we can data bind on calendar-nav because its definition is loaded
       at pageload. The other scenes are lazy loaded and the bindings would be
@@ -58,10 +58,9 @@
     -->
     <calendar-nav route="calendar" alwaysActive
                   visibilityService="{{$.lazypages.visibilityService}}"
-                  houses="{{$.santaApp.houses}}"></calendar-nav>
+                  houses="{{$.santaApp.houses}}" santaApp="{{$.santaApp}}"></calendar-nav>
     <village-scene route="village"
-        path="scenes/village/village-scene_en.html" countDownEndDate="{{countDownEndDate}}"
-        mode="{{$.santaApp.mode}}" hidden></village-scene>
+        path="scenes/village/village-scene_en.html" mode="{{$.santaApp.mode}}" hidden></village-scene>
     <airport-scene route="airport"
         path="scenes/airport/airport-scene.html" hidden></airport-scene>
     <briefing-scene route="briefing"

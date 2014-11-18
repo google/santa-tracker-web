@@ -35,268 +35,263 @@ Subclass scene elements can define the following properties:
   }
 </style>
 
-<polymer-element name="base-scene" attributes="active alwaysActive path route visibilityService mode" tabindex="0">
-  <script>
-    Polymer({
-      publish: {
-        /**
-         * If `true`, the scene is selected.
-         *
-         * @attribute active
-         * @type bool
-         * @default false
-         */
-        active: {value: false, reflect: true},
+<polymer-element name="base-scene" attributes="active alwaysActive path route mode santaApp" tabindex="0">
+<script>
+Polymer({
+  publish: {
+    /**
+     * If `true`, the scene is selected.
+     *
+     * @attribute active
+     * @type bool
+     * @default false
+     */
+    active: {value: false, reflect: true},
 
-        /**
-         * If `true`, the scene is always visible and `hidden` won't be applied
-         * when the page's `onHide()` is called.
-         *
-         * @attribute alwaysActive
-         * @type bool
-         * @default false
-         */
-        alwaysActive: {value: false, reflect: true}
-      },
+    /**
+     * If `true`, the scene is always visible and `hidden` won't be applied
+     * when the page's `onHide()` is called.
+     *
+     * @attribute alwaysActive
+     * @type bool
+     * @default false
+     */
+    alwaysActive: {value: false, reflect: true}
+  },
 
-      /**
-       * URL route for this scene.
-       *
-       * @attribute route
-       * @type string
-       * @default null
-       */
-      route: null,
+  /**
+   * URL route for this scene.
+   *
+   * @attribute route
+   * @type string
+   * @default null
+   */
+  route: null,
 
-      /**
-       * The mode of the scene. Possible values are: 'cast'.
-       *
-       * @attribute mode
-       * @type string
-       * @default ''
-       */
-      mode: '',
+  /**
+   * The mode of the scene. Possible values are: 'cast'.
+   *
+   * @attribute mode
+   * @type string
+   * @default ''
+   */
+  mode: '',
 
-      computed: {
-        /**
-         * Preloading progress (percentage) of the loaded scene.
-         *
-         * @property preloadProgress
-         * @type number
-         * @default 0
-         */
-        preloadProgress: 'loaded ? 100 : totalAssets ? (assetsLoaded / totalAssets * 100) : 0',
-      },
+  /**
+   * A `<santa-app>` controller element.
+   *
+   * @attribute santaApp
+   * @type HTMLElement
+   * @default null
+   */
+  santaApp: null,
 
-      /**
-       * Total number of assets that will need to be preloaded. Must be set
-       * in `onPreload` or will be ignored.
-       * @property totalAssets
-       * @type number
-       * @default 0
-       */
-      totalAssets: 0,
+  computed: {
+    /**
+     * Preloading progress (percentage) of the loaded scene.
+     *
+     * @property preloadProgress
+     * @type number
+     * @default 0
+     */
+    preloadProgress: 'loaded ? 100 : totalAssets ? (assetsLoaded / totalAssets * 100) : 0',
+  },
 
-      /**
-       * Assets loaded so far (out of `totalAssets`).
-       * @property assetsLoaded
-       * @type number
-       * @default 0
-       */
-      assetsLoaded: 0,
+  /**
+   * Total number of assets that will need to be preloaded. Must be set
+   * in `onPreload` or will be ignored.
+   * @property totalAssets
+   * @type number
+   * @default 0
+   */
+  totalAssets: 0,
 
-      /**
-       * The path of the scene file (html import) to load.
-       *
-       * @attribute path
-       * @type string
-       * @default null
-       */
-      path: null,
+  /**
+   * Assets loaded so far (out of `totalAssets`).
+   * @property assetsLoaded
+   * @type number
+   * @default 0
+   */
+  assetsLoaded: 0,
 
-      /**
-       * The relative path of the scene folder from the main app root folder.
-       * (e.g 'scenes/village/').
-       *
-       * @property componentDir
-       * @type string
-       * @default null
-       */
-      componentDir: null,
+  /**
+   * The path of the scene file (html import) to load.
+   *
+   * @attribute path
+   * @type string
+   * @default null
+   */
+  path: null,
 
-      /**
-       * True if the scene has previously been loaded.
-       *
-       * @property loaded
-       * @type bool
-       * @default false
-       */
-      loaded: false,
+  /**
+   * The relative path of the scene folder from the main app root folder.
+   * (e.g 'scenes/village/').
+   *
+   * @property componentDir
+   * @type string
+   * @default null
+   */
+  componentDir: null,
 
-      /**
-       * The house meta data shared across scenes.
-       *
-       * @property houses
-       * @type array
-       * @default []
-       */
-      houses: [],
+  /**
+   * True if the scene has previously been loaded.
+   *
+   * @property loaded
+   * @type bool
+   * @default false
+   */
+  loaded: false,
 
-      /**
-       * Max number of milliseconds to wait before timing out and abandoning
-       * preload.
-       *
-       * @property MAX_PRELOAD_TIME
-       * @type number
-       * @default 30000
-       */
-      MAX_PRELOAD_TIME: 30 * 1000,
+  /**
+   * Max number of milliseconds to wait before timing out and abandoning
+   * preload.
+   *
+   * @property MAX_PRELOAD_TIME
+   * @type number
+   * @default 30000
+   */
+  MAX_PRELOAD_TIME: 30 * 1000,
 
-      /**
-       * Santa service.
-       *
-       * @property santaService
-       * @type SantaService
-       * @default null
-       */
-      santaService: null,
+  /**
+   * Page/Scene visibility manager.
+   *
+   * @attribute visibilityService
+   * @type VisiblityManager
+   * @default null
+   */
+  visibilityService: null,
 
-      /**
-       * Page/Scene visibility manager.
-       *
-       * @attribute visibilityService
-       * @type VisiblityManager
-       * @default null
-       */
-      visibilityService: null,
+  /**
+   * Max preload async handler
+   *
+   * @type Number|Function
+   * @default null
+   */
+  maxPreloadAsync_: null,
 
-      /**
-       * Max preload async handler
-       *
-       * @type Number|Function
-       * @default null
-       */
-      maxPreloadAsync_: null,
+  /**
+   * The component's directory. Can be used to reference assets in HTML.
+   *
+   * @property componentBaseDir
+   * @type string
+   * @default
+   */
+  get componentBaseDir() {
+    return location.protocol + '//' + location.host + location.pathname +
+           (this.componentDir || '');
+  },
 
-      /**
-       * The component's directory. Can be used to reference assets in HTML.
-       *
-       * @property componentBaseDir
-       * @type string
-       * @default
-       */
-      get componentBaseDir() {
-        return location.protocol + '//' + location.host + location.pathname +
-               (this.componentDir || '');
-      },
+  ready: function() {
+    if (this.loadingSrc) {
+      this.loadingSrc = this.componentBaseDir + this.loadingSrc;
+    }
+  },
 
-      ready: function() {
-        if (this.loadingSrc) {
-          this.loadingSrc = this.componentBaseDir + this.loadingSrc;
-        }
-      },
+  santaAppChanged: function() {
+    this.santaApp.checkSchedule_(true);
+  },
 
-      visibilityServiceChanged: function() {
-        if (this.onPause) {
-          this.visibilityService.addOnPauseListener(this.onPause.bind(this));
-        }
-        if (this.onResume) {
-          this.visibilityService.addOnResumeListener(this.onResume.bind(this));
-        }
-      },
+  visibilityServiceChanged: function() {
+    if (this.onPause) {
+      this.visibilityService.addOnPauseListener(this.onPause.bind(this));
+    }
+    if (this.onResume) {
+      this.visibilityService.addOnResumeListener(this.onResume.bind(this));
+    }
+  },
 
-      /**
-       * A helper method for preloading an array of image URLs.
-       * @param {!Array.<string>} imageUrls
-       */
-      preloadImages: function(imageUrls) {
-        this.totalAssets += imageUrls.length;
+  /**
+   * A helper method for preloading an array of image URLs.
+   * @param {!Array.<string>} imageUrls
+   */
+  preloadImages: function(imageUrls) {
+    this.totalAssets += imageUrls.length;
 
-        var onload = function() {
-          this.assetsLoaded++;
-        }.bind(this);
+    var onload = function() {
+      this.assetsLoaded++;
+    }.bind(this);
 
-        for (var i = 0; i < imageUrls.length; i++) {
-          var img = new Image();
-          img.onerror = img.onload = onload;
-          img.src = this.resolvePath(imageUrls[i]);
-        }
-      },
+    for (var i = 0; i < imageUrls.length; i++) {
+      var img = new Image();
+      img.onerror = img.onload = onload;
+      img.src = this.resolvePath(imageUrls[i]);
+    }
+  },
 
-      /**
-       * Preload a set of sounds for this scene via Klang.
-       * @method preloadSounds
-       * @param string soundSetName
-       */
-      preloadSounds: function(soundSetName) {
-        this.fire('sound-preload', soundSetName);
-      },
+  /**
+   * Preload a set of sounds for this scene via Klang.
+   * @method preloadSounds
+   * @param string soundSetName
+   */
+  preloadSounds: function(soundSetName) {
+    this.fire('sound-preload', soundSetName);
+  },
 
-      /**
-       * Play an ambient sound script for the scene via Klang. This is typically
-       * called in onShow and onHide.
-       * @method playAmbientSounds
-       * @param string soundName
-       */
-      playAmbientSounds: function(soundName) {
-        this.fire('sound-ambient', soundName);
-      },
+  /**
+   * Play an ambient sound script for the scene via Klang. This is typically
+   * called in onShow and onHide.
+   * @method playAmbientSounds
+   * @param string soundName
+   */
+  playAmbientSounds: function(soundName) {
+    this.fire('sound-ambient', soundName);
+  },
 
-      /**
-       * Play a single sound via Klang.
-       * @method playSound
-       * @param string soundName
-       */
-      playSound: function(soundName) {
-        this.fire('sound-trigger', soundName);
-      },
+  /**
+   * Play a single sound via Klang.
+   * @method playSound
+   * @param string soundName
+   */
+  playSound: function(soundName) {
+    this.fire('sound-trigger', soundName);
+  },
 
-      preloadProgressChanged: function() {
-        if (this.preloadProgress === 100) {
-          this.showScene();
-        }
-      },
+  preloadProgressChanged: function() {
+    if (this.preloadProgress === 100) {
+      this.showScene();
+    }
+  },
 
-      showScene: function() {
-        this.loaded = true;
+  showScene: function() {
+    this.loaded = true;
 
-        // Cancel the max preload async
-        this.cancelAsync(this.maxPreloadAsync_);
+    // Cancel the max preload async
+    this.cancelAsync(this.maxPreloadAsync_);
 
-        if (this.active) {
-          this.onShow && this.onShow();
-          this.hidden = false;
+    if (this.active) {
+      this.onShow && this.onShow();
+      this.hidden = false;
 
-          // focus in case element needs keyboard events
-          this.focus();
-        }
-      },
+      // focus in case element needs keyboard events
+      this.focus();
+    }
+  },
 
-      activeChanged: function() {
-        if (!this.active) {
-          this.onHide && this.onHide();
-          if (!this.alwaysActive) {
-            this.hidden = true;
-          }
-          return;
-        }
-
-        // If subclass defines preloading, call it. If not, or nothing needs to
-        // be preloaded, signal ready.
-        if (!this.loaded && this.onPreload) {
-          this.onPreload();
-
-          // If assets are queued to preload, schedule showScene on timeout in
-          // case preloading fails.
-          if (this.totalAssets > 0) {
-            this.maxPreloadAsync_ = this.async(this.showScene, null, this.MAX_PRELOAD_TIME);
-            return;
-          }
-        }
-
-        this.showScene();
+  activeChanged: function() {
+    if (!this.active) {
+      this.onHide && this.onHide();
+      if (!this.alwaysActive) {
+        this.hidden = true;
       }
+      return;
+    }
 
-    });
-  </script>
+    // If subclass defines preloading, call it. If not, or nothing needs to
+    // be preloaded, signal ready.
+    if (!this.loaded && this.onPreload) {
+      this.onPreload();
+
+      // If assets are queued to preload, schedule showScene on timeout in
+      // case preloading fails.
+      if (this.totalAssets > 0) {
+        this.maxPreloadAsync_ = this.async(this.showScene, null, this.MAX_PRELOAD_TIME);
+        return;
+      }
+    }
+
+    this.showScene();
+  }
+
+});
+</script>
 </polymer-element>

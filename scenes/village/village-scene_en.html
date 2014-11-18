@@ -12,7 +12,7 @@ Village scene.
 @element village-scene
 @extends base-scene
 -->
-<polymer-element name="village-scene" extends="base-scene" attributes="countDownEndDate">
+<polymer-element name="village-scene" extends="base-scene">
 <template>
   <link rel="stylesheet" href="village-scene.css" no-shim>
   <style>
@@ -31,8 +31,8 @@ Village scene.
                           class="{{ {finished: finished} | tokenList}}">
         <h1 class="logo">Google</h1>
         <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
-        <countdown-timer id="count" santaService="{{santaService}}"
-                         finished="{{finished}}" countDownEndDate="[[countDownEndDate]]">
+        <countdown-timer id="count" santaService="{{santaApp.santaService}}"
+                         finished="{{finished}}" countDownEndDate="{{santaApp.countDownEndDate}}">
           <h3><i18n-msg msgid="days">PLACEHOLDER_i18n</i18n-msg></h3>
           <h3><i18n-msg msgid="hours">PLACEHOLDER_i18n</i18n-msg></h3>
           <h3><i18n-msg msgid="minutes">PLACEHOLDER_i18n</i18n-msg></h3>
@@ -66,7 +66,7 @@ Village scene.
           </div>
           <div id="houses">
 
-            <template repeat="{{house, i in houses}}">
+            <template repeat="{{house, i in santaApp.houses}}">
               <!-- TODO(ericbidelman_): Non-[[]] bindings are being evaluated on-scroll! -->
               <div id="house-[[house.module]]" class="house {{house.category}} {{house.iced ? 'iced' : 'melt'}} {{ {today: house.today, tomorrow: house.tomorrow} | tokenList }}">
                 <div class="building"></div>
@@ -196,13 +196,6 @@ Village scene.
 <script>
 (function() {
 
-  // Check if date1 is the same date as date2.
-  function isSameDay_(date1, date2) {
-    return date1.getMonth() == date2.getMonth() &&
-           date1.getDate() == date2.getDate() &&
-           date1.getYear() == date2.getYear();
-  }
-
   function polynomialEasing_(t) {
     return t * t;
   }
@@ -328,47 +321,11 @@ Village scene.
       this.$.moon.classList.remove('go-down', 'go-up');
     },
 
-    santaServiceChanged: function() {
-      this.super();
-      if (this.santaService) {
-        this.checkSchedule_(true);
-      }
-    },
-
     modeChanged: function() {
       this.super();
 
       if (this.mode == 'cast') {
         // TODO(luke,bckenny): shut off stuff.
-      }
-    },
-
-    /**
-     * @param number index
-     */
-    unlockHouse: function(idx) {
-      var house = this.houses[idx];
-
-      if (!house || house.disabled) {
-        return;
-      }
-
-      house.iced = false;
-    },
-
-    unlockAllHouses: function() {
-      for (var i = 0, house; house = this.houses[i]; ++i) {
-        this.unlockHouse(i);
-        house.today = false;
-        house.tomorrow = false;
-      }
-    },
-
-    lockAllHouses: function() {
-      for (var i = 0, house; house = this.houses[i]; ++i) {
-        house.iced = true;
-        house.today = false;
-        house.tomorrow = false;
       }
     },
 
@@ -590,65 +547,6 @@ Village scene.
       el.style[VillageUtils.CSS_TRANSFORM] = 'translateZ(0) ' + translateStyle;
     },
 
-    /**
-     * Unlocks the correct houses based on the day (index).
-     * @param {boolean=} opt_once check only once.
-     * @private
-     */
-    checkSchedule_: function(opt_once) {
-      var now = this.santaService ? this.santaService.now() : Date.now();
-
-      var todayDate = new Date(now);
-      var day = todayDate.getDate();
-
-      // // Houses unlock at 6AM.
-      // if (todayDate.getHours() < 6) {
-      //   day--;
-      // }
-
-      switch(todayDate.getMonth()) {
-        case 11: // DECEMBER
-          // Unlock all houses up to and including today's.
-          for (var i = 0; i <= day + 2; ++i) {
-            var house = this.houses[i];
-
-            if (house) {
-              house.today = false; // reset previous houses.
-              house.tomorrow = false;
-
-              this.unlockHouse(i);
-
-              // Check if house's unlocking date it today!
-              if (isSameDay_(house.launchDate, todayDate)) {
-
-                house.today = true;
-
-                var nextHouse = this.houses[i + 1];
-                if (nextHouse) {
-                  nextHouse.tomorrow = true;
-                }
-              }
-            }
-          }
-          break;
-        case 0: // JAN
-          // All houses in Jan are unlocked. Full experience baby!
-          this.unlockAllHouses();
-          break;
-        default:
-          // noop
-          this.lockAllHouses();
-      }
-
-      if (opt_once) {
-        return;
-      }
-
-      // Check again at the next hour tick.
-      var timeTillHour = (60 - todayDate.getMinutes()) * 60 * 1000;
-      this.scheduleTimeout_ = this.async(this.checkSchedule_, null, timeTillHour);
-    },
-
     arrowHandler: function(e, detail, sender) {
       var direction = 0;
       if (detail.key === 'up' || detail.key === 'left') {
@@ -768,7 +666,7 @@ Village scene.
     },
 
     onShow: function() {
-      this.checkSchedule_();
+      this.santaApp.checkSchedule_();
 
       this.villageSnow_.start();
       this.villageBus_.start();
