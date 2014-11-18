@@ -1,11 +1,10 @@
+/* jshint node: true */
+
 var dir = require('node-dir');
-var gutil = require('gulp-util');
 var through = require('through2');
 var path = require('path');
 
-var NAME = 'i18n_replace';
-
-var REGEX = /<i18n-msg msgid="([^"]*)">[^<]*<\/i18n-msg>/gm
+var REGEX = /<i18n-msg msgid="([^"]*)">[^<]*<\/i18n-msg>/gm;
 
 module.exports = function replaceMessages(opts) {
   var msgPromise = getMsgs(opts.path);
@@ -51,7 +50,7 @@ module.exports = function replaceMessages(opts) {
   });
 
   return stream;
-}
+};
 
 function getPath(lang) {
   // English goes in the base directory.

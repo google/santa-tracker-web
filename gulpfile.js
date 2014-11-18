@@ -7,7 +7,7 @@ var path = require('path');
 var autoprefixer = require('gulp-autoprefixer');
 var foreach = require('gulp-foreach');
 var del = require('del');
-var i18n_replace = require('./gulp_scripts/i18n_replace')
+var i18n_replace = require('./gulp_scripts/i18n_replace');
 
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 
