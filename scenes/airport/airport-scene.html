@@ -1,5 +1,8 @@
 <link rel="import" href="../base-scene.html">
 
+<script src="airport-scene.min.js"></script>
+<script src="../shared/lib/TweenMax.min.js"></script>
+
 <!--
 Airport scene.
 
@@ -337,14 +340,14 @@ Airport scene.
       var div = this.$['module-airport'];
 
       // animationHelper = new CSSAnimationHelper(div);
-      // belt = new app.Belt(div);
+      this.belt = new scenes.airport.Belt(div);
     },
 
     onHide: function() {
       // animationHelper.destroy();
       // animationHelper = null;
-      // belt.destroy();
-      // belt = null;
+      this.belt.destroy();
+      this.belt = null;
       this.playAmbientSounds('airport_end');
     }
   });

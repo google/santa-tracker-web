@@ -12,6 +12,7 @@ goog.require('app.State');
  * Class for main conveyor belt with animates elves and raindeers
  * @param {Element} context DOM element containing the scene.
  * @constructor
+ * @export
  */
 app.Belt = function(context) {
   this.$context = $(context);
@@ -51,7 +52,7 @@ app.Belt.prototype = {
       return true;
     }
 
-    if (_.last(this.itemsOnBelt).isReindeer()) {
+    if (this.itemsOnBelt[this.itemsOnBelt.length - 1].isReindeer()) {
       return false;
     }
 
@@ -101,7 +102,10 @@ app.Belt.prototype = {
 
     this.closet.undress(item);
     item.exitBelt();
-    this.itemsOnBelt = _.without(this.itemsOnBelt, item);
+    var index = this.itemsOnBelt.indexOf(item);
+    if (index > -1) {
+      this.itemsOnBelt.splice(index, 1);
+    }
   },
 
   timeToCloset: function(time) {
@@ -143,7 +147,7 @@ app.Belt.prototype = {
   },
 
   addItem: function(startTime) {
-    var startTime = startTime || this.timeline.time();
+    startTime = startTime || this.timeline.time();
 
     var item = this.getNextItem();
     if (item) {
