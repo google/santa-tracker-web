@@ -4,7 +4,7 @@ var dir = require('node-dir');
 var through = require('through2');
 var path = require('path');
 
-var REGEX = /<i18n-msg msgid="([^"]*)">[^<]*<\/i18n-msg>/gm;
+var REGEX = /<i18n-msg msgid="([^"]*)">([^<]*)<\/i18n-msg>/gm;
 
 module.exports = function replaceMessages(opts) {
   var msgPromise = getMsgs(opts.path);
@@ -24,12 +24,16 @@ module.exports = function replaceMessages(opts) {
 
         var i18nfile = file.clone();
 
-        var replaced = src.replace(REGEX, function replacer(match, msgid) {
+        var replaced = src.replace(REGEX, function replacer(match, msgid, tagBody) {
           var msg = msgs[msgid];
           if (!msg) {
             throw new Error('Could not find message ' + msgid + ' for ' + lang);
           }
-          return msg.message;
+          if (lang == 'en' && msg.message != tagBody) {
+            throw new Error('Message text does not match body for ' + msgid +
+                ': found [' + tagBody + '], expected: [' + msg.message + ']');
+          }
+          return msg.message
         });
 
         if (replaced == src) {
