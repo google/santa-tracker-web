@@ -2,6 +2,7 @@
 
 <script src="airport-scene.min.js"></script>
 <script src="../../third_party/lib/TweenMax.min.js"></script>
+<script src="js/css_animation_helper.js"></script>
 
 <!--
 Airport scene.
@@ -339,13 +340,13 @@ Airport scene.
       this.playAmbientSounds('airport_start');
       var div = this.$['module-airport'];
 
-      // animationHelper = new CSSAnimationHelper(div);
+      this.animationHelper = new CSSAnimationHelper(div);
       this.belt = new scenes.airport.Belt(div);
     },
 
     onHide: function() {
-      // animationHelper.destroy();
-      // animationHelper = null;
+      this.animationHelper.destroy();
+      this.animationHelper = null;
       this.belt.destroy();
       this.belt = null;
       this.playAmbientSounds('airport_end');
