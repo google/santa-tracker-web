@@ -41,7 +41,7 @@ $mobilePortraitBreakpoint: 400px;
   }
 
   #countdown.finished #finished-tracker {
-    @include transform(scale(0.7) translate3d(0,30px,0) !important);
+    @include transform(scale(0.7) translate3d(0,-20px,0) !important);
   }
 }
 
