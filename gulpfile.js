@@ -10,6 +10,7 @@ var del = require('del');
 var i18n_replace = require('./gulp_scripts/i18n_replace');
 var closureCompiler = require('gulp-closure-compiler');
 var mergeStream = require('merge-stream');
+var argv = require('yargs').argv;
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
@@ -61,7 +62,7 @@ gulp.task('compile-scenes', function() {
       compilerPath: COMPILER_PATH,
       fileName: sceneName + '-scene.min.js',
       closure_entry_point: config.entryPoint,
-      compilerFlags: {
+      compilerFlags: addCompilerFlagOptions({
         compilation_level: 'ADVANCED_OPTIMIZATIONS',
         // warning_level: 'VERBOSE',
         language_in: 'ECMASCRIPT5_STRICT',
@@ -79,11 +80,19 @@ gulp.task('compile-scenes', function() {
             'var scenes = scenes || {};\n' +
             'scenes.' + sceneName + ' = scenes.' + sceneName + ' || {};\n' +
             '(function(){%output%}).call({ app: scenes.' + sceneName + ' });'
-      }
+      })
     }))
     .pipe(gulp.dest('scenes/' + sceneName)));
   }, mergeStream());
 });
+
+function addCompilerFlagOptions(opts) {
+  // Add any compiler options specified by command line flags.
+  if (argv.pretty) {
+    opts.formatting = 'PRETTY_PRINT';
+  }
+  return opts;
+}
 
 gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function() {
   return gulp.src([
@@ -102,7 +111,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
             'i18n-msg.html$'
           ]
         },
-        strip: true,
+        strip: !argv.pretty,
         csp: true,
         inline: true,
         dest: dest
@@ -119,7 +128,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
 gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
   return gulp.src('elements/elements_en.html', {base: './'})
     .pipe(vulcanize({
-      strip: true,
+      strip: !argv.pretty,
       csp: true,
       inline: true,
       dest: 'elements/'
