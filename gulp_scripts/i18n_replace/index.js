@@ -29,9 +29,9 @@ module.exports = function replaceMessages(opts) {
           if (!msg) {
             throw new Error('Could not find message ' + msgid + ' for ' + lang);
           }
-          if (lang == 'en' && msg.message != tagBody) {
-            throw new Error('Message text does not match body for ' + msgid +
-                ': found [' + tagBody + '], expected: [' + msg.message + ']');
+          if (lang == 'en' && 'PLACEHOLDER_i18n' != tagBody) {
+            throw new Error('i18n-msg body must be "PLACEHOLDER_i18n" for ' + msgid +
+                ' in ' + file.relative);
           }
           return msg.message
         });
