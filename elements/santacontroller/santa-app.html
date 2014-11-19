@@ -32,6 +32,7 @@ Santa Track app.
 @element santa-app
 -->
 <polymer-element name="santa-app" attributes="language selectedScene"
+                 on-analytics-track-pageview="{{trackPageview}}"
                  on-analytics-track-event="{{trackEvent}}"
                  on-analytics-track-social="{{trackSocial}}"
                  on-analytics-track-game-start="{{trackGameStart}}"
@@ -183,6 +184,11 @@ Polymer(Polymer.mixin({
 
   languageChanged: function() {
     this.santaService.lang_ = this.language;
+  },
+
+  trackPageview: function(e, detail, sender) {
+    this.analyticsService.trackPageView(
+        detail.path);
   },
 
   trackEvent: function(e, detail, sender) {
