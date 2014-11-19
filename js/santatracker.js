@@ -38,9 +38,19 @@ window.santatracker.setup = function() {
         this.route = 'village';
         break;
       default:
-        // TODO(ericbidelman): validate route. If does note exist, redirect to village.
-    };
+        this.route = window.santatracker.validateRoute(route);
+    }
+
+    window.santaApp.fire('analytics-track-pageview', {
+      path: '/' + this.route
+    });
   };
+};
+
+window.santatracker.validateRoute = function(route) {
+  // TOOD(lukem): Add route validation, this should not only
+  // validate routes but also make sure you can't go into future routes.
+  return route;
 };
 
 window.santatracker.isValidDomain = function() {
