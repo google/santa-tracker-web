@@ -4,7 +4,7 @@ components
 *.DS_Store
 .sass-cache
 dist
-dist_i18n
+dist_pretty
 sass/*.css
 scenes/*/*.css
 scenes/*/*.min.js
