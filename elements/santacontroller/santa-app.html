@@ -110,6 +110,26 @@ Polymer(Polymer.mixin({
    */
   mode: '',
 
+  publish: {
+    /**
+     * True when the countdown is complete.
+     *
+     * @attribute postCountdown
+     * @type bool
+     * @default false
+     */
+    postCountdown: {value: false, reflect: true},
+
+    /**
+     * True when Santa's flight has is complete.
+     *
+     * @attribute postFlight
+     * @type bool
+     * @default false
+     */
+    postFlight: {value: false, reflect: true},
+  },
+
   ready: function() {
     this.analyticsService = new Analytics();
 
@@ -137,9 +157,9 @@ Polymer(Polymer.mixin({
 
     if (this.santaService.now() > this.countDownEndDate) {
       if (this.santaService.now() < this.FLIGHT_FINISHED) {
-        this.postCountdown();
+        this.postCountdown = true;
       } else {
-        this.postFlight();
+        this.postFlight = true;
       }
     }
   },
@@ -173,33 +193,19 @@ Polymer(Polymer.mixin({
 
   /**
    * When the flight finishes, redirect the user to the village.
-   * @private
    */
-  postFlight: function() {
-    if (document.body.classList.contains('postflight')) {
-      return;
-    }
-
-    document.body.classList.switch('posttakeoff', 'postflight');
-
+  postFlightChanged: function() {
     // TODO(lukem): lock houses that need locking.
   },
 
   /**
    * When the countdown finishes, redirect the user to the tracker.
-   * @private
    */
-  postCountdown: function() {
+  postCountdownChanged: function() {
     if (this.santaService.now() > this.FLIGHT_FINISHED) {
-      this.postFlight();
+      this.postFlight = true;
       return;
     }
-
-    if (document.body.classList.contains('posttakeoff')) {
-      return;
-    }
-
-    document.body.classList.add('posttakeoff');
   }
 
 }, chromecastMixin));

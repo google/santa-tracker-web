@@ -25,7 +25,9 @@ window.santatracker.setup = function() {
 
     // Wait one rAF to set route. Firefox needs this, no other browsers do :\
     this.async(function() {
-      this.route = this.route || DEFAULT_ROUTE;
+      // Use deep link route if present, otherwise redirect to village || tracker/
+      // based on state of countdown.
+      this.route = this.route || (window.santaApp.postCountdown ? 'tracker' : DEFAULT_ROUTE);
     });
 
     this.$.lazypages.santaService = window.santaApp.santaService;
