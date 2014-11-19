@@ -67,6 +67,7 @@ Custom element to do localization (i18n) messages.
       this.msg = this.textContent; // use fallback as default.
       if (this.locales[this.language] && this.locales[this.language][this.msgid]) {
         this.msg = this.locales[this.language][this.msgid].message;
+        this.textContent = this.msg;
       }
     },
 
