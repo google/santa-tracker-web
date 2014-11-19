@@ -16,9 +16,10 @@ Village scene.
 <template>
   <link rel="stylesheet" href="village-scene.css" no-shim>
   <style>
-  /* TODO: hide more stuff, or remove this. */
-  :host([mode="cast"]) .snow-flake,
-  :host([mode="cast"]) #trees {
+  :host([mode="cast"]) #hit-area-left,
+  :host([mode="cast"]) #hit-area-right,
+  :host([mode="cast"]) #trees,
+  :host([mode="cast"]) #learnmore {
     display: none;
   }
   </style>
@@ -39,7 +40,7 @@ Village scene.
           <h3><i18n-msg msgid="seconds">PLACEHOLDER_i18n</i18n-msg></h3>
         </countdown-timer>
         <!-- <h2>Until Santa Departs &ndash; <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">Learn More</a></h2> -->
-        <h2><i18n-msg msgid="countdownlabel">PLACEHOLDER_i18n</i18n-msg> &centerdot; <a href="//www.google.com/santatracker/about.html"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a></h2>
+        <h2><i18n-msg msgid="countdownlabel">PLACEHOLDER_i18n</i18n-msg><span id="learnmore"> &centerdot; <a href="//www.google.com/santatracker/about.html"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a></span></h2>
         <div id="finished-tracker">
           <a href="{{baseURI}}#tracker"></a>
         </div>
@@ -660,6 +661,7 @@ Village scene.
           'windtunnel', 'gumball', 'citylights', 'santa'];
       for (var i = 0, house; house = houses[i]; i++) {
         images.push('img/house-' + house + '.svg');
+        images.push('img/house-' + house + '-ice.svg');
       }
 
       this.preloadImages(images);
@@ -668,7 +670,9 @@ Village scene.
     onShow: function() {
       this.santaApp.checkSchedule_();
 
-      this.villageSnow_.start();
+      if (this.mode != 'cast') {
+        this.villageSnow_.start();
+      }
       this.villageBus_.start();
       this.villagePegman_.start();
       this.villageSnowMobile_.start();
@@ -682,7 +686,10 @@ Village scene.
 
       this.playAmbientSounds('village_end');
 
-      this.villageSnow_.stop();
+      if (this.mode != 'cast') {
+        this.villageSnow_.stop();
+      }
+
       this.villageBus_.stop();
       this.villagePegman_.stop();
       this.villageSnowMobile_.stop();
@@ -695,14 +702,20 @@ Village scene.
       this.villageBus_.pause();
       this.villagePegman_.pause();
       this.villageSnowMobile_.stop();
-      this.villageSnow_.stop();
+
+      if (this.mode != 'cast') {
+        this.villageSnow_.stop();
+      }
     },
 
     onResume: function() {
       this.villageBus_.resume();
       this.villagePegman_.resume();
       this.villageSnowMobile_.start();
-      this.villageSnow_.start();
+
+      if (this.mode != 'cast') {
+        this.villageSnow_.start();
+      }
 
       this.playAmbientSounds('village_start');
     }
