@@ -5,8 +5,6 @@ var DEFAULT_ROUTE = 'village';
 window.santatracker = {};
 
 window.santatracker.setup = function() {
-  window.santatracker.visibility = new VisibilityManager();
-
   window.santatracker.addErrorHandler();
 
   if (!window.santatracker.isValidDomain()) {
@@ -29,9 +27,6 @@ window.santatracker.setup = function() {
       // based on state of countdown.
       this.route = this.route || (window.santaApp.postCountdown ? 'tracker' : DEFAULT_ROUTE);
     });
-
-    this.$.lazypages.santaService = window.santaApp.santaService;
-    this.$.lazypages.visibilityService = window.santatracker.visibility;
   });
 
   template.onRouteChange = function(e) {

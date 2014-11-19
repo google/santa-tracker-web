@@ -20,15 +20,6 @@ Lazy loads children "pages".
   Polymer({
 
     /**
-     * Page/Scene visibility manager.
-     *
-     * @property visibilityService
-     * @type VisiblityManager
-     * @default null
-     */
-    visibilityService: null,
-
-    /**
      * A `<santa-app>` controller element.
      *
      * @attribute santaApp
@@ -59,7 +50,6 @@ Lazy loads children "pages".
         scene.preloadProgress = 0;
 
         scene.santaApp = this.santaApp;
-        scene.visibilityService = this.visibilityService;
 
       }.bind(this));
 

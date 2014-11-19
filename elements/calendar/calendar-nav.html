@@ -214,7 +214,7 @@ Village calendar navigation.
 
         this.playSound('menu_open');
 
-        this.visibilityService && this.visibilityService.pause();
+        this.santaApp && this.santaApp.visibilityService.pause();
       },
 
       onHide: function() {
@@ -228,7 +228,7 @@ Village calendar navigation.
 
         this.playSound('menu_close');
 
-        this.visibilityService && this.visibilityService.resume();
+        this.santaApp && this.santaApp.visibilityService.resume();
       },
 
       shareGplus: function(e) {

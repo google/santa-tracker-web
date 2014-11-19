@@ -109,6 +109,15 @@ Polymer(Polymer.mixin({
   analyticsService: null,
 
   /**
+   * Page/Scene visibility manager.
+   *
+   * @property visibilityService
+   * @type VisiblityManager
+   * @default null
+   */
+  visibilityService: null,
+
+  /**
    * The mode of the scene. Possible values are: 'cast'.
    *
    * @property mode
@@ -139,6 +148,7 @@ Polymer(Polymer.mixin({
 
   ready: function() {
     this.analyticsService = new Analytics();
+    this.visibilityService = new VisibilityManager();
 
     this.houses = window.HOUSES;
     delete window.HOUSES; // cleanup

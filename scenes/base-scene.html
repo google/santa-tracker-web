@@ -153,15 +153,6 @@ Polymer({
   MAX_PRELOAD_TIME: 30 * 1000,
 
   /**
-   * Page/Scene visibility manager.
-   *
-   * @attribute visibilityService
-   * @type VisiblityManager
-   * @default null
-   */
-  visibilityService: null,
-
-  /**
    * Max preload async handler
    *
    * @type Number|Function
@@ -189,14 +180,12 @@ Polymer({
 
   santaAppChanged: function() {
     this.santaApp.checkSchedule_(true);
-  },
 
-  visibilityServiceChanged: function() {
     if (this.onPause) {
-      this.visibilityService.addOnPauseListener(this.onPause.bind(this));
+      this.santaApp.visibilityService.addOnPauseListener(this.onPause.bind(this));
     }
     if (this.onResume) {
-      this.visibilityService.addOnResumeListener(this.onResume.bind(this));
+      this.santaApp.visibilityService.addOnResumeListener(this.onResume.bind(this));
     }
   },
 
