@@ -15,6 +15,8 @@ var argv = require('yargs').argv;
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 
+var DIST_DIR = argv.pretty ? 'dist_pretty' : 'dist';
+
 // scenes are whitelisted into compilation here
 var SCENE_CLOSURE_CONFIG = {
   airport: {
@@ -23,7 +25,7 @@ var SCENE_CLOSURE_CONFIG = {
 };
 
 gulp.task('clean', function(cleanCallback) {
-  del(['dist', 'dist_i18n'], cleanCallback);
+  del([DIST_DIR], cleanCallback);
 });
 
 gulp.task('compass', function() {
@@ -119,7 +121,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
       .pipe(i18n_replace({
         path: '_messages'
       }))
-      .pipe(gulp.dest(path.join('dist', dest)));
+      .pipe(gulp.dest(path.join(DIST_DIR, dest)));
     }));
 });
 
@@ -136,7 +138,7 @@ gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
     .pipe(i18n_replace({
       path: '_messages'
     }))
-    .pipe(gulp.dest('dist/elements/'));
+    .pipe(gulp.dest(DIST_DIR + '/elements/'));
 });
 
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
@@ -157,7 +159,7 @@ gulp.task('copy-assets', ['clean', 'vulcanize'], function() {
     'components/polymer/*',
     'components/webcomponentsjs/webcomponents.min.js'
   ], {base: './'})
-  .pipe(gulp.dest('dist'));
+  .pipe(gulp.dest(DIST_DIR));
 });
 
 gulp.task('watch', function() {
