@@ -199,15 +199,18 @@ app.Belt.prototype = {
     this.setup = false;
     this.timeline.play();
   },
+};
 
-  destroy: function() {
-    this.timeline.kill();
-    this.timeline.remove();
-    this.$state.unbind();
+/**
+ * Destroy the belt and all controlling infrastructure.
+ * @export
+ */
+app.Belt.prototype.destroy = function() {
+  this.timeline.kill();
+  this.timeline.remove();
+  this.$state.unbind();
 
-    this.controls.destroy();
-    this.elfPool = null;
-    this.reindeerPool = null;
-  }
-
+  this.controls.destroy();
+  this.elfPool = null;
+  this.reindeerPool = null;
 };
