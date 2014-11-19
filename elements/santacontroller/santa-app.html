@@ -153,11 +153,6 @@ Polymer(Polymer.mixin({
     this.houses = window.HOUSES;
     delete window.HOUSES; // cleanup
 
-    var sc = new SoundController();
-    this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
-    this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
-    this.addEventListener('sound-trigger', sc.playSound.bind(sc));
-
     this.language = getUrlParameter('hl') || this.language;
 
     var apiClient = getUrlParameter('api_client') || 'web';
@@ -170,6 +165,11 @@ Polymer(Polymer.mixin({
     if (apiClient === 'web_chromecast') {
       this.mode = 'cast';
       this.initChromecast();
+    } else {
+      var sc = new SoundController();
+      this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
+      this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
+      this.addEventListener('sound-trigger', sc.playSound.bind(sc));
     }
 
     if (this.santaService.now() > this.countDownEndDate) {
