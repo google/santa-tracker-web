@@ -26,12 +26,11 @@ Countdown timer.
           <h2>{{title.textContent}}</h2>
           <div class="digits" layout horizontal>
             <template repeat="{{digits in [0, 1]}}">
-              <div class="digit digit-ani">
-                <div class="digit-top digit-top-front"><span></span></div>
-                <div class="digit-top digit-top-behind"><span></span></div>
-                <div class="digit-bottom digit-bottom-front"><span></span></div>
-                <div class="digit-bottom digit-bottom-behind"><span></span></div>
-                <div class="digit-bg"></div>
+              <div class="digit">
+                <div class="digit-top digit-front"><span></span></div>
+                <div class="digit-top digit-behind"><span></span></div>
+                <div class="digit-bottom digit-front"><span></span></div>
+                <div class="digit-bottom digit-behind"><span></span></div>
               </div>
             </template>
           </div>
@@ -210,6 +209,8 @@ Countdown timer.
         return {diff: diff, days: days, hours: hours, mins: mins, seconds: seconds};
       },
 
+      oldDigits: [],
+
       tickTock: function() {
         this.currentTime = this.getCurrentTime_();
 
@@ -219,13 +220,14 @@ Countdown timer.
         var seconds = this.currentTime.seconds;
 
         if (this.render) {
-          var bits = [this.pad(days), this.pad(hours), this.pad(mins),
-                      this.pad(seconds)].join('').split('');
+          var newDigits = [this.pad(days), this.pad(hours), this.pad(mins),
+              this.pad(seconds)].join('').split('');
           this.displayDigits = (days == 0) ? 6 : 8
 
           for (var i = 0, digit; digit = this.digits[i]; ++i) {
-            this.setDigit(digit, bits[i]);
+            this.setDigit(digit, this.oldDigits[i], newDigits[i]);
           }
+          this.oldDigits = newDigits;
         }
 
         if (this.currentTime.diff == 0) {
@@ -239,47 +241,34 @@ Countdown timer.
        * Sets a value for the digit node.
        *
        * @method setDigit
-       * @param {Element} digit
+       * @param {Element} el
+       * @param {string|undefined} oldVal
        * @param {string} val
        */
-      setDigit: function(digit, val) {
-        var oldDigit = digit.getAttribute('data-digit');
-        digit.setAttribute('data-digit', val);
-
-        if (oldDigit == val) {
+      setDigit: function(digit, oldVal, val) {
+        if (oldVal == val) {
           return;
         }
+        var digitTopFront = digit.querySelector('.digit-top.digit-front');
+        var digitBottomBehind = digit.querySelector('.digit-bottom.digit-behind');
+        var digitTopBehind = digit.querySelector('.digit-top.digit-behind');
+        var digitBottomFront = digit.querySelector('.digit-bottom.digit-front');
+        digitTopBehind.firstElementChild.textContent = val;
+        digitBottomFront.firstElementChild.textContent = val;
 
-        var digitTopFront = digit.querySelector('.digit-top-front');
-        var digitTopBehind = digit.querySelector('.digit-top-behind');
-        var digitBottomFront = digit.querySelector('.digit-bottom-front');
-        var digitBottomBehind = digit.querySelector('.digit-bottom-behind');
-
-        if (oldDigit != undefined) {
-          digitTopBehind.firstElementChild.textContent = val;
-          digitBottomFront.firstElementChild.textContent = val;
-
-          digitTopFront.classList.add('digit-flip');
-
-          window.setTimeout(function() {
-            digitBottomFront.classList.add('digit-flip');
-
-            window.setTimeout(function() {
-              digitTopFront.classList.remove('digit-flip');
-              digitBottomFront.classList.remove('digit-flip');
-
-              digitTopFront.firstElementChild.textContent = val;
-              digitBottomBehind.firstElementChild.textContent = val;
-
-              // used by Chrome extension to play sound
-              this.fire('countdown-timer-digitflip', this.currentTime);
-            }.bind(this), TRANSITION_TIME_);
-          }.bind(this), TRANSITION_TIME_);
-
-        } else {
+        if (oldVal === undefined) {
           digitTopFront.firstElementChild.textContent = val;
           digitBottomBehind.firstElementChild.textContent = val;
+          // No animation for the first instance.
+          return;
         }
+        digit.classList.add('digit-anim');
+
+        this.async(function() {
+          digit.classList.remove('digit-anim');
+          digitTopFront.firstElementChild.textContent = val;
+          digitBottomBehind.firstElementChild.textContent = val;
+        }, null, TRANSITION_TIME_ * 2);
       },
 
       /**
@@ -300,9 +289,7 @@ Countdown timer.
         this.active = true;
         this.tickTock();
 
-        this.tickInterval_ = window.setInterval(function() {
-          this.tickTock();
-        }.bind(this), 1000);
+        this.tickInterval_ = window.setInterval(this.tickTock.bind(this), 1000);
       },
 
       /**
