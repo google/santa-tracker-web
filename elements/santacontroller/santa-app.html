@@ -31,7 +31,7 @@ Santa Track app.
 
 @element santa-app
 -->
-<polymer-element name="santa-app" attributes="language houses countDownEndDate selectedScene"
+<polymer-element name="santa-app" attributes="language selectedScene"
                  on-analytics-track-event="{{trackEvent}}"
                  on-analytics-track-social="{{trackSocial}}"
                  on-analytics-track-game-start="{{trackGameStart}}"
@@ -43,6 +43,13 @@ Santa Track app.
 var COUNTDOWN_END_DATE_ = 1419415200000; // Dec 24, 2014
 
 var FLIGHT_FINISHED_ = COUNTDOWN_END_DATE_ + 25 * 60 * 60 * 1000;
+
+// Check if date1 is the same date as date2.
+function isSameDay_(date1, date2) {
+  return date1.getMonth() == date2.getMonth() &&
+         date1.getDate() == date2.getDate() &&
+         date1.getYear() == date2.getYear();
+}
 
 Polymer(Polymer.mixin({
 
@@ -59,7 +66,7 @@ Polymer(Polymer.mixin({
   /**
    * The house meta data shared across scenes.
    *
-   * @attribute houses
+   * @property houses
    * @type array
    * @default []
    */
@@ -77,7 +84,7 @@ Polymer(Polymer.mixin({
   /**
    * When Santa's flight is finished.
    *
-   * @attribute countDownEndDate
+   * @property countDownEndDate
    * @type number
    * @default 1419415200000
    */
@@ -100,6 +107,15 @@ Polymer(Polymer.mixin({
    * @default null
    */
   analyticsService: null,
+
+  /**
+   * Page/Scene visibility manager.
+   *
+   * @property visibilityService
+   * @type VisiblityManager
+   * @default null
+   */
+  visibilityService: null,
 
   /**
    * The mode of the scene. Possible values are: 'cast'.
@@ -132,6 +148,7 @@ Polymer(Polymer.mixin({
 
   ready: function() {
     this.analyticsService = new Analytics();
+    this.visibilityService = new VisibilityManager();
 
     this.houses = window.HOUSES;
     delete window.HOUSES; // cleanup
@@ -206,6 +223,100 @@ Polymer(Polymer.mixin({
       this.postFlight = true;
       return;
     }
+
+    if (document.body.classList.contains('posttakeoff')) {
+      return;
+    }
+
+    document.body.classList.add('posttakeoff');
+  },
+
+  /**
+   * @param number index
+   */
+  unlockHouse: function(idx) {
+    var house = this.houses[idx];
+
+    if (!house || house.disabled) {
+      return;
+    }
+
+    house.iced = false;
+  },
+
+  unlockAllHouses: function() {
+    for (var i = 0, house; house = this.houses[i]; ++i) {
+      this.unlockHouse(i);
+      house.today = false;
+      house.tomorrow = false;
+    }
+  },
+
+  lockAllHouses: function() {
+    for (var i = 0, house; house = this.houses[i]; ++i) {
+      house.iced = true;
+      house.today = false;
+      house.tomorrow = false;
+    }
+  },
+
+  /**
+   * Unlocks the correct houses based on the day (index).
+   * @param {boolean=} opt_once check only once.
+   * @private
+   */
+  checkSchedule_: function(opt_once) {
+    var now = this.santaService ? this.santaService.now() : Date.now();
+
+    var todayDate = new Date(now);
+    var day = todayDate.getDate();
+
+    // // Houses unlock at 6AM.
+    // if (todayDate.getHours() < 6) {
+    //   day--;
+    // }
+
+    switch(todayDate.getMonth()) {
+      case 11: // DECEMBER
+        // Unlock all houses up to and including today's.
+        for (var i = 0; i <= day + 2; ++i) {
+          var house = this.houses[i];
+
+          if (house) {
+            house.today = false; // reset previous houses.
+            house.tomorrow = false;
+
+            this.unlockHouse(i);
+
+            // Check if house's unlocking date it today!
+            if (isSameDay_(house.launchDate, todayDate)) {
+
+              house.today = true;
+
+              var nextHouse = this.houses[i + 1];
+              if (nextHouse) {
+                nextHouse.tomorrow = true;
+              }
+            }
+          }
+        }
+        break;
+      case 0: // JAN
+        // All houses in Jan are unlocked. Full experience baby!
+        this.unlockAllHouses();
+        break;
+      default:
+        // noop
+        this.lockAllHouses();
+    }
+
+    if (opt_once) {
+      return;
+    }
+
+    // Check again at the next hour tick.
+    var timeTillHour = (60 - todayDate.getMinutes()) * 60 * 1000;
+    this.scheduleTimeout_ = this.async(this.checkSchedule_, null, timeTillHour);
   }
 
 }, chromecastMixin));

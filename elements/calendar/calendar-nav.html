@@ -167,7 +167,6 @@ Village calendar navigation.
       housesChanged: function() {
         this.firstFour = this.houses.slice(0, 4);
         this.regularSchedule = this.houses.slice(4);
-
       },
 
       onNavSelect: function(e, detail, sender) {
@@ -215,7 +214,7 @@ Village calendar navigation.
 
         this.playSound('menu_open');
 
-        this.visibilityService && this.visibilityService.pause();
+        this.santaApp && this.santaApp.visibilityService.pause();
       },
 
       onHide: function() {
@@ -229,7 +228,7 @@ Village calendar navigation.
 
         this.playSound('menu_close');
 
-        this.visibilityService && this.visibilityService.resume();
+        this.santaApp && this.santaApp.visibilityService.resume();
       },
 
       shareGplus: function(e) {

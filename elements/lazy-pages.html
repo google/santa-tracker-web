@@ -7,7 +7,7 @@ Lazy loads children "pages".
 @element lazy-pages
 @extends core-pages
 -->
-<polymer-element name="lazy-pages" extends="core-pages" attributes="houses">
+<polymer-element name="lazy-pages" extends="core-pages" attributes="santaApp">
 <template>
   <style>
     :host {
@@ -20,31 +20,13 @@ Lazy loads children "pages".
   Polymer({
 
     /**
-     * Santa service.
+     * A `<santa-app>` controller element.
      *
-     * @property santaService
-     * @type SantaService
+     * @attribute santaApp
+     * @type HTMLElement
      * @default null
      */
-    santaService: null,
-
-    /**
-     * Page/Scene visibility manager.
-     *
-     * @property visibilityService
-     * @type VisiblityManager
-     * @default null
-     */
-    visibilityService: null,
-
-   /**
-     * The house meta data shared across scenes.
-     *
-     * @attribute houses
-     * @type array
-     * @default []
-     */
-    houses: [],
+    santaApp: null,
 
     selectedItemChanged: function() {
 
@@ -67,9 +49,7 @@ Lazy loads children "pages".
         // .value directly.
         scene.preloadProgress = 0;
 
-        scene.santaService = this.santaService;
-        scene.visibilityService = this.visibilityService;
-        scene.houses = this.houses;
+        scene.santaApp = this.santaApp;
 
       }.bind(this));
 
