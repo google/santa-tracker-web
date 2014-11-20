@@ -29,12 +29,15 @@ $digitLineHeight: 53px;
     font-weight: 200;
     border-radius: 4px;
     background: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .26);
     text-align: center;
     @include perspective(500);
     line-height: $digitLineHeight;
     font-size: 39px;
     margin-right: 3px;
     position: relative;
+    width: $digitWidth;
+    height: $digitLineHeight;
   }
 
   .digit-top {
@@ -50,52 +53,17 @@ $digitLineHeight: 53px;
     width: $digitWidth;
   }
 
-  .digit-top-behind {
+  .digit-top.digit-behind {
     z-index: 4;
-  }
-
-  .digit-top-front {
-    @include backface-visibility(hidden);
-    @include rotateX(0deg);
-    @include apply-origin(50% 100%, false);
   }
 
   .digit-bottom {
     background: #fff;
     position: absolute;
     border-radius: 0 0 4px 4px;
-    height: 59px;
-    width: 84px;
     overflow: hidden;
     z-index: 2;
-    top: 59px;
     box-shadow :0 1px 1px rgba(0, 0, 0, .2);
-  }
-
-  .digit-bottom-front {
-    z-index: 3;
-    @include backface-visibility(hidden);
-    @include rotateX(90deg);
-    @include apply-origin(50% 0%, false);
-  }
-
-  .digit-ani .digit-flip {
-    -webkit-transition: -webkit-transform 300ms linear;
-    transition: transform 300ms linear;
-  }
-
-  .digit-top-front.digit-flip {
-    @include rotateX(-90deg);
-    border-top: 1px solid #e3e3e3;
-  }
-
-  .digit-bottom-front.digit-flip {
-    @include rotateX(0deg);
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .4);
-    border-bottom: 1px solid #e3e3e3;
-  }
-
-  .digit-bottom {
     height: $digitHeight - 3;
     width: $digitWidth;
     top: $digitHeight;
@@ -108,12 +76,34 @@ $digitLineHeight: 53px;
     }
   }
 
-  .digit-bg {
-    background: #fff;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .26);
-    border-radius: 4px;
-    z-index: 1;
-    width: $digitWidth;
-    height: $digitLineHeight;
+  .digit-bottom.digit-front {
+    z-index: 3;
+    @include rotateX(90deg);
+    @include apply-origin(50% 0%, false);
+  }
+
+  .digit-top.digit-front {
+    @include rotateX(0deg);
+    @include apply-origin(50% 100%, false);
+  }
+
+  // Only the front ones animate.
+  .digit-anim .digit-front {
+    -webkit-transition: -webkit-transform 300ms linear;
+    transition: transform 300ms linear;
+
+    &.digit-top {
+      @include rotateX(-90deg);
+      border-top: 1px solid #e3e3e3;
+    }
+
+    &.digit-bottom {
+      @include rotateX(0deg);
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, .4);
+      border-bottom: 1px solid #e3e3e3;
+
+      -webkit-transition-delay: 300ms;
+      transition-delay: 300ms;
+    }
   }
 }
