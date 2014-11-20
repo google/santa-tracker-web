@@ -1,7 +1,7 @@
 {
   "name": "Google Santa Tracker",
   "short_name": "Santa Tracker",
-  "start_url": "index.html",
+  "start_url": "./?appmanifest=true",
   "display": "fullscreen",
   "orientation": "landscape",
   "icons": [{
