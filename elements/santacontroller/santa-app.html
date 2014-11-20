@@ -6,6 +6,8 @@
 <!-- TODO; get rid of this. Really only need for getUrlParameter() -->
 <script src="../../js/consts.js"></script>
 
+<script src="../../js/config.json"></script>
+
 <script src="../../js/analytics.js"></script>
 <script src="../../js/visibilitymanager.js"></script>
 <script src="../../js/soundcontroller.js"></script>
@@ -152,7 +154,9 @@ Polymer(Polymer.mixin({
     this.visibilityService = new VisibilityManager();
 
     this.houses = window.HOUSES;
+    this.config = window.SANTA_CONFIG;
     delete window.HOUSES; // cleanup
+    delete window.SANTA_CONFIG; // cleanup
 
     this.language = getUrlParameter('hl') || this.language;
 
