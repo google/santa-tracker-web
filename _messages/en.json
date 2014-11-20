@@ -163,10 +163,6 @@
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "In Kyrgyzstan, Ayaz Ata (Grandfather Frost) comes at midnight on New Year's Eve and leaves presents under the New Year tree. When the clock strikes midnight, families throughout the country light fireworks to celebrate this beautiful occasion. The cities become as bright as day."
     },
-    "learn": {
-        "description": "Button text. 15char limit. A label on an activity that will show educational content.",
-        "message": "Learn"
-    },
     "learnmore": {
         "description": "Link to learn more about Santa Tracker. This appears on the front page.",
         "message": "Learn More"
@@ -246,10 +242,6 @@
     "ph_tradition": {
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "The Philippines is known for having the world's longest Christmas season. Four months are considered Christmas months: September, October, November, December. Christmas carols can oftentimes be heard as early as the beginning of September."
-    },
-    "play": {
-        "description": "Button text. 15char limit. A label on an activity that will let the user play a game.",
-        "message": "Play"
     },
     "playagain": {
         "description": "When you finish playing a game, we ask you to play again.",
@@ -331,16 +323,64 @@
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "In the United States, stockings are hung on Christmas Eve. The legend goes that St Nicholas heard of a family in need. To surprise them, he climbed down their chimney and placed precious bags of gold in hanging stockings. From this point, St Nicholas was known as Santa Claus, giver of gifts."
     },
+    "play": {
+        "description": "Button text. 15char limit. A label on an activity that will let the user play a game.",
+        "message": "Play"
+    },
+    "learn": {
+        "description": "Button text. 15char limit. A label on an activity that will show educational content.",
+        "message": "Learn"
+    },
     "watch": {
         "description": "Button text. 15char limit. A label on an activity that will show the user a video.",
         "message": "Watch"
     },
+    "category_send": {
+        "description": "Button text. 15char limit. A label on an activity that will let the user send a message (like an e-mail).",
+        "message": "Send"
+    },
+    "category_listen": {
+        "description": "Button text. 15char limit. A label on an activity that will let the user listen to some music.",
+        "message": "Listen"
+    },
+    "category_code": {
+        "description": "Button text. 15char limit. A label on an activity that will let the user write some programming code.",
+        "message": "Code"
+    },
+    "category_draw": {
+        "description": "Button text. 15char limit. A label on an activity that will let the user write draw a picture",
+        "message": "Draw"
+    },
     "language": {
-        "description": "Button text. Please keep short. Used to open the language pick to change the language",
+        "description": "Button text. Please keep short. Used to open the language chooser to change the language",
         "message": "Language"
     },
     "select-language": {
         "description": "Title of the langage select options area",
         "message": "Select Language"
+    },
+    "error": {
+        "description": "Shown on the error page (if anything went wron)",
+        "message": "Looks like we just lost our connection with the North Pole. Santa's elves are working hard to fix it - stay tuned!"
+    },
+    "error_try_again": {
+        "description": "Button text. Shown on the error page (if anything went wron)",
+        "message": "Try again"
+    },
+    "about_title": {
+        "description": "The title of the 'About' page.",
+        "message": "Welcome to the Google Maps Santa Tracker!"
+    },
+    "about_content_one": {
+        "description": "The first paragraph on the 'About' page.",
+        "message": "On Christmas Eve we’ll be proudly showcasing a preview of Santa’s dashboard -- the technology that powers his sleigh during his around-the-world journey. We’ve received this special preview from one of Santa’s many developer elves, who are hard at work in the North Pole helping Santa prepare for his big day. Santa’s dashboard - featuring the latest and greatest in Google Maps technology and sleigh engineering - will allow you to follow his progress around the world, and also learn a little about some of his stops along the way."
+    },
+    "about_content_two": {
+        "description": "The second paragraph on the 'About' page.",
+        "message": "Our friendly elves have also invited you to explore Santa’s village while Santa gets ready for his journey. So go ahead and explore his village, you might just find some fun activities and meet some interesting elves."
+    },
+    "about_content_three": {
+        "description": "The third paragraph on the 'About' page.",
+        "message": "The Google Maps Santa Tracker is created and developed by Google, with a little help from Santa’s elves. Need help or have another question? Visit our <a href=\"//support.google.com/santatracker\">Help Center</a>."
     }
 }
