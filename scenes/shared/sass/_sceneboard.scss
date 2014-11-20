@@ -1,6 +1,9 @@
 $sceneboard-bg: #9ece2b !default;
 $sceneboard-backbg: darken($sceneboard-bg, 10%) !default;
 
+$headerPadding: 30px;
+$backButtonWidth: 160px;
+
 ##{$name} {
   .sceneboard {
     background: $sceneboard-bg url(img/logo.svg) no-repeat 50% 72.5%;
@@ -12,6 +15,22 @@ $sceneboard-backbg: darken($sceneboard-bg, 10%) !default;
     top: 0;
     width: 204px;
     z-index: 200;
+
+    .back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      color: #fff;
+      width: $backButtonWidth;
+      line-height: 84px;
+      padding: 0 0 0 $headerPadding;
+      background: url(../shared/img/village-nav-bg.svg) 50% 100%/204px 45px no-repeat,
+      url(../shared/img/back-arrow.svg) 10px 50%/31px 31px no-repeat;
+    }
   }
 
   .sceneboard--withButton {
