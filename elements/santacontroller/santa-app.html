@@ -101,6 +101,15 @@ Polymer(Polymer.mixin({
    selectedScene: null,
 
   /**
+   * The previously selected scene.
+   *
+   * @attribute prevSelectedScene
+   * @type Element
+   * @default null
+   */
+   prevSelectedScene: null,
+
+  /**
    * Analytics service.
    *
    * @property analyticsService
@@ -184,6 +193,10 @@ Polymer(Polymer.mixin({
 
   languageChanged: function() {
     this.santaService.lang_ = this.language;
+  },
+
+  selectedSceneChanged: function(oldVal, newVal) {
+    this.prevSelectedScene = oldVal;
   },
 
   trackPageview: function(e, detail, sender) {
