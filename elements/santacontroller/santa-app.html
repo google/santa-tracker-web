@@ -6,6 +6,8 @@
 <!-- TODO; get rid of this. Really only need for getUrlParameter() -->
 <script src="../../js/consts.js"></script>
 
+<script src="../../js/config.json"></script>
+
 <script src="../../js/analytics.js"></script>
 <script src="../../js/visibilitymanager.js"></script>
 <script src="../../js/soundcontroller.js"></script>
@@ -41,10 +43,6 @@ Santa Track app.
 <script>
 (function() {
 
-var COUNTDOWN_END_DATE_ = 1419415200000; // Dec 24, 2014
-
-var FLIGHT_FINISHED_ = COUNTDOWN_END_DATE_ + 25 * 60 * 60 * 1000;
-
 // Check if date1 is the same date as date2.
 function isSameDay_(date1, date2) {
   return date1.getMonth() == date2.getMonth() &&
@@ -57,12 +55,21 @@ Polymer(Polymer.mixin({
   /**
    * When Santa's flight is finished.
    *
+   * @property countDownEndDate
+   * @type number
+   * @default null
+   */
+   countDownEndDate: null,
+
+  /**
+   * When Santa's flight is finished.
+   *
    * @property FLIGHT_FINISHED
    * @type number
-   * @default COUNTDOWN_END_DATE + 25 * 60 * 60 * 1000
+   * @default null,
    * @const
    */
-  FLIGHT_FINISHED: FLIGHT_FINISHED_,
+  FLIGHT_FINISHED: null,
 
   /**
    * The house meta data shared across scenes.
@@ -81,15 +88,6 @@ Polymer(Polymer.mixin({
    * @default 'en'
    */
   language: document.documentElement.lang || 'en',
-
-  /**
-   * When Santa's flight is finished.
-   *
-   * @property countDownEndDate
-   * @type number
-   * @default 1419415200000
-   */
-   countDownEndDate: COUNTDOWN_END_DATE_,
 
   /**
    * The currently open scene.
@@ -152,7 +150,12 @@ Polymer(Polymer.mixin({
     this.visibilityService = new VisibilityManager();
 
     this.houses = window.HOUSES;
+    this.config = window.SANTA_CONFIG;
     delete window.HOUSES; // cleanup
+    delete window.SANTA_CONFIG; // cleanup
+
+    this.countDownEndDate = this.config.COUNTDOWN_END_DATE;
+    this.FLIGHT_FINISHED = this.config.FLIGHT_FINISHED;
 
     this.language = getUrlParameter('hl') || this.language;
 

@@ -16,8 +16,11 @@ Traditions scene.
   <div id="module-traditions">
 
     <div class="scene">
-      <!-- TODO(bckenny): make client id work -->
-      <google-maps-api clientId="" version="3.exp" id="google-maps-api"></google-maps-api>
+      <template if="{{santaApp}}">
+        <google-maps-api version="3.exp" apiKey="{{santaApp.config.API_KEY}}"
+                         clientId="{{santaApp.config.CLIENT_ID}}"
+                         on-api-load="{{mapsAPIReady}}"></google-maps-api>
+      </template>
       <div id="traditions-map"></div>
       <div id="tradition-img"></div>
       <div class="traditions-all">
@@ -141,28 +144,20 @@ Traditions scene.
         'img/smallglobe.svg'
       ]);
     },
-    ready: function() {
-      var mapsAPI = this.$['google-maps-api'];
-      var me = this;
 
-      mapsAPI.addEventListener('api-load', function() {
-        if (!this.googleMapsAPI) {
-          this.googleMapsAPI = true;
-          this.apiReady();
-        }
-      }.bind(this));
+    mapsAPIReady: function() {
+      var traditions = new Traditions(
+          this.$['module-traditions'], this.componentDir);
     },
-    apiReady: function() {
-      var module = this.$['module-traditions'];
-      if (this.googleMapsAPI) {
-        new Traditions(module, this.componentDir);
-      }
-    },
+
     onShow: function() {
-      
+
     },
+
     onHide: function() {
+
     }
+
   });
 
 })();
