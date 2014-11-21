@@ -28,7 +28,7 @@ Village calendar navigation.
     </style>
 
     <div id="module-nav">
-      <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
+      <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed} | tokenList}}">
         <a id="global-nav-btn" href="#{{active ? 'village' : 'calendar'}}" layout horizontal>
           <paper-fab icon="today"></paper-fab>
         </a>
@@ -103,15 +103,56 @@ Village calendar navigation.
               </section>
             </core-animated-pages>
           </div>
-
         </div>
+
+        <div id="language-choose" layout vertical center-center hidden>
+          <div>
+            <a href="#" id="close-lang"></a>
+            <h2><i18n-msg msgid="select-language">PLACEHOLDER_i18n</i18n-msg></h2>
+            <select id="language" value="{{I18nMsg.lang}}">
+              <option value="af">Afrikaans</option>
+              <option value="ca">Català</option>
+              <option value="zh-HK">中文（香港）</option>
+              <option value="zh-TW">中文</option>
+              <option value="da">Dansk</option>
+              <option value="de">Deutsch</option>
+              <option value="et">Eesti</option>
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="fr-CA">Français (Canada)</option>
+              <option value="hr">Hrvatski</option>
+              <option value="id">Indonesia</option>
+              <option value="it">Italiano</option>
+              <option value="ja">日本語</option>
+              <option value="lv">Latvijas</option>
+              <option value="lt">Lietuvos</option>
+              <option value="no">Norsk</option>
+              <option value="pl">Polski</option>
+              <option value="pt-BR">Português (Brasil)</option>
+              <option value="pt-PR">Português (Portugal)</option>
+              <option value="ro">Român</option>
+              <option value="sl">Slovenija</option>
+              <option value="sv">Svenska</option>
+              <option value="tl">Tagalog</option>
+              <option value="fi">Viimeistely</option>
+              <option value="bg">Български</option>
+              <option value="uk">Український</option>
+              <option value="ta-IN">தமிழ்</option>
+              <option value="ms">മലയാളം </option>
+              <option value="th">ภาษาไทย</option>
+            </select>
+          </div>
+        </div>
+
         <div id="global-nav-footer">
-          <!-- TODO(lukem): put back goro stuff -->
-          <!-- <div style="display:inline"><a href="#" id="select-lang">{% msg %}Language{% endmsg %}</a> &bull;</div>
-          <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">About</a>
+          <a href="#" id="select-lang" on-click="{{showLanguageSelect}}"><i18n-msg msgid="language">PLACEHOLDER_i18n</i18n-msg></a>
           &bull;
-          <a href="http://www.google.com/policies/">Terms &amp; Privacy</a>
-          &bull; -->
+          <!-- TODO(cbro): This should go to the right locale about page -->
+          <a href="http://www.google.com/santatracker/about.html"><i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg></a>
+          &bull;
+          <a href="http://www.google.com/policies/"><i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg></a>
+          &bull;
           <a href="http://maps.google.com/help/maps/helloworld/index.html"><i18n-msg msgid="getgooglemaps">PLACEHOLDER_i18n</i18n-msg></a>
         </div>
       </div>
@@ -201,10 +242,32 @@ Village calendar navigation.
         }, null, 100);
       },
 
+      onLanguageChange: function(e) {
+        var lang = e.target.value;
+
+        this.fire('analytics-track-event', {category: 'language', action: 'click',
+                                            label: 'change', 'value': lang});
+
+        // TODO(lukem): Wire this up to redirect to the right url.
+        this.async(function() {
+          window.location = '/intl/' + lang + '/' + window.location.hash;
+        }, null, 100);
+      },
+
+      ready: function() {
+        this.$['language'].addEventListener('change', this.onLanguageChange.bind(this));
+      },
+
       onShow: function() {
         this.cancelAsync(this.closeTimeout_);
 
         this.$['global-nav-content'].scrollTop = 0;
+        this.$['language-choose'].hidden = true;
+
+        this.async(function() {
+          this.$['language'].value = I18nMsg.lang;
+        });
+
         this.$.tabs.selected = 'calendar';
 
         this.closed = this.closing = false;
@@ -223,6 +286,8 @@ Village calendar navigation.
         this.opening = this.opened = false;
         this.closing = true;
 
+        this.$['language-choose'].hidden = true;
+
         this.closeTimeout_ = this.async(function() {
           this.route = 'calendar';
           this.closed = true;
@@ -231,6 +296,11 @@ Village calendar navigation.
         this.playSound('menu_close');
 
         this.santaApp && this.santaApp.visibilityService.resume();
+      },
+
+      showLanguageSelect: function(e) {
+        e.preventDefault();
+        this.$['language-choose'].hidden = !this.$['language-choose'].hidden;
       },
 
       shareGplus: function(e) {
