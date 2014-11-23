@@ -17,12 +17,6 @@ $backButtonWidth: 160px;
 $headerFooterColor: #6f41a4;
 $cardColor: #6541a4;
 
-#close-lang {
-  background-image: url(../../scenes/village/img/assets_sprite.png);
-  background-repeat: no-repeat;
-  background-size: 1934px 463px;
-}
-
 ##{$name} {
 
   #global-nav {
@@ -431,7 +425,7 @@ $cardColor: #6541a4;
         right: -30px;
         width: 55px;
         height: 53px;
-        background-position: -1029px -412px;
+        background: url(img/close.svg) no-repeat;
       }
     }
   }

@@ -107,7 +107,7 @@ Village calendar navigation.
 
         <div id="language-choose" layout vertical center-center hidden>
           <div>
-            <a href="#" id="close-lang"></a>
+            <a href="#" id="close-lang" on-click="{{toggleLanguageSelect}}"></a>
             <h2><i18n-msg msgid="select-language">PLACEHOLDER_i18n</i18n-msg></h2>
             <select id="language">
               <option value="af">Afrikaans</option>
@@ -146,7 +146,7 @@ Village calendar navigation.
         </div>
 
         <div id="global-nav-footer">
-          <a href="#" id="select-lang" on-click="{{showLanguageSelect}}"><i18n-msg msgid="language">PLACEHOLDER_i18n</i18n-msg></a>
+          <a href="#" id="select-lang" on-click="{{toggleLanguageSelect}}"><i18n-msg msgid="language">PLACEHOLDER_i18n</i18n-msg></a>
           &bull;
           <!-- TODO(cbro): This should go to the right locale about page -->
           <a href="http://www.google.com/santatracker/about.html"><i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg></a>
@@ -298,7 +298,7 @@ Village calendar navigation.
         this.santaApp && this.santaApp.visibilityService.resume();
       },
 
-      showLanguageSelect: function(e) {
+      toggleLanguageSelect: function(e) {
         e.preventDefault();
         this.$['language-choose'].hidden = !this.$['language-choose'].hidden;
       },
