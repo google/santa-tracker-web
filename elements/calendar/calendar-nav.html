@@ -242,7 +242,7 @@ Village calendar navigation.
         }, null, 100);
       },
 
-      onLanguageChange: function(e) {
+      onLanguageChanged: function(e) {
         var lang = e.target.value;
 
         this.fire('analytics-track-event', {category: 'language', action: 'click',
@@ -255,7 +255,7 @@ Village calendar navigation.
       },
 
       ready: function() {
-        this.$['language'].addEventListener('change', this.onLanguageChange.bind(this));
+        this.$['language'].addEventListener('change', this.onLanguageChanged.bind(this));
       },
 
       onShow: function() {
