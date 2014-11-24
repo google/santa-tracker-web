@@ -1,0 +1,116 @@
+<link rel="import" href="../base-scene.html">
+<link rel="import" href="../../components/google-youtube/google-youtube.html">
+
+<!--
+Intro scene.
+
+@element intro-scene
+@extends base-scene
+-->
+<polymer-element name="intro-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="intro-scene.css" no-shim>
+
+  <div id="module-intro">
+    <div class="scene">
+      <div id="poster">
+        <div id="start" hidden><div class="start-button" on-tap="{{playVideo}}"></div></div>
+      </div>
+      <google-youtube id="player"
+        layout horizontal center-center
+        videoid="QrDH6kh7yUw"
+        fluid="1"
+        rel="0"
+        start="0"
+        autoplay="0"
+        chromeless="1"
+        currenttime="{{currentTime}}"
+        currenttimeformatted="{{currentTimeFormatted}}"
+        duration="{{duration}}"
+        durationformatted="{{durationFormatted}}"
+        on-google-youtube-ready="{{youtubeReady}}"
+        on-google-youtube-state-change="{{youtubeStateChange}}"></google-youtube>
+
+      <div id="videoboard" class="sceneboard">
+        <a id="global-back-to-village" href="{{baseURI}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <div class="sceneboard-back"></div>
+        <div id="controls" hidden>
+          <div class="scrubber">
+            <div class="tracker" style="transform: translateX({{(currentTime / duration) * 150}}px)">{{currentTimeFormatted}}</div>
+          </div>
+          <ul class="actions">
+            <li id="restart" class="restart" on-tap="{{restartVideo}}"></li>
+            <li id="pause" class="pause {{ {paused: paused} | tokenList }}" on-tap="{{togglePause}}"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  Polymer({
+    loadingBgColor: 'rgb(129,208,0)',
+    componentDir: 'scenes/intro/',
+    player: null,
+    paused: false,
+
+    ready: function() {
+      this.player = this.$['player'];
+    },
+
+    youtubeStateChange: function(e) {
+      if (e.detail.data == 0) {
+        this.$['poster'].hidden = false;
+        this.$['controls'].hidden = true;
+      }
+    },
+
+    youtubeReady: function() {
+      this.$['start'].hidden = false;
+    },
+
+    restartVideo: function() {
+      this.player.seekTo(0);
+      this.player.play();
+    },
+
+    togglePause: function() {
+      this.paused = !this.paused;
+      this.$['pause'].paused = this.paused;
+      if (this.paused) {
+        this.player.pause();
+      } else {
+        this.player.play();
+      }
+    },
+
+    playVideo: function() {
+      // TODO(lukem): hook up to global mute
+      this.$['poster'].hidden = true;
+      this.$['controls'].hidden = false;
+      this.player.play();
+    },
+
+    onPreload: function() {
+      this.preloadImages([
+        'img/button.svg',
+        'img/pause.svg',
+        'img/play.svg',
+        'img/poster.svg',
+        'img/restart.svg'
+      ]);
+    },
+
+    onShow: function() {
+      this.player.seekTo(0);
+      this.$['controls'].hidden = true;
+      this.$['poster'].hidden = false;
+      this.$['controls'].hidden = true;
+    },
+
+    onHide: function() {
+      this.player.pause();
+    }
+  });
+</script>
+</polymer-element>
