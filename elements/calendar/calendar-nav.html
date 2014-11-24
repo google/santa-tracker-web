@@ -249,6 +249,7 @@ Village calendar navigation.
                                             label: 'change', 'value': lang});
 
         // TODO(lukem): Wire this up to redirect to the right url.
+        // This is done as a RAF because we want to make sure the analytics event is triggered.
         this.async(function() {
           window.location = '/intl/' + lang + '/' + window.location.hash;
         }, null, 100);
