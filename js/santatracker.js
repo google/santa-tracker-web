@@ -1,6 +1,10 @@
 (function() {
 
 var DEFAULT_ROUTE = 'village';
+var TRACKER_ROUTE = 'tracker';
+var VALID_ROUTES = [];
+
+var template = document.querySelector('#t');
 
 window.santatracker = {};
 
@@ -14,23 +18,18 @@ window.santatracker.setup = function() {
 
   window.santatracker.setupForCast();
 
-  // Routing setup is done last.
-  var template = document.querySelector('#t');
   template.addEventListener('template-bound', function(e) {
     window.santaApp = document.querySelector('santa-app');
-
     I18nMsg.lang = santaApp.language; // Set locale for entire site (e.g. i18n-msg elements).
-
-    // Wait one rAF to set route. Firefox needs this, no other browsers do :\
-    this.async(function() {
-      // Use deep link route if present, otherwise redirect to village || tracker/
-      // based on state of countdown.
-      this.route = this.route || (window.santaApp.postCountdown ? 'tracker' : DEFAULT_ROUTE);
-    });
   });
 
   template.onRouteChange = function(e) {
     var route = e.detail;
+
+    if (!route) {
+      this.route = window.santaApp.postCountdown ? TRACKER_ROUTE : DEFAULT_ROUTE;
+      return;
+    }
 
     // Special case certain routes. The rest are handled by lazy-pages.
     switch (route) {
@@ -38,20 +37,42 @@ window.santatracker.setup = function() {
         this.route = 'village';
         break;
       default:
-        this.route = window.santatracker.validateRoute(route);
+        this.validateRoute();
     }
 
-    window.santaApp.fire('analytics-track-pageview', {
-      path: '/' + this.route
-    });
+    window.santaApp.fire('analytics-track-pageview', {path: '/' + this.route});
   };
+
+  template.validateRoute = function() {
+    // Ideally, we'd init VALID_ROUTES on page load, but the auto-binding
+    // template needs to be activate first and onRouteChange() is called
+    // right away.
+    if (!VALID_ROUTES.length) {
+      var scenes = document.querySelector('lazy-pages').items;
+      VALID_ROUTES = scenes.map(function(el, i) {
+        // Note: can't use .route b/c some scene elements won't be upgraded yet.
+        return el.getAttribute('route');
+      });
+    }
+
+    if (window.santaApp.scheduleChecked != undefined) {
+      var valid = (VALID_ROUTES.indexOf(this.route) != -1 &&
+                   window.santaApp.sceneIsUnlocked(this.route)) ||
+                   (window.santaApp.postCountdown && this.route == TRACKER_ROUTE);
+      if (!valid) {
+        this.route = DEFAULT_ROUTE;
+      }
+    }
+  };
+
 };
 
-window.santatracker.validateRoute = function(route) {
-  // TOOD(lukem): Add route validation, this should not only
-  // validate routes but also make sure you can't go into future routes.
-  return route;
-};
+document.addEventListener('santa-schedule-first-check', function(e) {
+  if (!template.route) {
+    return;
+  }
+  template.validateRoute();
+});
 
 window.santatracker.isValidDomain = function() {
   if (window['DEV']) return true;
