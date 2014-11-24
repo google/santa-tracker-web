@@ -109,7 +109,7 @@ Village calendar navigation.
           <div>
             <a href="#" id="close-lang" on-click="{{toggleLanguageSelect}}"></a>
             <h2><i18n-msg msgid="select-language">PLACEHOLDER_i18n</i18n-msg></h2>
-            <select id="language" on-change="{{onLanguageChanged}}">
+            <select id="language" value="{{santaApp.language}}" on-change="{{onLanguageChanged}}">
               <option value="af">Afrikaans</option>
               <option value="ca">Català</option>
               <option value="zh-HK">中文（香港）</option>
@@ -259,10 +259,6 @@ Village calendar navigation.
 
         this.$['global-nav-content'].scrollTop = 0;
         this.$['language-choose'].hidden = true;
-
-        this.async(function() {
-          this.$['language'].value = I18nMsg.lang;
-        });
 
         this.$.tabs.selected = 'calendar';
 
