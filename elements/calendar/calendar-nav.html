@@ -109,7 +109,7 @@ Village calendar navigation.
           <div>
             <a href="#" id="close-lang" on-click="{{toggleLanguageSelect}}"></a>
             <h2><i18n-msg msgid="select-language">PLACEHOLDER_i18n</i18n-msg></h2>
-            <select id="language">
+            <select id="language" on-change="{{onLanguageChanged}}">
               <option value="af">Afrikaans</option>
               <option value="ca">Català</option>
               <option value="zh-HK">中文（香港）</option>
@@ -242,8 +242,8 @@ Village calendar navigation.
         }, null, 100);
       },
 
-      onLanguageChanged: function(e) {
-        var lang = e.target.value;
+      onLanguageChanged: function(e, detail, sender) {
+        var lang = sender.value;
 
         this.fire('analytics-track-event', {category: 'language', action: 'click',
                                             label: 'change', 'value': lang});
@@ -252,10 +252,6 @@ Village calendar navigation.
         this.async(function() {
           window.location = '/intl/' + lang + '/' + window.location.hash;
         }, null, 100);
-      },
-
-      ready: function() {
-        this.$['language'].addEventListener('change', this.onLanguageChanged.bind(this));
       },
 
       onShow: function() {
