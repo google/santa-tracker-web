@@ -62,7 +62,6 @@ $headerHeight: 45px;
   @media (max-width: 1024px) {
     .sceneboard {
       background: none;
-      bottom: 10px;
       box-shadow: none;
       height: 44px;
       left: auto;
@@ -72,9 +71,9 @@ $headerHeight: 45px;
       width: 140px;
     }
 
-    .sceneboard-back {
-      display: none;
-    }
+    // .sceneboard-back {
+    //   display: none;
+    // }
 
     .sceneboard-button {
       border-radius: 22px 0 0 22px;

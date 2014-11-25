@@ -1,5 +1,6 @@
 <link rel="import" href="../base-scene.html">
 <link rel="import" href="../../components/google-youtube/google-youtube.html">
+<link rel="import" href="../../elements/i18n-msg.html">
 
 <!--
 Trailer scene.
@@ -11,32 +12,23 @@ Trailer scene.
 <template>
   <link rel="stylesheet" href="trailer-scene.css" no-shim>
 
-  <div id="module-trailer">
+  <div id="module-intro" fit>
     <div class="scene">
       <div id="poster">
-        <div id="start" hidden><div class="start-button" on-tap="{{playVideo}}"></div></div>
+        <div id="start" hidden>
+          <div class="start-button" on-tap="{{playVideo}}"></div>
+        </div>
       </div>
-      <google-youtube id="player"
-        layout horizontal center-center
-        videoid="QrDH6kh7yUw"
-        fluid="1"
-        rel="0"
-        start="0"
-        autoplay="0"
-        chromeless="1"
-        currenttime="{{currentTime}}"
-        currenttimeformatted="{{currentTimeFormatted}}"
-        duration="{{duration}}"
-        durationformatted="{{durationFormatted}}"
-        on-google-youtube-ready="{{youtubeReady}}"
-        on-google-youtube-state-change="{{youtubeStateChange}}"></google-youtube>
+      <google-youtube id="player" videoid="QrDH6kh7yUw" chromeless fluid="1"
+                      on-google-youtube-ready="{{youtubeReady}}"
+                      on-google-youtube-state-change="{{youtubeStateChange}}"></google-youtube>
 
       <div id="videoboard" class="sceneboard">
         <a id="global-back-to-village" href="{{baseURI}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
         <div class="sceneboard-back"></div>
         <div id="controls" hidden>
           <div class="scrubber">
-            <div class="tracker" style="transform: translateX({{(currentTime / duration) * 150}}px)">{{currentTimeFormatted}}</div>
+            <div class="tracker" style="transform: translateX({{($.player.currenttime / $.player.duration) * 150}}px)">{{$.player.currenttimeformatted}}</div>
           </div>
           <ul class="actions">
             <li id="restart" class="restart" on-tap="{{restartVideo}}"></li>

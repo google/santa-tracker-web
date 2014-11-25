@@ -1,29 +1,18 @@
 ##{$name} {
   .videoboard {
     background-color: $videoboard-buttons;
-    border-radius: 0 0 4px 4px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.23);
-    color: white;
+    color: #fff;
     font-family: 'Roboto', sans-serif;
     font-weight: 800;
-    left: 20px;
-    position: fixed;
     text-align: center;
-    top: 0;
-    width: 204px;
-
-    &.hidden {
-      display: none;
-    }
 
     /** On mobile we use native player controls. */
-    html.touch & {
-      display: none;
-    }
+    // html.touch & {
+    //   display: none;
+    // }
 
     .back {
       background: darken($videoboard-bg, 5%);
-      height: 45px;
     }
 
     .scrubber {
