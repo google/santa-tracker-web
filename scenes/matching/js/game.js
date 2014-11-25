@@ -1,6 +1,3 @@
-// TODO(bckenny): should not call Klang.triggerEvent directly. Either play
-// sound through scene or fire 'sound-trigger', etc events.
-
 /**
  * Main game class.
  * @param {Element} el DOM element containing the game.
@@ -180,7 +177,7 @@ Game.prototype.checkDoorMatch = function(door) {
     this.completeDoors( door.id );
     this.scoreboard.addScore( this.getMatchScore() );
 
-    Klang.triggerEvent('m_match');
+    window.santaApp.fire('sound-trigger', 'm_match');
   } else {
     // Set them as a mismatch
     // so it doesn't get in our way if the user clicks fast
@@ -196,7 +193,7 @@ Game.prototype.checkDoorMatch = function(door) {
       _this.closeMismatchedDoors();
     }, Constants.SLIDING_DOOR_DURATION);
 
-    Klang.triggerEvent('m_mismatch');
+    window.santaApp.fire('sound-trigger', 'm_mismatch');
   }
 };
 
@@ -228,7 +225,7 @@ Game.prototype.openDoor = function(door) {
   door.open();
   this.doorsOpen[door.uniqueId] = door;
   this.numberOfOpenedDoors++;
-  Klang.triggerEvent('m_door_open');
+  window.santaApp.fire('sound-trigger', 'm_door_open');
 };
 
 /**
@@ -254,7 +251,7 @@ Game.prototype.closeDoor = function(door, mute) {
   this.numberOfMismatchedDoors = Math.max(this.numberOfMismatchedDoors, 0);
 
   if (!mute) {
-    Klang.triggerEvent('m_door_close');
+    window.santaApp.fire('sound-trigger', 'm_door_close');
   }
 };
 
@@ -371,7 +368,7 @@ Game.prototype.startLevel = function() {
   }
 
   this.unfreezeGame();
-  Klang.triggerEvent('m_game_start');
+  window.santaApp.fire('sound-ambient', 'm_game_start');
 };
 
 /**
@@ -437,8 +434,7 @@ Game.prototype.finishLevel = function() {
   // so we can show it in the next level animation
   this.levelModel.next();
 
-  // Send Klang event
-  Klang.triggerEvent('m_level_up');
+  window.santaApp.fire('sound-trigger', 'm_level_up');
 
   this.levelUp.show( this.levelModel.get() );
   this.levelUp
