@@ -231,14 +231,14 @@ Polymer(Polymer.mixin({
   onPause: function() {
     this.fire('sound-ambient', 'global_pause');
     if (this.selectedScene) {
-      this.selectedScene.fire('santa-pause', true);
+      this.selectedScene.fire('scene-pause', true);
     }
   },
 
   onResume: function() {
     this.fire('sound-ambient', 'global_unpause');
     if (this.selectedScene) {
-      this.selectedScene.fire('santa-pause', false);
+      this.selectedScene.fire('scene-pause', false);
     }
   },
 
