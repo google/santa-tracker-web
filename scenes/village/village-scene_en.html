@@ -70,7 +70,7 @@ Village scene.
             <template repeat="{{house, i in santaApp.houses}}">
               <!-- TODO(ericbidelman_): Non-[[]] bindings are being evaluated on-scroll! -->
               <div id="house-[[house.module]]" class="house {{house.category}} {{house.iced ? 'iced' : 'melt'}} {{ {today: house.today, tomorrow: house.tomorrow} | tokenList }}">
-                <div class="building"></div>
+                <div class="building" on-tap="{{onBuildingClick}}" data-path="[[baseURI]]#{{house.module}}"></div>
 
                 <div class="house-snow"></div>
                 <div class="house-elves">
@@ -339,6 +339,14 @@ Village scene.
       var left = parseFloat(getComputedStyle(el).left);
       var width = parseFloat(getComputedStyle(el.querySelector('.building')).width);
       this.panTo(left + width / 2 + villageOffset, opt_time || 0);
+    },
+
+    onBuildingClick: function(e, detail, sender) {
+      var path = sender.attributes['data-path'].value;
+      var iced = sender.templateInstance.model.house.iced;
+      if (!iced) {
+        document.location = path;
+      }
     },
 
     onHouseClick: function(e, detail, sender) {

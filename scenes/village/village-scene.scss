@@ -128,8 +128,8 @@ $name: 'module-village';
       bottom: 0;
       height: 125px;
       z-index: 15;
-      background-size: 612px 43px;
       background: url(img/snow.svg) repeat-x;
+      background-size: contain;
       pointer-events: none;
     }
 
@@ -653,7 +653,7 @@ $name: 'module-village';
       position: absolute;
       height: 55px;
       width: 424px;
-      top: -43px;
+      top: -38px;
       background: url(img/train.svg) no-repeat;
       @include animation(train 55s 0s linear infinite);
     }
