@@ -94,11 +94,13 @@ Traditions scene.
         </div>
       </div>
       <div class="sceneboard">
+        <a id="global-back-to-village" href="{{baseURI}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <div class="sceneboard-back"></div>
         <div class="controls">
           <ul>
-            <li><a href="#" id="traditions-world" class="active"><i18n-msg msgid="traditions-world">PLACEHOLDER_i18n</i18n-msg></a></li>
-            <li><a href="#" id="traditions-prev"><i18n-msg msgid="traditions-prev">PLACEHOLDER_i18n</i18n-msg></a></li>
-            <li><a href="#" id="traditions-next"><i18n-msg msgid="traditions-next">PLACEHOLDER_i18n</i18n-msg></a></li>
+            <li><a href="#" id="traditions-world" on-click="{{showWorld}}"><i18n-msg msgid="traditions-world">PLACEHOLDER_i18n</i18n-msg></a></li>
+            <li><a href="#" id="traditions-prev" on-click="{{prevCountry}}"><i18n-msg msgid="traditions-prev">PLACEHOLDER_i18n</i18n-msg></a></li>
+            <li><a href="#" id="traditions-next" on-click="{{nextCountry}}"><i18n-msg msgid="traditions-next">PLACEHOLDER_i18n</i18n-msg></a></li>
           </ul>
         </div>
       </div>
@@ -110,6 +112,22 @@ Traditions scene.
   Polymer({
     loadingBgColor: 'rgb(255,224,0)',
     componentDir: 'scenes/traditions/',
+    traditions: null,
+
+    nextCountry: function(e) {
+      e.preventDefault();
+      this.traditions.nextCountry();
+    },
+
+    prevCountry: function(e) {
+      e.preventDefault();
+      this.traditions.prevCountry();
+    },
+
+    showWorld: function(e) {
+      e.preventDefault();
+      this.traditions.showWorld();
+    },
 
     onPreload: function() {
       this.preloadImages([
@@ -145,7 +163,7 @@ Traditions scene.
     },
 
     mapsAPIReady: function() {
-      var traditions = new Traditions(
+      this.traditions = new Traditions(
           this.$['module-traditions'], this.componentDir);
     },
 
