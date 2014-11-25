@@ -29,7 +29,7 @@ Village calendar navigation.
     <div id="module-nav">
       <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
         <a id="global-nav-btn" href="#{{active ? santaApp.prevSelectedScene.route : 'calendar'}}" on-click="{{fabClick}}">
-          <paper-fab id="calfab" icon="today" on-core-transitionend="{{rippleDone}}"></paper-fab>
+          <paper-fab icon="today" on-core-transitionend="{{rippleDone}}"></paper-fab>
         </a>
         <div id="global-nav-body">
           <div id="global-nav-header" layout horizontal center-center>
