@@ -133,11 +133,11 @@ Undersea scene.
     },
 
     onShow: function() {
-      this.playAmbientSounds('undersea_start');
+      this.fire('sound-ambient', 'undersea_start');
     },
 
     onHide: function() {
-      this.playAmbientSounds('undersea_end');
+      this.fire('sound-ambient', 'undersea_end');
     }
   });
 </script>

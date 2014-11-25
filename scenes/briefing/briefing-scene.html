@@ -85,7 +85,7 @@ Briefing scene.
      * @private
      */
     changeSlide_: function() {
-      this.playSound('briefing_change_slide');
+      this.fire('sound-trigger', 'briefing_change_slide');
       this.$.screen.style.backgroundPosition = -392 * this.currentSlide_ + 'px 0';
     },
 
@@ -137,11 +137,11 @@ Briefing scene.
     },
 
     onShow: function() {
-      this.playAmbientSounds('briefing_start');
+      this.fire('sound-ambient', 'briefing_start');
     },
 
     onHide: function() {
-      this.playAmbientSounds('briefing_end');
+      this.fire('sound-ambient', 'briefing_end');
       this.stop();
     }
 

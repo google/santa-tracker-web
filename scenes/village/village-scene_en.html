@@ -350,7 +350,7 @@ Village scene.
 
     onSnowManClick: function(e, detail, sender) {
       this.$.snowman.classList.add('snowman-fall');
-      this.playSound('village_snowman_click');
+      this.fire('sound-trigger', 'village_snowman_click');
 
       this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'snowman'});
 
@@ -368,7 +368,7 @@ Village scene.
 
       this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'balloon'});
 
-      this.playSound('village_balloon_click');
+      this.fire('sound-trigger', 'village_balloon_click');
 
       sender.classList.add('takeoff');
 
@@ -400,7 +400,7 @@ Village scene.
         this.$['balloon-elf1'].hidden = false;
         this.$['balloon-elf2'].hidden = false;
 
-        this.playSound('village_balloon_landing');
+        this.fire('sound-trigger', 'village_balloon_landing');
       }, null, timeout);
     },
 
@@ -682,13 +682,13 @@ Village scene.
       this.villageSnowMobile_.start();
       this.$.count.start();
 
-      this.playAmbientSounds('village_start');
+      this.fire('sound-ambient', 'village_start');
     },
 
     onHide: function() {
       window.clearTimeout(this.scheduleTimeout_);
 
-      this.playAmbientSounds('village_end');
+      this.fire('sound-ambient', 'village_end');
 
       if (this.mode != 'cast') {
         this.villageSnow_.stop();
@@ -701,7 +701,7 @@ Village scene.
     },
 
     onPause: function() {
-      this.playAmbientSounds('village_end');
+      this.fire('sound-ambient', 'village_end');
 
       this.villageBus_.pause();
       this.villagePegman_.pause();
@@ -721,7 +721,7 @@ Village scene.
         this.villageSnow_.start();
       }
 
-      this.playAmbientSounds('village_start');
+      this.fire('sound-ambient', 'village_start');
     }
   });
 

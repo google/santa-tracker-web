@@ -277,7 +277,7 @@ Village calendar navigation.
           this.opened = true;
         });
 
-        this.playSound('menu_open');
+        this.fire('sound-trigger', 'menu_open');
 
         this.santaApp && this.santaApp.visibilityService.pause();
       },
@@ -293,7 +293,7 @@ Village calendar navigation.
           this.closed = true;
         }, null, this.TIMEOUT_DELAY);
 
-        this.playSound('menu_close');
+        this.fire('sound-trigger', 'menu_close');
 
         this.santaApp && this.santaApp.visibilityService.resume();
       },
@@ -356,10 +356,10 @@ Village calendar navigation.
         e.preventDefault();
 
         if (sender.classList.contains('off')) {
-          this.playAmbientSounds('global_sound_on');
+          this.fire('sound-ambient', 'global_sound_on');
           sender.classList.switch('off', 'on');
         } else {
-          this.playAmbientSounds('global_sound_off');
+          this.fire('sound-ambient', 'global_sound_off');
           sender.classList.switch('on', 'off');
         }
       }

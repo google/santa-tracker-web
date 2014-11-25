@@ -330,7 +330,7 @@ Matching scene.
       this.animationHelper = null;
       this.game.destroy();
       this.game = null;
-      this.playAmbientSounds('m_end_game');
+      this.fire('sound-ambient', 'm_end_game');
     }
 
     // utils.globalPause(module, function() {
