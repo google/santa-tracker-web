@@ -3,13 +3,6 @@ $name: 'module-trailer';
 @import "../shared/sass/sceneboard";
 
 ##{$name} {
-  position: absolute;
-
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
   background: #000;
 
   google-youtube {
@@ -36,7 +29,6 @@ $name: 'module-trailer';
     font-family: 'Roboto',sans-serif;
     font-weight: 400;
     left: 20px;
-    position: fixed;
     text-align: center;
     top: 0;
     width: 204px;
@@ -46,7 +38,6 @@ $name: 'module-trailer';
     .back {
       background-color: #ce2764;
       height: 45px;
-      width: 174px;
     }
 
     .scrubber {
@@ -120,7 +111,7 @@ $name: 'module-trailer';
     }
   }
 
-  
+
 }
 
 @import "../shared/sass/responsive";
