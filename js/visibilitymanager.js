@@ -14,14 +14,12 @@ function VisibilityManager() {
   this.locks_ = 0;
 
   window.addEventListener('blur', function() {
-    // TODO:(bckenny): switch to new sound controller.
     window.santaApp.fire('sound-ambient', 'global_blur');
     
     this.pause();
   }.bind(this));
 
   window.addEventListener('focus', function() {
-    // TODO:(bckenny): switch to new sound controller.
     window.santaApp.fire('sound-ambient', 'global_focus');
     this.resume();
   }.bind(this));
@@ -52,7 +50,6 @@ VisibilityManager.prototype.pause = function() {
   if (!this.locks_) {
     Events.trigger(this, 'pause');
     // window.santatracker.setPaused(true);
-    // TODO:(bckenny): switch to new sound controller.
     window.santaApp.fire('sound-ambient', 'global_pause');
   }
   this.locks_++;
@@ -68,7 +65,6 @@ VisibilityManager.prototype.resume = function() {
   if (!this.locks_) {
     Events.trigger(this, 'resume');
     // window.santatracker.setPaused(false);
-    // TODO:(bckenny): switch to new sound controller.
     window.santaApp.fire('sound-ambient', 'global_unpause');
   }
   window.console.log('resume', this.locks_);
