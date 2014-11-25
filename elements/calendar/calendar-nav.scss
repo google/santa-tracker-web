@@ -17,12 +17,6 @@ $backButtonWidth: 160px;
 $headerFooterColor: #6f41a4;
 $cardColor: #6541a4;
 
-#close-lang {
-  background-image: url(../../scenes/village/img/assets_sprite.png);
-  background-repeat: no-repeat;
-  background-size: 1934px 463px;
-}
-
 ##{$name} {
 
   #global-nav {
@@ -387,7 +381,56 @@ $cardColor: #6541a4;
     }
   }
 
-  #footer {
+  #language-choose {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    margin-left: -160px;
+    border: 16px solid rgba(0, 0, 0, .14);
+    border-radius: 16px;
+
+    div {
+      background: #f9f9f9;
+      padding: 24px;
+      position: relative;
+      width: 320px;
+
+      h2 {
+        margin: 0 0 16px 0;
+        padding: 0;
+        font-family: 'Lobster', sans-serif;
+        font-size: 40px;
+        line-height: 40px;
+        font-weight: normal;
+        text-align: center;
+      }
+
+      #language {
+        width: 100%;
+        margin: 0;
+        padding: 0 19px;
+        background: transparent;
+        border: 1px solid #d9d9d9;
+        font-family: Roboto;
+        font-size: 12px;
+        height: 51px;
+        -webkit-appearance: none;
+        outline: 0;
+        z-index: 2;
+      }
+
+      #close-lang {
+        position: absolute;
+        top: 0;
+        right: -30px;
+        width: 55px;
+        height: 53px;
+        background: url(img/close.svg) no-repeat;
+      }
+    }
+  }
+
+  /*#footer {
     position: absolute;
     z-index: 1000000000;
     bottom: 14px;
@@ -463,6 +506,7 @@ $cardColor: #6541a4;
       }
     }
   }
+  */
 
   // TODO(lukem): Add a class to the body if the map is visible so the
   // footer can shift above the copyrights
