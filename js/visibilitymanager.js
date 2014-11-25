@@ -1,4 +1,5 @@
-// TODO(bckenny): this should really be called "PauseManager" or the like
+// TODO(bckenny): this should really be called "PauseManager" and use native
+// CustomEvents
 
 /**
  * @constructor
