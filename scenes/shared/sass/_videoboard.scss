@@ -6,11 +6,6 @@
     font-weight: 800;
     text-align: center;
 
-    /** On mobile we use native player controls. */
-    // html.touch & {
-    //   display: none;
-    // }
-
     .back {
       background: darken($videoboard-bg, 5%);
     }
