@@ -338,7 +338,7 @@ Airport scene.
     },
 
     onShow: function() {
-      this.playAmbientSounds('airport_start');
+      this.fire('sound-ambient', 'airport_start');
       var div = this.$['module-airport'];
 
       this.animationHelper = new CSSAnimationHelper(div);
@@ -350,7 +350,7 @@ Airport scene.
       this.animationHelper = null;
       this.belt.destroy();
       this.belt = null;
-      this.playAmbientSounds('airport_end');
+      this.fire('sound-ambient', 'airport_end');
     }
   });
 </script>
