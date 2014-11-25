@@ -12,14 +12,14 @@ Trailer scene.
 <template>
   <link rel="stylesheet" href="trailer-scene.css" no-shim>
 
-  <div id="module-intro" fit>
-    <div class="scene">
+  <div id="module-trailer" fit>
+    <div class="scene" fit>
       <div id="poster">
         <div id="start" hidden>
           <div class="start-button" on-tap="{{playVideo}}"></div>
         </div>
       </div>
-      <google-youtube id="player" videoid="QrDH6kh7yUw" chromeless fluid="1"
+      <google-youtube fit id="player" videoid="QrDH6kh7yUw" chromeless fluid="1"
                       on-google-youtube-ready="{{youtubeReady}}"
                       on-google-youtube-state-change="{{youtubeStateChange}}"></google-youtube>
 
