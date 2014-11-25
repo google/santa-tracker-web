@@ -78,6 +78,14 @@
       bottom: 0;
     }
 
+    .building {
+      outline: 0;
+    }
+
+    .house-snow, .house-elves {
+      pointer-events: none;
+    }
+
     .house-marker {
       position: absolute;
       bottom: 0;
