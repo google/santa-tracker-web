@@ -170,7 +170,9 @@ Polymer(Polymer.mixin({
 
   ready: function() {
     this.analyticsService = new Analytics();
-    this.visibilityService = new VisibilityManager();
+    this.visibilityService = new VisibilityManager(this);
+    this.visibilityService.addOnPauseListener(this.onPause.bind(this));
+    this.visibilityService.addOnResumeListener(this.onResume.bind(this));
 
     this.houses = window.HOUSES;
     this.config = window.SANTA_CONFIG;
@@ -197,6 +199,14 @@ Polymer(Polymer.mixin({
       this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
       this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
+
+      window.addEventListener('blur', function() {
+        this.fire('sound-ambient', 'global_blur');
+      }.bind(this));
+
+      window.addEventListener('focus', function() {
+        this.fire('sound-ambient', 'global_focus');
+      }.bind(this));
     }
 
     if (this.santaService.now() > this.countDownEndDate) {
@@ -214,6 +224,16 @@ Polymer(Polymer.mixin({
 
   selectedSceneChanged: function(oldVal, newVal) {
     this.prevSelectedScene = oldVal;
+  },
+
+  // TODO(bckenny): these should expand to handle all global pause state, not
+  // just sound state
+  onPause: function() {
+    this.fire('sound-ambient', 'global_pause');
+  },
+
+  onResume: function() {
+    this.fire('sound-ambient', 'global_unpause');
   },
 
   trackPageview: function(e, detail, sender) {

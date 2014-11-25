@@ -48,10 +48,11 @@ Scoreboard.prototype.attachEvents = function() {
     $(this).toggleClass('paused');
     self.game.togglePause();
 
+    // TODO(bckenny): should this be firing global_pause? or handled elsewhere?
     if ($(this).hasClass('paused')) {
-      Klang.triggerEvent('global_pause');
+      window.santaApp.fire('sound-ambient', 'global_pause');
     } else {
-      Klang.triggerEvent('global_unpause');
+      window.santaApp.fire('sound-ambient', 'global_unpause');
     }
   });
   this.elem.find('.restart').on('click', function() {
@@ -97,7 +98,8 @@ Scoreboard.prototype.onFrame = function(delta) {
       if (this.countdownElem.length > 0) {
         this.countdownElem.toggleClass('losing', losing);
       }
-      Klang.triggerEvent(losing ? 'game_hurry_up' : 'game_hurry_up_end');
+      window.santaApp.fire('sound-trigger',
+          losing ? 'game_hurry_up' : 'game_hurry_up_end');
     }
   }
 };

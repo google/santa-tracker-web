@@ -1,3 +1,5 @@
+// TODO(bckenny): this should really be called "PauseManager" or the like
+
 /**
  * @constructor
  */
@@ -13,18 +15,8 @@ function VisibilityManager() {
    */
   this.locks_ = 0;
 
-  window.addEventListener('blur', function() {
-    // TODO:(bckenny): switch to new sound controller.
-    Klang.triggerEvent('global_blur');
-    this.pause();
-  }.bind(this));
-
-  window.addEventListener('focus', function() {
-    // TODO:(bckenny): switch to new sound controller.
-    Klang.triggerEvent('global_focus');
-    this.resume();
-  }.bind(this));
-
+  window.addEventListener('blur', this.pause.bind(this));
+  window.addEventListener('focus', this.resume.bind(this));
   document.addEventListener('visibilitychange', function onVisibilityChange(e) {
     document.hidden ? this.pause() : this.resume();
   }.bind(this));
@@ -50,9 +42,6 @@ VisibilityManager.prototype.addOnResumeListener = function(callback) {
 VisibilityManager.prototype.pause = function() {
   if (!this.locks_) {
     Events.trigger(this, 'pause');
-    // window.santatracker.setPaused(true);
-    // TODO:(bckenny): switch to new sound controller.
-    Klang.triggerEvent('global_pause');
   }
   this.locks_++;
   window.console.log('pause', this.locks_);
@@ -66,9 +55,6 @@ VisibilityManager.prototype.resume = function() {
   this.locks_ = Math.max(0, this.locks_ - 1);
   if (!this.locks_) {
     Events.trigger(this, 'resume');
-    // window.santatracker.setPaused(false);
-    // TODO:(bckenny): switch to new sound controller.
-    Klang.triggerEvent('global_unpause');
   }
   window.console.log('resume', this.locks_);
 };

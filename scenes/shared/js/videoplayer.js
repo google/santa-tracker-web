@@ -25,7 +25,7 @@ function VideoPlayer(div, moduleName, videoId) {
   this.embedPlayer_();
   this.registerEvents_();
 
-  Klang.triggerEvent('videoplayer_start');
+  window.santaApp.fire('sound-ambient', 'videoplayer_start');
 }
 
 VideoPlayer.prototype.isPaused = function() {
@@ -258,7 +258,7 @@ VideoPlayer.prototype.coverPlayer_ = function() {
  */
 VideoPlayer.prototype.dispose = function() {
   clearInterval(this.updateInterval_);
-  Klang.triggerEvent('videoplayer_end');
+  window.santaApp.fire('sound-ambient', 'videoplayer_end');
 };
 
 /**

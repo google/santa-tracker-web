@@ -48,7 +48,7 @@ LevelUp.prototype.numberShown_ = function() {
   this.numberElem.addClass('hide');
   this.bgElem.css('border-width', 0);
 
-  Klang.triggerEvent('level_transition_open');
+  window.santaApp.fire('sound-trigger', 'level_transition_open');
 };
 
 /**
@@ -63,7 +63,7 @@ LevelUp.prototype.show = function(level, callback) {
   timeoutOneEvent(this.numberElem, utils.ANIMATION_END, 1.5, this.numberShown_.bind(this));
   this.numberElem.text(level).addClass('show');
 
-  Klang.triggerEvent('level_transition_close');
+  window.santaApp.fire('sound-trigger', 'level_transition_close');
 };
 
 /**
