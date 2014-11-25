@@ -41,7 +41,7 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "intro",
+  module: "trailer",
   iced: false,
   launchDate: new Date('Dec 1, 2014'),
   category: "play",

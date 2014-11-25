@@ -2,16 +2,16 @@
 <link rel="import" href="../../components/google-youtube/google-youtube.html">
 
 <!--
-Intro scene.
+Trailer scene.
 
-@element intro-scene
+@element trailer-scene
 @extends base-scene
 -->
-<polymer-element name="intro-scene" extends="base-scene">
+<polymer-element name="trailer-scene" extends="base-scene">
 <template>
-  <link rel="stylesheet" href="intro-scene.css" no-shim>
+  <link rel="stylesheet" href="trailer-scene.css" no-shim>
 
-  <div id="module-intro">
+  <div id="module-trailer">
     <div class="scene">
       <div id="poster">
         <div id="start" hidden><div class="start-button" on-tap="{{playVideo}}"></div></div>
@@ -50,7 +50,7 @@ Intro scene.
 <script>
   Polymer({
     loadingBgColor: 'rgb(129,208,0)',
-    componentDir: 'scenes/intro/',
+    componentDir: 'scenes/trailer/',
     player: null,
     paused: false,
 
