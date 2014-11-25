@@ -129,10 +129,6 @@ Traditions.prototype.onShow = function() {
   this.addCountryMarkers_();
 
   $(window).on('resize.traditions', this.handleResize_.bind(this));
-
-  //$('#traditions-next', this.el_).on('click', this.nextCountry_.bind(this));
-  //$('#traditions-prev', this.el_).on('click', this.prevCountry_.bind(this));
-  //$('#traditions-world', this.el_).on('click', this.showWorld_.bind(this));
 };
 
 /**
