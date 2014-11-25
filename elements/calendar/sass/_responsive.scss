@@ -89,11 +89,36 @@ $mobilePortraitBreakpoint: 400px;
 }
 
 @media (max-width:$mobileBreakpoint) {
-  ##{$name} #global-nav #global-nav-header paper-tabs {
-    display: none;
-  }
+  $headerHeight: 62px;
 
-  ##{$name}  #global-nav #global-nav-content {
-    top: 62px;
+  ##{$name} {
+
+    #global-nav #global-nav-btn {
+      top: 10px;
+      right: 10px;
+
+      paper-fab {
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+      }
+
+    }
+
+    #global-nav #global-nav-header {
+      height: $headerHeight;
+
+      .back {
+        line-height: $headerHeight;
+      }
+
+      paper-tabs {
+        display: none;
+      }
+    }
+    #global-nav #global-nav-content {
+      top: $headerHeight;
+    }
+
   }
 }

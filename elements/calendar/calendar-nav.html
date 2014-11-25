@@ -21,7 +21,6 @@ Village calendar navigation.
       paper-tab::shadow #ink {
         color: rgba(254, 222, 50, 0.5);
       }
-
       paper-tab::shadow .tab-content {
         opacity: 1;
       }
@@ -29,8 +28,8 @@ Village calendar navigation.
 
     <div id="module-nav">
       <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
-        <a id="global-nav-btn" href="#{{active ? santaApp.prevSelectedScene.route : 'calendar'}}" layout horizontal>
-          <paper-fab icon="today"></paper-fab>
+        <a id="global-nav-btn" href="#{{active ? santaApp.prevSelectedScene.route : 'calendar'}}" on-click="{{fabClick}}">
+          <paper-fab icon="today" on-core-transitionend="{{rippleDone}}"></paper-fab>
         </a>
         <div id="global-nav-body">
           <div id="global-nav-header" layout horizontal center-center>
@@ -206,6 +205,14 @@ Village calendar navigation.
        *   @param {string} detail.action
        *   @param {string} detail.target
        */
+
+      rippleDone: function(e, detail, sender) {
+        location.href = this.$['global-nav-btn'].href;
+      },
+
+      fabClick: function(e, detail, sender) {
+        e.preventDefault();
+      },
 
       housesChanged: function() {
         this.firstFour = this.houses.slice(0, 4);
