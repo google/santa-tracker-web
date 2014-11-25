@@ -37,6 +37,10 @@ Subclass scene elements can define the following properties:
 
 <polymer-element name="base-scene" attributes="active alwaysActive path route mode santaApp" tabindex="0">
 <script>
+(function() {
+
+var scheduleChecked_ = false; // static
+
 Polymer({
   publish: {
     /**
@@ -179,7 +183,11 @@ Polymer({
   },
 
   santaAppChanged: function() {
-    this.santaApp.checkSchedule_(true);
+    // Only check initial schedule the first time any scene is created.
+    if (!scheduleChecked_) {
+      this.santaApp.checkSchedule_(true);
+      scheduleChecked_ = true;
+    }
 
     if (this.onPause) {
       this.santaApp.visibilityService.addOnPauseListener(this.onPause.bind(this));
@@ -282,5 +290,7 @@ Polymer({
   }
 
 });
+
+})();
 </script>
 </polymer-element>

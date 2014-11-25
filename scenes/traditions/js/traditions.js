@@ -241,7 +241,7 @@ Traditions.prototype.addCountryMarkers_ = function() {
       bigIcon: bigIcon
     };
 
-    google.maps.event.addListener(marker, 'click', 
+    google.maps.event.addListener(marker, 'click',
       this.showCountry_.bind(this, country.country_key));
   }
 
@@ -311,7 +311,7 @@ Traditions.prototype.onHide = function() {
 
 /**
  * Alternates between the world view and a country view.
- * @param {!Array.string|null} arguments 
+ * @param {!Array.string|null} arguments
  */
 Traditions.prototype.onQueryChanged = function(args) {
   this.show(args.country || null);

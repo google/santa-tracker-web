@@ -66,7 +66,7 @@ Polymer(Polymer.mixin({
    *
    * @property FLIGHT_FINISHED
    * @type number
-   * @default null,
+   * @default null
    * @const
    */
   FLIGHT_FINISHED: null,
@@ -78,7 +78,7 @@ Polymer(Polymer.mixin({
    * @type array
    * @default []
    */
-   houses: [],
+  houses: [],
 
   /**
    * The current language locale.
@@ -96,7 +96,7 @@ Polymer(Polymer.mixin({
    * @type Element
    * @default null
    */
-   selectedScene: null,
+  selectedScene: null,
 
   /**
    * The previously selected scene.
@@ -105,7 +105,7 @@ Polymer(Polymer.mixin({
    * @type Element
    * @default null
    */
-   prevSelectedScene: null,
+  prevSelectedScene: null,
 
   /**
    * Analytics service.
@@ -134,6 +134,14 @@ Polymer(Polymer.mixin({
    */
   mode: '',
 
+  /**
+   * True when Santa's schedule has been checked for the first time.
+   *
+   * @property scheduleChecked
+   * @type bool
+   * @default undefined
+   */
+
   publish: {
     /**
      * True when the countdown is complete.
@@ -153,6 +161,12 @@ Polymer(Polymer.mixin({
      */
     postFlight: {value: false, reflect: true},
   },
+
+  /**
+   * Fired the first time santa service checks the schedule.
+   *
+   * @event santa-schedule-first-check
+   */
 
   ready: function() {
     this.analyticsService = new Analytics();
@@ -282,6 +296,19 @@ Polymer(Polymer.mixin({
     }
   },
 
+  sceneIsUnlocked: function(moduleName) {
+    for (var i = 0, house; house = this.houses[i]; ++i) {
+      if (house.module == moduleName) {
+        return !house.iced;
+      }
+    }
+    // Certain scenes don't have associated houses. Whitelist them.
+    if (['village', 'calendar'].indexOf(moduleName) != -1) {
+      return true;
+    }
+    return false;
+  },
+
   /**
    * Unlocks the correct houses based on the day (index).
    * @param {boolean=} opt_once check only once.
@@ -333,6 +360,8 @@ Polymer(Polymer.mixin({
     }
 
     if (opt_once) {
+      this.scheduleChecked = true;
+      this.fire('santa-schedule-first-check');
       return;
     }
 
