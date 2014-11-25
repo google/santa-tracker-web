@@ -66,7 +66,7 @@ gulp.task('compile-scenes', function() {
       fileName: sceneName + '-scene.min.js',
       closure_entry_point: config.entryPoint,
       compilerFlags: addCompilerFlagOptions({
-        compilation_level: 'ADVANCED_OPTIMIZATIONS',
+        compilation_level: 'SIMPLE_OPTIMIZATIONS',
         // warning_level: 'VERBOSE',
         language_in: 'ECMASCRIPT5_STRICT',
         process_closure_primitives: null,
