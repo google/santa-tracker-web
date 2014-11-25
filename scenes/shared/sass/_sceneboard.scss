@@ -2,7 +2,7 @@ $sceneboard-bg: #9ece2b !default;
 $sceneboard-backbg: darken($sceneboard-bg, 10%) !default;
 
 $headerPadding: 30px;
-$backButtonWidth: 160px;
+$headerHeight: 45px;
 
 ##{$name} {
   .sceneboard {
@@ -25,11 +25,12 @@ $backButtonWidth: 160px;
       font-size: 14px;
       font-weight: 400;
       color: #fff;
-      width: $backButtonWidth;
-      line-height: 45px;
+      width: 100%;
+      line-height: $headerHeight;
       padding: 0 0 0 $headerPadding;
       background: url(../shared/img/village-nav-bg.svg) 50% 100%/204px 45px no-repeat,
       url(../shared/img/back-arrow.svg) 10px 50%/31px 31px no-repeat;
+      box-sizing: border-box;
     }
   }
 
@@ -40,7 +41,7 @@ $backButtonWidth: 160px;
 
   .sceneboard-back {
     background: $sceneboard-backbg;
-    height: 45px;
+    height: $headerHeight;
   }
 
   .sceneboard-button {
