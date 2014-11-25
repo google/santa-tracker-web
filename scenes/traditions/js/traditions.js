@@ -130,9 +130,9 @@ Traditions.prototype.onShow = function() {
 
   $(window).on('resize.traditions', this.handleResize_.bind(this));
 
-  $('#traditions-next', this.el_).on('click', this.nextCountry_.bind(this));
-  $('#traditions-prev', this.el_).on('click', this.prevCountry_.bind(this));
-  $('#traditions-world', this.el_).on('click', this.showWorld_.bind(this));
+  //$('#traditions-next', this.el_).on('click', this.nextCountry_.bind(this));
+  //$('#traditions-prev', this.el_).on('click', this.prevCountry_.bind(this));
+  //$('#traditions-world', this.el_).on('click', this.showWorld_.bind(this));
 };
 
 /**
@@ -156,7 +156,7 @@ Traditions.NUM_PINS_ = 10;
 /**
  * @private
  */
-Traditions.prototype.prevCountry_ = function() {
+Traditions.prototype.prevCountry = function() {
   var active = $('.tradition-active', this.el_);
   var id;
   if (active.length) {
@@ -174,7 +174,7 @@ Traditions.prototype.prevCountry_ = function() {
 /**
  * @private
  */
-Traditions.prototype.nextCountry_ = function() {
+Traditions.prototype.nextCountry = function() {
   var active = $('.tradition-active', this.el_);
   var id;
   if (active.length) {
@@ -192,7 +192,7 @@ Traditions.prototype.nextCountry_ = function() {
 /**
  * @private
  */
-Traditions.prototype.showWorld_ = function() {
+Traditions.prototype.showWorld = function() {
   this.showDefault_();
 
   //TODO(lukem): Add this back in when @ebidel fixes the routing
