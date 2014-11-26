@@ -42,7 +42,7 @@ window.HOUSES = [{
   }
 }, {
   module: "traditions",
-  iced: true,
+  iced: false,
   launchDate: new Date('Dec 1, 2014'),
   category: "learn",
   elves: {
@@ -78,7 +78,7 @@ window.HOUSES = [{
   }
 }, {
   module: "trailer",
-  iced: false,
+  iced: true,
   launchDate: new Date('Dec 2, 2014'),
   category: "play",
   elves: {
