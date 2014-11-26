@@ -75,7 +75,8 @@ window.HOUSES = [{
     "elf-red-snow",
     "elf-blue-snow-hide"
     ]
-  }
+  },
+  link: 'https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker'
 }, {
   module: "selfie",
   iced: true,

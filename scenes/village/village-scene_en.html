@@ -69,7 +69,8 @@ Village scene.
 
             <template repeat="{{house, i in santaApp.houses}}">
               <div id="house-[[house.module]]" class="house {{house.category}} {{house.iced ? 'iced' : 'melt'}} {{ {today: house.today, tomorrow: house.tomorrow} | tokenList }}">
-                <a class="building" on-click="{{onHouseClick}}" href="[[baseURI]]#{{house.module}}" tabindex="-1"></a>
+                <a href="{{house.link || baseURI + '#' + house.module}}" class="building"
+                   on-click="{{onHouseClick}}" tabindex="-1"></a>
 
                 <div class="house-snow"></div>
                 <div class="house-elves">
@@ -90,8 +91,8 @@ Village scene.
                 <div class="marker-tomorrow">
                   <div layout vertical center-center><i18n-msg msgid="openingtomorrow">PLACEHOLDER_i18n</i18n-msg></div>
                 </div>
-                <a href="[[baseURI]]#{{house.module}}" class="house-marker"
-                   tabindex="{{house.iced || house.disabled ? -1 : 0}}" on-click="{{onHouseClick}}"></a>
+                <a href="{{house.link || baseURI + '#' + house.module}}" class="house-marker"
+                  on-click="{{onHouseClick}}" tabindex="{{house.iced || house.disabled ? -1 : 0}}"></a>
               </div>
             </template>
 
@@ -344,6 +345,15 @@ Village scene.
       var iced = sender.templateInstance.model.house.iced;
       if (iced) {
         e.preventDefault();
+      } else if (sender.templateInstance.model.house.link) {
+        e.preventDefault();
+
+        this.fire('analytics-track-event', {category: 'outbound', action: 'click',
+                                            label: sender.href});
+
+        this.async(function() {
+          document.location.href = sender.href;
+        }, null, 100);
       }
     },
 
