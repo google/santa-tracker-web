@@ -1,7 +1,7 @@
 // Village parallax is based off the width factors here. The factor specifies
 // width and the relative rate slower (or faster) that layer will scroll.
 // Layers farther than the village should be < 1, closer should be > 1.
-$villageWidth: 13540px;
+$villageWidth: 12720px;
 $mountainWidth: $villageWidth * .25;
 // TODO(bckenny|lukem): need to regenerate train animation for railWidth
 $railWidth: $villageWidth * .8;

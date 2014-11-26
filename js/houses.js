@@ -41,22 +41,22 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "trailer",
-  iced: false,
+  module: "traditions",
+  iced: true,
   launchDate: new Date('Dec 1, 2014'),
-  category: "play",
+  category: "learn",
   elves: {
     melt: [
-    "elf-purple-right",
     "elf-red",
-    "elf-green",
-    "elf-blue-left"
+    "elf-blue",
+    "elf-orange-girl-left",
+    "elf-red"
     ],
     snow: [
-    "elf-purple-right",
-    "elf-red-snow-hide",
-    "elf-green-snow",
-    "elf-blue-left"
+    "elf-red-snow",
+    "elf-blue",
+    "elf-orange-girl-snow-left",
+    "elf-red-snow"
     ]
   }
 }, {
@@ -77,22 +77,22 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "selfie",
-  iced: true,
-  category: "play",
+  module: "trailer",
+  iced: false,
   launchDate: new Date('Dec 2, 2014'),
+  category: "play",
   elves: {
     melt: [
+    "elf-purple-right",
+    "elf-red",
     "elf-green",
-    "elf-purple",
-    "elf-orange-left",
-    "elf-red-girl-right"
+    "elf-blue-left"
     ],
     snow: [
-    "elf-green-snow-hide",
-    "elf-purple-snow",
-    "elf-orange-left",
-    "elf-red-girl-snow-right"
+    "elf-purple-right",
+    "elf-red-snow-hide",
+    "elf-green-snow",
+    "elf-blue-left"
     ]
   }
 }, {
@@ -168,41 +168,41 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "streetview",
+  module: "gumball",
   iced: true,
   launchDate: new Date('Dec 7, 2014'),
   category: "play",
   elves: {
     melt: [
-    "elf-orange-girl-right",
-    "elf-blue",
     "elf-red-girl-left",
-    "elf-green"
-    ],
-    snow: [
-    "elf-orange-girl-snow-right",
-    "elf-blue-snow",
-    "elf-red-girl-snow-left",
-    "elf-green"
-    ]
-  }
-}, {
-  module: "jamband",
-  iced: true,
-  launchDate: new Date('Dec 8, 2014'),
-  category: "code",
-  elves: {
-    melt: [
-    "elf-red",
-    "elf-purple",
-    "elf-orange-left",
+    "elf-orange",
+    "elf-orange-right",
     "elf-blue"
     ],
     snow: [
-    "elf-red",
-    "elf-purple",
-    "elf-orange-snow-left",
-    "elf-blue-snow-hide"
+    "elf-red-girl-snow-left",
+    "elf-orange",
+    "elf-orange-snow-right",
+    "elf-blue-snow"
+    ]
+  }
+}, {
+  module: "jetpack",
+  iced: true,
+  launchDate: new Date('Dec 8, 2014'),
+  category: "play",
+  elves: {
+    melt: [
+    "elf-green",
+    "elf-green-girl-left",
+    "elf-orange",
+    "elf-red-girl-right"
+    ],
+    snow: [
+    "elf-green",
+    "elf-green-girl-snow-left",
+    "elf-orange-snow",
+    "elf-red-snow-left"
     ]
   }
 }, {
@@ -225,49 +225,9 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "translations",
-  iced: true,
-  launchDate: new Date('Dec 10, 2014'),
-  category: "watch",
-  elves: {
-    melt: [
-    "elf-green",
-    "elf-blue",
-    "elf-orange-girl-left",
-    "elf-red",
-    "elf-purple-right"
-    ],
-    snow: [
-    "elf-gree",
-    "elf-blue",
-    "elf-orange-girl-snow-left",
-    "elf-red-snow-hide",
-    "elf-purple-snow-right"
-    ]
-  }
-}, {
-  module: "video",
-  iced: true,
-  launchDate: new Date('Dec 11, 2014'),
-  category: "play",
-  elves: {
-    melt: [
-    "elf-green-girl-right",
-    "elf-red",
-    "elf-purple-left",
-    "elf-purple"
-    ],
-    snow: [
-    "elf-green-girl-right",
-    "elf-red-snow",
-    "elf-purple-snow-left",
-    "elf-purple-snow"
-    ]
-  }
-}, {
   module: "mercator",
   iced: true,
-  launchDate: new Date('Dec 12, 2014'),
+  launchDate: new Date('Dec 10, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -281,6 +241,44 @@ window.HOUSES = [{
     "elf-green-snow-hide",
     "elf-blue-snow-right",
     "elf-orange-snow"
+    ]
+  }
+}, {
+  module: "selfie",
+  iced: true,
+  category: "play",
+  launchDate: new Date('Dec 11, 2014'),
+  elves: {
+    melt: [
+    "elf-green",
+    "elf-purple",
+    "elf-orange-left",
+    "elf-red-girl-right"
+    ],
+    snow: [
+    "elf-green-snow-hide",
+    "elf-purple-snow",
+    "elf-orange-left",
+    "elf-red-girl-snow-right"
+    ]
+  }
+}, {
+  module: "jamband",
+  iced: true,
+  launchDate: new Date('Dec 12, 2014'),
+  category: "code",
+  elves: {
+    melt: [
+    "elf-red",
+    "elf-purple",
+    "elf-orange-left",
+    "elf-blue"
+    ],
+    snow: [
+    "elf-red",
+    "elf-purple",
+    "elf-orange-snow-left",
+    "elf-blue-snow-hide"
     ]
   }
 }, {
@@ -341,22 +339,22 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "jetpack",
+  module: "video",
   iced: true,
   launchDate: new Date('Dec 16, 2014'),
   category: "play",
   elves: {
     melt: [
-    "elf-green",
-    "elf-green-girl-left",
-    "elf-orange",
-    "elf-red-girl-right"
+    "elf-green-girl-right",
+    "elf-red",
+    "elf-purple-left",
+    "elf-purple"
     ],
     snow: [
-    "elf-green",
-    "elf-green-girl-snow-left",
-    "elf-orange-snow",
-    "elf-red-snow-left"
+    "elf-green-girl-right",
+    "elf-red-snow",
+    "elf-purple-snow-left",
+    "elf-purple-snow"
     ]
   }
 }, {
@@ -398,28 +396,49 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "traditions",
+  module: "streetview",
   iced: true,
   launchDate: new Date('Dec 19, 2014'),
-  category: "learn",
+  category: "play",
   elves: {
     melt: [
-    "elf-red",
+    "elf-orange-girl-right",
     "elf-blue",
-    "elf-orange-girl-left",
-    "elf-red"
+    "elf-red-girl-left",
+    "elf-green"
     ],
     snow: [
-    "elf-red-snow",
+    "elf-orange-girl-snow-right",
+    "elf-blue-snow",
+    "elf-red-girl-snow-left",
+    "elf-green"
+    ]
+  }
+}, {
+  module: "translations",
+  iced: true,
+  launchDate: new Date('Dec 20, 2014'),
+  category: "watch",
+  elves: {
+    melt: [
+    "elf-green",
+    "elf-blue",
+    "elf-orange-girl-left",
+    "elf-red",
+    "elf-purple-right"
+    ],
+    snow: [
+    "elf-gree",
     "elf-blue",
     "elf-orange-girl-snow-left",
-    "elf-red-snow"
+    "elf-red-snow-hide",
+    "elf-purple-snow-right"
     ]
   }
 }, {
   module: "windtunnel",
   iced: true,
-  launchDate: new Date('Dec 20, 2014'),
+  launchDate: new Date('Dec 21, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -433,25 +452,6 @@ window.HOUSES = [{
     "elf-green-snow-hide",
     "elf-red-snow-right",
     "elf-blue"
-    ]
-  }
-}, {
-  module: "gumball",
-  iced: true,
-  launchDate: new Date('Dec 21, 2014'),
-  category: "play",
-  elves: {
-    melt: [
-    "elf-red-girl-left",
-    "elf-orange",
-    "elf-orange-right",
-    "elf-blue"
-    ],
-    snow: [
-    "elf-red-girl-snow-left",
-    "elf-orange",
-    "elf-orange-snow-right",
-    "elf-blue-snow"
     ]
   }
 }, {
