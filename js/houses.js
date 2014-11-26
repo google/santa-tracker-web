@@ -245,7 +245,7 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "selfie",
+  module: "santaselfie",
   iced: true,
   category: "play",
   launchDate: new Date('Dec 11, 2014'),
