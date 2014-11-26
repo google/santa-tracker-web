@@ -230,14 +230,14 @@ Polymer(Polymer.mixin({
   // bind to it
   onPause: function() {
     this.fire('sound-ambient', 'global_pause');
-    if (this.selectedScene) {
+    if (this.selectedScene && this.selectedScene.fire) {
       this.selectedScene.fire('scene-pause', true);
     }
   },
 
   onResume: function() {
     this.fire('sound-ambient', 'global_unpause');
-    if (this.selectedScene) {
+    if (this.selectedScene && this.selectedScene.fire) {
       this.selectedScene.fire('scene-pause', false);
     }
   },
