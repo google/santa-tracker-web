@@ -1,0 +1,117 @@
+##{$name} {
+  .player-rails {
+    background: url(img/rail.png);
+    left: 100px;
+    position: absolute;
+    transform: translateZ(0);
+    width: 63px;
+
+    &:after {
+      border-left: 4px solid #939597;
+      border-right: 4px solid #939597;
+      bottom: 0;
+      content: '';
+      left: 10px;
+      position: absolute;
+      top: -10px;
+      width: 34px;
+    }
+  }
+
+  .player {
+    height: 155px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 228px;
+  }
+
+  .player-crossbow {
+    background: url(img/player-crossbow.svg) no-repeat;
+    height: 182px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 228px;
+  }
+
+  .player-elf {
+    background: url(img/player-elf.svg);
+    bottom: 50px;
+    height: 44px;
+    left: 128px;
+    position: absolute;
+    width: 44px;
+  }
+
+  .throw--back .player-elf {
+    animation: 300ms #{$name}-throw-move forwards;
+  }
+
+  .throw--forward .player-elf {
+    animation: 100ms #{$name}-throw-move alternative forwards;
+  }
+
+  .player-rope {
+    background-color: #ed1c24;
+    height: 110px;
+    right: 30px;
+    position: absolute;
+    width: 5px;
+  }
+
+  .player-rope--left {
+    top: 12px;
+    transform: scaleY(0.48) rotate(14deg);
+    transform-origin: 0 0;
+  }
+
+  .throw--back .player-rope--left {
+    animation: 300ms #{$name}-throw-rope--left forwards;
+  }
+
+  .throw--forward .player-rope--left {
+    animation: 100ms #{$name}-throw-rope--left alternative forwards;
+  }
+
+  .player-rope--right {
+    bottom: 0;
+    transform: scaleY(0.48) rotate(-14deg);
+    transform-origin: 0 100%;
+  }
+
+  .throw--back .player-rope--right {
+    animation: 300ms #{$name}-throw-rope--right forwards;
+  }
+
+  .throw--forward .player-rope--right {
+    animation: 100ms #{$name}-throw-rope--right alternative forwards;
+  }
+}
+
+@keyframes #{$name}-throw-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-60px);
+  }
+}
+
+@keyframes #{$name}-throw-rope--left {
+  0% {
+    transform: scaleY(.48) rotate(14deg);
+  }
+  100% {
+    transform: scaleY(.68) rotate(50deg);
+  }
+}
+
+@keyframes #{$name}-throw-rope--right {
+  0% {
+    transform: scaleY(.48) rotate(-14deg);
+  }
+  100% {
+    transform: scaleY(.68) rotate(-50deg);
+  }
+}
