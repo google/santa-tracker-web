@@ -30,6 +30,9 @@ var SCENE_CLOSURE_CONFIG = {
   matching: {
     entryPoint: 'app.Game'
   },
+  presentdrop: {
+    entryPoint: 'app.Game'
+  },
   racer: {
     entryPoint: 'app.Game'
   }

@@ -1,0 +1,67 @@
+##{$name} {
+  .stage {
+    background: #002C65;
+    height: 660px;
+    margin: 400px auto 0 auto;
+    overflow: hidden;
+    position: relative;
+    // This should be 890, but Chrome seems to render our bg off-by-one while other browsers don't.
+    // So simplest fix is to hide that pixel column. Will anyone miss it? :)
+    width: 889px;
+  }
+
+  .stage-shadow {
+    background-color: rgba(0,0,0,0.1);
+    height: 41px;
+    left: 0;
+    position: absolute;
+    width: 890px;
+
+    &:before, &:after {
+      background-color: rgba(0,0,0,0.1);
+      content: "";
+      height: 619px;
+      left: 0;
+      position: absolute;
+      top: 41px;
+      width: 17px;
+    }
+
+    &:after {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  @mixin ground-rails() {
+    background-color: #818181;
+    bottom: 0;
+    height: 10px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  .ground-rails {
+    @include ground-rails();
+  }
+
+  .ceiling {
+    bottom: auto;
+    @include ground-rails();
+    top: 0;
+
+    .light {
+      background: url(img/environment.png) 0 -300px no-repeat;
+      height: 34px;
+      position: absolute;
+      top: 5px;
+      width: 104px;
+    }
+
+    .light:nth-child(1) { left: 90px; }
+    .light:nth-child(2) { left: 290px; }
+    .light:nth-child(3) { left: 490px; }
+    .light:nth-child(4) { left: 690px; }
+  }
+}
