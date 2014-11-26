@@ -1,4 +1,6 @@
-var pools = {
+goog.provide('app.shared.pools');
+
+var pools = app.shared.pools = {
   objects: [],
   mixin: function(obj) {
     obj.pool_ = [];

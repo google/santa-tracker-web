@@ -3,7 +3,7 @@ goog.provide('app.InputEvent');
 goog.scope(function() {
   var eventStart, eventMove, eventCancel, eventEnd;
 
-  (function() {
+  (function () {
     if (window.navigator.msPointerEnabled) {
       eventStart = 'MSPointerDown';
       eventMove = 'MSPointerMove';
@@ -22,7 +22,7 @@ goog.scope(function() {
     }
   })();
 
-  var getNormalizedEvent = function(e) {
+  var getNormalizedEvent = function (e) {
     // jquery / touch normalization
     e = e.originalEvent ? e.originalEvent : e;
     e = e.touches ? e.touches[0] : e;

@@ -1,6 +1,6 @@
-var utils;
+goog.provide('app.shared.utils');
 
-(function() {
+var utils = app.shared.utils = (function() {
   // Feature detection
   var ANIMATION, ANIMATION_END, TRANSITION_END, name;
   var el = document.createElement('div'),
@@ -39,7 +39,7 @@ var utils;
     }
   }
 
-  utils = {
+  var utils = {
     ANIMATION_END: ANIMATION_END,
     TRANSITION_END: TRANSITION_END,
 
@@ -153,4 +153,6 @@ var utils;
     }
     return this;
   };
+
+  return utils;
 })();

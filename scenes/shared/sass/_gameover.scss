@@ -1,180 +1,124 @@
+@import "overlay";
+@import "share-buttons";
+
+$gameover-base-color: #FBBF2C;
+$gameover-bg: $gameover-base-color !default;
+$gameover-height-bp: 660px;
+$gameover-width-bp: 661px;
+
+@function gameover-color($target-color) {
+  @return hsl(
+      hue($target-color) - hue($gameover-base-color) + hue($gameover-bg),
+      max(0, min(100, saturation($target-color) - saturation($gameover-base-color) + saturation($gameover-bg))),
+      lightness($target-color) - lightness($gameover-base-color) + lightness($gameover-bg)
+  );
+}
+
 ##{$name} {
   .gameover {
-    background-color: #b4e3f9;
-    bottom: 0;
+    background-color: $gameover-bg;
+    z-index: 120;
+  }
+
+  .gameover-dialog {
+    text-align: center;
+    width: 205px;
+
+    @media (min-height: $gameover-height-bp) {
+      width: 410px;
+    }
+
+    @media (min-width: $gameover-width-bp) {
+      width: 410px;
+    }
+  }
+
+  .gameover-winner {
+    background: url(../shared/img/gameover/winner.svg) 0 100% no-repeat;
+    height: 80px;
+
+    @media (min-width: $gameover-width-bp) {
+      height: 380px;
+      background-position: 50% 100%;
+    }
+  }
+
+  .gameover-title {
+    font-family: 'Lobster', sans-serif;
+    font-size: 36px;
+    font-style: italic;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin: 0;
+    opacity: 0.42;
+
+    @media (min-width: $gameover-width-bp) {
+      font-size: 69px;
+    }
+  }
+
+  .gameover-level {
     display: none;
-    left: 0;
-    position: absolute;
-    opacity: 0;
-    right: 0;
-    top: 0;
+  }
 
-    &.visible {
-      animation: 0.5s #{$name}-gameover-bg linear forwards;
-      display: block;
+  .gameover.is-levelOnly .gameover-level {
+    display: block;
+  }
 
-      .dialog {
-        animation: 1.5s #{$name}-gameover-show ease-in-out forwards;
-      }
-    }
+  .gameover.is-levelOnly .gameover-score {
+    display: none;
+  }
 
-    &.close {
-      animation: 1s #{$name}-gameover-bg-out linear forwards;
-      .dialog {
-        animation: 1s #{$name}-gameover-hide ease-out forwards;
-      }
-    }
+  .gameover-label {
+    color: #FFFFFF;
+    font-family: Roboto, sans-serif;
+    font-size: 8px;
+    font-weight: 900;
+    margin: 0;
+    text-transform: uppercase;
 
-    .dialog {
-      height: 442px;
-      left: 50%;
-      margin-left: -195px;
-      margin-top: -221px;
-      position: absolute;
-      top: 50%;
-      width: 390px;
-    }
-
-    .shadow {
-      border-radius: 5px;
-      background-color: #8eafbc;
-      height: 442px;
-      left: 6px;
-      position: absolute;
-      top: 10px;
-      width: 390px;
-    }
-
-    .fg {
-      background-color: #ea4437;
-      border-radius: 5px 5px 0 0;
-      height: 350px;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 390px;
-
-      // Game over image
-      &:after {
-        background: url(img/gameover/winner.svg) 50% 0px no-repeat;
-        content: "";
-        height: 323px;
-        left: 80px;
-        position: absolute;
-        top: -40px;
-        width: 270px;
-      }
-    }
-
-    .score, .level {
-      color: #fff;
-      font-family: 'Roboto', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      height: 30px;
-      left: 115px;
-      position: absolute;
-      text-align: center;
-      top: 290px;
-      width: 70px;
-    }
-
-    .level {
-      left: 200px;
-    }
-
-    .label {
-      font-size: 10px;
-      line-height: 20px;
-      text-transform: uppercase;
-    }
-
-    .buttons {
-      background-color: #25b14b;
-      border-radius: 0 0 5px 5px;
-      bottom: 0;
-      height: 52px;
-      left: 0;
-      padding: 20px;
-      position: absolute;
-      width: 350px;
-
-      a {
-        background-color: #24a84a;
-        border: 1px solid #1c9948;
-        border-radius: 4px;
-        color: #fff;
-        display: block;
-        font-family: 'Roboto', sans-serif;
-        font-weight: 800;
-        height: 20px;
-        margin-bottom: 15px;
-        padding: 15px;
-        text-align: center;
-        text-decoration: none;
-        text-transform: uppercase;
-
-        &.small {
-          font-size: 12px;
-          height: 50px;
-        }
-      }
-
-      a:hover, a:active {
-        border-width: 3px;
-        padding: 13px 15px;
-      }
+    @media (min-width: $gameover-width-bp) {
+      font-size: 13px;
     }
   }
 
-  @media (max-width: 660px) {
-    .gameover .dialog {
-      transform: scale(0.6);
+  .gameover-number {
+    color: #FFFFFF;
+    font-family: Roboto, sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    letter-spacing: -1.76px;
+    margin: 0;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.13);
+
+    @media (min-width: $gameover-width-bp) {
+      font-size: 88px;
+      line-height: 96px;
+      text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.13);
     }
   }
-}
 
-@keyframes #{$name}-gameover-bg {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+  .gameover-buttons {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 5px 5px 10px 5px;
 
-@keyframes #{$name}-gameover-bg-out {
-  0% {
-    opacity: 1;
+    @media (min-width: $gameover-width-bp) {
+      padding: 10px 10px 20px 10px;
+    }
   }
-  66% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 
-@keyframes #{$name}-gameover-show {
-  0% {
-    top: -50%;
-  }
-  20% {
-    top: -50%;
-  }
-  100% {
-    top: 50%;
-  }
-}
+  .gameover-play {
+    background-image: url(../shared/img/gameover/play.svg);
+    background-position: 15px 50%;
+    background-repeat: no-repeat;
+    background-size: 20.5px 21px;
+    margin-bottom: 10px;
 
-@keyframes #{$name}-gameover-hide {
-  0% {
-    top: 50%;
-  }
-  80% {
-    top: 150%;
-  }
-  100% {
-    top: 150%;
+    @media (min-width: $gameover-width-bp) {
+      background-position: 40px 50%;
+      background-size: 41px 42px;
+      margin-bottom: 20px;
+    }
   }
 }
