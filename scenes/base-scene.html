@@ -229,11 +229,11 @@ Polymer({
       img.src = this.resolvePath(imageUrls[i++]);
 
       if (i < imageUrls.length) {
-        requestAnimationFrame(rafCallback);
+        this.async(rafCallback);
       }
-    }.bind(this);
+    };
 
-    requestAnimationFrame(rafCallback);
+    this.async(rafCallback);
   },
 
   /**
