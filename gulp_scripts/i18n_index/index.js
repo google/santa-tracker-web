@@ -11,17 +11,16 @@ module.exports = function replaceIndex(opts) {
 
     var src = file.contents.toString();
 
-    for (var i = 0; i < opts.locales.length; i++) {
-      var locale = opts.locales[i];
+    for (var i = 0; i < opts.langs.length; i++) {
+      var lang = opts.langs[i];
       // Replace imports.
       var replaced = src
-          .replace(/_en\.html/mg, '_' + locale + '.html')
-          .replace(/lang="en"/, 'lang="' + locale + '"');
-      // TODO(cbro): differentiate between lang and locale.
+          .replace(/_en\.html/mg, '_' + lang + '.html')
+          .replace(/lang="en"/, 'lang="' + lang + '"');
 
       var i18nfile = file.clone();
       // TODO: put in intl directory
-      i18nfile.path = file.path.replace(/\.html$/, '_' + locale + '.html');
+      i18nfile.path = file.path.replace(/\.html$/, '_' + lang + '.html');
       i18nfile.contents = new Buffer(replaced);
       stream.push(i18nfile);
     }
