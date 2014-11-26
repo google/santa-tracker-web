@@ -183,6 +183,7 @@ gulp.task('i18n_index', ['vulcanize'], function() {
         "zh-CN",
         "zh-TW",
       ],
+      strict: !!argv.strict,
     }))
     .pipe(gulp.dest(DIST_DIR));
 });
