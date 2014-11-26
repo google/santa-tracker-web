@@ -258,8 +258,8 @@ Polymer({
     this.cancelAsync(this.maxPreloadAsync_);
 
     if (this.active) {
+      this.hidden = false; // Scene needs to do layout before onShow().
       this.onShow && this.onShow();
-      this.hidden = false;
 
       // focus in case element needs keyboard events
       this.focus();
