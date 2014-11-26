@@ -20,7 +20,7 @@ These methods will be called at the appropriate times:
 Subclass scene elements can define the following properties:
 
 - `componentDir` - the relative path to the component's root folder from the main app folder (e.g 'scenes/village/').
-- `loadingColor` - an optional loading screen background color.
+- `loadingBgColor` - an optional loading screen background color.
 - `loadingSrc` - an optional loading screen background image. The path should be relative to the
   component's folder (e.g 'img/loading.gif').
 
@@ -35,9 +35,8 @@ Subclass scene elements can define the following properties:
   }
 </style>
 
-<polymer-element name="base-scene" attributes="active alwaysActive path route mode santaApp"
-                 on-scene-pause="{{handlePause}}"
-                 tabindex="0">
+<polymer-element name="base-scene" attributes="active alwaysActive path route mode santaApp loadingBgColor loadingSrc"
+                 on-scene-pause="{{handlePause}}" tabindex="0">
 <script>
 (function() {
 
@@ -103,6 +102,8 @@ Polymer({
     preloadProgress: 'loaded ? 100 : totalAssets ? (assetsLoaded / totalAssets * 100) : 0',
   },
 
+  preloadProgress: 0,
+
   /**
    * Total number of assets that will need to be preloaded. Must be set
    * in `onPreload` or will be ignored.
@@ -128,6 +129,24 @@ Polymer({
    * @default null
    */
   path: null,
+
+  /**
+   * An optional background loading color for the preloading overlay.
+   *
+   * @attribute loadingBgColor
+   * @type string
+   * @default null
+   */
+  loadingBgColor: null,
+
+   /**
+   * An optional background image for the preloading overlay.
+   *
+   * @attribute loadingSrc
+   * @type string
+   * @default null
+   */
+  loadingSrc: null,
 
   /**
    * The relative path of the scene folder from the main app root folder.
@@ -203,11 +222,18 @@ Polymer({
       this.assetsLoaded++;
     }.bind(this);
 
-    for (var i = 0; i < imageUrls.length; i++) {
+    var i = 0;
+    var rafCallback = function() {
       var img = new Image();
       img.onerror = img.onload = onload;
-      img.src = this.resolvePath(imageUrls[i]);
-    }
+      img.src = this.resolvePath(imageUrls[i++]);
+
+      if (i < imageUrls.length) {
+        this.async(rafCallback);
+      }
+    };
+
+    this.async(rafCallback);
   },
 
   /**

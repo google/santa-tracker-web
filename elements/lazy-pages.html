@@ -28,6 +28,15 @@ Lazy loads children "pages".
      */
     santaApp: null,
 
+    /**
+     * A `<preload-overlay>` element.
+     *
+     * @attribute preloader
+     * @type HTMLElement
+     * @default null
+     */
+    preloader: null,
+
     selectedItemChanged: function() {
 
       this.super();
@@ -42,17 +51,22 @@ Lazy loads children "pages".
         return;
       }
 
+      // This is here (instead of attached()) to prevent timing errors under
+      // the polyfill.
+      // TODO(ericbidelman): this reaches outside. The auto-binding template
+      // doesn't setup  automatic node finding until after
+      // selectedItemChanged() gets called.
+      if (!this.preloader) {
+        this.preloader = this.parentElement.querySelector('preload-overlay');
+      }
+
+      // (Re)set the preload bg color and loading image before scene is loaded.
+      this.preloader.color = scene.getAttribute('loadingBgColor');
+      this.preloader.src = scene.getAttribute('loadingSrc');
+
       Polymer.import([path], function(e) {
-        // TODO: shouldn't have to do this. I believe 2-way binding on the
-        // preload-overlay is causing the next scene to start at 100 instead
-        // of 0. Probably need to fire an event instead of binding to its
-        // .value directly.
-        scene.preloadProgress = 0;
-
         scene.santaApp = this.santaApp;
-
       }.bind(this));
-
     }
   });
 </script>
