@@ -147,7 +147,7 @@ gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 gulp.task('i18n_index', ['vulcanize'], function() {
   return gulp.src('index.html')
     .pipe(i18n_index({
-      locales: ['fr'],
+      langs: ['fr'],
     }))
     .pipe(gulp.dest(DIST_DIR));
 });
