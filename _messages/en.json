@@ -267,9 +267,25 @@
         "description": "15 char limit. Label for a numeric score.",
         "message": "Score"
     },
+    "time": {
+        "description": "15 char limit. Label for time remaining during gameplay.",
+        "message": "Time"
+    },
     "seconds": {
         "description": "Label for the seconds portion of a countdown clock. Keep short/one word.",
         "message": "Seconds"
+    },
+    "gameover": {
+        "description": "Appears when the player is game over. Very large font, keep as short as possible.",
+        "message": "Game Over!"
+    },
+    "gameover_score": {
+        "description": "Label during game over for how much score the player got.",
+        "message": "Your score:"
+    },
+    "gameover_level": {
+        "description": "Label during game over for which level was reached.",
+        "message": "You made it to level:"
     },
     "share-button": {
         "description": "",
