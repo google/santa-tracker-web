@@ -14,7 +14,10 @@ module.exports = function replaceIndex(opts) {
     for (var i = 0; i < opts.locales.length; i++) {
       var locale = opts.locales[i];
       // Replace imports.
-      var replaced = src.replace(/_en\.html/mg, '_' + locale + '.html');
+      var replaced = src
+          .replace(/_en\.html/mg, '_' + locale + '.html')
+          .replace(/lang="en"/, 'lang="' + locale + '"');
+      // TODO(cbro): differentiate between lang and locale.
 
       var i18nfile = file.clone();
       // TODO: put in intl directory
