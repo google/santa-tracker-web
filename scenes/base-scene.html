@@ -35,7 +35,8 @@ Subclass scene elements can define the following properties:
   }
 </style>
 
-<polymer-element name="base-scene" attributes="active alwaysActive path route mode santaApp loadingBgColor loadingSrc" tabindex="0">
+<polymer-element name="base-scene" attributes="active alwaysActive path route mode santaApp loadingBgColor loadingSrc"
+                 on-scene-pause="{{handlePause}}" tabindex="0">
 <script>
 (function() {
 
@@ -208,13 +209,6 @@ Polymer({
       this.santaApp.checkSchedule_(true);
       scheduleChecked_ = true;
     }
-
-    if (this.onPause) {
-      this.santaApp.visibilityService.addOnPauseListener(this.onPause.bind(this));
-    }
-    if (this.onResume) {
-      this.santaApp.visibilityService.addOnResumeListener(this.onResume.bind(this));
-    }
   },
 
   /**
@@ -295,8 +289,15 @@ Polymer({
     }
 
     this.showScene();
-  }
+  },
 
+  handlePause: function(e, paused) {
+    if (paused && this.onPause) {
+      this.onPause();
+    } else if (!paused && this.onResume) {
+      this.onResume();
+    }
+  }
 });
 
 })();

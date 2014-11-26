@@ -226,14 +226,20 @@ Polymer(Polymer.mixin({
     this.prevSelectedScene = oldVal;
   },
 
-  // TODO(bckenny): these should expand to handle all global pause state, not
-  // just sound state
+  // TODO(bckenny): can also add a paused attribute in case anything wants to
+  // bind to it
   onPause: function() {
     this.fire('sound-ambient', 'global_pause');
+    if (this.selectedScene) {
+      this.selectedScene.fire('scene-pause', true);
+    }
   },
 
   onResume: function() {
     this.fire('sound-ambient', 'global_unpause');
+    if (this.selectedScene) {
+      this.selectedScene.fire('scene-pause', false);
+    }
   },
 
   trackPageview: function(e, detail, sender) {

@@ -68,9 +68,8 @@ Village scene.
           <div id="houses">
 
             <template repeat="{{house, i in santaApp.houses}}">
-              <!-- TODO(ericbidelman_): Non-[[]] bindings are being evaluated on-scroll! -->
               <div id="house-[[house.module]]" class="house {{house.category}} {{house.iced ? 'iced' : 'melt'}} {{ {today: house.today, tomorrow: house.tomorrow} | tokenList }}">
-                <div class="building"></div>
+                <a class="building" on-click="{{onHouseClick}}" href="[[baseURI]]#{{house.module}}" tabindex="-1"></a>
 
                 <div class="house-snow"></div>
                 <div class="house-elves">
