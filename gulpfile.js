@@ -11,12 +11,25 @@ var i18n_replace = require('./gulp_scripts/i18n_replace');
 var closureCompiler = require('gulp-closure-compiler');
 var mergeStream = require('merge-stream');
 var argv = require('yargs').argv;
+var replace = require('gulp-replace');
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/*.js';
 
-var DIST_DIR = argv.pretty ? 'dist_pretty' : 'dist';
+// TODO(bckenny): figure out how we're going to populate this
+var PROD_BASE_URL = '***SOME_URL***';
+var STATIC_VERSION = 0;
+
+// path for files (mostly index_*.html) with short cache periods
+var DIST_DIR = 'dist';
+
+// TODO(bckenny): add a flag so these are the same and this can still be run out
+// of dist when working locally
+// path for static resources
+var DIST_STATIC_DIR = path.join(
+    (argv.pretty ? 'dist_pretty' : 'dist') + '_static',
+    STATIC_VERSION.toString());
 
 // scenes are whitelisted into compilation here
 var SCENE_CLOSURE_CONFIG = {
@@ -38,7 +51,7 @@ var SCENE_CLOSURE_CONFIG = {
 };
 
 gulp.task('clean', function(cleanCallback) {
-  del([DIST_DIR], cleanCallback);
+  del([DIST_DIR, DIST_STATIC_DIR], cleanCallback);
 });
 
 gulp.task('compass', function() {
@@ -139,7 +152,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
         strict: !!argv.strict,
         path: '_messages',
       }))
-      .pipe(gulp.dest(path.join(DIST_DIR, dest)));
+      .pipe(gulp.dest(path.join(DIST_STATIC_DIR, dest)));
     }));
 });
 
@@ -157,12 +170,19 @@ gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
       strict: !!argv.strict,
       path: '_messages',
     }))
-    .pipe(gulp.dest(DIST_DIR + '/elements/'));
+    .pipe(gulp.dest(DIST_STATIC_DIR + '/elements/'));
 });
 
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
-gulp.task('i18n_index', ['vulcanize'], function() {
+gulp.task('index-base-url', ['clean'], function() {
+  return gulp.src('index.html')
+    .pipe(replace('<base href="">',
+        '<base href="' + PROD_BASE_URL + STATIC_VERSION + '/">'))
+    .pipe(gulp.dest(DIST_DIR));
+});
+
+gulp.task('i18n_index', ['vulcanize', 'index-base-url'], function() {
   return gulp.src(['index.html', 'about.html'])
     .pipe(i18n_replace({
       strict: !!argv.strict,
@@ -174,6 +194,7 @@ gulp.task('i18n_index', ['vulcanize'], function() {
 // copy needed assets (images, sounds, polymer elements, etc) to dist directory
 gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
   return gulp.src([
+    // TODO(bckenny): schedule.html should probably not go to static
     'schedule.html',
     'manifest.json',
     'audio/*',
@@ -186,7 +207,7 @@ gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
     'components/polymer/*',
     'components/webcomponentsjs/webcomponents.min.js'
   ], {base: './'})
-  .pipe(gulp.dest(DIST_DIR));
+  .pipe(gulp.dest(DIST_STATIC_DIR));
 });
 
 gulp.task('watch', function() {

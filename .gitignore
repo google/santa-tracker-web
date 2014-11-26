@@ -5,6 +5,7 @@ components
 .sass-cache
 dist
 dist_pretty
+dist_static
 sass/*.css
 scenes/*/*.css
 scenes/*/*.min.js
