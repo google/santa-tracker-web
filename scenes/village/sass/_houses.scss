@@ -164,30 +164,30 @@
   $houses:
       "airport"       416   339   504   414   0   0   -42   -43   0     0   "marker1-lock"    "marker-airport",
       "racer"         189   158   365   251   0   -2  -80   -39   60    0   "marker1_2-lock"  "marker-racer",
-      "trailer"       233   238   406   312   0   2   -56   -45   0     0   "marker1_3-lock"  "marker-trailer",
-      "app"           152   363   322   405   0   2   -85   -30   50    0   "marker1_4-lock"  "marker-app",
-      "selfie"        217   287   355   341   0   0   -66   -31   25    0   "marker2-lock"    "marker-selfie",
-      "boatload"      208   172   314   244   0   0   -24   -44   -40   0   "marker3-lock"    "marker-boat",
-      "briefing"      219   297   405   373   0   2   -90   -38   65    0   "marker4-lock"     "marker-briefing",
-      "matching"      305   233   437   362   0   2   -35   -83   220   0   "marker5-lock"    "marker-matching",
+      "traditions"    397   285   527   349   0   -1  -40   -40   -90   0   "marker1_3-lock"  "marker-traditions",
+      "app"           152   363   322   405   0   2   -85   -32   80    0   "marker1_4-lock"  "marker-app",
+      "trailer"       233   238   406   312   0   2   -56   -45   0     0   "marker2-lock"    "marker-trailer",
+      "boatload"      208   172   314   244   0   0   -24   -44   -30  0   "marker3-lock"    "marker-boat",
+      "briefing"      219   297   405   373   0   2   -90   -38   5     0   "marker4-lock"    "marker-briefing",
+      "matching"      305   233   437   362   0   2   -35   -83   250   0   "marker5-lock"    "marker-matching",
       "presentdrop"   174   412   392   491   0   1   -85   -51   420   0   "marker6-lock"    "marker-presentdrop",
-      "streetview"    289   202   370   278   0   2   -42   -30   200   0   "marker7-lock"    "marker-streetview",
-      "jamband"       612   404   612   484   0   2   -15   -75   100   0   "marker8-lock"    "marker-jamband",
-      "codelab"       253   253   358   378   0   0   -50   -59   90    0   "marker9-lock"    "marker-codelab",
-      "translations"  437   242   487   329   0   -4  -17   -65   200   0   "marker10-lock"   "marker-translations",
-      "video"         306   351   415   450   0   1   -99   -50   85    0   "marker11-lock"   "marker-video",
-      "mercator"      290   321   445   405   0   1   -103  -70   50    0   "marker12-lock"   "marker-mercator",
-      "controlroom"   262   286   481   373   0   -1  -110  -41   100   0   "marker13-lock"   "marker-controlroom",
+      "gumball"       151   262   288   341   0   2   -45   -50   340   0   "marker7-lock"   "marker-gumball",
+      "jetpack"       204   243   367   342   0   2   -60   -47   0     0   "marker8-lock"   "marker-jetpack",
+      "codelab"       253   253   358   378   0   0   -50   -59   -20    0   "marker9-lock"    "marker-codelab",
+      "mercator"      290   321   445   405   0   1   -103  -70   50    0   "marker10-lock"   "marker-mercator",
+      "selfie"        217   287   355   341   0   0   -66   -31   25    0   "marker11-lock"    "marker-selfie",
+      "jamband"       612   404   612   484   0   2   -15   -75   -60   0   "marker12-lock"    "marker-jamband",
+      "controlroom"   262   286   481   373   0   -1  -110  -41   40   0   "marker13-lock"   "marker-controlroom",
       "play"          274   269   345   343   0   0   -26   -43   35    0   "marker14-lock"   "marker-play",
-      "charity"       203   260   405   308   0   -1  -93   -27   80    0   "marker15-lock"   "marker-charity",
-      "jetpack"       204   243   367   342   0   2   -60   -47   0     0   "marker16-lock"   "marker-jetpack",
-      "candy"         322   256   393   313   0   -3  -35   -50   -20   0   "marker17-lock"   "marker-candy",
+      "charity"       203   260   405   308   0   -1  -93   -27   30    0   "marker15-lock"   "marker-charity",
+      "video"         306   351   415   450   0   1   -99   -50   -45    0   "marker16-lock"   "marker-video",
+      "candy"         322   256   393   313   0   -3  -35   -50   -50   0   "marker17-lock"   "marker-candy",
       "postcard"      231   220   473   311   0   2   -120  -58   85    0   "marker18-lock"   "marker-postcard",
-      "traditions"    397   285   527   349   0   -1  -40   -40   -90   0   "marker19-lock"   "marker-traditions",
-      "windtunnel"    502   290   575   374   0   -2  -30   -70   0     0   "marker20-lock"   "marker-windtunnel",
-      "gumball"       151   262   288   341   0   2   -45   -50   40    0   "marker21-lock"   "marker-gumball",
+      "streetview"    289   202   370   278   0   2   -42   -30   -120   0   "marker19-lock"    "marker-streetview",
+      "translations"  437   242   487   329   0   -4  -17   -65   0   0   "marker20-lock"   "marker-translations",
+      "windtunnel"    502   290   575   374   0   -2  -30   -70   20     0   "marker21-lock"   "marker-windtunnel",
       "citylights"    216   335   327   405   0   2   -70   -50   20    0   "marker22-lock"   "marker-citylights",
-      "santa"         203   274   342   342   0   2   -80   -50   50    0   "marker23-lock"   "marker-santa";
+      "santa"         203   274   342   342   0   1   -80   -50   50    0   "marker23-lock"   "marker-santa";
   $houseId: 1;
   $houseWidth: 2;
   $houseHeight: 3;
@@ -294,7 +294,7 @@
     height: 142px;
     background-position: 50% 100%;
     background-repeat: no-repeat;
-    left: 2117px;
+    left: 2187px;
     bottom: 0;
     position: absolute;
     z-index: 10;
@@ -352,7 +352,7 @@
     position: absolute;
     background: url(img/xmastree.svg) no-repeat;
     bottom: 2px;
-    left: 5165px;
+    left: 5245px;
     width: 213px;
     height: 370px;
 

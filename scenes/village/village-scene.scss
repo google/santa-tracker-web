@@ -210,7 +210,7 @@ $name: 'module-village';
 
     #trees-back {
       z-index: 0;
-      bottom: 34px;
+      bottom: 35px;
       left: 0;
       right: 0;
       position: absolute;
@@ -223,39 +223,39 @@ $name: 'module-village';
 
       $trees:
         "tree1"  "trees1"   246   197   697,
-        "tree2"  "trees2"   197   215   1357,
-        "tree3"  "trees3"   166   202   1707,
-        "tree4"  "trees4"   181   201   2122,
-        "tree5"  "trees5"   126   127   2872,
-        "tree6"  "trees6"   180   201   3187,
-        "tree7"  "trees7"   177   231   3557,
-        "tree8"  "trees8"   211   224   4277,
-        "tree9"  "trees9"   226   182   4647,
-        "tree10"  "trees1"   246   197   5746,
-        "tree11"  "trees2"   197   215   6411,
-        "tree12"  "trees3"   166   202   6860,
-        "tree13"  "trees4"   181   201   7577,
-        "tree14"  "trees5"   126   127   7945,
-        "tree15"  "trees6"   180   201   8435,
-        "tree16"  "trees7"   177   231   8995,
-        "tree17"  "trees8"   211   224   9515,
-        "tree18"  "trees9"   226   182   9900,
-        "tree19"  "trees1"   246   197   10290,
-        "tree20"  "trees2"   197   215   10760,
-        "tree21"  "trees3"   166   202   11150,
-        "tree22"  "trees4"   181   201   11680,
-        "tree23"  "trees5"   126   127   12320,
-        "tree24"  "trees6"   180   201   12590,
-        "tree25"  "trees7"   180   201   12980,
-        "tree26"  "trees8"   211   224   2470,
-        "tree27"  "trees9"   226   182   4967,
-        "tree28"  "trees1"   246   197   3827,
-        "tree29"  "trees2"   197   215   13340,
-        "tree30"  "trees3"   166   202   5349,
-        "tree31"  "trees4"   181   201   7040,
+        "tree2"  "trees2"   197   215   1327,
+        "tree3"  "trees3"   166   202   1617,
+        "tree4"  "trees4"   181   201   2192,
+        "tree5"  "trees5"   126   127   2942,
+        "tree6"  "trees6"   180   201   3247,
+        "tree7"  "trees7"   177   231   3627,
+        "tree8"  "trees8"   211   224   4307,
+        "tree9"  "trees9"   226   182   4667,
+        "tree10"  "trees1"   246   197   5726,
+        "tree11"  "trees2"   197   215   6091,
+        "tree12"  "trees3"   166   202   6520,
+        "tree13"  "trees4"   181   201   7377,
+        "tree14"  "trees5"   126   127   7960,
+        "tree15"  "trees6"   180   201   8515,
+        "tree16"  "trees7"   177   231   8855,
+        "tree17"  "trees8"   211   224   9545,
+        "tree18"  "trees9"   226   182   9990,
+        "tree19"  "trees1"   246   197   10360,
+        "tree20"  "trees2"   197   215   10790,
+        "tree21"  "trees3"   166   202   11360,
+        "tree22"  "trees4"   181   201   11885,
+        "tree23"  "trees5"   126   127   12090,
+        "tree24"  "trees6"   180   201   12220,
+        "tree25"  "trees7"   180   201   12230,
+        "tree26"  "trees8"   211   224   2520,
+        "tree27"  "trees9"   226   182   5077,
+        "tree28"  "trees1"   246   197   3877,
+        "tree29"  "trees2"   197   215   12580,
+        "tree30"  "trees3"   166   202   5469,
+        "tree31"  "trees4"   181   201   6940,
         "tree32"  "trees5"   126   127   8095,
-        "tree33"  "trees6"   180   201   8625,
-        "tree34"  "trees7"   177   231   9140;
+        "tree33"  "trees6"   180   201   8335,
+        "tree34"  "trees7"   177   231   9200;
 
       $treeId: 1;
       $treeFile: 2;
@@ -354,7 +354,7 @@ $name: 'module-village';
     }
 
     #snowman {
-      left: 5780px;
+      left: 5480px;
       bottom: -8px;
       @include transform(translateZ(0));
 
@@ -452,7 +452,7 @@ $name: 'module-village';
       width: 219px;
       height: 146px;
       background: url(img/garage.svg) no-repeat;
-      left: 3654px;
+      left: 3734px;
       bottom: 0;
 
       :nth-child(1) {
@@ -468,9 +468,9 @@ $name: 'module-village';
       }
     }
 
-    $busstop1: 2487px;
-    $busstop2: 6945px;
-    $busstop3: 8542px;
+    $busstop1: 2577px;
+    $busstop2: 6965px;
+    $busstop3: 8412px;
 
     #busstop1 {
       position: absolute;
@@ -533,7 +533,7 @@ $name: 'module-village';
     }
 
     #snowmobile1 {
-      left: 1740px;
+      left: 1380px;
       background: url(img/snowmobile1.svg) no-repeat;
 
       &.gogo-snowmobile {
@@ -544,7 +544,7 @@ $name: 'module-village';
     }
 
     #snowmobile2 {
-      left: 8075px;
+      left: 7875px;
       background: url(img/snowmobile2.svg) no-repeat;
 
       &.gogo-snowmobile {
@@ -554,7 +554,7 @@ $name: 'module-village';
     }
 
     #snowmobile3 {
-      left: 9130px;
+      left: 9600px;
       background: url(img/snowmobile3.svg) no-repeat;
 
       &.gogo-snowmobile {
@@ -798,7 +798,7 @@ $name: 'module-village';
   #pegman-spaceship {
     z-index: 11;
     bottom: 0;
-    left: 2067px;
+    left: 2137px;
     @include transition(transform 15s ease-out);
     @include transform(rotateZ(0) translateY(-5000px));
 
