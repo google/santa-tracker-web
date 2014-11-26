@@ -28,12 +28,12 @@ Village calendar navigation.
 
     <div id="module-nav">
       <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
-        <a id="global-nav-btn" href="#{{active ? santaApp.prevSelectedScene.route : 'calendar'}}" on-click="{{fabClick}}">
+        <a id="global-nav-btn" href="{{pageUrl}}#{{active ? santaApp.prevSelectedScene.route : 'calendar'}}" on-click="{{fabClick}}">
           <paper-fab icon="today" on-core-transitionend="{{rippleDone}}"></paper-fab>
         </a>
         <div id="global-nav-body">
           <div id="global-nav-header" layout horizontal center-center>
-            <a id="global-back-to-village" href="{{baseURI}}#village" title="Go to the Village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+            <a id="global-back-to-village" href="{{pageUrl}}#village" title="Go to the Village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
             <paper-tabs id="tabs" valueattr="filterOn" selected="{{filterOn}}"
                         on-core-activate="{{onNavSelect}}">
               <paper-tab filterOn="calendar"><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></paper-tab>
@@ -55,7 +55,7 @@ Village calendar navigation.
                     <div layout vertical center-center data-index="1"
                          class="card calendar scene video play learn">
                       <template repeat="{{house, i in firstFour}}">
-                        <a href="{{baseURI}}#[[house.module]]" on-click="{{onCalendarClick}}">
+                        <a href="{{pageUrl}}#[[house.module]]" on-click="{{onCalendarClick}}">
                           <div class="menu-marker marker1 calendar [[house.category]]" style="background-image:url({{componentBaseDir}}img/menu-[[house.module]].svg);"></div>
                         </a>
                       </template>
@@ -63,7 +63,7 @@ Village calendar navigation.
 
                     <template repeat="{{house, i in regularSchedule}}">
                       <div layout vertical center-center data-index="{{i + 2}}" data-category="[[house.category]]" class="card calendar [[house.category]] {{house.iced ? 'iced' : 'melt'}}">
-                        <a href="{{baseURI}}#[[house.module]]" on-click="{{onCalendarClick}}">
+                        <a href="{{pageUrl}}#[[house.module]]" on-click="{{onCalendarClick}}">
                           <div class="menu-marker marker{{i + 2}} calendar [[house.category]]" style="background-image:url({{componentBaseDir}}img/menu-[[house.module]].svg);"></div>
                         </a>
                       </div>
