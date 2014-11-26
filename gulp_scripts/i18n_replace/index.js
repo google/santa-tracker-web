@@ -3,11 +3,13 @@
 var dir = require('node-dir');
 var through = require('through2');
 var path = require('path');
+var gutil = require('gulp-util');
 
 var REGEX = /<i18n-msg msgid="([^"]*)">([^<]*)<\/i18n-msg>/gm;
 var FILENAME_REGEX = /_en\.html$/
 
 module.exports = function replaceMessages(opts) {
+  var warn = warnFunc(opts.strict);
   var msgPromise = getMsgs(opts.path);
 
   var stream = through.obj(function(file, enc, cb) {
@@ -27,7 +29,8 @@ module.exports = function replaceMessages(opts) {
         var replaced = src.replace(REGEX, function replacer(match, msgid, tagBody) {
           var msg = msgs[msgid];
           if (!msg) {
-            throw new Error('Could not find message ' + msgid + ' for ' + lang);
+            warn('Could not find message ' + msgid + ' for ' + lang);
+            return 'MESSAGE_NOT_FOUND';
           }
           if (lang == 'en' && 'PLACEHOLDER_i18n' != tagBody) {
             throw new Error('i18n-msg body must be "PLACEHOLDER_i18n" for ' + msgid +
@@ -92,4 +95,14 @@ function getMsgs(msgDir) {
       }
     }
   };
+}
+
+function warnFunc(strict) {
+  return function(message) {
+    if (strict) {
+      throw new Error(message);
+    } else {
+      gutil.log('WARNING[i18n_replace]:', message);
+    }
+  }
 }
