@@ -283,7 +283,7 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "controlroom",
+  module: "commandcentre",
   iced: true,
   launchDate: new Date('Dec 13, 2014'),
   category: "play",
@@ -302,7 +302,7 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "play",
+  module: "playground",
   iced: true,
   launchDate: new Date('Dec 14, 2014'),
   category: "play",
@@ -321,7 +321,7 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "charity",
+  module: "seasonofgiving",
   iced: true,
   launchDate: new Date('Dec 15, 2014'),
   category: "draw",
@@ -340,7 +340,7 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "video",
+  module: "carpool",
   iced: true,
   launchDate: new Date('Dec 16, 2014'),
   category: "play",
@@ -359,7 +359,7 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "candy",
+  module: "factory",
   iced: true,
   launchDate: new Date('Dec 17, 2014'),
   category: "watch",
@@ -475,7 +475,7 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "santa",
+  module: "liftoff",
   iced: true,
   launchDate: new Date('Dec 23, 2014'),
   category: "watch",
