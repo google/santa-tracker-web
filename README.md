@@ -3,7 +3,7 @@ Google Santa Tracker
 
 # Setup
 
-You'll need node installed, then bower (`npm install -g bower`).
+You'll need node installed, then bower (`npm install -g bower`). You'll also need `Compass` 1.0.1 available on your path, which is kind of a pain to install if you have 0.12ish, sorry.
 
 Clone project, then
 
