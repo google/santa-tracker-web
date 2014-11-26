@@ -1,3 +1,9 @@
+
+goog.provide('app.shared.LevelUp');
+
+// We are *leaking* the LevelUp global for backwards compatibility.
+app.shared.LevelUp = LevelUp;
+
 /**
  * Animation for level up.
  * @constructor

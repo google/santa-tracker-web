@@ -15,6 +15,7 @@ var argv = require('yargs').argv;
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
+var CLOSURE_FILES = 'scenes/*/js/*.js';
 
 var DIST_DIR = argv.pretty ? 'dist_pretty' : 'dist';
 
@@ -22,6 +23,12 @@ var DIST_DIR = argv.pretty ? 'dist_pretty' : 'dist';
 var SCENE_CLOSURE_CONFIG = {
   airport: {
     entryPoint: 'app.Belt'
+  },
+  boatload: {
+    entryPoint: 'app.Game'
+  },
+  racer: {
+    entryPoint: 'app.Game'
   }
 };
 
@@ -53,6 +60,9 @@ gulp.task('compile-scenes', function() {
     return stream.add(gulp.src([
       'scenes/' + sceneName + '/js/*.js',
 
+      // add shared scene code
+      'scenes/shared/js/*.js',
+
       // add closure's base.js to get @export support in scene code
       'third_party/lib/base.js',
 
@@ -64,8 +74,8 @@ gulp.task('compile-scenes', function() {
     .pipe(closureCompiler({
       compilerPath: COMPILER_PATH,
       fileName: sceneName + '-scene.min.js',
-      closure_entry_point: config.entryPoint,
       compilerFlags: addCompilerFlagOptions({
+        closure_entry_point: config.entryPoint,
         compilation_level: 'SIMPLE_OPTIMIZATIONS',
         // warning_level: 'VERBOSE',
         language_in: 'ECMASCRIPT5_STRICT',
@@ -77,6 +87,7 @@ gulp.task('compile-scenes', function() {
           'const',
           'visibility'
         ],
+        only_closure_dependencies: null,
         // scenes namespace themselves to `app.*`. Move this namespace into
         // the global `scenes.sceneName`
         output_wrapper:
@@ -173,6 +184,7 @@ gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
 
 gulp.task('watch', function() {
   gulp.watch(COMPASS_FILES, ['compass']);
+  gulp.watch(CLOSURE_FILES, ['compile-scenes']);
 });
 
 gulp.task('default', ['copy-assets']);

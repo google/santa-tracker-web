@@ -1,6 +1,6 @@
 $name: 'module-airport';
 
-@import "../shared/sass/sceneboard";
+@import "../shared/sass/board";
 @import "sass/penner-easing";
 @import "sass/clouds";
 
@@ -287,6 +287,11 @@ $cycleDuration: 20; // 20s
     z-index: 1;
     animation-timing-function: $easeInOutQuint;
     animation-iteration-count: infinite;
+
+    background: url('img/lever.min.svg') center bottom no-repeat;
+    height: 71px;
+    width: 18px;
+
     &.closet-lever--one {
       margin-left: -55px;
     }
@@ -507,11 +512,16 @@ $cycleDuration: 20; // 20s
     width: 1904px;
     background: #657680;
     padding: 6px 8px;
+
     .conveyor-bolt {
       animation-timing-function: linear;
       animation-duration: 3.7s;
       animation-iteration-count: infinite;
       animation-name: #{$name}-conveyor-bolt;
+
+      background: url('img/cog-floor.min.svg') center center no-repeat;
+      width: 30px;
+      height: 30px;
     }
   }
 
@@ -530,9 +540,9 @@ $cycleDuration: 20; // 20s
       animation-iteration-count: infinite;
       animation-name: #{$name}-conveyor-bolt;
 
-      svg * {
-        fill: #58595B;
-      }
+      background: url('img/cog-main.min.svg') center center no-repeat;
+      width: 30px;
+      height: 30px;
     }
   }
 
@@ -948,5 +958,7 @@ $cycleDuration: 20; // 20s
   66%  { opacity:0; transform: translate3d(-200%,-200%, 0) scaleX(2.4) scaleY(2); }
   100% { opacity:0; transform: translate3d(0,0,0) scaleX(1.4) scaleY(1);}
 }
+
+
 
 @import "../shared/sass/responsive";

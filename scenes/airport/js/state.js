@@ -65,6 +65,16 @@ app.State.prototype = {
     return app.Constants.CLASS_SPEED_NORMAL;
   },
 
+  soundEventName: function() {
+    if (this.isMediumState()) {
+      return 'airport_conveyor_speed_2';
+    }
+    else if (this.isFastState()) {
+     return 'airport_conveyor_speed_3';
+    }
+    return 'airport_conveyor_speed_1';
+  },
+
   /**
    * @public
    * @return {Boolean}

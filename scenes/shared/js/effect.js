@@ -1,3 +1,9 @@
+
+goog.provide('app.shared.Effect');
+
+// We are *leaking* the Effect global for backwards compatibility.
+app.shared.Effect = Effect;
+
 /**
  * Creates some effect using css animations.
  * Adds animate class to element to activate animation.

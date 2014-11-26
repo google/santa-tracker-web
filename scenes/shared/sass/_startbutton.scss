@@ -1,6 +1,7 @@
 ##{$name} {
   .start {
     bottom: 0;
+    cursor: pointer;
     left: 0;
     position: absolute;
     right: 0;
@@ -8,7 +9,7 @@
   }
 
   .start-button {
-    background: url(img/startbutton/button.svg);
+    background: url(../shared/img/startbutton/button.svg);
     content: '';
     cursor: pointer;
     height: 210px;

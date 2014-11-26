@@ -147,7 +147,7 @@ app.Belt.prototype = {
   },
 
   addItem: function(startTime) {
-    startTime = startTime || this.timeline.time();
+    var startTime = startTime || this.timeline.time();
 
     var item = this.getNextItem();
     if (item) {
@@ -174,6 +174,8 @@ app.Belt.prototype = {
   onStateChange_: function() {
     this.setSpeedClass_(this.state.className());
     this.timeline.timeScale(this.state.timeScale());
+
+    window.santaApp.fire('sound-trigger', this.state.soundEventName());
   },
 
   init_: function() {
@@ -199,18 +201,15 @@ app.Belt.prototype = {
     this.setup = false;
     this.timeline.play();
   },
-};
 
-/**
- * Destroy the belt and all controlling infrastructure.
- * @export
- */
-app.Belt.prototype.destroy = function() {
-  this.timeline.kill();
-  this.timeline.remove();
-  this.$state.unbind();
+  destroy: function() {
+    this.timeline.kill();
+    this.timeline.remove();
+    this.$state.unbind();
 
-  this.controls.destroy();
-  this.elfPool = null;
-  this.reindeerPool = null;
+    this.controls.destroy();
+    this.elfPool = null;
+    this.reindeerPool = null;
+  }
+
 };

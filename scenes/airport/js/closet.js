@@ -68,6 +68,7 @@ app.Closet.prototype = {
       item.$el.find('.dressed').css('display', 'block');
     }
 
+    window.santaApp.fire('sound-trigger', 'airport_machine');
   },
 
   undress: function(item) {
