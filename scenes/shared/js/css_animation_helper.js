@@ -12,14 +12,21 @@
  * @param {HTMLElement} context The current scene wrapper.
  */
 
-var CSSAnimationHelper = function (context) {
+var CSSAnimationHelper = function(context) {
   this.context = context;
   this._attachToWindowResize();
   // trigger a reflow straight away
   this.restartAnimations();
 };
 
+/**
+ * @type {number}
+ */
 CSSAnimationHelper.RESIZE_DEBOUNCE_THRESHOLD_MS = 500;
+
+/**
+ * @type {string}
+ */
 CSSAnimationHelper.CLASS_NAME = '.js-resize-animation';
 
 CSSAnimationHelper.prototype = {
@@ -28,21 +35,21 @@ CSSAnimationHelper.prototype = {
    * Registers a listener for the window resize events using a debounce.
    * Listener initiates a restart of animations after debounce event fires.
    */
-  _attachToWindowResize: function () {
+  _attachToWindowResize: function() {
     this.onWindowResize = this._debounce(
       this.restartAnimations.bind(this),
       CSSAnimationHelper.RESIZE_DEBOUNCE_THRESHOLD_MS
     );
-    window.addEventListener('resize', this.onWindowResize);
+    $(window).on('resize', this.onWindowResize);
   },
 
   // debouncing function from John Hann
   // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
-  _debounce: function (func, threshold, execAsap) {
+  _debounce: function(func, threshold, execAsap) {
     var timeout;
-    return function () {
+    return function() {
       var obj = this, args = arguments;
-      function delayed () {
+      function delayed() {
         if (!execAsap) {
           func.apply(obj, args);
         }
@@ -63,23 +70,22 @@ CSSAnimationHelper.prototype = {
    * Called internally by the window resize handler.
    * Can be called explicitly from the outside if needed in other situations.
    */
-  restartAnimations: function () {
-    var elments = this.context.querySelectorAll(CSSAnimationHelper.CLASS_NAME);
-    Array.prototype.forEach.call(elments, function(elm, i) {
+  restartAnimations: function() {
+    var $elments = $(CSSAnimationHelper.CLASS_NAME, this.context);
+    $elments.each(function(i, elm) {
       // restart animation by forcing it to be removed temporarily
-      elm.style.animation = 'none';
+      $(elm).css('animation', 'none');
       // we need to trigger a reflow here otherwise the browser will batch the style updates
-      elm.offsetWidth;
-      elm.style.animation = '';
+      var offset = elm.offsetWidth;
+      $(elm).css('animation', '');
     });
   },
 
   /**
    * Release all resources and unbind event handlers
    */
-  destroy: function () {
-    window.removeEventListener('resize', this.onWindowResize);
-
+  destroy: function() {
+    $(window).off('resize', this.onWindowResize);
     this.onWindowResize = null;
     this.context = null;
   }

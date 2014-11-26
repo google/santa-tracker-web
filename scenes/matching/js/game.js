@@ -1,12 +1,23 @@
+goog.provide('app.Game');
+
+goog.require('Constants');
+goog.require('app.shared.utils');
+goog.require('app.shared.LevelUp');
+goog.require('app.shared.Gameover');
+goog.require('app.shared.Scoreboard');
+goog.require('app.shared.Tutorial');
+goog.require('app.utils');
+goog.require('Door');
+goog.require('Cards');
+goog.require('LevelModel');
+
 /**
  * Main game class.
- * @param {Element} el DOM element containing the game.
+ * @param {Element} elem DOM element containing the game.
  * @constructor
  */
-var Game = function (elem, sceneElement) {
+var Game = function(elem) {
   this.elem = $(elem);
-  this.sceneElement = sceneElement;
-
   this.isPlaying = false;
 
   this.doors = [];
@@ -20,12 +31,12 @@ var Game = function (elem, sceneElement) {
 
   this.cards = new Cards();
   this.gameoverDialog = new Gameover(this, this.elem.find('.gameover'));
-  this.scoreboard = new Scoreboard(this, this.elem.find('.scoreboard'));
+  this.scoreboard = new Scoreboard(this, this.elem.find('.board'), 10);
   this.tutorial = new Tutorial(this.elem, 'touch-matching', 'mouse-matching');
+
 
   this.$doors = this.elem.find(Constants.SELECTOR_DOOR);
   this.$targets = this.elem.find(Constants.SELECTOR_DOOR_TARGET);
-
   this.mismatchTimeout = null;
 
   this.levelModel = new LevelModel(this.elem);
@@ -38,6 +49,7 @@ var Game = function (elem, sceneElement) {
 /**
  * Bootstrap for the game.
  * Called when the module is ready.
+ * @export
  */
 Game.prototype.start = function() {
   this.$targets.on('click', this.onTargetClick.bind(this));
@@ -68,19 +80,19 @@ Game.prototype.start = function() {
 
 /**
  * Destroys the game when leaving the module.
+ * @export
  */
 Game.prototype.destroy = function() {
   if (this.isPlaying) {
-    this.sceneElement.fire('analytics-track-game-quit',
-        {gameid: 'matching', timePlayed: new Date - this.gameStartTime});
+    window.santaApp.fire('analytics-track-game-start', {gameid: 'matching', timePlayed: new Date - this.gameStartTime});
   }
   if (this.mismatchTimeout != null) {
-    window.clearTimeout( this.mismatchTimeout );
+    window.clearTimeout(this.mismatchTimeout);
   }
 
   for (var i = 0; i < this.doors.length; i++) {
     this.doors[i].destroy();
-  };
+  }
 
   utils.cancelAnimFrame(this.requestId);
 };
@@ -94,32 +106,38 @@ Game.prototype.createDoors = function() {
   this.numberOfDoors = this.levelModel.getNumberOfDoors();
   this.doors = [];
 
-  var levelCards = this.cards.getLevelCards( this.numberOfDoors );
+  var levelCards = this.cards.getLevelCards(this.numberOfDoors);
+  levelCards = this.levelModel.shuffleCards(levelCards);
+
   var $door = null;
   var cardClass = null;
 
   for (var i = 0; i < this.numberOfDoors; i++) {
 
-    $door = this.$doors.eq( this.levelModel.getDoorIndex(i) );
+    $door = this.$doors.eq(this.levelModel.getDoorIndex(i));
     cardClass = levelCards.pop();
 
-    this.doors.push( this.createDoor($door, cardClass) );
+    this.doors.push(this.createDoor($door, cardClass));
   }
 };
 
 /**
  * Creates a single door with a card class.
+ * @param {jQuery} $door
+ * @param {string} cardClass
+ * @return {Door}
  */
 Game.prototype.createDoor = function($door, cardClass) {
   // the id is going to be the number of the card class
   var id = cardClass.match(/\d+$/)[0];
-  return new Door(id, $door, this.onDoorClick.bind(this), cardClass )
+  return new Door(id, $door, this.onDoorClick.bind(this), cardClass);
 };
 
 /**
  * Event to let the click go "through" the house.
  * Since our doors are located behind it, for design purposes (animation),
  * we need to add dummy elements to act as targets in front of the house.
+ * @param {Event} event
  */
 Game.prototype.onTargetClick = function(event) {
   var target = $(event.target).data('target');
@@ -133,6 +151,7 @@ Game.prototype.onTargetClick = function(event) {
 /**
  * Event to let the touch go "through" and thus
  * prevent any delay if we are in a touch device.
+ * @param {Event} event
  */
 Game.prototype.onTargetTouch = function(event) {
   event.preventDefault();
@@ -141,6 +160,7 @@ Game.prototype.onTargetTouch = function(event) {
 
 /**
  * Handles the door click event.
+ * @param {Door} door
  */
 Game.prototype.onDoorClick = function(door) {
   if (door.isCompleted || this.paused) {
@@ -159,7 +179,7 @@ Game.prototype.onDoorClick = function(door) {
 
     // Don't count those previously set to close
     // enough to do a match check
-    if ( Math.max(this.numberOfOpenedDoors - this.numberOfMismatchedDoors, 0) > 1) {
+    if (Math.max(this.numberOfOpenedDoors - this.numberOfMismatchedDoors, 0) > 1) {
       this.checkDoorMatch(door);
     }
   }
@@ -167,15 +187,14 @@ Game.prototype.onDoorClick = function(door) {
 
 /**
  * Checks if the opened doors match (same number).
- * @param {Object} door door instance.
+ * @param {Door} door instance.
  */
 Game.prototype.checkDoorMatch = function(door) {
   var _this = this;
-  var timeout = null;
 
   if (this.isDoorMatched(door.id)) {
-    this.completeDoors( door.id );
-    this.scoreboard.addScore( this.getMatchScore() );
+    this.scoreboard.addScore(this.getMatchScore());
+    this.completeDoors(door.id);
 
     window.santaApp.fire('sound-trigger', 'm_match');
   } else {
@@ -185,7 +204,7 @@ Game.prototype.checkDoorMatch = function(door) {
     for (var i in this.doorsOpen) {
         this.doorsOpen[i].isMismatched = true;
         this.numberOfMismatchedDoors++;
-    };
+    }
 
     // Set a timeout to close this mismatch
     // for when the doors is done opening (transition duration)
@@ -199,13 +218,14 @@ Game.prototype.checkDoorMatch = function(door) {
 
 /**
  * Do we have two doors with the same id (same number)?
- * @param {Number} doorid doorid number.
+ * @param {Number} doorId number.
+ * @return {boolean}
  */
 Game.prototype.isDoorMatched = function(doorId) {
   var cardCount = 0;
   for (var i in this.doorsOpen) {
     if (!this.doorsOpen[i].isMismatched &&
-      this.doorsOpen[i].id === doorId) {
+        this.doorsOpen[i].id === doorId) {
       cardCount++;
     }
   }
@@ -219,8 +239,7 @@ Game.prototype.isDoorMatched = function(doorId) {
  */
 Game.prototype.openDoor = function(door) {
   if (door === undefined) {
-    throw new Error("Door is undefined.")
-    return;
+    throw new Error('Door is undefined.');
   }
   door.open();
   this.doorsOpen[door.uniqueId] = door;
@@ -231,12 +250,12 @@ Game.prototype.openDoor = function(door) {
 /**
  * Removes a door from the doorsOpen model and
  * calls the door to be closed.
- @param {Object} door door instance.
+ * @param {Door} door instance.
+ * @param {boolean} mute
  */
 Game.prototype.closeDoor = function(door, mute) {
   if (door === undefined) {
-    throw new Error("Door is undefined.")
-    return;
+    throw new Error('Door is undefined.');
   }
 
   door.close();
@@ -261,7 +280,7 @@ Game.prototype.closeDoor = function(door, mute) {
 Game.prototype.closeLastOpenedDoors = function() {
   for (var i in this.doorsOpen) {
     if (!this.doorsOpen[i].isCompleted) {
-      this.closeDoor( this.doorsOpen[i] );
+      this.closeDoor(this.doorsOpen[i]);
     }
   }
 };
@@ -272,10 +291,8 @@ Game.prototype.closeLastOpenedDoors = function() {
 Game.prototype.closeMismatchedDoors = function() {
   for (var i in this.doorsOpen) {
     if (!this.doorsOpen[i].isCompleted &&
-      this.doorsOpen[i].isMismatched) {
-
-      this.closeDoor( this.doorsOpen[i] );
-
+        this.doorsOpen[i].isMismatched) {
+      this.closeDoor(this.doorsOpen[i]);
     }
   }
 };
@@ -287,7 +304,7 @@ Game.prototype.closeMismatchedDoors = function() {
  */
 Game.prototype.closeAllDoors = function() {
   for (var i in this.doors) {
-    this.closeDoor( this.doors[i], true );
+    this.closeDoor(this.doors[i], true);
   }
 };
 
@@ -295,11 +312,12 @@ Game.prototype.closeAllDoors = function() {
  * Complete the doors that are matched in the doorsOpen model.
  * Also resets the model so we can compare again next time,
  * since these doors are already 'done' (completed).
+ * @param {string} id
  */
 Game.prototype.completeDoors = function(id) {
 
   for (var i in this.doorsOpen) {
-    if(this.doorsOpen[i].id === id) {
+    if (this.doorsOpen[i].id === id) {
       this.doorsOpen[i].complete();
       this.numberOfCompletedDoors++;
       this.numberOfMismatchedDoors--;
@@ -320,17 +338,15 @@ Game.prototype.completeDoors = function(id) {
  * just playing indefinitely because the player completed all.
  */
 Game.prototype.checkCompletion = function() {
-  var _this = this;
-
   // Are we finishing the level and have more to go?
   if (this.numberOfCompletedDoors === this.numberOfDoors) {
     this.finishLevel();
   }
-
 };
 
 /**
  * Resets all the doors to it's initial state.
+ * @private
  */
 Game.prototype.resetDoors_ = function() {
   for (var i = 0; i < this.doors.length; i++) {
@@ -352,7 +368,7 @@ Game.prototype.restart = function() {
 
   // Reset the scoreboard
   this.scoreboard.reset();
-  this.sceneElement.fire('analytics-track-game-start', {gameid: 'matching'});
+  window.santaApp.fire('analytics-track-game-start', {gameid: 'matching'});
 };
 
 /**
@@ -368,11 +384,11 @@ Game.prototype.startLevel = function() {
   }
 
   this.unfreezeGame();
-  window.santaApp.fire('sound-ambient', 'm_game_start');
+  window.santaApp.fire('sound-trigger', 'm_game_start');
 };
 
 /**
- * Restars the doors by creating them again.
+ * Restart the doors by creating them again.
  * This is abstracted so you can restart the doors without restarting
  * the whole level.
  */
@@ -412,8 +428,8 @@ Game.prototype.onFrame = function() {
     return;
   }
 
-  var now = +new Date() / 1000,
-      delta = now - this.lastFrame;
+  var now = +new Date() / 1000;
+  var delta = now - this.lastFrame;
   this.lastFrame = now;
 
   this.scoreboard.onFrame(delta);
@@ -428,15 +444,31 @@ Game.prototype.onFrame = function() {
 Game.prototype.finishLevel = function() {
   var _this = this;
 
+  if (this.levelModel.get() === 10) {
+    this.gameover();
+    return;
+  }
+
   this.togglePause();
+
+  // Add bonus score before bumping level and adding time as those
+  // are variables in the level score.
+  this.scoreboard.addScore(this.getLevelScore());
 
   // We go next level right away
   // so we can show it in the next level animation
   this.levelModel.next();
 
+  // Update the level text in the scoreboard
+  // the scoreboard setLevel already adds + 1
+  this.scoreboard.setLevel(this.levelModel.get() - 1);
+
+  // Send Klang event
   window.santaApp.fire('sound-trigger', 'm_level_up');
 
-  this.levelUp.show( this.levelModel.get() );
+  this.levelUp
+    .show(this.levelModel.get());
+
   this.levelUp
     .bgElem
     .one(utils.TRANSITION_END, function() {
@@ -450,36 +482,36 @@ Game.prototype.finishLevel = function() {
  * Note: finishLevel should be called before this one.
  */
 Game.prototype.prepareNextLevel = function() {
-
   // Update our time for this level
   this.updateTime();
-
-  // Update the level text in the scoreboard
-  // the scoreboard setLevel already adds + 1
-  this.scoreboard.setLevel( this.levelModel.get() - 1 );
-  this.scoreboard.addScore( this.getLevelScore() );
 
   // Go
   this.startLevel();
 };
 
 /**
- * Returns the formula for the level score:
  * When you level up from first level you get 500pts, and then we compound
  * 10% on top of that for each additional level (level 2 is 550, level 3 is
- * 605, level 4 is 660 etc)
+ * 605, level 4 is 660 etc). All of this is multiplied by the remaining time
+ *
+ * @return {number} the formula for the level score
 */
 Game.prototype.getLevelScore = function() {
-  return Math.ceil(Constants.SCORE_LEVEL_UP * Math.pow(1.1, this.levelModel.get() - 1));
+  var remainingSeconds = this.scoreboard.countdown;
+  var timeMultiplier = remainingSeconds / 30;
+  var baseScore = Constants.SCORE_LEVEL_UP;
+  var extraScore = Constants.SCORE_LEVEL_UP / 10 * (this.levelModel.get() - 1)
+  return Math.ceil((baseScore + extraScore) * timeMultiplier);
 };
 
 /**
- * returns the formula for the match score:
- * when you find a match you get 50 pts in level one and then again compound
- * 10% for each level (level 2 55 pts, level 3 61 pts, level 4 66pts etc)
+ * When you find a match you get 50 pts in level one and then 5 extra points
+ * for each level (level 2 55 pts, level 3 60 pts, level 4 65pts etc)
+ * @return {number} the formula for the match score
  */
 Game.prototype.getMatchScore = function() {
-  return Math.ceil(Constants.SCORE_MATCH * Math.pow(1.1, this.levelModel.get() - 1));
+  return Math.ceil(Constants.SCORE_MATCH +
+                   Constants.SCORE_MATCH / 10 * (this.levelModel.get() - 1));
 };
 
 /**
@@ -489,8 +521,7 @@ Game.prototype.updateTime = function() {
   var levelDuration = Constants.INITIAL_COUNTDOWN - ((this.levelModel.get() - 1) * 5);
   levelDuration = Math.max(levelDuration, Constants.LEVEL_CAP_DURATION);
 
-  this.scoreboard.addTime( levelDuration );
-
+  this.scoreboard.addTime(levelDuration);
 };
 
 /**
@@ -499,8 +530,9 @@ Game.prototype.updateTime = function() {
 Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverDialog.show(0, this.levelModel.get());
-  this.sceneElement.fire('analytics-track-game-over', {
-    gameId: 'matching', score: this.scoreboard.score,
+  window.santaApp.fire('analytics-track-game-start', {
+    gameid: 'matching',
+    score: this.scoreboard.score,
     level: this.levelModel.get() - 1,
     timePlayed: new Date - this.gameStartTime
   });
@@ -556,3 +588,9 @@ Game.prototype.resume = function() {
   this.paused = false;
   this.unfreezeGame();
 };
+
+/**
+ * Export Game class.
+ * @export
+ */
+app.Game = Game;

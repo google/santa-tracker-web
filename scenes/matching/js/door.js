@@ -1,10 +1,16 @@
+goog.provide('Door');
+
 /**
+ * @param {string} id
+ * @param {jQuery} $el
+ * @param {function} clickHandler
+ * @param {string} cardClass
  * @constructor
  */
-var Door = function (id, $el, clickHandler, cardClass) {
+var Door = function(id, $el, clickHandler, cardClass) {
   this.elem = $el;
   this.id = id;
-  this.uniqueId = 'card' + Math.random();
+  this.uniqueId = Door.ID_COUNTER++;
   this.isCompleted = false;
   this.isOpened = false;
   this.isMismatched = false;
@@ -18,20 +24,27 @@ var Door = function (id, $el, clickHandler, cardClass) {
 };
 
 /**
+ * Unique id counter.
+ * @type {number}
+ */
+Door.ID_COUNTER = 0;
+
+/**
  * Attaches the click handler to the door.
+ * @private
  */
 Door.prototype.attachEvents_ = function() {
   this.elem.on('click', function() {
     this.clickHandler(this);
   }.bind(this));
-}
+};
 
 /**
  * Removes the event handlers of the door;
  */
 Door.prototype.destroy = function() {
   this.elem.off('click');
-}
+};
 
 /**
  * Removes additional states or classes from a door
@@ -46,7 +59,7 @@ Door.prototype.reset = function() {
   this.isCompleted = false;
 
   this.elem
-    .find( Constants.SELECTOR_CARD )
+    .find(Constants.SELECTOR_CARD)
     .attr('class', 'card');
 
   this.elem
@@ -58,7 +71,7 @@ Door.prototype.reset = function() {
  * Set the door to be closed.
  */
 Door.prototype.close = function() {
-  this.elem.removeClass( Constants.CLASS_DOOR_OPEN );
+  this.elem.removeClass(Constants.CLASS_DOOR_OPEN);
   this.isOpened = false;
   this.isMismatched = false;
 };
@@ -67,7 +80,7 @@ Door.prototype.close = function() {
  * Set the door to be open.
  */
 Door.prototype.open = function() {
-  this.elem.addClass( Constants.CLASS_DOOR_OPEN );
+  this.elem.addClass(Constants.CLASS_DOOR_OPEN);
   this.isOpened = true;
 };
 
@@ -93,6 +106,7 @@ Door.prototype.complete = function() {
 
 /**
  * Returns if this door instance is completed (match found).
+ * @return {boolean}
  */
 Door.prototype.isCompleted = function() {
   return this.isCompleted;
@@ -100,6 +114,7 @@ Door.prototype.isCompleted = function() {
 
 /**
  * Returns the id of this door instance.
+ * @return {string}
  */
 Door.prototype.getId = function() {
   return this.id;
@@ -111,8 +126,8 @@ Door.prototype.getId = function() {
  */
 Door.prototype.setCard = function() {
   this.elem
-    .find( Constants.SELECTOR_CARD )
-    .addClass( this.cardClass );
+    .find(Constants.SELECTOR_CARD)
+    .addClass(this.cardClass);
 };
 
 /**
@@ -120,7 +135,7 @@ Door.prototype.setCard = function() {
  */
 Door.prototype.enable = function() {
   this.elem
-    .addClass( Constants.CLASS_DOOR_ENABLED );
+    .addClass(Constants.CLASS_DOOR_ENABLED);
 };
 
 /**
@@ -128,6 +143,6 @@ Door.prototype.enable = function() {
  */
 Door.prototype.disable = function() {
   this.elem
-    .removeClass( Constants.CLASS_DOOR_ENABLED );
+    .removeClass(Constants.CLASS_DOOR_ENABLED);
 };
 
