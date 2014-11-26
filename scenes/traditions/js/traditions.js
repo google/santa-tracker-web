@@ -24,7 +24,6 @@ function Traditions(el, componentDir) {
   this.visible_ = false;
 
   this.setup();
-  this.onShow();
 }
 
 /**
