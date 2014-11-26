@@ -1,0 +1,88 @@
+##{$name} {
+  background-color: #d3e4ed;
+
+  .bg {
+    background-color: #d3e4ed;
+    bottom: 0;
+    left: 42%;
+    margin-left: -440px;
+    position: absolute;
+    top:  0;
+    transform-origin: 42% 50%;
+    width: 980px;
+  }
+
+  .river {
+    background-color: #00abeb;
+    bottom: 0;
+    left: 30%;
+    position: absolute;
+    top: 0;
+    transform: translateZ(0);
+    width: 70%;
+
+    // White lines
+    &:before {
+      border-left: 8px solid #fff;
+      border-right: 8px solid #fff;
+      content: "";
+      height: 100%;
+      left: -8px;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    // Dark line
+    &:after {
+      background-color: #0098d2;
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 3%;
+    }
+  }
+
+  .trees {
+    position: absolute;
+    transform: translateZ(0);
+  }
+
+  .trees--top {
+    background: url(img/trees-top.svg);
+    height: 41px;
+    left: 100px;
+    top: 10px;
+    width: 41px;
+  }
+
+  .trees--bottom {
+    background: url(img/trees-bottom.svg);
+    height: 55px;
+    left: 0;
+    bottom: -5px;
+    width: 180px;
+  }
+}
+
+@media (min-width: 980px) {
+  ##{$name} {
+    .trees--left {
+      background: url(img/trees-left.svg);
+      height: 844px;
+      left: -215px;
+      top: -45px;
+      width: 202px;
+    }
+
+    .trees--right {
+      background: url(img/trees-right.svg);
+      height: 822px;
+      right: -250px;
+      top: -50px;
+      width: 210px;
+    }
+  }
+}
