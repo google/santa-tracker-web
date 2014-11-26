@@ -1,7 +1,8 @@
 <link rel="import" href="../base-scene.html">
-<link rel="import" href="../../elements/i18n-msg.html">
 
-<link rel="import" href="dependencies.html">
+<script src="../shared/js/css_animation_helper.js"></script>
+<script src="../shared/js/startbutton.js"></script>
+<script src="matching-scene.min.js"></script>
 
 <!--
 Matching scene.
@@ -16,27 +17,40 @@ Matching scene.
   <div id="module-matching">
 
     <div class="scene">
-      <div class="anchor">
-
-        <div class="sky">
-          <div class="cloud cloud1 js-resize-animation"></div>
-          <div class="cloud cloud2 js-resize-animation"></div>
-          <div class="cloud cloud3 js-resize-animation"></div>
-          <div class="cloud cloud4 js-resize-animation"></div>
-          <div class="cloud cloud5 js-resize-animation"></div>
-          <div class="cloud cloud6 js-resize-animation"></div>
+      <div class="sky">
+        <div class="cloud cloud1 js-resize-animation">
+          <div class="cloud__img"></div>
         </div>
-
+        <div class="cloud cloud2 js-resize-animation">
+          <div class="cloud__img"></div>
+        </div>
+        <div class="cloud cloud3 js-resize-animation">
+          <div class="cloud__img"></div>
+        </div>
+        <div class="cloud cloud4 js-resize-animation">
+          <div class="cloud__img"></div>
+        </div>
+        <div class="cloud cloud5 js-resize-animation">
+          <div class="cloud__img"></div>
+        </div>
+        <div class="cloud cloud6 js-resize-animation">
+          <div class="cloud__img"></div>
+        </div>
+        <div class="cloud cloud7 js-resize-animation">
+          <div class="cloud__img"></div>
+        </div>
+        <div class="cloud cloud8 js-resize-animation">
+          <div class="cloud__img"></div>
+        </div>
+        <div class="cloud cloud9 js-resize-animation">
+          <div class="cloud__img"></div>
+        </div>
+      </div>
+      <div class="anchor">
         <div class="background">
-
-          <div class="trees trees--left">
-          </div>
-
-          <div class="trees trees--right">
-          </div>
-
+          <div class="trees trees--left"></div>
+          <div class="trees trees--right"></div>
           <div class="doors">
-
             <div class="door">
               <div class="door__handle door__handle--left door__handle--enabled--left door__handle--enabled"></div>
               <div class="door__handle door__handle--right door__handle--enabled--right door__handle--enabled"></div>
@@ -50,7 +64,6 @@ Matching scene.
               <div class="door__nail door__nail--bottom-left"></div>
               <div class="door__nail door__nail--bottom-right"></div>
             </div>
-
             <div class="door">
               <div class="door__handle door__handle--left door__handle--enabled--left door__handle--enabled"></div>
               <div class="door__handle door__handle--right door__handle--enabled--right door__handle--enabled"></div>
@@ -64,7 +77,6 @@ Matching scene.
               <div class="door__nail door__nail--bottom-left"></div>
               <div class="door__nail door__nail--bottom-right"></div>
             </div>
-
             <div class="door door--enabled">
               <div class="door__handle door__handle--left door__handle--enabled--left door__handle--enabled"></div>
               <div class="door__handle door__handle--right door__handle--enabled--right door__handle--enabled"></div>
@@ -78,7 +90,6 @@ Matching scene.
               <div class="door__nail door__nail--bottom-left"></div>
               <div class="door__nail door__nail--bottom-right"></div>
             </div>
-
             <div class="door door--enabled">
               <div class="door__handle door__handle--left door__handle--enabled--left door__handle--enabled"></div>
               <div class="door__handle door__handle--right door__handle--enabled--right door__handle--enabled"></div>
@@ -92,7 +103,6 @@ Matching scene.
               <div class="door__nail door__nail--bottom-left"></div>
               <div class="door__nail door__nail--bottom-right"></div>
             </div>
-
             <div class="door">
               <div class="door__handle door__handle--left door__handle--enabled--left door__handle--enabled"></div>
               <div class="door__handle door__handle--right door__handle--enabled--right door__handle--enabled"></div>
@@ -106,7 +116,6 @@ Matching scene.
               <div class="door__nail door__nail--bottom-left"></div>
               <div class="door__nail door__nail--bottom-right"></div>
             </div>
-
             <div class="door">
               <div class="door__handle door__handle--left door__handle--enabled--left door__handle--enabled"></div>
               <div class="door__handle door__handle--right door__handle--enabled--right door__handle--enabled"></div>
@@ -120,7 +129,6 @@ Matching scene.
               <div class="door__nail door__nail--bottom-left"></div>
               <div class="door__nail door__nail--bottom-right"></div>
             </div>
-
             <div class="door">
               <div class="door__handle door__handle--left door__handle--enabled--left door__handle--enabled"></div>
               <div class="door__handle door__handle--right door__handle--enabled--right door__handle--enabled"></div>
@@ -134,7 +142,6 @@ Matching scene.
               <div class="door__nail door__nail--bottom-left"></div>
               <div class="door__nail door__nail--bottom-right"></div>
             </div>
-
             <div class="door">
               <div class="door__handle door__handle--left door__handle--enabled--left door__handle--enabled"></div>
               <div class="door__handle door__handle--right door__handle--enabled--right door__handle--enabled"></div>
@@ -148,7 +155,6 @@ Matching scene.
               <div class="door__nail door__nail--bottom-left"></div>
               <div class="door__nail door__nail--bottom-right"></div>
             </div>
-
             <div class="door door--enabled">
               <div class="door__handle door__handle--left door__handle--enabled--left door__handle--enabled"></div>
               <div class="door__handle door__handle--right door__handle--enabled--right door__handle--enabled"></div>
@@ -162,7 +168,6 @@ Matching scene.
               <div class="door__nail door__nail--bottom-left"></div>
               <div class="door__nail door__nail--bottom-right"></div>
             </div>
-
             <div class="door door--enabled">
               <div class="door__handle door__handle--left door__handle--enabled--left door__handle--enabled"></div>
               <div class="door__handle door__handle--right door__handle--enabled--right door__handle--enabled"></div>
@@ -176,7 +181,6 @@ Matching scene.
               <div class="door__nail door__nail--bottom-left"></div>
               <div class="door__nail door__nail--bottom-right"></div>
             </div>
-
             <div class="door">
               <div class="door__handle door__handle--left door__handle--enabled--left door__handle--enabled"></div>
               <div class="door__handle door__handle--right door__handle--enabled--right door__handle--enabled"></div>
@@ -190,7 +194,6 @@ Matching scene.
               <div class="door__nail door__nail--bottom-left"></div>
               <div class="door__nail door__nail--bottom-right"></div>
             </div>
-
             <div class="door">
               <div class="door__handle door__handle--left door__handle--enabled--left door__handle--enabled"></div>
               <div class="door__handle door__handle--right door__handle--enabled--right door__handle--enabled"></div>
@@ -204,81 +207,135 @@ Matching scene.
               <div class="door__nail door__nail--bottom-left"></div>
               <div class="door__nail door__nail--bottom-right"></div>
             </div>
-
-          </div><!-- ./doors -->
-
-          <div class="house">
-          </div><!-- ./house -->
-
+          </div>
+          <div class="house"></div>
           <div class="doors-target">
-            <div class="door-target" data-target="0"></div>
-            <div class="door-target" data-target="1"></div>
-            <div class="door-target" data-target="2"></div>
-            <div class="door-target" data-target="3"></div>
-            <div class="door-target" data-target="4"></div>
-            <div class="door-target" data-target="5"></div>
-            <div class="door-target" data-target="6"></div>
-            <div class="door-target" data-target="7"></div>
-            <div class="door-target" data-target="8"></div>
-            <div class="door-target" data-target="9"></div>
-            <div class="door-target" data-target="10"></div>
-            <div class="door-target" data-target="11"></div>
+            <div data-target="0" class="door-target"></div>
+            <div data-target="1" class="door-target"></div>
+            <div data-target="2" class="door-target"></div>
+            <div data-target="3" class="door-target"></div>
+            <div data-target="4" class="door-target"></div>
+            <div data-target="5" class="door-target"></div>
+            <div data-target="6" class="door-target"></div>
+            <div data-target="7" class="door-target"></div>
+            <div data-target="8" class="door-target"></div>
+            <div data-target="9" class="door-target"></div>
+            <div data-target="10" class="door-target"></div>
+            <div data-target="11" class="door-target"></div>
           </div>
         </div>
       </div>
     </div>
-
     <div class="gui">
-    <div class="scoreboard">
-        <div class="back"></div>
-        <div class="logo"></div>
+      <div class="board board--game">
+        <a id="global-back-to-village" href="{{baseURI}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <div class="logo">
+          <!---->
+        </div>
         <div class="score">
-            <span class="label"><i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg></span>
-            <div class="value">0</div>
+          <div class="label"><i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg></div>
+          <div class="value">0</div>
         </div>
-        <div class="level">
-            <span class="label"><i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg></span>
-            <div class="value">1</div>
+        <div class="level has-count">
+          <div class="label"><i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg></div>
+          <div class="value"><span class="current-level">1</span><span class="dark-text">/10</span>
+          </div>
+          <div class="level-dots">
+            <div class="level-item is-active">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">1</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">2</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">3</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">4</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">5</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">6</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">7</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">8</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">9</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">10</div>
+            </div>
+          </div>
         </div>
-        <div class="countdown">
-            <div class="tracker">0:00</div>
+        <div class="time">
+          <div class="label"><i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg></div>
+          <div class="value"><span class="minutes dark-text">00</span><span class="dark-text"> : </span><span class="seconds">00</span></div>
+          <div class="tracker">
+            <div class="remaining">
+              <!---->
+            </div>
+          </div>
+          <div class="status">
+            <!---->
+          </div>
         </div>
-        <ul class="actions">
-            <li class="restart"><!----></li>
-            <li class="pause"><!----></li>
-        </ul>
-    </div>
-    <div class="tutorial">
+        <div class="actions">
+          <button type="button" class="restart"></button>
+          <button type="button" class="pause"></button>
+        </div>
+      </div>
+      <div class="tutorial">
         <div class="shadow"></div>
         <div class="explanation"></div>
-    </div>
-    <div class="levelup"></div>
-    <div class="levelup--number"></div>
-    <div class="force-rotate landscape">
-      <div class="force-rotate-explanation">
-        <i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg>
       </div>
-    </div>
-    <div class="gameover">
-      <div class="overlay"></div>
-      <div class="dialog">
-        <div class="shadow"></div>
-        <div class="fg"></div>
-        <div class="score">
-          <span class="label"><i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg></span>
-          <div class="value"></div>
-        </div>
-        <div class="level">
-          <span class="label"><i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg></span>
-          <div class="value"></div>
-        </div>
-        <div class="buttons">
-          <a href="#" class="again"><i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg></a>
+      <div class="levelup"></div>
+      <div class="levelup--number"></div>
+      <div class="gameover overlay">
+        <div class="gameover-dialog overlay-dialog">
+          <h2 class="gameover-title"><i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg></h2>
+          <div class="gameover-winner">
+            <div class="gameover-score">
+              <p class="gameover-label"><i18n-msg msgid="gameover_score">PLACEHOLDER_i18n</i18n-msg></p>
+              <p class="gameover-number">0</p>
+            </div>
+          </div>
+          <div class="gameover-buttons">
+            <button type="button" class="Button Button--large gameover-play"><i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg></button>
+            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+          </div>
         </div>
       </div>
+      <div class="force-rotate landscape">
+        <div class="force-rotate-graphic"></div>
+        <div class="force-rotate-explanation"><i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg></div>
+      </div>
     </div>
-    </div>
-
   </div>
 
 </template>
@@ -293,7 +350,6 @@ Matching scene.
     onPreload: function() {
       this.preloadSounds('m_load_sounds', 20);
       this.preloadImages([
-        'img/loading.gif',
         'img/logo.svg',
         'img/house.svg',
         'img/cloud.svg',
@@ -301,27 +357,17 @@ Matching scene.
         'img/sprite-doors.svg',
         'img/trees-left.png',
         'img/trees-right.png',
-        'img/rotate.svg',
-        'img/gameover/winner.svg',
-        'img/scoreboard/pause.svg',
-        'img/scoreboard/play.svg',
-        'img/scoreboard/restart.svg',
-        'img/startbutton/button.svg'
+        'img/rotate.svg'
       ]);
     },
     onShow: function() {
       var module = this.$['module-matching'];
+
       this.animationHelper = new CSSAnimationHelper(module);
-      this.game = new Game(module, this);
-
+      var game = this.game = new scenes.matching.Game(module);
       startButton(module, function() {
-        this.game.start();
-      }.bind(this));
-
-      // if (imagePreloader) {
-      //   imagePreloader.dispose();
-      //   imagePreloader = null;
-      // }
+        game.start();
+      });
     },
     onHide: function() {
       this.animationHelper.destroy();
@@ -330,19 +376,6 @@ Matching scene.
       this.game = null;
       this.fire('sound-ambient', 'm_end_game');
     }
-
-    // utils.globalPause(module, function() {
-    //   return game.paused;
-    // }, function() {
-    //   game.pause();
-    // }, function() {
-    //   game.resume();
-    // });
-
-    // santatracker.onModuleLoad('matching', function() {
-    //   return module;
-    // });
-
   });
 
 })();

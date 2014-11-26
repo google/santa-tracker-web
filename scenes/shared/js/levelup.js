@@ -12,21 +12,20 @@ app.shared.LevelUp = LevelUp;
  * @param {HTMLElement} numberElem The element for the level number.
  */
 function LevelUp(game, bgElem, numberElem) {
-  this.game = game;
   this.bgElem = bgElem;
   this.numberElem = numberElem;
 
   $(window).on('resize', this.onResize_.bind(this));
   this.onResize_();
-};
+}
 
 /**
  * Recalculate sizes for background on window resize.
  * @private
  */
 LevelUp.prototype.onResize_ = function() {
-  var width = this.game.elem.width(),
-    height = this.game.elem.height();
+  var width = window.innerWidth,
+    height = window.innerHeight;
 
   this.bgBorderWidth = width;
   this.bgElem.css({
@@ -59,8 +58,8 @@ LevelUp.prototype.numberShown_ = function() {
 
 /**
  * Show new level number.
- * @param Number level The number of the new level.
- * @param Function callback The function to call while the level is hidden.
+ * @param {number} level The number of the new level.
+ * @param {function} callback The function to call while the level is hidden.
  */
 LevelUp.prototype.show = function(level, callback) {
   timeoutOneEvent(this.bgElem, utils.TRANSITION_END, 1.0, callback);
@@ -86,7 +85,7 @@ function timeoutOneEvent(elem, event, timeout, callback) {
     if (!finished) {
       finished = true;
       elem.off(event, finish);
-      if (callback && typeof callback === "function") {
+      if (callback && typeof callback === 'function') {
         callback();
       }
     }

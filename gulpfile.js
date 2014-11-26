@@ -27,6 +27,9 @@ var SCENE_CLOSURE_CONFIG = {
   boatload: {
     entryPoint: 'app.Game'
   },
+  matching: {
+    entryPoint: 'app.Game'
+  },
   racer: {
     entryPoint: 'app.Game'
   }
