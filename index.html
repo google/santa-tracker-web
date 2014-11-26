@@ -124,6 +124,10 @@
 window.DEV = true;
 
 if (window.DEV) {
+  document.addEventListener('DOMContentLoaded', function() {
+    console.info('DOMContentLoaded @', performance.now(), 'ms');
+  });
+
   document.addEventListener('HTMLImportsLoaded', function() {
     console.info('HTMLImportsLoaded @', performance.now(), 'ms');
   });
