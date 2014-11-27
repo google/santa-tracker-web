@@ -6,7 +6,7 @@ window.HOUSES = [{
   module: "airport",
   iced: false,
   launchDate: new Date('Dec 1, 2014'),
-  category: "scene",
+  category: "play",
   elves: {
     melt: [
     "elf-green",
@@ -81,7 +81,7 @@ window.HOUSES = [{
   module: "trailer",
   iced: true,
   launchDate: new Date('Dec 2, 2014'),
-  category: "play",
+  category: "watch",
   elves: {
     melt: [
     "elf-purple-right",
@@ -210,7 +210,7 @@ window.HOUSES = [{
   module: "codelab",
   iced: true,
   launchDate: new Date('Dec 9, 2014'),
-  category: "listen",
+  category: "learn",
   elves: {
     melt: [
     "elf-green-girl-left",
@@ -229,7 +229,7 @@ window.HOUSES = [{
   module: "mercator",
   iced: true,
   launchDate: new Date('Dec 10, 2014'),
-  category: "play",
+  category: "learn",
   elves: {
     melt: [
     "elf-red-girl-right",
@@ -267,7 +267,7 @@ window.HOUSES = [{
   module: "jamband",
   iced: true,
   launchDate: new Date('Dec 12, 2014'),
-  category: "code",
+  category: "play",
   elves: {
     melt: [
     "elf-red",
@@ -324,7 +324,7 @@ window.HOUSES = [{
   module: "seasonofgiving",
   iced: true,
   launchDate: new Date('Dec 15, 2014'),
-  category: "draw",
+  category: "learn",
   elves: {
     melt: [
     "elf-green-girl-left",
@@ -343,7 +343,7 @@ window.HOUSES = [{
   module: "carpool",
   iced: true,
   launchDate: new Date('Dec 16, 2014'),
-  category: "play",
+  category: "watch",
   elves: {
     melt: [
     "elf-green-girl-right",
@@ -362,7 +362,7 @@ window.HOUSES = [{
   module: "factory",
   iced: true,
   launchDate: new Date('Dec 17, 2014'),
-  category: "watch",
+  category: "play",
   elves: {
     melt: [
     "elf-red-girl-right",
@@ -381,7 +381,7 @@ window.HOUSES = [{
   module: "postcard",
   iced: true,
   launchDate: new Date('Dec 18, 2014'),
-  category: "send",
+  category: "play",
   elves: {
     melt: [
     "elf-green",
@@ -419,7 +419,7 @@ window.HOUSES = [{
   module: "translations",
   iced: true,
   launchDate: new Date('Dec 20, 2014'),
-  category: "watch",
+  category: "learn",
   elves: {
     melt: [
     "elf-green",
@@ -459,7 +459,7 @@ window.HOUSES = [{
   module: "citylights",
   iced: true,
   launchDate: new Date('Dec 22, 2014'),
-  category: "play",
+  category: "learn",
   elves: {
     melt: [
     "elf-green-girl-right",
