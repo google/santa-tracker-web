@@ -6,7 +6,8 @@ function VillagePegman(el) {
   this.isPaused_ = true;
 
   this.pegman_ = this.container_.querySelector('#pegman');
-  this.canShow_ = VillagePegman.LANGUAGES_.indexOf(santaApp.language) != -1;
+  this.canShow_ =
+      VillagePegman.LANGUAGES_.indexOf(document.documentElement.lang) != -1;
 
   if (!this.canShow_) {
     this.pegman_.remove();
