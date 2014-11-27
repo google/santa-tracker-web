@@ -134,7 +134,8 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
         dest: dest
       }))
       .pipe(i18n_replace({
-        path: '_messages'
+        strict: !!argv.strict,
+        path: '_messages',
       }))
       .pipe(gulp.dest(path.join(DIST_DIR, dest)));
     }));
@@ -151,7 +152,8 @@ gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
       dest: 'elements/'
     }))
     .pipe(i18n_replace({
-      path: '_messages'
+      strict: !!argv.strict,
+      path: '_messages',
     }))
     .pipe(gulp.dest(DIST_DIR + '/elements/'));
 });
@@ -159,45 +161,11 @@ gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
 gulp.task('i18n_index', ['vulcanize'], function() {
-  return gulp.src('index.html')
-    .pipe(i18n_index({
-      langs: [
-        "af",
-        "bg",
-        "ca",
-        "da",
-        "de",
-        "en-GB",
-        "es",
-        "es-419",
-        "et",
-        "fi",
-        "fil",
-        "fr",
-        "fr-CA",
-        "hr",
-        "id",
-        "it",
-        "ja",
-        "lt",
-        "lv",
-        "ml",
-        "no",
-        "pl",
-        "pt-BR",
-        "pt-PT",
-        "ro",
-        "sl",
-        "sv",
-        "ta",
-        "th",
-        "tl",
-        "uk",
-        "vi",
-        "zh-CN",
-        "zh-TW",
-      ],
+  return gulp.src(['index.html', 'about.html'])
+    .pipe(i18n_replace({
+      forceRenaming: true,
       strict: !!argv.strict,
+      path: '_messages',
     }))
     .pipe(gulp.dest(DIST_DIR));
 });
