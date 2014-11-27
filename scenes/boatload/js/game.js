@@ -367,7 +367,7 @@ Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverDialog.show();
   window.santaApp.fire('sound-trigger', 'bl_game_stop');
-  window.santaApp.fire('analytics-track-game-start', {
+  window.santaApp.fire('analytics-track-game-over', {
     gameid: 'boatload',
     score: this.scoreboard.score,
     level: this.level,
@@ -445,7 +445,7 @@ Game.prototype.reuseBubbles_ = function() {
  */
 Game.prototype.dispose = function() {
   if (this.isPlaying) {
-    window.santaApp.fire('analytics-track-game-start',
+    window.santaApp.fire('analytics-track-game-quit',
                          {gameid: 'boatload', timePlayed: new Date - this.gameStartTime});
   }
   this.freezeGame();

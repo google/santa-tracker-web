@@ -366,7 +366,7 @@ SB.Game.prototype.restart = function() {
  */
 SB.Game.prototype.dispose = function() {
   if (this.playing) {
-    window.santaApp.fire('analytics-track-game-start',
+    window.santaApp.fire('analytics-track-game-quit',
                          {gameid: 'racer', timePlayed: new Date - this.gameStartTime});
   }
   this.playing = false;
@@ -387,7 +387,7 @@ SB.Game.prototype.gameover = function() {
     window.santaApp.fire('sound-trigger', 'rc_game_over');
     window.santaApp.fire('sound-trigger', {name: 'rc_sled_speed', args: [0]});
 
-    window.santaApp.fire('analytics-track-game-start', {
+    window.santaApp.fire('analytics-track-game-over', {
       gameid: 'racer',
       score: this.scoreboard.score,
       level: this.level,
