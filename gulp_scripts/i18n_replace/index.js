@@ -6,8 +6,6 @@ var path = require('path');
 var gutil = require('gulp-util');
 
 var REGEX = /<i18n-msg msgid="([^"]*)">([^<]*)<\/i18n-msg>/gm;
-var FILENAME_TEST_REGEX = /_en\.html$/
-var FILENAME_REGEX = /(_en)?\.html$/
 
 module.exports = function replaceMessages(opts) {
   var warn = warnFunc(opts.strict);
@@ -20,15 +18,25 @@ module.exports = function replaceMessages(opts) {
 
     msgPromise.then(function(messagesByLang) {
       var src = file.contents.toString();
+      var langs = Object.keys(messagesByLang);
+      // Force en to be last. gulp halts execution because we push a file to the
+      // stream with the same path.
+      langs = langs.filter(function(l) { return l != 'en' });
+      langs.push('en');
 
-      for (var lang in messagesByLang) {
+      for (var i = 0; i < langs.length; i++) {
+        var lang = langs[i];
+        var ext = '_' + lang + '.html';
+        if (lang == 'en') {
+          ext = '.html';
+        }
         var msgs = messagesByLang[lang];
         if (!msgs) {
           throw new Error('No messages for lang ' + lang);
         }
 
         var replaced = src
-          .replace(/_en\.html/mg, '_' + lang + '.html')
+          .replace(/_en\.html/mg, ext)
           .replace(/lang="en"/, 'lang="' + lang + '"')
           .replace(REGEX, function replacer(match, msgid, tagBody) {
             var msg = msgs[msgid];
@@ -43,23 +51,17 @@ module.exports = function replaceMessages(opts) {
             return msg.message
           });
 
-        if (!opts.forceRenaming) {
-          if (replaced == src && !opts.forceRenaming) {
-            // Don't create a new file if the source didn't change.
-            stream.push(file);
-            break;
-          }
-          if (!file.path.match(FILENAME_TEST_REGEX)) {
-            throw new Error('Files with i18n-msg should end in _en.html: ' + file.relative);
-          }
+        if (replaced == src) {
+          // Don't create a new file if the source didn't change.
+          stream.push(file);
+          break;
+        }
+        if (!file.path.match(/(index|about|_en)\.html$/)) {
+          throw new Error('Files with i18n-msg should end in _en.html: ' + file.relative);
         }
 
         var i18nfile = file.clone();
-        var ext = '_' + lang + '.html';
-        if (lang == 'en') {
-          ext = '.html';
-        }
-        i18nfile.path = file.path.replace(FILENAME_REGEX, ext);
+        i18nfile.path = file.path.replace(/(_en)?\.html$/, ext);
         i18nfile.contents = new Buffer(replaced);
 
         stream.push(i18nfile);

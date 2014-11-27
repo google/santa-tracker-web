@@ -8,7 +8,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var foreach = require('gulp-foreach');
 var del = require('del');
 var i18n_replace = require('./gulp_scripts/i18n_replace');
-var i18n_index = require('./gulp_scripts/i18n_index');
 var closureCompiler = require('gulp-closure-compiler');
 var mergeStream = require('merge-stream');
 var argv = require('yargs').argv;
@@ -163,7 +162,6 @@ gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 gulp.task('i18n_index', ['vulcanize'], function() {
   return gulp.src(['index.html', 'about.html'])
     .pipe(i18n_replace({
-      forceRenaming: true,
       strict: !!argv.strict,
       path: '_messages',
     }))
@@ -173,7 +171,6 @@ gulp.task('i18n_index', ['vulcanize'], function() {
 // copy needed assets (images, sounds, polymer elements, etc) to dist directory
 gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
   return gulp.src([
-    'index.html',
     'schedule.html',
     'manifest.json',
     'audio/*',
