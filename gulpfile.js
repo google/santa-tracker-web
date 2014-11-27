@@ -51,6 +51,9 @@ var SCENE_CLOSURE_CONFIG = {
   presentdrop: {
     entryPoint: 'app.Game'
   },
+  mercator: {
+    entryPoint: 'app.Game'
+  },
   racer: {
     entryPoint: 'app.Game'
   }
