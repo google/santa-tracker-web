@@ -35,7 +35,7 @@ Subclass scene elements can define the following properties:
   }
 </style>
 
-<polymer-element name="base-scene" attributes="active alwaysActive pageUrl path route mode santaApp loadingBgColor loadingSrc"
+<polymer-element name="base-scene" attributes="active alwaysActive path route mode santaApp loadingBgColor loadingSrc"
                  on-scene-pause="{{handlePause}}" tabindex="0">
 <script>
 (function() {
@@ -67,7 +67,7 @@ Polymer({
   /**
    * A basename for links within Santa Tracker. The hash is removed for nicer
    * display URLs in the status bar.
-   * @attribute pageUrl
+   * @property pageUrl
    * @type string
    * @default
    */
