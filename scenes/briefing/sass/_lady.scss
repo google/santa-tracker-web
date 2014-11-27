@@ -1,0 +1,35 @@
+.lady {
+  position: absolute;
+
+  top: 150px;
+  left: 970px;
+
+  width: 118px;
+  height: 233px;
+
+}
+
+.lady__body {
+  position: absolute;
+  z-index: 20;
+
+  right: 0;
+  bottom: 0;
+
+  width: 118px;
+  height: 233px;
+}
+
+.lady__arm {
+  position: absolute;
+  z-index: 10;
+
+  top: 15px;
+  left: -125px;
+
+  width: 166px;
+  height: 77px;
+
+  transform-origin: 100% 80%;
+  animation: 7s #{$name}-handMovement infinite alternate ease-in-out;
+}

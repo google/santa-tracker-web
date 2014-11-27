@@ -26,6 +26,9 @@ var SCENE_CLOSURE_CONFIG = {
   boatload: {
     entryPoint: 'app.Game'
   },
+  briefing: {
+    entryPoint: 'app.Scene'
+  },
   matching: {
     entryPoint: 'app.Game'
   },
