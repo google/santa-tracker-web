@@ -3,10 +3,13 @@
  */
 function VillagePegman(el) {
   this.container_ = el;
-
   this.isPaused_ = true;
 
   this.pegman_ = this.container_.querySelector('#pegman');
+
+  if (santaApp.language == 'en') {
+    this.pegman_.remove();
+  }
 }
 
 /**
@@ -43,6 +46,7 @@ VillagePegman.LAND_TIME_ = 15000;
  * Start a skydive
  */
 VillagePegman.prototype.start = function() {
+  if (santaApp.language != 'en') return;
   this.isPaused_ = false;
   this.skyDive_();
 };
@@ -52,6 +56,7 @@ VillagePegman.prototype.pause = function() {
 };
 
 VillagePegman.prototype.resume = function() {
+  if (santaApp.language != 'en') return;
   this.isPaused_ = false;
 
   if (this.pegman_.classList.contains('landed')) {
