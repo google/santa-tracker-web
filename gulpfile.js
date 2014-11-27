@@ -178,15 +178,10 @@ gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
 
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
-gulp.task('index-base-url', ['clean'], function() {
-  return gulp.src('index.html')
+gulp.task('i18n_index', ['vulcanize'], function() {
+  return gulp.src(['index.html', 'about.html'])
     .pipe(replace('<base href="">',
         '<base href="' + STATIC_URL + '">'))
-    .pipe(gulp.dest(DIST_PROD_DIR));
-});
-
-gulp.task('i18n_index', ['vulcanize', 'index-base-url'], function() {
-  return gulp.src([DIST_PROD_DIR + '/index.html', 'about.html'])
     .pipe(i18n_replace({
       strict: !!argv.strict,
       path: '_messages',

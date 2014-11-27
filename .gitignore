@@ -3,7 +3,7 @@ bower_components
 components
 *.DS_Store
 .sass-cache
-dist
+dist_prod
 dist_pretty
 dist_static
 sass/*.css
