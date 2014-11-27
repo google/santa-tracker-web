@@ -8,7 +8,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var foreach = require('gulp-foreach');
 var del = require('del');
 var i18n_replace = require('./gulp_scripts/i18n_replace');
-var i18n_index = require('./gulp_scripts/i18n_index');
 var closureCompiler = require('gulp-closure-compiler');
 var mergeStream = require('merge-stream');
 var argv = require('yargs').argv;
@@ -134,7 +133,8 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
         dest: dest
       }))
       .pipe(i18n_replace({
-        path: '_messages'
+        strict: !!argv.strict,
+        path: '_messages',
       }))
       .pipe(gulp.dest(path.join(DIST_DIR, dest)));
     }));
@@ -151,7 +151,8 @@ gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
       dest: 'elements/'
     }))
     .pipe(i18n_replace({
-      path: '_messages'
+      strict: !!argv.strict,
+      path: '_messages',
     }))
     .pipe(gulp.dest(DIST_DIR + '/elements/'));
 });
@@ -159,45 +160,10 @@ gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
 gulp.task('i18n_index', ['vulcanize'], function() {
-  return gulp.src('index.html')
-    .pipe(i18n_index({
-      langs: [
-        "af",
-        "bg",
-        "ca",
-        "da",
-        "de",
-        "en-GB",
-        "es",
-        "es-419",
-        "et",
-        "fi",
-        "fil",
-        "fr",
-        "fr-CA",
-        "hr",
-        "id",
-        "it",
-        "ja",
-        "lt",
-        "lv",
-        "ml",
-        "no",
-        "pl",
-        "pt-BR",
-        "pt-PT",
-        "ro",
-        "sl",
-        "sv",
-        "ta",
-        "th",
-        "tl",
-        "uk",
-        "vi",
-        "zh-CN",
-        "zh-TW",
-      ],
+  return gulp.src(['index.html', 'about.html'])
+    .pipe(i18n_replace({
       strict: !!argv.strict,
+      path: '_messages',
     }))
     .pipe(gulp.dest(DIST_DIR));
 });
@@ -205,7 +171,6 @@ gulp.task('i18n_index', ['vulcanize'], function() {
 // copy needed assets (images, sounds, polymer elements, etc) to dist directory
 gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
   return gulp.src([
-    'index.html',
     'schedule.html',
     'manifest.json',
     'audio/*',

@@ -6,7 +6,6 @@ var path = require('path');
 var gutil = require('gulp-util');
 
 var REGEX = /<i18n-msg msgid="([^"]*)">([^<]*)<\/i18n-msg>/gm;
-var FILENAME_REGEX = /_en\.html$/
 
 module.exports = function replaceMessages(opts) {
   var warn = warnFunc(opts.strict);
@@ -19,37 +18,50 @@ module.exports = function replaceMessages(opts) {
 
     msgPromise.then(function(messagesByLang) {
       var src = file.contents.toString();
+      var langs = Object.keys(messagesByLang);
+      // Force en to be last. gulp halts execution because we push a file to the
+      // stream with the same path.
+      langs = langs.filter(function(l) { return l != 'en' });
+      langs.push('en');
 
-      for (var lang in messagesByLang) {
+      for (var i = 0; i < langs.length; i++) {
+        var lang = langs[i];
+        var ext = '_' + lang + '.html';
+        if (lang == 'en') {
+          ext = '.html';
+        }
         var msgs = messagesByLang[lang];
         if (!msgs) {
           throw new Error('No messages for lang ' + lang);
         }
 
-        var replaced = src.replace(REGEX, function replacer(match, msgid, tagBody) {
-          var msg = msgs[msgid];
-          if (!msg) {
-            warn('Could not find message ' + msgid + ' for ' + lang);
-            return 'MESSAGE_NOT_FOUND';
-          }
-          if (lang == 'en' && 'PLACEHOLDER_i18n' != tagBody) {
-            throw new Error('i18n-msg body must be "PLACEHOLDER_i18n" for ' + msgid +
-                ' in ' + file.relative);
-          }
-          return msg.message
-        });
+        var replaced = src
+          .replace(/_en\.html/mg, ext)
+          .replace(/lang="en"/, 'lang="' + lang + '"')
+          .replace(REGEX, function replacer(match, msgid, tagBody) {
+            var msg = msgs[msgid];
+            if (!msg) {
+              warn('Could not find message ' + msgid + ' for ' + lang);
+              return 'MESSAGE_NOT_FOUND';
+            }
+            if (lang == 'en' && 'PLACEHOLDER_i18n' != tagBody) {
+              throw new Error('i18n-msg body must be "PLACEHOLDER_i18n" for ' + msgid +
+                  ' in ' + file.relative);
+            }
+            return msg.message
+          });
 
         if (replaced == src) {
           // Don't create a new file if the source didn't change.
           stream.push(file);
           break;
         }
-        if (!file.path.match(FILENAME_REGEX)) {
+        if (!file.path.match(/(index|about|_en)\.html$/)) {
           throw new Error('Files with i18n-msg should end in _en.html: ' + file.relative);
         }
 
         var i18nfile = file.clone();
-        i18nfile.path = file.path.replace(FILENAME_REGEX, '_' + lang + '.html');
+        i18nfile.path = file.path.replace(/(_en)?\.html$/, ext);
         i18nfile.contents = new Buffer(replaced);
 
         stream.push(i18nfile);
