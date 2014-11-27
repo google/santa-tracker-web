@@ -18,8 +18,11 @@ var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/*.js';
 
 // TODO(bckenny): figure out how we're going to populate this
-var PROD_BASE_URL = '***SOME_URL***';
-var STATIC_VERSION = 0;
+var PROD_BASE_URL = 'https://bypass2014-dot-santa-staging.appspot.com/goro-MC42NjcwMTc0MjY1NzQ2MDI3/';
+var STATIC_VERSION = 0 + '/';
+
+// TODO(bckenny): add back in the versioning number once through with testing
+var PROD_URL = PROD_BASE_URL; // + STATIC_VERSION + '/';
 
 // path for files (mostly index_*.html) with short cache periods
 var DIST_DIR = 'dist';
@@ -178,12 +181,12 @@ gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 gulp.task('index-base-url', ['clean'], function() {
   return gulp.src('index.html')
     .pipe(replace('<base href="">',
-        '<base href="' + PROD_BASE_URL + STATIC_VERSION + '/">'))
+        '<base href="' + PROD_URL + '">'))
     .pipe(gulp.dest(DIST_DIR));
 });
 
 gulp.task('i18n_index', ['vulcanize', 'index-base-url'], function() {
-  return gulp.src(['index.html', 'about.html'])
+  return gulp.src([DIST_DIR + '/index.html', 'about.html'])
     .pipe(i18n_replace({
       strict: !!argv.strict,
       path: '_messages',
