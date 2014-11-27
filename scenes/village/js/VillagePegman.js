@@ -7,7 +7,7 @@ function VillagePegman(el) {
 
   this.pegman_ = this.container_.querySelector('#pegman');
 
-  if (santaApp.language == 'en') {
+  if (santaApp.language != 'en') {
     this.pegman_.remove();
   }
 }
