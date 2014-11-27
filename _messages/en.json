@@ -101,6 +101,15 @@
 	"fr_tradition": {
 		"message": "In France, children traditionally put their shoes out next to the fireplace in anticipation of Père Noël's arrival. If children have been good throughout the year, Père Noël will fill the shoes with gifts."
 	},
+	"gameover": {
+		"message": "Game Over!"
+	},
+	"gameover_level": {
+		"message": "You made it to level:"
+	},
+	"gameover_score": {
+		"message": "Your score:"
+	},
 	"getgooglemaps": {
 		"message": "Get Google Maps"
 	},
@@ -250,6 +259,9 @@
 	},
 	"tilt": {
 		"message": "Tilt your device!"
+	},
+	"time": {
+		"message": "Time"
 	},
 	"traditions-next": {
 		"message": "Next Tradition"
@@ -3892,6 +3904,9 @@
 	},
 	"uk_tradition": {
 		"message": "In the United Kingdom, merrymakers of all ages enjoy Christmas crackers on the table at dinner. Crackers are tubes wrapped in colorful paper, with pull tabs on each end. When you pull the tabs, the tube bursts with a loud snap! Inside are paper hats, toys and candy to enjoy during Christmas night."
+	},
+	"upgrade-warning": {
+		"message": "Oops! Santa Tracker isn't supported in this version of your browser. To access Santa Tracker, download a modern browser. For more information visit \u003ca href=\"//whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "United States"
