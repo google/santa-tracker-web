@@ -1,13 +1,11 @@
 <link rel="import" href="../../components/polymer/polymer.html">
 
-<script src="audiocontroller.js"></script>
-
 <!--
 Countdown timer.
 
 @element countdown-timer
 -->
-<polymer-element name="countdown-timer" attributes="santaService countDownEndDate playSounds finished">
+<polymer-element name="countdown-timer" attributes="santaService countDownEndDate finished">
   <template>
     <link rel="stylesheet" href="countdown-timer.css" no-shim>
     <style>
@@ -101,15 +99,6 @@ Countdown timer.
        */
        displayDigits: 8,
 
-      /**
-       * True if the countdown should tick when the numbers flip.
-       *
-       * @attribute playSounds
-       * @type bool
-       * @default false
-       */
-       playSounds: false,
-
        publish: {
         /**
          * True when the countdown has reached `countDownEndDate`.
@@ -135,10 +124,6 @@ Countdown timer.
 
       ready: function() {
         this.currentTime = this.getCurrentTime_();
-
-        if (this.playSounds) {
-          this.audio = new AudioController();
-        }
 
         if (this.render) {
           this.container = this.container || this;
@@ -290,23 +275,6 @@ Countdown timer.
         this.tickTock();
 
         this.tickInterval_ = window.setInterval(this.tickTock.bind(this), 1000);
-      },
-
-      /**
-       * @param {string} url Sound file to load and play.
-       * @param {Function=} opt_callback Optional callback when file is fully loaded.
-       */
-      setAudio: function(url, opt_callback) {
-        if (this.audio && this.audio.isSupported) {
-          this.audio.load(url, opt_callback);
-        }
-      },
-
-      /**
-       * Plays tick sound if audio has been loaded and the Web Audio API is supported.
-       */
-      playTick: function() {
-        this.audio && this.audio.play(0.1);
       },
 
       /**
