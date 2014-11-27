@@ -1,12 +1,14 @@
 /**
  * @constructor
  */
-function Traditions(el, componentDir) {
+function Traditions(el, componentDir, scene) {
   /**
    * @private {Element}
    */
   this.el_ = el;
   this.componentDir = componentDir;
+
+  this.scene_ = scene;
 
   /**
    * @private {string|null}
@@ -128,6 +130,7 @@ Traditions.prototype.onShow = function() {
   this.addCountryMarkers_();
 
   $(window).on('resize.traditions', this.handleResize_.bind(this));
+  this.scene_.async(this.handleResize_.bind(this), 10);
 };
 
 /**
