@@ -84,7 +84,7 @@ Game.prototype.start = function() {
  */
 Game.prototype.destroy = function() {
   if (this.isPlaying) {
-    window.santaApp.fire('analytics-track-game-start', {gameid: 'matching', timePlayed: new Date - this.gameStartTime});
+    window.santaApp.fire('analytics-track-game-quit', {gameid: 'matching', timePlayed: new Date - this.gameStartTime});
   }
   if (this.mismatchTimeout != null) {
     window.clearTimeout(this.mismatchTimeout);
@@ -530,7 +530,7 @@ Game.prototype.updateTime = function() {
 Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverDialog.show(0, this.levelModel.get());
-  window.santaApp.fire('analytics-track-game-start', {
+  window.santaApp.fire('analytics-track-game-over', {
     gameid: 'matching',
     score: this.scoreboard.score,
     level: this.levelModel.get() - 1,
