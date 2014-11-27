@@ -44,16 +44,17 @@
       .marker-tomorrow {
         display: block;
         background-image: url(img/village-comeback-tomorrow.svg);
-        background-position: 50% 10px;
-        height: 115px;
-        width: 120px;
+        background-position: 50% 3px;
+        height: 109px;
+        width: 121px;
         left: 130px;
 
         > * {
           height: 100%;
-          top: 15px;
+          width: 105px;
           left: 3px;
-          @include transform(rotateY(-27deg) rotateX(-4deg));
+          font-size: 14px;
+          font-family: 'Lobster', 'Roboto';
         }
       }
     }
