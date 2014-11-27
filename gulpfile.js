@@ -17,22 +17,22 @@ var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/*.js';
 
-// TODO(bckenny): figure out how we're going to populate this
-var PROD_BASE_URL = 'https://bypass2014-dot-santa-staging.appspot.com/goro-MC42NjcwMTc0MjY1NzQ2MDI3/';
-var STATIC_VERSION = 0 + '/';
-
+// TODO(bckenny|cbro): fill in with default static asset base URL
+var STATIC_BASE_URL = argv.baseurl ? argv.baseurl : '';
+var STATIC_VERSION = 0;
 // TODO(bckenny): add back in the versioning number once through with testing
-var PROD_URL = PROD_BASE_URL; // + STATIC_VERSION + '/';
+var STATIC_URL = argv.pretty ? '' : STATIC_BASE_URL; // + STATIC_VERSION + '/';
+
+var PROD_DIR = 'dist_prod';
+var STATIC_DIR = 'dist_static';
+var PRETTY_DIR = 'dist_pretty';
 
 // path for files (mostly index_*.html) with short cache periods
-var DIST_DIR = 'dist';
+var DIST_PROD_DIR = argv.pretty ? PRETTY_DIR : PROD_DIR;
 
-// TODO(bckenny): add a flag so these are the same and this can still be run out
-// of dist when working locally
 // path for static resources
-var DIST_STATIC_DIR = path.join(
-    (argv.pretty ? 'dist_pretty' : 'dist') + '_static',
-    STATIC_VERSION.toString());
+// TODO(bckenny): add back in the versioning number once through with testing
+var DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : STATIC_DIR; // + '/' + STATIC_VERSION;
 
 // scenes are whitelisted into compilation here
 var SCENE_CLOSURE_CONFIG = {
@@ -54,7 +54,7 @@ var SCENE_CLOSURE_CONFIG = {
 };
 
 gulp.task('clean', function(cleanCallback) {
-  del([DIST_DIR, DIST_STATIC_DIR], cleanCallback);
+  del([PROD_DIR, STATIC_DIR, PRETTY_DIR], cleanCallback);
 });
 
 gulp.task('compass', function() {
@@ -181,17 +181,17 @@ gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 gulp.task('index-base-url', ['clean'], function() {
   return gulp.src('index.html')
     .pipe(replace('<base href="">',
-        '<base href="' + PROD_URL + '">'))
-    .pipe(gulp.dest(DIST_DIR));
+        '<base href="' + STATIC_URL + '">'))
+    .pipe(gulp.dest(DIST_PROD_DIR));
 });
 
 gulp.task('i18n_index', ['vulcanize', 'index-base-url'], function() {
-  return gulp.src([DIST_DIR + '/index.html', 'about.html'])
+  return gulp.src([DIST_PROD_DIR + '/index.html', 'about.html'])
     .pipe(i18n_replace({
       strict: !!argv.strict,
       path: '_messages',
     }))
-    .pipe(gulp.dest(DIST_DIR));
+    .pipe(gulp.dest(DIST_PROD_DIR));
 });
 
 // copy needed assets (images, sounds, polymer elements, etc) to dist directory
