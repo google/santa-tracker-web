@@ -37,7 +37,7 @@ app.Game = function(elem) {
   this.startOnReady = false;
 
   // For IE 10 that does not support pointer-event: none.
-  if (Modernizr.csspointerevents !== true && Modernizr.csspointerevents != null) {
+  if (Modernizr.pointerevents !== true && Modernizr.pointerevents != null) {
     this.bgElem.prependTo(this.sceneElem);
   }
 
