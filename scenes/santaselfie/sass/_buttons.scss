@@ -1,0 +1,19 @@
+##{$name} {
+  .Buttons {
+    bottom: 20em;
+    display: flex;
+    position: absolute;
+    right: 60em;
+    z-index: 1;
+  }
+
+  .Button {
+    margin-right: 15px;
+  }
+
+  .Button--reset {
+    background-image: url(img/icons/reset.svg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+  }
+}
