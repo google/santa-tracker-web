@@ -18,11 +18,6 @@ function Traditions(el, componentDir) {
    */
   this.markers_ = {};
 
-  /**
-   * @private
-   */
-  this.visible_ = false;
-
   this.setup();
 }
 
@@ -65,9 +60,7 @@ Traditions.prototype.setup = function() {
   this.markerBounds_ = new google.maps.LatLngBounds();
 };
 
-Traditions.prototype.onShow = function() {
-  this.visible_ = true;
-
+Traditions.prototype.onShow = function() {  
   this.map_ = new google.maps.Map(this.el_.querySelector('#traditions-map'), {
     center: new google.maps.LatLng(0, 0),
     zoom: 1,
@@ -296,10 +289,13 @@ Traditions.prototype.showDefault_ = function() {
 };
 
 Traditions.prototype.onHide = function() {
-  this.el_ = null;
-  this.map_ = null;
+  if (this.currentId_) {
+    var marker = this.markers_[this.currentId_].marker;
+    marker.setIcon(this.markers_[this.currentId_].smallIcon);
+    this.getCountryEl(this.currentId_).removeClass('tradition-active');
+  }
+
   this.currentId_ = null;
-  this.visible_ = false;
 
   $(window).off('resize.traditions');
 };
