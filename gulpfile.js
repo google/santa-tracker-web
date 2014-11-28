@@ -188,7 +188,7 @@ gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
 gulp.task('i18n_index', ['vulcanize'], function() {
-  return gulp.src(['index.html', 'about.html'])
+  return gulp.src(['index.html'])
     .pipe(replace('<base href="">',
         '<base href="' + STATIC_URL + '">'))
     .pipe(i18n_replace({

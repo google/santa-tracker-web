@@ -56,7 +56,7 @@ module.exports = function replaceMessages(opts) {
           stream.push(file);
           break;
         }
-        if (!file.path.match(/(index|about|_en)\.html$/)) {
+        if (!file.path.match(/(index|_en)\.html$/)) {
           throw new Error('Files with i18n-msg should end in _en.html: ' + file.relative);
         }
 
