@@ -1,11 +1,5 @@
 (function() {
 
-var DEFAULT_ROUTE = 'village';
-var TRACKER_ROUTE = 'tracker';
-var VALID_ROUTES = [];
-
-var template = document.querySelector('#t');
-
 window.santatracker = {};
 
 window.santatracker.setup = function() {
@@ -17,62 +11,7 @@ window.santatracker.setup = function() {
   }
 
   window.santatracker.setupForCast();
-
-  template.addEventListener('template-bound', function(e) {
-    window.santaApp = document.querySelector('santa-app');
-    I18nMsg.lang = santaApp.language; // Set locale for entire site (e.g. i18n-msg elements).
-  });
-
-  template.onRouteChange = function(e) {
-    var route = e.detail;
-
-    if (!route) {
-      this.route = window.santaApp.postCountdown ? TRACKER_ROUTE : DEFAULT_ROUTE;
-      return;
-    }
-
-    // Special case certain routes. The rest are handled by lazy-pages.
-    switch (route) {
-      case 'now':
-        this.route = 'village';
-        break;
-      default:
-        this.validateRoute();
-    }
-
-    window.santaApp.fire('analytics-track-pageview', {path: '/' + this.route});
-  };
-
-  template.validateRoute = function() {
-    // Ideally, we'd init VALID_ROUTES on page load, but the auto-binding
-    // template needs to be activate first and onRouteChange() is called
-    // right away.
-    if (!VALID_ROUTES.length) {
-      var scenes = document.querySelector('lazy-pages').items;
-      VALID_ROUTES = scenes.map(function(el, i) {
-        // Note: can't use .route b/c some scene elements won't be upgraded yet.
-        return el.getAttribute('route');
-      });
-    }
-
-    if (window.santaApp.scheduleChecked != undefined) {
-      var valid = (VALID_ROUTES.indexOf(this.route) != -1 &&
-                   window.santaApp.sceneIsUnlocked(this.route)) ||
-                   (window.santaApp.postCountdown && this.route == TRACKER_ROUTE);
-      if (!valid) {
-        this.route = DEFAULT_ROUTE;
-      }
-    }
-  };
-
 };
-
-document.addEventListener('santa-schedule-first-check', function(e) {
-  if (!template.route) {
-    return;
-  }
-  template.validateRoute();
-});
 
 window.santatracker.isValidDomain = function() {
   if (window['DEV']) return true;
@@ -143,8 +82,14 @@ window.santatracker.addErrorHandler = function() {
   };
 };
 
+window.santaApp = document.querySelector('santa-app');
+
+// Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
 document.addEventListener('HTMLImportsLoaded', function() {
-  window.santatracker.setup();
+  I18nMsg.lang = document.documentElement.lang || 'es'; // Set locale for entire site (e.g. i18n-msg elements).
+  window.santaApp.language = I18nMsg.lang;
 });
+
+window.santatracker.setup();
 
 })();

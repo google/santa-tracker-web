@@ -36,110 +36,13 @@
 </head>
 <body unresolved fullbleed>
 
-<template is="auto-binding" id="t">
-
-<santa-app id="santaApp" selectedScene="{{selectedScene}}">
-
-  <!-- Route controller -->
-  <flatiron-director route="{{route}}" on-director-route="{{onRouteChange}}" autoHash></flatiron-director>
-
-  <!-- Preloading scene overlay -->
-  <preload-overlay value="{{selectedScene.preloadProgress || 0}}"
-                   active?="{{selectedScene && !selectedScene.loaded}}"></preload-overlay>
-
-  <lazy-pages id="lazypages" selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route"
-              santaApp="{{$.santaApp}}">
-    <!--
-      Note: we can data bind on calendar-nav because its definition is loaded
-      at pageload. The other scenes are lazy loaded and the bindings would be
-      incorrect. mode is bindable on village-scene because it's an
-      string (not an object) and the one-way bindings are good with that.
-    -->
-    <calendar-nav route="calendar" alwaysActive
-        houses="{{$.santaApp.houses}}" santaApp="{{$.santaApp}}"
-        loadingBgColor="#7847b2"
-        hidden?="{{$.santaApp.mode == 'cast'}}"></calendar-nav>
-
-    <village-scene route="village"
-        path="scenes/village/village-scene_en.html"
-        mode="{{$.santaApp.mode}}" hidden></village-scene>
-
-    <airport-scene route="airport"
-        path="scenes/airport/airport-scene_en.html"
-        loadingBgColor="rgb(129,208,0)" hidden></airport-scene>
-
-    <boatload-scene route="boatload"
-        path="scenes/boatload/boatload-scene_en.html"
-        loadingBgColor="#28b5f5"
-        loadingSrc="scenes/boatload/img/loading.gif" hidden></boatload-scene>
-
-    <briefing-scene route="briefing"
-        path="scenes/briefing/briefing-scene_en.html"
-        loadingBgColor="'rgb(129,208,0)" hidden></briefing-scene>
-
-    <gumball-scene route="gumball"
-        path="scenes/gumball/gumball-scene_en.html"
-        loadingBgColor="#914295"
-        loadingSrc="scenes/gumball/img/loading.gif" hidden></gumball-scene>
-
-    <matching-scene route="matching"
-        path="scenes/matching/matching-scene_en.html"
-        loadingBgColor="#b27644"
-        loadingSrc="scenes/matching/img/loading.gif" hidden></matching-scene>
-    
-    <mercator-scene route="mercator"
-        path="scenes/mercator/mercator-scene_en.html"
-        loadingBgColor="rgb(251,191,44)"
-        loadingSrc="scenes/mercator/img/loading.svg" hidden></mercator-scene>
-
-    <presentdrop-scene route="presentdrop"
-        path="scenes/presentdrop/presentdrop-scene_en.html"
-        loadingBgColor="rgb(251, 191, 44)"
-        loadingSrc="scenes/presentdrop/img/loading.gif" hidden></presentdrop-scene>
-
-    <racer-scene route="racer"
-        path="scenes/racer/racer-scene_en.html"
-        loadingBgColor="#8fd7f7"
-        loadingSrc="scenes/racer/img/loading.gif" hidden></racer-scene>
-
-    <workshop-scene route="workshop"
-        path="scenes/workshop/workshop-scene.html"
-        loadingBgColor="rgb(129,208,0)" hidden></workshop-scene>
-
-    <windtunnel-scene route="windtunnel"
-        path="scenes/windtunnel/windtunnel-scene.html" hidden
-        loadingBgColor="rgb(129,208,0)"></windtunnel-scene>
-
-    <rollercoaster-scene route="rollercoaster"
-        path="scenes/rollercoaster/rollercoaster-scene.html" hidden></rollercoaster-scene>
-
-    <undersea-scene route="undersea"
-        path="scenes/undersea/undersea-scene.html" hidden></undersea-scene>
-
-    <traditions-scene route="traditions"
-        path="scenes/traditions/traditions-scene_en.html"
-        loadingBgColor="rgb(255,224,0)"
-        loadingSrc="scenes/traditions/img/loading.gif" hidden></traditions-scene>
-
-    <trailer-scene route="trailer"
-        path="scenes/trailer/trailer-scene_en.html"
-        loadingBgColor="rgb(129,208,0)" hidden></trailer-scene>
-
-    <about-scene route="about"
-        path="scenes/about/about-scene_en.html"
-        loadingBgColor="rgb(129,208,0)" hidden></about-scene>
-
-  </lazy-pages>
-
-</santa-app>
-
-</template>
+<santa-app id="santaApp"></santa-app>
 
 <div id="preload_placeholder"></div>
 
 <script src="js/santatracker.js"></script>
 
-<!-- TODO(bckenny): remove fro prod. -->
+<!-- TODO(bckenny,cbro): remove fro prod. -->
 <script>
 window.DEV = true;
 

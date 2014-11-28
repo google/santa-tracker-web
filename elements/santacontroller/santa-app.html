@@ -1,5 +1,10 @@
 <link rel="import" href="../../components/polymer/polymer.html">
 
+<link rel="import" href="../../components/flatiron-director/flatiron-director.html">
+<link rel="import" href="../preloader/preload-overlay.html">
+<link rel="import" href="../calendar/calendar-nav.html">
+<link rel="import" href="../lazy-pages.html">
+
 <!-- Analytics -->
 <script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
 
@@ -13,9 +18,8 @@
 <script src="../../js/soundcontroller.js"></script>
 <script src="chromecast.js"></script>
 
-<script src="../../js/statuses/picker.js"></script>
-
 <!-- Santa API -->
+<script src="../../js/statuses/picker.js"></script>
 <script src="../../js/service/events.js"></script>
 <script src="../../js/service/lat_lng.js"></script>
 <script src="../../js/service/spherical.js"></script>
@@ -33,15 +37,107 @@ Santa Track app.
 
 @element santa-app
 -->
-<polymer-element name="santa-app" attributes="language selectedScene"
+<polymer-element name="santa-app"
                  on-analytics-track-pageview="{{trackPageview}}"
                  on-analytics-track-event="{{trackEvent}}"
                  on-analytics-track-social="{{trackSocial}}"
                  on-analytics-track-game-start="{{trackGameStart}}"
                  on-analytics-track-game-quit="{{trackGameQuit}}"
                  on-analytics-track-game-over="{{trackGameOver}}">
+<template>
+  <!-- Route controller -->
+  <flatiron-director route="{{route}}" autoHash></flatiron-director>
+
+  <!-- Preloading scene overlay -->
+  <preload-overlay id="preloader" value="{{selectedScene.preloadProgress || 0}}"
+                   active?="{{selectedScene && !selectedScene.loaded}}"></preload-overlay>
+
+  <lazy-pages id="lazypages" selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route"
+              santaApp="{{}}" preloader="{{$.preloader}}">
+
+    <calendar-nav route="calendar" alwaysActive
+        houses="{{$.santaApp.houses}}" santaApp="{{$.santaApp}}"
+        loadingBgColor="#7847b2"
+        hidden?="{{$.santaApp.mode == 'cast'}}"></calendar-nav>
+
+    <village-scene route="village"
+        path="scenes/village/village-scene_en.html"
+        mode="{{$.santaApp.mode}}" hidden></village-scene>
+
+    <airport-scene route="airport"
+        path="scenes/airport/airport-scene_en.html"
+        loadingBgColor="rgb(129,208,0)" hidden></airport-scene>
+
+    <boatload-scene route="boatload"
+        path="scenes/boatload/boatload-scene_en.html"
+        loadingBgColor="#28b5f5"
+        loadingSrc="scenes/boatload/img/loading.gif" hidden></boatload-scene>
+
+    <briefing-scene route="briefing"
+        path="scenes/briefing/briefing-scene_en.html"
+        loadingBgColor="'rgb(129,208,0)" hidden></briefing-scene>
+
+    <gumball-scene route="gumball"
+        path="scenes/gumball/gumball-scene_en.html"
+        loadingBgColor="#914295"
+        loadingSrc="scenes/gumball/img/loading.gif" hidden></gumball-scene>
+
+    <matching-scene route="matching"
+        path="scenes/matching/matching-scene_en.html"
+        loadingBgColor="#b27644"
+        loadingSrc="scenes/matching/img/loading.gif" hidden></matching-scene>
+
+    <mercator-scene route="mercator"
+        path="scenes/mercator/mercator-scene_en.html"
+        loadingBgColor="rgb(251,191,44)"
+        loadingSrc="scenes/mercator/img/loading.svg" hidden></mercator-scene>
+
+    <presentdrop-scene route="presentdrop"
+        path="scenes/presentdrop/presentdrop-scene_en.html"
+        loadingBgColor="rgb(251, 191, 44)"
+        loadingSrc="scenes/presentdrop/img/loading.gif" hidden></presentdrop-scene>
+
+    <racer-scene route="racer"
+        path="scenes/racer/racer-scene_en.html"
+        loadingBgColor="#8fd7f7"
+        loadingSrc="scenes/racer/img/loading.gif" hidden></racer-scene>
+
+    <workshop-scene route="workshop"
+        path="scenes/workshop/workshop-scene.html"
+        loadingBgColor="rgb(129,208,0)" hidden></workshop-scene>
+
+    <windtunnel-scene route="windtunnel"
+        path="scenes/windtunnel/windtunnel-scene.html" hidden
+        loadingBgColor="rgb(129,208,0)"></windtunnel-scene>
+
+    <rollercoaster-scene route="rollercoaster"
+        path="scenes/rollercoaster/rollercoaster-scene.html" hidden></rollercoaster-scene>
+
+    <undersea-scene route="undersea"
+        path="scenes/undersea/undersea-scene.html" hidden></undersea-scene>
+
+    <traditions-scene route="traditions"
+        path="scenes/traditions/traditions-scene_en.html"
+        loadingBgColor="rgb(255,224,0)"
+        loadingSrc="scenes/traditions/img/loading.gif" hidden></traditions-scene>
+
+    <trailer-scene route="trailer"
+        path="scenes/trailer/trailer-scene_en.html"
+        loadingBgColor="rgb(129,208,0)" hidden></trailer-scene>
+
+    <about-scene route="about"
+        path="scenes/about/about-scene_en.html"
+        loadingBgColor="rgb(129,208,0)" hidden></about-scene>
+
+  </lazy-pages>
+</template>
 <script>
 (function() {
+
+var DEFAULT_ROUTE_ = 'village';
+var TRACKER_ROUTE_ = 'tracker';
+var VALID_ROUTES_ = [];
+var WHITELISTED_ROUTES_ = ['village', 'calendar', 'about']; // routes which are always accessible, no matter what the day.
 
 // Check if date1 is the same date as date2.
 function isSameDay_(date1, date2) {
@@ -59,7 +155,7 @@ Polymer(Polymer.mixin({
    * @type number
    * @default null
    */
-   countDownEndDate: null,
+  countDownEndDate: null,
 
   /**
    * When Santa's flight is finished.
@@ -83,7 +179,7 @@ Polymer(Polymer.mixin({
   /**
    * The current language locale.
    *
-   * @attribute language
+   * @property language
    * @type string
    * @default 'en'
    */
@@ -92,7 +188,7 @@ Polymer(Polymer.mixin({
   /**
    * The currently open scene.
    *
-   * @attribute selectedScene
+   * @property selectedScene
    * @type Element
    * @default null
    */
@@ -106,6 +202,15 @@ Polymer(Polymer.mixin({
    * @default null
    */
   prevSelectedScene: null,
+
+  /**
+   * Current URL route.
+   *
+   * @attribute route
+   * @type string
+   * @default null
+   */
+  route: null,
 
   /**
    * Analytics service.
@@ -139,8 +244,9 @@ Polymer(Polymer.mixin({
    *
    * @property scheduleChecked
    * @type bool
-   * @default undefined
+   * @default false
    */
+  scheduleChecked: false,
 
   publish: {
     /**
@@ -209,12 +315,23 @@ Polymer(Polymer.mixin({
       }.bind(this));
     }
 
+    // Set post countdown/post flight flags based on current time.
     if (this.santaService.now() > this.countDownEndDate) {
       if (this.santaService.now() < this.FLIGHT_FINISHED) {
         this.postCountdown = true;
       } else {
         this.postFlight = true;
       }
+    }
+
+    // Initialize routes.
+    VALID_ROUTES_ = this.$.lazypages.items.map(function(el, i) {
+      // Note: can't use .route b/c some scene elements won't be upgraded yet.
+      return el.getAttribute('route');
+    });
+
+    if (!this.route) {
+      this.route = this.postCountdown ? TRACKER_ROUTE_ : DEFAULT_ROUTE_;
     }
   },
 
@@ -224,6 +341,36 @@ Polymer(Polymer.mixin({
 
   selectedSceneChanged: function(oldVal, newVal) {
     this.prevSelectedScene = oldVal;
+  },
+
+  scheduleCheckedChanged: function() {
+    if (this.scheduleChecked) {
+      this.validateRoute();
+    }
+  },
+
+  routeChanged: function() {
+    // Special case certain routes. The rest are handled by lazy-pages.
+    switch (this.route) {
+      case 'now':
+        this.route = 'village';
+        break;
+      default:
+        this.validateRoute();
+    }
+
+    this.fire('analytics-track-pageview', {path: '/' + this.route});
+  },
+
+  validateRoute: function() {
+    if (this.scheduleChecked) {
+      var valid = (VALID_ROUTES_.indexOf(this.route) != -1 &&
+                   this.sceneIsUnlocked(this.route)) ||
+                   (this.postCountdown && this.route == TRACKER_ROUTE_);
+      if (!valid) {
+        this.route = DEFAULT_ROUTE_;
+      }
+    }
   },
 
   // TODO(bckenny): can also add a paused attribute in case anything wants to
@@ -328,10 +475,16 @@ Polymer(Polymer.mixin({
         return !house.iced;
       }
     }
+<<<<<<< HEAD
     // Certain scenes don't have associated houses. Whitelist them.
     if (['village', 'calendar', 'about'].indexOf(moduleName) != -1) {
+=======
+
+    if (WHITELISTED_ROUTES_.indexOf(moduleName) != -1) {
+>>>>>>> Move entire app into santa-app
       return true;
     }
+
     return false;
   },
 
@@ -387,7 +540,6 @@ Polymer(Polymer.mixin({
 
     if (opt_once) {
       this.scheduleChecked = true;
-      this.fire('santa-schedule-first-check');
       return;
     }
 
