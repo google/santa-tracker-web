@@ -56,13 +56,13 @@ Santa Track app.
               santaApp="{{}}" preloader="{{$.preloader}}">
 
     <calendar-nav route="calendar" alwaysActive
-        houses="{{$.santaApp.houses}}" santaApp="{{$.santaApp}}"
+        houses="{{houses}}" santaApp="{{}}"
         loadingBgColor="#7847b2"
-        hidden?="{{$.santaApp.mode == 'cast'}}"></calendar-nav>
+        hidden?="{{mode == 'cast'}}"></calendar-nav>
 
     <village-scene route="village"
         path="scenes/village/village-scene_en.html"
-        mode="{{$.santaApp.mode}}" hidden></village-scene>
+        mode="{{mode}}" hidden></village-scene>
 
     <airport-scene route="airport"
         path="scenes/airport/airport-scene_en.html"
