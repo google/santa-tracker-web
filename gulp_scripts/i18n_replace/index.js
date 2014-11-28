@@ -4,6 +4,7 @@ var dir = require('node-dir');
 var through = require('through2');
 var path = require('path');
 var gutil = require('gulp-util');
+var format = require('sprintf-js').sprintf;
 
 var REGEX = /<i18n-msg msgid="([^"]*)">([^<]*)<\/i18n-msg>/gm;
 
@@ -14,7 +15,7 @@ module.exports = function replaceMessages(opts) {
   var stream = through.obj(function(file, enc, cb) {
     // TODO(cbro): only read HTML files.
     if (file.isNull()) return stream.push(file);
-    if (file.isStream()) throw new Error('No support for streams');
+    if (file.isStream()) error('No support for streams');
 
     msgPromise.then(function(messagesByLang) {
       var src = file.contents.toString();
@@ -26,27 +27,23 @@ module.exports = function replaceMessages(opts) {
 
       for (var i = 0; i < langs.length; i++) {
         var lang = langs[i];
-        var ext = '_' + lang + '.html';
-        if (lang == 'en') {
-          ext = '.html';
-        }
         var msgs = messagesByLang[lang];
         if (!msgs) {
-          throw new Error('No messages for lang ' + lang);
+          error('No messages for lang: %s', lang);
         }
 
+        var ext = '_' + lang + '.html';
         var replaced = src
-          .replace(/_en\.html/mg, ext)
           .replace(/lang="en"/, 'lang="' + lang + '"')
+          .replace(/_en\.html/mg, ext)
           .replace(REGEX, function replacer(match, msgid, tagBody) {
             var msg = msgs[msgid];
             if (!msg) {
-              warn('Could not find message ' + msgid + ' for ' + lang);
-              return 'MESSAGE_NOT_FOUND';
+              warn('[%s %6s] Could not find message %s.', file.relative, lang, msgid);
+              return messagesByLang.en[msgid] || 'MESSAGE_NOT_FOUND';
             }
             if (lang == 'en' && 'PLACEHOLDER_i18n' != tagBody) {
-              throw new Error('i18n-msg body must be "PLACEHOLDER_i18n" for ' + msgid +
-                  ' in ' + file.relative);
+              error('i18n-msg body must be "PLACEHOLDER_i18n" for %s in %s', msgid, file.relative);
             }
             return msg.message
           });
@@ -56,12 +53,18 @@ module.exports = function replaceMessages(opts) {
           stream.push(file);
           break;
         }
-        if (!file.path.match(/(index|_en)\.html$/)) {
-          throw new Error('Files with i18n-msg should end in _en.html: ' + file.relative);
+        if (!file.path.match(/(index|error|upgrade|_en)\.html$/)) {
+          error('[%s] Files with i18n-msg should end in _en.html', file.relative);
         }
 
+        var dir = '/';
+        // Only root pages should go in /intl/ directories.
+        if (!file.path.match(/_en\.html$/)) {
+          dir = '/intl/' + lang + '_ALL/';
+        }
         var i18nfile = file.clone();
-        i18nfile.path = file.path.replace(/(_en)?\.html$/, ext);
+        i18nfile.path = path.dirname(file.path) + dir +
+            path.basename(file.path).replace(/_en.html$/, ext);
         i18nfile.contents = new Buffer(replaced);
 
         stream.push(i18nfile);
@@ -110,11 +113,17 @@ function getMsgs(msgDir) {
 }
 
 function warnFunc(strict) {
-  return function(message) {
+  return function(var_args) {
+    var message = format.apply(this, arguments);
     if (strict) {
-      throw new Error(message);
+      throw new gutil.PluginError('i18n_replace', message);
     } else {
       gutil.log('WARNING[i18n_replace]:', message);
     }
   }
+}
+
+function error(var_args) {
+  var message = format.apply(this, arguments);
+  throw new gutil.PluginError('i18n_replace', message);
 }
