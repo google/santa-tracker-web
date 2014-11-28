@@ -6,7 +6,7 @@ window.HOUSES = [{
   module: "airport",
   iced: false,
   launchDate: new Date('Dec 1, 2014'),
-  category: "scene",
+  category: "play",
   elves: {
     melt: [
     "elf-green",
@@ -41,22 +41,22 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "intro",
+  module: "traditions",
   iced: false,
   launchDate: new Date('Dec 1, 2014'),
-  category: "play",
+  category: "learn",
   elves: {
     melt: [
-    "elf-purple-right",
     "elf-red",
-    "elf-green",
-    "elf-blue-left"
+    "elf-blue",
+    "elf-orange-girl-left",
+    "elf-red"
     ],
     snow: [
-    "elf-purple-right",
-    "elf-red-snow-hide",
-    "elf-green-snow",
-    "elf-blue-left"
+    "elf-red-snow",
+    "elf-blue",
+    "elf-orange-girl-snow-left",
+    "elf-red-snow"
     ]
   }
 }, {
@@ -75,24 +75,25 @@ window.HOUSES = [{
     "elf-red-snow",
     "elf-blue-snow-hide"
     ]
-  }
+  },
+  link: 'https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker'
 }, {
-  module: "selfie",
+  module: "trailer",
   iced: true,
-  category: "play",
   launchDate: new Date('Dec 2, 2014'),
+  category: "watch",
   elves: {
     melt: [
+    "elf-purple-right",
+    "elf-red",
     "elf-green",
-    "elf-purple",
-    "elf-orange-left",
-    "elf-red-girl-right"
+    "elf-blue-left"
     ],
     snow: [
-    "elf-green-snow-hide",
-    "elf-purple-snow",
-    "elf-orange-left",
-    "elf-red-girl-snow-right"
+    "elf-purple-right",
+    "elf-red-snow-hide",
+    "elf-green-snow",
+    "elf-blue-left"
     ]
   }
 }, {
@@ -168,48 +169,48 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "streetview",
+  module: "gumball",
   iced: true,
   launchDate: new Date('Dec 7, 2014'),
   category: "play",
   elves: {
     melt: [
-    "elf-orange-girl-right",
-    "elf-blue",
     "elf-red-girl-left",
-    "elf-green"
-    ],
-    snow: [
-    "elf-orange-girl-snow-right",
-    "elf-blue-snow",
-    "elf-red-girl-snow-left",
-    "elf-green"
-    ]
-  }
-}, {
-  module: "jamband",
-  iced: true,
-  launchDate: new Date('Dec 8, 2014'),
-  category: "code",
-  elves: {
-    melt: [
-    "elf-red",
-    "elf-purple",
-    "elf-orange-left",
+    "elf-orange",
+    "elf-orange-right",
     "elf-blue"
     ],
     snow: [
-    "elf-red",
-    "elf-purple",
-    "elf-orange-snow-left",
-    "elf-blue-snow-hide"
+    "elf-red-girl-snow-left",
+    "elf-orange",
+    "elf-orange-snow-right",
+    "elf-blue-snow"
+    ]
+  }
+}, {
+  module: "jetpack",
+  iced: true,
+  launchDate: new Date('Dec 8, 2014'),
+  category: "play",
+  elves: {
+    melt: [
+    "elf-green",
+    "elf-green-girl-left",
+    "elf-orange",
+    "elf-red-girl-right"
+    ],
+    snow: [
+    "elf-green",
+    "elf-green-girl-snow-left",
+    "elf-orange-snow",
+    "elf-red-snow-left"
     ]
   }
 }, {
   module: "codelab",
   iced: true,
   launchDate: new Date('Dec 9, 2014'),
-  category: "listen",
+  category: "learn",
   elves: {
     melt: [
     "elf-green-girl-left",
@@ -225,50 +226,10 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "translations",
-  iced: true,
-  launchDate: new Date('Dec 10, 2014'),
-  category: "watch",
-  elves: {
-    melt: [
-    "elf-green",
-    "elf-blue",
-    "elf-orange-girl-left",
-    "elf-red",
-    "elf-purple-right"
-    ],
-    snow: [
-    "elf-gree",
-    "elf-blue",
-    "elf-orange-girl-snow-left",
-    "elf-red-snow-hide",
-    "elf-purple-snow-right"
-    ]
-  }
-}, {
-  module: "video",
-  iced: true,
-  launchDate: new Date('Dec 11, 2014'),
-  category: "play",
-  elves: {
-    melt: [
-    "elf-green-girl-right",
-    "elf-red",
-    "elf-purple-left",
-    "elf-purple"
-    ],
-    snow: [
-    "elf-green-girl-right",
-    "elf-red-snow",
-    "elf-purple-snow-left",
-    "elf-purple-snow"
-    ]
-  }
-}, {
   module: "mercator",
   iced: true,
-  launchDate: new Date('Dec 12, 2014'),
-  category: "play",
+  launchDate: new Date('Dec 10, 2014'),
+  category: "learn",
   elves: {
     melt: [
     "elf-red-girl-right",
@@ -284,7 +245,45 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "controlroom",
+  module: "santaselfie",
+  iced: true,
+  category: "play",
+  launchDate: new Date('Dec 11, 2014'),
+  elves: {
+    melt: [
+    "elf-green",
+    "elf-purple",
+    "elf-orange-left",
+    "elf-red-girl-right"
+    ],
+    snow: [
+    "elf-green-snow-hide",
+    "elf-purple-snow",
+    "elf-orange-left",
+    "elf-red-girl-snow-right"
+    ]
+  }
+}, {
+  module: "jamband",
+  iced: true,
+  launchDate: new Date('Dec 12, 2014'),
+  category: "play",
+  elves: {
+    melt: [
+    "elf-red",
+    "elf-purple",
+    "elf-orange-left",
+    "elf-blue"
+    ],
+    snow: [
+    "elf-red",
+    "elf-purple",
+    "elf-orange-snow-left",
+    "elf-blue-snow-hide"
+    ]
+  }
+}, {
+  module: "commandcentre",
   iced: true,
   launchDate: new Date('Dec 13, 2014'),
   category: "play",
@@ -303,7 +302,7 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "play",
+  module: "playground",
   iced: true,
   launchDate: new Date('Dec 14, 2014'),
   category: "play",
@@ -322,10 +321,10 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "charity",
+  module: "seasonofgiving",
   iced: true,
   launchDate: new Date('Dec 15, 2014'),
-  category: "draw",
+  category: "learn",
   elves: {
     melt: [
     "elf-green-girl-left",
@@ -341,29 +340,29 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "jetpack",
+  module: "carpool",
   iced: true,
   launchDate: new Date('Dec 16, 2014'),
-  category: "play",
+  category: "watch",
   elves: {
     melt: [
-    "elf-green",
-    "elf-green-girl-left",
-    "elf-orange",
-    "elf-red-girl-right"
+    "elf-green-girl-right",
+    "elf-red",
+    "elf-purple-left",
+    "elf-purple"
     ],
     snow: [
-    "elf-green",
-    "elf-green-girl-snow-left",
-    "elf-orange-snow",
-    "elf-red-snow-left"
+    "elf-green-girl-right",
+    "elf-red-snow",
+    "elf-purple-snow-left",
+    "elf-purple-snow"
     ]
   }
 }, {
-  module: "candy",
+  module: "factory",
   iced: true,
   launchDate: new Date('Dec 17, 2014'),
-  category: "watch",
+  category: "play",
   elves: {
     melt: [
     "elf-red-girl-right",
@@ -382,7 +381,7 @@ window.HOUSES = [{
   module: "postcard",
   iced: true,
   launchDate: new Date('Dec 18, 2014'),
-  category: "send",
+  category: "play",
   elves: {
     melt: [
     "elf-green",
@@ -398,28 +397,49 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "traditions",
+  module: "streetview",
   iced: true,
   launchDate: new Date('Dec 19, 2014'),
+  category: "play",
+  elves: {
+    melt: [
+    "elf-orange-girl-right",
+    "elf-blue",
+    "elf-red-girl-left",
+    "elf-green"
+    ],
+    snow: [
+    "elf-orange-girl-snow-right",
+    "elf-blue-snow",
+    "elf-red-girl-snow-left",
+    "elf-green"
+    ]
+  }
+}, {
+  module: "translations",
+  iced: true,
+  launchDate: new Date('Dec 20, 2014'),
   category: "learn",
   elves: {
     melt: [
-    "elf-red",
+    "elf-green",
     "elf-blue",
     "elf-orange-girl-left",
-    "elf-red"
+    "elf-red",
+    "elf-purple-right"
     ],
     snow: [
-    "elf-red-snow",
+    "elf-gree",
     "elf-blue",
     "elf-orange-girl-snow-left",
-    "elf-red-snow"
+    "elf-red-snow-hide",
+    "elf-purple-snow-right"
     ]
   }
 }, {
   module: "windtunnel",
   iced: true,
-  launchDate: new Date('Dec 20, 2014'),
+  launchDate: new Date('Dec 21, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -436,29 +456,10 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "gumball",
-  iced: true,
-  launchDate: new Date('Dec 21, 2014'),
-  category: "play",
-  elves: {
-    melt: [
-    "elf-red-girl-left",
-    "elf-orange",
-    "elf-orange-right",
-    "elf-blue"
-    ],
-    snow: [
-    "elf-red-girl-snow-left",
-    "elf-orange",
-    "elf-orange-snow-right",
-    "elf-blue-snow"
-    ]
-  }
-}, {
   module: "citylights",
   iced: true,
   launchDate: new Date('Dec 22, 2014'),
-  category: "play",
+  category: "learn",
   elves: {
     melt: [
     "elf-green-girl-right",
@@ -474,7 +475,7 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "santa",
+  module: "liftoff",
   iced: true,
   launchDate: new Date('Dec 23, 2014'),
   category: "watch",

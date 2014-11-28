@@ -1,16 +1,11 @@
 $name: 'module-matching';
-
 $color-blue-sky: #80c0dd;
-$scoreboard-bg: #00974a;
-$scoreboard-score-bg: #008e46;
-$scoreboard-score-border: #038744;
-$scoreboard-tracker-bg: #048242;
-$scoreboard-tracker-fg: #05723b;
-$scoreboard-buttons: #22b129;
+$gameover-bg: #b27644;
+$rotate-bg: $gameover-bg;
 
 @import "../shared/sass/levelup";
 @import "../shared/sass/gameover";
-@import "../shared/sass/scoreboard";
+@import "../shared/sass/board";
 @import "../shared/sass/startbutton";
 @import "../shared/sass/rotate";
 @import "../shared/sass/tutorial";
@@ -44,10 +39,6 @@ $scoreboard-buttons: #22b129;
     z-index: 2;
   }
 
-  .scoreboard {
-    z-index: 12;
-  }
-
   .door-target {
     z-index: 11;
   }
@@ -56,7 +47,6 @@ $scoreboard-buttons: #22b129;
     z-index: 13;
   }
 
-  .gameover,
   .levelup,
   .levelup--number,
   .levelcomplete {
@@ -83,14 +73,9 @@ $scoreboard-buttons: #22b129;
 
   .sky {
     position: absolute;
-    top: -100%;
-    height: 100%;
+    top: 0;
+    height: 50%;
     width: 100%;
-    margin-top: -600px;
-  }
-
-  .cloud {
-    background: transparent url(img/cloud.svg) 0 0 no-repeat;
   }
 
   // Pausing the game pauses all important animations.

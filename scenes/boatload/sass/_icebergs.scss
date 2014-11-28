@@ -1,0 +1,43 @@
+##{$name} {
+  .iceberg {
+    background-repeat: no-repeat;
+    position: absolute;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .iceberg--1 {
+    background-image: url(img/iceberg1.svg);
+    height: 161px;
+    width: 97px;
+  }
+
+  .iceberg--2 {
+    background-image: url(img/iceberg2.svg);
+    height: 57px;
+    width: 49px;
+  }
+
+  .iceberg--3 {
+    background-image: url(img/iceberg3.svg);
+    height: 119px;
+    width: 110px;
+  }
+
+  .iceberg--4 {
+    background-image: url(img/iceberg4.svg);
+    height: 73px;
+    width: 62px;
+  }
+
+  .iceberg--5 {
+    background-image: url(img/iceberg5.svg);
+    height: 123px;
+    width: 94px;
+  }
+
+  .iceberg--6 {
+    background-image: url(img/iceberg6.svg);
+    height: 86px;
+    width: 94px;
+  }
+}

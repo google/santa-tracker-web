@@ -21,7 +21,6 @@ Village calendar navigation.
       paper-tab::shadow #ink {
         color: rgba(254, 222, 50, 0.5);
       }
-
       paper-tab::shadow .tab-content {
         opacity: 1;
       }
@@ -29,12 +28,12 @@ Village calendar navigation.
 
     <div id="module-nav">
       <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
-        <a id="global-nav-btn" href="#{{active ? 'village' : 'calendar'}}" layout horizontal>
-          <paper-fab icon="today"></paper-fab>
+        <a id="global-nav-btn" href="{{pageUrl}}#{{active ? santaApp.prevSelectedScene.route : 'calendar'}}" on-click="{{fabClick}}">
+          <paper-fab icon="today" on-core-transitionend="{{rippleDone}}"></paper-fab>
         </a>
         <div id="global-nav-body">
           <div id="global-nav-header" layout horizontal center-center>
-            <a id="global-back-to-village" href="{{baseURI}}#village" title="Go to the Village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+            <a id="global-back-to-village" href="{{pageUrl}}#village" title="Go to the Village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
             <paper-tabs id="tabs" valueattr="filterOn" selected="{{filterOn}}"
                         on-core-activate="{{onNavSelect}}">
               <paper-tab filterOn="calendar"><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></paper-tab>
@@ -50,13 +49,13 @@ Village calendar navigation.
             <core-animated-pages transitions="cross-fade" selected="{{route}}" valueattr="route">
               <section route="calendar">
                 <div id="nav-calendar" cross-fade class="{{filterOn}}">
-                  <div layout horizontal wrap>
+                  <div layout horizontal center-center wrap>
                     <div class="card"></div>
 
                     <div layout vertical center-center data-index="1"
                          class="card calendar scene video play learn">
                       <template repeat="{{house, i in firstFour}}">
-                        <a href="{{baseURI}}#[[house.module]]" on-click="{{onCalendarClick}}">
+                        <a href="{{pageUrl}}#[[house.module]]" on-click="{{onCalendarClick}}">
                           <div class="menu-marker marker1 calendar [[house.category]]" style="background-image:url({{componentBaseDir}}img/menu-[[house.module]].svg);"></div>
                         </a>
                       </template>
@@ -64,7 +63,7 @@ Village calendar navigation.
 
                     <template repeat="{{house, i in regularSchedule}}">
                       <div layout vertical center-center data-index="{{i + 2}}" data-category="[[house.category]]" class="card calendar [[house.category]] {{house.iced ? 'iced' : 'melt'}}">
-                        <a href="{{baseURI}}#[[house.module]]" on-click="{{onCalendarClick}}">
+                        <a href="{{pageUrl}}#[[house.module]]" on-click="{{onCalendarClick}}">
                           <div class="menu-marker marker{{i + 2}} calendar [[house.category]]" style="background-image:url({{componentBaseDir}}img/menu-[[house.module]].svg);"></div>
                         </a>
                       </div>
@@ -103,15 +102,56 @@ Village calendar navigation.
               </section>
             </core-animated-pages>
           </div>
-
         </div>
+
+        <div id="language-choose" layout vertical center-center hidden>
+          <div>
+            <a href="#" id="close-lang" on-click="{{toggleLanguageSelect}}"></a>
+            <h2><i18n-msg msgid="select-language">PLACEHOLDER_i18n</i18n-msg></h2>
+            <select id="language" value="{{santaApp.language}}" on-change="{{onLanguageChanged}}">
+              <option value="af">Afrikaans</option>
+              <option value="ca">Català</option>
+              <option value="zh-HK">中文（香港）</option>
+              <option value="zh-TW">中文</option>
+              <option value="da">Dansk</option>
+              <option value="de">Deutsch</option>
+              <option value="et">Eesti</option>
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="fr-CA">Français (Canada)</option>
+              <option value="hr">Hrvatski</option>
+              <option value="id">Indonesia</option>
+              <option value="it">Italiano</option>
+              <option value="ja">日本語</option>
+              <option value="lv">Latvijas</option>
+              <option value="lt">Lietuvos</option>
+              <option value="no">Norsk</option>
+              <option value="pl">Polski</option>
+              <option value="pt-BR">Português (Brasil)</option>
+              <option value="pt-PR">Português (Portugal)</option>
+              <option value="ro">Român</option>
+              <option value="sl">Slovenija</option>
+              <option value="sv">Svenska</option>
+              <option value="tl">Tagalog</option>
+              <option value="fi">Viimeistely</option>
+              <option value="bg">Български</option>
+              <option value="uk">Український</option>
+              <option value="ta-IN">தமிழ்</option>
+              <option value="ms">മലയാളം </option>
+              <option value="th">ภาษาไทย</option>
+            </select>
+          </div>
+        </div>
+
         <div id="global-nav-footer">
-          <!-- TODO(lukem): put back goro stuff -->
-          <!-- <div style="display:inline"><a href="#" id="select-lang">{% msg %}Language{% endmsg %}</a> &bull;</div>
-          <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">About</a>
+          <a href="#" id="select-lang" on-click="{{toggleLanguageSelect}}"><i18n-msg msgid="language">PLACEHOLDER_i18n</i18n-msg></a>
           &bull;
-          <a href="http://www.google.com/policies/">Terms &amp; Privacy</a>
-          &bull; -->
+          <!-- TODO(cbro): This should go to the right locale about page -->
+          <a href="http://www.google.com/santatracker/about.html"><i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg></a>
+          &bull;
+          <a href="http://www.google.com/policies/"><i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg></a>
+          &bull;
           <a href="http://maps.google.com/help/maps/helloworld/index.html"><i18n-msg msgid="getgooglemaps">PLACEHOLDER_i18n</i18n-msg></a>
         </div>
       </div>
@@ -166,6 +206,14 @@ Village calendar navigation.
        *   @param {string} detail.target
        */
 
+      rippleDone: function(e, detail, sender) {
+        location.href = this.$['global-nav-btn'].href;
+      },
+
+      fabClick: function(e, detail, sender) {
+        e.preventDefault();
+      },
+
       housesChanged: function() {
         this.firstFour = this.houses.slice(0, 4);
         this.regularSchedule = this.houses.slice(4);
@@ -201,10 +249,25 @@ Village calendar navigation.
         }, null, 100);
       },
 
+      onLanguageChanged: function(e, detail, sender) {
+        var lang = sender.value;
+
+        this.fire('analytics-track-event', {category: 'language', action: 'click',
+                                            label: 'change', 'value': lang});
+
+        // TODO(lukem): Wire this up to redirect to the right url.
+        // This is done as a RAF because we want to make sure the analytics event is triggered.
+        this.async(function() {
+          window.location = '/intl/' + lang + '/' + window.location.hash;
+        }, null, 100);
+      },
+
       onShow: function() {
         this.cancelAsync(this.closeTimeout_);
 
         this.$['global-nav-content'].scrollTop = 0;
+        this.$['language-choose'].hidden = true;
+
         this.$.tabs.selected = 'calendar';
 
         this.closed = this.closing = false;
@@ -214,7 +277,7 @@ Village calendar navigation.
           this.opened = true;
         });
 
-        this.playSound('menu_open');
+        this.fire('sound-trigger', 'menu_open');
 
         this.santaApp && this.santaApp.visibilityService.pause();
       },
@@ -223,14 +286,21 @@ Village calendar navigation.
         this.opening = this.opened = false;
         this.closing = true;
 
+        this.$['language-choose'].hidden = true;
+
         this.closeTimeout_ = this.async(function() {
           this.route = 'calendar';
           this.closed = true;
         }, null, this.TIMEOUT_DELAY);
 
-        this.playSound('menu_close');
+        this.fire('sound-trigger', 'menu_close');
 
         this.santaApp && this.santaApp.visibilityService.resume();
+      },
+
+      toggleLanguageSelect: function(e) {
+        e.preventDefault();
+        this.$['language-choose'].hidden = !this.$['language-choose'].hidden;
       },
 
       shareGplus: function(e) {
@@ -286,10 +356,10 @@ Village calendar navigation.
         e.preventDefault();
 
         if (sender.classList.contains('off')) {
-          this.playAmbientSounds('global_sound_on');
+          this.fire('sound-ambient', 'global_sound_on');
           sender.classList.switch('off', 'on');
         } else {
-          this.playAmbientSounds('global_sound_off');
+          this.fire('sound-ambient', 'global_sound_off');
           sender.classList.switch('on', 'off');
         }
       }

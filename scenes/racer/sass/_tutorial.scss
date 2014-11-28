@@ -1,0 +1,53 @@
+##{$name} {
+  .tutorial {
+    display: none;
+    height: 290px;
+    left: 50%;
+    margin-left: -137px;
+    margin-top: -130px;
+    position: absolute;
+    top: 50%;
+    width: 275px;
+
+    .shadow {
+      background: url('img/tutorial.png') 0 -551px no-repeat;
+      content: "";
+      height: 270px;
+      left: 0;
+      opacity: 0.15;
+      position: absolute;
+      top: 20px;
+      width: 275px;
+    }
+
+    .explanation {
+      animation: 1s #{$name}-tutorial infinite step-start;
+      background: url('img/tutorial.png') 0 0 no-repeat;
+      height: 270px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 275px;
+    }
+
+    &.leftright .explanation {
+      background-position: 0 0;
+    }
+
+    &.updown .explanation {
+      background-position: 0 -280px;
+    }
+  }
+}
+
+@keyframes #{$name}-tutorial {
+  0% {
+    background-position-x: 0;
+  }
+  50% {
+    background-position-x: -280px;
+  }
+  100% {
+    background-position-x: 0;
+  }
+}

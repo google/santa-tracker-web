@@ -1,0 +1,99 @@
+##{$name} {
+  .overlay {
+    bottom: 0;
+    box-sizing: border-box;
+    display: none;
+    left: 0;
+    padding: 20px 0;
+    position: fixed;
+    opacity: 0;
+    overflow: auto;
+    right: 0;
+    text-align: center;
+    top: 0;
+    white-space: nowrap;
+    z-index: 200;
+
+    &.is-visible {
+      animation: 500ms #{$name}-overlay-bg linear forwards;
+      display: block;
+    }
+
+    &.is-closed {
+      animation: 500ms #{$name}-overlay-bg-out linear forwards;
+    }
+
+    // Center the dialog
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      margin-right: -0.25em;
+      vertical-align: middle;
+    }
+
+    &-dialog {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    @media (min-width: 661px) {
+      &-dialog {
+        transform: translateY(-200%);
+      }
+
+      &.is-visible .overlay-dialog {
+        animation: 700ms #{$name}-overlay-dialog-show ease-in forwards;
+      }
+
+      &.is-closed .overlay-dialog {
+        animation: 700ms #{$name}-overlay-dialog-hide ease-out forwards;
+      }
+    }
+  }
+}
+
+@keyframes #{$name}-overlay-bg {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes #{$name}-overlay-bg-out {
+  0% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes #{$name}-overlay-dialog-show {
+  0% {
+    transform: translateY(-200%);
+  }
+  20% {
+    transform: translateY(-200%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes #{$name}-overlay-dialog-hide {
+  0% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}

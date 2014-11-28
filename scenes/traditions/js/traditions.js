@@ -18,13 +18,7 @@ function Traditions(el, componentDir) {
    */
   this.markers_ = {};
 
-  /**
-   * @private
-   */
-  this.visible_ = false;
-
   this.setup();
-  this.onShow();
 }
 
 /**
@@ -66,9 +60,7 @@ Traditions.prototype.setup = function() {
   this.markerBounds_ = new google.maps.LatLngBounds();
 };
 
-Traditions.prototype.onShow = function() {
-  this.visible_ = true;
-
+Traditions.prototype.onShow = function() {  
   this.map_ = new google.maps.Map(this.el_.querySelector('#traditions-map'), {
     center: new google.maps.LatLng(0, 0),
     zoom: 1,
@@ -129,10 +121,6 @@ Traditions.prototype.onShow = function() {
   this.addCountryMarkers_();
 
   $(window).on('resize.traditions', this.handleResize_.bind(this));
-
-  $('#traditions-next', this.el_).on('click', this.nextCountry_.bind(this));
-  $('#traditions-prev', this.el_).on('click', this.prevCountry_.bind(this));
-  $('#traditions-world', this.el_).on('click', this.showWorld_.bind(this));
 };
 
 /**
@@ -156,7 +144,7 @@ Traditions.NUM_PINS_ = 10;
 /**
  * @private
  */
-Traditions.prototype.prevCountry_ = function() {
+Traditions.prototype.prevCountry = function() {
   var active = $('.tradition-active', this.el_);
   var id;
   if (active.length) {
@@ -174,7 +162,7 @@ Traditions.prototype.prevCountry_ = function() {
 /**
  * @private
  */
-Traditions.prototype.nextCountry_ = function() {
+Traditions.prototype.nextCountry = function() {
   var active = $('.tradition-active', this.el_);
   var id;
   if (active.length) {
@@ -192,7 +180,7 @@ Traditions.prototype.nextCountry_ = function() {
 /**
  * @private
  */
-Traditions.prototype.showWorld_ = function() {
+Traditions.prototype.showWorld = function() {
   this.showDefault_();
 
   //TODO(lukem): Add this back in when @ebidel fixes the routing
@@ -241,7 +229,7 @@ Traditions.prototype.addCountryMarkers_ = function() {
       bigIcon: bigIcon
     };
 
-    google.maps.event.addListener(marker, 'click', 
+    google.maps.event.addListener(marker, 'click',
       this.showCountry_.bind(this, country.country_key));
   }
 
@@ -301,17 +289,20 @@ Traditions.prototype.showDefault_ = function() {
 };
 
 Traditions.prototype.onHide = function() {
-  this.el_ = null;
-  this.map_ = null;
+  if (this.currentId_) {
+    var marker = this.markers_[this.currentId_].marker;
+    marker.setIcon(this.markers_[this.currentId_].smallIcon);
+    this.getCountryEl(this.currentId_).removeClass('tradition-active');
+  }
+
   this.currentId_ = null;
-  this.visible_ = false;
 
   $(window).off('resize.traditions');
 };
 
 /**
  * Alternates between the world view and a country view.
- * @param {!Array.string|null} arguments 
+ * @param {!Array.string|null} arguments
  */
 Traditions.prototype.onQueryChanged = function(args) {
   this.show(args.country || null);

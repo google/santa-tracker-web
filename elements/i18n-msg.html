@@ -6,9 +6,6 @@ Custom element to do localization (i18n) messages.
 @element i18n-msg
 -->
 <polymer-element name="i18n-msg" attributes="msgid">
-<template>
-  <content></content>
-</template>
 <script>
 (function() {
 
@@ -55,8 +52,9 @@ Custom element to do localization (i18n) messages.
     },
 
     attached: function() {
-      if (this.locales[this.language] && this.locales[this.language][this.msgid]) {
-        this.textContent = this.locales[this.language][this.msgid].message;
+      var msg = this.locales[this.language] && this.locales[this.language][this.msgid];
+      if (msg && msg.message) {
+        this.innerHTML = msg.message;
       }
     },
 
@@ -96,7 +94,7 @@ Custom element to do localization (i18n) messages.
           continue;
         }
 
-        instance.textContent = instance.locales[instance.language][instance.msgid].message;
+        instance.innerHTML = instance.locales[instance.language][instance.msgid].message;
       }
     }
 

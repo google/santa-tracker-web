@@ -3,11 +3,22 @@
  */
 function VillagePegman(el) {
   this.container_ = el;
-
   this.isPaused_ = true;
 
   this.pegman_ = this.container_.querySelector('#pegman');
+  this.canShow_ =
+      VillagePegman.LANGUAGES_.indexOf(document.documentElement.lang) != -1;
+
+  if (!this.canShow_) {
+    this.pegman_.remove();
+  }
 }
+
+/**
+ * @private
+ * @type {Array.<string>}
+ */
+VillagePegman.LANGUAGES_ = ['en', 'en-GB'];
 
 /**
  * @private
@@ -43,6 +54,7 @@ VillagePegman.LAND_TIME_ = 15000;
  * Start a skydive
  */
 VillagePegman.prototype.start = function() {
+  if (!this.canShow_) return;
   this.isPaused_ = false;
   this.skyDive_();
 };
@@ -52,6 +64,7 @@ VillagePegman.prototype.pause = function() {
 };
 
 VillagePegman.prototype.resume = function() {
+  if (!this.canShow_) return;
   this.isPaused_ = false;
 
   if (this.pegman_.classList.contains('landed')) {

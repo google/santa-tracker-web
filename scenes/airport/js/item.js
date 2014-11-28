@@ -57,6 +57,24 @@ app.BeltItem.prototype = {
 
   startCrazyAnimation: function() {
     this.$el.addClass('elf-' + this.crazyType);
+
+    if (this.crazyType === 'passedOut') {
+      window.santaApp.fire('sound-trigger', 'airport_fall');
+    }
+
+    if (this.crazyType === 'sleeping') {
+      window.santaApp.fire('sound-trigger', 'airport_fall');
+    }
+
+    if (this.crazyType === 'rollingOnBack') {
+      window.santaApp.fire('sound-trigger', 'airport_fall');
+    }
+
+    if (this.crazyType === 'fallingBackwards') {
+      // TODO: Add support for second argument.
+      //window.santaApp.fire('sound-trigger', {name: 'airport_fall', args: [1]});
+      window.santaApp.fire('sound-trigger', 'airport_fall');
+    }
   },
 
   stopCrazyAnimation: function() {

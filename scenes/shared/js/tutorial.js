@@ -1,3 +1,9 @@
+
+goog.provide('app.shared.Tutorial');
+
+// We are *leaking* the Tutorial global for backwards compatibility.
+app.shared.Tutorial = Tutorial;
+
 /**
  * Tutorial animation.
  * Can be used to explain: mouse click, space press, arrows,
@@ -48,7 +54,6 @@ Tutorial.prototype.start = function() {
  * @param {String} name The name of the tutorial.
  */
 Tutorial.prototype.off = function(name) {
-  // this.tutorials = _.without(this.tutorials, name);
   this.tutorials = this.tutorials.filter(function(tut, i) {
     return tut != name;
   });

@@ -1,0 +1,432 @@
+$board-base-color: #B757C5;
+
+@function board-color($color, $target-color) {
+  @return hsl(
+      hue($target-color) - hue($board-base-color) + hue($color),
+      max(0, min(100, saturation($target-color) - saturation($board-base-color) + saturation($color))),
+      lightness($target-color) - lightness($board-base-color) + lightness($color)
+  );
+}
+
+$board-header-padding: 30px;
+$board-tracker-bg: #535353;
+$board-tracker-fg: #FFBE26;
+$board-dark-bg: #AE43BE;
+$board-border: #A52FB7;
+$board-dark-text: #9129A1;
+$board-skip-score: false !default;
+$board-level-bp: 1350px !default;
+
+@mixin board-color($color) {
+  background-color: board-color($color, $board-dark-bg);
+
+  .dark-text {
+    color: board-color($color, $board-dark-text);
+  }
+
+  .time {
+    background-color: $color;
+    border-left: 1px solid board-color($color, $board-border);
+    border-right: 1px solid board-color($color, $board-border);
+  }
+
+  .logo {
+    background: url(img/logo.svg) no-repeat 50% 50%;
+  }
+
+  .level-dot,
+  .level-shadow {
+    background: board-color($color, $board-dark-text);
+  }
+
+  .board-button {
+    background: board-color($color, $board-dark-bg);
+  }
+
+  // Tablet UI
+  @media (min-width: 661px) {
+    .level {
+      border-left: 1px solid board-color($color, $board-border);
+    }
+  }
+
+  // Desktop UI
+  @media (min-width: 1025px) {
+    background: $color;
+
+    .back {
+      background-color: board-color($color, $board-dark-bg);
+      border-bottom: 1px solid board-color($color, $board-border);
+    }
+
+    .score, .level, .time, .actions {
+      border: none;
+      border-top: 1px solid board-color($color, $board-border);
+    }
+
+    .score, .level {
+      background: board-color($color, $board-dark-bg);
+    }
+
+    .actions {
+      display: block;
+    }
+
+    .score, .restart {
+      border-right: 1px solid board-color($color, $board-border);
+    }
+  }
+
+  // Large screens
+  @media (min-width: 1350px) {
+    .time {
+      background-color: board-color($color, $board-dark-bg);
+    }
+  }
+}
+
+// Base board
+##{$name} {
+  .board {
+    border-radius: 30px/50%;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    color: white;
+    bottom: 10px;
+    font-size: 0;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    transform: scale(0.71);
+    transform-origin: 100% 52px;
+    z-index: 110;
+
+    .back {
+      background: url(../shared/img/village-nav-bg.svg) 50% 100%/204px 45px no-repeat,
+          url(../shared/img/back-arrow.svg) 10px 50%/31px 31px no-repeat;
+      box-sizing: border-box;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 45px;
+      padding: 0 0 0 $board-header-padding;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .label {
+      font-family: 'Roboto', sans-serif;
+      font-size: 8px;
+      font-weight: 900;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .value {
+      font-family: 'Roboto', sans-serif;
+      font-size: 26px;
+      font-weight: 900;
+      line-height: 1.4;
+    }
+
+    .score, .level, .time, .actions {
+      box-sizing: border-box;
+      display: inline-block;
+      padding: 10px 0 5px 0;
+      vertical-align: top;
+    }
+
+    .score, .level {
+      line-height: 1;
+      width: 120px;
+    }
+
+    .time {
+      padding: 10px 0;
+      position: relative;
+      width: 120px;
+    }
+
+    .level {
+      display: none;
+    }
+
+    .tracker {
+      background-color: $board-tracker-bg;
+      bottom: 0;
+      height: 5px;
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+
+      &.losing {
+        animation: 0.6s #{$name}-flashRed infinite alternate ease;
+      }
+    }
+
+    .remaining {
+      background: $board-tracker-fg;
+      height: 5px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+
+    .status {
+      background: url(../shared/img/board/status.svg) no-repeat;
+      bottom: 0;
+      height: 12px;
+      position: absolute;
+      right: -10px;
+      width: 19px;
+    }
+
+    // Actions
+    .actions {
+      margin: 0;
+      padding: 0;
+      vertical-align: middle;
+    }
+
+    .restart, .pause, .play {
+      border: 0;
+      box-sizing: border-box;
+      cursor: pointer;
+      height: 64px;
+      outline: none;
+      padding: 10px 0 5px 0;
+      width: 60px;
+    }
+
+    .restart {
+      background: url(../shared/img/board/restart.svg) no-repeat 50% 50% / 33px 33px;
+    }
+
+    .pause {
+      background: url(../shared/img/board/pause.svg) no-repeat 50% 50% / 22px 29px;
+    }
+
+    .paused {
+      background: url(../shared/img/board/play.svg) no-repeat 50% 50% / 26px 28px;
+    }
+
+    // Not visible on small screens
+    .restart, .logo, .back, .level-dots {
+      display: none;
+    }
+
+    .logo {
+      box-sizing: border-box;
+      height: 156px;
+      padding-top: 26px;
+    }
+
+    .level-dots {
+      text-align: center;
+    }
+
+    .level-item {
+      display: inline-block;
+      position: relative;
+    }
+
+    .level-dot {
+      border-radius: 50%;
+      height: 9px;
+      margin: 15px 10px 15px 0;
+      width: 9px;
+    }
+
+    .level-item:last-child .level-dot {
+      margin-right: 0;
+    }
+
+    .level-number {
+      background: #FFBE26;
+      border-radius: 50%;
+      font-family: 'Roboto', sans-serif;
+      font-size: 30px;
+      font-weight: 900;
+      height: 38px;
+      left: -15px;
+      line-height: 1.2;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      width: 38px;
+      z-index: 5;
+    }
+
+    .level-shadow {
+      border-radius: 50%;
+      height: 38px;
+      left: -12px;
+      opacity: 0;
+      position: absolute;
+      top: 3px;
+      width: 38px;
+    }
+
+    .level-item.is-active .level-number,
+    .level-item.is-active .level-shadow {
+      opacity: 1;
+    }
+
+    .level-number:last-child {
+      box-sizing: border-box;
+      letter-spacing: -3px;
+      padding-right: 3px;
+    }
+
+    .board-button {
+      border-radius: 22px 0 0 22px;
+      height: 44px;
+      line-height: 44px;
+      width: 140px;
+    }
+
+    // Tablet UI
+    @media (min-width: 661px) {
+      transform: none;
+
+      .level {
+        display: inline-block;
+      }
+    }
+
+    // Desktop UI
+    @media (min-width: 1025px) {
+      bottom: auto;
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.23);
+      left: 20px;
+      right: auto;
+      top: 0;
+      width: 204px;
+
+      .back {
+        display: inline-block;
+        height: 45px;
+        width: 100%;
+      }
+
+      .time {
+        border: none;
+        padding: 10px 0 15px 0;
+        width: 100%;
+      }
+
+      .level {
+        border-left: 0;
+        border-right: 0;
+      }
+
+      .score, .level {
+        box-sizing: border-box;
+        display: inline-block;
+        padding: 10px 0;
+        width: 102px;
+      }
+
+      .restart, .pause, .play {
+        display: inline-block;
+        height: 54px;
+        width: 100px;
+      }
+
+      .board-button {
+        border: 0;
+        border-radius: 0 0 4px 4px;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+        height: 52px;
+        line-height: 52px;
+        text-align: center;
+        width: 204px;
+      }
+    }
+
+    // Large screens
+    @media (min-width: $board-level-bp) and (min-height: 600px) {
+      .logo {
+        display: block;
+      }
+
+      .back {
+        border: 0;
+      }
+
+      .score, .level {
+        border-right: none;
+        width: 100%;
+      }
+
+      .level.has-count .value {
+        display: none;
+      }
+
+      .level.has-count .level-dots {
+        display: block;
+      }
+
+      .time {
+        background-color: $board-dark-bg;
+      }
+
+      .value {
+        font-size: 30px;
+      }
+    }
+
+    // Color modifiers
+    &.board--game {
+      @include board-color(#b757c5);
+    }
+
+    &.board--scene {
+      @include board-color(#83ce00);
+    }
+
+    &.board--education {
+      @include board-color(#ffde00);
+    }
+
+    &.board--video {
+      @include board-color(#ec4180);
+    }
+
+    // Other modifiers
+    &.board--levelOnly {
+      .score, .time, .actions {
+        display: none;
+      }
+
+      .level {
+        border: none;
+        border-radius: 0 0 4px 4px;
+        display: inline-block;
+      }
+
+      .level.has-count .value {
+        display: none;
+      }
+
+      .level.has-count .level-dots {
+        display: block;
+      }
+    }
+  }
+}
+
+@keyframes #{$name}-flashRed {
+  0% {
+    background-color: red;
+  }
+  100% {
+    background-color: #bd84af;
+  }
+}

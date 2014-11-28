@@ -53,6 +53,8 @@ app.Controls.prototype = {
       this.updateState_(direction);
 
       this.dragging = false;
+
+      window.santaApp.fire('sound-trigger', 'airport_lever');
     }
   },
 

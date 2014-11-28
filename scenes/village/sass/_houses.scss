@@ -44,16 +44,17 @@
       .marker-tomorrow {
         display: block;
         background-image: url(img/village-comeback-tomorrow.svg);
-        background-position: 50% 10px;
-        height: 115px;
-        width: 120px;
+        background-position: 50% 3px;
+        height: 109px;
+        width: 121px;
         left: 130px;
 
         > * {
           height: 100%;
-          top: 15px;
+          width: 105px;
           left: 3px;
-          @include transform(rotateY(-27deg) rotateX(-4deg));
+          font-size: 14px;
+          font-family: 'Lobster', 'Roboto';
         }
       }
     }
@@ -76,6 +77,14 @@
       background-position: 0 0;
       background-size: contain;
       bottom: 0;
+    }
+
+    .building {
+      outline: 0;
+    }
+
+    .house-snow, .house-elves {
+      pointer-events: none;
     }
 
     .house-marker {
@@ -156,30 +165,30 @@
   $houses:
       "airport"       416   339   504   414   0   0   -42   -43   0     0   "marker1-lock"    "marker-airport",
       "racer"         189   158   365   251   0   -2  -80   -39   60    0   "marker1_2-lock"  "marker-racer",
-      "intro"         233   238   406   312   0   2   -56   -45   0     0   "marker1_3-lock"  "marker-intro",
-      "app"           152   363   322   405   0   2   -85   -30   50    0   "marker1_4-lock"  "marker-app",
-      "selfie"        217   287   355   341   0   0   -66   -31   25    0   "marker2-lock"    "marker-selfie",
-      "boatload"      208   172   314   244   0   0   -24   -44   -40   0   "marker3-lock"    "marker-boat",
-      "briefing"      219   297   405   373   0   2   -90   -38   65    0   "marker4-lock"     "marker-briefing",
-      "matching"      305   233   437   362   0   2   -35   -83   220   0   "marker5-lock"    "marker-matching",
+      "traditions"    397   285   527   349   0   -1  -40   -40   -90   0   "marker1_3-lock"  "marker-traditions",
+      "app"           152   363   322   405   0   2   -85   -32   80    0   "marker1_4-lock"  "marker-app",
+      "trailer"       233   238   406   312   0   2   -56   -45   0     0   "marker2-lock"    "marker-trailer",
+      "boatload"      208   172   314   244   0   0   -24   -44   -30  0   "marker3-lock"    "marker-boat",
+      "briefing"      219   297   405   373   0   2   -90   -38   5     0   "marker4-lock"    "marker-briefing",
+      "matching"      305   233   437   362   0   2   -35   -83   250   0   "marker5-lock"    "marker-matching",
       "presentdrop"   174   412   392   491   0   1   -85   -51   420   0   "marker6-lock"    "marker-presentdrop",
-      "streetview"    289   202   370   278   0   2   -42   -30   200   0   "marker7-lock"    "marker-streetview",
-      "jamband"       612   404   612   484   0   2   -15   -75   100   0   "marker8-lock"    "marker-jamband",
-      "codelab"       253   253   358   378   0   0   -50   -59   90    0   "marker9-lock"    "marker-codelab",
-      "translations"  437   242   487   329   0   -4  -17   -65   200   0   "marker10-lock"   "marker-translations",
-      "video"         306   351   415   450   0   1   -99   -50   85    0   "marker11-lock"   "marker-video",
-      "mercator"      290   321   445   405   0   1   -103  -70   50    0   "marker12-lock"   "marker-mercator",
-      "controlroom"   262   286   481   373   0   -1  -110  -41   100   0   "marker13-lock"   "marker-controlroom",
-      "play"          274   269   345   343   0   0   -26   -43   35    0   "marker14-lock"   "marker-play",
-      "charity"       203   260   405   308   0   -1  -93   -27   80    0   "marker15-lock"   "marker-charity",
-      "jetpack"       204   243   367   342   0   2   -60   -47   0     0   "marker16-lock"   "marker-jetpack",
-      "candy"         322   256   393   313   0   -3  -35   -50   -20   0   "marker17-lock"   "marker-candy",
+      "gumball"       151   262   288   341   0   2   -45   -50   340   0   "marker7-lock"   "marker-gumball",
+      "jetpack"       204   243   367   342   0   2   -60   -47   0     0   "marker8-lock"   "marker-jetpack",
+      "codelab"       253   253   358   378   0   0   -50   -59   -20    0   "marker9-lock"    "marker-codelab",
+      "mercator"      290   321   445   405   0   1   -103  -70   50    0   "marker10-lock"   "marker-mercator",
+      "santaselfie"   217   287   355   341   0   0   -66   -31   25    0   "marker11-lock"    "marker-santaselfie",
+      "jamband"       612   404   612   484   0   2   -15   -75   -60   0   "marker12-lock"    "marker-jamband",
+      "commandcentre" 262   286   481   373   0   -1  -110  -41   40   0   "marker13-lock"   "marker-commandcentre",
+      "playground"    274   269   345   343   0   0   -26   -43   35    0   "marker14-lock"   "marker-playground",
+      "seasonofgiving"       203   260   405   308   0   -1  -93   -27   30    0   "marker15-lock"   "marker-seasonofgiving",
+      "carpool"         306   351   415   450   0   1   -99   -50   -45    0   "marker16-lock"   "marker-carpool",
+      "factory"         322   256   393   313   0   -3  -35   -50   -50   0   "marker17-lock"   "marker-factory",
       "postcard"      231   220   473   311   0   2   -120  -58   85    0   "marker18-lock"   "marker-postcard",
-      "traditions"    397   285   527   349   0   -1  -40   -40   -90   0   "marker19-lock"   "marker-traditions",
-      "windtunnel"    502   290   575   374   0   -2  -30   -70   0     0   "marker20-lock"   "marker-windtunnel",
-      "gumball"       151   262   288   341   0   2   -45   -50   40    0   "marker21-lock"   "marker-gumball",
+      "streetview"    289   202   370   278   0   2   -42   -30   -120   0   "marker19-lock"    "marker-streetview",
+      "translations"  437   242   487   329   0   -4  -17   -65   0   0   "marker20-lock"   "marker-translations",
+      "windtunnel"    502   290   575   374   0   -2  -30   -70   20     0   "marker21-lock"   "marker-windtunnel",
       "citylights"    216   335   327   405   0   2   -70   -50   20    0   "marker22-lock"   "marker-citylights",
-      "santa"         203   274   342   342   0   2   -80   -50   50    0   "marker23-lock"   "marker-santa";
+      "liftoff"         203   274   342   342   0   1   -80   -50   50    0   "marker23-lock"   "marker-liftoff";
   $houseId: 1;
   $houseWidth: 2;
   $houseHeight: 3;
@@ -286,7 +295,7 @@
     height: 142px;
     background-position: 50% 100%;
     background-repeat: no-repeat;
-    left: 2117px;
+    left: 2187px;
     bottom: 0;
     position: absolute;
     z-index: 10;
@@ -344,7 +353,7 @@
     position: absolute;
     background: url(img/xmastree.svg) no-repeat;
     bottom: 2px;
-    left: 5165px;
+    left: 5245px;
     width: 213px;
     height: 370px;
 
@@ -381,7 +390,7 @@
       "iced": (50 25, 80 60, 135 50, 170 0),
       "melt": (40 0, 80 0, 135 0, 170 0)
     ),
-    "intro": (
+    "trailer": (
       "iced": (40 0, 100 70, 155 90, 200 0),
       "melt": (40 0, 100 0, 155 0, 200 0)
     ),
@@ -389,7 +398,7 @@
       "iced": (70 40, 115 110, 150 45),
       "melt": (110 0, 85 0, 150 0)
     ),
-    "selfie": (
+    "santaselfie": (
       "iced": (80 15, 75 55, 160 0, 120 45),
       "melt": (100 0, 75 0, 240 0, 210 0)
     ),
@@ -425,7 +434,7 @@
       "iced": (155 0, 320 0, 135 90, 250 70, 300 80),
       "melt": (170 11, 320 3, 205 3, 250 26, 300 3)
     ),
-    "video": (
+    "carpool": (
       "iced": (100 0, 150 0, 115 120, 70 10),
       "melt": (190 0, 120 0, 215 0, -10 0)
     ),
@@ -433,15 +442,15 @@
       "iced": (60 15, 105 80, 165 100, 190 10),
       "melt": (30 0, 105 0, 165 0, 190 0)
     ),
-    "controlroom": (
+    "commandcentre": (
       "iced": (200 120, 85 0, 150 80, 245 0),
       "melt": (200 0, 95 13, 150 0, 245 0)
     ),
-    "play": (
+    "playground": (
       "iced": (70 0, 75 90, 130 60, 175 0),
       "melt": (100 0, 215 0, 130 0, 175 0)
     ),
-    "charity": (
+    "seasonofgiving": (
       "iced": (110 100, 75 0, 150 30, 245 0),
       "melt": (125 0, 40 0, 150 0, 180 0)
     ),
@@ -449,7 +458,7 @@
       "iced": (50 100, 45 0, 110 30, 185 50),
       "melt": (40 0, 210 0, 110 0, 185 0)
     ),
-    "candy": (
+    "factory": (
       "iced": (100 100, 65 40, 180 60, 245 20),
       "melt": (140 8, 105 0, 180 0, 245 0)
     ),
@@ -473,7 +482,7 @@
       "iced": (130 100, 75 60, 150 30, 105 0),
       "melt": (180 0, 225 0, 150 0, 105 0)
     ),
-    "santa": (
+    "liftoff": (
       "iced": (90 80, -5 50, 150 30, 75 20),
       "melt": (100 9, 125 0, 150 24, 75 17)
     )

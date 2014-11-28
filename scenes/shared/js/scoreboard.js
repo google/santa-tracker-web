@@ -1,21 +1,38 @@
+// Load the old Constants global for backwards compatibility
+goog.require('Constants');
+
+goog.provide('app.shared.Scoreboard');
+
+// We are *leaking* the Scoreboard global for backwards compatibility.
+app.shared.Scoreboard = Scoreboard;
+
 /**
  * Manages the scoreboard and game countdown.
  * @constructor
- * @param Game game The game object.
- * @param HTMLElement el The scoreboard element.
+ * @param {Game} game The game object.
+ * @param {HTMLElement} elem The scoreboard element.
+ * @param {number} levels The total number of levels.
  */
-function Scoreboard(game, elem) {
+function Scoreboard(game, elem, levels) {
   this.game = game;
   this.elem = $(elem);
   this.scoreElem = this.elem.find('.score .value');
-  this.levelElem = this.elem.find('.level .value');
-  this.countdownElem = this.elem.find('.countdown .tracker');
+  this.levelElem = this.elem.find('.current-level');
+  this.minutesElem = this.elem.find('.time .minutes');
+  this.secondsElem = this.elem.find('.time .seconds');
+  this.remainingElem = this.elem.find('.time .remaining');
+  this.statusElem = this.elem.find('.time .status');
+  this.levelItemElems = this.elem.find('.level .level-item');
+
+  if (levels) {
+    this.elem.find('.total-levels').text('/' + levels);
+  }
 
   this.attachEvents();
 
   // Initial state
   this.reset();
-};
+}
 
 /**
  * Resets the scoreboard for a new game.
@@ -26,12 +43,10 @@ Scoreboard.prototype.reset = function() {
   this.lastSeconds = null;
   this.losing = false;
 
-  if (this.levelElem.length > 0) {
-    this.levelElem.text('1');
-  }
+  this.setLevel(0);
 
-  if (this.countdownElem.length > 0) {
-    this.countdownElem.removeClass('losing');
+  if (this.remainingElem.length > 0) {
+    this.remainingElem.removeClass('losing');
   }
 
   this.elem.find('.pause').removeClass('paused');
@@ -44,17 +59,21 @@ Scoreboard.prototype.reset = function() {
  */
 Scoreboard.prototype.attachEvents = function() {
   var self = this;
-  this.elem.find('.pause').on('click', function() {
+  this.elem.find('.pause').on('click', function(event) {
+    $(event.target).blur();
+
     $(this).toggleClass('paused');
     self.game.togglePause();
 
+    // TODO(bckenny): should this be firing global_pause? or handled elsewhere?
     if ($(this).hasClass('paused')) {
-      Klang.triggerEvent('global_pause');
+      window.santaApp.fire('sound-ambient', 'global_pause');
     } else {
-      Klang.triggerEvent('global_unpause');
+      window.santaApp.fire('sound-ambient', 'global_unpause');
     }
   });
-  this.elem.find('.restart').on('click', function() {
+  this.elem.find('.restart').on('click', function(event) {
+    $(event.target).blur();
     self.game.restart();
   });
 };
@@ -72,11 +91,12 @@ Scoreboard.prototype.onFrame = function(delta) {
   }
 
   // Update track position
-  var trackX = this.countdown / Constants.COUNTDOWN_TRACK_LENGTH * Constants.COUNTDOWN_TRACK_MAX_X;
-  trackX = Math.min(trackX, Constants.COUNTDOWN_TRACK_MAX_X);
+  var trackX = 1 - (this.countdown / Constants.COUNTDOWN_TRACK_LENGTH);
+  trackX = (trackX < 0 ? 0 : trackX) * -this.remainingElem.width();
 
-  if (this.countdownElem.length > 0) {
-    this.countdownElem.css('transform', 'translate3d(' + trackX + 'px, 0, 0)');
+  if (this.remainingElem.length > 0) {
+    this.remainingElem.css('transform', 'translate3d(' + trackX + 'px, 0, 0)');
+    this.statusElem.css('transform', 'translate3d(' + trackX + 'px, 0, 0)');
   }
 
   // Cache track text changes.
@@ -84,20 +104,23 @@ Scoreboard.prototype.onFrame = function(delta) {
   if (seconds !== this.lastSeconds) {
     this.lastSeconds = seconds;
 
-    var text = '' + Math.floor(seconds / 60) + ':' + Scoreboard.pad_(seconds % 60);
+    if (this.minutesElem.length > 0) {
+      this.minutesElem[0].textContent = Scoreboard.pad_(Math.floor(seconds / 60));
+    }
 
-    if (this.countdownElem.length > 0) {
-      this.countdownElem[0].textContent = text;
+    if (this.secondsElem.length > 0) {
+      this.secondsElem[0].textContent = Scoreboard.pad_(seconds % 60);
     }
 
     // Are we losing (But not yet gameover).
     var losing = seconds <= Constants.COUNTDOWN_FLASH && seconds !== 0;
     if (this.losing !== losing) {
       this.losing = losing;
-      if (this.countdownElem.length > 0) {
-        this.countdownElem.toggleClass('losing', losing);
+      if (this.remainingElem.length > 0) {
+        this.remainingElem.toggleClass('losing', losing);
       }
-      Klang.triggerEvent(losing ? 'game_hurry_up' : 'game_hurry_up_end');
+      window.santaApp.fire('sound-trigger',
+          losing ? 'game_hurry_up' : 'game_hurry_up_end');
     }
   }
 };
@@ -120,8 +143,15 @@ Scoreboard.prototype.addScore = function(score) {
  * @param {number} level The current level, 0-based.
  */
 Scoreboard.prototype.setLevel = function(level) {
-  if (this.levelElem.length > 0) {
+  if (this.levelElem.length > 0 && level >= -1) {
     this.levelElem.text(level + 1);
+  }
+
+  if (this.levelItemElems.length > 0 && level >= -1) {
+    this.levelItemElems.removeClass('is-active');
+    if (level >= 0) {
+      this.levelItemElems.eq(level).addClass('is-active');
+    }
   }
 };
 

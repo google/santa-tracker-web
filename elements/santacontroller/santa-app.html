@@ -6,6 +6,8 @@
 <!-- TODO; get rid of this. Really only need for getUrlParameter() -->
 <script src="../../js/consts.js"></script>
 
+<script src="../../js/config.json"></script>
+
 <script src="../../js/analytics.js"></script>
 <script src="../../js/visibilitymanager.js"></script>
 <script src="../../js/soundcontroller.js"></script>
@@ -41,10 +43,6 @@ Santa Track app.
 <script>
 (function() {
 
-var COUNTDOWN_END_DATE_ = 1419415200000; // Dec 24, 2014
-
-var FLIGHT_FINISHED_ = COUNTDOWN_END_DATE_ + 25 * 60 * 60 * 1000;
-
 // Check if date1 is the same date as date2.
 function isSameDay_(date1, date2) {
   return date1.getMonth() == date2.getMonth() &&
@@ -57,12 +55,21 @@ Polymer(Polymer.mixin({
   /**
    * When Santa's flight is finished.
    *
+   * @property countDownEndDate
+   * @type number
+   * @default null
+   */
+   countDownEndDate: null,
+
+  /**
+   * When Santa's flight is finished.
+   *
    * @property FLIGHT_FINISHED
    * @type number
-   * @default COUNTDOWN_END_DATE + 25 * 60 * 60 * 1000
+   * @default null
    * @const
    */
-  FLIGHT_FINISHED: FLIGHT_FINISHED_,
+  FLIGHT_FINISHED: null,
 
   /**
    * The house meta data shared across scenes.
@@ -71,7 +78,7 @@ Polymer(Polymer.mixin({
    * @type array
    * @default []
    */
-   houses: [],
+  houses: [],
 
   /**
    * The current language locale.
@@ -83,22 +90,22 @@ Polymer(Polymer.mixin({
   language: document.documentElement.lang || 'en',
 
   /**
-   * When Santa's flight is finished.
-   *
-   * @property countDownEndDate
-   * @type number
-   * @default 1419415200000
-   */
-   countDownEndDate: COUNTDOWN_END_DATE_,
-
-  /**
    * The currently open scene.
    *
    * @attribute selectedScene
    * @type Element
    * @default null
    */
-   selectedScene: null,
+  selectedScene: null,
+
+  /**
+   * The previously selected scene.
+   *
+   * @attribute prevSelectedScene
+   * @type Element
+   * @default null
+   */
+  prevSelectedScene: null,
 
   /**
    * Analytics service.
@@ -127,6 +134,14 @@ Polymer(Polymer.mixin({
    */
   mode: '',
 
+  /**
+   * True when Santa's schedule has been checked for the first time.
+   *
+   * @property scheduleChecked
+   * @type bool
+   * @default undefined
+   */
+
   publish: {
     /**
      * True when the countdown is complete.
@@ -147,12 +162,25 @@ Polymer(Polymer.mixin({
     postFlight: {value: false, reflect: true},
   },
 
+  /**
+   * Fired the first time santa service checks the schedule.
+   *
+   * @event santa-schedule-first-check
+   */
+
   ready: function() {
     this.analyticsService = new Analytics();
-    this.visibilityService = new VisibilityManager();
+    this.visibilityService = new VisibilityManager(this);
+    this.visibilityService.addOnPauseListener(this.onPause.bind(this));
+    this.visibilityService.addOnResumeListener(this.onResume.bind(this));
 
     this.houses = window.HOUSES;
+    this.config = window.SANTA_CONFIG;
     delete window.HOUSES; // cleanup
+    delete window.SANTA_CONFIG; // cleanup
+
+    this.countDownEndDate = this.config.COUNTDOWN_END_DATE;
+    this.FLIGHT_FINISHED = this.config.FLIGHT_FINISHED;
 
     this.language = getUrlParameter('hl') || this.language;
 
@@ -171,6 +199,14 @@ Polymer(Polymer.mixin({
       this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
       this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
+
+      window.addEventListener('blur', function() {
+        this.fire('sound-ambient', 'global_blur');
+      }.bind(this));
+
+      window.addEventListener('focus', function() {
+        this.fire('sound-ambient', 'global_focus');
+      }.bind(this));
     }
 
     if (this.santaService.now() > this.countDownEndDate) {
@@ -184,6 +220,26 @@ Polymer(Polymer.mixin({
 
   languageChanged: function() {
     this.santaService.lang_ = this.language;
+  },
+
+  selectedSceneChanged: function(oldVal, newVal) {
+    this.prevSelectedScene = oldVal;
+  },
+
+  // TODO(bckenny): can also add a paused attribute in case anything wants to
+  // bind to it
+  onPause: function() {
+    this.fire('sound-ambient', 'global_pause');
+    if (this.selectedScene && this.selectedScene.fire) {
+      this.selectedScene.fire('scene-pause', true);
+    }
+  },
+
+  onResume: function() {
+    this.fire('sound-ambient', 'global_unpause');
+    if (this.selectedScene && this.selectedScene.fire) {
+      this.selectedScene.fire('scene-pause', false);
+    }
   },
 
   trackPageview: function(e, detail, sender) {
@@ -266,6 +322,19 @@ Polymer(Polymer.mixin({
     }
   },
 
+  sceneIsUnlocked: function(moduleName) {
+    for (var i = 0, house; house = this.houses[i]; ++i) {
+      if (house.module == moduleName) {
+        return !house.iced;
+      }
+    }
+    // Certain scenes don't have associated houses. Whitelist them.
+    if (['village', 'calendar'].indexOf(moduleName) != -1) {
+      return true;
+    }
+    return false;
+  },
+
   /**
    * Unlocks the correct houses based on the day (index).
    * @param {boolean=} opt_once check only once.
@@ -317,6 +386,8 @@ Polymer(Polymer.mixin({
     }
 
     if (opt_once) {
+      this.scheduleChecked = true;
+      this.fire('santa-schedule-first-check');
       return;
     }
 

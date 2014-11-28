@@ -1,0 +1,644 @@
+{
+	"about-content-one": {
+		"message": "W Wigilię udostępnimy podgląd panelu Świętego Mikołaja, który steruje jego saniami podczas podróży dookoła świata. Otrzymaliśmy ten podgląd od jednego z elfów-programistów, którzy pomagają Mikołajowi w przygotowaniach do tego wielkiego dnia. Panel Świętego Mikołaja działa w oparciu o najnowszą innowacyjną technologię Map Google i budowę sań najnowszej generacji. Dzięki temu możesz śledzić podróż Mikołaja po świecie i bliżej poznać miejsca, które odwiedza."
+	},
+	"about-content-three": {
+		"message": "Trasa Świętego Mikołaja w Mapach Google została utworzona i jest rozwijana przez Google (przy niewielkim wsparciu elfów). Jeśli potrzebujesz pomocy lub chcesz zadać pytanie, odwiedź nasze \u003ca href=\"//support.google.com/santatracker\"\u003eCentrum pomocy\u003c/a\u003e."
+	},
+	"about-content-two": {
+		"message": "Nasze znajome elfy zapraszają Cię też do odwiedzenia wioski Świętego Mikołaja podczas jego przygotowań do podróży. Zobacz, jak wygląda miejsce, gdzie mieszka Mikołaj. Możesz też zagrać w ciekawe gry i poznać sympatyczne elfy."
+	},
+	"about-santa": {
+		"message": "Informacje"
+	},
+	"about_title": {
+		"message": "Trasa Świętego Mikołaja w Mapach Google – witamy!"
+	},
+	"ar_country_name": {
+		"message": "Argentyna"
+	},
+	"ar_tradition": {
+		"message": "W Argentynie Boże Narodzenie zaczyna się punktualnie o północy. Wiele rodzin rozpoczyna świętowanie, organizując uroczystości w swoich domach, otwierając prezenty z bliskimi oraz puszczając fajerwerki o świcie."
+	},
+	"au_country_name": {
+		"message": "Australia"
+	},
+	"au_tradition": {
+		"message": "Australia leży na półkuli południowej, dlatego grudzień wypada tam w lecie. Zamiast jeździć na kuligi i pić kakao, wielu Australijczyków wybiera się na plażę, by zjeść krewetki na świąteczny obiad oraz rozegrać kilka rund krykieta."
+	},
+	"br_country_name": {
+		"message": "Brazylia"
+	},
+	"br_tradition": {
+		"message": "Obchody Bożego Narodzenia rozpoczynają się około północy. Zwykle towarzyszą im duże rodzinne kolacje, otwieranie prezentów oraz uczestnictwo w „Missa do Galo” („mszy koguta”), czyli Pasterce. Mimo upalnego tropikalnego lata, motywy zimy i śniegu nie są bynajmniej rzadkością."
+	},
+	"ca_country_name": {
+		"message": "Kanada"
+	},
+	"ca_tradition": {
+		"message": "Kanadyjskie dzieci mają zwykle białe święta Bożego Narodzenia dzięki opadom śniegu. Otulone w szaliki i „toques” (wełniane czapki), bawią się na śniegu, jeżdżą na łyżwach i sankach. W Wigilię zostawiają mleko i ciasteczka na kominku dla Świętego Mikołaja (a czasem też marchewkę dla renifera)."
+	},
+	"calendar": {
+		"message": "Kalendarz"
+	},
+	"category_code": {
+		"message": "Kod"
+	},
+	"category_draw": {
+		"message": "Rysuj"
+	},
+	"category_listen": {
+		"message": "Posłuchaj"
+	},
+	"category_send": {
+		"message": "Wyślij"
+	},
+	"close-this": {
+		"message": "Anuluj"
+	},
+	"copy-me": {
+		"message": "Skopiuj ten link, aby udostępnić wiadomość"
+	},
+	"countdownlabel": {
+		"message": "Do wyjazdu Mikołaja"
+	},
+	"days": {
+		"message": "Dni"
+	},
+	"de_country_name": {
+		"message": "Niemcy"
+	},
+	"de_tradition": {
+		"message": "Na rynku niemal każdego niemieckiego miasta otwierane są stragany. Mieszkańcy gromadzą się, by posłuchać orkiestry dętej oraz raczyć się regionalnymi potrawami. Zajadają się cynamonowymi sercami, prażonymi migdałami w cukrze, różnymi słodkościami oraz piją grzane wino (Glühwein) lub cydr."
+	},
+	"deck": {
+		"message": "Świąteczne dekoracje"
+	},
+	"deckdescription": {
+		"message": "Pobierz rozszerzenie Trasa Świętego Mikołaja w Chrome i przystrój swoją przeglądarkę na święta."
+	},
+	"endofjourneymessage": {
+		"message": "Święty Mikołaj zakończył tegoroczną podróż! On i jego elfy bawią się jeszcze na Biegunie Północnym przed rozpoczęciem corocznego urlopu."
+	},
+	"error": {
+		"message": "Wygląda na to, że właśnie straciliśmy połączenie z biegunem północnym. Elfy Świętego Mikołaja dwoją się i troją nad rozwiązaniem problemu – cierpliwości!"
+	},
+	"error-lost-connection": {
+		"message": "Wygląda na to, że właśnie straciliśmy połączenie z biegunem północnym. Elfy Świętego Mikołaja dwoją się i troją nad rozwiązaniem problemu – cierpliwości!"
+	},
+	"error-try-again": {
+		"message": "Spróbuj jeszcze raz"
+	},
+	"error_try_again": {
+		"message": "Spróbuj jeszcze raz"
+	},
+	"finished-text": {
+		"message": "Wesołych Świąt! Święty Mikołaj zakończył podróż dookoła świata i udał się na zasłużone wakacje. Zapraszamy ponownie w przyszłym roku!"
+	},
+	"fr_country_name": {
+		"message": "Francja"
+	},
+	"fr_tradition": {
+		"message": "Zgodnie z tradycją, we Francji dzieci układają buty obok kominka, oczekując na przybycie Père Noël, czyli Świętego Mikołaja. Jeśli były grzeczne przez cały rok, Père Noël napełni ich obuwie prezentami."
+	},
+	"getgooglemaps": {
+		"message": "Pobierz Mapy Google"
+	},
+	"gh_country_name": {
+		"message": "Ghana"
+	},
+	"gh_tradition": {
+		"message": "W Ghanie Boże Narodzenie jest obchodzone przez całą rodzinę. Dorośli przebierają się w kostiumy oraz rozdają cukierki i inne słodycze w sąsiedztwie. Dzieci dekorują domy papierowymi ozdobami i rysunkami wykonanymi w szkole."
+	},
+	"gotovillage": {
+		"message": "Idź do wioski"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "Grecja"
+	},
+	"gr_tradition": {
+		"message": "W Grecji przyjazne choć psotne stworzenia zwane „kallikántzari” żyją przez większość roku wewnątrz Ziemi. Jednak w Boże Narodzenie uwielbiają kryć się w domach, straszyć ludzi, płatać figle lub pożerać świąteczne przysmaki. Grecy odprawiają specjalne rytuały, by je odstraszać."
+	},
+	"gt_country_name": {
+		"message": "Gwatemala"
+	},
+	"gt_tradition": {
+		"message": "Mieszkańcy Gwatemali świętują Boże Narodzenie przez taniec i zabawę. Zakładają kapelusze zwane puritina, jedzą gwatemalskie tamale, odpalają petardy o północy oraz wychodzą tańczyć w różnych stylach."
+	},
+	"hours": {
+		"message": "Godziny"
+	},
+	"is_country_name": {
+		"message": "Islandia"
+	},
+	"is_tradition": {
+		"message": "W czasie świąt Bożego Narodzenia w Islandii, członkowie rodziny obdarowują się ciepłymi ubraniami. Jest to związane z legendą o przerażającym bożonarodzeniowym kocie, który pożera każdego, kto nie jest przygotowany na mroźną zimową aurę. Rodziny dbają razem, by nikomu nie stała się krzywda."
+	},
+	"kg_country_name": {
+		"message": "Kirgistan"
+	},
+	"kg_tradition": {
+		"message": "W Kirgistanie Ayaz Ata (Dziadek Mróz) przychodzi o północy w Sylwestra i zostawia prezenty pod noworoczną choinką. Kiedy zegar wybije północ, rodziny z całego kraju puszczają fajerwerki, by uczcić tę piękną tradycję. W miastach jest wówczas jasno jak w dzień."
+	},
+	"language": {
+		"message": "Język"
+	},
+	"learn": {
+		"message": "Zdobywaj wiedzę"
+	},
+	"learnmore": {
+		"message": "Więcej informacji"
+	},
+	"level": {
+		"message": "Poziom"
+	},
+	"light": {
+		"message": "Światełka"
+	},
+	"lightdescription": {
+		"message": "Rozświetl swój telewizor za pomocą aplikacji Trasa Świętego Mikołaja na Androida oraz odtwarzacza Chromecast."
+	},
+	"minutes": {
+		"message": "Minuty"
+	},
+	"mx_country_name": {
+		"message": "Meksyk"
+	},
+	"mx_tradition": {
+		"message": "W Meksyku dzieci świętują Boże Narodzenie, rozbijając piniaty. Dzieci i dorośli bawią się, zakładając opaskę na oczy, obracając się dookoła i machając kijem, by trafić wiszące donice w kształcie gwiazdy. Z rozbitej piniaty wysypują się orzechy, owoce i słodycze, ku uciesze każdego uczestnika zabawy."
+	},
+	"newtoday": {
+		"message": "Dzisiejsza nowość"
+	},
+	"nonprofit-jane-description": {
+		"message": "Szympansy są najbliższymi żyjącymi krewnymi człowieka w świecie zwierząt. Obecnie pozostało ich mniej niż 300 tysięcy. Przyczyną tego stanu rzeczy są choroby, utrata siedlisk i nielegalny handel. Organizacja Jane Goodall Institute chroni szympansy, obserwując i poznając ich zachowania oraz dbając o środowisko, w którym żyją. Tworzy również społeczność osób, które zajmują się ochroną i pielęgnacją dzikiej przyrody oraz naszego wspólnego środowiska. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003ePoznaj siedliska szympansów\u003c/a\u003e w Gombe w Tanzanii."
+	},
+	"nonprofit-jane-type": {
+		"message": "Szympans zwyczajny"
+	},
+	"nonprofit-nature-description": {
+		"message": "Organizacja Nature Conservancy dba o ochronę i odnowę lasów na całym świecie. Te piękne lasy są źródłem życia dla całej planety – filtrują wodę, oczyszczają powietrze, zapewniają dom i warunki do życia ludziom oraz stanowią naturalne środowisko dla ważnych gatunków roślin i zwierząt. Jeżeli lasy będą ginąć w obecnym tempie, znikną w ciągu najbliższych stu lat z powierzchni Ziemi. Organizacja Nature Conservancy prowadzi program o nazwie „Plant a Billion Trees”, którego celem jest posadzenie miliarda drzew do 2025 roku i odnowienie lasów, które mają największe znaczenie dla życia na naszej planecie."
+	},
+	"nonprofit-nature-type": {
+		"message": "Lasy"
+	},
+	"nonprofit-wwf-description": {
+		"message": "Postępujące zmiany klimatyczne zaburzają równowagę wielu ekosystemów, zarówno w ciepłych, jak i zimnych obszarach naszego globu. W Arktyce, ze względu na rosnące temperatury, niedźwiedzie polarne tracą swoje naturalne środowisko życia. Zagraża im także działalność człowieka, na przykład wydobywanie oraz przesyłanie ropy i gazu. Organizacja World Wildlife Fund pomaga przetrwać niedźwiedziom polarnym, prowadząc badania naukowe i współpracując z rdzennymi mieszkańcami Arktyki. Google.org z dumą \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ewspiera\u003c/a\u003e jej działalność."
+	},
+	"nonprofit-wwf-type": {
+		"message": "Niedźwiedź polarny"
+	},
+	"nz_country_name": {
+		"message": "Nowa Zelandia"
+	},
+	"nz_tradition": {
+		"message": "W Nowej Zelandii Boże Narodzenie wypada latem, dlatego rodzina i przyjaciele spotykają się na barbecue. Do typowych dań należy baranina, czasem gotowana w „hangi” – w dole lub w piecu ziemnym. Ulubionym deserem Nowozelandczyków jest pavlova: beza posypana świeżymi owocami, np. truskawkami i kiwi."
+	},
+	"onthego": {
+		"message": "Święty Mikołaj w podróży"
+	},
+	"openingtomorrow": {
+		"message": "Wielkie otwarcie już jutro"
+	},
+	"ph_country_name": {
+		"message": "Filipiny"
+	},
+	"ph_tradition": {
+		"message": "Filipiny słyną z najdłużej trwających świąt Bożego Narodzenia na świecie. Aż cztery miesiące są tu uważane za świąteczne: wrzesień, październik, listopad i grudzień. Kolędy można usłyszeć już na początku września."
+	},
+	"play": {
+		"message": "Gry"
+	},
+	"playagain": {
+		"message": "Zagraj jeszcze raz"
+	},
+	"playdescription": {
+		"message": "Graj z przyjaciółmi w aplikacji Trasa Świętego Mikołaja na Androida."
+	},
+	"ru_country_name": {
+		"message": "Rosja"
+	},
+	"ru_tradition": {
+		"message": "Zamiast na Boże Narodzenie, rosyjskie dzieci dekorują choinkę na Nowy Rok. Potem czekają z niecierpliwością na Dziadka Mroza, który podróżuje ze swoją wnuczką Śnieżynką i przynosi prezenty. Dziadek Mróz mieszka w gęstym lesie w miejscowości Wielki Ustiug na północy Rosji.z"
+	},
+	"santatracker": {
+		"message": "Trasa Świętego Mikołaja"
+	},
+	"score": {
+		"message": "Wynik"
+	},
+	"seconds": {
+		"message": "Sekundy"
+	},
+	"select-language": {
+		"message": "Wybierz język"
+	},
+	"share-button": {
+		"message": "Udostępnij znajomym w Google+"
+	},
+	"share-text": {
+		"message": "Wysyłam Ci tę kartkę z aplikacji Trasy Świętego Mikołaja w Google! Wesołych świąt!"
+	},
+	"share-this": {
+		"message": "Udostępnij"
+	},
+	"terms-and-privacy": {
+		"message": "Warunki i prywatność"
+	},
+	"tilt": {
+		"message": "Przechyl urządzenie!"
+	},
+	"traditions-next": {
+		"message": "Następna tradycja"
+	},
+	"traditions-prev": {
+		"message": "Poprzednia tradycja"
+	},
+	"traditions-world": {
+		"message": "Świat"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_013": {
+		"message": "W północno-zachodniej części jakiego kontynentu leży Niger, kraj, którego populacja jest jedną z najszybciej rosnących na świecie?"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Kanada"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Ghana"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "Meksyk"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Argentyna"
+	},
+	"trivia_beginner_020": {
+		"message": "W jakim kraju znajduje się syczuański rezerwat pandy wielkiej, w którym mieszka 30% wszystkich pand na świecie?"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "Islandia"
+	},
+	"trivia_beginner_021": {
+		"message": "Na jakim kontynencie znajduje się około 90% lodu z całego świata?"
+	},
+	"trivia_beginner_022": {
+		"message": "Na jakim kontynencie znajduje się Salto Angel, najwyższy wodospad na świecie?"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_037": {
+		"message": "W jakim rosyjskim mieście wznosi się Sobór Wasyla Błogosławionego, stojący na Placu Czerwonym obok Kremla?"
+	},
+	"trivia_beginner_038": {
+		"message": "W jakim europejskim mieście znajduje się Koloseum, wzniesione w pierwszym wieku naszej ery jako miejsce zmagań gladiatorów?"
+	},
+	"trivia_beginner_049": {
+		"message": "Most Golden Gate łączy które amerykańskie miasto z półwyspem Marin?"
+	},
+	"trivia_beginner_050": {
+		"message": "W jakim mieście przy rzece Mississippi w Stanach Zjednoczonych wznosi się Gateway Arch („Łuk Wjazdowy”), symbolizujący amerykańską ekspansję na zachód w XIX wieku?"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Brazylia"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Niemcy"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "Stany Zjednoczone"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Rosja"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_067": {
+		"message": "Jak nazywa się ocean, na którym leżą znajdujące się na zachód od Ameryki Południowej Wyspy Galápagos, gdzie żyją wielkie żółwie?"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_077": {
+		"message": "Do jakiego kraju należy się udać, aby popłynąć Kanałem Sueskim i odwiedzić Miasto Umarłych w Kairze?"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Argentyna"
+	},
+	"trivia_beginner_080": {
+		"message": "Do jakiego kraju należy się udać, aby odwiedzić starożytne ruiny Majów i poopalać się na plażach Cancún?"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "Meksyk"
+	},
+	"trivia_beginner_081": {
+		"message": "Do jakiego kraju należy się udać, aby odwiedzić Katedrę św. Patryka w Dublinie i wziąć udział w festiwalu kulturalnym w Kilkenny?"
+	},
+	"trivia_beginner_082": {
+		"message": "Do jakiego kraju należy się udać, aby zobaczyć lasy deszczowe i zatańczyć na karnawale w Rio de Janeiro?"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Brazylia"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "Wielka Brytania"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Rosja"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Niemcy"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "Islandia"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "Nowa Zelandia"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "Islandia"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "Francja"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "Wielka Brytania"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "Meksyk"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Kanada"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Brazylia"
+	},
+	"trivia_hard_022": {
+		"message": "Od jakiej wyspy oddziela Meksyk Kanał Jukatański?"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Filipiny"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Brazylia"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Australia"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Niemcy"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "Wielka Brytania"
+	},
+	"trivia_hard_054": {
+		"message": "Jakie miasto, znajdujące się nad estuarium La Plata, jest największym miastem Urugwaju?"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Grecja"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Gwatemala"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Rosja"
+	},
+	"trivia_hard_072": {
+		"message": "Regionem jakiego kraju jest Prowansja, której pejzaże inspirowały wielu malarzy, w tym Cézanne'a?"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "Francja"
+	},
+	"trivia_hard_073": {
+		"message": "W jakim kraju znajduje się Bahía Blanca, jeden z głównych portów towarowych regionu Pampa?"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Argentyna"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "Meksyk"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "Islandia"
+	},
+	"trivia_hard_083": {
+		"message": "Gdańsk, miasto leżące blisko ujścia Wisły, jest jednym z głównych portów którego europejskiego kraju?"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Rzeka Paraná"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "Nowa Zelandia"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Australia"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Ghana"
+	},
+	"trivia_hard_088": {
+		"message": "W jakim kraju w Ameryce Południowej istnieje oficjalny język oraz waluta nazywane Guaraní?"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Brazylia"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Australia"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "Francja"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Niemcy"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "Meksyk"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_004": {
+		"message": "Na jakim kontynencie leżało Teotihuacán, wielkie centrum jednej z pierwszych cywilizacji?"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "São Paulo, Brazylia"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Gwatemala"
+	},
+	"trivia_medium_024": {
+		"message": "Jaka stolica, położona nad Zatoką Stołową, jest siedzibą parlamentu RPA?"
+	},
+	"trivia_medium_030": {
+		"message": "Jaka stolica, znajdująca się na południe od Morza Czarnego, stanowi serce tureckiego systemu transportu?"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "Wielka Brytania"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Antarktyka"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Brazylia"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "Meksyk"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Niemcy"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Rosja"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "Francja"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Gwatemala"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Grecja"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Niemcy"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "Islandia"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "Wielka Brytania"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Rosja"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "Nowa Zelandia"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Filipiny"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "Stany Zjednoczone"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "Nowa Zelandia"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "Francja"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "Meksyk"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Argentyna"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Filipiny"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Grecja"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Niemcy"
+	},
+	"trivia_medium_089": {
+		"message": "W jakim kraju graniczącym z Salwadorem i Nikaraguą leży Copán, miasto Majów, będące popularnym celem wycieczek?"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_092": {
+		"message": "W jakim kraju znajduje się miasto Belém, leżące przy południowym ujściu Amazonki?"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Brazylia"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Rosja"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Kirgistan"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Australia"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"uk_country_name": {
+		"message": "Wielka Brytania"
+	},
+	"uk_tradition": {
+		"message": "W Wielkiej Brytanii w Boże Narodzenie podczas kolacji świętujący bawią się „crackerami”. Są to walce owinięte sreberkiem, z paskami na końcach. Wystarczy za nie pociągnąć, by walec wystrzelił z hukiem! Wewnątrz znajdują się papierowe kapelusze, zabawki i słodycze, które umilają wigilijną noc."
+	},
+	"us_country_name": {
+		"message": "Stany Zjednoczone"
+	},
+	"us_tradition": {
+		"message": "W Stanach Zjednoczonych wiesza się skarpety w Wigilię. Legenda głosi, że gdy Święty Mikołaj dowiedział się o rodzinie w potrzebie, wszedł do ich domu przez komin i włożył złoto do wiszących skarpet. Od tego momentu zaczął być kojarzony z rozdawaniem prezentów."
+	},
+	"watch": {
+		"message": "Materiały wideo"
+	}
+}

@@ -42,7 +42,7 @@ Village scene.
         <!-- <h2>Until Santa Departs &ndash; <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">Learn More</a></h2> -->
         <h2><i18n-msg msgid="countdownlabel">PLACEHOLDER_i18n</i18n-msg><span id="learnmore"> &centerdot; <a href="//www.google.com/santatracker/about.html"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a></span></h2>
         <div id="finished-tracker">
-          <a href="{{baseURI}}#tracker"></a>
+          <a href="{{pageUrl}}#tracker"></a>
         </div>
         <h2 style="display:none"><i18n-msg msgid="endofjourneymessage">PLACEHOLDER_i18n</i18n-msg></h2>
       </div>
@@ -68,9 +68,9 @@ Village scene.
           <div id="houses">
 
             <template repeat="{{house, i in santaApp.houses}}">
-              <!-- TODO(ericbidelman_): Non-[[]] bindings are being evaluated on-scroll! -->
               <div id="house-[[house.module]]" class="house {{house.category}} {{house.iced ? 'iced' : 'melt'}} {{ {today: house.today, tomorrow: house.tomorrow} | tokenList }}">
-                <div class="building"></div>
+                <a href="{{house.link || pageUrl + '#' + house.module}}" class="building"
+                   on-click="{{onHouseClick}}" tabindex="-1"></a>
 
                 <div class="house-snow"></div>
                 <div class="house-elves">
@@ -91,8 +91,8 @@ Village scene.
                 <div class="marker-tomorrow">
                   <div layout vertical center-center><i18n-msg msgid="openingtomorrow">PLACEHOLDER_i18n</i18n-msg></div>
                 </div>
-                <a href="[[baseURI]]#{{house.module}}" class="house-marker"
-                   tabindex="{{house.iced || house.disabled ? -1 : 0}}" on-click="{{onHouseClick}}"></a>
+                <a href="{{house.link || pageUrl + '#' + house.module}}" class="house-marker"
+                  on-click="{{onHouseClick}}" tabindex="{{house.iced || house.disabled ? -1 : 0}}"></a>
               </div>
             </template>
 
@@ -120,7 +120,7 @@ Village scene.
               <div class="elf elf-green-girl-sit-left elf6"></div>
             </div>
 
-            <a href="{{baseURI}}#santadive" id="pegman" class="landed"></a>
+            <a href="http://g.co/santamapsdive" id="pegman" class="landed"></a>
             <div id="pegman-spaceship"></div>
 
             <div id="unicycle" class="elf"><div class="cycle"></div></div>
@@ -345,12 +345,21 @@ Village scene.
       var iced = sender.templateInstance.model.house.iced;
       if (iced) {
         e.preventDefault();
+      } else if (sender.templateInstance.model.house.link) {
+        e.preventDefault();
+
+        this.fire('analytics-track-event', {category: 'outbound', action: 'click',
+                                            label: sender.href});
+
+        this.async(function() {
+          document.location.href = sender.href;
+        }, null, 100);
       }
     },
 
     onSnowManClick: function(e, detail, sender) {
       this.$.snowman.classList.add('snowman-fall');
-      this.playSound('village_snowman_click');
+      this.fire('sound-trigger', 'village_snowman_click');
 
       this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'snowman'});
 
@@ -368,7 +377,7 @@ Village scene.
 
       this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'balloon'});
 
-      this.playSound('village_balloon_click');
+      this.fire('sound-trigger', 'village_balloon_click');
 
       sender.classList.add('takeoff');
 
@@ -400,7 +409,7 @@ Village scene.
         this.$['balloon-elf1'].hidden = false;
         this.$['balloon-elf2'].hidden = false;
 
-        this.playSound('village_balloon_landing');
+        this.fire('sound-trigger', 'village_balloon_landing');
       }, null, timeout);
     },
 
@@ -646,6 +655,7 @@ Village scene.
         'img/marker1_2-lock.svg',
         'img/marker1_3-lock.svg',
         'img/marker1_4-lock.svg',
+        'img/sign.svg',
       ];
 
       //var suffix = window.devicePixelRatio > 1.5 ? '_2x.png' : '.png';
@@ -658,11 +668,11 @@ Village scene.
         images.push('img/trees' + i + '.svg');
       }
 
-      var houses = ['airport', 'racer', 'intro', 'app', 'selfie', 'boatload',
+      var houses = ['airport', 'racer', 'trailer', 'app', 'santaselfie', 'boatload',
           'briefing', 'matching', 'presentdrop', 'streetview', 'jamband',
-          'codelab', 'translations', 'video', 'mercator', 'controlroom',
-          'play', 'charity', 'jetpack', 'candy', 'postcard', 'traditions',
-          'windtunnel', 'gumball', 'citylights', 'santa'];
+          'codelab', 'translations', 'carpool', 'mercator', 'commandcentre',
+          'playground', 'seasonofgiving', 'jetpack', 'factory', 'postcard', 'traditions',
+          'windtunnel', 'gumball', 'citylights', 'liftoff'];
       for (var i = 0, house; house = houses[i]; i++) {
         images.push('img/house-' + house + '.svg');
         images.push('img/house-' + house + '-ice.svg');
@@ -682,13 +692,13 @@ Village scene.
       this.villageSnowMobile_.start();
       this.$.count.start();
 
-      this.playAmbientSounds('village_start');
+      this.fire('sound-ambient', 'village_start');
     },
 
     onHide: function() {
       window.clearTimeout(this.scheduleTimeout_);
 
-      this.playAmbientSounds('village_end');
+      this.fire('sound-ambient', 'village_end');
 
       if (this.mode != 'cast') {
         this.villageSnow_.stop();
@@ -701,7 +711,7 @@ Village scene.
     },
 
     onPause: function() {
-      this.playAmbientSounds('village_end');
+      this.fire('sound-ambient', 'village_end');
 
       this.villageBus_.pause();
       this.villagePegman_.pause();
@@ -721,7 +731,7 @@ Village scene.
         this.villageSnow_.start();
       }
 
-      this.playAmbientSounds('village_start');
+      this.fire('sound-ambient', 'village_start');
     }
   });
 

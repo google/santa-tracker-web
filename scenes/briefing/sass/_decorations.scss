@@ -1,0 +1,28 @@
+.decorations {
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+  right: 0;
+
+  margin-top: -520px;
+
+  height: 131px;
+
+  background: center 0 url('img/decorations-min.svg') repeat-x;
+
+  &:before {
+    $height: 5000px;
+
+    content: "";
+    position: absolute;
+
+    top: -$height;
+    left: 0;
+    right: 0;
+
+    height: $height + 10px;
+
+    background: #00aeef;
+  }
+}

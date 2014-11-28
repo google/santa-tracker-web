@@ -1,3 +1,5 @@
+goog.provide('Constants');
+
 /**
  * These are gameplay and UI related constants used by the code.
  * Please tweak them to improve gameplay and game balance.
@@ -5,7 +7,7 @@
 var Constants = {
   DOOR_COUNT: 12,
   LAST_LEVEL: 5,
-  INITIAL_COUNTDOWN: 60, // in seconds
+  INITIAL_COUNTDOWN: 30, // in seconds
   MINIMUM_COUNTDOWN: 5, // in seconds
 
   COUNTDOWN_TRACK_LENGTH: 60, // in seconds
@@ -15,12 +17,12 @@ var Constants = {
   SCORE_MATCH: 50,
   SCORE_LEVEL_UP: 500,
 
-  TIME_PER_LEVEL: 60,
+  TIME_PER_LEVEL: 30,
   MAX_TIME: 120,
 
   MISMATCH_TIMEOUT: 400,
 
-  LEVEL_CAP_DURATION: 5, // in seconds
+  LEVEL_CAP_DURATION: 15, // in seconds
   SLIDING_DOOR_DURATION: 400, // in milliseconds
 
   MAX_OPEN_DOORS: 2,

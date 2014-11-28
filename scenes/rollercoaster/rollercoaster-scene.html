@@ -216,7 +216,7 @@ Rollercoaster scene.
       },
 
       onShow: function() {
-        this.playAmbientSounds('rollercoaster_start');
+        this.fire('sound-ambient', 'rollercoaster_start');
         var container = this.$['module-rollercoaster'];
 
         this.cartAnimationBack_ = new CSSAnimationInterval(container);
@@ -249,7 +249,7 @@ Rollercoaster scene.
         this.cartAnimationBack_ = null;
         this.cartAnimationFront_ = null;
 
-        this.playAmbientSounds('rollercoaster_end');
+        this.fire('sound-ambient', 'rollercoaster_end');
       }
     });
   })();

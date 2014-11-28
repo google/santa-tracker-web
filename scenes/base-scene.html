@@ -20,7 +20,7 @@ These methods will be called at the appropriate times:
 Subclass scene elements can define the following properties:
 
 - `componentDir` - the relative path to the component's root folder from the main app folder (e.g 'scenes/village/').
-- `loadingColor` - an optional loading screen background color.
+- `loadingBgColor` - an optional loading screen background color.
 - `loadingSrc` - an optional loading screen background image. The path should be relative to the
   component's folder (e.g 'img/loading.gif').
 
@@ -35,8 +35,13 @@ Subclass scene elements can define the following properties:
   }
 </style>
 
-<polymer-element name="base-scene" attributes="active alwaysActive path route mode santaApp" tabindex="0">
+<polymer-element name="base-scene" attributes="active alwaysActive path route mode santaApp loadingBgColor loadingSrc"
+                 on-scene-pause="{{handlePause}}" tabindex="0">
 <script>
+(function() {
+
+var scheduleChecked_ = false; // static
+
 Polymer({
   publish: {
     /**
@@ -57,6 +62,17 @@ Polymer({
      * @default false
      */
     alwaysActive: {value: false, reflect: true}
+  },
+
+  /**
+   * A basename for links within Santa Tracker. The hash is removed for nicer
+   * display URLs in the status bar.
+   * @property pageUrl
+   * @type string
+   * @default
+   */
+  get pageUrl() {
+    return location.href.substr(0, location.href.length - location.hash.length);
   },
 
   /**
@@ -97,6 +113,8 @@ Polymer({
     preloadProgress: 'loaded ? 100 : totalAssets ? (assetsLoaded / totalAssets * 100) : 0',
   },
 
+  preloadProgress: 0,
+
   /**
    * Total number of assets that will need to be preloaded. Must be set
    * in `onPreload` or will be ignored.
@@ -122,6 +140,24 @@ Polymer({
    * @default null
    */
   path: null,
+
+  /**
+   * An optional background loading color for the preloading overlay.
+   *
+   * @attribute loadingBgColor
+   * @type string
+   * @default null
+   */
+  loadingBgColor: null,
+
+   /**
+   * An optional background image for the preloading overlay.
+   *
+   * @attribute loadingSrc
+   * @type string
+   * @default null
+   */
+  loadingSrc: null,
 
   /**
    * The relative path of the scene folder from the main app root folder.
@@ -168,8 +204,7 @@ Polymer({
    * @default
    */
   get componentBaseDir() {
-    return location.protocol + '//' + location.host + location.pathname +
-           (this.componentDir || '');
+    return this.componentDir || '';
   },
 
   ready: function() {
@@ -179,13 +214,10 @@ Polymer({
   },
 
   santaAppChanged: function() {
-    this.santaApp.checkSchedule_(true);
-
-    if (this.onPause) {
-      this.santaApp.visibilityService.addOnPauseListener(this.onPause.bind(this));
-    }
-    if (this.onResume) {
-      this.santaApp.visibilityService.addOnResumeListener(this.onResume.bind(this));
+    // Only check initial schedule the first time any scene is created.
+    if (!scheduleChecked_) {
+      this.santaApp.checkSchedule_(true);
+      scheduleChecked_ = true;
     }
   },
 
@@ -200,11 +232,18 @@ Polymer({
       this.assetsLoaded++;
     }.bind(this);
 
-    for (var i = 0; i < imageUrls.length; i++) {
+    var i = 0;
+    var rafCallback = function() {
       var img = new Image();
       img.onerror = img.onload = onload;
-      img.src = this.resolvePath(imageUrls[i]);
-    }
+      img.src = this.resolvePath(imageUrls[i++]);
+
+      if (i < imageUrls.length) {
+        this.async(rafCallback);
+      }
+    };
+
+    this.async(rafCallback);
   },
 
   /**
@@ -214,25 +253,6 @@ Polymer({
    */
   preloadSounds: function(soundSetName) {
     this.fire('sound-preload', soundSetName);
-  },
-
-  /**
-   * Play an ambient sound script for the scene via Klang. This is typically
-   * called in onShow and onHide.
-   * @method playAmbientSounds
-   * @param string soundName
-   */
-  playAmbientSounds: function(soundName) {
-    this.fire('sound-ambient', soundName);
-  },
-
-  /**
-   * Play a single sound via Klang.
-   * @method playSound
-   * @param string soundName
-   */
-  playSound: function(soundName) {
-    this.fire('sound-trigger', soundName);
   },
 
   preloadProgressChanged: function() {
@@ -248,8 +268,8 @@ Polymer({
     this.cancelAsync(this.maxPreloadAsync_);
 
     if (this.active) {
+      this.hidden = false; // Scene needs to do layout before onShow().
       this.onShow && this.onShow();
-      this.hidden = false;
 
       // focus in case element needs keyboard events
       this.focus();
@@ -279,8 +299,17 @@ Polymer({
     }
 
     this.showScene();
-  }
+  },
 
+  handlePause: function(e, paused) {
+    if (paused && this.onPause) {
+      this.onPause();
+    } else if (!paused && this.onResume) {
+      this.onResume();
+    }
+  }
 });
+
+})();
 </script>
 </polymer-element>

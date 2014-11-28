@@ -1,0 +1,61 @@
+##{$name} {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .view {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background: #d3e4ed url('img/surround.png') center center no-repeat;
+    transform-origin: 0 0;
+  }
+
+  .touchpad {
+    background: url('img/touchpad.png') -79px 0 no-repeat;
+    height: 258px;
+    margin-left: -125px;
+    margin-top: -125px;
+    position: absolute;
+    transform: translate3d(0, 0, 0) scale(0.5);
+    width: 255px;
+  }
+
+  /* Bigger on tablets */
+  @media (min-width: 660px) {
+    .touchpad {
+      transform: translate3d(0, 0, 0) scale(0.8);
+    }
+  }
+
+  .touchpad-nub {
+    background: url('img/touchpad.png') no-repeat;
+    height: 85px;
+    left: 49.02%;
+    margin-left: -35px;
+    margin-top: -35px;
+    position: absolute;
+    top: 48.45%;
+    width: 79px;
+  }
+
+  .game {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -320px 0 0 -302px;
+  }
+
+  .game.loaded {
+    background: none;
+  }
+
+  .hidden {
+    display: none;
+  }
+}

@@ -1,31 +1,45 @@
+$rotate-bg: $gameover-bg !default;
 
 ##{$name} {
   .force-rotate {
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 0;
+    background: $rotate-bg;
     bottom: 0;
+    display: none;
     left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
     z-index: 2000; // Sorry guys.
+  }
 
-    background: $scoreboard-bg;
+  .force-rotate-graphic {
+    background: url(../shared/img/rotate/rotate.svg) 50% top / contain no-repeat;
+    height: 200px;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: -105px;
+    position: absolute;
+    top: 50%;
+    width: 200px;
   }
 
   .force-rotate-explanation {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200px;
-    margin-left: -100px;
-    margin-top: -105px;
-    padding-top: 210px;
     color: white;
+    font-family: Roboto, sans-serif;
     font-size: 16px;
+    -webkit-font-smoothing: 900;
+    font-weight: 900;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: 105px;
+    position: absolute;
     text-align: center;
-    font-weight: bold;
+    top: 50%;
+    width: 200px;
+  }
 
-    background: url('img/rotate.svg') 50% top / contain no-repeat;
+  .portrait > .force-rotate-graphic {
+    transform: rotate(90deg) scale(-1, 1);
   }
 }
 
@@ -33,6 +47,15 @@
 @media screen and (max-width: 479px) {
   ##{$name} {
     .force-rotate.landscape {
+      display: block;
+    }
+  }
+}
+
+// Hopefully this matches all phones in landscape mode.
+@media screen and (max-height: 479px) {
+  ##{$name} {
+    .force-rotate.portrait {
       display: block;
     }
   }

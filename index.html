@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" itemscope="itemscope" itemtype="http://schema.org/WebPage">
 <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+  <base href="">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
@@ -44,9 +45,7 @@
 
   <!-- Preloading scene overlay -->
   <preload-overlay value="{{selectedScene.preloadProgress || 0}}"
-                   active?="{{selectedScene && !selectedScene.loaded}}"
-                   color="{{selectedScene.loadingBgColor}}"
-                   src="{{selectedScene.loadingSrc}}"></preload-overlay>
+                   active?="{{selectedScene && !selectedScene.loaded}}"></preload-overlay>
 
   <lazy-pages id="lazypages" selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route"
               santaApp="{{$.santaApp}}">
@@ -57,26 +56,60 @@
       string (not an object) and the one-way bindings are good with that.
     -->
     <calendar-nav route="calendar" alwaysActive
-                  houses="{{$.santaApp.houses}}" santaApp="{{$.santaApp}}"
-                  hidden?="{{$.santaApp.mode == 'cast'}}"></calendar-nav>
+        houses="{{$.santaApp.houses}}" santaApp="{{$.santaApp}}"
+        loadingBgColor="#7847b2"
+        hidden?="{{$.santaApp.mode == 'cast'}}"></calendar-nav>
+
     <village-scene route="village"
-        path="scenes/village/village-scene_en.html" mode="{{$.santaApp.mode}}" hidden></village-scene>
+        path="scenes/village/village-scene_en.html"
+        mode="{{$.santaApp.mode}}" hidden></village-scene>
+
     <airport-scene route="airport"
-        path="scenes/airport/airport-scene_en.html" hidden></airport-scene>
+        path="scenes/airport/airport-scene_en.html"
+        loadingBgColor="rgb(129,208,0)" hidden></airport-scene>
+
+    <boatload-scene route="boatload"
+        path="scenes/boatload/boatload-scene_en.html"
+        loadingBgColor="#28b5f5"
+        loadingSrc="scenes/boatload/img/loading.gif" hidden></boatload-scene>
+
     <briefing-scene route="briefing"
-        path="scenes/briefing/briefing-scene.html" hidden></briefing-scene>
+        path="scenes/briefing/briefing-scene_en.html"
+        loadingBgColor="'rgb(129,208,0)" hidden></briefing-scene>
+
     <matching-scene route="matching"
-        path="scenes/matching/matching-scene_en.html" hidden></matching-scene>
+        path="scenes/matching/matching-scene_en.html"
+        loadingBgColor="#b27644"
+        loadingSrc="scenes/matching/img/loading.gif" hidden></matching-scene>
+
+    <racer-scene route="racer"
+        path="scenes/racer/racer-scene_en.html"
+        loadingBgColor="#8fd7f7"
+        loadingSrc="scenes/racer/img/loading.gif" hidden></racer-scene>
+
     <workshop-scene route="workshop"
-        path="scenes/workshop/workshop-scene.html" hidden></workshop-scene>
+        path="scenes/workshop/workshop-scene.html"
+        loadingBgColor="rgb(129,208,0)" hidden></workshop-scene>
+
     <windtunnel-scene route="windtunnel"
-        path="scenes/windtunnel/windtunnel-scene.html" hidden></windtunnel-scene>
+        path="scenes/windtunnel/windtunnel-scene.html" hidden
+        loadingBgColor="rgb(129,208,0)"></windtunnel-scene>
+
     <rollercoaster-scene route="rollercoaster"
         path="scenes/rollercoaster/rollercoaster-scene.html" hidden></rollercoaster-scene>
+
     <undersea-scene route="undersea"
         path="scenes/undersea/undersea-scene.html" hidden></undersea-scene>
+
     <traditions-scene route="traditions"
-        path="scenes/traditions/traditions-scene_en.html" hidden></traditions-scene>
+        path="scenes/traditions/traditions-scene_en.html"
+        loadingBgColor="rgb(255,224,0)"
+        loadingSrc="scenes/traditions/img/loading.gif" hidden></traditions-scene>
+
+    <trailer-scene route="trailer"
+        path="scenes/trailer/trailer-scene_en.html"
+        loadingBgColor="rgb(129,208,0)" hidden></trailer-scene>
+
   </lazy-pages>
 
 </santa-app>
@@ -92,12 +125,20 @@
 window.DEV = true;
 
 if (window.DEV) {
+  document.addEventListener('DOMContentLoaded', function() {
+    console.info('DOMContentLoaded @', performance.now(), 'ms');
+  });
+
   document.addEventListener('HTMLImportsLoaded', function() {
-    console.debug('HTMLImportsLoaded @', performance.now(), 'ms');
+    console.info('HTMLImportsLoaded @', performance.now(), 'ms');
+  });
+
+  document.addEventListener('template-bound', function() {
+    console.info('template-bound @', performance.now(), 'ms');
   });
 
   document.addEventListener('polymer-ready', function() {
-    console.debug('polymer-ready @', performance.now(), 'ms');
+    console.info('polymer-ready @', performance.now(), 'ms');
   });
 } else {
   console.log = function(){};

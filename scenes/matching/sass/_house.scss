@@ -1,13 +1,13 @@
 ##{$name} {
   .house {
-    width: 1281px;
+    background: transparent url('img/house.svg') 0 0 no-repeat;
     height: 806px;
-    position: absolute;
     left: 50%;
-    top: 0%; // already taking 50% from the anchor
     margin-left: -641px;
     margin-top: -736px;
-
-    background: transparent url('img/house.svg') 0 0 no-repeat;
+    pointer-events: none;
+    position: absolute;
+    top: 0%; // already taking 50% from the anchor
+    width: 1281px;
   }
 }

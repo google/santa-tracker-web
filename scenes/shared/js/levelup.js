@@ -1,3 +1,9 @@
+
+goog.provide('app.shared.LevelUp');
+
+// We are *leaking* the LevelUp global for backwards compatibility.
+app.shared.LevelUp = LevelUp;
+
 /**
  * Animation for level up.
  * @constructor
@@ -6,21 +12,20 @@
  * @param {HTMLElement} numberElem The element for the level number.
  */
 function LevelUp(game, bgElem, numberElem) {
-  this.game = game;
   this.bgElem = bgElem;
   this.numberElem = numberElem;
 
   $(window).on('resize', this.onResize_.bind(this));
   this.onResize_();
-};
+}
 
 /**
  * Recalculate sizes for background on window resize.
  * @private
  */
 LevelUp.prototype.onResize_ = function() {
-  var width = this.game.elem.width(),
-    height = this.game.elem.height();
+  var width = window.innerWidth,
+    height = window.innerHeight;
 
   this.bgBorderWidth = width;
   this.bgElem.css({
@@ -48,13 +53,13 @@ LevelUp.prototype.numberShown_ = function() {
   this.numberElem.addClass('hide');
   this.bgElem.css('border-width', 0);
 
-  Klang.triggerEvent('level_transition_open');
+  window.santaApp.fire('sound-trigger', 'level_transition_open');
 };
 
 /**
  * Show new level number.
- * @param Number level The number of the new level.
- * @param Function callback The function to call while the level is hidden.
+ * @param {number} level The number of the new level.
+ * @param {function} callback The function to call while the level is hidden.
  */
 LevelUp.prototype.show = function(level, callback) {
   timeoutOneEvent(this.bgElem, utils.TRANSITION_END, 1.0, callback);
@@ -63,7 +68,7 @@ LevelUp.prototype.show = function(level, callback) {
   timeoutOneEvent(this.numberElem, utils.ANIMATION_END, 1.5, this.numberShown_.bind(this));
   this.numberElem.text(level).addClass('show');
 
-  Klang.triggerEvent('level_transition_close');
+  window.santaApp.fire('sound-trigger', 'level_transition_close');
 };
 
 /**
@@ -80,7 +85,7 @@ function timeoutOneEvent(elem, event, timeout, callback) {
     if (!finished) {
       finished = true;
       elem.off(event, finish);
-      if (callback && typeof callback === "function") {
+      if (callback && typeof callback === 'function') {
         callback();
       }
     }

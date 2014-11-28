@@ -1,0 +1,644 @@
+{
+	"about-content-one": {
+		"message": "我們很榮幸在聖誕夜展示聖誕老人的資訊主頁，幫助聖誕老人駕雪橇環遊世界。為數眾多的研發小精靈在北極努力協助聖誕老人迎接這個重大節日，其中一位小精靈特別給了我們一個可以先睹為快的機會。聖誕老人的資訊主頁上秀出了 Google 地圖最新、最精彩的技術和雪橇工程，您可以在這裡追蹤聖誕老人環遊世界的進度，並認識一下他沿途停靠的幾個地方。"
+	},
+	"about-content-three": {
+		"message": "Google 地圖「聖誕老人追蹤器」是由 Google 開發製作 (當然，聖誕老人小精靈也提供了一點幫助)。如果您有任何疑問或需要協助，請前往\u003ca href=\"//support.google.com/santatracker\"\u003e說明中心\u003c/a\u003e。"
+	},
+	"about-content-two": {
+		"message": "和藹可親的小精靈邀您到聖誕老人的村莊一遊，看看聖誕老人為這次旅程做準備。快來探索他的村莊，許多好玩的活動和有趣的小精靈在等著您！"
+	},
+	"about-santa": {
+		"message": "關於"
+	},
+	"about_title": {
+		"message": "歡迎使用 Google 聖誕老人追蹤器！"
+	},
+	"ar_country_name": {
+		"message": "阿根廷"
+	},
+	"ar_tradition": {
+		"message": "阿根廷的聖誕節準時從午夜開始。許多家庭會在家中舉辦節慶活動、與親人一起拆禮物，並且在凌晨燃放煙火，為假期揭開序幕。"
+	},
+	"au_country_name": {
+		"message": "澳洲"
+	},
+	"au_tradition": {
+		"message": "地處南半球的澳洲到了十二月會進入夏季。這裡不流行雪橇鈴聲和熱可可，許多澳洲人會擁抱海灘，用一頓大蝦午餐來歡慶佳節，並且玩幾回合的板球。"
+	},
+	"br_country_name": {
+		"message": "巴西"
+	},
+	"br_tradition": {
+		"message": "聖誕節慶祝活動不到午夜就會開始，通常包含豐盛的全家福晚餐、拆禮物或前往教堂慶祝「子夜彌撒」(雞鳴彌撒)。雖然是暖洋洋的熱帶夏天，卻常見冬雪主題擺設。"
+	},
+	"ca_country_name": {
+		"message": "加拿大"
+	},
+	"ca_tradition": {
+		"message": "加拿大兒童通常在皚皚白雪中慶祝聖誕節。他們緊裹著圍巾，頭戴加拿大式無邊羊毛帽，在雪地裡玩耍、溜冰或乘坐平底雪橇！到了聖誕夜，他們會在壁爐旁留下歡迎聖誕老人的牛奶和餅乾 (有時也會留根紅蘿蔔給他的馴鹿)。"
+	},
+	"calendar": {
+		"message": "日曆"
+	},
+	"category_code": {
+		"message": "寫程式"
+	},
+	"category_draw": {
+		"message": "繪製"
+	},
+	"category_listen": {
+		"message": "聆聽"
+	},
+	"category_send": {
+		"message": "傳送"
+	},
+	"close-this": {
+		"message": "取消"
+	},
+	"copy-me": {
+		"message": "複製這個連結即可分享您的訊息"
+	},
+	"countdownlabel": {
+		"message": "距離聖誕老人出發時間"
+	},
+	"days": {
+		"message": "天"
+	},
+	"de_country_name": {
+		"message": "德國"
+	},
+	"de_tradition": {
+		"message": "幾乎每個德國小鎮都會在鎮廣場舉辦聖誕市集。鎮民聚在一起聆聽銅管樂隊演奏，享受當地的傳統美食。他們會吃心型薑餅、糖烤杏仁和各種甜點，並喝香料酒 (Glühwein) 或蘋果酒。"
+	},
+	"deck": {
+		"message": "增添裝飾"
+	},
+	"deckdescription": {
+		"message": "用聖誕老人 Chrome 擴充功能為您的瀏覽器換上新裝。"
+	},
+	"endofjourneymessage": {
+		"message": "聖誕老人已完成今年的旅程！他和精靈們在年假開始前仍會先在北極玩樂一下。"
+	},
+	"error": {
+		"message": "看來我們與北極的連線剛斷了，聖誕老人的小精靈正努力修復中，別走開喔！"
+	},
+	"error-lost-connection": {
+		"message": "看來我們與北極的連線剛斷了，聖誕老人的小精靈正努力修復中，別走開喔！"
+	},
+	"error-try-again": {
+		"message": "再試一次"
+	},
+	"error_try_again": {
+		"message": "再試一次"
+	},
+	"finished-text": {
+		"message": "佳節愉快！聖誕老人完成環遊世界之旅，現在該好好休息一下。明年再來找我們喔！"
+	},
+	"fr_country_name": {
+		"message": "法國"
+	},
+	"fr_tradition": {
+		"message": "根據傳統，法國兒童會把自己的鞋子拿到壁爐旁，盼望聖誕老人到來。如果孩子們一整年都很乖，聖誕老人就會將禮物裝進鞋子裡。"
+	},
+	"getgooglemaps": {
+		"message": "取得 Google 地圖"
+	},
+	"gh_country_name": {
+		"message": "迦納"
+	},
+	"gh_tradition": {
+		"message": "在加納，聖誕節是全家福活動。大人會變裝在住家附近發送糖果和甜點，小孩則用他們在學校完成的紙類飾品和圖畫裝飾住家。"
+	},
+	"gotovillage": {
+		"message": "前往聖誕老人村"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "希臘"
+	},
+	"gr_tradition": {
+		"message": "在希臘，友善但愛惹麻煩的小妖精 (kallikántzari) 一整年大部分時間都住在地球中心。但到了聖誕節，他們喜歡躲在人們家中嚇人、惡作劇或大啖聖誕節食物。希臘人會進行儀式來趕走這些小妖怪。"
+	},
+	"gt_country_name": {
+		"message": "瓜地馬拉"
+	},
+	"gt_tradition": {
+		"message": "瓜地馬拉人慶祝聖誕節的方式充滿歡樂和舞蹈。他們會戴上特有的帽子 (Puritina)，享用瓜地馬拉風味的玉米粉蒸肉，在午夜燃放鞭炮，並以各種風格的舞蹈歡度良宵。"
+	},
+	"hours": {
+		"message": "小時"
+	},
+	"is_country_name": {
+		"message": "冰島"
+	},
+	"is_tradition": {
+		"message": "到了聖誕節，冰島家家戶戶會贈送禦寒衣物給家中每位成員做為禮物。根據傳說，如果有人沒為寒冬天氣做好準備，就會被可怕的聖誕貓吞噬。因此，全家人會通力合作，不讓任何成員「落入聖誕貓口」。"
+	},
+	"kg_country_name": {
+		"message": "吉爾吉斯"
+	},
+	"kg_tradition": {
+		"message": "吉爾吉斯的雪老人 (Ayaz Ata) 會在除夕午夜到訪，然後在新年樹下留下禮物。當午夜響起鐘聲時，全國各地的家庭都會燃放煙火來慶祝這個美好時刻，城市瞬間明亮如白晝。"
+	},
+	"language": {
+		"message": "語言"
+	},
+	"learn": {
+		"message": "學習"
+	},
+	"learnmore": {
+		"message": "瞭解詳情"
+	},
+	"level": {
+		"message": "關卡"
+	},
+	"light": {
+		"message": "亮起"
+	},
+	"lightdescription": {
+		"message": "將聖誕老人追蹤器 Android 應用程式和 Chromecast 搭配使用，讓您的電視變得繽紛耀眼。"
+	},
+	"minutes": {
+		"message": "分"
+	},
+	"mx_country_name": {
+		"message": "墨西哥"
+	},
+	"mx_tradition": {
+		"message": "不分年齡大小，墨西哥兒童都是用擊破皮那塔 (pinata) 的方式慶祝聖誕節。大人和小孩會戴上眼罩開心地四處走動，然後揮桿敲破星形吊罐。破開皮那塔後，大家可以享用掉出的堅果、水果和糖果。"
+	},
+	"newtoday": {
+		"message": "今日新登場"
+	},
+	"nonprofit-jane-description": {
+		"message": "黑猩猩是現存的動物中與人類血緣最接近的親戚！然而，由於棲息地消失、疾病橫行及非法捕獵等因素，現存的黑猩猩總數不到 30 萬隻。Jane Goodall Institute 致力於觀察和研究黑猩猩的行為和棲地，希望能藉此保育這個珍貴的物種。此外，Jane Goodall Institute 也努力打造一個社群和交流平台，供有志於野生動物及自然環境保育的人士參與。歡迎探訪坦尚尼亞的貢貝國家公園，\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e認識黑猩猩的棲息環境\u003c/a\u003e。"
+	},
+	"nonprofit-jane-type": {
+		"message": "黑猩猩"
+	},
+	"nonprofit-nature-description": {
+		"message": "Nature Conservancy 致力於保育和復育美國及世界各地的森林。這些具有代表性的森林能夠過濾水源、淨化空氣、協助人類社群的發展，並為眾多動植物提供棲息的環境，是維繫地球上生命的重要環節。遺憾的是，以人類目前砍伐森林的速度，不到一百年內，地球上的森林就將消失殆盡。Nature Conservancy 的「Plant a Billion Trees」(種植十億棵樹) 計劃打算在 2025 年前栽種十億棵樹，並復育世界各地瀕危的森林。"
+	},
+	"nonprofit-nature-type": {
+		"message": "森林"
+	},
+	"nonprofit-wwf-description": {
+		"message": "氣候變遷持續破壞世界各地多個生態系統的平衡，影響範圍遍及低緯度和高緯度地區。北極逐漸升高的氣溫導致冰山消融，使得北極熊的棲息地日漸縮小。此外，隨著石油及天然氣的開採和運送等人類活動趨於旺盛，北極熊須面臨更嚴峻的生存挑戰。World Wildlife Fund 在進行科學研究的同時與北極當地的社群密切合作，共同致力於北極熊的保育工作。Google.org 很榮幸能成為 World Wildlife Fund 的\u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e贊助單位\u003c/a\u003e，為保育野生動物盡一份心力。"
+	},
+	"nonprofit-wwf-type": {
+		"message": "北極熊"
+	},
+	"nz_country_name": {
+		"message": "紐西蘭"
+	},
+	"nz_tradition": {
+		"message": "紐西蘭的聖誕節在夏天，親朋好友們會聚在一起烤肉。典型的聖誕大餐是烤羊肉，有時會採用「hangi」這種地洞或土灶方式來烹飪。人氣甜點是帕芙洛娃 (pavlova) 蛋糕，蛋白霜上鋪著草莓和奇異果等新鮮水果。"
+	},
+	"onthego": {
+		"message": "掌握聖誕老人的行蹤"
+	},
+	"openingtomorrow": {
+		"message": "明日盛大開幕"
+	},
+	"ph_country_name": {
+		"message": "菲律賓"
+	},
+	"ph_tradition": {
+		"message": "菲律賓以聖誕期間長度居全球之冠聞名，九月、十月、十一月和十二月這四個月都算聖誕月。通常最早從九月初就可以聽到聖誕頌歌。"
+	},
+	"play": {
+		"message": "遊玩"
+	},
+	"playagain": {
+		"message": "再玩一次"
+	},
+	"playdescription": {
+		"message": "在聖誕老人追蹤器 Android 應用程式中與朋友同樂。"
+	},
+	"ru_country_name": {
+		"message": "俄羅斯"
+	},
+	"ru_tradition": {
+		"message": "俄羅斯的孩子們不裝飾聖誕樹，而是裝飾新年樹。小孩們都期盼著環遊世界的「嚴寒老人」(Grandfather Frost) 和他的孫女「雪姑娘」(Snowmaiden) 為他們送來禮物。「嚴寒老人」住在俄羅斯北部的大烏斯秋格樹林深處。"
+	},
+	"santatracker": {
+		"message": "聖誕老人追蹤器"
+	},
+	"score": {
+		"message": "分數"
+	},
+	"seconds": {
+		"message": "秒"
+	},
+	"select-language": {
+		"message": "選取語言"
+	},
+	"share-button": {
+		"message": "與 Google+ 上的好友分享"
+	},
+	"share-text": {
+		"message": "我使用 Google 聖誕老人追蹤器製作了這張明信片給您，佳節快樂！"
+	},
+	"share-this": {
+		"message": "分享"
+	},
+	"terms-and-privacy": {
+		"message": "條款與隱私權"
+	},
+	"tilt": {
+		"message": "將裝置右傾或左傾！"
+	},
+	"traditions-next": {
+		"message": "下個傳統"
+	},
+	"traditions-prev": {
+		"message": "上個傳統"
+	},
+	"traditions-world": {
+		"message": "全世界"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "澳洲"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "澳洲"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "澳洲"
+	},
+	"trivia_beginner_013": {
+		"message": "尼日 (Niger) 是世上人口成長最快的國家之一。請問它位於哪個大陸的西北部？"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "澳洲"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "加拿大"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "迦納"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "墨西哥"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "阿根廷"
+	},
+	"trivia_beginner_020": {
+		"message": "「四川大熊貓棲息地」是全球 30% 熊貓的棲息地。請問它位於哪個國家境內？"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "冰島"
+	},
+	"trivia_beginner_021": {
+		"message": "哪一個大陸蘊含了全球 90% 左右的冰？"
+	},
+	"trivia_beginner_022": {
+		"message": "安赫爾瀑布 (Angel Falls) 是世上最高的瀑布。請問它位於哪一個大陸上？"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "澳洲"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "澳洲"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "澳洲"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "澳洲"
+	},
+	"trivia_beginner_037": {
+		"message": "聖巴西爾大教堂座落於克里姆林宮旁邊的紅場上。請問它位於俄羅斯的哪一個城市？"
+	},
+	"trivia_beginner_038": {
+		"message": "為了舉辦角鬥士競技比賽，而在西元一世紀興建的大型競技場座落於哪一個歐洲城市？"
+	},
+	"trivia_beginner_049": {
+		"message": "金門大橋銜接了馬林半島和哪一個美國城市？"
+	},
+	"trivia_beginner_050": {
+		"message": "位於密西西比河河畔的「大拱門」是美國在 19 世紀向西部擴張的象徵。請問它位於美國的哪一個城市？"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "巴西"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "德國"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "美國"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "俄羅斯"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "澳洲"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "澳洲"
+	},
+	"trivia_beginner_067": {
+		"message": "巨龜生活在南美洲西部的加拉巴哥群島上。請問加拉巴哥群島位於哪一大洋上？"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "澳洲"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "澳洲"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "澳洲"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "澳洲"
+	},
+	"trivia_beginner_077": {
+		"message": "想要一覽蘇伊士運河的風光，並參觀開羅的「死城」，您會前往哪個國家？"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "阿根廷"
+	},
+	"trivia_beginner_080": {
+		"message": "想要參觀古老的瑪雅遺址，並一覽坎昆 (Cancún) 的海灘風情，您會前往哪個國家？"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "墨西哥"
+	},
+	"trivia_beginner_081": {
+		"message": "想要參觀都柏林的聖派屈克大教堂，並出席基爾肯尼的藝術節盛會，您會前往哪個國家？"
+	},
+	"trivia_beginner_082": {
+		"message": "想要飽覽雨林風情，並在里約熱內盧的嘉年華會中盡情熱舞，您會前往哪個國家？"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "巴西"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "英國"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "俄羅斯"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "德國"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "冰島"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "紐西蘭"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "冰島"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "法國"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "英國"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "墨西哥"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "加拿大"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "巴西"
+	},
+	"trivia_hard_022": {
+		"message": "尤卡坦海峽位於墨西哥以及哪一個島嶼之間？"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "菲律賓"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "巴西"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "迦納"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "澳洲"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "德國"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "英國"
+	},
+	"trivia_hard_054": {
+		"message": "哪個城市位於拉布拉他河河口，同時也是烏拉圭最大的城市？"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "希臘"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "瓜地馬拉"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "俄羅斯"
+	},
+	"trivia_hard_072": {
+		"message": "普羅旺斯的風景激發了許多畫家的靈感，塞尚就是其中一例。請問普羅旺斯位於哪一國境內？"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "法國"
+	},
+	"trivia_hard_073": {
+		"message": "布蘭卡港 (Bahía Blanca) 是彭巴草原區的一個重要航運點。請問它位於哪個國家境內？"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "阿根廷"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "墨西哥"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "加拿大"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "冰島"
+	},
+	"trivia_hard_083": {
+		"message": "位於維斯瓦河河口的格但斯克 (Gdańsk) 是一個重要的港口城市。請問它位於哪一個歐洲國家境內？"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "巴拉那河"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "紐西蘭"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "澳洲"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "迦納"
+	},
+	"trivia_hard_088": {
+		"message": "瓜拉尼 (Guaraní) 是哪一個南美國家的其中一種官方語言，同時也是該國的貨幣名稱？"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "巴西"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "澳洲"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "加拿大"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "法國"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "德國"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "墨西哥"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "澳洲"
+	},
+	"trivia_medium_004": {
+		"message": "特奧蒂瓦坎 (Teotihuacán) 是一個古文明重鎮。請問它位於哪一個大陸上？"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "巴西聖保羅"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "瓜地馬拉"
+	},
+	"trivia_medium_024": {
+		"message": "南非國會的所在地，位於桌灣 (Table Bay) 的首都為何？"
+	},
+	"trivia_medium_030": {
+		"message": "位於黑海南端，地處土耳其交通運輸系統樞紐位置的首都為何？"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "英國"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "南極洲"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "澳洲"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "巴西"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "墨西哥"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "德國"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "俄羅斯"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "法國"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "瓜地馬拉"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "加拿大"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "希臘"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "德國"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "冰島"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "英國"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "俄羅斯"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "紐西蘭"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "菲律賓"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "澳洲"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "美國"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "加拿大"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "紐西蘭"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "法國"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "迦納"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "墨西哥"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "阿根廷"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "菲律賓"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "希臘"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "德國"
+	},
+	"trivia_medium_089": {
+		"message": "科潘瑪雅遺址是世上熱門旅遊景點之一。請問它位於與薩爾瓦多和尼加拉瓜相接的哪個國家境內？"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "加拿大"
+	},
+	"trivia_medium_092": {
+		"message": "貝倫市 (Belém) 位於亞馬遜河南端的入海口。請問它位於哪個國家境內？"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "巴西"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "俄羅斯"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "吉爾吉斯"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "澳洲"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"uk_country_name": {
+		"message": "英國"
+	},
+	"uk_tradition": {
+		"message": "英國人不分老少，晚餐時都會在餐桌上玩起聖誕節拉砲來製造歡樂氣氛。拉砲以色紙包成管狀，每一端都有拉環。拉開拉環時，砲管會爆出巨大聲響！裡頭的紙帽、玩具和糖果可在聖誕夜享用。"
+	},
+	"us_country_name": {
+		"message": "美國"
+	},
+	"us_tradition": {
+		"message": "美國人會在聖誕夜掛上長襪。根據傳說，聖尼古拉曾聽到某個家庭需要援助。為了給他們驚喜，他爬下這戶人家的煙囪，將裝著大量黃金的袋子放入懸掛的長襪中。從此以後，聖尼古拉就被稱為送禮的聖誕老人。"
+	},
+	"watch": {
+		"message": "觀看影片"
+	}
+}
