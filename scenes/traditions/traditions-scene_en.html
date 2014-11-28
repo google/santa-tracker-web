@@ -162,16 +162,21 @@ Traditions scene.
     },
 
     mapsAPIReady: function() {
+      console.log('mapsAPIReady');
       this.traditions = new Traditions(
           this.$['module-traditions'], this.componentDir);
     },
 
     onShow: function() {
-      this.traditions.onShow();
+      if (this.traditions) {
+        this.traditions.onShow();
+      }
     },
 
     onHide: function() {
-      this.traditions.onHide();
+      if (this.traditions) {
+        this.traditions.onHide();
+      }
     }
 
   });
