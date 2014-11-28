@@ -42,7 +42,7 @@ Village scene.
         <!-- <h2>Until Santa Departs &ndash; <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">Learn More</a></h2> -->
         <h2><i18n-msg msgid="countdownlabel">PLACEHOLDER_i18n</i18n-msg><span id="learnmore"> &centerdot; <a href="//www.google.com/santatracker/about.html"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a></span></h2>
         <div id="finished-tracker">
-          <a href="{{baseURI}}#tracker"></a>
+          <a href="{{pageUrl}}#tracker"></a>
         </div>
         <h2 style="display:none"><i18n-msg msgid="endofjourneymessage">PLACEHOLDER_i18n</i18n-msg></h2>
       </div>
@@ -69,7 +69,7 @@ Village scene.
 
             <template repeat="{{house, i in santaApp.houses}}">
               <div id="house-[[house.module]]" class="house {{house.category}} {{house.iced ? 'iced' : 'melt'}} {{ {today: house.today, tomorrow: house.tomorrow} | tokenList }}">
-                <a href="{{house.link || baseURI + '#' + house.module}}" class="building"
+                <a href="{{house.link || pageUrl + '#' + house.module}}" class="building"
                    on-click="{{onHouseClick}}" tabindex="-1"></a>
 
                 <div class="house-snow"></div>
@@ -91,7 +91,7 @@ Village scene.
                 <div class="marker-tomorrow">
                   <div layout vertical center-center><i18n-msg msgid="openingtomorrow">PLACEHOLDER_i18n</i18n-msg></div>
                 </div>
-                <a href="{{house.link || baseURI + '#' + house.module}}" class="house-marker"
+                <a href="{{house.link || pageUrl + '#' + house.module}}" class="house-marker"
                   on-click="{{onHouseClick}}" tabindex="{{house.iced || house.disabled ? -1 : 0}}"></a>
               </div>
             </template>

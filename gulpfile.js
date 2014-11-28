@@ -11,12 +11,28 @@ var i18n_replace = require('./gulp_scripts/i18n_replace');
 var closureCompiler = require('gulp-closure-compiler');
 var mergeStream = require('merge-stream');
 var argv = require('yargs').argv;
+var replace = require('gulp-replace');
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/*.js';
 
-var DIST_DIR = argv.pretty ? 'dist_pretty' : 'dist';
+// TODO(bckenny|cbro): fill in with default static asset base URL
+var STATIC_BASE_URL = argv.baseurl ? argv.baseurl : '';
+var STATIC_VERSION = 0;
+// TODO(bckenny): add back in the versioning number once through with testing
+var STATIC_URL = argv.pretty ? '' : STATIC_BASE_URL; // + STATIC_VERSION + '/';
+
+var PROD_DIR = 'dist_prod';
+var STATIC_DIR = 'dist_static';
+var PRETTY_DIR = 'dist_pretty';
+
+// path for files (mostly index_*.html) with short cache periods
+var DIST_PROD_DIR = argv.pretty ? PRETTY_DIR : PROD_DIR;
+
+// path for static resources
+// TODO(bckenny): add back in the versioning number once through with testing
+var DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : STATIC_DIR; // + '/' + STATIC_VERSION;
 
 // scenes are whitelisted into compilation here
 var SCENE_CLOSURE_CONFIG = {
@@ -38,7 +54,7 @@ var SCENE_CLOSURE_CONFIG = {
 };
 
 gulp.task('clean', function(cleanCallback) {
-  del([DIST_DIR], cleanCallback);
+  del([PROD_DIR, STATIC_DIR, PRETTY_DIR], cleanCallback);
 });
 
 gulp.task('compass', function() {
@@ -139,7 +155,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
         strict: !!argv.strict,
         path: '_messages',
       }))
-      .pipe(gulp.dest(path.join(DIST_DIR, dest)));
+      .pipe(gulp.dest(path.join(DIST_STATIC_DIR, dest)));
     }));
 });
 
@@ -157,23 +173,26 @@ gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
       strict: !!argv.strict,
       path: '_messages',
     }))
-    .pipe(gulp.dest(DIST_DIR + '/elements/'));
+    .pipe(gulp.dest(DIST_STATIC_DIR + '/elements/'));
 });
 
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
 gulp.task('i18n_index', ['vulcanize'], function() {
   return gulp.src(['index.html', 'about.html'])
+    .pipe(replace('<base href="">',
+        '<base href="' + STATIC_URL + '">'))
     .pipe(i18n_replace({
       strict: !!argv.strict,
       path: '_messages',
     }))
-    .pipe(gulp.dest(DIST_DIR));
+    .pipe(gulp.dest(DIST_PROD_DIR));
 });
 
 // copy needed assets (images, sounds, polymer elements, etc) to dist directory
 gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
   return gulp.src([
+    // TODO(bckenny): schedule.html should probably not go to static
     'schedule.html',
     'manifest.json',
     'audio/*',
@@ -186,7 +205,7 @@ gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
     'components/polymer/*',
     'components/webcomponentsjs/webcomponents.min.js'
   ], {base: './'})
-  .pipe(gulp.dest(DIST_DIR));
+  .pipe(gulp.dest(DIST_STATIC_DIR));
 });
 
 gulp.task('watch', function() {

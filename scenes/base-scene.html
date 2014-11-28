@@ -65,6 +65,17 @@ Polymer({
   },
 
   /**
+   * A basename for links within Santa Tracker. The hash is removed for nicer
+   * display URLs in the status bar.
+   * @property pageUrl
+   * @type string
+   * @default
+   */
+  get pageUrl() {
+    return location.href.substr(0, location.href.length - location.hash.length);
+  },
+
+  /**
    * URL route for this scene.
    *
    * @attribute route
@@ -193,8 +204,7 @@ Polymer({
    * @default
    */
   get componentBaseDir() {
-    return location.protocol + '//' + location.host + location.pathname +
-           (this.componentDir || '');
+    return this.componentDir || '';
   },
 
   ready: function() {
