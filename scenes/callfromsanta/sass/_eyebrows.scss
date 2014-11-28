@@ -1,0 +1,64 @@
+$duration-santa-eybrows: 5s;
+$ease-santa-eyes-rolling: linear;
+
+##{$name} {
+  .play {
+    .eyebrow--left {
+      animation-name: #{$name}__santa-eyebrows-moving--left;
+    }
+
+    .eyebrow--right {
+      animation-name: #{$name}__santa-eyebrows-moving--right;
+    }
+  }
+
+  .eyebrow {
+    position: absolute;
+    left: 50%;
+    margin-top: -283px;
+    animation-delay: $delay-santa-call;
+    animation-duration: $duration-santa-eybrows;
+    animation-iteration-count: infinite;
+    animation-timing-function: $ease-santa-eyes-rolling;
+    transform-origin: 21px 7px
+  }
+
+  .eyebrow--left {
+    margin-left: -89px;
+  }
+
+  .eyebrow--right {
+    margin-left: 42px;
+  }
+}
+
+@keyframes #{$name}__santa-eyebrows-moving--left {
+  0%,
+  20% {
+    transform: rotate(0deg);
+  }
+  50%,
+  60% {
+    transform: rotate(-16deg);
+
+  }
+  85%,
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes #{$name}__santa-eyebrows-moving--right {
+  0%,
+  20% {
+    transform: rotate(0deg);
+  }
+  50%,
+  60% {
+    transform: rotate(16deg);
+  }
+  85%,
+  100% {
+    transform: rotate(0deg);
+  }
+}

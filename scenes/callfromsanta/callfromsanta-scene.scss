@@ -1,0 +1,128 @@
+$name: 'module-callfromsanta';
+$duration-santa-call: 3s;
+$delay-santa-call: 1s; // to help keep them in synch
+
+@import "../shared/sass/board";
+
+@import "sass/penner-easing";
+@import "sass/sky";
+@import "sass/environment";
+@import "sass/forest";
+@import "sass/computer";
+@import "sass/santa";
+@import "sass/santa-mouth";
+@import "sass/cogs";
+@import "sass/eyes";
+@import "sass/eyebrows";
+@import "sass/elf-arm";
+@import "sass/phone";
+@import "sass/wheel";
+@import "sass/cords";
+
+##{$name} {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow: visible; // let the scene go through if necessary
+
+  .scene {
+    background-image: linear-gradient(#99d0ea, #88bad7);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: 0 0;
+    min-width: 320px;
+  }
+
+  .scoreboard {
+    z-index: 999;
+  }
+
+  .santa {
+    background: #454545;
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+#santa-iframe {
+  width: 700px;
+  height: 460px;
+  position: absolute;
+  left: 50%;
+  margin-left: -350px;
+  margin-top: -250px;
+  top: 50%;
+}
+
+@media (min-width: 600px) and (max-width: 800px), (max-height: 550px) {
+  ##{$name} .scene {
+    transform: scale(0.8);
+    width: 125%;
+    height: 125%;
+  }
+  #santa-iframe {
+    width: 561px;
+    height: 368px;
+    margin-left: -281px;
+    margin-top: -200px;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 600px) {
+  ##{$name} .scene {
+    transform: scale(0.7);
+    width: 143%;
+    height: 143%;
+  }
+  #santa-iframe {
+    width: 491px;
+    height: 322px;
+    margin-left: -246px;
+    margin-top: -175px;
+  }
+}
+
+@media (max-width: 500px), (max-height: 420px) {
+  ##{$name} .scene {
+    .computer {
+      height: 100%;
+      margin-left: -50px;
+      left: 0;
+      width: 100%;
+      margin-top: -50px;
+      top: 0;
+    }
+
+    .screen {
+      width: 100%;
+      height: 100%;
+    }
+
+    .foot,
+    .antenna,
+    .sky,
+    .logo {
+      display: none;
+    }
+  }
+
+  #santa-iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: 0px;
+    margin-top: 0px;
+    padding-top: 60px;
+    background-color: #2caf34;
+    box-sizing: border-box;
+  }
+}

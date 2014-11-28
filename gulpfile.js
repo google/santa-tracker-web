@@ -46,6 +46,9 @@ var SCENE_CLOSURE_CONFIG = {
   briefing: {
     entryPoint: 'app.Scene'
   },
+  callfromsanta: {
+    entryPoint: 'app.Scene'
+  },
   codelab: {
     entryPoint: 'app.wrapper.FrameWrapper'
   },

@@ -1,0 +1,34 @@
+##{$name} {
+  .snow {
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    margin-top: 400px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+  }
+
+  .mountains {
+    background: url(img/sprite.png) 50% 0;
+    bottom: 0;
+    height: 323px;
+    left: 0;
+    margin-top: 122px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    z-index: 0;
+  }
+
+  .sun {
+    background: url(img/sprite.png) -208px -456px no-repeat;
+    height: 115px;
+    left: 50%;
+    margin-left: 475px;
+    position: absolute;
+    top: 50%;
+    margin-top: -390px;
+    width: 115px;
+  }
+}

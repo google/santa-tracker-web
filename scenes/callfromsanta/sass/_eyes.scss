@@ -1,0 +1,50 @@
+$duration-santa-eyes-rolling: 10s;
+$ease-santa-eyes-rolling: $easeOutSine;
+
+##{$name} {
+  .play {
+    .eye {
+      animation-name: #{$name}__santa-eyes-rolling;
+    }
+  }
+
+  .eye {
+    position: absolute;
+    left: 50%;
+    margin-top: -258px;
+    animation-delay: $delay-santa-call;
+    animation-duration: $duration-santa-eyes-rolling;
+    animation-iteration-count: infinite;
+    animation-timing-function: $ease-santa-eyes-rolling;
+    > svg {
+      overflow: visible;
+    }
+  }
+
+  .eye--left {
+    margin-left: -75px;
+  }
+  .eye--right {
+    margin-left: 55px;
+  }
+}
+
+@keyframes #{$name}__santa-eyes-rolling {
+  0% {
+    transform: translate(0, 0);
+  }
+  3%,
+  20%,
+  48% {
+    transform: translate(1px, -1px);
+  }
+  50%,
+  60%,
+  83% {
+    transform: translate(1px, 0px);
+  }
+  85%,
+  100% {
+    transform: translate(0, 0);
+  }
+}

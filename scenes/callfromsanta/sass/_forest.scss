@@ -1,0 +1,100 @@
+##{$name} {
+  .forest {
+    left: 50%;
+    margin-left: -680px;
+    margin-top: 400px;
+    position: absolute;
+    top: 50%;
+    width: 1350px;
+  }
+
+  .tree1 {
+    background: url(img/sprite.png) -1px -327px no-repeat;
+    bottom: 24px;
+    height: 156px;
+    left: 0;
+    position: absolute;
+    width: 85px;
+  }
+
+  .tree2 {
+    background: url(img/sprite.png) -89px -327px no-repeat;
+    bottom: 38px;
+    height: 183px;
+    left: 61px;
+    position: absolute;
+    width: 103px;
+  }
+
+  .tree3 {
+    background: url(img/sprite.png) -200px -327px no-repeat;
+    bottom: 42px;
+    height: 112px;
+    left: 204px;
+    position: absolute;
+    width: 66px;
+  }
+
+  .tree4 {
+    background: url(img/sprite.png) -271px -327px no-repeat;
+    bottom: 11px;
+    height: 100px;
+    left: 377px;
+    position: absolute;
+    width: 55px;
+  }
+
+  .tree5 {
+    background: url(img/sprite.png) -331px -327px no-repeat;
+    bottom: 2px;
+    height: 111px;
+    left: 417px;
+    position: absolute;
+    width: 64px;
+  }
+
+  .tree6 {
+    background: url(img/sprite.png) -401px -327px no-repeat;
+    bottom: 15px;
+    height: 80px;
+    left: 810px;
+    position: absolute;
+    width: 46px;
+  }
+
+  .tree7 {
+    background: url(img/sprite.png) -451px -327px no-repeat;
+    bottom: 8px;
+    height: 138px;
+    left: 867px;
+    position: absolute;
+    width: 76px;
+  }
+
+  .tree8 {
+    background: url(img/sprite.png) -535px -327px no-repeat;
+    bottom: -1px;
+    height: 156px;
+    left: 1064px;
+    position: absolute;
+    width: 92px;
+  }
+
+  .tree9 {
+    background: url(img/sprite.png) -633px -327px no-repeat;
+    bottom: 0;
+    height: 236px;
+    left: 1111px;
+    position: absolute;
+    width: 130px;
+  }
+
+  .tree10 {
+    background: url(img/sprite.png) -776px -327px no-repeat;
+    bottom: -1px;
+    height: 259px;
+    left: 1181px;
+    position: absolute;
+    width: 147px;
+  }
+}
