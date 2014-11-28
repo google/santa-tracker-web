@@ -6,6 +6,11 @@
     pointer-events: none;
     position: absolute;
     transition: border-width 500ms ease;
+    visibility: hidden;
+
+    &.is-visible {
+      visibility: visible;
+    }
   }
 
   .levelup--number {

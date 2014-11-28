@@ -206,11 +206,24 @@ $name: 'module-traditions';
     }
 
     .sceneboard {
-      height: 96px;
-      right: auto;
-      bottom: auto;
+      height: auto;
+      right: 0;
+      bottom: 14px;
       width: 204px;
-      left: 20px;
+      left: auto;
+
+      .back, .sceneboard-back {
+        display: none;
+      }
+
+      .controls {
+        border-radius: 20px 0 0 20px;
+        bottom: 0;
+
+        ul li a {
+          height: 45px;
+        }
+      }
     }
 
     #tradition-img {

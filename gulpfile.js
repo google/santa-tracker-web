@@ -45,7 +45,16 @@ var SCENE_CLOSURE_CONFIG = {
   briefing: {
     entryPoint: 'app.Scene'
   },
+  gumball: {
+    entryPoint: 'app.Game'
+  },
   matching: {
+    entryPoint: 'app.Game'
+  },
+  presentdrop: {
+    entryPoint: 'app.Game'
+  },
+  mercator: {
     entryPoint: 'app.Game'
   },
   racer: {
@@ -79,7 +88,7 @@ gulp.task('compile-scenes', function() {
     var config = SCENE_CLOSURE_CONFIG[sceneName];
 
     return stream.add(gulp.src([
-      'scenes/' + sceneName + '/js/*.js',
+      'scenes/' + sceneName + '/js/**/*.js',
 
       // add shared scene code
       'scenes/shared/js/*.js',

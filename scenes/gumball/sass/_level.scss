@@ -1,0 +1,67 @@
+##{$name} {
+  .gameboard {
+    background: url('img/board.svg');
+
+    // 910x450 at center of .view.
+    left: 50%;
+    height: 510px;
+    margin-left: -455px;
+    margin-top: -285px;
+    position: absolute;
+    top: 50%;
+    width: 910px;
+  }
+
+  .platform {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 114px;
+    height: 16px;
+    margin-top: -8px;
+  }
+
+  .platform-cane {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-left: 41px;
+    padding-right: 8px;
+    background: linear-gradient(90deg, white 7px, #ec1c24 7px, #ec1c24 18px, white 18px, white 23px, #ec1c24 23px, #ec1c24 30px, white 30px, white 41px, #ec1c24 41px) top left / 46px 16px repeat-x content-box, linear-gradient(white, white) 41px top / 100% no-repeat;
+    border-radius: 16px;
+    transform-origin: 50% 50%;
+  }
+
+  .platform-cane-hook {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 71px;
+    background: url('img/cane.svg') no-repeat;
+  }
+
+  .platform-shadow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-left: 41px;
+    border-radius: 16px;
+    background: rgba(0,0,0,0.1) content-box;
+    transform-origin: 50% 50%;
+    transform: translate(4px, 8px);
+  }
+
+  .platform-shadow-hook {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 71px;
+    background: url('img/cane-shadow.svg') no-repeat;
+  }
+}
