@@ -295,6 +295,8 @@ Traditions.prototype.onHide = function() {
     this.getCountryEl(this.currentId_).removeClass('tradition-active');
   }
 
+  $('#tradition-img', this.el_).removeClass();
+
   this.currentId_ = null;
 
   $(window).off('resize.traditions');
