@@ -11,10 +11,10 @@ Clone project, then
 
 `npm install`
 
-then `gulp` to build.
+then `gulp --pretty` to build.
 
 The raw site can be served from the root directory, or the built version can be
-served out of `./dist`.
+served out of `./dist_pretty`.
 
 # Design 
 
