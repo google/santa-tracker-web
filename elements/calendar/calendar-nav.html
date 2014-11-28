@@ -305,7 +305,7 @@ Village calendar navigation.
 
       getNicePageUrl: function() {
         // We don't want to share urls with #village in them.
-        return document.location.href.replace('#village', '');
+        return location.href.replace('#village', '');
       },
 
       shareGplus: function(e) {
