@@ -42,33 +42,6 @@ window.santatracker.isValidDomain = function() {
   return false;
 };
 
-window.santatracker.setupForCast = function() {
-  // TODO(lukem): Add support for keyboard controls, see jfs for more details.
-
-  /*
-
-  if (getUrlParameter('api_client') == 'web_chromecast' ||
-      getUrlParameter('emulate_chromecast') ||
-      // NOTE(cbro): for news outlets that are embedding the site, use the same
-      // behaviour as for Chromecast.
-      getUrlParameter('embed_client')) {
-
-    $(document.body).addClass('chromecast');
-
-    $('<a>')
-        .attr('id', 'click-capture')
-        .attr('href', 'https://www.google.com/santatracker')
-        .attr('target', 'santatracker')
-        .click(function() {
-          window.santatracker.analytics.trackEvent('embed', 'click',
-              getUrlParameter('embed_client'));
-        })
-        .appendTo(document.body);
-  }
-
-  */
-};
-
 window.santatracker.addErrorHandler = function() {
   // Track and log any errors to analytics
   window.onerror = function(message, file, lineNumber) {
