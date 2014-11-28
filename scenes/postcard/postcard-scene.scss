@@ -1,0 +1,27 @@
+$name: 'module-postcard';
+
+@import "../shared/sass/board";
+@import "../shared/sass/share-overlay";
+@import "../shared/sass/tutorial";
+
+@import "sass/environment";
+@import "sass/background";
+@import "sass/foreground";
+@import "sass/message";
+@import "sass/share";
+
+##{$name} {
+  transform-origin: 0 0;
+  background-color: #c7eafc;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  .plusInfo {
+    display: none;
+  }
+}
+
+@import "../shared/sass/responsive";

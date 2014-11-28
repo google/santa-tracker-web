@@ -86,9 +86,13 @@ $shareOverlay-bg: rgba(40, 181, 245, 0.9) !default;
     background: url(../shared/img/share-overlay/barber.svg) no-repeat;
   }
 
+  .shareOverlay--postcard .shareOverlay-image {
+    background: url(../shared/img/share-overlay/postcard.svg) no-repeat;
+  }
+
   .shareOverlay--jamband .shareOverlay-image {
      background: url(../shared/img/share-overlay/jamband.svg) no-repeat;
-   }
+  }
 
   .shareOverlay-label {
     color: #FFFFFF;
