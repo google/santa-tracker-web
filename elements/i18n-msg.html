@@ -53,18 +53,8 @@ Custom element to do localization (i18n) messages.
 
     attached: function() {
       var msg = this.locales[this.language] && this.locales[this.language][this.msgid];
-      if (!msg) return;
-      if (msg.message) {
+      if (msg && msg.message) {
         this.innerHTML = msg.message;
-      } else if (msg.raw) {
-        var div = document.createElement('div');
-        div.innerHTML = (msg.raw);
-        // Remove placeholders
-        var ex;
-        while (ex = div.querySelector('ex')) {
-          ex.remove();
-        }
-        this.innerHTML = div.textContent;
       }
     },
 
