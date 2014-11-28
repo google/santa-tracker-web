@@ -65,10 +65,10 @@ Tutorial.prototype.off = function(name) {
 
   // Hide tutorial if the current one is turned off
   if (this.current === name) {
-    this.hide_()
+    this.hide_();
     this.start();
   }
-}
+};
 
 /**
  * When the wait has ended.

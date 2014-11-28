@@ -42,6 +42,7 @@ LevelUp.prototype.onResize_ = function() {
  */
 LevelUp.prototype.numberHidden_ = function() {
   this.numberElem.removeClass('show hide');
+  this.bgElem.removeClass('is-visible');
 };
 
 /**
@@ -62,6 +63,7 @@ LevelUp.prototype.numberShown_ = function() {
  * @param {function} callback The function to call while the level is hidden.
  */
 LevelUp.prototype.show = function(level, callback) {
+  this.bgElem.addClass('is-visible');
   timeoutOneEvent(this.bgElem, utils.TRANSITION_END, 1.0, callback);
   this.bgElem.css('border-width', this.bgBorderWidth);
 
