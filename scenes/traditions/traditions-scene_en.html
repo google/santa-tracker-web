@@ -112,6 +112,8 @@ Traditions scene.
   Polymer({
     componentDir: 'scenes/traditions/',
     traditions: null,
+    showDone: false,
+    traditionsDone: false,
 
     nextCountry: function(e) {
       e.preventDefault();
@@ -164,15 +166,22 @@ Traditions scene.
     mapsAPIReady: function() {
       this.traditions = new Traditions(
           this.$['module-traditions'], this.componentDir);
+      if (this.showDone && ! this.traditionsDone) {
+        this.traditions.onShow();
+      }
     },
 
     onShow: function() {
+      this.showDone = true;
       if (this.traditions) {
+        this.traditionsDone = true;
         this.traditions.onShow();
       }
     },
 
     onHide: function() {
+      this.showDone = false;
+      this.traditionsDone = false;
       if (this.traditions) {
         this.traditions.onHide();
       }
