@@ -303,45 +303,57 @@ Village calendar navigation.
         this.$['language-choose'].hidden = !this.$['language-choose'].hidden;
       },
 
+      getNicePageUrl: function() {
+        // We don't want to share urls with #village in them.
+        return document.location.href.replace('#village', '');
+      },
+
       shareGplus: function(e) {
         e.preventDefault();
 
+        var target = this.getNicePageUrl();
+
         this.fire('analytics-track-social', {
           network: 'googleplus', action: 'share',
-          target: 'http://www.google.com/santatracker'
+          target: target
         });
 
         this.openPage_('https://plus.google.com/share?url=' +
-                       encodeURIComponent('http://www.google.com/santatracker'));
+                       encodeURIComponent(target) +
+                       '&hl=' + encodeURIComponent(document.documentElement.lang));
       },
 
       shareFB: function(e) {
         e.preventDefault();
 
+        var target = this.getNicePageUrl();
+
         this.fire('analytics-track-social', {
           network: 'facebook', action: 'share',
-          target: 'http://www.google.com/santatracker'
+          target: target
         });
 
         this.openPage_('http://www.facebook.com/sharer.php?u=' +
-                       encodeURIComponent('http://www.google.com/santatracker') +
-                       '&t=' + encodeURIComponent('Google Santa Tracker'));
+                       encodeURIComponent(target) +
+                       '&t=' + encodeURIComponent(document.title));
 
       },
 
       shareTwitter: function(e) {
         e.preventDefault();
 
+        var target = this.getNicePageUrl();
+
         this.fire('analytics-track-social', {
           network: 'twitter', action: 'share',
-          target: 'http://www.google.com/santatracker'
+          target: target
         });
 
         this.openPage_('http://twitter.com/share?text=' +
                        encodeURIComponent('Google Santa Tracker - ' +
                        'Follow Santa on his journey around the ' +
                        'world -') + '&url=' +
-                       encodeURIComponent('http://www.google.com/santatracker'));
+                       encodeURIComponent(target));
       },
 
       /**
