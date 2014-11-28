@@ -55,6 +55,8 @@ window.santatracker.setup = function() {
       });
     }
 
+    console.log(VALID_ROUTES);
+
     if (window.santaApp.scheduleChecked != undefined) {
       var valid = (VALID_ROUTES.indexOf(this.route) != -1 &&
                    window.santaApp.sceneIsUnlocked(this.route)) ||

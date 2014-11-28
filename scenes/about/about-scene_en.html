@@ -1,0 +1,39 @@
+<link rel="import" href="../base-scene.html">
+<link rel="import" href="../../elements/i18n-msg.html">
+
+<!--
+About scene.
+
+@element about-scene
+@extends base-scene
+-->
+<polymer-element name="about-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="about-scene.css" no-shim>
+
+  <div id="module-about" fit>
+    <div class="scene" fit>
+      <a href="{{pageUrl}}#village" id="about-banner"></a>
+      <div id="about-content">
+        <h1><i18n-msg msgid="about_title">PLACEHOLDER_i18n</i18n-msg></h1>
+        <p><i18n-msg msgid="about-content-one">PLACEHOLDER_i18n</i18n-msg></p>
+        <p><i18n-msg msgid="about-content-two">PLACEHOLDER_i18n</i18n-msg></p>
+        <p><i18n-msg msgid="about-content-three">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+    </div>
+    <div class="sceneboard">
+      <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+      <div class="sceneboard-back"></div>
+    </div>
+  </div>
+</template>
+<script>
+  Polymer({
+    onPreload: function() {
+      this.preloadImages([
+        'img/about.png',
+      ]);
+    },
+  });
+</script>
+</polymer-element>
