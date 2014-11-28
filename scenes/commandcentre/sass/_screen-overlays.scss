@@ -1,0 +1,102 @@
+##{$name} {
+
+  .screen-overlays {
+    position: absolute;
+    top: -363px;
+    left: 50%;
+    margin-left: -610px;
+  }
+  .screen-overlays__tablet {
+    position: absolute;
+    top: 290px;
+    left: 50%;
+    margin-left: -490px;
+    width: 45px;
+    height: 50px;
+    cursor: pointer;
+  }
+  .screen-overlays__tablet-arm {
+    position: absolute;
+    top: 305px;
+    left: 50%;
+    margin-left: -515px;
+    @media (min-height: 500px) {
+      transform-origin: 5% 5%;
+      animation: 5s $easeInQuad #{$name}-elf-tablet-arm infinite;
+      animation-delay: 3s;
+    }
+  }
+  .screen-overlays__elf-waving__arm {
+    position: absolute;
+    left: -15px;
+    top: 45px;
+    transform-origin: 48px 22px;
+    transform: rotate(-100deg) scale(0.8);
+  }
+  .screen-overlays__elf-waving {
+    position: absolute;
+    left: 50%;
+    top: 240px;
+    left: 50%;
+    margin-left: 480px;
+    height: 150px;
+    width: 70px;
+    cursor: pointer;
+
+    &.run-animation .screen-overlays__elf-waving__arm {
+      animation: 1.2s linear #{$name}-elf-waving-arm 1;
+    }
+  }
+}
+
+@keyframes #{$name}-elf-tablet-arm {
+  0%,
+  15% {
+    transform: rotate(0);
+  }
+
+  20% {
+    transform: translateX(10%) rotate(15deg);
+  }
+
+  30% {
+    transform: rotate(0);
+  }
+
+  30%,
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes #{$name}-elf-waving-arm {
+  0% {
+    transform: translateZ(0) rotate(-100deg);
+  }
+
+  15%, 20% {
+    transform: translateZ(0) rotate(0deg);
+  }
+
+  35% {
+    transform: translateZ(0) rotate(-20deg);
+  }
+
+  50%{
+    transform: translateZ(0) rotate(0deg);
+  }
+
+
+  65% {
+    transform: translateZ(0) rotate(-20deg);
+  }
+
+  80%, 85% {
+    transform: translateZ(0) rotate(0deg);
+  }
+
+
+  100% {
+    transform: translateZ(0) rotate(-100deg);
+  }
+}

@@ -1,0 +1,138 @@
+##{$name} {
+
+  .top-screen--compass-needle {
+    position: absolute;
+    top: 30px;
+    left: 363px;
+    height: 54px;
+    @media (min-height: $topscreens-animation-breakpoint-height) {
+      animation: 5s ease-in-out #{$name}-compass-needle infinite alternate;
+    }
+  }
+
+  .top-screen--sleigh {
+    position: absolute;
+    top: 9px;
+    left: 755px;
+    height: 54px;
+    width: 287px;
+    height: 95px;
+    overflow: hidden;
+  }
+  .top-screen--sleigh__trees {
+    position: absolute;
+    height: 100%;
+    width: 200%;
+    background: url('img/top-screen-trees_33percent.min.svg') 0 0 repeat-x;
+    animation-duration: 4s;
+    animation-name: #{$name}-sleigh-trees;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  .top-screen--sleigh__sleigh {
+    position: relative;
+    svg {
+      margin: 10px 0 0 50px;
+      display: block;
+    }
+  }
+
+  .top-screen--graph {
+    position: absolute;
+    top: 27px;
+    right: 205px;
+    height: 60px;
+    overflow: hidden;
+  }
+
+  .top-screen--graph__bar {
+    float: left;
+    width: 20px;
+    height: 100%;
+
+    @media (min-height: $topscreens-animation-breakpoint-height) {
+      animation: 10s $easeInOutQuad #{$name}-graph infinite alternate;
+    }
+
+
+    & + .top-screen--graph__bar {
+      margin-left: 5px;
+    }
+
+    &:nth-child(1) {
+      background: #00B4F0;
+      animation-delay: -2s;
+    }
+    &:nth-child(2) {
+      background: #DB4536;
+      animation-delay: -4s;
+    }
+    &:nth-child(3) {
+      background: #47BA80;
+      animation-delay: -8s;
+    }
+    &:nth-child(4) {
+      background: #914296;
+      animation-delay: -6s;
+    }
+  }
+}
+
+@keyframes #{$name}-graph {
+  0% {
+    transform: translateY(0px)
+  }
+  20% {
+    transform: translateY(20px)
+  }
+  40% {
+    transform: translateY(10px)
+  }
+  60% {
+    transform: translateY(50px)
+  }
+  100% {
+    transform: translateY(30px)
+  }
+}
+
+
+@keyframes #{$name}-compass-needle {
+  0% {
+    transform: rotate(-30deg);
+  }
+  15% {
+    transform: rotate(20deg);
+  }
+  30% {
+    transform: rotate(-20deg);
+  }
+  45% {
+    transform: rotate(15deg);
+  }
+  55% {
+    transform: rotate(-40deg);
+  }
+  70% {
+    transform: rotate(10deg);
+  }
+  80% {
+    transform: rotate(-20deg);
+  }
+  90% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes #{$name}-sleigh-trees {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

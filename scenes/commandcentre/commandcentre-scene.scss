@@ -1,0 +1,159 @@
+$name: 'module-commandcentre';
+
+$screens-width: 1471px;
+$screens-center-left-offset: -745px;
+$screens-height: 683px;
+
+$map-container-width: 1212px;
+$map-width: 1848px;
+$map-pan-duration: 60s;
+
+$line-dotted-width: 1106px;
+$line-dotted-pan-duration: 9s;
+
+$line-solid-width: 989px;
+$line-solid-pan-duration: 12s;
+
+$blimp-duration: 40s;
+
+$duration-door: 30s;
+
+$topscreens-animation-breakpoint-height: 550px;
+
+@import "../shared/sass/board";
+@import "sass/penner-easing";
+@import "sass/clouds";
+@import "sass/top-screens";
+@import "sass/clock";
+@import "sass/elevators";
+@import "sass/screen-overlays";
+@import "sass/bottom-screens";
+@import "sass/santa-sleeping";
+
+// big screens
+@import "sass/windsock-screen";
+@import "sass/map-screen";
+@import "sass/map-marker";
+@import "sass/presents-screen";
+@import "sass/sleigh-screen";
+@import "sass/santa-screen";
+@import "sass/reindeer-screen";
+
+##{$name} {
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  .scene {
+    // background color of the scene is the light blue wall
+    background: #0066B2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    transform-origin: 0 0;
+  }
+
+
+  // This is to vertically align the scene mid-screen - everything is positioned relative to this
+  .anchor {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  // This is an offset to the anchor to move the center point of the scene
+  .vertical-offset {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  /**
+   * Backgrounds
+   */
+  .bg--stage {
+    position: absolute;
+    top: 0px;
+    height: 100px;
+    left: 0;
+    right: 0;
+    border-top: 7px solid #003C72;
+    background: #004883;
+  }
+
+  .bg--floor {
+    position: absolute;
+    top: 95px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #002350;
+  }
+
+  .screens {
+    position: absolute;
+    top: -489px;
+    left: 50%;
+    margin-left: $screens-center-left-offset;
+  }
+
+  .big-screen__container {
+    display: none;
+    position: absolute;
+    width: #{$map-container-width};
+    top: -354px;
+    left: 50%;
+    margin-left: -#{$map-container-width/2};
+    height: 380px;
+    overflow: hidden;
+  }
+
+  .scene-top-nav {
+    position: absolute;
+    left: 50%;
+    margin-left: -608px;
+    top: -480px;
+    width: 1250px;
+  }
+  .scene-top-nav__item {
+    float: left;
+    width: 287px;
+    margin-right: 22px;
+    height: 95px;
+    cursor: pointer;
+  }
+
+  .scene-bottom-nav {
+    position: absolute;
+    left: 50%;
+    margin-left: -652px;
+    top: 61px;
+  }
+  .scene-bottom-nav__item {
+    position: absolute;
+    width: 96px;
+    height: 67px;
+    cursor: pointer;
+  }
+  .scene-bottom-nav__item--playstore {
+    left: 200px;
+    background: #63bdea;
+  }
+  .scene-bottom-nav__item--reindeer {
+    left: 660px;
+  }
+  .scene-bottom-nav__item--santa {
+    left: 880px;
+  }
+}
+
+@import "../shared/sass/responsive";

@@ -50,6 +50,9 @@ var SCENE_CLOSURE_CONFIG = {
   codelab: {
     entryPoint: 'app.wrapper.FrameWrapper'
   },
+  commandcentre: {
+    entryPoint: 'app.Scene'
+  },
   gumball: {
     entryPoint: 'app.Game'
   },

@@ -1,0 +1,119 @@
+##{$name} {
+
+  .presents-screen {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  .presents-screen__bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    svg {
+      display: block;
+    }
+  }
+
+  .presents-screen__belt {
+    position: absolute;
+    padding-top: 13px;
+    top: 204px;
+  }
+
+  .presents-screen__belt--left {
+    left: -100px;
+    right: 50%;
+    margin-right: 146px;
+    text-align: right;
+    padding-right: 5px;
+    transform: rotate(11.3deg);
+    transform-origin: bottom right;
+
+    .presents-screen__belt__present {
+      left: 0;
+    }
+  }
+  .presents-screen__belt--right {
+    right: -100px;
+    left: 50%;
+    margin-left: 150px;
+    text-align: left;
+    padding-left: 5px;
+    transform: rotate(-11.3deg);
+    transform-origin: bottom left;
+
+    .presents-screen__belt__present {
+      left: 100%;
+    }
+
+    .presents-screen__belt__cog {
+      animation-direction: reverse;
+    }
+  }
+
+  .presents-screen__belt__present {
+    position: absolute;
+    bottom: 100%;
+    visibility: hidden;
+    transform-origin: 50% 82px; // Y-rotaion around present height + half of belt diameter
+
+    width: 59px;
+    height: 62px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .presents-screen__belt__present--green {
+    background-image: url('img/presents-present-green_33percent.min.svg');
+  }
+  .presents-screen__belt__present--red {
+    background-image: url('img/presents-present-red_33percent.min.svg');
+  }
+  .presents-screen__belt__present--blue {
+    background-image: url('img/presents-present-blue_33percent.min.svg');
+  }
+
+  .presents-screen__belt__cog {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('img/presents-cog_33percent.min.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: #{$name}-presents-cog;
+    animation-timing-function: linear;
+    transform-origin: 50% 50%;
+
+    & + .presents-screen__belt__cog {
+      margin-left: 28px;
+    }
+
+    svg {
+      display: block;
+    }
+  }
+
+  .presents-screen__belt__sack {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -167px;
+    svg {
+      display: block;
+    }
+  }
+}
+
+@keyframes #{$name}-presents-cog {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

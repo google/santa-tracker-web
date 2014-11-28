@@ -1,0 +1,264 @@
+##{$name} {
+
+  $benchpressFrames: 15;
+  $benchpressDuration: 2s;
+
+  $treadmillFrames: 20;
+  $treadmillDuration: 1600ms;
+
+  $jumpropeFrames: 11;
+  $jumpropeDuration: 600ms;
+
+  $camWidth: 404px;
+  $camFrameWidth: 380px;
+  $animationsDelay: 200ms;
+
+  .reindeer-screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $camWidth;
+    bottom: 0;
+  }
+
+  .reindeer-cam {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: ($camWidth - $camFrameWidth) / 2;
+    width: $camFrameWidth;
+
+    overflow: hidden;
+
+    // falback image
+    background-size: $camFrameWidth;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .reindeer-cam--benchpress {
+    left: 0;
+    background-color: #38a538;
+    .reindeer-cam  {
+      background-image: url('img/benchpress_x2/benchpress_00000.png');
+      background-position: center bottom;
+    }
+    .reindeer-cam__frame {
+      background-position: center bottom;
+    }
+  }
+  .reindeer-cam--treadmill {
+    left: $camWidth;
+    background-color: #ef4136;
+    .reindeer-cam  {
+      background-image: url('img/treadmill_x2/treadmill00000.png');
+    }
+  }
+  .reindeer-cam--jumprope {
+    left: $camWidth*2;
+    background-color: #f5d02a;
+    .reindeer-cam  {
+      background-image: url('img/jumprope_x2/Jumprope_00000.png');
+    }
+  }
+
+  .reindeer-cam__frames {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+
+    animation-delay: $animationsDelay;
+    animation-iteration-count: infinite;
+    animation-name: #{$name}-reindeer-cam;
+  }
+
+  .reindeer-cam--benchpress .reindeer-cam__frames {
+    width: $benchpressFrames * $camFrameWidth;
+    animation-duration: $benchpressDuration;
+    animation-timing-function: steps($benchpressFrames, end);
+  }
+
+  .reindeer-cam--treadmill .reindeer-cam__frames {
+    width: $treadmillFrames * $camFrameWidth;
+    animation-duration: $treadmillDuration;
+    animation-timing-function: steps($treadmillFrames, end);
+  }
+
+  .reindeer-cam--jumprope .reindeer-cam__frames {
+    width: $jumpropeFrames * $camFrameWidth;
+    animation-duration: $jumpropeDuration;
+    animation-timing-function: steps($jumpropeFrames, end);
+  }
+
+  .reindeer-cam__frame {
+    float: left;
+    height: 100%;
+    width: $camFrameWidth;
+
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .reindeer-cam__frame--benchpress:nth-child(1) {
+    background-image: url('img/benchpress_x2/benchpress_00000.png');
+  }
+  .reindeer-cam__frame--benchpress:nth-child(2) {
+    background-image: url('img/benchpress_x2/benchpress_00002.png');
+  }
+  .reindeer-cam__frame--benchpress:nth-child(3) {
+    background-image: url('img/benchpress_x2/benchpress_00004.png');
+  }
+  .reindeer-cam__frame--benchpress:nth-child(4) {
+    background-image: url('img/benchpress_x2/benchpress_00006.png');
+  }
+  .reindeer-cam__frame--benchpress:nth-child(5) {
+    background-image: url('img/benchpress_x2/benchpress_00008.png');
+  }
+  .reindeer-cam__frame--benchpress:nth-child(6) {
+    background-image: url('img/benchpress_x2/benchpress_00010.png');
+  }
+  .reindeer-cam__frame--benchpress:nth-child(7) {
+    background-image: url('img/benchpress_x2/benchpress_00012.png');
+  }
+  .reindeer-cam__frame--benchpress:nth-child(8) {
+    background-image: url('img/benchpress_x2/benchpress_00014.png');
+  }
+  .reindeer-cam__frame--benchpress:nth-child(9) {
+    background-image: url('img/benchpress_x2/benchpress_00016.png');
+  }
+  .reindeer-cam__frame--benchpress:nth-child(10) {
+    background-image: url('img/benchpress_x2/benchpress_00018.png');
+  }
+  .reindeer-cam__frame--benchpress:nth-child(11) {
+    background-image: url('img/benchpress_x2/benchpress_00020.png');
+  }
+  .reindeer-cam__frame--benchpress:nth-child(12) {
+    background-image: url('img/benchpress_x2/benchpress_00022.png');
+  }
+  .reindeer-cam__frame--benchpress:nth-child(13) {
+    background-image: url('img/benchpress_x2/benchpress_00024.png');
+  }
+  .reindeer-cam__frame--benchpress:nth-child(14) {
+    background-image: url('img/benchpress_x2/benchpress_00026.png');
+  }
+  .reindeer-cam__frame--benchpress:nth-child(15) {
+    background-image: url('img/benchpress_x2/benchpress_00028.png');
+  }
+
+
+
+  .reindeer-cam__frame--treadmill:nth-child(1) {
+    background-image: url('img/treadmill_x2/treadmill00000.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(2) {
+    background-image: url('img/treadmill_x2/treadmill00002.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(3) {
+    background-image: url('img/treadmill_x2/treadmill00004.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(4) {
+    background-image: url('img/treadmill_x2/treadmill00006.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(5) {
+    background-image: url('img/treadmill_x2/treadmill00008.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(6) {
+    background-image: url('img/treadmill_x2/treadmill00010.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(7) {
+    background-image: url('img/treadmill_x2/treadmill00012.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(8) {
+    background-image: url('img/treadmill_x2/treadmill00014.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(9) {
+    background-image: url('img/treadmill_x2/treadmill00016.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(10) {
+    background-image: url('img/treadmill_x2/treadmill00018.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(11) {
+    background-image: url('img/treadmill_x2/treadmill00020.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(12) {
+    background-image: url('img/treadmill_x2/treadmill00022.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(13) {
+    background-image: url('img/treadmill_x2/treadmill00024.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(14) {
+    background-image: url('img/treadmill_x2/treadmill00026.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(15) {
+    background-image: url('img/treadmill_x2/treadmill00028.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(16) {
+    background-image: url('img/treadmill_x2/treadmill00030.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(17) {
+    background-image: url('img/treadmill_x2/treadmill00032.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(18) {
+    background-image: url('img/treadmill_x2/treadmill00034.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(19) {
+    background-image: url('img/treadmill_x2/treadmill00036.png');
+  }
+  .reindeer-cam__frame--treadmill:nth-child(20) {
+    background-image: url('img/treadmill_x2/treadmill00038.png');
+  }
+
+
+  .reindeer-cam__frame--jumprope:nth-child(1) {
+    background-image: url('img/jumprope_x2/Jumprope_00000.png');
+  }
+  .reindeer-cam__frame--jumprope:nth-child(2) {
+    background-image: url('img/jumprope_x2/Jumprope_00001.png');
+  }
+  .reindeer-cam__frame--jumprope:nth-child(3) {
+    background-image: url('img/jumprope_x2/Jumprope_00002.png');
+  }
+  .reindeer-cam__frame--jumprope:nth-child(4) {
+    background-image: url('img/jumprope_x2/Jumprope_00003.png');
+  }
+  .reindeer-cam__frame--jumprope:nth-child(5) {
+    background-image: url('img/jumprope_x2/Jumprope_00004.png');
+  }
+  .reindeer-cam__frame--jumprope:nth-child(6) {
+    background-image: url('img/jumprope_x2/Jumprope_00005.png');
+  }
+  .reindeer-cam__frame--jumprope:nth-child(7) {
+    background-image: url('img/jumprope_x2/Jumprope_00006.png');
+  }
+  .reindeer-cam__frame--jumprope:nth-child(8) {
+    background-image: url('img/jumprope_x2/Jumprope_00007.png');
+  }
+  .reindeer-cam__frame--jumprope:nth-child(9) {
+    background-image: url('img/jumprope_x2/Jumprope_00008.png');
+  }
+  .reindeer-cam__frame--jumprope:nth-child(10) {
+    background-image: url('img/jumprope_x2/Jumprope_00009.png');
+  }
+  .reindeer-cam__frame--jumprope:nth-child(11) {
+    background-image: url('img/jumprope_x2/Jumprope_00010.png');
+  }
+
+
+  .reindeer-cam-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+}
+
+
+@keyframes #{$name}-reindeer-cam {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
