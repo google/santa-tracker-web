@@ -275,6 +275,10 @@ Mercator scene.
 
     game: null,
 
+    showOnMapsReady: false,
+
+    mapsReady: false,
+
     onPreload: function() {
       this.preloadSounds('mercator_load_sounds', 40);
       this.preloadImages([
@@ -285,7 +289,16 @@ Mercator scene.
       ]);
     },
     onShow: function() {
-      // Wait for maps API
+      if (!this.mapsReady) {
+        this.showOnMapsReady = true;
+      } else {
+        var module = this.$['module-mercator'];
+
+        var game = this.game = new scenes.mercator.Game(module);
+        startButton(module, function() {
+          game.start();
+        });
+      }
     },
     onHide: function() {
       this.game.dispose();
@@ -293,12 +306,10 @@ Mercator scene.
       this.fire('sound-ambient', 'mercator_end');
     },
     mapsAPIReady: function() {
-      var module = this.$['module-mercator'];
-
-      var game = this.game = new scenes.mercator.Game(module);
-      startButton(module, function() {
-        game.start();
-      });
+      this.mapsReady = true;
+      if (this.showOnMapsReady) {
+        this.onShow();
+      }
     }
   });
 
