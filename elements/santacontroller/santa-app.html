@@ -475,13 +475,9 @@ Polymer(Polymer.mixin({
         return !house.iced;
       }
     }
-<<<<<<< HEAD
-    // Certain scenes don't have associated houses. Whitelist them.
-    if (['village', 'calendar', 'about'].indexOf(moduleName) != -1) {
-=======
 
+    // Certain scenes don't have associated houses. Whitelist them.
     if (WHITELISTED_ROUTES_.indexOf(moduleName) != -1) {
->>>>>>> Move entire app into santa-app
       return true;
     }
 
