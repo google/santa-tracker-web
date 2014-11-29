@@ -11,7 +11,7 @@ goog.require('app.shared.Scoreboard');
  */
 app.Scene = function(el) {
   this.$el = $(el);
-  this.$controls = this.$el.find('.actions');
+  this.controlsEl = this.$el.find('.actions')[0];
   this.$pausePlay = this.$el.find('.actions .pause');
   this.$sound = $('#sound');
   this.iframeProxy = new app.IframeProxy(this, this.$el);
@@ -28,7 +28,8 @@ app.Scene.prototype.init = function() {
   this.attachEvents();
   this.$sound.hide();
 
-  if (window.hasOwnProperty('santatracker') &&
+  // TODO: Make mute state accessible
+  /*if (window.hasOwnProperty('santatracker') &&
     window.santatracker.hasOwnProperty('muteState') &&
     !window.santatracker.muteState.isMuted()) {
     this.mute();
@@ -38,7 +39,7 @@ app.Scene.prototype.init = function() {
     window.santatracker.hasOwnProperty('muteState') &&
     window.santatracker.muteState.isMuted()) {
     this.unMute();
-  }
+  }*/
 };
 
 /**
@@ -55,19 +56,18 @@ app.Scene.prototype.destroy = function() {
  * Adds the event listeners to this module.
  */
 app.Scene.prototype.attachEvents = function() {
-  var _this = this;
-
-  if (window.hasOwnProperty('santatracker') &&
+  // TODO: Make mute state accessible
+  /*if (window.hasOwnProperty('santatracker') &&
     window.santatracker.hasOwnProperty('muteState')) {
 
     window.santatracker.muteState.addListener(function(muted) {
       if (muted) {
-        _this.mute();
+        this.mute();
       } else {
-        _this.unMute();
+        this.unMute();
       }
-    });
-  }
+    }.bind(this));
+  }*/
 };
 
 /**
@@ -129,14 +129,14 @@ app.Scene.prototype.onLoadedMessage = function() {
  * iFrame telling us to show the controls.
  */
 app.Scene.prototype.onShowControlsMessage = function() {
-  this.$controls.show();
+  this.controlsEl.removeAttribute('hidden');
 };
 
 /**
  * iFrame telling us to hide the controls.
  */
 app.Scene.prototype.onHideControlsMessage = function() {
-  this.$controls.hide();
+  this.controlsEl.setAttribute('hidden', '');
 };
 
 /**
@@ -157,7 +157,6 @@ app.Scene.prototype.onHidePlayMessage = function() {
  * iFrame telling us to show the pause button.
  */
 app.Scene.prototype.onShowPauseMessage = function() {
-  // paused class shows play
   this.$pausePlay.removeClass(Constants.CLASS_PAUSED);
 };
 
@@ -165,7 +164,6 @@ app.Scene.prototype.onShowPauseMessage = function() {
  * iFrame telling us to hide the pause button.
  */
 app.Scene.prototype.onHidePauseMessage = function() {
-  // paused class shows play
   this.$pausePlay.addClass(Constants.CLASS_PAUSED);
 };
 
