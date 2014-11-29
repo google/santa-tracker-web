@@ -188,7 +188,7 @@ gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
 gulp.task('i18n_index', function() {
-  return gulp.src(['index.html', 'error.html', 'upgrade.html'])
+  return gulp.src(['index.html', 'error.html', 'upgrade.html', 'schedule.html'])
     .pipe(replace('<base href="">',
         '<base href="' + STATIC_URL + '">'))
     .pipe(i18n_replace({
@@ -201,8 +201,6 @@ gulp.task('i18n_index', function() {
 // copy needed assets (images, sounds, polymer elements, etc) to dist directory
 gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
   return gulp.src([
-    // TODO(bckenny): schedule.html should probably not go to static
-    'schedule.html',
     'manifest.json',
     'audio/*',
     'images/*.{png,svg,gif,ico}',
