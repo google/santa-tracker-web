@@ -159,7 +159,6 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
             'google-maps-api.html$',
           ]
         },
-        // 'strip-excludes': false,
         strip: !argv.pretty,
         csp: true,
         inline: true,
