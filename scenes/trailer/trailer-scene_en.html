@@ -19,9 +19,10 @@ Trailer scene.
           <div class="start-button" on-tap="{{playVideo}}"></div>
         </div>
       </div>
-      <google-youtube id="player" videoid="QrDH6kh7yUw" chromeless fluid="1"
+      <google-youtube id="player" videoid="QrDH6kh7yUw" chromeless
                       on-google-youtube-ready="{{youtubeReady}}"
-                      on-google-youtube-state-change="{{youtubeStateChange}}"></google-youtube>
+                      on-google-youtube-state-change="{{youtubeStateChange}}"
+                      height="100%" width="100%" fit></google-youtube>
 
       <div id="videoboard" class="sceneboard">
         <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
