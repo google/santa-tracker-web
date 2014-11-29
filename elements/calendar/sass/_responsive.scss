@@ -22,6 +22,19 @@ $mobilePortraitBreakpoint: 400px;
     #global-nav #global-nav-body #nav-calendar {
       max-width: 800px;
     }
+
+    #sound {
+      left: 0;
+      right: auto;
+      bottom: 14px;
+
+      a {
+        border-radius: 0 20px 20px 0;
+        i {
+          margin: 7px 0 0 3px;
+        }
+      }
+    }
   }
 }
 
@@ -102,7 +115,6 @@ $mobilePortraitBreakpoint: 400px;
         height: 40px;
         padding: 8px;
       }
-
     }
 
     #global-nav #global-nav-header {
@@ -119,6 +131,5 @@ $mobilePortraitBreakpoint: 400px;
     #global-nav #global-nav-content {
       top: $headerHeight;
     }
-
   }
 }

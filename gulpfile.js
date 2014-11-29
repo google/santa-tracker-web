@@ -17,11 +17,12 @@ var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/*.js';
 
+var STATIC_VERSION = 44;
+var VERSION = argv.build || STATIC_VERSION;
+
 // TODO(bckenny|cbro): fill in with default static asset base URL
 var STATIC_BASE_URL = argv.baseurl ? argv.baseurl : '';
-var STATIC_VERSION = 0;
-// TODO(bckenny): add back in the versioning number once through with testing
-var STATIC_URL = argv.pretty ? '' : STATIC_BASE_URL; // + STATIC_VERSION + '/';
+var STATIC_URL = argv.pretty ? '' : (STATIC_BASE_URL + VERSION + '/');
 
 var PROD_DIR = 'dist_prod';
 var STATIC_DIR = 'dist_static';
@@ -31,8 +32,7 @@ var PRETTY_DIR = 'dist_pretty';
 var DIST_PROD_DIR = argv.pretty ? PRETTY_DIR : PROD_DIR;
 
 // path for static resources
-// TODO(bckenny): add back in the versioning number once through with testing
-var DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : STATIC_DIR; // + '/' + STATIC_VERSION;
+var DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + VERSION);
 
 // scenes are whitelisted into compilation here
 var SCENE_CLOSURE_CONFIG = {
@@ -45,7 +45,16 @@ var SCENE_CLOSURE_CONFIG = {
   briefing: {
     entryPoint: 'app.Scene'
   },
+  gumball: {
+    entryPoint: 'app.Game'
+  },
   matching: {
+    entryPoint: 'app.Game'
+  },
+  presentdrop: {
+    entryPoint: 'app.Game'
+  },
+  mercator: {
     entryPoint: 'app.Game'
   },
   racer: {
@@ -79,7 +88,7 @@ gulp.task('compile-scenes', function() {
     var config = SCENE_CLOSURE_CONFIG[sceneName];
 
     return stream.add(gulp.src([
-      'scenes/' + sceneName + '/js/*.js',
+      'scenes/' + sceneName + '/js/**/*.js',
 
       // add shared scene code
       'scenes/shared/js/*.js',
@@ -178,8 +187,8 @@ gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
 
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
-gulp.task('i18n_index', ['vulcanize'], function() {
-  return gulp.src(['index.html', 'about.html'])
+gulp.task('i18n_index', function() {
+  return gulp.src(['index.html', 'error.html', 'upgrade.html', 'schedule.html'])
     .pipe(replace('<base href="">',
         '<base href="' + STATIC_URL + '">'))
     .pipe(i18n_replace({
@@ -192,8 +201,6 @@ gulp.task('i18n_index', ['vulcanize'], function() {
 // copy needed assets (images, sounds, polymer elements, etc) to dist directory
 gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
   return gulp.src([
-    // TODO(bckenny): schedule.html should probably not go to static
-    'schedule.html',
     'manifest.json',
     'audio/*',
     'images/*.{png,svg,gif,ico}',

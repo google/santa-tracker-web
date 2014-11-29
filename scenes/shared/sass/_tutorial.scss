@@ -71,6 +71,10 @@
       @include tutorial('mouse-matching', 5);
     }
 
+    &.mouse-mercator .tutorial-inner {
+      @include tutorial('mouse-mercator', 4);
+    }
+
     // Touch
     &.touch-updown .tutorial-inner {
       @include tutorial('touch-updown-landscape', 4);
@@ -88,6 +92,10 @@
 
     &.touch-matching .tutorial-inner {
       @include tutorial('touch-matching', 5);
+    }
+
+    &.touch-mercator .tutorial-inner {
+      @include tutorial('touch-mercator', 4);
     }
 
     // Device

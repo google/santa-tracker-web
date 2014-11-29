@@ -1,16 +1,26 @@
-#about {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 41px;
-  overflow: auto;
+$name: 'module-about';
+
+@import "../shared/sass/sceneboard";
+
+##{$name} {
   background: #7847b2;
+  overflow: auto;
+
+
 
   #about-banner {
     display: block;
     height: 315px;
-    background: url(../images/about.png) 50% 30px no-repeat;
+    background: url(img/about.png) 50% 30px no-repeat;
+  }
+
+  .sceneboard {
+    height: 45px;
+    background: #9ece2b;
+  }
+
+  .sceneboard-back {
+    border-radius: 0 0 4px 4px;
   }
 
   #about-banner, #about-content {
@@ -40,20 +50,5 @@
       padding: 15px 0;
     }
   }
-}
 
-#about-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #6f41a4;
-  text-align: center;
-  color: #fff;
-
-  a {
-    text-decoration: none;
-    color: #fff;
-     line-height: 41px;
-  }
 }

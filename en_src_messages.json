@@ -377,6 +377,110 @@
         "description": "Button text. 15char limit. A label on an activity that will let the user write draw a picture",
         "message": "Draw"
     },
+    "codelab-block-whenrun": {
+        "description": "Code block label. 15char limit. Start of the code, reads to indicate that blocks below it will execute in order",
+        "message": "when run"
+    },
+    "codelab-block-moveeast": {
+        "description": "Code block label for moving the player east. Preferably just one word for the direction.",
+        "message": "east"
+    },
+    "codelab-block-moveeast-tooltip": {
+        "description": "Tooltip for a code block which moves the player east. Written as a command in first person.",
+        "message": "Move me east one space."
+    },
+    "codelab-block-movenorth": {
+        "description": "Code block label for moving the player north. Preferably just one word for the direction.",
+        "message": "north"
+    },
+    "codelab-block-movenorth-tooltip": {
+        "description": "Tooltip for a code block which moves the player north. Written as a command in first person.",
+        "message": "Move me north one space."
+    },
+    "codelab-block-movesouth": {
+        "description": "Code block label for moving the player south. Preferably just one word for the direction.",
+        "message": "south"
+    },
+    "codelab-block-movesouth-tooltip": {
+        "description": "Tooltip for a code block which moves the player south. Written as a command in first person.",
+        "message": "Move me south one space."
+    },
+    "codelab-block-movewest": {
+        "description": "Code block label for moving the player west. Preferably just one word for the direction.",
+        "message": "west"
+    },
+    "codelab-block-movewest-tooltip": {
+        "description": "Tooltip for a code block which moves the player west. Written as a command in first person.",
+        "message": "Move me west one space."
+    },
+    "codelab-block-repeat": {
+        "description": "Code block label. 15char limit. Is followed by a editable number and another label like this \"repeat 5 times\". Sadly the labels can't be reordered for technical reasons.",
+        "message": "repeat"
+    },
+    "codelab-block-repeat-times": {
+        "description": "Code block label. 15char limit. Placed after a circle arrow (indicating repeat) and an editable number, i.e. repeat 5 times.",
+        "message": "times"
+    },
+    "codelab-block-repeat-tooltip": {
+        "description": "Tooltip for code block which repeats one or more statements.",
+        "message": "Repeat some statements several times."
+    },
+    "codelab-finish": {
+        "description": "Button label to end game. 15char limit.",
+        "message": "Finish"
+    },
+    "codelab-great": {
+        "description": "Huge success title after finishing a level. 15char limit.",
+        "message": "Great"
+    },
+    "codelab-mwc-promo": {
+        "description": "Promotion for the Made w/ Code initiative. Displayed in footer of code lab game. Should be short and direct.",
+        "raw": "Explore more Google coding projects at <ph name=\"LINK\"><ex>&lt;a href=\"link\"&gt;link&lt;/a&gt;</ex>&lt;a href=\"//www.madewithcode.com/\" target=\"_blank\"&gt;MadewithCode.com&lt;/a&gt;</ph>."
+    },
+    "codelab-next-challenge": {
+        "description": "Button label to start next level. 15char limit.",
+        "message": "Next Challenge"
+    },
+    "codelab-oops": {
+        "description": "Huge whimsical title after failing a level. 15char limit.",
+        "message": "Oops!"
+    },
+    "codelab-result-empty-repeat-fail": {
+        "description": "Short hint after failing a level. One or two sentences max.",
+        "message": "The \"Repeat\" block needs to have other blocks inside it to work."
+    },
+    "codelab-result-extra-top-block-fail": {
+        "description": "Short hint after failing a level. One or two sentences max.",
+        "message": "Some of the blocks are not attached together properly."
+    },
+    "codelab-result-generic-fail": {
+        "description": "Short generic message after failing a level. One or two sentences max.",
+        "message": "Looks like you got lost!"
+    },
+    "codelab-result-missing-block-fail": {
+        "description": "Short hint after failing a level. One or two sentences max. Refers to blocks visually displayed below.",
+        "message": "Try one or more of the block below to solve this puzzle."
+    },
+    "codelab-result-missing-block-success": {
+        "description": "Short hint on how the puzzle can be improved even if level is complete. One or two sentences max. Refers to blocks visually displayed below. Has a token for a dynamic number between 2-6, the token can be skipped and translation worded that fewer blocks are needed.",
+        "raw": "Did you know you can finish this level with just <ph name=\"IDEAL\"><ex>4</ex>{{ideal}}</ph> blocks? Try using the block below."
+    },
+    "codelab-result-perfect-success": {
+        "description": "Short message after completing a level. One or two sentences max.",
+        "message": "Congratulations! You finished the puzzle perfectly."
+    },
+    "codelab-result-too-few-blocks-fail": {
+        "description": "Short hint after failing a level. One or two sentences max.",
+        "message": "You are using the right blocks, but try using more of them to complete this puzzle."
+    },
+    "codelab-result-too-many-blocks-success": {
+        "description": "Short hint on how the puzzle can be improved even if level is complete. One or two sentences max. Has a token for a dynamic number between 2-6, the token can be skipped and translation worded that fewer blocks are needed.",
+        "raw": "Did you know you can finish this level with just <ph name=\"IDEAL\"><ex>4</ex>{{ideal}}</ph> blocks?"
+    },
+    "codelab-try-again": {
+        "description": "Button label to try the level again after failing or completing with room for improvement. 15char limit.",
+        "message": "Try Again"
+    },
     "language": {
         "description": "Button text. Please keep short. Used to open the language chooser to change the language",
         "message": "Language"

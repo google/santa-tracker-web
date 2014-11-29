@@ -101,6 +101,9 @@
 	"fr_tradition": {
 		"message": "V Franciji otroci tradicionalno nastavijo čevlje poleg kamina in čakajo, da bo prišel Père Noël. Če so bili celo leto pridni, Père Noël napolni njihove čevlje z darili."
 	},
+	"gameover": {
+		"message": "Igra je končana!"
+	},
 	"getgooglemaps": {
 		"message": "Prenesite Google Zemljevide"
 	},
@@ -222,7 +225,7 @@
 		"message": "Rusija"
 	},
 	"ru_tradition": {
-		"message": "Ruski otroci namesto božičnega drevesa okrasijo novoletno drevo. Otroci nestrpno pričakujejo Dedka Mraza, ki potuje z vnukinjo Snežno deklico in deli darila po vsej deželi. Dedek Mraz živi globoko v gozdu blizu mesta Veliky Ustyug v severni Rusiji."
+		"message": "Ruski otroci namesto božičnega drevesa okrasijo novoletno drevo. Otroci nestrpno pričakujejo Dedka Mraza, ki potuje z vnukinjo Sneguročko in deli darila po vsej deželi. Dedek Mraz živi globoko v gozdu blizu mesta Veliki Ustjug v severni Rusiji."
 	},
 	"santatracker": {
 		"message": "Spremljanje Božičkove poti"
@@ -270,7 +273,7 @@
 		"message": "Avstralija"
 	},
 	"trivia_beginner_013": {
-		"message": "Na severozahodnem delu katere celine leži Niger – država z eno najvišjih stopenj rasti prebivalstva?"
+		"message": "Na severozahodnem delu katere celine leži Niger – država z eno od najvišjih stopenj rasti prebivalstva?"
 	},
 	"trivia_beginner_015_answer0": {
 		"message": "Avstralija"
@@ -315,10 +318,10 @@
 		"message": "V katerem ruskem mestu stoji na Rdečem trgu poleg Kremlja katedrala sv. Vasilija blaženega?"
 	},
 	"trivia_beginner_038": {
-		"message": "V katerem evropskem mestu stoji Kolosej, ki je bil zgrajen v 1. stoletju n. št. in je služil kot prizorišče za gladiatorske boje?"
+		"message": "V katerem evropskem mestu stoji Kolosej, ki je bil zgrajen v 1. stoletju po Kr. in je bil prizorišče gladiatorskih bojev?"
 	},
 	"trivia_beginner_049": {
-		"message": "Katero ameriško mesto je s polotokom Marin povezano z mostom Golden Gate?"
+		"message": "Katero mesto v Združenih državah je s polotokom Marin povezano z mostom Golden Gate?"
 	},
 	"trivia_beginner_050": {
 		"message": "V katerem ameriškem mestu ob reki Mississippi stoji spomenik Gateway Arch, ki simbolizira širitev Združenih držav proti zahodu v 19. stoletju."
@@ -342,7 +345,7 @@
 		"message": "Avstralija"
 	},
 	"trivia_beginner_067": {
-		"message": "V katerem oceanu so zahodno od Južne Amerike Galapaški otoki, kjer živijo orjaške želve?"
+		"message": "V katerem oceanu zahodno od Južne Amerike so Galapaški otoki, kjer živijo orjaške želve?"
 	},
 	"trivia_beginner_068_answer1": {
 		"message": "Avstralija"
@@ -363,7 +366,7 @@
 		"message": "Argentina"
 	},
 	"trivia_beginner_080": {
-		"message": "Katero državo morate obiskati, če želite obiskati starodavne majevske ruševine in plavati ob plažah letovišča Cancún?"
+		"message": "Katero državo je treba obiskati, če želite videti starodavne majevske ruševine in plavati ob plažah letovišča Cancún?"
 	},
 	"trivia_beginner_080_answer0": {
 		"message": "Mehika"
@@ -372,7 +375,7 @@
 		"message": "Katero državo morate obiskati, če si želite ogledati katedralo sv. Patrika v\nDublinu in uživati na festivalu umetnikov v mestu Kilkenny?"
 	},
 	"trivia_beginner_082": {
-		"message": "Katero državo morate obiskati, če želite na izlet po deževnem gozdu in na karneval v \nmestu Rio de Janeiro?"
+		"message": "Katero državo je treba obiskati, če želite na izlet po deževnem gozdu in\nna karneval v mestu Rio de Janeiro?"
 	},
 	"trivia_beginner_082_answer0": {
 		"message": "Brazilija"
@@ -411,7 +414,7 @@
 		"message": "Brazilija"
 	},
 	"trivia_hard_022": {
-		"message": "Mehiko in kateri otok ločuje Jukatanski preliv?"
+		"message": "Jukatanski preliv ločuje Mehiko in neki otok. Kako se imenuje ta otok?"
 	},
 	"trivia_hard_030_answer0": {
 		"message": "Filipini"
@@ -450,7 +453,7 @@
 		"message": "Francija"
 	},
 	"trivia_hard_073": {
-		"message": "V kateri državi je Bahía Blanca glavna točka ladijskega prometa za območje Pamp?"
+		"message": "V kateri državi je Bahía Blanca, tj. glavna točka ladijskega prometa za območje Pamp?"
 	},
 	"trivia_hard_073_answer0": {
 		"message": "Argentina"
@@ -465,7 +468,7 @@
 		"message": "Islandija"
 	},
 	"trivia_hard_083": {
-		"message": "Gdańsk leži ob ustju reke Visle in predstavlja glavno pristanišče ene od evropskih držav. Katere?"
+		"message": "Gdańsk leži ob ustju reke Visle in je glavno pristanišče ene od evropskih držav. Katere?"
 	},
 	"trivia_hard_084_answer2": {
 		"message": "Reka Paraná"
@@ -480,7 +483,7 @@
 		"message": "Gana"
 	},
 	"trivia_hard_088": {
-		"message": "V kateri južnoameriški državi je Guaraní eden od uradnih jezikov in valuta?"
+		"message": "V kateri južnoameriški državi je gvarani, tj. eden od uradnih jezikov in valuta?"
 	},
 	"trivia_hard_088_answer2": {
 		"message": "Brazilija"
@@ -504,7 +507,7 @@
 		"message": "Avstralija"
 	},
 	"trivia_medium_004": {
-		"message": "Na kateri celini je bilo mesto Teotihuacán središče zgodnje civilizacije?"
+		"message": "Na kateri celini je bilo mesto Teotihuacán, tj. središče starodavne civilizacije?"
 	},
 	"trivia_medium_012_answer0": {
 		"message": "São Paulo, Brazilija"
@@ -603,7 +606,7 @@
 		"message": "Nemčija"
 	},
 	"trivia_medium_089": {
-		"message": "Majevsko mesto Copán je priljubljena turistična znamenitost v državi, ki meji na El Salvador in Nikaragvo. Kateri?"
+		"message": "Majevsko mesto Copán je priljubljena turistična znamenitost v državi, ki meji na Salvador in Nikaragvo. Kateri?"
 	},
 	"trivia_medium_089_answer2": {
 		"message": "Kanada"

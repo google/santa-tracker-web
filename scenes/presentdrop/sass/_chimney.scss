@@ -1,0 +1,143 @@
+##{$name} {
+  .train {
+    bottom: 25px;
+    height: 123px;
+    position: absolute;
+    transform: translate3d(0, 0, 0);
+    width: 180px;
+
+    &.large {
+      height: 150px;
+    }
+
+    .chimney {
+      background: url(img/chimneys.png) no-repeat;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
+
+    &.large .chimney {
+      background: url(img/chimneys.png) -200px 0 no-repeat;
+    }
+
+    .hand {
+      animation: 1s #{$name}-hand linear infinite;
+      background: url(img/chimneys.png) 0 -150px no-repeat;
+      height: 16px;
+      position: absolute;
+      transform-origin: 25px 15px;
+      right: 18px;
+      top: 50px;
+      width: 27px;
+    }
+
+    &.large .hand {
+      background: url(img/chimneys.png) -200px -150px no-repeat;
+      top: 80px;
+    }
+
+    .handle {
+      animation: 1s #{$name}-handle linear infinite;
+      background: url(img/chimneys.png) -100px -150px no-repeat;
+      height: 30px;
+      left: 84px;
+      position: absolute;
+      transform-origin: 2px 19px;
+      top: 53px;
+      width: 75px;
+    }
+
+    &.large .handle {
+      top: 83px;
+    }
+
+    .wheel1, .wheel2 {
+      animation: 0.3s #{$name}-wheel linear infinite;
+      background: url(img/chimneys.png) -300px -150px no-repeat;
+      bottom: -21px;
+      height: 30px;
+      position: absolute;
+      width: 30px;
+    }
+
+    .wheel1 {
+      left: 20px;
+    }
+
+    .wheel2 {
+      left: 130px;
+    }
+
+    .flag {
+      box-sizing: border-box;
+      height: 58px;
+      left: 44px;
+      position: absolute;
+      text-align: center;
+      top: 20px;
+      transform: translateZ(0);
+      transition: 200ms transform;
+      width: 50px;
+    }
+
+    .flag-stick {
+      background: #e29e26;
+      height: 58px;
+      left: 50%;
+      margin-left: -3px;
+      position: absolute;
+      top: -5px;
+      width: 6px;
+    }
+
+    .flag-score {
+      background: #cf181f;
+      box-sizing: border-box;
+      color: white;
+      font: 700 20px/34px 'Open Sans', sans-serif;
+      left: 0;
+      position: absolute;
+      text-align: center;
+      top: 5px;
+      width: 50px;
+    }
+
+    &.hit .flag {
+      transform: translateY(-55px);
+    }
+  }
+}
+
+@keyframes #{$name}-hand {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-60deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes #{$name}-handle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(27deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes #{$name}-wheel {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

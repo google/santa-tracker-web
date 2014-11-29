@@ -40,7 +40,7 @@ Village scene.
           <h3><i18n-msg msgid="seconds">PLACEHOLDER_i18n</i18n-msg></h3>
         </countdown-timer>
         <!-- <h2>Until Santa Departs &ndash; <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">Learn More</a></h2> -->
-        <h2><i18n-msg msgid="countdownlabel">PLACEHOLDER_i18n</i18n-msg><span id="learnmore"> &centerdot; <a href="//www.google.com/santatracker/about.html"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a></span></h2>
+        <h2><i18n-msg msgid="countdownlabel">PLACEHOLDER_i18n</i18n-msg><span id="learnmore"> &centerdot; <a href="{{pageUrl}}#about"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a></span></h2>
         <div id="finished-tracker">
           <a href="{{pageUrl}}#tracker"></a>
         </div>
@@ -120,7 +120,7 @@ Village scene.
               <div class="elf elf-green-girl-sit-left elf6"></div>
             </div>
 
-            <a href="http://g.co/santamapsdive" id="pegman" class="landed"></a>
+            <a href="https://g.co/santamapsdive" id="pegman" class="landed"></a>
             <div id="pegman-spaceship"></div>
 
             <div id="unicycle" class="elf"><div class="cycle"></div></div>
@@ -305,16 +305,6 @@ Village scene.
       if (navigator.userAgent.match(/iPhone|iPod|iPad/i)) {
         this.$.spaceship.parentElement.removeChild(this.$.spaceship);
       }
-
-      // Know when template house stamping is done to scroll to the last one.
-      this.onMutation(this.$.houses, function(observer, records) {
-        this.async(function() {
-          var todayEl = this.$.houses.querySelector('.today');
-          if (todayEl) {
-            this.panToHouse(todayEl, 0);
-          }
-        }, null, 350);
-      });
     },
 
     domReady: function() {
@@ -693,6 +683,11 @@ Village scene.
       this.$.count.start();
 
       this.fire('sound-ambient', 'village_start');
+
+      var todayEl = this.$.houses.querySelector('.today');
+      if (todayEl) {
+        this.panToHouse(todayEl, 0);
+      }
     },
 
     onHide: function() {

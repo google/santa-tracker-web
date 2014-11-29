@@ -28,7 +28,7 @@ Village calendar navigation.
 
     <div id="module-nav">
       <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
-        <a id="global-nav-btn" href="{{pageUrl}}#{{active ? santaApp.prevSelectedScene.route : 'calendar'}}" on-click="{{fabClick}}">
+        <a id="global-nav-btn" href="{{pageUrl}}#{{active ? santaApp.prevSelectedRoute : 'calendar'}}" on-click="{{fabClick}}">
           <paper-fab icon="today" on-core-transitionend="{{rippleDone}}"></paper-fab>
         </a>
         <div id="global-nav-body">
@@ -55,7 +55,7 @@ Village calendar navigation.
                     <div layout vertical center-center data-index="1"
                          class="card calendar scene video play learn">
                       <template repeat="{{house, i in firstFour}}">
-                        <a href="{{pageUrl}}#[[house.module]]" on-click="{{onCalendarClick}}">
+                        <a href="{{house.link || pageUrl + '#' + house.module}}" on-click="{{onCalendarClick}}">
                           <div class="menu-marker marker1 calendar [[house.category]]" style="background-image:url({{componentBaseDir}}img/menu-[[house.module]].svg);"></div>
                         </a>
                       </template>
@@ -63,7 +63,7 @@ Village calendar navigation.
 
                     <template repeat="{{house, i in regularSchedule}}">
                       <div layout vertical center-center data-index="{{i + 2}}" data-category="[[house.category]]" class="card calendar [[house.category]] {{house.iced ? 'iced' : 'melt'}}">
-                        <a href="{{pageUrl}}#[[house.module]]" on-click="{{onCalendarClick}}">
+                        <a href="{{house.link || pageUrl + '#' + house.module}}" on-click="{{onCalendarClick}}">
                           <div class="menu-marker marker{{i + 2}} calendar [[house.category]]" style="background-image:url({{componentBaseDir}}img/menu-[[house.module]].svg);"></div>
                         </a>
                       </div>
@@ -147,12 +147,11 @@ Village calendar navigation.
         <div id="global-nav-footer">
           <a href="#" id="select-lang" on-click="{{toggleLanguageSelect}}"><i18n-msg msgid="language">PLACEHOLDER_i18n</i18n-msg></a>
           &bull;
-          <!-- TODO(cbro): This should go to the right locale about page -->
-          <a href="http://www.google.com/santatracker/about.html"><i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg></a>
+          <a href="{{pageUrl}}#about"><i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg></a>
           &bull;
-          <a href="http://www.google.com/policies/"><i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg></a>
+          <a href="https://www.google.com/policies/"><i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg></a>
           &bull;
-          <a href="http://maps.google.com/help/maps/helloworld/index.html"><i18n-msg msgid="getgooglemaps">PLACEHOLDER_i18n</i18n-msg></a>
+          <a href="https://maps.google.com/help/maps/helloworld/index.html"><i18n-msg msgid="getgooglemaps">PLACEHOLDER_i18n</i18n-msg></a>
         </div>
       </div>
 
@@ -303,45 +302,57 @@ Village calendar navigation.
         this.$['language-choose'].hidden = !this.$['language-choose'].hidden;
       },
 
+      getNicePageUrl: function() {
+        // We don't want to share urls with #village in them.
+        return location.href.replace('#village', '');
+      },
+
       shareGplus: function(e) {
         e.preventDefault();
 
+        var target = this.getNicePageUrl();
+
         this.fire('analytics-track-social', {
           network: 'googleplus', action: 'share',
-          target: 'http://www.google.com/santatracker'
+          target: target
         });
 
         this.openPage_('https://plus.google.com/share?url=' +
-                       encodeURIComponent('http://www.google.com/santatracker'));
+                       encodeURIComponent(target) +
+                       '&hl=' + encodeURIComponent(document.documentElement.lang));
       },
 
       shareFB: function(e) {
         e.preventDefault();
 
+        var target = this.getNicePageUrl();
+
         this.fire('analytics-track-social', {
           network: 'facebook', action: 'share',
-          target: 'http://www.google.com/santatracker'
+          target: target
         });
 
-        this.openPage_('http://www.facebook.com/sharer.php?u=' +
-                       encodeURIComponent('http://www.google.com/santatracker') +
-                       '&t=' + encodeURIComponent('Google Santa Tracker'));
+        this.openPage_('https://www.facebook.com/sharer.php?u=' +
+                       encodeURIComponent(target) +
+                       '&t=' + encodeURIComponent(document.title));
 
       },
 
       shareTwitter: function(e) {
         e.preventDefault();
 
+        var target = this.getNicePageUrl();
+
         this.fire('analytics-track-social', {
           network: 'twitter', action: 'share',
-          target: 'http://www.google.com/santatracker'
+          target: target
         });
 
-        this.openPage_('http://twitter.com/share?text=' +
+        this.openPage_('https://twitter.com/share?text=' +
                        encodeURIComponent('Google Santa Tracker - ' +
                        'Follow Santa on his journey around the ' +
                        'world -') + '&url=' +
-                       encodeURIComponent('http://www.google.com/santatracker'));
+                       encodeURIComponent(target));
       },
 
       /**

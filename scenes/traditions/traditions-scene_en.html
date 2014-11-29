@@ -1,5 +1,6 @@
 <link rel="import" href="../base-scene.html">
 <link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="../../components/google-apis/google-maps-api.html">
 
 <link rel="import" href="dependencies.html">
 
@@ -19,6 +20,8 @@ Traditions scene.
       <template if="{{santaApp}}">
         <google-maps-api version="3.exp" apiKey="{{santaApp.config.API_KEY}}"
                          clientId="{{santaApp.config.CLIENT_ID}}"
+                         libraries="places,geometry"
+                         language="{{santaApp.language}}"
                          on-api-load="{{mapsAPIReady}}"></google-maps-api>
       </template>
       <div id="traditions-map"></div>
@@ -112,6 +115,7 @@ Traditions scene.
   Polymer({
     componentDir: 'scenes/traditions/',
     traditions: null,
+    shown: false,
 
     nextCountry: function(e) {
       e.preventDefault();
@@ -163,15 +167,24 @@ Traditions scene.
 
     mapsAPIReady: function() {
       this.traditions = new Traditions(
-          this.$['module-traditions'], this.componentDir;
+          this.$['module-traditions'], this.componentDir);
+      if (this.shown) {
+        this.traditions.onShow();
+      }
     },
 
     onShow: function() {
-      this.traditions.onShow();
+      this.shown = true;
+      if (this.traditions) {
+        this.traditions.onShow();
+      }
     },
 
     onHide: function() {
-      this.traditions.onHide();
+      this.shown = false;
+      if (this.traditions) {
+        this.traditions.onHide();
+      }
     }
 
   });

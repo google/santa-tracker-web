@@ -7,7 +7,7 @@ Lazy loads children "pages".
 @element lazy-pages
 @extends core-pages
 -->
-<polymer-element name="lazy-pages" extends="core-pages" attributes="santaApp">
+<polymer-element name="lazy-pages" extends="core-pages" attributes="santaApp preloader">
 <template>
   <style>
     :host {
@@ -49,15 +49,6 @@ Lazy loads children "pages".
 
       if (!path || !scene || !this.selected || scene.loaded) {
         return;
-      }
-
-      // This is here (instead of attached()) to prevent timing errors under
-      // the polyfill.
-      // TODO(ericbidelman): this reaches outside. The auto-binding template
-      // doesn't setup  automatic node finding until after
-      // selectedItemChanged() gets called.
-      if (!this.preloader) {
-        this.preloader = this.parentElement.querySelector('preload-overlay');
       }
 
       // (Re)set the preload bg color and loading image before scene is loaded.

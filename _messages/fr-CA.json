@@ -101,6 +101,9 @@
 	"fr_tradition": {
 		"message": "En France, les enfants placent leurs souliers près du foyer avant l'arrivée du père Noël. Ce dernier remplira les souliers des enfants de cadeaux s'ils ont été gentils au cours de l'année."
 	},
+	"gameover": {
+		"message": "Partie terminée!"
+	},
 	"getgooglemaps": {
 		"message": "Télécharger Google Maps"
 	},
@@ -240,7 +243,7 @@
 		"message": "Partager avec vos amis sur Google+"
 	},
 	"share-text": {
-		"message": "J'ai confectionné cette carte dans Google Sur les traces du père Noël! Joyeuses Fêtes!"
+		"message": "J'ai confectionné cette carte à l'aide du service Sur les traces du père Noël de Google! Joyeuses Fêtes!"
 	},
 	"share-this": {
 		"message": "Partager"
