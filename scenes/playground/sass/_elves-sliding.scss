@@ -1,0 +1,33 @@
+$duration-elf-sliding-diagonal: 2.8;
+$duration-elf-sliding-horizontal: 9;
+$number-of-elves-sliding: 2;
+
+// Diagonal
+.elf-sliding-diagonal {
+  position: absolute;
+  left: 50%;
+  top: -548px;
+  margin-left: -110px;
+  opacity: 0;
+  animation: #{$name}-elves-sliding--diagonal ease-in #{$duration-elf-sliding-diagonal}s infinite;
+}
+
+.elf-sliding-diagonal---blue {
+}
+
+.elf-sliding-diagonal--red {
+  animation-delay: 1s;
+}
+
+// Horizontal
+.elf-sliding-horizontal {
+  position: absolute;
+  left: 50%;
+  margin-left: -120px;
+  top: -252px;
+  animation: #{$name}-elves-sliding--horizontal linear #{$duration-elf-sliding-horizontal}s infinite;
+}
+
+.elf-sliding-horizontal--red {
+  animation-delay: 4s;
+}

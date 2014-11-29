@@ -1,0 +1,18 @@
+$duration-elves-peeking: 9;
+$peeking-rotation: 45;
+
+.elf-peeking {
+  position: absolute;
+  left: 50%;
+  top: -490px;
+  margin-left: 635px;
+  transform: rotate(#{$peeking-rotation * -1}deg);
+  -webkit-transform-origin: 0 83px;
+  @media (min-width: 1200px) {
+    animation-name: #{$name}-elves-peeking;
+    animation-timing-function: ease-out;
+    animation-duration: #{$duration-elves-peeking}s;
+    animation-iteration-count: infinite;
+    animation-delay: 13s;
+  }
+}
