@@ -55,11 +55,12 @@ window.santatracker.addErrorHandler = function() {
 
 window.santaApp = document.querySelector('santa-app');
 
-// Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
-document.addEventListener('HTMLImportsLoaded', function() {
-  I18nMsg.lang = document.documentElement.lang || 'en'; // Set locale for entire site (e.g. i18n-msg elements).
-  window.santaApp.language = I18nMsg.lang;
-});
+if (window.DEV) {
+  // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
+  document.addEventListener('HTMLImportsLoaded', function() {
+    I18nMsg.lang = document.documentElement.lang || 'en'; // Set locale for entire site (e.g. i18n-msg elements).
+  });
+}
 
 window.santatracker.setup();
 
