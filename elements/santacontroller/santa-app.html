@@ -259,8 +259,6 @@ Polymer(Polymer.mixin({
     this.countDownEndDate = this.config.COUNTDOWN_END_DATE;
     this.FLIGHT_FINISHED = this.config.FLIGHT_FINISHED;
 
-    this.language = getUrlParameter('hl') || this.language;
-
     var apiClient = getUrlParameter('api_client') || 'web';
 
     this.santaService = new SantaService(apiClient, this.language);
