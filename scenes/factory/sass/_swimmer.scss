@@ -1,0 +1,87 @@
+ ##{$name} {
+  .swimmer {
+    display: none;
+  }
+
+  @media (min-height: 900px) {
+    .swimmer {
+      display: block;
+      position: absolute;
+      top: 135px;
+      left: 50%;
+      right: 0;
+      margin-left: -350px;
+      height: 150px;
+      width: 200px;
+      overflow: hidden;
+
+      svg {
+        display: block;
+      }
+
+      animation: 40s #{$name}-swimmer-move infinite alternate $easeInOutQuad;
+    }
+
+    .swimmer__elf {
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      margin-left: -34px;
+      animation: 10s #{$name}-swimmer-elf infinite alternate $easeInOutQuad;
+    }
+
+    .swimmer__waterlevel {
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      margin-left: -50px;
+      width: 100px;
+      height: 5px;
+      background: #B84E25;
+      animation: 10s #{$name}-swimmer-waterlevel infinite alternate $easeInOutQuad;
+      transform-origin: center bottom;
+    }
+
+    .swimmer__snorkel {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      margin-left: 16px;
+      animation: 10s #{$name}-swimmer-snorkel infinite alternate $easeInOutQuad;
+    }
+
+    .swimmer__bubble {
+      position: absolute;
+      border-radius: 100%;
+      background: #D08D42;
+      transform: scale(0);
+
+      &:nth-child(1) {
+        top: -15px;
+        right: 1px;
+        width: 30px;
+        height: 30px;
+        margin-right: -15px;
+        animation: 20s #{$name}-swimmer-snorkel-bubble infinite $easeOutQuint;
+      }
+
+      &:nth-child(2) {
+        top: -10px;
+        right: 1px;
+        width: 20px;
+        height: 20px;
+        margin-right: -10px;
+        animation: 20s #{$name}-swimmer-snorkel-bubble .3s infinite $easeOutQuint;
+      }
+
+      &:nth-child(3) {
+        top: -10px;
+        right: 1px;
+        width: 20px;
+        height: 20px;
+        margin-right: -10px;
+        animation: 20s #{$name}-swimmer-snorkel-bubble 1.9s infinite $easeOutQuint;
+      }
+    }
+  }
+}

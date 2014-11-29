@@ -1,0 +1,368 @@
+@keyframes #{$name}-candyBeamAnimation {
+  0% {
+    background-position: center 0;
+  }
+
+  100% {
+    background-position: center 34px;
+  }
+}
+
+@keyframes #{$name}-ballDropAnimaition {
+  0% {
+    transform: translateY(-100px);
+  }
+
+  100% {
+    transform: translateY(500px) scale(0.9);
+  }
+}
+
+@keyframes #{$name}-tubeCatchAnimation {
+  0% {
+    transform: scale(1);
+  }
+
+  80% {
+    transform: scale(1);
+  }
+
+  90% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes #{$name}-tubeBarrelAnimation {
+  0% {
+    transform: translateY(0%);
+  }
+  10% {
+    transform: translateY(-10%);
+  }
+
+  50%, 100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes #{$name}-pinballAnimation {
+  0% {
+    transform: translateX(5px) translateY(500px) rotateZ(0deg);
+  }
+
+  1% {
+    opacity: 1;
+  }
+
+  28% {
+    transform: translateX(3px) translateY(82px) rotateZ(0deg);
+  }
+
+  36% {
+    transform: translateX(3px) translateY(82px) rotateZ(90deg);
+  }
+
+  78% {
+    transform: translateX(257px) translateY(82px) rotateZ(90deg);
+  }
+
+  88% {
+    transform: translateX(257px) translateY(82px) rotateZ(180deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(257px) translateY(175px) rotateZ(180deg);
+  }
+}
+
+@keyframes #{$name}-pinballAnimation2 {
+  0% {
+    opacity: 1;
+    transform: translateX(360px) translateY(175px) rotateZ(0);
+  }
+
+  12% {
+    transform: translateX(360px) translateY(175px) rotateZ(-90deg);
+  }
+
+  80% {
+    transform: translateX(840px) translateY(175px) rotateZ(-90deg);
+  }
+
+  90% {
+    transform: translateX(835px) translateY(175px) rotateZ(-180deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(835px) translateY(145px) rotateZ(-180deg);
+  }
+}
+
+@keyframes #{$name}-pinballAnimation3 {
+  0% {
+    opacity: 1;
+    transform: translateX(915px) translateY(145px) rotateZ(0deg);
+  }
+
+  12% {
+    transform: translateX(915px) translateY(145px) rotateZ(90deg);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(1600px) translateY(145px) rotateZ(90deg);
+  }
+}
+
+@keyframes #{$name}-springAnimation {
+  0% {
+    height: 65px;
+  }
+
+  98% {
+    height: 30px;
+  }
+
+  100% {
+    height: 65px;
+  }
+}
+
+@keyframes #{$name}-handleAnimation {
+  0% {
+    height: 70px;
+  }
+
+  98% {
+    height: 100px;
+  }
+
+  100% {
+    height: 70px;
+  }
+}
+
+@keyframes #{$name}-springBallAnimation {
+  0% {
+    opacity: 1;
+  }
+
+  17% {
+    opacity: 1;
+  }
+
+  18% {
+    opacity: 0;
+  }
+
+  90% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes #{$name}-bubbleAnimation {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(.7);
+  }
+}
+
+@keyframes #{$name}-bubbleSmallAnimation {
+  0% {
+    transform: scale(.5);
+  }
+
+  100% {
+    transform: scale(.3);
+  }
+}
+
+
+@keyframes #{$name}-swimmer-elf {
+  0% {
+    transform: translateY(0%);
+  }
+  10% {
+    transform: translateY(5%);
+  }
+  20% {
+    transform: translateY(0%);
+  }
+  50%, 100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes #{$name}-swimmer-waterlevel {
+  0%, 20% {
+    transform: scaleY(1);
+  }
+  50%, 100% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes #{$name}-swimmer-snorkel {
+  0% {
+    transform: translateY(0%);
+  }
+  10% {
+    transform: translateY(5%);
+  }
+  20% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(55%);
+  }
+  60% {
+    transform: translateY(50%);
+  }
+  70% {
+    transform: translateY(55%);
+  }
+  80% {
+    transform: translateY(50%);
+  }
+  90% {
+    transform: translateY(55%);
+  }
+  100% {
+    transform: translateY(50%);
+  }
+}
+
+@keyframes #{$name}-swimmer-move {
+  0%, 10% {
+    transform: translate(0, 0);
+    animation-timing-function: $easeInQuad;
+  }
+  25% {
+    transform: translate(300px, 0px);
+    animation-timing-function: $easeOutQuad;
+  }
+  33%, 66% {
+    transform: translate(370px, 15px);
+  }
+  82.5%, 100% {
+    transform: translate(675px, -10px);
+  }
+}
+
+@keyframes #{$name}-swimmer-snorkel-bubble {
+  0%, 25% {
+    transform: translate(0, 0) scale(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translate(-75%, -100%) scale(1);
+    opacity: 0;
+  }
+  31% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  32% {
+    transform: translate(0, 0) scale(0);
+    opacity: 1;
+  }
+
+  40% {
+    transform: translate(75%, -100%) scale(1);
+    opacity: 0;
+  }
+  41% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  42% {
+    transform: translate(0, 0) scale(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(0%, -100%) scale(1);
+    opacity: 0;
+  }
+  51% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  52% {
+    transform: translate(0, 0) scale(0);
+    opacity: 1;
+  }
+
+  60% {
+    transform: translate(-50%, -100%) scale(1);
+    opacity: 0;
+  }
+  61% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  62% {
+    transform: translate(0, 0) scale(0);
+    opacity: 1;
+  }
+
+  65% {
+    transform: translate(15%, -100%) scale(.7);
+    opacity: 0;
+  }
+  66% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  67% {
+    transform: translate(0, 0) scale(0);
+    opacity: 1;
+  }
+
+  70% {
+    transform: translate(0%, -100%) scale(.7);
+    opacity: 0;
+  }
+  71% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  72% {
+    transform: translate(0, 0) scale(0);
+    opacity: 1;
+  }
+
+  75%,100% {
+    transform: translate(-15%, -100%) scale(.7);
+    opacity: 0;
+  }
+}
+
+@keyframes #{$name}-chocolate-drop {
+  0%   { transform: scaleY(0); transform-origin: center top; }
+  66%  { transform: scaleY(1); transform-origin: center top; }
+  80%  { transform: scaleY(1); transform-origin: center bottom; }
+  100% { transform: scaleY(0); transform-origin: center bottom; }
+}
+
+@keyframes #{$name}-chocolate-sploosh {
+  from { height: 0px; transform: translateZ(0); }
+  to { height: 316px; transform: translateZ(0); }
+}

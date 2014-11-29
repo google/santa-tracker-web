@@ -103,6 +103,7 @@ var utils = app.shared.utils = (function() {
         }
       };
     },
+
     /**
      * Call the callback in start of next frame.
      * @param {Function} callback The callback function.
@@ -111,12 +112,26 @@ var utils = app.shared.utils = (function() {
     requestAnimFrame: function(callback) {
       return requestAnimFrame.call(window, callback);
     },
+
     /**
      * Cancel a request for animation frame.
      * @param {Number} requestId The id of the request.
      */
     cancelAnimFrame: function(requestId) {
       cancelAnimFrame.call(window, requestId);
+    },
+
+    /**
+     * Register listener for finish event on WebAnimations player
+     * @param {AnimationPlayer} player The animation player object which will finish
+     * @param {Function} fn A callback function to execute when player finishes
+     */
+    onWebAnimationFinished: function(player, fn) {
+      if (player.finished) {
+        player.finished.then(fn);
+      } else {
+        player.addEventListener('finish', fn, false);
+      }
     }
   };
 

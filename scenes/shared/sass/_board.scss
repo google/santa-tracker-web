@@ -59,7 +59,16 @@ $board-level-bp: 1350px !default;
       border-bottom: 1px solid board-color($color, $board-border);
     }
 
-    .score, .level, .time, .actions {
+    &.board--scene .back {
+      border-bottom: none;
+      border-radius: 0 0 4px 4px;
+    }
+
+    .score, .level {
+      border: none;
+    }
+
+    .time, .actions {
       border: none;
       border-top: 1px solid board-color($color, $board-border);
     }
@@ -78,9 +87,18 @@ $board-level-bp: 1350px !default;
   }
 
   // Large screens
-  @media (min-width: 1350px) {
+  @media (min-width: $board-level-bp) and (min-height: 600px) {
     .time {
       background-color: board-color($color, $board-dark-bg);
+    }
+
+    .score, .level {
+      border-top: 1px solid board-color($color, $board-border);
+    }
+
+    &.board--scene .back {
+      border-bottom: 1px solid board-color($color, $board-border);
+      border-radius: 0;
     }
   }
 }

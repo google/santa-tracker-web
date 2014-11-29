@@ -52,6 +52,9 @@ var SCENE_CLOSURE_CONFIG = {
   commandcentre: {
     entryPoint: 'app.Scene'
   },
+  factory: {
+    entryPoint: 'app.Scene'
+  },
   gumball: {
     entryPoint: 'app.Game'
   },

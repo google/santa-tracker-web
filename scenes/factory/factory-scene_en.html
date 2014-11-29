@@ -1,0 +1,195 @@
+<link rel="import" href="../base-scene.html">
+
+<script src="../../third_party/lib/web-animations-legacy.min.js"></script>
+<script src="factory-scene.min.js"></script>
+
+<!--
+Factory scene.
+
+@element factory-scene
+@extends base-scene
+-->
+<polymer-element name="factory-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="factory-scene.css" no-shim>
+
+  <div id="module-factory">
+    <div class="scene">
+      <div class="factory">
+        <div class="bg"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2600" height="1440" viewBox="0 0 2600 1440"><path stroke="#D6BD00" stroke-width="7" stroke-miterlimit="10" d="M2598.5 881.1H1587.4c-11.6 0-21-9.5-21-21v-68.6c0-11.6-9.5-21-21-21H1481c-11.6 0-21-9.5-21-21v-101c0-11.6 9.4-21 21-21h145.7c11.5 0 21 9.4 21 21v2.8c0 11.5 9.4 21 21 21h140c11.5 0 21 9.5 21 21v18.2c0 11.5 9.4 21 21 21h747.8M1012 0v1142c0 11.5 9.5 21 21 21h158.3c11.5 0 21-9.5 21-21v-28.5c0-11.6 9.4-21 21-21h235.1c11.6 0 21 9.4 21 21v177.8c0 11.6 9.4 21 21 21h116.2c11.6 0 21 9.5 21 21v84M2598.5 1379.5h-862.7c-11.5 0-21-9.5-21-21v-189c0-11.6 9.5-21 21-21h8.4c11.6 0 21-9.5 21-21v-79.8c0-11.5 9.5-21 21-21h812.3M-1.5 1106.6h863.7c11.5 0 21 9.5 21 21v200.2c0 11.6 9.5 21 21 21H1019c11.6 0 21 9.5 21 21v44.8M-1.5 880l758.7-.3c11.5 0 21-9.4 21-21V750.9c0-11.5-9.5-21-21-21h-35c-11.5 0-21-9.5-21-21V0M1223.5 0v733.9c0 11.5-9.4 21-21 21h-35c-11.5 0-21-9.5-21-21V0M492.6 0v800.6c0 11.5-9.4 21-21 21h-35c-11.6 0-21-9.5-21-21V0" fill="none"/><g opacity=".7"><defs><path id="a" d="M1681.9 501.7h58.8v58.8h-58.8z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="#D6BD00" d="M1740.7 531.1c0 16.2-13.2 29.4-29.4 29.4s-29.4-13.2-29.4-29.4 13.2-29.4 29.4-29.4c16.3 0 29.4 13.2 29.4 29.4"/></g><g opacity=".7"><defs><path id="c" d="M903.6 661.2h58.8V720h-58.8z"/></defs><clipPath id="d"><use xlink:href="#c" overflow="visible"/></clipPath><path clip-path="url(#d)" fill="#D6BD00" d="M933 661.2c-16.2 0-29.4 13.2-29.4 29.4 0 3.3.6 6.5 1.6 9.4 3.9 11.6 14.8 20 27.8 20 12.9 0 23.9-8.4 27.8-19.9 1-3 1.6-6.1 1.6-9.4 0-16.4-13.2-29.5-29.4-29.5"/></g><g opacity=".7"><defs><path id="e" d="M1813.6 874.9h13.2v558.8h-13.2z"/></defs><clipPath id="f"><use xlink:href="#e" overflow="visible"/></clipPath><path clip-path="url(#f)" fill="#BDBFC1" d="M1826.8 1433.6h-13.2v-536l13.2-22.7z"/></g><path fill="#929497" d="M-.6 1125.1H2598v9.1H-.6z"/><path fill="#DFE0E1" d="M664.7 1194.4H1950v9.1H664.7z"/><path fill="#929497" d="M-.6 1199.1H2598v36.3H-.6zM-.6 1266.6H2598v11.3H-.6z"/><path fill="#BBBDBF" d="M-.6 1194.4H2598v9.1H-.6z"/><path fill="#77787B" d="M-.9 1202.8H2598v9.1H-.9z"/><path stroke="#929497" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" fill="none" d="M647.7 1237.4l65.1 28 65.2-28 65.2 28 65.1-28 65.2 28 65.2-28 65.1 28 65.2-28 65.2 28 65.2-28 65.1 28 65.2-28 65.2 28 65.1-28 65.2 28 65.2-28 65.1 28 65.2-28 65.2 28 65.2-28M256.6 1237.4l65.2 28 65.2-28 65.1 28 65.2-28 65.2 28 65.2-28M1951.1 1238.3l65.1 28 65.2-28 65.2 28 65.1-28 65.2 28 65.2-28"/><path stroke="#fff" stroke-width="23.8" stroke-miterlimit="10" d="M1188.2 0v667.6c0 17.3-14.2 31.5-31.5 31.5H0" fill="none"/><path stroke="#E91C24" stroke-width="14" stroke-miterlimit="10" d="M1188.2 0v667.6c0 17.3-14.2 31.5-31.5 31.5H0" fill="none"/><path stroke="#FFE200" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="1.4,7" d="M1188.2 0v667.6c0 17.3-14.2 31.5-31.5 31.5H0" fill="none"/><path stroke="#fff" stroke-width="23.8" stroke-miterlimit="10" d="M1112.8 0v778.2c0 17.3-14.2 31.5-31.5 31.5H858.7c-17.3 0-31.5 14.2-31.5 31.5v89.6c0 17.3-14.2 31.5-31.5 31.5H0" fill="none"/><path stroke="#F7981D" stroke-width="14" stroke-miterlimit="10" d="M1112.8 0v778.2c0 17.3-14.2 31.5-31.5 31.5H858.7c-17.3 0-31.5 14.2-31.5 31.5v89.6c0 17.3-14.2 31.5-31.5 31.5H0" fill="none"/><path stroke="#FFE200" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.3979,6.9888" d="M1112.8 0v778.2c0 17.3-14.2 31.5-31.5 31.5H858.7c-17.3 0-31.5 14.2-31.5 31.5v89.6c0 17.3-14.2 31.5-31.5 31.5H0" fill="none"/><path stroke="#FFFFF9" stroke-width="23.8" stroke-miterlimit="10" d="M0 1064.5h843.3c17.3 0 31.5-13.2 31.5-29.4s-14.2-29.4-31.5-29.4H0" fill="none"/><path stroke="#914295" stroke-width="14" stroke-miterlimit="10" d="M0 1064.5h843.3c17.3 0 31.5-13.2 31.5-29.4s-14.2-29.4-31.5-29.4H0" fill="none"/><path stroke="#FFE200" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="1.4,7" d="M0 1064.5h843.3c17.3 0 31.5-13.2 31.5-29.4s-14.2-29.4-31.5-29.4H0" fill="none"/><path stroke="#929497" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" fill="none" d="M2342.9 1238.7l65.1 28 65.2-28 65.2 28 65.1-28M-3.5 1237.4l65.1 28 65.2-28 65.2 28 65.2-28"/></svg>
+        </div>
+        <div class="chocolate-river">
+          <div class="tile">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+          </div>
+          <div class="tile">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+          </div>
+          <div class="tile">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+          </div>
+          <div class="tile">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+          </div>
+        </div>
+        <div class="chocolate-drop js-chocolate-drop">
+          <div class="chocolate-drop__elf"><svg xmlns="http://www.w3.org/2000/svg" width="77.3" height="212" viewBox="-0.1 -0.8 77.3 212" enable-background="new -0.1 -0.8 77.3 212"><path fill="#058F47" d="M56.7 148.7c0 13.1-10.6 23.7-23.7 23.7S9.3 161.8 9.3 148.7V116C9.4 102.9 20 92.3 33 92.3c13.1 0 23.7 10.6 23.7 23.7v32.7z"/><path fill="#00A550" d="M46.9 148.7c0 13.1-.8 23.7-13.8 23.7-13.1 0-23.7-10.6-23.7-23.7V116C9.4 102.9 20 92.3 33 92.3c13.1 0 13.8 10.6 13.8 23.7v32.7z"/><path fill="#37B34A" d="M59.8 47.5S25.9 16.3 8.5 8c0 0 14.8 26 4.8 37.6l46.5 1.9z"/><path fill="#ECC680" d="M57.1 69.1c0 12.8-10.4 23.3-23.3 23.3S10.5 82 10.5 69.1c0-12.8 10.4-23.3 23.3-23.3 12.8.1 23.3 10.5 23.3 23.3"/><path fill="#58595B" d="M44.6 48.5c-3.2-1.7-6.9-2.7-10.8-2.7-12.9 0-23.3 10.4-23.3 23.3 0 5.7 2 10.9 5.4 14.9 22.2-5.8 27.4-25.8 28.7-35.5"/><path fill="#fff" d="M60.4 52.6c0 1.7-1.4 3.1-3.1 3.1H11.1c-1.7 0-3.1-1.4-3.1-3.1v-5.7c0-1.7 1.4-3.1 3.1-3.1h46.2c1.7 0 3.1 1.4 3.1 3.1v5.7z"/><path fill="#58595B" d="M52.3 65.8c0 2.3-1.9 4.2-4.2 4.2-2.3 0-4.2-1.9-4.2-4.2 0-2.3 1.9-4.2 4.2-4.2 2.3.1 4.2 1.9 4.2 4.2"/><path fill="#fff" d="M37.6 171.2v28.7H25.4v-28.7"/><path fill="#00A550" d="M25.4 169.1v12.2h12.2v-17.5c0-4.2-1.3-8.3-9.4-8.3"/><path fill="#58595B" d="M24.5 197.7h14.1c4.7 9.1 16.9 9.1 18.6 2.5 0 0 6.5 12.6-22.7 10.8-6.9-.4-12.4-6.8-10-13.3"/><path fill="#58595B" d="M9.4 136.2h46.5v11.6H9.4z"/><path fill="#fff" d="M-.1 4.2c0 2.8 2.2 5 5 5s5-2.2 5-5-2.2-5-5-5-5 2.2-5 5"/><path fill="#ECC680" d="M53.7 68l21.9 6.3c2.4 0 2.4 3.4-1.1 3.4H48.4l5.3-9.7zM25.1 142c0 4.1 3.3 7.5 7.5 7.5 4.1 0 7.5-3.3 7.5-7.5 0-4.1-3.3-7.5-7.5-7.5-4.1 0-7.5 3.4-7.5 7.5"/><path fill="#FCD700" d="M55 136.2h2.9v11.6H55z"/></svg>
+          </div>
+          <div class="chocolate-drop__drop"></div>
+          <div class="chocolate-drop__sploosh"><svg xmlns="http://www.w3.org/2000/svg" width="121.5" height="195" viewBox="-0.1 121.1 121.5 195" enable-background="new -0.1 121.1 121.5 195"><path fill="#B84F26" d="M91 159.8c-.3-15-11.4-24.7-25.2-24.7s-25 12-25.3 27l50.5-2.3zM78 158.9c.1 3.5 3 6.4 6.5 6.4 3.6 0 6.5-2.8 6.5-6.4H78zM87 137.1c-.2-8.6-8.1-16-16.7-16s-15.7 6.9-15.9 15.5l-.7 5.4 37.4 16.9-4.1-21.8zM78.9 241.9v-45.2c-1.8-.5-3.8-.7-5.8-.7-12.7 0-23.1 10.4-23.1 23.2v22.7h28.9zM121.5 316.1c-.3-13-11-23.5-24.1-23.5s-23.8 10.5-24.1 23.5h48.2zM98.8 291.2c-.3-13-11-23.5-24.1-23.5s-23.8 10.5-24.1 23.5l27.5 12.1 20.7-12.1zM81.2 316.1c-.6-22-18.5-39.6-40.6-39.6S.6 294.1 0 316.1h81.2zM110.6 176.6V190c0 1.9 1.5 3.4 3.4 3.4h.1c1.9 0 3.4-1.5 3.4-3.4v-11.8l-6.9-1.6zM103.8 174.5v21.8c0 1.9 1.5 3.4 3.4 3.4h.1c1.9 0 3.4-1.5 3.4-3.4v-19.7l-6.9-2.1zM70.3 146.3v27.4c0 2.3 1.9 4.2 4.2 4.2h.1c2.3 0 4.2-1.9 4.2-4.2v-24.8l-8.5-2.6zM68.1 210.8v35c0 3 2.4 5.4 5.4 5.4h.1c3 0 5.4-2.4 5.4-5.4v-31.6l-10.9-3.4zM56.8 259.8c6.3 0 11.4-5.1 11.4-11.4v-8.6c-6.1.4-12.1.7-18.2.9V252c0 2.2.3 4.2.9 6.2 1.7 1 3.6 1.5 5.7 1.5h.2v.1zM40.7 161v22.3c0 2.5 2.1 4.6 4.6 4.6h.1c2.5 0 4.6-2.1 4.6-4.6v-22.4c-3.1.1-6.2.1-9.3.1zM49.3 160.9v32.3c0 3.4 2.7 6.1 6.1 6.1h.1c3.4 0 6.1-2.7 6.1-6.1v-33.4c-4.1.8-8.2 1-12.3 1.1z"/><path fill="#58595B" d="M70.3 161.2c0 2.3-1.9 4.1-4.1 4.1-2.3 0-4.1-1.9-4.1-4.1 0-2.3 1.9-4.1 4.1-4.1 2.2-.1 4.1 1.8 4.1 4.1"/></svg>
+          </div>
+        </div>
+        <div class="tetris-truck js-truck"><svg xmlns="http://www.w3.org/2000/svg" width="321.1" height="185.7" viewBox="68.8 39.8 321.1 185.7" enable-background="new 68.8 39.8 321.1 185.7"><path fill="#A7DFF8" d="M207.4 39.8c-61.9.4-86.9 69.1-92.2 101.4h92.2V39.8z"/><path fill="#0099D1" d="M154.4 90.2s31.4-28.9 47.6-36.6c0 0-13.7 24.1-4.5 34.9l-43.1 1.7z"/><path fill="#00ABE9" d="M154.4 90.2s31.4-28.9 47.6-36.6c0 0-23.6 24.1-14.3 34.9l-33.3 1.7z"/><path fill="#FDE08C" d="M157 110.2c0 11.9 9.6 21.6 21.6 21.6 11.9 0 21.6-9.7 21.6-21.6s-9.6-21.6-21.6-21.6c-12 0-21.6 9.7-21.6 21.6"/><path fill="#58595B" d="M168.5 91.1c3-1.6 6.4-2.5 10-2.5 11.9 0 21.6 9.7 21.6 21.6 0 5.3-1.9 10.1-5 13.8-20.5-5.4-25.4-24-26.6-32.9"/><path fill="#FDE08C" d="M172.4 115.8l11.4-16.1s4.1 25.2-9.8 22.1l-1.6-6z"/><path fill="#fff" d="M153.9 94.9c0 1.6 1.3 2.9 2.9 2.9h42.9c1.6 0 2.9-1.3 2.9-2.9v-5.3c0-1.6-1.3-2.9-2.9-2.9h-42.9c-1.6 0-2.9 1.3-2.9 2.9v5.3z"/><path fill="#58595B" d="M161.4 107.1c0 2.1 1.7 3.8 3.9 3.8 2.1 0 3.9-1.7 3.9-3.8 0-2.1-1.7-3.8-3.9-3.8s-3.9 1.7-3.9 3.8"/><path fill="#37B34A" d="M201.1 153.3c0-11.9-9.7-21.6-21.6-21.6"/><path fill="#0099D1" d="M158 183.1c0 11.9 9.7 5.4 21.6 5.4 11.9 0 21.6-12.6 21.6-24.5v-10.7c0-11.9-9.7-21.6-21.6-21.6-11.9 0-21.6 9.7-21.6 21.6v29.8z"/><path fill="#00ABE9" d="M158 164c0 11.9 9.7 21.6 21.6 21.6 11.9 0 12.4-9.7 12.4-21.6v-10.7c0-11.9-.5-21.6-12.4-21.6s-21.6 9.7-21.6 21.6V164z"/><path fill="#FDE08C" d="M160.1 109.1l-20.3 5.9c-2.2 0-2.2 3.2 1 3.2H165l-4.9-9.1z"/><path fill="#CF181F" d="M241.2 164.1c-.4 0-.7-.2-1-.4l-.1-.1c-.2-.2-.4-.6-.4-1V45.8c-9.5-3.9-20.1-6-31.9-6h-.5v101.4H88.6c-17.4 0-19.8 16.4-19.8 22.2v33.3h321.1c.1-9.6-.3-19.6-1.4-29.9-22.2-.6-125-2.6-147.3-2.7z"/><path fill="#E91C24" d="M389.2 141.2H88.6c-17.4 0-19.8 16.4-19.8 22.2v11.9h320.4v-34.1z"/><path fill="#fff" d="M76.8 130.1c7.2 0 13 5.8 13 13s-5.8 13-13 13v-26z"/><path fill="#E91C24" d="M207.9 39.8h32.3v102.7h-32.3z"/><g fill="#FFE200"><path d="M234.9 171.3c0 8-6.5 14.5-14.5 14.5s-14.5-6.5-14.5-14.5 6.5-14.5 14.5-14.5 14.5 6.5 14.5 14.5"/><path d="M207.2 168.4l-12.1-9.3v23.2l13.6-9.4zM233.7 168.4l12.1-9.3v23.2l-13.6-9.4z"/></g></svg>
+          <div class="tetris-truck__wheel tetris-truck__wheel--one js-truck-wheel-one"></div>
+          <div class="tetris-truck__wheel tetris-truck__wheel--two js-truck-wheel-two"></div>
+          <div class="tetris-truck__load js-truck-load">
+            <div class="tetris-truck__load__block"><svg xmlns="http://www.w3.org/2000/svg" width="129" height="86.9" viewBox="0 0 129 86.9"><path fill="#8B3A1E" d="M0 42.3h44.6v44.6H0z"/><path fill="#AC5826" d="M5.3 47.5h34v34h-34z"/><path fill="#CD7228" d="M10.5 52.8H34v23.5H10.5z"/><path fill="#8B3A1E" d="M0 0h44.6v44.6H0z"/><path fill="#AC5826" d="M5.3 5.3h34v34h-34z"/><path fill="#CD7228" d="M10.5 10.5H34V34H10.5z"/><path fill="#8B3A1E" d="M41.1 42h45v45h-45z"/><path fill="#AC5826" d="M46.4 47.3h34.4v34.4H46.4z"/><path fill="#CD7228" d="M51.7 52.6h23.7v23.7H51.7z"/><path fill="#8B3A1E" d="M84.2 42h45v45h-45z"/><path fill="#AC5826" d="M89.5 47.3h34.4v34.4H89.5z"/><path fill="#CD7228" d="M94.9 52.6h23.7v23.7H94.9z"/></svg>
+            </div>
+            <div class="tetris-truck__load__block"><svg xmlns="http://www.w3.org/2000/svg" width="129" height="86.9" viewBox="0 0 129 86.9"><path fill="#8B3A1E" d="M84.4 42.3H129v44.6H84.4z"/><path fill="#AC5826" d="M89.7 47.5h34v34h-34z"/><path fill="#CD7228" d="M95 52.8h23.5v23.5H95z"/><path fill="#8B3A1E" d="M84.4 0H129v44.6H84.4z"/><path fill="#AC5826" d="M89.7 5.3h34v34h-34z"/><path fill="#CD7228" d="M95 10.5h23.5V34H95z"/><path fill="#8B3A1E" d="M43.1 42.1h44.6v44.6H43.1z"/><path fill="#AC5826" d="M48.4 47.4h34v34h-34z"/><path fill="#CD7228" d="M53.6 52.6h23.5v23.5H53.6z"/><path fill="#8B3A1E" d="M0 42.4h44.6V87H0z"/><path fill="#AC5826" d="M5.3 47.6h34v34h-34z"/><path fill="#CD7228" d="M10.5 52.9H34v23.5H10.5z"/></svg>
+            </div>
+            <div class="tetris-truck__load__block"><svg xmlns="http://www.w3.org/2000/svg" width="88.6" height="86.9" viewBox="0 0 88.6 86.9"><path fill="#8B3A1E" d="M0 42.3h44.6v44.6H0z"/><path fill="#AC5826" d="M5.3 47.5h34v34h-34z"/><path fill="#CD7228" d="M10.5 52.8H34v23.5H10.5z"/><path fill="#8B3A1E" d="M0 0h44.6v44.6H0z"/><path fill="#AC5826" d="M5.3 5.3h34v34h-34z"/><path fill="#CD7228" d="M10.5 10.5H34V34H10.5z"/><path fill="#8B3A1E" d="M44 42.4h44.6V87H44z"/><path fill="#AC5826" d="M49.3 47.6h34v34h-34z"/><path fill="#CD7228" d="M54.6 52.9h23.5v23.5H54.6z"/><path fill="#8B3A1E" d="M44.1 0h44.6v44.6H44.1z"/><path fill="#AC5826" d="M49.3 5.3h34v34h-34z"/><path fill="#CD7228" d="M54.6 10.5h23.5V34H54.6z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="pinball-pipe"><svg xmlns="http://www.w3.org/2000/svg" width="2600" height="1440" viewBox="0 0 2600 1440"><path fill="#58595B" d="M716.9 1307.2h27.3v6.7h-27.3z"/><path fill="#63CCF5" d="M1046.6 791.1v167.6h27.3V791.1c0-24.9-20.3-45.1-45.2-45.1H762.1c-24.9 0-45.2 20.3-45.2 45.1v516.2h27.3V791.1c0-9.8 8-17.8 17.9-17.8h266.7c9.8-.1 17.8 7.9 17.8 17.8zM1674.5 808.9c-24.9 0-45.1 20.3-45.1 45.2V905h27.3v-50.9c0-9.8 8-17.9 17.8-17.9H2600v-27.3h-925.5z"/><path fill="#A7DFF8" d="M1046.6 791.1v167.6h20V791.1c0-24.9-13-45.1-37.9-45.1H762.1c-24.9 0-45.2 20.3-45.2 45.1v516.2h20V791.1c0-9.8 15.3-25.1 25.1-25.1h266.7c9.9-.1 17.9 15.2 17.9 25.1zM1674.5 808.9c-24.9 0-45.1 20.3-45.1 45.2V905h19v-50.9c0-9.8 16.3-26.2 26.2-26.2H2600v-19h-925.5z"/><path stroke="#58595B" stroke-width="4.9" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M835.3 1389.2c0 4-3.2 7.2-7.2 7.2h-39.6c-4 0-7.2-3.2-7.2-7.2v-76.4c0-4 3.2-7.2 7.2-7.2h39.6c4 0 7.2 3.2 7.2 7.2v76.4z" fill="none"/><path fill="#58595B" d="M807.5 1315.4l-15.7 21h31.7zM801.9 1335.9h11.2v13.5h-11.2z"/><path fill="#CF181F" d="M822.2 1370.5c0 8.1-6.6 14.7-14.7 14.7s-14.7-6.6-14.7-14.7 6.6-14.7 14.7-14.7 14.7 6.6 14.7 14.7"/><path fill="#E91C24" d="M816.9 1367.9c0 6.1-5 11.1-11.1 11.1s-11.1-5-11.1-11.1 5-11.1 11.1-11.1c6.2 0 11.1 5 11.1 11.1"/><path fill="#63CCF5" d="M1629.3 853v46.9c0 9.8-8 17.9-17.9 17.9h-519.7c-9.8 0-17.8-8-17.8-17.9V853h-27.3v46.9c0 24.9 20.3 45.2 45.2 45.2h519.7c24.9 0 45.2-20.3 45.2-45.2V853h-27.4z"/><path fill="#A7DFF8" d="M1629.3 853v46.9c0 9.8-8 17.9-17.9 17.9h-519.7c-9.8 0-25.1-8-25.1-17.9V853h-20v46.9c0 24.9 20.3 34.7 45.2 34.7h511.4c24.9 0 45.1-9.8 45.1-34.7V853h-19z"/></svg>
+        </div>
+        <div id="pinball" class="pinball">
+          <div class="ball b1"></div>
+          <div class="ball b2"></div>
+          <div class="ball b3"></div>
+          <div class="handle"><svg xmlns="http://www.w3.org/2000/svg" width="29.4" height="100" viewBox="0 0 29.4 100"><path fill="#929497" d="M10.5 0h8.4v89.7h-8.4z"/><path fill="#CF181F" d="M29.4 84.8c0 8.1-6.6 14.7-14.7 14.7S0 92.9 0 84.8s6.6-14.7 14.7-14.7 14.7 6.6 14.7 14.7"/><path fill="#E91C24" d="M24.1 82.2c-3.6 8-9.8 13.6-11.1 11.1-2.8-5.5-11.1-5-11.1-11.1s5-11.1 11.1-11.1 11.1 5 11.1 11.1"/></svg>
+          </div>
+          <div class="spring">
+            <div class="spring-ball"></div>
+          </div>
+        </div>
+        <div class="color-machine-drops">
+          <div class="lane l1">
+            <div class="ball-wrap">
+              <div class="ball"></div>
+            </div>
+            <div class="tube"></div>
+          </div>
+          <div class="lane l2">
+            <div class="ball-wrap">
+              <div class="ball"></div>
+            </div>
+            <div class="tube"></div>
+          </div>
+          <div class="lane l3 js-drop-ball">
+            <div class="ball-wrap">
+              <div class="ball"></div>
+            </div>
+            <div class="tube"></div>
+          </div>
+        </div>
+        <div class="color-machine-barrel color-machine-barrel--red"></div>
+        <div class="color-machine-barrel color-machine-barrel--blue"></div>
+        <div class="color-machine-barrel color-machine-barrel--green js-drop-barrel"></div>
+        <div class="fg"><svg xmlns="http://www.w3.org/2000/svg" width="2600" height="1440" viewBox="0 0 2600 1440"><path fill="#fff" d="M918.5 865.8h26.2v19.9h-26.2z"/><path stroke="#fff" stroke-width="23.8" stroke-miterlimit="10" d="M1703.5 0v922.3c0 17.3 14.2 31.5 31.5 31.5h123.2c17.3 0 31.5 14.2 31.5 31.5v326.2c0 17.3 14.2 31.5 31.5 31.5H2600" fill="none"/><path stroke="#72BE44" stroke-width="14" stroke-miterlimit="10" d="M1703.5 0v922.3c0 17.3 14.2 31.5 31.5 31.5h123.2c17.3 0 31.5 14.2 31.5 31.5v326.2c0 17.3 14.2 31.5 31.5 31.5H2600" fill="none"/><path stroke="#FFE200" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="1.4,7" d="M1703.5 0v922.3c0 17.3 14.2 31.5 31.5 31.5h123.2c17.3 0 31.5 14.2 31.5 31.5v326.2c0 17.3 14.2 31.5 31.5 31.5H2600" fill="none"/><path stroke="#FFFFF9" stroke-width="23.8" stroke-miterlimit="10" d="M1596.1 0v749.1c0 17.3 14.2 31.5 31.5 31.5h201.3c17.3 0 31.5-14.2 31.5-31.5V0" fill="none"/><path stroke="#00ADEE" stroke-width="14" stroke-miterlimit="10" d="M1596.1 0v749.1c0 17.3 14.2 31.5 31.5 31.5h201.3c17.3 0 31.5-14.2 31.5-31.5V0" fill="none"/><path stroke="#FFE200" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="1.4,7" d="M1596.1 0v749.1c0 17.3 14.2 31.5 31.5 31.5h201.3c17.3 0 31.5-14.2 31.5-31.5V0" fill="none"/><path fill="#A6A8AB" d="M1833.7 910.4h-53.2v-67.2c0-36.5-7.7-62.2-22.9-76.5-12.4-11.6-31.5-17.3-58.3-17.3h-382.2c-22.3 0-40.5-5.4-54-16-11.8-9.2-25.8-27-25.8-59.6V535.2h53.2v138.6c0 9 1.8 14.9 5.4 17.7 3.9 3 11.4 4.7 21.2 4.7h382.2c40.9 0 71.9 10.4 94.7 31.7 13.3 12.4 23.3 28.5 29.9 47.7 6.5 19 9.8 41.7 9.8 67.6v67.2zM1517 749.4h-93.8c-22.3 0-40.5-5.4-54-16-11.8-9.2-25.8-27-25.8-59.6V0h53.2v673.8c0 9 1.8 14.9 5.4 17.7 3.9 3 11.4 4.7 21.2 4.7h93.8v53.2z"/><path fill="#BDBFC1" d="M1815 910.4h-34.5v-67.2c0-36.5-5.7-65.5-20.9-79.8-12.4-11.6-33.5-23.8-60.3-23.8h-382.2c-22.3 0-38.2.8-51.7-9.8-11.8-9.2-28.1-23.4-28.1-56V0h53.2v673.8c0 9 1.8 14.9 5.4 17.7 3.9 3 11.4 4.7 21.2 4.7h382.2c40.9 0 53.2 10.4 76 31.7 13.3 12.4 23.3 28.5 29.9 47.7 6.5 19 9.8 41.7 9.8 67.6v67.2z"/><path fill="#E91C24" d="M1276.6 670.8c0 7-5.6 12.6-12.6 12.6s-12.6-5.6-12.6-12.6 5.6-12.6 12.6-12.6 12.6 5.7 12.6 12.6"/><path fill="#fff" d="M1382.6 670.8c0 7-5.6 12.6-12.6 12.6s-12.6-5.6-12.6-12.6 5.6-12.6 12.6-12.6 12.6 5.7 12.6 12.6"/><path fill="#A6A8AB" d="M992.3 0v811.7l-40.6 54.6h-39.2l-40.6-54.6V0"/><path fill="#C0C1C3" d="M975.5 0v811.7l-32.2 54.6h-30.8l-40.6-54.6V0"/><path fill="#fff" d="M902.4 700.3c0-4 3.2-7.2 7.2-7.2h39.6c4 0 7.2 3.2 7.2 7.2v89.8c0 4-3.2 7.2-7.2 7.2h-39.6c-4 0-7.2-3.2-7.2-7.2v-89.8z"/><path fill="#77787B" d="M859 663.2h136.5v15.2H859z"/><path fill="#C0C1C3" d="M1323.2 811.9h-5.3v-.6H992.7v157.9h330.5z"/><path fill="#8D8F91" d="M1660.3 1174.2c-1.3-12.2-11.6-21.6-24.1-21.6s-22.8 9.5-24.1 21.6h48.2z"/><circle fill="#CFD0D1" cx="1636.3" cy="1163.2" r="3.7"/><path fill="#BBBDBF" d="M1601.6 1182.8h70.5v19.3h-70.5z"/><path fill="#58595B" d="M1607 1172.8h61.6v11.4H1607z"/><g fill="#A6A8AB"><path d="M1017.2 835.4h124.1v16.9h-124.1zM1017.2 864.6h124.1v16.9h-124.1zM1017.2 893.7h124.1v16.9h-124.1zM1017.2 922.8h124.1v16.9h-124.1z"/></g><path fill="#A7DFF8" d="M1420.3 852.2c0 20.9-16.9 37.8-37.8 37.8s-37.8-16.9-37.8-37.8V769c0-20.9 16.9-37.8 37.8-37.8s37.8 16.9 37.8 37.8v83.2z"/><path fill="#E91C24" d="M1344.7 773.3v79.4c0 20.9 16.9 37.8 37.8 37.8s37.8-16.9 37.8-37.8v-79.4h-75.6z"/><path opacity=".05" enable-background="new" d="M1382.9 731.2c-4 0-7.8.6-11.4 1.8 15.3 4.8 26.4 19.1 26.4 36v83.3c0 16.9-11.1 31.2-26.4 36 3.6 1.1 7.4 1.8 11.4 1.8 20.9 0 37.8-16.9 37.8-37.8V769c0-20.9-16.9-37.8-37.8-37.8z"/><path fill="#A7DFF8" d="M1521.4 852c0 20.9-16.9 37.8-37.8 37.8s-37.8-16.9-37.8-37.8v-83.3c0-20.9 16.9-37.8 37.8-37.8s37.8 16.9 37.8 37.8V852z"/><path fill="#00ADEE" d="M1445.8 833.7v18.7c0 20.9 16.9 37.8 37.8 37.8s37.8-16.9 37.8-37.8v-18.7h-75.6z"/><path opacity=".05" enable-background="new" d="M1483 731c-4 0-7.8.6-11.4 1.8 15.3 4.8 26.4 19.1 26.4 36V852c0 16.9-11.1 31.2-26.4 36 3.6 1.1 7.4 1.8 11.4 1.8 20.9 0 37.8-16.9 37.8-37.8v-83.3c0-20.8-16.9-37.7-37.8-37.7z"/><path fill="#A7DFF8" d="M1617.4 853.4c0 20.9-16.9 37.8-37.8 37.8s-37.8-16.9-37.8-37.8v-83.3c0-20.9 16.9-37.8 37.8-37.8s37.8 16.9 37.8 37.8v83.3z"/><path fill="#72BE44" d="M1541.9 800.9v52.9c0 20.9 16.9 37.8 37.8 37.8s37.8-16.9 37.8-37.8v-52.9h-75.6z"/><path opacity=".05" enable-background="new" d="M1579.1 732.3c-4 0-7.8.6-11.4 1.8 15.3 4.8 26.4 19.1 26.4 36v83.3c0 16.9-11.1 31.2-26.4 36 3.6 1.1 7.4 1.8 11.4 1.8 20.9 0 37.8-16.9 37.8-37.8v-83.3c-.1-20.9-17-37.8-37.8-37.8z"/><path fill="#A6A8AB" d="M1168 969.2h134.3v20.6H1168z"/><path fill="#77787B" d="M1146.4 982.1h176.7v13.1h-176.7z"/><path fill="#A6A8AB" d="M1306.6 811.9h16.5v157.3h-16.5z"/><path fill="#C0C1C3" d="M2004.3 0h50.4v809.4h-50.4z"/><path fill="#A6A8AB" d="M2041.8 0h13v809.4h-13z"/><path fill="#C0C1C3" d="M2098.2 0h50.4v809.4h-50.4z"/><path fill="#A6A8AB" d="M2135.7 0h13v809.4h-13z"/><path fill="#C0C1C3" d="M2098.2 836.1h50.4v361h-50.4z"/><path fill="#A6A8AB" d="M2135.7 836.1h13v361h-13z"/><path fill="#C0C1C3" d="M2004.3 834.9h50.4v361h-50.4z"/><path fill="#A6A8AB" d="M2041.8 834.9h13v361h-13z"/><path fill="#77787B" d="M862.7 811.3h132v15.2h-132z"/></svg>
+        </div>
+        <div class="pull-to-drop js-drop-button">
+          <div class="pull-to-drop__lever js-drop-lever"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="96.3" viewBox="-0.6 0 16 96.3" enable-background="new -0.6 0 16 96.3"><path stroke="#BDBDBD" stroke-width="6.143" stroke-miterlimit="10" fill="none" d="M7.9 9.1l.7 87.2"/><circle fill="#EC1C24" cx="7.4" cy="7.4" r="7.4"/></svg>
+          </div>
+          <div class="pull-to-drop__elf-body"><svg xmlns="http://www.w3.org/2000/svg" width="51.8" height="124" viewBox="-0.2 -0.4 51.8 124" enable-background="new -0.2 -0.4 51.8 124"><path fill="#863B96" d="M47.4 56.4c0 13.1-10.7 23.7-23.7 23.7S-.1 69.4-.1 56.4V23.6C-.1 10.5 10.6-.1 23.6-.1s23.7 10.7 23.7 23.7c.1 0 .1 32.8.1 32.8z"/><path fill="#9B51A0" d="M37.6 56.4c0 13.1-.8 23.7-13.9 23.7S-.1 69.4-.1 56.4V23.6C-.1 10.5 10.6-.1 23.6-.1s13.9 10.7 13.9 23.7v32.8z"/><path fill="#ECC680" d="M27.1-.4"/><path fill="#fff" d="M30.7 82.6v29.6H18.3V82.6"/><path fill="#9B51A0" d="M18.3 66.3V93h12.5V75.1c0-4.3-1.3-8.4-9.7-8.4l-11 .9"/><path fill="#58595B" d="M17.4 109.9h14.5c4.8 9.4 17.3 9.4 19 2.5 0 0 6.6 12.9-23.3 11.1-7.1-.4-12.8-6.9-10.2-13.6"/><path stroke="#863B96" stroke-width="16.096" stroke-miterlimit="10" d="M37.9 12.8" fill="none"/><path d="M51.6 109.3" fill="none"/><path fill="#58595B" d="M-.2 44.6H49v12H-.2z"/></svg>
+          </div>
+          <div class="pull-to-drop__elf-belly">
+            <div class="pull-to-drop__elf-belly__svg js-drop-elf-belly"><svg xmlns="http://www.w3.org/2000/svg" width="69.3" height="61" viewBox="-0.4 -0.1 69.3 61" enable-background="new -0.4 -0.1 69.3 61"><path fill="#9B51A0" d="M19.4 6.8l18.5.5c15.7 0 28.5 12.3 28.5 28s-14 23.5-28.5 25.6l-17.3-1.2-1.2-52.9z"/><path fill="#863B96" d="M66.9 35.7c0-12.4-8-23.1-19.2-26.9v-.4c0-13.1-9.8-10.3-9.8 2.8v.3C49 15.4 57.1 26 57.1 38.5c0 11.2-9.8 17.7-19.2 22.4 14.4-1.4 29-10.4 29-25.2z"/><path fill="#58595B" d="M-.3 29.9h69.1v12H-.3z"/><path fill="#FFD600" d="M65.3 27.6h3.3v13.6h-3.3z"/></svg>
+            </div>
+          </div>
+          <div class="pull-to-drop__elf-head js-drop-elf-head">
+            <div class="pull-to-drop__elf-head__mouth js-drop-elf-mouth"><svg xmlns="http://www.w3.org/2000/svg" width="80.5" height="95.9" viewBox="17.3 20.6 80.5 95.9" enable-background="new 17.3 20.6 80.5 95.9"><path fill="#ECC680" d="M81.6 42.5l-6.2 13.4L62.6 44c-4.3 2.3-7.9 6-10.2 10.7-5.6 11.8-.6 26 11.3 31.6 11.8 5.6 26 .6 31.6-11.3s.6-26-11.3-31.6c-.7-.3-1.5-.6-2.4-.9z"/></svg>
+            </div>
+            <div class="pull-to-drop__elf-head__face"><svg xmlns="http://www.w3.org/2000/svg" width="80.5" height="95.9" viewBox="17.3 20.6 80.5 95.9" enable-background="new 17.3 20.6 80.5 95.9"><path fill="#ECC680" d="M95.7 55.3l-14 4.7V42.5c-4.6-1.5-9.8-1.8-14.8-.1-12.5 4-19.5 17.3-15.5 29.8s17.3 19.5 29.8 15.5 19.5-17.3 15.5-29.8c-.3-.9-.7-1.8-1-2.6z"/><path fill="#9B51A0" d="M45 46.3s-19.9 42.6-22.6 62.1c0 0 20.7-22.4 35.1-16.3L45 46.3z"/><path fill="#58595B" d="M50.7 60.8c-.6 3.6-.5 7.5.7 11.3 4 12.5 17.3 19.5 29.8 15.5 5.5-1.8 10-5.3 12.9-9.9-12.6-19.6-33.6-18.6-43.4-16.9"/><path fill="#ECC680" d="M85.6 62.2c-.3.9-1.6 1.4-2.3.6-1.7-2-3.5-3.9-4.8-6.2h-.6L64.8 74S84.5 71.1 86 62.1c-.1 0-.3.1-.4.1z"/><path fill="#fff" d="M49.7 44.2c1.7-.6 3.4.4 4 2l14.2 45c.6 1.7-.4 3.4-2 4L60.4 97c-1.7.6-3.4-.4-4-2L42.1 49.9c-.6-1.7.4-3.4 2-4l5.6-1.7z"/><path fill="#58595B" d="M65.1 48c2.2-.7 4.6.6 5.3 2.7.7 2.2-.6 4.6-2.7 5.3-2.2.7-4.6-.6-5.3-2.8-.8-2.1.4-4.5 2.7-5.2"/><path fill="#fff" d="M23.9 116.3c2.7-.8 4.2-3.7 3.3-6.4-.8-2.7-3.7-4.2-6.4-3.3-2.7.8-4.1 3.7-3.3 6.4.9 2.6 3.7 4.1 6.4 3.3"/><path fill="#ECC680" d="M66.8 46l-.6-23.2c-.7-2.3 2.6-3.4 3.6 0l8.1 25.4L66.8 46z"/></svg>
+            </div>
+          </div>
+          <div class="pull-to-drop__elf-arm js-drop-elf-arm"><svg xmlns="http://www.w3.org/2000/svg" width="53" height="16.3" viewBox="0 0 53 16.3"><path stroke="#9A519F" stroke-width="16.339" stroke-miterlimit="10" fill="none" d="M0 8.2h36.2"/><path fill="#ECC680" d="M37.7 8.3c0 4.2 3.4 7.6 7.6 7.6 4.2 0 7.6-3.4 7.6-7.6 0-4.2-3.4-7.6-7.6-7.6-4.2 0-7.6 3.4-7.6 7.6"/></svg>
+          </div>
+        </div>
+        <div class="tetris-machine-cog js-tetris-machine-cog"><svg xmlns="http://www.w3.org/2000/svg" width="73" height="73.3" viewBox="0 0 73 73.3"><path fill="#929497" d="M64.1 21.8c-1.4-2.5-.5-5.6 1.8-7.1-.7-1-1.5-1.9-2.3-2.8-1.9 2.1-5.2 2.4-7.4.6-2.3-1.8-2.7-5.1-1-7.4-1-.6-2-1.1-3-1.6-1 2.7-3.9 4.1-6.6 3.3-2.8-.8-4.4-3.7-3.7-6.4-1.2-.2-2.5-.3-3.7-.4.2 2.9-1.9 5.5-4.8 5.8S27.8 4 27.5 1.1c-1.1.3-2.1.6-3.2 1 1.3 2.6.3 5.8-2.2 7.2-2.6 1.4-5.8.5-7.3-2.1-1 .8-2 1.6-2.9 2.4 2.3 1.9 2.7 5.3.8 7.6-1.9 2.3-5.3 2.7-7.6.8-.6 1-1.1 2-1.6 3 2.9.8 4.5 3.9 3.7 6.7-.8 2.9-3.9 4.5-6.7 3.7H.4c-.2 1.3-.3 2.5-.4 3.8 3-.3 5.6 1.8 6 4.8.3 3-1.8 5.6-4.8 6h-.1c.3 1.1.6 2.2 1 3.3l.1-.1c2.6-1.4 5.9-.5 7.3 2.2 1.4 2.6.5 5.9-2.2 7.3-.1 0-.1 0-.2.1.8 1 1.6 2 2.4 2.9 1.9-2.3 5.3-2.7 7.6-.8 2.3 1.9 2.7 5.3.8 7.6 1 .6 2.1 1.1 3.2 1.6V70c.8-2.9 3.9-4.5 6.7-3.7 2.9.8 4.5 3.9 3.7 6.7 1.2.2 2.4.3 3.6.3-.3-3 1.8-5.6 4.8-5.9 2.9-.3 5.6 1.8 5.9 4.7 1.1-.3 2.3-.7 3.4-1.1-1.4-2.6-.4-5.8 2.2-7.3 2.6-1.4 5.8-.5 7.3 2 .9-.7 1.9-1.5 2.7-2.3-2.2-1.9-2.5-5.2-.7-7.5s5.1-2.7 7.4-1c.6-1 1.1-2.1 1.6-3.1-2.7-1-4.2-3.9-3.4-6.6.8-2.8 3.6-4.4 6.4-3.7.2-1.2.3-2.4.3-3.5-2.9.2-5.4-1.9-5.7-4.8-.3-2.9 1.7-5.5 4.5-5.9-.3-1.1-.6-2.2-1-3.3-2.3 1.3-5.4.3-6.7-2.2m-42.6-3.2l4.7 8.7c-2.9 3.2-4.1 7.5-3.4 11.7L14 43.8c-2.8-9.1.1-19.1 7.5-25.2m22 40.4c-9 2.9-18.9 0-25-7.2l8.9-4.8c3.1 2.7 7.3 3.9 11.3 3.3l4.8 8.7zm-4.1-17.7c-2.7 1.5-6.1.5-7.5-2.2-1.5-2.7-.5-6.1 2.2-7.5 2.7-1.5 6.1-.5 7.5 2.2 1.5 2.6.5 6-2.2 7.5m12.1 13.3l-4.7-8.7c2.8-3.1 4.1-7.2 3.5-11.3l8.6-4.7c2.6 8.9-.3 18.7-7.4 24.7m-5.6-28.1c-3.1-2.9-7.5-4.2-11.7-3.5l-4.7-8.6c9-2.8 18.9.2 24.9 7.5l-8.5 4.6z"/></svg>
+        </div>
+        <div class="candy-pipe-beam"></div>
+        <div class="swimmer">
+          <div class="swimmer__elf"><svg xmlns="http://www.w3.org/2000/svg" width="68.1" height="99.8" viewBox="14.6 21.4 68.1 99.8" enable-background="new 14.6 21.4 68.1 99.8"><path fill="#C85528" d="M78.7 73.2S42.4 39.8 23.8 30.9c0 0 15.9 27.8 5.2 40.3l49.7 2z"/><path fill="#E77025" d="M63.2 73.2S42.5 39.8 23.9 30.9c0 0 15.9 27.8 5.2 40.3l34.1 2z"/><path fill="#FFCB56" d="M75.8 96.3c0 13.8-11.1 24.9-24.9 24.9S26 110.1 26 96.3c0-13.8 11.1-24.9 24.9-24.9 13.7 0 24.9 11.1 24.9 24.9"/><path fill="#fff" d="M32 101.9C34.4 110 42 116 50.9 116s16.5-6 18.8-14.1H32z"/><path fill="#FFCB56" d="M52.7 103.9H49l-.8-5.2h5.3z"/><path fill="#332E2E" d="M65.6 92.7c0 2.5-2 4.5-4.5 4.5s-4.5-2-4.5-4.5c0-2.4 2-4.5 4.5-4.5 2.6.1 4.5 2.1 4.5 4.5M45.3 92.7c0 2.5-2 4.5-4.5 4.5s-4.5-2-4.5-4.5c0-2.4 2-4.5 4.5-4.5 2.5.1 4.5 2.1 4.5 4.5"/><path fill="#fff" d="M79.3 78.6c0 1.8-1.5 3.3-3.3 3.3H26.5c-1.8 0-3.3-1.5-3.3-3.3v-6.1c0-1.8 1.5-3.3 3.3-3.3H76c1.8 0 3.3 1.5 3.3 3.3v6.1zM14.6 26.7c0 2.9 2.4 5.3 5.3 5.3s5.3-2.4 5.3-5.3-2.4-5.3-5.3-5.3-5.3 2.4-5.3 5.3"/><path fill="#FFCB56" d="M26.7 92.6l-8.3-11.2s-4.7 28.8 11.2 25.3l-2.9-14.1zM73.8 92.6l8.3-11.2s4.7 28.8-11.2 25.3l2.9-14.1z"/><ellipse fill="#95C8EC" stroke="#434343" stroke-width="5.6" stroke-miterlimit="10" cx="50.9" cy="88.7" rx="22.5" ry="13.2"/><ellipse fill="#95C8EC" stroke="#434343" stroke-width="5.6" stroke-miterlimit="10" cx="50.9" cy="88.7" rx="22.5" ry="13.2"/></svg>
+          </div>
+          <div class="swimmer__waterlevel"></div>
+          <div class="swimmer__snorkel">
+            <div class="swimmer__bubble"></div>
+            <div class="swimmer__bubble"></div>
+            <div class="swimmer__bubble"></div><svg xmlns="http://www.w3.org/2000/svg" width="13.7" height="62.8" viewBox="2.9 12.7 13.7 62.8" enable-background="new 2.9 12.7 13.7 62.8"><path stroke="#434343" stroke-width="7" stroke-miterlimit="10" d="M13.1 12.7v51.7S14.2 72 3 72" fill="none"/><path fill="#ED6D23" d="M9.5 18.7h7.1v5.6H9.5z"/></svg>
+          </div>
+        </div>
+        <div class="chocolate-pipe-lever js-chocolate-pipe-lever">
+          <div class="chocolate-pipe-lever__handle"><svg xmlns="http://www.w3.org/2000/svg" width="43.3" height="46.9" viewBox="0 0 43.3 46.9"><path stroke="#58595B" stroke-width="4.9" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" fill="none" d="M21.9 27.8V10.1"/><path fill="#E91C24" d="M29.1 7.4c0 4.1-3.3 7.4-7.4 7.4-4.1 0-7.4-3.3-7.4-7.4 0-4.1 3.3-7.4 7.4-7.4 4.2 0 7.4 3.3 7.4 7.4"/><path stroke="#58595B" stroke-width="4.9" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" fill="none" d="M2.5 28.8v15.6M40.8 28.8H2.5M40.8 44.4V28.8"/></svg>
+          </div>
+          <div class="chocolate-pipe-lever__knob"></div>
+        </div>
+        <div id="button" class="button"></div>
+      </div>
+    </div>
+    <div class="gui">
+      <div class="board board--scene"><a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
+          <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <div class="logo"></div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  Polymer({
+    componentDir: 'scenes/factory/',
+
+    onPreload: function() {
+      this.preloadSounds('factory_load_sounds', 30);
+      this.preloadImages([
+        'img/logo.svg',
+        'img/balls.png',
+        'img/bubble.png',
+        'img/candy-beam.png',
+        'img/pinball-spring.png',
+        'img/tube-shadow.png',
+        'img/tube.png',
+        'img/tetris-truck-wheel_70percent.svg',
+        'img/color-machine-barrel_70percent.svg'
+      ]);
+    },
+
+    onShow: function() {
+      this.fire('sound-ambient', 'factory_start');
+      var div = this.$['module-factory'];
+
+      this.scene = new scenes.factory.Scene(div);
+    },
+
+    onHide: function() {
+      this.scene.stop();
+      this.scene = null;
+      this.fire('sound-ambient', 'factory_end');
+    }
+  });
+</script>
+</polymer-element>
