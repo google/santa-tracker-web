@@ -18,12 +18,11 @@ var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/*.js';
 
 var STATIC_VERSION = 44;
-
-var VERSION = argv.build ? argv.build : STATIC_VERSION;
+var VERSION = argv.build || STATIC_VERSION;
 
 // TODO(bckenny|cbro): fill in with default static asset base URL
 var STATIC_BASE_URL = argv.baseurl ? argv.baseurl : '';
-var STATIC_URL = argv.pretty ? '' : STATIC_BASE_URL + VERSION + '/';
+var STATIC_URL = argv.pretty ? '' : (STATIC_BASE_URL + VERSION + '/');
 
 var PROD_DIR = 'dist_prod';
 var STATIC_DIR = 'dist_static';
@@ -33,7 +32,7 @@ var PRETTY_DIR = 'dist_pretty';
 var DIST_PROD_DIR = argv.pretty ? PRETTY_DIR : PROD_DIR;
 
 // path for static resources
-var DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : STATIC_DIR + '/' + VERSION;
+var DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + VERSION);
 
 // scenes are whitelisted into compilation here
 var SCENE_CLOSURE_CONFIG = {
