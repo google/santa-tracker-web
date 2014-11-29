@@ -67,6 +67,9 @@ var SCENE_CLOSURE_CONFIG = {
   },
   racer: {
     entryPoint: 'app.Game'
+  },
+  windtunnel: {
+    entryPoint: 'app.Scene'
   }
 };
 

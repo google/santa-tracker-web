@@ -1,6 +1,7 @@
 $name: 'module-windtunnel';
 
-//@import "../shared/sass/sceneboard";
+@import "../shared/sass/board";
+@import "../shared/sass/penner-easing";
 
 @import "sass/animations";
 
@@ -48,21 +49,71 @@ $name: 'module-windtunnel';
         position: absolute;
         z-index: 11;
 
-        top: 110px;
-        left: 460px;
-
-        width: 112px + 50px;
-        height: 144px + 60px;
-
-        background: right bottom url('img/rudolf-shadow.png') no-repeat;
-
         animation: 1.5s #{$name}-hover infinite alternate ease-in-out;
 
         .rudolf {
-          width: 112px;
-          height: 144px;
 
-          background: 0 0 url('img/rudolf.png') no-repeat;
+          cursor: pointer;
+
+          .rudolf-light {
+            position: absolute;
+
+            width: 30px;
+            height: 30px;
+
+            opacity: 0;
+            transition: opacity 0.5s $easeInQuad;
+
+            background: url('img/rudolf-nose-light.png') no-repeat;
+          }
+        }
+
+        &--normal {
+          top: 110px;
+          left: 460px;
+
+          width: 112px + 50px;
+          height: 144px + 60px;
+
+          background: right bottom url('img/rudolf-shadow.png') no-repeat;
+
+          .rudolf {
+            width: 112px;
+            height: 144px;
+
+            background: 0 0 url('img/rudolf.png') no-repeat;
+
+            .rudolf-light {
+              top: 33px;
+              right: 38px;
+            }
+          }
+        }
+
+        &--serious {
+          top: 110px;
+          left: 460px;
+
+          width: 124px + 50px;
+          height: 126px + 78px;
+
+          background: right bottom url('img/rudolf-serious-shadow.png') no-repeat;
+
+          .rudolf {
+            position: absolute;
+
+            top: 19px;
+
+            width: 124px;
+            height: 126px;
+
+            background: 0 0 url('img/rudolf-serious.png') no-repeat;
+
+            .rudolf-light {
+              top: 24px;
+              right: -13px;
+            }
+          }
         }
 
         .parachute-wrap {
@@ -84,7 +135,10 @@ $name: 'module-windtunnel';
             background: 0 0 url('img/parachute.png') no-repeat;
 
             transform-origin: 100% 50%;
-            animation: .6s #{$name}-parachute infinite alternate ease-in-out;
+          }
+
+          .parachute {
+            z-index: 10;
           }
 
           .parachute-shadow {
@@ -157,8 +211,8 @@ $name: 'module-windtunnel';
         bottom: $offset;
         right: 195px;
 
-        width: 277px;
-        height: 426px;
+        width: 278px;
+        height: 427px;
 
 
         background: right 45px url('img/fan-shadow.png') no-repeat;
@@ -187,65 +241,115 @@ $name: 'module-windtunnel';
 
             overflow: hidden;
 
-            .thread {
-              $size: 10px;
+            @mixin thread($image-file, $height, $width, $margin-bottom, $margin-left) {
+                margin-bottom: $margin-bottom;
+                margin-left: $margin-left;
 
-              margin-bottom: 7px;
+                width: $width;
+                height: $height;
 
-              width: 35px;
-              height: $size;
+                background: url('img/' + $image-file) no-repeat;
 
-              background: url('img/fan-threads.png') no-repeat;
+                transform-origin: 100% 50%;
+                animation: 100ms #{$name}-thread infinite alternate ease-in-out;
 
-              transform-origin: 100% 50%;
-              animation: 100ms #{$name}-thread infinite alternate ease-in-out;
+                &:nth-child(2n) {
+                  background-position: 0 -1 * $height;
 
-              &:nth-child(2n) {
-                background-position: 0 -10px;
+                  animation: 110ms #{$name}-thread infinite alternate-reverse ease-in-out;
+                }
 
-                animation: 110ms #{$name}-thread infinite alternate-reverse ease-in-out;
-              }
+                &:nth-child(2n+1) {
+                  animation: 120ms #{$name}-thread infinite alternate-reverse ease-in-out;
+                }
 
-              &:nth-child(2n+1) {
-                animation: 120ms #{$name}-thread infinite alternate-reverse ease-in-out;
-              }
+                &:nth-child(3n) {
+                  background-position: 0 -3 * $height;
+                }
 
-              &:nth-child(3n) {
-                background-position: 0 -30px;
-              }
+                &:nth-child(4n) {
+                  background-position: 0 -2 * $height;
+                }
+            }
 
-              &:nth-child(4n) {
-                background-position: 0 -20px;
-              }
+            .thread--low {
+              @include thread("fan-threads-low.png", 30px, 14px, -12px, 18px);
+            }
+
+            .thread--med {
+              @include thread("fan-threads-med.png", 20px, 24px, -2px, 9px);
+            }
+
+            .thread--high {
+              @include thread("fan-threads-high.png", 10px, 35px, 7px, 0);
             }
           }
 
-          .arrow-wrap {
+          .indicator-wrap {
             position: absolute;
 
-            bottom: 49px;
-            right: 44px;
+            bottom: 86px;
+            right: 30px;
+
+            width: 93px;
+            height: 15px;
+
+            .indicator {
+              position: absolute;
+
+              bottom: 0px;
+              left: 0px;
+
+              width: 11px;
+              height: 10px;
+
+              transform: translateX(15px);
+              transition: transform 1s $easeInOutBack;
+
+              background: url('img/fan-indicator.png') no-repeat;
+            }
+          }
+
+          .lever-wrap {
+            position: absolute;
+
+            bottom: 0;
+            right: 28px;
 
 
-            width: 65px;
-            height: 35px;
+            width: 100px;
+            height: 100px;
 
             overflow: hidden;
 
-            .arrow {
+            cursor: pointer;
+
+            .lever {
               position: absolute;
 
-              top: 0;
-              left: 25px;
+              top: 16px;
+              left: 41px;
 
-              width: 13px;
-              height: 50px;
+              width: 16px;
+              height: 67px;
 
               transform-origin: 50% 100%;
               transform: rotateZ(-35deg);
-              animation: 5s #{$name}-fanArrow infinite alternate ease-in-out;
+              transition: transform 1s $easeOutQuint;
 
-              background: url('img/fan-arrow.png') no-repeat;
+              background: url('img/fan-lever-handle.png') no-repeat;
+            }
+
+            .lever-base {
+              position: absolute;
+
+              bottom: 0;
+              left: 11px;
+
+              width: 77px;
+              height: 33px;
+
+              background: url('img/fan-lever-base.png') no-repeat;
             }
           }
         }
@@ -289,10 +393,10 @@ $name: 'module-windtunnel';
         bottom: $offset;
         left: 190px;
 
-        width: 665px;
+        width: 530px;
         height: 150px;
 
-        background: 75px 40px url('img/wires.png') no-repeat;
+        background: 63px 40px url('img/wires.png') no-repeat;
 
         .console {
           position: relative;
@@ -394,7 +498,7 @@ $name: 'module-windtunnel';
             }
           }
           &.c3 {
-            margin-right: 75px;
+            margin-right: 65px;
 
             background-position: -87px * 2 0;
 
@@ -403,6 +507,8 @@ $name: 'module-windtunnel';
             }
           }
           &.c4 {
+            margin-right: 5px;
+
             background-position: -87px * 3 0;
 
             .graph {
@@ -442,13 +548,6 @@ $name: 'module-windtunnel';
             }
           }
           &.c5 {
-            background-position: -87px * 4 0;
-
-            &:before {
-              background-position: -$elf-width * 4 0;
-            }
-          }
-          &.c6 {
             background-position: -87px * 5 0;
 
             .lights {
@@ -473,6 +572,61 @@ $name: 'module-windtunnel';
         }
       }
 
+      .snowblower {
+        position: absolute;
+        z-index: 50;
+
+        bottom: $offset;
+        right: 343px;
+
+        margin-bottom: -3px;
+
+        width: 165px;
+        height: 243px;
+        background: url('img/snowblower.png') no-repeat;
+
+        .snowblower-switch {
+          position: absolute;
+
+          bottom: 50px;
+          right: 23px;
+
+          cursor: pointer;
+
+          width: 32px;
+          height: 52px;
+        }
+
+        .snowblower-switch--low {
+          background: url('img/snowblower-switch.png') no-repeat -72px 0;
+        }
+
+        .snowblower-switch--med {
+          background: url('img/snowblower-switch.png') no-repeat 0 0;
+        }
+
+        .snowblower-switch--high {
+          bottom: 52px;
+
+          background: url('img/snowblower-switch.png') no-repeat -36px 0;
+        }
+      }
+
+      .snow-canvas {
+        z-index: 49;
+
+        pointer-events: none;
+        user-select: none;
+
+        position: absolute;
+
+        bottom: $offset;
+        right: 465px;
+
+        width: 615px;
+        height: 490px;
+      }
+
       .screen-frame {
         position: absolute;
         z-index: 10;
@@ -489,8 +643,6 @@ $name: 'module-windtunnel';
           background-image: url('img/screen.png');
           width: 2805px;
           height: 389px;
-
-          animation: 12s #{$name}-screenRotation infinite linear;
         }
 
         .shadow {
@@ -579,7 +731,6 @@ $name: 'module-windtunnel';
         background: url('img/wind-balloon.png');
 
         transform-origin: 100% 50%;
-        animation: .5s #{$name}-parachute infinite alternate-reverse ease-in-out;
       }
     }
   }
