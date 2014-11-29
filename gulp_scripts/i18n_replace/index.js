@@ -59,7 +59,7 @@ module.exports = function replaceMessages(opts) {
 
         var dir = '/';
         // Only root pages should go in /intl/ directories.
-        if (!file.path.match(/_en\.html$/)) {
+        if (lang != 'en' && !file.path.match(/_en\.html$/)) {
           dir = '/intl/' + lang + '_ALL/';
         }
         var i18nfile = file.clone();
