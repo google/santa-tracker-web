@@ -101,6 +101,9 @@
 	"fr_tradition": {
 		"message": "在法国，孩子们根据传统会将自己的鞋放在壁炉旁，期待圣诞老人 (Père Noël) 的到来。如果孩子们在这一年表现不错，圣诞老人就会在他们的鞋中装满礼物。"
 	},
+	"gameover": {
+		"message": "游戏结束！"
+	},
 	"getgooglemaps": {
 		"message": "下载 Google 地图"
 	},
@@ -270,7 +273,7 @@
 		"message": "澳大利亚"
 	},
 	"trivia_beginner_013": {
-		"message": "尼日尔是世界上人口增长速度最快的国家/地区之一，它位于哪个洲的西北部？"
+		"message": "尼日尔是世界上人口增长速度最快的国家之一，它位于哪个洲的西北部？"
 	},
 	"trivia_beginner_015_answer0": {
 		"message": "澳大利亚"
@@ -288,7 +291,7 @@
 		"message": "阿根廷"
 	},
 	"trivia_beginner_020": {
-		"message": "世界上 30% 的大熊猫都居住在四川大熊猫栖息地，该栖息地位于哪个国家/地区？"
+		"message": "世界上 30% 的大熊猫都居住在四川大熊猫栖息地，该栖息地位于哪个国家？"
 	},
 	"trivia_beginner_020_answer1": {
 		"message": "冰岛"
@@ -357,22 +360,22 @@
 		"message": "澳大利亚"
 	},
 	"trivia_beginner_077": {
-		"message": "在哪个国家/地区可以游览苏伊士运河和探访开罗的“死人城”？"
+		"message": "在哪个国家可以游览苏伊士运河和探访开罗的“死人城”？"
 	},
 	"trivia_beginner_078_answer0": {
 		"message": "阿根廷"
 	},
 	"trivia_beginner_080": {
-		"message": "在哪个国家/地区可以探访玛雅遗址和\n尽享坎昆海滩游泳之乐？"
+		"message": "在哪个国家可以探访玛雅遗址和\n尽享坎昆海滩游泳之乐？"
 	},
 	"trivia_beginner_080_answer0": {
 		"message": "墨西哥"
 	},
 	"trivia_beginner_081": {
-		"message": "在哪个国家/地区可以游览都柏林的圣帕特里克大教堂和参加\n基尔肯尼的艺术节？"
+		"message": "在哪个国家可以游览都柏林的圣帕特里克大教堂和参加\n基尔肯尼的艺术节？"
 	},
 	"trivia_beginner_082": {
-		"message": "在哪个国家/地区可以畅游热带雨林和参加\n里约热内卢的狂欢节？"
+		"message": "在哪个国家可以畅游热带雨林和参加\n里约热内卢的狂欢节？"
 	},
 	"trivia_beginner_082_answer0": {
 		"message": "巴西"
@@ -444,13 +447,13 @@
 		"message": "俄罗斯"
 	},
 	"trivia_hard_072": {
-		"message": "塞尚等画家的创作灵感都来源于普罗旺斯的美景，普罗旺斯地区位于哪个国家/地区？"
+		"message": "塞尚等画家的创作灵感都来源于普罗旺斯的美景，普罗旺斯地区位于哪个国家？"
 	},
 	"trivia_hard_072_answer0": {
 		"message": "法国"
 	},
 	"trivia_hard_073": {
-		"message": "布兰卡港是潘帕斯平原地区的一个主要运输点，它位于哪个国家/地区？"
+		"message": "布兰卡港是潘帕斯平原地区的一个主要运输点，它位于哪个国家？"
 	},
 	"trivia_hard_073_answer0": {
 		"message": "阿根廷"
@@ -465,7 +468,7 @@
 		"message": "冰岛"
 	},
 	"trivia_hard_083": {
-		"message": "格但斯克位于维斯瓦河河口附近，它是哪个欧洲国家/地区的主要港口？"
+		"message": "格但斯克位于维斯瓦河河口附近，它是哪个欧洲国家的主要港口？"
 	},
 	"trivia_hard_084_answer2": {
 		"message": "巴拉那河"
@@ -480,7 +483,7 @@
 		"message": "加纳"
 	},
 	"trivia_hard_088": {
-		"message": "瓜拉尼 (Guaraní) 是一种官方语言的名称，同时还是哪个南美洲国家/地区的货币？"
+		"message": "瓜拉尼 (Guaraní) 是一种官方语言的名称，同时还是哪个南美洲国家的货币？"
 	},
 	"trivia_hard_088_answer2": {
 		"message": "巴西"
@@ -513,10 +516,10 @@
 		"message": "危地马拉"
 	},
 	"trivia_medium_024": {
-		"message": "哪个首都城市/主要城市坐落于桌湾并且是南非国会的所在地？"
+		"message": "哪座知名城市坐落于桌湾并且是南非国会的所在地？"
 	},
 	"trivia_medium_030": {
-		"message": "哪个首都城市/主要城市位于黑海南端并且是土耳其的交通枢纽？"
+		"message": "哪座知名城市位于黑海南端并且是土耳其的交通枢纽？"
 	},
 	"trivia_medium_032_answer1": {
 		"message": "英国"
@@ -603,13 +606,13 @@
 		"message": "德国"
 	},
 	"trivia_medium_089": {
-		"message": "科潘是玛雅时期的一座城邦，这个热门的观光景点位于哪个国家/地区（该国家/地区与萨尔瓦多和尼加拉瓜接壤）？"
+		"message": "科潘是玛雅时期的一座城邦，这个热门的观光景点位于哪个国家（该国与萨尔瓦多和尼加拉瓜接壤）？"
 	},
 	"trivia_medium_089_answer2": {
 		"message": "加拿大"
 	},
 	"trivia_medium_092": {
-		"message": "贝伦市位于亚马逊河南端河口地区，它属于哪个国家/地区？"
+		"message": "贝伦市位于亚马逊河南端河口地区，它属于哪个国家？"
 	},
 	"trivia_medium_092_answer0": {
 		"message": "巴西"

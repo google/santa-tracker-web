@@ -101,6 +101,9 @@
 	"fr_tradition": {
 		"message": "En Francia, la tradición consiste en que los niños coloquen sus zapatos junto a la chimenea para esperar la llegada de Santa. Si se portaron bien durante el año, Santa llenará los zapatos con regalos."
 	},
+	"gameover": {
+		"message": "El juego finalizó."
+	},
 	"getgooglemaps": {
 		"message": "Obtener Google Maps"
 	},
@@ -174,19 +177,19 @@
 		"message": "Recientemente disponible"
 	},
 	"nonprofit-jane-description": {
-		"message": "Entre las especies vivientes, en la actualidad el chimpancé es la más parecida a los seres humanos en todo el reino animal. El Instituto Jane Goodall (JGI) protege a chimpancés como Glitter y Gossamer mediante la observación y el estudio de sus comportamientos y de los hábitats donde viven. JGI también se esfuerza por construir comunidades de personas que protejan y conserven la vida silvestre, así como el ambiente que todos compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplora los hábitats de los chimpacés\u003c/a\u003e en Gombe, Tanzania"
+		"message": "En el reino animal, el chimpancé es la especie viviente más parecida a los seres humanos. Actualmente, quedan menos de 300 000 chimancés debido a la destrucción de su hábitat y el tráfico ilegal de vida silvestre. El Instituto Jane Goodall (JGI) trabaja para proteger a esta especie mediante la observación y el estudio de sus comportamientos y de los hábitats donde viven. Además, JGI trabaja para fomentar en las comunidades la protección y la conservación de la vida silvestre y el medioambiente que todos compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplora los hábitats de los chimpacés\u003c/a\u003e en Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpancé"
 	},
 	"nonprofit-nature-description": {
-		"message": "La organización Nature Conservancy se esfuerza por proteger y recuperar los bosques de los Estados Unidos y de todo el mundo. Estos icónicos bosques sustentan la vida en todo el planeta. Filtran el agua, purifican el aire, ofrecen respaldo a las poblaciones cercanas y constituyen el hábitat de cientos de importantes especies animales y vegetales. Con la tasa de deforestación actual, nuestros bosques se extinguirán en el transcurso de 100 años. Por esto, Nature Conservancy ha presentado su programa Plant a Billion Trees (Planta mil millones de árboles), cuyo objetivo es plantar mil millones de árboles para el año 2025, además de recuperar los bosques más importantes del mundo."
+		"message": "La organización Nature Conservancy trabaja para proteger y recuperar los bosques de los Estados Unidos y de todo el mundo. Estos bosques icónicos sustentan la vida en todo el planeta. Filtran el agua, purifican el aire, ofrecen respaldo a las poblaciones cercanas y constituyen el hábitat de cientos de importantes especies animales y vegetales. Con la tasa de deforestación actual, nuestros bosques se extinguirán en el transcurso de 100 años. Por esto, Nature Conservancy ha presentado su programa Plant a Billion Trees (Planta mil millones de árboles), cuyo objetivo es plantar mil millones de árboles para el año 2025, además de recuperar los bosques más importantes del mundo."
 	},
 	"nonprofit-nature-type": {
 		"message": "Bosques"
 	},
 	"nonprofit-wwf-description": {
-		"message": "El cambio climático sigue alterando el equilibrio de muchos de los ecosistemas de nuestro planeta, tanto en lugares fríos como cálidos. En el Ártico, las temperaturas en aumento ponen en peligro el hábitat de hielo marino donde viven los osos polares. Esta especie, además, se ve expuesta a otras amenazas propias de las actividades humanas, como aquellas relacionadas con la producción y el transporte de gas y petróleo. La organización World Wildlife Fund se esfuerza para garantizar la supervivencia de las especies mediante la investigación científica y su labor en asociación con las comunidades autóctonas del Ártico. Google.org se enorgullece de ser un \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003edefensor\u003c/a\u003e de World Wildlife Fund."
+		"message": "El cambio climático sigue alterando el equilibrio de muchos de los ecosistemas de nuestro planeta, tanto en lugares fríos como cálidos. En el Ártico, las temperaturas en aumento ponen en peligro el hábitat de hielo marino donde viven los osos polares. Esta especie, además, se ve expuesta a otras amenazas propias de las actividades humanas, como aquellas relacionadas con la producción y el transporte de gas y petróleo. La organización World Wildlife Fund trabaja para garantizar la supervivencia de las especies mediante la investigación científica y su labor en asociación con las comunidades autóctonas del Ártico. Google.org se enorgullece de ser un \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003edefensor\u003c/a\u003e de World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Oso polar"
@@ -222,7 +225,7 @@
 		"message": "Rusia"
 	},
 	"ru_tradition": {
-		"message": "En Rusia, los niños decoran el árbol de Año Nuevo, en lugar del árbol de Navidad. Los niños esperan con ansias al Abuelo del Frío, quien viaja con su nieta, la Doncella de Nieve, y reparten regalos en todo el país. El Abuelo del Frío vive en el bosque en Veliky Ustyug, en el norte de Rusia."
+		"message": "En Rusia, los niños decoran el árbol de Año Nuevo, en lugar del árbol de Navidad y esperan con ansias al Abuelo del Frío, quien viaja con su nieta, la Doncella de Nieve, para repartir regalos en todo el país. El Abuelo del Frío vive en el bosque en Veliky Ustyug, en el norte de Rusia."
 	},
 	"santatracker": {
 		"message": "Sigue a Santa"
@@ -315,7 +318,7 @@
 		"message": "¿En qué ciudad rusa se encuentra la Catedral de San Basilio, ubicada en la Plaza Roja junto al Kremlin?"
 	},
 	"trivia_beginner_038": {
-		"message": "¿En qué ciudad de Europa se encuentra el Coliseo, construido en el primer siglo d. C. como un lugar de lucha de gladiadores?"
+		"message": "¿En qué ciudad de Europa se encuentra el Coliseo, construido en el Siglo I d. C. para llevar a cabo las luchas de gladiadores?"
 	},
 	"trivia_beginner_049": {
 		"message": "¿A qué ciudad estadounidense conecta el puente Golden Gate con la península de Marín?"
@@ -363,7 +366,7 @@
 		"message": "Argentina"
 	},
 	"trivia_beginner_080": {
-		"message": "¿A qué país deberías viajar para visitar las ruinas de los antiguos Mayas y nadar en las playas de Cancún?"
+		"message": "¿A qué país deberías viajar para visitar las antiguas ruinas mayas y nadar en las playas de Cancún?"
 	},
 	"trivia_beginner_080_answer0": {
 		"message": "México"
@@ -480,7 +483,7 @@
 		"message": "Ghana"
 	},
 	"trivia_hard_088": {
-		"message": "¿En qué país de Sudamérica la palabra Guaraní es el nombre de uno de los idiomas oficiales y, además, el nombre de la moneda?"
+		"message": "¿En qué país de Sudamérica la palabra \"guaraní\" es el nombre de uno de los idiomas oficiales y, además, el nombre de la moneda?"
 	},
 	"trivia_hard_088_answer2": {
 		"message": "Brasil"
@@ -504,10 +507,10 @@
 		"message": "Australia"
 	},
 	"trivia_medium_004": {
-		"message": "¿En qué continente se encuentra Teotihuacán, gran centro de una civilización antigua?"
+		"message": "¿En qué continente se encuentra Teotihuacán, el gran centro de una civilización antigua?"
 	},
 	"trivia_medium_012_answer0": {
-		"message": "San Pablo, Brasil"
+		"message": "São Paulo, Brasil"
 	},
 	"trivia_medium_019_answer1": {
 		"message": "Guatemala"
@@ -603,13 +606,13 @@
 		"message": "Alemania"
 	},
 	"trivia_medium_089": {
-		"message": "¿En qué país que limita con El Salvador y Nicaragua se encuentra la ciudad maya de gran atractivo turístico de Copán?"
+		"message": "¿En qué país, que limita con El Salvador y Nicaragua, se encuentra la ciudad maya de Copán, de gran atractivo turístico?"
 	},
 	"trivia_medium_089_answer2": {
 		"message": "Canadá"
 	},
 	"trivia_medium_092": {
-		"message": "¿En qué país se encuentra la ciudad de Belén, ubicada en la desembocadura sur del río Amazonas?"
+		"message": "¿En qué país se encuentra la ciudad de Belém, ubicada en la desembocadura sur del río Amazonas?"
 	},
 	"trivia_medium_092_answer0": {
 		"message": "Brasil"
