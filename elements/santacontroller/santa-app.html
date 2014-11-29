@@ -13,7 +13,6 @@ Santa Track app.
 @element santa-app
 -->
 <polymer-element name="santa-app"
-                 on-analytics-track-pageview="{{trackPageview}}"
                  on-analytics-track-event="{{trackEvent}}"
                  on-analytics-track-social="{{trackSocial}}"
                  on-analytics-track-game-start="{{trackGameStart}}"
@@ -328,7 +327,7 @@ Polymer(Polymer.mixin({
         this.validateRoute();
     }
 
-    this.fire('analytics-track-pageview', {path: '/' + this.route});
+    this.trackPageview('/' + this.route);
   },
 
   validateRoute: function() {
@@ -358,9 +357,8 @@ Polymer(Polymer.mixin({
     }
   },
 
-  trackPageview: function(e, detail, sender) {
-    this.analyticsService.trackPageView(
-        detail.path);
+  trackPageview: function(path) {
+    this.analyticsService.trackPageView(path);
   },
 
   trackEvent: function(e, detail, sender) {
