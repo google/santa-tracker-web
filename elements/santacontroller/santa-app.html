@@ -316,18 +316,17 @@ Polymer(Polymer.mixin({
 
   prevSelectedSceneChanged: function() {
     // Only remove certain elements from the DOM.
-    if (PERMANENT_ROUTES_.indexOf(this.prevSelectedScene.route) != -1) {
+    var elCanBeRemoved = PERMANENT_ROUTES_.indexOf(this.prevSelectedScene.route) != -1;
+    if (elCanBeRemoved) {
       return;
     }
 
     this.prevSelectedScene.remove();
 
     // Re-construct removed scene and add it back to lazy-pages.
-    var tagName = this.prevSelectedScene.localName;
-
-    var el = document.createElement(tagName);
-    el.route = tagName.split('-')[0];
-    el.path = 'scenes/' + el.route + '/' + el.route + '-scene_' + this.language + '.html';
+    var el = document.createElement(this.prevSelectedScene.localName);
+    el.route = this.prevSelectedScene.route;
+    el.path = this.prevSelectedScene.path;
     el.mode = this.mode;
     el.hidden = true;
     el.santaApp = this;
