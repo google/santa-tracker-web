@@ -150,11 +150,16 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
         excludes: {
           // these are inlined in elements.html
           imports: [
+            'jquery.html$',
+            'modernizr.html$',
             'polymer.html$',
             'base-scene.html$',
-            'i18n-msg.html$'
+            'i18n-msg.html$',
+            'core-shared-lib.html$',
+            'google-maps-api.html$',
           ]
         },
+        // 'strip-excludes': false,
         strip: !argv.pretty,
         csp: true,
         inline: true,
