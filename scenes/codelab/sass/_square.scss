@@ -1,0 +1,60 @@
+##{$name} {
+  .square {
+    position: absolute;
+    // Hide when in pool.
+    display: none;
+  }
+
+  .square--empty {
+    background: rgb(225, 243, 248);
+    border-radius: 1.6em;
+    height: 8em;
+    width: 8em;
+  }
+
+  .square--tree {
+    height: 8em;
+    width: 9.8em;
+  }
+
+  .square--decorated {
+    z-index: 1;
+  }
+
+  .square--yeti {
+    height: 16em;
+    margin-left: 0.9em;
+    width: 14.7em;
+  }
+
+  .square--sled {
+    height: 69.1em;
+    margin-left: -8em;
+    margin-top: -40em;
+    width: 36.6em;
+  }
+
+  .square--arrow {
+    animation: 0.3s 1s #{$name}-flash-arrow linear alternate 6;
+    height: 14.5em;
+    margin-left: 1em;
+    margin-top: -4em;
+    opacity: 0;
+    transition: opacity 0.4s;
+    width: 6.8em;
+  }
+
+  // Only show tutorial arrow in level 2.
+  &.level--2 .square--arrow {
+    opacity: 1;
+  }
+}
+
+@keyframes #{$name}-flash-arrow {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}

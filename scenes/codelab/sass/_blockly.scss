@@ -1,0 +1,144 @@
+##{$name} {
+  // Position blockly full screen.
+  .blockly {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform-origin: 0 0;
+  }
+
+  // Make first level look like there is a toolbar under puzzle pieces.
+  &.level--puzzle .blockly {
+    @media (min-width: 1025px) {
+      background: linear-gradient(#3f4da1, #3f4da1) 0 0 / 244px 1px repeat-y;
+    }
+  }
+
+  // Overlay trash over the toolbar responsively.
+  .blockly__trash {
+    bottom: 8px;
+    display: none;
+    left: (64px - 32px) / 2;
+    position: absolute;
+    width: 32px;
+
+    @media (min-width: 661px) {
+      bottom: 24px;
+      left: (96px - 32px) / 2;
+    }
+
+    @media (min-width: 1025px) {
+      bottom: (96px + 8px);
+      left: (244px - 48px) / 2;
+      width: 48px;
+    }
+  }
+
+  // Only show maze levels.
+  &.level--maze .blockly__trash {
+    display: block;
+  }
+
+  // Promote madewithcode.com on top of the blockly workspace responsively.
+  // VERY tricky to position w.r.t. GUI elements, toolbar, maze scene and
+  // play button.
+  .blockly__promo {
+    bottom: 17px;
+    color: white;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    left: 20px;
+    right: 90px;
+    position: absolute;
+
+    @media (min-width: 661px) {
+      bottom: 20px;
+      font-size: 14px;
+      right: 130px;
+    }
+
+    @media (min-width: 1025px) {
+      left: 276px;
+      right: 60px;
+    }
+
+    a {
+      color: #FDBD26;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.level--maze .blockly__promo {
+    left: 80px;
+    right: 60px;
+
+    @media (min-width: 661px) {
+      left: 120px;
+    }
+
+    @media (min-width: 1025px) {
+      left: 276px;
+      bottom: 30px;
+    }
+  }
+
+  // Tweak blockly styles.
+  .blocklySvg {
+    background-color: transparent;
+    border: none;
+    vertical-align: top;
+  }
+
+  .blocklyFlyoutBackground {
+    fill: #3f4da1;
+    fill-opacity: 1;
+  }
+
+  .blocklyText {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .blocklyNonEditableText > rect,
+  .blocklyEditableText > rect {
+    fill: #FFF;
+    fill-opacity: .4;
+  }
+
+  .blocklyEditableText > .blocklyText {
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-weight: 400;
+  }
+
+  .blocklyPathTouch {
+    visibility: hidden;
+  }
+
+  .blocklyDraggable .blocklyPathTouch {
+    visibility: visible;
+  }
+}
+
+/**
+ * The input is injected directly into the body so here we
+ * try to override the specificity for that.
+ * This should not be going outside the app container, we probably need to hack a
+ * blockly iframe soon.
+ */
+body {
+  .blocklyHtmlInput {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    text-align: center;
+  }
+}

@@ -17,7 +17,7 @@ var newer = require('gulp-newer');
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
-var CLOSURE_FILES = 'scenes/*/js/*.js';
+var CLOSURE_FILES = 'scenes/*/js/**/*.js';
 
 var STATIC_VERSION = 53;
 var VERSION = argv.build || STATIC_VERSION;
@@ -46,6 +46,9 @@ var SCENE_CLOSURE_CONFIG = {
   },
   briefing: {
     entryPoint: 'app.Scene'
+  },
+  codelab: {
+    entryPoint: 'app.wrapper.FrameWrapper'
   },
   gumball: {
     entryPoint: 'app.Game'

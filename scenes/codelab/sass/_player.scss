@@ -1,0 +1,47 @@
+##{$name} {
+  .player {
+  }
+
+  .player__rotation {
+    position: absolute;
+  }
+
+  .player__elf {
+    position: absolute;
+    height: 6.6em;
+    margin-left: -3.1em;
+    margin-top: -3.3em;
+    overflow: hidden;
+    width: 6.2em;
+  }
+
+  .player__victory {
+    height: 12.2em;
+    margin-left: -3.2em;
+    margin-top: -4.5em;
+    position: absolute;
+    opacity: 0;
+    width: 7em;
+  }
+
+  .player__shadow {
+    background: linear-gradient(90deg, rgba(209, 226, 235, 1) 0%, rgba(209, 226, 235, 0) 100%);
+    border-radius: 50%;
+    height: 4.6em;
+    margin-left: -2em;
+    margin-top: (4.6em / -2);
+    position: absolute;
+    transform: rotate(6deg);
+    transform-origin: 0% 50%;
+    width: 9em;
+  }
+
+  .player__lost {
+    height: 2.5em;
+    margin-left: -3em;
+    margin-top: -6em;
+    opacity: 0;
+    position: absolute;
+    width: 6em;
+  }
+}
