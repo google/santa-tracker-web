@@ -243,12 +243,6 @@ Polymer(Polymer.mixin({
     postFlight: {value: false, reflect: true},
   },
 
-  /**
-   * Fired the first time santa service checks the schedule.
-   *
-   * @event santa-schedule-first-check
-   */
-
   ready: function() {
     this.analyticsService = new Analytics();
     this.visibilityService = new VisibilityManager(this);
@@ -300,7 +294,7 @@ Polymer(Polymer.mixin({
     }
 
     // Initialize routes.
-    VALID_ROUTES_ = this.$.lazypages.items.map(function(el, i) {
+    VALID_ROUTES_ = this.$.lazypages.items.map(function(el) {
       // Note: can't use .route b/c some scene elements won't be upgraded yet.
       return el.getAttribute('route');
     });
