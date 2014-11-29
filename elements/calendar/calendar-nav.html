@@ -55,7 +55,7 @@ Village calendar navigation.
                     <div layout vertical center-center data-index="1"
                          class="card calendar scene video play learn">
                       <template repeat="{{house, i in firstFour}}">
-                        <a href="{{pageUrl}}#[[house.module]]" on-click="{{onCalendarClick}}">
+                        <a href="{{house.link || pageUrl + '#' + house.module}}" on-click="{{onCalendarClick}}">
                           <div class="menu-marker marker1 calendar [[house.category]]" style="background-image:url({{componentBaseDir}}img/menu-[[house.module]].svg);"></div>
                         </a>
                       </template>
@@ -63,7 +63,7 @@ Village calendar navigation.
 
                     <template repeat="{{house, i in regularSchedule}}">
                       <div layout vertical center-center data-index="{{i + 2}}" data-category="[[house.category]]" class="card calendar [[house.category]] {{house.iced ? 'iced' : 'melt'}}">
-                        <a href="{{pageUrl}}#[[house.module]]" on-click="{{onCalendarClick}}">
+                        <a href="{{house.link || pageUrl + '#' + house.module}}" on-click="{{onCalendarClick}}">
                           <div class="menu-marker marker{{i + 2}} calendar [[house.category]]" style="background-image:url({{componentBaseDir}}img/menu-[[house.module]].svg);"></div>
                         </a>
                       </div>
