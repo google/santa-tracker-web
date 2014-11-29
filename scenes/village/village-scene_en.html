@@ -305,16 +305,6 @@ Village scene.
       if (navigator.userAgent.match(/iPhone|iPod|iPad/i)) {
         this.$.spaceship.parentElement.removeChild(this.$.spaceship);
       }
-
-      // Know when template house stamping is done to scroll to the last one.
-      this.onMutation(this.$.houses, function(observer, records) {
-        this.async(function() {
-          var todayEl = this.$.houses.querySelector('.today');
-          if (todayEl) {
-            this.panToHouse(todayEl, 0);
-          }
-        }, null, 350);
-      });
     },
 
     domReady: function() {
@@ -693,6 +683,11 @@ Village scene.
       this.$.count.start();
 
       this.fire('sound-ambient', 'village_start');
+
+      var todayEl = this.$.houses.querySelector('.today');
+      if (todayEl) {
+        this.panToHouse(todayEl, 0);
+      }
     },
 
     onHide: function() {
