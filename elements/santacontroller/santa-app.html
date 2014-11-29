@@ -172,13 +172,13 @@ Polymer(Polymer.mixin({
   selectedScene: null,
 
   /**
-   * The previously selected scene.
+   * The previously selected scene route.
    *
-   * @attribute prevSelectedScene
-   * @type Element
+   * @attribute prevSelectedRoute
+   * @type string
    * @default null
    */
-  prevSelectedScene: null,
+  prevSelectedRoute: null,
 
   /**
    * Current URL route.
@@ -311,22 +311,32 @@ Polymer(Polymer.mixin({
   },
 
   selectedSceneChanged: function(oldVal, newVal) {
-    this.prevSelectedScene = oldVal;
+    if (oldVal) {
+      this.prevSelectedRoute = oldVal.route;
+    }
   },
 
-  prevSelectedSceneChanged: function() {
+  prevSelectedRouteChanged: function() {
     // Only remove certain elements from the DOM.
-    var elCanBeRemoved = PERMANENT_ROUTES_.indexOf(this.prevSelectedScene.route) != -1;
-    if (elCanBeRemoved) {
+    var dontRemoveEl = PERMANENT_ROUTES_.indexOf(this.prevSelectedRoute) != -1;
+    if (dontRemoveEl) {
       return;
     }
 
-    this.prevSelectedScene.remove();
+    var prevSelectedScene = null;
+    for (var i = 0, scene; scene = this.$.lazypages.items[i]; ++i) {
+      if (scene.route == this.prevSelectedRoute) {
+        prevSelectedScene = scene;
+        break;
+      }
+    }
+
+    prevSelectedScene.remove();
 
     // Re-construct removed scene and add it back to lazy-pages.
-    var el = document.createElement(this.prevSelectedScene.localName);
-    el.route = this.prevSelectedScene.route;
-    el.path = this.prevSelectedScene.path;
+    var el = document.createElement(prevSelectedScene.localName);
+    el.route = prevSelectedScene.route;
+    el.path = prevSelectedScene.path;
     el.mode = this.mode;
     el.hidden = true;
     el.santaApp = this;
