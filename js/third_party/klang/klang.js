@@ -1,9 +1,8 @@
 (function (root, factory) {
+root.Klang = factory();
 if (typeof define === "function" && define.amd) {
     define( function(){ return root.Klang; }); //hack to preserve backward compatibility
-}
-root.Klang = factory();
-
+} else if (typeof exports === "object") {   module.exports = root.Klang;}
 }(this, function () {
 if (navigator.userAgent.indexOf('MSIE') != -1) {
     var ie = true;
@@ -161,6 +160,189 @@ if (navigator.userAgent.indexOf('MSIE') != -1) {
 
 
 } ());
+AudioSprite = function (src, data, callback) {
+	var _this = this;
+	var audio = new Audio();
+
+	/////////////////////////////////////////////////////////////////////////////
+	// PUBLIC STUFF	
+	/////////////////////////////////////////////////////////////////////////////
+	this.audio = audio;
+	this.playing = false;
+	this.loaded = false;
+	this.inited = false;
+	this.data = data;
+	this.srcUrl = src;
+	this.loadedCallback = null;
+
+	function canPlayThroughCallback() {
+		if (_this.loadedCallback) {
+			_this.loadedCallback();
+		}
+		audio.removeEventListener('canplaythrough', canPlayThroughCallback);
+	}
+	this.init = function() {
+		this.inited = true;
+
+		audio.src = this.srcUrl;
+		audio.autobuffer = false;
+		audio.autoplay = false;
+		audio.preload = false;
+
+		audio.addEventListener('canplaythrough', canPlayThroughCallback);
+
+		var _forcePauseOnLoad = function () {
+			audio.pause();
+			audio.removeEventListener('play', _forcePauseOnLoad, false);
+
+			if (callback && !_this.loaded) {
+				callback();
+			}
+
+			_this.loaded = true;
+		};	
+		audio.addEventListener('play', _forcePauseOnLoad, false);
+	}
+
+	/**
+	 * Triggers loading of sprite source
+	 */
+	this.load = function (callback) {
+		this.loadedCallback = callback;
+		if (!this.inited) {
+			this.init();
+		}
+		if (!Klang.isMobile) {
+			audio.volume = 0;
+		}
+		audio.play();
+	};
+
+	/** 
+	 * Pause audio sprute at current position 
+	 * @param seekTime (optional) seeking to next sound directly after pause (if 
+	 *                            you know what it will be) can reduce time to 
+	 *                            play next sound and make it feel more responsive
+	 */
+	this.pause = function (seekTime) {
+		audio.pause();
+		if (seekTime) {
+			audio.currentTime = seekTime;
+		}
+		_this.playing = false;
+		clearInterval(_this._timer); // Consider using rAF hook instead: Render.stopRender(_this._checkCurrentTime);	
+		clearTimeout(_this._backupTimeout);
+	};
+
+	this.setLoop = function(state) {
+		audio.loop = state;
+	}
+
+	this.setVolume = function(vol) {
+		if (!Klang.isMobile) {
+			audio.volume = vol;
+		}
+	}
+}
+
+AudioSprite.prototype.play = function (startTime, duration) {
+	if (!this.inited) {
+		return;
+	}
+	if (startTime == undefined) {
+		startTime = 0;
+	}
+
+	var _this = this,
+			audio = this.audio,
+			nextTime = startTime + duration,
+			startTime = Math.floor(startTime*100)/100; // seeking to time with too many decimals sometimes ignored by audio tag
+
+	// Consider adding something like this to skip sound if frame rate drops
+	// if (Global.LAST_FRAME > 1000) {
+	//   return;
+	// }
+
+	var progress = function () {
+		audio.removeEventListener('progress', progress, false);
+		if (_this.updateCallback !== null && _this.playing) {
+			_this.updateCallback();
+		}
+	};
+
+	var delayPlay = function () {
+		_this.updateCallback = function () {
+			_this.updateCallback = null;
+			
+			if (waitForDuration() || !audio.duration) {
+				// still no duration - server probably doesn't send "Accept-Ranges" headers - aborting');
+				return;
+			}
+
+			audio.currentTime = startTime;
+			audio.play();
+		};
+		audio.addEventListener('progress', progress, false);
+	};
+	
+	// Check if audio tag is missing duration
+	// missing audio.duration is NaN in Firefox
+	// missing missing audio.duration is Infinity in Mobile Safari
+	// missing audio.duration is 100 in Chrome on Android
+	var waitForDuration = function () {
+		return !isFinite(audio.duration) || audio.duration === 100;
+	};
+
+	_this.playing = true; 
+	_this.updateCallback = null;
+	audio.removeEventListener('progress', progress, false);
+
+	clearTimeout(_this._backupTimeout);
+	clearInterval(_this._timer); //Render.stopRender(_this._checkCurrentTime);
+	
+	audio.pause();
+
+	try {
+		// try seeking to sound to play
+		if (startTime == 0) startTime = 0.01; // http://remysharp.com/2010/12/23/audio-sprites/
+		if (audio.currentTime !== startTime) audio.currentTime = startTime;
+
+		// make sure we can read duration of audio tag, otherwise we can't seek
+		if (waitForDuration() || Math.round(audio.currentTime*100)/100 < startTime) {
+			delayPlay();
+		} else {
+			audio.play();
+		}
+	} catch (e) {
+		delayPlay();
+	}
+
+	// Don't create timers if duration is not specified (to play the entire audio)
+	if (duration == undefined) {
+		return;
+	}
+
+	// checks if audio tag has played past current sound and should pause
+	_this._checkCurrentTime = function () {
+		if (audio.currentTime >= nextTime) {
+			_this.pause();
+			clearTimeout(_this._backupTimeout);
+		}
+	}
+
+	// In some cases on Android the audio tag's currentTime doesn't update though the audio is still playing.
+	// We setup a fallback timeout to pause 1 second after the current sprite's end time
+	// Space sounds more than 1s apart in sprite to be make sure no extra sounds are played
+	// Normally this backup timeout is cancelled by _checkCurrentTime()
+	_this._backupTimeout = setTimeout(function () {
+		_this.pause();
+	}, (duration * 1000) + 1000);
+
+	// Consider using requestAnimationFrame instead and hook into your app's 
+	// render looop, e.g. Render.startRender(_this._checkCurrentTime);
+	_this._timer = setInterval(_this._checkCurrentTime, 10);	
+};
+
 var __extends = this.__extends || function (d, b) {
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
@@ -270,6 +452,594 @@ var __extends = this.__extends || function (d, b) {
         network.request = request;
     })(Klang.network || (Klang.network = {}));
     var network = Klang.network;
+    Klang.audioTagHandler;
+    function touchLoad(e) {
+        Klang.audioTagHandler.loadSoundFiles();
+    }
+    /**
+    * Represents an audio source for audio tag fallback.
+    * @param {Object} data Configuration data.
+    * @param {Object} sprite Audiosprite that this source uses.
+    * @constructor
+    * @extends {Klang.ATAudioSource}
+    */
+    var ATAudioSource = (function () {
+        function ATAudioSource(data, sprite) {
+            this._data = data;
+            this._sprite = sprite;
+            if(!this._sprite) {
+                return;
+            }
+            this._priority = this._sprite.data.audio_tag;
+            if(this._data.loop) {
+                var url = this._sprite.srcUrl;
+                if(this._data.loop_start == undefined) {
+                    this._data.loop_start = 0;
+                }
+                if(this._data.loop_end != undefined) {
+                    //this._data.offset = this._data.loop_start;
+                    this._data.duration = this._data.loop_end// - this._data.loop_start;
+                    ;
+                }
+            }
+            this._gain = new ATGainNode(data.volume, this);
+        }
+        ATAudioSource.prototype.play = function (when, offset, resume, keepVolume, loopTrigg) {
+            if(when) {
+                var _this = this;
+                clearInterval(this._loopTimer);
+                this._loopTimer = setTimeout(function () {
+                    _this.play(0, offset, resume, keepVolume, true);
+                }, Math.round(when * 1000));
+            } else if(this._sprite) {
+                if(this._data.loop && this._playing && !this._fadingOut && !loopTrigg) {
+                    return this;
+                }
+                this._playing = false;
+                this._sprite.pause();
+                //clearInterval(this._loopTimer);
+                if(Klang.audioTagHandler.getLimitSounds()) {
+                    if(this._priority == 1) {
+                        //Klang.audioTagHandler.stopAll();
+                                            } else {
+                        return this;
+                    }
+                }
+                if(!offset) {
+                    offset = 0;
+                }
+                if(!this._data.offset) {
+                    this._data.offset = 0;
+                }
+                if(!this._data.duration) {
+                    this._data.duration = this._sprite.audio.duration;
+                }
+                this._playing = true;
+                //clearInterval(this._loopTimer);
+                if(!loopTrigg) {
+                    this._gain.resetVolume(keepVolume);
+                }
+                this._sprite.play(this._data.offset + offset, this._data.duration - offset);
+                if(this._data.loop && this._data.duration) {
+                    this.play(this._data.duration - offset, this._data.loop_start, false, true);
+                }
+            }
+            return this;
+        };
+        ATAudioSource.prototype.fadeInAndPlay = function (targetValue, duration, when, offset) {
+            if(!this._sprite) {
+                return this;
+            }
+            when = when || 0;
+            // if (!this._fadingOut && this._data.loop  && this._playing) return this;
+            offset = offset || 0;
+            this._fadingIn = true;
+            this._fadingOut = false;
+            var output = this.getOutput();
+            if(!this._playing) {
+                output.setVolume(0);
+                output.resetVolume(true);
+                this.play(when, offset, false, false);
+            } else {
+                output.resetVolume(false);
+            }
+            var _this = this;
+            output.fadeVolume(targetValue, duration, function () {
+                _this._fadingIn = false;
+            });
+            return this;
+        };
+        ATAudioSource.prototype.stop = function (when) {
+            if(when) {
+                var _this = this;
+                if(this._loopTimer) {
+                    clearInterval(this._loopTimer);
+                }
+                this._loopTimer = setTimeout(function () {
+                    _this.stop(0);
+                }, Math.round(when * 1000));
+            } else if(this._sprite) {
+                if(!this._playing && !this._fadingIn) {
+                    return this;
+                }
+                this._playing = false;
+                this._sprite.pause();
+                if(this._loopTimer) {
+                    clearInterval(this._loopTimer);
+                }
+            }
+            return this;
+        };
+        ATAudioSource.prototype.fadeOutAndStop = function (duration, when) {
+            if(when) {
+                var _this = this;
+                if(this._loopTimer) {
+                    clearInterval(this._loopTimer);
+                }
+                this._loopTimer = setTimeout(function () {
+                    _this.fadeOutAndStop(duration, 0);
+                }, Math.round(when * 1000));
+            } else if(this._sprite) {
+                if(!this._playing) {
+                    return this;
+                }
+                this._fadingOut = true;
+                this._fadingIn = false;
+                var _this = this;
+                this.getOutput().fadeVolume(0, duration, function () {
+                    this._fadingOut = false;
+                    _this.stop();
+                });
+            }
+            return this;
+        };
+        ATAudioSource.prototype.setVolume = function (value) {
+            value = value === undefined || this.getOutput().getVolume();
+            if(!this._sprite) {
+                return this;
+            }
+            var value = Math.max(0, Math.min(1, value * Klang.audioTagHandler.getGlobalVolume()));
+            this._sprite.setVolume(value);
+            return this;
+        };
+        ATAudioSource.prototype.getOutput = function () {
+            return this._gain;
+        };
+        Object.defineProperty(ATAudioSource.prototype, "position", {
+            get: function () {
+                if(!this._sprite || !this._playing) {
+                    return -1;
+                }
+                return this._sprite.audio.currentTime;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(ATAudioSource.prototype, "playing", {
+            get: function () {
+                return this._playing;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        return ATAudioSource;
+    })();
+    Klang.ATAudioSource = ATAudioSource;    
+    /**
+    * Represents an audio group for audio tag fallback.
+    * @param {Object} data Configuration data.
+    * @constructor
+    * @extends {Klang.ATAudioSource}
+    */
+    var ATAudioGroup = (function () {
+        function ATAudioGroup(data) {
+            this._data = data;
+            this._content = [];
+            for(var c in this._data.content) {
+                var audio = Klang.audioTagHandler.getObject(this._data.content[c]);
+                if(audio) {
+                    this._content.push(audio);
+                }
+            }
+        }
+        ATAudioGroup.prototype.play = function (when, audioSource, forcePlay) {
+            var index = typeof audioSource === 'number' ? audioSource : Util.random(this._content.length - 1, 0);
+            if(this._content[index]) {
+                this._content[index].play(when);
+            }
+            return this;
+        };
+        ATAudioGroup.prototype.stop = function () {
+            for(var c in this._content) {
+                if(this._content[c]) {
+                    this._content[c].stop();
+                }
+            }
+            return this;
+        };
+        Object.defineProperty(ATAudioGroup.prototype, "playing", {
+            get: function () {
+                var playing = false;
+                for(var c in this._content) {
+                    if(this._content[c]._playing) {
+                        playing = true;
+                        ;
+                    }
+                }
+                return playing;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        return ATAudioGroup;
+    })();
+    Klang.ATAudioGroup = ATAudioGroup;    
+    /**
+    * Simulates a gain node for audio tags.
+    * @param {number} volume Starting volume.
+    * @constructor
+    * @extends {Klang.ATGainNode}
+    */
+    var ATGainNode = (function () {
+        // obejct to update when the volume changes
+        function ATGainNode(volume, owner) {
+            this._currentVolume = this._volume = volume != undefined ? volume : 1;
+            this._currentVolume = Math.max(0, Math.min(this._currentVolume, 1));
+            this._owner = owner;
+        }
+        ATGainNode.prototype.getVolume = function () {
+            return this._volume;
+        };
+        ATGainNode.prototype.setVolume = function (value) {
+            value = Math.max(0, Math.min(1, value));
+            this._currentVolume = this._volume = value;
+            if(this._owner && this._owner.setVolume) {
+                this._owner.setVolume(this._currentVolume);
+            }
+            return this;
+        };
+        ATGainNode.prototype.fadeVolume = function (targetValue, duration, callback) {
+            if(this._fadeTimer) {
+                clearInterval(this._fadeTimer);
+            }
+            var _this = this;
+            this._fadeSteps = Math.round(duration * 1000) / 10;
+            this._volumeStep = (this._currentVolume - targetValue) / this._fadeSteps;
+            this._fadeTimer = setInterval(function () {
+                _this.setVolume(_this._currentVolume - _this._volumeStep);
+                _this._fadeSteps--;
+                if(_this._fadeSteps <= 0) {
+                    clearInterval(_this._fadeTimer);
+                    if(callback) {
+                        callback();
+                    }
+                }
+            }, 10);
+            return this;
+        };
+        ATGainNode.prototype.resetVolume = function (keepVolume) {
+            var volumeToSet = keepVolume ? this._currentVolume : this._volume;
+            clearInterval(this._fadeTimer);
+            this.setVolume(volumeToSet);
+            return this;
+        };
+        return ATGainNode;
+    })();
+    Klang.ATGainNode = ATGainNode;    
+    /**
+    * Represents a process for audio tag fallback.
+    * @param {Object} data Configuration data.
+    * @param {string} name Name of the process.
+    * @param {Object} vars The variables that this process needs.
+    * @constructor
+    * @extends {Klang.ATProcess}
+    */
+    var ATProcess = (function () {
+        function ATProcess(data, name, vars) {
+            this._data = data;
+            this._name = name;
+            this._vars = vars;
+            if(this._data.at_action === "copy") {
+                this._data.at_action = this._data.action;
+            }
+        }
+        ATProcess.prototype.start = function (args) {
+            try  {
+                new Function("Util", "me", "args", this._data.at_action)(Util, this._vars, args);
+            } catch (ex) {
+                Klang.err("Klang: error in process '" + this._name + "': " + ex.name + ": " + ex.message);
+            }
+        };
+        return ATProcess;
+    })();
+    Klang.ATProcess = ATProcess;    
+    /**
+    * Handles fallback to using audio tag for browsers that do not support web audio.
+    * @param {string} baseUrl Base url for the config file.
+    * @param {Function} readyCallback Function to call when the engine is ready and auto sounds are loaded.
+    * @param {Function} progressCallback Function to call while loading audio sounds.
+    * @constructor
+    * @extends {Klang.AudioTagHandles}
+    */
+    var AudioTagHandler = (function () {
+        function AudioTagHandler(config, readyCallback, progressCallback) {
+            this._loadedFiles = 0;
+            this._audioSprites = {
+            };
+            this._limitSounds = Klang.isMobile || Klang.browser == "Opera";
+            if(typeof config == "string") {
+                var _this = this;
+                network.request({
+                    url: config
+                }, function (data) {
+                    try  {
+                        _this.init(JSON.parse(data), readyCallback, progressCallback, config);
+                    } catch (ex) {
+                        Klang.version = "n/a";
+                        if(readyCallback) {
+                            readyCallback(false);
+                        }
+                    }
+                }, null, function (error) {
+                    Klang.err(error);
+                });
+            } else if(typeof config == "object") {
+                this.init(config);
+            } else {
+                Klang.err("Klang exception: unrecognized config type: " + typeof config);
+            }
+        }
+        AudioTagHandler.prototype.init = function (data, readyCallback, progressCallback, configURL) {
+            var _this = this;
+            this._globalVolume = 1;
+            this._readyCallback = readyCallback;
+            this._progressCallback = progressCallback;
+            this._events = data.events;
+            var relativePath = data.settings.relative_path;
+            var baseURL;
+            var filePath = data.settings.file_path || "";
+            if(relativePath) {
+                if(configURL.lastIndexOf("/") != -1) {
+                    baseURL = configURL.substring(0, configURL.lastIndexOf("/"));
+                    if(baseURL.charAt(baseURL.length - 1) !== "/") {
+                        baseURL += "/";
+                    }
+                    baseURL += filePath;
+                } else {
+                    baseURL = filePath;
+                }
+            } else {
+                baseURL = filePath;
+            }
+            var format = (Klang.browser == "Opera" || Klang.browser == "Firefox" || Klang.browser == "Chrome") ? ".ogg" : ".mp3";
+            // Create audio sprites
+            for(var p in data.files) {
+                var fileData = data.files[p];
+                // Ladda inte in filer som inte har markerats för användning i audio tag
+                var prio = fileData.audio_tag;
+                if(prio && (!this._limitSounds || prio == 1)) {
+                    // ladda inte in filer utan prio 1 på mobil
+                    this._audioSprites[fileData.id] = new AudioSprite(baseURL + fileData.url + format, fileData, function () {
+                        //_this.loadProgress();
+                                            });
+                }
+            }
+            // Create sources
+            this._audio = {
+            };
+            for(var a in data.audio) {
+                var audioData = data.audio[a];
+                if(audioData.type == "AudioSource") {
+                    var sprite = this._audioSprites[audioData.file_id];
+                    // Skapa inte audio sources som använder filer som inte används
+                    //if (sprite) {
+                    this._audio[a] = new ATAudioSource(audioData, this._audioSprites[audioData.file_id]);
+                    //}
+                                    } else if(audioData.type == "AudioGroup") {
+                    this._audio[a] = new ATAudioGroup(audioData);
+                }
+            }
+            // Create processes
+            this._processes = {
+            };
+            for(var p in data.processes) {
+                var processData = data.processes[p];
+                // skapa inte processer som itne används i audiotag
+                if(processData.at_action) {
+                    var processArgs = {
+                    };
+                    for(var v in processData.vars) {
+                        var processVarName = processData.vars[v];
+                        processArgs[processVarName] = this._audio[processVarName];
+                    }
+                    this._processes[p] = new ATProcess(processData, p, processArgs);
+                }
+            }
+            this.loadSoundFiles([
+                "auto", 
+                "autotag"
+            ]);
+        };
+        AudioTagHandler.prototype.initIOS = function () {
+            if(Klang.isIOS || Klang.isMobile) {
+                for(var p in this._audioSprites) {
+                    this._audioSprites[p].load();
+                }
+            }
+        };
+        AudioTagHandler.prototype.loadSoundFiles = /**
+        * Starts loading a group of sounds.
+        * @param {string} group Which group to load, loads all sounds if not specified.
+        * @param {Function} readyCallback Function to call when the engine is ready and auto sounds are loaded.
+        * @param {Function} progressCallback Function to call while loading audio sounds.
+        */
+        function (group, readyCallback, progressCallback, loadFailedCallback) {
+            if(readyCallback) {
+                this._readyCallback = readyCallback;
+            }
+            if(progressCallback) {
+                this._progressCallback = progressCallback;
+            }
+            this._loadedFiles = 0;
+            this._numFiles = 0;
+            var _this = this;
+            for(var p in this._audioSprites) {
+                var spriteGroup = this._audioSprites[p].data.load_group;
+                if(group == undefined || spriteGroup == group || group.indexOf(spriteGroup) != -1) {
+                    this._numFiles++;
+                    this._audioSprites[p].load(function () {
+                        _this.loadProgress();
+                    });
+                }
+            }
+            // Nothing to load, call ready
+            if(this._numFiles == 0 && this._readyCallback) {
+                // load progress of audio tags is unreliable
+                this._readyCallback(true);
+            }
+        };
+        AudioTagHandler.prototype.getLoadGroups = /**
+        * Get a list of loadgroups
+        * @return {string[]} List of availible load groups (excluding the "auto" load group)
+        */
+        function () {
+            var i;
+            var fileInfoArr = this._audioSprites || [];
+            var groupTable = {
+            };
+            var listOfGroups = [];
+            for(i in fileInfoArr) {
+                var fileInfo = fileInfoArr[i];
+                groupTable[fileInfo.data.load_group] = fileInfo.data.load_group;
+            }
+            for(i in groupTable) {
+                listOfGroups.push(i);
+            }
+            return listOfGroups;
+        };
+        AudioTagHandler.prototype.loadProgress = /**
+        * Updates load progress.
+        */
+        function () {
+            this._loadedFiles++;
+            if(this._progressCallback) {
+                this._progressCallback((this._loadedFiles / this._numFiles) * 100);
+            }
+            if(this._readyCallback && this._loadedFiles == this._numFiles) {
+                // Timeout för att audio tagen ska hinna bli redo att spelas. Behövdes för HM.
+                var _this = this;
+                setTimeout(function () {
+                    _this._readyCallback(true);
+                }, 2000);
+            }
+        };
+        AudioTagHandler.prototype.triggerEvent = /**
+        * Triggers an event.
+        * @param {string} name Which event to trigger.
+        * @param {Object} args Arguments to pass to the process.
+        */
+        function (name, args) {
+            var str = "";
+            for(var i = 0; i < args.length; i++) {
+                str += args[i] + ", ";
+            }
+            if(name != "sound_position") {
+                var arg = "";
+                if(args) {
+                    arg = args[0];
+                }
+            }
+            if(!this._events) {
+                // not initialized
+                return;
+            }
+            try  {
+                var eventTarget = this._events[name];
+                if(typeof eventTarget == "string") {
+                    var process = this._processes[eventTarget];
+                    if(process) {
+                        process.start(args);
+                    }
+                } else if(eventTarget) {
+                    for(var ix = 0, len = eventTarget.length; ix < len; ix++) {
+                        var processName = eventTarget[ix];
+                        var process = this._processes[processName];
+                        if(process) {
+                            process.start(args);
+                        }
+                    }
+                }
+            } catch (ex) {
+                Klang.err("Klang: error when triggering event '" + name + "': " + ex.name + ": " + ex.message);
+            }
+        };
+        AudioTagHandler.prototype.getGlobalVolume = function () {
+            return this._globalVolume;
+        };
+        AudioTagHandler.prototype.setGlobalVolume = function (value) {
+            value = Math.max(0, Math.min(value, 1));
+            this._globalVolume = value;
+            for(var a in this._audio) {
+                var audio = this._audio[a];
+                if(audio && audio.setVolume && audio.getOutput) {
+                    var audioOut = audio.getOutput();
+                    if(audioOut) {
+                        audio.setVolume(audioOut.getVolume());
+                    }
+                }
+            }
+        };
+        AudioTagHandler.prototype.fadeGlobalVolume = function (value, duration) {
+            value = Math.max(0, Math.min(value, 1));
+            if(this._globalFadeTimer) {
+                clearInterval(this._globalFadeTimer);
+            }
+            var _this = this;
+            var fadeSteps = Math.round(duration * 1000) / 10;
+            var volumeStep = (this._globalVolume - value) / fadeSteps;
+            this._globalFadeTimer = setInterval(function () {
+                _this._globalVolume = (_this._globalVolume - volumeStep);
+                fadeSteps--;
+                for(var a in _this._audio) {
+                    var audio = _this._audio[a];
+                    if(audio && audio.setVolume && audio.getOutput) {
+                        audio.setVolume();
+                    }
+                }
+                if(fadeSteps <= 0) {
+                    clearInterval(_this._globalFadeTimer);
+                }
+            }, 10);
+        };
+        AudioTagHandler.prototype.getLimitSounds = function () {
+            return this._limitSounds;
+        };
+        AudioTagHandler.prototype.stopAll = function (priority) {
+            for(var a in this._audio) {
+                if(priority == undefined || this._audio[a]._priority == priority) {
+                    this._audio[a].stop();
+                }
+            }
+            this.stopPeriodic();
+            return this;
+        };
+        AudioTagHandler.prototype.getObject = function (name) {
+            return this._audioSprites[name] || this._audio[name];
+        };
+        AudioTagHandler.prototype.playPeriodic = function (obj, maxSec, minSec) {
+            clearTimeout(this._periodicTimer);
+            var _this = this;
+            this._periodicTimer = setTimeout(function () {
+                obj.play();
+                _this.playPeriodic(obj, maxSec, minSec);
+            }, Util.random(maxSec * 1000, minSec * 1000));
+        };
+        AudioTagHandler.prototype.stopPeriodic = function () {
+            clearTimeout(this._periodicTimer);
+        };
+        return AudioTagHandler;
+    })();
+    Klang.AudioTagHandler = AudioTagHandler;    
     Klang.versionNumber = 2;
     Klang.context;
     Klang.version;
@@ -993,6 +1763,10 @@ var __extends = this.__extends || function (d, b) {
                     return;
                 }
                 Core.instance.triggerEvent(name, args);
+            } else if(Klang.version === "audiotag") {
+                if(Klang.audioTagHandler) {
+                    Klang.audioTagHandler.triggerEvent(name, args);
+                }
             }
         } catch (ex) {
             Klang.err("Klang exception: unable to trigger event: '" + name + "': " + ex.name + ": " + ex.message);
@@ -1059,6 +1833,20 @@ var __extends = this.__extends || function (d, b) {
                 Klang.context = new AudioContext();
             }
         } else {
+            Klang.version = "audiotag";
+            try  {
+                Klang.audioTagHandler = new AudioTagHandler(json, function (success) {
+                    Klang.readyState = Klang.READY_STATE_LOADED;
+                    readyCallback && readyCallback(success);
+                    processEventQue();
+                }, progressCallback);
+            } catch (ex) {
+                Klang.err("Klang exception: unable to initialize audio tag fallback");
+                Klang.version = "failed audiotag";
+                readyCallback(false);
+                return false;
+            }
+            return true;
             Klang.version = "n/a";
             //"Flash not available"
             readyCallback(false);
@@ -1097,6 +1885,8 @@ var __extends = this.__extends || function (d, b) {
             } catch (ex) {
                 Klang.err("Klang exception: unable to init iOS: " + ex.name + ": " + ex.message);
             }
+        } else if(Klang.version == "audiotag" && Klang.isMobile) {
+            Klang.audioTagHandler.initIOS();
         }
     }
     Klang.initIOS = initIOS;
@@ -1109,6 +1899,8 @@ var __extends = this.__extends || function (d, b) {
         var fileHandler;
         if(Klang.version === 'webaudio') {
             fileHandler = Model.FileHandler.instance;
+        } else if(Klang.version === 'audiotag') {
+            fileHandler = Klang.audioTagHandler;
         } else {
             // allow phantomjs to pass (no )
             return [];
@@ -1165,6 +1957,8 @@ var __extends = this.__extends || function (d, b) {
             Klang.logc("Klang: Loading: '" + name + "'", Util.LOG_LOAD_COLOR);
             if(Klang.version == "webaudio") {
                 Core.instance.loadSoundFiles(name, readyCallback, progressCallback, loadFailedCallback);
+            } else if(Klang.version == "audiotag") {
+                Klang.audioTagHandler.loadSoundFiles(name, readyCallback, progressCallback, loadFailedCallback);
             } else {
                 if(progressCallback) {
                     progressCallback(1);
@@ -1187,6 +1981,7 @@ var __extends = this.__extends || function (d, b) {
             Klang.logc("Klang: Freeing: '" + name + "'", Util.LOG_LOAD_COLOR);
             if(Klang.version == "webaudio") {
                 Core.instance.freeSoundFiles(name);
+            } else if(Klang.version == "audiotag") {
             }
         } catch (ex) {
             Klang.err("Klang exception: unable to free file group: '" + name + "': " + ex.name + ": " + ex.message);
@@ -1206,6 +2001,8 @@ var __extends = this.__extends || function (d, b) {
             if(Core.isInited()) {
                 Core.instance.stopAll();
             }
+        } else if(Klang.version == "audiotag") {
+            Klang.audioTagHandler.stopAll();
         }
     }
     Klang.stopAll = stopAll;
@@ -1230,7 +2027,9 @@ var __extends = this.__extends || function (d, b) {
                     return Core.instance.findInstance(id);
                 }
             }
-        }
+        } else if(Klang.version == "audiotag") {
+            // @TODO
+                    }
     }
     Klang.$ = $;
     function log() {
@@ -1360,6 +2159,8 @@ var __extends = this.__extends || function (d, b) {
                 Core.instance.stopAll();
                 Core.deinit();
             }
+        } else if(Klang.version == "audiotag") {
+            Klang.audioTagHandler.stopAll();
         }
         Klang.version = "n/a";
     }
@@ -1454,7 +2255,7 @@ var __extends = this.__extends || function (d, b) {
                 var _this = this;
                 var request = new XMLHttpRequest();
                 var format = ".ogg";
-                if(Klang.browser === "Safari") {
+                if(Klang.browser === "Safari" || Klang.detector.browser['name'] === 'Netscape') {
                     format = ".mp3";
                 }
                 var url = (info.external ? '' : this._baseURL) + info.url + format;
@@ -9082,9 +9883,9 @@ var __extends = this.__extends || function (d, b) {
                     this._lastScheduleLoopTime = Klang.context.currentTime;
                     while(this._scheduleTime < Klang.context.currentTime + this._scheduleAheadTime) {
                         //if (this._scheduleTime>= context.currentTime && context.currentTime !== 0) {
-                        if(this._currentStep % this._beatLength == 0) {
-                            Klang.log(this._name + ": " + this._currentStep);
-                        }
+                        // if (this._currentStep%this._beatLength == 0) {
+                        //   Klang.log(this._name + ": " + this._currentStep);
+                        // }
                         // Notifiera Patterns
                         for(var ix = 0, len = this._registeredPatterns.length; ix < len; ix++) {
                             this._registeredPatterns[ix].update(this._currentStep, this._scheduleTime);
