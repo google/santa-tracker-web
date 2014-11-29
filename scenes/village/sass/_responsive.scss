@@ -56,7 +56,11 @@ $mobilePortraitBreakpoint: 400px;
 
     #ground  {
       bottom: 0;
-      height: 73px;
+      height: 90px;
+
+      @include media-hdpi(2) {
+        height: 73px;
+      }
     }
 
     #snow {
@@ -92,7 +96,11 @@ $mobilePortraitBreakpoint: 400px;
 
     #ground {
       bottom: 0;
-      height: 31px;
+      height: 47px;
+
+      @include media-hdpi(2) {
+        height: 31px;
+      }
     }
 
     #sky, #clouds {
