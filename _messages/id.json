@@ -101,6 +101,9 @@
 	"fr_tradition": {
 		"message": "Menurut tradisi, anak-anak di Prancis meletakkan sepatunya di samping perapian untuk menyambut kedatangan Père Noël. Jika mereka bersikap baik sepanjang tahun, Père Noël akan mengisi sepatu dengan hadiah."
 	},
+	"gameover": {
+		"message": "Game Selesai!"
+	},
 	"getgooglemaps": {
 		"message": "Dapatkan Google Maps"
 	},
@@ -222,7 +225,7 @@
 		"message": "Rusia"
 	},
 	"ru_tradition": {
-		"message": "Alih-alih pohon Natal, anak-anak di Rusia menghias pohon Tahun Baru. Mereka menunggu kedatangan Kakek Salju yang bepergian bersama cucunya, si Gadis Salju, untuk mengantarkan hadiah ke seluruh negeri. Kakek Salju tinggal jauh di dalam hutan di Velikii Ustug, Rusia utara."
+		"message": "Anak-anak di Rusia tidak menghias pohon Natal, tapi menghias pohon Tahun Baru. Mereka menunggu kedatangan Kakek Salju yang bepergian bersama cucunya, si Gadis Salju, untuk mengantarkan hadiah ke seluruh negeri. Kakek Salju tinggal jauh di dalam hutan di Velikii Ustug, Rusia utara."
 	},
 	"santatracker": {
 		"message": "Pelacak Sinterklas"
@@ -315,13 +318,13 @@
 		"message": "Terletak di kota manakah Katedral Saint Basil di Rusia, yang berdiri di Lapangan Merah di sebelah Kremlin?"
 	},
 	"trivia_beginner_038": {
-		"message": "Terletak di kota Eropa manakah Colosseum, yang dibangun pada abad pertama Masehi sebagai tempat pertarungan gladiator?"
+		"message": "Colosseum, yang dibangun pada abad pertama Masehi dan berfungsi sebagai tempat pertarungan para gladiator, terletak di salah satu kota di benua Eropa. Apa nama kotanya?"
 	},
 	"trivia_beginner_049": {
 		"message": "Apa nama kota di AS yang terhubung ke Semenanjung Marin melalui Jembatan Golden Gate?"
 	},
 	"trivia_beginner_050": {
-		"message": "Terletak di kota manakah Gateway Arch di AS, yang melambangkan ekspansi ke barat Amerika pada tahun 1800-an dan berada di sepanjang Sungai Mississippi?"
+		"message": "Monumen Gateway Arch di Amerika Serikat, yang menjadi simbol perluasan wilayah ke sebelah barat Amerika pada tahun 1800-an, terletak di sebuah kota yang berlokasi di tepi Sungai Mississippi. Apa nama kotanya?"
 	},
 	"trivia_beginner_051_answer1": {
 		"message": "Brasil"
@@ -342,7 +345,7 @@
 		"message": "Australia"
 	},
 	"trivia_beginner_067": {
-		"message": "Terletak di samudera manakah Kepulauan Galápagos yang berada di sebelah barat Amerika Selatan dan merupakan habitat kura-kura raksasa?"
+		"message": "Kepulauan Galápagos yang berada di sebelah barat Amerika Selatan dan merupakan habitat kura-kura raksasa terletak di samudera mana?"
 	},
 	"trivia_beginner_068_answer1": {
 		"message": "Australia"
@@ -357,22 +360,22 @@
 		"message": "Australia"
 	},
 	"trivia_beginner_077": {
-		"message": "Negara manakah yang harus didatangi untuk menelusuri Terusan Suez dan mengunjungi Kota Mati di Kairo?"
+		"message": "Kalau ingin menelusuri Terusan Suez dan mengunjungi Kota Mati di Kairo, kita harus pergi ke negara mana?"
 	},
 	"trivia_beginner_078_answer0": {
 		"message": "Argentina"
 	},
 	"trivia_beginner_080": {
-		"message": "Negara manakah yang harus didatangi untuk mengunjungi reruntuhan suku Maya kuno \ndan berenang di pantai Cancún?"
+		"message": "Kalau ingin berkunjung ke reruntuhan suku Maya kuno dan berenang di pantai Cancún, kita harus pergi ke negara mana?"
 	},
 	"trivia_beginner_080_answer0": {
 		"message": "Meksiko"
 	},
 	"trivia_beginner_081": {
-		"message": "Negara manakah yang harus didatangi untuk mengunjungi Katedral St. Patrick di Dublin \ndan menikmati Festival Seni di Kilkenny?"
+		"message": "Kalau ingin berkunjung ke Katedral St. Patrick di Dublin dan menikmati Festival Seni di Kilkenny, kita harus pergi ke negara mana?"
 	},
 	"trivia_beginner_082": {
-		"message": "Negara manakah yang harus didatangi untuk mengikuti tur hutan hujan dan menari pada \nperayaan Karnaval Rio de Janeiro?"
+		"message": "Kalau ingin mengikuti tur hutan hujan dan bersenang-senang di perayaan Karnaval Rio de Janeiro, kita harus pergi ke negara mana?"
 	},
 	"trivia_beginner_082_answer0": {
 		"message": "Brasil"
@@ -444,13 +447,13 @@
 		"message": "Rusia"
 	},
 	"trivia_hard_072": {
-		"message": "Terletak di negara manakah wilayah Provence, yang lanskapnya menginspirasi pelukis seperti Cézanne?"
+		"message": "Terletak di negara manakah wilayah Provence, yang pemandangannya menginspirasi banyak pelukis seperti Cézanne?"
 	},
 	"trivia_hard_072_answer0": {
 		"message": "Prancis"
 	},
 	"trivia_hard_073": {
-		"message": "Terletak di negara manakah Bahía Blanca, yang merupakan pusat pelayaran utama untuk wilayah Pampas?"
+		"message": "Bahía Blanca, yang merupakan pusat pelayaran utama untuk wilayah Pampas, terletak di negara mana?"
 	},
 	"trivia_hard_073_answer0": {
 		"message": "Argentina"
@@ -465,7 +468,7 @@
 		"message": "Islandia"
 	},
 	"trivia_hard_083": {
-		"message": "Terletak di negara Eropa manakah pelabuhan utama Gdańsk yang berada di dekat muara Sungai Vistula?"
+		"message": "Terletak di negara Eropa manakah pelabuhan utama Gdańsk, yang ada di dekat muara Sungai Vistula?"
 	},
 	"trivia_hard_084_answer2": {
 		"message": "Sungai Paraná"
@@ -480,7 +483,7 @@
 		"message": "Ghana"
 	},
 	"trivia_hard_088": {
-		"message": "Negara manakah di Amerika Selatan yang salah satu bahasa resmi dan juga mata uangnya disebut Guarani?"
+		"message": "Di Amerika Selatan, ada negara yang salah satu bahasa resmi dan mata uangnya disebut Guarani. Apa nama negara itu?"
 	},
 	"trivia_hard_088_answer2": {
 		"message": "Brasil"
@@ -504,7 +507,7 @@
 		"message": "Australia"
 	},
 	"trivia_medium_004": {
-		"message": "Terletak di benua manakah Teotihuacán yang merupakan pusat utama peradaban awal?"
+		"message": "Ada di benua manakah situs arkeologi Teotihuacán, yang menjadi pusat awal mula peradaban manusia?"
 	},
 	"trivia_medium_012_answer0": {
 		"message": "São Paulo, Brasil"
@@ -516,13 +519,13 @@
 		"message": "Apa nama ibu kota yang terletak di Teluk Table dan merupakan pusat parlemen nasional Afrika Selatan?"
 	},
 	"trivia_medium_030": {
-		"message": "Apa nama ibu kota yang terletak di selatan Laut Hitam dan merupakan pusat sistem transportasi Turki?"
+		"message": "Apa nama ibu kota yang terletak di sebelah selatan Laut Hitam dan merupakan pusat sistem transportasi Turki?"
 	},
 	"trivia_medium_032_answer1": {
 		"message": "Inggris Raya"
 	},
 	"trivia_medium_036_answer1": {
-		"message": "Antartika"
+		"message": "Antarktika"
 	},
 	"trivia_medium_038_answer0": {
 		"message": "Australia"
@@ -603,13 +606,13 @@
 		"message": "Jerman"
 	},
 	"trivia_medium_089": {
-		"message": "Terletak di negara manakah reruntuhan kota suku Maya di Copán, yang merupakan tempat wisata terkenal dan memisahkan El Salvador and Nikaragua?"
+		"message": "Reruntuhan Copán, kota suku Maya kuno yang sekarang menjadi tempat wisata terkenal, terletak di negara yang berbatasan dengan El Salvador dan Nikaragua. Negara manakah itu?"
 	},
 	"trivia_medium_089_answer2": {
 		"message": "Kanada"
 	},
 	"trivia_medium_092": {
-		"message": "Terletak di negara manakah kota Belém yang berada di muara selatan Sungai Amazon?"
+		"message": "Terletak di negara manakah kota Belém yang ada di muara selatan Sungai Amazon?"
 	},
 	"trivia_medium_092_answer0": {
 		"message": "Brasil"

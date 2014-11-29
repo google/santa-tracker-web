@@ -101,6 +101,9 @@
 	"fr_tradition": {
 		"message": "În Franța, conform tradiției, copiii își pun încălțămintea lângă șemineu, în așteptarea lui Père Noël. Dacă au fost cuminți în timpul anului, Père Noël le va umple încălțămintea cu cadouri."
 	},
+	"gameover": {
+		"message": "Sfârşit!"
+	},
 	"getgooglemaps": {
 		"message": "Descărcați Google Maps"
 	},
@@ -174,19 +177,19 @@
 		"message": "Nou azi"
 	},
 	"nonprofit-jane-description": {
-		"message": "Cimpanzeii sunt cele mai apropiate rude în viață ale oamenilor din regatul animalelor! În prezent, trăiesc mai puțin de 300.000 de cimpanzei din cauza distrugerii habitatului lor, a bolilor și a comerțului ilegal. Institutul Jane Goodall (JGI) protejează cimpanzeii prin urmărirea și înțelegerea comportamentelor lor, precum și a habitatelor în care trăiesc. De asemenea, JGI se ocupă și de crearea unei comunități de persoane care protejează și conservă fauna sălbatică și mediul în care trăim cu toții. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplorați habitatele cimpanzeilor\u003c/a\u003e din Gombe, Tanzania."
+		"message": "Cimpanzeii sunt cele mai apropiate rude în viață ale oamenilor din regatul animalelor! În prezent, trăiesc mai puțin de 300.000 de cimpanzei din cauza distrugerii habitatului lor, a bolilor și a comerțului ilegal. Institutul Jane Goodall (JGI) protejează cimpanzeii prin observarea și înțelegerea comportamentelor lor, precum și a habitatelor în care trăiesc. De asemenea, JGI se ocupă și de crearea unei comunități de persoane care protejează și conservă fauna și mediul în care trăim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplorați habitatele cimpanzeilor\u003c/a\u003e din Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Cimpanzei"
 	},
 	"nonprofit-nature-description": {
-		"message": "Nature Conservancy lucrează la protejarea și restaurarea pădurilor din Statele Unite și din lume. Aceste păduri seculare susțin viața de pe întreaga planetă. Filtrează apa, purifică aerul, oferă sprijin comunităților și asigură habitatul pentru mii de specii importante de plante și animale. În ritmul actual de despădurire, pădurile vor dispărea în decurs de 100 de ani. Obiectivul programului Plant a Billion Trees (Plantați un miliard de copaci) dezvoltat de Nature Conservancy este de a planta un miliard de copaci până în 2025 și de a renaște pădurile de importanță majoră din lume."
+		"message": "Nature Conservancy lucrează la protejarea și la restaurarea pădurilor din Statele Unite și din lume. Aceste păduri seculare susțin viața de pe întreaga planetă. Filtrează apa, purifică aerul, oferă sprijin comunităților și asigură habitatul pentru mii de specii importante de plante și animale. În ritmul actual de despădurire, pădurile vor dispărea în decurs de 100 de ani. Obiectivul programului Plant a Billion Trees (Plantați un miliard de copaci) dezvoltat de Nature Conservancy este de a planta un miliard de copaci până în 2025 și de a reface pădurile de importanță majoră din lume."
 	},
 	"nonprofit-nature-type": {
 		"message": "Păduri"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Schimbările climatice continuă să afecteze echilibrul a numeroase ecosisteme din lume, atât în zonele calde, cât și în regiunile reci. În zona arctică, ca urmare a creșterii temperaturii, urșii polari rămân fără habitatul lor de gheață. În plus, se confruntă cu amenințările reprezentate de activitățile umane, cum ar fi extracția și transportul țițeiului și gazului. World Wildlife Fund depune eforturi pentru a asigura supraviețuirea speciei prin cercetări științifice și parteneriate cu comunitățile arctice indigene. Google.org se mândrește cu faptul că este \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003epartener\u003c/a\u003e World Wildlife Fund."
+		"message": "Schimbările climatice continuă să afecteze echilibrul a numeroase ecosisteme din lume, atât în zonele calde, cât și în regiunile reci. În zona arctică, datorită creșterii temperaturii, urșii polari rămân fără habitatul lor de gheață. În plus, se confruntă cu amenințările reprezentate de activitățile umane, cum ar fi extracția și transportul țițeiului și gazului. World Wildlife Fund depune eforturi pentru a asigura supraviețuirea speciei prin cercetări științifice și parteneriate cu comunitățile arctice indigene. Google.org se mândrește cu faptul că este \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003epartener\u003c/a\u003e al World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Urși polari"
