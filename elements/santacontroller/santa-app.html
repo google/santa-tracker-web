@@ -111,7 +111,10 @@ Santa Track app.
 var DEFAULT_ROUTE_ = 'village';
 var TRACKER_ROUTE_ = 'tracker';
 var VALID_ROUTES_ = [];
-var WHITELISTED_ROUTES_ = ['village', 'calendar', 'about']; // routes which are always accessible, no matter what the day.
+
+// Routes/scenes which should always be accessible, no matter what the day.
+// These scenes are also not removed from the lazy-page switching.
+var PERMANENT_ROUTES_ = ['village', 'calendar', 'about'];
 
 // Check if date1 is the same date as date2.
 function isSameDay_(date1, date2) {
@@ -311,6 +314,28 @@ Polymer(Polymer.mixin({
     this.prevSelectedScene = oldVal;
   },
 
+  prevSelectedSceneChanged: function() {
+    // Only remove certain elements from the DOM.
+    if (PERMANENT_ROUTES_.indexOf(this.prevSelectedScene.route) != -1) {
+      return;
+    }
+
+    this.prevSelectedScene.remove();
+
+    // Re-construct removed scene and add it back to lazy-pages.
+    var tagName = this.prevSelectedScene.localName;
+
+    var el = document.createElement(tagName);
+    el.route = tagName.split('-')[0];
+    el.path = 'scenes/' + el.route + '/' + el.route + '-scene_' + this.language + '.html';
+    el.mode = this.mode;
+    el.hidden = true;
+    el.santaApp = this;
+    el.loaded = true;
+
+    this.$.lazypages.appendChild(el);
+  },
+
   scheduleCheckedChanged: function() {
     if (this.scheduleChecked) {
       this.validateRoute();
@@ -444,7 +469,7 @@ Polymer(Polymer.mixin({
     }
 
     // Certain scenes don't have associated houses. Whitelist them.
-    if (WHITELISTED_ROUTES_.indexOf(moduleName) != -1) {
+    if (PERMANENT_ROUTES_.indexOf(moduleName) != -1) {
       return true;
     }
 
