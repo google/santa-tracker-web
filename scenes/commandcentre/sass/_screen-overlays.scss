@@ -1,31 +1,38 @@
 ##{$name} {
-
   .screen-overlays {
     position: absolute;
     top: -363px;
     left: 50%;
     margin-left: -610px;
   }
+
   .screen-overlays__tablet {
     position: absolute;
-    top: 290px;
+    top: 288px;
     left: 50%;
-    margin-left: -490px;
+    margin-left: -492px;
     width: 45px;
     height: 50px;
     cursor: pointer;
+
+    background: url(img/screen-overlays-tablet-screen_33percent.png) center center no-repeat;
+    background-size: 29px 37px;
   }
+
   .screen-overlays__tablet-arm {
     position: absolute;
     top: 305px;
     left: 50%;
     margin-left: -515px;
+    pointer-events: none;
+
     @media (min-height: 500px) {
       transform-origin: 5% 5%;
       animation: 5s $easeInQuad #{$name}-elf-tablet-arm infinite;
       animation-delay: 3s;
     }
   }
+
   .screen-overlays__elf-waving__arm {
     position: absolute;
     left: -15px;
@@ -33,6 +40,7 @@
     transform-origin: 48px 22px;
     transform: rotate(-100deg) scale(0.8);
   }
+
   .screen-overlays__elf-waving {
     position: absolute;
     left: 50%;

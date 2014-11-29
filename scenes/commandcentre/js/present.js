@@ -15,42 +15,68 @@ app.Present = function(el) {
   this.free = true;
   this.width_ = undefined;
   this.margin_ = this.getRandomMargin_();
-  this.hide_();
+  this.reset_();
 };
 
 
 app.Present.prototype = {
+  /**
+   * Return random margin to next present
+   * @private
+   * @return {number}
+   */
   getRandomMargin_: function() {
     var max = app.Constants.PRESENTS_MARGIN_MAX - app.Constants.PRESENTS_MARGIN_MIN + 1;
     var min = app.Constants.PRESENTS_MARGIN_MIN;
     return Math.floor(Math.random() * max + min);
   },
 
-  hide_: function() {
-    TweenMax.set(this.$el, {background: '', visibility: 'hidden'});
+  /**
+   * Reset animation properties
+   * @private
+   */
+  reset_: function() {
+    TweenMax.set(this.$el, {background: '', clearProps: 'all'});
   },
 
-  show_: function() {
-    TweenMax.set(this.$el, {visibility: 'visible'});
-  },
-
+  /**
+   * Flag present as being used
+   * @private
+   */
   use: function() {
     this.free = false;
   },
 
+  /**
+   * Check if present is free for use
+   * @private
+   * @return {Boolean}
+   */
   isFree: function() {
     return this.free;
   },
 
+  /**
+   * Callback when present enters belt
+   * @private
+   */
   onEnterBelt: function() {
-    this.show_();
   },
 
+  /**
+   * Callback when present leaves the belt
+   * @private
+   */
   onExitBelt: function() {
     this.free = true;
-    this.hide_();
+    this.reset_();
   },
 
+  /**
+   * Returns width of present
+   * @private
+   * @return {number}
+   */
   width: function() {
     if (!this.width_) {
       this.width_ = this.$el.width();
@@ -58,6 +84,11 @@ app.Present.prototype = {
     return this.width_;
   },
 
+  /**
+   * Returns width of present with margin to next present
+   * @private
+   * @return {number}
+   */
   outerWidth: function() {
     return this.width() + this.margin_;
   }

@@ -57,7 +57,6 @@
   .presents-screen__belt__present {
     position: absolute;
     bottom: 100%;
-    visibility: hidden;
     transform-origin: 50% 82px; // Y-rotaion around present height + half of belt diameter
 
     width: 59px;
