@@ -42,8 +42,10 @@
 
 <div id="preload_placeholder"></div>
 
-<!-- TODO(bckenny,cbro): remove for prod. -->
+<!-- TODO(bckenny,cbro): remove window.DEV stuff for prod. -->
 <script>
+window.santaApp = document.querySelector('santa-app');
+
 window.DEV = true;
 
 if (window.DEV) {
@@ -53,6 +55,9 @@ if (window.DEV) {
 
   document.addEventListener('HTMLImportsLoaded', function() {
     console.info('HTMLImportsLoaded @', performance.now(), 'ms');
+
+    // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
+    I18nMsg.lang = document.documentElement.lang || 'en'; // Set locale for entire site (e.g. i18n-msg elements).
   });
 
   document.addEventListener('template-bound', function() {
@@ -65,7 +70,17 @@ if (window.DEV) {
 } else {
   console.log = function(){};
 }
+
+// Track and log any errors to analytics
+window.onerror = function(message, file, lineNumber) {
+  // We don't want to trigger any errors inside window.onerror otherwise
+  // things will get real bad, real quick.
+  try {
+    window.santaApp.fire('analytics-track-event', {
+        category: 'error', action: file + ':' + lineNumber,
+        label: '' + message});
+  } catch (e){}
+};
 </script>
-<script src="js/santatracker.js"></script>
 </body>
 </html>
