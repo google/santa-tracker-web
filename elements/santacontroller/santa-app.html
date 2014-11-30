@@ -154,6 +154,14 @@ Polymer(Polymer.mixin({
   houses: [],
 
   /**
+   * If the browser is hdpi.
+   * @property
+   * @type boolean
+   * @default false
+   */
+   hdpi: 'devicePixelRatio' in window && devicePixelRatio > 1.5 || false,
+
+  /**
    * The current language locale.
    *
    * @property language
