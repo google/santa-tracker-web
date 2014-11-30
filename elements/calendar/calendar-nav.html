@@ -4,6 +4,13 @@
 <link rel="import" href="../../components/core-animated-pages/transitions/cross-fade.html">
 <link rel="import" href="../../components/paper-fab/paper-fab.html">
 
+<!-- Only show pin categories for en. They're not translated. -->
+<style shim-shadowdom>
+  html[lang="en"] /deep/ calendar-nav::shadow div.card::after {
+    display: block !important;
+  }
+</style>
+
 <!--
 Village calendar navigation.
 
