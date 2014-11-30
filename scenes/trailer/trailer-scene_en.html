@@ -49,7 +49,7 @@ Trailer scene.
     /**
      * True if the video is paused.
      *
-     * @attribute paused
+     * @property paused
      * @type bool
      * @default true
      */
@@ -91,7 +91,6 @@ Trailer scene.
     },
 
     playVideo: function() {
-      // TODO(lukem): hook up to global mute
       this.$.poster.hidden = true;
       this.$.controls.hidden = false;
       this.$.player.play();
