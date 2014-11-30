@@ -205,6 +205,7 @@ $cardColor: #6541a4;
               bottom: 5px;
               text-align: center;
               visibility: hidden;
+              display: none;
             }
 
             @for $i from 1 through 24 {
