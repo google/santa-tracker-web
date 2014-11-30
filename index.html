@@ -88,24 +88,17 @@ window.onerror = function(message, file, lineNumber) {
 (function() {
 
 // Try to only do screen reader stuff on desktop.
-// TODO: this is not i18n'd.
 if (window.matchMedia('(min-width: 1000px)').matches) {
   var timer = document.querySelector('#timer');
 
   document.addEventListener('countdown-timer-tick', function(e) {
-    var currentTime = e.detail;
-
-    var string = [];
-    string.push(currentTime.days, currentTime.days == 1 ? 'day' : 'days');
-    string.push(currentTime.hours, currentTime.hours == 1 ? 'hour' : 'hours');
-    string.push(currentTime.mins, currentTime.mins == 1 ? 'minute' : 'minutes');
-    string.push(currentTime.seconds, currentTime.seconds == 1 ? 'second' : 'seconds');
+    var currentTime = e.detail.currentTime;
 
     if (currentTime.diff <= 60 * 1000) {
       string = [currentTime.seconds];
-      timer.textContent = string.join(' ') + 'until Santa departs';
+      timer.textContent = e.detail.msg;
     } else if (currentTime.seconds % 10 == 0) { // Only update DOM (and therefore speak text) every 30 seconds.
-      timer.textContent = string.join(' ') + ' until Santa departs';
+      timer.textContent = e.detail.msg;
     }
   });
 }

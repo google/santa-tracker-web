@@ -215,7 +215,23 @@ Countdown timer.
           this.oldDigits = newDigits;
         }
 
-        this.fire('countdown-timer-tick', this.currentTime);
+        // TODO: this is not i18n'd.
+        var msg = [];
+        if (this.currentTime.diff <= 60 * 1000) {
+          msg.push(this.currentTime.seconds);
+          msg = msg.join(' ');
+        } else {
+          msg.push(this.currentTime.days, this.currentTime.days == 1 ? 'day' : 'days');
+          msg.push(this.currentTime.hours, this.currentTime.hours == 1 ? 'hour' : 'hours');
+          msg.push(this.currentTime.mins, this.currentTime.mins == 1 ? 'minute' : 'minutes');
+          msg.push(this.currentTime.seconds, this.currentTime.seconds == 1 ? 'second' : 'seconds');
+          msg = msg.join(' ') + ' until Santa departs'
+        }
+
+        this.fire('countdown-timer-tick', {
+          currentTime: this.currentTime,
+          msg: msg
+        });
 
         if (this.currentTime.diff == 0) {
           this.fire('countdown-timer-finish', this);
@@ -249,6 +265,7 @@ Countdown timer.
           // No animation for the first instance.
           return;
         }
+
         digit.classList.add('digit-anim');
 
         this.async(function() {
