@@ -40,7 +40,8 @@ Candy cane progress bar.
 <script>
 (function() {
   var DEFAULT_COLOR_ = '#3ec4f0';
-  var DEFAULT_LOADING_SRC_ = 'images/village.gif';
+  var DEFAULT_LOADING_SRC_ = 'images/village' +
+      (('devicePixelRatio' in window && devicePixelRatio > 1.5) ? '_2x.gif' : '.gif');
 
   Polymer({
     /**
