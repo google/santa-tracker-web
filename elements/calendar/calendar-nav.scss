@@ -296,11 +296,17 @@ $cardColor: #6541a4;
             }
           }
 
-          &.iced .menu-marker {
-            width: $markerWidth + 8px !important;
-            height: $markerWidth + 8px !important;
-            top: -4px;
-            right: -4px;
+          &.iced {
+            .menu-marker {
+              width: $markerWidth + 8px !important;
+              height: $markerWidth + 8px !important;
+              top: -4px;
+              right: -4px;
+            }
+
+            a {
+              cursor: default;
+            }
           }
         }
       }
