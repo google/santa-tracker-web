@@ -151,7 +151,7 @@ $cardColor: #6541a4;
 
         max-width: $cardWidth * 7;
         margin: 20px auto;
-        position: initial;
+        position: static;
         box-shadow: 12px 12px $headerFooterColor;
 
         $categories: 'calendar', 'play', 'watch', 'learn', 'scene';
