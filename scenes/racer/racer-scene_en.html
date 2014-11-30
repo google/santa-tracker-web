@@ -150,7 +150,7 @@ Racer scene.
       var module = this.$['module-racer'];
 
       this.fire('sound-ambient', 'rc_landing_page');
-      var game = this.game = new scenes.racer.Game(module);
+      var game = this.game = new scenes.racer.Game(module, this.componentDir);
       startButton(module, function() {
         game.initialize();
       });
