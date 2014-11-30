@@ -69,12 +69,12 @@ Santa Track app.
     <presentdrop-scene route="presentdrop"
         path="scenes/presentdrop/presentdrop-scene_[[language]].html"
         loadingBgColor="rgb(251, 191, 44)"
-        loadingSrc="scenes/presentdrop/img/loading.gif" hidden></presentdrop-scene>
+        loadingSrc="scenes/presentdrop/img/loading{{hdpi ? '_2x' : ''}}.gif" hidden></presentdrop-scene>
 
     <racer-scene route="racer"
         path="scenes/racer/racer-scene_[[language]].html"
         loadingBgColor="#8fd7f7"
-        loadingSrc="scenes/racer/img/loading.gif" hidden></racer-scene>
+        loadingSrc="scenes/racer/img/loading{{hdpi ? '_2x' : ''}}.gif" hidden></racer-scene>
 
     <workshop-scene route="workshop"
         path="scenes/workshop/workshop-scene.html"
@@ -93,7 +93,7 @@ Santa Track app.
     <traditions-scene route="traditions"
         path="scenes/traditions/traditions-scene_[[language]].html"
         loadingBgColor="rgb(255,224,0)"
-        loadingSrc="scenes/traditions/img/loading.gif" hidden></traditions-scene>
+        loadingSrc="scenes/traditions/img/loading{{hdpi ? '_2x' : ''}}.gif" hidden></traditions-scene>
 
     <trailer-scene route="trailer"
         path="scenes/trailer/trailer-scene_[[language]].html"
@@ -159,7 +159,7 @@ Polymer(Polymer.mixin({
    * @type boolean
    * @default false
    */
-   hdpi: 'devicePixelRatio' in window && devicePixelRatio > 1.5 || false,
+  hdpi: 'devicePixelRatio' in window && devicePixelRatio > 1.5 || false,
 
   /**
    * The current language locale.
