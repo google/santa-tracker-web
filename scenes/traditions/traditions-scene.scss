@@ -122,6 +122,15 @@ $name: 'module-traditions';
       margin-left: -175px;
       margin-top: -252px;
 
+      #close-lessons {
+        width: 79px;
+        height: 79px;
+        background: url(img/close.svg) no-repeat;
+        position: absolute;
+        right: -79px;
+        top: 0;
+      }
+
       ul {
         list-style: none;
         li {

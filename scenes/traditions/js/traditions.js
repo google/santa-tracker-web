@@ -269,7 +269,7 @@ Traditions.prototype.handleResize_ = function() {
  * @private
  */
 Traditions.prototype.verticalAlignText_ = function() {
-  var text = $('.tradition-active', this.el);
+  var text = $('.tradition-active', this.el_);
   text.css('margin-top', -text.height() / 2);
 };
 
