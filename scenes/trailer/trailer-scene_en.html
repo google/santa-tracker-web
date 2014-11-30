@@ -25,7 +25,9 @@ Trailer scene.
                       height="100%" width="100%" fit></google-youtube>
 
       <div id="videoboard" class="sceneboard">
-        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
+          <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
+        </a>
         <div class="sceneboard-back"></div>
         <div id="controls" hidden>
           <div class="scrubber">
@@ -43,44 +45,55 @@ Trailer scene.
 <script>
   Polymer({
     componentDir: 'scenes/trailer/',
-    player: null,
-    paused: false,
 
-    ready: function() {
-      this.player = this.$['player'];
+    /**
+     * True if the video is paused.
+     *
+     * @property paused
+     * @type bool
+     * @default true
+     */
+    paused: true,
+
+    youtubeReady: function() {
+      this.$.start.hidden = false;
     },
 
-    youtubeStateChange: function(e) {
-      if (e.detail.data == 0) {
-        this.$['poster'].hidden = false;
-        this.$['controls'].hidden = true;
+    youtubeStateChange: function(e, detail, sender) {
+      var state = e.detail.data;
+
+      switch (state) {
+        case 0: // ended
+          this.$.poster.hidden = false;
+          this.$.controls.hidden = true;
+          break;
+        case 1: // playing
+          this.paused = false;
+          break;
+        case 2: // paused
+          this.paused = true;
+          break;
       }
     },
 
-    youtubeReady: function() {
-      this.$['start'].hidden = false;
-    },
-
     restartVideo: function() {
-      this.player.seekTo(0);
-      this.player.play();
+      this.$.player.seekTo(0);
+      this.$.player.play();
     },
 
     togglePause: function() {
       this.paused = !this.paused;
-      this.$['pause'].paused = this.paused;
       if (this.paused) {
-        this.player.pause();
+        this.$.player.pause();
       } else {
-        this.player.play();
+        this.$.player.play();
       }
     },
 
     playVideo: function() {
-      // TODO(lukem): hook up to global mute
-      this.$['poster'].hidden = true;
-      this.$['controls'].hidden = false;
-      this.player.play();
+      this.$.poster.hidden = true;
+      this.$.controls.hidden = false;
+      this.$.player.play();
     },
 
     onPreload: function() {
@@ -94,14 +107,16 @@ Trailer scene.
     },
 
     onShow: function() {
-      this.player.seekTo(0);
-      this.$['controls'].hidden = true;
-      this.$['poster'].hidden = false;
-      this.$['controls'].hidden = true;
+      this.$.player.seekTo(0);
+      this.$.player.pause();
+      this.$.controls.hidden = true;
+      this.$.poster.hidden = false;
+      this.fire('sound-ambient', 'global_sound_off');
     },
 
     onHide: function() {
-      this.player.pause();
+      this.$.player.pause();
+      this.fire('sound-ambient', 'global_sound_on');
     }
   });
 </script>
