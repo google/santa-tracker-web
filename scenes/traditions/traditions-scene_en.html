@@ -96,6 +96,19 @@ Traditions scene.
           <p><i18n-msg msgid="nz_tradition">PLACEHOLDER_i18n</i18n-msg></p>
         </div>
       </div>
+      <div id="lessons-popup">
+        <p>K-12 teachers: <span id="teacher-elf"></span> Download lesson plans aligned with the Common Core <a href="#" on-click="{{toggleLessons}}">here</a></p>
+      </div>
+      <div id="lessons" hidden>
+        <div id="lessons-inner">
+          <a href="#" on-click="{{toggleLessons}}">Close</a>
+          <ul>
+            <li><a href="#"><span class="crayon crayon-k-2"></span> Grades K-2</a></li>
+            <li><a href="#"><span class="crayon crayon-3-5"></span> Grades 3-5</a></li>
+            <li><a href="#"><span class="crayon crayon-6-8"></span> Grades 6-8</a></li>
+            <li><a href="#"><span class="crayon crayon-9-10"></span> Grades 9-10</a></li>
+        </div>
+      </div>
       <div class="sceneboard">
         <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
         <div class="sceneboard-back"></div>
@@ -130,6 +143,11 @@ Traditions scene.
     showWorld: function(e) {
       e.preventDefault();
       this.traditions.showWorld();
+    },
+
+    toggleLessons: function(e) {
+      e.preventDefault();
+      this.$['lessons'].hidden = !this.$['lessons'].hidden;
     },
 
     onPreload: function() {
