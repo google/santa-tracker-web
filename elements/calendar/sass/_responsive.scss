@@ -133,3 +133,11 @@ $mobilePortraitBreakpoint: 400px;
     }
   }
 }
+
+@media (max-height:450px) {
+  ##{$name} {
+    #site-nav {
+      display: none;
+    }
+  }
+}
