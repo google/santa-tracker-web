@@ -23,10 +23,12 @@ goog.require('app.shared.utils');
  * Represents the game, captures the user input and overall game state
  * including score and level. Also runs the render loop.
  * @param {Element} elem
+ * @param {string} componentDir The path to the Racer scene directory.
  * @constructor
  */
-SB.Game = function(elem) {
+SB.Game = function(elem, componentDir) {
   this.elem = elem;
+  SB.Assets.init(componentDir);
 
   this.MIN_DEADLINE = 10;
 
