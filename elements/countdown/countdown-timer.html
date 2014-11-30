@@ -215,6 +215,8 @@ Countdown timer.
           this.oldDigits = newDigits;
         }
 
+        this.fire('countdown-timer-tick', this.currentTime);
+
         if (this.currentTime.diff == 0) {
           this.fire('countdown-timer-finish', this);
           this.finished = true;
