@@ -40,7 +40,6 @@
 
 <santa-app id="santaApp"></santa-app>
 
-<!-- <label id="villagelabel" for="santaApp">Santa's village. Days, minutes, seconds until Santa Takes off!</label> -->
 <div id="timer" role="timer" aria-live="agressive" aria-atomic="false" aria-relevant="additions"></div>
 
 <div id="preload_placeholder"></div>
@@ -89,35 +88,26 @@ window.onerror = function(message, file, lineNumber) {
 (function() {
 
 // Try to only do screen reader stuff on desktop.
+// TODO: this is not i18n'd.
 if (window.matchMedia('(min-width: 1000px)').matches) {
   var timer = document.querySelector('#timer');
 
-  var tickTockListener = function(e) {
+  document.addEventListener('countdown-timer-tick', function(e) {
     var currentTime = e.detail;
 
     var string = [];
-
-    if (currentTime.days > 0) {
-      string.push(currentTime.days, currentTime.days == 1 ? 'day' : 'days');
-    }
-    if (currentTime.hours > 0) {
-      string.push(currentTime.hours, currentTime.hours == 1 ? 'hour' : 'hours');
-    }
-    if (currentTime.mins > 0) {
-      string.push(currentTime.mins, currentTime.mins == 1 ? 'minute' : 'minutes');
-    }
+    string.push(currentTime.days, currentTime.days == 1 ? 'day' : 'days');
+    string.push(currentTime.hours, currentTime.hours == 1 ? 'hour' : 'hours');
+    string.push(currentTime.mins, currentTime.mins == 1 ? 'minute' : 'minutes');
+    string.push(currentTime.seconds, currentTime.seconds == 1 ? 'second' : 'seconds');
 
     if (currentTime.diff <= 60 * 1000) {
       string = [currentTime.seconds];
+      timer.textContent = string.join(' ') + 'until Santa departs';
+    } else if (currentTime.seconds % 10 == 0) { // Only update DOM (and therefore speak text) every 30 seconds.
+      timer.textContent = string.join(' ') + ' until Santa departs';
     }
-
-    timer.textContent = string.join(' ');
-
-    // TODO: remove listener. However, this needs to be done after the first screen read.
-    // document.removeEventListener('countdown-timer-tick', tickTockListener);
-  }
-
-  document.addEventListener('countdown-timer-tick', tickTockListener);
+  });
 }
 
 })();
