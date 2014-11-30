@@ -6,6 +6,13 @@
 
 <link rel="import" href="dependencies.html">
 
+<!-- Only show pin categories for en. They're not translated. -->
+<style shim-shadowdom>
+  html[lang="en"] /deep/ village-scene::shadow .house::after {
+    display: block !important;
+  }
+</style>
+
 <!--
 Village scene.
 
@@ -68,7 +75,7 @@ Village scene.
           <div id="houses">
 
             <template repeat="{{house, i in santaApp.houses}}">
-              <div id="house-[[house.module]]" class="house {{house.category}} {{house.iced ? 'iced' : 'melt'}} {{ {today: house.today, tomorrow: house.tomorrow} | tokenList }}">
+              <div id="house-[[house.module]]" class="house {{house.category}} {{house.iced ? 'iced' : 'melt'}} {{ {today: house.today, tomorrow: house.tomorrow} | tokenList }}" data-category="[[house.category]]">
                 <a href="{{house.link || pageUrl + '#' + house.module}}" class="building"
                    on-click="{{onHouseClick}}" tabindex="-1"></a>
 

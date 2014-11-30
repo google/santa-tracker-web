@@ -8,6 +8,20 @@
     bottom: 0;
     float: left;
 
+    &::after {
+      content: attr(data-category) '';
+      font-size: 16px;
+      color: rgba(0,0,0,0.5);
+      text-transform: capitalize;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: -50px;
+      text-align: center;
+      display: none;
+      cursor: default;
+    }
+
     &.today:not(.iced) {
       .house-marker {
         @include transform(scale(1.5, 1.5));
