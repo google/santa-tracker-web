@@ -1,202 +1,457 @@
-/** @license
+(function (root, factory) {
+root.Klang = factory();
+if (typeof define === "function" && define.amd) {
+    define( function(){ return root.Klang; }); //hack to preserve backward compatibility
+} else if (typeof exports === "object") {   module.exports = root.Klang;}
+}(this, function () {
+if (navigator.userAgent.indexOf('MSIE') != -1) {
+    var ie = true;
+    var ua = navigator.userAgent;
+    var re = new RegExp("MSIE ([0-9]{1,}[.0-9]{0,})");
+    var ieVersion;
+    if (re.exec(ua) != null) {
+        ieVersion = parseInt(RegExp.$1);
+    }
+    // IE8 temporarily bypasses defineProperty when Klang is loaded.
+    if (ieVersion < 9) {
+        Object.oldDefineProperty = Object.defineProperty;
+        Object.defineProperty = function() {};
+    }
+}
 
-Klang <http://plan8.se>
-Released under the MIT license
-Author: Plan8
+( function (){
 
-The MIT License (MIT)
+    "use strict";
 
-Copyright (c) 2013 Plan8 Production
+    var AudioContext = window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.*/
-(function() {
-'use strict';
-
-var AudioSprite = function (src, data, callback) {
-  var _this = this;
-  var audio = new Audio();
-  
-  audio.src = src;
-  audio.autobuffer = true;
-  audio.load();
-     
-  var _forcePauseOnLoad = function () {
-    audio.pause();
-    audio.removeEventListener('play', _forcePauseOnLoad, false);
-
-    if (callback && !_this.loaded) {
-      callback();
+    function fixSetTarget(param) {
+      if ( !param ) {
+        return;
+      }
+      if ( !param.setTargetValueAtTime ) {
+        param.setTargetValueAtTime = param.setTargetAtTime;
+      }
     }
 
-    _this.loaded = true;
-  };  
-  audio.addEventListener('play', _forcePauseOnLoad, false);
+    if ( AudioContext ) {
 
-  /////////////////////////////////////////////////////////////////////////////
-  // PUBLIC STUFF 
-  /////////////////////////////////////////////////////////////////////////////
-  this.audio = audio;
-  this.playing = false;
-  this.loaded = false;
-  this.data = data;
-  this.srcUrl = src;
+        /**
+        * Polyfill AudioContext
+        **/
 
-  /**
-   * Triggers loading of sprite source
-   */
-  this.load = function () {
-    if (!Klang.isMobile) {
-      audio.volume = 0;
-    }
-    audio.play();
-  };
+        var acProto     = AudioContext.prototype;
+        var tmpContext  = new AudioContext();
 
-  /** 
-   * Pause audio sprute at current position 
-   * @param seekTime (optional) seeking to next sound directly after pause (if 
-   *                            you know what it will be) can reduce time to 
-   *                            play next sound and make it feel more responsive
-   */
-  this.pause = function (seekTime) {
-    audio.pause();
-    if (seekTime) {
-      audio.currentTime = seekTime;
-    }
-    _this.playing = false;
-    clearInterval(_this._timer); // Consider using rAF hook instead: Render.stopRender(_this._checkCurrentTime);  
-    clearTimeout(_this._backupTimeout);
-  };
+        // rename createGainNode
+        if ( !acProto.hasOwnProperty('createGain')) acProto.createGain = acProto.createGainNode;
 
-  this.setLoop = function(state) {
-    audio.loop = state;
-  }
+        if ( ! acProto.hasOwnProperty( 'internal_createBiquadFilter' ) ){
+            acProto.internal_createBiquadFilter = acProto.createBiquadFilter;
+            acProto.createBiquadFilter = function() {
+              var node = this.internal_createBiquadFilter();
+              fixSetTarget(node.frequency);
+              fixSetTarget(node.detune);
+              fixSetTarget(node.Q);
+              fixSetTarget(node.gain);
+              var enumValues = [ 'LOWPASS', 'HIGHPASS', 'BANDPASS', 'LOWSHELF', 'HIGHSHELF', 'PEAKING', 'NOTCH', 'ALLPASS'];
+              for (var i = 0; i < enumValues.length; ++i) {
+                var enumValue = enumValues[i];
+                var newEnumValue = enumValue.toLowerCase();
+                if ( node.hasOwnProperty( enumValue ) && !( Object.isFrozen && Object.isFrozen( node ) ) ) {
+                    node[enumValue] = newEnumValue;
+                }
+              }
+              return node;
+            };
+        }
 
-  this.setVolume = function(vol) {
-    if (!Klang.isMobile) {
-      audio.volume = vol;
-    }
-  }
+          if (!acProto.hasOwnProperty('createDelay')) acProto.createDelay = acProto.createDelayNode;
+          //acProto.createDelay = acProto.createDelay || acProto.createDelayNode;
+
+
+          // Support alternate names
+          // start (noteOn), stop (noteOff), createGain (createGainNode), etc.
+          var isStillOld = function( normative, old ) {
+            return normative === undefined && old !== undefined;
+          };
+
+          var bufferProto = tmpContext.createBufferSource().constructor.prototype;
+
+          if ( isStillOld( bufferProto.start, bufferProto.noteOn ) || isStillOld( bufferProto.stop, bufferProto.noteOff ) ) {
+            var nativeCreateBufferSource = acProto.createBufferSource;
+
+            acProto.createBufferSource = function createBufferSource() {
+              var returnNode = nativeCreateBufferSource.call(this);
+              returnNode.start = returnNode.start || returnNode.noteOn;
+              returnNode.stop = returnNode.stop || returnNode.noteOff;
+
+              return returnNode;
+            };
+          }
+
+          // Firefox 24 doesn't support OscillatorNode
+          if ( typeof tmpContext.createOscillator === 'function' ) {
+            var oscPraoto = tmpContext.createOscillator().constructor.prototype;
+
+            if ( isStillOld( oscPraoto.start, oscPraoto.noteOn ) || isStillOld(oscPraoto.stop, oscPraoto.noteOff ) ) {
+              var nativeCreateOscillator = acProto.createOscillator;
+
+              acProto.createOscillator = function createOscillator() {
+                var returnNode = nativeCreateOscillator.call(this);
+                returnNode.start = returnNode.start || function () {
+                    if ( returnNode.noteOn ) {
+                        if ( arguments.length > 1 ) {
+                            returnNode.noteGrainOn.apply( returnNode, arguments );
+                        } else {
+                            returnNode.noteOn.apply( returnNode, arguments );
+                        }
+                    }
+                };
+                returnNode.stop = returnNode.stop || returnNode.noteOff;
+
+                return returnNode;
+              };
+            }
+          }
+
+          // Simple name changes
+          if ( acProto.createGain === undefined && acProto.createGainNode !== undefined ) {
+            acProto.createGain = acProto.createGainNode;
+          }
+
+          if ( acProto.createDelay === undefined && acProto.createDelayNode !== undefined ) {
+            acProto.createDelay = acProto.createDelayNode;
+          }
+
+          if ( acProto.createScriptProcessor === undefined && acProto.createJavaScriptNode !== undefined ) {
+            acProto.createScriptProcessor = acProto.createJavaScriptNode;
+          }
+
+
+
+
+          /**
+          * Polyfill AudioParam
+          **/
+          var AudioParam = window.AudioParam = window.AudioParam || window.webkitAudioParam;
+
+          if ( AudioParam ) {
+            var audioParamProto = window.AudioParam.prototype;
+
+            // rename setTargetValueAtTime -> setTargetAtTime
+            audioParamProto.setTargetAtTime = audioParamProto.setTargetAtTime || audioParamProto.setTargetValueAtTime;
+          } else {
+
+            if ( !AudioContext.prototype.internal_createGain ) {
+              AudioContext.prototype.internal_createGain = AudioContext.prototype.createGain;
+              AudioContext.prototype.createGain = function() {
+                var node = this.internal_createGain();
+                fixSetTarget(node.gain);
+                return node;
+              };
+            }
+
+          }
+
+
+    } // end if AudioContext
+
+
+} ());
+AudioSprite = function (src, data, callback) {
+	var _this = this;
+	var audio = new Audio();
+
+	/////////////////////////////////////////////////////////////////////////////
+	// PUBLIC STUFF	
+	/////////////////////////////////////////////////////////////////////////////
+	this.audio = audio;
+	this.playing = false;
+	this.loaded = false;
+	this.inited = false;
+	this.data = data;
+	this.srcUrl = src;
+	this.loadedCallback = null;
+
+	function canPlayThroughCallback() {
+		if (_this.loadedCallback) {
+			_this.loadedCallback();
+		}
+		audio.removeEventListener('canplaythrough', canPlayThroughCallback);
+	}
+	this.init = function() {
+		this.inited = true;
+
+		audio.src = this.srcUrl;
+		audio.autobuffer = false;
+		audio.autoplay = false;
+		audio.preload = false;
+
+		audio.addEventListener('canplaythrough', canPlayThroughCallback);
+
+		var _forcePauseOnLoad = function () {
+			audio.pause();
+			audio.removeEventListener('play', _forcePauseOnLoad, false);
+
+			if (callback && !_this.loaded) {
+				callback();
+			}
+
+			_this.loaded = true;
+		};	
+		audio.addEventListener('play', _forcePauseOnLoad, false);
+	}
+
+	/**
+	 * Triggers loading of sprite source
+	 */
+	this.load = function (callback) {
+		this.loadedCallback = callback;
+		if (!this.inited) {
+			this.init();
+		}
+		if (!Klang.isMobile) {
+			audio.volume = 0;
+		}
+		audio.play();
+	};
+
+	/** 
+	 * Pause audio sprute at current position 
+	 * @param seekTime (optional) seeking to next sound directly after pause (if 
+	 *                            you know what it will be) can reduce time to 
+	 *                            play next sound and make it feel more responsive
+	 */
+	this.pause = function (seekTime) {
+		audio.pause();
+		if (seekTime) {
+			audio.currentTime = seekTime;
+		}
+		_this.playing = false;
+		clearInterval(_this._timer); // Consider using rAF hook instead: Render.stopRender(_this._checkCurrentTime);	
+		clearTimeout(_this._backupTimeout);
+	};
+
+	this.setLoop = function(state) {
+		audio.loop = state;
+	}
+
+	this.setVolume = function(vol) {
+		if (!Klang.isMobile) {
+			audio.volume = vol;
+		}
+	}
 }
 
 AudioSprite.prototype.play = function (startTime, duration) {
-  if (startTime == undefined) {
-    startTime = 0;
-  }
+	if (!this.inited) {
+		return;
+	}
+	if (startTime == undefined) {
+		startTime = 0;
+	}
 
-  var _this = this,
-      audio = this.audio,
-      nextTime = startTime + duration,
-      startTime = Math.floor(startTime*100)/100; // seeking to time with too many decimals sometimes ignored by audio tag
+	var _this = this,
+			audio = this.audio,
+			nextTime = startTime + duration,
+			startTime = Math.floor(startTime*100)/100; // seeking to time with too many decimals sometimes ignored by audio tag
 
-  // Consider adding something like this to skip sound if frame rate drops
-  // if (Global.LAST_FRAME > 1000) {
-  //   return;
-  // }
+	// Consider adding something like this to skip sound if frame rate drops
+	// if (Global.LAST_FRAME > 1000) {
+	//   return;
+	// }
 
-  var progress = function () {
-    audio.removeEventListener('progress', progress, false);
-    if (_this.updateCallback !== null && _this.playing) {
-      _this.updateCallback();
-    }
-  };
+	var progress = function () {
+		audio.removeEventListener('progress', progress, false);
+		if (_this.updateCallback !== null && _this.playing) {
+			_this.updateCallback();
+		}
+	};
 
-  var delayPlay = function () {
-    _this.updateCallback = function () {
-      _this.updateCallback = null;
-      
-      if (waitForDuration() || !audio.duration) {
-        // still no duration - server probably doesn't send "Accept-Ranges" headers - aborting');
-        return;
-      }
+	var delayPlay = function () {
+		_this.updateCallback = function () {
+			_this.updateCallback = null;
+			
+			if (waitForDuration() || !audio.duration) {
+				// still no duration - server probably doesn't send "Accept-Ranges" headers - aborting');
+				return;
+			}
 
-      audio.currentTime = startTime;
-      audio.play();
-    };
-    audio.addEventListener('progress', progress, false);
-  };
-  
-  // Check if audio tag is missing duration
-  // missing audio.duration is NaN in Firefox
-  // missing missing audio.duration is Infinity in Mobile Safari
-  // missing audio.duration is 100 in Chrome on Android
-  var waitForDuration = function () {
-    return !isFinite(audio.duration) || audio.duration === 100;
-  };
+			audio.currentTime = startTime;
+			audio.play();
+		};
+		audio.addEventListener('progress', progress, false);
+	};
+	
+	// Check if audio tag is missing duration
+	// missing audio.duration is NaN in Firefox
+	// missing missing audio.duration is Infinity in Mobile Safari
+	// missing audio.duration is 100 in Chrome on Android
+	var waitForDuration = function () {
+		return !isFinite(audio.duration) || audio.duration === 100;
+	};
 
-  _this.playing = true; 
-  _this.updateCallback = null;
-  audio.removeEventListener('progress', progress, false);
+	_this.playing = true; 
+	_this.updateCallback = null;
+	audio.removeEventListener('progress', progress, false);
 
-  clearTimeout(_this._backupTimeout);
-  clearInterval(_this._timer); //Render.stopRender(_this._checkCurrentTime);
-  
-  audio.pause();
+	clearTimeout(_this._backupTimeout);
+	clearInterval(_this._timer); //Render.stopRender(_this._checkCurrentTime);
+	
+	audio.pause();
 
-  try {
-    // try seeking to sound to play
-    if (startTime == 0) startTime = 0.01; // http://remysharp.com/2010/12/23/audio-sprites/
-    if (audio.currentTime !== startTime) audio.currentTime = startTime;
+	try {
+		// try seeking to sound to play
+		if (startTime == 0) startTime = 0.01; // http://remysharp.com/2010/12/23/audio-sprites/
+		if (audio.currentTime !== startTime) audio.currentTime = startTime;
 
-    // make sure we can read duration of audio tag, otherwise we can't seek
-    if (waitForDuration() || Math.round(audio.currentTime*100)/100 < startTime) {
-      delayPlay();
-    } else {
-      audio.play();
-    }
-  } catch (e) {
-    delayPlay();
-  }
+		// make sure we can read duration of audio tag, otherwise we can't seek
+		if (waitForDuration() || Math.round(audio.currentTime*100)/100 < startTime) {
+			delayPlay();
+		} else {
+			audio.play();
+		}
+	} catch (e) {
+		delayPlay();
+	}
 
-  // Don't create timers if duration is not specified (to play the entire audio)
-  if (duration == undefined) {
-    return;
-  }
+	// Don't create timers if duration is not specified (to play the entire audio)
+	if (duration == undefined) {
+		return;
+	}
 
-  // checks if audio tag has played past current sound and should pause
-  _this._checkCurrentTime = function () {
-    if (audio.currentTime >= nextTime) {
-      _this.pause();
-      clearTimeout(_this._backupTimeout);
-    }
-  }
+	// checks if audio tag has played past current sound and should pause
+	_this._checkCurrentTime = function () {
+		if (audio.currentTime >= nextTime) {
+			_this.pause();
+			clearTimeout(_this._backupTimeout);
+		}
+	}
 
-  // In some cases on Android the audio tag's currentTime doesn't update though the audio is still playing.
-  // We setup a fallback timeout to pause 1 second after the current sprite's end time
-  // Space sounds more than 1s apart in sprite to be make sure no extra sounds are played
-  // Normally this backup timeout is cancelled by _checkCurrentTime()
-  _this._backupTimeout = setTimeout(function () {
-    _this.pause();
-  }, (duration * 1000) + 1000);
+	// In some cases on Android the audio tag's currentTime doesn't update though the audio is still playing.
+	// We setup a fallback timeout to pause 1 second after the current sprite's end time
+	// Space sounds more than 1s apart in sprite to be make sure no extra sounds are played
+	// Normally this backup timeout is cancelled by _checkCurrentTime()
+	_this._backupTimeout = setTimeout(function () {
+		_this.pause();
+	}, (duration * 1000) + 1000);
 
-  // Consider using requestAnimationFrame instead and hook into your app's 
-  // render looop, e.g. Render.startRender(_this._checkCurrentTime);
-  _this._timer = setInterval(_this._checkCurrentTime, 10);  
+	// Consider using requestAnimationFrame instead and hook into your app's 
+	// render looop, e.g. Render.startRender(_this._checkCurrentTime);
+	_this._timer = setInterval(_this._checkCurrentTime, 10);	
 };
 
-var __extends = function (d, b) {
+var __extends = this.__extends || function (d, b) {
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
     d.prototype = new __();
 };
 /// <reference path="../../lib/webaudio.d.ts" />
 /// <reference path="../../lib/js.d.ts" />
+/** @namespace Klang */ var Klang;
 (function (Klang) {
+    (function (detector) {
+        /**
+        * As a worst case for browser specific fixes
+        */
+        function detectBrowser() {
+            var ua = navigator.userAgent;
+            var temp;
+            var match = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+            if(/trident/i.test(match[1])) {
+                temp = /\brv[ :]+(\d+)/g.exec(ua) || [];
+                return {
+                    name: 'IE',
+                    version: temp[1] || 'unknown'
+                };
+            }
+            if(match[1] === 'Chrome') {
+                temp = ua.match(/\bOPR\/(\d+)/);
+                if(temp !== null) {
+                    return {
+                        name: 'Opera',
+                        version: temp[1]
+                    };
+                }
+            }
+            match = match[2] ? [
+                match[1], 
+                match[2]
+            ] : [
+                navigator.appName, 
+                navigator.appVersion, 
+                '-?'
+            ];
+            if((temp = ua.match(/version\/(\d+)/i)) !== null) {
+                match.splice(1, 1, temp[1]);
+            }
+            return {
+                name: match[0],
+                version: match[1]
+            };
+        }
+        detector.browser = detectBrowser();
+    })(Klang.detector || (Klang.detector = {}));
+    var detector = Klang.detector;
+    (function (network) {
+        function isCrossDomain(url) {
+            var target = (document.createElement('a'));
+            target.href = url;
+            var host = (document.createElement('a'));
+            host.href = location.href;
+            var crossdomain = (target.hostname != "") && (target.port != host.port || target.protocol != host.protocol || target.hostname != host.hostname);
+            return crossdomain;
+        }
+        network.isCrossDomain = isCrossDomain;
+        function request(options, onDone, onProgress, onError) {
+            var request;
+            options.type = options.type || 'GET';
+            // fallback for IE9, browser sniffing
+            // if ( window[ 'XDomainRequest' ] && isCrossDomain( options.url ) ) {
+            //     request = new window['XDomainRequest'];
+            //     request.onload      = function () { onDone && onDone( request.responseText ) };
+            //     request.onprogress  = onProgress;
+            //     request.onerror     = onError;
+            //     request.open( options.type, options.url, true );
+            // } else
+            if(window['XMLHttpRequest']) {
+                request = new XMLHttpRequest();
+                request.open(options.type, options.url, true);
+                request.onreadystatechange = function () {
+                    try  {
+                        if(request.readyState == 4 && request.status == 200) {
+                            if(onDone) {
+                                var response = request.responseText;
+                                onDone(response);
+                            }
+                        } else if(request.status != 0 && request.status != 200) {
+                            if(onError) {
+                                onError({
+                                    status: request.status
+                                });
+                            }
+                        }
+                    } catch (e) {
+                        throw e;
+                        if(onError) {
+                            onError({
+                                status: "aborted"
+                            });
+                        }
+                    }
+                };
+            } else {
+                throw 'Error - browser does not support XDomain/XMLHttp Requests';
+            }
+            if(request) {
+                request.send(null);
+            }
+        }
+        network.request = request;
+    })(Klang.network || (Klang.network = {}));
+    var network = Klang.network;
     Klang.audioTagHandler;
     function touchLoad(e) {
         Klang.audioTagHandler.loadSoundFiles();
@@ -218,72 +473,155 @@ var __extends = function (d, b) {
             this._priority = this._sprite.data.audio_tag;
             if(this._data.loop) {
                 var url = this._sprite.srcUrl;
-                if(this._data.loop_start != undefined && this._data.loop_end != undefined) {
-                    this._data.offset = this._data.loop_start;
-                    this._data.duration = this._data.loop_end - this._data.loop_start;
+                if(this._data.loop_start == undefined) {
+                    this._data.loop_start = 0;
+                }
+                if(this._data.loop_end != undefined) {
+                    //this._data.offset = this._data.loop_start;
+                    this._data.duration = this._data.loop_end// - this._data.loop_start;
+                    ;
                 }
             }
             this._gain = new ATGainNode(data.volume, this);
         }
-        ATAudioSource.prototype.play = function () {
-            if(!this._sprite) {
-                return;
-            }
-            if(Klang.audioTagHandler.getLimitSounds()) {
-                if(this._priority == 1) {
-                    //Klang.audioTagHandler.stopAll();
-                                    } else {
+        ATAudioSource.prototype.play = function (when, offset, resume, keepVolume, loopTrigg) {
+            if(when) {
+                var _this = this;
+                clearInterval(this._loopTimer);
+                this._loopTimer = setTimeout(function () {
+                    _this.play(0, offset, resume, keepVolume, true);
+                }, Math.round(when * 1000));
+            } else if(this._sprite) {
+                if(this._data.loop && this._playing && !this._fadingOut && !loopTrigg) {
                     return this;
                 }
-            }
-            clearInterval(this._loopTimer);
-            this._sprite.setVolume(this._gain.getVolume() * Klang.audioTagHandler.getGlobalVolume());
-            this._sprite.play(this._data.offset, this._data.duration);
-            if(this._data.loop) {
-                var _this = this;
-                this._loopTimer = setTimeout(function () {
-                    _this.play();
-                }, Math.round(this._data.duration * 1000));
+                this._playing = false;
+                this._sprite.pause();
+                //clearInterval(this._loopTimer);
+                if(Klang.audioTagHandler.getLimitSounds()) {
+                    if(this._priority == 1) {
+                        //Klang.audioTagHandler.stopAll();
+                                            } else {
+                        return this;
+                    }
+                }
+                if(!offset) {
+                    offset = 0;
+                }
+                if(!this._data.offset) {
+                    this._data.offset = 0;
+                }
+                if(!this._data.duration) {
+                    this._data.duration = this._sprite.audio.duration;
+                }
+                this._playing = true;
+                //clearInterval(this._loopTimer);
+                if(!loopTrigg) {
+                    this._gain.resetVolume(keepVolume);
+                }
+                this._sprite.play(this._data.offset + offset, this._data.duration - offset);
+                if(this._data.loop && this._data.duration) {
+                    this.play(this._data.duration - offset, this._data.loop_start, false, true);
+                }
             }
             return this;
         };
-        ATAudioSource.prototype.fadeInAndPlay = function (targetValue, duration) {
+        ATAudioSource.prototype.fadeInAndPlay = function (targetValue, duration, when, offset) {
             if(!this._sprite) {
-                return;
+                return this;
             }
-            this.setVolume(0);
-            this.play();
-            this.getOutput().fadeVolume(targetValue, duration);
-            return this;
-        };
-        ATAudioSource.prototype.stop = function () {
-            if(!this._sprite) {
-                return;
-            }
-            this._sprite.pause();
-            clearInterval(this._loopTimer);
-            return this;
-        };
-        ATAudioSource.prototype.fadeOutAndStop = function (duration) {
-            if(!this._sprite) {
-                return;
+            when = when || 0;
+            // if (!this._fadingOut && this._data.loop  && this._playing) return this;
+            offset = offset || 0;
+            this._fadingIn = true;
+            this._fadingOut = false;
+            var output = this.getOutput();
+            if(!this._playing) {
+                output.setVolume(0);
+                output.resetVolume(true);
+                this.play(when, offset, false, false);
+            } else {
+                output.resetVolume(false);
             }
             var _this = this;
-            this.getOutput().fadeVolume(0, duration, function () {
-                _this.stop();
+            output.fadeVolume(targetValue, duration, function () {
+                _this._fadingIn = false;
             });
             return this;
         };
-        ATAudioSource.prototype.setVolume = function (value) {
-            if(!this._sprite) {
-                return;
+        ATAudioSource.prototype.stop = function (when) {
+            if(when) {
+                var _this = this;
+                if(this._loopTimer) {
+                    clearInterval(this._loopTimer);
+                }
+                this._loopTimer = setTimeout(function () {
+                    _this.stop(0);
+                }, Math.round(when * 1000));
+            } else if(this._sprite) {
+                if(!this._playing && !this._fadingIn) {
+                    return this;
+                }
+                this._playing = false;
+                this._sprite.pause();
+                if(this._loopTimer) {
+                    clearInterval(this._loopTimer);
+                }
             }
-            this._sprite.setVolume(value * Klang.audioTagHandler.getGlobalVolume());
+            return this;
+        };
+        ATAudioSource.prototype.fadeOutAndStop = function (duration, when) {
+            if(when) {
+                var _this = this;
+                if(this._loopTimer) {
+                    clearInterval(this._loopTimer);
+                }
+                this._loopTimer = setTimeout(function () {
+                    _this.fadeOutAndStop(duration, 0);
+                }, Math.round(when * 1000));
+            } else if(this._sprite) {
+                if(!this._playing) {
+                    return this;
+                }
+                this._fadingOut = true;
+                this._fadingIn = false;
+                var _this = this;
+                this.getOutput().fadeVolume(0, duration, function () {
+                    this._fadingOut = false;
+                    _this.stop();
+                });
+            }
+            return this;
+        };
+        ATAudioSource.prototype.setVolume = function (value) {
+            value = value === undefined || this.getOutput().getVolume();
+            if(!this._sprite) {
+                return this;
+            }
+            var value = Math.max(0, Math.min(1, value * Klang.audioTagHandler.getGlobalVolume()));
+            this._sprite.setVolume(value);
             return this;
         };
         ATAudioSource.prototype.getOutput = function () {
             return this._gain;
         };
+        Object.defineProperty(ATAudioSource.prototype, "position", {
+            get: function () {
+                if(!this._sprite || !this._playing) {
+                    return -1;
+                }
+                return this._sprite.audio.currentTime;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(ATAudioSource.prototype, "playing", {
+            get: function () {
+                return this._playing;
+            },
+            enumerable: true,
+            configurable: true
+        });
         return ATAudioSource;
     })();
     Klang.ATAudioSource = ATAudioSource;    
@@ -304,10 +642,10 @@ var __extends = function (d, b) {
                 }
             }
         }
-        ATAudioGroup.prototype.play = function () {
-            var index = Util.random(this._content.length - 1, 0);
+        ATAudioGroup.prototype.play = function (when, audioSource, forcePlay) {
+            var index = typeof audioSource === 'number' ? audioSource : Util.random(this._content.length - 1, 0);
             if(this._content[index]) {
-                this._content[index].play();
+                this._content[index].play(when);
             }
             return this;
         };
@@ -319,6 +657,20 @@ var __extends = function (d, b) {
             }
             return this;
         };
+        Object.defineProperty(ATAudioGroup.prototype, "playing", {
+            get: function () {
+                var playing = false;
+                for(var c in this._content) {
+                    if(this._content[c]._playing) {
+                        playing = true;
+                        ;
+                    }
+                }
+                return playing;
+            },
+            enumerable: true,
+            configurable: true
+        });
         return ATAudioGroup;
     })();
     Klang.ATAudioGroup = ATAudioGroup;    
@@ -331,31 +683,25 @@ var __extends = function (d, b) {
     var ATGainNode = (function () {
         // obejct to update when the volume changes
         function ATGainNode(volume, owner) {
-            this._currentVolume = volume != undefined ? volume : 1;
-            if(this._currentVolume < 0) {
-                this._currentVolume = 0;
-            } else if(this._currentVolume > 1) {
-                this._currentVolume = 1;
-            }
+            this._currentVolume = this._volume = volume != undefined ? volume : 1;
+            this._currentVolume = Math.max(0, Math.min(this._currentVolume, 1));
             this._owner = owner;
         }
         ATGainNode.prototype.getVolume = function () {
-            return this._currentVolume;
+            return this._volume;
         };
         ATGainNode.prototype.setVolume = function (value) {
-            if(value < 0) {
-                value = 0;
-            } else if(value > 1) {
-                value = 1;
-            }
-            this._currentVolume = value;
+            value = Math.max(0, Math.min(1, value));
+            this._currentVolume = this._volume = value;
             if(this._owner && this._owner.setVolume) {
                 this._owner.setVolume(this._currentVolume);
             }
             return this;
         };
         ATGainNode.prototype.fadeVolume = function (targetValue, duration, callback) {
-            clearInterval(this._fadeTimer);
+            if(this._fadeTimer) {
+                clearInterval(this._fadeTimer);
+            }
             var _this = this;
             this._fadeSteps = Math.round(duration * 1000) / 10;
             this._volumeStep = (this._currentVolume - targetValue) / this._fadeSteps;
@@ -369,6 +715,12 @@ var __extends = function (d, b) {
                     }
                 }
             }, 10);
+            return this;
+        };
+        ATGainNode.prototype.resetVolume = function (keepVolume) {
+            var volumeToSet = keepVolume ? this._currentVolume : this._volume;
+            clearInterval(this._fadeTimer);
+            this.setVolume(volumeToSet);
             return this;
         };
         return ATGainNode;
@@ -411,46 +763,55 @@ var __extends = function (d, b) {
     */
     var AudioTagHandler = (function () {
         function AudioTagHandler(config, readyCallback, progressCallback) {
+            this._loadedFiles = 0;
             this._audioSprites = {
             };
             this._limitSounds = Klang.isMobile || Klang.browser == "Opera";
             if(typeof config == "string") {
-                var request = new XMLHttpRequest();
-                request.open("GET", config, true);
                 var _this = this;
-                request.onreadystatechange = function () {
-                    if(request.readyState == 4 && request.status == 200) {
-                        try  {
-                            _this.init(JSON.parse(request.responseText), readyCallback, progressCallback);
-                        } catch (ex) {
-                            // Config parse error
-                            // or new Audio not supported (Safari 5 on windows without Quicktime installed...)
-                            Klang.version = "n/a";
-                            if(readyCallback) {
-                                readyCallback(false);
-                            }
+                network.request({
+                    url: config
+                }, function (data) {
+                    try  {
+                        _this.init(JSON.parse(data), readyCallback, progressCallback, config);
+                    } catch (ex) {
+                        Klang.version = "n/a";
+                        if(readyCallback) {
+                            readyCallback(false);
                         }
-                    } else if(request.status == 404) {
-                        Klang.err("Klang exception: config file not found: '" + config + "'");
-                    } else if(request.status != 0 && request.status != 200) {
-                        Klang.err("Klang exception: unable to load config file: '" + config + "' " + request.status);
                     }
-                };
-                request.send(null);
+                }, null, function (error) {
+                    Klang.err(error);
+                });
             } else if(typeof config == "object") {
                 this.init(config);
             } else {
                 Klang.err("Klang exception: unrecognized config type: " + typeof config);
             }
         }
-        AudioTagHandler.prototype.init = function (data, readyCallback, progressCallback) {
+        AudioTagHandler.prototype.init = function (data, readyCallback, progressCallback, configURL) {
             var _this = this;
             this._globalVolume = 1;
             this._readyCallback = readyCallback;
             this._progressCallback = progressCallback;
             this._events = data.events;
-            var fileRoot = data.settings.file_root;
-            var format = (Klang.browser == "Opera" || Klang.browser == "Firefox") ? ".ogg" : ".mp3";
+            var relativePath = data.settings.relative_path;
+            var baseURL;
+            var filePath = data.settings.file_path || "";
+            if(relativePath) {
+                if(configURL.lastIndexOf("/") != -1) {
+                    baseURL = configURL.substring(0, configURL.lastIndexOf("/"));
+                    if(baseURL.charAt(baseURL.length - 1) !== "/") {
+                        baseURL += "/";
+                    }
+                    baseURL += filePath;
+                } else {
+                    baseURL = filePath;
+                }
+            } else {
+                baseURL = filePath;
+            }
+            var format = (Klang.browser == "Opera" || Klang.browser == "Firefox" || Klang.browser == "Chrome") ? ".ogg" : ".mp3";
             // Create audio sprites
             for(var p in data.files) {
                 var fileData = data.files[p];
@@ -458,9 +819,9 @@ var __extends = function (d, b) {
                 var prio = fileData.audio_tag;
                 if(prio && (!this._limitSounds || prio == 1)) {
                     // ladda inte in filer utan prio 1 på mobil
-                    this._audioSprites[fileData.id] = new AudioSprite(fileRoot + fileData.url + format, fileData, function () {
-                        _this.loadProgress();
-                    });
+                    this._audioSprites[fileData.id] = new AudioSprite(baseURL + fileData.url + format, fileData, function () {
+                        //_this.loadProgress();
+                                            });
                 }
             }
             // Create sources
@@ -500,8 +861,10 @@ var __extends = function (d, b) {
             ]);
         };
         AudioTagHandler.prototype.initIOS = function () {
-            for(var p in this._audioSprites) {
-                this._audioSprites[p].load();
+            if(Klang.isIOS || Klang.isMobile) {
+                for(var p in this._audioSprites) {
+                    this._audioSprites[p].load();
+                }
             }
         };
         AudioTagHandler.prototype.loadSoundFiles = /**
@@ -511,7 +874,6 @@ var __extends = function (d, b) {
         * @param {Function} progressCallback Function to call while loading audio sounds.
         */
         function (group, readyCallback, progressCallback, loadFailedCallback) {
-            console.log("Klang audiotag load " + group);
             if(readyCallback) {
                 this._readyCallback = readyCallback;
             }
@@ -520,19 +882,40 @@ var __extends = function (d, b) {
             }
             this._loadedFiles = 0;
             this._numFiles = 0;
+            var _this = this;
             for(var p in this._audioSprites) {
                 var spriteGroup = this._audioSprites[p].data.load_group;
                 if(group == undefined || spriteGroup == group || group.indexOf(spriteGroup) != -1) {
                     this._numFiles++;
-                    this._audioSprites[p].load();
+                    this._audioSprites[p].load(function () {
+                        _this.loadProgress();
+                    });
                 }
             }
             // Nothing to load, call ready
-            if(/*this._numFiles == 0 && */ this._readyCallback) {
+            if(this._numFiles == 0 && this._readyCallback) {
                 // load progress of audio tags is unreliable
                 this._readyCallback(true);
-                console.log("Klang audiotag ready: " + this._numFiles + " files");
             }
+        };
+        AudioTagHandler.prototype.getLoadGroups = /**
+        * Get a list of loadgroups
+        * @return {string[]} List of availible load groups (excluding the "auto" load group)
+        */
+        function () {
+            var i;
+            var fileInfoArr = this._audioSprites || [];
+            var groupTable = {
+            };
+            var listOfGroups = [];
+            for(i in fileInfoArr) {
+                var fileInfo = fileInfoArr[i];
+                groupTable[fileInfo.data.load_group] = fileInfo.data.load_group;
+            }
+            for(i in groupTable) {
+                listOfGroups.push(i);
+            }
+            return listOfGroups;
         };
         AudioTagHandler.prototype.loadProgress = /**
         * Updates load progress.
@@ -540,10 +923,14 @@ var __extends = function (d, b) {
         function () {
             this._loadedFiles++;
             if(this._progressCallback) {
-                this._progressCallback(this._loadedFiles / this._numFiles);
+                this._progressCallback((this._loadedFiles / this._numFiles) * 100);
             }
-            if(this._readyCallback && this._loadedFiles >= this._numFiles) {
-                this._readyCallback();
+            if(this._readyCallback && this._loadedFiles == this._numFiles) {
+                // Timeout för att audio tagen ska hinna bli redo att spelas. Behövdes för HM.
+                var _this = this;
+                setTimeout(function () {
+                    _this._readyCallback(true);
+                }, 2000);
             }
         };
         AudioTagHandler.prototype.triggerEvent = /**
@@ -552,7 +939,16 @@ var __extends = function (d, b) {
         * @param {Object} args Arguments to pass to the process.
         */
         function (name, args) {
-            //console.log("tag: incoming " + name);
+            var str = "";
+            for(var i = 0; i < args.length; i++) {
+                str += args[i] + ", ";
+            }
+            if(name != "sound_position") {
+                var arg = "";
+                if(args) {
+                    arg = args[0];
+                }
+            }
             if(!this._events) {
                 // not initialized
                 return;
@@ -581,18 +977,39 @@ var __extends = function (d, b) {
             return this._globalVolume;
         };
         AudioTagHandler.prototype.setGlobalVolume = function (value) {
-            if(value < 0) {
-                value = 0;
-            } else if(value > 1) {
-                value = 1;
-            }
+            value = Math.max(0, Math.min(value, 1));
             this._globalVolume = value;
             for(var a in this._audio) {
                 var audio = this._audio[a];
-                if(audio.setVolume) {
-                    audio.setVolume(audio.getOutput().getVolume());
+                if(audio && audio.setVolume && audio.getOutput) {
+                    var audioOut = audio.getOutput();
+                    if(audioOut) {
+                        audio.setVolume(audioOut.getVolume());
+                    }
                 }
             }
+        };
+        AudioTagHandler.prototype.fadeGlobalVolume = function (value, duration) {
+            value = Math.max(0, Math.min(value, 1));
+            if(this._globalFadeTimer) {
+                clearInterval(this._globalFadeTimer);
+            }
+            var _this = this;
+            var fadeSteps = Math.round(duration * 1000) / 10;
+            var volumeStep = (this._globalVolume - value) / fadeSteps;
+            this._globalFadeTimer = setInterval(function () {
+                _this._globalVolume = (_this._globalVolume - volumeStep);
+                fadeSteps--;
+                for(var a in _this._audio) {
+                    var audio = _this._audio[a];
+                    if(audio && audio.setVolume && audio.getOutput) {
+                        audio.setVolume();
+                    }
+                }
+                if(fadeSteps <= 0) {
+                    clearInterval(_this._globalFadeTimer);
+                }
+            }, 10);
         };
         AudioTagHandler.prototype.getLimitSounds = function () {
             return this._limitSounds;
@@ -623,9 +1040,10 @@ var __extends = function (d, b) {
         return AudioTagHandler;
     })();
     Klang.AudioTagHandler = AudioTagHandler;    
+    Klang.versionNumber = 2;
     Klang.context;
     Klang.version;
-    Klang.safari;
+    //export var safari: bool;
     Klang.progressCallback;
     Klang.readyCallback;
     Klang.browser;
@@ -633,21 +1051,33 @@ var __extends = function (d, b) {
     Klang.isMobile;
     Klang.isIOS;
     Klang.fallback;
+    Klang.loggingEnabled = false;
+    Klang.useMonoBuffers = false;
+    Klang.Panner;
+    Klang.safari = false;
+    Klang.initOptions;
     /**
     * Handles loading of the config file, initialization of objects and triggering of events.
     * @constructor
     */
     var Core = (function () {
-        // Om super master out ska fadas ut vid blur
         function Core() {
             this._initComplete = false;
             this._blurFadeOut = false;
-            Klang.safari = Klang.context.createGain == undefined;
+            // Om super master out ska fadas ut vid blur
+            this._masterBusId = null;
             this._preLoadInitStack = [];
             this._postLoadInitStack = [];
             this._connectStack = [];
-            this._superMasterOutput = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+            this._superMasterOutput = Klang.context ? Klang.context.createGain() : null;
+            Klang.Panner = Model.Panner;
+            this._eventHistory = [];
+            if(Util.getParameterByName("klang_log")) {
+                Klang.loggingEnabled = true;
+            }
         }
+        Core.debugSettings = {
+        };
         Core.inst = null;
         Core.isInited = function isInited() {
             if(Core.inst == null) {
@@ -661,9 +1091,6 @@ var __extends = function (d, b) {
             * @return {boolean}  If the core is inited.
             */
             function () {
-                /*if (inst == null) {
-                return false;
-                }*/
                 return this._initComplete;
             },
             enumerable: true,
@@ -683,15 +1110,31 @@ var __extends = function (d, b) {
             enumerable: true,
             configurable: true
         });
+        Core.prototype.setCallbacks = function (callbacks) {
+            this._callbacks = callbacks;
+        };
+        Object.defineProperty(Core, "callbacks", {
+            get: function () {
+                return Core.instance._callbacks;
+            },
+            enumerable: true,
+            configurable: true
+        });
         Core.deinit = function deinit() {
             Core.inst = null;
         };
         Core.prototype.stopAll = function () {
-            window.removeEventListener("focus", this._focusFunction);
-            window.removeEventListener("blur", this._blurFunction);
+            if(window["KlangVisual"]) {
+                KlangVisual.stop();
+            }
+            // window.removeEventListener("focus", this._focusFunction);
+            // window.removeEventListener("blur", this._blurFunction);
             for(var p in this._objectTable) {
                 if(this._objectTable[p].stop) {
-                    this._objectTable[p].stop();
+                    try  {
+                        this._objectTable[p].stop();
+                    } catch (ex) {
+                    }
                 }
             }
         };
@@ -706,6 +1149,7 @@ var __extends = function (d, b) {
             this._progressCallback = progressCallback || function () {
             };
             if(typeof options === "object") {
+                Klang.log("Loading config (editor)");
                 var data = this.createConfigNode(options);
                 Core.settings = data.settings;
                 Core.instance.initContent(data);
@@ -713,10 +1157,18 @@ var __extends = function (d, b) {
                 //var data = this.parseConfigJSON(options.config);
                 // Initiera klang
                 //Core.instance.initContent(data, options.files);
-                            } else if(typeof options === "string") {
+                if(window["KlangVisual"]) {
+                    KlangVisual.init(options);
+                }
+            } else if(typeof options === "string") {
+                Klang.log("Loading config (client)");
                 //
                 var request = new XMLHttpRequest();
                 request.open("GET", options, true);
+                // Ladda inte in från cache i utvecklarläge
+                //request.setRequestHeader("Expires", "Fri, 11 Jan 1991 00:00:00 GMT");
+                //request.setRequestHeader("Cache-Control", "no-cache");
+                //request.setRequestHeader("Pragma", "no-cache");
                 var _this = this;
                 request.onreadystatechange = function () {
                     if(request.readyState == 4 && request.status == 200) {
@@ -726,6 +1178,9 @@ var __extends = function (d, b) {
                         // Initiera klang
                         Core.settings = data.settings;
                         Core.instance.initContent(data, null, options);
+                        if(window["KlangVisual"]) {
+                            KlangVisual.init(JSON.parse(configText));
+                        }
                     } else if(request.status == 404) {
                         throw "Klang exception: config file not found: '" + options + "'";
                     } else if(request.status != 200) {
@@ -747,6 +1202,9 @@ var __extends = function (d, b) {
             return JSON.parse(jsonString, function (key, value) {
                 // Skapa rätt objekt om objektet har en typ
                 if(value && typeof value === 'object' && typeof value.type === 'string') {
+                    if(!Model[value.type]) {
+                        Klang.warn("Core: Type not found: " + value.type);
+                    }
                     return new Model[value.type](value, key);
                 }
                 return value;
@@ -764,6 +1222,9 @@ var __extends = function (d, b) {
                 for(var key in node) {
                     var prop = node[key];
                     if(typeof prop === "object" && typeof prop.type === "string") {
+                        if(!Model[prop.type]) {
+                            Klang.warn("Core: Type not found: " + prop.type);
+                        }
                         node[key] = this.createConfigNode(prop);
                         node[key] = new Model[prop.type](prop, key);
                     } else {
@@ -773,6 +1234,91 @@ var __extends = function (d, b) {
             }
             return node;
         };
+        Core.prototype.createObject = /**
+        * Creates an audio engine object. Used to dynamically populate the engine with new objects as they are created in the editor.
+        * @param name string Identifying name of the object.
+        * @param data Object containing the config-data for the object.
+        * @param options Object Options for whether to initialize, connect etc.
+        *
+        * all properties default to false if unspecified
+        * options: {
+        *     noInit: bool             // whether to initialize the object after it's created
+        *     noConnect: bool,         // whether to connect the object after it's creted
+        *     exludeFromTable: bool    // whether to add the object to the table of available objects (this._objectTable)
+        * }
+        */
+        function (name, data, options) {
+            if(!options) {
+                options = {
+                };
+            }
+            if(!Model[data.type]) {
+                Klang.warn("Core: Type not found: " + data.type);
+            }
+            if(!options.excludeFromTable && this._objectTable[name]) {
+                Klang.warn("Core: Duplicate object: " + name);
+            }
+            var obj = new Model[data.type](data, name);
+            if(!options.excludeFromTable) {
+                this._objectTable[name] = obj;
+            }
+            if(!options.noInit && obj.init) {
+                obj.init();
+            }
+            if(!options.noConnect && obj.destinationName && obj.connect) {
+                if(obj.destinationName == "$OUT") {
+                    obj.connect(this._superMasterOutput);
+                } else {
+                    var destination = this.findInstance(obj.destinationName);
+                    if(!destination) {
+                        Klang.warn("Core: Destination not found: " + obj.destinationName);
+                    }
+                    if(destination._type != "Bus") {
+                        Klang.warn("Core: Destination is not a bus: " + obj.destinationName);
+                    }
+                    obj.connect(destination.input);
+                }
+            }
+            return obj;
+        };
+        Core.prototype.updateObject = /**
+        * Updates and reinitializes an existing object.
+        * @param object string The object to be updated or identifying name of the object.
+        * @param data Object containing the config-data for the object.
+        */
+        function (object, data) {
+            var obj = (typeof object == "string") ? this._objectTable[object] : object;
+            // kolla om objektet ska kopplas om
+            /*var reconnect = obj.connect &&                                  // objektet kan kopplas
+            data.destination_name != undefined &&           // en ny destination finns
+            obj.destinationName != data.destination_name;   // den nya destinationen är inte samma som den förra
+            */
+            if(obj._type == 'SimpleProcess' && data.type == 'AdvancedProcess') {
+                var advancedProcess = new Model.AdvancedProcess(data, object);
+                advancedProcess.init();
+                this._objectTable[object] = advancedProcess;
+            } else if(obj._type == 'AdvancedProcess' && data.type == 'SimpleProcess') {
+                var simpleProcess = new Model.SimpleProcess(data, object);
+                simpleProcess.init();
+                this._objectTable[object] = simpleProcess;
+            } else if(obj.setData) {
+                obj.setData(data);
+            }
+            /*if (obj.init) {
+            obj.init();
+            }
+            
+            if (reconnect) {
+            obj.disconnect();
+            obj.connect(this.findInstance(obj.destinationName));
+            }*/
+                    };
+        Core.prototype.createEvent = function (name, target) {
+            if(this._eventTable[name]) {
+                Klang.warn("Core: Duplicate event: " + name);
+            }
+            this._eventTable[name] = target;
+        };
         Core.prototype.initContent = /**
         * Initializes data loaded from a JSON config file.
         * @private
@@ -781,11 +1327,10 @@ var __extends = function (d, b) {
         * @param {string} url Base url.
         */
         function (data, files, url) {
-            var baseURL = data.settings.file_root;// file_root från configen, används när vi hostar filerna
-            
-            var filePath = data.settings.file_path || "";// file_path från configen, används ISTÄLLET för file_root so relative path från configen när vi flyttat över.
-            
-            if(!baseURL) {
+            var relativePath = data.settings.relative_path;
+            var baseURL;
+            var filePath = data.settings.file_path || "";
+            if(relativePath) {
                 if(url.lastIndexOf("/") != -1) {
                     baseURL = url.substring(0, url.lastIndexOf("/"));
                     if(baseURL.charAt(baseURL.length - 1) !== "/") {
@@ -795,25 +1340,36 @@ var __extends = function (d, b) {
                 } else {
                     baseURL = filePath;
                 }
+            } else {
+                baseURL = filePath;
             }
+            Klang.log("Initializing core");
+            var startTimeStamp = Klang.context.currentTime;
             // Init fade out on blur
             if(data.settings.blur_fade_time != -1) {
                 this._blurFadeOut = true;
                 var fadeTime = data.settings.blur_fade_time || 0.5;
+                if(fadeTime < 0 && fadeTime != -1) {
+                    Klang.warn("Core: Invalid blur_fade_time value. Must be -1 or >= 0.");
+                }
                 var _this = this;
-                // när tabben får fokus
-                window.addEventListener('focus', function () {
-                    Util.curveParamLin(_this._superMasterOutput.gain, 1.0, fadeTime);
-                });
-                // när tabben tappar fokus
-                window.addEventListener('blur', function () {
-                    if(_this._blurFadeOut) {
-                        Util.curveParamLin(_this._superMasterOutput.gain, 0.0, fadeTime);
+                function visChange() {
+                    if(_this.isHidden()) {
+                        if(_this._blurFadeOut) {
+                            Util.curveParamLin(_this._superMasterOutput.gain, 0.0, fadeTime);
+                        }
+                    } else {
+                        Util.curveParamLin(_this._superMasterOutput.gain, 1.0, fadeTime);
                     }
-                });
+                }
+                var visProp = this.getHiddenProp();
+                if(visProp) {
+                    var evtname = 'visibilitychange';
+                    document.addEventListener(evtname, visChange);
+                }
             }
             // om filarrayen skickas med används den, annars används filer från configen
-            Model.FileHandler.instance.fileInfo = files != undefined ? files : data.files;
+            Model.FileHandler.instance.fileInfo = (files != undefined ? files : data.files) || [];
             this._eventTable = data.events || {
             };
             this._objectTable = {
@@ -839,13 +1395,22 @@ var __extends = function (d, b) {
             for(var p in data.automations) {
                 this._objectTable[p] = data.automations[p];
             }
+            this.setVars(data.vars);
+            this._masterBusId = data.masterBus;
+            this._exportedSymbols = data.exportedSymbols || {
+            };
+            this._logIgnore = data.debug.log_ignore || data.log_ignore || {
+            };
             // Sätt lyssnarens startposition för 3d-ljud
-            if(data.settings.listener_start_position) {
-                var pos = data.settings.listener_start_position;
-                Model.Panner.listener.setPosition(pos[0], pos[1], pos[2]);
-            }
+            Model.Panner.setListenerData(data.settings.listener);
             // Skapa egna kurvor
             Util.createCurves(data.curves);
+            this._loadStartTimestamp = new Date().getTime();
+            if(data.debug) {
+                Klang.debugData.ignoredEvents = data.debug.ignored_events || Klang.debugData.ignoredEvents;
+                Klang.debugData.logToConsole = data.debug.log_to_console || Klang.debugData.logToConsole;
+            }
+            Klang.log("Pre load initialization started");
             // Initiera de objekt som inte kunde skapas klart
             for(var ix = 0, len = this._preLoadInitStack.length; ix < len; ix++) {
                 var element = this._preLoadInitStack[ix];
@@ -854,6 +1419,8 @@ var __extends = function (d, b) {
                     element.init();
                 }
             }
+            Klang.log("Pre load initialization finished");
+            Klang.log("Connecting nodes");
             // Koppla ihop alla audio nodes
             this._superMasterOutput.connect(Klang.context.destination);
             for(var ix = 0, len = this._connectStack.length; ix < len; ix++) {
@@ -868,20 +1435,76 @@ var __extends = function (d, b) {
                         break;
                     default: {
                         var destination = this.findInstance(element.destinationName);
+                        if(!destination) {
+                            Klang.warn("Core: Destination not found: " + element.destinationName);
+                        }
+                        if(destination._type != "Bus") {
+                            Klang.warn("Core: Destination is not a bus: " + element.destinationName);
+                        }
                         element.connect(destination.input);
                         break;
                     }
                 }
             }
+            Klang.log("Nodes connected");
             // PreLoad och Connect-stacksen behövs inte längre
             this._preLoadInitStack = null;
             this._connectStack = null;
             this._timeHandler = new Model.TimeHandler();
             this._initComplete = true;
+            Klang.log("Core initialized");
             // Börja ladda in alla autoload-ljud
             // Kör readycallback när alla ljud är laddade
             Model.FileHandler.instance.baseURL = baseURL;
-            Model.FileHandler.instance.loadFiles("auto", Core.soundsLoaded, this._progressCallback);
+            if(!Klang.initOptions || (Klang.initOptions && !Klang.initOptions.noAutoLoad)) {
+                Model.FileHandler.instance.loadFiles("auto", Core.soundsLoaded, this._progressCallback);
+            }
+        };
+        Core.prototype.isHidden = function () {
+            var prop = this.getHiddenProp();
+            if(!prop) {
+                return false;
+            }
+            return document[prop];
+        };
+        Core.prototype.getHiddenProp = function () {
+            var prefixes = [
+                'webkit', 
+                'moz', 
+                'ms', 
+                'o'
+            ];
+            // if 'hidden' is natively supported just return it
+            if('hidden' in document) {
+                return 'hidden';
+            }
+            // otherwise loop over all the known prefixes until we find one
+            for(var i = 0; i < prefixes.length; i++) {
+                if((prefixes[i] + 'Hidden') in document) {
+                    return prefixes[i] + 'Hidden';
+                }
+            }
+            // otherwise it's not supported
+            return null;
+        };
+        Core.prototype.setVars = function (vars) {
+            if(vars) {
+                for(var key in vars) {
+                    if(typeof vars[key] == "string" && vars[key].indexOf("me.") > -1) {
+                        vars[key] = this.findInstance(vars[key].split('me.')[1]);
+                    } else if(typeof vars[key] == "object") {
+                        var obj = vars[key];
+                        for(var prop in obj) {
+                            if(obj.hasOwnProperty(prop)) {
+                                if(typeof obj[prop] == "string" && obj[prop].indexOf("me.") > -1) {
+                                    obj[prop] = this.findInstance(obj[prop].split('me.')[1]);
+                                }
+                            }
+                        }
+                    }
+                }
+                Util.vars = vars;
+            }
         };
         Core.prototype.loadSoundFiles = /**
         * Loads the sound files contained in a specific pack of sound file URLs.
@@ -892,17 +1515,50 @@ var __extends = function (d, b) {
             if(progressCallback) {
                 this._progressCallback = progressCallback;
             }
-            Model.FileHandler.instance.loadFiles(name, callback, this._progressCallback, loadFailedCallback);
+            var _this = this;
+            Model.FileHandler.instance.loadFiles(name, function (success, loadedFiles) {
+                // check if any files belonging to an AudioSource was loaded and run init
+                for(var i = 0; i < loadedFiles.length; i++) {
+                    var fileId = loadedFiles[i].id;
+                    for(var j in _this._objectTable) {
+                        if(_this._objectTable.hasOwnProperty(j)) {
+                            var obj = _this._objectTable[j];
+                            if(obj._type === 'AudioSource' && obj._fileId === fileId) {
+                                obj.init();
+                            }
+                        }
+                    }
+                }
+                callback && callback(true);
+            }, this._progressCallback, loadFailedCallback);
+        };
+        Core.prototype.freeSoundFiles = /**
+        * Releases the buffers for all audio files in a load group, allowing the memory to be garbage collected.
+        * @param {string} name Name of the pack of sound files to free.
+        */
+        function (name) {
+            Model.FileHandler.instance.freeSoundFiles(name);
+            for(var p in this._objectTable) {
+                var obj = this._objectTable[p];
+                if(obj._type == "AudioSource") {
+                    var fileInfo = Model.FileHandler.instance.getFileInfo(obj._fileId);
+                    if(fileInfo && fileInfo.load_group == name) {
+                        obj.freeBuffer();
+                    }
+                }
+            }
         };
         Core.soundsLoaded = /**
         * Called when auto load sound files have been loaded.
         * @private
         */
         function soundsLoaded() {
+            Klang.log("Post load initialization started");
             var _this = Core.instance;
             for(var i = 0, len = _this._postLoadInitStack.length; i < len; i++) {
                 _this._postLoadInitStack[i].init();
             }
+            Klang.log("Post load initialization finished");
             // PostLoad-stacken behövs inte längre
             _this._postLoadInitStack = null;
             if(_this._readyCallback) {
@@ -952,6 +1608,10 @@ var __extends = function (d, b) {
         */
         function (name) {
             var instance = this._objectTable[name];
+            // Kasta ett undantag om ingen instans matchade namnet
+            if(!instance) {
+                Klang.warn("Core: Unknown reference: '" + name + "'");
+            }
             return instance;
         };
         Core.prototype.triggerEvent = /**
@@ -964,27 +1624,66 @@ var __extends = function (d, b) {
             for (var _i = 0; _i < (arguments.length - 1); _i++) {
                 eventArgs[_i] = arguments[_i + 1];
             }
+            Util.lastEvent = id;
+            if(Klang.debugData.ignoredEvents[id]) {
+                return;
+            }
+            // if ( !Core.debugSettings['NO_EVENT_HISTORY'] ) {
+            //     this._eventHistory.push({
+            //         name: id,
+            //         time: context.currentTime,
+            //         args: eventArgs[0].length == 0 ? undefined : eventArgs[0],
+            //         process: this._eventTable[id]
+            //     });
+            // }
+            // Kasta ett undantag om inget event matchade id:t
+            if(!this._eventTable[id]) {
+                if(Klang.debugData.logToConsole && !this._logIgnore[id]) {
+                    Klang.logc("Klang Core: Incoming sound event: '" + id + "'" + ", " + eventArgs, Util.LOG_UNIMPLEMENTED_EVENT_COLOR);
+                }
+            } else {
+                if(Klang.debugData.logToConsole && !this._logIgnore[id]) {
+                    Klang.logc("Klang Core: Incoming sound event: '" + id + "'" + ", " + eventArgs, Util.LOG_EVENT_COLOR);
+                }
+            }
+            // if (this._callbacks && this._callbacks.triggerEvent) {
+            //     this._callbacks.triggerEvent(this._eventHistory[this._eventHistory.length-1]);
+            // }
             var process = this._eventTable[id];
             if(typeof process == "string") {
+                // Kasta ett undantag om ingen process matchade processid:t
+                if(!this._objectTable[process]) {
+                    //Här skulle man kunna spela ett testljud så att det alltid låter när man triggar ett event
+                    Klang.warn("Core: Unknown process: '" + process + "'");
+                }
+                if(this._objectTable[process]._type != "SimpleProcess" && this._objectTable[process]._type != "AdvancedProcess") {
+                    Klang.warn("Core: Object is not a process: '" + process + "'");
+                }
                 this._objectTable[process].start(eventArgs[0])// eventArgs[0] är hela arrayen
                 ;
             } else if(process instanceof Array) {
                 for(var ix = 0, len = process.length; ix < len; ix++) {
+                    // Kasta ett undantag om ingen process matchade processid:t
+                    if(!this._objectTable[process[ix]]) {
+                        Klang.warn("Core: Unknown process: '" + process[ix] + "'");
+                    }
+                    if(this._objectTable[process[ix]]._type != "SimpleProcess" && this._objectTable[process[ix]]._type != "AdvancedProcess") {
+                        Klang.warn("Core: Object is not a process: '" + process + "'");
+                    }
                     this._objectTable[process[ix]].start(eventArgs[0])// eventArgs[0] är hela arrayen
                     ;
                 }
             }
+        };
+        Core.prototype.getSymbolId = function (symbol) {
+            return this._exportedSymbols[symbol];
         };
         Core.prototype.initIOS = /**
         * Creates a silent audio buffer and plays it back to initialize web audio for iOS devices.
         */
         function () {
             var src = Klang.context.createBufferSource();
-            if(Klang.safari) {
-                src.noteOn(0);
-            } else {
-                src.start(0);
-            }
+            src.start(0);
         };
         Object.defineProperty(Core.prototype, "timeHandler", {
             get: /**
@@ -1032,7 +1731,19 @@ var __extends = function (d, b) {
     * Whether or not Klang has been initialized.
     * @type {boolean}
     */
+    Klang.READY_STATE_NOT_INITIATED = 0;
+    Klang.READY_STATE_INITIATED = 1;
+    Klang.READY_STATE_LOADED = 2;
     Klang.klangInited = false;
+    Klang.readyState = Klang.READY_STATE_NOT_INITIATED;
+    var _eventQue;
+    function pushToEventQue(name) {
+        // only add same event once
+        _eventQue = _eventQue || {
+        };
+        _eventQue[name] = arguments;
+    }
+    Klang.pushToEventQue = pushToEventQue;
     /**
     * Triggers an event.
     * @param {string} name Name of the event to run.
@@ -1058,17 +1769,35 @@ var __extends = function (d, b) {
                 }
             }
         } catch (ex) {
-            Klang.err("Klang exception: unable to trigger event: '" + name + "'");
+            Klang.err("Klang exception: unable to trigger event: '" + name + "': " + ex.name + ": " + ex.message);
         }
     }
     Klang.triggerEvent = triggerEvent;
+    function getDestinationForEvent(eventName) {
+        var process = Core.instance.findInstance(Klang.getEvents()[eventName]);
+        if(process) {
+            return process.destination();
+        }
+        return null;
+    }
+    Klang.getDestinationForEvent = getDestinationForEvent;
+    function processEventQue() {
+        if(_eventQue) {
+            for(var i in _eventQue) {
+                if(_eventQue.hasOwnProperty(i)) {
+                    Klang.triggerEvent.apply(Klang, _eventQue[i]);
+                }
+            }
+            _eventQue = null;
+        }
+    }
     /**
     * Initializes the Klang Core using a JSON config file.
     * @param {string} json Path on the server to the config file.
     * @param {Function} readyCallback Function to call when all auto-load sounds are loaded.
     * @param {Function} progressCallback Function with sound loading progress.
     */
-    function init(json, readyCallback, progressCallback, loadFailedCallback) {
+    function init(json, readyCallback, progressCallback, loadFailedCallback, options) {
         if(navigator.userAgent.indexOf('Firefox') != -1) {
             //Firefox
             Klang.browser = "Firefox";
@@ -1085,31 +1814,35 @@ var __extends = function (d, b) {
             // IE
             Klang.browser = "IE";
         }
+        Klang.initOptions = options = options || {
+        };
         Klang.isMobile = Util.checkMobile();
         Klang.isIOS = Util.checkIOS();
+        if(typeof json == "object" && json.settings && json.settings.force_logging) {
+            Klang.loggingEnabled = true;
+        }
         if(Klang.klangInited) {
             Klang.warn("Klang already initialized");
             return;
         }
         Klang.klangInited = true;
-        if(window.AudioContext == undefined && window.webkitAudioContext != undefined) {
-            window.AudioContext = window.webkitAudioContext;
-        }
-        if(window.AudioContext != undefined) {
+        Klang.readyState = Klang.READY_STATE_NOT_INITIATED;
+        // WebAudio first
+        if(window.AudioContext !== undefined && !options.noWebAudio) {
             if(!Klang.context) {
                 Klang.context = new AudioContext();
             }
-            //Används för att själv styra om till fallback json fil i jfk
-            /*if (Klang.browser == "Firefox" || Util.checkMobile()) {
-            Klang.fallback = "config_tablet.json";
-            }*/
-                    } else {
+        } else {
             Klang.version = "audiotag";
             try  {
-                Klang.audioTagHandler = new AudioTagHandler(json, readyCallback, progressCallback);
+                Klang.audioTagHandler = new AudioTagHandler(json, function (success) {
+                    Klang.readyState = Klang.READY_STATE_LOADED;
+                    readyCallback && readyCallback(success);
+                    processEventQue();
+                }, progressCallback);
             } catch (ex) {
                 Klang.err("Klang exception: unable to initialize audio tag fallback");
-                Klang.version = "n/a";
+                Klang.version = "failed audiotag";
                 readyCallback(false);
                 return false;
             }
@@ -1128,11 +1861,15 @@ var __extends = function (d, b) {
             /*if (Klang.fallback) {
             json = json.substring(0, json.indexOf("config.json"))+Klang.fallback;
             }*/
-            Core.instance.loadJSON(json, readyCallback, progressCallback);
+            Core.instance.loadJSON(json, function (success) {
+                Klang.readyState = Klang.READY_STATE_LOADED;
+                readyCallback && readyCallback(success);
+                processEventQue();
+            }, progressCallback);
             return true;
         } catch (ex) {
-            Klang.err("Klang exception: unable to parse config file: '" + json + "'");
-            Klang.version = "n/a";
+            Klang.err("Klang exception: unable to parse config file: '" + json + "': " + ex.name + ": " + ex.message);
+            Klang.version = "failed web audio";
             readyCallback(false);
             return false;
         }
@@ -1146,30 +1883,111 @@ var __extends = function (d, b) {
             try  {
                 Core.instance.initIOS();
             } catch (ex) {
+                Klang.err("Klang exception: unable to init iOS: " + ex.name + ": " + ex.message);
             }
-        } else if(Klang.version == "audiotag" && Klang.isIOS) {
+        } else if(Klang.version == "audiotag" && Klang.isMobile) {
             Klang.audioTagHandler.initIOS();
         }
     }
     Klang.initIOS = initIOS;
     /**
+    * Get a list of loadgroups
+    * @return {string[]} List of availible load groups (excluding the "auto" load group)
+    */
+    function getLoadGroups() {
+        var listOfGroups = [];
+        var fileHandler;
+        if(Klang.version === 'webaudio') {
+            fileHandler = Model.FileHandler.instance;
+        } else if(Klang.version === 'audiotag') {
+            fileHandler = Klang.audioTagHandler;
+        } else {
+            // allow phantomjs to pass (no )
+            return [];
+            //throw new Error( 'Error - operation not supported in ' + Klang.version );
+                    }
+        listOfGroups = fileHandler.getLoadGroups();
+        var autoIndex = listOfGroups.indexOf('auto');
+        if(autoIndex !== -1) {
+            listOfGroups.splice(autoIndex, 1);
+        }
+        return listOfGroups;
+    }
+    Klang.getLoadGroups = getLoadGroups;
+    //Används för att komma åt core ifrån fuleditorn.
+    function getCoreInstance() {
+        return Core.instance;
+    }
+    Klang.getCoreInstance = getCoreInstance;
+    function getFileHandlerInstance() {
+        return Model.FileHandler.instance;
+    }
+    Klang.getFileHandlerInstance = getFileHandlerInstance;
+    function getUtil() {
+        return Util;
+    }
+    Klang.getUtil = getUtil;
+    function getModel() {
+        return Model;
+    }
+    Klang.getModel = getModel;
+    function createObject(name, options) {
+        if(!Model[name]) {
+            throw new Error('No such object');
+        }
+        return new Model[name](options);
+    }
+    Klang.createObject = createObject;
+    /**
+    *   @param {string} flagName Options are NO_EVENT_HISTORY
+    *   @param {bool} value Flag value
+    */
+    function setDebugFlag(flagName, value) {
+        Core.debugSettings[flagName] = value;
+    }
+    Klang.setDebugFlag = setDebugFlag;
+    /**
     * Start loading a pack of sounds defined in the JSON config file.
-    * @param {string} name Name of the pack to load.
+    * @param {string} name Name of the load group to load.
     * @param {function} readyCallback Function to call when all sounds are loaded.
     * @param {function} progressCallback Function to call while loading files.
     */
     function load(name, readyCallback, progressCallback, loadFailedCallback) {
         try  {
+            Klang.logc("Klang: Loading: '" + name + "'", Util.LOG_LOAD_COLOR);
             if(Klang.version == "webaudio") {
                 Core.instance.loadSoundFiles(name, readyCallback, progressCallback, loadFailedCallback);
             } else if(Klang.version == "audiotag") {
                 Klang.audioTagHandler.loadSoundFiles(name, readyCallback, progressCallback, loadFailedCallback);
+            } else {
+                if(progressCallback) {
+                    progressCallback(1);
+                }
+                if(readyCallback) {
+                    readyCallback(false);
+                }
             }
         } catch (ex) {
-            Klang.err("Klang exception: unable to load file group: '" + name + "'");
+            Klang.err("Klang exception: unable to load file group: '" + name + "': " + ex.name + ": " + ex.message);
         }
     }
     Klang.load = load;
+    /**
+    * Releases the buffers for all audio files in a load group, allowing the memory to be garbage collected.
+    * @param {string} name Name of the pack to free.
+    */
+    function free(name) {
+        try  {
+            Klang.logc("Klang: Freeing: '" + name + "'", Util.LOG_LOAD_COLOR);
+            if(Klang.version == "webaudio") {
+                Core.instance.freeSoundFiles(name);
+            } else if(Klang.version == "audiotag") {
+            }
+        } catch (ex) {
+            Klang.err("Klang exception: unable to free file group: '" + name + "': " + ex.name + ": " + ex.message);
+        }
+    }
+    Klang.free = free;
     /**
     * Gets progress on the number of loaded audio files.
     * @returns {Object} Object containing two properties: loaded- number of loaded audio files and total: total number of audio files to be loaded.
@@ -1178,26 +1996,66 @@ var __extends = function (d, b) {
         return Model.FileHandler.instance.progress;
     }
     Klang.getLoadProgress = getLoadProgress;
+    function stopAll() {
+        if(Klang.version == "webaudio") {
+            if(Core.isInited()) {
+                Core.instance.stopAll();
+            }
+        } else if(Klang.version == "audiotag") {
+            Klang.audioTagHandler.stopAll();
+        }
+    }
+    Klang.stopAll = stopAll;
+    function $(symbol, args) {
+        if(Klang.version == "webaudio") {
+            if(Core.isInited()) {
+                if(symbol.indexOf('.') === 0) {
+                    var type = symbol.substring(1);
+                    var ret = [];
+                    var entities = Klang.getCoreInstance()._objectTable;
+                    for(var i in entities) {
+                        if(entities.hasOwnProperty(i)) {
+                            var entity = entities[i];
+                            if(entity._type === type) {
+                                ret.push(entity);
+                            }
+                        }
+                    }
+                    return ret;
+                } else {
+                    var id = Core.instance.getSymbolId(symbol);
+                    return Core.instance.findInstance(id);
+                }
+            }
+        } else if(Klang.version == "audiotag") {
+            // @TODO
+                    }
+    }
+    Klang.$ = $;
     function log() {
         var args = [];
         for (var _i = 0; _i < (arguments.length - 0); _i++) {
             args[_i] = arguments[_i + 0];
         }
-        if(Klang.browser == "Chrome") {
-            console.log("%c[" + getTimeString() + "] " + args.join(), "color:" + Util.LOG_TIME_COLOR);
-        } else {
-            console.log.apply(console, args);
+        if(Klang.loggingEnabled) {
+            if(Klang.browser == "Chrome") {
+                console.log("%c[" + getTimeString() + "] " + args.join(), "color:" + Util.LOG_TIME_COLOR);
+            } else {
+                console.log.apply(console, args);
+            }
         }
     }
     Klang.log = log;
     function logc(message, color) {
-        if(Klang.browser == "Chrome") {
-            if(!color) {
-                color = "gray";
+        if(Klang.loggingEnabled) {
+            if(Klang.browser == "Chrome") {
+                if(!color) {
+                    color = "gray";
+                }
+                console.log("%c[" + getTimeString() + "] " + message, "color:" + color);
+            } else {
+                console.log(message);
             }
-            console.log("%c[" + getTimeString() + "] " + message, "color:" + color);
-        } else {
-            console.log(message);
         }
     }
     Klang.logc = logc;
@@ -1206,10 +2064,12 @@ var __extends = function (d, b) {
         for (var _i = 0; _i < (arguments.length - 0); _i++) {
             args[_i] = arguments[_i + 0];
         }
-        if(Klang.browser == "Chrome") {
-            console.warn("%c[" + Klang.getTimeString() + "] " + args.join(), "color:" + Util.LOG_WARN_COLOR);
-        } else {
-            console.warn.apply(console, args);
+        if(Klang.loggingEnabled) {
+            if(Klang.browser == "Chrome") {
+                console.warn("%c[" + Klang.getTimeString() + "] " + args.join(), "color:" + Util.LOG_WARN_COLOR);
+            } else {
+                console.warn.apply(console, args);
+            }
         }
     }
     Klang.warn = warn;
@@ -1218,10 +2078,12 @@ var __extends = function (d, b) {
         for (var _i = 0; _i < (arguments.length - 0); _i++) {
             args[_i] = arguments[_i + 0];
         }
-        if(Klang.browser == "Chrome") {
-            console.warn("%c[" + Klang.getTimeString() + "] " + args.join(), "color:" + Util.LOG_ERROR_COLOR);
-        } else {
-            console.warn.apply(console, args);
+        if(Klang.loggingEnabled) {
+            if(Klang.browser == "Chrome") {
+                console.warn("%c[" + Klang.getTimeString() + "] " + args.join(), "color:" + Util.LOG_ERROR_COLOR);
+            } else {
+                console.warn.apply(console, args);
+            }
         }
     }
     Klang.err = err;
@@ -1248,6 +2110,47 @@ var __extends = function (d, b) {
         return zeropad(h, 2) + ":" + zeropad(m, 2) + ":" + zeropad(s, 2) + "." + zeropad(ms % 1000, 3);
     }
     Klang.getTimeString = getTimeString;
+    function getEvents() {
+        if(Klang.version === "flash") {
+            return null;
+        } else // preprocess klarar inte nästlade direktiv så audiotag-klausulen måste gå igenom kompilering utan audiotag...
+        if(Klang.version == "audiotag") {
+            return Klang["audioTagHandler"]._events;
+        }
+        return Core.instance._eventTable;
+    }
+    Klang.getEvents = getEvents;
+    Klang.debugData = {
+        ignoredEvents: {
+        },
+        logToConsole: true
+    };
+    Klang.visualWindow;
+    function setCallbacks(callbacks) {
+        Core.instance.setCallbacks(callbacks);
+    }
+    Klang.setCallbacks = setCallbacks;
+    // Kör fördefinierade events
+    function schedulePredefinedEvents(events) {
+        var nextEventIx = 0;
+        var eventInterval = setInterval(function () {
+            var now = Klang.context.currentTime;
+            var e = events[nextEventIx];
+            // Kör alla events som hunnit komma under interval-väntan
+            while(e.time < now) {
+                triggerEvent(e.name, e.args);
+                nextEventIx++;
+                // Avbryt när vi kört det sista eventet
+                if(nextEventIx == events.length) {
+                    clearInterval(eventInterval);
+                    break;
+                } else {
+                    e = events[nextEventIx];
+                }
+            }
+        }, 10);
+    }
+    Klang.schedulePredefinedEvents = schedulePredefinedEvents;
     // Tar bort alla objekt, men behåller alla filer som laddats in
     function deinit(url, readyCallback) {
         Klang.klangInited = false;
@@ -1264,7 +2167,10 @@ var __extends = function (d, b) {
     Klang.deinit = deinit;
     var Model;
     (function (Model) {
-        /** @namespace Klang.Model */ /**
+        /** @namespace Klang.Model */ /*
+        * Source: src/model/FileHandler.ts
+        */
+        /**
         * Handles loading and access of files.
         * @constructor
         */
@@ -1273,13 +2179,7 @@ var __extends = function (d, b) {
             function FileHandler() {
                 this._files = {
                 };
-                this._progress = {
-                    totalBytes: 0,
-                    loadedBytes: 0,
-                    totalFiles: 0,
-                    totalAudioFiles: 0,
-                    readyAudioFiles: 0,
-                    bufferedFiles: 0
+                this._groups = {
                 };
                 this._lastSentPercent = -1;
             }
@@ -1302,17 +2202,19 @@ var __extends = function (d, b) {
             * Calls the callback function for progress of file loading.
             * @private
             */
-            function () {
-                if(this._progressCallback && !this._loadInterrupted) {
+            function (group) {
+                var loadGroup = this._groups[group];
+                if(loadGroup.progressCallback && !loadGroup.loadInterrupted) {
                     var percent = 0;
                     // uppdatera endast procent om alla filers filstorlek har hämtats
-                    if(this._progress.readyAudioFiles >= this._progress.totalAudioFiles) {
-                        percent = Math.floor(((this._progress.loadedBytes + this._progress.bufferedFiles) / (this._progress.totalBytes + this._progress.totalFiles)) * 100);
+                    if(loadGroup.progress.readyAudioFiles >= loadGroup.progress.totalAudioFiles) {
+                        // subtract total files from progress to leave room for buffer convertions (1% for each file)
+                        percent = Math.floor(((loadGroup.progress.loadedBytes + loadGroup.progress.bufferedFiles) / (loadGroup.progress.totalBytes + loadGroup.progress.totalFiles)) * (100 - (loadGroup.progress.totalFiles - loadGroup.progress.convertedFiles)));
                     }
-                    if(percent != this._lastSentPercent) {
-                        this._lastSentPercent = percent;
-                        this._progressCallback(percent);
+                    if(this._lastSentPercent !== percent) {
+                        loadGroup.progressCallback(percent);
                     }
+                    this._lastSentPercent = percent;
                 }
             };
             FileHandler.prototype.updateProgress = /**
@@ -1322,6 +2224,7 @@ var __extends = function (d, b) {
             * @private
             */
             function (request, e) {
+                var group = request["load_group"];
                 if(!request["sizeReceived"]) {
                     request["sizeReceived"] = true;
                     var totalBytes = 1;// 1 om längden inte finns tillgänglig
@@ -1331,15 +2234,16 @@ var __extends = function (d, b) {
                         request["loadedBytes"] = 0;
                     }
                     request["totalBytes"] = totalBytes;
-                    this.progress.totalBytes += totalBytes;
-                    this.progress.readyAudioFiles++;
+                    this._groups[group].progress.totalBytes += totalBytes;
+                    this._groups[group].progress.readyAudioFiles++;
                 }
                 // Lägg på antal nya inladdade bytes om det finns tillgängligt
                 if(request["loadedBytes"] != undefined) {
                     var deltaBytes = e.loaded - request["loadedBytes"];
                     request["loadedBytes"] = e.loaded;
-                    this.progress.loadedBytes += deltaBytes;
-                    this.sendProgressCallback();
+                    //this.progress.loadedBytes += deltaBytes;
+                    this._groups[group].progress.loadedBytes += deltaBytes;
+                    this.sendProgressCallback(group);
                 }
             };
             FileHandler.prototype.loadAudioBuffer = /**
@@ -1351,45 +2255,64 @@ var __extends = function (d, b) {
                 var _this = this;
                 var request = new XMLHttpRequest();
                 var format = ".ogg";
-                if(Klang.browser === "Safari") {
+                if(Klang.browser === "Safari" || Klang.detector.browser['name'] === 'Netscape') {
                     format = ".mp3";
                 }
-                request.open('GET', this._baseURL + info.url + format, true);
+                var url = (info.external ? '' : this._baseURL) + info.url + format;
+                request.open('GET', url, true);
                 request.responseType = 'arraybuffer';
                 request["sizeReceived"] = false;
+                request["load_group"] = info.load_group;
                 request.onprogress = function (e) {
                     _this.updateProgress(request, e);
                 };
                 request.onload = function (e) {
                     Klang.context.decodeAudioData(request.response, function (buf) {
+                        var group = _this._groups[info.load_group];
                         if(request["loadedBytes"]) {
                             var deltaBytes = request["totalBytes"] - request["loadedBytes"];
-                            _this.progress.loadedBytes += deltaBytes;
+                            group.progress.loadedBytes += deltaBytes;
                         } else {
-                            _this.progress.loadedBytes += 1;
+                            // fallback for no loadedBytes (?)
+                            group.progress.loadedBytes += 1;
+                        }
+                        // Gör om till mono i iOS
+                        if(Klang.useMonoBuffers) {
+                            var bufferLength = buf.length;
+                            // Skapa ny buffer
+                            var monoBuffer = Klang.context.createBuffer(1, bufferLength, Klang.context.sampleRate);
+                            // Kopiera samples från vänster till monobuffern (finns det bättre sätt än loopa igenom alla?)
+                            var leftChannelData = buf.getChannelData(0);
+                            var monoChannelData = monoBuffer.getChannelData(0);
+                            for(var ix = 0; ix < bufferLength; ix++) {
+                                monoChannelData[ix] = leftChannelData[ix];
+                            }
+                            buf = monoBuffer;
                         }
                         _this.addFile(info, buf);
+                        group.progress.convertedFiles++;
+                        _this.updateProgress(request, e);
                         if(callback) {
                             callback();
                         }
+                        buf = null;
+                        request = null;
                     }, function (ex) {
-                        console.log("Klang warning: unable to load file '" + (this._baseURL || "") + info.url + "'");
+                        Klang.log("Klang warning: unable to load file '" + (this._baseURL || "") + info.url + "'");
                     });
+                    request.response = null;
                 };
                 request.onreadystatechange = function () {
                     if(request.readyState == 4 && request.status == 200) {
                     } else if(request.status != 200) {
-                        _this._loadInterrupted = true;
-                        /*if (_this._filesLoadedCallback) {
-                        _this._filesLoadedCallback(false);
-                        }*/
-                        if(_this._loadFailedCallback) {
-                            _this._loadFailedCallback();
+                        _this._groups[info.load_group].loadInterrupted = true;
+                        if(_this._groups[info.load_group].loadFailedCallback) {
+                            _this._groups[info.load_group].loadFailedCallback();
                         }
                     }
                 };
                 request.send();
-                this.progress.totalAudioFiles++;
+                this._groups[info.load_group].progress.totalAudioFiles++;
             };
             FileHandler.prototype.loadMidiFile = /**
             * Loads one midi file into memory.
@@ -1429,28 +2352,40 @@ var __extends = function (d, b) {
             };
             FileHandler.prototype.loadFiles = /**
             * Loads an array of files into memory.
-            * @param {string} group Which file group to load
+            * @param {Object} group Which file group(s) to load
             * @param {function} filesLoadedCallback callback function when files are loaded.
             * @param {function} progressCallback callback function for progress.
             */
             function (group, filesLoadedCallback, progressCallback, loadFailedCallback) {
-                this._filesLoadedCallback = filesLoadedCallback;
-                this._progressCallback = progressCallback;
-                if(loadFailedCallback) {
-                    this._loadFailedCallback = loadFailedCallback;
+                if(typeof group == "string") {
+                    group = [
+                        group
+                    ];
                 }
-                this._loadInterrupted = false;
-                this.progress.totalBytes = 0;
-                this.progress.totalFiles = 0;
-                this.progress.loadedBytes = 0;
-                this.progress.readyAudioFiles = 0;
-                this.progress.totalAudioFiles = 0;
-                this.progress.bufferedFiles = 0;
+                for(var ix = 0, len = group.length; ix < len; ix++) {
+                    this._groups[group[ix]] = {
+                    };
+                    this._groups[group[ix]]._loadedFiles = [];
+                    this._groups[group[ix]].filesLoadedCallback = filesLoadedCallback;
+                    this._groups[group[ix]].progressCallback = progressCallback;
+                    this._groups[group[ix]].loadFailedCallback = loadFailedCallback;
+                    this._groups[group[ix]].loadInterrupted = false;
+                    this._groups[group[ix]].progress = {
+                        totalBytes: 0,
+                        loadedBytes: 0,
+                        totalFiles: 0,
+                        totalAudioFiles: 0,
+                        readyAudioFiles: 0,
+                        bufferedFiles: 0,
+                        convertedFiles: 0
+                    };
+                }
                 // Börja ladda in alla filer
                 for(var ix = 0, len = this._fileInfo.length; ix < len; ix++) {
                     var info = this._fileInfo[ix];
                     // Ladda inte in filen om den redan laddats in
-                    if((info.load_group == group || group.indexOf(info.load_group) != -1) && !this._files[info.id]) {
+                    var groupIx = group.indexOf(info.load_group);
+                    if(groupIx != -1 && !this._files[info.id] && !info.only_audio_tag) {
                         switch(info.file_type) {
                             case "audio":
                                 this.loadAudioBuffer(info);
@@ -1462,15 +2397,26 @@ var __extends = function (d, b) {
                                 this.loadMidiString(info);
                                 break;
                         }
-                        this.progress.totalFiles++;
+                        //this.progress.totalFiles++;
+                        this._groups[group[groupIx]].progress.totalFiles++;
                     }
                 }
                 // kalla callback direkt om inget ska laddas
-                if(this.progress.totalFiles == 0) {
-                    if(filesLoadedCallback && !this._loadInterrupted) {
-                        filesLoadedCallback(true);
+                for(var ix = 0, len = group.length; ix < len; ix++) {
+                    if(this._groups[group[ix]].progress.totalFiles == 0) {
+                        if(this._groups[group[ix]].filesLoadedCallback && !this._groups[group[ix]]._loadInterrupted) {
+                            this._groups[group[ix]].filesLoadedCallback(true, this._groups[group[ix]]._loadedFiles);
+                        }
                     }
-                    return;
+                }
+            };
+            FileHandler.prototype.prepareFile = function (fileInfo) {
+                this._fileInfo.push(fileInfo);
+            };
+            FileHandler.prototype.prepareFiles = function (fileInfo) {
+                var i, len;
+                for(i = 0 , len = fileInfo.length; i < len; i++) {
+                    this.prepareFile(fileInfo[i]);
                 }
             };
             FileHandler.prototype.addFile = /**
@@ -1480,13 +2426,47 @@ var __extends = function (d, b) {
             */
             function (info, file) {
                 this._files[info.id] = file;
-                this.progress.bufferedFiles++;
-                this.sendProgressCallback();
-                if(this._progress.bufferedFiles == this.progress.totalFiles && !this._loadInterrupted) {
-                    if(this._filesLoadedCallback) {
-                        this._filesLoadedCallback(true);
+                this._groups[info.load_group].progress.bufferedFiles++;
+                this._groups[info.load_group]._loadedFiles = this._groups[info.load_group]._loadedFiles || [];
+                this._groups[info.load_group]._loadedFiles.push(info);
+                this.sendProgressCallback(info.load_group);
+                if(this._groups[info.load_group].progress.bufferedFiles == this._groups[info.load_group].progress.totalFiles && !this._groups[info.load_group].loadInterrupted) {
+                    if(this._groups[info.load_group].filesLoadedCallback) {
+                        this._groups[info.load_group].filesLoadedCallback(true, this._groups[info.load_group]._loadedFiles || []);
                     }
                 }
+            };
+            FileHandler.prototype.freeSoundFiles = function (group) {
+                if(typeof group == "string") {
+                    group = [
+                        group
+                    ];
+                }
+                for(var ix = 0, len = this._fileInfo.length; ix < len; ix++) {
+                    var info = this._fileInfo[ix];
+                    if(group.indexOf(info.load_group) != -1) {
+                        this._files[info.id] = null;
+                    }
+                }
+            };
+            FileHandler.prototype.getLoadGroups = /**
+            * Get a list of loadgroups
+            * @return {string[]} List of availible load groups (excluding the "auto" load group)
+            */
+            function () {
+                var i;
+                var fileInfoArr = this._fileInfo || [];
+                var groupTable = {
+                };
+                var listOfGroups = [];
+                for(i = 0; i < fileInfoArr.length; i++) {
+                    var fileInfo = fileInfoArr[i];
+                    groupTable[fileInfo.load_group] = fileInfo.load_group;
+                }
+                for(i in groupTable) {
+                    listOfGroups.push(i);
+                }
+                return listOfGroups;
             };
             FileHandler.prototype.getFile = /**
             * Gets the file that corresponds to the audio pointed to by a url.
@@ -1495,6 +2475,23 @@ var __extends = function (d, b) {
             */
             function (id) {
                 return this._files[id] || null;
+            };
+            FileHandler.prototype.getFilesForLoadgroup = function (loadGroup) {
+                var ret = [];
+                for(var ix = 0, len = this._fileInfo.length; ix < len; ix++) {
+                    if(this._fileInfo[ix].load_group == loadGroup) {
+                        ret.push(this._fileInfo[ix]);
+                    }
+                }
+                return ret;
+            };
+            FileHandler.prototype.getFileInfo = function (fileId) {
+                for(var ix = 0, len = this._fileInfo.length; ix < len; ix++) {
+                    if(this._fileInfo[ix].id == fileId) {
+                        return this._fileInfo[ix];
+                    }
+                }
+                return undefined;
             };
             Object.defineProperty(FileHandler.prototype, "progress", {
                 get: /**
@@ -1505,7 +2502,7 @@ var __extends = function (d, b) {
                 * @type {Object}
                 */
                 function () {
-                    return this._progress;
+                    return this._groups;
                 },
                 enumerable: true,
                 configurable: true
@@ -1535,6 +2532,9 @@ var __extends = function (d, b) {
             return FileHandler;
         })();
         Model.FileHandler = FileHandler;        
+        /*
+        * Source: src/model/audio/Audio.ts
+        */
         /**
         * Represents any type of audio that can be played through a bus.
         * @param {Object} data Configuration data.
@@ -1545,7 +2545,7 @@ var __extends = function (d, b) {
             function Audio(data, name) {
                 this._name = name;
                 this._type = data.type;
-                this._output = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this._output = Klang.context.createGain();
                 this._volume = data.volume != undefined ? data.volume : 1.0;
                 this._output.gain.value = this._volume;
                 // Spara destination och lägg på ihopkopplingskön om destination är definierad
@@ -1562,6 +2562,7 @@ var __extends = function (d, b) {
             * @return {Klang.Model.Audio} Self
             */
             function (destination) {
+                Klang.warn("Audio: Invocation of abstract method: Audio.connect in", this);
                 return this;
             };
             Audio.prototype.disconnect = /**
@@ -1569,6 +2570,7 @@ var __extends = function (d, b) {
             * @return {Klang.Model.Audio} Self
             */
             function () {
+                Klang.warn("Audio: Invocation of abstract method: Audio.disconnect in", this);
                 return this;
             };
             Audio.prototype.play = /**
@@ -1576,7 +2578,8 @@ var __extends = function (d, b) {
             * @param {number} when When in web audio context time to start playing.
             * @return {Klang.Model.Audio} Self
             */
-            function (when) {
+            function (when, offset) {
+                Klang.warn("Audio: Invocation of abstract method: Audio.play in", this);
                 return this;
             };
             Audio.prototype.stop = /**
@@ -1584,6 +2587,7 @@ var __extends = function (d, b) {
             * @param {number} when When in web audio context time to stop playing.
             */
             function (when) {
+                Klang.warn("Audio: Invocation of abstract method: Audio.stop in", this);
                 return this;
             };
             Audio.prototype.pause = /**
@@ -1591,6 +2595,7 @@ var __extends = function (d, b) {
             * @return {Klang.Model.Audio} Self
             */
             function () {
+                Klang.warn("Audio: Invocation of abstract method: Audio.pause in", this);
                 return this;
             };
             Audio.prototype.unpause = /**
@@ -1598,6 +2603,7 @@ var __extends = function (d, b) {
             * @return {Klang.Model.Audio} Self
             */
             function () {
+                Klang.warn("Audio: Invocation of abstract method: Audio.unpause in", this);
                 return this;
             };
             Audio.prototype.curvePlaybackRate = /**
@@ -1607,6 +2613,7 @@ var __extends = function (d, b) {
             *   @return {Klang.Model.Audio} Self
             */
             function (value, duration) {
+                Klang.warn("Audio: Invocation of abstract method: Audio.curvePlaybackRate in", this);
                 return this;
             };
             Audio.prototype.fadeInAndPlay = /**
@@ -1616,6 +2623,7 @@ var __extends = function (d, b) {
             * @return {Klang.Model.Audio} Self
             */
             function (duration, when) {
+                console.warn("Audio: Invocation of abstract method: Audio.fadeInAndPlay in", this);
                 return this;
             };
             Audio.prototype.fadeOutAndStop = /**
@@ -1625,6 +2633,7 @@ var __extends = function (d, b) {
             * @return {Klang.Model.Audio} Self
             */
             function (duration, when) {
+                console.warn("Audio: Invocation of abstract method: Audio.fadeOutAndStop in", this);
                 return this;
             };
             Audio.prototype.deschedule = /**
@@ -1632,6 +2641,7 @@ var __extends = function (d, b) {
             * @return {Klang.Model.Audio} Self
             */
             function () {
+                console.warn("Audio: Invocation of abstract method: Audio.deschedule in", this);
                 return this;
             };
             Object.defineProperty(Audio.prototype, "playbackRate", {
@@ -1643,6 +2653,7 @@ var __extends = function (d, b) {
                 * @member {number}
                 */
                 function (value) {
+                    Klang.warn("Audio: Invocation of abstract property: Audio.playbackRate in", this);
                     return this;
                 },
                 enumerable: true,
@@ -1654,6 +2665,7 @@ var __extends = function (d, b) {
                 * @type {boolean}
                 */
                 function () {
+                    Klang.warn("Audio: Invocation of abstract property: Audio.playing in", this);
                     return false;
                 },
                 enumerable: true,
@@ -1665,6 +2677,7 @@ var __extends = function (d, b) {
                 * @type {number}
                 */
                 function () {
+                    Klang.warn("Audio: Invocation of abstract property: Audio.duration in", this);
                     return 0;
                 },
                 enumerable: true,
@@ -1691,14 +2704,31 @@ var __extends = function (d, b) {
                 * @type {number}
                 */
                 function () {
+                    Klang.warn("Audio: Invocation of abstract property: Audio.playbackState in", this);
                     return 0;
                 },
                 enumerable: true,
                 configurable: true
             });
+            Audio.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                this._volume = data.volume == undefined ? 1 : data.volume;
+                this._output.gain.value = this._volume;
+                if(this.destinationName != data.destination_name) {
+                    this.destinationName = data.destination_name;
+                    this.disconnect();
+                    this.connect(Core.instance.findInstance(this.destinationName).input);
+                }
+            };
             return Audio;
         })();
         Model.Audio = Audio;        
+        /*
+        * Source: src/model/audio/AudioSource.ts
+        */
         /**
         * Represents a buffer for one audio file and how to play it back.
         * @param {Object} data Configuration data.
@@ -1708,11 +2738,12 @@ var __extends = function (d, b) {
         */
         var AudioSource = (function (_super) {
             __extends(AudioSource, _super);
-            // Tid då ljudet började spelas
             function AudioSource(data, name) {
                         _super.call(this, data, name);
                 this._sources = [];
                 this._startTime = 0;
+                // När play kördes senast
+                this._loopStartTime = 0;
                 this._scheduleAhead = 0.2;
                 this._stopping = false;
                 this._fading = false;
@@ -1721,6 +2752,7 @@ var __extends = function (d, b) {
                 // Hur lång tid av ljudet som spelats
                 this._pauseStartTime = -1;
                 this.data = data;
+                this.editorName = data.editorName;
                 this._fileId = data.file_id;
                 this._playbackRate = data.playback_rate || 1.0;
                 this._endTime = 0;
@@ -1731,6 +2763,33 @@ var __extends = function (d, b) {
                 this._duration = data.duration || 0;
                 this._reverse = data.reverse;
                 this._retrig = data.retrig != undefined ? data.retrig : true;
+                this._lockPlaybackrate = data.lock_playback_rate != undefined ? data.lock_playback_rate : false;
+                this._volumeStartRange = data.volume_start_range;
+                this._volumeEndRange = data.volume_end_range;
+                this._pitchStartRange = data.pitch_start_range;
+                this._pitchEndRange = data.pitch_end_range;
+                if(data.panner) {
+                    this._panner = data.panner;
+                }
+                if(data.granular) {
+                    this._granular = {
+                        bufferDuration: 0,
+                        speed: data.granular.speed || 0.3333,
+                        pitch: data.granular.pitch || 0,
+                        pitchRandomization: data.granular.pitch_randomization || 0,
+                        timeRandomization: data.granular.time_randomization || 0,
+                        realTime: 0,
+                        grainTime: 0,
+                        grainDuration: data.granular.grain_duration || 0.09,
+                        grainSpacing: data.granular.grain_spacing || 0.5 * 0.09,
+                        grainWindow: null
+                    };
+                    var grainWindowLength = 16384;
+                    this._granular.grainWindow = new Float32Array(grainWindowLength);
+                    for(var i = 0; i < grainWindowLength; ++i) {
+                        this._granular.grainWindow[i] = Math.sin(Math.PI * i / grainWindowLength);
+                    }
+                }
                 // initiera direkt om initieringen redan gjorts
                 if(!Core.instance.pushToPostLoadInitStack(this)) {
                     this.init();
@@ -1740,13 +2799,23 @@ var __extends = function (d, b) {
             * Initializes the AudioSouce.
             */
             function () {
-                this._buffer = FileHandler.instance.getFile(this._fileId);
-                if(this._reverse) {
-                    if(this._loop) {
-                        var start = this._buffer.length - this._loopEnd;
-                        this._loopEnd = this._buffer.length - this._loopStart;
-                        this._loopStart = start;
+                if(this._fileId) {
+                    if(typeof this._fileId == "string") {
+                        this._buffer = FileHandler.instance.getFile(this._fileId);
+                    } else if(this._fileId.sampleRate) {
+                        this._buffer = this._fileId;
                     }
+                }
+                if(!this._buffer) {
+                    return;
+                }
+                if(!this._duration) {
+                    this._duration = this._buffer.duration;
+                }
+                if(this._granular) {
+                    this._granular.bufferDuration = this._buffer.duration - 0.050;
+                }
+                if(this._reverse) {
                     var reverseBuffer = Klang.context.createBuffer(this._buffer.numberOfChannels, this._buffer.length, Klang.context.sampleRate);
                     for(var c = 0; c < this._buffer.numberOfChannels; c++) {
                         var channelBuffer = this._buffer.getChannelData(c);
@@ -1758,6 +2827,23 @@ var __extends = function (d, b) {
                     }
                     // använd reversad buffer
                     this._buffer = reverseBuffer;
+                }
+                if(this.data.xfade) {
+                    // för att inte förstöra originalbuffern skapas en kopia
+                    var newBuffer = Klang.context.createBuffer(this._buffer.numberOfChannels, this._buffer.length, Klang.context.sampleRate);
+                    for(var c = 0; c < this._buffer.numberOfChannels; c++) {
+                        var channelBuffer = this._buffer.getChannelData(c);
+                        var newChannelBuffer = newBuffer.getChannelData(c);
+                        for(var len = channelBuffer.length, ix = len - 1; ix >= 0; ix--) {
+                            newChannelBuffer[ix] = channelBuffer[ix];
+                        }
+                    }
+                    this._buffer = newBuffer;
+                    var sampleRate = Klang.context.sampleRate;
+                    var fadeLength = this.data.xfade === true ? 11025 : this.data.xfade * sampleRate;
+                    var loopStart = this._loopStart == undefined ? fadeLength : Math.round(this._loopStart * sampleRate);
+                    var loopEnd = this._loopEnd == undefined ? this._buffer.length : Math.round(this._loopEnd * sampleRate);
+                    crossfade(this._buffer, loopStart, loopEnd, fadeLength);
                 }
             };
             AudioSource.prototype.setLoopRegion = /**
@@ -1784,8 +2870,14 @@ var __extends = function (d, b) {
             function (destination, forceConnect) {
                 // Only do the connection if it's not already connected
                 if(!this._destination || forceConnect) {
-                    this.output.connect(destination);
                     this._destination = destination;
+                    if(this._panner) {
+                        this._output.connect(this._panner.input);
+                        this._panner.output.connect(destination);
+                        //this._pannerOut.connect(destination);
+                                            } else {
+                        this._output.connect(destination);
+                    }
                 }
                 return this;
             };
@@ -1794,9 +2886,72 @@ var __extends = function (d, b) {
             * @return {Klang.Model.AudioSource} Self
             */
             function () {
-                this.output.disconnect();
+                this._output.disconnect();
                 this._destination = null;
+                if(this._panner) {
+                    this._panner.output.disconnect();
+                }
                 return this;
+            };
+            AudioSource.prototype.scheduleGrain = function () {
+                if(!this._buffer) {
+                    return;
+                }
+                var g = this._granular;
+                var source = Klang.context.createBufferSource();
+                source.buffer = this._buffer;
+                var r1 = Math.random();
+                var r2 = Math.random();
+                var r3 = Math.random();
+                var r4 = Math.random();
+                var r5 = Math.random();
+                r1 = (r1 - 0.5) * 2.0;
+                r2 = (r2 - 0.5) * 2.0;
+                r3 = (r3 - 0.5) * 2.0;
+                r4 = (r4 - 0.5) * 2.0;
+                var grainWindowNode = Klang.context.createGain();
+                source.connect(grainWindowNode);
+                grainWindowNode.connect(this._output);
+                // Pitch
+                var totalPitch = this._granular.pitch + r1 * g.pitchRandomization;
+                var pitchRate = Math.pow(2.0, totalPitch / 1200.0);
+                source.playbackRate.value = pitchRate;
+                // Time randomization
+                var randomGrainOffset = r2 * g.timeRandomization;
+                // Schedule sound grain
+                source.start(g.realTime, g.grainTime + randomGrainOffset, g.grainDuration);
+                // Schedule the grain window.
+                // This applies a time-varying gain change for smooth fade-in / fade-out.
+                var windowDuration = g.grainDuration / pitchRate;
+                grainWindowNode.gain.value = 0.0// make default value 0
+                ;
+                grainWindowNode.gain.setValueCurveAtTime(g.grainWindow, g.realTime, windowDuration);
+                var lastGrainTime = g.grainTime;
+                // Update time params
+                g.realTime += g.grainSpacing;
+                g.grainTime += g.speed * g.grainSpacing;
+                if(g.grainTime > g.bufferDuration) {
+                    g.grainTime = 0.0;
+                    if(!this._loop) {
+                        this.stop();
+                    }
+                }
+                if(g.grainTime < 0.0) {
+                    g.grainTime += g.bufferDuration// backwards wrap-around
+                    ;
+                    if(!this._loop) {
+                        this.stop();
+                    }
+                }
+            };
+            AudioSource.prototype.granularSchedule = function (when) {
+                while(this._granular.realTime < when + 0.100) {
+                    this.scheduleGrain();
+                }
+                var _this = this;
+                this._granular.scheduleId = setTimeout(function () {
+                    _this.granularSchedule(Klang.context.currentTime);
+                }, 20);
             };
             AudioSource.prototype.play = /**
             * Schedules this AudioSource to start playing.
@@ -1804,85 +2959,131 @@ var __extends = function (d, b) {
             * @param {bool} resume Whether to resume previous playback, if the AudioSource has been paused.
             * @return {Klang.Model.AudioSource} Self
             */
-            function (when, resume) {
+            function (when, offset, resume) {
                 if (typeof when === "undefined") { when = 0; }
+                if (typeof offset === "undefined") { offset = 0; }
                 if (typeof resume === "undefined") { resume = false; }
                 this.removeUnusedSources();
                 if(!this._buffer) {
-                    this._buffer = FileHandler.instance.getFile(this._fileId);
+                    this.init();
+                    //this._buffer = FileHandler.instance.getFile(this._fileId);
                     if(!this._buffer) {
+                        Klang.warn("AudioSource: Buffer not found!", this._name);
                         return;
                     }
                 }
                 when = when || 0;
-                //console.log(this._name, "s", when, "c", context.currentTime);
-                // spela inte om tiden har passerat (för att inte klumpa ihop massa ljud vid scroll på ios)
-                if(when != 0 && when <= Klang.context.currentTime) {
-                    return this;
-                }
-                //Util.lastPlayedSourceTime = when;
-                if(!this.paused) {
-                    this._pauseStartTime = when;
-                }
-                //  Resets _pauseTime if not started from unpause()
-                if(!resume) {
-                    this._pauseTime = 0;
-                }
-                this._startTime = when;
-                this._paused = false;
-                if(this._stopping) {
-                    Util.setParam(this.output.gain, this.output.gain.value, when);
-                    clearTimeout(this._stoppingId);
-                    this.output.gain.cancelScheduledValues(when);
-                    this._stopping = false;
-                    return;
-                } else if(!this._fading) {
-                    this.output.gain.value = this._volume;
-                }
-                this._fading = false;
-                if(!this._retrig && !this.loop) {
-                    if(when < this._endTime) {
-                        return;
-                    }
-                } else if(this.loop) {
-                    if(this._playing) {
-                        return;
-                    }
-                    this._playing = true;
-                    clearTimeout(this._endedTimeout);
-                }
-                /*if (!this._source || this._source.buffer) {
-                this.createBufferSource();
-                }*/
-                var source = this.createBufferSource();
-                source.buffer = this._buffer;
-                this._endTime = when + source.buffer.duration;
-                if(this._loop) {
-                    source.loop = true;
-                    if(this._loopStart) {
-                        source.loopStart = this._loopStart;
-                    }
-                    if(this._loopEnd) {
-                        source.loopEnd = this._loopEnd;
-                    }
-                }
-                source.connect(this._output);
-                // kompatibilitet med äldre versioner av waa
-                //this._duration  = this._buffer.duration - this._offset;
-                //console.log(this._offset, this._duration);
-                // Fix for Firefox Audiosprite
-                if(Klang.browser == "Firefox" && this._offset) {
-                    this._offset -= 0.2;
-                    this._duration -= 0.2;
-                }
-                source["startTime"] = when;
-                if(Klang.safari) {
-                    source.noteGrainOn(when, this._offset, this._duration || source.buffer.duration);
+                if(this._granular) {
+                    this.granularSchedule(when);
                 } else {
-                    source.start(when, this._offset, this._duration || source.buffer.duration);
+                    // spela inte om tiden har passerat (för att inte klumpa ihop massa ljud vid scroll på ios)
+                    if(when != 0 && when + 0.01 <= Klang.context.currentTime) {
+                        Klang.warn("AudioSource: Returned, playTime < currentTime", this._name);
+                        return this;
+                    } else if(when == 0) {
+                        when = Klang.context.currentTime;
+                    }
+                    //Util.lastPlayedSourceTime = when;
+                    this.output.gain.cancelScheduledValues(when);
+                    if(this._volumeStartRange != undefined) {
+                        this.output.gain.setValueAtTime(this._volume * (Math.random() * (this._volumeEndRange - this._volumeStartRange) + this._volumeStartRange), when);
+                    } else {
+                        this.output.gain.setValueAtTime(this._volume, when);
+                    }
+                    if(!this.paused) {
+                        this._pauseStartTime = when;
+                    }
+                    //  Resets _pauseTime if not started from unpause()
+                    if(!resume) {
+                        this._pauseTime = 0;
+                    }
+                    this._startTime = when;
+                    this._loopStartTime = when + this.duration;
+                    this._paused = false;
+                    if(this._stopping && !this._retrig) {
+                        this.output.gain.cancelScheduledValues(when);
+                        this.output.gain.setValueAtTime(this.output.gain.value, when);
+                        this.output.gain.linearRampToValueAtTime(this._volume, when + 0.25);
+                        clearTimeout(this._stoppingId);
+                        this._stopping = false;
+                        return;
+                    } else if(!this._fading) {
+                        //this.output.gain.value = this._volume;
+                                            }
+                    this._fading = false;
+                    // Used to check if AudioSource is playing if not looping.
+                    if(!this._retrig && !this.loop) {
+                        if(when < this._endTime) {
+                            return;
+                        }
+                    } else if(this.loop && !this._retrig) {
+                        if(this._endTime == -1 || when < this._endTime) {
+                            return;
+                        }
+                        // Used to check if AudioSource is playing if looping.
+                        /*if (this._loopPlaying) return;
+                        this._loopPlaying = true;
+                        clearTimeout(this._endedTimeout);*/
+                                            } else if(this.loop && this._retrig && this.playing && !this._stopping) {
+                        return;
+                    } else if(this._stopping) {
+                        this._stopping = false;
+                    } else if(Math.round(this._endTime * 1000) / 1000 == Math.round((when + this._buffer.duration) * 1000) / 1000) {
+                        Klang.warn("AudioSource: Returned, Doubletrig", this._name);
+                        return this;
+                    }
+                    this._endTime = this.loop ? -1 : when + this._buffer.duration;
+                    /*if (!this._source || this._source.buffer) {
+                    this.createBufferSource();
+                    }*/
+                    var source = this.createBufferSource();
+                    source.buffer = this._buffer;
+                    if(this._loop) {
+                        source.loop = true;
+                        source.loopStart = this._loopStart ? this._loopStart : 0;
+                        source.loopEnd = this._loopEnd ? this._loopEnd : this._buffer.duration;
+                        // Fixar hacket i mp3-filer encodade med lame från wav... men funkar inte i iOS-safari
+                        /*if (Klang.browser == "Safari") {
+                        source.loopEnd -= 1056/context.sampleRate;
+                        }*/
+                                            }
+                    if(!this._destination) {
+                        Klang.warn("AudioSource: no destination node");
+                    }
+                    if(typeof this._destination != "object") {
+                        Klang.warn("AudioSource: destination is not an object", this._name);
+                    }
+                    source.connect(this._output);
+                    if(offset > this._duration) {
+                        offset = offset % this._duration;
+                    }
+                    this._startOffset = this._offset + offset;
+                    var duration = this._duration;
+                    // Fix for Firefox Audiosprite
+                    /*if (Klang.browser == "Firefox" && this._offset) {
+                    offset -= 0.2;
+                    duration -= 0.2;
+                    }*/
+                    if(this._pitchStartRange != undefined) {
+                        source.playbackRate.value = this._playbackRate * (Math.random() * (this._pitchEndRange - this._pitchStartRange) + this._pitchStartRange);
+                    }
+                    source["startTime"] = when;
+                    // ###safaripolyfill
+                    //if (safari) { source.noteGrainOn(when, this._startOffset, (duration || source.buffer.duration)-this._startOffset); }
+                    // else { source.start(when, this._startOffset, duration || source.buffer.duration); }
+                    source.start(when, this._startOffset, duration || source.buffer.duration);
+                    if(Core.callbacks && Core.callbacks.scheduleAudioSource) {
+                        Core.callbacks.scheduleAudioSource({
+                            audio: this,
+                            startTime: when
+                        });
+                    }
                 }
                 //Klang.log("play:"+this._name, "offset", this._offset, "duration", this._duration);
                 return this;
+            };
+            AudioSource.prototype.getNumberOfSamples = function () {
+                return this._buffer.length;
             };
             AudioSource.prototype.stop = /**
             * Stops all currently playing instances of this AudioSource's buffer.
@@ -1890,30 +3091,37 @@ var __extends = function (d, b) {
             */
             function (when) {
                 if (typeof when === "undefined") { when = 0; }
-                var numSources = this._sources.length;
-                if(numSources > 0) {
-                    when = when || Util.now();
-                    if(this._loop) {
-                        var _this = this;
-                        clearTimeout(this._endedTimeout);
-                        this._endedTimeout = setTimeout(function () {
-                            _this._playing = false;
-                        }, (when - Util.now()) / 0.001);
-                    } else {
-                        this._endTime = when;
+                if(this._granular) {
+                    clearTimeout(this._granular.scheduleId);
+                } else {
+                    if(this._stopping) {
+                        this._stopping = false;
+                        clearTimeout(this._stoppingId);
                     }
-                    // Stoppa alla sources och töm arrayen
-                    for(var ix = 0; ix < numSources; ix++) {
-                        var source = this._sources[ix];
-                        // kompatibilitet med äldre versioner av waa
-                        if(Klang.safari) {
-                            source.noteOff(when);
-                        } else {
-                            source.stop(when);
+                    var numSources = this._sources.length;
+                    //if (!this.playing) return;
+                    if(numSources > 0) {
+                        when = when || Util.now();
+                        if(this._loop) {
+                            this._loopPlaying = false;
                         }
-                        source.disconnect();
+                        this._endTime = when;
+                        if(this._retrig) {
+                            this._sources[this._sources.length - 1].stop(when);
+                            this._sources.splice(this._sources.length - 1, 1);
+                        } else {
+                            // Stoppa alla sources och töm arrayen
+                            for(var ix = 0; ix < numSources; ix++) {
+                                var source = this._sources[ix];
+                                source.stop(when);
+                                this._endTime = Util.now();
+                                //source.disconnect();
+                                                            }
+                            this._sources = [];
+                        }
+                    } else {
+                        this._loopPlaying = false;
                     }
-                    this._sources = [];
                 }
                 return this;
             };
@@ -1924,14 +3132,11 @@ var __extends = function (d, b) {
             function () {
                 for(var ix = 0; ix < this._sources.length; ix++) {
                     var source = this._sources[ix];
-                    if(source.playbackState == 1 || source["startTime"] > Klang.context.currentTime) {
-                        if(Klang.safari) {
-                            source.noteOff(0);
-                        } else {
-                            source.stop(0);
-                        }
+                    if(source["startTime"] > Klang.context.currentTime) {
+                        source.stop(0);
                         this._sources[ix].disconnect();
                         source.disconnect();
+                        this._sources.splice(ix, 1);
                         ix--;
                     }
                 }
@@ -1962,8 +3167,9 @@ var __extends = function (d, b) {
                     // Ändra offset för att endast spela vad som är kvar av buffern
                     this._offset += this._pauseTime;
                     // Spela upp och ändra tillbaka offset
-                    this.play(0, true);
+                    this.play(0, 0, true);
                     this._offset = realOffset;
+                    this._paused = false;
                 }
                 return this;
             };
@@ -1984,22 +3190,40 @@ var __extends = function (d, b) {
             * @param {number} when When in web audio context time to start playing.
             * @return {Klang.Model.AudioSource} Self
             */
-            function (duration, when) {
+            function (duration, when, offset) {
+                if (typeof offset === "undefined") { offset = 0; }
                 var now = Klang.context.currentTime;
                 if(!when) {
                     when = now;
                 }
-                if(this.loop && this._playing && !this._stopping) {
+                if(this.loop && (!this._retrig && (this._endTime == -1 || when < this._endTime)) && !this._stopping) {
+                    return;
+                } else if(this.loop && this._retrig && this.playing && !this._stopping) {
                     return;
                 }
                 this.output.gain.cancelScheduledValues(when);
-                if(this._stopping) {
+                // if audioSource is fading out and retrig is set to false, it will abort the stopping and fade up the volume again.
+                if(this._stopping && !this._retrig) {
                     clearTimeout(this._stoppingId);
                     this.output.gain.setValueAtTime(this.output.gain.value, when);
-                } else {
+                } else // if audioSource is fading out and retrig is set to true, it will start a new source overlapping the one that's fading out.
+                if(this._stopping && this._retrig) {
                     this._fading = true;
+                    this.play(when == now ? 0 : when, offset);
+                    // temporary gainNode just for this fade in.
+                    var fadeGain = Klang.context.createGain();
+                    this._sources[this._sources.length - 1].disconnect();
+                    this._sources[this._sources.length - 1].connect(fadeGain);
+                    fadeGain.connect(this.output);
+                    fadeGain.gain.setValueAtTime(0, when);
+                    fadeGain.gain.linearRampToValueAtTime(1, when + duration);
+                    this._stopping = false;
+                    return;
+                } else {
+                    // if audioSource is not stopping, just play fade in and play.
+                    this._fading = true;
+                    this.play(when == now ? 0 : when, offset);
                     this.output.gain.setValueAtTime(0, when);
-                    this.play(when == now ? 0 : when);
                 }
                 this._stopping = false;
                 this.output.gain.linearRampToValueAtTime(this._volume, when + duration);
@@ -2018,18 +3242,48 @@ var __extends = function (d, b) {
                 if(when == undefined) {
                     when = Klang.context.currentTime;
                 }
-                this.output.gain.cancelScheduledValues(when);
-                Util.setParam(this.output.gain, this.output.gain.value, when);
-                Util.curveParamLin(this.output.gain, 0, duration, when);
-                var _this = this;
+                if(this._stopping) {
+                    clearTimeout(this._stoppingId);
+                }
+                // if retrig is set to true and audioSource is not already fading out, the latest source fades out and stops. Fade is done with a temporary gainNode, this allows another source to be faded in at the same time.
+                if(this._retrig && !this._stopping) {
+                    var fadeGain = Klang.context.createGain();
+                    this._sources[this._sources.length - 1].disconnect();
+                    this._sources[this._sources.length - 1].connect(fadeGain);
+                    var _this = this;
+                    if(this._sources[this._sources.length - 1].hasOwnProperty("onended")) {
+                        this._sources[this._sources.length - 1].onended = function () {
+                            _this._stopping = false;
+                        };
+                    } else {
+                        this._stoppingId = setTimeout(function () {
+                            _this._stopping = false;
+                        }, (duration + (when - Util.now()) - _this._scheduleAhead) * 10000);
+                    }
+                    fadeGain.connect(this.output);
+                    fadeGain.gain.setValueAtTime(1, when);
+                    fadeGain.gain.linearRampToValueAtTime(0, when + duration);
+                    this.stop(when + duration);
+                } else if(!this._retrig) {
+                    // if retrig is set to false, audioSource fades out and stopped after a timeout, this allows the stopping to be aborted if played again.
+                    this.output.gain.cancelScheduledValues(when);
+                    this.output.gain.setValueAtTime(this.output.gain.value || this._volume, when);
+                    this.output.gain.linearRampToValueAtTime(0, when + duration);
+                    var _this = this;
+                    this._stoppingId = setTimeout(function () {
+                        if(!_this._stopping) {
+                            return;
+                        }
+                        _this._stopping = false;
+                        if(_this.loop) {
+                            _this._loopPlaying = false;
+                        }
+                        _this.stop(when + duration);
+                        //resets to original volume
+                        //Util.setParam(_this.output.gain, _this._volume, when+duration+0.5);
+                                            }, (duration + (when - Util.now()) - _this._scheduleAhead) / 0.001);
+                }
                 this._stopping = true;
-                this._stoppingId = setTimeout(function () {
-                    _this._stopping = false;
-                    _this._playing = false;
-                    _this.stop(when + duration);
-                    //resets to original volume
-                    Util.setParam(_this.output.gain, _this._volume, when + duration + 0.5);
-                }, (duration + (when - Util.now()) - _this._scheduleAhead) / 0.001);
                 return this;
             };
             AudioSource.prototype.removeUnusedSources = /**
@@ -2039,7 +3293,7 @@ var __extends = function (d, b) {
             function () {
                 for(var ix = 0; ix < this._sources.length; ix++) {
                     var source = this._sources[ix];
-                    if(source.playbackState == 3 || source["startTime"] + source.buffer.duration < Klang.context.currentTime) {
+                    if(!source.buffer || (!this.loop && source["startTime"] + source.buffer.duration < Klang.context.currentTime)) {
                         this._sources[ix].disconnect();
                         this._sources.splice(ix, 1);
                         ix--;
@@ -2053,11 +3307,16 @@ var __extends = function (d, b) {
             *   @return {Klang.Model.AudioSource} Self
             */
             function (value, duration) {
+                if(this._lockPlaybackrate) {
+                    return;
+                }
                 var node = this.playbackRateNode;
-                node.cancelScheduledValues(Util.now());
-                node.setValueAtTime(node.value == 0 ? Util.EXP_MIN_VALUE : node.value, Util.now());
-                node.exponentialRampToValueAtTime(value, Util.now() + duration);
-                this.playbackRate = value;
+                if(node) {
+                    node.cancelScheduledValues(Util.now());
+                    node.setValueAtTime(node.value == 0 ? Util.EXP_MIN_VALUE : node.value, Util.now());
+                    node.exponentialRampToValueAtTime(value, Util.now() + duration);
+                }
+                this._playbackRate = value;
                 return this;
             };
             Object.defineProperty(AudioSource.prototype, "lastSource", {
@@ -2101,7 +3360,30 @@ var __extends = function (d, b) {
                     return this._offset;
                 },
                 set: function (value) {
+                    if(typeof value === 'string' && value.indexOf('%') !== -1) {
+                        value = this._duration * parseFloat(value);
+                    }
                     this._offset = value;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(AudioSource.prototype, "position", {
+                get: function () {
+                    if(!this.playing || !this._duration) {
+                        return 0;
+                    }
+                    var duration = this._duration;
+                    if(this._loopStart || this._loopEnd) {
+                        duration = (this._loopEnd || duration) - (this._loopStart || 0);
+                    }
+                    var timePlayed = Util.now() - this._startTime;
+                    var loopTimePlayed = Util.now() + this._startOffset - this._loopStartTime;
+                    if(this._startOffset + timePlayed > this._duration) {
+                        return this._loopStart + loopTimePlayed % duration;
+                    } else {
+                        return this._startOffset + timePlayed;
+                    }
                 },
                 enumerable: true,
                 configurable: true
@@ -2141,6 +3423,13 @@ var __extends = function (d, b) {
                     return this._playbackRate;
                 },
                 set: function (value) {
+                    if(this._lockPlaybackrate) {
+                        return;
+                    }
+                    var node = this.playbackRateNode;
+                    if(node) {
+                        node.cancelScheduledValues(Util.now());
+                    }
                     this._playbackRate = value;
                     for(var ix = 0, len = this._sources.length; ix < len; ix++) {
                         this._sources[ix].playbackRate.value = this._playbackRate;
@@ -2156,6 +3445,9 @@ var __extends = function (d, b) {
                 *   @type {number}
                 */
                 function (value) {
+                    if(this._lockPlaybackrate) {
+                        return;
+                    }
                     this._playbackRate = value;
                 },
                 enumerable: true,
@@ -2168,12 +3460,10 @@ var __extends = function (d, b) {
                 */
                 function () {
                     var source = this.lastSource;
-                    if(!source) {
-                        this.createBufferSource();
-                    } else if(source.playbackState === 3) {
-                        this.createBufferSource();
-                    }
-                    return source.playbackRate;
+                    // if (!source || source.playbackState === 3) {
+                    //     source = this.createBufferSource();
+                    // }
+                    return source && source.playbackRate;
                 },
                 enumerable: true,
                 configurable: true
@@ -2189,6 +3479,9 @@ var __extends = function (d, b) {
                     }
                     return this._buffer;
                 },
+                set: function (buffer) {
+                    this._buffer = buffer;
+                },
                 enumerable: true,
                 configurable: true
             });
@@ -2198,16 +3491,24 @@ var __extends = function (d, b) {
                 * @type {boolean}
                 */
                 function () {
-                    var playing = false;
-                    if(this._playing !== undefined) {
-                        playing = this._playing;
-                    } else {
-                        if(this._endTime > Util.now()) {
-                            playing = true;
-                        }
+                    return this._endTime == -1 || this._endTime > Util.now();
+                    /*var playing = false;
+                    if (this._loop) {
+                    //playing = this._loopPlaying;
+                    if (this._endTime > Util.now()) {
+                    playing = true;
+                    }else {
+                    playing = false;
                     }
-                    return playing;
-                },
+                    }else {
+                    if (this._endTime > Util.now()) {
+                    playing = true;
+                    }else {
+                    playing = false;
+                    }
+                    }
+                    return playing;*/
+                                    },
                 enumerable: true,
                 configurable: true
             });
@@ -2230,9 +3531,216 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            Object.defineProperty(AudioSource.prototype, "output", {
+                get: /**
+                * The audio's output.
+                * @type {GainNode}
+                */
+                function () {
+                    if(this._panner) {
+                        return this._panner.output;
+                    } else {
+                        return this._output;
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(AudioSource.prototype, "panner", {
+                get: /**
+                * The audio's 3d panner.
+                * @type {Model.Panner}
+                */
+                function () {
+                    return this._panner;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            AudioSource.prototype.freeBuffer = function () {
+                this._buffer = null;
+                for(var ix = 0, len = this._sources.length; ix < len; ix++) {
+                    try  {
+                        this._sources[ix].stop(0);
+                    } catch (ex) {
+                    }
+                    this._sources[ix].disconnect();
+                    this._sources[ix] = null;
+                }
+                this._sources = [];
+            };
+            AudioSource.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                _super.prototype.setData.call(this, data);
+                var reinit = false;
+                this._volumeStartRange = data.volume_start_range;
+                this._volumeEndRange = data.volume_end_range;
+                this._pitchEndRange = data.pitch_end_range;
+                this._pitchStartRange = data.pitch_start_range;
+                if(data.file_id != undefined && this._fileId != data.file_id) {
+                    this._fileId = data.file_id;
+                    reinit = true;
+                }
+                this._playbackRate = data.playback_rate == undefined ? 1 : data.playback_rate;
+                if(this.playbackRateNode) {
+                    this.playbackRateNode.value = this._playbackRate;
+                }
+                this._loop = data.loop == undefined ? false : data.loop;
+                if(this.lastSource) {
+                    this.lastSource.loop = this._loop;
+                }
+                if(!this._loop) {
+                    this._loopPlaying = false;
+                }
+                this._loopStart = data.loop_start == undefined ? 0 : data.loop_start;
+                if(this.lastSource) {
+                    this.lastSource.loopStart = this._loopStart;
+                }
+                this._loopEnd = data.loop_end == undefined ? 0 : data.loop_end;
+                if(this.lastSource) {
+                    this.lastSource.loopEnd = this._loopEnd;
+                }
+                var offset = data.offset == undefined ? 0 : data.offset;
+                if(this._offset != offset) {
+                    this._offset = offset;
+                    reinit = true;
+                }
+                var duration = data.duration == undefined ? 0 : data.duration;
+                if(this._duration != duration) {
+                    this._duration = duration;
+                    reinit = true;
+                }
+                this._retrig = data.retrig == undefined ? true : data.retrig;
+                if(data.reverse == undefined) {
+                    data.reverse = false;
+                }
+                if(this._reverse != data.reverse) {
+                    this._reverse = data.reverse;
+                    reinit = true;
+                }
+                if(data.xfade == undefined) {
+                    data.xfade = false;
+                }
+                if(this.data.xfade != data.xfade) {
+                    reinit = true;
+                }
+                this.data = data;
+                if(reinit) {
+                    this.init();
+                }
+                if(data.granular) {
+                    if(this._granular) {
+                        if(data.granular.speed != undefined) {
+                            this._granular.speed = data.granular.speed;
+                        }
+                        if(data.granular.pitch != undefined) {
+                            this._granular.pitch = data.granular.pitch;
+                        }
+                        if(data.granular.pitch_randomization != undefined) {
+                            this._granular.pitchRandomization = data.granular.pitch_randomization;
+                        }
+                        if(data.granular.time_randomization != undefined) {
+                            this._granular.timeRandomization = data.granular.time_randomization;
+                        }
+                        if(data.granular.grain_duration != undefined) {
+                            this._granular.grainDuration = data.granular.grain_duration;
+                        }
+                        if(data.granular.grain_spacing != undefined) {
+                            this._granular.grainSpacing = data.granular.grain_spacing;
+                        }
+                    } else {
+                        this._granular = {
+                            bufferDuration: this._buffer.duration - 0.050,
+                            speed: data.granular.speed || 0.3333,
+                            pitch: data.granular.pitch || 0,
+                            pitchRandomization: data.granular.pitch_randomization || 0,
+                            timeRandomization: data.granular.time_randomization || 0,
+                            realTime: 0,
+                            grainTime: 0,
+                            grainDuration: data.granular.grain_duration || 0.09,
+                            grainSpacing: data.granular.grain_spacing || 0.5 * 0.09,
+                            grainWindow: null
+                        };
+                        var grainWindowLength = 16384;
+                        var grainWindow = new Float32Array(grainWindowLength);
+                        for(var i = 0; i < grainWindowLength; ++i) {
+                            grainWindow[i] = Math.sin(Math.PI * i / grainWindowLength);
+                        }
+                        this._granular["grainWindow"] = grainWindow;
+                    }
+                } else if(this._granular) {
+                    clearTimeout(this._granular.scheduleId);
+                    this._granular = null;
+                }
+                if(data.panner) {
+                    if(!this._panner) {
+                        var d = this._destination;
+                        this.disconnect();
+                        this._panner = new Model.Panner(data.panner);
+                        this.connect(d);
+                    } else {
+                        this._panner.setData(data.panner);
+                    }
+                } else if(!data.panner) {
+                    if(this._panner) {
+                        var d = this._destination;
+                        this.disconnect();
+                        this._panner = null;
+                        this.connect(d);
+                    }
+                }
+            };
             return AudioSource;
         })(Audio);
         Model.AudioSource = AudioSource;        
+        function crossfade(buf, loopStart, loopEnd, length, type) {
+            if (typeof type === "undefined") { type = "linear"; }
+            var funA;
+            var funB;
+            if(type == "linear") {
+                funA = function (x) {
+                    return 1 - x;
+                };
+                funB = function (x) {
+                    return x;
+                };
+            } else if(type == "equalpower") {
+                funA = function (x) {
+                    return Math.pow(1 - x, 0.5);
+                };
+                funB = function (x) {
+                    return Math.pow(x, 0.5);
+                };
+            } else {
+                return;
+            }
+            loopEnd = Math.min(loopEnd, buf.length);
+            length = Math.min(length, loopStart);
+            for(var c = 0; c < buf.numberOfChannels; c++) {
+                var data = buf.getChannelData(c);
+                var a = loopEnd - 1;
+                var b = loopStart - 1;
+                for(var i = length - 1; i >= 0; i--) {
+                    var ratio = (i + 1) / (length + 1);
+                    data[a] = data[a] * funA(ratio) + data[b] * funB(ratio);
+                    a--;
+                    b--;
+                }
+                // fix extra due to interpolation in playback
+                var le = loopEnd;
+                var ls = loopStart;
+                while(le < buf.length) {
+                    data[le++] = data[ls++];
+                }
+            }
+        }
+        Model.crossfade = crossfade;
+        /*
+        * Source: src/model/audio/AudioGroup.ts
+        */
         /**
         * Enum for group types, represents how an AudioGroup is played back.
         * @enum {number}
@@ -2241,7 +3749,13 @@ var __extends = function (d, b) {
             CONCURRENT: 0,
             STEP: 1,
             RANDOM: 2,
-            SHUFFLE: 3
+            SHUFFLE: 3,
+            BACKWARDS: 4
+        };
+        var QueueType = {
+            NONE: 0,
+            ONE: 1,
+            INFINITE: 2
         };
         /**
         * A group of multiple audio objects.
@@ -2259,6 +3773,7 @@ var __extends = function (d, b) {
                 this._paused = false;
                 this._groupType = data.group_type != undefined ? data.group_type : GroupType.STEP;
                 this._retrig = data.retrig != undefined ? data.retrig : true;
+                this._queue = data.queue != undefined ? data.queue : QueueType.NONE;
                 this._content = data.content || [];
                 Core.instance.pushToPreLoadInitStack(this);
             }
@@ -2271,24 +3786,6 @@ var __extends = function (d, b) {
                     newContent.push(Core.instance.findInstance(this._content[ix]));
                 }
                 this._content = newContent;
-            };
-            AudioGroup.prototype.shuffle = /**
-            * Shuffles an array
-            * @param {Array} array Array to shuffle
-            * @private
-            */
-            function (array) {
-                var counter = array.length, temp, index;
-                // While there are elements in the array
-                while(counter--) {
-                    // Pick a random index
-                    index = (Math.random() * counter) | 0;
-                    // And swap the last element with it
-                    temp = array[counter];
-                    array[counter] = array[index];
-                    array[index] = temp;
-                }
-                return array;
             };
             AudioGroup.prototype.connect = /**
             * Sets the destination for this group's output.
@@ -2319,42 +3816,84 @@ var __extends = function (d, b) {
             * @param {number} when When in web audio context time to start playing.
             * @return {Klang.Model.AudioGroup} Self
             */
-            function (when) {
-                // Spela inte om retrig är avstängt och senaste ljudet fortfarande spelas
-                if(!this._retrig && this.latestPlayed && this.latestPlayed.playing) {
+            function (when, audioSource, forcePlay) {
+                if(!this._content.length) {
                     return;
                 }
+                // Spela inte om retrig är avstängt och senaste ljudet fortfarande spelas
+                var latestPlaying = this.latestPlayed ? this.latestPlayed.playing : false;
+                if(!forcePlay && !this._retrig && latestPlaying) {
+                    if(this._queue != QueueType.NONE) {
+                        if(this._queue == QueueType.ONE && this._latestStartTime > Klang.context.currentTime) {
+                            this.latestPlayed.stop();
+                            this.play(this._latestStartTime, audioSource, true);
+                        } else {
+                            this.play(this._latestStartTime + this.latestPlayed.duration, audioSource, true);
+                        }
+                    }
+                    return this;
+                }
                 this._paused = false;
+                if(audioSource != undefined) {
+                    var asId;
+                    if(typeof audioSource == "number") {
+                        asId = audioSource;
+                    } else if(typeof audioSource == "string") {
+                        asId = this.getIdFromString(audioSource);
+                    } else if(audioSource._name) {
+                        asId = this.getIdFromString(audioSource._name);
+                    }
+                    this._content[asId].play(when);
+                    this._latestPlayed = this._content[asId];
+                } else {
+                    if(this._groupType == GroupType.CONCURRENT) {
+                        for(var ix = 0, len = this._content.length; ix < len; ix++) {
+                            this._content[ix].play(when);
+                        }
+                    } else {
+                        this._currentId = this.getIdToPlay();
+                        this._content[this._currentId].play(when);
+                    }
+                    if(this._groupType === GroupType.CONCURRENT) {
+                        // Utgår från första om concurrent, skulle kunna utgå från längsta istället.
+                        this._latestPlayed = this._content[0];
+                    } else {
+                        this._latestPlayed = this._content[this._currentId];
+                    }
+                }
+                this._latestStartTime = (when || Klang.context.currentTime);
+                return this;
+            };
+            AudioGroup.prototype.getIdToPlay = function () {
+                var _id;
                 if(this._groupType == GroupType.STEP) {
-                    this._currentId = this._adder % this._content.length;
+                    if(this._adder < 0) {
+                        _id = this._content.length - 1 + (this._adder % this._content.length);
+                    } else {
+                        _id = this._adder % this._content.length;
+                    }
                     this._adder++;
-                    this._content[this._currentId].play(when);
                 } else if(this._groupType == GroupType.RANDOM) {
                     var random = Math.floor(Math.random() * (this._content.length - 1));
                     if(this._content.length > 1 && random == this._adder) {
                         random = (random + 1) % this._content.length;
                     }
-                    this._currentId = this._adder = random;
-                    this._content[this._currentId].play(when);
+                    _id = this._adder = random;
                 } else if(this._groupType == GroupType.SHUFFLE) {
                     if(this._adder % this._content.length == 0) {
-                        this.shuffle(this._content);
+                        Util.shuffle(this._content);
                     }
-                    this._currentId = this._adder % this._content.length;
+                    _id = this._adder % this._content.length;
                     this._adder++;
-                    this._content[this._currentId].play(when);
-                } else if(this._groupType == GroupType.CONCURRENT) {
-                    for(var ix = 0, len = this._content.length; ix < len; ix++) {
-                        this._content[ix].play(when);
+                } else if(this._groupType == GroupType.BACKWARDS) {
+                    if(this._adder < 0) {
+                        _id = this._content.length - 1 + (this._adder % this._content.length);
+                    } else {
+                        _id = this._adder % this._content.length;
                     }
+                    this._adder--;
                 }
-                if(this._groupType === GroupType.CONCURRENT) {
-                    // Utgår från första om concurrent, skulle kunna utgå från längsta istället.
-                    this._latestPlayed = this._content[0];
-                } else {
-                    this._latestPlayed = this._content[this._currentId];
-                }
-                return this;
+                return _id;
             };
             AudioGroup.prototype.stop = /**
             * Stops playing back this group.
@@ -2393,9 +3932,16 @@ var __extends = function (d, b) {
             * @return {Klang.Model.AudioGroup} Self
             */
             function (duration, when) {
-                this.play(when);
+                /*this.play(when);
                 this.output.gain.value = 0;
-                Util.curveParamLin(this.output.gain, 1, duration, when);
+                Util.curveParamLin(this.output.gain, 1, duration, when);*/
+                var latestPlaying = this.latestPlayed ? this.latestPlayed.playing : false;
+                if(!this._retrig && latestPlaying) {
+                    return;
+                }
+                this._currentId = this.getIdToPlay();
+                this._latestPlayed = this._content[this._currentId];
+                this._content[this._currentId].fadeInAndPlay(duration, when);
                 return this;
             };
             AudioGroup.prototype.fadeOutAndStop = /**
@@ -2408,11 +3954,14 @@ var __extends = function (d, b) {
                 if(when == undefined) {
                     when = Klang.context.currentTime;
                 }
-                this.output.gain.cancelScheduledValues(when);
+                /*this.output.gain.cancelScheduledValues(when);
                 Util.curveParamLin(this.output.gain, 0, duration, when);
                 //resets to original volume
-                Util.setParam(this.output.gain, this._volume, when + duration);
-                this.stop(when + duration);
+                Util.setParam(this.output.gain, this._volume, when+duration);
+                this.stop(when + duration); */
+                if(this._latestPlayed) {
+                    this._latestPlayed.fadeOutAndStop(duration, when);
+                }
                 return this;
             };
             AudioGroup.prototype.curvePlaybackRate = /**
@@ -2436,6 +3985,13 @@ var __extends = function (d, b) {
                     this._content[ix].deschedule();
                 }
                 return this;
+            };
+            AudioGroup.prototype.getIdFromString = function (str) {
+                for(var ix = 0, len = this._content.length; ix < len; ix++) {
+                    if(this._content[ix]._name == str) {
+                        return ix;
+                    }
+                }
             };
             Object.defineProperty(AudioGroup.prototype, "playbackRate", {
                 set: /**
@@ -2482,6 +4038,16 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            AudioGroup.prototype.addContent = function (audio) {
+                this._content.push(audio);
+            };
+            AudioGroup.prototype.removeContent = function (name) {
+                for(var i = 0; i < this._content.length; i++) {
+                    if(this._content[i]._name === name) {
+                        this._content.splice(i, 1);
+                    }
+                }
+            };
             Object.defineProperty(AudioGroup.prototype, "playing", {
                 get: /**
                 * Whether or not this AudioSource is currently playing.
@@ -2530,9 +4096,26 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            AudioGroup.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                _super.prototype.setData.call(this, data);
+                this._groupType = data.group_type == undefined ? GroupType.STEP : data.group_type;
+                this._retrig = data.retrig == undefined ? true : data.retrig;
+                this._queue = data.queue == undefined ? QueueType.NONE : data.queue;
+                if(data.content) {
+                    this._content = data.content;
+                    this.init();
+                }
+            };
             return AudioGroup;
         })(Audio);
         Model.AudioGroup = AudioGroup;        
+        /*
+        * Source: src/model/audio/Automation.ts
+        */
         /**
         * An automation of a parameter.
         * @param {Object} data Configuration data.
@@ -2563,6 +4146,10 @@ var __extends = function (d, b) {
                             param.exponentialRampToValueAtTime(p.value, when + p.time);
                             break;
                         default:
+                            if(!Util.CUSTOM_CURVES[p.curve]) {
+                                Klang.warn("Automation: Invalid curve type: " + p.curve);
+                                break;
+                            }
                             param.setValueCurveAtTime(Util.CUSTOM_CURVES[p.curve], when + lastEndTime, p.time - lastEndTime);
                             break;
                     }
@@ -2572,6 +4159,9 @@ var __extends = function (d, b) {
             return Automation;
         })();
         Model.Automation = Automation;        
+        /*
+        * Source: src/model/audio/Bus.ts
+        */
         /**
         * Represents a bus for routing audio and effects.
         * @param {Object} data Configuration data.
@@ -2582,11 +4172,16 @@ var __extends = function (d, b) {
             function Bus(data, name) {
                 this._name = name;
                 this._type = data.type;
-                this._input = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
-                this._output = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this._input = Klang.context.createGain();
+                this._output = Klang.context.createGain();
                 this._effects = data.effects || [];
-                this._input.gain.value = data.input_vol;
-                this._output.gain.value = data.output_vol;
+                for(var i = 0, len = this._effects.length; i < len; i++) {
+                    if(data.effects[i].active === false) {
+                        this._effects[i].setActive(false);
+                    }
+                }
+                this._input.gain.value = data.input_vol !== undefined ? data.input_vol : 1;
+                this._output.gain.value = data.output_vol !== undefined ? data.output_vol : 1;
                 // Spara destination och lägg på ihopkopplingskön om destination är definierad
                 if(data.destination_name) {
                     this.destinationName = data.destination_name;
@@ -2621,6 +4216,35 @@ var __extends = function (d, b) {
             */
             function () {
                 this._output.disconnect();
+                return this;
+            };
+            Bus.prototype.insertEffect = /**
+            * Inserts a new effect into the bus' effect chain.
+            * @param {Object} effectData Configuration data for the effect.
+            * @param {number} index Where in the chain to insert the effect.
+            * @return {Klang.Model.Bus} Self
+            */
+            function (effectData, index) {
+                var effect = Core.instance.createObject(undefined, effectData, {
+                    excludeFromTable: true
+                });
+                if(index == undefined) {
+                    this._effects.push(effect);
+                } else {
+                    this._effects.splice(index, 0, effect);
+                }
+                this.init()// koppla om effektkedjan
+                ;
+                return this;
+            };
+            Bus.prototype.moveEffect = function (fromIndex, toIndex) {
+                for(var i = 0, len = this._effects.length; i < len; i++) {
+                    this._effects[i].disconnect();
+                }
+                var effect = this._effects[fromIndex];
+                this._effects.splice(fromIndex, 1);
+                this._effects.splice(toIndex, 0, effect);
+                this.init();
                 return this;
             };
             Object.defineProperty(Bus.prototype, "input", {
@@ -2659,6 +4283,49 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            Bus.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                this._input.gain.value = data.input_vol == undefined ? 1 : data.input_vol;
+                this._output.gain.value = data.output_vol == undefined ? 1 : data.output_vol;
+                // TODO: förbättra
+                // eftersom vi jämför typen kommer fel effekt att tas bort ifall vi har två av samma typ och tar bort den andra
+                if(data.effects.length < this.effects.length) {
+                    this.input.disconnect();
+                    var found = false;
+                    for(var ix = 0; ix < this._effects.length; ix++) {
+                        this._effects[ix].disconnect();
+                        if(!found) {
+                            if(data.effects[ix] == undefined) {
+                                this._effects.splice(ix, 1);
+                                found = true;
+                            } else if(this._effects[ix]._type != data.effects[ix].type) {
+                                this._effects.splice(ix, 1);
+                                ix--;
+                                found = true;
+                            }
+                        }
+                    }
+                    this.init();
+                } else if(data.effects.length > this.effects.length) {
+                    this.insertEffect(data.effects[data.effects.length - 1]);
+                } else {
+                    for(var ix = 0, len = this._effects.length; ix < len; ix++) {
+                        this._effects[ix].setData(data.effects[ix]);
+                    }
+                }
+                if(this.destinationName != data.destination_name) {
+                    this.destinationName = data.destination_name;
+                    this.disconnect();
+                    if(this.destinationName == "$OUT") {
+                        this.connect(Core.instance._superMasterOutput);
+                    } else {
+                        this.connect(Core.instance.findInstance(this.destinationName).input);
+                    }
+                }
+            };
             return Bus;
         })();
         Model.Bus = Bus;        
@@ -2903,7 +4570,7 @@ var __extends = function (d, b) {
                 this._length = data.length || 0;
                 this._nextClip = 0;
                 this._startStep = data.start_step || 0;
-                this._root = data.root;
+                this._root = data.root || 0;
                 this._transpose = this._orgTranspose = data.transpose || 0;
                 this._scale = this._orgScale = data.scale;
                 this._rootNote = data.root_note || 36;
@@ -2949,6 +4616,9 @@ var __extends = function (d, b) {
             */
             function () {
                 this._midiTrack = this._midiFile.tracks[this._midiTrackIx];
+                if(this._midiTrack == undefined) {
+                    Klang.warn("MidiPattern: midi track out of bounds: " + this._midiTrackIx);
+                }
                 this.recalculateBPM(this._sequencer.bpm);
                 var ticksPerBeat = this._midiFile.header.ticksPerBeat;
                 // Gå igenom midifilen och skapa clips för varje event
@@ -2990,6 +4660,18 @@ var __extends = function (d, b) {
             * @param {number} state State to change to.
             */
             function (state) {
+                // byt inte state om bytet är till samma state vi redan är på
+                if(state == this._state) {
+                    return;
+                }
+                if(Core.callbacks && Core.callbacks.changePatternState) {
+                    Core.callbacks.changePatternState({
+                        pattern: this,
+                        lastState: this._state,
+                        newState: state,
+                        step: this._sequencer.currentStep
+                    });
+                }
                 this._state = state;
             };
             MidiPattern.prototype.prePlaySchedule = /**
@@ -3004,6 +4686,7 @@ var __extends = function (d, b) {
                 if(!this._midiFile) {
                     this._midiFile = FileHandler.instance.getFile(this._midiFileId);
                     if(!this._midiFile) {
+                        Klang.warn("MidiPattern: midifile not found: " + this._name);
                         return;
                     }
                     this.setupFile();
@@ -3018,7 +4701,7 @@ var __extends = function (d, b) {
                         return this;
                     }
                 }
-                this._syncStep = syncStep;
+                this._syncStep = syncStep % this._length;
                 this._currentStep = this._startStep;
                 this.findNextClip(this._currentStep);
                 if(steps > 0) {
@@ -3058,6 +4741,7 @@ var __extends = function (d, b) {
                 if(!this._midiFile) {
                     this._midiFile = FileHandler.instance.getFile(this._midiFileId);
                     if(!this._midiFile) {
+                        Klang.warn("MidiPattern: midifile not found: " + this._name);
                         return;
                     }
                     this.setupFile();
@@ -3183,6 +4867,7 @@ var __extends = function (d, b) {
                         this._nextClip = 0;
                     }
                     if(this._nextClip === startClip) {
+                        Klang.log("MidiPattern", this._name, "got stuck, check if you're playing the correct midi track.");
                         break;
                     }
                 }
@@ -3440,7 +5125,6 @@ var __extends = function (d, b) {
                     this._synth.deschedule();
                 }
                 if(this._state != PatternState.Stopped) {
-                    console.log(this._name, "steps", steps, "current", this._currentStep - this._startStep);
                     steps = steps % this._length;
                     this._currentStep = this._currentStep - steps// återställ nuvarande steg
                     ;
@@ -3457,7 +5141,6 @@ var __extends = function (d, b) {
                             break;
                         }
                     }
-                    console.log(this._name, "current", this._currentStep - this._startStep);
                 }
                 return this;
             };
@@ -3595,6 +5278,57 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            MidiPattern.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                _super.prototype.setData.call(this, data);
+                var reinit = false;
+                this._beatSubscription = data.beat_subscription == undefined ? 0.25 : data.beat_subscription;
+                if(this._midiFile != data.file_id) {
+                    this._midiFile = data.file_id;
+                }
+                ;
+                if(this._midiTrackIx != data.midi_track) {
+                    this._midiTrackIx = data.midi_track;
+                }
+                ;
+                if(data.sequener != undefined && this._sequencerName != data.sequencer) {
+                    this._sequencerName = data.sequencer;
+                    reinit = true;
+                }
+                if(data.synth != undefined && this._synthName != data.synth) {
+                    this._synthName = data.synth;
+                    reinit = true;
+                }
+                this._loop = data.loop == undefined ? false : data.loop;
+                this._length = data.length == undefined ? 0 : data.length;
+                this._root = data.root == undefined ? 0 : data.root;
+                this._orgTranspose = data.transpose == undefined ? 0 : data.transpose;
+                this._transpose = this._orgTranspose;
+                this._orgScale = data.scale == undefined ? 0 : data.scale;
+                this._scale = this._orgScale;
+                this._rootNote = data.root_note == undefined ? 36 : data.root_note;
+                this._activeUpbeat = -1;
+                if(data.upbeats) {
+                    this._upbeats = [];
+                    this._upbeatLoopOffset = 0;
+                    for(var ix = 0, len = data.upbeats.length; ix < len; ix++) {
+                        this._upbeats.push({
+                            length: data.upbeats[ix].length,
+                            step: data.upbeats[ix].step,
+                            targetStep: data.upbeats[ix].target_step,
+                            playInLoop: data.upbeats[ix].play_in_loop
+                        });
+                    }
+                    reinit = true;
+                }
+                if(reinit) {
+                    this._sequencer.unregisterPattern(this);
+                    this.init();
+                }
+            };
             return MidiPattern;
         })(Audio);
         Model.MidiPattern = MidiPattern;        
@@ -3618,6 +5352,26 @@ var __extends = function (d, b) {
         })(Model.PatternState || (Model.PatternState = {}));
         var PatternState = Model.PatternState;
         /**
+        * Convert pattern state id to a string for readability.
+        * @param {number} state State id to convert.
+        * @return {string} String representation of the state.
+        */
+        function getPatternStateString(state) {
+            switch(state) {
+                case PatternState.PrePlaying:
+                    return "PrePlaying";
+                case PatternState.Playing:
+                    return "Playing";
+                case PatternState.PreStopping:
+                    return "PreStopping";
+                case PatternState.PostStop:
+                    return "PostStop";
+                case PatternState.Stopped:
+                    return "Stopped";
+            }
+        }
+        Model.getPatternStateString = getPatternStateString;
+        /**
         * A sequence of audio objects to be played back synced with to a sequencer.
         * @param {Object} data Configuration data.
         * @param {string} name Identifying name.
@@ -3639,9 +5393,10 @@ var __extends = function (d, b) {
                 this._tail = false;
                 this._forceFade = false;
                 this._activeUpbeat = -1;
+                this._startOffset = 0;
                 this._state = PatternState.Stopped;
-                this._beatSubscription = data.beat_subscription;
-                this._length = data.length;
+                this._beatSubscription = data.beat_subscription || 0.25;
+                this._length = data.length || 0;
                 this._startStep = data.start_step || 0;
                 this._loop = data.loop != undefined ? data.loop : true;
                 this._tail = data.tail != undefined ? data.tail : false;
@@ -3673,6 +5428,7 @@ var __extends = function (d, b) {
                                 args: null,
                                 step: dummy.step
                             });
+                            this._clips[this._clips.length - 1].audio._parentType = this._type;
                         } else// Hitta processen om en process ska köras
                          {
                             this._clips.push({
@@ -3699,6 +5455,7 @@ var __extends = function (d, b) {
                                     args: null,
                                     step: dummyClip.step
                                 });
+                                this._clips[this._clips.length - 1].audio._parentType = this._type;
                             } else// Hitta processen om en process ska köras
                              {
                                 upbeatClips.push({
@@ -3733,7 +5490,8 @@ var __extends = function (d, b) {
             function (destination) {
                 for(var ix = 0, len = this._clips.length; ix < len; ix++) {
                     var a = this._clips[ix].audio;
-                    if(a/* && (!a.destinationName || a.destinationName == "$PARENT")*/ ) {
+                    // Kopplar in audioSourcen bara om den är kopplad till mastern
+                    if(a && (!a.destinationName || Core.instance.findInstance(a.destinationName).destinationName == "$OUT")) {
                         a.disconnect();
                         a.connect(this._output);
                     }
@@ -3754,7 +5512,18 @@ var __extends = function (d, b) {
             * @param {number} state State to change to.
             */
             function (state) {
-                //console.log(this._name, "change from", getPatternStateString(this._state), "to", getPatternStateString(state), "step", this._currentStep);
+                // byt inte state om bytet är till samma state vi redan är på
+                if(state == this._state) {
+                    return;
+                }
+                if(Core.callbacks && Core.callbacks.changePatternState) {
+                    Core.callbacks.changePatternState({
+                        pattern: this,
+                        lastState: this._state,
+                        newState: state,
+                        step: this._sequencer.currentStep
+                    });
+                }
                 this._state = state;
             };
             Pattern.prototype.prePlaySchedule = /**
@@ -3767,9 +5536,10 @@ var __extends = function (d, b) {
             * @param {number} duration
             * @return {Klang.Model.Pattern}
             */
-            function (steps, syncStep, restart, fadeIn, duration) {
+            function (steps, syncStep, restart, fadeIn, duration, offset) {
                 restart = restart || false;
                 var t = Klang.context.currentTime;
+                // var t = this._sequencer.getBeatTime(steps);
                 // Övergå till att fortsätta om vi håller på att avsluta
                 if(this._state == PatternState.PreStopping || this._state == PatternState.PostStop) {
                     this._output.gain.cancelScheduledValues(t);
@@ -3789,9 +5559,10 @@ var __extends = function (d, b) {
                     this._output.gain.setValueAtTime(v, t);
                     this._output.gain.linearRampToValueAtTime(this._volume, t + duration);
                 } else if(fadeIn) {
-                    this._output.gain.cancelScheduledValues(t);
-                    this._output.gain.setValueAtTime(0, t);
-                    this._output.gain.linearRampToValueAtTime(this._volume, t + duration);
+                    var playTime = this._sequencer.getBeatTime(steps);
+                    this._output.gain.cancelScheduledValues(playTime);
+                    this._output.gain.setValueAtTime(0, playTime);
+                    this._output.gain.linearRampToValueAtTime(this._volume, playTime + duration);
                 }
                 // inget händer om det redan spelas
                 if(this._state == PatternState.Playing || this._state == PatternState.PrePlaying) {
@@ -3802,8 +5573,12 @@ var __extends = function (d, b) {
                         return this;
                     }
                 }
-                this._syncStep = syncStep;
-                if(steps > 0) {
+                // hoppa in i filen om offset
+                if(offset != undefined) {
+                    this._startOffset = offset;
+                }
+                this._syncStep = (syncStep % this._length) + this._startStep;
+                if(steps > 0 || restart) {
                     this._stepCount = steps;
                     this._currentStep = this._startStep;
                     this._totalStep = 0;
@@ -3870,6 +5645,7 @@ var __extends = function (d, b) {
                 // utan argument stoppas det direkt
                 if(when == undefined) {
                     this.changeState(PatternState.Stopped);
+                    this._currentStep = 0;
                     return this;
                 }
                 // Om man inte anger beat är true default, eftersom det är vanligast.
@@ -3890,24 +5666,33 @@ var __extends = function (d, b) {
                         var fadeBeats = fadeTime / this._sequencer.getNoteTime(1);// antal beats att fada ut över
                         
                         this._stepCount = Math.ceil(fadeBeats);
-                        this.changeState(PatternState.PostStop);
-                        var t = when;//context.currentTime;
-                        
-                        //console.log(this._name, "volume", this._output.gain.value, "start fade", "t", t, "done", (t-context.currentTime+fadeTime)/0.001);
-                        this._output.gain.cancelScheduledValues(t);
-                        this._output.gain.setValueAtTime(this._output.gain.value, t);
-                        this._output.gain.linearRampToValueAtTime(0.0, t + fadeTime);
-                        var _this = this;
-                        this._stoppingId = setTimeout(function () {
-                            //console.log(_this._name, "fade done", context.currentTime);
-                            for(var i = 0; i < _this._clips.length; i++) {
-                                if(_this._clips[i].audio) {
-                                    _this._clips[i].audio.stop(0);
-                                }
-                            }
-                        }, (t - Klang.context.currentTime + fadeTime) / 0.001);
-                    } else {
                         this.changeState(PatternState.Stopped);
+                        var t = Klang.context.currentTime;
+                        for(var i = 0; i < this._clips.length; i++) {
+                            if(this._clips[i].audio) {
+                                this._clips[i].audio.fadeOutAndStop(fadeTime, when);
+                            }
+                        }
+                        // var t = context.currentTime;
+                        // this._output.gain.cancelScheduledValues(t);
+                        // this._output.gain.setValueAtTime(this._output.gain.value, t);
+                        // this._output.gain.linearRampToValueAtTime(0.0, t + fadeTime);
+                        // var _this = this;
+                        // this._stoppingId = setTimeout(function() {
+                        //     for (var i=0; i<_this._clips.length; i++) {
+                        //         if (_this._clips[i].audio) {
+                        //             _this._clips[i].audio.stop(0);
+                        //         }
+                        //     }
+                        // }, ( t - context.currentTime + fadeTime ) * 1000 );
+                                            } else {
+                        this.changeState(PatternState.Stopped);
+                        this._currentStep = 0;
+                        for(var i = 0; i < this._clips.length; i++) {
+                            if(this._clips[i].audio) {
+                                this._clips[i].audio.stop(when + this._sequencer.getNoteTime(this._sequencer.resolution));
+                            }
+                        }
                     }
                 }
                 return this;
@@ -3957,7 +5742,7 @@ var __extends = function (d, b) {
                         var clip = this._clips[ix];
                         // spela ljud
                         if(clip.audio) {
-                            clip.audio.play(scheduleTime);
+                            clip.audio.play(scheduleTime, this._startOffset);
                         } else// kör process
                          {
                             clip.process.start(clip.args);
@@ -3976,7 +5761,6 @@ var __extends = function (d, b) {
             function (currentStep, scheduleTime) {
                 // Räkna fram och köa upp endast om denna pattern lyssnar
                 if(this._state != PatternState.Stopped && currentStep % this._beatSubscription == 0) {
-                    //console.log("pattern:", this._name, "state", this._state, "this._stepCount", this._stepCount);
                     switch(this._state) {
                         case PatternState.PrePlaying: {
                             if(this._activeUpbeat != -1) {
@@ -4010,7 +5794,7 @@ var __extends = function (d, b) {
                         case PatternState.PreStopping: {
                             this._stepCount -= this._beatSubscription;
                             if(this._stepCount <= 0) {
-                                if(!this._tail || this._forceFade) {
+                                if((!this._tail) || this._forceFade) {
                                     this.stop(scheduleTime, false, this._fadeTime);
                                 } else {
                                     this.changeState(PatternState.Stopped);
@@ -4212,9 +5996,54 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            Object.defineProperty(Pattern.prototype, "currentStep", {
+                get: function () {
+                    return this._currentStep;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Pattern.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                _super.prototype.setData.call(this, data);
+                var reinit = false;
+                this._beatSubscription = data.beat_subscription != undefined ? data.beat_subscription : 0.25;
+                this._length = data.length != undefined ? data.length : 0;
+                this._startStep = data.start_step != undefined ? data.start_step : 0;
+                this._loop = data.loop == undefined ? true : data.loop;
+                this._tail = data.tail == undefined ? false : data.tail;
+                if(data.sequencer != undefined && this._sequencerName != data.sequencer) {
+                    this._sequencerName = data.sequencer;
+                    reinit = true;
+                }
+                this._initData = {
+                    dummyClips: null,
+                    dummyUpbeats: null
+                };
+                if(data.content) {
+                    this._initData.dummyClips = data.content;
+                    this._clips = [];
+                    reinit = true;
+                }
+                if(data.upbeats) {
+                    this._initData.dummyUpbeats = data.upbeats;
+                    this._upbeats = [];
+                    reinit = true;
+                }
+                if(reinit) {
+                    this._sequencer.unregisterPattern(this);
+                    this.init();
+                }
+            };
             return Pattern;
         })(Audio);
         Model.Pattern = Pattern;        
+        /*
+        * Source: src/model/audio/effects/Effect.ts
+        */
         /**
         * Superclass for all effects. Contains one input and one output node.
         * @param {Object} data Configuration data.
@@ -4222,9 +6051,13 @@ var __extends = function (d, b) {
         */
         var Effect = (function () {
             function Effect(data) {
+                this.active = true;
                 this._type = data.type;
                 this._input = Klang.context.createGain != undefined ? Klang.context.createGain() : Klang.context.createGainNode();
                 this._output = Klang.context.createGain != undefined ? Klang.context.createGain() : Klang.context.createGainNode();
+                if(data.active === false) {
+                    this.active = false;
+                }
             }
             Effect.prototype.connect = /**
             * Connects the output of the effect to an Audio Node.
@@ -4246,6 +6079,7 @@ var __extends = function (d, b) {
             * @param {boolean} state
             */
             function (state) {
+                Klang.warn("Effect: Invocation of abstract method: Effect.setActive in", this);
                 return this;
             };
             Object.defineProperty(Effect.prototype, "input", {
@@ -4276,6 +6110,9 @@ var __extends = function (d, b) {
             return Effect;
         })();
         Model.Effect = Effect;        
+        /*
+        * Source: src/model/audio/effects/EffectSend.ts
+        */
         /**
         * Sends audio signal to a bus.
         * @param {Object} data Configuration data.
@@ -4286,7 +6123,7 @@ var __extends = function (d, b) {
             __extends(EffectSend, _super);
             function EffectSend(data) {
                         _super.call(this, data);
-                this._wet = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this._wet = Klang.context.createGain();
                 this._wet.gain.value = data.wet;
                 this._input.connect(this._wet);
                 this._input.connect(this._output);
@@ -4298,7 +6135,9 @@ var __extends = function (d, b) {
             */
             function () {
                 var destination = Core.instance.findInstance(this.destinationName);
-                this._wet.connect(destination.input);
+                if(destination) {
+                    this._wet.connect(destination.input);
+                }
             };
             EffectSend.prototype.setActive = /**
             * Activates or deactives the effect. An inactive effet is bypassed.
@@ -4328,9 +6167,27 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            EffectSend.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                if(data.wet != undefined) {
+                    this.wet.value = data.wet;
+                }
+                // uppdatera bara destination om den ändrats
+                if(data.destination_name != this.destinationName) {
+                    this.destinationName = data.destination_name;
+                    this._wet.disconnect();
+                    this.init();
+                }
+            };
             return EffectSend;
         })(Effect);
         Model.EffectSend = EffectSend;        
+        /*
+        * Source: src/model/audio/effects/Equalizer.ts
+        */
         /**
         * Eigth band EQ
         * @param {Object} data Configuration data.
@@ -4347,6 +6204,7 @@ var __extends = function (d, b) {
                     return;
                 }
                 if(data.bands.length == 0) {
+                    Klang.warn("Equalizer: No bands specified");
                     this._input.connect(this.output);
                 } else {
                     for(var ix = 0, len = data.bands.length; ix < len; ix++) {
@@ -4374,6 +6232,46 @@ var __extends = function (d, b) {
                     this._filters[this._filters.length - 1].connect(this._output);
                 }
             }
+            Equalizer.prototype.addFilter = function (type, frequency, q, gain) {
+                var filter = Klang.context.createBiquadFilter();
+                filter.type = type;
+                filter.frequency.value = frequency;
+                filter.gain.value = gain;
+                filter.Q.value = q;
+                // om inga andra filter finns
+                if(this._filters.length == 0) {
+                    this._input.disconnect();
+                    this._input.connect(filter);
+                } else// om andra filter finns
+                 {
+                    this._filters[this._filters.length - 1].disconnect();
+                    this._filters[this._filters.length - 1].connect(filter);
+                }
+                filter.connect(this.output);
+                this._filters.push(filter);
+            };
+            Equalizer.prototype.removeFilter = function (index) {
+                this._filters[index].disconnect();
+                // justera kopplingen av filtren beroende filtrets plats i arrayen
+                // först och längden minst ett annat filter
+                if(index == 0 && this._filters.length > 1) {
+                    this._input.disconnect();
+                    this._input.connect(this._filters[1]);
+                } else // först och det ända filtret
+                if(index == 0) {
+                    this._input.disconnect();
+                    this._input.connect(this._output);
+                } else // sist och inte det ända filtret
+                if(index == this._filters.length - 1) {
+                    this._filters[index - 1].disconnect();
+                    this._filters[index - 1].connect(this._output);
+                } else// mitt i en kedja
+                 {
+                    this._filters[index - 1].disconnect();
+                    this._filters[index - 1].connect(this._filters[index + 1]);
+                }
+                this._filters.splice(index, 1);
+            };
             Equalizer.prototype.setActive = /**
             * Activates or deactives the effect. An inactive effet is bypassed.
             * @param {boolean} state
@@ -4402,9 +6300,31 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            Equalizer.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                for(var ix = 0, len = this._filters.length; ix < len; ix++) {
+                    var filterData = data.bands[ix];
+                    var filter = this._filters[ix];
+                    if(filter && filterData) {
+                        filter.frequency.value = filterData.frequency;
+                        filter.Q.value = filterData.Q;
+                        filter.gain.value = filterData.gain;
+                        var newType = Util.safeFilterType(filterData.filter_type);
+                        if(filter.type != newType) {
+                            filter.type = newType;
+                        }
+                    }
+                }
+            };
             return Equalizer;
         })(Effect);
         Model.Equalizer = Equalizer;        
+        /*
+        * Source: src/model/audio/effects/BiquadFilter.ts
+        */
         /**
         * Implementation of the Web Audio API Biquad Filter.
         * @param {Object} data Configuration data.
@@ -4419,9 +6339,9 @@ var __extends = function (d, b) {
                 this._filter.type = Util.safeFilterType(data.filter_type);
                 this._input.connect(this._filter);
                 this._filter.connect(this._output);
-                this._filter.frequency.value = data.frequency != undefined ? data.frequency : this._filter.frequency;
-                this._filter.Q.value = data.Q != undefined ? data.Q : this._filter.Q;
-                this._filter.gain.value = data.gain != undefined ? data.gain : this._filter.gain.value;
+                this._filter.frequency.value = data.frequency != undefined ? data.frequency : 1000;
+                this._filter.Q.value = data.Q != undefined ? data.Q : 1;
+                this._filter.gain.value = data.gain != undefined ? data.gain : 0;
             }
             BiquadFilter.prototype.setActive = /**
             * Activates or deactives the effect. An inactive effet is bypassed.
@@ -4472,9 +6392,28 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            BiquadFilter.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                // uppdatera bara typ om den ändrats
+                if(data.filter_type == undefined) {
+                    data.filter_type = "lowpass";
+                }
+                if(this._filter.type != data.filter_type) {
+                    this._filter.type = Util.safeFilterType(data.filter_type);
+                }
+                this._filter.frequency.value = data.frequency == undefined ? 1000 : data.frequency;
+                this._filter.Q.value = data.Q == undefined ? 1 : data.Q;
+                this._filter.gain.value = data.gain == undefined ? 0 : data.gain;
+            };
             return BiquadFilter;
         })(Effect);
         Model.BiquadFilter = BiquadFilter;        
+        /*
+        * Source: src/model/audio/effects/Bitcrusher.ts
+        */
         /**
         * Bitcrusher and sample rate reducer.
         * @param {Object} data Configuration data.
@@ -4549,9 +6488,20 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            Bitcrusher.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                this._bits = data.bits != undefined ? data.bits : 4;
+                this._reduction = data.reduction != undefined ? data.reduction : 0.2;
+            };
             return Bitcrusher;
         })(Effect);
         Model.Bitcrusher = Bitcrusher;        
+        /*
+        * Source: src/model/audio/effects/Compressor.ts
+        */
         /**
         * Compressor effect that can be connected to a bus.
         * @param {Object} data Configuration data.
@@ -4569,7 +6519,7 @@ var __extends = function (d, b) {
                     return;
                 }
                 this._dynamicsCompressor = Klang.context.createDynamicsCompressor();
-                this._makeUpGain = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this._makeUpGain = Klang.context.createGain();
                 this._input.connect(this._dynamicsCompressor);
                 this._dynamicsCompressor.connect(this._makeUpGain);
                 this._makeUpGain.connect(this._output);
@@ -4680,9 +6630,36 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            Compressor.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                if(data.threshold != undefined) {
+                    this.threshold.value = data.threshold;
+                }
+                if(data.knee != undefined) {
+                    this.knee.value = data.knee;
+                }
+                if(data.ratio != undefined) {
+                    this.ratio.value = data.ratio;
+                }
+                if(data.attack != undefined) {
+                    this.attack.value = data.attack;
+                }
+                if(data.release != undefined) {
+                    this.release.value = data.release;
+                }
+                if(data.make_up_gain != undefined) {
+                    this.makeUpGain.value = data.make_up_gain;
+                }
+            };
             return Compressor;
         })(Effect);
         Model.Compressor = Compressor;        
+        /*
+        * Source: src/model/audio/effects/Convolver.ts
+        */
         /**
         * Convolver effect that can be connected to a bus or send
         * @param {Object} data Configuration data.
@@ -4699,10 +6676,23 @@ var __extends = function (d, b) {
                 }
                 this._soundName = data.sound;
                 this._convolver = Klang.context.createConvolver();
-                this._input.connect(this._convolver);
+                this._wetGain = Klang.context.createGain();
+                this._dryGain = Klang.context.createGain();
+                this._wetGain.gain.value = 1;
+                this._dryGain.gain.value = 0;
+                this._wetGain.connect(this._convolver);
+                this._dryGain.connect(this._output);
+                this._input.connect(this._wetGain);
+                this._input.connect(this._dryGain);
+                // this._input.connect(this._convolver);
                 this._convolver.connect(this._output);
                 Core.instance.pushToPostLoadInitStack(this);
             }
+            Convolver.prototype.dryWet = function (mix) {
+                mix = Math.max(0, Math.min(1, mix));
+                this._wetGain.gain.value = mix;
+                this._dryGain.gain.value = 1 - mix;
+            };
             Convolver.prototype.setActive = /**
             * Activates or deactives the effect. An inactive effet is bypassed.
             * @param {boolean} state
@@ -4723,9 +6713,22 @@ var __extends = function (d, b) {
                 var soundInstance = Core.instance.findInstance(this._soundName);
                 this._convolver.buffer = soundInstance.buffer;
             };
+            Convolver.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                if(data.sound && data.sound != this._soundName) {
+                    this._soundName = data.sound;
+                    this.init();
+                }
+            };
             return Convolver;
         })(Effect);
         Model.Convolver = Convolver;        
+        /*
+        * Source: src/model/audio/effects/Delay.ts
+        */
         // Olika typer av delays
         /**
         * Base class for all delay effects, handles syncing to a sequencer.
@@ -4750,11 +6753,30 @@ var __extends = function (d, b) {
                     seq.registerBPMSync(this);
                 }
             };
+            DelayBase.prototype.setSync = function (sequencer, rate) {
+                if(sequencer) {
+                    this._sync = sequencer;
+                    this._syncResolution = rate || 1;
+                    this.init();
+                } else {
+                    this._sync = null;
+                    this._syncResolution = null;
+                }
+                return this;
+            };
+            DelayBase.prototype.setSyncRate = function (rate) {
+                if(this._sync) {
+                    this._syncResolution = rate;
+                    this.updateSync(Core.instance.findInstance(this._sync).bpm);
+                }
+                return this;
+            };
             DelayBase.prototype.updateSync = /**
             * Updates the BPM.
             * @param {number} bpm New BPM.
             */
             function (bpm) {
+                Klang.warn("DelayBase: Invocation of abstract method: DelayBase.updateSync in", this);
                 return this;
             };
             Object.defineProperty(DelayBase.prototype, "sync", {
@@ -4801,12 +6823,8 @@ var __extends = function (d, b) {
             __extends(Delay, _super);
             function Delay(data) {
                         _super.call(this, data);
-                /*if (Klang.isMobile) {
-                this._input.connect(this._output);
-                return;
-                }*/
-                this._feedback = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
-                this._delay = Klang.safari ? Klang.context.createDelayNode() : Klang.context.createDelay();
+                this._feedback = Klang.context.createGain();
+                this._delay = Klang.context.createDelay();
                 if(data.filter) {
                     this._filter = Klang.context.createBiquadFilter();
                     this._input.connect(this._filter);
@@ -4887,6 +6905,53 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            Delay.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                if(data.feedback) {
+                    this._feedback.gain.value = data.feedback;
+                }
+                if(data.sync) {
+                    this.setSync(data.sync, data.delay_time);
+                } else {
+                    if(data.delay_time) {
+                        this._delay.delayTime.value = data.delay_time;
+                    }
+                }
+                if(data.filter) {
+                    if(!this._filter) {
+                        this.input.disconnect();
+                        this._filter = Klang.context.createBiquadFilter();
+                        this.input.connect(this._filter);
+                        this._filter.connect(this._delay);
+                    }
+                    if(data.filter.filter_type != undefined) {
+                        this._filter.type = Util.safeFilterType(data.filter.filter_type);
+                    }
+                    ;
+                    if(data.filter.frequency != undefined) {
+                        this._filter.frequency.value = data.filter.frequency;
+                    }
+                    ;
+                    if(data.filter.Q != undefined) {
+                        this._filter.Q.value = data.filter.Q;
+                    }
+                    ;
+                    if(data.filter.gain != undefined) {
+                        this._filter.gain.value = data.filter.gain;
+                    }
+                    ;
+                } else {
+                    if(this._filter) {
+                        this.input.disconnect();
+                        this._filter.disconnect();
+                        this.input.connect(this._delay);
+                        this._filter = null;
+                    }
+                }
+            };
             return Delay;
         })(DelayBase);
         Model.Delay = Delay;        
@@ -4904,12 +6969,16 @@ var __extends = function (d, b) {
             __extends(PingPongDelay, _super);
             function PingPongDelay(data) {
                         _super.call(this, data);
+                if(Klang.browser == "Firefox") {
+                    this._input.connect(this._output);
+                    return;
+                }
                 this._splitter = Klang.context.createChannelSplitter(2);
                 this._merger = Klang.context.createChannelMerger(2);
-                this._mono = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
-                this._leftDelay = Klang.safari ? Klang.context.createDelayNode() : Klang.context.createDelay();
-                this._rightDelay = Klang.safari ? Klang.context.createDelayNode() : Klang.context.createDelay();
-                this._feedback = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this._mono = Klang.context.createGain();
+                this._leftDelay = Klang.context.createDelay();
+                this._rightDelay = Klang.context.createDelay();
+                this._feedback = Klang.context.createGain();
                 if(data.filter) {
                     this._filter = Klang.context.createBiquadFilter();
                     this._mono.connect(this._filter);
@@ -4963,11 +7032,19 @@ var __extends = function (d, b) {
                 this._rightDelay.delayTime.value = this._leftDelay.delayTime.value;
                 return this;
             };
-            Object.defineProperty(PingPongDelay.prototype, "feedback", {
-                get: /**
+            Object.defineProperty(PingPongDelay.prototype, "delay_time", {
+                set: /**
                 * GETTERS / SETTERS
                 *********************/
-                /**
+                function (val) {
+                    this._leftDelay.delayTime.value = val;
+                    this._rightDelay.delayTime.value = val;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(PingPongDelay.prototype, "feedback", {
+                get: /**
                 * Feedback amount
                 * @type {AudioParam}
                 */
@@ -4988,6 +7065,58 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            PingPongDelay.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                if(data.feedback) {
+                    this._feedback.gain.value = data.feedback;
+                }
+                if(data.sync) {
+                    this.setSync(data.sync, data.delay_time);
+                } else {
+                    if(data.delay_time) {
+                        this._leftDelay.delayTime.value = data.delay_time;
+                        this._rightDelay.delayTime.value = data.delay_time;
+                    }
+                }
+                if(data.filter) {
+                    if(!this._filter) {
+                        this._mono.disconnect();
+                        this._feedback.disconnect();
+                        this._filter = Klang.context.createBiquadFilter();
+                        this._mono.connect(this._filter);
+                        this._filter.connect(this._leftDelay);
+                        this._feedback.connect(this._filter);
+                    }
+                    if(data.filter.filter_type != undefined) {
+                        this._filter.type = Util.safeFilterType(data.filter.filter_type);
+                    }
+                    ;
+                    if(data.filter.frequency != undefined) {
+                        this._filter.frequency.value = data.filter.frequency;
+                    }
+                    ;
+                    if(data.filter.Q != undefined) {
+                        this._filter.Q.value = data.filter.Q;
+                    }
+                    ;
+                    if(data.filter.gain != undefined) {
+                        this._filter.gain.value = data.filter.gain;
+                    }
+                    ;
+                } else {
+                    if(this._filter) {
+                        this._mono.disconnect();
+                        this._feedback.disconnect();
+                        this._filter.disconnect();
+                        this._mono.connect(this._leftDelay);
+                        this._feedback.connect(this._leftDelay);
+                        this._filter = null;
+                    }
+                }
+            };
             return PingPongDelay;
         })(DelayBase);
         Model.PingPongDelay = PingPongDelay;        
@@ -5071,9 +7200,20 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            StereoDelay.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                this._leftDelay.setData(data.left);
+                this._rightDelay.setData(data.right);
+            };
             return StereoDelay;
         })(DelayBase);
         Model.StereoDelay = StereoDelay;        
+        /*
+        * Source: src/model/audio/effects/Limiter.ts
+        */
         /**
         * Limiter effect that can be connected to a bus.
         * @param {Object} data Configuration data.
@@ -5085,8 +7225,8 @@ var __extends = function (d, b) {
             function Limiter(data) {
                         _super.call(this, data);
                 this._compressor = Klang.context.createDynamicsCompressor();
-                this._preGain = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
-                this._postGain = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this._preGain = Klang.context.createGain();
+                this._postGain = Klang.context.createGain();
                 this._input.connect(this._preGain);
                 this._preGain.connect(this._compressor);
                 this._compressor.connect(this._postGain);
@@ -5159,9 +7299,27 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            Limiter.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                if(data.threshold != undefined) {
+                    this._compressor.threshold.value = data.threshold;
+                }
+                if(data.pre_gain != undefined) {
+                    this._preGain.gain.value = data.pre_gain;
+                }
+                if(data.post_gain != undefined) {
+                    this._postGain.gain.value = data.post_gain;
+                }
+            };
             return Limiter;
         })(Effect);
         Model.Limiter = Limiter;        
+        /*
+        * Source: src/model/audio/effects/Panner.ts
+        */
         /**
         * Panner that can be connected to a bus or effect.
         * @param {Object} data Configuration data.
@@ -5172,41 +7330,48 @@ var __extends = function (d, b) {
             __extends(Panner, _super);
             function Panner(data) {
                         _super.call(this, data);
-                this._parameters = {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0.1,
-                    "ox": 1,
-                    "oy": 0,
-                    "oz": 0,
-                    "vx": 0,
-                    "vy": 0,
-                    "vz": 0
-                };
+                this._name = data.name;
                 this._panner = Klang.context.createPanner();
                 this._input.connect(this._panner);
                 this._panner.connect(this._output);
-                this._panner.panningModel = data.panning_model || "HRTF";
-                this._panner.distanceModel = data.distance_model || "inverse";
-                if(data.ref_distance) {
+                if(data.panning_model != undefined) {
+                    this._panner.panningModel = data.panning_model;
+                }
+                if(data.distance_model != undefined) {
+                    this._panner.distanceModel = data.distance_model;
+                }
+                if(data.ref_distance != undefined) {
                     this._panner.refDistance = data.ref_distance;
                 }
-                if(data.max_distance) {
+                if(data.max_distance != undefined) {
                     this._panner.maxDistance = data.max_distance;
                 }
-                if(data.rolloff_factor) {
+                if(data.rolloff_factor != undefined) {
                     this._panner.rolloffFactor = data.rolloff_factor;
                 }
-                if(data.cone_inner_angle) {
+                if(data.cone_inner_angle != undefined) {
                     this._panner.coneInnerAngle = data.cone_inner_angle;
                 }
-                if(data.cone_outer_angle) {
+                if(data.cone_outer_angle != undefined) {
                     this._panner.coneOuterAngle = data.cone_outer_angle;
                 }
-                if(data.cone_outer_gain) {
+                if(data.cone_outer_gain != undefined) {
                     this._panner.coneOuterGain = data.cone_outer_gain;
                 }
+                if(data.position != undefined) {
+                    this._panner.setPosition(data.position[0], data.position[1], data.position[2]);
+                }
+                if(data.velocity != undefined) {
+                    this._panner.setVelocity(data.position[0], data.position[1], data.position[2]);
+                }
+                if(data.orientation != undefined) {
+                    this._panner.setOrientation(data.position[0], data.position[1], data.position[2]);
+                }
+                Panner.panners[this._name] = this;
             }
+            Panner.panners = {
+            };
+            Panner._scale = 1;
             Panner.prototype.setActive = /**
             * Activates or deactives the effect. An inactive effet is bypassed.
             * @param {boolean} state
@@ -5220,8 +7385,69 @@ var __extends = function (d, b) {
                 }
                 return this;
             };
+            Panner.prototype.setPosition = /**
+            * Sets panner position in relation to the AudioContextListener
+            * @param {number} x x-pos.
+            * @param {number} y y-pos.
+            * @param {number} z z-pos.
+            */
+            function (x, y, z) {
+                this._panner.setPosition(x * Panner.scale, y * Panner.scale, z * Panner.scale);
+            };
+            Panner.prototype.setOrientation = /**
+            * Describes which direction the audio source is pointing in the 3D cartesian coordinate space.
+            * @param {number} x x-pos.
+            * @param {number} y y-pos.
+            * @param {number} z z-pos.
+            */
+            function (x, y, z) {
+                this._panner.setOrientation(x, y, z);
+            };
+            Panner.prototype.setVelocity = /**
+            * Sets the velocity vector of the audio source.
+            * @param {number} x x-pos.
+            * @param {number} y y-pos.
+            * @param {number} z z-pos.
+            */
+            function (x, y, z) {
+                this._panner.setVelocity(x, y, z);
+            };
+            Panner.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                this._panner.setPosition(data.position[0], data.position[1], data.position[2]);
+                this._panner.setVelocity(data.position[0], data.position[1], data.position[2]);
+                this._panner.setOrientation(data.position[0], data.position[1], data.position[2]);
+                if(data.panning_model != undefined) {
+                    this._panner.panningModel = data.panning_model;
+                }
+                if(data.distance_model != undefined) {
+                    this._panner.distanceModel = data.distance_model;
+                }
+                if(data.ref_distance != undefined) {
+                    this._panner.refDistance = data.ref_distance;
+                }
+                if(data.max_distance != undefined) {
+                    this._panner.maxDistance = data.max_distance;
+                }
+                if(data.rolloff_factor != undefined) {
+                    this._panner.rolloffFactor = data.rolloff_factor;
+                }
+                if(data.cone_inner_angle != undefined) {
+                    this._panner.coneInnerAngle = data.cone_inner_angle;
+                }
+                if(data.cone_outer_angle != undefined) {
+                    this._panner.coneOuterAngle = data.cone_outer_angle;
+                }
+                if(data.cone_outer_gain != undefined) {
+                    this._panner.coneOuterGain = data.cone_outer_gain;
+                }
+            };
             Object.defineProperty(Panner, "listener", {
-                get: /**
+                get: // STATISKA METODER
+                /**
                 * The position of the listener, this position is global and affects all 3D panners.
                 * @param {number} x x-pos (optional).
                 * @param {number} y y-pos (optional).
@@ -5233,48 +7459,51 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
-            Panner.prototype.setPosition = /**
-            * Sets panner position in relation to the AudioContextListener
-            * @param {number} x x-pos (optional).
-            * @param {number} y y-pos (optional).
-            * @param {number} z z-pos (optional).
-            */
-            function (x, y, z) {
-                var _x = x || this._parameters["x"], _y = y || this._parameters["y"], _z = z || this._parameters["z"];
-                this._panner.setPosition(_x, _y, _z);
-                this._parameters["x"] = _x;
-                this._parameters["y"] = _y;
-                this._parameters["z"] = _z;
+            Panner.setListenerPosition = function setListenerPosition(x, y, z) {
+                Klang.context.listener.setPosition(x * Panner.scale, y * Panner.scale, z * Panner.scale);
             };
-            Panner.prototype.setOrientation = /**
-            * Describes which direction the audio source is pointing in the 3D cartesian coordinate space.
-            * @param {number} x x-pos (optional).
-            * @param {number} y y-pos (optional).
-            * @param {number} z z-pos (optional).
-            */
-            function (x, y, z) {
-                var _x = x || this._parameters["ox"], _y = y || this._parameters["oy"], _z = z || this._parameters["oz"];
-                this._panner.setOrientation(_x, _y, _z);
-                this._parameters["ox"] = _x;
-                this._parameters["oy"] = _y;
-                this._parameters["oz"] = _z;
+            Panner.setListenerOrientation = function setListenerOrientation(x, y, z, xUp, yUp, zUp) {
+                Klang.context.listener.setOrientation(x, y, z, xUp, yUp, zUp);
             };
-            Panner.prototype.setVelocity = /**
-            * Sets the velocity vector of the audio source.
-            * @param {number} x x-pos (optional).
-            * @param {number} y y-pos (optional).
-            * @param {number} z z-pos (optional).
-            */
-            function (x, y, z) {
-                var _x = x || this._parameters["vx"], _y = y || this._parameters["vy"], _z = z || this._parameters["vz"];
-                this._panner.setVelocity(_x, _y, _z);
-                this._parameters["vx"] = _x;
-                this._parameters["vy"] = _y;
-                this._parameters["vz"] = _z;
+            Panner.setListenerVelocity = function setListenerVelocity(x, y, z) {
+                Klang.context.listener.setVelocity(x, y, z);
             };
+            Panner.setDopplerFactor = function setDopplerFactor(factor) {
+                Klang.context.listener.dopplerFactor = factor;
+            };
+            Panner.setSpeedOfSound = function setSpeedOfSound(speed) {
+                Klang.context.listener.speed = speed;
+            };
+            Panner.setListenerData = function setListenerData(data) {
+                if(!data) {
+                    return;
+                }
+                Panner.scale = data.scale;
+                Panner.setListenerPosition(data.position[0], data.position[1], data.position[2]);
+                Panner.setListenerOrientation(data.orientation[0], data.orientation[1], data.orientation[2], data.orientation_up[0], data.orientation_up[1], data.orientation_up[2]);
+                Panner.setListenerVelocity(data.velocity[0], data.velocity[1], data.velocity[2]);
+                Panner.setDopplerFactor(data.doppler_factor);
+                Panner.setSpeedOfSound(data.speed_of_sound);
+            };
+            Panner.get = function get(name) {
+                return Panner.panners[name];
+            };
+            Object.defineProperty(Panner, "scale", {
+                get: function () {
+                    return Panner._scale;
+                },
+                set: function (scale) {
+                    Panner._scale = scale;
+                },
+                enumerable: true,
+                configurable: true
+            });
             return Panner;
         })(Effect);
         Model.Panner = Panner;        
+        /*
+        * Source: src/model/audio/effects/Sidechain.ts
+        */
         /**
         * Sidechain effect
         * @param {Object} data Configuration data.
@@ -5286,8 +7515,8 @@ var __extends = function (d, b) {
             function Sidechain(data) {
                         _super.call(this, data);
                 this._source = data.source;
-                this._gain = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
-                this._processor = Klang.safari ? Klang.context.createJavaScriptNode(data.buffer_size || 0) : Klang.context.createScriptProcessor(data.buffer_size || 0);
+                this._gain = Klang.context.createGain();
+                this._processor = Klang.context.createScriptProcessor(data.buffer_size || 0);
                 var _this = this;
                 this._processor.onaudioprocess = function () {
                     var reduction = _this._source.reduction.value;
@@ -5304,6 +7533,9 @@ var __extends = function (d, b) {
             * Finds the compressor effect that reduces gain
             */
             function () {
+                if(!this._source || !this._source.bus || this._source.index == undefined) {
+                    Klang.warn("Sidechain: No source specified");
+                }
                 var bus = Core.instance.findInstance(this._source.bus);
                 this._source = bus._effects[this._source.index];
             };
@@ -5324,6 +7556,9 @@ var __extends = function (d, b) {
             return Sidechain;
         })(Effect);
         Model.Sidechain = Sidechain;        
+        /*
+        * Source: src/model/audio/effects/StereoPanner.ts
+        */
         /**
         * Panner that only pans between the left and right channels. Does NOT use a 3D panner.
         * @param {Object} data Configuration data.
@@ -5336,9 +7571,8 @@ var __extends = function (d, b) {
                         _super.call(this, data);
                 this._splitter = Klang.context.createChannelSplitter(2);
                 this._merger = Klang.context.createChannelMerger(2);
-                //this._mono = safari ? context.createGainNode() : context.createGain();
-                this._left = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
-                this._right = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this._left = Klang.context.createGain();
+                this._right = Klang.context.createGain();
                 // Dela upp input i två kanaler med separata gains
                 this._input.connect(this._splitter);
                 /*this._splitter.connect(this._mono, 0, 0);
@@ -5430,9 +7664,21 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            StereoPanner.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                if(data.pan != undefined) {
+                    this.pan = data.pan;
+                }
+            };
             return StereoPanner;
         })(Effect);
         Model.StereoPanner = StereoPanner;        
+        /*
+        * Source: src/model/audio/effects/Tremolo.ts
+        */
         /**
         * Tremolo effect implemented by having an oscillator to modulate the output gain.
         * @param {Object} data Configuration data.
@@ -5448,7 +7694,7 @@ var __extends = function (d, b) {
                     this._rate = data.rate || 0.25;
                 }
                 this._oscillator = Klang.context.createOscillator();
-                this._amplitude = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this._amplitude = Klang.context.createGain();
                 this._input.connect(this._output);
                 this._oscillator.connect(this._amplitude);
                 this._amplitude.connect(this._output.gain);
@@ -5475,7 +7721,7 @@ var __extends = function (d, b) {
             */
             function (state) {
                 if(state) {
-                    this._amplitude.connect(this._output);
+                    this._amplitude.connect(this._output.gain);
                 } else {
                     this._amplitude.disconnect();
                 }
@@ -5514,9 +7760,33 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            Tremolo.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                if(data.amplitude != undefined) {
+                    this.amplitude.value = data.amplitude;
+                }
+                if(data.wave != undefined) {
+                    this._oscillator.type = data.wave;
+                }
+                if(data.sync) {
+                    this._sync = data.sync;
+                    this._rate = data.rate || 0.25;
+                    this.init();
+                } else {
+                    if(data.frequency != undefined) {
+                        this.frequency.value = data.frequency;
+                    }
+                }
+            };
             return Tremolo;
         })(Effect);
         Model.Tremolo = Tremolo;        
+        /*
+        * Source: src/model/audio/effects/Distortion.ts
+        */
         /**
         * Distortion effect.
         * @param {Object} data Configuration data.
@@ -5528,18 +7798,21 @@ var __extends = function (d, b) {
             function Distortion(data) {
                         _super.call(this, data);
                 this._samples = 8192;
-                this._type = data.distortion_type || 0;
+                this._distortionType = data.distortion_type || 0;
                 this._amount = data.amount || 0.7;
                 this._samples = 8192;
                 this._waveshaper = Klang.context.createWaveShaper();
-                this._inputDrive = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
-                this._outputDrive = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this._inputDrive = Klang.context.createGain();
+                this._outputDrive = Klang.context.createGain();
                 this._input.connect(this._inputDrive);
                 this._inputDrive.connect(this._waveshaper);
                 this._waveshaper.connect(this._outputDrive);
                 this._outputDrive.connect(this._output);
                 this._ws_table = new Float32Array(this._samples);
-                this.createWSCurve(this._type, 0.7);
+                this.createWSCurve(this._distortionType, this._amount);
+                //Default values
+                this._inputDrive.gain.value = data.drive || 0.5;
+                this._outputDrive.gain.value = data.outputGain || 0.5;
             }
             Distortion.prototype.createWSCurve = //TODO: lägg till fler WaveShaper algoritmer.
             function (type, amount) {
@@ -5552,8 +7825,71 @@ var __extends = function (d, b) {
                             this._ws_table[i] = (1 + k) * x / (1 + k * Math.abs(x));
                         }
                         break;
+                    case 1:
+                        var i, x, y;
+                        for(i = 0; i < this._samples; i++) {
+                            x = i * 2 / this._samples - 1;
+                            y = ((0.5 * Math.pow((x + 1.4), 2)) - 1) * y >= 0 ? 5.8 : 1.2;
+                            this._ws_table[i] = this.tanh(y);
+                        }
+                        break;
+                    case 2:
+                        var i, x, y, a = 1 - amount;
+                        for(i = 0; i < this._samples; i++) {
+                            x = i * 2 / this._samples - 1;
+                            y = x < 0 ? -Math.pow(Math.abs(x), a + 0.04) : Math.pow(x, a);
+                            this._ws_table[i] = this.tanh(y * 2);
+                        }
+                        break;
+                    case 3:
+                        var i, x, y, abx, a = 1 - amount > 0.99 ? 0.99 : 1 - amount;
+                        for(i = 0; i < this._samples; i++) {
+                            x = i * 2 / this._samples - 1;
+                            abx = Math.abs(x);
+                            if(abx < a) {
+                                y = abx;
+                            } else if(abx > a) {
+                                y = a + (abx - a) / (1 + Math.pow((abx - a) / (1 - a), 2));
+                            } else if(abx > 1) {
+                                y = abx;
+                            }
+                            this._ws_table[i] = this.sign(x) * y * (1 / ((a + 1) / 2));
+                        }
+                        break;
+                    case 4:
+                        var i, x;
+                        for(i = 0; i < this._samples; i++) {
+                            x = i * 2 / this._samples - 1;
+                            if(x < -0.08905) {
+                                this._ws_table[i] = (-3 / 4) * (1 - (Math.pow((1 - (Math.abs(x) - 0.032857)), 12)) + (1 / 3) * (Math.abs(x) - 0.032847)) + 0.01;
+                            } else if(x >= -0.08905 && x < 0.320018) {
+                                this._ws_table[i] = (-6.153 * (x * x)) + 3.9375 * x;
+                            } else {
+                                this._ws_table[i] = 0.630035;
+                            }
+                        }
+                        break;
+                    case 5:
+                        var a = 2 + Math.round(amount * 14), bits = // we go from 2 to 16 bits, keep in mind for the UI
+                        Math.round(Math.pow(2, a - 1)), i, x;
+                        // real number of quantization steps divided by 2
+                        for(i = 0; i < this._samples; i++) {
+                            x = i * 2 / this._samples - 1;
+                            this._ws_table[i] = Math.round(x * bits) / bits;
+                        }
+                        break;
                 }
                 this._waveshaper.curve = this._ws_table;
+            };
+            Distortion.prototype.tanh = function (n) {
+                return (Math.exp(n) - Math.exp(-n)) / (Math.exp(n) + Math.exp(-n));
+            };
+            Distortion.prototype.sign = function (x) {
+                if(x === 0) {
+                    return 1;
+                } else {
+                    return Math.abs(x) / x;
+                }
             };
             Distortion.prototype.setActive = /**
             * Activates or deactives the effect. An inactive effet is bypassed.
@@ -5581,29 +7917,64 @@ var __extends = function (d, b) {
                 },
                 set: function (val) {
                     this._amount = val;
-                    this.createWSCurve(this._type, this._amount);
+                    this.createWSCurve(this._distortionType, this._amount);
                 },
                 enumerable: true,
                 configurable: true
             });
-            Object.defineProperty(Distortion.prototype, "type", {
+            Object.defineProperty(Distortion.prototype, "distortionType", {
                 get: /**
                 * Distortion type
                 * @type {number}
                 */
                 function () {
-                    return this._type;
+                    return this._distortionType;
                 },
                 set: function (val) {
-                    this._type = val;
-                    this.createWSCurve(this._type, this._amount);
+                    this._distortionType = val;
+                    this.createWSCurve(this._distortionType, this._amount);
                 },
                 enumerable: true,
                 configurable: true
             });
+            Object.defineProperty(Distortion.prototype, "drive", {
+                get: function () {
+                    return this._inputDrive.gain;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Distortion.prototype, "outputGain", {
+                get: function () {
+                    return this._outputDrive.gain;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Distortion.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                if(data.amount != undefined) {
+                    this.amount = data.amount;
+                }
+                if(data.distortion_type != undefined) {
+                    this.distortionType = data.distortion_type;
+                }
+                if(data.drive != undefined) {
+                    this._inputDrive.gain.value = data.drive;
+                }
+                if(data.outputGain != undefined) {
+                    this._outputDrive.gain.value = data.outputGain;
+                }
+            };
             return Distortion;
         })(Effect);
         Model.Distortion = Distortion;        
+        /*
+        * Source: src/model/audio/synths/LFO.ts
+        */
         /**
         * Modulates an audio param over time.
         * @param {Object} data Configuration data.
@@ -5612,6 +7983,7 @@ var __extends = function (d, b) {
         */
         var LFO = (function () {
             function LFO(data, startTime) {
+                startTime = startTime || 0;
                 this._targets = data.targets;
                 this._sync = data.sync;
                 this._rate = data.rate || 1;
@@ -5619,13 +7991,13 @@ var __extends = function (d, b) {
                 this._oscillator = Klang.context.createOscillator();
                 this._oscillator.type = data.wave || 0;
                 this._oscillator.frequency.value = this._rate;
-                this._amplitude = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this._amplitude = Klang.context.createGain();
                 this._amplitude.gain.value = data.amplitude || 1;
-                this._phase = Klang.safari ? Klang.context.createDelayNode() : Klang.context.createDelay();
+                this._phase = Klang.context.createDelay();
                 this._phase.delayTime.value = this._phaseVal * (1 / this._oscillator.frequency.value);
                 this._oscillator.connect(this._phase);
                 this._phase.connect(this._amplitude);
-                Klang.safari ? this._oscillator.noteOn(startTime) : this._oscillator.start(startTime);
+                this._oscillator.start(startTime);
                 Core.instance.pushToPreLoadInitStack(this);
             }
             LFO.prototype.init = /**
@@ -5641,6 +8013,12 @@ var __extends = function (d, b) {
                     var t = this._targets[ix];
                     var bus = Core.instance.findInstance(t.bus);
                     var effect = bus.effects[t.effect];
+                    if(!effect) {
+                        Klang.warn("LFO: Effect index out of bounds: " + t.effect);
+                    }
+                    if(!effect[t.param]) {
+                        Klang.warn("LFO: Parameter not recognized: " + t.param);
+                    }
                     this._amplitude.connect(effect[t.param]);
                 }
             };
@@ -5653,6 +8031,24 @@ var __extends = function (d, b) {
                 this._phase.delayTime.value = this._phaseVal * (1 / this._oscillator.frequency.value);
                 return this;
             };
+            LFO.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                this._oscillator.type = data.wave;
+                this._oscillator.frequency.value = data.rate;
+                this._phase.delayTime.value = data.phase * (1 / this._oscillator.frequency.value);
+                this._amplitude.gain.value = data.amplitude || 1;
+                if(data.targets) {
+                    this._targets = data.targets;
+                    this.init();
+                }
+                if(this._sync != data.sync) {
+                    this._sync = data.sync;
+                    this.init();
+                }
+            };
             return LFO;
         })();
         Model.LFO = LFO;        
@@ -5663,11 +8059,15 @@ var __extends = function (d, b) {
         * @constructor
         */
         var Synth = (function () {
-            // protected finns inte i typescript
+            //specialare om man vill ha fixedVelocity på arpeggiot.
             function Synth(data, name) {
+                this._arpCounter = 0;
+                this._arpNoteLength = 0.5;
+                this._arpPattern = [];
+                this._arpPatternStep = 0;
                 this._name = name;
                 this._type = data.type;
-                this._output = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this._output = Klang.context.createGain();
                 this._output.gain.value = data.volume || 1.0;
                 // Spara destination och lägg på ihopkopplingskön om destination är definierad
                 if(data.destination_name) {
@@ -5676,6 +8076,18 @@ var __extends = function (d, b) {
                         Core.instance.pushToConnectStack(this);
                     }
                 }
+                if(data.arp) {
+                    this._arpMode = data.arp.arp_mode || 'off';
+                    this._octaves = data.arp.octaves || 1;
+                    this._sync = data.arp.sync;
+                    this._arpPattern = data.arp.arp_pattern || [];
+                } else {
+                    this._arpMode = 'off';
+                }
+                this._activeVoices = [];
+                this._arpVoices = [];
+                this._beatSubscription = data.beat_subscription || 0.25;
+                this.data = data;
             }
             Synth.prototype.connect = /**
             * Connects the synth's output to a Web Audio Node.
@@ -5697,20 +8109,148 @@ var __extends = function (d, b) {
             * @param {any} event Midi event to handle.
             * @param {number} when Time when the event should be handled, in Web Audio context time.
             */
-            function (event, when) {
+            function (event, when, transpose, bypassArp) {
+                Klang.warn("Synth: Invocation of abstract method: Synth.handleMidiEvent in", this);
                 return this;
             };
             Synth.prototype.stop = /**
             * Cancels playback of this synth immediately.
             */
             function () {
+                Klang.warn("Synth: Invocation of abstract method: Synth.stop in", this);
+            };
+            Synth.prototype.handleArpModes = function (midiEvent) {
+                this._arpVoices = [];
+                if(this._octaves > 1) {
+                    var octaves = [];
+                    for(var j = 0; j < this._octaves - 1; j++) {
+                        for(var i = 0; i < this._activeVoices.length; i++) {
+                            var e = this._activeVoices[i].midiEvent;
+                            var note = e.noteNumber;
+                            var ev = {
+                                "type": "channel",
+                                "subtype": e.subtype,
+                                "noteNumber": note += 12 * (j + 1),
+                                "velocity": e.velocity,
+                                "deltaTime": e.deltaTime
+                            };
+                            octaves.push({
+                                midiEvent: ev,
+                                transpose: this._activeVoices[i].transpose
+                            });
+                        }
+                    }
+                    this._arpVoices = this._activeVoices.concat(octaves);
+                } else {
+                    this._arpVoices = this._activeVoices;
+                }
+                if(this._arpMode === 'up') {
+                    this._arpVoices = this._arpVoices.sort(this.sortVoices);
+                } else if(this._arpMode === 'down') {
+                    this._arpVoices = this._arpVoices.sort(this.sortVoices);
+                    this._arpVoices.reverse();
+                } else if(this._arpMode === 'up-down') {
+                    var up = this._arpVoices.slice(0);
+                    up.sort(this.sortVoices);
+                    var down = this._arpVoices.slice(0);
+                    down.sort(this.sortVoices);
+                    down.reverse();
+                    this._arpVoices = up.concat(down);
+                    if(this._arpVoices.length > 1) {
+                        this._arpVoices.splice(this._arpVoices.length / 2, 1);
+                        this._arpVoices.pop();
+                    }
+                } else if(this._arpMode === 'random') {
+                    this._arpVoices = Util.shuffle(this._arpVoices);
+                }
+            };
+            Synth.prototype.sortVoices = function (a, b) {
+                if(a.midiEvent.noteNumber < b.midiEvent.noteNumber) {
+                    return -1;
+                }
+                if(a.midiEvent.noteNumber > b.midiEvent.noteNumber) {
+                    return 1;
+                }
+                return 0;
+            };
+            Synth.prototype.arpActive = function (active) {
+                if(active) {
+                    if(this._sync) {
+                        var seq = Core.instance.findInstance(this._sync);
+                        seq.registerSynth(this);
+                        if(!seq._started) {
+                            seq.start();
+                        }
+                    }
+                } else {
+                    this._arpMode = 'off';
+                    if(this._sync) {
+                        var seq = Core.instance.findInstance(this._sync);
+                        seq.unregisterSynth(this);
+                    }
+                }
+            };
+            Synth.prototype.update = /**
+            * Called from the sequencer that this synth listens to.
+            * @param {currentStep} The sequencer's current step.
+            * @param {scheduleTime} Web Audio API context time that corresponds to the current step.
+            */
+            function (currentStep, scheduleTime) {
+                // Räkna fram och köa upp endast om denna synth lyssnar
+                /**
+                *   TODO: Sortera activeVoices / _arpModes
+                *   oktaver
+                *   note length
+                */
+                if(currentStep % this._beatSubscription == 0) {
+                    this._arpPatternStep = (currentStep * 4) % this._arpPattern.length;
+                    if(this._arpVoices.length === 0) {
+                        return;
+                    }
+                    // OM man har ett arpPattern så spelas arpeggiot bara om true
+                    if(this._arpPattern.length) {
+                        if(!this._arpPattern[(currentStep * 4) % this._arpPattern.length]) {
+                            return;
+                        }
+                    }
+                    this._arpCounter++;
+                    this._arpCounter = this._arpCounter % this._arpVoices.length;
+                    if(this._arpCounter < this._arpVoices.length) {
+                        var vel = this._fixedVelocities ? this._fixedVelocities[this._arpCounter] : this._arpVoices[this._arpCounter].midiEvent.velocity;
+                        this._arpVoices[this._arpCounter].midiEvent.velocity = vel;
+                        this.handleMidiEvent(this._arpVoices[this._arpCounter].midiEvent, scheduleTime, this._arpVoices[this._arpCounter].transpose, true);
+                        var noteOff = {
+                            "type": "channel",
+                            "subtype": "noteOff",
+                            "noteNumber": this._arpVoices[this._arpCounter].midiEvent.noteNumber,
+                            "velocity": this._arpVoices[this._arpCounter].midiEvent.velocity,
+                            "deltaTime": this._arpVoices[this._arpCounter].midiEvent.deltaTime
+                        };
+                        this.handleMidiEvent(noteOff, scheduleTime + this._arpNoteLength, this._arpVoices[this._arpCounter].transpose, true);
+                    }
+                }
             };
             Synth.prototype.deschedule = /**
             * Deschedules scheduled playback.
             */
             function () {
+                Klang.warn("Synth: Invocation of abstract method: Synth.deschedule in", this);
                 return this;
             };
+            Object.defineProperty(Synth.prototype, "arpCounter", {
+                get: function () {
+                    return this._arpCounter;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Synth.prototype, "arpLength", {
+                get: function () {
+                    return this._arpVoices.length;
+                },
+                enumerable: true,
+                configurable: true
+            });
             Object.defineProperty(Synth.prototype, "output", {
                 get: /**
                 * The audio's output.
@@ -5722,6 +8262,57 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            Object.defineProperty(Synth.prototype, "arpPattern", {
+                get: function () {
+                    return this._arpPattern;
+                },
+                set: function (pattern) {
+                    this._arpPattern = pattern;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Synth.prototype, "arpPatternStep", {
+                get: function () {
+                    return this._arpPatternStep;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Synth.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                if(data.volume != undefined) {
+                    this.output.gain.value = data.volume;
+                }
+                if(this.destinationName != data.destination_name) {
+                    this.destinationName = data.destination_name;
+                    this.disconnect();
+                    this.connect(Core.instance.findInstance(this.destinationName).input);
+                }
+                if(data.arp) {
+                    this._sync = data.arp.sync;
+                    this._octaves = data.arp.octaves;
+                    this._arpPattern = data.arp.arp_pattern;
+                    if(this._arpMode == 'off') {
+                        var seq = Core.instance.findInstance(this._sync);
+                        seq.registerSynth(this);
+                        if(!seq._started) {
+                            seq.start();
+                        }
+                    }
+                    this._arpMode = data.arp.arp_mode;
+                } else {
+                    this._arpMode = 'off';
+                    if(this._sync) {
+                        var seq = Core.instance.findInstance(this._sync);
+                        seq.unregisterSynth(this);
+                    }
+                }
+                this.data = data;
+            };
             return Synth;
         })();
         Model.Synth = Synth;        
@@ -5732,6 +8323,9 @@ var __extends = function (d, b) {
         * @return {AudioBuffer} The generated buffer
         */
         function generateNoiseBuffer(frames, alg) {
+            if(alg < 0 || alg > 3) {
+                Klang.warn("Synth: Invalid noise algorithm: " + alg);
+            }
             //var source = context.createBufferSource();
             var sampleFrames = frames || 65536;
             var buffer = Klang.context.createBuffer(1, sampleFrames, Klang.context.sampleRate);
@@ -5762,6 +8356,9 @@ var __extends = function (d, b) {
             return buffer;
         }
         Model.generateNoiseBuffer = generateNoiseBuffer;
+        /*
+        * Source: src/model/audio/synths/Symple.ts
+        */
         /**
         * One voice of a symepl oscillator
         * @param {Object} data Configuration data.
@@ -5774,6 +8371,7 @@ var __extends = function (d, b) {
         var SympleVoice = (function () {
             function SympleVoice(data, voiceType, filterData, startTime, noiseBuffer) {
                 this.filterStartFreq = -1;
+                this._filterEnabled = true;
                 this.voiceType = voiceType;
                 this.active = false;
                 this.activatedNote = -1;
@@ -5785,7 +8383,16 @@ var __extends = function (d, b) {
                 if(noiseBuffer) {
                     this._noiseBuffer = noiseBuffer;
                 }
-                this.gain = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this.gain = Klang.context.createGain();
+                // filter skapas alltid i debug för att det ska kunna läggas på dynamiskt
+                if(!filterData) {
+                    filterData = {
+                        frequency: 22050,
+                        Q: 1,
+                        filter_type: "lowpass"
+                    };
+                    this.filterEnabled = false;
+                }
                 this._filterData = filterData;
                 //this.gain.gain.setValueAtTime(0.0, 0.0);
                             }
@@ -5890,11 +8497,18 @@ var __extends = function (d, b) {
                     }
                 }
                 // GAIN EG
-                var vol = 1.0;//velocity/127;
+                var vol;//velocity/127;
                 
+                if(gainEG.volumeCurve === "linear") {
+                    vol = velocity / 128;
+                } else if(gainEG.volumeCurve === "exponential") {
+                    vol = Math.abs(1 - Math.exp(velocity / 128));
+                } else {
+                    vol = 1;
+                }
                 if(gainEG) {
                     //this.gain.gain.cancelScheduledValues(when);
-                    this._envelope.gain.value = 0.0;
+                    //this._envelope.gain.value = 0.0;
                     this._envelope.gain.setValueAtTime(0.0, when);
                     this._envelope.gain.linearRampToValueAtTime(vol, when + gainEG.attack);
                     if(Klang.safari) {
@@ -5944,7 +8558,11 @@ var __extends = function (d, b) {
                 if(gainEG) {
                     //var val = gainEG.sustain
                     this._envelope.gain.cancelScheduledValues(when);
-                    this._envelope.gain.setValueAtTime(this._envelope.gain.value, when);
+                    if(when != Util.now()) {
+                        this._envelope.gain.setValueAtTime(gainEG.sustain, when);
+                    } else {
+                        this._envelope.gain.setValueAtTime(this._envelope.gain.value, when);
+                    }
                     if(Klang.safari) {
                         this._envelope.gain.setTargetValueAtTime(0.0, when, gainEG.release);
                     } else {
@@ -5964,6 +8582,13 @@ var __extends = function (d, b) {
                 this._envelope.gain.cancelScheduledValues(0);
                 this._envelope.gain.setValueAtTime(0, 0);
                 Klang.safari ? this.source.noteOff(0) : this.source.stop(0);
+                this.source.disconnect();
+                if(this.filter) {
+                    this.filter.disconnect();
+                }
+                if(this._envelope) {
+                    this._envelope.disconnect();
+                }
             };
             SympleVoice.prototype.stopSoft = /**
             * Cancels playback softly (fades out)
@@ -5973,7 +8598,7 @@ var __extends = function (d, b) {
             */
             function (when, gainEG, filterEG) {
                 this.active = false;
-                /*    if (this.filterStartFreq != -1) {
+                /*		if (this.filterStartFreq != -1) {
                 var currentFreq = this.filter.frequency.value;
                 this.filter.frequency.cancelScheduledValues(0);
                 if (safari) this.filter.frequency.setTargetValueAtTime(this.filterStartFreq, when, filterEG.release);
@@ -5985,7 +8610,18 @@ var __extends = function (d, b) {
                 } else {
                     this._envelope.gain.setTargetAtTime(0.0, when, gainEG.release);
                 }
-                Klang.safari ? this.source.noteOff(when + gainEG.release * 5) : this.source.stop(when + gainEG.release * 5);
+                var offTime = when + gainEG.release * 5;
+                Klang.safari ? this.source.noteOff(offTime) : this.source.stop(offTime);
+                var _this = this;
+                setTimeout(function () {
+                    _this.source.disconnect();
+                    if(_this.filter) {
+                        _this.filter.disconnect();
+                    }
+                    if(_this._envelope) {
+                        _this._envelope.disconnect();
+                    }
+                }, (offTime - Util.now()) * 1000);
             };
             Object.defineProperty(SympleVoice.prototype, "enabled", {
                 get: /**
@@ -5997,6 +8633,28 @@ var __extends = function (d, b) {
                 },
                 set: function (state) {
                     this._enabled = state;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(SympleVoice.prototype, "filterEnabled", {
+                get: function () {
+                    return this._filterEnabled;
+                },
+                set: function (state) {
+                    this._filterEnabled = state;
+                    if(!this.source) {
+                        return;
+                    }
+                    if(state) {
+                        this.source.disconnect();
+                        this.source.connect(this.filter);
+                        this.filter.connect(this._envelope);
+                    } else {
+                        this.source.disconnect();
+                        this.filter.disconnect();
+                        this.source.connect(this._envelope);
+                    }
                 },
                 enumerable: true,
                 configurable: true
@@ -6015,16 +8673,13 @@ var __extends = function (d, b) {
                 this._enabled = true;
                 this.nextVoice = 0;
                 this.octave = data.octave || 0;
-                this.output = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this.output = Klang.context.createGain();
                 this.output.gain.value = data.volume == undefined ? 1.0 : data.volume;
                 this._data = data;
                 this._poly = poly;
                 this._filterData = filterData;
                 this.voices = [];
-                // Always generate noise buffer in debug, to be able to switch osc type to noise dynamically
-                if(data.wave == 4) {
-                    this._noiseBuffer = generateNoiseBuffer(this._data._frames, this._data._algorithm);
-                }
+                this._noiseBuffer = generateNoiseBuffer(this._data._frames, this._data._algorithm);
             }
             SympleOsc.prototype.noteOn = /**
             * Handles note on event
@@ -6057,7 +8712,7 @@ var __extends = function (d, b) {
                 if(this._data.wave == 4) {
                     v = new SympleVoice(this._data, 0, this._filterData, when, this._noiseBuffer);
                 } else {
-                    v = new SympleVoice(this._data, 0, this._filterData, when);
+                    v = new SympleVoice(this._data, 0, this._filterData, when, null);
                 }
                 v.gain.connect(this.output);
                 v.noteOn(noteNumber, velocity, when, gainEG, filterEG, pitchEG, transpose);
@@ -6102,6 +8757,7 @@ var __extends = function (d, b) {
                 for(var ix = 0; ix < this.voices.length; ix++) {
                     this.voices[ix].stopSoft(when, gainEG, filterEG);
                 }
+                this.voices = [];
             };
             SympleOsc.prototype.stop = /**
             * Cancels playback of this osc immediately.
@@ -6110,6 +8766,7 @@ var __extends = function (d, b) {
                 for(var ix = 0, len = this.voices.length; ix < len; ix++) {
                     this.voices[ix].stop();
                 }
+                this.voices = [];
             };
             SympleOsc.prototype.deschedule = /**
             * Deschedules scheduled playback.
@@ -6176,7 +8833,7 @@ var __extends = function (d, b) {
         var SympleLFO = (function () {
             function SympleLFO(data, startTime) {
                 this.osc = Klang.context.createOscillator();
-                this.phaseDelay = Klang.safari ? Klang.context.createDelayNode() : Klang.context.createDelay();
+                this.phaseDelay = Klang.context.createDelay();
                 this.osc.type = data.wave || 0;
                 this.osc.frequency.value = data.rate || 1;
                 this.phase = data.phase || 0;
@@ -6185,17 +8842,17 @@ var __extends = function (d, b) {
                 this.syncResolution = data.rate;
                 this.osc.connect(this.phaseDelay);
                 //if (data.osc_volume_amount) {
-                this.oscVolumeAmplitude = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this.oscVolumeAmplitude = Klang.context.createGain();
                 this.oscVolumeAmplitude.gain.value = data.osc_volume_amount;
                 this.phaseDelay.connect(this.oscVolumeAmplitude);
                 //}
                 //if (data.pitch_amount) {
-                this.pitchAmplitude = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this.pitchAmplitude = Klang.context.createGain();
                 this.pitchAmplitude.gain.value = data.pitch_amount;
                 this.phaseDelay.connect(this.pitchAmplitude);
                 //}
                 //if (data.filter_amount) {
-                this.filterAmplitude = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this.filterAmplitude = Klang.context.createGain();
                 this.filterAmplitude.gain.value = data.filter_amount;
                 this.phaseDelay.connect(this.filterAmplitude);
                 //}
@@ -6221,27 +8878,63 @@ var __extends = function (d, b) {
         */
         var Symple = (function (_super) {
             __extends(Symple, _super);
+            //cents
             function Symple(data, name) {
                         _super.call(this, data, name);
                 this.bendRange = 400;
-                this._arpCounter = 0;
-                this._arpNoteLength = 0.5;
                 var startTime = Klang.context.currentTime + Util.OSC_START_DELAY;// Tid då alla oscillatorer ska starta, för att de ska startas exakt samtidigt
                 
                 this._gainEG = data.gain_eg;
                 this._filterEG = data.filter_eg;
                 this._pitchEG = data.pitch_eg;
-                this._arpMode = data.arp_mode || -1;
-                this._beatSubscription = data.beat_subscription || 0.25;
-                this._sync = data.sync;
-                this._activeVoices = [];
                 // OSCILLATORS
+                // Skapar alltid två oscs om vi är i debug för att kunna slå på/av de hur man vill
+                var disabledOscs = 0;
+                if(!data.oscillators[0]) {
+                    data.oscillators.push({
+                        wave: 0,
+                        detune: 0,
+                        volume: 1,
+                        octave: 0
+                    });
+                    disabledOscs++;
+                }
+                if(!data.oscillators[1]) {
+                    data.oscillators.push({
+                        wave: 0,
+                        detune: 0,
+                        volume: 1,
+                        octave: 0
+                    });
+                    disabledOscs++;
+                }
                 this._oscs = [];
                 this._poly = data.poly;
                 for(var ix = 0, len = data.oscillators.length; ix < len; ix++) {
                     var o = new SympleOsc(data.oscillators[ix], data.poly, data.filter, startTime);
                     o.output.connect(this.output);
                     this._oscs.push(o);
+                }
+                // disabla de oscs som skapades för debug...
+                if(disabledOscs == 1) {
+                    this._oscs[1].enabled = false;
+                } else if(disabledOscs == 2) {
+                    this._oscs[0].enabled = false;
+                    this._oscs[1].enabled = false;
+                }
+                // LFO
+                //@ifdef DEBUG
+                // LFO skapas alltid i debug för att kunan sätta på/av
+                if(!data.LFO) {
+                    data.LFO = {
+                        wave: 0,
+                        rate: 1,
+                        phase: 0,
+                        osc_volume_amount: 0,
+                        noise_volume_amount: 0,
+                        pitch_amount: 0,
+                        filter_amount: 0
+                    };
                 }
                 if(data.LFO) {
                     this._LFO = new SympleLFO(data.LFO, startTime);
@@ -6275,7 +8968,7 @@ var __extends = function (d, b) {
             * Inits sync to sequencer.
             */
             function () {
-                if(this._LFO.sync) {
+                if(this._LFO && this._LFO.sync) {
                     // kommer endast hit om LFO finns och ska synkas
                     var seq = Core.instance.findInstance(this._LFO.sync);
                     this._LFO.updateSync(seq.bpm);
@@ -6284,6 +8977,9 @@ var __extends = function (d, b) {
                 if(this._sync) {
                     var seq = Core.instance.findInstance(this._sync);
                     seq.registerSynth(this);
+                    if(!seq.started) {
+                        seq.start();
+                    }
                 }
             };
             Symple.prototype.handleMidiEvent = /**
@@ -6299,21 +8995,25 @@ var __extends = function (d, b) {
                 transpose = transpose || 0;
                 if(midiEvent.type == "channel") {
                     if(midiEvent.subtype == "noteOn") {
-                        if(this._arpMode >= 0 && !bypassArp) {
-                            this._activeVoices.push(midiEvent);
+                        if(this._arpMode != 'off' && !bypassArp) {
+                            this._activeVoices.push({
+                                midiEvent: midiEvent,
+                                transpose: transpose
+                            });
+                            this.handleArpModes(midiEvent);
                             return;
                         }
                         for(var ix = 0, len = this._oscs.length; ix < len; ix++) {
                             this._oscs[ix].noteOn(midiEvent.noteNumber, midiEvent.velocity, when, this._gainEG, this._filterEG, this._pitchEG, transpose);
                         }
                     } else if(midiEvent.subtype == "noteOff") {
-                        if(this._arpMode >= 0 && !bypassArp) {
+                        if(this._arpMode != 'off' && !bypassArp) {
                             for(var i = 0; i < this._activeVoices.length; i++) {
-                                if(midiEvent.noteNumber === this._activeVoices[i].noteNumber) {
+                                if(midiEvent.noteNumber === this._activeVoices[i].midiEvent.noteNumber) {
                                     this._activeVoices.splice(i, 1);
-                                    break;
                                 }
                             }
+                            this.handleArpModes(midiEvent);
                             return;
                         }
                         for(var ix = 0, len = this._oscs.length; ix < len; ix++) {
@@ -6328,9 +9028,30 @@ var __extends = function (d, b) {
                         }
                         var currentPitch = ((bend - 8192) / 16384) * this.bendRange;
                         //var currentPitch = ((bend - 64) / 127) * this.bendRange;
-                        //console.log(currentPitch, when, Util.now());
                         for(var i = 0; i < this._oscs.length; i++) {
                             this._oscs[i].setDetune(currentPitch, when);
+                        }
+                    }
+                }
+                return this;
+            };
+            Symple.prototype.glideTo = function (midiNotes, when, duration, transpose) {
+                var now = Util.now();
+                when = when || now;
+                if(duration == undefined) {
+                    duration = 0.5;
+                }
+                transpose = transpose || 0;
+                for(var o = 0, len = this._oscs.length; o < len; o++) {
+                    var osc = this._oscs[o];
+                    var voicesToUpdate = Math.min(midiNotes.length, osc.voices.length);
+                    for(var v = 0; v < voicesToUpdate; v++) {
+                        var voice = osc.voices[v];
+                        var toFrequency = Util.midiNoteToFrequency(midiNotes[v] + transpose + osc.octave * 12);
+                        if(voice.source.frequency) {
+                            voice.source.frequency.cancelScheduledValues(now);
+                            voice.source.frequency.setValueAtTime(voice.source.frequency.value, when);
+                            voice.source.frequency.linearRampToValueAtTime(toFrequency, when + duration);
                         }
                     }
                 }
@@ -6345,6 +9066,10 @@ var __extends = function (d, b) {
                     //this._oscs[ix].stop();
                     this._oscs[ix].stopSoft(when, this._gainEG, this._filterEG);
                 }
+                if(this._activeVoices.length) {
+                    this._activeVoices = [];
+                }
+                this._arpVoices = [];
             };
             Symple.prototype.deschedule = /**
             * Deschedules scheduled playback.
@@ -6355,54 +9080,306 @@ var __extends = function (d, b) {
                 }
                 return this;
             };
-            Symple.prototype.arpActive = function (active) {
-                if(active) {
-                    if(this._sync) {
-                        var seq = Core.instance.findInstance(this._sync);
-                        seq.registerSynth(this);
+            Object.defineProperty(Symple.prototype, "filterFrequency", {
+                set: function (val) {
+                    for(var o = 0, len = this._oscs.length; o < len; o++) {
+                        var osc = this._oscs[o];
+                        osc._filterData.frequency = val;
+                        for(var v = 0, vlen = osc.voices.length; v < vlen; v++) {
+                            var voice = osc.voices[v];
+                            voice.filterTargetFreq = val;
+                            if(!this._filterEG || this._filterEG.contour == 0) {
+                                voice.filter.frequency.value = val;
+                            }
+                        }
                     }
-                } else {
-                    this._arpMode = -1;
-                    if(this._sync) {
-                        var seq = Core.instance.findInstance(this._sync);
-                        seq.unregisterSynth(this);
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "filterQ", {
+                set: function (val) {
+                    for(var o = 0, len = this._oscs.length; o < len; o++) {
+                        var osc = this._oscs[o];
+                        osc._filterData.Q = val;
+                        for(var v = 0, vlen = osc.voices.length; v < vlen; v++) {
+                            var voice = osc.voices[v];
+                            voice.filterTargetFreq = val;
+                            if(!this._filterEG || this._filterEG.contour == 0) {
+                                voice.filter.Q.value = val;
+                            }
+                        }
                     }
-                }
-            };
-            Symple.prototype.update = /**
-            * Called from the sequencer that this synth listens to.
-            * @param {currentStep} The sequencer's current step.
-            * @param {scheduleTime} Web Audio API context time that corresponds to the current step.
-            */
-            function (currentStep, scheduleTime) {
-                // Räkna fram och köa upp endast om denna synth lyssnar
-                /**
-                * TODO: Sortera activeVoices / _arpModes
-                * oktaver
-                * note length
-                */
-                if(currentStep % this._beatSubscription == 0) {
-                    if(this._activeVoices.length === 0) {
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "filterType", {
+                set: function (val) {
+                    for(var o = 0, len = this._oscs.length; o < len; o++) {
+                        var osc = this._oscs[o];
+                        osc._filterData.filter_type = val;
+                        for(var v = 0, vlen = osc.voices.length; v < vlen; v++) {
+                            var voice = osc.voices[v];
+                            voice.filter.type = val;
+                        }
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "osc1Wave", {
+                set: function (val) {
+                    var osc = this._oscs[0];
+                    osc._data.wave = val;
+                    for(var v = 0, vlen = osc.voices.length; v < vlen; v++) {
+                        var voice = osc.voices[v];
+                        if(voice.source.type && val !== "4") {
+                            voice.source.type = val;
+                        }
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "osc1Vol", {
+                set: function (val) {
+                    var osc = this._oscs[0];
+                    osc.output.gain.value = val;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "osc1Detune", {
+                set: function (val) {
+                    var osc = this._oscs[0];
+                    osc._detune = val;
+                    for(var v = 0, vlen = osc.voices.length; v < vlen; v++) {
+                        var voice = osc.voices[v];
+                        if(voice.source.detune) {
+                            voice.source.detune.value = val;
+                        }
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "osc1Octave", {
+                set: function (val) {
+                    var osc = this._oscs[0];
+                    osc.octave = val;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "osc2Wave", {
+                set: function (val) {
+                    if(this._oscs.length < 2) {
                         return;
                     }
-                    this._arpCounter++;
-                    this._arpCounter = this._arpCounter % this._activeVoices.length;
-                    if(this._arpCounter < this._activeVoices.length) {
-                        this.handleMidiEvent(this._activeVoices[this._arpCounter], scheduleTime, 0, true);
-                        var noteOff = {
-                            "type": "channel",
-                            "subtype": "noteOff",
-                            "noteNumber": this._activeVoices[this._arpCounter].noteNumber,
-                            "velocity": this._activeVoices[this._arpCounter].velocity,
-                            "deltaTime": this._activeVoices[this._arpCounter].deltaTime
-                        };
-                        this.handleMidiEvent(noteOff, scheduleTime + this._arpNoteLength, 0, true);
+                    var osc = this._oscs[1];
+                    osc._data.wave = val;
+                    for(var v = 0, vlen = osc.voices.length; v < vlen; v++) {
+                        var voice = osc.voices[v];
+                        if(voice.source.type && val !== "4") {
+                            voice.source.type = val;
+                        }
                     }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "osc2Vol", {
+                set: function (val) {
+                    if(this._oscs.length < 2) {
+                        return;
+                    }
+                    var osc = this._oscs[1];
+                    osc.output.gain.value = val;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "osc2Detune", {
+                set: function (val) {
+                    if(this._oscs.length < 2) {
+                        return;
+                    }
+                    var osc = this._oscs[1];
+                    osc._detune = val;
+                    for(var v = 0, vlen = osc.voices.length; v < vlen; v++) {
+                        var voice = osc.voices[v];
+                        if(voice.source.detune) {
+                            voice.source.detune.value = val;
+                        }
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "osc2Octave", {
+                set: function (val) {
+                    if(this._oscs.length < 2) {
+                        return;
+                    }
+                    var osc = this._oscs[1];
+                    osc.octave = val;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "pitchDecay", {
+                set: function (val) {
+                    if(this._pitchEG) {
+                        this._pitchEG.decay = val;
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "pitchContour", {
+                set: function (val) {
+                    if(this._pitchEG) {
+                        this._pitchEG.contour = val;
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "lfoWave", {
+                set: function (val) {
+                    if(this._LFO) {
+                        this._LFO.osc.type = val;
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "lfoRate", {
+                set: function (val) {
+                    if(this._LFO) {
+                        this._LFO.osc.frequency.value = val;
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "lfoPhase", {
+                set: function (val) {
+                    if(this._LFO) {
+                        this._LFO.phase = val;
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "lfoOscVol", {
+                set: function (val) {
+                    if(this._LFO) {
+                        this._LFO.oscVolumeAmplitude.gain.value = val;
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "lfoPitch", {
+                set: function (val) {
+                    if(this._LFO) {
+                        this._LFO.pitchAmplitude.gain.value = val;
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "lfoFilter", {
+                set: function (val) {
+                    if(this._LFO) {
+                        this._LFO.filterAmplitude.gain.value = val;
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "arpMode", {
+                set: function (val) {
+                    this._arpMode = val;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Symple.prototype, "arpOctaves", {
+                set: function (val) {
+                    this._octaves = val;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Symple.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                _super.prototype.setData.call(this, data);
+                this._poly = data.poly;
+                this._gainEG = data.gain_eg ? data.gain_eg : undefined;
+                this._filterEG = data.filter_eg ? data.filter_eg : undefined;
+                this._pitchEG = data.pitch_eg ? data.pitch_eg : undefined;
+                this._oscs[0].enabled = data.oscillators[0] ? true : false;
+                this._oscs[1].enabled = data.oscillators[1] ? true : false;
+                for(var o = 0, len = this._oscs.length; o < len; o++) {
+                    var osc = this._oscs[o];
+                    osc._data = data.oscillators[o];
+                    osc._filterData = data.filter;
+                    osc._poly = this._poly;
+                    for(var v = 0, vlen = osc.voices.length; v < vlen; v++) {
+                        var voice = osc.voices[v];
+                        if(data.filter) {
+                            if(!voice.filterEnabled) {
+                                voice.filterEnabled = true;
+                            }
+                            if(!this._filterEG || this._filterEG.contour == 0) {
+                                voice.filter.frequency.value = data.filter.frequency;
+                            }
+                            voice.filter.Q.value = data.filter.Q;
+                            voice.filterTargetFreq = data.filter.frequency;
+                            voice.filter.type = data.filter.filter_type;
+                        } else if(voice.filterEnabled) {
+                            voice.filterEnabled = false;
+                        }
+                        if(data.oscillators && data.oscillators[o] && voice.voiceType == 0) {
+                            if(voice.source.type && data.oscillators[0].wave !== 4) {
+                                voice.source.type = data.oscillators[o].wave;
+                            }
+                            if(voice.source.detune) {
+                                voice.source.detune.value = data.oscillators[o].detune;
+                            }
+                        }
+                    }
+                    if(data.oscillators[o]) {
+                        osc.output.gain.value = data.oscillators[o].volume;
+                        osc.octave = data.oscillators[o].octave;
+                    }
+                }
+                if(data.LFO) {
+                    this._LFO.osc.type = data.LFO.wave;
+                    this._LFO.osc.frequency.value = data.LFO.rate;
+                    this._LFO.phase = data.LFO.phase;
+                    this._LFO.phaseDelay.delayTime.value = data.LFO.phase * (1 / this._LFO.osc.frequency.value);
+                    this._LFO.oscVolumeAmplitude.gain.value = data.LFO.osc_volume_amount;
+                    this._LFO.pitchAmplitude.gain.value = data.LFO.pitch_amount;
+                    this._LFO.filterAmplitude.gain.value = data.LFO.filter_amount;
+                } else {
+                    this._LFO.oscVolumeAmplitude.gain.value = 0;
+                    this._LFO.pitchAmplitude.gain.value = 0;
+                    this._LFO.filterAmplitude.gain.value = 0;
                 }
             };
             return Symple;
         })(Synth);
         Model.Symple = Symple;        
+        /*
+        * Source: src/model/audio/synths/SamplePlayer.ts
+        */
         /**
         * Plays samples based on midi events.
         * @param {Object} data Configuration data.
@@ -6416,7 +9393,8 @@ var __extends = function (d, b) {
             function SamplePlayer(data, name) {
                         _super.call(this, data, name);
                 this._content = [];
-                this._activeVoices = [];
+                this._playingVoices = [];
+                // alla röster som låter
                 this._allVoices = [];
                 // Alla röster som spelas, även om de schedulerats att stoppa
                 this._hasNoteOffSamples = false;
@@ -6442,7 +9420,7 @@ var __extends = function (d, b) {
             * Initializes sample player
             */
             function () {
-                this._envelope = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
+                this._envelope = Klang.context.createGain();
                 for(var ix = 0, len = this._content.length; ix < len; ix++) {
                     if(this._content[ix].value === "noteOff") {
                         this._hasNoteOffSamples = true;
@@ -6456,11 +9434,21 @@ var __extends = function (d, b) {
                     for(var j = 0; j < this._content[ix].samples.length; j++) {
                         // byter ut strängen source mot audioSource-instanser
                         this._content[ix].samples[j].source = Core.instance.findInstance(this._content[ix].samples[j].source);
+                        if(!this._content[ix].samples[j].source) {
+                            Klang.warn("SamplePlayer: audio source not found");
+                        }
                         this._content[ix].samples[j].source._parentType = "SamplePlayer";
                         if(this._content[ix].samples[j].source.loop) {
                             this._loopedSamples = true;
                         }
                     }
+                }
+                if(this._sync) {
+                    var seq = Core.instance.findInstance(this._sync);
+                    seq.registerSynth(this);
+                    if(!seq.started) {
+                        //seq.start();
+                                            }
                 }
             };
             SamplePlayer.prototype.handleMidiEvent = /**
@@ -6469,17 +9457,35 @@ var __extends = function (d, b) {
             * @param {number} when Time when the event should be handled, in Web Audio context time.
             * @param {number}
             */
-            function (midiEvent, when, transpose) {
+            function (midiEvent, when, transpose, bypassArp) {
                 when = when || Util.now();
+                bypassArp = bypassArp || false;
                 transpose = transpose || 0;
                 if(midiEvent.type == "channel") {
                     if(midiEvent.subtype == "noteOn") {
+                        if(this._arpMode != 'off' && !bypassArp) {
+                            this._activeVoices.push({
+                                midiEvent: midiEvent,
+                                transpose: transpose
+                            });
+                            this.handleArpModes(midiEvent);
+                            return;
+                        }
                         this.noteOn(when, midiEvent.noteNumber, transpose, midiEvent.velocity, midiEvent.subtype);
                         //Klang.log("Note on: " + midiEvent.noteNumber);
                         if(this._callback) {
                             this._callback(midiEvent, when);
                         }
                     } else if(midiEvent.subtype == "noteOff") {
+                        if(this._arpMode != 'off' && !bypassArp) {
+                            for(var i = 0; i < this._activeVoices.length; i++) {
+                                if(midiEvent.noteNumber === this._activeVoices[i].midiEvent.noteNumber) {
+                                    this._activeVoices.splice(i, 1);
+                                }
+                            }
+                            this.handleArpModes(midiEvent);
+                            return;
+                        }
                         this.noteOff(when, midiEvent.noteNumber, midiEvent.velocity, midiEvent.subtype);
                         if(this._callback) {
                             this._callback(midiEvent, when);
@@ -6489,8 +9495,8 @@ var __extends = function (d, b) {
                         var bend = midiEvent.value;
                         //this._currentPitch = 1+((bend -8192)/16384);
                         this._currentPitch = 1 + ((bend - 64) / 127);
-                        for(var i = 0; i < this._activeVoices.length; i++) {
-                            this._activeVoices[i].source.playbackRateNode.setValueAtTime(this._currentPitch, when);
+                        for(var i = 0; i < this._playingVoices.length; i++) {
+                            this._playingVoices[i].source.playbackRateNode.setValueAtTime(this._currentPitch, when);
                         }
                     } else if(midiEvent.subtype == "controller") {
                         var controllerType = midiEvent.controllerType || midiEvent.noteNumber;
@@ -6559,7 +9565,7 @@ var __extends = function (d, b) {
                         "note": midiNote,
                         "transpose": transpose
                     };
-                    this._activeVoices.push(newVoice);
+                    this._playingVoices.push(newVoice);
                     this._allVoices.push(newVoice);
                 }
                 //  samplePlayerns destination overridar audiosourcens
@@ -6568,6 +9574,7 @@ var __extends = function (d, b) {
                 } else {
                     copy.connect(Core.instance.findInstance(copy.destinationName).input);
                 }
+                when = when < Util.now() ? Util.now() : when;
                 var vol = 0;
                 if(volume) {
                     vol = volume * velocity / 128;
@@ -6579,21 +9586,42 @@ var __extends = function (d, b) {
                     vol = 1;
                 }
                 vol *= copy.output.gain.value;
-                //Klang.log("vol", vol);
                 copy.output.gain.cancelScheduledValues(when);
-                if(this._gainEG.attack === 0) {
-                    copy.output.gain.setValueAtTime(vol, when);
-                } else {
-                    copy.output.gain.setValueAtTime(0.0, when);
-                    copy.output.gain.linearRampToValueAtTime(vol, when + this._gainEG.attack);
-                    if(Klang.safari) {
-                        copy.output.gain.setTargetValueAtTime(vol * this._gainEG.sustain, when + this._gainEG.attack, this._gainEG.decay);
-                    } else {
-                        copy.output.gain.setTargetAtTime(vol * this._gainEG.sustain, when + this._gainEG.attack, this._gainEG.decay);
-                    }
-                }
                 copy.nextPlaybackRate = rate * this._currentPitch;
                 copy.play(when);
+                //copy.output.gain.value = 0.0;
+                copy.output.gain.setValueAtTime(0.0, when);
+                copy.output.gain.linearRampToValueAtTime(vol, when + this._gainEG.attack);
+                if(copy.output.gain.setTargetAtTime) {
+                    copy.output.gain.setTargetAtTime(vol * this._gainEG.sustain, when + this._gainEG.attack, this._gainEG.decay);
+                } else if(copy.output.gain.setTargetValueAtTime) {
+                    copy.output.gain.setTargetValueAtTime(vol * this._gainEG.sustain, when + this._gainEG.attack, this._gainEG.decay);
+                }
+            };
+            SamplePlayer.prototype.adsr = /**
+            * get/set ADSR
+            * @param {float} [attack] Attack in seconds
+            * @param {float} [decay]  Decay in seconds
+            * @param {float} [sustain] Sustain amplitude (0-1)
+            * @param {float} [release] Release time in seconds
+            * return {object} If no arguments are supplied, the a copy of the current adsr is returned.
+            */
+            function (attack, decay, sustain, release) {
+                var eg = this._gainEG;
+                if(arguments.length === 0) {
+                    return {
+                        attack: eg.attack,
+                        decay: eg.decay,
+                        sustain: eg.sustain,
+                        release: eg.release
+                    };
+                } else {
+                    eg.attack = arguments[0] === undefined ? eg.attack : arguments[0];
+                    eg.decay = arguments[1] === undefined ? eg.decay : arguments[1];
+                    eg.sustain = arguments[2] === undefined ? eg.sustain : arguments[2];
+                    eg.release = arguments[3] === undefined ? eg.release : arguments[3];
+                }
+                return this;
             };
             SamplePlayer.prototype.noteOff = /**
             * Handles note off event
@@ -6605,8 +9633,8 @@ var __extends = function (d, b) {
             */
             function (when, midiNote, velocity, value) {
                 var note = this.getNote(midiNote, velocity, "noteOn");
-                for(var i = 0; i < this._activeVoices.length; i++) {
-                    if(!midiNote || midiNote.toString() === this._activeVoices[i].source._name) {
+                for(var i = 0; i < this._playingVoices.length; i++) {
+                    if(!midiNote || midiNote.toString() === this._playingVoices[i].source._name) {
                         // If pedal is pressed
                         if(when > this._pedalOnTime && this._pedalOnTime > 0) {
                             // Limits the number of sustained notes. Splices the first one (oldest) and adds the new note.
@@ -6614,27 +9642,27 @@ var __extends = function (d, b) {
                                 this._sustained[0].source.stop(when + this._gainEG.release * this._stopFactor);
                                 this._sustained.splice(0, 1);
                             }
-                            this._sustained.push(this._activeVoices[i]);
-                            this._activeVoices.splice(i, 1);
+                            this._sustained.push(this._playingVoices[i]);
+                            this._playingVoices.splice(i, 1);
                         } else {
                             if(when < Util.now()) {
                                 when = Util.now();
                             }
-                            var val = this._activeVoices[i].source.output.gain.value;
-                            //this._activeVoices[i].source.output.gain.cancelScheduledValues(when);
-                            //this._activeVoices[i].source.output.gain.setValueAtTime(val, when);
-                            this._activeVoices[i].source.stop(when + this._gainEG.release * this._stopFactor);
-                            if(Klang.safari) {
-                                this._activeVoices[i].source.output.gain.setTargetValueAtTime(0.0, when, this._gainEG.release);
+                            var val = this._playingVoices[i].source.output.gain.value;
+                            this._playingVoices[i].source.output.gain.cancelScheduledValues(when);
+                            if(when != Util.now() || Klang.browser == "Firefox") {
+                                this._playingVoices[i].source.output.gain.setValueAtTime(this._gainEG.sustain, when);
                             } else {
-                                this._activeVoices[i].source.output.gain.setTargetAtTime(0.0, when, this._gainEG.release);
+                                this._playingVoices[i].source.output.gain.setValueAtTime(val, when);
                             }
+                            this._playingVoices[i].source.stop(when + this._gainEG.release * this._stopFactor);
+                            this._playingVoices[i].source.output.gain.setTargetAtTime(0.0, when, this._gainEG.release);
                             if(this._hasNoteOffSamples) {
-                                var t = Util.now() - this._activeVoices[i].time;
+                                var t = Util.now() - this._playingVoices[i].time;
                                 var v = Math.min((Math.exp(-t) / 3), 1);
-                                this.noteOn(when, midiNote, this._activeVoices[i].transpose, this._activeVoices[i].velocity, value, v);
+                                this.noteOn(when, midiNote, this._playingVoices[i].transpose, this._playingVoices[i].velocity, value, v);
                             }
-                            this._activeVoices.splice(i, 1);
+                            this._playingVoices.splice(i, 1);
                         }
                     }
                 }
@@ -6646,21 +9674,18 @@ var __extends = function (d, b) {
             function (when) {
                 var when = when || Util.now();
                 this.pedalRelease(when);
-                for(var i = 0; i < this._activeVoices.length; i++) {
+                for(var i = 0; i < this._playingVoices.length; i++) {
                     if(when < Util.now()) {
                         when = Util.now();
                     }
-                    var val = this._activeVoices[i].source.output.gain.value;
-                    this._activeVoices[i].source.output.gain.cancelScheduledValues(when);
-                    this._activeVoices[i].source.output.gain.setValueAtTime(val, when);
-                    this._activeVoices[i].source.stop(when + this._gainEG.release * this._stopFactor);
-                    if(Klang.safari) {
-                        this._activeVoices[i].source.output.gain.setTargetValueAtTime(0.0, when, this._gainEG.release);
-                    } else {
-                        this._activeVoices[i].source.output.gain.setTargetAtTime(0.0, when, this._gainEG.release);
-                    }
+                    var val = this._playingVoices[i].source.output.gain.value;
+                    this._playingVoices[i].source.output.gain.cancelScheduledValues(when);
+                    this._playingVoices[i].source.output.gain.setValueAtTime(val, when);
+                    this._playingVoices[i].source.stop(when + this._gainEG.release * this._stopFactor);
+                    this._playingVoices[i].source.output.gain.setTargetAtTime(0.0, when, this._gainEG.release);
                 }
-                this._activeVoices = [];
+                this._playingVoices = [];
+                this._arpVoices = [];
                 return this;
             };
             SamplePlayer.prototype.deschedule = /**
@@ -6691,11 +9716,7 @@ var __extends = function (d, b) {
                         this._sustained[i].source.stop(when + this._gainEG.release * this._stopFactor);
                         continue;
                     }
-                    if(Klang.safari) {
-                        this._sustained[i].source.output.gain.setTargetValueAtTime(0.0, when, this._gainEG.release);
-                    } else {
-                        this._sustained[i].source.output.gain.setTargetAtTime(0.0, when, this._gainEG.release);
-                    }
+                    this._sustained[i].source.output.gain.setTargetAtTime(0.0, when, this._gainEG.release);
                     if(this._hasNoteOffSamples) {
                         var t = Util.now() - this._sustained[i].time;
                         var v = Math.min((Math.exp(-t) / 3), 1);
@@ -6736,6 +9757,7 @@ var __extends = function (d, b) {
                 },
                 set: function (value) {
                     this._content = value;
+                    this.init();
                 },
                 enumerable: true,
                 configurable: true
@@ -6751,9 +9773,29 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            SamplePlayer.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                _super.prototype.setData.call(this, data);
+                if(data.eg_gain) {
+                    this._gainEG = data.eg_gain;
+                }
+                if(data.content) {
+                    this._content = data.content;
+                    this.init();
+                }
+                if(data.volumeCurve) {
+                    this._volumeCurve = data.volumeCurve;
+                }
+            };
             return SamplePlayer;
         })(Synth);
         Model.SamplePlayer = SamplePlayer;        
+        /*
+        * Source: src/model/audio/synths/Smattr.ts
+        */
         /**
         * Plays a synthesized kick drum sound.
         * @param {Object} data Configuration data.
@@ -6762,275 +9804,11 @@ var __extends = function (d, b) {
         * @constructor
         */
         var SmattrKick1 = (function () {
-            function SmattrKick1(data, startTime, destination) {
-                this._volume = data.volume != undefined ? data.volume : 1.0;
-                this._pitchTargetFreq = data.pitch_target_freq != undefined ? data.pitch_target_freq : 62;
-                this._pitchStartFreq = data.pitch_start_freq != undefined ? data.pitch_start_freq : 200;
-                this._pitchDecay = data.pitch_decay != undefined ? data.pitch_decay : 0.04;
-                this._gainDecay = data.gain_decay != undefined ? data.gain_decay : 0.07;
-                this._sine = Klang.context.createOscillator();
-                this._filter = Klang.context.createBiquadFilter();
-                this._gain = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
-                if(Klang.safari) {
-                    this._filter.type = 0;
-                } else {
-                    this._filter.type = "lowpass";
-                }
-                this._filter.frequency.value = data.lowpass_frequency != undefined ? data.lowpass_frequency : 500;
-                this._filter.Q.value = data.lowpass_Q != undefined ? data.lowpass_Q : 3;
-                this._sine.connect(this._filter);
-                this._filter.connect(this._gain);
-                this._gain.connect(destination);
-                this._gain.gain.value = 0.0;
-                Klang.safari ? this._sine.noteOn(startTime) : this._sine.start(startTime);
+            function SmattrKick1() {
+                throw 'Smattr not up to date, fix if(safari)';
             }
-            SmattrKick1.prototype.play = /**
-            * Plays the sound
-            * @param {number} velocity Note velocity
-            * @param {number} when When to play
-            */
-            function (velocity, when) {
-                when = when || Klang.context.currentTime;
-                // Pitch
-                this._sine.frequency.setValueAtTime(this._pitchStartFreq, when);
-                Klang.safari ? this._sine.frequency.setTargetValueAtTime(this._pitchTargetFreq, when, this._pitchDecay) : this._sine.frequency.setTargetAtTime(this._pitchTargetFreq, when, this._pitchDecay);
-                // Gain
-                this._gain.gain.setValueAtTime(this._volume, when);
-                Klang.safari ? this._gain.gain.setTargetValueAtTime(0.0, when, this._gainDecay) : this._gain.gain.setTargetAtTime(0.0, when, this._gainDecay);
-            };
             return SmattrKick1;
         })();        
-        /**
-        * Plays a synthesized kick drum sound.
-        * @param {Object} data Configuration data.
-        * @param {number} startTime When to start oscs
-        * @param {AudioNode} destination Where to route output
-        * @constructor
-        */
-        var SmattrKick2 = (function () {
-            function SmattrKick2(data, startTime, destination) {
-                this._subVolume = data.sub_volume != undefined ? data.sub_volume : 1.0;
-                this._subDecay = data.sub_decay != undefined ? data.sub_decay : 0.04;
-                this._fmAmount = data.fm_amount != undefined ? data.fm_amount : 30;
-                this._fmDecay = data.fm_decay != undefined ? data.fm_decay : 0.08;
-                this._fmSustain = data.fm_sustain != undefined ? data.fm_sustain : 0.4;
-                this._subSine = Klang.context.createOscillator();
-                this._subGain = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
-                this._fmSine = Klang.context.createOscillator();
-                this._fmGain = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
-                this._filter = Klang.context.createBiquadFilter();
-                this._gain = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
-                this._subSine.frequency.value = data.sub_frequency != undefined ? data.sub_frequency : 62;
-                this._subGain.gain.value = 0.0;
-                this._fmSine.frequency.value = data.fm_frequency != undefined ? data.fm_frequency : 62;
-                this._fmGain.gain.value = this._fmAmount * this._fmSustain;
-                this._gain.gain.value = data.volume != undefined ? data.volume : 1.0;
-                if(Klang.safari) {
-                    this._filter.type = 0;
-                } else {
-                    this._filter.type = "lowpass";
-                }
-                this._filter.frequency.value = data.lowpass_frequency != undefined ? data.lowpass_frequency : 1500;
-                this._filter.Q.value = data.lowpass_Q != undefined ? data.lowpass_Q : 1.0;
-                this._fmSine.connect(this._fmGain);
-                this._fmGain.connect(this._subSine.frequency);
-                this._subSine.connect(this._subGain);
-                this._subGain.connect(this._filter);
-                this._filter.connect(this._gain);
-                this._gain.connect(destination);
-                Klang.safari ? this._subSine.noteOn(startTime) : this._subSine.start(startTime);
-                Klang.safari ? this._fmSine.noteOn(startTime) : this._fmSine.start(startTime);
-            }
-            SmattrKick2.prototype.play = /**
-            * Plays the sound
-            * @param {number} velocity Note velocity
-            * @param {number} when When to play
-            */
-            function (velocity, when) {
-                // Sub Gain
-                this._subGain.gain.setValueAtTime(this._subVolume, when);
-                Klang.safari ? this._subGain.gain.setTargetValueAtTime(0.0, when, this._subDecay) : this._subGain.gain.setTargetAtTime(0.0, when, this._subDecay);
-                // FM Gain
-                this._fmGain.gain.setValueAtTime(this._fmAmount, when);
-                Klang.safari ? this._fmGain.gain.setTargetValueAtTime(this._fmAmount * this._fmSustain, when, this._fmDecay) : this._fmGain.gain.setTargetAtTime(this._fmAmount * this._fmSustain, when, this._fmDecay);
-            };
-            return SmattrKick2;
-        })();        
-        /**
-        * Plays a synthesized snare drum sound.
-        * @param {Object} data Configuration data.
-        * @param {number} startTime When to start oscs
-        * @param {AudioNode} destination Where to route output
-        * @constructor
-        */
-        var SmattrSnare = (function () {
-            function SmattrSnare(data, startTime, destination) {
-                this._noiseVolume = data.noise_volume != undefined ? data.noise_volume : 0.6;
-                this._noiseHold = data.noise_hold != undefined ? data.noise_hold : 0.05;
-                this._noiseDecay = data.noise_decay != undefined ? data.noise_decay : 0.06;
-                this._sineVolume = data.sine_volume != undefined ? data.sine_volume : 0.5;
-                this._sineDecay = data.sine_decay != undefined ? data.sine_decay : 0.05;
-                this._noise = generateNoiseBuffer(undefined, 1);
-                this._noiseGain = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
-                this._sine = Klang.context.createOscillator();
-                this._sineGain = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
-                this._hpf = Klang.context.createBiquadFilter();
-                this._lpf = Klang.context.createBiquadFilter();
-                this._outGain = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
-                this._sine.frequency.value = data.sine_frequency != undefined ? data.sine_frequency : 123;
-                this._outGain.gain.value = data.volume != undefined ? data.volume : 1.0;
-                if(Klang.safari) {
-                    this._hpf.type = 0;
-                } else {
-                    this._hpf.type = "highpass";
-                }
-                this._hpf.frequency.value = data.highpass_freq != undefined ? data.highpass_freq : 20;
-                this._hpf.Q.value = data.highpass_Q != undefined ? data.highpass_Q : 0.05;
-                if(Klang.safari) {
-                    this._lpf.type = 0;
-                } else {
-                    this._lpf.type = "lowpass";
-                }
-                this._lpf.frequency.value = data.lowpass_freq != undefined ? data.lowpass_freq : 6500;
-                this._lpf.Q.value = data.lowpass_Q != undefined ? data.lowpass_Q : 0.01;
-                this._noise.connect(this._noiseGain);
-                this._sine.connect(this._sineGain);
-                this._noiseGain.connect(this._hpf);
-                this._sineGain.connect(this._hpf);
-                this._hpf.connect(this._lpf);
-                this._lpf.connect(this._outGain);
-                this._outGain.connect(destination);
-                this._noiseGain.gain.value = 0.0;
-                this._sineGain.gain.value = 0.0;
-                Klang.safari ? this._noise.noteOn(startTime) : this._noise.start(startTime);
-                Klang.safari ? this._sine.noteOn(startTime) : this._sine.start(startTime);
-            }
-            SmattrSnare.prototype.play = /**
-            * Plays the sound
-            * @param {number} velocity Note velocity
-            * @param {number} when When to play
-            */
-            function (velocity, when) {
-                // noise gain
-                this._noiseGain.gain.setValueAtTime(this._noiseVolume, when);
-                Klang.safari ? this._noiseGain.gain.setTargetValueAtTime(0.0, when + this._noiseHold, this._noiseDecay) : this._noiseGain.gain.setTargetAtTime(0.0, when + this._noiseHold, this._noiseDecay);
-                // sine gain
-                this._sineGain.gain.setValueAtTime(this._sineVolume, when);
-                Klang.safari ? this._sineGain.gain.setTargetValueAtTime(0.0, when, this._sineDecay) : this._sineGain.gain.setTargetAtTime(0.0, when, this._sineDecay);
-            };
-            return SmattrSnare;
-        })();        
-        /**
-        * Plays a synthesized hihat drum sound.
-        * @param {Object} data Configuration data.
-        * @param {number} startTime When to start oscs
-        * @param {AudioNode} destination Where to route output
-        * @constructor
-        */
-        var SmattrHihat = (function () {
-            function SmattrHihat(data, startTime, destination) {
-                this._noiseVolume = data.noise_volume != undefined ? data.volume : 0.6;
-                this._noiseAttack = data.noise_attack != undefined ? data.noise_attack : 0.0005;
-                this._noiseHold = data.noise_hold != undefined ? data.noise_hold : 0.005;
-                this._noiseDecay = data.noise_decay != undefined ? data.noise_decay : 0.03;
-                this._noise = generateNoiseBuffer(undefined, 1);
-                this._noiseGain = Klang.safari ? Klang.context.createGainNode() : Klang.context.createGain();
-                this._hpf = Klang.context.createBiquadFilter();
-                if(Klang.safari) {
-                    this._hpf.type = 0;
-                } else {
-                    this._hpf.type = "highpass";
-                }
-                this._hpf.frequency.value = data.highpass_freq != undefined ? data.highpass_freq : 6500;
-                this._hpf.Q.value = data.highpass_Q != undefined ? data.highpass_Q : 0.05;
-                this._noise.connect(this._noiseGain);
-                this._noiseGain.connect(this._hpf);
-                this._hpf.connect(destination);
-                this._noiseGain.gain.value = 0.0;
-                Klang.safari ? this._noise.noteOn(startTime) : this._noise.start(startTime);
-            }
-            SmattrHihat.prototype.play = /**
-            * Plays the sound
-            * @param {number} velocity Note velocity
-            * @param {number} when When to play
-            */
-            function (velocity, when) {
-                // noise gain
-                this._noiseGain.gain.cancelScheduledValues(when);
-                this._noiseGain.gain.setValueAtTime(0.0, when);
-                this._noiseGain.gain.linearRampToValueAtTime(this._noiseVolume, when + this._noiseAttack);
-                Klang.safari ? this._noiseGain.gain.setTargetValueAtTime(0.0, when + this._noiseAttack + this._noiseHold, this._noiseDecay) : this._noiseGain.gain.setTargetAtTime(0.0, when + this._noiseAttack + this._noiseHold, this._noiseDecay);
-            };
-            return SmattrHihat;
-        })();        
-        /**
-        * Plays synthesized drums based on midi events.
-        * @param {Object} data Configuration data.
-        * @param {string} name Identifying name.
-        * @constructor
-        * @extends {Klang.Model.Synth}
-        */
-        var Smattr = (function (_super) {
-            __extends(Smattr, _super);
-            function Smattr(data, name) {
-                        _super.call(this, data, name);
-                var startTime = Klang.context.currentTime + Util.OSC_START_DELAY;// Tid då alla oscillatorer ska starta, för att de ska startas exakt samtidigt
-                
-                this._sounds = {
-                };
-                for(var ix = 0, len = data.sounds.length; ix < len; ix++) {
-                    var sound = data.sounds[ix];
-                    switch(sound.drum_type) {
-                        case "SmattrKick1":
-                            this._sounds[sound.note] = new SmattrKick1(sound, startTime, this._output);
-                            break;
-                        case "SmattrKick2":
-                            this._sounds[sound.note] = new SmattrKick2(sound, startTime, this._output);
-                            break;
-                        case "SmattrSnare":
-                            this._sounds[sound.note] = new SmattrSnare(sound, startTime, this._output);
-                            break;
-                        case "SmattrHihat":
-                            this._sounds[sound.note] = new SmattrHihat(sound, startTime, this._output);
-                            break;
-                    }
-                }
-            }
-            Smattr.prototype.handleMidiEvent = /**
-            * Handles a midi event.
-            * @param {any} event Midi event to handle.
-            * @param {number} when Time when the event should be handled, in Web Audio context time.
-            */
-            function (midiEvent, when, transpose) {
-                when = when || Klang.context.currentTime;
-                transpose = transpose || 0;
-                if(midiEvent.type == "channel") {
-                    var sound = midiEvent.noteNumber;
-                    if(this._sounds[sound]) {
-                        if(midiEvent.subtype == "noteOn") {
-                            this._sounds[sound].play(midiEvent.velocity, when);
-                        }
-                        //else if (midiEvent.subtype == "noteOff") {
-                        //}
-                                            }
-                }
-                return this;
-            };
-            Smattr.prototype.stop = /**
-            * Cancels playback of this synth immediately.
-            */
-            function (when) {
-                when = when || Util.now();
-            };
-            Smattr.prototype.deschedule = /**
-            * Deschedules scheduled playback.
-            */
-            function () {
-                return this;
-            };
-            return Smattr;
-        })(Synth);
-        Model.Smattr = Smattr;        
         /**
         * Enum for pattern syncing methods.
         * @enum
@@ -7071,15 +9849,18 @@ var __extends = function (d, b) {
                 this._currentStep = 0;
                 // Nuvarande steg
                 this._paused = false;
+                this._maxSwing = .08;
+                this._swingFactor = 0.0;
                 this._name = name;
                 this._type = data.type;
                 this._bpm = data.bpm || 120;
-                this._barLength = data.measure_length;
-                this._beatLength = data.beat_length;
+                this._barLength = data.bar_length || 4;
+                this._beatLength = data.beat_length || 1;
                 this._registeredPatterns = [];
                 this._registeredSynths = [];
                 this._syncHandler = new SyncHandler();
                 this._syncedObjects = [];
+                this._swingFactor = data.swing_factor || 0;
                 Core.instance.pushToPreLoadInitStack(this);
             }
             Sequencer.prototype.init = /**
@@ -7102,6 +9883,9 @@ var __extends = function (d, b) {
                     this._lastScheduleLoopTime = Klang.context.currentTime;
                     while(this._scheduleTime < Klang.context.currentTime + this._scheduleAheadTime) {
                         //if (this._scheduleTime>= context.currentTime && context.currentTime !== 0) {
+                        // if (this._currentStep%this._beatLength == 0) {
+                        //   Klang.log(this._name + ": " + this._currentStep);
+                        // }
                         // Notifiera Patterns
                         for(var ix = 0, len = this._registeredPatterns.length; ix < len; ix++) {
                             this._registeredPatterns[ix].update(this._currentStep, this._scheduleTime);
@@ -7112,13 +9896,19 @@ var __extends = function (d, b) {
                         }
                         // Gå till nästa step
                         this._currentStep += this._resolution;
-                        this._scheduleTime += (60.0 / this._bpm) * this._resolution;
+                        //this._scheduleTime += (60.0 / this._bpm) * this._resolution;
                         this._syncHandler.update(this._resolution);
-                        /*}else {
-                        this._scheduleTime = context.currentTime;
-                        //console.log("*** this._scheduleTime", this._scheduleTime, "context.currentTime", context.currentTime, "this._scheduleAheadTime", this._scheduleAheadTime);
-                        }*/
-                                            }
+                        // apply swing
+                        if(this._swingFactor > 0) {
+                            if((this._currentStep * 4) % 2) {
+                                this._scheduleTime += (0.25 + this._maxSwing * this._swingFactor) * (60.0 / this._bpm);
+                            } else {
+                                this._scheduleTime += (0.25 - this._maxSwing * this._swingFactor) * (60.0 / this._bpm);
+                            }
+                        } else {
+                            this._scheduleTime += (60.0 / this._bpm) * this._resolution;
+                        }
+                    }
                 }
                 // Hax för att kunna anropa en privat funktion med setTimeout
                 var _this = this;
@@ -7133,8 +9923,16 @@ var __extends = function (d, b) {
             function () {
                 this._started = true;
                 this._scheduleTime = Klang.context.currentTime;
+                if(this._scheduleAheadTime <= 0.2) {
+                    this._scheduleTime += 0.3;
+                }
                 clearTimeout(this._scheduler);
                 this.startScheduler();
+                if(Core.callbacks && Core.callbacks.startSequencer) {
+                    Core.callbacks.startSequencer({
+                        name: this._name
+                    });
+                }
                 return this;
             };
             Sequencer.prototype.pause = /**
@@ -7201,6 +9999,12 @@ var __extends = function (d, b) {
                 this._started = false;
                 clearTimeout(this._scheduler);
                 this._scheduler = null;
+                this._started = false;
+                if(Core.callbacks && Core.callbacks.stopSequencer) {
+                    Core.callbacks.stopSequencer({
+                        name: this._name
+                    });
+                }
                 return this;
             };
             Sequencer.prototype.stopAll = /**
@@ -7215,7 +10019,7 @@ var __extends = function (d, b) {
                     exceptions[_i] = arguments[_i + 1];
                 }
                 var beat = params.beat != undefined ? params.beat : 4;
-                var fadeTime = params.fadeTime || 1;
+                var fadeTime = params.fadeTime === undefined ? 0 : params.fadeTime;
                 var forceFade = params.forceFade || false;
                 var wait = params.wait || 0;
                 //this.reschedule();
@@ -7260,7 +10064,9 @@ var __extends = function (d, b) {
             * @return {Klang.Model.Sequencer} Self
             */
             function (synth) {
-                this._registeredSynths.push(synth);
+                if(this._registeredSynths.indexOf(synth) == -1) {
+                    this._registeredSynths.push(synth);
+                }
                 return this;
             };
             Sequencer.prototype.unregisterSynth = /**
@@ -7320,14 +10126,17 @@ var __extends = function (d, b) {
                     patterns[_i] = arguments[_i + 1];
                 }
                 // Starta sequencern om den inte är igång
-                var beat = params.beat;
+                var beat = params.beat || 0;
                 var fadeIn = params.fadeIn || false;
                 var duration = params.duration || 1;
                 var absolute = params.absolute == undefined ? false : params.absolute;
                 var syncType = params.syncType != undefined ? params.syncType : 3;
+                var offset = params.offset;
                 var wait = params.wait || 0;
+                var steps;
                 var first;
                 if(!this._started) {
+                    this._currentStep = 0;
                     this.start();
                     steps = beat = 0;
                     first = true;
@@ -7375,17 +10184,16 @@ var __extends = function (d, b) {
                             }
                         }
                     }
-                    var nextBar = 0;
+                    var nextStep = 0;
                     if(longestId > -1) {
-                        nextBar = this._registeredPatterns[longestId].getNextBar(beat);
+                        nextStep = this._currentStep + this.getStepsToNext(beat);
                     }
-                    syncStep = nextBar * beat;
+                    syncStep = nextStep;
                 } else if(syncType === SyncType.Continue) {
                     // 3
                     syncStep = 0;
-                    restart = false;
+                    restart = first ? true : false;
                 }
-                var steps;
                 if(absolute != false) {
                     if(typeof absolute == "number") {
                         steps = this.getStepsToNext(this.beatLength * absolute) + this.beatLength * beat;
@@ -7403,7 +10211,10 @@ var __extends = function (d, b) {
                     steps += wait;
                 }
                 for(var ix = 0, len = patterns.length; ix < len; ix++) {
-                    patterns[ix].prePlaySchedule(steps, syncStep, restart, fadeIn, duration);
+                    if(offset != undefined) {
+                        offset = this.getNoteTime(offset);
+                    }
+                    patterns[ix].prePlaySchedule(steps, syncStep, restart, fadeIn, duration, offset);
                 }
                 // Fullösning för att första patternet ska starta direkt.
                 // TODO: fixa
@@ -7414,7 +10225,12 @@ var __extends = function (d, b) {
                     var resolutionTime = this.getNoteTime(this._resolution);
                     var scheduleOffset = scheduled > this._scheduleAheadTime ? (scheduled - this._scheduleAheadTime) : (scheduled - (this._scheduleAheadTime - resolutionTime));
                     this._scheduleTime = Klang.context.currentTime + scheduleOffset;
-                    this._currentStep = patterns[0]._currentStep;
+                    if(restart) {
+                        this._currentStep = patterns[0]._currentStep - this._resolution// -this._resolution fixar att första patternet startar 1/16 för sent om restart
+                        ;
+                    } else {
+                        this._currentStep = patterns[0]._currentStep;
+                    }
                     first = false;
                 } else if(this._scheduleAheadTime > 0.5) {
                     this.reschedule();
@@ -7432,12 +10248,27 @@ var __extends = function (d, b) {
                 }
                 return this;
             };
+            Sequencer.prototype.unregisterBPMSync = /**
+            * Stop an object from receiving BPM notifications.
+            * @param {Object} obj Object that should no longer receive notifications.
+            * @return {Klang.Model.Sequencer} Self
+            */
+            function (obj) {
+                var index = this._syncedObjects.indexOf(obj);
+                if(index != -1) {
+                    this._syncedObjects.splice(index, 1);
+                }
+                return this;
+            };
             Sequencer.prototype.getStepsToNext = /**
             * Calculate steps to the next specified beat.
             * @param {number} x Beat to calculate steps to
             * @return {number} Number calculated steps
             */
             function (x) {
+                if(x == 0) {
+                    return 0;
+                }
                 return x - (this._currentStep % x);
             };
             Sequencer.prototype.getNoteTime = /**
@@ -7457,7 +10288,7 @@ var __extends = function (d, b) {
             * @return {number} When the beat will occur.
             */
             function (x) {
-                return this.getNoteTime(this.getStepsToNext(x)) + Util.now();
+                return this.getNoteTime(this.getStepsToNext(x)) + this._scheduleTime;
             };
             Object.defineProperty(Sequencer.prototype, "started", {
                 get: /**
@@ -7604,9 +10435,29 @@ var __extends = function (d, b) {
                 enumerable: true,
                 configurable: true
             });
+            Object.defineProperty(Sequencer.prototype, "swingFactor", {
+                set: function (val) {
+                    this._swingFactor = val;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Sequencer.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                this._bpm = data.bpm || 120;
+                this._barLength = data.measure_length || 4;
+                this._beatLength = data.beat_length || 1;
+                this._swingFactor = data.swing_factor || 0;
+            };
             return Sequencer;
         })();
         Model.Sequencer = Sequencer;        
+        /*
+        * Source: src/model/control/SyncCountdown.ts
+        */
         /**
         * Handles syncing porocesses to a sequencer.
         * @param {number} targetStep When to run the process.
@@ -7652,6 +10503,9 @@ var __extends = function (d, b) {
             return SyncCountdown;
         })();
         Model.SyncCountdown = SyncCountdown;        
+        /*
+        * Source: src/model/control/SyncHandler.ts
+        */
         /**
         * Handles all sync countdowns.
         * @constructor
@@ -7687,6 +10541,9 @@ var __extends = function (d, b) {
             return SyncHandler;
         })();
         Model.SyncHandler = SyncHandler;        
+        /*
+        * Source: src/model/control/TimeHandler.ts
+        */
         /**
         * Handles timing that is not synced to a sequencer.
         * @constructor
@@ -7791,6 +10648,9 @@ var __extends = function (d, b) {
             return TimeHandler;
         })();
         Model.TimeHandler = TimeHandler;        
+        /*
+        * Source: src/model/control/Process.ts
+        */
         /**
         * Base class for all process types. Processes runs a series of actions.
         * @param {Object} data Configuration data.
@@ -7808,7 +10668,7 @@ var __extends = function (d, b) {
                 // Gå igenom listan av variabelnamn och hämta referenser till objekten
                 for(var ix = 0, len = this._vars.length; ix < len; ix++) {
                     var n = this._vars[ix];
-                    this._actionData[n] = Core.instance.findInstance(n);
+                    this._destination = this._actionData[n] = Core.instance.findInstance(n);
                 }
                 this._vars = null;
             };
@@ -7817,17 +10677,27 @@ var __extends = function (d, b) {
             * @param {Array.<Object>} args Arguments to pass to the process.
             */
             function (args) {
+                Klang.warn("Process: Invocation of abstract method");
+            };
+            Process.prototype.destination = /**
+            * Get destination
+            */
+            function () {
+                return this._destination;
             };
             Process.prototype.execute = /**
             * Runs the process' actions.
             * @param {string} action Action to run.
             * @param {Array.<Object>} args Arguments to pass to the action.
             */
-            function (action, args) {
+            function (action, args, noCache) {
+                if(!this._func || noCache) {
+                    this._func = new Function("Core", "Model", "Util", "me", "args", action);
+                }
                 // Skapa en anonym funktion och kalla på den direkt.
                 // Funktionens kropp är strängen som skickats in som 'action',
                 // 'me' och '_args' blir parametrar till funktionen.
-                return new Function("Core", "Model", "Util", "me", "args", action)(Core, Model, Util, this._actionData, args);
+                return this._func(Core, Model, Util, this._actionData, args);
             };
             return Process;
         })();
@@ -7858,6 +10728,16 @@ var __extends = function (d, b) {
                 } catch (ex) {
                     Klang.err("Klang: error in process '" + this._name + "': " + ex.name + ": " + ex.message);
                 }
+            };
+            SimpleProcess.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                this._action = data.action;
+                this._vars = data.vars;
+                this.init();
+                this._func = new Function("Core", "Model", "Util", "me", "args", this._action);
             };
             return SimpleProcess;
         })(Process);
@@ -7891,6 +10771,20 @@ var __extends = function (d, b) {
                 this._actionData = {
                     process: this
                 };
+                // Om denna process ska _loopa, gå igenom alla actions och se om en wait finns
+                // om inte, skriv ut en varning
+                if(this._loop) {
+                    var waitFound = false;
+                    for(var ix = 0, len = this._actions.length; ix < len; ix++) {
+                        if(this._actions[ix].operation == "wait") {
+                            waitFound = true;
+                            break;
+                        }
+                    }
+                    if(!waitFound) {
+                        Klang.warn("Process: Infinite loop found in process '" + this._name + "'");
+                    }
+                }
             }
             AdvancedProcess.prototype.start = /**
             * Starts this process.
@@ -7944,11 +10838,11 @@ var __extends = function (d, b) {
                     var action = this._actions[this._currentAction];
                     // Om denna action är av typen exec körs scriptet
                     if(action.operation == "exec") {
-                        this.execute(action.script, this._args);
+                        this.execute(action.script, this._args, true);
                         this._execTime = 0;
                     } else // Om det är en wait registreras cont som callback i TimeHandler och processen avbryts
                     if(action.operation == "wait") {
-                        this._execTime = this.execute(action.script, this._args);
+                        this._execTime = this.execute(action.script, this._args, true);
                         this._waitOffset += this._execTime;
                         //om tiden är längre än SCHEDULE_AHEAD_TIME görs en timeout, annars fortsätter den schedulera till waitOffset är längre än SCHEDULE_AHEAD_TIME
                         if(this._execTime >= this.SCHEDULE_AHEAD_TIME) {
@@ -8006,6 +10900,26 @@ var __extends = function (d, b) {
                 // Ta bort callbacken till metoden cont från TimeHandler
                 TimeHandler.instance.removeMethodCallback(this, "cont");
             };
+            Object.defineProperty(AdvancedProcess.prototype, "started", {
+                get: /**
+                * Whether the process has started or not.
+                * @type {boolean}
+                */
+                function () {
+                    return this._started;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            AdvancedProcess.prototype.setData = /**
+            * Updates the properties of this instance.
+            * @param {Object} data Configuration data.
+            */
+            function (data) {
+                this._actions = data.actions;
+                this._vars = data.vars;
+                this.init();
+            };
             return AdvancedProcess;
         })(Process);
         Model.AdvancedProcess = AdvancedProcess;        
@@ -8039,9 +10953,13 @@ var __extends = function (d, b) {
         * @param  {number} duration Length of the curve in seconds.
         * @param  {number} when? When the value should be at the target.
         */
-        function curveParamLin(param, value, duration, when) {
+        function curveParamLin(param, value, duration, when, startValue) {
             when = when || Klang.context.currentTime;
-            param.setValueAtTime(param.value, when);
+            var startAt = param.value;
+            if(startValue != undefined && Klang.browser == "Firefox") {
+                startAt = startValue;
+            }
+            param.setValueAtTime(startAt, when);
             param.linearRampToValueAtTime(value, Klang.context.currentTime + duration);
         }
         Util.curveParamLin = curveParamLin;
@@ -8052,9 +10970,13 @@ var __extends = function (d, b) {
         * @param  {number} duration Length of the curve in seconds.
         * @param  {number} when? When the value should be at the target.
         */
-        function curveParamExp(param, value, duration, when) {
+        function curveParamExp(param, value, duration, when, startValue) {
             when = when || Klang.context.currentTime;
-            param.setValueAtTime(param.value == 0 ? Util.EXP_MIN_VALUE : param.value, when);
+            var startAt = param.value;
+            if(startValue != undefined && Klang.browser == "Firefox") {
+                startAt = startValue;
+            }
+            param.setValueAtTime(startAt == 0 ? Util.EXP_MIN_VALUE : startAt, when);
             param.exponentialRampToValueAtTime(value, Klang.context.currentTime + duration);
         }
         Util.curveParamExp = curveParamExp;
@@ -8083,6 +11005,9 @@ var __extends = function (d, b) {
                     }
                 } else// Annars
                  {
+                    if(!cdata.curve_type) {
+                        Klang.warn("Modulation: Curve type not specified");
+                    }
                     if(!cdata.resolution) {
                         cdata.resolution = 1024;
                     }
@@ -8114,12 +11039,28 @@ var __extends = function (d, b) {
                         for(var ix = 0, len = curve.length; ix < len; ix++) {
                             curve[ix] = cdata.amplitude_offset + (ix / len) * cdata.amplitude;
                         }
+                    } else {
+                        Klang.warn("Modulation: Unrecognized curve type");
                     }
                     Util.CUSTOM_CURVES[name] = curve;
                 }
             }
         }
         Util.createCurves = createCurves;
+        if(navigator.userAgent.indexOf('MSIE') != -1) {
+            var ie = true;
+            var ua = navigator.userAgent;
+            var re = new RegExp("MSIE ([0-9]{1,}[.0-9]{0,})");
+            var ieVersion;
+            if(re.exec(ua) != null) {
+                ieVersion = parseInt(RegExp.$1);
+            }
+            // Resets defineProperty for IE8
+            if(ieVersion < 9) {
+                Object.defineProperty = Object['oldDefineProperty'];
+                delete Object['oldDefineProperty'];
+            }
+        }
         /**
         * Second root of 12
         * @const {Number}
@@ -8151,9 +11092,20 @@ var __extends = function (d, b) {
         * @const {string}
         */
         Util.LOG_TIME_COLOR = "#999999";
-        Util.LOG_EVENT_COLOR = "#E075A9";
+        Util.LOG_EVENT_COLOR = "#54CBDD";
+        Util.LOG_UNIMPLEMENTED_EVENT_COLOR = "#E075A9";
+        Util.LOG_LOAD_COLOR = "#333333";
         Util.LOG_WARN_COLOR = "DarkOrange";
         Util.LOG_ERROR_COLOR = "Red";
+        /**
+        * Name of the last event that was received.
+        */
+        Util.lastEvent = undefined;
+        /**
+        * Includes project specific variables.
+        */
+        Util.vars = {
+        };
         /**
         * Generates a random integer in a range.
         * @param  {number} max Max value to be generated.
@@ -8161,7 +11113,7 @@ var __extends = function (d, b) {
         * @return {number} The randomly generated number.
         */
         function random(max, min) {
-            min = min || 1;
+            min != undefined ? min : 1;
             return Math.floor(min + (1 + max - min) * Math.random());
         }
         Util.random = random;
@@ -8172,7 +11124,7 @@ var __extends = function (d, b) {
         * @return {number} The randomly generated number.
         */
         function randomFloat(max, min) {
-            min = min || 1.0;
+            min != undefined ? min : 1;
             return min + (max - min) * Math.random();
         }
         Util.randomFloat = randomFloat;
@@ -8223,65 +11175,52 @@ var __extends = function (d, b) {
         */
         function safeFilterType(filterType) {
             if(filterType == undefined) {
-                if(Klang.safari) {
-                    return 0;
-                } else {
-                    return "lowpass";
-                }
-            }
-            // firefox does not handle filter type as number
-            if(Klang.browser == "Firefox") {
-                if(typeof filterType == "number") {
-                    switch(filterType) {
-                        case 0:
-                            return "lowpass";
-                        case 1:
-                            return "highpass";
-                        case 2:
-                            return "bandpass";
-                        case 3:
-                            return "lowshelf";
-                        case 4:
-                            return "highshelf";
-                        case 5:
-                            return "peaking";
-                        case 6:
-                            return "notch";
-                        case 7:
-                            return "allpass";
-                        default:
-                            return "lowpass";
-                    }
-                } else {
-                    return filterType;
-                }
-            } else // old safari does not handle filter type as string
-            if(Klang.safari) {
-                if(typeof filterType == "string") {
-                    switch(filterType) {
-                        case "lowpass":
-                            return 0;
-                        case "highpass":
-                            return 1;
-                        case "bandbass":
-                            return 2;
-                        case "lowshelf":
-                            return 3;
-                        case "highshelf":
-                            return 4;
-                        case "peaking":
-                            return 5;
-                        case "notch":
-                            return 6;
-                        case "allpass":
-                            return 7;
-                        default:
-                            return 0;
-                    }
-                } else {
-                    return filterType;
-                }
-            }
+                // if (Klang.safari) {
+                //     return 0;
+                // }
+                // else {
+                return "lowpass";
+                // }
+                            }
+            // fixed in polyfill.js
+            // // firefox does not handle filter type as number
+            // if (Klang.browser == "Firefox") {
+            //     if (typeof filterType == "number") {
+            //         switch (filterType) {
+            //             case 0: return "lowpass";
+            //             case 1: return "highpass";
+            //             case 2: return "bandpass";
+            //             case 3: return "lowshelf";
+            //             case 4: return "highshelf";
+            //             case 5: return "peaking";
+            //             case 6: return "notch";
+            //             case 7: return "allpass";
+            //             default: return "lowpass";
+            //         }
+            //     }
+            //     else {
+            //         return filterType;
+            //     }
+            // }
+            // // old safari does not handle filter type as string
+            // else if (Klang.safari) {
+            //     if (typeof filterType == "string") {
+            //         switch (filterType) {
+            //             case "lowpass": return 0;
+            //             case "highpass": return 1;
+            //             case "bandbass": return 2;
+            //             case "lowshelf": return 3;
+            //             case "highshelf": return 4;
+            //             case "peaking": return 5;
+            //             case "notch": return 6;
+            //             case "allpass": return 7;
+            //             default: return 0;
+            //         }
+            //     }
+            //     else {
+            //         return filterType;
+            //     }
+            // }
             // other implementations are fine with either
             return filterType;
         }
@@ -8310,6 +11249,104 @@ var __extends = function (d, b) {
             Core.instance.blurFadeOut = state;
         }
         Util.setBlurFadeOut = setBlurFadeOut;
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex.exec(location.search);
+            return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        Util.getParameterByName = getParameterByName;
+        /**
+        * Stops playing all audio loops, patterns and advanced processes.
+        * @param  {Object} ...exceptions Names of all objects that should keep playing.
+        */
+        function stopPlayingExcept() {
+            var exceptions = [];
+            for (var _i = 0; _i < (arguments.length - 0); _i++) {
+                exceptions[_i] = arguments[_i + 0];
+            }
+            // argument till sequencer, fyll på med de patterns som inte ska stoppas
+            var sequencerArgs = [
+                {
+                    beat: 0,
+                    fadeOut: 2
+                }
+            ];
+            for(var ix = exceptions.length - 1; ix >= 0; ix--) {
+                var instance = Core.instance.findInstance(exceptions[ix]);
+                if(instance.type == "Pattern") {
+                    sequencerArgs.push(exceptions[ix]);
+                }
+            }
+            // Stoppa allt som ska stoppas
+            var objects = Core.instance._objectTable;
+            for(var o in Core.instance._objectTable) {
+                var obj = objects[o];
+                if(obj._type == "AudioSource" && exceptions.indexOf(o) == -1) {
+                    if(obj.loop && obj.playing) {
+                        obj.fadeOutAndStop(1);
+                    }
+                } else if(obj._type == "Sequencer") {
+                    obj.stopAll.apply(obj, sequencerArgs);
+                } else if(obj._type == "AdvancedProcess") {
+                    if(obj.started && exceptions.indexOf(o) == -1) {
+                        obj.stop();
+                    }
+                }
+            }
+        }
+        Util.stopPlayingExcept = stopPlayingExcept;
+        /**
+        * Shuffles an array
+        * @param {Array} array Array to shuffle
+        * @private
+        */
+        function shuffle(array) {
+            var counter = array.length, temp, index;
+            // While there are elements in the array
+            while(counter--) {
+                // Pick a random index
+                index = (Math.random() * counter) | 0;
+                // And swap the last element with it
+                temp = array[counter];
+                array[counter] = array[index];
+                array[index] = temp;
+            }
+            return array;
+        }
+        Util.shuffle = shuffle;
+        function logFreq(value) {
+            if(value == 0) {
+                return 0;
+            }
+            var min = 20;
+            var max = 20000;
+            if(min == 0) {
+                min = 0.01;
+            }
+            var position = value;
+            // position will be between 0 and 100
+            var minp = min;
+            var maxp = max;
+            // The result should be between 100 an 10000000
+            var minv = Math.log(minp);
+            var maxv = Math.log(maxp);
+            // calculate adjustment factor
+            var scale = (maxv - minv) / (maxp - minp);
+            return (Math.exp(minv + scale * (position - minp)));
+        }
+        Util.logFreq = logFreq;
+        /**
+        *   Warning, No guarantee that this will be unique
+        *
+        */
+        function generateIdString(len) {
+            var seed = '';
+            while(seed.length < len) {
+                seed += '0';
+            }
+            return (seed + (Math.random() * Math.pow(36, len) << 0).toString(36)).slice(-len);
+        }
+        Util.generateIdString = generateIdString;
     })(Util || (Util = {}));
-})(window.Klang || (window.Klang = {}));
-})();
+})(Klang || (Klang = {}));
+return Klang;}));
