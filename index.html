@@ -95,7 +95,6 @@ if (window.matchMedia('(min-width: 1000px)').matches) {
     var currentTime = e.detail.currentTime;
 
     if (currentTime.diff <= 60 * 1000) {
-      string = [currentTime.seconds];
       timer.textContent = e.detail.msg;
     } else if (currentTime.seconds % 10 == 0) { // Only update DOM (and therefore speak text) every 30 seconds.
       timer.textContent = e.detail.msg;
