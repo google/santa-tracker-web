@@ -172,9 +172,8 @@ $cardColor: #6541a4;
         }
 
         div {
+          $markerWidth: 100px;
           .card {
-            $markerWidth: 100px;
-
             width: $cardWidth;
             height: $cardWidth;
             border: 1px solid #7847b2;
@@ -216,7 +215,7 @@ $cardColor: #6541a4;
             }
 
             &[data-index="1"] {
-              $smallMarkerWidth: 55px;
+              $smallMarkerWidth: 54px;
 
               a {
                 width: $smallMarkerWidth;
@@ -226,6 +225,15 @@ $cardColor: #6541a4;
                 .menu-marker {
                   width: 100%;
                   height: 100%;
+                }
+
+                &::before {
+                  width: $smallMarkerWidth;
+                  height: $smallMarkerWidth;
+                  top: 50%;
+                  left: 50%;
+                  margin-top: -$smallMarkerWidth/2;
+                  margin-left: -$smallMarkerWidth/2;
                 }
 
                 &:nth-of-type(1) {
@@ -261,8 +269,19 @@ $cardColor: #6541a4;
 
             a {
               text-decoration: none;
-              border-radius: 50%;
-              background-color: rgb(93, 59, 149);
+
+              &::before {
+                position: absolute;
+                content: '';
+                background-color: rgb(93, 59, 149);
+                width: $markerWidth;
+                height:  $markerWidth;
+                border-radius: 50%;
+                top: 50%;
+                left: 50%;
+                margin-top: -$markerWidth/2;
+                margin-left: -$markerWidth/2;
+              }
 
               .menu-marker {
                 background-size: contain;
@@ -273,7 +292,19 @@ $cardColor: #6541a4;
                 visibility: hidden;
               }
             }
+          }
 
+          &.iced {
+            .menu-marker {
+              width: $markerWidth + 8px !important;
+              height: $markerWidth + 8px !important;
+              top: -4px;
+              right: -4px;
+            }
+
+            a {
+              cursor: default;
+            }
           }
         }
       }
