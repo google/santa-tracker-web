@@ -79,6 +79,10 @@
       bottom: 0;
     }
 
+    &.iced a {
+      cursor: default;
+    }
+
     .building {
       outline: 0;
     }
