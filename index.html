@@ -39,6 +39,9 @@
   <script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
   <script>
     window.DEV = true; // NOTE: replaced by string - do not change formatting.
+    if (!window.DEV) {
+      console.log = function(){};
+    }
 
     window.ga_ = new gweb.analytics.AutoTrack({
       'profile': window['DEV'] ? 'UA-37048309-2' : 'UA-37048309-1',
@@ -46,9 +49,53 @@
       'disableTrackPageview': true
     });
 
+    /**
+     * @param {string} param URL parameter to look for.
+     * @return {string|undefined} undefined if the URL parameter does not exist.
+     */
+    function getUrlParameter(param) {
+      if (!window.location.search) {
+        return;
+      }
+      var m = new RegExp(param + '=([^&]*)').exec(
+          window.location.search.substring(1));
+      if (!m) {
+        return;
+      }
+      return decodeURIComponent(m[1]);
+    }
+
     // log navigation timing numbers at a higher rate to get a better baseline
     // while traffic is still low
     ga_.pushCommand(['_setSiteSpeedSampleRate', 10]);
+
+    // TODO(bckenny): could ask embeds to include separate utm_source
+    if (getUrlParameter('api_client')) {
+      ga_.pushCommand(['_setCampSourceKey', 'api_client']);
+      ga_.pushCommand(['_setCampMediumKey', 'api_client']);
+    }
+
+    // If unsupported, track pageview before redirecting to update page.
+    var supported = true;  // TODO(bckenny): check browser for polymer support.
+    if (!supported) {
+      ga_.pushCommand(['_trackPageview', '/']);
+      ga_.pushCommand(['_trackEvent', 'Polymer', 'unsupported-browser']);
+      // redirect after analytics has been processed
+      _gaq.push(function() {
+        window.location = 'https://santatracker.google.com' +
+            location.pathname.replace(/[^\/]*$/, '') + 'upgrade.html';
+      });
+    }
+
+    // Track and log any errors to analytics
+    window.onerror = function(message, file, lineNumber) {
+      // We don't want to trigger any errors inside window.onerror otherwise
+      // things will get real bad, real quick.
+      try {
+        window.ga_.pushCommand(['_trackEvent', 'error', file + ':' + lineNumber,
+            '' + message]);
+      } catch (e){}
+    };
   </script>
 
   <script src="components/webcomponentsjs/webcomponents.min.js"></script>
@@ -65,55 +112,23 @@
 <script>
 window.santaApp = document.querySelector('santa-app');
 
-// TODO(bckenny): could ask embeds to include separate utm_source
-if (getUrlParameter('api_client')) {
-  ga_.pushCommand(['_setCampSourceKey', 'api_client']);
-  ga_.pushCommand(['_setCampMediumKey', 'api_client']);
-}
-
-// TODO(bckenny): check browser for polymer support. If unsupported, track
-// pageview before redirecting
-
-if (!window.DEV) {
-  console.log = function(){};
-}
-
 (function() {
   // performance.now() polyfill for browsers without support
   var perfNow = window.performance && window.performance.now ?
       window.performance.now.bind(window.performance) : Date.now;
 
-  // Track and log any errors to analytics
-  window.onerror = function(message, file, lineNumber) {
-    // We don't want to trigger any errors inside window.onerror otherwise
-    // things will get real bad, real quick.
-    try {
-      window.ga_.pushCommand(['_trackEvent', 'error', file + ':' + lineNumber,
-          '' + message]);
-    } catch (e){}
-  };
-
   // log some polymer performance numbers
   document.addEventListener('HTMLImportsLoaded', function() {
-    var now = perfNow();
-    window.ga_.pushCommand(['_trackTiming', 'Polymer', 'HTMLImportsLoaded', now]);
+    window.ga_.pushCommand(['_trackTiming', 'Polymer', 'HTMLImportsLoaded', perfNow()]);
 
     if (window.DEV) {
-      console.info('HTMLImportsLoaded @', now, 'ms');
-
       // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
       // Set locale for entire site (e.g. i18n-msg elements).
       I18nMsg.lang = document.documentElement.lang || 'en';
     }
   });
-
   document.addEventListener('polymer-ready', function() {
-    var now = perfNow();
-    window.ga_.pushCommand(['_trackTiming', 'Polymer', 'polymer-ready', now]);
-
-    if (window.DEV) {
-      console.info('polymer-ready @', now, 'ms');
-    }
+    window.ga_.pushCommand(['_trackTiming', 'Polymer', 'polymer-ready', perfNow()]);
   });
 
 // Try to only do screen reader stuff on desktop.
