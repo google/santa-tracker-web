@@ -117,6 +117,16 @@ Trailer scene.
     onHide: function() {
       this.$.player.pause();
       this.fire('sound-ambient', 'global_sound_on');
+    },
+
+    onPause: function() {
+      this.$.player.pause();
+    },
+
+    onResume: function() {
+      if (!this.$.start.hidden && !this.$.poster.hidden) {
+        this.$.player.play();
+      }
     }
   });
 </script>
