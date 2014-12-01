@@ -74,10 +74,10 @@
 
     // Check if browser is supported by web component/Polymer polyfills.
     // Feature detection isn't sufficient; webcomponentsjs attempts to polyfill
-    // missing features, but some browsers are known to not work under it. For
-    // now we sniff :(
+    // missing features, but some browsers are known to not work under it.
     // https://www.polymer-project.org/resources/compatibility.html
-    var supported = (function terrible(uaString) {
+    var supported = (function sniff() {
+      var uaString = navigator.userAgent;
       // no IE < 10
       var msie = /MSIE +([\d\.]+)/.exec(uaString);
       if (msie && msie[1]) {
@@ -92,20 +92,17 @@
           return parseInt(msie[1], 10) >= 10;
         }
       }
-
       // no older Android browser
       if (uaString.indexOf('Chrome') === -1 && uaString.indexOf('Android') !== -1) {
         return !/^Google/.test(navigator.vendor);
       }
-
       // no Opera < 15
       if (uaString.indexOf('Opera') !== -1) {
         return false;
       }
-
-      // default to true
+      // everyone else goes through.
       return true;
-    })(navigator.userAgent);
+    })();
     if (!supported) {
       // If unsupported, run pageview before redirecting to update page.
       ga_.pushCommand(['_trackPageview', '/']);
