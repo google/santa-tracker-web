@@ -269,6 +269,9 @@ Polymer(Polymer.mixin({
     this.FLIGHT_FINISHED = this.config.FLIGHT_FINISHED;
 
     var apiClient = getUrlParameter('api_client') || 'web';
+    if (!apiClient.match(/^[a-zA-Z_]*$/)) {
+      apiClient = 'web';
+    }
 
     this.santaService = new SantaService(apiClient, this.language);
     this.santaService.addListener('kill', function() {
@@ -338,7 +341,7 @@ Polymer(Polymer.mixin({
       }
     }
 
-    prevSelectedScene.remove();
+    prevSelectedScene.parentNode.removeChild(prevSelectedScene);
 
     // Re-construct removed scene and add it back to lazy-pages.
     var el = document.createElement(prevSelectedScene.localName);
