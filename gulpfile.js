@@ -92,7 +92,7 @@ gulp.task('compile-service', function() {
         process_closure_primitives: null,
         generate_exports: null,
         externs: ['js/service/externs.js'],
-        define: ['crossDomainAjax.PROD=true'],
+        define: ['crossDomainAjax.PROD=' + (argv.nex_api ? 'false' : 'true')],
         jscomp_warning: [
           // https://github.com/google/closure-compiler/wiki/Warnings
           'accessControls',
