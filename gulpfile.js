@@ -89,8 +89,6 @@ gulp.task('compile-service', function() {
         compilation_level: 'ADVANCED_OPTIMIZATIONS',
         // warning_level: 'VERBOSE',
         language_in: 'ECMASCRIPT5_STRICT',
-        process_closure_primitives: null,
-        generate_exports: null,
         externs: ['js/service/externs.js'],
         define: ['crossDomainAjax.BASE="' + (argv.api_base || 'https://santa-api.appspot.com/') + '"'],
         jscomp_warning: [
