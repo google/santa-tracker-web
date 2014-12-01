@@ -161,7 +161,7 @@ document.addEventListener('polymer-ready', function() {
 });
 
 // Try to only do screen reader stuff on desktop.
-if (window.matchMedi && window.matchMedia('(min-width: 1000px)').matches) {
+if (window.matchMedia && window.matchMedia('(min-width: 1000px)').matches) {
   var timer = document.querySelector('#timer');
 
   document.addEventListener('countdown-timer-tick', function(e) {
