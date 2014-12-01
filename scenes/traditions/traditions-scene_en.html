@@ -147,7 +147,7 @@ Traditions scene.
 
     trackLessonPlan: function(e, detail, sender) {
      this.fire('analytics-track-event', {category: 'lessonPlanDownload', action: 'click',
-         label: sender.attributes['data-grades'].value});
+         label: sender.getAttribute('data-grades')});
     },
 
     toggleLessons: function(e) {
