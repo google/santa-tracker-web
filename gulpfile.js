@@ -80,7 +80,7 @@ gulp.task('compass', function() {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('compile-service', function() {
+gulp.task('compile-santa-api-service', function() {
   return gulp.src(['js/service/*.js', '!js/service/externs.js', '!js/service/*.min.js'])
     .pipe(closureCompiler({
       compilerPath: COMPILER_PATH,
@@ -196,7 +196,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
 
 // vulcanize elements separately as we want to inline polymer.html and
 // base-scene.html here
-gulp.task('vulcanize-elements', ['clean', 'compass', 'compile-service'], function() {
+gulp.task('vulcanize-elements', ['clean', 'compass', 'compile-santa-api-service'], function() {
   return gulp.src('elements/elements_en.html', {base: './'})
     .pipe(vulcanize({
       strip: !argv.pretty,
