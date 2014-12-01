@@ -38,8 +38,7 @@
   <!-- Analytics -->
   <script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
   <script>
-    // TODO(bckenny,cbro): remove window.DEV stuff for prod.
-    window.DEV = true;
+    window.DEV = true; // NOTE: replaced by string - do not change formatting.
 
     window.ga_ = new gweb.analytics.AutoTrack({
       'profile': window['DEV'] ? 'UA-37048309-2' : 'UA-37048309-1',

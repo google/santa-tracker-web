@@ -1,6 +1,7 @@
 /* jshint node: true */
 
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var vulcanize = require('gulp-vulcanize');
 var compass = require('gulp-compass');
 var path = require('path');
@@ -215,6 +216,7 @@ gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
 gulp.task('i18n_index', function() {
   return gulp.src(['index.html', 'error.html', 'upgrade.html'])
+    .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
     .pipe(replace('<base href="">',
         '<base href="' + STATIC_URL + '">'))
     .pipe(i18n_replace({
