@@ -1,5 +1,8 @@
 $calendarBreak1: 1120px;
-$calendarBreak2: 645px;
+$calendarBreak2: 800px;
+$calendarBreak3: 645px;
+$calendarBreak4: 600px;
+$calendarBreak5: 480px;
 
 $tabletBreakpoint: 1024px;
 $mobileBreakpoint: 660px;
@@ -9,6 +12,12 @@ $mobilePortraitBreakpoint: 400px;
   ##{$name} {
     #global-nav #global-nav-body #nav-calendar {
       max-width: 960px;
+    }
+
+    #global-nav #global-nav-body #nav-calendar div {
+      #spacer4, #spacer5 {
+        display: block;
+      }
     }
   }
 }
@@ -21,6 +30,7 @@ $mobilePortraitBreakpoint: 400px;
 
     #global-nav #global-nav-body #nav-calendar {
       max-width: 800px;
+      box-shadow: none;
     }
 
     #sound {
@@ -35,22 +45,63 @@ $mobilePortraitBreakpoint: 400px;
         }
       }
     }
+
+    #global-nav #global-nav-body #nav-calendar div {
+      #spacer1, #spacer2, #spacer3, #spacer4, #spacer5 {
+        display: none;
+      }
+    }
   }
 }
 
 @media (max-width: $calendarBreak2) {
   ##{$name} {
+    #global-nav #global-nav-body #nav-calendar div {
+      #spacer1, #spacer2, #spacer3 {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (max-width: $calendarBreak3) {
+  ##{$name} {
+    #global-nav #global-nav-body #nav-calendar div {
+      #spacer1, #spacer2, #spacer3 {
+        display: none;
+      }
+    }
+
     #global-nav #global-nav-body #nav-calendar {
       max-width: 100%;
       $cardWidth: 120px;
+      $markerWidth: 70px;
 
       div .card {
         width: $cardWidth;
         height: $cardWidth;
 
-        a .menu-marker {
-          width: 70px;
-          height: 70px;
+        a {
+          .menu-marker {
+            width: $markerWidth;
+            height: $markerWidth;
+          }
+
+          &::before {
+            width: $markerWidth;
+            height: $markerWidth;
+            margin-top: -$markerWidth/2;
+            margin-left: -$markerWidth/2;
+          }
+        }
+
+        &.iced {
+          .menu-marker {
+            width: $markerWidth + 8px !important;
+            height: $markerWidth + 8px !important;
+            top: -4px;
+            right: -4px;
+          }
         }
 
         &[data-index="1"] {
@@ -66,33 +117,28 @@ $mobilePortraitBreakpoint: 400px;
               height: 100%;
             }
 
+            &::before {
+              width: $smallMarkerWidth;
+              height: $smallMarkerWidth;
+              margin-top: -$smallMarkerWidth/2;
+              margin-left: -$smallMarkerWidth/2;
+            }
+
             &:nth-of-type(1) {
-              left: 12px;
+              left: 9px;
               top: $cardWidth / 2 - $smallMarkerWidth / 2;
-              .menu-marker {
-                background-image: url(img/village-menu-icons-1-airport.svg);
-              }
             }
             &:nth-of-type(2) {
               left: $cardWidth / 2 - $smallMarkerWidth / 2;
               top: 10px;
-              .menu-marker {
-                background-image: url(img/village-menu-icons-1-video.svg);
-              }
             }
             &:nth-of-type(3) {
-              right: 10px;
+              right: 7px;
               top: $cardWidth / 2 - $smallMarkerWidth / 2;
-              .menu-marker {
-                background-image: url(img/village-menu-icons-1-racer.svg);
-              }
             }
             &:nth-of-type(4) {
-              bottom: 10px;
+              bottom: 11px;
               left: $cardWidth / 2 - $smallMarkerWidth / 2;
-              .menu-marker {
-                background-image: url(img/village-menu-icons-1-playstore.svg);
-              }
             }
           }
         }
@@ -128,8 +174,29 @@ $mobilePortraitBreakpoint: 400px;
         display: none;
       }
     }
+
     #global-nav #global-nav-content {
       top: $headerHeight;
+    }
+  }
+}
+
+@media (max-width:$calendarBreak4) {
+  ##{$name} {
+    #global-nav #global-nav-body #nav-calendar div {
+      #spacer1, #spacer2, #spacer3 {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (max-width:$calendarBreak5) {
+  ##{$name} {
+    #global-nav #global-nav-body #nav-calendar div {
+      #spacer3 {
+        display: none;
+      }
     }
   }
 }
