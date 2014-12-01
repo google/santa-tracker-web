@@ -40,7 +40,6 @@ Analytics.prototype.trackPageView = function(path) {
  * @param {string=} opt_label An optional sublabel, for e.g. A/B test identification.
  */
 Analytics.prototype.trackPerf = function(category, variable, time, opt_label) {
-  console.log(category, variable, time);
   this.ga_.pushCommand(['_trackTiming', category, variable, time, opt_label]);
 };
 
