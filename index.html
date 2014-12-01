@@ -41,7 +41,7 @@
     window.DEV = true; // NOTE: replaced by string - do not change formatting.
 
     window.ga_ = new gweb.analytics.AutoTrack({
-      'profile': window['DEV'] ? 'UA-37048309-2' : 'UA-37048309-1',
+      'profile': location.hostname == 'santatracker.google.com' ? 'UA-37048309-1' : 'UA-37048309-2',
       'trackClicks': false,
       'disableTrackPageview': true
     });
