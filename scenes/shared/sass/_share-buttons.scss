@@ -17,7 +17,7 @@ $shareButtons-shadow: #FF873E !default;
     background-image: url(../shared/img/share-buttons/google.svg);
     background-size: 10px 11.5px;
 
-    @media (min-width: $button-bp) {
+    @media (min-width: 1px) and (min-width: $button-bp) {
       background-size: 20px 21px;
     }
   }
@@ -26,7 +26,7 @@ $shareButtons-shadow: #FF873E !default;
     background-image: url(../shared/img/share-buttons/facebook.svg);
     background-size: 5px 10px;
 
-    @media (min-width: $button-bp) {
+    @media (min-width: 1px) and (min-width: $button-bp) {
       background-size: 10px 20px;
     }
   }
@@ -36,7 +36,7 @@ $shareButtons-shadow: #FF873E !default;
     background-size: 11px 9px;
     margin-right: 0;
 
-    @media (min-width: $button-bp) {
+    @media (min-width: 1px) and (min-width: $button-bp) {
       background-size: 22px 18px;
     }
   }

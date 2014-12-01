@@ -37,7 +37,7 @@
       vertical-align: middle;
     }
 
-    @media (min-width: 661px) {
+    @media (min-width: 1px) and (min-width: 661px) {
       &-dialog {
         transform: translateY(-200%);
       }

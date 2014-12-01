@@ -23,7 +23,7 @@ $shareOverlay-bp: 661px;
     width: 78px;
     outline: none;
 
-    @media (min-width: $shareOverlay-bp) {
+    @media (min-width: 1px) and (min-width: $shareOverlay-bp) {
       right: -78px;
     }
   }
@@ -68,7 +68,7 @@ $shareOverlay-bp: 661px;
       padding-top: 77.25%;
     }
 
-    @media (min-width: 400px) {
+    @media (min-width: 1px) and (min-width: 400px) {
       width: 400px;
     }
   }
@@ -90,7 +90,7 @@ $shareOverlay-bp: 661px;
     margin: 0 0 7px 0;
     text-transform: uppercase;
 
-    @media (min-width: $shareOverlay-bp) {
+    @media (min-width: 1px) and (min-width: $shareOverlay-bp) {
       font-size: 13px;
     }
   }
@@ -112,7 +112,7 @@ $shareOverlay-bp: 661px;
     text-align: center;
     width: 290px;
 
-    @media (min-width: 400px) {
+    @media (min-width: 1px) and (min-width: 400px) {
       font-size: 36px;
       line-height: 74px;
       width: 370px;
@@ -124,7 +124,7 @@ $shareOverlay-bp: 661px;
     border-radius: 15px;
     padding: 5px 5px 10px 5px;
 
-    @media (min-width: $shareOverlay-bp) {
+    @media (min-width: 1px) and (min-width: $shareOverlay-bp) {
       padding: 10px 10px 20px 10px;
     }
   }
