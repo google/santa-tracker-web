@@ -139,29 +139,29 @@
 <div id="preload_placeholder"></div>
 
 <script>
+(function() {
 window.santaApp = document.querySelector('santa-app');
 
-(function() {
-  // performance.now() polyfill for browsers without support
-  var perfNow = window.performance && window.performance.now ?
-      window.performance.now.bind(window.performance) : Date.now;
+// performance.now() polyfill for browsers without support
+var perfNow = window.performance && window.performance.now ?
+    window.performance.now.bind(window.performance) : Date.now;
 
-  // log some polymer performance numbers
-  document.addEventListener('HTMLImportsLoaded', function() {
-    window.ga_.pushCommand(['_trackTiming', 'Polymer', 'HTMLImportsLoaded', perfNow()]);
+// log some polymer performance numbers
+document.addEventListener('HTMLImportsLoaded', function() {
+  window.ga_.pushCommand(['_trackTiming', 'Polymer', 'HTMLImportsLoaded', perfNow()]);
 
-    if (window.DEV) {
-      // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
-      // Set locale for entire site (e.g. i18n-msg elements).
-      I18nMsg.lang = document.documentElement.lang || 'en';
-    }
-  });
-  document.addEventListener('polymer-ready', function() {
-    window.ga_.pushCommand(['_trackTiming', 'Polymer', 'polymer-ready', perfNow()]);
-  });
+  if (window.DEV) {
+    // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
+    // Set locale for entire site (e.g. i18n-msg elements).
+    I18nMsg.lang = document.documentElement.lang || 'en';
+  }
+});
+document.addEventListener('polymer-ready', function() {
+  window.ga_.pushCommand(['_trackTiming', 'Polymer', 'polymer-ready', perfNow()]);
+});
 
 // Try to only do screen reader stuff on desktop.
-if (window.matchMedia('(min-width: 1000px)').matches) {
+if (window.matchMedia && window.matchMedia('(min-width: 1000px)').matches) {
   var timer = document.querySelector('#timer');
 
   document.addEventListener('countdown-timer-tick', function(e) {
