@@ -14,8 +14,8 @@ Trailer scene.
 
   <div id="module-trailer" fit>
     <div class="scene" fit>
-      <div id="poster">
-        <div id="start" hidden>
+      <div id="poster" hidden?="{{!poster}}">
+        <div id="start" hidden?="{{!start}}">
           <div class="start-button" on-tap="{{playVideo}}"></div>
         </div>
       </div>
@@ -29,7 +29,7 @@ Trailer scene.
           <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
         </a>
         <div class="sceneboard-back"></div>
-        <div id="controls" hidden>
+        <div id="controls" hidden?="{{!controls}}">
           <div class="scrubber">
             <div class="tracker" style="transform: translateX({{($.player.currenttime / $.player.duration) * 150}}px)">{{$.player.currenttimeformatted}}</div>
           </div>
@@ -55,8 +55,35 @@ Trailer scene.
      */
     paused: true,
 
+    /**
+     * True if the poster image should show.
+     *
+     * @property poster
+     * @type bool
+     * @default false
+     */
+    poster: true,
+
+    /**
+     * True if the start button should show.
+     *
+     * @property start
+     * @type bool
+     * @default true
+     */
+    start: false,
+
+     /**
+     * True if the scene board play controls should show.
+     *
+     * @property controls
+     * @type bool
+     * @default false
+     */
+    controls: false,
+
     youtubeReady: function() {
-      this.$.start.hidden = false;
+      this.start = true;
     },
 
     youtubeStateChange: function(e, detail, sender) {
@@ -64,9 +91,9 @@ Trailer scene.
 
       switch (state) {
         case 0: // ended
-          this.$.poster.hidden = false;
-          this.$.controls.hidden = true;
-          break;
+          this.poster = true
+          this.controls = false;
+          break;;
         case 1: // playing
           this.paused = false;
           break;
@@ -91,8 +118,8 @@ Trailer scene.
     },
 
     playVideo: function() {
-      this.$.poster.hidden = true;
-      this.$.controls.hidden = false;
+      this.poster = false;
+      this.controls = true;
       this.$.player.play();
     },
 
@@ -109,8 +136,8 @@ Trailer scene.
     onShow: function() {
       this.$.player.seekTo(0);
       this.$.player.pause();
-      this.$.controls.hidden = true;
-      this.$.poster.hidden = false;
+      this.controls = false;
+      this.poster = true;
       this.fire('sound-ambient', 'global_sound_off');
     },
 
@@ -124,7 +151,7 @@ Trailer scene.
     },
 
     onResume: function() {
-      if (!this.$.start.hidden && !this.$.poster.hidden) {
+      if (!this.poster) {
         this.$.player.play();
       }
     }
