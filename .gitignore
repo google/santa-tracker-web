@@ -9,4 +9,5 @@ dist_static
 sass/*.css
 scenes/*/*.css
 scenes/*/*.min.js
+js/service/*.min.js
 elements/*/*.css

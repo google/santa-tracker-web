@@ -12,7 +12,7 @@ function crossDomainAjax(settings) {
   }
   // NOTE: timeout may not work in FF 3.0+ if using JSONP.
   settings['timeout'] = settings['timeout'] || 5 * 1000; // 5 second default
-  settings['url'] = crossDomainAjax.getApiBase_() + settings['url'];
+  settings['url'] = crossDomainAjax.BASE + settings['url'];
   var done = settings.done;
   var fail = settings.fail;
   settings.done = null; // don't pass to jQuery
@@ -43,21 +43,7 @@ function crossDomainAjax(settings) {
 }
 
 /** @define {boolean} */
-crossDomainAjax.PROD = false;
-
-crossDomainAjax.getApiBase_ = function() {
-  var base = '//santa-api.appspot.com/';
-  if (!crossDomainAjax.PROD || window['DEV']) {
-    var defaultDevServer = '//next-santa-api.appspot.com/';
-    base = crossDomainAjax.getUrlParameter_('api_server') || defaultDevServer;
-  }
-  if (document.location.protocol.indexOf('http') == 0) {
-    // protocol relative.
-    return base;
-  }
-  // Chrome extension
-  return 'http:' + base;
-};
+crossDomainAjax.BASE = ''; // Set by gulpfile
 
 /**
  * @type {boolean}

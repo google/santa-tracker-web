@@ -80,6 +80,28 @@ gulp.task('compass', function() {
     .pipe(gulp.dest('.'));
 });
 
+gulp.task('compile-santa-api-service', function() {
+  return gulp.src(['js/service/*.js', '!js/service/externs.js', '!js/service/*.min.js'])
+    .pipe(closureCompiler({
+      compilerPath: COMPILER_PATH,
+      fileName: 'service.min.js',
+      compilerFlags: addCompilerFlagOptions({
+        compilation_level: 'ADVANCED_OPTIMIZATIONS',
+        // warning_level: 'VERBOSE',
+        language_in: 'ECMASCRIPT5_STRICT',
+        externs: ['js/service/externs.js'],
+        define: ['crossDomainAjax.BASE="' + (argv.api_base || 'https://santa-api.appspot.com/') + '"'],
+        jscomp_warning: [
+          // https://github.com/google/closure-compiler/wiki/Warnings
+          'accessControls',
+          'const',
+          'visibility'
+        ],
+      })
+    }))
+    .pipe(gulp.dest('js/service'));
+});
+
 gulp.task('compile-scenes', function() {
   var sceneNames = Object.keys(SCENE_CLOSURE_CONFIG);
 
@@ -174,7 +196,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
 
 // vulcanize elements separately as we want to inline polymer.html and
 // base-scene.html here
-gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
+gulp.task('vulcanize-elements', ['clean', 'compass', 'compile-santa-api-service'], function() {
   return gulp.src('elements/elements_en.html', {base: './'})
     .pipe(vulcanize({
       strip: !argv.pretty,
@@ -192,7 +214,7 @@ gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
 gulp.task('i18n_index', function() {
-  return gulp.src(['index.html', 'error.html', 'upgrade.html', 'schedule.html'])
+  return gulp.src(['index.html', 'error.html', 'upgrade.html'])
     .pipe(replace('<base href="">',
         '<base href="' + STATIC_URL + '">'))
     .pipe(i18n_replace({
@@ -208,12 +230,10 @@ gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
     'manifest.json',
     'audio/*',
     'images/*.{png,svg,gif,ico}',
-    'js/**',
+    'js/third_party/**',
     'sass/*.css',
     'scenes/**/img/**/*.{png,svg,gif}',
     'elements/**/img/*.{png,svg,gif}',
-    'components/platform/*',
-    'components/polymer/*',
     'components/webcomponentsjs/webcomponents.min.js'
   ], {base: './'})
   .pipe(gulp.dest(DIST_STATIC_DIR));
