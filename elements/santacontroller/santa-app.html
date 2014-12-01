@@ -14,6 +14,7 @@ Santa Track app.
 -->
 <polymer-element name="santa-app"
                  on-analytics-track-event="{{trackEvent}}"
+                 on-analytics-track-perf="{{trackPerf}}"
                  on-analytics-track-social="{{trackSocial}}"
                  on-analytics-track-game-start="{{trackGameStart}}"
                  on-analytics-track-game-quit="{{trackGameQuit}}"
@@ -404,6 +405,11 @@ Polymer(Polymer.mixin({
   trackEvent: function(e, detail, sender) {
     this.analyticsService.trackEvent(
         detail.category, detail.action, detail.label);
+  },
+
+  trackPerf: function(e, detail, sender) {
+    this.analyticsService.trackPerf(
+        detail.category, detail.variable, detail.time, detail.label);
   },
 
   trackSocial: function(e, detail, sender) {

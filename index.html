@@ -33,6 +33,23 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144x144-precomposed.png">
   <link rel="shortcut icon" href="images/favicon.ico">
 
+  <!-- Analytics -->
+  <script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
+  <script>
+    // TODO(bckenny,cbro): remove window.DEV stuff for prod.
+    window.DEV = true;
+
+    window.ga_ = new gweb.analytics.AutoTrack({
+      'profile': window['DEV'] ? 'UA-37048309-2' : 'UA-37048309-1',
+      'trackClicks': false,
+      'disableTrackPageview': true
+    });
+
+    // log navigation timing numbers at a higher rate to get a better baseline
+    // while traffic is still low
+    ga_.pushCommand(['_setSiteSpeedSampleRate', 10]);
+  </script>
+
   <script src="components/webcomponentsjs/webcomponents.min.js"></script>
   <link rel="import" href="elements/elements_en.html">
 </head>
@@ -44,48 +61,58 @@
 
 <div id="preload_placeholder"></div>
 
-<!-- TODO(bckenny,cbro): remove window.DEV stuff for prod. -->
 <script>
 window.santaApp = document.querySelector('santa-app');
 
-window.DEV = true;
+// TODO(bckenny): could ask embeds to include separate utmsource
+if (getUrlParameter('api_client')) {
+  ga_.pushCommand(['_setCampSourceKey', 'api_client']);
+  ga_.pushCommand(['_setCampMediumKey', 'api_client']);
+}
 
-if (window.DEV) {
-  document.addEventListener('DOMContentLoaded', function() {
-    console.info('DOMContentLoaded @', performance.now(), 'ms');
-  });
+// TODO(bckenny): check browser for polymer support. If unsupported, track
+// pageview before redirecting
 
-  document.addEventListener('HTMLImportsLoaded', function() {
-    console.info('HTMLImportsLoaded @', performance.now(), 'ms');
-
-    // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
-    I18nMsg.lang = document.documentElement.lang || 'en'; // Set locale for entire site (e.g. i18n-msg elements).
-  });
-
-  document.addEventListener('template-bound', function() {
-    console.info('template-bound @', performance.now(), 'ms');
-  });
-
-  document.addEventListener('polymer-ready', function() {
-    console.info('polymer-ready @', performance.now(), 'ms');
-  });
-} else {
+if (!window.DEV) {
   console.log = function(){};
 }
 
-// Track and log any errors to analytics
-window.onerror = function(message, file, lineNumber) {
-  // We don't want to trigger any errors inside window.onerror otherwise
-  // things will get real bad, real quick.
-  try {
-    window.santaApp.fire('analytics-track-event', {
-        category: 'error', action: file + ':' + lineNumber,
-        label: '' + message});
-  } catch (e){}
-};
-</script>
-<script>
 (function() {
+  var perfNow = window.performance && window.performance.now ?
+      window.performance.now.bind(window.performance) : Date.now;
+
+  // Track and log any errors to analytics
+  window.onerror = function(message, file, lineNumber) {
+    // We don't want to trigger any errors inside window.onerror otherwise
+    // things will get real bad, real quick.
+    try {
+      window.ga_.pushCommand(['_trackEvent', 'error', file + ':' + lineNumber,
+          '' + message]);
+    } catch (e){}
+  };
+
+  // log some polymer performance numbers
+  document.addEventListener('HTMLImportsLoaded', function() {
+    var now = perfNow();
+    window.ga_.pushCommand(['_trackTiming', 'Polymer', 'HTMLImportsLoaded', now]);
+
+    if (window.DEV) {
+      console.info('HTMLImportsLoaded @', now, 'ms');
+
+      // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
+      // Set locale for entire site (e.g. i18n-msg elements).
+      I18nMsg.lang = document.documentElement.lang || 'en';
+    }
+  });
+
+  document.addEventListener('polymer-ready', function() {
+    var now = perfNow();
+    window.ga_.pushCommand(['_trackTiming', 'Polymer', 'polymer-ready', now]);
+
+    if (window.DEV) {
+      console.info('polymer-ready @', now, 'ms');
+    }
+  });
 
 // Try to only do screen reader stuff on desktop.
 if (window.matchMedia('(min-width: 1000px)').matches) {
@@ -101,7 +128,6 @@ if (window.matchMedia('(min-width: 1000px)').matches) {
     }
   });
 }
-
 })();
 </script>
 </body>
