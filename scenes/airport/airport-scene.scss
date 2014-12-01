@@ -644,7 +644,7 @@ $cycleDuration: 20; // 20s
 }
 
 // enable some animations for tablet upwards
-@media (min-width: 1px) and (min-height: 700px) {
+@media (min-height: 700px) {
   ##{$name} {
     .big-plane {
       display: block;

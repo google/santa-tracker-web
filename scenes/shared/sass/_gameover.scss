@@ -15,11 +15,11 @@ $gameover-width-bp: 661px;
     text-align: center;
     width: 205px;
 
-    @media (min-height: 1px) and (min-height: $gameover-height-bp) {
+    @media (min-height: $gameover-height-bp) {
       width: 410px;
     }
 
-    @media (min-width: 1px) and (min-width: $gameover-width-bp) {
+    @media (min-width: $gameover-width-bp) {
       width: 410px;
     }
   }
@@ -28,7 +28,7 @@ $gameover-width-bp: 661px;
     background: url(../shared/img/gameover/winner.svg) 0 100% no-repeat;
     height: 80px;
 
-    @media (min-width: 1px) and (min-width: $gameover-width-bp) {
+    @media (min-width: $gameover-width-bp) {
       height: 380px;
       background-position: 50% 100%;
     }
@@ -42,7 +42,7 @@ $gameover-width-bp: 661px;
     color: mix($gameover-bg, #fff, 40%);
     margin: 0;
 
-    @media (min-width: 1px) and (min-width: $gameover-width-bp) {
+    @media (min-width: $gameover-width-bp) {
       font-size: 69px;
     }
   }
@@ -67,7 +67,7 @@ $gameover-width-bp: 661px;
     margin: 0;
     text-transform: uppercase;
 
-    @media (min-width: 1px) and (min-width: $gameover-width-bp) {
+    @media (min-width: $gameover-width-bp) {
       font-size: 13px;
     }
   }
@@ -81,7 +81,7 @@ $gameover-width-bp: 661px;
     margin: 0;
     text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.13);
 
-    @media (min-width: 1px) and (min-width: $gameover-width-bp) {
+    @media (min-width: $gameover-width-bp) {
       font-size: 88px;
       line-height: 96px;
       text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.13);
@@ -93,7 +93,7 @@ $gameover-width-bp: 661px;
     border-radius: 15px;
     padding: 5px 5px 10px 5px;
 
-    @media (min-width: 1px) and (min-width: $gameover-width-bp) {
+    @media (min-width: $gameover-width-bp) {
       padding: 10px 10px 20px 10px;
     }
   }
@@ -105,7 +105,7 @@ $gameover-width-bp: 661px;
     background-size: 20.5px 21px;
     margin-bottom: 10px;
 
-    @media (min-width: 1px) and (min-width: $gameover-width-bp) {
+    @media (min-width: $gameover-width-bp) {
       background-position: 40px 50%;
       background-size: 41px 42px;
       margin-bottom: 20px;

@@ -44,14 +44,14 @@ $board-level-bp: 1350px !default;
   }
 
   // Tablet UI
-  @media (min-width: 1px) and (min-width: 661px) {
+  @media (min-width: 661px) {
     .level {
       border-left: 1px solid board-color($color, $board-border);
     }
   }
 
   // Desktop UI
-  @media (min-width: 1px) and (min-width: 1025px) {
+  @media (min-width: 1025px) {
     background: $color;
 
     .back {
@@ -78,7 +78,7 @@ $board-level-bp: 1350px !default;
   }
 
   // Large screens
-  @media (min-width: 1px) and (min-width: 1350px) {
+  @media (min-width: 1350px) {
     .time {
       background-color: board-color($color, $board-dark-bg);
     }
