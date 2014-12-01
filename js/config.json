@@ -1,6 +1,6 @@
 window.SANTA_CONFIG = window.SANTA_CONFIG || {
   "API_KEY": null,
-  "CLIENT_ID": null,
+  "CLIENT_ID": 'google-santa-tracker',
   "COUNTDOWN_END_DATE": 1419415200000, // Dec 24, 2014
   "FLIGHT_FINISHED": 1419415200000 + 25 * 60 * 60 * 1000
 };
