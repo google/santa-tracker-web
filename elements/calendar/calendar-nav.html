@@ -76,7 +76,7 @@ Village calendar navigation.
                       </div>
                     </template>
                     <div layout vertical center-center data-index="24" data-category="learn" class="card calendar learn iced">
-                      <a href="#" on-click="{{onCalendarClick}}">
+                      <a href="{{pageURL}}#tracker" on-click="{{onCalendarClick}}">
                         <div class="menu-marker marker24 calendar learn" style="background-image:url({{componentBaseDir}}img/menu-tracker.svg);"></div>
                       </a>
                     </div>
@@ -239,7 +239,8 @@ Village calendar navigation.
       },
 
       onCalendarClick: function(e, detail, sender) {
-        var iced = sender.templateInstance.model.house.iced;
+        var house = sender.templateInstance.model.house;
+        var iced = !house || house.iced;
         if (iced) {
           e.preventDefault();
         }
