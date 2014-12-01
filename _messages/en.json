@@ -56,6 +56,84 @@
 	"close-this": {
 		"message": "Cancel"
 	},
+	"codelab-block-moveeast": {
+		"message": "east"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Move me east one space."
+	},
+	"codelab-block-movenorth": {
+		"message": "north"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Move me north one space."
+	},
+	"codelab-block-movesouth": {
+		"message": "south"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Move me south one space."
+	},
+	"codelab-block-movewest": {
+		"message": "west"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Move me west one space."
+	},
+	"codelab-block-repeat": {
+		"message": "repeat"
+	},
+	"codelab-block-repeat-times": {
+		"message": "times"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Repeat some statements several times."
+	},
+	"codelab-block-whenrun": {
+		"message": "when run"
+	},
+	"codelab-finish": {
+		"message": "Finish"
+	},
+	"codelab-great": {
+		"message": "Great"
+	},
+	"codelab-mwc-promo": {
+		"message": "Explore more Google coding projects at \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Next Challenge"
+	},
+	"codelab-oops": {
+		"message": "Oops!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "The \"Repeat\" block needs to have other blocks inside it to work."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Some of the blocks are not attached together properly."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Looks like you got lost!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Try one or more of the block below to solve this puzzle."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Did you know you can finish this level with just {{ideal}} blocks? Try using the block below."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Congratulations! You finished the puzzle perfectly."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "You are using the right blocks, but try using more of them to complete this puzzle."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Did you know you can finish this level with just {{ideal}} blocks?"
+	},
+	"codelab-try-again": {
+		"message": "Try Again"
+	},
 	"copy-me": {
 		"message": "Copy this link to share your message"
 	},

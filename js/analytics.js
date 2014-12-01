@@ -28,12 +28,11 @@ Analytics.prototype.init = function() {
 
   var client = getUrlParameter('embed_client');
   if (client) {
-    ga.pushCommand(['set', 'campaignSource', client]);
-    ga.pushCommand(['set', 'campaignMedium', 'embed']);
+    ga.pushCommand(['_setCampSourceKey', 'embed_client']);
   }
-  if (getUrlParameter('api_client') == 'web_chromecast') {
-    ga.pushCommand(['set', 'campaignSource', 'chromecast']);
-    ga.pushCommand(['set', 'campaignMedium', 'chromecast']);
+  if (getUrlParameter('api_client')) {
+    ga.pushCommand(['_setCampSourceKey', 'api_client']);
+    ga.pushCommand(['_setCampMediumKey', 'api_client']);
   }
 };
 

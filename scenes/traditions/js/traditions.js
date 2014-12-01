@@ -40,7 +40,7 @@ Traditions.prototype.setup = function() {
     anchor: new google.maps.Point(12, 12),
     scaledSize: new google.maps.Size(540, 53),
     size: new google.maps.Size(54, 53),
-    url: this.componentDir + '/img/pins_small_2x.png'
+    url: this.componentDir + 'img/pins_small_2x.png'
   };
 
   /**
@@ -51,7 +51,7 @@ Traditions.prototype.setup = function() {
     anchor: new google.maps.Point(24, 24),
     scaledSize: new google.maps.Size(1080, 106),
     size: new google.maps.Size(107, 106),
-    url: this.componentDir + '/img/pins_large_2x.png'
+    url: this.componentDir + 'img/pins_large_2x.png'
   };
 
   /**
@@ -60,7 +60,7 @@ Traditions.prototype.setup = function() {
   this.markerBounds_ = new google.maps.LatLngBounds();
 };
 
-Traditions.prototype.onShow = function() {  
+Traditions.prototype.onShow = function() {
   this.map_ = new google.maps.Map(this.el_.querySelector('#traditions-map'), {
     center: new google.maps.LatLng(0, 0),
     zoom: 1,

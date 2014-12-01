@@ -72,16 +72,18 @@
     .trees--left {
       background: url(img/trees-left.svg);
       height: 844px;
+      margin-top: -422px;
       left: -215px;
-      top: -45px;
+      top: 50%;
       width: 202px;
     }
 
     .trees--right {
       background: url(img/trees-right.svg);
       height: 822px;
+      margin-top: -411px;
       right: -250px;
-      top: -50px;
+      top: 50%;
       width: 210px;
     }
   }

@@ -435,7 +435,7 @@
     },
     "codelab-mwc-promo": {
         "description": "Promotion for the Made w/ Code initiative. Displayed in footer of code lab game. Should be short and direct.",
-        "message": "Explore more Google coding projects at <ph name=\"LINK\"><ex>&lt;a href=\"link\"&gt;link&lt;/a&gt;</ex>&lt;a href=\"//www.madewithcode.com/\" target=\"_blank\"&gt;MadewithCode.com&lt;/a&gt;</ph>"
+        "raw": "Explore more Google coding projects at <ph name=\"LINK\"><ex>&lt;a href=\"link\"&gt;link&lt;/a&gt;</ex>&lt;a href=\"//www.madewithcode.com/\" target=\"_blank\"&gt;MadewithCode.com&lt;/a&gt;</ph>."
     },
     "codelab-next-challenge": {
         "description": "Button label to start next level. 15char limit.",
@@ -463,7 +463,7 @@
     },
     "codelab-result-missing-block-success": {
         "description": "Short hint on how the puzzle can be improved even if level is complete. One or two sentences max. Refers to blocks visually displayed below. Has a token for a dynamic number between 2-6, the token can be skipped and translation worded that fewer blocks are needed.",
-        "message": "Did you know you can finish this level with just <ph name=\"IDEAL\"><ex>5</ex>{{ideal}}</ph> blocks? Try using the block below."
+        "raw": "Did you know you can finish this level with just <ph name=\"IDEAL\"><ex>4</ex>{{ideal}}</ph> blocks? Try using the block below."
     },
     "codelab-result-perfect-success": {
         "description": "Short message after completing a level. One or two sentences max.",
@@ -475,7 +475,7 @@
     },
     "codelab-result-too-many-blocks-success": {
         "description": "Short hint on how the puzzle can be improved even if level is complete. One or two sentences max. Has a token for a dynamic number between 2-6, the token can be skipped and translation worded that fewer blocks are needed.",
-        "message": "Did you know you can finish this level with just <ph name=\"IDEAL\"><ex>5</ex>{{ideal}}</ph> blocks?"
+        "raw": "Did you know you can finish this level with just <ph name=\"IDEAL\"><ex>4</ex>{{ideal}}</ph> blocks?"
     },
     "codelab-try-again": {
         "description": "Button label to try the level again after failing or completing with room for improvement. 15char limit.",

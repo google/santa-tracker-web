@@ -151,7 +151,7 @@ $cardColor: #6541a4;
 
         max-width: $cardWidth * 7;
         margin: 20px auto;
-        position: initial;
+        position: static;
         box-shadow: 12px 12px $headerFooterColor;
 
         $categories: 'calendar', 'play', 'watch', 'learn', 'scene';
@@ -172,9 +172,8 @@ $cardColor: #6541a4;
         }
 
         div {
+          $markerWidth: 100px;
           .card {
-            $markerWidth: 100px;
-
             width: $cardWidth;
             height: $cardWidth;
             border: 1px solid #7847b2;
@@ -205,6 +204,7 @@ $cardColor: #6541a4;
               bottom: 5px;
               text-align: center;
               visibility: hidden;
+              display: none;
             }
 
             @for $i from 1 through 24 {
@@ -216,7 +216,7 @@ $cardColor: #6541a4;
             }
 
             &[data-index="1"] {
-              $smallMarkerWidth: 55px;
+              $smallMarkerWidth: 54px;
 
               a {
                 width: $smallMarkerWidth;
@@ -226,6 +226,15 @@ $cardColor: #6541a4;
                 .menu-marker {
                   width: 100%;
                   height: 100%;
+                }
+
+                &::before {
+                  width: $smallMarkerWidth;
+                  height: $smallMarkerWidth;
+                  top: 50%;
+                  left: 50%;
+                  margin-top: -$smallMarkerWidth/2;
+                  margin-left: -$smallMarkerWidth/2;
                 }
 
                 &:nth-of-type(1) {
@@ -261,8 +270,19 @@ $cardColor: #6541a4;
 
             a {
               text-decoration: none;
-              border-radius: 50%;
-              background-color: rgb(93, 59, 149);
+
+              &::before {
+                position: absolute;
+                content: '';
+                background-color: rgb(93, 59, 149);
+                width: $markerWidth;
+                height:  $markerWidth;
+                border-radius: 50%;
+                top: 50%;
+                left: 50%;
+                margin-top: -$markerWidth/2;
+                margin-left: -$markerWidth/2;
+              }
 
               .menu-marker {
                 background-size: contain;
@@ -273,7 +293,23 @@ $cardColor: #6541a4;
                 visibility: hidden;
               }
             }
+          }
 
+          &.iced {
+            .menu-marker {
+              width: $markerWidth + 8px !important;
+              height: $markerWidth + 8px !important;
+              top: -4px;
+              right: -4px;
+            }
+
+            a {
+              cursor: default;
+            }
+          }
+
+          #spacer4, #spacer5 {
+            display: none;
           }
         }
       }
@@ -526,7 +562,6 @@ $cardColor: #6541a4;
     bottom: 0;
     left: 20px;
     min-width: 204px;
-    max-width: 300px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .16);
     border-radius: 4px 4px 0 0;
     background: #22ae28;

@@ -2,31 +2,38 @@ goog.provide('SB.Assets');
 
 /**
  * Handles the asset loading for the game.
- * @namespace
+ * @param {string} componentDir path to the scene static files.
  */
-SB.Assets = (function() {
-  // TODO: Fix me.
-  //var staticDir = santatracker.getStaticDir('racer');
-  var staticDir = '/scenes/racer';
-  var manifest = {};
+SB.Assets.init = function(componentDir) {
+  if (SB.Assets.manifest_ != null) {
+    return;
+  }
+  var manifest = SB.Assets.manifest_ = {};
   manifest.santa = new Image();
-  manifest.santa.src = staticDir + '/img/santa-sleigh.png';
+  manifest.santa.src = componentDir + 'img/santa-sleigh.png';
   manifest.rudolf = new Image();
-  manifest.rudolf.src = staticDir + '/img/rudolf.png';
+  manifest.rudolf.src = componentDir + 'img/rudolf.png';
   manifest.tree = new Image();
-  manifest.tree.src = staticDir + '/img/tree.png';
+  manifest.tree.src = componentDir + 'img/tree.png';
   manifest.rock = new Image();
-  manifest.rock.src = staticDir + '/img/rock.png';
+  manifest.rock.src = componentDir + 'img/rock.png';
   manifest.present = new Image();
-  manifest.present.src = staticDir + '/img/present.png';
+  manifest.present.src = componentDir + 'img/present.png';
+};
 
-  return {
-    /**
-     * Gets a reference to a loaded asset.
-     * @param {string} name The name of the assets to retrieve.
-     */
-    get: function(name) {
-      return manifest[name];
-    },
-  };
-})();
+/**
+ * Store all assets
+ * @type {{}}
+ * @private
+ */
+SB.Assets.manifest_ = null;
+
+
+/**
+ * Gets a reference to a loaded asset.
+ * @param {string} name The name of the assets to retrieve.
+ * @return {Image}
+ */
+SB.Assets.get = function(name) {
+  return SB.Assets.manifest_[name];
+};

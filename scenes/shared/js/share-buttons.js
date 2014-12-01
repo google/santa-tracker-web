@@ -25,7 +25,7 @@ app.shared.ShareButtons.prototype.setUrl = function(url) {
   this.elem.find('.shareButtons-google')
       .attr('href', 'https://plus.google.com/share?url=' + url);
   this.elem.find('.shareButtons-facebook')
-      .attr('href', 'http://www.facebook.com/sharer.php?p[url]=' + url + '&u=' + url);
+      .attr('href', 'https://www.facebook.com/sharer.php?p[url]=' + url + '&u=' + url);
   this.elem.find('.shareButtons-twitter')
       .attr('href', 'https://twitter.com/share?hashtags=santatracker&url=' + url);
 };

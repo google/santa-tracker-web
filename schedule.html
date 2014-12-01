@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <base href="">
   <title>Google Santa Tracker Schedule</title>
 
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Lobster|Roboto&subset=all">
@@ -15,24 +16,27 @@
   <script src="js/houses.js"></script>
 
   <script>
+    var loc = location.href;
+    var pageUrl = loc.substr(0, loc.lastIndexOf('/schedule.html'));
+
     for (var i = 0; i < HOUSES.length; i++) {
       var house = HOUSES[i];
       var module = house.module;
       var date = house.launchDate;
       var t = date.getTime() - 10 * 1000; // Minus 10 seconds so we can watch the house open
-      var url = '/?timestamp_override=' + t;
+      var url = pageUrl + '/?timestamp_override=' + t;
       var dom = $('<li>' + date + ' - ' + module +
         ': Tracker  <a href="' + url + '#village">Village</a> - <a href="' + url + '#' + module + '">Scene</a></li>');
       $('#schedule').append(dom);
     }
 
     var t = new Date('2014/12/24 20:59:39').getTime();
-    var url = '/?timestamp_override=' + t;
+    var url = pageUrl + '/?timestamp_override=' + t;
     var dom = $('<li">30 seconds before take off: <a href="' + url + '#village">Village</a></li>');
     $('#schedule').append(dom);
 
     var t = new Date('2014/12/24 21:00:39').getTime();
-    var url = '/?timestamp_override=' + t;
+    var url = pageUrl + '/?timestamp_override=' + t;
     var dom = $('<li>30 seconds after take off: <a href="' + url + '#village">Village</a></li>');
     $('#schedule').append(dom);
     

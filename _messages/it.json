@@ -101,6 +101,9 @@
 	"fr_tradition": {
 		"message": "In Francia, la tradizione prevede che i bambini mettano le loro scarpe accanto al caminetto prima dell'arrivo di Père Noël. Se sono stati buoni durante l'anno, Père Noël riempirà le scarpe di doni."
 	},
+	"gameover": {
+		"message": "Partita finita!"
+	},
 	"getgooglemaps": {
 		"message": "Scarica Google Maps"
 	},
@@ -222,7 +225,7 @@
 		"message": "Russia"
 	},
 	"ru_tradition": {
-		"message": "I bambini russi decorano l'albero di Capodanno anziché l'albero di Natale. Attendono con ansia l'arrivo di Nonno Gelo che viaggia con la nipote, La Fanciulla di Neve, distribuendo doni in tutta la terra. Nonno Gelo vive nei boschi di Veliky Ustyug, nel nord della Russia."
+		"message": "I bambini russi decorano l'albero di Capodanno anziché l'albero di Natale. Attendono con ansia l'arrivo di Nonno Gelo che viaggia con la nipote, La Fanciulla di Neve, distribuendo doni su tutta la terra. Nonno Gelo vive nei boschi di Veliky Ustyug, nel nord della Russia."
 	},
 	"santatracker": {
 		"message": "Segui Babbo Natale"
@@ -270,7 +273,7 @@
 		"message": "Australia"
 	},
 	"trivia_beginner_013": {
-		"message": "Il Niger, un Paese con il tasso di crescita della popolazione più rapido del mondo, si trova nella parte nord-occidentale di quale continente?"
+		"message": "Il Niger, il Paese con il tasso di crescita della popolazione più rapido del mondo, si trova nella parte nord-occidentale di quale continente?"
 	},
 	"trivia_beginner_015_answer0": {
 		"message": "Australia"
@@ -288,7 +291,7 @@
 		"message": "Argentina"
 	},
 	"trivia_beginner_020": {
-		"message": "In quale Paese si trovano i Santuari del panda gigante di Sichuan che ospitano il 30% degli esemplari di panda del mondo?"
+		"message": "In quale Paese si trovano le aree dei Santuari del panda gigante di Sichuan che ospitano il 30% degli esemplari di panda del mondo?"
 	},
 	"trivia_beginner_020_answer1": {
 		"message": "Islanda"
@@ -318,7 +321,7 @@
 		"message": "In quale città europea si trova il Colosseo, costruito nel primo secolo a.C. come luogo per i combattimenti tra gladiatori?"
 	},
 	"trivia_beginner_049": {
-		"message": "Il Golden Gate Bridge collega quale città degli Stati Uniti con la Penisola di Marin?"
+		"message": "Quale città degli Stati Uniti è collegata alla Penisola di Marin dal Golden Gate Bridge?"
 	},
 	"trivia_beginner_050": {
 		"message": "Il Gateway Arch, che simboleggia l'espansione verso ovest dell'America nel 1800, si trova lungo il fiume Mississippi di quale città degli Stati Uniti?"
@@ -342,7 +345,7 @@
 		"message": "Australia"
 	},
 	"trivia_beginner_067": {
-		"message": "Le tartarughe giganti vivono sulle isole Galápagos, situate a ovest del Sud America in quale oceano?"
+		"message": "In quale oceano vivono le tartarughe giganti delle isole Galápagos, situate a ovest del Sud America?"
 	},
 	"trivia_beginner_068_answer1": {
 		"message": "Australia"
@@ -450,7 +453,7 @@
 		"message": "Francia"
 	},
 	"trivia_hard_073": {
-		"message": "Bahía Blanca è uno dei principali punti di spedizione per la regione La Pampa di quale Paese?"
+		"message": "Di quale Paese Bahía Blanca è uno dei principali punti di spedizione per la regione La Pampa?"
 	},
 	"trivia_hard_073_answer0": {
 		"message": "Argentina"
@@ -504,7 +507,7 @@
 		"message": "Australia"
 	},
 	"trivia_medium_004": {
-		"message": "Teotihuacán è stato il centro più importante di un'antica civiltà in quale continente?"
+		"message": "In quale continente Teotihuacán è stato il centro più importante di un'antica civiltà?"
 	},
 	"trivia_medium_012_answer0": {
 		"message": "São Paulo, Brasile"

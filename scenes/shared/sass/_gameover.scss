@@ -1,18 +1,9 @@
 @import "overlay";
 @import "share-buttons";
 
-$gameover-base-color: #FBBF2C;
-$gameover-bg: $gameover-base-color !default;
+$gameover-bg: #FBBF2C !default;
 $gameover-height-bp: 660px;
 $gameover-width-bp: 661px;
-
-@function gameover-color($target-color) {
-  @return hsl(
-      hue($target-color) - hue($gameover-base-color) + hue($gameover-bg),
-      max(0, min(100, saturation($target-color) - saturation($gameover-base-color) + saturation($gameover-bg))),
-      lightness($target-color) - lightness($gameover-base-color) + lightness($gameover-bg)
-  );
-}
 
 ##{$name} {
   .gameover {
@@ -48,9 +39,8 @@ $gameover-width-bp: 661px;
     font-size: 36px;
     font-style: italic;
     font-weight: bold;
-    color: #FFFFFF;
+    color: mix($gameover-bg, #fff, 40%);
     margin: 0;
-    opacity: 0.42;
 
     @media (min-width: $gameover-width-bp) {
       font-size: 69px;
@@ -70,7 +60,7 @@ $gameover-width-bp: 661px;
   }
 
   .gameover-label {
-    color: #FFFFFF;
+    color: #fff;
     font-family: Roboto, sans-serif;
     font-size: 8px;
     font-weight: 900;
@@ -83,7 +73,7 @@ $gameover-width-bp: 661px;
   }
 
   .gameover-number {
-    color: #FFFFFF;
+    color: #fff;
     font-family: Roboto, sans-serif;
     font-size: 48px;
     font-weight: 900;
