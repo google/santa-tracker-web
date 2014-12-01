@@ -40,7 +40,7 @@ module.exports = function replaceMessages(opts) {
             var msg = msgs[msgid];
             if (!msg) {
               warn('[%s %6s] Could not find message %s.', file.relative, lang, msgid);
-              return messagesByLang.en[msgid] || 'MESSAGE_NOT_FOUND';
+              return messagesByLang.en[msgid].message || 'MESSAGE_NOT_FOUND';
             }
             if (lang == 'en' && 'PLACEHOLDER_i18n' != tagBody) {
               error('i18n-msg body must be "PLACEHOLDER_i18n" for %s in %s', msgid, file.relative);
