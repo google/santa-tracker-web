@@ -297,7 +297,7 @@ $name: 'module-traditions';
   }
 }
 
-@media (max-width: $tabletBreakpoint) {
+@media (min-width: 1px) and (max-width: $tabletBreakpoint) {
   ##{$name} {
     .traditions-tradition {
       left: 20px;
@@ -344,7 +344,7 @@ $name: 'module-traditions';
   }
 }
 
-@media (max-width: $mobileBreakpoint) {
+@media (min-width: 1px) and (max-width: $mobileBreakpoint) {
   ##{$name} {
     .traditions-tradition {
       left: 20px;

@@ -34,7 +34,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (min-width: 1px) and (max-width: 400px) {
   ##{$name} .scene {
     transform: scale(0.35);
     width: 286%;

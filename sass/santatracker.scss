@@ -33,6 +33,7 @@ body {
   background: url('../images/village.gif') no-repeat 50% 50%;
   @include media-hdpi(2) {
     background: url('../images/village_2x.gif') no-repeat 50% 50%;
+    background-size: 340px;
   }
   margin-top: -104px;
 }

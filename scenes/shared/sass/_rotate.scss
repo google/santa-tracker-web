@@ -44,7 +44,7 @@ $rotate-bg: $gameover-bg !default;
 }
 
 // Hopefully this matches all phones in portrait mode.
-@media screen and (max-width: 479px) {
+@media (min-width: 1px) and (max-width: 479px) {
   ##{$name} {
     .force-rotate.landscape {
       display: block;
@@ -53,7 +53,7 @@ $rotate-bg: $gameover-bg !default;
 }
 
 // Hopefully this matches all phones in landscape mode.
-@media screen and (max-height: 479px) {
+@media (min-height: 1px) and (max-height: 479px) {
   ##{$name} {
     .force-rotate.portrait {
       display: block;

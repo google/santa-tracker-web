@@ -2,7 +2,7 @@ $tabletBreakpoint: 1024px;
 $mobileBreakpoint: 660px;
 $mobilePortraitBreakpoint: 400px;
 
-@media (max-width: $tabletBreakpoint) {
+@media (min-width: 1px) and (max-width: $tabletBreakpoint) {
   #sun, #moon, #fakesun, #fakemoon {
     @include transform(scale(0.8));
   }
@@ -30,7 +30,7 @@ $mobilePortraitBreakpoint: 400px;
   }
 }
 
-@media (max-width: $mobileBreakpoint) {
+@media (min-width: 1px) and (max-width: $mobileBreakpoint) {
   #village-wrapper #trees,
   #hit-area-left, #hit-area-right {
     display: none;
@@ -45,7 +45,7 @@ $mobilePortraitBreakpoint: 400px;
   }
 }
 
-@media screen and (max-height: 700px) {
+@media (min-width: 1px) and (max-height: 700px) {
   #village-wrapper {
     #sky,
     #clouds,
@@ -83,7 +83,7 @@ $mobilePortraitBreakpoint: 400px;
   }
 }
 
-@media screen and (max-height: 400px) {
+@media (min-width: 1px) and (max-height: 400px) {
   #village-wrapper {
     #snow, #clouds, #mountains {
       display: none;

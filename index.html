@@ -41,7 +41,7 @@
     window.DEV = true; // NOTE: replaced by string - do not change formatting.
 
     window.ga_ = new gweb.analytics.AutoTrack({
-      'profile': window['DEV'] ? 'UA-37048309-2' : 'UA-37048309-1',
+      'profile': location.hostname == 'santatracker.google.com' ? 'UA-37048309-1' : 'UA-37048309-2',
       'trackClicks': false,
       'disableTrackPageview': true
     });
@@ -76,7 +76,8 @@
     // Feature detection isn't sufficient; webcomponentsjs attempts to polyfill
     // missing features, but some browsers are known to not work under it.
     // https://www.polymer-project.org/resources/compatibility.html
-    var supported = (function sniff() {
+    var ignoreCheck = getUrlParameter('ignore_browser_check') == 'true';
+    var supported =  ignoreCheck || (function sniff() {
       var uaString = navigator.userAgent;
       // no IE < 10
       var msie = /MSIE +([\d\.]+)/.exec(uaString);
@@ -103,6 +104,7 @@
       // everyone else goes through.
       return true;
     })();
+
     if (!supported) {
       // If unsupported, run pageview before redirecting to update page.
       ga_.pushCommand(['_trackPageview', '/']);

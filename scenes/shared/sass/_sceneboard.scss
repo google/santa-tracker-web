@@ -59,7 +59,7 @@ $headerHeight: 45px;
     width: 204px;
   }
 
-  @media (max-width: 1024px) {
+  @media (min-width: 1px) and (max-width: 1024px) {
     .sceneboard {
       background: none;
       box-shadow: none;

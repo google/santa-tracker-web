@@ -8,7 +8,7 @@ $tabletBreakpoint: 1024px;
 $mobileBreakpoint: 660px;
 $mobilePortraitBreakpoint: 400px;
 
-@media (max-width: $calendarBreak1) {
+@media (min-width: 1px) and (max-width: $calendarBreak1) {
   ##{$name} {
     #global-nav #global-nav-body #nav-calendar {
       max-width: 960px;
@@ -22,7 +22,7 @@ $mobilePortraitBreakpoint: 400px;
   }
 }
 
-@media (max-width: $tabletBreakpoint) {
+@media (min-width: 1px) and (max-width: $tabletBreakpoint) {
   ##{$name} {
     #site-nav {
       display: none;
@@ -54,7 +54,7 @@ $mobilePortraitBreakpoint: 400px;
   }
 }
 
-@media (max-width: $calendarBreak2) {
+@media (min-width: 1px) and (max-width: $calendarBreak2) {
   ##{$name} {
     #global-nav #global-nav-body #nav-calendar div {
       #spacer1, #spacer2, #spacer3 {
@@ -64,7 +64,7 @@ $mobilePortraitBreakpoint: 400px;
   }
 }
 
-@media (max-width: $calendarBreak3) {
+@media (min-width: 1px) and (max-width: $calendarBreak3) {
   ##{$name} {
     #global-nav #global-nav-body #nav-calendar div {
       #spacer1, #spacer2, #spacer3 {
@@ -147,7 +147,7 @@ $mobilePortraitBreakpoint: 400px;
   }
 }
 
-@media (max-width:$mobileBreakpoint) {
+@media (min-width: 1px) and (max-width: $mobileBreakpoint) {
   $headerHeight: 62px;
 
   ##{$name} {
@@ -181,7 +181,7 @@ $mobilePortraitBreakpoint: 400px;
   }
 }
 
-@media (max-width:$calendarBreak4) {
+@media (min-width: 1px) and (max-width: $calendarBreak4) {
   ##{$name} {
     #global-nav #global-nav-body #nav-calendar div {
       #spacer1, #spacer2, #spacer3 {
@@ -191,7 +191,7 @@ $mobilePortraitBreakpoint: 400px;
   }
 }
 
-@media (max-width:$calendarBreak5) {
+@media (min-width: 1px) and (max-width: $calendarBreak5) {
   ##{$name} {
     #global-nav #global-nav-body #nav-calendar div {
       #spacer3 {
@@ -201,7 +201,7 @@ $mobilePortraitBreakpoint: 400px;
   }
 }
 
-@media (max-height:450px) {
+@media (min-height: 1px) and (max-height:450px) {
   ##{$name} {
     #site-nav {
       display: none;
