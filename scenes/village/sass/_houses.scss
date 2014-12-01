@@ -8,7 +8,10 @@
     bottom: 0;
     float: left;
 
-    /*&::after {
+    /*
+    This is the text below the marker pins, it doesn't look right so commenting out for now
+    TODO(lukem): figure out how to make it better
+    &::after {
       content: attr(data-category) '';
       font-size: 16px;
       color: rgba(0,0,0,0.5);
