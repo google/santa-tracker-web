@@ -40,10 +40,11 @@ module.exports = function replaceMessages(opts) {
             var msg = msgs[msgid];
             if (!msg) {
               warn('[%s %6s] Could not find message %s.', file.relative, lang, msgid);
-              if (!messagesByLang.en[msgid]) {
-                return 'MESSAGE_NOT_FOUND'; // No english available.
+              var fallback = messagesByLang.en[msgid];
+              if (lang == 'fr-CA') {
+                fallback = messagesByLang.fr[msgid] || fallback
               }
-              return messagesByLang.en[msgid].message;
+              return fallback ? fallback.message: 'MESSAGE_NOT_FOUND';
             }
             if (lang == 'en' && 'PLACEHOLDER_i18n' != tagBody) {
               error('i18n-msg body must be "PLACEHOLDER_i18n" for %s in %s', msgid, file.relative);

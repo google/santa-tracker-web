@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "Igra je gotova!"
 	},
+	"gameover_score": {
+		"message": "Vaš rezultat:"
+	},
 	"getgooglemaps": {
 		"message": "Preuzmi Google karte"
 	},
@@ -253,6 +256,9 @@
 	},
 	"tilt": {
 		"message": "Nagnite uređaj!"
+	},
+	"time": {
+		"message": "Vrijeme"
 	},
 	"traditions-next": {
 		"message": "Sljedeća tradicija"

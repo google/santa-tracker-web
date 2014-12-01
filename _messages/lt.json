@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "Žaidimo pabaiga!"
 	},
+	"gameover_score": {
+		"message": "Jūsų rezultatai:"
+	},
 	"getgooglemaps": {
 		"message": "Gauti „Google“ žemėlapius"
 	},
@@ -253,6 +256,9 @@
 	},
 	"tilt": {
 		"message": "Pakreipkite savo įrenginį!"
+	},
+	"time": {
+		"message": "Laikas"
 	},
 	"traditions-next": {
 		"message": "Kita tradicija"

@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "Гру закінчено!"
 	},
+	"gameover_score": {
+		"message": "Ваш результат:"
+	},
 	"getgooglemaps": {
 		"message": "Отримати Карти Google"
 	},
@@ -253,6 +256,9 @@
 	},
 	"tilt": {
 		"message": "Нахиліть пристрій."
+	},
+	"time": {
+		"message": "Час"
 	},
 	"traditions-next": {
 		"message": "Наступна традиція"

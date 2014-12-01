@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "Spelet är slut!"
 	},
+	"gameover_score": {
+		"message": "Din poäng:"
+	},
 	"getgooglemaps": {
 		"message": "Hämta Google Maps"
 	},
@@ -253,6 +256,9 @@
 	},
 	"tilt": {
 		"message": "Luta enheten!"
+	},
+	"time": {
+		"message": "Tid"
 	},
 	"traditions-next": {
 		"message": "Nästa tradition"

@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "Partita finita!"
 	},
+	"gameover_score": {
+		"message": "Il tuo punteggio:"
+	},
 	"getgooglemaps": {
 		"message": "Scarica Google Maps"
 	},
@@ -253,6 +256,9 @@
 	},
 	"tilt": {
 		"message": "Inclina il tuo dispositivo."
+	},
+	"time": {
+		"message": "Orario"
 	},
 	"traditions-next": {
 		"message": "Tradizione successiva"

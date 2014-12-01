@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "遊戲結束！"
 	},
+	"gameover_score": {
+		"message": "您的分數："
+	},
 	"getgooglemaps": {
 		"message": "取得 Google 地圖"
 	},
@@ -253,6 +256,9 @@
 	},
 	"tilt": {
 		"message": "將裝置右傾或左傾！"
+	},
+	"time": {
+		"message": "時間"
 	},
 	"traditions-next": {
 		"message": "下個傳統"

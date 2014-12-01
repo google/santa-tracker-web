@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "Tapos na ang Laro!"
 	},
+	"gameover_score": {
+		"message": "Iyong score:"
+	},
 	"getgooglemaps": {
 		"message": "Kunin ang Google Maps"
 	},
@@ -253,6 +256,9 @@
 	},
 	"tilt": {
 		"message": "I-tilt ang iyong device!"
+	},
+	"time": {
+		"message": "Oras"
 	},
 	"traditions-next": {
 		"message": "Susunod na Tradisyon"

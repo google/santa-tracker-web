@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "Sfârşit!"
 	},
+	"gameover_score": {
+		"message": "Scorul dvs.:"
+	},
 	"getgooglemaps": {
 		"message": "Descărcați Google Maps"
 	},
@@ -253,6 +256,9 @@
 	},
 	"tilt": {
 		"message": "Înclinați dispozitivul!"
+	},
+	"time": {
+		"message": "Oră"
 	},
 	"traditions-next": {
 		"message": "Următoarea tradiție"

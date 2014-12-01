@@ -101,6 +101,9 @@
 	"fr_tradition": {
 		"message": "Prantsusmaal panevad lapsed traditsioonide kohaselt Père Noëli oodates kinga kamina kõrvale. Kui laps on terve aasta tubli olnud, täidab Père Noël tema kinga kinkidega."
 	},
+	"gameover_score": {
+		"message": "Teie tulemus:"
+	},
 	"getgooglemaps": {
 		"message": "Hangi Google Maps"
 	},
@@ -250,6 +253,9 @@
 	},
 	"tilt": {
 		"message": "Kallutage seadet!"
+	},
+	"time": {
+		"message": "Aeg"
 	},
 	"traditions-next": {
 		"message": "Järgmine traditsioon"

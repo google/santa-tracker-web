@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "ゲームオーバー"
 	},
+	"gameover_score": {
+		"message": "あなたのスコア:"
+	},
 	"getgooglemaps": {
 		"message": "Google マップを入手"
 	},
@@ -253,6 +256,9 @@
 	},
 	"tilt": {
 		"message": "端末を傾けよう"
+	},
+	"time": {
+		"message": "時刻"
 	},
 	"traditions-next": {
 		"message": "次の伝統"

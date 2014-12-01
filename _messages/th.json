@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "จบเกม!"
 	},
+	"gameover_score": {
+		"message": "คะแนนของคุณ:"
+	},
 	"getgooglemaps": {
 		"message": "ดาวน์โหลด Google Maps"
 	},
@@ -253,6 +256,9 @@
 	},
 	"tilt": {
 		"message": "เอียงอุปกรณ์"
+	},
+	"time": {
+		"message": "เวลา"
 	},
 	"traditions-next": {
 		"message": "ประเพณีต่อไป"

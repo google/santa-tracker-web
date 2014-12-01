@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "Peli loppui!"
 	},
+	"gameover_score": {
+		"message": "Pisteesi"
+	},
 	"getgooglemaps": {
 		"message": "Hanki Google Maps"
 	},
@@ -253,6 +256,9 @@
 	},
 	"tilt": {
 		"message": "Kallista laitetta!"
+	},
+	"time": {
+		"message": "Aika"
 	},
 	"traditions-next": {
 		"message": "Seuraava perinne"

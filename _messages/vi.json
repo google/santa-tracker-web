@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "Trò chơi Kết thúc!"
 	},
+	"gameover_score": {
+		"message": "Điểm số của bạn:"
+	},
 	"getgooglemaps": {
 		"message": "Tải Google Maps"
 	},
@@ -253,6 +256,9 @@
 	},
 	"tilt": {
 		"message": "Nghiêng thiết bị của bạn!"
+	},
+	"time": {
+		"message": "Thời gian"
 	},
 	"traditions-next": {
 		"message": "Truyền thống tiếp theo"

@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "Game Selesai!"
 	},
+	"gameover_score": {
+		"message": "Skor Anda:"
+	},
 	"getgooglemaps": {
 		"message": "Dapatkan Google Maps"
 	},
@@ -253,6 +256,9 @@
 	},
 	"tilt": {
 		"message": "Miringkan perangkat!"
+	},
+	"time": {
+		"message": "Waktu"
 	},
 	"traditions-next": {
 		"message": "Tradisi Berikutnya"

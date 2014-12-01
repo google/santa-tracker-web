@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "Spēle beigusies!"
 	},
+	"gameover_score": {
+		"message": "Jūsu punktu skaits:"
+	},
 	"getgooglemaps": {
 		"message": "Iegūt lietotni Google Maps"
 	},
@@ -253,6 +256,9 @@
 	},
 	"tilt": {
 		"message": "Pagriez ierīci!"
+	},
+	"time": {
+		"message": "Laiks"
 	},
 	"traditions-next": {
 		"message": "Nākamā tradīcija"
