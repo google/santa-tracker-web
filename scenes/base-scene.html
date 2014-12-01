@@ -268,16 +268,16 @@ Polymer({
     this.cancelAsync(this.maxPreloadAsync_);
 
     if (this.active) {
-      // log that the scene has finished preloading. If this wasn't a preloaded
-      // load, the event will be discarded harmlessly
-      this.fire('analytics-time-end', {category: 'Scene Load Time',
-          variable: this.route, time: Date.now()});
-
       this.hidden = false; // Scene needs to do layout before onShow().
       this.onShow && this.onShow();
 
       // focus in case element needs keyboard events
       this.focus();
+
+      // log that the scene has finished preloading. If this wasn't a preloaded
+      // load, the event will be discarded harmlessly
+      this.fire('analytics-time-end', {category: 'Scene Load Time',
+          variable: this.route, time: Date.now()});
     }
   },
 
