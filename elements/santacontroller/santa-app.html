@@ -341,7 +341,7 @@ Polymer(Polymer.mixin({
       }
     }
 
-    prevSelectedScene.remove();
+    prevSelectedScene.parentNode.removeChild(prevSelectedScene);
 
     // Re-construct removed scene and add it back to lazy-pages.
     var el = document.createElement(prevSelectedScene.localName);
