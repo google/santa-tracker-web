@@ -40,6 +40,8 @@
 
 <santa-app id="santaApp"></santa-app>
 
+<div id="timer" role="timer" aria-live="agressive" aria-atomic="false" aria-relevant="additions"></div>
+
 <div id="preload_placeholder"></div>
 
 <!-- TODO(bckenny,cbro): remove window.DEV stuff for prod. -->
@@ -81,6 +83,26 @@ window.onerror = function(message, file, lineNumber) {
         label: '' + message});
   } catch (e){}
 };
+</script>
+<script>
+(function() {
+
+// Try to only do screen reader stuff on desktop.
+if (window.matchMedia('(min-width: 1000px)').matches) {
+  var timer = document.querySelector('#timer');
+
+  document.addEventListener('countdown-timer-tick', function(e) {
+    var currentTime = e.detail.currentTime;
+
+    if (currentTime.diff <= 60 * 1000) {
+      timer.textContent = e.detail.msg;
+    } else if (currentTime.seconds % 10 == 0) { // Only update DOM (and therefore speak text) every 10 seconds.
+      timer.textContent = e.detail.msg;
+    }
+  });
+}
+
+})();
 </script>
 </body>
 </html>
