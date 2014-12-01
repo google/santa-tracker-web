@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "S'ha acabat el joc!"
 	},
+	"gameover_score": {
+		"message": "La teva puntuació:"
+	},
 	"getgooglemaps": {
 		"message": "Obtén Google Maps"
 	},

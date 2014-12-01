@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "Гру закінчено!"
 	},
+	"gameover_score": {
+		"message": "Ваш результат:"
+	},
 	"getgooglemaps": {
 		"message": "Отримати Карти Google"
 	},

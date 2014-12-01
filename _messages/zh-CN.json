@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "游戏结束！"
 	},
+	"gameover_score": {
+		"message": "您的得分："
+	},
 	"getgooglemaps": {
 		"message": "下载 Google 地图"
 	},

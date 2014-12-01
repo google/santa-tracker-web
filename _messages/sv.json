@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "Spelet är slut!"
 	},
+	"gameover_score": {
+		"message": "Din poäng:"
+	},
 	"getgooglemaps": {
 		"message": "Hämta Google Maps"
 	},

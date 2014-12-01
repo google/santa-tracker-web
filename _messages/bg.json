@@ -104,6 +104,9 @@
 	"gameover": {
 		"message": "Край на играта!"
 	},
+	"gameover_score": {
+		"message": "Вашият резултат:"
+	},
 	"getgooglemaps": {
 		"message": "Изтегляне на Google Карти"
 	},
