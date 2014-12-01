@@ -124,7 +124,9 @@ Trailer scene.
     },
 
     onResume: function() {
-      this.$.player.play();
+      if (!this.$.start.hidden && !this.$.poster.hidden) {
+        this.$.player.play();
+      }
     }
   });
 </script>
