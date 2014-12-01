@@ -255,6 +255,11 @@ Polymer(Polymer.mixin({
   },
 
   ready: function() {
+    // silence the noisy things
+    if (!window.DEV) {
+      console.log = function(){};
+    }
+
     this.analyticsService = new Analytics();
     this.visibilityService = new VisibilityManager(this);
     this.visibilityService.addOnPauseListener(this.onPause.bind(this));
