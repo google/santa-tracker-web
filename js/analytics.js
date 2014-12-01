@@ -5,6 +5,12 @@
  */
 function Analytics() {
   this.ga_ = window.ga_;
+
+  /**
+   * A collection of timing categories, each a collection of start times.
+   * @private {!Object<string, Object<string, ?number>}
+   */
+  this.startTimes_ = {};
 }
 
 Analytics.prototype.THROTTLE_TIME_ = 10; // 10ms
@@ -34,7 +40,44 @@ Analytics.prototype.trackPageView = function(path) {
  * @param {string=} opt_label An optional sublabel, for e.g. A/B test identification.
  */
 Analytics.prototype.trackPerf = function(category, variable, time, opt_label) {
+  console.log(category, variable, time);
   this.ga_.pushCommand(['_trackTiming', category, variable, time, opt_label]);
+};
+
+/**
+ * Stores a start time associated with a category and variable name. When an
+ * end time is registered with matching variables, the time difference is
+ * sent to analytics. Use unique names if a race condition between timings is
+ * possible; if a start time with the same names is registerd without an end
+ * time in between, the original start time is discarded.
+ * @param {string} category Category of timing (e.g. 'Assets load time')
+ * @param {string} variable Name of the timing (e.g. 'polymer-ready')
+ * @param {number} timeStart A timestamp associated with start, in ms.
+ */
+Analytics.prototype.timeStart = function(category, variable, timeStart) {
+  var categoryTimes = this.startTimes_[category] || (this.startTimes_[category] = {});
+  categoryTimes[variable] = timeStart;
+};
+
+/**
+ * Ends a timing event. The difference between the time associated with this
+ * event and the timeStart event with the matching category and variable names
+ * is sent to analytics. If no match can be found, the time is discarded.
+ * @param {string} category Category of timing (e.g. 'Assets load time')
+ * @param {string} variable Name of the timing (e.g. 'polymer-ready')
+ * @param {number} timeEnd A timestamp associated with end, in ms.
+ * @param {string=} opt_label An optional sublabel, for e.g. A/B test identification.
+ */
+Analytics.prototype.timeEnd = function(category, variable, timeEnd, opt_label) {
+  var categoryTimes = this.startTimes_[category];
+  if (!categoryTimes) {
+    return;
+  }
+  var timeStart = categoryTimes[variable];
+  if (timeStart != null) {
+    this.trackPerf(category, variable, timeEnd - timeStart, opt_label);
+    categoryTimes[variable] = null;
+  }
 };
 
 /**

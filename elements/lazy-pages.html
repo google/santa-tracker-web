@@ -51,6 +51,11 @@ Lazy loads children "pages".
         return;
       }
 
+      // send loading start time to analytics (ended in base-scene)
+      var route = scene.getAttribute('route');
+      this.fire('analytics-time-start', {category: 'Scene Load Time',
+          variable: route, time: Date.now()});
+
       // (Re)set the preload bg color and loading image before scene is loaded.
       this.preloader.color = scene.getAttribute('loadingBgColor');
       this.preloader.src = scene.getAttribute('loadingSrc');
