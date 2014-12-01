@@ -4,7 +4,7 @@ goog.require('app.InputEvent');
 goog.provide('app.Controls');
 
 /**
- * Class for the sceneäs user controls
+ * Class for the scenes user controls
  * @param {Element} el DOM element containing the markup of the item
  * @param {State} state Instance of the game state
  * @constructor

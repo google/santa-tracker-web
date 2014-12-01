@@ -4,7 +4,12 @@ goog.scope(function() {
   var eventStart, eventMove, eventCancel, eventEnd;
 
   (function () {
-    if (window.navigator.msPointerEnabled) {
+    if (window.navigator.pointerEnabled) {
+      eventStart = 'pointerdown';
+      eventMove = 'pointerMove';
+      eventCancel = 'pointerup pointerout pointermove';
+      eventEnd = 'pointerup';
+    } else if (window.navigator.msPointerEnabled) {
       eventStart = 'MSPointerDown';
       eventMove = 'MSPointerMove';
       eventCancel = 'MSPointerUp MSPointerOut MSPointerMove';
@@ -40,5 +45,4 @@ goog.scope(function() {
     END: eventEnd,
     normalize: getNormalizedEvent
   };
-
 });
