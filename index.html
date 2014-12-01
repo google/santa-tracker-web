@@ -64,7 +64,7 @@
 <script>
 window.santaApp = document.querySelector('santa-app');
 
-// TODO(bckenny): could ask embeds to include separate utmsource
+// TODO(bckenny): could ask embeds to include separate utm_source
 if (getUrlParameter('api_client')) {
   ga_.pushCommand(['_setCampSourceKey', 'api_client']);
   ga_.pushCommand(['_setCampMediumKey', 'api_client']);
@@ -78,6 +78,7 @@ if (!window.DEV) {
 }
 
 (function() {
+  // performance.now() polyfill for browsers without support
   var perfNow = window.performance && window.performance.now ?
       window.performance.now.bind(window.performance) : Date.now;
 
