@@ -4,37 +4,10 @@
  * @constructor
  */
 function Analytics() {
-  if (window.gweb) {
-    this.init();
-  } else {
-    console.error('Analytics not defined.');
-  }
+  this.ga_ = window.ga_;
 }
 
 Analytics.prototype.THROTTLE_TIME_ = 10; // 10ms
-
-Analytics.prototype.init = function() {
-  if (this.ga_) {
-    return;
-  }
-
-  var domain = document.domain.replace(/www\./, '');
-
-  var ga = this.ga_ = new gweb.analytics.AutoTrack({
-    'profile': window['DEV'] ? 'UA-37048309-2' : 'UA-37048309-1',
-    'trackClicks': false,
-    'disableTrackPageview': true
-  });
-
-  var client = getUrlParameter('embed_client');
-  if (client) {
-    ga.pushCommand(['_setCampSourceKey', 'embed_client']);
-  }
-  if (getUrlParameter('api_client')) {
-    ga.pushCommand(['_setCampSourceKey', 'api_client']);
-    ga.pushCommand(['_setCampMediumKey', 'api_client']);
-  }
-};
 
 /**
  * Tracks a page view. Page view tracking is throttled to prevent logging
@@ -50,6 +23,18 @@ Analytics.prototype.trackPageView = function(path) {
   this.trackTimeout_ = window.setTimeout(function() {
     that.ga_.pushCommand(['_trackPageview', path || '/']);
   }, this.THROTTLE_TIME_);
+};
+
+/**
+ * Tracks a performance timing. See
+ * https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingTiming#settingUp
+ * @param {string} category Category of timing (e.g. 'Polymer')
+ * @param {string} variable Name of the timing (e.g. 'polymer-ready')
+ * @param {number} time Time, in milliseconds.
+ * @param {string=} opt_label An optional sublabel, for e.g. A/B test identification.
+ */
+Analytics.prototype.trackPerf = function(category, variable, time, opt_label) {
+  this.ga_.pushCommand(['_trackTiming', category, variable, time, opt_label]);
 };
 
 /**
