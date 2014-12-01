@@ -80,6 +80,30 @@ gulp.task('compass', function() {
     .pipe(gulp.dest('.'));
 });
 
+gulp.task('compile-service', function() {
+  return gulp.src(['js/service/*.js', '!js/service/externs.js', '!js/service/*.min.js'])
+    .pipe(closureCompiler({
+      compilerPath: COMPILER_PATH,
+      fileName: 'service.min.js',
+      compilerFlags: addCompilerFlagOptions({
+        compilation_level: 'ADVANCED_OPTIMIZATIONS',
+        // warning_level: 'VERBOSE',
+        language_in: 'ECMASCRIPT5_STRICT',
+        process_closure_primitives: null,
+        generate_exports: null,
+        externs: ['js/service/externs.js'],
+        define: ['crossDomainAjax.PROD=true'],
+        jscomp_warning: [
+          // https://github.com/google/closure-compiler/wiki/Warnings
+          'accessControls',
+          'const',
+          'visibility'
+        ],
+      })
+    }))
+    .pipe(gulp.dest('js/service'));
+});
+
 gulp.task('compile-scenes', function() {
   var sceneNames = Object.keys(SCENE_CLOSURE_CONFIG);
 
@@ -174,7 +198,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
 
 // vulcanize elements separately as we want to inline polymer.html and
 // base-scene.html here
-gulp.task('vulcanize-elements', ['clean', 'compass'], function() {
+gulp.task('vulcanize-elements', ['clean', 'compass', 'compile-service'], function() {
   return gulp.src('elements/elements_en.html', {base: './'})
     .pipe(vulcanize({
       strip: !argv.pretty,
@@ -208,12 +232,10 @@ gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
     'manifest.json',
     'audio/*',
     'images/*.{png,svg,gif,ico}',
-    'js/**',
+    'js/third_party/**',
     'sass/*.css',
     'scenes/**/img/**/*.{png,svg,gif}',
     'elements/**/img/*.{png,svg,gif}',
-    'components/platform/*',
-    'components/polymer/*',
     'components/webcomponentsjs/webcomponents.min.js'
   ], {base: './'})
   .pipe(gulp.dest(DIST_STATIC_DIR));

@@ -84,3 +84,5 @@ function SantaEventListener(o, eventName, listener) {
 SantaEventListener.prototype.invoke_ = function(args) {
   this.listener_.apply(this.o_, args);
 };
+
+window['Events'] = Events;

@@ -465,3 +465,5 @@ SantaService.prototype.isKilled = function() {
 SantaService.prototype.getClientSpecific = function() {
   return this.clientSpecific_ || {};
 };
+
+window['SantaService'] = SantaService;
