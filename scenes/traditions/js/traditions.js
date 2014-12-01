@@ -58,7 +58,17 @@ Traditions.prototype.setup = function() {
    * @private {google.maps.LatLngBounds}
    */
   this.markerBounds_ = new google.maps.LatLngBounds();
+
+  if (Traditions.LANGUAGES_.indexOf(document.documentElement.lang) != -1) {
+    this.el_.querySelector('#lessons-popup').hidden = false;
+  }
 };
+
+/**
+ * @private
+ * @type {Array.<string>}
+ */
+Traditions.LANGUAGES_ = ['en', 'en-GB'];
 
 Traditions.prototype.onShow = function() {
   this.map_ = new google.maps.Map(this.el_.querySelector('#traditions-map'), {

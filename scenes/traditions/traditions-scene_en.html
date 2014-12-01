@@ -96,17 +96,17 @@ Traditions scene.
           <p><i18n-msg msgid="nz_tradition">PLACEHOLDER_i18n</i18n-msg></p>
         </div>
       </div>
-      <div id="lessons-popup">
+      <div id="lessons-popup" hidden>
         <p>K-12 teachers: <span id="teacher-elf"></span> Download lesson plans aligned with the Common Core <a href="#" on-click="{{toggleLessons}}">here</a></p>
       </div>
       <div id="lessons" hidden>
         <div id="lessons-inner">
           <a href="#" id="close-lessons" on-click="{{toggleLessons}}"></a>
           <ul>
-            <li><a href="#"><span class="crayon crayon-k-2"></span> Grades K-2</a></li>
-            <li><a href="#"><span class="crayon crayon-3-5"></span> Grades 3-5</a></li>
-            <li><a href="#"><span class="crayon crayon-6-8"></span> Grades 6-8</a></li>
-            <li><a href="#"><span class="crayon crayon-9-10"></span> Grades 9-10</a></li>
+            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_K-2.pdf" target="_blank" on-click="{{trackLessonPlan}}" data-grades="grades-k-2"><span class="crayon crayon-k-2"></span> Grades K-2</a></li>
+            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_3-5.pdf" target="_blank" on-click="{{trackLessonPlan}}" data-grades="grades-3-5"><span class="crayon crayon-3-5"></span> Grades 3-5</a></li>
+            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_6-8.pdf" target="_blank" on-click="{{trackLessonPlan}}" data-grades="grades-6-8"><span class="crayon crayon-6-8"></span> Grades 6-8</a></li>
+            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_9-10.pdf" target="_blank" on-click="{{trackLessonPlan}}" data-grades="grades-9-10"><span class="crayon crayon-9-10"></span> Grades 9-10</a></li>
         </div>
       </div>
       <div class="sceneboard">
@@ -143,6 +143,13 @@ Traditions scene.
     showWorld: function(e) {
       e.preventDefault();
       this.traditions.showWorld();
+    },
+
+    trackLessonPlan: function(e, detail, sender) {
+     this.fire('analytics-track-event', {category: 'lessonPlanDownload', action: 'click',
+         label: sender.attributes['data-grades'].value});
+
+console.log('moo', sender.attributes['data-grades'].value);
     },
 
     toggleLessons: function(e) {
