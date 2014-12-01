@@ -269,6 +269,9 @@ Polymer(Polymer.mixin({
     this.FLIGHT_FINISHED = this.config.FLIGHT_FINISHED;
 
     var apiClient = getUrlParameter('api_client') || 'web';
+    if (!apiClient.match(/^[a-zA-Z_]*$/)) {
+      apiClient = 'web';
+    }
 
     this.santaService = new SantaService(apiClient, this.language);
     this.santaService.addListener('kill', function() {
