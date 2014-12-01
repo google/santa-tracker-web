@@ -148,8 +148,6 @@ Traditions scene.
     trackLessonPlan: function(e, detail, sender) {
      this.fire('analytics-track-event', {category: 'lessonPlanDownload', action: 'click',
          label: sender.attributes['data-grades'].value});
-
-console.log('moo', sender.attributes['data-grades'].value);
     },
 
     toggleLessons: function(e) {
