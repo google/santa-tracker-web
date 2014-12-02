@@ -25,6 +25,7 @@ $gameover-bg: #8fd7f7;
     margin-left: -490px;
     width: 980px;
     top: 0;
+    z-index: 2;
   }
 
   // Pausing the game pauses all important animations.

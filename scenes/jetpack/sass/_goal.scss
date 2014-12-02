@@ -9,6 +9,7 @@
     transform: translate3d(0, -100%, 0);
     transition: transform 3s linear;
     width: 454px;
+    z-index: 2;
   }
 
   .goal--hidden {
