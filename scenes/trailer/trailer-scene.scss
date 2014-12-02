@@ -15,9 +15,14 @@ $name: 'module-trailer';
     right: 0;
     bottom: 0;
     left: 0;
-    background: url(img/poster.svg) 50% 50% no-repeat;
+    background: url(img/poster2.jpg) 50% 50% no-repeat;
     background-size: cover;
     z-index: 2;
+    transition: opacity 1000ms;
+
+    &.faded {
+      opacity: 0;
+    }
   }
 
   #videoboard {
