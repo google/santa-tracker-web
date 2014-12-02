@@ -368,16 +368,27 @@ Polymer(Polymer.mixin({
   },
 
   routeChanged: function() {
-    // Special case certain routes. The rest are handled by lazy-pages.
-    switch (this.route) {
-      case 'now':
-        this.route = 'village';
+    // Check if the new route needs a special-case redirect or if it is valid.
+    // If this changes the route, routeChanged() will be called again, repeating
+    // until this.route passes through validateRoute() successfully.
+    var requestedRoute = this.route;
+    switch (requestedRoute) {
+      case 'tourist':
+        // tourist and trailer are synonymous
+        this.route = 'trailer';
         break;
       default:
         this.validateRoute();
     }
 
-    this.trackPageview('/' + this.route);
+    if (requestedRoute === this.route) {
+      // Route is valid. Send to analytics and load the scene.
+      this.trackPageview('/' + this.route);
+    } else {
+      // The requested route was changed.
+      this.fire('analytics-track-event', { category: 'Routing',
+          action: 'Invalid Route', label: '/' + requestedRoute});
+    }
   },
 
   validateRoute: function() {
@@ -391,8 +402,6 @@ Polymer(Polymer.mixin({
     }
   },
 
-  // TODO(bckenny): can also add a paused attribute in case anything wants to
-  // bind to it
   onPause: function() {
     this.fire('sound-ambient', 'global_pause');
     if (this.selectedScene && this.selectedScene.fire) {
