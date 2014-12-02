@@ -83,7 +83,7 @@ $cardColor: #6541a4;
     #global-nav-header {
       background: $cardColor;
       text-align: center;
-      line-height: 84px;
+      height: 84px;
       border-bottom: 1px solid rgba(255,255,255,0.2);
       @include transition(transform $animationDuration);
       @include transform(translateY(-84px));
