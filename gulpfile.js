@@ -231,11 +231,11 @@ gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
   return gulp.src([
     'manifest.json',
     'audio/*',
-    'images/*.{png,svg,gif,ico}',
+    'images/*.{png,svg,jpg,gif,ico}',
     'js/third_party/**',
     'sass/*.css',
-    'scenes/**/img/**/*.{png,svg,gif}',
-    'elements/**/img/*.{png,svg,gif}',
+    'scenes/**/img/**/*.{png,jpg,svg,gif}',
+    'elements/**/img/*.{png,jpg,svg,gif}',
     'components/webcomponentsjs/webcomponents.min.js'
   ], {base: './'})
   .pipe(gulp.dest(DIST_STATIC_DIR));
