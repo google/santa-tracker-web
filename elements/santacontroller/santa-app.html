@@ -34,7 +34,6 @@ Santa Track app.
 
     <calendar-nav route="calendar" alwaysActive
         houses="{{houses}}" santaApp="{{}}"
-        loadingBgColor="#7847b2"
         hidden?="{{mode == 'cast'}}"></calendar-nav>
 
     <village-scene route="village"
@@ -43,7 +42,7 @@ Santa Track app.
 
     <airport-scene route="airport"
         path="scenes/airport/airport-scene_[[language]].html"
-        loadingBgColor="rgb(129,208,0)" hidden></airport-scene>
+        hidden></airport-scene>
 
     <boatload-scene route="boatload"
         path="scenes/boatload/boatload-scene_[[language]].html"
@@ -52,7 +51,7 @@ Santa Track app.
 
     <briefing-scene route="briefing"
         path="scenes/briefing/briefing-scene_[[language]].html"
-        loadingBgColor="'rgb(129,208,0)" hidden></briefing-scene>
+        hidden></briefing-scene>
 
     <gumball-scene route="gumball"
         path="scenes/gumball/gumball-scene_[[language]].html"
@@ -81,11 +80,11 @@ Santa Track app.
 
     <workshop-scene route="workshop"
         path="scenes/workshop/workshop-scene.html"
-        loadingBgColor="rgb(129,208,0)" hidden></workshop-scene>
+        hidden></workshop-scene>
 
     <windtunnel-scene route="windtunnel"
-        path="scenes/windtunnel/windtunnel-scene.html" hidden
-        loadingBgColor="rgb(129,208,0)"></windtunnel-scene>
+        path="scenes/windtunnel/windtunnel-scene.html"
+        hidden></windtunnel-scene>
 
     <rollercoaster-scene route="rollercoaster"
         path="scenes/rollercoaster/rollercoaster-scene.html" hidden></rollercoaster-scene>
@@ -105,11 +104,11 @@ Santa Track app.
 
     <trailer-scene route="trailer"
         path="scenes/trailer/trailer-scene_[[language]].html"
-        loadingBgColor="rgb(129,208,0)" hidden></trailer-scene>
+        hidden></trailer-scene>
 
     <about-scene route="about"
         path="scenes/about/about-scene_[[language]].html"
-        loadingBgColor="rgb(129,208,0)" hidden></about-scene>
+        hidden></about-scene>
 
   </lazy-pages>
 </template>
@@ -374,16 +373,27 @@ Polymer(Polymer.mixin({
   },
 
   routeChanged: function() {
-    // Special case certain routes. The rest are handled by lazy-pages.
-    switch (this.route) {
-      case 'now':
-        this.route = 'village';
+    // Check if the new route needs a special-case redirect or if it is valid.
+    // If this changes the route, routeChanged() will be called again, repeating
+    // until this.route passes through validateRoute() successfully.
+    var requestedRoute = this.route;
+    switch (requestedRoute) {
+      case 'tourist':
+        // tourist and trailer are synonymous
+        this.route = 'trailer';
         break;
       default:
         this.validateRoute();
     }
 
-    this.trackPageview('/' + this.route);
+    if (requestedRoute === this.route) {
+      // Route is valid. Send to analytics and load the scene.
+      this.trackPageview('/' + this.route);
+    } else {
+      // The requested route was changed.
+      this.fire('analytics-track-event', { category: 'Routing',
+          action: 'Invalid Route', label: '/' + requestedRoute});
+    }
   },
 
   validateRoute: function() {
@@ -397,8 +407,6 @@ Polymer(Polymer.mixin({
     }
   },
 
-  // TODO(bckenny): can also add a paused attribute in case anything wants to
-  // bind to it
   onPause: function() {
     this.fire('sound-ambient', 'global_pause');
     if (this.selectedScene && this.selectedScene.fire) {
