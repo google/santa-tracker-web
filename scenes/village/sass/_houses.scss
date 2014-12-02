@@ -44,15 +44,24 @@
       .marker-today {
         display: block;
         background-image: url(img/new-banner.svg);
-        height: 80px;
-        width: 140px;
-        left: -44px;
+        height: 82px;
+        width: 124px;
+        left: -51px;
+        position: relative;
 
         > * {
-          line-height: 28px;
-          width: 100%;
+          line-height: 14px;
           display: inline-block;
           text-transform: uppercase;
+          width: 118px;
+          padding: 0 3px;
+          background: #3dca3b;
+          position: absolute;
+          bottom: 55px;
+          min-height: 27px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
       }
     }
