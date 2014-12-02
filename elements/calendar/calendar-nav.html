@@ -48,7 +48,7 @@ Village calendar navigation.
           <div id="global-nav-header" layout horizontal center-center>
             <a id="global-back-to-village" href="{{pageUrl}}#village" title="Go to the Village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
             <paper-tabs id="tabs" valueattr="filterOn" selected="{{filterOn}}"
-                        on-core-activate="{{onNavSelect}}">
+                        on-core-activate="{{onNavSelect}}" scrollable>
               <paper-tab filterOn="calendar"><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></paper-tab>
               <paper-tab filterOn="watch"><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></paper-tab>
               <paper-tab filterOn="play"><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></paper-tab>
