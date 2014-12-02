@@ -172,9 +172,9 @@ Village calendar navigation.
         <h2><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h2>
         <div class="share">
           <ul>
-            <li><a href="#" class="gplus" on-click="{{shareGplus}}"><i><i18n-msg msgid="gplus">PLACEHOLDER_i18n</i18n-msg></i></a></li>
-            <li><a href="#" class="fb" on-click="{{shareFB}}"><i>Facebook</i></a></li>
-            <li><a href="#" class="twitter" on-click="{{shareTwitter}}"><i><i18n-msg msgid="twitter">PLACEHOLDER_i18n</i18n-msg></i></a></li>
+            <li><a href="{{pageUrl}}#" class="gplus" on-click="{{shareGplus}}"><i><i18n-msg msgid="gplus">PLACEHOLDER_i18n</i18n-msg></i></a></li>
+            <li><a href="{{pageUrl}}#" class="fb" on-click="{{shareFB}}"><i>Facebook</i></a></li>
+            <li><a href="{{pageUrl}}#" class="twitter" on-click="{{shareTwitter}}"><i><i18n-msg msgid="twitter">PLACEHOLDER_i18n</i18n-msg></i></a></li>
           </ul>
         </div>
       </div>
@@ -319,8 +319,8 @@ Village calendar navigation.
       },
 
       getNicePageUrl: function() {
-        // We don't want to share urls with #village in them.
-        return location.href.replace('#village', '');
+        // We don't want to share urls with #village or #calendar in them.
+        return location.href.replace(/#village|#calendar/ig, '');
       },
 
       shareGplus: function(e) {
