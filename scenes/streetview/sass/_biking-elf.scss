@@ -1,0 +1,75 @@
+$s-duration-biking: 2s;
+
+$s-biking-width: 280;
+$s-biking-height: 290;
+
+$s-biking-columns: 6;
+$s-biking-rows: 5;
+$s-biking-index: 0;
+
+
+##{$name} {
+  .biking-elf-container {
+    display: block;
+    width: 100%;
+    margin-top: 360px;
+    z-index: 99;
+    animation: 50s linear #{$name}-elf-biking__moving infinite;
+    animation-delay: 10s;
+    position: absolute;
+    transform: translateZ(0) translateX(-500px);
+    z-index: 1;
+  }
+
+  .biking-elf {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    display: none;
+    width: 280px;
+    height: 290px;
+    animation-duration: #{$s-duration-biking};
+    animation-delay: 10s;
+    animation-timing-function: steps(30);
+    animation-iteration-count: infinite;
+    position: absolute;
+    z-index: 1;
+
+    @media (min-device-width: 768px) {
+      display: block;
+      background-image: url(img/bike-elf.png);
+      animation-name: #{$name}-elf-biking__leg;
+    }
+  }
+}
+
+@keyframes #{$name}-elf-biking__leg {
+  0% {
+    background-position: 0px 0px;
+  }
+
+  100% {
+    background-position: -8400px 0px;
+  }
+}
+
+@keyframes #{$name}-elf-biking__leg--inverted {
+  0% {
+    background-position: -8400px 0px;
+  }
+
+  100% {
+    background-position: 0px 0px;
+  }
+}
+
+@keyframes #{$name}-elf-biking__moving {
+  0% {
+    transform: translateX(-500px);
+  }
+
+  40%,
+  100% {
+    transform: translateX(6000px);
+  }
+}
