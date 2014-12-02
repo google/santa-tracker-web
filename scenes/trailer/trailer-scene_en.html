@@ -14,7 +14,7 @@ Trailer scene.
 
   <div id="module-trailer" fit>
     <div class="scene" fit>
-      <div id="poster" class="{{!poster ? 'faded' : ''}}" on-transitionend="{{hidePoster}}">
+      <div id="poster" class="{{ {faded: !poster} | tokenList }}" on-transitionend="{{hidePoster}}">
         <div id="start" hidden?="{{!start}}">
           <div class="start-button" on-tap="{{playVideo}}"></div>
         </div>
