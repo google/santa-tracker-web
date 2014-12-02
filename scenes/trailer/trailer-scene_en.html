@@ -14,12 +14,13 @@ Trailer scene.
 
   <div id="module-trailer" fit>
     <div class="scene" fit>
-      <div id="poster" hidden?="{{!poster}}">
+      <div id="poster" class="{{ {faded: !poster} | tokenList }}" on-transitionend="{{hidePoster}}">
         <div id="start" hidden?="{{!start}}">
           <div class="start-button" on-tap="{{playVideo}}"></div>
         </div>
       </div>
-      <google-youtube id="player" videoid="IdpQSy4IB_I" chromeless playsupported
+
+      <google-youtube id="player" videoid="IdpQSy4IB_I" chromeless playsupported="false"
                       on-google-youtube-ready="{{youtubeReady}}"
                       on-google-youtube-state-change="{{youtubeStateChange}}"
                       height="100%" width="100%" fit></google-youtube>
@@ -86,16 +87,22 @@ Trailer scene.
       this.start = true;
     },
 
+    hidePoster: function(e, detail, sender) {
+      this.$.poster.hidden = true;
+    },
+
     youtubeStateChange: function(e, detail, sender) {
       var state = e.detail.data;
 
       switch (state) {
+        case -1:
+          break;
         case 0: // ended
-          this.poster = true
           this.controls = false;
           break;;
         case 1: // playing
           this.paused = false;
+          this.controls = true;
           break;
         case 2: // paused
           this.paused = true;
@@ -119,7 +126,7 @@ Trailer scene.
 
     playVideo: function() {
       this.poster = false;
-      this.controls = true;
+      this.start = false;
       this.$.player.play();
     },
 
@@ -128,7 +135,7 @@ Trailer scene.
         'img/button.svg',
         'img/pause.svg',
         'img/play.svg',
-        'img/poster.svg',
+        'img/poster2.jpg',
         'img/restart.svg'
       ]);
     },
@@ -137,7 +144,7 @@ Trailer scene.
       this.$.player.seekTo(0);
       this.$.player.pause();
       this.controls = false;
-      this.poster = true;
+
       this.fire('sound-ambient', 'global_sound_off');
     },
 
@@ -151,7 +158,7 @@ Trailer scene.
     },
 
     onResume: function() {
-      if (!this.poster) {
+      if (this.controls) {
         this.$.player.play();
       }
     }
