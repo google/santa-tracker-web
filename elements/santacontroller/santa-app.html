@@ -281,7 +281,7 @@ Polymer(Polymer.mixin({
 
     this.santaService = new SantaService(apiClient, this.language);
     this.santaService.addListener('kill', function() {
-      window.location = 'error.html';
+      window.location = 'https://santatracker.google.com/error.html';
     });
 
     if (apiClient === 'web_chromecast') {
