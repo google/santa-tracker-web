@@ -326,7 +326,8 @@ Village calendar navigation.
 
       getNicePageUrl: function() {
         // We don't want to share urls with #village or #calendar in them.
-        return location.href.replace(/#village|#calendar/ig, '');
+        return location.href.replace(/#village|#calendar/ig, '').replace(/utm_.*?(&|$)/g, '').replace(/\/\?$/, '/');
+        
       },
 
       shareGplus: function(e) {
