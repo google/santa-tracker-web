@@ -178,6 +178,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
             'polymer.html$',
             'base-scene.html$',
             'i18n-msg.html$',
+            'core-a11y-keys.html$',
             'core-shared-lib.html$',
             'google-maps-api.html$',
           ]
