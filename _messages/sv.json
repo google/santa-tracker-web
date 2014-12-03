@@ -204,7 +204,7 @@
 		"message": "Eftersom julen inträffar på sommaren i Nya Zeeland samlas vänner och familj runt en grill. Grillat lamm är vanlig julmat, och ibland tillagas det i en ”hangi”, en grop under marken eller en jordugn. Pavlova är en favoritdessert: maräng täckt av färska frukter som jordgubbar och kiwi."
 	},
 	"onthego": {
-		"message": "Jultomten på språng"
+		"message": "Jultomten på väg"
 	},
 	"openingtomorrow": {
 		"message": "Stor premiär i morgon"
@@ -269,11 +269,146 @@
 	"traditions-world": {
 		"message": "Världen"
 	},
+	"trivia_beginner_001": {
+		"message": "På vilken kontinent finns Anderna?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Sydamerika"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Asien"
+	},
+	"trivia_beginner_002": {
+		"message": "Vilken amerikansk delstat består av åtta huvudöar?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkansas"
+	},
+	"trivia_beginner_003": {
+		"message": "Vilken delstat ligger på Great Plains i USA?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delaware"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Idaho"
+	},
+	"trivia_beginner_004": {
+		"message": "Vilken kontinent gränsar till Atlanten, Stilla havet och Norra ishavet?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Asien"
+	},
 	"trivia_beginner_004_answer1": {
 		"message": "Australien"
 	},
+	"trivia_beginner_004_answer2": {
+		"message": "Sydamerika"
+	},
+	"trivia_beginner_005": {
+		"message": "Vilken delstat ligger i Stilla havszonen?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "Kalifornien"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Georgien"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "På vilken kontinent ligger Atlasbergen och Kalahariöknen?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_007": {
+		"message": "I vilken delstat i USA utgör en av de stora sjöarna en del av gränsen?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montana"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "New Mexico"
+	},
+	"trivia_beginner_008": {
+		"message": "De flesta som bor på den här kontinenten talar antingen portugisiska eller spanska. Vilken kontinent är det?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Sydamerika"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_009": {
+		"message": "Vilken delstat i USA har en form som omfattar ett långsmalt landområde?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_010": {
+		"message": "Antarktis och en till kontinent ligger helt på södra halvklotet. Vilka är de?"
+	},
 	"trivia_beginner_010_answer0": {
 		"message": "Australien"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Asien"
+	},
+	"trivia_beginner_011": {
+		"message": "Rønnes shelfis gränsar till vilken kontinent?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Sydamerika"
+	},
+	"trivia_beginner_012": {
+		"message": "Vancouverön och Kodiakön ligger på västkusten utanför vilken kontinent?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Asien"
 	},
 	"trivia_beginner_012_answer2": {
 		"message": "Australien"
@@ -281,8 +416,44 @@
 	"trivia_beginner_013": {
 		"message": "Befolkningen i Niger är bland de snabbast växande i världen. Landet ligger i den nordvästliga delen av ... ja, vilken kontinent?"
 	},
+	"trivia_beginner_013_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_014": {
+		"message": "På vilken kontinent finns minst antal växter och träd?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Sydamerika"
+	},
+	"trivia_beginner_015": {
+		"message": "Den tasmanska pungdjävulen finns på en ö på sydkusten utanför vilken kontinent?"
+	},
 	"trivia_beginner_015_answer0": {
 		"message": "Australien"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Asien"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_016": {
+		"message": "Det lutande tornet i Pisa är en populär turistattraktion i vilket medelhavsland?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Italien"
 	},
 	"trivia_beginner_016_answer1": {
 		"message": "Kanada"
@@ -290,47 +461,419 @@
 	"trivia_beginner_016_answer2": {
 		"message": "Ghana"
 	},
+	"trivia_beginner_017": {
+		"message": "Casablanca och Tripoli är historiska städer längs nordkusten på vilken kontinent?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_018": {
+		"message": "Saguarokaktusen finns i Sonoraöknen på vilken kontinent?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Asien"
+	},
+	"trivia_beginner_019": {
+		"message": "I vilket land är Veracruz och Acapulco populära semesterorter?"
+	},
 	"trivia_beginner_019_answer0": {
 		"message": "Mexiko"
 	},
 	"trivia_beginner_019_answer1": {
 		"message": "Argentina"
 	},
+	"trivia_beginner_019_answer2": {
+		"message": "Indien"
+	},
 	"trivia_beginner_020": {
 		"message": "I vilket land ligger Sichuan Giant Panda Sanctuaries, där 30 procent av världens pandor bor?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "Kina"
 	},
 	"trivia_beginner_020_answer1": {
 		"message": "Island"
 	},
+	"trivia_beginner_020_answer2": {
+		"message": "Etiopien"
+	},
 	"trivia_beginner_021": {
 		"message": "På vilken kontinent återfinns omkring 90 procent av världens is?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Europa"
 	},
 	"trivia_beginner_022": {
 		"message": "På vilken kontinent finns världens högsta vattenfall, Angelfallen?"
 	},
+	"trivia_beginner_022_answer0": {
+		"message": "Sydamerika"
+	},
 	"trivia_beginner_022_answer1": {
 		"message": "Australien"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_023": {
+		"message": "Vilken delstat i USA reser du till om du vill besöka Jackson Hole och bestiga Devils Tower?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "North Dakota"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Connecticut"
+	},
+	"trivia_beginner_024": {
+		"message": "Om du vill se hur lönnsirap skördas och åka skidor i Green Mountains reser du till vilken delstat i USA?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermont"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "Vilken amerikansk delstat besöker du om du vill köra över Chesapeake Bay-bron och gå längs strandpromenaden i Ocean City?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "North Carolina"
+	},
+	"trivia_beginner_026": {
+		"message": "Vilken delstat i USA reser du till om du vill besöka Mammutgrottan och titta på hästkapplöpning på Churchill Downs?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentucky"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "West Virginia"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Utah"
+	},
+	"trivia_beginner_027": {
+		"message": "Om du vill se jättelika sequoiaträd och Channel Islands reser du till vilken delstat i USA?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "Kalifornien"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "New Jersey"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virginia"
+	},
+	"trivia_beginner_028": {
+		"message": "Vilka våtmarker skulle du besöka om du befann dig i delstaten Florida i USA?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Everglades"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Dismal Swamp"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Great Cypress-träsket"
+	},
+	"trivia_beginner_029": {
+		"message": "Vilken delstat i USA reser du till om du vill färdas på Saint Lawrenceleden och Finger Lakes?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "New York"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Michigan"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "Mount Everest, världens högsta berg, ligger på vilken kontinent?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Asien"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_031": {
+		"message": "Patagonienområdet täcker en stor del av den södra delen av vilken kontinent?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Sydamerika"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_032": {
+		"message": "På vilken kontinent har kejsarpingviner sin naturliga hemvist?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033": {
+		"message": "Kängurur och koalabjörnar hör hemma i vilket land?"
 	},
 	"trivia_beginner_033_answer0": {
 		"message": "Australien"
 	},
+	"trivia_beginner_033_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Sydamerika"
+	},
+	"trivia_beginner_034": {
+		"message": "På vilken kontinent lockas turister till djurlivet i Serengeti nationalpark?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Asien"
+	},
 	"trivia_beginner_034_answer2": {
 		"message": "Australien"
+	},
+	"trivia_beginner_035": {
+		"message": "Vilken kontinent har den största landytan?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Asien"
 	},
 	"trivia_beginner_035_answer1": {
 		"message": "Australien"
 	},
+	"trivia_beginner_035_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_036": {
+		"message": "I vilken europeisk stad korsas Themsen av Tower Bridge?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "London"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Havanna"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Kapstaden"
+	},
 	"trivia_beginner_037": {
 		"message": "Vasilijkatedralen ligger intill Kreml på röda torget i denna ryska stad. Vilken?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Moskva"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Bryssel"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
 	},
 	"trivia_beginner_038": {
 		"message": "Colosseum byggdes på 100-talet e.Kr. och här hölls gladiatortävlingar. I vilken europeisk stad ligger Colosseum?"
 	},
+	"trivia_beginner_038_answer0": {
+		"message": "Rom"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Khartum"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manila"
+	},
+	"trivia_beginner_039": {
+		"message": "Operahuset och Harbour Bridge finns i vilken australisk stad?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sydney"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Jakarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Prag"
+	},
+	"trivia_beginner_040": {
+		"message": "Klippdomen och Västra muren är bara två av många heliga platser inom den gamla stadens murar i vilken stad i Mellanöstern?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Jerusalem"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tokyo"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Alger"
+	},
+	"trivia_beginner_041": {
+		"message": "Parthenon tronar högst upp på Akropolis i vilken stad i Grekland?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Aten"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kiev"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "Eiffeltornet ligger nära floden Seine och ger utsikt över centrum i vilken fransk stad?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "Paris"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "New Delhi"
+	},
+	"trivia_beginner_043": {
+		"message": "Islams heligaste plats heter Kaba och ligger i ul-Haram-moskén i vilken stad i Saudiarabien?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Mekka"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Buenos Aires"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Budapest"
+	},
+	"trivia_beginner_044": {
+		"message": "Den Förbjudna staden är ett före detta kejserligt palats beläget i mitten av vilken kinesisk stad?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Beijing"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santiago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbane"
+	},
+	"trivia_beginner_045": {
+		"message": "Space Needle är ett utsiktstorn i en amerikansk stad vid Pugetsundet. Vilken är staden?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Wichita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "New Orleans"
+	},
+	"trivia_beginner_046": {
+		"message": "John Hancock Tower är den högsta byggnaden i en stad i USA som ligger vid mynningen av floden Charles. Vilken är staden?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Boston"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pittsburgh"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memphis"
+	},
+	"trivia_beginner_047": {
+		"message": "Stratosphere Tower, som ligger strax norr om en berömd boulevard känd som The Strip, är den högsta byggnaden i vilken stad i amerikanska Mojaveöknen?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Las Vegas"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Minneapolis"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denver"
+	},
+	"trivia_beginner_048": {
+		"message": "Frihetsgudinnan är en stor staty på Liberty Island i hamnen i en stad i USA. Vilken stad?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "New York City"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Los Angeles"
+	},
 	"trivia_beginner_049": {
 		"message": "Vilken amerikansk stad sammankopplas med halvön Marin genom Golden Gate-bron?"
 	},
+	"trivia_beginner_049_answer0": {
+		"message": "San Francisco"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boise"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimore"
+	},
 	"trivia_beginner_050": {
 		"message": "Gateway Arch, en symbol för Amerikas utvidgning västerut under 1800-talet, ligger vid Mississippifloden. I vilken amerikansk stad?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "St. Louis"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianapolis"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Miami"
+	},
+	"trivia_beginner_051": {
+		"message": "Den stora pyramiden och sfinxen finns på Gizaplatån i vilket afrikanskt land?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Egypten"
 	},
 	"trivia_beginner_051_answer1": {
 		"message": "Brasilien"
@@ -338,38 +881,341 @@
 	"trivia_beginner_051_answer2": {
 		"message": "Tyskland"
 	},
+	"trivia_beginner_052": {
+		"message": "I vilken amerikansk stad ligger Independence Hall, en viktig historisk plats nära Delawarefloden som är kopplad till den amerikanska revolutionen?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Philadelphia"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "San Antonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Chicago"
+	},
+	"trivia_beginner_053": {
+		"message": "Klippiga bergen korsar Kanada och vilket annat land?"
+	},
 	"trivia_beginner_053_answer0": {
 		"message": "USA"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Venezuela"
 	},
 	"trivia_beginner_053_answer2": {
 		"message": "Ryssland"
 	},
+	"trivia_beginner_054": {
+		"message": "Brasilien och Uruguay gränsar till vilket hav?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Atlanten"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Indiska oceanen"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Norra ishavet"
+	},
+	"trivia_beginner_055": {
+		"message": "Ön Newfoundland ligger utanför Kanadas östkust. I vilket hav?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Atlanten"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Indiska oceanen"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Stilla havet"
+	},
+	"trivia_beginner_056": {
+		"message": "Ön Madagaskar ligger utanför Afrikas östkust, men i vilket hav?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Indiska oceanen"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Stilla havet"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Norra ishavet"
+	},
+	"trivia_beginner_057": {
+		"message": "Den längsta delen av den internationella datumlinjen går genom mitten av vilket hav?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Stilla havet"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Indiska oceanen"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Atlanten"
+	},
+	"trivia_beginner_058": {
+		"message": "Ekvatorn går genom Kongobäckenet på vilken kontinent?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Afrika"
+	},
 	"trivia_beginner_058_answer1": {
 		"message": "Australien"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059": {
+		"message": "Vilken kontinent gränsar till Mexikanska golfen?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Asien"
+	},
+	"trivia_beginner_060": {
+		"message": "Vilken flod som flyter genom Afrika är den längsta floden i världen?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Nilen"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Coloradofloden"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Oranjefloden"
+	},
+	"trivia_beginner_061": {
+		"message": "På vilken kontinent finns Machu Picchus uråldriga ruiner?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Sydamerika"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_062": {
+		"message": "Amazonfloden, som är världens mest vattenrika flod, rinner tvärs över vilken kontinent?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Sydamerika"
 	},
 	"trivia_beginner_062_answer1": {
 		"message": "Australien"
 	},
+	"trivia_beginner_062_answer2": {
+		"message": "Asien"
+	},
+	"trivia_beginner_063": {
+		"message": "Mont Blanc, den högsta toppen i alperna ligger på vilken kontinent?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Europa"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Sydamerika"
+	},
+	"trivia_beginner_064": {
+		"message": "Panamanäset förbinder Centralamerika med vilken kontinent?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Sydamerika"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Asien"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065": {
+		"message": "Geparden är det snabbaste landlevande däggdjuret på jorden och finns i Kenya och Tanzania, men på vilken kontinent?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_066": {
+		"message": "Godahoppsudden ligger nära sydspetsen på vilken kontinent?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Asien"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Europa"
+	},
 	"trivia_beginner_067": {
 		"message": "Enorma sköldpaddor lever på Galápagosöarna väster om Sydamerika. I vilket hav ligger öarna?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Stilla havet"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Norra ishavet"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Indiska oceanen"
+	},
+	"trivia_beginner_068": {
+		"message": "Floden Donau flyter genom Wien och andra städer på vilken kontinent?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Europa"
 	},
 	"trivia_beginner_068_answer1": {
 		"message": "Australien"
 	},
+	"trivia_beginner_068_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_069": {
+		"message": "Öarna Kuba och Hispaniola ligger båda vid gränsen till vilket hav?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Karibiska havet"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Berings hav"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Östersjön"
+	},
+	"trivia_beginner_070": {
+		"message": "Till vilken kontinent gränsar Guineabukten?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Afrika"
+	},
 	"trivia_beginner_070_answer1": {
 		"message": "Australien"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_071": {
+		"message": "Ernest Shackleton var en berömd upptäcktsresande på vilken kontinent?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_072": {
+		"message": "Labradorhavet är en del av vilket hav?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Atlanten"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Indiska oceanen"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Stilla havet"
+	},
+	"trivia_beginner_073": {
+		"message": "Sahara som är världens största öken ligger på vilken kontinent?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_074": {
+		"message": "I vilken kontinent ligger den Tibetanska högplatån?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Asien"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Sydamerika"
+	},
+	"trivia_beginner_075": {
+		"message": "Drakes sund ligger söder om vilken kontinent?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Sydamerika"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Europa"
 	},
 	"trivia_beginner_075_answer2": {
 		"message": "Australien"
 	},
+	"trivia_beginner_076": {
+		"message": "Stora barriärrevet finns i Korallhavet utanför kusten på vilken kontinent?"
+	},
 	"trivia_beginner_076_answer0": {
 		"message": "Australien"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Asien"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Nordamerika"
 	},
 	"trivia_beginner_077": {
 		"message": "Vilket land måste du resa till om du vill navigera på Suezkanalen och besöka De dödas stad i Kairo?"
 	},
+	"trivia_beginner_077_answer0": {
+		"message": "Egypten"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Colombia"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Finland"
+	},
+	"trivia_beginner_078": {
+		"message": "Vilket land reser du till om du vill se gauchor ta hand om boskap och tangodans i staden Buenos Aires?"
+	},
 	"trivia_beginner_078_answer0": {
 		"message": "Argentina"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Niger"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nepal"
+	},
+	"trivia_beginner_079": {
+		"message": "Vilket land reser du till om du vill besöka de gamla kvarteren i staden Fez och vandra i Atlasbergen?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Marocko"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Thailand"
 	},
 	"trivia_beginner_080": {
 		"message": "Vilket land måste du resa till om du vill besöka uråldriga Maya-ruiner och bada vid stränderna i Cancún?"
@@ -377,8 +1223,23 @@
 	"trivia_beginner_080_answer0": {
 		"message": "Mexiko"
 	},
+	"trivia_beginner_080_answer1": {
+		"message": "Nederländerna"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Turkiet"
+	},
 	"trivia_beginner_081": {
 		"message": "Vilket land måste du resa till om du vill besöka Saint Patrick’s Cathedral i Dublin och konstfestivalen i Kilkenny?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Irland"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Somalia"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Costa Rica"
 	},
 	"trivia_beginner_082": {
 		"message": "Vilket land måste du resa till om du vill åka på utflykt i regnskogen och dansa på karnevalen i Rio de Janeiro?"
@@ -389,26 +1250,419 @@
 	"trivia_beginner_082_answer1": {
 		"message": "Storbritannien"
 	},
+	"trivia_beginner_082_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_beginner_083": {
+		"message": "Vilket land reser du till om du vill besöka Eremitaget i Sankt Petersburg och åka på den transsibiriska järnvägen?"
+	},
 	"trivia_beginner_083_answer0": {
 		"message": "Ryssland"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indonesien"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Belize"
+	},
+	"trivia_beginner_084": {
+		"message": "Till vilket land reser du om du vill åka höghastighetståg och tillbringa natten på ett hotell i Tokyo?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Japan"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_beginner_085": {
+		"message": "Vilket land reser du till om du vill äta pesto i Genua och gå på opera i Florens?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Italien"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paraguay"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Libyen"
+	},
+	"trivia_beginner_086": {
+		"message": "Till vilket land reser du om du vill åka på safari i Masai Mara viltreservat och handla i Nairobi?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Kenya"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "Sydkorea"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Chile"
+	},
+	"trivia_beginner_087": {
+		"message": "Om du vill se floden Ganges och utforska de trånga gatorna i Calcutta reser du till vilket land?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "Indien"
 	},
 	"trivia_beginner_087_answer1": {
 		"message": "Tyskland"
 	},
+	"trivia_beginner_087_answer2": {
+		"message": "Jordanien"
+	},
+	"trivia_beginner_088": {
+		"message": "Nordpolen är den nordligaste punkten på jorden. Den ligger mitt i vilket hav?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Norra ishavet"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Stilla havet"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Indiska oceanen"
+	},
+	"trivia_beginner_089": {
+		"message": "Vilka länder ligger vid Atlanten?"
+	},
 	"trivia_beginner_089_answer0": {
 		"message": "Island"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Pakistan"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Japan"
+	},
+	"trivia_beginner_090": {
+		"message": "Vilka delstat i USA är känd som Solskensstaten på grund av det varma klimatet och populära stränder?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Florida"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Maine"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Washington"
+	},
+	"trivia_beginner_091": {
+		"message": "I vilken delstat i USA ligger Grand Canyon?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "West Virginia"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "South Dakota"
+	},
+	"trivia_beginner_092": {
+		"message": "Vilka delstat i USA är känd som Lone Star State, har en enda stjärna på sin flagga och var en gång ett självständigt land?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Texas"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Wisconsin"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_093": {
+		"message": "Floderna Eufrat och Tigris finns på vilken kontinent?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Asien"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_094": {
+		"message": "Victoriasjön och Virungabergen finns på vilken kontinent?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Asien"
+	},
+	"trivia_beginner_095": {
+		"message": "Vilket land är en ö land i Stilla havet?"
 	},
 	"trivia_beginner_095_answer0": {
 		"message": "Nya Zeeland"
 	},
+	"trivia_beginner_095_answer1": {
+		"message": "Sydafrika"
+	},
 	"trivia_beginner_095_answer2": {
 		"message": "Island"
+	},
+	"trivia_beginner_096": {
+		"message": "Vilket land ligger på Skandinaviska halvön?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Sverige"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Rumänien"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Peru"
+	},
+	"trivia_beginner_097": {
+		"message": "Vilket land gränsar till Medelhavet?"
 	},
 	"trivia_beginner_097_answer0": {
 		"message": "Frankrike"
 	},
+	"trivia_beginner_097_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_001": {
+		"message": "Vilken stad i USA ligger närmast den kanadensiska gränsen?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sacramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "I vilken stad i USA är det mest sannolikt att du får uppleva en orkan?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Miami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Los Angeles"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pittsburgh"
+	},
+	"trivia_hard_003": {
+		"message": "Vilken av dessa sjöar har den största ytan?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Huronsjön"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Lake Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Eriesjön"
+	},
+	"trivia_hard_004": {
+		"message": "Vilken av dessa städer i USA är folkrikast?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Chicago"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "St. Louis"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianapolis"
+	},
+	"trivia_hard_005": {
+		"message": "Vilket land ligger närmast Persiska viken?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Turkiet"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_hard_006": {
+		"message": "Vilket av dessa länder är störst till ytan?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Kazakstan"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Rumänien"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Polen"
+	},
+	"trivia_hard_007": {
+		"message": "Vilket av dessa länder är det mest tätbefolkade?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Singapore"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Laos"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_008": {
+		"message": "Vilket av dessa länder har det största antalet tysktalande?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Österrike"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Slovakien"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Irak"
+	},
+	"trivia_hard_009": {
+		"message": "Vilket av dessa länder gränsar till flest länder?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Saudiarabien"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Marocko"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mongoliet"
+	},
+	"trivia_hard_010": {
+		"message": "Vilket land gränsar inte till Tanganyikasjön?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benin"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Burundi"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_hard_011": {
+		"message": "Vilket land genomkorsas inte av ekvatorn?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Mauretanien"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indonesien"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_hard_012": {
+		"message": "Vilket land ligger inte på Balkanhalvön?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Tjeckien"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Bulgarien"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Makedonien"
+	},
+	"trivia_hard_013": {
+		"message": "Vilket land ligger inte vid Nordsjön?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Finland"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Danmark"
+	},
 	"trivia_hard_013_answer2": {
 		"message": "Storbritannien"
+	},
+	"trivia_hard_014": {
+		"message": "Vilket land ligger inte vid Svarta havet?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Azerbajdzjan"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Ukraina"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Turkiet"
+	},
+	"trivia_hard_015": {
+		"message": "Vilket land är inte en inlandsstat?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Kroatien"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Vitryssland"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Ungern"
+	},
+	"trivia_hard_016": {
+		"message": "Vilket land ligger inte i Sahara?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angola"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Libyen"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Algeriet"
+	},
+	"trivia_hard_017": {
+		"message": "Vilken ö ligger längst bort österut?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinidad"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Kuba"
+	},
+	"trivia_hard_018": {
+		"message": "Cape Fear ligger invid vilket vatten?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Atlanten"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Karibiska havet"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Stilla havet"
+	},
+	"trivia_hard_019": {
+		"message": "Vilken stad är en hamnstad i Mexikanska golfen?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Veracruz"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tijuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Acapulco"
+	},
+	"trivia_hard_020": {
+		"message": "Kräftans vändkrets korsar vilket land?"
 	},
 	"trivia_hard_020_answer0": {
 		"message": "Mexiko"
@@ -419,11 +1673,128 @@
 	"trivia_hard_020_answer2": {
 		"message": "Brasilien"
 	},
+	"trivia_hard_021": {
+		"message": "Vilken av dessa öar är störst till ytan?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Baffin Island"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Hispaniola"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Sardinien"
+	},
 	"trivia_hard_022": {
 		"message": "Yucatánkanalen skiljer Mexiko från vilken ö?"
 	},
+	"trivia_hard_022_answer0": {
+		"message": "Kuba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Puerto Rico"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dominica"
+	},
+	"trivia_hard_023": {
+		"message": "Vilken kanadensisk stad ligger längst norrut?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Yellowknife"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Ottawa"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Winnipeg"
+	},
+	"trivia_hard_024": {
+		"message": "Vilken ö är en del av Små Antillerna?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "St. Kitts"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Bermuda"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Nova Scotia"
+	},
+	"trivia_hard_025": {
+		"message": "Port-au-Prince är den folkrikaste staden i vilket land?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haiti"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Surinam"
+	},
+	"trivia_hard_026": {
+		"message": "Vilket land ligger i bergssystemet Karpaterna?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Rumänien"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albanien"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Turkmenistan"
+	},
+	"trivia_hard_027": {
+		"message": "Franska är det officiella språket i vilket land?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabon"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tanzania"
+	},
+	"trivia_hard_028": {
+		"message": "Vilket av dessa länder är störst till landytan?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Israel"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Bahrain"
+	},
+	"trivia_hard_029": {
+		"message": "Vilket land spänner över flest longitudgrader?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Kazakstan"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afghanistan"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Syrien"
+	},
+	"trivia_hard_030": {
+		"message": "Vilket land består av många öar?"
+	},
 	"trivia_hard_030_answer0": {
 		"message": "Filippinerna"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Kambodja"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Tadzjikistan"
+	},
+	"trivia_hard_031": {
+		"message": "Vilket land omfattas av flest tidszoner?"
 	},
 	"trivia_hard_031_answer0": {
 		"message": "Brasilien"
@@ -431,23 +1802,485 @@
 	"trivia_hard_031_answer1": {
 		"message": "Ghana"
 	},
+	"trivia_hard_031_answer2": {
+		"message": "Belize"
+	},
+	"trivia_hard_032": {
+		"message": "Vilket land ligger längst norrut?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Kamerun"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Moçambique"
+	},
 	"trivia_hard_032_answer2": {
 		"message": "Australien"
+	},
+	"trivia_hard_033": {
+		"message": "Vilket land ligger mellan Frankrike och Spanien?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andorra"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Luxemburg"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Vatikanstaten"
+	},
+	"trivia_hard_034": {
+		"message": "Danmark gränsar till vilket land?"
 	},
 	"trivia_hard_034_answer0": {
 		"message": "Tyskland"
 	},
+	"trivia_hard_034_answer1": {
+		"message": "Finland"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Moldavien"
+	},
+	"trivia_hard_035": {
+		"message": "Vilket land tillhör ön Sardinien?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Italien"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Turkiet"
+	},
 	"trivia_hard_035_answer2": {
 		"message": "Storbritannien"
+	},
+	"trivia_hard_036": {
+		"message": "Vilken öken täcker stora delar av området mellan Peking och Ulaanbaatar?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Tharöknen"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Libyska öknen"
+	},
+	"trivia_hard_037": {
+		"message": "Kamtjatka-strömmen är en del av vilket hav?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Stilla havet"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Indiska oceanen"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Atlanten"
+	},
+	"trivia_hard_038": {
+		"message": "Sidrabukten ligger i den södra delen av vilket hav?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Medelhavet"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Arabiska havet"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Östersjön"
+	},
+	"trivia_hard_039": {
+		"message": "Tatrabergen är den högsta bergskedjan i vilket europeiskt bergssystem?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Karpaterna"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Kantabriska bergen"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Pyrenéerna"
+	},
+	"trivia_hard_040": {
+		"message": "Vilken flod flyter genom Karibasjön och bildar gräns mellan Zambia och Zimbabwe?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Zambezifloden"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Nilen"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Kongofloden"
+	},
+	"trivia_hard_041": {
+		"message": "Floderna Themsen, Maas och Schelde rinner samtliga ut i vilket hav?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Nordsjön"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Medelhavet"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Svarta havet"
+	},
+	"trivia_hard_042": {
+		"message": "Luzonsundet ligger mellan Filippinerna och vilken stor ö i norr?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Taiwan"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Algeriet"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_hard_043": {
+		"message": "Vilka öar ligger längs mittatlantiska ryggen?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Azorerna"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Bahamas"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Fijiöarna"
+	},
+	"trivia_hard_044": {
+		"message": "Vilken flod flyter ut i Laptevhavet?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Lena"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Changfloden"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Floden Indus"
+	},
+	"trivia_hard_045": {
+		"message": "Vilken bergstopp ligger närmast ekvatorn?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimanjaro"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Mont Blanc"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Mount McKinley"
+	},
+	"trivia_hard_046": {
+		"message": "Vilken huvudstad är den mest folkrika?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Moskva"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Helsingfors"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Alger"
+	},
+	"trivia_hard_047": {
+		"message": "Vilken stad ligger vid floden Liffey och är den största staden i Irland?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dublin"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Oslo"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Köpenhamn"
+	},
+	"trivia_hard_048": {
+		"message": "Vilken stad ligger i en dal i Hindukush och är den största staden i Afghanistan?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Kabul"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Sarajevo"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "Vilken stad ligger vid floden Chao Phraya och är den största staden i Thailand?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Bangkok"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Beijing"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Amman"
+	},
+	"trivia_hard_050": {
+		"message": "Vilken stad är belägen längst in i en fjord i Skagerrak och är den största staden i Norge?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Oslo"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "London"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Bryssel"
+	},
+	"trivia_hard_051": {
+		"message": "Vilken stad ligger vid det östra medelhavet och är den största staden i Libanon?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Beirut"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Riyadh"
+	},
+	"trivia_hard_052": {
+		"message": "Vilken stad på Javas kust är den största staden i Indonesien?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Jakarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tokyo"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "Vilken stad i Attika-regionen är den största staden i Grekland?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Aten"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Rom"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barcelona"
 	},
 	"trivia_hard_054": {
 		"message": "Vilken stad, som ligger vid Río de la Platas mynning, är Uruguays största stad?"
 	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Quito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Rio de Janeiro"
+	},
+	"trivia_hard_055": {
+		"message": "Vilken stad, en gång en del av den tidigare provinsen Transvaal, är den största staden i Sydafrika?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Johannesburg"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abuja"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputo"
+	},
+	"trivia_hard_056": {
+		"message": "Vilken stad är ett viktigt sjöfartscentrum vid Karibiska havet och är den största staden på Jamaica?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Kingston"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Caracas"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Buenos Aires"
+	},
+	"trivia_hard_057": {
+		"message": "Vilken stad i Östafrikanska gravsänkesystemet är den största staden i Eritrea?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Bagdad"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazzaville"
+	},
+	"trivia_hard_058": {
+		"message": "Vilken stad ligger på floden Wislas strand och är den största staden i Polen?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Warszawa"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kiev"
+	},
+	"trivia_hard_059": {
+		"message": "Vilken stad är en viktig anhalt längs den panamerikanska landsvägen och är den största staden i Costa Rica?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "San José"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sucre"
+	},
+	"trivia_hard_060": {
+		"message": "Vilken stad är ett viktigt handelscentrum för jordbruk i södra Afrika och den största staden i Zimbabwe?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Windhoek"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "Vilken stad var en gång ockuperad av Röda khmererna och är den största staden i Kambodja?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Phnom Penh"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kuala Lumpur"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Dhaka"
+	},
+	"trivia_hard_062": {
+		"message": "Vilken stad ligger på Cape Mesurado vid Atlanten och är den största staden i Liberia?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monrovia"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Accra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaka"
+	},
+	"trivia_hard_063": {
+		"message": "Vilken stad ligger på en högplatå i Anderna och är den största staden i Colombia?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogotá"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managua"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterrey"
+	},
+	"trivia_hard_064": {
+		"message": "Vilken stad, belägen vid foten av Elburzbergen, är den största staden i Iran?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Teheran"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Tasjkent"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Istanbul"
+	},
+	"trivia_hard_065": {
+		"message": "Vilket vatten korsas av polcirkeln?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Norska havet"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Voltasjön"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Kaspiska havet"
+	},
+	"trivia_hard_066": {
+		"message": "Vilket vatten ligger i Östafrikanska gravsänkesystemet?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Malawisjön"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Tasmanhavet"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Titicacasjön"
+	},
+	"trivia_hard_067": {
+		"message": "Den ryska hamnstaden Archangelsk ligger på stranden till vilket vatten?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Vita havet"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Bass sund"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Biscayabukten"
+	},
+	"trivia_hard_068": {
+		"message": "Vilket land omfattar provinserna Hunan och Shandong?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "Kina"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Thailand"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Jemen"
+	},
+	"trivia_hard_069": {
+		"message": "Kastilianska är det officiella språket i vilket land vid Medelhavet?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Spanien"
+	},
 	"trivia_hard_069_answer1": {
 		"message": "Grekland"
 	},
+	"trivia_hard_069_answer2": {
+		"message": "Azerbajdzjan"
+	},
+	"trivia_hard_070": {
+		"message": "Vilket centralamerikanskt land var en gång en provins och utgjorde en del av Colombia?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panama"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Honduras"
+	},
 	"trivia_hard_070_answer2": {
 		"message": "Guatemala"
+	},
+	"trivia_hard_071": {
+		"message": "Staden Basel delas av floden Rhen och är ett viktigt transportcenter i vilket land?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Schweiz"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Belgien"
 	},
 	"trivia_hard_071_answer2": {
 		"message": "Ryssland"
@@ -458,17 +2291,128 @@
 	"trivia_hard_072_answer0": {
 		"message": "Frankrike"
 	},
+	"trivia_hard_072_answer1": {
+		"message": "Nederländerna"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Rumänien"
+	},
 	"trivia_hard_073": {
 		"message": "Bahía Blanca är en viktig sjöfartsort i Pampas-regionen. I vilket land?"
 	},
 	"trivia_hard_073_answer0": {
 		"message": "Argentina"
 	},
+	"trivia_hard_073_answer1": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_074": {
+		"message": "Vilket land gränsar till Medelhavet, Svarta havet och Egeiska havet?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Turkiet"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Bulgarien"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Libyen"
+	},
+	"trivia_hard_075": {
+		"message": "Varje år migrerar gnuer från Tanzania över Marafloden till vilket grannland i nordost?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Kenya"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Zambia"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Guinea"
+	},
+	"trivia_hard_076": {
+		"message": "Aleppo, som är berömd för Stora moskén, är den största staden i vilket sydvästasiatiskt land?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Syrien"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Oman"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_hard_077": {
+		"message": "Vilket land gränsar till Ryssland och Georgien?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Azerbajdzjan"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Uzbekistan"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Nordkorea"
+	},
+	"trivia_hard_078": {
+		"message": "Vilket land gränsar till Panama och Brasilien?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Colombia"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Peru"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_hard_079": {
+		"message": "Vilket land gränsar till Guatemala och USA?"
+	},
 	"trivia_hard_079_answer0": {
 		"message": "Mexiko"
 	},
+	"trivia_hard_079_answer1": {
+		"message": "El Salvador"
+	},
 	"trivia_hard_079_answer2": {
 		"message": "Kanada"
+	},
+	"trivia_hard_080": {
+		"message": "Vilket land gränsar till Irak och Afghanistan?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Ukraina"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mongoliet"
+	},
+	"trivia_hard_081": {
+		"message": "Vilket land gränsar till Lesotho och Botswana?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Sydafrika"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Kongo"
+	},
+	"trivia_hard_082": {
+		"message": "Antwerpen ligger i den flamländsktalande delen av vilket land?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Belgien"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Nederländerna"
 	},
 	"trivia_hard_082_answer2": {
 		"message": "Island"
@@ -476,8 +2420,41 @@
 	"trivia_hard_083": {
 		"message": "Gdańsk ligger nära floden Wisłas utlopp och är en viktig hamnstad i ... ja, vilket europeiskt land?"
 	},
+	"trivia_hard_083_answer0": {
+		"message": "Polen"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Spanien"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Kroatien"
+	},
+	"trivia_hard_084": {
+		"message": "Madeira och Purus är två viktiga bifloder till vilken stor flod i Sydamerika?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Amazonfloden"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Orinocofloden"
+	},
 	"trivia_hard_084_answer2": {
 		"message": "Paranáfloden"
+	},
+	"trivia_hard_085": {
+		"message": "Bodensjön delas av Schweiz, Tyskland och vilket annat land?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Österrike"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Slovakien"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Finland"
+	},
+	"trivia_hard_086": {
+		"message": "Auckland, en stor hamnstad med flera hamnar, är den största staden i vilket land?"
 	},
 	"trivia_hard_086_answer0": {
 		"message": "Nya Zeeland"
@@ -485,56 +2462,695 @@
 	"trivia_hard_086_answer1": {
 		"message": "Australien"
 	},
+	"trivia_hard_086_answer2": {
+		"message": "Indonesien"
+	},
+	"trivia_hard_087": {
+		"message": "Vilket land ligger direkt väster om Togo och är en stor producent av kakao?"
+	},
 	"trivia_hard_087_answer0": {
 		"message": "Ghana"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Sudan"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Tunisien"
 	},
 	"trivia_hard_088": {
 		"message": "I vilket sydamerikanskt land är Guaraní både namnet på ett av de officiella språken och på landets valuta?"
 	},
+	"trivia_hard_088_answer0": {
+		"message": "Paraguay"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ecuador"
+	},
 	"trivia_hard_088_answer2": {
 		"message": "Brasilien"
+	},
+	"trivia_hard_089": {
+		"message": "Vilken bergskedja sträcker sig längs gränsen mellan Frankrike och Spanien?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Pyrenéerna"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Apenninerna"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Kaukasus"
+	},
+	"trivia_hard_090": {
+		"message": "Floden Torrens har sitt utlopp i Gulf Saint Vincent i vilket land?"
 	},
 	"trivia_hard_090_answer0": {
 		"message": "Australien"
 	},
+	"trivia_hard_090_answer1": {
+		"message": "Uganda"
+	},
 	"trivia_hard_090_answer2": {
 		"message": "Kanada"
+	},
+	"trivia_hard_091": {
+		"message": "Vilket afrikanskt land som ligger vid Medelhavet är en monarki?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Marocko"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Egypten"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Centralafrikanska republiken"
+	},
+	"trivia_hard_092": {
+		"message": "Tbilisi, som ligger på Kuras strand, är huvudstad i vilket land?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Georgien"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Syrien"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Ungern"
+	},
+	"trivia_hard_093": {
+		"message": "Abruzzo är ett bergsområde vid det Adriatiska havet i vilket land?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Italien"
 	},
 	"trivia_hard_093_answer1": {
 		"message": "Frankrike"
 	},
+	"trivia_hard_093_answer2": {
+		"message": "Luxemburg"
+	},
+	"trivia_hard_094": {
+		"message": "Rigabukten utgör gräns till Lettland och vilket annat land?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Estland"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Vitryssland"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Spanien"
+	},
+	"trivia_hard_095": {
+		"message": "Sundet Jubal förbinder Suezkanalen med vilket annat hav?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Röda havet"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Karibiska havet"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Kaspiska havet"
+	},
+	"trivia_hard_096": {
+		"message": "Från vilken flod får Galileiska sjön mycket av sitt tillflöde?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Jordanfloden"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amu Darya"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Ganges"
+	},
+	"trivia_hard_097": {
+		"message": "Vilken stor bukt skiljer New Brunswick från Nova Scotia?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Fundybukten"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Hudsonviken"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Bengaliska viken"
+	},
+	"trivia_hard_098": {
+		"message": "Kölnerdomen ligger i Rhenlandet i vilket land?"
+	},
 	"trivia_hard_098_answer0": {
 		"message": "Tyskland"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Danmark"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_099": {
+		"message": "I vilket land finns Chiapas, den sydligaste delstaten i detta land och plats för flera uråldriga Maya-ruiner?"
 	},
 	"trivia_hard_099_answer0": {
 		"message": "Mexiko"
 	},
+	"trivia_hard_099_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Chile"
+	},
+	"trivia_hard_100": {
+		"message": "Dardanellerna är ett smalt sund som förbinder Marmarahavet med vilket annat hav?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Egeiska havet"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Barents hav"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Tasmanhavet"
+	},
+	"trivia_hard_101": {
+		"message": "Khmer är det officiella språket i vilka sydostasiatiskt land?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Kambodja"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_hard_102": {
+		"message": "Donetsbäckenet är ett industriområde som delas av Ryssland och ännu ett land. Vilket är landet?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Ukraina"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Slovakien"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Libanon"
+	},
+	"trivia_hard_103": {
+		"message": "Mount Kosciuszko ligger i Snowy Mountains och är den högsta toppen på vilken kontinent?"
+	},
 	"trivia_hard_103_answer0": {
 		"message": "Australien"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Europa"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Sydamerika"
+	},
+	"trivia_hard_104": {
+		"message": "Öarna Madura och Bali är en del av vilket land?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indonesien"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Japan"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_105": {
+		"message": "Taklamakanöknen ligger norr om Kunlunbergen i vilket asiatiskt land?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "Kina"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Saudiarabien"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "Sydkorea"
+	},
+	"trivia_medium_001": {
+		"message": "Vilken av dessa amerikanska städer ligger i ett floddelta?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "New Orleans"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Austin"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Oklahoma City"
+	},
+	"trivia_medium_002": {
+		"message": "Angkor Wat och Kappadokien är några av Unescos världsarv och finns på vilken kontinent?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Asien"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_medium_003": {
+		"message": "Det kurdiska och persiska språket talas av människor i sydvästra delen av vilken kontinent?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Asien"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Sydamerika"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Europa"
 	},
 	"trivia_medium_004": {
 		"message": "Teotihuacán var den fantastiska mittpunkten för en tidig civilisation. På vilken kontinent?"
 	},
+	"trivia_medium_004_answer0": {
+		"message": "Nordamerika"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Asien"
+	},
+	"trivia_medium_005": {
+		"message": "Bellingshausenhavet och Rosshavet gränsar mot vilken kontinent?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Antarktis"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Asien"
+	},
+	"trivia_medium_006": {
+		"message": "Du finner Mozambique- och Benguelaströmmen längs kusten för vilken kontinent?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_medium_007": {
+		"message": "Arkipelagen Islas Malvinas, även kallad Falklandsöarna, ligger sydost om vilken kontinent?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Sydamerika"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_008": {
+		"message": "Vilket av de här afrikanska länderna är störst till ytan?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Algeriet"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gambia"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Burundi"
+	},
+	"trivia_medium_009": {
+		"message": "Vilken stor ö ligger drygt 300 kilometer nordväst om Island?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Grönland"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "New Guinea"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Irland"
+	},
+	"trivia_medium_010": {
+		"message": "Karahavet och Östsibiriska havet är en del av vilket hav?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Norra ishavet"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Indiska oceanen"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Stilla havet"
+	},
+	"trivia_medium_011": {
+		"message": "Vilket land ligger vid Östersjön?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Lettland"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Slovenien"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Ukraina"
+	},
+	"trivia_medium_012": {
+		"message": "Vilken av dessa storstäder är folkrikast?"
+	},
 	"trivia_medium_012_answer0": {
 		"message": "São Paulo, Brasilien"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto, Kanada"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hanoi, Vietnam"
+	},
+	"trivia_medium_013": {
+		"message": "Vilket land har ingen kust mot Atlanten?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Malaysia"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Uruguay"
+	},
+	"trivia_medium_014": {
+		"message": "Vilket av dessa länder har den kortaste kustlinjen?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Peru"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Chile"
+	},
+	"trivia_medium_015": {
+		"message": "Vilken öken ligger i Asien?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalahari"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atacama"
+	},
+	"trivia_medium_016": {
+		"message": "Vilket av dessa länder har störst vulkanisk aktivitet?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indonesien"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Egypten"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Israel"
+	},
+	"trivia_medium_017": {
+		"message": "Vilket av dessa länder har den största befolkningen?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_018": {
+		"message": "Vilket av dessa länder har flest öar?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Bahamas"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_019": {
+		"message": "Vilket land ligger närmast ekvatorn?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Rwanda"
 	},
 	"trivia_medium_019_answer1": {
 		"message": "Guatemala"
 	},
+	"trivia_medium_019_answer2": {
+		"message": "Sydafrika"
+	},
+	"trivia_medium_020": {
+		"message": "Vilket land ligger längst norrut?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Estland"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Libyen"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Kambodja"
+	},
+	"trivia_medium_021": {
+		"message": "Alfamadistriktet finns i Portugal på floden Tejos strand i vilken huvudstad?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lissabon"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Helsingfors"
+	},
+	"trivia_medium_022": {
+		"message": "Vilken huvudstad ligger 40 kilometer nordost om Döda havet och är den folkrikaste staden i Jordanien?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Amman"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Islamabad"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Söul"
+	},
+	"trivia_medium_023": {
+		"message": "I vilken huvudstad ligger Tahrirtorget, centrum för flera omfattande protester i Egypten?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Kairo"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Muskat"
+	},
 	"trivia_medium_024": {
 		"message": "I vilken huvudstad, som ligger vid Taffelbukten, har Sydafrikas nationella parlament sitt säte?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Kapstaden"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaka"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinshasa"
+	},
+	"trivia_medium_025": {
+		"message": "Vilken huvudstad är den största staden i Tjeckien och ligger vid floden Moldau?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Prag"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dublin"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Sofia"
+	},
+	"trivia_medium_026": {
+		"message": "Vilken huvudstad ligger vid Medelhavet och är en viktig hamn i Libyen?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Tripoli"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monrovia"
+	},
+	"trivia_medium_027": {
+		"message": "Vilken huvudstad är ett viktigt handels- och transportcentrum i Sudan och ligger där floderna Vita Nilen och Blå Nilen möts?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Khartum"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Tunis"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Johannesburg"
+	},
+	"trivia_medium_028": {
+		"message": "Vilken huvudstad ligger på de danska öarna Själland och Amager?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Köpenhamn"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Bern"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Bratislava"
+	},
+	"trivia_medium_029": {
+		"message": "Vilken huvudstad ligger på ön New Providence och är den största staden i Bahamas?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Nassau"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santo Domingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopan"
 	},
 	"trivia_medium_030": {
 		"message": "Vilken huvudstad, som ligger söder om Svarta havet, är centrum för Turkiets transportsystem?"
 	},
+	"trivia_medium_030_answer0": {
+		"message": "Ankara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minsk"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Teheran"
+	},
+	"trivia_medium_031": {
+		"message": "Vilket av dessa länder är delvis beläget på Afrikas horn?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Niger"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Swaziland"
+	},
+	"trivia_medium_032": {
+		"message": "Skagerrak är ett sund som skiljer Danmark från vilket land?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Norge"
+	},
 	"trivia_medium_032_answer1": {
 		"message": "Storbritannien"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_medium_033": {
+		"message": "Vilket land består till största delen av öken?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Tchad"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Norge"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_034": {
+		"message": "Floden Eufrat flyter genom vilket land?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Syrien"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Schweiz"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Thailand"
+	},
+	"trivia_medium_035": {
+		"message": "Staden Irkutsk ligger nära Bajkalsjön på vilken kontinent?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Asien"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Sydamerika"
+	},
+	"trivia_medium_036": {
+		"message": "På vilken kontinent är Dnieper och Rhen två viktiga floder?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Europa"
 	},
 	"trivia_medium_036_answer1": {
 		"message": "Antarktis"
 	},
+	"trivia_medium_036_answer2": {
+		"message": "Asien"
+	},
+	"trivia_medium_037": {
+		"message": "På vilken kontinent ligger Guyanas högland och Pantanal?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Sydamerika"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_038": {
+		"message": "Stora Victoriaöknen och Nullarbor-slätten är fysiska kännemärken på vilken kontinent?"
+	},
 	"trivia_medium_038_answer0": {
 		"message": "Australien"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Asien"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_039": {
+		"message": "Rio Grande do Sul är den sydligaste delstaten i vilket land?"
 	},
 	"trivia_medium_039_answer0": {
 		"message": "Brasilien"
@@ -545,11 +3161,35 @@
 	"trivia_medium_039_answer2": {
 		"message": "Tyskland"
 	},
+	"trivia_medium_040": {
+		"message": "Staden Novosibirsk ligger vid floden Ob i vilket land?"
+	},
 	"trivia_medium_040_answer0": {
 		"message": "Ryssland"
 	},
+	"trivia_medium_040_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "Kina"
+	},
+	"trivia_medium_041": {
+		"message": "Vilket land ligger i Stillahavsregionen och kommer mer sannolikt att utsättas för en jordbävning?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Chile"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angola"
+	},
 	"trivia_medium_041_answer2": {
 		"message": "Frankrike"
+	},
+	"trivia_medium_042": {
+		"message": "I vilket land ligger sjön Maracaibo längs den norra kusten?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Venezuela"
 	},
 	"trivia_medium_042_answer1": {
 		"message": "Guatemala"
@@ -557,11 +3197,140 @@
 	"trivia_medium_042_answer2": {
 		"message": "Kanada"
 	},
+	"trivia_medium_043": {
+		"message": "Vilket land gränsar till Arabiska havet?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "Indien"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Tadzjikistan"
+	},
 	"trivia_medium_043_answer2": {
 		"message": "Grekland"
 	},
+	"trivia_medium_044": {
+		"message": "Vilket land ligger på den Iberiska halvön?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Portugal"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Nederländerna"
+	},
+	"trivia_medium_045": {
+		"message": "Vilket av dessa länder har den längsta kustlinjen?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Thailand"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Kongo"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Qatar"
+	},
+	"trivia_medium_046": {
+		"message": "Vilken amerikansk delstat ligger väster om Mississippifloden?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Colorado"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Maryland"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Michigan"
+	},
+	"trivia_medium_047": {
+		"message": "Skogar täcker cirka 60 procent av vilken delstat i USA?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virginia"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "Mount McKinley, den högsta bergstoppen i Nordamerika, finns i vilken delstat?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Alaska"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_medium_049": {
+		"message": "Vilken av dessa delstater i USA är störst till ytan?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montana"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "South Carolina"
+	},
+	"trivia_medium_050": {
+		"message": "Mount Rushmore ligger nära Rapid City i vilken delstat i USA?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "South Dakota"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Florida"
+	},
+	"trivia_medium_051": {
+		"message": "Vilka amerikanska delstater gränsar till Kanada?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebraska"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentucky"
+	},
+	"trivia_medium_052": {
+		"message": "I vilken delstat i USA finner man korallrev utefter kusten?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "Hamburg är en viktig hamn i vilket land?"
+	},
 	"trivia_medium_053_answer0": {
 		"message": "Tyskland"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Kroatien"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Belgien"
+	},
+	"trivia_medium_054": {
+		"message": "I vilket land finner du störst vulkanisk aktivitet?"
 	},
 	"trivia_medium_054_answer0": {
 		"message": "Island"
@@ -569,14 +3338,143 @@
 	"trivia_medium_054_answer1": {
 		"message": "Storbritannien"
 	},
+	"trivia_medium_054_answer2": {
+		"message": "Polen"
+	},
+	"trivia_medium_055": {
+		"message": "Vilket land ligger främst på halvön Mindre Asien?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Turkiet"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Myanmar"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Estland"
+	},
+	"trivia_medium_056": {
+		"message": "Döda havet utgör en del av gränsen mellan Israel och vilket annat land?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Jordanien"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Japan"
+	},
+	"trivia_medium_057": {
+		"message": "Serengeti nationalpark ligger öster om Victoriasjön i vilket land?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tanzania"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Jemen"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_058": {
+		"message": "Vilket land gränsar till Karibiska havet och är en stor exportör av olja?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paraguay"
+	},
+	"trivia_medium_059": {
+		"message": "Vilken inlandsstat ligger strax söder om ekvatorn?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Burundi"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Djibouti"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Tunisien"
+	},
+	"trivia_medium_060": {
+		"message": "Vilket medelhavsland ligger vid Tyrrenska havet?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Italien"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Israel"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Senegal"
+	},
+	"trivia_medium_061": {
+		"message": "Jekaterinburg ligger på Uralbergens östra sluttning, men i vilket land?"
+	},
 	"trivia_medium_061_answer0": {
 		"message": "Ryssland"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Litauen"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Belgien"
+	},
+	"trivia_medium_062": {
+		"message": "Vilken östat ligger sydost om Australien och är en ledande ullproducent?"
 	},
 	"trivia_medium_062_answer0": {
 		"message": "Nya Zeeland"
 	},
 	"trivia_medium_062_answer1": {
 		"message": "Filippinerna"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_063": {
+		"message": "I vilket land är Mumbai en viktig hamnstad?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "Indien"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Schweiz"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_medium_064": {
+		"message": "I vilket land vid Gula havet ligger staden Incheon?"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "Sydkorea"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Thailand"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mongoliet"
+	},
+	"trivia_medium_065": {
+		"message": "Vilket litet land ligger vid Österrikes västra gräns?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Liechtenstein"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Syrien"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Moldavien"
+	},
+	"trivia_medium_066": {
+		"message": "Victoria och New South Wales är två delstater i vilket land?"
 	},
 	"trivia_medium_066_answer0": {
 		"message": "Australien"
@@ -587,35 +3485,305 @@
 	"trivia_medium_066_answer2": {
 		"message": "Kanada"
 	},
+	"trivia_medium_067": {
+		"message": "Vilket land på ön Borneo gränsar till det lilla landet Brunei?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Malaysia"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Ukraina"
+	},
+	"trivia_medium_068": {
+		"message": "Juliska alperna ligger på gränsen mellan Italien och vilket annat land?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Slovenien"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Tadzjikistan"
+	},
+	"trivia_medium_069": {
+		"message": "En region som tidigare kallades Manchuriet ligger i den nordöstra delen av vilket land?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "Kina"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Vitryssland"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afghanistan"
+	},
+	"trivia_medium_070": {
+		"message": "Vilket land gränsar till El Salvador?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panama"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Dominikanska republiken"
+	},
+	"trivia_medium_071": {
+		"message": "Vilket land ligger i Kaukasusbergen?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Georgien"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Ungern"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andorra"
+	},
+	"trivia_medium_072": {
+		"message": "I vilket asiatiskt land finns Sundasundet mellan två öar?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indonesien"
+	},
 	"trivia_medium_072_answer1": {
 		"message": "Nya Zeeland"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Laos"
+	},
+	"trivia_medium_073": {
+		"message": "Nedisade dalar och praktfulla klippor går att se nära floden Shannons mynning i vilket land?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Irland"
 	},
 	"trivia_medium_073_answer1": {
 		"message": "Frankrike"
 	},
+	"trivia_medium_073_answer2": {
+		"message": "Uzbekistan"
+	},
+	"trivia_medium_074": {
+		"message": "Vilket sydasiatiskt land flyter Indus igenom?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Nordkorea"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Azerbajdzjan"
+	},
+	"trivia_medium_075": {
+		"message": "Vilket land ligger vid Röda havet?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Eritrea"
+	},
 	"trivia_medium_075_answer1": {
 		"message": "Ghana"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_medium_076": {
+		"message": "Zacatecas och Tabasco är delstater i vilket land?"
 	},
 	"trivia_medium_076_answer0": {
 		"message": "Mexiko"
 	},
+	"trivia_medium_076_answer1": {
+		"message": "Belize"
+	},
 	"trivia_medium_076_answer2": {
 		"message": "Argentina"
+	},
+	"trivia_medium_077": {
+		"message": "I vilket land ligger staden Riyadh där det finns mer än 4 000 moskéer?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Saudiarabien"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albanien"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Syrien"
+	},
+	"trivia_medium_078": {
+		"message": "Vilket afrikanskt land är en inlandsstat?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Mauretanien"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Egypten"
+	},
+	"trivia_medium_079": {
+		"message": "Berget Fuji är en helig plats i vilket land?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Japan"
 	},
 	"trivia_medium_079_answer1": {
 		"message": "Filippinerna"
 	},
+	"trivia_medium_079_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_080": {
+		"message": "I vilket land i Stora Antillerna används engelska som officiellt språk?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Kuba"
+	},
+	"trivia_medium_081": {
+		"message": "Vilket är det officiella språket i Syrien, Kuwait och Algeriet?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "Arabiska"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "Armeniska"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "Tyska"
+	},
+	"trivia_medium_082": {
+		"message": "I vilket bergigt land i Europa utförs ofta Mozarts operor under den årliga Salzburg-festivalen?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Österrike"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Ungern"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Rumänien"
+	},
+	"trivia_medium_083": {
+		"message": "Valdalen, en öken fylld med fossiliserade rester av förhistoriska valar, ligger i vilket land norr om Sudan?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Egypten"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_medium_084": {
+		"message": "Rotterdam ligger i ett delta nära Nordsjön i vilket europeiskt land?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Nederländerna"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Sverige"
+	},
 	"trivia_medium_084_answer2": {
 		"message": "Grekland"
+	},
+	"trivia_medium_085": {
+		"message": "Floden Brahmaputra rinner ut i ett stort delta nära Bengaliska viken och har sin källa i vilket stort bergssystemet?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himalaya"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Uralbergen"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Alperna"
+	},
+	"trivia_medium_086": {
+		"message": "Farsi, även känt som persiska, är det officiella språket i vilket islamiskt land?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Iran"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Libyen"
+	},
+	"trivia_medium_087": {
+		"message": "I vilket europeiskt land finns staden Sevilla där du kan se matadorer uppträda på tjurfäktningar?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Spanien"
 	},
 	"trivia_medium_087_answer1": {
 		"message": "Tyskland"
 	},
+	"trivia_medium_087_answer2": {
+		"message": "Makedonien"
+	},
+	"trivia_medium_088": {
+		"message": "Staden Istanbul anses vara en mötesplats för österländska och västerländska kulturer och ligger i vilket land?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Turkiet"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Slovakien"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Oman"
+	},
 	"trivia_medium_089": {
 		"message": "Staden Maya i Copán är ett populärt turistmål i ett land som gränsar mot El Salvador och Nicaragua. VIlket land är det?"
 	},
+	"trivia_medium_089_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Chile"
+	},
 	"trivia_medium_089_answer2": {
 		"message": "Kanada"
+	},
+	"trivia_medium_090": {
+		"message": "Timbuktu har varit centrum för karavanhandeln under nästan tusen år och ligger norr om floden Niger i vilken inlandsstat?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namibia"
+	},
+	"trivia_medium_091": {
+		"message": "Vilka inlandsstat i Sydamerika gränsar till både Chile och Brasilien?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Bolivia"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Colombia"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Guyana"
 	},
 	"trivia_medium_092": {
 		"message": "Staden Belém ligger vid Amazonflodens sydliga inlopp i ... ja, vilket land?"
@@ -623,14 +3791,107 @@
 	"trivia_medium_092_answer0": {
 		"message": "Brasilien"
 	},
+	"trivia_medium_092_answer1": {
+		"message": "Costa Rica"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Surinam"
+	},
+	"trivia_medium_093": {
+		"message": "Vilken flod utgör en stor del av Bulgariens norra gräns?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Donau"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Floden Ob"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Mekongfloden"
+	},
+	"trivia_medium_094": {
+		"message": "Sajanbergen ligger nära Bajkalsjön i vilket asiatiskt land?"
+	},
 	"trivia_medium_094_answer0": {
 		"message": "Ryssland"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "Indien"
 	},
 	"trivia_medium_094_answer2": {
 		"message": "Kirgizistan"
 	},
+	"trivia_medium_095": {
+		"message": "Sjön Nipigon är den största sjön i vilken kanadensisk provins?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontario"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "British Columbia"
+	},
+	"trivia_medium_096": {
+		"message": "Baleariska sjön och Joniska havet är båda en del av vilket större hav?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Medelhavet"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Östersjön"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Karibiska havet"
+	},
+	"trivia_medium_097": {
+		"message": "Turkana- och Natronsjön är exempel på sjöar i Östafrikanska gravsänkesystemet. I vilket land ligger de?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Sydamerika"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_098": {
+		"message": "Puerto Rico-graven är den djupaste delen i vilket hav?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Atlanten"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Norra ishavet"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Stilla havet"
+	},
+	"trivia_medium_099": {
+		"message": "Den skrattande kookaburrafågeln hör hemma i eukalyptusskogarna i den östra delen av vilken kontinent?"
+	},
 	"trivia_medium_099_answer0": {
 		"message": "Australien"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Sydamerika"
+	},
+	"trivia_medium_100": {
+		"message": "Haag, där Internationella domstolen finns, är en stad på västkusten i vilket europeiskt land?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Nederländerna"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Finland"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Bulgarien"
 	},
 	"twitter": {
 		"message": "Twitter"
@@ -639,7 +3900,7 @@
 		"message": "Storbritannien"
 	},
 	"uk_tradition": {
-		"message": "I Storbritannien njuter rumlare i alla åldrar av smällkarameller på bordet vid middagen. Smällkarameller är rör inslagna i färgglatt papper med dragflikar i varje ände. När man drar i dem spricker röret med en hög smäll! Inuti dem finns pappershattar, leksaker och godis att njuta av under julkvällen."
+		"message": "I Storbritannien njuter både stora och små av smällkarameller på bordet vid middagen. Smällkarameller är rör inslagna i färgglatt papper med dragflikar i varje ände. När man drar i dem spricker röret med en hög smäll! Inuti dem finns pappershattar, leksaker och godis att njuta av under julkvällen."
 	},
 	"us_country_name": {
 		"message": "USA"

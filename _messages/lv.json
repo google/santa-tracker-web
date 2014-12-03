@@ -269,11 +269,146 @@
 	"traditions-world": {
 		"message": "Pasaule"
 	},
+	"trivia_beginner_001": {
+		"message": "Nosauciet kontinentu, kurā atrodas Andu kalni."
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Āzija"
+	},
+	"trivia_beginner_002": {
+		"message": "Kurš ASV štats sastāv no astoņām lielām un daudzām mazām salām?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Havaju salas"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohaio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkanzasa"
+	},
+	"trivia_beginner_003": {
+		"message": "Kurš ASV štats atrodas Lielajos līdzenumos?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kanzasa"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delavēra"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Aidaho"
+	},
+	"trivia_beginner_004": {
+		"message": "Kuru kontinentu apskalo Atlantijas okeāns, Klusais okeāns un Ziemeļu Ledus okeāns?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Āzija"
+	},
 	"trivia_beginner_004_answer1": {
 		"message": "Austrālija"
 	},
+	"trivia_beginner_004_answer2": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_beginner_005": {
+		"message": "Kura valsts atrodas Klusā okeāna laika joslā?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "Kalifornija"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Džordžija"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "Nosauciet kontinentu, kurā atrodas Atlasa kalni un Kalahari tuksnesis."
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Āfrika"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_007": {
+		"message": "Kurš ASV štats robežojas ar vienu no Lielajiem ezeriem?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohaio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montāna"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "Ņūmeksika"
+	},
+	"trivia_beginner_008": {
+		"message": "Nosauciet kontinentu, kurā lielākā daļa iedzīvotāju runā portugāļu vai spāņu valodā."
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Āfrika"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_009": {
+		"message": "Nosauciet ASV štatu, kura teritorijā ietilpst arī garens, šaurs apgabals."
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Vaiominga"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Kolorādo"
+	},
+	"trivia_beginner_010": {
+		"message": "Dienvidu puslodē pilnībā atrodas tikai divi kontinenti. Viens no tiem ir Antarktika. Nosauciet otru kontinentu."
+	},
 	"trivia_beginner_010_answer0": {
 		"message": "Austrālija"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Āzija"
+	},
+	"trivia_beginner_011": {
+		"message": "Nosauciet kontinentu, kura malā atrodas Ronnes šelfa ledājs."
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Āfrika"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_beginner_012": {
+		"message": "Nosauciet kontinentu, kura rietumu krastā atrodas Vankūveras sala un Kodiakas sala."
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Āzija"
 	},
 	"trivia_beginner_012_answer2": {
 		"message": "Austrālija"
@@ -281,8 +416,44 @@
 	"trivia_beginner_013": {
 		"message": "Kura kontinenta ziemeļrietumos atrodas Nigēra — viena no pasaules valstīm ar visstraujāk augošo iedzīvotāju skaitu?"
 	},
+	"trivia_beginner_013_answer0": {
+		"message": "Āfrika"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_014": {
+		"message": "Nosauciet kontinentu, kurā ir vismazāk augu un koku."
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_beginner_015": {
+		"message": "Tasmānijas velni dzīvo salā, kas atrodas pie kāda kontinenta dienvidu krasta. Nosauciet šo kontinentu."
+	},
 	"trivia_beginner_015_answer0": {
 		"message": "Austrālija"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Āzija"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_016": {
+		"message": "Nosauciet Vidusjūras reģiona valsti, kurā iecienīts tūristu apskates objekts ir šķībais Pizas tornis."
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Itālija"
 	},
 	"trivia_beginner_016_answer1": {
 		"message": "Kanāda"
@@ -290,47 +461,419 @@
 	"trivia_beginner_016_answer2": {
 		"message": "Gana"
 	},
+	"trivia_beginner_017": {
+		"message": "Nosauciet kontinentu, kura ziemeļu krastā atrodas vēsturiskās pilsētas Kasablanka un Tripole."
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Āfrika"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_018": {
+		"message": "Nosauciet kontinentu, kurā esošajā Sonoras tuksnesī aug Saguaro kaktusi."
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Āzija"
+	},
+	"trivia_beginner_019": {
+		"message": "Nosauciet valsti, kurā atrodas tādi iecienīti brīvdienu galamērķi kā Verakrusa un Akapulko."
+	},
 	"trivia_beginner_019_answer0": {
 		"message": "Meksika"
 	},
 	"trivia_beginner_019_answer1": {
 		"message": "Argentīna"
 	},
+	"trivia_beginner_019_answer2": {
+		"message": "Indija"
+	},
 	"trivia_beginner_020": {
 		"message": "Kurā valstī atrodas Sičuaņas Lielo pandu patvērums, kur mīt aptuveni 30% visas pasaules pandu?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "Ķīna"
 	},
 	"trivia_beginner_020_answer1": {
 		"message": "Īslande"
 	},
+	"trivia_beginner_020_answer2": {
+		"message": "Etiopija"
+	},
 	"trivia_beginner_021": {
 		"message": "Kurā kontinentā atrodas aptuveni 90% visa pasaules ledus?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Āfrika"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Eiropa"
 	},
 	"trivia_beginner_022": {
 		"message": "Kurā kontinentā atrodas Anhela ūdenskritums, kas ir augstākais pasaulē?"
 	},
+	"trivia_beginner_022_answer0": {
+		"message": "Dienvidamerika"
+	},
 	"trivia_beginner_022_answer1": {
 		"message": "Austrālija"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_023": {
+		"message": "Nosauciet ASV štatu, uz kuru ir jādodas, lai apmeklētu Jackson Hole rezervātu un uzkāptu līdz Devils Tower."
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Vaiominga"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "Ziemeļdakota"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Konektikuta"
+	},
+	"trivia_beginner_024": {
+		"message": "Nosauciet ASV štatu, uz kuru ir jādodas, lai redzētu, kā tiek vāktas kļavu sulas, un dotos slēpot uz Grīnmauntinsiem."
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermonta"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregona"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "Nosauciet ASV štatu, uz kuru ir jādodas, lai šķērsotu Česapīka līča tiltu un pastaigātos pa Ošensitijas promenādi ar dēļu segumu."
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Merilenda"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kanzasa"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "Ziemeļkarolīna"
+	},
+	"trivia_beginner_026": {
+		"message": "Nosauciet ASV štatu, uz kuru ir jādodas, lai apmeklētu Mamuta alu un skatītos zirgu skriešanās sacensības Čērčildaunsā."
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentuki"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "Rietumvirdžīnija"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Jūta"
+	},
+	"trivia_beginner_027": {
+		"message": "Nosauciet ASV štatu, uz kuru ir jādodas, lai apskatītu milzu sekvojas un Čenela salas."
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "Kalifornija"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "Ņūdžersija"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virdžīnija"
+	},
+	"trivia_beginner_028": {
+		"message": "Nosauciet purvājus, kurus jūs apmeklētu, ja būtu devies uz Floridas štatu ASV."
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Evergleidsa"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Dizmalu purvs"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Lielais Saipresas purvs"
+	},
+	"trivia_beginner_029": {
+		"message": "Nosauciet ASV štatu, uz kuru ir jādodas, lai izbrauktu pa Sentlorensa upes selgu un Fingerleikiem."
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "Ņujorka"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Mičigana"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "Nosauciet kontinentu, kurā atrodas Everests — pasaules augstākais kalns."
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Āzija"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_031": {
+		"message": "Nosauciet kontinentu, kura lielā daļā dienvidu apgabala atrodas Patagonijas reģions."
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Āfrika"
+	},
+	"trivia_beginner_032": {
+		"message": "Nosauciet kontinentu, kur savā dabiskajā vidē dzīvo imperatorpingvīni."
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_033": {
+		"message": "Nosauciet valsti, kurā dzīvo ķenguri un koalas."
 	},
 	"trivia_beginner_033_answer0": {
 		"message": "Austrālija"
 	},
+	"trivia_beginner_033_answer1": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_beginner_034": {
+		"message": "Nosauciet kontinentu, kurā atrodas Serengeti nacionālais parks, uz kurieni tūristi dodas aplūkot savvaļas dzīvniekus."
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Āfrika"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Āzija"
+	},
 	"trivia_beginner_034_answer2": {
 		"message": "Austrālija"
+	},
+	"trivia_beginner_035": {
+		"message": "Kuram kontinentam ir vislielākā sauszemes platība?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Āzija"
 	},
 	"trivia_beginner_035_answer1": {
 		"message": "Austrālija"
 	},
+	"trivia_beginner_035_answer2": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_036": {
+		"message": "Nosauciet Eiropas pilsētu, kurā Temzas upi šķērso Tauera tilts."
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "Londona"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Havana"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Keiptauna"
+	},
 	"trivia_beginner_037": {
 		"message": "Kā sauc pilsētu Krievijā, kur Sarkanajā laukumā blakus Kremlim atrodas Vasilija Svētlaimīgā katedrāle?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Maskava"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Brisele"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
 	},
 	"trivia_beginner_038": {
 		"message": "Kurā Eiropas pilsētā atrodas Kolizejs, kas bija celts mūsu ēras 1.gs. un kas bija paredzēts gladiatoru cīņām?"
 	},
+	"trivia_beginner_038_answer0": {
+		"message": "Roma"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Hartūma"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manila"
+	},
+	"trivia_beginner_039": {
+		"message": "Nosauciet Austrālijas pilsētu, kurā atrodas Sidnejas operteātris un Harbour Bridge tilts."
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sidneja"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Džakarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Prāga"
+	},
+	"trivia_beginner_040": {
+		"message": "Nosauciet Tuvo Austrumu pilsētu, kuras vecpilsētās atrodas daudz svēto vietu piemēram, Klints doms un Raudu mūris."
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Jeruzaleme"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tokija"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Alžīrija"
+	},
+	"trivia_beginner_041": {
+		"message": "Nosauciet Grieķijas pilsētu, kurā Akropoles virsotnē atrodas Panteons."
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Atēnas"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kijeva"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "Nosauciet Francijas pilsētu, kuras centrā pie Sēnas atrodas Eifeļa tornis."
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "Parīze"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "Ņūdeli"
+	},
+	"trivia_beginner_043": {
+		"message": "Nosauciet Saūda Arābijas valsti, kurā atrodas Harāma mošeja, kura ieskauj musulmaņu vissvētāko vietu Kaabu."
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Meka"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Buenosairesa"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Budapešta"
+	},
+	"trivia_beginner_044": {
+		"message": "Nosauciet Ķīnas pilsētu, kuras centrā atrodas Aizliegtā pilsēta — senā imperatoru pils."
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Pekina"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santjago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbena"
+	},
+	"trivia_beginner_045": {
+		"message": "Nosauciet ASV pilsētu, kurā pie Pjudžitsaunda atrodas skatu tornis “Space Needle”."
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Sietla"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Vičita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "Ņūorleāna"
+	},
+	"trivia_beginner_046": {
+		"message": "Nosauciet Čārlza upes grīvā esošu ASV pilsētu, kuras augstākā ēka ir “John Hancock Tower”."
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Bostona"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pitsburga"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memfisa"
+	},
+	"trivia_beginner_047": {
+		"message": "Nosauciet ASV pilsētu, kas atrodas Mohaves tuksnesī un kura augstākā ēka ir “The Stratosphere Tower”, kura atrodas uz ziemeļiem no pazīstamā “The Strip” bulvāra."
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Lasvegasa"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Mineapolisa"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denvera"
+	},
+	"trivia_beginner_048": {
+		"message": "Nosauciet ASV pilsētu, kuras ostā uz Liberti salas atrodas lielā Brīvības statuja."
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "Ņujorka"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Losandželosa"
+	},
 	"trivia_beginner_049": {
 		"message": "Kuru ASV pilsētu Zelta vārtu tilts savieno ar Marinas pussalu?"
 	},
+	"trivia_beginner_049_answer0": {
+		"message": "Sanfrancisko"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boisa"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimora"
+	},
 	"trivia_beginner_050": {
 		"message": "Kurā ASV pilsētā atrodas Vārtu arka (Gateway Arch), kas atrodas pie Misisipi upes un simbolizē Amerikas Rietumu apgūšanu?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "Sentluisa"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianapolisa"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Maiami"
+	},
+	"trivia_beginner_051": {
+		"message": "Nosauciet Āfrikas valsti, kurā atrodas Gizas plakankalne, kurā atrodas Heopsa piramīda un Sfinksa."
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Ēģipte"
 	},
 	"trivia_beginner_051_answer1": {
 		"message": "Brazīlija"
@@ -338,38 +881,341 @@
 	"trivia_beginner_051_answer2": {
 		"message": "Vācija"
 	},
+	"trivia_beginner_052": {
+		"message": "Nosauciet ASV pilsētu, kurā pie Delavēras upes atrodas “Independence Hall” (Neatkarības deklarācijas izveidošanas ēka) — nozīmīga vēsturiska vieta, kas saistīta ar Amerikas pilsoņu karu."
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Filadelfija"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "Sanantonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Čikāga"
+	},
+	"trivia_beginner_053": {
+		"message": "Klinšu kalni šķērso Kanādu un vēl kādu valsti. Nosauciet šo valsti."
+	},
 	"trivia_beginner_053_answer0": {
 		"message": "Amerikas Savienotās Valstis"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Venecuēla"
 	},
 	"trivia_beginner_053_answer2": {
 		"message": "Krievija"
 	},
+	"trivia_beginner_054": {
+		"message": "Nosauciet okeānu, kas apskalo Brazīliju un Urugvaju."
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Atlantijas okeāns"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Indijas okeāns"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Ziemeļu Ledus okeāns"
+	},
+	"trivia_beginner_055": {
+		"message": "Nosauciet okeānu, kurā pie Kanādas austrumu krasta atrodas Ņūfaundlenda."
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Atlantijas okeāns"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Indijas okeāns"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Klusais okeāns"
+	},
+	"trivia_beginner_056": {
+		"message": "Nosauciet okeānu, kurā pie Āfrikas austrumu krasta atrodas Madagaskaras sala."
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Indijas okeāns"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Klusais okeāns"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Ziemeļu Ledus okeāns"
+	},
+	"trivia_beginner_057": {
+		"message": "Nosauciet okeānu, kuru šķērso datuma maiņas līnija."
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Klusais okeāns"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Indijas okeāns"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Atlantijas okeāns"
+	},
+	"trivia_beginner_058": {
+		"message": "Nosauciet kontinentu, kurā Kongo ieplaku šķērso ekvators."
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Āfrika"
+	},
 	"trivia_beginner_058_answer1": {
 		"message": "Austrālija"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_059": {
+		"message": "Nosauciet kontinentu, pie kura atrodas Meksikas līcis."
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Āzija"
+	},
+	"trivia_beginner_060": {
+		"message": "Nosauciet pasaules garāko upi, kas plūst cauri Āfrikai."
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Nīlas upe"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Kolorādo upe"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Oranžā jūra"
+	},
+	"trivia_beginner_061": {
+		"message": "Nosauciet kontinentu, kurā atrodas senās Maču Pikču drupas."
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_062": {
+		"message": "Nosauciet kontinentu, kuru šķērso Amazone — ar ūdeņiem visbagātākā pasaules upe."
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Dienvidamerika"
 	},
 	"trivia_beginner_062_answer1": {
 		"message": "Austrālija"
 	},
+	"trivia_beginner_062_answer2": {
+		"message": "Āzija"
+	},
+	"trivia_beginner_063": {
+		"message": "Nosauciet kontinentu, kurā atrodas Monblāns — Alpu augstākā virsotne."
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_beginner_064": {
+		"message": "Nosauciet kontinentu, kuru ar Centrālameriku savieno Panamas zemesšaurums."
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Āzija"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_065": {
+		"message": "Kenijā un Tanzānijā dzīvo pasaules visātrākie sauszemes zīdītāji — gepardi. Nosauciet kontinentu, kurā atrodas šīs valstis."
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Āfrika"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_066": {
+		"message": "Nosauciet kontinentu, kur netālu no galējā dienvidu punkta atrodas Labās Cerības rags."
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Āfrika"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Āzija"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Eiropa"
+	},
 	"trivia_beginner_067": {
 		"message": "Kā sauc okeānu, kurā atrodas Galapagu salas? Tajās dzīvo milzu bruņurupuči un tās atrodas uz rietumiem no Dienvidamerikas."
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Klusais okeāns"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Ziemeļu Ledus okeāns"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Indijas okeāns"
+	},
+	"trivia_beginner_068": {
+		"message": "Nosauciet kontinentu, kurā caur Vīni un citām pilsētām plūst Donavas upe."
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Eiropa"
 	},
 	"trivia_beginner_068_answer1": {
 		"message": "Austrālija"
 	},
+	"trivia_beginner_068_answer2": {
+		"message": "Āfrika"
+	},
+	"trivia_beginner_069": {
+		"message": "Nosauciet jūru, kura apskalo Kubas un Haiti salas."
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Karību jūra"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Beringa jūra"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Baltijas jūra"
+	},
+	"trivia_beginner_070": {
+		"message": "Nosauciet kontinentu, pie kura atrodas Gvinejas līcis."
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Āfrika"
+	},
 	"trivia_beginner_070_answer1": {
 		"message": "Austrālija"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_071": {
+		"message": "Nosauciet kontinentu, kuru atklāja Ernests Šekltons."
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_072": {
+		"message": "Nosauciet okeānu, kuram ir piederīga Labradoras jūra."
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Atlantijas okeāns"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Indijas okeāns"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Klusais okeāns"
+	},
+	"trivia_beginner_073": {
+		"message": "Nosauciet kontinentu, kurā atrodas Sahāra — pasaules lielākais tuksnesis."
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Āfrika"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_074": {
+		"message": "Nosauciet kontinentu, kurā atrodas Tibetas plato."
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Āzija"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_beginner_075": {
+		"message": "Nosauciet kontinentu, kura dienvidos atrodas Dreika šaurums."
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Eiropa"
 	},
 	"trivia_beginner_075_answer2": {
 		"message": "Austrālija"
 	},
+	"trivia_beginner_076": {
+		"message": "Nosauciet kontinentu, pie kura krastiem Koraļļu jūrā atrodas Lielais Barjerrifs."
+	},
 	"trivia_beginner_076_answer0": {
 		"message": "Austrālija"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Āzija"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Ziemeļamerika"
 	},
 	"trivia_beginner_077": {
 		"message": "Uz kuru valsti ir jādodas, lai kuģotu pa Suecas kanālu un apmeklētu Kairas Mirušo pilsētu?"
 	},
+	"trivia_beginner_077_answer0": {
+		"message": "Ēģipte"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Kolumbija"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Somija"
+	},
+	"trivia_beginner_078": {
+		"message": "Nosauciet valsti, uz kuru ir jādodas, lai redzētu, kā gaučo dzen lopus ganībās un kā Buenosairesā dejo tango."
+	},
 	"trivia_beginner_078_answer0": {
 		"message": "Argentīna"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Nigēra"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nepāla"
+	},
+	"trivia_beginner_079": {
+		"message": "Nosauciet valsti, uz kuru ir jādodas, lai apskatītu Fēsas veco kvartālu un dotos pārgājienos Atlasa kalnos."
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Maroka"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ekvadora"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Taizeme"
 	},
 	"trivia_beginner_080": {
 		"message": "Uz kuru valsti ir jādodas, lai apmeklētu gan seno maiju civilizācijas drupas, gan atpūstos Kankunas pludmalēs?"
@@ -377,8 +1223,23 @@
 	"trivia_beginner_080_answer0": {
 		"message": "Meksika"
 	},
+	"trivia_beginner_080_answer1": {
+		"message": "Nīderlande"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Turcija"
+	},
 	"trivia_beginner_081": {
 		"message": "Uz kuru valsti ir jādodas, lai apmeklētu Svētā Patrika katedrāli Dublinā un piedalītos Kilkeni mākslas festivālā?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Īrija"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Somālija"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Kostarika"
 	},
 	"trivia_beginner_082": {
 		"message": "Uz kuru valsti ir jādodas, lai izpētītu lietus mežus un uzdejotu Riodežaneiro karnevālā?"
@@ -389,26 +1250,419 @@
 	"trivia_beginner_082_answer1": {
 		"message": "Lielbritānija"
 	},
+	"trivia_beginner_082_answer2": {
+		"message": "Vjetnama"
+	},
+	"trivia_beginner_083": {
+		"message": "Nosauciet valsti, uz kuru ir jādodas, lai apmeklētu Sanktpēterburgā esošo Ermitāžas muzeju un dotos braucienā pa Transsibīrijas dzelzceļu."
+	},
 	"trivia_beginner_083_answer0": {
 		"message": "Krievija"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indonēzija"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Beliza"
+	},
+	"trivia_beginner_084": {
+		"message": "Nosauciet valsti, uz kuru ir jādodas, lai varētu braukt ar ātrvilcienu un pavadīt nakti Tokijas viesnīcā."
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Japāna"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Zimbabve"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Bolīvija"
+	},
+	"trivia_beginner_085": {
+		"message": "Nosauciet valsti, uz kuru ir jādodas, lai ēstu pesto Dženovā un apmeklētu operu Florencē."
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Itālija"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paragvaja"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Lībija"
+	},
+	"trivia_beginner_086": {
+		"message": "Nosauciet valsti, uz kuru ir jādodas, lai nokļūtu safari Maasai Mara dabas rezervātā un iepirktos Nairobi pilsētā,"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Kenija"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "Dienvidkoreja"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Čīle"
+	},
+	"trivia_beginner_087": {
+		"message": "Nosauciet valsti, uz kuru ir jādodas, lai apskatītu Gangas upi un izpētītu Kolkatas cilvēkiem pārblīvētās ielas."
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "Indija"
 	},
 	"trivia_beginner_087_answer1": {
 		"message": "Vācija"
 	},
+	"trivia_beginner_087_answer2": {
+		"message": "Jordānija"
+	},
+	"trivia_beginner_088": {
+		"message": "Nosauciet okeānu, kura vidū atrodas vistālāk ziemeļos esošais Zemes punkts — ziemeļpols."
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Ziemeļu Ledus okeāns"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Klusais okeāns"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Indijas okeāns"
+	},
+	"trivia_beginner_089": {
+		"message": "Kuru valsti apskalo Atlantijas okeāns?"
+	},
 	"trivia_beginner_089_answer0": {
 		"message": "Īslande"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Pakistāna"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Japāna"
+	},
+	"trivia_beginner_090": {
+		"message": "Nosauciet ASV štatu, kurš siltā klimata un iecienīto pludmaļu dēļ tiek dēvēts par saulaino štatu."
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Florida"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Meina"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Vašingtona"
+	},
+	"trivia_beginner_091": {
+		"message": "Nosauciet ASV štatu, kurā atrodas Lielais Kanjons."
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "Rietumvirdžīnija"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "Dienviddakota"
+	},
+	"trivia_beginner_092": {
+		"message": "Nosauciet ASV štatu, kurš tiek dēvēts par Vientuļās zvaigznes štatu, jo tā karogā ir redzama viena zvaigzne un kādreiz tā bija neatkarīga valsts."
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Teksasa"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Viskonsīna"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Merilenda"
+	},
+	"trivia_beginner_093": {
+		"message": "Nosauciet kontinentu, pa kuru plūst Tigras un Eifratas upes."
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Āzija"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Eiropa"
+	},
+	"trivia_beginner_094": {
+		"message": "Nosauciet kontinentu, kurā atrodas Viktorijas ezers un Virungas kalni."
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Āfrika"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Āzija"
+	},
+	"trivia_beginner_095": {
+		"message": "Kura valsts ir salu valsts Klusajā okeānā?"
 	},
 	"trivia_beginner_095_answer0": {
 		"message": "Jaunzēlande"
 	},
+	"trivia_beginner_095_answer1": {
+		"message": "Dienvidāfrika"
+	},
 	"trivia_beginner_095_answer2": {
 		"message": "Īslande"
+	},
+	"trivia_beginner_096": {
+		"message": "Kura valsts atrodas uz Skandināvijas pussalas?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Zviedrija"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Rumānija"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Peru"
+	},
+	"trivia_beginner_097": {
+		"message": "Kuru valsti apskalo Vidusjūra?"
 	},
 	"trivia_beginner_097_answer0": {
 		"message": "Francija"
 	},
+	"trivia_beginner_097_answer1": {
+		"message": "Bangladeša"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Nikaragva"
+	},
+	"trivia_hard_001": {
+		"message": "Kura ASV pilsēta atrodas vistuvāk Kanādas robežai?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Sietla"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sakramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "Nosauciet ASV štatu, kurā visbiežāk notiek viesuļvētras."
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Maiami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Losandželosa"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pitsburga"
+	},
+	"trivia_hard_003": {
+		"message": "Kuram no šiem ezeriem ir vislielākā platība?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Hūrona ezers"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Meda ezers"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Ēri ezers"
+	},
+	"trivia_hard_004": {
+		"message": "Kura no šīm ASV pilsētām ir visapdzīvotākā?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Čikāga"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "Sentluisa"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianapolisa"
+	},
+	"trivia_hard_005": {
+		"message": "Kura valsts atrodas vistuvāk Persijas līcim?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Irāna"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Turcija"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Butāna"
+	},
+	"trivia_hard_006": {
+		"message": "Kurai no šīm valstīm ir vislielākā sauszemes platība?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Kazahstāna"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Rumānija"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Polija"
+	},
+	"trivia_hard_007": {
+		"message": "Kura no šīm valstīm ir visblīvāk apdzīvota?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Singapūra"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Laosa"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Bolīvija"
+	},
+	"trivia_hard_008": {
+		"message": "Kurā no šīm valstīm ir vislielākais vācu valodā runājošo skaits?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Austrija"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Slovākija"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Irāka"
+	},
+	"trivia_hard_009": {
+		"message": "Kura no šīm valstīm robežojas ar visvairāk valstīm?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Saūda Arābija"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Maroka"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mongolija"
+	},
+	"trivia_hard_010": {
+		"message": "Kura valsts nerobežojas ar Tangaņikas ezeru?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benina"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Burundi"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Zambija"
+	},
+	"trivia_hard_011": {
+		"message": "Kuru valsti nešķērso ekvators?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Mauritānija"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indonēzija"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Kenija"
+	},
+	"trivia_hard_012": {
+		"message": "Kura valsts neatrodas uz Balkānu pussalas?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Čehija"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Bulgārija"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Maķedonija"
+	},
+	"trivia_hard_013": {
+		"message": "Kuru valsti neapskalo Ziemeļjūra?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Somija"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Dānija"
+	},
 	"trivia_hard_013_answer2": {
 		"message": "Lielbritānija"
+	},
+	"trivia_hard_014": {
+		"message": "Kura valsts nerobežojas ar Melno jūru?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Azerbaidžāna"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Ukraina"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Turcija"
+	},
+	"trivia_hard_015": {
+		"message": "Kura valsts nav iekšzemes valsts?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Horvātija"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Baltkrievija"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Ungārija"
+	},
+	"trivia_hard_016": {
+		"message": "Kura valsts neatrodas Sahārā?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angola"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Lībija"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Alžīrija"
+	},
+	"trivia_hard_017": {
+		"message": "Kura sala atrodas vistālāk uz austrumiem?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinidāda"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Jamaika"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Kuba"
+	},
+	"trivia_hard_018": {
+		"message": "Nosauciet ūdenstilpi, kurā ietek Keipfira."
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Atlantijas okeāns"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Karību jūra"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Klusais okeāns"
+	},
+	"trivia_hard_019": {
+		"message": "Nosauciet ostas pilsētu, kas atrodas Meksikas līcī."
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Verakrusa"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tihuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Akapulko"
+	},
+	"trivia_hard_020": {
+		"message": "Nosauciet valsti, kuru šķērso ziemeļu saulgriežu loks."
 	},
 	"trivia_hard_020_answer0": {
 		"message": "Meksika"
@@ -419,11 +1673,128 @@
 	"trivia_hard_020_answer2": {
 		"message": "Brazīlija"
 	},
+	"trivia_hard_021": {
+		"message": "Kurai no šīm salām ir vislielākā platībā?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Bafina sala"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Sardīnija"
+	},
 	"trivia_hard_022": {
 		"message": "Starp kuru salu un Meksiku atrodas Jukatanas kanāls?"
 	},
+	"trivia_hard_022_answer0": {
+		"message": "Kuba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Puertoriko"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dominika"
+	},
+	"trivia_hard_023": {
+		"message": "Kura Kanādas pilsēta atrodas vistālāk uz ziemeļiem?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Jelounaifa"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Otava"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Vinipega"
+	},
+	"trivia_hard_024": {
+		"message": "Kura sala pieder pie Mazajām Antiļu salām?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "Sentkitsa"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Bermudu salas"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Jaunskotija"
+	},
+	"trivia_hard_025": {
+		"message": "Nosauciet valsti, kuras visapdzīvotākā pilsēta ir Portoprensa."
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haiti"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Nikaragva"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Surinama"
+	},
+	"trivia_hard_026": {
+		"message": "Kura valsts atrodas Karpatu kalnu sistēmā?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Rumānija"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albānija"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Turkmenistāna"
+	},
+	"trivia_hard_027": {
+		"message": "Kuras valsts oficiālā valoda ir franču valoda."
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabona"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Kuveita"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tanzānija"
+	},
+	"trivia_hard_028": {
+		"message": "Kurai no šīm valstīm ir vislielākā sauszemes platība?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Irāna"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Izraēla"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Bahreina"
+	},
+	"trivia_hard_029": {
+		"message": "Nosauciet valsti, kura aizņem visvairāk garuma grādu."
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Kazahstāna"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afganistāna"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Sīrija"
+	},
+	"trivia_hard_030": {
+		"message": "Kura valsts sastāv no daudzām salām?"
+	},
 	"trivia_hard_030_answer0": {
 		"message": "Filipīnas"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Kambodža"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Tadžikistāna"
+	},
+	"trivia_hard_031": {
+		"message": "Kurā no šīm valstīm ir visvairāk laika joslu?"
 	},
 	"trivia_hard_031_answer0": {
 		"message": "Brazīlija"
@@ -431,23 +1802,485 @@
 	"trivia_hard_031_answer1": {
 		"message": "Gana"
 	},
+	"trivia_hard_031_answer2": {
+		"message": "Beliza"
+	},
+	"trivia_hard_032": {
+		"message": "Kura valsts atrodas vistālāk uz ziemeļiem?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Kamerūna"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Mozambika"
+	},
 	"trivia_hard_032_answer2": {
 		"message": "Austrālija"
+	},
+	"trivia_hard_033": {
+		"message": "Nosauciet valsti, kas atrodas starp Franciju un Spāniju."
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andora"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Luksemburga"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Vatikāns"
+	},
+	"trivia_hard_034": {
+		"message": "Nosauciet valsti, ar kuru robežojas Dānija."
 	},
 	"trivia_hard_034_answer0": {
 		"message": "Vācija"
 	},
+	"trivia_hard_034_answer1": {
+		"message": "Somija"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Moldova"
+	},
+	"trivia_hard_035": {
+		"message": "Nosauciet valsti, kurai pieder Sardīnijas sala."
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Itālija"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Turcija"
+	},
 	"trivia_hard_035_answer2": {
 		"message": "Lielbritānija"
+	},
+	"trivia_hard_036": {
+		"message": "Kurš tuksnesis plešas starp Pekinu un Ulanbatoru?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Tara tuksnesis"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Lībijas tuksnesis"
+	},
+	"trivia_hard_037": {
+		"message": "Nosauciet okeānu, kurā plūst Kamčatkas straume."
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Klusais okeāns"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Indijas okeāns"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Atlantijas okeāns"
+	},
+	"trivia_hard_038": {
+		"message": "Nosauciet jūru, kuras dienvidos atrodas Sidras līcis."
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Vidusjūra"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Arābijas jūra"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Baltijas jūra"
+	},
+	"trivia_hard_039": {
+		"message": "Nosauciet kalnu sistēmu Eiropā, kuras lielākā kalnu grēda ir Tatru kalni."
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Karpati"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Kantabrijas kalni"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Pireneji"
+	},
+	"trivia_hard_040": {
+		"message": "Nosauciet upi, kura plūst cauri Karibas ūdenskrātuvei un veido robežu starp Zambiju un Zimbabvi."
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Zambezi upe"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Nīlas upe"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Kongo upe"
+	},
+	"trivia_hard_041": {
+		"message": "Nosauciet jūru, kurā ietek Temzas, Mēzas un Šeldas upes."
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Ziemeļjūra"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Vidusjūra"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Melnā jūra"
+	},
+	"trivia_hard_042": {
+		"message": "Lusonas jūras šaurums Filipīnas atdala no kādas lielas salas uz ziemeļiem. Nosauciet šo salu."
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Taivāna"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Alžīrija"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Šrilanka"
+	},
+	"trivia_hard_043": {
+		"message": "Nosauciet pie Vidusatlantijas grēdas esošās salas."
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Azoru salas"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Bahamas"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Fidži salas"
+	},
+	"trivia_hard_044": {
+		"message": "Kura upe ietek Laptevu jūrā?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Ļenas upe"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Jandzi upe"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Indas upe"
+	},
+	"trivia_hard_045": {
+		"message": "Nosauciet virsotni, kura atrodas vistuvāk ekvatoram."
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimandžāro"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Monblāns"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Makinlija kalns"
+	},
+	"trivia_hard_046": {
+		"message": "Nosauciet visapdzīvotāko galvaspilsētu."
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Maskava"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Helsinki"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Alžīrija"
+	},
+	"trivia_hard_047": {
+		"message": "Nosauciet Īrijas vislielāko pilsētu, kas atrodas pie Liffi upes."
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dublina"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Oslo"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Kopenhāgena"
+	},
+	"trivia_hard_048": {
+		"message": "Nosauciet Afganistānas lielāko pilsētu, kas atrodas Hindukuša ielejā."
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Kabula"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Sarajeva"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "Nosauciet Taizemes lielāko pilsētu, kas atrodas pie Čavphrajas upes."
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Bangkoka"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Pekina"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Ammāna"
+	},
+	"trivia_hard_050": {
+		"message": "Nosauciet Norvēģijas lielāko pilsētu, kas atrodas pie fjorda Skageraka jūras šauruma malā."
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Oslo"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "Londona"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Brisele"
+	},
+	"trivia_hard_051": {
+		"message": "Nosauciet Libānas lielāko pilsētu, kas atrodas Vidusjūras austrumu krastā."
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Beirūta"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Mogadīšo"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Rijāda"
+	},
+	"trivia_hard_052": {
+		"message": "Nosauciet Indonēzijas lielāko pilsētu, kas atrodas Javas salas krastā."
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Džakarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tokija"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "Kura Atikas reģiona pilsēta ir Grieķijas lielākā pilsēta?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Atēnas"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Roma"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barselona"
 	},
 	"trivia_hard_054": {
 		"message": "Kā sauc lielāko Urugvajas pilsētu, kas atrodas Laplatas upes grīvā?"
 	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Kito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Riodežaneiro"
+	},
+	"trivia_hard_055": {
+		"message": "Nosauciet Dienvidāfrikas lielāko pilsētu, kas reiz atradās Transvālas provinces teritorijā."
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Johannesburga"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abudža"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputu"
+	},
+	"trivia_hard_056": {
+		"message": "Nosauciet Jamaikas lielāko pilsētu, kas ir nozīmīgs Karību jūras kuģu pārvadājumu centrs."
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Kingstona"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Karakasa"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Buenosairesa"
+	},
+	"trivia_hard_057": {
+		"message": "Nosauciet Eritrejas lielāko pilsētu, kura atrodas Lielā rifa ielejā."
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Bagdāde"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazavila"
+	},
+	"trivia_hard_058": {
+		"message": "Nosauciet Polijas lielāko pilsētu, kas atrodas Vislas upes krastos."
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Varšava"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berlīne"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kijeva"
+	},
+	"trivia_hard_059": {
+		"message": "Nosauciet Kostarikas lielāko pilsētu — nozīmīgu Panamerikas lielceļa pieturvietu."
+	},
+	"trivia_hard_059_answer0": {
+		"message": "Sanhosē"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sukre"
+	},
+	"trivia_hard_060": {
+		"message": "Nosauciet Zimbabves lielāko valsti, kas ir nozīmīgs lauksaimniecības centrs Āfrikā."
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Vindhoeka"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "Nosauciet Kambodžas lielāko pilsētu, kura reiz bija okupēta un nonāca “sarkano khmeru” pakļautībā"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Pnompeņa"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kualalumpura"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Daka"
+	},
+	"trivia_hard_062": {
+		"message": "Nosauciet Libērijas lielāko pilsētu, kas atrodas pie Mesurado zemesraga, kurš iestiepjas Atlantijas okeānā."
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monrovija"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Akra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaka"
+	},
+	"trivia_hard_063": {
+		"message": "Nosauciet Kolumbijas lielāko pilsētu, kura atrodas uz plakankalnes augstu Andu kalnos."
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogota"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managva"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterreja"
+	},
+	"trivia_hard_064": {
+		"message": "Nosauciet lielāko Irānas pilsētu, kas atrodas Elbursa kalnu pakājē."
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Teherāna"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Taškenta"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Stambula"
+	},
+	"trivia_hard_065": {
+		"message": "Kuru ūdenstilpi šķērso polārais loks?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Norvēģu jūra"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Voltas ūdenskrātuve"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Kaspijas jūra"
+	},
+	"trivia_hard_066": {
+		"message": "Kura ūdenstilpe atrodas Lielā rifa ielejā?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Malavi ezers"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Tasmānijas jūra"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Titikakas ezers"
+	},
+	"trivia_hard_067": {
+		"message": "Nosauciet ūdenstilpi, kuras krastā atrodas Krievijas ostas pilsēta Arhangeļska."
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Baltā jūra"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Basa šaurums"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Biskajas līcis"
+	},
+	"trivia_hard_068": {
+		"message": "Nosauciet valsti, kurā atrodas Hunaņas un Šaņdunas provinces."
+	},
+	"trivia_hard_068_answer0": {
+		"message": "Ķīna"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Taizeme"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Jemena"
+	},
+	"trivia_hard_069": {
+		"message": "Kuras Vidusjūras reģiona valsts oficiālā valoda ir kastīliešu valoda?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Spānija"
+	},
 	"trivia_hard_069_answer1": {
 		"message": "Grieķija"
 	},
+	"trivia_hard_069_answer2": {
+		"message": "Azerbaidžāna"
+	},
+	"trivia_hard_070": {
+		"message": "Kura Centrālamerikas valsts reiz bija Kolumbijai piederoša province?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panama"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Hondurasa"
+	},
 	"trivia_hard_070_answer2": {
 		"message": "Gvatemala"
+	},
+	"trivia_hard_071": {
+		"message": "Nosauciet valsti, kurā atrodas Bāzele — pilsēta Reinas upes krastos un nozīmīgs pārvadājumu centrs."
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Šveice"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Beļģija"
 	},
 	"trivia_hard_071_answer2": {
 		"message": "Krievija"
@@ -458,17 +2291,128 @@
 	"trivia_hard_072_answer0": {
 		"message": "Francija"
 	},
+	"trivia_hard_072_answer1": {
+		"message": "Nīderlande"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Rumānija"
+	},
 	"trivia_hard_073": {
 		"message": "Kurā valstī atrodas Baijablanka, kas ir lielākā kravas osta Pampas reģionā?"
 	},
 	"trivia_hard_073_answer0": {
 		"message": "Argentīna"
 	},
+	"trivia_hard_073_answer1": {
+		"message": "Bolīvija"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Nikaragva"
+	},
+	"trivia_hard_074": {
+		"message": "Kura valsts robežojas ar Vidusjūru, Melno jūru un Egejas jūru?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Turcija"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Bulgārija"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Lībija"
+	},
+	"trivia_hard_075": {
+		"message": "Nosauciet Tanzānijas kaimiņvalsti, uz kuru katru gadu no Tanzānijas pāri Mara upei uz ziemeļaustrumiem migrē gnu."
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Kenija"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Zambija"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Gvineja"
+	},
+	"trivia_hard_076": {
+		"message": "Nosauciet Āzijas dienvidrietumu valsti, kuras lielākā pilsēta ir Haleba, kas ir slavena ar to, ka tajā atrodas slavenā Lielā mošeja."
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Sīrija"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Omāna"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Bangladeša"
+	},
+	"trivia_hard_077": {
+		"message": "Kura valsts robežojas ar Krieviju un Gruziju?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Azerbaidžāna"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Uzbekistāna"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Ziemeļkoreja"
+	},
+	"trivia_hard_078": {
+		"message": "Kura valsts robežojas ar Panamu un Brazīliju?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Kolumbija"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Peru"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Kostarika"
+	},
+	"trivia_hard_079": {
+		"message": "Kura valsts robežojas ar Gvatemalu un ASV?"
+	},
 	"trivia_hard_079_answer0": {
 		"message": "Meksika"
 	},
+	"trivia_hard_079_answer1": {
+		"message": "Salvadora"
+	},
 	"trivia_hard_079_answer2": {
 		"message": "Kanāda"
+	},
+	"trivia_hard_080": {
+		"message": "Kura valsts robežojas ar Irāku un Afganistānu?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Irāna"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Ukraina"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mongolija"
+	},
+	"trivia_hard_081": {
+		"message": "Kura valsts robežojas ar Lesoto un Botsvānu?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Dienvidāfrika"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Zimbabve"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Kongo"
+	},
+	"trivia_hard_082": {
+		"message": "Nosauciet valsti, kuras flāmiski runājošajā daļā atrodas Antverpene."
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Beļģija"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Nīderlande"
 	},
 	"trivia_hard_082_answer2": {
 		"message": "Īslande"
@@ -476,8 +2420,41 @@
 	"trivia_hard_083": {
 		"message": "Kuras Eiropas valsts lielākā osta ir Gdaņska, kas atrodas netālu no Vislas ietekas jūrā?"
 	},
+	"trivia_hard_083_answer0": {
+		"message": "Polija"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Spānija"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Horvātija"
+	},
+	"trivia_hard_084": {
+		"message": "Nosauciet lielu Dienvidamerikas upi, kuras lielākās pietekas ir Madeira un Purusa."
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Amazone"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Orinoko upe"
+	},
 	"trivia_hard_084_answer2": {
 		"message": "Parana"
+	},
+	"trivia_hard_085": {
+		"message": "Bodenezers robežojas ar Šveici, Vāciju un vēl kādu valsti. Nosauciet šo valsti."
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Austrija"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Slovākija"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Somija"
+	},
+	"trivia_hard_086": {
+		"message": "Nosauciet valsti, kurā atrodas Oklenda — nozīmīga ostas pilsēta ar vairākām ostām."
 	},
 	"trivia_hard_086_answer0": {
 		"message": "Jaunzēlande"
@@ -485,56 +2462,695 @@
 	"trivia_hard_086_answer1": {
 		"message": "Austrālija"
 	},
+	"trivia_hard_086_answer2": {
+		"message": "Indonēzija"
+	},
+	"trivia_hard_087": {
+		"message": "Nosauciet valsti tieši uz rietumiem no Togo, kura ir galvenā kakao ražotājvalsts."
+	},
 	"trivia_hard_087_answer0": {
 		"message": "Gana"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Sudāna"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Tunisija"
 	},
 	"trivia_hard_088": {
 		"message": "Kurā Dienvidamerikas valstī par gvarani sauc gan vienu no oficiālajām valodām, gan valūtu?"
 	},
+	"trivia_hard_088_answer0": {
+		"message": "Paragvaja"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ekvadora"
+	},
 	"trivia_hard_088_answer2": {
 		"message": "Brazīlija"
+	},
+	"trivia_hard_089": {
+		"message": "Nosauciet kalnu grēdu, kas atrodas uz Francijas un Spānijas robežas."
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Pireneji"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Apenīni"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Kaukāza kalni"
+	},
+	"trivia_hard_090": {
+		"message": "Nosauciet valsti, kurā Torrensa upe ieplūst Sentvinsenta līcī."
 	},
 	"trivia_hard_090_answer0": {
 		"message": "Austrālija"
 	},
+	"trivia_hard_090_answer1": {
+		"message": "Uganda"
+	},
 	"trivia_hard_090_answer2": {
 		"message": "Kanāda"
+	},
+	"trivia_hard_091": {
+		"message": "Nosauciet pie Vidusjūras esošu Āfrikas valsti, kas ir monarhija."
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Maroka"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Ēģipte"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Centrālāfrikas Republika"
+	},
+	"trivia_hard_092": {
+		"message": "Nosauciet valsti, kuras galvaspilsēta ir Tbilisi, kas atrodas Kūras upes krastos."
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Džordžija"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Sīrija"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Ungārija"
+	},
+	"trivia_hard_093": {
+		"message": "Nosauciet valsti, kurā atrodas Abruco — kalnains reģions, kas atrodas pie Adrijas jūras."
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Itālija"
 	},
 	"trivia_hard_093_answer1": {
 		"message": "Francija"
 	},
+	"trivia_hard_093_answer2": {
+		"message": "Luksemburga"
+	},
+	"trivia_hard_094": {
+		"message": "Rīgas jūras līcis atrodas starp Latviju un vēl kādu valsti. Nosauciet šo valsti."
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Igaunija"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Baltkrievija"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Spānija"
+	},
+	"trivia_hard_095": {
+		"message": "Nosauciet jūru, kuru ar Suecas līci savieno Jubala jūras šaurums."
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Sarkanā jūra"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Karību jūra"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Kaspijas jūra"
+	},
+	"trivia_hard_096": {
+		"message": "Nosauciet upi, kas ir Galilejas jūras galvenā ieteka."
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Jordānas upe"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amudarja"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Gangas upe"
+	},
+	"trivia_hard_097": {
+		"message": "Nosauciet lielu līci, kurš atdala Ņūbransviku un Jaunskotiju."
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Fandi līcis"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Hudzonas līcis"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Bengālijas līcis"
+	},
+	"trivia_hard_098": {
+		"message": "Nosauciet valsti, kurā esošajā Reinzemes reģionā atrodas Ķelnes katedrāle."
+	},
 	"trivia_hard_098_answer0": {
 		"message": "Vācija"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Dānija"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Pakistāna"
+	},
+	"trivia_hard_099": {
+		"message": "Nosauciet valsti, kuras galējais dienvidu štats ir Čjapasa. Tajā atrodas vairākas seno maiju civilizācijas drupas."
 	},
 	"trivia_hard_099_answer0": {
 		"message": "Meksika"
 	},
+	"trivia_hard_099_answer1": {
+		"message": "Hondurasa"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Čīle"
+	},
+	"trivia_hard_100": {
+		"message": "Nosauciet jūru, kuru ar Marmora jūru savieno Dardaneļu jūras šaurums."
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Egejas jūra"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Barenca jūra"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Tasmānijas jūra"
+	},
+	"trivia_hard_101": {
+		"message": "Kuras dienvidaustrumu Āzijas valsts oficiālā valoda ir khmeru valoda."
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Kambodža"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nepāla"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Vjetnama"
+	},
+	"trivia_hard_102": {
+		"message": "Nosauciet valsti, kurā atrodas arī daļēji Krievijā esošā industriālā teritorija — Doņecas akmeņogļu baseins."
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Ukraina"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Slovākija"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Libāna"
+	},
+	"trivia_hard_103": {
+		"message": "Nosauciet kontinentu, kura augstākā virsotne ir Kostjuško kalns (kas atrodas Sniega kalnos)."
+	},
 	"trivia_hard_103_answer0": {
 		"message": "Austrālija"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Eiropa"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_hard_104": {
+		"message": "Nosauciet valsti, kurai pieder Maduras un Bali salas."
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indonēzija"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Japāna"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Pakistāna"
+	},
+	"trivia_hard_105": {
+		"message": "Nosauciet Āzijas valsti, kurā uz ziemeļiem no Kuņluņa kalniem atrodas Taklamakana tuksnesis."
+	},
+	"trivia_hard_105_answer0": {
+		"message": "Ķīna"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Saūda Arābija"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "Dienvidkoreja"
+	},
+	"trivia_medium_001": {
+		"message": "Kura no šīm ASV pilsētām atrodas pie upes deltas?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "Ņūorleāna"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Ostina"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Oklahomsitija"
+	},
+	"trivia_medium_002": {
+		"message": "Nosauciet kontinentu, kurā atrodas tādi UNESCO Pasaules mantojuma objekti kā Ankorvats un Kapadokija."
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Āzija"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Eiropa"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Āfrika"
+	},
+	"trivia_medium_003": {
+		"message": "Nosauciet kontinentu, kura dienvidrietumu daļā tiek runāts kurdu un persiešu valodās."
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Āzija"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Eiropa"
 	},
 	"trivia_medium_004": {
 		"message": "Kurā kontinentā atradās senā civilizācija ar lielāko centru Teotivakanu?"
 	},
+	"trivia_medium_004_answer0": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Āfrika"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Āzija"
+	},
+	"trivia_medium_005": {
+		"message": "Nosauciet kontinentu, kuru apskalo Belinshauzena jūra un Rosa jūra."
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Eiropa"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Āzija"
+	},
+	"trivia_medium_006": {
+		"message": "Nosauciet kontinentu, gar kura krastu plūst Mozambikas un Bengela straumes."
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Āfrika"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Eiropa"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_medium_007": {
+		"message": "Nosauciet kontinentu, kura dienvidaustrumu malā atrodas Folklenda salu arhipelāgs."
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Eiropa"
+	},
+	"trivia_medium_008": {
+		"message": "Kurai no šīm Āfrikas valstīm ir vislielākā platība?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Alžīrija"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gambija"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Burundi"
+	},
+	"trivia_medium_009": {
+		"message": "Nosauciet lielu salu, kas atrodas 320 kilometrus uz ziemeļrietumiem no Islandes."
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Grenlande"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Jaungvineja"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Īrija"
+	},
+	"trivia_medium_010": {
+		"message": "Nosauciet okeānu, kurā atrodas Karas jūra un Austrumsibīrijas jūra."
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Ziemeļu Ledus okeāns"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Indijas okeāns"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Klusais okeāns"
+	},
+	"trivia_medium_011": {
+		"message": "Nosauciet valsti, kuru apskalo Baltijas jūra."
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Latvija"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Slovēnija"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Ukraina"
+	},
+	"trivia_medium_012": {
+		"message": "Kura no šīm lielajām pilsētām ir visapdzīvotākā?"
+	},
 	"trivia_medium_012_answer0": {
 		"message": "Sanpaulu, Brazīlija"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto, Kanāda"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hanoja, Vjetnama"
+	},
+	"trivia_medium_013": {
+		"message": "Nosauciet valsti, kuras krastu neapskalo Altantijas okeāns."
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Malaizija"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Urugvaja"
+	},
+	"trivia_medium_014": {
+		"message": "Kurai no šīm valstīm ir visīsākā krasta līnija?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "Salvadora"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Peru"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Čīle"
+	},
+	"trivia_medium_015": {
+		"message": "Kurš tuksnesis atrodas Āzijā?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalahari"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atakama"
+	},
+	"trivia_medium_016": {
+		"message": "Kurā no šīm valstīm ir vislielākā vulkāniskā aktivitāte?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indonēzija"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Ēģipte"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Izraēla"
+	},
+	"trivia_medium_017": {
+		"message": "Kurā no šīm valstīm ir visvairāk iedzīvotāju?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Pakistāna"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Venecuēla"
+	},
+	"trivia_medium_018": {
+		"message": "Kurai no šīm valstīm ir visvairāk salu?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Bahamas"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Jamaika"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "Salvadora"
+	},
+	"trivia_medium_019": {
+		"message": "Kura valsts atrodas vistuvāk ekvatoram?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Ruanda"
 	},
 	"trivia_medium_019_answer1": {
 		"message": "Gvatemala"
 	},
+	"trivia_medium_019_answer2": {
+		"message": "Dienvidāfrika"
+	},
+	"trivia_medium_020": {
+		"message": "Kura valsts atrodas vistālāk uz ziemeļiem?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Igaunija"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Lībija"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Kambodža"
+	},
+	"trivia_medium_021": {
+		"message": "Nosauciet Portugāles galvaspilsētu, kurā Tažu upes krastos atrodas Alfamas rajons."
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lisabona"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berlīne"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Helsinki"
+	},
+	"trivia_medium_022": {
+		"message": "Nosauciet Jordānijas galvaspilsētu, kas atrodas 40 kilometrus uz ziemeļaustrumiem no Nāves jūras un ir visapdzīvotākā Jordānijas pilsēta."
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Ammāna"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Islambada"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Seula"
+	},
+	"trivia_medium_023": {
+		"message": "Kā sauc galvaspilsētu, kurā atrodas vairāku lielu ēģiptiešu protestu vieta — Tahrir laukums?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Kaira"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Maskata"
+	},
 	"trivia_medium_024": {
 		"message": "Kā sauc galvaspilsētu pie Tafelbājas, kurā atrodas Dienvidāfrikas parlaments (Nacionālā asambleja)?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Keiptauna"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaka"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinšasa"
+	},
+	"trivia_medium_025": {
+		"message": "Nosauciet Čehijas Republikas lielāko pilsētu (galvaspilsētu), kas atrodas pie Vltavas upes."
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Prāga"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dublina"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Sofija"
+	},
+	"trivia_medium_026": {
+		"message": "Nosauciet Lībijas galvaspilsētu, kas atrodas pie Vidusjūras un ir nozīmīga ostas pilsēta."
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Tripole"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Mogadīšo"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monrovija"
+	},
+	"trivia_medium_027": {
+		"message": "Nosauciet Sudānas galvaspilsētu — nozīmīgu tirdzniecības un pārvadājumu centru, kas atrodas Baltās Nīlas un Zilās Nīlas sateces vietā."
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Hartūma"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Tunisa"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Johannesburga"
+	},
+	"trivia_medium_028": {
+		"message": "Kā sauc galvaspilsētu, kura atrodas uz Dānijai piederošās Zēlandes un Amageras salas?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Kopenhāgena"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Berne"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Bratislava"
+	},
+	"trivia_medium_029": {
+		"message": "Nosauciet Bahamu salu lielāko pilsētu (galvaspilsētu), kura atrodas uz Ņūprovidensas salas."
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Naso"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santodomingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopāna"
 	},
 	"trivia_medium_030": {
 		"message": "Kā sauc galvaspilsētu, kura atrodas Melnās jūras dienvidos un kura ir Turcijas transporta sistēmas centrs?"
 	},
+	"trivia_medium_030_answer0": {
+		"message": "Ankara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minska"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Teherāna"
+	},
+	"trivia_medium_031": {
+		"message": "Kura no šīm valstīm daļēji atrodas uz Somālijas pussalas?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Eritreja"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Nigēra"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Svazilenda"
+	},
+	"trivia_medium_032": {
+		"message": "Nosauciet valsti, kuru no Dānijas atdala Skageraka jūras šaurums."
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Norvēģija"
+	},
 	"trivia_medium_032_answer1": {
 		"message": "Lielbritānija"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Šrilanka"
+	},
+	"trivia_medium_033": {
+		"message": "Nosauciet valsti, kuras lielāko daļu klāj tuksnesis."
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Čada"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Norvēģija"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Vjetnama"
+	},
+	"trivia_medium_034": {
+		"message": "Nosauciet valsti, caur kuru tek Eifrata."
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Sīrija"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Šveice"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Taizeme"
+	},
+	"trivia_medium_035": {
+		"message": "Nosauciet kontinentu, kurā blakus Baikāla ezeram atrodas Irkutskas pilsēta."
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Āzija"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Āfrika"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_medium_036": {
+		"message": "Nosauciet kontinentu, kuras lielākās upes ir Dņepra un Reina."
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Eiropa"
 	},
 	"trivia_medium_036_answer1": {
 		"message": "Antarktika"
 	},
+	"trivia_medium_036_answer2": {
+		"message": "Āzija"
+	},
+	"trivia_medium_037": {
+		"message": "Nosauciet kontinentu, kurā atrodas Gvajānas plakankalne un Pantanala."
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Ziemeļamerika"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Eiropa"
+	},
+	"trivia_medium_038": {
+		"message": "Nosauciet kontinentu, kurā atrodas Lielais Viktorijas tuksnesis un Nalārboras līdzenums."
+	},
 	"trivia_medium_038_answer0": {
 		"message": "Austrālija"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Āzija"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Eiropa"
+	},
+	"trivia_medium_039": {
+		"message": "Nosauciet valsti, kuras vistālāk uz dienvidiem esošais štats ir Riugrandi du Sula."
 	},
 	"trivia_medium_039_answer0": {
 		"message": "Brazīlija"
@@ -545,11 +3161,35 @@
 	"trivia_medium_039_answer2": {
 		"message": "Vācija"
 	},
+	"trivia_medium_040": {
+		"message": "Nosauciet valsti, kurā pie Obas upes atrodas Novosibirska."
+	},
 	"trivia_medium_040_answer0": {
 		"message": "Krievija"
 	},
+	"trivia_medium_040_answer1": {
+		"message": "Nepāla"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "Ķīna"
+	},
+	"trivia_medium_041": {
+		"message": "Nosauciet Klusā okeāna reģiona valsti, kurā visbiežāk notiek zemestrīces."
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Čīle"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angola"
+	},
 	"trivia_medium_041_answer2": {
 		"message": "Francija"
+	},
+	"trivia_medium_042": {
+		"message": "Nosauciet valsti, kuras ziemeļu krastā atrodas Marakaibo ezers."
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Venecuēla"
 	},
 	"trivia_medium_042_answer1": {
 		"message": "Gvatemala"
@@ -557,11 +3197,140 @@
 	"trivia_medium_042_answer2": {
 		"message": "Kanāda"
 	},
+	"trivia_medium_043": {
+		"message": "Kuru valsti apskalo Arābijas jūra?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "Indija"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Tadžikistāna"
+	},
 	"trivia_medium_043_answer2": {
 		"message": "Grieķija"
 	},
+	"trivia_medium_044": {
+		"message": "Kura valsts atrodas Ibērijas pussalā?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Portugāle"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Bangladeša"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Nīderlande"
+	},
+	"trivia_medium_045": {
+		"message": "Kurai no šīm valstīm ir visgarākā krasta līnija?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Taizeme"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Kongo"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Katara"
+	},
+	"trivia_medium_046": {
+		"message": "Kurš ASV štats atrodas uz rietumiem no Misisipi upes?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Kolorādo"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Merilenda"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Mičigana"
+	},
+	"trivia_medium_047": {
+		"message": "Nosauciet ASV štatu, kurā meži aizņem aptuveni 60% platības."
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virdžīnija"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "Nosauciet ASV štatu, kurā atrodas Makinlija kalns — augstākā Ziemeļamerikas virsotne."
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Aļaska"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Kolorādo"
+	},
+	"trivia_medium_049": {
+		"message": "Kuram no šiem ASV štatiem ir vislielākā platība?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montāna"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Konektikuta"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "Dienvidkarolīna"
+	},
+	"trivia_medium_050": {
+		"message": "Nosauciet ASV štatu, kurā blakus Rapidsitijai atrodas Rašmora kalns."
+	},
+	"trivia_medium_050_answer0": {
+		"message": "Dienviddakota"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregona"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Florida"
+	},
+	"trivia_medium_051": {
+		"message": "Kurš ASV štats robežojas ar Kanādu?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebraska"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentuki"
+	},
+	"trivia_medium_052": {
+		"message": "Nosauciet ASV štatu, kura krastos atrodas lielākie atklātie koraļļu rifi."
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Havaju salas"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Konektikuta"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "Nosauciet valsti, kuras viena no svarīgākajām ostas pilsētām ir Hamburga."
+	},
 	"trivia_medium_053_answer0": {
 		"message": "Vācija"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Horvātija"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Beļģija"
+	},
+	"trivia_medium_054": {
+		"message": "Nosauciet valsti, kurā ir vislielākā vulkāniskā aktivitāte."
 	},
 	"trivia_medium_054_answer0": {
 		"message": "Īslande"
@@ -569,14 +3338,143 @@
 	"trivia_medium_054_answer1": {
 		"message": "Lielbritānija"
 	},
+	"trivia_medium_054_answer2": {
+		"message": "Polija"
+	},
+	"trivia_medium_055": {
+		"message": "Nosauciet valsti, kura atrodas galvenokārt uz Mazāzijas pussalas."
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Turcija"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Mjanma"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Igaunija"
+	},
+	"trivia_medium_056": {
+		"message": "Nāves jūra atrodas uz divu valstu robežas. Viena no šīm valstīm ir Izraēla. Nosauciet otru valsti."
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Jordānija"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Irāna"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Japāna"
+	},
+	"trivia_medium_057": {
+		"message": "Nosauciet valsti, kurā Viktorijas ezera austrumu pusē atrodas Serengeti nacionālais parks."
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tanzānija"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Jemena"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nigērija"
+	},
+	"trivia_medium_058": {
+		"message": "Nosauciet valsti, kuru apskalo Karību jūra un kas ir galvenā naftas eksportētājvalsts."
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Venecuēla"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Čīle"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paragvaja"
+	},
+	"trivia_medium_059": {
+		"message": "Kura iekšzemes valsts atrodas dienvidu pusē tieši pie ekvatora."
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Burundi"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Džibutija"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Tunisija"
+	},
+	"trivia_medium_060": {
+		"message": "Nosauciet Vidusjūras reģiona valsti, kuru apskalo Tirēnu jūra."
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Itālija"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Izraēla"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Senegāla"
+	},
+	"trivia_medium_061": {
+		"message": "Nosauciet valsti, kurai Urālu kalnu austrumu pusē atrodas Jekaterinburga."
+	},
 	"trivia_medium_061_answer0": {
 		"message": "Krievija"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Lietuva"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Beļģija"
+	},
+	"trivia_medium_062": {
+		"message": "Nosauciet salu valsti uz dienvidaustrumiem no Austrālijas, kura ir vadošā vilnas ražotājvalsts."
 	},
 	"trivia_medium_062_answer0": {
 		"message": "Jaunzēlande"
 	},
 	"trivia_medium_062_answer1": {
 		"message": "Filipīnas"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Vjetnama"
+	},
+	"trivia_medium_063": {
+		"message": "Nosauciet valsti, kuras lielākā ostas pilsēta ir Mumbaja."
+	},
+	"trivia_medium_063_answer0": {
+		"message": "Indija"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Šveice"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Butāna"
+	},
+	"trivia_medium_064": {
+		"message": "Nosauciet valsti, kurā pie Dzeltenās jūras atrodas Inčhonas pilsēta."
+	},
+	"trivia_medium_064_answer0": {
+		"message": "Dienvidkoreja"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Taizeme"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mongolija"
+	},
+	"trivia_medium_065": {
+		"message": "Kura maza valsts atrodas pie Austrijas rietumu robežas?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Lihtenšteina"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Sīrija"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Moldova"
+	},
+	"trivia_medium_066": {
+		"message": "Nosauciet valsti, kurā atrodas Viktorijas un Jaundienvidvelsas štati."
 	},
 	"trivia_medium_066_answer0": {
 		"message": "Austrālija"
@@ -587,35 +3485,305 @@
 	"trivia_medium_066_answer2": {
 		"message": "Kanāda"
 	},
+	"trivia_medium_067": {
+		"message": "Kura Borneo salas valsts robežojas ar mazo Brunejas valsti?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Malaizija"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Irāna"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Ukraina"
+	},
+	"trivia_medium_068": {
+		"message": "Jūlija Alpi atrodas uz divu valstu robežas. Viena no tām ir Itālija. Nosauciet otru valsti."
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Slovēnija"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nepāla"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Tadžikistāna"
+	},
+	"trivia_medium_069": {
+		"message": "Nosauciet valsti, kuras ziemeļaustrumu daļā esošo reģionu kādreiz sauca par Mandžūriju."
+	},
+	"trivia_medium_069_answer0": {
+		"message": "Ķīna"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Baltkrievija"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afganistāna"
+	},
+	"trivia_medium_070": {
+		"message": "Kura valsts robežojas ar Salvadoru?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Hondurasa"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panama"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Dominikāna"
+	},
+	"trivia_medium_071": {
+		"message": "Nosauciet valsti, kurā atrodas Kaukāza kalni?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Džordžija"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Ungārija"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andora"
+	},
+	"trivia_medium_072": {
+		"message": "Nosauciet Āzijas valsti, kurai piederošais Zumda šaurums atdala divas salas."
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indonēzija"
+	},
 	"trivia_medium_072_answer1": {
 		"message": "Jaunzēlande"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Laosa"
+	},
+	"trivia_medium_073": {
+		"message": "Nosauciet valsti, kur blakus Šenonas upei var ieraudzīt ledāju klātas ielejas un iespaidīgas klintis."
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Īrija"
 	},
 	"trivia_medium_073_answer1": {
 		"message": "Francija"
 	},
+	"trivia_medium_073_answer2": {
+		"message": "Uzbekistāna"
+	},
+	"trivia_medium_074": {
+		"message": "Nosauciet Dienvidāzijas valsti, caur kuru plūst Indas upe."
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Pakistāna"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Ziemeļkoreja"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Azerbaidžāna"
+	},
+	"trivia_medium_075": {
+		"message": "Nosauciet valsti, kuru apskalo Sarkanā jūra."
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Eritreja"
+	},
 	"trivia_medium_075_answer1": {
 		"message": "Gana"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Kenija"
+	},
+	"trivia_medium_076": {
+		"message": "Nosauciet valsti, kurā atrodas Sakatekasa un Tabasko štati."
 	},
 	"trivia_medium_076_answer0": {
 		"message": "Meksika"
 	},
+	"trivia_medium_076_answer1": {
+		"message": "Beliza"
+	},
 	"trivia_medium_076_answer2": {
 		"message": "Argentīna"
+	},
+	"trivia_medium_077": {
+		"message": "Nosauciet valsti, kurā atrodas Rijāda — pilsēta ar vairāk nekā 4000 mošejām."
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Saūda Arābija"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albānija"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Sīrija"
+	},
+	"trivia_medium_078": {
+		"message": "Kura ir Āfrikas iekšzemes valsts?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Mauritānija"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Ēģipte"
+	},
+	"trivia_medium_079": {
+		"message": "Nosauciet valsti, kuras svētā vieta ir Fudži kalns."
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Japāna"
 	},
 	"trivia_medium_079_answer1": {
 		"message": "Filipīnas"
 	},
+	"trivia_medium_079_answer2": {
+		"message": "Bangladeša"
+	},
+	"trivia_medium_080": {
+		"message": "Kuras Lielo Antiļu salu valsts oficiālā valoda ir angļu valoda?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Jamaika"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Kuba"
+	},
+	"trivia_medium_081": {
+		"message": "Kura ir Sīrijas Kuveitas un Alžīrijas oficiālā valoda?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "Arābu valoda"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "Armēņu valoda"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "Vācu valoda"
+	},
+	"trivia_medium_082": {
+		"message": "Nosauciet kalnaino Eiropas valsti, kurā ik gadu notiek Zalcburgas festivāls (tajā bieži tiek uzvestas Mocarta operas)."
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Austrija"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Ungārija"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Rumānija"
+	},
+	"trivia_medium_083": {
+		"message": "Nosauciet valsti Sudānas ziemeļos, kurā atrodas Vaļu ieleja — tuksnesis, kurā atrastas aizvēsturiskas vaļu fosilijas."
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Ēģipte"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nigērija"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Zambija"
+	},
+	"trivia_medium_084": {
+		"message": "Nosauciet valsti, kurā pie Ziemeļjūras deltas atrodas Roterdama."
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Nīderlande"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Zviedrija"
+	},
 	"trivia_medium_084_answer2": {
 		"message": "Grieķija"
+	},
+	"trivia_medium_085": {
+		"message": "Nosauciet lielu kalnu sistēmu, kurā atrodas Brahmaputras upes izteka (šī upe ietek lielā deltā blakus Bengālijas līcim)."
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himalaji"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Urāli"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Alpi"
+	},
+	"trivia_medium_086": {
+		"message": "Kuras musulmaņu valsts oficiālā valoda ir persiešu valoda."
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Irāna"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Kuveita"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Lībija"
+	},
+	"trivia_medium_087": {
+		"message": "Nosauciet Eiropas valsti, uz kuru ir jādodas, lai redzētu, kā matadori cīnās ar buļļiem Seviļā."
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Spānija"
 	},
 	"trivia_medium_087_answer1": {
 		"message": "Vācija"
 	},
+	"trivia_medium_087_answer2": {
+		"message": "Maķedonija"
+	},
+	"trivia_medium_088": {
+		"message": "Nosauciet valsti, kurā atrodas Stambula — pilsēta, kura tiek uzskatīta par vietu, kurā satiekas austrumu un rietumu kultūra."
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Turcija"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Slovākija"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Omāna"
+	},
 	"trivia_medium_089": {
 		"message": "Kā sauc valsti, kura robežojas ar Salvadoru un Nikaragvu un kurā atrodas populāra apskates vieta — maiju pilsēta Kopana?"
 	},
+	"trivia_medium_089_answer0": {
+		"message": "Hondurasa"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Čīle"
+	},
 	"trivia_medium_089_answer2": {
 		"message": "Kanāda"
+	},
+	"trivia_medium_090": {
+		"message": "Nosauciet sauszemes valsti, kurā uz ziemeļiem no Nigēras upes atrodas Timbuktu, kas gandrīz tūkstoš gadus bija karavānu tirgošanās centrālā vieta."
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namībija"
+	},
+	"trivia_medium_091": {
+		"message": "Kura Dienvidamerikas iekšzemes valsts robežojas ar Čīli un Brazīliju?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Bolīvija"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Kolumbija"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Gajāna"
 	},
 	"trivia_medium_092": {
 		"message": "Kurā valstī atrodas Belena — pilsēta, kas atrodas Amazones dienvidu ietekā?"
@@ -623,14 +3791,107 @@
 	"trivia_medium_092_answer0": {
 		"message": "Brazīlija"
 	},
+	"trivia_medium_092_answer1": {
+		"message": "Kostarika"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Surinama"
+	},
+	"trivia_medium_093": {
+		"message": "Kura upe veido lielāko daļu no Bulgārijas ziemeļu robežas?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Donavas upe"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Obas upe"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Mekongas upe"
+	},
+	"trivia_medium_094": {
+		"message": "Nosauciet Āzijas valsti, kurā blakus Baikāla ezeram atrodas Sajāna kalni."
+	},
 	"trivia_medium_094_answer0": {
 		"message": "Krievija"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "Indija"
 	},
 	"trivia_medium_094_answer2": {
 		"message": "Kirgizstāna"
 	},
+	"trivia_medium_095": {
+		"message": "Nosauciet Kanādas provinci, kuras lielākais ezers ir Nipigona ezers."
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontārio"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "Britu Kolumbija"
+	},
+	"trivia_medium_096": {
+		"message": "Nosauciet jūru, kurā ietilpst Baleāru jūra un Jonijas jūra."
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Vidusjūra"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Baltijas jūra"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Karību jūra"
+	},
+	"trivia_medium_097": {
+		"message": "Nosauciet kontinentu, kurā atrodas tādi rifu ielejas ezeri kā Turkanas ezers un Natrona ezers."
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Āfrika"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Eiropa"
+	},
+	"trivia_medium_098": {
+		"message": "Nosauciet okeānu, kura dziļākā vieta ir Puertoriko dziļvaga."
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Atlantijas okeāns"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Ziemeļu Ledus okeāns"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Klusais okeāns"
+	},
+	"trivia_medium_099": {
+		"message": "Nosauciet kontinentu, kura austrumu daļā eikaliptu mežos dzīvo smejošās kookaburras."
+	},
 	"trivia_medium_099_answer0": {
 		"message": "Austrālija"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Āfrika"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Dienvidamerika"
+	},
+	"trivia_medium_100": {
+		"message": "Nosauciet Eiropas valsti, kuras rietumos atrodas Hāga — pilsēta, kurā atrodas Starptautiskā tiesa."
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Nīderlande"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Somija"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Bulgārija"
 	},
 	"twitter": {
 		"message": "Twitter"
