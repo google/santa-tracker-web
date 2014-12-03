@@ -15,7 +15,7 @@ Traditions scene.
 <template>
   <link rel="stylesheet" href="traditions-scene.css" no-shim>
 
-  <core-a11y-keys target="{{}}" keys="up down left right space" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="up down left right space enter" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
 
   <div id="module-traditions">
 
@@ -225,6 +225,7 @@ Traditions scene.
           break;
         case 'down':
         case 'right':
+        case 'enter':
           this.nextCountry(e);
           break;
         case 'space':
