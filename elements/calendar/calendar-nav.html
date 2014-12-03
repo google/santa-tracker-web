@@ -328,13 +328,7 @@ Village calendar navigation.
         // We don't want to share urls with #village or #calendar in them.
         var hash = location.hash.replace(/#village|#calendar/ig, '');
 
-        // Remove utm_* from the search
-        var search = location.search.replace(/utm_.*?(&|$)/g, '');
-
-        // If its just  ? then make it empty
-        if (search == '?') search = '';
-
-        return 'https://santatracker.google.com' + location.pathname.replace(/[^\/]*$/, '') + search + hash;
+        return 'https://santatracker.google.com/' + hash;
       },
 
       shareGplus: function(e) {
