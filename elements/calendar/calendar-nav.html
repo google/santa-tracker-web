@@ -326,7 +326,9 @@ Village calendar navigation.
 
       getNicePageUrl: function() {
         // We don't want to share urls with #village or #calendar in them.
-        return location.href.replace(/#village|#calendar/ig, '');
+        var hash = location.hash.replace(/#village|#calendar/ig, '');
+
+        return 'https://santatracker.google.com/' + hash;
       },
 
       shareGplus: function(e) {
