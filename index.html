@@ -105,7 +105,7 @@
       return true;
     })();
 
-    if (supported) {
+    if (!supported) {
       // If unsupported, run pageview before redirecting to update page.
       ga_.pushCommand(['_trackPageview', '/']);
       ga_.pushCommand(['_trackEvent', 'Polymer', 'unsupported-browser']);
