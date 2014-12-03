@@ -26,8 +26,11 @@ Village scene.
   :host([mode="cast"]) #hit-area-left,
   :host([mode="cast"]) #hit-area-right,
   :host([mode="cast"]) #trees,
+  :host([mode="cast"]) .house-marker,
+  :host([mode="cast"]) .marker-today,
+  :host([mode="cast"]) .marker-tomorrow,
   :host([mode="cast"]) #learnmore {
-    display: none;
+    display: none !important;
   }
   </style>
 
@@ -501,6 +504,26 @@ Village scene.
       }, duration, opt_easing);
     },
 
+    /**
+     * Animates the view by a certain amount.
+     * @param {number} delta Delta in pixels.
+     * @param {number=} opt_duration Duration of animation. Defaults to 600ms.
+     * @param {Function=} opt_easing Animation easing function.
+     */
+    panBy: function(delta, opt_duration, opt_easing) {
+      this.cancelScrollAnimation();
+
+      var scrollee = this.scrollContainer_;
+      var currentScroll = scrollee.scrollLeft;
+      var targetScroll = currentScroll + delta;
+      var duration = (opt_duration != null) ? opt_duration : 600;
+
+      this.scrollAnimation_ = this.animator_.animate(function(t) {
+        var scrollPos = currentScroll + t * (targetScroll - currentScroll);
+        scrollee.scrollLeft = /** @type {number} */(scrollPos);
+      }, duration, opt_easing);
+    },
+
     cancelScrollAnimation: function(e, detail, sender) {
       if (this.scrollAnimation_) {
         this.scrollAnimation_.cancel();
@@ -561,6 +584,10 @@ Village scene.
       } else if (detail.key === 'down' || detail.key === 'right') {
         direction = 1;
       } else {
+        return;
+      }
+      if (this.mode == 'cast') {
+        this.panBy(400 * direction);
         return;
       }
 
