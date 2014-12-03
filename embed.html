@@ -20,30 +20,12 @@
 -->
 
 <!-- style directly -->
-<div id="santa-tracker-container" style="width:600px;height:400px;"><div>
+<!-- <div id="santa-tracker-container" style="width:600px;height:400px;"><div> -->
 
-<script>
-(function() {
-var container = document.getElementById('santa-tracker-container');
-if (container) {
-  var iframe = document.createElement('iframe');
-  iframe.width = iframe.height = '100%';
-  iframe.style.border = '0';
-  iframe.style.minHeight = '350px';
-  iframe.style.minWidth = '500px';
-  iframe.style.maxHeight = '500px';
-  iframe.style.maxWidth = '800px';
-  container.style.display = 'inline-block';
-  container.style.height = (parseInt(getComputedStyle(container).height) || 400) + 'px';
-  container.style.width = (parseInt(getComputedStyle(container).width) || 600) + 'px';
-  iframe.style.maxWidth = '800px';
-  var base = 'https://santatracker.google.com';
-  var siteUrl = encodeURIComponent(window.location.href);
-  iframe.src = [base, '?api_client=web_embed&site=', siteUrl, '#village'].join('');
-  container.appendChild(iframe);
-}
-})();
-</script>
+<!-- default -->
+<div id="santa-tracker-container"></div>
+
+<script src="/embed.js" async></script>
 
 </body>
 </html>
