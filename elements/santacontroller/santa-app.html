@@ -1,6 +1,7 @@
 <link rel="import" href="../../components/polymer/polymer.html">
 
 <link rel="import" href="../../components/flatiron-director/flatiron-director.html">
+<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
 <link rel="import" href="../preloader/preload-overlay.html">
 <link rel="import" href="../calendar/calendar-nav.html">
 <link rel="import" href="../lazy-pages.html">
@@ -22,6 +23,9 @@ Santa Track app.
                  on-analytics-track-game-quit="{{trackGameQuit}}"
                  on-analytics-track-game-over="{{trackGameOver}}" tabindex="0">
 <template>
+  <!-- keyboard handler -->
+  <core-a11y-keys target="{{}}" keys="esc" on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+
   <!-- Route controller -->
   <flatiron-director route="{{route}}" autoHash></flatiron-director>
 
@@ -583,6 +587,14 @@ Polymer(Polymer.mixin({
     // Check again at the next hour tick.
     var timeTillHour = (60 - todayDate.getMinutes()) * 60 * 1000;
     this.scheduleTimeout_ = this.async(this.checkSchedule_, null, timeTillHour);
+  },
+
+  keyHandler: function(e, detail, sender) {
+    switch(e.detail.key) {
+      case 'esc':
+        this.route = 'village';
+        break;
+    }
   }
 
 }, chromecastMixin));

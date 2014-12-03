@@ -1,6 +1,7 @@
 <link rel="import" href="../base-scene.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
+<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
 
 <link rel="import" href="dependencies.html">
 
@@ -13,6 +14,8 @@ Traditions scene.
 <polymer-element name="traditions-scene" extends="base-scene">
 <template>
   <link rel="stylesheet" href="traditions-scene.css" no-shim>
+
+  <core-a11y-keys target="{{}}" keys="up down left right space enter" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
 
   <div id="module-traditions">
 
@@ -211,6 +214,23 @@ Traditions scene.
       this.shown = false;
       if (this.traditions) {
         this.traditions.onHide();
+      }
+    },
+
+    arrowHandler: function(e, detail, sender) {
+      switch (e.detail.key) {
+        case 'up':
+        case 'left':
+          this.prevCountry(e);
+          break;
+        case 'down':
+        case 'right':
+        case 'enter':
+          this.nextCountry(e);
+          break;
+        case 'space':
+          this.showWorld(e);
+          break;
       }
     }
 
