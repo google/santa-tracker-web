@@ -11,8 +11,14 @@ function startButton(elem, callback) {
     window.santaApp.fire('sound-trigger', 'generic_button_over');
   });
   button.one('click', function() {
+    $(window).off('.startbutton');
     window.santaApp.fire('sound-trigger', 'generic_button_click');
     callback();
     button.remove();
+  });
+  $(window).on('keydown.startbutton', function(event) {
+    if (event.keyCode === 13) {
+      button.trigger('click');
+    }
   });
 }
