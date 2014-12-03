@@ -283,14 +283,6 @@ Polymer(Polymer.mixin({
       apiClient = 'web';
     }
 
-    this.santaService = new SantaService(apiClient, this.language);
-    this.santaService.sync(this.checkSchedule_.bind(this));
-    this.santaService.addListener('kill', function() {
-      window.location = 'https://santatracker.google.com' +
-          location.pathname.replace(/[^\/]*$/, '') + 'error.html';
-
-    });
-
     if (apiClient === 'web_chromecast') {
       this.mode = 'cast';
       this.initChromecast();
@@ -309,19 +301,17 @@ Polymer(Polymer.mixin({
       }.bind(this));
     }
 
-    // Set post countdown/post flight flags based on current time.
-    if (this.santaService.now() > this.countDownEndDate) {
-      if (this.santaService.now() < this.FLIGHT_FINISHED) {
-        this.postCountdown = true;
-      } else {
-        this.postFlight = true;
-      }
-    }
-
     // Initialize routes.
     VALID_ROUTES_ = this.$.lazypages.items.map(function(el) {
       // Note: can't use .route b/c some scene elements won't be upgraded yet.
       return el.getAttribute('route');
+    });
+
+    this.santaService = new SantaService(apiClient, this.language);
+    this.santaService.sync(this.checkSchedule_.bind(this));
+    this.santaService.addListener('kill', function() {
+      window.location = 'https://santatracker.google.com' +
+          location.pathname.replace(/[^\/]*$/, '') + 'error.html';
     });
 
     if (!this.route) {
@@ -399,7 +389,7 @@ Polymer(Polymer.mixin({
                    this.sceneIsUnlocked(this.route)) ||
                    (this.postCountdown && this.route == TRACKER_ROUTE_);
       if (!valid) {
-        this.route = DEFAULT_ROUTE_;
+        this.route = this.postCountdown ? TRACKER_ROUTE_ : DEFAULT_ROUTE_;
       }
     }
   },
@@ -532,11 +522,17 @@ Polymer(Polymer.mixin({
    * @private
    */
   checkSchedule_: function() {
-    var now = this.santaService.now();
+    var todayDate = this.santaService.dateNow();
+    var tomorrowDate = new Date(todayDate).setDate(todayDate.getDate() + 1);
 
-    var todayDate = new Date(now);
-    var tomorrowDate = new Date(todayDate);
-    tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+    // Set post countdown/post flight flags based on current time.
+    if (todayDate > this.countDownEndDate) {
+      if (todayDate < this.FLIGHT_FINISHED) {
+        this.postCountdown = true;
+      } else {
+        this.postFlight = true;
+      }
+    }
 
     switch(todayDate.getMonth()) {
       case 11: // DECEMBER
@@ -549,7 +545,7 @@ Polymer(Polymer.mixin({
             house.today = isSameDay_(house.launchDate, todayDate);
             house.tomorrow = !house.today || isSameDay_(house.launchDate, tomorrowDate);
 
-            if (house.launchDate < now) {
+            if (house.launchDate < todayDate) {
               this.unlockHouse(i);
             } else {
               house.iced = true;
