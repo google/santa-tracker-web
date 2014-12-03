@@ -48,6 +48,8 @@
         width: 124px;
         left: -38px;
         position: relative;
+        pointer-events: none;
+        cursor: default;
 
         > * {
           line-height: 14px;
