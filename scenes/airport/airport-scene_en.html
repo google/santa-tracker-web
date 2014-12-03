@@ -1,4 +1,5 @@
 <link rel="import" href="../base-scene.html">
+<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
 
 <script src="airport-scene.min.js"></script>
 <script src="../../third_party/lib/TweenMax.min.js"></script>
@@ -13,6 +14,9 @@ Airport scene.
 <polymer-element name="airport-scene" extends="base-scene">
 <template>
   <link rel="stylesheet" href="airport-scene.css" no-shim>
+
+  <core-a11y-keys target="{{}}" keys="enter space up down left right"
+                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
 
   <div id="module-airport">
     <div class="scene">
@@ -337,6 +341,23 @@ Airport scene.
       this.belt.destroy();
       this.belt = null;
       this.fire('sound-ambient', 'airport_end');
+    },
+
+    keyHandler: function(e, details, sender) {
+      switch (e.detail.key) {
+        case 'right':
+        case 'up':
+          this.belt.controls.updateState_(1);
+          break;
+        case 'enter':
+        case 'space':
+          this.belt.controls.updateState_(0);
+          break;
+        case 'left':
+        case 'down':
+          this.belt.controls.updateState_(-1);
+          break;
+      }
     }
   });
 </script>
