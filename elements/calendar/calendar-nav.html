@@ -334,8 +334,7 @@ Village calendar navigation.
         // If its just  ? then make it empty
         if (search == '?') search = '';
 
-        return document.location.origin + search + hash;
-
+        return 'https://santatracker.google.com' + location.pathname.replace(/[^\/]*$/, '') + search + hash;
       },
 
       shareGplus: function(e) {
