@@ -105,14 +105,23 @@
       return true;
     })();
 
-    if (!supported) {
+    if (supported) {
       // If unsupported, run pageview before redirecting to update page.
       ga_.pushCommand(['_trackPageview', '/']);
       ga_.pushCommand(['_trackEvent', 'Polymer', 'unsupported-browser']);
       // redirect after analytics has been processed
-      _gaq.push(function() {
-        window.location = 'https://santatracker.google.com' +
+
+      var url = 'https://santatracker.google.com' +
             location.pathname.replace(/[^\/]*$/, '') + 'upgrade.html';
+      if (location.search != '') {
+        url += location.search;
+      }
+
+      if (location.hash != '') {
+        url += location.hash;
+      }
+      _gaq.push(function() {
+        window.location = url;
       });
     }
 
