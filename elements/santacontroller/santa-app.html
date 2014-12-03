@@ -284,6 +284,7 @@ Polymer(Polymer.mixin({
     }
 
     this.santaService = new SantaService(apiClient, this.language);
+    this.santaService.sync(this.checkSchedule_.bind(this));
     this.santaService.addListener('kill', function() {
       window.location = 'https://santatracker.google.com' +
           location.pathname.replace(/[^\/]*$/, '') + 'error.html';
@@ -324,6 +325,7 @@ Polymer(Polymer.mixin({
     });
 
     if (!this.route) {
+      this.checkSchedule_();
       this.route = this.postCountdown ? TRACKER_ROUTE_ : DEFAULT_ROUTE_;
     }
   },
@@ -365,12 +367,6 @@ Polymer(Polymer.mixin({
     el.loaded = true;
 
     this.$.lazypages.appendChild(el);
-  },
-
-  scheduleCheckedChanged: function() {
-    if (this.scheduleChecked) {
-      this.validateRoute();
-    }
   },
 
   routeChanged: function() {
@@ -518,8 +514,8 @@ Polymer(Polymer.mixin({
 
   sceneIsUnlocked: function(moduleName) {
     for (var i = 0, house; house = this.houses[i]; ++i) {
-      if (house.module == moduleName) {
-        return !house.iced;
+      if (house.module === moduleName) {
+        return this.santaService.now() > house.launchDate;
       }
     }
 
@@ -533,41 +529,30 @@ Polymer(Polymer.mixin({
 
   /**
    * Unlocks the correct houses based on the day (index).
-   * @param {boolean=} opt_once check only once.
    * @private
    */
-  checkSchedule_: function(opt_once) {
-    var now = this.santaService ? this.santaService.now() : Date.now();
+  checkSchedule_: function() {
+    var now = this.santaService.now();
 
     var todayDate = new Date(now);
-    var day = todayDate.getDate();
-
-    // // Houses unlock at 6AM.
-    // if (todayDate.getHours() < 6) {
-    //   day--;
-    // }
+    var tomorrowDate = new Date(todayDate);
+    tomorrowDate.setDate(tomorrowDate.getDate() + 1);
 
     switch(todayDate.getMonth()) {
       case 11: // DECEMBER
         // Unlock all houses up to and including today's.
-        for (var i = 0; i <= day + 2; ++i) {
+        for (var i = 0; i < this.houses.length; i++) {
           var house = this.houses[i];
 
           if (house) {
-            house.today = false; // reset previous houses.
-            house.tomorrow = false;
+            // mark the house if unlocked today or unlocking tomorrow
+            house.today = isSameDay_(house.launchDate, todayDate);
+            house.tomorrow = !house.today || isSameDay_(house.launchDate, tomorrowDate);
 
-            this.unlockHouse(i);
-
-            // Check if house's unlocking date it today!
-            if (isSameDay_(house.launchDate, todayDate)) {
-
-              house.today = true;
-
-              var nextHouse = this.houses[i + 1];
-              if (nextHouse) {
-                nextHouse.tomorrow = true;
-              }
+            if (house.launchDate < now) {
+              this.unlockHouse(i);
+            } else {
+              house.iced = true;
             }
           }
         }
@@ -581,10 +566,8 @@ Polymer(Polymer.mixin({
         this.lockAllHouses();
     }
 
-    if (opt_once) {
-      this.scheduleChecked = true;
-      return;
-    }
+    this.scheduleChecked = true;
+    this.validateRoute();
 
     // Check again at the next hour tick.
     var timeTillHour = (60 - todayDate.getMinutes()) * 60 * 1000;
