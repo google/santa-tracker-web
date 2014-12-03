@@ -269,11 +269,146 @@
 	"traditions-world": {
 		"message": "ทั่วโลก"
 	},
+	"trivia_beginner_001": {
+		"message": "เทือกเขาแอนดีสอยู่ในทวีปใด"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_002": {
+		"message": "รัฐใดของสหรัฐฯ ประกอบด้วยเกาะหลักๆ 8 เกาะ"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "ฮาวาย"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "โอไฮโอ"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "อาร์คันซอ"
+	},
+	"trivia_beginner_003": {
+		"message": "รัฐใดของสหรัฐฯ ตั้งอยู่บนที่ราบเกรตเพลนส์"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "แคนซัส"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "เดลาแวร์"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "ไอดาโฮ"
+	},
+	"trivia_beginner_004": {
+		"message": "ทวีปใดอยู่ติดกับมหาสมุทรแอตแลนติก แปซิฟิก และอาร์กติก"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "เอเชีย"
+	},
 	"trivia_beginner_004_answer1": {
 		"message": "ออสเตรเลีย"
 	},
+	"trivia_beginner_004_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_005": {
+		"message": "รัฐใดอยู่ในเขตเวลาแปซิฟิก"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "แคลิฟอร์เนีย"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "จอร์เจีย"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "อินดีแอนา"
+	},
+	"trivia_beginner_006": {
+		"message": "ทวีปใดเป็นที่ตั้งของเทือกเขาแอตลาสและทะเลทรายคาลาฮารี"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_007": {
+		"message": "รัฐใดในสหรัฐฯ อยู่ติดกับทะเลสาบเกรตเลก"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "โอไฮโอ"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "มอนแทนา"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "นิวเม็กซิโก"
+	},
+	"trivia_beginner_008": {
+		"message": "ทวีปใดที่ประชากรส่วนใหญ่พูดภาษาโปรตุเกสหรือสเปน"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_009": {
+		"message": "รัฐใดในสหรัฐฯ มีรูปทรงที่มีด้ามกระทะ"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "โอคลาโฮมา"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "ไวโอมิง"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "โคโลราโด"
+	},
+	"trivia_beginner_010": {
+		"message": "แอนตาร์กติกาและทวีปใดตั้งอยู่ในซีกโลกใต้ทั้งหมด"
+	},
 	"trivia_beginner_010_answer0": {
 		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_011": {
+		"message": "หิ้งน้ำแข็ง Ronne อยู่ติดกับทวีปใด"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_012": {
+		"message": "เกาะ Vancouver กับเกาะ Kodiak ตั้งอยู่ใกล้กับชายฝั่งตะวันตกของทวีปใด"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "เอเชีย"
 	},
 	"trivia_beginner_012_answer2": {
 		"message": "ออสเตรเลีย"
@@ -281,8 +416,44 @@
 	"trivia_beginner_013": {
 		"message": "ไนเจอร์ซึ่งเป็นหนึ่งในประเทศที่มีอัตราการเติบโตของประชากรสูงที่สุดในโลกตั้งอยู่ทางตะวันตกเฉียงเหนือของทวีปใด"
 	},
+	"trivia_beginner_013_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_014": {
+		"message": "ทวีปใดมีพืชและต้นไม้น้อยที่สุด"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_015": {
+		"message": "แทสเมเนียนเดวิลอาศัยอยู่ในเกาะใกล้กับชายฝั่งทางใต้ของทวีปใด"
+	},
 	"trivia_beginner_015_answer0": {
 		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_016": {
+		"message": "หอเอนปิซาเป็นสถานที่ท่องเที่ยวยอดนิยมในประเทศใดในแถบเมดิเตอร์เรเนียน"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "อิตาลี"
 	},
 	"trivia_beginner_016_answer1": {
 		"message": "แคนาดา"
@@ -290,47 +461,419 @@
 	"trivia_beginner_016_answer2": {
 		"message": "กานา"
 	},
+	"trivia_beginner_017": {
+		"message": "กาซาบล็องกากับตริโปลีเป็นเมืองเก่าแก่บนชายฝั่งทางเหนือของทวีปใด"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_018": {
+		"message": "กระบอกเพชรซากัวโรพบได้ในทะเลทรายโซนอรันในทวีปใด"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_019": {
+		"message": "เวรากรูซและอะคาปุลโกเป็นแหล่งท่องเที่ยวยอดนิยมในประเทศใด"
+	},
 	"trivia_beginner_019_answer0": {
 		"message": "เม็กซิโก"
 	},
 	"trivia_beginner_019_answer1": {
 		"message": "อาร์เจนตินา"
 	},
+	"trivia_beginner_019_answer2": {
+		"message": "อินเดีย"
+	},
 	"trivia_beginner_020": {
 		"message": "ศูนย์อนุรักษ์แพนด้าเสฉวนซึ่งเป็นที่อยู่ของแพนด้า 30 เปอร์เซ็นต์ของโลกตั้งอยู่ในประเทศใด"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "จีน"
 	},
 	"trivia_beginner_020_answer1": {
 		"message": "ไอซ์แลนด์"
 	},
+	"trivia_beginner_020_answer2": {
+		"message": "เอธิโอเปีย"
+	},
 	"trivia_beginner_021": {
 		"message": "น้ำแข็งประมาณ 90 เปอร์เซ็นต์ของโลกอยู่ในทวีปใด"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "ยุโรป"
 	},
 	"trivia_beginner_022": {
 		"message": "Angel Falls เป็นน้ำตกที่สูงที่สุดในโลกซึ่งตั้งอยู่ในประเทศใด"
 	},
+	"trivia_beginner_022_answer0": {
+		"message": "อเมริกาใต้"
+	},
 	"trivia_beginner_022_answer1": {
 		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_023": {
+		"message": "หากต้องการเที่ยวชมหุบเขา Jackson Hole และปีน Devils Tower คุณจะต้องเดินทางไปยังรัฐใดของสหรัฐฯ"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "ไวโอมิง"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "นอร์ทดาโคตา"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "คอนเนตทิคัต"
+	},
+	"trivia_beginner_024": {
+		"message": "หากต้องการชมการเก็บน้ำหวานจากต้นเมเปิลและเล่นสกีบนเทือกเขากรีน คุณจะต้องเดินทางไปยังรัฐใดของสหรัฐฯ"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "เวอร์มอนต์"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "ออริกอน"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "แอริโซนา"
+	},
+	"trivia_beginner_025": {
+		"message": "คุณต้องไปยังรัฐใดของสหรัฐฯ หากต้องการขับรถข้ามสะพาน Chesapeake Bay และเดินบนทางไม้กระดานที่ Ocean City"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "แมริแลนด์"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "แคนซัส"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "นอร์ทแคโรไลนา"
+	},
+	"trivia_beginner_026": {
+		"message": "ถ้าอยากเยี่ยมชมแมมมอทเคฟและดูการแข่งม้าที่ Churchill Downs ต้องเดินทางไปยังรัฐใดของสหรัฐฯ"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "เคนทักกี"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "เวสต์เวอร์จิเนีย"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "ยูทาห์"
+	},
+	"trivia_beginner_027": {
+		"message": "หากต้องการเห็นต้น Giant Sequoia และชมหมู่เกาะแชนเนล คุณจะต้องเดินทางไปยังรัฐใดของสหรัฐฯ"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "แคลิฟอร์เนีย"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "นิวเจอร์ซีย์"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "เวอร์จิเนีย"
+	},
+	"trivia_beginner_028": {
+		"message": "พื้นที่ชุ่มน้ำใดที่คุณจะไปเยี่ยมชมหากอยู่ในรัฐฟลอริดาแห่งสหรัฐอเมริกา"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "เอเวอร์เกลดส์"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Dismal Swamp"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "ที่ลุ่มน้ำขังเกรตไซเปรส"
+	},
+	"trivia_beginner_029": {
+		"message": "หากต้องการเที่ยวชม St. Lawrence Seaway และกลุ่มทะเลสาบ Finger คุณจะต้องเดินทางไปยังรัฐใดของสหรัฐฯ"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "นิวยอร์ก"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "มิชิแกน"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "เนวาดา"
+	},
+	"trivia_beginner_030": {
+		"message": "ภูเขาเอเวอเรสต์ซึ่งเป็นภูเขาที่สูงที่สุดในโลกตั้งอยู่ในทวีปใด"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_031": {
+		"message": "ภูมิภาคปาตาโกเนียครอบคลุมพื้นที่ทางใต้ของทวีปใดอย่างกว้างขวาง"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_032": {
+		"message": "เพนกวินจักรพรรดิพบได้ในแหล่งที่อยู่อาศัยตามธรรมชาติในทวีปใด"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_033": {
+		"message": "จิงโจ้กับหมีโคอาลาเป็นสัตว์ท้องถิ่นของประเทศใด"
 	},
 	"trivia_beginner_033_answer0": {
 		"message": "ออสเตรเลีย"
 	},
+	"trivia_beginner_033_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_034": {
+		"message": "อุทยานแห่งชาติ Serengeti ซึ่งมีสิ่งมีชีวิตตามธรรมชาติที่ดึงดูดนักท่องเที่ยวมากมาย ตั้งอยู่ในทวีปใด"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "เอเชีย"
+	},
 	"trivia_beginner_034_answer2": {
 		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_035": {
+		"message": "ทวีปใดมีพื้นที่แผ่นดินกว้างใหญ่ที่สุด"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "เอเชีย"
 	},
 	"trivia_beginner_035_answer1": {
 		"message": "ออสเตรเลีย"
 	},
+	"trivia_beginner_035_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_036": {
+		"message": "สะพานทาวเวอร์บริดจ์ทอดข้ามแม่น้ำเทมส์ในเมืองใดของยุโรป"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "ลอนดอน"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "ฮาวานา"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "เคปทาวน์"
+	},
 	"trivia_beginner_037": {
 		"message": "วิหาร Saint Basil’s ตั้งอยู่ที่จัตุรัส Red Square ถัดจาก Kremlin ในเมืองใดของรัสเซีย"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "มอสโก"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "บรัสเซลส์"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "มอนเตวิเดโอ"
 	},
 	"trivia_beginner_038": {
 		"message": "Colosseum ซึ่งสร้างในศตวรรษแรกของคริสตศักราชเพื่อเป็นสถานที่ประลองของนักรบแกลดิเอเอตอร์ตั้งอยู่ในเมืองใดของทวีปยุโรป"
 	},
+	"trivia_beginner_038_answer0": {
+		"message": "โรม"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "คาร์ทูม"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "มะนิลา"
+	},
+	"trivia_beginner_039": {
+		"message": "Opera House และสะพาน Harbour ตั้งอยู่ในเมืองใดของออสเตรเลีย"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "ซิดนีย์"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "จาการ์ตา"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "ปราก"
+	},
+	"trivia_beginner_040": {
+		"message": "Dome of the Rock กับ Western Wall เป็นเพียงสถานที่ศักดิ์สิทธิ์ 2 แห่งจากหลายแห่งที่พบภายในกำแพงเมืองเก่าของเมืองใดในตะวันออกกลาง"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "เยรูซาเล็ม"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "โตเกียว"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "แอลเจียร์"
+	},
+	"trivia_beginner_041": {
+		"message": "วิหารพาร์เธนอนตั้งอยู่บนเนินอะโครโพลิสในเมืองใดของกรีซ"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "เอเธนส์"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "เคียฟ"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "ลิมา"
+	},
+	"trivia_beginner_042": {
+		"message": "หอไอเฟลที่อยู่ใกล้แม่น้ำแซนตั้งตระหง่านเหนือใจกลางเมืองใดในฝรั่งเศส"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "ปารีส"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "โทรอนโต"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "นิวเดลี"
+	},
+	"trivia_beginner_043": {
+		"message": "มัสยิดฮะรอมซึ่งเป็นที่ตั้งของกะอ์บะฮ์ สถานที่ศักดิ์สิทธิ์ที่สุดในศาสนาอิสลาม ตั้งอยู่ในเมืองใดของซาอุดีอาระเบีย"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "เมกกะ"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "บัวโนสไอเรส"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "บูดาเปสต์"
+	},
+	"trivia_beginner_044": {
+		"message": "พระราชวังต้องห้ามเป็นอดีตพระราชวังหลวงที่อยู่ในใจกลางเมืองใดของจีน"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "ปักกิ่ง"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "ซันติอาโก"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "บริสเบน"
+	},
+	"trivia_beginner_045": {
+		"message": "Space Needle เป็นหอสังเกตการณ์ที่ตั้งอยู่ในเมืองใดของสหรัฐฯ (เมืองนี้อยู่ที่ปากน้ำ Puget)"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "ซีแอตเติล"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "วิชิตา"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "นิวออร์ลีนส์"
+	},
+	"trivia_beginner_046": {
+		"message": "ตึก John Hancock Tower เป็นอาคารที่สูงที่สุดในเมืองใดของสหรัฐฯ (เมืองนี้ตั้งอยู่ที่ปากแม่น้ำ Charles)"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "บอสตัน"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "พิตต์สเบิร์ก"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "เมมฟิส"
+	},
+	"trivia_beginner_047": {
+		"message": "Stratosphere Tower ซึ่งตั้งอยู่ทางเหนือของถนนชื่อดังที่เรียกว่า The Strip\nเป็นสิ่งก่อสร้างที่สูงที่สุดในเมืองใดของสหรัฐฯ (เมืองนี้อยู่ในทะเลทรายโมฮาวี)"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "ลาสเวกัส"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "มินนิอาโปลิส"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "เดนเวอร์"
+	},
+	"trivia_beginner_048": {
+		"message": "อนุสาวรีย์เทพีเสรีภาพเป็นประติมากรรมขนาดใหญ่ ณ เกาะลิเบอร์ตี ซึ่งอยู่บริเวณท่าเรือของเมืองใดในสหรัฐฯ"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "นครนิวยอร์ก"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "แอตแลนตา"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "ลอสแอนเจลิส"
+	},
 	"trivia_beginner_049": {
 		"message": "สะพานโกลเดนเกตเชื่อมเมืองใดของสหรัฐอเมริกากับคาบสมุทร Marin"
 	},
+	"trivia_beginner_049_answer0": {
+		"message": "ซานฟรานซิสโก"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "บอยซี"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "บัลติมอร์"
+	},
 	"trivia_beginner_050": {
 		"message": "Gateway Arch ซึ่งเป็นสัญลักษณ์แห่งการขยายประเทศไปทางตะวันตกของอเมริกาในศตวรรษที่ 1800 ตั้งอยู่ริมแม่น้ำมิสซิสซิปปีในเมืองใดของสหรัฐอเมริกา"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "เซนต์หลุยส์"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "อินเดียแนโพลิส"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "ไมอามี"
+	},
+	"trivia_beginner_051": {
+		"message": "ที่ราบสูงกีซา ซึ่งเป็นที่ตั้งของมหาพีระมิดและสฟิงซ์ อยู่ในประเทศใดของแอฟริกา"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "อียิปต์"
 	},
 	"trivia_beginner_051_answer1": {
 		"message": "บราซิล"
@@ -338,38 +881,341 @@
 	"trivia_beginner_051_answer2": {
 		"message": "เยอรมนี"
 	},
+	"trivia_beginner_052": {
+		"message": "Independence Hall สถานที่สำคัญทางประวัติศาสตร์ที่เกี่ยวข้องกับการปฏิวัติอเมริกา ตั้งอยู่ใกล้แม่น้ำเดลาแวร์ในเมืองใดของสหรัฐฯ"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "ฟิลาเดลเฟีย"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "แซนแอนโทนีโอ"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "ชิคาโก"
+	},
+	"trivia_beginner_053": {
+		"message": "เทือกเขาร็อกกีพาดผ่านแคนาดากับประเทศใด"
+	},
 	"trivia_beginner_053_answer0": {
 		"message": "สหรัฐอเมริกา"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "เวเนซุเอลา"
 	},
 	"trivia_beginner_053_answer2": {
 		"message": "รัสเซีย"
 	},
+	"trivia_beginner_054": {
+		"message": "บราซิลและอุรุกวัยอยู่ติดกับมหาสมุทรใด"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "มหาสมุทรแอตแลนติก"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "มหาสมุทรอาร์กติก"
+	},
+	"trivia_beginner_055": {
+		"message": "เกาะนิวฟันด์แลนด์ตั้งอยู่ใกล้กับชายฝั่งตะวันออกของแคนาดาในมหาสมุทรใด"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "มหาสมุทรแอตแลนติก"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_beginner_056": {
+		"message": "เกาะมาดากัสการ์ตั้งอยู่ใกล้กับชายฝั่งตะวันออกของแอฟริกาในมหาสมุทรใด"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "มหาสมุทรอาร์กติก"
+	},
+	"trivia_beginner_057": {
+		"message": "เส้นแบ่งเขตวันสากลทอดผ่านมหาสมุทรใดเป็นส่วนใหญ่"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "มหาสมุทรแอตแลนติก"
+	},
+	"trivia_beginner_058": {
+		"message": "เส้นศูนย์สูตรพาดผ่านลุ่มน้ำคองโกในทวีปใด"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "แอฟริกา"
+	},
 	"trivia_beginner_058_answer1": {
 		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_059": {
+		"message": "ทวีปใดอยู่ติดกับอ่าวเม็กซิโก"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_060": {
+		"message": "แม่น้ำใดที่ไหลผ่านแอฟริกาและเป็นแม่น้ำสายที่ยาวที่สุดในโลก"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "แม่น้ำไนล์"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "แม่น้ำโคโลราโด"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "แม่น้ำออเรนจ์"
+	},
+	"trivia_beginner_061": {
+		"message": "ซากอารยธรรมโบราณมาชูปิกชูตั้งอยู่ในทวีปใด"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_062": {
+		"message": "แม่น้ำอะเมซอน ซึ่งเป็นแม่น้ำที่มีปริมาณน้ำมากที่สุดในโลก ไหลผ่านทวีปใด"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "อเมริกาใต้"
 	},
 	"trivia_beginner_062_answer1": {
 		"message": "ออสเตรเลีย"
 	},
+	"trivia_beginner_062_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_063": {
+		"message": "มงบล็อง ยอดเขาบนเทือกเขาแอลป์ ตั้งอยู่ในทวีปใด"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_064": {
+		"message": "คอคอดปานามาเชื่อมอเมริกากลางกับทวีปใด"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_065": {
+		"message": "เสือชีตาห์เป็นสัตว์บกที่เลี้ยงลูกด้วยนมซึ่งวิ่งเร็วที่สุดในโลก พบได้ในเคนยาและแทนซาเนียในทวีปใด"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_066": {
+		"message": "แหลมกู๊ดโฮปตั้งอยู่ใกล้ปลายแผ่นดินทางตอนใต้ของทวีปใด"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "ยุโรป"
+	},
 	"trivia_beginner_067": {
 		"message": "เต่ายักษ์อาศัยอยู่บนเกาะกาลาปากอสซึ่งอยู่ทางตะวันตกของอเมริกาใต้ในมหาสมุทรใด"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "มหาสมุทรอาร์กติก"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_beginner_068": {
+		"message": "แม่น้ำดานูบไหลผ่านเวียนนาและเมืองอื่นๆ ในทวีปใด"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "ยุโรป"
 	},
 	"trivia_beginner_068_answer1": {
 		"message": "ออสเตรเลีย"
 	},
+	"trivia_beginner_068_answer2": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_069": {
+		"message": "เกาะคิวบาและฮิสปันโยลาตั้งอยู่ติดกับทะเลใด"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "ทะเลแคริบเบียน"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "ทะเลเบริง"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "ทะเลบอลติก"
+	},
+	"trivia_beginner_070": {
+		"message": "อ่าวกินีอยู่ติดกับทวีปใด"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "แอฟริกา"
+	},
 	"trivia_beginner_070_answer1": {
 		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_071": {
+		"message": "Ernest Shackleton เป็นนักสำรวจชื่อก้องที่สำรวจทวีปใด"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_072": {
+		"message": "ทะเล Labrador เป็นทะเลที่เชื่อมกับมหาสมุทรใด"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "มหาสมุทรแอตแลนติก"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_beginner_073": {
+		"message": "ซาฮารา ทะเลทรายที่ใหญ่ที่สุดในโลก อยู่ในทวีปใด"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_074": {
+		"message": "ที่ราบสูงทิเบตอยู่ในทวีปใด"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_075": {
+		"message": "ช่องแคบเดรกอยู่ทางใต้ของทวีปใด"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "ยุโรป"
 	},
 	"trivia_beginner_075_answer2": {
 		"message": "ออสเตรเลีย"
 	},
+	"trivia_beginner_076": {
+		"message": "แนวปะการัง Great Barrier Reef ตั้งอยู่ในทะเลคอรัลใกล้กับชายฝั่งทวีปใด"
+	},
 	"trivia_beginner_076_answer0": {
 		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "อเมริกาเหนือ"
 	},
 	"trivia_beginner_077": {
 		"message": "หากต้องการล่องคลอง Suez และเยี่ยมชมนครแห่งความตายของเมืองไคโร คุณจะต้องเดินทางไปที่ประเทศใด"
 	},
+	"trivia_beginner_077_answer0": {
+		"message": "อียิปต์"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "โคลอมเบีย"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "ฟินแลนด์"
+	},
+	"trivia_beginner_078": {
+		"message": "ถ้าอยากดูคนขี่ม้าเลี้ยงวัวควายและชมการเต้นรำแบบแทงโกในเมืองบัวโนสไอเรส คุณจะต้องเดินทางไปยังประเทศใด"
+	},
 	"trivia_beginner_078_answer0": {
 		"message": "อาร์เจนตินา"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "ไนเจอร์"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "เนปาล"
+	},
+	"trivia_beginner_079": {
+		"message": "หากต้องการเยี่ยมชมย่านเมืองเก่าในเมือง Fez และเดินป่าในเทือกเขาแอตลาส คุณ\nต้องเดินทางไปยังประเทศใด"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "โมร็อกโก"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "เอกวาดอร์"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "ไทย"
 	},
 	"trivia_beginner_080": {
 		"message": "หากต้องการเยี่ยมชมซากปรักหักพังของอาณาจักรมายาและว่ายน้ำที่ชายหาดของแคนคูน คุณต้องเดินทางไปที่ประเทศใด"
@@ -377,8 +1223,23 @@
 	"trivia_beginner_080_answer0": {
 		"message": "เม็กซิโก"
 	},
+	"trivia_beginner_080_answer1": {
+		"message": "เนเธอร์แลนด์"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "ตุรกี"
+	},
 	"trivia_beginner_081": {
 		"message": "หากต้องการเยี่ยมชมวิหาร St. Patrick’s ในเมืองดับลินและเข้าร่วมเทศกาลศิลปะใน Kilkenny คุณจะต้องเดินทางไปที่ประเทศใด"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "ไอร์แลนด์"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "โซมาเลีย"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "คอสตาริกา"
 	},
 	"trivia_beginner_082": {
 		"message": "หากต้องการร่วมทัวร์ป่าฝนและเต้นรำในการเฉลิมฉลองงานคาร์นิวัลของริโอ เดอ จาเนโร คุณจะต้องเดินทางไปที่ประเทศใด"
@@ -389,26 +1250,419 @@
 	"trivia_beginner_082_answer1": {
 		"message": "สหราชอาณาจักร"
 	},
+	"trivia_beginner_082_answer2": {
+		"message": "เวียดนาม"
+	},
+	"trivia_beginner_083": {
+		"message": "หากต้องการเยี่ยมชมพิพิธภัณฑ์ Hermitage ในเซนต์ปีเตอร์สเบิร์กและนั่งรถไฟสายทรานส์-ไซบีเรีย คุณจะต้องเดินทางไปยังประเทศใด"
+	},
 	"trivia_beginner_083_answer0": {
 		"message": "รัสเซีย"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "อินโดนีเซีย"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "เบลีซ"
+	},
+	"trivia_beginner_084": {
+		"message": "หากต้องการนั่งรถไฟความเร็วสูงและพักค้างคืนในโรงแรมในโตเกียว คุณจะต้องเดินทางไปยังประเทศใด"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "ญี่ปุ่น"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "ซิมบับเว"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "โบลิเวีย"
+	},
+	"trivia_beginner_085": {
+		"message": "ถ้าอยากรับประทาน Pesto ในเจนัวและชมอุปรากรในฟลอเรนซ์ คุณจะต้องเดินทางไปยัง\nประเทศใด"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "อิตาลี"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "ปารากวัย"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "ลิเบีย"
+	},
+	"trivia_beginner_086": {
+		"message": "หากต้องการท่องเที่ยวแบบซาฟารีในเขตอนุรักษ์ธรรมชาติ Maasai Mara และช็อปปิ้งในไนโรบี คุณจะต้อง\nเดินทางไปยังประเทศใด"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "เคนยา"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "เกาหลีใต้"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "ชิลี"
+	},
+	"trivia_beginner_087": {
+		"message": "หากต้องการชมแม่น้ำคงคาและสำรวจถนนหนทางอันพลุกพล่านของกัลกัตตา คุณ\nจะต้องเดินทางไปยังประเทศใด"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "อินเดีย"
 	},
 	"trivia_beginner_087_answer1": {
 		"message": "เยอรมนี"
 	},
+	"trivia_beginner_087_answer2": {
+		"message": "จอร์แดน"
+	},
+	"trivia_beginner_088": {
+		"message": "ขั้วโลกเหนือหรือจุดเหนือสุดของโลกตั้งอยู่ในมหาสมุทรใด"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "มหาสมุทรอาร์กติก"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_beginner_089": {
+		"message": "ประเทศใดอยู่ติดกับมหาสมุทรแอตแลนติก"
+	},
 	"trivia_beginner_089_answer0": {
 		"message": "ไอซ์แลนด์"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "ปากีสถาน"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "ญี่ปุ่น"
+	},
+	"trivia_beginner_090": {
+		"message": "รัฐใดของสหรัฐฯ ที่เรียกกันว่า \"Sunshine State\" เพราะมีอากาศอบอุ่นและมีชายหาดยอดนิยม"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "ฟลอริดา"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "เมน"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "วอชิงตัน"
+	},
+	"trivia_beginner_091": {
+		"message": "แกรนด์แคนยอนตั้งอยู่ในรัฐใดของสหรัฐฯ"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "แอริโซนา"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "เวสต์เวอร์จิเนีย"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "เซาท์ดาโคตา"
+	},
+	"trivia_beginner_092": {
+		"message": "รัฐใดของสหรัฐฯ มีสมญานามว่า \"รัฐดาวเดี่ยว\" มีดาวดวงเดียวบนธง และเคยเป็นประเทศอิสระ"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "เทกซัส"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "วิสคอนซิน"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "แมริแลนด์"
+	},
+	"trivia_beginner_093": {
+		"message": "แม่น้ำไทกริสและยูเฟรทีสอยู่ในทวีปใด"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_094": {
+		"message": "ทะเลสาบวิกตอเรียกับเทือกเขาวีรูงกาอยู่ในทวีปใด"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_095": {
+		"message": "ประเทศใดเป็นเกาะในมหาสมุทรแปซิฟิก"
 	},
 	"trivia_beginner_095_answer0": {
 		"message": "นิวซีแลนด์"
 	},
+	"trivia_beginner_095_answer1": {
+		"message": "แอฟริกาใต้"
+	},
 	"trivia_beginner_095_answer2": {
 		"message": "ไอซ์แลนด์"
+	},
+	"trivia_beginner_096": {
+		"message": "ประเทศใดตั้งอยู่บนคาบสมุทรสแกนดิเนเวีย"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "สวีเดน"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "โรมาเนีย"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "เปรู"
+	},
+	"trivia_beginner_097": {
+		"message": "ประเทศใดอยู่ติดกับทะเลเมดิเตอร์เรเนียน"
 	},
 	"trivia_beginner_097_answer0": {
 		"message": "ฝรั่งเศส"
 	},
+	"trivia_beginner_097_answer1": {
+		"message": "บังกลาเทศ"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "นิการากัว"
+	},
+	"trivia_hard_001": {
+		"message": "เมืองใดในสหรัฐฯ ที่อยู่ใกล้กับพรมแดนแคนาดามากที่สุด"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "ซีแอตเติล"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "แซคราเมนโต"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "โอมาฮา"
+	},
+	"trivia_hard_002": {
+		"message": "เมืองใดในสหรัฐฯ มีโอกาสมากที่สุดที่จะประสบพายุเฮอริเคน"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "ไมอามี"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "ลอสแอนเจลิส"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "พิตต์สเบิร์ก"
+	},
+	"trivia_hard_003": {
+		"message": "ทะเลสาบใดต่อไปนี้มีพื้นที่ผิวน้ำใหญ่ที่สุด"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "ทะเลสาบฮูรอน"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "อ่างเก็บน้ำ Lake Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "ทะเลสาบ Erie"
+	},
+	"trivia_hard_004": {
+		"message": "เมืองในสหรัฐฯ เมืองใดต่อไปนี้มีประชากรหนาแน่นที่สุด"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "ชิคาโก"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "เซนต์หลุยส์"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "อินเดียแนโพลิส"
+	},
+	"trivia_hard_005": {
+		"message": "ประเทศใดอยู่ใกล้กับอ่าวเปอร์เซียมากที่สุด"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "อิหร่าน"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "ตุรกี"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "ภูฏาน"
+	},
+	"trivia_hard_006": {
+		"message": "ประเทศใดต่อไปนี้มีพื้นที่แผ่นดินกว้างใหญ่ที่สุด"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "คาซัคสถาน"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "โรมาเนีย"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "โปแลนด์"
+	},
+	"trivia_hard_007": {
+		"message": "ประเทศใดต่อไปนี้มีประชากรหนาแน่นที่สุด"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "สิงคโปร์"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "ลาว"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "โบลิเวีย"
+	},
+	"trivia_hard_008": {
+		"message": "ประเทศใดต่อไปนี้มีประชากรที่พูดภาษาเยอรมันมากที่สุด"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "ออสเตรีย"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "สโลวะเกีย"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "อิรัก"
+	},
+	"trivia_hard_009": {
+		"message": "ประเทศใดต่อไปนี้มีพรมแดนติดกับหลายประเทศที่สุด"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "ซาอุดีอาระเบีย"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "โมร็อกโก"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "มองโกเลีย"
+	},
+	"trivia_hard_010": {
+		"message": "ประเทศใดไม่ได้อยู่ติดกับทะเลสาบ Tanganyika"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "เบนิน"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "บุรุนดี"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "แซมเบีย"
+	},
+	"trivia_hard_011": {
+		"message": "ประเทศใดไม่ได้อยู่บนเส้นศูนย์สูตร"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "มอริเตเนีย"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "อินโดนีเซีย"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "เคนยา"
+	},
+	"trivia_hard_012": {
+		"message": "ประเทศใดไม่ได้ตั้งอยู่บนคาบสมุทรบอลข่าน"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "สาธารณรัฐเช็ก"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "บัลแกเรีย"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "มาซิโดเนีย"
+	},
+	"trivia_hard_013": {
+		"message": "ประเทศใดไม่ได้อยู่ติดกับทะเลเหนือ"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "ฟินแลนด์"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "เดนมาร์ก"
+	},
 	"trivia_hard_013_answer2": {
 		"message": "สหราชอาณาจักร"
+	},
+	"trivia_hard_014": {
+		"message": "ประเทศใดไม่ได้อยู่ติดกับทะเลดำ"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "อาเซอร์ไบจาน"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "ยูเครน"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "ตุรกี"
+	},
+	"trivia_hard_015": {
+		"message": "ประเทศใดมีทางออกทะเล"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "โครเอเชีย"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "เบลารุส"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "ฮังการี"
+	},
+	"trivia_hard_016": {
+		"message": "ประเทศใดไม่ได้อยู่ในทะเลทรายสะฮารา"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "แองโกลา"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "ลิเบีย"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "แอลจีเรีย"
+	},
+	"trivia_hard_017": {
+		"message": "เกาะใดตั้งอยู่ไกลที่สุดทางทิศตะวันออก"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "ตรินิแดด"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "จาเมกา"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "คิวบา"
+	},
+	"trivia_hard_018": {
+		"message": "Cape Fear อยู่ติดกับพื้นที่ทางน้ำใด"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "มหาสมุทรแอตแลนติก"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "ทะเลแคริบเบียน"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_hard_019": {
+		"message": "เมืองใดเป็นท่าเรือบนอ่าวเม็กซิโก"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "เวรากรูซ"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "ตีฮัวนา"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "อะคาปุลโก"
+	},
+	"trivia_hard_020": {
+		"message": "เส้นทรอปิกออฟแคนเซอร์พาดผ่านประเทศใด"
 	},
 	"trivia_hard_020_answer0": {
 		"message": "เม็กซิโก"
@@ -419,11 +1673,128 @@
 	"trivia_hard_020_answer2": {
 		"message": "บราซิล"
 	},
+	"trivia_hard_021": {
+		"message": "เกาะใดต่อไปนี้มีพื้นที่ใหญ่ที่สุด"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "เกาะแบฟฟิน"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "ฮิสปันโยลา"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "ซาร์ดิเนีย"
+	},
 	"trivia_hard_022": {
 		"message": "ช่องแคบ Yucatán กั้นระหว่างเม็กซิโกกับเกาะใด"
 	},
+	"trivia_hard_022_answer0": {
+		"message": "คิวบา"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "เปอร์โตริโก"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "โดมินิกา"
+	},
+	"trivia_hard_023": {
+		"message": "เมืองใดที่ตั้งอยู่ทางเหนือสุดของแคนาดา"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "เยลโลว์ไนฟ์"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "ออตตาวา"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "วินนิเพก"
+	},
+	"trivia_hard_024": {
+		"message": "เกาะใดเป็นส่วนหนึ่งของหมู่เกาะเลสเซอร์แอนทิลลีส"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "เซนต์คิตส์"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "เบอร์มิวดา"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "โนวาสโกเชีย"
+	},
+	"trivia_hard_025": {
+		"message": "ปอร์โตแปรงซ์เป็นเมืองที่มีประชากรหนาแน่นที่สุดในประเทศใด"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "เฮติ"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "นิการากัว"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "ซูรินาเม"
+	},
+	"trivia_hard_026": {
+		"message": "ประเทศใดอยู่บนเทือกเขาคาร์เพเทียน"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "โรมาเนีย"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "แอลเบเนีย"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "เติร์กเมนิสถาน"
+	},
+	"trivia_hard_027": {
+		"message": "ภาษาฝรั่งเศสเป็นภาษาทางการในประเทศใด"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "กาบอง"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "คูเวต"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "แทนซาเนีย"
+	},
+	"trivia_hard_028": {
+		"message": "ประเทศใดต่อไปนี้มีพื้นที่ส่วนแผ่นดินใหญ่ที่สุด"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "อิหร่าน"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "อิสราเอล"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "บาห์เรน"
+	},
+	"trivia_hard_029": {
+		"message": "ประเทศใดที่มีความกว้างที่สุดตามองศาลองจิจูด"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "คาซัคสถาน"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "อัฟกานิสถาน"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "ซีเรีย"
+	},
+	"trivia_hard_030": {
+		"message": "ประเทศใดประกอบด้วยเกาะมากมาย"
+	},
 	"trivia_hard_030_answer0": {
 		"message": "ฟิลิปปินส์"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "กัมพูชา"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "ทาจิกิสถาน"
+	},
+	"trivia_hard_031": {
+		"message": "ประเทศใดต่อไปนี้มีเขตเวลามากที่สุด"
 	},
 	"trivia_hard_031_answer0": {
 		"message": "บราซิล"
@@ -431,23 +1802,485 @@
 	"trivia_hard_031_answer1": {
 		"message": "กานา"
 	},
+	"trivia_hard_031_answer2": {
+		"message": "เบลีซ"
+	},
+	"trivia_hard_032": {
+		"message": "ประเทศใดตั้งอยู่ทางเหนือสุด"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "แคเมอรูน"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "โมซัมบิก"
+	},
 	"trivia_hard_032_answer2": {
 		"message": "ออสเตรเลีย"
+	},
+	"trivia_hard_033": {
+		"message": "ประเทศใดตั้งอยู่ระหว่างฝรั่งเศสกับสเปน"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "อันดอร์รา"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "ลักเซมเบิร์ก"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "นครรัฐวาติกัน"
+	},
+	"trivia_hard_034": {
+		"message": "เดนมาร์กอยู่ติดกับประเทศใด"
 	},
 	"trivia_hard_034_answer0": {
 		"message": "เยอรมนี"
 	},
+	"trivia_hard_034_answer1": {
+		"message": "ฟินแลนด์"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "มอลโดวา"
+	},
+	"trivia_hard_035": {
+		"message": "เกาะซาร์ดิเนียเป็นของประเทศใด"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "อิตาลี"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "ตุรกี"
+	},
 	"trivia_hard_035_answer2": {
 		"message": "สหราชอาณาจักร"
+	},
+	"trivia_hard_036": {
+		"message": "ทะเลทรายใดครอบคลุมพื้นที่กว้างใหญ่ระหว่างปักกิ่งกับอูลานบาตอร์"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "โกบี"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "ทะเลทรายเกรทอินเดียน"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "ทะเลทรายลิเบียน"
+	},
+	"trivia_hard_037": {
+		"message": "กระแสน้ำมหาสมุทร Kamchatka เป็นส่วนหนึ่งของมหาสมุทรใด"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "มหาสมุทรแอตแลนติก"
+	},
+	"trivia_hard_038": {
+		"message": "อ่าว Sidra ตั้งอยู่ทางใต้ของทะเลใด"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "ทะเลเมดิเตอร์เรเนียน"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "ทะเลอาหรับ"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "ทะเลบอลติก"
+	},
+	"trivia_hard_039": {
+		"message": "เทือกเขา Tatra เป็นเทือกเขาสูงสุดในกลุ่มเทือกเขาใดของยุโรป"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "เทือกเขา Carpathian"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "เทือกเขา Cantabrian"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "พิเรนีส"
+	},
+	"trivia_hard_040": {
+		"message": "แม่น้ำใดไหลผ่านทะเลสาบ Kariba และเป็นพรมแดนระหว่างแซมเบียกับซิมบับเว"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "แม่น้ำแซมบีซี"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "แม่น้ำไนล์"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "แม่น้ำคองโก"
+	},
+	"trivia_hard_041": {
+		"message": "แม่น้ำ Thames, Meuse และ Schelde ต่างก็ไหลลงสู่ทะเลใด"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "ทะเลเหนือ"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "ทะเลเมดิเตอร์เรเนียน"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "ทะเลดำ"
+	},
+	"trivia_hard_042": {
+		"message": "ช่องแคบลูซอนแยกฟิลิปปินส์ออกจากเกาะใหญ่ชื่อใดทางตอนเหนือ"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "ไต้หวัน"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "แอลจีเรีย"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "ศรีลังกา"
+	},
+	"trivia_hard_043": {
+		"message": "หมู่เกาะใดเรียงตัวอยู่ตามแนวเทือกเขากลางมหาสมุทรแอตแลนติก"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "อาซอเรส"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "บาฮามาส"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "หมู่เกาะฟิจิ"
+	},
+	"trivia_hard_044": {
+		"message": "แม่น้ำใดไหลลงสู่ทะเลลัปเตฟ"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "แม่น้ำลีนา"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "แม่น้ำแยงซี"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "แม่น้ำสินธุ"
+	},
+	"trivia_hard_045": {
+		"message": "ยอดเขาใดอยู่ใกล้กับเส้นศูนย์สูตรมากที่สุด"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "คิลิมันจาโร"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "มงบล็อง"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "ยอดเขาแมกคินลีย์"
+	},
+	"trivia_hard_046": {
+		"message": "เมืองหลวงใดมีประชากรหนาแน่นที่สุด"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "มอสโก"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "เฮลซิงกิ"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "แอลเจียร์"
+	},
+	"trivia_hard_047": {
+		"message": "เมืองริมฝั่งแม่น้ำ Liffey เมืองใดเป็นเมืองใหญ่ที่สุดในสาธารณรัฐไอร์แลนด์"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "ดับลิน"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "ออสโล"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "โคเปนเฮเกน"
+	},
+	"trivia_hard_048": {
+		"message": "เมืองใดในหุบเขาฮินดูกูชเป็นเมืองใหญ่ที่สุดในอัฟกานิสถาน"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "คาบูล"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "ซาราเยโว"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "กัมปาลา"
+	},
+	"trivia_hard_049": {
+		"message": "เมืองริมฝั่งแม่น้ำเจ้าพระยาที่เป็นเมืองใหญ่ที่สุดในประเทศไทยคือเมืองใด"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "กรุงเทพฯ"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "ปักกิ่ง"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "อัมมาน"
+	},
+	"trivia_hard_050": {
+		"message": "เมืองใดเป็นเมืองใหญ่ที่สุดในนอร์เวย์ (เมืองนี้ตั้งอยู่ที่หัวฟยอร์ดบริเวณช่องแคบ Skagerrak)"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "ออสโล"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "ลอนดอน"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "บรัสเซลส์"
+	},
+	"trivia_hard_051": {
+		"message": "เมืองที่อยู่บริเวณทะเลเมดิเตอร์เรเนียนตะวันออกและเป็นเมืองใหญ่ที่สุดในเลบานอนคือเมืองอะไร"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "เบรุต"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "โมกาดิชู"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "ริยาด"
+	},
+	"trivia_hard_052": {
+		"message": "เมืองใดที่ตั้งอยู่บนชายฝั่งเกาะชวาและเป็นเมืองใหญ่ที่สุดในอินโดนีเซีย"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "จาการ์ตา"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "โตเกียว"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "ไนโรบี"
+	},
+	"trivia_hard_053": {
+		"message": "เมืองใดในเขต Attica ที่เป็นเมืองใหญ่ที่สุดในกรีซ"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "เอเธนส์"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "โรม"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "บาร์เซโลนา"
 	},
 	"trivia_hard_054": {
 		"message": "เมืองใดที่ตั้งอยู่บนปากน้ำ Río de la Plata มีขนาดใหญ่ที่สุดในอุรุกวัย"
 	},
+	"trivia_hard_054_answer0": {
+		"message": "มอนเตวิเดโอ"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "กีโต"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "รีโอเดจาเนโร"
+	},
+	"trivia_hard_055": {
+		"message": "เมืองใดเคยเป็นส่วนหนึ่งของอดีตจังหวัด Transvaal และปัจจุบันเป็นเมืองใหญ่ที่สุดในแอฟริกาใต้"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "โจฮันเนสเบิร์ก"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "อาบูจา"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "มาปูโต"
+	},
+	"trivia_hard_056": {
+		"message": "เมืองใดเป็นศูนย์กลางการขนส่งทางเรือที่สำคัญแห่งทะเลแคริบเบียนและเป็นเมืองใหญ่ที่สุดในจาเมกา"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "คิงส์ตัน"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "การากัส"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "บัวโนสไอเรส"
+	},
+	"trivia_hard_057": {
+		"message": "เมืองใดตั้งอยู่ในเกรตริฟต์แวลลีย์และเป็นเมืองใหญ่ที่สุดในเอริเทรีย"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "แอสมารา"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "แบกแดด"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "บราซซาวิล"
+	},
+	"trivia_hard_058": {
+		"message": "เมืองใดบนฝั่งแม่น้ำ Vistula เป็นเมืองใหญ่ที่สุดในโปแลนด์"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "วอร์ซอ"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "เบอร์ลิน"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "เคียฟ"
+	},
+	"trivia_hard_059": {
+		"message": "เมืองใดเป็นจุดแวะพักสำคัญบนเส้นทาง Pan-American Highway และเป็นเมืองใหญ่ที่สุดในคอสตาริกา"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "ซันโฮเซ"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "ลิมา"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "ซูเกร"
+	},
+	"trivia_hard_060": {
+		"message": "เมืองใดเป็นศูนย์กลางการค้าสินค้าเกษตรที่สำคัญในแอฟริกาตอนใต้และเป็นเมืองใหญ่ที่สุดในซิมบับเว"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "ฮาราเร"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "วินด์ฮุก"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "กัมปาลา"
+	},
+	"trivia_hard_061": {
+		"message": "เมืองใดที่ครั้งหนึ่งเคยถูกปกครองโดยเขมรแดงและปัจจุบันเป็นเมืองใหญ่ที่สุดในกัมพูชา"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "พนมเปญ"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "กัวลาลัมเปอร์"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "ธากา"
+	},
+	"trivia_hard_062": {
+		"message": "เมืองใดบนแหลม Mesurado ณ มหาสมุทรแอตแลนติกที่เป็นเมืองใหญ่ที่สุดในไลบีเรีย"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "มันโรเวีย"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "อักกรา"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "ลูซากา"
+	},
+	"trivia_hard_063": {
+		"message": "เมืองใดตั้งอยู่บนที่ราบสูงในเทือกเขาแอนดีสและเป็นเมืองใหญ่ที่สุดในโคลอมเบีย"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "โบโกตา"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "มานากัว"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "มอนเตร์เรย์"
+	},
+	"trivia_hard_064": {
+		"message": "เมืองที่ตั้งอยู่บนเชิงเขาของเทือกเขา Elburz เมืองใดเป็นเมืองใหญ่ที่สุดในอิหร่าน"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "เตหะราน"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "ทาชเคนต"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "อิสตันบูล"
+	},
+	"trivia_hard_065": {
+		"message": "พื้นที่ทางน้ำใดที่เส้นอาร์กติกเซอร์เคิลพาดผ่าน"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "ทะเลนอร์วีเจียน"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "ทะเลสาบ Volta"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "ทะเลแคสเปียน"
+	},
+	"trivia_hard_066": {
+		"message": "พื้นที่ทางน้ำใดตั้งอยู่ในเกรตริฟต์แวลลีย์"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "ทะเลสาบมาลาวี"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "ทะเลแทสมัน"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "ทะเลสาบตีตีกากา"
+	},
+	"trivia_hard_067": {
+		"message": "เมืองท่าของรัสเซียที่ชื่อ Arkhangelsk ตั้งอยู่บนฝั่งของพื้นที่ทางน้ำใด"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "ทะเลขาว"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "ช่องแคบบาสส์"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "อ่าวบิสเคย์"
+	},
+	"trivia_hard_068": {
+		"message": "ประเทศใดเป็นที่ตั้งของมณฑลหูหนานและซานตง"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "จีน"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "ไทย"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "เยเมน"
+	},
+	"trivia_hard_069": {
+		"message": "ภาษาคาสตีลเป็นภาษาทางการของประเทศใดในแถบเมดิเตอร์เรเนียน"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "สเปน"
+	},
 	"trivia_hard_069_answer1": {
 		"message": "กรีซ"
 	},
+	"trivia_hard_069_answer2": {
+		"message": "อาเซอร์ไบจาน"
+	},
+	"trivia_hard_070": {
+		"message": "ประเทศใดในอเมริกากลางเคยเป็นเขตหนึ่งในโคลอมเบีย"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "ปานามา"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "ฮอนดูรัส"
+	},
 	"trivia_hard_070_answer2": {
 		"message": "กัวเตมาลา"
+	},
+	"trivia_hard_071": {
+		"message": "เมืองบาเซิลที่มีแม่น้ำไรน์ไหลผ่านเป็นศูนย์กลางการขนส่งที่สำคัญในประเทศใด"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "สวิตเซอร์แลนด์"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "เบลเยียม"
 	},
 	"trivia_hard_071_answer2": {
 		"message": "รัสเซีย"
@@ -458,17 +2291,128 @@
 	"trivia_hard_072_answer0": {
 		"message": "ฝรั่งเศส"
 	},
+	"trivia_hard_072_answer1": {
+		"message": "เนเธอร์แลนด์"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "โรมาเนีย"
+	},
 	"trivia_hard_073": {
 		"message": "Bahía Blanca เป็นจุดที่มีการขนส่งทางทะเลที่สำคัญสำหรับภูมิภาค Pampas ในประเทศใด"
 	},
 	"trivia_hard_073_answer0": {
 		"message": "อาร์เจนตินา"
 	},
+	"trivia_hard_073_answer1": {
+		"message": "โบลิเวีย"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "นิการากัว"
+	},
+	"trivia_hard_074": {
+		"message": "ประเทศใดอยู่ติดกับทะเลเมดิเตอร์เรเนียน ทะเลดำ และทะเลอีเจียน"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "ตุรกี"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "บัลแกเรีย"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "ลิเบีย"
+	},
+	"trivia_hard_075": {
+		"message": "ในแต่ละปี วิลเดอบีสต์จะอพยพจากแทนซาเนียข้ามแม่น้ำ Mara ไปยังประเทศเพื่อนบ้านใดทางตะวันออกเฉียงเหนือ"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "เคนยา"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "แซมเบีย"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "กินี"
+	},
+	"trivia_hard_076": {
+		"message": "อะเลปโป ซึ่งขึ้นชื่อเรื่องมัสยิดใหญ่ เป็นเมืองใหญ่ที่สุดในประเทศใดทางเอเชียตะวันตกเฉียงใต้"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "ซีเรีย"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "โอมาน"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "บังกลาเทศ"
+	},
+	"trivia_hard_077": {
+		"message": "ประเทศใดอยู่ติดกับรัสเซียและจอร์เจีย"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "อาเซอร์ไบจาน"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "อุซเบกิสถาน"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "เกาหลีเหนือ"
+	},
+	"trivia_hard_078": {
+		"message": "ประเทศใดอยู่ติดกับปานามาและบราซิล"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "โคลอมเบีย"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "เปรู"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "คอสตาริกา"
+	},
+	"trivia_hard_079": {
+		"message": "ประเทศใดอยู่ติดกับกัวเตมาลาและสหรัฐอเมริกา"
+	},
 	"trivia_hard_079_answer0": {
 		"message": "เม็กซิโก"
 	},
+	"trivia_hard_079_answer1": {
+		"message": "เอลซัลวาดอร์"
+	},
 	"trivia_hard_079_answer2": {
 		"message": "แคนาดา"
+	},
+	"trivia_hard_080": {
+		"message": "ประเทศใดอยู่ติดกับอิรักและอัฟกานิสถาน"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "อิหร่าน"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "ยูเครน"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "มองโกเลีย"
+	},
+	"trivia_hard_081": {
+		"message": "ประเทศใดอยู่ติดกับเลโซโทและบอตสวานา"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "แอฟริกาใต้"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "ซิมบับเว"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "คองโก"
+	},
+	"trivia_hard_082": {
+		"message": "แอนต์เวิร์ปอยู่ในพื้นที่ที่พูดภาษาเฟลมิชของประเทศใด"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "เบลเยียม"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "เนเธอร์แลนด์"
 	},
 	"trivia_hard_082_answer2": {
 		"message": "ไอซ์แลนด์"
@@ -476,8 +2420,41 @@
 	"trivia_hard_083": {
 		"message": "Gdańsk ซึ่งตั้งอยู่ที่ปากแม่น้ำ Vistula เป็นท่าเรือหลักของประเทศใดในยุโรป"
 	},
+	"trivia_hard_083_answer0": {
+		"message": "โปแลนด์"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "สเปน"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "โครเอเชีย"
+	},
+	"trivia_hard_084": {
+		"message": "แม่น้ำ Madeira และ Purus เป็นแม่น้ำสายย่อยหลักๆ ของแม่น้ำสายใหญ่ชื่ออะไรในอเมริกาใต้"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "แม่น้ำอะเมซอน"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "แม่น้ำโอริโนโค"
+	},
 	"trivia_hard_084_answer2": {
 		"message": "แม่น้ำ Paraná"
+	},
+	"trivia_hard_085": {
+		"message": "ทะเลสาบคอนสแตนซ์อยู่ติดกับประเทศสวิตเซอร์แลนด์ เยอรมนี และประเทศอะไร"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "ออสเตรีย"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "สโลวะเกีย"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "ฟินแลนด์"
+	},
+	"trivia_hard_086": {
+		"message": "ออกแลนด์ เมืองท่าใหญ่ที่มีท่าเรือหลายท่า เป็นเมืองใหญ่ที่สุดในประเทศใด"
 	},
 	"trivia_hard_086_answer0": {
 		"message": "นิวซีแลนด์"
@@ -485,56 +2462,695 @@
 	"trivia_hard_086_answer1": {
 		"message": "ออสเตรเลีย"
 	},
+	"trivia_hard_086_answer2": {
+		"message": "อินโดนีเซีย"
+	},
+	"trivia_hard_087": {
+		"message": "ประเทศใดทางตะวันตกของโตโกเป็นผู้ผลิตโกโก้รายใหญ่"
+	},
 	"trivia_hard_087_answer0": {
 		"message": "กานา"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "ซูดาน"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "ตูนิเซีย"
 	},
 	"trivia_hard_088": {
 		"message": "Guaraní เป็นชื่อของหนึ่งในภาษาทางการและสกุลเงินของประเทศใดในอเมริกาใต้"
 	},
+	"trivia_hard_088_answer0": {
+		"message": "ปารากวัย"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "เอกวาดอร์"
+	},
 	"trivia_hard_088_answer2": {
 		"message": "บราซิล"
+	},
+	"trivia_hard_089": {
+		"message": "เทือกเขาใดทอดตัวไปตามพรมแดนระหว่างฝรั่งเศสกับสเปน"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "พิเรนีส"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "แอเพนไนน์"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "เทือกเขาคอเคซัส"
+	},
+	"trivia_hard_090": {
+		"message": "แม่น้ำ Torrens ไหลออกสู่อ่าว Saint Vincent ในประเทศใด"
 	},
 	"trivia_hard_090_answer0": {
 		"message": "ออสเตรเลีย"
 	},
+	"trivia_hard_090_answer1": {
+		"message": "ยูกันดา"
+	},
 	"trivia_hard_090_answer2": {
 		"message": "แคนาดา"
+	},
+	"trivia_hard_091": {
+		"message": "ประเทศใดในแอฟริกาอยู่ติดกับทะเลเมดิเตอร์เรเนียนและปกครองโดยมีพระมหากษัตริย์เป็นประมุข"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "โมร็อกโก"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "อียิปต์"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "สาธารณรัฐแอฟริกากลาง"
+	},
+	"trivia_hard_092": {
+		"message": "ทบิลิซิซึ่งตั้งอยู่บนฝั่งแม่น้ำ Kura เป็นเมืองหลวงประเทศใด"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "จอร์เจีย"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "ซีเรีย"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "ฮังการี"
+	},
+	"trivia_hard_093": {
+		"message": "อาบรุซโซเป็นแคว้นที่เต็มไปด้วยภูเขา ตั้งอยู่ติดกับทะเลเอเดรียติก ในประเทศใด"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "อิตาลี"
 	},
 	"trivia_hard_093_answer1": {
 		"message": "ฝรั่งเศส"
 	},
+	"trivia_hard_093_answer2": {
+		"message": "ลักเซมเบิร์ก"
+	},
+	"trivia_hard_094": {
+		"message": "อ่าวริกาอยู่ติดกับลัตเวียและประเทศใด"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "เอสโตเนีย"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "เบลารุส"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "สเปน"
+	},
+	"trivia_hard_095": {
+		"message": "ช่องแคบ Jubal เชื่อมอ่าวของสุเอซกับทะเลใด"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "ทะเลแดง"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "ทะเลแคริบเบียน"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "ทะเลแคสเปียน"
+	},
+	"trivia_hard_096": {
+		"message": "แหล่งน้ำที่สำคัญของทะเลแกลิลีคือแม่น้ำใด"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "แม่น้ำจอร์แดน"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "อมูดาร์ยา"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "แม่น้ำคงคา"
+	},
+	"trivia_hard_097": {
+		"message": "อ่าวใหญ่ใดที่แยกนิวบรันสวิกออกจากโนวาสโกเชีย"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "อ่าวฟันดี้"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "อ่าวฮัดสัน"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "อ่าวเบงกอล"
+	},
+	"trivia_hard_098": {
+		"message": "มหาวิหารโคโลญตั้งอยู่ในเขตไรน์แลนด์ของประเทศใด"
+	},
 	"trivia_hard_098_answer0": {
 		"message": "เยอรมนี"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "เดนมาร์ก"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "ปากีสถาน"
+	},
+	"trivia_hard_099": {
+		"message": "เชียปัส ซึ่งเป็นที่ตั้งของซากอารยธรรมมายาโบราณหลายแห่ง เป็นรัฐทางใต้สุดของประเทศใด"
 	},
 	"trivia_hard_099_answer0": {
 		"message": "เม็กซิโก"
 	},
+	"trivia_hard_099_answer1": {
+		"message": "ฮอนดูรัส"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "ชิลี"
+	},
+	"trivia_hard_100": {
+		"message": "ดาร์ดะเนลส์เป็นช่องแคบที่เชื่อมต่อทะเลมาร์มะรากับทะเลใด"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "ทะเลอีเจียน"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "ทะเลแบเร็นตส์"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "ทะเลแทสมัน"
+	},
+	"trivia_hard_101": {
+		"message": "ภาษาเขมรเป็นภาษาทางการของประเทศใดในเอเชียตะวันออกเฉียงใต้"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "กัมพูชา"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "เนปาล"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "เวียดนาม"
+	},
+	"trivia_hard_102": {
+		"message": "ลุ่มน้ำโดเนตส์เป็นเขตอุตสาหกรรมที่ครอบคลุมพื้นที่ในส่วนรัสเซียและประเทศใด"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "ยูเครน"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "สโลวะเกีย"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "เลบานอน"
+	},
+	"trivia_hard_103": {
+		"message": "ยอดเขา Kosciuszko ในเทือกเขาสโนวี่เป็นยอดเขาสูงสุดในทวีปใด"
+	},
 	"trivia_hard_103_answer0": {
 		"message": "ออสเตรเลีย"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_hard_104": {
+		"message": "เกาะมาดูรากับบาหลีเป็นส่วนหนึ่งของประเทศใด"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "อินโดนีเซีย"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "ญี่ปุ่น"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "ปากีสถาน"
+	},
+	"trivia_hard_105": {
+		"message": "ทะเลทราย Taklimakan ตั้งอยู่ทางทิศเหนือของเทือกเขาคุนหลุนในประเทศใดของเอเชีย"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "จีน"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "ซาอุดีอาระเบีย"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "เกาหลีใต้"
+	},
+	"trivia_medium_001": {
+		"message": "เมืองในสหรัฐฯ เมืองใดต่อไปนี้ตั้งอยู่ที่ดินดอนสามเหลี่ยมปากแม่น้ำ"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "นิวออร์ลีนส์"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "ออสติน"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "โอคลาโฮมาซิตี"
+	},
+	"trivia_medium_002": {
+		"message": "นครวัดและแคปพาโดเชียเป็นมรดกโลกของยูเนสโกที่อยู่ในทวีปใด"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "เอเชีย"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "แอฟริกา"
+	},
+	"trivia_medium_003": {
+		"message": "ผู้คนทางตะวันตกเฉียงใต้ของทวีปใดที่พูดภาษาเคิร์ดและเปอร์เซีย"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "เอเชีย"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "ยุโรป"
 	},
 	"trivia_medium_004": {
 		"message": "Teotihuacán เป็นศูนย์กลางอันยิ่งใหญ่ในช่วงอารยธรรมตอนต้นของทวีปใด"
 	},
+	"trivia_medium_004_answer0": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "แอฟริกา"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_medium_005": {
+		"message": "ทะเล Bellingshausen และทะเล Ross อยู่ติดกับทวีปใด"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_medium_006": {
+		"message": "กระแสน้ำโมซัมบิกและเบงเกวลาไหลเลียบชายฝั่งของทวีปใด"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_medium_007": {
+		"message": "หมู่เกาะ Islas Malvinas หรือที่เรียกว่าหมู่เกาะฟอล์กแลนด์ ตั้งอยู่ใกล้กับชายฝั่งทางตะวันออกเฉียงใต้ของทวีปใด"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_008": {
+		"message": "ประเทศในแอฟริกาประเทศใดต่อไปนี้มีพื้นที่มากที่สุด"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "แอลจีเรีย"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "แกมเบีย"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "บุรุนดี"
+	},
+	"trivia_medium_009": {
+		"message": "เกาะใหญ่เกาะใดตั้งอยู่ห่างจากไอซ์แลนด์ไปทางตะวันตกเฉียงเหนือ 200 ไมล์"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "กรีนแลนด์"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "นิวกินี"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "ไอร์แลนด์"
+	},
+	"trivia_medium_010": {
+		"message": "ทะเลคารากับทะเลไซบีเรียตะวันออกเป็นส่วนหนึ่งของมหาสมุทรใด"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "มหาสมุทรอาร์กติก"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_medium_011": {
+		"message": "ประเทศใดอยู่ติดกับทะเลบอลติก"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "ลัตเวีย"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "สโลวีเนีย"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "ยูเครน"
+	},
+	"trivia_medium_012": {
+		"message": "เมืองใหญ่ใดต่อไปนี้มีประชากรหนาแน่นที่สุด"
+	},
 	"trivia_medium_012_answer0": {
 		"message": "เซาเปาโล บราซิล"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "โทรอนโต, แคนาดา"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "ฮานอย, เวียดนาม"
+	},
+	"trivia_medium_013": {
+		"message": "ประเทศใดไม่ได้มีแนวชายฝั่งติดกับมหาสมุทรแอตแลนติก"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "มาเลเซีย"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "แองโกลา"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "อุรุกวัย"
+	},
+	"trivia_medium_014": {
+		"message": "ประเทศใดต่อไปนี้มีแนวชายฝั่งสั้นที่สุด"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "เอลซัลวาดอร์"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "เปรู"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "ชิลี"
+	},
+	"trivia_medium_015": {
+		"message": "ทะเลทรายใดอยู่ในเอเชีย"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "โกบี"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "คาลาฮารี"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "อาตากามา"
+	},
+	"trivia_medium_016": {
+		"message": "ประเทศใดต่อไปนี้เกิดเหตุการณ์ภูเขาไฟระเบิดมากที่สุด"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "อินโดนีเซีย"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "อียิปต์"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "อิสราเอล"
+	},
+	"trivia_medium_017": {
+		"message": "ประเทศใดต่อไปนี้มีประชากรมากที่สุด"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "ปากีสถาน"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "เฮติ"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "เวเนซุเอลา"
+	},
+	"trivia_medium_018": {
+		"message": "ประเทศใดต่อไปนี้มีเกาะมากที่สุด"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "บาฮามาส"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "จาเมกา"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "เอลซัลวาดอร์"
+	},
+	"trivia_medium_019": {
+		"message": "ประเทศใดอยู่ใกล้กับเส้นศูนย์สูตรมากที่สุด"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "รวันดา"
 	},
 	"trivia_medium_019_answer1": {
 		"message": "กัวเตมาลา"
 	},
+	"trivia_medium_019_answer2": {
+		"message": "แอฟริกาใต้"
+	},
+	"trivia_medium_020": {
+		"message": "ประเทศใดตั้งอยู่ทางเหนือสุด"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "เอสโตเนีย"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "ลิเบีย"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "กัมพูชา"
+	},
+	"trivia_medium_021": {
+		"message": "เขต Alfama อยู่บนฝั่งแม่น้ำเทกัสในเมืองหลวงชื่อใดในประเทศโปรตุเกส"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "ลิสบอน"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "เบอร์ลิน"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "เฮลซิงกิ"
+	},
+	"trivia_medium_022": {
+		"message": "เมืองหลวงใดอยู่ห่างจากทะเลเดดซีไปทางตะวันออกเฉียงเหนือ 25 ไมล์และเป็นเมืองที่มีประชากรหนาแน่นที่สุดในจอร์แดน"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "อัมมาน"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "อิสลามาบัด"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "โซล"
+	},
+	"trivia_medium_023": {
+		"message": "จัตุรัส Tahrir ซึ่งเป็นศูนย์กลางการประท้วงใหญ่ๆ ในอียิปต์หลายรายการ ตั้งอยู่ในเมืองหลวงใด"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "ไคโร"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "ไนโรบี"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "มัสกัต"
+	},
 	"trivia_medium_024": {
 		"message": "เมืองหลวงใดที่ตั้งอยู่ใน Table Bay และเป็นศูนย์กลางอำนาจของรัฐสภาแอฟริกาใต้"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "เคปทาวน์"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "ลูซากา"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "กินชาซา"
+	},
+	"trivia_medium_025": {
+		"message": "เมืองใดเป็นเมืองหลวงและเมืองใหญ่ที่สุดในสาธารณรัฐเช็ก ตั้งอยู่ริมฝั่งแม่น้ำ Vltava"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "ปราก"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "ดับลิน"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "โซเฟีย"
+	},
+	"trivia_medium_026": {
+		"message": "เมืองหลวงใดตั้งอยู่ติดกับทะเลเมดิเตอร์เรเนียนและเป็นท่าเรือสำคัญของลิเบีย"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "ตริโปลี"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "โมกาดิชู"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "มันโรเวีย"
+	},
+	"trivia_medium_027": {
+		"message": "เมืองหลวงใดเป็นศูนย์กลางการค้าและคมนาคมที่สำคัญในซูดานและตั้งอยู่ที่จุดเชื่อมต่อระหว่างแม่น้ำไวท์ไนล์และบลูไนล์"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "คาร์ทูม"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "ตูนิส"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "โจฮันเนสเบิร์ก"
+	},
+	"trivia_medium_028": {
+		"message": "เมืองหลวงชื่อใดตั้งอยู่บนเกาะ Zealand และ Amager ของเดนมาร์ก"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "โคเปนเฮเกน"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "เบิร์น"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "บราติสลาวา"
+	},
+	"trivia_medium_029": {
+		"message": "เมืองหลวงใดตั้งอยู่บนเกาะ New Providence และเป็นเมืองใหญ่ที่สุดในบาฮามาส"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "แนสซอ"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "ซันโตโดมิงโก"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "เบลโมแพน"
 	},
 	"trivia_medium_030": {
 		"message": "เมืองหลวงใดที่ตั้งอยู่ทางใต้ของ Black Sea และเป็นศูนย์กลางระบบคมนาคมของตุรกี"
 	},
+	"trivia_medium_030_answer0": {
+		"message": "อังการา"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "มินสก์"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "เตหะราน"
+	},
+	"trivia_medium_031": {
+		"message": "ประเทศใดต่อไปนี้มีพื้นที่ส่วนหนึ่งตั้งอยู่ในจะงอยแอฟริกา"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "เอริเทรีย"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "ไนเจอร์"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "สวาซิแลนด์"
+	},
+	"trivia_medium_032": {
+		"message": "Skagerrak เป็นช่องแคบที่แยกเดนมาร์กออกจากประเทศใด"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "นอร์เวย์"
+	},
 	"trivia_medium_032_answer1": {
 		"message": "สหราชอาณาจักร"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "ศรีลังกา"
+	},
+	"trivia_medium_033": {
+		"message": "ประเทศใดมีพื้นที่ทะเลทรายมากที่สุด"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "ชาด"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "นอร์เวย์"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "เวียดนาม"
+	},
+	"trivia_medium_034": {
+		"message": "แม่น้ำยูเฟรทีสไหลผ่านประเทศใด"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "ซีเรีย"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "สวิตเซอร์แลนด์"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "ไทย"
+	},
+	"trivia_medium_035": {
+		"message": "เมืองอีร์คุตสค์อยู่ใกล้กับทะเลสาบไบคาลในทวีปใด"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "เอเชีย"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "แอฟริกา"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_medium_036": {
+		"message": "แม่น้ำนีเปอร์และไรน์เป็นแม่น้ำสายหลักในทวีปใด"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "ยุโรป"
 	},
 	"trivia_medium_036_answer1": {
 		"message": "แอนตาร์กติกา"
 	},
+	"trivia_medium_036_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_medium_037": {
+		"message": "เขตที่สูง Guiana และเขต Pantanal อยู่ในทวีปใด"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_038": {
+		"message": "ทะเลทรายเกรตวิกตอเรียและที่ราบนัลลาบอร์เป็นองค์ประกอบทางกายภาพของทวีปใด"
+	},
 	"trivia_medium_038_answer0": {
 		"message": "ออสเตรเลีย"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "เอเชีย"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_039": {
+		"message": "รีโอกรันดีโดซูลเป็นรัฐทางใต้สุดของประเทศใด"
 	},
 	"trivia_medium_039_answer0": {
 		"message": "บราซิล"
@@ -545,11 +3161,35 @@
 	"trivia_medium_039_answer2": {
 		"message": "เยอรมนี"
 	},
+	"trivia_medium_040": {
+		"message": "เมืองโนโวซีบีสค์ตั้งอยู่ริมแม่น้ำอ็อบในประเทศใด"
+	},
 	"trivia_medium_040_answer0": {
 		"message": "รัสเซีย"
 	},
+	"trivia_medium_040_answer1": {
+		"message": "เนปาล"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "จีน"
+	},
+	"trivia_medium_041": {
+		"message": "ประเทศใดตั้งอยู่บนขอบแปซิฟิกและมีแนวโน้มเป็นพิเศษที่จะเกิดแผ่นดินไหว"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "ชิลี"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "แองโกลา"
+	},
 	"trivia_medium_041_answer2": {
 		"message": "ฝรั่งเศส"
+	},
+	"trivia_medium_042": {
+		"message": "ทะเลสาบมาราไกโบอยู่บริเวณชายฝั่งทางตอนเหนือของประเทศใด"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "เวเนซุเอลา"
 	},
 	"trivia_medium_042_answer1": {
 		"message": "กัวเตมาลา"
@@ -557,11 +3197,140 @@
 	"trivia_medium_042_answer2": {
 		"message": "แคนาดา"
 	},
+	"trivia_medium_043": {
+		"message": "ประเทศใดอยู่ติดกับทะเลอาหรับ"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "อินเดีย"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "ทาจิกิสถาน"
+	},
 	"trivia_medium_043_answer2": {
 		"message": "กรีซ"
 	},
+	"trivia_medium_044": {
+		"message": "ประเทศใดตั้งอยู่บนคาบสมุทรไอบีเรีย"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "โปรตุเกส"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "บังกลาเทศ"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "เนเธอร์แลนด์"
+	},
+	"trivia_medium_045": {
+		"message": "ประเทศใดต่อไปนี้มีแนวชายฝั่งยาวที่สุด"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "ไทย"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "คองโก"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "กาตาร์"
+	},
+	"trivia_medium_046": {
+		"message": "รัฐใดของสหรัฐฯ ตั้งอยู่ทางตะวันตกของแม่น้ำมิสซิสซิปปี"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "โคโลราโด"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "แมริแลนด์"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "มิชิแกน"
+	},
+	"trivia_medium_047": {
+		"message": "ป่าครอบคลุมพื้นที่ประมาณ 60 เปอร์เซ็นต์ของรัฐใดในสหรัฐฯ"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "เวอร์จิเนีย"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "แอริโซนา"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "เนวาดา"
+	},
+	"trivia_medium_048": {
+		"message": "ยอดเขาแมกคินลีย์ ซึ่งเป็นยอดเขาที่สูงที่สุดในอเมริกาเหนือ ตั้งอยู่ในรัฐใดของสหรัฐฯ"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "อะแลสกา"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "มินนิโซตา"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "โคโลราโด"
+	},
+	"trivia_medium_049": {
+		"message": "รัฐในสหรัฐฯ รัฐใดต่อไปนี้มีพื้นที่ใหญ่ที่สุด"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "มอนแทนา"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "คอนเนตทิคัต"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "เซาท์แคโรไลนา"
+	},
+	"trivia_medium_050": {
+		"message": "ภูเขารัชมอร์ตั้งอยู่ใกล้กับแรพิดซิตี้ในรัฐใดของสหรัฐฯ"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "เซาท์ดาโคตา"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "ออริกอน"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "ฟลอริดา"
+	},
+	"trivia_medium_051": {
+		"message": "รัฐใดของสหรัฐฯ ที่อยู่ติดกับแคนาดา"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "มินนิโซตา"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "เนแบรสกา"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "เคนทักกี"
+	},
+	"trivia_medium_052": {
+		"message": "มีแนวปะการังอยู่ใกล้ชายฝั่งของรัฐใดในสหรัฐฯ"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "ฮาวาย"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "คอนเนตทิคัต"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "เนวาดา"
+	},
+	"trivia_medium_053": {
+		"message": "ฮัมบูร์กเป็นท่าเรือสำคัญในประเทศใด"
+	},
 	"trivia_medium_053_answer0": {
 		"message": "เยอรมนี"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "โครเอเชีย"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "เบลเยียม"
+	},
+	"trivia_medium_054": {
+		"message": "ประเทศใดเกิดเหตุการณ์ภูเขาไฟระเบิดมากที่สุด"
 	},
 	"trivia_medium_054_answer0": {
 		"message": "ไอซ์แลนด์"
@@ -569,14 +3338,143 @@
 	"trivia_medium_054_answer1": {
 		"message": "สหราชอาณาจักร"
 	},
+	"trivia_medium_054_answer2": {
+		"message": "โปแลนด์"
+	},
+	"trivia_medium_055": {
+		"message": "ประเทศใดตั้งอยู่บนคาบสมุทรเอเชียไมเนอร์เป็นส่วนใหญ่"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "ตุรกี"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "เมียนมาร์"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "เอสโตเนีย"
+	},
+	"trivia_medium_056": {
+		"message": "ทะเลเดดซีเป็นส่วนหนึ่งของพรมแดนระหว่างอิสราเอลกับประเทศใด"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "จอร์แดน"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "อิหร่าน"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "ญี่ปุ่น"
+	},
+	"trivia_medium_057": {
+		"message": "อุทยานแห่งชาติ Serengeti ตั้งอยู่ทางตะวันออกของทะเลสาบวิกตอเรียในประเทศใด"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "แทนซาเนีย"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "เยเมน"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "ไนจีเรีย"
+	},
+	"trivia_medium_058": {
+		"message": "ประเทศใดอยู่ติดกับทะเลแคริบเบียนและเป็นผู้ส่งออกน้ำมันรายใหญ่"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "เวเนซุเอลา"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "ชิลี"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "ปารากวัย"
+	},
+	"trivia_medium_059": {
+		"message": "ประเทศที่ไม่มีทางออกทะเลประเทศใดอยู่ห่างจากเส้นศูนย์สูตรไปทางใต้นิดเดียว"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "บุรุนดี"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "จิบูตี"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "ตูนิเซีย"
+	},
+	"trivia_medium_060": {
+		"message": "ทะเลติร์เรเนียนอยู่ติดกับประเทศใดในแถบเมดิเตอร์เรเนียน"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "อิตาลี"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "อิสราเอล"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "เซเนกัล"
+	},
+	"trivia_medium_061": {
+		"message": "เยคาเตรินบุร์กตั้งอยู่บนฝั่งตะวันออกของเทือกเขาอูราลในประเทศใด"
+	},
 	"trivia_medium_061_answer0": {
 		"message": "รัสเซีย"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "ลิทัวเนีย"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "เบลเยียม"
+	},
+	"trivia_medium_062": {
+		"message": "ประเทศที่เป็นเกาะประเทศใดตั้งอยู่ทางตะวันออกเฉียงใต้ของออสเตรเลียและเป็นผู้ผลิตขนแกะชั้นนำ"
 	},
 	"trivia_medium_062_answer0": {
 		"message": "นิวซีแลนด์"
 	},
 	"trivia_medium_062_answer1": {
 		"message": "ฟิลิปปินส์"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "เวียดนาม"
+	},
+	"trivia_medium_063": {
+		"message": "มุมไบเป็นเมืองท่าใหญ่ในประเทศใด"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "อินเดีย"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "สวิตเซอร์แลนด์"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "ภูฏาน"
+	},
+	"trivia_medium_064": {
+		"message": "เมืองอินช็อนตั้งอยู่ติดกับทะเลเหลืองในประเทศใด"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "เกาหลีใต้"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "ไทย"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "มองโกเลีย"
+	},
+	"trivia_medium_065": {
+		"message": "ประเทศเล็กๆ ประเทศใดอยู่ติดกับพรมแดนฝั่งตะวันตกของออสเตรีย"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "ลิกเตนสไตน์"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "ซีเรีย"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "มอลโดวา"
+	},
+	"trivia_medium_066": {
+		"message": "วิกตอเรียกับนิวเซาท์เวลส์เป็นรัฐในประเทศใด"
 	},
 	"trivia_medium_066_answer0": {
 		"message": "ออสเตรเลีย"
@@ -587,35 +3485,305 @@
 	"trivia_medium_066_answer2": {
 		"message": "แคนาดา"
 	},
+	"trivia_medium_067": {
+		"message": "ประเทศใดบนเกาะบอร์เนียวที่อยู่ติดกับประเทศเล็กๆ อย่างบรูไน"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "มาเลเซีย"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "อิหร่าน"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "ยูเครน"
+	},
+	"trivia_medium_068": {
+		"message": "เทือกเขา Julian Alps ทอดตัวไปตามพรมแดนระหว่างอิตาลีกับประเทศใด"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "สโลวีเนีย"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "เนปาล"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "ทาจิกิสถาน"
+	},
+	"trivia_medium_069": {
+		"message": "พื้นที่ที่เดิมรู้จักกันในชื่อแมนจูเรียตั้งอยู่ในส่วนตะวันออกเฉียงเหนือของประเทศใด"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "จีน"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "เบลารุส"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "อัฟกานิสถาน"
+	},
+	"trivia_medium_070": {
+		"message": "ประเทศใดอยู่ติดกับเอลซัลวาดอร์"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "ฮอนดูรัส"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "ปานามา"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "สาธารณรัฐโดมินิกัน"
+	},
+	"trivia_medium_071": {
+		"message": "ประเทศใดตั้งอยู่บนเทือกเขาคอเคซัส"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "จอร์เจีย"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "ฮังการี"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "อันดอร์รา"
+	},
+	"trivia_medium_072": {
+		"message": "ช่องแคบซุนดาคั่นกลางระหว่าง 2 เกาะในประเทศใดของเอเชีย"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "อินโดนีเซีย"
+	},
 	"trivia_medium_072_answer1": {
 		"message": "นิวซีแลนด์"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "ลาว"
+	},
+	"trivia_medium_073": {
+		"message": "หุบเขาที่เกิดจากธารน้ำแข็งและหน้าผาอันตระการตาพบได้ใกล้ปากแม่น้ำ Shannon ในประเทศใด"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "ไอร์แลนด์"
 	},
 	"trivia_medium_073_answer1": {
 		"message": "ฝรั่งเศส"
 	},
+	"trivia_medium_073_answer2": {
+		"message": "อุซเบกิสถาน"
+	},
+	"trivia_medium_074": {
+		"message": "แม่น้ำสินธุไหลผ่านประเทศใดในเอเชียใต้"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "ปากีสถาน"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "เกาหลีเหนือ"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "อาเซอร์ไบจาน"
+	},
+	"trivia_medium_075": {
+		"message": "ประเทศใดอยู่ติดกับทะเลแดง"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "เอริเทรีย"
+	},
 	"trivia_medium_075_answer1": {
 		"message": "กานา"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "เคนยา"
+	},
+	"trivia_medium_076": {
+		"message": "ซากาเตกัสกับตาบัสโกเป็นรัฐในประเทศใด"
 	},
 	"trivia_medium_076_answer0": {
 		"message": "เม็กซิโก"
 	},
+	"trivia_medium_076_answer1": {
+		"message": "เบลีซ"
+	},
 	"trivia_medium_076_answer2": {
 		"message": "อาร์เจนตินา"
+	},
+	"trivia_medium_077": {
+		"message": "ริยาดซึ่งเป็นเมืองที่มีมัสยิดกว่า 4,000 แห่งนั้นตั้งอยู่ในประเทศใด"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "ซาอุดีอาระเบีย"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "แอลเบเนีย"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "ซีเรีย"
+	},
+	"trivia_medium_078": {
+		"message": "ประเทศใดในแอฟริกาที่ไม่มีทางออกทะเล"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "มาลี"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "มอริเตเนีย"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "อียิปต์"
+	},
+	"trivia_medium_079": {
+		"message": "ภูเขาฟูจิเป็นสถานที่ศักดิ์สิทธิ์ในประเทศใด"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "ญี่ปุ่น"
 	},
 	"trivia_medium_079_answer1": {
 		"message": "ฟิลิปปินส์"
 	},
+	"trivia_medium_079_answer2": {
+		"message": "บังกลาเทศ"
+	},
+	"trivia_medium_080": {
+		"message": "ประเทศใดในหมู่เกาะเกรตเตอร์แอนทิลลีสที่ใช้ภาษาอังกฤษเป็นภาษาทางการ"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "จาเมกา"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "เฮติ"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "คิวบา"
+	},
+	"trivia_medium_081": {
+		"message": "ภาษาทางการของซีเรีย คูเวต และแอลจีเรียคือภาษาอะไร"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "อาหรับ"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "อาร์เมเนีย"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "เยอรมัน"
+	},
+	"trivia_medium_082": {
+		"message": "อุปรากรโมสาร์ทมักจะมีการแสดงในงานเทศกาลซาลซ์บูร์กประจำปีที่จัดขึ้นในประเทศใด (ประเทศนี้อยู่ในยุโรป เต็มไปด้วยภูเขา)"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "ออสเตรีย"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "ฮังการี"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "โรมาเนีย"
+	},
+	"trivia_medium_083": {
+		"message": "\"หุบเขาปลาวาฬ\" หรือทะเลทรายที่มีฟอสซิลปลาวาฬยุคก่อนประวัติศาสตร์ ตั้งอยู่ในประเทศใดทางทิศเหนือของซูดาน"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "อียิปต์"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "ไนจีเรีย"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "แซมเบีย"
+	},
+	"trivia_medium_084": {
+		"message": "รอตเตอร์ดัมตั้งอยู่บริเวณดินดอนสามเหลี่ยมปากแม่น้ำใกล้ทะเลเหนือในประเทศใดของยุโรป"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "เนเธอร์แลนด์"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "สวีเดน"
+	},
 	"trivia_medium_084_answer2": {
 		"message": "กรีซ"
+	},
+	"trivia_medium_085": {
+		"message": "เทือกเขาใหญ่ใดที่เป็นต้นน้ำของแม่น้ำพรหมบุตรที่ไหลลงสู่ดินดอนสามเหลี่ยมปากแม่น้ำใหญ่ใกล้อ่าวเบงกอล"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "หิมาลัย"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "อูรัลส์"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "แอลป์"
+	},
+	"trivia_medium_086": {
+		"message": "ฟาร์ซี หรือที่เรียกอีกชื่อหนึ่งว่าเปอร์เซีย เป็นภาษาทางการของประเทศมุสลิมใด"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "อิหร่าน"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "คูเวต"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "ลิเบีย"
+	},
+	"trivia_medium_087": {
+		"message": "เมืองเซบียาที่มีการแสดงสู้วัวของมาทาดอร์นั้นตั้งอยู่ในประเทศใดของยุโรป"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "สเปน"
 	},
 	"trivia_medium_087_answer1": {
 		"message": "เยอรมนี"
 	},
+	"trivia_medium_087_answer2": {
+		"message": "มาซิโดเนีย"
+	},
+	"trivia_medium_088": {
+		"message": "เมืองอิสตันบูล ซึ่งว่ากันว่าเป็นสถานที่ที่วัฒนธรรมตะวันออกและตะวันตกมาพบกัน ตั้งอยู่ในประเทศใด"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "ตุรกี"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "สโลวะเกีย"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "โอมาน"
+	},
 	"trivia_medium_089": {
 		"message": "เมืองมายาที่ชื่อ Copán เป็นสถานที่ท่องเที่ยวยอดนิยมในประเทศใด (ประเทศนี้อยู่ติดกับเอลซัลวาดอร์และนิการากัว)"
 	},
+	"trivia_medium_089_answer0": {
+		"message": "ฮอนดูรัส"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "ชิลี"
+	},
 	"trivia_medium_089_answer2": {
 		"message": "แคนาดา"
+	},
+	"trivia_medium_090": {
+		"message": "เมืองทิมบักตู ซึ่งเป็นศูนย์กลางการค้าแบบคาราวานมาเป็นเวลาเกือบ 1,000 ปี ตั้งอยู่ทางเหนือของแม่น้ำ Niger ในประเทศที่ไม่มีทางออกทะเลประเทศใด"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "มาลี"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "ยูกันดา"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "นามิเบีย"
+	},
+	"trivia_medium_091": {
+		"message": "ประเทศที่ไม่มีทางออกทะเลประเทศใดในอเมริกาใต้มีพรมแดนติดกับทั้งชิลีและบราซิล"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "โบลิเวีย"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "โคลอมเบีย"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "กายอานา"
 	},
 	"trivia_medium_092": {
 		"message": "เมือง Belém ตั้งอยู่ที่ปากแม่น้ำตอนล่างของแม่น้ำอเมซอนในประเทศใด"
@@ -623,14 +3791,107 @@
 	"trivia_medium_092_answer0": {
 		"message": "บราซิล"
 	},
+	"trivia_medium_092_answer1": {
+		"message": "คอสตาริกา"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "ซูรินาเม"
+	},
+	"trivia_medium_093": {
+		"message": "แม่น้ำใดที่ทอดตัวยาวเป็นส่วนหนึ่งของพรมแดนทางตอนเหนือของบัลแกเรีย"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "แม่น้ำดานูบ"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "แม่น้ำอ็อบ"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "แม่น้ำโขง"
+	},
+	"trivia_medium_094": {
+		"message": "เทือกเขา Sayan ตั้งอยู่ใกล้กับทะเลสาบไบคาลในประเทศใดของเอเชีย"
+	},
 	"trivia_medium_094_answer0": {
 		"message": "รัสเซีย"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "อินเดีย"
 	},
 	"trivia_medium_094_answer2": {
 		"message": "คีร์กีซสถาน"
 	},
+	"trivia_medium_095": {
+		"message": "ทะเลสาบ Nipigon เป็นทะเลสาบใหญ่ที่สุดในรัฐใดของแคนาดา"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "ออนแทรีโอ"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "แอลเบอร์ตา"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "บริติชโคลัมเบีย"
+	},
+	"trivia_medium_096": {
+		"message": "ทะเล Balearic และทะเล Ionian เป็นส่วนหนึ่งของทะเลใด"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "ทะเลเมดิเตอร์เรเนียน"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "ทะเลบอลติก"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "ทะเลแคริบเบียน"
+	},
+	"trivia_medium_097": {
+		"message": "ทะเลสาบ Turkana กับทะเลสาบ Natron เป็นตัวอย่างของทะเลสาบหุบเขาทรุดที่ตั้งอยู่ในทวีปใด"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_098": {
+		"message": "ร่องลึกเปอร์โตริโกเป็นจุดลึกสุดในมหาสมุทรใด"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "มหาสมุทรแอตแลนติก"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "มหาสมุทรอาร์กติก"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_medium_099": {
+		"message": "นก Kookaburra หัวเราะอาศัยอยู่ในป่ายูคาลิปตัสทางตะวันออกของทวีปใด"
+	},
 	"trivia_medium_099_answer0": {
 		"message": "ออสเตรเลีย"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "แอฟริกา"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_medium_100": {
+		"message": "กรุงเฮก ซึ่งเป็นที่ตั้งของศาลโลก เป็นเมืองบนชายฝั่งตะวันตกของประเทศใดในยุโรป"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "เนเธอร์แลนด์"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "ฟินแลนด์"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "บัลแกเรีย"
 	},
 	"twitter": {
 		"message": "Twitter"

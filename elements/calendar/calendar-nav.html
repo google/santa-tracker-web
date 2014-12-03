@@ -9,6 +9,12 @@
   html[lang="en"] /deep/ calendar-nav::shadow div.card::after {
     display: block !important;
   }
+
+  html[lang="de"] /deep/ calendar-nav::shadow #site-nav h2 {
+    padding: 5px 6px;
+    font-size: 23px;
+    line-height: 25px;
+  }
 </style>
 
 <!--
@@ -42,7 +48,7 @@ Village calendar navigation.
           <div id="global-nav-header" layout horizontal center-center>
             <a id="global-back-to-village" href="{{pageUrl}}#village" title="Go to the Village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
             <paper-tabs id="tabs" valueattr="filterOn" selected="{{filterOn}}"
-                        on-core-activate="{{onNavSelect}}">
+                        on-core-activate="{{onNavSelect}}" scrollable>
               <paper-tab filterOn="calendar"><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></paper-tab>
               <paper-tab filterOn="watch"><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></paper-tab>
               <paper-tab filterOn="play"><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></paper-tab>
@@ -172,9 +178,9 @@ Village calendar navigation.
         <h2><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h2>
         <div class="share">
           <ul>
-            <li><a href="#" class="gplus" on-click="{{shareGplus}}"><i><i18n-msg msgid="gplus">PLACEHOLDER_i18n</i18n-msg></i></a></li>
-            <li><a href="#" class="fb" on-click="{{shareFB}}"><i>Facebook</i></a></li>
-            <li><a href="#" class="twitter" on-click="{{shareTwitter}}"><i><i18n-msg msgid="twitter">PLACEHOLDER_i18n</i18n-msg></i></a></li>
+            <li><a href="{{pageUrl}}#" class="gplus" on-click="{{shareGplus}}"><i><i18n-msg msgid="gplus">PLACEHOLDER_i18n</i18n-msg></i></a></li>
+            <li><a href="{{pageUrl}}#" class="fb" on-click="{{shareFB}}"><i>Facebook</i></a></li>
+            <li><a href="{{pageUrl}}#" class="twitter" on-click="{{shareTwitter}}"><i><i18n-msg msgid="twitter">PLACEHOLDER_i18n</i18n-msg></i></a></li>
           </ul>
         </div>
       </div>
@@ -319,8 +325,10 @@ Village calendar navigation.
       },
 
       getNicePageUrl: function() {
-        // We don't want to share urls with #village in them.
-        return location.href.replace('#village', '');
+        // We don't want to share urls with #village or #calendar in them.
+        var hash = location.hash.replace(/#village|#calendar/ig, '');
+
+        return 'https://santatracker.google.com/' + hash;
       },
 
       shareGplus: function(e) {

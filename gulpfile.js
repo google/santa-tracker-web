@@ -18,7 +18,7 @@ var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/*.js';
 
-var STATIC_VERSION = 48;
+var STATIC_VERSION = 49;
 var VERSION = argv.build || STATIC_VERSION;
 
 // TODO(bckenny|cbro): fill in with default static asset base URL
@@ -231,11 +231,11 @@ gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
   return gulp.src([
     'manifest.json',
     'audio/*',
-    'images/*.{png,svg,gif,ico}',
+    'images/*.{png,svg,jpg,gif,ico}',
     'js/third_party/**',
     'sass/*.css',
-    'scenes/**/img/**/*.{png,svg,gif}',
-    'elements/**/img/*.{png,svg,gif}',
+    'scenes/**/img/**/*.{png,jpg,svg,gif}',
+    'elements/**/img/*.{png,jpg,svg,gif}',
     'components/webcomponentsjs/webcomponents.min.js'
   ], {base: './'})
   .pipe(gulp.dest(DIST_STATIC_DIR));

@@ -7,10 +7,11 @@ function VillagePegman(el) {
 
   this.pegman_ = this.container_.querySelector('#pegman');
   this.canShow_ =
-      VillagePegman.LANGUAGES_.indexOf(document.documentElement.lang) != -1;
+      VillagePegman.LANGUAGES_.indexOf(document.documentElement.lang) != -1 &&
+      Modernizr.webgl;
 
   if (!this.canShow_) {
-    this.pegman_.remove();
+    this.pegman_.parentNode.removeChild(this.pegman_);
   }
 }
 
