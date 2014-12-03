@@ -269,11 +269,146 @@
 	"traditions-world": {
 		"message": "Svijet"
 	},
+	"trivia_beginner_001": {
+		"message": "Na kojem se kontinentu nalazi gorje Anda?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Južna Amerika"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Azija"
+	},
+	"trivia_beginner_002": {
+		"message": "Koja se američka država sastoji od osam glavnih otoka?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Havaji"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkansas"
+	},
+	"trivia_beginner_003": {
+		"message": "Koja se američka država nalazi u Velikoj nizini?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delaware"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Idaho"
+	},
+	"trivia_beginner_004": {
+		"message": "Koji kontinent omeđuju Atlantski, Tihi i Arktički ocean?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Azija"
+	},
 	"trivia_beginner_004_answer1": {
 		"message": "Australija"
 	},
+	"trivia_beginner_004_answer2": {
+		"message": "Južna Amerika"
+	},
+	"trivia_beginner_005": {
+		"message": "Koja se zemlja nalazi u pacifičkoj vremenskoj zoni?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "Kalifornija"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Gruzija"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "Koji kontinent obuhvaća planinski lanac Atlas i pustinju Kalahari?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_007": {
+		"message": "Koju američku državu omeđuje Veliko jezero?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montana"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "Novi Meksiko"
+	},
+	"trivia_beginner_008": {
+		"message": "Na kojem kontinentu većina stanovnika govori portugalski ili španjolski?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Južna Amerika"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_009": {
+		"message": "Koja američka država ima oblik čiji jedan dio nalikuje na dršku?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_010": {
+		"message": "Koji se još kontinent osim Antarktike u potpunosti nalazi na južnoj polutci?"
+	},
 	"trivia_beginner_010_answer0": {
 		"message": "Australija"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Azija"
+	},
+	"trivia_beginner_011": {
+		"message": "Koji kontinent omeđuje ledena polica Edith Ronne?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Južna Amerika"
+	},
+	"trivia_beginner_012": {
+		"message": "Na zapadnoj obali kojeg se kontinenta nalaze otoci Vancouver i Kodiak?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Azija"
 	},
 	"trivia_beginner_012_answer2": {
 		"message": "Australija"
@@ -281,8 +416,44 @@
 	"trivia_beginner_013": {
 		"message": "Niger, zemlja s jednom od najbrže rastućih populacija, nalazi se u sjevernozapadnom dijelu kojeg kontinenta?"
 	},
+	"trivia_beginner_013_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_014": {
+		"message": "Na kojem kontinentu ima najmanje biljaka i drveća?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Južna Amerika"
+	},
+	"trivia_beginner_015": {
+		"message": "Uz južnu obalu kojeg se kontinenta nalazi otok na kojem je tasmanijska neman autohtona vrsta?"
+	},
 	"trivia_beginner_015_answer0": {
 		"message": "Australija"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Azija"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_016": {
+		"message": "U kojoj se mediteranskoj zemlji nalazi popularna turistička atrakcija Kosi toranj u Pisi?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Italija"
 	},
 	"trivia_beginner_016_answer1": {
 		"message": "Kanada"
@@ -290,47 +461,419 @@
 	"trivia_beginner_016_answer2": {
 		"message": "Gana"
 	},
+	"trivia_beginner_017": {
+		"message": "Na sjevernoj obali kojeg se kontinenta nalaze povijesni gradovi Casablanca i Tripoli?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_018": {
+		"message": "Na kojem se kontinentu u Sonorskoj pustinji može pronaći kaktus Saguaro?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Azija"
+	},
+	"trivia_beginner_019": {
+		"message": "U kojoj se zemlji nalaze popularna odmarališta Veracruz i Acapulco?"
+	},
 	"trivia_beginner_019_answer0": {
 		"message": "Meksiko"
 	},
 	"trivia_beginner_019_answer1": {
 		"message": "Argentina"
 	},
+	"trivia_beginner_019_answer2": {
+		"message": "Indija"
+	},
 	"trivia_beginner_020": {
 		"message": "Na kojem su kontinentu smješteni Rezervati velike sečuanske pande koji udomljuju 30 posto svjetske populacije panda?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "Kina"
 	},
 	"trivia_beginner_020_answer1": {
 		"message": "Island"
 	},
+	"trivia_beginner_020_answer2": {
+		"message": "Etiopija"
+	},
 	"trivia_beginner_021": {
 		"message": "Na kojem se kontinentu nalazi oko 90 posto ukupne svjetske količine leda?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Europa"
 	},
 	"trivia_beginner_022": {
 		"message": "Na kojem se kontinentu nalaze Anđeoski slapovi, najviši vodopad na svijetu?"
 	},
+	"trivia_beginner_022_answer0": {
+		"message": "Južna Amerika"
+	},
 	"trivia_beginner_022_answer1": {
 		"message": "Australija"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_023": {
+		"message": "U koju američku državu morate otputovati da biste posjetili Jacksonovu jamu te se popeli na Vražji toranj?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "Sjeverna Dakota"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Connecticut"
+	},
+	"trivia_beginner_024": {
+		"message": "U koju američku državu morate otputovati da biste vidjeli skupljanje soka javorovog drveta i skijali u Zelenim planinama?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermont"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "U koju američku državu morate otputovati da biste se vozili mostom Chesapeake Bay i hodali šetalištem Ocean Cityja?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "Sjeverna Karolina"
+	},
+	"trivia_beginner_026": {
+		"message": "U koju američku državu morate otputovati da biste posjetili Mamutsku špilju i trkalište Churchill Downs?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentucky"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "Zapadna Virginia"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Utah"
+	},
+	"trivia_beginner_027": {
+		"message": "U koju američku državu morate otputovati da biste vidjeli velika stabla sekvoje i Kanalske otoke?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "Kalifornija"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "New Jersey"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virginia"
+	},
+	"trivia_beginner_028": {
+		"message": "Koju biste močvaru posjetili da se nalazite u američkoj državi Floridi?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Everglades"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Močvara Dismal"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Močvara Great Cypress"
+	},
+	"trivia_beginner_029": {
+		"message": "U koju američku državu morate otputovati da biste obišli Morski put sv. Lovrijenca i jezera Finger?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "New York"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Michigan"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "Na kojem se kontinentu nalazi Mount Everest, najviša planina na svijetu?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Azija"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_031": {
+		"message": "Velik južni dio kojeg kontinenta obuhvaća regija Patagonija?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Južna Amerika"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_032": {
+		"message": "Na kojem su kontinentu carski pingvini autohtona vrsta?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033": {
+		"message": "U kojoj su zemlji autohtone vrste klokani i koale?"
 	},
 	"trivia_beginner_033_answer0": {
 		"message": "Australija"
 	},
+	"trivia_beginner_033_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Južna Amerika"
+	},
+	"trivia_beginner_034": {
+		"message": "Na kojem se kontinentu nalazi Nacionalni park Serengeti čija nedirnuta priroda privlači turiste?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Azija"
+	},
 	"trivia_beginner_034_answer2": {
 		"message": "Australija"
+	},
+	"trivia_beginner_035": {
+		"message": "Koji kontinent ima najveću kopnenu površinu?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Azija"
 	},
 	"trivia_beginner_035_answer1": {
 		"message": "Australija"
 	},
+	"trivia_beginner_035_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_036": {
+		"message": "U kojem se europskom gradu nalazi most Tower koji prelazi preko rijeke Temze?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "London"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Havana"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Cape Town"
+	},
 	"trivia_beginner_037": {
 		"message": "U kojem je ruskom gradu smještena Katedrala svetog Vasilija Blaženika na Crvenom trgu pokraj Kremlja?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Moskva"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Bruxelles"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
 	},
 	"trivia_beginner_038": {
 		"message": "U kojem se europskom gradu nalazi Koloseum, izgrađen u prvom stoljeću nove ere kao mjesto za borbe gladijatora?"
 	},
+	"trivia_beginner_038_answer0": {
+		"message": "Rim"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Khartoum"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manila"
+	},
+	"trivia_beginner_039": {
+		"message": "U kojem se australskom gradu nalaze Opera House i Harbour Bridge?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sydney"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Jakarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Prag"
+	},
+	"trivia_beginner_040": {
+		"message": "Unutar starih zidina kojeg se grada na Bliskom istoku nalaze mnoga sveta mjesta kao što su Kupola na stijeni i Zid plača?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Jeruzalem"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tokio"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Alžir"
+	},
+	"trivia_beginner_041": {
+		"message": "U kojem se grčkom gradu nalazi Partenon, smješten iznad Akropole?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Atena"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kijev"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "Na središte kojeg francuskog grada gleda Eiffelov toranj, smješten u blizini rijeke Seine?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "Pariz"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "New Delhi"
+	},
+	"trivia_beginner_043": {
+		"message": "U kojem se gradu u Saudijskoj Arabiji nalazi džamija al-Haram u kojoj se nalazi Ćaba, najsvetije mjesto za muslimane?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Meka"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Buenos Aires"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Budimpešta"
+	},
+	"trivia_beginner_044": {
+		"message": "U središtu kojeg se kineskog grada nalazi Zabranjeni grad, nekadašnja carska palača?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Peking"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santiago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbane"
+	},
+	"trivia_beginner_045": {
+		"message": "U kojem se američkom gradu na tjesnacu Puget Sound nalazi opservacijski toranj Svemirska igla?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Wichita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "New Orleans"
+	},
+	"trivia_beginner_046": {
+		"message": "U kojem je američkom gradu, smještenom na ušću rijeke Charles, najviša građevina toranj John Hancock?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Boston"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pittsburgh"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memphis"
+	},
+	"trivia_beginner_047": {
+		"message": "U kojem je američkom gradu u pustinji Mojave najviša građevina toranj Stratosphere, smješten sjeverno od poznatog šetališta Strip?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Las Vegas"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Minneapolis"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denver"
+	},
+	"trivia_beginner_048": {
+		"message": "U luci kojeg se američkog grada na Otoku slobode nalazi velika skulptura pod nazivom Kip slobode?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "Grad New York"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Los Angeles"
+	},
 	"trivia_beginner_049": {
 		"message": "Koji američki grad most Golden Gate povezuje s poluotokom Marin?"
 	},
+	"trivia_beginner_049_answer0": {
+		"message": "San Francisco"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boise"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimore"
+	},
 	"trivia_beginner_050": {
 		"message": "Arkada Gateway Arch simbolizira američko širenje na zapad u 19. stoljeću i nalazi se na rijeci Mississippi u kojem američkom gradu?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "St. Louis"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianapolis"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Miami"
+	},
+	"trivia_beginner_051": {
+		"message": "U kojoj se afričkoj zemlji nalazi visoravan Giza, gdje su smještene Velika piramida i Sfinga?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Egipat"
 	},
 	"trivia_beginner_051_answer1": {
 		"message": "Brazil"
@@ -338,38 +881,341 @@
 	"trivia_beginner_051_answer2": {
 		"message": "Njemačka"
 	},
+	"trivia_beginner_052": {
+		"message": "U kojem se američkom gradu nalazi Independence Hall, važna povijesna građevina povezana s američkom revolucijom, smještena uz rijeku Delaware?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Philadelphia"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "San Antonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Chicago"
+	},
+	"trivia_beginner_053": {
+		"message": "Preko koje se zemlje, osim Kanade, proteže Stjenjak?"
+	},
 	"trivia_beginner_053_answer0": {
 		"message": "Sjedinjene Američke Države"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Venezuela"
 	},
 	"trivia_beginner_053_answer2": {
 		"message": "Rusija"
 	},
+	"trivia_beginner_054": {
+		"message": "Koji ocean omeđuje Brazil i Urugvaj?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Atlantski ocean"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Indijski ocean"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Arktički ocean"
+	},
+	"trivia_beginner_055": {
+		"message": "U kojem se oceanu, uz istočnu obalu Kanade, nalazi otok Newfoundland?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Atlantski ocean"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Indijski ocean"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Tihi ocean"
+	},
+	"trivia_beginner_056": {
+		"message": "U kojem se oceanu nalazi otok Madagaskar, smješten uz istočnu obalu Afrike?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Indijski ocean"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Tihi ocean"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Arktički ocean"
+	},
+	"trivia_beginner_057": {
+		"message": "Sredinom kojeg se oceana proteže međunarodna datumska granica?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Tihi ocean"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Indijski ocean"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Atlantski ocean"
+	},
+	"trivia_beginner_058": {
+		"message": "Na kojem kontinentu ekvator siječe sliv rijeke Kongo?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Afrika"
+	},
 	"trivia_beginner_058_answer1": {
 		"message": "Australija"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059": {
+		"message": "Koji kontinent omeđuje Meksički zaljev?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Azija"
+	},
+	"trivia_beginner_060": {
+		"message": "Koja je afrička rijeka najduža rijeka na svijetu?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Rijeka Nil"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Rijeka Kolorado"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Rijeka Oranje"
+	},
+	"trivia_beginner_061": {
+		"message": "Na kojem se kontinentu nalaze drevne ruševine Machu Picchu?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Južna Amerika"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_062": {
+		"message": "Kojim kontinentom teče rijeka Amazona koja prenosi više vode od ijedne druge rijeke na svijetu?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Južna Amerika"
 	},
 	"trivia_beginner_062_answer1": {
 		"message": "Australija"
 	},
+	"trivia_beginner_062_answer2": {
+		"message": "Azija"
+	},
+	"trivia_beginner_063": {
+		"message": "Na kojem se kontinentu nalazi Mont Blanc, najviša točka u Alpama?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Europa"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Južna Amerika"
+	},
+	"trivia_beginner_064": {
+		"message": "S kojim kontinentom Panamska prevlaka povezuje Srednju Ameriku?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Južna Amerika"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Azija"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065": {
+		"message": "Na kojem se kontinentu u Keniji i Tanzaniji mogu pronaći gepardi, najbrži kopneni sisavci na Zemlji?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_066": {
+		"message": "Blizu južnog vrha kojeg se kontinenta nalazi Rt dobre nade?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Azija"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Europa"
+	},
 	"trivia_beginner_067": {
 		"message": "Divovske kornjače žive na otočju Galápagos koje je smješteno zapadno od Južne Afrike u kojem oceanu?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Tihi ocean"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Arktički ocean"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Indijski ocean"
+	},
+	"trivia_beginner_068": {
+		"message": "Na kojem kontinentu rijeka Dunav teče kroz Beč i druge gradove?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Europa"
 	},
 	"trivia_beginner_068_answer1": {
 		"message": "Australija"
 	},
+	"trivia_beginner_068_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_069": {
+		"message": "Koje more omeđuje otoke Kubu i Hispaniolu?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Karipsko more"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Beringovo more"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Baltičko more"
+	},
+	"trivia_beginner_070": {
+		"message": "Koji kontinent omeđuje Gvinejski zaljev?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Afrika"
+	},
 	"trivia_beginner_070_answer1": {
 		"message": "Australija"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_071": {
+		"message": "Koji je kontinent istraživao poznati istraživač Ernest Shackleton?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_072": {
+		"message": "U rukavcu kojeg se oceana nalazi Labradorsko more?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Atlantski ocean"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Indijski ocean"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Tihi ocean"
+	},
+	"trivia_beginner_073": {
+		"message": "Na kojem se kontinentu nalazi Sahara, najveća pustinja na svijetu?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_074": {
+		"message": "Na kojem se kontinentu nalazi Tibetska visoravan?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Azija"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Južna Amerika"
+	},
+	"trivia_beginner_075": {
+		"message": "Južno od kojeg se kontinenta nalazi Drakeov prolaz?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Južna Amerika"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Europa"
 	},
 	"trivia_beginner_075_answer2": {
 		"message": "Australija"
 	},
+	"trivia_beginner_076": {
+		"message": "Uz obalu kojeg se kontinenta nalazi Veliki koraljni greben, smješten u Koraljnom moru?"
+	},
 	"trivia_beginner_076_answer0": {
 		"message": "Australija"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Azija"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Sjeverna Amerika"
 	},
 	"trivia_beginner_077": {
 		"message": "U koju zemlju morate otputovati da biste plovili Sueskim kanalom i posjetili Grad mrtvih u Kairu?"
 	},
+	"trivia_beginner_077_answer0": {
+		"message": "Egipat"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Kolumbija"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Finska"
+	},
+	"trivia_beginner_078": {
+		"message": "Da biste vidjeli gauče koji uzgajaju stoku i gledali plesače tanga u Buenos Airesu, u koju biste zemlju otputovali?"
+	},
 	"trivia_beginner_078_answer0": {
 		"message": "Argentina"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Niger"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nepal"
+	},
+	"trivia_beginner_079": {
+		"message": "U koju zemlju morate otputovati da biste posjetili staru četvrt u gradu Fesu i planinarili u gorju Atlas?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Maroko"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ekvador"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Tajland"
 	},
 	"trivia_beginner_080": {
 		"message": "U koju zemlju morate otputovati da biste posjetili drevne ruševine civilizacije Maja i kupali se na plažama Cancúna?"
@@ -377,8 +1223,23 @@
 	"trivia_beginner_080_answer0": {
 		"message": "Meksiko"
 	},
+	"trivia_beginner_080_answer1": {
+		"message": "Nizozemska"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Turska"
+	},
 	"trivia_beginner_081": {
 		"message": "U koju zemlju morate otputovati da biste posjetili katedralu sv. Patrika u Dublinu i uživali na umjetničkom festivalu u Kilkennyju?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Irska"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Somalija"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Kostarika"
 	},
 	"trivia_beginner_082": {
 		"message": "U koju zemlju morate otputovati da biste obišli prašumu i zaplesali na karnevalu u Rio de Janeiru?"
@@ -389,26 +1250,419 @@
 	"trivia_beginner_082_answer1": {
 		"message": "Ujedinjeno Kraljevstvo"
 	},
+	"trivia_beginner_082_answer2": {
+		"message": "Vijetnam"
+	},
+	"trivia_beginner_083": {
+		"message": "U koju zemlju morate otputovati da biste posjetili muzej Ermitaž u Sankt Peterburgu i vozili se Transibirskom željeznicom?"
+	},
 	"trivia_beginner_083_answer0": {
 		"message": "Rusija"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indonezija"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Belize"
+	},
+	"trivia_beginner_084": {
+		"message": "U koju zemlju morate otputovati da biste se vozili brzim vlakom i proveli noć u tokijskom hotelu?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Japan"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Zimbabve"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Bolivija"
+	},
+	"trivia_beginner_085": {
+		"message": "U koju zemlju morate otputovati da biste jeli pesto u Genovi i poslušali operu u Firenci?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Italija"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paragvaj"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Libija"
+	},
+	"trivia_beginner_086": {
+		"message": "U koju zemlju morate otputovati da biste otišli na safari u Prirodnom rezervatu Maasai Mara i kupovinu u Nairobi?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Kenija"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "Južna Koreja"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Čile"
+	},
+	"trivia_beginner_087": {
+		"message": "U koju zemlju morate otputovati da biste vidjeli rijeku Ganges i istražili pretrpane ulice Kolkate?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "Indija"
 	},
 	"trivia_beginner_087_answer1": {
 		"message": "Njemačka"
 	},
+	"trivia_beginner_087_answer2": {
+		"message": "Jordan"
+	},
+	"trivia_beginner_088": {
+		"message": "U sredini kojeg se oceana nalazi Sjeverni pol, najsjevernija točka na Zemlji?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Arktički ocean"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Tihi ocean"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Indijski ocean"
+	},
+	"trivia_beginner_089": {
+		"message": "Koju zemlju omeđuje Atlantski ocean?"
+	},
 	"trivia_beginner_089_answer0": {
 		"message": "Island"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Pakistan"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Japan"
+	},
+	"trivia_beginner_090": {
+		"message": "Koja je američka država poznata kao Sunčana država zbog svoje tople klime i popularnih plaža?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Florida"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Maine"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Washington"
+	},
+	"trivia_beginner_091": {
+		"message": "U kojoj se američkoj državi nalazi Grand Canyon?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "Zapadna Virginia"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "Južna Dakota"
+	},
+	"trivia_beginner_092": {
+		"message": "Koja američka država, poznata kao Država usamljene zvijezde, ima jednu zvijezdu na zastavi, a ranije je bila neovisna zemlja?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Teksas"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Wisconsin"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_093": {
+		"message": "Na kojem se kontinentu nalaze rijeke Tigris i Eufrat?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Azija"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_094": {
+		"message": "Na kojem se kontinentu nalaze Viktorijino jezero i gorje Virunga?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Azija"
+	},
+	"trivia_beginner_095": {
+		"message": "Koja je zemlja otočna zemlja u Tihom oceanu?"
 	},
 	"trivia_beginner_095_answer0": {
 		"message": "Novi Zeland"
 	},
+	"trivia_beginner_095_answer1": {
+		"message": "Južnoafrička Republika"
+	},
 	"trivia_beginner_095_answer2": {
 		"message": "Island"
+	},
+	"trivia_beginner_096": {
+		"message": "Koja se zemlja nalazi na Skandinavskom poluotoku?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Švedska"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Rumunjska"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Peru"
+	},
+	"trivia_beginner_097": {
+		"message": "Koju zemlju omeđuje Sredozemno more?"
 	},
 	"trivia_beginner_097_answer0": {
 		"message": "Francuska"
 	},
+	"trivia_beginner_097_answer1": {
+		"message": "Bangladeš"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Nikaragva"
+	},
+	"trivia_hard_001": {
+		"message": "Koji je grad u SAD-u najbliži kanadskoj granici?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sacramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "U kojem je američkom gradu najveća vjerojatnost uragana?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Miami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Los Angeles"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pittsburgh"
+	},
+	"trivia_hard_003": {
+		"message": "Koje od ovih jezera ima najveću površinu?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Jezero Huron"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Jezero Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Jezero Erie"
+	},
+	"trivia_hard_004": {
+		"message": "Koji je od ovih gradova u SAD-u najnapučeniji?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Chicago"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "St. Louis"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianapolis"
+	},
+	"trivia_hard_005": {
+		"message": "Koja je zemlja najbliža Perzijskom zaljevu?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Turska"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Butan"
+	},
+	"trivia_hard_006": {
+		"message": "Koja od ovih zemalja ima najveću kopnenu površinu?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Kazahstan"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Rumunjska"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Poljska"
+	},
+	"trivia_hard_007": {
+		"message": "Koja je od ovih zemalja najgušće naseljena?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Singapur"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Laos"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Bolivija"
+	},
+	"trivia_hard_008": {
+		"message": "Koja od ovih zemalja ima najveći broj govornika njemačkog jezika?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Austrija"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Slovačka"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Irak"
+	},
+	"trivia_hard_009": {
+		"message": "Koja od ovih zemalja graniči s najviše zemalja?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Saudijska Arabija"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Maroko"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mongolija"
+	},
+	"trivia_hard_010": {
+		"message": "Koju zemlju ne omeđuje jezero Tanganjika?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benin"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Burundi"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Zambija"
+	},
+	"trivia_hard_011": {
+		"message": "Koju zemlju ne siječe ekvator?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Mauritanija"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indonezija"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Kenija"
+	},
+	"trivia_hard_012": {
+		"message": "Koja se zemlja ne nalazi na Balkanskom poluotoku?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Češka Republika"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Bugarska"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Makedonija"
+	},
+	"trivia_hard_013": {
+		"message": "Koju zemlju ne omeđuje Sjeverno more?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Finska"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Danska"
+	},
 	"trivia_hard_013_answer2": {
 		"message": "Ujedinjeno Kraljevstvo"
+	},
+	"trivia_hard_014": {
+		"message": "Koju zemlju ne omeđuje Crno more?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Azerbajdžan"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Ukrajina"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Turska"
+	},
+	"trivia_hard_015": {
+		"message": "Koja zemlja nije okružena kopnom?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Hrvatska"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Bjelorusija"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Mađarska"
+	},
+	"trivia_hard_016": {
+		"message": "Koja se zemlja ne nalazi u Sahari?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angola"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Libija"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Alžir"
+	},
+	"trivia_hard_017": {
+		"message": "Koji se otok nalazi najistočnije?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinidad"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Jamajka"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Kuba"
+	},
+	"trivia_hard_018": {
+		"message": "Koje vodeno tijelo omeđuje Rt straha?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Atlantski ocean"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Karipsko more"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Tihi ocean"
+	},
+	"trivia_hard_019": {
+		"message": "Koji je grad luka u Meksičkom zaljevu?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Veracruz"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tijuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Acapulco"
+	},
+	"trivia_hard_020": {
+		"message": "Kojom zemljom prolazi Rakova obratnica?"
 	},
 	"trivia_hard_020_answer0": {
 		"message": "Meksiko"
@@ -419,11 +1673,128 @@
 	"trivia_hard_020_answer2": {
 		"message": "Brazil"
 	},
+	"trivia_hard_021": {
+		"message": "Koji od ovih otoka ima najveću površinu?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Baffinov otok"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Hispaniola"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Sardinija"
+	},
 	"trivia_hard_022": {
 		"message": "Jukatanski kanal odvaja Meksiko i koji otok?"
 	},
+	"trivia_hard_022_answer0": {
+		"message": "Kuba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Portoriko"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dominika"
+	},
+	"trivia_hard_023": {
+		"message": "Koji je najsjeverniji kanadski grad?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Yellowknife"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Ottawa"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Winnipeg"
+	},
+	"trivia_hard_024": {
+		"message": "Koji je otok dio Malih Antila?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "Sveti Kristofor"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Bermudi"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Nova Škotska"
+	},
+	"trivia_hard_025": {
+		"message": "U kojoj je zemlji najnapučeniji grad Port-au-Prince?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haiti"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Nikaragva"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Surinam"
+	},
+	"trivia_hard_026": {
+		"message": "Koja se zemlja nalazi u planinskom sustavu Karpata?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Rumunjska"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albanija"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Turkmenistan"
+	},
+	"trivia_hard_027": {
+		"message": "U kojoj je zemlji službeni jezik francuski?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabon"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Kuvajt"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tanzanija"
+	},
+	"trivia_hard_028": {
+		"message": "Koja od ovih zemalja ima najveću kopnenu površinu?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Izrael"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Bahrein"
+	},
+	"trivia_hard_029": {
+		"message": "Koja zemlja obuhvaća najviše stupnjeva zemljopisne dužine?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Kazahstan"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afganistan"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Sirija"
+	},
+	"trivia_hard_030": {
+		"message": "Koja se zemlja sastoji od mnogo otoka?"
+	},
 	"trivia_hard_030_answer0": {
 		"message": "Filipini"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Kambodža"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Tadžikistan"
+	},
+	"trivia_hard_031": {
+		"message": "Koja od ovih zemalja ima najviše vremenskih zona?"
 	},
 	"trivia_hard_031_answer0": {
 		"message": "Brazil"
@@ -431,23 +1802,485 @@
 	"trivia_hard_031_answer1": {
 		"message": "Gana"
 	},
+	"trivia_hard_031_answer2": {
+		"message": "Belize"
+	},
+	"trivia_hard_032": {
+		"message": "Koja se zemlja nalazi najsjevernije?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Kamerun"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Mozambik"
+	},
 	"trivia_hard_032_answer2": {
 		"message": "Australija"
+	},
+	"trivia_hard_033": {
+		"message": "Koja se zemlja nalazi između Francuske i Španjolske?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andora"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Luksemburg"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Vatikan"
+	},
+	"trivia_hard_034": {
+		"message": "S kojom zemljom graniči Danska?"
 	},
 	"trivia_hard_034_answer0": {
 		"message": "Njemačka"
 	},
+	"trivia_hard_034_answer1": {
+		"message": "Finska"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Moldavija"
+	},
+	"trivia_hard_035": {
+		"message": "Kojoj zemlji pripada otok Sardinija?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Italija"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Turska"
+	},
 	"trivia_hard_035_answer2": {
 		"message": "Ujedinjeno Kraljevstvo"
+	},
+	"trivia_hard_036": {
+		"message": "Koja pustinja pokriva veći dio područja između Pekinga i Ulan Batora?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Velika indijska pustinja"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Libijska pustinja"
+	},
+	"trivia_hard_037": {
+		"message": "Kojeg je oceana Kamčatka dio?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Tihi ocean"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Indijski ocean"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Atlantski ocean"
+	},
+	"trivia_hard_038": {
+		"message": "U južnom dijelu kojeg se mora nalazi Sidranski zaljev?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Sredozemno more"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Arapsko more"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Baltičko more"
+	},
+	"trivia_hard_039": {
+		"message": "U kojem je europskom planinskom sustavu najviši planinski lanac gorje Tatre?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Karpati"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Kantabrijsko gorje"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Pireneji"
+	},
+	"trivia_hard_040": {
+		"message": "Koja rijeka teče jezerom Kariba i tvori granicu između Zambije i Zimbabvea?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Rijeka Zambezi"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Rijeka Nil"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Rijeka Kongo"
+	},
+	"trivia_hard_041": {
+		"message": "U koje more utječu rijeke Temza, Meuse i Scheldt?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Sjeverno more"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Sredozemno more"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Crno more"
+	},
+	"trivia_hard_042": {
+		"message": "Od kojeg velikog otoka na sjeveru Luzonski prolaz odvaja Filipine?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Tajvan"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Alžir"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Šri Lanka"
+	},
+	"trivia_hard_043": {
+		"message": "Koji se otoci nalaze uz Srednju atlantsku brazdu?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Azori"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Bahami"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Otočje Fiji"
+	},
+	"trivia_hard_044": {
+		"message": "Koja rijeka utječe u Laptevsko more?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Rijeka Lena"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Rijeka Jangce"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Rijeka Ind"
+	},
+	"trivia_hard_045": {
+		"message": "Koji je vrh najbliži ekvatoru?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimandžaro"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Mont Blanc"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Mount McKinley"
+	},
+	"trivia_hard_046": {
+		"message": "Koji je glavni grad najnapučeniji?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Moskva"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Helsinki"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Alžir"
+	},
+	"trivia_hard_047": {
+		"message": "Koji je grad, smješten na rijeci Liffey, najveći grad u Irskoj?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dublin"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Oslo"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Kopenhagen"
+	},
+	"trivia_hard_048": {
+		"message": "Koji je grad, smješten u dolini planinskog lanca Hindukuš, najveći grad u Afganistanu?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Kabul"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Sarajevo"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "Koji je grad, smješten na rijeci Chao Phraya, najveći grad u Tajlandu?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Bangkok"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Peking"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Amman"
+	},
+	"trivia_hard_050": {
+		"message": "Koji je grad, smješten na vrhu fjorda u tjesnacu Skagerrak, najveći grad u Norveškoj?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Oslo"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "London"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Bruxelles"
+	},
+	"trivia_hard_051": {
+		"message": "Koji je grad, smješten na istočnom dijelu Sredozemnog mora, najveći grad u Libanonu?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Bejrut"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Rijad"
+	},
+	"trivia_hard_052": {
+		"message": "Koji je grad, smješten na obali Jave, najveći grad u Indoneziji?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Jakarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tokio"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "Koji je grad, smješten u regiji Atika, najveći grad u Grčkoj?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Atena"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Rim"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barcelona"
 	},
 	"trivia_hard_054": {
 		"message": "Koji je grad, smješten na ušću rijeke La Plata, najveći grad Urugvaja?"
 	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Quito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Rio de Janeiro"
+	},
+	"trivia_hard_055": {
+		"message": "Koji je grad, ranije dio nekadašnje pokrajine Transvaal, najveći grad u Južnoafričkoj Republici?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Johannesburg"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abuja"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputo"
+	},
+	"trivia_hard_056": {
+		"message": "Koji je grad, važno brodsko središte na Karipskom moru, najveći grad na Jamajci?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Kingston"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Karakas"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Buenos Aires"
+	},
+	"trivia_hard_057": {
+		"message": "Koji je grad, smješten u Dolini velike rasjeline, najveći grad u Eritreji?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Bagdad"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazzaville"
+	},
+	"trivia_hard_058": {
+		"message": "Koji je grad, smješten na obali rijeke Visle, najveći grad u Poljskoj?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Varšava"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kijev"
+	},
+	"trivia_hard_059": {
+		"message": "Koji je grad, važna postaja Panameričke autoceste, najveći grad u Kostarici?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "San José"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sucre"
+	},
+	"trivia_hard_060": {
+		"message": "Koji je grad, važno središte poljoprivredne razmjene u južnoj Africi, najveći grad u Zimbabveu?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Windhoek"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "Koji je grad, nekoć pod režimom crvenih Kmera, najveći grad u Kambodži?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Phnom Penh"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kuala Lumpur"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Dhaka"
+	},
+	"trivia_hard_062": {
+		"message": "Koji je grad, smješten na Rtu Mesurado u Atlantskom oceanu, najveći grad u Liberiji?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monrovia"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Accra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaka"
+	},
+	"trivia_hard_063": {
+		"message": "Koji je grad, smješten na visoravni u Andama, najveći grad u Kolumbiji?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogotá"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managua"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterrey"
+	},
+	"trivia_hard_064": {
+		"message": "Koji je grad, smješten u podnožju planine Elburz, najveći grad u Iranu?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Teheran"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Taškent"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Istanbul"
+	},
+	"trivia_hard_065": {
+		"message": "Koje vodeno tijelo siječe Arktički krug?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Norveško more"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Jezero Volta"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Kaspijsko jezero"
+	},
+	"trivia_hard_066": {
+		"message": "Koje vodeno tijelo leži u Dolini velike rasjeline?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Jezero Malavi"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Tasmanijsko more"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Jezero Titicaca"
+	},
+	"trivia_hard_067": {
+		"message": "Na obali koje se rijeke nalazi ruski lučki grad Arhangelsk?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Bijelo more"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Tjesnac Bass"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Biskajski zaljev"
+	},
+	"trivia_hard_068": {
+		"message": "Koja zemlja obuhvaća pokrajine Hunan i Shandong?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "Kina"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Tajland"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Jemen"
+	},
+	"trivia_hard_069": {
+		"message": "U kojoj je mediteranskoj zemlji službeni jezik kastiljski?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Španjolska"
+	},
 	"trivia_hard_069_answer1": {
 		"message": "Grčka"
 	},
+	"trivia_hard_069_answer2": {
+		"message": "Azerbajdžan"
+	},
+	"trivia_hard_070": {
+		"message": "Koja je srednjoamerička zemlja nekoć bila pokrajina koja je bila dio Kolumbije?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panama"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Honduras"
+	},
 	"trivia_hard_070_answer2": {
 		"message": "Gvatemala"
+	},
+	"trivia_hard_071": {
+		"message": "Koje je zemlje važno prometno središte grad Basel koji dijeli rijeka Rajna?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Švicarska"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Belgija"
 	},
 	"trivia_hard_071_answer2": {
 		"message": "Rusija"
@@ -458,17 +2291,128 @@
 	"trivia_hard_072_answer0": {
 		"message": "Francuska"
 	},
+	"trivia_hard_072_answer1": {
+		"message": "Nizozemska"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Rumunjska"
+	},
 	"trivia_hard_073": {
 		"message": "Bahía Blanca glavna je tranzitna luka regije Pampas u kojoj zemlji?"
 	},
 	"trivia_hard_073_answer0": {
 		"message": "Argentina"
 	},
+	"trivia_hard_073_answer1": {
+		"message": "Bolivija"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Nikaragva"
+	},
+	"trivia_hard_074": {
+		"message": "Koju zemlju omeđuju Sredozemno, Crno i Egejsko more?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Turska"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Bugarska"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Libija"
+	},
+	"trivia_hard_075": {
+		"message": "U koju susjednu zemlju na sjeveroistoku svake godine preko rijeke Mare migriraju gnuovi iz Tanzanije?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Kenija"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Zambija"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Gvineja"
+	},
+	"trivia_hard_076": {
+		"message": "Koje je jugozapadne azijske zemlje najveći grad Alep, poznat po Velikoj džamiji?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Sirija"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Oman"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Bangladeš"
+	},
+	"trivia_hard_077": {
+		"message": "Koja zemlja graniči s Rusijom i Gruzijom?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Azerbajdžan"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Uzbekistan"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Sjeverna Koreja"
+	},
+	"trivia_hard_078": {
+		"message": "Koja zemlja graniči s Panamom i Brazilom?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Kolumbija"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Peru"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Kostarika"
+	},
+	"trivia_hard_079": {
+		"message": "Koja zemlja graniči s Gvatemalom i SAD-om?"
+	},
 	"trivia_hard_079_answer0": {
 		"message": "Meksiko"
 	},
+	"trivia_hard_079_answer1": {
+		"message": "Salvador"
+	},
 	"trivia_hard_079_answer2": {
 		"message": "Kanada"
+	},
+	"trivia_hard_080": {
+		"message": "Koja zemlja graniči s Irakom i Afganistanom?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Ukrajina"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mongolija"
+	},
+	"trivia_hard_081": {
+		"message": "Koja zemlja graniči s Lesotom i Bocvanom?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Južnoafrička Republika"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Zimbabve"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Kongo"
+	},
+	"trivia_hard_082": {
+		"message": "U kojoj se zemlji, u dijelu u kojem se govori flamanski, nalazi Antwerpen?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Belgija"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Nizozemska"
 	},
 	"trivia_hard_082_answer2": {
 		"message": "Island"
@@ -476,8 +2420,41 @@
 	"trivia_hard_083": {
 		"message": "Smješten blizu ušća rijeke Vistula, grad Gdanjsk glavna je luka koje europske zemlje?"
 	},
+	"trivia_hard_083_answer0": {
+		"message": "Poljska"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Španjolska"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Hrvatska"
+	},
+	"trivia_hard_084": {
+		"message": "Koje su velike rijeke u Južnoj Americi glavni pritoci rijeke Madeira i Purus?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Rijeka Amazona"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Rijeka Orinoco"
+	},
 	"trivia_hard_084_answer2": {
 		"message": "Rijeka Paraná"
+	},
+	"trivia_hard_085": {
+		"message": "Na granici koje se još zemlje, osim Švicarske i Njemačke, nalazi Bodensko jezero?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Austrija"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Slovačka"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Finska"
+	},
+	"trivia_hard_086": {
+		"message": "U kojoj je zemlji najveći grad Auckland, veliki lučki grad s više luka?"
 	},
 	"trivia_hard_086_answer0": {
 		"message": "Novi Zeland"
@@ -485,56 +2462,695 @@
 	"trivia_hard_086_answer1": {
 		"message": "Australija"
 	},
+	"trivia_hard_086_answer2": {
+		"message": "Indonezija"
+	},
+	"trivia_hard_087": {
+		"message": "Koja je zemlja, smještena zapadno od Toga, glavni proizvođač kakaa?"
+	},
 	"trivia_hard_087_answer0": {
 		"message": "Gana"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Sudan"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Tunis"
 	},
 	"trivia_hard_088": {
 		"message": "Guaraní je naziv jednog od službenih jezika i valute koje južnoafričke zemlje?"
 	},
+	"trivia_hard_088_answer0": {
+		"message": "Paragvaj"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ekvador"
+	},
 	"trivia_hard_088_answer2": {
 		"message": "Brazil"
+	},
+	"trivia_hard_089": {
+		"message": "Koji se planinski lanac pruža uz granicu između Francuske i Španjolske?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Pireneji"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Apenini"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Kavkaz"
+	},
+	"trivia_hard_090": {
+		"message": "U kojoj se zemlji rijeka Torrens ulijeva u Zaljev sv. Vincenta?"
 	},
 	"trivia_hard_090_answer0": {
 		"message": "Australija"
 	},
+	"trivia_hard_090_answer1": {
+		"message": "Uganda"
+	},
 	"trivia_hard_090_answer2": {
 		"message": "Kanada"
+	},
+	"trivia_hard_091": {
+		"message": "Koja je afrička zemlja, omeđena Mediteranskim morem, monarhija?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Maroko"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Egipat"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Srednjoafrička Republika"
+	},
+	"trivia_hard_092": {
+		"message": "U kojoj je zemlji glavni grad Tbilisi, smješten na obalama rijeke Kure?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Gruzija"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Sirija"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Mađarska"
+	},
+	"trivia_hard_093": {
+		"message": "U kojoj se zemlji nalazi Abruzzo, planinska regija smještena pokraj Jadranskog mora?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Italija"
 	},
 	"trivia_hard_093_answer1": {
 		"message": "Francuska"
 	},
+	"trivia_hard_093_answer2": {
+		"message": "Luksemburg"
+	},
+	"trivia_hard_094": {
+		"message": "Koju zemlju, osim Latvije, omeđuje Riški zaljev?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Estonija"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Bjelorusija"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Španjolska"
+	},
+	"trivia_hard_095": {
+		"message": "S kojim morem tjesnac Jubal povezuje Sueski zaljev?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Crveno more"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Karipsko more"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Kaspijsko jezero"
+	},
+	"trivia_hard_096": {
+		"message": "Dotoci koje rijeke opskrbljuju velik dio Galilejskog jezera?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Rijeka Jordan"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amu-Darja"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Rijeka Ganges"
+	},
+	"trivia_hard_097": {
+		"message": "Koji veliki zaljev odvaja Novi Brunswick od Nove Škotske?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Zaljev Fundy"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Hudsonov zaljev"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Bengalski zaljev"
+	},
+	"trivia_hard_098": {
+		"message": "U kojoj se zemlji, u regiji Rheinland, nalazi Kölnska katedrala?"
+	},
 	"trivia_hard_098_answer0": {
 		"message": "Njemačka"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Danska"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_099": {
+		"message": "U kojoj je zemlji najjužnija država Chiapas, lokacija nekoliko drevnih ruševina civilizacije Maja?"
 	},
 	"trivia_hard_099_answer0": {
 		"message": "Meksiko"
 	},
+	"trivia_hard_099_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Čile"
+	},
+	"trivia_hard_100": {
+		"message": "S kojim morem uski prolaz Dardaneli spaja Mramorno more?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Egejsko more"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Barentsovo more"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Tasmanijsko more"
+	},
+	"trivia_hard_101": {
+		"message": "U kojoj je jugoistočnoj azijskoj zemlji službeni jezik kmerski?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Kambodža"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Vijetnam"
+	},
+	"trivia_hard_102": {
+		"message": "S kojom zemljom Rusija dijeli industrijsko područje Donjecki bazen?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Ukrajina"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Slovačka"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Libanon"
+	},
+	"trivia_hard_103": {
+		"message": "Kojeg je kontinenta najviši vrh Kosciuszko, smješten u Snježnim planinama?"
+	},
 	"trivia_hard_103_answer0": {
 		"message": "Australija"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Europa"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Južna Amerika"
+	},
+	"trivia_hard_104": {
+		"message": "Koje su zemlje dio otoci Madura i Bali?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indonezija"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Japan"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_105": {
+		"message": "U kojoj se azijskog zemlji, sjeverno od gorja Kunlun, nalazi pustinja Takla Makan?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "Kina"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Saudijska Arabija"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "Južna Koreja"
+	},
+	"trivia_medium_001": {
+		"message": "Koji se od ovih američkih gradova nalazi na delti rijeke?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "New Orleans"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Austin"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Oklahoma City"
+	},
+	"trivia_medium_002": {
+		"message": "Na kojem se kontinentu nalaze Angkor Wat i Kapadokija, mjesta s UNESCO-va popisa svjetske baštine?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Azija"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_medium_003": {
+		"message": "U jugozapadnom dijelu kojeg se kontinenta govore kurdski i perzijski jezik?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Azija"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Južna Amerika"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Europa"
 	},
 	"trivia_medium_004": {
 		"message": "Na kojem je kontinentu Teotihuacán bio veliko središte rane civilizacije?"
 	},
+	"trivia_medium_004_answer0": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Azija"
+	},
+	"trivia_medium_005": {
+		"message": "Koji kontinent omeđuju Bellingshausenovo i Rossovo more?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Azija"
+	},
+	"trivia_medium_006": {
+		"message": "Uz obalu kojeg se kontinenta kreću mozambička i benguelska struja?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_medium_007": {
+		"message": "Uz jugoistočni rub kojeg se kontinenta nalazi Malvinsko otočje, koje se još naziva Falklandsko otočje?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Južna Amerika"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_008": {
+		"message": "Koja od ovih afričkih zemalja ima najveću površinu?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Alžir"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gambija"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Burundi"
+	},
+	"trivia_medium_009": {
+		"message": "Koji se veliki otok nalazi 200 milja sjeverozapadno od Islanda?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Grenland"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Nova Gvineja"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Irska"
+	},
+	"trivia_medium_010": {
+		"message": "Kojeg su oceana dio Karsko more i Istočno sibirsko more?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Arktički ocean"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Indijski ocean"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Tihi ocean"
+	},
+	"trivia_medium_011": {
+		"message": "Koju zemlju omeđuje Baltičko more?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Latvija"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Slovenija"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Ukrajina"
+	},
+	"trivia_medium_012": {
+		"message": "Koji je od ovih velikih gradova najnapučeniji?"
+	},
 	"trivia_medium_012_answer0": {
 		"message": "São Paulo, Brazil"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto, Kanada"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hanoi, Vijetnam"
+	},
+	"trivia_medium_013": {
+		"message": "Koja zemlja nema obalu na Atlantskom oceanu?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Malezija"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Urugvaj"
+	},
+	"trivia_medium_014": {
+		"message": "Koja od ovih zemalja ima najkraću obalu?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "Salvador"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Peru"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Čile"
+	},
+	"trivia_medium_015": {
+		"message": "Koja se pustinja nalazi u Aziji?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalahari"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atacama"
+	},
+	"trivia_medium_016": {
+		"message": "Koja od ovih zemalja bilježi najviše vulkanske aktivnosti?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indonezija"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Egipat"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Izrael"
+	},
+	"trivia_medium_017": {
+		"message": "Koja od ovih zemalja ima najveći broj stanovnika?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_018": {
+		"message": "Koja od ovih zemalja ima najviše otoka?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Bahami"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Jamajka"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "Salvador"
+	},
+	"trivia_medium_019": {
+		"message": "Koja se zemlja nalazi najbliže ekvatoru?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Ruanda"
 	},
 	"trivia_medium_019_answer1": {
 		"message": "Gvatemala"
 	},
+	"trivia_medium_019_answer2": {
+		"message": "Južnoafrička Republika"
+	},
+	"trivia_medium_020": {
+		"message": "Koja se zemlja nalazi najsjevernije?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Estonija"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Libija"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Kambodža"
+	},
+	"trivia_medium_021": {
+		"message": "U kojem se portugalskom glavnom gradu na obalama rijeke Tajo nalazi četvrt Alfama?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lisabon"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Helsinki"
+	},
+	"trivia_medium_022": {
+		"message": "Koji je glavni grad, smješten 25 milja sjeveroistočno od Mrtvog mora, najnapučeniji grad u Jordanu?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Amman"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Islamabad"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Seul"
+	},
+	"trivia_medium_023": {
+		"message": "U kojem se glavnom gradu nalazi trg Tahrir na kojem je održano nekoliko velikih egipatskih prosvjeda?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Kairo"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Muscat"
+	},
 	"trivia_medium_024": {
 		"message": "Koji je glavni grad, smješten u uvali Table, sjedište južnoafričkog nacionalnog parlamenta?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Cape Town"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaka"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinshasa"
+	},
+	"trivia_medium_025": {
+		"message": "Koji je glavni grad, smješten na rijeci Vltavi, najveći grad u Češkoj?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Prag"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dublin"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Sofija"
+	},
+	"trivia_medium_026": {
+		"message": "Koji je glavni grad, smješten na obali Sredozemnog mora, važna luka za Libiju?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Tripoli"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monrovia"
+	},
+	"trivia_medium_027": {
+		"message": "Koji se glavni grad, važno trgovačko i prometno središte u Sudanu, nalazi na spoju Bijelog i Plavog Nila?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Khartoum"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Tunis"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Johannesburg"
+	},
+	"trivia_medium_028": {
+		"message": "Koji je glavni grad smješten na danskim otocima Zealand i Amager?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Kopenhagen"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Bern"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Bratislava"
+	},
+	"trivia_medium_029": {
+		"message": "Koji je glavni grad, smješten na otoku New Providence, najveći grad na Bahamima?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Nassau"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santo Domingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopan"
 	},
 	"trivia_medium_030": {
 		"message": "Koji je glavni grad, smješten južno od Crnog mora, središte prijevoznog sustava Turske?"
 	},
+	"trivia_medium_030_answer0": {
+		"message": "Ankara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minsk"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Teheran"
+	},
+	"trivia_medium_031": {
+		"message": "Koja se od ovih zemalja djelomično nalazi na Afričkom rogu?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Eritreja"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Niger"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Svazi"
+	},
+	"trivia_medium_032": {
+		"message": "Od koje zemlje tjesnac Skagerrak odvaja Dansku?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Norveška"
+	},
 	"trivia_medium_032_answer1": {
 		"message": "Ujedinjeno Kraljevstvo"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Šri Lanka"
+	},
+	"trivia_medium_033": {
+		"message": "Koja zemlja ima veću kopnenu površinu prekrivenu pustinjom?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Čad"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Norveška"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Vijetnam"
+	},
+	"trivia_medium_034": {
+		"message": "Kroz koju zemlju teče rijeka Eufrat?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Sirija"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Švicarska"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Tajland"
+	},
+	"trivia_medium_035": {
+		"message": "Na kojem se kontinentu, pokraj Bajkalskog jezera, nalazi grad Irkutsk?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Azija"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Južna Amerika"
+	},
+	"trivia_medium_036": {
+		"message": "Na kojem se kontinentu nalaze velike rijeke Dnjepar i Rajna?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Europa"
 	},
 	"trivia_medium_036_answer1": {
 		"message": "Antarktika"
 	},
+	"trivia_medium_036_answer2": {
+		"message": "Azija"
+	},
+	"trivia_medium_037": {
+		"message": "Na kojem se kontinentu nalaze Gvajanska visoravan i regija Pantanal?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Južna Amerika"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Sjeverna Amerika"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_038": {
+		"message": "Na kojem se kontinentu nalaze Velika Viktorijina pustinja i ravnjak Nullarbor?"
+	},
 	"trivia_medium_038_answer0": {
 		"message": "Australija"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Azija"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_039": {
+		"message": "U kojoj je zemlji najjužnija država Rio Grande do Sul?"
 	},
 	"trivia_medium_039_answer0": {
 		"message": "Brazil"
@@ -545,11 +3161,35 @@
 	"trivia_medium_039_answer2": {
 		"message": "Njemačka"
 	},
+	"trivia_medium_040": {
+		"message": "U kojoj se zemlji nalazi grad Novosibirsk, smješten na rijeci Ob?"
+	},
 	"trivia_medium_040_answer0": {
 		"message": "Rusija"
 	},
+	"trivia_medium_040_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "Kina"
+	},
+	"trivia_medium_041": {
+		"message": "U kojoj je zemlji, smještenoj u Pacifičkom obruču, veća vjerojatnost potresa?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Čile"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angola"
+	},
 	"trivia_medium_041_answer2": {
 		"message": "Francuska"
+	},
+	"trivia_medium_042": {
+		"message": "Uz sjevernu obalu koje se zemlje nalazi jezero Maracaibo?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Venezuela"
 	},
 	"trivia_medium_042_answer1": {
 		"message": "Gvatemala"
@@ -557,11 +3197,140 @@
 	"trivia_medium_042_answer2": {
 		"message": "Kanada"
 	},
+	"trivia_medium_043": {
+		"message": "Koju zemlju omeđuje Arapsko more?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "Indija"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Tadžikistan"
+	},
 	"trivia_medium_043_answer2": {
 		"message": "Grčka"
 	},
+	"trivia_medium_044": {
+		"message": "Koja se zemlja nalazi na Pirenejskom poluotoku?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Portugal"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Bangladeš"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Nizozemska"
+	},
+	"trivia_medium_045": {
+		"message": "Koja od ovih zemalja ima najdužu obalu?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Tajland"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Kongo"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Katar"
+	},
+	"trivia_medium_046": {
+		"message": "Koja se američka država nalazi zapadno od rijeke Mississippi?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Colorado"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Maryland"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Michigan"
+	},
+	"trivia_medium_047": {
+		"message": "60% koje američke države prekrivaju šume?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virginia"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "U kojoj se američkoj državi nalazi Mount McKinley, najviši vrh u Sjevernoj Americi?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Aljaska"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_medium_049": {
+		"message": "Koja je od ovih američkih država najveća površinom?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montana"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "Južna Karolina"
+	},
+	"trivia_medium_050": {
+		"message": "U kojoj se američkoj državi nalazi Mount Rushmore, smješten blizu Rapid Cityja?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "Južna Dakota"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Florida"
+	},
+	"trivia_medium_051": {
+		"message": "Koja američka država dijeli granicu s Kanadom?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebraska"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentucky"
+	},
+	"trivia_medium_052": {
+		"message": "Uz obalu koje se američke države nalaze koraljni grebeni?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Havaji"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "U kojoj se zemlji nalazi važna luka Hamburg?"
+	},
 	"trivia_medium_053_answer0": {
 		"message": "Njemačka"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Hrvatska"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Belgija"
+	},
+	"trivia_medium_054": {
+		"message": "Koja zemlja bilježi najviše vulkanske aktivnosti?"
 	},
 	"trivia_medium_054_answer0": {
 		"message": "Island"
@@ -569,14 +3338,143 @@
 	"trivia_medium_054_answer1": {
 		"message": "Ujedinjeno Kraljevstvo"
 	},
+	"trivia_medium_054_answer2": {
+		"message": "Poljska"
+	},
+	"trivia_medium_055": {
+		"message": "Koja zemlja većim dijelom leži na poluotoku Mala Azija?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Turska"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Mianmar"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Estonija"
+	},
+	"trivia_medium_056": {
+		"message": "Koja zemlja graniči s Izraelom preko Mrtvog mora?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Jordan"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Japan"
+	},
+	"trivia_medium_057": {
+		"message": "U kojoj se zemlji, istočno od Viktorijina jezera, nalazi Nacionalni park Serengeti?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tanzanija"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Jemen"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nigerija"
+	},
+	"trivia_medium_058": {
+		"message": "Koju zemlju omeđuje Karipsko more, a vodeći je izvoznik nafte?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Čile"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paragvaj"
+	},
+	"trivia_medium_059": {
+		"message": "Koja se zemlja okružena kopnom nalazi južno od ekvatora?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Burundi"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Džibuti"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Tunis"
+	},
+	"trivia_medium_060": {
+		"message": "Koju mediteransku zemlju omeđuje Tirensko more?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Italija"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Izrael"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Senegal"
+	},
+	"trivia_medium_061": {
+		"message": "U kojoj zemlji, na istočnim obroncima Uralskog gorja, leži Ekaterinburg?"
+	},
 	"trivia_medium_061_answer0": {
 		"message": "Rusija"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Litva"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Belgija"
+	},
+	"trivia_medium_062": {
+		"message": "Koja se otočna zemlja nalazi jugoistočno od Australije, a vodeći je proizvođač vune?"
 	},
 	"trivia_medium_062_answer0": {
 		"message": "Novi Zeland"
 	},
 	"trivia_medium_062_answer1": {
 		"message": "Filipini"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Vijetnam"
+	},
+	"trivia_medium_063": {
+		"message": "U kojoj se zemlji nalazi veliki lučki grad Mumbai?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "Indija"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Švicarska"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Butan"
+	},
+	"trivia_medium_064": {
+		"message": "U kojoj se zemlji nalazi grad Incheon, smješten u Žutom moru?"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "Južna Koreja"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Tajland"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mongolija"
+	},
+	"trivia_medium_065": {
+		"message": "Koja se malena zemlja nalazi uz zapadnu austrijsku granicu?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Lihtenštajn"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Sirija"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Moldavija"
+	},
+	"trivia_medium_066": {
+		"message": "U kojoj se zemlji nalaze države Victoria i Novi Južni Wales?"
 	},
 	"trivia_medium_066_answer0": {
 		"message": "Australija"
@@ -587,35 +3485,305 @@
 	"trivia_medium_066_answer2": {
 		"message": "Kanada"
 	},
+	"trivia_medium_067": {
+		"message": "Koja zemlja na otoku Borneo graniči s malom državom Brunej?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Malezija"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Ukrajina"
+	},
+	"trivia_medium_068": {
+		"message": "Na granici koje se još zemlje, osim Italije, pružaju Julijske Alpe?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Slovenija"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Tadžikistan"
+	},
+	"trivia_medium_069": {
+		"message": "U sjeverozapadnom dijelu koje se zemlje nalazi regija koja se ranije nazivala Mandžurija?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "Kina"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Bjelorusija"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afganistan"
+	},
+	"trivia_medium_070": {
+		"message": "Koja zemlja graniči sa Salvadorom?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panama"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Dominikanska Republika"
+	},
+	"trivia_medium_071": {
+		"message": "Koja se zemlja nalazi u gorju Kavkaz?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Gruzija"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Mađarska"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andora"
+	},
+	"trivia_medium_072": {
+		"message": "U kojoj azijskoj zemlji Sundski prolaz odvaja dva otoka?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indonezija"
+	},
 	"trivia_medium_072_answer1": {
 		"message": "Novi Zeland"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Laos"
+	},
+	"trivia_medium_073": {
+		"message": "U kojoj se zemlji, blizu ušća rijeke Shannon, mogu vidjeti ledenjačke doline i spektakularni grebeni?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Irska"
 	},
 	"trivia_medium_073_answer1": {
 		"message": "Francuska"
 	},
+	"trivia_medium_073_answer2": {
+		"message": "Uzbekistan"
+	},
+	"trivia_medium_074": {
+		"message": "Kroz koju južnoazijsku zemlju teče rijeka Ind?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Sjeverna Koreja"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Azerbajdžan"
+	},
+	"trivia_medium_075": {
+		"message": "Koju zemlju omeđuje Crveno more?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Eritreja"
+	},
 	"trivia_medium_075_answer1": {
 		"message": "Gana"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Kenija"
+	},
+	"trivia_medium_076": {
+		"message": "Koje su zemlje dio države Zacatecas i Tabasco?"
 	},
 	"trivia_medium_076_answer0": {
 		"message": "Meksiko"
 	},
+	"trivia_medium_076_answer1": {
+		"message": "Belize"
+	},
 	"trivia_medium_076_answer2": {
 		"message": "Argentina"
+	},
+	"trivia_medium_077": {
+		"message": "U kojoj se zemlji nalazi Rijad, grad s više od 4000 džamija?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Saudijska Arabija"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albanija"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Sirija"
+	},
+	"trivia_medium_078": {
+		"message": "Koja je afrička zemlja okružena kopnom?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Mauritanija"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Egipat"
+	},
+	"trivia_medium_079": {
+		"message": "U kojoj se zemlji nalazi sveta planina Fuji?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Japan"
 	},
 	"trivia_medium_079_answer1": {
 		"message": "Filipini"
 	},
+	"trivia_medium_079_answer2": {
+		"message": "Bangladeš"
+	},
+	"trivia_medium_080": {
+		"message": "Koja zemlja u Velikim Antilima kao službeni jezik upotrebljava engleski?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Jamajka"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Kuba"
+	},
+	"trivia_medium_081": {
+		"message": "Koji je službeni jezik Sirije, Kuvajta i Alžira?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "arapski"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "armenski"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "njemački"
+	},
+	"trivia_medium_082": {
+		"message": "U kojoj se brdovitoj europskoj zemlji održava Salzburški festival na kojem se često izvode Mozartove opere?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Austrija"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Mađarska"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Rumunjska"
+	},
+	"trivia_medium_083": {
+		"message": "U kojoj se zemlji sjeverno od Sudana nalazi Dolina kitova, pustinja bogata fosiliziranim ostacima pretpovijesnih kitova?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Egipat"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nigerija"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Zambija"
+	},
+	"trivia_medium_084": {
+		"message": "U kojoj se europskoj zemlji, na delti pokraj Sjevernog mora, nalazi Rotterdam?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Nizozemska"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Švedska"
+	},
 	"trivia_medium_084_answer2": {
 		"message": "Grčka"
+	},
+	"trivia_medium_085": {
+		"message": "U kojem se planinskom sustavu nalazi izvor rijeke Brahmaputre koja utječe u veliku deltu nedaleko Bengalskog zaljeva?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himalaja"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Ural"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Alpe"
+	},
+	"trivia_medium_086": {
+		"message": "U kojoj je islamskoj zemlji službeni jezik farsi, poznat i kao perzijski?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Iran"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Kuvajt"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Libija"
+	},
+	"trivia_medium_087": {
+		"message": "U kojoj europskoj zemlji, u Sevilli, možete vidjeti borbu matadora s bikovima?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Španjolska"
 	},
 	"trivia_medium_087_answer1": {
 		"message": "Njemačka"
 	},
+	"trivia_medium_087_answer2": {
+		"message": "Makedonija"
+	},
+	"trivia_medium_088": {
+		"message": "U kojoj se zemlji nalazi grad Instanbul, koji se smatra sjecištem istočnih i zapadnih kultura?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Turska"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Slovačka"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Oman"
+	},
 	"trivia_medium_089": {
 		"message": "Copán, grad civilizacije Maja, popularna je turistička atrakcija u kojoj zemlji koja graniči s El Salvadorom i Nikaragvom?"
 	},
+	"trivia_medium_089_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Čile"
+	},
 	"trivia_medium_089_answer2": {
 		"message": "Kanada"
+	},
+	"trivia_medium_090": {
+		"message": "U kojoj se zemlji okruženoj kopnom, sjeverno od rijeke Niger, nalazi Timbuktu, središte karavanskog prometa više od tisuću godina?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namibija"
+	},
+	"trivia_medium_091": {
+		"message": "Koja južnoamerička zemlja okružena kopnom graniči s Čileom i Brazilom?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Bolivija"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Kolumbija"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Gvajana"
 	},
 	"trivia_medium_092": {
 		"message": "Grad Belém smješten je na južnoj strani ušća rijeke Amazone u kojoj zemlji?"
@@ -623,14 +3791,107 @@
 	"trivia_medium_092_answer0": {
 		"message": "Brazil"
 	},
+	"trivia_medium_092_answer1": {
+		"message": "Kostarika"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Surinam"
+	},
+	"trivia_medium_093": {
+		"message": "Koja rijeka čini velik dio sjeverne granice Bugarske?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Rijeka Dunav"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Rijeka Ob"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Rijeka Mekong"
+	},
+	"trivia_medium_094": {
+		"message": "U kojoj se azijskoj zemlji nalazi Sajansko gorje, smješteno pokraj Bajkalskog jezera?"
+	},
 	"trivia_medium_094_answer0": {
 		"message": "Rusija"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "Indija"
 	},
 	"trivia_medium_094_answer2": {
 		"message": "Kirgistan"
 	},
+	"trivia_medium_095": {
+		"message": "U kojoj je kanadskoj pokrajini najveće jezero Nipigon?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontario"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "Britanska Kolumbija"
+	},
+	"trivia_medium_096": {
+		"message": "Kojeg su većeg mora dio Balearsko i Jonsko more?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Sredozemno more"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Baltičko more"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Karipsko more"
+	},
+	"trivia_medium_097": {
+		"message": "Na kojem se kontinentu nalaze jezera Turkana i Natron, primjeri jezera rasjedne doline?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Južna Amerika"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_098": {
+		"message": "Kojeg je oceana najdublja točka Portorikanska brazda?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Atlantski ocean"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Arktički ocean"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Tihi ocean"
+	},
+	"trivia_medium_099": {
+		"message": "Na istočnom dijelu kojeg je kontinenta u šumama eukaliptusa autohtona vrsta ptica kukabura?"
+	},
 	"trivia_medium_099_answer0": {
 		"message": "Australija"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Južna Amerika"
+	},
+	"trivia_medium_100": {
+		"message": "Na zapadnoj obali koje se europske zemlje nalazi Haag, sjedište Međunarodnog suda pravde?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Nizozemska"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Finska"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Bugarska"
 	},
 	"twitter": {
 		"message": "Twitter"

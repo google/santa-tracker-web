@@ -269,11 +269,146 @@
 	"traditions-world": {
 		"message": "世界地図"
 	},
+	"trivia_beginner_001": {
+		"message": "アンデス山脈はどの大陸にありますか？"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "南アメリカ"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "アジア"
+	},
+	"trivia_beginner_002": {
+		"message": "8個の本島で構成されているアメリカの州はどれですか？"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "ハワイ"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "オハイオ"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "アーカンソー"
+	},
+	"trivia_beginner_003": {
+		"message": "グレートプレーンズにあるアメリカの州はどれですか？"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "カンザス州"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "デラウェア"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "アイダホ"
+	},
+	"trivia_beginner_004": {
+		"message": "大西洋、太平洋、北極海と接しているのはどの大陸ですか？"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "アジア"
+	},
 	"trivia_beginner_004_answer1": {
 		"message": "オーストラリア"
 	},
+	"trivia_beginner_004_answer2": {
+		"message": "南アメリカ"
+	},
+	"trivia_beginner_005": {
+		"message": "太平洋標準時の州はどれですか？"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "カリフォルニア"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "グルジア"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "インディアナ"
+	},
+	"trivia_beginner_006": {
+		"message": "アトラス山脈とカラハリ砂漠があるのはどの大陸ですか？"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "アフリカ"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "南極大陸"
+	},
+	"trivia_beginner_007": {
+		"message": "五大湖と接しているアメリカの州はどれですか？"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "オハイオ"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "モンタナ"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "ニューメキシコ"
+	},
+	"trivia_beginner_008": {
+		"message": "大部分の人々がポルトガル語かスペイン語を話しているのはどの大陸ですか？"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "南アメリカ"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "アフリカ"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_009": {
+		"message": "フライパンの取っ手のような形の地域があるのはアメリカのどの州ですか？"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "オクラホマ"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "ワイオミング"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "コロラド"
+	},
+	"trivia_beginner_010": {
+		"message": "全体が南半球に位置しているのは、南極とどの大陸ですか？"
+	},
 	"trivia_beginner_010_answer0": {
 		"message": "オーストラリア"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "アジア"
+	},
+	"trivia_beginner_011": {
+		"message": "ロンネ棚氷が接しているのはどの大陸ですか？"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "南極大陸"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "アフリカ"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "南アメリカ"
+	},
+	"trivia_beginner_012": {
+		"message": "バンクーバー島とコディアック島は、どの大陸の西海岸沖にありますか？"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "アジア"
 	},
 	"trivia_beginner_012_answer2": {
 		"message": "オーストラリア"
@@ -281,8 +416,44 @@
 	"trivia_beginner_013": {
 		"message": "ニジェールは世界でも急速に人口が増加している国ですが、どの大陸の北西に位置しますか？"
 	},
+	"trivia_beginner_013_answer0": {
+		"message": "アフリカ"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_014": {
+		"message": "草木が最も少ないのはどの大陸ですか？"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "南極大陸"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "南アメリカ"
+	},
+	"trivia_beginner_015": {
+		"message": "タスマニアデビルの原産地の島は、どの大陸の南岸沖にありますか？"
+	},
 	"trivia_beginner_015_answer0": {
 		"message": "オーストラリア"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "アジア"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_016": {
+		"message": "有名な観光地のピサの斜塔があるのはどの国ですか？"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "イタリア"
 	},
 	"trivia_beginner_016_answer1": {
 		"message": "カナダ"
@@ -290,47 +461,419 @@
 	"trivia_beginner_016_answer2": {
 		"message": "ガーナ"
 	},
+	"trivia_beginner_017": {
+		"message": "歴史ある都市のカサブランカとトリポリは、どの大陸の北岸にありますか？"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "アフリカ"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "南極大陸"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_018": {
+		"message": "弁慶柱が自生しているソノラ砂漠はどの大陸にありますか？"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "アジア"
+	},
+	"trivia_beginner_019": {
+		"message": "有名なリゾート地のベラクルスとアカプルコがあるのはどの国ですか？"
+	},
 	"trivia_beginner_019_answer0": {
 		"message": "メキシコ"
 	},
 	"trivia_beginner_019_answer1": {
 		"message": "アルゼンチン"
 	},
+	"trivia_beginner_019_answer2": {
+		"message": "インド"
+	},
 	"trivia_beginner_020": {
 		"message": "世界のパンダの 30% が生息する四川省のジャイアントパンダ保護区はどの国にありますか？"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "中国"
 	},
 	"trivia_beginner_020_answer1": {
 		"message": "アイスランド"
 	},
+	"trivia_beginner_020_answer2": {
+		"message": "エチオピア"
+	},
 	"trivia_beginner_021": {
 		"message": "世界中の氷の約 90% が存在する大陸はどこですか？"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "南極大陸"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "アフリカ"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "ヨーロッパ"
 	},
 	"trivia_beginner_022": {
 		"message": "エンジェル・フォールと呼ばれる世界で一番高い滝はどの大陸にありますか？"
 	},
+	"trivia_beginner_022_answer0": {
+		"message": "南アメリカ"
+	},
 	"trivia_beginner_022_answer1": {
 		"message": "オーストラリア"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_023": {
+		"message": "ジャクソンホールを訪れ、デヴィルスタワーでロッククライミングを楽しめるのはアメリカのどの州ですか？"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "ワイオミング"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "ノースダコタ"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "コネチカット"
+	},
+	"trivia_beginner_024": {
+		"message": "メープル樹液の採集の様子を見学し、グリーン山脈でスキーを楽しめるアメリカの州はどこですか？"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "バーモント"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "オレゴン"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "アリゾナ"
+	},
+	"trivia_beginner_025": {
+		"message": "チェサピークベイブリッジでドライブし、オーシャンシティの遊歩道で散歩を楽しめるアメリカの州はどこですか？"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "メリーランド"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "カンザス州"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "ノースカロライナ"
+	},
+	"trivia_beginner_026": {
+		"message": "マンモスケーブを訪れ、チャーチルダウンズで競馬を観戦できるのはアメリカのどの州ですか？"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "ケンタッキー"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "ウェストバージニア"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "ユタ"
+	},
+	"trivia_beginner_027": {
+		"message": "セコイアの巨木やチャンネル諸島を眺めることができるアメリカの州はどこですか？"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "カリフォルニア"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "ニュージャージー"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "バージニア"
+	},
+	"trivia_beginner_028": {
+		"message": "アメリカのフロリダ州にある湿地帯はどれですか？"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "エバーグレーズ"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "ディズマルスワンプ"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "サイプレススワンプ"
+	},
+	"trivia_beginner_029": {
+		"message": "セントローレンス海路やフィンガーレイクスを訪れることができるのはアメリカのどの州ですか？"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "ニューヨーク"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "ミシガン"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "ネバダ"
+	},
+	"trivia_beginner_030": {
+		"message": "世界で最も高いチョモランマがあるのはどの大陸ですか？"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "アジア"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "南極大陸"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_031": {
+		"message": "パタゴニア地域が南部の大部分を占めているのはどの大陸ですか？"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "南アメリカ"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "アフリカ"
+	},
+	"trivia_beginner_032": {
+		"message": "皇帝ペンギンの自然生息地があるのはどの大陸ですか？"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "南極大陸"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_033": {
+		"message": "カンガルーとコアラの原産国はどれですか？"
 	},
 	"trivia_beginner_033_answer0": {
 		"message": "オーストラリア"
 	},
+	"trivia_beginner_033_answer1": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "南アメリカ"
+	},
+	"trivia_beginner_034": {
+		"message": "野生生物を見るために観光客が訪れるセレンゲティ国立公園はどの大陸にありますか？"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "アフリカ"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "アジア"
+	},
 	"trivia_beginner_034_answer2": {
 		"message": "オーストラリア"
+	},
+	"trivia_beginner_035": {
+		"message": "陸地面積が最も大きいのはどの大陸ですか？"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "アジア"
 	},
 	"trivia_beginner_035_answer1": {
 		"message": "オーストラリア"
 	},
+	"trivia_beginner_035_answer2": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_036": {
+		"message": "テムズ川にかかるタワーブリッジはヨーロッパのどの国にありますか？"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "ロンドン"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "ハバナ"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "ケープタウン"
+	},
 	"trivia_beginner_037": {
 		"message": "クレムリンの隣に位置し、赤の広場に立っている聖ワシリイ大聖堂があるロシアの都市はどこですか？"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "モスクワ"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "ブリュッセル"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "モンテビデオ"
 	},
 	"trivia_beginner_038": {
 		"message": "西暦 1 世紀頃に建てられた闘技場のコロッセウムは、ヨーロッパのどの都市にありますか？"
 	},
+	"trivia_beginner_038_answer0": {
+		"message": "ローマ"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "ハルツーム"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "マニラ"
+	},
+	"trivia_beginner_039": {
+		"message": "オペラハウスとハーバーブリッジがあるのは、オーストラリアのどの都市ですか？"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "シドニー"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "ジャカルタ"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "プラハ"
+	},
+	"trivia_beginner_040": {
+		"message": "岩のドームと嘆きの壁をはじめ、城壁で囲まれた旧市街にさまざまな聖地がある中東の都市はどれですか？"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "エルサレム"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "東京"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "アルジェ"
+	},
+	"trivia_beginner_041": {
+		"message": "アクロポリスの上に建てられたパルテノン神殿はギリシャのどの都市にありますか？"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "アテネ"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "キエフ"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "リマ"
+	},
+	"trivia_beginner_042": {
+		"message": "セーヌ川の近くに位置するエッフェル塔が中心部にあるのは、フランスのどの都市ですか？"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "パリ"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "トロント"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "ニューデリー"
+	},
+	"trivia_beginner_043": {
+		"message": "イスラムにおける最高の聖地カアバ神殿があるマスジドハラームは、サウジアラビアのどの都市にありますか？"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "マッカ"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "ブエノスアイレス"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "ブダペスト"
+	},
+	"trivia_beginner_044": {
+		"message": "中心部にかつての皇宮である紫禁城があるのは、中国のどの都市ですか？"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "北京"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "サンティアゴ"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "ブリズベーン"
+	},
+	"trivia_beginner_045": {
+		"message": "展望塔のスペースニードルがあり、ピュージェット湾に位置するアメリカの都市はどれですか？"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "シアトル"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "ウィチタ"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "ニューオーリンズ"
+	},
+	"trivia_beginner_046": {
+		"message": "ジョンハンコックタワーは、チャールズ川の河口にあるアメリカのどの州で最も高いビルですか？"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "ボストン"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "ピッツバーグ"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "メンフィス"
+	},
+	"trivia_beginner_047": {
+		"message": "「ラスベガスストリップ」という有名な大通りのすぐ北にあるストラトスフィアタワーは、モハーベ砂漠にあるアメリカのどの州で最も高いビルですか？"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "ラスベガス"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "ミネアポリス"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "デンバー"
+	},
+	"trivia_beginner_048": {
+		"message": "港に巨大な彫像の自由の女神が設置されているリバティ島があるのは、アメリカのどの都市ですか？"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "ニューヨーク市"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "アトランタ"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "ロサンゼルス"
+	},
 	"trivia_beginner_049": {
 		"message": "ゴールデンゲート・ブリッジはアメリカのどの都市とマリン半島に架かる橋ですか？"
 	},
+	"trivia_beginner_049_answer0": {
+		"message": "サンフランシスコ"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "ボイシ"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "ボルチモア"
+	},
 	"trivia_beginner_050": {
 		"message": "19 世紀のアメリカ西部開拓時代を象徴し、ミシシッピ川沿いに位置するゲートウェイ・アーチがあるのはアメリカのどの都市ですか？"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "セントルイス"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "インディアナポリス"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "マイアミ"
+	},
+	"trivia_beginner_051": {
+		"message": "大ピラミッドと大スフィンクスがあるギザ台地は、アフリカのどの国にありますか？"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "エジプト"
 	},
 	"trivia_beginner_051_answer1": {
 		"message": "ブラジル"
@@ -338,38 +881,341 @@
 	"trivia_beginner_051_answer2": {
 		"message": "ドイツ"
 	},
+	"trivia_beginner_052": {
+		"message": "デラウェア川近郊に位置し、アメリカ革命と関わる重要な史跡である独立記念館はアメリカのどの都市にありますか？"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "フィラデルフィア"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "サンアントニオ"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "シカゴ"
+	},
+	"trivia_beginner_053": {
+		"message": "ロッキー山脈はカナダとどの国にまたがっていますか？"
+	},
 	"trivia_beginner_053_answer0": {
 		"message": "アメリカ"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "ベネズエラ"
 	},
 	"trivia_beginner_053_answer2": {
 		"message": "ロシア"
 	},
+	"trivia_beginner_054": {
+		"message": "ブラジルとウルグアイが接しているのはどの大洋ですか？"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "大西洋"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "インド洋"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "北極海"
+	},
+	"trivia_beginner_055": {
+		"message": "カナダの東岸に位置するニューファンドランド島があるのはどの大洋ですか？"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "大西洋"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "インド洋"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_056": {
+		"message": "アフリカの東岸沖に位置するマダガスカル島があるのは、どの大洋ですか？"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "インド洋"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "北極海"
+	},
+	"trivia_beginner_057": {
+		"message": "ほとんどの国際日付変更線が通っているのは、どの大洋ですか？"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "インド洋"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "大西洋"
+	},
+	"trivia_beginner_058": {
+		"message": "赤道が通るコンゴ盆地はどの大陸にありますか？"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "アフリカ"
+	},
 	"trivia_beginner_058_answer1": {
 		"message": "オーストラリア"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_059": {
+		"message": "メキシコ湾と接しているのはどの大陸ですか？"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "アジア"
+	},
+	"trivia_beginner_060": {
+		"message": "アフリカを流れる世界最長の川はどれですか？"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "ナイル川"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "コロラド川"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "オレンジ川"
+	},
+	"trivia_beginner_061": {
+		"message": "マチュピチュの古代遺跡はどの大陸にありますか？"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "南アメリカ"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "南極大陸"
+	},
+	"trivia_beginner_062": {
+		"message": "世界一の流量を誇るアマゾン川が流れているのは、どの大陸ですか？"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "南アメリカ"
 	},
 	"trivia_beginner_062_answer1": {
 		"message": "オーストラリア"
 	},
+	"trivia_beginner_062_answer2": {
+		"message": "アジア"
+	},
+	"trivia_beginner_063": {
+		"message": "アルプス山脈の最高峰モンブランがあるのはどの大陸ですか？"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "南アメリカ"
+	},
+	"trivia_beginner_064": {
+		"message": "パナマ地峡が結んでいるのは中央アメリカとどの大陸ですか？"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "南アメリカ"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "アジア"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_065": {
+		"message": "地球上で最も足が速い陸上哺乳動物のチーターが生息しているケニアとタンザニアは、どの大陸にありますか？"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "アフリカ"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_066": {
+		"message": "喜望峰はどの大陸の南端に位置していますか？"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "アフリカ"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "アジア"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "ヨーロッパ"
+	},
 	"trivia_beginner_067": {
 		"message": "ゾウガメが生息し、南米の西側に位置するガラパゴス諸島を取り巻く海洋の名前はなんですか？"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "北極海"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "インド洋"
+	},
+	"trivia_beginner_068": {
+		"message": "ウィーンなどの都市を流れるドナウ川は、どの大陸にありますか？"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "ヨーロッパ"
 	},
 	"trivia_beginner_068_answer1": {
 		"message": "オーストラリア"
 	},
+	"trivia_beginner_068_answer2": {
+		"message": "アフリカ"
+	},
+	"trivia_beginner_069": {
+		"message": "キューバ諸島とイスパニョーラ島の両方と面しているのはどの海ですか？"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "カリブ海"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "ベーリング海"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "バルチック海"
+	},
+	"trivia_beginner_070": {
+		"message": "ギニア湾に接しているのはどの大陸ですか？"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "アフリカ"
+	},
 	"trivia_beginner_070_answer1": {
 		"message": "オーストラリア"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_071": {
+		"message": "アーネストシャクルトンは、どの大陸の探検家として知られていますか？"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "南極大陸"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_072": {
+		"message": "ラブラドル海はどの大洋の一部ですか？"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "大西洋"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "インド洋"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_073": {
+		"message": "世界最大の砂漠地帯であるサハラは、どの大陸にありますか？"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "アフリカ"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "南極大陸"
+	},
+	"trivia_beginner_074": {
+		"message": "チベット高原はどの大陸にありますか？"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "アジア"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "南アメリカ"
+	},
+	"trivia_beginner_075": {
+		"message": "ドレーク海峡はどの大陸の南にありますか？"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "南アメリカ"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "ヨーロッパ"
 	},
 	"trivia_beginner_075_answer2": {
 		"message": "オーストラリア"
 	},
+	"trivia_beginner_076": {
+		"message": "珊瑚海に位置するグレートバリアリーフは、どの大陸の沿岸部沖合にありますか？"
+	},
 	"trivia_beginner_076_answer0": {
 		"message": "オーストラリア"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "アジア"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "北アメリカ"
 	},
 	"trivia_beginner_077": {
 		"message": "スエズ運河を渡り、カイロの死者の町を訪れることができる国はどこですか？"
 	},
+	"trivia_beginner_077_answer0": {
+		"message": "エジプト"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "コロンビア"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "フィンランド"
+	},
+	"trivia_beginner_078": {
+		"message": "ガウチョが牛の世話をしている様子を眺め、ブエノスアイレスでタンゴのダンスを見ることができるのはどの国ですか？"
+	},
 	"trivia_beginner_078_answer0": {
 		"message": "アルゼンチン"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "ニジェール"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "ネパール"
+	},
+	"trivia_beginner_079": {
+		"message": "フェズの古い街並みを訪れ、アトラス山脈でハイキングを楽しめるのはどの国ですか？"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "モロッコ"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "エクアドル"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "タイ"
 	},
 	"trivia_beginner_080": {
 		"message": "古代マヤ遺跡を巡り、カンクンのビーチが楽しめる国はどこですか？"
@@ -377,8 +1223,23 @@
 	"trivia_beginner_080_answer0": {
 		"message": "メキシコ"
 	},
+	"trivia_beginner_080_answer1": {
+		"message": "オランダ"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "トルコ"
+	},
 	"trivia_beginner_081": {
 		"message": "ダブリンの聖パトリック大聖堂を訪れ、キルケニーのアート フェスティバルを堪能できる国はどこですか？"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "アイルランド"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "ソマリア"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "コスタリカ"
 	},
 	"trivia_beginner_082": {
 		"message": "熱帯雨林ツアーに参加して、リオ・デ・ジャネイロのカーニバルが楽しめる国はどこですか？"
@@ -389,26 +1250,419 @@
 	"trivia_beginner_082_answer1": {
 		"message": "英国"
 	},
+	"trivia_beginner_082_answer2": {
+		"message": "ベトナム"
+	},
+	"trivia_beginner_083": {
+		"message": "サンクトペテルブルグのエルミタージュ美術館を訪れ、シベリア横断鉄道に乗ることができる国はどこですか？"
+	},
 	"trivia_beginner_083_answer0": {
 		"message": "ロシア"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "インドネシア"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "ベリーズ"
+	},
+	"trivia_beginner_084": {
+		"message": "高速電車に乗り、東京のホテルで夜を過ごせる国はどこですか？"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "日本"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "ジンバブエ"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "ボリビア"
+	},
+	"trivia_beginner_085": {
+		"message": "ジェノバでペストを食べ、フィレンツェでオペラを楽しめる国はどこですか？"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "イタリア"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "パラグアイ"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "リビア"
+	},
+	"trivia_beginner_086": {
+		"message": "マーサイマーラ国立保護区でのサファリやナイロビでのショッピングを楽しめるのはどの国ですか？"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "ケニア"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "韓国"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "チリ"
+	},
+	"trivia_beginner_087": {
+		"message": "ガンジス川を見てコルカタの雑踏を歩くことができる国はどこですか？"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "インド"
 	},
 	"trivia_beginner_087_answer1": {
 		"message": "ドイツ"
 	},
+	"trivia_beginner_087_answer2": {
+		"message": "ヨルダン"
+	},
+	"trivia_beginner_088": {
+		"message": "地球の最北点にあたる北極が中心部に位置しているのは、どの大洋ですか？"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "北極海"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "インド洋"
+	},
+	"trivia_beginner_089": {
+		"message": "大西洋と接しているのはどの国ですか？"
+	},
 	"trivia_beginner_089_answer0": {
 		"message": "アイスランド"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "パキスタン"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "日本"
+	},
+	"trivia_beginner_090": {
+		"message": "気候が温暖で有名なビーチがあるため、「陽光の州」と呼ばれるアメリカの州はどれですか？"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "フロリダ"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "メイン"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "ワシントン"
+	},
+	"trivia_beginner_091": {
+		"message": "グランドキャニオンがあるのはアメリカのどの州ですか？"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "アリゾナ"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "ウェストバージニア"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "サウスダコタ"
+	},
+	"trivia_beginner_092": {
+		"message": "「ひとつ星の州」とも呼ばれ、州旗にはひとつの星が描かれており、かつては独立した国家だったアメリカの州はどれですか？"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "テキサス"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "ウィスコンシン"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "メリーランド"
+	},
+	"trivia_beginner_093": {
+		"message": "ティグリス川とユーフラテス川があるのはどの大陸ですか？"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "アジア"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "南極大陸"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_beginner_094": {
+		"message": "ヴィクトリア湖とヴィルンガ山地があるのはどの大陸ですか？"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "アフリカ"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "北アメリカ"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "アジア"
+	},
+	"trivia_beginner_095": {
+		"message": "太平洋にある島国はどれですか？"
 	},
 	"trivia_beginner_095_answer0": {
 		"message": "ニュージーランド"
 	},
+	"trivia_beginner_095_answer1": {
+		"message": "南アフリカ"
+	},
 	"trivia_beginner_095_answer2": {
 		"message": "アイスランド"
+	},
+	"trivia_beginner_096": {
+		"message": "スカンディナヴィア半島にあるのはどの国ですか？"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "スウェーデン"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "ルーマニア"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "ペルー"
+	},
+	"trivia_beginner_097": {
+		"message": "地中海と接しているのはどの国ですか？"
 	},
 	"trivia_beginner_097_answer0": {
 		"message": "フランス"
 	},
+	"trivia_beginner_097_answer1": {
+		"message": "バングラデシュ"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "ニカラグア"
+	},
+	"trivia_hard_001": {
+		"message": "カナダとの国境に最も近いアメリカの都市はどれですか？"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "シアトル"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "サクラメント"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "オマハ"
+	},
+	"trivia_hard_002": {
+		"message": "ハリケーンの発生確率が最も高いアメリカの都市はどれですか？"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "マイアミ"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "ロサンゼルス"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "ピッツバーグ"
+	},
+	"trivia_hard_003": {
+		"message": "この中で面積が最も大きいのはどの湖ですか？"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "ヒューロン湖"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "ミード湖"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "エリー湖"
+	},
+	"trivia_hard_004": {
+		"message": "この中で最も人口が多いアメリカの州はどれですか？"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "シカゴ"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "セントルイス"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "インディアナポリス"
+	},
+	"trivia_hard_005": {
+		"message": "ペルシャ湾に最も近いのはどの国ですか？"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "イラン"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "トルコ"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "ブータン"
+	},
+	"trivia_hard_006": {
+		"message": "この中で陸地面積が最も大きいのはどの国ですか？"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "カザフスタン"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "ルーマニア"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "ポーランド"
+	},
+	"trivia_hard_007": {
+		"message": "この中で人口密度が最も高いのはどの国ですか？"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "シンガポール"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "ラオス"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "ボリビア"
+	},
+	"trivia_hard_008": {
+		"message": "この中でドイツ語を話す人口が最も多いのはどの国ですか？"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "オーストリア"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "スロバキア"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "イラク"
+	},
+	"trivia_hard_009": {
+		"message": "この中で国境を接している国が最も多いのはどの国ですか？"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "サウジアラビア"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "モロッコ"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "モンゴル"
+	},
+	"trivia_hard_010": {
+		"message": "タンガニーカ湖と接していないのはどの国ですか？"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "ベニン"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "ブルンジ"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "ザンビア"
+	},
+	"trivia_hard_011": {
+		"message": "赤道が通っていないのはどの国ですか？"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "モーリタニア"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "インドネシア"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "ケニア"
+	},
+	"trivia_hard_012": {
+		"message": "バルカン半島に位置していないのはどの国ですか？"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "チェコ"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "ブルガリア"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "マケドニア"
+	},
+	"trivia_hard_013": {
+		"message": "北海と接していないのはどの国ですか？"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "フィンランド"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "デンマーク"
+	},
 	"trivia_hard_013_answer2": {
 		"message": "英国"
+	},
+	"trivia_hard_014": {
+		"message": "黒海と接していないのはどの国ですか？"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "アゼルバイジャン"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "ウクライナ"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "トルコ"
+	},
+	"trivia_hard_015": {
+		"message": "内陸国ではない国はどれですか？"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "クロアチア"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "ベラルーシ"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "ハンガリー"
+	},
+	"trivia_hard_016": {
+		"message": "サハラに位置していないのはどの国ですか？"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "アンゴラ"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "リビア"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "アルジェリア"
+	},
+	"trivia_hard_017": {
+		"message": "最も東にあるのはどの国ですか？"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "トリニダード"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "ジャマイカ"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "キューバ"
+	},
+	"trivia_hard_018": {
+		"message": "フィア岬が接しているのはどの水系ですか？"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "大西洋"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "カリブ海"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "太平洋"
+	},
+	"trivia_hard_019": {
+		"message": "メキシコ湾の港湾都市はどれですか？"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "ベラクルス"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "ティフアナ"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "アカプルコ"
+	},
+	"trivia_hard_020": {
+		"message": "北回帰線が通っているのはどの国ですか？"
 	},
 	"trivia_hard_020_answer0": {
 		"message": "メキシコ"
@@ -419,11 +1673,128 @@
 	"trivia_hard_020_answer2": {
 		"message": "ブラジル"
 	},
+	"trivia_hard_021": {
+		"message": "この中で最も大きいのはどの島ですか？"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "バフィン島"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "イスパニョーラ島"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "サルディニア"
+	},
 	"trivia_hard_022": {
 		"message": "ユカタン海峡はメキシコとどの島の間にありますか？"
 	},
+	"trivia_hard_022_answer0": {
+		"message": "キューバ"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "プエルトリコ"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "ドミニカ国"
+	},
+	"trivia_hard_023": {
+		"message": "カナダ最北に位置するのはどの都市ですか？"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "イエローナイフ"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "オタワ"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "ウィニペグ"
+	},
+	"trivia_hard_024": {
+		"message": "小アンティル諸島の島はどれですか？"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "セントキッツ"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "バミューダ"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "ノバスコシア"
+	},
+	"trivia_hard_025": {
+		"message": "ポルトープランスは、どの国で最も人口が多い都市ですか？"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "ハイチ"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "ニカラグア"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "スリナム"
+	},
+	"trivia_hard_026": {
+		"message": "カルパティア山脈にあるのはどの国ですか？"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "ルーマニア"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "アルバニア"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "トルクメニスタン"
+	},
+	"trivia_hard_027": {
+		"message": "フランス語を公用語としているのはどの国ですか？"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "ガボン"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "クウェート"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "タンザニア"
+	},
+	"trivia_hard_028": {
+		"message": "この中で陸地面積が最も大きいのはどの国ですか？"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "イラン"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "イスラエル"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "バーレーン"
+	},
+	"trivia_hard_029": {
+		"message": "経度の範囲が最も大きい国はどこですか？"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "カザフスタン"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "アフガニスタン"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "シリア"
+	},
+	"trivia_hard_030": {
+		"message": "多くの島で構成されているのはどの国ですか？"
+	},
 	"trivia_hard_030_answer0": {
 		"message": "フィリピン"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "カンボジア"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "タジキスタン"
+	},
+	"trivia_hard_031": {
+		"message": "この中でタイムゾーンが最も多い国はどこですか？"
 	},
 	"trivia_hard_031_answer0": {
 		"message": "ブラジル"
@@ -431,23 +1802,485 @@
 	"trivia_hard_031_answer1": {
 		"message": "ガーナ"
 	},
+	"trivia_hard_031_answer2": {
+		"message": "ベリーズ"
+	},
+	"trivia_hard_032": {
+		"message": "最北にある国はどこですか？"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "カメルーン"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "モザンビーク"
+	},
 	"trivia_hard_032_answer2": {
 		"message": "オーストラリア"
+	},
+	"trivia_hard_033": {
+		"message": "フランスとスペインの間にあるのはどの国ですか？"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "アンドラ"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "ルクセンブルク"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "バチカン市国"
+	},
+	"trivia_hard_034": {
+		"message": "デンマークと国境を接している国はどこですか？"
 	},
 	"trivia_hard_034_answer0": {
 		"message": "ドイツ"
 	},
+	"trivia_hard_034_answer1": {
+		"message": "フィンランド"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "モルドバ"
+	},
+	"trivia_hard_035": {
+		"message": "サルデーニャ島はどの国に属していますか？"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "イタリア"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "トルコ"
+	},
 	"trivia_hard_035_answer2": {
 		"message": "英国"
+	},
+	"trivia_hard_036": {
+		"message": "北京とウランバートルの大部分にまたがる砂漠地帯はどれですか？"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "ゴビ砂漠"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "大インド砂漠"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "リビア砂漠"
+	},
+	"trivia_hard_037": {
+		"message": "カムチャツカ海流があるのはどの大洋ですか？"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "太平洋"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "インド洋"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "大西洋"
+	},
+	"trivia_hard_038": {
+		"message": "シドラ湾はどの海の南部にありますか？"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "地中海"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "アラビア海"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "バルチック海"
+	},
+	"trivia_hard_039": {
+		"message": "タトラ山脈は、ヨーロッパのどの山系で最高峰の山脈ですか？"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "カルパート山脈"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "カンタブリア山地"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "ピレネー"
+	},
+	"trivia_hard_040": {
+		"message": "カリバ湖が流れ、ザンビアとジンバブエの国境を形成しているのはどの川ですか？"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "ザンベジ川"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "ナイル川"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "コンゴ川"
+	},
+	"trivia_hard_041": {
+		"message": "テムズ川、マース川、スヘルデ川が流れ込んでいるのはどの海ですか？"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "北海"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "地中海"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "黒海"
+	},
+	"trivia_hard_042": {
+		"message": "ルソン海峡は、フィリピンとその北にあるどの国の間にありますか？"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "台湾"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "アルジェリア"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "スリランカ"
+	},
+	"trivia_hard_043": {
+		"message": "大西洋中央海嶺に沿う位置にあるのはどの諸島ですか？"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "アゾレス"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "バハマ"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "フィジー"
+	},
+	"trivia_hard_044": {
+		"message": "ラプテフ海に注いでいるのはどの川ですか？"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "レナ川"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "長江"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "インダス川"
+	},
+	"trivia_hard_045": {
+		"message": "赤道に最も近いのはどの山ですか？"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "キリマンジャロ"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "モンブラン"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "マッキンリー山"
+	},
+	"trivia_hard_046": {
+		"message": "最も人口が多いのはどの首都ですか？"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "モスクワ"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "ヘルシンキ"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "アルジェ"
+	},
+	"trivia_hard_047": {
+		"message": "リフィー川に面するアイルランド共和国最大の都市はどれですか？"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "ダブリン"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "オスロ"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "コペンハーゲン"
+	},
+	"trivia_hard_048": {
+		"message": "ヒンドゥークシュ山脈の渓谷にあるアフガニスタン最大の都市はどれですか？"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "カブール"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "サラエボ"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "カンパラ"
+	},
+	"trivia_hard_049": {
+		"message": "チャオプラヤー川が流れるタイ最大の都市はどれですか？"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "バンコク"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "北京"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "アンマン"
+	},
+	"trivia_hard_050": {
+		"message": "スカゲラク海峡のフィヨルドの突端にある、ノルウェー最大の都市はどれですか？"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "オスロ"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "ロンドン"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "ブリュッセル"
+	},
+	"trivia_hard_051": {
+		"message": "地中海東部に位置するレバノン最大の都市はどれですか？"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "ベイルート"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "モガディシュ"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "リヤド"
+	},
+	"trivia_hard_052": {
+		"message": "ジャワ島沿岸部にあるインドネシア最大の都市はどれですか？"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "ジャカルタ"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "東京"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "ナイロビ"
+	},
+	"trivia_hard_053": {
+		"message": "アッティカ地方にあるギリシャ最大の都市はどれですか？"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "アテネ"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "ローマ"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "バルセロナ"
 	},
 	"trivia_hard_054": {
 		"message": "ラプラタ川河口に位置するウルグアイ最大の都市はどこですか？"
 	},
+	"trivia_hard_054_answer0": {
+		"message": "モンテビデオ"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "キト"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "リオデジャネイロ"
+	},
+	"trivia_hard_055": {
+		"message": "かつてはトランスバール州の一部だった南アフリカ最大の都市はどれですか？"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "ヨハネスブルグ"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "アブジャ"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "マプト"
+	},
+	"trivia_hard_056": {
+		"message": "カリブ海の重要な海運拠点であるジャマイカ最大の都市はどこですか？"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "キングストン"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "カラカス"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "ブエノスアイレス"
+	},
+	"trivia_hard_057": {
+		"message": "グレートリフトバレーに位置するエリトリア最大の都市はどこですか？"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "アスマラ"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "バグダッド"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "ブラザビル"
+	},
+	"trivia_hard_058": {
+		"message": "ビスワ川の岸辺にあるポーランド最大の都市はどれですか？"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "ワルシャワ"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "ベルリン"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "キエフ"
+	},
+	"trivia_hard_059": {
+		"message": "パンアメリカンハイウェイ上の重要な停車地点であるコスタリカ最大の都市はどこですか？"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "サンノゼ"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "リマ"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "スクレ"
+	},
+	"trivia_hard_060": {
+		"message": "アフリカ南部における農産物貿易の重要拠点であるジンバブエ最大の都市はどれですか？"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "ハラーレ"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "ウィントフーク"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "カンパラ"
+	},
+	"trivia_hard_061": {
+		"message": "かつてクメールルージュ政権に支配されていたカンボジア最大の都市はどれですか？"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "プノンペン"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "クアラルンプール"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "ダッカ"
+	},
+	"trivia_hard_062": {
+		"message": "メスラド岬に位置し、大西洋と面しているリベリア最大の都市はどれですか？"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "モンロビア"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "アクラ"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "ルサカ"
+	},
+	"trivia_hard_063": {
+		"message": "アンデスの高原に位置するコロンビア最大の都市はどれですか？"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "ボゴタ"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "マナグア"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "モンテレー"
+	},
+	"trivia_hard_064": {
+		"message": "アルボルズ山脈の麓にあるイラン最大の都市はどれですか？"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "テヘラン"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "タシケント"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "イスタンブール"
+	},
+	"trivia_hard_065": {
+		"message": "北極圏と交わっているのはどの水系ですか？"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "ノルウェー海"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "ボルタ川"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "カスピ海"
+	},
+	"trivia_hard_066": {
+		"message": "グレートリフトバレーにあるのはどの水系ですか？"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "マラウイ湖"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "タスマン海"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "チチカカ湖"
+	},
+	"trivia_hard_067": {
+		"message": "ロシアの港湾都市アルハンゲリスクが面しているのはどの水系ですか？"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "白海"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "バス海峡"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "ビスケイ湾"
+	},
+	"trivia_hard_068": {
+		"message": "湖南省、山東省がある国はどこですか？"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "中国"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "タイ"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "イエメン"
+	},
+	"trivia_hard_069": {
+		"message": "地中海沿岸諸国の中でカスティーリャ語を公用語にしている国はどこですか？"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "スペイン"
+	},
 	"trivia_hard_069_answer1": {
 		"message": "ギリシャ"
 	},
+	"trivia_hard_069_answer2": {
+		"message": "アゼルバイジャン"
+	},
+	"trivia_hard_070": {
+		"message": "中央アメリカの中で、かつてはコロンビアの県だった国はどこですか？"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "パナマ"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "ホンジュラス"
+	},
 	"trivia_hard_070_answer2": {
 		"message": "グアテマラ"
+	},
+	"trivia_hard_071": {
+		"message": "ライン川が通る重要な運輸拠点であるバーゼルは、どの国の都市ですか？"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "スイス"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "ベルギー"
 	},
 	"trivia_hard_071_answer2": {
 		"message": "ロシア"
@@ -458,17 +2291,128 @@
 	"trivia_hard_072_answer0": {
 		"message": "フランス"
 	},
+	"trivia_hard_072_answer1": {
+		"message": "オランダ"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "ルーマニア"
+	},
 	"trivia_hard_073": {
 		"message": "パンパ地方の代表的なショッピング スポット、バイア・ブランカがある国はどこですか？"
 	},
 	"trivia_hard_073_answer0": {
 		"message": "アルゼンチン"
 	},
+	"trivia_hard_073_answer1": {
+		"message": "ボリビア"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "ニカラグア"
+	},
+	"trivia_hard_074": {
+		"message": "地中海、黒海、エーゲ海に接しているのはどの国ですか？"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "トルコ"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "ブルガリア"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "リビア"
+	},
+	"trivia_hard_075": {
+		"message": "ヌーは毎年マラ川を渡ってタンザニアから北東にある隣の国へ移動しますが、それはどの国ですか？"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "ケニア"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "ザンビア"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "ギニア"
+	},
+	"trivia_hard_076": {
+		"message": "グレートモスクで有名なアレッポは、南西アジアのどの国最大の都市ですか？"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "シリア"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "オマーン"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "バングラデシュ"
+	},
+	"trivia_hard_077": {
+		"message": "ロシア、グルジアと国境を接しているのはどの国ですか？"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "アゼルバイジャン"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "ウズベキスタン"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "北朝鮮"
+	},
+	"trivia_hard_078": {
+		"message": "ブラジルとパナマと国境を接しているのはどの国ですか？"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "コロンビア"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "ペルー"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "コスタリカ"
+	},
+	"trivia_hard_079": {
+		"message": "グアテマラとアメリカと国境を接しているのはどの国ですか？"
+	},
 	"trivia_hard_079_answer0": {
 		"message": "メキシコ"
 	},
+	"trivia_hard_079_answer1": {
+		"message": "エルサルバドル"
+	},
 	"trivia_hard_079_answer2": {
 		"message": "カナダ"
+	},
+	"trivia_hard_080": {
+		"message": "イラクとアフガニスタンと国境を接しているのはどの国ですか？"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "イラン"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "ウクライナ"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "モンゴル"
+	},
+	"trivia_hard_081": {
+		"message": "ボツワナとレソトと国境を接しているのはどの国ですか？"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "南アフリカ"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "ジンバブエ"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "コンゴ共和国"
+	},
+	"trivia_hard_082": {
+		"message": "アントウェルペンは、どの国のフラマン語圏にありますか？"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "ベルギー"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "オランダ"
 	},
 	"trivia_hard_082_answer2": {
 		"message": "アイスランド"
@@ -476,8 +2420,41 @@
 	"trivia_hard_083": {
 		"message": "ヴィスワ川の河口付近に位置し、グダニスクという主要な港があるヨーロッパの国はどこですか？"
 	},
+	"trivia_hard_083_answer0": {
+		"message": "ポーランド"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "スペイン"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "クロアチア"
+	},
+	"trivia_hard_084": {
+		"message": "マデイラ川とプルス川を支流に持つ南米の巨大な川はどれですか？"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "アマゾン川"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "オリノコ川"
+	},
 	"trivia_hard_084_answer2": {
 		"message": "パラナ川"
+	},
+	"trivia_hard_085": {
+		"message": "スイスとドイツの他に、ボーデン湖と接しているのはどの国ですか？"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "オーストリア"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "スロバキア"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "フィンランド"
+	},
+	"trivia_hard_086": {
+		"message": "複数の港を構える大規模な港湾都市のオークランドは、どの国最大の都市ですか？"
 	},
 	"trivia_hard_086_answer0": {
 		"message": "ニュージーランド"
@@ -485,56 +2462,695 @@
 	"trivia_hard_086_answer1": {
 		"message": "オーストラリア"
 	},
+	"trivia_hard_086_answer2": {
+		"message": "インドネシア"
+	},
+	"trivia_hard_087": {
+		"message": "トーゴの真西にあり、ココアの生産量が多い国はどこですか？"
+	},
 	"trivia_hard_087_answer0": {
 		"message": "ガーナ"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "スーダン"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "チュニジア"
 	},
 	"trivia_hard_088": {
 		"message": "公用語の 1 つであり通貨の名前でもあるグアラニーが使われている南米の国はどこですか？"
 	},
+	"trivia_hard_088_answer0": {
+		"message": "パラグアイ"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "エクアドル"
+	},
 	"trivia_hard_088_answer2": {
 		"message": "ブラジル"
+	},
+	"trivia_hard_089": {
+		"message": "フランスとスペインの国境に沿って広がっているのはどの山系ですか？"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "ピレネー"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "アペニン"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "コーカサス山脈"
+	},
+	"trivia_hard_090": {
+		"message": "セントビンセント湾に注ぐトレンス川があるのはどの国ですか？"
 	},
 	"trivia_hard_090_answer0": {
 		"message": "オーストラリア"
 	},
+	"trivia_hard_090_answer1": {
+		"message": "ウガンダ"
+	},
 	"trivia_hard_090_answer2": {
 		"message": "カナダ"
+	},
+	"trivia_hard_091": {
+		"message": "地中海と接するアフリカの君主制国家はどれですか？"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "モロッコ"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "エジプト"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "中央アフリカ共和国"
+	},
+	"trivia_hard_092": {
+		"message": "クラ川の岸辺にあるトビリシはどの国の首都ですか？"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "グルジア"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "シリア"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "ハンガリー"
+	},
+	"trivia_hard_093": {
+		"message": "アドリア海に面した山岳地帯アブルッツォがあるのはどの国ですか？"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "イタリア"
 	},
 	"trivia_hard_093_answer1": {
 		"message": "フランス"
 	},
+	"trivia_hard_093_answer2": {
+		"message": "ルクセンブルク"
+	},
+	"trivia_hard_094": {
+		"message": "リガ湾と接しているのはラトビアとどの国ですか？"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "エストニア"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "ベラルーシ"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "スペイン"
+	},
+	"trivia_hard_095": {
+		"message": "ジュバル海峡はスエズ運河とどの海を結んでいますか？"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "紅海"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "カリブ海"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "カスピ海"
+	},
+	"trivia_hard_096": {
+		"message": "ガリラヤ湖の水の大部分は、どの川から流れてきていますか？"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "ヨルダン川"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "アムダリヤ"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "ガンジス川"
+	},
+	"trivia_hard_097": {
+		"message": "ニューブランズウィックとノバスコシアを隔てているのはどの湾ですか？"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "ファンディ湾"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "ハドソン湾"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "ベンガル湾"
+	},
+	"trivia_hard_098": {
+		"message": "ラインラント地方に位置するケルン大聖堂はどの国にありますか？"
+	},
 	"trivia_hard_098_answer0": {
 		"message": "ドイツ"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "デンマーク"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "パキスタン"
+	},
+	"trivia_hard_099": {
+		"message": "マヤ文明の遺跡が点在しているチアパスは、どの国の最南端にある州ですか？"
 	},
 	"trivia_hard_099_answer0": {
 		"message": "メキシコ"
 	},
+	"trivia_hard_099_answer1": {
+		"message": "ホンジュラス"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "チリ"
+	},
+	"trivia_hard_100": {
+		"message": "幅の狭いダーダネルス海峡は、マルマラ海とどの海を結んでいますか？"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "エーゲ海"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "バレンツ海"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "タスマン海"
+	},
+	"trivia_hard_101": {
+		"message": "クメール語を公用語としている東南アジアの国はどれですか？"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "カンボジア"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "ネパール"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "ベトナム"
+	},
+	"trivia_hard_102": {
+		"message": "ドネツ盆地は、ロシアとどの国が共有している工業地帯ですか？"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "ウクライナ"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "スロバキア"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "レバノン"
+	},
+	"trivia_hard_103": {
+		"message": "スノーウィー山地にあるコジオスコ山は、どの大陸の最高峰ですか？"
+	},
 	"trivia_hard_103_answer0": {
 		"message": "オーストラリア"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "南アメリカ"
+	},
+	"trivia_hard_104": {
+		"message": "マドゥラ島とバリ島はどの国の一部ですか？"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "インドネシア"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "日本"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "パキスタン"
+	},
+	"trivia_hard_105": {
+		"message": "崑崙山脈の北部に位置するタクラマカン砂漠があるのは、アジアのどの国ですか？"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "中国"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "サウジアラビア"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "韓国"
+	},
+	"trivia_medium_001": {
+		"message": "この中で河口三角州に位置するアメリカの都市はどれですか？"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "ニューオーリンズ"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "オースティン"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "オクラホマシティ"
+	},
+	"trivia_medium_002": {
+		"message": "UNESCOの世界遺産であるアンコールワットとカッパドキアは、どの大陸にありますか？"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "アジア"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "アフリカ"
+	},
+	"trivia_medium_003": {
+		"message": "クルド語とペルシア語は、どの大陸の南西部で話されていますか？"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "アジア"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "南アメリカ"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "ヨーロッパ"
 	},
 	"trivia_medium_004": {
 		"message": "古代文明の中心であったテオティワカンはどの大陸に位置しますか？"
 	},
+	"trivia_medium_004_answer0": {
+		"message": "北アメリカ"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "アフリカ"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "アジア"
+	},
+	"trivia_medium_005": {
+		"message": "ベリングスハウゼン海とロス海が接しているのはどの大陸ですか？"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "南極大陸"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "アジア"
+	},
+	"trivia_medium_006": {
+		"message": "海岸線に沿ってモザンビーク海流とベンゲラ海流が流れているのはどの大陸ですか？"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "アフリカ"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "北アメリカ"
+	},
+	"trivia_medium_007": {
+		"message": "南東の沖合に多島海上のマルビナス諸島（フォークランド諸島）があるのは、どの大陸ですか？"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "南アメリカ"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "北アメリカ"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_medium_008": {
+		"message": "この中で面積が最も大きいアフリカの国はどれですか？"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "アルジェリア"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "ガンビア"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "ブルンジ"
+	},
+	"trivia_medium_009": {
+		"message": "アイスランドの北西200マイルの地点にある大きな島はどれですか？"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "グリーンランド"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "ニューギニア島"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "アイルランド"
+	},
+	"trivia_medium_010": {
+		"message": "カラ海と東シベリア海は、どの大洋の一部ですか？"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "北極海"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "インド洋"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "太平洋"
+	},
+	"trivia_medium_011": {
+		"message": "バルト海と接しているのはどの国ですか？"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "ラトビア"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "スロベニア"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "ウクライナ"
+	},
+	"trivia_medium_012": {
+		"message": "この中で最も人口が多い大都市はどれですか？"
+	},
 	"trivia_medium_012_answer0": {
 		"message": "サンパウロ、ブラジル"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "カナダ、トロント"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "ハノイ（ベトナム）"
+	},
+	"trivia_medium_013": {
+		"message": "大西洋に面する海岸線がないのはどの国ですか？"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "マレーシア"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "アンゴラ"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "ウルグアイ"
+	},
+	"trivia_medium_014": {
+		"message": "この中で海岸線が最も短いのはどの国ですか？"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "エルサルバドル"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "ペルー"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "チリ"
+	},
+	"trivia_medium_015": {
+		"message": "アジアにある砂漠地帯はどれですか？"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "ゴビ砂漠"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "カラハリ"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "アタカマ"
+	},
+	"trivia_medium_016": {
+		"message": "この中で火山活動が最も活発なのはどの国ですか？"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "インドネシア"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "エジプト"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "イスラエル"
+	},
+	"trivia_medium_017": {
+		"message": "この中で人口が最も多い国はどこですか？"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "パキスタン"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "ハイチ"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "ベネズエラ"
+	},
+	"trivia_medium_018": {
+		"message": "この中で島が最も多いのはどの国ですか？"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "バハマ"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "ジャマイカ"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "エルサルバドル"
+	},
+	"trivia_medium_019": {
+		"message": "赤道に最も近いのはどの国ですか？"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "ルワンダ"
 	},
 	"trivia_medium_019_answer1": {
 		"message": "グアテマラ"
 	},
+	"trivia_medium_019_answer2": {
+		"message": "南アフリカ"
+	},
+	"trivia_medium_020": {
+		"message": "最北にある国はどこですか？"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "エストニア"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "リビア"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "カンボジア"
+	},
+	"trivia_medium_021": {
+		"message": "テージョ川の岸辺に位置するアルファマ地区がある、ポルトガルの首都はどれですか？"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "リスボン"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "ベルリン"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "ヘルシンキ"
+	},
+	"trivia_medium_022": {
+		"message": "死海の北東25マイルに位置し、国内で人口が最も多いヨルダンの首都はどれですか？"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "アンマン"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "イスラマバード"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "ソウル"
+	},
+	"trivia_medium_023": {
+		"message": "エジプト人による大規模な抗議活動の中心地となっているタハリール広場があるのは、どの首都ですか？"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "カイロ"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "ナイロビ"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "マスカット"
+	},
 	"trivia_medium_024": {
 		"message": "テーブル・ベイに位置し、南アフリカの国会議事堂がある首都はどこですか？"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "ケープタウン"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "ルサカ"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "キンシャサ"
+	},
+	"trivia_medium_025": {
+		"message": "ヴルタヴァ川に面するチェコ共和国最大の首都はどれですか？"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "プラハ"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "ダブリン"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "ソフィア"
+	},
+	"trivia_medium_026": {
+		"message": "重要な港湾として地中海沿岸に位置するリビアの首都はどれですか？"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "トリポリ"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "モガディシュ"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "モンロビア"
+	},
+	"trivia_medium_027": {
+		"message": "ホワイトナイルと青ナイル川の合流地点に位置し、重要な貿易と運輸の拠点であるスーダンの首都はどれですか？"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "ハルツーム"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "チュニス"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "ヨハネスブルグ"
+	},
+	"trivia_medium_028": {
+		"message": "シェラン島とアマー島にまたがるデンマークの首都はどれですか？"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "コペンハーゲン"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "ベルン"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "ブラチスラバ"
+	},
+	"trivia_medium_029": {
+		"message": "ニュープロビデンス島にあるバハマの首都はどれですか？"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "ナッソー"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "サントドミンゴ"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "ベルモパン"
 	},
 	"trivia_medium_030": {
 		"message": "黒海の南に位置し、トルコの交通の要所となる都市はどこですか？"
 	},
+	"trivia_medium_030_answer0": {
+		"message": "アンカラ"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "ミンスク"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "テヘラン"
+	},
+	"trivia_medium_031": {
+		"message": "この中で国土の一部がアフリカの角に位置しているのはどの国ですか？"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "エリトリア"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "ニジェール"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "スワジランド"
+	},
+	"trivia_medium_032": {
+		"message": "スカゲラク海峡が隔てているのはデンマークとどの国ですか？"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "ノルウェー"
+	},
 	"trivia_medium_032_answer1": {
 		"message": "英国"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "スリランカ"
+	},
+	"trivia_medium_033": {
+		"message": "陸地に砂漠地帯が多いのはどの国ですか？"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "チャド"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "ノルウェー"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "ベトナム"
+	},
+	"trivia_medium_034": {
+		"message": "ユーフラテス川が通っているのはどの国ですか？"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "シリア"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "スイス"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "タイ"
+	},
+	"trivia_medium_035": {
+		"message": "バイカル湖の近くに位置するイルクーツクがあるのは、どの大陸ですか？"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "アジア"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "アフリカ"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "南アメリカ"
+	},
+	"trivia_medium_036": {
+		"message": "巨大な河川のドニエプル川とライン川があるのはどの大陸ですか？"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "ヨーロッパ"
 	},
 	"trivia_medium_036_answer1": {
 		"message": "南極大陸"
 	},
+	"trivia_medium_036_answer2": {
+		"message": "アジア"
+	},
+	"trivia_medium_037": {
+		"message": "ギアナ高地とパンタナル地方はどの大陸にありますか？"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "南アメリカ"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "北アメリカ"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_medium_038": {
+		"message": "グレートビクトリア砂漠とナラボー平原があるのはどの大陸ですか？"
+	},
 	"trivia_medium_038_answer0": {
 		"message": "オーストラリア"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "アジア"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_medium_039": {
+		"message": "リオグランデドスルは、どの国の最南端にある州ですか？"
 	},
 	"trivia_medium_039_answer0": {
 		"message": "ブラジル"
@@ -545,11 +3161,35 @@
 	"trivia_medium_039_answer2": {
 		"message": "ドイツ"
 	},
+	"trivia_medium_040": {
+		"message": "オビ川に面するノヴォシビルスクがあるのはどの国ですか？"
+	},
 	"trivia_medium_040_answer0": {
 		"message": "ロシア"
 	},
+	"trivia_medium_040_answer1": {
+		"message": "ネパール"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "中国"
+	},
+	"trivia_medium_041": {
+		"message": "環太平洋地域に位置し、地震発生率が高い国はどこですか？"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "チリ"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "アンゴラ"
+	},
 	"trivia_medium_041_answer2": {
 		"message": "フランス"
+	},
+	"trivia_medium_042": {
+		"message": "マラカイボ湖はどの国の北岸に沿って位置していますか？"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "ベネズエラ"
 	},
 	"trivia_medium_042_answer1": {
 		"message": "グアテマラ"
@@ -557,11 +3197,140 @@
 	"trivia_medium_042_answer2": {
 		"message": "カナダ"
 	},
+	"trivia_medium_043": {
+		"message": "アラビア海と接しているのはどの国ですか？"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "インド"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "タジキスタン"
+	},
 	"trivia_medium_043_answer2": {
 		"message": "ギリシャ"
 	},
+	"trivia_medium_044": {
+		"message": "イベリア半島にあるのはどの国ですか？"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "ポルトガル"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "バングラデシュ"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "オランダ"
+	},
+	"trivia_medium_045": {
+		"message": "この中で海岸線が最も長いのはどの国ですか？"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "タイ"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "コンゴ共和国"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "カタール"
+	},
+	"trivia_medium_046": {
+		"message": "ミシシッピ川の西に位置するアメリカの州はどれですか？"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "コロラド"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "メリーランド"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "ミシガン"
+	},
+	"trivia_medium_047": {
+		"message": "森林が全体の約60%を占めるアメリカの州はどれですか？"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "バージニア"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "アリゾナ"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "ネバダ"
+	},
+	"trivia_medium_048": {
+		"message": "北米の最高峰マッキンリー山はアメリカのどの州にありますか？"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "アラスカ"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "ミネソタ"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "コロラド"
+	},
+	"trivia_medium_049": {
+		"message": "この中で最も大きいアメリカの州はどれですか？"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "モンタナ"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "コネチカット"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "サウスカロライナ"
+	},
+	"trivia_medium_050": {
+		"message": "ラピッドシティ近郊のラッシュモア山はアメリカのどの州にありますか？"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "サウスダコタ"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "オレゴン"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "フロリダ"
+	},
+	"trivia_medium_051": {
+		"message": "カナダと隣接しているアメリカの州はどれですか？"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "ミネソタ"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "ネブラスカ"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "ケンタッキー"
+	},
+	"trivia_medium_052": {
+		"message": "沿岸沖にサンゴ礁があるのは、アメリカのどの州ですか？"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "ハワイ"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "コネチカット"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "ネバダ"
+	},
+	"trivia_medium_053": {
+		"message": "重要な港湾都市のハンブルクはどの国にありますか？"
+	},
 	"trivia_medium_053_answer0": {
 		"message": "ドイツ"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "クロアチア"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "ベルギー"
+	},
+	"trivia_medium_054": {
+		"message": "火山活動が最も活発なのはどの国ですか？"
 	},
 	"trivia_medium_054_answer0": {
 		"message": "アイスランド"
@@ -569,14 +3338,143 @@
 	"trivia_medium_054_answer1": {
 		"message": "英国"
 	},
+	"trivia_medium_054_answer2": {
+		"message": "ポーランド"
+	},
+	"trivia_medium_055": {
+		"message": "国土の大部分が小アジア半島にあるのはどの国ですか？"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "トルコ"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "ミャンマー"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "エストニア"
+	},
+	"trivia_medium_056": {
+		"message": "死海が国境の一部を形成しているのは、イスラエルとどの国ですか？"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "ヨルダン"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "イラン"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "日本"
+	},
+	"trivia_medium_057": {
+		"message": "ヴィクトリア湖の東に位置するセレンゲティ国立公園はどの国にありますか？"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "タンザニア"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "イエメン"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "ナイジェリア"
+	},
+	"trivia_medium_058": {
+		"message": "カリブ海と接し、石油輸出量が多いのはどの国ですか？"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "ベネズエラ"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "チリ"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "パラグアイ"
+	},
+	"trivia_medium_059": {
+		"message": "赤道のすぐ南にある内陸国はどれですか？"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "ブルンジ"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "ジブチ"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "チュニジア"
+	},
+	"trivia_medium_060": {
+		"message": "ティレニア海と接している地中海沿岸の国はどれですか？"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "イタリア"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "イスラエル"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "セネガル"
+	},
+	"trivia_medium_061": {
+		"message": "ウラル山脈の東側斜面に位置するエカテリンブルグは、どの国にありますか？"
+	},
 	"trivia_medium_061_answer0": {
 		"message": "ロシア"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "リトアニア"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "ベルギー"
+	},
+	"trivia_medium_062": {
+		"message": "オーストラリアの南東に位置し、羊毛の一大生産地である島国はどれですか？"
 	},
 	"trivia_medium_062_answer0": {
 		"message": "ニュージーランド"
 	},
 	"trivia_medium_062_answer1": {
 		"message": "フィリピン"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "ベトナム"
+	},
+	"trivia_medium_063": {
+		"message": "大規模な港湾都市ムンバイがあるのはどの国ですか？"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "インド"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "スイス"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "ブータン"
+	},
+	"trivia_medium_064": {
+		"message": "黄海に面するインチョン広域市があるのはどの国ですか？"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "韓国"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "タイ"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "モンゴル"
+	},
+	"trivia_medium_065": {
+		"message": "オーストリアの西側で国境を接しているのはどの国ですか？"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "リヒテンシュタイン"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "シリア"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "モルドバ"
+	},
+	"trivia_medium_066": {
+		"message": "ビクトリア州とニューサウスウェールズ州があるのはどの国ですか？"
 	},
 	"trivia_medium_066_answer0": {
 		"message": "オーストラリア"
@@ -587,35 +3485,305 @@
 	"trivia_medium_066_answer2": {
 		"message": "カナダ"
 	},
+	"trivia_medium_067": {
+		"message": "小国ブルネイと国境を接しているボルネオ島の国はどれですか？"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "マレーシア"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "イラン"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "ウクライナ"
+	},
+	"trivia_medium_068": {
+		"message": "ジュリアアルプス山脈がまたがっているのは、イタリアとどの国ですか？"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "スロベニア"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "ネパール"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "タジキスタン"
+	},
+	"trivia_medium_069": {
+		"message": "以前は満州と呼ばれていた地域は、どの国の北東部にありますか？"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "中国"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "ベラルーシ"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "アフガニスタン"
+	},
+	"trivia_medium_070": {
+		"message": "エルサルバドルと国境を接しているのはどの国ですか？"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "ホンジュラス"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "パナマ"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "ドミニカ共和国"
+	},
+	"trivia_medium_071": {
+		"message": "コーカサス山脈にあるのはどの国ですか？"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "グルジア"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "ハンガリー"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "アンドラ"
+	},
+	"trivia_medium_072": {
+		"message": "スンダ海峡によって2つの島が隔てられているのは、アジアのどの国ですか？"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "インドネシア"
+	},
 	"trivia_medium_072_answer1": {
 		"message": "ニュージーランド"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "ラオス"
+	},
+	"trivia_medium_073": {
+		"message": "シャノン川の河口付近で氷河でできた渓谷や壮観な断崖を眺めることができるのは、どの国ですか？"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "アイルランド"
 	},
 	"trivia_medium_073_answer1": {
 		"message": "フランス"
 	},
+	"trivia_medium_073_answer2": {
+		"message": "ウズベキスタン"
+	},
+	"trivia_medium_074": {
+		"message": "インダス川が流れている南アジアの国はどこですか？"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "パキスタン"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "北朝鮮"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "アゼルバイジャン"
+	},
+	"trivia_medium_075": {
+		"message": "紅海と接しているのはどの国ですか？"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "エリトリア"
+	},
 	"trivia_medium_075_answer1": {
 		"message": "ガーナ"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "ケニア"
+	},
+	"trivia_medium_076": {
+		"message": "サカテカス州とタバスコ州があるのはどの国ですか？"
 	},
 	"trivia_medium_076_answer0": {
 		"message": "メキシコ"
 	},
+	"trivia_medium_076_answer1": {
+		"message": "ベリーズ"
+	},
 	"trivia_medium_076_answer2": {
 		"message": "アルゼンチン"
+	},
+	"trivia_medium_077": {
+		"message": "4,000以上のモスクがあるリヤドはどの国の都市ですか？"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "サウジアラビア"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "アルバニア"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "シリア"
+	},
+	"trivia_medium_078": {
+		"message": "アフリカの内陸国はどれですか？"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "マリ"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "モーリタニア"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "エジプト"
+	},
+	"trivia_medium_079": {
+		"message": "神聖な場所の富士山があるのはどの国ですか？"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "日本"
 	},
 	"trivia_medium_079_answer1": {
 		"message": "フィリピン"
 	},
+	"trivia_medium_079_answer2": {
+		"message": "バングラデシュ"
+	},
+	"trivia_medium_080": {
+		"message": "大アンティル諸島の中で、英語を公用語にしている国はどこですか？"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "ジャマイカ"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "ハイチ"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "キューバ"
+	},
+	"trivia_medium_081": {
+		"message": "シリア、クウェート、アルジェリアの公用語はどれですか？"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "アラビア"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "アルメニア語"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "ドイツ語"
+	},
+	"trivia_medium_082": {
+		"message": "モーツァルトのオペラがよく演奏されるザルツブルク音楽祭を毎年開催しているのは、山岳地帯の多いヨーロッパのどの国ですか？"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "オーストリア"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "ハンガリー"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "ルーマニア"
+	},
+	"trivia_medium_083": {
+		"message": "先史時代のクジラ類の化石が多数発掘される砂漠地帯のクジラ渓谷があり、スーダンの北にある国はどこですか？"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "エジプト"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "ナイジェリア"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "ザンビア"
+	},
+	"trivia_medium_084": {
+		"message": "北海近辺の三角州にあるロッテルダムは、どの国にありますか？"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "オランダ"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "スウェーデン"
+	},
 	"trivia_medium_084_answer2": {
 		"message": "ギリシャ"
+	},
+	"trivia_medium_085": {
+		"message": "ベンガル湾の大三角州へ注ぐブラマプトラ川の源流があるのはどの大規模山系ですか？"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "ヒマラヤ"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "ウラル山脈"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "アルプス山脈"
+	},
+	"trivia_medium_086": {
+		"message": "ペルシア語とも呼ばれるファルシ語が公用語のイスラム国はどれですか？"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "イラン"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "クウェート"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "リビア"
+	},
+	"trivia_medium_087": {
+		"message": "闘牛を観戦できるセビーリャがあるのは、ヨーロッパのどの国ですか？"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "スペイン"
 	},
 	"trivia_medium_087_answer1": {
 		"message": "ドイツ"
 	},
+	"trivia_medium_087_answer2": {
+		"message": "マケドニア"
+	},
+	"trivia_medium_088": {
+		"message": "東洋と西洋の文化が交わる場所と言われるイスタンブールは、どの国にありますか？"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "トルコ"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "スロバキア"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "オマーン"
+	},
 	"trivia_medium_089": {
 		"message": "古代マヤの都市、コパンは人気の観光名所ですが、このコパン遺跡があるエルサルバドルとニカラグアと国境を接する国はどこですか？"
 	},
+	"trivia_medium_089_answer0": {
+		"message": "ホンジュラス"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "チリ"
+	},
 	"trivia_medium_089_answer2": {
 		"message": "カナダ"
+	},
+	"trivia_medium_090": {
+		"message": "ニジェール川の北に位置し、およそ1,000年にわたって隊商の中心地として栄えたトンブクトゥがある内陸国はどれですか？"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "マリ"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "ウガンダ"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "ナミビア"
+	},
+	"trivia_medium_091": {
+		"message": "チリ、ブラジルと国境を接している南米の内陸国はどれですか？"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "ボリビア"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "コロンビア"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "ガイアナ"
 	},
 	"trivia_medium_092": {
 		"message": "アマゾン川の河口南岸に位置するベレンという町がある国はどこですか？"
@@ -623,14 +3791,107 @@
 	"trivia_medium_092_answer0": {
 		"message": "ブラジル"
 	},
+	"trivia_medium_092_answer1": {
+		"message": "コスタリカ"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "スリナム"
+	},
+	"trivia_medium_093": {
+		"message": "ブルガリアの北側国境の大部分を形成している川はどれですか？"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "ダニューブ川"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "オビ川"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "メコン川"
+	},
+	"trivia_medium_094": {
+		"message": "バイカル湖の近くに位置するサヤン山脈は、アジアのどの国にありますか？"
+	},
 	"trivia_medium_094_answer0": {
 		"message": "ロシア"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "インド"
 	},
 	"trivia_medium_094_answer2": {
 		"message": "キルギス"
 	},
+	"trivia_medium_095": {
+		"message": "ニピゴン湖はカナダのどの州で最大の湖ですか？"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "オンタリオ"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "アルバータ"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "ブリティッシュコロンビア"
+	},
+	"trivia_medium_096": {
+		"message": "バレアス海とイオニア海はどの海の一部ですか？"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "地中海"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "バルチック海"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "カリブ海"
+	},
+	"trivia_medium_097": {
+		"message": "地溝帯湖の例であるトゥルカナ湖とナトロン湖は、どの大陸にありますか？"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "アフリカ"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "南アメリカ"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "ヨーロッパ"
+	},
+	"trivia_medium_098": {
+		"message": "プエルトリコ海溝はどの大洋の最深地点ですか？"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "大西洋"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "北極海"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "太平洋"
+	},
+	"trivia_medium_099": {
+		"message": "ワライカワセミの原産地は、どの大陸東部のユーカリの森ですか？"
+	},
 	"trivia_medium_099_answer0": {
 		"message": "オーストラリア"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "アフリカ"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "南アメリカ"
+	},
+	"trivia_medium_100": {
+		"message": "国際司法裁判所があるハーグは、ヨーロッパのどの国の西岸にある都市ですか？"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "オランダ"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "フィンランド"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "ブルガリア"
 	},
 	"twitter": {
 		"message": "Twitter"
