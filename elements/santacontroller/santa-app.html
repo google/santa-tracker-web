@@ -494,13 +494,13 @@ Polymer(Polymer.mixin({
     house.iced = false;
   },
 
-  unlockAllHouses: function() {
-    for (var i = 0, house; house = this.houses[i]; ++i) {
-      this.unlockHouse(i);
-      house.today = false;
-      house.tomorrow = false;
-    }
-  },
+  // unlockAllHouses: function() {
+  //   for (var i = 0, house; house = this.houses[i]; ++i) {
+  //     this.unlockHouse(i);
+  //     house.today = false;
+  //     house.tomorrow = false;
+  //   }
+  // },
 
   lockAllHouses: function() {
     for (var i = 0, house; house = this.houses[i]; ++i) {
@@ -568,7 +568,7 @@ Polymer(Polymer.mixin({
         break;
       case 0: // JAN
         // All houses in Jan are unlocked. Full experience baby!
-        this.unlockAllHouses();
+        // this.unlockAllHouses();
         break;
       default:
         // noop
