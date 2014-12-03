@@ -1,7 +1,7 @@
 {
   "name": "Google Santa Tracker",
   "short_name": "Santa Tracker",
-  "start_url": "https://santatracker.google.com/?utm_source=web_app_manifest",
+  "start_url": "https://santatracker.google.com/?api_client=web_app_manifest",
   "display": "fullscreen",
   "orientation": "landscape",
   "icons": [{
