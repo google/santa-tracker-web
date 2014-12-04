@@ -52,7 +52,7 @@ Village scene.
         <!-- <h2>Until Santa Departs &ndash; <a href="{{'www.google.com/santatracker/about.html'|localizedpath:goro.page.locale}}">Learn More</a></h2> -->
         <h2><i18n-msg msgid="countdownlabel">PLACEHOLDER_i18n</i18n-msg><span id="learnmore"> &centerdot; <a href="{{pageUrl}}#about"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a></span></h2>
         <div id="finished-tracker">
-          <a href="{{pageUrl}}#tracker"></a>
+          <a href="{{pageUrl}}#tracker" tabindex="{{finished ? 0 : -1}}">></a>
         </div>
         <h2 style="display:none"><i18n-msg msgid="endofjourneymessage">PLACEHOLDER_i18n</i18n-msg></h2>
       </div>
