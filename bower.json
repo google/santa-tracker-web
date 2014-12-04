@@ -35,7 +35,8 @@
     "google-apis": "GoogleWebComponents/google-apis#^0.4.3",
     "google-youtube": "GoogleWebComponents/google-youtube#^1.0.1",
     "closure-compiler": "https://dl.google.com/closure-compiler/compiler-latest.zip",
-    "google-map": "~0.4.0"
+    "google-map": "~0.4.0",
+    "polymer-filters": "~0.1.0"
   },
   "resolutions": {
     "polymer": "^0.5.1"
