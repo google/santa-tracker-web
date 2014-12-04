@@ -234,7 +234,7 @@ Gumball scene.
       var module = this.$['module-gumball'];
 
       var game = this.game = new scenes.gumball.Game(module);
-      startButton(module, function() {
+      startButton(this, module, function() {
         game.start();
       });
     },

@@ -300,7 +300,7 @@ Mercator scene.
         var module = this.$['module-mercator'];
 
         var game = this.game = new scenes.mercator.Game(module);
-        startButton(module, function() {
+        startButton(this, module, function() {
           game.start();
         });
       }
