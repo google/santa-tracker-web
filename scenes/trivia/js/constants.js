@@ -9,7 +9,8 @@ app.Constants = {
   COUNTDOWN_FLASH: 2, // seconds left when countdown starts flashing
 
   QUESTIONS_PER_LEVEL: 10,
-  TOTAL_LEVELS: 3
+  TOTAL_LEVELS: 3,
+  QUESTION_READ_TIME: 3 // seconds to read the question before choices are shown
 };
 
 // For scoreboard

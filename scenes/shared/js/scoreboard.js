@@ -66,6 +66,8 @@ Scoreboard.prototype.restart = function() {
   if (this.remainingElem.length > 0) {
     this.remainingElem.removeClass('losing');
   }
+
+  this.onFrame(0);
 };
 
 

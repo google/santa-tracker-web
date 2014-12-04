@@ -1,9 +1,11 @@
 goog.provide('app.Game');
 
 goog.require('app.Constants');
+goog.require('app.Quiz');
 goog.require('app.shared.Scoreboard');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.utils');
+goog.require('app.shared.Coordinator');
 
 
 
@@ -18,13 +20,14 @@ app.Game = function(scene, elem) {
   this.scene = scene;
   this.elem = elem;
 
-  this.scoreboard = new app.shared.Scoreboard(this, elem.querySelector('.board'));
-  this.gameoverView = new app.shared.Gameover(this, elem.querySelector('.gameover'));
-
   this.current = {number: 0};
   this.isPlaying = false;
   this.paused = false;
   this.gameStartTime = +new Date;
+
+  this.scoreboard = new app.shared.Scoreboard(this, elem.querySelector('.board'));
+  this.gameoverView = new app.shared.Gameover(this, elem.querySelector('.gameover'));
+  this.quiz = new app.Quiz(this, elem.querySelector('.quiz'), this.current);
 
   this.onFrame = this.onFrame.bind(this);
 };
@@ -42,7 +45,10 @@ app.Game.prototype.onFrame = function() {
   var delta = Math.min(1, now - this.lastFrame);
   this.lastFrame = now;
 
-  this.scoreboard.onFrame(delta);
+  if (this.countdownActive) {
+    this.scoreboard.onFrame(delta);
+  }
+  app.shared.Coordinator.onFrame(delta);
 
   // Request next frame
   this.requestId = app.shared.utils.requestAnimFrame(this.onFrame);
@@ -70,7 +76,7 @@ app.Game.prototype.bumpLevel_ = function() {
  * @export
  */
 app.Game.prototype.start = function(difficulty) {
-  this.difficulty = difficulty;
+  this.quiz.setDifficulty(difficulty);
   this.restart();
 };
 
@@ -82,7 +88,8 @@ app.Game.prototype.restart = function() {
   var match = location.search.match(/[?&]level=(\d+)/) || [];
   this.level = (+match[1] || 1) - 1;
   this.paused = false;
-  this.current = {number: 0};
+  this.current.number = 0;
+  this.countdownActive = false;
 
   this.scoreboard.reset();
 
@@ -197,13 +204,8 @@ app.Game.prototype.answer = function(isCorrect) {
 };
 
 app.Game.prototype.nextQuestion_ = function() {
-  var index = Math.ceil(Math.random() * 97);
-  var questionElem = this.elem.querySelector('.quiz-' + this.difficulty + ' .question--' + index);
-  this.current.number++;
-  this.current.question = questionElem.children[0].textContent;
-  this.current.choices = Array.prototype.map.call(questionElem.children[1].children, function(el) {
-    return el.textContent;
-  });
+  this.quiz.nextQuestion();
+  this.countdownActive = false;
   this.scoreboard.restart();
   this.scene.fire('new-question');
 };

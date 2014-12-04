@@ -40,6 +40,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       color: #7cd9e6;
     }
 
+    #choices {
+      opacity: 1;
+      transition: opacity 500ms;
+    }
+
+    #choices.is-hidden {
+      opacity: 0;
+    }
+
     .check {
       border: 2px solid #7DE1AC;
       border-radius: 50%;
@@ -63,15 +72,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   </style>
 
-  <core-selector id="choices" selected="{{value}}">
-
+  <div id="choices">
     <template repeat="{{item in shuffled}}">
-
       <paper-item><span class="check"></span><span class="text">{{item}}</span></paper-item>
-
     </template>
+  </div>
 
-  </core-selector>
+  <core-selector target="{{$.choices}}" selected="{{value}}"></core-selector>
 
 </template>
 <script>
@@ -91,6 +98,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       for (var i = this.shuffled.length; i >= 0; i--) {
         this.shuffled.push(this.shuffled.splice(Math.random() * i | 0, 1)[0]);
       }
+      this.$.choices.classList.remove('is-hidden');
     },
 
     isCorrect: function () {
@@ -102,6 +110,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     reset: function () {
+      this.$.choices.classList.add('is-hidden');
       this.value = null;
     }
   });

@@ -66,10 +66,6 @@ Trivia scene.
           </div>
           <div class="status"></div>
         </div>
-        <div class="actions">
-          <button type="button" class="restart"></button>
-          <button type="button" class="pause"></button>
-        </div>
       </div>
       <div class="gameover overlay">
         <div class="gameover-dialog overlay-dialog">
@@ -87,7 +83,7 @@ Trivia scene.
         </div>
       </div>
     </div>
-    <div class="translations" hidden>
+    <div class="quiz" hidden>
       <div class="quiz-beginner">
         <div class="question question--1">
           <i18n-msg msgid="trivia_beginner_001">PLACEHOLDER_i18n</i18n-msg>
@@ -2517,38 +2513,45 @@ Trivia scene.
 </template>
 <script>
 (function() {
-  var QUESTIONS_PER_LEVEL = 10,
-      SECONDS_PER_QUESTION = 10;
-
   Polymer({
     componentDir: 'scenes/trivia/',
 
     game: null,
+
+    eventDelegates: {
+      'new-question': 'onNewQuestion'
+    },
 
     onPreload: function() {
       /*this.preloadSounds('trivia_load_sounds', 40);
       this.preloadImages([
       ]);*/
     },
+
     onShow: function() {
       //TODO(thorsteinsson): Why is onShow called twice on load?
       if (this.game) return;
 
       var module = this.$['module-trivia'];
 
-      this.game = new scenes.trivia.Game(this, module);
+      window.game = this.game = new scenes.trivia.Game(this, module);
       this.game.start('beginner');
     },
+
     onHide: function() {
       this.game.dispose();
       this.game = null;
       this.fire('sound-ambient', 'trivia_end_game');
     },
+
     onAnswer: function() {
       this.game.answer(this.$.answer.isCorrect());
+    },
+
+    onNewQuestion: function() {
+      this.$.answer.reset();
     }
   });
-
 })();
 </script>
 </polymer-element>
