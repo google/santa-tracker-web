@@ -546,7 +546,7 @@ Polymer(Polymer.mixin({
             house.today = isSameDay_(house.launchDate, todayDate);
 
             // Only check if tomorrow if it's not today
-            house.tomorrow = !house.today || isSameDay_(house.launchDate, tomorrowDate);
+            house.tomorrow = !house.today && isSameDay_(house.launchDate, tomorrowDate);
 
             if (house.launchDate <= todayDate) {
               this.unlockHouse(i);
