@@ -72,8 +72,8 @@ Tracker scene.
               { "lightness": "40" }
             ]
           }]'
-          latitude="{{latitude}}"
-          longitude="{{longitude}}"></google-map>
+          latitude="{{latitude_}}"
+          longitude="{{longitude_}}"></google-map>
       </template>
 
       <div class="sceneboard">
@@ -89,12 +89,16 @@ Tracker scene.
     componentDir: 'scenes/tracker/',
     /**
      * Latitude of the main map's center. Ususally Santa's location.
+     * @type Number
+     * @private
      */
-    latitude: null,
+    latitude_: null,
     /**
      * Laongitude of the main map's center. Ususally Santa's location.
+     * @type Number
+     * @private
      */
-    longitude: null,
+    longitude_: null,
     onPreload: function() {
       this.preloadImages([
         'img/smallglobe.svg'
@@ -102,8 +106,8 @@ Tracker scene.
     },
     santaAppChanged: function() {
       this.santaApp.santaService.getCurrentLocation(function(location) {
-        this.latitude = location.position.lat;
-        this.longitude = location.position.lng;
+        this.latitude_ = location.position.lat;
+        this.longitude_ = location.position.lng;
       }.bind(this));
     },
     onShow: function() {
