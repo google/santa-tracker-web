@@ -537,16 +537,18 @@ Polymer(Polymer.mixin({
 
     switch(todayDate.getMonth()) {
       case 11: // DECEMBER
-        // Unlock all houses up to and including today's.
+        // Update house status based on today's date.
         for (var i = 0; i < this.houses.length; i++) {
           var house = this.houses[i];
 
           if (house) {
             // mark the house if unlocked today or unlocking tomorrow
             house.today = isSameDay_(house.launchDate, todayDate);
+
+            // Only check if tomorrow if it's not today
             house.tomorrow = !house.today || isSameDay_(house.launchDate, tomorrowDate);
 
-            if (house.launchDate < todayDate) {
+            if (house.launchDate <= todayDate) {
               this.unlockHouse(i);
             } else {
               house.iced = true;
