@@ -428,6 +428,10 @@ $board-actions-height-md: 54px;
       @include board-color(#ec4180);
     }
 
+    &.board--tracker {
+      @include board-color(#00C55D);
+    }
+
     // Other modifiers
     &.board--levelOnly {
       .score, .time, .actions {

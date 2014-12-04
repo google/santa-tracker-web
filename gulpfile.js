@@ -106,6 +106,9 @@ var SCENE_CLOSURE_CONFIG = {
   translations: {
     entryPoint: 'app.Scene'
   },
+  trivia: {
+    entryPoint: 'app.Game'
+  },
   windtunnel: {
     entryPoint: 'app.Scene'
   }

@@ -54,6 +54,21 @@ Scoreboard.prototype.reset = function() {
   this.addScore(0);
 };
 
+
+/**
+ * Restart the timer
+ */
+Scoreboard.prototype.restart = function() {
+  this.countdown = Constants.INITIAL_COUNTDOWN;
+  this.lastSeconds = null;
+  this.losing = false;
+
+  if (this.remainingElem.length > 0) {
+    this.remainingElem.removeClass('losing');
+  }
+};
+
+
 /**
  * Attaches events for scoreboard interactions.
  */
@@ -135,7 +150,6 @@ Scoreboard.prototype.addScore = function(score) {
   if (this.scoreElem.length > 0) {
     this.scoreElem.text(this.score);
   }
-
 };
 
 /**

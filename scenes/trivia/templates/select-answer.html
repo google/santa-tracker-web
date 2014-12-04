@@ -1,0 +1,96 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../../components/core-selector/core-selector.html">
+<link rel="import" href="../../../components/paper-item/paper-item.html">
+
+<polymer-element name="select-answer" attributes="choices">
+<template>
+
+  <style>
+    :host {
+      padding: 40px 0px;
+    }
+
+    :host-context(.wide) {
+      padding: 40px 0px 48px;
+    }
+    :host paper-item {
+      padding: 3px 28px;
+    }
+
+    :host-context(.wide) paper-item {
+      padding: 3px 36px;
+    }
+    paper-item {
+      margin: 3px 0;
+      -webkit-transition: background-color 1s;
+      transition: background-color 1s;
+    }
+    paper-item.core-selected {
+      background-color: #00C55D;
+    }
+    paper-item::shadow #ripple {
+      color: #7cd9e6;
+    }
+
+    .check {
+      border: 2px solid #7DE1AC;
+      border-radius: 50%;
+      height: 18px;
+      left: 0;
+      margin-top: -10px;
+      position: absolute;
+      top: 50%;
+      width: 18px;
+    }
+
+    .text {
+      color: #fff;
+      font-family: Roboto;
+      font-size: 39px;
+      font-weight: 400;
+      letter-spacing: 0.78px;
+      line-height: 68.66px;
+      padding-left: 30px;
+    }
+
+  </style>
+
+  <core-selector selected="{{value}}">
+
+    <template repeat="{{item in choices}}">
+
+      <paper-item><span class="check"></span><span class="text">{{item}}</span></paper-item>
+
+    </template>
+
+  </core-selector>
+
+</template>
+<script>
+  Polymer({
+    eventDelegates: {
+      'core-activate': 'answered'
+    },
+
+    isCorrect: function () {
+      return this.value === 0;
+    },
+
+    answered: function () {
+      this.fire('quiz-answered');
+    },
+
+    reset: function () {
+      this.value = null;
+    }
+  });
+</script>
+</polymer-element>

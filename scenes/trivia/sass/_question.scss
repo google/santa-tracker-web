@@ -1,0 +1,50 @@
+##{$name} {
+  .question {
+    background-color: #00A6A3;
+    border-bottom: 6px solid #008F8C;
+    min-height: 230px;
+    padding-top: 100px;
+    position: relative;
+    width: 100%;
+
+    // The bottom shadow
+    &:after {
+      background: #029A97;
+      bottom: 0;
+      content: '';
+      height: 6px;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  .question-number,
+  .question-text {
+    font-family : Roboto;
+    font-size : 39px;
+    letter-spacing : 0.78px;
+  }
+
+  .question-number {
+    color: #00C55D;
+    line-height: 52.66px;
+    margin-right: 35px;
+    position: relative;
+
+    // The underline
+    &:after {
+      background: #00C55D;
+      top: 52px;
+      content: '';
+      height: 3px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  .question-text {
+    color: #fff;
+    line-height: 43.8px;
+  }
+}
