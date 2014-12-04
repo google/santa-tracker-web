@@ -151,7 +151,7 @@ Racer scene.
 
       this.fire('sound-ambient', 'rc_landing_page');
       var game = this.game = new scenes.racer.Game(module, this.componentDir);
-      startButton(module, function() {
+      startButton(this, module, function() {
         game.initialize();
       });
     },

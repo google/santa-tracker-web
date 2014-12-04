@@ -1,6 +1,7 @@
 <link rel="import" href="../base-scene.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
+<link rel="import" href="../../components/google-map/google-map.html">
 
 <link rel="import" href="dependencies.html">
 
@@ -18,13 +19,62 @@ Traditions scene.
 
     <div class="scene">
       <template if="{{santaApp}}">
-        <google-maps-api version="3.exp" apiKey="{{santaApp.config.API_KEY}}"
-                         clientId="{{santaApp.config.CLIENT_ID}}"
-                         libraries="places,geometry"
-                         language="{{santaApp.language}}"
-                         on-api-load="{{mapsAPIReady}}"></google-maps-api>
+
+
+      <google-map
+          on-google-map-ready="{{mapReady}}"
+          apiKey="{{santaApp.config.API_KEY}}"
+          disableDefaultUI
+          zoomable="false"
+          libraries="places,geometry"
+          styles='[{
+            "stylers": [
+              { "visibility": "off" }
+            ]
+          },{
+            "featureType": "water",
+            "stylers": [
+              { "visibility": "on" },
+              { "color": "#f6efe2" }
+            ]
+          },{
+            "featureType": "landscape",
+            "stylers": [
+              { "visibility": "on" },
+              { "lightness": "110" },
+              { "color": "#dfd7c5" }
+            ]
+          },{
+            "featureType": "administrative.country",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              { "visibility": "on" },
+              { "invert_lightness": "true" },
+              { "gamma": "3.75" },
+              { "lightness": "70" },
+              { "weight": "1" }
+            ]
+          },{
+            "featureType": "water",
+            "elementType": "labels",
+            "stylers": [
+              { "weight": "0.8" },
+              { "color": "#c5c6c4" },
+              { "lightness": "5" }
+            ]
+          },{
+            "featureType": "landscape.natural",
+            "elementType": "labels",
+            "stylers": [
+              { "visibility": "on" },
+              { "weight": "0.3" },
+              { "invert_lightness": "true" },
+              { "lightness": "40" }
+            ]
+          }]'
+          latitude="37.77493"
+          longitude="-122.41942"></google-map>
       </template>
-      <div id="tracker-map"></div>
 
       <div class="sceneboard">
         <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
@@ -45,26 +95,17 @@ Traditions scene.
       ]);
     },
 
-    mapsAPIReady: function() {
-      this.tracker = new Tracker(
-          this.$['module-tracker']);
-      if (this.shown) {
-        this.tracker.onShow();
-      }
+    mapReady: function() {
+      console.log('map-ready')
     },
 
     onShow: function() {
-      this.shown = true;
-      if (this.tracker) {
-        this.tracker.onShow();
-      }
+      // TODO: implement
+
     },
 
     onHide: function() {
-      this.shown = false;
-      if (this.tracker) {
-        this.tracker.onHide();
-      }
+      // TODO: implement
     }
   });
 })();

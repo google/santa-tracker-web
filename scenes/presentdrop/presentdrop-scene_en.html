@@ -211,7 +211,7 @@ Presentdrop scene.
       var module = this.$['module-presentdrop'];
 
       var game = this.game = new scenes.presentdrop.Game(module);
-      startButton(module, function() {
+      startButton(this, module, function() {
         game.start();
       });
     },

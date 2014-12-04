@@ -23,6 +23,16 @@ $name: 'module-tracker';
     background: #fed83c url(img/tracker_icon.svg) no-repeat 50% 30px;
     height: 220px;
   }
+
+  .scene {
+    height: 100%;
+
+  }
+
+  google-map {
+    display: block;
+    height: 100%;
+  }
 }
 
 @media (max-width: $tabletBreakpoint) {
