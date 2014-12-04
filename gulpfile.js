@@ -124,7 +124,11 @@ gulp.task('rm-dist', function(rmCallback) {
 });
 
 gulp.task('compass', function() {
-  return gulp.src(COMPASS_FILES)
+  var source = argv.scene ?
+      ['{sass,elements}/**/*.scss', 'scenes/' + argv.scene + '/**/*.scss'] :
+      COMPASS_FILES;
+
+  return gulp.src(source)
     .pipe(compass({
       project: path.join(__dirname, '/'),
       css: '',
@@ -165,8 +169,7 @@ gulp.task('compile-santa-api-service', function() {
 });
 
 gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
-  var sceneNames = Object.keys(SCENE_CLOSURE_CONFIG);
-
+  var sceneNames = argv.scene ? [argv.scene] : Object.keys(SCENE_CLOSURE_CONFIG);
   // compile each scene, merging them into a single gulp stream as we go
   return sceneNames.reduce(function(stream, sceneName) {
     var config = SCENE_CLOSURE_CONFIG[sceneName];
