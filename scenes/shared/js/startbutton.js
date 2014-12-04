@@ -8,7 +8,6 @@
 function startButton(sceneElem, elem, callback) {
   sceneElem = $(sceneElem);
   elem = $(elem);
-  this.callback = callback;
 
   var buttonElem = $('<div class="start"><div class="start-button"></div></div>');
   elem.append(buttonElem);
