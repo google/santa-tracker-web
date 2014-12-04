@@ -73,8 +73,9 @@ var chromecastMixin = {
         // KeyboardEvent constructor and skip the initKeyboardEvent silliness
         // TODO(bckenny): use Polymer's this.fire if
         // https://github.com/Polymer/core-a11y-keys/issues/6 is fixed
-        var keyDetails = this.CAST_KEY_MAPPING_[event.data.button];
-        console.log('button press: ' + event.data.button, keyDetails);
+        var data = JSON.parse(event.data);
+        var keyDetails = this.CAST_KEY_MAPPING_[data.button];
+        console.log('button press: ' + data.button, keyDetails);
         if (keyDetails) {
           var e = new KeyboardEvent('keydown', {
             bubbles: true,
