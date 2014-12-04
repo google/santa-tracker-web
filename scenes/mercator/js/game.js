@@ -48,7 +48,7 @@ app.Game = function(elem) {
 
   // Cache a bound functions
   this.onFrame = this.onFrame.bind(this);
-  this.countryMatched = this.countryMatched.bind(this);
+  this.countryMatched_ = this.countryMatched_.bind(this);
   this.updateSize_ = this.updateSize_.bind(this);
   this.disableTutorial_ = this.disableTutorial_.bind(this);
 
@@ -222,7 +222,7 @@ app.Game.prototype.setupLevel_ = function() {
 
   data.features.forEach(function(feature) {
     var country = new app.Country(this.map, feature);
-    country.onMatched = this.countryMatched;
+    country.onMatched = this.countryMatched_;
     country.onDrag = this.disableTutorial_;
     this.countries.push(country);
   }.bind(this));
@@ -320,15 +320,19 @@ app.Game.prototype.getScore = function(time) {
 /**
  * Event handler for when a country is matched.
  * @param {app.Country} country The country that was matched.
+ * @private
  */
-app.Game.prototype.countryMatched = function(country) {
+app.Game.prototype.countryMatched_ = function(country) {
   // Show the name of the country
   var point = app.utils.latLngToPoint(this.map, country.bounds.getCenter());
   var ne = app.utils.latLngToPoint(this.map, this.map.getBounds().getNorthEast());
   var sw = app.utils.latLngToPoint(this.map, this.map.getBounds().getSouthWest());
 
   // Show country name
-  var offset = this.mapElem.offset();
+  var offset = {
+    left: (this.elem.width() - this.mapElem.width()) / 2,
+    top: (this.elem.height() - this.mapElem.height()) / 2
+  };
   var message = $(app.Constants.COUNTRY_MATCH_TEMPLATE).css({
     left: offset.left + point.x - sw.x,
     top: offset.top + point.y - ne.y
