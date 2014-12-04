@@ -350,7 +350,7 @@ Polymer(Polymer.mixin({
       }
     }
 
-    // Only remove previous scene if it need to be always active.
+    // Remove previous scene if it shouldn't always be active.
     if (!prevSelectedScene.alwaysActive) {
       prevSelectedScene.parentNode.removeChild(prevSelectedScene);
 
