@@ -541,18 +541,14 @@ Polymer(Polymer.mixin({
         for (var i = 0; i < this.houses.length; i++) {
           var house = this.houses[i];
 
-          if (house) {
-            // mark the house if unlocked today or will be unlocked tomorrow
+          if (house.launchDate <= todayDate) {
+            this.unlockHouse(i);
             house.today = isSameDay_(house.launchDate, todayDate);
-            if (house.launchDate < tomorrowDate) {
-              house.tomorrow = isSameDay_(house.launchDate, tomorrowDate);
-            }
-
-            if (house.launchDate <= todayDate) {
-              this.unlockHouse(i);
-            } else {
-              house.iced = true;
-            }
+            house.tomorrow = false;
+          } else {
+            house.iced = true;
+            house.today = false;
+            house.tomorrow = isSameDay_(house.launchDate, tomorrowDate);
           }
         }
         break;
