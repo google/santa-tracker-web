@@ -25,6 +25,26 @@ $name: 'module-tracker';
     display: block;
     height: 100%;
   }
+
+  .status-bar {
+    position: absolute;
+    top: 0;
+    /* TODO: Temporary, remove when overlay implemented. */
+    background-color: #85239C;
+    padding: 1em;
+    color: #fff;
+
+    h2 {
+      color: #97D8FF;
+      text-transform: uppercase;
+      font-size: 0.8em;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  }
 }
 
 @media (max-width: $tabletBreakpoint) {

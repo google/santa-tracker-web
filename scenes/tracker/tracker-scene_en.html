@@ -2,6 +2,10 @@
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 <link rel="import" href="../../components/google-map/google-map.html">
+<link rel="import" href="../../components/polymer-filters/polymer-filters.html">
+
+<link rel="import" href="tracker-icons.html">
+
 
 
 <!--
@@ -74,6 +78,41 @@ Tracker scene.
           }]'
           latitude="{{latitude_}}"
           longitude="{{longitude_}}"></google-map>
+        <div class="status-bar">
+          <h2>Currently</h2>
+          <ul>
+            <li>
+              <core-icon icon="santa-icons:timer" size="10"></core-icon>
+              {{ location_.stopover ? location_.stopover.city : 'In flight' }}
+            </li>
+          </ul>
+          <h2>Next stop</h2>
+          <ul>
+            <li>
+              <core-icon icon="santa-icons:pin" size="10"></core-icon>
+              {{location_.next.city}}
+            </li>
+          </ul>
+          <h2>Landing</h2>
+          <ul>
+            <li>
+              <core-icon class="test" icon="santa-icons:reindeer" size="10"></core-icon>
+              <!-- TODO: what if already landed? -->
+              {{location_.next.arrival | date('HH:mm')}}
+            </li>
+          </ul>
+          <h2>Filter</h2>
+          <ul>
+            <li>
+              <core-icon icon="santa-icons:filter-media" size="10"></core-icon>
+              All media
+            </li>
+            <li>
+              <core-icon icon="santa-icons:filter-location" size="30"></core-icon>
+              All locations
+            </li>
+          </ul>
+        </div>
       </template>
 
       <div class="sceneboard">
@@ -85,6 +124,7 @@ Tracker scene.
 </template>
 <script>
 (function() {
+
   Polymer({
     componentDir: 'scenes/tracker/',
     /**
@@ -99,6 +139,12 @@ Tracker scene.
      * @private
      */
     longitude_: null,
+    /**
+     * Current Santa's location.
+     * @type {SantaState}
+     * @private
+     */
+    location_: null,
     onPreload: function() {
       this.preloadImages([
         'img/smallglobe.svg'
@@ -106,6 +152,7 @@ Tracker scene.
     },
     santaAppChanged: function() {
       this.santaApp.santaService.getCurrentLocation(function(location) {
+        this.location_ = location;
         this.latitude_ = location.position.lat;
         this.longitude_ = location.position.lng;
       }.bind(this));
