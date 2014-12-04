@@ -31,6 +31,10 @@ var chromecastMixin = {
     space: {
       keyIdentifier: ' ',
       key: 'U+0020'
+    },
+    back: {
+      keyIdentifier: 'U+001B',
+      key: 'Esc'
     }
   },
 
