@@ -542,11 +542,11 @@ Polymer(Polymer.mixin({
           var house = this.houses[i];
 
           if (house) {
-            // mark the house if unlocked today or unlocking tomorrow
+            // mark the house if unlocked today or will be unlocked tomorrow
             house.today = isSameDay_(house.launchDate, todayDate);
-
-            // Only check if tomorrow if it's not today
-            house.tomorrow = !house.today && isSameDay_(house.launchDate, tomorrowDate);
+            if (house.launchDate < tomorrowDate) {
+              house.tomorrow = isSameDay_(house.launchDate, tomorrowDate);
+            }
 
             if (house.launchDate <= todayDate) {
               this.unlockHouse(i);
