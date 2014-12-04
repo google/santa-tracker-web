@@ -87,9 +87,13 @@ Tracker scene.
 (function() {
   Polymer({
     componentDir: 'scenes/tracker/',
-    tracker: null,
-    shown: false,
+    /**
+     * Latitude of the main map's center. Ususally Santa's location.
+     */
     latitude: null,
+    /**
+     * Laongitude of the main map's center. Ususally Santa's location.
+     */
     longitude: null,
     onPreload: function() {
       this.preloadImages([
