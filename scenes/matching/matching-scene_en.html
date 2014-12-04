@@ -365,7 +365,7 @@ Matching scene.
 
       this.animationHelper = new CSSAnimationHelper(module);
       var game = this.game = new scenes.matching.Game(module);
-      startButton(module, function() {
+      startButton(this, module, function() {
         game.start();
       });
     },
