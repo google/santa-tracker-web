@@ -344,6 +344,8 @@ Airport scene.
     },
 
     keyHandler: function(e, details, sender) {
+      e.stopPropagation();
+
       switch (e.detail.key) {
         case 'right':
         case 'up':
