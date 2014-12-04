@@ -59,7 +59,7 @@ Village calendar navigation.
 
           <div id="global-nav-content">
 
-            <core-animated-pages transitions="cross-fade" selected="{{route}}" valueattr="route">
+            <core-animated-pages transitions="cross-fade" selected="{{calNavSelection}}" valueattr="route">
               <section route="calendar">
                 <div id="nav-calendar" cross-fade class="{{filterOn}}">
                   <div layout horizontal center-center wrap>
@@ -240,7 +240,7 @@ Village calendar navigation.
       onNavSelect: function(e, detail, sender) {
         // Ensure the calendar comes back up when a filter nav item is clicked.
         if (detail.item.hasAttribute('filterOn')) {
-          this.route = 'calendar';
+          this.calNavSelection = 'calendar';
         }
       },
 
@@ -254,7 +254,7 @@ Village calendar navigation.
 
       onTheGo: function(e, detail, sender) {
         e.preventDefault();
-        this.route = 'onthego';
+        this.calNavSelection = 'onthego';
       },
 
       trackOutboundLink: function(e, detail, sender) {
@@ -310,7 +310,7 @@ Village calendar navigation.
         this.$['language-choose'].hidden = true;
 
         this.closeTimeout_ = this.async(function() {
-          this.route = 'calendar';
+          this.calNavSelection = 'calendar';
           this.closed = true;
         }, null, this.TIMEOUT_DELAY);
 

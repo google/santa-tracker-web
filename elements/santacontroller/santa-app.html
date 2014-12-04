@@ -350,18 +350,21 @@ Polymer(Polymer.mixin({
       }
     }
 
-    prevSelectedScene.parentNode.removeChild(prevSelectedScene);
+    // Remove previous scene if it shouldn't always be active.
+    if (!prevSelectedScene.alwaysActive) {
+      prevSelectedScene.parentNode.removeChild(prevSelectedScene);
 
-    // Re-construct removed scene and add it back to lazy-pages.
-    var el = document.createElement(prevSelectedScene.localName);
-    el.route = prevSelectedScene.route;
-    el.path = prevSelectedScene.path;
-    el.mode = this.mode;
-    el.hidden = true;
-    el.santaApp = this;
-    el.loaded = true;
+      // Re-construct removed scene and add it back to lazy-pages.
+      var el = document.createElement(prevSelectedScene.localName);
+      el.route = prevSelectedScene.route;
+      el.path = prevSelectedScene.path;
+      el.mode = this.mode;
+      el.hidden = true;
+      el.santaApp = this;
+      el.loaded = true;
 
-    this.$.lazypages.appendChild(el);
+      this.$.lazypages.appendChild(el);
+    }
   },
 
   routeChanged: function() {
