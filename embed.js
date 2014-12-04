@@ -14,7 +14,7 @@ if (container) {
   iframe.style.maxWidth = '800px';
 
   var siteUrl = encodeURIComponent(window.location.href);
-  iframe.src = ['//' + self.location.host, '/?api_client=web_embed&site=',
+  iframe.src = ['https://santatracker.google.com/?api_client=web_embed&site=',
                 siteUrl, '#village'].join('');
   container.appendChild(iframe);
 }
