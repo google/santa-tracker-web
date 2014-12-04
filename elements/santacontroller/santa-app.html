@@ -523,7 +523,8 @@ Polymer(Polymer.mixin({
    */
   checkSchedule_: function() {
     var todayDate = this.santaService.dateNow();
-    var tomorrowDate = new Date(todayDate).setDate(todayDate.getDate() + 1);
+    var tomorrowDate = new Date(todayDate);
+    tomorrowDate.setDate(todayDate.getDate() + 1);
 
     // Set post countdown/post flight flags based on current time.
     if (todayDate > this.countDownEndDate) {
