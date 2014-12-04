@@ -34,11 +34,10 @@
     "modernizr": "2.8.3",
     "google-apis": "GoogleWebComponents/google-apis#^0.4.3",
     "google-youtube": "GoogleWebComponents/google-youtube#^1.0.1",
-    "closure-compiler": "https://dl.google.com/closure-compiler/compiler-latest.zip"
+    "closure-compiler": "https://dl.google.com/closure-compiler/compiler-latest.zip",
+    "google-map": "~0.4.0"
   },
   "resolutions": {
-    "polymer": "^0.5.1",
-    "core-component-page": "^0.5.1",
-    "webcomponentsjs": "^0.5.1"
+    "polymer": "^0.5.1"
   }
 }
