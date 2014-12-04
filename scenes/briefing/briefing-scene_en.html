@@ -354,7 +354,6 @@ Briefing scene.
           break;
         case 'space':
           var spectators = this.$.audience.querySelectorAll('.spectator');
-console.log(spectators)
           spectators[this.audienceIdx_++ % spectators.length].click();
           break;
       }
