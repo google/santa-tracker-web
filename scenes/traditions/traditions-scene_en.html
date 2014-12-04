@@ -218,6 +218,8 @@ Traditions scene.
     },
 
     arrowHandler: function(e, detail, sender) {
+      e.stopPropagation();
+
       switch (e.detail.key) {
         case 'up':
         case 'left':

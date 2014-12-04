@@ -1,6 +1,7 @@
 <link rel="import" href="../base-scene.html">
 <link rel="import" href="../../components/google-youtube/google-youtube.html">
 <link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
 
 <!--
 Trailer scene.
@@ -11,6 +12,9 @@ Trailer scene.
 <polymer-element name="trailer-scene" extends="base-scene">
 <template>
   <link rel="stylesheet" href="trailer-scene.css" no-shim>
+
+  <core-a11y-keys target="{{}}" keys="enter space"
+                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
 
   <div id="module-trailer" fit>
     <div class="scene" fit>
@@ -118,8 +122,12 @@ Trailer scene.
     togglePause: function() {
       this.paused = !this.paused;
       if (this.paused) {
+        this.poster = false;
+        this.start = false;
         this.$.player.pause();
       } else {
+        this.poster = false;
+        this.start = false;
         this.$.player.play();
       }
     },
@@ -160,6 +168,16 @@ Trailer scene.
     onResume: function() {
       if (this.controls) {
         this.$.player.play();
+      }
+    },
+
+    keyHandler: function(e, details, sender) {
+      switch (e.detail.key) {
+        case 'enter':
+        case 'space':
+          e.stopPropagation();
+          this.togglePause();
+          break;
       }
     }
   });
