@@ -82,7 +82,12 @@ gulp.task('compass', function() {
 });
 
 gulp.task('compile-santa-api-service', function() {
-  return gulp.src(['js/service/*.js', '!js/service/externs.js', '!js/service/*.min.js'])
+  return gulp.src([
+    'js/service/*.js',
+    '!js/service/externs.js',
+    '!js/service/*.min.js',
+    'js/statuses/picker.js'
+  ])
     .pipe(closureCompiler({
       compilerPath: COMPILER_PATH,
       fileName: 'service.min.js',
@@ -90,7 +95,7 @@ gulp.task('compile-santa-api-service', function() {
         compilation_level: 'ADVANCED_OPTIMIZATIONS',
         // warning_level: 'VERBOSE',
         language_in: 'ECMASCRIPT5_STRICT',
-        externs: ['js/service/externs.js'],
+        externs: ['js/service/externs.js', 'third_party/externs/jquery/jquery-1.8.js'],
         define: ['crossDomainAjax.BASE="' + (argv.api_base || 'https://santa-api.appspot.com/') + '"'],
         jscomp_warning: [
           // https://github.com/google/closure-compiler/wiki/Warnings
