@@ -14,6 +14,12 @@ Traditions scene.
 <polymer-element name="traditions-scene" extends="base-scene">
 <template>
   <link rel="stylesheet" href="traditions-scene.css" no-shim>
+  <style>
+  :host([mode="cast"]) .sceneboard,
+  :host([mode="cast"]) #lessons-popup {
+    display: none;
+  }
+  </style>
 
   <core-a11y-keys target="{{}}" keys="up down left right space enter" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
 

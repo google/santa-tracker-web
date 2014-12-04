@@ -220,7 +220,7 @@ $name: 'module-traditions';
     //background: rgba(246, 239, 226, .8);
 
     position: absolute;
-    max-width: 390px;
+    max-width: 40%;
     left: 250px;
     top: 50%;
 
@@ -235,6 +235,7 @@ $name: 'module-traditions';
     p {
       color: #504f4a;
       font-size: 1.2em;
+      font-size: 3vh;
     }
   }
 
