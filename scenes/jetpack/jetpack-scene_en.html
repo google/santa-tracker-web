@@ -57,56 +57,13 @@ Jetpack scene.
           <div class="value"><span class="current-level">1</span><span class="dark-text">/10</span>
           </div>
           <div class="level-dots">
-            <div class="level-item is-active">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">1</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">2</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">3</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">4</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">5</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">6</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">7</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">8</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">9</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">10</div>
-            </div>
+            <template repeat="{{i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}}">
+              <div class="level-item{{i === 1 ? ' is-active' : ''}}">
+                <div class="level-dot"></div>
+                <div class="level-shadow"></div>
+                <div class="level-number">{{i}}</div>
+              </div>
+            </template>
           </div>
         </div>
         <div class="time">
@@ -183,7 +140,7 @@ Jetpack scene.
       var module = this.$['module-jetpack'];
 
       var game = this.game = new scenes.jetpack.Game(module);
-      startButton(module, function() {
+      startButton(this, module, function() {
         game.start();
       });
     },
