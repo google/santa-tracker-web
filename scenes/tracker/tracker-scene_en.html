@@ -3,10 +3,9 @@
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 <link rel="import" href="../../components/google-map/google-map.html">
 
-<link rel="import" href="dependencies.html">
 
 <!--
-Traditions scene.
+Tracker scene.
 
 @element tracker-scene
 @extends base-scene
@@ -22,6 +21,7 @@ Traditions scene.
 
 
       <google-map
+          id="map"
           on-google-map-ready="{{mapReady}}"
           apiKey="{{santaApp.config.API_KEY}}"
           disableDefaultUI
@@ -72,8 +72,8 @@ Traditions scene.
               { "lightness": "40" }
             ]
           }]'
-          latitude="37.77493"
-          longitude="-122.41942"></google-map>
+          latitude="{{latitude}}"
+          longitude="{{longitude}}"></google-map>
       </template>
 
       <div class="sceneboard">
@@ -89,21 +89,23 @@ Traditions scene.
     componentDir: 'scenes/tracker/',
     tracker: null,
     shown: false,
+    latitude: null,
+    longitude: null,
     onPreload: function() {
       this.preloadImages([
         'img/smallglobe.svg'
       ]);
     },
-
-    mapReady: function() {
-      console.log('map-ready')
+    santaAppChanged: function() {
+      this.santaApp.santaService.getCurrentLocation(function(location) {
+        this.latitude = location.position.lat;
+        this.longitude = location.position.lng;
+      }.bind(this));
     },
-
     onShow: function() {
       // TODO: implement
 
     },
-
     onHide: function() {
       // TODO: implement
     }
