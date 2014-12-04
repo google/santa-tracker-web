@@ -1,8 +1,8 @@
 // mixin to add chromecast support to santa-app
 
 var chromecastMixin = {
-  // TODO(bckenny): right now, event.data values are "left", "right", "up",
-  // "down", "return", "space". Finalize these.
+  // JSON.parse(event.data).button values are "left", "right", "up",
+  // "down", "enter", "back", "play", and "pause"
   /**
    * Mapping of event data values to KeyboardEvent properties.
    * @private {!Object<{keyIdentifier: string, key: string}>}
@@ -24,7 +24,7 @@ var chromecastMixin = {
       keyIdentifier: 'Down',
       key: 'ArrowDown'
     },
-    return: {
+    enter: {
       keyIdentifier: 'Enter',
       key: 'Enter'
     },
