@@ -66,9 +66,11 @@ app.Game.prototype.bumpLevel_ = function() {
 
 /**
  * Starts the game.
+ * @param {string} difficulty
  * @export
  */
-app.Game.prototype.start = function() {
+app.Game.prototype.start = function(difficulty) {
+  this.difficulty = difficulty;
   this.restart();
 };
 
@@ -196,7 +198,7 @@ app.Game.prototype.answer = function(isCorrect) {
 
 app.Game.prototype.nextQuestion_ = function() {
   var index = Math.ceil(Math.random() * 97);
-  var questionElem = this.elem.querySelector('.quiz-beginner .question--' + index);
+  var questionElem = this.elem.querySelector('.quiz-' + this.difficulty + ' .question--' + index);
   this.current.number++;
   this.current.question = questionElem.children[0].textContent;
   this.current.choices = Array.prototype.map.call(questionElem.children[1].children, function(el) {

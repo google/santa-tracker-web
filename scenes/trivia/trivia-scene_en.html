@@ -2523,20 +2523,7 @@ Trivia scene.
   Polymer({
     componentDir: 'scenes/trivia/',
 
-    difficulty: 'beginner',
-
-    quiz: {
-      question: 'What\'s the world\'s 6th largest country by area?',
-      choices: [
-          'Australia',
-          'Brazil',
-          'Russia'
-      ]
-    },
-
     game: null,
-
-    started: false,
 
     onPreload: function() {
       /*this.preloadSounds('trivia_load_sounds', 40);
@@ -2545,14 +2532,12 @@ Trivia scene.
     },
     onShow: function() {
       //TODO(thorsteinsson): Why is onShow called twice on load?
-      if (this.started) return;
-      this.started = true;
+      if (this.game) return;
 
       var module = this.$['module-trivia'];
 
       this.game = new scenes.trivia.Game(this, module);
-      console.log('start game');
-      this.game.start();
+      this.game.start('beginner');
     },
     onHide: function() {
       this.game.dispose();
