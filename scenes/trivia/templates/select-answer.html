@@ -63,9 +63,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   </style>
 
-  <core-selector selected="{{value}}">
+  <core-selector id="choices" selected="{{value}}">
 
-    <template repeat="{{item in choices}}">
+    <template repeat="{{item in shuffled}}">
 
       <paper-item><span class="check"></span><span class="text">{{item}}</span></paper-item>
 
@@ -80,8 +80,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       'core-activate': 'answered'
     },
 
+    observe: {
+      'choices': 'shuffle'
+    },
+
+    shuffled: [],
+
+    shuffle: function() {
+      this.shuffled = this.choices.slice(0);
+      for (var i = this.shuffled.length; i >= 0; i--) {
+        this.shuffled.push(this.shuffled.splice(Math.random() * i | 0, 1)[0]);
+      }
+    },
+
     isCorrect: function () {
-      return this.value === 0;
+      return this.shuffled[this.value] === this.choices[0];
     },
 
     answered: function () {
