@@ -2,6 +2,7 @@ goog.provide('app.Audio');
 
 
 app.Audio = function(name, beat) {
+  this.name = name;
   this.beat = beat;
   this.audiosources = Klang.$(name);
 
@@ -74,4 +75,23 @@ app.Audio.prototype.playNext = function(audiosource, callback) {
 app.Audio.prototype.stopNext = function(audiosource) {
   var when = Klang.$('jamband_sequencer').getBeatTime(this.beatSync16th);
   audiosource.fadeOutAndStop(0.5, when);
+};
+
+
+/**
+ * Play a preview of the instrument
+ */
+app.Audio.prototype.preview = function() {
+  window.santaApp.fire('sound-trigger', {
+    name: 'preview_instrument',
+    args: [this.name.toLowerCase()]
+  });
+};
+
+
+/**
+ * Test for web audio support
+ */
+app.Audio.isSupported = function() {
+  return !!(window.webkitAudioContext || window.AudioContext);
 };

@@ -150,7 +150,9 @@ app.Draggable.prototype.touchend = function(e) {
 
 
 app.DragDrop = function(root) {
-  root.find('.draggable').each(function(index, elem) {
-    new app.Draggable($(elem), root);
-  });
+  if (app.Audio.isSupported()) {
+    root.find('.draggable').each(function(index, elem) {
+      new app.Draggable($(elem), root);
+    });
+  }
 };

@@ -2,6 +2,7 @@ goog.provide('app.Game');
 
 goog.require('app.DragDrop');
 goog.require('app.Drawer');
+goog.require('app.Fallback');
 goog.require('app.Instruments');
 goog.require('app.Lights');
 goog.require('app.shared.ShareOverlay');
@@ -21,8 +22,8 @@ app.Game = function(elem) {
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
 
   this.drawer = new app.Drawer(this.elem);
-  this.instruments = new app.Instruments(this.elem);
   this.lights = new app.Lights(this.elem);
+  this.instruments = new app.Instruments(this.elem);
 };
 
 
@@ -83,6 +84,7 @@ app.Game.prototype.dispose = function() {
     gameid: 'jamband', timePlayed: new Date - this.gameStartTime
   });
 
+  app.Fallback.stop();
   $(window).off('.jamband');
   $(document).off('.jamband');
 };

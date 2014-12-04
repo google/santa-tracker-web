@@ -1,13 +1,19 @@
 goog.provide('app.Instruments');
 
 goog.require('app.Audio');
+goog.require('app.Fallback');
 
 
 app.Instrument = function(name, options) {
   this.name = name;
   this.el = this.elem.find('.Instrument-' + name.toLowerCase());
   this.container = this.el.closest('.InstrumentContainer');
-  this.audio = new app.Audio(name, options.beat);
+
+  if (app.Audio.isSupported()) {
+    this.audio = new app.Audio(name, options.beat);
+  } else {
+    this.audio = new app.Fallback(name);
+  }
 
   this.el.on('dropped', (function(e, data) {
     this.drop(data);
@@ -20,12 +26,9 @@ app.Instrument = function(name, options) {
 
 
 app.Instrument.prototype.preview = function() {
-  // Play preview sound if the instrument is in the drawer
-  if (this.el.parent().is(this.container)) {
-    window.santaApp.fire('sound-trigger', {
-      name: 'preview_instrument',
-      args: [this.name.toLowerCase()]
-    });
+  // Play preview sound if the instrument is in the drawer or if we're in fallback mode.
+  if (this.el.parent().is(this.container) || !app.Audio.isSupported()) {
+    this.audio.preview();
   }
 };
 
@@ -67,16 +70,16 @@ app.Instrument.prototype.reset = function() {
 
 
 app.Instrument.prototype.putOnStage = function(stage) {
-  this.drag();
+  this.el.trigger('dragging');
   this.el.appendTo(stage);
-  this.drop(stage.data());
+  this.el.trigger('dropped', stage.data());
 };
 
 
 app.Instrument.prototype.putInDrawer = function() {
-  this.drag();
+  this.el.trigger('dragging');
   this.el.appendTo(this.container);
-  this.reset();
+  this.el.trigger('returned');
 };
 
 
@@ -120,14 +123,24 @@ app.Instruments = function(elem) {
     this.xylo
   ];
 
-  this.elem.on('dropped returned', this.checkIfAllEmpty.bind(this));
-  this.checkIfAllEmpty();
+  if (app.Audio.isSupported()) {
+    this.elem.on('dropped returned randomize reset restore', this.checkIfAllEmpty.bind(this));
 
-  var random = elem.find('#drawer-button--random');
-  random.on('mouseup.jamband touchend.jamband', this.randomize.bind(this));
+    var random = elem.find('#drawer-button--random');
+    random.on('mouseup.jamband touchend.jamband', this.randomize.bind(this));
+
+    this.elem.trigger('reset');
+  } else {
+    this.restore('7,1,4,9,0,5');
+
+    this.elem.find('.Drawer').hide();
+  }
 };
 
 
+/**
+ * Show help arrows if no instruments on stage
+ */
 app.Instruments.prototype.checkIfAllEmpty = function() {
   var count = this.elem.find('.Stage .Instrument').length;
   this.elem.toggleClass('is-allEmpty', count === 0);
@@ -155,6 +168,8 @@ app.Instruments.prototype.randomize = function() {
   this.stages.each(function(i, stage) {
     chosenInstruments[i].putOnStage($(stage));
   });
+
+  this.elem.trigger('randomize');
 };
 
 
@@ -169,6 +184,10 @@ app.Instruments.prototype.reset = function() {
 
 
 app.Instruments.prototype.save = function() {
+  if (!app.Audio.isSupported()) {
+    return false;
+  }
+
   var instruments = [];
 
   var instrumentElements = this.instruments.map(function(instrument) {
@@ -206,5 +225,7 @@ app.Instruments.prototype.restore = function(instrumentString) {
       chosenInstruments[i].putOnStage($(element));
     }
   });
+
+  this.elem.trigger('restore');
 };
 
