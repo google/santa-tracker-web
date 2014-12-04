@@ -1,0 +1,38 @@
+##{$name} {
+  .Buttons {
+    @extend .fill;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15em;
+  }
+
+  .Button {
+    @include ButtonColor(#F98C24, #ED6C1F);
+
+    font-size: 28em;
+    height: (70 / 28) +em;
+    line-height: (70 / 28) +em;
+    margin-right: (10 / 28) +em;
+    min-height: 0;
+    width: (70 / 28) +em;
+
+    @media (max-width: 1024px) {
+      height: (85 / 28) +em;
+      line-height: (85 / 28) +em;
+      width: (85 / 28) +em;
+    }
+  }
+
+  .Button-random {
+    background-image: url(img/icons/random.svg);
+    background-position: 60% 75%;
+    background-repeat: no-repeat;
+    background-size: 64%;
+  }
+
+  .Button-share {
+    padding: 0 (10 / 28) +em;
+    width: auto;
+  }
+}
