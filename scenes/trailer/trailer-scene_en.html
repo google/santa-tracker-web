@@ -87,6 +87,16 @@ Trailer scene.
      */
     controls: false,
 
+    /**
+     * Fired to track a video play.
+     *
+     * @event analytics-track-event
+     * @param {Object} detail
+     *   @param {string} detail.category
+     *   @param {string} detail.action
+     *   @param {string} detail.label
+     */
+
     youtubeReady: function() {
       this.start = true;
     },
@@ -107,6 +117,8 @@ Trailer scene.
         case 1: // playing
           this.paused = false;
           this.controls = true;
+          this.fire('analytics-track-event', {category: 'video', action: 'play',
+                                              label: 'trailer'});
           break;
         case 2: // paused
           this.paused = true;
