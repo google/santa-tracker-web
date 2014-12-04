@@ -34,7 +34,7 @@ Village scene.
   }
   </style>
 
-  <core-a11y-keys target="{{}}" keys="up down left right" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="left right" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
   <div id="module-village" fit>
     <div id="village-wrapper" fit>
 
@@ -581,9 +581,9 @@ Village scene.
       e.stopPropagation();
 
       var direction = 0;
-      if (detail.key === 'up' || detail.key === 'left') {
+      if (detail.key === 'left') {
         direction = -1;
-      } else if (detail.key === 'down' || detail.key === 'right') {
+      } else if (detail.key === 'right') {
         direction = 1;
       } else {
         return;
