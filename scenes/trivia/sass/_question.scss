@@ -24,12 +24,15 @@
     font-size : 39px;
     letter-spacing : 0.78px;
     opacity: 0;
-    transition: opacity 500ms;
+    transition: opacity 500ms, visibility 500ms;
+    visibility: hidden;
   }
 
   .question.is-visible .question-number,
   .question.is-visible .question-text {
     opacity: 1;
+    transition: opacity 500ms;
+    visibility: visible;
   }
 
   .question-number {

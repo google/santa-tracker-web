@@ -2549,14 +2549,21 @@ Trivia scene.
 
     onAnswered: function() {
       this.questionVisible = false;
+      this.$.answer.hide();
       this.game.answer(this.$.answer.isCorrect());
-      this.$.answer.reset();
-      console.log('question answered')
     },
 
     onNewQuestion: function() {
-      console.log('new question')
+      this.$.answer.reset();
       this.questionVisible = true;
+    },
+
+    onPause: function() {
+      this.game.pause();
+    },
+
+    onResume: function() {
+      this.game.resume();
     }
   });
 })();

@@ -21,7 +21,6 @@ app.Game = function(scene, elem) {
   this.elem = elem;
 
   this.current = {number: 0};
-  this.isPlaying = false;
   this.paused = false;
   this.gameStartTime = +new Date;
 
@@ -36,10 +35,6 @@ app.Game = function(scene, elem) {
  * Game loop. Runs every frame using requestAnimationFrame.
  */
 app.Game.prototype.onFrame = function() {
-  if (!this.isPlaying) {
-    return;
-  }
-
   // Calculate delta since last frame.
   var now = +new Date() / 1000;
   var delta = Math.min(1, now - this.lastFrame);
@@ -90,37 +85,18 @@ app.Game.prototype.restart = function() {
   this.paused = false;
   this.current.number = 0;
   this.countdownActive = false;
+  this.isGameover = false;
 
   this.scoreboard.reset();
 
   // Start game
   window.santaApp.fire('sound-trigger', 'trivia_game_start');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'trivia'});
-  this.unfreezeGame();
 
   this.nextQuestion_();
-};
 
-/**
- * Freezes the game. Stops the onFrame loop and stops any CSS3 animations.
- * Used both for game over and pausing.
- */
-app.Game.prototype.freezeGame = function() {
-  this.isPlaying = false;
-  this.elem.classList.add('frozen');
-};
-
-/**
- * Unfreezes the game, starting the game loop as well.
- */
-app.Game.prototype.unfreezeGame = function() {
-  if (!this.isPlaying) {
-    this.elem.classList.remove('frozen');
-
-    this.isPlaying = true;
-    this.lastFrame = +new Date() / 1000;
-    this.requestId = app.shared.utils.requestAnimFrame(this.onFrame);
-  }
+  this.lastFrame = +new Date() / 1000;
+  this.requestId = app.shared.utils.requestAnimFrame(this.onFrame);
 };
 
 /**
@@ -133,7 +109,7 @@ app.Game.prototype.gameover = function(really) {
     return;
   }
 
-  this.freezeGame();
+  this.isGameover = true;
   this.gameoverView.show();
   window.santaApp.fire('sound-trigger', 'trivia_game_over');
   window.santaApp.fire('analytics-track-game-over', {
@@ -151,7 +127,7 @@ app.Game.prototype.togglePause = function() {
   if (this.paused) {
     this.resume();
   // Only allow pausing if the game is playing (not game over).
-  } else if (this.isPlaying) {
+  } else {
     this.pause();
   }
 };
@@ -160,16 +136,20 @@ app.Game.prototype.togglePause = function() {
  * Pause the game.
  */
 app.Game.prototype.pause = function() {
+  console.log('pause');
   this.paused = true;
-  this.freezeGame();
 };
 
 /**
  * Resume the game.
  */
 app.Game.prototype.resume = function() {
+  console.log('resume');
   this.paused = false;
-  this.unfreezeGame();
+
+  if (!this.isGameover) {
+    this.nextQuestion_();
+  }
 };
 
 /**
@@ -177,13 +157,10 @@ app.Game.prototype.resume = function() {
  * @export
  */
 app.Game.prototype.dispose = function() {
-  if (this.isPlaying) {
-    window.santaApp.fire('analytics-track-game-quit', {
-      gameid: 'trivia',
-      timePlayed: new Date - this.gameStartTime
-    });
-  }
-  this.freezeGame();
+  window.santaApp.fire('analytics-track-game-quit', {
+    gameid: 'trivia',
+    timePlayed: new Date - this.gameStartTime
+  });
 
   app.shared.utils.cancelAnimFrame(this.requestId);
   $(window).off('.trivia');
