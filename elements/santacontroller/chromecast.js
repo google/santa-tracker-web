@@ -49,6 +49,11 @@ var chromecastMixin = {
       castReceiverManager.onSenderConnected = function(event) {
         console.log('Received Cast Sender Connected event: ' + event.data);
         console.log(castReceiverManager.getSender(event.data).userAgent);
+
+        // app starts with 'play' button visible, but need pause as the start state
+        // TODO(bckenny): this should possibly available external to santaApp, to
+        // allow games to set the start state
+        messageBus.broadcast('{"button":"play"}');
       };
       castReceiverManager.onSenderDisconnected = function(event) {
         console.log('Received Cast Sender Disconnected event: ' + event.data);
@@ -72,10 +77,8 @@ var chromecastMixin = {
         // since this is Chromecast only, we can assume it supports the modern
         // KeyboardEvent constructor and skip the initKeyboardEvent silliness
         var data = JSON.parse(event.data);
-        console.log('button press: ' + data.button);
         var keyDetails = this.CAST_KEY_MAPPING_[data.button];
         if (keyDetails) {
-          console.log('key press: ' + keyDetails.key);
           var e = new KeyboardEvent('keydown', {
             bubbles: true,
             cancelable: true,
@@ -86,19 +89,12 @@ var chromecastMixin = {
         } else {
           // these don't map to keys, but can control the pause state of the app
           if (data.button === 'play') {
-            console.log('command: play');
             this.visibilityService.resume();
           } else if (data.button === 'pause') {
-            console.log('command: pause');
             this.visibilityService.pause();
           }
         }
       }.bind(this);
-
-      // app starts with 'play' button visible, but need pause as the start state
-      // TODO(bckenny): this should possibly available external to santaApp, to
-      // allow games to set the start state
-      messageBus.broadcast({button: 'play'});
 
       castReceiverManager.start({statusText: 'Santa Tracker is starting'});
       console.log('Cast Receiver Manager started');

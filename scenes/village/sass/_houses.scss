@@ -30,7 +30,8 @@
         @include transform(scale(1.5, 1.5));
         transform-origin: 50% 100%;
 
-        &:focus {
+        &:focus,
+        &.cast-focus {
           @include animation(bigbounce 600ms linear infinite !important);
         }
       }
@@ -182,6 +183,13 @@
       bottom: -14px;
       left: -30px;
       z-index: 11;
+
+      &.cast-focus {
+        // explicit focus class for use on chromecast
+        -webkit-filter: drop-shadow(0 0 15px #fff);
+        filter: drop-shadow(0 0 15px #fff);
+        @include animation(bounce 600ms linear infinite);
+      }
     }
   }
 

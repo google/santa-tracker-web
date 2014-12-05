@@ -233,7 +233,7 @@ Polymer(Polymer.mixin({
   visibilityService: null,
 
   /**
-   * The mode of the scene. Possible values are: 'cast'.
+   * The mode of the scene. Possible values are: 'cast' or 'embed'.
    *
    * @property mode
    * @type string
@@ -301,6 +301,11 @@ Polymer(Polymer.mixin({
         this.mode = 'cast';
         this.initChromecast();
         loadSound = false;
+
+        // disable any houses not suitable for cast
+        for (var i = 0; i < this.houses.length; i++) {
+          this.houses[i].disabled = !this.houses[i].cast;
+        }
         break;
       case 'web_embed':
         this.mode = 'embed';
