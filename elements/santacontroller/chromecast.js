@@ -49,6 +49,11 @@ var chromecastMixin = {
       castReceiverManager.onSenderConnected = function(event) {
         console.log('Received Cast Sender Connected event: ' + event.data);
         console.log(castReceiverManager.getSender(event.data).userAgent);
+
+        // app starts with 'play' button visible, but need pause as the start state
+        // TODO(bckenny): this should possibly available external to santaApp, to
+        // allow games to set the start state
+        messageBus.broadcast('{"button":"play"}');
       };
       castReceiverManager.onSenderDisconnected = function(event) {
         console.log('Received Cast Sender Disconnected event: ' + event.data);
@@ -94,11 +99,6 @@ var chromecastMixin = {
           }
         }
       }.bind(this);
-
-      // app starts with 'play' button visible, but need pause as the start state
-      // TODO(bckenny): this should possibly available external to santaApp, to
-      // allow games to set the start state
-      messageBus.broadcast({button: 'play'});
 
       castReceiverManager.start({statusText: 'Santa Tracker is starting'});
       console.log('Cast Receiver Manager started');
