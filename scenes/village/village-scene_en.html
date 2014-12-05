@@ -588,8 +588,9 @@ Village scene.
 
     /**
      * Move the currently active marker (if any) by the specified direction.
-     * Typically -1, 1, or 0. If there is currently no active marker, the one
-     * closest to the center of the screen will become active.
+     * Typically -1, 1, or 0. If a marker in that direction doesn't exist, the
+     * active marker is unchanged. If there is currently no active marker, the
+     * one closest to the center of the screen will become active.
      * @private
      * @param {number} direction
      */
@@ -609,17 +610,24 @@ Village scene.
             newIndex = index + direction;
           }
         } else {
-          // markers' DOM order and display order may be different so can't
-          // bisect. just do a linear search
-          var windowMiddle = window.innerWidth / 2;
-          var closestDistance = Number.MAX_VALUE;
-          for (var i = 0; i < markers.length; i++) {
-            var distance = Math.abs(markers[i].getBoundingClientRect().left -
-            windowMiddle);
-            if (distance < closestDistance) {
-              closestDistance = distance;
-              newIndex = i;
+          if (this.mode !== 'cast') {
+            // find the marker closest to the middle of the screen
+            // markers' DOM order and display order may be different so can't
+            // bisect. just do a linear search
+            var windowMiddle = window.innerWidth / 2;
+            var closestDistance = Number.MAX_VALUE;
+            for (var i = 0; i < markers.length; i++) {
+              var distance = Math.abs(markers[i].getBoundingClientRect().left -
+              windowMiddle);
+              if (distance < closestDistance) {
+                closestDistance = distance;
+                newIndex = i;
+              }
             }
+          } else {
+            // on cast, the only time there's an unselected marker is at the
+            // beginning, so just pick the rightmost one
+            newIndex = markers.length - 1;
           }
         }
 
