@@ -499,14 +499,19 @@ Village scene.
       this.cancelScrollAnimation();
 
       var scrollee = this.scrollContainer_;
-      var currentScroll = scrollee.scrollLeft;
       var targetScroll = value - (scrollee.offsetWidth / 2);
       var duration = (opt_duration != null) ? opt_duration : 600;
 
-      this.scrollAnimation_ = this.animator_.animate(function(t) {
-        var scrollPos = currentScroll + t * (targetScroll - currentScroll);
-        scrollee.scrollLeft = /** @type {number} */(scrollPos);
-      }, duration, opt_easing);
+      if (duration === 0) {
+        // skip creating the Animation
+        scrollee.scrollLeft = targetScroll;
+      } else {
+        var currentScroll = scrollee.scrollLeft;
+        this.scrollAnimation_ = this.animator_.animate(function(t) {
+          var scrollPos = currentScroll + t * (targetScroll - currentScroll);
+          scrollee.scrollLeft = /** @type {number} */(scrollPos);
+        }, duration, opt_easing);
+      }
     },
 
     cancelScrollAnimation: function(e, detail, sender) {
