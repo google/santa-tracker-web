@@ -95,7 +95,6 @@ $name: 'module-village';
       text-decoration: none;
       color: inherit;
       pointer-events: all;
-      z-index: 5; // higher than sun/moon.
     }
     &:not(.finished) {
       pointer-events: none;
