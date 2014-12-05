@@ -604,7 +604,7 @@ Village scene.
 
       // debounce so only done once per rAF
       this.job('arrowMarkerMove', function() {
-        var currentMarker = this.getActiveMarker_();
+        var currentMarker = wrap(this.getActiveMarker_());
 
         var markers = [].slice.call(
             this.$.houses.querySelectorAll('.house-marker[tabindex="0"]'));
