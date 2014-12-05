@@ -10,20 +10,19 @@ $name: 'module-tracker';
 ##{$name} {
   width: 100%;
   height: 100%;
+  background: #f6efe2;
 
   .sceneboard {
     background: #fed83c url(img/tracker_icon.svg) no-repeat 50% 30px;
     height: 220px;
   }
 
-  .scene {
+  #trackermap {
+    width: 100%;
     height: 100%;
-
-  }
-
-  google-map {
-    display: block;
-    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
 
