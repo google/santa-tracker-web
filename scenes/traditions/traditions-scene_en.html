@@ -19,6 +19,13 @@ Traditions scene.
   :host([mode="cast"]) #lessons-popup {
     display: none;
   }
+  :host([mode="cast"]) .traditions-tradition {
+    max-width: 50% !important;
+    left: 150px !important;
+  }
+  :host([mode="cast"]) .traditions-tradition p {
+    font-size: 3vh !important;
+  }
   </style>
 
   <core-a11y-keys target="{{}}" keys="up down left right space enter" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
