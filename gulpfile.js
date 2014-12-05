@@ -18,7 +18,7 @@ var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/*.js';
 
-var STATIC_VERSION = 48;
+var STATIC_VERSION = 52;
 var VERSION = argv.build || STATIC_VERSION;
 
 // TODO(bckenny|cbro): fill in with default static asset base URL
@@ -82,7 +82,12 @@ gulp.task('compass', function() {
 });
 
 gulp.task('compile-santa-api-service', function() {
-  return gulp.src(['js/service/*.js', '!js/service/externs.js', '!js/service/*.min.js'])
+  return gulp.src([
+    'js/service/*.js',
+    '!js/service/externs.js',
+    '!js/service/*.min.js',
+    'js/statuses/picker.js'
+  ])
     .pipe(closureCompiler({
       compilerPath: COMPILER_PATH,
       fileName: 'service.min.js',
@@ -90,7 +95,7 @@ gulp.task('compile-santa-api-service', function() {
         compilation_level: 'ADVANCED_OPTIMIZATIONS',
         // warning_level: 'VERBOSE',
         language_in: 'ECMASCRIPT5_STRICT',
-        externs: ['js/service/externs.js'],
+        externs: ['js/service/externs.js', 'third_party/externs/jquery/jquery-1.8.js'],
         define: ['crossDomainAjax.BASE="' + (argv.api_base || 'https://santa-api.appspot.com/') + '"'],
         jscomp_warning: [
           // https://github.com/google/closure-compiler/wiki/Warnings
@@ -178,6 +183,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
             'polymer.html$',
             'base-scene.html$',
             'i18n-msg.html$',
+            'core-a11y-keys.html$',
             'core-shared-lib.html$',
             'google-maps-api.html$',
           ]

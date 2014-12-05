@@ -5332,5 +5332,417 @@
     "upgrade-warning": {
         "description": "An error message. Error appears as the sole text on an HTML page.",
         "raw": "Oops! Santa Tracker isn't supported in this version of your browser. To access Santa Tracker, download a modern browser. For more information visit <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"http://whatbrowser.org\"&gt;</ph>whatbrowser.org<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
+    },
+    "pg_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Papua New Guinea"
+    },
+    "bo_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Bolivia"
+    },
+    "cl_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Chile"
+    },
+    "co_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Colombia"
+    },
+    "ec_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Ecuador"
+    },
+    "gy_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Guyana"
+    },
+    "pe_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Peru"
+    },
+    "py_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Paraguay"
+    },
+    "sr_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Suriname"
+    },
+    "uy_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Uruguay"
+    },
+    "ve_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Venezuela"
+    },
+    "bz_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Belize"
+    },
+    "cr_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Costa Rica"
+    },
+    "cu_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Cuba"
+    },
+    "do_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Dominican Republic"
+    },
+    "hn_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Honduras"
+    },
+    "ht_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Haiti"
+    },
+    "jm_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Jamaica"
+    },
+    "pa_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Panama"
+    },
+    "pr_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Puerto Rico"
+    },
+    "sv_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "El Salvador"
+    },
+    "at_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Austria"
+    },
+    "be_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Belgium"
+    },
+    "by_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Belarus"
+    },
+    "ch_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Switzerland"
+    },
+    "de_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Germany"
+    },
+    "dk_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Denmark"
+    },
+    "ee_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Estonia"
+    },
+    "fi_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Finland"
+    },
+    "ie_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Ireland"
+    },
+    "lt_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Lithuania"
+    },
+    "lv_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Latvia"
+    },
+    "nl_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Netherlands"
+    },
+    "pl_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Poland"
+    },
+    "no_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Norway"
+    },
+    "se_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Sweden"
+    },
+    "al_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Albania"
+    },
+    "bg_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Bulgaria"
+    },
+    "ba_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Bosnia and Herzegovina"
+    },
+    "cz_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Czech Republic"
+    },
+    "hr_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Croatia"
+    },
+    "hu_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Hungary"
+    },
+    "it_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Italy"
+    },
+    "md_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Moldova"
+    },
+    "ro_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Romania"
+    },
+    "sk_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Slovakia"
+    },
+    "bj_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Benin"
+    },
+    "bf_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Burkina Faso"
+    },
+    "ci_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Côte d'Ivoire"
+    },
+    "dz_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Algeria"
+    },
+    "gn_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Guinea"
+    },
+    "lr_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Liberia"
+    },
+    "ly_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Libya"
+    },
+    "ml_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Mali"
+    },
+    "mr_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Mauritania"
+    },
+    "ne_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Niger"
+    },
+    "ng_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Nigeria"
+    },
+    "sn_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Senegal"
+    },
+    "sl_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Sierra Leone"
+    },
+    "tg_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Togo"
+    },
+    "tn_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Tunisia"
+    },
+    "ao_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Angola"
+    },
+    "bw_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Botswana"
+    },
+    "cf_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Central African Republic"
+    },
+    "cm_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Cameroon"
+    },
+    "cd_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Democratic Republic of the Congo"
+    },
+    "cg_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Republic of Congo"
+    },
+    "er_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Eritrea"
+    },
+    "et_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Ethiopia"
+    },
+    "ga_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Gabon"
+    },
+    "mg_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Madagascar"
+    },
+    "mz_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Mozambique"
+    },
+    "mw_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Malawi"
+    },
+    "na_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Namibia"
+    },
+    "so_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Somalia"
+    },
+    "td_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Chad"
+    },
+    "tz_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Tanzania"
+    },
+    "ug_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Uganda"
+    },
+    "zm_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Zambia"
+    },
+    "zw_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Zimbabwe"
+    },
+    "bd_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Bangladesh"
+    },
+    "bt_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Bhutan"
+    },
+    "id_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Indonesia"
+    },
+    "la_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Lao PDR"
+    },
+    "lk_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Sri Lanka"
+    },
+    "mm_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Myanmar"
+    },
+    "my_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Malaysia"
+    },
+    "np_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Nepal"
+    },
+    "tw_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Taiwan"
+    },
+    "vn_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Vietnam"
+    },
+    "af_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Afghanistan"
+    },
+    "ae_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "United Arab Emirates"
+    },
+    "ir_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Iran"
+    },
+    "iq_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Iraq"
+    },
+    "kz_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Kazakhstan"
+    },
+    "om_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Oman"
+    },
+    "sa_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Saudi Arabia"
+    },
+    "tj_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Tajikistan"
+    },
+    "tm_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Turkmenistan"
+    },
+    "tr_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Turkey"
+    },
+    "uz_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Uzbekistan"
+    },
+    "ye_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Yemen"
+    },
+    "gl_country_name": {
+      "description": "Name of a country. This appears as a label in a geography game.",
+      "message": "Greenland"
     }
 }

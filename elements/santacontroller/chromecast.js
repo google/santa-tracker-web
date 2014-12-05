@@ -1,8 +1,8 @@
 // mixin to add chromecast support to santa-app
 
 var chromecastMixin = {
-  // TODO(bckenny): right now, event.data values are "left", "right", "up",
-  // "down", "return", "space". Finalize these.
+  // JSON.parse(event.data).button values are "left", "right", "up",
+  // "down", "enter", "back", "play", and "pause"
   /**
    * Mapping of event data values to KeyboardEvent properties.
    * @private {!Object<{keyIdentifier: string, key: string}>}
@@ -24,20 +24,24 @@ var chromecastMixin = {
       keyIdentifier: 'Down',
       key: 'ArrowDown'
     },
-    return: {
+    enter: {
       keyIdentifier: 'Enter',
       key: 'Enter'
     },
     space: {
       keyIdentifier: ' ',
       key: 'U+0020'
+    },
+    back: {
+      keyIdentifier: 'U+001B',
+      key: 'Esc'
     }
   },
 
   initChromecast: function() {
     // TODO(bckenny): remove noisy chromecast debugging logging
     // dynamically import the Cast Reciever SDK if in chromecast mode
-    var sdkImportPath = this.resolvePath('../../js/chromecastsdk.html');
+    var sdkImportPath = this.resolvePath('../../js/third_party/chromecastsdk.html');
     Polymer.import([sdkImportPath], function(e) {
       // `cast` is added to global scope by SDK
       var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
@@ -73,7 +77,9 @@ var chromecastMixin = {
         // KeyboardEvent constructor and skip the initKeyboardEvent silliness
         // TODO(bckenny): use Polymer's this.fire if
         // https://github.com/Polymer/core-a11y-keys/issues/6 is fixed
-        var keyDetails = this.CAST_KEY_MAPPING_[event.data];
+        var data = JSON.parse(event.data);
+        var keyDetails = this.CAST_KEY_MAPPING_[data.button];
+        console.log('button press: ' + data.button, keyDetails);
         if (keyDetails) {
           var e = new KeyboardEvent('keydown', {
             bubbles: true,

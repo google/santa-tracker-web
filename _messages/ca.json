@@ -269,11 +269,146 @@
 	"traditions-world": {
 		"message": "Món"
 	},
+	"trivia_beginner_001": {
+		"message": "A quin continent es troben les muntanyes dels Andes?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Àsia"
+	},
+	"trivia_beginner_002": {
+		"message": "Quin estat dels EUA està format per vuit illes principals?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkansas"
+	},
+	"trivia_beginner_003": {
+		"message": "Quin estat dels EUA es troba a les Grans Planes?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delaware"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Idaho"
+	},
+	"trivia_beginner_004": {
+		"message": "Quin continent voreja els oceans Atlàntic, Pacífic i Àrtic?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Àsia"
+	},
 	"trivia_beginner_004_answer1": {
 		"message": "Austràlia"
 	},
+	"trivia_beginner_004_answer2": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_beginner_005": {
+		"message": "Quin estat es troba a la zona horària del Pacífic?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "Califòrnia"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Geòrgia"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "Quin continent allotja les muntanyes de l'Atles i el desert de Kalahari?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Àfrica"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Antàrtida"
+	},
+	"trivia_beginner_007": {
+		"message": "Quin estat dels EUA limita amb un dels Grans Llacs?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montana"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "Nou Mèxic"
+	},
+	"trivia_beginner_008": {
+		"message": "La major part de la població d'aquest continent parla portuguès o espanyol."
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Àfrica"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_009": {
+		"message": "Quin estat dels EUA inclou un mànec a la seva silueta?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_010": {
+		"message": "A banda de l'Antàrtida, quin altre continent es troba en la seva totalitat a l'hemisferi sud?"
+	},
 	"trivia_beginner_010_answer0": {
 		"message": "Austràlia"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Àsia"
+	},
+	"trivia_beginner_011": {
+		"message": "Amb quin continent limita el banc de glaç de Ronne?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Antàrtida"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Àfrica"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_beginner_012": {
+		"message": "Les illes de Vancouver i de Kodiak es troben davant de la costa Oest de quin continent?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Àsia"
 	},
 	"trivia_beginner_012_answer2": {
 		"message": "Austràlia"
@@ -281,8 +416,44 @@
 	"trivia_beginner_013": {
 		"message": "Níger, un país amb una de les poblacions de creixement més ràpid del món, es troba a la part nord-occidental de quin continent?"
 	},
+	"trivia_beginner_013_answer0": {
+		"message": "Àfrica"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_014": {
+		"message": "Quin continent té menys plantes i arbres?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Antàrtida"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_beginner_015": {
+		"message": "Els dimonis de Tasmània són nadius d'una illa situada davant de la costa sud de quin continent?"
+	},
 	"trivia_beginner_015_answer0": {
 		"message": "Austràlia"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Àsia"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_016": {
+		"message": "La torre inclinada de Pisa és un monument molt popular. A quin país mediterrani es troba?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Itàlia"
 	},
 	"trivia_beginner_016_answer1": {
 		"message": "Canadà"
@@ -290,47 +461,419 @@
 	"trivia_beginner_016_answer2": {
 		"message": "Ghana"
 	},
+	"trivia_beginner_017": {
+		"message": "A la costa nord de quin continent trobem les ciutats històriques de Casablanca i de Trípoli?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Àfrica"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Antàrtida"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_018": {
+		"message": "El cactus saguaro es troba al desert de Sonora. De quin continent parlem?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Àsia"
+	},
+	"trivia_beginner_019": {
+		"message": "Veracruz i Acapulco són destinacions turístiques populars. A quin país es troben?"
+	},
 	"trivia_beginner_019_answer0": {
 		"message": "Mèxic"
 	},
 	"trivia_beginner_019_answer1": {
 		"message": "Argentina"
 	},
+	"trivia_beginner_019_answer2": {
+		"message": "Índia"
+	},
 	"trivia_beginner_020": {
 		"message": "Els Santuaris del panda gegant de Sichuan, on habiten el 30% dels pandes del món, es troben en quin país?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "Xina"
 	},
 	"trivia_beginner_020_answer1": {
 		"message": "Islàndia"
 	},
+	"trivia_beginner_020_answer2": {
+		"message": "Etiòpia"
+	},
 	"trivia_beginner_021": {
 		"message": "Prop del 90% del gel de tot el món es troba en quin continent?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Antàrtida"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Àfrica"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Europa"
 	},
 	"trivia_beginner_022": {
 		"message": "En quin continent es troba el Salto Angel, la cascada més gran del món?"
 	},
+	"trivia_beginner_022_answer0": {
+		"message": "Amèrica del Sud"
+	},
 	"trivia_beginner_022_answer1": {
 		"message": "Austràlia"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_023": {
+		"message": "A quin estat dels EUA hauríeu d'anar per visitar la vall Jackson Hole i per enfilar-vos al monument Devil's Tower?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "Dakota del Nord"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Connecticut"
+	},
+	"trivia_beginner_024": {
+		"message": "A quin estat dels EUA hauríeu d'anar per veure la collita de saba d'erable i per esquiar a la serralada de les Green Mountains?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermont"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "Quin estat dels EUA hauríeu de visitar per travessar en cotxe el pont de la badia de Chesapeake i caminar pel passeig marítim a Ocean City?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "Carolina del Nord"
+	},
+	"trivia_beginner_026": {
+		"message": "Per visitar la cova del Mamut i veure una cursa de cavalls a l'hipòdrom Churchill Downs, a quin estat dels EUA hauríeu de viatjar?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentucky"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "Virgínia de l'Oest"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Utah"
+	},
+	"trivia_beginner_027": {
+		"message": "A quin estat dels EUA viatjaríeu per veure sequoies gegants i les illes Santa Bàrbara?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "Califòrnia"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "Nova Jersey"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virgínia"
+	},
+	"trivia_beginner_028": {
+		"message": "Quin aiguamoll visitaríeu si anéssiu a l'estat nord-americà de Florida?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Everglades"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "L'àrea pantanosa de Dismal"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Great Cypress Swamp"
+	},
+	"trivia_beginner_029": {
+		"message": "A quin estat dels EUA hauríeu d'anar per viatjar per la via marítima del riu Sant Llorenç i pels llacs Finger?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "Nova York"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Michigan"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "A quin continent es troba l'Everest, la muntanya més alta del món?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Àsia"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Antàrtida"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_031": {
+		"message": "La regió de la Patagònia cobreix gran part de la regió sud de quin continent?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Àfrica"
+	},
+	"trivia_beginner_032": {
+		"message": "A quin continent podem trobar els pingüins emperador en el seu hàbitat natural?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Antàrtida"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033": {
+		"message": "De quin país són nadius els cangurs i els coales?"
 	},
 	"trivia_beginner_033_answer0": {
 		"message": "Austràlia"
 	},
+	"trivia_beginner_033_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_beginner_034": {
+		"message": "A quin continent trobem el Parc Nacional del Serengeti, amb fauna que atreu molts turistes?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Àfrica"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Àsia"
+	},
 	"trivia_beginner_034_answer2": {
 		"message": "Austràlia"
+	},
+	"trivia_beginner_035": {
+		"message": "Quin continent té l'àrea terrestre més gran?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Àsia"
 	},
 	"trivia_beginner_035_answer1": {
 		"message": "Austràlia"
 	},
+	"trivia_beginner_035_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_036": {
+		"message": "A quina ciutat europea el pont de la Torre creua el riu Tàmesi?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "Londres"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Havana"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Ciutat del Cap"
+	},
 	"trivia_beginner_037": {
 		"message": "La catedral de Sant Basili es troba al costat del Kremlin, a la plaça Roja de quina ciutat russa?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Moscou"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Brussel·les"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
 	},
 	"trivia_beginner_038": {
 		"message": "El Colosseu, erigit el segle I dC com a escenari de lluites entre gladiadors, es troba a quina ciutat europea?"
 	},
+	"trivia_beginner_038_answer0": {
+		"message": "Roma"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Khartum"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manila"
+	},
+	"trivia_beginner_039": {
+		"message": "A quina ciutat australiana es troben el teatre de l'Òpera i el pont del Port?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sydney"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Jakarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Praga"
+	},
+	"trivia_beginner_040": {
+		"message": "La cúpula de la roca i el Mur de les Lamentacions són només dos dels indrets sagrats que podem trobar dins de les muralles del cas antic d'una ciutat del Pròxim Orient. A quina ciutat ens referim?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Jerusalem"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tòquio"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Alger"
+	},
+	"trivia_beginner_041": {
+		"message": "A quina ciutat de Grècia es troba el Partenó, al cim de l'Acròpolis?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Atenes"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kíev"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "La torre Eiffel s'aixeca a prop del riu Sena i té vistes al centre d'una ciutat francesa. De quina ciutat es tracta?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "París"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "Nova Delhi"
+	},
+	"trivia_beginner_043": {
+		"message": "La mesquita d'al-Haram és la seu de la Ka'ba, l'indret més sagrat de l'Islam. A quina ciutat d'Aràbia Saudita està situada?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "La Meca"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Buenos Aires"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Budapest"
+	},
+	"trivia_beginner_044": {
+		"message": "Al centre de quina ciutat xinesa es troba la Ciutat Prohibida, un antic palau imperial?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Pequín"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santiago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbane"
+	},
+	"trivia_beginner_045": {
+		"message": "La torre Space Needle, o agulla espacial, és un observatori situat en una ciutat dels Estats Units a l'estuari Puget?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Wichita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "Nova Orleans"
+	},
+	"trivia_beginner_046": {
+		"message": "De quina ciutat dels Estats Units situada a la desembocadura del riu Charles es considera la torre John Hancock l'edifici més alt?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Boston"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pittsburgh"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memphis"
+	},
+	"trivia_beginner_047": {
+		"message": "De quina ciutat dels EUA situada al desert de Mojave es considera que la torre Stratosphere, situada just al nord d'un famós bulevard anomenat The Strip, és l'edifici més alt?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Las Vegas"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Minneapolis"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denver"
+	},
+	"trivia_beginner_048": {
+		"message": "L'estàtua de la Llibertat és una gran escultura situada a l'illa Llibertat al port d'una ciutat dels Estats Units. De quina ciutat es tracta?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "Ciutat de Nova York"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Los Angeles"
+	},
 	"trivia_beginner_049": {
 		"message": "El pont Golden Gate connecta quina ciutat nord-americana amb la península de Marin?"
 	},
+	"trivia_beginner_049_answer0": {
+		"message": "San Francisco"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boise"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimore"
+	},
 	"trivia_beginner_050": {
 		"message": "L'Arc Gateway, símbol de l'expansió americana cap a l'oest que va tenir lloc al segle XIX, es troba a la vora del riu Mississippí de quina ciutat americana?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "Saint Louis"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianapolis"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Miami"
+	},
+	"trivia_beginner_051": {
+		"message": "A quin país africà es troba l'altiplà de Gizeh, base de la Gran Piràmide i de l'Esfinx?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Egipte"
 	},
 	"trivia_beginner_051_answer1": {
 		"message": "Brasil"
@@ -338,38 +881,341 @@
 	"trivia_beginner_051_answer2": {
 		"message": "Alemanya"
 	},
+	"trivia_beginner_052": {
+		"message": "A quina ciutat dels EUA trobem el monument Independence Hall, un indret històric important relacionat amb la revolució de la nació i situat a prop del riu Delaware?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Filadèlfia"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "San Antonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Chicago"
+	},
+	"trivia_beginner_053": {
+		"message": "Les Muntanyes Rocalloses travessen el Canadà i quin altre país?"
+	},
 	"trivia_beginner_053_answer0": {
 		"message": "Estats Units"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Veneçuela"
 	},
 	"trivia_beginner_053_answer2": {
 		"message": "Rússia"
 	},
+	"trivia_beginner_054": {
+		"message": "Amb quin oceà limiten Brasil i Uruguai?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Oceà Atlàntic"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Oceà Índic"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Oceà Àrtic"
+	},
+	"trivia_beginner_055": {
+		"message": "A quin oceà es troba l'illa de Terranova, davant de la costa Est del Canadà?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Oceà Atlàntic"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Oceà Índic"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Oceà Pacífic"
+	},
+	"trivia_beginner_056": {
+		"message": "L'illa de Madagascar es troba davant de la costa oriental d'Àfrica. A quin oceà?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Oceà Índic"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Oceà Pacífic"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Oceà Àrtic"
+	},
+	"trivia_beginner_057": {
+		"message": "Quin oceà queda travessat per la major part de la línia internacional de canvi de data?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Oceà Pacífic"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Oceà Índic"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Oceà Atlàntic"
+	},
+	"trivia_beginner_058": {
+		"message": "L'equador travessa la conca del Congo. A quin continent?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Àfrica"
+	},
 	"trivia_beginner_058_answer1": {
 		"message": "Austràlia"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059": {
+		"message": "Quin continent limita amb el golf de Mèxic?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Àsia"
+	},
+	"trivia_beginner_060": {
+		"message": "Quin riu que flueix per l'Àfrica és el més llarg del món?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Riu Nil"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Riu Colorado"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Riu Orange"
+	},
+	"trivia_beginner_061": {
+		"message": "A quin continent es troben les antigues ruïnes de Machu-Picchu?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Antàrtida"
+	},
+	"trivia_beginner_062": {
+		"message": "Per quin continent flueix el riu Amazones, el riu amb més cabal que cap altre riu del món?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Amèrica del Sud"
 	},
 	"trivia_beginner_062_answer1": {
 		"message": "Austràlia"
 	},
+	"trivia_beginner_062_answer2": {
+		"message": "Àsia"
+	},
+	"trivia_beginner_063": {
+		"message": "A quin continent està situat el Mont Blanc, el cim més alt dels Alps?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Europa"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_beginner_064": {
+		"message": "L'istme de Panamà connecta Amèrica Central amb un continent. A quin continent ens referim?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Àsia"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065": {
+		"message": "Els guepards són els mamífers terrestres més ràpids de la Terra i es poden trobar a Kenya i a Tanzània. A quin continent?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Àfrica"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_066": {
+		"message": "A l'extrem sud de quin continent trobem el cap de Bona Esperança?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Àfrica"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Àsia"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Europa"
+	},
 	"trivia_beginner_067": {
 		"message": "Les tortugues gegants viuen a les illes Galápagos, que es troben a la part occidental d'Amèrica del Sud de quin oceà?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Oceà Pacífic"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Oceà Àrtic"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Oceà Índic"
+	},
+	"trivia_beginner_068": {
+		"message": "El riu Danubi flueix per Viena i per altres ciutats. A quin continent?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Europa"
 	},
 	"trivia_beginner_068_answer1": {
 		"message": "Austràlia"
 	},
+	"trivia_beginner_068_answer2": {
+		"message": "Àfrica"
+	},
+	"trivia_beginner_069": {
+		"message": "Quina mar serveix com a frontera per a les illes de Cuba i Hispaniola?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Mar del Carib"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Mar de Bering"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Mar Bàltica"
+	},
+	"trivia_beginner_070": {
+		"message": "Amb quin continent limita el golf de Guinea?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Àfrica"
+	},
 	"trivia_beginner_070_answer1": {
 		"message": "Austràlia"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_071": {
+		"message": "Quin continent va escodrinyar el famós explorador Ernest Shackleton?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Antàrtida"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_072": {
+		"message": "De quin oceà es considera una branca la mar del Labrador?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Oceà Atlàntic"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Oceà Índic"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Oceà Pacífic"
+	},
+	"trivia_beginner_073": {
+		"message": "A quin continent es troba el Sàhara, el desert més gran del món?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Àfrica"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Antàrtida"
+	},
+	"trivia_beginner_074": {
+		"message": "A quin continent està situat l'altiplà del Tibet?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Àsia"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_beginner_075": {
+		"message": "Al sud de quin continent es troba el passatge de Drake?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Europa"
 	},
 	"trivia_beginner_075_answer2": {
 		"message": "Austràlia"
 	},
+	"trivia_beginner_076": {
+		"message": "La Gran Barrera de Queensland es troba a la mar del Corall. Davant de la costa de quin continent?"
+	},
 	"trivia_beginner_076_answer0": {
 		"message": "Austràlia"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Àsia"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Amèrica del Nord"
 	},
 	"trivia_beginner_077": {
 		"message": "Per navegar pel canal de Suez i per visitar la ciutat dels morts del Caire, a quin país hauries d'anar?"
 	},
+	"trivia_beginner_077_answer0": {
+		"message": "Egipte"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Colòmbia"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Finlàndia"
+	},
+	"trivia_beginner_078": {
+		"message": "A quin país hauríeu de viatjar per veure gautxos tenint cura del bestiar i ballarins de tango a la ciutat de Buenos Aires?"
+	},
 	"trivia_beginner_078_answer0": {
 		"message": "Argentina"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Níger"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nepal"
+	},
+	"trivia_beginner_079": {
+		"message": "A quin país viatjaríeu per visitar el casc antic de la ciutat de Fes i per practicar senderisme a les muntanyes de l'Atles?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Marroc"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Equador"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Tailàndia"
 	},
 	"trivia_beginner_080": {
 		"message": "Per visitar les antigues ruïnes maies i banyar-te a les platges de Cancun, a quin país hauries d'anar?"
@@ -377,8 +1223,23 @@
 	"trivia_beginner_080_answer0": {
 		"message": "Mèxic"
 	},
+	"trivia_beginner_080_answer1": {
+		"message": "Països Baixos"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Turquia"
+	},
 	"trivia_beginner_081": {
 		"message": "Per visitar la catedral de Sant Patrici a Dublín i gaudir del Festival de les Arts a Kilkenny, a quin país hauries d'anar?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Irlanda"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Somàlia"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Costa Rica"
 	},
 	"trivia_beginner_082": {
 		"message": "Per fer la ruta de la selva pluvial en tren i poder ballar al Carnaval de Rio de Janeiro, hauries d'anar a quin país?"
@@ -389,26 +1250,419 @@
 	"trivia_beginner_082_answer1": {
 		"message": "Regne Unit"
 	},
+	"trivia_beginner_082_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_beginner_083": {
+		"message": "A quin país hauríeu de viatjar per visitar el museu de l'Hermitage de Sant Petersburg i per viatjar al ferrocarril transsiberià?"
+	},
 	"trivia_beginner_083_answer0": {
 		"message": "Rússia"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indonèsia"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Belize"
+	},
+	"trivia_beginner_084": {
+		"message": "A quin país hauríeu d'anar per pujar al tren d'alta velocitat i per passar la nit en un hotel de Tòquio?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Japó"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Zimbàbue"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Bolívia"
+	},
+	"trivia_beginner_085": {
+		"message": "A quin país hauríeu de viatjar per menjar pesto de Gènova i per assistir a una òpera a Florència?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Itàlia"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paraguai"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Líbia"
+	},
+	"trivia_beginner_086": {
+		"message": "A quin país hauríeu de viatjar per gaudir d'un safari a la reserva natural de Masai Mara i per anar de compres a Nairobi?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Kenya"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "Corea del Sud"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Xile"
+	},
+	"trivia_beginner_087": {
+		"message": "A quin país hauríeu d'anar per veure el riu Ganges i per explorar els atapeïts carrers de Calcuta?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "Índia"
 	},
 	"trivia_beginner_087_answer1": {
 		"message": "Alemanya"
 	},
+	"trivia_beginner_087_answer2": {
+		"message": "Jordània"
+	},
+	"trivia_beginner_088": {
+		"message": "Enmig de quin oceà està situat el pol nord, el punt més septentrional del planeta?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Oceà Àrtic"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Oceà Pacífic"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Oceà Índic"
+	},
+	"trivia_beginner_089": {
+		"message": "Quin país limita amb l'oceà Atlàntic?"
+	},
 	"trivia_beginner_089_answer0": {
 		"message": "Islàndia"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Pakistan"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Japó"
+	},
+	"trivia_beginner_090": {
+		"message": "Quin estat dels EUA es coneix com l'estat assolellat pel seu clima càlid i les seves platges concorregudes?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Florida"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Maine"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Washington"
+	},
+	"trivia_beginner_091": {
+		"message": "A quin estat dels EUA es troba el Gran Canyó?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "Virgínia de l'Oest"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "Dakota del Sud"
+	},
+	"trivia_beginner_092": {
+		"message": "Quin estat dels EUA, conegut com a estat de l'estrella solitària, té una sola estrella a la bandera i va ser en cert moment un país independent?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Texas"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Wisconsin"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_093": {
+		"message": "A quin continent es troben els rius Tigris i Eufrates?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Àsia"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Antàrtida"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_094": {
+		"message": "A quin continent estan situats el llac Victòria i la serralada Virunga?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Àfrica"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Àsia"
+	},
+	"trivia_beginner_095": {
+		"message": "Quin país està format per una illa de l'oceà Pacífic?"
 	},
 	"trivia_beginner_095_answer0": {
 		"message": "Nova Zelanda"
 	},
+	"trivia_beginner_095_answer1": {
+		"message": "Sud-àfrica"
+	},
 	"trivia_beginner_095_answer2": {
 		"message": "Islàndia"
+	},
+	"trivia_beginner_096": {
+		"message": "Quin país es troba a la península escandinava?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Suècia"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Romania"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Perú"
+	},
+	"trivia_beginner_097": {
+		"message": "Quin país limita amb la mar Mediterrània?"
 	},
 	"trivia_beginner_097_answer0": {
 		"message": "França"
 	},
+	"trivia_beginner_097_answer1": {
+		"message": "Bangla Desh"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_001": {
+		"message": "Quina ciutat dels EUA està més a prop de la frontera amb el Canadà?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sacramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "Quina ciutat nord-americana té més probabilitats de patir un huracà?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Miami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Los Angeles"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pittsburgh"
+	},
+	"trivia_hard_003": {
+		"message": "Quin d'aquests llacs té la superfície més gran?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Llac Huron"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Llac Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Llac Erie"
+	},
+	"trivia_hard_004": {
+		"message": "Quina d'aquestes ciutats dels Estats Units és la més poblada?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Chicago"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "Saint Louis"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianapolis"
+	},
+	"trivia_hard_005": {
+		"message": "Quin país està més a prop del golf Pèrsic?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Turquia"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_hard_006": {
+		"message": "Quin d'aquests països té l'àrea terrestre més gran?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Kazakhstan"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Romania"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Polònia"
+	},
+	"trivia_hard_007": {
+		"message": "Quin d'aquests països té més densitat de població?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Singapur"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Laos"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Bolívia"
+	},
+	"trivia_hard_008": {
+		"message": "Quin d'aquests països té més parlants d'alemany?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Àustria"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Eslovàquia"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Iraq"
+	},
+	"trivia_hard_009": {
+		"message": "Quin d'aquests països limita amb més països?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Aràbia Saudita"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Marroc"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mongòlia"
+	},
+	"trivia_hard_010": {
+		"message": "Amb quin país no limita el llac Tanganyika?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benín"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Burundi"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Zàmbia"
+	},
+	"trivia_hard_011": {
+		"message": "Quin país no queda travessat per l'equador?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Mauritània"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indonèsia"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_hard_012": {
+		"message": "Quin país no es troba a la península Balcànica?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "República Txeca"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Bulgària"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Macedònia"
+	},
+	"trivia_hard_013": {
+		"message": "Quin país no té frontera amb la mar del Nord?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Finlàndia"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Dinamarca"
+	},
 	"trivia_hard_013_answer2": {
 		"message": "Regne Unit"
+	},
+	"trivia_hard_014": {
+		"message": "Quin país no té frontera amb la mar Negra?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Azerbaidjan"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Ucraïna"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Turquia"
+	},
+	"trivia_hard_015": {
+		"message": "Quin país té sortida al mar?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Croàcia"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Bielorússia"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Hongria"
+	},
+	"trivia_hard_016": {
+		"message": "Quin país no es troba al Sàhara?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angola"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Líbia"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Algèria"
+	},
+	"trivia_hard_017": {
+		"message": "Quina illa es troba més a l'est?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinitat"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Cuba"
+	},
+	"trivia_hard_018": {
+		"message": "Amb quina massa d'aigua limita el cap Fear?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Oceà Atlàntic"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Mar del Carib"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Oceà Pacífic"
+	},
+	"trivia_hard_019": {
+		"message": "Quina ciutat té port al golf de Mèxic?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Veracruz"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tijuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Acapulco"
+	},
+	"trivia_hard_020": {
+		"message": "Quin país queda travessat pel tròpic de Càncer?"
 	},
 	"trivia_hard_020_answer0": {
 		"message": "Mèxic"
@@ -419,11 +1673,128 @@
 	"trivia_hard_020_answer2": {
 		"message": "Brasil"
 	},
+	"trivia_hard_021": {
+		"message": "Quina d'aquestes illes té una àrea més gran?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Illa Baffin"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Hispaniola"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Sardenya"
+	},
 	"trivia_hard_022": {
 		"message": "El canal de Yucatán separa Mèxic i quina illa?"
 	},
+	"trivia_hard_022_answer0": {
+		"message": "Cuba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Puerto Rico"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dominica"
+	},
+	"trivia_hard_023": {
+		"message": "Quina ciutat canadenca es troba més al nord?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Yellowknife"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Ottawa"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Winnipeg"
+	},
+	"trivia_hard_024": {
+		"message": "Quina illa forma part de les Petites Antilles?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "Saint Kitts"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Les Bermudes"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Nova Escòcia"
+	},
+	"trivia_hard_025": {
+		"message": "Port-au-Prince és la ciutat més poblada de quin país?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haití"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Surinam"
+	},
+	"trivia_hard_026": {
+		"message": "Quin país es troba al sistema muntanyós dels Carpats?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Romania"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albània"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Turkmenistan"
+	},
+	"trivia_hard_027": {
+		"message": "De quin país és idioma oficial el francès?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabon"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tanzània"
+	},
+	"trivia_hard_028": {
+		"message": "Quin d'aquests països té una àrea terrestre més gran?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Israel"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Bahrain"
+	},
+	"trivia_hard_029": {
+		"message": "Quin país ocupa més graus longitudinals?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Kazakhstan"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afganistan"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Síria"
+	},
+	"trivia_hard_030": {
+		"message": "Quin país es compon de moltes illes?"
+	},
 	"trivia_hard_030_answer0": {
 		"message": "Filipines"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Cambodja"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Tadjikistan"
+	},
+	"trivia_hard_031": {
+		"message": "Quin d'aquests països té més zones horàries?"
 	},
 	"trivia_hard_031_answer0": {
 		"message": "Brasil"
@@ -431,23 +1802,485 @@
 	"trivia_hard_031_answer1": {
 		"message": "Ghana"
 	},
+	"trivia_hard_031_answer2": {
+		"message": "Belize"
+	},
+	"trivia_hard_032": {
+		"message": "Quin país es troba més al nord?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Camerun"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Moçambic"
+	},
 	"trivia_hard_032_answer2": {
 		"message": "Austràlia"
+	},
+	"trivia_hard_033": {
+		"message": "Quin país es troba entre França i Espanya?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andorra"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Luxemburg"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Ciutat del Vaticà"
+	},
+	"trivia_hard_034": {
+		"message": "Amb quin país limita Dinamarca?"
 	},
 	"trivia_hard_034_answer0": {
 		"message": "Alemanya"
 	},
+	"trivia_hard_034_answer1": {
+		"message": "Finlàndia"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Moldàvia"
+	},
+	"trivia_hard_035": {
+		"message": "A quin país pertany l'illa de Sardenya?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Itàlia"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Turquia"
+	},
 	"trivia_hard_035_answer2": {
 		"message": "Regne Unit"
+	},
+	"trivia_hard_036": {
+		"message": "Quin desert cobreix gran part de l'àrea entre Pequín i Ulaanbaatar?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Gran Desert Indi"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Desert de Líbia"
+	},
+	"trivia_hard_037": {
+		"message": "De quin oceà forma part el corrent de Kamtxatka?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Oceà Pacífic"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Oceà Índic"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Oceà Atlàntic"
+	},
+	"trivia_hard_038": {
+		"message": "A la part sud de quina mar es troba el golf de Sidra?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Mar Mediterrània"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Mar d'Aràbia"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Mar Bàltica"
+	},
+	"trivia_hard_039": {
+		"message": "Els Tatra componen la serralada més alta d'un sistema muntanyós europeu. A quin ens referim?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Serralada dels Càrpats"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Serralada Cantàbrica"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Pirineus"
+	},
+	"trivia_hard_040": {
+		"message": "Quin riu travessa el llac Kariba i forma la frontera entre Zàmbia i Zimbàbue?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Riu Zambezi"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Riu Nil"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Riu Congo"
+	},
+	"trivia_hard_041": {
+		"message": "A quina mar desemboquen els rius Tàmesi, Mose i Escalda?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Mar del Nord"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Mar Mediterrània"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Mar Negra"
+	},
+	"trivia_hard_042": {
+		"message": "L'estret de Luzon separa el nord de les Filipines amb una illa de grans dimensions. De quina illa parlem?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Taiwan"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Algèria"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_hard_043": {
+		"message": "Quines illes estan situades a la dorsal mesoatlàntica?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Açores"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Bahames"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Illes Fiji"
+	},
+	"trivia_hard_044": {
+		"message": "Quin riu desemboca a la mar de Laptev?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Riu Lena"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Riu Iangtsé"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Riu Indus"
+	},
+	"trivia_hard_045": {
+		"message": "Quin pic es troba més a prop de l'equador?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimanjaro"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Mont Blanc"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Mont McKinley"
+	},
+	"trivia_hard_046": {
+		"message": "Quina ciutat cabdal és la més poblada?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Moscou"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Hèlsinki"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Alger"
+	},
+	"trivia_hard_047": {
+		"message": "Quina ciutat, situada a la vora del riu Life, és la més gran de la República d'Irlanda?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dublín"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Oslo"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Copenhagen"
+	},
+	"trivia_hard_048": {
+		"message": "Quina ciutat, situada en una vall de la regió del Hindu Kush, és la més gran de l'Afganistan?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Kabul"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Sarajevo"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "Quina ciutat, situada a la vora del riu Chao Phraya, és la més gran de Tailàndia?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Bangkok"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Pequín"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Amman"
+	},
+	"trivia_hard_050": {
+		"message": "Quina ciutat, situada a l'extrem exterior d'un fiord a l'estret de Skagerrak, és la més gran de Noruega?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Oslo"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "Londres"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Brussel·les"
+	},
+	"trivia_hard_051": {
+		"message": "Quina ciutat, situada a la costa de la mar Mediterrània oriental, és la més gran del Líban?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Beirut"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Muqdiisho"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Al-Riyad"
+	},
+	"trivia_hard_052": {
+		"message": "Quina ciutat, situada a la costa de Java, és la més gran d'Indonèsia?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Jakarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tòquio"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "Quina ciutat, situada a la regió de l'Àtica, és la més gran de Grècia?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Atenes"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Roma"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barcelona"
 	},
 	"trivia_hard_054": {
 		"message": "Quina ciutat, situada a l'estuari del Riu de la Plata, és la més gran de l'Uruguai?"
 	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Quito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Rio de Janeiro"
+	},
+	"trivia_hard_055": {
+		"message": "Quina ciutat, que en el passat va formar part de l'antiga província de Transvaal, és la més gran de Sud-àfrica?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Johannesburg"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abuja"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputo"
+	},
+	"trivia_hard_056": {
+		"message": "Quina ciutat, centre important d'embarcament al mar Carib, és la més gran de Jamaica?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Kingston"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Caracas"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Buenos Aires"
+	},
+	"trivia_hard_057": {
+		"message": "Quina ciutat, situada al Great Rift Valley, és la més gran d'Eritrea?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Bagdad"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazzaville"
+	},
+	"trivia_hard_058": {
+		"message": "Quina ciutat, situada a la vora del riu Vístula, és la més gran de Polònia?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Varsòvia"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berlín"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kíev"
+	},
+	"trivia_hard_059": {
+		"message": "Quina ciutat, important parada a la carretera Panamericana, és la més gran de Costa Rica?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "San José"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sucre"
+	},
+	"trivia_hard_060": {
+		"message": "Quina ciutat, important centre de comerç agrícola al sud d'Àfrica, és la més gran de Zimbàbue?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Windhoek"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "Quina ciutat, ocupada en el passat pel règim del khmer roig, és la més gran de Cambodja?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Phnom Penh"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kuala Lumpur"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Dacca"
+	},
+	"trivia_hard_062": {
+		"message": "Quina ciutat, situada al cap Mesurado de l'oceà Atlàntic, és la més gran de Libèria?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monròvia"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Accra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaka"
+	},
+	"trivia_hard_063": {
+		"message": "Quina ciutat, situada en un altiplà dels Andes, és la més gran de Colòmbia?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogotà"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managua"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterrey"
+	},
+	"trivia_hard_064": {
+		"message": "Quina ciutat, situada als peus de les muntanyes Elburz, és la més gran de l'Iran?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Teheran"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Taixkent"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Istanbul"
+	},
+	"trivia_hard_065": {
+		"message": "Quina massa d'aigua queda travessada pel cercle polar àrtic?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Mar de Noruega"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Llac Volta"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Mar Càspia"
+	},
+	"trivia_hard_066": {
+		"message": "Quina massa d'aigua es troba al Great Rift Valley?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Llac Malawi"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Mar de Tasmània"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Llac Titicaca"
+	},
+	"trivia_hard_067": {
+		"message": "A la riba de quina massa d'aigua es troba la ciutat portuària russa d'Arkhànguelsk?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Mar Blanca"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Estret de Bass"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Golf de Biscaia"
+	},
+	"trivia_hard_068": {
+		"message": "Quin país inclou les províncies de Hunan i Shandong?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "Xina"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Tailàndia"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Iemen"
+	},
+	"trivia_hard_069": {
+		"message": "Quin país mediterrani té el castellà com a llengua oficial?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Espanya"
+	},
 	"trivia_hard_069_answer1": {
 		"message": "Grècia"
 	},
+	"trivia_hard_069_answer2": {
+		"message": "Azerbaidjan"
+	},
+	"trivia_hard_070": {
+		"message": "Quin país d'Amèrica Central va ser en cert moment una província de Colòmbia?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panamà"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Hondures"
+	},
 	"trivia_hard_070_answer2": {
 		"message": "Guatemala"
+	},
+	"trivia_hard_071": {
+		"message": "De quin país és la ciutat de Basilea, dividida pel riu Rin, un centre de transport important?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Suïssa"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Bèlgica"
 	},
 	"trivia_hard_071_answer2": {
 		"message": "Rússia"
@@ -458,17 +2291,128 @@
 	"trivia_hard_072_answer0": {
 		"message": "França"
 	},
+	"trivia_hard_072_answer1": {
+		"message": "Països Baixos"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Romania"
+	},
 	"trivia_hard_073": {
 		"message": "Bahía Blanca és una gran ciutat portuària de la regió de la Pampa de quin país?"
 	},
 	"trivia_hard_073_answer0": {
 		"message": "Argentina"
 	},
+	"trivia_hard_073_answer1": {
+		"message": "Bolívia"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_074": {
+		"message": "Quin país limita amb les mars Mediterrània, Negra i Egea?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Turquia"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Bulgària"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Líbia"
+	},
+	"trivia_hard_075": {
+		"message": "Cada any, els nyus emigren des de Tanzània i travessen el riu Mara per acabar a quin país veí al nord-est?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Kenya"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Zàmbia"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Guinea"
+	},
+	"trivia_hard_076": {
+		"message": "La ciutat d'Alep, famosa per la Gran Mesquita, és la més gran de quin país del sud-oest asiàtic?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Síria"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Oman"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Bangla Desh"
+	},
+	"trivia_hard_077": {
+		"message": "Quin país limita amb Rússia i Geòrgia?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Azerbaidjan"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Uzbekistan"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Corea del Nord"
+	},
+	"trivia_hard_078": {
+		"message": "Quin país limita amb Panamà i el Brasil?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Colòmbia"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Perú"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_hard_079": {
+		"message": "Quin país limita amb Guatemala i amb els Estats Units?"
+	},
 	"trivia_hard_079_answer0": {
 		"message": "Mèxic"
 	},
+	"trivia_hard_079_answer1": {
+		"message": "El Salvador"
+	},
 	"trivia_hard_079_answer2": {
 		"message": "Canadà"
+	},
+	"trivia_hard_080": {
+		"message": "Quin país limita amb l'Iraq i l'Afganistan?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Ucraïna"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mongòlia"
+	},
+	"trivia_hard_081": {
+		"message": "Quin país limita amb Lesotho i Botswana?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Sud-àfrica"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Zimbàbue"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Congo"
+	},
+	"trivia_hard_082": {
+		"message": "Anvers es troba a la part de parla flamenca de quin país?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Bèlgica"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Països Baixos"
 	},
 	"trivia_hard_082_answer2": {
 		"message": "Islàndia"
@@ -476,8 +2420,41 @@
 	"trivia_hard_083": {
 		"message": "Gdańsk, situada a prop de la desembocadura del riu Vístula. és un dels ports principals de quina ciutat europea?"
 	},
+	"trivia_hard_083_answer0": {
+		"message": "Polònia"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Espanya"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Croàcia"
+	},
+	"trivia_hard_084": {
+		"message": "De quin gran riu d'Amèrica del Sud són afluents els rius Madeira i Purus?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Riu Amazones"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Riu Orinoco"
+	},
 	"trivia_hard_084_answer2": {
 		"message": "Riu Paraná"
+	},
+	"trivia_hard_085": {
+		"message": "El llac de Constança limita amb Suïssa, Alemanya i un altre país. De quin país es tracta?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Àustria"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Eslovàquia"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Finlàndia"
+	},
+	"trivia_hard_086": {
+		"message": "De quin país és Auckland, una important ciutat portuària amb múltiples ports, la població més gran?"
 	},
 	"trivia_hard_086_answer0": {
 		"message": "Nova Zelanda"
@@ -485,56 +2462,695 @@
 	"trivia_hard_086_answer1": {
 		"message": "Austràlia"
 	},
+	"trivia_hard_086_answer2": {
+		"message": "Indonèsia"
+	},
+	"trivia_hard_087": {
+		"message": "Quin país, situat a l'Oest del Togo, és un productor de cacau important?"
+	},
 	"trivia_hard_087_answer0": {
 		"message": "Ghana"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Sudan"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Tunísia"
 	},
 	"trivia_hard_088": {
 		"message": "El guaraní és el nom de la moneda i d'un dels idiomes oficials de quin país d'Amèrica del Sud?"
 	},
+	"trivia_hard_088_answer0": {
+		"message": "Paraguai"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Equador"
+	},
 	"trivia_hard_088_answer2": {
 		"message": "Brasil"
+	},
+	"trivia_hard_089": {
+		"message": "Quina serralada s'estén per la frontera entre França i Espanya?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Pirineus"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Apenins"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Serralada del Caucas"
+	},
+	"trivia_hard_090": {
+		"message": "A quin país podem veure com el riu Torrens buida el seu cabal al golf de Saint Vincent?"
 	},
 	"trivia_hard_090_answer0": {
 		"message": "Austràlia"
 	},
+	"trivia_hard_090_answer1": {
+		"message": "Uganda"
+	},
 	"trivia_hard_090_answer2": {
 		"message": "Canadà"
+	},
+	"trivia_hard_091": {
+		"message": "Quin país africà, amb frontera amb la mar Mediterrània, és una monarquia?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Marroc"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Egipte"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "República Centreafricana"
+	},
+	"trivia_hard_092": {
+		"message": "De quin país és capital Tbilisi, ciutat situada a les ribes del riu Kura?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Geòrgia"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Síria"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Hongria"
+	},
+	"trivia_hard_093": {
+		"message": "Els Abruços són una regió muntanyosa situada a la mar Adriàtica. A quin país està situada?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Itàlia"
 	},
 	"trivia_hard_093_answer1": {
 		"message": "França"
 	},
+	"trivia_hard_093_answer2": {
+		"message": "Luxemburg"
+	},
+	"trivia_hard_094": {
+		"message": "A banda de Letònia, amb quin altre país limita el golf de Riga?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Estònia"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Bielorússia"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Espanya"
+	},
+	"trivia_hard_095": {
+		"message": "Amb quina mar connecta el golf de Suez a través de l'estret de Jubal?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Mar Roig"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Mar del Carib"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Mar Càspia"
+	},
+	"trivia_hard_096": {
+		"message": "La mar de Galilea rep gran part de la seva afluència de les aigües d'un riu. De quin riu parlem?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Riu Jordà"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amudarja"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Riu Ganges"
+	},
+	"trivia_hard_097": {
+		"message": "Quina gran badia separa Nova Brunsvic de Nova Escòcia?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Badia de Fundy"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Badia de Hudson"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Golf de Bengala"
+	},
+	"trivia_hard_098": {
+		"message": "A quin país es troba la catedral de Colònia a la regió de Renània?"
+	},
 	"trivia_hard_098_answer0": {
 		"message": "Alemanya"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Dinamarca"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_099": {
+		"message": "De quin país és Chiapas, seu de diverses antigues ruïnes maies, l'estat més meridional?"
 	},
 	"trivia_hard_099_answer0": {
 		"message": "Mèxic"
 	},
+	"trivia_hard_099_answer1": {
+		"message": "Hondures"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Xile"
+	},
+	"trivia_hard_100": {
+		"message": "Els Dardanels són un estret que connecta la mar de Màrmara amb quin mar?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Mar Egeu"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Mar de Barentsz"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Mar de Tasmània"
+	},
+	"trivia_hard_101": {
+		"message": "A quin país del sud-est asiàtic el khmer és la llengua oficial?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Cambodja"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_hard_102": {
+		"message": "La conca Donets és una zona industrial que comparteixen Rússia i quin altre país?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Ucraïna"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Eslovàquia"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Líban"
+	},
+	"trivia_hard_103": {
+		"message": "El mont Kosciuszko, situat a les muntanyes Snowies, és el pic més alt de quin continent?"
+	},
 	"trivia_hard_103_answer0": {
 		"message": "Austràlia"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Europa"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_hard_104": {
+		"message": "De quin país formen part les illes de Madura i Bali?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indonèsia"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Japó"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_105": {
+		"message": "El desert de Takla Makan està situat al nord de la serralada dels Kunlun. A quin país asiàtic?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "Xina"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Aràbia Saudita"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "Corea del Sud"
+	},
+	"trivia_medium_001": {
+		"message": "Quina d'aquestes ciutats dels Estats Units es troba al delta d'un riu?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "Nova Orleans"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Austin"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Oklahoma City"
+	},
+	"trivia_medium_002": {
+		"message": "Angkor Wat i Capadòcia són llocs Patrimoni Mundial de la UNESCO. A quin continent es troben?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Àsia"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Àfrica"
+	},
+	"trivia_medium_003": {
+		"message": "Els idiomes kurd i persa es parlen a la part sud-oest d'un continent. De quin parlem?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Àsia"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Europa"
 	},
 	"trivia_medium_004": {
 		"message": "Teotihuacán era el centre neuràlgic d'una civilització antiga de quin continent?"
 	},
+	"trivia_medium_004_answer0": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Àfrica"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Àsia"
+	},
+	"trivia_medium_005": {
+		"message": "Amb quin continent limiten la mar de Bellingshausen i de Ross?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Antàrtida"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Àsia"
+	},
+	"trivia_medium_006": {
+		"message": "Per la costa de quin continent flueixen els corrents de Moçambic i de Benguela?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Àfrica"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_medium_007": {
+		"message": "A la vora sud-est de quin continent es troba l'arxipèlag de les illes Malvines?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_008": {
+		"message": "Quin d'aquests països africans ocupa una àrea més gran?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Algèria"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gàmbia"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Burundi"
+	},
+	"trivia_medium_009": {
+		"message": "Quina gran illa es troba a 322 quilòmetres al nord-oest d'Islàndia?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Grenlàndia"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Nova Guinea"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Irlanda"
+	},
+	"trivia_medium_010": {
+		"message": "De quin oceà formen part les mars de Kara i de la Sibèria Oriental?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Oceà Àrtic"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Oceà Índic"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Oceà Pacífic"
+	},
+	"trivia_medium_011": {
+		"message": "Quin país limita amb la mar Bàltica?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Letònia"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Eslovènia"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Ucraïna"
+	},
+	"trivia_medium_012": {
+		"message": "Quina d'aquestes grans ciutats és la més poblada?"
+	},
 	"trivia_medium_012_answer0": {
 		"message": "São Paulo, Brasil"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto, Canadà"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hanoi, Vietnam"
+	},
+	"trivia_medium_013": {
+		"message": "Quin país no té costa a l'oceà Atlàntic?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Malàisia"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Uruguai"
+	},
+	"trivia_medium_014": {
+		"message": "Quin d'aquests països té la costa més curta?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Perú"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Xile"
+	},
+	"trivia_medium_015": {
+		"message": "Quin desert es troba a Àsia?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalahari"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atacama"
+	},
+	"trivia_medium_016": {
+		"message": "Quin d'aquests països pateix més activitat volcànica?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indonèsia"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Egipte"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Israel"
+	},
+	"trivia_medium_017": {
+		"message": "La població de quin d'aquests països és més nombrosa?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haití"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Veneçuela"
+	},
+	"trivia_medium_018": {
+		"message": "Quin d'aquests països té més illes?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Bahames"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_019": {
+		"message": "Quin país es troba més a prop de la línia de l'equador?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Ruanda"
 	},
 	"trivia_medium_019_answer1": {
 		"message": "Guatemala"
 	},
+	"trivia_medium_019_answer2": {
+		"message": "Sud-àfrica"
+	},
+	"trivia_medium_020": {
+		"message": "Quin país es troba més al nord?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Estònia"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Líbia"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Cambodja"
+	},
+	"trivia_medium_021": {
+		"message": "El barri d'Alfama, a Portugal, es troba a la vora del riu Tajo. De quina ciutat cabdal parlem?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lisboa"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berlín"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Hèlsinki"
+	},
+	"trivia_medium_022": {
+		"message": "Quina ciutat cabdal, situada a 40 quilòmetres al nord-est de la mar Morta, és la ciutat més poblada de Jordània?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Amman"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Islamabad"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Seül"
+	},
+	"trivia_medium_023": {
+		"message": "A quina ciutat cabdal es troba la plaça Tahrir, punt focal de diverses de les principals protestes a Egipte?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "El Caire"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Masqat"
+	},
 	"trivia_medium_024": {
 		"message": "Quina capital, situada a la Badia de Table, és la seu del parlament nacional sud-africà?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Ciutat del Cap"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaka"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinshasa"
+	},
+	"trivia_medium_025": {
+		"message": "Quina ciutat cabdal, situada a la vora del riu Vltava, és la més gran de la República Txeca?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Praga"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dublín"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Sofia"
+	},
+	"trivia_medium_026": {
+		"message": "Quina ciutat cabdal, situada a la mar Mediterrània, és un port important de Líbia?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Trípoli"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Muqdiisho"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monròvia"
+	},
+	"trivia_medium_027": {
+		"message": "Quina ciutat cabdal, important centre de comerç i de transport del Sudan, es troba a la cruïlla dels rius Nil Blanc i Nil Blau?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Khartum"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Tunis"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Johannesburg"
+	},
+	"trivia_medium_028": {
+		"message": "Quina ciutat cabdal es troba a les illes daneses de Sjælland i Amager?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Copenhagen"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Berna"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Bratislava"
+	},
+	"trivia_medium_029": {
+		"message": "Quina ciutat cabdal, situada a l'illa de New Providence, és la ciutat més gran de les Bahames?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Nassau"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santo Domingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopan"
 	},
 	"trivia_medium_030": {
 		"message": "Quina capital al sud de la mar Negra és el centre del sistema de transport turc?"
 	},
+	"trivia_medium_030_answer0": {
+		"message": "Ankara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minsk"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Teheran"
+	},
+	"trivia_medium_031": {
+		"message": "Quin d'aquests països està situat en part a la banya d'Àfrica?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Níger"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Swazilàndia"
+	},
+	"trivia_medium_032": {
+		"message": "L'Skagerrak és un estret que separa Dinamarca d'un altre país. De quin?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Noruega"
+	},
 	"trivia_medium_032_answer1": {
 		"message": "Regne Unit"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_medium_033": {
+		"message": "Quin país té més superfície terrestre desèrtica?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Txad"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Noruega"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_034": {
+		"message": "Per quin país flueix el riu Eufrates?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Síria"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Suïssa"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Tailàndia"
+	},
+	"trivia_medium_035": {
+		"message": "La ciutat d'Irkutsk està a prop del llac Baikal. A quin continent?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Àsia"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Àfrica"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_medium_036": {
+		"message": "De quin continent són rius importants el Dnièper i el Rin?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Europa"
 	},
 	"trivia_medium_036_answer1": {
 		"message": "Antàrtida"
 	},
+	"trivia_medium_036_answer2": {
+		"message": "Àsia"
+	},
+	"trivia_medium_037": {
+		"message": "A quin continent estan situats el massís guaiànic i la regió del Pantanal?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Amèrica del Nord"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_038": {
+		"message": "A quin continent trobem els accidents geogràfics del Gran Desert de Victòria i la plana de Nullarbor?"
+	},
 	"trivia_medium_038_answer0": {
 		"message": "Austràlia"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Àsia"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_039": {
+		"message": "De quin país és Rio Grande do Sul l'estat més al sud?"
 	},
 	"trivia_medium_039_answer0": {
 		"message": "Brasil"
@@ -545,11 +3161,35 @@
 	"trivia_medium_039_answer2": {
 		"message": "Alemanya"
 	},
+	"trivia_medium_040": {
+		"message": "A quin país trobem la ciutat de Novosibirsk, situada a la vora del riu Obi?"
+	},
 	"trivia_medium_040_answer0": {
 		"message": "Rússia"
 	},
+	"trivia_medium_040_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "Xina"
+	},
+	"trivia_medium_041": {
+		"message": "Quin país es troba a la costa del Pacífic i té més probabilitats de patir un terratrèmol?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Xile"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angola"
+	},
 	"trivia_medium_041_answer2": {
 		"message": "França"
+	},
+	"trivia_medium_042": {
+		"message": "A la costa nord de quin país es troba el llac Maracaibo?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Veneçuela"
 	},
 	"trivia_medium_042_answer1": {
 		"message": "Guatemala"
@@ -557,11 +3197,140 @@
 	"trivia_medium_042_answer2": {
 		"message": "Canadà"
 	},
+	"trivia_medium_043": {
+		"message": "Quin país limita amb la mar d'Aràbia?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "Índia"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Tadjikistan"
+	},
 	"trivia_medium_043_answer2": {
 		"message": "Grècia"
 	},
+	"trivia_medium_044": {
+		"message": "Quin país es troba a la península Ibèrica?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Portugal"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Bangla Desh"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Països Baixos"
+	},
+	"trivia_medium_045": {
+		"message": "Quin d'aquests països té la costa més llarga?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Tailàndia"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Congo"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Qatar"
+	},
+	"trivia_medium_046": {
+		"message": "Quin estat dels EUA es troba a l'oest del riu Mississippí?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Colorado"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Maryland"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Michigan"
+	},
+	"trivia_medium_047": {
+		"message": "Quin estat dels EUA té el 60% de la superfície coberta de boscos?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virgínia"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "A quin estat dels EUA està situat el mont McKinley, el cim més alt d'Amèrica del Nord?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Alaska"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_medium_049": {
+		"message": "Quin d'aquests estats dels EUA té l'àrea més gran?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montana"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "Carolina del Sud"
+	},
+	"trivia_medium_050": {
+		"message": "A quin estat dels EUA està situat el mont Rushmore, a prop de Rapid City?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "Dakota del Sud"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Florida"
+	},
+	"trivia_medium_051": {
+		"message": "Quin estat dels EUA comparteix frontera amb el Canadà?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebraska"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentucky"
+	},
+	"trivia_medium_052": {
+		"message": "Davant de les costes de quin estat dels EUA trobem els esculls de corall?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "Hamburg és un port important. A quin país es troba?"
+	},
 	"trivia_medium_053_answer0": {
 		"message": "Alemanya"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Croàcia"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Bèlgica"
+	},
+	"trivia_medium_054": {
+		"message": "Quin país pateix més activitat volcànica?"
 	},
 	"trivia_medium_054_answer0": {
 		"message": "Islàndia"
@@ -569,14 +3338,143 @@
 	"trivia_medium_054_answer1": {
 		"message": "Regne Unit"
 	},
+	"trivia_medium_054_answer2": {
+		"message": "Polònia"
+	},
+	"trivia_medium_055": {
+		"message": "Quin país es troba principalment a la península d'Anatòlia?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Turquia"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Myanmar"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Estònia"
+	},
+	"trivia_medium_056": {
+		"message": "La mar Morta forma part de la frontera entre Israel i quin altre país?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Jordània"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Japó"
+	},
+	"trivia_medium_057": {
+		"message": "El Parc Nacional del Serengeti es troba a l'Est del llac Victòria. A quin país?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tanzània"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Iemen"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nigèria"
+	},
+	"trivia_medium_058": {
+		"message": "Quin país limita amb el mar Carib i és un important exportador de petroli?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Veneçuela"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Xile"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paraguai"
+	},
+	"trivia_medium_059": {
+		"message": "Quin país sense sortida al mar es troba just al sud de l'equador?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Burundi"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Djibouti"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Tunísia"
+	},
+	"trivia_medium_060": {
+		"message": "Amb quin país mediterrani limita la mar Tirrena?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Itàlia"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Israel"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Senegal"
+	},
+	"trivia_medium_061": {
+		"message": "A quin país trobem Ekaterinburg, població situada a la vessant oriental dels Urals?"
+	},
 	"trivia_medium_061_answer0": {
 		"message": "Rússia"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Lituània"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Bèlgica"
+	},
+	"trivia_medium_062": {
+		"message": "Quin país illenc es troba al sud-est d'Austràlia i és un productor important de llana?"
 	},
 	"trivia_medium_062_answer0": {
 		"message": "Nova Zelanda"
 	},
 	"trivia_medium_062_answer1": {
 		"message": "Filipines"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_063": {
+		"message": "De quin país es considera Bombai una ciutat portuària important?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "Índia"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Suïssa"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_medium_064": {
+		"message": "A quin país es troba la ciutat d'Incheon, a la mar Groga?"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "Corea del Sud"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Tailàndia"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mongòlia"
+	},
+	"trivia_medium_065": {
+		"message": "Quin país petit es troba a la frontera occidental d'Àustria?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Liechtenstein"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Síria"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Moldàvia"
+	},
+	"trivia_medium_066": {
+		"message": "A quin país podem trobar els estats de Victòria i de Nova Gal·les del Sud?"
 	},
 	"trivia_medium_066_answer0": {
 		"message": "Austràlia"
@@ -587,35 +3485,305 @@
 	"trivia_medium_066_answer2": {
 		"message": "Canadà"
 	},
+	"trivia_medium_067": {
+		"message": "Quin país situat a l'illa de Borneo té frontera amb el petit país de Brunei?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Malàisia"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Ucraïna"
+	},
+	"trivia_medium_068": {
+		"message": "Els Alps Julians estan situats a la frontera entre Itàlia i un altre país. De quin país es tracta?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Eslovènia"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Tadjikistan"
+	},
+	"trivia_medium_069": {
+		"message": "Al nord-est de quin país trobem una regió abans coneguda com a Manxúria?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "Xina"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Bielorússia"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afganistan"
+	},
+	"trivia_medium_070": {
+		"message": "Quin país limita amb El Salvador?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Hondures"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panamà"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "República Dominicana"
+	},
+	"trivia_medium_071": {
+		"message": "Quin país es troba a la serralada del Caucas?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Geòrgia"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Hongria"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andorra"
+	},
+	"trivia_medium_072": {
+		"message": "A quin país asiàtic l'estret de Sunda serveix com a separació entre dues illes?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indonèsia"
+	},
 	"trivia_medium_072_answer1": {
 		"message": "Nova Zelanda"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Laos"
+	},
+	"trivia_medium_073": {
+		"message": "A quin país, a prop de la desembocadura del riu Shannon, es poden veure valls glacials i penya-segats espectaculars?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Irlanda"
 	},
 	"trivia_medium_073_answer1": {
 		"message": "França"
 	},
+	"trivia_medium_073_answer2": {
+		"message": "Uzbekistan"
+	},
+	"trivia_medium_074": {
+		"message": "Per quin país sud-asiàtic flueix el riu Indus?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Corea del Nord"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Azerbaidjan"
+	},
+	"trivia_medium_075": {
+		"message": "Quin país limita amb la mar Roja?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Eritrea"
+	},
 	"trivia_medium_075_answer1": {
 		"message": "Ghana"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_medium_076": {
+		"message": "De quin país són estats Zacatecas i Tabasco?"
 	},
 	"trivia_medium_076_answer0": {
 		"message": "Mèxic"
 	},
+	"trivia_medium_076_answer1": {
+		"message": "Belize"
+	},
 	"trivia_medium_076_answer2": {
 		"message": "Argentina"
+	},
+	"trivia_medium_077": {
+		"message": "A quin país està situada Al-Riyad, una ciutat amb més de 4.000 mesquites?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Aràbia Saudita"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albània"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Síria"
+	},
+	"trivia_medium_078": {
+		"message": "Quin país africà no té sortida al mar?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Mauritània"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Egipte"
+	},
+	"trivia_medium_079": {
+		"message": "Quin país considera el mont Fuji un indret sagrat?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Japó"
 	},
 	"trivia_medium_079_answer1": {
 		"message": "Filipines"
 	},
+	"trivia_medium_079_answer2": {
+		"message": "Bangla Desh"
+	},
+	"trivia_medium_080": {
+		"message": "Quin país de les Grans Antilles utilitza l'anglès com a llengua oficial?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haití"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Cuba"
+	},
+	"trivia_medium_081": {
+		"message": "Quin és l'idioma oficial de Síria, Kuwait i Algèria?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "Àrab"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "Armeni"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "Alemany"
+	},
+	"trivia_medium_082": {
+		"message": "A quin muntanyós país europeu s'interpreten sovint les òperes de Mozart durant el festival anual celebrat a Salzburg?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Àustria"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Hongria"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Romania"
+	},
+	"trivia_medium_083": {
+		"message": "A quin país al nord del Sudan es troba la vall de les Balenes, un desert ple de restes fossilitzades de balenes prehistòriques?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Egipte"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nigèria"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Zàmbia"
+	},
+	"trivia_medium_084": {
+		"message": "Rotterdam es troba en un delta a prop de la mar del Nord. A quin país europeu?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Països Baixos"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Suècia"
+	},
 	"trivia_medium_084_answer2": {
 		"message": "Grècia"
+	},
+	"trivia_medium_085": {
+		"message": "En quin gran sistema muntanyós neix el riu Brahmaputra, que desemboca en un gran delta a prop de la badia de Bengala?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himàlaia"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Urals"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Alps"
+	},
+	"trivia_medium_086": {
+		"message": "El farsi, també conegut com a persa, és l'idioma oficial d'un país islàmic. Sabeu de quin país parlem?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Iran"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Líbia"
+	},
+	"trivia_medium_087": {
+		"message": "A quin país europeu es poden veure toreros a les places de bous de Sevilla?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Espanya"
 	},
 	"trivia_medium_087_answer1": {
 		"message": "Alemanya"
 	},
+	"trivia_medium_087_answer2": {
+		"message": "Macedònia"
+	},
+	"trivia_medium_088": {
+		"message": "A quin país es troba la ciutat d'Istanbul, considerada un indret de trobada de les cultures oriental i occidental?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Turquia"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Eslovàquia"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Oman"
+	},
 	"trivia_medium_089": {
 		"message": "La ciutat maia de Copán és un conegut lloc d'interès turístic de quin país fronterer amb El Salvador i Nicaragua?"
 	},
+	"trivia_medium_089_answer0": {
+		"message": "Hondures"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Xile"
+	},
 	"trivia_medium_089_answer2": {
 		"message": "Canadà"
+	},
+	"trivia_medium_090": {
+		"message": "Tombouctou, un centre del comerç trans-saharià durant gairebé un mil·lenni, es troba al nord del riu Níger. A quin país que no té sortida al mar?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namíbia"
+	},
+	"trivia_medium_091": {
+		"message": "Quin país sud-americà sense sortida al mar té frontera amb Xile i el Brasil?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Bolívia"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Colòmbia"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Guyana"
 	},
 	"trivia_medium_092": {
 		"message": "La ciutat de Belém es troba a la desembocadura sud del riu Amazones de quin país?"
@@ -623,14 +3791,107 @@
 	"trivia_medium_092_answer0": {
 		"message": "Brasil"
 	},
+	"trivia_medium_092_answer1": {
+		"message": "Costa Rica"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Surinam"
+	},
+	"trivia_medium_093": {
+		"message": "Quin riu forma gran part de la frontera nord de Bulgària?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Riu Danubi"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Riu Obi"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Riu Mekong"
+	},
+	"trivia_medium_094": {
+		"message": "Els monts Sayan es troben a prop del llac Baikal. A quin país asiàtic?"
+	},
 	"trivia_medium_094_answer0": {
 		"message": "Rússia"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "Índia"
 	},
 	"trivia_medium_094_answer2": {
 		"message": "Kirguizistan"
 	},
+	"trivia_medium_095": {
+		"message": "El llac Nipigon és el més gran de quina província canadenca?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontario"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "Colúmbia Britànica"
+	},
+	"trivia_medium_096": {
+		"message": "De quina mar més gran formen part les mars Balear i Jònica?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Mar Mediterrània"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Mar Bàltica"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Mar del Carib"
+	},
+	"trivia_medium_097": {
+		"message": "Els llacs Turkana i Natron són exemples de llacs de fossa tectònica. A quin país els trobem?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Àfrica"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_098": {
+		"message": "De quin oceà es considera que la fossa de Puerto Rico és el punt més profund?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Oceà Atlàntic"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Oceà Àrtic"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Oceà Pacífic"
+	},
+	"trivia_medium_099": {
+		"message": "El somrient ocell cucaburra és originari dels boscos d'eucaliptus situats a la part oriental d'un continent. De quin?"
+	},
 	"trivia_medium_099_answer0": {
 		"message": "Austràlia"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Àfrica"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Amèrica del Sud"
+	},
+	"trivia_medium_100": {
+		"message": "A quin país europeu trobem la ciutat de l'Haia, situada a la costa occidental i seu del Tribunal Internacional de Justícia?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Països Baixos"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Finlàndia"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Bulgària"
 	},
 	"twitter": {
 		"message": "Twitter"

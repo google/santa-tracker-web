@@ -263,11 +263,146 @@
 	"traditions-world": {
 		"message": "ലോകം"
 	},
+	"trivia_beginner_001": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിലാണ് ആൻഡെസ് പർവതനിരകൾ ഉള്ളത്?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_beginner_002": {
+		"message": "എട്ട് പ്രധാന ദ്വീപുകൾ ചേർന്ന് ഉണ്ടായിട്ടുള്ള യുഎസ് സ്റ്റേറ്റ് ഏതാണ്?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "ഹവായ്"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "ഓഹിയോ"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "അർക്കാൻസാസ്"
+	},
+	"trivia_beginner_003": {
+		"message": "ഗ്രേറ്റ് പ്ലെയിൻസിൽ സ്ഥിതിചെയ്യുന്ന യുഎസ് സ്റ്റേറ്റ് ഏതാണ്?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "കാൻസാസ്"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "ഡെലവെയർ"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "ഐഡാഹോ"
+	},
+	"trivia_beginner_004": {
+		"message": "ഏത് ഭൂഖണ്ഡമാണ് അറ്റ്‌ലാന്റിക്ക്, പസഫിക്ക്, ആർട്ടിക്ക് സമുദ്രങ്ങൾക്ക് അതിർത്തിയായി വർത്തിക്കുന്നത്?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "ഏഷ്യ"
+	},
 	"trivia_beginner_004_answer1": {
 		"message": "ഓസ്‌ട്രേലിയ"
 	},
+	"trivia_beginner_004_answer2": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_005": {
+		"message": "പസഫിക്ക് സമയ മേഖലയിൽ സ്ഥിതിചെയ്യുന്ന സ്റ്റേറ്റ് ഏതാണ്?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "കാലിഫോർണിയ"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "ജോർജ്ജിയ"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "ഇൻഡ്യാന"
+	},
+	"trivia_beginner_006": {
+		"message": "അറ്റ്‌ലസ് പർവതനിരകളും കാലഹാരി മരുഭൂമിയും സ്ഥിതിചെയ്യുന്നത് ഏത് ഭൂഖണ്ഡത്തിലാണ്?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "അന്റാര്‍ട്ടിക്ക"
+	},
+	"trivia_beginner_007": {
+		"message": "ഗ്രേറ്റ് ലേക്കിന്റെ അതിർത്തിയായി വർത്തിക്കുന്നത് ഏത് യുഎസ് സ്റ്റേറ്റാണ്?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "ഓഹിയോ"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "മോൺടാന"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "ന്യൂ മെക്സിക്കോ"
+	},
+	"trivia_beginner_008": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിലെ ഭൂരിഭാഗം ആളുകളുമാണ് പോർച്ചുഗീസോ സ്പാനിഷോ സംസാരിക്കുന്നത്?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_009": {
+		"message": "പാൻ ഹാൻഡിലിന്റെ ആകൃതിയുള്ള യുഎസ് സ്റ്റേറ്റ് ഏതാണ്?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "ഒക്‌ലഹോമ"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "വ്യോമിംഗ്"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "കൊളറാഡോ"
+	},
+	"trivia_beginner_010": {
+		"message": "തെക്കൻ ഗോളാർദ്ധത്തിൽ പൂർണ്ണമായും കിടക്കുന്നതാണ് അന്റാർട്ടിക്കയും മറ്റൊരു ഭൂഖണ്ഡവും. ഈ മറ്റൊരു ഭൂഖണ്ഡം ഏതാണ്?"
+	},
 	"trivia_beginner_010_answer0": {
 		"message": "ഓസ്‌ട്രേലിയ"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_beginner_011": {
+		"message": "ഏത് രാജ്യത്തിന്റെ അതിർത്തിയായാണ് റോണി ഐസ് ഷെൽഫ് വർത്തിക്കുന്നത്?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "അന്റാര്‍ട്ടിക്ക"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_012": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിന്റെ പടിഞ്ഞാറൻ തീരത്തുനിന്ന് ദൂരെയായാണ് വാൻകൂവർ ദ്വീപും കോഡിയാക്ക് ദ്വീപും സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "ഏഷ്യ"
 	},
 	"trivia_beginner_012_answer2": {
 		"message": "ഓസ്‌ട്രേലിയ"
@@ -275,8 +410,44 @@
 	"trivia_beginner_013": {
 		"message": "ലോകത്തിൽ അതിവേഗം ജനസംഖ്യാ വളരുന്ന രാജ്യങ്ങളിൽ ഒന്നായ നിഗെർ ഏത് ഭൂഖണ്ഡത്തിന്റെ തെക്കുപടിഞ്ഞാറൻ ഭാഗത്താണ് സ്ഥിതിചെയ്യുന്നത്?"
 	},
+	"trivia_beginner_013_answer0": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_014": {
+		"message": "ഏറ്റവും കുറവ് ചെടികളും മരങ്ങളും ഉള്ളത് ഏത് ഭൂഖണ്ഡത്തിലാണ്?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "അന്റാര്‍ട്ടിക്ക"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_015": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിലെ തെക്കേ തീരപ്രദേശത്തുള്ള ദ്വീപിൽ കാണപ്പെടുന്ന ജീവികളാണ് ടാസ്‌മാനിയൻ ഡെവിൾസ്?"
+	},
 	"trivia_beginner_015_answer0": {
 		"message": "ഓസ്‌ട്രേലിയ"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_016": {
+		"message": "പ്രധാന ടൂറിസ്റ്റ് ആകർഷണ കേന്ദ്രമായ പിസയിലെ ചരിയുന്ന ഗോപുരം ഏത് മെഡിറ്ററേനിയൻ രാജ്യത്താണ് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "ഇറ്റലി"
 	},
 	"trivia_beginner_016_answer1": {
 		"message": "കാനഡ"
@@ -284,47 +455,419 @@
 	"trivia_beginner_016_answer2": {
 		"message": "ഘാന"
 	},
+	"trivia_beginner_017": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിന്റെ വടക്കേ തീരത്തുള്ള ചരിത്ര നഗരങ്ങളാണ് കസബ്ലാങ്കയും ട്രിപ്പോളിയും?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "അന്റാര്‍ട്ടിക്ക"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_018": {
+		"message": "സൊണോരൻ മരുഭൂമിയിൽ കാണപ്പെടുന്ന ചെടിയാണ് സാഗുവാരോ കാക്റ്റസ്. ഈ മരുഭൂമി ഏത് ഭൂഖണ്ഡത്തിലാണുള്ളത്?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_beginner_019": {
+		"message": "ഏത് രാജ്യത്തെ ജനപ്രിയമായ അവധിക്കാല ടൂറിസ്റ്റ് കേന്ദ്രങ്ങളാണ് വെരാക്രൂസും അകാപുൽകോയും?"
+	},
 	"trivia_beginner_019_answer0": {
 		"message": "മെക്‌സിക്കോ"
 	},
 	"trivia_beginner_019_answer1": {
 		"message": "അർജന്റീന"
 	},
+	"trivia_beginner_019_answer2": {
+		"message": "ഇന്ത്യ"
+	},
 	"trivia_beginner_020": {
 		"message": "ലോകത്തെ പാണ്ടകളിൽ 30 ശതമാനവും ഉള്ള, സിചുവാൻ ജയന്റ് പാണ്ട സങ്കേതം സ്ഥിതി ചെയ്യുന്നത് ഏത് രാജ്യത്താണ്?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "ചൈന"
 	},
 	"trivia_beginner_020_answer1": {
 		"message": "ഐസ്‌ലാന്റ്"
 	},
+	"trivia_beginner_020_answer2": {
+		"message": "എത്യോപ്യ"
+	},
 	"trivia_beginner_021": {
 		"message": "ലോകത്തെ മഞ്ഞുകട്ടയുടെ ഏതാണ്ട് 90 ശതമാനവും ഉള്ളത് ഏത് ഭൂഖണ്ഡത്തിലാണ്?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "അന്റാര്‍ട്ടിക്ക"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "യൂറോപ്പ്"
 	},
 	"trivia_beginner_022": {
 		"message": "ലോകത്തെ ഏറ്റവും വലിയ വെള്ളച്ചാട്ടമായ ഏഞ്ചൽ ഫാൾസ് ഏത് ഭൂഖണ്ഡത്തിലാണ് സ്ഥിതി ചെയ്യുന്നത്?"
 	},
+	"trivia_beginner_022_answer0": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
 	"trivia_beginner_022_answer1": {
 		"message": "ഓസ്‌ട്രേലിയ"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_023": {
+		"message": "ജാക്ക്‌സൺ ഹോൾ സന്ദർശിക്കുന്നതിനും ഡെവിൾസ് ടവറിൽ കയറുന്നതിനും ഏത് യുഎസ് സ്റ്റേറ്റാണ് സന്ദർശിക്കേണ്ടത്?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "വ്യോമിംഗ്"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "നോർത്ത് ഡക്കോട്ട"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "കണക്റ്റിക്യൂട്ട്"
+	},
+	"trivia_beginner_024": {
+		"message": "മേപ്പിൾ പാലെടുക്കുന്നത് കാണുന്നതിനും ഗ്രീൻ പർവതനിരകളിൽ സ്കീയിംഗ് നടത്തുവാനും ഏത് യുഎസ് നഗരമാണ് സന്ദർശിക്കേണ്ടത്?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "വെർമോണ്ട്"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "ഒറെഗോൺ"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "അരിസോണ"
+	},
+	"trivia_beginner_025": {
+		"message": "ചെസപീകെ ബേ റിഡ്ജിലൂടെ വാഹനമോടിക്കാനും ഓഷ്യൻ സിറ്റിയിലെ ബോർഡ്‌വാക്കിൽ നടക്കുന്നതിനും ഏത് യുഎസ് സ്റ്റേറ്റാണ് സന്ദർശിക്കേണ്ടത്?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "മേരിലാൻഡ്"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "കാൻസാസ്"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "നോർത്ത് കരോലിന"
+	},
+	"trivia_beginner_026": {
+		"message": "മാമ്മത്ത് ഗുഹ കാണുന്നതിനും ചർച്ചിൽ ഡൗൺസിൽ ഒരു കുതിരപ്പന്തയം കാണുന്നതിനും ഏത് യുഎസ് സ്റ്റേറ്റിലേക്കാണ് നിങ്ങൾ പോകേണ്ടത്?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "കെന്റുക്കി"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "വെസ്റ്റ് വിർജിനിയ"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "ഉടാഹ്"
+	},
+	"trivia_beginner_027": {
+		"message": "ഭീമൻ സെക്കോയ മരങ്ങളെ കാണാനും ചാനൽ ദ്വീപുകൾ കാണുന്നതിനും ഏത് യുഎസ് സ്റ്റേറ്റാണ് സന്ദർശിക്കേണ്ടത്?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "കാലിഫോർണിയ"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "ന്യൂ ജെഴ്സി"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "വിർജീനിയ"
+	},
+	"trivia_beginner_028": {
+		"message": "യുഎസ് സ്റ്റേറ്റായ ഫ്ലോറിഡയിലാണ് നിങ്ങൾ ഉള്ളതെങ്കിൽ ഏത് ചതുപ്പുപ്രദേശമാണ് (വെറ്റ്‌ലാൻഡ്) നിങ്ങൾ സന്ദർശിക്കുക?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "എവർഗ്ലേഡ്സ്"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "ഡിസ്‌മൽ ചതുപ്പ്"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "ഗ്രേറ്റ് സൈപ്രസ് സ്വാമ്പ്"
+	},
+	"trivia_beginner_029": {
+		"message": "സെന്റ് ലോറൻസ് സീവേയിലും ഫിംഗർ തടാകങ്ങളിലും ചുറ്റുന്നതിന് ഏത് യുഎസ് നഗരത്തിലേക്കാണ് നിങ്ങൾ പോകേണ്ടത്?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "ന്യൂയോര്‍ക്ക്"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "മിച്ചിഗൺ"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "നെവാഡ"
+	},
+	"trivia_beginner_030": {
+		"message": "ലോകത്തിലെ ഏറ്റവും വലിയ പർവതമായ ഹിമാലയ പർവതം ഏത് ഭൂഖണ്ഡത്തിലാണ് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "അന്റാര്‍ട്ടിക്ക"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_031": {
+		"message": "ഒരു ഭൂഖണ്ഡത്തിന്റെ ഭൂരിഭാഗം തെക്കൻ ഭാഗവും പരന്നുകിടക്കുന്നതാണ് പറ്റഗോണിയ മേഖല, ഏതാണ് ഈ ഭൂഖണ്ഡം?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_beginner_032": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിലാണ് എംപറർ പെൻഗ്വിനുകളെ അവയുടെ സ്വാഭാവിക ആവാസവ്യവസ്ഥയിൽ കണ്ടെത്താനാവുക?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "അന്റാര്‍ട്ടിക്ക"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_033": {
+		"message": "കങ്കാരുവിനെയും കോലകളെയും കാണാൻ ഏത് രാജ്യത്ത് പോകണം?"
 	},
 	"trivia_beginner_033_answer0": {
 		"message": "ഓസ്‌ട്രേലിയ"
 	},
+	"trivia_beginner_033_answer1": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_034": {
+		"message": "ടൂറിസ്റ്റുകളെ വന്യജീവികൾ ആകർഷിക്കുന്ന സെരെൻഗെറ്റി നാഷണൽ പാർക്ക് ഏത് ഭൂഖണ്ഡത്തിലാണുള്ളത്?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "ഏഷ്യ"
+	},
 	"trivia_beginner_034_answer2": {
 		"message": "ഓസ്‌ട്രേലിയ"
+	},
+	"trivia_beginner_035": {
+		"message": "ഏറ്റവും കൂടുതൽ കരയുള്ളത് ഏത് ഭൂഖണ്ഡത്തിലാണ്?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "ഏഷ്യ"
 	},
 	"trivia_beginner_035_answer1": {
 		"message": "ഓസ്‌ട്രേലിയ"
 	},
+	"trivia_beginner_035_answer2": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_036": {
+		"message": "ഏത് യൂറോപ്യൻ നഗരത്തിലാണ് തേംസ് നദിക്ക് കുറുകെ ടവർ ബ്രിഡ്ജ് എന്ന പേരിൽ ഒരു പാലമുള്ളത്?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "ലണ്ടന്‍"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "ഹവാന"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "കേപ് ടൗൺ"
+	},
 	"trivia_beginner_037": {
 		"message": "ക്രെംലിന് അടുത്തുള്ള റെഡ് സ്ക്വയറിൽ സ്ഥിതിചെയ്യുന്ന സെയിന്റ് ബേസിൽസ് കത്തീഡ്രൽ ഏത് റഷ്യൻ നഗരത്തിലാണുള്ളത്?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "മോസ്‌കോ"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "ബ്രസ്സല്‍സ്"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "മൊണ്ടെവീഡിയോ"
 	},
 	"trivia_beginner_038": {
 		"message": "ഗ്ലാഡിയേറ്റർ മൽസരങ്ങൾക്കുള്ള ഒരു സ്ഥലമായി എഡി ഒന്നാം നൂറ്റാണ്ടിൽ നിർമ്മിച്ച കൊളോസിയം ഏത് യൂറോപ്യൻ നഗരത്തിലാണ് സ്ഥിതിചെയ്യുന്നത്?"
 	},
+	"trivia_beginner_038_answer0": {
+		"message": "റോം"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "ഖാര്‍തൌം"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "മനില"
+	},
+	"trivia_beginner_039": {
+		"message": "ഏത് ഓസ്ട്രിയൽ രാജ്യത്താണ് ഓപ്പറ ഹൗസും ഹാർബർ ബ്രിഡ്ജും സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "സിഡ്നി"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "ജക്കാര്‍ത്ത"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "പ്രേഗ്"
+	},
+	"trivia_beginner_040": {
+		"message": "ഒരു മിഡിൽ ഈസ്റ്റേൺ നഗരത്തിന്റെ, പഴയ നഗര ചുവരുകൾക്കുള്ളിൽ കണ്ടെത്തിയ അനേകം പുണ്യസ്ഥലങ്ങളിൽ രണ്ടെണ്ണമാണ് ഡോം ഓഫ് ദ റോക്കും വെസ്റ്റേൺ ഹാളും. ഏതാണ് ഈ നഗരം?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "ജെറുസലേം"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "ടോക്കിയോ"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "അള്‍ജീസ്"
+	},
+	"trivia_beginner_041": {
+		"message": "ഗ്രീസിലെ ഏത് നഗരത്തിലെ അക്രോപൊലിസിന് മുകളിലാണ് പാർത്തെനോൺ നിൽക്കുന്നത്?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "ഏതന്‍സ്"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "കീവ്"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "ലിമ"
+	},
+	"trivia_beginner_042": {
+		"message": "സീനി നദിക്കരെ സ്ഥിതിചെയ്യുന്ന ഈഫൽ ടവർ ഏത് ഫ്രഞ്ച് നഗര മധ്യത്തിന് അഭിമുഖമായാണ് നിൽക്കുന്നത്?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "പാരീസ്"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "ടൊറണ്ടോ"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "ന്യൂഡൽഹി"
+	},
+	"trivia_beginner_043": {
+		"message": "അൽ-ഹാറം മോസ്കിൽ സ്ഥിതിചെയ്യുന്ന കഅബ, മുസ്ലീം മതാനുയായികളുടെ പുണ്യസ്ഥലമാണ്. ഏത് സൗദി അറേബ്യൻ രാജ്യത്തിലാണ് ഇതുള്ളത്?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "മെക്ക"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "ബ്യൂണസ് അയേഴ്സ്"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "ബുഡാപെസ്റ്റ്"
+	},
+	"trivia_beginner_044": {
+		"message": "ഏത് ചൈനീസ് നഗരത്തിന്റെ നടുവിൽ സ്ഥിതിചെയ്യുന്ന, മുമ്പത്തെ രാജകീയ കൊട്ടാരമാണ് ഫോർബിഡൻ സിറ്റി?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "ബീജിംഗ്"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "സാന്‍റിയാഗോ"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "ബ്രിസ്‌ബേയ്ന്‍"
+	},
+	"trivia_beginner_045": {
+		"message": "പ്യൂജിറ്റ് സൗണ്ടിലെ ഏത് യുഎസ് നഗരത്തിലാണ് സ്പേസ് നീഡിൽ എന്ന വാനനിരീക്ഷണാലയം ഉള്ളത്?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "സിയാറ്റിൽ"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "വിചിറ്റ"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "ന്യൂ ഓർലിയാൻസ്"
+	},
+	"trivia_beginner_046": {
+		"message": "ചാർലസ് നദിക്കരെ സ്ഥിതിചെയ്യുന്ന ഏത് യുഎസ് നഗരത്തിലെ ഏറ്റവും വലിയ കെട്ടിടമാണ് ജോൺ ഹാൻകോക്ക് ടവർ?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "ബോസ്റ്റൺ"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "പിറ്റ്‌സ്ബർഗ്"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "മെംഫിസ്"
+	},
+	"trivia_beginner_047": {
+		"message": "പ്രശസ്ത ബുലെവാഡിന് തൊട്ട് തെക്ക് സ്ഥിതിചെയ്യുന്ന സ്ട്രാറ്റോസ്ഫിയർ ടവറിനെ ദ സ്ട്രിപ്പ് എന്നും വിളിക്കുന്നു. മൊജാവെ മരുഭൂമിയിലുള്ള ഏത് യുഎസ് നഗരത്തിലെ ഏറ്റവും വലിയ കെട്ടിടമാണിത്?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "ലസ് വെഗാസ്"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "മിനിയാപോലിസ്"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "ഡെന്‍‌വര്‍"
+	},
+	"trivia_beginner_048": {
+		"message": "ഏത് യുഎസ് നഗരത്തിലെ ലിബർട്ടി ഐലന്റിലാണ് വമ്പൻ പ്രതിമയായ സ്റ്റാച്യൂ ഓഫ് ലിബർട്ടി നിലകൊള്ളുന്നത്?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "ന്യൂയോർക്ക് നഗരം"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "അറ്റ്‌ലാന്റ"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "ലോസ് എയ്ഞ്ചലസ്"
+	},
 	"trivia_beginner_049": {
 		"message": "ഏത് യുഎസ് നഗരത്തെ മാരിൻ പെനിൻസുലയുമായി ബന്ധിപ്പിക്കുന്നതാണ് ഗോൾഡൻ ഗേറ്റ് ബ്രിഡ്‌ജ്?"
 	},
+	"trivia_beginner_049_answer0": {
+		"message": "സാന്‍ ഫ്രാന്‍സിസ്കോ"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "ബൊയ്സി"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "ബാൾട്ടിമോർ"
+	},
 	"trivia_beginner_050": {
 		"message": "അമേരിക്കയുടെ 1800-കളിലെ പടിഞ്ഞാറോട്ടുള്ള വിപുലീകരണത്തെ സൂചിപ്പിക്കുന്ന ഗേറ്റ്‌വേ ആർക്ക് ഉള്ളത് മിസിസിപ്പി നദിക്കരയിലാണ്, ഏത് യുഎസ് നഗരത്തിലാണിത് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "സെന്റ് ലൂയീസ്"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "ഇന്‍ഡ്യാനാപോലീസ്"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "മിയാമി"
+	},
+	"trivia_beginner_051": {
+		"message": "മഹത്തായ പിരമിഡും സ്ഫിൻക്സും നിലകൊള്ളുന്ന ഗിസ പീഠഭൂമി ഏത് ആഫ്രിക്കൻ രാജ്യത്താണുള്ളത്?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "ഈജിപ്റ്റ്"
 	},
 	"trivia_beginner_051_answer1": {
 		"message": "ബ്രസീൽ"
@@ -332,38 +875,341 @@
 	"trivia_beginner_051_answer2": {
 		"message": "ജർമ്മനി"
 	},
+	"trivia_beginner_052": {
+		"message": "അമേരിക്കൻ വിപ്ലവവുമായി ബന്ധപ്പെട്ട പ്രധാനപ്പെട്ട ചരിത്ര സ്മാരകമായ ഇൻഡിപെൻഡൻസ് ഹാൾ സ്ഥിതിചെയ്യുന്നത് ഡെലവെയർ നദിക്ക് അടുത്താണ്. ഏത് യുഎസ് നഗരത്തിലാണ് ഈ ചരിത്ര സ്മാരകമുള്ളത്?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "ഫിലാഡെൽഫിയ"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "സാൻ അന്റോണിയോ"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "ചിക്കാഗോ"
+	},
+	"trivia_beginner_053": {
+		"message": "കാനഡയ്ക്കും മറ്റൊരു രാജ്യത്തിനും കുറുകെയാണ് റോക്കി പർവത നിര കടന്നുപോകുന്നത്, ഏതാണാ രാജ്യം?"
+	},
 	"trivia_beginner_053_answer0": {
 		"message": "യുണൈറ്റഡ് സ്റ്റേറ്റ്സ്"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "വെനിസ്വേല"
 	},
 	"trivia_beginner_053_answer2": {
 		"message": "റഷ്യ"
 	},
+	"trivia_beginner_054": {
+		"message": "ബ്രസീലും ഉറുഗ്വെയും ഏത് സമുദ്രത്തിന് അതിർത്തിയായാണ് വർത്തിക്കുന്നത്?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "അറ്റ്ലാന്‍റിക് സമുദ്രം"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "ഇന്ത്യൻ മഹാസമുദ്രം"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "ആർട്ടിക്ക് സമുദ്രം"
+	},
+	"trivia_beginner_055": {
+		"message": "ഏത് സമുദ്രത്തിലുള്ള, കാനഡയുടെ കിഴക്കേ തീരത്തുനിന്ന് മാറിയാണ് ന്യൂഫൗണ്ട്‌ലാൻഡ് ദ്വീപ് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "അറ്റ്ലാന്‍റിക് സമുദ്രം"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "ഇന്ത്യൻ മഹാസമുദ്രം"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "പസഫിക്ക് സമുദ്രം"
+	},
+	"trivia_beginner_056": {
+		"message": "ആഫ്രിക്കയുടെ പടിഞ്ഞാറൻ തീരത്തുനിന്ന് അകന്ന് സ്ഥിതിചെയ്യുന്ന മഡഗാസ്കർ ദ്വീപ് ഏത് സമുദ്രത്തിലാണുള്ളത്?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "ഇന്ത്യൻ മഹാസമുദ്രം"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "പസഫിക്ക് സമുദ്രം"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "ആർട്ടിക്ക് സമുദ്രം"
+	},
+	"trivia_beginner_057": {
+		"message": "അന്തർദ്ദേശീയ തീയതി രേഖയുടെ (ഇന്റർനഷണൽ ഡേറ്റ് ലൈൻ) ഭൂരിഭാഗവും കടന്നുപോകുന്നത് ഏത് സമുദ്രത്തിന്റെ നടുവിലൂടെയാണ്?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "പസഫിക്ക് സമുദ്രം"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "ഇന്ത്യൻ മഹാസമുദ്രം"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "അറ്റ്ലാന്‍റിക് സമുദ്രം"
+	},
+	"trivia_beginner_058": {
+		"message": "ഭൂമധ്യരേഖ കടന്നുപോകുന്ന കോംഗോ ബേസിൻ ഏത് ഭൂഖണ്ഡത്തിലാണുള്ളത്?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "ആഫ്രിക്ക"
+	},
 	"trivia_beginner_058_answer1": {
 		"message": "ഓസ്‌ട്രേലിയ"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_059": {
+		"message": "മെക്സിക്കോ ഉൾക്കടലിന്റെ അതിർത്തിയായി വർത്തിക്കുന്നത് ഏത് ഭൂഖണ്ഡമാണ്?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_beginner_060": {
+		"message": "ആഫ്രിക്കയിലൂടെ ഒഴുകുന്ന ഏത് നദിയാണ് ലോകത്തിലെ ഏറ്റവും വലിയ നദി?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "നൈൽ നദി"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "കൊളറാഡോ നദി"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "ഓറഞ്ച് നദി"
+	},
+	"trivia_beginner_061": {
+		"message": "മാച്ചു പിച്ചുവിന്റെ പുരാതന അവശിഷ്ടങ്ങൾ ഏത് ഭൂഖണ്ഡത്തിലാണ് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "അന്റാര്‍ട്ടിക്ക"
+	},
+	"trivia_beginner_062": {
+		"message": "ലോകത്തിലെ മറ്റേതൊരു നദിയേക്കാളും വെള്ളമുള്ള ആമസോൺ നദി ഒഴുകുന്നത് ഏത് രാജ്യത്തിലൂടെയാണ്?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "തെക്കേ അമേരിക്ക"
 	},
 	"trivia_beginner_062_answer1": {
 		"message": "ഓസ്‌ട്രേലിയ"
 	},
+	"trivia_beginner_062_answer2": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_beginner_063": {
+		"message": "ആൽപ്സ് പർവതനിരയിലെ ഏറ്റവും വലിയ പർവതമായ മോണ്ട് ബ്ലാൻക് സ്ഥിതിചെയ്യുന്നത് ഏത് ഭൂഖണ്ഡത്തിലാണ്?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_064": {
+		"message": "മധ്യ അമേരിക്കയെയും ഒരു ഭൂഖണ്ഡത്തെയും ബന്ധിപ്പിക്കുന്നതാണ് ഇസ്ത്‌മസ് ഓഫ് പനാമ. ഏതാണ് ഈ ഭൂഖണ്ഡം?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_065": {
+		"message": "കെനിയയിലും താൻസാനിയയിലുമാണ് ലോകത്തിലെ ഏറ്റവും വേഗത കൂടിയ സസ്തനികളായ ചീറ്റകൾ കാണപ്പെടുന്നത്. ഏത് ഭൂഖണ്ഡത്തിലാണ് ഈ രാജ്യങ്ങൾ ഉള്ളത്?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_066": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിന്റെ തെക്കേ അറ്റത്താണ് ഗുഡ് ഹോപ്പ് മുനമ്പ് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "യൂറോപ്പ്"
+	},
 	"trivia_beginner_067": {
 		"message": "തെക്കേ അമേരിക്കയുടെ പടിഞ്ഞാറ് സ്ഥിതിചെയ്യുന്ന ഗാലപാഗോസ് ദ്വീപുകളിൽ ഭീമൻ ആമകളെ കണ്ടുവരുന്നു, ഏത് സമുദ്രത്തിലാണ് ഈ ദ്വീപുകൾ ഉള്ളത്?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "പസഫിക്ക് സമുദ്രം"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "ആർട്ടിക്ക് സമുദ്രം"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "ഇന്ത്യൻ മഹാസമുദ്രം"
+	},
+	"trivia_beginner_068": {
+		"message": "വിയന്നയിലൂടെയും മറ്റ് നഗരങ്ങളിലൂടെയും ഡാന്യൂബ് നദി ഒഴുകുന്നു. എന്നാലിത് ഏത് ഭൂഖണ്ഡത്തിലാണുള്ളത്?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "യൂറോപ്പ്"
 	},
 	"trivia_beginner_068_answer1": {
 		"message": "ഓസ്‌ട്രേലിയ"
 	},
+	"trivia_beginner_068_answer2": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_beginner_069": {
+		"message": "ഏത് കടലിന്റെ അതിർത്തികളാണ് ദ്വീപുകളായ ക്യൂബയും ഹിസ്‌പാനിയോളയും?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "കരീബിയൻ കടൽ"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "ബെരിംഗ് കടൽ"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "ബാൾട്ടിക്ക് കടൽ"
+	},
+	"trivia_beginner_070": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിന് അതിർത്തിയായിട്ടാണ് ഗിനിയ ഉൾക്കടൽ വർത്തിക്കുന്നത്?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "ആഫ്രിക്ക"
+	},
 	"trivia_beginner_070_answer1": {
 		"message": "ഓസ്‌ട്രേലിയ"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_071": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തെയാണ് ഏണസ്റ്റ് ഷാക്കിൾട്ടൺ എന്ന പര്യവേക്ഷകന്റെ പേരുമായി ബന്ധിപ്പിക്കാനാവുക?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "അന്റാര്‍ട്ടിക്ക"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_072": {
+		"message": "ഏത് സമുദ്രത്തിന്റെ ഭാഗമാണ് ലാബ്രഡോർ കടൽ?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "അറ്റ്ലാന്‍റിക് സമുദ്രം"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "ഇന്ത്യൻ മഹാസമുദ്രം"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "പസഫിക്ക് സമുദ്രം"
+	},
+	"trivia_beginner_073": {
+		"message": "ലോകത്തിലെ ഏറ്റവും വലിയ മരുഭൂമിയായ സഹാറ സ്ഥിതിചെയ്യുന്നത് ഏത് ഭൂഖണ്ഡത്തിലാണ്?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "അന്റാര്‍ട്ടിക്ക"
+	},
+	"trivia_beginner_074": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിലാണ് ടിബറ്റ് പീഠഭൂമി സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_075": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിന് തെക്കായിട്ടാണ് ഡ്രേക്ക് പാസ്സേജ് കിടക്കുന്നത്?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "യൂറോപ്പ്"
 	},
 	"trivia_beginner_075_answer2": {
 		"message": "ഓസ്‌ട്രേലിയ"
 	},
+	"trivia_beginner_076": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിന്റെ തീരത്തുനിന്ന് മാറിയുള്ള കോറൽ കടലിലാണ് ഗ്രേറ്റ് ബാരിയർ റീഫ് സ്ഥിതിചെയ്യുന്നത്?"
+	},
 	"trivia_beginner_076_answer0": {
 		"message": "ഓസ്‌ട്രേലിയ"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "വടക്കേ അമേരിക്ക"
 	},
 	"trivia_beginner_077": {
 		"message": "സൂയസ് കനാലിലൂടെ സഞ്ചരിക്കാനും കെയ്റോയിലെ സിറ്റി ഓഫ് ദ ഡെത്ത് സന്ദർശിക്കാനും നിങ്ങൾ ഏത് രാജ്യത്തേക്കാണ് പോകേണ്ടത്?"
 	},
+	"trivia_beginner_077_answer0": {
+		"message": "ഈജിപ്റ്റ്"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "കൊളംബിയ"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "ഫിന്‍‌ലാന്റ്"
+	},
+	"trivia_beginner_078": {
+		"message": "ഗൗച്ചോകൾ കന്നുകാലികളെ മേയ്ക്കുന്നത് കാണാനും ബ്യൂണസ് അയേഴ്സിലെ ടാൻഗോ നർത്തകരെ കാണാനും ഏത് രാജ്യത്തേക്കാണ് പോകേണ്ടത്?"
+	},
 	"trivia_beginner_078_answer0": {
 		"message": "അർജന്റീന"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "നൈജർ"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "നേപ്പാൾ"
+	},
+	"trivia_beginner_079": {
+		"message": "ഫെസ് നഗരത്തിലെ പഴയ കോട്ട സന്ദർശിക്കുന്നതിനും അറ്റ്‌ലസ് പർവതനിരകളിൽ ഹൈക്കിംഗ് നടത്തുന്നതിനും നിങ്ങൾ ഏത് രാജ്യത്തേക്കാണ് പോകേണ്ടത്?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "മൊറോക്കോ"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "ഇക്വഡോർ"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "തായ്‌ലന്റ്"
 	},
 	"trivia_beginner_080": {
 		"message": "പുരാതന മായൻ അവശിഷ്ടങ്ങൾ സന്ദർശിക്കുന്നതിനും കാൻകൻ ബീച്ചുകളിൽ നീന്തുന്നതിനും ഏത് രാജ്യത്തേക്കാണ് പോകേണ്ടത്?"
@@ -371,8 +1217,23 @@
 	"trivia_beginner_080_answer0": {
 		"message": "മെക്‌സിക്കോ"
 	},
+	"trivia_beginner_080_answer1": {
+		"message": "നെതർലാന്റ്സ്"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "ടർക്കി"
+	},
 	"trivia_beginner_081": {
 		"message": "ഡബ്ലിനിലെ സെയിന്റ് പാട്രിക്ക് കത്തീഡ്രൽ സന്ദർശിക്കാനും കിൽകെന്നിയിലെ ആർട്ട് ഫെസ്റ്റിവൽ ആസ്വദിക്കാനും ഏത് രാജ്യത്തേക്കാണ് പോകേണ്ടത്?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "അയർലൻഡ്"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "സോമാലിയ"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "കോസ്റ്റാറിക്ക"
 	},
 	"trivia_beginner_082": {
 		"message": "മഴക്കാടുകളിൽ ഒരു യാത്ര നടത്തുന്നതിനും റിയോ ഡി ജനിറോയിലെ കാർണിവൽ ആഘോഷത്തിൽ പങ്കെടുക്കുന്നതിനും ഏത് രാജ്യമാണ് നിങ്ങൾ സന്ദർശിക്കേണ്ടത്?"
@@ -383,26 +1244,419 @@
 	"trivia_beginner_082_answer1": {
 		"message": "യുണൈറ്റഡ് കിംഗ്‌ഡം"
 	},
+	"trivia_beginner_082_answer2": {
+		"message": "വിയറ്റ്നാം"
+	},
+	"trivia_beginner_083": {
+		"message": "സെയിന്റ് പീറ്റേഴ്‌ബർഗിലെ ഹെർമിറ്റേജ് മ്യൂസിയം കാണാനും ട്രാൻസ്-സൈബീരിയൻ റെയിൽവേയിലൂടെ ഒരു സവാരി നടത്തുന്നതിനും ഏത് രാജ്യത്തേക്കാണ് നിങ്ങൾ പോകേണ്ടത്?"
+	},
 	"trivia_beginner_083_answer0": {
 		"message": "റഷ്യ"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "ഇന്തോനേഷ്യ"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "ബെലീസ്"
+	},
+	"trivia_beginner_084": {
+		"message": "അതിവേഗതയിലുള്ള തീവണ്ടിയിൽ കയറാനും ടോക്കിയോ ഹോട്ടലിൽ ഒരു രാത്രി തങ്ങാനും ഏത് രാജ്യമാണ് സന്ദർശിക്കേണ്ടത്?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "ജപ്പാൻ"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "സിംബാബ്‌വേ"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "ബൊളീവിയ"
+	},
+	"trivia_beginner_085": {
+		"message": "ജെനോവയിലെ പെസ്റ്റോ കഴിക്കാനും ഫ്ലോറൻസിലെ ഓപ്പറ കാണാനും ഏത് രാജ്യത്തേക്കാണ് പോകേണ്ടത്?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "ഇറ്റലി"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "പരാഗ്വേ"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "ലിബിയ"
+	},
+	"trivia_beginner_086": {
+		"message": "മാസായ് മാര നാച്വർ റിസർവിൽ സഫാരി നടത്തുന്നതിനും നെയ്റോബിയിൽ ഷോപ്പിംഗ് ചെയ്യുന്നതിനും ഏത് രാജ്യമാണ് സന്ദർശിക്കേണ്ടത്?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "കെനിയ"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "ദക്ഷിണ കൊറിയ"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "ചിലി"
+	},
+	"trivia_beginner_087": {
+		"message": "ഗംഗാ നദി കാണുന്നതിനും കൊൽക്കൊത്തയിലെ തിരക്കേറിയ വീഥികളിലൂടെ സഞ്ചരിക്കുന്നതിനും ഏത് രാജ്യമാണ് സന്ദർശിക്കേണ്ടത്?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "ഇന്ത്യ"
 	},
 	"trivia_beginner_087_answer1": {
 		"message": "ജർമ്മനി"
 	},
+	"trivia_beginner_087_answer2": {
+		"message": "ജോർദ്ദാൻ"
+	},
+	"trivia_beginner_088": {
+		"message": "ഭൂമിയുടെ ഏറ്റവും തെക്കുള്ള ബിന്ദുവായ ഉത്തരധ്രുവം സ്ഥിതിചെയ്യുന്നത് ഏത് സമുദ്രത്തിന്റെ നടുക്കാണ്?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "ആർട്ടിക്ക് സമുദ്രം"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "പസഫിക്ക് സമുദ്രം"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "ഇന്ത്യൻ മഹാസമുദ്രം"
+	},
+	"trivia_beginner_089": {
+		"message": "ഏത് രാജ്യമാണ് അറ്റ്‌ലാന്റിക്ക് സമുദ്രത്തിന്റെ അതിർത്തിയായി വർത്തിക്കുന്നത്?"
+	},
 	"trivia_beginner_089_answer0": {
 		"message": "ഐസ്‌ലാന്റ്"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "പാക്കിസ്ഥാൻ"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "ജപ്പാൻ"
+	},
+	"trivia_beginner_090": {
+		"message": "ഊഷ്മളമായ കാലാവസ്ഥയും ജനപ്രിയ ബീച്ചുകളും ഉള്ളതിനാൽ സൺഷൈൻ ബീച്ച് എന്ന് അറിയപ്പെടുന്ന യുഎസ് സ്റ്റേറ്റ് ഏതാണ്?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "ഫ്ലോറിഡ"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "മെയ്‌ൻ"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "വാഷിംഗ്‌ടൺ"
+	},
+	"trivia_beginner_091": {
+		"message": "ഏത് യുഎസ് സ്റ്റേറ്റിലാണ് ഗ്രാൻഡ് കാന്യോൺ സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "അരിസോണ"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "വെസ്റ്റ് വിർജിനിയ"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "സൗത്ത് ഡക്കോട്ട"
+	},
+	"trivia_beginner_092": {
+		"message": "ഒരു യുഎസ് സ്റ്റേറ്റ് അറിയപ്പെടുന്നത് ലോൺ സ്റ്റാർ സ്റ്റേറ്റ് എന്നാണ്, പതാകയിൽ ഒറ്റ നക്ഷത്രമുള്ള ഈ സ്റ്റേറ്റ് ഒരിക്കലൊരു സ്വതന്ത്ര രാജ്യവുമായിരുന്നു, ഏതാണ് ഈ സ്റ്റേറ്റ്?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "ടെക്സാസ്"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "വിസ്‌കോൻസിൻ"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "മേരിലാൻഡ്"
+	},
+	"trivia_beginner_093": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിലാണ് ടൈഗ്രിസ് നദിയും യൂഫ്രട്ടീസ് നദിയും സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "അന്റാര്‍ട്ടിക്ക"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_beginner_094": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിലാണ് വിക്ടോറിയ തടാകവും വിരുൻഗ പരവത നിരകളും സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_beginner_095": {
+		"message": "ഏത് രാജ്യമാണ് പസഫിക്ക് സമുദ്രത്തിലെ ഒരു ദ്വീപുരാജ്യം?"
 	},
 	"trivia_beginner_095_answer0": {
 		"message": "ന്യൂസിലാന്റ്‌"
 	},
+	"trivia_beginner_095_answer1": {
+		"message": "ദക്ഷിണാഫ്രിക്ക"
+	},
 	"trivia_beginner_095_answer2": {
 		"message": "ഐസ്‌ലാന്റ്"
+	},
+	"trivia_beginner_096": {
+		"message": "സ്കാൻഡിനേവിയൻ പെനിൻസുലയിൽ സ്ഥിതിചെയ്യുന്ന രാജ്യമേത്?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "സ്വീഡൻ"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "റുമാനിയ"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "പെറു"
+	},
+	"trivia_beginner_097": {
+		"message": "മെഡിറ്ററേനിയൻ കടലിന് അതിർത്തിയായി വർത്തിക്കുന്ന രാജ്യമേതാണ്?"
 	},
 	"trivia_beginner_097_answer0": {
 		"message": "ഫ്രാൻസ്"
 	},
+	"trivia_beginner_097_answer1": {
+		"message": "ബംഗ്ലാദേശ്"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "നിക്കരാഗ്വ"
+	},
+	"trivia_hard_001": {
+		"message": "കാനഡയുടെ അതിർത്തിയോട് തൊട്ടടുത്ത് കിടക്കുന്ന യുഎസ് നഗരമേതാണ്?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "സിയാറ്റിൽ"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "സാക്രമെന്റോ"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "ഒമാഹ"
+	},
+	"trivia_hard_002": {
+		"message": "ചുഴലിക്കാറ്റ് അനുഭവപ്പെടാൻ ഏറ്റവും സാധ്യതയുള്ള യുഎസ് നഗരമേത്?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "മിയാമി"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "ലോസ് എയ്ഞ്ചലസ്"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "പിറ്റ്‌സ്ബർഗ്"
+	},
+	"trivia_hard_003": {
+		"message": "ഇവയിലേത് തടാകത്തിനാണ് ഏറ്റവും വലിയ ഉപരിതല വിസ്തീർണ്ണം ഉള്ളത്?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "ഹുറോൺ തടാകം"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "മീഡ് തടാകം"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "ഈരി തടാകം"
+	},
+	"trivia_hard_004": {
+		"message": "ഈ യുഎസ് നഗരങ്ങളിൽ ഏതിലാണ് ഏറ്റവും ജനസംഖ്യയുള്ളത്?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "ചിക്കാഗോ"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "സെന്റ് ലൂയീസ്"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "ഇന്‍ഡ്യാനാപോലീസ്"
+	},
+	"trivia_hard_005": {
+		"message": "പേർഷ്യൻ ഗൾഫിന് ഏറ്റവും അടുത്ത് സ്ഥിതിചെയ്യുന്ന രാജ്യമേത്?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "ഇറാൻ"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "ടർക്കി"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "ഭൂട്ടാൻ"
+	},
+	"trivia_hard_006": {
+		"message": "ഈ രാജ്യങ്ങളിൽ ഏറ്റവുമധികം കര വിസ്തീർണ്ണം ഏതിനാണുള്ളത്?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "കസാക്കിസ്ഥാൻ"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "റുമാനിയ"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "പോളണ്ട്"
+	},
+	"trivia_hard_007": {
+		"message": "ഈ രാജ്യങ്ങളിൽ ഏതിലാണ് ഏറ്റവും കൂടുതൽ ജനസാന്ദ്രതയുള്ളത്?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "സിംഗപ്പൂർ"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "ലാവോസ്"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "ബൊളീവിയ"
+	},
+	"trivia_hard_008": {
+		"message": "ഇനിപ്പറയുന്നവയിലെ ഏത് രാജ്യത്താണ് ജർമ്മൻ ഭാഷ സംസാരിക്കുന്നവരിൽ ഏറ്റവും കൂടുതലുള്ളത്?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "ഓസ്‌ട്രിയ"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "സ്ലോവാക്യ"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "ഇറാഖ്"
+	},
+	"trivia_hard_009": {
+		"message": "ഈ രാജ്യങ്ങളിൽ ഏതാണ് ഏറ്റവും കൂടുതൽ രാജ്യങ്ങൾക്ക് അതിർത്തിയായി വർത്തിക്കുന്നത്?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "സൗദി അറേബ്യ"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "മൊറോക്കോ"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "മംഗോളിയ"
+	},
+	"trivia_hard_010": {
+		"message": "ടാൻഗാൻയിക തടാകത്തിന്റെ അതിർത്തിയല്ലാത്തത് ഏത് രാജ്യമാണ്?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "ബെനിൻ"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "ബറുണ്ടി"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "സാംബിയ"
+	},
+	"trivia_hard_011": {
+		"message": "ഭൂമധ്യരേഖ കടന്നുപോകാത്ത രാജ്യമേതാണ്?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "മൗറിറ്റാനിയ"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "ഇന്തോനേഷ്യ"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "കെനിയ"
+	},
+	"trivia_hard_012": {
+		"message": "ബാൽക്കൻ പെനിൻസുലയിൽ സ്ഥിതിചെയ്യാത്ത രാജ്യമേത്?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "ചെക്ക് റിപ്പബ്ലിക്"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "ബൾഗേറിയ"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "മാസിഡോണിയ"
+	},
+	"trivia_hard_013": {
+		"message": "നോർത്ത് സീയുടെ അതിർത്തി അല്ലാത്ത രാജ്യമേതാണ്?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "ഫിന്‍‌ലാന്റ്"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "ഡെൻമാര്‍‌ക്ക്"
+	},
 	"trivia_hard_013_answer2": {
 		"message": "യുണൈറ്റഡ് കിംഗ്‌ഡം"
+	},
+	"trivia_hard_014": {
+		"message": "കരിങ്കടലിന്റെ അതിർത്തിയല്ലാത്ത രാജ്യമേത്?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "അസർബൈജാൻ"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "ഉക്രെയ്ൻ"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "ടർക്കി"
+	},
+	"trivia_hard_015": {
+		"message": "നാലുഭാഗവും കരകൊണ്ട് ചുറ്റപ്പെടാത്ത രാജ്യം ഏതാണ്?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "ക്രൊയേഷ്യ"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "ബെലാറസ്"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "ഹംഗറി"
+	},
+	"trivia_hard_016": {
+		"message": "സഹാറയിൽ സ്ഥിതിചെയ്യാത്ത രാജ്യമേതാണ്?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "അം‌ഗോള"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "ലിബിയ"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "അൾജീരിയ"
+	},
+	"trivia_hard_017": {
+		"message": "ഏത് ദ്വീപാണ് ഏറ്റവും പടിഞ്ഞാറ് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "ട്രിനിഡാഡ്"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "ജമൈക്ക"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "ക്യൂബ"
+	},
+	"trivia_hard_018": {
+		"message": "ഏത് ജലാശയത്തിന്റെ അതിർത്തിയായാണ് കേപ്പ് ഫിയർ വർത്തിക്കുന്നത്?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "അറ്റ്ലാന്‍റിക് സമുദ്രം"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "കരീബിയൻ കടൽ"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "പസഫിക്ക് സമുദ്രം"
+	},
+	"trivia_hard_019": {
+		"message": "മെക്സിക്കോ ഉൾക്കടലിൽ സ്ഥിതിചെയ്യുന്ന തുറമുഖ നഗരം ഏതാണ്?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "വെരാക്രൂസ്"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "തിയുവാന"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "അകപുൽകോ"
+	},
+	"trivia_hard_020": {
+		"message": "ഏത് രാജ്യത്തിന് കുറുകെയാണ് ഉത്തരായനരേഖ (ട്രോപ്പിക്ക് ഓഫ് കാൻസർ) കടന്നുപോകുന്നത്?"
 	},
 	"trivia_hard_020_answer0": {
 		"message": "മെക്‌സിക്കോ"
@@ -413,11 +1667,128 @@
 	"trivia_hard_020_answer2": {
 		"message": "ബ്രസീൽ"
 	},
+	"trivia_hard_021": {
+		"message": "ഈ ദ്വീപുകളിൽ ഏതിനാണ് ഏറ്റവുമധികം വിസ്തീർണ്ണം ഉള്ളത്?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "ബാഫിൻ ദ്വീപ്"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "ഹിസ്പാനിയോള"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "സാർഡിനിയ"
+	},
 	"trivia_hard_022": {
 		"message": "മെക്സിക്കോയെയും ഏത് ദ്വീപിനെയും വേർതിരിക്കുന്നതാണ് യുകറ്റാൻ ചാനൽ?"
 	},
+	"trivia_hard_022_answer0": {
+		"message": "ക്യൂബ"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "പ്യൂര്‍ട്ടോ റിക്കോ"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "ഡൊമിനിക്ക"
+	},
+	"trivia_hard_023": {
+		"message": "കാനഡയുടെ ഏറ്റവും വടക്കേ അറ്റത്ത് സ്ഥിതിചെയ്യുന്ന നഗരമേതാണ്?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "യെല്ലോനൈഫ്"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "ഒട്ടാവ"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "വിന്നിപെഗ്"
+	},
+	"trivia_hard_024": {
+		"message": "ലെസ്സെർ ആന്റില്ലെസിന്റെ ഭാഗമായ ദ്വീപേത്?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "സെന്‍റ് കിറ്റസ്"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "ബർമുഡ"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "നോവ സ്കോട്ടിയ"
+	},
+	"trivia_hard_025": {
+		"message": "ഏത് രാജ്യത്തെ ഏറ്റവും ജനസംഖ്യയുള്ള നഗരമാണ് പോർട്ട്-ഔ-പ്രിൻസ്?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "ഹെയ്‌തി"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "നിക്കരാഗ്വ"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "സുരിനാം"
+	},
+	"trivia_hard_026": {
+		"message": "കാർപാത്തിയൻ പർവത നിരകളിലുള്ള രാജ്യമേതാണ്?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "റുമാനിയ"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "അൽബേനിയ"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "തുര്‍‌ക്ക്‌മെനിസ്ഥാൻ"
+	},
+	"trivia_hard_027": {
+		"message": "ഏത് രാജ്യത്തെ ഒരു ഔദ്യോഗിക ഭാഷയാണ് ഫ്രഞ്ച്?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "ഗാബൺ"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "കുവൈറ്റ്"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "ടാൻസാനിയ"
+	},
+	"trivia_hard_028": {
+		"message": "ഈ രാജ്യങ്ങളിൽ ഏറ്റവും കൂടുതൽ കരഭൂമി ഉള്ളത് ഏതിനാണ്?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "ഇറാൻ"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "ഇസ്രായേൽ"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "ബഹ്റിൻ"
+	},
+	"trivia_hard_029": {
+		"message": "ധ്രുവരേഖാംശത്തിന്റെ (ഡിഗ്രീസ് ഓഫ് ലോംഗിറ്റിയൂഡ്) ഏറിയകൂറുമുള്ളത് ഏത് രാജ്യത്താണ്?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "കസാക്കിസ്ഥാൻ"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "അഫ്‌ഗാനിസ്ഥാൻ"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "സിറിയ"
+	},
+	"trivia_hard_030": {
+		"message": "നിരവധി ദ്വീപുകളാൽ ഉണ്ടാക്കപ്പെട്ട രാജ്യമേതാണ്?"
+	},
 	"trivia_hard_030_answer0": {
 		"message": "ഫിലിപ്പീൻസ്"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "കമ്പോഡിയ"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "താജിക്കിസ്ഥാൻ"
+	},
+	"trivia_hard_031": {
+		"message": "ഏറ്റവുമധികം സമയ മേഖലകൾ ഉള്ളത് ഇതിലേത് രാജ്യത്തിലാണ്?"
 	},
 	"trivia_hard_031_answer0": {
 		"message": "ബ്രസീൽ"
@@ -425,23 +1796,485 @@
 	"trivia_hard_031_answer1": {
 		"message": "ഘാന"
 	},
+	"trivia_hard_031_answer2": {
+		"message": "ബെലീസ്"
+	},
+	"trivia_hard_032": {
+		"message": "ഏറ്റവും വടക്കേ അറ്റത്തുള്ള രാജ്യമേതാണ്?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "കാമറൂൺ"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "മൊസാംബിക്ക്"
+	},
 	"trivia_hard_032_answer2": {
 		"message": "ഓസ്‌ട്രേലിയ"
+	},
+	"trivia_hard_033": {
+		"message": "ഫ്രാൻസിനും സ്പെയിനിനും ഇടയിൽ സ്ഥിതിചെയ്യുന്ന രാജ്യമേത്?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "അന്‍ഡോറ"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "ലക്‌സംബർഗ്"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "വത്തിക്കാൻ സിറ്റി"
+	},
+	"trivia_hard_034": {
+		"message": "ഏത് രാജ്യത്തിന്റെ അതിർത്തിയാണ് ഡെന്മാർക്ക്?"
 	},
 	"trivia_hard_034_answer0": {
 		"message": "ജർമ്മനി"
 	},
+	"trivia_hard_034_answer1": {
+		"message": "ഫിന്‍‌ലാന്റ്"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "മൽഡോവ"
+	},
+	"trivia_hard_035": {
+		"message": "ഏത് രാജ്യത്തിന് അവകാശപ്പെട്ടതാണ് സാർഡീനിയ ദ്വീപ്?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "ഇറ്റലി"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "ടർക്കി"
+	},
 	"trivia_hard_035_answer2": {
 		"message": "യുണൈറ്റഡ് കിംഗ്‌ഡം"
+	},
+	"trivia_hard_036": {
+		"message": "ബീജിംഗിനും ഉലാൻബത്താറിനും ഇടയിലുള്ള ഭൂരിഭാഗം ഇടവും പരന്നുകിടക്കുന്ന മരുഭൂമിയേതാണ്?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "ഗോബി"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "ഗ്രേറ്റ് ഇന്ത്യൻ മരുഭൂമി"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "ലിബിയൻ മരുഭൂമി"
+	},
+	"trivia_hard_037": {
+		"message": "ഏത് സമുദ്രത്തിന്റെ ഭാഗമാണ് കാംചത്‌ക കറന്റ്?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "പസഫിക്ക് സമുദ്രം"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "ഇന്ത്യൻ മഹാസമുദ്രം"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "അറ്റ്ലാന്‍റിക് സമുദ്രം"
+	},
+	"trivia_hard_038": {
+		"message": "ഏത് കടലിന്റെ തെക്കേ ഭാഗത്താണ് സിഡ്ര ഉൾക്കടൽ സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "മെഡിറ്ററേനിയൻ സമുദ്രം"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "അറബിക്കടൽ"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "ബാൾട്ടിക്ക് കടൽ"
+	},
+	"trivia_hard_039": {
+		"message": "ഏത് യൂറോപ്യൻ പർവത നിരയിലെ ഏറ്റവും വലിയ പ്രദേശമാണ് ടട്ര പർവതനിരകൾ?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "കപ്പാർത്തിയാൻ പർവതനിര"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "കാന്റബ്രിയൻ പർവതങ്ങൾ"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "പിരെനീസ്"
+	},
+	"trivia_hard_040": {
+		"message": "കരിബ തടാകത്തിലൂടെ ഒഴുകുകയും സാംബിയയ്ക്കും സിംബാബ്‌വേയ്ക്കും ഇടയിൽ അതിർത്തിയായി വർത്തിക്കുകയും ചെയ്യുന്ന നദിയേതാണ്?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "സാംബെസി നദി"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "നൈൽ നദി"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "കോംഗോ നദി"
+	},
+	"trivia_hard_041": {
+		"message": "തേംസ്, മ്യൂസ്, ഷെൽഡെ നദികളെല്ലാം ഒഴുകിച്ചേരുന്നത് ഏത് കടലിലേക്കാണ്?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "നോർത്ത് സീ"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "മെഡിറ്ററേനിയൻ സമുദ്രം"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "കരിങ്കടൽ"
+	},
+	"trivia_hard_042": {
+		"message": "ഫിലിപ്പീൻസിനെ ഏത് രാജ്യവുമായി വേർതിരിക്കുന്നതാണ് ലുസോൺ കടലിടുക്ക്?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "തായ്‌വാൻ"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "അൾജീരിയ"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "ശ്രീലങ്ക"
+	},
+	"trivia_hard_043": {
+		"message": "മധ്യ അറ്റ്ലാന്റിക്കിന്റെ അഗ്രഭാഗത്ത് കിടക്കുന്നത് ഏത് ദ്വീപാണ്?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "അസോറെസ്"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "ബഹാമാസ്"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "ഫിജി ദ്വീപുകൾ"
+	},
+	"trivia_hard_044": {
+		"message": "ലാപ്‌റ്റേവ് കടലിലേക്ക് ഒഴുകിച്ചേരുന്നത് ഏത് നദിയാണ്?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "ലെന നദി"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "യാംഗ്‌ത്‌സി നദി"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "സിന്ധു നദി"
+	},
+	"trivia_hard_045": {
+		"message": "ഭൂമധ്യരേഖയോട് ഏറ്റവും അടുത്ത് കിടക്കുന്ന കൊടുമുടി ഏതാണ്?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "കിലിമൻജാരോ"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "മോണ്ട് ബ്ലാൻക്"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "മൗണ്ട് മക്‌കിൻലേ"
+	},
+	"trivia_hard_046": {
+		"message": "ഏറ്റവും ജനസംഖ്യയുള്ള തലസ്ഥാന നഗരം ഏതാണ്?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "മോസ്‌കോ"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "ഹെല്‍സിങ്കി"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "അള്‍ജീസ്"
+	},
+	"trivia_hard_047": {
+		"message": "ലിഫെ നദിക്കരയിൽ സ്ഥിതിചെയ്യുന്ന ഏത് നഗരമാണ് റിപ്പബ്ലിക്ക് ഓഫ് അയർലന്റിലെ ഏറ്റവും വലിയ രാജ്യം?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "ഡബ്ലിന്‍"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "ഓസ്ലോ"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "കോപ്പന്‍ഹേഗന്‍"
+	},
+	"trivia_hard_048": {
+		"message": "ഹിന്ദു കുഷ് താഴ്‌വരയിൽ സ്ഥിതിചെയ്യുന്ന ഏത് നഗരമാണ് അഫ്ഗാനിസ്ഥാനിലെ ഏറ്റവും വലിയ നഗരം?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "കാബൂള്‍"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "സരയേവോ"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "കമ്പാല"
+	},
+	"trivia_hard_049": {
+		"message": "തായ്‌ലാൻഡിലെ ഏറ്റവും വലിയ നഗരം സ്ഥിതിചെയ്യുന്നത് ചാവോ ഫറയ നദിയുടെ കരയിലാണ്. ഏതാണാ നഗരം?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "ബാങ്കോക്ക്"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "ബീജിംഗ്"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "അമ്മാന്‍"
+	},
+	"trivia_hard_050": {
+		"message": "സ്കാഗെരാക്ക് കടലിടുക്കിലുള്ള ജോർഡിന്റെ മുകളിൽ സ്ഥിതിചെയ്യുന്ന ഏത് നഗരമാണ് നോർവേയിലെ ഏറ്റവും വലിയ നഗരം?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "ഓസ്ലോ"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "ലണ്ടന്‍"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "ബ്രസ്സല്‍സ്"
+	},
+	"trivia_hard_051": {
+		"message": "ലെബനോണിലെ ഏറ്റവും വലിയ നഗരമുള്ളത് പടിഞ്ഞാറൻ മെഡിറ്ററേനിയൻ കടലിന്റെ തീരത്താണ്. ഏതാണാ നഗരം?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "ബെയ്റൂട്ട്"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "മൊഗാദിഷു"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "റിയാദ്"
+	},
+	"trivia_hard_052": {
+		"message": "ജാവയുടെ തീരത്ത് സ്ഥിതിചെയ്യുന്ന ഏത് നഗരമാണ് ഇൻഡോനേഷ്യയിലെ ഏറ്റവും വലിയ നഗരം?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "ജക്കാര്‍ത്ത"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "ടോക്കിയോ"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "നയ്റോബി"
+	},
+	"trivia_hard_053": {
+		"message": "അറ്റിക്ക മേഖലയിൽ സ്ഥിതിചെയ്യുന്ന ഏത് നഗരമാണ് ഗ്രീസിലെ ഏറ്റവും വലിയ നഗരം?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "ഏതന്‍സ്"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "റോം"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "ബാഴ്‌സിലോണ"
 	},
 	"trivia_hard_054": {
 		"message": "റിയോ ഡി ലാ പ്ലാറ്റ എസ്റ്റ്വറേയിൽ സ്ഥിതി ചെയ്യുന്ന ഏത് നഗരമാണ് ഉറുഗ്വേയിലെ ഏറ്റവും വലിയ നഗരം?"
 	},
+	"trivia_hard_054_answer0": {
+		"message": "മൊണ്ടെവീഡിയോ"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "ക്വിറ്റോ"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "റിയോ ഡി ജനീറോ"
+	},
+	"trivia_hard_055": {
+		"message": "ഒരിക്കൽ ട്രാൻസ്‌വാൽ പ്രവിശ്യയുടെ ഭാഗമായിരുന്ന ഏത് നഗരമാണ് ദക്ഷിണാഫ്രിക്കയിലെ ഏറ്റവും വലിയ നഗരം?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "ജോഹന്നാസ്ബര്‍ഗ്"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "അബുജ"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "മാപുട്ടോ"
+	},
+	"trivia_hard_056": {
+		"message": "കരീബിയൻ കടലിലെ ഏത് നഗരമാണ് പ്രധാനപ്പെട്ടൊരു ഷിപ്പിംഗ് കേന്ദ്രവും ജമൈക്കയിലെ ഏറ്റവും വലിയ നഗരവും?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "കിംഗ്‌സ്റ്റൺ"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "കരാക്കസ്"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "ബ്യൂണസ് അയേഴ്സ്"
+	},
+	"trivia_hard_057": {
+		"message": "ഗ്രേറ്റ് റിഫ്റ്റ് വാലിയിൽ സ്ഥിതിചെയ്യുന്ന ഏത് നഗരമാണ് എറിത്രിയയിലെ ഏറ്റവും വലിയ നഗരം?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "അസ്‍മാര"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "ബാഗ്ദാദ്"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "ബ്രാസവില്ല"
+	},
+	"trivia_hard_058": {
+		"message": "വിസ്റ്റുല നദിയുടെ കരയിൽ സ്ഥിതിചെയ്യുന്ന ഏത് നഗരമാണ് പോളണ്ടിലെ ഏറ്റവും വലിയ നഗരം?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "വാര്‍സോ"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "ബെര്‍ലിന്‍"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "കീവ്"
+	},
+	"trivia_hard_059": {
+		"message": "പാൻ-അമേരിക്കൻ ഹൈവേയിലെ പ്രധാന സ്റ്റോപ്പായ ഏത് നഗരമാണ് കോസ്റ്റ റിക്കയിലെ ഏറ്റവും വലിയ നഗരം?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "സാൻ ജോസ്"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "ലിമ"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "സൂക്രെ"
+	},
+	"trivia_hard_060": {
+		"message": "സിംബാബ്‌വേയിലെ ഏറ്റവും വലിയ നഗരമാണ് തെക്കേ ആഫ്രിക്കയിലെ പ്രധാനപ്പെട്ട കാർഷിക വ്യാപാര കേന്ദ്രം. ഏതാണ് ഈ നഗരം?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "ഹരാരെ"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "വിന്‍ഡ്ഹോക്"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "കമ്പാല"
+	},
+	"trivia_hard_061": {
+		"message": "കമ്പോഡിയയിലെ ഒരു നഗരം, ഒരിക്കൽ ഖ്‌മെർ റൂഷ് ഭരിച്ചിരുന്നതാണ്. ഏതാണ് ഈ നഗരം?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "ഫനോം പെഞ്ച്"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "ക്വാലലംപൂര്‍"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "ധാക്ക"
+	},
+	"trivia_hard_062": {
+		"message": "മെസുരാഡോ മുനമ്പിലെ അറ്റ്‌ലാന്റിക്ക് സമുദ്ര തീരത്ത് സ്ഥിതിചെയ്യുന്ന ഏത് നഗരമാണ് ലൈബീരിയയിലെ ഏറ്റവും വലിയ നഗരം?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "മണ്‍റോവിയ"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "ആക്ര"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "ലുസാക"
+	},
+	"trivia_hard_063": {
+		"message": "ആൻഡെസിലെ ഉയർന്ന പീഠഭൂമിയിൽ സ്ഥിതിചെയ്യുന്ന ഏത് നഗരമാണ് കൊളംബിയയിലെ ഏറ്റവും വലിയ നഗരം?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "ബൊഗോട്ട"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "മണാഗ്വ"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "മോണ്ടര്‍‌റേ"
+	},
+	"trivia_hard_064": {
+		"message": "ഇറാനിലെ ഏറ്റവും വലിയ നഗരം സ്ഥിതിചെയ്യുന്നത് എൽബുർസ് പർവതനിരകളുടെ താഴ്‌വരയിലാണ്, ഏതാണ് ഈ നഗരം?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "ടെഹ്റാന്‍"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "താഷ്ക്കന്‍റ്"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "ഇസ്താംബുള്‍"
+	},
+	"trivia_hard_065": {
+		"message": "ഏത് സമുദ്രത്തിലൂടെയാണ് ആർട്ടിക്ക് സർക്കിൾ കടന്നുപോകുന്നത്?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "നോർവീജിയൻ കടൽ"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "വോൾട്ട തടാകം"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "കാസ്പിയൻ കടൽ"
+	},
+	"trivia_hard_066": {
+		"message": "ഗ്രേറ്റ് റിഫ്റ്റ് വാലിയിൽ സ്ഥിതിചെയ്യുന്ന ജലാശയമേത്?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "മലാവി തടാകം"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "ടാസ്‌മാൻ കടൽ"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "ടിറ്റിക്കാക്ക തടാകം"
+	},
+	"trivia_hard_067": {
+		"message": "ഏത് ജലാശയത്തിന്റെ കരയിലാണ് റഷ്യൻ തുറമുഖ നഗരമായ അർഖാൻഗെൽസ്ക് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "വൈറ്റ് സീ"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "ബാസ്സ് കടലിടുക്ക്"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "ബിസ്‌കേ ഉൾക്കടൽ"
+	},
+	"trivia_hard_068": {
+		"message": "ഹൂനാൻ, ഷാൻഡോംഗ് പ്രവിശ്യകൾ ഉൾപ്പെടുന്നത് ഏത് രാജ്യത്താണ്?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "ചൈന"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "തായ്‌ലന്റ്"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "യെമൻ"
+	},
+	"trivia_hard_069": {
+		"message": "ഏത് മെഡിറ്ററേനിയൻ രാജ്യത്തെ ഔദ്യോഗിക ഭാഷയാണ് കാസ്റ്റിലിയൻ?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "സ്‌പെയിൻ"
+	},
 	"trivia_hard_069_answer1": {
 		"message": "ഗ്രീസ്"
 	},
+	"trivia_hard_069_answer2": {
+		"message": "അസർബൈജാൻ"
+	},
+	"trivia_hard_070": {
+		"message": "ഏത് മധ്യ അമേരിക്കൻ രാജ്യമാണ് ഒരിക്കൽ കൊളംബിയയുടെ ഭാഗമായിരുന്ന പ്രവിശ്യയായിരുന്നത്?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "പനാമ"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "ഹോണ്ടുറാസ്"
+	},
 	"trivia_hard_070_answer2": {
 		"message": "ഗ്വാട്ടിമാല"
+	},
+	"trivia_hard_071": {
+		"message": "ഏത് രാജ്യത്തെ ഏറ്റവും പ്രധാനപ്പെട്ട ഗതാഗത കേന്ദ്രമാണ് റൈൻ നദിയാൽ വിഭജിക്കപ്പെട്ടിരിക്കുന്ന ബേസെൽ നഗരം?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "സ്വിറ്റ്സർലാന്റ്"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "ബെൽജിയം"
 	},
 	"trivia_hard_071_answer2": {
 		"message": "റഷ്യ"
@@ -452,17 +2285,128 @@
 	"trivia_hard_072_answer0": {
 		"message": "ഫ്രാൻസ്"
 	},
+	"trivia_hard_072_answer1": {
+		"message": "നെതർലാന്റ്സ്"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "റുമാനിയ"
+	},
 	"trivia_hard_073": {
 		"message": "ഏത് രാജ്യത്തെ പാമ്പാസ് മേഖലയ്ക്കായുള്ള ഒരു പ്രധാന ഷിപ്പിംഗ് പോയിന്റാണ് ബാഹിയ ബ്ലാങ്ക?"
 	},
 	"trivia_hard_073_answer0": {
 		"message": "അർജന്റീന"
 	},
+	"trivia_hard_073_answer1": {
+		"message": "ബൊളീവിയ"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "നിക്കരാഗ്വ"
+	},
+	"trivia_hard_074": {
+		"message": "മെഡിറ്ററേനിയൻ കടലും കരിങ്കടലും ഇജീയൻ കടലും അതിർത്തികളായുള്ളത് ഏത് രാജ്യത്തിനാണ്?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "ടർക്കി"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "ബൾഗേറിയ"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "ലിബിയ"
+	},
+	"trivia_hard_075": {
+		"message": "ഓരോ വർഷവും മാര നദി നീന്തിക്കടന്ന് വിൽഡെബീസ്റ്റുകൾ എന്ന മൃഗങ്ങൾ, താൻസാനിയയിൽ നിന്ന്, വടക്കുകിഴക്ക് കിടക്കുന്ന ഏത് അയൽപക്ക രാജ്യത്തേക്കാണ് ചേക്കേറാറുള്ളത്?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "കെനിയ"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "സാംബിയ"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "ഗിനിയ"
+	},
+	"trivia_hard_076": {
+		"message": "പ്രശസ്തമായ ഒരു മുസ്ലീം പള്ളിയുള്ള ആലെപ്പൊ, ഏത് തെക്കുപടിഞ്ഞാറൻ ഏഷ്യൻ രാജ്യത്തിലെ ഏറ്റവും വലിയ നഗരമാണ്?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "സിറിയ"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "ഒമാൻ"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "ബംഗ്ലാദേശ്"
+	},
+	"trivia_hard_077": {
+		"message": "റഷ്യയും ജോർജ്ജിയയും അതിർത്തികളായുള്ള രാജ്യമേതാണ്?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "അസർബൈജാൻ"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "ഉസ്‌ബെക്കിസ്ഥാൻ"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "ഉത്തര കൊറിയ"
+	},
+	"trivia_hard_078": {
+		"message": "പനാമയും ബ്രസീലും അതിർത്തികളായുള്ള രാജ്യമേത്?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "കൊളംബിയ"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "പെറു"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "കോസ്റ്റാറിക്ക"
+	},
+	"trivia_hard_079": {
+		"message": "ഗ്വാട്ടിമാലയും യുണൈറ്റഡ് സ്റ്റേറ്റ്സും അതിർത്തികളായി ഉള്ള രാജ്യമേത്?"
+	},
 	"trivia_hard_079_answer0": {
 		"message": "മെക്‌സിക്കോ"
 	},
+	"trivia_hard_079_answer1": {
+		"message": "എൽ സാൽവദോർ"
+	},
 	"trivia_hard_079_answer2": {
 		"message": "കാനഡ"
+	},
+	"trivia_hard_080": {
+		"message": "ഇറാഖും അഫ്ഗാനിസ്ഥാനും അതിർത്തികളായുള്ള രാജ്യമേതാണ്?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "ഇറാൻ"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "ഉക്രെയ്ൻ"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "മംഗോളിയ"
+	},
+	"trivia_hard_081": {
+		"message": "ഏത് രാജ്യത്തിന്റെ അതിർത്തികളാണ് ലെസോതോയും ബോട്‌സ്വാനയും?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "ദക്ഷിണാഫ്രിക്ക"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "സിംബാബ്‌വേ"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "കോംഗോ"
+	},
+	"trivia_hard_082": {
+		"message": "ഫ്ലെമിഷ് ഭാഷ സംസാരിക്കുന്ന ഏത് രാജ്യത്താണ് ആന്റ്‌വെർപ് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "ബെൽജിയം"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "നെതർലാന്റ്സ്"
 	},
 	"trivia_hard_082_answer2": {
 		"message": "ഐസ്‌ലാന്റ്"
@@ -470,8 +2414,41 @@
 	"trivia_hard_083": {
 		"message": "വിസ്റ്റുല നദിക്കരയിൽ സ്ഥിതിചെയ്യുന്ന ഗിഡാൻസ്ക്, ഏത് യൂറോപ്യൻ രാജ്യത്തിന്റെ പ്രധാന തുറമുഖമാണ്?"
 	},
+	"trivia_hard_083_answer0": {
+		"message": "പോളണ്ട്"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "സ്‌പെയിൻ"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "ക്രൊയേഷ്യ"
+	},
+	"trivia_hard_084": {
+		"message": "ദക്ഷിണ അമേരിക്കയിലെ ഏത് വലിയ നദിയുടെ പോഷകനദികളാണ് മഡീരയും പുരുസും?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "ആമസോൺ നദി"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "ഒരിനോക്കോ നദി"
+	},
 	"trivia_hard_084_answer2": {
 		"message": "പരാനാ നദി"
+	},
+	"trivia_hard_085": {
+		"message": "സ്വിറ്റ്‌സർലന്റും ജർമ്മനിയും മറ്റൊരു രാജ്യവുമാണ് കോൺസ്റ്റാൻസ് തടാകത്തിന്റെ അതിർത്തികളായി വർത്തിക്കുന്നത്. ഈ മൂന്നാമത്തെ രാജ്യമേതാണ്?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "ഓസ്‌ട്രിയ"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "സ്ലോവാക്യ"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "ഫിന്‍‌ലാന്റ്"
+	},
+	"trivia_hard_086": {
+		"message": "ഏത് രാജ്യത്തെ ഏറ്റവും വലിയ നഗരമാണ് ഒന്നിലധികം തുറമുഖങ്ങൾ ഉള്ള പ്രധാന തുറമുഖ നഗരമായ ഓക്ക്‌ലാൻഡ്?"
 	},
 	"trivia_hard_086_answer0": {
 		"message": "ന്യൂസിലാന്റ്‌"
@@ -479,56 +2456,695 @@
 	"trivia_hard_086_answer1": {
 		"message": "ഓസ്‌ട്രേലിയ"
 	},
+	"trivia_hard_086_answer2": {
+		"message": "ഇന്തോനേഷ്യ"
+	},
+	"trivia_hard_087": {
+		"message": "കൊക്കോ ഉൽപ്പാദനത്തിൽ മുൻപന്തിയിൽ നിൽക്കുന്ന ഒരു രാജ്യം ടോഗോയുടെ പടിഞ്ഞാറ് ഭാഗത്തായി സ്ഥിതിചെയ്യുന്നു. ഏതാണാ രാജ്യം?"
+	},
 	"trivia_hard_087_answer0": {
 		"message": "ഘാന"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "സുഡാൻ"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "ടുണീഷ്യ"
 	},
 	"trivia_hard_088": {
 		"message": "ഒരു തെക്കേ അമേരിക്കൻ രാജ്യത്തെ ഔദ്യോഗിക ഭാഷകളിൽ ഒന്നിന്റെ പേരും നാണയത്തിന്റെ പേരും ഗ്വരാനി എന്നാണ്, ഏതാണാ രാജ്യം?"
 	},
+	"trivia_hard_088_answer0": {
+		"message": "പരാഗ്വേ"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "ഇക്വഡോർ"
+	},
 	"trivia_hard_088_answer2": {
 		"message": "ബ്രസീൽ"
+	},
+	"trivia_hard_089": {
+		"message": "ഫ്രാൻസിനും സ്പെയിനിനും ഇടയിലുള്ള അതിർത്തിയിൽ സ്ഥിതിചെയ്യുന്ന പർവത നിര?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "പിരെനീസ്"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "അപെന്നിനെസ്"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "കാക്കസസ് പർവതനിരകൾ"
+	},
+	"trivia_hard_090": {
+		"message": "ഏത് രാജ്യത്തെ സെയിന്റ് വിൻസെന്റ് ഉൾക്കടലിലേക്കാണ് ടോറൻസ് നദി ഒഴുകിച്ചേരുന്നത്?"
 	},
 	"trivia_hard_090_answer0": {
 		"message": "ഓസ്‌ട്രേലിയ"
 	},
+	"trivia_hard_090_answer1": {
+		"message": "ഉഗാണ്ട"
+	},
 	"trivia_hard_090_answer2": {
 		"message": "കാനഡ"
+	},
+	"trivia_hard_091": {
+		"message": "മെഡിറ്ററേനിയൻ കടലിന് അതിർത്തിയായി വർത്തിക്കുന്നതും രാജവാഴ്ച ഉള്ളതുമായ ആഫ്രിക്കൻ രാജ്യമേതാണ്?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "മൊറോക്കോ"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "ഈജിപ്റ്റ്"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "സെൻട്രൽ ആഫ്രിക്കൻ റിപ്പബ്ലിക്"
+	},
+	"trivia_hard_092": {
+		"message": "കുര നദിയുടെ കരയിൽ സ്ഥിതിചെയ്യുന്ന ത്‌ബിലിസി ഏത രാജ്യമാണ്?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "ജോർജ്ജിയ"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "സിറിയ"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "ഹംഗറി"
+	},
+	"trivia_hard_093": {
+		"message": "ഏത് രാജ്യത്തെ അഡ്രിയാറ്റിക് കടലിൽ സ്ഥിതിചെയ്യുന്ന പർവത മേഖലയാണ് അബ്രൂസോ?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "ഇറ്റലി"
 	},
 	"trivia_hard_093_answer1": {
 		"message": "ഫ്രാൻസ്"
 	},
+	"trivia_hard_093_answer2": {
+		"message": "ലക്‌സംബർഗ്"
+	},
+	"trivia_hard_094": {
+		"message": "ലാത്വിയയ്ക്കും മറ്റൊരു രാജ്യത്തിനും റിഗ ഉൾക്കടൽ അതിർത്തിയായി വർത്തിക്കുന്നു. ഈ മറ്റൊരു രാജ്യം ഏതാണ്?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "എസ്‌റ്റോണിയ"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "ബെലാറസ്"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "സ്‌പെയിൻ"
+	},
+	"trivia_hard_095": {
+		"message": "സൂയസ് ഉൾക്കടലിനെ ജൂബാൽ കടലിടുക്കുമായി ബന്ധിപ്പിക്കുന്ന സമുദ്രമേത്?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "ചെങ്കടൽ"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "കരീബിയൻ കടൽ"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "കാസ്പിയൻ കടൽ"
+	},
+	"trivia_hard_096": {
+		"message": "ഗലീലിയ കടലിലേക്ക് ഏറ്റവുമധികം വെള്ളമൊഴുക്കുന്ന നദി ഏതാണ്?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "ജോർദാൻ നദി"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "അമു ദാര്യ"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "ഗംഗാ നദി"
+	},
+	"trivia_hard_097": {
+		"message": "ന്യൂ ബ്രൂൺസ്‌വിക്ക്, നോവ സ്കോട്ടിയ എന്നിവയെ വേർതിരിക്കുന്ന ഉൾക്കടൽ ഏതാണ്?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "ഫുൻഡി ഉൾക്കടൽ"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "ഹഡ്‌സൺ ഉൾക്കടൽ"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "ബംഗാൾ ഉൾക്കടൽ"
+	},
+	"trivia_hard_098": {
+		"message": "ഏത് രാജ്യത്തിന്റെ റിനെലാൻഡ് മേഖലയിലാണ് കൊളോൺ കത്തീഡ്രൽ സ്ഥിതിചെയ്യുന്നത്?"
+	},
 	"trivia_hard_098_answer0": {
 		"message": "ജർമ്മനി"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "ഡെൻമാര്‍‌ക്ക്"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "പാക്കിസ്ഥാൻ"
+	},
+	"trivia_hard_099": {
+		"message": "മായൻ സംസ്കാരത്തിന്റെ നിരവധി അവശിഷ്ടങ്ങളുള്ള ചിയാപാസ് ഏത് രാജ്യത്തിന്റെ ഏറ്റവും വടക്കുള്ള സ്റ്റേറ്റാണ്?"
 	},
 	"trivia_hard_099_answer0": {
 		"message": "മെക്‌സിക്കോ"
 	},
+	"trivia_hard_099_answer1": {
+		"message": "ഹോണ്ടുറാസ്"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "ചിലി"
+	},
+	"trivia_hard_100": {
+		"message": "മർമാരാ കടലിനെ ഏത് സമുദ്രവുമായാണ് ഡാർഡനെല്ലെസ് ഇടുങ്ങിയ കടലിടുക്ക് ബന്ധിപ്പിക്കുന്നത്?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "ഇജീയൻ കടൽ"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "ബാരെന്റ്സ് കടൽ"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "ടാസ്‌മാൻ കടൽ"
+	},
+	"trivia_hard_101": {
+		"message": "ഏത് തെക്കുകിഴക്കൻ രാജ്യത്തിന്റെ ഔദ്യോഗിക ഭാഷയാണ് ഖ്‌മെർ?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "കമ്പോഡിയ"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "നേപ്പാൾ"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "വിയറ്റ്നാം"
+	},
+	"trivia_hard_102": {
+		"message": "റഷ്യയും മറ്റൊരു രാജ്യവും പങ്കിടുന്ന ഒരു വ്യാവസായിക പ്രദേശമാണ് ഡുനെറ്റ്‌സ് ബേസിൽ, ഏതാണാ രാജ്യം?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "ഉക്രെയ്ൻ"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "സ്ലോവാക്യ"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "ലെബനൻ"
+	},
+	"trivia_hard_103": {
+		"message": "സ്നോയി പർവതനിരകളിലാണ് മൗണ്ട് കോസ്യൂസ്കോ സ്ഥിതിചെയ്യുന്നത്. ഏത് ഭൂഖണ്ഡത്തിന്റെ ഏറ്റവും ഉയർന്ന കൊടുമുടിയാണിത്?"
+	},
 	"trivia_hard_103_answer0": {
 		"message": "ഓസ്‌ട്രേലിയ"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_hard_104": {
+		"message": "ഏത് രാജ്യത്താണ് മദുര, ബാലി ദ്വീപുകൾ സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "ഇന്തോനേഷ്യ"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "ജപ്പാൻ"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "പാക്കിസ്ഥാൻ"
+	},
+	"trivia_hard_105": {
+		"message": "ഏത് ഏഷ്യൻ രാജ്യത്തിലുള്ള കുൻലൂൺ പർവത ഭാഗത്താണ് ടക്ലിമാകൻ മരുഭൂമി സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "ചൈന"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "സൗദി അറേബ്യ"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "ദക്ഷിണ കൊറിയ"
+	},
+	"trivia_medium_001": {
+		"message": "ഈ യുഎസ് നഗരങ്ങളിൽ ഏതാണ് ഒരു നദിയുടെ അഴിമുഖത്ത് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "ന്യൂ ഓർലിയാൻസ്"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "ഓസ്റ്റീൻ"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "ഒക്‌ലഹോമ നഗരം"
+	},
+	"trivia_medium_002": {
+		"message": "യുനെസ്കോ ലോക പൈതൃക ഇടങ്ങളായ അങ്കോർ വാതും കാപ്പഡോക്കിയയും ഏത് ഭൂഖണ്ഡത്തിലാണ് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_medium_003": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിന്റെ തെക്കുപടിഞ്ഞാറൻ ഭാഗത്തുള്ള ജനങ്ങളാണ് കുർദിഷ്, പേർഷ്യൻ ഭാഷകൾ സംസാരിക്കുന്നത്?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "യൂറോപ്പ്"
 	},
 	"trivia_medium_004": {
 		"message": "ഏത് ഉപഭൂഖണ്ഢത്തിലെ പൗരാണിക നാഗരികതയുടെ പ്രധാന കേന്ദ്രമായിരുന്നു തിയോതിഹുവാകൻ?"
 	},
+	"trivia_medium_004_answer0": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_medium_005": {
+		"message": "ബെല്ലിംഗ്‌ഷൗസെൻ കടലും റോസ് കടലും ഏത് ഭൂഖണ്ഡത്തിന്റെ അതിർത്തികളായാണ് വർത്തിക്കുന്നത്?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "അന്റാര്‍ട്ടിക്ക"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_medium_006": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിന്റെ തീരത്തിന് അരികിലൂടെയാണ് മൊസാംബിക്യൂ, ബെൻഗ്യൂല പ്രവാഹങ്ങൾ ഒഴുകുന്നത്?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_medium_007": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിന്റെ തെക്കുകിഴക്കൻ മുനമ്പിലാണ് ഫാൽക്ക്‌ലാൻഡ് ഐലന്റ്സ് എന്നും വിളിക്കുന്ന ആർക്കിപെലാഗോ ഐസ്‌ലാസ് മാൽവിനാസ് ഉള്ളത്?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_medium_008": {
+		"message": "ഈ ആഫ്രിക്കൻ രാജ്യങ്ങളിൽ ഏതിനാണ് ഏറ്റവും കൂടുതൽ വിസ്തീർണ്ണമുള്ളത്?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "അൾജീരിയ"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "ഗാംബിയ"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "ബറുണ്ടി"
+	},
+	"trivia_medium_009": {
+		"message": "ഐസ്‌ലാന്റിന് വടക്കുപടിഞ്ഞാറായി 200 മൈൽ ദൂരത്ത് സ്ഥിതിചെയ്യുന്ന വലിയ ദ്വീപ് ഏതാണ്?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "ഗ്രീൻലാൻഡ്"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "ന്യൂ ഗിനിയ"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "അയർലൻഡ്"
+	},
+	"trivia_medium_010": {
+		"message": "ഏത് സമുദ്രത്തിന്റെ ഭാഗമാണ് കാരാ കടലും ഈസ്റ്റ് സൈബീരിയൻ കടലും?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "ആർട്ടിക്ക് സമുദ്രം"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "ഇന്ത്യൻ മഹാസമുദ്രം"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "പസഫിക്ക് സമുദ്രം"
+	},
+	"trivia_medium_011": {
+		"message": "ബാൾട്ടിക്ക് കടലിന്റെ അതിർത്തിയായി വർത്തിക്കുന്നത് ഏത് രാജ്യമാണ്?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "ലാത്വിയ"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "സ്ലോവേനിയ"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "ഉക്രെയ്ൻ"
+	},
+	"trivia_medium_012": {
+		"message": "ഈ വലിയ നഗരങ്ങളിൽ ഏതിലാണ് ഏറ്റവും ജനസംഖ്യയുള്ളത്?"
+	},
 	"trivia_medium_012_answer0": {
 		"message": "സാവോ പോളോ, ബ്രസീൽ"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "ടൊറന്റോ, കാനഡ"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "ഹാനോയ്, വിയറ്റ്‌നാം"
+	},
+	"trivia_medium_013": {
+		"message": "അറ്റ്‌ലാറ്റിക്ക് സമുദ്രത്തിന്റെ തീരമേഖലയുള്ള രാജ്യമേതാണ്?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "മലേഷ്യ"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "അം‌ഗോള"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "ഉറുഗ്വേ"
+	},
+	"trivia_medium_014": {
+		"message": "ഇനിപ്പറയുന്നവയിൽ ഏത് രാജ്യത്തിനാണ് ഏറ്റവും കുറവ് തീരമേഖല ഉള്ളത്?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "എൽ സാൽവദോർ"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "പെറു"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "ചിലി"
+	},
+	"trivia_medium_015": {
+		"message": "ഏഷ്യയിൽ സ്ഥിതിചെയ്യുന്ന മരുഭൂമി ഏതാണ്?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "ഗോബി"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "കലഹാരി"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "അറ്റകാമ"
+	},
+	"trivia_medium_016": {
+		"message": "ഇനിപ്പറയുന്നവയിൽ ഏറ്റവുമധികം അഗ്നിപർവത സ്ഫോടനങ്ങൾ ഉണ്ടാകുന്ന രാജ്യമേത്?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "ഇന്തോനേഷ്യ"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "ഈജിപ്റ്റ്"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "ഇസ്രായേൽ"
+	},
+	"trivia_medium_017": {
+		"message": "ഇനിപ്പറയുന്ന രാജ്യങ്ങൾ ഏതിലാണ് ഏറ്റവും കൂടുതൽ ജനസംഖ്യയുള്ളത്?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "പാക്കിസ്ഥാൻ"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "ഹെയ്‌തി"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "വെനിസ്വേല"
+	},
+	"trivia_medium_018": {
+		"message": "ഈ രാജ്യങ്ങളിൽ ഏറ്റവും കൂടുതൽ ദ്വീപുകളുള്ളത് ഏതിലാണ്?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "ബഹാമാസ്"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "ജമൈക്ക"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "എൽ സാൽവദോർ"
+	},
+	"trivia_medium_019": {
+		"message": "ഭൂമധ്യരേഖയോട് ഏറ്റവും അടുത്ത് സ്ഥിതിചെയ്യുന്ന രാജ്യമേത്?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "റുവാണ്ട"
 	},
 	"trivia_medium_019_answer1": {
 		"message": "ഗ്വാട്ടിമാല"
 	},
+	"trivia_medium_019_answer2": {
+		"message": "ദക്ഷിണാഫ്രിക്ക"
+	},
+	"trivia_medium_020": {
+		"message": "ഏറ്റവും വടക്കേ അറ്റത്തുള്ള രാജ്യമേതാണ്?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "എസ്‌റ്റോണിയ"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "ലിബിയ"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "കമ്പോഡിയ"
+	},
+	"trivia_medium_021": {
+		"message": "പോർച്ചുഗലിന്റെ തലസ്ഥാന നഗരത്തിലുള്ള ടാഗൗസ് നദിയുടെ കരയിലാണ് അൽഫാമ ജില്ല സ്ഥിതിചെയ്യുന്നത്. തലസ്ഥാന നഗരത്തിന്റെ പേരെന്താണ്?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "ലിസ്ബണ്‍"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "ബെര്‍ലിന്‍"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "ഹെല്‍സിങ്കി"
+	},
+	"trivia_medium_022": {
+		"message": "ചാവുകടലിന്റെ 25 മൈൽ വടക്കുകിഴക്ക് സ്ഥിതിചെയ്യുന്ന ഏത് തലസ്ഥാന നഗരമാണ് ജോർദാനിലെ ഏറ്റവും ജനസംഖ്യയുള്ള നഗരം?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "അമ്മാന്‍"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "ഇസ്ലാമാബാദ്"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "സിയോള്‍"
+	},
+	"trivia_medium_023": {
+		"message": "പ്രധാനപ്പെട്ട പല ഈജിപ്ഷ്യൻ പ്രതിഷേധങ്ങളും നടന്ന താഹിർ ചത്വരം ഏത് തലസ്ഥാന നഗരത്തിലാണ് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "കെയ്റോ"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "നയ്റോബി"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "മസ്കറ്റ്"
+	},
 	"trivia_medium_024": {
 		"message": "ടേബിൾ ബേയിൽ സ്ഥിതി ചെയ്യുന്ന ഏത് തലസ്ഥാന നഗരത്തിലാണ് ദക്ഷിണാഫ്രിക്കയുടെ ദേശീയ പാർലമെന്റ് നിലകൊള്ളുന്നത്?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "കേപ് ടൗൺ"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "ലുസാക"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "കിന്‍ഷസ"
+	},
+	"trivia_medium_025": {
+		"message": "വോൾട്ടൊവ നദിയിൽ സ്ഥിതിചെയ്യുന്ന ഏത് തലസ്ഥാന നഗരമാണ് ചെക്ക് റിപ്പബ്ലിക്കിലെ ഏറ്റവും വലിയ നഗരം?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "പ്രേഗ്"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "ഡബ്ലിന്‍"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "സോഫിയ"
+	},
+	"trivia_medium_026": {
+		"message": "മെഡിറ്ററേനിയൻ കടലിൽ സ്ഥിതിചെയ്യുന്ന ഏത് തലസ്ഥാന നഗരമാണ് ലിബിയയിലെ പ്രധാനപ്പെട്ട ഒരു തുറമുഖം?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "ട്രിപ്പോളി"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "മൊഗാദിഷു"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "മണ്‍റോവിയ"
+	},
+	"trivia_medium_027": {
+		"message": "സുഡാനിലെ ഒരു പ്രധാന വ്യാപാര - ഗതാഗത കേന്ദ്രമായ തലസ്ഥാന നഗരം സ്ഥിതിചെയ്യുന്നത് വൈറ്റ് നൈലും ബ്ലൂ നൈലും സംഗമിക്കുന്ന ഇടത്താണ്. ഏതാണ് ഈ നഗരം?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "ഖാര്‍തൌം"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "ട്യൂണിസ്"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "ജോഹന്നാസ്ബര്‍ഗ്"
+	},
+	"trivia_medium_028": {
+		"message": "ഡാനിഷ് ദ്വീപുകളായ സീലാൻഡിലും അമാഗറിലുമായി സ്ഥിതിചെയ്യുന്ന തലസ്ഥാന നഗരം ഏതാണ്?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "കോപ്പന്‍ഹേഗന്‍"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "ബേൺ"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "ബ്രാട്ടിസ്‍ലാവ"
+	},
+	"trivia_medium_029": {
+		"message": "ന്യൂ പ്രൊവിഡൻസിന്റെ ദ്വീപിൽ സ്ഥിതിചെയ്യുന്ന ഏത് തലസ്ഥാന നഗരമാണ് ബഹാമാസിലെ ഏറ്റവും വലിയ നഗരം?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "നസ്സാവു"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "സാന്തോ ഡോമിംഗോ"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "ബെൽമോപാൻ"
 	},
 	"trivia_medium_030": {
 		"message": "കരിങ്കടലിന് തെക്ക് സ്ഥിതി ചെയ്യുന്ന ഏത് തലസ്ഥാന നഗരമാണ് തുർക്കിയുടെ ഗതാഗത സംവിധാനത്തിന്റെ കേന്ദ്രം?"
 	},
+	"trivia_medium_030_answer0": {
+		"message": "അങ്കാര"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "മിന്‍സ്ക്"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "ടെഹ്റാന്‍"
+	},
+	"trivia_medium_031": {
+		"message": "ഏത് രാജ്യമാണ് ഹോൺ ഓഫ് ആഫ്രിക്കയിൽ ഭാഗികമായി സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "എറിത്രിയ"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "നൈജർ"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "സ്വാസിലാന്റ്"
+	},
+	"trivia_medium_032": {
+		"message": "ഡെൻമാർക്കിനെയും മറ്റൊരു രാജ്യത്തെയും വേർതിരിക്കുന്ന കടലിടുക്കാണ് സ്കഗെരാക്ക്. ഈ മറ്റൊരു രാജ്യമേതാണ്?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "നോർവേ"
+	},
 	"trivia_medium_032_answer1": {
 		"message": "യുണൈറ്റഡ് കിംഗ്‌ഡം"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "ശ്രീലങ്ക"
+	},
+	"trivia_medium_033": {
+		"message": "ഭൂരിഭാഗം ഇടവും മരുഭൂമിയായ രാജ്യമേതാണ്?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "ഛാഡ്"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "നോർവേ"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "വിയറ്റ്നാം"
+	},
+	"trivia_medium_034": {
+		"message": "ഏത് രാജ്യത്തുകൂടിയാണ് യൂഫ്രട്ടീസ് നദി ഒഴുകുന്നത്?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "സിറിയ"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "സ്വിറ്റ്സർലാന്റ്"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "തായ്‌ലന്റ്"
+	},
+	"trivia_medium_035": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിലെ ബെയ്ക്കൽ തടാകത്തിന്റെ അരികിലാണ് ഇർകുത്‌സ്ക് നഗരം സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_medium_036": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിലെ പ്രധാന നദികളാണ് ഡ്‌നീപ്പറും റിനെയും?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "യൂറോപ്പ്"
 	},
 	"trivia_medium_036_answer1": {
 		"message": "അന്റാര്‍ട്ടിക്ക"
 	},
+	"trivia_medium_036_answer2": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_medium_037": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിലാണ് ഗയാന ഹൈലാൻഡ്‌സും പാന്റനൽ മേഖലയും സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "വടക്കേ അമേരിക്ക"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_medium_038": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിന്റെ ഭൗതിക സവിശേഷതകളാണ് ഗ്രേറ്റ് വിക്ടോറിയ മരുഭൂമിയും നുല്ലാർബർ സമതലവും?"
+	},
 	"trivia_medium_038_answer0": {
 		"message": "ഓസ്‌ട്രേലിയ"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "ഏഷ്യ"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_medium_039": {
+		"message": "ഏത് രാജ്യത്തിന്റെ തെക്കേ അറ്റത്താണ് റിയോ ഗ്രാൻഡേ ഡൊ സുൽ സ്ഥിതിചെയ്യുന്നത്?"
 	},
 	"trivia_medium_039_answer0": {
 		"message": "ബ്രസീൽ"
@@ -539,11 +3155,35 @@
 	"trivia_medium_039_answer2": {
 		"message": "ജർമ്മനി"
 	},
+	"trivia_medium_040": {
+		"message": "ഏത് രാജ്യത്തെ ഓബ് നദിക്കരെയാണ് നോവോസിബ്രിസ്ക് നഗരം സ്ഥിതിചെയ്യുന്നത്?"
+	},
 	"trivia_medium_040_answer0": {
 		"message": "റഷ്യ"
 	},
+	"trivia_medium_040_answer1": {
+		"message": "നേപ്പാൾ"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "ചൈന"
+	},
+	"trivia_medium_041": {
+		"message": "പസഫിക്ക് റിമ്മിൽ സ്ഥിതിചെയ്യുന്നതും ഭൂകമ്പം അനുഭവപ്പെടാൻ ഏറ്റവും കൂടുതൽ സാധ്യതയുള്ളതുമായ രാജ്യമേതാണ്?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "ചിലി"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "അം‌ഗോള"
+	},
 	"trivia_medium_041_answer2": {
 		"message": "ഫ്രാൻസ്"
+	},
+	"trivia_medium_042": {
+		"message": "ഏത് രാജ്യത്തെ വടക്കേ തീരത്താണ് മാരാകൈബോ തടാകം സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "വെനിസ്വേല"
 	},
 	"trivia_medium_042_answer1": {
 		"message": "ഗ്വാട്ടിമാല"
@@ -551,11 +3191,140 @@
 	"trivia_medium_042_answer2": {
 		"message": "കാനഡ"
 	},
+	"trivia_medium_043": {
+		"message": "അറേബ്യൻ കടലിന്റെ അതിർത്തിയായി വർത്തിക്കുന്ന രാജ്യമേത്?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "ഇന്ത്യ"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "താജിക്കിസ്ഥാൻ"
+	},
 	"trivia_medium_043_answer2": {
 		"message": "ഗ്രീസ്"
 	},
+	"trivia_medium_044": {
+		"message": "ഐബീരിയൻ പെനിൻസുലയിൽ സ്ഥിതിചെയ്യുന്ന രാജ്യമേത്?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "പോർച്ചുഗൽ"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "ബംഗ്ലാദേശ്"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "നെതർലാന്റ്സ്"
+	},
+	"trivia_medium_045": {
+		"message": "ഈ രാജ്യങ്ങളിൽ ഏതിനാണ് ഏറ്റവും വലിയ തീരമേഖലയുള്ളത്?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "തായ്‌ലന്റ്"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "കോംഗോ"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "ഖത്തർ"
+	},
+	"trivia_medium_046": {
+		"message": "മിസ്സിസിപ്പി നദിയുടെ പടിഞ്ഞാറ് ഭാഗത്ത് സ്ഥിതിചെയ്യുന്ന യുഎസ് സ്റ്റേറ്റ് ഏതാണ്?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "കൊളറാഡോ"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "മേരിലാൻഡ്"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "മിച്ചിഗൺ"
+	},
+	"trivia_medium_047": {
+		"message": "ഒരു യുഎസ് സ്റ്റേറ്റിന്റെ ഏകദേശം 60 ശതമാനവും കാടുകളാണ്. ഏതാണ് ഈ സ്റ്റേറ്റ്?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "വിർജീനിയ"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "അരിസോണ"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "നെവാഡ"
+	},
+	"trivia_medium_048": {
+		"message": "വടക്കേ അമേരിക്കയിലെ ഏറ്റവും ഉയരം കൂടിയ പർവതമായ മൗണ്ട് മെക്കിൻലേ ഏത് യുഎസ് സ്റ്റേറ്റിലാണ് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "അലാസ്ക"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "മിനിസോട്ട"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "കൊളറാഡോ"
+	},
+	"trivia_medium_049": {
+		"message": "ഈ യുഎസ് സ്റ്റേറ്റുകളിൽ ഉപരിതല വിസ്തീർണ്ണം കൂടുതലുള്ളത് ഏതാണ്?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "മോൺടാന"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "കണക്റ്റിക്യൂട്ട്"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "സൗത്ത് കരോലിന"
+	},
+	"trivia_medium_050": {
+		"message": "റാപിഡ് സിറ്റിക്ക് അരികിൽ സ്ഥിതിചെയ്യുന്ന മൗണ്ട് റഷ്‌മോർ ഏത് യുഎസ് സ്റ്റേറ്റിലാണുള്ളത്?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "സൗത്ത് ഡക്കോട്ട"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "ഒറെഗോൺ"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "ഫ്ലോറിഡ"
+	},
+	"trivia_medium_051": {
+		"message": "ഏത് യുഎസ് സ്റ്റേറ്റാണ് കാനഡയുമായി അതിർത്തി പങ്കിടുന്നത്?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "മിനിസോട്ട"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "നെബ്രാസ്ക"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "കെന്റുക്കി"
+	},
+	"trivia_medium_052": {
+		"message": "ഏത് യുഎസ് സ്റ്റേറ്റിന്റെ തീരത്തായാണ് പവിഴപ്പുറ്റുകൾ കാണപ്പെടുന്നത്?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "ഹവായ്"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "കണക്റ്റിക്യൂട്ട്"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "നെവാഡ"
+	},
+	"trivia_medium_053": {
+		"message": "ഏത് രാജ്യത്തെ പ്രധാനപ്പെട്ട തുറമുഖമാണ് ഹാംബർഗ്?"
+	},
 	"trivia_medium_053_answer0": {
 		"message": "ജർമ്മനി"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "ക്രൊയേഷ്യ"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "ബെൽജിയം"
+	},
+	"trivia_medium_054": {
+		"message": "ഏറ്റവുമധികം അഗ്നിപർവത സ്ഫോടനങ്ങൾ അനുഭവപ്പെടുന്ന രാജ്യമേത്?"
 	},
 	"trivia_medium_054_answer0": {
 		"message": "ഐസ്‌ലാന്റ്"
@@ -563,14 +3332,143 @@
 	"trivia_medium_054_answer1": {
 		"message": "യുണൈറ്റഡ് കിംഗ്‌ഡം"
 	},
+	"trivia_medium_054_answer2": {
+		"message": "പോളണ്ട്"
+	},
+	"trivia_medium_055": {
+		"message": "പ്രധാനമായും ഏഷ്യൻ മൈനർ പെനിൻസുലയിൽ കിടക്കുന്ന രാജ്യമേതാണ്?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "ടർക്കി"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "മ്യാൻമാർ"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "എസ്‌റ്റോണിയ"
+	},
+	"trivia_medium_056": {
+		"message": "ഇസ്രയേലിനും ഏത് രാജ്യത്തിനും ഇടയ്ക്കുള്ള അതിർത്തിയായിട്ടാണ് ചാവുകടൽ വർത്തിക്കുന്നത്?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "ജോർദ്ദാൻ"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "ഇറാൻ"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "ജപ്പാൻ"
+	},
+	"trivia_medium_057": {
+		"message": "ഏത് രാജ്യത്തുള്ള വിക്ടോറിയ തടാകത്തിന്റെ കിഴക്കുഭാഗത്താണ് സെരെൻഗെറ്റി നാഷണൽ പാർക്ക് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "ടാൻസാനിയ"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "യെമൻ"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "നൈജീരിയ"
+	},
+	"trivia_medium_058": {
+		"message": "കരീബിയൻ കടലിന്റെ അതിർത്തിയായി വർത്തിക്കുന്ന, പ്രധാന എണ്ണ കയറ്റുമതി രാജ്യമേതാണ്?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "വെനിസ്വേല"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "ചിലി"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "പരാഗ്വേ"
+	},
+	"trivia_medium_059": {
+		"message": "ഭൂമധ്യരേഖയ്ക്ക് തെക്കായി സ്ഥിതിചെയ്യുന്നതും നാലുഭാഗവും കരയാൽ ചുറ്റപ്പെട്ടതുമായ രാജ്യമേതാണ്?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "ബറുണ്ടി"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "ജിബൂത്തി"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "ടുണീഷ്യ"
+	},
+	"trivia_medium_060": {
+		"message": "ഏത് മെഡിറ്ററേനിയൻ രാജ്യത്തിന്റെ അതിർത്തിയാണ് ടൈർഹെനിയൻ കടൽ?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "ഇറ്റലി"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "ഇസ്രായേൽ"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "സെനഗൽ"
+	},
+	"trivia_medium_061": {
+		"message": "ഏത് രാജ്യത്തുള്ള യൂറൽ പർവതനിരകളുടെ താഴ്‌വരയിലാണ് യെക്കാറ്റിരിൻബെർഗ് എന്നത്?"
+	},
 	"trivia_medium_061_answer0": {
 		"message": "റഷ്യ"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "ലിത്വാനിയ"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "ബെൽജിയം"
+	},
+	"trivia_medium_062": {
+		"message": "ഓസ്ട്രിയയുടെ തെക്കുകിഴക്ക് സ്ഥിതിചെയ്യുന്നതും കമ്പിളി ഉൽപ്പാദിപ്പിക്കുന്നതിൽ മുൻപന്തിയിൽ നിൽക്കുന്നതുമായ ദ്വീപുരാജ്യമേത്?"
 	},
 	"trivia_medium_062_answer0": {
 		"message": "ന്യൂസിലാന്റ്‌"
 	},
 	"trivia_medium_062_answer1": {
 		"message": "ഫിലിപ്പീൻസ്"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "വിയറ്റ്നാം"
+	},
+	"trivia_medium_063": {
+		"message": "ഏത് രാജ്യത്തെ പ്രധാന നഗരമാണ് മുംബൈ?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "ഇന്ത്യ"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "സ്വിറ്റ്സർലാന്റ്"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "ഭൂട്ടാൻ"
+	},
+	"trivia_medium_064": {
+		"message": "ഏത് രാജ്യത്തുള്ള യെല്ലോ സീയിലാണ് ഇഞ്ചിയോൺ നഗരം സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "ദക്ഷിണ കൊറിയ"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "തായ്‌ലന്റ്"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "മംഗോളിയ"
+	},
+	"trivia_medium_065": {
+		"message": "ഓസ്ട്രിയയുടെ പടിഞ്ഞാറേ അതിർത്തിയിൽ സ്ഥിതിചെയ്യുന്ന ചെറിയ രാജ്യമേത്?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "ലിച്ചെൻസ്റ്റീൻ"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "സിറിയ"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "മൽഡോവ"
+	},
+	"trivia_medium_066": {
+		"message": "ഏത് രാജ്യത്തെ രണ്ട് സ്റ്റേറ്റുകളാണ് വിക്ടോറിയയും ന്യൂ സൗത്ത് വെയിൽസും?"
 	},
 	"trivia_medium_066_answer0": {
 		"message": "ഓസ്‌ട്രേലിയ"
@@ -581,35 +3479,305 @@
 	"trivia_medium_066_answer2": {
 		"message": "കാനഡ"
 	},
+	"trivia_medium_067": {
+		"message": "ബോർണിയോ ദ്വീപിലെ ഏത് രാജ്യമാണ് ചെറുരാജ്യമായ ബ്രൂണെയുടെ അതിർത്തിയായി വർത്തിക്കുന്നത്?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "മലേഷ്യ"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "ഇറാൻ"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "ഉക്രെയ്ൻ"
+	},
+	"trivia_medium_068": {
+		"message": "ഇറ്റലിക്കും മറ്റൊരു രാജ്യത്തിനും ഇടയ്ക്കുള്ള അതിർത്തിയിലാണ് ജൂലിയൻ ആൽപ്സ് ഉള്ളത്. ഈ മറ്റൊരു രാജ്യം ഏതാണ്?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "സ്ലോവേനിയ"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "നേപ്പാൾ"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "താജിക്കിസ്ഥാൻ"
+	},
+	"trivia_medium_069": {
+		"message": "മഞ്ചൂരിയ എന്ന് മുമ്പ് അറിയപ്പെട്ടിരുന്ന പ്രദേശം, ഏത് രാജ്യത്തിന്റെ വടക്കുകിഴക്കൻ ഭാഗത്താണ് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "ചൈന"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "ബെലാറസ്"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "അഫ്‌ഗാനിസ്ഥാൻ"
+	},
+	"trivia_medium_070": {
+		"message": "എൽ സാൽവദോറിന്റെ അതിർത്തിയായി വർത്തിക്കുന്ന രാജ്യമേത്?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "ഹോണ്ടുറാസ്"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "പനാമ"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "ഡൊമിനിക്കൻ റിപ്പബ്ലിക്"
+	},
+	"trivia_medium_071": {
+		"message": "കോക്കസസ് പർവത നിരകൾ ഉള്ളത് ഏത് രാജ്യത്താണ്?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "ജോർജ്ജിയ"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "ഹംഗറി"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "അന്‍ഡോറ"
+	},
+	"trivia_medium_072": {
+		"message": "ഏത് ഏഷ്യൻ രാജ്യത്തിലെ രണ്ട് ദ്വീപുകളെ വേർതിരിക്കുന്നതാണ് സുൻഡ കടലിടുക്ക്?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "ഇന്തോനേഷ്യ"
+	},
 	"trivia_medium_072_answer1": {
 		"message": "ന്യൂസിലാന്റ്‌"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "ലാവോസ്"
+	},
+	"trivia_medium_073": {
+		"message": "ഏത് രാജ്യത്തിലെ ഷാനോൺ നദിക്കരയ്ക്ക് അരികിലായിട്ടാണ് മഞ്ഞുമൂടിക്കിടക്കുന്ന താഴ്‌വരകളും ആകർഷിക്കുന്ന കൊടുമുടികളും കാണാനാവുക?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "അയർലൻഡ്"
 	},
 	"trivia_medium_073_answer1": {
 		"message": "ഫ്രാൻസ്"
 	},
+	"trivia_medium_073_answer2": {
+		"message": "ഉസ്‌ബെക്കിസ്ഥാൻ"
+	},
+	"trivia_medium_074": {
+		"message": "ഏത് ദക്ഷിണേഷ്യൻ രാജ്യത്തിലൂടെയാണ് സിന്ധു നദി ഒഴുകുന്നത്?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "പാക്കിസ്ഥാൻ"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "ഉത്തര കൊറിയ"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "അസർബൈജാൻ"
+	},
+	"trivia_medium_075": {
+		"message": "ഏത് രാജ്യമാണ് ചെങ്കടലിന്റെ അതിർത്തിയായി വർത്തിക്കുന്നത്?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "എറിത്രിയ"
+	},
 	"trivia_medium_075_answer1": {
 		"message": "ഘാന"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "കെനിയ"
+	},
+	"trivia_medium_076": {
+		"message": "ഏത് രാജ്യത്തെ സ്റ്റേറ്റുകളാണ് സകറ്റെകാസും ടബാസ്കോയും?"
 	},
 	"trivia_medium_076_answer0": {
 		"message": "മെക്‌സിക്കോ"
 	},
+	"trivia_medium_076_answer1": {
+		"message": "ബെലീസ്"
+	},
 	"trivia_medium_076_answer2": {
 		"message": "അർജന്റീന"
+	},
+	"trivia_medium_077": {
+		"message": "4,000-ലധികം മുസ്ലീം പള്ളികളുള്ള റിയാദ് ഏത് രാജ്യത്താണ് സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "സൗദി അറേബ്യ"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "അൽബേനിയ"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "സിറിയ"
+	},
+	"trivia_medium_078": {
+		"message": "നാലതിരുകളും കരയാൽ ചുറ്റപ്പെട്ടിരിക്കുന്ന ആഫ്രിക്കൻ രാജ്യമേത്?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "മാലി"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "മൗറിറ്റാനിയ"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "ഈജിപ്റ്റ്"
+	},
+	"trivia_medium_079": {
+		"message": "ഏത് രാജ്യത്തെ പുണ്യസ്ഥലമാണ് മൗണ്ട് ഫിജി?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "ജപ്പാൻ"
 	},
 	"trivia_medium_079_answer1": {
 		"message": "ഫിലിപ്പീൻസ്"
 	},
+	"trivia_medium_079_answer2": {
+		"message": "ബംഗ്ലാദേശ്"
+	},
+	"trivia_medium_080": {
+		"message": "ഗ്രേറ്റർ ആന്റില്ലെസിലെ ഏത് രാജ്യമാണ് ഔദ്യോഗിക ഭാഷയായി ഇംഗ്ലീഷ് ഉപയോഗിക്കുന്നത്?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "ജമൈക്ക"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "ഹെയ്‌തി"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "ക്യൂബ"
+	},
+	"trivia_medium_081": {
+		"message": "സിറിയയുടെയും കുവൈറ്റിന്റെയും അൾജീരിയയുടെയും ഔദ്യോഗിക ഭാഷയേത്?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "അറബിക്"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "അര്‍‌മേനിയന്‍‌"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "ജര്‍‌മ്മന്‍‌"
+	},
+	"trivia_medium_082": {
+		"message": "പർവതനിരകൾ നിറഞ്ഞ ഏത് യൂറോപ്യൻ രാജ്യത്തിലെ വാർഷിക സാൽസ്‌ബർഗ് ഉത്സവ വേളയിലാണ് പലപ്പോഴും മൊസാർട്ട് ഓപ്പറകൾ അവതരിപ്പിക്കപ്പെടുന്നത്?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "ഓസ്‌ട്രിയ"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "ഹംഗറി"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "റുമാനിയ"
+	},
+	"trivia_medium_083": {
+		"message": "ചരിത്രാതീത കാലത്തിൽ നിന്നുള്ള തിമിംഗലങ്ങളുടെ ഫോസിലുകൾ നിറഞ്ഞുകിടക്കുന്ന മരുഭൂമിയാണ്, സുഡാനിന്റെ വടക്കുള്ള ഒരു രാജ്യത്ത് സ്ഥിതിചെയ്യുന്ന തിമിംഗലങ്ങളുടെ താഴ്‌വര (വാലി ഓഫ് ദ വെയിൽസ്), ഏതാണാ രാജ്യം?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "ഈജിപ്റ്റ്"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "നൈജീരിയ"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "സാംബിയ"
+	},
+	"trivia_medium_084": {
+		"message": "ഏത് യൂറോപ്യൻ രാജ്യത്തിലെ നോർത്ത് സീയുടെ അഴിമുഖത്താണ് റോട്ടെർഡാം സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "നെതർലാന്റ്സ്"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "സ്വീഡൻ"
+	},
 	"trivia_medium_084_answer2": {
 		"message": "ഗ്രീസ്"
+	},
+	"trivia_medium_085": {
+		"message": "ബംഗാൾ ഉൾക്കടലിന്റെ അഴിമുഖത്ത് കൂടി ഒഴുകുന്ന ബ്രഹ്മപുത്ര നദി, ഏത് പർവത നിരകളിൽ നിന്നാണ് ഉത്ഭവിക്കുന്നത്?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "ഹിമാലയം"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "യുരാൽസ്"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "ആൽപ്സ്"
+	},
+	"trivia_medium_086": {
+		"message": "ഏത് ഇസ്ലാമിക രാജ്യത്തെ ഔദ്യോഗിക ഭാഷയാണ് ഫാർസി എന്നും അറിയപ്പെടുന്ന പേർഷ്യൻ?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "ഇറാൻ"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "കുവൈറ്റ്"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "ലിബിയ"
+	},
+	"trivia_medium_087": {
+		"message": "സെവില്ലെ നഗരത്തിലെ കാളപ്പോരിൽ പങ്കെടുക്കുന്ന കാളപ്പോരുകാരെ കാണുന്നതിന് ഏത് യൂറോപ്യൻ രാജ്യത്തേക്കാണ് നമ്മൾ പോകേണ്ടത്?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "സ്‌പെയിൻ"
 	},
 	"trivia_medium_087_answer1": {
 		"message": "ജർമ്മനി"
 	},
+	"trivia_medium_087_answer2": {
+		"message": "മാസിഡോണിയ"
+	},
+	"trivia_medium_088": {
+		"message": "കിഴക്കിന്റെയും പടിഞ്ഞാറിന്റെയും സംഗമസ്ഥാനമായി കണക്കാക്കുന്ന ഈസ്താംബുൾ നഗരം ഏത് രാജ്യത്താണൂള്ളത്?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "ടർക്കി"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "സ്ലോവാക്യ"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "ഒമാൻ"
+	},
 	"trivia_medium_089": {
 		"message": "എൽ സാൽവദോറും നിക്കരാഗ്വയുമായി അതിർത്തി പങ്കിടുന്ന ഏത് രാജ്യത്തെ പ്രശസ്ത വിനോദ സഞ്ചാര ആകർഷണമാണ് കോപ്പനിലെ മായാ നഗരം?"
 	},
+	"trivia_medium_089_answer0": {
+		"message": "ഹോണ്ടുറാസ്"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "ചിലി"
+	},
 	"trivia_medium_089_answer2": {
 		"message": "കാനഡ"
+	},
+	"trivia_medium_090": {
+		"message": "നിഗെർ നദിക്കരെ സ്ഥിതിചെയ്യുന്ന ടിംബുക്തു, ആയിരം വർഷങ്ങളായി കാരവൻ (ഒട്ടകക്കൂട്ടം) വ്യാപാരത്തിന് പേരുകേട്ട ഇടമാണ്. നാലുഭാഗവും കരകളാൽ ചുറ്റപ്പെട്ട ഏത് രാജ്യത്താണ് ടിംബുക്തു ഉള്ളത്?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "മാലി"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "ഉഗാണ്ട"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "നമീബിയ"
+	},
+	"trivia_medium_091": {
+		"message": "നാലുഭാഗവും കരകളാൽ ചുറ്റപ്പെട്ട ഏത് ദക്ഷിണ അമേരിക്കൻ രാജ്യത്തിനാണ് ചിലിയും ബ്രസീലും അതിർത്തികളായി ഉള്ളത്?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "ബൊളീവിയ"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "കൊളംബിയ"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "ഗയാന"
 	},
 	"trivia_medium_092": {
 		"message": "ആമസോൺ നദിയുടെ തെക്ക് ഭാഗത്ത് സ്ഥിതിചെയ്യുന്ന ബെലെം നഗരം ഏത് രാജ്യത്താണ്?"
@@ -617,14 +3785,107 @@
 	"trivia_medium_092_answer0": {
 		"message": "ബ്രസീൽ"
 	},
+	"trivia_medium_092_answer1": {
+		"message": "കോസ്റ്റാറിക്ക"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "സുരിനാം"
+	},
+	"trivia_medium_093": {
+		"message": "ബൾഗേറിയയുടെ ഭൂരിഭാഗം വടക്കൻ അതിർത്തിയിലും ഏത് നദിയാണുള്ളത്?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "ഡാന്യൂബ് നദി"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "ഓബ് നദി"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "മെകോംഗ് നദി"
+	},
+	"trivia_medium_094": {
+		"message": "ഏത് ഏഷ്യൻ രാജ്യത്തുള്ള ബെയ്ക്കൽ തടാകത്തിന്റെ അരികിലാണ് സായൻ പർവതനിരകൾ ഉള്ളത്?"
+	},
 	"trivia_medium_094_answer0": {
 		"message": "റഷ്യ"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "ഇന്ത്യ"
 	},
 	"trivia_medium_094_answer2": {
 		"message": "കിർഗിസ്ഥാൻ"
 	},
+	"trivia_medium_095": {
+		"message": "കാനഡയിലെ ഏത് പ്രവിശ്യയിലെ ഏറ്റവും വലിയ തടാകമാണ് നിപ്പിഗോൺ തടാകം?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "ഒൺടാരിയോ"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "ആൽബെർട്ട"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "ബ്രിട്ടീഷ് കൊളംബിയ"
+	},
+	"trivia_medium_096": {
+		"message": "ഏത് വലിയ കടലിന്റെ ഭാഗങ്ങളാണ് ബാലേരിക് കടലും ഇയോണിയൻ കടലും?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "മെഡിറ്ററേനിയൻ സമുദ്രം"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "ബാൾട്ടിക്ക് കടൽ"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "കരീബിയൻ കടൽ"
+	},
+	"trivia_medium_097": {
+		"message": "തുർക്കാന തടാകവും നാട്രോൺ തടാകവും താഴ്‌വര പിളർന്നുള്ള (റിഫ്റ്റ് വാലി) തടാകങ്ങൾക്ക് ഉദാഹരണങ്ങളാണ്, ഏത് ഭൂഖണ്ഡത്തിലാണ് ഇവ സ്ഥിതിചെയ്യുന്നത്?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "യൂറോപ്പ്"
+	},
+	"trivia_medium_098": {
+		"message": "ഏത് സമുദ്രത്തിലെ ഏറ്റവും ആഴമേറിയ ഭാഗമാണ് പ്യൂർട്ടോ റിക്കോ ട്രെഞ്ച്?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "അറ്റ്ലാന്‍റിക് സമുദ്രം"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "ആർട്ടിക്ക് സമുദ്രം"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "പസഫിക്ക് സമുദ്രം"
+	},
+	"trivia_medium_099": {
+		"message": "ഏത് ഭൂഖണ്ഡത്തിന്റെ പടിഞ്ഞാറൻ ഭാഗത്തെ യൂക്കാലിപ്റ്റസ് വനങ്ങളിലാണ് ചിരിക്കുന്ന കൂക്കാബുറ പക്ഷിയെ കണ്ടുവരുന്നത്?"
+	},
 	"trivia_medium_099_answer0": {
 		"message": "ഓസ്‌ട്രേലിയ"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "ആഫ്രിക്ക"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "തെക്കേ അമേരിക്ക"
+	},
+	"trivia_medium_100": {
+		"message": "ഏത് യൂറോപ്യൻ രാജ്യത്തിന്റെ പടിഞ്ഞാറൻ കടൽത്തീരത്താണ് ഇന്റർനാഷണൽ കോർട്ട് ഓഫ് ജസ്റ്റിസിന്റെ ആസ്ഥാനം സ്ഥിതിചെയ്യുന്ന ദ ഹേഗ് നഗരമുള്ളത്?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "നെതർലാന്റ്സ്"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "ഫിന്‍‌ലാന്റ്"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "ബൾഗേറിയ"
 	},
 	"twitter": {
 		"message": "Twitter"

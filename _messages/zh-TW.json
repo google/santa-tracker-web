@@ -60,7 +60,7 @@
 		"message": "複製這個連結即可分享您的訊息"
 	},
 	"countdownlabel": {
-		"message": "距離聖誕老人出發時間"
+		"message": "聖誕老人出發倒數計時"
 	},
 	"days": {
 		"message": "天"
@@ -269,11 +269,146 @@
 	"traditions-world": {
 		"message": "全世界"
 	},
+	"trivia_beginner_001": {
+		"message": "安地斯山脈位於哪一洲？"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "亞洲"
+	},
+	"trivia_beginner_002": {
+		"message": "美國哪個州是由八個主要島嶼所組成？"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "夏威夷州"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "俄亥俄州"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "阿肯色州"
+	},
+	"trivia_beginner_003": {
+		"message": "美國哪一州位於大平原區？"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "堪薩斯州"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "德拉瓦州"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "愛達荷州"
+	},
+	"trivia_beginner_004": {
+		"message": "哪一洲與大西洋、太平洋和北冰洋等大洋相鄰？"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "亞洲"
+	},
 	"trivia_beginner_004_answer1": {
 		"message": "澳洲"
 	},
+	"trivia_beginner_004_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_005": {
+		"message": "哪一州位於太平洋時區內？"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "加州"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "喬治亞"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "印地安納州"
+	},
+	"trivia_beginner_006": {
+		"message": "阿特拉斯山脈和喀拉哈里沙漠位於哪一洲？"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "南極洲"
+	},
+	"trivia_beginner_007": {
+		"message": "美國的哪一州與大湖相鄰？"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "俄亥俄州"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "蒙大拿州"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "新墨西哥州"
+	},
+	"trivia_beginner_008": {
+		"message": "哪一洲的人民大多說葡萄牙語或西班牙語？"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "非洲"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_009": {
+		"message": "美國哪一州的局部形狀有如鍋柄？"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "奧克拉荷馬州"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "懷俄明州"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "科羅拉多"
+	},
+	"trivia_beginner_010": {
+		"message": "南極洲以及哪一洲完全位於南半球？"
+	},
 	"trivia_beginner_010_answer0": {
 		"message": "澳洲"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "亞洲"
+	},
+	"trivia_beginner_011": {
+		"message": "龍尼冰棚與哪一洲相接？"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "南極洲"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "非洲"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_012": {
+		"message": "溫哥華島和科迪亞克島位於哪一洲的西海岸？"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "亞洲"
 	},
 	"trivia_beginner_012_answer2": {
 		"message": "澳洲"
@@ -281,8 +416,44 @@
 	"trivia_beginner_013": {
 		"message": "尼日 (Niger) 是世上人口成長最快的國家之一。請問它位於哪個大陸的西北部？"
 	},
+	"trivia_beginner_013_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_014": {
+		"message": "哪一洲的植被和樹木最少？"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "南極洲"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_015": {
+		"message": "袋獾棲息於哪一洲南岸的島嶼上？"
+	},
 	"trivia_beginner_015_answer0": {
 		"message": "澳洲"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "亞洲"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_016": {
+		"message": "著名的觀光景點比薩斜塔，位於哪一個地中海國家？"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "義大利"
 	},
 	"trivia_beginner_016_answer1": {
 		"message": "加拿大"
@@ -290,47 +461,419 @@
 	"trivia_beginner_016_answer2": {
 		"message": "迦納"
 	},
+	"trivia_beginner_017": {
+		"message": "卡薩布蘭加和的黎波里都是歷史悠久的城市。它們位於哪一洲的北部海岸？"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "南極洲"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_018": {
+		"message": "在索諾蘭沙漠中可以找到巨型仙人掌。這個沙漠位於哪一洲？"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "亞洲"
+	},
+	"trivia_beginner_019": {
+		"message": "維拉克斯和阿卡波可是哪個國家的度假勝地？"
+	},
 	"trivia_beginner_019_answer0": {
 		"message": "墨西哥"
 	},
 	"trivia_beginner_019_answer1": {
 		"message": "阿根廷"
 	},
+	"trivia_beginner_019_answer2": {
+		"message": "印度"
+	},
 	"trivia_beginner_020": {
 		"message": "「四川大熊貓棲息地」是全球 30% 熊貓的棲息地。請問它位於哪個國家境內？"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "中國"
 	},
 	"trivia_beginner_020_answer1": {
 		"message": "冰島"
 	},
+	"trivia_beginner_020_answer2": {
+		"message": "衣索比亞"
+	},
 	"trivia_beginner_021": {
 		"message": "哪一個大陸蘊含了全球 90% 左右的冰？"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "南極洲"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "非洲"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "歐洲"
 	},
 	"trivia_beginner_022": {
 		"message": "安赫爾瀑布 (Angel Falls) 是世上最高的瀑布。請問它位於哪一個大陸上？"
 	},
+	"trivia_beginner_022_answer0": {
+		"message": "南美洲"
+	},
 	"trivia_beginner_022_answer1": {
 		"message": "澳洲"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_023": {
+		"message": "如要參觀傑克遜霍爾 (Jackson Hole) 並攀登魔鬼塔，應前往美國的哪一州？"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "懷俄明州"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "北達科他州"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "康乃狄克州"
+	},
+	"trivia_beginner_024": {
+		"message": "如要參觀楓樹樹液的採收，並到綠山山脈滑雪，應前往美國的哪一州？"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "佛蒙特州"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "奧勒岡州"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "亞歷桑納州"
+	},
+	"trivia_beginner_025": {
+		"message": "造訪美國的哪一州時，您可以開車跨越切薩皮克灣大橋，並在大洋城的木棧道上散步？"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "馬里蘭州"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "堪薩斯州"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "北卡羅萊那州"
+	},
+	"trivia_beginner_026": {
+		"message": "要參觀猛獁洞並前往丘吉爾唐斯 (Churchill Downs) 觀看賽馬，應前往美國的哪一州？"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "肯塔基州"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "西維吉尼亞"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "猶他州"
+	},
+	"trivia_beginner_027": {
+		"message": "想要看到巨大的紅杉樹和海峽群島，應前往美國的哪一州？"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "加州"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "紐澤西州"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "維吉尼亞州"
+	},
+	"trivia_beginner_028": {
+		"message": "如果您前往美國佛羅里達州，可以參觀哪塊濕地？"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "大沼澤地 (Everglades)"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "迪斯莫爾沼澤"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "大柏樹沼澤"
+	},
+	"trivia_beginner_029": {
+		"message": "如要遊覽聖羅倫斯海道和五指湖，應前往美國的哪一州？"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "紐約"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "密西根州"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "內華達州"
+	},
+	"trivia_beginner_030": {
+		"message": "世界最高峰聖母峰位於哪一洲？"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "亞洲"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "南極洲"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_031": {
+		"message": "巴塔哥尼亞涵蓋哪一洲南方的廣大區域？"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "非洲"
+	},
+	"trivia_beginner_032": {
+		"message": "皇帝企鵝原本的棲息地位於哪一洲？"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "南極洲"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_033": {
+		"message": "袋鼠和無尾熊是哪個國家的特有種動物？"
 	},
 	"trivia_beginner_033_answer0": {
 		"message": "澳洲"
 	},
+	"trivia_beginner_033_answer1": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_034": {
+		"message": "塞倫蓋蒂國家公園吸引眾多遊客前來觀賞野生動物。它位於哪一洲上？"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "亞洲"
+	},
 	"trivia_beginner_034_answer2": {
 		"message": "澳洲"
+	},
+	"trivia_beginner_035": {
+		"message": "哪一洲的陸地面積最大？"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "亞洲"
 	},
 	"trivia_beginner_035_answer1": {
 		"message": "澳洲"
 	},
+	"trivia_beginner_035_answer2": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_036": {
+		"message": "跨越泰晤士河的塔橋位於哪座歐洲城市？"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "倫敦"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "哈瓦那"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "開普敦"
+	},
 	"trivia_beginner_037": {
 		"message": "聖巴西爾大教堂座落於克里姆林宮旁邊的紅場上。請問它位於俄羅斯的哪一個城市？"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "莫斯科"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "布魯塞爾"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "蒙特維多"
 	},
 	"trivia_beginner_038": {
 		"message": "為了舉辦角鬥士競技比賽，而在西元一世紀興建的大型競技場座落於哪一個歐洲城市？"
 	},
+	"trivia_beginner_038_answer0": {
+		"message": "羅馬"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "喀土穆"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "馬尼拉"
+	},
+	"trivia_beginner_039": {
+		"message": "知名的歌劇院和港灣大橋位於澳大利亞哪座城市內？"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "雪梨"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "雅加達"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "布拉格"
+	},
+	"trivia_beginner_040": {
+		"message": "哪座中東城市的古城牆範圍內包含眾多聖地，圓頂清真寺和西牆就是其中兩例？"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "耶路撒冷"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "東京"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "阿爾及爾"
+	},
+	"trivia_beginner_041": {
+		"message": "帕德嫩神殿矗立於衛城之上。它位在希臘哪座城市？"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "雅典"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "基輔"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "利馬"
+	},
+	"trivia_beginner_042": {
+		"message": "艾菲爾鐵塔矗立在塞納河附近，俯瞰著法國哪一座城市的中心？"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "巴黎"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "多倫多"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "新德里"
+	},
+	"trivia_beginner_043": {
+		"message": "禁寺內的卡巴天房是伊斯蘭教的至高聖地。它位於沙烏地阿拉伯的哪座城市內？"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "麥加"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "布宜諾斯艾利斯"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "布達佩斯"
+	},
+	"trivia_beginner_044": {
+		"message": "紫禁城曾經是皇室宮殿，位於中國哪座城市的中心？"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "北京"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "聖地亞哥"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "布里斯本"
+	},
+	"trivia_beginner_045": {
+		"message": "太空針塔是一個瞭望塔。它位於美國普捷灣的哪座城市內？"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "西雅圖"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "威奇塔"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "紐奧良"
+	},
+	"trivia_beginner_046": {
+		"message": "美國的哪一座城市位於查爾斯河河口，市內最高的建築是約翰漢考克大廈？"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "波士頓"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "匹茲堡"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "孟菲斯"
+	},
+	"trivia_beginner_047": {
+		"message": "同溫層酒店位於著名的賭場大道北側，是美國莫哈維沙漠中哪一座城市的最高建築？"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "拉斯維加斯"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "明尼阿波里斯"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "丹佛"
+	},
+	"trivia_beginner_048": {
+		"message": "自由女神像是一尊大型雕塑，位於自由島上。自由島位於美國哪座城市的港口內？"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "紐約市"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "亞特蘭大"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "洛杉磯"
+	},
 	"trivia_beginner_049": {
 		"message": "金門大橋銜接了馬林半島和哪一個美國城市？"
 	},
+	"trivia_beginner_049_answer0": {
+		"message": "舊金山"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "波夕"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "巴爾的摩"
+	},
 	"trivia_beginner_050": {
 		"message": "位於密西西比河河畔的「大拱門」是美國在 19 世紀向西部擴張的象徵。請問它位於美國的哪一個城市？"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "聖路易市"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "印第安納波利斯"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "邁阿密"
+	},
+	"trivia_beginner_051": {
+		"message": "大金字塔和獅身人面像座落於吉薩高原上。吉薩高原位於哪個非洲國家境內？"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "埃及"
 	},
 	"trivia_beginner_051_answer1": {
 		"message": "巴西"
@@ -338,38 +881,341 @@
 	"trivia_beginner_051_answer2": {
 		"message": "德國"
 	},
+	"trivia_beginner_052": {
+		"message": "美國獨立紀念館是與美國革命相關的重要歷史古蹟，位於德拉瓦河附近的哪座美國城市內？"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "費城"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "聖安東尼奧"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "芝加哥"
+	},
+	"trivia_beginner_053": {
+		"message": "洛磯山脈縱貫加拿大和哪個國家？"
+	},
 	"trivia_beginner_053_answer0": {
 		"message": "美國"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "委內瑞拉"
 	},
 	"trivia_beginner_053_answer2": {
 		"message": "俄羅斯"
 	},
+	"trivia_beginner_054": {
+		"message": "巴西和烏拉圭與哪一大洋相鄰？"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "大西洋"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "印度洋"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "北冰洋"
+	},
+	"trivia_beginner_055": {
+		"message": "紐芬蘭島位於加拿大東岸的哪一大洋上？"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "大西洋"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "印度洋"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_056": {
+		"message": "馬達加斯加島位於非洲東岸的哪一大洋上？"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "印度洋"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "北冰洋"
+	},
+	"trivia_beginner_057": {
+		"message": "國際換日線大部分貫穿哪一大洋？"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "印度洋"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "大西洋"
+	},
+	"trivia_beginner_058": {
+		"message": "在赤道上的剛果盆地位於哪一洲？"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "非洲"
+	},
 	"trivia_beginner_058_answer1": {
 		"message": "澳洲"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_059": {
+		"message": "哪一洲與墨西哥灣相鄰？"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "亞洲"
+	},
+	"trivia_beginner_060": {
+		"message": "哪一條河流經非洲，是世界最長的河流？"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "尼羅河"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "科羅拉多河"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "奧蘭治河"
+	},
+	"trivia_beginner_061": {
+		"message": "馬丘比丘遺跡位於哪一洲？"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "南極洲"
+	},
+	"trivia_beginner_062": {
+		"message": "流量世界第一的亞馬遜河橫跨哪一洲？"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "南美洲"
 	},
 	"trivia_beginner_062_answer1": {
 		"message": "澳洲"
 	},
+	"trivia_beginner_062_answer2": {
+		"message": "亞洲"
+	},
+	"trivia_beginner_063": {
+		"message": "白朗峰是阿爾卑斯山的最高點。它位於哪一洲？"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_064": {
+		"message": "巴拿馬地峽連接中美洲與哪一洲？"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "亞洲"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_065": {
+		"message": "獵豹是世界上跑得最快的陸地哺乳動物，分布於肯亞和坦尚尼亞。這兩個國家位於哪一洲？"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_066": {
+		"message": "好望角的位置接近哪一洲的南端？"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "亞洲"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "歐洲"
+	},
 	"trivia_beginner_067": {
 		"message": "巨龜生活在南美洲西部的加拉巴哥群島上。請問加拉巴哥群島位於哪一大洋上？"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "北冰洋"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "印度洋"
+	},
+	"trivia_beginner_068": {
+		"message": "多瑙河流經維也納及許多城市。它位於哪一洲？"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "歐洲"
 	},
 	"trivia_beginner_068_answer1": {
 		"message": "澳洲"
 	},
+	"trivia_beginner_068_answer2": {
+		"message": "非洲"
+	},
+	"trivia_beginner_069": {
+		"message": "古巴島和伊斯巴紐拉島皆與哪片海域相鄰？"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "加勒比海"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "白令海"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "波羅的海"
+	},
+	"trivia_beginner_070": {
+		"message": "幾內亞灣與哪一洲相接？"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "非洲"
+	},
 	"trivia_beginner_070_answer1": {
 		"message": "澳洲"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_071": {
+		"message": "Ernest Shackleton 是一位探險家，他以探索哪一洲而聞名於世？"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "南極洲"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_072": {
+		"message": "拉布拉多海是哪一大洋的延伸？"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "大西洋"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "印度洋"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_073": {
+		"message": "世界上最大的沙漠撒哈拉沙漠位於哪一洲？"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "南極洲"
+	},
+	"trivia_beginner_074": {
+		"message": "西藏高原位於哪一洲？"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "亞洲"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_075": {
+		"message": "德雷克海峽位於哪一洲南部？"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "歐洲"
 	},
 	"trivia_beginner_075_answer2": {
 		"message": "澳洲"
 	},
+	"trivia_beginner_076": {
+		"message": "大堡礁位於哪一洲的沿岸珊瑚海域？"
+	},
 	"trivia_beginner_076_answer0": {
 		"message": "澳洲"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "亞洲"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "北美洲"
 	},
 	"trivia_beginner_077": {
 		"message": "想要一覽蘇伊士運河的風光，並參觀開羅的「死城」，您會前往哪個國家？"
 	},
+	"trivia_beginner_077_answer0": {
+		"message": "埃及"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "哥倫比亞"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "芬蘭"
+	},
+	"trivia_beginner_078": {
+		"message": "想親眼看到高卓人牧牛，並到布宜諾斯艾利斯市觀賞探戈舞表演，應前往哪個國家？"
+	},
 	"trivia_beginner_078_answer0": {
 		"message": "阿根廷"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "尼日"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "尼泊爾"
+	},
+	"trivia_beginner_079": {
+		"message": "如要參觀非斯市的舊城區，並在阿特拉斯山脈健行，應前往哪個國家？"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "摩洛哥"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "厄瓜多"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "泰國"
 	},
 	"trivia_beginner_080": {
 		"message": "想要參觀古老的瑪雅遺址，並一覽坎昆 (Cancún) 的海灘風情，您會前往哪個國家？"
@@ -377,8 +1223,23 @@
 	"trivia_beginner_080_answer0": {
 		"message": "墨西哥"
 	},
+	"trivia_beginner_080_answer1": {
+		"message": "荷蘭"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "土耳其"
+	},
 	"trivia_beginner_081": {
 		"message": "想要參觀都柏林的聖派屈克大教堂，並出席基爾肯尼的藝術節盛會，您會前往哪個國家？"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "愛爾蘭"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "索馬利亞"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "哥斯大黎加"
 	},
 	"trivia_beginner_082": {
 		"message": "想要飽覽雨林風情，並在里約熱內盧的嘉年華會中盡情熱舞，您會前往哪個國家？"
@@ -389,26 +1250,419 @@
 	"trivia_beginner_082_answer1": {
 		"message": "英國"
 	},
+	"trivia_beginner_082_answer2": {
+		"message": "越南"
+	},
+	"trivia_beginner_083": {
+		"message": "如要參觀聖彼得堡的艾米塔吉博物館，並搭乘西伯利亞鐵路，應前往哪個國家？"
+	},
 	"trivia_beginner_083_answer0": {
 		"message": "俄羅斯"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "印尼"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "貝里斯"
+	},
+	"trivia_beginner_084": {
+		"message": "如要搭乘新幹線，並在東京飯店消磨美好的夜晚，應前往哪個國家？"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "日本"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "辛巴威"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "玻利維亞"
+	},
+	"trivia_beginner_085": {
+		"message": "如果想在熱那亞品嘗香蒜醬麵，並到佛羅倫斯欣賞歌劇演出，應前往哪個國家？"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "義大利"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "巴拉圭"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "利比亞"
+	},
+	"trivia_beginner_086": {
+		"message": "如要來一趟馬賽馬拉自然保護區之旅，並在奈洛比快樂購物，應前往哪個國家？"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "肯亞"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "南韓"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "智利"
+	},
+	"trivia_beginner_087": {
+		"message": "想觀賞恆河並在加爾各答擁擠的街道走走，應前往哪個國家？"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "印度"
 	},
 	"trivia_beginner_087_answer1": {
 		"message": "德國"
 	},
+	"trivia_beginner_087_answer2": {
+		"message": "約旦"
+	},
+	"trivia_beginner_088": {
+		"message": "地球的最北端「北極」位於哪一大洋中央？"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "北冰洋"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "印度洋"
+	},
+	"trivia_beginner_089": {
+		"message": "哪個國家與大西洋相鄰？"
+	},
 	"trivia_beginner_089_answer0": {
 		"message": "冰島"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "巴基斯坦"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "日本"
+	},
+	"trivia_beginner_090": {
+		"message": "美國的哪一州因為溫暖的氣候和宜人的海灘，素有「陽光之州」的美稱？"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "佛羅里達州"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "緬因州"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "華盛頓州"
+	},
+	"trivia_beginner_091": {
+		"message": "大峽谷位於美國的哪一州？"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "亞歷桑納州"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "西維吉尼亞"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "南達科他州"
+	},
+	"trivia_beginner_092": {
+		"message": "美國的哪一州有「孤星州」之稱，州旗上有一顆星星，且曾經是個獨立國家？"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "德州"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "威斯康辛州"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "馬里蘭州"
+	},
+	"trivia_beginner_093": {
+		"message": "底格里斯河和幼發拉底河位於哪一洲？"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "亞洲"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "南極洲"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "歐洲"
+	},
+	"trivia_beginner_094": {
+		"message": "維多利亞湖和維龍加山脈位於哪一洲？"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "亞洲"
+	},
+	"trivia_beginner_095": {
+		"message": "哪個國家是位於太平洋的島國？"
 	},
 	"trivia_beginner_095_answer0": {
 		"message": "紐西蘭"
 	},
+	"trivia_beginner_095_answer1": {
+		"message": "南非"
+	},
 	"trivia_beginner_095_answer2": {
 		"message": "冰島"
+	},
+	"trivia_beginner_096": {
+		"message": "哪個國家位於斯堪地那維亞半島上？"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "瑞典"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "羅馬尼亞"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "秘魯"
+	},
+	"trivia_beginner_097": {
+		"message": "哪個國家與地中海相鄰？"
 	},
 	"trivia_beginner_097_answer0": {
 		"message": "法國"
 	},
+	"trivia_beginner_097_answer1": {
+		"message": "孟加拉"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "尼加拉瓜"
+	},
+	"trivia_hard_001": {
+		"message": "哪座美國城市最接近加拿大邊界？"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "西雅圖"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "沙加緬度"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "奧馬哈"
+	},
+	"trivia_hard_002": {
+		"message": "美國哪一座城市最有可能遭到颶風襲擊？"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "邁阿密"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "洛杉磯"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "匹茲堡"
+	},
+	"trivia_hard_003": {
+		"message": "以下哪個湖泊的表面積最大？"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "休倫湖"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "米德湖"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "伊利湖"
+	},
+	"trivia_hard_004": {
+		"message": "以下哪個美國城市的人口最多？"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "芝加哥"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "聖路易市"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "印第安納波利斯"
+	},
+	"trivia_hard_005": {
+		"message": "哪個國家最靠近波斯灣？"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "伊朗"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "土耳其"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "不丹"
+	},
+	"trivia_hard_006": {
+		"message": "以下哪個國家的土地面積最大？"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "哈薩克"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "羅馬尼亞"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "波蘭"
+	},
+	"trivia_hard_007": {
+		"message": "以下哪個國家的人口最為稠密？"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "新加坡"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "寮國"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "玻利維亞"
+	},
+	"trivia_hard_008": {
+		"message": "以下哪個國家說德語的人口最多？"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "奧地利"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "斯洛伐克"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "伊拉克"
+	},
+	"trivia_hard_009": {
+		"message": "以下哪個國家的鄰國最多？"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "沙烏地阿拉伯"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "摩洛哥"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "蒙古"
+	},
+	"trivia_hard_010": {
+		"message": "哪個國家未與坦干伊喀湖相鄰？"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "貝南"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "蒲隆地"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "尚比亞"
+	},
+	"trivia_hard_011": {
+		"message": "赤道並未跨越下列哪個國家？"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "茅利塔尼亞"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "印尼"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "肯亞"
+	},
+	"trivia_hard_012": {
+		"message": "哪個國家不是位於巴爾幹半島上？"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "捷克共和國"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "保加利亞"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "馬其頓"
+	},
+	"trivia_hard_013": {
+		"message": "哪個國家未與北海相接？"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "芬蘭"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "丹麥"
+	},
 	"trivia_hard_013_answer2": {
 		"message": "英國"
+	},
+	"trivia_hard_014": {
+		"message": "哪個國家並未與黑海相鄰？"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "亞塞拜然"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "烏克蘭"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "土耳其"
+	},
+	"trivia_hard_015": {
+		"message": "哪個國家不是內陸國？"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "克羅埃西亞"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "白俄羅斯"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "匈牙利"
+	},
+	"trivia_hard_016": {
+		"message": "哪個國家不位於撒哈拉沙漠？"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "安哥拉"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "利比亞"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "阿爾及利亞"
+	},
+	"trivia_hard_017": {
+		"message": "哪個島嶼的位置在最東方？"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "千里達"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "牙買加"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "古巴"
+	},
+	"trivia_hard_018": {
+		"message": "恐怖角 (Cape Fear) 與哪一片水域相鄰？"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "大西洋"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "加勒比海"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "太平洋"
+	},
+	"trivia_hard_019": {
+		"message": "哪座城市是位於墨西哥灣的港口城市？"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "維拉克斯"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "提尤安納"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "阿卡波可"
+	},
+	"trivia_hard_020": {
+		"message": "北回歸線橫越哪個國家？"
 	},
 	"trivia_hard_020_answer0": {
 		"message": "墨西哥"
@@ -419,11 +1673,128 @@
 	"trivia_hard_020_answer2": {
 		"message": "巴西"
 	},
+	"trivia_hard_021": {
+		"message": "以下哪座島嶼的面積最大？"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "巴芬島"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "伊斯巴紐拉"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "薩丁尼亞島"
+	},
 	"trivia_hard_022": {
 		"message": "尤卡坦海峽位於墨西哥以及哪一個島嶼之間？"
 	},
+	"trivia_hard_022_answer0": {
+		"message": "古巴"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "波多黎各"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "多米尼克"
+	},
+	"trivia_hard_023": {
+		"message": "哪座加拿大城市位於最北端？"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "黃刀市"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "渥太華"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "溫尼伯"
+	},
+	"trivia_hard_024": {
+		"message": "哪個島嶼是小安地列斯群島的一部分？"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "聖克里斯多福"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "百慕達"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "新斯科細亞"
+	},
+	"trivia_hard_025": {
+		"message": "太子港是哪個國家人口最多的城市？"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "海地"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "尼加拉瓜"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "蘇利南"
+	},
+	"trivia_hard_026": {
+		"message": "哪個國家位於喀爾巴阡山系？"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "羅馬尼亞"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "阿爾巴尼亞"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "土庫曼"
+	},
+	"trivia_hard_027": {
+		"message": "法語是哪個國家的官方語言？"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "加彭"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "科威特"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "坦尚尼亞"
+	},
+	"trivia_hard_028": {
+		"message": "以下哪個國家的土地面積最大？"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "伊朗"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "以色列"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "巴林"
+	},
+	"trivia_hard_029": {
+		"message": "哪個國家橫跨的經度最廣？"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "哈薩克"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "阿富汗"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "敘利亞"
+	},
+	"trivia_hard_030": {
+		"message": "哪個國家是由許多島嶼所組成？"
+	},
 	"trivia_hard_030_answer0": {
 		"message": "菲律賓"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "柬埔寨"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "塔吉克"
+	},
+	"trivia_hard_031": {
+		"message": "以下哪個國家跨越的時區最多？"
 	},
 	"trivia_hard_031_answer0": {
 		"message": "巴西"
@@ -431,23 +1802,485 @@
 	"trivia_hard_031_answer1": {
 		"message": "迦納"
 	},
+	"trivia_hard_031_answer2": {
+		"message": "貝里斯"
+	},
+	"trivia_hard_032": {
+		"message": "哪個國家的位置在最北方？"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "喀麥隆"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "莫三比克"
+	},
 	"trivia_hard_032_answer2": {
 		"message": "澳洲"
+	},
+	"trivia_hard_033": {
+		"message": "哪個國家位於法國和西班牙之間？"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "安道爾"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "盧森堡"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "梵蒂岡"
+	},
+	"trivia_hard_034": {
+		"message": "丹麥與哪個國家相接？"
 	},
 	"trivia_hard_034_answer0": {
 		"message": "德國"
 	},
+	"trivia_hard_034_answer1": {
+		"message": "芬蘭"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "摩爾多瓦"
+	},
+	"trivia_hard_035": {
+		"message": "薩丁尼亞島屬於哪個國家？"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "義大利"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "土耳其"
+	},
 	"trivia_hard_035_answer2": {
 		"message": "英國"
+	},
+	"trivia_hard_036": {
+		"message": "哪個沙漠佔了北京和烏蘭巴托之間大部分的區域？"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "戈壁"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "印度大沙漠"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "利比亞沙漠"
+	},
+	"trivia_hard_037": {
+		"message": "堪察加洋流屬於哪一大洋？"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "太平洋"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "印度洋"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "大西洋"
+	},
+	"trivia_hard_038": {
+		"message": "錫德拉灣位於哪片海域的南部？"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "地中海"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "阿拉伯海"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "波羅的海"
+	},
+	"trivia_hard_039": {
+		"message": "塔特拉山脈是歐洲哪個山系最高的山脈？"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "喀爾巴阡山脈"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "坎塔布連山脈"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "庇里牛斯山"
+	},
+	"trivia_hard_040": {
+		"message": "哪一條河流流經卡里巴水庫，形成尚比亞和辛巴威之間的邊界？"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "三比西河"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "尼羅河"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "剛果河"
+	},
+	"trivia_hard_041": {
+		"message": "泰晤士河、默茲河和斯海爾德河皆流入哪片海域？"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "北海"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "地中海"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "黑海"
+	},
+	"trivia_hard_042": {
+		"message": "呂宋海峽位於菲律賓和北方哪一大島之間？"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "台灣"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "阿爾及利亞"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "斯里蘭卡"
+	},
+	"trivia_hard_043": {
+		"message": "哪個群島沿著大西洋中洋脊分佈羅列？"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "亞述群島"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "巴哈馬"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "斐濟群島"
+	},
+	"trivia_hard_044": {
+		"message": "哪條河匯入拉普捷夫海？"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "勒那河"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "長江"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "印度河"
+	},
+	"trivia_hard_045": {
+		"message": "哪一座山峰最接近赤道？"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "吉力馬札羅山"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "白朗峰"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "馬金利山"
+	},
+	"trivia_hard_046": {
+		"message": "哪一座首都的人口最多？"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "莫斯科"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "赫爾辛基"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "阿爾及爾"
+	},
+	"trivia_hard_047": {
+		"message": "位於利菲河畔的哪座城市，是愛爾蘭共和國最大的城市？"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "都柏林"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "奧斯陸"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "哥本哈根"
+	},
+	"trivia_hard_048": {
+		"message": "哪座城市位於興都庫什山谷，是阿富汗最大的城市？"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "喀布爾"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "塞拉耶佛"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "坎帕拉"
+	},
+	"trivia_hard_049": {
+		"message": "泰國最大的城市是位於湄南河畔的哪座城市？"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "曼谷"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "北京"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "安曼"
+	},
+	"trivia_hard_050": {
+		"message": "哪座城市位於斯卡格拉克海峽中一個峽灣的頂點，是挪威最大的城市？"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "奧斯陸"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "倫敦"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "布魯塞爾"
+	},
+	"trivia_hard_051": {
+		"message": "黎巴嫩最大的城市是位於地中海東側的哪座城市？"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "貝魯特"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "摩加迪蘇"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "利雅德"
+	},
+	"trivia_hard_052": {
+		"message": "哪座城市位於爪哇島岸邊，是印尼最大的城市？"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "雅加達"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "東京"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "奈洛比"
+	},
+	"trivia_hard_053": {
+		"message": "位於阿提卡區的哪座城市是希臘最大的城市？"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "雅典"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "羅馬"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "巴塞隆納"
 	},
 	"trivia_hard_054": {
 		"message": "哪個城市位於拉布拉他河河口，同時也是烏拉圭最大的城市？"
 	},
+	"trivia_hard_054_answer0": {
+		"message": "蒙特維多"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "基多"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "里約熱內盧"
+	},
+	"trivia_hard_055": {
+		"message": "哪座城市曾經是德蘭士瓦省的一部分，現在則是南非最大的城市？"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "約翰尼斯堡"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "阿布賈"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "馬布多"
+	},
+	"trivia_hard_056": {
+		"message": "哪座城市是加勒比海重要的運輸中心，也是牙買加最大的城市？"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "京斯敦"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "卡拉卡斯"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "布宜諾斯艾利斯"
+	},
+	"trivia_hard_057": {
+		"message": "位於東非大裂谷的哪座城市，是厄利垂亞最大的城市？"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "阿斯馬拉"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "巴格達"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "布拉薩"
+	},
+	"trivia_hard_058": {
+		"message": "哪座城市位於維斯拉河河畔，是波蘭最大的城市？"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "華沙"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "柏林"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "基輔"
+	},
+	"trivia_hard_059": {
+		"message": "哪座城市是泛美公路上的重要站點，同時也是哥斯大黎加最大的城市？"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "聖荷西"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "利馬"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "蘇克瑞"
+	},
+	"trivia_hard_060": {
+		"message": "哪座城市是非洲南部重要的農產貿易中心，同時也是辛巴威最大的城市？"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "哈拉雷"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "文胡克"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "坎帕拉"
+	},
+	"trivia_hard_061": {
+		"message": "哪座城市一度由紅色高棉政權佔據，是柬埔寨最大的城市？"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "金邊"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "吉隆坡"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "達卡"
+	},
+	"trivia_hard_062": {
+		"message": "哪座城市位在與大西洋毗鄰的維蘇拉多角上，是賴比瑞亞最大的城市？"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "蒙羅維亞"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "阿克拉"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "路沙卡"
+	},
+	"trivia_hard_063": {
+		"message": "哪座城市位於安地斯山脈的高原上，是哥倫比亞最大的城市？"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "波哥大"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "馬拿瓜"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "蒙特瑞"
+	},
+	"trivia_hard_064": {
+		"message": "位於厄爾布爾士山山腳下的哪座城市是伊朗最大的城市？"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "德黑蘭"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "塔什干"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "伊斯坦堡"
+	},
+	"trivia_hard_065": {
+		"message": "北極圈橫跨以下哪片水域？"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "挪威海"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "沃爾特水庫"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "裏海"
+	},
+	"trivia_hard_066": {
+		"message": "哪一個水域位於東非大裂谷？"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "馬拉威湖"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "塔斯曼海"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "的的喀喀湖"
+	},
+	"trivia_hard_067": {
+		"message": "俄羅斯港口城市阿爾漢格爾斯克位於哪片水域沿岸？"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "白海"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "巴斯海峽"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "比斯開灣"
+	},
+	"trivia_hard_068": {
+		"message": "湖南、山東等省份屬於哪個國家？"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "中國"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "泰國"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "葉門"
+	},
+	"trivia_hard_069": {
+		"message": "卡斯蒂利亞語是哪個地中海國家的官方語言？"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "西班牙"
+	},
 	"trivia_hard_069_answer1": {
 		"message": "希臘"
 	},
+	"trivia_hard_069_answer2": {
+		"message": "亞塞拜然"
+	},
+	"trivia_hard_070": {
+		"message": "中美洲哪個國家曾是哥倫比亞的一省？"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "巴拿馬"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "宏都拉斯"
+	},
 	"trivia_hard_070_answer2": {
 		"message": "瓜地馬拉"
+	},
+	"trivia_hard_071": {
+		"message": "萊茵河流經的巴塞爾市是哪個國家的重要交通樞紐？"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "瑞士"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "比利時"
 	},
 	"trivia_hard_071_answer2": {
 		"message": "俄羅斯"
@@ -458,17 +2291,128 @@
 	"trivia_hard_072_answer0": {
 		"message": "法國"
 	},
+	"trivia_hard_072_answer1": {
+		"message": "荷蘭"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "羅馬尼亞"
+	},
 	"trivia_hard_073": {
 		"message": "布蘭卡港 (Bahía Blanca) 是彭巴草原區的一個重要航運點。請問它位於哪個國家境內？"
 	},
 	"trivia_hard_073_answer0": {
 		"message": "阿根廷"
 	},
+	"trivia_hard_073_answer1": {
+		"message": "玻利維亞"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "尼加拉瓜"
+	},
+	"trivia_hard_074": {
+		"message": "哪個國家與地中海、黑海和愛琴海相鄰？"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "土耳其"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "保加利亞"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "利比亞"
+	},
+	"trivia_hard_075": {
+		"message": "牛羚每年的遷徙從坦尚尼亞出發，穿越馬拉河，向西北進入哪一個鄰國？"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "肯亞"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "尚比亞"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "幾內亞"
+	},
+	"trivia_hard_076": {
+		"message": "以大清真寺著名的阿勒頗是哪個西南亞國家最大的城市？"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "敘利亞"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "阿曼"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "孟加拉"
+	},
+	"trivia_hard_077": {
+		"message": "哪個國家與俄羅斯和喬治亞相鄰？"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "亞塞拜然"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "烏茲別克"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "北韓"
+	},
+	"trivia_hard_078": {
+		"message": "哪個國家與巴拿馬和巴西相鄰？"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "哥倫比亞"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "秘魯"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "哥斯大黎加"
+	},
+	"trivia_hard_079": {
+		"message": "哪個國家與瓜地馬拉和美國相鄰？"
+	},
 	"trivia_hard_079_answer0": {
 		"message": "墨西哥"
 	},
+	"trivia_hard_079_answer1": {
+		"message": "薩爾瓦多"
+	},
 	"trivia_hard_079_answer2": {
 		"message": "加拿大"
+	},
+	"trivia_hard_080": {
+		"message": "哪個國家與伊拉克和阿富汗相鄰？"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "伊朗"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "烏克蘭"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "蒙古"
+	},
+	"trivia_hard_081": {
+		"message": "哪個國家與賴索托和波札那相鄰？"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "南非"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "辛巴威"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "剛果"
+	},
+	"trivia_hard_082": {
+		"message": "安特衛普位於哪個國家的法蘭德斯語區？"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "比利時"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "荷蘭"
 	},
 	"trivia_hard_082_answer2": {
 		"message": "冰島"
@@ -476,8 +2420,41 @@
 	"trivia_hard_083": {
 		"message": "位於維斯瓦河河口的格但斯克 (Gdańsk) 是一個重要的港口城市。請問它位於哪一個歐洲國家境內？"
 	},
+	"trivia_hard_083_answer0": {
+		"message": "波蘭"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "西班牙"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "克羅埃西亞"
+	},
+	"trivia_hard_084": {
+		"message": "馬德拉河和普魯斯河皆是南美洲哪一條大河的主要支流？"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "亞馬遜河"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "奧利諾科河"
+	},
 	"trivia_hard_084_answer2": {
 		"message": "巴拉那河"
+	},
+	"trivia_hard_085": {
+		"message": "與波登湖相鄰的國家包括瑞士、德國以及哪個國家？"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "奧地利"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "斯洛伐克"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "芬蘭"
+	},
+	"trivia_hard_086": {
+		"message": "奧克蘭是擁有多個港口的重要港口城市，也是哪個國家最大的城市？"
 	},
 	"trivia_hard_086_answer0": {
 		"message": "紐西蘭"
@@ -485,56 +2462,695 @@
 	"trivia_hard_086_answer1": {
 		"message": "澳洲"
 	},
+	"trivia_hard_086_answer2": {
+		"message": "印尼"
+	},
+	"trivia_hard_087": {
+		"message": "哪個國家位於多哥正西方，是可可的主要生產國之一？"
+	},
 	"trivia_hard_087_answer0": {
 		"message": "迦納"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "蘇丹"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "突尼西亞"
 	},
 	"trivia_hard_088": {
 		"message": "瓜拉尼 (Guaraní) 是哪一個南美國家的其中一種官方語言，同時也是該國的貨幣名稱？"
 	},
+	"trivia_hard_088_answer0": {
+		"message": "巴拉圭"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "厄瓜多"
+	},
 	"trivia_hard_088_answer2": {
 		"message": "巴西"
+	},
+	"trivia_hard_089": {
+		"message": "沿著法國和西班牙的邊界延伸的是哪個山脈？"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "庇里牛斯山"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "亞平寧山脈"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "高加索山脈"
+	},
+	"trivia_hard_090": {
+		"message": "托倫斯河在哪個國家匯入聖文森特灣？"
 	},
 	"trivia_hard_090_answer0": {
 		"message": "澳洲"
 	},
+	"trivia_hard_090_answer1": {
+		"message": "烏干達"
+	},
 	"trivia_hard_090_answer2": {
 		"message": "加拿大"
+	},
+	"trivia_hard_091": {
+		"message": "哪一個與地中海相鄰的非洲國家目前仍採君主制？"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "摩洛哥"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "埃及"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "中非共和國"
+	},
+	"trivia_hard_092": {
+		"message": "位於庫拉河畔的提比里斯是哪個國家的首都？"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "喬治亞"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "敘利亞"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "匈牙利"
+	},
+	"trivia_hard_093": {
+		"message": "阿布魯佐是毗鄰亞得里亞海的多山區域。它位於哪個國家境內？"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "義大利"
 	},
 	"trivia_hard_093_answer1": {
 		"message": "法國"
 	},
+	"trivia_hard_093_answer2": {
+		"message": "盧森堡"
+	},
+	"trivia_hard_094": {
+		"message": "里加灣與拉脫維亞以及哪個國家相鄰？"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "愛沙尼亞"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "白俄羅斯"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "西班牙"
+	},
+	"trivia_hard_095": {
+		"message": "猶八 (Jubal) 海峽連結了蘇伊士灣和哪片海域？"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "紅海"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "加勒比海"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "裏海"
+	},
+	"trivia_hard_096": {
+		"message": "加利利海的水源主要來自哪條河流？"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "約旦河"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "阿姆河"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "恆河"
+	},
+	"trivia_hard_097": {
+		"message": "哪個大型海灣位於紐布朗斯維克省和諾瓦斯科西亞省之間？"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "芬迪灣"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "哈得遜灣"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "孟加拉灣"
+	},
+	"trivia_hard_098": {
+		"message": "萊茵蘭區域內的科隆主教座堂位於哪個國家境內？"
+	},
 	"trivia_hard_098_answer0": {
 		"message": "德國"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "丹麥"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "巴基斯坦"
+	},
+	"trivia_hard_099": {
+		"message": "擁有數個古老馬雅遺跡的恰帕斯州，位於哪個國家的最南端？"
 	},
 	"trivia_hard_099_answer0": {
 		"message": "墨西哥"
 	},
+	"trivia_hard_099_answer1": {
+		"message": "宏都拉斯"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "智利"
+	},
+	"trivia_hard_100": {
+		"message": "狹窄的達達尼爾海峽連接了馬爾馬拉海與哪片海域？"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "愛琴海"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "巴倫支海"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "塔斯曼海"
+	},
+	"trivia_hard_101": {
+		"message": "高棉語是哪個東南亞國家的官方語言？"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "柬埔寨"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "尼泊爾"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "越南"
+	},
+	"trivia_hard_102": {
+		"message": "頓內次盆地工業區為俄羅斯與哪個國家所共有？"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "烏克蘭"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "斯洛伐克"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "黎巴嫩"
+	},
+	"trivia_hard_103": {
+		"message": "位於大雪山山脈的科西斯科山是哪一洲的最高峰？"
+	},
 	"trivia_hard_103_answer0": {
 		"message": "澳洲"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "歐洲"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_hard_104": {
+		"message": "馬都拉島和峇里島屬於哪個國家？"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "印尼"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "日本"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "巴基斯坦"
+	},
+	"trivia_hard_105": {
+		"message": "崑崙山脈以北的塔克拉瑪干沙漠位於哪個亞洲國家境內？"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "中國"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "沙烏地阿拉伯"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "南韓"
+	},
+	"trivia_medium_001": {
+		"message": "以下哪座美國城市位於河流三角洲上？"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "紐奧良"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "奧斯汀"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "奧克拉荷馬市"
+	},
+	"trivia_medium_002": {
+		"message": "吳哥窟和卡帕多西亞都是聯合國教科文組織認定的世界遺產。它們位於哪一洲？"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "亞洲"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "歐洲"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "非洲"
+	},
+	"trivia_medium_003": {
+		"message": "哪一洲西南區域的人民會說庫德語和波斯語？"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "亞洲"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "南美洲"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "歐洲"
 	},
 	"trivia_medium_004": {
 		"message": "特奧蒂瓦坎 (Teotihuacán) 是一個古文明重鎮。請問它位於哪一個大陸上？"
 	},
+	"trivia_medium_004_answer0": {
+		"message": "北美洲"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "非洲"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "亞洲"
+	},
+	"trivia_medium_005": {
+		"message": "別林斯高津海和羅斯海與哪一洲相鄰？"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "南極洲"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "歐洲"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "亞洲"
+	},
+	"trivia_medium_006": {
+		"message": "莫三比克洋流和本吉拉洋流沿著哪一洲的沿岸流動？"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "非洲"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "歐洲"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_medium_007": {
+		"message": "馬爾維納斯群島 (又稱福克蘭群島) 位於哪一洲的東南緣？"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "歐洲"
+	},
+	"trivia_medium_008": {
+		"message": "以下哪個非洲國家擁有的面積最大？"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "阿爾及利亞"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "甘比亞"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "蒲隆地"
+	},
+	"trivia_medium_009": {
+		"message": "哪個大島位於冰島西北方 200 英里處？"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "格陵蘭"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "紐幾內亞"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "愛爾蘭"
+	},
+	"trivia_medium_010": {
+		"message": "喀拉海和東西伯利亞海屬於哪一大洋？"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "北冰洋"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "印度洋"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "太平洋"
+	},
+	"trivia_medium_011": {
+		"message": "哪個國家與波羅的海相鄰？"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "拉脫維亞"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "斯洛維尼亞"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "烏克蘭"
+	},
+	"trivia_medium_012": {
+		"message": "以下哪個大城市的人口最多？"
+	},
 	"trivia_medium_012_answer0": {
 		"message": "巴西聖保羅"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "加拿大多倫多"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "越南河內"
+	},
+	"trivia_medium_013": {
+		"message": "哪個國家並未與大西洋相鄰？"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "馬來西亞"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "安哥拉"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "烏拉圭"
+	},
+	"trivia_medium_014": {
+		"message": "以下哪個國家的海岸線最短？"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "薩爾瓦多"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "秘魯"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "智利"
+	},
+	"trivia_medium_015": {
+		"message": "哪個沙漠位於亞洲？"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "戈壁"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "喀拉哈里"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "阿塔卡馬"
+	},
+	"trivia_medium_016": {
+		"message": "以下哪個國家的火山活動最為頻繁？"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "印尼"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "埃及"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "以色列"
+	},
+	"trivia_medium_017": {
+		"message": "以下哪個國家的人口最多？"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "巴基斯坦"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "海地"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "委內瑞拉"
+	},
+	"trivia_medium_018": {
+		"message": "以下哪個國家擁有的島嶼數量最多？"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "巴哈馬"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "牙買加"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "薩爾瓦多"
+	},
+	"trivia_medium_019": {
+		"message": "哪個國家的位置最靠近赤道？"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "盧安達"
 	},
 	"trivia_medium_019_answer1": {
 		"message": "瓜地馬拉"
 	},
+	"trivia_medium_019_answer2": {
+		"message": "南非"
+	},
+	"trivia_medium_020": {
+		"message": "哪個國家的位置在最北方？"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "愛沙尼亞"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "利比亞"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "柬埔寨"
+	},
+	"trivia_medium_021": {
+		"message": "位於太加斯河河畔的阿法瑪區，屬於葡萄牙境內的哪一座都城？"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "里斯本"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "柏林"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "赫爾辛基"
+	},
+	"trivia_medium_022": {
+		"message": "哪座首都位於死海東北部 25 英里處，是約旦人口最多的城市？"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "安曼"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "伊斯蘭馬巴德"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "首爾"
+	},
+	"trivia_medium_023": {
+		"message": "解放廣場是埃及幾次大型抗議活動的中心。它位於哪座首都？"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "開羅"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "奈洛比"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "馬斯開特"
+	},
 	"trivia_medium_024": {
 		"message": "南非國會的所在地，位於桌灣 (Table Bay) 的首都為何？"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "開普敦"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "路沙卡"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "金夏沙"
+	},
+	"trivia_medium_025": {
+		"message": "捷克共和國的第一大城與首都，位於伏爾塔瓦河畔的是哪座城市？"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "布拉格"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "都柏林"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "索菲亞"
+	},
+	"trivia_medium_026": {
+		"message": "哪座毗鄰地中海的首都是利比亞的重要港口？"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "的黎波里"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "摩加迪蘇"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "蒙羅維亞"
+	},
+	"trivia_medium_027": {
+		"message": "哪座城市是蘇丹首都，也是重要的貿易和交通樞紐，位於白尼羅河和青尼羅河的交界處？"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "喀土穆"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "突尼斯"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "約翰尼斯堡"
+	},
+	"trivia_medium_028": {
+		"message": "跨越丹麥西蘭島和阿邁厄島的是哪座首都？"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "哥本哈根"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "伯恩"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "布拉提斯拉瓦"
+	},
+	"trivia_medium_029": {
+		"message": "位於新普洛維頓斯島上、巴哈馬的最大城是哪座首都？"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "納索"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "聖多明哥"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "貝爾墨邦"
 	},
 	"trivia_medium_030": {
 		"message": "位於黑海南端，地處土耳其交通運輸系統樞紐位置的首都為何？"
 	},
+	"trivia_medium_030_answer0": {
+		"message": "安卡拉"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "明斯克"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "德黑蘭"
+	},
+	"trivia_medium_031": {
+		"message": "以下哪個國家國土的一部分位於「非洲之角」？"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "厄利垂亞"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "尼日"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "史瓦濟蘭"
+	},
+	"trivia_medium_032": {
+		"message": "斯卡格拉克海峽位於丹麥和哪個國家之間？"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "挪威"
+	},
 	"trivia_medium_032_answer1": {
 		"message": "英國"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "斯里蘭卡"
+	},
+	"trivia_medium_033": {
+		"message": "哪個國家的沙漠面積較多？"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "查德"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "挪威"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "越南"
+	},
+	"trivia_medium_034": {
+		"message": "幼發拉底河流經哪個國家？"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "敘利亞"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "瑞士"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "泰國"
+	},
+	"trivia_medium_035": {
+		"message": "伊爾庫次克市位於貝加爾湖附近。它位於哪一洲？"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "亞洲"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "非洲"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_medium_036": {
+		"message": "聶伯河和萊茵河是哪一洲的主要河流？"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "歐洲"
 	},
 	"trivia_medium_036_answer1": {
 		"message": "南極洲"
 	},
+	"trivia_medium_036_answer2": {
+		"message": "亞洲"
+	},
+	"trivia_medium_037": {
+		"message": "圭亞那高原和潘特納爾濕地位於哪一洲？"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "歐洲"
+	},
+	"trivia_medium_038": {
+		"message": "維多利亞大沙漠和納拉伯平原是哪一洲的代表性地景？"
+	},
 	"trivia_medium_038_answer0": {
 		"message": "澳洲"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "亞洲"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "歐洲"
+	},
+	"trivia_medium_039": {
+		"message": "南大河州是哪個國家最南端的州？"
 	},
 	"trivia_medium_039_answer0": {
 		"message": "巴西"
@@ -545,11 +3161,35 @@
 	"trivia_medium_039_answer2": {
 		"message": "德國"
 	},
+	"trivia_medium_040": {
+		"message": "新西伯利亞市位於哪個國家的鄂畢河流域上？"
+	},
 	"trivia_medium_040_answer0": {
 		"message": "俄羅斯"
 	},
+	"trivia_medium_040_answer1": {
+		"message": "尼泊爾"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "中國"
+	},
+	"trivia_medium_041": {
+		"message": "哪個國家位於環太平洋帶上，因此較容易發生地震？"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "智利"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "安哥拉"
+	},
 	"trivia_medium_041_answer2": {
 		"message": "法國"
+	},
+	"trivia_medium_042": {
+		"message": "馬拉開波湖位於哪個國家的北部海岸？"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "委內瑞拉"
 	},
 	"trivia_medium_042_answer1": {
 		"message": "瓜地馬拉"
@@ -557,11 +3197,140 @@
 	"trivia_medium_042_answer2": {
 		"message": "加拿大"
 	},
+	"trivia_medium_043": {
+		"message": "哪個國家與阿拉伯海相鄰？"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "印度"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "塔吉克"
+	},
 	"trivia_medium_043_answer2": {
 		"message": "希臘"
 	},
+	"trivia_medium_044": {
+		"message": "哪個國家位於伊比利半島上？"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "葡萄牙"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "孟加拉"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "荷蘭"
+	},
+	"trivia_medium_045": {
+		"message": "以下哪個國家的海岸線最長？"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "泰國"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "剛果"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "卡達"
+	},
+	"trivia_medium_046": {
+		"message": "美國哪一州位於密西西比河以西？"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "科羅拉多"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "馬里蘭州"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "密西根州"
+	},
+	"trivia_medium_047": {
+		"message": "美國哪一州的森林覆蓋率達到 60% 左右？"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "維吉尼亞州"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "亞歷桑納州"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "內華達州"
+	},
+	"trivia_medium_048": {
+		"message": "北美最高峰麥金利山位於美國哪一州內？"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "阿拉斯加州"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "明尼蘇達州"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "科羅拉多"
+	},
+	"trivia_medium_049": {
+		"message": "以下美國各州哪一州的面積最大？"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "蒙大拿州"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "康乃狄克州"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "南卡羅萊納州"
+	},
+	"trivia_medium_050": {
+		"message": "鄰近急流市的拉什莫爾山位於美國哪一州？"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "南達科他州"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "奧勒岡州"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "佛羅里達州"
+	},
+	"trivia_medium_051": {
+		"message": "美國的哪一州與加拿大相鄰？"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "明尼蘇達州"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "內布拉斯加州"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "肯塔基州"
+	},
+	"trivia_medium_052": {
+		"message": "美國的哪一州沿海有珊瑚礁海岸？"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "夏威夷州"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "康乃狄克州"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "內華達州"
+	},
+	"trivia_medium_053": {
+		"message": "漢堡是哪個國家的重要港口？"
+	},
 	"trivia_medium_053_answer0": {
 		"message": "德國"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "克羅埃西亞"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "比利時"
+	},
+	"trivia_medium_054": {
+		"message": "哪個國家的火山活動最頻繁？"
 	},
 	"trivia_medium_054_answer0": {
 		"message": "冰島"
@@ -569,14 +3338,143 @@
 	"trivia_medium_054_answer1": {
 		"message": "英國"
 	},
+	"trivia_medium_054_answer2": {
+		"message": "波蘭"
+	},
+	"trivia_medium_055": {
+		"message": "哪個國家主要位於小亞細亞半島上？"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "土耳其"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "緬甸"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "愛沙尼亞"
+	},
+	"trivia_medium_056": {
+		"message": "以色列隔著死海與哪個國家相望？"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "約旦"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "伊朗"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "日本"
+	},
+	"trivia_medium_057": {
+		"message": "塞倫蓋蒂國家公園位於維多利亞湖以東，屬於哪個國家？"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "坦尚尼亞"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "葉門"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "奈及利亞"
+	},
+	"trivia_medium_058": {
+		"message": "哪個國家毗鄰加勒比海，且是石油出口大國？"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "委內瑞拉"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "智利"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "巴拉圭"
+	},
+	"trivia_medium_059": {
+		"message": "哪個內陸國家恰好位於赤道以南？"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "蒲隆地"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "吉布地"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "突尼西亞"
+	},
+	"trivia_medium_060": {
+		"message": "第勒尼安海與哪一個地中海國家相鄰？"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "義大利"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "以色列"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "塞內加爾"
+	},
+	"trivia_medium_061": {
+		"message": "凱薩琳堡位於哪個國家的烏拉山脈東麓？"
+	},
 	"trivia_medium_061_answer0": {
 		"message": "俄羅斯"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "立陶宛"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "比利時"
+	},
+	"trivia_medium_062": {
+		"message": "哪個島國位於澳大利亞的東南方，且是羊毛的主要生產國之一？"
 	},
 	"trivia_medium_062_answer0": {
 		"message": "紐西蘭"
 	},
 	"trivia_medium_062_answer1": {
 		"message": "菲律賓"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "越南"
+	},
+	"trivia_medium_063": {
+		"message": "孟買是哪個國家的主要港口城市？"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "印度"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "瑞士"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "不丹"
+	},
+	"trivia_medium_064": {
+		"message": "毗鄰黃海的仁川市屬於哪個國家？"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "南韓"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "泰國"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "蒙古"
+	},
+	"trivia_medium_065": {
+		"message": "奧地利西側與哪個小國接壤？"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "列支敦斯登"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "敘利亞"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "摩爾多瓦"
+	},
+	"trivia_medium_066": {
+		"message": "維多利亞州和新南威爾斯州屬於哪個國家？"
 	},
 	"trivia_medium_066_answer0": {
 		"message": "澳洲"
@@ -587,35 +3485,305 @@
 	"trivia_medium_066_answer2": {
 		"message": "加拿大"
 	},
+	"trivia_medium_067": {
+		"message": "哪個國家位於婆羅洲，且與小國汶萊接壤？"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "馬來西亞"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "伊朗"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "烏克蘭"
+	},
+	"trivia_medium_068": {
+		"message": "朱利安阿爾卑斯山是義大利以及哪個國家之間的邊界？"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "斯洛維尼亞"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "尼泊爾"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "塔吉克"
+	},
+	"trivia_medium_069": {
+		"message": "曾經稱為「滿州」的地區位於哪個國家的東北？"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "中國"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "白俄羅斯"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "阿富汗"
+	},
+	"trivia_medium_070": {
+		"message": "哪個國家與薩爾瓦多相鄰？"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "宏都拉斯"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "巴拿馬"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "多明尼加共和國"
+	},
+	"trivia_medium_071": {
+		"message": "哪個國家位於高加索山脈？"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "喬治亞"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "匈牙利"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "安道爾"
+	},
+	"trivia_medium_072": {
+		"message": "巽他海峽位於哪個亞洲國家的兩個島嶼之間？"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "印尼"
+	},
 	"trivia_medium_072_answer1": {
 		"message": "紐西蘭"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "寮國"
+	},
+	"trivia_medium_073": {
+		"message": "香農河接近河口處有冰川峽谷和壯觀的懸崖。香農河位於哪個國家？"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "愛爾蘭"
 	},
 	"trivia_medium_073_answer1": {
 		"message": "法國"
 	},
+	"trivia_medium_073_answer2": {
+		"message": "烏茲別克"
+	},
+	"trivia_medium_074": {
+		"message": "印度河流經南亞哪個國家？"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "巴基斯坦"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "北韓"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "亞塞拜然"
+	},
+	"trivia_medium_075": {
+		"message": "哪個國家與紅海相鄰？"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "厄利垂亞"
+	},
 	"trivia_medium_075_answer1": {
 		"message": "迦納"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "肯亞"
+	},
+	"trivia_medium_076": {
+		"message": "薩卡特卡斯州和塔瓦斯科州屬於哪個國家？"
 	},
 	"trivia_medium_076_answer0": {
 		"message": "墨西哥"
 	},
+	"trivia_medium_076_answer1": {
+		"message": "貝里斯"
+	},
 	"trivia_medium_076_answer2": {
 		"message": "阿根廷"
+	},
+	"trivia_medium_077": {
+		"message": "利雅德這座城市有四千多座清真寺。它位於哪個國家境內？"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "沙烏地阿拉伯"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "阿爾巴尼亞"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "敘利亞"
+	},
+	"trivia_medium_078": {
+		"message": "哪個非洲國家是內陸國？"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "馬利"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "茅利塔尼亞"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "埃及"
+	},
+	"trivia_medium_079": {
+		"message": "富士山是哪個國家的聖山？"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "日本"
 	},
 	"trivia_medium_079_answer1": {
 		"message": "菲律賓"
 	},
+	"trivia_medium_079_answer2": {
+		"message": "孟加拉"
+	},
+	"trivia_medium_080": {
+		"message": "大安地列斯群島中的哪個國家使用英語做為官方語言？"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "牙買加"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "海地"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "古巴"
+	},
+	"trivia_medium_081": {
+		"message": "敘利亞、科威特和阿爾及利亞的官方語言為何？"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "阿拉伯語"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "亞美尼亞語"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "德語"
+	},
+	"trivia_medium_082": {
+		"message": "每年一度的薩爾斯堡音樂節經常演出莫札特的歌劇。這個音樂節是由哪個地形多山的歐洲國家所舉辦？"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "奧地利"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "匈牙利"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "羅馬尼亞"
+	},
+	"trivia_medium_083": {
+		"message": "滿布史前鯨魚化石的沙漠「鯨魚谷」，位於蘇丹北方的哪個國家境內？"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "埃及"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "奈及利亞"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "尚比亞"
+	},
+	"trivia_medium_084": {
+		"message": "位於北海附近三角洲上的鹿特丹，屬於哪個歐洲國家？"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "荷蘭"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "瑞典"
+	},
 	"trivia_medium_084_answer2": {
 		"message": "希臘"
+	},
+	"trivia_medium_085": {
+		"message": "布拉馬普特拉河流入孟加拉灣附近的大型三角洲。它的水源來自哪個主要山系？"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "喜馬拉雅山"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "烏拉山"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "阿爾卑斯山"
+	},
+	"trivia_medium_086": {
+		"message": "法爾斯語 (也稱波斯語) 是哪個伊斯蘭國家的官方語言？"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "伊朗"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "科威特"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "利比亞"
+	},
+	"trivia_medium_087": {
+		"message": "塞維爾有鬥牛士進行精彩的鬥牛表演。這座城市位於歐洲哪個國家？"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "西班牙"
 	},
 	"trivia_medium_087_answer1": {
 		"message": "德國"
 	},
+	"trivia_medium_087_answer2": {
+		"message": "馬其頓"
+	},
+	"trivia_medium_088": {
+		"message": "伊斯坦堡一向是東西文化交匯之地。它位於哪個國家？"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "土耳其"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "斯洛伐克"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "阿曼"
+	},
 	"trivia_medium_089": {
 		"message": "科潘瑪雅遺址是世上熱門旅遊景點之一。請問它位於與薩爾瓦多和尼加拉瓜相接的哪個國家境內？"
 	},
+	"trivia_medium_089_answer0": {
+		"message": "宏都拉斯"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "智利"
+	},
 	"trivia_medium_089_answer2": {
 		"message": "加拿大"
+	},
+	"trivia_medium_090": {
+		"message": "廷巴克圖曾有將近千年的時間是商隊貿易的重要樞紐。它位於尼日河北岸的哪個內陸國家？"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "馬利"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "烏干達"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "納米比亞"
+	},
+	"trivia_medium_091": {
+		"message": "哪個南美洲的內陸國與智利和巴西接壤？"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "玻利維亞"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "哥倫比亞"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "蓋亞那"
 	},
 	"trivia_medium_092": {
 		"message": "貝倫市 (Belém) 位於亞馬遜河南端的入海口。請問它位於哪個國家境內？"
@@ -623,14 +3791,107 @@
 	"trivia_medium_092_answer0": {
 		"message": "巴西"
 	},
+	"trivia_medium_092_answer1": {
+		"message": "哥斯大黎加"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "蘇利南"
+	},
+	"trivia_medium_093": {
+		"message": "哪條河流形成保加利亞北側大部分區域的天然邊界？"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "多瑙河"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "鄂畢河"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "湄公河"
+	},
+	"trivia_medium_094": {
+		"message": "位於貝加爾湖附近的薩彥嶺屬於哪個亞洲國家？"
+	},
 	"trivia_medium_094_answer0": {
 		"message": "俄羅斯"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "印度"
 	},
 	"trivia_medium_094_answer2": {
 		"message": "吉爾吉斯"
 	},
+	"trivia_medium_095": {
+		"message": "尼皮貢湖是加拿大哪一省內最大的湖泊？"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "安大略"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "亞伯達"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "英屬哥倫比亞"
+	},
+	"trivia_medium_096": {
+		"message": "巴利阿里海和愛奧尼亞海皆是哪片海域的一部分？"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "地中海"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "波羅的海"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "加勒比海"
+	},
+	"trivia_medium_097": {
+		"message": "圖爾卡納湖和納特龍湖這兩個裂谷湖泊皆位於哪一洲？"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "非洲"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "南美洲"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "歐洲"
+	},
+	"trivia_medium_098": {
+		"message": "波多黎各海溝是哪一大洋的最深點？"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "大西洋"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "北冰洋"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "太平洋"
+	},
+	"trivia_medium_099": {
+		"message": "笑翠鳥分布於哪一洲東部的桉樹林？"
+	},
 	"trivia_medium_099_answer0": {
 		"message": "澳洲"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "非洲"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_medium_100": {
+		"message": "海牙是國際法庭的所在地。它位於哪個歐洲國家的西岸？"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "荷蘭"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "芬蘭"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "保加利亞"
 	},
 	"twitter": {
 		"message": "Twitter"

@@ -115,13 +115,9 @@ Boatload scene.
           <div class="label"><i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg></div>
           <div class="value"><span class="minutes dark-text">00</span><span class="dark-text"> : </span><span class="seconds">00</span></div>
           <div class="tracker">
-            <div class="remaining">
-              <!---->
-            </div>
+            <div class="remaining"></div>
           </div>
-          <div class="status">
-            <!---->
-          </div>
+          <div class="status"></div>
         </div>
         <div class="actions">
           <button type="button" class="restart"></button>
@@ -191,7 +187,7 @@ Boatload scene.
       var module = this.$['module-boatload'];
 
       var game = this.game = new scenes.boatload.Game(module);
-      startButton(module, function() {
+      startButton(this, module, function() {
         game.start();
       });
     },
