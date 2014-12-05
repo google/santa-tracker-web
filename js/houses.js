@@ -245,28 +245,9 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "santaselfie",
-  iced: true,
-  category: "play",
-  launchDate: new Date('Dec 11, 2014'),
-  elves: {
-    melt: [
-    "elf-green",
-    "elf-purple",
-    "elf-orange-left",
-    "elf-red-girl-right"
-    ],
-    snow: [
-    "elf-green-snow-hide",
-    "elf-purple-snow",
-    "elf-orange-left",
-    "elf-red-girl-snow-right"
-    ]
-  }
-}, {
   module: "jamband",
   iced: true,
-  launchDate: new Date('Dec 12, 2014'),
+  launchDate: new Date('Dec 11, 2014'),
   category: "play",
   elves: {
     melt: [
@@ -280,6 +261,25 @@ window.HOUSES = [{
     "elf-purple",
     "elf-orange-snow-left",
     "elf-blue-snow-hide"
+    ]
+  }
+}, {
+  module: "santaselfie",
+  iced: true,
+  category: "play",
+  launchDate: new Date('Dec 12, 2014'),
+  elves: {
+    melt: [
+    "elf-green",
+    "elf-purple",
+    "elf-orange-left",
+    "elf-red-girl-right"
+    ],
+    snow: [
+    "elf-green-snow-hide",
+    "elf-purple-snow",
+    "elf-orange-left",
+    "elf-red-girl-snow-right"
     ]
   }
 }, {
