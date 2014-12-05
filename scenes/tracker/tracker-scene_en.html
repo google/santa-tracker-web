@@ -1,8 +1,10 @@
 <link rel="import" href="../base-scene.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
+<link rel="import" href="../../components/google-map/google-map.html">
 
 <script src="../shared/js/mapstyles.js"></script>
+
 
 <!--
 Tracker scene.
@@ -16,17 +18,12 @@ Tracker scene.
 
   <div id="module-tracker">
 
-    <div class="scene" fit>
+    <div class="scene">
 
-      <template if="{{santaApp}}">
-        <google-maps-api version="3.exp" apiKey="{{santaApp.config.API_KEY}}"
-                         clientId="{{santaApp.config.CLIENT_ID}}"
-                         libraries="places,geometry"
-                         language="{{santaApp.language}}"
-                         on-api-load="{{mapsAPIReady}}"></google-maps-api>
-      </template>
-
-      <div id="trackermap"></div>
+      <google-map id="map" apiKey="{{santaApp.config.API_KEY}}"
+                  clientId="{{santaApp.config.CLIENT_ID}}" disableDefaultUI
+                  zoomable="false" libraries="places,geometry"
+                  latitude="{{latitude_}}" longitude="{{longitude_}}" fit></google-map>
 
       <div class="sceneboard">
         <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
@@ -56,32 +53,22 @@ Tracker scene.
      */
     longitude_: null,
 
+    onPreload: function() {
+      this.preloadImages([
+        'img/smallglobe.svg'
+      ]);
+    },
+
+    ready: function() {
+      this.super();
+      this.$.map.styles = mapstyles.styles;
+    },
+
     santaAppChanged: function() {
       this.santaApp.santaService.getCurrentLocation(function(location) {
         this.latitude_ = location.position.lat;
         this.longitude_ = location.position.lng;
       }.bind(this));
-    },
-
-    mapsAPIReady: function(e, detail, sender) {
-      this.map = new google.maps.Map(this.$.trackermap, {
-        center: new google.maps.LatLng(0, 0),
-        zoom: 5,
-        disableDefaultUI: true,
-        scrollwheel: false,
-        draggable: false,
-        disableDoubleClickZoom: true,
-        backgroundColor: '#f6efe2',
-        // It's important that we have map styles -- this prevents a call to
-        // staticmap.
-        styles: mapstyles.styles
-      });
-    },
-
-    onPreload: function() {
-      this.preloadImages([
-        'img/smallglobe.svg'
-      ]);
     },
 
     onShow: function() {
