@@ -77,10 +77,8 @@ var chromecastMixin = {
         // since this is Chromecast only, we can assume it supports the modern
         // KeyboardEvent constructor and skip the initKeyboardEvent silliness
         var data = JSON.parse(event.data);
-        console.log('button press: ' + data.button);
         var keyDetails = this.CAST_KEY_MAPPING_[data.button];
         if (keyDetails) {
-          console.log('key press: ' + keyDetails.key);
           var e = new KeyboardEvent('keydown', {
             bubbles: true,
             cancelable: true,
@@ -91,10 +89,8 @@ var chromecastMixin = {
         } else {
           // these don't map to keys, but can control the pause state of the app
           if (data.button === 'play') {
-            console.log('command: play');
             this.visibilityService.resume();
           } else if (data.button === 'pause') {
-            console.log('command: pause');
             this.visibilityService.pause();
           }
         }
