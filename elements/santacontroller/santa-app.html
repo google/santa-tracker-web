@@ -36,9 +36,10 @@ Santa Track app.
   <lazy-pages id="lazypages" selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route"
               santaApp="{{}}" preloader="{{$.preloader}}">
 
-    <calendar-nav route="calendar" alwaysActive
-        houses="{{houses}}" santaApp="{{}}"
-        hidden?="{{mode == 'cast'}}"></calendar-nav>
+    <template if="{{mode != 'cast'}}">
+      <calendar-nav route="calendar" alwaysActive
+          houses="{{houses}}" santaApp="{{}}" mode="{{mode}}"></calendar-nav>
+    </template>
 
     <village-scene route="village"
         path="scenes/village/village-scene_[[language]].html"
@@ -288,10 +289,23 @@ Polymer(Polymer.mixin({
       apiClient = 'web';
     }
 
-    if (apiClient === 'web_chromecast') {
-      this.mode = 'cast';
-      this.initChromecast();
-    } else {
+    var loadSound = true;
+
+    switch (apiClient) {
+      case 'web_chromecast':
+        this.mode = 'cast';
+        this.initChromecast();
+        loadSound = false;
+        break;
+      case 'web_embed':
+        this.mode = 'embed';
+        loadSound = false;
+        break;
+      default:
+        break;
+    }
+
+    if (loadSound) {
       var sc = new SoundController();
       this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
       this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));

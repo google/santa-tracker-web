@@ -32,6 +32,12 @@ Village scene.
   :host([mode="cast"]) #learnmore {
     display: none !important;
   }
+  :host([mode="embed"]) #hit-area-left,
+  :host([mode="embed"]) #hit-area-right {
+    display: block !important;
+    height: 62px !important;
+    width: 62px !important;
+  }
   </style>
 
   <core-a11y-keys target="{{}}" keys="left right" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
@@ -40,8 +46,10 @@ Village scene.
 
       <div id="countdown" layout vertical center relative
                           class="{{ {finished: finished} | tokenList}}">
-        <h1 class="logo">Google</h1>
-        <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
+        <a href="{{pageUrl}}/" target="_top">
+          <h1 class="logo">Google</h1>
+          <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
+        </a>
         <countdown-timer id="count" santaService="{{santaApp.santaService}}"
                          finished="{{finished}}" countDownEndDate="{{santaApp.countDownEndDate}}">
           <h3><i18n-msg msgid="days">PLACEHOLDER_i18n</i18n-msg></h3>
@@ -194,8 +202,8 @@ Village scene.
                         hidden?="{{timeOfDay == 'night'}}"></div>
       <div id="fakemoon" on-tap="{{onFakeElementClick}}"
                          hidden?="{{timeOfDay == 'day'}}"></div>
-      <div id="sun" class="{{timeOfDay == 'day' ? 'up go-up' : 'down go-down'}}"></div>
-      <div id="moon" class="{{timeOfDay == 'night' ? 'up go-up' : 'down go-down'}}"></div>
+      <div id="sun" class="{{timeOfDay == 'day' ? 'up go-up' : 'down go-down'}}" hidden?="{{mode == 'embed'}}"></div>
+      <div id="moon" class="{{timeOfDay == 'night' ? 'up go-up' : 'down go-down'}}" hidden?="{{mode == 'embed'}}"></div>
       <div id="sky">
         <div id="sky-day" class="{{ {visible: timeOfDay == 'day'} | tokenList }}"></div>
         <div id="sky-night" class="{{ {visible: timeOfDay == 'night'} | tokenList }}"></div>

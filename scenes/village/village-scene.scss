@@ -90,6 +90,12 @@ $name: 'module-village';
   }
 
   #countdown {
+    > a  {
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      pointer-events: all;
+    }
     &:not(.finished) {
       pointer-events: none;
     }
