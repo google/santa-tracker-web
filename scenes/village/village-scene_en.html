@@ -107,7 +107,8 @@ Village scene.
                   <div layout vertical center-center><i18n-msg msgid="openingtomorrow">PLACEHOLDER_i18n</i18n-msg></div>
                 </div>
                 <a href="{{house.link || pageUrl + '#' + house.module}}" class="house-marker"
-                  on-click="{{onHouseClick}}" tabindex="{{house.iced || house.disabled ? -1 : 0}}"></a>
+                  on-click="{{onHouseClick}}" tabindex="{{house.iced || house.disabled ? -1 : 0}}"
+                  hidden?="{{mode === 'cast' && !house.cast}}"></a>
               </div>
             </template>
 
