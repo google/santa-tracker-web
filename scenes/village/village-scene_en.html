@@ -26,22 +26,27 @@ Village scene.
   :host([mode="cast"]) #hit-area-left,
   :host([mode="cast"]) #hit-area-right,
   :host([mode="cast"]) #trees,
-  :host([mode="cast"]) .house-marker,
-  :host([mode="cast"]) .marker-today,
-  :host([mode="cast"]) .marker-tomorrow,
   :host([mode="cast"]) #learnmore {
     display: none !important;
   }
+  :host([mode="embed"]) #hit-area-left,
+  :host([mode="embed"]) #hit-area-right {
+    display: block !important;
+    height: 62px !important;
+    width: 62px !important;
+  }
   </style>
 
-  <core-a11y-keys target="{{}}" keys="left right" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="left right enter esc" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
   <div id="module-village" fit>
     <div id="village-wrapper" fit>
 
       <div id="countdown" layout vertical center relative
                           class="{{ {finished: finished} | tokenList}}">
-        <h1 class="logo">Google</h1>
-        <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
+        <a href="{{pageUrl}}/" target="_top">
+          <h1 class="logo">Google</h1>
+          <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
+        </a>
         <countdown-timer id="count" santaService="{{santaApp.santaService}}"
                          finished="{{finished}}" countDownEndDate="{{santaApp.countDownEndDate}}">
           <h3><i18n-msg msgid="days">PLACEHOLDER_i18n</i18n-msg></h3>
@@ -194,8 +199,8 @@ Village scene.
                         hidden?="{{timeOfDay == 'night'}}"></div>
       <div id="fakemoon" on-tap="{{onFakeElementClick}}"
                          hidden?="{{timeOfDay == 'day'}}"></div>
-      <div id="sun" class="{{timeOfDay == 'day' ? 'up go-up' : 'down go-down'}}"></div>
-      <div id="moon" class="{{timeOfDay == 'night' ? 'up go-up' : 'down go-down'}}"></div>
+      <div id="sun" class="{{timeOfDay == 'day' ? 'up go-up' : 'down go-down'}}" hidden?="{{mode == 'embed'}}"></div>
+      <div id="moon" class="{{timeOfDay == 'night' ? 'up go-up' : 'down go-down'}}" hidden?="{{mode == 'embed'}}"></div>
       <div id="sky">
         <div id="sky-day" class="{{ {visible: timeOfDay == 'day'} | tokenList }}"></div>
         <div id="sky-night" class="{{ {visible: timeOfDay == 'night'} | tokenList }}"></div>
@@ -504,26 +509,6 @@ Village scene.
       }, duration, opt_easing);
     },
 
-    /**
-     * Animates the view by a certain amount.
-     * @param {number} delta Delta in pixels.
-     * @param {number=} opt_duration Duration of animation. Defaults to 600ms.
-     * @param {Function=} opt_easing Animation easing function.
-     */
-    panBy: function(delta, opt_duration, opt_easing) {
-      this.cancelScrollAnimation();
-
-      var scrollee = this.scrollContainer_;
-      var currentScroll = scrollee.scrollLeft;
-      var targetScroll = currentScroll + delta;
-      var duration = (opt_duration != null) ? opt_duration : 600;
-
-      this.scrollAnimation_ = this.animator_.animate(function(t) {
-        var scrollPos = currentScroll + t * (targetScroll - currentScroll);
-        scrollee.scrollLeft = /** @type {number} */(scrollPos);
-      }, duration, opt_easing);
-    },
-
     cancelScrollAnimation: function(e, detail, sender) {
       if (this.scrollAnimation_) {
         this.scrollAnimation_.cancel();
@@ -577,36 +562,52 @@ Village scene.
       el.style[VillageUtils.CSS_TRANSFORM] = 'translateZ(0) ' + translateStyle;
     },
 
+    /**
+     * Returns the active (focused) marker, if any.
+     * @return {Element}
+     */
+    getActiveMarker_: function() {
+      // polyfill doesn't support this.shadowRoot.activeElement. Remove
+      // fallback to document.activeElement when
+      // https://github.com/Polymer/ShadowDOM/issues/478 is fixed
+      var activeElement = this.shadowRoot.activeElement ?
+          this.shadowRoot.activeElement : document.activeElement;
+      if (activeElement && activeElement.classList.contains('house-marker')) {
+        return activeElement;
+      }
+
+      return null;
+    },
+
     arrowHandler: function(e, detail, sender) {
       e.stopPropagation();
 
       var direction = 0;
-      if (detail.key === 'left') {
-        direction = -1;
-      } else if (detail.key === 'right') {
-        direction = 1;
-      } else {
-        return;
-      }
-      if (this.mode == 'cast') {
-        this.panBy(400 * direction);
-        return;
+      switch (detail.key) {
+        case 'left':
+          direction = -1;
+          break;
+        case 'right':
+          direction = 1;
+          break;
+        case 'enter':
+          var activeMarker = this.getActiveMarker_();
+          if (activeMarker) {
+            activeMarker.click();
+          }
+          return;
+        case 'esc':
+          // map the back button/escape to the time of day
+          this.timeOfDay = this.timeOfDay === 'day' ? 'night' : 'day';
+          return;
       }
 
       // debounce so only done once per rAF
       this.job('arrowMarkerMove', function() {
-        // polyfill doesn't support this.shadowRoot.activeElement. Remove
-        // fallback to document.activeElement when
-        // https://github.com/Polymer/ShadowDOM/issues/478 is fixed
-        var activeElement = this.shadowRoot.activeElement ?
-        this.shadowRoot.activeElement : document.activeElement;
-        var currentMarker;
-        if (activeElement && activeElement.classList.contains('house-marker')) {
-          currentMarker = activeElement;
-        }
+        var currentMarker = wrap(this.getActiveMarker_());
 
         var markers = [].slice.call(
-        this.$.houses.querySelectorAll('.house-marker[tabindex="0"]'));
+            this.$.houses.querySelectorAll('.house-marker[tabindex="0"]'));
         var newIndex = -1;
 
         if (currentMarker) {
@@ -631,6 +632,7 @@ Village scene.
 
         if (markers[newIndex]) {
           markers[newIndex].focus();
+          this.panToHouse(markers[newIndex].parentElement, 0);
         }
       });
     },

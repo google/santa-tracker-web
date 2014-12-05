@@ -55,7 +55,8 @@ Animator.prototype.animate = function(update, duration, opt_easing) {
   // TODO(bckenny): add delays
   // TODO(bckenny): explicit completion callback?
   var easing = opt_easing || Animator.EASE_IN_OUT;
-  var animation = new Animation(this, update, duration, easing);
+  var start = Animator.now_();
+  var animation = new Animation(this, update, duration, easing, start);
 
   // put animation in first empty slot
   // TODO(bckenny): animations should be kept strictly in order of adding?
@@ -84,7 +85,6 @@ Animator.prototype.update_ = function() {
     }
 
     var animation = this.animations_[i];
-    animation.start_ = animation.start_ || now;
     var elapsed = now - animation.start_;
     var t = Math.max(0, Math.min(elapsed / animation.duration_, 1));
     var eased = animation.easing_(t);
@@ -183,13 +183,14 @@ Animator.EASE_IN_OUT = function(t) {
  * @param {function(number)} update Progress update callback function.
  * @param {number} duration Length of animation, in milliseconds.
  * @param {function(number): number} easing Easing function.
+ * @param {number} start Start time for this animaton.
  */
-function Animation(animator, update, duration, easing) {
+function Animation(animator, update, duration, easing, start) {
   this.animator_ = animator;
   this.update_ = update;
   this.duration_ = duration;
   this.easing_ = easing;
-  this.start_ = null;
+  this.start_ = start;
 }
 
 /**

@@ -28,10 +28,6 @@ var chromecastMixin = {
       keyIdentifier: 'Enter',
       key: 'Enter'
     },
-    space: {
-      keyIdentifier: ' ',
-      key: 'U+0020'
-    },
     back: {
       keyIdentifier: 'U+001B',
       key: 'Esc'
@@ -72,15 +68,14 @@ var chromecastMixin = {
       messageBus.onMessage = function(event) {
         console.log('Message [' + event.senderId + ']: ' + event.data);
 
-        // fire KeyboardEvent on current scene
+        // if mappable to a key, fire KeyboardEvent on current scene
         // since this is Chromecast only, we can assume it supports the modern
         // KeyboardEvent constructor and skip the initKeyboardEvent silliness
-        // TODO(bckenny): use Polymer's this.fire if
-        // https://github.com/Polymer/core-a11y-keys/issues/6 is fixed
         var data = JSON.parse(event.data);
+        console.log('button press: ' + data.button);
         var keyDetails = this.CAST_KEY_MAPPING_[data.button];
-        console.log('button press: ' + data.button, keyDetails);
         if (keyDetails) {
+          console.log('key press: ' + keyDetails.key);
           var e = new KeyboardEvent('keydown', {
             bubbles: true,
             cancelable: true,
@@ -88,8 +83,22 @@ var chromecastMixin = {
             key: keyDetails.key
           });
           this.selectedScene.dispatchEvent(e);
+        } else {
+          // these don't map to keys, but can control the pause state of the app
+          if (data.button === 'play') {
+            console.log('command: play');
+            this.visibilityService.resume();
+          } else if (data.button === 'pause') {
+            console.log('command: pause');
+            this.visibilityService.pause();
+          }
         }
       }.bind(this);
+
+      // app starts with 'play' button visible, but need pause as the start state
+      // TODO(bckenny): this should possibly available external to santaApp, to
+      // allow games to set the start state
+      messageBus.broadcast({button: 'play'});
 
       castReceiverManager.start({statusText: 'Santa Tracker is starting'});
       console.log('Cast Receiver Manager started');

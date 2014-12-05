@@ -2,10 +2,9 @@
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 <link rel="import" href="../../components/google-map/google-map.html">
-
 <link rel="import" href="tracker-icons.html">
 
-
+<script src="../shared/js/mapstyles.js"></script>
 
 <!--
 Tracker scene.
@@ -20,63 +19,11 @@ Tracker scene.
   <div id="module-tracker">
 
     <div class="scene">
-      <template if="{{santaApp}}">
 
+        <google-map id="map" clientId="{{santaApp.config.CLIENT_ID}}" disableDefaultUI
+                  zoomable="false" libraries="places,geometry"
+                  latitude="{{latitude_}}" longitude="{{longitude_}}" fit></google-map>
 
-      <google-map
-          id="map"
-          on-google-map-ready="{{mapReady}}"
-          apiKey="{{santaApp.config.API_KEY}}"
-          disableDefaultUI
-          zoomable="false"
-          libraries="places,geometry"
-          styles='[{
-            "stylers": [
-              { "visibility": "off" }
-            ]
-          },{
-            "featureType": "water",
-            "stylers": [
-              { "visibility": "on" },
-              { "color": "#f6efe2" }
-            ]
-          },{
-            "featureType": "landscape",
-            "stylers": [
-              { "visibility": "on" },
-              { "lightness": "110" },
-              { "color": "#dfd7c5" }
-            ]
-          },{
-            "featureType": "administrative.country",
-            "elementType": "geometry.stroke",
-            "stylers": [
-              { "visibility": "on" },
-              { "invert_lightness": "true" },
-              { "gamma": "3.75" },
-              { "lightness": "70" },
-              { "weight": "1" }
-            ]
-          },{
-            "featureType": "water",
-            "elementType": "labels",
-            "stylers": [
-              { "weight": "0.8" },
-              { "color": "#c5c6c4" },
-              { "lightness": "5" }
-            ]
-          },{
-            "featureType": "landscape.natural",
-            "elementType": "labels",
-            "stylers": [
-              { "visibility": "on" },
-              { "weight": "0.3" },
-              { "invert_lightness": "true" },
-              { "lightness": "40" }
-            ]
-          }]'
-          latitude="{{latitude_}}"
-          longitude="{{longitude_}}"></google-map>
         <div class="status-bar">
           <h2>Currently</h2>
           <ul>
@@ -115,7 +62,9 @@ Tracker scene.
       </template>
 
       <div class="sceneboard">
-        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
+          <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
+        </a>
         <div class="sceneboard-back"></div>
       </div>
     </div>
@@ -126,12 +75,14 @@ Tracker scene.
 
   Polymer({
     componentDir: 'scenes/tracker/',
+
     /**
      * Latitude of the main map's center. Ususally Santa's location.
      * @type Number
      * @private
      */
     latitude_: null,
+
     /**
      * Longitude of the main map's center. Ususally Santa's location.
      * @type Number
@@ -149,6 +100,12 @@ Tracker scene.
         'img/smallglobe.svg'
       ]);
     },
+
+    ready: function() {
+      this.super();
+      this.$.map.styles = mapstyles.styles;
+    },
+
     santaAppChanged: function() {
       this.santaApp.santaService.getCurrentLocation(function(location) {
         this.location_ = location;
@@ -156,6 +113,7 @@ Tracker scene.
         this.longitude_ = location.position.lng;
       }.bind(this));
     },
+
     onShow: function() {
       // TODO: implement
 
