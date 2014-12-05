@@ -579,31 +579,16 @@ Village scene.
       return null;
     },
 
-    arrowHandler: function(e, detail, sender) {
-      e.stopPropagation();
-
-      var direction = 0;
-      switch (detail.key) {
-        case 'left':
-          direction = -1;
-          break;
-        case 'right':
-          direction = 1;
-          break;
-        case 'enter':
-          var activeMarker = this.getActiveMarker_();
-          if (activeMarker) {
-            activeMarker.click();
-          }
-          return;
-        case 'esc':
-          // map the back button/escape to the time of day
-          this.timeOfDay = this.timeOfDay === 'day' ? 'night' : 'day';
-          return;
-      }
-
+    /**
+     * Move the currently active marker (if any) by the specified direction.
+     * Typically -1, 1, or 0. If there is currently no active marker, the one
+     * closest to the center of the screen will become active.
+     * @param {number} direction
+     */
+    changeActiveMarker_: function(direction) {
       // debounce so only done once per rAF
       this.job('arrowMarkerMove', function() {
+        // element must be wrapped in the polyfill for the comparisons below
         var currentMarker = wrap(this.getActiveMarker_());
 
         var markers = [].slice.call(
@@ -633,8 +618,39 @@ Village scene.
         if (markers[newIndex]) {
           markers[newIndex].focus();
           this.panToHouse(markers[newIndex].parentElement, 0);
+
+          if (this.mode === 'cast') {
+            // cast doesn't want to give :focus, so use an explicit class
+            if (currentMarker) {
+              currentMarker.classList.remove('cast-focus');
+            }
+            markers[newIndex].classList.add('cast-focus');
+          }
         }
       });
+    },
+
+    arrowHandler: function(e, detail, sender) {
+      e.stopPropagation();
+
+      switch (detail.key) {
+        case 'left':
+          this.changeActiveMarker_(-1);
+          break;
+        case 'right':
+          this.changeActiveMarker_(1);
+          break;
+        case 'enter':
+          var activeMarker = this.getActiveMarker_();
+          if (activeMarker) {
+            activeMarker.click();
+          }
+          break;
+        case 'esc':
+          // map the back button/escape to the time of day
+          this.timeOfDay = this.timeOfDay === 'day' ? 'night' : 'day';
+          break;
+      }
     },
 
     onPreload: function() {
@@ -723,6 +739,11 @@ Village scene.
       var todayEl = this.$.houses.querySelector('.today');
       if (todayEl) {
         this.panToHouse(todayEl, 0);
+
+        if (this.mode === 'cast') {
+          // for cast, start off with today's house selected
+          this.changeActiveMarker_(0);
+        }
       }
     },
 
