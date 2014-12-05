@@ -49,6 +49,9 @@ var SCENE_CLOSURE_CONFIG = {
   gumball: {
     entryPoint: 'app.Game'
   },
+  jetpack: {
+    entryPoint: 'app.Game'
+  },
   matching: {
     entryPoint: 'app.Game'
   },

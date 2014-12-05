@@ -4,6 +4,7 @@
 <link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
 
 <link rel="import" href="dependencies.html">
+<script src="../shared/js/mapstyles.js"></script>
 
 <!--
 Traditions scene.
@@ -14,6 +15,19 @@ Traditions scene.
 <polymer-element name="traditions-scene" extends="base-scene">
 <template>
   <link rel="stylesheet" href="traditions-scene.css" no-shim>
+  <style>
+  :host([mode="cast"]) .sceneboard,
+  :host([mode="cast"]) #lessons-popup {
+    display: none;
+  }
+  :host([mode="cast"]) .traditions-tradition {
+    max-width: 50% !important;
+    left: 150px !important;
+  }
+  :host([mode="cast"]) .traditions-tradition p {
+    font-size: 3vh !important;
+  }
+  </style>
 
   <core-a11y-keys target="{{}}" keys="up down left right space enter" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
 
@@ -21,10 +35,8 @@ Traditions scene.
 
     <div class="scene">
       <template if="{{santaApp}}">
-        <google-maps-api version="3.exp" apiKey="{{santaApp.config.API_KEY}}"
-                         clientId="{{santaApp.config.CLIENT_ID}}"
-                         libraries="places,geometry"
-                         language="{{santaApp.language}}"
+        <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
+                         libraries="places,geometry" language="{{santaApp.language}}"
                          on-api-load="{{mapsAPIReady}}"></google-maps-api>
       </template>
       <div id="traditions-map"></div>

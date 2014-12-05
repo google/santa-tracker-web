@@ -26,22 +26,27 @@ Village scene.
   :host([mode="cast"]) #hit-area-left,
   :host([mode="cast"]) #hit-area-right,
   :host([mode="cast"]) #trees,
-  :host([mode="cast"]) .house-marker,
-  :host([mode="cast"]) .marker-today,
-  :host([mode="cast"]) .marker-tomorrow,
   :host([mode="cast"]) #learnmore {
     display: none !important;
   }
+  :host([mode="embed"]) #hit-area-left,
+  :host([mode="embed"]) #hit-area-right {
+    display: block !important;
+    height: 62px !important;
+    width: 62px !important;
+  }
   </style>
 
-  <core-a11y-keys target="{{}}" keys="left right" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
+  <core-a11y-keys target="{{}}" keys="left right enter esc" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
   <div id="module-village" fit>
     <div id="village-wrapper" fit>
 
       <div id="countdown" layout vertical center relative
                           class="{{ {finished: finished} | tokenList}}">
-        <h1 class="logo">Google</h1>
-        <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
+        <a href="{{pageUrl}}/" target="_top">
+          <h1 class="logo">Google</h1>
+          <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
+        </a>
         <countdown-timer id="count" santaService="{{santaApp.santaService}}"
                          finished="{{finished}}" countDownEndDate="{{santaApp.countDownEndDate}}">
           <h3><i18n-msg msgid="days">PLACEHOLDER_i18n</i18n-msg></h3>
@@ -102,7 +107,8 @@ Village scene.
                   <div layout vertical center-center><i18n-msg msgid="openingtomorrow">PLACEHOLDER_i18n</i18n-msg></div>
                 </div>
                 <a href="{{house.link || pageUrl + '#' + house.module}}" class="house-marker"
-                  on-click="{{onHouseClick}}" tabindex="{{house.iced || house.disabled ? -1 : 0}}"></a>
+                  on-click="{{onHouseClick}}" tabindex="{{house.iced || house.disabled ? -1 : 0}}"
+                  hidden?="{{mode === 'cast' && !house.cast}}"></a>
               </div>
             </template>
 
@@ -194,8 +200,8 @@ Village scene.
                         hidden?="{{timeOfDay == 'night'}}"></div>
       <div id="fakemoon" on-tap="{{onFakeElementClick}}"
                          hidden?="{{timeOfDay == 'day'}}"></div>
-      <div id="sun" class="{{timeOfDay == 'day' ? 'up go-up' : 'down go-down'}}"></div>
-      <div id="moon" class="{{timeOfDay == 'night' ? 'up go-up' : 'down go-down'}}"></div>
+      <div id="sun" class="{{timeOfDay == 'day' ? 'up go-up' : 'down go-down'}}" hidden?="{{mode == 'embed'}}"></div>
+      <div id="moon" class="{{timeOfDay == 'night' ? 'up go-up' : 'down go-down'}}" hidden?="{{mode == 'embed'}}"></div>
       <div id="sky">
         <div id="sky-day" class="{{ {visible: timeOfDay == 'day'} | tokenList }}"></div>
         <div id="sky-night" class="{{ {visible: timeOfDay == 'night'} | tokenList }}"></div>
@@ -494,34 +500,19 @@ Village scene.
       this.cancelScrollAnimation();
 
       var scrollee = this.scrollContainer_;
-      var currentScroll = scrollee.scrollLeft;
       var targetScroll = value - (scrollee.offsetWidth / 2);
       var duration = (opt_duration != null) ? opt_duration : 600;
 
-      this.scrollAnimation_ = this.animator_.animate(function(t) {
-        var scrollPos = currentScroll + t * (targetScroll - currentScroll);
-        scrollee.scrollLeft = /** @type {number} */(scrollPos);
-      }, duration, opt_easing);
-    },
-
-    /**
-     * Animates the view by a certain amount.
-     * @param {number} delta Delta in pixels.
-     * @param {number=} opt_duration Duration of animation. Defaults to 600ms.
-     * @param {Function=} opt_easing Animation easing function.
-     */
-    panBy: function(delta, opt_duration, opt_easing) {
-      this.cancelScrollAnimation();
-
-      var scrollee = this.scrollContainer_;
-      var currentScroll = scrollee.scrollLeft;
-      var targetScroll = currentScroll + delta;
-      var duration = (opt_duration != null) ? opt_duration : 600;
-
-      this.scrollAnimation_ = this.animator_.animate(function(t) {
-        var scrollPos = currentScroll + t * (targetScroll - currentScroll);
-        scrollee.scrollLeft = /** @type {number} */(scrollPos);
-      }, duration, opt_easing);
+      if (duration === 0) {
+        // skip creating the Animation
+        scrollee.scrollLeft = targetScroll;
+      } else {
+        var currentScroll = scrollee.scrollLeft;
+        this.scrollAnimation_ = this.animator_.animate(function(t) {
+          var scrollPos = currentScroll + t * (targetScroll - currentScroll);
+          scrollee.scrollLeft = /** @type {number} */(scrollPos);
+        }, duration, opt_easing);
+      }
     },
 
     cancelScrollAnimation: function(e, detail, sender) {
@@ -577,36 +568,41 @@ Village scene.
       el.style[VillageUtils.CSS_TRANSFORM] = 'translateZ(0) ' + translateStyle;
     },
 
-    arrowHandler: function(e, detail, sender) {
-      e.stopPropagation();
-
-      var direction = 0;
-      if (detail.key === 'left') {
-        direction = -1;
-      } else if (detail.key === 'right') {
-        direction = 1;
-      } else {
-        return;
+    /**
+     * Returns the active (focused) marker, if any.
+     * @private
+     * @return {Element}
+     */
+    getActiveMarker_: function() {
+      // polyfill doesn't support this.shadowRoot.activeElement. Remove
+      // fallback to document.activeElement when
+      // https://github.com/Polymer/ShadowDOM/issues/478 is fixed
+      var activeElement = this.shadowRoot.activeElement ?
+          this.shadowRoot.activeElement : document.activeElement;
+      if (activeElement && activeElement.classList.contains('house-marker')) {
+        return activeElement;
       }
-      if (this.mode == 'cast') {
-        this.panBy(400 * direction);
-        return;
-      }
 
+      return null;
+    },
+
+    /**
+     * Move the currently active marker (if any) by the specified direction.
+     * Typically -1, 1, or 0. If a marker in that direction doesn't exist, the
+     * active marker is unchanged. If there is currently no active marker, the
+     * one closest to the center of the screen will become active.
+     * @private
+     * @param {number} direction
+     */
+    changeActiveMarker_: function(direction) {
       // debounce so only done once per rAF
       this.job('arrowMarkerMove', function() {
-        // polyfill doesn't support this.shadowRoot.activeElement. Remove
-        // fallback to document.activeElement when
-        // https://github.com/Polymer/ShadowDOM/issues/478 is fixed
-        var activeElement = this.shadowRoot.activeElement ?
-        this.shadowRoot.activeElement : document.activeElement;
-        var currentMarker;
-        if (activeElement && activeElement.classList.contains('house-marker')) {
-          currentMarker = activeElement;
-        }
+        // element must be wrapped by the shadow dom polyfill for the
+        // comparisons below
+        var currentMarker = wrap(this.getActiveMarker_());
 
         var markers = [].slice.call(
-        this.$.houses.querySelectorAll('.house-marker[tabindex="0"]'));
+            this.$.houses.querySelectorAll('.house-marker[tabindex="0"]'));
         var newIndex = -1;
 
         if (currentMarker) {
@@ -615,24 +611,63 @@ Village scene.
             newIndex = index + direction;
           }
         } else {
-          // markers' DOM order and display order may be different so can't
-          // bisect. just do a linear search
-          var windowMiddle = window.innerWidth / 2;
-          var closestDistance = Number.MAX_VALUE;
-          for (var i = 0; i < markers.length; i++) {
-            var distance = Math.abs(markers[i].getBoundingClientRect().left -
-            windowMiddle);
-            if (distance < closestDistance) {
-              closestDistance = distance;
-              newIndex = i;
+          if (this.mode !== 'cast') {
+            // find the marker closest to the middle of the screen
+            // markers' DOM order and display order may be different so can't
+            // bisect. just do a linear search
+            var windowMiddle = window.innerWidth / 2;
+            var closestDistance = Number.MAX_VALUE;
+            for (var i = 0; i < markers.length; i++) {
+              var distance = Math.abs(markers[i].getBoundingClientRect().left -
+              windowMiddle);
+              if (distance < closestDistance) {
+                closestDistance = distance;
+                newIndex = i;
+              }
             }
+          } else {
+            // on cast, the only time there's an unselected marker is at the
+            // beginning, so just pick the rightmost one
+            newIndex = markers.length - 1;
           }
         }
 
         if (markers[newIndex]) {
+          if (this.mode === 'cast') {
+            // cast doesn't want to give :focus, so use an explicit class
+            if (currentMarker) {
+              currentMarker.classList.remove('cast-focus');
+            }
+            markers[newIndex].classList.add('cast-focus');
+          }
+
+          this.panToHouse(markers[newIndex].parentElement, 0);
           markers[newIndex].focus();
         }
       });
+    },
+
+    arrowHandler: function(e, detail, sender) {
+      e.stopPropagation();
+
+      switch (detail.key) {
+        case 'left':
+          this.changeActiveMarker_(-1);
+          break;
+        case 'right':
+          this.changeActiveMarker_(1);
+          break;
+        case 'enter':
+          var activeMarker = this.getActiveMarker_();
+          if (activeMarker) {
+            activeMarker.click();
+          }
+          break;
+        case 'esc':
+          // map the back button/escape to the time of day
+          this.timeOfDay = this.timeOfDay === 'day' ? 'night' : 'day';
+          break;
+      }
     },
 
     onPreload: function() {
@@ -720,7 +755,12 @@ Village scene.
 
       var todayEl = this.$.houses.querySelector('.today');
       if (todayEl) {
-        this.panToHouse(todayEl, 0);
+        if (this.mode !== 'cast') {
+          this.panToHouse(todayEl, 0);
+        } else {
+          // for cast, start off with today's house activated
+          this.changeActiveMarker_(0);
+        }
       }
     },
 

@@ -30,7 +30,8 @@
         @include transform(scale(1.5, 1.5));
         transform-origin: 50% 100%;
 
-        &:focus {
+        &:focus,
+        &.cast-focus {
           @include animation(bigbounce 600ms linear infinite !important);
         }
       }
@@ -182,6 +183,13 @@
       bottom: -14px;
       left: -30px;
       z-index: 11;
+
+      &.cast-focus {
+        // explicit focus class for use on chromecast
+        -webkit-filter: drop-shadow(0 0 15px #fff);
+        filter: drop-shadow(0 0 15px #fff);
+        @include animation(bounce 600ms linear infinite);
+      }
     }
   }
 
@@ -209,8 +217,8 @@
       "jetpack"       204   243   367   342   0   2   -60   -47   0     0   "marker8-lock"   "marker-jetpack",
       "codelab"       253   253   358   378   0   0   -50   -59   -20    0   "marker9-lock"    "marker-codelab",
       "mercator"      290   321   445   405   0   1   -103  -70   50    0   "marker10-lock"   "marker-mercator",
-      "santaselfie"   217   287   355   341   0   0   -66   -31   25    0   "marker11-lock"    "marker-santaselfie",
-      "jamband"       612   404   612   484   0   2   -15   -75   -60   0   "marker12-lock"    "marker-jamband",
+      "jamband"       612   404   612   484   0   2   -15   -75   -20   0   "marker11-lock"    "marker-jamband",
+      "santaselfie"   217   287   355   341   0   0   -66   -31   25    0   "marker12-lock"    "marker-santaselfie",
       "commandcentre" 262   286   481   373   0   -1  -110  -41   40   0   "marker13-lock"   "marker-commandcentre",
       "playground"    274   269   345   343   0   0   -26   -43   35    0   "marker14-lock"   "marker-playground",
       "seasonofgiving"       203   260   405   308   0   -1  -93   -27   30    0   "marker15-lock"   "marker-seasonofgiving",

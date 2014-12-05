@@ -53,10 +53,12 @@ VisibilityManager.prototype.pause = function() {
  */
 VisibilityManager.prototype.resume = function() {
   // The user may have loaded the page while it was hidden.
-  this.locks_ = Math.max(0, this.locks_ - 1);
-  if (!this.locks_) {
+  // Guard against being called again when already resumed.
+  var locks = Math.max(0, this.locks_ - 1);
+  if (!locks && this.locks_) {
     Events.trigger(this, 'resume');
   }
+  this.locks_ = locks;
   window.console.log('resume', this.locks_);
 };
 

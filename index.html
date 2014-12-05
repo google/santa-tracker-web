@@ -149,6 +149,12 @@
 
 <script>
 (function() {
+
+var inEmbed = self != top;
+if (inEmbed) {
+  ga_.pushCommand(['_trackEvent', 'Embed', getUrlParameter('site')]);
+}
+
 window.santaApp = document.querySelector('santa-app');
 
 // log some polymer startup performance numbers

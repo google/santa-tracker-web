@@ -23,7 +23,7 @@ Village calendar navigation.
 @element calendar-nav
 @extends base-scene
 -->
-<polymer-element name="calendar-nav" extends="base-scene" attributes="houses">
+<polymer-element name="calendar-nav" extends="base-scene" attributes="houses mute">
   <template>
     <link rel="stylesheet" href="calendar-nav.css" no-shim>
     <style>
@@ -185,8 +185,8 @@ Village calendar navigation.
         </div>
       </div>
 
-      <div id="sound">
-        <a href="#" class="on" on-click="{{toggleSounds}}"><i></i></a>
+      <div id="sound" hidden?="{{mode == 'embed'}}">
+        <a href="{{pageURL}}" class="{{mute ? 'off' : 'on'}}" on-click="{{toggleSounds}}"><i></i></a>
       </div>
 
     </div>
@@ -199,6 +199,15 @@ Village calendar navigation.
       opening: false,
       closed: true,
       closing: false,
+
+      /**
+       * True if sounds should be muted.
+       *
+       * @property mute
+       * @type bool
+       * @default false
+       */
+      mute: false,
 
       TIMEOUT_DELAY: 300 + (25 * 42),
 
@@ -388,14 +397,15 @@ Village calendar navigation.
       },
 
       toggleSounds: function(e, detail, sender) {
+        this.mute = !this.mute;
         e.preventDefault();
+      },
 
-        if (sender.classList.contains('off')) {
-          this.fire('sound-ambient', 'global_sound_on');
-          sender.classList.switch('off', 'on');
-        } else {
+      muteChanged: function() {
+        if (this.mute) {
           this.fire('sound-ambient', 'global_sound_off');
-          sender.classList.switch('on', 'off');
+        } else {
+          this.fire('sound-ambient', 'global_sound_on');
         }
       }
 
