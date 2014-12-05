@@ -569,6 +569,7 @@ Village scene.
 
     /**
      * Returns the active (focused) marker, if any.
+     * @private
      * @return {Element}
      */
     getActiveMarker_: function() {
@@ -588,6 +589,7 @@ Village scene.
      * Move the currently active marker (if any) by the specified direction.
      * Typically -1, 1, or 0. If there is currently no active marker, the one
      * closest to the center of the screen will become active.
+     * @private
      * @param {number} direction
      */
     changeActiveMarker_: function(direction) {
@@ -621,9 +623,6 @@ Village scene.
         }
 
         if (markers[newIndex]) {
-          markers[newIndex].focus();
-          this.panToHouse(markers[newIndex].parentElement, 0);
-
           if (this.mode === 'cast') {
             // cast doesn't want to give :focus, so use an explicit class
             if (currentMarker) {
@@ -631,6 +630,9 @@ Village scene.
             }
             markers[newIndex].classList.add('cast-focus');
           }
+
+          this.panToHouse(markers[newIndex].parentElement, 0);
+          markers[newIndex].focus();
         }
       });
     },
@@ -743,10 +745,10 @@ Village scene.
 
       var todayEl = this.$.houses.querySelector('.today');
       if (todayEl) {
-        this.panToHouse(todayEl, 0);
-
-        if (this.mode === 'cast') {
-          // for cast, start off with today's house selected
+        if (this.mode !== 'cast') {
+          this.panToHouse(todayEl, 0);
+        } else {
+          // for cast, start off with today's house activated
           this.changeActiveMarker_(0);
         }
       }
