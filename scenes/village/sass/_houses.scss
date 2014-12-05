@@ -30,11 +30,8 @@
         @include transform(scale(1.5, 1.5));
         transform-origin: 50% 100%;
 
-        &:focus {
-          @include animation(bigbounce 600ms linear infinite !important);
-        }
+        &:focus,
         &.cast-focus {
-          // explicit focus class for use on chromecast
           @include animation(bigbounce 600ms linear infinite !important);
         }
       }

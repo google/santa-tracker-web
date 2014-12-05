@@ -597,7 +597,8 @@ Village scene.
     changeActiveMarker_: function(direction) {
       // debounce so only done once per rAF
       this.job('arrowMarkerMove', function() {
-        // element must be wrapped in the polyfill for the comparisons below
+        // element must be wrapped by the shadow dom polyfill for the
+        // comparisons below
         var currentMarker = wrap(this.getActiveMarker_());
 
         var markers = [].slice.call(
