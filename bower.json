@@ -33,6 +33,7 @@
     "jquery": "2.1.1",
     "modernizr": "2.8.3",
     "google-apis": "GoogleWebComponents/google-apis#^0.4.3",
+    "google-map": "GoogleWebComponents/google-map#^0.4.0",
     "google-youtube": "GoogleWebComponents/google-youtube#^1.0.1",
     "closure-compiler": "https://dl.google.com/closure-compiler/compiler-latest.zip"
   },
