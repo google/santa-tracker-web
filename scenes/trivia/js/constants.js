@@ -10,7 +10,8 @@ app.Constants = {
 
   QUESTIONS_PER_LEVEL: 10,
   TOTAL_LEVELS: 3,
-  QUESTION_READ_TIME: 3 // seconds to read the question before choices are shown
+  QUESTION_READ_TIME: 3, // seconds to read the question before choices are shown
+  PAUSE_BETWEEN_QUESTIONS: 1
 };
 
 // For scoreboard

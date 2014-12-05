@@ -102,11 +102,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     isCorrect: function () {
-      return this.shuffled[this.value] === this.choices[0];
+      return this.value && this.shuffled[this.value] === this.choices[0];
     },
 
     answered: function () {
-      this.fire('quiz-answered');
+      this.fire('answered');
     },
 
     reset: function () {

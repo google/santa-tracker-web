@@ -16,7 +16,7 @@ Trivia scene.
 
   <div id="module-trivia">
     <div class="scene">
-      <div class="question">
+      <div class="question {{ { 'is-visible': questionVisible } | tokenList }}">
         <div class="content" horizontal layout>
           <div class="question-number">{{game.current.number}}</div>
           <div class="question-text" flex>{{game.current.question}}</div>
@@ -24,7 +24,7 @@ Trivia scene.
       </div>
       <div class="answer">
         <div class="content">
-          <select-answer id="answer" choices="{{game.current.choices}}" on-quiz-answered="{{onAnswer}}" />
+          <select-answer id="answer" choices="{{game.current.choices}}" on-answered="{{onAnswered}}" />
         </div>
       </div>
     </div>
@@ -2518,8 +2518,11 @@ Trivia scene.
 
     game: null,
 
+    questionVisible: false,
+
     eventDelegates: {
-      'new-question': 'onNewQuestion'
+      'new-question': 'onNewQuestion',
+      'time-up': 'onAnswered'
     },
 
     onPreload: function() {
@@ -2544,12 +2547,16 @@ Trivia scene.
       this.fire('sound-ambient', 'trivia_end_game');
     },
 
-    onAnswer: function() {
+    onAnswered: function() {
+      this.questionVisible = false;
       this.game.answer(this.$.answer.isCorrect());
+      this.$.answer.reset();
+      console.log('question answered')
     },
 
     onNewQuestion: function() {
-      this.$.answer.reset();
+      console.log('new question')
+      this.questionVisible = true;
     }
   });
 })();

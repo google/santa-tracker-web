@@ -129,7 +129,7 @@ app.Game.prototype.unfreezeGame = function() {
 app.Game.prototype.gameover = function(really) {
   // Check if count down on scoreboard is over
   if (!really && this.scoreboard.countdown === 0) {
-    this.answer(false);
+    this.scene.fire('time-up');
     return;
   }
 
@@ -204,8 +204,13 @@ app.Game.prototype.answer = function(isCorrect) {
 };
 
 app.Game.prototype.nextQuestion_ = function() {
-  this.quiz.nextQuestion();
   this.countdownActive = false;
   this.scoreboard.restart();
-  this.scene.fire('new-question');
+
+  app.shared.Coordinator.after(app.Constants.PAUSE_BETWEEN_QUESTIONS, function() {
+    if (this.paused) return;
+
+    this.quiz.nextQuestion();
+    this.scene.fire('new-question');
+  }.bind(this));
 };

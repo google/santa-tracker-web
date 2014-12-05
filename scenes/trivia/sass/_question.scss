@@ -23,6 +23,13 @@
     font-family : Roboto;
     font-size : 39px;
     letter-spacing : 0.78px;
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+
+  .question.is-visible .question-number,
+  .question.is-visible .question-text {
+    opacity: 1;
   }
 
   .question-number {
