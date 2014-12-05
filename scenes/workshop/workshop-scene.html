@@ -119,6 +119,8 @@ Workshop scene.
     decelFrame_: 0,
 
     ready: function() {
+      this.super();
+
       // <template repeat> needs a real array to repeat over.
       this.items = [0, 0, 0, 0];
       this.bolts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
