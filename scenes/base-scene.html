@@ -261,9 +261,9 @@ Polymer({
 
       // log that the scene has finished preloading. If this wasn't a preloaded
       // load, the event will be discarded harmlessly
-      // set the max analytics time at 2x MAX_PRELOAD_TIME to account for
+      // Set the max analytics time at 2x MAX_PRELOAD_TIME to account for
       // HTMLElement import and *then* assets for the scene (only the asset
-      // loading times out after MAX_PRELOAD_TIME)
+      // loading timesout after MAX_PRELOAD_TIME)
       this.fire('analytics-time-end', {category: 'Scene Load Time',
           variable: this.route, time: Date.now(),
           maxTime: 2 * this.MAX_PRELOAD_TIME});
