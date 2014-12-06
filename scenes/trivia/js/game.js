@@ -2,10 +2,11 @@ goog.provide('app.Game');
 
 goog.require('app.Constants');
 goog.require('app.Quiz');
+goog.require('app.shared.Coordinator');
+goog.require('app.shared.LevelUp');
 goog.require('app.shared.Scoreboard');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.utils');
-goog.require('app.shared.Coordinator');
 
 
 
@@ -27,6 +28,8 @@ app.Game = function(scene, elem) {
   this.scoreboard = new app.shared.Scoreboard(this, elem.querySelector('.board'));
   this.gameoverView = new app.shared.Gameover(this, elem.querySelector('.gameover'));
   this.quiz = new app.Quiz(this, elem.querySelector('.quiz'), this.current);
+  this.levelUp = new app.shared.LevelUp(this,
+    $(this.elem.querySelector('.levelup')), $(this.elem.querySelector('.levelup--number')));
 
   this.onFrame = this.onFrame.bind(this);
 };
@@ -172,12 +175,16 @@ app.Game.prototype.dispose = function() {
 app.Game.prototype.answer = function(isCorrect) {
   this.scoreboard.addScore(isCorrect ? 1 : 0);
   if (this.current.number === app.Constants.QUESTIONS_PER_LEVEL) {
-    this.bumpLevel_();
+    this.levelUp.show(this.level + 2, this.bumpLevel_.bind(this));
   } else {
     this.nextQuestion_();
   }
 };
 
+/**
+ * Show next question.
+ * @private
+ */
 app.Game.prototype.nextQuestion_ = function() {
   this.countdownActive = false;
   this.scoreboard.restart();
