@@ -4,7 +4,7 @@
 
 window.HOUSES = [{
   module: "airport",
-  iced: false,
+  iced: true,
   launchDate: new Date('Dec 1, 2014'),
   category: "play",
   cast: true,
@@ -25,7 +25,7 @@ window.HOUSES = [{
   }
 }, {
   module: "racer",
-  iced: false,
+  iced: true,
   launchDate: new Date('Dec 1, 2014'),
   category: "play",
   cast: false,
@@ -46,7 +46,7 @@ window.HOUSES = [{
   }
 }, {
   module: "traditions",
-  iced: false,
+  iced: true,
   launchDate: new Date('Dec 1, 2014'),
   category: "learn",
   cast: true,
@@ -67,7 +67,7 @@ window.HOUSES = [{
   }
 }, {
   module: "app",
-  iced: false,
+  iced: true,
   launchDate: new Date('Dec 1, 2014'),
   category: "play",
   cast: false,

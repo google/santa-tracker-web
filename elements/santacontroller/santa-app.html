@@ -304,7 +304,8 @@ Polymer(Polymer.mixin({
 
         // disable any houses not suitable for cast
         for (var i = 0; i < this.houses.length; i++) {
-          this.houses[i].disabled = !this.houses[i].cast;
+          this.houses[i].disabled =
+              this.houses[i].disabled || !this.houses[i].cast;
         }
         break;
       case 'web_embed':
@@ -510,12 +511,12 @@ Polymer(Polymer.mixin({
    */
   unlockHouse: function(idx) {
     var house = this.houses[idx];
-
-    if (!house || house.disabled) {
+    if (!house) {
       return;
     }
 
-    house.iced = false;
+    // house is melted unless it's disabled
+    house.iced = house.disabled;
   },
 
   unlockAllHouses: function() {
@@ -537,7 +538,7 @@ Polymer(Polymer.mixin({
   sceneIsUnlocked: function(moduleName) {
     for (var i = 0, house; house = this.houses[i]; ++i) {
       if (house.module === moduleName) {
-        return this.santaService.now() > house.launchDate;
+        return !house.disabled && (this.santaService.now() > house.launchDate);
       }
     }
 
