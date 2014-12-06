@@ -13,6 +13,7 @@ var closureCompiler = require('gulp-closure-compiler');
 var mergeStream = require('merge-stream');
 var argv = require('yargs').argv;
 var replace = require('gulp-replace');
+var changed = require('gulp-changed');
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
@@ -72,6 +73,7 @@ gulp.task('clean', function(cleanCallback) {
 
 gulp.task('compass', function() {
   return gulp.src(COMPASS_FILES)
+    .pipe(changed('.', {extension: '.css'}))
     .pipe(compass({
       project: path.join(__dirname, '/'),
       css: '',
