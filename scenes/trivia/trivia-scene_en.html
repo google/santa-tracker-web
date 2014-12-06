@@ -2550,9 +2550,11 @@ Trivia scene.
     },
 
     onAnswered: function() {
-      this.questionVisible = false;
-      this.$.answer.hide();
       this.game.answer(this.$.answer.isCorrect());
+      window.setTimeout(function() {
+        this.questionVisible = false;
+        this.$.answer.hide();
+      }.bind(this), 500);
     },
 
     onNewQuestion: function() {

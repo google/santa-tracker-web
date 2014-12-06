@@ -113,10 +113,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     onAnswered: function () {
       if (this.answered) return;
       this.answered = true;
-
-      window.setTimeout(function() {
-        this.fire('answered');
-      }.bind(this), 500);
+      this.fire('answered');
     },
 
     hide: function() {

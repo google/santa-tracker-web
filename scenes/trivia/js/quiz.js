@@ -38,3 +38,8 @@ app.Quiz.prototype.showChoices_ = function() {
   this.current.choices = this.nextChoices;
   this.game.countdownActive = true;
 };
+
+app.Quiz.prototype.calculateScore = function(timeLeft) {
+  var elapsed = app.Constants.INITIAL_COUNTDOWN - Math.ceil(timeLeft);
+  return app.Constants.QUESTION_SCORE - (elapsed * app.Constants.SCORE_PENALTY_PER_SECOND);
+};

@@ -173,7 +173,10 @@ app.Game.prototype.dispose = function() {
  * @param isCorrect Is the answer correct?
  */
 app.Game.prototype.answer = function(isCorrect) {
-  this.scoreboard.addScore(isCorrect ? 1 : 0);
+  if (isCorrect) {
+    var score = this.quiz.calculateScore(this.scoreboard.countdown);
+    this.scoreboard.addScore(score);
+  }
   if (this.current.number === app.Constants.QUESTIONS_PER_LEVEL) {
     this.levelUp.show(this.level + 2, this.bumpLevel_.bind(this));
   } else {
