@@ -14,6 +14,7 @@ var mergeStream = require('merge-stream');
 var argv = require('yargs').argv;
 var replace = require('gulp-replace');
 var changed = require('gulp-changed');
+var newer = require('gulp-newer');
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
@@ -93,6 +94,7 @@ gulp.task('compile-santa-api-service', function() {
     '!js/service/*.min.js',
     'js/statuses/picker.js'
   ])
+    .pipe(newer('js/service/service.min.js'))
     .pipe(closureCompiler({
       compilerPath: COMPILER_PATH,
       fileName: 'service.min.js',
@@ -119,6 +121,8 @@ gulp.task('compile-scenes', function() {
   // compile each scene, merging them into a single gulp stream as we go
   return sceneNames.reduce(function(stream, sceneName) {
     var config = SCENE_CLOSURE_CONFIG[sceneName];
+    var fileName = sceneName + '-scene.min.js';
+    var dest = 'scenes/' + sceneName;
 
     return stream.add(gulp.src([
       'scenes/' + sceneName + '/js/**/*.js',
@@ -134,9 +138,10 @@ gulp.task('compile-scenes', function() {
       'third_party/externs/greensock/*.js',
       'third_party/externs/jquery/*.js',
     ])
+    .pipe(newer(dest + '/' + fileName))
     .pipe(closureCompiler({
       compilerPath: COMPILER_PATH,
-      fileName: sceneName + '-scene.min.js',
+      fileName: fileName,
       compilerFlags: addCompilerFlagOptions({
         closure_entry_point: config.entryPoint,
         compilation_level: 'SIMPLE_OPTIMIZATIONS',
@@ -159,7 +164,7 @@ gulp.task('compile-scenes', function() {
             '(function(){%output%}).call({ app: scenes.' + sceneName + ' });'
       })
     }))
-    .pipe(gulp.dest('scenes/' + sceneName)));
+    .pipe(gulp.dest(dest)));
   }, mergeStream());
 });
 
