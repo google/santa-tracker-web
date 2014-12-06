@@ -147,14 +147,19 @@ if (inEmbed) {
 }
 
 window.santaApp = document.querySelector('santa-app');
+var POLYMER_ANALYTICS_TIMEOUT_ = 60 * 1000;
 
 // log some polymer startup performance numbers
 // performance.now() is sadly disabled even in some very recent browsers
 // TODO(bckenny): for now, disable polymer perf analytics in browsers without it
 document.addEventListener('HTMLImportsLoaded', function() {
   if (window.performance && window.performance.now) {
-    window.ga_.pushCommand(['_trackTiming', 'Polymer', 'HTMLImportsLoaded',
-        window.performance.now()]);
+    var now = window.performance.now();
+    var variable = 'HTMLImportsLoaded';
+    if (now > POLYMER_ANALYTICS_TIMEOUT_) {
+      variable += ' - outliers';
+    }
+    window.ga_.pushCommand(['_trackTiming', 'Polymer', variable, now]);
   }
 
   if (window.DEV) {
@@ -165,8 +170,12 @@ document.addEventListener('HTMLImportsLoaded', function() {
 });
 if (window.performance && window.performance.now) {
   document.addEventListener('polymer-ready', function() {
-    window.ga_.pushCommand(['_trackTiming', 'Polymer', 'polymer-ready',
-        window.performance.now()]);
+    var now = window.performance.now();
+    var variable = 'polymer-ready';
+    if (now > POLYMER_ANALYTICS_TIMEOUT_) {
+      variable += ' - outliers';
+    }
+    window.ga_.pushCommand(['_trackTiming', 'Polymer', variable, now]);
   });
 }
 
