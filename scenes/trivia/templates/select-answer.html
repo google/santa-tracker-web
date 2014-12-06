@@ -15,28 +15,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <style>
     :host {
-      padding: 40px 0px;
+      padding: 40px 0;
     }
 
-    :host-context(.wide) {
-      padding: 40px 0px 48px;
-    }
     :host paper-item {
-      padding: 3px 28px;
+      padding: 5px 30px;
     }
 
-    :host-context(.wide) paper-item {
-      padding: 3px 36px;
-    }
-    paper-item {
-      margin: 3px 0;
-      -webkit-transition: background-color 1s;
-      transition: background-color 1s;
-    }
     paper-item.core-selected {
       background-color: #00C55D;
     }
+
     paper-item::shadow #ripple {
+      color: #009345;
+    }
+
+    .is-correct paper-item::shadow #ripple {
       color: #7cd9e6;
     }
 
@@ -75,7 +69,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   </style>
 
-  <div id="choices">
+  <div id="choices" class="{{ { 'is-correct': correct } | tokenList }}">
     <template repeat="{{item in shuffled}}">
       <paper-item disabled?="{{answered}}"><span class="check"></span><span class="text">{{item}}</span></paper-item>
     </template>
@@ -111,8 +105,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     onAnswered: function () {
-      if (this.answered) return;
-      this.answered = true;
+      if (this.isCorrect()) {
+        this.correct = true;
+      }
       this.fire('answered');
     },
 
@@ -123,6 +118,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     reset: function () {
       this.value = null;
       this.answered = false;
+      this.correct = false;
     }
   });
 </script>

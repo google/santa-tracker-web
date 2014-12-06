@@ -2551,7 +2551,7 @@ Trivia scene.
     },
 
     onAnswered: function() {
-      this.game.answer(this.$.answer.isCorrect());
+      this.game.answer(this.$.answer.correct);
       window.setTimeout(function() {
         this.questionVisible = false;
         this.$.answer.hide();
