@@ -136,7 +136,6 @@ app.Game.prototype.togglePause = function() {
  * Pause the game.
  */
 app.Game.prototype.pause = function() {
-  console.log('pause');
   this.paused = true;
 };
 
@@ -144,10 +143,9 @@ app.Game.prototype.pause = function() {
  * Resume the game.
  */
 app.Game.prototype.resume = function() {
-  console.log('resume');
   this.paused = false;
 
-  if (!this.isGameover) {
+  if (!this.isGameover && !this.countdownActive) {
     this.nextQuestion_();
   }
 };
