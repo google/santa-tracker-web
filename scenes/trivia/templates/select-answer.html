@@ -107,7 +107,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     isCorrect: function () {
-      return this.value && this.shuffled[this.value] === this.choices[0];
+      return this.value != null && this.shuffled[this.value] === this.choices[0];
     },
 
     onAnswered: function () {
