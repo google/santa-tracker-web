@@ -2524,7 +2524,8 @@ Trivia scene.
 
     eventDelegates: {
       'new-question': 'onNewQuestion',
-      'time-up': 'onAnswered'
+      'time-up': 'onAnswered',
+      'game-over': 'onGameOver'
     },
 
     onPreload: function() {
@@ -2568,6 +2569,11 @@ Trivia scene.
 
     onResume: function() {
       this.game.resume();
+    },
+
+    onGameOver: function() {
+      this.questionVisible = false;
+      this.$.answer.hide();
     }
   });
 })();

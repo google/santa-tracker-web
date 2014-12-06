@@ -61,10 +61,14 @@ app.Game.prototype.bumpLevel_ = function() {
   this.level++;
   if (this.level === app.Constants.TOTAL_LEVELS) {
     this.gameover(true);
+  } else if (this.scoreboard.score < app.Constants.SCORE_LIMIT[this.level]) {
+    this.gameover(true);
   } else {
-    this.scoreboard.setLevel(this.level);
-    this.current.number = 0;
-    this.nextQuestion_();
+    this.levelUp.show(this.level + 1, function() {
+      this.scoreboard.setLevel(this.level);
+      this.current.number = 0;
+      this.nextQuestion_();
+    }.bind(this));
   }
 };
 
@@ -178,7 +182,7 @@ app.Game.prototype.answer = function(isCorrect) {
     this.scoreboard.addScore(score);
   }
   if (this.current.number === app.Constants.QUESTIONS_PER_LEVEL) {
-    this.levelUp.show(this.level + 2, this.bumpLevel_.bind(this));
+    this.bumpLevel_();
   } else {
     this.nextQuestion_();
   }

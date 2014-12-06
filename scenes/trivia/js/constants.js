@@ -14,7 +14,11 @@ app.Constants = {
   PAUSE_BETWEEN_QUESTIONS: 1,
 
   QUESTION_SCORE: 100,
-  SCORE_PENALTY_PER_SECOND: 5
+  SCORE_PENALTY_PER_SECOND: 5,
+  SCORE_LIMIT: {
+    1: 500,  // Level: Score
+    2: 1000
+  }
 };
 
 // For scoreboard
