@@ -451,7 +451,7 @@ Polymer(Polymer.mixin({
 
   trackPerf: function(e, detail, sender) {
     this.analyticsService.trackPerf(
-        detail.category, detail.variable, detail.time, detail.label);
+        detail.category, detail.variable, detail.time, detail.label, detail.maxTime);
   },
 
   timeStart: function(e, detail, sender) {
@@ -461,7 +461,7 @@ Polymer(Polymer.mixin({
 
   timeEnd: function(e, detail, sender) {
     this.analyticsService.timeEnd(
-        detail.category, detail.variable, detail.time, detail.label);
+        detail.category, detail.variable, detail.time, detail.label, detail.maxTime);
   },
 
   trackSocial: function(e, detail, sender) {
