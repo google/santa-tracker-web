@@ -509,7 +509,7 @@ Blockly.Flyout.prototype.reflow = function() {
  * @private
  */
 Blockly.Flyout.prototype.externalReflow_ = function() {
-  var blocks = this.workspace_.getTopBlocks(true);
+  var blocks = this.workspace_.getTopBlocks(false);
   var flyoutWidth = this.layoutProvider(blocks);
 
   for (var x = 0, block; block = blocks[x]; x++) {

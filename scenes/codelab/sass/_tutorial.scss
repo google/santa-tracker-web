@@ -1,33 +1,46 @@
 ##{$name} {
   .tutorial {
     display: none;
+    height: 290px;
+    left: 50%;
+    margin-left: -137px;
+    margin-top: -130px;
+    position: fixed;
+    overflow: hidden;
+    top: 50%;
+    width: 275px;
+    z-index: 100;
   }
 
   .tutorial__image {
-    background: 50% 50% / contain no-repeat;
-    height: 60%;
-    left: 15%;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 270px;
+    left: 0;
     position: absolute;
-    top: 20%;
-    width: 70%;
+    top: 0;
+    width: 275px;
+    z-index: 2;
   }
 
   &.level--puzzle .tutorial__image {
-    background-image: url(img/tutorial-puzzle.gif);
+    background-image: url(img/tutorial/puzzle.gif);
   }
 
   &.level--maze .tutorial__image {
-    background-image: url(img/tutorial-maze.gif);
+    background-image: url(img/tutorial/maze.gif);
   }
 
   .tutorial::before {
-    background: url(img/tutorial-shadow.svg) 50% 50% / contain no-repeat;
-    content: '';
-    height: 60%;
-    left: 15%;
+    background: url(img/tutorial/shadow.svg) no-repeat;
+    content: "";
+    height: 270px;
+    left: 0;
     opacity: 0.15;
     position: absolute;
-    top: 26%;
-    width: 70%;
+    top: 20px;
+    width: 275px;
+    z-index: 1;
   }
 }

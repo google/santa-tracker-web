@@ -34,6 +34,7 @@ app.Blockly.prototype = {
   initBlockly_: function() {
     app.blocks.install();
 
+    Blockly.SNAP_RADIUS = 60;
     Blockly.inject(this.el, {
       scrollbars: false,
       path: './img/',
@@ -158,22 +159,23 @@ app.Blockly.prototype = {
    * @private
    */
   arrangeBlockPosition_: function(xml) {
-    var type, arrangeX, arrangeY;
     var numberOfPlacedBlocks = 0;
+    var cursorY = (window.innerWidth > 1024 ? 213 : app.Constants.BLOCK_Y_COORDINATE);
     for (var x = 0, xmlChild; xml.childNodes && x < xml.childNodes.length; x++) {
       xmlChild = xml.childNodes[x];
 
       // Only look at element nodes
       if (xmlChild.nodeType === 1) {
-        // look to see if we have a predefined arrangement for this type
-        type = xmlChild.getAttribute('type');
-
         xmlChild.setAttribute('x', xmlChild.getAttribute('x') ||
             app.Constants.BLOCK_X_COORDINATE);
         xmlChild.setAttribute('y', xmlChild.getAttribute('y') ||
-            (window.innerWidth > 1024 ? 213 : app.Constants.BLOCK_Y_COORDINATE) +
-            app.Constants.BLOCK_Y_COORDINATE_INTERVAL * numberOfPlacedBlocks);
-        numberOfPlacedBlocks += 1;
+            cursorY);
+
+        if (xmlChild.getAttribute('height')) {
+          cursorY += +xmlChild.getAttribute('height') + 20;
+        } else {
+          cursorY += app.Constants.BLOCK_Y_COORDINATE_INTERVAL;
+        }
       }
     }
   },
@@ -220,6 +222,32 @@ app.Blockly.prototype = {
    */
   getCode: function() {
     return Blockly.JavaScript.workspaceToCode();
+  },
+
+  /**
+   * Gets a cleaned up version of the code represented by blocks.
+   * @return {string} Clean JS code.
+   */
+  getUserCode: function() {
+    var code = this.getCode();
+    code = code
+        // Hide block id highlight arguments
+        .replace(/(,\s*)?'block_id_\d+'/g, '').
+
+        // Hide loop highlight statement.
+        replace(/\s*api\.highlightLoop\('\d+'\);/gm, '').
+
+        // Hide the api object.
+        replace(/api\./g, '').
+
+        // Make loop variables shorter for mobile.
+        replace(/\bcount2\b/g, 'j').
+        replace(/\bcount\b/g, 'i').
+
+        // Extra newline in end of code
+        replace(/\s*$/gm, '');
+
+    return code;
   },
 
   /**

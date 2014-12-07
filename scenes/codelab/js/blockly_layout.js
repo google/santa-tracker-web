@@ -25,13 +25,13 @@ app.BlocklyLayout.TOOLBOX_GAP = 24;
  * Whitespace between blocks on desktop.
  * @type {number}
  */
-app.BlocklyLayout.TOOLBOX_MD_GAP = 32;
+app.BlocklyLayout.TOOLBOX_MD_GAP = 24;
 
 /**
  * Whitespace to left/right edges on mobile.
  * @type {number}
  */
-app.BlocklyLayout.TOOLBOX_MARGIN = 8;
+app.BlocklyLayout.TOOLBOX_MARGIN = 10;
 /**
  * Whitespace to left/right edges on tablet.
  * @type {number}
@@ -47,7 +47,7 @@ app.BlocklyLayout.TOOLBOX_MD_MARGIN = 59;
  * Whitespace to top on mobile.
  * @type {number}
  */
-app.BlocklyLayout.TOOLBOX_TOP = 58;
+app.BlocklyLayout.TOOLBOX_TOP = 10;
 /**
  * Whitespace to top on tablet.
  * @type {number}
@@ -57,13 +57,13 @@ app.BlocklyLayout.TOOLBOX_SM_TOP = 24;
  * Whitespace to top on desktop.
  * @type {number}
  */
-app.BlocklyLayout.TOOLBOX_MD_TOP = 220;
+app.BlocklyLayout.TOOLBOX_MD_TOP = 210;
 
 /**
  * Top position of when run block on mobile.
  * @type {number}
  */
-app.BlocklyLayout.WHENRUN_TOP = 58;
+app.BlocklyLayout.WHENRUN_TOP = 10;
 /**
  * Top position of when run block on tablet.
  * @type {number}
@@ -79,7 +79,7 @@ app.BlocklyLayout.WHENRUN_MD_TOP = 32;
  * Left position of when run block on mobile.
  * @type {number}
  */
-app.BlocklyLayout.WHENRUN_LEFT = 8;
+app.BlocklyLayout.WHENRUN_LEFT = 10;
 /**
  * Left position of when run block on tablet.
  * @type {number}
@@ -129,41 +129,75 @@ app.BlocklyLayout.prototype.layoutToolbox = function(blocks) {
     return 0;
   }
 
+  if (this.windowWidth > 1024) {
+    return this.layoutToolboxCardinal_(blocks);
+  } else {
+    return this.layoutToolboxRow_(blocks);
+  }
+};
+
+/**
+ * Lays out blocks in a fairly tight row, for mobile and tablet.
+ * @param {Array.<Blockly.Block>} blocks contained in the toolbar.
+ * @return {number} the new width of the toolbar.
+ * @private
+ */
+app.BlocklyLayout.prototype.layoutToolboxRow_ = function(blocks) {
   // Responsive variables
   var blockWidth = 0;
   var gap = app.BlocklyLayout.TOOLBOX_GAP;
-  var columns = 1;
   var margin = app.BlocklyLayout.TOOLBOX_MARGIN;
   var cursorY = app.BlocklyLayout.TOOLBOX_TOP;
   if (this.windowWidth > 660) {
     margin = app.BlocklyLayout.TOOLBOX_SM_MARGIN;
     cursorY = app.BlocklyLayout.TOOLBOX_SM_TOP;
   }
-  if (this.windowWidth > 1024) {
-    gap = app.BlocklyLayout.TOOLBOX_MD_GAP;
-    margin = app.BlocklyLayout.TOOLBOX_MD_MARGIN;
-    cursorY = app.BlocklyLayout.TOOLBOX_MD_TOP;
-    columns = 2;
-  }
-  var curCol = 0;
 
-  // Use two columns below scoreboard on desktop. One tight on mobile.
   for (var i = 0, block; block = blocks[i]; i++) {
     var root = block.getSvgRoot();
     var blockHW = block.getHeightWidth();
     blockWidth = blockHW.width;
-    var x = margin + curCol * (blockWidth + gap);
-    block.moveTo(x, cursorY);
-    curCol += 1;
-
-    if (curCol === columns) {
-      // Next row.
-      curCol = 0;
-      cursorY += blockHW.height + gap;
-    }
+    block.moveTo(margin, cursorY);
+    cursorY += blockHW.height + gap;
   }
 
-  return (blockWidth + gap) * columns - gap + margin * 2;
+  return blockWidth + margin * 2;
+};
+
+app.BlocklyLayout.prototype.layoutToolboxCardinal_ = function(blocks) {
+  var cursorY = app.BlocklyLayout.TOOLBOX_MD_TOP;
+  var margin = app.BlocklyLayout.TOOLBOX_MD_MARGIN;
+  var gap = app.BlocklyLayout.TOOLBOX_MD_GAP;
+  var blockSize = blocks[0].getHeightWidth();
+  var toolboxWidth = (blockSize.width + gap) * 2 - gap + margin * 2;
+
+  // Three columns.
+  var leftX = toolboxWidth / 2 - blockSize.width * 1.5 - gap + 5;
+  var centerX = toolboxWidth / 2 - blockSize.width / 2;
+  var rightX = toolboxWidth / 2 + blockSize.width / 2 + gap - 5;
+
+  // Hard code desktop layout for now.
+
+  // North
+  blocks[0].moveTo(centerX, cursorY);
+  cursorY += blockSize.height + gap;
+
+  // West
+  blocks[2].moveTo(leftX, cursorY);
+
+  // East
+  blocks[3].moveTo(rightX, cursorY);
+
+  // South
+  blocks[1].moveTo(centerX, cursorY);
+  cursorY += blockSize.height + gap;
+
+  // Repeat
+  if (blocks.length > 4) {
+    blocks[4].moveTo(centerX, cursorY);
+  }
+
+  return toolboxWidth;
 };
 
 /**

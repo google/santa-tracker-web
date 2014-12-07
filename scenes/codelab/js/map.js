@@ -1,5 +1,6 @@
 goog.provide('app.Direction');
 goog.provide('app.Map');
+goog.provide('app.MapData');
 goog.provide('app.TileType');
 
 /**
@@ -8,7 +9,7 @@ goog.provide('app.TileType');
  * points of interest.
  * @type {string[]}
  */
-Map.DATA = [
+app.MapData = [
   'T     TT', //LEVEL8
   'T      T', //LEVEL8
   '   S   T',
@@ -86,7 +87,7 @@ app.Direction = {
  */
 app.Map = function() {
   // Clean out points of interest.
-  this.rows_ = Map.DATA.map(function(row) { return row.replace('X', ' '); });
+  this.rows_ = app.MapData.map(function(row) { return row.replace('X', ' '); });
   this.height = this.rows_.length;
   this.width = this.rows_[0].length;
 };

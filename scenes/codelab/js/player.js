@@ -159,7 +159,7 @@ app.Player.prototype = {
 
   walkAnimation_: function() {
     return new Animation(this.spriteEl, [
-      {transform: 'translateZ(0) translate(0, 0)'},
+      {transform: 'translateZ(0) translate(0, 0em)'},
       {transform: 'translateZ(0) translate(0, -52.8em)'}
     ], {duration: app.Player.MOVE_DURATION, easing: 'steps(8, end)', iterations: Infinity});
   },

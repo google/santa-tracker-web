@@ -16,25 +16,45 @@ goog.require('app.Patterns');
  */
 app.blocks.miniBlockXml = function(type) {
   return '<block type="' + type + '_mini">' +
-    '<clone>' + app.blocks.blockXml(type, null, null, true) + '</clone>' +
+    '<clone>' + app.blocks.blockXml(type) + '</clone>' +
     '</block>';
 };
 
 /**
  * Utility function to define a block.
  * @param {string} type of block to create
- * @param {number=} x position of block
- * @param {number=} y position of block
- * @param {boolean=} deletable
+ * @param {Object.<string>} attrs map of block attributes
+ * @param {Object.<string>=} fields map of field keys to values
+ * @param {string} children blocks to run as DO statement.
  * @return {string} XML of block definition
  */
-app.blocks.blockXml = function(type, x, y, deletable) {
-  deletable = deletable || false;
-  return '<block type="' + type + '" deletable="' + (!!deletable) + '"' +
-    (x ? ' x="' + x + '"' : '') +
-    (y ? ' y="' + y + '"' : '') +
-    '>' +
-    '</block>';
+app.blocks.blockXml = function(type, attrs, fields, children) {
+  if ('string' === typeof values) {
+    children = values;
+    values = null;
+  }
+
+  var xml = '<block type="' + type + '"';
+  if (attrs) {
+    for (var key in attrs) {
+      if (attrs.hasOwnProperty(key) && attrs[key] != null) {
+        xml += ' ' + key + '="' + attrs[key] + '"';
+      }
+    }
+  }
+  xml += '>';
+  if (fields) {
+    for (key in fields) {
+      if (fields.hasOwnProperty(key)) {
+        xml += '<field name="' + key + '">' + fields[key] + '</field>';
+      }
+    }
+  }
+  if (children) {
+    xml += '<statement name="DO">' + children + '</statement>';
+  }
+  xml += '</block>';
+  return xml;
 };
 
 /**
@@ -140,7 +160,7 @@ app.blocks.install = function() {
      * @this {Blockly.Block}
      */
     init: function() {
-      this.setHSV(39, 1.00, 0.99);
+      this.setHSV(26, 0.77, 0.96);
       this.appendDummyInput()
           .appendField(app.I18n.getMsg('CL_whenRun'));
       this.setNextStatement(true);

@@ -187,12 +187,15 @@ app.MazeLevel.prototype.processResult = function(levelComplete, blockly) {
       doNotAnimate: true
     });
   }
+
+  var code = blockly.getUserCode();
   var missingBlocks = blockly.getMissingBlocks(this.requiredBlocks);
   if (missingBlocks.length) {
     message = levelComplete ?
         app.I18n.getMsg('CL_resultMissingBlockSuccess') :
         app.I18n.getMsg('CL_resultMissingBlockFail');
     return new app.LevelResult(levelComplete, message, {
+      code: code,
       idealBlockCount: this.idealBlockCount,
       missingBlocks: missingBlocks
     });
@@ -201,18 +204,23 @@ app.MazeLevel.prototype.processResult = function(levelComplete, blockly) {
   if (!levelComplete) {
     if (this.idealBlockCount !== Infinity && numEnabledBlocks < this.idealBlockCount) {
       return new app.LevelResult(levelComplete, app.I18n.getMsg('CL_resultTooFewBlocksFail'), {
+        code: code,
         idealBlockCount: this.idealBlockCount
       });
     }
-    return new app.LevelResult(levelComplete, app.I18n.getMsg('CL_resultGenericFail'));
+    return new app.LevelResult(levelComplete, app.I18n.getMsg('CL_resultGenericFail', {
+      code: code
+    }));
   }
   if (numEnabledBlocks > this.idealBlockCount) {
     return new app.LevelResult(levelComplete, app.I18n.getMsg('CL_resultTooManyBlocksSuccess'), {
+      code: code,
       idealBlockCount: this.idealBlockCount
     });
   } else {
     return new app.LevelResult(levelComplete, null, {
-      allowRetry: false
+      allowRetry: false,
+      code: code
     });
   }
 };
@@ -221,6 +229,7 @@ app.MazeLevel.prototype.processResult = function(levelComplete, blockly) {
 /**
  * @typedef {{
  *   allowRetry: boolean,
+ *   code: string,
  *   doNotAnimate: boolean,
  *   graphic: string,
  *   idealBlockCount: number,
@@ -240,6 +249,7 @@ app.LevelResultOptions;
 app.LevelResult = function(levelComplete, message, options) {
   options = options || {};
   this.allowRetry = options.allowRetry == null ? true : options.allowRetry;
+  this.code = options.code || null;
   this.doNotAnimate = options.doNotAnimate || false;
   this.graphic = options.graphic || null;
   this.levelComplete = levelComplete;

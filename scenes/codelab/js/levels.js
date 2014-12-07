@@ -21,7 +21,8 @@ app.levels.push(new app.PuzzleLevel({
   puzzleColor: [296, 0.492, 0.626],
   puzzleImage: 'img/puzzle-1.png',
   puzzleWidth: 200,
-  startBlocks: app.blocks.blockXml('puzzle_0B') + app.blocks.blockXml('puzzle_0A')
+  startBlocks: app.blocks.blockXml('puzzle_0B', {height: 150}) +
+      app.blocks.blockXml('puzzle_0A', {height: 150})
 }));
 
 app.levels.push(new app.PuzzleLevel({
@@ -31,8 +32,9 @@ app.levels.push(new app.PuzzleLevel({
   puzzleColor: [171, 0.801, 0.728],
   puzzleImage: 'img/puzzle-2.png',
   puzzleWidth: 200,
-  startBlocks: app.blocks.blockXml('puzzle_1C') + app.blocks.blockXml('puzzle_1B') +
-      app.blocks.blockXml('puzzle_1A')
+  startBlocks: app.blocks.blockXml('puzzle_1C', {height: 100}) +
+      app.blocks.blockXml('puzzle_1B', {height: 100}) +
+      app.blocks.blockXml('puzzle_1A', {height: 100})
 }));
 
 app.levels.push(new app.MazeLevel({
@@ -44,7 +46,7 @@ app.levels.push(new app.MazeLevel({
     {x: 1, y: 1}
   ],
   requiredBlocks: ['maze_moveNorth'],
-  startBlocks: app.blocks.blockXml('maze_moveNorth'),
+  startBlocks: app.blocks.blockXml('maze_moveNorth', {deletable: false}),
   toolbox: app.blocks.miniBlockXml('maze_moveNorth') +
       app.blocks.miniBlockXml('maze_moveSouth') +
       app.blocks.miniBlockXml('maze_moveWest') +
@@ -90,6 +92,8 @@ app.levels.push(new app.MazeLevel({
     {x: 3, y: 1}
   ],
   requiredBlocks: ['controls_repeat', 'maze_moveNorth'],
+  startBlocks: app.blocks.blockXml('controls_repeat', null, {TIMES: '3'},
+                                   app.blocks.blockXml('maze_moveNorth')),
   toolbox: app.blocks.miniBlockXml('maze_moveNorth') +
       app.blocks.miniBlockXml('maze_moveSouth') +
       app.blocks.miniBlockXml('maze_moveWest') +
