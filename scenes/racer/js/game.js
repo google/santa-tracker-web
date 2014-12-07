@@ -126,6 +126,7 @@ SB.Game.prototype.startGame_ = function() {
  */
 SB.Game.prototype.unfreezeGame_ = function() {
   if (!this.playing) {
+    this.elem.focus();
     this.playing = true;
     this.lastUpdateTime = +new Date;
     this.requestId = utils.requestAnimFrame(this.update_);
