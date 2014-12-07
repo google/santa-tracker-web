@@ -108,7 +108,7 @@ Village scene.
                 </div>
                 <a href="{{house.link || pageUrl + '#' + house.module}}" class="house-marker"
                   on-click="{{onHouseClick}}" tabindex="{{house.iced || house.disabled ? -1 : 0}}"
-                  hidden?="{{mode === 'cast' && !house.cast}}"></a>
+                  hidden?="{{house.disabled}}"></a>
               </div>
             </template>
 

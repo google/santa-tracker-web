@@ -38,8 +38,12 @@ Analytics.prototype.trackPageView = function(path) {
  * @param {string} variable Name of the timing (e.g. 'polymer-ready')
  * @param {number} time Time, in milliseconds.
  * @param {string=} opt_label An optional sublabel, for e.g. A/B test identification.
+ * @param {number=} opt_maxTime An optional max time, after which '- outliers' will be appended to variable name.
  */
-Analytics.prototype.trackPerf = function(category, variable, time, opt_label) {
+Analytics.prototype.trackPerf = function(category, variable, time, opt_label, opt_maxTime) {
+  if (opt_maxTime != null && time > opt_maxTime) {
+    variable += ' - outliers';
+  }
   this.ga_.pushCommand(['_trackTiming', category, variable, time, opt_label]);
 };
 
@@ -66,15 +70,16 @@ Analytics.prototype.timeStart = function(category, variable, timeStart) {
  * @param {string} variable Name of the timing (e.g. 'polymer-ready')
  * @param {number} timeEnd A timestamp associated with end, in ms.
  * @param {string=} opt_label An optional sublabel, for e.g. A/B test identification.
+ * @param {number=} opt_maxTime An optional max time, after which '- outliers' will be appended to variable name.
  */
-Analytics.prototype.timeEnd = function(category, variable, timeEnd, opt_label) {
+Analytics.prototype.timeEnd = function(category, variable, timeEnd, opt_label, opt_maxTime) {
   var categoryTimes = this.startTimes_[category];
   if (!categoryTimes) {
     return;
   }
   var timeStart = categoryTimes[variable];
   if (timeStart != null) {
-    this.trackPerf(category, variable, timeEnd - timeStart, opt_label);
+    this.trackPerf(category, variable, timeEnd - timeStart, opt_label, opt_maxTime);
     categoryTimes[variable] = null;
   }
 };
