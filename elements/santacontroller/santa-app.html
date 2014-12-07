@@ -63,6 +63,11 @@ Santa Track app.
         loadingBgColor="#8d23a9"
         loadingSrc="scenes/gumball/img/loading.svg" hidden></gumball-scene>
 
+    <jetpack-scene route="jetpack"
+        path="scenes/jetpack/jetpack-scene_[[language]].html"
+        loadingBgColor="#8fd7f7"
+        loadingSrc="scenes/jetpack/img/loading.svg" hidden></jetpack-scene>
+
     <matching-scene route="matching"
         path="scenes/matching/matching-scene_[[language]].html"
         loadingBgColor="#b27644"
@@ -228,7 +233,7 @@ Polymer(Polymer.mixin({
   visibilityService: null,
 
   /**
-   * The mode of the scene. Possible values are: 'cast'.
+   * The mode of the scene. Possible values are: 'cast' or 'embed'.
    *
    * @property mode
    * @type string
@@ -296,6 +301,12 @@ Polymer(Polymer.mixin({
         this.mode = 'cast';
         this.initChromecast();
         loadSound = false;
+
+        // disable any houses not suitable for cast
+        for (var i = 0; i < this.houses.length; i++) {
+          this.houses[i].disabled =
+              this.houses[i].disabled || !this.houses[i].cast;
+        }
         break;
       case 'web_embed':
         this.mode = 'embed';
@@ -441,7 +452,7 @@ Polymer(Polymer.mixin({
 
   trackPerf: function(e, detail, sender) {
     this.analyticsService.trackPerf(
-        detail.category, detail.variable, detail.time, detail.label);
+        detail.category, detail.variable, detail.time, detail.label, detail.maxTime);
   },
 
   timeStart: function(e, detail, sender) {
@@ -451,7 +462,7 @@ Polymer(Polymer.mixin({
 
   timeEnd: function(e, detail, sender) {
     this.analyticsService.timeEnd(
-        detail.category, detail.variable, detail.time, detail.label);
+        detail.category, detail.variable, detail.time, detail.label, detail.maxTime);
   },
 
   trackSocial: function(e, detail, sender) {
@@ -500,12 +511,12 @@ Polymer(Polymer.mixin({
    */
   unlockHouse: function(idx) {
     var house = this.houses[idx];
-
-    if (!house || house.disabled) {
+    if (!house) {
       return;
     }
 
-    house.iced = false;
+    // house is melted unless it's disabled
+    house.iced = house.disabled;
   },
 
   unlockAllHouses: function() {
@@ -527,7 +538,7 @@ Polymer(Polymer.mixin({
   sceneIsUnlocked: function(moduleName) {
     for (var i = 0, house; house = this.houses[i]; ++i) {
       if (house.module === moduleName) {
-        return this.santaService.now() > house.launchDate;
+        return !house.disabled && (this.santaService.now() > house.launchDate);
       }
     }
 

@@ -4,9 +4,11 @@
 
 window.HOUSES = [{
   module: "airport",
-  iced: false,
+  iced: true,
   launchDate: new Date('Dec 1, 2014'),
   category: "play",
+  cast: true,
+  disabled: false,
   elves: {
     melt: [
     "elf-green",
@@ -23,9 +25,11 @@ window.HOUSES = [{
   }
 }, {
   module: "racer",
-  iced: false,
+  iced: true,
   launchDate: new Date('Dec 1, 2014'),
   category: "play",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-blue-girl-right",
@@ -42,9 +46,11 @@ window.HOUSES = [{
   }
 }, {
   module: "traditions",
-  iced: false,
+  iced: true,
   launchDate: new Date('Dec 1, 2014'),
   category: "learn",
+  cast: true,
+  disabled: false,
   elves: {
     melt: [
     "elf-red",
@@ -61,9 +67,11 @@ window.HOUSES = [{
   }
 }, {
   module: "app",
-  iced: false,
+  iced: true,
   launchDate: new Date('Dec 1, 2014'),
   category: "play",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-purple-right",
@@ -82,6 +90,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 2, 2014'),
   category: "watch",
+  cast: true,
+  disabled: false,
   elves: {
     melt: [
     "elf-purple-right",
@@ -101,6 +111,8 @@ window.HOUSES = [{
   iced: true,
   category: "play",
   launchDate: new Date('Dec 3, 2014'),
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-blue-girl-right",
@@ -118,6 +130,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 4, 2014'),
   category: "play",
+  cast: true,
+  disabled: false,
   elves: {
     melt: [
     "elf-orange",
@@ -135,6 +149,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 5, 2014'),
   category: "play",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-purple",
@@ -154,6 +170,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 6, 2014'),
   category: "play",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-red",
@@ -173,6 +191,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 7, 2014'),
   category: "play",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-red-girl-left",
@@ -192,6 +212,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 8, 2014'),
   category: "play",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-green",
@@ -211,6 +233,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 9, 2014'),
   category: "learn",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-green-girl-left",
@@ -230,6 +254,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 10, 2014'),
   category: "learn",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-red-girl-right",
@@ -249,6 +275,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 11, 2014'),
   category: "play",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-red",
@@ -268,6 +296,8 @@ window.HOUSES = [{
   iced: true,
   category: "play",
   launchDate: new Date('Dec 12, 2014'),
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-green",
@@ -287,6 +317,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 13, 2014'),
   category: "play",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-red-left",
@@ -306,6 +338,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 14, 2014'),
   category: "play",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-red",
@@ -325,6 +359,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 15, 2014'),
   category: "learn",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-green-girl-left",
@@ -344,6 +380,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 16, 2014'),
   category: "watch",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-green-girl-right",
@@ -363,6 +401,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 17, 2014'),
   category: "play",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-red-girl-right",
@@ -382,6 +422,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 18, 2014'),
   category: "play",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-green",
@@ -401,6 +443,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 19, 2014'),
   category: "play",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-orange-girl-right",
@@ -420,6 +464,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 20, 2014'),
   category: "learn",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-green",
@@ -441,6 +487,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 21, 2014'),
   category: "play",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-blue-left",
@@ -460,6 +508,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 22, 2014'),
   category: "learn",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-green-girl-right",
@@ -479,6 +529,8 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 23, 2014'),
   category: "watch",
+  cast: false,
+  disabled: false,
   elves: {
     melt: [
     "elf-purple-right",

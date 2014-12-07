@@ -107,7 +107,8 @@ Village scene.
                   <div layout vertical center-center><i18n-msg msgid="openingtomorrow">PLACEHOLDER_i18n</i18n-msg></div>
                 </div>
                 <a href="{{house.link || pageUrl + '#' + house.module}}" class="house-marker"
-                  on-click="{{onHouseClick}}" tabindex="{{house.iced || house.disabled ? -1 : 0}}"></a>
+                  on-click="{{onHouseClick}}" tabindex="{{house.iced || house.disabled ? -1 : 0}}"
+                  hidden?="{{house.disabled}}"></a>
               </div>
             </template>
 
@@ -499,14 +500,19 @@ Village scene.
       this.cancelScrollAnimation();
 
       var scrollee = this.scrollContainer_;
-      var currentScroll = scrollee.scrollLeft;
       var targetScroll = value - (scrollee.offsetWidth / 2);
       var duration = (opt_duration != null) ? opt_duration : 600;
 
-      this.scrollAnimation_ = this.animator_.animate(function(t) {
-        var scrollPos = currentScroll + t * (targetScroll - currentScroll);
-        scrollee.scrollLeft = /** @type {number} */(scrollPos);
-      }, duration, opt_easing);
+      if (duration === 0) {
+        // skip creating the Animation
+        scrollee.scrollLeft = targetScroll;
+      } else {
+        var currentScroll = scrollee.scrollLeft;
+        this.scrollAnimation_ = this.animator_.animate(function(t) {
+          var scrollPos = currentScroll + t * (targetScroll - currentScroll);
+          scrollee.scrollLeft = /** @type {number} */(scrollPos);
+        }, duration, opt_easing);
+      }
     },
 
     cancelScrollAnimation: function(e, detail, sender) {
@@ -564,6 +570,7 @@ Village scene.
 
     /**
      * Returns the active (focused) marker, if any.
+     * @private
      * @return {Element}
      */
     getActiveMarker_: function() {
@@ -579,31 +586,19 @@ Village scene.
       return null;
     },
 
-    arrowHandler: function(e, detail, sender) {
-      e.stopPropagation();
-
-      var direction = 0;
-      switch (detail.key) {
-        case 'left':
-          direction = -1;
-          break;
-        case 'right':
-          direction = 1;
-          break;
-        case 'enter':
-          var activeMarker = this.getActiveMarker_();
-          if (activeMarker) {
-            activeMarker.click();
-          }
-          return;
-        case 'esc':
-          // map the back button/escape to the time of day
-          this.timeOfDay = this.timeOfDay === 'day' ? 'night' : 'day';
-          return;
-      }
-
+    /**
+     * Move the currently active marker (if any) by the specified direction.
+     * Typically -1, 1, or 0. If a marker in that direction doesn't exist, the
+     * active marker is unchanged. If there is currently no active marker, the
+     * one closest to the center of the screen will become active.
+     * @private
+     * @param {number} direction
+     */
+    changeActiveMarker_: function(direction) {
       // debounce so only done once per rAF
       this.job('arrowMarkerMove', function() {
+        // element must be wrapped by the shadow dom polyfill for the
+        // comparisons below
         var currentMarker = wrap(this.getActiveMarker_());
 
         var markers = [].slice.call(
@@ -616,25 +611,63 @@ Village scene.
             newIndex = index + direction;
           }
         } else {
-          // markers' DOM order and display order may be different so can't
-          // bisect. just do a linear search
-          var windowMiddle = window.innerWidth / 2;
-          var closestDistance = Number.MAX_VALUE;
-          for (var i = 0; i < markers.length; i++) {
-            var distance = Math.abs(markers[i].getBoundingClientRect().left -
-            windowMiddle);
-            if (distance < closestDistance) {
-              closestDistance = distance;
-              newIndex = i;
+          if (this.mode !== 'cast') {
+            // find the marker closest to the middle of the screen
+            // markers' DOM order and display order may be different so can't
+            // bisect. just do a linear search
+            var windowMiddle = window.innerWidth / 2;
+            var closestDistance = Number.MAX_VALUE;
+            for (var i = 0; i < markers.length; i++) {
+              var distance = Math.abs(markers[i].getBoundingClientRect().left -
+              windowMiddle);
+              if (distance < closestDistance) {
+                closestDistance = distance;
+                newIndex = i;
+              }
             }
+          } else {
+            // on cast, the only time there's an unselected marker is at the
+            // beginning, so just pick the rightmost one
+            newIndex = markers.length - 1;
           }
         }
 
         if (markers[newIndex]) {
-          markers[newIndex].focus();
+          if (this.mode === 'cast') {
+            // cast doesn't want to give :focus, so use an explicit class
+            if (currentMarker) {
+              currentMarker.classList.remove('cast-focus');
+            }
+            markers[newIndex].classList.add('cast-focus');
+          }
+
           this.panToHouse(markers[newIndex].parentElement, 0);
+          markers[newIndex].focus();
         }
       });
+    },
+
+    arrowHandler: function(e, detail, sender) {
+      e.stopPropagation();
+
+      switch (detail.key) {
+        case 'left':
+          this.changeActiveMarker_(-1);
+          break;
+        case 'right':
+          this.changeActiveMarker_(1);
+          break;
+        case 'enter':
+          var activeMarker = this.getActiveMarker_();
+          if (activeMarker) {
+            activeMarker.click();
+          }
+          break;
+        case 'esc':
+          // map the back button/escape to the time of day
+          this.timeOfDay = this.timeOfDay === 'day' ? 'night' : 'day';
+          break;
+      }
     },
 
     onPreload: function() {
@@ -722,7 +755,12 @@ Village scene.
 
       var todayEl = this.$.houses.querySelector('.today');
       if (todayEl) {
-        this.panToHouse(todayEl, 0);
+        if (this.mode !== 'cast') {
+          this.panToHouse(todayEl, 0);
+        } else {
+          // for cast, start off with today's house activated
+          this.changeActiveMarker_(0);
+        }
       }
     },
 

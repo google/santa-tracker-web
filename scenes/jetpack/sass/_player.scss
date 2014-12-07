@@ -1,0 +1,195 @@
+##{$name} {
+  .player {
+    background-image: url(img/player.png);
+    background-repeat: no-repeat;
+    height: 149px;
+    left: 50%;
+    margin-left: -58px;
+    margin-top: -70px;
+    transform-origin: center 47%;
+    position: absolute;
+    top: 75%;
+    width: 116px;
+  }
+
+  .player--hit {
+    background-image: url(img/player-hit.svg);
+    height: 236px;
+    margin-left: -111px;
+    margin-top: -150px;
+    padding-top: 90px;
+    width: 223px;
+  }
+
+  .player-overlay {
+    animation: #{$name}-playerHit 300ms linear infinite alternate;
+    background-image: url(img/player-overlay.svg);
+    display: none;
+    height: 175px;
+    left: 21px;
+    position: absolute;
+    opacity: 0.8;
+    top: 63px;
+    width: 186px;
+  }
+
+  .player--hit .player-overlay {
+    display: block;
+  }
+
+  .fire {
+    height: 98px;
+    margin: 102px auto 0;
+    position: relative;
+    transition: all 0.20s;
+    transform-origin: center top;
+    width: 33px;
+  }
+
+  .fire-orange {
+    animation: #{$name}-burningOrange 0.4s linear infinite alternate;
+    background: url(img/fire.png) no-repeat;
+    height: 98px;
+    position: absolute;
+    transform-origin: center top;
+    width: 33px;
+  }
+
+  .fire-yellow {
+    animation: #{$name}-burningYellow 0.7s ease-in-out infinite alternate;
+    background: url(img/fire.png) -39px -20px no-repeat;
+    height: 60px;
+    left: 7px;
+    position: absolute;
+    top: 5px;
+    transform-origin: center top;
+    width: 19px;
+  }
+
+  // WARNING. This implementation of the sparkles is HUGE when compiled.
+  // Please keep an eye out for different implementations.
+  .sparkle {
+    background-image: url(img/fire.png);
+    background-position: -40px 0;
+    position: absolute;
+    height: 12px;
+    width: 12px;
+  }
+
+  .sparkle:nth-child(odd) {
+    background-position: -60px 0;
+  }
+
+  .sparkle:nth-child(3n+1) {
+    animation: 0.5s #{$name}-sparkleSmall linear infinite;
+  }
+
+  .sparkle:nth-child(3n) {
+    animation: 0.5s #{$name}-sparkleNormal linear infinite;
+  }
+
+  .sparkle:nth-child(3n+2) {
+    animation: 0.5s #{$name}-sparkleNormal linear infinite;
+  }
+
+  .sparkles {
+    left: 40px;
+    position: absolute;
+    top: 140px;
+  }
+
+  .player--hit .sparkles {
+    left: 95px;
+    top: 230px;
+  }
+
+  .sparkle:nth-child(1) {
+    left: 0;
+    top: 10px;
+    animation-delay: 0.1s;
+  }
+
+  .sparkle:nth-child(2) {
+    left: 20px;
+    top: 10px;
+  }
+
+  .sparkle:nth-child(3) {
+    left: 5px;
+    top: 20px;
+    animation-delay: 0.2s;
+  }
+
+  .sparkle:nth-child(4) {
+    left: 15px;
+    top: 15px;
+    animation-delay: 0.3s;
+  }
+
+  .sparkle:nth-child(5) {
+    left: 5px;
+    top: 0;
+    animation-delay: 0.4s;
+  }
+
+  .sparkle:nth-child(6) {
+    left: 0;
+    top: 10px;
+    animation-delay: 0.2s;
+  }
+
+  .sparkle:nth-child(7) {
+    left: 20px;
+    top: 15px;
+    animation-delay: 0.4s;
+  }
+}
+
+@keyframes #{$name}-playerHit {
+  0% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes #{$name}-sparkleNormal {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+  100% {
+    transform: translateY(400%) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes #{$name}-sparkleSmall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0) scale(0.7);
+  }
+  100% {
+    transform: translateY(300%) rotate(720deg) scale(0.7);
+    opacity: 0;
+  }
+}
+
+@keyframes #{$name}-burningOrange {
+  0% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes #{$name}-burningYellow {
+  0% {
+    transform: scale(0.60);
+  }
+  100% {
+    transform: scale(0.75);
+  }
+}
