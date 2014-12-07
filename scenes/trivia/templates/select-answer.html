@@ -57,6 +57,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       width: 18px;
     }
 
+    .check::after {
+      background: url(../img/incorrect.svg) no-repeat;
+      content: '';
+      display: none;
+      height: 30px;
+      left: 50%;
+      margin-left: -15px;
+      margin-top: -15px;
+      position: absolute;
+      top: 50%;
+      width: 30px;
+    }
+
+    .is-correct .check::after {
+      background: url(../img/correct.svg) no-repeat;
+      height: 33px;
+      margin-left: -18px;
+      margin-top: -22px;
+      width: 44px;
+    }
+
+    .core-selected .check::after {
+      display: block;
+    }
+
     .text {
       color: #fff;
       font-family: Roboto;
@@ -69,9 +94,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   </style>
 
-  <div id="choices" class="{{ { 'is-correct': correct } | tokenList }}">
+  <div id="choices">
     <template repeat="{{item in shuffled}}">
-      <paper-item disabled?="{{answered}}"><span class="check"></span><span class="text">{{item}}</span></paper-item>
+      <div class="{{ { 'is-correct': isCorrect(item) } | tokenList }}">
+        <paper-item disabled?="{{answered}}">
+          <span class="check"></span>
+          <span class="text">{{item}}</span>
+        </paper-item>
+      </div>
     </template>
   </div>
 
@@ -100,8 +130,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       this.$.choices.classList.remove('is-hidden');
     },
 
-    isCorrect: function () {
-      return this.value != null && this.shuffled[this.value] === this.choices[0];
+    isCorrect: function (choice) {
+      if (!choice && this.value != null) {
+        choice = this.shuffled[this.value];
+      }
+      return choice && choice === this.choices[0];
     },
 
     onAnswered: function () {
