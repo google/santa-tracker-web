@@ -292,9 +292,9 @@ gulp.task('i18n_index', function() {
     .pipe(gulp.dest(DIST_PROD_DIR));
 });
 
-// copy needed assets (images, sounds, polymer elements, etc) to dist directory
+// copy needed assets (images, sounds, polymer elements, etc) to dist directories
 gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
-  return gulp.src([
+  var staticStream = gulp.src([
     'manifest.json',
     'audio/*',
     'images/*.{png,svg,jpg,gif,ico}',
@@ -305,6 +305,14 @@ gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
     'components/webcomponentsjs/webcomponents.min.js'
   ], {base: './'})
   .pipe(gulp.dest(DIST_STATIC_DIR));
+
+  var prodStream = gulp.src([
+    'images/og.png',
+    'embed.js'
+  ], {base: './'})
+  .pipe(gulp.dest(DIST_PROD_DIR));
+
+  return mergeStream(staticStream, prodStream);
 });
 
 gulp.task('watch', function() {
