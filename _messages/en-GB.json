@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Welcome to the Google Maps Santa Tracker!"
 	},
+	"af_country_name": {
+		"message": "Afghanistan"
+	},
+	"al_country_name": {
+		"message": "Albania"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentina"
 	},
 	"ar_tradition": {
 		"message": "In Argentina, Christmas begins promptly at midnight. Many families kick off the holiday by hosting festive celebrations in their homes, opening gifts with their loved ones and lighting fireworks in the early hours of the morning."
+	},
+	"at_country_name": {
+		"message": "Austria"
 	},
 	"au_country_name": {
 		"message": "Australia"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "Australia's Southern Hemisphere location means it's summer time in December. Instead of sleigh bells and cocoa, many Australians head to the beach to celebrate the holidays with a prawn lunch and games of cricket."
 	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Belgium"
+	},
+	"bg_country_name": {
+		"message": "Bulgaria"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
+	},
 	"br_country_name": {
 		"message": "Brazil"
 	},
 	"br_tradition": {
 		"message": "Christmas celebrations start near midnight, usually with big family dinners, gift opening and the celebration of the 'Missa do Galo' (the rooster's mass) in churches. Despite the warm tropical summer weather, themes of winter and snow are not uncommon."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"by_country_name": {
+		"message": "Belarus"
+	},
+	"bz_country_name": {
+		"message": "Belize"
 	},
 	"ca_country_name": {
 		"message": "Canada"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Send"
 	},
+	"cf_country_name": {
+		"message": "Central African Republic"
+	},
+	"ch_country_name": {
+		"message": "Switzerland"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
 	"close-this": {
 		"message": "Cancel"
+	},
+	"cm_country_name": {
+		"message": "Cameroon"
+	},
+	"co_country_name": {
+		"message": "Colombia"
+	},
+	"codelab-block-moveeast": {
+		"message": "east"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Move me east one space."
+	},
+	"codelab-block-movenorth": {
+		"message": "north"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Move me north one space."
+	},
+	"codelab-block-movesouth": {
+		"message": "south"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Move me south one space."
+	},
+	"codelab-block-movewest": {
+		"message": "west"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Move me west one space."
+	},
+	"codelab-block-repeat": {
+		"message": "repeat"
+	},
+	"codelab-block-repeat-times": {
+		"message": "times"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Repeat some statements several times."
+	},
+	"codelab-block-whenrun": {
+		"message": "when run"
+	},
+	"codelab-finish": {
+		"message": "Finish"
+	},
+	"codelab-great": {
+		"message": "Great"
+	},
+	"codelab-mwc-promo": {
+		"message": "Explore more Google coding projects at \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Next Challenge"
+	},
+	"codelab-oops": {
+		"message": "Oops!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "The \"Repeat\" block needs to have other blocks inside it to work."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Some of the blocks are not attached together properly."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Looks like you got lost!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Try one or more of the block below to solve this puzzle."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Did you know you can finish this level with just {{ideal}} blocks? Try using the block below."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Congratulations! You finished the puzzle perfectly."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "You are using the right blocks, but try using more of them to complete this puzzle."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Did you know you can finish this level with just {{ideal}} blocks?"
+	},
+	"codelab-try-again": {
+		"message": "Try Again"
 	},
 	"copy-me": {
 		"message": "Copy this link to share your message"
 	},
 	"countdownlabel": {
 		"message": "Until Santa Departs"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cu_country_name": {
+		"message": "Cuba"
+	},
+	"cz_country_name": {
+		"message": "Czech Republic"
 	},
 	"days": {
 		"message": "Days"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "Deck out your browser with a Santa Chrome extension."
 	},
+	"dk_country_name": {
+		"message": "Denmark"
+	},
+	"do_country_name": {
+		"message": "Dominican Republic"
+	},
+	"dz_country_name": {
+		"message": "Algeria"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Estonia"
+	},
 	"endofjourneymessage": {
 		"message": "Santa's finished his journey for the year! He and the elves are still having some fun in the North Pole before their annual holiday."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
 	},
 	"error": {
 		"message": "Looks like we just lost our connection with the North Pole. Santa's elves are working hard to fix it – stay tuned!"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Try again"
 	},
+	"et_country_name": {
+		"message": "Ethiopia"
+	},
+	"fi_country_name": {
+		"message": "Finland"
+	},
 	"finished-text": {
 		"message": "Happy Holidays! Santa has completed his journey around the world and is taking a much deserved break. Visit us again next year!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "In France, children traditionally put their shoes out next to the fireplace in anticipation of Père Noël's arrival. If children have been good throughout the year, Père Noël will fill the shoes with gifts."
 	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
 	"gameover": {
 		"message": "Game Over!"
+	},
+	"gameover_level": {
+		"message": "You made it to level:"
 	},
 	"gameover_score": {
 		"message": "Your score:"
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "Christmas in Ghana includes the whole family. Adults dress up in costumes and hand out candy and sweets around the neighbourhood. Children decorate their homes with paper ornaments and drawings they make at school."
+	},
+	"gl_country_name": {
+		"message": "Greenland"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
 	},
 	"gotovillage": {
 		"message": "Go to the Village"
@@ -132,10 +306,37 @@
 		"message": "Guatemala"
 	},
 	"gt_tradition": {
-		"message": "Guatemalans celebrate Christmas with fun and dancing. They wear hats called Puritina, eat Guatemalan style tamales, light firecrackers at midnight and dance the night away with various styles of dancing."
+		"message": "Guatemalans celebrate Christmas with fun and dancing. They wear hats called Puritina, eat Guatemalan-style tamales, light firecrackers at midnight and dance the night away with various styles of dancing."
+	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
 	},
 	"hours": {
 		"message": "Hours"
+	},
+	"hr_country_name": {
+		"message": "Croatia"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Hungary"
+	},
+	"id_country_name": {
+		"message": "Indonesia"
+	},
+	"ie_country_name": {
+		"message": "Ireland"
+	},
+	"iq_country_name": {
+		"message": "Iraq"
+	},
+	"ir_country_name": {
+		"message": "Iran"
 	},
 	"is_country_name": {
 		"message": "Iceland"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "At Christmas time in Iceland, families give gifts of warm clothing to each member of their household. According to legend, there is a frightening Christmas Cat who gobbles up anyone not equipped for the cold and wintery weather. Families work together to ensure that nobody will 'go to the Christmas Cat'."
 	},
+	"it_country_name": {
+		"message": "Italy"
+	},
+	"jm_country_name": {
+		"message": "Jamaica"
+	},
 	"kg_country_name": {
 		"message": "Kyrgyzstan"
 	},
 	"kg_tradition": {
 		"message": "In Kyrgyzstan, Ayaz Ata (Grandfather Frost) comes at midnight on New Year's Eve and leaves presents under the New Year tree. When the clock strikes midnight, families throughout the country light fireworks to celebrate this beautiful occasion. The cities become as bright as day."
+	},
+	"kz_country_name": {
+		"message": "Kazakhstan"
 	},
 	"language": {
 		"message": "Language"
@@ -167,17 +377,62 @@
 	"lightdescription": {
 		"message": "Light up your TV with the Santa Tracker Android app and Chromecast."
 	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Lithuania"
+	},
+	"lv_country_name": {
+		"message": "Latvia"
+	},
+	"ly_country_name": {
+		"message": "Libya"
+	},
+	"md_country_name": {
+		"message": "Moldova"
+	},
 	"minutes": {
 		"message": "Minutes"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritania"
 	},
 	"mx_country_name": {
 		"message": "Mexico"
 	},
 	"mx_tradition": {
-		"message": "In Mexico, kids of all ages celebrate Christmas by breaking piñatas. Adults and children have fun by wearing a blindfold, spinning around and swinging a stick to break open the star-shaped hanging pots. When the piñata is smashed open, nuts, fruit and sweets spill out for everyone to enjoy."
+		"message": "In Mexico, children of all ages celebrate Christmas by breaking piñatas. Adults and children have fun by wearing a blindfold, spinning around and swinging a stick to break open the star-shaped hanging pots. When the piñata is smashed open, nuts, fruit and sweets spill out for everyone to enjoy."
+	},
+	"my_country_name": {
+		"message": "Malaysia"
+	},
+	"mz_country_name": {
+		"message": "Mozambique"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
 	},
 	"newtoday": {
 		"message": "New Today"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "The Netherlands"
+	},
+	"no_country_name": {
+		"message": "Norway"
 	},
 	"nonprofit-jane-description": {
 		"message": "Chimpanzees are human being's closest living relatives in the animal kingdom! Today, there are fewer than 300,000 chimpanzees remaining due to habitat loss, disease and illegal trade. The Jane Goodall Institute (JGI) protects chimpanzees by observing and understanding their behaviour as well as the habitats in which they live. JGI also works to build a community of people who are protecting and conserving wildlife and the environment we share. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore the Chimpanzee habitats\u003c/a\u003e in Gombe, Tanzania."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Polar Bear"
 	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
 	"nz_country_name": {
 		"message": "New Zealand"
 	},
 	"nz_tradition": {
 		"message": "Because Christmas is in the summer in New Zealand, friends and family gather round a barbecue. Typical Christmas meals include roast lamb, sometimes cooked in a 'hangi' – an underground pit or earth oven. A favourite dessert is pavlova: meringue covered in fresh fruit like strawberries and kiwifruit."
+	},
+	"om_country_name": {
+		"message": "Oman"
 	},
 	"onthego": {
 		"message": "Santa on the go"
@@ -209,11 +470,20 @@
 	"openingtomorrow": {
 		"message": "Grand opening tomorrow"
 	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
 	"ph_country_name": {
 		"message": "The Philippines"
 	},
 	"ph_tradition": {
-		"message": "The Philippines is known for having the world's longest Christmas season. Four months are considered Christmas months: September, October, November, December. Christmas carols can oftentimes be heard as early as the beginning of September."
+		"message": "The Philippines is known for having the world's longest Christmas season. Four months are considered Christmas months: September, October, November, December. Christmas carols can often be heard as early as the beginning of September."
+	},
+	"pl_country_name": {
+		"message": "Poland"
 	},
 	"play": {
 		"message": "Play"
@@ -222,7 +492,16 @@
 		"message": "Play again"
 	},
 	"playdescription": {
-		"message": "Play with friends in the Santa Tracker Android App."
+		"message": "Play with friends using the Santa Tracker Android app."
+	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "Romania"
 	},
 	"ru_country_name": {
 		"message": "Russia"
@@ -230,11 +509,17 @@
 	"ru_tradition": {
 		"message": "Russian children decorate a New Year's tree, instead of a Christmas tree. Children wait with longing for Grandfather Frost who travels with his granddaughter Snowmaiden, delivering presents across the land. Grandfather Frost lives deep in the woods in Veliky Ustyug, in northern Russia."
 	},
+	"sa_country_name": {
+		"message": "Saudi Arabia"
+	},
 	"santatracker": {
 		"message": "Santa Tracker"
 	},
 	"score": {
 		"message": "Score"
+	},
+	"se_country_name": {
+		"message": "Sweden"
 	},
 	"seconds": {
 		"message": "Seconds"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "Share"
 	},
+	"sk_country_name": {
+		"message": "Slovakia"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalia"
+	},
+	"sr_country_name": {
+		"message": "Suriname"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"td_country_name": {
+		"message": "Chad"
+	},
 	"terms-and-privacy": {
 		"message": "Terms \u0026amp; Privacy"
 	},
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "Time"
+	},
+	"tj_country_name": {
+		"message": "Tajikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunisia"
+	},
+	"tr_country_name": {
+		"message": "Turkey"
 	},
 	"traditions-next": {
 		"message": "Next Tradition"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgaria"
 	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "United Kingdom"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "In the United Kingdom, merrymakers of all ages enjoy Christmas crackers on the table at dinner. Crackers are tubes wrapped in colourful paper, with pull tabs on each end. When you pull the tabs, the tube bursts with a loud snap! Inside are paper hats, toys and sweets to enjoy during Christmas night."
 	},
+	"upgrade-warning": {
+		"message": "Oops! Santa Tracker isn't supported in this version of your browser. To access Santa Tracker, download a modern browser. For more information visit \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "United States"
 	},
 	"us_tradition": {
 		"message": "In the United States, stockings are hung on Christmas Eve. The legend goes that St Nicholas heard of a family in need. To surprise them, he climbed down their chimney and placed precious bags of gold in hanging stockings. From this point, St Nicholas was known as Santa Claus, giver of gifts."
 	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
 	"watch": {
 		"message": "Watch"
+	},
+	"ye_country_name": {
+		"message": "Yemen"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
 	}
 }

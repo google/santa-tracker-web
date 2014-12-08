@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Willkommen bei Google Maps – auf den Spuren des Weihnachtsmanns"
 	},
+	"af_country_name": {
+		"message": "Afghanistan"
+	},
+	"al_country_name": {
+		"message": "Albanien"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentinien"
 	},
 	"ar_tradition": {
 		"message": "In Argentinien beginnt Weihnachten pünktlich um Mitternacht. Viele Familien schmücken ihr Zuhause festlich und beginnen das Fest mit dem Öffnen der Geschenke im Familienkreis. In den frühen Morgenstunden zünden sie ein Feuerwerk an."
+	},
+	"at_country_name": {
+		"message": "Österreich"
 	},
 	"au_country_name": {
 		"message": "Australien"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "Da Australien so weit südlich liegt, ist es dort im Dezember Sommer. Statt mit Schlitten und Kakao feiern die Australier Weihnachten am Strand, essen Krabben und spielen ein paar Runden Kricket."
 	},
+	"bd_country_name": {
+		"message": "Bangladesch"
+	},
+	"be_country_name": {
+		"message": "Belgien"
+	},
+	"bg_country_name": {
+		"message": "Bulgarien"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivien"
+	},
 	"br_country_name": {
 		"message": "Brasilien"
 	},
 	"br_tradition": {
 		"message": "Das Weihnachtsfest beginnt gegen Mitternacht in der Regel mit einem Abendessen im Familienkreis, dem Öffnen der Geschenke und der Feier der \"Missa do Galo\" (der Hahnenmesse) in der Kirche. Trotz des tropisch-warmen Sommerwetters sind winterliche Dekorationen nicht unüblich."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"by_country_name": {
+		"message": "Belarus"
+	},
+	"bz_country_name": {
+		"message": "Belize"
 	},
 	"ca_country_name": {
 		"message": "Kanada"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Senden"
 	},
+	"cf_country_name": {
+		"message": "Zentralafrikanische Republik"
+	},
+	"ch_country_name": {
+		"message": "Schweiz"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
 	"close-this": {
 		"message": "Abbrechen"
+	},
+	"cm_country_name": {
+		"message": "Kamerun"
+	},
+	"co_country_name": {
+		"message": "Kolumbien"
+	},
+	"codelab-block-moveeast": {
+		"message": "Osten"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Bewege mich einen Block in Richtung Osten."
+	},
+	"codelab-block-movenorth": {
+		"message": "Norden"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Bewege mich einen Block in Richtung Norden."
+	},
+	"codelab-block-movesouth": {
+		"message": "Süden"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Bewege mich einen Block in Richtung Süden."
+	},
+	"codelab-block-movewest": {
+		"message": "Westen"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Bewege mich einen Block in Richtung Westen."
+	},
+	"codelab-block-repeat": {
+		"message": "Wiederholen:"
+	},
+	"codelab-block-repeat-times": {
+		"message": "Mal"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Wiederhole einige Anweisungen mehrmals."
+	},
+	"codelab-block-whenrun": {
+		"message": "Bei Ausführung"
+	},
+	"codelab-finish": {
+		"message": "Fertigstellen"
+	},
+	"codelab-great": {
+		"message": "Super gemacht!"
+	},
+	"codelab-mwc-promo": {
+		"message": "Unter \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e findest du weitere Programmierprojekte von Google."
+	},
+	"codelab-next-challenge": {
+		"message": "Nächste Aufgabe"
+	},
+	"codelab-oops": {
+		"message": "Hoppla!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Der Wiederholungsblock muss andere Blöcke enthalten."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Einige Blöcke hängen nicht richtig zusammen."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Du hast dich offenbar verlaufen."
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Versuche, das Rätsel mit einem oder mehreren der Blöcke unten zu lösen."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Wusstest du, dass sich dieses Level mit nur {{ideal}} Blöcken meistern lässt? Verwende den Block unten."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Super gemacht! Du hast das Rätsel perfekt gelöst."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Du verwendest die richtigen Blöcke, aber nicht genügend davon."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Wusstest du, dass sich dieses Level mit nur {{ideal}} Blöcken meistern lässt?"
+	},
+	"codelab-try-again": {
+		"message": "Wiederholen"
 	},
 	"copy-me": {
 		"message": "Kopiere diesen Link, um deine Nachricht zu teilen."
 	},
 	"countdownlabel": {
 		"message": "Bis zur Abreise des Weihnachtsmanns"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cu_country_name": {
+		"message": "Kuba"
+	},
+	"cz_country_name": {
+		"message": "Tschechische Republik"
 	},
 	"days": {
 		"message": "Tage"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "Schmücke deinen Browser mit einer weihnachtlichen Chrome-Erweiterung."
 	},
+	"dk_country_name": {
+		"message": "Dänemark"
+	},
+	"do_country_name": {
+		"message": "Dominikanische Republik"
+	},
+	"dz_country_name": {
+		"message": "Algerien"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Estland"
+	},
 	"endofjourneymessage": {
 		"message": "Der Weihnachtsmann hat seine diesjährige Reise beendet. Er und seine Elfen feiern jetzt am Nordpol und machen dann erst einmal Urlaub."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
 	},
 	"error": {
 		"message": "Oh, sieht so aus, als hätten wir die Verbindung zum Nordpol verloren. Die Wichtel arbeiten schon fleißig daran, sie wiederherzustellen. Versuche es gleich noch einmal!"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Erneut versuchen"
 	},
+	"et_country_name": {
+		"message": "Äthiopien"
+	},
+	"fi_country_name": {
+		"message": "Finnland"
+	},
 	"finished-text": {
 		"message": "Schöne Feiertage! Der Weihnachtsmann ist um die ganze Welt geflogen und ruht sich nun von der anstrengenden Reise aus. Besuche uns im nächsten Jahr wieder!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "In Frankreich stellen Kinder traditionell ihre Schuhe neben den Kamin und warten auf die Ankunft von Père Noël. Wenn die Kinder das Jahr über brav waren, füllt Père Noël die Schuhe mit Geschenken."
 	},
+	"ga_country_name": {
+		"message": "Gabun"
+	},
 	"gameover": {
 		"message": "Geschafft!"
+	},
+	"gameover_level": {
+		"message": "Erreichtes Level:"
 	},
 	"gameover_score": {
 		"message": "Dein Punktestand:"
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "Weihnachten ist in Ghana ein Familienfest. Die Erwachsenen verkleiden sich und verteilen in der Nachbarschaft Süßigkeiten. Die Kinder schmücken ihr Zuhause mit Papierschmuck und Bildern, die sie in der Schule gemalt haben."
+	},
+	"gl_country_name": {
+		"message": "Grönland"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
 	},
 	"gotovillage": {
 		"message": "Zum Dorf"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "In Guatemala wird Weihnachten mit ausgelassenem Tanz gefeiert. Die Menschen tragen Puritina-Hüte, essen guatemaltekische Tamales, zünden um Mitternacht Knallkörper an und tanzen die ganze Nacht hindurch."
 	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
 	"hours": {
 		"message": "Stunden"
+	},
+	"hr_country_name": {
+		"message": "Kroatien"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Ungarn"
+	},
+	"id_country_name": {
+		"message": "Indonesien"
+	},
+	"ie_country_name": {
+		"message": "Irland"
+	},
+	"iq_country_name": {
+		"message": "Irak"
+	},
+	"ir_country_name": {
+		"message": "Iran"
 	},
 	"is_country_name": {
 		"message": "Island"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "In Island schenken sich Familien zu Weihnachten gegenseitig warme Kleidung. Der Legende nach streift eine böse Weihnachtskatze umher, die jeden verschlingt, der nicht warm genug angezogen ist. Familien achten darauf, dass niemand der Weihnachtskatze zum Opfer fällt."
 	},
+	"it_country_name": {
+		"message": "Italien"
+	},
+	"jm_country_name": {
+		"message": "Jamaika"
+	},
 	"kg_country_name": {
 		"message": "Kirgisistan"
 	},
 	"kg_tradition": {
 		"message": "In Kirgisistan kommt am Neujahrsabend Ayaz Ata, Väterchen Frost, und legt Geschenke unter den Neujahrsbaum. Um Mitternacht feiern Familien im ganzen Land dies mit einem Feuerwerk, das die Städte taghell erleuchtet."
+	},
+	"kz_country_name": {
+		"message": "Kasachstan"
 	},
 	"language": {
 		"message": "Sprache"
@@ -167,8 +377,32 @@
 	"lightdescription": {
 		"message": "Bringe deinen Fernseher mit der App \"Auf den Spuren des Weihnachtsmanns\" für Android und mit Chromecast zum Leuchten."
 	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Litauen"
+	},
+	"lv_country_name": {
+		"message": "Lettland"
+	},
+	"ly_country_name": {
+		"message": "Libyen"
+	},
+	"md_country_name": {
+		"message": "Republik Moldau"
+	},
 	"minutes": {
 		"message": "Minuten"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauretanien"
 	},
 	"mx_country_name": {
 		"message": "Mexiko"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "In Mexiko zerschlagen Kinder jeden Alters an Weihnachten Piñatas. Erwachsene und Kinder machen sich einen Spaß daraus, sich mit verbundenen Augen im Kreis zu drehen und mit einem Stock die sternförmigen hängenden Gefäße zu zerschlagen, aus denen dann Nüsse, Früchte und Süßigkeiten herausfallen."
 	},
+	"my_country_name": {
+		"message": "Malaysia"
+	},
+	"mz_country_name": {
+		"message": "Mosambik"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
 	"newtoday": {
 		"message": "Heute neu"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Niederlande"
+	},
+	"no_country_name": {
+		"message": "Norwegen"
 	},
 	"nonprofit-jane-description": {
 		"message": "Schimpansen sind die nächsten lebenden Verwandten des Menschen im Tierreich. Aufgrund zerstörter Lebensräume, Krankheiten und illegalem Handel gibt es heute weniger als 300.000 von ihnen. Das Jane Goodall Institute (JGI) schützt Schimpansen, indem es ihr Verhalten und ihren Lebensraum untersucht und versteht. Das JGI arbeitet an der Bildung neuer Personengruppen, die die Tierwelt und unsere gemeinsame Umwelt schützen und erhalten möchten. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eEntdecke die Lebensräume der Schimpansen\u003c/a\u003e in Gombe, Tansania."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Polarbär"
 	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
 	"nz_country_name": {
 		"message": "Neuseeland"
 	},
 	"nz_tradition": {
 		"message": "Da Weihnachten in Neuseeland im Sommer stattfindet, versammeln sich Familie und Freunde bei einem Barbecue und essen traditionell Lamm, das manchmal in einer Erdgrube oder einem Erdofen, dem \"Hangi\", gegart wird. Pavlova – Baiser mit frischem Obst wie Erdbeeren und Kiwi – ist ein beliebter Nachtisch."
+	},
+	"om_country_name": {
+		"message": "Oman"
 	},
 	"onthego": {
 		"message": "Der Weihnachtsmann unterwegs"
@@ -209,11 +470,20 @@
 	"openingtomorrow": {
 		"message": "Morgen große Eröffnung"
 	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
 	"ph_country_name": {
 		"message": "Philippinen"
 	},
 	"ph_tradition": {
 		"message": "Auf den Philippinen ist Weihnachten am längsten. Die vier Weihnachtsmonate sind September, Oktober, November und Dezember. Schon Anfang September werden die ersten Weihnachtslieder gesungen."
+	},
+	"pl_country_name": {
+		"message": "Polen"
 	},
 	"play": {
 		"message": "Spielen"
@@ -224,17 +494,32 @@
 	"playdescription": {
 		"message": "Hol dir die App \"Auf den Spuren des Weihnachtsmanns\" für Android."
 	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "Rumänien"
+	},
 	"ru_country_name": {
 		"message": "Russland"
 	},
 	"ru_tradition": {
 		"message": "Russische Kinder schmücken statt eines Weihnachtsbaums einen Neujahrsbaum. Die Kinder warten sehnsüchtig auf Väterchen Frost, der mit seiner Enkelin Schneeflöckchen Geschenke im ganzen Land verteilt. Väterchen Frost lebt tief in den Wäldern von Weliki Ustjug in Nordrussland."
 	},
+	"sa_country_name": {
+		"message": "Saudi-Arabien"
+	},
 	"santatracker": {
 		"message": "Auf den Spuren des Weihnachtsmanns"
 	},
 	"score": {
 		"message": "Bewertung"
+	},
+	"se_country_name": {
+		"message": "Schweden"
 	},
 	"seconds": {
 		"message": "Sekunden"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "Teilen"
 	},
+	"sk_country_name": {
+		"message": "Slowakei"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalia"
+	},
+	"sr_country_name": {
+		"message": "Suriname"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"td_country_name": {
+		"message": "Tschad"
+	},
 	"terms-and-privacy": {
 		"message": "Nutzungsbedingungen/Datenschutz"
 	},
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "Zeit"
+	},
+	"tj_country_name": {
+		"message": "Tadschikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunesien"
+	},
+	"tr_country_name": {
+		"message": "Türkei"
 	},
 	"traditions-next": {
 		"message": "Nächste Tradition"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgarien"
 	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tansania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Großbritannien"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "In Großbritannien öffnen alle Familienmitglieder beim Abendessen Knallbonbons. Diese in buntes Papier gewickelten Röhren haben an beiden Enden Aufreißbänder. Beim Öffnen platzen sie mit einem lauten Knall auf und spucken Papierhüte, Spielzeug und Süßigkeiten für den Weihnachtsabend aus."
 	},
+	"upgrade-warning": {
+		"message": "Hoppla! Die von dir verwendete Browserversion wird nicht unterstützt. Um dich auf die Spuren des Weihnachtsmanns zu begeben, musst du einen modernen Browser herunterladen. Weitere Informationen findest du unter \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "USA"
 	},
 	"us_tradition": {
 		"message": "In den USA werden am Weihnachtsabend Strümpfe aufgehängt. Es heißt, der heilige Nikolaus habe einst von einer Familie in Not gehört. Um sie zu überraschen, kletterte er durch den Kamin und hängte für sie Strümpfe voll Gold auf. Seit damals ist er als Santa Claus bekannt, der die Geschenke bringt."
 	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Usbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
 	"watch": {
 		"message": "Beobachten"
+	},
+	"ye_country_name": {
+		"message": "Jemen"
+	},
+	"zm_country_name": {
+		"message": "Sambia"
+	},
+	"zw_country_name": {
+		"message": "Simbabwe"
 	}
 }

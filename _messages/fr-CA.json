@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Bienvenue dans le service « Sur les traces du père Noël », une application de Google Maps!"
 	},
+	"af_country_name": {
+		"message": "Afghanistan"
+	},
+	"al_country_name": {
+		"message": "Albanie"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentine"
 	},
 	"ar_tradition": {
 		"message": "En Argentine, les célébrations de Noël commencent juste après minuit. Plusieurs familles ouvrent les festivités en donnant une fête dans leur maison, en échangeant des cadeaux avec leurs proches et en allumant des feux d'artifice en pleine nuit."
+	},
+	"at_country_name": {
+		"message": "Autriche"
 	},
 	"au_country_name": {
 		"message": "Australie"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "Compte tenu de l'emplacement de l'Australie, dans l'hémisphère Sud, Noël y a lieu en été. Les Australiens préfèrent donc célébrer les Fêtes à la plage, où ils mangent des crevettes et jouent au cricket, plutôt qu'avec des clochettes de traîneau et du chocolat chaud."
 	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Belgique"
+	},
+	"bg_country_name": {
+		"message": "Bulgarie"
+	},
+	"bj_country_name": {
+		"message": "Bénin"
+	},
+	"bo_country_name": {
+		"message": "Bolivie"
+	},
 	"br_country_name": {
 		"message": "Brésil"
 	},
 	"br_tradition": {
 		"message": "Les festivités de Noël commencent vers minuit et se composent de grands repas en famille, de l'ouverture des cadeaux et de la célébration de la « Missa do Galo » (la messe du coq) dans les églises. Malgré le chaud été tropical, les thèmes de l'hiver et de la neige ne sont pas rares."
+	},
+	"bt_country_name": {
+		"message": "Bhoutan"
+	},
+	"by_country_name": {
+		"message": "Biélorussie"
+	},
+	"bz_country_name": {
+		"message": "Belize"
 	},
 	"ca_country_name": {
 		"message": "Canada"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Envoyer"
 	},
+	"cf_country_name": {
+		"message": "République centrafricaine"
+	},
+	"ch_country_name": {
+		"message": "Suisse"
+	},
+	"cl_country_name": {
+		"message": "Chili"
+	},
 	"close-this": {
 		"message": "Annuler"
+	},
+	"cm_country_name": {
+		"message": "Cameroun"
+	},
+	"co_country_name": {
+		"message": "Colombie"
+	},
+	"codelab-block-moveeast": {
+		"message": "est"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Déplacez-moi d'un espace vers l'est."
+	},
+	"codelab-block-movenorth": {
+		"message": "nord"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Déplacez-moi d'un espace vers le nord."
+	},
+	"codelab-block-movesouth": {
+		"message": "sud"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Déplacez-moi d'un espace vers le sud."
+	},
+	"codelab-block-movewest": {
+		"message": "ouest"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Déplacez-moi d'un espace vers l'ouest."
+	},
+	"codelab-block-repeat": {
+		"message": "répéter"
+	},
+	"codelab-block-repeat-times": {
+		"message": "fois"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Répéter certains énoncés plusieurs fois."
+	},
+	"codelab-block-whenrun": {
+		"message": "exécution"
+	},
+	"codelab-finish": {
+		"message": "Arrêter"
+	},
+	"codelab-great": {
+		"message": "Excellent"
+	},
+	"codelab-mwc-promo": {
+		"message": "Découvrez davantage de projets de codage Google sur la page suivante : \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Prochain défi"
+	},
+	"codelab-oops": {
+		"message": "Oups!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Le bloc « Répéter » doit contenir d'autres blocs pour fonctionner."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Certains blocs ne sont pas correctement reliés."
+	},
+	"codelab-result-generic-fail": {
+		"message": "On dirait que vous vous êtes égaré!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Essayez de résoudre le casse-tête en utilisant un ou plusieurs des blocs ci-dessous."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Saviez-vous que vous pouvez réussir ce niveau en n'utilisant que {{ideal}} blocs? Essayez avec le bloc ci-dessous."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Félicitations! Vous avez parfaitement réussi le casse-tête."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Vous avez choisi les bons blocs, mais essayez d'en utiliser plus pour réussir ce casse-tête."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Saviez-vous que vous pouvez réussir ce niveau en n'utilisant que {{ideal}} blocs?"
+	},
+	"codelab-try-again": {
+		"message": "Réessayer"
 	},
 	"copy-me": {
 		"message": "Copiez ce lien pour partager votre message."
 	},
 	"countdownlabel": {
 		"message": "avant le départ du père Noël"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cu_country_name": {
+		"message": "Cuba"
+	},
+	"cz_country_name": {
+		"message": "République tchèque"
 	},
 	"days": {
 		"message": "jours"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "Décorez votre navigateur avec une extension Google Chrome spécial Noël."
 	},
+	"dk_country_name": {
+		"message": "Danemark"
+	},
+	"do_country_name": {
+		"message": "République dominicaine"
+	},
+	"dz_country_name": {
+		"message": "Algérie"
+	},
+	"ec_country_name": {
+		"message": "Équateur"
+	},
+	"ee_country_name": {
+		"message": "Estonie"
+	},
 	"endofjourneymessage": {
 		"message": "Le père Noël a terminé sa tournée pour cette année! Les lutins et lui ont encore du plaisir à l'horaire au pôle Nord avant le commencement de leur congé annuel!"
+	},
+	"er_country_name": {
+		"message": "Érythrée"
 	},
 	"error": {
 		"message": "Il semble que nous ayons perdu notre connexion avec le pôle Nord. Les elfes du père Noël tentent de la rétablir, alors réessayez plus tard!"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Réessayer"
 	},
+	"et_country_name": {
+		"message": "Éthiopie"
+	},
+	"fi_country_name": {
+		"message": "Finlande"
+	},
 	"finished-text": {
 		"message": "Joyeuses fêtes! Le père Noël a terminé sa grande tournée internationale et profite maintenant d'un repos bien mérité. À l'année prochaine!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "En France, les enfants placent leurs souliers près du foyer avant l'arrivée du père Noël. Ce dernier remplira les souliers des enfants de cadeaux s'ils ont été gentils au cours de l'année."
 	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
 	"gameover": {
-		"message": "Partie terminée!"
+		"message": "Terminé!"
+	},
+	"gameover_level": {
+		"message": "Vous avez atteint le niveau :"
 	},
 	"getgooglemaps": {
 		"message": "Télécharger Google Maps"
@@ -112,6 +280,12 @@
 	},
 	"gh_tradition": {
 		"message": "La famille complète participe aux festivités de Noël au Ghana. Les adultes revêtent des costumes et distribuent des bonbons et des desserts à leurs voisins. Les enfants décorent leur maison à l'aide de décorations en papier et de dessins qu'ils font à l'école."
+	},
+	"gl_country_name": {
+		"message": "Groenland"
+	},
+	"gn_country_name": {
+		"message": "Guinée"
 	},
 	"gotovillage": {
 		"message": "Accéder au village"
@@ -131,20 +305,56 @@
 	"gt_tradition": {
 		"message": "Au Guatemala, Noël se célèbre dans la joie et la danse. Les habitants portent des chapeaux nommés puritinas, mangent des tamales guatémaltèques et allument des pétards à minuit, avant de danser toute la nuit."
 	},
+	"gy_country_name": {
+		"message": "Guyane"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
 	"hours": {
 		"message": "Heures"
+	},
+	"hr_country_name": {
+		"message": "Croatie"
+	},
+	"ht_country_name": {
+		"message": "Haïti"
+	},
+	"hu_country_name": {
+		"message": "Hongrie"
+	},
+	"id_country_name": {
+		"message": "Indonésie"
+	},
+	"ie_country_name": {
+		"message": "Irlande"
+	},
+	"iq_country_name": {
+		"message": "Iraq"
+	},
+	"ir_country_name": {
+		"message": "Iran"
 	},
 	"is_country_name": {
 		"message": "Islande"
 	},
 	"is_tradition": {
-		"message": "À Noël en Islande, les familles s'échangent des cadeaux composés de vêtements chauds. Selon la légende, il existe un chat de Noël effrayant qui dévore quiconque n'est pas équipé pour affronter le froid de l'hiver. Les familles s'entraident afin que personne ne « tombe aux pattes du chat de Noël »."
+		"message": "À Noël, en Islande, les familles s'échangent des cadeaux composés de vêtements chauds. Selon la légende, il existe un chat de Noël effrayant qui dévore quiconque n'est pas équipé pour affronter le froid de l'hiver. Les familles s'entraident afin que personne ne « tombe aux pattes du chat de Noël »."
+	},
+	"it_country_name": {
+		"message": "Italie"
+	},
+	"jm_country_name": {
+		"message": "Jamaïque"
 	},
 	"kg_country_name": {
 		"message": "Kirghizistan"
 	},
 	"kg_tradition": {
 		"message": "Au Kirghizistan, la veille du jour de l'An à minuit, Ayaz Ata (Grand-père Gel) dépose des cadeaux sous l'arbre du Nouvel An. Lorsque minuit sonne, des familles de tout le pays allument des feux d'artifice afin de célébrer ce moment merveilleux. Les villes s'illuminent comme en plein jour."
+	},
+	"kz_country_name": {
+		"message": "Kazakhstan"
 	},
 	"language": {
 		"message": "Langue"
@@ -164,8 +374,32 @@
 	"lightdescription": {
 		"message": "Illuminez votre téléviseur avec notre application Android Sur les traces du père Noël et Chromecast."
 	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Lituanie"
+	},
+	"lv_country_name": {
+		"message": "Lettonie"
+	},
+	"ly_country_name": {
+		"message": "Libye"
+	},
+	"md_country_name": {
+		"message": "Moldavie"
+	},
 	"minutes": {
 		"message": "minutes"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritanie"
 	},
 	"mx_country_name": {
 		"message": "Mexique"
@@ -173,8 +407,29 @@
 	"mx_tradition": {
 		"message": "Au Mexique, les adultes et enfants de tous âges célèbrent Noël en cassant des piñatas en forme d'étoile. Ils mettent un bandeau, tournent sur eux-mêmes et balancent un bâton dans l'espoir de la briser. Une fois défoncée, la piñata libère des noix, des fruits et des bonbons que tous se partagent."
 	},
+	"my_country_name": {
+		"message": "Malaisie"
+	},
+	"mz_country_name": {
+		"message": "Mozambique"
+	},
+	"na_country_name": {
+		"message": "Namibie"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
 	"newtoday": {
 		"message": "Nouveauté du jour"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Pays-Bas"
+	},
+	"no_country_name": {
+		"message": "Norvège"
 	},
 	"nonprofit-jane-description": {
 		"message": "Les chimpanzés sont les plus proches parents vivants de l'être humain au sein du règne animal! De nos jours, il reste moins de 300 000 chimpanzés dans le monde en raison de la perte de leur habitat, de maladies et du commerce illégal. La Jane Goodall Institute (JGI) protège ces animaux en les observant et en s'efforçant de comprendre leurs comportements ainsi que leurs habitats. La JGI déploie également des efforts pour créer une communauté de personnes qui veillent à protéger et à conserver la faune et la flore et leur environnement. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplorez les habitats des chimpanzés\u003c/a\u003e à Gombe, en Tanzanie."
@@ -194,11 +449,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Ours polaire"
 	},
+	"np_country_name": {
+		"message": "Népal"
+	},
 	"nz_country_name": {
 		"message": "Nouvelle-Zélande"
 	},
 	"nz_tradition": {
-		"message": "Comme Noël a lieu en été en Nouvelle-Zélande, les proches se réunissent autour d'un barbecue. Les mets typiques de Noël comprennent le gigot d'agneau, parfois cuit dans un hāngi, un foyer creusé ou un four en terre cuite. Un dessert populaire est la pavlova, une meringue recouverte de fruits frais."
+		"message": "Comme Noël a lieu en été en Nouvelle-Zélande, les proches se réunissent autour d'un barbecue. Les mets typiques de Noël comprennent le gigot d'agneau, parfois cuit dans un hāngi, un foyer creusé ou un four en terre cuite. L'un des desserts préférés est la pavlova, une meringue recouverte de fruits frais (fraises, kiwis, etc.)."
+	},
+	"om_country_name": {
+		"message": "Oman"
 	},
 	"onthego": {
 		"message": "Le père Noël est en route!"
@@ -206,11 +467,20 @@
 	"openingtomorrow": {
 		"message": "Ouverture officielle demain"
 	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Pérou"
+	},
 	"ph_country_name": {
 		"message": "Philippines"
 	},
 	"ph_tradition": {
-		"message": "Les Philippines sont connues pour profiter de la plus longue saison de Noël au monde. Le temps de Noël dure quatre mois : septembre, octobre, novembre et décembre. Il est possible d'entendre le chant de chorales de Noël aussi tôt qu'au début de septembre."
+		"message": "La période de Noël aux Philippines est la plus longue du monde, puisqu'elle s'étend sur quatre mois : septembre, octobre, novembre et décembre. Il n'est pas rare d'entendre des chants de Noël dès le début de septembre."
+	},
+	"pl_country_name": {
+		"message": "Pologne"
 	},
 	"play": {
 		"message": "Jouer"
@@ -221,17 +491,32 @@
 	"playdescription": {
 		"message": "Jouez avec vos amis avec l'application Android Sur les traces du père Noël."
 	},
+	"pr_country_name": {
+		"message": "Porto Rico"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "Roumanie"
+	},
 	"ru_country_name": {
 		"message": "Russie"
 	},
 	"ru_tradition": {
 		"message": "En Russie, les enfants décorent un arbre à l'occasion du Nouvel An, plutôt qu'un sapin de Noël. Ils attendent avec impatience Ded Moroz (Grand-père Gel), qui voyage partout au pays en compagnie de Snégourotchka (Fille des neiges), sa petite-fille, pour apporter des cadeaux aux tout-petits. Ded Moroz vit au cœur de la forêt, à Veliki Oustioug, une ville du Nord de la Russie."
 	},
+	"sa_country_name": {
+		"message": "Arabie saoudite"
+	},
 	"santatracker": {
 		"message": "Sur les traces du père Noël"
 	},
 	"score": {
 		"message": "Pointage"
+	},
+	"se_country_name": {
+		"message": "Suède"
 	},
 	"seconds": {
 		"message": "secondes"
@@ -248,6 +533,24 @@
 	"share-this": {
 		"message": "Partager"
 	},
+	"sk_country_name": {
+		"message": "Slovaquie"
+	},
+	"sn_country_name": {
+		"message": "Sénégal"
+	},
+	"so_country_name": {
+		"message": "Somalie"
+	},
+	"sr_country_name": {
+		"message": "Surinam"
+	},
+	"sv_country_name": {
+		"message": "Salvador"
+	},
+	"td_country_name": {
+		"message": "Tchad"
+	},
 	"terms-and-privacy": {
 		"message": "Conditions et confidentialité"
 	},
@@ -255,7 +558,19 @@
 		"message": "Faites basculer votre appareil!"
 	},
 	"time": {
-		"message": "Heure"
+		"message": "Temps"
+	},
+	"tj_country_name": {
+		"message": "Tadjikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkménistan"
+	},
+	"tn_country_name": {
+		"message": "Tunisie"
+	},
+	"tr_country_name": {
+		"message": "Turquie"
 	},
 	"traditions-next": {
 		"message": "Tradition suivante"
@@ -3890,8 +4205,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgarie"
 	},
+	"tw_country_name": {
+		"message": "Taïwan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzanie"
+	},
+	"ug_country_name": {
+		"message": "Ouganda"
 	},
 	"uk_country_name": {
 		"message": "Royaume-Uni"
@@ -3899,13 +4223,37 @@
 	"uk_tradition": {
 		"message": "Au Royaume-Uni, les gens de tous âges s'amusent avec des pétards de Noël durant le souper. Les pétards sont des tubes emballés de papier de couleurs vives : lorsque les bouts sont tirés, le tube s'ouvre dans un grand bruit! On trouve à l'intérieur des chapeaux en papier, des jouets et des bonbons."
 	},
+	"upgrade-warning": {
+		"message": "Oh non! L'application Sur les traces du père Noël n'est pas prise en charge par cette version de votre navigateur. Pour utiliser Sur les traces du père Noël, téléchargez une version plus récente. Pour en savoir plus, consultez la page \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "États-Unis"
 	},
 	"us_tradition": {
-		"message": "Aux États-Unis, on suspend des bas la veille de Noël. La légende veut que Saint Nicolas soit descendu dans la cheminée d'une famille dans le besoin afin de placer des sacs d'or dans leurs bas suspendus. Saint Nicolas fut ensuite connu sous le nom du père Noël, distributeur de cadeaux."
+		"message": "Aux États-Unis, on suspend des bas la veille de Noël. La légende veut que Saint-Nicolas soit descendu dans la cheminée d'une famille dans le besoin afin de placer des sacs d'or dans leurs bas suspendus. Saint-Nicolas fut ensuite connu sous le nom du père Noël, distributeur de cadeaux."
+	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Ouzbékistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
 	},
 	"watch": {
 		"message": "Regarder"
+	},
+	"ye_country_name": {
+		"message": "Yémen"
+	},
+	"zm_country_name": {
+		"message": "Zambie"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
 	}
 }

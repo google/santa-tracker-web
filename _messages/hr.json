@@ -3,7 +3,7 @@
 		"message": "Na Badnju večer ponosno ćemo predstaviti Djedovu upravljačku ploču – tehnologiju koja pogoni njegove sanjke tijekom puta oko svijeta. Dobili smo specijalnu najavu od Djedovih patuljastih razvojnih programera, koji naporno rade na Sjevernom polu pomažući Djedu u pripremama za ovaj veliki dan. Djedova upravljačka ploča, koja donosi najnovije i najsjajnije tehnologije iz Google karata uz vrhunska inženjerska rješenja za sanjke, omogućit će ti da pratiš Djedov put oko svijeta i naučiš ponešto o mjestima koja obilazi."
 	},
 	"about-content-three": {
-		"message": "Aplikaciju Slijedi Djeda Božićnjaka u Google kartama izradio je i razvio Google uz pomoć vilenjaka Djeda Božićnjaka. Trebate pomoć ili imate dodatnih pitanja? Posjetite naš \u003ca href=\"//support.google.com/santatracker\"\u003ecentar za pomoć\u003c/a\u003e."
+		"message": "Aplikaciju Slijedi Djeda Božićnjaka u Google kartama izradio je i razvio Google uz pomoć vilenjaka Djeda Božićnjaka. Trebaš pomoć ili imaš dodatnih pitanja? Posjeti naš \u003ca href=\"//support.google.com/santatracker\"\u003ecentar za pomoć\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "Naši ljubazni vilenjaci pozvali su vas da istražite selo Djeda Božićnjaka dok se on priprema za putovanje. Stoga istražite njegovo selo, možda ćete pronaći neke zabavne aktivnosti i upoznati neke zanimljive vilenjake."
@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Dobro došli u Slijedi Djeda Božićnjaka na Google kartama!"
 	},
+	"af_country_name": {
+		"message": "Afganistan"
+	},
+	"al_country_name": {
+		"message": "Albanija"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentina"
 	},
 	"ar_tradition": {
 		"message": "U Argentini Božić počinje točno u ponoć. Mnoge obitelji blagdan počinju proslavama u svojim domovima, otvaranjem poklona u društvu najmilijih i održavanjem vatrometa u ranim jutarnjim satima."
+	},
+	"at_country_name": {
+		"message": "Austrija"
 	},
 	"au_country_name": {
 		"message": "Australija"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "Smještaj Australije na južnoj hemisferi znači da je u prosincu ljetno doba. Umjesto uz sanjke i kakao, mnogi Australci blagdane slave na plažama uz ručak od račića i igranje kriketa."
 	},
+	"bd_country_name": {
+		"message": "Bangladeš"
+	},
+	"be_country_name": {
+		"message": "Belgija"
+	},
+	"bg_country_name": {
+		"message": "Bugarska"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivija"
+	},
 	"br_country_name": {
 		"message": "Brazil"
 	},
 	"br_tradition": {
 		"message": "Božićne proslave počinju oko ponoći, obično uz veliku obiteljsku večeru, otvaranje poklona i slavljenje \"Misse do Galo\" (pijetlova misa) u crkvama. Unatoč toplom tropskom ljetnom vremenu, teme zime i snijega nisu neuobičajene."
+	},
+	"bt_country_name": {
+		"message": "Butan"
+	},
+	"by_country_name": {
+		"message": "Bjelorusija"
+	},
+	"bz_country_name": {
+		"message": "Belize"
 	},
 	"ca_country_name": {
 		"message": "Kanada"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Pošalji"
 	},
+	"cf_country_name": {
+		"message": "Srednjoafrička Republika"
+	},
+	"ch_country_name": {
+		"message": "Švicarska"
+	},
+	"cl_country_name": {
+		"message": "Čile"
+	},
 	"close-this": {
 		"message": "Odustani"
 	},
+	"cm_country_name": {
+		"message": "Kamerun"
+	},
+	"co_country_name": {
+		"message": "Kolumbija"
+	},
+	"codelab-block-moveeast": {
+		"message": "istočno"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Pomakni me za jedno mjesto istočno."
+	},
+	"codelab-block-movenorth": {
+		"message": "sjeverno"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Pomakni me za jedno mjesto sjeverno."
+	},
+	"codelab-block-movesouth": {
+		"message": "južno"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Pomakni me za jedno mjesto južno."
+	},
+	"codelab-block-movewest": {
+		"message": "zapadno"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Pomakni me za jedno mjesto zapadno."
+	},
+	"codelab-block-repeat": {
+		"message": "ponovi"
+	},
+	"codelab-block-repeat-times": {
+		"message": "put(a)"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Ponovite neke naredbe nekoliko puta."
+	},
+	"codelab-block-whenrun": {
+		"message": "kada se pokrene"
+	},
+	"codelab-finish": {
+		"message": "Završi"
+	},
+	"codelab-great": {
+		"message": "Odlično"
+	},
+	"codelab-mwc-promo": {
+		"message": "Istražite više Googleovih projekata pisanja koda na adresi \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Sljedeći izazov"
+	},
+	"codelab-oops": {
+		"message": "Žao nam je!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Blok \"Ponovi\" mora sadržavati druge blokove da bi funkcionirao."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Neki blokovi nisu ispravno povezani."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Čini se da ste izgubili!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Isprobajte jedan ili više blokova u nastavku da biste riješili ovu zagonetku."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Jeste li znali da možete dovršiti ovu razinu već pomoću sljedećeg broja blokova: {{ideal}}? Pokušajte upotrijebiti blok u nastavku."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Čestitamo! Savršeno ste riješili zagonetku."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Upotrebljavate odgovarajuće blokove, no pokušajte ih više upotrijebiti da biste riješili ovu zagonetku."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Jeste li znali da možete dovršiti ovu razinu već sa sljedećim brojem blokova: {{ideal}}?"
+	},
+	"codelab-try-again": {
+		"message": "Pokušaj ponovno"
+	},
 	"copy-me": {
-		"message": "Kopirajte vezu da biste podijelili poruku"
+		"message": "Kopiraj vezu da podijeliš poruku"
 	},
 	"countdownlabel": {
 		"message": "Do polaska Djeda Božićnjaka"
+	},
+	"cr_country_name": {
+		"message": "Kostarika"
+	},
+	"cu_country_name": {
+		"message": "Kuba"
+	},
+	"cz_country_name": {
+		"message": "Češka Republika"
 	},
 	"days": {
 		"message": "dan/a"
@@ -72,28 +210,52 @@
 		"message": "U gotovo svim njemačkim gradovima na trgovima se otvaraju božićni sajmovi. Građani se okupljaju da bi čuli limenu glazbu i uživali u tradicionalnim jelima regije. Jedu medena srca, pržene ušećerene bademe i slatkiše svih vrsta te piju kuhano vino (Glühwein) ili jabukovaču."
 	},
 	"deck": {
-		"message": "Ukrasite"
+		"message": "Ukrasi"
 	},
 	"deckdescription": {
-		"message": "Ukrasite preglednik proširenjem Djeda Božićnjaka za Chrome."
+		"message": "Ukrasi preglednik proširenjem Djeda Božićnjaka za Chrome."
+	},
+	"dk_country_name": {
+		"message": "Danska"
+	},
+	"do_country_name": {
+		"message": "Dominikanska Republika"
+	},
+	"dz_country_name": {
+		"message": "Alžir"
+	},
+	"ec_country_name": {
+		"message": "Ekvador"
+	},
+	"ee_country_name": {
+		"message": "Estonija"
 	},
 	"endofjourneymessage": {
 		"message": "Djed Božićnjak završio je svoje putovanje za ovu godinu! On i njegovi vilenjaci još uvijek se zabavljaju na Sjevernom polu prije godišnjeg odmora."
 	},
+	"er_country_name": {
+		"message": "Eritreja"
+	},
 	"error": {
-		"message": "Čini se da smo izgubili vezu sa Sjevernim polom. Vilenjaci Djeda Božićnjaka marljivo rade na rješavanju problema – nastavite nas pratiti!"
+		"message": "Čini se da smo izgubili vezu sa Sjevernim polom. Vilenjaci Djeda Božićnjaka marljivo rade na rješavanju problema – nastavi nas pratiti!"
 	},
 	"error-lost-connection": {
-		"message": "Čini se da smo izgubili vezu sa Sjevernim polom. Vilenjaci Djeda Božićnjaka marljivo rade na rješavanju problema – nastavite nas pratiti!"
+		"message": "Čini se da smo izgubili vezu sa Sjevernim polom. Vilenjaci Djeda Božićnjaka marljivo rade na rješavanju problema – nastavi nas pratiti!"
 	},
 	"error-try-again": {
-		"message": "Pokušajte ponovno"
+		"message": "Pokušaj ponovno"
 	},
 	"error_try_again": {
-		"message": "Pokušajte ponovno"
+		"message": "Pokušaj ponovno"
+	},
+	"et_country_name": {
+		"message": "Etiopija"
+	},
+	"fi_country_name": {
+		"message": "Finska"
 	},
 	"finished-text": {
-		"message": "Sretni blagdani! Djed Božićnjak obišao je čitav svijet i sada se zasluženo odmara. Posjetite nas opet sljedeće godine!"
+		"message": "Sretni blagdani! Djed Božićnjak obišao je čitav svijet i sada se zasluženo odmara. Posjeti nas opet sljedeće godine!"
 	},
 	"fr_country_name": {
 		"message": "Francuska"
@@ -101,11 +263,17 @@
 	"fr_tradition": {
 		"message": "U Francuskoj djeca u očekivanju dolaska Père Noëla ostavljaju cipele uz kamin. Ako su kroz godinu bila dobra, Père Noël napunit će cipele darovima."
 	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
 	"gameover": {
 		"message": "Igra je gotova!"
 	},
+	"gameover_level": {
+		"message": "Dosegli ste sljedeću razinu:"
+	},
 	"gameover_score": {
-		"message": "Vaš rezultat:"
+		"message": "Tvoj rezultat:"
 	},
 	"getgooglemaps": {
 		"message": "Preuzmi Google karte"
@@ -116,8 +284,14 @@
 	"gh_tradition": {
 		"message": "Božić u Gani obuhvaća cijelu obitelj. Odrasli odijevaju kostime i dijele bombone i slatkiše po četvrti. Djeca ukrašavaju svoje domove papirnatim ukrasima i crtežima koje su napravili u školi."
 	},
+	"gl_country_name": {
+		"message": "Grenland"
+	},
+	"gn_country_name": {
+		"message": "Gvineja"
+	},
 	"gotovillage": {
-		"message": "Idite u selo"
+		"message": "Vrati se u selo"
 	},
 	"gplus": {
 		"message": "Google+"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "Gvatemalci Božić slave uz zabavu i ples. Nose šešire zvane Puritina, jedu tamale na gvatemalski način, pale petarde u ponoć i plešu različite plesove kroz noć."
 	},
+	"gy_country_name": {
+		"message": "Gvajana"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
 	"hours": {
 		"message": "sat/i"
+	},
+	"hr_country_name": {
+		"message": "Hrvatska"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Mađarska"
+	},
+	"id_country_name": {
+		"message": "Indonezija"
+	},
+	"ie_country_name": {
+		"message": "Irska"
+	},
+	"iq_country_name": {
+		"message": "Irak"
+	},
+	"ir_country_name": {
+		"message": "Iran"
 	},
 	"is_country_name": {
 		"message": "Island"
@@ -143,20 +344,29 @@
 	"is_tradition": {
 		"message": "Na Islandu obitelji za Božić daruju toplu odjeću svim članovima kućanstva. Legenda kaže da postoji strašna Božićna Mačka koja pojede sve one koji nisu opremljeni za hladno zimsko vrijeme. Obitelji se drže zajedno da bi spriječile da nitko ne \"ode Božićnoj Mački\"."
 	},
+	"it_country_name": {
+		"message": "Italija"
+	},
+	"jm_country_name": {
+		"message": "Jamajka"
+	},
 	"kg_country_name": {
 		"message": "Kirgistan"
 	},
 	"kg_tradition": {
 		"message": "U Kirgistanu Ayaz Ata (Djed Mraz) dolazi u ponoć na Staru godinu i ostavlja darove ispod novogodišnjeg drvca. Kada sat otkuca ponoć, obitelji diljem zemlje održavaju vatromet da bi proslavile taj prekrasan događaj. Gradovi postanu osvijetljeni kao da je dan."
 	},
+	"kz_country_name": {
+		"message": "Kazahstan"
+	},
 	"language": {
 		"message": "Jezik"
 	},
 	"learn": {
-		"message": "Saznajte"
+		"message": "Saznaj"
 	},
 	"learnmore": {
-		"message": "Saznajte više"
+		"message": "Saznaj više"
 	},
 	"level": {
 		"message": "Razina"
@@ -165,10 +375,34 @@
 		"message": "Osvjetljenje"
 	},
 	"lightdescription": {
-		"message": "Osvijetlite svoj televizor Android aplikacijom Slijedi Djeda Božićnjaka i Chromecastom."
+		"message": "Osvijetli svoj televizor Android aplikacijom Slijedi Djeda Božićnjaka i Chromecastom."
+	},
+	"lk_country_name": {
+		"message": "Šri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Litva"
+	},
+	"lv_country_name": {
+		"message": "Latvija"
+	},
+	"ly_country_name": {
+		"message": "Libija"
+	},
+	"md_country_name": {
+		"message": "Moldavija"
 	},
 	"minutes": {
 		"message": "min"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Mianmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritanija"
 	},
 	"mx_country_name": {
 		"message": "Meksiko"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "U Meksiku djeca svih dobi Božić slave razbijanjem pinjata. Odrasli i djeca zabavljaju se tako da stave povez preko očiju, zavrte se i udarcima štapom pokušaju razbiti ovješene posude u obliku zvijezde. Kada pinjatu razbiju, iz nje ispadnu orasi, voće i slatkiši u kojima svi uživaju."
 	},
+	"my_country_name": {
+		"message": "Malezija"
+	},
+	"mz_country_name": {
+		"message": "Mozambik"
+	},
+	"na_country_name": {
+		"message": "Namibija"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
 	"newtoday": {
 		"message": "Novo danas"
+	},
+	"ng_country_name": {
+		"message": "Nigerija"
+	},
+	"nl_country_name": {
+		"message": "Nizozemska"
+	},
+	"no_country_name": {
+		"message": "Norveška"
 	},
 	"nonprofit-jane-description": {
 		"message": "Čimpanze su najbliži živući srodnici ljudske vrste u životinjskom carstvu! Danas na svijetu živi manje od 300.000 čimpanzi zbog gubitka staništa i ilegalne trgovine. Institut Jane Goodall (JGI) čimpanze štiti promatranjem i analiziranjem njihova ponašanja i staništa u kojima žive. JGI također nastoji izgraditi zajednicu ljudi koji rade na zaštiti i očuvanju divljih životinja i okoliša koji dijelimo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eIstražite staništa čimpanzi\u003c/a\u003e u Gombeu, u Tanzaniji."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Polarni medvjed"
 	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
 	"nz_country_name": {
 		"message": "Novi Zeland"
 	},
 	"nz_tradition": {
 		"message": "S obzirom na to da je za Božić na Novom Zelandu ljeto, obitelj i prijatelji okupljaju se oko roštilja. Uobičajeni božićni objedi uključuju pečenu janjetinu, ponekad pečenu u \"hangi\" – podzemnoj jami ili zemljanoj pećnici. Omiljeni je desert pavlova, kolač od beze kora prekrivenih svježim voćem kao što su jagode i kivi."
+	},
+	"om_country_name": {
+		"message": "Oman"
 	},
 	"onthego": {
 		"message": "Djed Božićnjak u pokretu"
@@ -209,20 +470,38 @@
 	"openingtomorrow": {
 		"message": "Veliko otvorenje sutra"
 	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
 	"ph_country_name": {
 		"message": "Filipini"
 	},
 	"ph_tradition": {
 		"message": "Filipini su poznati po tome što imaju najdulje božićno razdoblje na svijetu. Četiri mjeseca smatraju se božićnima: rujan, listopad, studeni i prosinac. Božićne pjesme ponekad se mogu čuti već početkom rujna."
 	},
+	"pl_country_name": {
+		"message": "Poljska"
+	},
 	"play": {
-		"message": "Zaigrajte"
+		"message": "Zaigraj"
 	},
 	"playagain": {
 		"message": "Igraj ponovo"
 	},
 	"playdescription": {
-		"message": "Zaigrajte s prijateljima u Android aplikaciji Slijedi Djeda Božićnjaka."
+		"message": "Zaigraj s prijateljima u Android aplikaciji Slijedi Djeda Božićnjaka."
+	},
+	"pr_country_name": {
+		"message": "Portoriko"
+	},
+	"py_country_name": {
+		"message": "Paragvaj"
+	},
+	"ro_country_name": {
+		"message": "Rumunjska"
 	},
 	"ru_country_name": {
 		"message": "Rusija"
@@ -230,20 +509,26 @@
 	"ru_tradition": {
 		"message": "Djeca u Rusiji ukrašavaju novogodišnje drvce umjesto božićnog drvca. Djeca s nestrpljenjem čekaju Djeda Mraza koji putuje s unukom Snjeguročkom i zajedno donose poklone diljem zemlje. Djeda Mraz živi duboko u šumi u mjestu Veliky Ustyug na sjeveru Rusije."
 	},
+	"sa_country_name": {
+		"message": "Saudijska Arabija"
+	},
 	"santatracker": {
 		"message": "Slijedi Djeda Božićnjaka"
 	},
 	"score": {
 		"message": "Rezultat"
 	},
+	"se_country_name": {
+		"message": "Švedska"
+	},
 	"seconds": {
-		"message": "s"
+		"message": "sek"
 	},
 	"select-language": {
 		"message": "Odaberi jezik"
 	},
 	"share-button": {
-		"message": "Dijelite s prijateljima na Google+"
+		"message": "Dijeli s prijateljima na Google+"
 	},
 	"share-text": {
 		"message": "Napravio sam ovu razglednicu za tebe u aplikaciji Slijedi Djeda Božićnjaka s Googleom. Sretni blagdani!"
@@ -251,14 +536,44 @@
 	"share-this": {
 		"message": "Dijeli"
 	},
+	"sk_country_name": {
+		"message": "Slovačka"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalija"
+	},
+	"sr_country_name": {
+		"message": "Surinam"
+	},
+	"sv_country_name": {
+		"message": "Salvador"
+	},
+	"td_country_name": {
+		"message": "Čad"
+	},
 	"terms-and-privacy": {
 		"message": "Uvjeti i privatnost"
 	},
 	"tilt": {
-		"message": "Nagnite uređaj!"
+		"message": "Nagni uređaj!"
 	},
 	"time": {
 		"message": "Vrijeme"
+	},
+	"tj_country_name": {
+		"message": "Tadžikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunis"
+	},
+	"tr_country_name": {
+		"message": "Turska"
 	},
 	"traditions-next": {
 		"message": "Sljedeća tradicija"
@@ -534,7 +849,7 @@
 		"message": "Sjeverna Amerika"
 	},
 	"trivia_beginner_023": {
-		"message": "U koju američku državu morate otputovati da biste posjetili Jacksonovu jamu te se popeli na Vražji toranj?"
+		"message": "U koju američku državu moraš otputovati da posjetiš Jacksonovu jamu te se popneš na Vražji toranj?"
 	},
 	"trivia_beginner_023_answer0": {
 		"message": "Wyoming"
@@ -546,7 +861,7 @@
 		"message": "Connecticut"
 	},
 	"trivia_beginner_024": {
-		"message": "U koju američku državu morate otputovati da biste vidjeli skupljanje soka javorovog drveta i skijali u Zelenim planinama?"
+		"message": "U koju američku državu moraš otputovati da vidiš skupljanje soka javorovog drveta i skijaš u Zelenim planinama?"
 	},
 	"trivia_beginner_024_answer0": {
 		"message": "Vermont"
@@ -558,7 +873,7 @@
 		"message": "Arizona"
 	},
 	"trivia_beginner_025": {
-		"message": "U koju američku državu morate otputovati da biste se vozili mostom Chesapeake Bay i hodali šetalištem Ocean Cityja?"
+		"message": "U koju američku državu moraš otputovati da se voziš mostom Chesapeake Bay i hodaš šetalištem Ocean Cityja?"
 	},
 	"trivia_beginner_025_answer0": {
 		"message": "Maryland"
@@ -570,7 +885,7 @@
 		"message": "Sjeverna Karolina"
 	},
 	"trivia_beginner_026": {
-		"message": "U koju američku državu morate otputovati da biste posjetili Mamutsku špilju i trkalište Churchill Downs?"
+		"message": "U koju američku državu moraš putovati da posjetiš Mamutsku špilju i trkalište Churchill Downs?"
 	},
 	"trivia_beginner_026_answer0": {
 		"message": "Kentucky"
@@ -582,7 +897,7 @@
 		"message": "Utah"
 	},
 	"trivia_beginner_027": {
-		"message": "U koju američku državu morate otputovati da biste vidjeli velika stabla sekvoje i Kanalske otoke?"
+		"message": "U koju američku državu moraš otputovati da vidiš velika stabla sekvoje i Kanalske otoke?"
 	},
 	"trivia_beginner_027_answer0": {
 		"message": "Kalifornija"
@@ -594,7 +909,7 @@
 		"message": "Virginia"
 	},
 	"trivia_beginner_028": {
-		"message": "Koju biste močvaru posjetili da se nalazite u američkoj državi Floridi?"
+		"message": "Koju ćeš močvaru posjetiti ako se nalaziš u američkoj državi Floridi?"
 	},
 	"trivia_beginner_028_answer0": {
 		"message": "Everglades"
@@ -606,7 +921,7 @@
 		"message": "Močvara Great Cypress"
 	},
 	"trivia_beginner_029": {
-		"message": "U koju američku državu morate otputovati da biste obišli Morski put sv. Lovrijenca i jezera Finger?"
+		"message": "U koju američku državu moraš otputovati da obiđeš Morski put sv. Lovrijenca i jezera Finger?"
 	},
 	"trivia_beginner_029_answer0": {
 		"message": "New York"
@@ -1182,7 +1497,7 @@
 		"message": "Sjeverna Amerika"
 	},
 	"trivia_beginner_077": {
-		"message": "U koju zemlju morate otputovati da biste plovili Sueskim kanalom i posjetili Grad mrtvih u Kairu?"
+		"message": "U koju zemlju moraš otputovati da ploviš Sueskim kanalom i posjetiš Grad mrtvih u Kairu?"
 	},
 	"trivia_beginner_077_answer0": {
 		"message": "Egipat"
@@ -1194,7 +1509,7 @@
 		"message": "Finska"
 	},
 	"trivia_beginner_078": {
-		"message": "Da biste vidjeli gauče koji uzgajaju stoku i gledali plesače tanga u Buenos Airesu, u koju biste zemlju otputovali?"
+		"message": "Da vidiš gauče koji uzgajaju stoku i plesače tanga u Buenos Airesu, u koju zemlju moraš otputovati?"
 	},
 	"trivia_beginner_078_answer0": {
 		"message": "Argentina"
@@ -1206,7 +1521,7 @@
 		"message": "Nepal"
 	},
 	"trivia_beginner_079": {
-		"message": "U koju zemlju morate otputovati da biste posjetili staru četvrt u gradu Fesu i planinarili u gorju Atlas?"
+		"message": "U koju zemlju moraš otputovati da posjetiš staru četvrt u gradu Fesu i planinariš u gorju Atlas?"
 	},
 	"trivia_beginner_079_answer0": {
 		"message": "Maroko"
@@ -1218,7 +1533,7 @@
 		"message": "Tajland"
 	},
 	"trivia_beginner_080": {
-		"message": "U koju zemlju morate otputovati da biste posjetili drevne ruševine civilizacije Maja i kupali se na plažama Cancúna?"
+		"message": "U koju zemlju moraš otputovati da posjetiš drevne ruševine civilizacije Maja i kupaš se na plažama Cancúna?"
 	},
 	"trivia_beginner_080_answer0": {
 		"message": "Meksiko"
@@ -1230,7 +1545,7 @@
 		"message": "Turska"
 	},
 	"trivia_beginner_081": {
-		"message": "U koju zemlju morate otputovati da biste posjetili katedralu sv. Patrika u Dublinu i uživali na umjetničkom festivalu u Kilkennyju?"
+		"message": "U koju zemlju moraš otputovati da posjetiš katedralu sv. Patrika u Dublinu i uživaš na umjetničkom festivalu u Kilkennyju?"
 	},
 	"trivia_beginner_081_answer0": {
 		"message": "Irska"
@@ -1242,7 +1557,7 @@
 		"message": "Kostarika"
 	},
 	"trivia_beginner_082": {
-		"message": "U koju zemlju morate otputovati da biste obišli prašumu i zaplesali na karnevalu u Rio de Janeiru?"
+		"message": "U koju zemlju moraš otputovati da obiđeš prašumu i zaplešeš na karnevalu u Rio de Janeiru?"
 	},
 	"trivia_beginner_082_answer0": {
 		"message": "Brazil"
@@ -1254,7 +1569,7 @@
 		"message": "Vijetnam"
 	},
 	"trivia_beginner_083": {
-		"message": "U koju zemlju morate otputovati da biste posjetili muzej Ermitaž u Sankt Peterburgu i vozili se Transibirskom željeznicom?"
+		"message": "U koju zemlju moraš otputovati da posjetiš muzej Ermitaž u Sankt Peterburgu i provozaš se Transibirskom željeznicom?"
 	},
 	"trivia_beginner_083_answer0": {
 		"message": "Rusija"
@@ -1266,7 +1581,7 @@
 		"message": "Belize"
 	},
 	"trivia_beginner_084": {
-		"message": "U koju zemlju morate otputovati da biste se vozili brzim vlakom i proveli noć u tokijskom hotelu?"
+		"message": "U koju zemlju moraš otputovati da se provozaš brzim vlakom i provedeš noć u tokijskom hotelu?"
 	},
 	"trivia_beginner_084_answer0": {
 		"message": "Japan"
@@ -1278,7 +1593,7 @@
 		"message": "Bolivija"
 	},
 	"trivia_beginner_085": {
-		"message": "U koju zemlju morate otputovati da biste jeli pesto u Genovi i poslušali operu u Firenci?"
+		"message": "U koju zemlju moraš otputovati da probaš pesto u Genovi i poslušaš operu u Firenci?"
 	},
 	"trivia_beginner_085_answer0": {
 		"message": "Italija"
@@ -1290,7 +1605,7 @@
 		"message": "Libija"
 	},
 	"trivia_beginner_086": {
-		"message": "U koju zemlju morate otputovati da biste otišli na safari u Prirodnom rezervatu Maasai Mara i kupovinu u Nairobi?"
+		"message": "U koju zemlju moraš otputovati da odeš na safari u Prirodnom rezervatu Maasai Mara i kupuješ u Nairobiju?"
 	},
 	"trivia_beginner_086_answer0": {
 		"message": "Kenija"
@@ -1302,7 +1617,7 @@
 		"message": "Čile"
 	},
 	"trivia_beginner_087": {
-		"message": "U koju zemlju morate otputovati da biste vidjeli rijeku Ganges i istražili pretrpane ulice Kolkate?"
+		"message": "U koju zemlju moraš otputovati da vidješ rijeku Ganges i istražiš pretrpane ulice Kalkute?"
 	},
 	"trivia_beginner_087_answer0": {
 		"message": "Indija"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bugarska"
 	},
+	"tw_country_name": {
+		"message": "Tajvan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzanija"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Ujedinjeno Kraljevstvo"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "U Ujedinjenom Kraljevstvu veseljaci svih dobi uživaju u božićnim praskavcima uz večeru. Praskavci su valjci omotani šarenim papirom s jezičcima za povlačenje na oba kraja. Kada te jezičke povučete, valjak se raspukne uz glasan prasak! Unutar njega nalaze se papirnate kape, igračke i slatkiši za zabavu na Badnjak."
 	},
+	"upgrade-warning": {
+		"message": "Kampanja Slijedite Djeda Božićnjaka nije podržana u ovoj verziji vašeg preglednika. Da biste pristupili kampanji Slijedite Djeda Božićnjaka, preuzmite suvremeniji preglednik. Više informacija potražite na adresi \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Sjedinjene Američke Države"
 	},
 	"us_tradition": {
 		"message": "U Sjedinjenim Američkim Državama na Badnjak se vješaju čarape. Legenda kaže da je sv. Nikola čuo za siromašnu obitelj. Da bi je iznenadio, spustio se niz njezin dimnjak i u obješene čarape stavio dragocjene vrećice zlata. Od tada je sv. Nikola poznat kao Djed Božićnjak, donositelj darova."
 	},
+	"uy_country_name": {
+		"message": "Urugvaj"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vijetnam"
+	},
 	"watch": {
-		"message": "Pogledajte"
+		"message": "Pogledaj"
+	},
+	"ye_country_name": {
+		"message": "Jemen"
+	},
+	"zm_country_name": {
+		"message": "Zambija"
+	},
+	"zw_country_name": {
+		"message": "Zimbabve"
 	}
 }

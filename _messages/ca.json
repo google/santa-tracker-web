@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Us donem la benvinguda a Segueix el Pare Noel!"
 	},
+	"af_country_name": {
+		"message": "Afganistan"
+	},
+	"al_country_name": {
+		"message": "Albània"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentina"
 	},
 	"ar_tradition": {
 		"message": "A l'Argentina, el Nadal comença just a mitjanit. Moltes famílies comencen les vacances amb celebracions festives a casa i obren els regals amb els seus éssers estimats. També encenen focs d'artifici a primera hora del matí."
+	},
+	"at_country_name": {
+		"message": "Àustria"
 	},
 	"au_country_name": {
 		"message": "Austràlia"
@@ -26,17 +38,41 @@
 	"au_tradition": {
 		"message": "Com que Austràlia es troba a l'hemisferi sud del planeta, al desembre és estiu. Molts australians, en comptes de sentir cascavells i menjar xocolata, van de vacances a la platja, fan mariscades per dinar i juguen al criquet."
 	},
+	"bd_country_name": {
+		"message": "Bangla Desh"
+	},
+	"be_country_name": {
+		"message": "Bèlgica"
+	},
+	"bg_country_name": {
+		"message": "Bulgària"
+	},
+	"bj_country_name": {
+		"message": "Benín"
+	},
+	"bo_country_name": {
+		"message": "Bolívia"
+	},
 	"br_country_name": {
 		"message": "Brasil"
 	},
 	"br_tradition": {
 		"message": "Les celebracions de Nadal comencen pels volts de mitjanit i normalment es fan grans sopars, s'obren els regals i se celebra la Missa do Galo a les esglésies. Malgrat el clima càlid, tropical i estiuenc d'aquest país, les referències a l'hivern i a la neu hi són ben presents."
 	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"by_country_name": {
+		"message": "Bielorússia"
+	},
+	"bz_country_name": {
+		"message": "Belize"
+	},
 	"ca_country_name": {
 		"message": "Canadà"
 	},
 	"ca_tradition": {
-		"message": "Normalment, els nens canadencs celebren un Nadal envoltats de neu. S'abriguen bé amb una bufanda i amb un gorro de llana típic del Canadà, el toque, i surten a jugar amb la neu, patinen sobre gel i van amb tobogan. La nit de Nadal, deixen llet i galetes al costat de la llar de foc per al Pare Noel (i, de vegades, una pastanaga per al ren)."
+		"message": "Normalment, els nens canadencs celebren un Nadal envoltats de neu. S'abriguen bé amb una bufanda i amb un gorro de llana típic del Canadà, el toque, i surten a jugar amb la neu i patinar sobre gel. La nit de Nadal, deixen llet i galetes al costat de la llar de foc per al Pare Noel (i, de vegades, una pastanaga per al ren)."
 	},
 	"calendar": {
 		"message": "El calendari"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Envia"
 	},
+	"cf_country_name": {
+		"message": "República Centreafricana"
+	},
+	"ch_country_name": {
+		"message": "Suïssa"
+	},
+	"cl_country_name": {
+		"message": "Xile"
+	},
 	"close-this": {
 		"message": "Cancel·la"
+	},
+	"cm_country_name": {
+		"message": "Camerun"
+	},
+	"co_country_name": {
+		"message": "Colòmbia"
+	},
+	"codelab-block-moveeast": {
+		"message": "est"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Mou-me un espai en direcció est"
+	},
+	"codelab-block-movenorth": {
+		"message": "nord"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Mou-me un espai en direcció nord"
+	},
+	"codelab-block-movesouth": {
+		"message": "sud"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Mou-me un espai en direcció sud"
+	},
+	"codelab-block-movewest": {
+		"message": "oest"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Mou-me un espai en direcció oest"
+	},
+	"codelab-block-repeat": {
+		"message": "repeteix"
+	},
+	"codelab-block-repeat-times": {
+		"message": "vegades"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Repeteix unes quantes combinacions diverses vegades"
+	},
+	"codelab-block-whenrun": {
+		"message": "en ordre"
+	},
+	"codelab-finish": {
+		"message": "Finalitza"
+	},
+	"codelab-great": {
+		"message": "Fantàstic"
+	},
+	"codelab-mwc-promo": {
+		"message": "Exploreu més productes de codificació de Google a \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Proper desafiament"
+	},
+	"codelab-oops": {
+		"message": "Vaja!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Perquè vagi bé, el bloc de repetició ha de contenir altres blocs."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Hi ha blocs que no estan ben connectats."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Sembla que us heu perdut."
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Proveu un o més dels blocs que es mostren a continuació per resoldre aquest trencaclosques."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Sabeu que només us queden {{ideal}} blocs per acabar aquest nivell? Proveu de fer servir el bloc que trobareu a continuació."
+	},
+	"codelab-result-perfect-success": {
+		"message": "L'enhorabona. Heu resolt el trencaclosques a la perfecció."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Feu servir els blocs correctes, però proveu d'utilitzar-ne més per resoldre aquest trencaclosques."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Sabeu que només us falten {{ideal}} blocs per acabar aquest nivell?"
+	},
+	"codelab-try-again": {
+		"message": "Torna-ho a provar"
 	},
 	"copy-me": {
 		"message": "Copieu aquest enllaç per compartir el missatge"
 	},
 	"countdownlabel": {
-		"message": "Perquè el Pare Noel marxi de viatge"
+		"message": "Perquè el Pare Noel comenci el seu viatge"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cu_country_name": {
+		"message": "Cuba"
+	},
+	"cz_country_name": {
+		"message": "República Txeca"
 	},
 	"days": {
 		"message": "Dies"
@@ -75,10 +213,28 @@
 		"message": "Decora"
 	},
 	"deckdescription": {
-		"message": "Adorneu el navegador amb l'extensió del Pare Noel per a Chrome."
+		"message": "Adorneu el navegador amb l'extensió de Segueix el Pare Noel."
+	},
+	"dk_country_name": {
+		"message": "Dinamarca"
+	},
+	"do_country_name": {
+		"message": "República Dominicana"
+	},
+	"dz_country_name": {
+		"message": "Algèria"
+	},
+	"ec_country_name": {
+		"message": "Equador"
+	},
+	"ee_country_name": {
+		"message": "Estònia"
 	},
 	"endofjourneymessage": {
 		"message": "El Pare Noel ha arribat al final del seu viatge d'aquest any. Seguirà passant-s'ho bé amb els elfs al Pol Nord fins que comencin les vacances anuals."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
 	},
 	"error": {
 		"message": "Sembla que acabem de perdre la connexió amb el pol nord. Els follets del Pare Noel estan treballant de valent per solucionar el problema. Estigueu-ne al cas!"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Torna-ho a provar"
 	},
+	"et_country_name": {
+		"message": "Etiòpia"
+	},
+	"fi_country_name": {
+		"message": "Finlàndia"
+	},
 	"finished-text": {
 		"message": "Bon Nadal! El Pare Noel ha completat el seu viatge per tot el món i s'ha agafat un merescut descans. Torneu a visitar-nos l'any vinent!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "A França, és tradició que els nens deixin les sabates al costat de la llar de foc abans que arribi el Père Noël. Si s'han portat durant tot l'any, el Père Noël els omple les sabates de regals."
 	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
 	"gameover": {
 		"message": "S'ha acabat el joc!"
+	},
+	"gameover_level": {
+		"message": "Heu arribat al nivell:"
 	},
 	"gameover_score": {
 		"message": "La teva puntuació:"
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "A Ghana, el Nadal se celebra amb tota la família. Els grans van disfressats i reparteixen llaminadures i caramels per tot el barri. Els petits decoren casa seva amb adornaments de paper i dibuixos que pinten a l'escola."
+	},
+	"gl_country_name": {
+		"message": "Grenlàndia"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
 	},
 	"gotovillage": {
 		"message": "Vés a l'aldea"
@@ -132,28 +306,64 @@
 		"message": "Guatemala"
 	},
 	"gt_tradition": {
-		"message": "Els guatemalencs celebren el Nadal amb balls i activitats festives. Es posen uns barrets anomenats puritina, mengen un plat típic llatinoamericà, el tamales, a l'estil guatemalenc, llancen petards a mitjanit i ballen diferents tipus de danses la resta de la nit."
+		"message": "Els guatemalencs celebren el Nadal amb balls i activitats ben divertides. Es posen uns barrets anomenats puritina, mengen tamales a l'estil guatemalenc, llancen petards a mitjanit i ballen diferents tipus de danses tota la nit."
+	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hn_country_name": {
+		"message": "Hondures"
 	},
 	"hours": {
 		"message": "Hores"
+	},
+	"hr_country_name": {
+		"message": "Croàcia"
+	},
+	"ht_country_name": {
+		"message": "Haití"
+	},
+	"hu_country_name": {
+		"message": "Hongria"
+	},
+	"id_country_name": {
+		"message": "Indonèsia"
+	},
+	"ie_country_name": {
+		"message": "Irlanda"
+	},
+	"iq_country_name": {
+		"message": "Iraq"
+	},
+	"ir_country_name": {
+		"message": "Iran"
 	},
 	"is_country_name": {
 		"message": "Islàndia"
 	},
 	"is_tradition": {
-		"message": "A Islàndia, durant l'època nadalenca, les persones regalen roba d'abric a cada membre de la família. Segons la llegenda, existeix un gat aterridor que devora tot aquell qui no va prou abrigat per suportar el fred hivernal. Les famílies s'asseguren que ningú no caigui en les urpes del gat de Nadal."
+		"message": "A Islàndia, durant l'època nadalenca, les persones regalen roba d'abric a cada membre de la família. Segons la llegenda, existeix un gat aterridor que devora tot el qui no va prou abrigat per suportar el fred hivernal. Les famílies s'asseguren que ningú no caigui en les urpes del gat de Nadal."
+	},
+	"it_country_name": {
+		"message": "Itàlia"
+	},
+	"jm_country_name": {
+		"message": "Jamaica"
 	},
 	"kg_country_name": {
 		"message": "Kirguizistan"
 	},
 	"kg_tradition": {
-		"message": "Al Kirguizistan, l'Ayaz Ata (o avi de les neus), arriba la nit de Cap d'Any i deixa els regals a sota de l'arbre d'Any Nou. Quan el rellotge toca les dotze de la nit, les famílies encenen focs d'artifici per celebrar aquesta ocasió tan especial. Les ciutats s'il·luminen com si fos de dia."
+		"message": "Al Kirguizistan, l'Ayaz Ata (o avi de les neus) arriba la nit de Cap d'Any i deixa els regals a sota de l'arbre d'Any Nou. Quan el rellotge toca les dotze de la nit, les famílies encenen focs d'artifici per celebrar aquesta ocasió tan especial. Les ciutats s'il·luminen com si fos de dia."
+	},
+	"kz_country_name": {
+		"message": "Kazakhstan"
 	},
 	"language": {
 		"message": "Idioma"
 	},
 	"learn": {
-		"message": "Més informació"
+		"message": "Aprenentatge"
 	},
 	"learnmore": {
 		"message": "Més informació"
@@ -167,17 +377,62 @@
 	"lightdescription": {
 		"message": "Il·lumineu la televisió amb l'aplicació Seguiu el Pare Noel per a Android i Chromecast."
 	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Lituània"
+	},
+	"lv_country_name": {
+		"message": "Letònia"
+	},
+	"ly_country_name": {
+		"message": "Líbia"
+	},
+	"md_country_name": {
+		"message": "Moldàvia"
+	},
 	"minutes": {
 		"message": "Minuts"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritània"
 	},
 	"mx_country_name": {
 		"message": "Mèxic"
 	},
 	"mx_tradition": {
-		"message": "A Mèxic, els nens trenquen pinyates per celebrar el Nadal. Petits i grans s'ho passen molt bé: es posen una bena als ulls, donen voltes i intenten trencar amb un bastó unes olles penjades en forma d'estrella. Quan la pinyata es trenca, cauen fruits secs, caramels i fruita i tothom en menja."
+		"message": "A Mèxic, els nens de totes les edats trenquen pinyates per celebrar el Nadal. Petits i grans s'ho passen molt bé: es posen una bena als ulls, donen voltes i intenten trencar amb un bastó unes olles penjades en forma d'estrella. Quan la pinyata es trenca, cauen fruits secs, caramels i fruita i tothom en menja."
+	},
+	"my_country_name": {
+		"message": "Malàisia"
+	},
+	"mz_country_name": {
+		"message": "Moçambic"
+	},
+	"na_country_name": {
+		"message": "Namíbia"
+	},
+	"ne_country_name": {
+		"message": "Níger"
 	},
 	"newtoday": {
-		"message": "Nou d'avui"
+		"message": "Nou avui!"
+	},
+	"ng_country_name": {
+		"message": "Nigèria"
+	},
+	"nl_country_name": {
+		"message": "Països Baixos"
+	},
+	"no_country_name": {
+		"message": "Noruega"
 	},
 	"nonprofit-jane-description": {
 		"message": "Els ximpanzés són la família d'animals més propera a l'ésser humà. Avui dia queden menys de 300.000 ximpanzés a causa de la pèrdua d'hàbitats, de malalties i del comerç il·legal. El Jane Goodall Institute (JGI) protegeix els ximpanzés observant i provant d'entendre el seu comportament i els seus hàbitats. El JGI també treballa per crear una comunitat de persones que protegeixin i conservin la fauna i el medi que compartim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExploreu els hàbitats dels ximpanzés\u003c/a\u003e de Gombe, a Tanzània."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Ós polar"
 	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
 	"nz_country_name": {
 		"message": "Nova Zelanda"
 	},
 	"nz_tradition": {
 		"message": "Com que el Nadal coincideix amb l'estiu a Nova Zelanda, els amics i la família fan una barbacoa. Un dels plats típics és el xai a la brasa, que es cou en un forn soterrat o de pedra, el hangi. Les postres més populars s'anomenen pavlova, amb merenga coberta de fruita fresca, com ara maduixes i kiwi."
+	},
+	"om_country_name": {
+		"message": "Oman"
 	},
 	"onthego": {
 		"message": "El Pare Noel de ruta"
@@ -209,20 +470,38 @@
 	"openingtomorrow": {
 		"message": "Gran inauguració demà"
 	},
+	"pa_country_name": {
+		"message": "Panamà"
+	},
+	"pe_country_name": {
+		"message": "Perú"
+	},
 	"ph_country_name": {
 		"message": "Filipines"
 	},
 	"ph_tradition": {
 		"message": "Les Filipines són conegudes per tenir l'època nadalenca més llarga del món. Allà és Nadal durant quatre mesos: setembre, octubre, novembre i desembre. Les nadales poden començar a sentir-se al principi de setembre."
 	},
+	"pl_country_name": {
+		"message": "Polònia"
+	},
 	"play": {
-		"message": "Juga"
+		"message": "Jocs"
 	},
 	"playagain": {
 		"message": "Torneu a jugar"
 	},
 	"playdescription": {
-		"message": "Jugueu amb els vostres amics a l'aplicació Seguiu el Pare Noel per a Android."
+		"message": "Jugueu amb els vostres amics a l'aplicació Segueix el Pare Noel per a Android."
+	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"py_country_name": {
+		"message": "Paraguai"
+	},
+	"ro_country_name": {
+		"message": "Romania"
 	},
 	"ru_country_name": {
 		"message": "Rússia"
@@ -230,11 +509,17 @@
 	"ru_tradition": {
 		"message": "Els nens russos guarneixen l'arbre de l'any nou en lloc de l'arbre de Nadal. La mainada espera amb il·lusió l'arribada de l'Avi de Gel, que viatja amb la seva néta, la Nena de Neu, per portar regals a la quitxalla de tot el país. L'Avi de Gel viu al mig del bosc a Veliki Ustiug, al nord de Rússia."
 	},
+	"sa_country_name": {
+		"message": "Aràbia Saudita"
+	},
 	"santatracker": {
-		"message": "Seguiu el Pare Noel"
+		"message": "Segueix el Pare Noel"
 	},
 	"score": {
 		"message": "Puntuació"
+	},
+	"se_country_name": {
+		"message": "Suècia"
 	},
 	"seconds": {
 		"message": "Segons"
@@ -246,10 +531,28 @@
 		"message": "Comparteix amb els meus amics de Google+"
 	},
 	"share-text": {
-		"message": "He creat aquesta postal per a tu amb l'aplicació Seguiu el Pare Noel de Google. Bones festes!"
+		"message": "He creat aquesta postal per a tu amb l'aplicació Segueix el Pare Noel de Google. Bones festes!"
 	},
 	"share-this": {
 		"message": "Comparteix"
+	},
+	"sk_country_name": {
+		"message": "Eslovàquia"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somàlia"
+	},
+	"sr_country_name": {
+		"message": "Surinam"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"td_country_name": {
+		"message": "Txad"
 	},
 	"terms-and-privacy": {
 		"message": "Ús i privadesa"
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "Hora"
+	},
+	"tj_country_name": {
+		"message": "Tadjikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunísia"
+	},
+	"tr_country_name": {
+		"message": "Turquia"
 	},
 	"traditions-next": {
 		"message": "Tradició següent"
@@ -3893,22 +4208,55 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgària"
 	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzània"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Regne Unit"
 	},
 	"uk_tradition": {
-		"message": "Al Regne Unit, els més riallers s'ho passen pipa amb els crackers mentre sopen. Són cilindres embolicats amb paper de colors que es poden tibar dels extrems. Quan això passa, el cilindre explota i fa un fort soroll. En poden sortir barrets de paper, joguines i caramels per alegrar la nit de Nadal."
+		"message": "Al Regne Unit, els més riallers s'ho passen d'allò més bé amb els crackers mentre sopen. Són cilindres embolicats amb paper de colors que tenen llengüetes als extrems. Quan s'estiren aquestes llengüetes, el cilindre explota i fa un fort soroll. En poden sortir barrets de paper, joguines i caramels per alegrar la nit de Nadal."
+	},
+	"upgrade-warning": {
+		"message": "Segueix el Pare Noel no és compatible amb aquesta versió del vostre navegador. Per accedir a Segueix el Pare Noel, cal que baixeu un navegador més modern. Per obtenir més informació, consulteu \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estats Units"
 	},
 	"us_tradition": {
-		"message": "Als Estats Units, la nit de Nadal es pengen mitjons. La llegenda explica que Sant Nicolau va saber que una família necessitava ajuda. Per sorprendre-la, va pujar per la xemeneia i va penjar-hi un mitjons plens d'or. Des d'aleshores, Sant Nicolau és conegut com a Pare Noel, l'home que porta regals."
+		"message": "Als Estats Units, la nit de Nadal es pengen mitjons. La llegenda explica que Sant Nicolau va saber que una família necessitava ajuda. Per sorprendre-la, va baixar per la xemeneia i va penjar-hi un mitjons plens d'or. Des d'aleshores, Sant Nicolau és conegut com el Pare Noel, l'home que porta regals."
+	},
+	"uy_country_name": {
+		"message": "Uruguai"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Veneçuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
 	},
 	"watch": {
-		"message": "Reprodueix"
+		"message": "Vídeos"
+	},
+	"ye_country_name": {
+		"message": "Iemen"
+	},
+	"zm_country_name": {
+		"message": "Zàmbia"
+	},
+	"zw_country_name": {
+		"message": "Zimbàbue"
 	}
 }

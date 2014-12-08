@@ -12,7 +12,16 @@
 		"message": "Info"
 	},
 	"about_title": {
-		"message": "Velkommen til Følg julenissen i Google Maps!"
+		"message": "Velkommen til «Følg julenissen» i Google Maps!"
+	},
+	"af_country_name": {
+		"message": "Afghanistan"
+	},
+	"al_country_name": {
+		"message": "Albania"
+	},
+	"ao_country_name": {
+		"message": "Angola"
 	},
 	"ar_country_name": {
 		"message": "Argentina"
@@ -20,11 +29,29 @@
 	"ar_tradition": {
 		"message": "I Argentina begynner julen presis ved midnatt. Mange familier starter høytiden med å arrangere festlige sammenkomster i hjemmene sine, åpne gaver sammen med familien og sende opp fyrverkeri tidlig om morgenen."
 	},
+	"at_country_name": {
+		"message": "Østerrike"
+	},
 	"au_country_name": {
 		"message": "Australia"
 	},
 	"au_tradition": {
 		"message": "Australias beliggenhet på den sørlige halvkulen betyr at det er sommer i desember. Da passer det ikke med dombjeller og kakao, og mange australiere tar i stedet turen til stranden for å feire høytiden med rekesmørbrød og cricket-spill."
+	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Belgia"
+	},
+	"bg_country_name": {
+		"message": "Bulgaria"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
 	},
 	"br_country_name": {
 		"message": "Brasil"
@@ -32,11 +59,20 @@
 	"br_tradition": {
 		"message": "Julefeiringen begynner rundt midnatt, vanligvis med store familiemiddager, gaveåpning og gudstjenesten «Missa do Galo» (hanens messe). Til tross for det varme tropiske sommerværet er det ikke uvanlig at feiringen er preget av vinter og snø."
 	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"by_country_name": {
+		"message": "Hviterussland"
+	},
+	"bz_country_name": {
+		"message": "Belize"
+	},
 	"ca_country_name": {
 		"message": "Canada"
 	},
 	"ca_tradition": {
-		"message": "Kanadiske barn feirer vanligvis en snørik, hvit jul. De pakker seg inn i varme klær og skjerf, og leker i snøen, går på skøyter og aker på kjelker. På julaften setter de frem melk og småkaker ved peisen til nissen (og noen ganger gulrøtter til reinsdyrene hans)."
+		"message": "Kanadiske barn feirer vanligvis en snørik, hvit jul. De pakker seg inn i varme klær og skjerf, leker i snøen, går på skøyter og aker på kjelker. På julaften setter de frem melk og småkaker ved peisen til nissen (og noen ganger gulrøtter til reinsdyrene hans)."
 	},
 	"calendar": {
 		"message": "Kalenderen"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Send"
 	},
+	"cf_country_name": {
+		"message": "Den sentralafrikanske republikk"
+	},
+	"ch_country_name": {
+		"message": "Sveits"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
 	"close-this": {
 		"message": "Avbryt"
+	},
+	"cm_country_name": {
+		"message": "Kamerun"
+	},
+	"co_country_name": {
+		"message": "Colombia"
+	},
+	"codelab-block-moveeast": {
+		"message": "østover"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Flytt meg ett felt østover."
+	},
+	"codelab-block-movenorth": {
+		"message": "nordover"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Flytt meg ett felt nordover."
+	},
+	"codelab-block-movesouth": {
+		"message": "sørover"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Flytt meg ett felt sørover."
+	},
+	"codelab-block-movewest": {
+		"message": "vestover"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Flytt meg ett felt vestover."
+	},
+	"codelab-block-repeat": {
+		"message": "gjenta"
+	},
+	"codelab-block-repeat-times": {
+		"message": "ganger"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Gjenta noen setninger flere ganger."
+	},
+	"codelab-block-whenrun": {
+		"message": "ved kjøring"
+	},
+	"codelab-finish": {
+		"message": "Fullfør"
+	},
+	"codelab-great": {
+		"message": "Bra"
+	},
+	"codelab-mwc-promo": {
+		"message": "Utforsk flere Google-kodeprosjekter på \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Neste utfordring"
+	},
+	"codelab-oops": {
+		"message": "Oi sann!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "«Gjenta»-blokken må inneholde andre blokker for at den skal fungere."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Noen av blokkene er ikke festet riktig til hverandre."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Du har visst gått deg vill."
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Prøv én eller flere eksemplarer av blokken nedenfor for å forsøke å løse dette puslespillet."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Visste du at du kan fullføre dette nivået med bare {{ideal}} blokker? Prøv å bruke blokkene nedenfor."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Gratulerer – du har fullført puslespillet."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Du bruker de riktige blokkene, men forsøk å bruke flere av dem for å fullføre dette puslespillet."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Visste du at du kan fullføre dette nivået med bare {{ideal}} blokker?"
+	},
+	"codelab-try-again": {
+		"message": "Prøv på nytt"
 	},
 	"copy-me": {
 		"message": "Kopiér denne linken for å dele meldingen din"
 	},
 	"countdownlabel": {
-		"message": "Til nissen reiser"
+		"message": "til nissen reiser"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cu_country_name": {
+		"message": "Cuba"
+	},
+	"cz_country_name": {
+		"message": "Tsjekkia"
 	},
 	"days": {
 		"message": "dager"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "Kle opp nettleseren din med julenisseutvidelsen til Chrome."
 	},
+	"dk_country_name": {
+		"message": "Danmark"
+	},
+	"do_country_name": {
+		"message": "Den dominikanske republikk"
+	},
+	"dz_country_name": {
+		"message": "Algerie"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Estland"
+	},
 	"endofjourneymessage": {
 		"message": "Nissen er ferdig med årets reise! Han og alvene morer seg fremdeles på Nordpolen før den årlige ferien."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
 	},
 	"error": {
 		"message": "Vi har nettopp mistet forbindelsen med Nordpolen. Nissens alver jobber hardt for å løse problemet. Følg med!"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Prøv igjen"
 	},
+	"et_country_name": {
+		"message": "Etiopia"
+	},
+	"fi_country_name": {
+		"message": "Finland"
+	},
 	"finished-text": {
 		"message": "God jul! Nissen har fullført sin reise verden rundt, og tar en velfortjent pause. Besøk oss igjen neste år!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "I Frankrike setter barna tradisjonelt skoene sine ved siden av peisen i påvente av at Père Noël skal komme. Hvis barna har vært snille gjennom hele året, fyller Père Noël skoene med gaver."
 	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
 	"gameover": {
 		"message": "Spillet er slutt!"
+	},
+	"gameover_level": {
+		"message": "Du kom til nivå"
 	},
 	"gameover_score": {
 		"message": "Din poengsum:"
@@ -114,7 +282,13 @@
 		"message": "Ghana"
 	},
 	"gh_tradition": {
-		"message": "Julen i Ghana er en familiehøytid. De voksne kler seg ut i kostymer og deler ut godteri og snop i nabolaget. Barna pynter hjemmene sine med papirornamenter og tegninger som de lager på skolen."
+		"message": "Julen i Ghana er en familiehøytid. De voksne kler seg ut i kostymer og deler ut godteri og snop i nabolaget. Barna pynter hjemmene sine med papirornamenter og tegninger de lager på skolen."
+	},
+	"gl_country_name": {
+		"message": "Grønland"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
 	},
 	"gotovillage": {
 		"message": "Dra til landsbyen"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "I Guatemala feires julen med moro og dans. Folk går med hatter som kalles Puritina, spiser tradisjonelle guatemalanske tamales, sender opp fyrverkeri ved midnatt og danser seg gjennom natten med mange slags danser."
 	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
 	"hours": {
 		"message": "timer"
+	},
+	"hr_country_name": {
+		"message": "Kroatia"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Ungarn"
+	},
+	"id_country_name": {
+		"message": "Indonesia"
+	},
+	"ie_country_name": {
+		"message": "Irland"
+	},
+	"iq_country_name": {
+		"message": "Irak"
+	},
+	"ir_country_name": {
+		"message": "Iran"
 	},
 	"is_country_name": {
 		"message": "Island"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "Ved juletider på Island gir man varme klær som gave til alle familiemedlemmer. Ifølge legenden finnes det en skremmende julekatt som spiser opp alle som ikke er kledd for det kalde vinterværet. Familiene samarbeider slik at ingen «havner hos julekatten»."
 	},
+	"it_country_name": {
+		"message": "Italia"
+	},
+	"jm_country_name": {
+		"message": "Jamaica"
+	},
 	"kg_country_name": {
 		"message": "Kirgisistan"
 	},
 	"kg_tradition": {
-		"message": "I Kirgisistan kommer Ayaz Ata (Bestefar Frost) ved midnatt på nyttårsaften og legger gaver under nyttårstreet. Når klokken slår midnatt, sender familier over hele landet opp fyrverkeri for å feire inngangen til det nye året, og byene lyser opp som om det var dagslys."
+		"message": "I Kirgisistan kommer Ayaz Ata (Bestefar Frost) ved midnatt på nyttårsaften og legger gaver under nyttårstreet. Når klokken slår midnatt, sender familier over hele landet opp fyrverkeri for å feire inngangen til det nye året, og byene lyser opp som om det var midt på dagen."
+	},
+	"kz_country_name": {
+		"message": "Kasakhstan"
 	},
 	"language": {
 		"message": "Språk"
@@ -165,19 +375,64 @@
 		"message": "Lys opp"
 	},
 	"lightdescription": {
-		"message": "Lys opp TV-en din med Android-appen og Chromecasten Følg julenissen."
+		"message": "Lys opp TV-en din med Android-appen og Chromecasten «Følg julenissen»."
+	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Litauen"
+	},
+	"lv_country_name": {
+		"message": "Latvia"
+	},
+	"ly_country_name": {
+		"message": "Libya"
+	},
+	"md_country_name": {
+		"message": "Moldova"
 	},
 	"minutes": {
 		"message": "minutter"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritania"
 	},
 	"mx_country_name": {
 		"message": "Mexico"
 	},
 	"mx_tradition": {
-		"message": "I Mexico feirer barn i alle aldre jul ved å knuse pinata-figurer. Voksne og barn morer seg med å ta bind for øynene, svinge rundt og prøve å knuse de stjerneformede hengende figurene med en pinne. Når pinata-figuren knuses, ramler det ut nøtter, frukt og godteri som alle kan spise."
+		"message": "I Mexico feirer barn i alle aldre jul ved å knuse pinata-figurer. Voksne og barn morer seg med å ta bind for øynene, svinge rundt og prøve å knuse de stjerneformede, hengende figurene med en pinne. Når pinata-figuren knuses, ramler det ut nøtter, frukt og godteri som alle kan spise."
+	},
+	"my_country_name": {
+		"message": "Malaysia"
+	},
+	"mz_country_name": {
+		"message": "Mosambik"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
 	},
 	"newtoday": {
 		"message": "Ny i dag"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Nederland"
+	},
+	"no_country_name": {
+		"message": "Norge"
 	},
 	"nonprofit-jane-description": {
 		"message": "Sjimpansene er menneskets nærmeste levende slektninger i dyreriket. I dag finnes det færre enn 300 000 sjimpanser. Dette skyldes tap av leveområde, sykdom og ulovlig handel. Jane Goodall Institute (JGI) beskytter sjimpansene ved å observere og forstå atferden deres så vel som områdene der de bor. JGI jobber også for å bygge opp et felleskap av folk som beskytter og bevarer dyrelivet og miljøet vi alle deler. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUtforsk sjimpansenes leveområder\u003c/a\u003e i Gombe, Tanzania."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Isbjørn"
 	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
 	"nz_country_name": {
 		"message": "New Zealand"
 	},
 	"nz_tradition": {
-		"message": "Ettersom julen er på sommeren i New Zealand samles venner og familie rundt en grill. Den vanligste julematen er lammestek, noen ganger stekt i en «hangi» – en underjordisk grop eller jordovn. Favorittdesserten er pavlova: marengs dekket med fersk frukt som jordbær og kiwi."
+		"message": "Ettersom julen er på sommeren i New Zealand, samles venner og familie rundt en grill. Den vanligste julematen er lammestek, noen ganger stekt i en «hangi» – en underjordisk grop eller jordovn. Favorittdesserten er pavlova: marengs dekket med fersk frukt, som jordbær og kiwi."
+	},
+	"om_country_name": {
+		"message": "Oman"
 	},
 	"onthego": {
 		"message": "Julenissen på farten"
@@ -209,11 +470,20 @@
 	"openingtomorrow": {
 		"message": "Stor åpning i morgen"
 	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
 	"ph_country_name": {
 		"message": "Filippinene"
 	},
 	"ph_tradition": {
 		"message": "Filippinene er kjent for å ha verdens lengste jul. Fire måneder regnes som julemåneder: september, oktober, november og desember. Man kan ofte høre julesanger så tidlig som i begynnelsen av september."
+	},
+	"pl_country_name": {
+		"message": "Polen"
 	},
 	"play": {
 		"message": "Spill"
@@ -222,7 +492,16 @@
 		"message": "Spill igjen"
 	},
 	"playdescription": {
-		"message": "Spill med venner i Android-appen Følg julenissen."
+		"message": "Spill med venner i Android-appen «Følg julenissen»."
+	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "Romania"
 	},
 	"ru_country_name": {
 		"message": "Russland"
@@ -230,11 +509,17 @@
 	"ru_tradition": {
 		"message": "Russiske barn pynter et nyttårstre, og ikke et juletre. Barna venter lengselsfullt på Bestefar Frost som reiser sammen med barnebarnet Snøjomfruen, og leverer gaver over hele landet. Bestefar Frost bor langt inne i skogen i Velikij Ustjug i det nordlige Russland."
 	},
+	"sa_country_name": {
+		"message": "Saudi-Arabia"
+	},
 	"santatracker": {
 		"message": "Følg julenissen"
 	},
 	"score": {
 		"message": "Poeng"
+	},
+	"se_country_name": {
+		"message": "Sverige"
 	},
 	"seconds": {
 		"message": "sekunder"
@@ -246,10 +531,28 @@
 		"message": "Del med vennene dine på Google+"
 	},
 	"share-text": {
-		"message": "Jeg har laget dette postkortet til deg i Google Følg julenissen. God jul!"
+		"message": "Jeg har laget dette postkortet til deg i Google «Følg julenissen». God jul!"
 	},
 	"share-this": {
 		"message": "Del"
+	},
+	"sk_country_name": {
+		"message": "Slovakia"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalia"
+	},
+	"sr_country_name": {
+		"message": "Surinam"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"td_country_name": {
+		"message": "Tsjad"
 	},
 	"terms-and-privacy": {
 		"message": "Vilkår og personvern"
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "Tid"
+	},
+	"tj_country_name": {
+		"message": "Tadsjikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunisia"
+	},
+	"tr_country_name": {
+		"message": "Tyrkia"
 	},
 	"traditions-next": {
 		"message": "Neste tradisjon"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgaria"
 	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Storbritannia"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "I Storbritannia morer feststemte mennesker i alle aldre seg med smellbongbonger ved middagsbordet. Dette er små rør innpakket i fargerikt papir, med papirremser i hver ende som kan trekkes ut slik at røret sprekker med et stort smell. Inni finnes det papirhatter, leker og godteri som man kan kose seg med på julekvelden."
 	},
+	"upgrade-warning": {
+		"message": "Beklager – «Følg julenissen» fungerer ikke i denne nettleserversjonen. Last ned en moderne nettleser for å få tilgang. Gå til \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e hvis du vil ha mer informasjon."
+	},
 	"us_country_name": {
 		"message": "USA"
 	},
 	"us_tradition": {
 		"message": "I USA henger man opp strømper på julaften. Legenden forteller at St. Nikolas hørte om en familie i nød. Han ville overraske dem, og klatret ned gjennom skorsteinen og la gullklumper i hengende strømper. Fra da av har St. Nikolas vært kjent som julenissen, mannen som gir gaver."
 	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Usbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
 	"watch": {
 		"message": "Se"
+	},
+	"ye_country_name": {
+		"message": "Jemen"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
 	}
 }

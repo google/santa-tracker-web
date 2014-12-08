@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "欢迎使用 Google 地图追踪圣诞老人！"
 	},
+	"af_country_name": {
+		"message": "阿富汗"
+	},
+	"al_country_name": {
+		"message": "阿尔巴尼亚"
+	},
+	"ao_country_name": {
+		"message": "安哥拉"
+	},
 	"ar_country_name": {
 		"message": "阿根廷"
 	},
 	"ar_tradition": {
 		"message": "在阿根廷，圣诞节会在午夜准时开场。为了迎接节日，许多家庭会在家中举办庆祝活动、与亲爱之人一起拆开礼物并在凌晨燃放烟花。"
+	},
+	"at_country_name": {
+		"message": "奥地利"
 	},
 	"au_country_name": {
 		"message": "澳大利亚"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "澳大利亚地处南半球，意味着十二月的这里正值仲夏时节。这里没有雪橇铃声和热腾腾的可可，许多澳大利亚人会前往海滩庆祝节日，吃一顿全虾午餐，再打几场板球。"
 	},
+	"bd_country_name": {
+		"message": "孟加拉"
+	},
+	"be_country_name": {
+		"message": "比利时"
+	},
+	"bg_country_name": {
+		"message": "保加利亚"
+	},
+	"bj_country_name": {
+		"message": "贝宁"
+	},
+	"bo_country_name": {
+		"message": "玻利维亚"
+	},
 	"br_country_name": {
 		"message": "巴西"
 	},
 	"br_tradition": {
 		"message": "圣诞节庆祝活动在临近午夜时拉开帷幕，通常伴以盛大的家庭晚宴、礼物拆包以及在教堂举办的“Missa do Galo”（圣诞节弥撒）庆祝仪式。尽管正值热带的酷暑气候，但冬天和雪的主题却并不鲜见。"
+	},
+	"bt_country_name": {
+		"message": "不丹"
+	},
+	"by_country_name": {
+		"message": "白俄罗斯"
+	},
+	"bz_country_name": {
+		"message": "伯利兹"
 	},
 	"ca_country_name": {
 		"message": "加拿大"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "发送"
 	},
+	"cf_country_name": {
+		"message": "中非共和国"
+	},
+	"ch_country_name": {
+		"message": "瑞士"
+	},
+	"cl_country_name": {
+		"message": "智利"
+	},
 	"close-this": {
 		"message": "取消"
+	},
+	"cm_country_name": {
+		"message": "喀麦隆"
+	},
+	"co_country_name": {
+		"message": "哥伦比亚"
+	},
+	"codelab-block-moveeast": {
+		"message": "东"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "把我向东移一个位置。"
+	},
+	"codelab-block-movenorth": {
+		"message": "北"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "把我向北移一个位置。"
+	},
+	"codelab-block-movesouth": {
+		"message": "南"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "把我向南移一个位置。"
+	},
+	"codelab-block-movewest": {
+		"message": "西"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "把我向西移一个位置。"
+	},
+	"codelab-block-repeat": {
+		"message": "重复"
+	},
+	"codelab-block-repeat-times": {
+		"message": "次"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "将某些语句重复数次。"
+	},
+	"codelab-block-whenrun": {
+		"message": "运行时机"
+	},
+	"codelab-finish": {
+		"message": "完成"
+	},
+	"codelab-great": {
+		"message": "非常好"
+	},
+	"codelab-mwc-promo": {
+		"message": "访问 \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e 了解更多 Google 编码项目。"
+	},
+	"codelab-next-challenge": {
+		"message": "下一个挑战"
+	},
+	"codelab-oops": {
+		"message": "糟糕！"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "要使用“重复”拼板，必须在其内部添加其他拼板。"
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "某些拼板未能正确拼接在一起。"
+	},
+	"codelab-result-generic-fail": {
+		"message": "看起来您迷路了！"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "请尝试使用以下一块或多块拼板来解开此谜题。"
+	},
+	"codelab-result-missing-block-success": {
+		"message": "您知道吗？此关卡只需 {{ideal}} 块拼板即可完成。请尝试使用以下拼板。"
+	},
+	"codelab-result-perfect-success": {
+		"message": "恭喜您！您完美地解开了此谜题。"
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "您使用的是正确的拼板，但要解开此谜题，您需要使用更多正确的拼板。"
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "您知道吗？此关卡只需 {{ideal}} 块拼板即可完成。"
+	},
+	"codelab-try-again": {
+		"message": "重试"
 	},
 	"copy-me": {
 		"message": "复制该链接即可分享您的消息"
 	},
 	"countdownlabel": {
 		"message": "圣诞老人启程倒计时"
+	},
+	"cr_country_name": {
+		"message": "哥斯达黎加"
+	},
+	"cu_country_name": {
+		"message": "古巴"
+	},
+	"cz_country_name": {
+		"message": "捷克共和国"
 	},
 	"days": {
 		"message": "天"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "用圣诞老人 Chrome 扩展程序装饰您的浏览器。"
 	},
+	"dk_country_name": {
+		"message": "丹麦"
+	},
+	"do_country_name": {
+		"message": "多米尼加共和国"
+	},
+	"dz_country_name": {
+		"message": "阿尔及利亚"
+	},
+	"ec_country_name": {
+		"message": "厄瓜多尔"
+	},
+	"ee_country_name": {
+		"message": "爱沙尼亚"
+	},
 	"endofjourneymessage": {
 		"message": "圣诞老人已完成今年的旅程！他和精灵们正在北极继续庆祝，直至每年一度的假期来临。"
+	},
+	"er_country_name": {
+		"message": "厄立特里亚"
 	},
 	"error": {
 		"message": "我们好像刚刚失去与北极的联系。圣诞精灵们正在努力修复，请耐心等待！"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "请重试"
 	},
+	"et_country_name": {
+		"message": "埃塞俄比亚"
+	},
+	"fi_country_name": {
+		"message": "芬兰"
+	},
 	"finished-text": {
 		"message": "节日快乐！圣诞老人已结束环球之旅，现在需要好好休整了。欢迎明年再来！"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "在法国，孩子们根据传统会将自己的鞋放在壁炉旁，期待圣诞老人 (Père Noël) 的到来。如果孩子们在这一年表现不错，圣诞老人就会在他们的鞋中装满礼物。"
 	},
+	"ga_country_name": {
+		"message": "加蓬"
+	},
 	"gameover": {
 		"message": "游戏结束！"
+	},
+	"gameover_level": {
+		"message": "您打到了以下关卡："
 	},
 	"gameover_score": {
 		"message": "您的得分："
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "在加纳，圣诞节意味着全家总动员。大人们会盛装打扮，向邻居们分发糖果和甜点。孩子们则会用他们在学校制作的纸质饰品和图画装扮自己的家。"
+	},
+	"gl_country_name": {
+		"message": "格陵兰"
+	},
+	"gn_country_name": {
+		"message": "几内亚"
 	},
 	"gotovillage": {
 		"message": "前往圣诞老人小镇"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "危地马拉人用欢乐和舞蹈来庆祝圣诞节。他们头戴一种名为 Puritina 的帽子，享用危地马拉风味粽子，在午夜时燃放鞭炮，并用各种风格的舞蹈跳个通宵。"
 	},
+	"gy_country_name": {
+		"message": "圭亚那"
+	},
+	"hn_country_name": {
+		"message": "洪都拉斯"
+	},
 	"hours": {
 		"message": "小时"
+	},
+	"hr_country_name": {
+		"message": "克罗地亚"
+	},
+	"ht_country_name": {
+		"message": "海地"
+	},
+	"hu_country_name": {
+		"message": "匈牙利"
+	},
+	"id_country_name": {
+		"message": "印度尼西亚"
+	},
+	"ie_country_name": {
+		"message": "爱尔兰"
+	},
+	"iq_country_name": {
+		"message": "伊拉克"
+	},
+	"ir_country_name": {
+		"message": "伊朗"
 	},
 	"is_country_name": {
 		"message": "冰岛"
@@ -143,17 +344,26 @@
 	"is_tradition": {
 		"message": "每逢圣诞节，冰岛人会将保暖衣物当作礼物送给每位家庭成员。据传说，有一只可怕的圣诞猫，如果有谁没做好御寒准备，就会被它吃掉。因此，每个家庭都会齐心协力，确保没有人会成为圣诞猫的盘中餐。"
 	},
+	"it_country_name": {
+		"message": "意大利"
+	},
+	"jm_country_name": {
+		"message": "牙买加"
+	},
 	"kg_country_name": {
 		"message": "吉尔吉斯斯坦"
 	},
 	"kg_tradition": {
 		"message": "在吉尔吉斯斯坦，Ayaz Ata（冰霜爷爷）会在新年前夕降临，将礼物留在新年树下。当午夜的钟声敲响时，举国上下都会燃放烟花，同庆这一美好时刻。城市会变得亮如白昼。"
 	},
+	"kz_country_name": {
+		"message": "哈萨克斯坦"
+	},
 	"language": {
 		"message": "语言"
 	},
 	"learn": {
-		"message": "了解"
+		"message": "学知识"
 	},
 	"learnmore": {
 		"message": "了解详情"
@@ -167,8 +377,32 @@
 	"lightdescription": {
 		"message": "用“追踪圣诞老人”Android 应用和 Chromecast 为您的电视注入节日气息。"
 	},
+	"lk_country_name": {
+		"message": "斯里兰卡"
+	},
+	"lt_country_name": {
+		"message": "立陶宛"
+	},
+	"lv_country_name": {
+		"message": "拉脱维亚"
+	},
+	"ly_country_name": {
+		"message": "利比亚"
+	},
+	"md_country_name": {
+		"message": "摩尔多瓦"
+	},
 	"minutes": {
 		"message": "分钟"
+	},
+	"ml_country_name": {
+		"message": "马里"
+	},
+	"mm_country_name": {
+		"message": "缅甸"
+	},
+	"mr_country_name": {
+		"message": "毛里塔尼亚"
 	},
 	"mx_country_name": {
 		"message": "墨西哥"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "在墨西哥，不同年龄的孩子通过打碎“皮纳塔”来庆祝圣诞节。大人和孩子们玩得不亦乐乎，他们戴上眼罩，在原地转圈，然后挥动棍子敲开这种星形吊罐。当皮纳塔被砸开后，各种坚果、水果和糖果四处飞溅，每个人都可以尽情享用。"
 	},
+	"my_country_name": {
+		"message": "马来西亚"
+	},
+	"mz_country_name": {
+		"message": "莫桑比克"
+	},
+	"na_country_name": {
+		"message": "纳米比亚"
+	},
+	"ne_country_name": {
+		"message": "尼日尔"
+	},
 	"newtoday": {
-		"message": "今日万象更新"
+		"message": "今日更新"
+	},
+	"ng_country_name": {
+		"message": "尼日利亚"
+	},
+	"nl_country_name": {
+		"message": "荷兰"
+	},
+	"no_country_name": {
+		"message": "挪威"
 	},
 	"nonprofit-jane-description": {
 		"message": "黑猩猩是动物王国中与人类基因最为接近的物种！由于栖息地不断减少，加上受到疾病和非法交易的危害，如今全世界只有不到 300,000 只黑猩猩。Jane Goodall Institute (JGI) 通过观察和了解黑猩猩行为及其栖息地来对它们加以保护。JGI 还致力于号召更多人来保护野生动物以及我们共同拥有的环境。\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e立即探索坦桑尼亚贡贝的黑猩猩栖息地\u003c/a\u003e。"
@@ -197,23 +452,38 @@
 	"nonprofit-wwf-type": {
 		"message": "北极熊"
 	},
+	"np_country_name": {
+		"message": "尼泊尔"
+	},
 	"nz_country_name": {
 		"message": "新西兰"
 	},
 	"nz_tradition": {
 		"message": "由于圣诞节来临时新西兰正值夏天，亲朋好友会聚在一起举行烧烤活动。典型的圣诞美食包括烤羊羔肉，这种美食有时会在“hangi”（一种位于地下的土坑或土灶）中烹制。最受欢迎的甜点无疑是帕芙洛娃 (pavlova)：一种表面覆盖着草莓和奇异果等新鲜水果的蛋白酥蛋糕。"
 	},
+	"om_country_name": {
+		"message": "阿曼"
+	},
 	"onthego": {
-		"message": "随时随地关注圣诞老人"
+		"message": "随时关注圣诞老人"
 	},
 	"openingtomorrow": {
-		"message": "明日盛大开放"
+		"message": "明日开放"
+	},
+	"pa_country_name": {
+		"message": "巴拿马"
+	},
+	"pe_country_name": {
+		"message": "秘鲁"
 	},
 	"ph_country_name": {
 		"message": "菲律宾"
 	},
 	"ph_tradition": {
 		"message": "菲律宾因拥有世界上最长的圣诞节而著称。从九月到十二月，菲律宾的圣诞节要持续四个月之久。圣诞颂歌常常从九月初就开始响起。"
+	},
+	"pl_country_name": {
+		"message": "波兰"
 	},
 	"play": {
 		"message": "玩游戏"
@@ -224,17 +494,32 @@
 	"playdescription": {
 		"message": "在“追踪圣诞老人”Android 应用中跟朋友一起畅玩。"
 	},
+	"pr_country_name": {
+		"message": "波多黎各"
+	},
+	"py_country_name": {
+		"message": "巴拉圭"
+	},
+	"ro_country_name": {
+		"message": "罗马尼亚"
+	},
 	"ru_country_name": {
 		"message": "俄罗斯"
 	},
 	"ru_tradition": {
 		"message": "俄罗斯的孩子们装饰“新年树”，而不是圣诞树。他们等待冰霜爷爷 (Grandfather Frost) 和他的孙女雪姑娘 (Snowmaiden) 给大家带来礼物。冰霜爷爷居住在俄罗斯北部大乌斯秋格 (Veliky Ustyug) 的森林深处。"
 	},
+	"sa_country_name": {
+		"message": "沙特阿拉伯"
+	},
 	"santatracker": {
 		"message": "追踪圣诞老人"
 	},
 	"score": {
 		"message": "得分"
+	},
+	"se_country_name": {
+		"message": "瑞典"
 	},
 	"seconds": {
 		"message": "秒"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "分享"
 	},
+	"sk_country_name": {
+		"message": "斯洛伐克"
+	},
+	"sn_country_name": {
+		"message": "塞内加尔"
+	},
+	"so_country_name": {
+		"message": "索马里"
+	},
+	"sr_country_name": {
+		"message": "苏里南"
+	},
+	"sv_country_name": {
+		"message": "萨尔瓦多"
+	},
+	"td_country_name": {
+		"message": "乍得"
+	},
 	"terms-and-privacy": {
 		"message": "条款与隐私权"
 	},
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "时间"
+	},
+	"tj_country_name": {
+		"message": "塔吉克斯坦"
+	},
+	"tm_country_name": {
+		"message": "土库曼斯坦"
+	},
+	"tn_country_name": {
+		"message": "突尼斯"
+	},
+	"tr_country_name": {
+		"message": "土耳其"
 	},
 	"traditions-next": {
 		"message": "下一个习俗"
@@ -318,7 +633,7 @@
 		"message": "南美洲"
 	},
 	"trivia_beginner_005": {
-		"message": "哪个州位于太平洋时区？"
+		"message": "美国哪个州位于太平洋时区？"
 	},
 	"trivia_beginner_005_answer0": {
 		"message": "加利福尼亚州"
@@ -342,7 +657,7 @@
 		"message": "南极洲"
 	},
 	"trivia_beginner_007": {
-		"message": "美国哪个州濒临某个五大湖？"
+		"message": "美国哪个州濒临五大湖之一？"
 	},
 	"trivia_beginner_007_answer0": {
 		"message": "俄亥俄州"
@@ -558,7 +873,7 @@
 		"message": "亚利桑那州"
 	},
 	"trivia_beginner_025": {
-		"message": "在美国哪个州可以驾车穿过切萨皮克湾大桥并可到海洋城的木栈道上散步？"
+		"message": "在美国哪个州可以驾车穿过切萨皮克湾大桥并可到大洋城的木栈道上散步？"
 	},
 	"trivia_beginner_025_answer0": {
 		"message": "马里兰州"
@@ -738,7 +1053,7 @@
 		"message": "布拉格"
 	},
 	"trivia_beginner_040": {
-		"message": "在古城墙内发现了多处圣地，其中就有圆顶清真寺和西墙，这些古城墙位于中东哪座城市？"
+		"message": "在某处古城墙内发现了多处圣地，其中就有圆顶清真寺和西墙，这些古城墙位于中东哪座城市？"
 	},
 	"trivia_beginner_040_answer0": {
 		"message": "耶路撒冷"
@@ -750,7 +1065,7 @@
 		"message": "阿尔及尔"
 	},
 	"trivia_beginner_041": {
-		"message": "帕台农神庙矗立在卫城之巅，它坐落于希腊哪座城市？"
+		"message": "帕特农神庙矗立在卫城之巅，它坐落于希腊哪座城市？"
 	},
 	"trivia_beginner_041_answer0": {
 		"message": "雅典"
@@ -954,7 +1269,7 @@
 		"message": "大西洋"
 	},
 	"trivia_beginner_058": {
-		"message": "由赤道横穿而过的刚果盆地坐落于哪个洲？"
+		"message": "被赤道横穿而过的刚果盆地坐落于哪个洲？"
 	},
 	"trivia_beginner_058_answer0": {
 		"message": "非洲"
@@ -1074,7 +1389,7 @@
 		"message": "印度洋"
 	},
 	"trivia_beginner_068": {
-		"message": "多瑙河流经维也纳和其他城市位于哪个洲？"
+		"message": "多瑙河流经维也纳和哪个洲的其他城市？"
 	},
 	"trivia_beginner_068_answer0": {
 		"message": "欧洲"
@@ -1146,7 +1461,7 @@
 		"message": "南极洲"
 	},
 	"trivia_beginner_074": {
-		"message": "西藏高原位于哪个洲？"
+		"message": "青藏高原位于哪个洲？"
 	},
 	"trivia_beginner_074_answer0": {
 		"message": "亚洲"
@@ -1158,7 +1473,7 @@
 		"message": "南美洲"
 	},
 	"trivia_beginner_075": {
-		"message": "德瑞克海峽位于哪个洲的南端？"
+		"message": "德雷克海峡位于哪个洲的南端？"
 	},
 	"trivia_beginner_075_answer0": {
 		"message": "南美洲"
@@ -1683,7 +1998,7 @@
 		"message": "伊斯帕尼奥拉岛"
 	},
 	"trivia_hard_021_answer2": {
-		"message": "撒丁区"
+		"message": "撒丁岛"
 	},
 	"trivia_hard_022": {
 		"message": "尤卡坦海峡位于墨西哥和哪个岛之间？"
@@ -1965,7 +2280,7 @@
 		"message": "哪座山峰最接近赤道？"
 	},
 	"trivia_hard_045_answer0": {
-		"message": "乞力马扎罗"
+		"message": "乞力马扎罗山"
 	},
 	"trivia_hard_045_answer1": {
 		"message": "勃朗峰"
@@ -2274,7 +2589,7 @@
 		"message": "危地马拉"
 	},
 	"trivia_hard_071": {
-		"message": "巴塞尔市由莱茵河分隔开来，它是哪个国家/地区重要的交通枢纽？"
+		"message": "巴塞尔市被莱茵河分隔开来，它是哪个国家/地区重要的交通枢纽？"
 	},
 	"trivia_hard_071_answer0": {
 		"message": "瑞士"
@@ -3054,7 +3369,7 @@
 		"message": "德黑兰"
 	},
 	"trivia_medium_031": {
-		"message": "以下国家/地区的一部分位于非洲之角？"
+		"message": "以下哪个国家/地区的一部分位于非洲之角？"
 	},
 	"trivia_medium_031_answer0": {
 		"message": "厄立特里亚"
@@ -3426,7 +3741,7 @@
 		"message": "比利时"
 	},
 	"trivia_medium_062": {
-		"message": "哪个岛国/地区位于澳大利亚东南部并且是羊毛的主要生产地？"
+		"message": "哪个岛国位于澳大利亚东南部并且是羊毛的主要生产地？"
 	},
 	"trivia_medium_062_answer0": {
 		"message": "新西兰"
@@ -3666,7 +3981,7 @@
 		"message": "德语"
 	},
 	"trivia_medium_082": {
-		"message": "在一年一度的萨尔斯堡音乐节上，时常会上演莫扎特歌剧，该音乐节在欧洲哪个多山的国家/地区举办？"
+		"message": "在一年一度的萨尔茨堡音乐节上，时常会上演莫扎特歌剧，该音乐节在欧洲哪个多山的国家/地区举办？"
 	},
 	"trivia_medium_082_answer0": {
 		"message": "奥地利"
@@ -3678,7 +3993,7 @@
 		"message": "罗马尼亚"
 	},
 	"trivia_medium_083": {
-		"message": "鲸鱼谷（一片遍布史前鲸鱼化石残骸的沙漠）位于苏丹北部的哪个国家/地区？"
+		"message": "鲸鱼谷（一片遍布史前鲸鱼化石残骸的沙漠）位于苏丹北方的哪个国家/地区？"
 	},
 	"trivia_medium_083_answer0": {
 		"message": "埃及"
@@ -3708,13 +4023,13 @@
 		"message": "喜马拉雅山"
 	},
 	"trivia_medium_085_answer1": {
-		"message": "乌拉尔"
+		"message": "乌拉尔山"
 	},
 	"trivia_medium_085_answer2": {
 		"message": "阿尔卑斯山脉"
 	},
 	"trivia_medium_086": {
-		"message": "Farsi（波斯语）亦称 Persian（波斯语），是哪个伊斯兰国家的官方语言？"
+		"message": "法尔斯语亦称波斯语，是哪个伊斯兰国家的官方语言？"
 	},
 	"trivia_medium_086_answer0": {
 		"message": "伊朗"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "保加利亚"
 	},
+	"tw_country_name": {
+		"message": "台湾"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "坦桑尼亚"
+	},
+	"ug_country_name": {
+		"message": "乌干达"
 	},
 	"uk_country_name": {
 		"message": "英国"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "在英国，不同年龄的人围坐在桌旁，一起玩圣诞爆竹游戏。爆竹是一种用彩纸包裹的圆筒，筒的两端系有拉环。拉动拉环时，圆筒会“啪”地一声炸开！里面是纸帽、玩具和糖果，供人们在圣诞夜享用。"
 	},
+	"upgrade-warning": {
+		"message": "很抱歉，您的浏览器版本不支持“追踪圣诞老人”。要访问“追踪圣诞老人”，请下载新型浏览器。如需更多详情，请访问 \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
+	},
 	"us_country_name": {
 		"message": "美国"
 	},
 	"us_tradition": {
 		"message": "在美国，人们会在圣诞前夕挂起长袜。据传说，圣尼古拉斯听闻有户人家需要帮助。为了给他们带来惊喜，圣尼古拉斯顺着烟囱爬下屋子，将装满黄金的宝物袋放在了悬挂的长袜里。从此以后，圣尼古拉斯被称作圣诞老人，即派送礼物的使者。"
 	},
+	"uy_country_name": {
+		"message": "乌拉圭"
+	},
+	"uz_country_name": {
+		"message": "乌兹别克斯坦"
+	},
+	"ve_country_name": {
+		"message": "委内瑞拉"
+	},
+	"vn_country_name": {
+		"message": "越南"
+	},
 	"watch": {
-		"message": "观看"
+		"message": "看视频"
+	},
+	"ye_country_name": {
+		"message": "也门"
+	},
+	"zm_country_name": {
+		"message": "赞比亚"
+	},
+	"zw_country_name": {
+		"message": "津巴布韦"
 	}
 }
