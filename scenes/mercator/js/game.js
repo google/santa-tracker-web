@@ -393,9 +393,11 @@ app.Game.prototype.initMap_ = function() {
         stylers: [{visibility: 'on'}, {weight: 1}, {color: '#F6EFE2'}]
       }, {
         featureType: 'water',
+        elementType: 'geometry.fill',
         stylers: [{visibility: 'on'}, {color: '#F6EFE2'}]
       }, {
         featureType: 'landscape',
+        elementType: 'geometry.fill',
         stylers: [{visibility: 'on'}, {color: '#DFD7C5'}]
       }
     ]
