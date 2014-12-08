@@ -349,6 +349,13 @@ Polymer(Polymer.mixin({
           location.pathname.replace(/[^\/]*$/, '') + 'error.html';
     });
 
+    // Disable Google Play house on iOS devices
+    if (navigator.userAgent.match(/iPhone|iPod|iPad/i)) {
+      if (this.houses[3].module === 'app') {
+        this.houses[3].disabled = true;
+      }
+    }
+
     if (!this.route) {
       this.checkSchedule_();
       this.route = this.postCountdown ? TRACKER_ROUTE_ : DEFAULT_ROUTE_;
