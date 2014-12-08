@@ -52,9 +52,6 @@ app.Game = function(elem) {
   this.updateSize_ = this.updateSize_.bind(this);
   this.disableTutorial_ = this.disableTutorial_.bind(this);
 
-  // Disable tutorial on click
-  this.elem.on('click touchend', this.disableTutorial_);
-
   this.init_();
   this.initMap_();
 };
@@ -63,7 +60,10 @@ app.Game = function(elem) {
  * Disable the tutorial.
  * @private
  */
-app.Game.prototype.disableTutorial_ = function() {
+app.Game.prototype.disableTutorial_ = function(event) {
+  if (event && $(event.target).closest('.start').length) {
+    return;
+  }
   this.tutorial.off('mouse-mercator');
   this.tutorial.off('touch-mercator');
 };
@@ -79,7 +79,10 @@ app.Game.prototype.start = function() {
   }
 
   this.restart();
+
+  // Start tutorial
   this.tutorial.start();
+  this.elem.on('click touchend', this.disableTutorial_);
 };
 
 /**

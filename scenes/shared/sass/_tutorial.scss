@@ -1,3 +1,11 @@
+@mixin tutorial($type, $image, $steps: 4) {
+  .tutorial.#{$type} .tutorial-inner {
+    animation: $steps * 500ms #{$name}-tutorial-step-#{$steps} infinite step-start;
+    background-image: url(#{$image});
+    width: $steps * 275px;
+  }
+}
+
 ##{$name} {
   .tutorial {
     display: none;
@@ -12,7 +20,7 @@
     z-index: 100;
 
     &:after {
-      background: url(img/tutorial/shadow.svg) no-repeat;
+      background: url('../shared/img/tutorial/shadow.svg') no-repeat;
       content: "";
       height: 270px;
       left: 0;
@@ -34,83 +42,30 @@
       width: 1100px;
       z-index: 2;
     }
+  }
 
-    @mixin tutorial($image, $steps: 4) {
-      animation: $steps * 500ms #{$name}-tutorial-step-#{$steps} infinite step-start;
-      background-image: url(img/tutorial/#{$image}.svg);
-      width: $steps * 275px;
-    }
+  // Keyboard
+  @include tutorial(keys-arrow, '../shared/img/tutorial/keys-arrows.svg', 4);
+  @include tutorial(keys-space, '../shared/img/tutorial/keys-space.svg', 2);
+  @include tutorial(keys-leftright, '../shared/img/tutorial/keys-leftright.svg', 2);
+  @include tutorial(keys-up, '../shared/img/tutorial/keys-up.svg', 2);
+  @include tutorial(keys-updown, '../shared/img/tutorial/keys-updown.svg', 2);
 
-    // Keyboard
-    &.keys-arrows .tutorial-inner {
-      @include tutorial('keys-arrows', 4);
-    }
+  // Mouse
+  @include tutorial(mouse-leftright, '../shared/img/tutorial/mouse-leftright.svg', 2);
 
-    &.keys-space .tutorial-inner {
-      @include tutorial('keys-space', 2);
-    }
+  // Touch
+  @include tutorial(touch-updown, '../shared/img/tutorial/touch-updown-landscape.svg', 4);
+  @include tutorial(touch-leftright, '../shared/img/tutorial/touch-leftright-landscape.svg', 4);
 
-    &.keys-leftright .tutorial-inner {
-      @include tutorial('keys-leftright', 2);
-    }
-
-    &.keys-up .tutorial-inner {
-      @include tutorial('keys-up', 2);
-    }
-
-    &.keys-updown .tutorial-inner {
-      @include tutorial('keys-updown', 2);
-    }
-
-    // Mouse
-    &.mouse-leftright .tutorial-inner {
-      @include tutorial('mouse-leftright', 2);
-    }
-
-    &.mouse-matching .tutorial-inner {
-      @include tutorial('mouse-matching', 5);
-    }
-
-    &.mouse-mercator .tutorial-inner {
-      @include tutorial('mouse-mercator', 4);
-    }
-
-    &.mouse-translations .tutorial-inner {
-      @include tutorial('mouse-translations', 2);
-    }
-
-    // Touch
-    &.touch-updown .tutorial-inner {
-      @include tutorial('touch-updown-landscape', 4);
-    }
-
-    @media (orientation: portrait) {
-      &.touch-updown .tutorial-inner {
-        background-image: url(img/tutorial/touch-updown-portrait.svg);
-      }
-    }
-
-    &.touch-leftright .tutorial-inner {
-      @include tutorial('touch-leftright-landscape', 4);
-    }
-
-    &.touch-matching .tutorial-inner {
-      @include tutorial('touch-matching', 5);
-    }
-
-    &.touch-mercator .tutorial-inner {
-      @include tutorial('touch-mercator', 4);
-    }
-
-    &.touch-translations .tutorial-inner {
-      @include tutorial('touch-translations', 2);
-    }
-
-    // Device
-    &.device-tilt .tutorial-inner {
-      @include tutorial('device-tilt', 3);
+  @media (orientation: portrait) {
+    .tutorial.touch-updown .tutorial-inner {
+      background-image: url('../shared/img/tutorial/touch-updown-portrait.svg');
     }
   }
+
+  // Device
+  @include tutorial(device-tilt, '../shared/img/tutorial/device-tilt.svg', 3);
 }
 
 @keyframes #{$name}-tutorial-step-2 {

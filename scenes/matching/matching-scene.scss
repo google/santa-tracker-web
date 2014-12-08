@@ -100,6 +100,10 @@ $rotate-bg: $gameover-bg;
   .hidden {
     transform: translate3d(0, 9999px, 0) !important;
   }
+
+  // Custom tutorial
+  @include tutorial(mouse-matching, 'img/tutorial/mouse-matching.svg', 5);
+  @include tutorial(touch-matching, 'img/tutorial/touch-matching.svg', 5);
 }
 
 //
