@@ -17,7 +17,6 @@ app.I18n.COUNT = 0;
  */
 app.I18n.getMsg = function(key) {
   var msg = app.I18n.getMsgOrNull(key);
-  console.log('wtf' + app.I18n.COUNT++);
   return msg === null ? '[Unknown message: ' + key + ']' : msg;
 };
 
