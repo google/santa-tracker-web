@@ -7,17 +7,18 @@
     // The bottom shadow
     &::before,
     &::after {
-      background: #029A97;
-      bottom: -6px;
+      background: rgba(0, 0, 0, 0.07);
+      bottom: 0;
       content: '';
-      height: 6px;
+      height: 12px;
+      pointer-events: none;
       position: absolute;
       width: 100%;
+      z-index: 10;
     }
 
     &::after {
-      background: #008F8C;
-      bottom: -12px;
+      height: 6px;
     }
   }
 
