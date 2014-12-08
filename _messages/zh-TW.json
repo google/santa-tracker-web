@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "歡迎使用 Google 聖誕老人追蹤器！"
 	},
+	"af_country_name": {
+		"message": "阿富汗"
+	},
+	"al_country_name": {
+		"message": "阿爾巴尼亞"
+	},
+	"ao_country_name": {
+		"message": "安哥拉"
+	},
 	"ar_country_name": {
 		"message": "阿根廷"
 	},
 	"ar_tradition": {
 		"message": "阿根廷的聖誕節準時從午夜開始。許多家庭會在家中舉辦節慶活動、與親人一起拆禮物，並且在凌晨燃放煙火，為假期揭開序幕。"
+	},
+	"at_country_name": {
+		"message": "奧地利"
 	},
 	"au_country_name": {
 		"message": "澳洲"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "地處南半球的澳洲到了十二月會進入夏季。這裡不流行雪橇鈴聲和熱可可，許多澳洲人會擁抱海灘，用一頓大蝦午餐來歡慶佳節，並且玩幾回合的板球。"
 	},
+	"bd_country_name": {
+		"message": "孟加拉"
+	},
+	"be_country_name": {
+		"message": "比利時"
+	},
+	"bg_country_name": {
+		"message": "保加利亞"
+	},
+	"bj_country_name": {
+		"message": "貝南"
+	},
+	"bo_country_name": {
+		"message": "玻利維亞"
+	},
 	"br_country_name": {
 		"message": "巴西"
 	},
 	"br_tradition": {
 		"message": "聖誕節慶祝活動不到午夜就會開始，通常包含豐盛的全家福晚餐、拆禮物或前往教堂慶祝「子夜彌撒」(雞鳴彌撒)。雖然是暖洋洋的熱帶夏天，卻常見冬雪主題擺設。"
+	},
+	"bt_country_name": {
+		"message": "不丹"
+	},
+	"by_country_name": {
+		"message": "白俄羅斯"
+	},
+	"bz_country_name": {
+		"message": "貝里斯"
 	},
 	"ca_country_name": {
 		"message": "加拿大"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "傳送"
 	},
+	"cf_country_name": {
+		"message": "中非共和國"
+	},
+	"ch_country_name": {
+		"message": "瑞士"
+	},
+	"cl_country_name": {
+		"message": "智利"
+	},
 	"close-this": {
 		"message": "取消"
+	},
+	"cm_country_name": {
+		"message": "喀麥隆"
+	},
+	"co_country_name": {
+		"message": "哥倫比亞"
+	},
+	"codelab-block-moveeast": {
+		"message": "東"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "東移一格。"
+	},
+	"codelab-block-movenorth": {
+		"message": "北"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "北移一格。"
+	},
+	"codelab-block-movesouth": {
+		"message": "南"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "南移一格。"
+	},
+	"codelab-block-movewest": {
+		"message": "西"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "西移一格。"
+	},
+	"codelab-block-repeat": {
+		"message": "重複"
+	},
+	"codelab-block-repeat-times": {
+		"message": "次"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "重複某些陳述式幾次。"
+	},
+	"codelab-block-whenrun": {
+		"message": "執行時"
+	},
+	"codelab-finish": {
+		"message": "完成"
+	},
+	"codelab-great": {
+		"message": "太棒了"
+	},
+	"codelab-mwc-promo": {
+		"message": "前往 \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e 進一步瞭解 Google 編碼專案。"
+	},
+	"codelab-next-challenge": {
+		"message": "下一關"
+	},
+	"codelab-oops": {
+		"message": "糟糕！"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "「重複」方塊裡面要有其他方塊才能運作。"
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "某些方塊拼湊錯誤。"
+	},
+	"codelab-result-generic-fail": {
+		"message": "看來您迷路了！"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "您可以用下面一或多個方塊來完成這個拼圖。"
+	},
+	"codelab-result-missing-block-success": {
+		"message": "您知道嗎？您只要用 {{ideal}} 個方塊就能完成這一關！建議您用下面的方塊。"
+	},
+	"codelab-result-perfect-success": {
+		"message": "恭喜！您完成了這個拼圖，表現很好！"
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "您所用的方塊正確，但建議您多用一些方塊來完成這個拼圖。"
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "您知道嗎？您只要用 {{ideal}} 個方塊就能完成這一關！"
+	},
+	"codelab-try-again": {
+		"message": "再試一次"
 	},
 	"copy-me": {
 		"message": "複製這個連結即可分享您的訊息"
 	},
 	"countdownlabel": {
 		"message": "聖誕老人出發倒數計時"
+	},
+	"cr_country_name": {
+		"message": "哥斯大黎加"
+	},
+	"cu_country_name": {
+		"message": "古巴"
+	},
+	"cz_country_name": {
+		"message": "捷克共和國"
 	},
 	"days": {
 		"message": "天"
@@ -72,13 +210,31 @@
 		"message": "幾乎每個德國小鎮都會在鎮廣場舉辦聖誕市集。鎮民聚在一起聆聽銅管樂隊演奏，享受當地的傳統美食。他們會吃心型薑餅、糖烤杏仁和各種甜點，並喝香料酒 (Glühwein) 或蘋果酒。"
 	},
 	"deck": {
-		"message": "增添裝飾"
+		"message": "換上新裝"
 	},
 	"deckdescription": {
 		"message": "用聖誕老人 Chrome 擴充功能為您的瀏覽器換上新裝。"
 	},
+	"dk_country_name": {
+		"message": "丹麥"
+	},
+	"do_country_name": {
+		"message": "多明尼加共和國"
+	},
+	"dz_country_name": {
+		"message": "阿爾及利亞"
+	},
+	"ec_country_name": {
+		"message": "厄瓜多"
+	},
+	"ee_country_name": {
+		"message": "愛沙尼亞"
+	},
 	"endofjourneymessage": {
 		"message": "聖誕老人已完成今年的旅程！他和精靈們在年假開始前仍會先在北極玩樂一下。"
+	},
+	"er_country_name": {
+		"message": "厄利垂亞"
 	},
 	"error": {
 		"message": "看來我們與北極的連線剛斷了，聖誕老人的小精靈正努力修復中，別走開喔！"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "再試一次"
 	},
+	"et_country_name": {
+		"message": "衣索比亞"
+	},
+	"fi_country_name": {
+		"message": "芬蘭"
+	},
 	"finished-text": {
 		"message": "佳節愉快！聖誕老人完成環遊世界之旅，現在該好好休息一下。明年再來找我們喔！"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "根據傳統，法國兒童會把自己的鞋子拿到壁爐旁，盼望聖誕老人到來。如果孩子們一整年都很乖，聖誕老人就會將禮物裝進鞋子裡。"
 	},
+	"ga_country_name": {
+		"message": "加彭"
+	},
 	"gameover": {
 		"message": "遊戲結束！"
+	},
+	"gameover_level": {
+		"message": "您過到的關卡："
 	},
 	"gameover_score": {
 		"message": "您的分數："
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "在加納，聖誕節是全家福活動。大人會變裝在住家附近發送糖果和甜點，小孩則用他們在學校完成的紙類飾品和圖畫裝飾住家。"
+	},
+	"gl_country_name": {
+		"message": "格陵蘭"
+	},
+	"gn_country_name": {
+		"message": "幾內亞"
 	},
 	"gotovillage": {
 		"message": "前往聖誕老人村"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "瓜地馬拉人慶祝聖誕節的方式充滿歡樂和舞蹈。他們會戴上特有的帽子 (Puritina)，享用瓜地馬拉風味的玉米粉蒸肉，在午夜燃放鞭炮，並以各種風格的舞蹈歡度良宵。"
 	},
+	"gy_country_name": {
+		"message": "蓋亞那"
+	},
+	"hn_country_name": {
+		"message": "宏都拉斯"
+	},
 	"hours": {
 		"message": "小時"
+	},
+	"hr_country_name": {
+		"message": "克羅埃西亞"
+	},
+	"ht_country_name": {
+		"message": "海地"
+	},
+	"hu_country_name": {
+		"message": "匈牙利"
+	},
+	"id_country_name": {
+		"message": "印尼"
+	},
+	"ie_country_name": {
+		"message": "愛爾蘭"
+	},
+	"iq_country_name": {
+		"message": "伊拉克"
+	},
+	"ir_country_name": {
+		"message": "伊朗"
 	},
 	"is_country_name": {
 		"message": "冰島"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "到了聖誕節，冰島家家戶戶會贈送禦寒衣物給家中每位成員做為禮物。根據傳說，如果有人沒為寒冬天氣做好準備，就會被可怕的聖誕貓吞噬。因此，全家人會通力合作，不讓任何成員「落入聖誕貓口」。"
 	},
+	"it_country_name": {
+		"message": "義大利"
+	},
+	"jm_country_name": {
+		"message": "牙買加"
+	},
 	"kg_country_name": {
 		"message": "吉爾吉斯"
 	},
 	"kg_tradition": {
 		"message": "吉爾吉斯的雪老人 (Ayaz Ata) 會在除夕午夜到訪，然後在新年樹下留下禮物。當午夜響起鐘聲時，全國各地的家庭都會燃放煙火來慶祝這個美好時刻，城市瞬間明亮如白晝。"
+	},
+	"kz_country_name": {
+		"message": "哈薩克"
 	},
 	"language": {
 		"message": "語言"
@@ -162,13 +372,37 @@
 		"message": "關卡"
 	},
 	"light": {
-		"message": "亮起"
+		"message": "營造聖誕氛圍"
 	},
 	"lightdescription": {
 		"message": "將聖誕老人追蹤器 Android 應用程式和 Chromecast 搭配使用，讓您的電視變得繽紛耀眼。"
 	},
+	"lk_country_name": {
+		"message": "斯里蘭卡"
+	},
+	"lt_country_name": {
+		"message": "立陶宛"
+	},
+	"lv_country_name": {
+		"message": "拉脫維亞"
+	},
+	"ly_country_name": {
+		"message": "利比亞"
+	},
+	"md_country_name": {
+		"message": "摩爾多瓦"
+	},
 	"minutes": {
 		"message": "分"
+	},
+	"ml_country_name": {
+		"message": "馬利"
+	},
+	"mm_country_name": {
+		"message": "緬甸"
+	},
+	"mr_country_name": {
+		"message": "茅利塔尼亞"
 	},
 	"mx_country_name": {
 		"message": "墨西哥"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "不分年齡大小，墨西哥兒童都是用擊破皮那塔 (pinata) 的方式慶祝聖誕節。大人和小孩會戴上眼罩開心地四處走動，然後揮桿敲破星形吊罐。破開皮那塔後，大家可以享用掉出的堅果、水果和糖果。"
 	},
+	"my_country_name": {
+		"message": "馬來西亞"
+	},
+	"mz_country_name": {
+		"message": "莫三比克"
+	},
+	"na_country_name": {
+		"message": "納米比亞"
+	},
+	"ne_country_name": {
+		"message": "尼日"
+	},
 	"newtoday": {
 		"message": "今日新登場"
+	},
+	"ng_country_name": {
+		"message": "奈及利亞"
+	},
+	"nl_country_name": {
+		"message": "荷蘭"
+	},
+	"no_country_name": {
+		"message": "挪威"
 	},
 	"nonprofit-jane-description": {
 		"message": "黑猩猩是現存的動物中與人類血緣最接近的親戚！然而，由於棲息地消失、疾病橫行及非法捕獵等因素，現存的黑猩猩總數不到 30 萬隻。Jane Goodall Institute 致力於觀察和研究黑猩猩的行為和棲地，希望能藉此保育這個珍貴的物種。此外，Jane Goodall Institute 也努力打造一個社群和交流平台，供有志於野生動物及自然環境保育的人士參與。歡迎探訪坦尚尼亞的貢貝國家公園，\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e認識黑猩猩的棲息環境\u003c/a\u003e。"
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "北極熊"
 	},
+	"np_country_name": {
+		"message": "尼泊爾"
+	},
 	"nz_country_name": {
 		"message": "紐西蘭"
 	},
 	"nz_tradition": {
 		"message": "紐西蘭的聖誕節在夏天，親朋好友們會聚在一起烤肉。典型的聖誕大餐是烤羊肉，有時會採用「hangi」這種地洞或土灶方式來烹飪。人氣甜點是帕芙洛娃 (pavlova) 蛋糕，蛋白霜上鋪著草莓和奇異果等新鮮水果。"
+	},
+	"om_country_name": {
+		"message": "阿曼"
 	},
 	"onthego": {
 		"message": "掌握聖誕老人的行蹤"
@@ -209,14 +470,23 @@
 	"openingtomorrow": {
 		"message": "明日盛大開幕"
 	},
+	"pa_country_name": {
+		"message": "巴拿馬"
+	},
+	"pe_country_name": {
+		"message": "秘魯"
+	},
 	"ph_country_name": {
 		"message": "菲律賓"
 	},
 	"ph_tradition": {
 		"message": "菲律賓以聖誕期間長度居全球之冠聞名，九月、十月、十一月和十二月這四個月都算聖誕月。通常最早從九月初就可以聽到聖誕頌歌。"
 	},
+	"pl_country_name": {
+		"message": "波蘭"
+	},
 	"play": {
-		"message": "遊玩"
+		"message": "玩遊戲"
 	},
 	"playagain": {
 		"message": "再玩一次"
@@ -224,17 +494,32 @@
 	"playdescription": {
 		"message": "在聖誕老人追蹤器 Android 應用程式中與朋友同樂。"
 	},
+	"pr_country_name": {
+		"message": "波多黎各"
+	},
+	"py_country_name": {
+		"message": "巴拉圭"
+	},
+	"ro_country_name": {
+		"message": "羅馬尼亞"
+	},
 	"ru_country_name": {
 		"message": "俄羅斯"
 	},
 	"ru_tradition": {
 		"message": "俄羅斯的孩子們不裝飾聖誕樹，而是裝飾新年樹。小孩們都期盼著環遊世界的「嚴寒老人」(Grandfather Frost) 和他的孫女「雪姑娘」(Snowmaiden) 為他們送來禮物。「嚴寒老人」住在俄羅斯北部的大烏斯秋格樹林深處。"
 	},
+	"sa_country_name": {
+		"message": "沙烏地阿拉伯"
+	},
 	"santatracker": {
 		"message": "聖誕老人追蹤器"
 	},
 	"score": {
 		"message": "分數"
+	},
+	"se_country_name": {
+		"message": "瑞典"
 	},
 	"seconds": {
 		"message": "秒"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "分享"
 	},
+	"sk_country_name": {
+		"message": "斯洛伐克"
+	},
+	"sn_country_name": {
+		"message": "塞內加爾"
+	},
+	"so_country_name": {
+		"message": "索馬利亞"
+	},
+	"sr_country_name": {
+		"message": "蘇利南"
+	},
+	"sv_country_name": {
+		"message": "薩爾瓦多"
+	},
+	"td_country_name": {
+		"message": "查德"
+	},
 	"terms-and-privacy": {
 		"message": "條款與隱私權"
 	},
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "時間"
+	},
+	"tj_country_name": {
+		"message": "塔吉克"
+	},
+	"tm_country_name": {
+		"message": "土庫曼"
+	},
+	"tn_country_name": {
+		"message": "突尼西亞"
+	},
+	"tr_country_name": {
+		"message": "土耳其"
 	},
 	"traditions-next": {
 		"message": "下個傳統"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "保加利亞"
 	},
+	"tw_country_name": {
+		"message": "台灣"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "坦尚尼亞"
+	},
+	"ug_country_name": {
+		"message": "烏干達"
 	},
 	"uk_country_name": {
 		"message": "英國"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "英國人不分老少，晚餐時都會在餐桌上玩起聖誕節拉砲來製造歡樂氣氛。拉砲以色紙包成管狀，每一端都有拉環。拉開拉環時，砲管會爆出巨大聲響！裡頭的紙帽、玩具和糖果可在聖誕夜享用。"
 	},
+	"upgrade-warning": {
+		"message": "糟糕！這個版本的瀏覽器不支援聖誕老人追蹤器。如要使用聖誕老人追蹤器，請下載新版瀏覽器。詳情請見：\u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
+	},
 	"us_country_name": {
 		"message": "美國"
 	},
 	"us_tradition": {
 		"message": "美國人會在聖誕夜掛上長襪。根據傳說，聖尼古拉曾聽到某個家庭需要援助。為了給他們驚喜，他爬下這戶人家的煙囪，將裝著大量黃金的袋子放入懸掛的長襪中。從此以後，聖尼古拉就被稱為送禮的聖誕老人。"
 	},
+	"uy_country_name": {
+		"message": "烏拉圭"
+	},
+	"uz_country_name": {
+		"message": "烏茲別克"
+	},
+	"ve_country_name": {
+		"message": "委內瑞拉"
+	},
+	"vn_country_name": {
+		"message": "越南"
+	},
 	"watch": {
 		"message": "觀看影片"
+	},
+	"ye_country_name": {
+		"message": "葉門"
+	},
+	"zm_country_name": {
+		"message": "尚比亞"
+	},
+	"zw_country_name": {
+		"message": "辛巴威"
 	}
 }

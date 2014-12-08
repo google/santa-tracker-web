@@ -3,7 +3,7 @@
 		"message": "クリスマスイブには、サンタさんがソリに乗って世界中を飛び回る様子を伝えるダッシュボードのプレビューを公開します。大切な日に向けて北極でせっせとサンタさんのお手伝いをする働き者の妖精たちから、その様子を伝える画像が送られてきています。サンタのダッシュボードでは、Googleマップの最新技術やソリの特殊テクノロジーにより、サンタさんが世界中にプレゼントを届ける様子や立ち寄る場所についてのちょっとした情報をご紹介します。"
 	},
 	"about-content-three": {
-		"message": "Google マップの「サンタを追いかけよう」は Google がサンタの小人たちの助けを借りて制作・開発したものです。サポートが必要な場合やその他の疑問点については\u003ca href=\"//support.google.com/santatracker\"\u003eヘルプセンター\u003c/a\u003eをご覧ください。"
+		"message": "Google マップの「サンタを追いかけよう」は Google がサンタさんの妖精たちの助けを借りて制作・開発したものです。サポートが必要な場合やその他の疑問点については\u003ca href=\"//support.google.com/santatracker\"\u003eヘルプセンター\u003c/a\u003eをご覧ください。"
 	},
 	"about-content-two": {
 		"message": "また、親切な妖精たちが、旅に向けて準備をしているサンタさんの村にあなたを招待していますので、ぜひ訪ねてみてください。楽しいゲームや愉快な妖精たちが皆さんがやってくるのを待っています。"
@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Googleマップでサンタを追いかけよう！"
 	},
+	"af_country_name": {
+		"message": "アフガニスタン"
+	},
+	"al_country_name": {
+		"message": "アルバニア"
+	},
+	"ao_country_name": {
+		"message": "アンゴラ"
+	},
 	"ar_country_name": {
 		"message": "アルゼンチン"
 	},
 	"ar_tradition": {
 		"message": "アルゼンチンのクリスマスはちょうど日付が変わる真夜中に始まります。家の中でお祝い事をしたり、親しい人とプレゼントを開けたり、明け方に花火を打ち上げたりして、家族で祭日を祝うのが定番です。"
+	},
+	"at_country_name": {
+		"message": "オーストリア"
 	},
 	"au_country_name": {
 		"message": "オーストラリア"
@@ -26,17 +38,41 @@
 	"au_tradition": {
 		"message": "南半球に位置するオーストラリアでは、12 月は夏です。スレイベルの音が鳴り響き、温かいココアを飲む代わりに、人々はビーチに繰り出し、シーフードのランチやクリケットを楽しみながらクリスマスを祝います。"
 	},
+	"bd_country_name": {
+		"message": "バングラデシュ"
+	},
+	"be_country_name": {
+		"message": "ベルギー"
+	},
+	"bg_country_name": {
+		"message": "ブルガリア"
+	},
+	"bj_country_name": {
+		"message": "ベニン"
+	},
+	"bo_country_name": {
+		"message": "ボリビア"
+	},
 	"br_country_name": {
 		"message": "ブラジル"
 	},
 	"br_tradition": {
 		"message": "クリスマスのお祝いは深夜あたりから始まります。家族で盛大なディナーを囲んだり、プレゼントを開けたり、教会の深夜のミサ「ミサ・ド・ガーロ」（雄鶏のミサとも呼ばれます）に出かけたりするのが一般的です。温暖な夏の亜熱帯気候にもかかわらず、冬や雪をテーマにしたものも珍しくありません。"
 	},
+	"bt_country_name": {
+		"message": "ブータン"
+	},
+	"by_country_name": {
+		"message": "ベラルーシ"
+	},
+	"bz_country_name": {
+		"message": "ベリーズ"
+	},
 	"ca_country_name": {
 		"message": "カナダ"
 	},
 	"ca_tradition": {
-		"message": "カナダの子供たちは白い雪で覆われたホワイト クリスマスを祝うのが一般的です。マフラーやウール素材のニット帽で身を包み、雪だるまを作ったり、アイススケートやそりで遊びます。クリスマス イブにはサンタへのお礼としてミルクやクッキーを暖炉のそばに置きます（トナカイへのご褒美に人参を置くこともあります）。"
+		"message": "カナダの子供たちは白い雪で覆われたホワイト クリスマスを祝うのが一般的です。マフラーやウール素材のニット帽で身を包み、雪だるまを作ったり、アイススケートやそりで遊びます。クリスマスイブにはサンタへのお礼としてミルクやクッキーを暖炉のそばに置きます（トナカイへのご褒美に人参を置くこともあります）。"
 	},
 	"calendar": {
 		"message": "カレンダー"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "送信"
 	},
+	"cf_country_name": {
+		"message": "中央アフリカ共和国"
+	},
+	"ch_country_name": {
+		"message": "スイス"
+	},
+	"cl_country_name": {
+		"message": "チリ"
+	},
 	"close-this": {
 		"message": "キャンセル"
+	},
+	"cm_country_name": {
+		"message": "カメルーン"
+	},
+	"co_country_name": {
+		"message": "コロンビア"
+	},
+	"codelab-block-moveeast": {
+		"message": "東"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "1 スペース分東に移動する。"
+	},
+	"codelab-block-movenorth": {
+		"message": "北"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "1 スペース分北に移動する。"
+	},
+	"codelab-block-movesouth": {
+		"message": "南"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "1 スペース分南に移動する。"
+	},
+	"codelab-block-movewest": {
+		"message": "西"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "1 スペース分西に移動する。"
+	},
+	"codelab-block-repeat": {
+		"message": "繰り返し"
+	},
+	"codelab-block-repeat-times": {
+		"message": "回"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "いくつかのステートメントを何度か繰り返してください。"
+	},
+	"codelab-block-whenrun": {
+		"message": "順番に実行"
+	},
+	"codelab-finish": {
+		"message": "終了"
+	},
+	"codelab-great": {
+		"message": "クリアおめでとう"
+	},
+	"codelab-mwc-promo": {
+		"message": "Google コーディング プロジェクトの詳細は \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e をご覧ください。"
+	},
+	"codelab-next-challenge": {
+		"message": "次のレベル"
+	},
+	"codelab-oops": {
+		"message": "残念！"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "「繰り返し」ブロックを使うには、その中に他のブロックが含まれている必要があります。"
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "いくつかのブロックが正しく組み合わさっていません。"
+	},
+	"codelab-result-generic-fail": {
+		"message": "レベルをクリアできませんでした"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "このパズルを解くには、下のブロックを使ってみてください。"
+	},
+	"codelab-result-missing-block-success": {
+		"message": "あと {{ideal}} ブロックでこのレベルをクリアできるところでした。下のブロックを使ってみてください。"
+	},
+	"codelab-result-perfect-success": {
+		"message": "おめでとう！パズルを完全にクリアしました。"
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "使用しているブロックは正解ですが、このパズルをクリアするには、使用するブロックを増やしてみてください。"
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "あと {{ideal}} ブロックでこのレベルをクリアできるところでした。"
+	},
+	"codelab-try-again": {
+		"message": "やり直し"
 	},
 	"copy-me": {
 		"message": "メッセージを共有するにはこのリンクをコピーしてください"
 	},
 	"countdownlabel": {
-		"message": "サンタが出発するまで"
+		"message": "サンタさんが出発するまで"
+	},
+	"cr_country_name": {
+		"message": "コスタリカ"
+	},
+	"cu_country_name": {
+		"message": "キューバ"
+	},
+	"cz_country_name": {
+		"message": "チェコ"
 	},
 	"days": {
 		"message": "日"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "Chrome 拡張機能「サンタを追いかけよう」で、ブラウザを楽しく飾ろう。"
 	},
+	"dk_country_name": {
+		"message": "デンマーク"
+	},
+	"do_country_name": {
+		"message": "ドミニカ共和国"
+	},
+	"dz_country_name": {
+		"message": "アルジェリア"
+	},
+	"ec_country_name": {
+		"message": "エクアドル"
+	},
+	"ee_country_name": {
+		"message": "エストニア"
+	},
 	"endofjourneymessage": {
 		"message": "メリー クリスマス！サンタさんは世界中の旅を終えたので、仲間たちと北極で楽しんでから長いお休みに入ります。来年もまたお楽しみに！"
+	},
+	"er_country_name": {
+		"message": "エリトリア"
 	},
 	"error": {
 		"message": "北極との通信が途切れてしまったようです。サンタさんの妖精たちが修復に取り掛かっています。しばらくお待ちください。"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "もう一度やり直してください"
 	},
+	"et_country_name": {
+		"message": "エチオピア"
+	},
+	"fi_country_name": {
+		"message": "フィンランド"
+	},
 	"finished-text": {
 		"message": "サンタさんは世界中の旅を終えたので、これから長いお休みを取ります。来年もまたお楽しみに！"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "フランスでは、クリスマスになると子供たちは暖炉のそばに靴を置いてサンタクロースの「ペール・ノエル」がやってくるのを心待ちにします。子供たちが 1 年間ずっといい子にしていたら、ペール・ノエルからのプレゼントが靴の中に入っています。"
 	},
+	"ga_country_name": {
+		"message": "ガボン"
+	},
 	"gameover": {
 		"message": "ゲームオーバー"
+	},
+	"gameover_level": {
+		"message": "クリアしたレベル:"
 	},
 	"gameover_score": {
 		"message": "あなたのスコア:"
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "ガーナのクリスマスは家族全員でお祝いします。大人たちは着飾り、キャンディなどのお菓子を近所に配って回ります。子供たちは、紙の飾り物や学校で描いた絵などで家の中を飾ります。"
+	},
+	"gl_country_name": {
+		"message": "グリーンランド"
+	},
+	"gn_country_name": {
+		"message": "ギニア"
 	},
 	"gotovillage": {
 		"message": "サンタ村へ"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "グアテマラでは、陽気に踊ってクリスマスを祝います。「ピュリティナ」と呼ばれる帽子をかぶり、グアテマラ風のタマーリ（トウモロコシ粉やひき肉などをトウモロコシの皮にくるんで蒸した料理）を食べます。深夜には花火を打ち上げ、さまざまなダンスで夜通し踊り明かします。"
 	},
+	"gy_country_name": {
+		"message": "ガイアナ"
+	},
+	"hn_country_name": {
+		"message": "ホンジュラス"
+	},
 	"hours": {
 		"message": "時間"
+	},
+	"hr_country_name": {
+		"message": "クロアチア"
+	},
+	"ht_country_name": {
+		"message": "ハイチ"
+	},
+	"hu_country_name": {
+		"message": "ハンガリー"
+	},
+	"id_country_name": {
+		"message": "インドネシア"
+	},
+	"ie_country_name": {
+		"message": "アイルランド"
+	},
+	"iq_country_name": {
+		"message": "イラク"
+	},
+	"ir_country_name": {
+		"message": "イラン"
 	},
 	"is_country_name": {
 		"message": "アイスランド"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "アイスランドではクリスマスになると、暖かい洋服を家族の皆にプレゼントします。ここでは、冬着を新調しないとあの恐ろしい「クリスマス・キャット」に食べられてしまうという言い伝えがあります。プレゼントには「クリスマス・キャットに食べられないように」との家族の願いが込められています。"
 	},
+	"it_country_name": {
+		"message": "イタリア"
+	},
+	"jm_country_name": {
+		"message": "ジャマイカ"
+	},
 	"kg_country_name": {
 		"message": "キルギス"
 	},
 	"kg_tradition": {
 		"message": "キルギスでは、大晦日の深夜にジェッド・マロース（霜の精）がやってきて新年の木の下にプレゼントを置いていきます。時計の針が深夜を指すと、国中の家族は花火を打ち上げ、この華やかな行事を祝います。このとき、街は日中のように明るく照らされます。"
+	},
+	"kz_country_name": {
+		"message": "カザフスタン"
 	},
 	"language": {
 		"message": "言語"
@@ -167,8 +377,32 @@
 	"lightdescription": {
 		"message": "Android 向けアプリ「サンタを追いかけよう」と Chromecast で、テレビをライトアップしよう。"
 	},
+	"lk_country_name": {
+		"message": "スリランカ"
+	},
+	"lt_country_name": {
+		"message": "リトアニア"
+	},
+	"lv_country_name": {
+		"message": "ラトビア"
+	},
+	"ly_country_name": {
+		"message": "リビア"
+	},
+	"md_country_name": {
+		"message": "モルドバ"
+	},
 	"minutes": {
 		"message": "分"
+	},
+	"ml_country_name": {
+		"message": "マリ"
+	},
+	"mm_country_name": {
+		"message": "ミャンマー"
+	},
+	"mr_country_name": {
+		"message": "モーリタニア"
 	},
 	"mx_country_name": {
 		"message": "メキシコ"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "メキシコの子供たちは年齢に関係なく、ピニャータ割りでクリスマスを祝います。大人と子供は目隠しをしながら、吊り下げられた星形の陶器を上下に揺らし、棒で振り回して割るのがピニャータの遊び方です。ピニャータが割れると、中に詰め込まれていたナッツやフルーツ、キャンディが落ちてくるのを皆で拾って楽しみます。"
 	},
+	"my_country_name": {
+		"message": "マレーシア"
+	},
+	"mz_country_name": {
+		"message": "モザンビーク"
+	},
+	"na_country_name": {
+		"message": "ナミビア"
+	},
+	"ne_country_name": {
+		"message": "ニジェール"
+	},
 	"newtoday": {
-		"message": "本日オープン"
+		"message": "本日公開"
+	},
+	"ng_country_name": {
+		"message": "ナイジェリア"
+	},
+	"nl_country_name": {
+		"message": "オランダ"
+	},
+	"no_country_name": {
+		"message": "ノルウェー"
 	},
 	"nonprofit-jane-description": {
 		"message": "チンパンジーは、現存する生物種の中で人間の最も近い親戚と言える動物です。チンパンジーの生息数は棲息地の減少、病気、違法売買によって減少しており、現在では 300,000 頭にも満たない数となっています。Jane Goodall Institute（JGI）では、チンパンジーを観察し、行動や生活圏を理解することで同種の保護に努めています。また、野生生物、そして人類が共有する環境の保護に取り組む人々のためのコミュニティ作りも行っています。タンザニアのゴンベにある\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eチンパンジー生息域の様子\u003c/a\u003eをご覧ください。"
@@ -197,17 +452,29 @@
 	"nonprofit-wwf-type": {
 		"message": "ホッキョクグマ"
 	},
+	"np_country_name": {
+		"message": "ネパール"
+	},
 	"nz_country_name": {
 		"message": "ニュージーランド"
 	},
 	"nz_tradition": {
 		"message": "ニュージーランドではクリスマスは夏なので、友だちや家族でバーベキューを囲みます。クリスマス料理の定番はローストラムです。「ハンギ」と呼ばれる料理方法で、地面に穴を掘り地中で蒸し焼きにすることもあります。デザートは、メレンゲ生地に苺やキウイなどの新鮮なフルーツをトッピングした「パブロワ」が人気です。"
 	},
+	"om_country_name": {
+		"message": "オマーン"
+	},
 	"onthego": {
 		"message": "サンタさんを見守ろう"
 	},
 	"openingtomorrow": {
-		"message": "明日オープン"
+		"message": "明日公開"
+	},
+	"pa_country_name": {
+		"message": "パナマ"
+	},
+	"pe_country_name": {
+		"message": "ペルー"
 	},
 	"ph_country_name": {
 		"message": "フィリピン"
@@ -215,8 +482,11 @@
 	"ph_tradition": {
 		"message": "フィリピンは、世界一クリスマスが長い国で知られています。9～12 月の 4 か月間にわたってクリスマス シーズンが続きます。早くて 9 月の初めにクリスマス キャロルが聞こえてくることも珍しくありません。"
 	},
+	"pl_country_name": {
+		"message": "ポーランド"
+	},
 	"play": {
-		"message": "プレイ"
+		"message": "遊ぶ"
 	},
 	"playagain": {
 		"message": "もう一度プレイ"
@@ -224,17 +494,32 @@
 	"playdescription": {
 		"message": "Android 向けアプリ「サンタを追いかけよう」で友だちと遊ぼう。"
 	},
+	"pr_country_name": {
+		"message": "プエルトリコ"
+	},
+	"py_country_name": {
+		"message": "パラグアイ"
+	},
+	"ro_country_name": {
+		"message": "ルーマニア"
+	},
 	"ru_country_name": {
 		"message": "ロシア"
 	},
 	"ru_tradition": {
 		"message": "ロシアの子供たちは、クリスマス ツリーではなく新年の木に飾り付けを行います。子供たちは、ジェド・マロース（ファーザー・フロスト）が孫娘のスネグーラチカ雪姫とともにプレゼントをかかえてやってくるのを心待ちにしています。ジェド・マロースはロシア北部、ヴェリキイ・ウスチュグの深い森の中に住んでいます。"
 	},
+	"sa_country_name": {
+		"message": "サウジアラビア"
+	},
 	"santatracker": {
 		"message": "サンタを追いかけよう"
 	},
 	"score": {
 		"message": "スコア"
+	},
+	"se_country_name": {
+		"message": "スウェーデン"
 	},
 	"seconds": {
 		"message": "秒"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "共有"
 	},
+	"sk_country_name": {
+		"message": "スロバキア"
+	},
+	"sn_country_name": {
+		"message": "セネガル"
+	},
+	"so_country_name": {
+		"message": "ソマリア"
+	},
+	"sr_country_name": {
+		"message": "スリナム"
+	},
+	"sv_country_name": {
+		"message": "エルサルバドル"
+	},
+	"td_country_name": {
+		"message": "チャド"
+	},
 	"terms-and-privacy": {
 		"message": "利用規約とプライバシー"
 	},
@@ -258,7 +561,19 @@
 		"message": "端末を傾けよう"
 	},
 	"time": {
-		"message": "時刻"
+		"message": "時間"
+	},
+	"tj_country_name": {
+		"message": "タジキスタン"
+	},
+	"tm_country_name": {
+		"message": "トルクメニスタン"
+	},
+	"tn_country_name": {
+		"message": "チュニジア"
+	},
+	"tr_country_name": {
+		"message": "トルコ"
 	},
 	"traditions-next": {
 		"message": "次の伝統"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "ブルガリア"
 	},
+	"tw_country_name": {
+		"message": "台湾"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "タンザニア"
+	},
+	"ug_country_name": {
+		"message": "ウガンダ"
 	},
 	"uk_country_name": {
 		"message": "英国"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "英国では、世代を超えてディナーの余興としてクリスマス クラッカーで賑わいます。クラッカーは色とりどりの紙に包まれた円筒状になっており、両端を引っ張ると「パン！」という大きな音とともに筒が弾け、中から紙の帽子やおもちゃ、キャンディなどが出てくるという趣向です。こうしてクリスマスの夜を楽しみます。"
 	},
+	"upgrade-warning": {
+		"message": "アプリ「サンタを追いかけよう」はこのバージョンのブラウザには対応していません。このアプリをご利用になるには、最新のブラウザをダウンロードしてください。詳しくは \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e をご覧ください。"
+	},
 	"us_country_name": {
 		"message": "アメリカ"
 	},
 	"us_tradition": {
-		"message": "アメリカでは、クリスマス イブに靴下をぶら下げます。この習わしの由来はセント・ニコラスが貧しい家族を哀れみ、その家の煙突の中を降りて、貴重な金貨が入った袋を干してあった靴下に入れたことからきます。その言い伝えにちなんで、セント・ニコラスはプレゼントを運ぶサンタクロースとして知られるようになりました。"
+		"message": "アメリカでは、クリスマスイブに靴下をぶら下げます。この習わしの由来はセント・ニコラスが貧しい家族を哀れみ、その家の煙突の中を降りて、貴重な金貨が入った袋を干してあった靴下に入れたことからきます。その言い伝えにちなんで、セント・ニコラスはプレゼントを運ぶサンタクロースとして知られるようになりました。"
+	},
+	"uy_country_name": {
+		"message": "ウルグアイ"
+	},
+	"uz_country_name": {
+		"message": "ウズベキスタン"
+	},
+	"ve_country_name": {
+		"message": "ベネズエラ"
+	},
+	"vn_country_name": {
+		"message": "ベトナム"
 	},
 	"watch": {
 		"message": "見る"
+	},
+	"ye_country_name": {
+		"message": "イエメン"
+	},
+	"zm_country_name": {
+		"message": "ザンビア"
+	},
+	"zw_country_name": {
+		"message": "ジンバブエ"
 	}
 }

@@ -3,7 +3,7 @@
 		"message": "În Ajunul Crăciunului, vom prezenta cu mândrie tabloul de bord al Moșului, tehnologia care pune în mișcare sania cu care călătorește în jurul lumii. Am primit această imagine specială de la unul din numeroșii elfi dezvoltatori ai Moșului, care lucrează din greu la Polul Nord pentru a-l ajuta pe Moș în pregătirile pentru ziua cea mare. Tabloul de bord al Moșului, care dispune de cea mai recentă și extraordinară tehnologie Google Maps și de sisteme de ultimă generație pentru sanie, ne va permite să-i urmărim traseul din jurul lumii și să aflăm mai multe despre câteva dintre locurile vizitate pe drum."
 	},
 	"about-content-three": {
-		"message": "Aplicația Google Maps de urmărire a Moșului este creată și dezvoltată de Google, cu puțin ajutor din partea elfilor Moșului. Aveți nevoie de ajutor sau mai aveți întrebări? Accesați \u003ca href=\"//support.google.com/santatracker\"\u003eCentrul de ajutor\u003c/a\u003e."
+		"message": "Aplicația Google Maps de urmărire a Moșului este creată și dezvoltată de Google, cu puțin ajutor din partea elfilor Moșului. Ai nevoie de ajutor sau mai ai întrebări? Accesează \u003ca href=\"//support.google.com/santatracker\"\u003eCentrul de ajutor\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "Elfii noștri prietenoși v-au vizitat să explorați și satul Moșului în timp ce el se pregătește de călătorie. Așadar porniți în explorarea satului. S-ar putea să descoperiți câteva activități distractive și să întâlniți niște elfi deosebiți."
@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Bun venit Pe urmele lui Moș Crăciun în Google Maps!"
 	},
+	"af_country_name": {
+		"message": "Afganistan"
+	},
+	"al_country_name": {
+		"message": "Albania"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentina"
 	},
 	"ar_tradition": {
 		"message": "În Argentina, Crăciunul începe fix la miezul nopții. Multe familii încep sărbătoarea cu reuniuni festive în casele lor, deschid cadouri alături de cei dragi și aprind artificii la primele ore ale dimineții."
+	},
+	"at_country_name": {
+		"message": "Austria"
 	},
 	"au_country_name": {
 		"message": "Australia"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "Pentru că Australia se află în emisfera sudică, în luna decembrie este vară. În loc de sănii cu zurgălăi și ciocolată caldă, mulți australieni își petrec sărbătorile cu un prânz cu creveți și câteva jocuri de crichet, pe plajă."
 	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Belgia"
+	},
+	"bg_country_name": {
+		"message": "Bulgaria"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
+	},
 	"br_country_name": {
 		"message": "Brazilia"
 	},
 	"br_tradition": {
 		"message": "Oamenii încep să sărbătorească Crăciunul spre miezul nopții. De obicei, are loc o cină mare în familie, se deschid cadouri, iar în biserici se ține „Missa do Galo” (slujba cocoșului). În ciuda vremii calde, de vară tropicală, nu este neobișnuit să se facă referire la iarnă și la zăpadă."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"by_country_name": {
+		"message": "Belarus"
+	},
+	"bz_country_name": {
+		"message": "Belize"
 	},
 	"ca_country_name": {
 		"message": "Canada"
@@ -48,19 +84,121 @@
 		"message": "Desen"
 	},
 	"category_listen": {
-		"message": "Ascultați"
+		"message": "Ascultă"
 	},
 	"category_send": {
-		"message": "Trimiteți"
+		"message": "Trimite"
+	},
+	"cf_country_name": {
+		"message": "Republica Centrafricană"
+	},
+	"ch_country_name": {
+		"message": "Elveția"
+	},
+	"cl_country_name": {
+		"message": "Chile"
 	},
 	"close-this": {
-		"message": "Anulați"
+		"message": "Anulează"
+	},
+	"cm_country_name": {
+		"message": "Camerun"
+	},
+	"co_country_name": {
+		"message": "Columbia"
+	},
+	"codelab-block-moveeast": {
+		"message": "est"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Mută-mă spre est cu un spațiu."
+	},
+	"codelab-block-movenorth": {
+		"message": "nord"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Mută-mă spre nord cu un spațiu."
+	},
+	"codelab-block-movesouth": {
+		"message": "sud"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Mută-mă spre sud cu un spațiu."
+	},
+	"codelab-block-movewest": {
+		"message": "vest"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Mută-mă spre vest cu un spațiu."
+	},
+	"codelab-block-repeat": {
+		"message": "repetă"
+	},
+	"codelab-block-repeat-times": {
+		"message": "ori"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Repetă anumite afirmații de mai multe ori."
+	},
+	"codelab-block-whenrun": {
+		"message": "când se rulează"
+	},
+	"codelab-finish": {
+		"message": "Finalizează"
+	},
+	"codelab-great": {
+		"message": "Excelent"
+	},
+	"codelab-mwc-promo": {
+		"message": "Descoperă mai multe proiecte de codificare Google la \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Următoarea provocare"
+	},
+	"codelab-oops": {
+		"message": "Hopa!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Pentru a funcționa, blocul „Repetă” trebuie să conțină alte blocuri."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Unele blocuri nu sunt îmbinate corespunzător."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Se pare că te-ai rătăcit!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Încearcă unul sau mai multe din blocurile de mai jos pentru a finaliza acest puzzle."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Știai că poți termina acest nivel cu doar {{ideal}} blocuri? Încearcă să utilizezi blocul de mai jos."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Felicitări! Ai terminat perfect acest puzzle ."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Utilizezi blocurile potrivite, dar încearcă să utilizezi mai multe pentru a finaliza acest puzzle."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Știai că poți termina acest nivel cu doar {{ideal}} blocuri?"
+	},
+	"codelab-try-again": {
+		"message": "Încearcă din nou"
 	},
 	"copy-me": {
-		"message": "Copiați acest link pentru a trimite mesajul"
+		"message": "Copiază acest link pentru a trimite mesajul"
 	},
 	"countdownlabel": {
 		"message": "Până pleacă Moș Crăciun la drum"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cu_country_name": {
+		"message": "Cuba"
+	},
+	"cz_country_name": {
+		"message": "Republica Cehă"
 	},
 	"days": {
 		"message": "zile"
@@ -72,28 +210,52 @@
 		"message": "În Germania, aproape fiecare orășel are piață de Crăciun. Locuitorii se adună să asculte muzică de fanfară și se bucură de târgurile tradiționale din regiunea lor. Se mănâncă inimioare de turtă dulce, migdale glazurate, dulciuri de toate felurile și se bea vin fiert (Glühwein) sau cidru de mere."
 	},
 	"deck": {
-		"message": "Decorați festiv"
+		"message": "Decorează festiv"
 	},
 	"deckdescription": {
-		"message": "Împodobiți-vă browserul cu o extensie Chrome cu Moș Crăciun."
+		"message": "Împodobește-ți browserul cu o extensie Chrome cu Moș Crăciun."
+	},
+	"dk_country_name": {
+		"message": "Danemarca"
+	},
+	"do_country_name": {
+		"message": "Republica Dominicană"
+	},
+	"dz_country_name": {
+		"message": "Algeria"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Estonia"
 	},
 	"endofjourneymessage": {
 		"message": "Moș Crăciun și-a încheiat călătoria pentru anul acesta! Încă se distrează cu spiridușii la Polul Nord înainte de vacanța lor anuală."
 	},
+	"er_country_name": {
+		"message": "Eritrea"
+	},
 	"error": {
-		"message": "Se pare că tocmai s-a întrerupt conexiunea cu Polul Nord. Elfii Moșului lucrează din greu să o restabilească. Rămâneți pe fir!"
+		"message": "Se pare că tocmai s-a întrerupt conexiunea cu Polul Nord. Elfii Moșului lucrează din greu să o restabilească. Rămâi pe fir!"
 	},
 	"error-lost-connection": {
-		"message": "Se pare că tocmai s-a întrerupt conexiunea cu Polul Nord. Elfii Moșului lucrează din greu să o restabilească. Rămâneți pe fir!"
+		"message": "Se pare că tocmai s-a întrerupt conexiunea cu Polul Nord. Elfii Moșului lucrează din greu să o restabilească. Rămâi pe fir!"
 	},
 	"error-try-again": {
-		"message": "Încercați din nou"
+		"message": "Încearcă din nou"
 	},
 	"error_try_again": {
-		"message": "Încercați din nou"
+		"message": "Încearcă din nou"
+	},
+	"et_country_name": {
+		"message": "Etiopia"
+	},
+	"fi_country_name": {
+		"message": "Finlanda"
 	},
 	"finished-text": {
-		"message": "Sărbători Fericite! Moșul a ajuns la sfârșitul călătoriei sale în jurul lumii și ia o pauză binemeritată. Vă așteptăm anul viitor!"
+		"message": "Sărbători Fericite! Moșul a ajuns la sfârșitul călătoriei sale în jurul lumii și ia o pauză binemeritată. Te așteptăm anul viitor!"
 	},
 	"fr_country_name": {
 		"message": "Franța"
@@ -101,14 +263,20 @@
 	"fr_tradition": {
 		"message": "În Franța, conform tradiției, copiii își pun încălțămintea lângă șemineu, în așteptarea lui Père Noël. Dacă au fost cuminți în timpul anului, Père Noël le va umple încălțămintea cu cadouri."
 	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
 	"gameover": {
 		"message": "Sfârşit!"
 	},
+	"gameover_level": {
+		"message": "Ai ajuns la nivelul:"
+	},
 	"gameover_score": {
-		"message": "Scorul dvs.:"
+		"message": "Scorul tău:"
 	},
 	"getgooglemaps": {
-		"message": "Descărcați Google Maps"
+		"message": "Descarcă Google Maps"
 	},
 	"gh_country_name": {
 		"message": "Ghana"
@@ -116,8 +284,14 @@
 	"gh_tradition": {
 		"message": "În Ghana, toată familia participă la sărbătoarea Crăciunului. Adulții se îmbracă în costume și împart bomboane și alte dulciuri în cartier. Copiii decorează locuințele cu ornamente de hârtie și cu desene făcute la școală."
 	},
+	"gl_country_name": {
+		"message": "Groenlanda"
+	},
+	"gn_country_name": {
+		"message": "Guineea"
+	},
 	"gotovillage": {
-		"message": "Mergeți în sat"
+		"message": "Mergi în sat"
 	},
 	"gplus": {
 		"message": "Google+."
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "În Guatemala, Crăciunul este sărbătorit cu distracție și dansuri. Se poartă pălării numite „Puritina”, se mănâncă „tamales” preparate după rețeta locală, se aprind petarde la miezul nopții și se dansează până în zori în diferite stiluri."
 	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
 	"hours": {
 		"message": "ore"
+	},
+	"hr_country_name": {
+		"message": "Croația"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Ungaria"
+	},
+	"id_country_name": {
+		"message": "Indonezia"
+	},
+	"ie_country_name": {
+		"message": "Irlanda"
+	},
+	"iq_country_name": {
+		"message": "Iraq"
+	},
+	"ir_country_name": {
+		"message": "Iran"
 	},
 	"is_country_name": {
 		"message": "Islanda"
@@ -143,32 +344,65 @@
 	"is_tradition": {
 		"message": "În Islanda, de Crăciun, fiecare membru al familiei primește în dar haine călduroase. Legenda spune că acolo există o Pisică de Crăciun înfricoșătoare, care îi înfulecă pe cei nepregătiți pentru vremea rece, de iarnă. Toată familia se asigură că nimeni nu va fi mâncat de Pisica de Crăciun."
 	},
+	"it_country_name": {
+		"message": "Italia"
+	},
+	"jm_country_name": {
+		"message": "Jamaica"
+	},
 	"kg_country_name": {
 		"message": "Kârgâzstan"
 	},
 	"kg_tradition": {
 		"message": "În Kârgâzstan, Ayaz Ata (Moș Gerilă) sosește la miezul nopții în ajun de Anul Nou și lasă cadouri sub pomul de Anul Nou. Când bate miezul nopții, familiile din întreaga țară aprind artificii pentru a sărbători această ocazie specială. Orașele se luminează ca ziua."
 	},
+	"kz_country_name": {
+		"message": "Kazahstan"
+	},
 	"language": {
 		"message": "Limbă"
 	},
 	"learn": {
-		"message": "Explorați"
+		"message": "Explorează"
 	},
 	"learnmore": {
-		"message": "Aflați mai multe"
+		"message": "Află mai multe"
 	},
 	"level": {
 		"message": "Nivel"
 	},
 	"light": {
-		"message": "Aprindeți luminițele"
+		"message": "Aprinde luminițele"
 	},
 	"lightdescription": {
-		"message": "Înveseliți televizorul cu Chromecast și aplicația pentru Android, Pe urmele lui Moș Crăciun."
+		"message": "Înveselește televizorul cu Chromecast și aplicația pentru Android, Pe urmele lui Moș Crăciun."
+	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Lituania"
+	},
+	"lv_country_name": {
+		"message": "Letonia"
+	},
+	"ly_country_name": {
+		"message": "Libia"
+	},
+	"md_country_name": {
+		"message": "Moldova"
 	},
 	"minutes": {
 		"message": "minute"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritania"
 	},
 	"mx_country_name": {
 		"message": "Mexic"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "În Mexic, de Crăciun, copiii de toate vârstele sparg o „pinata”. Legați la ochi, adulții și copiii se amuză învârtindu-se și lovind în jur cu un băț, încercând să spargă niște ulcioare suspendate, în formă de stea. Când „pinata” se sparge, din ea curg nuci, fructe și dulciuri, spre bucuria tuturor."
 	},
+	"my_country_name": {
+		"message": "Malaysia"
+	},
+	"mz_country_name": {
+		"message": "Mozambic"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
 	"newtoday": {
 		"message": "Nou azi"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Țările de Jos"
+	},
+	"no_country_name": {
+		"message": "Norvegia"
 	},
 	"nonprofit-jane-description": {
 		"message": "Cimpanzeii sunt cele mai apropiate rude în viață ale oamenilor din regatul animalelor! În prezent, trăiesc mai puțin de 300.000 de cimpanzei din cauza distrugerii habitatului lor, a bolilor și a comerțului ilegal. Institutul Jane Goodall (JGI) protejează cimpanzeii prin observarea și înțelegerea comportamentelor lor, precum și a habitatelor în care trăiesc. De asemenea, JGI se ocupă și de crearea unei comunități de persoane care protejează și conservă fauna și mediul în care trăim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplorați habitatele cimpanzeilor\u003c/a\u003e din Gombe, Tanzania."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Urși polari"
 	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
 	"nz_country_name": {
 		"message": "Noua Zeelandă"
 	},
 	"nz_tradition": {
 		"message": "În Noua Zeelandă, Crăciunul este vara, așa că prietenii și familia se strâng la un grătar. Se mănâncă miel la cuptor, gătit uneori într-un „hangi”, un fel de groapă în pământ sau un cuptor de lut. Desertul preferat este Pavlova: o bezea acoperită cu fructe proaspete, de ex., cu kiwi și căpșuni."
+	},
+	"om_country_name": {
+		"message": "Oman"
 	},
 	"onthego": {
 		"message": "Moș Crăciun a pornit la drum!"
@@ -209,20 +470,38 @@
 	"openingtomorrow": {
 		"message": "Marea deschidere de mâine"
 	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
 	"ph_country_name": {
 		"message": "Filipine"
 	},
 	"ph_tradition": {
 		"message": "Se știe că în Filipine sezonul Crăciunului durează cel mai mult. Lunile Crăciunului sunt patru la număr: septembrie, octombrie, noiembrie și decembrie. Adesea, colindele de Crăciun pot fi auzite încă din luna septembrie."
 	},
+	"pl_country_name": {
+		"message": "Polonia"
+	},
 	"play": {
-		"message": "Jucați"
+		"message": "Joacă"
 	},
 	"playagain": {
-		"message": "Jucați din nou"
+		"message": "Joacă din nou"
 	},
 	"playdescription": {
-		"message": "Jucați-vă cu prietenii în aplicația pentru Android, Pe urmele lui Moș Crăciun."
+		"message": "Joacă-te cu prietenii în aplicația pentru Android, Pe urmele lui Moș Crăciun."
+	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "România"
 	},
 	"ru_country_name": {
 		"message": "Rusia"
@@ -230,35 +509,71 @@
 	"ru_tradition": {
 		"message": "Copiii din Rusia împodobesc un pom de Anul Nou, nu unul de Crăciun. Copiii îl așteaptă cu nerăbdare pe Moș Gerilă, care călătorește împreună cu nepoata sa Snegurochka pentru a împărți cadouri în toată țara. Moș Gerilă trăiește în adâncul pădurilor din Veliky Ustyug, în nordul Rusiei."
 	},
+	"sa_country_name": {
+		"message": "Arabia Saudită"
+	},
 	"santatracker": {
 		"message": "Pe urmele lui Moș Crăciun"
 	},
 	"score": {
 		"message": "Scor"
 	},
+	"se_country_name": {
+		"message": "Suedia"
+	},
 	"seconds": {
 		"message": "secunde"
 	},
 	"select-language": {
-		"message": "Selectați limba"
+		"message": "Selectează limba"
 	},
 	"share-button": {
-		"message": "Postați pentru prietenii de pe Google+"
+		"message": "Postează pentru prietenii de pe Google+"
 	},
 	"share-text": {
-		"message": "Am făcut o felicitare pentru dvs. în aplicația Pe urmele lui Moș Crăciun cu Google. Sărbători fericite!"
+		"message": "Am făcut o felicitare pentru tine în aplicația Pe urmele lui Moș Crăciun cu Google. Sărbători fericite!"
 	},
 	"share-this": {
-		"message": "Postați"
+		"message": "Postează"
+	},
+	"sk_country_name": {
+		"message": "Slovacia"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalia"
+	},
+	"sr_country_name": {
+		"message": "Surinam"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"td_country_name": {
+		"message": "Ciad"
 	},
 	"terms-and-privacy": {
 		"message": "Confidențialitate"
 	},
 	"tilt": {
-		"message": "Înclinați dispozitivul!"
+		"message": "Înclină dispozitivul!"
 	},
 	"time": {
-		"message": "Oră"
+		"message": "Timp"
+	},
+	"tj_country_name": {
+		"message": "Tadjikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunisia"
+	},
+	"tr_country_name": {
+		"message": "Turcia"
 	},
 	"traditions-next": {
 		"message": "Următoarea tradiție"
@@ -1182,7 +1497,7 @@
 		"message": "America de Nord"
 	},
 	"trivia_beginner_077": {
-		"message": "În ce țară trebuie să călătoriți pentru a naviga pe canalul Suez și pentru a vizita „Orașul morților” din Cairo?"
+		"message": "În ce țară trebuie să călătorești pentru a naviga pe canalul Suez și pentru a vizita „Orașul morților” din Cairo?"
 	},
 	"trivia_beginner_077_answer0": {
 		"message": "Egipt"
@@ -1218,7 +1533,7 @@
 		"message": "Thailanda"
 	},
 	"trivia_beginner_080": {
-		"message": "În ce țară trebuie să călătoriți pentru a vizita vechile ruine mayașe și pentru a vă relaxa pe plajele din Cancún?"
+		"message": "În ce țară trebuie să călătorești pentru a vizita vechile ruine mayașe și pentru a te relaxa pe plajele din Cancún?"
 	},
 	"trivia_beginner_080_answer0": {
 		"message": "Mexic"
@@ -1230,7 +1545,7 @@
 		"message": "Turcia"
 	},
 	"trivia_beginner_081": {
-		"message": "În ce țară trebuie să călătoriți pentru a vizita catedrala St. Patrick din Dublin și pentru a participa la festivalul de arte din Kilkenny?"
+		"message": "În ce țară trebuie să călătorești pentru a vizita catedrala St. Patrick din Dublin și pentru a participa la festivalul de arte din Kilkenny?"
 	},
 	"trivia_beginner_081_answer0": {
 		"message": "Irlanda"
@@ -1242,7 +1557,7 @@
 		"message": "Costa Rica"
 	},
 	"trivia_beginner_082": {
-		"message": "În ce țară trebuie să călătoriți pentru a face un tur al pădurilor tropicale și a dansa la Carnavalul de la Rio de Janeiro?"
+		"message": "În ce țară trebuie să călătorești pentru a face un tur al pădurilor tropicale și a dansa la Carnavalul de la Rio de Janeiro?"
 	},
 	"trivia_beginner_082_answer0": {
 		"message": "Brazilia"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgaria"
 	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Regatul Unit"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "În Regatul Unit, toți se amuză cu pocnitorile de Crăciun, puse pe masă la cină. Pocnitorile sunt tuburi înfășurate în hârtie colorată. Când se trage de capetele tubului, acesta se desface cu o pocnitură puternică! Înăuntru sunt coifuri de hârtie, jucării și dulciuri pentru noaptea de Crăciun."
 	},
+	"upgrade-warning": {
+		"message": "Hopa! Aplicația Pe urmele lui Moș Crăciun nu este acceptată cu această versiune de browser. Pentru a accesa aplicația Pe urmele lui Moș Crăciun, descarcă un browser nou. Pentru mai multe informații, accesează \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Statele Unite ale Americii"
 	},
 	"us_tradition": {
 		"message": "În Statele Unite ale Americii, de Crăciun se atârnă ciorapi pentru cadouri. Legenda spune că St Nicholas a aflat despre o familie nevoiașă. Pentru a le face o surpriză, a coborât pe coș și le-a pus pungi cu aur în ciorapi. De atunci, St Nicholas a fost cunoscut ca Santa Claus, cel care aduce daruri."
 	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
 	"watch": {
-		"message": "Vizionați"
+		"message": "Vizionează"
+	},
+	"ye_country_name": {
+		"message": "Yemen"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
 	}
 }

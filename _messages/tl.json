@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Welcome sa Google Maps Santa Tracker!"
 	},
+	"af_country_name": {
+		"message": "Afghanistan"
+	},
+	"al_country_name": {
+		"message": "Albania"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentina"
 	},
 	"ar_tradition": {
 		"message": "Sa Argentina, nagsisimula ang Pasko sa ganap na pagsapit ng hatinggabi. Sinisimulan ng maraming pamilya ang holiday sa pagdaraos ng masasayang pagdiriwang sa kanilang mga tahanan, pagbubukas ng mga regalo kasama ang kanilang mga mahal sa buhay at pagsisindi ng mga paputok pagsapit ng madaling araw."
+	},
+	"at_country_name": {
+		"message": "Austria"
 	},
 	"au_country_name": {
 		"message": "Australia"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "Ayon sa lokasyon ng Australia sa Southern Hemisphere, tag-init doon kapag Disyembre. Sa halip na mga jingle bell at cocoa, maraming Australian ang pumupunta sa beach upang ipagdiwang ang mga holiday nang may hipon na tanghalian at ilang round ng cricket."
 	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Belgium"
+	},
+	"bg_country_name": {
+		"message": "Bulgaria"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
+	},
 	"br_country_name": {
 		"message": "Brazil"
 	},
 	"br_tradition": {
 		"message": "Nagsisimula ang mga pagdiriwang ng Pasko bago sumapit ang hatinggabi at karaniwang may malalaking pagsasalu-salo ng pamilya, pagbubukas ng regalo at pagdaraos sa 'Missa do Galo' (misa ng tandang) sa mga simbahan. Mainit man ang klimang tropikal, hindi kakaiba ang mga tema ng taglamig at niyebe."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"by_country_name": {
+		"message": "Belarus"
+	},
+	"bz_country_name": {
+		"message": "Belize"
 	},
 	"ca_country_name": {
 		"message": "Canada"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Ipadala"
 	},
+	"cf_country_name": {
+		"message": "Central African Republic"
+	},
+	"ch_country_name": {
+		"message": "Switzerland"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
 	"close-this": {
 		"message": "Kanselahin"
+	},
+	"cm_country_name": {
+		"message": "Cameroon"
+	},
+	"co_country_name": {
+		"message": "Colombia"
+	},
+	"codelab-block-moveeast": {
+		"message": "silangan"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Ilipat ako sa silangan nang isang espasyo."
+	},
+	"codelab-block-movenorth": {
+		"message": "hilaga"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Ilipat ako sa hilaga nang isang espasyo."
+	},
+	"codelab-block-movesouth": {
+		"message": "timog"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Ilipat ako sa timog nang isang espasyo."
+	},
+	"codelab-block-movewest": {
+		"message": "kanluran"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Ilipat ako sa kanluran nang isang espasyo."
+	},
+	"codelab-block-repeat": {
+		"message": "ulitin"
+	},
+	"codelab-block-repeat-times": {
+		"message": "(na) beses"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Ulitin ang ilang pahayag nang ilang beses."
+	},
+	"codelab-block-whenrun": {
+		"message": "kapag pinatakbo"
+	},
+	"codelab-finish": {
+		"message": "Tapusin"
+	},
+	"codelab-great": {
+		"message": "Mahusay"
+	},
+	"codelab-mwc-promo": {
+		"message": "Mag-explore ng higit pang mga proyekto sa pagko-code ng Google sa \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Sunod na Hamon"
+	},
+	"codelab-oops": {
+		"message": "Oops!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Ang block na \"Ulitin\" ay kailangang may lamang iba pang mga block upang gumana."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Hindi maayos na naka-attach ang ilan sa mga block."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Mukhang nawala ka!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Subukan ang isa o higit pa sa block sa ibaba upang malutas ang puzzle na ito."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Alam mo bang matatapos mo ang level na ito sa pamamagitan lang ng {{ideal}} (na) block? Subukang gamitin ang block sa ibaba."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Binabati ka namin! Mahusay mong natapos ang puzzle!"
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Ginagamit mo ang mga tamang block, ngunit subukang gumamit ng marami sa mga ito upang makumpleto ang puzzle na ito."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Alam mo bang matatapos mo ang level na ito sa pamamagitan lang ng {{ideal}} (na) block?"
+	},
+	"codelab-try-again": {
+		"message": "Subukang Muli"
 	},
 	"copy-me": {
 		"message": "Kopyahin ang link na ito upang ibahagi ang iyong mensahe"
 	},
 	"countdownlabel": {
 		"message": "Hanggang sa Umalis si Santa"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cu_country_name": {
+		"message": "Cuba"
+	},
+	"cz_country_name": {
+		"message": "Czech Republic"
 	},
 	"days": {
 		"message": "Araw"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "I-deck out ang iyong browser gamit ang isang extension ng Chrome ni Santa."
 	},
+	"dk_country_name": {
+		"message": "Denmark"
+	},
+	"do_country_name": {
+		"message": "Dominican Republic"
+	},
+	"dz_country_name": {
+		"message": "Algeria"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Estonia"
+	},
 	"endofjourneymessage": {
 		"message": "Natapos na ni Santa ang kanyang paglalakbay para sa taon! Nagsasaya pa rin siya at ang mga elf sa North Pole bago ang kanilang taunang bakasyon."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
 	},
 	"error": {
 		"message": "Mukhang nawala ang ating koneksyon sa North Pole. Nagsisikap ang mga elf ni Santa na ayusin ito - manatiling nakaantabay!"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Subukang muli"
 	},
+	"et_country_name": {
+		"message": "Ethiopia"
+	},
+	"fi_country_name": {
+		"message": "Finland"
+	},
 	"finished-text": {
 		"message": "Maligayang Pasko! Natapos na ni Santa ang kanyang pag-ikot sa buong mundo at kasalukuyan nang nagpapahinga. Bisitahin muli kami sa susunod na taon!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "Sa France, tradisyunal na inilalagay ng mga bata ang kanilang mga sapatos sa tabi ng tsimineya sa pag-asang darating si Père Noël. Kung naging mabait ang mga bata sa buong taon, pupunuin ni Père Noël ng mga regalo ang mga sapatos na iyon."
 	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
 	"gameover": {
 		"message": "Tapos na ang Laro!"
+	},
+	"gameover_level": {
+		"message": "Nakarating ka na sa level:"
 	},
 	"gameover_score": {
 		"message": "Iyong score:"
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "Kasama ang buong pamilya sa pagdiriwang ng Pasko sa Ghana. Nagsusuot ang matatanda ng mga costume at namimigay ng mga candy at matatamis na pagkain sa kapitbahayan. Pinapalamutihan ng mga bata ang kanilang mga bahay gamit ang mga papel na dekorasyon at drawing na ginagawa nila sa paaralan."
+	},
+	"gl_country_name": {
+		"message": "Greenland"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
 	},
 	"gotovillage": {
 		"message": "Pumunta sa Village"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "Ipinagdiriwang ng mga taga-Guatemala ang Pasko nang may kasiyahan at sayawan. Nagsusuot sila ng mga sumbrerong tinatawag na Puritina, kumakain ng mga Guatemalan na tamale, nagsisindi ng mga paputok sa hatinggabi, at nagsasayawan sa buong gabi ng iba't ibang istilo ng sayaw."
 	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
 	"hours": {
 		"message": "Oras"
+	},
+	"hr_country_name": {
+		"message": "Croatia"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Hungary"
+	},
+	"id_country_name": {
+		"message": "Indonesia"
+	},
+	"ie_country_name": {
+		"message": "Ireland"
+	},
+	"iq_country_name": {
+		"message": "Iraq"
+	},
+	"ir_country_name": {
+		"message": "Iran"
 	},
 	"is_country_name": {
 		"message": "Iceland"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "Kapag Pasko sa Iceland, nagbibigayan ang magkakapamilya ng mga regalo ng maiinit na kasuotan. Ayon sa alamat, may nakakatakot na Christmas Cat na kumakain sa sinumang hindi nakagayak para sa malamig na panahon. Nagtutulungan ang magkakapamilya upang matiyak na walang 'mapupunta sa Christmas Cat.'"
 	},
+	"it_country_name": {
+		"message": "Italy"
+	},
+	"jm_country_name": {
+		"message": "Jamaica"
+	},
 	"kg_country_name": {
 		"message": "Kyrgyzstan"
 	},
 	"kg_tradition": {
 		"message": "Sa Kyrgyzstan, dumarating si Ayaz Ata (Grandfather Frost) sa hatinggabi sa Bisperas ng Bagong Taon at nag-iiwan ng mga regalo sa ilalim ng New Year tree. Kapag sumapit na ang hatinggabi, nagsisindi ng mga paputok ang mga pamilya sa buong bansa upang ipagdiwang ang magandang okasyon na ito. Nagliliwanag ang mga lungsod na parang umaga."
+	},
+	"kz_country_name": {
+		"message": "Kazakhstan"
 	},
 	"language": {
 		"message": "Wika"
@@ -167,8 +377,32 @@
 	"lightdescription": {
 		"message": "Pailawin ang iyong TV gamit ang Santa Tracker Android app at Chromecast."
 	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Lithuania"
+	},
+	"lv_country_name": {
+		"message": "Latvia"
+	},
+	"ly_country_name": {
+		"message": "Libya"
+	},
+	"md_country_name": {
+		"message": "Moldova"
+	},
 	"minutes": {
 		"message": "Minuto"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritania"
 	},
 	"mx_country_name": {
 		"message": "Mexico"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "Sa Mexico, ipinagdiriwang ng mga bata ang Pasko sa pagsira ng mga pinata. Nagsasaya ang matatanda at mga bata sa pagtatakip ng mata, pag-ikot at pagwasiwas ng patpat upang mabuksan ang nakabitin na pasong hugis bituin. Kapag nasira na ang pinata, uulan ng mani, prutas at candy na para sa lahat."
 	},
+	"my_country_name": {
+		"message": "Malaysia"
+	},
+	"mz_country_name": {
+		"message": "Mozambique"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
 	"newtoday": {
 		"message": "Bago Ngayon"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Netherlands"
+	},
+	"no_country_name": {
+		"message": "Norway"
 	},
 	"nonprofit-jane-description": {
 		"message": "Ang Mga Chimpanzee ay ang pinakamalalapit na nabubuhay na kapamilya ng mga tao sa animal kingdom! Sa ngayon, mas kaunti sa 300,000 Chimpanzee na lang ang natitira dahil sa pagkawala ng tirahan, sakit at ilegal na kalakalan. Pinoprotektahan ng Jane Goodall Institute (JGI) ang mga chimpanzee sa pamamagitan ng pagbabantay at pag-unawa sa kanilang mga gawi pati na rin ang mga tirahan kung saan nabubuhay ang mga ito. Kumikilos din ang JGI upang makabuo ng komunidad ng mga tao na magpoprotekta at mangangalaga sa wildlife at sa iisang kapaligiran na ating pinapakinabangan. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eI-explore ang mga tirahan ng Chimpanzee\u003c/a\u003e sa Gombe, Tanzania."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Polar Bear"
 	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
 	"nz_country_name": {
 		"message": "New Zealand"
 	},
 	"nz_tradition": {
 		"message": "Dahil tag-init ang Pasko sa New Zealand, nagsasalu-salo ang mga kaibigan at pamilya sa barbecue. Kabilang sa mga karaniwang pagkain sa Pasko ang inihaw na tupa, na niluluto kung minsan sa 'hangi' - isang butas sa ilalim ng lupa o lupang hurno. Isang paboritong panghimagas ang pavlova: meringue na ginayakan ng sariwang prutas tulad ng strawberry at kiwi."
+	},
+	"om_country_name": {
+		"message": "Oman"
 	},
 	"onthego": {
 		"message": "Abala si Santa"
@@ -209,11 +470,20 @@
 	"openingtomorrow": {
 		"message": "Bukas ang grand opening"
 	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
 	"ph_country_name": {
 		"message": "Pilipinas"
 	},
 	"ph_tradition": {
 		"message": "Kilala ang Pilipinas sa pagkakaroon ng pinakamahabang pagdiriwang ng Pasko sa buong mundo. Apat na buwan ang itinuturing na buwan ng Kapaskuhan: Setyembre, Oktubre, Nobyembre at Disyembre. Kadalasan ay makakarinig na ng mga awiting Pamasko pagpasok pa lang ng Setyembre."
+	},
+	"pl_country_name": {
+		"message": "Poland"
 	},
 	"play": {
 		"message": "Laruin"
@@ -224,17 +494,32 @@
 	"playdescription": {
 		"message": "Makipaglaro sa mga kaibigan sa Santa Tracker Android App."
 	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "Romania"
+	},
 	"ru_country_name": {
 		"message": "Russia"
 	},
 	"ru_tradition": {
 		"message": "Nagde-decor ang mga bata sa Russia ng New Year's tree sa halip na Christmas tree. Inaabangan ng mga bata si Grandfather Frost na naglalakbay kasama si Snowmaden ang kanyang apo para magbigay ng mga regalo sa buong lugar. Nakatira si Grandfather Frost sa kagubatan ng Veliky Ustyug sa hilagang Russia."
 	},
+	"sa_country_name": {
+		"message": "Saudi Arabia"
+	},
 	"santatracker": {
 		"message": "Santa Tracker"
 	},
 	"score": {
 		"message": "Score"
+	},
+	"se_country_name": {
+		"message": "Sweden"
 	},
 	"seconds": {
 		"message": "Segundo"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "Ibahagi"
 	},
+	"sk_country_name": {
+		"message": "Slovakia"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalia"
+	},
+	"sr_country_name": {
+		"message": "Suriname"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"td_country_name": {
+		"message": "Chad"
+	},
 	"terms-and-privacy": {
 		"message": "Mga Tuntunin at Privacy"
 	},
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "Oras"
+	},
+	"tj_country_name": {
+		"message": "Tajikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunisia"
+	},
+	"tr_country_name": {
+		"message": "Turkey"
 	},
 	"traditions-next": {
 		"message": "Susunod na Tradisyon"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgaria"
 	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "United Kingdom"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "Sa United Kingdom, nagpapaputok ang mga nagdiriwang, anuman ang edad, ng mga Christmas cracker sa hapag sa hapunan. Ang cracker ay tube na binalot sa makukulay na papel, na may hahataking tab sa magkabilang dulo. Kapag hinatak mo ang mga tab, sasabog ang tube nang may malakas na tunog! May laman itong mga paper hat, laruan at candy na ie-enjoy sa gabi ng Pasko."
 	},
+	"upgrade-warning": {
+		"message": "Oops! Hindi sinusuportahan ang Santa Tracker sa bersyong ito ng iyong browser. Upang ma-access ang Santa Tracker, mag-download ng makabagong browser. Para sa higit pang impormasyon, bisitahin ang \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Estados Unidos"
 	},
 	"us_tradition": {
 		"message": "Sa Estados Unidos, nagsasabit ng mga stocking sa Bisperas ng Pasko. Ayon sa alamat, nabalitaan ni St Nicholas ang tungkol sa isang pamilyang naghihirap. Upang sorpresahin sila, bumaba siya sa kanilang tsimineya at naglagay ng mga bag ng ginto sa mga nakasabit na stocking. Mula noon, nakilala si St Nicholas bilang si Santa Claus, ang tagabigay ng regalo."
 	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
 	"watch": {
 		"message": "Panoorin"
+	},
+	"ye_country_name": {
+		"message": "Yemen"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
 	}
 }

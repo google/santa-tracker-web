@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Tere tulemast Google Mapsi jõuluvana teekonda jälgima!"
 	},
+	"af_country_name": {
+		"message": "Afganistan"
+	},
+	"al_country_name": {
+		"message": "Albaania"
+	},
+	"ao_country_name": {
+		"message": "Angoola"
+	},
 	"ar_country_name": {
 		"message": "Argentina"
 	},
 	"ar_tradition": {
 		"message": "Argentinas algavad jõulud kohe keskööl. Paljudes peredes tähistatakse pühasid koduste pidustustega, avatakse koos kingitusi ja varastel hommikutundidel lastakse ilutulestikku."
+	},
+	"at_country_name": {
+		"message": "Austria"
 	},
 	"au_country_name": {
 		"message": "Austraalia"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "Kuna Austraalia asub lõunapoolkeral, on seal detsembris suvi. Aisakellade ja kakao asemel suunduvad paljud austraallased randa, söövad pühade puhul krevette ja mängivad pisut kriketit."
 	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Belgia"
+	},
+	"bg_country_name": {
+		"message": "Bulgaaria"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Boliivia"
+	},
 	"br_country_name": {
 		"message": "Brasiilia"
 	},
 	"br_tradition": {
 		"message": "Jõulude tähistamine algab kesköö lähenedes. Tavaliselt osaleb kogu pere suurel õhtusöögil, avatakse kingitusi ja kirikus toimub Missa do Galo. Soojast troopilisest suveilmast hoolimata kasutatakse ikkagi sageli talve- ja lumetemaatikat."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"by_country_name": {
+		"message": "Valgevene"
+	},
+	"bz_country_name": {
+		"message": "Belize"
 	},
 	"ca_country_name": {
 		"message": "Kanada"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Saatke"
 	},
+	"cf_country_name": {
+		"message": "Kesk-Aafrika Vabariik"
+	},
+	"ch_country_name": {
+		"message": "Šveits"
+	},
+	"cl_country_name": {
+		"message": "Tšiili"
+	},
 	"close-this": {
 		"message": "Tühista"
+	},
+	"cm_country_name": {
+		"message": "Kamerun"
+	},
+	"co_country_name": {
+		"message": "Colombia"
+	},
+	"codelab-block-moveeast": {
+		"message": "ida"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Nihuta mind ühe koha võrra ida poole."
+	},
+	"codelab-block-movenorth": {
+		"message": "põhi"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Nihuta mind ühe koha võrra põhja poole."
+	},
+	"codelab-block-movesouth": {
+		"message": "lõuna"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Nihuta mind ühe koha võrra lõuna poole."
+	},
+	"codelab-block-movewest": {
+		"message": "lääs"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Nihuta mind ühe koha võrra lääne poole."
+	},
+	"codelab-block-repeat": {
+		"message": "korda"
+	},
+	"codelab-block-repeat-times": {
+		"message": "korda"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Korrake mõnda lauset mitu korda."
+	},
+	"codelab-block-whenrun": {
+		"message": "kui käitatakse"
+	},
+	"codelab-finish": {
+		"message": "Lõpeta"
+	},
+	"codelab-great": {
+		"message": "Suurepärane"
+	},
+	"codelab-mwc-promo": {
+		"message": "Tutvuge Google’i kodeerimisprojektidega aadressil \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Järgmine väljakutse"
+	},
+	"codelab-oops": {
+		"message": "Oih!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Ploki „Korda” toimimiseks peavad selles olema muud plokid."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Mõned plokid pole üksteisega korralikult ühendatud."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Paistab, et eksisite ära!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Proovige kasutada selle pusle kokkupanekuks vähemalt ühte allpool olevat plokki."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Kas teadsite, et selle taseme saab läbida ainult {{ideal}} plokiga? Proovige kasutada allpool olevat plokki."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Õnnitleme! Panite pusle täiuslikult kokku."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Kasutate õigeid plokke, kuid proovige selle pusle kokkupanekuks kasutada neid suuremal arvul."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Kas teadsite, et selle taseme saab läbida ainult {{ideal}} plokiga?"
+	},
+	"codelab-try-again": {
+		"message": "Proovige uuesti"
 	},
 	"copy-me": {
 		"message": "Sõnumi jagamiseks kopeerige see link"
 	},
 	"countdownlabel": {
 		"message": "Aeg jõuluvana teekonna alguseni"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cu_country_name": {
+		"message": "Kuuba"
+	},
+	"cz_country_name": {
+		"message": "Tšehhi Vabariik"
 	},
 	"days": {
 		"message": "Päevi"
@@ -72,13 +210,31 @@
 		"message": "Peaaegu igas Saksamaa linnas avatakse linnaplatsil jõuluturg. Inimesed kogunevad, et kuulata puhkpilliorkestreid ja nautida kohalikke kaupu. Nad söövad piparkoogisüdameid, magusaid mandleid, erinevaid maiustusi ning joovad hõõgveini (Glühwein) või õunasiidrit."
 	},
 	"deck": {
-		"message": "Dekoreerimine"
+		"message": "Dekoreerige"
 	},
 	"deckdescription": {
 		"message": "Ehtige oma brauser Chrome'i jõuluvana laiendusega."
 	},
+	"dk_country_name": {
+		"message": "Taani"
+	},
+	"do_country_name": {
+		"message": "Dominikaani Vabariik"
+	},
+	"dz_country_name": {
+		"message": "Alžeeria"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Eesti"
+	},
 	"endofjourneymessage": {
 		"message": "Jõuluvana teekond on selleks aastaks läbi. Enne iga-aastast puhkust lõbutseb jõuluvana koos päkapikkudega pisut aega põhjanabal."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
 	},
 	"error": {
 		"message": "Paistab, et ühendus põhjapoolusega on katkenud. Jõuluvana päkapikud teevad kõvasti tööd, et ühendus taastada – jääge meiega!"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Proovige uuesti"
 	},
+	"et_country_name": {
+		"message": "Etioopia"
+	},
+	"fi_country_name": {
+		"message": "Soome"
+	},
 	"finished-text": {
 		"message": "Häid pühi! Jõuluvana ümbermaailmareis on lõppenud ja nüüd jäi ta igati väljateenitud puhkusele. Külastage meid järgmisel aastal uuesti."
 	},
@@ -100,6 +262,15 @@
 	},
 	"fr_tradition": {
 		"message": "Prantsusmaal panevad lapsed traditsioonide kohaselt Père Noëli oodates kinga kamina kõrvale. Kui laps on terve aasta tubli olnud, täidab Père Noël tema kinga kinkidega."
+	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
+	"gameover": {
+		"message": "Mäng läbi!"
+	},
+	"gameover_level": {
+		"message": "Jõudsite tasemele:"
 	},
 	"gameover_score": {
 		"message": "Teie tulemus:"
@@ -112,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "Ghana jõulupidustused kaasavad kogu pere. Täiskasvanud riietuvad kostüümidesse ning jagavad naabruskonnas komme ja maiustusi. Lapsed ehivad kodu koolis valmistatud paberkaunistuste ja joonistustega."
+	},
+	"gl_country_name": {
+		"message": "Gröönimaa"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
 	},
 	"gotovillage": {
 		"message": "Minge külla"
@@ -131,8 +308,35 @@
 	"gt_tradition": {
 		"message": "Guatemalalased tähistavad jõule lõbutsedes ja tantsides. Nad kannavad mütse, mida nimetatakse puritinadeks, söövad Guatemala tamalesid, süütavad keskööl ilutulestikurakette ja tantsivad terve õhtu erinevaid tantse."
 	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
 	"hours": {
-		"message": "Avatud"
+		"message": "Tunde"
+	},
+	"hr_country_name": {
+		"message": "Horvaatia"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Ungari"
+	},
+	"id_country_name": {
+		"message": "Indoneesia"
+	},
+	"ie_country_name": {
+		"message": "Iirimaa"
+	},
+	"iq_country_name": {
+		"message": "Iraak"
+	},
+	"ir_country_name": {
+		"message": "Iraan"
 	},
 	"is_country_name": {
 		"message": "Island"
@@ -140,17 +344,26 @@
 	"is_tradition": {
 		"message": "Islandil kingivad jõulude ajal pereliikmed üksteisele sooje riietusesemeid. Legendi järgi liigub ringi hirmus jõulukass, kes sööb ära kõik, kellel pole külma talveilma jaoks sobilikke riideid. Pereliikmed abistavad üksteist, et olla kindel, et keegi ei satu jõulukassi kõhtu."
 	},
+	"it_country_name": {
+		"message": "Itaalia"
+	},
+	"jm_country_name": {
+		"message": "Jamaika"
+	},
 	"kg_country_name": {
 		"message": "Kõrgõzstan"
 	},
 	"kg_tradition": {
 		"message": "Kõrgõzstanis saabub aastavahetusel keskööl Ayaz Ata (Külmataat) ja jätab puu alla kingitusi. Kesköö saabudes tervitavad pered terves riigis uut aastat ilutulestikuga. Linnad on valgustatud, nagu oleks päev."
 	},
+	"kz_country_name": {
+		"message": "Kasahstan"
+	},
 	"language": {
 		"message": "Keel"
 	},
 	"learn": {
-		"message": "Õppimine"
+		"message": "Õppige"
 	},
 	"learnmore": {
 		"message": "Lisateave"
@@ -159,13 +372,37 @@
 		"message": "Tase"
 	},
 	"light": {
-		"message": "Jõulutulede süütamine"
+		"message": "Süüdake jõulutuled"
 	},
 	"lightdescription": {
 		"message": "Pange oma televiisor särama jõuluvana teekonna jälgimise Androidi rakenduse ja Chromecastiga."
 	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Leedu"
+	},
+	"lv_country_name": {
+		"message": "Läti"
+	},
+	"ly_country_name": {
+		"message": "Liibüa"
+	},
+	"md_country_name": {
+		"message": "Moldova"
+	},
 	"minutes": {
 		"message": "Minuteid"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Birma"
+	},
+	"mr_country_name": {
+		"message": "Mauritaania"
 	},
 	"mx_country_name": {
 		"message": "Mehhiko"
@@ -173,8 +410,29 @@
 	"mx_tradition": {
 		"message": "Mehhikos tähistavad igas vanuses lapsed jõulusid piñatade lõhkumisega. Nii lastel kui ka täiskasvanutel on lõbus, kui nad lasevad endal silmad kinni siduda, keerutavad ringi ja püüavad kepiga lõhkuda tähekujulisi rippuvaid potte. Purustatud piñatast kukub välja pähkleid, puuvilju ja komme, millega kõik saavad maiustada."
 	},
+	"my_country_name": {
+		"message": "Malaisia"
+	},
+	"mz_country_name": {
+		"message": "Mosambiik"
+	},
+	"na_country_name": {
+		"message": "Namiibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
 	"newtoday": {
 		"message": "Täna uus"
+	},
+	"ng_country_name": {
+		"message": "Nigeeria"
+	},
+	"nl_country_name": {
+		"message": "Holland"
+	},
+	"no_country_name": {
+		"message": "Norra"
 	},
 	"nonprofit-jane-description": {
 		"message": "Šimpansid on inimese lähimad elusolevad sugulased loomariigis. Tänasel päeval on elupaikade hävimise, haiguste ja ebaseadusliku kaubitsemise tõttu maailmas alles alla 300 000 šimpansi. Organisatsioon Jane Goodall Institute (JGI) tegeleb šimpansite kaitsmisega. Selleks jälgitakse ja üritatakse mõista nende käitumist ning elupaiku. Samuti on JGI eesmärgiks luua kogukond, kes tegeleb loomariigi ja meie ühise keskkonna kaitsmise ning säilitamisega. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eTutvuge šimpansite elupaikadega\u003c/a\u003e Gombes, Tansaanias."
@@ -194,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Jääkaru"
 	},
+	"np_country_name": {
+		"message": "Nepaal"
+	},
 	"nz_country_name": {
 		"message": "Uus-Meremaa"
 	},
 	"nz_tradition": {
 		"message": "Kuna jõulude ajal on Uus-Meremaal suvi, kogunevad sõbrad ja pere grillipeole. Tüüpiliste jõuluroogade hulka kuuluvad lambapraad, mõnikord küpsetatakse seda hangis – see on maa-alune auk või ahi. Lemmikmagustoiduks on pavlova – besee, mis on kaetud värskete marjadega, näiteks maasikate ja kiividega."
+	},
+	"om_country_name": {
+		"message": "Omaan"
 	},
 	"onthego": {
 		"message": "Jõuluvana on liikvel"
@@ -206,14 +470,23 @@
 	"openingtomorrow": {
 		"message": "Homme suurejooneline avamine"
 	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peruu"
+	},
 	"ph_country_name": {
 		"message": "Filipiinid"
 	},
 	"ph_tradition": {
 		"message": "Filipiinidel on maailma pikim jõuluaeg. Jõulukuudeks peetakse nelja kuud: september, oktoober, november ja detsember. Jõululaule võib sageli kuulda juba isegi septembri alguses."
 	},
+	"pl_country_name": {
+		"message": "Poola"
+	},
 	"play": {
-		"message": "Mängima"
+		"message": "Mängige"
 	},
 	"playagain": {
 		"message": "Mängige uuesti"
@@ -221,17 +494,32 @@
 	"playdescription": {
 		"message": "Mängige sõpradega jõuluvana teekonna jälgimise Androidi rakenduses."
 	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"py_country_name": {
+		"message": "Paraguai"
+	},
+	"ro_country_name": {
+		"message": "Rumeenia"
+	},
 	"ru_country_name": {
 		"message": "Venemaa"
 	},
 	"ru_tradition": {
 		"message": "Vene lapsed ehivad jõulupuu asemel nääripuud. Lapsed ootavad pikisilmi näärivana, kes koos oma lapselapse Lumehelbekesega kogu maal lastele kingitusi toob. Näärivana elab Venemaa põhjaosas sügaval Veliki Ustjugi metsades."
 	},
+	"sa_country_name": {
+		"message": "Saudi Araabia"
+	},
 	"santatracker": {
 		"message": "Jõuluvana teekonna jälgimine"
 	},
 	"score": {
 		"message": "Tulemus"
+	},
+	"se_country_name": {
+		"message": "Rootsi"
 	},
 	"seconds": {
 		"message": "Sekundeid"
@@ -248,6 +536,24 @@
 	"share-this": {
 		"message": "Jaga"
 	},
+	"sk_country_name": {
+		"message": "Slovakkia"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somaalia"
+	},
+	"sr_country_name": {
+		"message": "Suriname"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"td_country_name": {
+		"message": "Tšaad"
+	},
 	"terms-and-privacy": {
 		"message": "Tingimused ja privaatsus"
 	},
@@ -256,6 +562,18 @@
 	},
 	"time": {
 		"message": "Aeg"
+	},
+	"tj_country_name": {
+		"message": "Tadžikistan"
+	},
+	"tm_country_name": {
+		"message": "Türkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tuneesia"
+	},
+	"tr_country_name": {
+		"message": "Türgi"
 	},
 	"traditions-next": {
 		"message": "Järgmine traditsioon"
@@ -3890,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgaaria"
 	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tansaania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Ühendkuningriik"
@@ -3899,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "Ühendkuningriigis tunnevad kõik jõuluõhtusöögil osalejad suurt rõõmu paukkommidest. Need on värvilisse paberisse pakitud torud, mida saab kummastki otsast tõmmata. Otste tõmbamisel puruneb toru kõva plaksuga. Toru sees on pabermütsid, mänguasjad ja kommid, mida saab jõuluõhtul nautida."
 	},
+	"upgrade-warning": {
+		"message": "Vabandust! Teie brauseri versioon ei toeta Jõuluvana teekonna jälgimist. Juurdepääsuks Jõuluvana teekonna jälgimisele laadige alla ajakohane brauser. Lisateavet leiate saidilt \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Ameerika Ühendriigid"
 	},
 	"us_tradition": {
 		"message": "Ühendriikides riputatakse jõuluõhtul välja jõulusokid. Legendi järgi kuulis Püha Nikolaus hädas olevast perest. Nende üllatamiseks ronis ta korstna kaudu nende koju ja jättis rippuvatesse sokkidesse kullakotte. Sellest ajast alates tuntakse Püha Nikolausi jõuluvanana, kes toob kinke."
 	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Usbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
 	"watch": {
-		"message": "Kuva"
+		"message": "Vaadake"
+	},
+	"ye_country_name": {
+		"message": "Jeemen"
+	},
+	"zm_country_name": {
+		"message": "Sambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
 	}
 }

@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Sveiki atvykę į „Google“ žemėlapių Kalėdų Senelio kelionės puslapį!"
 	},
+	"af_country_name": {
+		"message": "Afganistanas"
+	},
+	"al_country_name": {
+		"message": "Albanija"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentina"
 	},
 	"ar_tradition": {
 		"message": "Argentinoje Kalėdos prasideda tiksliai vidurnaktį. Daugelyje šeimų šventės prasideda nuo šventinių iškilmių namuose, dovanų išpakavimo su mylimais žmonėmis ir fejerverkų anksti ryte."
+	},
+	"at_country_name": {
+		"message": "Austrija"
 	},
 	"au_country_name": {
 		"message": "Australija"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "Australijos Pietų Hampšyro regione gruodžio mėnesį būna vasara. Daugelis australų per šias šventes rogių žvangučius ir kakavą pakeičia išvyka į paplūdimį, pietumis su krevetėmis ir keliais kriketo raundais."
 	},
+	"bd_country_name": {
+		"message": "Bangladešas"
+	},
+	"be_country_name": {
+		"message": "Belgija"
+	},
+	"bg_country_name": {
+		"message": "Bulgarija"
+	},
+	"bj_country_name": {
+		"message": "Beninas"
+	},
+	"bo_country_name": {
+		"message": "Bolivija"
+	},
 	"br_country_name": {
 		"message": "Brazilija"
 	},
 	"br_tradition": {
 		"message": "Kalėdas švęsti pradedama apie vidurnaktį, paprastai surengiama didžiulė šeimos vakarienė, išpakuojamos dovanos, o bažnyčiose laikomos „Missa do Galo“ (Vidurnakčio mišios). Nepaisant šiltų tropinių saulėtų orų, nevengiama žiemos ir sniego temų."
+	},
+	"bt_country_name": {
+		"message": "Butanas"
+	},
+	"by_country_name": {
+		"message": "Baltarusija"
+	},
+	"bz_country_name": {
+		"message": "Belizas"
 	},
 	"ca_country_name": {
 		"message": "Kanada"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Siųsti"
 	},
+	"cf_country_name": {
+		"message": "Centrinės Afrikos Respublika"
+	},
+	"ch_country_name": {
+		"message": "Šveicarija"
+	},
+	"cl_country_name": {
+		"message": "Čilė"
+	},
 	"close-this": {
 		"message": "Atšaukti"
+	},
+	"cm_country_name": {
+		"message": "Kamerūnas"
+	},
+	"co_country_name": {
+		"message": "Kolumbija"
+	},
+	"codelab-block-moveeast": {
+		"message": "rytai"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Perkelkite mane į rytus per vieną vietą."
+	},
+	"codelab-block-movenorth": {
+		"message": "šiaurė"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Perkelkite mane į šiaurę per vieną vietą."
+	},
+	"codelab-block-movesouth": {
+		"message": "pietūs"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Perkelkite mane į pietus per vieną vietą."
+	},
+	"codelab-block-movewest": {
+		"message": "vakarai"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Perkelkite mane į vakarus per vieną vietą."
+	},
+	"codelab-block-repeat": {
+		"message": "kartoti"
+	},
+	"codelab-block-repeat-times": {
+		"message": "kart."
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Pakartokite tam tikrus teiginius kelis kartus."
+	},
+	"codelab-block-whenrun": {
+		"message": "kai vykdoma"
+	},
+	"codelab-finish": {
+		"message": "Baigti"
+	},
+	"codelab-great": {
+		"message": "Puiku"
+	},
+	"codelab-mwc-promo": {
+		"message": "Žr. daugiau „Google“ kodavimo projektų \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Kitas iššūkis"
+	},
+	"codelab-oops": {
+		"message": "Oi!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Kad veiktų blokas „Kartoti“ jame turi būti kitų blokų."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Kai kurie blokai netinkamai sujungti."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Panašu, kad pralaimėjote!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Kad išspręstumėte šį galvosūkį, pabandykite naudoti bent vieną toliau pateiktą bloką."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Ar žinote, kad šį lygį galite užbaigti naudodami tik {{ideal}} blokus? Pabandykite naudoti toliau pateiktą bloką."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Sveikiname! Šauniai išsprendėte šį galvosūkį."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Naudojate tinkamus blokus, bet pabandykite daugiau jų naudoti, kad užbaigtumėte šį galvosūkį."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Ar žinote, kad galite užbaigti šį lygį naudodami tik {{ideal}} blokus?"
+	},
+	"codelab-try-again": {
+		"message": "Bandyti dar kartą"
 	},
 	"copy-me": {
 		"message": "Kopijuokite šią nuorodą, jei norite bendrinti savo pranešimą"
 	},
 	"countdownlabel": {
-		"message": "Kol Kalėdų Senelis išvyksta"
+		"message": "Iki Kalėdų Senelio išvykimo"
+	},
+	"cr_country_name": {
+		"message": "Kosta Rika"
+	},
+	"cu_country_name": {
+		"message": "Kuba"
+	},
+	"cz_country_name": {
+		"message": "Čekijos Respublika"
 	},
 	"days": {
 		"message": "d."
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "Papuoškite savo naršyklę kalėdiniu „Chrome“ plėtiniu."
 	},
+	"dk_country_name": {
+		"message": "Danija"
+	},
+	"do_country_name": {
+		"message": "Dominikos Respublika"
+	},
+	"dz_country_name": {
+		"message": "Alžyras"
+	},
+	"ec_country_name": {
+		"message": "Ekvadoras"
+	},
+	"ee_country_name": {
+		"message": "Estija"
+	},
 	"endofjourneymessage": {
 		"message": "Kalėdų Senelis šiais metais baigė savo kelionę! Jis prieš metų atostogas su elfais vis dar linksminasi Šiaurės ašigalyje."
+	},
+	"er_country_name": {
+		"message": "Eritrėja"
 	},
 	"error": {
 		"message": "Panašu, kad ką tik praradome ryšį su Šiaurės ašigaliu. Kalėdų Senelio elfai stengiasi išspręsti šią problemą – stebėkite naujienas!"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Bandykite dar kartą"
 	},
+	"et_country_name": {
+		"message": "Etiopija"
+	},
+	"fi_country_name": {
+		"message": "Suomija"
+	},
 	"finished-text": {
 		"message": "Linksmų švenčių! Kalėdų Senelis baigė savo kelionę aplink pasaulį ir nusipelnė poilsio. Aplankykite mus vėl kitais metais!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "Prancūzijoje vaikai tradiciškai išdėlioja savo batus prie židinio laukdami ateinant Père'o Noëlio. Jei vaikai visus metus buvo geri, Père'as Noëlis pripildys batus dovanų."
 	},
+	"ga_country_name": {
+		"message": "Gabonas"
+	},
 	"gameover": {
 		"message": "Žaidimo pabaiga!"
+	},
+	"gameover_level": {
+		"message": "Perėjote į kitą lygį:"
 	},
 	"gameover_score": {
 		"message": "Jūsų rezultatai:"
@@ -116,8 +284,14 @@
 	"gh_tradition": {
 		"message": "Kalėdų šventėje Ganoje dalyvauja visa šeima. Suaugusieji apsirengia kostiumais ir dalija saldainius kaimynams. Vaikai dekoruoja namus popieriniais ornamentais ir piešiniais, sukurtais mokykloje."
 	},
+	"gl_country_name": {
+		"message": "Grenlandija"
+	},
+	"gn_country_name": {
+		"message": "Gvinėja"
+	},
 	"gotovillage": {
-		"message": "Atgal į kaimą"
+		"message": "Atgal į kaimelį"
 	},
 	"gplus": {
 		"message": "Google+"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "Gvatemaliečiai Kalėdas švenčia linksmindamiesi ir šokdami. Jie dėvi skrybėles, vadinamas „puritina“, valgo gvatemalietiškas tamales, vidurnaktį leidžia fejerverkus ir visą naktį šoka įvairiausius šokius."
 	},
+	"gy_country_name": {
+		"message": "Gajana"
+	},
+	"hn_country_name": {
+		"message": "Hondūras"
+	},
 	"hours": {
 		"message": "val."
+	},
+	"hr_country_name": {
+		"message": "Kroatija"
+	},
+	"ht_country_name": {
+		"message": "Haitis"
+	},
+	"hu_country_name": {
+		"message": "Vengrija"
+	},
+	"id_country_name": {
+		"message": "Indonezija"
+	},
+	"ie_country_name": {
+		"message": "Airija"
+	},
+	"iq_country_name": {
+		"message": "Irakas"
+	},
+	"ir_country_name": {
+		"message": "Iranas"
 	},
 	"is_country_name": {
 		"message": "Islandija"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "Islandijoje per Kalėdas šeimos nariai vienas kitam dovanoja šiltus drabužius. Anot legendos, baisus Kalėdų katinas praryja visus, nepasiruošusius šaltiems žiemos orams. Šeimos dirba kartu, kad nė vienas neatitektų Kalėdų katinui."
 	},
+	"it_country_name": {
+		"message": "Italija"
+	},
+	"jm_country_name": {
+		"message": "Jamaika"
+	},
 	"kg_country_name": {
 		"message": "Kirgizija"
 	},
 	"kg_tradition": {
 		"message": "Kirgizijoje Ajaz Ata (Senelis Šaltis) atkeliauja vidurnaktį Naujųjų metų išvakarėse ir po naujamete eglute palieka dovanas. Laikrodžiui išmušus vidurnaktį, šeimos visoje šalyje iššauna fejerverkus šiam gražiam įvykiui paminėti. Mieste pasidaro šviesu lyg dieną."
+	},
+	"kz_country_name": {
+		"message": "Kazachstanas"
 	},
 	"language": {
 		"message": "Kalba"
@@ -167,8 +377,32 @@
 	"lightdescription": {
 		"message": "Apšvieskite savo televizorių naudodami „Android“ skirtą Kalėdų Senelio kelionės programą ir „Chromecast“."
 	},
+	"lk_country_name": {
+		"message": "Šri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Lietuva"
+	},
+	"lv_country_name": {
+		"message": "Latvija"
+	},
+	"ly_country_name": {
+		"message": "Libija"
+	},
+	"md_country_name": {
+		"message": "Moldavija"
+	},
 	"minutes": {
 		"message": "min."
+	},
+	"ml_country_name": {
+		"message": "Malis"
+	},
+	"mm_country_name": {
+		"message": "Mianmaras"
+	},
+	"mr_country_name": {
+		"message": "Mauritanija"
 	},
 	"mx_country_name": {
 		"message": "Meksika"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "Meksikoje bet kokio amžiaus vaikai švenčia Kalėdas daužydami pinjatas. Suaugusieji ir vaikai linksminasi užsirišę akis raiščiais, sukinėdamiesi, mosikuodami lazdomis ir stengdamiesi numušti ir atidaryti žvaigždžių formos kabančius indus. Sudaužius ir atidarius pinjatą, iš jos visų džiaugsmui išbyra riešutai, vaisiai ir saldainiai."
 	},
+	"my_country_name": {
+		"message": "Malaizija"
+	},
+	"mz_country_name": {
+		"message": "Mozambikas"
+	},
+	"na_country_name": {
+		"message": "Namibija"
+	},
+	"ne_country_name": {
+		"message": "Nigeris"
+	},
 	"newtoday": {
 		"message": "Šiandien nauja"
+	},
+	"ng_country_name": {
+		"message": "Nigerija"
+	},
+	"nl_country_name": {
+		"message": "Nyderlandai"
+	},
+	"no_country_name": {
+		"message": "Norvegija"
 	},
 	"nonprofit-jane-description": {
 		"message": "Šimpanzės yra žmonėms artimiausia gyvūnų rūšis! Šiandien dėl gyvenamosios aplinkos sumažėjimo, ligų ir nelegalios prekybos pasaulyje liko tik 300 000 šimpanzių. Ne pelno organizacijos „Jane Goodall Institute“ (JGI) tikslas – išsaugoti šimpanzes, stebint ir stengiantis suprasti jų elgseną bei gyvenamąją aplinką. JGI taip pat siekia suburti žmonių, kurie nori išsaugoti laukinius gyvūnus ir mus supančią aplinką, bendruomenę. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003ePatyrinėkite šimpanzių gyvenamąsias vietoves\u003c/a\u003e Gombėje, Tanzanijoje."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Baltasis lokys"
 	},
+	"np_country_name": {
+		"message": "Nepalas"
+	},
 	"nz_country_name": {
 		"message": "Naujoji Zelandija"
 	},
 	"nz_tradition": {
 		"message": "Per Kalėdas Naujojoje Zelandijoje būna vasara, todėl draugai ir šeima susirenka į barbekiu vakarėlį. Įprastas Kalėdų patiekalas – keptas ėriukas, kartais jis kepamas „hangi“ – žemėje iškastoje duobėje arba „žemės krosnyje“. Mėgstamas desertas – pavlova: morengai, padengti šviežiais vaisiais, pvz., braškėmis ir kiviais."
+	},
+	"om_country_name": {
+		"message": "Omanas"
 	},
 	"onthego": {
 		"message": "Kalėdų Senelis keliauja"
@@ -209,11 +470,20 @@
 	"openingtomorrow": {
 		"message": "Didysis atidarymas rytoj"
 	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
 	"ph_country_name": {
 		"message": "Filipinai"
 	},
 	"ph_tradition": {
 		"message": "Filipinai pagarsėję ilgiausiu pasaulyje Kalėdų šventimu. Keturi mėnesiai laikomi Kalėdiniais mėnesiais: rugsėjis, spalis, lapkritis, gruodis. Nuo pat rugsėjo pradžios galima dažnai išgirsti kalėdines giesmes."
+	},
+	"pl_country_name": {
+		"message": "Lenkija"
 	},
 	"play": {
 		"message": "Žaisti"
@@ -224,17 +494,32 @@
 	"playdescription": {
 		"message": "Žaiskite su draugais naudodami „Android“ skirtą Kalėdų Senelio kelionės programą."
 	},
+	"pr_country_name": {
+		"message": "Puerto Rikas"
+	},
+	"py_country_name": {
+		"message": "Paragvajus"
+	},
+	"ro_country_name": {
+		"message": "Rumunija"
+	},
 	"ru_country_name": {
 		"message": "Rusija"
 	},
 	"ru_tradition": {
 		"message": "Rusijos vaikai puošia ne kalėdinę, bet naujametinę eglutę. Vaikai laukia Senelio Šalčio, kuris keliauja su anūkėle Snieguole ir dalija dovanas visos šalies žmonėms. Senelis Šaltis gyvena šiaurės Rusijos Veliki Ustiug miškų glūdumoje."
 	},
+	"sa_country_name": {
+		"message": "Saudo Arabija"
+	},
 	"santatracker": {
 		"message": "Kalėdų Senelio kelionė"
 	},
 	"score": {
 		"message": "Rezultatas"
+	},
+	"se_country_name": {
+		"message": "Švedija"
 	},
 	"seconds": {
 		"message": "sek."
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "Bendrinti"
 	},
+	"sk_country_name": {
+		"message": "Slovakija"
+	},
+	"sn_country_name": {
+		"message": "Senegalas"
+	},
+	"so_country_name": {
+		"message": "Somalis"
+	},
+	"sr_country_name": {
+		"message": "Surinamas"
+	},
+	"sv_country_name": {
+		"message": "Salvadoras"
+	},
+	"td_country_name": {
+		"message": "Čadas"
+	},
 	"terms-and-privacy": {
 		"message": "Taisyklės ir privatumas"
 	},
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "Laikas"
+	},
+	"tj_country_name": {
+		"message": "Tadžikija"
+	},
+	"tm_country_name": {
+		"message": "Turkmėnija"
+	},
+	"tn_country_name": {
+		"message": "Tunisas"
+	},
+	"tr_country_name": {
+		"message": "Turkija"
 	},
 	"traditions-next": {
 		"message": "Kita tradicija"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgarija"
 	},
+	"tw_country_name": {
+		"message": "Taivanas"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzanija"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Jungtinė Karalystė"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "Jungtinėje Karalystėje bet kokio amžiaus švenčiantieji mėgaujasi kalėdinėmis papliauškomis ant pietų stalo. Papliauškos – tai į spalvingą popierių įvynioti vamzdeliai su ištraukiamomis ąselėmis kiekviename gale. Ištraukus ąseles vamzdelis sprogsta garsiai pliaukštelėdamas! Viduje paslėptos popierinės kepurės, žaislai ir saldainiai, kad Kalėdų naktį būtų linksma."
 	},
+	"upgrade-warning": {
+		"message": "Oi! Kalėdų Senelio kelionė nepalaikoma šios versijos naršyklėje. Kad pasiektumėte Kalėdų Senelio kelionę, atsisiųskite modernią naršyklę. Jei reikia daugiau informacijos, apsilankykite \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Jungtinės Amerikos Valstijos"
 	},
 	"us_tradition": {
 		"message": "Jungtinėse Amerikos Valstijose ant Kalėdų eglutės kabinamos kojinės. Legendoje pasakojama, kad šv. Mikalojus išgirdo apie nepasiturinčią šeimą. Norėdamas padaryti jiems siurprizą, jis nusileido kaminu ir į kabančias kojines sudėjo maišus brangaus aukso. Nuo to karto šv. Mikalojus vadinamas Kalėdų Seneliu, dovanų dalytoju."
 	},
+	"uy_country_name": {
+		"message": "Urugvajus"
+	},
+	"uz_country_name": {
+		"message": "Uzbekija"
+	},
+	"ve_country_name": {
+		"message": "Venesuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnamas"
+	},
 	"watch": {
 		"message": "Žiūrėti"
+	},
+	"ye_country_name": {
+		"message": "Jemenas"
+	},
+	"zm_country_name": {
+		"message": "Zambija"
+	},
+	"zw_country_name": {
+		"message": "Zimbabvė"
 	}
 }

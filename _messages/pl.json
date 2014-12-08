@@ -12,13 +12,25 @@
 		"message": "Informacje"
 	},
 	"about_title": {
-		"message": "Trasa Świętego Mikołaja w Mapach Google – witamy!"
+		"message": "Trasa Świętego Mikołaja w Mapach Google – witamy!"
+	},
+	"af_country_name": {
+		"message": "Afganistan"
+	},
+	"al_country_name": {
+		"message": "Albania"
+	},
+	"ao_country_name": {
+		"message": "Angola"
 	},
 	"ar_country_name": {
 		"message": "Argentyna"
 	},
 	"ar_tradition": {
-		"message": "W Argentynie Boże Narodzenie zaczyna się punktualnie o północy. Wiele rodzin rozpoczyna świętowanie, organizując uroczystości w swoich domach, otwierając prezenty z bliskimi oraz puszczając fajerwerki o świcie."
+		"message": "W Argentynie Boże Narodzenie zaczyna się punktualnie o północy. Wiele rodzin rozpoczyna świętowanie, organizując uroczystości w swoich domach, otwierając prezenty z bliskimi oraz puszczając fajerwerki o świcie."
+	},
+	"at_country_name": {
+		"message": "Austria"
 	},
 	"au_country_name": {
 		"message": "Australia"
@@ -26,17 +38,41 @@
 	"au_tradition": {
 		"message": "Australia leży na półkuli południowej, dlatego grudzień wypada tam w lecie. Zamiast jeździć na kuligi i pić kakao, wielu Australijczyków wybiera się na plażę, by zjeść krewetki na świąteczny obiad oraz rozegrać kilka rund krykieta."
 	},
+	"bd_country_name": {
+		"message": "Bangladesz"
+	},
+	"be_country_name": {
+		"message": "Belgia"
+	},
+	"bg_country_name": {
+		"message": "Bułgaria"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Boliwia"
+	},
 	"br_country_name": {
 		"message": "Brazylia"
 	},
 	"br_tradition": {
 		"message": "Obchody Bożego Narodzenia rozpoczynają się około północy. Zwykle towarzyszą im duże rodzinne kolacje, otwieranie prezentów oraz uczestnictwo w „Missa do Galo” („mszy koguta”), czyli Pasterce. Mimo upalnego tropikalnego lata, motywy zimy i śniegu nie są bynajmniej rzadkością."
 	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"by_country_name": {
+		"message": "Białoruś"
+	},
+	"bz_country_name": {
+		"message": "Belize"
+	},
 	"ca_country_name": {
 		"message": "Kanada"
 	},
 	"ca_tradition": {
-		"message": "Kanadyjskie dzieci mają zwykle białe święta Bożego Narodzenia dzięki opadom śniegu. Otulone w szaliki i „toques” (wełniane czapki), bawią się na śniegu, jeżdżą na łyżwach i sankach. W Wigilię zostawiają mleko i ciasteczka na kominku dla Świętego Mikołaja (a czasem też marchewkę dla renifera)."
+		"message": "Kanadyjskie dzieci mają zwykle białe święta Bożego Narodzenia dzięki opadom śniegu. Otulone w szaliki i „toques” (wełniane czapki), bawią się na śniegu, jeżdżą na łyżwach i sankach. W Wigilię zostawiają mleko i ciasteczka na kominku dla Świętego Mikołaja (a czasem też marchewkę dla renifera)."
 	},
 	"calendar": {
 		"message": "Kalendarz"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Wyślij"
 	},
+	"cf_country_name": {
+		"message": "Republika Środkowoafrykańska"
+	},
+	"ch_country_name": {
+		"message": "Szwajcaria"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
 	"close-this": {
 		"message": "Anuluj"
+	},
+	"cm_country_name": {
+		"message": "Kamerun"
+	},
+	"co_country_name": {
+		"message": "Kolumbia"
+	},
+	"codelab-block-moveeast": {
+		"message": "wschód"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Przesuń mnie o jedno miejsce na wschód."
+	},
+	"codelab-block-movenorth": {
+		"message": "północ"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Przesuń mnie o jedno miejsce na północ."
+	},
+	"codelab-block-movesouth": {
+		"message": "południe"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Przesuń mnie o jedno miejsce na południe."
+	},
+	"codelab-block-movewest": {
+		"message": "zachód"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Przesuń mnie o jedno miejsce na zachód."
+	},
+	"codelab-block-repeat": {
+		"message": "powtórz"
+	},
+	"codelab-block-repeat-times": {
+		"message": "razy"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Powtórz niektóre działania kilka razy."
+	},
+	"codelab-block-whenrun": {
+		"message": "gdy działa"
+	},
+	"codelab-finish": {
+		"message": "Zakończ"
+	},
+	"codelab-great": {
+		"message": "Doskonale"
+	},
+	"codelab-mwc-promo": {
+		"message": "Zobacz więcej projektów kodowania Google na \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Następny poziom"
+	},
+	"codelab-oops": {
+		"message": "Ups!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Klocek „Powtórz” musi zawierać inne klocki, by można było go użyć."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Niektóre klocki są źle połączone."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Chyba się zgubiłeś!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Spróbuj użyć klocków poniżej, by ukończyć zadanie."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Ten poziom można ukończyć dzięki zaledwie {{ideal}} klockom. Wykorzystaj ten poniżej."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Gratulacje! Udało Ci się doskonale rozwiązać zadanie."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Używasz właściwych klocków, ale spróbuj użyć jeszcze kilku, by ukończyć zadanie."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Ten poziom można ukończyć dzięki zaledwie {{ideal}} klockom."
+	},
+	"codelab-try-again": {
+		"message": "Spróbuj znowu"
 	},
 	"copy-me": {
 		"message": "Skopiuj ten link, aby udostępnić wiadomość"
 	},
 	"countdownlabel": {
 		"message": "Do wyjazdu Mikołaja"
+	},
+	"cr_country_name": {
+		"message": "Kostaryka"
+	},
+	"cu_country_name": {
+		"message": "Kuba"
+	},
+	"cz_country_name": {
+		"message": "Czechy"
 	},
 	"days": {
 		"message": "Dni"
@@ -72,13 +210,31 @@
 		"message": "Na rynku niemal każdego niemieckiego miasta otwierane są stragany. Mieszkańcy gromadzą się, by posłuchać orkiestry dętej oraz raczyć się regionalnymi potrawami. Zajadają się cynamonowymi sercami, prażonymi migdałami w cukrze, różnymi słodkościami oraz piją grzane wino (Glühwein) lub cydr."
 	},
 	"deck": {
-		"message": "Świąteczne dekoracje"
+		"message": "Dekoracje"
 	},
 	"deckdescription": {
-		"message": "Pobierz rozszerzenie Trasa Świętego Mikołaja w Chrome i przystrój swoją przeglądarkę na święta."
+		"message": "Pobierz rozszerzenie Trasa Świętego Mikołaja w Chrome i przystrój swoją przeglądarkę na święta."
+	},
+	"dk_country_name": {
+		"message": "Dania"
+	},
+	"do_country_name": {
+		"message": "Dominikana"
+	},
+	"dz_country_name": {
+		"message": "Algieria"
+	},
+	"ec_country_name": {
+		"message": "Ekwador"
+	},
+	"ee_country_name": {
+		"message": "Estonia"
 	},
 	"endofjourneymessage": {
 		"message": "Święty Mikołaj zakończył tegoroczną podróż! On i jego elfy bawią się jeszcze na Biegunie Północnym przed rozpoczęciem corocznego urlopu."
+	},
+	"er_country_name": {
+		"message": "Erytrea"
 	},
 	"error": {
 		"message": "Wygląda na to, że właśnie straciliśmy połączenie z biegunem północnym. Elfy Świętego Mikołaja dwoją się i troją nad rozwiązaniem problemu – cierpliwości!"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Spróbuj jeszcze raz"
 	},
+	"et_country_name": {
+		"message": "Etiopia"
+	},
+	"fi_country_name": {
+		"message": "Finlandia"
+	},
 	"finished-text": {
 		"message": "Wesołych Świąt! Święty Mikołaj zakończył podróż dookoła świata i udał się na zasłużone wakacje. Zapraszamy ponownie w przyszłym roku!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "Zgodnie z tradycją, we Francji dzieci układają buty obok kominka, oczekując na przybycie Père Noël, czyli Świętego Mikołaja. Jeśli były grzeczne przez cały rok, Père Noël napełni ich obuwie prezentami."
 	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
 	"gameover": {
 		"message": "Koniec gry"
+	},
+	"gameover_level": {
+		"message": "Udało Ci się dojść do poziomu:"
 	},
 	"gameover_score": {
 		"message": "Twój wynik"
@@ -114,10 +282,16 @@
 		"message": "Ghana"
 	},
 	"gh_tradition": {
-		"message": "W Ghanie Boże Narodzenie jest obchodzone przez całą rodzinę. Dorośli przebierają się w kostiumy oraz rozdają cukierki i inne słodycze w sąsiedztwie. Dzieci dekorują domy papierowymi ozdobami i rysunkami wykonanymi w szkole."
+		"message": "W Ghanie Boże Narodzenie świętuje się w gronie całej rodziny. Dorośli przebierają się w kostiumy oraz rozdają cukierki i inne słodycze w sąsiedztwie. Dzieci dekorują domy papierowymi ozdobami i rysunkami wykonanymi w szkole."
+	},
+	"gl_country_name": {
+		"message": "Grenlandia"
+	},
+	"gn_country_name": {
+		"message": "Gwinea"
 	},
 	"gotovillage": {
-		"message": "Idź do wioski"
+		"message": "Wróć do wioski"
 	},
 	"gplus": {
 		"message": "Google+"
@@ -132,10 +306,37 @@
 		"message": "Gwatemala"
 	},
 	"gt_tradition": {
-		"message": "Mieszkańcy Gwatemali świętują Boże Narodzenie przez taniec i zabawę. Zakładają kapelusze zwane puritina, jedzą gwatemalskie tamale, odpalają petardy o północy oraz wychodzą tańczyć w różnych stylach."
+		"message": "Mieszkańcy Gwatemali świętują Boże Narodzenie tańcem i zabawą. Zakładają kapelusze zwane puritina, jedzą tamale, tańczą i odpalają petardy o północy."
+	},
+	"gy_country_name": {
+		"message": "Gujana"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
 	},
 	"hours": {
 		"message": "Godziny"
+	},
+	"hr_country_name": {
+		"message": "Chorwacja"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Węgry"
+	},
+	"id_country_name": {
+		"message": "Indonezja"
+	},
+	"ie_country_name": {
+		"message": "Irlandia"
+	},
+	"iq_country_name": {
+		"message": "Irak"
+	},
+	"ir_country_name": {
+		"message": "Iran"
 	},
 	"is_country_name": {
 		"message": "Islandia"
@@ -143,17 +344,26 @@
 	"is_tradition": {
 		"message": "W czasie świąt Bożego Narodzenia w Islandii, członkowie rodziny obdarowują się ciepłymi ubraniami. Jest to związane z legendą o przerażającym bożonarodzeniowym kocie, który pożera każdego, kto nie jest przygotowany na mroźną zimową aurę. Rodziny dbają razem, by nikomu nie stała się krzywda."
 	},
+	"it_country_name": {
+		"message": "Włochy"
+	},
+	"jm_country_name": {
+		"message": "Jamajka"
+	},
 	"kg_country_name": {
 		"message": "Kirgistan"
 	},
 	"kg_tradition": {
-		"message": "W Kirgistanie Ayaz Ata (Dziadek Mróz) przychodzi o północy w Sylwestra i zostawia prezenty pod noworoczną choinką. Kiedy zegar wybije północ, rodziny z całego kraju puszczają fajerwerki, by uczcić tę piękną tradycję. W miastach jest wówczas jasno jak w dzień."
+		"message": "W Kirgistanie Ayaz Ata (Dziadek Mróz) przychodzi o północy w Sylwestra i zostawia prezenty pod noworoczną choinką. Kiedy zegar wybije północ, rodziny w całym kraju puszczają fajerwerki, by uczcić tę piękną tradycję. W miastach jest wówczas jasno jak w dzień."
+	},
+	"kz_country_name": {
+		"message": "Kazachstan"
 	},
 	"language": {
 		"message": "Język"
 	},
 	"learn": {
-		"message": "Zdobywaj wiedzę"
+		"message": "Ciekawostki"
 	},
 	"learnmore": {
 		"message": "Więcej informacji"
@@ -165,19 +375,64 @@
 		"message": "Światełka"
 	},
 	"lightdescription": {
-		"message": "Rozświetl swój telewizor za pomocą aplikacji Trasa Świętego Mikołaja na Androida oraz odtwarzacza Chromecast."
+		"message": "Rozświetl swój telewizor za pomocą aplikacji Trasa Świętego Mikołaja na Androida oraz odtwarzacza Chromecast."
+	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Litwa"
+	},
+	"lv_country_name": {
+		"message": "Łotwa"
+	},
+	"ly_country_name": {
+		"message": "Libia"
+	},
+	"md_country_name": {
+		"message": "Mołdawia"
 	},
 	"minutes": {
 		"message": "Minuty"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Birma"
+	},
+	"mr_country_name": {
+		"message": "Mauretania"
 	},
 	"mx_country_name": {
 		"message": "Meksyk"
 	},
 	"mx_tradition": {
-		"message": "W Meksyku dzieci świętują Boże Narodzenie, rozbijając piniaty. Dzieci i dorośli bawią się, zakładając opaskę na oczy, obracając się dookoła i machając kijem, by trafić wiszące donice w kształcie gwiazdy. Z rozbitej piniaty wysypują się orzechy, owoce i słodycze, ku uciesze każdego uczestnika zabawy."
+		"message": "W Meksyku dzieci świętują Boże Narodzenie, rozbijając piniaty. Zakładają opaskę na oczy, obracają się dookoła i próbują strącić specjalnie przygotowane, wiszące kule. Z rozbitej piniaty wysypują się orzechy, owoce i słodycze, ku uciesze każdego uczestnika zabawy."
+	},
+	"my_country_name": {
+		"message": "Malezja"
+	},
+	"mz_country_name": {
+		"message": "Mozambik"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
 	},
 	"newtoday": {
-		"message": "Dzisiejsza nowość"
+		"message": "Nowość"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Holandia"
+	},
+	"no_country_name": {
+		"message": "Norwegia"
 	},
 	"nonprofit-jane-description": {
 		"message": "Szympansy są najbliższymi żyjącymi krewnymi człowieka w świecie zwierząt. Obecnie pozostało ich mniej niż 300 tysięcy. Przyczyną tego stanu rzeczy są choroby, utrata siedlisk i nielegalny handel. Organizacja Jane Goodall Institute chroni szympansy, obserwując i poznając ich zachowania oraz dbając o środowisko, w którym żyją. Tworzy również społeczność osób, które zajmują się ochroną i pielęgnacją dzikiej przyrody oraz naszego wspólnego środowiska. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003ePoznaj siedliska szympansów\u003c/a\u003e w Gombe w Tanzanii."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Niedźwiedź polarny"
 	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
 	"nz_country_name": {
 		"message": "Nowa Zelandia"
 	},
 	"nz_tradition": {
-		"message": "W Nowej Zelandii Boże Narodzenie wypada latem, dlatego rodzina i przyjaciele spotykają się na barbecue. Do typowych dań należy baranina, czasem gotowana w „hangi” – w dole lub w piecu ziemnym. Ulubionym deserem Nowozelandczyków jest pavlova: beza posypana świeżymi owocami, np. truskawkami i kiwi."
+		"message": "W Nowej Zelandii Boże Narodzenie wypada latem, dlatego popularne są spotkania rodzin ze znajomymi przy barbecue. Do typowych dań należy baranina, czasem gotowana w „hangi” – w wykopanym dole lub w piecu ziemnym. Ulubionym deserem Nowozelandczyków jest pavlova: beza posypana świeżymi owocami, np. truskawkami i kiwi."
+	},
+	"om_country_name": {
+		"message": "Oman"
 	},
 	"onthego": {
 		"message": "Święty Mikołaj w podróży"
@@ -209,32 +470,56 @@
 	"openingtomorrow": {
 		"message": "Wielkie otwarcie już jutro"
 	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
 	"ph_country_name": {
 		"message": "Filipiny"
 	},
 	"ph_tradition": {
-		"message": "Filipiny słyną z najdłużej trwających świąt Bożego Narodzenia na świecie. Aż cztery miesiące są tu uważane za świąteczne: wrzesień, październik, listopad i grudzień. Kolędy można usłyszeć już na początku września."
+		"message": "Filipiny słyną z najdłużej trwających świąt Bożego Narodzenia na świecie. Za świąteczne są tu uważane aż cztery miesiące: wrzesień, październik, listopad i grudzień. Kolędy można usłyszeć już na początku września."
+	},
+	"pl_country_name": {
+		"message": "Polska"
 	},
 	"play": {
 		"message": "Gry"
 	},
 	"playagain": {
-		"message": "Zagraj jeszcze raz"
+		"message": "Zagraj ponownie"
 	},
 	"playdescription": {
-		"message": "Graj z przyjaciółmi w aplikacji Trasa Świętego Mikołaja na Androida."
+		"message": "Graj z przyjaciółmi w aplikacji Trasa Świętego Mikołaja na urządzeniach z Androidem."
+	},
+	"pr_country_name": {
+		"message": "Portoryko"
+	},
+	"py_country_name": {
+		"message": "Paragwaj"
+	},
+	"ro_country_name": {
+		"message": "Rumunia"
 	},
 	"ru_country_name": {
 		"message": "Rosja"
 	},
 	"ru_tradition": {
-		"message": "Zamiast na Boże Narodzenie, rosyjskie dzieci dekorują choinkę na Nowy Rok. Potem czekają z niecierpliwością na Dziadka Mroza, który podróżuje ze swoją wnuczką Śnieżynką i przynosi prezenty. Dziadek Mróz mieszka w gęstym lesie w miejscowości Wielki Ustiug na północy Rosji.z"
+		"message": "Zamiast na Boże Narodzenie, rosyjskie dzieci dekorują choinkę na Nowy Rok. Potem czekają z niecierpliwością na Dziadka Mroza, który podróżuje ze swoją wnuczką Śnieżynką i roznosi prezenty. Dziadek Mróz mieszka w gęstym lesie w miejscowości Wielki Ustiug na północy Rosji."
+	},
+	"sa_country_name": {
+		"message": "Arabia Saudyjska"
 	},
 	"santatracker": {
 		"message": "Trasa Świętego Mikołaja"
 	},
 	"score": {
 		"message": "Wynik"
+	},
+	"se_country_name": {
+		"message": "Szwecja"
 	},
 	"seconds": {
 		"message": "Sekundy"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "Udostępnij"
 	},
+	"sk_country_name": {
+		"message": "Słowacja"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalia"
+	},
+	"sr_country_name": {
+		"message": "Surinam"
+	},
+	"sv_country_name": {
+		"message": "Salwador"
+	},
+	"td_country_name": {
+		"message": "Czad"
+	},
 	"terms-and-privacy": {
 		"message": "Warunki i prywatność"
 	},
@@ -258,7 +561,19 @@
 		"message": "Przechyl urządzenie!"
 	},
 	"time": {
-		"message": "Godzina"
+		"message": "Czas"
+	},
+	"tj_country_name": {
+		"message": "Tadżykistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunezja"
+	},
+	"tr_country_name": {
+		"message": "Turcja"
 	},
 	"traditions-next": {
 		"message": "Następna tradycja"
@@ -3893,22 +4208,55 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bułgaria"
 	},
+	"tw_country_name": {
+		"message": "Tajwan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Wielka Brytania"
 	},
 	"uk_tradition": {
-		"message": "W Wielkiej Brytanii w Boże Narodzenie podczas kolacji świętujący bawią się „crackerami”. Są to walce owinięte sreberkiem, z paskami na końcach. Wystarczy za nie pociągnąć, by walec wystrzelił z hukiem! Wewnątrz znajdują się papierowe kapelusze, zabawki i słodycze, które umilają wigilijną noc."
+		"message": "W Wielkiej Brytanii w Boże Narodzenie podczas kolacji świętujący bawią się „crackerami”. Są to tubki owinięte sreberkiem, z wstążkami na końcach. Wystarczy za nie pociągnąć, by tubka wystrzeliła z hukiem! Wewnątrz znajdują się papierowe czapeczki, zabawki i słodycze, które umilają wigilijną noc."
+	},
+	"upgrade-warning": {
+		"message": "Ta wersja przeglądarki nie obsługuje Trasy Świętego Mikołaja. Pobierz nowszą przeglądarkę. Więcej informacji znajdziesz na stronie \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Stany Zjednoczone"
 	},
 	"us_tradition": {
-		"message": "W Stanach Zjednoczonych wiesza się skarpety w Wigilię. Legenda głosi, że gdy Święty Mikołaj dowiedział się o rodzinie w potrzebie, wszedł do ich domu przez komin i włożył złoto do wiszących skarpet. Od tego momentu zaczął być kojarzony z rozdawaniem prezentów."
+		"message": "W Stanach Zjednoczonych w Wigilię dzieci wieszają skarpety na kominku. Legenda głosi, że gdy Święty Mikołaj dowiedział się o pewnej rodzinie w potrzebie, wszedł do ich domu przez komin i włożył złoto do wiszących skarpet. Od tego momentu zaczął być kojarzony z rozdawaniem prezentów."
+	},
+	"uy_country_name": {
+		"message": "Urugwaj"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Wenezuela"
+	},
+	"vn_country_name": {
+		"message": "Wietnam"
 	},
 	"watch": {
-		"message": "Materiały wideo"
+		"message": "Filmy"
+	},
+	"ye_country_name": {
+		"message": "Jemen"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
 	}
 }
