@@ -14,7 +14,7 @@ app.Constants = {
   HITBOX_SIZE: 20, // px border around country
 
   INITIAL_COUNTDOWN: 40, // seconds
-  TIME_PER_LEVEL: 40, // seconds
+  TIME_PER_LEVEL: 50, // seconds
   LESS_TIME_PER_CYCLE: 5, // seconds
 
   SCORE_PER_COUNTRY: 100, // points
