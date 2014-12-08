@@ -1,6 +1,7 @@
 ##{$name} {
   .question {
     background-color: #00A6A3;
+    overflow: hidden;
     position: relative;
     width: 100%;
 
@@ -23,15 +24,16 @@
   }
 
   .question-content {
-    min-height: 230px;
-    padding-top: 100px;
+    box-sizing: border-box;
+    min-height: 340px;
+    padding-top: 90px;
   }
 
   .question-number,
   .question-text {
-    font-family : Roboto;
-    font-size : 39px;
-    letter-spacing : 0.78px;
+    font-family: Roboto;
+    font-size: 39px;
+    letter-spacing: 0.78px;
     opacity: 0;
     transition: opacity 500ms, visibility 500ms;
     visibility: hidden;

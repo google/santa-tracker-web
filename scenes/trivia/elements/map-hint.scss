@@ -1,0 +1,145 @@
+$globe-tile-size: 170px;
+$globe-tile-start-delay: 1s;
+$globe-tile-delay-increase: 1.7s;
+
+//TODO(thorsteinson): Why is autoprefixer not prefixing animation?
+@mixin globe-tile-delay($number) {
+  $delay: $globe-tile-start-delay + (floor((10 - $number) / 2) * $globe-tile-delay-increase);
+  -webkit-animation-delay: $delay;
+  animation-delay: $delay;
+
+  .globe.is-reset & {
+    -webkit-animation-delay: $delay / 20;
+    animation-delay: $delay / 20;
+  }
+}
+
+.globe-part {
+  -webkit-animation: globe-part-falling 500ms ease-out 1 forwards paused;
+  animation: globe-part-falling 500ms ease-out 1 forwards paused;
+  background: #005B6C url(../img/globe.svg) no-repeat;
+  height: $globe-tile-size;
+  position: absolute;
+  top: 0;
+  transition: opacity 500ms;
+  width: $globe-tile-size;
+}
+
+.globe.is-animating .globe-part {
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+
+.globe.is-reset .globe-part {
+  -webkit-animation: globe-part-visible 500ms ease-in 1 forwards;
+  animation: globe-part-visible 500ms ease-in 1 forwards;
+  opacity: 0;
+  transition: none;
+}
+
+.globe-part--1 {
+  @include globe-tile-delay(1);
+  background-position: (-$globe-tile-size * 2) 0;
+  left: 50%;
+}
+
+.globe-part--2 {
+  @include globe-tile-delay(2);
+  background-position: (-$globe-tile-size) (-$globe-tile-size);
+  right: 50%;
+  top: $globe-tile-size;
+}
+
+.globe-part--3 {
+  @include globe-tile-delay(3);
+  background-position: (-$globe-tile-size) 0;
+  right: 50%;
+}
+
+.globe-part--4 {
+  @include globe-tile-delay(4);
+  background-position: (-$globe-tile-size * 2) (-$globe-tile-size);
+  left: 50%;
+  top: $globe-tile-size;
+}
+
+.globe-part--5 {
+  @include globe-tile-delay(5);
+  right: calc(50% + #{$globe-tile-size});
+}
+
+.globe-part--6 {
+  @include globe-tile-delay(6);
+  background-position: (-$globe-tile-size * 3) (-$globe-tile-size);
+  left: calc(50% + #{$globe-tile-size});
+  top: $globe-tile-size;
+}
+
+.globe-part--7 {
+  @include globe-tile-delay(7);
+  background-position: (-$globe-tile-size * 3) 0;
+  left: calc(50% + #{$globe-tile-size});
+}
+
+.globe-part--8 {
+  @include globe-tile-delay(8);
+  background-position: 0 (-$globe-tile-size);
+  right: calc(50% + #{$globe-tile-size});
+  top: $globe-tile-size;
+}
+
+/* The spacing on each side of the globe */
+.globe-part--9,
+.globe-part--10 {
+  background: #005B6C;
+  height: $globe-tile-size * 2;
+  width: auto;
+}
+
+.globe-part--9 {
+  @include globe-tile-delay(9);
+  left: calc(50% + #{$globe-tile-size * 2});
+  right: 0;
+}
+
+.globe-part--10 {
+  @include globe-tile-delay(10);
+  left: 0;
+  right: calc(50% + #{$globe-tile-size * 2});
+}
+
+@-webkit-keyframes globe-part-visible {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes globe-part-visible {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes globe-part-falling {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  100% {
+    transform: translate(130px, 360px) rotate(180deg);
+  }
+}
+
+@keyframes globe-part-falling {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  100% {
+    transform: translate(130px, 360px) rotate(180deg);
+  }
+}

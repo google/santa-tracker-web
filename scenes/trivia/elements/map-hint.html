@@ -2,14 +2,15 @@
 
 <polymer-element name="map-hint" attributes="place">
 <template>
-  <style>
-    :host {
-      padding: 40px 0;
-    }
-  </style>
+  <link rel="stylesheet" href="map-hint.css" />
   <div id="map" fit></div>
   <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
                    language="{{santaApp.language}}" on-api-load="{{onMapsAPIReady}}"></google-maps-api>
+  <div id="globe" class="globe" fit>
+    <template repeat="{{part in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}}">
+      <div class="globe-part globe-part--{{part}}"></div>
+    </template>
+  </div>
 </template>
 <script>
   Polymer({
@@ -57,11 +58,19 @@
       geocoder.geocode({
         'address': this.place
       }, function(results, status) {
-        var viewport = results[0].geometry.viewport;
-        var ne = viewport.getNorthEast();
-        var sw = viewport.getSouthWest();
-        this.map.fitBounds(viewport);
+        this.bounds = results[0].geometry.viewport;
       }.bind(this));
+    },
+
+    animate: function() {
+      this.$.globe.classList.remove('is-reset');
+      this.$.globe.classList.add('is-animating');
+      this.map.fitBounds(this.bounds);
+    },
+
+    reset: function() {
+      this.$.globe.classList.add('is-reset');
+      this.$.globe.classList.remove('is-animating');
     }
   });
 </script>
