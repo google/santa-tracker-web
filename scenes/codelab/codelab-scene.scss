@@ -1,0 +1,25 @@
+$name: 'module-codelab';
+$gameover-bg: #3F4EA1;
+$rotate-bg: $gameover-bg;
+$board-level-bp: 1025px;
+
+@import "../shared/sass/gameover";
+@import "../shared/sass/rotate";
+@import "../shared/sass/board";
+@import "sass/promo";
+
+##{$name} {
+  background: #364189;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  @media (min-width: 1025px) {
+    // Less height of logo in scoreboard
+    .board .logo {
+      height: 68px;
+    }
+  }
+}

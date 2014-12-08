@@ -3,7 +3,10 @@ goog.provide('app.InputEvent');
 goog.scope(function() {
   var eventStart, eventMove, eventCancel, eventEnd;
 
-  (function () {
+  (function() {
+    var touchEnabled = ('ontouchstart' in window) ||
+        window.DocumentTouch && document instanceof DocumentTouch;
+
     if (window.navigator.pointerEnabled) {
       eventStart = 'pointerdown';
       eventMove = 'pointerMove';
@@ -14,7 +17,7 @@ goog.scope(function() {
       eventMove = 'MSPointerMove';
       eventCancel = 'MSPointerUp MSPointerOut MSPointerMove';
       eventEnd = 'MSPointerUp';
-    } else if (Modernizr.touch) {
+    } else if (touchEnabled) {
       eventStart = 'touchstart';
       eventMove = 'touchmove';
       eventCancel = 'touchend touchleave touchcancel';
@@ -27,7 +30,7 @@ goog.scope(function() {
     }
   })();
 
-  var getNormalizedEvent = function (e) {
+  var getNormalizedEvent = function(e) {
     // jquery / touch normalization
     e = e.originalEvent ? e.originalEvent : e;
     e = e.touches ? e.touches[0] : e;
