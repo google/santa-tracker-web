@@ -2,6 +2,7 @@
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 <link rel="import" href="../../components/google-map/google-map.html">
+<link rel="import" href="tracker-icons.html">
 
 <script src="../shared/js/mapstyles.js"></script>
 
@@ -19,9 +20,46 @@ Tracker scene.
 
     <div class="scene">
 
-      <google-map id="map" clientId="{{santaApp.config.CLIENT_ID}}" disableDefaultUI
+        <google-map id="map" clientId="{{santaApp.config.CLIENT_ID}}" disableDefaultUI
                   zoomable="false" libraries="places,geometry"
                   latitude="{{latitude_}}" longitude="{{longitude_}}" fit></google-map>
+
+        <div class="status-bar">
+          <h2>Currently</h2>
+          <ul>
+            <li>
+              <core-icon icon="santa-icons:timer" size="10"></core-icon>
+              {{ location_.stopover ? location_.stopover.city : 'In flight' }}
+            </li>
+          </ul>
+          <h2>Next stop</h2>
+          <ul>
+            <li>
+              <core-icon icon="santa-icons:pin" size="10"></core-icon>
+              {{location_.next.city}}
+            </li>
+          </ul>
+          <h2>Landing</h2>
+          <ul>
+            <li>
+              <core-icon class="test" icon="santa-icons:reindeer" size="10"></core-icon>
+              <!-- TODO: what if already landed? -->
+              {{location_.next.arrival | formatTime_}}
+            </li>
+          </ul>
+          <h2>Filter</h2>
+          <ul>
+            <li>
+              <core-icon icon="santa-icons:filter-media" size="10"></core-icon>
+              All media
+            </li>
+            <li>
+              <core-icon icon="santa-icons:filter-location" size="30"></core-icon>
+              All locations
+            </li>
+          </ul>
+        </div>
+      </template>
 
       <div class="sceneboard">
         <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
@@ -34,6 +72,7 @@ Tracker scene.
 </template>
 <script>
 (function() {
+
   Polymer({
     componentDir: 'scenes/tracker/',
 
@@ -50,7 +89,12 @@ Tracker scene.
      * @private
      */
     longitude_: null,
-
+    /**
+     * Current Santa's location.
+     * @type {SantaState}
+     * @private
+     */
+    location_: null,
     onPreload: function() {
       this.preloadImages([
         'img/smallglobe.svg'
@@ -64,6 +108,7 @@ Tracker scene.
 
     santaAppChanged: function() {
       this.santaApp.santaService.getCurrentLocation(function(location) {
+        this.location_ = location;
         this.latitude_ = location.position.lat;
         this.longitude_ = location.position.lng;
       }.bind(this));
@@ -75,6 +120,19 @@ Tracker scene.
     },
     onHide: function() {
       // TODO: implement
+    },
+    /**
+     * Transforms a supplied timestamp into the time string.
+     * @param  {date} input
+     * @return {date}
+     */
+    formatTime_: function(input) {
+      ts = Math.floor(input/60/1000);
+      var m = ts % 60;
+      var h = Math.floor(ts/60) % 24;
+      m = m < 10 ? '0' + m : '' + m;
+      h = h < 10 ? '0' + h : '' + h;
+      return h + ':' + m;
     }
   });
 })();
