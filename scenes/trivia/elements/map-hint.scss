@@ -2,20 +2,16 @@ $globe-tile-size: 170px;
 $globe-tile-start-delay: 1s;
 $globe-tile-delay-increase: 1.7s;
 
-//TODO(thorsteinson): Why is autoprefixer not prefixing animation?
 @mixin globe-tile-delay($number) {
   $delay: $globe-tile-start-delay + (floor((10 - $number) / 2) * $globe-tile-delay-increase);
-  -webkit-animation-delay: $delay;
   animation-delay: $delay;
 
   .globe.is-reset & {
-    -webkit-animation-delay: $delay / 20;
     animation-delay: $delay / 20;
   }
 }
 
 .globe-part {
-  -webkit-animation: globe-part-falling 500ms ease-out 1 forwards paused;
   animation: globe-part-falling 500ms ease-out 1 forwards paused;
   background: #005B6C url(../img/globe.svg) no-repeat;
   height: $globe-tile-size;
@@ -26,12 +22,10 @@ $globe-tile-delay-increase: 1.7s;
 }
 
 .globe.is-animating .globe-part {
-  -webkit-animation-play-state: running;
   animation-play-state: running;
 }
 
 .globe.is-reset .globe-part {
-  -webkit-animation: globe-part-visible 500ms ease-in 1 forwards;
   animation: globe-part-visible 500ms ease-in 1 forwards;
   opacity: 0;
   transition: none;
@@ -108,30 +102,12 @@ $globe-tile-delay-increase: 1.7s;
   right: calc(50% + #{$globe-tile-size * 2});
 }
 
-@-webkit-keyframes globe-part-visible {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes globe-part-visible {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
-  }
-}
-
-@-webkit-keyframes globe-part-falling {
-  0% {
-    transform: translate(0, 0) rotate(0);
-  }
-  100% {
-    transform: translate(130px, 360px) rotate(180deg);
   }
 }
 
