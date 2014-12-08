@@ -1,0 +1,66 @@
+<link rel="import" href="../../../components/google-apis/google-maps-api.html">
+
+<polymer-element name="map-hint" attributes="place">
+<template>
+  <style>
+    :host {
+      padding: 40px 0;
+    }
+  </style>
+  <div id="map" fit></div>
+  <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
+                   language="{{santaApp.language}}" on-api-load="{{onMapsAPIReady}}"></google-maps-api>
+</template>
+<script>
+  Polymer({
+    observe: {
+      'place': 'onSearch'
+    },
+
+    apiReady: false,
+
+    onMapsAPIReady: function() {
+      this.apiReady = true;
+
+      this.map = new google.maps.Map(this.$.map, {
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        disableDefaultUI: true,
+        draggable: false,
+        disableDoubleClickZoom: true,
+        backgroundColor: '#00A6A3',
+        minZoom: 2,
+        styles: [{
+            stylers: [{visibility: 'off'}]
+          }, {
+            featureType: 'administrative.country',
+            elementType: 'geometry.stroke',
+            stylers: [{visibility: 'on'}, {weight: 1}, {color: '#00A6A3'}]
+          }, {
+            featureType: 'water',
+            stylers: [{visibility: 'on'}, {color: '#00A6A3'}]
+          }, {
+            featureType: 'landscape',
+            stylers: [{visibility: 'on'}, {color: '#008F8C'}]
+          }
+        ]
+      });
+
+      this.onSearch();
+    },
+
+    onSearch: function() {
+      if (!this.apiReady || !this.place) return;
+
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({
+        'address': this.place
+      }, function(results, status) {
+        var viewport = results[0].geometry.viewport;
+        var ne = viewport.getNorthEast();
+        var sw = viewport.getSouthWest();
+        this.map.fitBounds(viewport);
+      }.bind(this));
+    }
+  });
+</script>
+</polymer-element>

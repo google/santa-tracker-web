@@ -1,21 +1,29 @@
 ##{$name} {
   .question {
     background-color: #00A6A3;
-    border-bottom: 6px solid #008F8C;
-    min-height: 230px;
-    padding-top: 100px;
     position: relative;
     width: 100%;
 
     // The bottom shadow
-    &:after {
+    &::before,
+    &::after {
       background: #029A97;
-      bottom: 0;
+      bottom: -6px;
       content: '';
       height: 6px;
       position: absolute;
       width: 100%;
     }
+
+    &::after {
+      background: #008F8C;
+      bottom: -12px;
+    }
+  }
+
+  .question-content {
+    min-height: 230px;
+    padding-top: 100px;
   }
 
   .question-number,
@@ -26,6 +34,7 @@
     opacity: 0;
     transition: opacity 500ms, visibility 500ms;
     visibility: hidden;
+    z-index: 10;
   }
 
   .question.is-visible .question-number,

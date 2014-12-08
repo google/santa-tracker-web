@@ -1,6 +1,7 @@
 <link rel="import" href="../base-scene.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="templates/select-answer.html">
+<link rel="import" href="templates/map-hint.html">
 
 <script src="trivia-scene.min.js"></script>
 
@@ -15,9 +16,10 @@ Trivia scene.
   <link rel="stylesheet" href="trivia-scene.css" no-shim>
 
   <div id="module-trivia">
-    <div class="scene">
+    <div class="scene" vertical layout>
       <div class="question {{ { 'is-visible': questionVisible } | tokenList }}">
-        <div class="content" horizontal layout>
+        <div class="question-content content" horizontal layout>
+          <map-hint id="hint"></map-hint>
           <div class="question-number">{{game.current.number}}</div>
           <div class="question-text" flex>{{game.current.question}}</div>
         </div>
@@ -2524,6 +2526,7 @@ Trivia scene.
 
     eventDelegates: {
       'new-question': 'onNewQuestion',
+      'show-choices': 'onShowChoices',
       'time-up': 'onAnswered',
       'game-over': 'onGameOver'
     },
@@ -2561,6 +2564,12 @@ Trivia scene.
     onNewQuestion: function() {
       this.$.answer.reset();
       this.questionVisible = true;
+      this.$.hint.place = this.game.current.choices[0];
+    },
+
+    onShowChoices: function() {
+      this.game.startCountdown();
+      this.$.answer.showChoices();
     },
 
     onPause: function() {

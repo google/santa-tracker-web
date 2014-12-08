@@ -27,7 +27,7 @@ app.Game = function(scene, elem) {
 
   this.scoreboard = new app.shared.Scoreboard(this, elem.querySelector('.board'));
   this.gameoverView = new app.shared.Gameover(this, elem.querySelector('.gameover'));
-  this.quiz = new app.Quiz(this, elem.querySelector('.quiz'), this.current);
+  this.quiz = new app.Quiz(scene, elem.querySelector('.quiz'), this.current);
   this.levelUp = new app.shared.LevelUp(this,
     $(this.elem.querySelector('.levelup')), $(this.elem.querySelector('.levelup--number')));
 
@@ -38,6 +38,8 @@ app.Game = function(scene, elem) {
  * Game loop. Runs every frame using requestAnimationFrame.
  */
 app.Game.prototype.onFrame = function() {
+  if (this.isGameover) return;
+
   // Calculate delta since last frame.
   var now = +new Date() / 1000;
   var delta = Math.min(1, now - this.lastFrame);
@@ -202,4 +204,8 @@ app.Game.prototype.nextQuestion_ = function() {
     this.quiz.nextQuestion();
     this.scene.fire('new-question');
   }.bind(this));
+};
+
+app.Game.prototype.startCountdown = function() {
+  this.countdownActive = true;
 };

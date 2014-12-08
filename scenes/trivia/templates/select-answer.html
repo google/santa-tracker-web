@@ -114,15 +114,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       'core-activate': 'onAnswered'
     },
 
-    observe: {
-      'choices': 'shuffle'
-    },
-
     answered: false,
 
     shuffled: [],
 
-    shuffle: function() {
+    showChoices: function() {
       this.shuffled = this.choices.slice(0);
       for (var i = this.shuffled.length; i >= 0; i--) {
         this.shuffled.push(this.shuffled.splice(Math.random() * i | 0, 1)[0]);
