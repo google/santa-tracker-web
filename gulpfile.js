@@ -247,6 +247,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
 
 gulp.task('vulcanize-codelab-frame', ['clean', 'compass', 'compile-scenes'], function() {
   return gulp.src('scenes/codelab/codelab-frame_en.html', {base: './'})
+    .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
     .pipe(vulcanize({
       strip: !argv.pretty,
       csp: true,
@@ -301,8 +302,6 @@ gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
     'sass/*.css',
     'scenes/**/img/**/*.{png,jpg,svg,gif,cur}',
     'elements/**/img/*.{png,jpg,svg,gif}',
-    'components/platform/*',
-    'components/polymer/*',
     'components/webcomponentsjs/webcomponents.min.js'
   ], {base: './'})
   .pipe(gulp.dest(DIST_STATIC_DIR));
