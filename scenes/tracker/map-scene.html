@@ -1,0 +1,162 @@
+<link rel="import" href="../base-scene.html">
+<link rel="import" href="google-map-bubble.html">
+
+<!--
+map scene.
+
+@element briefing-scene
+@extends base-scene
+-->
+
+
+
+
+
+<polymer-element name="map-scene" extends="base-scene">
+<template>
+  <style>
+
+  :host {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  button {
+    z-index: 99;
+    position: absolute;
+  }
+
+  bubble-overlay {
+    z-index: 99;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+  }
+
+  bubble-item {
+    z-index: 99;
+    position: absolute;
+
+  }
+
+  google-map {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+.content-left, .content-right {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.content-left {
+  background-color: red;
+}
+
+.content-right {
+  background-color: yellow;
+
+}
+
+
+  </style>
+  <link rel="stylesheet" href="map-scene.css" no-shim>
+
+  <bubble-overlay opacity="0.5">
+  scene content
+    <a-bubble id="bubble1" x="300" y="300" on-click="{{click2}}"></a-bubble>
+    <!--<a-bubble id="bubble2" x="500" y="300"></a-bubble>-->
+  </bubble-overlay>
+
+    <google-map-bubble
+      id="mapBubble1"
+      latitude="51.3"
+      longitude="0.08"
+      zoom="8"></google-map-bubble>
+
+
+
+  <!--<google-map-bubble
+      id="mapBubble2"
+      latitude="-33.836857"
+      longitude="150.5"
+      zoom="8"></google-map-bubble>-->
+
+
+
+  <button on-click="{{action2}}">translate</button>
+
+
+
+
+</template>
+<script>
+  Polymer({
+    loadingBgColor: 'rgb(129,208,0)',
+    componentDir: 'scenes/map/',
+    ready: function() {
+      this.$.mapBubble1.bubble = this.$.bubble1;
+
+      console.log(this.$.bubble1)
+      //this.$.mapBubble2.bubble = this.$.bubble2;
+      //this.start_();
+
+
+    },
+
+    click2: function() {
+      console.log('click2');
+    },
+
+
+    action2: function() {
+      this.$.bubble1.move(400,100, 110);
+      this.$.bubble2.open(50);
+    },
+
+
+
+    stop: function() {
+      window.clearInterval(this.slideshowTimer_);
+    },
+
+    /**
+     * @private
+     */
+    start_: function() {
+      window.clearInterval(this.slideshowTimer_);
+      this.slideshowTimer_ = window.setInterval(
+          this.nextSlide_.bind(this), 7 * 1000);
+    },
+
+    onPreload: function(preloader) {
+      this.preloadSounds('map_load_sounds', 30);
+      this.preloadImages([
+        'img/logo.svg',
+        'img/audience.png',
+        'img/decorations.png',
+        'img/floor.png',
+        'img/objects.png',
+        'img/plan.png'
+      ]);
+    },
+
+    onShow: function() {
+      //this.playAmbientSounds('map_start');
+
+    },
+
+    onHide: function() {
+      //this.playAmbientSounds('map_end');
+      //this.stop();
+    }
+
+  });
+</script>
+</polymer-element>

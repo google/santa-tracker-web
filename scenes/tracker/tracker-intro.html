@@ -1,0 +1,170 @@
+<link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="../../components/google-map/google-map.html">
+<link rel="import" href="bubble-overlay.html">
+
+<script src="../shared/js/mapstyles.js"></script>
+
+<!--
+Intro for the tracker scene.
+
+@element tracker-intro
+-->
+<polymer-element name="tracker-intro" attributes="latitude longitude locationName">
+<template>
+  <style>
+  /* Outside of tracker-intro.scss because it requires shimming. */
+  :host {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    transition: transform 0.3s ease;
+    color: #fff;
+    font-family: Roboto, sans-serif;
+  }
+
+  :host > div {
+    width: 100%;
+    text-align: center;
+    z-index: 4;
+  }
+  </style>
+  <link rel="stylesheet" href="tracker-intro.css" no-shim>
+
+
+
+  <bubble-overlay opacity="1" color="#13AB27">
+    <a-bubble id="bubble" x="{{x_}}" y="{{y_}}"  on-click="{{click2}}"></a-bubble>
+  </bubble-overlay>
+
+  <div class="top" id="top">
+    <p class="welcome">
+      <i18n-msg msgid="tracker_intro_welcome">PLACEHOLDER_i18n</i18n-msg></a>
+    </p>
+    <p class="title">
+      <i18n-msg msgid="tracker_intro_title">PLACEHOLDER_i18n</i18n-msg>
+    </p>
+  </div>
+
+  <div class="pin-wrapper" id="pinWrapper">
+    <img class="pin" id="pin" src="img/pin.svg">
+  </div>
+
+  <google-map id="map" clientId="{{santaApp.config.CLIENT_ID}}" disableDefaultUI
+    zoomable="true" libraries="places,geometry"
+    zoom="8"
+    latitude="{{latitude}}" longitude="{{longitude}}"
+    on-google-map-ready="{{mapReady}}"></google-map>
+
+  <div class="bottom-wrapper">
+    <div class="bottom" id="bottom">
+      <p class="info">
+        <i18n-msg msgid="tracker_intro_user_location">PLACEHOLDER_i18n</i18n-msg>
+        <br>
+        <em>{{locationName}}</em>
+      </p>
+    </div>
+  </div>
+
+  <div class="skip">
+    <a on-click="{{skip}}"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
+  </div>
+
+</template>
+<script>
+(function() {
+
+  Polymer({
+    /**
+     * Latitude used to display the intro map.
+     *
+     * @property latitude
+     * @type number
+     * @default 0
+     */
+    latitude: 0,
+    /**
+     * Longitude used to display the intro map.
+     *
+     * @property longitude
+     * @type number
+     * @default 0
+     */
+    longitude: 0,
+    /**
+     * Name of the current location displayed on the intro map.
+     *
+     * @property locationName
+     * @type string
+     * @default ''
+     */
+    locationName: '',
+    /**
+     * window center point.
+     *
+     * @private
+     * @type number
+     * @default 0
+     */
+    x_: 0,
+    /**
+     * window center point.
+     *
+     * @private
+     * @type number
+     * @default 0
+     */
+    y_: 0,
+    created: function() {
+      this.x_ = window.innerWidth / 2;
+      this.y_ = window.innerHeight / 2;
+    },
+    ready: function() {
+      this.$.map.styles = mapstyles.styles;
+    },
+    domReady: function() {
+      this.$.pinWrapper.style.left = this.x_ - 50 + 'px';
+      this.$.pinWrapper.style.top = this.y_ - 50 + 'px';
+      this.$.map.style.left = this.x_ - 150 + 'px';  /* center point - 0.5 * width */
+      this.$.map.style.top = this.y_ - 150 + 'px';  /* center point - 0.5 * width */
+    },
+    mapReady: function() {
+      google.maps.event.addListener(
+        this.$.map.map, 'idle', function(){
+          this.show();
+        }.bind(this))
+    },
+    /**
+     * Starts intro's animation sequence.
+     *
+     * @method show
+     */
+    show: function() {
+      var bubble = this.$.bubble;
+      var pin = this.$.pin;
+      var bottom = this.$.bottom;
+
+      this.$.top.classList.add('final'); // 300ms
+      setTimeout(function() {
+        window.requestAnimationFrame(function() {
+          bubble.open(140, function(e) {
+            bubble.open(100, function() {
+              bottom.classList.add('final');
+              pin.style.transform = 'rotate(0deg)';
+            });
+          });
+        });
+      }, 300);
+    },
+    /**
+     * Hides the intro from view.
+     *
+     * @method skip
+     */
+    skip: function() {
+      this.style.transform = 'translateY(-' + 2 * this.y_ + 'px)';
+    }
+  });
+})();
+</script>
+</polymer-element>

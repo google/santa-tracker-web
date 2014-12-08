@@ -3,6 +3,7 @@
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 <link rel="import" href="../../components/google-map/google-map.html">
 <link rel="import" href="tracker-icons.html">
+<link rel="import" href="tracker-intro.html">
 
 <script src="../shared/js/mapstyles.js"></script>
 
@@ -17,12 +18,12 @@ Tracker scene.
   <link rel="stylesheet" href="tracker-scene.css" no-shim>
 
   <div id="module-tracker">
-
     <div class="scene">
-
-        <google-map id="map" clientId="{{santaApp.config.CLIENT_ID}}" disableDefaultUI
-                  zoomable="false" libraries="places,geometry"
-                  latitude="{{latitude_}}" longitude="{{longitude_}}" fit></google-map>
+        <google-map id="map"
+            clientId="{{santaApp.config.CLIENT_ID}}"
+            disableDefaultUI
+            zoomable="false" libraries="places,geometry"
+            latitude="{{latitude_}}" longitude="{{longitude_}}" fit></google-map>
 
         <div class="status-bar">
           <h2>Currently</h2>
@@ -59,7 +60,12 @@ Tracker scene.
             </li>
           </ul>
         </div>
+        <tracker-intro id="intro"
+            latitude="37.761500"
+            longitude="-122.446011"
+            locationName="San Francisco"></tracker-intro>
       </template>
+
 
       <div class="sceneboard">
         <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
@@ -69,6 +75,8 @@ Tracker scene.
       </div>
     </div>
   </div>
+
+
 </template>
 <script>
 (function() {
@@ -113,10 +121,8 @@ Tracker scene.
         this.longitude_ = location.position.lng;
       }.bind(this));
     },
-
     onShow: function() {
-      // TODO: implement
-
+      // TODO: implement.
     },
     onHide: function() {
       // TODO: implement
