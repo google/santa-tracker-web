@@ -127,9 +127,11 @@ gulp.task('rm-dist', function(rmCallback) {
 });
 
 gulp.task('compass', function() {
-  var source = argv.scene ?
-      ['{sass,elements}/**/*.scss', 'scenes/' + argv.scene + '/**/*.scss'] :
-      COMPASS_FILES;
+  var source = COMPASS_FILES;
+
+  if (argv.scene) {
+    source = source.replace('scenes', 'scenes/' + argv.scene);
+  }
 
   return gulp.src(source)
     .pipe(compass({
