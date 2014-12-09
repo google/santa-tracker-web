@@ -18,9 +18,9 @@ function VisibilityManager() {
 
   /**
    * A secondary stack of paused states for iframes contained within the app, if
-   * any. Ignored if the app is running, but added to the app's pause count
-   * if paused. A total of zero means the app should run, non-zero and it should
-   * be paused. Always non-positive.
+   * any, added to the main lock state to determine if the app (including
+   * iframes) still has focus. Always zero (no iframes have focus) or negative
+   * (some iframe has focus).
    * @private {number}
    */
   this.iframeLocks_ = 0;
