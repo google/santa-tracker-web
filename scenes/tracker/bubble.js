@@ -114,7 +114,7 @@ Bubble.prototype.open = function(radius, callback) {
  */
 Bubble.prototype.translate = function(x, y, radius, callback) {
   if (!this.radius) {
-    console.log('Can\'t translate unopened bubble, sorry.');
+    console.log("Can't translate unopened bubble, sorry.");
     return;
   }
   this.eventTarget_.dispatchEvent(this.createEvent_('translatestart'));
@@ -167,8 +167,7 @@ Bubble.prototype.translate = function(x, y, radius, callback) {
     ]);
   }
   var a = 0;
-  requestAnimationFrame(
-      animate.bind(this, frames[a]));
+  requestAnimationFrame(animate.bind(this, frames[a]));
 };
 
 

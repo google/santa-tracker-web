@@ -1,27 +1,29 @@
+<script src="bubble.js"></script>
+
 <!--
 Canvas overlay to draw animated cut-out bubbles over the content.
 
 @element bubble-overlay
 -->
-<script src="bubble.js"></script>
-
-<polymer-element name="bubble-overlay" attributes="color opacity">
+<polymer-element name="bubble-overlay" attributes="color">
 <template>
   <style>
+    :host {
+      position: relative;
+    }
     canvas {
-    z-index: 3;
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: block;
-    opacity: {{opacity}};
-  }
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+    }
   </style>
   <canvas id="canvas"></canvas>
   <content></content>
 </template>
 <script>
   Polymer({
+
     /**
      * Color of the overlay.
      *
@@ -30,14 +32,7 @@ Canvas overlay to draw animated cut-out bubbles over the content.
      * @default '#ff0000'
      */
     color: '#ff0000',
-    /**
-     * Opacity of the overlay.
-     *
-     * @property opacity
-     * @type number
-     * @default 0.6
-     */
-    opacity: 0.6,
+
     ready: function() {
       this.$.canvas.width = window.innerWidth;
       this.$.canvas.height = window.innerHeight;
@@ -45,6 +40,7 @@ Canvas overlay to draw animated cut-out bubbles over the content.
       this.ctx.fillStyle = this.color;
       this.ctx.fillRect(0, 0, this.$.canvas.width, this.$.canvas.height);
     },
+
     /**
      * Cuts out all bubbles on the overlay;
      *
@@ -57,11 +53,12 @@ Canvas overlay to draw animated cut-out bubbles over the content.
       }
       this.ctx.restore();
     },
+
     /**
      * Registers a new bubble with the overlay.
      *
      * @method registerBubble
-     * @param {Element} bubble An a-bubble element.
+     * @param {Element} bubble An canvas-bubble element.
      */
     registerBubble: function(bubble) {
       if (!this.bubbles) {
@@ -81,25 +78,21 @@ Canvas overlay to draw animated cut-out bubbles over the content.
 A cut-out bubble in the canvas over the content.
 Must be a child of bubble-overlay.
 
-@element a-bubble
+@element canvas-bubble
 -->
-<polymer-element name="a-bubble" attributes="x y">
+<polymer-element name="canvas-bubble" attributes="x y">
 <template>
   <style>
     :host {
       position: absolute;
       display: block;
       border-radius: 50%;
-      width: {{2 * radius}}px;
-      height: {{2 * radius}}px;
-      top: {{y - radius}}px;
-      left: {{x - radius}}px;
-      z-index: 4;
     };
   </style>
 </template>
 <script>
   Polymer({
+
     /**
      * Bubble's radius.
      *
@@ -108,6 +101,7 @@ Must be a child of bubble-overlay.
      * @default 0 (bubble is closed)
      */
     radius: 0,
+
     /**
      * Bubble's location along x axis.
      *
@@ -116,6 +110,7 @@ Must be a child of bubble-overlay.
      * @default 0
      */
     x: 0,
+
     /**
      * Bubble's location along y axis.
      *
@@ -124,9 +119,12 @@ Must be a child of bubble-overlay.
      * @default 0
      */
     y: 0,
+
     ready: function() {
       this.setupBubble_();
+      this.updatePosition_();
     },
+
     setupBubble_: function() {
       this.bubble = new Bubble(this.x, this.y, this.parentNode);
 
@@ -138,6 +136,14 @@ Must be a child of bubble-overlay.
         this.fire('resize');
       }.bind(this));
     },
+
+    updatePosition_: function() {
+      this.style.width = 2 * this.radius + 'px';
+      this.style.height = 2 * this.radius + 'px';
+      this.style.top = this.y - this.radius + 'px';
+      this.style.left = this.x - this.radius + 'px';
+    },
+
     /**
      * Changes bubble's radius.
      *
@@ -148,7 +154,9 @@ Must be a child of bubble-overlay.
     open: function(radius, callback) {
       this.bubble.open(radius, callback);
       this.radius = radius;
+      this.updatePosition_();
     },
+
     /**
      * Changes bubble's location and optionally radius.
      *
@@ -160,6 +168,7 @@ Must be a child of bubble-overlay.
      */
     move: function(x, y, radius, callback) {
       this.bubble.translate(x, y, radius, callback);
+      this.updatePosition_();
     }
   });
 </script>

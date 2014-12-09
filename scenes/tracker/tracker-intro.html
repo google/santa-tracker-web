@@ -19,55 +19,47 @@ Intro for the tracker scene.
     display: block;
     position: relative;
     transition: transform 0.3s ease;
-    color: #fff;
-    font-family: Roboto, sans-serif;
-  }
-
-  :host > div {
-    width: 100%;
-    text-align: center;
-    z-index: 4;
   }
   </style>
   <link rel="stylesheet" href="tracker-intro.css" no-shim>
 
+  <div id="tracker-intro-module">
+    <bubble-overlay opacity="1" color="#13AB27">
+      <canvas-bubble id="bubble" x="{{winCenterX_}}" y="{{winCenterY_}}"></canvas-bubble>
+    </bubble-overlay>
 
-
-  <bubble-overlay opacity="1" color="#13AB27">
-    <a-bubble id="bubble" x="{{x_}}" y="{{y_}}"  on-click="{{click2}}"></a-bubble>
-  </bubble-overlay>
-
-  <div class="top" id="top">
-    <p class="welcome">
-      <i18n-msg msgid="tracker_intro_welcome">PLACEHOLDER_i18n</i18n-msg></a>
-    </p>
-    <p class="title">
-      <i18n-msg msgid="tracker_intro_title">PLACEHOLDER_i18n</i18n-msg>
-    </p>
-  </div>
-
-  <div class="pin-wrapper" id="pinWrapper">
-    <img class="pin" id="pin" src="img/pin.svg">
-  </div>
-
-  <google-map id="map" clientId="{{santaApp.config.CLIENT_ID}}" disableDefaultUI
-    zoomable="true" libraries="places,geometry"
-    zoom="8"
-    latitude="{{latitude}}" longitude="{{longitude}}"
-    on-google-map-ready="{{mapReady}}"></google-map>
-
-  <div class="bottom-wrapper">
-    <div class="bottom" id="bottom">
-      <p class="info">
-        <i18n-msg msgid="tracker_intro_user_location">PLACEHOLDER_i18n</i18n-msg>
-        <br>
-        <em>{{locationName}}</em>
+    <div class="top" id="top">
+      <p class="welcome">
+        <i18n-msg msgid="tracker_intro_welcome">PLACEHOLDER_i18n</i18n-msg></a>
+      </p>
+      <p class="title">
+        <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
       </p>
     </div>
-  </div>
 
-  <div class="skip">
-    <a on-click="{{skip}}"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
+    <div class="pin-wrapper" id="pinWrapper">
+      <img class="pin" id="pin" src="img/pin.svg">
+    </div>
+
+    <google-map id="map" clientId="{{santaApp.config.CLIENT_ID}}" disableDefaultUI
+      zoomable="true" libraries="places,geometry"
+      zoom="8"
+      latitude="{{latitude}}" longitude="{{longitude}}"
+      on-google-map-ready="{{mapReady}}"></google-map>
+
+    <div class="bottom-wrapper">
+      <div class="bottom" id="bottom">
+        <p class="info">
+          <i18n-msg msgid="tracker_intro_user_location">PLACEHOLDER_i18n</i18n-msg>
+          <br>
+          <em>{{locationName}}</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="skip">
+      <a on-click="{{skip}}"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
+    </div>
   </div>
 
 </template>
@@ -106,7 +98,7 @@ Intro for the tracker scene.
      * @type number
      * @default 0
      */
-    x_: 0,
+    winCenterX_: 0,
     /**
      * window center point.
      *
@@ -114,19 +106,19 @@ Intro for the tracker scene.
      * @type number
      * @default 0
      */
-    y_: 0,
+    winCenterY_: 0,
     created: function() {
-      this.x_ = window.innerWidth / 2;
-      this.y_ = window.innerHeight / 2;
+      this.winCenterX_ = window.innerWidth / 2;
+      this.winCenterY_ = window.innerHeight / 2;
     },
     ready: function() {
       this.$.map.styles = mapstyles.styles;
     },
     domReady: function() {
-      this.$.pinWrapper.style.left = this.x_ - 50 + 'px';
-      this.$.pinWrapper.style.top = this.y_ - 50 + 'px';
-      this.$.map.style.left = this.x_ - 150 + 'px';  /* center point - 0.5 * width */
-      this.$.map.style.top = this.y_ - 150 + 'px';  /* center point - 0.5 * width */
+      this.$.pinWrapper.style.left = this.winCenterX_ - 50 + 'px';
+      this.$.pinWrapper.style.top = this.winCenterY_ - 50 + 'px';
+      this.$.map.style.left = this.winCenterX_ - 150 + 'px';  /* center point - 0.5 * width */
+      this.$.map.style.top = this.winCenterY_ - 150 + 'px';  /* center point - 0.5 * width */
     },
     mapReady: function() {
       google.maps.event.addListener(
@@ -145,7 +137,7 @@ Intro for the tracker scene.
       var bottom = this.$.bottom;
 
       this.$.top.classList.add('final'); // 300ms
-      setTimeout(function() {
+      this.async(function() {
         window.requestAnimationFrame(function() {
           bubble.open(140, function(e) {
             bubble.open(100, function() {
@@ -154,7 +146,7 @@ Intro for the tracker scene.
             });
           });
         });
-      }, 300);
+      }, null, 300);
     },
     /**
      * Hides the intro from view.
@@ -162,7 +154,7 @@ Intro for the tracker scene.
      * @method skip
      */
     skip: function() {
-      this.style.transform = 'translateY(-' + 2 * this.y_ + 'px)';
+      this.style.transform = 'translateY(-' + 2 * this.winCenterY_ + 'px)';
     }
   });
 })();

@@ -1,93 +1,111 @@
-/* TODO: Figure out why this leaks in Firefox? */
-google-map {
-  width: 300px;
-  height: 300px;
-  position: absolute;
-  z-index: 2;  /* Below the bubble-overlay. */
-  display: block;
-}
+$name: 'tracker-intro-module';
 
-p {
-  margin: 0;
-}
+$bubble-overlay-z-index: 3;
 
-.welcome,
-.skip {
-  text-transform: uppercase;
-}
+##{$name} {
 
-.welcome {
-  margin: 40px 0 10px 0;
-}
-
-.title {
-  font-family: 'Lobster', sans-serif;
-  font-weight: normal;
-  font-size: 40px;
-}
-
-.pin {
-  width: 100px;
-  height: 200px;
-  transform: rotate(160deg);
-  transition: transform 0.3s;
-}
-
-.pin-wrapper {
-  width: 200px;
-  height: 100px;
-  overflow: hidden;
-  position: absolute;
-  text-align: left;
-}
-
-.top {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  transform: translateY(20px);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0;
-}
-
-.top.final {
-  transform: translateY(0px);
-  opacity: 1;
-}
-
-.bottom-wrapper {
-  position: absolute;
-  bottom: 60px;
-  overflow:hidden;
-  height: 60px;
-  width: 100%;
-}
-
-.bottom {
-  width: 100%;
-  position: relative;
-  transform: translateY(60px);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.bottom.final {
-  transform: translateY(0px);
-  opacity: 1;
-}
-
-.info em {
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-}
-
-.skip {
-  margin: 1em 0;
-  font-size: 0.8em;
-  position: absolute;
-  bottom: 0;
-}
-
-.skip a {
   color: #fff;
+  font-family: Roboto, sans-serif;
+
+  > div {
+    width: 100%;
+    text-align: center;
+    z-index: $bubble-overlay-z-index + 1;
+  }
+
+  google-map {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    z-index: $bubble-overlay-z-index - 1;
+    display: block;
+  }
+
+  bubble-overlay {
+    z-index: $bubble-overlay-z-index;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .welcome,
+  .skip {
+    text-transform: uppercase;
+  }
+
+  .welcome {
+    margin: 40px 0 10px 0;
+  }
+
+  .title {
+    font-family: 'Lobster', sans-serif;
+    font-weight: normal;
+    font-size: 40px;
+  }
+
+  .pin {
+    width: 100px;
+    height: 200px;
+    transform: rotate(160deg);
+    transition: transform 0.3s;
+  }
+
+  .pin-wrapper {
+    width: 200px;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    text-align: left;
+  }
+
+  .top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transform: translateY(20px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+
+    &.final {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  .bottom-wrapper {
+    position: absolute;
+    bottom: 60px;
+    overflow:hidden;
+    height: 60px;
+    width: 100%;
+  }
+
+  .bottom {
+    width: 100%;
+    position: relative;
+    transform: translateY(60px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+    &.final {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  .info em {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .skip {
+    margin: 1em 0;
+    font-size: 0.8em;
+    position: absolute;
+    bottom: 0;
+     a {
+      color: #fff;
+    }
+  }
 }
