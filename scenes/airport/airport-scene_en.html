@@ -3,7 +3,6 @@
 
 <script src="airport-scene.min.js"></script>
 <script src="../../third_party/lib/TweenMax.min.js"></script>
-<script src="../shared/js/css_animation_helper.js"></script>
 
 <!--
 Airport scene.
@@ -14,6 +13,19 @@ Airport scene.
 <polymer-element name="airport-scene" extends="base-scene">
 <template>
   <link rel="stylesheet" href="airport-scene.css" no-shim>
+  <style>
+  :host([mode="cast"]) .clouds,
+  :host([mode="cast"]) .big-plane,
+  :host([mode="cast"]) .plane--departing,
+  :host([mode="cast"]) .plane--flying {
+    display: none !important;
+  }
+  ,
+  :host([mode="cast"]) .crazy {
+    -webkit-animation: none !important;
+    animation: none !important;
+  }
+  </style>
 
   <core-a11y-keys target="{{}}" keys="enter space up down left right"
                   on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
@@ -21,32 +33,34 @@ Airport scene.
   <div id="module-airport">
     <div class="scene">
       <div class="bg">
-        <div class="cloud cloud1 js-resize-animation">
-          <div class="cloud__img"></div>
-        </div>
-        <div class="cloud cloud2 js-resize-animation">
-          <div class="cloud__img"></div>
-        </div>
-        <div class="cloud cloud3 js-resize-animation">
-          <div class="cloud__img"></div>
-        </div>
-        <div class="cloud cloud4 js-resize-animation">
-          <div class="cloud__img"></div>
-        </div>
-        <div class="cloud cloud5 js-resize-animation">
-          <div class="cloud__img"></div>
-        </div>
-        <div class="cloud cloud6 js-resize-animation">
-          <div class="cloud__img"></div>
-        </div>
-        <div class="cloud cloud7 js-resize-animation">
-          <div class="cloud__img"></div>
-        </div>
-        <div class="cloud cloud8 js-resize-animation">
-          <div class="cloud__img"></div>
-        </div>
-        <div class="cloud cloud9 js-resize-animation">
-          <div class="cloud__img"></div>
+        <div class="clouds">
+          <div class="cloud cloud1">
+            <div class="cloud__img"></div>
+          </div>
+          <div class="cloud cloud2">
+            <div class="cloud__img"></div>
+          </div>
+          <div class="cloud cloud3">
+            <div class="cloud__img"></div>
+          </div>
+          <div class="cloud cloud4">
+            <div class="cloud__img"></div>
+          </div>
+          <div class="cloud cloud5">
+            <div class="cloud__img"></div>
+          </div>
+          <div class="cloud cloud6">
+            <div class="cloud__img"></div>
+          </div>
+          <div class="cloud cloud7">
+            <div class="cloud__img"></div>
+          </div>
+          <div class="cloud cloud8">
+            <div class="cloud__img"></div>
+          </div>
+          <div class="cloud cloud9">
+            <div class="cloud__img"></div>
+          </div>
         </div>
         <div class="plane plane--flying"></div>
         <div class="plane plane--departing"></div>
@@ -65,7 +79,9 @@ Airport scene.
         <div class="sign sign--right"></div>
       </div>
       <div class="floor">
-        <div class="bags"></div>
+        <div class="bags">
+          <div class="bags__animation"></div>
+        </div>
         <div class="bagdoor bagdoor--left"></div>
         <div class="bagdoor bagdoor--right"></div>
         <div class="conveyor conveyor--floor">
@@ -330,14 +346,10 @@ Airport scene.
     onShow: function() {
       this.fire('sound-ambient', 'airport_start');
       var div = this.$['module-airport'];
-
-      this.animationHelper = new CSSAnimationHelper(div);
       this.belt = new scenes.airport.Belt(div);
     },
 
     onHide: function() {
-      this.animationHelper.destroy();
-      this.animationHelper = null;
       this.belt.destroy();
       this.belt = null;
       this.fire('sound-ambient', 'airport_end');

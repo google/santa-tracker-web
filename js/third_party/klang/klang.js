@@ -225,23 +225,45 @@ AudioSprite = function (src, data, callback) {
 	 *                            play next sound and make it feel more responsive
 	 */
 	this.pause = function (seekTime) {
-		audio.pause();
+		//audio.pause();
 		if (seekTime) {
 			audio.currentTime = seekTime;
 		}
 		_this.playing = false;
-		clearInterval(_this._timer); // Consider using rAF hook instead: Render.stopRender(_this._checkCurrentTime);	
-		clearTimeout(_this._backupTimeout);
+		audio.pause();
+		//clearInterval(_this._timer); // Consider using rAF hook instead: Render.stopRender(_this._checkCurrentTime);	
+		//clearTimeout(_this._backupTimeout);
+	};
+
+	this._onEndedLoop = function () {
+		audio.currentTime = 0;
+		if ( _this.playing ) audio.play();
 	};
 
 	this.setLoop = function(state) {
-		audio.loop = state;
+		//audio.loop = state;
+
+        this._loop = state;
 	}
 
 	this.setVolume = function(vol) {
 		if (!Klang.isMobile) {
 			audio.volume = vol;
 		}
+	}
+
+	this._playNative = function () {
+
+		if ( this._hasLoopEvent ) {
+	    	this.audio.removeEventListener('ended', this._onEndedLoop, false);
+	    }
+
+		if ( this._loop ) {
+			this.audio.addEventListener('ended', this._onEndedLoop, false);
+			this._hasLoopEvent = true;
+	    }
+
+	    audio.play();
 	}
 }
 
@@ -280,7 +302,7 @@ AudioSprite.prototype.play = function (startTime, duration) {
 			}
 
 			audio.currentTime = startTime;
-			audio.play();
+			_this._playNative();
 		};
 		audio.addEventListener('progress', progress, false);
 	};
@@ -297,8 +319,8 @@ AudioSprite.prototype.play = function (startTime, duration) {
 	_this.updateCallback = null;
 	audio.removeEventListener('progress', progress, false);
 
-	clearTimeout(_this._backupTimeout);
-	clearInterval(_this._timer); //Render.stopRender(_this._checkCurrentTime);
+	//clearTimeout(_this._backupTimeout);
+	//clearInterval(_this._timer); //Render.stopRender(_this._checkCurrentTime);
 	
 	audio.pause();
 
@@ -311,7 +333,7 @@ AudioSprite.prototype.play = function (startTime, duration) {
 		if (waitForDuration() || Math.round(audio.currentTime*100)/100 < startTime) {
 			delayPlay();
 		} else {
-			audio.play();
+			this._playNative();
 		}
 	} catch (e) {
 		delayPlay();
@@ -323,24 +345,24 @@ AudioSprite.prototype.play = function (startTime, duration) {
 	}
 
 	// checks if audio tag has played past current sound and should pause
-	_this._checkCurrentTime = function () {
-		if (audio.currentTime >= nextTime) {
-			_this.pause();
-			clearTimeout(_this._backupTimeout);
-		}
-	}
+	// _this._checkCurrentTime = function () {
+	// 	if (audio.currentTime >= nextTime) {
+	// 		_this.pause();
+	// 		clearTimeout(_this._backupTimeout);
+	// 	}
+	// }
 
 	// In some cases on Android the audio tag's currentTime doesn't update though the audio is still playing.
 	// We setup a fallback timeout to pause 1 second after the current sprite's end time
 	// Space sounds more than 1s apart in sprite to be make sure no extra sounds are played
 	// Normally this backup timeout is cancelled by _checkCurrentTime()
-	_this._backupTimeout = setTimeout(function () {
-		_this.pause();
-	}, (duration * 1000) + 1000);
+	// _this._backupTimeout = setTimeout(function () {
+	// 	_this.pause();
+	// }, (duration * 1000) + 1000);
 
 	// Consider using requestAnimationFrame instead and hook into your app's 
 	// render looop, e.g. Render.startRender(_this._checkCurrentTime);
-	_this._timer = setInterval(_this._checkCurrentTime, 10);	
+	//_this._timer = setInterval(_this._checkCurrentTime, 10);	
 };
 
 var __extends = this.__extends || function (d, b) {
@@ -472,16 +494,17 @@ var __extends = this.__extends || function (d, b) {
             }
             this._priority = this._sprite.data.audio_tag;
             if(this._data.loop) {
-                var url = this._sprite.srcUrl;
-                if(this._data.loop_start == undefined) {
-                    this._data.loop_start = 0;
-                }
-                if(this._data.loop_end != undefined) {
-                    //this._data.offset = this._data.loop_start;
-                    this._data.duration = this._data.loop_end// - this._data.loop_start;
-                    ;
-                }
-            }
+                // hotfix for Santatracker2014
+                this._sprite.setLoop(true);
+                this._data.loop = false;
+                // if (this._data.loop_start == undefined) {
+                //     this._data.loop_start = 0;
+                // }
+                // if (this._data.loop_end != undefined) {
+                //     //this._data.offset = this._data.loop_start;
+                //     this._data.duration = this._data.loop_end;// - this._data.loop_start;
+                // }
+                            }
             this._gain = new ATGainNode(data.volume, this);
         }
         ATAudioSource.prototype.play = function (when, offset, resume, keepVolume, loopTrigg) {
@@ -1040,7 +1063,7 @@ var __extends = this.__extends || function (d, b) {
         return AudioTagHandler;
     })();
     Klang.AudioTagHandler = AudioTagHandler;    
-    Klang.versionNumber = 2;
+    Klang.versionNumber = 1;
     Klang.context;
     Klang.version;
     //export var safari: bool;
@@ -1072,6 +1095,7 @@ var __extends = this.__extends || function (d, b) {
             this._superMasterOutput = Klang.context ? Klang.context.createGain() : null;
             Klang.Panner = Model.Panner;
             this._eventHistory = [];
+            this.scheduler = new Model.Scheduler();
             if(Util.getParameterByName("klang_log")) {
                 Klang.loggingEnabled = true;
             }
@@ -1931,6 +1955,19 @@ var __extends = this.__extends || function (d, b) {
         return Model;
     }
     Klang.getModel = getModel;
+    function schedule(time, fn) {
+        if(Klang.version !== 'webaudio') {
+            Klang.err('Schedule only availible in WebAudio version');
+            return this;
+        }
+        if(typeof time === 'number' && typeof fn === 'function') {
+            Core.instance.scheduler.at(time, fn);
+        } else {
+            Klang.err('.schedule requires arg0 - time in seconds and arg1 - a callback function');
+        }
+        return this;
+    }
+    Klang.schedule = schedule;
     function createObject(name, options) {
         if(!Model[name]) {
             throw new Error('No such object');
@@ -2167,7 +2204,92 @@ var __extends = this.__extends || function (d, b) {
     Klang.deinit = deinit;
     var Model;
     (function (Model) {
-        /** @namespace Klang.Model */ /*
+        var EventEmitter = (function () {
+            function EventEmitter() { }
+            EventEmitter.prototype.on = /**
+            *   Register a listener
+            */
+            function (name, callback, context) {
+                /** @member */
+                this._events = this._events || {
+                };
+                var events = this._events[name] || (this._events[name] = []);
+                events.push({
+                    callback: callback,
+                    ctxArg: context,
+                    context: context || this
+                });
+                return this;
+            };
+            EventEmitter.prototype.off = /**
+            *   Unregister a listener
+            */
+            function (name, callback, context) {
+                var i, len, listener, retain;
+                if(!this._events || !this._events[name]) {
+                    return this;
+                }
+                if(!name && !callback && !context) {
+                    this._events = {
+                    };
+                }
+                var eventListeners = this._events[name];
+                if(eventListeners) {
+                    retain = [];
+                    // silly redundancy optimization, might be better to keep it DRY
+                    if(callback && context) {
+                        for(i = 0 , len = eventListeners.length; i < len; i++) {
+                            listener = eventListeners[i];
+                            if(callback !== listener.callback && context !== listener.ctxArg) {
+                                retain.push(eventListeners[i]);
+                            }
+                        }
+                    } else if(callback) {
+                        for(i = 0 , len = eventListeners.length; i < len; i++) {
+                            listener = eventListeners[i];
+                            if(callback !== listener.callback) {
+                                retain.push(eventListeners[i]);
+                            }
+                        }
+                    } else if(context) {
+                        for(i = 0 , len = eventListeners.length; i < len; i++) {
+                            listener = eventListeners[i];
+                            if(context !== listener.ctxArg) {
+                                retain.push(eventListeners[i]);
+                            }
+                        }
+                    }
+                    this._events[name] = retain;
+                }
+                if(!this._events[name].length) {
+                    delete this._events[name];
+                }
+                return this;
+            };
+            EventEmitter.prototype.trigger = /**
+            *   Trigger an event
+            */
+            function (name) {
+                var args = [];
+                for (var _i = 0; _i < (arguments.length - 1); _i++) {
+                    args[_i] = arguments[_i + 1];
+                }
+                if(!this._events || !this._events[name]) {
+                    return this;
+                }
+                var i, binding, listeners;
+                listeners = this._events[name];
+                args = [].splice.call(arguments, 1);
+                for(i = listeners.length - 1; i >= 0; i--) {
+                    binding = listeners[i];
+                    binding.callback.apply(binding.context, args);
+                }
+                return this;
+            };
+            return EventEmitter;
+        })();
+        Model.EventEmitter = EventEmitter;        
+        /*
         * Source: src/model/FileHandler.ts
         */
         /**
@@ -9835,8 +9957,10 @@ var __extends = this.__extends || function (d, b) {
         * @param {string} name Identifying name.
         * @constructor
         */
-        var Sequencer = (function () {
+        var Sequencer = (function (_super) {
+            __extends(Sequencer, _super);
             function Sequencer(data, name) {
+                        _super.call(this);
                 // Tid i sekunder att schemalägga framtiden
                 this._scheduler = null;
                 // Handle till setTimeout
@@ -9851,6 +9975,7 @@ var __extends = this.__extends || function (d, b) {
                 this._paused = false;
                 this._maxSwing = .08;
                 this._swingFactor = 0.0;
+                this._lastBeat = -1;
                 this._name = name;
                 this._type = data.type;
                 this._bpm = data.bpm || 120;
@@ -9909,6 +10034,14 @@ var __extends = this.__extends || function (d, b) {
                             this._scheduleTime += (60.0 / this._bpm) * this._resolution;
                         }
                     }
+                    var currentStep = this.currentStep;
+                    var currentBeat = Math.floor(currentStep);
+                    var now = Klang.context.currentTime;
+                    if(currentBeat !== this._lastBeat) {
+                        this.trigger('beforeNextBeat', currentBeat, this.getBeatTime(0) - now, now);
+                        this._lastBeat = currentBeat;
+                    }
+                    this.trigger('progress', this._currentStep, this.getBeatTime(0) - now, this._scheduleTime);
                 }
                 // Hax för att kunna anropa en privat funktion med setTimeout
                 var _this = this;
@@ -9933,6 +10066,7 @@ var __extends = this.__extends || function (d, b) {
                         name: this._name
                     });
                 }
+                this.trigger('start');
                 return this;
             };
             Sequencer.prototype.pause = /**
@@ -9945,6 +10079,7 @@ var __extends = this.__extends || function (d, b) {
                 for(var ix = 0, len = this._registeredPatterns.length; ix < len; ix++) {
                     this._registeredPatterns[ix].pause();
                 }
+                this.trigger('pause');
                 return this;
             };
             Sequencer.prototype.unpause = /**
@@ -10453,8 +10588,9 @@ var __extends = this.__extends || function (d, b) {
                 this._swingFactor = data.swing_factor || 0;
             };
             return Sequencer;
-        })();
+        })(EventEmitter);
         Model.Sequencer = Sequencer;        
+        //applyMixins(Sequencer, [EventEmitter])
         /*
         * Source: src/model/control/SyncCountdown.ts
         */
@@ -10630,6 +10766,7 @@ var __extends = this.__extends || function (d, b) {
                 if(!this._started) {
                     this.start();
                 }
+                return this;
             };
             TimeHandler.prototype.removeMethodCallback = /**
             * Removes a previously added callback.
@@ -10644,10 +10781,116 @@ var __extends = this.__extends || function (d, b) {
                         return;
                     }
                 }
+                return this;
             };
             return TimeHandler;
         })();
         Model.TimeHandler = TimeHandler;        
+        /*
+        * Source: src/model/control/Scheduler.ts
+        */
+        /**
+        *   Handles event scheduling (non Audio for now)
+        */
+        var Scheduler = (function () {
+            function Scheduler() {
+                this._updateTime = 100;
+                this._lookAHead = this._updateTime * 2;
+                this._callbacks = [];
+            }
+            Scheduler.prototype.scheduleClose = function (callback) {
+                var timeOffset = callback.targetTime - Klang.context.currentTime;
+                setTimeout(function () {
+                    callback.func.apply(callback.ctx);
+                }, timeOffset * 1000);
+            };
+            Scheduler.prototype.runScheduler = /**
+            * Start the scheduler.
+            * @private
+            */
+            function () {
+                // Om inga callbacks finns kvar stängs schemaläggaren av
+                if(this._callbacks.length > 0) {
+                    var currentTime = Klang.context.currentTime;
+                    //var deltaTime = currentTime - this._lastTime;
+                    // Gå igenom alla callbacks och anropa funktionen om det är dags
+                    for(var ix = 0; ix < this._callbacks.length; ix++) {
+                        var callback = this._callbacks[ix];
+                        //callback.timePassed += deltaTime;
+                        if(currentTime + this._lookAHead >= callback.targetTime) {
+                            this.scheduleClose(callback);
+                            // Ta bort callbacken och justera ix i loopen för att inte hoppa över något index
+                            this._callbacks.splice(ix, 1);
+                            ix--;
+                        }
+                    }
+                    this._lastTime = currentTime;
+                    var _this = this;
+                    this._scheduler = setTimeout(function () {
+                        _this.runScheduler();
+                    }, _this._updateTime);
+                } else {
+                    this.stop();
+                }
+            };
+            Scheduler.prototype.start = /**
+            * Starts the scheduler.
+            */
+            function () {
+                this._started = true;
+                this._lastTime = Klang.context.currentTime;
+                clearTimeout(this._scheduler);
+                this.runScheduler();
+            };
+            Scheduler.prototype.stop = /**
+            * Stops the scheduler.
+            */
+            function () {
+                this._started = false;
+                clearTimeout(this._scheduler);
+                this._scheduler = null;
+            };
+            Scheduler.prototype.at = /**
+            * Registers a callback for a time.
+            * @param {Object} obj Target object.
+            * @param {Function} func Callback function.
+            * @param {number} targetTime Target time.
+            */
+            // public in( targetTime, func, ctx ? : any ) : Scheduler {
+            //     return this.at( context.currentTime + targetTime, func, ctx );
+            // }
+            /**
+            *
+            */
+            function (targetTime, func, ctx) {
+                if(targetTime < Klang.context.currentTime) {
+                    return this;
+                }
+                this._callbacks.push({
+                    ctx: ctx || this,
+                    func: func,
+                    targetTime: targetTime
+                });
+                if(!this._started) {
+                    this.start();
+                }
+                return this;
+            };
+            Scheduler.prototype.cancel = /**
+            *
+            */
+            function (func) {
+                for(var i = 0; i < this._callbacks.length; i++) {
+                    if(this._callbacks[i]['func'] && this._callbacks[i]['func'] === func) {
+                        this._callbacks.splice(i, 1);
+                        break;
+                    }
+                }
+                return this;
+            };
+            return Scheduler;
+        })();
+        Model.Scheduler = Scheduler;        
         /*
         * Source: src/model/control/Process.ts
         */
@@ -11097,6 +11340,14 @@ var __extends = this.__extends || function (d, b) {
         Util.LOG_LOAD_COLOR = "#333333";
         Util.LOG_WARN_COLOR = "DarkOrange";
         Util.LOG_ERROR_COLOR = "Red";
+        // mixins
+        function applyMixins(derivedCtor, baseCtors) {
+            baseCtors.forEach(function (baseCtor) {
+                Object.getOwnPropertyNames(baseCtor.prototype).forEach(function (name) {
+                    derivedCtor.prototype[name] = baseCtor.prototype[name];
+                });
+            });
+        }
         /**
         * Name of the last event that was received.
         */

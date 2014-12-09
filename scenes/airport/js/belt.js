@@ -125,7 +125,7 @@ app.Belt.prototype = {
         closetCallback;
 
     this.itemsOnBelt.push(item);
-
+    
     startCallback = TweenLite.delayedCall(0, this.onEnterBelt, [item], this);
 
     elfTween = TweenLite.fromTo(item.$el, app.Constants.DURATION, {x: 0}, {
