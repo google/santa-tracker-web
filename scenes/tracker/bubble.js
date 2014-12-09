@@ -7,6 +7,9 @@
  * @param {Element} overlay A <bubble-overlay> Polymer element.
  */
 function Bubble(x, y, overlay) {
+  if (overlay.tagName !== 'BUBBLE-OVERLAY') {
+    console.warn('Overlay has to be a <bubble-overlay> element.');
+  }
   this.x = x;
   this.y = y;
   this.originX = x;
