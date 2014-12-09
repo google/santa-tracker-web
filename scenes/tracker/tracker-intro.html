@@ -75,6 +75,7 @@ Intro for the tracker scene.
      * @default 0
      */
     latitude: 0,
+
     /**
      * Longitude used to display the intro map.
      *
@@ -83,6 +84,7 @@ Intro for the tracker scene.
      * @default 0
      */
     longitude: 0,
+
     /**
      * Name of the current location displayed on the intro map.
      *
@@ -91,6 +93,7 @@ Intro for the tracker scene.
      * @default ''
      */
     locationName: '',
+
     /**
      * window center point.
      *
@@ -99,6 +102,7 @@ Intro for the tracker scene.
      * @default 0
      */
     winCenterX_: 0,
+
     /**
      * window center point.
      *
@@ -107,25 +111,30 @@ Intro for the tracker scene.
      * @default 0
      */
     winCenterY_: 0,
+
     created: function() {
       this.winCenterX_ = window.innerWidth / 2;
       this.winCenterY_ = window.innerHeight / 2;
     },
+
     ready: function() {
       this.$.map.styles = mapstyles.styles;
     },
+
     domReady: function() {
       this.$.pinWrapper.style.left = this.winCenterX_ - 50 + 'px';
       this.$.pinWrapper.style.top = this.winCenterY_ - 50 + 'px';
       this.$.map.style.left = this.winCenterX_ - 150 + 'px';  /* center point - 0.5 * width */
       this.$.map.style.top = this.winCenterY_ - 150 + 'px';  /* center point - 0.5 * width */
     },
+
     mapReady: function() {
       google.maps.event.addListener(
         this.$.map.map, 'idle', function(){
           this.show();
         }.bind(this))
     },
+
     /**
      * Starts intro's animation sequence.
      *
@@ -148,6 +157,7 @@ Intro for the tracker scene.
         });
       }, null, 300);
     },
+
     /**
      * Hides the intro from view.
      *
