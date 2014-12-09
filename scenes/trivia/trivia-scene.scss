@@ -1,6 +1,7 @@
 $name: 'module-trivia';
 $gameover-bg: #fbbf2c;
 $rotate-bg: $gameover-bg;
+$trivia-bp: 661px;
 
 @import "../shared/sass/gameover";
 @import "../shared/sass/board";
@@ -10,27 +11,45 @@ $rotate-bg: $gameover-bg;
 
 ##{$name} {
   background: #00C55D;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-
-  .scene {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transform-origin: 0 0;
-  }
 
   .content {
+    box-sizing: border-box;
+    padding: 0 10px;
     width: 100%;
 
     @media (min-width: 768px) {
       margin: 0 auto;
+      padding: 0;
       width: 767px;
+    }
+  }
+
+  .map-hint {
+    background-color: #00A6A3;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    @media (min-width: $trivia-bp) {
+      height: 340px;
+    }
+
+    // The bottom shadow
+    &::before,
+    &::after {
+      background: rgba(0, 0, 0, 0.07);
+      bottom: 0;
+      content: '';
+      height: 12px;
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+      z-index: 5;
+    }
+
+    &::after {
+      height: 6px;
     }
   }
 

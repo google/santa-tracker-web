@@ -15,19 +15,17 @@ Trivia scene.
 <template>
   <link rel="stylesheet" href="trivia-scene.css" no-shim>
 
-  <div id="module-trivia">
-    <div class="scene" vertical layout>
-      <div class="question {{ { 'is-visible': questionVisible } | tokenList }}">
-        <div class="question-content content" horizontal layout>
-          <map-hint id="hint"></map-hint>
-          <div class="question-number">{{game.current.number}}</div>
-          <div class="question-text" flex>{{game.current.question}}</div>
-        </div>
+  <div id="module-trivia" fit>
+    <div class="scene" fit vertical layout>
+      <div class="map-hint">
+        <map-hint id="hint"></map-hint>
       </div>
-      <div class="answer">
-        <div class="content">
-          <select-answer id="answer" choices="{{game.current.choices}}" on-answered="{{onAnswered}}" />
+      <div class="content">
+        <div class="question {{ { 'is-visible': questionVisible } | tokenList }}">
+          <div class="question-number">{{game.current.number}}</div>
+          <div class="question-text">{{game.current.question}}</div>
         </div>
+        <select-answer id="answer" choices="{{game.current.choices}}" on-answered="{{onAnswered}}" />
       </div>
     </div>
     <div class="gui">

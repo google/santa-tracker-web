@@ -1,43 +1,29 @@
 ##{$name} {
   .question {
-    background-color: #00A6A3;
-    overflow: hidden;
+    margin-bottom: 10px;
+    margin-top: 20px;
     position: relative;
-    width: 100%;
 
-    // The bottom shadow
-    &::before,
-    &::after {
-      background: rgba(0, 0, 0, 0.07);
-      bottom: 0;
-      content: '';
-      height: 12px;
-      pointer-events: none;
-      position: absolute;
-      width: 100%;
-      z-index: 10;
+    @media (min-width: $trivia-bp) {
+      margin-bottom: 20px;
+      margin-top: 30px;
     }
-
-    &::after {
-      height: 6px;
-    }
-  }
-
-  .question-content {
-    box-sizing: border-box;
-    min-height: 340px;
-    padding-top: 90px;
   }
 
   .question-number,
   .question-text {
     font-family: Roboto;
-    font-size: 39px;
-    letter-spacing: 0.78px;
+    font-size : 21px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
     opacity: 0;
     transition: opacity 500ms, visibility 500ms;
     visibility: hidden;
     z-index: 10;
+
+    @media (min-width: $trivia-bp) {
+      font-size: 39px;
+    }
   }
 
   .question.is-visible .question-number,
@@ -48,25 +34,36 @@
   }
 
   .question-number {
-    color: #00C55D;
-    line-height: 52.66px;
-    margin-right: 35px;
-    position: relative;
+    color: #005B6C;
+    left: 10px;
+    line-height: 1;
+    position: absolute;
+    top: 1px;
 
     // The underline
     &:after {
-      background: #00C55D;
-      top: 52px;
+      background: #005B6C;
+      bottom: -5px;
       content: '';
-      height: 3px;
+      height: 2px;
       left: 0;
       position: absolute;
       width: 100%;
+
+      @media (min-width: $trivia-bp) {
+        height: 3px;
+      }
     }
   }
 
   .question-text {
     color: #fff;
-    line-height: 43.8px;
+    line-height : 25px;
+    margin-left: 50px;
+
+    @media (min-width: $trivia-bp) {
+      line-height: 44px;
+      margin-left: 77px;
+    }
   }
 }

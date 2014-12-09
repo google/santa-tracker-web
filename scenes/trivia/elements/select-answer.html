@@ -14,12 +14,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <template>
 
   <style>
-    :host {
-      padding: 40px 0;
-    }
-
     :host paper-item {
-      padding: 5px 30px;
+      padding: 0 15px;
     }
 
     paper-item.core-selected {
@@ -47,14 +43,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     .check {
-      border: 2px solid #7DE1AC;
       border-radius: 50%;
-      height: 18px;
-      left: 0;
-      margin-top: -10px;
+      border: 2px solid #7DE1AC;
+      height: 8px;
+      left: -2px;
+      margin-top: -6px;
       position: absolute;
       top: 50%;
-      width: 18px;
+      width: 8px;
     }
 
     .check::after {
@@ -84,12 +80,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     .text {
       color: #fff;
-      font-family: Roboto;
-      font-size: 39px;
+      font-family: Roboto, sans-serif;
+      font-size: 21px;
       font-weight: 400;
-      letter-spacing: 0.78px;
-      line-height: 68.66px;
-      padding-left: 30px;
+      letter-spacing: 0.8px;
+      line-height: 10px;
+      padding-left: 20px;
+    }
+
+    @media (min-width: 661px) {
+      :host paper-item {
+        padding: 5px 30px;
+      }
+
+      .check {
+        height: 16px;
+        left: -15px;
+        margin-top: -10px;
+        width: 16px;
+      }
+
+      .text {
+        font-size: 39px;
+        line-height: 30px;
+        padding-left: 30px;
+      }
     }
 
   </style>
