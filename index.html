@@ -110,18 +110,9 @@
       ga_.pushCommand(['_trackPageview', '/']);
       ga_.pushCommand(['_trackEvent', 'Polymer', 'unsupported-browser']);
       // redirect after analytics has been processed
-
-      var url = 'https://santatracker.google.com' +
-            location.pathname.replace(/[^\/]*$/, '') + 'upgrade.html';
-      if (location.search != '') {
-        url += location.search;
-      }
-
-      if (location.hash != '') {
-        url += location.hash;
-      }
       _gaq.push(function() {
-        window.location = url;
+        window.location = 'https://santatracker.google.com' +
+            location.pathname.replace(/[^\/]*$/, '') + 'upgrade.html';
       });
     }
 
