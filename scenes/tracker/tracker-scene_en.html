@@ -151,6 +151,7 @@ Tracker scene.
     dests_: null,
 
     onPreload: function() {
+      // TOOD(lukem): Add images
       this.preloadImages([
         'img/smallglobe.svg'
       ]);
@@ -161,7 +162,7 @@ Tracker scene.
     },
 
     mapsAPIReady: function() {
-      this.async(this.setup_, null, 1000);
+      this.setup_();
     },
 
     trackSanta: function() {
