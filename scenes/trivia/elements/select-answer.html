@@ -112,7 +112,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <div id="choices">
     <template repeat="{{item in shuffled}}">
       <div class="{{ { 'is-correct': isCorrect(item) } | tokenList }}">
-        <paper-item disabled?="{{answered}}">
+        <paper-item disabled?="{{$.selector.notap}}">
           <span class="check"></span>
           <span class="text">{{item}}</span>
         </paper-item>
@@ -120,7 +120,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </template>
   </div>
 
-  <core-selector target="{{$.choices}}" selected="{{value}}"></core-selector>
+  <core-selector id="selector" target="{{$.choices}}" selected="{{value}}"></core-selector>
 
 </template>
 <script>
@@ -128,8 +128,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     eventDelegates: {
       'core-activate': 'onAnswered'
     },
-
-    answered: false,
 
     shuffled: [],
 
@@ -149,6 +147,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     onAnswered: function () {
+      this.$.selector.notap = true;
+
       if (this.isCorrect()) {
         this.correct = true;
       }
@@ -161,7 +161,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     reset: function () {
       this.value = null;
-      this.answered = false;
+      this.$.selector.notap = false;
       this.correct = false;
     }
   });
