@@ -1,21 +1,21 @@
 @import "compass/css3";
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+
+@import "../shared/sass/_mixins.scss";
 
 $tabletBreakpoint: 1024px;
 $mobileBreakpoint: 660px;
 
 $name: 'module-tracker';
 
-@import "../shared/sass/sceneboard";
+@import "sass/santa";
 
 ##{$name} {
   width: 100%;
   height: 100%;
   background: #f6efe2;
 
-  .sceneboard {
-    background: #fed83c url(img/tracker_icon.svg) no-repeat 50% 30px;
-    height: 220px;
-  }
 
   #trackermap {
     width: 100%;
@@ -25,23 +25,96 @@ $name: 'module-tracker';
     left: 0;
   }
 
-  .status-bar {
+  #status-bar {
     position: absolute;
-    top: 0;
-    /* TODO: Temporary, remove when overlay implemented. */
-    background-color: #85239C;
-    padding: 1em;
+    top: 20px;
+    left: 20px;
+    border-radius: 5px;
+    background-color: #e5473a;
     color: #fff;
+    z-index: 10000;
 
-    h2 {
-      color: #97D8FF;
-      text-transform: uppercase;
-      font-size: 0.8em;
+    #back-to-village {
+      background: #d8433b url('img/village.svg') 25px 100%/115px auto no-repeat;
+      border-radius: 5px 5px 0 0;
+      padding: 25px;
+
+      a {
+        color: #f2d9a2;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: url(img/arrow-circle.svg) 0 50% no-repeat;
+        padding-left: 20px;
+        font-weight: 900;
+        font-size: 11px;
+      }
     }
 
     ul {
       list-style: none;
+      margin: 0;
       padding: 0;
+
+      li {
+        padding: 12px 0;
+        margin: 0 25px;
+        border-bottom: 1px solid #a61010;
+
+        h4 {
+          text-transform: uppercase;
+          color: #f2d9a2;
+          font-weight: 900;
+          font-size: 11px;
+          margin: 0 0 12px 0;
+        }
+
+        &:first-child {
+          border-top: 1px solid #a61010;
+        }
+
+        &:last-child {
+          background: #d8433b;
+          border-radius: 0 0 5px 5px;
+          margin: 0;
+          padding: 12px 25px;
+          border-bottom: 0;
+        }
+
+        .stat {
+          font-weight: 400;
+          font-size: 16px;
+          margin-left: 16px;
+          line-height: 16px;
+        }
+
+        .ico {
+          float: left;
+          width: 16px;
+          height: 16px;
+          background-size: 12px 12px;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+        }
+
+        .ico-marker {
+          background-image: url(img/marker.svg);
+        }
+
+        .ico-arrow {
+          background-image: url(img/arrow.svg);
+        }
+
+        .ico-clock {
+          background-image: url(img/clock.svg);
+        }
+
+        .stat-large {
+          font-size: 42px;
+          line-height: 42px;
+          font-weight: 900;
+          color: #fff;
+        }
+      }
     }
   }
 }
