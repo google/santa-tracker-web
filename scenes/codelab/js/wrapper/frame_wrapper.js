@@ -24,6 +24,7 @@ app.wrapper.FrameWrapper = function(el, staticDir) {
   // Create a communication channel to the game frame.
   this.iframeChannel = new app.shared.FrameRPC(this.iframeEl[0].contentWindow, {
     gameover: this.gameover.bind(this),
+    iframeFocusChange: this.iframeFocusChange.bind(this),
     setLevel: this.setLevel.bind(this),
     triggerSound: this.triggerSound.bind(this)
   });
@@ -84,6 +85,16 @@ app.wrapper.FrameWrapper.prototype.gameover = function() {
     level: 10,
     timePlayed: new Date - this.gameStartTime
   });
+};
+
+/**
+ * Takes any iframe focus state changes and passes them on to santaApp.
+ * @param {string} state Focus state. Either 'focus' or 'blur';
+ */
+app.wrapper.FrameWrapper.prototype.iframeFocusChange = function(state) {
+  if (state === 'focus' || state === 'blur') {
+    window.santaApp.fire('iframe-focus-change', state);
+  }
 };
 
 /**
