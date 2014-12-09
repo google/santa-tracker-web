@@ -68,6 +68,7 @@ app.Game.prototype.bumpLevel_ = function() {
   } else {
     this.levelUp.show(this.level + 1, function() {
       this.scoreboard.setLevel(this.level);
+      this.quiz.levelUp();
       this.current.number = 0;
       this.nextQuestion_();
     }.bind(this));

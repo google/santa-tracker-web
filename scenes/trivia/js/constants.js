@@ -18,6 +18,11 @@ app.Constants = {
   SCORE_LIMIT: {
     1: 500,  // Level: Score
     2: 1000
+  },
+  QUESTION_COUNT: {
+    beginner: 97,
+    medium: 100,
+    hard: 105
   }
 };
 

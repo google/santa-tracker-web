@@ -1,5 +1,6 @@
 goog.provide('app.Quiz');
 
+goog.require('app.Constants');
 goog.require('app.shared.Coordinator');
 
 
@@ -8,20 +9,44 @@ app.Quiz = function(scene, elem, current) {
   this.scene = scene;
   this.elem = elem;
   this.current = current;
-  this.difficulty = 'beginner'; // beginner || medium || hard
 };
 
+/**
+ * Set the difficulty of the questions.
+ * @param {string} difficulty Can be beginner, medium or hard.
+ */
 app.Quiz.prototype.setDifficulty = function(difficulty) {
   this.difficulty = difficulty;
+  this.pickQuestions_();
 };
 
-/*app.Quiz.prototype.onFrame = function(delta) {
-  //
-};*/
+app.Quiz.prototype.pickQuestions_ = function() {
+  var total = app.Constants.QUESTION_COUNT[this.difficulty];
+  var questions = [];
+  for (var i = 1; i <= total; i++) {
+    questions.push(i);
+  }
+
+  // Fisher-Yates to randomize list
+  var index, temp;
+  i = total;
+  while (--i) {
+    index = Math.floor(Math.random() * (i + 1));
+    temp = questions[i];
+    questions[i] = questions[index];
+    questions[index] = temp;
+  }
+
+  this.questions = questions.slice(0, app.Constants.QUESTIONS_PER_LEVEL * app.Constants.TOTAL_LEVELS);
+};
+
+app.Quiz.prototype.levelUp = function() {
+  this.questions = this.questions.slice(app.Constants.QUESTIONS_PER_LEVEL);
+};
 
 app.Quiz.prototype.nextQuestion = function() {
   // Get new question
-  var index = Math.ceil(Math.random() * 97);
+  var index = this.questions[this.current.number];
   var questionElem = this.elem.querySelector('.quiz-' + this.difficulty + ' .question--' + index);
 
   // Update UI
