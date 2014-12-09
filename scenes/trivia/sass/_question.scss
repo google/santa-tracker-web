@@ -40,6 +40,10 @@
     position: absolute;
     top: 1px;
 
+    @media (min-width: $trivia-bp) {
+      top: 3px;
+    }
+
     // The underline
     &:after {
       background: #005B6C;
