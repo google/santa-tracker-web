@@ -40,9 +40,9 @@ Bubble.EventType = {
  */
 Bubble.easeOutQuad = function(t, b, c, d) {
   t /= d/2;
-  if (t < 1) return c/2*t*t + b;
+  if (t < 1) return c / 2 * t * t + b;
   t--;
-  return -c/2 * (t*(t-2) - 1) + b;
+  return -c / 2 * (t * (t - 2) - 1) + b;
 };
 
 
@@ -56,8 +56,8 @@ Bubble.prototype.createEventTarget_ = function() {
 
 
 Bubble.prototype.updateEventTarget_ = function() {
-  this.eventTarget_.style.width = 2*this.radius + 'px';
-  this.eventTarget_.style.height = 2*this.radius + 'px';
+  this.eventTarget_.style.width = 2 * this.radius + 'px';
+  this.eventTarget_.style.height = 2 * this.radius + 'px';
   this.eventTarget_.style.left = this.x - this.radius + 'px';
   this.eventTarget_.style.top = this.y - this.radius + 'px';
 };

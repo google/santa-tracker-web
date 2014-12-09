@@ -132,7 +132,7 @@ Intro for the tracker scene.
       google.maps.event.addListener(
         this.$.map.map, 'idle', function(){
           this.show();
-        }.bind(this))
+        }.bind(this));
     },
 
     /**
@@ -147,12 +147,10 @@ Intro for the tracker scene.
 
       this.$.top.classList.add('final'); // 300ms
       this.async(function() {
-        window.requestAnimationFrame(function() {
-          bubble.open(140, function(e) {
-            bubble.open(100, function() {
-              bottom.classList.add('final');
-              pin.style.transform = 'rotate(0deg)';
-            });
+        bubble.open(140, function(e) {
+          bubble.open(100, function() {
+            bottom.classList.add('final');
+            pin.style.transform = 'rotate(0deg)';
           });
         });
       }, null, 300);

@@ -126,6 +126,9 @@ Must be a child of bubble-overlay.
     },
 
     setupBubble_: function() {
+      if (this.parentNode.tagName !== 'BUBBLE-OVERLAY') {
+        console.warn('The parent of the bubble has to be a <bubble-overlay> element.');
+      }
       this.bubble = new Bubble(this.x, this.y, this.parentNode);
 
       this.bubble.addEventListener('translate', function() {
