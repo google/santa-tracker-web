@@ -2,93 +2,83 @@
   .cloud {
     position: absolute;
     top: 0;
-    bottom: 0;
-    width: 100%;
+    left: 100%;
 
     .cloud__img {
       background: url('img/cloud.min.svg') center center no-repeat;
       width: 145px;
       height: 87px;
-      position: absolute;
     }
   }
 
   .cloud1 {
-    // start: 5%
-    animation: 150s -7.5s #{$name}-move-clouds linear infinite;
+    top: 40%;
+    animation: 300s -15s #{$name}-move-clouds linear infinite;
     .cloud__img {
-      top: 40%;
       transform: scale(.5) translateY(-50%);
     }
   }
 
   .cloud2 {
-    // start: 15%
-    animation: 125s -18.75s #{$name}-move-clouds linear infinite;
+    top: 30%;
+    animation: 350s -140s #{$name}-move-clouds linear infinite;
     .cloud__img {
-      top: 30%;
       transform: scale(.6) translateY(-50%);
     }
   }
 
   .cloud3 {
-    // start: 12%
-    animation: 93.75s -11.25s #{$name}-move-clouds linear infinite;
+    top: 80%;
+    animation: 200s -20s #{$name}-move-clouds linear infinite;
     .cloud__img {
-      top: 80%;
       transform: scale(.8) translateY(-50%);
     }
   }
 
   .cloud4 {
-    // start: 46%
-    animation: 75s -34.5s #{$name}-move-clouds linear infinite;
+    top: 70%;
+    animation: 150s -70s #{$name}-move-clouds linear infinite;
     .cloud__img {
-      top: 70%;
       transform: scale(1) translateY(-50%);
     }
   }
 
   .cloud5 {
-    // start: 70%
+    top: 20%;
     animation: 300s -110s #{$name}-move-clouds linear infinite;
     .cloud__img {
-      top: 20%;
       transform: scale(.25) translateY(-50%);
     }
   }
 
   .cloud6 {
-    // start: 60%
-    animation: 300s -180s #{$name}-move-clouds linear infinite;
+    top: 35%;
+    animation: 300s -280s #{$name}-move-clouds linear infinite;
     .cloud__img {
-      top: 35%;
       transform: scale(.25) translateY(-50%);
     }
   }
 
   .cloud7 {
-    // start: 79%
-    animation: 93.75s -74s #{$name}-move-clouds linear infinite;
+    top: 65%;
+    animation: 200s -74s #{$name}-move-clouds linear infinite;
     .cloud__img {
-      top: 65%;
       transform: scale(.8) translateY(-50%);
     }
   }
 
   .cloud8 {
-    // start: 82%
-    animation: 150s -103s #{$name}-move-clouds linear infinite;
+    top: 85%;
+    animation: 300s -203s #{$name}-move-clouds linear infinite;
     .cloud__img {
-      top: 85%;
       transform: scale(1) translateY(-50%);
     }
   }
 
   .cloud9 {
-    animation: 150s -50s #{$name}-move-clouds linear infinite;
+    top: 55%;
+    animation: 300s -75s #{$name}-move-clouds linear infinite;
     .cloud__img {
-      top: 55%;
       transform: scale(1) translateY(-50%);
     }
   }
@@ -96,9 +86,9 @@
 
 @keyframes #{$name}-move-clouds {
   0% {
-    transform: translate3d(100%, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(-10%, 0, 0);
+    transform: translate3d(-5000px, 0, 0);
   }
 }

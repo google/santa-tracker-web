@@ -63,10 +63,13 @@ $cycleDuration: 20; // 20s
   }
 
   // sky starts above glass
-  .cloud {
+  .clouds {
+    position: absolute;
     display: none;
     bottom: 450px;
     top: auto;
+    left: 0;
+    right: 0;
     height: 50%;
     max-height: 900px;
   }
@@ -183,7 +186,7 @@ $cycleDuration: 20; // 20s
     top: 0;
     bottom: 2%;
     left: -400px;
-    width: 100%;
+    width: 380px;
     background: url('img/plane-departing.png') left bottom no-repeat;
     transform-origin: bottom left;
   }
@@ -192,7 +195,7 @@ $cycleDuration: 20; // 20s
     bottom: 630px;
     left: 100%;
     height: 67px;
-    width: 100%;
+    width: 130px;
     background: url('img/plane-flying.png') left bottom no-repeat;
   }
 
@@ -602,7 +605,14 @@ $cycleDuration: 20; // 20s
     width: 1836px;
     height: 100px;
     margin-left: (-1836px / 2);
-    background: url('img/baskets.png') repeat-x;
+  }
+
+  .bags__animation {
+    $bagsWidth: 2374px;
+    position: absolute;
+    height: 100%;
+    width: #{$bagsWidth*2};
+    background: url('img/baskets.png') left top repeat-x;
     animation-timing-function: linear;
     animation-duration: 80s;
     animation-iteration-count: infinite;
@@ -656,9 +666,9 @@ $cycleDuration: 20; // 20s
     }
     .plane--flying {
       display: block;
-      animation: linear 30s infinite module-airport-plane-flying 15s;
+      animation: linear 55s infinite module-airport-plane-flying 10s;
     }
-    .cloud {
+    .clouds {
       display: block;
     }
 
@@ -744,17 +754,16 @@ $cycleDuration: 20; // 20s
     transform: translate3d(0, 0, 0);
   }
   50%, 100% {
-    transform: translate3d(-120%, 0, 0);
+    transform: translate3d(-6000px, 0, 0);
   }
 }
 
 @keyframes #{$name}-move-bags {
   from {
-    background-position: 0 0;
+    transform: translateX(-50%);
   }
-
   to {
-    background-position: 2354px 0;
+    transform: translateX(0%);
   }
 }
 
@@ -945,13 +954,6 @@ $cycleDuration: 20; // 20s
   50% { transform: rotate(12deg); }
   100% { transform: rotate(-5deg); }
 }
-
-// @keyframes #{$name}-reindeer-z {
-//   0%   { opacity:0; transform: translate3d(100%, 100%, 0) }
-//   20%  { opacity:1; transform: translate3d(100%, 100%, 0) }
-//   66%  { opacity:0; transform: translate3d(-100%, -100%, 0) }
-//   100% { opacity:0; transform: translate3d(-100%, -100%, 0) }
-// }
 
 @keyframes #{$name}-reindeer-z {
   0%   { opacity:1; transform: translate3d(0,0,0) scaleX(1.4) scaleY(1); }
