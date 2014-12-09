@@ -58,7 +58,8 @@ VisibilityManager.prototype.pause = function() {
 };
 
 /**
- * Signal that an iframe has paused, possibly pausing the app.
+ * Signal that an iframe has paused, firing a "pause" event if this moves the
+ * overall app from a running to a paused state.
  */
 VisibilityManager.prototype.pauseIframe = function() {
   // if state is changing and it was running, signal paused
@@ -84,7 +85,8 @@ VisibilityManager.prototype.resume = function() {
 };
 
 /**
- * Signal that an iframe has resumed, possibly resuming the app.
+ * Signal that an iframe has resumed, firing a "resume" event if this moves the
+ * overall app from a paused to a running state.
  */
 VisibilityManager.prototype.resumeIframe = function() {
   this.iframeLocks_--;

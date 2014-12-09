@@ -89,7 +89,7 @@ app.wrapper.FrameWrapper.prototype.gameover = function() {
 
 /**
  * Takes any iframe focus state changes and passes them on to santaApp.
- * @param {string} state Focus state. Either 'focus' or 'blur';
+ * @param {string} state Focus state. Either 'focus' or 'blur'.
  */
 app.wrapper.FrameWrapper.prototype.iframeFocusChange = function(state) {
   if (state === 'focus' || state === 'blur') {
