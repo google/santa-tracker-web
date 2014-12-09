@@ -115,6 +115,7 @@ app.Game.prototype.restart = function() {
 app.Game.prototype.gameover = function(really) {
   // Check if count down on scoreboard is over
   if (!really && this.scoreboard.countdown === 0) {
+    this.countdownActive = false;
     this.scene.fire('time-up');
     return;
   }
@@ -184,6 +185,15 @@ app.Game.prototype.answer = function(isCorrect) {
     var score = this.quiz.calculateScore(this.scoreboard.countdown);
     this.scoreboard.addScore(score);
   }
+  app.shared.Coordinator.after(app.Constants.PAUSE_AFTER_ANSWER, this.hideQuestion_.bind(this));
+};
+
+/**
+ * Called when answered question should be hidden
+ */
+app.Game.prototype.hideQuestion_ = function() {
+  this.scene.fire('hide-question');
+
   if (this.current.number === app.Constants.QUESTIONS_PER_LEVEL) {
     this.bumpLevel_();
   } else {

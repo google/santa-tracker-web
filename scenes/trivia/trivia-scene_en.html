@@ -2526,7 +2526,8 @@ Trivia scene.
       'new-question': 'onNewQuestion',
       'show-choices': 'onShowChoices',
       'time-up': 'onAnswered',
-      'game-over': 'onGameOver'
+      'game-over': 'onGameOver',
+      'hide-question': 'onHideQuestion'
     },
 
     onPreload: function() {
@@ -2553,17 +2554,18 @@ Trivia scene.
 
     onAnswered: function() {
       this.game.answer(this.$.answer.correct);
-      window.setTimeout(function() {
-        this.questionVisible = false;
-        this.$.answer.hide();
-        this.$.hint.reset();
-      }.bind(this), 500);
+    },
+
+    onHideQuestion: function() {
+      this.questionVisible = false;
+      this.$.answer.hide();
+      this.$.hint.reset();
     },
 
     onNewQuestion: function() {
       this.$.answer.reset();
       this.questionVisible = true;
-      this.$.hint.place = this.game.current.choices[0];
+      this.$.hint.place = this.game.current.answer;
     },
 
     onShowChoices: function() {

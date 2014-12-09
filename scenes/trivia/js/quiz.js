@@ -50,11 +50,13 @@ app.Quiz.prototype.nextQuestion = function() {
   var questionElem = this.elem.querySelector('.quiz-' + this.difficulty + ' .question--' + index);
 
   // Update UI
+  var questionId = 'trivia_' + this.difficulty + '_' + ('000' + index).slice(-3);
   this.current.number++;
-  this.current.question = questionElem.children[0].textContent;
-  this.current.choices = Array.prototype.map.call(questionElem.children[1].children, function(el) {
+  this.current.question = questionElem.querySelector('[msgid=' + questionId + ']').textContent;
+  this.current.choices = Array.prototype.map.call(questionElem.querySelectorAll('.choices *'), function(el) {
     return el.textContent;
   });
+  this.current.answer = questionElem.querySelector('[msgid=' + questionId + '_answer0]').getAttribute('data-country');
 
   app.shared.Coordinator.after(app.Constants.QUESTION_READ_TIME, this.showChoices_.bind(this));
 };
