@@ -9,8 +9,10 @@ if (container) {
   iframe.style.maxHeight = '500px';
   iframe.style.maxWidth = '800px';
   container.style.display = 'inline-block';
-  container.style.height = (parseInt(getComputedStyle(container).height) || 400) + 'px';
-  container.style.width = (parseInt(getComputedStyle(container).width) || 600) + 'px';
+  container.style.height =
+      (parseInt(getComputedStyle(container).height) || 400) + 'px';
+  container.style.width =
+      (parseInt(getComputedStyle(container).width) || 600) + 'px';
   iframe.style.maxWidth = '800px';
 
   var siteUrl = encodeURIComponent(window.location.href);
