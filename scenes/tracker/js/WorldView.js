@@ -42,10 +42,6 @@ WorldView.prototype.show = function() {
   this.showSceneMarkers_();
 };
 
-WorldView.prototype.hide = function() {
-
-};
-
 WorldView.prototype.setupMap = function() {
   this.map_ = new google.maps.Map(this.base_.$['module-tracker'].querySelector('#trackermap'), {
     center: {lat: 0, lng: 0},
@@ -72,7 +68,7 @@ WorldView.prototype.setupMap = function() {
   * @type {google.maps.Icon}
   */
   this.SCENE_ICON_ = /** @type {google.maps.Icon} */({
-  url: this.componentDir_ + (WorldView.HDPI_ ? 'img/scenepin_2x.png' :
+    url: this.componentDir_ + (WorldView.HDPI_ ? 'img/scenepin_2x.png' :
     'img/scenepin.png'),
     size: new google.maps.Size(30, 32),
     scaledSize: new google.maps.Size(30, 32),

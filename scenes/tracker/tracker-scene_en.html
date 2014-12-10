@@ -1,8 +1,6 @@
 <link rel="import" href="../base-scene.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
-<link rel="import" href="../../components/google-map/google-map.html">
-<link rel="import" href="tracker-icons.html">
 
 <link rel="import" href="dependencies.html">
 
@@ -64,27 +62,27 @@ Tracker scene.
 
           <div id="status-bar-generic" hidden>
             <ul>
-              <li class="while-flying">
+              <li hidden?="{{!location.stopover}}">
                 <h4>Previous location</h4>
                 <div class="ico ico-marker"></div>
                 <div class="stat">{{ location.prev.city }}</div>
               </li>
-              <li class="while-delivering">
+              <li hidden?="{{location.stopover}}">
                 <h4>Current Location</h4>
                 <div class="ico ico-marker"></div>
-                <div class="stat">{{ location.stopover.city }}/div>
+                <div class="stat">{{ location.stopover.city }}</div>
               </li>
               <li>
                 <h4>Next location</h4>
                 <div class="ico ico-arrow"></div>
                 <div class="stat">{{ location.next.city }}</div>
               </li>
-              <li class="while-flying">
+              <li hidden?="{{!location.stopover}}">
                 <h4>Arriving in</h4>
                 <div class="ico ico-clock"></div>
                 <div class="stat">{{ arrival_ }}</div>
               </li>
-              <li class="while-delivering">
+              <li hidden?="{{location.stopover}}">
                 <h4>Departing in</h4>
                 <div class="ico ico-clock"></div>
                 <div class="stat">{{ departure_ }}</div>
@@ -106,19 +104,6 @@ Tracker scene.
   Polymer({
     componentDir: 'scenes/tracker/',
 
-    /**
-     * Latitude of the main map's center. Ususally Santa's location.
-     * @type Number
-     * @private
-     */
-    latitude_: null,
-
-    /**
-     * Longitude of the main map's center. Ususally Santa's location.
-     * @type Number
-     * @private
-     */
-    longitude_: null,
     /**
      * Current Santa's location.
      * @type {SantaState}
@@ -183,14 +168,12 @@ Tracker scene.
       this.worldView_ = new WorldView(this, this.componentDir);
       this.worldView_.setupMap();
 
-      if (Modernizr.geolocation) {
-        navigator.geolocation.getCurrentPosition(this.geoLocationSuccess_.bind(this),
-          this.geoLocationError_.bind(this), {
-            enableHighAccuracy: false,
-            timeout: 2000,
-            maximumAge: Infinity // We really don't care
-          });
-      }
+      navigator.geolocation.getCurrentPosition(this.geoLocationSuccess_.bind(this),
+        this.geoLocationError_.bind(this), {
+          enableHighAccuracy: false,
+          timeout: 2000,
+          maximumAge: Infinity // We really don't care
+        });
 
       var dests = this.santaApp.santaService.getDestinations();
       this.destinationsChanged_(dests);
@@ -240,31 +223,10 @@ Tracker scene.
     locationChanged: function() {
       var location = this.location;
 
-      this.latitude_ = location.position.lat;
-      this.longitude_ = location.position.lng;
       this.arrival_ = this.formatCountdown_(location.next.arrival);
 
       if (location.stopover) {
         this.departure_ = this.formatCountdown_(location.stopover.departure);
-        var els = this.$['status-bar'].querySelectorAll('.while-delivering');
-        for (var i = 0; i < els.length; i++) {
-          els[i].hidden = fale;
-        }
-        
-        els = this.$['status-bar'].querySelectorAll('while-flying');
-        for (var i = 0; i < els.length; i++) {
-          els[i].hidden = true;
-        }
-      } else {
-        var els = this.$['status-bar'].querySelectorAll('.while-delivering');
-        for (var i = 0; i < els.length; i++) {
-          els[i].hidden = true;
-        }
-        
-        els = this.$['status-bar'].querySelectorAll('while-flying');
-        for (var i = 0; i < els.length; i++) {
-          els[i].hidden = true;
-        }
       }
 
       if (this.userLocation) {
