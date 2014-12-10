@@ -355,24 +355,24 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "seasonofgiving",
+  module: "windtunnel",
   iced: true,
   launchDate: new Date('Dec 15, 2014'),
-  category: "learn",
+  category: "play",
   cast: false,
   disabled: false,
   elves: {
     melt: [
-    "elf-green-girl-left",
-    "elf-red",
-    "elf-purple-right",
-    "elf-purple"
+    "elf-blue-left",
+    "elf-green",
+    "elf-red-right",
+    "elf-blue"
     ],
     snow: [
-    "elf-green-girl-snow-left",
-    "elf-red-snow",
-    "elf-purple-snow-right",
-    "elf-purple"
+    "elf-blue-snow-left",
+    "elf-green-snow-hide",
+    "elf-red-snow-right",
+    "elf-blue"
     ]
   }
 }, {
@@ -483,24 +483,24 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "windtunnel",
+  module: "seasonofgiving",
   iced: true,
   launchDate: new Date('Dec 21, 2014'),
-  category: "play",
+  category: "learn",
   cast: false,
   disabled: false,
   elves: {
     melt: [
-    "elf-blue-left",
-    "elf-green",
-    "elf-red-right",
-    "elf-blue"
+    "elf-green-girl-left",
+    "elf-red",
+    "elf-purple-right",
+    "elf-purple"
     ],
     snow: [
-    "elf-blue-snow-left",
-    "elf-green-snow-hide",
-    "elf-red-snow-right",
-    "elf-blue"
+    "elf-green-girl-snow-left",
+    "elf-red-snow",
+    "elf-purple-snow-right",
+    "elf-purple"
     ]
   }
 }, {

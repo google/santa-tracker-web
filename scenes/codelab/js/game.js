@@ -36,6 +36,9 @@ app.Game = function(elem) {
 
   Klang.setEventListener(this.iframeChannel.call.bind(this.iframeChannel, 'triggerSound'));
 
+  window.addEventListener('blur', this.onBlur.bind(this));
+  window.addEventListener('focus', this.onFocus.bind(this));
+
   this.start();
 };
 
@@ -77,6 +80,14 @@ app.Game.prototype.bumpLevel = function() {
   if (this.levelNumber === 0 || this.levelNumber === 2) {
     this.tutorial_.schedule();
   }
+};
+
+app.Game.prototype.onBlur = function() {
+  this.iframeChannel.call('iframeFocusChange', 'blur');
+};
+
+app.Game.prototype.onFocus = function() {
+  this.iframeChannel.call('iframeFocusChange', 'focus');
 };
 
 /**

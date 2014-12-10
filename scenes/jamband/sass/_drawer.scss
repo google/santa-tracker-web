@@ -1,0 +1,98 @@
+##{$name} {
+  .Drawer {
+    background-color: #FFB017;
+    bottom: 0;
+    height: 191em;
+    left: 0;
+    position: absolute;
+    right: 0;
+    transition: bottom 0.3s;
+    z-index: 1;
+  }
+
+  .Drawer-container {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    left: 320em;
+    position: relative;
+    width: calc(100% - 320em - 15em);
+
+    @media (max-width: 1024px) {
+      width: calc(100% - 20em);
+      left: 20em;
+    }
+  }
+
+  .Drawer--hidden {
+    bottom: -191em;
+    transition: bottom 0.3s;
+
+    .Drawer-icon {
+      background-image: url(img/icons/open.svg);
+      background-size: 23em 15em;
+    }
+  }
+
+  .Drawer-tab {
+    background-image: url(img/drawer-tab.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 127em;
+    position: absolute;
+    right: 24em;
+    top: -45em;
+    width: 73em;
+    cursor: pointer;
+  }
+
+  .Drawer-icon {
+    background-image: url(img/icons/close.svg);
+    background-position: 50% 20%;
+    background-repeat: no-repeat;
+    background-size: 23em 23em;
+    height: 100%;
+    width: 100%;
+  }
+
+  .Drawer-instruments {
+    align-self: flex-start;
+    background-color: #FFBE40;
+    display: flex;
+    flex: 1;
+    width: 100%;
+    overflow-y: auto;
+  }
+
+  .Drawer-arrow {
+    background-image: url(img/icons/arrow.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    height: 70em;
+    margin: 0 10em;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    user-select: none;
+    width: 70em;
+
+    @media (max-width: 1024px) {
+      height: 85em;
+      width: 85em;
+    }
+  }
+
+  .Drawer-arrow:hover {
+    opacity: 1;
+  }
+
+  .Drawer-arrow--right {
+    transform: scaleX(-1);
+  }
+}
+
+@media (max-width: 1024px) {
+  ##{$name} .Drawer-container {
+  }
+}

@@ -23,6 +23,7 @@ Subclass scene elements can define the following properties:
 - `loadingBgColor` - an optional loading screen background color.
 - `loadingSrc` - an optional loading screen background image. The path should be relative to the
   component's folder (e.g 'img/loading.gif').
+- `sceneParams` - an object of key/value URL params which is set when the route changes. Scenes can use this for deeplinking. Example: /#jamband?band=2,8,-1,1,7,-1 -> {"band": "2,8,-1,1,7,-1"}.
 
 @element base-scene
 -->
@@ -191,6 +192,18 @@ Polymer({
    * @default null
    */
   maxPreloadAsync_: null,
+
+  /**
+   * URL params specific to the scene. Subclass scenes can use this property
+   * to deeplink into sections of their app.
+   *
+   * Example: /#jamband?band=2,8,-1,1,7,-1 -> {"band": "2,8,-1,1,7,-1"}.
+   *
+   * @property sceneParams
+   * @type object
+   * @default {}
+   */
+  sceneParams: {},
 
   /**
    * The component's directory. Can be used to reference assets in HTML.

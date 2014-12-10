@@ -19,7 +19,7 @@ var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/**/*.js';
 
-var STATIC_VERSION = 57;
+var STATIC_VERSION = 59;
 var VERSION = argv.build || STATIC_VERSION;
 
 // TODO(bckenny|cbro): fill in with default static asset base URL
@@ -51,6 +51,9 @@ var SCENE_CLOSURE_CONFIG = {
     entryPoint: 'app.wrapper.FrameWrapper'
   },
   gumball: {
+    entryPoint: 'app.Game'
+  },
+  jamband: {
     entryPoint: 'app.Game'
   },
   jetpack: {

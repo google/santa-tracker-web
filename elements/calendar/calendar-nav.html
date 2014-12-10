@@ -300,8 +300,6 @@ Village calendar navigation.
         });
 
         this.fire('sound-trigger', 'menu_open');
-
-        this.santaApp && this.santaApp.visibilityService.pause();
       },
 
       onHide: function() {
@@ -314,8 +312,6 @@ Village calendar navigation.
         }, null, this.TIMEOUT_DELAY);
 
         this.fire('sound-trigger', 'menu_close');
-
-        this.santaApp && this.santaApp.visibilityService.resume();
       },
 
       getNicePageUrl: function() {

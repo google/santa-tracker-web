@@ -1,0 +1,278 @@
+<link rel="import" href="../base-scene.html">
+
+<link rel="import" href="../../components/google-apis/google-client-api.html">
+<script src="jamband-scene.min.js"></script>
+
+<!--
+Jamband scene.
+
+@element jamband-scene
+@extends base-scene
+-->
+<polymer-element name="jamband-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="jamband-scene.css" no-shim>
+  <google-client-api on-api-load="{{googleAPIReady}}"></google-client-api>
+
+  <div id="module-jamband">
+    <div class="jamband">
+      <div class="scene">
+        <div class="Background">
+          <div class="Background-mountains"></div>
+          <div class="Background-trees"></div>
+          <div class="Background-snow"></div>
+          <div class="Background-stageBackdrop">
+            <div class="Background-circle"></div>
+            <div class="Background-circle"></div>
+            <div class="Background-circle"></div>
+            <div class="Background-circle"></div>
+            <div class="Background-circle"></div>
+            <div class="Background-circle"></div>
+          </div>
+          <div class="Background-stage--top"></div>
+          <div class="Background-stage--front">
+            <div class="Background-stage"></div>
+          </div>
+        </div>
+        <div class="Lights">
+          <div class="Light-floor Light-colored Light-floor--farLeft"></div>
+          <div class="Light-floor Light-colored Light-floor--nearLeft"></div>
+          <div class="Light-floor Light-colored Light-floor--nearRight"></div>
+          <div class="Light-floor Light-colored Light-floor--farRight"></div>
+          <div class="Light-ceiling Light-ceiling--farLeft"></div>
+          <div class="Light-ceiling Light-ceiling--nearLeft"></div>
+          <div class="Light-ceiling Light-ceiling--nearRight"></div>
+          <div class="Light-ceiling Light-ceiling--farRight"></div>
+          <div class="Background-crowd Background-crowd1"></div>
+          <div class="Background-crowd Background-crowd2"></div>
+        </div>
+        <div data-pattern="0" data-volume="0.6" class="Stage Stage--farRight droppable">
+          <div class="Stage-arrow"></div>
+          <div class="Light-stage Light-stage--green"></div>
+        </div>
+        <div data-pattern="1" data-volume="0.8" class="Stage Stage--nearRight droppable">
+          <div class="Stage-arrow"></div>
+          <div class="Light-stage Light-stage--blue"></div>
+        </div>
+        <div data-pattern="0" data-volume="1" class="Stage Stage--center droppable">
+          <div class="Stage-arrow"></div>
+          <div class="Light-stage Light-stage--green"></div>
+        </div>
+        <div data-pattern="1" data-volume="0.8" class="Stage Stage--nearLeft droppable">
+          <div class="Stage-arrow"></div>
+          <div class="Light-stage Light-stage--blue"></div>
+        </div>
+        <div data-pattern="0" data-volume="0.6" class="Stage Stage--farLeft droppable">
+          <div class="Stage-arrow"></div>
+          <div class="Light-stage Light-stage--green"></div>
+        </div>
+        <div data-pattern="1" data-volume="1" class="Stage Stage--special droppable">
+          <div class="Stage-arrow"></div>
+          <div class="Light-stage Light-stage--red"></div>
+        </div>
+      </div>
+      <div class="gui">
+        <div class="Drawer">
+          <div id="drawer-tab" class="Drawer-tab">
+            <div class="Drawer-icon"></div>
+          </div>
+          <div class="Drawer-container">
+            <div id="drawer-arrow--left" class="Drawer-arrow Drawer-arrow--left"></div>
+            <div id="drawer-scrollable" class="Drawer-instruments">
+              <div class="InstrumentContainer">
+                <div class="Instrument Instrument--small Instrument-rap Rap draggable">
+                  <div class="Rap-arm--left"></div>
+                  <div class="Rap-body"></div>
+                  <div class="Rap-foot"></div>
+                  <div class="Rap-head"></div>
+                  <div class="Rap-arm--right"></div>
+                </div>
+              </div>
+              <div class="InstrumentContainer">
+                <div class="Instrument Instrument--small Instrument-guitar Guitar draggable">
+                  <div class="Guitar-arm--left"></div>
+                  <div class="Guitar-body"></div>
+                  <div class="Guitar-foot"></div>
+                  <div class="Guitar-arm--right"></div>
+                  <div class="Guitar-hand"></div>
+                  <div class="Guitar-head"></div>
+                </div>
+              </div>
+              <div class="InstrumentContainer">
+                <div class="Instrument Instrument--small Instrument-drums Drums draggable">
+                  <div class="Drums-arm--left"></div>
+                  <div class="Drums-arm--right"></div>
+                  <div class="Drums-body"></div>
+                  <div class="Drums-head"></div>
+                  <div class="Drums-hihat"></div>
+                  <div class="Drums-kick"></div>
+                </div>
+              </div>
+              <div class="InstrumentContainer">
+                <div class="Instrument Instrument--small Instrument-bass Bass draggable">
+                  <div class="Bass Bass-body"></div>
+                  <div class="Bass Bass-foot"></div>
+                  <div class="Bass Bass-guitar"></div>
+                  <div class="Bass Bass-head"></div>
+                </div>
+              </div>
+              <div class="InstrumentContainer">
+                <div class="Instrument Instrument--small Instrument-synth Synth draggable">
+                  <div class="Synth-body"></div>
+                  <div class="Synth-head"></div>
+                  <div class="Synth-foot"></div>
+                  <div class="Synth-keyboard"></div>
+                  <div class="Synth-arm--left"></div>
+                  <div class="Synth-arm--right"></div>
+                </div>
+              </div>
+              <div class="InstrumentContainer">
+                <div class="Instrument Instrument--small Instrument-bell Bell draggable">
+                  <div class="Bell-body"></div>
+                  <div class="Bell-head"></div>
+                  <div class="Bell-bell"></div>
+                  <div class="Bell-arm--left"></div>
+                  <div class="Bell-foot"></div>
+                </div>
+              </div>
+              <div class="InstrumentContainer">
+                <div class="Instrument Instrument--small Instrument-sax Sax draggable">
+                  <div class="Sax-base"></div>
+                  <div class="Sax-body">
+                    <div class="Sax-hand">
+                      <div class="Sax-fingers"></div>
+                    </div>
+                    <div class="Sax-sax">
+                      <div class="Sax-sax-mouth"></div>
+                    </div>
+                  </div>
+                  <div class="Sax-foot"></div>
+                </div>
+              </div>
+              <div class="InstrumentContainer">
+                <div class="Instrument Instrument--small Instrument-boombox Boombox draggable">
+                  <div class="Boombox-body"></div>
+                  <div class="Boombox-foot"></div>
+                  <div class="Boombox-head"></div>
+                  <div class="Boombox-arm--left"></div>
+                  <div class="Boombox-arm--right"></div>
+                </div>
+              </div>
+              <div class="InstrumentContainer">
+                <div class="Instrument Instrument--small Instrument-tamb Tamb draggable">
+                  <div class="Tamb-arm"></div>
+                  <div class="Tamb-body"></div>
+                  <div class="Tamb-head"></div>
+                  <div class="Tamb-foot"></div>
+                </div>
+              </div>
+              <div class="InstrumentContainer">
+                <div class="Instrument Instrument--small Instrument-xylo Xylo draggable">
+                  <div class="Xylo-body"></div>
+                  <div class="Xylo-board"></div>
+                  <div class="Xylo-head"></div>
+                  <div class="Xylo-arm--left">
+                    <div class="Xylo-stick--left"></div>
+                  </div>
+                  <div class="Xylo-arm--right">
+                    <div class="Xylo-stick--right"></div>
+                  </div>
+                  <div class="Xylo-foot"></div>
+                </div>
+              </div>
+            </div>
+            <div id="drawer-arrow--right" class="Drawer-arrow Drawer-arrow--right"></div>
+            <div id="drawer-button--random" class="Button Button--noText Button--round Button-random"></div>
+            <div id="drawer-button--share" class="Button Button-share">Share</div>
+          </div>
+        </div>
+        <div class="shareOverlay overlay shareOverlay--jamband">
+          <div class="shareOverlay-dialog overlay-dialog">
+            <div class="shareOverlay-imageWrapper">
+              <div class="shareOverlay-image"></div>
+            </div>
+            <div class="shareOverlay-buttons">
+              <p class="shareOverlay-label">Copy this link to share</p>
+              <input type="url" readonly="readonly" class="shareOverlay-url"/>
+              <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+            </div>
+            <button type="button" class="shareOverlay-close"></button>
+          </div>
+        </div>
+        <div class="board board--game">
+          <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+        </div>
+      </div>
+      <div class="force-rotate landscape">
+        <div class="force-rotate-graphic"></div>
+        <div class="force-rotate-explanation">Tilt your device!</div>
+      </div>
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+  Polymer({
+    componentDir: 'scenes/jamband/',
+
+    game: null,
+
+    onPreload: function() {
+      this.preloadSounds('jamband_load_sounds', 60);
+      this.preloadImages([
+        'img/background-mountains.svg',
+        'img/background-trees.svg',
+        'img/crowd1.svg',
+        'img/crowd2.svg',
+        'img/drawer-tab.svg',
+        'img/stage.svg',
+        'img/stage-arrow.svg',
+        'img/lights/ceiling.svg',
+        'img/lights/floor.svg',
+        'img/lights/floorBracket.svg',
+        'img/lights/stage-blue--on.svg',
+        'img/lights/stage-blue.svg',
+        'img/lights/stage-green--on.svg',
+        'img/lights/stage-green.svg',
+        'img/lights/stage-red--on.svg',
+        'img/lights/stage-red.svg',
+        'img/icons/arrow.svg',
+        'img/icons/close.svg',
+        'img/icons/open.svg',
+        'img/icons/random.svg'
+      ]);
+    },
+
+
+    googleAPIReady: function() {
+      // Race condition?
+    },
+
+    onShow: function() {
+      var module = this.$['module-jamband'];
+
+      this.game = new scenes.jamband.Game(module);
+      this.game.start();
+
+      this.fire('sound-ambient', 'jamband_start');
+
+      this.sceneParamsChanged();
+    },
+
+    sceneParamsChanged: function() {
+      if (this.sceneParams.band) {
+        this.game.restoreBand(this.sceneParams.band);
+      }
+    },
+
+    onHide: function() {
+      this.game.dispose();
+      this.game = null;
+      this.fire('sound-ambient', 'jamband_end');
+    }
+  });
+
+})();
+</script>
+</polymer-element>

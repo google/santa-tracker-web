@@ -13,7 +13,7 @@ $bubble-overlay-z-index: 3;
     z-index: $bubble-overlay-z-index + 1;
   }
 
-  google-map {
+  #map {
     width: 300px;
     height: 300px;
     position: absolute;

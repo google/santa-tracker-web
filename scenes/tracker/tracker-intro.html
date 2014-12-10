@@ -41,11 +41,7 @@ Intro for the tracker scene.
       <img class="pin" id="pin" src="img/pin.svg">
     </div>
 
-    <google-map id="map" clientId="{{santaApp.config.CLIENT_ID}}" disableDefaultUI
-      zoomable="true" libraries="places,geometry"
-      zoom="8"
-      latitude="{{latitude}}" longitude="{{longitude}}"
-      on-google-map-ready="{{mapReady}}"></google-map>
+    <div id="map"></div>
 
     <div class="bottom-wrapper">
       <div class="bottom" id="bottom">
@@ -118,7 +114,8 @@ Intro for the tracker scene.
     },
 
     ready: function() {
-      this.$.map.styles = mapstyles.styles;
+      //debugger;
+      //this.$.map.styles = mapstyles.styles;
     },
 
     domReady: function() {
@@ -128,9 +125,20 @@ Intro for the tracker scene.
       this.$.map.style.top = this.winCenterY_ - 150 + 'px';  /* center point - 0.5 * width */
     },
 
-    mapReady: function() {
+    setup: function() {
+      this.map_ = new google.maps.Map(this.$.map, {
+        center: new google.maps.LatLng(this.latitude, this.longitude),
+        zoom: 8,
+        disableDefaultUI: true,
+        scrollwheel: false,
+        draggable: false,
+        disableDoubleClickZoom: true,
+        backgroundColor: '#fff',
+        styles: mapstyles.styles
+      });
+
       google.maps.event.addListener(
-        this.$.map.map, 'idle', function(){
+        this.map_, 'idle', function(){
           this.show();
         }.bind(this));
     },
