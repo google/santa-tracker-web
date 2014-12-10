@@ -154,3 +154,5 @@ Spherical.computeDistanceBetween = function(from, to, opt_radius) {
   var radius = opt_radius || EARTH_RADIUS;
   return Spherical.computeAngleBetween(from, to) * radius;
 };
+
+window['Spherical'] = Spherical;
