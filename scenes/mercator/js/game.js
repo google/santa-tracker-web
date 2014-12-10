@@ -21,7 +21,7 @@ goog.require('app.utils');
 app.Game = function(elem) {
   this.elem = $(elem);
   this.sceneElem = this.elem.find('.scene');
-  this.mapElem = this.elem.find('.map');
+  this.mapElem = this.elem.find('.gmap');
   this.bgElem = this.elem.find('.bg');
   this.countriesElem = this.elem.find('.countries');
 
@@ -370,8 +370,7 @@ app.Game.prototype.countryMatched_ = function(country) {
  * @private
  */
 app.Game.prototype.initMap_ = function() {
-  var mapElem = this.elem.find('.gmap');
-  this.map = new google.maps.Map(mapElem[0], {
+  this.map = new google.maps.Map(this.mapElem[0], {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     draggable: Modernizr.touch,
     heading: 0,
