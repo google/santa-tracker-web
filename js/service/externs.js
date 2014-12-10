@@ -55,3 +55,5 @@ State.prototype.stopover;
 State.prototype.next;
 State.prototype.presentsDelivered;
 State.prototype.distanceTravelled;
+var Spher; // Spherical
+Spher.prototype.computeDistanceBetween;
