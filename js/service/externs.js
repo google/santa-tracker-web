@@ -1,3 +1,12 @@
+var State;
+State.prototype.position;
+State.prototype.heading;
+State.prototype.prev;
+State.prototype.stopover;
+State.prototype.next;
+State.prototype.presentsDelivered;
+State.prototype.distanceTravelled;
+
 var Loc;
 Loc.prototype.arrival;
 Loc.prototype.departure;
