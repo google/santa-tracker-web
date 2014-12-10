@@ -144,6 +144,9 @@
 
 var inEmbed = self != top;
 if (inEmbed) {
+  if (getUrlParameter('site')) {
+    ga_.pushCommand(['_setReferrerOverride', getUrlParameter('site')]);
+  }
   ga_.pushCommand(['_trackEvent', 'Embed', getUrlParameter('site')]);
 }
 
