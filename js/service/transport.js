@@ -55,16 +55,3 @@ crossDomainAjax.corsSupport_ = 'withCredentials' in new XMLHttpRequest();
  * @const
  */
 crossDomainAjax.MAX_RETRIES = 3;
-
-/**
- * @param {string} param URL parameter to look for.
- * @return {string|undefined} undefined if the URL parameter does not exist.
- * @private
- */
-crossDomainAjax.getUrlParameter_ = function(param) {
-  if (!window.location.search) return;
-  var m = new RegExp(param + '=([^&]*)').exec(
-      window.location.search.substring(1));
-  if (!m) return;
-  return decodeURIComponent(m[1]);
-};
