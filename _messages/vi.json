@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Chào mừng bạn đến với chương trình Theo chân ông già Noel trên Google Maps!"
 	},
+	"af_country_name": {
+		"message": "Afghanistan"
+	},
+	"al_country_name": {
+		"message": "Albania"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentina"
 	},
 	"ar_tradition": {
 		"message": "Ở Argentina, Giáng sinh bắt đầu đúng vào lúc nửa đêm. Nhiều gia đình bắt đầu kỳ nghỉ bằng cách tổ chức lễ hội kỷ niệm trong nhà của mình, mở quà tặng với những người thân yêu và đốt pháo hoa trong những giờ đầu của ngày mới."
+	},
+	"at_country_name": {
+		"message": "Áo"
 	},
 	"au_country_name": {
 		"message": "Úc"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "Nằm ở Nam bán cầu, mùa hè tại Úc rơi vào tháng 12. Thay cho chuông của xe trượt tuyết và trái dừa, nhiều người Úc đến bãi biển để ăn mừng ngày lễ bằng bữa ăn trưa với tôm và chơi một vài ván crikê."
 	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Bỉ"
+	},
+	"bg_country_name": {
+		"message": "Bungari"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
+	},
 	"br_country_name": {
 		"message": "Braxin"
 	},
 	"br_tradition": {
 		"message": "Lễ Giáng sinh bắt đầu lúc nửa đêm, thường với bữa ăn tối của đại gia đình, mở quà tặng và tham dự nghi lễ 'Missa do Galo' (thánh lễ nửa đêm) trong nhà thờ. Mặc dù thời tiết mùa hè nhiệt đới ấm áp, nhưng chủ đề về mùa đông và tuyết là phổ biến."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"by_country_name": {
+		"message": "Belarus"
+	},
+	"bz_country_name": {
+		"message": "Belize"
 	},
 	"ca_country_name": {
 		"message": "Canada"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Gửi"
 	},
+	"cf_country_name": {
+		"message": "Cộng hòa Trung Phi"
+	},
+	"ch_country_name": {
+		"message": "Thụy Sĩ"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
 	"close-this": {
 		"message": "Hủy"
+	},
+	"cm_country_name": {
+		"message": "Cameroon"
+	},
+	"co_country_name": {
+		"message": "Colombia"
+	},
+	"codelab-block-moveeast": {
+		"message": "phía đông"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Chuyển tôi đến không gian phía đông."
+	},
+	"codelab-block-movenorth": {
+		"message": "phía bắc"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Chuyển tôi đến không gian phía bắc."
+	},
+	"codelab-block-movesouth": {
+		"message": "phía nam"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Đưa tôi đến không gian phía nam."
+	},
+	"codelab-block-movewest": {
+		"message": "phía tây"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Chuyển tôi đến không gian phía tây."
+	},
+	"codelab-block-repeat": {
+		"message": "lặp lại"
+	},
+	"codelab-block-repeat-times": {
+		"message": "lần"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Lặp lại một số câu lệnh nhiều lần."
+	},
+	"codelab-block-whenrun": {
+		"message": "khi chạy"
+	},
+	"codelab-finish": {
+		"message": "Hoàn tất"
+	},
+	"codelab-great": {
+		"message": "Tuyệt vời"
+	},
+	"codelab-mwc-promo": {
+		"message": "Khám phá nhiều dự án mã hóa khác của Google tại \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Thách thức mới"
+	},
+	"codelab-oops": {
+		"message": "Rất tiếc!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Khối \"Lặp lại\" cần phải có các khối khác bên trong để hoạt động."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Một số khối không được gắn với nhau đúng cách."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Có vẻ như bạn đã thua!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Hãy thử một hoặc nhiều khối bên dưới để giải câu đố này."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Bạn có biết rằng bạn có thể hoàn tất cấp này chỉ với {{ideal}} khối không? Hãy thử sử dụng khối bên dưới."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Xin chúc mừng! Bạn đã hoàn tất câu đố một cách hoàn hảo."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Bạn đang sử dụng đúng khối, nhưng hãy thử sử dụng nhiều khối hơn để hoàn thành câu đố này."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Bạn có biết rằng bạn có thể hoàn tất cấp này chỉ với {{ideal}} khối không?"
+	},
+	"codelab-try-again": {
+		"message": "Thử lại"
 	},
 	"copy-me": {
 		"message": "Sao chép liên kết này để chia sẻ tin nhắn của bạn"
 	},
 	"countdownlabel": {
 		"message": "Cho đến khi ông già Noel khởi hành"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cu_country_name": {
+		"message": "Cuba"
+	},
+	"cz_country_name": {
+		"message": "Cộng hòa Séc"
 	},
 	"days": {
 		"message": "Ngày"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "Trang trí trình duyệt của bạn bằng tiện ích Ông già Noel của Chrome."
 	},
+	"dk_country_name": {
+		"message": "Đan Mạch"
+	},
+	"do_country_name": {
+		"message": "Cộng hòa Dominica"
+	},
+	"dz_country_name": {
+		"message": "Algeria"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Estonia"
+	},
 	"endofjourneymessage": {
 		"message": "Ông già Noel đã hoàn tất cuộc hành trình của mình trong năm nay! Ông già Noel và các chú lùn vẫn đang đùa vui ở Bắc Cực trước kỳ nghỉ hàng năm của họ."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
 	},
 	"error": {
 		"message": "Có vẻ như chúng tôi chỉ mất kết nối với Bắc cực. Các chú lùn của ông già Noel đang làm việc chăm chỉ để khắc phục vấn đề - hãy luôn cập nhật!"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Thử lại"
 	},
+	"et_country_name": {
+		"message": "Ethiopia"
+	},
+	"fi_country_name": {
+		"message": "Phần Lan"
+	},
 	"finished-text": {
 		"message": "Chúc ngày lễ vui vẻ! Ông già Noel đã hoàn thành cuộc hành trình vòng quanh thế giới của mình và xứng đáng được nghỉ ngơi. Hãy ghé thăm chúng tôi lại vào năm sau!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "Ở Pháp, theo truyền thống, trẻ em đặt giày của chúng bên cạnh lò sưởi để mong đợi ông già Noel sẽ đến. Nếu trẻ em làm điều tốt trong suốt cả năm, thì ông già Noel sẽ nhét đầy quà vào những đôi giày của chúng."
 	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
 	"gameover": {
 		"message": "Trò chơi Kết thúc!"
+	},
+	"gameover_level": {
+		"message": "Bạn đã đạt đến cấp:"
 	},
 	"gameover_score": {
 		"message": "Điểm số của bạn:"
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "Giáng sinh ở Ghana bao gồm cả gia đình. Người lớn mặc trang phục, phát kẹo và đồ ngọt cho các nhà hàng xóm. Trẻ em trang trí nhà cửa với đồ trang trí bằng giấy và bản vẽ mà chúng làm ở trường."
+	},
+	"gl_country_name": {
+		"message": "Greenland"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
 	},
 	"gotovillage": {
 		"message": "Đi tới Ngôi làng"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "Người Guatemala ăn mừng Giáng sinh bằng vui chơi và khiêu vũ. Họ đội những chiếc mũ được gọi là Puritina, ăn bánh bắp theo kiểu Guatemala, đốt pháo hoa vào lúc nửa đêm và nhảy múa thâu đêm với những điệu nhảy khác nhau."
 	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
 	"hours": {
 		"message": "Giờ"
+	},
+	"hr_country_name": {
+		"message": "Croatia"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Hungary"
+	},
+	"id_country_name": {
+		"message": "Indonesia"
+	},
+	"ie_country_name": {
+		"message": "Ireland"
+	},
+	"iq_country_name": {
+		"message": "Iraq"
+	},
+	"ir_country_name": {
+		"message": "Iran"
 	},
 	"is_country_name": {
 		"message": "Iceland"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "Vào dịp Giáng sinh ở Iceland, các gia đình tặng quần áo ấm cho mỗi thành viên trong gia đình. Theo truyền thuyết, có một Con mèo Giáng sinh đáng sợ sẽ ăn thịt bất kỳ ai không mặc ấm cho thời tiết lạnh giá. Các gia đình cùng nhau chuẩn bị đồ ấm để đảm bảo không một ai bị 'Con mèo Giáng sinh ăn thịt'."
 	},
+	"it_country_name": {
+		"message": "Ý"
+	},
+	"jm_country_name": {
+		"message": "Jamaica"
+	},
 	"kg_country_name": {
 		"message": "Kyrgyzstan"
 	},
 	"kg_tradition": {
 		"message": "Tại Kyrgyzstan, Ayaz Ata (Ông già tuyết) đến lúc nửa đêm vào Đêm giao thừa và để lại những món quà bên dưới cây Năm mới. Khi đồng hồ điểm nửa đêm, các gia đình trên khắp quốc gia đốt pháo hoa để ăn mừng dịp lễ tươi đẹp này. Các thành phố trở nên sáng rực như ban ngày."
+	},
+	"kz_country_name": {
+		"message": "Kazakhstan"
 	},
 	"language": {
 		"message": "Ngôn ngữ"
@@ -167,8 +377,32 @@
 	"lightdescription": {
 		"message": "Thắp sáng TV của bạn với ứng dụng Android Theo chân ông già Noel và Chromecast."
 	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Lithuania"
+	},
+	"lv_country_name": {
+		"message": "Latvia"
+	},
+	"ly_country_name": {
+		"message": "Libya"
+	},
+	"md_country_name": {
+		"message": "Moldova"
+	},
 	"minutes": {
 		"message": "Phút"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritania"
 	},
 	"mx_country_name": {
 		"message": "Mexico"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "Tại Mexico, trẻ em mọi lứa tuổi ăn mừng Giáng sinh bằng cách đập vỡ các pinata. Người lớn và trẻ em vui chơi bằng cách bịt mắt, quay vòng và vung gậy để đập vỡ các lọ treo có hình ngôi sao. Khi pinata bị đập vỡ, các loại hạt, trái cây và kẹo rơi ra cho mọi người thưởng thức."
 	},
+	"my_country_name": {
+		"message": "Malaysia"
+	},
+	"mz_country_name": {
+		"message": "Mozambique"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
 	"newtoday": {
 		"message": "Mới hôm nay"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Hà Lan"
+	},
+	"no_country_name": {
+		"message": "Na Uy"
 	},
 	"nonprofit-jane-description": {
 		"message": "Tinh tinh là họ hàng gần nhất với con người trong thế giới động vật! Ngày nay còn lại không quá 300.000 tinh tinh do môi trường sống bị mất, bệnh tật và buôn bán bất hợp pháp. Jane Goodall Institute (JGI) bảo vệ tinh tinh bằng cách quan sát và hiểu hành vi cũng như môi trường sống của chúng. JGI cũng làm việc để xây dựng một cộng đồng những người đang bảo vệ và bảo tồn động vật hoang dã cũng như môi trường chúng ta đang sống. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eKhám phá môi trường sống của Tinh tinh\u003c/a\u003e ở Gombe thuộc Tanzania."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Gấu bắc cực"
 	},
+	"np_country_name": {
+		"message": "Nê-pan"
+	},
 	"nz_country_name": {
 		"message": "New Zealand"
 	},
 	"nz_tradition": {
 		"message": "Vì Giáng sinh rơi vào mùa hè tại New Zealand, nên bạn bè và gia đình tụ tập tổ chức tiệc ngoài trời. Bữa ăn Giáng sinh thường bao gồm thịt cừu nướng, đôi khi được nấu trong 'lò' - hố đất/lò đất. Món tráng miệng ưa thích là bánh pavlova: bánh trứng đường được phủ trái cây tươi như dâu tây và kiwi."
+	},
+	"om_country_name": {
+		"message": "Oman"
 	},
 	"onthego": {
 		"message": "Ông già Noel đang di chuyển"
@@ -209,11 +470,20 @@
 	"openingtomorrow": {
 		"message": "Mở chính thức vào ngày mai"
 	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
 	"ph_country_name": {
 		"message": "Philipin"
 	},
 	"ph_tradition": {
 		"message": "Người Philipin nổi tiếng với mùa Giáng sinh dài nhất thế giới. Bốn tháng được coi là tháng Giáng sinh: tháng 9, tháng 10, tháng 11, tháng 12. Đôi khi, người ta nghe thấy bài hát mừng Giáng sinh vào đầu tháng 9."
+	},
+	"pl_country_name": {
+		"message": "Ba Lan"
 	},
 	"play": {
 		"message": "Chơi"
@@ -224,17 +494,32 @@
 	"playdescription": {
 		"message": "Chơi với bạn bè trong Ứng dụng Android Theo chân ông già Noel."
 	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "Rumani"
+	},
 	"ru_country_name": {
 		"message": "Nga"
 	},
 	"ru_tradition": {
 		"message": "Trẻ em Nga trang trí cây Năm mới, thay vì cây Giáng sinh. Trẻ em khao khát đợi Ông già tuyết đến cùng với người cháu gái của ông là Snowmaiden, phát quà trên khắp đất nước. Ông già tuyết sống sâu trong rừng ở Veliky Ustyug, miền bắc nước Nga."
 	},
+	"sa_country_name": {
+		"message": "Ả-Rập Xê-út"
+	},
 	"santatracker": {
 		"message": "Theo chân ông già Noel"
 	},
 	"score": {
 		"message": "Điểm số"
+	},
+	"se_country_name": {
+		"message": "Thụy Điển"
 	},
 	"seconds": {
 		"message": "Giây"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "Chia sẻ"
 	},
+	"sk_country_name": {
+		"message": "Slovakia"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somali"
+	},
+	"sr_country_name": {
+		"message": "Suriname"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"td_country_name": {
+		"message": "Chad"
+	},
 	"terms-and-privacy": {
 		"message": "Điều khoản \u0026 bảo mật"
 	},
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "Thời gian"
+	},
+	"tj_country_name": {
+		"message": "Tajikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunisia"
+	},
+	"tr_country_name": {
+		"message": "Thổ Nhĩ Kỳ"
 	},
 	"traditions-next": {
 		"message": "Truyền thống tiếp theo"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bungari"
 	},
+	"tw_country_name": {
+		"message": "Đài Loan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Vương quốc Anh"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "Ở Vương quốc Anh, người tham dự đủ mọi lứa tuổi thưởng thức pháo Giáng sinh trên bàn trong bữa ăn. Pháo là các ống được bọc bằng giấy đầy màu sắc, với nút kéo ở mỗi đầu. Khi bạn kéo các nút, ống sẽ phát ra tiếng nổ lớn! Bên trong là mũ giấy, đồ chơi và bánh kẹo để thưởng thức trong đêm Giáng sinh."
 	},
+	"upgrade-warning": {
+		"message": "Rất tiếc! Theo chân ông già Noel không được hỗ trợ trong phiên bản trình duyệt này của bạn. Để truy cập Theo chân ông già Noel, hãy tải xuống trình duyệt hiện đại. Để biết thêm thông tin, hãy truy cập vào \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Hoa Kỳ"
 	},
 	"us_tradition": {
 		"message": "Ở Hoa Kỳ, vớ được treo vào đêm Giáng sinh. Truyền thuyết kể rằng Thánh Nicholas biết được một gia đình khốn khó. Để gây bất ngờ, Thánh Nicholas trèo xuống ống khói của nhà họ và đặt túi vàng quý giá vào đôi vớ treo. Từ thời điểm này, Thánh Nicholas được gọi là ông già Noel, người tặng quà."
 	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Việt Nam"
+	},
 	"watch": {
 		"message": "Xem"
+	},
+	"ye_country_name": {
+		"message": "Yemen"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
 	}
 }

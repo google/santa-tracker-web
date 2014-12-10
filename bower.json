@@ -31,11 +31,11 @@
     "core-a11y-keys": "Polymer/core-a11y-keys#^0.5.1",
     "flatiron-director": "PolymerLabs/flatiron-director#master",
     "jquery": "2.1.1",
-    "modernizr": "2.8.3",
     "google-apis": "GoogleWebComponents/google-apis#^0.4.3",
     "google-map": "GoogleWebComponents/google-map#^0.4.0",
     "google-youtube": "GoogleWebComponents/google-youtube#^1.0.1",
-    "closure-compiler": "https://dl.google.com/closure-compiler/compiler-latest.zip"
+    "closure-compiler": "https://dl.google.com/closure-compiler/compiler-latest.zip",
+    "closure-library": "google/closure-library#5fbc334ce7f86018da9fb5e673d2518143aa999e"
   },
   "resolutions": {
     "polymer": "^0.5.1"

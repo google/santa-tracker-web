@@ -25,6 +25,10 @@
         "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
         "message": "Argentina"
     },
+    "ar_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Arabic"
+    },
     "ar_tradition": {
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "In Argentina, Christmas begins promptly at midnight. Many families kick off the holiday by hosting festive celebrations in their homes, opening gifts with their loved ones, and lighting fireworks in the early hours of the morning."
@@ -36,6 +40,10 @@
     "au_tradition": {
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "Australia's Southern Hemisphere location means it's summer time in December. Instead of sleigh bells and cocoa, many Australians head to the beach to celebrate the holidays with a prawn lunch and a few rounds of cricket."
+    },
+    "back_to_tracker": {
+        "description": "Link to go back to the santa tracker screen.",
+        "message": "Back to Tracker"
     },
     "br_country_name": {
         "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
@@ -52,6 +60,10 @@
     "ca_tradition": {
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "Canadian children usually celebrate a snowy, white Christmas. They bundle up in their scarves and toques, a Canadian woolen hat, to play in the snow, ice-skate, and toboggan! On Christmas Eve, they leave milk and cookies by the fireplace for Santa (and sometimes a carrot for his reindeer)."
+    },
+    "cs_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Czech"
     },
     "calendar": {
         "description": "A link to a calendar view of the site navigation. Refers to an advent calendar of the month of December.",
@@ -73,9 +85,17 @@
         "description": "Label for a counter showing the days left until Dec 24. Keep short/one word.",
         "message": "Days"
     },
+    "da_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Danish"
+    },
     "de_country_name": {
         "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
         "message": "Germany"
+    },
+    "de_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "German"
     },
     "de_tradition": {
         "backup_message_id": 2341301741130959217,
@@ -90,6 +110,26 @@
         "description": "Describes what happens when you click the deck link",
         "message": "Deck out your browser with a Santa Chrome extension."
     },
+    "detected": {
+        "description": "Marks a detected language in a dropdown of languages.",
+        "message": "detected"
+    },
+    "difficulty": {
+        "description": "15 char limit. Label describing the game difficulty you are on.",
+        "message": "Difficulty"
+    },
+    "easy_difficulty": {
+        "description": "Difficulty setting for a game.",
+        "message": "Easy"
+    },
+    "el_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Greek"
+    },
+    "en_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "English"
+    },
     "endofjourneymessage": {
         "description": "",
         "message": "Santa's finished his journey for the year! He and the elves are still having some fun in the North Pole before their annual vacation."
@@ -102,6 +142,10 @@
         "description": "Link text. Please keep this short. Link appears on an error page. Clicking the link will reload the application.",
         "message": "Try again"
     },
+    "es_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Spanish"
+    },
     "finished-text": {
         "description": "Paragraph text that appears as the sole text on a landing page. This page is displayed when the Santa Tracker is not active.",
         "message": "Happy Holidays! Santa has completed his journey around the world and is taking a much deserved break. Visit us again next year!"
@@ -109,6 +153,10 @@
     "fr_country_name": {
         "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
         "message": "France"
+    },
+    "fr_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "French"
     },
     "fr_tradition": {
         "backup_message_id": 1199145570729815843,
@@ -152,9 +200,25 @@
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "Guatemalans celebrate Christmas with fun and dancing. They wear hats called Puritina, eat Guatemalan style tamales, light firecrackers at midnight, and dance the night away with various styles of dancing."
     },
+    "improve_google_translate": {
+        "description": "CTA link in translation scene to join the Google Translate community.",
+        "message": "Help improve Google Translate"
+    },
+    "hard_difficulty": {
+        "description": "Difficulty setting for a game.",
+        "message": "Hard"
+    },
+    "hi_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Hindi"
+    },
     "hours": {
         "description": "Label for the hours portion of a countdown clock. Keep short/one word.",
         "message": "Hours"
+    },
+    "hu_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Hungarian"
     },
     "is_country_name": {
         "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
@@ -164,6 +228,14 @@
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "At Christmas time in Iceland, families give gifts of warm clothing to each member of their household. According to legend, there is a frightening Christmas Cat who gobbles up anyone not equipped for the cold and wintery weather. Families work together to ensure nobody will 'go to the Christmas Cat.'"
     },
+    "it_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Italian"
+    },
+    "ja_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Japanese"
+    },
     "kg_country_name": {
         "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
         "message": "Kyrgyzstan"
@@ -171,6 +243,10 @@
     "kg_tradition": {
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "In Kyrgyzstan, Ayaz Ata (Grandfather Frost) comes at midnight on New Year's Eve and leaves presents under the New Year tree. When the clock strikes midnight, families throughout the country light fireworks to celebrate this beautiful occasion. The cities become as bright as day."
+    },
+    "ko_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Korean"
     },
     "learnmore": {
         "description": "Link to learn more about Santa Tracker. This appears on the front page.",
@@ -188,6 +264,10 @@
         "description": "Describes what happens when you click the 'light up' link",
         "message": "Light up your TV with the Santa Tracker Android app and Chromecast."
     },
+    "medium_difficulty": {
+        "description": "Difficulty setting for a game.",
+        "message": "Medium"
+    },
     "minutes": {
         "description": "Label for the minutes portion of a countdown clock. Keep short/one word.",
         "message": "Minutes"
@@ -203,6 +283,10 @@
     "newtoday": {
       "description": "Each scene in Santa's village is available by clicking on a building. Buildings are frozen in ice until a specific date. This label indicates a building that is newly available",
       "message": "New Today"
+    },
+    "no_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Norwegian"
     },
     "nonprofit-jane-description": {
         "description": "The description of a non-profit organization. Descriptions are supplied by the non-profit organization. Please do not translate the name of the non-profit.",
@@ -252,6 +336,10 @@
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "The Philippines is known for having the world's longest Christmas season. Four months are considered Christmas months: September, October, November, December. Christmas carols can oftentimes be heard as early as the beginning of September."
     },
+    "pl_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Polish"
+    },
     "playagain": {
         "description": "When you finish playing a game, we ask you to play again.",
         "message": "Play again"
@@ -260,9 +348,17 @@
         "description": "Text describing the play button.",
         "message": "Play with friends in the Santa Tracker Android App."
     },
+    "pt_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Portuguese"
+    },
     "ru_country_name": {
         "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
         "message": "Russia"
+    },
+    "ru_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Russian"
     },
     "ru_tradition": {
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
@@ -275,6 +371,10 @@
     "score": {
         "description": "15 char limit. Label for a numeric score.",
         "message": "Score"
+    },
+    "sk_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Slovak"
     },
     "time": {
         "description": "15 char limit. Label for time remaining during gameplay.",
@@ -308,14 +408,26 @@
         "description": "Button text. 15char limit. Shares an image on Google+ or Facebook.",
         "message": "Share"
     },
+    "sv_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Swedish"
+    },
     "terms-and-privacy": {
         "backup_message_id": 3076236066203606172,
         "description": "Link text. Please keep this short. Links to Google's terms of service.",
         "message": "Terms &amp; Privacy"
     },
+    "th_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Thai"
+    },
     "tilt": {
         "description": "Game play instructions. Tilt your phone left or right to move.",
         "message": "Tilt your device!"
+    },
+    "tr_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Turkish"
     },
     "traditions-next": {
         "description": "Button text. Please keep short. User can move through a set of cards describing local traditions of a country.",
@@ -5329,6 +5441,10 @@
         "description": "A potential answer for the trivia question.",
         "message": "Bulgaria"
     },
+    "trivia_ngb_promo": {
+        "description": "A legend below the National Geographic Bee to for trivia content attribution.",
+        "message": "Content by the National Geographic Bee"
+    },
     "upgrade-warning": {
         "description": "An error message. Error appears as the sole text on an HTML page.",
         "raw": "Oops! Santa Tracker isn't supported in this version of your browser. To access Santa Tracker, download a modern browser. For more information visit <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"http://whatbrowser.org\"&gt;</ph>whatbrowser.org<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
@@ -5433,10 +5549,6 @@
       "description": "Name of a country. This appears as a label in a geography game.",
       "message": "Switzerland"
     },
-    "de_country_name": {
-      "description": "Name of a country. This appears as a label in a geography game.",
-      "message": "Germany"
-    },
     "dk_country_name": {
       "description": "Name of a country. This appears as a label in a geography game.",
       "message": "Denmark"
@@ -5444,6 +5556,10 @@
     "ee_country_name": {
       "description": "Name of a country. This appears as a label in a geography game.",
       "message": "Estonia"
+    },
+    "elvish_language_name": {
+        "description": "Localised name of a fake language. Appears in a translation drop down.",
+        "message": "Elvish"
     },
     "fi_country_name": {
       "description": "Name of a country. This appears as a label in a geography game.",
@@ -5464,6 +5580,10 @@
     "nl_country_name": {
       "description": "Name of a country. This appears as a label in a geography game.",
       "message": "Netherlands"
+    },
+    "nl_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Dutch"
     },
     "pl_country_name": {
       "description": "Name of a country. This appears as a label in a geography game.",
@@ -5740,6 +5860,14 @@
     "ye_country_name": {
       "description": "Name of a country. This appears as a label in a geography game.",
       "message": "Yemen"
+    },
+    "zh-CN_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Chinese (simplified)"
+    },
+    "zh-TW_language_name": {
+        "description": "Localised name of a language. Appears in a translation drop down.",
+        "message": "Chinese (traditional)"
     },
     "gl_country_name": {
       "description": "Name of a country. This appears as a label in a geography game.",

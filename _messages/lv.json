@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Laipni lūdzam Google Maps Ziemassvētku vecīša ceļojumā!"
 	},
+	"af_country_name": {
+		"message": "Afganistāna"
+	},
+	"al_country_name": {
+		"message": "Albānija"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentīna"
 	},
 	"ar_tradition": {
 		"message": "Argentīnā Ziemassvētki sākas tieši pusnaktī. Daudzas ģimenes šajos svētkos mājās rīko svinības, kuru laikā kopā ar tuvākajiem atver dāvanas, bet pašā rīta agrumā notiek uguņošana."
+	},
+	"at_country_name": {
+		"message": "Austrija"
 	},
 	"au_country_name": {
 		"message": "Austrālija"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "Austrālija atrodas dienvidu puslodē, tāpēc decembrī tur valda vasara. Tā vietā, lai vizinātos ragavās zvaniņu skaņas pavadijumā un dzertu kakao, austrālieši dodas uz pludmali un svin svētkus, ēdot garneles un spēlējot kriketu."
 	},
+	"bd_country_name": {
+		"message": "Bangladeša"
+	},
+	"be_country_name": {
+		"message": "Beļģija"
+	},
+	"bg_country_name": {
+		"message": "Bulgārija"
+	},
+	"bj_country_name": {
+		"message": "Benina"
+	},
+	"bo_country_name": {
+		"message": "Bolīvija"
+	},
 	"br_country_name": {
 		"message": "Brazīlija"
 	},
 	"br_tradition": {
 		"message": "Ziemassvētku svinības sākas neilgi pirms pusnakts. Parasti visa ģimene kopā paēd vakariņas, atver dāvanas un dodas uz baznīcu, lai piedalītos dievkalpojumā, ko dēvē par “Missa do Galo” (gaiļa mise). Lai gan tur valda tropiskā vasara un ir silts, bieži tiek izmantoti ziemas un sniega motīvi."
+	},
+	"bt_country_name": {
+		"message": "Butāna"
+	},
+	"by_country_name": {
+		"message": "Baltkrievija"
+	},
+	"bz_country_name": {
+		"message": "Beliza"
 	},
 	"ca_country_name": {
 		"message": "Kanāda"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Sūtīt"
 	},
+	"cf_country_name": {
+		"message": "Centrālāfrikas Republika"
+	},
+	"ch_country_name": {
+		"message": "Šveice"
+	},
+	"cl_country_name": {
+		"message": "Čīle"
+	},
 	"close-this": {
 		"message": "Atcelt"
+	},
+	"cm_country_name": {
+		"message": "Kamerūna"
+	},
+	"co_country_name": {
+		"message": "Kolumbija"
+	},
+	"codelab-block-moveeast": {
+		"message": "Austrumi"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Pārvietoties par vienu lauciņu uz austrumiem."
+	},
+	"codelab-block-movenorth": {
+		"message": "Ziemeļi"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Pārvietoties par vienu lauciņu uz ziemeļiem."
+	},
+	"codelab-block-movesouth": {
+		"message": "Dienvidi"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Pārvietoties par vienu lauciņu uz dienvidiem."
+	},
+	"codelab-block-movewest": {
+		"message": "Rietumi"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Pārvietoties par vienu lauciņu uz rietumiem."
+	},
+	"codelab-block-repeat": {
+		"message": "atkārtot"
+	},
+	"codelab-block-repeat-times": {
+		"message": "reizes"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Atkārtot dažus priekšrakstus vairākas reizes."
+	},
+	"codelab-block-whenrun": {
+		"message": "izpildes secība"
+	},
+	"codelab-finish": {
+		"message": "Beigt"
+	},
+	"codelab-great": {
+		"message": "Lieliski!"
+	},
+	"codelab-mwc-promo": {
+		"message": "Citus Google kodēšanas projektus skatiet šeit: \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Nākamais izaicinājums"
+	},
+	"codelab-oops": {
+		"message": "Ak, vai!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Lai klucītis “Atkārtot” darbotos, tajā ir jāievieto citi klucīši."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Daži no klucīšiem nav pareizi savietoti."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Šķiet, ka apmaldījāties!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Lai atrisinātu šo uzdevumu, izmantojiet vienu vai vairākus no tālāk redzamajiem klucīšiem."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Vai zinājāt, ka šo līmeni var pabeigt, izmantojot tikai {{ideal}} klucīšus? Mēģiniet lietot tālāk redzamo klucīti."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Apsveicam! Jūs izcili paveicāt uzdevumu."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Jūs izmantojat pareizos klucīšus, taču, lai pabeigtu šo uzdevumu, mēģiniet izmantot vairāk klucīšu."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Vai zinājāt, ka šo līmeni var pabeigt, izmantojot tikai {{ideal}} klucīšus?"
+	},
+	"codelab-try-again": {
+		"message": "Mēģināt vēlreiz"
 	},
 	"copy-me": {
 		"message": "Kopējiet šo saiti, lai kopīgotu savu ziņojumu"
 	},
 	"countdownlabel": {
 		"message": "Laiks līdz Ziemassvētku vecītis dosies ceļā"
+	},
+	"cr_country_name": {
+		"message": "Kostarika"
+	},
+	"cu_country_name": {
+		"message": "Kuba"
+	},
+	"cz_country_name": {
+		"message": "Čehija"
 	},
 	"days": {
 		"message": "Dienas"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "Izrotājiet savu pārlūkprogrammu, izmantojot Ziemassvētku vecīša Chrome paplašinājumu."
 	},
+	"dk_country_name": {
+		"message": "Dānija"
+	},
+	"do_country_name": {
+		"message": "Dominikāna"
+	},
+	"dz_country_name": {
+		"message": "Alžīrija"
+	},
+	"ec_country_name": {
+		"message": "Ekvadora"
+	},
+	"ee_country_name": {
+		"message": "Igaunija"
+	},
 	"endofjourneymessage": {
 		"message": "Šogad Ziemassvētku vecītis ir beidzis savu ceļojumu. Viņš ar rūķīšiem joprojām līksmo Ziemeļpolā pirms gadskārtējām brīvdienām."
+	},
+	"er_country_name": {
+		"message": "Eritreja"
 	},
 	"error": {
 		"message": "Tā... nupat pazuda savienojums ar Ziemeļpolu. Ziemassvētku vecīša rūķīši dara visu iespējamo, lai to atjaunotu. Paliec tepat!"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Mēģiniet vēlreiz"
 	},
+	"et_country_name": {
+		"message": "Etiopija"
+	},
+	"fi_country_name": {
+		"message": "Somija"
+	},
 	"finished-text": {
 		"message": "Priecīgus svētkus! Ziemassvētku vecītis ir pabeidzis savu ceļojumu apkārt pasaulei un tagad dodas pelnītā atpūtā. Apmeklējiet mūsu vietni atkal nākamgad!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "Francijā bērni parasti novieto apavus kamīna priekšā, gaidot Pjēra Noela (Père Noël) ierašanos. Ja bērni visu gadu ir labi uzvedušies, Pjērs Noels piepilda apavus ar dāvanām."
 	},
+	"ga_country_name": {
+		"message": "Gabona"
+	},
 	"gameover": {
 		"message": "Spēle beigusies!"
+	},
+	"gameover_level": {
+		"message": "Sasniegtais līmenis:"
 	},
 	"gameover_score": {
 		"message": "Jūsu punktu skaits:"
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "Ganā Ziemassvētkus svin visa ģimene. Pieaugušie sapošas kostīmos un cienā kaimiņus ar konfektēm un saldumiem. Bērni izrotā māju ar skolā gatavotiem papīra rotājumiem un zīmējumiem."
+	},
+	"gl_country_name": {
+		"message": "Grenlande"
+	},
+	"gn_country_name": {
+		"message": "Gvineja"
 	},
 	"gotovillage": {
 		"message": "Doties uz ciematu"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "Gvatemalā Ziemassvētki nozīmē jautrību un dejas. Cilvēki uzliek cepures, kuras dēvē par Puritina, ēd gvatemaliešu gaumē pagatavotus tamale — pildītus kukurūzas mīklas pīrāgus. Pusnaktī notiek uguņošana, un dažādās dejās tiek aizvadīta visa nakts."
 	},
+	"gy_country_name": {
+		"message": "Gajāna"
+	},
+	"hn_country_name": {
+		"message": "Hondurasa"
+	},
 	"hours": {
 		"message": "Stunda(-s)"
+	},
+	"hr_country_name": {
+		"message": "Horvātija"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Ungārija"
+	},
+	"id_country_name": {
+		"message": "Indonēzija"
+	},
+	"ie_country_name": {
+		"message": "Īrija"
+	},
+	"iq_country_name": {
+		"message": "Irāka"
+	},
+	"ir_country_name": {
+		"message": "Irāna"
 	},
 	"is_country_name": {
 		"message": "Īslande"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "Īslandē Ziemassvētku laikā ģimenes locekļi cits citam dāvina siltus apģērbus. Leģenda vēsta par baismīgu Ziemassvētku kaķi, kurš aprij ikvienu, kas nav gatavs aukstumam un ziemai. Ģimenes gādā, lai neviens nenonāk Ziemassvētku kaķa nagos."
 	},
+	"it_country_name": {
+		"message": "Itālija"
+	},
+	"jm_country_name": {
+		"message": "Jamaika"
+	},
 	"kg_country_name": {
 		"message": "Kirgizstāna"
 	},
 	"kg_tradition": {
 		"message": "Kirgizstānā tiek gaidīts Ayaz Ata (Salatēvs), kurš ierodas pusnaktī Vecgada vakarā un atstāj zem eglītes dāvanas. Kad pulkstenis iezvana pusnakti, visā valstī notiek uguņošana, lai svinētu šo skaisto notikumu. Pilsētās kļūst gaišs kā dienā."
+	},
+	"kz_country_name": {
+		"message": "Kazahstāna"
 	},
 	"language": {
 		"message": "Valoda"
@@ -167,8 +377,32 @@
 	"lightdescription": {
 		"message": "Lieciet savam televizoram iemirdzēties, izmantojot Android lietotni “Ziemassvētku vecīša ceļojums” un Chromecast ierīci."
 	},
+	"lk_country_name": {
+		"message": "Šrilanka"
+	},
+	"lt_country_name": {
+		"message": "Lietuva"
+	},
+	"lv_country_name": {
+		"message": "Latvija"
+	},
+	"ly_country_name": {
+		"message": "Lībija"
+	},
+	"md_country_name": {
+		"message": "Moldova"
+	},
 	"minutes": {
 		"message": "Minūte(-s)"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Mjanma"
+	},
+	"mr_country_name": {
+		"message": "Mauritānija"
 	},
 	"mx_country_name": {
 		"message": "Meksika"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "Meksikā Ziemassvētkos bērni sacenšas, kuram izdosies pārplēst pinjatu. Valda liela jautrība, kad pieaugušie un bērni aizsietām acīm griežas riņķī un pēc tam ar nūju mēģina pārsist piekārtas kartona zvaigznes. Kad tas izdodas, no pinjatas izbirst rieksti, augļi un konfektes, kuras visi var nogaršot."
 	},
+	"my_country_name": {
+		"message": "Malaizija"
+	},
+	"mz_country_name": {
+		"message": "Mozambika"
+	},
+	"na_country_name": {
+		"message": "Namībija"
+	},
+	"ne_country_name": {
+		"message": "Nigēra"
+	},
 	"newtoday": {
 		"message": "Šodienas jaunums"
+	},
+	"ng_country_name": {
+		"message": "Nigērija"
+	},
+	"nl_country_name": {
+		"message": "Nīderlande"
+	},
+	"no_country_name": {
+		"message": "Norvēģija"
 	},
 	"nonprofit-jane-description": {
 		"message": "Šimpanzes ir cilvēkiem vistuvāk radniecīgie dzīvnieki! Džeinas Gudolas institūts (Jane Goodall Institute — JGI) aizsargā tādas šimpanzes, novērojot viņas, lai izprastu to uzvedību un dzīves vidi. JGI arī veido kopienu, kurā iesaistās cilvēki, kas aizsargā un saglabā savvaļas dzīvniekus un mūsu apkārtējo vidi. Uzziniet vairāk par Tanzānijas pilsētā Gombē \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003emītošajām šimpanzēm\u003c/a\u003e."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Polārlācis"
 	},
+	"np_country_name": {
+		"message": "Nepāla"
+	},
 	"nz_country_name": {
 		"message": "Jaunzēlande"
 	},
 	"nz_tradition": {
 		"message": "Jaunzēlandē Ziemassvētkus svin vasarā, tāpēc ģimenes ar draugiem kopīgi cep gaļu. Parasti Ziemassvētku galdā tiek celts jēra cepetis, kas dažkārt tiek gatavots “hangi” (zemē izraktā krāsnī). Iecienītākais deserts ir Pavlovas kūka — bezē, kas pārklāts ar svaigiem augļiem, piemēram, zemenēm un kivi."
+	},
+	"om_country_name": {
+		"message": "Omāna"
 	},
 	"onthego": {
 		"message": "Informācija par Ziemassvētku vecīti ceļā"
@@ -209,11 +470,20 @@
 	"openingtomorrow": {
 		"message": "Lielā atklāšana būs rīt!"
 	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
 	"ph_country_name": {
 		"message": "Filipīnas"
 	},
 	"ph_tradition": {
 		"message": "Ir zināms, ka Filipīnās ir pasaulē ilgākās Ziemassvētku svinības. Par svētku mēnešiem tiek uzskatīti četri: septembris, oktobris, novembris un decembris. Ziemassvētku korāļus bieži vien var dzirdēt jau septembra sākumā."
+	},
+	"pl_country_name": {
+		"message": "Polija"
 	},
 	"play": {
 		"message": "Spēlēt"
@@ -224,17 +494,32 @@
 	"playdescription": {
 		"message": "Spēlējiet spēles kopā ar draugiem Android lietotnē “Ziemassvētku vecīša ceļojums”."
 	},
+	"pr_country_name": {
+		"message": "Puertoriko"
+	},
+	"py_country_name": {
+		"message": "Paragvaja"
+	},
+	"ro_country_name": {
+		"message": "Rumānija"
+	},
 	"ru_country_name": {
 		"message": "Krievija"
 	},
 	"ru_tradition": {
 		"message": "Krievijā bērni rotā Jaungada eglīti un nespēj vien sagaidīt Salavectēva ierašanos. Viņš ceļo kopā ar savu mazmeitu Sniegbaltīti, piegādājot dāvanas visā valstī. Salavectēvs dzīvo Krievijas ziemeļos, Veļikijustjugas dziļajos mežos."
 	},
+	"sa_country_name": {
+		"message": "Saūda Arābija"
+	},
 	"santatracker": {
 		"message": "Ziemassvētku vecīša ceļojums"
 	},
 	"score": {
 		"message": "Rezultāts"
+	},
+	"se_country_name": {
+		"message": "Zviedrija"
 	},
 	"seconds": {
 		"message": "Sekunde(-s)"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "Kopīgot"
 	},
+	"sk_country_name": {
+		"message": "Slovākija"
+	},
+	"sn_country_name": {
+		"message": "Senegāla"
+	},
+	"so_country_name": {
+		"message": "Somālija"
+	},
+	"sr_country_name": {
+		"message": "Surinama"
+	},
+	"sv_country_name": {
+		"message": "Salvadora"
+	},
+	"td_country_name": {
+		"message": "Čada"
+	},
 	"terms-and-privacy": {
 		"message": "Noteikumi"
 	},
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "Laiks"
+	},
+	"tj_country_name": {
+		"message": "Tadžikistāna"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistāna"
+	},
+	"tn_country_name": {
+		"message": "Tunisija"
+	},
+	"tr_country_name": {
+		"message": "Turcija"
 	},
 	"traditions-next": {
 		"message": "Nākamā tradīcija"
@@ -534,7 +849,7 @@
 		"message": "Ziemeļamerika"
 	},
 	"trivia_beginner_023": {
-		"message": "Nosauciet ASV štatu, uz kuru ir jādodas, lai apmeklētu Jackson Hole rezervātu un uzkāptu līdz Devils Tower."
+		"message": "Nosauciet ASV štatu, uz kuru ir jādodas, lai apmeklētu Džeksonholas rezervātu un uzkāptu līdz Velna tornim."
 	},
 	"trivia_beginner_023_answer0": {
 		"message": "Vaiominga"
@@ -726,7 +1041,7 @@
 		"message": "Manila"
 	},
 	"trivia_beginner_039": {
-		"message": "Nosauciet Austrālijas pilsētu, kurā atrodas Sidnejas operteātris un Harbour Bridge tilts."
+		"message": "Nosauciet Austrālijas pilsētu, kurā atrodas Sidnejas operteātris un Ostas tilts."
 	},
 	"trivia_beginner_039_answer0": {
 		"message": "Sidneja"
@@ -834,7 +1149,7 @@
 		"message": "Denvera"
 	},
 	"trivia_beginner_048": {
-		"message": "Nosauciet ASV pilsētu, kuras ostā uz Liberti salas atrodas lielā Brīvības statuja."
+		"message": "Nosauciet ASV pilsētu, kuras ostā uz Brīvības salas atrodas lielā Brīvības statuja."
 	},
 	"trivia_beginner_048_answer0": {
 		"message": "Ņujorka"
@@ -870,7 +1185,7 @@
 		"message": "Maiami"
 	},
 	"trivia_beginner_051": {
-		"message": "Nosauciet Āfrikas valsti, kurā atrodas Gizas plakankalne, kurā atrodas Heopsa piramīda un Sfinksa."
+		"message": "Nosauciet Āfrikas valsti, kurā atrodas Gīzas plakankalne, kurā atrodas Heopsa piramīda un Sfinksa."
 	},
 	"trivia_beginner_051_answer0": {
 		"message": "Ēģipte"
@@ -1290,7 +1605,7 @@
 		"message": "Lībija"
 	},
 	"trivia_beginner_086": {
-		"message": "Nosauciet valsti, uz kuru ir jādodas, lai nokļūtu safari Maasai Mara dabas rezervātā un iepirktos Nairobi pilsētā,"
+		"message": "Nosauciet valsti, uz kuru ir jādodas, lai nokļūtu safari Maasai Mara dabas rezervātā un iepirktos Nairobi pilsētā."
 	},
 	"trivia_beginner_086_answer0": {
 		"message": "Kenija"
@@ -1362,7 +1677,7 @@
 		"message": "Dienviddakota"
 	},
 	"trivia_beginner_092": {
-		"message": "Nosauciet ASV štatu, kurš tiek dēvēts par Vientuļās zvaigznes štatu, jo tā karogā ir redzama viena zvaigzne un kādreiz tā bija neatkarīga valsts."
+		"message": "Nosauciet ASV štatu, kurš tiek dēvēts par Vientuļās zvaigznes štatu, jo tā karogā ir redzama viena zvaigzne un kādreiz tā bijusi neatkarīga valsts."
 	},
 	"trivia_beginner_092_answer0": {
 		"message": "Teksasa"
@@ -1746,7 +2061,7 @@
 		"message": "Turkmenistāna"
 	},
 	"trivia_hard_027": {
-		"message": "Kuras valsts oficiālā valoda ir franču valoda."
+		"message": "Kuras valsts oficiālā valoda ir franču valoda?"
 	},
 	"trivia_hard_027_answer0": {
 		"message": "Gabona"
@@ -1986,7 +2301,7 @@
 		"message": "Alžīrija"
 	},
 	"trivia_hard_047": {
-		"message": "Nosauciet Īrijas vislielāko pilsētu, kas atrodas pie Liffi upes."
+		"message": "Nosauciet Īrijas vislielāko pilsētu, kas atrodas pie Lifi upes."
 	},
 	"trivia_hard_047_answer0": {
 		"message": "Dublina"
@@ -2154,7 +2469,7 @@
 		"message": "Kampala"
 	},
 	"trivia_hard_061": {
-		"message": "Nosauciet Kambodžas lielāko pilsētu, kura reiz bija okupēta un nonāca “sarkano khmeru” pakļautībā"
+		"message": "Nosauciet Kambodžas lielāko pilsētu, kura reiz bija okupēta un nonāca “sarkano khmeru” pakļautībā."
 	},
 	"trivia_hard_061_answer0": {
 		"message": "Pnompeņa"
@@ -2442,7 +2757,7 @@
 		"message": "Parana"
 	},
 	"trivia_hard_085": {
-		"message": "Bodenezers robežojas ar Šveici, Vāciju un vēl kādu valsti. Nosauciet šo valsti."
+		"message": "Bodenezers robežojas ar Šveici, Vāciju un vēl kādu valsti. Nosauciet šo valsti!"
 	},
 	"trivia_hard_085_answer0": {
 		"message": "Austrija"
@@ -2718,7 +3033,7 @@
 		"message": "Āfrika"
 	},
 	"trivia_medium_003": {
-		"message": "Nosauciet kontinentu, kura dienvidrietumu daļā tiek runāts kurdu un persiešu valodās."
+		"message": "Nosauciet kontinentu, kura dienvidrietumu daļā tiek runāts kurdu un persiešu valodā."
 	},
 	"trivia_medium_003_answer0": {
 		"message": "Āzija"
@@ -2958,7 +3273,7 @@
 		"message": "Seula"
 	},
 	"trivia_medium_023": {
-		"message": "Kā sauc galvaspilsētu, kurā atrodas vairāku lielu ēģiptiešu protestu vieta — Tahrir laukums?"
+		"message": "Kā sauc galvaspilsētu, kurā atrodas vairāku lielu ēģiptiešu protestu vieta — Tahrira laukums?"
 	},
 	"trivia_medium_023_answer0": {
 		"message": "Kaira"
@@ -3714,7 +4029,7 @@
 		"message": "Alpi"
 	},
 	"trivia_medium_086": {
-		"message": "Kuras musulmaņu valsts oficiālā valoda ir persiešu valoda."
+		"message": "Kuras musulmaņu valsts oficiālā valoda ir persiešu valoda?"
 	},
 	"trivia_medium_086_answer0": {
 		"message": "Irāna"
@@ -3738,7 +4053,7 @@
 		"message": "Maķedonija"
 	},
 	"trivia_medium_088": {
-		"message": "Nosauciet valsti, kurā atrodas Stambula — pilsēta, kura tiek uzskatīta par vietu, kurā satiekas austrumu un rietumu kultūra."
+		"message": "Nosauciet valsti, kurā atrodas Stambula — pilsēta, kura tiek uzskatīta par vietu, kurā satiekas Austrumu un Rietumu kultūra?"
 	},
 	"trivia_medium_088_answer0": {
 		"message": "Turcija"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgārija"
 	},
+	"tw_country_name": {
+		"message": "Taivāna"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzānija"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Lielbritānija"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "Lielbritānijā svētku dalībnieki neatkarīgi no vecuma pie vakariņu galda šauj plaukšķenes. Tās ir krāsainā papīrā ietītas caurules ar aukliņām abos galos. Paraujot aukliņas, caurule ar skaļu blīkšķi pārplīst. Tajā ir papīra cepurītes, rotaļlietas un saldumi, kas tiek apēsti Ziemassvētku vakarā."
 	},
+	"upgrade-warning": {
+		"message": "Diemžēl vietne Ziemassvētku vecīša ceļojums netiek atbalstīta šajā pārlūkprogrammas versijā. Lai piekļūtu vietnei Ziemassvētku vecīša ceļojums, lejupielādējiet jaunāku pārlūkprogrammu. Plašāku informāciju skatiet vietnē \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Amerikas Savienotās Valstis"
 	},
 	"us_tradition": {
 		"message": "Amerikas Savienotajās Valstīs Ziemassvētku vakarā tiek pakarinātas zeķes. Leģenda vēsta, ka Svētais Nikolass uzzinājis par kādu trūcīgu ģimeni. Lai viņus pārsteigtu, viņš nolaidies lejup pa skursteni un pie kamīna pakārtajās zeķēs ielicis maisiņus ar zeltu. Kopš tā laika Svētais Nikolass tiek uzskatīts par Ziemassvētku vecīti, kurš nes dāvanas."
 	},
+	"uy_country_name": {
+		"message": "Urugvaja"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistāna"
+	},
+	"ve_country_name": {
+		"message": "Venecuēla"
+	},
+	"vn_country_name": {
+		"message": "Vjetnama"
+	},
 	"watch": {
 		"message": "Skatīties"
+	},
+	"ye_country_name": {
+		"message": "Jemena"
+	},
+	"zm_country_name": {
+		"message": "Zambija"
+	},
+	"zw_country_name": {
+		"message": "Zimbabve"
 	}
 }

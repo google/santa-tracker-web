@@ -3,7 +3,7 @@
 		"message": "ในวันคริสต์มาสอีฟ เราจะนำเสนอตัวอย่างแผงควบคุมของซานตาซึ่งเป็นเทคโนโลยีที่ใช้ขับเคลื่อนเลื่อนหิมะในระหว่างการเดินทางรอบโลกของซานตา เราได้รับตัวอย่างสุดพิเศษนี้มาจากเอลฟ์นักพัฒนาที่กำลังง่วนอยู่กับการช่วยซานตาเตรียมพร้อมสำหรับวันสำคัญ แผงควบคุมของซานตาซึ่งประกอบด้วยเทคโนโลยี Google Maps ล้ำหน้าใหม่ล่าสุดและระบบวิศกรรมรถเลื่อนจะทำให้คุณสามารถติดตามความคืบหน้าของซานตาไปได้ทั่วโลก และยังได้เรียนรู้เกร็ดเล็กเกร็ดน้อยเกี่ยวกับจุดแวะพักระหว่างทางของซานตาอีกด้วย"
 	},
 	"about-content-three": {
-		"message": "Google Maps Santa Tracker สร้างขึ้นและพัฒนาโดย Google ด้วยความช่วยเหลือเล็กน้อยจากภูติจิ๋วของซานต้า หากมีคำถามหรือข้อสงสัย โปรดไปที่\u003ca href=\"//support.google.com/santatracker\"\u003eศูนย์ช่วยเหลือ\u003c/a\u003eของเรา"
+		"message": "Google Maps ตามติดซานต้าสร้างขึ้นและพัฒนาโดย Google ด้วยความช่วยเหลือเล็กน้อยจากภูติจิ๋วของซานต้า หากมีคำถามหรือข้อสงสัย โปรดไปที่\u003ca href=\"//support.google.com/santatracker\"\u003eศูนย์ช่วยเหลือ\u003c/a\u003eของเรา"
 	},
 	"about-content-two": {
 		"message": "เอลฟ์ผู้เป็นมิตรของเราเชิญให้คุณสำรวจหมู่บ้านของซานต้าในขณะที่ซานต้ากำลังเตรียมตัวสำหรับการเดินทาง ออกสำรวจหมู่บ้านได้เลย แล้วคุณอาจได้ร่วมกิจกรรมสนุกๆ และพบกับเอลฟ์ที่น่าสนใจ"
@@ -12,7 +12,16 @@
 		"message": "เกี่ยวกับ"
 	},
 	"about_title": {
-		"message": "ยินดีต้อนรับสู่ Google Maps - ติดตามซานตาคลอส"
+		"message": "ยินดีต้อนรับสู่ Google Maps - ตามติดซานต้า"
+	},
+	"af_country_name": {
+		"message": "อัฟกานิสถาน"
+	},
+	"al_country_name": {
+		"message": "แอลเบเนีย"
+	},
+	"ao_country_name": {
+		"message": "แองโกลา"
 	},
 	"ar_country_name": {
 		"message": "อาร์เจนตินา"
@@ -20,17 +29,44 @@
 	"ar_tradition": {
 		"message": "ในอาร์เจนตินา คริสต์มาสจะเริ่มขึ้นทันทีในตอนเที่ยงคืน ครอบครัวจำนวนมากเริ่มต้นวันหยุดนี้ด้วยการเฉลิมฉลองอย่างรื่นเริงในบ้านของตัวเอง เปิดของขวัญกับคนที่รัก และจุดเตาผิงในตอนเช้าตรู่"
 	},
+	"at_country_name": {
+		"message": "ออสเตรีย"
+	},
 	"au_country_name": {
 		"message": "ออสเตรเลีย"
 	},
 	"au_tradition": {
 		"message": "ด้วยที่ตั้งทางซีกโลกใต้ของออสเตรเลีย เดือนธันวาคมจึงตรงกับหน้าร้อน ดังนั้นแทนที่จะรอฟังเสียงกระดิ่งรถเลื่อนระหว่างจิบโกโก้ร้อนๆ ชาวออสเตรเลียจึงออกไปเฉลิมฉลองวันหยุดนี้ที่ชายหาดด้วยมื้อกลางเมนูกุ้งและเล่นเกมคริกเก็ตกันรอบสองรอบ"
 	},
+	"bd_country_name": {
+		"message": "บังกลาเทศ"
+	},
+	"be_country_name": {
+		"message": "เบลเยียม"
+	},
+	"bg_country_name": {
+		"message": "บัลแกเรีย"
+	},
+	"bj_country_name": {
+		"message": "เบนิน"
+	},
+	"bo_country_name": {
+		"message": "โบลิเวีย"
+	},
 	"br_country_name": {
 		"message": "บราซิล"
 	},
 	"br_tradition": {
 		"message": "การฉลองวันคริสต์มาสจะเริ่มขึ้นในเวลาเกือบเที่ยงคืน โดยปกติจะประกอบด้วยการรับประทานอาหารค่ำมื้อใหญ่ในครอบครัว การเปิดของขวัญ และการเฉลิมฉลอง \"Missa do Galo\" (การรำลึกวันประสูติของพระเยซู) ในโบสถ์ ถึงแม้สภาพอากาศจะเป็นฤดูร้อนในเขตอบอุ่น แต่ก็สามารถพบเห็นธีมฤดูหนาวและหิมะได้ทั่วไป"
+	},
+	"bt_country_name": {
+		"message": "ภูฏาน"
+	},
+	"by_country_name": {
+		"message": "เบลารุส"
+	},
+	"bz_country_name": {
+		"message": "เบลีซ"
 	},
 	"ca_country_name": {
 		"message": "แคนาดา"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "ส่ง"
 	},
+	"cf_country_name": {
+		"message": "สาธารณรัฐแอฟริกากลาง"
+	},
+	"ch_country_name": {
+		"message": "สวิตเซอร์แลนด์"
+	},
+	"cl_country_name": {
+		"message": "ชิลี"
+	},
 	"close-this": {
 		"message": "ยกเลิก"
+	},
+	"cm_country_name": {
+		"message": "แคเมอรูน"
+	},
+	"co_country_name": {
+		"message": "โคลอมเบีย"
+	},
+	"codelab-block-moveeast": {
+		"message": "ตะวันออก"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "เลื่อนฉันไปทางทิศตะวันออก 1 ที่"
+	},
+	"codelab-block-movenorth": {
+		"message": "เหนือ"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "เลื่อนฉันไปทางทิศเหนือ 1 ที่"
+	},
+	"codelab-block-movesouth": {
+		"message": "ใต้"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "เลื่อนฉันไปทางทิศใต้ 1 ที่"
+	},
+	"codelab-block-movewest": {
+		"message": "ตะวันตก"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "เลื่อนฉันไปทางทิศตะวันตก 1 ที่"
+	},
+	"codelab-block-repeat": {
+		"message": "ทำซ้ำ"
+	},
+	"codelab-block-repeat-times": {
+		"message": "ครั้ง"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "ทำซ้ำข้อความบางข้อความหลายๆ ครั้ง"
+	},
+	"codelab-block-whenrun": {
+		"message": "เมื่อเรียกใช้"
+	},
+	"codelab-finish": {
+		"message": "เสร็จสิ้น"
+	},
+	"codelab-great": {
+		"message": "ยอดเยี่ยม"
+	},
+	"codelab-mwc-promo": {
+		"message": "ดูโครงการเขียนโค้ดของ Google เพิ่มเติมที่ \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e"
+	},
+	"codelab-next-challenge": {
+		"message": "ความท้าทายถัดไป"
+	},
+	"codelab-oops": {
+		"message": "อ๊ะ!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "บล็อก \"ทำซ้ำ\" ต้องมีบล็อกอื่นๆ อยู่ข้างในเพื่อให้ทำงานได้"
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "บางส่วนของบล็อกไม่ได้แนบกันอย่างถูกต้อง"
+	},
+	"codelab-result-generic-fail": {
+		"message": "ดูเหมือนว่าคุณจะหลงทาง!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "ลองใช้อย่างน้อย 1 บล็อกด้านล่างเพื่อแก้ปริศนานี้"
+	},
+	"codelab-result-missing-block-success": {
+		"message": "ทราบหรือไม่ว่าคุณสามารถจบระดับนี้ได้ด้วย {{ideal}} บล็อกเท่านั้น ลองใช้บล็อกด้านล่าง"
+	},
+	"codelab-result-perfect-success": {
+		"message": "ขอแสดงความยินดี คุณแก้ปริศนาเสร็จแล้ว"
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "คุณกำลังใช้บล็อกที่ถูกต้อง แต่ลองใช้ให้มากขึ้นเพื่อแก้ปริศนานี้"
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "ทราบหรือไม่ว่าคุณสามารถจบระดับนี้ได้ด้วย {{ideal}} บล็อกเท่านั้น"
+	},
+	"codelab-try-again": {
+		"message": "ลองอีกครั้ง"
 	},
 	"copy-me": {
 		"message": "คัดลอกลิงก์นี้เพื่อแชร์ข้อความของคุณ"
 	},
 	"countdownlabel": {
 		"message": "จนกว่าซานต้าจะจากไป"
+	},
+	"cr_country_name": {
+		"message": "คอสตาริกา"
+	},
+	"cu_country_name": {
+		"message": "คิวบา"
+	},
+	"cz_country_name": {
+		"message": "สาธารณรัฐเช็ก"
 	},
 	"days": {
 		"message": "วัน"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "ตกแต่งเบราว์เซอร์ของคุณด้วยส่วนขยายซานต้า Chrome"
 	},
+	"dk_country_name": {
+		"message": "เดนมาร์ก"
+	},
+	"do_country_name": {
+		"message": "สาธารณรัฐโดมินิกัน"
+	},
+	"dz_country_name": {
+		"message": "แอลจีเรีย"
+	},
+	"ec_country_name": {
+		"message": "เอกวาดอร์"
+	},
+	"ee_country_name": {
+		"message": "เอสโตเนีย"
+	},
 	"endofjourneymessage": {
 		"message": "การเดินทางประจำปีของซานต้าจบลงแล้ว ซานต้ากับเหล่าเอลฟ์กำลังสนุกสนานกันที่ขั้วโลกเหนือก่อนที่จะถึงวันหยุดประจำปีของพวกเขา"
+	},
+	"er_country_name": {
+		"message": "เอริเทรีย"
 	},
 	"error": {
 		"message": "ดูเหมือนว่าเราสูญเสียการเชื่อมต่อกับขั้วโลกเหนือ เอลฟ์ของซานต้ากำลังพยายามแก้ไข อย่าเพิ่งไปไหน"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "ลองอีกครั้ง"
 	},
+	"et_country_name": {
+		"message": "เอธิโอเปีย"
+	},
+	"fi_country_name": {
+		"message": "ฟินแลนด์"
+	},
 	"finished-text": {
 		"message": "สุขสันต์วันหยุด! ซานต้าเพิ่งกลับจากการเดินทางรอบโลกและกำลังพักผ่อนหลังจากเหนื่อยมานาน พบกันใหม่ปีหน้า!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "ในฝรั่งเศสมีประเพณีที่เด็กๆ จะวางรองเท้าไว้ข้างเตาผิงเพื่อรอให้ Père Noël มาถึง ถ้าพวกเขาเป็นเด็กดีตลอดทั้งปี Père Noël' จะวางของขวัญไว้ในรองเท้า"
 	},
+	"ga_country_name": {
+		"message": "กาบอง"
+	},
 	"gameover": {
 		"message": "จบเกม!"
+	},
+	"gameover_level": {
+		"message": "คุณทำได้ถึงระดับ:"
 	},
 	"gameover_score": {
 		"message": "คะแนนของคุณ:"
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "คริสต์มาสในกานานั้นจะรวมทั้งครอบครัวมาอยู่ด้วยกัน ผู้ใหญ่จะแต่งตัวด้วยเครื่องแต่งกายพิเศษและแจกลูกอมและขนมให้แก่เพื่อนบ้าน เด็กๆ จะประดับประดาบ้านตัวเองด้วยเครื่องแขวนที่ทำจากกระดาษและภาพวาดที่พวกเขาวาดที่โรงเรียน"
+	},
+	"gl_country_name": {
+		"message": "กรีนแลนด์"
+	},
+	"gn_country_name": {
+		"message": "กินี"
 	},
 	"gotovillage": {
 		"message": "ไปที่หมู่บ้าน"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "ชาวกัวเตมาลาเฉลิมฉลองคริสต์มาสด้วยความสนุกสนานและการเต้นรำ พวกเขาจะสวมหมวกที่เรียกว่า Puritina รับประทานทามาลีสไตล์กัวเตมาลา จุดประทัดตอนเที่ยงคืน และเต้นรำจนถึงเช้าด้วยการเต้นรำในรูปแบบต่างๆ"
 	},
+	"gy_country_name": {
+		"message": "กายอานา"
+	},
+	"hn_country_name": {
+		"message": "ฮอนดูรัส"
+	},
 	"hours": {
 		"message": "ชั่วโมง"
+	},
+	"hr_country_name": {
+		"message": "โครเอเชีย"
+	},
+	"ht_country_name": {
+		"message": "เฮติ"
+	},
+	"hu_country_name": {
+		"message": "ฮังการี"
+	},
+	"id_country_name": {
+		"message": "อินโดนีเซีย"
+	},
+	"ie_country_name": {
+		"message": "ไอร์แลนด์"
+	},
+	"iq_country_name": {
+		"message": "อิรัก"
+	},
+	"ir_country_name": {
+		"message": "อิหร่าน"
 	},
 	"is_country_name": {
 		"message": "ไอซ์แลนด์"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "ในช่วงคริสต์มาสในประเทศไอซ์แลนด์ ผู้คนจะให้ของขวัญคนในครอบครัวเป็นเสื้อผ้าที่ให้ความอบอุ่น ตามตำนานเล่าว่ามีแมวยักษ์คริสต์มาสผู้น่ากลัวที่จะเขมือบใครก็ตามที่ไม่เตรียมพร้อมสำหรับอากาศหนาวเย็น ครอบครัวต่างๆ จะช่วยกันทำให้แน่ใจว่าไม่มีใครตกเป็นอาหารของแมวยักษ์คริสต์มาส"
 	},
+	"it_country_name": {
+		"message": "อิตาลี"
+	},
+	"jm_country_name": {
+		"message": "จาเมกา"
+	},
 	"kg_country_name": {
 		"message": "คีร์กีซสถาน"
 	},
 	"kg_tradition": {
 		"message": "ในคีร์กีซสถาน Ayaz Ata (Grandfather Frost) จะมาที่บ้านเด็กๆ ในตอนเที่ยงคืนของวันคริสต์มาสอีฟและวางของขวัญไว้ใต้ต้นปีใหม่ เมื่อเข็มนาฬิกาเดินถึงเลข 12 ครอบครัวทั่วประเทศจะจุดเตาผิงเพื่อเฉลิมฉลองโอกาสพิเศษอันงดงามนี้ ทั่วทั้งเมืองจะสว่างไสวราวกับเป็นตอนกลางวัน"
+	},
+	"kz_country_name": {
+		"message": "คาซัคสถาน"
 	},
 	"language": {
 		"message": "ภาษา"
@@ -165,10 +375,34 @@
 		"message": "จุดประกายความสดใส"
 	},
 	"lightdescription": {
-		"message": "จุดประกายความสดใสให้ทีวีของคุณด้วยแอปติดตามซานต้าสำหรับ Android และ Chromecast"
+		"message": "จุดประกายความสดใสให้ทีวีของคุณด้วยแอปตามติดซานต้าสำหรับ Android และ Chromecast"
+	},
+	"lk_country_name": {
+		"message": "ศรีลังกา"
+	},
+	"lt_country_name": {
+		"message": "ลิทัวเนีย"
+	},
+	"lv_country_name": {
+		"message": "ลัตเวีย"
+	},
+	"ly_country_name": {
+		"message": "ลิเบีย"
+	},
+	"md_country_name": {
+		"message": "มอลโดวา"
 	},
 	"minutes": {
 		"message": "นาที"
+	},
+	"ml_country_name": {
+		"message": "มาลี"
+	},
+	"mm_country_name": {
+		"message": "เมียนมาร์"
+	},
+	"mr_country_name": {
+		"message": "มอริเตเนีย"
 	},
 	"mx_country_name": {
 		"message": "เม็กซิโก"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "ในเม็กซิโก เด็กๆ ทุกวัยจะฉลองคริสต์มาสด้วยการตีพินยาต้า ผู้ใหญ่และเด็กต่างสนุกสนานกับการผูกผ้าปิดตา หมุนตัวไปรอบๆ แล้วเหวี่ยงไม้เพื่อหวดภาชนะรูปดาวที่แขวนอยู่ เมื่อพินยาต้าแตกออกแล้ว ทั้งถั่ว ผลไม้ และลูกอมที่อยู่ข้างในจะกระจัดกระจายให้ทุกคนได้เอร็ดอร่อย"
 	},
+	"my_country_name": {
+		"message": "มาเลเซีย"
+	},
+	"mz_country_name": {
+		"message": "โมซัมบิก"
+	},
+	"na_country_name": {
+		"message": "นามิเบีย"
+	},
+	"ne_country_name": {
+		"message": "ไนเจอร์"
+	},
 	"newtoday": {
 		"message": "ใหม่สำหรับวันนี้"
+	},
+	"ng_country_name": {
+		"message": "ไนจีเรีย"
+	},
+	"nl_country_name": {
+		"message": "เนเธอร์แลนด์"
+	},
+	"no_country_name": {
+		"message": "นอร์เวย์"
 	},
 	"nonprofit-jane-description": {
 		"message": "ชิมแปนซีเป็นญาติสนิทที่สุดของมนุษย์ที่ยังมีชีวิตอยู่ในอาณาจักรสัตว์! ทุกวันนี้มีลิงชิมแปนซีเหลืออยู่ไม่ถึง 300,000 ตัวเนื่องจากการสูญเสียแหล่งที่อยู่ โรคระบาด และการค้าสัตว์ผิดกฎหมาย Jane Goodall Institute (JGI) ปกป้องชิมแปนซีด้วยการเฝ้าสังเกตและทำความเข้าใจกับพฤติกรรม รวมถึงแหล่งที่อยู่ของพวกมัน นอกจากนี้ JGI ยังได้ต่อตั้งชุมชนของผู้ปกป้องและอนุรักษ์สัตว์ป่าและสิ่งแวดล้อมที่เราอาศัยอยู่ร่วมกัน \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eสำรวจแหล่งที่อยู่ของลิงชิมแปนซี\u003c/a\u003eในกอมเบ แทนซาเนีย"
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "หมีขั้วโลก"
 	},
+	"np_country_name": {
+		"message": "เนปาล"
+	},
 	"nz_country_name": {
 		"message": "นิวซีแลนด์"
 	},
 	"nz_tradition": {
 		"message": "คริสต์มาสตรงกับฤดูร้อนของนิวซีแลนด์ ครอบครัวและเพื่อนฝูงจึงรวมตัวกันเพื่อทำบาร์บีคิว มื้ออาหารในวันคริสต์มาสมักจะประกอบด้วยแกะอบซึ่งบางครั้งปรุงใน \"hangi\" หรือเตาอบที่ขุดลงไปในพื้นดิน ของหวานยอดนิยมคือ pavlova ขนมที่ทำจากไข่ขาวตีกับน้ำตาลแล้วนำไปอบให้กรอบ วางทับด้วยผลไม้สดเช่น สตรอว์เบอร์รี่และกีวี่"
+	},
+	"om_country_name": {
+		"message": "โอมาน"
 	},
 	"onthego": {
 		"message": "ติดตามซานต้าได้ทุกที่ทุกเวลา"
@@ -209,11 +470,20 @@
 	"openingtomorrow": {
 		"message": "เปิดตัวครั้งยิ่งใหญ่วันพรุ่งนี้"
 	},
+	"pa_country_name": {
+		"message": "ปานามา"
+	},
+	"pe_country_name": {
+		"message": "เปรู"
+	},
 	"ph_country_name": {
 		"message": "ฟิลิปปินส์"
 	},
 	"ph_tradition": {
 		"message": "ฟิลิปปินส์ได้ชื่อว่ามีเทศกาลคริสต์มาสที่ยาวนานที่สุดในโลก โดยเดือนคริสต์มาสนั้นยาวถึง 4 เดือนตั้งแต่ตุลาคมจนถึงธันวาคม ผู้คนมักจะเปิดเพลงคริสต์มาสกันตั้งแต่ต้นเดือนกันยายน"
+	},
+	"pl_country_name": {
+		"message": "โปแลนด์"
 	},
 	"play": {
 		"message": "เล่น"
@@ -222,7 +492,16 @@
 		"message": "เล่นอีกครั้ง"
 	},
 	"playdescription": {
-		"message": "เล่นแอปติดตามซานต้าสำหรับ Android กับเพื่อนๆ"
+		"message": "เล่นแอปตามติดซานต้าสำหรับ Android กับเพื่อนๆ"
+	},
+	"pr_country_name": {
+		"message": "เปอร์โตริโก"
+	},
+	"py_country_name": {
+		"message": "ปารากวัย"
+	},
+	"ro_country_name": {
+		"message": "โรมาเนีย"
 	},
 	"ru_country_name": {
 		"message": "รัสเซีย"
@@ -230,11 +509,17 @@
 	"ru_tradition": {
 		"message": "เด็กๆ ชาวรัสเซียจะตกแต่งต้นปีใหม่แทนต้นคริสต์มาส พวกเขาจะเฝ้ารอ Grandfather Frost ที่เดินทางมากับ Snowmaiden ผู้เป็นหลานสาวเพื่อแจกของขวัญทั่วเมือง Grandfather Frost อาศัยอยู่ในป่าลึกใน Veliky Ustyug ซึ่งอยู่ทางตอนเหนือของรัสเซีย"
 	},
+	"sa_country_name": {
+		"message": "ซาอุดีอาระเบีย"
+	},
 	"santatracker": {
-		"message": "ติดตามซานต้า"
+		"message": "ตามติดซานต้า"
 	},
 	"score": {
 		"message": "คะแนน"
+	},
+	"se_country_name": {
+		"message": "สวีเดน"
 	},
 	"seconds": {
 		"message": "วินาที"
@@ -246,10 +531,28 @@
 		"message": "แชร์กับเพื่อนๆ บน Google+"
 	},
 	"share-text": {
-		"message": "ฉันทำโพสต์การ์ดนี้ให้คุณใน Google ติดตามซานตาคลอส สุขสันต์วันหยุด"
+		"message": "ฉันทำโพสต์การ์ดนี้ให้คุณใน Google ตามติดซานต้า สุขสันต์วันหยุด"
 	},
 	"share-this": {
 		"message": "แชร์"
+	},
+	"sk_country_name": {
+		"message": "สโลวะเกีย"
+	},
+	"sn_country_name": {
+		"message": "เซเนกัล"
+	},
+	"so_country_name": {
+		"message": "โซมาเลีย"
+	},
+	"sr_country_name": {
+		"message": "ซูรินาเม"
+	},
+	"sv_country_name": {
+		"message": "เอลซัลวาดอร์"
+	},
+	"td_country_name": {
+		"message": "ชาด"
 	},
 	"terms-and-privacy": {
 		"message": "ข้อกำหนดและข้อมูลส่วนบุคคล"
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "เวลา"
+	},
+	"tj_country_name": {
+		"message": "ทาจิกิสถาน"
+	},
+	"tm_country_name": {
+		"message": "เติร์กเมนิสถาน"
+	},
+	"tn_country_name": {
+		"message": "ตูนิเซีย"
+	},
+	"tr_country_name": {
+		"message": "ตุรกี"
 	},
 	"traditions-next": {
 		"message": "ประเพณีต่อไป"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "บัลแกเรีย"
 	},
+	"tw_country_name": {
+		"message": "ไต้หวัน"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "แทนซาเนีย"
+	},
+	"ug_country_name": {
+		"message": "ยูกันดา"
 	},
 	"uk_country_name": {
 		"message": "สหราชอาณาจักร"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "ในสหราชอาณาจักร ผู้เฉลิมฉลองทุกเพศทุกวัยจะสนุกกับประทัดคริสต์มาสบนโต๊ะอาหารในมื้อเย็น ประทัดนี้มีลักษณะเป็นท่อห่อด้วยกระดาษสีสันสดใสโดยมีแถบสำหรับดึงติดอยู่ทั้งสองด้าน เมื่อดึงแถบ ประทัดจะระเบิดพร้อมเสียงดัง ข้างในประทัดจะมีหมวกกระดาษ ของเล่น และลูกอมให้ได้สนุกกันในคืนคริสต์มาส"
 	},
+	"upgrade-warning": {
+		"message": "อ๊ะ! ตามติดซานต้าไม่ได้รับการสนับสนุนในเบราว์เซอร์เวอร์ชันนี้ หากต้องการเข้าถึงตามติดซานต้า ให้ดาวน์โหลดเบราว์เซอร์เวอร์ชันใหม่ สำหรับข้อมูลเพิ่มเติม ไปที่\u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org \u003c/a\u003e"
+	},
 	"us_country_name": {
 		"message": "สหรัฐอเมริกา"
 	},
 	"us_tradition": {
 		"message": "ในสหรัฐอเมริกา ผู้คนจะแขวนถุงเท้ายาวในคืนคริสต์มาสอีฟ ตามตำนานเล่าว่าเซนต์นิโคลัสได้ข่าวเกี่ยวกับครอบครัวที่แร้นแค้น เพื่อทำให้ครอบครัวนี้ประหลาดใจ เขาจึงปีนลงมาจากปล่องไฟและวางถุงใส่ทองคำไว้ในถุงเท้ายาวที่แขวนอยู่ นับแต่นั้นเป็นต้นมา เซนต์นิโคลัสก็เป็นที่รู้จักในนามของซานต้าคลอสผู้แจกของขวัญ"
 	},
+	"uy_country_name": {
+		"message": "อุรุกวัย"
+	},
+	"uz_country_name": {
+		"message": "อุซเบกิสถาน"
+	},
+	"ve_country_name": {
+		"message": "เวเนซุเอลา"
+	},
+	"vn_country_name": {
+		"message": "เวียดนาม"
+	},
 	"watch": {
 		"message": "ดู"
+	},
+	"ye_country_name": {
+		"message": "เยเมน"
+	},
+	"zm_country_name": {
+		"message": "แซมเบีย"
+	},
+	"zw_country_name": {
+		"message": "ซิมบับเว"
 	}
 }

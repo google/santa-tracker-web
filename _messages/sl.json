@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Pozdravljeni v aplikaciji Spremljanje Božičkove poti v storitvi Google Zemljevidi!"
 	},
+	"af_country_name": {
+		"message": "Afganistan"
+	},
+	"al_country_name": {
+		"message": "Albanija"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentina"
 	},
 	"ar_tradition": {
 		"message": "V Argentini se božič začne takoj ob polnoči. Številne družine praznujejo tako, da priredijo bogate pogostitve v svojih domovih, odpiranje daril skupaj z najbližjimi in ognjemete zgodaj zjutraj."
+	},
+	"at_country_name": {
+		"message": "Avstrija"
 	},
 	"au_country_name": {
 		"message": "Avstralija"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "Ker je Avstralija na južni polobli, to pomeni, da je decembra tam poletje. Namesto bi prisluhnili zvončkom sani in pili kakav, se številni Avstralci napotijo na plažo ter praznujejo tako, da si za kosilo privoščijo rakce in igrajo kriket."
 	},
+	"bd_country_name": {
+		"message": "Bangladeš"
+	},
+	"be_country_name": {
+		"message": "Belgija"
+	},
+	"bg_country_name": {
+		"message": "Bolgarija"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivija"
+	},
 	"br_country_name": {
 		"message": "Brazilija"
 	},
 	"br_tradition": {
 		"message": "Božično praznovanje se začne malo pred polnočjo, običajno z bogatimi družinskimi večerjami, odpiranjem daril in polnočno mašo (Missa do Galo) v cerkvah. Kljub toplemu tropskemu poletnemu vremenu niso nič nenavadnega teme, povezane z zimo in snegom."
+	},
+	"bt_country_name": {
+		"message": "Butan"
+	},
+	"by_country_name": {
+		"message": "Belorusija"
+	},
+	"bz_country_name": {
+		"message": "Belize"
 	},
 	"ca_country_name": {
 		"message": "Kanada"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Pošlji"
 	},
+	"cf_country_name": {
+		"message": "Centralnoafriška republika"
+	},
+	"ch_country_name": {
+		"message": "Švica"
+	},
+	"cl_country_name": {
+		"message": "Čile"
+	},
 	"close-this": {
 		"message": "Prekliči"
+	},
+	"cm_country_name": {
+		"message": "Kamerun"
+	},
+	"co_country_name": {
+		"message": "Kolumbija"
+	},
+	"codelab-block-moveeast": {
+		"message": "vzhod"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Premakni me vzhodno za eno mesto."
+	},
+	"codelab-block-movenorth": {
+		"message": "sever"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Premakni me severno za eno mesto."
+	},
+	"codelab-block-movesouth": {
+		"message": "jug"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Premakni me južno za eno mesto."
+	},
+	"codelab-block-movewest": {
+		"message": "zahod"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Premakni me zahodno za eno mesto."
+	},
+	"codelab-block-repeat": {
+		"message": "ponovi"
+	},
+	"codelab-block-repeat-times": {
+		"message": "krat"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Nekatere izjave ponovi večkrat."
+	},
+	"codelab-block-whenrun": {
+		"message": "med izvajanjem"
+	},
+	"codelab-finish": {
+		"message": "Končaj"
+	},
+	"codelab-great": {
+		"message": "Odlično"
+	},
+	"codelab-mwc-promo": {
+		"message": "Raziščite več Googlovih projektov za kodiranje na \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Naslednji izziv"
+	},
+	"codelab-oops": {
+		"message": "Ojej!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Blok »ponovi« mora za delovanje vsebovati druge bloke."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Nekateri bloki niso pravilno pritrjeni med seboj."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Videti je, da ste se izgubili!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Za dokončanje te sestavljanke poskusite uporabiti enega ali več spodnjih blokov."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Ali ste vedeli, da lahko stopnjo končate s samo toliko bloki: {{ideal}}? Poskusite uporabiti spodnje bloke."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Čestitke! Pravilno ste sestavili sestavljanko."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Uporabljate prave bloke, vendar jih za dokončanje te sestavljanke poskusite uporabiti več."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Ali ste vedeli, da lahko stopnjo končate s samo toliko bloki: {{ideal}}?"
+	},
+	"codelab-try-again": {
+		"message": "Poskusi znova"
 	},
 	"copy-me": {
 		"message": "Če želite svoje sporočilo deliti z drugimi, kopirajte to povezavo"
 	},
 	"countdownlabel": {
-		"message": "Do Božičkovega odhoda"
+		"message": "do Božičkovega odhoda"
+	},
+	"cr_country_name": {
+		"message": "Kostarika"
+	},
+	"cu_country_name": {
+		"message": "Kuba"
+	},
+	"cz_country_name": {
+		"message": "Češka republika"
 	},
 	"days": {
 		"message": "dni"
@@ -75,10 +213,28 @@
 		"message": "Okrasitev"
 	},
 	"deckdescription": {
-		"message": "Okrasi svoj brskalnik z razširitvijo Chrome Božiček."
+		"message": "Okrasite svoj brskalnik z razširitvijo Chrome Božiček."
+	},
+	"dk_country_name": {
+		"message": "Danska"
+	},
+	"do_country_name": {
+		"message": "Dominikanska republika"
+	},
+	"dz_country_name": {
+		"message": "Alžirija"
+	},
+	"ec_country_name": {
+		"message": "Ekvador"
+	},
+	"ee_country_name": {
+		"message": "Estonija"
 	},
 	"endofjourneymessage": {
 		"message": "Božiček je za letos končal svoje potovanje! S škrati se bo pred letnim dopustom še malo pozabaval na Severnem tečaju."
+	},
+	"er_country_name": {
+		"message": "Eritreja"
 	},
 	"error": {
 		"message": "Kaže, da smo izgubili povezavo s Severnim tečajem. Božičkovi škratje si na vso moč prizadevajo odpraviti težavo, zato ostanite na zvezi!"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Poskusi znova"
 	},
+	"et_country_name": {
+		"message": "Etiopija"
+	},
+	"fi_country_name": {
+		"message": "Finska"
+	},
 	"finished-text": {
 		"message": "Vesele praznike! Božiček je zaključil svoje potovanje okoli sveta in zdaj odhaja na zaslužen počitek. Obiščite nas tudi naslednje leto."
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "V Franciji otroci tradicionalno nastavijo čevlje poleg kamina in čakajo, da bo prišel Père Noël. Če so bili celo leto pridni, Père Noël napolni njihove čevlje z darili."
 	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
 	"gameover": {
 		"message": "Igra je končana!"
+	},
+	"gameover_level": {
+		"message": "Dosegli ste to stopnjo:"
 	},
 	"gameover_score": {
 		"message": "Vaš rezultat:"
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "Božič v Gani je družinski praznik. Odrasli oblečejo kostume ter po soseščini delijo bonbone in druge sladkarije. Otroci okrasijo domove z okraski iz papirja in risbicami, ki jih izdelajo v šoli."
+	},
+	"gl_country_name": {
+		"message": "Grenlandija"
+	},
+	"gn_country_name": {
+		"message": "Gvineja"
 	},
 	"gotovillage": {
 		"message": "Pojdi v Božičkovo vas"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "V Gvatemali praznujejo božič tako, da se zabavajo in plešejo. Nadenejo si klobuke, imenovane Puritina, jedo tamale na gvatemalski način, ob polnoči zanetijo ognjemete in preplešejo noč z različnimi slogi plesa."
 	},
+	"gy_country_name": {
+		"message": "Gvajana"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
 	"hours": {
-		"message": "Odpiralni čas"
+		"message": "h"
+	},
+	"hr_country_name": {
+		"message": "Hrvaška"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Madžarska"
+	},
+	"id_country_name": {
+		"message": "Indonezija"
+	},
+	"ie_country_name": {
+		"message": "Irska"
+	},
+	"iq_country_name": {
+		"message": "Irak"
+	},
+	"ir_country_name": {
+		"message": "Iran"
 	},
 	"is_country_name": {
 		"message": "Islandija"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "Na Islandiji si za božič družinski člani med seboj podarjajo topla oblačila. Legenda pravi, da strašna božična mačka požre vsakogar, ki ni opremljen za mrzlo zimsko vreme. Družinski člani si pomagajo in tako poskrbijo, da nikogar ne bo požrla božična mačka."
 	},
+	"it_country_name": {
+		"message": "Italija"
+	},
+	"jm_country_name": {
+		"message": "Jamajka"
+	},
 	"kg_country_name": {
 		"message": "Kirgizistan"
 	},
 	"kg_tradition": {
 		"message": "V Kirgizistanu ob polnoči na novoletni večer pride Ayaz Ata (Dedek Mraz) in pusti darila pod novoletnim drevescem. Ko ura odbije polnoči, družine po vsej državi prižgejo ognjemete, s katerimi praznujejo ta lep praznik. Mesta so osvetljena kot podnevi."
+	},
+	"kz_country_name": {
+		"message": "Kazahstan"
 	},
 	"language": {
 		"message": "Jezik"
@@ -167,8 +377,32 @@
 	"lightdescription": {
 		"message": "Osvetlite ekran svojega televizorja z aplikacijo Spremljanje Božičkove poti za Android in napravo Chromecast."
 	},
+	"lk_country_name": {
+		"message": "Šrilanka"
+	},
+	"lt_country_name": {
+		"message": "Litva"
+	},
+	"lv_country_name": {
+		"message": "Latvija"
+	},
+	"ly_country_name": {
+		"message": "Libija"
+	},
+	"md_country_name": {
+		"message": "Moldavija"
+	},
 	"minutes": {
 		"message": "min"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Mjanmar"
+	},
+	"mr_country_name": {
+		"message": "Mavretanija"
 	},
 	"mx_country_name": {
 		"message": "Mehika"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "V Mehiki otroci vseh starosti praznujejo tako, da razbijajo pinate. Odrasli in otroci se zabavajo tako, da se vrtijo s prevezanimi očmi ter mahajo s palico, da bi razbili in odprli viseče posode v obliki zvezde. Ko je pinata razbita, se iz nje vsujejo oreščki, sadje in bonboni, ki si jih lahko nato vsi privoščijo."
 	},
+	"my_country_name": {
+		"message": "Malezija"
+	},
+	"mz_country_name": {
+		"message": "Mozambik"
+	},
+	"na_country_name": {
+		"message": "Namibija"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
 	"newtoday": {
 		"message": "Novo danes"
+	},
+	"ng_country_name": {
+		"message": "Nigerija"
+	},
+	"nl_country_name": {
+		"message": "Nizozemska"
+	},
+	"no_country_name": {
+		"message": "Norveška"
 	},
 	"nonprofit-jane-description": {
 		"message": "Šimpanzi so človekovi najbližji sorodniki v živalskem kraljestvu! Dandanes zaradi izgube življenjskega prostora, bolezni in nezakonite trgovine na svetu živi manj kot 300.000 šimpanzov. Na inštitutu The Jane Goodall Institute (JGI) poskušajo šimpanze zaščititi z opazovanjem in razumevanjem njihovega obnašanja in tudi življenjskih prostorov, v katerih živijo. Inštitut JGI prav tako gradi skupnost ljudi, ki ščitijo in ohranjajo prostoživeče živali in rastline ter okolje, ki si ga delimo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eRaziščite življenjske prostore šimpanzov\u003c/a\u003e v narodnem parku Gombe v Tanzaniji."
@@ -197,17 +452,29 @@
 	"nonprofit-wwf-type": {
 		"message": "Severni medved"
 	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
 	"nz_country_name": {
 		"message": "Nova Zelandija"
 	},
 	"nz_tradition": {
 		"message": "Ker je božič v Novi Zelandiji poleti, se prijatelji in družinski člani zberejo na pikniku ter pečejo jedi na žaru. Tipična božična hrana je pečeno jagnje, včasih pripravljeno v neke vrste podzemni peči, imenovani »hangi«. Priljubljena sladica je pavlova: beljakova pena, prekrita s svežim sadjem, kot so jagode in kivi."
 	},
+	"om_country_name": {
+		"message": "Oman"
+	},
 	"onthego": {
-		"message": "Božiček je na poti"
+		"message": "Božiček na poti"
 	},
 	"openingtomorrow": {
 		"message": "Velika otvoritev jutri"
+	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
 	},
 	"ph_country_name": {
 		"message": "Filipini"
@@ -215,14 +482,26 @@
 	"ph_tradition": {
 		"message": "Filipini so znani po tem, da imajo najdaljše božične praznike na svetu. Kot božični štejejo kar štirje meseci: september, oktober, november in december. Božične pesmi je pogosto mogoče slišati že v začetku septembra."
 	},
+	"pl_country_name": {
+		"message": "Poljska"
+	},
 	"play": {
-		"message": "Igra"
+		"message": "Igrajte"
 	},
 	"playagain": {
 		"message": "Nova igra"
 	},
 	"playdescription": {
-		"message": "Igraj s prijatelji v aplikaciji za Android Spremljanje Božičkove poti"
+		"message": "Igrajte s prijatelji v aplikaciji »Spremljanje Božičkove poti« za Android"
+	},
+	"pr_country_name": {
+		"message": "Portoriko"
+	},
+	"py_country_name": {
+		"message": "Paragvaj"
+	},
+	"ro_country_name": {
+		"message": "Romunija"
 	},
 	"ru_country_name": {
 		"message": "Rusija"
@@ -230,11 +509,17 @@
 	"ru_tradition": {
 		"message": "Ruski otroci namesto božičnega drevesa okrasijo novoletno drevo. Otroci nestrpno pričakujejo Dedka Mraza, ki potuje z vnukinjo Sneguročko in deli darila po vsej deželi. Dedek Mraz živi globoko v gozdu blizu mesta Veliki Ustjug v severni Rusiji."
 	},
+	"sa_country_name": {
+		"message": "Savdska Arabija"
+	},
 	"santatracker": {
 		"message": "Spremljanje Božičkove poti"
 	},
 	"score": {
 		"message": "Rezultat"
+	},
+	"se_country_name": {
+		"message": "Švedska"
 	},
 	"seconds": {
 		"message": "s"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "Daj v skupno rabo"
 	},
+	"sk_country_name": {
+		"message": "Slovaška"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalija"
+	},
+	"sr_country_name": {
+		"message": "Surinam"
+	},
+	"sv_country_name": {
+		"message": "Salvador"
+	},
+	"td_country_name": {
+		"message": "Čad"
+	},
 	"terms-and-privacy": {
 		"message": "Določila in zasebnost"
 	},
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "Čas"
+	},
+	"tj_country_name": {
+		"message": "Tadžikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunizija"
+	},
+	"tr_country_name": {
+		"message": "Turčija"
 	},
 	"traditions-next": {
 		"message": "Naslednja tradicija"
@@ -3893,14 +4208,26 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bolgarija"
 	},
+	"tw_country_name": {
+		"message": "Tajvan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzanija"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Združeno kraljestvo"
 	},
 	"uk_tradition": {
-		"message": "V Združenem Kraljestvu se veseljaki vseh starosti pri božični večerji radi pozabavajo z božičnimi pokalicami. Pokalice so cevke, ovite s pisanim papirjem in jezičkoma za vlečenje na vsaki strani. Ko povlečete jezička, se cevka razpoči z glavnim pokom. Notri so klobuki iz papirja, igrače in sladkarije, ki jih nato uživate na božični večer."
+		"message": "V Združenem Kraljestvu se veseljaki vseh starosti pri božični večerji radi pozabavajo z božičnimi pokalicami. Pokalice so cevke, ovite s pisanim papirjem in jezičkoma za vlečenje na vsaki strani. Ko povlečete jezička, se cevka razpoči z glasnim pokom. Notri so klobuki iz papirja, igrače in sladkarije, ki jih nato uživate na božični večer."
+	},
+	"upgrade-warning": {
+		"message": "Ojej! Spremljanje Božičkove poti ni podprto v tej različici brskalnika. Za dostop do spremljanja Božičkove poti prenesite sodobnejši brskalnik. Za več informacij obiščite \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Združene države Amerike"
@@ -3908,7 +4235,28 @@
 	"us_tradition": {
 		"message": "V Združenih državah na božični večer obesijo božične nogavice. Legenda pravi, da je Sv. Nikolaj slišal za družino v stiski. Želel jih je presenetiti, zato je splezal po njihovem dimniku in jim v obešene nogavice nastavili dragocene vrečke zlata. Od takrat dalje je bil poznan kot Božiček, obdarovalec."
 	},
+	"uy_country_name": {
+		"message": "Urugvaj"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
 	"watch": {
 		"message": "Oglejte si"
+	},
+	"ye_country_name": {
+		"message": "Jemen"
+	},
+	"zm_country_name": {
+		"message": "Zambija"
+	},
+	"zw_country_name": {
+		"message": "Zimbabve"
 	}
 }

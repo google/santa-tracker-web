@@ -17,9 +17,9 @@ var newer = require('gulp-newer');
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
-var CLOSURE_FILES = 'scenes/*/js/*.js';
+var CLOSURE_FILES = 'scenes/*/js/**/*.js';
 
-var STATIC_VERSION = 54;
+var STATIC_VERSION = 58;
 var VERSION = argv.build || STATIC_VERSION;
 
 // TODO(bckenny|cbro): fill in with default static asset base URL
@@ -47,7 +47,13 @@ var SCENE_CLOSURE_CONFIG = {
   briefing: {
     entryPoint: 'app.Scene'
   },
+  codelab: {
+    entryPoint: 'app.wrapper.FrameWrapper'
+  },
   gumball: {
+    entryPoint: 'app.Game'
+  },
+  jamband: {
     entryPoint: 'app.Game'
   },
   jetpack: {
@@ -113,7 +119,7 @@ gulp.task('compile-santa-api-service', function() {
     .pipe(gulp.dest('js/service'));
 });
 
-gulp.task('compile-scenes', function() {
+gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
   var sceneNames = Object.keys(SCENE_CLOSURE_CONFIG);
 
   // compile each scene, merging them into a single gulp stream as we go
@@ -166,6 +172,39 @@ gulp.task('compile-scenes', function() {
   }, mergeStream());
 });
 
+gulp.task('compile-codelab-frame', function() {
+  return gulp.src([
+      'scenes/codelab/js/**/*.js',
+
+      // add shared scene code
+      'scenes/shared/js/*.js',
+
+      // add closure library
+      'components/closure-library/closure/goog/**/*.js'
+    ])
+    .pipe(closureCompiler({
+      compilerPath: COMPILER_PATH,
+      fileName: 'codelab-frame.min.js',
+      compilerFlags: addCompilerFlagOptions({
+        closure_entry_point: 'app.Game',
+        compilation_level: 'SIMPLE_OPTIMIZATIONS',
+        // warning_level: 'VERBOSE',
+        language_in: 'ECMASCRIPT5_STRICT',
+        process_closure_primitives: null,
+        generate_exports: null,
+        jscomp_warning: [
+          // https://github.com/google/closure-compiler/wiki/Warnings
+          'accessControls',
+          'const',
+          'visibility'
+        ],
+        only_closure_dependencies: null,
+        output_wrapper: '(function(){%output%}).call(this);'
+      })
+    }))
+    .pipe(gulp.dest('scenes/codelab'));
+});
+
 function addCompilerFlagOptions(opts) {
   // Add any compiler options specified by command line flags.
   if (argv.pretty) {
@@ -209,6 +248,22 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
     }));
 });
 
+gulp.task('vulcanize-codelab-frame', ['clean', 'compass', 'compile-scenes'], function() {
+  return gulp.src('scenes/codelab/codelab-frame_en.html', {base: './'})
+    .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
+    .pipe(vulcanize({
+      strip: !argv.pretty,
+      csp: true,
+      inline: true,
+      dest: 'scenes/codelab'
+    }))
+    .pipe(i18n_replace({
+      strict: !!argv.strict,
+      path: '_messages'
+    }))
+    .pipe(gulp.dest(DIST_STATIC_DIR + '/scenes/codelab/'));
+});
+
 // vulcanize elements separately as we want to inline polymer.html and
 // base-scene.html here
 gulp.task('vulcanize-elements', ['clean', 'compass', 'compile-santa-api-service'], function() {
@@ -226,7 +281,7 @@ gulp.task('vulcanize-elements', ['clean', 'compass', 'compile-santa-api-service'
     .pipe(gulp.dest(DIST_STATIC_DIR + '/elements/'));
 });
 
-gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
+gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements', 'vulcanize-codelab-frame']);
 
 gulp.task('i18n_index', function() {
   return gulp.src(['index.html', 'error.html', 'upgrade.html'])
@@ -240,19 +295,27 @@ gulp.task('i18n_index', function() {
     .pipe(gulp.dest(DIST_PROD_DIR));
 });
 
-// copy needed assets (images, sounds, polymer elements, etc) to dist directory
+// copy needed assets (images, sounds, polymer elements, etc) to dist directories
 gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
-  return gulp.src([
+  var staticStream = gulp.src([
     'manifest.json',
     'audio/*',
     'images/*.{png,svg,jpg,gif,ico}',
     'js/third_party/**',
     'sass/*.css',
-    'scenes/**/img/**/*.{png,jpg,svg,gif}',
+    'scenes/**/img/**/*.{png,jpg,svg,gif,cur}',
     'elements/**/img/*.{png,jpg,svg,gif}',
     'components/webcomponentsjs/webcomponents.min.js'
   ], {base: './'})
   .pipe(gulp.dest(DIST_STATIC_DIR));
+
+  var prodStream = gulp.src([
+    'images/og.png',
+    'embed.js'
+  ], {base: './'})
+  .pipe(gulp.dest(DIST_PROD_DIR));
+
+  return mergeStream(staticStream, prodStream);
 });
 
 gulp.task('watch', function() {

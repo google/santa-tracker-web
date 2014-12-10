@@ -1,0 +1,53 @@
+$name: 'module-jamband';
+$rotate-bg: #148F4C;
+$shareOverlay-bg: rgba(253, 190, 39, 0.9);
+
+@import "../shared/sass/button";
+@import "../shared/sass/rotate";
+@import "../shared/sass/share-overlay";
+
+@import "sass/background";
+@import "sass/buttons";
+@import "sass/dragdrop";
+@import "sass/drawer";
+@import "sass/instruments";
+@import "sass/lights";
+@import "sass/stage";
+
+##{$name} {
+  .fill {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  @extend .fill;
+
+  .scene {
+    @extend .fill;
+    background-color: white;
+    font-size: 1px;
+    transform-origin: 0 0;
+  }
+
+  .gui {
+    font-size: 1px;
+  }
+
+  .animate, .animate:before, .animate:after {
+    animation-play-state: running;
+  }
+
+  /**
+   * Hides the element but still keeps it composed on the GPU by translating it off-screen.
+   * By keeping things composed we get respectable performance on android browsers since
+   * the biggest overhead is in moving things to the GPU there.
+   * http://code.google.com/p/android/issues/detail?id=25147
+   */
+  .hidden {
+    transform: translate3d(0, 9999px, 0) !important;
+  }
+}

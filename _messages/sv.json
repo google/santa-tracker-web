@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Välkommen till Följ jultomten i Google Maps!"
 	},
+	"af_country_name": {
+		"message": "Afghanistan"
+	},
+	"al_country_name": {
+		"message": "Albanien"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentina"
 	},
 	"ar_tradition": {
 		"message": "I Argentina börjar julen precis vid midnatt. Många familjer drar igång firandet genom att ha fest hemma, öppna presenter med sina nära och kära och bränna av fyrverkerier under de tidiga morgontimmarna."
+	},
+	"at_country_name": {
+		"message": "Österrike"
 	},
 	"au_country_name": {
 		"message": "Australien"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "Australiens läge på södra halvklotet innebär att det är sommar i december. I stället för bjällror och varm choklad beger sig många australiensare ner till stranden för att fira julen med räklunch och ett par rundor cricket."
 	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Belgien"
+	},
+	"bg_country_name": {
+		"message": "Bulgarien"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
+	},
 	"br_country_name": {
 		"message": "Brasilien"
 	},
 	"br_tradition": {
 		"message": "Julfirandet börjar nära midnatt, oftast med stora familjemiddagar, presentöppning och firandet av ”Missa do Galo” (tuppmässan) i kyrkor. Trots det varma, tropiska sommarvädret är vinter- och snöteman inte ovanliga."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"by_country_name": {
+		"message": "Vitryssland"
+	},
+	"bz_country_name": {
+		"message": "Belize"
 	},
 	"ca_country_name": {
 		"message": "Kanada"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Skicka"
 	},
+	"cf_country_name": {
+		"message": "Centralafrikanska republiken"
+	},
+	"ch_country_name": {
+		"message": "Schweiz"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
 	"close-this": {
 		"message": "Avbryt"
+	},
+	"cm_country_name": {
+		"message": "Kamerun"
+	},
+	"co_country_name": {
+		"message": "Colombia"
+	},
+	"codelab-block-moveeast": {
+		"message": "öst"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Flytta mig österut en ruta."
+	},
+	"codelab-block-movenorth": {
+		"message": "norrut"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Flytta mig norrut en ruta."
+	},
+	"codelab-block-movesouth": {
+		"message": "söderut"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Flytta mig söderut en ruta."
+	},
+	"codelab-block-movewest": {
+		"message": "västerut"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Flytta mig västerut en ruta."
+	},
+	"codelab-block-repeat": {
+		"message": "upprepa"
+	},
+	"codelab-block-repeat-times": {
+		"message": "gånger"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Upprepa några meningar flera gånger."
+	},
+	"codelab-block-whenrun": {
+		"message": "vid körning"
+	},
+	"codelab-finish": {
+		"message": "Slut\u0026för"
+	},
+	"codelab-great": {
+		"message": "Bra!"
+	},
+	"codelab-mwc-promo": {
+		"message": "Utforska fler Google-kodningsprojekt på \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Nästa utmaning"
+	},
+	"codelab-oops": {
+		"message": "Hoppsan!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Blocket Upprepa måste ha andra block inuti för att det ska fungera."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Några av blocken sitter inte ihop ordentligt."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Du verkar ha gått vilse!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Prova ett eller flera av blocken nedan för att lösa det här pusslet."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Visste du att du kan klara den här nivån med bara {{ideal}} block? Försök att använda blocket nedan."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Grattis! Du klarade pusslet perfekt."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Du använder rätt block, men försök att använda fler av dem för att klara det här pusslet."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Visste du att du kan klara den här nivån med bara {{ideal}} block?"
+	},
+	"codelab-try-again": {
+		"message": "Försök igen"
 	},
 	"copy-me": {
 		"message": "Kopiera den här länken om du vill dela ditt meddelande"
 	},
 	"countdownlabel": {
 		"message": "Tills jultomten reser iväg"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cu_country_name": {
+		"message": "Kuba"
+	},
+	"cz_country_name": {
+		"message": "Tjeckien"
 	},
 	"days": {
 		"message": "Dagar"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "Snygga till din webbläsare med Chrome-tillägget Följ jultomten."
 	},
+	"dk_country_name": {
+		"message": "Danmark"
+	},
+	"do_country_name": {
+		"message": "Dominikanska republiken"
+	},
+	"dz_country_name": {
+		"message": "Algeriet"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Estland"
+	},
 	"endofjourneymessage": {
 		"message": "Jultomtens färd är över för i år! Han och nissarna har fortfarande lite skoj på Nordpolen innan det är dags för den årliga semestern."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
 	},
 	"error": {
 		"message": "Vi verkar ha tappat anslutningen till Nordpolen. Jultomtens nissar jobbar frenetiskt för att rätta till det – kom snart tillbaka!"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Försök igen"
 	},
+	"et_country_name": {
+		"message": "Etiopien"
+	},
+	"fi_country_name": {
+		"message": "Finland"
+	},
 	"finished-text": {
 		"message": "God jul! Jultomten har kommit hem från sin färd runt världen och vilar välförtjänt upp sig. Besök oss igen nästa år!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "I Frankrike brukar barnen ställa sina skor bredvid öppna spisen i väntan på Père Noëls ankomst. Om barnen har varit snälla under året fyller Père Noël skorna med klappar."
 	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
 	"gameover": {
 		"message": "Spelet är slut!"
+	},
+	"gameover_level": {
+		"message": "Du är på nivå:"
 	},
 	"gameover_score": {
 		"message": "Din poäng:"
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "Julen i Ghana omfattar hela familjen. De vuxna klär ut sig i dräkter och delar ut godis och sötsaker runt kvarteret. Barnen dekorerar sina hem med pappersprydnader och teckningar som de gör i skolan."
+	},
+	"gl_country_name": {
+		"message": "Grönland"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
 	},
 	"gotovillage": {
 		"message": "Gå till byn"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "Guatemalaner firar jul med skoj och dans. De bär hattar som kallas puritina, äter tamales på guatemalanskt vis, smäller smällare vid midnatt och dansar olika sorters danser hela natten."
 	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
 	"hours": {
 		"message": "Timmar"
+	},
+	"hr_country_name": {
+		"message": "Kroatien"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Ungern"
+	},
+	"id_country_name": {
+		"message": "Indonesien"
+	},
+	"ie_country_name": {
+		"message": "Irland"
+	},
+	"iq_country_name": {
+		"message": "Irak"
+	},
+	"ir_country_name": {
+		"message": "Iran"
 	},
 	"is_country_name": {
 		"message": "Island"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "Vid juletid på Island ger familjerna varma kläder till alla i hushållet. Enligt en legend finns det en förfärlig julkatt som slukar alla som inte är utrustade för kylan och vintervädret. Familjerna ser tillsammans till att ingen behöver hamna i julkattens mage."
 	},
+	"it_country_name": {
+		"message": "Italien"
+	},
+	"jm_country_name": {
+		"message": "Jamaica"
+	},
 	"kg_country_name": {
 		"message": "Kirgizistan"
 	},
 	"kg_tradition": {
 		"message": "I Kirgizistan kommer Ayaz Ata (farfar Frost) vid midnatt på nyårsafton och lämnar klappar under nyårsträdet. När klockan slår midnatt tänder familjer i hela landet fyrverkerier för att fira denna underbara tilldragelse. Städerna blir ljusa som på dagen."
+	},
+	"kz_country_name": {
+		"message": "Kazakstan"
 	},
 	"language": {
 		"message": "Språk"
@@ -167,8 +377,32 @@
 	"lightdescription": {
 		"message": "Lys upp din tv med Android-appen Följ jultomten och Chromecast."
 	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Litauen"
+	},
+	"lv_country_name": {
+		"message": "Lettland"
+	},
+	"ly_country_name": {
+		"message": "Libyen"
+	},
+	"md_country_name": {
+		"message": "Moldavien"
+	},
 	"minutes": {
 		"message": "Minuter"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauretanien"
 	},
 	"mx_country_name": {
 		"message": "Mexiko"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "I Mexiko firar barn i alla åldrar jul genom att ha sönder piñatas. Vuxna och barn roar sig genom att ta på sig en ögonbindel, snurra runt och slå med en pinne för att ha sönder stjärnformade, hängande krukor. När piñatan krossas regnar nötter, frukt och godis ut som alla får äta."
 	},
+	"my_country_name": {
+		"message": "Malaysia"
+	},
+	"mz_country_name": {
+		"message": "Moçambique"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
 	"newtoday": {
 		"message": "Nytt i dag"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Nederländerna"
+	},
+	"no_country_name": {
+		"message": "Norge"
 	},
 	"nonprofit-jane-description": {
 		"message": "Schimpanser är de närmaste nu levande släktingar mänskligheten har i djurriket! I dag finns färre än 300 000 schimpanser kvar i världen på grund av minskade utbredningsområden, sjukdomar och olaglig handel. Jane Goodall Institute (JGI) arbetar för att skydda schimpanserna genom att observera och förstå deras beteende och livsmiljö. JGI strävar efter att bygga upp ett nätverk av människor som skyddar och bevarar vilda djur och vår gemensamma miljö. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUtforska schimpansernas livsmiljö\u003c/a\u003e i Gombe i Tanzania."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Isbjörn"
 	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
 	"nz_country_name": {
 		"message": "Nya Zeeland"
 	},
 	"nz_tradition": {
 		"message": "Eftersom julen inträffar på sommaren i Nya Zeeland samlas vänner och familj runt en grill. Grillat lamm är vanlig julmat, och ibland tillagas det i en ”hangi”, en grop under marken eller en jordugn. Pavlova är en favoritdessert: maräng täckt av färska frukter som jordgubbar och kiwi."
+	},
+	"om_country_name": {
+		"message": "Oman"
 	},
 	"onthego": {
 		"message": "Jultomten på väg"
@@ -209,11 +470,20 @@
 	"openingtomorrow": {
 		"message": "Stor premiär i morgon"
 	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
 	"ph_country_name": {
 		"message": "Filippinerna"
 	},
 	"ph_tradition": {
 		"message": "Filippinerna är känt för att ha världens längsta julfirande. Fyra månader anses tillhöra julen: september, oktober, november och december. Många gånger kan man höra julsånger så tidigt som i början av september."
+	},
+	"pl_country_name": {
+		"message": "Polen"
 	},
 	"play": {
 		"message": "Spela"
@@ -224,17 +494,32 @@
 	"playdescription": {
 		"message": "Spela med vänner i Android-appen Följ jultomten."
 	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "Rumänien"
+	},
 	"ru_country_name": {
 		"message": "Ryssland"
 	},
 	"ru_tradition": {
 		"message": "Ryska barn dekorerar en nyårsgran istället för en julgran. Barnen väntar längtansfullt på Farbror Frost som tillsammans med sitt barnbarn Snöflickan reser runt och delar ut klappar i hela landet. Farbror Frost bor djupt inne i skogen i Velikij Ustjug i norra Ryssland."
 	},
+	"sa_country_name": {
+		"message": "Saudiarabien"
+	},
 	"santatracker": {
 		"message": "Följ jultomten"
 	},
 	"score": {
 		"message": "Poäng"
+	},
+	"se_country_name": {
+		"message": "Sverige"
 	},
 	"seconds": {
 		"message": "Sekunder"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "Dela"
 	},
+	"sk_country_name": {
+		"message": "Slovakien"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalia"
+	},
+	"sr_country_name": {
+		"message": "Surinam"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"td_country_name": {
+		"message": "Tchad"
+	},
 	"terms-and-privacy": {
 		"message": "Villkor och sekretess"
 	},
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "Tid"
+	},
+	"tj_country_name": {
+		"message": "Tadzjikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunisien"
+	},
+	"tr_country_name": {
+		"message": "Turkiet"
 	},
 	"traditions-next": {
 		"message": "Nästa tradition"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgarien"
 	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Storbritannien"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "I Storbritannien njuter både stora och små av smällkarameller på bordet vid middagen. Smällkarameller är rör inslagna i färgglatt papper med dragflikar i varje ände. När man drar i dem spricker röret med en hög smäll! Inuti dem finns pappershattar, leksaker och godis att njuta av under julkvällen."
 	},
+	"upgrade-warning": {
+		"message": "Hoppsan! Följ jultomten stöds inte i den här versionen av din webbläsare. Hämta en modern webbläsare för att gå till Följ jultomten. Mer information finns på \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org \u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "USA"
 	},
 	"us_tradition": {
 		"message": "I USA hängs strumporna upp på julaftons kväll. Enligt legenden hörde Sankt Nikolaus talas om en familj i nöd. För att överraska dem klättrade han ner i deras skorsten och lade påsar med guld i strumporna som hängde där. Därefter kallades Sankt Nikolaus Sankt Claus, gåvogivaren."
 	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
 	"watch": {
 		"message": "Titta"
+	},
+	"ye_country_name": {
+		"message": "Jemen"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
 	}
 }

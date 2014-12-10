@@ -11,7 +11,8 @@ Custom element to do localization (i18n) messages.
 
   window.I18nMsg = window.I18nMsg || {
     lang: null,
-    locales: {}
+    locales: {},
+    messagesPath: '_messages/'
   };
 
   var instances = [];
@@ -63,7 +64,7 @@ Custom element to do localization (i18n) messages.
         return;
       }
 
-      var url = '_messages/' + this.language + '.json';
+      var url = I18nMsg.messagesPath + this.language + '.json';
 
       var xhr = new XMLHttpRequest();
       xhr.open('GET', url);

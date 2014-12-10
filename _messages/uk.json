@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Приєднуйтеся до мандрівки Діда Мороза на Картах Google!"
 	},
+	"af_country_name": {
+		"message": "Афганістан"
+	},
+	"al_country_name": {
+		"message": "Албанія"
+	},
+	"ao_country_name": {
+		"message": "Ангола"
+	},
 	"ar_country_name": {
 		"message": "Аргентина"
 	},
 	"ar_tradition": {
 		"message": "В Аргентині Різдво починають святкувати рівно опівночі. Багато родин улаштовують удома вечірки: друзі та родичі обмінюються подарунками, а рано-вранці аргентинці запалюють святкові феєрверки."
+	},
+	"at_country_name": {
+		"message": "Австрія"
 	},
 	"au_country_name": {
 		"message": "Австралія"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "У Південній півкулі в грудні панує літня спека, тому в Австралії обходяться без традиційних дзвіночків і гарячого какао. Натомість на Різдво австралійці відпочивають на пляжах, їдять креветки та грають у крикет."
 	},
+	"bd_country_name": {
+		"message": "Бангладеш"
+	},
+	"be_country_name": {
+		"message": "Бельгія"
+	},
+	"bg_country_name": {
+		"message": "Болгарія"
+	},
+	"bj_country_name": {
+		"message": "Бенін"
+	},
+	"bo_country_name": {
+		"message": "Болівія"
+	},
 	"br_country_name": {
 		"message": "Бразилія"
 	},
 	"br_tradition": {
 		"message": "Святкування Різдва розпочинається близько півночі: родина збирається за столом, усі відкривають подарунки. У церквах служать так звану півнячу месу. Незважаючи на спекотний тропічний клімат, у цей час тут панує рукотворна зима."
+	},
+	"bt_country_name": {
+		"message": "Бутан"
+	},
+	"by_country_name": {
+		"message": "Білорусь"
+	},
+	"bz_country_name": {
+		"message": "Беліз"
 	},
 	"ca_country_name": {
 		"message": "Канада"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Надіслати"
 	},
+	"cf_country_name": {
+		"message": "Центральноафриканська Республіка"
+	},
+	"ch_country_name": {
+		"message": "Швейцарія"
+	},
+	"cl_country_name": {
+		"message": "Чилі"
+	},
 	"close-this": {
 		"message": "Скасувати"
+	},
+	"cm_country_name": {
+		"message": "Камерун"
+	},
+	"co_country_name": {
+		"message": "Колумбія"
+	},
+	"codelab-block-moveeast": {
+		"message": "схід"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Перемісти мене на одну клітинку на схід."
+	},
+	"codelab-block-movenorth": {
+		"message": "північ"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Перемісти мене на одну клітинку на північ."
+	},
+	"codelab-block-movesouth": {
+		"message": "південь"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Перемісти мене на одну клітинку на південь."
+	},
+	"codelab-block-movewest": {
+		"message": "захід"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Перемісти мене на одну клітинку на захід."
+	},
+	"codelab-block-repeat": {
+		"message": "повторити"
+	},
+	"codelab-block-repeat-times": {
+		"message": "разів"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Повторіть деякі твердження кілька разів."
+	},
+	"codelab-block-whenrun": {
+		"message": "під час запуску"
+	},
+	"codelab-finish": {
+		"message": "Завершити"
+	},
+	"codelab-great": {
+		"message": "Чудово"
+	},
+	"codelab-mwc-promo": {
+		"message": "Інші проекти Google із кодування: \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Наступний рівень"
+	},
+	"codelab-oops": {
+		"message": "Отакої!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Щоб перейти на наступний рівень, необхідно скласти інші кубики."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Деякі кубики складено неправильно."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Ви програли."
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Скористайтеся кубиками нижче, щоб скласти цю картинку."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Вам потрібно лише кілька кубиків ({{ideal}}), щоб пройти цей рівень. Скористайтеся кубиком нижче."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Вітаємо! Ви склали картинку."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Ви рухаєтесь у правильному напрямку. Скористайтеся додатковими кубиками, щоб скласти цю картинку."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Вам потрібно лише кілька кубиків ({{ideal}}), щоб пройти цей рівень."
+	},
+	"codelab-try-again": {
+		"message": "Повторити"
 	},
 	"copy-me": {
 		"message": "Посилання на листівку"
 	},
 	"countdownlabel": {
 		"message": "До початку подорожі Діда Мороза"
+	},
+	"cr_country_name": {
+		"message": "Коста-Рика"
+	},
+	"cu_country_name": {
+		"message": "Куба"
+	},
+	"cz_country_name": {
+		"message": "Чеська Республіка"
 	},
 	"days": {
 		"message": "Дні"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "Прикрасьте свій веб-переглядач із допомогою святкового розширення для Chrome."
 	},
+	"dk_country_name": {
+		"message": "Данія"
+	},
+	"do_country_name": {
+		"message": "Домініканська Республіка"
+	},
+	"dz_country_name": {
+		"message": "Алжир"
+	},
+	"ec_country_name": {
+		"message": "Еквадор"
+	},
+	"ee_country_name": {
+		"message": "Естонія"
+	},
 	"endofjourneymessage": {
 		"message": "Ось і добігла кінця цьогорічна подорож Діда Мороза. Тепер він може й собі посвяткувати в Лапландії зі Снігуронькою, а потім вирушити у відпустку."
+	},
+	"er_country_name": {
+		"message": "Еритрея"
 	},
 	"error": {
 		"message": "Схоже, ми втратили зв’язок із Північним полюсом. Помічники Діда Мороза невпинно працюють, щоб відновити його, тож залишайтеся з нами."
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Спробуйте знову"
 	},
+	"et_country_name": {
+		"message": "Ефіопія"
+	},
+	"fi_country_name": {
+		"message": "Фінляндія"
+	},
 	"finished-text": {
 		"message": "Веселих свят! Дід Мороз об’їхав увесь світ і тепер відпочиває. Завітайте до нас наступного року!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "У Франції на Різдво діти ставлять своє взуття біля каміна. Якщо протягом року вони добре поводилися, Пер Ноель покладе у взуття подарунки."
 	},
+	"ga_country_name": {
+		"message": "Габон"
+	},
 	"gameover": {
 		"message": "Гру закінчено!"
+	},
+	"gameover_level": {
+		"message": "Ваш рівень:"
 	},
 	"gameover_score": {
 		"message": "Ваш результат:"
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "Різдво в Гані – свято для всієї родини. Поки дорослі, вдягнувшись у святкові костюми, роздають сусідам цукерки та солодощі, діти розвішують в оселях малюнки та паперові прикраси, які зробили в школі."
+	},
+	"gl_country_name": {
+		"message": "Гренландія"
+	},
+	"gn_country_name": {
+		"message": "Гвінея"
 	},
 	"gotovillage": {
 		"message": "У містечко"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "У Гватемалі Різдво – пора веселощів і танців. Місцеві мешканці надягають традиційні капелюхи. На святковому столі обов’язково має бути гватемальський тамал. Опівночі чутно постріли безлічі петард, а тоді гватемальці танцюють до самого ранку."
 	},
+	"gy_country_name": {
+		"message": "Гаяна"
+	},
+	"hn_country_name": {
+		"message": "Гондурас"
+	},
 	"hours": {
 		"message": "Години"
+	},
+	"hr_country_name": {
+		"message": "Хорватія"
+	},
+	"ht_country_name": {
+		"message": "Гаїті"
+	},
+	"hu_country_name": {
+		"message": "Угорщина"
+	},
+	"id_country_name": {
+		"message": "Індонезія"
+	},
+	"ie_country_name": {
+		"message": "Ірландія"
+	},
+	"iq_country_name": {
+		"message": "Ірак"
+	},
+	"ir_country_name": {
+		"message": "Іран"
 	},
 	"is_country_name": {
 		"message": "Ісландія"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "В Ісландії на Різдво родичі дарують одне одному теплий одяг. Місцеві жителі вірять, що тих, хто не підготувався до зимових холодів, може проковтнути жахливий різдвяний кіт. Лише теплий одяг допоможе вберегтися від нього."
 	},
+	"it_country_name": {
+		"message": "Італія"
+	},
+	"jm_country_name": {
+		"message": "Ямайка"
+	},
 	"kg_country_name": {
 		"message": "Киргизстан"
 	},
 	"kg_tradition": {
 		"message": "У Киргизстані Аяз Ата (Дід Мороз) приходить в оселі в новорічну ніч і залишає під ялинкою подарунки. Коли годинники б’ють північ, родини по всій країні запалюють феєрверки. У цей час у містах стає світло, немов удень."
+	},
+	"kz_country_name": {
+		"message": "Казахстан"
 	},
 	"language": {
 		"message": "Мова"
@@ -167,8 +377,32 @@
 	"lightdescription": {
 		"message": "Запаліть святкові вогні на екрані свого телевізора з Chromecast і додатком Де Дід Мороз для Android."
 	},
+	"lk_country_name": {
+		"message": "Шри-Ланка"
+	},
+	"lt_country_name": {
+		"message": "Литва"
+	},
+	"lv_country_name": {
+		"message": "Латвія"
+	},
+	"ly_country_name": {
+		"message": "Лівія"
+	},
+	"md_country_name": {
+		"message": "Молдова"
+	},
 	"minutes": {
 		"message": "Хвилини"
+	},
+	"ml_country_name": {
+		"message": "Малі"
+	},
+	"mm_country_name": {
+		"message": "М’янма"
+	},
+	"mr_country_name": {
+		"message": "Мавританія"
 	},
 	"mx_country_name": {
 		"message": "Мексика"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "У Мексиці жодне Різдво не проходить без биття піньяти. По черзі дорослим і дітям зав’язують очі та розкручують їх на місці. Далі вони повинні палицею розбити піньяту у формі зірки, наповнену горіхами, фруктами та цукерками. Поласувати солодощами можуть усі присутні."
 	},
+	"my_country_name": {
+		"message": "Малайзія"
+	},
+	"mz_country_name": {
+		"message": "Мозамбік"
+	},
+	"na_country_name": {
+		"message": "Намібія"
+	},
+	"ne_country_name": {
+		"message": "Нігер"
+	},
 	"newtoday": {
 		"message": "Доступно відсьогодні"
+	},
+	"ng_country_name": {
+		"message": "Нігерія"
+	},
+	"nl_country_name": {
+		"message": "Нідерланди"
+	},
+	"no_country_name": {
+		"message": "Норвегія"
 	},
 	"nonprofit-jane-description": {
 		"message": "Найближчі живі родичі людини зі світу тварин – це шимпанзе. На жаль, на сьогоднішній день їх залишилося менше 300 000. Причина цьому – зникнення природного середовища, хвороби та незаконна торгівля. Дослідники Інституту Джейн Гудолл (The Jane Goodall Institute) захищають цих мавп, вивчаючи їх поведінку та середовище проживання, а також організовують спільноту небайдужих людей, які піклуються про безпеку дикої природи. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eВідкрийте для себе домівку шимпанзе\u003c/a\u003e в Гомбе, Танзанія."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Білий ведмідь"
 	},
+	"np_country_name": {
+		"message": "Непал"
+	},
 	"nz_country_name": {
 		"message": "Нова Зеландія"
 	},
 	"nz_tradition": {
 		"message": "У Новій Зеландії Різдво припадає на літо, тому друзі та родичі збираються на барбекю. До святкового столу зазвичай подають смажену баранину, яку іноді готують у хангі (земляній печі). Улюблений десерт новозеландців називається \"Павлова\". Це безе зі свіжими фруктами: полуницею, ківі тощо."
+	},
+	"om_country_name": {
+		"message": "Оман"
 	},
 	"onthego": {
 		"message": "Дід Мороз у дорозі"
@@ -209,11 +470,20 @@
 	"openingtomorrow": {
 		"message": "Урочисте відкриття вже завтра"
 	},
+	"pa_country_name": {
+		"message": "Панама"
+	},
+	"pe_country_name": {
+		"message": "Перу"
+	},
 	"ph_country_name": {
 		"message": "Філіппіни"
 	},
 	"ph_tradition": {
 		"message": "На Філіппінах різдвяний сезон триває найдовше. Вересень, жовтень, листопад і грудень вважаються різдвяними місяцями. Перші колядки можна почути вже на початку вересня."
+	},
+	"pl_country_name": {
+		"message": "Польща"
 	},
 	"play": {
 		"message": "Новорічні ігри"
@@ -224,17 +494,32 @@
 	"playdescription": {
 		"message": "Грайте з друзями в додатку Де Дід Мороз для Android."
 	},
+	"pr_country_name": {
+		"message": "Пуерто-Рико"
+	},
+	"py_country_name": {
+		"message": "Парагвай"
+	},
+	"ro_country_name": {
+		"message": "Румунія"
+	},
 	"ru_country_name": {
 		"message": "Росія"
 	},
 	"ru_tradition": {
 		"message": "У Росії діти прикрашають новорічну ялинку та чекають, доки Дід Мороз зі своєю внучкою Снігуронькою принесе їм подарунки. Російські дітлахи вірять, що Дід Мороз живе на півночі Росії, у лісі в місті Великий Устюг."
 	},
+	"sa_country_name": {
+		"message": "Саудівська Аравія"
+	},
 	"santatracker": {
 		"message": "Де Дід Мороз"
 	},
 	"score": {
 		"message": "Результат"
+	},
+	"se_country_name": {
+		"message": "Швеція"
 	},
 	"seconds": {
 		"message": "Секунди"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "Поділитися"
 	},
+	"sk_country_name": {
+		"message": "Словаччина"
+	},
+	"sn_country_name": {
+		"message": "Сенегал"
+	},
+	"so_country_name": {
+		"message": "Сомалі"
+	},
+	"sr_country_name": {
+		"message": "Суринам"
+	},
+	"sv_country_name": {
+		"message": "Сальвадор"
+	},
+	"td_country_name": {
+		"message": "Чад"
+	},
 	"terms-and-privacy": {
 		"message": "Умови та конфіденційність"
 	},
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "Час"
+	},
+	"tj_country_name": {
+		"message": "Таджикистан"
+	},
+	"tm_country_name": {
+		"message": "Туркменістан"
+	},
+	"tn_country_name": {
+		"message": "Туніс"
+	},
+	"tr_country_name": {
+		"message": "Туреччина"
 	},
 	"traditions-next": {
 		"message": "Наступна традиція"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "Болгарія"
 	},
+	"tw_country_name": {
+		"message": "Тайвань"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Танзанія"
+	},
+	"ug_country_name": {
+		"message": "Уганда"
 	},
 	"uk_country_name": {
 		"message": "Велика Британія"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "У Великій Британії дорослі й діти обожнюють святкові хлопавки – традиційні забавки в яскравих обгортках. Якщо потягнути за кінці обгортки, пролунає гучний постріл, а з хлопавки посиплються солодощі, іграшки та паперові капелюхи."
 	},
+	"upgrade-warning": {
+		"message": "Помилка: ця версія вашого веб-переглядача не підтримує інструмент Де Дід Мороз. Завантажте найновіший веб-переглядач. Дізнатися свою поточну версію можна на сайті \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "США"
 	},
 	"us_tradition": {
 		"message": "У США напередодні Різдва над каміном розвішують панчохи. За легендою, якось Святий Миколай почув про дуже бідну родину. Щоб допомогти їм, він заліз у будинок через димар і поклав торбинки із золотом у панчохи, які висіли неподалік. Так Святий Миколай став Санта-Клаусом, який приносить подарунки."
 	},
+	"uy_country_name": {
+		"message": "Уругвай"
+	},
+	"uz_country_name": {
+		"message": "Узбекистан"
+	},
+	"ve_country_name": {
+		"message": "Венесуела"
+	},
+	"vn_country_name": {
+		"message": "В’єтнам"
+	},
 	"watch": {
 		"message": "Святкове відео"
+	},
+	"ye_country_name": {
+		"message": "Ємен"
+	},
+	"zm_country_name": {
+		"message": "Замбія"
+	},
+	"zw_country_name": {
+		"message": "Зімбабве"
 	}
 }

@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Tervetuloa Google Mapsin Joulupukin jäljittimeen!"
 	},
+	"af_country_name": {
+		"message": "Afganistan"
+	},
+	"al_country_name": {
+		"message": "Albania"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentiina"
 	},
 	"ar_tradition": {
 		"message": "Argentiinassa joulu alkaa tasan keskiyöllä. Useimmat perheet aloittavat joulun vieton järjestämällä juhlat kotonaan ja avaamalla lahjoja yhdessä läheistensä kanssa. Aamuyön tunteina ammutaan ilotulitteita."
+	},
+	"at_country_name": {
+		"message": "Itävalta"
 	},
 	"au_country_name": {
 		"message": "Australia"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "Koska Australia sijaitsee maapallon eteläpuoliskolla, siellä on joulukuussa kesä. Kelkkojen ja kaakaon sijaan australialaiset viettävät joulua rannalla syöden lounaaksi rapuja ja pelaten krikettiä."
 	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Belgia"
+	},
+	"bg_country_name": {
+		"message": "Bulgaria"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
+	},
 	"br_country_name": {
 		"message": "Brasilia"
 	},
 	"br_tradition": {
 		"message": "Joulun vietto alkaa keskiyön lähestyessä. Jouluaaton ohjelmaan kuuluvat perheen ja sukulaisten yhteinen ateria, lahjojen avaaminen ja Missa do Galo -messu kirkossa (ns. kukon messu). Trooppisesta kesäsäästä huolimatta talvi ja lumi ovat ihmisille tuttuja käsitteitä."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"by_country_name": {
+		"message": "Valko-Venäjä"
+	},
+	"bz_country_name": {
+		"message": "Belize"
 	},
 	"ca_country_name": {
 		"message": "Kanada"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Lähetä"
 	},
+	"cf_country_name": {
+		"message": "Keski-Afrikan tasavalta"
+	},
+	"ch_country_name": {
+		"message": "Sveitsi"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
 	"close-this": {
 		"message": "Peruuta"
+	},
+	"cm_country_name": {
+		"message": "Kamerun"
+	},
+	"co_country_name": {
+		"message": "Kolumbia"
+	},
+	"codelab-block-moveeast": {
+		"message": "itään"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Siirrä minua yksi välilyönti itään."
+	},
+	"codelab-block-movenorth": {
+		"message": "pohjoiseen"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Siirrä minua yksi välilyönti pohjoiseen."
+	},
+	"codelab-block-movesouth": {
+		"message": "etelään"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Siirrä minua yksi välilyönti etelään."
+	},
+	"codelab-block-movewest": {
+		"message": "länteen"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Siirrä minua yksi välilyönti länteen."
+	},
+	"codelab-block-repeat": {
+		"message": "toista"
+	},
+	"codelab-block-repeat-times": {
+		"message": "kertaa"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Toista joitakin ilmauksia useita kertoja."
+	},
+	"codelab-block-whenrun": {
+		"message": "suoritettaessa"
+	},
+	"codelab-finish": {
+		"message": "Valmis"
+	},
+	"codelab-great": {
+		"message": "Loistavaa"
+	},
+	"codelab-mwc-promo": {
+		"message": "Tutustu muihin Googlen koodausprojekteihin osoitteessa \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Seuraava haaste"
+	},
+	"codelab-oops": {
+		"message": "Hups!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Toista-palikan sisällä on oltava muita palikoita, jotta se toimisi."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Kaikkia palikoita ei ole yhdistetty oikein."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Taisit eksyä!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Yritä ratkaista tehtävä käyttämällä yhtä tai useaa alla olevista palikoista."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Tiesitkö, että tarvitset tason suorittamiseen vain {{ideal}} palikkaa? Kokeile alla olevaa palikkaa."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Hienoa! Ratkaisit tehtävän."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Palikat ovat aivan oikeita, mutta käytä niitä enemmän, jotta saisit tehtävän ratkaistua."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Tiesitkö, että tarvitset tason suorittamiseen vain {{ideal}} palikkaa?"
+	},
+	"codelab-try-again": {
+		"message": "Yritä uudelleen"
 	},
 	"copy-me": {
 		"message": "Jaa viesti kopioimalla tämä linkki"
 	},
 	"countdownlabel": {
 		"message": "joulupukin lähtöön"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cu_country_name": {
+		"message": "Kuuba"
+	},
+	"cz_country_name": {
+		"message": "Tšekin tasavalta"
 	},
 	"days": {
 		"message": "päivää"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "Koristele selaimesi joulupukin Chrome-laajennuksella."
 	},
+	"dk_country_name": {
+		"message": "Tanska"
+	},
+	"do_country_name": {
+		"message": "Dominikaaninen tasavalta"
+	},
+	"dz_country_name": {
+		"message": "Algeria"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Viro"
+	},
 	"endofjourneymessage": {
 		"message": "Joulupukki on saanut matkansa päätökseen tältä vuodelta! Joulupukki ja tontut pitävät Korvatunturilla kuitenkin ensin hieman hauskaa ennen ansaittua lomaa."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
 	},
 	"error": {
 		"message": "Menetimme juuri yhteyden Korvatunturille. Joulupukin tontut yrittävät kovasti korjata yhteyttä – pysy linjoilla!"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Yritä uudelleen"
 	},
+	"et_country_name": {
+		"message": "Etiopia"
+	},
+	"fi_country_name": {
+		"message": "Suomi"
+	},
 	"finished-text": {
 		"message": "Hyvää joulua! Joulupukki on saanut päätökseen retkensä maailman ympäri ja nauttii nyt hyvin ansaitusta lomasta. Liity seuraamme taas ensi vuonna!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "Ranskassa lapset perinteisesti laittavat kenkänsä takan ääreen odottamaan Père Noëlin saapumista. Jos lapset ovat olleet kilttejä koko vuoden, Père Noël täyttää kengät lahjoilla."
 	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
 	"gameover": {
 		"message": "Peli loppui!"
+	},
+	"gameover_level": {
+		"message": "Pääsit tasolle:"
 	},
 	"gameover_score": {
 		"message": "Pisteesi"
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "Ghanassa joulu on koko perheen juhla. Aikuiset pukeutuvat naamiaisasuihin ja jakavat naapurustossa makeisia ja muita herkkuja. Lapset koristelevat kodin koulussa askartelemillaan paperikoristeilla ja piirustuksilla."
+	},
+	"gl_country_name": {
+		"message": "Grönlanti"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
 	},
 	"gotovillage": {
 		"message": "Mene kylään"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "Guatemalalaiset tanssivat ja pitävät hauskaa jouluna. He käyttävät puritina-hattuja ja syövät paikalliseen tyyliin valmistettuja tamaleja. Keskiyöllä sytytetään sähikäisiä, ja tanssi jatkuu läpi yön."
 	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
 	"hours": {
 		"message": "tuntia"
+	},
+	"hr_country_name": {
+		"message": "Kroatia"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Unkari"
+	},
+	"id_country_name": {
+		"message": "Indonesia"
+	},
+	"ie_country_name": {
+		"message": "Irlanti"
+	},
+	"iq_country_name": {
+		"message": "Irak"
+	},
+	"ir_country_name": {
+		"message": "Iran"
 	},
 	"is_country_name": {
 		"message": "Islanti"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "Islannissa perheenjäsenille annetaan lahjaksi lämpimiä vaatteita. Tarun mukaan pelottava joulukissa nappaa ne, jotka eivät ole varustautuneet kylmää talvisäätä vastaan. Lahjoilla perheet haluavat varmistaa, ettei ”joulukissa vie ketään”."
 	},
+	"it_country_name": {
+		"message": "Italia"
+	},
+	"jm_country_name": {
+		"message": "Jamaika"
+	},
 	"kg_country_name": {
 		"message": "Kirgisia"
 	},
 	"kg_tradition": {
-		"message": "Kirgisiassa Ayaz Ata (pakkasukko) saapuu uuden vuoden aattona ja jättää lahjat uuden vuoden kuusen alle. Vuorokauden vaihtuessa koko maassa ammutaan ilotulitteita juhlan kunniaksi. Ilotulitteet valaisevat kaupungit kauniisti."
+		"message": "Kirgisiassa Ayaz Ata (Pakkasukko) saapuu uuden vuoden aattona ja jättää lahjat uuden vuoden kuusen alle. Vuorokauden vaihtuessa perheet kokoontuvat ulos ampumaan raketteja juhlan kunniaksi. Kaupungeissa ilotulituksia on niin paljon, että taivas on yhtä kirkas kuin päivällä."
+	},
+	"kz_country_name": {
+		"message": "Kazakstan"
 	},
 	"language": {
 		"message": "Kieli"
@@ -167,8 +377,32 @@
 	"lightdescription": {
 		"message": "Valaise televisiosi Joulupukin jäljittimen Android-sovelluksella ja Chromecastilla."
 	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Liettua"
+	},
+	"lv_country_name": {
+		"message": "Latvia"
+	},
+	"ly_country_name": {
+		"message": "Libya"
+	},
+	"md_country_name": {
+		"message": "Moldova"
+	},
 	"minutes": {
 		"message": "minuuttia"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritania"
 	},
 	"mx_country_name": {
 		"message": "Meksiko"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "Meksikossa kaikenikäiset lapset juhlivat joulua rikkomalla pinjatoja. Aikuiset ja lapset pyörivät ensin ympyrää silmät sidottuina ja yrittävät sitten rikkoa kepillä kattoon ripustettuja tähdenmuotoisia astioita. Kun pinjata rikkoutuu, sen sisältä ropisee pähkinöitä, hedelmiä ja makeisia."
 	},
+	"my_country_name": {
+		"message": "Malesia"
+	},
+	"mz_country_name": {
+		"message": "Mosambik"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
 	"newtoday": {
 		"message": "Avattu tänään"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Alankomaat"
+	},
+	"no_country_name": {
+		"message": "Norja"
 	},
 	"nonprofit-jane-description": {
 		"message": "Simpanssit ovat ihmisen lähimpiä eläviä sukulaisia eläinmaailmassa! Elinympäristön pienenemisen, sairauksien ja laittoman kaupan seurauksena simpansseja on nykyisin alle 300 000. Jane Goodall -instituutti suojelee simpansseja tarkkailemalla ja ymmärtämällä niiden käyttäytymistä sekä elinympäristöjä. Instituutti toimii myös sellaisten ihmisten yhteisön luomiseksi, jotka suojelevat ja säilyttävät yhteistä luontoamme ja ympäristöämme. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eTutustu simpanssien elinympäristöihin\u003c/a\u003e Tansanian Gombessa."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Jääkarhu"
 	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
 	"nz_country_name": {
 		"message": "Uusi-Seelanti"
 	},
 	"nz_tradition": {
 		"message": "Uudessa-Seelannissa joulua vietetään kesällä, joten perheet ja ystävät kokoontuvat yhteiseen grillijuhlaan. Jouluateriaan kuuluu lampaanpaisti, joka perinteisesti kypsennetään kuopassa tai uunissa maan alla. Jälkiruokana tarjotaan marenkia ja tuoreita hedelmiä sisältävää pavlovaa."
+	},
+	"om_country_name": {
+		"message": "Oman"
 	},
 	"onthego": {
 		"message": "Joulupukki liikkeellä"
@@ -209,11 +470,20 @@
 	"openingtomorrow": {
 		"message": "Avajaiset huomenna"
 	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
 	"ph_country_name": {
 		"message": "Filippiinit"
 	},
 	"ph_tradition": {
-		"message": "Filippiinit on tunnettu siitä, että siellä vietetään joulua pisimpään. Joulukuukausia on neljä: syys-, loka-, marras- ja joulukuu. Joululaulut alkavat soida jo syyskuun alussa."
+		"message": "Filippiinit tunnetaan maana, jossa joulua vietetään kaikkein pisimpään. Joulukuukausia on neljä: syys-, loka-, marras- ja joulukuu. Joululaulut alkavat siis usein soida jo syyskuun alussa."
+	},
+	"pl_country_name": {
+		"message": "Puola"
 	},
 	"play": {
 		"message": "Pelaa"
@@ -224,17 +494,32 @@
 	"playdescription": {
 		"message": "Pelaa ystävien kanssa Joulupukin jäljittimen Android-sovelluksella."
 	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "Romania"
+	},
 	"ru_country_name": {
 		"message": "Venäjä"
 	},
 	"ru_tradition": {
-		"message": "Venäjällä lapset koristelevat uuden vuoden kuusen joulukuusen sijaan. Lapset odottavat kovasti Pakkasukkoa, joka matkustaa lapsenlapsensa Lumitytön kanssa, jakaen lahjoja koko maassa. Pakkasukko asuu keskellä metsää Pohjois-Venäjän Veliki Ustjugissa."
+		"message": "Venäjällä lapset koristelevat uuden vuoden kuusen joulukuusen sijaan. Lapset odottavat kovasti Pakkasukkoa, joka matkustaa lapsenlapsensa Lumitytön kanssa halki Venäjän lahjoja jakaen. Pakkasukko asuu keskellä metsää Pohjois-Venäjän Veliki Ustjugissa."
+	},
+	"sa_country_name": {
+		"message": "Saudi-Arabia"
 	},
 	"santatracker": {
 		"message": "Joulupukin jäljitin"
 	},
 	"score": {
 		"message": "Tulos"
+	},
+	"se_country_name": {
+		"message": "Ruotsi"
 	},
 	"seconds": {
 		"message": "sekuntia"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "Jaa"
 	},
+	"sk_country_name": {
+		"message": "Slovakia"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalia"
+	},
+	"sr_country_name": {
+		"message": "Surinam"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"td_country_name": {
+		"message": "Tšad"
+	},
 	"terms-and-privacy": {
 		"message": "Ehdot ja tietosuoja"
 	},
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "Aika"
+	},
+	"tj_country_name": {
+		"message": "Tadžikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunisia"
+	},
+	"tr_country_name": {
+		"message": "Turkki"
 	},
 	"traditions-next": {
 		"message": "Seuraava perinne"
@@ -3893,22 +4208,55 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgaria"
 	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tansania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Iso-Britannia"
 	},
 	"uk_tradition": {
-		"message": "Iso-Britanniassa kaikenikäiset ovat mieltyneet illallispöydän joulukääröihin. Ne ovat värikkäästä paperista tehtyjä kääröjä, ja kun käärön päitä vedetään vastakkaisiin suuntiin, se repeää äänekkäästi. Käärön sisältä voi löytyä pahvihattu, lelu tai makeisia jouluillan iloksi."
+		"message": "Iso-Britanniassa kaikenikäiset joulunviettäjät pitävät illallispöydän paukkukaramelleista. Karamellit on kääritty värikkääseen paperiin, ja kun käärön päitä vedetään vastakkaisiin suuntiin, se repeää äänekkäästi. Paketin sisältä voi löytyä pahvihattu, lelu tai makeisia jouluillan iloksi."
+	},
+	"upgrade-warning": {
+		"message": "Hups! Joulupukin jäljitin ei tue tätä selaimen versiota. Lataa uudempi versio, jos haluat käyttää Joulupukin jäljitintä. Lisätietoja on osoitteessa \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Yhdysvallat"
 	},
 	"us_tradition": {
-		"message": "Yhdysvalloissa ripustetaan jouluaattona joulusukat. Tarun mukaan Pyhä Nikolaus halusi auttaa vähävaraista perhettä. Yllättääkseen perheen hän kiipesi savupiipun kautta taloon ja laittoi arvokkaita kultasäkkejä ripustettuihin sukkiin. Näin Pyhästä Nikolauksesta tuli lahjoja tuova joulupukki."
+		"message": "Yhdysvalloissa ripustetaan jouluaattona joulusukat takan reunustalle. Tarun mukaan Pyhä Nikolaus halusi auttaa köyhää perhettä, joten hän meni taloon salaa savupiipusta ja laittoi kultasäkkejä takalle ripustettuihin sukkiin. Näin Pyhästä Nikolauksesta tuli lahjoja tuova joulupukki."
+	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
 	},
 	"watch": {
 		"message": "Katso"
+	},
+	"ye_country_name": {
+		"message": "Jemen"
+	},
+	"zm_country_name": {
+		"message": "Sambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
 	}
 }

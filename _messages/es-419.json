@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "¡Te damos la bienvenida a Sigue a Santa de Google Maps!"
 	},
+	"af_country_name": {
+		"message": "Afganistán"
+	},
+	"al_country_name": {
+		"message": "Albania"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentina"
 	},
 	"ar_tradition": {
 		"message": "En Argentina, la Navidad comienza exactamente a la medianoche. Para dar inicio a esta festividad, muchas familias se reúnen a celebrar, se hacen regalos y encienden fuegos artificiales a primeras horas de la madrugada."
+	},
+	"at_country_name": {
+		"message": "Austria"
 	},
 	"au_country_name": {
 		"message": "Australia"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "Su ubicación en el hemisferio sur hace que Australia reciba la Navidad en verano, en el mes de diciembre. En lugar de comer chocolate y decorar con cascabeles, muchos australianos celebran esta festividad en la playa con un almuerzo de camarones y algunas partidas de cricket."
 	},
+	"bd_country_name": {
+		"message": "Bangladés"
+	},
+	"be_country_name": {
+		"message": "Bélgica"
+	},
+	"bg_country_name": {
+		"message": "Bulgaria"
+	},
+	"bj_country_name": {
+		"message": "Benín"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
+	},
 	"br_country_name": {
 		"message": "Brasil"
 	},
 	"br_tradition": {
 		"message": "Los festejos de Navidad comienzan cerca de la medianoche y suelen incluir grandes cenas en familia, regalos y la celebración de la \"Misa del Gallo\" en las iglesias. A pesar del clima cálido y tropical del verano, es frecuente el uso de decoración relacionada con el invierno y la nieve."
+	},
+	"bt_country_name": {
+		"message": "Bután"
+	},
+	"by_country_name": {
+		"message": "Bielorrusia"
+	},
+	"bz_country_name": {
+		"message": "Belice"
 	},
 	"ca_country_name": {
 		"message": "Canadá"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Enviar"
 	},
+	"cf_country_name": {
+		"message": "República Centroafricana"
+	},
+	"ch_country_name": {
+		"message": "Suiza"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
 	"close-this": {
 		"message": "Cancelar"
+	},
+	"cm_country_name": {
+		"message": "Camerún"
+	},
+	"co_country_name": {
+		"message": "Colombia"
+	},
+	"codelab-block-moveeast": {
+		"message": "este"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Moverme un espacio hacia el este."
+	},
+	"codelab-block-movenorth": {
+		"message": "norte"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Moverme un espacio hacia el norte."
+	},
+	"codelab-block-movesouth": {
+		"message": "sur"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Moverme un espacio hacia el sur."
+	},
+	"codelab-block-movewest": {
+		"message": "oeste"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Moverme un espacio hacia el oeste."
+	},
+	"codelab-block-repeat": {
+		"message": "repetir"
+	},
+	"codelab-block-repeat-times": {
+		"message": "veces"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Repite algunas declaraciones varias veces."
+	},
+	"codelab-block-whenrun": {
+		"message": "si se ejecutan"
+	},
+	"codelab-finish": {
+		"message": "Finalizar"
+	},
+	"codelab-great": {
+		"message": "Excelente"
+	},
+	"codelab-mwc-promo": {
+		"message": "Explora más proyectos de codificación de Google en \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Siguiente desafío"
+	},
+	"codelab-oops": {
+		"message": "¡Uy!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "El bloque de repetición tiene que tener otros bloques en el interior para que funcione."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Algunos de los bloques no se unieron correctamente."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Parece que te perdiste."
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Prueba uno o varios de los bloques de abajo para resolver este rompecabezas."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "¿Sabías que puedes terminar este nivel con solo {{ideal}} bloques? Intenta usar el bloque de abajo."
+	},
+	"codelab-result-perfect-success": {
+		"message": "¡Felicitaciones! Terminaste correctamente el rompecabezas."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Estás utilizando los bloques correctos, pero intenta usar más para completar este rompecabezas."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "¿Sabías que puedes terminar este nivel con solo {{ideal}} bloques?"
+	},
+	"codelab-try-again": {
+		"message": "Volver a intentarlo"
 	},
 	"copy-me": {
 		"message": "Copiar este vínculo para compartir tu mensaje"
 	},
 	"countdownlabel": {
 		"message": "Para que Santa inicie su viaje"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cu_country_name": {
+		"message": "Cuba"
+	},
+	"cz_country_name": {
+		"message": "República Checa"
 	},
 	"days": {
 		"message": "Días"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "Adorna el navegador con una extensión de Santa para Chrome."
 	},
+	"dk_country_name": {
+		"message": "Dinamarca"
+	},
+	"do_country_name": {
+		"message": "República Dominicana"
+	},
+	"dz_country_name": {
+		"message": "Argelia"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Estonia"
+	},
 	"endofjourneymessage": {
 		"message": "Santa terminó su viaje. Él y los elfos aún están divirtiéndose en el Polo Norte, antes de comenzar sus vacaciones anuales."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
 	},
 	"error": {
 		"message": "Parece que perdimos la conexión con el Polo Norte. Los duendes de Santa están trabajando con empeño para restaurarla. Mantente al tanto."
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Volver a intentarlo"
 	},
+	"et_country_name": {
+		"message": "Etiopía"
+	},
+	"fi_country_name": {
+		"message": "Finlandia"
+	},
 	"finished-text": {
 		"message": "¡Felices fiestas! Santa ha terminado su viaje por todo el mundo y se está tomando su tan merecido descanso. Visítanos el próximo año."
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "En Francia, la tradición consiste en que los niños coloquen sus zapatos junto a la chimenea para esperar la llegada de Santa. Si se portaron bien durante el año, Santa llenará los zapatos con regalos."
 	},
+	"ga_country_name": {
+		"message": "Gabón"
+	},
 	"gameover": {
 		"message": "El juego finalizó."
+	},
+	"gameover_level": {
+		"message": "Llegaste al nivel:"
 	},
 	"gameover_score": {
 		"message": "Tu puntuación:"
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "La Navidad en Ghana incluye a toda la familia. Los adultos se disfrazan y reparten golosinas y dulces en todo el barrio. Los niños decoran sus casas con arreglos navideños de papel y dibujos que hacen en la escuela."
+	},
+	"gl_country_name": {
+		"message": "Groenlandia"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
 	},
 	"gotovillage": {
 		"message": "Ir a la aldea"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "Los guatemaltecos celebran la Navidad con festejos y bailes. Usan sombreros denominados \"Puritina\", comen tamales al estilo guatemalteco, arrojan petardos a la medianoche y bailan distintos estilos hasta el amanecer."
 	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
 	"hours": {
 		"message": "Horas"
+	},
+	"hr_country_name": {
+		"message": "Croacia"
+	},
+	"ht_country_name": {
+		"message": "Haití"
+	},
+	"hu_country_name": {
+		"message": "Hungría"
+	},
+	"id_country_name": {
+		"message": "Indonesia"
+	},
+	"ie_country_name": {
+		"message": "Irlanda"
+	},
+	"iq_country_name": {
+		"message": "Irak"
+	},
+	"ir_country_name": {
+		"message": "Irán"
 	},
 	"is_country_name": {
 		"message": "Islandia"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "En Islandia, los integrantes de cada familia se obsequian ropas de invierno para Navidad. Según la leyenda, hay un gato aterrador que se come a quienes no están abrigados para enfrentar el invierno. Las familias se aseguran de que ninguno de sus integrantes sea víctima del gato de la Navidad."
 	},
+	"it_country_name": {
+		"message": "Italia"
+	},
+	"jm_country_name": {
+		"message": "Jamaica"
+	},
 	"kg_country_name": {
 		"message": "Kirguistán"
 	},
 	"kg_tradition": {
 		"message": "En Kirguistán, a medianoche de la víspera de Año Nuevo, llega Ayaz Ata (el Abuelo de las Nieves) y deja regalos bajo el árbol de Año Nuevo. Cuando el reloj marca las doce, todas las familias del país encienden fuegos artificiales. Las ciudades se iluminan como si fuese de día."
+	},
+	"kz_country_name": {
+		"message": "Kazajistán"
 	},
 	"language": {
 		"message": "Idioma"
@@ -167,8 +377,32 @@
 	"lightdescription": {
 		"message": "Ilumina tu TV con la aplicación Sigue a Santa para Android y Chromecast."
 	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Lituania"
+	},
+	"lv_country_name": {
+		"message": "Letonia"
+	},
+	"ly_country_name": {
+		"message": "Libia"
+	},
+	"md_country_name": {
+		"message": "Moldavia"
+	},
 	"minutes": {
 		"message": "Minutos"
+	},
+	"ml_country_name": {
+		"message": "Malí"
+	},
+	"mm_country_name": {
+		"message": "Birmania (Myanmar)"
+	},
+	"mr_country_name": {
+		"message": "Mauritania"
 	},
 	"mx_country_name": {
 		"message": "México"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "En México, niños de todas las edades rompen piñatas para Navidad. Adultos y niños por igual se vendan los ojos, dan vueltas y, con el golpe de un bastón, intentan abrir las piñatas colgantes con forma de estrella. Cuando las abren, caen nueces, frutas y golosinas para alegría de todos."
 	},
+	"my_country_name": {
+		"message": "Malasia"
+	},
+	"mz_country_name": {
+		"message": "Mozambique"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Níger"
+	},
 	"newtoday": {
 		"message": "Recientemente disponible"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Países Bajos"
+	},
+	"no_country_name": {
+		"message": "Noruega"
 	},
 	"nonprofit-jane-description": {
 		"message": "En el reino animal, el chimpancé es la especie viviente más parecida a los seres humanos. Actualmente, quedan menos de 300 000 chimancés debido a la destrucción de su hábitat y el tráfico ilegal de vida silvestre. El Instituto Jane Goodall (JGI) trabaja para proteger a esta especie mediante la observación y el estudio de sus comportamientos y de los hábitats donde viven. Además, JGI trabaja para fomentar en las comunidades la protección y la conservación de la vida silvestre y el medioambiente que todos compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplora los hábitats de los chimpacés\u003c/a\u003e en Gombe, Tanzania."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Oso polar"
 	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
 	"nz_country_name": {
 		"message": "Nueva Zelanda"
 	},
 	"nz_tradition": {
 		"message": "En Nueva Zelanda, amigos y familiares hacen una parrillada para Navidad. Una de las comidas típicas es la carne de cordero, que se cocina en un \"hangi\" (un hoyo en el suelo o un horno de barro) y el postre preferido es el \"pavlova\": merengue cubierto de frutas frescas, como frutillas y kiwi."
+	},
+	"om_country_name": {
+		"message": "Omán"
 	},
 	"onthego": {
 		"message": "Santa está en camino"
@@ -209,11 +470,20 @@
 	"openingtomorrow": {
 		"message": "Gran inauguración mañana"
 	},
+	"pa_country_name": {
+		"message": "Panamá"
+	},
+	"pe_country_name": {
+		"message": "Perú"
+	},
 	"ph_country_name": {
 		"message": "Filipinas"
 	},
 	"ph_tradition": {
 		"message": "Filipinas es famosa por tener la temporada de Navidad más larga del mundo. Abarca cuatro meses: septiembre, octubre, noviembre y diciembre. Los villancicos navideños suelen comenzar a escucharse desde principios de septiembre."
+	},
+	"pl_country_name": {
+		"message": "Polonia"
 	},
 	"play": {
 		"message": "Jugar"
@@ -224,17 +494,32 @@
 	"playdescription": {
 		"message": "Juega con tus amigos en la aplicación Sigue a Santa para Android."
 	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "Rumania"
+	},
 	"ru_country_name": {
 		"message": "Rusia"
 	},
 	"ru_tradition": {
 		"message": "En Rusia, los niños decoran el árbol de Año Nuevo, en lugar del árbol de Navidad y esperan con ansias al Abuelo del Frío, quien viaja con su nieta, la Doncella de Nieve, para repartir regalos en todo el país. El Abuelo del Frío vive en el bosque en Veliky Ustyug, en el norte de Rusia."
 	},
+	"sa_country_name": {
+		"message": "Arabia Saudí"
+	},
 	"santatracker": {
 		"message": "Sigue a Santa"
 	},
 	"score": {
 		"message": "Puntuación"
+	},
+	"se_country_name": {
+		"message": "Suecia"
 	},
 	"seconds": {
 		"message": "Segundos"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "Compartir"
 	},
+	"sk_country_name": {
+		"message": "Eslovaquia"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalía"
+	},
+	"sr_country_name": {
+		"message": "Surinam"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"td_country_name": {
+		"message": "Chad"
+	},
 	"terms-and-privacy": {
 		"message": "Términos y privacidad"
 	},
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "Hora"
+	},
+	"tj_country_name": {
+		"message": "Tayikistán"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistán"
+	},
+	"tn_country_name": {
+		"message": "Túnez"
+	},
+	"tr_country_name": {
+		"message": "Turquía"
 	},
 	"traditions-next": {
 		"message": "Tradición siguiente"
@@ -630,7 +945,7 @@
 		"message": "América del Norte"
 	},
 	"trivia_beginner_031": {
-		"message": "¿Cuál es el continente en que la región de la Patagonia abarca gran parte del extremo sur?"
+		"message": "¿Cuál es el continente en el que la región de la Patagonia abarca gran parte del extremo sur?"
 	},
 	"trivia_beginner_031_answer0": {
 		"message": "América del Sur"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgaria"
 	},
+	"tw_country_name": {
+		"message": "Taiwán"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Reino Unido"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "En el Reino Unido, entusiastas de todas las edades se divierten con un elemento típico llamado \"Christmas cracker\". Son tubos envueltos en papeles de colores, con tiras en cada extremo. Al tirar de ellas, el tubo estalla haciendo un fuerte sonido y salen sombreros de papel, juguetes y golosinas."
 	},
+	"upgrade-warning": {
+		"message": "Sigue a Santa no es compatible con esta versión de tu navegador. Para acceder a Sigue a Santa, descarga un navegador moderno. Para obtener más información, visita \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Estados Unidos"
 	},
 	"us_tradition": {
 		"message": "En Estados Unidos, se cuelgan calcetines en Nochebuena. Según la leyenda, San Nicolás quiso ayudar a una familia y, para sorprenderla, bajó por la chimenea y colocó bolsas de oro en unos calcetines que colgaban allí. Desde entonces, San Nicolás pasó a ser Santa Claus, famoso por sus regalos."
 	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistán"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
 	"watch": {
 		"message": "Mirar"
+	},
+	"ye_country_name": {
+		"message": "Yemen"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabue"
 	}
 }

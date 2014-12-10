@@ -3,7 +3,7 @@
 		"message": "Op Oukersaand sal ons met trots 'n voorskou van Kersvader se kontroleskerm wys. Die kontroleskerm is die tegnologie wat krag verskaf aan sy slee gedurende sy reis rondom die wêreld. Ons het hierdie spesiale voorskou by een van Kersvader se vele ontwikkelaarelfies gekry. Hulle is hard by die Noordpool aan die werk om vir Kersvader te help voorberei vir sy groot dag. Kersvader se kontroleskerm bied die allernuutste Google Maps-tegnologie en slee-ontwikkeling. Dit sal jou in staat stel om sy reis rondom die wêreld te volg en ook so 'n bietjie iets te leer oor sommige van die plekke waar hy langs die pad stop."
 	},
 	"about-content-three": {
-		"message": "Google Maps Waar is Kersvader is deur Google geskep en ontwikkel, met 'n bietjie hulp van Santa se elwe af. Het jy hulp nodig of het jy nog 'n vraag? Besoek ons \u003ca href=\"//support.google.com/santatracker\"\u003eHulpsentrum\u003c/a\u003e."
+		"message": "Google Maps se Waar is Kersvader is deur Google geskep en ontwikkel, met 'n bietjie hulp van Santa se elfies af. Het jy hulp nodig of het jy nog 'n vraag? Besoek ons \u003ca href=\"//support.google.com/santatracker\"\u003eHulpsentrum\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "Ons vriendelike elfies het jou ook uitgenooi om Kersvader se dorpie te verken terwyl Kersvader gereedmaak vir sy reis. Gaan dus voort en verken sy dorpie; jy kan dalk op 'n paar prettige aktiwiteite afkom en 'n paar interessante elfies ontmoet."
@@ -14,29 +14,65 @@
 	"about_title": {
 		"message": "Welkom by Google Maps se Waar is Kersvader!"
 	},
+	"af_country_name": {
+		"message": "Afganistan"
+	},
+	"al_country_name": {
+		"message": "Albanië"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentinië"
 	},
 	"ar_tradition": {
 		"message": "In Argentinië begin Kersfees stiptelik om middernag. Baie gesinne begin die vakansiedag deur feestelike vierings by hul huis aan te bied, geskenke saam met hul geliefdes oop te maak en vuurwerk in die vroeë oggendure aan te steek."
 	},
+	"at_country_name": {
+		"message": "Oostenryk"
+	},
 	"au_country_name": {
 		"message": "Australië"
 	},
 	"au_tradition": {
-		"message": "Australië se ligging in die Suidelike Halfrond beteken dat dit in Desember somer is. Pleks van sleeklokke en kakao kies baie Australiërs koers na die strand om die vakansiedae met 'n garnaalmiddagete en 'n paar beurte krieket te vier."
+		"message": "Australië se ligging in die suidelike halfrond beteken dat dit in Desember somer is. Pleks van sleeklokke en kakao, kies baie Australiërs koers na die strand om die vakansiedae met 'n garnaalmiddagete en 'n paar beurte krieket te vier."
+	},
+	"bd_country_name": {
+		"message": "Bangladesj"
+	},
+	"be_country_name": {
+		"message": "België"
+	},
+	"bg_country_name": {
+		"message": "Bulgarye"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivië"
 	},
 	"br_country_name": {
 		"message": "Brasilië"
 	},
 	"br_tradition": {
-		"message": "Kersvierings begin na aan middernag, gewoonlik met groot gesinsaandetes, die oopmaak van geskenke, en die viering van die 'Missa do Galo' (die hoenderhaan se mis) in kerke. Temas van winter en sneeu is ondanks die warm, tropiese somerweer nie ongewoon nie."
+		"message": "Kersvierings begin na aan middernag, gewoonlik met groot gesinsaandetes, die oopmaak van geskenke, en die viering van die 'Missa do Galo' (die hoenderhaan se mis) in kerke. Winter- en sneeutemas is nie ongewoon nie, ondanks die warm, tropiese somerweer."
+	},
+	"bt_country_name": {
+		"message": "Bhoetan"
+	},
+	"by_country_name": {
+		"message": "Belarus"
+	},
+	"bz_country_name": {
+		"message": "Belize"
 	},
 	"ca_country_name": {
 		"message": "Kanada"
 	},
 	"ca_tradition": {
-		"message": "Kanadese kinders vier gewoonlik 'n besneeude, wit Kersfees. Hulle draai hul toe in hul serpe en toques, 'n Kanadese wolhoed, om in die sneeu te speel, te ysskaats en te rodel! Op Kersaand los hulle vir Kersvader melk en koekies by die kaggel (en soms 'n wortel vir sy takbokke)."
+		"message": "Kanadese kinders vier gewoonlik 'n besneeude, wit Kersfees. Hulle draai hul toe in hul serpe en toques, 'n Kanadese wolhoed, om in die sneeu te speel, te ysskaats en met 'n slee rond te gly! Op Kersaand los hulle vir Kersvader melk en koekies by die kaggel (en soms 'n wortel vir sy takbokke)."
 	},
 	"calendar": {
 		"message": "Die kalender"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Stuur"
 	},
+	"cf_country_name": {
+		"message": "Sentraal-Afrikaanse Republiek"
+	},
+	"ch_country_name": {
+		"message": "Switserland"
+	},
+	"cl_country_name": {
+		"message": "Chili"
+	},
 	"close-this": {
 		"message": "Kanselleer"
+	},
+	"cm_country_name": {
+		"message": "Kameroen"
+	},
+	"co_country_name": {
+		"message": "Colombië"
+	},
+	"codelab-block-moveeast": {
+		"message": "oos"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Beweeg my een spasie oos."
+	},
+	"codelab-block-movenorth": {
+		"message": "noord"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Beweeg my een spasie noord."
+	},
+	"codelab-block-movesouth": {
+		"message": "suid"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Beweeg my een spasie suid."
+	},
+	"codelab-block-movewest": {
+		"message": "wes"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Beweeg my een spasie wes."
+	},
+	"codelab-block-repeat": {
+		"message": "herhaal"
+	},
+	"codelab-block-repeat-times": {
+		"message": "keer"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Herhaal 'n paar stellings verskeie keer."
+	},
+	"codelab-block-whenrun": {
+		"message": "wanneer loop"
+	},
+	"codelab-finish": {
+		"message": "Einde"
+	},
+	"codelab-great": {
+		"message": "Fantasties"
+	},
+	"codelab-mwc-promo": {
+		"message": "Bekyk meer Google-koderingprojekte by \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Volg. uitdaging"
+	},
+	"codelab-oops": {
+		"message": "Oeps!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Die \"Herhaal\"-blok moet ander blokke bevat om te kan werk."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Sommige van die blokke is nie behoorlik saamgevoeg nie."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Lyk asof jy verdwaal het!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Probeer een of meer van die blokke hieronder om hierdie raaiselspeletjie op te los."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Het jy geweet jy kan hierdie vlak met net {{ideal}} blokke voltooi? Probeer om die blok hieronder te gebruik."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Geluk! Jy het die raaiselspeletjie perfek voltooi."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Jy gebruik die regte blokke, maar probeer om meer van hulle te gebruik om hierdie raaiselspeletjie te voltooi."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Het jy geweet jy kan hierdie vlak met net {{ideal}} blokke voltooi?"
+	},
+	"codelab-try-again": {
+		"message": "Probeer weer"
 	},
 	"copy-me": {
 		"message": "Kopieer hierdie skakel om jou boodskap te deel"
 	},
 	"countdownlabel": {
 		"message": "Totdat Kersvader vertrek"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cu_country_name": {
+		"message": "Kuba"
+	},
+	"cz_country_name": {
+		"message": "Tsjeggiese Republiek"
 	},
 	"days": {
 		"message": "Dae"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "Versier jou blaaier met 'n Chrome-uitbreiding van Kersvader."
 	},
+	"dk_country_name": {
+		"message": "Denemarke"
+	},
+	"do_country_name": {
+		"message": "Dominikaanse Republiek"
+	},
+	"dz_country_name": {
+		"message": "Algerië"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Estland"
+	},
 	"endofjourneymessage": {
 		"message": "Kersvader het sy reis vir die jaar voltooi! Hy en die elwe het nog pret by die Noordpool voor hul jaarlikse vakansie."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
 	},
 	"error": {
 		"message": "Dit lyk asof ons ons verbinding met die Noordpool verloor het. Kersvader se elfies werk hard om dit reg te maak – hou net vas!"
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Probeer weer"
 	},
+	"et_country_name": {
+		"message": "Etiopië"
+	},
+	"fi_country_name": {
+		"message": "Finland"
+	},
 	"finished-text": {
 		"message": "Voorspoed vir die feestyd! Kersvader het sy reis om die wêreld voltooi en vat nou 'n welverdiende ruskans. Besoek ons weer volgende jaar!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "In Frankryk plaas kinders tradisioneel hul skoene langs die kaggel in afwagting van Père Noël se aankoms. As kinders deur die jaar soet was, sal Père Noël geskenke in die skoene plaas."
 	},
+	"ga_country_name": {
+		"message": "Gaboen"
+	},
 	"gameover": {
 		"message": "Speletjie verby!"
+	},
+	"gameover_level": {
+		"message": "Jy het dit gemaak tot by vlak:"
 	},
 	"gameover_score": {
 		"message": "Jou telling:"
@@ -114,7 +282,13 @@
 		"message": "Ghana"
 	},
 	"gh_tradition": {
-		"message": "Kersfees in Ghana betrek die hele gesin. Volwassenes trek kostuums aan en deel snoepgoed en lekkers in die woonbuurt uit. Kinders versier hul huis met papierornamente en prente wat hulle by die skool teken."
+		"message": "Kersfees in Ghana betrek die hele gesin. Volwassenes trek kostuums aan en deel lekkergoed en lekkers in die woonbuurt uit. Kinders versier hul huis met papierornamente en prente wat hulle by die skool teken."
+	},
+	"gl_country_name": {
+		"message": "Groenland"
+	},
+	"gn_country_name": {
+		"message": "Guinee"
 	},
 	"gotovillage": {
 		"message": "Gaan na die dorpie"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "Guatemalane vier Kersfees met pret en dans. Hulle dra hoede genaamd Puritina, eet Guatemalaanse styl tamale, vuur klappers teen middernag af, en dans regdeur die nag in verskillende dansstyle."
 	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
 	"hours": {
 		"message": "Ure"
+	},
+	"hr_country_name": {
+		"message": "Kroasië"
+	},
+	"ht_country_name": {
+		"message": "Haïti"
+	},
+	"hu_country_name": {
+		"message": "Hongarye"
+	},
+	"id_country_name": {
+		"message": "Indonesië"
+	},
+	"ie_country_name": {
+		"message": "Ierland"
+	},
+	"iq_country_name": {
+		"message": "Irak"
+	},
+	"ir_country_name": {
+		"message": "Iran"
 	},
 	"is_country_name": {
 		"message": "Ysland"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "Met Kerstyd in Ysland gee gesinne geskenke van warm klere aan elke lid van hul huishouding. Volgens die legende is daar 'n vreesaanjaende Kerskat wat enigiemand verorber wat nie vir die koue winterweer toegerus is nie. Gesinne werk saam om te sorg dat niemand 'by die Kerskat sal beland nie'."
 	},
+	"it_country_name": {
+		"message": "Italië"
+	},
+	"jm_country_name": {
+		"message": "Jamaika"
+	},
 	"kg_country_name": {
 		"message": "Kirgistan"
 	},
 	"kg_tradition": {
-		"message": "In Kirgistan kom Ayaz Ata (Oupa Ryp) op Oujaarsaand teen middernag en los presente onder die Nuwejaarsboom. As middernag aanbreek, steek gesinne oor die land heen vuurwerk aan om hierdie pragtige geleentheid te vier. Die stede word so helder soos daglig."
+		"message": "In Kirgistan kom Ayaz Ata (Oupa Ys) op Oujaarsaand teen middernag en los presente onder die Nuwejaarsboom. As middernag aanbreek, steek gesinne oor die land heen vuurwerk aan om hierdie pragtige geleentheid te vier. Die stede word so helder soos daglig."
+	},
+	"kz_country_name": {
+		"message": "Kazakstan"
 	},
 	"language": {
 		"message": "Taal"
@@ -167,8 +377,32 @@
 	"lightdescription": {
 		"message": "Verhelder jou TV met die Waar is Kersvader-program vir Android en Chromecast."
 	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Litaue"
+	},
+	"lv_country_name": {
+		"message": "Letland"
+	},
+	"ly_country_name": {
+		"message": "Libië"
+	},
+	"md_country_name": {
+		"message": "Moldawië"
+	},
 	"minutes": {
 		"message": "Minute"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Mianmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritanië"
 	},
 	"mx_country_name": {
 		"message": "Meksiko"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "In Meksiko vier kinders van alle ouderdomme Kersfees deur pinatas te breek. Volwassenes en kinders het pret deur 'n blinddoek te dra, rond te tol en 'n stok te swaai om die hangende, stervormige potte oop te breek. Wanneer die pinata oopbars, val neute, vrugte en lekkers uit wat almal geniet."
 	},
+	"my_country_name": {
+		"message": "Maleisië"
+	},
+	"mz_country_name": {
+		"message": "Mosambiek"
+	},
+	"na_country_name": {
+		"message": "Namibië"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
 	"newtoday": {
 		"message": "Nuut vandag"
+	},
+	"ng_country_name": {
+		"message": "Nigerië"
+	},
+	"nl_country_name": {
+		"message": "Nederland"
+	},
+	"no_country_name": {
+		"message": "Noorweë"
 	},
 	"nonprofit-jane-description": {
 		"message": "Sjimpansees is mense se naaste lewende familie in die diereryk! Vandag is daar minder as 300 000 sjimpansees oor weens habitatverliese, siekte en onwettige handel. Die Jane Goodall Instituut (JGI) beskerm sjimpansees deur hul gedrag, sowel as die habitatte waarin hulle leef, waar te neem en te verstaan. Die JGI beywer homself ook om 'n gemeenskap van mense te bou wat die natuurlewe en die omgewings wat ons deel, beskerm en bewaar. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eVerken die sjimpansee-habitatte\u003c/a\u003e in Gombe, Tanzanië."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Ysbeer"
 	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
 	"nz_country_name": {
 		"message": "Nieu-Seeland"
 	},
 	"nz_tradition": {
-		"message": "Omdat Kersfees in Nieu-Seeland in die somer is, kom vriende en familielede by 'n vleisbraai bymekaar. Kersetes sluit dikwels gebraaide lamsvleis in, soms in 'n 'hangi' – 'n ondergrondse put of grondoond – gebak. 'n Gunstelingnagereg is pavlova: 'n skuimtert met vars vrugte soos aarbeie en kiwivrug."
+		"message": "Omdat Kersfees in Nieu-Seeland in die somer is, kom vriende en familielede by 'n vleisbraai bymekaar. Kersetes sluit dikwels gebraaide lamsvleis in, soms in 'n 'hangi' – 'n ondergrondse put of grondoond – gebak. 'n Gunstelingnagereg is pavlova: 'n dis met skuimpies en vars vrugte soos aarbeie en kiwivrug."
+	},
+	"om_country_name": {
+		"message": "Oman"
 	},
 	"onthego": {
 		"message": "Kersvader op pad"
@@ -209,11 +470,20 @@
 	"openingtomorrow": {
 		"message": "Reuse openingdag môre"
 	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
 	"ph_country_name": {
 		"message": "Filippyne"
 	},
 	"ph_tradition": {
-		"message": "Die Filippyne is daarom bekend dat hy die wêreld se langste Kersseisoen het. Vier maande word as Kersfeesmaande beskou: September, Oktober, November, Desember. Kersliedjies kan soms begin September al gehoor word."
+		"message": "Die Filippyne is daarvoor bekend dat hy die wêreld se langste Kersseisoen het. Vier maande word as Kersfeesmaande beskou: September, Oktober, November, Desember. Kersliedjies kan soms begin September al gehoor word."
+	},
+	"pl_country_name": {
+		"message": "Pole"
 	},
 	"play": {
 		"message": "Speel"
@@ -224,17 +494,32 @@
 	"playdescription": {
 		"message": "Speel saam met vriende in Waar is Kersvader se Android-program."
 	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "Roemenië"
+	},
 	"ru_country_name": {
 		"message": "Rusland"
 	},
 	"ru_tradition": {
-		"message": "Russiese kinders versier 'n Nuwejaarsboom, pleks van 'n Kersboom. Kinders sien met verwagting uit na Oupa Ryp, wat saam met sy kleindogter Sneeumeisie reis om presente oor die land heen af te lewer. Oupa Ryp woon diep in 'n woud in Weliki Oestioeg in Noord-Rusland."
+		"message": "Russiese kinders versier 'n Nuwejaarsboom, pleks van 'n Kersboom. Kinders sien met verwagting uit na Oupa Ys, wat saam met sy kleindogter Sneeumeisie reis om presente oor die land heen af te lewer. Oupa Ys woon diep in 'n woud in Weliki Oestioeg in Noord-Rusland."
+	},
+	"sa_country_name": {
+		"message": "Saoedi-Arabië"
 	},
 	"santatracker": {
 		"message": "Waar is Kersvader"
 	},
 	"score": {
 		"message": "Telling"
+	},
+	"se_country_name": {
+		"message": "Swede"
 	},
 	"seconds": {
 		"message": "Sekondes"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "Deel"
 	},
+	"sk_country_name": {
+		"message": "Slowakye"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalië"
+	},
+	"sr_country_name": {
+		"message": "Suriname"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"td_country_name": {
+		"message": "Tsjaad"
+	},
 	"terms-and-privacy": {
 		"message": "Bepalings en privaatheid"
 	},
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "Tyd"
+	},
+	"tj_country_name": {
+		"message": "Tadjikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunisië"
+	},
+	"tr_country_name": {
+		"message": "Turkye"
 	},
 	"traditions-next": {
 		"message": "Volgende tradisie"
@@ -378,7 +693,7 @@
 		"message": "Colorado"
 	},
 	"trivia_beginner_010": {
-		"message": "Antarktika en watter ander kontinent lê heeltemal in die Suidelike Halfrond?"
+		"message": "Antarktika en watter ander kontinent lê heeltemal in die suidelike halfrond?"
 	},
 	"trivia_beginner_010_answer0": {
 		"message": "Australië"
@@ -3893,14 +4208,26 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgarye"
 	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzanië"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Verenigde Koninkryk"
 	},
 	"uk_tradition": {
-		"message": "In die Verenigde Koninkryk geniet pretmakers van alle ouderdomme Kersklappers met aandete. Klappers is buise in kleurryke papier met 'n treklus aan elke punt. Wanneer jy die lussse trek, bars die buis met 'n harde klap oop! Binne-in is papierhoede, speelgoed en lekkers om op Kersaand te geniet."
+		"message": "In die Verenigde Koninkryk geniet pretmakers van alle ouderdomme Kersklappers saam met aandete. Klappers is helderkleurige buise van karton en papier met punte aan elke kant wat getrek kan word. Wanneer jy die punte trek, bars die buis met 'n harde klap oop! Binne-in is papierhoede, speelgoed en lekkers om op Kersaand te geniet."
+	},
+	"upgrade-warning": {
+		"message": "Oeps! Waar is Kersvader word nie deur hierdie weergawe van jou blaaier gesteun nie. Om tot Waar is Kersvader toegang te verkry, laai 'n moderne blaaier af. Vir meer inligting besoek \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Verenigde State"
@@ -3908,7 +4235,28 @@
 	"us_tradition": {
 		"message": "In die Verenigde State word kouse op Kersaand opgehang. Die legende lui dat sint Nikolaas van 'n behoeftige gesin gehoor het. Om hulle te verras, het hy by hul skoorsteen afgeklim en sakke goud in hangende kouse geplaas. Van toe af is sint Nikolaas as Sinterklaas, die gewer van geskenke, bekend."
 	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Oezbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Viëtnam"
+	},
 	"watch": {
 		"message": "Kyk"
+	},
+	"ye_country_name": {
+		"message": "Jemen"
+	},
+	"zm_country_name": {
+		"message": "Zambië"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
 	}
 }

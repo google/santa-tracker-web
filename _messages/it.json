@@ -14,11 +14,23 @@
 	"about_title": {
 		"message": "Benvenuto in Segui Babbo Natale su Google Maps"
 	},
+	"af_country_name": {
+		"message": "Afghanistan"
+	},
+	"al_country_name": {
+		"message": "Albania"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
 	"ar_country_name": {
 		"message": "Argentina"
 	},
 	"ar_tradition": {
 		"message": "In Argentina il Natale inizia allo scoccare della mezzanotte. Sono molte le famiglie che iniziano le vacanze festeggiando in casa con i propri cari, aprendo i regali e accendendo fuochi d'artificio nelle prime ore della mattina."
+	},
+	"at_country_name": {
+		"message": "Austria"
 	},
 	"au_country_name": {
 		"message": "Australia"
@@ -26,11 +38,35 @@
 	"au_tradition": {
 		"message": "Data la posizione dell'Australia nell'emisfero sud, nel mese di dicembre è piena estate. Il popolo australiano, invece di festeggiare con campanelli da slitta e cioccolate calde, si reca in spiaggia per un pranzo a base di gamberi e qualche partita di cricket."
 	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Belgio"
+	},
+	"bg_country_name": {
+		"message": "Bulgaria"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
+	},
 	"br_country_name": {
 		"message": "Brasile"
 	},
 	"br_tradition": {
 		"message": "I festeggiamenti natalizi cominciano all'avvicinarsi della mezzanotte e di norma prevedono ricche cene in famiglia, l'apertura dei regali e la celebrazione in chiesa della \"Missa do Galo\" (la messa del gallo). Nonostante il clima estivo tropicale, non sono rari motivi legati all'inverno e alla neve."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"by_country_name": {
+		"message": "Bielorussia"
+	},
+	"bz_country_name": {
+		"message": "Belize"
 	},
 	"ca_country_name": {
 		"message": "Canada"
@@ -53,14 +89,116 @@
 	"category_send": {
 		"message": "Invia"
 	},
+	"cf_country_name": {
+		"message": "Repubblica Centrafricana"
+	},
+	"ch_country_name": {
+		"message": "Svizzera"
+	},
+	"cl_country_name": {
+		"message": "Cile"
+	},
 	"close-this": {
 		"message": "Annulla"
+	},
+	"cm_country_name": {
+		"message": "Camerun"
+	},
+	"co_country_name": {
+		"message": "Colombia"
+	},
+	"codelab-block-moveeast": {
+		"message": "est"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Spostami a est di uno spazio."
+	},
+	"codelab-block-movenorth": {
+		"message": "nord"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Spostami a nord di uno spazio."
+	},
+	"codelab-block-movesouth": {
+		"message": "sud"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Spostami a sud di uno spazio."
+	},
+	"codelab-block-movewest": {
+		"message": "ovest"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Spostami a ovest di uno spazio."
+	},
+	"codelab-block-repeat": {
+		"message": "ripeti"
+	},
+	"codelab-block-repeat-times": {
+		"message": "volte"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Consente di ripetere diverse volte alcune istruzioni."
+	},
+	"codelab-block-whenrun": {
+		"message": "quando eseguito"
+	},
+	"codelab-finish": {
+		"message": "Fine"
+	},
+	"codelab-great": {
+		"message": "Fantastico"
+	},
+	"codelab-mwc-promo": {
+		"message": "Esplora altri progetti di codifica di Google alla pagina \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Prossima sfida"
+	},
+	"codelab-oops": {
+		"message": "Mannaggia!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Per funzionare, il blocco \"Ripeti\" deve contenere un altro blocco."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Alcuni blocchi non sono attaccati correttamente."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Peccato, non ce l'hai fatta!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Prova uno o più dei seguenti blocchi per risolvere il rompicapo."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Sapevi che puoi completare questo livello con {{ideal}} soli blocchi? Prova a utilizzare il seguente blocco."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Congratulazioni. Hai perfettamente completato il rompicapo."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Utilizzi i blocchi giusti, ma prova ad aumentarne il numero per risolvere questo rompicapo."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Sapevi che puoi completare questo livello con {{ideal}} soli blocchi?"
+	},
+	"codelab-try-again": {
+		"message": "Riprova"
 	},
 	"copy-me": {
 		"message": "Copia questo link per condividere il messaggio"
 	},
 	"countdownlabel": {
 		"message": "Alla partenza di Babbo Natale"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cu_country_name": {
+		"message": "Cuba"
+	},
+	"cz_country_name": {
+		"message": "Repubblica Ceca"
 	},
 	"days": {
 		"message": "Giorni"
@@ -77,8 +215,26 @@
 	"deckdescription": {
 		"message": "Decora il tuo browser con un'estensione di Babbo Natale per Chrome."
 	},
+	"dk_country_name": {
+		"message": "Danimarca"
+	},
+	"do_country_name": {
+		"message": "Repubblica Dominicana"
+	},
+	"dz_country_name": {
+		"message": "Algeria"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Estonia"
+	},
 	"endofjourneymessage": {
 		"message": "Babbo Natale ha terminato il suo viaggio per quest'anno. Si trova ancora al Polo Nord, dove si sta divertendo ancora un po' in compagnia dei folletti prima della vacanza annuale."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
 	},
 	"error": {
 		"message": "Abbiamo perso i contatti con il Polo Nord. Gli elfi di Babbo Natale si stanno dando un gran daffare per risolvere il problema. Resta sintonizzato."
@@ -92,6 +248,12 @@
 	"error_try_again": {
 		"message": "Riprova"
 	},
+	"et_country_name": {
+		"message": "Etiopia"
+	},
+	"fi_country_name": {
+		"message": "Finlandia"
+	},
 	"finished-text": {
 		"message": "Buone feste! Babbo Natale ha terminato il suo viaggio intorno al mondo e ora si sta godendo una meritata vacanza. Torna a trovarci il prossimo anno!"
 	},
@@ -101,8 +263,14 @@
 	"fr_tradition": {
 		"message": "In Francia, la tradizione prevede che i bambini mettano le loro scarpe accanto al caminetto prima dell'arrivo di Père Noël. Se sono stati buoni durante l'anno, Père Noël riempirà le scarpe di doni."
 	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
 	"gameover": {
 		"message": "Partita finita!"
+	},
+	"gameover_level": {
+		"message": "Hai raggiunto il livello:"
 	},
 	"gameover_score": {
 		"message": "Il tuo punteggio:"
@@ -115,6 +283,12 @@
 	},
 	"gh_tradition": {
 		"message": "Il Natale in Ghana coinvolge l'intera famiglia. Gli adulti si travestono e distribuiscono caramelle e dolciumi per tutto il vicinato. I bambini addobbano le proprie case con decorazioni di carta e disegni realizzati a scuola."
+	},
+	"gl_country_name": {
+		"message": "Groenlandia"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
 	},
 	"gotovillage": {
 		"message": "Vai al villaggio"
@@ -134,8 +308,35 @@
 	"gt_tradition": {
 		"message": "Il popolo guatemalteco festeggia il Natale tra balli e divertimenti. Le persone indossano cappelli chiamati Puritina, mangiano tamales preparati secondo la tradizione guatemalteca, accendono fuochi d'artificio a mezzanotte e si divertono fino all'alba con balli di vari stili."
 	},
+	"gy_country_name": {
+		"message": "Guiana"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
 	"hours": {
 		"message": "Ore"
+	},
+	"hr_country_name": {
+		"message": "Croazia"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Ungheria"
+	},
+	"id_country_name": {
+		"message": "Indonesia"
+	},
+	"ie_country_name": {
+		"message": "Irlanda"
+	},
+	"iq_country_name": {
+		"message": "Iraq"
+	},
+	"ir_country_name": {
+		"message": "Iran"
 	},
 	"is_country_name": {
 		"message": "Islanda"
@@ -143,11 +344,20 @@
 	"is_tradition": {
 		"message": "In Islanda, durante il Natale, i regali consistono in pesanti capi di abbigliamento. Secondo una leggenda, uno spaventoso gatto di Natale divora chiunque non sia attrezzato per il freddo clima invernale. Nelle famiglie si collabora per assicurarsi che nessuno venga mangiato dal gatto di Natale."
 	},
+	"it_country_name": {
+		"message": "Italia"
+	},
+	"jm_country_name": {
+		"message": "Giamaica"
+	},
 	"kg_country_name": {
 		"message": "Kirghizistan"
 	},
 	"kg_tradition": {
 		"message": "In Kirghizistan, Ayaz Ata (Nonno Gelo) arriva alla mezzanotte del 31 dicembre e lascia i regali sotto l'Albero dell'anno nuovo. Allo scoccare della mezzanotte, le famiglie in tutto il Paese accendono i fuochi d'artificio per festeggiare il lieto evento e le città si illuminano a giorno."
+	},
+	"kz_country_name": {
+		"message": "Kazakistan"
 	},
 	"language": {
 		"message": "Lingua"
@@ -167,8 +377,32 @@
 	"lightdescription": {
 		"message": "Vivacizza la tua televisione con l'app di Segui Babbo Natale per Android e Chromecast."
 	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lt_country_name": {
+		"message": "Lituania"
+	},
+	"lv_country_name": {
+		"message": "Lettonia"
+	},
+	"ly_country_name": {
+		"message": "Libia"
+	},
+	"md_country_name": {
+		"message": "Moldavia"
+	},
 	"minutes": {
 		"message": "Minuti"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritania"
 	},
 	"mx_country_name": {
 		"message": "Messico"
@@ -176,8 +410,29 @@
 	"mx_tradition": {
 		"message": "In Messico bambini di tutte le età festeggiano il Natale con la rottura delle pignatte: indossando una benda, girano su se stessi e agitano un bastone per colpire pentole appese a forma di stella. Quando la pignatta si rompe, ne fuoriescono noci, frutta e dolciumi ad allietare i presenti."
 	},
+	"my_country_name": {
+		"message": "Malesia"
+	},
+	"mz_country_name": {
+		"message": "Mozambico"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
 	"newtoday": {
 		"message": "Novità di oggi"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Paesi Bassi"
+	},
+	"no_country_name": {
+		"message": "Norvegia"
 	},
 	"nonprofit-jane-description": {
 		"message": "Nel regno animale, gli scimpanzé sono la specie vivente più vicina all'uomo. Oggi, ne rimangono meno di 300.000 a causa della perdita del loro habitat, delle malattie e del commercio illegale. Il Jane Goodall Institute (JGI) protegge gli scimpanzé osservandone e capendone i comportamenti e gli habitat in cui vivono. Il JGI lavora anche per creare una comunità di persone che proteggono e conservano la natura e l'ambiente in cui noi tutti viviamo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eEsplora gli habitat degli scimpanzé\u003c/a\u003e in Gombe, Tanzania."
@@ -197,11 +452,17 @@
 	"nonprofit-wwf-type": {
 		"message": "Orso polare"
 	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
 	"nz_country_name": {
 		"message": "Nuova Zelanda"
 	},
 	"nz_tradition": {
 		"message": "In Nuova Zelanda il Natale cade in estate e familiari e amici festeggiano attorno al barbecue. Il tipico menu comprende l'agnello arrosto, talvolta cotto in un \"hangi\", una buca sottoterra, o in un forno di terra. Molto amata è la pavlova: una meringa ricoperta di frutta fresca come fragole e kiwi."
+	},
+	"om_country_name": {
+		"message": "Oman"
 	},
 	"onthego": {
 		"message": "Il viaggio di Babbo Natale"
@@ -209,11 +470,20 @@
 	"openingtomorrow": {
 		"message": "Grande inaugurazione domani"
 	},
+	"pa_country_name": {
+		"message": "Panamá"
+	},
+	"pe_country_name": {
+		"message": "Perù"
+	},
 	"ph_country_name": {
 		"message": "Filippine"
 	},
 	"ph_tradition": {
 		"message": "Le Filippine sono famose per la durata della loro stagione natalizia, la più lunga del mondo. Il Natale comprende un periodo di quattro mesi: settembre, ottobre, novembre e dicembre. I canti natalizi spesso si iniziano a sentire già dai primi giorni di settembre."
+	},
+	"pl_country_name": {
+		"message": "Polonia"
 	},
 	"play": {
 		"message": "Gioca"
@@ -224,17 +494,32 @@
 	"playdescription": {
 		"message": "Gioca con gli amici con l'app di Segui Babbo Natale per Android."
 	},
+	"pr_country_name": {
+		"message": "Portorico"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "Romania"
+	},
 	"ru_country_name": {
 		"message": "Russia"
 	},
 	"ru_tradition": {
 		"message": "I bambini russi decorano l'albero di Capodanno anziché l'albero di Natale. Attendono con ansia l'arrivo di Nonno Gelo che viaggia con la nipote, La Fanciulla di Neve, distribuendo doni su tutta la terra. Nonno Gelo vive nei boschi di Veliky Ustyug, nel nord della Russia."
 	},
+	"sa_country_name": {
+		"message": "Arabia Saudita"
+	},
 	"santatracker": {
 		"message": "Segui Babbo Natale"
 	},
 	"score": {
 		"message": "Punti"
+	},
+	"se_country_name": {
+		"message": "Svezia"
 	},
 	"seconds": {
 		"message": "Secondi"
@@ -251,6 +536,24 @@
 	"share-this": {
 		"message": "Condividi"
 	},
+	"sk_country_name": {
+		"message": "Slovacchia"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalia"
+	},
+	"sr_country_name": {
+		"message": "Suriname"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"td_country_name": {
+		"message": "Ciad"
+	},
 	"terms-and-privacy": {
 		"message": "Termini e privacy"
 	},
@@ -259,6 +562,18 @@
 	},
 	"time": {
 		"message": "Orario"
+	},
+	"tj_country_name": {
+		"message": "Tagikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunisia"
+	},
+	"tr_country_name": {
+		"message": "Turchia"
 	},
 	"traditions-next": {
 		"message": "Tradizione successiva"
@@ -3893,8 +4208,17 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgaria"
 	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
 	"twitter": {
 		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
 	},
 	"uk_country_name": {
 		"message": "Regno Unito"
@@ -3902,13 +4226,37 @@
 	"uk_tradition": {
 		"message": "Nel Regno Unito, la cena di Natale si festeggia con i \"Christmas Crackers\", cilindri avvolti in carta colorata, dotati di due linguette, tirando le quali, i cilindri esplodono con un rumore scoppiettante. All'interno vi sono cappelli di carta, giocattoli e dolciumi per allietare la notte di Natale."
 	},
+	"upgrade-warning": {
+		"message": "Spiacenti. Segui Babbo Natale non è supportato in questa versione del tuo browser. Per accedervi, scarica un browser più recente. Per ulteriori informazioni, visita \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Stati Uniti"
 	},
 	"us_tradition": {
 		"message": "Negli Stati Uniti per la Vigilia di Natale si appendono le calze. La legenda narra che San Nicola venuto a conoscenza di una famiglia bisognosa, si calò nel loro camino lasciando borse colme d'oro nelle calze appese. Da quel momento, San Nicola è noto come Santa Claus, il portatore di doni."
 	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
 	"watch": {
 		"message": "Orologio"
+	},
+	"ye_country_name": {
+		"message": "Yemen"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
 	}
 }

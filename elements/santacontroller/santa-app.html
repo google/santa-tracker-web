@@ -14,6 +14,7 @@ Santa Track app.
 @element santa-app
 -->
 <polymer-element name="santa-app"
+                 on-iframe-focus-change="{{onIframeFocusChange}}"
                  on-analytics-track-event="{{trackEvent}}"
                  on-analytics-track-perf="{{trackPerf}}"
                  on-analytics-time-start="{{timeStart}}"
@@ -58,10 +59,20 @@ Santa Track app.
         path="scenes/briefing/briefing-scene_[[language]].html"
         hidden></briefing-scene>
 
+    <codelab-scene route="codelab"
+        path="scenes/codelab/codelab-scene_[[language]].html"
+        loadingBgColor="#3F4EA1"
+        loadingSrc="scenes/codelab/img/loading.svg" hidden></codelab-scene>
+
     <gumball-scene route="gumball"
         path="scenes/gumball/gumball-scene_[[language]].html"
         loadingBgColor="#8d23a9"
         loadingSrc="scenes/gumball/img/loading.svg" hidden></gumball-scene>
+
+    <jamband-scene route="jamband"
+        path="scenes/jamband/jamband-scene_[[language]].html"
+        loadingBgColor="#fdbe27"
+        loadingSrc="scenes/jamband/img/loading.svg" hidden></jamband-scene>
 
     <jetpack-scene route="jetpack"
         path="scenes/jetpack/jetpack-scene_[[language]].html"
@@ -321,14 +332,6 @@ Polymer(Polymer.mixin({
       this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
       this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
-
-      window.addEventListener('blur', function() {
-        this.fire('sound-ambient', 'global_blur');
-      }.bind(this));
-
-      window.addEventListener('focus', function() {
-        this.fire('sound-ambient', 'global_focus');
-      }.bind(this));
     }
 
     // Initialize routes.
@@ -343,6 +346,13 @@ Polymer(Polymer.mixin({
       window.location = 'https://santatracker.google.com' +
           location.pathname.replace(/[^\/]*$/, '') + 'error.html';
     });
+
+    // Disable Google Play house on iOS devices
+    if (navigator.userAgent.match(/iPhone|iPod|iPad/i)) {
+      if (this.houses[3].module === 'app') {
+        this.houses[3].disabled = true;
+      }
+    }
 
     if (!this.route) {
       this.checkSchedule_();
@@ -431,6 +441,7 @@ Polymer(Polymer.mixin({
   },
 
   onPause: function() {
+    this.fire('sound-ambient', 'global_blur');
     this.fire('sound-ambient', 'global_pause');
     if (this.selectedScene && this.selectedScene.fire) {
       this.selectedScene.fire('scene-pause', true);
@@ -438,6 +449,7 @@ Polymer(Polymer.mixin({
   },
 
   onResume: function() {
+    this.fire('sound-ambient', 'global_focus');
     this.fire('sound-ambient', 'global_unpause');
     if (this.selectedScene && this.selectedScene.fire) {
       this.selectedScene.fire('scene-pause', false);
@@ -484,6 +496,14 @@ Polymer(Polymer.mixin({
   trackGameOver: function(e, detail, sender) {
     this.analyticsService.trackGameOver(
         detail.gameId, detail.score, detail.level, detail.timePlayed);
+  },
+
+  onIframeFocusChange: function(e, detail, sender) {
+    if (detail === 'blur') {
+      this.visibilityService.pauseIframe();
+    } else if (detail === 'focus') {
+      this.visibilityService.resumeIframe();
+    }
   },
 
   /**

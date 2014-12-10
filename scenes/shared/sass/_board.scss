@@ -411,12 +411,14 @@ $board-level-bp: 1350px !default;
         display: inline-block;
       }
 
-      .level.has-count .value {
-        display: none;
-      }
+      @media (min-width: $board-level-bp) and (min-height: 600px) {
+        .level.has-count .value {
+          display: none;
+        }
 
-      .level.has-count .level-dots {
-        display: block;
+        .level.has-count .level-dots {
+          display: block;
+        }
       }
     }
   }

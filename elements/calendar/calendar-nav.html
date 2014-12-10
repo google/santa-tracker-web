@@ -123,48 +123,41 @@ Village calendar navigation.
           </div>
         </div>
 
-        <div id="language-choose" layout vertical center-center hidden>
-          <div>
-            <a href="#" id="close-lang" on-click="{{toggleLanguageSelect}}"></a>
-            <h2><i18n-msg msgid="select-language">PLACEHOLDER_i18n</i18n-msg></h2>
-            <select id="language" value="{{santaApp.language}}" on-change="{{onLanguageChanged}}">
-              <option value="af">Afrikaans</option>
-              <option value="ca">Català</option>
-              <option value="zh-HK">中文（香港）</option>
-              <option value="zh-TW">中文</option>
-              <option value="da">Dansk</option>
-              <option value="de">Deutsch</option>
-              <option value="et">Eesti</option>
-              <option value="en">English</option>
-              <option value="es">Español</option>
-              <option value="fr">Français</option>
-              <option value="fr-CA">Français (Canada)</option>
-              <option value="hr">Hrvatski</option>
-              <option value="id">Indonesia</option>
-              <option value="it">Italiano</option>
-              <option value="ja">日本語</option>
-              <option value="lv">Latvijas</option>
-              <option value="lt">Lietuvos</option>
-              <option value="no">Norsk</option>
-              <option value="pl">Polski</option>
-              <option value="pt-BR">Português (Brasil)</option>
-              <option value="pt-PR">Português (Portugal)</option>
-              <option value="ro">Român</option>
-              <option value="sl">Slovenija</option>
-              <option value="sv">Svenska</option>
-              <option value="tl">Tagalog</option>
-              <option value="fi">Viimeistely</option>
-              <option value="bg">Български</option>
-              <option value="uk">Український</option>
-              <option value="ta-IN">தமிழ்</option>
-              <option value="ms">മലയാളം </option>
-              <option value="th">ภาษาไทย</option>
-            </select>
-          </div>
-        </div>
-
         <div id="global-nav-footer">
-          <a href="#" id="select-lang" on-click="{{toggleLanguageSelect}}"><i18n-msg msgid="language">PLACEHOLDER_i18n</i18n-msg></a>
+          <core-icon icon="language" style="height:20px;width:20px;"></core-icon>
+          <select id="language" value="{{santaApp.language}}" on-change="{{onLanguageChanged}}">
+            <option value="af">Afrikaans</option>
+            <option value="ca">Català</option>
+            <option value="zh-CN">中文（香港）</option>
+            <option value="zh-TW">中文</option>
+            <option value="da">Dansk</option>
+            <option value="de">Deutsch</option>
+            <option value="et">Eesti</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="fr-CA">Français (Canada)</option>
+            <option value="hr">Hrvatski</option>
+            <option value="id">Indonesia</option>
+            <option value="it">Italiano</option>
+            <option value="ja">日本語</option>
+            <option value="lv">Latvijas</option>
+            <option value="lt">Lietuvos</option>
+            <option value="no">Norsk</option>
+            <option value="pl">Polski</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="pt-PR">Português (Portugal)</option>
+            <option value="ro">Român</option>
+            <option value="sl">Slovenija</option>
+            <option value="sv">Svenska</option>
+            <option value="tl">Tagalog</option>
+            <option value="fi">Viimeistely</option>
+            <option value="bg">Български</option>
+            <option value="uk">Український</option>
+            <option value="ta-IN">தமிழ்</option>
+            <option value="ms">മലയാളം </option>
+            <option value="th">ภาษาไทย</option>
+          </select>
           &bull;
           <a href="{{pageUrl}}#about"><i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg></a>
           &bull;
@@ -296,7 +289,6 @@ Village calendar navigation.
         this.cancelAsync(this.closeTimeout_);
 
         this.$['global-nav-content'].scrollTop = 0;
-        this.$['language-choose'].hidden = true;
 
         this.$.tabs.selected = 'calendar';
 
@@ -308,15 +300,11 @@ Village calendar navigation.
         });
 
         this.fire('sound-trigger', 'menu_open');
-
-        this.santaApp && this.santaApp.visibilityService.pause();
       },
 
       onHide: function() {
         this.opening = this.opened = false;
         this.closing = true;
-
-        this.$['language-choose'].hidden = true;
 
         this.closeTimeout_ = this.async(function() {
           this.calNavSelection = 'calendar';
@@ -324,13 +312,6 @@ Village calendar navigation.
         }, null, this.TIMEOUT_DELAY);
 
         this.fire('sound-trigger', 'menu_close');
-
-        this.santaApp && this.santaApp.visibilityService.resume();
-      },
-
-      toggleLanguageSelect: function(e) {
-        e.preventDefault();
-        this.$['language-choose'].hidden = !this.$['language-choose'].hidden;
       },
 
       getNicePageUrl: function() {
