@@ -9,7 +9,7 @@ Intro for the tracker scene.
 
 @element tracker-intro
 -->
-<polymer-element name="tracker-intro" attributes="latitude longitude locationName">
+<polymer-element name="tracker-intro" attributes="userLocation">
 <template>
   <style>
   /* Outside of tracker-intro.scss because it requires shimming. */
@@ -19,6 +19,7 @@ Intro for the tracker scene.
     display: block;
     position: relative;
     transition: transform 0.3s ease;
+    z-index: 1;
   }
   </style>
   <link rel="stylesheet" href="tracker-intro.css" no-shim>
@@ -48,7 +49,7 @@ Intro for the tracker scene.
         <p class="info">
           <i18n-msg msgid="tracker_intro_user_location">PLACEHOLDER_i18n</i18n-msg>
           <br>
-          <em>{{locationName}}</em>
+          <em>{{userLocation.name}}</em>
         </p>
       </div>
     </div>
@@ -70,25 +71,7 @@ Intro for the tracker scene.
      * @type number
      * @default 0
      */
-    latitude: 0,
-
-    /**
-     * Longitude used to display the intro map.
-     *
-     * @property longitude
-     * @type number
-     * @default 0
-     */
-    longitude: 0,
-
-    /**
-     * Name of the current location displayed on the intro map.
-     *
-     * @property locationName
-     * @type string
-     * @default ''
-     */
-    locationName: '',
+    userLocation: null,
 
     /**
      * window center point.
@@ -125,9 +108,11 @@ Intro for the tracker scene.
       this.$.map.style.top = this.winCenterY_ - 150 + 'px';  /* center point - 0.5 * width */
     },
 
-    setup: function() {
+    userLocationChanged: function() {
       this.map_ = new google.maps.Map(this.$.map, {
-        center: new google.maps.LatLng(this.latitude, this.longitude),
+        center: new google.maps.LatLng(
+            this.userLocation.location.lat,
+            this.userLocation.location.lng),
         zoom: 8,
         disableDefaultUI: true,
         scrollwheel: false,
@@ -139,16 +124,27 @@ Intro for the tracker scene.
 
       google.maps.event.addListener(
         this.map_, 'idle', function(){
-          this.show();
+          this.showUserLocationMap();
         }.bind(this));
     },
 
     /**
-     * Starts intro's animation sequence.
+     * Plays intro title animation sequence.
      *
-     * @method show
+     * @method showTitle
      */
-    show: function() {
+    showTitle: function() {
+      this.async(function() {
+        this.$.top.classList.add('final');
+      }, null, 300);
+    },
+
+    /**
+     * Plays user's location animation sequence.
+     *
+     * @method showUserLocationMap
+     */
+    showUserLocationMap: function() {
       var bubble = this.$.bubble;
       var pin = this.$.pin;
       var bottom = this.$.bottom;
@@ -171,6 +167,15 @@ Intro for the tracker scene.
      */
     skip: function() {
       this.style.transform = 'translateY(-' + 2 * this.winCenterY_ + 'px)';
+    },
+
+    /**
+     * Removes this element entirely from DOM.
+     *
+     * @method destroy
+     */
+    destroy: function() {
+      this.parentNode.removeChild(this);
     }
   });
 })();
