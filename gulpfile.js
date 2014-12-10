@@ -19,7 +19,7 @@ var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/**/*.js';
 
-var STATIC_VERSION = 58;
+var STATIC_VERSION = 59;
 var VERSION = argv.build || STATIC_VERSION;
 
 // TODO(bckenny|cbro): fill in with default static asset base URL
