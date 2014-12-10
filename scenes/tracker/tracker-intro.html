@@ -1,0 +1,178 @@
+<link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="../../components/google-map/google-map.html">
+<link rel="import" href="bubble-overlay.html">
+
+<script src="../shared/js/mapstyles.js"></script>
+
+<!--
+Intro for the tracker scene.
+
+@element tracker-intro
+-->
+<polymer-element name="tracker-intro" attributes="latitude longitude locationName">
+<template>
+  <style>
+  /* Outside of tracker-intro.scss because it requires shimming. */
+  :host {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  </style>
+  <link rel="stylesheet" href="tracker-intro.css" no-shim>
+
+  <div id="tracker-intro-module">
+    <bubble-overlay opacity="1" color="#13AB27">
+      <canvas-bubble id="bubble" x="{{winCenterX_}}" y="{{winCenterY_}}"></canvas-bubble>
+    </bubble-overlay>
+
+    <div class="top" id="top">
+      <p class="welcome">
+        <i18n-msg msgid="tracker_intro_welcome">PLACEHOLDER_i18n</i18n-msg></a>
+      </p>
+      <p class="title">
+        <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
+      </p>
+    </div>
+
+    <div class="pin-wrapper" id="pinWrapper">
+      <img class="pin" id="pin" src="img/pin.svg">
+    </div>
+
+    <div id="map"></div>
+
+    <div class="bottom-wrapper">
+      <div class="bottom" id="bottom">
+        <p class="info">
+          <i18n-msg msgid="tracker_intro_user_location">PLACEHOLDER_i18n</i18n-msg>
+          <br>
+          <em>{{locationName}}</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="skip">
+      <a on-click="{{skip}}"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+
+  Polymer({
+    /**
+     * Latitude used to display the intro map.
+     *
+     * @property latitude
+     * @type number
+     * @default 0
+     */
+    latitude: 0,
+
+    /**
+     * Longitude used to display the intro map.
+     *
+     * @property longitude
+     * @type number
+     * @default 0
+     */
+    longitude: 0,
+
+    /**
+     * Name of the current location displayed on the intro map.
+     *
+     * @property locationName
+     * @type string
+     * @default ''
+     */
+    locationName: '',
+
+    /**
+     * window center point.
+     *
+     * @private
+     * @type number
+     * @default 0
+     */
+    winCenterX_: 0,
+
+    /**
+     * window center point.
+     *
+     * @private
+     * @type number
+     * @default 0
+     */
+    winCenterY_: 0,
+
+    created: function() {
+      this.winCenterX_ = window.innerWidth / 2;
+      this.winCenterY_ = window.innerHeight / 2;
+    },
+
+    ready: function() {
+      //debugger;
+      //this.$.map.styles = mapstyles.styles;
+    },
+
+    domReady: function() {
+      this.$.pinWrapper.style.left = this.winCenterX_ - 50 + 'px';
+      this.$.pinWrapper.style.top = this.winCenterY_ - 50 + 'px';
+      this.$.map.style.left = this.winCenterX_ - 150 + 'px';  /* center point - 0.5 * width */
+      this.$.map.style.top = this.winCenterY_ - 150 + 'px';  /* center point - 0.5 * width */
+    },
+
+    setup: function() {
+      this.map_ = new google.maps.Map(this.$.map, {
+        center: new google.maps.LatLng(this.latitude, this.longitude),
+        zoom: 8,
+        disableDefaultUI: true,
+        scrollwheel: false,
+        draggable: false,
+        disableDoubleClickZoom: true,
+        backgroundColor: '#fff',
+        styles: mapstyles.styles
+      });
+
+      google.maps.event.addListener(
+        this.map_, 'idle', function(){
+          this.show();
+        }.bind(this));
+    },
+
+    /**
+     * Starts intro's animation sequence.
+     *
+     * @method show
+     */
+    show: function() {
+      var bubble = this.$.bubble;
+      var pin = this.$.pin;
+      var bottom = this.$.bottom;
+
+      this.$.top.classList.add('final'); // 300ms
+      this.async(function() {
+        bubble.open(140, function(e) {
+          bubble.open(100, function() {
+            bottom.classList.add('final');
+            pin.style.transform = 'rotate(0deg)';
+          });
+        });
+      }, null, 300);
+    },
+
+    /**
+     * Hides the intro from view.
+     *
+     * @method skip
+     */
+    skip: function() {
+      this.style.transform = 'translateY(-' + 2 * this.winCenterY_ + 'px)';
+    }
+  });
+})();
+</script>
+</polymer-element>

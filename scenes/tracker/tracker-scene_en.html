@@ -1,5 +1,6 @@
 <link rel="import" href="../base-scene.html">
 <link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="tracker-intro.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 
 <link rel="import" href="dependencies.html">
@@ -18,12 +19,16 @@ Tracker scene.
   <link rel="stylesheet" href="tracker-scene.css" no-shim>
 
   <div id="module-tracker">
-
     <div class="scene">
+        <tracker-intro id="intro"
+            latitude="37.761500"
+            longitude="-122.446011"
+            locationName="San Francisco"></tracker-intro>
         <template if="{{santaApp}}">
           <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
             libraries="places,geometry" language="{{santaApp.language}}"
             on-api-load="{{mapsAPIReady}}"></google-maps-api>
+
         </template>
         <div id="trackermap" fit></div>
 
@@ -94,9 +99,11 @@ Tracker scene.
             </ul>
           </div>
         </div>
-      </template>
+
     </div>
   </div>
+
+
 </template>
 <script>
 (function() {
@@ -148,6 +155,7 @@ Tracker scene.
 
     mapsAPIReady: function() {
       this.setup_();
+      this.$.intro.setup();
     },
 
     trackSanta: function() {
@@ -179,7 +187,7 @@ Tracker scene.
           maximumAge: Infinity // We really don't care
         });
 
-      this.santaApp.santaService.addListener('destinations_changed', 
+      this.santaApp.santaService.addListener('destinations_changed',
           this.destinationsChanged_.bind(this));
 
       this.trackSanta();
