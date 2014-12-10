@@ -58,12 +58,11 @@ app.Game.prototype.showShareOverlay = function() {
   var s = this.instruments.save();
 
   if (s) {
-    window.history.pushState(null, '', 'https://santatracker.google.com/#jamband?band=' + s);
+    window.location.hash = '#jamband?band=' + s
   }
 
-  this.shareOverlay.show(window.location.href, true);
+  this.shareOverlay.show('https://santatracker.google.com/#jamband?band=' + s, true);
 };
-
 
 /**
  * Loads up a url-serialized band on the stage.
