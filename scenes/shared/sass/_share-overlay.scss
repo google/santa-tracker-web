@@ -2,10 +2,11 @@
 @import "share-buttons";
 
 $shareOverlay-bp: 661px;
+$shareOverlay-bg: rgba(40, 181, 245, 0.9) !default;
 
 ##{$name} {
   .shareOverlay {
-    background-color: rgba(40, 181, 245, 0.9);
+    background-color: $shareOverlay-bg;
   }
 
   .shareOverlay-dialog {
@@ -74,14 +75,20 @@ $shareOverlay-bp: 661px;
   }
 
   .shareOverlay-image {
-    background: url(../shared/img/share-overlay/barber.svg) no-repeat;
     bottom: 0;
     left: 0;
     position: absolute;
     right: 0;
     top: 0;
-
   }
+
+  .shareOverlay--barber .shareOverlay-image {
+    background: url(../shared/img/share-overlay/barber.svg) no-repeat;
+  }
+
+  .shareOverlay--jamband .shareOverlay-image {
+     background: url(../shared/img/share-overlay/jamband.svg) no-repeat;
+   }
 
   .shareOverlay-label {
     color: #FFFFFF;
@@ -105,6 +112,7 @@ $shareOverlay-bp: 661px;
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
     font-weight: bold;
+    height: 74px;
     line-height: 50px;
     margin-bottom: 10px;
     outline: none;
