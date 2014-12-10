@@ -1,7 +1,7 @@
 <link rel="import" href="../../components/polymer/polymer.html">
 
-<link rel="import" href="../../components/flatiron-director/flatiron-director.html">
 <link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../santa-tracker-router.html">
 <link rel="import" href="../preloader/preload-overlay.html">
 <link rel="import" href="../calendar/calendar-nav.html">
 <link rel="import" href="../lazy-pages.html">
@@ -28,7 +28,7 @@ Santa Track app.
   <core-a11y-keys target="{{}}" keys="esc" on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
 
   <!-- Route controller -->
-  <flatiron-director route="{{route}}" autoHash></flatiron-director>
+  <santa-tracker-router route="{{route}}" sceneParams="{{sceneParams}}" autoHash></santa-tracker-router>
 
   <!-- Preloading scene overlay -->
   <preload-overlay id="preloader" value="{{selectedScene.preloadProgress || 0}}"
@@ -367,6 +367,10 @@ Polymer(Polymer.mixin({
   selectedSceneChanged: function(oldVal, newVal) {
     if (oldVal) {
       this.prevSelectedRoute = oldVal.route;
+    }
+    // If there are scene params in the URL, let the selected scene know.
+    if (Object.keys(this.sceneParams).length) {
+      this.selectedScene.sceneParams = this.sceneParams;
     }
   },
 
