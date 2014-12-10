@@ -58,7 +58,9 @@ app.Game.prototype.showShareOverlay = function() {
   var s = this.instruments.save();
 
   if (s) {
-    window.location.hash = '#jamband?band=' + s
+    var newHref = location.href.substr(0,
+        location.href.length - location.hash.length) + '#jamband?band=' + s;
+    window.history.pushState(null, '', newHref);
   }
 
   this.shareOverlay.show('https://santatracker.google.com/#jamband?band=' + s, true);
