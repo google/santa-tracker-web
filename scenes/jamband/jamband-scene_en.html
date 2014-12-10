@@ -256,23 +256,20 @@ Jamband scene.
       this.game.start();
 
       this.fire('sound-ambient', 'jamband_start');
+
+      this.sceneParamsChanged();
+    },
+
+    sceneParamsChanged: function() {
+      if (this.sceneParams.band) {
+        this.game.restoreBand(this.sceneParams.band);
+      }
     },
 
     onHide: function() {
       this.game.dispose();
       this.game = null;
       this.fire('sound-ambient', 'jamband_end');
-    },
-
-    onQueryChanged: function(params) {
-      if (!this.game) {
-        window.console.warn('onQueryChanged called before onShow');
-        return;
-      }
-
-      if (params.band) {
-        this.game.restoreBand(params.band);
-      }
     }
   });
 
