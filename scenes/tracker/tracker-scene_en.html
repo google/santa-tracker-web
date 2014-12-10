@@ -21,9 +21,7 @@ Tracker scene.
   <div id="module-tracker">
     <div class="scene">
         <tracker-intro id="intro"
-            latitude="37.761500"
-            longitude="-122.446011"
-            locationName="San Francisco"></tracker-intro>
+            userLocation="{{userLocation}}"></tracker-intro>
         <template if="{{santaApp}}">
           <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
             libraries="places,geometry" language="{{santaApp.language}}"
@@ -155,7 +153,6 @@ Tracker scene.
 
     mapsAPIReady: function() {
       this.setup_();
-      this.$.intro.setup();
     },
 
     trackSanta: function() {
@@ -178,6 +175,7 @@ Tracker scene.
     setup_: function() {
       this.worldView_ = new WorldView(this, this.componentDir);
       this.worldView_.setupMap();
+      this.$.intro.showTitle();
 
       // TODO(lukem): this will need to move for the intro animation
       navigator.geolocation.getCurrentPosition(this.geoLocationSuccess_.bind(this),
@@ -218,10 +216,11 @@ Tracker scene.
       }.bind(this));
     },
 
-    geoLocationError_: function() {
+    geoLocationError_: function(error) {
       this.userLocation = null;
       this.$['status-bar-location'].hidden = true;
       this.$['status-bar-generic'].hidden = false;
+      this.$.intro.destroy();
     },
 
     destinationsChanged_: function() {
