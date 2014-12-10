@@ -155,13 +155,16 @@ Tracker scene.
 
       this.$['status-bar'].hidden = false;
       this.updateSanta_();
-      this.trackingInterval_ = window.setInterval(this.updateSanta_.bind(this), 250);
     },
 
     updateSanta_: function() {
       this.santaApp.santaService.getCurrentLocation(function(location) {
         this.location = location;
       }.bind(this));
+
+      if (!this.trackingInterval_) {
+        this.trackingInterval_ = window.setInterval(this.updateSanta_.bind(this), 250);
+      }
     },
 
     setup_: function() {
@@ -194,7 +197,10 @@ Tracker scene.
             var types = results[i].types;
             if (types.indexOf('locality') != -1) {
               this.userLocation = {
-                location: results[i].geometry.location,
+                location: {
+                  lat: results[i].geometry.location.lat(),
+                  lng: results[i].geometry.location.lng()
+                },
                 name: results[i].formatted_address
               };
               return;
@@ -230,9 +236,9 @@ Tracker scene.
       }
 
       if (this.userLocation) {
-        var distance = google.maps.geometry.spherical.computeDistanceBetween(
-          mapsLatLng(location.position),
-          this.userLocation.location);
+        var distance = Spherical.computeDistanceBetween(
+          location.position, this.userLocation.location);
+
         this.santaDistance = distance;
       }
 

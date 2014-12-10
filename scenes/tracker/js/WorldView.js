@@ -77,7 +77,7 @@ WorldView.prototype.setupMap = function() {
 
   this.createSceneMarkers_();
 
-  var SantaMarker = createSantaMarker();
+  var SantaMarker = createSantaMarkerConstructor();
 
   this.santaMarker_ = new SantaMarker({
     map: this.map_

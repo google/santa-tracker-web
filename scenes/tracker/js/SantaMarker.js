@@ -1,4 +1,4 @@
-function createSantaMarker() {
+function createSantaMarkerConstructor() {
 
   /**
    * @constructor
