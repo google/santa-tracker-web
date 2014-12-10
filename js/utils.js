@@ -63,6 +63,12 @@ function formatInt(n) {
 }
 formatInt.sep = (.1).toLocaleString().indexOf(',') != -1 ? '.' : ',';
 
+function formatDistance(dist) {
+  // TODO: localise? (miles)
+  // 0xA0 non-breaking space
+  return formatInt(Math.floor(dist / 1000)) + '\xA0km';
+};
+
 /**
  * Checks if the condition evaluates to true if window.DEV is true. If
  * window.DEV is false, assert call is removed by compiler as dead code.

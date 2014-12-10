@@ -1,0 +1,89 @@
+.santa-sleigh {
+  position: absolute;
+}
+
+.santa-presents, .santa-tree, .santa-magic {
+  position: absolute;
+  $width: 149px;
+  $height: 142px;
+  margin-top: -$height;
+  margin-left: -($width / 2);
+  width: $width;
+  height: $height;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.santa-presents {
+  background-image: url(img/presents_sprite.png);
+  @include media-hdpi(2) {
+    background-image: url(img/presents_sprite_2x.png);
+  }
+  background-size: 149px 1206px;
+  @include animations(santaDeliver 1s step-end infinite);
+}
+
+.santa-tree {
+  background-image: url(img/santa_tree_sprite.png);
+  @include media-hdpi(2) {
+    background-image: url(img/santa_tree_sprite_2x.png);
+  }
+  background-size: 149px 1206px;
+  @include animations(santaDeliver 1s step-end infinite);
+}
+
+.santa-magic {
+  background-image: url(img/santa_magic_sprite.png);
+  @include media-hdpi(2) {
+    background-image: url(img/santa_magic_sprite_2x.png);
+  }
+  background-size: 149px 1206px;
+  @include animations(santaMagic 4s step-end infinite);
+}
+
+.santa-sleigh {
+  $height: 60px;
+  $width: 77px;
+  margin-top: -$height;
+  margin-left: -($width / 2);
+  width: $width;
+  height: $height;
+  background-image: url(img/santa_sprite.png);
+  @include media-hdpi(2) {
+    background-image: url(img/santa_sprite_2x.png);
+  }
+  background-repeat: no-repeat;
+  background-size: 77px 550px;
+
+  &.e {
+    background-position: 0 0;
+  }
+
+  &.se {
+    background-position: 0 -70px;
+  }
+
+  &.s {
+    background-position: 0 -140px;
+  }
+
+  &.sw {
+    background-position: 0 -210px;
+  }
+
+  &.w {
+    background-position: 0 -280px;
+  }
+
+  &.nw {
+    background-position: 0 -350px;
+  }
+
+  &.n {
+    background-position: 0 -420px;
+  }
+
+  &.ne {
+    background-position: 0 -490px;
+  }
+}

@@ -1,10 +1,11 @@
 <link rel="import" href="../base-scene.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
-<link rel="import" href="../../components/google-map/google-map.html">
-<link rel="import" href="tracker-icons.html">
+
+<link rel="import" href="dependencies.html">
 
 <script src="../shared/js/mapstyles.js"></script>
+
 
 <!--
 Tracker scene.
@@ -19,54 +20,81 @@ Tracker scene.
   <div id="module-tracker">
 
     <div class="scene">
+        <template if="{{santaApp}}">
+          <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
+            libraries="places,geometry" language="{{santaApp.language}}"
+            on-api-load="{{mapsAPIReady}}"></google-maps-api>
+        </template>
+        <div id="trackermap" fit></div>
 
-        <google-map id="map" clientId="{{santaApp.config.CLIENT_ID}}" disableDefaultUI
-                  zoomable="false" libraries="places,geometry"
-                  latitude="{{latitude_}}" longitude="{{longitude_}}" fit></google-map>
+        <div id="status-bar" hidden>
+          <div id="back-to-village">
+            <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
+              <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
+            </a>
+          </div>
+          <div id="status-bar-location" hidden>
+            <ul>
+              <li>
+                <h4>Your location</h4>
+                <div class="ico ico-marker"></div>
+                <div class="stat">{{ userLocation.name }}</div>
+              </li>
+              <li>
+                <h4>Santa arrives in your area</h4>
+                <div class="stat-large">TODO</div>
+              </li>
+              <li>
+                <h4>Santa is approximately</h4>
+                <div class="stat-large"> {{ santaDistance | formatDistance_ }}</div>
+              </li>
+              <li >
+                <h4>Gifts delivered</h4>
+                <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
+              </li>
+              <li>
+                <h4>Next stop</h4>
+                <div class="ico ico-arrow"></div>
+                <div class="stat">{{ location.next.city }}</div>
+              </li>
+            </ul>
+          </div>
 
-        <div class="status-bar">
-          <h2>Currently</h2>
-          <ul>
-            <li>
-              <core-icon icon="santa-icons:timer" size="10"></core-icon>
-              {{ location_.stopover ? location_.stopover.city : 'In flight' }}
-            </li>
-          </ul>
-          <h2>Next stop</h2>
-          <ul>
-            <li>
-              <core-icon icon="santa-icons:pin" size="10"></core-icon>
-              {{location_.next.city}}
-            </li>
-          </ul>
-          <h2>Landing</h2>
-          <ul>
-            <li>
-              <core-icon class="test" icon="santa-icons:reindeer" size="10"></core-icon>
-              <!-- TODO: what if already landed? -->
-              {{location_.next.arrival | formatTime_}}
-            </li>
-          </ul>
-          <h2>Filter</h2>
-          <ul>
-            <li>
-              <core-icon icon="santa-icons:filter-media" size="10"></core-icon>
-              All media
-            </li>
-            <li>
-              <core-icon icon="santa-icons:filter-location" size="30"></core-icon>
-              All locations
-            </li>
-          </ul>
+          <div id="status-bar-generic" hidden>
+            <ul>
+              <li hidden?="{{!location.stopover}}">
+                <h4>Previous stop</h4>
+                <div class="ico ico-marker"></div>
+                <div class="stat">{{ location.prev.city }}</div>
+              </li>
+              <li hidden?="{{location.stopover}}">
+                <h4>Current stop</h4>
+                <div class="ico ico-marker"></div>
+                <div class="stat">{{ location.stopover.city }}</div>
+              </li>
+              <li>
+                <h4>Next stop</h4>
+                <div class="ico ico-arrow"></div>
+                <div class="stat">{{ location.next.city }}</div>
+              </li>
+              <li hidden?="{{!location.stopover}}">
+                <h4>Arriving in</h4>
+                <div class="ico ico-clock"></div>
+                <div class="stat">{{ arrival_ }}</div>
+              </li>
+              <li hidden?="{{location.stopover}}">
+                <h4>Departing in</h4>
+                <div class="ico ico-clock"></div>
+                <div class="stat">{{ departure_ }}</div>
+              </li>
+              <li >
+                <h4>Gifts Delivered</h4>
+                <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
+              </li>
+            </ul>
+          </div>
         </div>
       </template>
-
-      <div class="sceneboard">
-        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
-          <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
-        </a>
-        <div class="sceneboard-back"></div>
-      </div>
     </div>
   </div>
 </template>
@@ -77,25 +105,38 @@ Tracker scene.
     componentDir: 'scenes/tracker/',
 
     /**
-     * Latitude of the main map's center. Ususally Santa's location.
-     * @type Number
-     * @private
-     */
-    latitude_: null,
-
-    /**
-     * Longitude of the main map's center. Ususally Santa's location.
-     * @type Number
-     * @private
-     */
-    longitude_: null,
-    /**
      * Current Santa's location.
      * @type {SantaState}
      * @private
      */
-    location_: null,
+    location: null,
+
+    /**
+     * Santas time of arrival.
+     * @type {string}
+     * @private
+     */
+    arrival_: null,
+
+    /**
+     * Santas time of arrival.
+     * @type {string}
+     * @private
+     */
+    departure_: null,
+
+    /**
+     * User's location.
+     * @type {Position}
+     * @private
+     */
+    userLocation: null,
+
+    worldView_: false,
+    dests_: null,
+
     onPreload: function() {
+      // TOOD(lukem): Add images
       this.preloadImages([
         'img/smallglobe.svg'
       ]);
@@ -103,36 +144,151 @@ Tracker scene.
 
     ready: function() {
       this.super();
-      this.$.map.styles = mapstyles.styles;
     },
 
-    santaAppChanged: function() {
+    mapsAPIReady: function() {
+      this.setup_();
+    },
+
+    trackSanta: function() {
+      if (this.trackingInterval_) return;
+
+      this.$['status-bar'].hidden = false;
+      this.updateSanta_();
+    },
+
+    updateSanta_: function() {
       this.santaApp.santaService.getCurrentLocation(function(location) {
-        this.location_ = location;
-        this.latitude_ = location.position.lat;
-        this.longitude_ = location.position.lng;
+        this.location = location;
+      }.bind(this));
+
+      if (!this.trackingInterval_) {
+        this.trackingInterval_ = window.setInterval(this.updateSanta_.bind(this), 250);
+      }
+    },
+
+    setup_: function() {
+      this.worldView_ = new WorldView(this, this.componentDir);
+      this.worldView_.setupMap();
+
+      // TODO(lukem): this will need to move for the intro animation
+      navigator.geolocation.getCurrentPosition(this.geoLocationSuccess_.bind(this),
+        this.geoLocationError_.bind(this), {
+          enableHighAccuracy: false,
+          timeout: 2000,
+          maximumAge: Infinity // We really don't care
+        });
+
+      this.santaApp.santaService.addListener('destinations_changed', 
+          this.destinationsChanged_.bind(this));
+
+      this.trackSanta();
+    },
+
+    geoLocationSuccess_: function(position) {
+      var latlng = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({'latLng': latlng}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            var types = results[i].types;
+            if (types.indexOf('locality') != -1) {
+              this.userLocation = {
+                location: {
+                  lat: results[i].geometry.location.lat(),
+                  lng: results[i].geometry.location.lng()
+                },
+                name: results[i].formatted_address
+              };
+              return;
+            }
+          }
+        }
       }.bind(this));
     },
 
-    onShow: function() {
-      // TODO: implement
-
+    geoLocationError_: function() {
+      this.userLocation = null;
+      this.$['status-bar-location'].hidden = true;
+      this.$['status-bar-generic'].hidden = false;
     },
+
+    destinationsChanged_: function() {
+      var dests = this.santaApp.santaService.getDestinations();
+      this.setDestinations_(dests);
+    },
+
+    userLocationChanged: function() {
+      this.$['status-bar-location'].hidden = this.userLocation == null;
+      this.$['status-bar-generic'].hidden = this.userLocation != null;
+    },
+
+    locationChanged: function() {
+      var location = this.location;
+
+      this.arrival_ = this.formatCountdown_(location.next.arrival);
+
+      if (location.stopover) {
+        this.departure_ = this.formatCountdown_(location.stopover.departure);
+      }
+
+      if (this.userLocation) {
+        var distance = Spherical.computeDistanceBetween(
+          location.position, this.userLocation.location);
+
+        this.santaDistance = distance;
+      }
+
+      if (this.worldView_) {
+        this.worldView_.moveSanta(location);
+      }
+    },
+
+    setDestinations_: function(dests) {
+      this.dests_ = dests || [];
+
+      this.worldView_.setDestinations(this.dests_);
+    },
+
+    onShow: function() {
+
+      //TODO(lukem): figure out something nicer to do
+      if (this.worldView_) {
+        this.worldView_.fitBounds();
+      }
+    },
+
     onHide: function() {
       // TODO: implement
     },
-    /**
-     * Transforms a supplied timestamp into the time string.
-     * @param  {date} input
-     * @return {date}
-     */
-    formatTime_: function(input) {
-      ts = Math.floor(input/60/1000);
-      var m = ts % 60;
-      var h = Math.floor(ts/60) % 24;
-      m = m < 10 ? '0' + m : '' + m;
-      h = h < 10 ? '0' + h : '' + h;
-      return h + ':' + m;
+
+    formatInt_: function(i) {
+      if (!i) return '';
+      return formatInt(i);
+    },
+
+    formatDistance_: function(dist) {
+      return formatDistance(dist);
+    },
+
+    formatCountdown_: function(timestamp) {
+      if (!this.santaApp || !this.santaApp.santaService || isNaN(timestamp)) return '';
+
+      timestamp -= this.santaApp.santaService.now();
+      timestamp /= 1000;
+
+      // TODO: localise?
+      var seconds = Math.floor(timestamp) % 60;
+      timestamp /= 60;
+      var mins = Math.floor(timestamp) % 60;
+      timestamp /= 60;
+      var hours = Math.floor(timestamp) % 24;
+      var parts = [pad(hours), pad(mins), pad(seconds)];
+      if (!hours) parts.shift();
+      return parts.join(':');
     }
   });
 })();
