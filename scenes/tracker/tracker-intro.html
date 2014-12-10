@@ -9,8 +9,7 @@ Intro for the tracker scene.
 
 @element tracker-intro
 -->
-<polymer-element name="tracker-intro"
-    attributes="userLocation">
+<polymer-element name="tracker-intro" attributes="userLocation">
 <template>
   <style>
   /* Outside of tracker-intro.scss because it requires shimming. */
@@ -75,24 +74,6 @@ Intro for the tracker scene.
     userLocation: null,
 
     /**
-     * Longitude used to display the intro map.
-     *
-     * @property longitude
-     * @type number
-     * @default 0
-     */
-    userLocationLongitude: 0,
-
-    /**
-     * Name of the current location displayed on the intro map.
-     *
-     * @property locationName
-     * @type string
-     * @default ''
-     */
-    userLocationName: '',
-
-    /**
      * window center point.
      *
      * @private
@@ -155,7 +136,7 @@ Intro for the tracker scene.
     showTitle: function() {
       this.async(function() {
         this.$.top.classList.add('final');
-      }.bind(this), null, 300);
+      }, null, 300);
     },
 
     /**
