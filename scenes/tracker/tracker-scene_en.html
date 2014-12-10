@@ -36,7 +36,7 @@ Tracker scene.
           <div id="status-bar-location" hidden>
             <ul>
               <li>
-                <h4>Your Location</h4>
+                <h4>Your location</h4>
                 <div class="ico ico-marker"></div>
                 <div class="stat">{{ userLocation.name }}</div>
               </li>
@@ -49,11 +49,11 @@ Tracker scene.
                 <div class="stat-large"> {{ santaDistance | formatDistance_ }}</div>
               </li>
               <li >
-                <h4>Gifts Delivered</h4>
+                <h4>Gifts delivered</h4>
                 <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
               </li>
               <li>
-                <h4>Next location</h4>
+                <h4>Next stop</h4>
                 <div class="ico ico-arrow"></div>
                 <div class="stat">{{ location.next.city }}</div>
               </li>
@@ -63,17 +63,17 @@ Tracker scene.
           <div id="status-bar-generic" hidden>
             <ul>
               <li hidden?="{{!location.stopover}}">
-                <h4>Previous location</h4>
+                <h4>Previous stop</h4>
                 <div class="ico ico-marker"></div>
                 <div class="stat">{{ location.prev.city }}</div>
               </li>
               <li hidden?="{{location.stopover}}">
-                <h4>Current Location</h4>
+                <h4>Current stop</h4>
                 <div class="ico ico-marker"></div>
                 <div class="stat">{{ location.stopover.city }}</div>
               </li>
               <li>
-                <h4>Next location</h4>
+                <h4>Next stop</h4>
                 <div class="ico ico-arrow"></div>
                 <div class="stat">{{ location.next.city }}</div>
               </li>
@@ -171,15 +171,13 @@ Tracker scene.
       this.worldView_ = new WorldView(this, this.componentDir);
       this.worldView_.setupMap();
 
+      // TODO(lukem): this will need to move for the intro animation
       navigator.geolocation.getCurrentPosition(this.geoLocationSuccess_.bind(this),
         this.geoLocationError_.bind(this), {
           enableHighAccuracy: false,
           timeout: 2000,
           maximumAge: Infinity // We really don't care
         });
-
-      var dests = this.santaApp.santaService.getDestinations();
-      this.destinationsChanged_(dests);
 
       this.santaApp.santaService.addListener('destinations_changed', 
           this.destinationsChanged_.bind(this));
@@ -188,8 +186,10 @@ Tracker scene.
     },
 
     geoLocationSuccess_: function(position) {
-      var latlng = new google.maps.LatLng(position.coords.latitude,
-          position.coords.longitude);
+      var latlng = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
       var geocoder = new google.maps.Geocoder();
       geocoder.geocode({'latLng': latlng}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
@@ -216,8 +216,8 @@ Tracker scene.
       this.$['status-bar-generic'].hidden = false;
     },
 
-    destinationsChanged_: function(dests) {
-      var dests = dests || this.santaApp.santaService.getDestinations();
+    destinationsChanged_: function() {
+      var dests = this.santaApp.santaService.getDestinations();
       this.setDestinations_(dests);
     },
 
