@@ -3,7 +3,7 @@ root.Klang = factory();
 if (typeof define === "function" && define.amd) {
     define( function(){ return root.Klang; }); //hack to preserve backward compatibility
 } else if (typeof exports === "object") {   module.exports = root.Klang;}
-}(this, function () {
+}(window, function () {
 if (navigator.userAgent.indexOf('MSIE') != -1) {
     var ie = true;
     var ua = navigator.userAgent;
@@ -160,210 +160,6 @@ if (navigator.userAgent.indexOf('MSIE') != -1) {
 
 
 } ());
-AudioSprite = function (src, data, callback) {
-	var _this = this;
-	var audio = new Audio();
-
-	/////////////////////////////////////////////////////////////////////////////
-	// PUBLIC STUFF	
-	/////////////////////////////////////////////////////////////////////////////
-	this.audio = audio;
-	this.playing = false;
-	this.loaded = false;
-	this.inited = false;
-	this.data = data;
-	this.srcUrl = src;
-	this.loadedCallback = null;
-
-	function canPlayThroughCallback() {
-		if (_this.loadedCallback) {
-			_this.loadedCallback();
-		}
-		audio.removeEventListener('canplaythrough', canPlayThroughCallback);
-	}
-	this.init = function() {
-		this.inited = true;
-
-		audio.src = this.srcUrl;
-		audio.autobuffer = false;
-		audio.autoplay = false;
-		audio.preload = false;
-
-		audio.addEventListener('canplaythrough', canPlayThroughCallback);
-
-		var _forcePauseOnLoad = function () {
-			audio.pause();
-			audio.removeEventListener('play', _forcePauseOnLoad, false);
-
-			if (callback && !_this.loaded) {
-				callback();
-			}
-
-			_this.loaded = true;
-		};	
-		audio.addEventListener('play', _forcePauseOnLoad, false);
-	}
-
-	/**
-	 * Triggers loading of sprite source
-	 */
-	this.load = function (callback) {
-		this.loadedCallback = callback;
-		if (!this.inited) {
-			this.init();
-		}
-		if (!Klang.isMobile) {
-			audio.volume = 0;
-		}
-		audio.play();
-	};
-
-	/** 
-	 * Pause audio sprute at current position 
-	 * @param seekTime (optional) seeking to next sound directly after pause (if 
-	 *                            you know what it will be) can reduce time to 
-	 *                            play next sound and make it feel more responsive
-	 */
-	this.pause = function (seekTime) {
-		//audio.pause();
-		if (seekTime) {
-			audio.currentTime = seekTime;
-		}
-		_this.playing = false;
-		audio.pause();
-		//clearInterval(_this._timer); // Consider using rAF hook instead: Render.stopRender(_this._checkCurrentTime);	
-		//clearTimeout(_this._backupTimeout);
-	};
-
-	this._onEndedLoop = function () {
-		audio.currentTime = 0;
-		if ( _this.playing ) audio.play();
-	};
-
-	this.setLoop = function(state) {
-		//audio.loop = state;
-
-        this._loop = state;
-	}
-
-	this.setVolume = function(vol) {
-		if (!Klang.isMobile) {
-			audio.volume = vol;
-		}
-	}
-
-	this._playNative = function () {
-
-		if ( this._hasLoopEvent ) {
-	    	this.audio.removeEventListener('ended', this._onEndedLoop, false);
-	    }
-
-		if ( this._loop ) {
-			this.audio.addEventListener('ended', this._onEndedLoop, false);
-			this._hasLoopEvent = true;
-	    }
-
-	    audio.play();
-	}
-}
-
-AudioSprite.prototype.play = function (startTime, duration) {
-	if (!this.inited) {
-		return;
-	}
-	if (startTime == undefined) {
-		startTime = 0;
-	}
-
-	var _this = this,
-			audio = this.audio,
-			nextTime = startTime + duration,
-			startTime = Math.floor(startTime*100)/100; // seeking to time with too many decimals sometimes ignored by audio tag
-
-	// Consider adding something like this to skip sound if frame rate drops
-	// if (Global.LAST_FRAME > 1000) {
-	//   return;
-	// }
-
-	var progress = function () {
-		audio.removeEventListener('progress', progress, false);
-		if (_this.updateCallback !== null && _this.playing) {
-			_this.updateCallback();
-		}
-	};
-
-	var delayPlay = function () {
-		_this.updateCallback = function () {
-			_this.updateCallback = null;
-			
-			if (waitForDuration() || !audio.duration) {
-				// still no duration - server probably doesn't send "Accept-Ranges" headers - aborting');
-				return;
-			}
-
-			audio.currentTime = startTime;
-			_this._playNative();
-		};
-		audio.addEventListener('progress', progress, false);
-	};
-	
-	// Check if audio tag is missing duration
-	// missing audio.duration is NaN in Firefox
-	// missing missing audio.duration is Infinity in Mobile Safari
-	// missing audio.duration is 100 in Chrome on Android
-	var waitForDuration = function () {
-		return !isFinite(audio.duration) || audio.duration === 100;
-	};
-
-	_this.playing = true; 
-	_this.updateCallback = null;
-	audio.removeEventListener('progress', progress, false);
-
-	//clearTimeout(_this._backupTimeout);
-	//clearInterval(_this._timer); //Render.stopRender(_this._checkCurrentTime);
-	
-	audio.pause();
-
-	try {
-		// try seeking to sound to play
-		if (startTime == 0) startTime = 0.01; // http://remysharp.com/2010/12/23/audio-sprites/
-		if (audio.currentTime !== startTime) audio.currentTime = startTime;
-
-		// make sure we can read duration of audio tag, otherwise we can't seek
-		if (waitForDuration() || Math.round(audio.currentTime*100)/100 < startTime) {
-			delayPlay();
-		} else {
-			this._playNative();
-		}
-	} catch (e) {
-		delayPlay();
-	}
-
-	// Don't create timers if duration is not specified (to play the entire audio)
-	if (duration == undefined) {
-		return;
-	}
-
-	// checks if audio tag has played past current sound and should pause
-	// _this._checkCurrentTime = function () {
-	// 	if (audio.currentTime >= nextTime) {
-	// 		_this.pause();
-	// 		clearTimeout(_this._backupTimeout);
-	// 	}
-	// }
-
-	// In some cases on Android the audio tag's currentTime doesn't update though the audio is still playing.
-	// We setup a fallback timeout to pause 1 second after the current sprite's end time
-	// Space sounds more than 1s apart in sprite to be make sure no extra sounds are played
-	// Normally this backup timeout is cancelled by _checkCurrentTime()
-	// _this._backupTimeout = setTimeout(function () {
-	// 	_this.pause();
-	// }, (duration * 1000) + 1000);
-
-	// Consider using requestAnimationFrame instead and hook into your app's 
-	// render looop, e.g. Render.startRender(_this._checkCurrentTime);
-	//_this._timer = setInterval(_this._checkCurrentTime, 10);	
-};
 
 var __extends = this.__extends || function (d, b) {
     function __() { this.constructor = d; }
@@ -478,6 +274,49 @@ var __extends = this.__extends || function (d, b) {
     function touchLoad(e) {
         Klang.audioTagHandler.loadSoundFiles();
     }
+    var ATAudioFile = (function () {
+        function ATAudioFile(url, fileData) {
+            this._url = url;
+            this.data = fileData;
+            // bind callbacks
+            this._onCanPlayThrough = this._onCanPlayThrough.bind(this);
+            this._waitForReadyState = this._waitForReadyState.bind(this);
+        }
+        ATAudioFile.STATE_PRELOAD = 0;
+        ATAudioFile.STATE_LOADING = 1;
+        ATAudioFile.STATE_LOADED = 2;
+        ATAudioFile.prototype._onCanPlayThrough = function () {
+            this.audioElement.removeEventListener('canplaythrough', this._onCanPlayThrough, false);
+            this._waitForReadyState(function () {
+                this.ready = true;
+                this.state = this.state = ATAudioFile.STATE_LOADED;
+                this._readyCallback && this._readyCallback();
+            }.bind(this));
+        };
+        ATAudioFile.prototype._waitForReadyState = function (cb) {
+            var _this = this;
+            ((function wait() {
+                if(_this.audioElement.readyState) {
+                    cb && cb();
+                } else {
+                    setTimeout(wait, 100);
+                }
+            })());
+        };
+        ATAudioFile.prototype.load = function (onDone) {
+            if(this.state === ATAudioFile.STATE_PRELOAD) {
+                this.state = ATAudioFile.STATE_LOADING;
+                var el = this.audioElement = new Audio();
+                el.src = this._url;
+                el.addEventListener('canplaythrough', this._onCanPlayThrough, false);
+                el.volume = 0;
+                el.play();
+            }
+            this._readyCallback = onDone;
+        };
+        return ATAudioFile;
+    })();
+    Klang.ATAudioFile = ATAudioFile;    
     /**
     * Represents an audio source for audio tag fallback.
     * @param {Object} data Configuration data.
@@ -486,143 +325,61 @@ var __extends = this.__extends || function (d, b) {
     * @extends {Klang.ATAudioSource}
     */
     var ATAudioSource = (function () {
-        function ATAudioSource(data, sprite) {
+        function ATAudioSource(data, file) {
             this._data = data;
-            this._sprite = sprite;
-            if(!this._sprite) {
+            this._file = file;
+            if(!this._file) {
                 return;
             }
-            this._priority = this._sprite.data.audio_tag;
-            if(this._data.loop) {
-                // hotfix for Santatracker2014
-                this._sprite.setLoop(true);
-                this._data.loop = false;
-                // if (this._data.loop_start == undefined) {
-                //     this._data.loop_start = 0;
-                // }
-                // if (this._data.loop_end != undefined) {
-                //     //this._data.offset = this._data.loop_start;
-                //     this._data.duration = this._data.loop_end;// - this._data.loop_start;
-                // }
-                            }
+            this._priority = this._file.data.audio_tag;
+            this._loop = !!this._data.loop;
             this._gain = new ATGainNode(data.volume, this);
+            this.onEnded = this.onEnded.bind(this);
         }
+        ATAudioSource.prototype.onEnded = function () {
+            if(this._playing && this._loop) {
+                this._file.audioElement.currentTime = 0;
+                this._file.audioElement.play();
+            }
+        };
         ATAudioSource.prototype.play = function (when, offset, resume, keepVolume, loopTrigg) {
-            if(when) {
-                var _this = this;
-                clearInterval(this._loopTimer);
-                this._loopTimer = setTimeout(function () {
-                    _this.play(0, offset, resume, keepVolume, true);
-                }, Math.round(when * 1000));
-            } else if(this._sprite) {
-                if(this._data.loop && this._playing && !this._fadingOut && !loopTrigg) {
-                    return this;
-                }
-                this._playing = false;
-                this._sprite.pause();
-                //clearInterval(this._loopTimer);
-                if(Klang.audioTagHandler.getLimitSounds()) {
-                    if(this._priority == 1) {
-                        //Klang.audioTagHandler.stopAll();
-                                            } else {
-                        return this;
-                    }
-                }
-                if(!offset) {
-                    offset = 0;
-                }
-                if(!this._data.offset) {
-                    this._data.offset = 0;
-                }
-                if(!this._data.duration) {
-                    this._data.duration = this._sprite.audio.duration;
-                }
-                this._playing = true;
-                //clearInterval(this._loopTimer);
-                if(!loopTrigg) {
-                    this._gain.resetVolume(keepVolume);
-                }
-                this._sprite.play(this._data.offset + offset, this._data.duration - offset);
-                if(this._data.loop && this._data.duration) {
-                    this.play(this._data.duration - offset, this._data.loop_start, false, true);
-                }
+            when = when || 0;
+            if(this._playing) {
+                return this;
+            }
+            if(!this._file.ready) {
+                return this;
+            }
+            this._file.audioElement.currentTime = 0;
+            this._file.audioElement.play();
+            this._playing = true;
+            // update volume to current
+            this.setVolume();
+            if(this._loop) {
+                this._file.audioElement.addEventListener('ended', this.onEnded, false);
             }
             return this;
         };
         ATAudioSource.prototype.fadeInAndPlay = function (targetValue, duration, when, offset) {
-            if(!this._sprite) {
-                return this;
-            }
-            when = when || 0;
-            // if (!this._fadingOut && this._data.loop  && this._playing) return this;
-            offset = offset || 0;
-            this._fadingIn = true;
-            this._fadingOut = false;
-            var output = this.getOutput();
-            if(!this._playing) {
-                output.setVolume(0);
-                output.resetVolume(true);
-                this.play(when, offset, false, false);
-            } else {
-                output.resetVolume(false);
-            }
-            var _this = this;
-            output.fadeVolume(targetValue, duration, function () {
-                _this._fadingIn = false;
-            });
+            this.play();
             return this;
         };
         ATAudioSource.prototype.stop = function (when) {
-            if(when) {
-                var _this = this;
-                if(this._loopTimer) {
-                    clearInterval(this._loopTimer);
-                }
-                this._loopTimer = setTimeout(function () {
-                    _this.stop(0);
-                }, Math.round(when * 1000));
-            } else if(this._sprite) {
-                if(!this._playing && !this._fadingIn) {
-                    return this;
-                }
-                this._playing = false;
-                this._sprite.pause();
-                if(this._loopTimer) {
-                    clearInterval(this._loopTimer);
-                }
+            if(this._loop) {
+                this._file.audioElement.removeEventListener('ended', this.onEnded, false);
             }
+            this._file.audioElement.pause();
+            this._playing = false;
             return this;
         };
         ATAudioSource.prototype.fadeOutAndStop = function (duration, when) {
-            if(when) {
-                var _this = this;
-                if(this._loopTimer) {
-                    clearInterval(this._loopTimer);
-                }
-                this._loopTimer = setTimeout(function () {
-                    _this.fadeOutAndStop(duration, 0);
-                }, Math.round(when * 1000));
-            } else if(this._sprite) {
-                if(!this._playing) {
-                    return this;
-                }
-                this._fadingOut = true;
-                this._fadingIn = false;
-                var _this = this;
-                this.getOutput().fadeVolume(0, duration, function () {
-                    this._fadingOut = false;
-                    _this.stop();
-                });
-            }
+            this.stop();
             return this;
         };
         ATAudioSource.prototype.setVolume = function (value) {
             value = value === undefined || this.getOutput().getVolume();
-            if(!this._sprite) {
-                return this;
-            }
             var value = Math.max(0, Math.min(1, value * Klang.audioTagHandler.getGlobalVolume()));
-            this._sprite.setVolume(value);
+            this._file.audioElement.volume = value;
             return this;
         };
         ATAudioSource.prototype.getOutput = function () {
@@ -630,10 +387,7 @@ var __extends = this.__extends || function (d, b) {
         };
         Object.defineProperty(ATAudioSource.prototype, "position", {
             get: function () {
-                if(!this._sprite || !this._playing) {
-                    return -1;
-                }
-                return this._sprite.audio.currentTime;
+                return 0;
             },
             enumerable: true,
             configurable: true
@@ -787,7 +541,7 @@ var __extends = this.__extends || function (d, b) {
     var AudioTagHandler = (function () {
         function AudioTagHandler(config, readyCallback, progressCallback) {
             this._loadedFiles = 0;
-            this._audioSprites = {
+            this._audioFiles = {
             };
             this._limitSounds = Klang.isMobile || Klang.browser == "Opera";
             if(typeof config == "string") {
@@ -842,24 +596,24 @@ var __extends = this.__extends || function (d, b) {
                 var prio = fileData.audio_tag;
                 if(prio && (!this._limitSounds || prio == 1)) {
                     // ladda inte in filer utan prio 1 på mobil
-                    this._audioSprites[fileData.id] = new AudioSprite(baseURL + fileData.url + format, fileData, function () {
-                        //_this.loadProgress();
-                                            });
+                    this._audioFiles[fileData.id] = new ATAudioFile(baseURL + fileData.url + format, fileData);
                 }
             }
             // Create sources
             this._audio = {
             };
             for(var a in data.audio) {
-                var audioData = data.audio[a];
-                if(audioData.type == "AudioSource") {
-                    var sprite = this._audioSprites[audioData.file_id];
-                    // Skapa inte audio sources som använder filer som inte används
-                    //if (sprite) {
-                    this._audio[a] = new ATAudioSource(audioData, this._audioSprites[audioData.file_id]);
-                    //}
-                                    } else if(audioData.type == "AudioGroup") {
-                    this._audio[a] = new ATAudioGroup(audioData);
+                if(data.audio.hasOwnProperty(a)) {
+                    var audioData = data.audio[a];
+                    if(audioData.type == "AudioSource") {
+                        var sprite = this._audioFiles[audioData.file_id];
+                        // Skapa inte audio sources som använder filer som inte används
+                        //if (sprite) {
+                        this._audio[a] = new ATAudioSource(audioData, this._audioFiles[audioData.file_id]);
+                        //}
+                                            } else if(audioData.type == "AudioGroup") {
+                        this._audio[a] = new ATAudioGroup(audioData);
+                    }
                 }
             }
             // Create processes
@@ -881,12 +635,12 @@ var __extends = this.__extends || function (d, b) {
             this.loadSoundFiles([
                 "auto", 
                 "autotag"
-            ]);
+            ], readyCallback, progressCallback);
         };
         AudioTagHandler.prototype.initIOS = function () {
             if(Klang.isIOS || Klang.isMobile) {
-                for(var p in this._audioSprites) {
-                    this._audioSprites[p].load();
+                for(var p in this._audioFiles) {
+                    this._audioFiles[p].load();
                 }
             }
         };
@@ -906,13 +660,18 @@ var __extends = this.__extends || function (d, b) {
             this._loadedFiles = 0;
             this._numFiles = 0;
             var _this = this;
-            for(var p in this._audioSprites) {
-                var spriteGroup = this._audioSprites[p].data.load_group;
-                if(group == undefined || spriteGroup == group || group.indexOf(spriteGroup) != -1) {
-                    this._numFiles++;
-                    this._audioSprites[p].load(function () {
-                        _this.loadProgress();
-                    });
+            for(var p in this._audioFiles) {
+                if(this._audioFiles.hasOwnProperty(p)) {
+                    var audioFile = this._audioFiles[p];
+                    var loadGroup = audioFile.data.load_group;
+                    if(group == undefined || loadGroup == group || group.indexOf(loadGroup) != -1) {
+                        if(audioFile.state !== ATAudioFile.STATE_PRELOAD) {
+                            this._numFiles++;
+                            audioFile.load(function () {
+                                _this.loadProgress();
+                            });
+                        }
+                    }
                 }
             }
             // Nothing to load, call ready
@@ -927,7 +686,7 @@ var __extends = this.__extends || function (d, b) {
         */
         function () {
             var i;
-            var fileInfoArr = this._audioSprites || [];
+            var fileInfoArr = this._audioFiles || [];
             var groupTable = {
             };
             var listOfGroups = [];
@@ -1047,7 +806,7 @@ var __extends = this.__extends || function (d, b) {
             return this;
         };
         AudioTagHandler.prototype.getObject = function (name) {
-            return this._audioSprites[name] || this._audio[name];
+            return this._audioFiles[name] || this._audio[name];
         };
         AudioTagHandler.prototype.playPeriodic = function (obj, maxSec, minSec) {
             clearTimeout(this._periodicTimer);
@@ -10850,16 +10609,17 @@ var __extends = this.__extends || function (d, b) {
                 clearTimeout(this._scheduler);
                 this._scheduler = null;
             };
-            Scheduler.prototype.at = /**
+            Scheduler.prototype.in = /**
             * Registers a callback for a time.
             * @param {Object} obj Target object.
             * @param {Function} func Callback function.
             * @param {number} targetTime Target time.
             */
-            // public in( targetTime, func, ctx ? : any ) : Scheduler {
-            //     return this.at( context.currentTime + targetTime, func, ctx );
-            // }
-            /**
+            function (targetTime, func, ctx) {
+                return this.at(Klang.context.currentTime + targetTime, func, ctx);
+                ;
+            };
+            Scheduler.prototype.at = /**
             *
             */
             function (targetTime, func, ctx) {
