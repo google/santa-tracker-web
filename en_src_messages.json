@@ -5872,5 +5872,29 @@
     "gl_country_name": {
       "description": "Name of a country. This appears as a label in a geography game.",
       "message": "Greenland"
+    },
+    "tracker_your_location": {
+      "description": "Heading where the location of the user is displayed below",
+      "message": "Your location"
+    },
+    "tracker_gifts_delivered": {
+      "description": "Heading where the number of gifts delivered so far is displayed below",
+      "message": "Gifts Delivered"
+    },
+    "tracker_departing_in": {
+      "description": "Heading that displays how long till Santa departs",
+      "message": "Departing in"
+    },
+    "tracker_arriving_in": {
+      "description": "Heading that displays how long till Santa arrives",
+      "message": "Arriving in"
+    },
+    "tracker_next_stop": {
+      "description": "Heading above the next stop for Santa",
+      "message": "Next stop"
+    },
+    "tracker_current_stop": {
+      "description": "Heading above the previous stop for Santa",
+      "message": "Current stop"
     }
 }
