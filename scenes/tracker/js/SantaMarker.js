@@ -128,7 +128,7 @@ function createSantaMarkerConstructor() {
         if (!prev) break;
       }
 
-      for (var i = 0; i < this.trailLines_; i++) {
+      for (var i = 0; i < this.trailLines_.length; i++) {
         this.trailLines_[i].setMap(null);
       }
 
