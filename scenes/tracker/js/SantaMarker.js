@@ -146,6 +146,8 @@ function createSantaMarkerConstructor() {
           map: this.get('map'),
           strokeOpacity: opacitySteps[i]
         });
+
+        this.trailLines_.push(line);
       }
     }
 
