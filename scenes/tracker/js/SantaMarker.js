@@ -9,7 +9,6 @@ function createSantaMarkerConstructor() {
     this.set('type', 'sleigh');
     this.type_ = null;
 
-    this.trail_ = [];
     this.trailLines_ = [];
     this.lastStop_ = null;
 
@@ -115,17 +114,14 @@ function createSantaMarkerConstructor() {
     if (this.lastStop_ != state.prev) {
       // Last stop has changed so update the trail
       this.lastStop_ = state.prev;
-
-      if (this.trail_.length == 0) {
-        // Populate the trail with the last 8 locations
-        var prev = state.prev;
-        while(this.trail_.length != 8) {
-          this.trail_.push(prev.location);
-          prev = prev.prev();
-        }
-      } else {
-        this.trail_.pop();
-        this.trail_.unshift(this.lastStop_.location);
+      
+      // Populate the trail with the last 8 locations
+      var trail = [];
+      var prev = state.prev;
+      while (this.trail_.length != 8) {
+        trail.push(prev.location);
+        prev = prev.prev();
+        if (!prev) break;
       }
 
       for (var i = 0; i < this.trailLines_; i++) {
@@ -137,7 +133,7 @@ function createSantaMarkerConstructor() {
       var opacitySteps = [.5, .5, .25, .25, .25, .15, .15, .08];
 
       // Update the trail
-      for (var i = 0; i < this.trail_.length - 1; i++) {
+      for (var i = 0; i < trail.length - 1; i++) {
         var line = new google.maps.Polyline({
           path: [this.trail_[i], this.trail_[i+1]],
           geodesic: true,
