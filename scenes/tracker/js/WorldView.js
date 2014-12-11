@@ -86,6 +86,7 @@ WorldView.prototype.setupMap = function() {
   });
 
   if (this.dests) {
+    this.clearRouteMarkers_();
     this.setDestinations(this.dests);
   }
 };
