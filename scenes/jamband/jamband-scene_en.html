@@ -218,8 +218,24 @@ Jamband scene.
 
     game: null,
 
+    /**
+     * Whether the `<google-client-api>` is loaded and ready to create the share
+     * overlay.
+     *
+     * @property shareReady
+     * @type boolean
+     * @default false
+     */
     shareReady: false,
 
+    /**
+     * Whether the sounds for the scene are loaded and the band can commence
+     * jamming.
+     *
+     * @property soundsLoaded
+     * @type boolean
+     * @default false
+     */
     soundsLoaded: false,
 
     onPreload: function() {
@@ -255,7 +271,7 @@ Jamband scene.
       }
     },
 
-    onSoundsLoaded: function(e, soundsName) {
+    onSoundsLoaded: function(e, soundsName, sender) {
       if (soundsName === 'jamband_load_sounds' && !this.soundsLoaded) {
         this.soundsLoaded = true;
         if (this.game) {

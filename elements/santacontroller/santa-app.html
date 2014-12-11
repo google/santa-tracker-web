@@ -469,6 +469,8 @@ Polymer(Polymer.mixin({
   },
 
   soundsLoaded: function(soundsName) {
+    // TODO(bckenny): selectedScene.fire check may be unecessary as it's not
+    // clear if it's possible for selectedScene to not be upgraded by this point
     if (this.selectedScene && this.selectedScene.fire) {
       this.selectedScene.fire('sounds-loaded', soundsName);
     }
