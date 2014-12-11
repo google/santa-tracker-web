@@ -1,0 +1,83 @@
+##{$name} {
+  .Background-mirror {
+    background-image: url(img/background/mirror.svg);
+    background-repeat: no-repeat;
+    background-size: 1092.4em 732em;
+    bottom: 120em;
+    height: 732em;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 1092.4em;
+  }
+
+  .Background-chair {
+    background-image: url(img/background/chair.svg);
+    background-repeat: no-repeat;
+    background-size: 1114em 862em;
+    bottom: 0;
+    height: 510em;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 1114em;
+  }
+
+  .Background-photos {
+    background-image: url(img/background/photos.svg);
+    background-repeat: no-repeat;
+    background-size: 306em 380em;
+    bottom: 55em;
+    height: 380em;
+    left: 1294em;
+    position: absolute;
+    width: 306em;
+  }
+
+  .Background-pole {
+    height: 380em;
+    left: 1000em;
+    position: absolute;
+    top: 23em;
+    width: 180em;
+  }
+
+  .Background-pole--background {
+    background-image: url(img/background/pole--background.svg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 118em 378em;
+    height: 100%;
+    width: 100%;
+  }
+
+  .Background-pole--stripesContainer {
+    height: 257em;
+    left: 43em;
+    overflow: hidden;
+    position: absolute;
+    top: 62em;
+    width: 94em;
+  }
+
+  .Background-pole--stripes {
+    animation: stripes 5s linear infinite;
+    background: url('img/background/pole--stripes.svg') no-repeat;
+    height: 600em;
+    width: 94em;
+  }
+
+  .Background-pole--foreground {
+    background: url('img/background/pole--foreground.svg') no-repeat;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+@keyframes stripes {
+  0% { transform: translateY(-39%); }
+  100% { transform: translateY(0); }
+}
