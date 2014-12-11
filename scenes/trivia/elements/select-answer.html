@@ -30,6 +30,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       color: #7cd9e6;
     }
 
+    paper-item::shadow .button-content {
+      padding: 0.3em 1em;
+    }
+
     #choices {
       opacity: 1;
       transition: opacity 500ms;
@@ -55,23 +59,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     .check::after {
       background: url(../img/incorrect.svg) no-repeat;
+      background-size: 100%;
       content: '';
       display: none;
-      height: 30px;
+      height: 20px;
       left: 50%;
-      margin-left: -15px;
-      margin-top: -15px;
+      margin-left: -10px;
+      margin-top: -10px;
       position: absolute;
       top: 50%;
-      width: 30px;
+      width: 20px;
     }
 
     .is-correct .check::after {
       background: url(../img/correct.svg) no-repeat;
-      height: 33px;
-      margin-left: -18px;
-      margin-top: -22px;
-      width: 44px;
+      background-size: 100%;
+      height: 20px;
+      margin-left: -10px;
+      margin-top: -13px;
+      width: 26px;
     }
 
     .core-selected .check::after {
@@ -84,7 +90,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       font-size: 21px;
       font-weight: 400;
       letter-spacing: 0.8px;
-      line-height: 10px;
+      line-height: 1.4;
       padding-left: 20px;
     }
 
@@ -98,6 +104,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         left: -15px;
         margin-top: -10px;
         width: 16px;
+      }
+
+      .check::after {
+        height: 30px;
+        margin-left: -15px;
+        margin-top: -15px;
+        width: 30px;
+      }
+
+      .is-correct .check::after {
+        height: 33px;
+        margin-left: -18px;
+        margin-top: -22px;
+        width: 44px;
       }
 
       .text {
