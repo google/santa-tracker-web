@@ -1,0 +1,229 @@
+##{$name} {
+
+  .sleigh-screen {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  .sleigh-screen__bg {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    svg {
+      display: block;
+    }
+  }
+
+  .sleigh-screen__lift {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    margin-left: 180px;
+
+    svg {
+      display: block;
+    }
+
+    //&.run-animation {
+      animation-duration: 20s;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+      animation-name: #{$name}-sleigh-lift;
+      animation-timing-function: $easeInOutQuad;
+    //}
+  }
+
+  // #mouth, #eye--left, #eye--right {
+  //   transform-origin: center center;
+  // }
+  // #mouth {
+  //   transform: rotate(180deg) scaleY(0.5) scaleX(0.75);
+  // }
+  // #eye--left {
+  //    transform:  scaleY(0.7);
+  // }
+  // #eye--right {
+  //    transform:  scaleY(0.7);
+  // }
+
+
+  .sleigh-screen__arm-waving {
+    position: absolute;
+    bottom: 195px;
+    left: 50%;
+    margin-left: -249px;
+
+    svg {
+      display: block;
+    }
+
+    transform-origin: 10px 70px;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: $easeInOutQuad;
+    animation-name: #{$name}-sleigh-arm-waving;
+  }
+
+  .sleigh-screen__elf-hammering {
+    position: absolute;
+    bottom: 205px;
+    left: 50%;
+    margin-left: -80px;
+
+    svg {
+      display: block;
+    }
+  }
+
+  .sleigh-screen__arm-hammering {
+    position: absolute;
+    bottom: 242px;
+    left: 50%;
+    margin-left: -43px;
+
+    svg {
+      display: block;
+    }
+
+    transform: rotate(25deg);
+    transform-origin: 4px 4px;
+
+    &.run-animation {
+      animation-duration: 1s;
+      animation-iteration-count: 1;
+      animation-timing-function: $easeInQuad;
+      animation-name: #{$name}-sleigh-arm-hammering;
+    }
+  }
+
+  .sleigh-screen__shimmer {
+    position: absolute;
+    bottom: 190px;
+    left: 50%;
+    margin-left: -365px;
+
+    svg {
+      display: block;
+    }
+
+    visibility: hidden;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+
+    &.run-animation {
+      visibility: visible;
+      animation-name: #{$name}-sleigh-shimmer;
+    }
+  }
+
+  .sleigh-screen__gauge {
+    position: absolute;
+    bottom: 105px;
+    left: 50%;
+    margin-left: -105px;
+
+    svg {
+      display: block;
+    }
+
+    animation-duration: 25s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-name: #{$name}-sleigh-gauge;
+  }
+}
+
+
+@keyframes #{$name}-sleigh-shimmer {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.4);
+    animation-timing-function: $easeInQuad;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+    animation-timing-function: $easeOutQuad;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.4);
+  }
+}
+
+@keyframes #{$name}-sleigh-arm-waving {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes #{$name}-sleigh-arm-hammering {
+  0% {
+    transform: rotate(25deg);
+    animation-timing-function: $easeOutQuad;
+  }
+  75% {
+    transform: rotate(-10deg);
+    animation-timing-function: $easeInQuad;
+  }
+  100% {
+    transform: rotate(25deg);
+  }
+}
+
+@keyframes #{$name}-sleigh-gauge {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(40px);
+  }
+  40% {
+    transform: translateX(30px);
+  }
+  60% {
+    transform: translateX(50px);
+  }
+  80% {
+    transform: translateX(60px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes #{$name}-sleigh-lift {
+  0%, 10% {
+    transform: translateY(0);
+    animation-timing-function: $easeInOutQuad;
+  }
+  25% {
+    transform: translateY(-70px);
+    animation-timing-function: $easeInQuad;
+  }
+  40%, 50% {
+    transform: translate(0px, -40px);
+  }
+  60%, 65% {
+    transform: translate(-10px, -40px);
+  }
+  75%, 80% {
+    transform: translate(50px, -40px);
+  }
+  90%, 100% {
+    transform: translate(50px, -25px);
+  }
+}
