@@ -22,7 +22,6 @@ var CLOSURE_FILES = 'scenes/*/js/**/*.js';
 var STATIC_VERSION = 60;
 var VERSION = argv.build || STATIC_VERSION;
 
-// TODO(bckenny|cbro): fill in with default static asset base URL
 var STATIC_BASE_URL = argv.baseurl ? argv.baseurl : '';
 var STATIC_URL = argv.pretty ? '' : (STATIC_BASE_URL + VERSION + '/');
 
@@ -79,6 +78,9 @@ var SCENE_CLOSURE_CONFIG = {
   },
   santaselfie: {
     entryPoint: 'app.Game'
+  },
+  windtunnel: {
+    entryPoint: 'app.Scene'
   }
 };
 
