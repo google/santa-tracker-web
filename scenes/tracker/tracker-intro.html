@@ -159,9 +159,8 @@ Intro for the tracker scene.
       if (stepX || stepY || bubble.scale !== 1) {
         var transform = 'matrix(' + bubble.scale + ', 0, 0, ' + bubble.scale +
           ', '+ stepX + ', '+ stepY +')';
-        el.style.transform = transform;
         el.style.webkitTransform = transform;
-
+        el.style.transform = transform;
         var wrapper = this.$.pin.parentNode;
         wrapper.style.webkitTransform = transform;
         wrapper.style.transform = transform;
@@ -177,8 +176,8 @@ Intro for the tracker scene.
       var rect = el.getBoundingClientRect();
       var transformOrigin = (bubble.bubble.originX - rect.left) + 'px ' +
                             (bubble.bubble.originY - rect.top) + 'px';
-      el.style.transformOrigin = transformOrigin;
       el.style.webkitTransformOrigin = transformOrigin;
+      el.style.transformOrigin = transformOrigin;
 
       bubble.addEventListener('resize', function(e) {
         this.clipMap_(el, e.target.bubble);
@@ -252,8 +251,8 @@ Intro for the tracker scene.
         bubble.open(140, function(e) {
           bubble.open(100, function() {
             userLocationEl.classList.add('final');
-            pin.style.transform = 'rotate(0deg)';
             pin.style.webkitTransform = 'rotate(0deg)';
+            pin.style.transform = 'rotate(0deg)';
             this.async(function() {
               this.showSantaLocation();
             }, null, 1500);
