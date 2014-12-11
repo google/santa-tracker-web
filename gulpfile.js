@@ -236,6 +236,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
             'core-a11y-keys.html$',
             'core-shared-lib.html$',
             'google-maps-api.html$',
+            'google-client-api.html'
           ]
         },
         strip: !argv.pretty,
