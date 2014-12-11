@@ -19,11 +19,11 @@ app.Game = function(elem) {
   this.elem = $(elem);
   this.scene = this.elem.find('.scene');
   this.gui = this.elem.find('.gui');
-  this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
+  this.shareOverlay = null;
 
   this.drawer = new app.Drawer(this.elem);
   this.lights = new app.Lights(this.elem);
-  this.instruments = new app.Instruments(this.elem);
+  this.instruments = null;
 };
 
 
@@ -32,8 +32,7 @@ app.Game = function(elem) {
  * @export
  */
 app.Game.prototype.start = function() {
-  this.elem.find('#drawer-button--share').
-      on('click.jamband touchend.jamband', this.showShareOverlay.bind(this));
+  this.instruments = new app.Instruments(this.elem);
 
   new app.DragDrop(this.elem);
 
@@ -48,6 +47,16 @@ app.Game.prototype.start = function() {
   $(window).on('resize.jamband orientationchange.jamband', scaleToWindow);
 
   window.santaApp.fire('analytics-track-game-start', {gameid: 'jamband'});
+};
+
+/**
+ * Initialize the share overlay
+ * @export
+ */
+app.Game.prototype.initShareOverlay = function() {
+  this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
+  this.elem.find('#drawer-button--share').
+      on('click.jamband touchend.jamband', this.showShareOverlay.bind(this));
 };
 
 

@@ -3,8 +3,10 @@
 /**
  * @constructor
  * @struct
+ * @param {function(string)} loadCallback Callback to be notified when a set of
+ *     sounds are loaded.
  */
-function SoundController() {
+function SoundController(loadCallback) {
   // load Klang
   var klangScript = document.createElement('script');
   klangScript.src = SoundController.klangSrc_;
@@ -37,6 +39,12 @@ function SoundController() {
    * @private {?string}
    */
   this.loadingSounds_ = null;
+
+  /**
+   * Optional callback to be notified when a set of sounds are loaded.
+   * @private {function(string)}
+   */
+  this.loadCallback_ = loadCallback;
 }
 
 /**
@@ -112,6 +120,7 @@ SoundController.prototype.triggerSoundsLoad_ = function(soundsName) {
   Klang.triggerEvent(soundsName,
     function success() {
       console.log('Klang: loaded sound ' + soundsName);
+      this.loadCallback_(soundsName);
 
       // If this is also the most recently loaded set of sounds, play all queued
       // ambient sounds and clear queue.
