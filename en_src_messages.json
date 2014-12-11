@@ -5896,9 +5896,5 @@
     "tracker_current_stop": {
       "description": "Heading above the current stop for Santa",
       "message": "Current stop"
-    },
-    "tracker_previous_stop": {
-      "description": "Heading above the previous stop for Santa",
-      "message": "Previous stop"
     }
 }
