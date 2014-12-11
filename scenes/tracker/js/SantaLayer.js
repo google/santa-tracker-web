@@ -1,10 +1,10 @@
-function createSantaMarkerConstructor() {
+function createSantaLayerConstructor() {
 
   /**
    * @constructor
    * @param {Object.<string,*>} opt_opts
    */
-  function SantaMarker(opt_opts) {
+  function SantaLayer(opt_opts) {
     this.container_ = $('<div>');
     this.set('type', 'sleigh');
     this.type_ = null;
@@ -23,35 +23,35 @@ function createSantaMarkerConstructor() {
 
     this.setValues(opt_opts);
   }
-  SantaMarker.prototype = new google.maps.OverlayView;
+  SantaLayer.prototype = new google.maps.OverlayView;
 
   /**
    * @private
    * @const
    * @type {number}
    */
-  SantaMarker.prototype.SLEIGH_HEIGHT_ = 77;
+  SantaLayer.prototype.SLEIGH_HEIGHT_ = 77;
 
   /**
    * @private
    * @const
    * @type {number}
    */
-  SantaMarker.prototype.PRESENTS_HEIGHT_ = 142;
+  SantaLayer.prototype.PRESENTS_HEIGHT_ = 142;
 
-  SantaMarker.prototype.TRAIL_COLOR_ = '#22a528';
+  SantaLayer.prototype.TRAIL_COLOR_ = '#22a528';
 
-  SantaMarker.prototype.setPosition = function(latLng) {
+  SantaLayer.prototype.setPosition = function(latLng) {
     this.set('position', latLng);
     this.draw();
   };
 
-  SantaMarker.prototype.getHeight = function() {
+  SantaLayer.prototype.getHeight = function() {
     var type = this.get('type');
     return type == 'sleigh' ? this.SLEIGH_HEIGHT_ : this.PRESENTS_HEIGHT_;
   };
 
-  SantaMarker.prototype['type_changed'] = function() {
+  SantaLayer.prototype['type_changed'] = function() {
     if (!this.container_) return;
 
     var type = this.get('type');
@@ -70,16 +70,16 @@ function createSantaMarkerConstructor() {
     }
   };
 
-  SantaMarker.prototype['onAdd'] = function() {
+  SantaLayer.prototype['onAdd'] = function() {
     var panes = this.getPanes();
     panes.floatPane.appendChild(this.container_[0]);
   };
 
-  SantaMarker.prototype['onRemove'] = function() {
+  SantaLayer.prototype['onRemove'] = function() {
     this.container_.remove();
   };
 
-  SantaMarker.prototype['draw'] = function() {
+  SantaLayer.prototype['draw'] = function() {
     var projection = this.getProjection();
     var latLng = /** @type {google.maps.LatLng} */ (this.get('position'));
 
@@ -98,7 +98,7 @@ function createSantaMarkerConstructor() {
   /**
    * @param {number} angle
    */
-  SantaMarker.prototype.setHeading = function(angle) {
+  SantaLayer.prototype.setHeading = function(angle) {
     var type = this.get('type');
     if (type != 'sleigh') return;
 
@@ -111,7 +111,7 @@ function createSantaMarkerConstructor() {
         ' ' + icons[index]);
   };
 
-  SantaMarker.prototype.updateTrail = function(state) {
+  SantaLayer.prototype.updateTrail = function(state) {
     if (this.lastStop_ != state.prev) {
       // Last stop has changed so update the trail
       this.lastStop_ = state.prev;
@@ -160,9 +160,9 @@ function createSantaMarkerConstructor() {
     this.bounds_.extend(this.get('position'));
   };
 
-  SantaMarker.prototype.getBounds = function() {
+  SantaLayer.prototype.getBounds = function() {
     return this.bounds_;
   };
 
-  return SantaMarker;
+  return SantaLayer;
 }
