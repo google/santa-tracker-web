@@ -1,0 +1,38 @@
+$duration-elves-seesaw: 5;
+$duration-elves-seesaw-rope: 2.8;
+
+// Diagonal with bench
+.elves-seesaw {
+  position: absolute;
+  left: 50%;
+  top: -510px;
+  margin-left: 148px;
+  transform: rotate(#{$seesaw-bench-rotation}deg);
+  -webkit-transform-origin: 167px 136px; // where the dot is
+  animation: #{$name}-elves-seesaw-bench $easeInOutCirc #{$duration-elves-seesaw}s infinite;
+}
+
+// Diagonal with rope
+.elves-seesaw-rope {
+  position: absolute;
+  left: 50%;
+  top: -313px;
+}
+
+.elves-seesaw-rope--left {
+  margin-left: 310px;
+  transform-origin: 223px 0;
+  animation-name: #{$name}-elves-seesaw-rope--left;
+  animation-timing-function: $easeInOutCubic;
+  animation-duration: #{$duration-elves-seesaw-rope - 0.2}s;
+  animation-iteration-count: infinite;
+}
+
+.elves-seesaw-rope--right {
+  margin-left: 544px;
+  transform-origin: 0 0;
+  animation-name: #{$name}-elves-seesaw-rope--right;
+  animation-timing-function: $easeInOutCubic;
+  animation-duration: #{$duration-elves-seesaw-rope}s;
+  animation-iteration-count: infinite;
+}

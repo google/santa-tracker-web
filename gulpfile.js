@@ -65,6 +65,9 @@ var SCENE_CLOSURE_CONFIG = {
   matching: {
     entryPoint: 'app.Game'
   },
+  playground: {
+    entryPoint: 'app.Scene'
+  },
   presentdrop: {
     entryPoint: 'app.Game'
   },
