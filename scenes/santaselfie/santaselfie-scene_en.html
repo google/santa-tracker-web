@@ -235,6 +235,8 @@ Santaselfie scene.
       this.game = new scenes.santaselfie.Game(module);
       this.game.start();
       this.fire('sound-ambient', 'selfie_start');
+
+      this.sceneParamsChanged();
     },
 
     onHide: function() {
@@ -243,14 +245,9 @@ Santaselfie scene.
       this.fire('sound-ambient', 'selfie_end');
     },
 
-    onQueryChanged: function(params) {
-      if (!this.game) {
-        window.console.warn('onQueryChanged called before onShow');
-        return;
-      }
-
-      if (params.beard) {
-        this.game.restoreBeard(params.beard);
+    sceneParamsChanged: function(params) {
+      if (this.sceneParams.beard) {
+        this.game.restoreBeard(this.sceneParams.beard);
       }
     }
   });

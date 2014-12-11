@@ -102,9 +102,12 @@ app.Game.prototype.update = function(delta) {
  */
 app.Game.prototype.showShareOverlay = function() {
   var s = this.hair.save();
-  window.history.pushState(null, '', window.location.href.split('?')[0] + '?beard=' + s);
 
-  this.shareOverlay.show(window.location.href, true);
+  var newHref = location.href.substr(0,
+      location.href.length - location.hash.length) + '#santaselfie?beard=' + s;
+  window.history.pushState(null, '', newHref);
+
+  this.shareOverlay.show('https://santatracker.google.com/#santaselfie?beard=' + s, true);
 };
 
 
