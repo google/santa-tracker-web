@@ -1,0 +1,174 @@
+##{$name} {
+  .map-screen__marker {
+    $marker-width: 30px;
+    $marker-height: 50px;
+    $pan-duration: $map-pan-duration/2;
+
+    position: absolute;
+    animation: $pan-duration linear #{$name}-map-marker-move infinite;
+    left: #{$map-width - ($marker-width/2)};
+
+   .map-screen__marker__icon {
+      width: $marker-width;
+      height: $marker-height;
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgogICB3aWR0aD0iMjguOHB4IiBoZWlnaHQ9IjQ4LjJweCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgogIDxwYXRoIGZpbGw9IiNGNDgzN0QiIGQ9Ik0xNC40LDQ4LjJDMTEuMywzMC4xLDAsMjksMCwxNC40QzAsNi41LDYuNSwwLDE0LjQsMHMxNC40LDYuNSwxNC40LDE0LjRDMjguOCwyNy4yLDE1LjgsMzEuOSwxNC40LDQ4LjJ6IgogICAgLz4KICA8Zz4KICAgIDxyZWN0IHg9IjE1LjMiIHk9IjE3LjYiIGZpbGw9IiM0MzQzNDUiIHdpZHRoPSI2LjciIGhlaWdodD0iNi40Ii8+CiAgICA8cmVjdCB4PSI2LjkiIHk9IjguOSIgZmlsbD0iIzQzNDM0NSIgd2lkdGg9IjYuNCIgaGVpZ2h0PSI2LjciLz4KICAgIDxyZWN0IHg9IjYuOSIgeT0iMTcuNiIgZmlsbD0iIzQzNDM0NSIgd2lkdGg9IjYuNCIgaGVpZ2h0PSI2LjQiLz4KICAgIDxyZWN0IHg9IjE1LjMiIHk9IjguOSIgZmlsbD0iIzQzNDM0NSIgd2lkdGg9IjYuNyIgaGVpZ2h0PSI2LjciLz4KICA8L2c+CjwvZz4KPC9zdmc+');
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      transform: scale(0);
+      transform-origin: 50% 100%;
+    }
+
+    //usa
+    &:nth-child(1) {
+      top: 70px;
+      $left: 180px;
+      animation-delay: -#{$pan-duration - ($pan-duration / ($map-width / $left))};
+     .map-screen__marker__icon {
+        animation: 10s ease-in #{$name}-map-marker-popup-busy infinite;
+        animation-delay: -2s;
+      }
+    }
+    //canada
+    &:nth-child(2) {
+      top: 60px;
+      $left: 350px;
+      animation-delay: -#{$pan-duration - ($pan-duration / ($map-width / $left))};
+     .map-screen__marker__icon {
+        animation: 10s ease-in #{$name}-map-marker-popup infinite;
+        animation-delay: 1s;
+      }
+    }
+    //spain
+    &:nth-child(3) {
+      top: 40px;
+      $left: 800px;
+      animation-delay: -#{$pan-duration - ($pan-duration / ($map-width / $left))};
+     .map-screen__marker__icon {
+        animation: 10s ease-in #{$name}-map-marker-popup-busy infinite;
+        animation-delay: 2s;
+      }
+    }
+    // south africa
+    &:nth-child(4) {
+      top: 250px;
+      $left: 1000px;
+      animation-delay: -#{$pan-duration - ($pan-duration / ($map-width / $left))};
+     .map-screen__marker__icon {
+        animation: 10s ease-in #{$name}-map-marker-popup-busy infinite;
+        animation-delay: -2.5s;
+      }
+    }
+    // saudi arabia
+    &:nth-child(5) {
+      top: 90px;
+      $left: 1140px;
+      animation-delay: -#{$pan-duration - ($pan-duration / ($map-width / $left))};
+     .map-screen__marker__icon {
+        animation: 10s ease-in #{$name}-map-marker-popup-busy infinite;
+        animation-delay: 4.5s;
+      }
+    }
+    // vietnam
+    &:nth-child(6) {
+      top: 160px;
+      $left: 1560px;
+      animation-delay: -#{$pan-duration - ($pan-duration / ($map-width / $left))};
+     .map-screen__marker__icon {
+        animation: 10s ease-in #{$name}-map-marker-popup infinite;
+        animation-delay: 9s;
+      }
+    }
+    // south america
+    &:nth-child(7) {
+      top: 250px;
+      $left: 500px;
+      animation-delay: -#{$pan-duration - ($pan-duration / ($map-width / $left))};
+     .map-screen__marker__icon {
+        animation: 10s ease-in #{$name}-map-marker-popup-busy infinite;
+        animation-delay: -10s;
+      }
+    }
+    // siberia
+    &:nth-child(8) {
+      top: 20px;
+      $left: 1300px;
+      animation-delay: -#{$pan-duration - ($pan-duration / ($map-width / $left))};
+     .map-screen__marker__icon {
+        animation: 10s ease-in #{$name}-map-marker-popup-busy infinite;
+        animation-delay: -13s;
+      }
+    }
+    // china
+    &:nth-child(9) {
+      top: 60px;
+      $left: 1580px;
+      animation-delay: -#{$pan-duration - ($pan-duration / ($map-width / $left))};
+     .map-screen__marker__icon {
+        animation: 10s ease-in #{$name}-map-marker-popup-busy infinite;
+        animation-delay: 0s;
+      }
+    }
+    // west africa
+    &:nth-child(10) {
+      top: 150px;
+      $left: 800px;
+      animation-delay: -#{$pan-duration - ($pan-duration / ($map-width / $left))};
+     .map-screen__marker__icon {
+        animation: 10s ease-in #{$name}-map-marker-popup infinite;
+        animation-delay: 3s;
+      }
+    }
+  }
+}
+
+
+@keyframes #{$name}-map-marker-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-$map-width);
+  }
+}
+
+@keyframes #{$name}-map-marker-popup-busy {
+  0%, 4% {
+    transform: translate(0, 0) scale(0.0);
+  }
+  5.5% {
+    transform: translate(0, 0) scale(1.2);
+  }
+  6.5%, 24.5% {
+   transform: translate(0, 0) scale(1);
+  }
+  25.5%, 50% {
+    transform: translate(0, 0) scale(0.0);
+  }
+  54% {
+    transform: translate(100%, 100%) scale(0.0);
+  }
+  55.5% {
+    transform: translate(100%, 100%) scale(1.2);
+  }
+  56.5%, 74.5% {
+   transform: translate(100%, 100%) scale(1);
+  }
+  75.5%, 100% {
+    transform: translate(100%, 100%) scale(0.0);
+  }
+}
+
+@keyframes #{$name}-map-marker-popup {
+  0%, 4% {
+    transform: scale(0.0);
+  }
+  5.5% {
+    transform: scale(1.2);
+  }
+  6.5%, 24.5% {
+   transform: scale(1);
+  }
+  25.5%, 100% {
+    transform: scale(0.0);
+  }
+}

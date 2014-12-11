@@ -1,0 +1,161 @@
+##{$name} {
+
+  .small-screens {
+    position: absolute;
+    top: 62px;
+    left: 50%;
+    margin-left: -652px;
+  }
+
+  .small-screens__heart {
+    position: absolute;
+    right: 345px;
+    top: 20px;
+    transform-origin: 50% 50%;
+    @media (min-height: 500px) {
+      animation: 1s linear #{$name}-small-screen-heart infinite;
+    }
+  }
+
+  .small-screens__cloud-screen {
+    position: absolute;
+    top: 0px;
+    left: 1100px;
+    width: 95px;
+    height: 65px;
+    overflow: hidden;
+  }
+
+  .small-screens__helmet,
+  .small-screens__playstore {
+    background-color: #68bfe9;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    width: 96px;
+    height: 66px;
+  }
+  .small-screens__playstore {
+    left: 110px;
+    > svg {
+      display: block;
+      margin: 13px auto 0;
+    }
+  }
+  .small-screens__helmet {
+    left: 550px;
+    > svg {
+      display: block;
+      margin: 8px auto 0;
+    }
+    @media (min-height: 500px) {
+      animation-name: #{$name}-screen-colors;
+      animation-timing-function: ease-out;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  .small-screens__cloud {
+    position: absolute;
+    top: 20px;
+    left: 14px;
+    @media (min-height: 500px) {
+      animation: 15s $easeInOutBack #{$name}-small-screen-cloud infinite -5s;
+    }
+  }
+
+  .small-screens__playicon {
+    position: absolute;
+    top: 8px;
+    left: 134px;
+  }
+
+
+  .small-screens__text {
+    transform-origin: 0% 50%;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-name: #{$name}-small-screen-text;
+    animation-iteration-count: infinite;
+    $delay: .4;
+    &:nth-child(1) { animation-delay: $delay*-4s; }
+    &:nth-child(2) { animation-delay: $delay*-3s; }
+    &:nth-child(3) { animation-delay: $delay*-2s; }
+    &:nth-child(4) { animation-delay: $delay*-1s; }
+
+    &:nth-child(5) { animation-delay: $delay*-8s; }
+    &:nth-child(6) { animation-delay: $delay*-7s; }
+    &:nth-child(7) { animation-delay: $delay*-6s; }
+    &:nth-child(8) { animation-delay: $delay*-5s; }
+
+    &:nth-child(9) { animation-delay: $delay*-10s; }
+    &:nth-child(10) { animation-delay: $delay*-9s; }
+  }
+}
+
+@keyframes #{$name}-screen-colors {
+  0% {
+    background-color: #68bfe9;
+  }
+
+  33% {
+    background-color: #18a554;
+  }
+
+  66% {
+    background-color: #da473d;
+  }
+
+  100% {
+    background-color: #68bfe9;
+  }
+}
+
+@keyframes  #{$name}-small-screen-pie {
+  0% {
+    transform: rotate(155deg);
+  }
+  50% {
+    transform: rotate(220deg);
+  }
+  75% {
+    transform: rotate(190deg);
+  }
+  100% {
+    transform: rotate(245deg);
+  }
+}
+
+@keyframes #{$name}-small-screen-text {
+  0%, 50% {
+    transform: scaleX(0);
+  }
+  55%, 89% {
+    transform: scaleX(1);
+  }
+  90%, 100% {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes #{$name}-small-screen-heart {
+  0% {
+    transform: scale(.9);
+  }
+  30% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes #{$name}-small-screen-cloud {
+  0% {
+    transform: translate(-130%)
+  }
+  50% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(130%);
+  }
+}

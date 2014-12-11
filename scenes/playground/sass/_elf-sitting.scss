@@ -1,0 +1,32 @@
+$duration-elves-rope: 1.5;
+$rope-vertical-quantity: 15;
+
+.elf-rope {
+  position: absolute;
+  left: 50%;
+  top: -425px;
+}
+
+.elf-rope--standing {
+  margin-left: -796px;
+
+  @media (min-width: 1200px) {
+    animation-name: #{$name}-elves-rope;
+    animation-timing-function: $easeInOutQuad;
+    animation-duration: #{$duration-elves-rope}s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+}
+
+.elf-rope--sitting {
+  margin-left: -697px;
+
+  @media (min-width: 1200px) {
+    animation-name: #{$name}-elves-rope;
+    animation-timing-function: $easeInOutQuad;
+    animation-duration: #{$duration-elves-rope}s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+  }
+}

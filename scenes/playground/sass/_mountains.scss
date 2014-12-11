@@ -1,0 +1,22 @@
+$mountain-height: 434;
+
+.blue-mountains {
+  position: absolute;
+  top: $mountain-height * -1px;
+  left: 0;
+  right: 0;
+  height: $mountain-height * 1px;
+  background-image: url(img/mountains-80percent-01.svg);
+  background-repeat: repeat-x;
+  background-position: center bottom;
+
+  &:after {
+    content: '';
+    height: 100%;
+    position: absolute;
+    background: #fff;
+    bottom: 0;
+    margin-bottom: $mountain-height * -1px; //height of the mountain
+    width: 100%;
+  }
+}

@@ -19,10 +19,9 @@ var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/**/*.js';
 
-var STATIC_VERSION = 59;
+var STATIC_VERSION = 60;
 var VERSION = argv.build || STATIC_VERSION;
 
-// TODO(bckenny|cbro): fill in with default static asset base URL
 var STATIC_BASE_URL = argv.baseurl ? argv.baseurl : '';
 var STATIC_URL = argv.pretty ? '' : (STATIC_BASE_URL + VERSION + '/');
 
@@ -50,6 +49,9 @@ var SCENE_CLOSURE_CONFIG = {
   codelab: {
     entryPoint: 'app.wrapper.FrameWrapper'
   },
+  commandcentre: {
+    entryPoint: 'app.Scene'
+  },
   gumball: {
     entryPoint: 'app.Game'
   },
@@ -62,6 +64,9 @@ var SCENE_CLOSURE_CONFIG = {
   matching: {
     entryPoint: 'app.Game'
   },
+  playground: {
+    entryPoint: 'app.Scene'
+  },
   presentdrop: {
     entryPoint: 'app.Game'
   },
@@ -70,6 +75,12 @@ var SCENE_CLOSURE_CONFIG = {
   },
   racer: {
     entryPoint: 'app.Game'
+  },
+  santaselfie: {
+    entryPoint: 'app.Game'
+  },
+  windtunnel: {
+    entryPoint: 'app.Scene'
   }
 };
 
@@ -233,6 +244,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
             'core-a11y-keys.html$',
             'core-shared-lib.html$',
             'google-maps-api.html$',
+            'google-client-api.html'
           ]
         },
         strip: !argv.pretty,

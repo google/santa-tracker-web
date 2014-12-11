@@ -1,0 +1,201 @@
+$santa-body-width: 1052em;
+$santa-body-height: 1068em;
+$santa-face-width: 558em;
+$santa-face-height: 497em;
+
+@import "expressions";
+
+##{$name} {
+  .Santa {
+    bottom: 0;
+    height: 100%;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    width: $santa-body-width;
+  }
+
+  .Body {
+    animation: breathing 3s infinite;
+    background: url(img/santa/body.svg) 0 0 /contain no-repeat;
+    bottom: - $santa-body-width * .56;
+    height: $santa-body-height;
+    position: absolute;
+    width: $santa-body-width;
+  }
+
+  .Face {
+    background: url(img/santa/face.svg) 0 0 /contain no-repeat;
+    bottom: 420em;
+    height: $santa-face-height;
+    left: $santa-body-width / 2 - $santa-face-width / 2;
+    position: absolute;
+    width: $santa-face-width;
+  }
+
+  .eye {
+    background: url(img/face/eye.svg) 0 0 /contain no-repeat;
+    height: 35em;
+    position: absolute;
+    top: 145em;
+    transform: translateZ(0);
+    width: 35em;
+  }
+
+  .eye--left {
+    left: $santa-face-width / 2 - 115em;
+  }
+
+  .eye--right {
+    right: $santa-face-width / 2 - 115em;
+  }
+
+  .eye--blink {
+    background: url(img/face/eye--blink.svg) 50% /contain no-repeat;
+  }
+
+  .eye--closed {
+    background: url(img/face/eye--closed.svg) 50% /contain no-repeat;
+  }
+
+  .eyebrow {
+    background-color: #FFFFFF;
+    border-radius: 8em;
+    height: 22em;
+    position: absolute;
+    top: 95em;
+    transform: translateZ(0);
+    transition: top, transform 0.3s;
+    width: 93em;
+  }
+
+  .eyebrow--left {
+    left: 132em;
+  }
+
+  .eyebrow--right {
+    right: 132em;
+  }
+
+  .eyebrow--raised {
+    animation: raiseEyebrow 0.6s ease normal;
+  }
+
+  .eyebrow--sadLeft {
+    transform: rotate(-45deg);
+    transition: transform 0.3s;
+  }
+
+  .eyebrow--sadRight {
+    transform: rotate(45deg);
+    transition: transform 0.3s;
+  }
+
+  .nose {
+    background: url(img/face/nose.svg) 0 0 /contain no-repeat;
+    height: 104em;
+    left: $santa-face-width / 2 - 127em / 2;
+    position: absolute;
+    top: 170em;
+    transform: translateZ(0);
+    transition: transform 0.3s;
+    width: 127em;
+  }
+
+  .nose--squashed {
+    transform: scaleY(0.7);
+    transition: transform 0.3s;
+  }
+
+  .mouth {
+    left: $santa-face-width / 2 - 90em / 2;
+    pointer-events: none;
+    position: absolute;
+    top: 295em;
+    transform: translateZ(0);
+  }
+
+  .mouth--smile {
+    background: url(img/face/mouth--smile.svg) 0 0 /contain no-repeat;
+    height: 45em;
+    width: 90em;
+  }
+
+  .mouth--breath {
+    background: url(img/face/mouth--breath.svg) 0 0 /contain no-repeat;
+    height: 40em;
+    left: $santa-face-width / 2 - 20em;
+    transition: left .3s;
+    width: 40em;
+  }
+
+  .mouth--breathLeft {
+    @extend .mouth--breath;
+    left: $santa-face-width / 2 - 45em;
+    transition: left .3s;
+  }
+
+  .mouth--breathRight {
+    @extend .mouth--breath;
+    left: $santa-face-width / 2 + 25em;
+    transition: left .3s;
+  }
+
+  .mouth--open {
+    background: url(img/face/mouth--breath.svg) 0 0 /contain no-repeat;
+    height: 57em;
+    left: $santa-face-width / 2 - 57em / 2;
+    width: 57em;
+  }
+
+  .mouth--sad {
+    @extend .mouth--smile;
+    transform: scaleY(-1);
+  }
+
+  .beard {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    // background-color: rgba(255, 0, 0, 0.2);
+  }
+
+  .cheek {
+    background: url(img/face/cheek.png) 0 0 /contain no-repeat;
+    height: 150em;
+    opacity: 0;
+    position: absolute;
+    top: 160em;
+    transition: opacity 1s;
+    width: 150em;
+  }
+
+  .cheek--left {
+    left: 60em;
+  }
+
+  .cheek--right {
+    right: 60em;
+  }
+
+  .cheek--show {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+}
+
+@keyframes breathing {
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-7em); }
+  72% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes raiseEyebrow {
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-20em); }
+  70% { transform: translateY(-20em); }
+  100% { transform: translateY(0); }
+}

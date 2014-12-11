@@ -55,6 +55,10 @@ Santa Track app.
         loadingBgColor="#3F4EA1"
         loadingSrc="scenes/codelab/img/loading.svg" hidden></codelab-scene>
 
+    <commandcentre-scene route="commandcentre"
+        path="scenes/commandcentre/commandcentre-scene_en.html"
+        loadingBgColor="rgb(129,208,0)" hidden></commandcentre-scene>
+
     <gumball-scene route="gumball"
         path="scenes/gumball/gumball-scene_[[language]].html"
         loadingBgColor="#8d23a9"
@@ -80,6 +84,10 @@ Santa Track app.
         loadingBgColor="#fbbf2c"
         loadingSrc="scenes/mercator/img/loading.svg" hidden></mercator-scene>
 
+    <playground-scene route="playground"
+        path="scenes/playground/playground-scene_[[language]].html"
+        loadingBgColor="rgb(251, 191, 44)" hidden></playground-scene>
+
     <presentdrop-scene route="presentdrop"
         path="scenes/presentdrop/presentdrop-scene_[[language]].html"
         loadingBgColor="#8fd7f7"
@@ -90,13 +98,18 @@ Santa Track app.
         loadingBgColor="#8fd7f7"
         loadingSrc="scenes/racer/img/loading.svg" hidden></racer-scene>
 
+    <santaselfie-scene route="santaselfie"
+        path="scenes/santaselfie/santaselfie-scene_[[language]].html"
+        loadingBgColor="#83D7F5"
+        loadingSrc="scenes/santaselfie/img/loading.svg" hidden></santaselfie-scene>
+
     <workshop-scene route="workshop"
         path="scenes/workshop/workshop-scene.html"
         hidden></workshop-scene>
 
     <windtunnel-scene route="windtunnel"
-        path="scenes/windtunnel/windtunnel-scene.html"
-        hidden></windtunnel-scene>
+        path="scenes/windtunnel/windtunnel-scene_[[language]].html" hidden
+        loadingBgColor="rgb(129,208,0)"></windtunnel-scene>
 
     <rollercoaster-scene route="rollercoaster"
         path="scenes/rollercoaster/rollercoaster-scene.html" hidden></rollercoaster-scene>
@@ -331,7 +344,7 @@ Polymer(Polymer.mixin({
     }
 
     if (loadSound) {
-      var sc = new SoundController();
+      var sc = new SoundController(this.soundsLoaded.bind(this));
       this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
       this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
@@ -429,7 +442,7 @@ Polymer(Polymer.mixin({
     if (requestedRoute === this.route) {
       // Route is valid. Send to analytics and load the scene.
       this.trackPageview('/' + this.route);
-    } else {
+    } else if (requestedRoute !== '') {
       // The requested route was changed.
       this.fire('analytics-track-event', { category: 'Routing',
           action: 'Invalid Route', label: '/' + requestedRoute});
@@ -460,6 +473,14 @@ Polymer(Polymer.mixin({
     this.fire('sound-ambient', 'global_unpause');
     if (this.selectedScene && this.selectedScene.fire) {
       this.selectedScene.fire('scene-pause', false);
+    }
+  },
+
+  soundsLoaded: function(soundsName) {
+    // TODO(bckenny): selectedScene.fire check may be unecessary as it's not
+    // clear if it's possible for selectedScene to not be upgraded by this point
+    if (this.selectedScene && this.selectedScene.fire) {
+      this.selectedScene.fire('sounds-loaded', soundsName);
     }
   },
 
