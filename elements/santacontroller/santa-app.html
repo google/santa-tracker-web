@@ -13,16 +13,7 @@ Santa Track app.
 
 @element santa-app
 -->
-<polymer-element name="santa-app"
-                 on-iframe-focus-change="{{onIframeFocusChange}}"
-                 on-analytics-track-event="{{trackEvent}}"
-                 on-analytics-track-perf="{{trackPerf}}"
-                 on-analytics-time-start="{{timeStart}}"
-                 on-analytics-time-end="{{timeEnd}}"
-                 on-analytics-track-social="{{trackSocial}}"
-                 on-analytics-track-game-start="{{trackGameStart}}"
-                 on-analytics-track-game-quit="{{trackGameQuit}}"
-                 on-analytics-track-game-over="{{trackGameOver}}" tabindex="0">
+<polymer-element name="santa-app" tabindex="0">
 <template>
   <!-- keyboard handler -->
   <core-a11y-keys target="{{}}" keys="esc" on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
@@ -279,6 +270,18 @@ Polymer(Polymer.mixin({
      * @default false
      */
     postFlight: {value: false, reflect: true},
+  },
+
+  eventDelegates: {
+    'iframe-focus-change': 'onIframeFocusChange',
+    'analytics-track-event': 'trackEvent',
+    'analytics-track-perf': 'trackPerf',
+    'analytics-time-start': 'timeStart',
+    'analytics-time-end': 'timeEnd',
+    'analytics-track-social': 'trackSocial',
+    'analytics-track-game-start': 'trackGameStart',
+    'analytics-track-game-quit': 'trackGameQuit',
+    'analytics-track-game-over': 'trackGameOver'
   },
 
   ready: function() {
