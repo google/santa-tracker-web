@@ -5896,5 +5896,9 @@
     "tracker_current_stop": {
       "description": "Heading above the current stop for Santa",
       "message": "Current stop"
+    },
+    "tracker_distance_from_you": {
+      "description": "Heading above a number that displays how far Santa is from your location",
+      "message": "Distance from you"
     }
 }
