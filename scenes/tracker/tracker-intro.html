@@ -1,3 +1,4 @@
+<link rel="import" href="../../components/polymer/polymer.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="../../components/google-map/google-map.html">
 <link rel="import" href="bubble-overlay.html">
@@ -10,7 +11,8 @@ Intro for the tracker scene.
 
 @element tracker-intro
 -->
-<polymer-element name="tracker-intro" attributes="userLocation santaLocation santaDistance">
+<polymer-element name="tracker-intro" attributes="userLocation santaLocation santaDistance"
+                 on-transitionend="{{onOffScreen}}">
 <template>
   <style>
   /* Outside of tracker-intro.scss because it requires shimming. */
@@ -20,7 +22,7 @@ Intro for the tracker scene.
     display: block;
     position: relative;
     transition: transform 0.3s ease;
-    z-index: 1;
+    z-index: 2;
   }
   </style>
   <link rel="stylesheet" href="tracker-intro.css" no-shim>
@@ -69,7 +71,7 @@ Intro for the tracker scene.
     </div>
 
     <div class="skip">
-      <a on-click="{{skip}}"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
+      <a href="{{pageURL}}#" on-click="{{skip}}"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
     </div>
   </div>
 
@@ -282,8 +284,10 @@ Intro for the tracker scene.
      *
      * @method skip
      */
-    skip: function() {
+    skip: function(e, detail, sender) {
+      e.preventDefault();
       this.style.transform = 'translateY(-' + 2 * this.winCenterY_ + 'px)';
+      this.classList.add('offscreen');
     },
 
     /**
@@ -293,6 +297,12 @@ Intro for the tracker scene.
      */
     destroy: function() {
       this.parentNode.removeChild(this);
+    },
+
+    onOffScreen: function(e, detail, sender) {
+      if (sender.classList.contains('offscreen')) {
+        this.parentNode.removeChild(this); // intro scene removes itself after it's slide offscreen.
+      }
     }
   });
 })();
