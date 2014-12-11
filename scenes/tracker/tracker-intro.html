@@ -86,8 +86,8 @@ Intro for the tracker scene.
      * Name and coords of the user's location.
      *
      * @property userLocation
-     * @type number
-     * @default 0
+     * @type Object
+     * @default null
      */
     userLocation: null,
 
@@ -139,16 +139,16 @@ Intro for the tracker scene.
       this.$.santaSleigh.style.left = this.santaBubbleCenterX_ + 'px';
       this.$.santaSleigh.style.top = this.winCenterY_ + 20 + 'px';
       this.$.userMap.style.left = this.winCenterX_ - 150 + 'px';  /* center point - 0.5 * width */
-      this.$.userMap.style.top = this.winCenterY_ - 150 + 'px';  /* center point - 0.5 * width */
+      this.$.userMap.style.top = this.winCenterY_ - 150 + 'px';  /* center point - 0.5 * height */
       this.$.santaMap.style.left = this.santaBubbleCenterX_ - 180/2 + 'px';  /* center point - 0.5 * width */
-      this.$.santaMap.style.top = this.winCenterY_ - 180/2 + 'px';  /* center point - 0.5 * width */
+      this.$.santaMap.style.top = this.winCenterY_ - 180/2 + 'px';  /* center point - 0.5 * height */
     },
 
     clipMap_: function(el, bubble) {
       var rect = el.getBoundingClientRect();
       el.style.clip = 'rect(0px ' + (bubble.x +
-        bubble.radius - rect.left)/bubble.scale + 'px auto ' +
-      (bubble.x - bubble.radius - rect.left)/bubble.scale + 'px)';
+        bubble.radius - rect.left) / bubble.scale + 'px auto ' +
+      (bubble.x - bubble.radius - rect.left) / bubble.scale + 'px)';
     },
 
     translateMap_: function(el, bubble) {
@@ -156,11 +156,11 @@ Intro for the tracker scene.
       var stepY = bubble.y - bubble.originY;
       var scale = bubble.scale;
 
-      if (stepX || stepY || bubble.scale!==1) {
+      if (stepX || stepY || bubble.scale !== 1) {
         var transform = 'matrix(' + bubble.scale + ', 0, 0, ' + bubble.scale +
           ', '+ stepX + ', '+ stepY +')';
-        el.style.webkitTransform = transform;
         el.style.transform = transform;
+        el.style.webkitTransform = transform;
 
         var wrapper = this.$.pin.parentNode;
         wrapper.style.webkitTransform = transform;
@@ -253,6 +253,7 @@ Intro for the tracker scene.
           bubble.open(100, function() {
             userLocationEl.classList.add('final');
             pin.style.transform = 'rotate(0deg)';
+            pin.style.webkitTransform = 'rotate(0deg)';
             this.async(function() {
               this.showSantaLocation();
 
