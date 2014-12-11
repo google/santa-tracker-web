@@ -167,7 +167,7 @@ app.PresentsBelt.prototype = {
     }
     else {
       // pool size and margin between items must be set so we dont run out of items in the pool
-      console.warn('NO FREE present IN POOL');
+      console.log('NO FREE present IN POOL');
     }
 
     return present;
