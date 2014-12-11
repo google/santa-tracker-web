@@ -11,6 +11,7 @@ function createSantaMarkerConstructor() {
 
     this.trailLines_ = [];
     this.lastStop_ = null;
+    this.bounds_ = new google.maps.LatLngBounds();
 
     this.activeTrail_ = new google.maps.Polyline({
       geodesic: true,
@@ -114,12 +115,15 @@ function createSantaMarkerConstructor() {
     if (this.lastStop_ != state.prev) {
       // Last stop has changed so update the trail
       this.lastStop_ = state.prev;
+
+      this.bounds_ = new google.maps.LatLngBounds();
       
       // Populate the trail with the last 8 locations
       var trail = [];
       var prev = state.prev;
-      while (this.trail_.length != 8) {
+      while (trail.length != 8) {
         trail.push(prev.location);
+        this.bounds_.extend(mapsLatLng(prev.location));
         prev = prev.prev();
         if (!prev) break;
       }
@@ -132,10 +136,11 @@ function createSantaMarkerConstructor() {
 
       var opacitySteps = [.5, .5, .25, .25, .25, .15, .15, .08];
 
+
       // Update the trail
       for (var i = 0; i < trail.length - 1; i++) {
         var line = new google.maps.Polyline({
-          path: [this.trail_[i], this.trail_[i+1]],
+          path: [trail[i], trail[i+1]],
           geodesic: true,
           strokeColor: this.TRAIL_COLOR_,
           strokeWeight: 2,
@@ -152,18 +157,11 @@ function createSantaMarkerConstructor() {
       this.lastStop_.location,
       this.get('position')
     ]);
+    this.bounds_.extend(this.get('position'));
   };
 
   SantaMarker.prototype.getBounds = function() {
-    var bounds = new google.maps.LatLngBounds();
-    bounds.extend(this.get('position'));
-    for (var i = 0; i < this.trail_.length - 1; i++) {
-      bounds.extend(mapsLatLng(this.trail_[i]));
-    }
-
-    // Might need to add some padding
-
-    return bounds;
+    return this.bounds_;
   };
 
   return SantaMarker;
