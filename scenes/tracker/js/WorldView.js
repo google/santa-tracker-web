@@ -29,6 +29,8 @@ function WorldView(base, componentDir) {
   this.santaMarker_ = null;
 
   this.init_ = false;
+
+  this.lockOnSanta_ = true;
 }
 
 /**
@@ -82,6 +84,10 @@ WorldView.prototype.setupMap = function() {
   this.santaMarker_ = new SantaMarker({
     map: this.map_
   });
+
+  if (this.dests) {
+    this.setDestinations(this.dests);
+  }
 };
 
 WorldView.prototype.moveSanta = function(state) {
@@ -90,6 +96,12 @@ WorldView.prototype.moveSanta = function(state) {
   this.santaMarker_.setPosition(loc);
   this.santaMarker_.set('type', state.stopover ? 'presents' : 'sleigh');
   this.santaMarker_.setHeading(state.heading);
+  this.santaMarker_.updateTrail(state);
+
+  if (this.lockOnSanta_) {
+    var bounds = this.santaMarker_.getBounds();
+    this.map_.fitBounds(bounds);
+  }
 };
 
 WorldView.prototype.createSceneMarkers_ = function() {
@@ -166,11 +178,6 @@ WorldView.prototype.setDestinations = function(dests) {
 
   if (this.map_) {
     this.addMarkers_(dests);
-  }
-
-  if (!this.init_) {
-    this.init_ = true;
-    this.fitBounds();
   }
 };
 

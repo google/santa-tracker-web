@@ -3,6 +3,8 @@
 @import "compass/css3/transition";
 
 @import "../shared/sass/_mixins.scss";
+@import "sass/_keyframe_animations.scss";
+@import "sass/_santa.scss";
 
 $tabletBreakpoint: 1024px;
 $mobileBreakpoint: 660px;

@@ -70,7 +70,7 @@ Tracker scene.
                 <div class="ico ico-marker"></div>
                 <div class="stat">{{ location.prev.city }}</div>
               </li>
-              <li hidden?="{{location.stopover}}">
+              <li hidden?="{{location.stopover == null}}">
                 <h4>Current stop</h4>
                 <div class="ico ico-marker"></div>
                 <div class="stat">{{ location.stopover.city }}</div>
@@ -80,12 +80,12 @@ Tracker scene.
                 <div class="ico ico-arrow"></div>
                 <div class="stat">{{ location.next.city }}</div>
               </li>
-              <li hidden?="{{!location.stopover}}">
+              <li hidden?="{{location.stopover != null}}">
                 <h4>Arriving in</h4>
                 <div class="ico ico-clock"></div>
                 <div class="stat">{{ arrival_ }}</div>
               </li>
-              <li hidden?="{{location.stopover}}">
+              <li hidden?="{{location.stopover == null}}">
                 <h4>Departing in</h4>
                 <div class="ico ico-clock"></div>
                 <div class="stat">{{ departure_ }}</div>
