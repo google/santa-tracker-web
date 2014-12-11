@@ -2,6 +2,7 @@
 <link rel="import" href="../../components/google-map/google-map.html">
 <link rel="import" href="bubble-overlay.html">
 
+<script src="../../js/utils.js"></script>
 <script src="../shared/js/mapstyles.js"></script>
 
 <!--
@@ -9,7 +10,7 @@ Intro for the tracker scene.
 
 @element tracker-intro
 -->
-<polymer-element name="tracker-intro" attributes="userLocation">
+<polymer-element name="tracker-intro" attributes="userLocation santaLocation santaDistance">
 <template>
   <style>
   /* Outside of tracker-intro.scss because it requires shimming. */
@@ -26,7 +27,8 @@ Intro for the tracker scene.
 
   <div id="tracker-intro-module">
     <bubble-overlay opacity="1" color="#13AB27">
-      <canvas-bubble id="bubble" x="{{winCenterX_}}" y="{{winCenterY_}}"></canvas-bubble>
+      <canvas-bubble id="userBubble" x="{{winCenterX_}}" y="{{winCenterY_}}"></canvas-bubble>
+      <canvas-bubble id="santaBubble" x="{{santaBubbleCenterX_}}" y="{{winCenterY_}}"></canvas-bubble>
     </bubble-overlay>
 
     <div class="top" id="top">
@@ -42,15 +44,27 @@ Intro for the tracker scene.
       <img class="pin" id="pin" src="img/pin.svg">
     </div>
 
-    <div id="map"></div>
+    <div id="santaSleigh" class="santa-sleigh sw"></div>
+
+    <div id="userMap">
+      <div id="userMapInner"></div>
+    </div>
+
+    <div id="santaMap">
+      <div id="santaMapInner"></div>
+    </div>
 
     <div class="bottom-wrapper">
-      <div class="bottom" id="bottom">
+      <div class="user-location" id="userLocation">
         <p class="info">
           <i18n-msg msgid="tracker_intro_user_location">PLACEHOLDER_i18n</i18n-msg>
           <br>
           <em>{{userLocation.name}}</em>
         </p>
+      </div>
+
+      <div class="santa-distance" id="santaDistance">
+        <p>Santa is {{santaDistance | formatDistance_}} away</p>
       </div>
     </div>
 
@@ -63,15 +77,28 @@ Intro for the tracker scene.
 <script>
 (function() {
 
+  var BUBBLE_RADIUS_BIG = 100;
+  var BUBBLE_RADIUS_SMALL = 60;
+  var BUBBLE_CENTER_OFFSET = 200;
+
   Polymer({
     /**
-     * Latitude used to display the intro map.
+     * Name and coords of the user's location.
+     *
+     * @property userLocation
+     * @type number
+     * @default 0
+     */
+    userLocation: null,
+
+    /**
+     * Name and coords of the Santa's location.
      *
      * @property latitude
      * @type number
      * @default 0
      */
-    userLocation: null,
+    santaLocation: null,
 
     /**
      * window center point.
@@ -91,25 +118,94 @@ Intro for the tracker scene.
      */
     winCenterY_: 0,
 
+    /**
+     * Santa's bubble center point.
+     *
+     * @private
+     * @type number
+     * @default 0
+     */
+    santaBubbleCenterX_: 0,
+
     created: function() {
       this.winCenterX_ = window.innerWidth / 2;
       this.winCenterY_ = window.innerHeight / 2;
-    },
-
-    ready: function() {
-      //debugger;
-      //this.$.map.styles = mapstyles.styles;
+      this.santaBubbleCenterX_ = this.winCenterX_ + BUBBLE_CENTER_OFFSET;
     },
 
     domReady: function() {
-      this.$.pinWrapper.style.left = this.winCenterX_ - 50 + 'px';
-      this.$.pinWrapper.style.top = this.winCenterY_ - 50 + 'px';
-      this.$.map.style.left = this.winCenterX_ - 150 + 'px';  /* center point - 0.5 * width */
-      this.$.map.style.top = this.winCenterY_ - 150 + 'px';  /* center point - 0.5 * width */
+      this.$.pinWrapper.style.left = this.winCenterX_ - 100 + 'px'; // 100 = pin width
+      this.$.pinWrapper.style.top = this.winCenterY_ - 50 + 'px';  // 50 = pin height
+      this.$.santaSleigh.style.left = this.santaBubbleCenterX_ + 'px';
+      this.$.santaSleigh.style.top = this.winCenterY_ + 20 + 'px';
+      this.$.userMap.style.left = this.winCenterX_ - 150 + 'px';  /* center point - 0.5 * width */
+      this.$.userMap.style.top = this.winCenterY_ - 150 + 'px';  /* center point - 0.5 * width */
+      this.$.santaMap.style.left = this.santaBubbleCenterX_ - 180/2 + 'px';  /* center point - 0.5 * width */
+      this.$.santaMap.style.top = this.winCenterY_ - 180/2 + 'px';  /* center point - 0.5 * width */
+    },
+
+    clipMap_: function(el, bubble) {
+      var rect = el.getBoundingClientRect();
+      el.style.clip = 'rect(0px ' + (bubble.x +
+        bubble.radius - rect.left)/bubble.scale + 'px auto ' +
+      (bubble.x - bubble.radius - rect.left)/bubble.scale + 'px)';
+    },
+
+    translateMap_: function(el, bubble) {
+      var stepX = bubble.x - bubble.originX;
+      var stepY = bubble.y - bubble.originY;
+      var scale = bubble.scale;
+
+      if (stepX || stepY || bubble.scale!==1) {
+        var transform = 'matrix(' + bubble.scale + ', 0, 0, ' + bubble.scale +
+          ', '+ stepX + ', '+ stepY +')';
+        el.style.webkitTransform = transform;
+        el.style.transform = transform;
+
+        var wrapper = this.$.pin.parentNode;
+        wrapper.style.webkitTransform = transform;
+        wrapper.style.transform = transform;
+      }
+    },
+
+    formatDistance_: function(dist) {
+      return formatDistance(dist);
+    },
+
+    bindMapToBubble_: function(el, bubble) {
+      // Compensate for a left and top overflow if present.
+      var rect = el.getBoundingClientRect();
+      var transformOrigin = (bubble.bubble.originX - rect.left) + 'px ' +
+                            (bubble.bubble.originY - rect.top) + 'px';
+      el.style.transformOrigin = transformOrigin;
+      el.style.webkitTransformOrigin = transformOrigin;
+
+      bubble.addEventListener('resize', function(e) {
+        this.clipMap_(el, e.target.bubble);
+      }.bind(this));
+      bubble.addEventListener('translate', function(e) {
+        this.translateMap_(el, e.target.bubble);
+      }.bind(this));
+    },
+
+    santaLocationChanged: function() {
+      this.santaMap_ = new google.maps.Map(this.$.santaMapInner, {
+        center: new google.maps.LatLng(
+            this.santaLocation.position.lat,
+            this.santaLocation.position.lng),
+        zoom: 7,
+        disableDefaultUI: true,
+        scrollwheel: false,
+        draggable: false,
+        disableDoubleClickZoom: true,
+        backgroundColor: '#fff',
+        styles: mapstyles.styles
+      });
+
     },
 
     userLocationChanged: function() {
-      this.map_ = new google.maps.Map(this.$.map, {
+      this.map_ = new google.maps.Map(this.$.userMapInner, {
         center: new google.maps.LatLng(
             this.userLocation.location.lat,
             this.userLocation.location.lng),
@@ -121,6 +217,8 @@ Intro for the tracker scene.
         backgroundColor: '#fff',
         styles: mapstyles.styles
       });
+
+      this.bindMapToBubble_(this.$.userMap, this.$.userBubble);
 
       google.maps.event.addListener(
         this.map_, 'idle', function(){
@@ -145,19 +243,39 @@ Intro for the tracker scene.
      * @method showUserLocationMap
      */
     showUserLocationMap: function() {
-      var bubble = this.$.bubble;
+      var bubble = this.$.userBubble;
       var pin = this.$.pin;
-      var bottom = this.$.bottom;
+      var userLocationEl = this.$.userLocation;
 
       this.$.top.classList.add('final'); // 300ms
       this.async(function() {
         bubble.open(140, function(e) {
           bubble.open(100, function() {
-            bottom.classList.add('final');
+            userLocationEl.classList.add('final');
             pin.style.transform = 'rotate(0deg)';
-          });
-        });
+            this.async(function() {
+              this.showSantaLocation();
+
+            }, null, 1500);
+          }.bind(this));
+        }.bind(this));
       }, null, 300);
+    },
+
+    /**
+     * Plays user's location animation sequence.
+     *
+     * @method showUserLocationMap
+     */
+    showSantaLocation: function() {
+      var bubble = this.$.userBubble;
+      var santaBubble = this.$.santaBubble;
+      bubble.move(this.winCenterX_ - BUBBLE_CENTER_OFFSET,
+          this.winCenterY_, BUBBLE_RADIUS_SMALL, function() {
+        santaBubble.open(BUBBLE_RADIUS_SMALL);
+      });
+      this.$.userLocation.classList.remove('final');
+      this.$.santaDistance.classList.add('final');
     },
 
     /**
