@@ -429,7 +429,7 @@ Polymer(Polymer.mixin({
     if (requestedRoute === this.route) {
       // Route is valid. Send to analytics and load the scene.
       this.trackPageview('/' + this.route);
-    } else {
+    } else if (requestedRoute !== '') {
       // The requested route was changed.
       this.fire('analytics-track-event', { category: 'Routing',
           action: 'Invalid Route', label: '/' + requestedRoute});
