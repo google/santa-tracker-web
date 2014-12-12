@@ -238,6 +238,15 @@ Jamband scene.
      */
     soundsLoaded: false,
 
+    /**
+     * Whether the band has already started.
+     *
+     * @property bandStarted
+     * @type boolean
+     * @default false
+     */
+    bandStarted: false,
+
     onPreload: function() {
       this.preloadSounds('jamband_load_sounds', 60);
       this.preloadImages([
@@ -266,38 +275,44 @@ Jamband scene.
 
     googleAPIReady: function() {
       this.shareReady = true;
-      if (this.game) {
+      if (this.bandStarted) {
         this.game.initShareOverlay();
       }
     },
 
     onSoundsLoaded: function(e, soundsName, sender) {
-      if (soundsName === 'jamband_load_sounds' && !this.soundsLoaded) {
+      if (soundsName === 'jamband_load_sounds') {
         this.soundsLoaded = true;
-        if (this.game) {
-          this.game.start();
-        }
+        this.gatedStartBand();
       }
     },
 
     onShow: function() {
+      this.fire('sound-ambient', 'jamband_start');
+
       var module = this.$['module-jamband'];
 
       this.game = new scenes.jamband.Game(module);
-      if (this.soundsLoaded) {
+      this.gatedStartBand();
+    },
+
+    /**
+     * Start band if necessary prerequisites are met.
+     */
+    gatedStartBand: function() {
+      if (this.game && this.soundsLoaded && !this.bandStarted) {
         this.game.start();
-      }
-      if (this.shareReady) {
-        this.game.initShareOverlay();
-      }
+        this.bandStarted = true;
+        this.sceneParamsChanged();
 
-      this.fire('sound-ambient', 'jamband_start');
-
-      this.sceneParamsChanged();
+        if (this.shareReady) {
+          this.game.initShareOverlay();
+        }
+      }
     },
 
     sceneParamsChanged: function() {
-      if (this.sceneParams.band) {
+      if (this.sceneParams.band && this.bandStarted) {
         this.game.restoreBand(this.sceneParams.band);
       }
     },
