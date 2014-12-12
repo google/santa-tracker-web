@@ -22,6 +22,8 @@ function createSantaLayerConstructor() {
     this.activeTrail_.bindTo('map', this);
 
     this.setValues(opt_opts);
+
+    this.container_.on('click', this.onSantaClick_.bind(this));
   }
   SantaLayer.prototype = new google.maps.OverlayView;
 
@@ -40,6 +42,10 @@ function createSantaLayerConstructor() {
   SantaLayer.prototype.PRESENTS_HEIGHT_ = 142;
 
   SantaLayer.prototype.TRAIL_COLOR_ = '#22a528';
+
+  SantaLayer.prototype.onSantaClick_ = function() {
+    google.maps.event.trigger(this, 'santa_clicked');
+  };
 
   SantaLayer.prototype.setPosition = function(latLng) {
     this.set('position', latLng);

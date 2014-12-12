@@ -85,10 +85,19 @@ WorldView.prototype.setupMap = function() {
     map: this.map_
   });
 
+  this.SantaLayer_.addListener('santa_clicked', this.onSantaLayerClick_.bind(this));
+
   if (this.dests) {
     this.clearRouteMarkers_();
     this.setDestinations(this.dests);
   }
+};
+
+/**
+ * @private
+ */
+WorldView.prototype.onSantaLayerClick_ = function() {
+  google.maps.event.trigger(this, 'santa_clicked');
 };
 
 WorldView.prototype.moveSanta = function(state) {
@@ -134,8 +143,7 @@ WorldView.prototype.showSceneMarkers_ = function() {
  * @private
  */
 WorldView.prototype.onSceneMarkerClick_ = function(scene) {
-  //TODO(lukem): hook this up
-  //google.maps.event.trigger(this, 'scenemarker_clicked', scene);
+  google.maps.event.trigger(this, 'scenemarker_clicked', scene);
 };
 
 /**
@@ -229,8 +237,7 @@ WorldView.prototype.fitBounds = function() {
  * @param {string} destId
  */
 WorldView.prototype.onRouteMarkerClick_ = function(marker, destId) {
-  //google.maps.event.trigger(this, 'routemarker_clicked', destId);
-  //TODO(lukem|cbro): hook this up
+  google.maps.event.trigger(this, 'routemarker_clicked', destId);
 };
 
 
