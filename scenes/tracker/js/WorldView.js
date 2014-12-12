@@ -26,9 +26,11 @@ function WorldView(base, componentDir) {
   //this.createSceneMarkers_();
   this.map_ = null;
 
-  this.santaMarker_ = null;
+  this.SantaLayer_ = null;
 
   this.init_ = false;
+
+  this.lockOnSanta_ = true;
 }
 
 /**
@@ -77,19 +79,39 @@ WorldView.prototype.setupMap = function() {
 
   this.createSceneMarkers_();
 
-  var SantaMarker = createSantaMarkerConstructor();
+  var SantaLayer = createSantaLayerConstructor();
 
-  this.santaMarker_ = new SantaMarker({
+  this.SantaLayer_ = new SantaLayer({
     map: this.map_
   });
+
+  this.SantaLayer_.addListener('santa_clicked', this.onSantaLayerClick_.bind(this));
+
+  if (this.dests) {
+    this.clearRouteMarkers_();
+    this.setDestinations(this.dests);
+  }
+};
+
+/**
+ * @private
+ */
+WorldView.prototype.onSantaLayerClick_ = function() {
+  google.maps.event.trigger(this, 'santa_clicked');
 };
 
 WorldView.prototype.moveSanta = function(state) {
-  if (!this.santaMarker_) return;
+  if (!this.SantaLayer_) return;
   var loc = mapsLatLng(state.position);
-  this.santaMarker_.setPosition(loc);
-  this.santaMarker_.set('type', state.stopover ? 'presents' : 'sleigh');
-  this.santaMarker_.setHeading(state.heading);
+  this.SantaLayer_.setPosition(loc);
+  this.SantaLayer_.set('type', state.stopover ? 'presents' : 'sleigh');
+  this.SantaLayer_.setHeading(state.heading);
+  this.SantaLayer_.updateTrail(state);
+
+  if (this.lockOnSanta_) {
+    var bounds = this.SantaLayer_.getBounds();
+    this.map_.fitBounds(bounds);
+  }
 };
 
 WorldView.prototype.createSceneMarkers_ = function() {
@@ -121,8 +143,7 @@ WorldView.prototype.showSceneMarkers_ = function() {
  * @private
  */
 WorldView.prototype.onSceneMarkerClick_ = function(scene) {
-  //TODO(lukem): hook this up
-  //google.maps.event.trigger(this, 'scenemarker_clicked', scene);
+  google.maps.event.trigger(this, 'scenemarker_clicked', scene);
 };
 
 /**
@@ -166,11 +187,6 @@ WorldView.prototype.setDestinations = function(dests) {
 
   if (this.map_) {
     this.addMarkers_(dests);
-  }
-
-  if (!this.init_) {
-    this.init_ = true;
-    this.fitBounds();
   }
 };
 
@@ -221,8 +237,7 @@ WorldView.prototype.fitBounds = function() {
  * @param {string} destId
  */
 WorldView.prototype.onRouteMarkerClick_ = function(marker, destId) {
-  //google.maps.event.trigger(this, 'routemarker_clicked', destId);
-  //TODO(lukem|cbro): hook this up
+  google.maps.event.trigger(this, 'routemarker_clicked', destId);
 };
 
 
