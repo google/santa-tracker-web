@@ -146,7 +146,7 @@ var VALID_ROUTES_ = [];
 
 // Routes/scenes which should always be accessible, no matter what the day.
 // These scenes are also not removed from the lazy-page switching.
-var PERMANENT_ROUTES_ = ['village', 'calendar', 'about', 'tracker'];
+var PERMANENT_ROUTES_ = ['village', 'calendar', 'about'];
 
 // Check if date1 is the same date as date2.
 function isSameDay_(date1, date2) {
@@ -444,6 +444,13 @@ Polymer(Polymer.mixin({
       this.trackPageview('/' + this.route);
     } else if (requestedRoute !== '') {
       // The requested route was changed.
+      var currentRoute = null;
+      if (this.selectedScene.pageUrl) {
+        currentRoute = this.selectedScene.pageUrl + '#' +
+            this.selectedScene.route;
+      }
+      this.fire('analytics-track-event', { category: 'Routing',
+          action: 'Invalid Route Source', label: currentRoute});
       this.fire('analytics-track-event', { category: 'Routing',
           action: 'Invalid Route', label: '/' + requestedRoute});
     }
