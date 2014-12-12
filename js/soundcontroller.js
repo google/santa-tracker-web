@@ -119,9 +119,6 @@ SoundController.prototype.triggerSoundsLoad_ = function(soundsName) {
   // Klang is already loaded, so attempt to load sound files
   Klang.triggerEvent(soundsName,
     function success() {
-      console.log('Klang: loaded sound ' + soundsName);
-      this.loadCallback_(soundsName);
-
       // If this is also the most recently loaded set of sounds, play all queued
       // ambient sounds and clear queue.
       if (soundsName === this.loadingSounds_) {
@@ -134,6 +131,10 @@ SoundController.prototype.triggerSoundsLoad_ = function(soundsName) {
         this.loadingSounds_ = null;
         this.soundQueue_ = [];
       }
+
+      // Signal that sounds have loaded (after any queued sounds have begun).
+      this.loadCallback_(soundsName);
+      console.log('Klang: loaded sound ' + soundsName);
     }.bind(this),
     function progress() {
       // for now, we don't care about this
