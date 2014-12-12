@@ -41,24 +41,20 @@ Tracker scene.
           <div id="status-bar-location" hidden>
             <ul>
               <li>
-                <h4>Your location</h4>
+                <h4><i18n-msg msgid="tracker_your_locaiton">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="ico ico-marker"></div>
                 <div class="stat">{{ userLocation.name }}</div>
               </li>
               <li>
-                <h4>Santa arrives in your area</h4>
-                <div class="stat-large">TODO</div>
-              </li>
-              <li>
-                <h4>Santa is approximately</h4>
+                <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="stat-large"> {{ santaDistance | formatDistance_ }}</div>
               </li>
               <li >
-                <h4>Gifts delivered</h4>
+                <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
               </li>
               <li>
-                <h4>Next stop</h4>
+                <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="ico ico-arrow"></div>
                 <div class="stat">{{ location.next.city }}</div>
               </li>
@@ -67,33 +63,28 @@ Tracker scene.
 
           <div id="status-bar-generic" hidden>
             <ul>
-              <li hidden?="{{!location.stopover}}">
-                <h4>Previous stop</h4>
-                <div class="ico ico-marker"></div>
-                <div class="stat">{{ location.prev.city }}</div>
-              </li>
-              <li hidden?="{{location.stopover}}">
-                <h4>Current stop</h4>
+              <li hidden?="{{location.stopover == null}}">
+                <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="ico ico-marker"></div>
                 <div class="stat">{{ location.stopover.city }}</div>
               </li>
               <li>
-                <h4>Next stop</h4>
+                <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="ico ico-arrow"></div>
                 <div class="stat">{{ location.next.city }}</div>
               </li>
-              <li hidden?="{{!location.stopover}}">
-                <h4>Arriving in</h4>
+              <li hidden?="{{location.stopover != null}}">
+                <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="ico ico-clock"></div>
                 <div class="stat">{{ arrival_ }}</div>
               </li>
-              <li hidden?="{{location.stopover}}">
-                <h4>Departing in</h4>
+              <li hidden?="{{location.stopover == null}}">
+                <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="ico ico-clock"></div>
                 <div class="stat">{{ departure_ }}</div>
               </li>
               <li >
-                <h4>Gifts Delivered</h4>
+                <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
               </li>
             </ul>
