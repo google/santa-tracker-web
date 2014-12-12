@@ -5603,7 +5603,7 @@
     },
     "upgrade-warning": {
         "description": "An error message. Error appears as the sole text on an HTML page.",
-        "raw": "Oops! Santa Tracker isn't supported in this version of your browser. To access Santa Tracker, download a modern browser. For more information visit <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"http://whatbrowser.org\"&gt;</ph>whatbrowser.org<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
+        "raw": "Oops! Santa Tracker isn't supported in this version of your browser. To access Santa Tracker, download a modern browser. For more information visit <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://whatbrowser.org\"&gt;</ph>whatbrowser.org<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
     },
     "pg_country_name": {
       "description": "Name of a country. This appears as a label in a geography game.",
