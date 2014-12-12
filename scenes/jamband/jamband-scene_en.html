@@ -213,6 +213,10 @@ Jamband scene.
 </template>
 <script>
 (function() {
+  // Whether the sounds for the scene are loaded and the band can commence
+  // jamming. Static so that it's permanent across mutliple visits to the scene.
+  var soundsLoaded = false;
+
   Polymer({
     componentDir: 'scenes/jamband/',
 
@@ -227,16 +231,6 @@ Jamband scene.
      * @default false
      */
     shareReady: false,
-
-    /**
-     * Whether the sounds for the scene are loaded and the band can commence
-     * jamming.
-     *
-     * @property soundsLoaded
-     * @type boolean
-     * @default false
-     */
-    soundsLoaded: false,
 
     /**
      * Whether the band has already started.
@@ -282,7 +276,7 @@ Jamband scene.
 
     onSoundsLoaded: function(e, soundsName, sender) {
       if (soundsName === 'jamband_load_sounds') {
-        this.soundsLoaded = true;
+        soundsLoaded = true;
         this.gatedStartBand();
       }
     },
@@ -300,7 +294,7 @@ Jamband scene.
      * Start band if necessary prerequisites are met.
      */
     gatedStartBand: function() {
-      if (this.game && this.soundsLoaded && !this.bandStarted) {
+      if (this.game && soundsLoaded && !this.bandStarted) {
         this.game.start();
         this.bandStarted = true;
         this.sceneParamsChanged();
