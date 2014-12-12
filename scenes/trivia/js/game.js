@@ -82,13 +82,7 @@ app.Game.prototype.bumpLevel_ = function() {
  */
 app.Game.prototype.start = function(difficulty) {
   this.quiz.setDifficulty(difficulty);
-  this.restart();
-};
 
-/**
- * Restarts the game. Can be called at any time.
- */
-app.Game.prototype.restart = function() {
   // Cleanup last game
   var match = location.search.match(/[?&]level=(\d+)/) || [];
   this.level = (+match[1] || 1) - 1;
@@ -107,6 +101,13 @@ app.Game.prototype.restart = function() {
 
   this.lastFrame = +new Date() / 1000;
   this.requestId = app.shared.utils.requestAnimFrame(this.onFrame);
+};
+
+/**
+ * Restarts the game. Can be called at any time.
+ */
+app.Game.prototype.restart = function() {
+  this.scene.fire('restart');
 };
 
 /**

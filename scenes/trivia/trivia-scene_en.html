@@ -2532,7 +2532,8 @@ Trivia scene.
       'show-choices': 'onShowChoices',
       'time-up': 'onAnswered',
       'game-over': 'onGameOver',
-      'hide-question': 'onHideQuestion'
+      'hide-question': 'onHideQuestion',
+      'restart': 'onRestart'
     },
 
     onPreload: function() {
@@ -2595,6 +2596,11 @@ Trivia scene.
     onGameOver: function() {
       this.questionVisible = false;
       this.$.answer.hide();
+    },
+
+    onRestart: function() {
+      this.$.menu.hidden = false;
+      this.$.menu.classList.remove('menu--hidden');
     }
   });
 })();
