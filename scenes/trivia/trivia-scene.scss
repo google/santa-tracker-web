@@ -56,4 +56,44 @@ $trivia-bp: 661px;
   .board .logo {
     display: none;
   }
+
+  .ngb-logo {
+    background: url(img/ngb-logo.svg) no-repeat;
+    background-size: 42px;
+    bottom: 5px;
+    left: 50px;
+    line-height: 1;
+    overflow: hidden;
+    padding-top: 42px;
+    position: fixed;
+    text-indent: -100%;
+    width: 42px;
+    z-index: 6;
+
+    @media (min-width: $trivia-bp) {
+      background-size: 116px;
+      bottom: auto;
+      color: #fff;
+      font-family: Roboto, sans-serif;
+      font-size: 10px;
+      left: auto;
+      letter-spacing: 0.7px;
+      line-height: 13px;
+      overflow: auto;
+      padding-top: 116px;
+      position: absolute;
+      right: -126px;
+      text-align: center;
+      text-decoration: none;
+      text-indent: 0;
+      text-transform: uppercase;
+      top: -55px;
+      width: 116px;
+    }
+  }
+
+  .levelup,
+  .levelup--number {
+    z-index: 7;
+  }
 }
