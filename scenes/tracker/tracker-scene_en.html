@@ -1,12 +1,13 @@
+<link rel="import" href="../../components/polymer/polymer.html">
 <link rel="import" href="../base-scene.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="tracker-intro.html">
+<link rel="import" href="city-feed.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 
 <link rel="import" href="dependencies.html">
 
 <script src="../shared/js/mapstyles.js"></script>
-
 
 <!--
 Tracker scene.
@@ -20,16 +21,18 @@ Tracker scene.
 
   <div id="module-tracker">
     <div class="scene">
-        <tracker-intro id="intro"
+
+        <template if="{{santaApp}}">
+          <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
+                           libraries="places,geometry" language="{{santaApp.language}}"
+                           on-api-load="{{mapsAPIReady}}"></google-maps-api>
+        </template>
+
+         <tracker-intro id="intro"
             userLocation="{{userLocation}}"
             santaDistance="{{initialSantaDistance}}"
             santaLocation="{{initialSantaLocation}}"></tracker-intro>
-        <template if="{{santaApp}}">
-          <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
-            libraries="places,geometry" language="{{santaApp.language}}"
-            on-api-load="{{mapsAPIReady}}"></google-maps-api>
 
-        </template>
         <div id="trackermap" fit></div>
 
         <div id="status-bar" hidden>
@@ -38,10 +41,11 @@ Tracker scene.
               <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
             </a>
           </div>
-          <div id="status-bar-location" hidden>
+
+          <template if="{{userLocation}}">
             <ul>
               <li>
-                <h4><i18n-msg msgid="tracker_your_locaiton">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h4><i18n-msg msgid="tracker_your_location">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="ico ico-marker"></div>
                 <div class="stat">{{ userLocation.name }}</div>
               </li>
@@ -58,10 +62,24 @@ Tracker scene.
                 <div class="ico ico-arrow"></div>
                 <div class="stat">{{ location.next.city }}</div>
               </li>
+              <template if="{{!location.stopover}}">
+                <li>
+                  <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div class="ico ico-clock"></div>
+                  <div class="stat">{{ arrival_ }}</div>
+                </li>
+              </template>
+              <template if="{{location.stopover}}">
+                <li>
+                  <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div class="ico ico-clock"></div>
+                  <div class="stat">{{ departure_ }}</div>
+                </li>
+              </template>
             </ul>
-          </div>
+          </template>
 
-          <div id="status-bar-generic" hidden>
+          <template if="{{!userLocation}}">
             <ul>
               <li hidden?="{{location.stopover == null}}">
                 <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -83,12 +101,13 @@ Tracker scene.
                 <div class="ico ico-clock"></div>
                 <div class="stat">{{ departure_ }}</div>
               </li>
-              <li >
+              <li>
                 <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
               </li>
             </ul>
-          </div>
+          </template>
+
         </div>
 
     </div>
@@ -145,13 +164,16 @@ Tracker scene.
     userLocation: null,
 
     worldView_: false,
-    dests_: null,
 
     onPreload: function() {
       // TOOD(lukem): Add images
       this.preloadImages([
         'img/smallglobe.svg'
       ]);
+    },
+
+    created: function() {
+      this.location = {};
     },
 
     ready: function() {
@@ -192,9 +214,6 @@ Tracker scene.
           maximumAge: Infinity // We really don't care
         });
 
-      this.santaApp.santaService.addListener('destinations_changed',
-          this.destinationsChanged_.bind(this));
-
       this.trackSanta();
     },
 
@@ -225,19 +244,11 @@ Tracker scene.
 
     geoLocationError_: function(error) {
       this.userLocation = null;
-      this.$['status-bar-location'].hidden = true;
-      this.$['status-bar-generic'].hidden = false;
       this.$.intro.destroy();
     },
 
-    destinationsChanged_: function() {
-      var dests = this.santaApp.santaService.getDestinations();
-      this.setDestinations_(dests);
-    },
-
-    userLocationChanged: function() {
-      this.$['status-bar-location'].hidden = this.userLocation == null;
-      this.$['status-bar-generic'].hidden = this.userLocation != null;
+    destinationsChanged: function() {
+      this.worldView_.setDestinations(this.destinations);
     },
 
     locationChanged: function() {
@@ -269,12 +280,6 @@ Tracker scene.
       }
     },
 
-    setDestinations_: function(dests) {
-      this.dests_ = dests || [];
-
-      this.worldView_.setDestinations(this.dests_);
-    },
-
     onShow: function() {
 
       //TODO(lukem): figure out something nicer to do
@@ -297,20 +302,13 @@ Tracker scene.
     },
 
     formatCountdown_: function(timestamp) {
-      if (!this.santaApp || !this.santaApp.santaService || isNaN(timestamp)) return '';
+      if (!this.santaApp || !this.santaApp.santaService || isNaN(timestamp)) {
+        return '';
+      }
 
       timestamp -= this.santaApp.santaService.now();
-      timestamp /= 1000;
 
-      // TODO: localise?
-      var seconds = Math.floor(timestamp) % 60;
-      timestamp /= 60;
-      var mins = Math.floor(timestamp) % 60;
-      timestamp /= 60;
-      var hours = Math.floor(timestamp) % 24;
-      var parts = [pad(hours), pad(mins), pad(seconds)];
-      if (!hours) parts.shift();
-      return parts.join(':');
+      return formatCountdown(timestamp);
     }
   });
 })();

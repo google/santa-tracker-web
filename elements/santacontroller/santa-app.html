@@ -123,7 +123,7 @@ Santa Track app.
         loadingSrc="scenes/traditions/img/loading{{hdpi ? '_2x' : ''}}.gif"
         mode="{{mode}}" hidden></traditions-scene>
 
-    <tracker-scene route="tracker"
+    <tracker-scene id="tracker" route="tracker"
         path="scenes/tracker/tracker-scene_[[language]].html"
         hidden></tracker-scene>
 
@@ -358,6 +358,13 @@ Polymer(Polymer.mixin({
 
     this.santaService = new SantaService(apiClient, this.language);
     this.santaService.sync(this.checkSchedule_.bind(this));
+
+    this.santaService.addListener('destinations_changed', function() {
+      if (this.$.tracker) {
+        this.$.tracker.destinations = this.santaService.getDestinations() || [];
+      }
+    }.bind(this));
+
     this.santaService.addListener('kill', function() {
       window.location = 'https://santatracker.google.com' +
           location.pathname.replace(/[^\/]*$/, '') + 'error.html';
