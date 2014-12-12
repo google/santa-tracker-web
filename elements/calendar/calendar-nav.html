@@ -82,7 +82,7 @@ Village calendar navigation.
                       </div>
                     </template>
                     <div layout vertical center-center data-index="24" data-category="learn" class="card calendar learn iced">
-                      <a href="{{pageURL}}#tracker" on-click="{{onCalendarClick}}">
+                      <a href="{{pageUrl}}#tracker" on-click="{{onCalendarClick}}">
                         <div class="menu-marker marker24 calendar learn" style="background-image:url({{componentBaseDir}}img/menu-tracker.svg);"></div>
                       </a>
                     </div>
@@ -179,7 +179,7 @@ Village calendar navigation.
       </div>
 
       <div id="sound" hidden?="{{mode == 'embed'}}">
-        <a href="{{pageURL}}" class="{{mute ? 'off' : 'on'}}" on-click="{{toggleSounds}}"><i></i></a>
+        <a href="{{pageUrl}}#" class="{{mute ? 'off' : 'on'}}" on-click="{{toggleSounds}}"><i></i></a>
       </div>
 
     </div>
