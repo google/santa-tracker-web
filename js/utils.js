@@ -49,6 +49,10 @@ function pad(n) {
  * @return {string}
  */
 function formatInt(n) {
+  if (!n) {
+    return '';
+  }
+
   if (n < 1000) {
     return n.toFixed(0);
   }
@@ -68,6 +72,27 @@ function formatDistance(dist) {
   // 0xA0 non-breaking space
   return formatInt(Math.floor(dist / 1000)) + '\xA0km';
 };
+
+function formatCountdown(timestamp) {
+  if (isNaN(timestamp)) {
+    return '';
+  }
+
+  timestamp /= 1000;
+
+  // TODO: localise?
+  var seconds = Math.floor(timestamp) % 60;
+  timestamp /= 60;
+  var mins = Math.floor(timestamp) % 60;
+  timestamp /= 60;
+  var hours = Math.floor(timestamp) % 24;
+  var parts = [pad(hours), pad(mins), pad(seconds)];
+  if (!hours) {
+    parts.shift();
+  }
+
+  return parts.join(':');
+}
 
 /**
  * Checks if the condition evaluates to true if window.DEV is true. If
