@@ -12,7 +12,7 @@ Intro for the tracker scene.
 @element tracker-intro
 -->
 <polymer-element name="tracker-intro" attributes="userLocation santaLocation santaDistance"
-                 on-transitionend="{{onOffScreen}}">
+                 on-transitionend="{{goesOffScreen}}">
 <template>
   <style>
   /* Outside of tracker-intro.scss because it requires shimming. */
@@ -299,9 +299,9 @@ Intro for the tracker scene.
       this.parentNode.removeChild(this);
     },
 
-    onOffScreen: function(e, detail, sender) {
+    goesOffScreen: function(e, detail, sender) {
       if (sender.classList.contains('offscreen')) {
-        this.parentNode.removeChild(this); // intro scene removes itself after it's slide offscreen.
+        this.destroy();
       }
     }
   });
