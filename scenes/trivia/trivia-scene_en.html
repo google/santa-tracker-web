@@ -2,6 +2,7 @@
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="elements/select-answer.html">
 <link rel="import" href="elements/map-hint.html">
+<link rel="import" href="elements/difficulty-menu.html">
 
 <script src="trivia-scene.min.js"></script>
 
@@ -30,6 +31,7 @@ Trivia scene.
         </div>
         <select-answer id="answer" choices="{{game.current.choices}}" on-answered="{{onAnswered}}" />
       </div>
+      <difficulty-menu id="menu" class="menu" fit on-difficulty="{{onDifficulty}}"></difficulty-menu>
     </div>
     <div class="gui">
       <div class="board board--tracker">
@@ -2546,7 +2548,11 @@ Trivia scene.
       var module = this.$['module-trivia'];
 
       window.game = this.game = new scenes.trivia.Game(this, module);
-      this.game.start('beginner');
+    },
+
+    onDifficulty: function(event) {
+      this.game.start(event.detail);
+      this.$.menu.classList.add('menu--hidden');
     },
 
     onHide: function() {
@@ -2566,6 +2572,7 @@ Trivia scene.
     },
 
     onNewQuestion: function() {
+      this.$.menu.hidden = true;
       this.$.answer.reset();
       this.questionVisible = true;
       this.$.hint.place = this.game.current.answer;

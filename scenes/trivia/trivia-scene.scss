@@ -15,6 +15,7 @@ $trivia-bp: 661px;
   .content {
     box-sizing: border-box;
     padding: 0 10px;
+    position: relative;
     width: 100%;
 
     @media (min-width: 768px) {
@@ -51,6 +52,15 @@ $trivia-bp: 661px;
     &::after {
       height: 6px;
     }
+  }
+
+  .menu {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+
+  .menu--hidden {
+    opacity: 0;
   }
 
   .board .logo {
