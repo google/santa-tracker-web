@@ -144,12 +144,13 @@ $bubble-overlay-z-index: 4;
   }
 
   .skip {
-    margin: 1em 0;
-    font-size: 0.8em;
+    margin: 2em 0;
+    font-size: 1em;
     position: absolute;
     bottom: 0;
      a {
       color: #fff;
+      text-decoration: none;
     }
   }
 }
