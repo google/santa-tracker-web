@@ -2537,18 +2537,20 @@ Trivia scene.
     },
 
     onPreload: function() {
-      /*this.preloadSounds('trivia_load_sounds', 40);
       this.preloadImages([
-      ]);*/
+          'img/correct.svg',
+          'img/easy.svg',
+          'img/globe.svg',
+          'img/hard.svg',
+          'img/incorrect.svg',
+          'img/medium.svg',
+          'img/ngb-logo.svg'
+      ]);
     },
 
     onShow: function() {
-      //TODO(thorsteinsson): Why is onShow called twice on load?
-      if (this.game) return;
-
       var module = this.$['module-trivia'];
-
-      window.game = this.game = new scenes.trivia.Game(this, module);
+      this.game = new scenes.trivia.Game(this, module);
     },
 
     onDifficulty: function(event) {
