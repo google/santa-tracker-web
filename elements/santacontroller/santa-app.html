@@ -444,6 +444,13 @@ Polymer(Polymer.mixin({
       this.trackPageview('/' + this.route);
     } else if (requestedRoute !== '') {
       // The requested route was changed.
+      var currentRoute = null;
+      if (this.selectedScene.pageUrl) {
+        currentRoute = this.selectedScene.pageUrl + '#' +
+            this.selectedScene.route;
+      }
+      this.fire('analytics-track-event', { category: 'Routing',
+          action: 'Invalid Route Source', label: currentRoute});
       this.fire('analytics-track-event', { category: 'Routing',
           action: 'Invalid Route', label: '/' + requestedRoute});
     }
