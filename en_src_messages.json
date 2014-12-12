@@ -296,6 +296,10 @@
         "description": "The type of work that the non-profit supports. Work is defined very broadly. eg. a type of animal, water, sun, etc.",
         "message": "Chimpanzee"
     },
+    "nonprofit-more-information": {
+        "description": "Is followed by a URL to a nonprofit. This appears in a print-out and the URL is sometimes in a new line, other times to the right. 40 chars max.",
+        "message": "For more information visit:"
+    },
     "nonprofit-nature-description": {
         "description": "The description of a non-profit organization. Descriptions are supplied by the non-profit organization. Please do not translate the name of the non-profit.",
         "message": "The Nature Conservancy works to protect and restore forests in the United States and around the world. These iconic forests sustain life around the planet. They filter water, clean our air, support communities of people and provide habitat for important plant and animal species. At the current rate of deforestation, our forests will be wiped out within 100 years. The Nature Conservancy\u2019s Plant a Billion Trees program is working to plant one billion trees by 2025 and restore the world\u2019s most critical forests."
@@ -327,6 +331,10 @@
     "openingtomorrow": {
       "description": "Each scene in Santa's village is available by clicking on a building. Buildings are frozen in ice until a specific date. This label indicates ice will melt, and the scene will be available tomorrow.",
       "message": "Grand opening tomorrow"
+    },
+    "ornament-print-instructions": {
+        "description": "Instructions on how to assemble a printed ornament. This is printed on the same page and refers to a line just below, where the paper should be folded.",
+        "message": "Fold here and glue sides together"
     },
     "ph_country_name": {
         "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
@@ -488,6 +496,154 @@
     "category_draw": {
         "description": "Button text. 15char limit. A label on an activity that will let the user write draw a picture",
         "message": "Draw"
+    },
+    "citylights-panorama-01-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "New York City, USA"
+    },
+    "citylights-panorama-01-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in New York City, USA.",
+        "message": "Rockefeller Plaza"
+    },
+    "citylights-panorama-02-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Moscow, Russia"
+    },
+    "citylights-panorama-02-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Moscow, Russia.",
+        "message": "Pushkin Square"
+    },
+    "citylights-panorama-03-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Vienna, Austria"
+    },
+    "citylights-panorama-03-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Vienna, Austria.",
+        "message": "Rathausplatz"
+    },
+    "citylights-panorama-04-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Paris, France"
+    },
+    "citylights-panorama-04-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Paris, France.",
+        "message": "Champs-Elysees to the Arc de Triomphe"
+    },
+    "citylights-panorama-05-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Chicago, USA"
+    },
+    "citylights-panorama-05-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Chicago, USA.",
+        "message": "Magnificent Mile"
+    },
+    "citylights-panorama-06-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Nuremberg, Germany"
+    },
+    "citylights-panorama-06-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Nuremberg, Germany.",
+        "message": "Christmas Market"
+    },
+    "citylights-panorama-07-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Medellin, Colombia"
+    },
+    "citylights-panorama-07-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Medellin, Colombia.",
+        "message": "Medellin River"
+    },
+    "citylights-panorama-08-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Lapland, Finland"
+    },
+    "citylights-panorama-08-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Lapland, Finland.",
+        "message": "Santa Claus Village"
+    },
+    "citylights-panorama-09-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Brussels, Belgium"
+    },
+    "citylights-panorama-09-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Brussels, Belgium.",
+        "message": "Grand Place"
+    },
+    "citylights-panorama-10-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "London, England"
+    },
+    "citylights-panorama-10-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in London, England.",
+        "message": "Trafalgar Square"
+    },
+    "citylights-panorama-11-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Madrid, Spain"
+    },
+    "citylights-panorama-11-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Madrid, Spain.",
+        "message": "Plaza Mayor"
+    },
+    "citylights-panorama-12-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Tokyo, Japan"
+    },
+    "citylights-panorama-12-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Tokyo, Japan.",
+        "message": "Roppongi Hills"
+    },
+    "citylights-panorama-13-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Copenhagen, Denmark"
+    },
+    "citylights-panorama-13-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Copenhagen, Denmark.",
+        "message": "Tivoli Gardens"
+    },
+    "citylights-panorama-14-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Singapore, Singapore"
+    },
+    "citylights-panorama-14-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Singapore, Singapore.",
+        "message": "Orchard Road"
+    },
+    "citylights-panorama-15-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Gothenburg, Sweden"
+    },
+    "citylights-panorama-15-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Gothenburg, Sweden.",
+        "message": "Lane of Light"
+    },
+    "citylights-panorama-16-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Niagara Falls, Canada"
+    },
+    "citylights-panorama-16-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Niagara Falls, Canada.",
+        "message": "Winter Festival of Lights"
+    },
+    "citylights-panorama-17-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Hong Kong, China"
+    },
+    "citylights-panorama-17-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Hong Kong, China.",
+        "message": "WinterFest"
+    },
+    "citylights-panorama-18-location": {
+        "description": "City and country location of a photo panorama.",
+        "message": "Rio de Janeiro, Brazil"
+    },
+    "citylights-panorama-18-description": {
+        "description": "Description of a photo panorama, usually a place of interest. Source is sometimes in english, sometimes in the local language. Translate as appropriate. This one is in Rio de Janeiro, Brazil.",
+        "message": "Rodrigo de Freitas Lake"
+    },
+    "citylights-contribute": {
+        "description": "CTA link to a community where people can upload panoramas of their own. Includes a placeholder with current localised city/country name.",
+        "message": "Add your own photos of <ph name=\"LOCATION\"><ex>Trafalgar Square, London</ex>{{location}}</ph>"
     },
     "codelab-block-whenrun": {
         "description": "Code block label. 15char limit. Start of the code, reads to indicate that blocks below it will execute in order",
