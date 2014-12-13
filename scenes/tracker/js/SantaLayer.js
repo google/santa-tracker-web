@@ -118,7 +118,8 @@ function createSantaLayerConstructor() {
     }
 
     next.css('opacity', 1).addClass('active');
-    this.animationSync_ = this.base_.async(this.animate_.bind(this), true, 150);
+    this.animationSync_ = this.base_.async(
+        this.animate_.bind(this), true, 150);
   };
 
   SantaLayer.prototype.addNodesToContainer_ = function(num) {
