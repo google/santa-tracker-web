@@ -149,11 +149,13 @@ Intro for the tracker scene.
     },
 
     attached: function() {
-      window.addEventListener('resize', this.resize_.bind(this));
+      this.resizeHandler_ =  this.resize_.bind(this);
+      window.addEventListener('resize',  this.resize_.bind(this));
     },
 
     detached: function() {
-      window.removeEventListener('resize', this.resize_.bind(this));
+      window.removeEventListener('resize', this.resizeHandler_);
+      this.resizeHandler = null,
     },
 
     updateLayout_: function() {
