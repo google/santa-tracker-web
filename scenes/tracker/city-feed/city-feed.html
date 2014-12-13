@@ -1,0 +1,136 @@
+<link rel="import" href="../../../components/polymer/polymer.html">
+<link rel="import" href="../../../components/core-list/core-list.html">
+<link rel="import" href="../../../components/core-selector/core-selector.html">
+
+<link rel="import" href="../../../js/utils.html">
+
+<polymer-element name="html-echo" attributes="html">
+<script>
+Polymer({
+  htmlChanged: function() {
+    this.innerHTML = this.html;
+  }
+});
+</script>
+</polymer-element>
+
+<!--
+City feed view in Tracker
+
+@element city-feed
+-->
+<polymer-element name="city-feed" attributes="active location destinations">
+<template>
+<link rel="stylesheet" href="city-feed.css" no-shim>
+<style>
+:host {
+  display: none;
+}
+:host([active]) {
+  display: block;
+}
+</style>
+
+<div id="module-city-feed" fit>
+  <div class="scene">
+
+    <div class="card city">
+      <div id="header">
+        <div class="corner-image general"></div>
+        <div>
+          <h4 class="white">{{dest.region}}</h4>
+          <h1>{{dest.city}}</h1>
+        </div>
+        <core-selector class="card-icons" selected="{{selectedCard}}">
+          <img src="img/tracker-and-city-SVGs_feed-city-icon.svg">
+          <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg">
+          <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg">
+          <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg">
+        </core-selector>
+        <div id="stats">
+          <div layout horizontal>
+            <div>
+              <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
+              <div layout horizontal center>
+                <div class="ico ico-clock"></div>
+                <h2 class="stat-large">{{dest.arrival | formatCountdown}}</h2>
+              </div>
+            </div>
+            <div>
+              <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
+              <div layout horizontal center>
+                <div class="ico ico-clock"></div>
+                <h2 class="stat-large white">{{dest.details.weather.tempC}}&deg;C / {{dest.details.weather.tempF}}&deg;F</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <core-selector class="card-content" selected="{{selectedCard}}">
+        <div>
+          <img _src="{{dest.details.photos[0].url}}">
+          <div class="attribution"><html-echo html="{{dest.details.photos[0].attributionHtml}}"></html-echo></div>
+        </div>
+      </core-selector>
+    </div>
+  </div>
+</div>
+
+</template>
+<script>
+(function() {
+Polymer({
+  componentDir: 'scenes/tracker/',
+
+  selectedCard: 0,
+
+  publish: {
+    /**
+     * If `true`, the feed is showing.
+     *
+     * @attribute active
+     * @type bool
+     * @default false
+     */
+    active: {value: false, reflect: true}
+  },
+
+  created: function() {
+    this.location = {};
+    this.destinations = [];
+  },
+
+  onPreload: function() {
+    this.preloadImages([
+
+    ]);
+  },
+
+  onShow: function() {
+    this.sceneParamsChanged();
+  },
+
+  onHide: function() {
+
+  },
+
+  sceneParamsChanged: function() {
+
+  },
+
+  destinationsChanged: function() {
+    if (!this.destinations || !this.destinations.length) {
+      return;
+    }
+
+this.dest = this.destinations[10];
+  },
+
+  formatCountdown: function(timestamp) {
+    return formatCountdown(timestamp);
+  }
+});
+
+})();
+</script>
+</polymer-element>
