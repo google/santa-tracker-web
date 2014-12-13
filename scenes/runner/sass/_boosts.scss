@@ -1,0 +1,91 @@
+##{$name} {
+  .boost-wrap {
+    position: absolute;
+    bottom: $bottom-offset;
+    left: 0;
+    z-index: $presents-z-index;
+  }
+
+  .boost {
+    position: absolute;
+
+    height: $boost-size;
+    width: $boost-size;
+
+    opacity: 1;
+    transform: scale(1);
+
+    transition: opacity 0.5s, transform 0.5s;
+
+    &.boost--collected {
+      opacity: 0;
+      transform: scale(2);
+    }
+  }
+
+  .boost-text {
+    position: absolute;
+    left: -40px;
+
+    opacity: 0;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+
+    &.boost-text--collected {
+      opacity: 1;
+      animation: 1.5s 0.5s #{$name}-boostText forwards;
+    }
+  }
+
+  @mixin boost-layer() {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: $boost-size;
+    width: $boost-size;
+  }
+
+  .boost__inner {
+    @include boost-layer();
+  }
+
+  .boost__inner-bg {
+    @include boost-layer();
+
+    transform-origin: 50% 50%;
+    animation: 2s #{$name}-boostRotate infinite linear;
+  }
+
+  .boost--time {
+    .boost__inner {
+      background: url(img/orb-time-front.svg) no-repeat;
+    }
+
+    .boost__inner-bg {
+      background: url(img/orb-time-back.svg) no-repeat;
+    }
+  }
+
+  .boost--magnet {
+    .boost__inner {
+      background: url(img/orb-magnet-front.svg) no-repeat;
+    }
+
+    .boost__inner-bg {
+      background: url(img/orb-magnet-back.svg) no-repeat;
+    }
+  }
+
+  .boost--fly {
+    .boost__inner {
+      background: url(img/orb-fly-front.svg) no-repeat;
+    }
+
+    .boost__inner-bg {
+      background: url(img/orb-fly-back.svg) no-repeat;
+    }
+  }
+}

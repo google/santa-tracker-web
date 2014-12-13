@@ -76,6 +76,9 @@ var SCENE_CLOSURE_CONFIG = {
   racer: {
     entryPoint: 'app.Game'
   },
+  runner: {
+    entryPoint: 'app.Game'
+  },
   santaselfie: {
     entryPoint: 'app.Game'
   },

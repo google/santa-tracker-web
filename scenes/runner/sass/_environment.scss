@@ -1,0 +1,92 @@
+##{$name} {
+  .game {
+    background-color: #1A237E;
+  }
+
+  .layers-wrap {
+    height: 100%;
+    transform-origin: 0% 100%;
+  }
+
+  .layer {
+    position: absolute;
+
+    width: $layer-width;
+    height: 900px;
+
+    bottom: 0;
+    left: 0;
+
+    transform: translateZ(0);
+  }
+
+  .layer--mountains {
+    width: $layer-width;
+
+    background: url(img/bg-tile-layer1.png) repeat-x;
+
+    // Don't animate backgrounds on mobile (bad performance)
+    @media (min-width: 800px), (min-height: 690px) {
+      animation: 50s #{$name}-background infinite linear;
+    }
+  }
+
+  .layer--trees {
+    height: 800px;
+
+    background: url(img/bg-tile-layer2.png) repeat-x;
+
+    // Don't animate backgrounds on mobile (bad performance)
+    @media (min-width: 800px), (min-height: 690px) {
+      animation: 40s #{$name}-background infinite linear;
+    }
+  }
+
+  .layer--ground {
+    @media (min-width: 800px), (min-height: 690px) {
+      height: 90px;
+      z-index: $ground-z-index;
+
+      background: url(img/bg-tile-layer4.png) repeat-x;
+      animation: 10.5s #{$name}-background infinite linear;
+    }
+  }
+
+  .ground {
+    // Non animating ground layer for mobile
+    @media (max-width: 800px), (max-height: 690px) {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      height: 90px;
+      width: $layer-width;
+      z-index: $ground-z-index;
+
+      background: url(img/bg-tile-layer4.png) repeat-x;
+    }
+  }
+
+  .entities-layer {
+    height: 100%;
+  }
+
+  .finish {
+    position: absolute;
+    bottom: $bottom-offset;
+    left: 0;
+    overflow: hidden;
+
+    width: $finish-width;
+    height: $finish-height;
+  }
+
+  .finish__inner {
+    width: $finish-width * 2;
+    height: $finish-height;
+    z-index: $finish-z-index;
+
+    background: url(img/finish.svg) no-repeat;
+    animation: 3s #{$name}-finish infinite step-end;
+  }
+}

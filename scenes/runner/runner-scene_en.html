@@ -1,0 +1,188 @@
+<link rel="import" href="../base-scene.html">
+
+<script src="../shared/js/startbutton.js"></script>
+<script src="runner-scene.min.js"></script>
+
+<!--
+Runner scene.
+
+@element runner-scene
+@extends base-scene
+-->
+<polymer-element name="runner-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="runner-scene.css" no-shim>
+
+  <div id="module-runner">
+    <div class="game frozen">
+      <div class="layers-wrap">
+        <div class="layer layer--mountains"></div>
+        <div class="layer layer--trees"></div>
+        <div class="entities-layer">
+          <div class="platforms"></div>
+          <div class="obstacles"></div>
+          <div class="boosts"></div>
+          <div class="finish hidden">
+            <div class="finish__inner"></div>
+          </div>
+          <div class="presents"></div>
+          <div class="ground"></div>
+        </div>
+        <div class="reindeer reindeer--run">
+          <div class="reindeer__inner"></div>
+        </div>
+        <div class="hit-cloud hidden">
+          <div class="hit-cloud__inner"></div>
+        </div>
+        <div class="magnet">
+          <div class="boost-wrap boost--magnet">
+            <div class="boost">
+              <div class="boost__inner-bg"></div>
+              <div class="boost__inner"></div>
+            </div>
+          </div>
+        </div>
+        <div class="layer layer--ground"></div>
+      </div>
+    </div>
+    <div class="gui">
+      <div class="board board--game"><a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
+          <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <div class="logo"></div>
+        <div class="score">
+          <div class="label">
+            <i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value">0</div>
+        </div>
+        <div class="level">
+          <div class="label">
+            <i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value"><span class="current-level">1</span>
+          </div>
+        </div>
+        <div class="time">
+          <div class="label">
+            <i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value"><span class="minutes dark-text">00</span><span class="dark-text"> : </span><span class="seconds">00</span></div>
+          <div class="tracker">
+            <div class="remaining"></div>
+          </div>
+          <div class="status"></div>
+        </div>
+        <div class="actions">
+          <button type="button" class="restart"></button>
+          <button type="button" class="pause"></button>
+        </div>
+      </div>
+      <div class="force-rotate landscape">
+        <div class="force-rotate-graphic"></div>
+        <div class="force-rotate-explanation">
+          <i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg>
+        </div>
+      </div>
+      <div class="gameover overlay">
+        <div class="gameover-dialog overlay-dialog">
+          <h2 class="gameover-title">
+            <i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg>
+          </h2>
+          <div class="gameover-winner">
+            <div class="gameover-level">
+              <p class="gameover-label">
+                <i18n-msg msgid="gameover_level">PLACEHOLDER_i18n</i18n-msg>
+              </p>
+              <p class="gameover-number">0</p>
+            </div>
+            <div class="gameover-score">
+              <p class="gameover-label">
+                <i18n-msg msgid="gameover_score">PLACEHOLDER_i18n</i18n-msg>
+              </p>
+              <p class="gameover-number">0</p>
+            </div>
+          </div>
+          <div class="gameover-buttons">
+            <button type="button" class="Button Button--large gameover-play">
+              <i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg>
+            </button>
+            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+  Polymer({
+    componentDir: 'scenes/runner/',
+
+    game: null,
+
+    onPreload: function() {
+      this.preloadSounds('selfie_load_sounds', 20);
+      this.preloadImages([
+        'img/bg-tile-layer1.png',
+        'img/bg-tile-layer2.png',
+        'img/bg-tile-layer4.png',
+        'img/finish.svg',
+        'img/hero-crash.svg',
+        'img/hero-jump-01.svg',
+        'img/hero-slide.svg',
+        'img/hero.svg',
+        'img/hit-cloud.svg',
+        'img/hit-house-01.svg',
+        'img/hit-house-02.svg',
+        'img/hit-house-03.svg',
+        'img/hit-house-04.svg',
+        'img/hit-roof-antenna.svg',
+        'img/hit-roof-chimney-1.svg',
+        'img/hit-roof-chimney-2.svg',
+        'img/hit-roof-water.svg',
+        'img/hit-tree-short-1.svg',
+        'img/hit-tree-short-2.svg',
+        'img/hit-tree-tall-1.svg',
+        'img/hit-tree-tall-2.svg',
+        'img/logo.svg',
+        'img/orb-magnet-back.svg',
+        'img/orb-magnet-front.svg',
+        'img/orb-time-back.svg',
+        'img/orb-time-front.svg',
+        'img/plat-short-1.svg',
+        'img/plat-short-2.svg',
+        'img/plat-short-3.svg',
+        'img/plat-short-4.svg',
+        'img/plat-short-5.svg',
+        'img/plat-tall-1.svg',
+        'img/plat-tall-2.svg',
+        'img/plat-tall-3.svg',
+        'img/plat-tall-4.svg',
+        'img/present1.svg',
+        'img/present2.svg',
+        'img/trashcan.svg',
+        'img/treat-candy.svg',
+        'img/treat-carrot.svg'
+      ]);
+    },
+
+    onShow: function() {
+      var module = this.$['module-runner'];
+
+      var game = this.game = new scenes.runner.Game(module);
+      startButton(this, module, function() {
+        game.start();
+      });
+    },
+
+    onHide: function() {
+      this.game.dispose();
+      this.game = null;
+      this.fire('sound-ambient', 'runner_end');
+    }
+  });
+
+})();
+</script>
+</polymer-element>

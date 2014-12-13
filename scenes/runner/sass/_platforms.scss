@@ -1,0 +1,57 @@
+##{$name} {
+  .platform {
+    position: absolute;
+    bottom: $bottom-offset;
+    left: 0;
+  }
+
+  @mixin platform-short($image-file) {
+    z-index: $platform-short-z-index;
+
+    width: $platform-width;
+    height: $platform-short-height;
+    background: url('img/' + $image-file) no-repeat;
+  }
+
+  @mixin platform-tall($image-file) {
+    width: $platform-width;
+    height: $platform-tall-height;
+    background: url('img/' + $image-file) no-repeat;
+  }
+
+  .platform-short--1 {
+    @include platform-short('plat-short-1.svg');
+  }
+
+  .platform-short--2 {
+    @include platform-short('plat-short-2.svg');
+  }
+
+  .platform-short--3 {
+    @include platform-short('plat-short-3.svg');
+  }
+
+  .platform-short--4 {
+    @include platform-short('plat-short-4.svg');
+  }
+
+  .platform-short--5 {
+    @include platform-short('plat-short-5.svg');
+  }
+
+  .platform-tall--1 {
+    @include platform-tall('plat-tall-1.svg');
+  }
+
+  .platform-tall--2 {
+    @include platform-tall('plat-tall-2.svg');
+  }
+
+  .platform-tall--3 {
+    @include platform-tall('plat-tall-3.svg');
+  }
+
+  .platform-tall--4 {
+    @include platform-tall('plat-tall-4.svg');
+  }
+}

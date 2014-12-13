@@ -1,0 +1,93 @@
+##{$name} {
+  .reindeer {
+    z-index: $reindeer-z-index;
+
+    position: absolute;
+    overflow: hidden;
+
+    width: $reindeer-width;
+    height: $reindeer-height;
+
+    bottom: $bottom-offset;
+    left: $reindeer-offset;
+  }
+
+  .reindeer__inner {
+    height: $reindeer-height;
+  }
+
+  .reindeer--run {
+    .reindeer__inner {
+      width: 9 * $reindeer-width;
+
+      background: url(img/hero.svg) no-repeat;
+      animation: #{$name}-reindeerRun infinite step-start;
+      animation-duration: 0.75s;
+    }
+  }
+
+  .reindeer--slide {
+    .reindeer__inner {
+      width: 4 * $reindeer-width;
+
+      background: url(img/hero-slide.svg) no-repeat;
+      animation: #{$name}-reindeerSlide infinite step-start;
+      animation-duration: 0.5s;
+    }
+  }
+
+  .reindeer--jump {
+    .reindeer__inner {
+      background: url(img/hero-jump-01.svg) no-repeat;
+    }
+  }
+
+  .reindeer--collision {
+    .reindeer__inner {
+      background: url(img/hero-crash.svg) no-repeat;
+
+      animation: 0.2s #{$name}-reindeerCollision infinite linear;
+    }
+  }
+
+  .reindeer--stand {
+    .reindeer__inner {
+      background: url(img/hero-stand.svg) no-repeat;
+    }
+  }
+
+  .hit-cloud {
+    position: absolute;
+    bottom: $bottom-offset;
+    left: 0;
+  }
+
+  .hit-cloud__inner {
+    height: 120px;
+    width: 120px;
+    background: url(img/hit-cloud.svg) no-repeat;
+
+    opacity: 1;
+    transform: scale(1);
+
+    transition: opacity 0.5s, transform 0.5s;
+
+    &.hit-cloud__inner--active {
+      opacity: 0;
+      transform: scale(2);
+    }
+  }
+
+  .magnet {
+    position: absolute;
+    bottom: $bottom-offset;
+    left: 0;
+
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .magnet--active {
+    opacity: 1;
+  }
+}
