@@ -149,7 +149,11 @@ Intro for the tracker scene.
     },
 
     attached: function() {
-      window.addEventListener('resize', this.resize_.bind(this), true);
+      window.addEventListener('resize', this.resize_.bind(this));
+    },
+
+    detached: function() {
+      window.removeEventListener('resize', this.resize_);
     },
 
     updateLayout_: function() {
@@ -187,8 +191,8 @@ Intro for the tracker scene.
 
       if (stepX || stepY || bubble.scale !== 1) {
         var transform = 'scale(' + scale + ')';
-        el.style.webkitTransform = el.style.transform = transform;
-        icon.style.webkitTransform = icon.style.transform = transform;
+        el.style.transform = el.style.webkitTransform = transform;
+        icon.style.transform = icon.style.webkitTransform = transform;
 
         icon.style.left = el.style.left = bubble.x + 'px';
         icon.style.top = el.style.top = bubble.y + 'px';
@@ -204,10 +208,9 @@ Intro for the tracker scene.
       var rect = el.getBoundingClientRect();
       var transformOrigin = (bubble.bubble.originX - rect.left) + 'px ' +
                             (bubble.bubble.originY - rect.top) + 'px';
-      el.style.webkitTransformOrigin = transformOrigin;
-      el.style.transformOrigin = transformOrigin;
+      el.style.transformOrigin = el.style.webkitTransformOrigin =transformOrigin;
 
-      bubble.addEventListener('bubble-resize', function(e) {
+      bubble.addEventListener(Bubble.EventType.RESIZE, function(e) {
         this.clipMap_(el, e.target.bubble);
       }.bind(this));
       bubble.addEventListener('translate', function(e) {
