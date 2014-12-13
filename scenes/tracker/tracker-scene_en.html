@@ -228,9 +228,7 @@ Tracker scene.
     setup_: function() {
       this.worldView_ = new WorldView(this, this.componentDir);
       this.worldView_.setupMap();
-      if (this.destinations) {
-        this.worldView_.setDestinations(this.destinations);
-      }
+      this.destinationsChanged();
 
       this.$.intro.showTitle();
 
