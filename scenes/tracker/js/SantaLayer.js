@@ -42,7 +42,7 @@ function createSantaLayerConstructor() {
    * @const
    * @type {number}
    */
-  SantaLayer.prototype.PRESENTS_HEIGHT_ = 1424;
+  SantaLayer.prototype.PRESENTS_HEIGHT_ = 144;
 
   SantaLayer.prototype.MAGIC_HEIGHT_ = 120;
 
