@@ -4,10 +4,13 @@ function createSantaLayerConstructor() {
    * @constructor
    * @param {Object.<string,*>} opt_opts
    */
-  function SantaLayer(opt_opts) {
+  function SantaLayer(base, opt_opts) {
+    this.base_ = base;
     this.container_ = $('<div>');
     this.set('type', 'sleigh');
-    this.type_ = null;
+    this.type_ = undefined;
+
+    this.animationSync_ = null;
 
     this.trailLines_ = [];
     this.lastStop_ = null;
@@ -32,16 +35,25 @@ function createSantaLayerConstructor() {
    * @const
    * @type {number}
    */
-  SantaLayer.prototype.SLEIGH_HEIGHT_ = 77;
+  SantaLayer.prototype.SLEIGH_HEIGHT_ = 68;
 
   /**
    * @private
    * @const
    * @type {number}
    */
-  SantaLayer.prototype.PRESENTS_HEIGHT_ = 142;
+  SantaLayer.prototype.PRESENTS_HEIGHT_ = 1424;
+
+  SantaLayer.prototype.MAGIC_HEIGHT_ = 120;
 
   SantaLayer.prototype.TRAIL_COLOR_ = '#22a528';
+
+  SantaLayer.prototype.NUM_SLEIGHS_ = 8;
+
+  SantaLayer.prototype.NUM_DELIVERING_ = {
+    presents: 8,
+    magic: 16
+  };
 
   SantaLayer.prototype.onSantaClick_ = function() {
     google.maps.event.trigger(this, 'santa_clicked');
@@ -54,7 +66,18 @@ function createSantaLayerConstructor() {
 
   SantaLayer.prototype.getHeight = function() {
     var type = this.get('type');
-    return type == 'sleigh' ? this.SLEIGH_HEIGHT_ : this.PRESENTS_HEIGHT_;
+    switch (type) {
+      case 'sleigh':
+        return this.SLEIGH_HEIGHT_;
+        break;
+      case 'presents':
+        return this.PRESENTS_HEIGHT_;
+        break;
+      case 'magic':
+        return this.MAGIC_HEIGHT_;
+        break;
+    }
+    return 0;
   };
 
   SantaLayer.prototype['type_changed'] = function() {
@@ -67,12 +90,41 @@ function createSantaLayerConstructor() {
     this.type_ = type;
 
     if (type == 'sleigh') {
-      this.container_.removeClass().addClass('santa-' + type);
+      this.animate_(false);
+      this.container_.removeClass().addClass('santa-sleigh santa-' + type);
+      this.addNodesToContainer_(this.NUM_SLEIGHS_);
     } else {
       var deliverTypes = ['presents', 'magic'];
       var deliverType = deliverTypes[Math.floor(Math.random() *
                                                 deliverTypes.length)];
       this.container_.removeClass().addClass('santa-' + deliverType);
+      this.addNodesToContainer_(this.NUM_DELIVERING_[deliverType]);
+      this.animate_(true);
+    }
+  };
+
+  SantaLayer.prototype.animate_ = function(animate) {
+    if (!animate) {
+      this.base_.cancelAsync(this.animationSync_);
+      return;
+    }
+
+    var active = $('.active', this.container_);
+    active.css('opacity', 0).removeClass('active');
+
+    var next = active.next();
+    if (!next.length) {
+      next = this.container_.children().first();
+    }
+
+    next.css('opacity', 1).addClass('active');
+    this.animationSync_ = this.base_.async(this.animate_.bind(this), true, 150);
+  };
+
+  SantaLayer.prototype.addNodesToContainer_ = function(num) {
+    this.container_.empty();
+    for (var i = 0; i < num; i++) {
+      this.container_.append('<div></div>');
     }
   };
 

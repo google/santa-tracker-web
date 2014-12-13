@@ -81,7 +81,7 @@ WorldView.prototype.setupMap = function() {
 
   var SantaLayer = createSantaLayerConstructor();
 
-  this.SantaLayer_ = new SantaLayer({
+  this.SantaLayer_ = new SantaLayer(this.base_, {
     map: this.map_
   });
 

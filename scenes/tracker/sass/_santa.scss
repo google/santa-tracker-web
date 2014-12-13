@@ -1,91 +1,174 @@
+@import "compass/css3/transition";
+
 @import "../../shared/sass/_mixins.scss";
 
 .santa-sleigh {
   position: absolute;
 }
 
-.santa-presents, .santa-tree, .santa-magic {
+.santa-presents {
   position: absolute;
-  $width: 149px;
-  $height: 142px;
+  $width: 150px;
+  $height: 144px;
   margin-top: -$height;
   margin-left: -($width / 2);
   width: $width;
   height: $height;
-  background-repeat: no-repeat;
-  background-position: 0 0;
+
+  div {
+    opacity: 0;
+    @include transition(opacity 10ms ease-out);
+    width: $width;
+    height: $height;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 112%;
+  }
+
+  @for $i from 1 through 8 {
+    :nth-child(#{$i}) {
+      background-image: url(img/santa_presents_#{$i}.svg);
+    }
+  }
 }
 
-.santa-presents {
-  background-image: url(img/presents_sprite.png);
-  @include media-hdpi(2) {
-    background-image: url(img/presents_sprite_2x.png);
-  }
-  background-size: 149px 1206px;
-  @include animations(santaDeliver 1s step-end infinite);
-}
+.santa-magic {  
+  position: absolute;
+  $width: 94px;
+  $height: 120px;
+  margin-top: -$height;
+  margin-left: -($width / 2);
+  width: $width;
+  height: $height;
 
-.santa-tree {
-  background-image: url(img/santa_tree_sprite.png);
-  @include media-hdpi(2) {
-    background-image: url(img/santa_tree_sprite_2x.png);
+  div {
+    opacity: 0;
+    @include transition(opacity 10ms ease-out);
+    width: $width;
+    height: $height;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 175%;
   }
-  background-size: 149px 1206px;
-  @include animations(santaDeliver 1s step-end infinite);
-}
 
-.santa-magic {
-  background-image: url(img/santa_magic_sprite.png);
-  @include media-hdpi(2) {
-    background-image: url(img/santa_magic_sprite_2x.png);
+  $steps: 1 2 3 4 5 4 3 2 1 6 7 8 9 8 7 6;
+  @for $i from 1 through length($steps) {
+    :nth-child(#{$i}) {
+      background-image: url(img/santa_magic_#{nth($steps, $i)}.svg);
+    }
   }
-  background-size: 149px 1206px;
-  @include animations(santaMagic 4s step-end infinite);
 }
 
 .santa-sleigh {
-  $height: 60px;
-  $width: 77px;
-  margin-top: -$height;
+  $height: 68px;
+  $width: 84px;
+  margin-top: -($height - 5px);
   margin-left: -($width / 2);
   width: $width;
   height: $height;
-  background-image: url(img/santa_sprite.png);
-  @include media-hdpi(2) {
-    background-image: url(img/santa_sprite_2x.png);
-  }
-  background-repeat: no-repeat;
-  background-size: 77px 550px;
 
-  &.e {
-    background-position: 0 0;
-  }
-
-  &.se {
-    background-position: 0 -70px;
+  &:after {
+    content: "";
+    background: url(img/santa_effects.svg) 50% 0 no-repeat;
+    position: absolute;
+    width: $width;
+    height: 44px;
+    top: $height - 6px;
+    z-index: 1;
   }
 
-  &.s {
-    background-position: 0 -140px;
+  div {
+    opacity: 0;
+    @include transition(opacity 250ms ease-out);
+    width: $width;
+    height: $height;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    z-index: 2;
   }
 
-  &.sw {
-    background-position: 0 -210px;
-  }
-
-  &.w {
-    background-position: 0 -280px;
-  }
-
-  &.nw {
-    background-position: 0 -350px;
+  :nth-child(1) {
+    background-image: url(img/santa_n.svg);
   }
 
   &.n {
-    background-position: 0 -420px;
+    :nth-child(1) {
+      opacity: 1;
+    }
+  }
+
+  :nth-child(2) {
+    background-image: url(img/santa_ne.svg);
+    background-size: 85% 85%;
   }
 
   &.ne {
-    background-position: 0 -490px;
+    :nth-child(2) {
+      opacity: 1;
+    }
+  }
+
+  :nth-child(3) {
+    background-image: url(img/santa_e.svg);
+  }
+
+  &.e {
+    :nth-child(3) {
+      opacity: 1;
+    }
+  }
+
+  :nth-child(4) {
+    background-image: url(img/santa_se.svg);
+  }
+
+  &.se {
+    :nth-child(4) {
+      opacity: 1;
+    }
+  }
+
+  :nth-child(5) {
+    background-image: url(img/santa_s.svg);
+  }
+
+  &.s {
+    :nth-child(5) {
+      opacity: 1;
+    }
+  }
+
+  :nth-child(6) {
+    background-image: url(img/santa_sw.svg);
+  }
+
+  &.sw {
+    :nth-child(6) {
+      opacity: 1;
+    }
+  }
+
+  :nth-child(7) {
+    background-image: url(img/santa_w.svg);
+  }
+
+  &.w {
+    :nth-child(7) {
+      opacity: 1;
+    }
+  }
+
+  :nth-child(8) {
+    background-image: url(img/santa_nw.svg);
+    background-size: 85% 85%;
+  }
+
+  &.nw {
+    :nth-child(8) {
+      opacity: 1;
+    }
   }
 }
