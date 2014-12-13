@@ -49,6 +49,8 @@ function createSantaLayerConstructor() {
 
   SantaLayer.prototype.TRAIL_COLOR_ = '#22a528';
 
+  SantaLayer.prototype.ANIMATION_DURATION_ = 150;
+
   SantaLayer.prototype.NUM_SLEIGHS_ = 8;
 
   SantaLayer.prototype.NUM_DELIVERING_ = {
@@ -115,7 +117,7 @@ function createSantaLayerConstructor() {
 
     next.css('opacity', 1).addClass('active');
     this.animationSync_ = this.base_.async(
-        this.animate_.bind(this), true, 150);
+        this.animate_.bind(this), true, this.ANIMATION_DURATION_);
   };
 
   SantaLayer.prototype.stopAnimation_ = function() {
