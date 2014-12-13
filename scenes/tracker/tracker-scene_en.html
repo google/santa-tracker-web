@@ -166,10 +166,34 @@ Tracker scene.
     worldView_: false,
 
     onPreload: function() {
-      // TOOD(lukem): Add images
-      this.preloadImages([
-        'img/smallglobe.svg'
-      ]);
+      // TODO(lukem): Audit images and only preload what we need
+      var images = [
+        'img/arrow-circle.svg',
+        'img/arrow.svg',
+        'img/clock.svg',
+        'img/marker.svg',
+        'img/pin.svg',
+        'img/santa_n.svg',
+        'img/santa_ne.svg',
+        'img/santa_e.svg',
+        'img/santa_se.svg',
+        'img/santa_s.svg',
+        'img/santa_sw.svg',
+        'img/santa_w.svg',
+        'img/santa_nw.svg',
+        'img/santa_effects.svg',
+        'img/village.svg'
+      ];
+
+      for (var i = 1; i <= 9; i++) {
+        images.push('img/santa_magic_' + i + '.svg');
+      }
+
+      for (var i = 1; i <= 8; i++) {
+        images.push('img/santa_presents_' + i + '.svg');
+      }
+
+      this.preloadImages(images);
     },
 
     created: function() {
@@ -204,6 +228,8 @@ Tracker scene.
     setup_: function() {
       this.worldView_ = new WorldView(this, this.componentDir);
       this.worldView_.setupMap();
+      this.destinationsChanged();
+
       this.$.intro.showTitle();
 
       // TODO(lukem): this will need to move for the intro animation
@@ -248,7 +274,9 @@ Tracker scene.
     },
 
     destinationsChanged: function() {
-      this.worldView_.setDestinations(this.destinations);
+      if (this.worldView_) {
+        this.worldView_.setDestinations(this.destinations);
+      }
     },
 
     locationChanged: function() {

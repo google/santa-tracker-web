@@ -2,6 +2,8 @@
 /* WorldView renders a map with Santa's locations.
  *
  * @constructor
+ * @param {PolymerElement} base
+ * @param {string} componentDir
  */
 function WorldView(base, componentDir) {
   this.base_ = base;
@@ -81,7 +83,7 @@ WorldView.prototype.setupMap = function() {
 
   var SantaLayer = createSantaLayerConstructor();
 
-  this.SantaLayer_ = new SantaLayer({
+  this.SantaLayer_ = new SantaLayer(this.base_, {
     map: this.map_
   });
 
