@@ -2,6 +2,7 @@ function createSantaLayerConstructor() {
 
   /**
    * @constructor
+   * @param {PolymerElement} base
    * @param {Object.<string,*>} opt_opts
    */
   function SantaLayer(base, opt_opts) {

@@ -2,6 +2,8 @@
 /* WorldView renders a map with Santa's locations.
  *
  * @constructor
+ * @param {PolymerElement} base
+ * @param {string} componentDir
  */
 function WorldView(base, componentDir) {
   this.base_ = base;
