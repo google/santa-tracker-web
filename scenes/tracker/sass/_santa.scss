@@ -64,7 +64,7 @@
 .santa-sleigh {
   $height: 68px;
   $width: 84px;
-  margin-top: -($height - 7px);
+  margin-top: -56px;
   margin-left: -($width / 2);
   width: $width;
   height: $height;
@@ -75,7 +75,7 @@
     position: absolute;
     width: $width;
     height: 44px;
-    top: $height - 8px;
+    top: 58px;
     z-index: 1;
   }
 
