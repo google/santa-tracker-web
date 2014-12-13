@@ -1,0 +1,316 @@
+$name: 'module-translations';
+
+$sceneboard-bg: #FFDE00;
+
+@import "../shared/sass/sceneboard";
+@import "../shared/sass/penner-easing";
+@import "../shared/sass/tutorial";
+@import "sass/record-player";
+@import "sass/elves";
+
+##{$name} {
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .scene {
+    // background color of the scene is the light blue wall
+    background: #D6C4A2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    transform-origin: 0 0;
+  }
+
+
+  // This is to vertically align the scene mid-screen - everything is positioned relative to this
+  .anchor {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  // This is an offset to the anchor to move the center point of the scene
+  .vertical-offset {
+    position: absolute;
+    top: 375px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  /**
+   * Backgrounds
+   */
+  .background {
+    position: absolute;
+    top: -1660px; // sync up .floor with the floor in SVG
+    left: 50%;
+    margin-left: -1300px;
+  }
+
+  .floor {
+    position: absolute;
+    top: 475px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #B67945;
+  }
+
+  .hidden-label {
+    display: none;
+  }
+
+  /**
+   * Foreground
+   */
+  .elves {
+    position: absolute;
+    top: -731px;
+    left: 50%;
+    margin-left: -350px;
+  }
+
+  .desk {
+    position: absolute;
+    top: -480px;
+    left: 50%;
+    margin-left: -463px;
+  }
+
+  .desk-content {
+    width: 828px;
+    height: 350px;
+    position: absolute;
+    top: -420px;
+    left: 50%;
+    margin-left: -414px;
+    text-align: center;
+  }
+
+  .desk-content__selector {
+    width: 377px;
+    display: inline-block;
+    position: relative;
+  }
+  .desk-content__selector__phrase {
+    height: 144px;
+    border-top: 12px solid rgba(114, 72, 38, 0.30);
+    border-left: 12px solid rgba(114, 72, 38, 0.30);
+    color: #fff;
+    font-size: 46px;
+    line-height: 1.2;
+
+    position: relative;
+    overflow: hidden;
+
+    > .js-phrase {
+      position: absolute;
+      padding: 0 1em 12px;
+      display: table;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+
+      > * {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      .long-phrase {
+        font-size: 32px;
+      }
+    }
+  }
+  .desk-content__selector--from .desk-content__selector__phrase {
+    background: #8D23A9;
+  }
+
+  .desk-content__selector--to .desk-content__selector__phrase {
+    background: #D71A5F;
+  }
+
+  .desk-content__selector__dropdown {
+    height: 46px;
+    background: #FA8B00;
+    padding: 13px 0 0 20px;
+    text-align: left;
+
+    select {
+      color: #E43834;
+      font-size: 16px;
+      -webkit-appearance: none;
+      background: none;
+      border: none;
+      background: url(img/dropdown-arrow.svg) right center no-repeat;
+      padding-right: 30px;
+
+      &:focus,
+      &:active {
+        color: #D85F05;
+      }
+    }
+  }
+
+  .desk-content__selector__shuffle {
+    position: absolute;
+    bottom: 6px;
+    right: 5px;
+    svg {
+      display: block;
+    }
+  }
+
+  .desk-content__arrows {
+    display: inline-block;
+    margin: 30px 24px 0;
+    vertical-align: top;
+  }
+  .desk-content__controls {
+    margin-top: 30px;
+    user-select: none;
+  }
+  .desk-content__button {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    margin: 0 1em;
+  }
+  .desk-content__button #btn-play-shadow {
+    transform-origin: 20% 50%;
+  }
+
+  .desk-content__link {
+    display: inline-block;
+    color: #D85F05;
+    float: right;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 1em;
+    margin-top: 2em;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@import "../shared/sass/responsive";
+
+@media (max-width: 400px) {
+  ##{$name} .scene {
+    transform: scale(0.55);
+    width: 182%;
+    height: 182%;
+
+    .anchor,
+    .vertical-offset {
+      top: 0;
+    }
+    .desk,
+    .floor {
+      top: 255px;
+    }
+    .floor {
+      background: #F4A715;
+    }
+    .background {
+      top: -975px;
+      margin-left: -1317px;
+    }
+    .elves {
+      top: 5px;
+      margin-left: -215px;
+    }
+    .desk-content {
+      width: 100%;
+      height: auto;
+      top: 275px;
+      bottom: 0px;
+      left: 0;
+      margin: 20px 0 0 0;
+    }
+    .desk-content__selector {
+      width: 70%;
+    }
+    .desk-content__arrows {
+      display: block;
+      transform: rotate(90deg);
+      height: 50px;
+      margin: 0 0 0 20px;
+    }
+    .desk-content__controls {
+      margin-top: 20px;
+    }
+    .desk-content__link {
+      float: none;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .record-player {
+      display: none;
+    }
+  }
+}
+
+// adjust for very short mobiles
+@media (max-width: 400px) and (max-height: 450px) {
+  ##{$name} .scene {
+    transform: scale(0.4);
+    width: 250%;
+    height: 250%;
+  }
+}
+
+// adjust for very short mobiles
+@media (max-width: 400px) and (min-height: 450px) and (max-height: 500px) {
+  ##{$name} .scene {
+    .desk,
+    .floor {
+      top: 160px;
+    }
+    .elves {
+      top: -80px
+    }
+    .desk-content {
+      top: 185px;
+    }
+  }
+}
+
+
+// adjust for very tall mobiles
+@media (max-width: 400px) and (min-height: 650px) {
+  ##{$name} .scene {
+    .desk,
+    .floor {
+      top: 300px;
+    }
+    .elves {
+      top: 50px;
+    }
+    .desk-content {
+      top: 375px;
+    }
+    .desk-content__controls {
+      margin-top: 50px;
+    }
+  }
+}

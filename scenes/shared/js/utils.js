@@ -117,6 +117,19 @@ var utils = app.shared.utils = (function() {
      */
     cancelAnimFrame: function(requestId) {
       cancelAnimFrame.call(window, requestId);
+    },
+
+    /**
+     * Register listener for finish event on WebAnimations player
+     * @param {AnimationPlayer} player The animation player object which will finish
+     * @param {Function} fn A callback function to execute when player finishes
+     */
+    onWebAnimationFinished: function(player, fn) {
+      if (player.finished) {
+        player.finished.then(fn);
+      } else {
+        player.addEventListener('finish', fn, false);
+      }
     }
   };
 

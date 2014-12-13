@@ -79,6 +79,9 @@ var SCENE_CLOSURE_CONFIG = {
   santaselfie: {
     entryPoint: 'app.Game'
   },
+  translations: {
+    entryPoint: 'app.Scene'
+  },
   windtunnel: {
     entryPoint: 'app.Scene'
   }
