@@ -31,7 +31,8 @@ function Bubble(x, y, overlay) {
 
 
 Bubble.EventType = {
-  UPDATE: 'update'
+  UPDATE: 'bubble-update',
+  RESIZE: 'bubble-resize'
 };
 
 /**
@@ -82,7 +83,7 @@ Bubble.prototype.open = function(radius, callback) {
   function animate(radius) {
     this.move(this.x, this.y, radius);
     this.updateEventTarget_();
-    this.eventTarget_.dispatchEvent(this.createEvent_('resize'));
+    this.eventTarget_.dispatchEvent(this.createEvent_(Bubble.EventType.RESIZE));
     a++;
     if (frames[a] !== undefined) {
       requestAnimationFrame(animate.bind(this, frames[a]));

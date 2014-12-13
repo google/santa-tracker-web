@@ -36,11 +36,21 @@ Canvas overlay to draw animated cut-out bubbles over the content.
     color: '#ff0000',
 
     ready: function() {
+      this.ctx = this.$.canvas.getContext('2d');
+      this.draw();
+    },
+
+    /**
+     * Draws the overlay and the bubbles;
+     *
+     * @method draw
+     */
+    draw: function() {
       this.$.canvas.width = window.innerWidth;
       this.$.canvas.height = window.innerHeight;
-      this.ctx = this.$.canvas.getContext('2d');
       this.ctx.fillStyle = this.color;
       this.ctx.fillRect(0, 0, this.$.canvas.width, this.$.canvas.height);
+      this.refresh();
     },
 
     /**
@@ -49,11 +59,13 @@ Canvas overlay to draw animated cut-out bubbles over the content.
      * @method refresh
      */
     refresh: function() {
-      this.ctx.save();
-      for (var i = 0; i < this.bubbles.length; i++) {
-        this.bubbles[i].cutout();
+      if (this.bubbles.length) {
+        this.ctx.save();
+        for (var i = 0; i < this.bubbles.length; i++) {
+          this.bubbles[i].cutout();
+        }
+        this.ctx.restore();
       }
-      this.ctx.restore();
     },
 
     /**
@@ -149,6 +161,14 @@ Must be a child of bubble-overlay.
       this.style.left = this.x - this.radius + 'px';
     },
 
+    xChanged: function() {
+      this.bubble.move(this.x, this.y, this.radius);
+    },
+
+    yChanged: function() {
+      this.bubble.move(this.x, this.y, this.radius);
+    },
+
     /**
      * Changes bubble's radius.
      *
@@ -173,6 +193,9 @@ Must be a child of bubble-overlay.
      */
     move: function(x, y, radius, callback) {
       this.bubble.translate(x, y, radius, callback);
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
       this.updatePosition_();
     }
   });
