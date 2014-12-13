@@ -352,7 +352,7 @@ Game.prototype.freezeGame = function() {
  */
 Game.prototype.unfreezeGame = function() {
   if (!this.isPlaying) {
-    this.elem.removeClass('frozen');
+    this.elem.removeClass('frozen').focus();
 
     this.isPlaying = true;
     this.lastFrame = +new Date() / 1000;
