@@ -282,7 +282,7 @@ app.Scene.prototype.removePlayingClass_ = function() {
 app.Scene.prototype.onSelectFromLanguage_ = function() {
   this.fromLang = this.$languagesFrom.val();
   this.$phrasesFrom.find('span').hide();
-  this.$phrasesFrom.find('span[data-lang="' + this.fromLang + '"]').show();
+  this.$phrasesFrom.find('span[data-lang="' + this.fromLang + '"]').css('display', 'table-cell');
 };
 
 /**
@@ -291,7 +291,7 @@ app.Scene.prototype.onSelectFromLanguage_ = function() {
 app.Scene.prototype.onSelectToLanguage_ = function() {
   this.toLang = this.$languagesTo.val();
   this.$phrasesTo.find('span').hide();
-  this.$phrasesTo.find('span[data-lang="' + this.toLang + '"]').show();
+  this.$phrasesTo.find('span[data-lang="' + this.toLang + '"]').css('display', 'table-cell');
 };
 
 /**
