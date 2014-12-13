@@ -91,7 +91,7 @@ function createSantaLayerConstructor() {
     this.type_ = type;
 
     if (type == 'sleigh') {
-      this.animate_(false);
+      this.stopAnimation_();
       this.container_.removeClass().addClass('santa-sleigh santa-' + type);
       this.addNodesToContainer_(this.NUM_SLEIGHS_);
     } else {
@@ -100,16 +100,11 @@ function createSantaLayerConstructor() {
                                                 deliverTypes.length)];
       this.container_.removeClass().addClass('santa-' + deliverType);
       this.addNodesToContainer_(this.NUM_DELIVERING_[deliverType]);
-      this.animate_(true);
+      this.animate_();
     }
   };
 
-  SantaLayer.prototype.animate_ = function(animate) {
-    if (!animate) {
-      this.base_.cancelAsync(this.animationSync_);
-      return;
-    }
-
+  SantaLayer.prototype.animate_ = function() {
     var active = $('.active', this.container_);
     active.css('opacity', 0).removeClass('active');
 
@@ -121,6 +116,10 @@ function createSantaLayerConstructor() {
     next.css('opacity', 1).addClass('active');
     this.animationSync_ = this.base_.async(
         this.animate_.bind(this), true, 150);
+  };
+
+  SantaLayer.prototype.stopAnimation_ = function() {
+    this.base_.cancelAsync(this.animationSync_);
   };
 
   SantaLayer.prototype.addNodesToContainer_ = function(num) {
