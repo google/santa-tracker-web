@@ -41,6 +41,7 @@ $name: 'module-city-feed';
     border-radius: 5px;
     background-color: rgb(106,27,154);
     box-sizing: border-box;
+    position: relative;
 
     &.city {
       width: 306px;
@@ -119,10 +120,14 @@ $name: 'module-city-feed';
 
     .card-content {
       position: relative;
+      background-color: rgb(121,49,164);
 
-      img {
-        width: 100%;
+      .photo {
+        height: 250px;
+        background-size: cover;
+        background-repeat: no-repeat;
       }
+
       .attribution {
         background: rgba(0,0,0,0.5);
         color: white;
@@ -148,7 +153,19 @@ $name: 'module-city-feed';
 
     .card {
       &.city {
-        width: 642px;
+        width: 550px;
+        margin-top: 125px;
+
+        &::before {
+          $pinIconSize: 60px;
+          content: '';
+          background: url('img/tracker-and-city-SVGs_gifts-pin.svg') no-repeat 50% 50%;
+          background-size: $pinIconSize;
+          height: $pinIconSize;
+          width: 100%;
+          top: -$pinIconSize - 10;
+          position: absolute;
+        }
       }
 
       h2 {

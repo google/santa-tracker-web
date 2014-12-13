@@ -26,7 +26,7 @@
     "core-pages": "Polymer/core-pages#^0.5.1",
     "core-animated-pages": "Polymer/core-animated-pages#^0.5.1",
     "core-range": "Polymer/core-range#^0.5.1",
-    "core-list": "Polymer/core-list#^0.5.1",
+    "core-list": "Polymer/core-list#^0.5.2",
     "paper-tabs": "Polymer/paper-tabs#^0.5.1",
     "paper-fab": "Polymer/paper-fab#^0.5.1",
     "core-a11y-keys": "Polymer/core-a11y-keys#^0.5.1",
@@ -34,6 +34,7 @@
     "jquery": "2.1.1",
     "google-apis": "GoogleWebComponents/google-apis#^0.4.3",
     "google-map": "GoogleWebComponents/google-map#^0.4.0",
+    "google-streetview-pano": "GoogleWebComponents/google-streetview-pano#^0.1.0",
     "google-youtube": "GoogleWebComponents/google-youtube#^1.0.1",
     "closure-compiler": "https://dl.google.com/closure-compiler/compiler-latest.zip",
     "closure-library": "google/closure-library#5fbc334ce7f86018da9fb5e673d2518143aa999e"
