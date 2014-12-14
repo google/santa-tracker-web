@@ -1,0 +1,107 @@
+##{$name} {
+  $present-tag-rotation: 45deg;
+
+  .Belt {
+    background-color: #6C6C6C;
+    background-image: url(img/belt.svg);
+    background-repeat: repeat;
+    border-top: 7px solid #404040;
+    bottom: 0;
+    box-shadow: 0 -6px 0 #606060;
+    left: 0;
+    height: 144px;
+    position: absolute;
+    right: calc(-240px * 5);
+    z-index: 1;
+  }
+
+  .Present {
+    position: absolute;
+    height: 98px;
+    left: 0;
+    margin: 0 5px;
+    top: (144px / 2 - 98px / 2); // Vertical centering.
+    width: 98px;
+    transform: translateZ(0);
+  }
+
+  // Tag showing the number on the present
+  .Present-tag {
+    background: url(img/present-tag.svg) no-repeat center center / contain;
+    height: 75px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 52px;
+    font-weight: 900;
+    padding-top: 2px;
+    position: relative;
+    text-align: center;
+    text-indent: -8px;
+    transform-origin: 200% 150%;
+    transform: rotate($present-tag-rotation);
+    width: 52px;
+  }
+
+  .Present-ribbon {
+    background: url(img/present-ribbon.svg) no-repeat;
+    content: ' ';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  .Present-shadow {
+    background: url(img/present-shadow.svg) no-repeat;
+    height: 124px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 124px;
+  }
+
+  .Present-box {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  // Coloring
+  .Present--blue {
+    color: $blue;
+
+    .Present-box {
+      background: $blue;
+    }
+  }
+
+  .Present--cyan {
+    color: $cyan;
+
+    .Present-box {
+      background: $cyan;
+    }
+  }
+
+  .Present--green {
+    color: $green;
+
+    .Present-box {
+      background: $green;
+    }
+  }
+
+  .Present--pink {
+    color: $pink;
+
+    .Present-box {
+      background: $pink;
+    }
+  }
+
+  .Present--red {
+    color: $red;
+
+    .Present-box {
+      background: $red;
+    }
+  }
+}

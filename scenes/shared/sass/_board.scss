@@ -1,4 +1,5 @@
 $board-base-color: #B757C5;
+$board-game-color: #b757c5 !default;
 
 @function board-color($color, $target-color) {
   @return hsl(
@@ -210,7 +211,7 @@ $board-level-bp: 1350px !default;
     }
 
     .paused {
-      background: url(../shared/img/board/play.svg) no-repeat 50% 50% / 26px 28px;
+      background: url(../shared/img/board/play.svg) no-repeat 50% 50% / 28px 31px;
     }
 
     // Not visible on small screens
@@ -384,7 +385,7 @@ $board-level-bp: 1350px !default;
 
     // Color modifiers
     &.board--game {
-      @include board-color(#b757c5);
+      @include board-color($board-game-color);
     }
 
     &.board--scene {
