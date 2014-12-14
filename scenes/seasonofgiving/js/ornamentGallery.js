@@ -71,17 +71,22 @@ app.OrnamentGallery = function(el, context) {
  */
 app.OrnamentGallery.prototype.init = function() {
   var self = this;
-  this.items.each(function(index) {
+  this.items.each(function() {
     $(this).on('touchstart click', self.handleSelectItem.bind(self));
   });
 
-  $(window).on('resize.seasonofgiving', function(event) {
-    self.ornamentTitles.css({
-      'top': self.context.find('.ornament-item').outerHeight() - 6
-    });
-  });
-  $(window).trigger('resize.seasonofgiving');
+  $(window).on('resize.seasonofgiving', this.handleResize.bind(this));
+  this.handleResize();
   setTimeout(this.transitionIn.bind(this), 1000);
+};
+
+/**
+ * Handle window resize.
+ */
+app.OrnamentGallery.prototype.handleResize = function() {
+  this.ornamentTitles.css({
+    top: this.context.find('.ornament-item').outerHeight() - 6
+  });
 };
 
 /**

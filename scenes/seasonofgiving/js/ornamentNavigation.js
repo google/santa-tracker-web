@@ -51,7 +51,7 @@ app.OrnamentNavigation = function(elem) {
  */
 app.OrnamentNavigation.prototype.init = function() {
   this.addEventListeners();
-  $(window).trigger('resize.seasonofgiving');
+  this.handleResize();
 };
 
 /**

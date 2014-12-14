@@ -62,7 +62,6 @@ app.Game = function(elem, componentDir) {
  * @export
  */
 app.Game.prototype.start = function() {
-  debugger;
   this.tools.start();
   this.restart();
 

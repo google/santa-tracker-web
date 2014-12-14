@@ -233,10 +233,6 @@ app.Tools = function(game, elem, exporter) {
   app.GameManager.toolWrapper = this.toolWrapper;
 
   this.buttons = this.context.find('.Buttons');
-  this.buttons.css({
-    'left': this.toolWrapper.el.position().left,
-    'top': this.toolWrapper.el.offset().top - 60
-  });
 
   this.tools = [
     this.crayonRed,
@@ -254,14 +250,13 @@ app.Tools = function(game, elem, exporter) {
   ];
 
   $(window).on('resize.seasonofgiving', this.handleResize.bind(this));
-  $(window).trigger('resize.seasonofgiving');
+  this.handleResize();
 };
 
 /**
  * Resize
- * @param {Event} event Event for resize window
  */
-app.Tools.prototype.handleResize = function(event) {
+app.Tools.prototype.handleResize = function() {
   var wh = $(window).height();
   var maxToolHeight = this.elem.height();
   var cols;
@@ -294,7 +289,7 @@ app.Tools.prototype.handleResize = function(event) {
   }
 
   this.buttons.css({
-    'left': this.toolWrapper.el.position().left,
+    'left': this.toolWrapper.el[0].offsetLeft,
     'top': this.toolWrapper.el.height() + 10
   });
 };
