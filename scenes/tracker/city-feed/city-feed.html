@@ -108,6 +108,16 @@ City feed view in Tracker
  */
 var destLookup_ = {};
 
+/**
+ * Internal copy of destinations. New destinations are appended to this array
+ * as they come in.
+ *
+ * @type array
+ * @default []
+ * @private
+ */
+var destinations_ = [];
+
 Polymer({
   componentDir: 'scenes/tracker/',
 
