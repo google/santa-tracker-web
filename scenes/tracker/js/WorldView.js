@@ -115,6 +115,10 @@ WorldView.prototype.moveSanta = function(state) {
     this.map_.fitBounds(bounds);
     this.map_.panTo(loc);
   }
+
+  if (window.DEV && state.stopover) {
+    this.filterMarkers_();
+  }
 };
 
 WorldView.prototype.createSceneMarkers_ = function() {
