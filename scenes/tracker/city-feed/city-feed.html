@@ -28,7 +28,7 @@ City feed view in Tracker
 
 @element city-feed
 -->
-<polymer-element name="city-feed" attributes="active location destinations">
+<polymer-element name="city-feed" attributes="active location latestDestinations">
 <template>
 <link rel="stylesheet" href="city-feed.css" no-shim>
 <style>
@@ -108,16 +108,6 @@ City feed view in Tracker
  */
 var destLookup_ = {};
 
-/**
- * Internal copy of destinations. New destinations are appended to this array
- * as they come in.
- *
- * @type array
- * @default []
- * @private
- */
-var destinations_ = [];
-
 Polymer({
   componentDir: 'scenes/tracker/',
 
@@ -132,9 +122,36 @@ Polymer({
     active: {value: false, reflect: true}
   },
 
+  /**
+   * New incoming destinations to add.
+   *
+   * @attribute latestDestinations
+   * @type array
+   * @default []
+   */
+
+  /**
+   * List of destination groupings. Needed so dividers are not included in
+   * the list.
+   *
+   * @property groups
+   * @type array
+   * @default []
+   */
+
+  /**
+   * Full list of destinations as they've come in.
+   *
+   * @property dests
+   * @type array
+   * @default []
+   */
+
   created: function() {
     this.location = {};
-    this.destinations = [];
+    this.latestDestinations = [];
+    this.groups = [];
+    this.dests = [];
   },
 
   onPreload: function() {
@@ -160,28 +177,23 @@ Polymer({
 
   },
 
-  destinationsChanged: function() {
-    if (!this.destinations || !this.destinations.length) {
+  latestDestinationsChanged: function() {
+    if (!this.latestDestinations || !this.latestDestinations.length) {
       return;
     }
 
-    var dests = this.destinations.slice();
-    dests.reverse(); // Latest locations display at top of list.
-
-    destinations_ = destinations_.concat(dests);
-
-    var groups = [];
-    destLookup_ = {};
-    for (var i = 0, dest; dest = destinations_[i]; ++i) {
+    // Latest locations display at top of list. Prepend them to the destinations
+    // list in reverse order (so latest is first).
+    for (var i = 0, dest; dest = this.latestDestinations[i]; ++i) {
       dest.selectedCard = 0;
-      dest.index = i;
-      groups.push({length: 1, data: {idx: i}});
-
-      destLookup_[dest.id] = i;
+      this.dests.splice(0, 0, dest);
+      this.groups.splice(0, 0, {length: 1, data: {idx: i}});
     }
 
-    this.groups = groups;
-    this.dests = dests;
+    destLookup_ = {}; // Re-create destLookup_ because indexes changed.
+    for (var i = 0, dest; dest = this.dests[i]; ++i) {
+      destLookup_[dest.id] = i;
+    }
   },
 
   /**
