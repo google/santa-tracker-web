@@ -49,6 +49,9 @@ var SCENE_CLOSURE_CONFIG = {
   callfromsanta: {
     entryPoint: 'app.Scene'
   },
+  citylights: {
+    entryPoint: 'app.Scene'
+  },
   codelab: {
     entryPoint: 'app.wrapper.FrameWrapper'
   },
