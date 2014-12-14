@@ -275,9 +275,7 @@ Tracker scene.
     },
 
     destinationsChanged: function() {
-      if (this.worldView_) {
-        this.worldView_.setDestinations(this.destinations);
-      }
+      this.worldView_.setDestinations(this.destinations || []);
     },
 
     locationChanged: function() {
