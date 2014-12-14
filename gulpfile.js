@@ -85,6 +85,10 @@ var SCENE_CLOSURE_CONFIG = {
   santaselfie: {
     entryPoint: 'app.Game'
   },
+  seasonofgiving: {
+    entryPoint: 'app.Game',
+    closureLibrary: true
+  },
   translations: {
     entryPoint: 'app.Scene'
   },
@@ -168,6 +172,9 @@ gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
       // source (so we can use use wildcards in the file name)
       'third_party/externs/greensock/*.js',
       'third_party/externs/jquery/*.js',
+
+      // add closure library
+      config.closureLibrary ? 'components/closure-library/closure/goog/**/*.js' : ''
     ])
     .pipe(newer(dest + '/' + fileName))
     .pipe(closureCompiler({
