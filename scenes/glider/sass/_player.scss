@@ -1,0 +1,101 @@
+##{$name} {
+  .player {
+    animation: 0.8s #{$name}-playernormal step-start infinite;
+    background-image: url(img/glider-sprite.svg);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 40em 60em;
+    height: 10em;
+    position: absolute;
+    width: 20em;
+
+    &.frozen {
+      animation-play-state: paused;
+    }
+
+    &.up {
+      animation: .5s #{$name}-playerup linear forwards;
+    }
+
+    &.down {
+      animation: .5s #{$name}-playerdown linear forwards;
+    }
+
+    &.drop {
+      animation: .2s #{$name}-playerdrop step-start forwards;
+      background-position: 0 -30em;
+    }
+
+    &.crash {
+      background-position: 0 -50em;
+    }
+
+    &.pulse {
+      animation: 0.5s #{$name}-playerpulse linear infinite;
+    }
+
+    .present-location {
+      margin-left: 9em;
+      margin-top: 8.5em;
+      position: relative;
+    }
+  }
+}
+
+@keyframes #{$name}-playernormal {
+  0% {
+    background-position: 0 0;
+  }
+  25%{
+    background-position: 0 -10em;
+  }
+  50% {
+    background-position: 0 -20em;
+  }
+  75% {
+    background-position: 0 -10em;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes #{$name}-playerup {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-25deg);
+  }
+}
+
+@keyframes #{$name}-playerdown {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(25deg);
+  }
+}
+
+@keyframes #{$name}-playerdrop {
+  50% {
+    background-position: 0 -30em;
+  }
+  100% {
+    background-position: 0 -40em;
+  }
+}
+
+@keyframes #{$name}-playerpulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

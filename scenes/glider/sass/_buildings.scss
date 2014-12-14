@@ -1,0 +1,370 @@
+##{$name} {
+  .building {
+    bottom: 0;
+    position: absolute;
+
+    .chimneys {
+      position: relative;
+
+      .chimney {
+        height: 1em;
+        position: absolute;
+
+        &.chimney-100 {
+          width: 5em;
+        }
+
+        &.chimney-200 {
+          width: 4em;
+        }
+
+        &.chimney-300 {
+          width: 3em;
+        }
+
+        .score {
+          height: 7em;
+          position: absolute;
+          top: -8em;
+          width: 8em;
+
+          &.score-100 {
+            background: url(img/points-100.svg) no-repeat;
+            left: -1.5em;
+          }
+
+          &.score-200 {
+            background: url(img/points-200.svg) no-repeat;
+            left: -1.9em;
+          }
+
+          &.score-300 {
+            background: url(img/points-300.svg) no-repeat;
+            left: -2.5em;
+          }
+
+          &.pop {
+            animation: 2s #{$name}-scorefadeout forwards;
+          }
+        }
+      }
+    }
+  }
+
+  .building-1 {
+    background: url(img/hit-house-01.svg) no-repeat;
+    height: 17em;
+    width: 31.9em;
+
+    .position-0 {
+      left: 22.9em;
+      top: 0.1em;
+    }
+  }
+
+  .building-2 {
+    background: url(img/hit-house-02.svg) no-repeat;
+    height: 17em;
+    width: 26.5em;
+
+    .position-0 {
+      left: 18.8em;
+      top: 0.5em;
+    }
+  }
+
+  .building-3 {
+    background: url(img/hit-house-03.svg) no-repeat;
+    height: 16em;
+    width: 31.6em;
+
+    .position-0 {
+      left: 18.7em;
+      top: 0.1em;
+    }
+  }
+
+  .building-4 {
+    background: url(img/hit-house-04.svg) no-repeat;
+    height: 17em;
+    width: 32.9em;
+
+    .position-0 {
+      left: 3.5em;
+      top: 1.2em;
+    }
+  }
+
+  .building-5 {
+    background: url(img/hit-house-05.svg) no-repeat;
+    height: 27em;
+    width: 31.8em;
+
+    .position-0 {
+      left: 4em;
+      top: 0.1em;
+    }
+  }
+
+  .building-6 {
+    background: url(img/hit-house-06.svg) no-repeat;
+    height: 15em;
+    width: 31.6em;
+
+    .position-0 {
+      left: 5.4em;
+      top: 0.2em;
+    }
+  }
+
+  .building-7 {
+    background: url(img/hit-house-07.svg) no-repeat;
+    height: 16em;
+    width: 32em;
+
+    .position-0 {
+      left: 4.5em;
+      top: 0.2em;
+    }
+  }
+
+  .building-8 {
+    background: url(img/hit-house-08.svg) no-repeat;
+    height: 21em;
+    width: 32.3em;
+
+    .position-0 {
+      left: 4.1em;
+      top: 0.1em;
+    }
+  }
+
+  .building-9 {
+    background: url(img/hit-house-09.svg) no-repeat;
+    height: 18em;
+    width: 31.9em;
+
+    .position-0 {
+      left: 6.3em;
+      top: 2.2em;
+    }
+
+    .position-1 {
+      left: 21.8em;
+      top: 0.2em;
+    }
+  }
+
+  .building-10 {
+    background: url(img/hit-house-10.svg) no-repeat;
+    height: 43em;
+    width: 31.8em;
+
+    .position-0 {
+      left: 13.8em;
+      top: 2.5em;
+    }
+
+    .position-1 {
+      left: 25em;
+      top: 0.1em;
+    }
+  }
+
+  .building-11 {
+    background: url(img/hit-house-11.svg) no-repeat;
+    height: 25em;
+    width: 34.5em;
+
+    .position-0 {
+      left: 7.1em;
+      top: 3.5em;
+    }
+
+    .position-1 {
+      left: 23.8em;
+      top: 0;
+    }
+  }
+
+  .building-12 {
+    background: url(img/hit-house-12.svg) no-repeat;
+    height: 19em;
+    width: 32.4em;
+
+    .position-0 {
+      left: 13.7em;
+      top: 0.1em;
+    }
+  }
+
+  .building-13 {
+    background: url(img/hit-house-13.svg) no-repeat;
+    height: 16em;
+    width: 33em;
+
+    .position-0 {
+      left: 3.7em;
+      top: 0.7em;
+    }
+  }
+
+  .building-14 {
+    background: url(img/hit-house-14.svg) no-repeat;
+    height: 53em;
+    width: 31.7em;
+
+    .position-0 {
+      left: 4.9em;
+      top: 1.8em;
+    }
+
+    .position-1 {
+      left: 19.4em;
+      top: 0.2em;
+    }
+
+    .position-2 {
+      left: 25em;
+      top: 0.2em;
+    }
+  }
+
+  .building-15 {
+    background: url(img/hit-house-15.svg) no-repeat;
+    height: 21em;
+    width: 31.8em;
+
+    .position-0 {
+      left: 7.8em;
+      top: 0.1em;
+    }
+  }
+
+  .building-16 {
+    background: url(img/hit-house-16.svg) no-repeat;
+    height: 18em;
+    width: 32.7em;
+
+    .position-0 {
+      left: 13.6em;
+      top: 0.1em;
+    }
+  }
+
+  .building-17 {
+    background: url(img/hit-house-17.svg) no-repeat;
+    height: 48em;
+    width: 31.5em;
+
+    .position-0 {
+      left: 16.6em;
+      top: 10.2em;
+    }
+
+    .position-1 {
+      left: 23em;
+      top: 8.8em;
+    }
+  }
+
+  .building-18 {
+    background: url(img/hit-house-18.svg) no-repeat;
+    height: 16em;
+    width: 31.9em;
+
+    .position-0 {
+      left: 23em;
+      top: 0.2em;
+    }
+  }
+
+  .building-19 {
+    background: url(img/hit-house-19.svg) no-repeat;
+    height: 15em;
+    width: 32.3em;
+
+    .position-0 {
+      left: 25em;
+      top: 1em;
+    }
+  }
+
+  .building-20 {
+    background: url(img/hit-house-20.svg) no-repeat;
+    height: 16em;
+    width: 32em;
+
+    .position-0 {
+      left: 23em;
+      top: 0.2em;
+    }
+  }
+
+  .building-21 {
+    background: url(img/hit-house-21.svg) no-repeat;
+    height: 41em;
+    width: 31.2em;
+
+    .position-0 {
+      left: 3.8em;
+      top: 0.2em;
+    }
+
+    .position-1 {
+      left: 10.1em;
+      top: 0.2em;
+    }
+
+    .position-2 {
+      left: 16.4em;
+      top: 4em;
+    }
+  }
+
+  .building-22 {
+    background: url(img/hit-house-22.svg) no-repeat;
+    height: 18em;
+    width: 32.3em;
+
+    .position-0 {
+      left: 9.2em;
+      top: 0.1em;
+    }
+  }
+
+  .building-23 {
+    background: url(img/hit-house-23.svg) no-repeat;
+    height: 15em;
+    width: 32.3em;
+
+    .position-0 {
+      left: 23.3em;
+      top: 1.1em;
+    }
+  }
+
+  .building-24 {
+    background: url(img/hit-house-24.svg) no-repeat;
+    height: 24em;
+    width: 32em;
+
+    .position-0 {
+      left: 22.2em;
+      top: 0.2em;
+    }
+  }
+
+  // trees
+  .building-25 {
+    background: url(img/hit-tree-1.svg) no-repeat;
+    height: 32em;
+    width: 16.7em;
+  }
+
+  .building-26 {
+    background: url(img/hit-tree-2.svg) no-repeat;
+    height: 26em;
+    width: 16.6em;
+  }
+}
