@@ -28,7 +28,7 @@ Tracker scene.
                          on-api-load="{{mapsAPIReady}}"></google-maps-api>
       </template>
 
-      <city-feed id="feed" destinations="{{destinations}}" active></city-feed>
+      <city-feed id="feed" destinations="{{destinations}}" active?="{{feedActive}}"></city-feed>
 
       <tracker-intro id="intro" hidden
           userLocation="{{userLocation}}"
@@ -166,6 +166,13 @@ Tracker scene.
 
     worldView_: false,
 
+    /**
+     * True if the city feed is open.
+     * @type {bool}
+     * @default false
+     */
+    feedActive: false,
+
     onPreload: function() {
       // TODO(lukem): Audit images and only preload what we need
       var images = [
@@ -233,6 +240,15 @@ Tracker scene.
 
       this.$.intro.showTitle();
 
+      google.maps.event.addListener(this.worldView_, 'santa_clicked', function(e) {
+        this.feedActive = !this.feedActive;
+      }.bind(this));
+
+      google.maps.event.addListener(this.worldView_, 'routemarker_clicked', function(destId) {
+        this.feedActive = true;
+        this.$.feed.scrollToDest(destId);
+      }.bind(this));
+
       // TODO(lukem): this will need to move for the intro animation
       navigator.geolocation.getCurrentPosition(this.geoLocationSuccess_.bind(this),
         this.geoLocationError_.bind(this), {
@@ -275,7 +291,9 @@ Tracker scene.
     },
 
     destinationsChanged: function() {
-      this.worldView_.setDestinations(this.destinations || []);
+      if (this.worldView_) {
+        this.worldView_.setDestinations(this.destinations);
+      }
     },
 
     locationChanged: function() {

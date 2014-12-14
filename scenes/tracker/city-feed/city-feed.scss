@@ -8,10 +8,13 @@ $lineColor: rgb(151,216,255);
 $name: 'module-city-feed';
 
 ##{$name} {
-  background: rgba(255,255,255,0.3);
   z-index: 1;
-  margin: 0 auto;
   overflow: auto;
+  pointer-events: none;
+
+  .scene {
+    pointer-events: none;
+  }
 
   .ico {
     width: 20px;
@@ -35,16 +38,32 @@ $name: 'module-city-feed';
     opacity: 0.3;
   }
 
+  core-list {
+    width: 306px;
+    margin: 0 auto;
+    height: 100%;
+
+    &::after {
+      content: '';
+      background: url("img/tracker-and-city-SVGs_north-pole.svg") no-repeat 50% 50%;
+      height: 115px;
+      width: 100%;
+      display: block;
+      margin: 90px 0 20px 0;
+      z-index: 1;
+      position: relative;
+    }
+  }
+
   .card {
     $padding: 25px;
+    pointer-events: all;
 
     border-radius: 5px;
     background-color: rgb(106,27,154);
     box-sizing: border-box;
-    position: relative;
 
     &.city {
-      width: 306px;
       margin: 0 auto;
 
       h1, h2, h3, h4 {
@@ -139,6 +158,7 @@ $name: 'module-city-feed';
       }
       a {
         color: inherit;
+        text-decoration: none;
       }
     }
   }
@@ -147,23 +167,33 @@ $name: 'module-city-feed';
 
 @media (min-width: $tabletBreakpoint) {
   ##{$name} {
+
+    $dividerHeight: 130px;
+
     .scene {
       margin-left: 20%;
     }
 
+    core-list {
+      width: 550px;
+
+      .divider {
+        height: $dividerHeight;
+        pointer-events: all;
+        background: url('img/tracker-and-city-SVGs_gifts-pin.svg') no-repeat 50% 80%;
+        background-size: 60px;
+        z-index: 1;
+      }
+    }
+
     .card {
       &.city {
-        width: 550px;
-        margin-top: 125px;
-
-        &::before {
-          $pinIconSize: 60px;
+        &::after {
+          border-left: 2px solid $lineColor;
           content: '';
-          background: url('img/tracker-and-city-SVGs_gifts-pin.svg') no-repeat 50% 50%;
-          background-size: $pinIconSize;
-          height: $pinIconSize;
-          width: 100%;
-          top: -$pinIconSize - 10;
+          height: $dividerHeight;
+          width: 5px;
+          left: 50%;
           position: absolute;
         }
       }
