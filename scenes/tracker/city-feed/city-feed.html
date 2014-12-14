@@ -104,8 +104,19 @@ City feed view in Tracker
  *
  * @type object
  * @default {}
+ * @private
  */
 var destLookup_ = {};
+
+/**
+ * Internal copy of destinations. New destinations are appended to this array
+ * as they come in.
+ *
+ * @type array
+ * @default []
+ * @private
+ */
+var destinations_ = [];
 
 Polymer({
   componentDir: 'scenes/tracker/',
@@ -157,15 +168,15 @@ Polymer({
     var dests = this.destinations.slice();
     dests.reverse(); // Latest locations display at top of list.
 
+    destinations_ = destinations_.concat(dests);
+
     var groups = [];
-    for (var i = 0, dest; dest = dests[i]; ++i) {
+    destLookup_ = {};
+    for (var i = 0, dest; dest = destinations_[i]; ++i) {
       dest.selectedCard = 0;
       dest.index = i;
       groups.push({length: 1, data: {idx: i}});
-    }
 
-    destLookup_ = {};
-    for (var i = 0, dest; dest = dests[i]; ++i) {
       destLookup_[dest.id] = i;
     }
 
