@@ -57,11 +57,6 @@ Tracker scene.
                 <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
               </li>
-              <li>
-                <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="ico ico-arrow"></div>
-                <div class="stat">{{ location.next.city }}</div>
-              </li>
               <template if="{{!location.stopover}}">
                 <li>
                   <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -76,6 +71,11 @@ Tracker scene.
                   <div class="stat">{{ departure_ }}</div>
                 </li>
               </template>
+              <li>
+                <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                <div class="ico ico-arrow"></div>
+                <div class="stat">{{ location.next.city }}</div>
+              </li>
             </ul>
           </template>
 

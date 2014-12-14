@@ -113,6 +113,7 @@ WorldView.prototype.moveSanta = function(state) {
   if (this.lockOnSanta_) {
     var bounds = this.SantaLayer_.getBounds();
     this.map_.fitBounds(bounds);
+    this.map_.panTo(loc);
   }
 };
 
