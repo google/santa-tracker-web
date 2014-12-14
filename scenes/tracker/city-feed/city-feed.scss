@@ -1,0 +1,227 @@
+//@import "../shared/sass/_mixins.scss";
+
+$tabletBreakpoint: 1024px;
+$mobileBreakpoint: 660px;
+
+$lineColor: rgb(151,216,255);
+
+$name: 'module-city-feed';
+
+##{$name} {
+  z-index: 1;
+  overflow: auto;
+  pointer-events: none;
+
+  .scene {
+    pointer-events: none;
+  }
+
+  .ico {
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    margin-right: 5px;
+  }
+
+  .ico-marker {
+    background-image: url(../img/marker.svg);
+  }
+
+  .ico-arrow {
+    background-image: url(../img/arrow.svg);
+  }
+
+  .ico-clock {
+    background-image: url(img/tracker-and-city-SVGs_timer-blue.svg);
+    opacity: 0.3;
+  }
+
+  core-list {
+    width: 306px;
+    margin: 0 auto;
+    height: 100%;
+
+    &::after {
+      content: '';
+      background: url("img/tracker-and-city-SVGs_north-pole.svg") no-repeat 50% 50%;
+      height: 115px;
+      width: 100%;
+      display: block;
+      margin: 90px 0 20px 0;
+      z-index: 1;
+      position: relative;
+    }
+  }
+
+  .card {
+    $padding: 25px;
+    pointer-events: all;
+
+    border-radius: 5px;
+    background-color: rgb(106,27,154);
+    box-sizing: border-box;
+
+    &.city {
+      margin: 0 auto;
+
+      h1, h2, h3, h4 {
+        margin: 0;
+      }
+
+      h1 {
+        color: #e5473a;
+        font-size: 42px;
+        line-height: 42px;
+        font-weight: 600;
+        margin-bottom: 18px;
+      }
+      h2 {
+        color: white;
+        font-size: 14px;
+        font-weight: 300;
+      }
+      h4 {
+        text-transform: uppercase;
+        color: white;
+        font-size: 11px;
+        margin-bottom: 5px;
+      }
+    }
+
+    #header {
+      padding: $padding;
+      position: relative;
+    }
+
+    #stats {
+      margin-bottom: 10px;
+      h4 {
+        opacity: 0.5;
+      }
+      > div > div {
+        margin-right: 20px;
+      }
+    }
+
+    .card-icons {
+      position: absolute;
+      right: $padding;
+      bottom: -31px;
+      z-index: 1;
+
+      img {
+        height: 50px;
+        margin-left: 10px;
+        transition: transform 200ms ease-in-out;
+        cursor: pointer;
+
+        &.core-selected {
+          transform: scale(0.75);
+        }
+
+      }
+    }
+
+    .corner-image {
+      position: absolute;
+      right: 0;
+      top: 0;
+      background-size: contain;
+      height: 100px;
+      width: 100px;
+
+      &.general {
+        background: url("img/cardavatars/Cards-avatars-04_general.svg") no-repeat;
+      }
+    }
+
+    .card-content {
+      position: relative;
+      background-color: rgb(121,49,164);
+
+      .photo {
+        height: 250px;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .attribution {
+        background: rgba(0,0,0,0.5);
+        color: white;
+        position: absolute;
+        bottom: 0;
+        padding: 5px;
+        border-bottom-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+
+@media (min-width: $tabletBreakpoint) {
+  ##{$name} {
+
+    $dividerHeight: 130px;
+
+    .scene {
+      margin-left: 20%;
+    }
+
+    core-list {
+      width: 550px;
+
+      .divider {
+        height: $dividerHeight;
+        pointer-events: all;
+        background: url('img/tracker-and-city-SVGs_gifts-pin.svg') no-repeat 50% 80%;
+        background-size: 60px;
+        z-index: 1;
+      }
+    }
+
+    .card {
+      &.city {
+        &::after {
+          border-left: 2px solid $lineColor;
+          content: '';
+          height: $dividerHeight;
+          width: 5px;
+          left: 50%;
+          position: absolute;
+        }
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      #stats {
+        margin-bottom: 0;
+      }
+
+      .corner-image {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-size: contain;
+        height: 150px;
+        width: 150px;
+      }
+
+      .card-icons {
+        img {
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+

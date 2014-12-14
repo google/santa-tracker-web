@@ -2,7 +2,7 @@
 <link rel="import" href="../base-scene.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="tracker-intro.html">
-<!-- <link rel="import" href="city-feed.html"> -->
+<link rel="import" href="city-feed/city-feed.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 
 <link rel="import" href="dependencies.html">
@@ -22,97 +22,98 @@ Tracker scene.
   <div id="module-tracker">
     <div class="scene">
 
-        <template if="{{santaApp}}">
-          <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
-                           libraries="places,geometry" language="{{santaApp.language}}"
-                           on-api-load="{{mapsAPIReady}}"></google-maps-api>
-        </template>
+      <template if="{{santaApp}}">
+        <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
+                         libraries="places,geometry" language="{{santaApp.language}}"
+                         on-api-load="{{mapsAPIReady}}"></google-maps-api>
+      </template>
 
-         <tracker-intro id="intro"
-            userLocation="{{userLocation}}"
-            santaDistance="{{initialSantaDistance}}"
-            santaLocation="{{initialSantaLocation}}"></tracker-intro>
+      <city-feed id="feed" destinations="{{destinations}}" active?="{{feedActive}}"></city-feed>
 
-        <div id="trackermap" fit></div>
+      <tracker-intro id="intro"
+          userLocation="{{userLocation}}"
+          santaDistance="{{initialSantaDistance}}"
+          santaLocation="{{initialSantaLocation}}"></tracker-intro>
 
-        <div id="status-bar" hidden>
-          <div id="back-to-village">
-            <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
-              <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
-            </a>
-          </div>
+      <div id="trackermap" fit></div>
 
-          <template if="{{userLocation}}">
-            <ul>
+      <div id="status-bar" hidden>
+        <div id="back-to-village">
+          <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
+            <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
+          </a>
+        </div>
+
+        <template if="{{userLocation}}">
+          <ul>
+            <li>
+              <h4><i18n-msg msgid="tracker_your_location">PLACEHOLDER_i18n</i18n-msg></h4>
+              <div class="ico ico-marker"></div>
+              <div class="stat">{{ userLocation.name }}</div>
+            </li>
+            <li>
+              <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
+              <div class="stat-large"> {{ santaDistance | formatDistance_ }}</div>
+            </li>
+            <li >
+              <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
+              <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
+            </li>
+            <template if="{{!location.stopover}}">
               <li>
-                <h4><i18n-msg msgid="tracker_your_location">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="ico ico-marker"></div>
-                <div class="stat">{{ userLocation.name }}</div>
-              </li>
-              <li>
-                <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="stat-large"> {{ santaDistance | formatDistance_ }}</div>
-              </li>
-              <li >
-                <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
-              </li>
-              <template if="{{!location.stopover}}">
-                <li>
-                  <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
-                  <div class="ico ico-clock"></div>
-                  <div class="stat">{{ arrival_ }}</div>
-                </li>
-              </template>
-              <template if="{{location.stopover}}">
-                <li>
-                  <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
-                  <div class="ico ico-clock"></div>
-                  <div class="stat">{{ departure_ }}</div>
-                </li>
-              </template>
-              <li>
-                <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="ico ico-arrow"></div>
-                <div class="stat">{{ location.next.city }}</div>
-              </li>
-            </ul>
-          </template>
-
-          <template if="{{!userLocation}}">
-            <ul>
-              <li hidden?="{{location.stopover == null}}">
-                <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="ico ico-marker"></div>
-                <div class="stat">{{ location.stopover.city }}</div>
-              </li>
-              <li>
-                <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="ico ico-arrow"></div>
-                <div class="stat">{{ location.next.city }}</div>
-              </li>
-              <li hidden?="{{location.stopover != null}}">
                 <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="ico ico-clock"></div>
                 <div class="stat">{{ arrival_ }}</div>
               </li>
-              <li hidden?="{{location.stopover == null}}">
+            </template>
+            <template if="{{location.stopover}}">
+              <li>
                 <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="ico ico-clock"></div>
                 <div class="stat">{{ departure_ }}</div>
               </li>
-              <li>
-                <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
-              </li>
-            </ul>
-          </template>
+            </template>
+            <li>
+              <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+              <div class="ico ico-arrow"></div>
+              <div class="stat">{{ location.next.city }}</div>
+            </li>
+          </ul>
+        </template>
 
-        </div>
+        <template if="{{!userLocation}}">
+          <ul>
+            <li hidden?="{{location.stopover == null}}">
+              <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+              <div class="ico ico-marker"></div>
+              <div class="stat">{{ location.stopover.city }}</div>
+            </li>
+            <li>
+              <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+              <div class="ico ico-arrow"></div>
+              <div class="stat">{{ location.next.city }}</div>
+            </li>
+            <li hidden?="{{location.stopover != null}}">
+              <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
+              <div class="ico ico-clock"></div>
+              <div class="stat">{{ arrival_ }}</div>
+            </li>
+            <li hidden?="{{location.stopover == null}}">
+              <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
+              <div class="ico ico-clock"></div>
+              <div class="stat">{{ departure_ }}</div>
+            </li>
+            <li>
+              <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
+              <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
+            </li>
+          </ul>
+        </template>
+
+      </div>
 
     </div>
   </div>
-
 
 </template>
 <script>
@@ -164,6 +165,13 @@ Tracker scene.
     userLocation: null,
 
     worldView_: false,
+
+    /**
+     * True if the city feed is open.
+     * @type {boolean}
+     * @default false
+     */
+    feedActive: false,
 
     onPreload: function() {
       // TODO(lukem): Audit images and only preload what we need
@@ -231,6 +239,15 @@ Tracker scene.
       this.destinationsChanged();
 
       this.$.intro.showTitle();
+
+      google.maps.event.addListener(this.worldView_, 'santa_clicked', function(e) {
+        this.feedActive = !this.feedActive;
+      }.bind(this));
+
+      google.maps.event.addListener(this.worldView_, 'routemarker_clicked', function(destId) {
+        this.feedActive = true;
+        this.$.feed.scrollToDest(destId);
+      }.bind(this));
 
       // TODO(lukem): this will need to move for the intro animation
       navigator.geolocation.getCurrentPosition(this.geoLocationSuccess_.bind(this),

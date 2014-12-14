@@ -1,0 +1,196 @@
+<link rel="import" href="../../../components/polymer/polymer.html">
+<link rel="import" href="../../../components/core-list/core-list.html">
+<link rel="import" href="../../../components/core-pages/core-pages.html">
+<link rel="import" href="../../../components/core-selector/core-selector.html">
+
+<link rel="import" href="../../../js/utils.html">
+
+<!--
+Utility element to use response HTML returned by the Santa Tracker API.
+
+@element html-echo
+-->
+<polymer-element name="html-echo" attributes="html">
+<script>
+Polymer({
+  htmlChanged: function() {
+    if (this.innerHTML) {
+      return; // Only set what the API returned (i.e. ignore future updates).
+    }
+    this.innerHTML = this.html;
+  }
+});
+</script>
+</polymer-element>
+
+<!--
+City feed view in Tracker
+
+@element city-feed
+-->
+<polymer-element name="city-feed" attributes="active location destinations">
+<template>
+<link rel="stylesheet" href="city-feed.css" no-shim>
+<style>
+:host {
+  display: none;
+}
+:host([active]) {
+  display: block;
+}
+</style>
+
+<div id="module-city-feed" fit>
+  <div class="scene" fit>
+
+    <core-list id="feed" data="{{dests}}" groups="{{groups}}" selectionEnabled="false" height="420">
+      <template>
+
+        <div divider class="divider"></div>
+
+        <div class="card city">
+          <div id="header">
+            <div class="corner-image general"></div>
+            <div>
+              <h4 class="white">{{model.region}}</h4>
+              <h1>{{model.city}}</h1>
+            </div>
+            <core-selector class="card-icons" selected="{{model.selectedCard}}">
+              <img src="img/tracker-and-city-SVGs_feed-city-icon.svg">
+              <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg">
+              <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg">
+              <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg">
+            </core-selector>
+            <div id="stats">
+              <div layout horizontal>
+                <div>
+                  <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div layout horizontal center>
+                    <div class="ico ico-clock"></div>
+                    <h2 class="stat-large">{{model.arrival | formatCountdown}}</h2>
+                  </div>
+                </div>
+                <div>
+                  <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div layout horizontal center>
+                    <div class="ico ico-clock"></div>
+                    <h2 class="stat-large white">{{model.details.weather.tempC}}&deg;C / {{model.details.weather.tempF}}&deg;F</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <core-pages class="card-content" selected="{{model.selectedCard}}">
+            <div class="photo" relative _style="background-image:url({{model.details.photos[0].url}})">
+              <div class="attribution"><html-echo html="{{model.details.photos[0].attributionHtml}}"></html-echo></div>
+            </div>
+            <div>TODO</div>
+            <div>TODO</div>
+          </core-pages>
+        </div>
+
+      </template>
+    </core-list>
+
+  </div>
+</div>
+
+</template>
+<script>
+(function() {
+
+/**
+ * Lookup table of destination id -> index into destinations array.
+ *
+ * @type object
+ * @default {}
+ */
+var destLookup_ = {};
+
+Polymer({
+  componentDir: 'scenes/tracker/',
+
+  publish: {
+    /**
+     * If `true`, the feed is showing.
+     *
+     * @attribute active
+     * @type bool
+     * @default false
+     */
+    active: {value: false, reflect: true}
+  },
+
+  created: function() {
+    this.location = {};
+    this.destinations = [];
+  },
+
+  onPreload: function() {
+    this.preloadImages([
+
+    ]);
+  },
+
+  onShow: function() {
+    this.sceneParamsChanged();
+  },
+
+  onHide: function() {
+
+  },
+
+  activeChanged: function() {
+    // TODO(ericbidelman): shouldn't have to call this with new core-list. Investigate.
+    this.$.feed.updateSize();
+  },
+
+  sceneParamsChanged: function() {
+
+  },
+
+  destinationsChanged: function() {
+    if (!this.destinations || !this.destinations.length) {
+      return;
+    }
+
+    var dests = this.destinations.slice();
+    dests.reverse(); // Latest locations display at top of list.
+
+    var groups = [];
+    for (var i = 0, dest; dest = dests[i]; ++i) {
+      dest.selectedCard = 0;
+      dest.index = i;
+      groups.push({length: 1, data: {idx: i}});
+    }
+
+    destLookup_ = {};
+    for (var i = 0, dest; dest = dests[i]; ++i) {
+      destLookup_[dest.id] = i;
+    }
+
+    this.groups = groups;
+    this.dests = dests;
+  },
+
+  /**
+   * Scrolls the city feed to the given item in the list.
+   *
+   * @method scrollToDest
+   * @param {string} destId Destination id
+   */
+  scrollToDest: function(destId) {
+    // Wait a rAF so list is rendered.
+    this.async(function() {
+      this.$.feed.scrollToItem(destLookup_[destId]);
+    });
+  },
+
+  formatCountdown: function(timestamp) {
+    return formatCountdown(timestamp);
+  }
+});
+
+})();
+</script>
+</polymer-element>
