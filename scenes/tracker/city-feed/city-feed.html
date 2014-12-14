@@ -5,6 +5,11 @@
 
 <link rel="import" href="../../../js/utils.html">
 
+<!--
+Utility element to use response HTML returned by the Santa Tracker API.
+
+@element html-echo
+-->
 <polymer-element name="html-echo" attributes="html">
 <script>
 Polymer({
@@ -97,7 +102,7 @@ City feed view in Tracker
 /**
  * Lookup table of destination id -> index into destinations array.
  *
- * @type {object}
+ * @type object
  * @default {}
  */
 var destLookup_ = {};
