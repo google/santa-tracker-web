@@ -46,15 +46,15 @@ Intro for the tracker scene.
       <img class="pin" id="pin" src="img/pin.svg">
     </div>
 
-    <div id="santaSleigh" class="santa-sleigh sw"></div>
+    <div id="santaSleigh">
+      <img src="img/santa_w.svg">
+    </div>
 
     <div id="userMap">
       <div id="userMapInner"></div>
     </div>
 
-    <div id="santaMap">
-      <div id="santaMapInner"></div>
-    </div>
+
 
     <div class="bottom-wrapper">
       <div class="user-location" id="userLocation">
@@ -137,9 +137,9 @@ Intro for the tracker scene.
     santaBubbleCenterX_: 0,
 
     created: function() {
-      this.winCenterX_ = window.innerWidth / 2;
-      this.winCenterY_ = window.innerHeight / 2;
-      this.bubbleOffset = window.innerWidth / 8;
+      this.winCenterX_ = Math.floor(window.innerWidth / 2);
+      this.winCenterY_ = Math.floor(window.innerHeight / 2);
+      this.bubbleOffset = Math.floor(window.innerWidth / 8);
       this.santaBubbleCenterX_ = this.winCenterX_ + this.bubbleOffset;
       this.userBubbleCenterX_ = this.winCenterX_;
     },
@@ -155,24 +155,22 @@ Intro for the tracker scene.
 
     detached: function() {
       window.removeEventListener('resize', this.resizeHandler_);
-      this.resizeHandler = null;
+      this.resizeHandler_ = null;
     },
 
     updateLayout_: function() {
       this.$.pinWrapper.style.left = this.userBubbleCenterX_ + 'px';
       this.$.userMap.style.left = this.userBubbleCenterX_ + 'px';
       this.$.santaSleigh.style.left = this.santaBubbleCenterX_ + 'px';
-      this.$.santaMap.style.left = this.santaBubbleCenterX_ + 'px';
       this.$.pinWrapper.style.top = this.winCenterY_ + 'px';
-      this.$.santaSleigh.style.top = this.winCenterY_ + 25 + 'px';
+      this.$.santaSleigh.style.top = this.winCenterY_ + 'px';
       this.$.userMap.style.top = this.winCenterY_ + 'px';
-      this.$.santaMap.style.top = this.winCenterY_ + 'px';
     },
 
     resize_: function() {
-      this.bubbleOffset= Math.max(window.innerWidth / 8, 80);
-      this.winCenterX_ = window.innerWidth / 2;
-      this.winCenterY_ = window.innerHeight / 2;
+      this.bubbleOffset= Math.max(Math.floor(window.innerWidth / 8), 80);
+      this.winCenterX_ = Math.floor(window.innerWidth / 2);
+      this.winCenterY_ = Math.floor(window.innerHeight / 2);
       this.santaBubbleCenterX_ = this.winCenterX_ + this.bubbleOffset;
       this.userBubbleCenterX_ = this.winCenterX_ - this.bubbleOffset;
       this.updateLayout_();
@@ -220,25 +218,24 @@ Intro for the tracker scene.
       }.bind(this));
     },
 
-    santaLocationChanged: function() {
-      this.santaMap_ = new google.maps.Map(this.$.santaMapInner, {
-        center: new google.maps.LatLng(
-            this.santaLocation.position.lat,
-            this.santaLocation.position.lng),
-        zoom: 7,
-        disableDefaultUI: true,
-        scrollwheel: false,
-        draggable: false,
-        disableDoubleClickZoom: true,
-        backgroundColor: '#fff',
-        styles: mapstyles.styles
-      });
 
-      this.bindMapToBubble_(this.$.santaMap, this.$.santaBubble, this.$.santaSleigh);
-
-    },
 
     userLocationChanged: function() {
+      console.log('userLocationChanged')
+      if (this.layoutReady_ && ! this.map_) {
+        this.setupUserMap_();
+      }
+    },
+
+    layoutReady: function() {
+      this.layoutReady_ = true;
+
+      if (this.userLocation) {
+        this.setupUserMap_();
+      }
+    },
+
+    setupUserMap_: function() {
       this.map_ = new google.maps.Map(this.$.userMapInner, {
         center: new google.maps.LatLng(
             this.userLocation.location.lat,
@@ -289,7 +286,7 @@ Intro for the tracker scene.
             pin.style.webkitTransform = 'rotate(0deg)';
             pin.style.transform = 'rotate(0deg)';
             this.async(function() {
-              this.showSantaLocation();
+              this.showSanta();
             }, null, 1500);
           }.bind(this));
         }.bind(this));
@@ -301,12 +298,16 @@ Intro for the tracker scene.
      *
      * @method showUserLocationMap
      */
-    showSantaLocation: function() {
+    showSanta: function() {
       var bubble = this.$.userBubble;
       var santaBubble = this.$.santaBubble;
+
+      var santaSleigh = this.$.santaSleigh;
+
       bubble.move(this.winCenterX_ - this.bubbleOffset,
           this.winCenterY_, BUBBLE_RADIUS_SMALL, function() {
-        santaBubble.open(BUBBLE_RADIUS_SMALL);
+        santaSleigh.style.zIndex = 3;
+        santaBubble.open(100);
       });
       this.$.userLocation.classList.remove('final');
       this.$.santaDistance.classList.add('final');

@@ -223,5 +223,5 @@ Bubble.prototype.move = function(x, y, radius) {
   this.x = x;
   this.y = y;
   this.radius = radius;
-  this.eventTarget_.dispatchEvent(this.createEvent_(Bubble.EventType.UPDATE));
+  this.cutout();
 };

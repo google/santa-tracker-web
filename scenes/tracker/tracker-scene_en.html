@@ -326,7 +326,7 @@ Tracker scene.
     },
 
     onShow: function() {
-
+      this.$.intro.layoutReady();
       //TODO(lukem): figure out something nicer to do
       if (this.worldView_) {
         this.worldView_.fitBounds();
