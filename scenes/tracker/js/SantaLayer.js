@@ -38,6 +38,9 @@ function createSantaLayerConstructor() {
    */
   SantaLayer.prototype.SLEIGH_HEIGHT_ = 68;
 
+  SantaLayer.prototype.CIRCLE_LEFT_ = 260;
+  SantaLayer.prototype.CIRCLE_HOLE_RADIUS = 74;
+
   /**
    * @private
    * @const
@@ -219,6 +222,22 @@ function createSantaLayerConstructor() {
       this.get('position')
     ]);
     this.bounds_.extend(this.get('position'));
+  };
+
+  SantaLayer.prototype.computeCenterOffset = function() {
+    var top, left;
+    var width = $(window).width();
+    top = 130 + this.CIRCLE_HOLE_RADIUS;
+    if (width < 765) {
+      // mobile
+      left = width / 2;
+      //top = 20 + CircleView.HOLE_RADIUS;
+    } else {
+      // desktop
+      left = this.CIRCLE_LEFT_;
+      //top = $(window).height() / 2;
+    }
+    return new google.maps.Point(left, top);
   };
 
   SantaLayer.prototype.getBounds = function() {

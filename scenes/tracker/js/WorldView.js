@@ -28,11 +28,13 @@ function WorldView(base, componentDir) {
   //this.createSceneMarkers_();
   this.map_ = null;
 
-  this.SantaLayer_ = null;
-
-  this.init_ = false;
+  this.santaLayer_ = null;
 
   this.lockOnSanta_ = true;
+  this.circleView_ = null;
+
+  this.mode_ = 'track';
+
 }
 
 /**
@@ -44,6 +46,37 @@ WorldView.HDPI_ = !!(window.devicePixelRatio &&
 
 WorldView.prototype.show = function() {
   this.showSceneMarkers_();
+};
+
+WorldView.prototype.setMode = function(mode) {
+  if (this.mode_ == mode) return;
+
+  if (mode == 'feed') {
+    this.mode_ = 'feed';
+  } else {
+    this.mode_ = 'track';
+  }
+
+  if (this.mode_ == 'feed') {
+    this.animateCircleIn_();
+  } else {
+    this.animateCircleOut_();
+  }
+};
+
+WorldView.prototype.animateCircleIn_ = function() {
+  if (!this.circleView_) {
+    this.circleView_ = new CircleView(this.base_.$['module-tracker'].querySelector('#trackermap'), 'rgba(141, 35, 169, 0.7)', 1, true);
+    this.circleView_.setCenter(this.santaLayer_.computeCenterOffset());
+  }
+
+  this.circleView_.show();
+};
+
+WorldView.prototype.animateCircleOut_ = function() {
+  if (this.circleView_) {
+    this.circleView_.hide();
+  }
 };
 
 WorldView.prototype.setupMap = function() {
@@ -83,11 +116,11 @@ WorldView.prototype.setupMap = function() {
 
   var SantaLayer = createSantaLayerConstructor();
 
-  this.SantaLayer_ = new SantaLayer(this.base_, {
+  this.santaLayer_ = new SantaLayer(this.base_, {
     map: this.map_
   });
 
-  this.SantaLayer_.addListener('santa_clicked', this.onSantaLayerClick_.bind(this));
+  this.santaLayer_.addListener('santa_clicked', this.onSantaLayerClick_.bind(this));
 
   if (this.dests) {
     this.clearRouteMarkers_();
@@ -103,16 +136,17 @@ WorldView.prototype.onSantaLayerClick_ = function() {
 };
 
 WorldView.prototype.moveSanta = function(state) {
-  if (!this.SantaLayer_) return;
+  if (!this.santaLayer_) return;
   var loc = mapsLatLng(state.position);
-  this.SantaLayer_.setPosition(loc);
-  this.SantaLayer_.set('type', state.stopover ? 'presents' : 'sleigh');
-  this.SantaLayer_.setHeading(state.heading);
-  this.SantaLayer_.updateTrail(state);
+  this.santaLayer_.setPosition(loc);
+  this.santaLayer_.set('type', state.stopover ? 'presents' : 'sleigh');
+  this.santaLayer_.setHeading(state.heading);
+  this.santaLayer_.updateTrail(state);
 
   if (this.lockOnSanta_) {
-    var bounds = this.SantaLayer_.getBounds();
+    var bounds = this.santaLayer_.getBounds();
     this.map_.fitBounds(bounds);
+
     this.map_.panTo(loc);
   }
 
