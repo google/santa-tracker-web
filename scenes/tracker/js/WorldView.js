@@ -67,7 +67,6 @@ WorldView.prototype.setMode = function(mode) {
 WorldView.prototype.animateCircleIn_ = function() {
   console.log('animate circle in');
   if (!this.circleView_) {
-    var CircleView = createCircleViewConstructor();
     this.circleView_ = new CircleView(this.base_.$['module-tracker'].querySelector('#trackermap'), 'rgba(141, 35, 169, 0.7)', 1, true);
     this.circleView_.setCenter(this.santaLayer_.computeCenterOffset());
   }
@@ -76,7 +75,9 @@ WorldView.prototype.animateCircleIn_ = function() {
 };
 
 WorldView.prototype.animateCircleOut_ = function() {
-  console.log('animate circle out');
+  if (this.circleView_) {
+    this.circleView_.hide();
+  }
 };
 
 WorldView.prototype.setupMap = function() {
@@ -146,6 +147,7 @@ WorldView.prototype.moveSanta = function(state) {
   if (this.lockOnSanta_) {
     var bounds = this.santaLayer_.getBounds();
     this.map_.fitBounds(bounds);
+
     this.map_.panTo(loc);
   }
 
