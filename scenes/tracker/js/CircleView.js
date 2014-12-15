@@ -1,9 +1,6 @@
 /**
  * Creates a circle wizzy.
  *
- * TODO: fall back to image/divs. Figure out how to fall back and still
- * maintain configurable color.
- *
  * @param {Element} target
  * @param {string} color
  * @param {number} opacity
