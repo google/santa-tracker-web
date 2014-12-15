@@ -80,6 +80,26 @@ $cardColor: #6541a4;
       cursor: pointer;
     }
 
+    #back-to-tracker {
+      z-index: 10000;
+      position: absolute;
+      top: 23px;
+      right: 95px;
+      background: rgb(171,71,188);
+
+      &::before {
+        content: attr(data-text);
+        position: absolute;
+        text-transform: uppercase;
+        font-size: 14px;
+        color: #fff;
+        font-weight: 500;
+        right: 50px;
+        bottom: 4px;
+        line-height: 1.1;
+      }
+    }
+
     #global-nav-header {
       background: $cardColor;
       text-align: center;

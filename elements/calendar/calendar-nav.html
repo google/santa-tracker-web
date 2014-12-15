@@ -41,6 +41,10 @@ Village calendar navigation.
 
     <div id="module-nav">
       <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
+        <template if="{{trackerActive && cityFeedActive}}">
+          <paper-fab id="back-to-tracker" icon="arrow-drop-up" mini
+                     data-text="Back to Tracker" on-tap="{{onBackToTracker}}"></paper-fab>
+        </template>
         <a id="global-nav-btn" href="{{pageUrl}}#{{active ? (santaApp.prevSelectedRoute ? santaApp.prevSelectedRoute : 'village') : 'calendar'}}" on-click="{{fabClick}}">
           <paper-fab icon="today" on-core-transitionend="{{rippleDone}}"></paper-fab>
         </a>
@@ -202,6 +206,25 @@ Village calendar navigation.
        */
       mute: false,
 
+      /**
+       * True if the tracker is active.
+       *
+       * @property trackerActive
+       * @type bool
+       * @default false
+       */
+      trackerActive: false,
+
+      /**
+       * True if the city feed is active. This implies trackerActive is also
+       * true.
+       *
+       * @property cityFeedActive
+       * @type bool
+       * @default false
+       */
+      cityFeedActive: false,
+
       TIMEOUT_DELAY: 300 + (25 * 42),
 
       componentDir: 'elements/calendar/',
@@ -232,6 +255,10 @@ Village calendar navigation.
 
       fabClick: function(e, detail, sender) {
         e.preventDefault();
+      },
+
+      onBackToTracker: function(e, detail, sender) {
+        this.santaApp.selectedScene.cityFeedActive = false;
       },
 
       housesChanged: function() {
