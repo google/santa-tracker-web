@@ -28,7 +28,11 @@ Tracker scene.
                          on-api-load="{{mapsAPIReady}}"></google-maps-api>
       </template>
 
+<<<<<<< HEAD
       <city-feed id="feed" latestDestinations="{{destinations}}" active?="{{cityFeedActive}}"></city-feed>
+=======
+      <city-feed id="feed" fit destinations="{{destinations}}" active?="{{feedActive}}"></city-feed>
+>>>>>>> adding circle and stats panel for city feed mode
 
       <tracker-intro id="intro"
           userLocation="{{userLocation}}"
@@ -36,6 +40,31 @@ Tracker scene.
           santaLocation="{{initialSantaLocation}}"></tracker-intro>
 
       <div id="trackermap" fit></div>
+
+      <div id="city-stats" hidden>
+        <ul>
+          <li hidden?="{{location.stopover == null}}">
+            <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+            <div class="ico ico-marker"></div>
+            <div class="stat">{{ location.stopover.city }}</div>
+          </li>
+          <li>
+            <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+            <div class="ico ico-reindeer"></div>
+            <div class="stat">{{ location.next.city }}</div>
+          </li>
+          <li hidden?="{{location.stopover != null}}">
+            <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
+            <div class="ico ico-clock"></div>
+            <div class="stat">{{ arrival_ }}</div>
+          </li>
+          <li hidden?="{{location.stopover == null}}">
+            <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
+            <div class="ico ico-clock"></div>
+            <div class="stat">{{ departure_ }}</div>
+          </li>
+        </ul>
+      </div>
 
       <div id="status-bar" hidden>
         <div id="back-to-village">
@@ -109,7 +138,6 @@ Tracker scene.
             </li>
           </ul>
         </template>
-
       </div>
 
     </div>
@@ -269,6 +297,24 @@ Tracker scene.
         });
 
       this.trackSanta();
+    },
+
+    feedActiveChanged: function() {
+      this.worldView_.setMode(this.feedActive ? 'feed' : 'track');
+    
+      if (this.feedActive) {
+        this.$['status-bar'].hidden = true;
+        this.$['city-stats'].hidden = false;
+
+        this.async(function() {
+          this.$['city-stats'].style.opacity = 1;
+          this.$['feed'].style.opacity = 1;
+        }.bind(this), null, 500);
+      } else {
+        this.$['status-bar'].hidden = false;
+        this.$['city-stats'].hidden = true;
+        this.$['city-stats'].style.opacity = 0;
+      }
     },
 
     geoLocationSuccess_: function(position) {

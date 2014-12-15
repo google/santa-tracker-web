@@ -22,12 +22,92 @@ $name: 'module-tracker';
     height: 100%;
   }
 
+  #feed {
+    z-index: 2;
+    opacity: 0;
+    @include transition(opacity .5s ease);
+  }
+
+  .circle {
+    box-sizing: border-box;
+    position: absolute;
+    border-style: solid;
+    border-radius: 50%;
+    display: none;
+    z-index: 1;
+  }
+
+  .circle-in {
+    @include transition(border-width .5s ease-out);
+  }
+
+  .circle-out {
+    @include transition(border-width .5s ease-in);
+  }
+
   #trackermap {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
+  }
+
+  #city-stats {
+    position: absolute;
+    top: 290px;
+    left: 186px;
+    z-index: 2;
+    color: #fff;
+    opacity: 0;
+    @include transition(opacity .5s ease);
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding: 12px 0;
+        margin: 0 25px;
+
+        h4 {
+          text-transform: uppercase;
+          color: #97d8ff;
+          font-weight: 900;
+          font-size: 11px;
+          margin: 0 0 12px 0;
+        }
+
+        .stat {
+          font-weight: 400;
+          font-size: 16px;
+          margin-left: 16px;
+          line-height: 16px;
+        }
+
+        .ico {
+          float: left;
+          width: 16px;
+          height: 16px;
+          background-size: 12px 12px;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+        }
+
+        .ico-marker {
+          background-image: url(img/marker-blue.svg);
+        }
+
+        .ico-reindeer {
+          background-image: url(img/reindeer-blue.svg);
+        }
+
+        .ico-clock {
+          background-image: url(img/clock-blue.svg);
+        }
+      }
+    }
   }
 
   #status-bar {
@@ -37,7 +117,7 @@ $name: 'module-tracker';
     border-radius: 5px;
     background-color: #e5473a;
     color: #fff;
-    z-index: 1;
+    z-index: 2;
 
     #back-to-village {
       background: #d8433b url('img/village.svg') 25px 100%/115px auto no-repeat;
