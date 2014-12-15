@@ -20,7 +20,7 @@ Video scene.
     <div class="scene" fit>
       <div id="poster" class="{{ {faded: !poster} | tokenList }}"
           on-transitionend="{{hidePoster}}"
-          style="background-image: url(scenes/videoscene/img/{{route}}-poster.jpg)">
+          style="background-image: url({{componentDir}}img/{{route}}-poster.jpg)">
         <div id="start" hidden?="{{!start}}">
           <div class="start-button" on-tap="{{playVideo}}"></div>
         </div>
