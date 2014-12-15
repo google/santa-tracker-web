@@ -11,7 +11,7 @@ Intro for the tracker scene.
 
 @element tracker-intro
 -->
-<polymer-element name="tracker-intro" attributes="userLocation santaLocation santaDistance"
+<polymer-element name="tracker-intro" attributes="userLocation santaDistance"
                  on-transitionend="{{goesOffScreen}}">
 <template>
   <style>
@@ -53,7 +53,7 @@ Intro for the tracker scene.
     </div>
 
     <div id="santaSleigh">
-      <img id="santaSleighImg" src="img/santa_w.svg">
+      <img src="img/santa_w.svg">
     </div>
 
     <div id="userMap">
@@ -97,15 +97,6 @@ Intro for the tracker scene.
      * @default null
      */
     userLocation: null,
-
-    /**
-     * Name and coords of the Santa's location.
-     *
-     * @property latitude
-     * @type number
-     * @default 0
-     */
-    santaLocation: null,
 
     /**
      * window center point.

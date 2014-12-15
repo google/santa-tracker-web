@@ -1,6 +1,7 @@
 $name: 'tracker-intro-module';
 
 $bubble-overlay-z-index: 4;
+$santaSleighHeight: 204px;
 
 ##{$name} {
 
@@ -33,11 +34,11 @@ $bubble-overlay-z-index: 4;
 
   #santaSleigh {
     z-index: $bubble-overlay-z-index - 2;
-    height: 204px;
-    width: 204px;
+    height: $santaSleighHeight;
+    width: $santaSleighHeight;
     position: absolute;
-    margin-top: -102px;
-    margin-left: -102px;
+    margin-top: -$santaSleighHeight/2;
+    margin-left: -$santaSleighHeight/2;
     background-color: #13AB27;
 
     img {
