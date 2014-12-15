@@ -30,7 +30,7 @@ Santa Track app.
 
     <template if="{{mode != 'cast'}}">
       <calendar-nav route="calendar" alwaysActive
-          houses="{{houses}}" santaApp="{{}}" mode="{{mode}}"></calendar-nav>
+                    houses="{{houses}}" santaApp="{{}}" mode="{{mode}}"></calendar-nav>
     </template>
 
     <village-scene route="village"
@@ -294,7 +294,8 @@ Polymer(Polymer.mixin({
     'analytics-track-social': 'trackSocial',
     'analytics-track-game-start': 'trackGameStart',
     'analytics-track-game-quit': 'trackGameQuit',
-    'analytics-track-game-over': 'trackGameOver'
+    'analytics-track-game-over': 'trackGameOver',
+    'tracker-action': 'onTrackerAction'
   },
 
   ready: function() {
@@ -670,8 +671,18 @@ Polymer(Polymer.mixin({
   keyHandler: function(e, detail, sender) {
     switch(e.detail.key) {
       case 'esc':
-        this.route = 'village';
+        this.route = this.postCountdown ? TRACKER_ROUTE_ : DEFAULT_ROUTE_;
         break;
+    }
+  },
+
+  onTrackerAction: function(e, detail, sender) {
+    // Note: needs to go qS() because DOM is not guaranteed to exist if on cast.
+    var calendar = this.$.lazypages.querySelector('calendar-nav');
+    if (detail.type == 'tracker-toggle') {
+      calendar.trackerActive = detail.active;
+    } else if (detail.type == 'city-toggle') {
+      calendar.cityFeedActive = detail.active;
     }
   }
 

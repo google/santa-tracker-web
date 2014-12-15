@@ -28,7 +28,7 @@ Tracker scene.
                          on-api-load="{{mapsAPIReady}}"></google-maps-api>
       </template>
 
-      <city-feed id="feed" latestDestinations="{{destinations}}" active?="{{feedActive}}"></city-feed>
+      <city-feed id="feed" latestDestinations="{{destinations}}" active?="{{cityFeedActive}}"></city-feed>
 
       <tracker-intro id="intro"
           userLocation="{{userLocation}}"
@@ -123,6 +123,16 @@ Tracker scene.
     componentDir: 'scenes/tracker/',
 
     /**
+     * Fired when the tracker
+     *
+     * @event tracker-action
+     * @param {object} detail
+     *     @param {string} type The type of action that was triggered. Possible
+     *         values are 'tracker-toggle' or 'city-toggle'.
+     *     @param {boolean} active True if the item in question is being shown.
+     */
+
+    /**
      * Initial Santa's location. Does not get updated.
      * @type {SantaState}
      * @private
@@ -168,10 +178,11 @@ Tracker scene.
 
     /**
      * True if the city feed is open.
+     * @property cityFeedActive
      * @type {boolean}
      * @default false
      */
-    feedActive: false,
+    cityFeedActive: false,
 
     onPreload: function() {
       // TODO(lukem): Audit images and only preload what we need
@@ -241,11 +252,11 @@ Tracker scene.
       this.$.intro.showTitle();
 
       google.maps.event.addListener(this.worldView_, 'santa_clicked', function(e) {
-        this.feedActive = !this.feedActive;
+        this.cityFeedActive = !this.cityFeedActive;
       }.bind(this));
 
       google.maps.event.addListener(this.worldView_, 'routemarker_clicked', function(destId) {
-        this.feedActive = true;
+        this.cityFeedActive = true;
         this.$.feed.scrollToDest(destId);
       }.bind(this));
 
@@ -325,16 +336,22 @@ Tracker scene.
       }
     },
 
+    cityFeedActiveChanged: function() {
+      this.fire('tracker-action', {type: 'city-toggle', active: this.cityFeedActive});
+    },
+
     onShow: function() {
 
       //TODO(lukem): figure out something nicer to do
       if (this.worldView_) {
         this.worldView_.fitBounds();
       }
+
+      this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
 
     onHide: function() {
-      // TODO: implement
+      this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
 
     formatInt_: function(i) {
