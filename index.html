@@ -63,7 +63,6 @@
       return decodeURIComponent(m[1]);
     }
 
-    // TODO(bckenny): could ask embeds to include separate utm_source
     if (getUrlParameter('api_client')) {
       ga_.pushCommand(['_setCampSourceKey', 'api_client']);
       ga_.pushCommand(['_setCampMediumKey', 'api_client']);
