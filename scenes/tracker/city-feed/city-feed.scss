@@ -131,6 +131,7 @@ $name: 'module-city-feed';
       background-size: contain;
       height: 100px;
       width: 100px;
+      border-radius: 0 5px 0 0;
 
       &.general {
         background: url("img/cardavatars/Cards-avatars-04_general.svg") no-repeat;
@@ -140,11 +141,13 @@ $name: 'module-city-feed';
     .card-content {
       position: relative;
       background-color: rgb(121,49,164);
+      border-radius: 0 0 5px 5px;
 
       .photo {
         height: 250px;
         background-size: cover;
         background-repeat: no-repeat;
+        border-radius: 0 0 5px 5px;
       }
 
       .attribution {
