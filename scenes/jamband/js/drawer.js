@@ -15,7 +15,7 @@ app.Drawer = function(elem) {
   tab.on('mouseup.jamband touchend.jamband', this.toggle.bind(this));
 
   var scrollToOffset = function(direction) {
-    var offset = scrollable.children().first().width() * direction;
+    var offset = scrollable.find('.InstrumentContainer:not(.collapse)').first().width() * direction;
     var position = Math.floor((scrollable.scrollLeft() + offset) / offset) * offset;
     scrollable.animate({scrollLeft: position}, {duration: 300});
   };
