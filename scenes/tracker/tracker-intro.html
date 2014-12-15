@@ -46,8 +46,14 @@ Intro for the tracker scene.
       <img class="pin" id="pin" src="img/pin.svg">
     </div>
 
+
+
+    <div id="santaPath">
+      <img src="img/tracker_intro_path.svg">
+    </div>
+
     <div id="santaSleigh">
-      <img src="img/santa_w.svg">
+      <img id="santaSleighImg" src="img/santa_w.svg">
     </div>
 
     <div id="userMap">
@@ -165,15 +171,18 @@ Intro for the tracker scene.
       this.$.pinWrapper.style.top = this.winCenterY_ + 'px';
       this.$.santaSleigh.style.top = this.winCenterY_ + 'px';
       this.$.userMap.style.top = this.winCenterY_ + 'px';
+      this.$.santaPath.style.left = this.userBubbleCenterX_ + 30 + 'px';
+      this.$.santaPath.style.top = this.winCenterY_ + 'px';
     },
 
     resize_: function() {
-      this.bubbleOffset= Math.max(Math.floor(window.innerWidth / 8), 80);
+      this.bubbleOffset = Math.max(Math.floor(window.innerWidth / 8), 80);
       this.winCenterX_ = Math.floor(window.innerWidth / 2);
       this.winCenterY_ = Math.floor(window.innerHeight / 2);
       this.santaBubbleCenterX_ = this.winCenterX_ + this.bubbleOffset;
       this.userBubbleCenterX_ = this.winCenterX_ - this.bubbleOffset;
       this.updateLayout_();
+      this.$.santaPath.style.width = 2 * this.bubbleOffset - 80 + 'px';
       this.$.overlay.draw();
     },
 
@@ -303,12 +312,18 @@ Intro for the tracker scene.
       var santaBubble = this.$.santaBubble;
 
       var santaSleigh = this.$.santaSleigh;
+      var santaPath = this.$.santaPath;
 
       bubble.move(this.winCenterX_ - this.bubbleOffset,
           this.winCenterY_, BUBBLE_RADIUS_SMALL, function() {
         santaSleigh.style.zIndex = 3;
-        santaBubble.open(100);
-      });
+        santaPath.style.left = this.userBubbleCenterX_ + 30 + 'px';
+        santaPath.style.width = 2 * this.bubbleOffset - 80 + 'px';
+        this.async(function() {
+          santaBubble.open(100);
+        }, null, 800);
+
+      }.bind(this));
       this.$.userLocation.classList.remove('final');
       this.$.santaDistance.classList.add('final');
     },

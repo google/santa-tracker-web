@@ -48,6 +48,14 @@ $bubble-overlay-z-index: 4;
     }
   }
 
+  #santaPath {
+    position: absolute;
+    z-index: $bubble-overlay-z-index + 1;
+    overflow: hidden;
+    width: 0;
+    transition: width 0.8s;
+  }
+
   bubble-overlay {
     z-index: $bubble-overlay-z-index;
   }
