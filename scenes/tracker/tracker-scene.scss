@@ -22,12 +22,6 @@ $name: 'module-tracker';
     height: 100%;
   }
 
-  #feed {
-    z-index: 2;
-    opacity: 0;
-    @include transition(opacity .5s ease);
-  }
-
   .circle {
     box-sizing: border-box;
     position: absolute;
