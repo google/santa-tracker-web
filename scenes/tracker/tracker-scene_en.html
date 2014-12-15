@@ -28,11 +28,7 @@ Tracker scene.
                          on-api-load="{{mapsAPIReady}}"></google-maps-api>
       </template>
 
-<<<<<<< HEAD
-      <city-feed id="feed" latestDestinations="{{destinations}}" active?="{{cityFeedActive}}"></city-feed>
-=======
-      <city-feed id="feed" fit destinations="{{destinations}}" active?="{{feedActive}}"></city-feed>
->>>>>>> adding circle and stats panel for city feed mode
+      <city-feed id="feed" fit latestDestinations="{{destinations}}" active?="{{cityFeedActive}}"></city-feed>
 
       <tracker-intro id="intro"
           userLocation="{{userLocation}}"
@@ -41,7 +37,7 @@ Tracker scene.
 
       <div id="trackermap" fit></div>
 
-      <template if="{{feedActive}}">
+      <template if="{{cityFeedActive}}">
         <div id="city-stats">
           <ul>
             <li hidden?="{{!location.stopover}}">
@@ -68,7 +64,7 @@ Tracker scene.
         </div>
       </template>
 
-      <template if="{{!feedActive}}">
+      <template if="{{!cityFeedActive}}">
         <div id="status-bar">
           <div id="back-to-village">
             <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
@@ -301,20 +297,6 @@ Tracker scene.
       this.trackSanta();
     },
 
-    feedActiveChanged: function() {
-      this.worldView_.setMode(this.feedActive ? 'feed' : 'track');
-    
-      if (this.feedActive) {
-        this.async(function() {
-          var cityStats = this.$['module-tracker'].querySelector('#city-stats');
-          cityStats.style.opacity = 1;
-        }.bind(this), null, 500);
-      } else {
-        var cityStats = this.$['module-tracker'].querySelector('#city-stats');
-        cityStats.style.opacity = 0;
-      }
-    },
-
     geoLocationSuccess_: function(position) {
       var latlng = {
         lat: position.coords.latitude,
@@ -382,6 +364,18 @@ Tracker scene.
 
     cityFeedActiveChanged: function() {
       this.fire('tracker-action', {type: 'city-toggle', active: this.cityFeedActive});
+
+      this.worldView_.setMode(this.cityFeedActive ? 'feed' : 'track');
+
+      if (this.cityFeedActive) {
+        this.async(function() {
+          var cityStats = this.$['module-tracker'].querySelector('#city-stats');
+          cityStats.style.opacity = 1;
+        }.bind(this), null, 500);
+      } else {
+        var cityStats = this.$['module-tracker'].querySelector('#city-stats');
+        cityStats.style.opacity = 0;
+      }
     },
 
     onShow: function() {
