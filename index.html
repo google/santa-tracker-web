@@ -63,10 +63,6 @@
       return decodeURIComponent(m[1]);
     }
 
-    // log navigation timing numbers at a higher rate to get a better baseline
-    // while traffic is still low
-    ga_.pushCommand(['_setSiteSpeedSampleRate', 10]);
-
     // TODO(bckenny): could ask embeds to include separate utm_source
     if (getUrlParameter('api_client')) {
       ga_.pushCommand(['_setCampSourceKey', 'api_client']);
