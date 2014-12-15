@@ -1,4 +1,4 @@
-$name: 'module-trailer';
+$name: 'module-video';
 
 @import "../shared/sass/sceneboard";
 
@@ -15,7 +15,8 @@ $name: 'module-trailer';
     right: 0;
     bottom: 0;
     left: 0;
-    background: url(img/poster2.jpg) 50% 50% no-repeat;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
     background-size: cover;
     z-index: 2;
     transition: opacity 1000ms;
@@ -114,8 +115,6 @@ $name: 'module-trailer';
       width: 250px;
     }
   }
-
-
 }
 
 @import "../shared/sass/responsive";

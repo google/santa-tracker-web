@@ -4,27 +4,29 @@
 <link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
 
 <!--
-Trailer scene.
+Video scene.
 
-@element trailer-scene
+@element video-scene
 @extends base-scene
 -->
-<polymer-element name="trailer-scene" extends="base-scene">
+<polymer-element name="video-scene" extends="base-scene">
 <template>
-  <link rel="stylesheet" href="trailer-scene.css" no-shim>
+  <link rel="stylesheet" href="video-scene.css" no-shim>
 
   <core-a11y-keys target="{{}}" keys="enter space"
                   on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
 
-  <div id="module-trailer" fit>
+  <div id="module-video" fit>
     <div class="scene" fit>
-      <div id="poster" class="{{ {faded: !poster} | tokenList }}" on-transitionend="{{hidePoster}}">
+      <div id="poster" class="{{ {faded: !poster} | tokenList }}"
+          on-transitionend="{{hidePoster}}"
+          style="background-image: url({{componentDir}}img/{{route}}-poster.jpg)">
         <div id="start" hidden?="{{!start}}">
           <div class="start-button" on-tap="{{playVideo}}"></div>
         </div>
       </div>
 
-      <google-youtube id="player" videoid="IdpQSy4IB_I" chromeless playsupported="false"
+      <google-youtube id="player" videoid="{{VIDEO_IDS[route]}}" chromeless playsupported="false"
                       on-google-youtube-ready="{{youtubeReady}}"
                       on-google-youtube-state-change="{{youtubeStateChange}}"
                       height="100%" width="100%" fit></google-youtube>
@@ -49,7 +51,7 @@ Trailer scene.
 </template>
 <script>
   Polymer({
-    componentDir: 'scenes/trailer/',
+    componentDir: 'scenes/videoscene/',
 
     /**
      * True if the video is paused.
@@ -78,7 +80,7 @@ Trailer scene.
      */
     start: false,
 
-     /**
+    /**
      * True if the scene board play controls should show.
      *
      * @property controls
@@ -86,6 +88,17 @@ Trailer scene.
      * @default false
      */
     controls: false,
+
+    /**
+     * Mapping of routes to YouTube video IDs
+     *
+     * @property VIDEO_IDS
+     * @type object
+     */
+    VIDEO_IDS: {
+      trailer: 'IdpQSy4IB_I',
+      carpool: 'h83b1lWPuvQ'
+    },
 
     /**
      * Fired to track a video play.
@@ -113,12 +126,12 @@ Trailer scene.
           break;
         case 0: // ended
           this.controls = false;
-          break;;
+          break;
         case 1: // playing
           this.paused = false;
           this.controls = true;
           this.fire('analytics-track-event', {category: 'video', action: 'play',
-                                              label: 'trailer'});
+                                              label: this.route});
           break;
         case 2: // paused
           this.paused = true;
@@ -155,7 +168,6 @@ Trailer scene.
         'img/button.svg',
         'img/pause.svg',
         'img/play.svg',
-        'img/poster2.jpg',
         'img/restart.svg'
       ]);
     },
