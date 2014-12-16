@@ -54,7 +54,9 @@ app.Scene = function(elem) {
  * @private
  */
 app.Scene.prototype.showShareOverlay_ = function() {
-  this.shareOverlay.show(window.location.href, true);
+  var bgNum = this.background.getPosition(0);
+  var fgNum = this.foreground.getPosition(0);
+  this.shareOverlay.show('https://' + window.location.hostname + '/#postcard?bg=' + bgNum + '&fg=' + fgNum, true);
 };
 
 /**

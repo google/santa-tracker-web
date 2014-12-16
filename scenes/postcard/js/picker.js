@@ -46,9 +46,14 @@ app.Picker.prototype.handleChange_ = function(bg, fg) {
  */
 app.Picker.prototype.navigate = function(bg, fg) {
   var bgNum = this.background.getPosition(bg),
-      fgNum = this.foreground.getPosition(fg);
-
-  window.location.replace('#postcard?bg=' + bgNum + '&fg=' + fgNum);
+      fgNum = this.foreground.getPosition(fg),
+      url = window.location.href,
+      hash = window.location.hash;
+  
+  window.history.pushState(null, '', url.substr(0, url.length - hash.length) + '#postcard?bg=' + bgNum + '&fg=' + fgNum);
+  this.fromUrl(bgNum, fgNum);
+  
+  // Sound
   if (bg !== 0) {
     window.santaApp.fire('sound-trigger', {
       name: 'sm_change_bg',

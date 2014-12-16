@@ -88,7 +88,7 @@ Postcard scene.
       <div class="board board--scene"><a id="global-back-to-village" href="{{pageURI}}#village" class="back">
           <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
         <div class="logo"></div>
-        <button type="button" class="board-button share-this"><i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg></button>
+        <button type="button" id="sharebutton" class="board-button share-this" hidden><i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg></button>
       </div>
       <div class="shareOverlay overlay shareOverlay--postcard">
         <div class="shareOverlay-dialog overlay-dialog">
@@ -128,20 +128,25 @@ Postcard scene.
       'img/sprite.png'
       ]);
     },
-    googleAPIReady: function() {},
+    googleAPIReady: function() {
+      this.$.sharebutton.removeAttribute('hidden');
+    },
     onShow: function() {
       var module = this.$['module-postcard'];
       this.fire('sound-ambient', 'sm_start');
 
       this.scene = new scenes.postcard.Scene(module);
+      this.sceneParamsChanged();
     },
     onHide: function() {
       this.scene.dispose();
       this.scene = null;
       this.fire('sound-ambient', 'sm_end');
     },
-    onQueryChanged: function(params) {
-      this.scene.picker.fromUrl(params.bg || 0, params.fg || 0);
+    sceneParamsChanged: function() {
+      if (!this.sceneParams) return;
+      
+      this.scene.picker.fromUrl(this.sceneParams.bg || 0, this.sceneParams.fg || 0);
     }
   });
 
