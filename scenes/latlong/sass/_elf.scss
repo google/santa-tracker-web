@@ -54,7 +54,6 @@ $elf-width: 104px;
   }
 
   .Elf-fireOrange {
-    animation: #{$name}-burningOrange 0.4s linear infinite alternate;
     background: url(img/elf-fire.svg) no-repeat;
     height: 98px;
     position: absolute;
@@ -63,7 +62,6 @@ $elf-width: 104px;
   }
 
   .Elf-fireYellow {
-    animation: #{$name}-burningYellow 0.7s ease-in-out infinite alternate;
     background: url(img/elf-fire.svg) -39px -20px no-repeat;
     height: 60px;
     left: 7px;
@@ -85,18 +83,6 @@ $elf-width: 104px;
     background-position: -60px 0;
   }
 
-  .Elf-spark:nth-child(3n+1) {
-    animation: 0.5s #{$name}-sparkSmall linear infinite;
-  }
-
-  .Elf-spark:nth-child(3n) {
-    animation: 0.5s #{$name}-sparkNormal linear infinite;
-  }
-
-  .Elf-spark:nth-child(3n+2) {
-    animation: 0.5s #{$name}-sparkNormal linear infinite;
-  }
-
   .Elf-sparks {
     left: 35px;
     position: absolute;
@@ -106,7 +92,6 @@ $elf-width: 104px;
   .Elf-spark:nth-child(1) {
     left: 0;
     top: 10px;
-    animation-delay: 0.1s;
   }
 
   .Elf-spark:nth-child(2) {
@@ -117,70 +102,25 @@ $elf-width: 104px;
   .Elf-spark:nth-child(3) {
     left: 5px;
     top: 20px;
-    animation-delay: 0.2s;
   }
 
   .Elf-spark:nth-child(4) {
     left: 15px;
     top: 15px;
-    animation-delay: 0.3s;
   }
 
   .Elf-spark:nth-child(5) {
     left: 5px;
     top: 0;
-    animation-delay: 0.4s;
   }
 
   .Elf-spark:nth-child(6) {
     left: 0;
     top: 10px;
-    animation-delay: 0.2s;
   }
 
   .Elf-spark:nth-child(7) {
     left: 20px;
     top: 15px;
-    animation-delay: 0.4s;
-  }
-}
-
-@keyframes #{$name}-burningOrange {
-  0% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(1.05);
-  }
-}
-
-@keyframes #{$name}-burningYellow {
-  0% {
-    transform: scale(0.60);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes #{$name}-sparkNormal {
-  0% {
-    opacity: 1;
-    transform: translateY(0) rotate(0);
-  }
-  100% {
-    transform: translateY(400%) rotate(720deg);
-    opacity: 0;
-  }
-}
-
-@keyframes #{$name}-sparkSmall {
-  0% {
-    opacity: 1;
-    transform: translateY(0) rotate(0) scale(0.7);
-  }
-  100% {
-    transform: translateY(300%) rotate(720deg) scale(0.7);
-    opacity: 0;
   }
 }
