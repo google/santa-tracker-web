@@ -13,10 +13,10 @@ var pools = app.shared.pools = {
      * @return {?Object} A new or reused object. Or null if a fixed pool is empty.
      */
     obj.pop = function(owner) {
-      ensurePooled_();
+      ensurePooled_(owner);
 
       // Get instance from the pool and initialize it
-      var instance = this.pool_.shift();
+      var instance = obj.pool_.shift();
       return initInstance_(instance, arguments);
     };
 
@@ -26,13 +26,13 @@ var pools = app.shared.pools = {
      * @return {?Object} A new or reused object. Or null if a fixed pool is empty.
      */
     obj.popRandom = function(owner) {
-      ensurePooled_();
+      ensurePooled_(owner);
 
-      var randomIndex = Math.floor(Math.random() * this.pool_.length);
-      var instance = this.pool_[randomIndex];
-      var lastInstance = this.pool_.pop();
+      var randomIndex = Math.floor(Math.random() * obj.pool_.length);
+      var instance = obj.pool_[randomIndex];
+      var lastInstance = obj.pool_.pop();
       if (lastInstance && instance !== lastInstance) {
-        this.pool_[randomIndex] = lastInstance;
+        obj.pool_[randomIndex] = lastInstance;
       }
       return initInstance_(instance, arguments);
     };
@@ -42,10 +42,10 @@ var pools = app.shared.pools = {
      */
     obj.pool = function(owner) {
       // Create new instance
-      var instance = new this(owner);
+      var instance = new obj(owner);
 
       // Add to pool
-      this.pool_.push(instance);
+      obj.pool_.push(instance);
     };
 
     /**
@@ -57,7 +57,7 @@ var pools = app.shared.pools = {
         instance.onDispose();
       }
 
-      this.pool_.push(instance);
+      obj.pool_.push(instance);
     };
 
     /**
@@ -83,8 +83,8 @@ var pools = app.shared.pools = {
      * @private
      */
     function ensurePooled_(owner) {
-      if (!options.fixed && this.pool_.length === 0) {
-        this.pool(owner);
+      if (!options.fixed && obj.pool_.length === 0) {
+        obj.pool(owner);
       }
     }
 
