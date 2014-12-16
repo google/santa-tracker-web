@@ -1,0 +1,134 @@
+<link rel="import" href="../base-scene.html">
+<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+
+<!--
+Blimp scene.
+
+@element blimp-scene
+@extends base-scene
+-->
+<polymer-element name="blimp-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="blimp-scene.css" no-shim>
+
+  <core-a11y-keys target="{{}}" keys="enter space left right down up"
+                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+
+  <div id="module-blimp">
+    <div class="scene">
+      <div class="blimp">
+        <div class="eye">
+          <div class="eyeball">
+            <div class="obj"></div>
+          </div>
+        </div>
+        <div class="nose"></div>
+      </div>
+      <div class="belt">
+        <div class="cogs">
+          <div class="obj"></div>
+        </div>
+      </div>
+      <div class="sleigh">
+        <div class="boxes"></div>
+        <ul class="propellers">
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <ul class="boxes-singles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li class="small"></li>
+        <li class="small"></li>
+        <li class="medium"></li>
+        <li class="medium"></li>
+      </ul>
+      <div class="snooze"></div>
+      <div class="comet"></div>
+    </div>
+
+    <div class="background">
+      <div class="plane"></div>
+      <div class="clouds small visible" data-pos-left="3000" data-pos-top="300" data-speed="1"></div>
+      <div class="clouds small alt visible" data-pos-left="-1000" data-pos-top="600" data-speed="1"></div>
+      <div class="clouds medium visible" data-pos-left="1500" data-pos-top="200" data-speed="5"></div>
+      <div class="clouds medium visible" data-pos-left="-500" data-pos-top="400" data-speed="5"></div>
+      <div class="clouds medium alt visible" data-pos-left="-1000" data-pos-top="300" data-speed="5"></div>
+      <div class="clouds large visible" data-pos-left="-4000" data-pos-top="200" data-speed="10"></div>
+      <div class="moon up">
+        <div class="obj"></div>
+      </div>
+      <div class="sky night-alt visible"></div>
+    </div>
+
+    <div class="gui">
+      <div class="board board--scene">
+        <a id="global-back-to-tracker" href="{{pageUrl}}#tracker" class="back"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
+      </div>
+    </div>
+
+  </div>
+
+</template>
+<script>
+(function() {
+  Polymer({
+    componentDir: 'scenes/blimp/',
+
+
+    onPreload: function() {
+      //this.preloadSounds('briefing_load_sounds', 30);
+      this.preloadImages([
+        'img/logo.svg',
+      ]);
+    },
+
+    onShow: function() {
+      /*var module = this.$['module-briefing'];
+
+      this.fire('sound-ambient', 'briefing_start');
+      this.scene = new scenes.briefing.Scene(module);*/
+    },
+
+    onHide: function() {
+      /*this.scene.destroy();
+      this.scene = null;
+      this.fire('sound-ambient', 'briefing_end');*/
+    },
+
+    keyHandler: function(e, details, sender) {
+      /*e.stopPropagation();
+
+      switch (e.detail.key) {
+        case 'left':
+          this.$.leftarrow.click();
+          break;
+        case 'right':
+          this.$.rightarrow.click();
+          break;
+        case 'down':
+          this.$['down-elevator-arrow'].click();
+          break;
+        case 'up':
+          this.$['up-elevator-arrow'].click();
+          break;
+        case 'enter':
+          this.$.showdeer.click();
+          break;
+        case 'space':
+          var spectators = this.$.audience.querySelectorAll('.spectator');
+          spectators[this.audienceIdx_++ % spectators.length].click();
+          break;
+      }*/
+    }
+
+  });
+
+})();
+</script>
+</polymer-element>

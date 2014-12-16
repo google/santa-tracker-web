@@ -171,6 +171,8 @@ function createSantaLayerConstructor() {
     var icons = ['n', 'ne', 'e', 'se', 's', 'sw', 'w', 'nw', 'n'];
     var buckets = 8;
     var index = Math.round((angle / 360) * buckets);
+
+    if (this.container_.hasClass(icons[index])) return;
     this.container_.removeClass().addClass('santa-' + type +
         ' ' + icons[index]);
   };

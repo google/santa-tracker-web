@@ -141,3 +141,16 @@ function windowWidth() {
 function windowHeight() {
   return window.innerHeight || document.documentElement.clientHeight;
 }
+
+/**
+ * Throttle calls to a function
+ */
+function throttle(func, ms) {
+  var timeout, last = 0;
+  return function() {
+    var a = arguments, t = this, now = +(new Date);
+    var fn = function() { last = now; func.apply(t,a); };
+    window.clearTimeout(timeout);
+    (now >= last + ms) ? fn() : timeout = window.setTimeout(fn, ms);
+  }
+}
