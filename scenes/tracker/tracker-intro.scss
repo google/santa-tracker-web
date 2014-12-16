@@ -1,8 +1,7 @@
 $name: 'tracker-intro-module';
 
-@import "sass/santa";
-
 $bubble-overlay-z-index: 4;
+$santaSleighHeight: 204px;
 
 ##{$name} {
 
@@ -21,16 +20,6 @@ $bubble-overlay-z-index: 4;
     margin-top: -150px;
     margin-left: -150px;
     position: absolute;
-    z-index: $bubble-overlay-z-index - 1;
-    display: block;
-  }
-
-  #santaMap {
-    width: 180px;
-    height: 180px;
-    margin-top: -90px;
-    margin-left: -90px;
-    position: absolute;
     z-index: $bubble-overlay-z-index - 2;
     display: block;
   }
@@ -43,16 +32,29 @@ $bubble-overlay-z-index: 4;
     display: block;
   }
 
-  #santaMapInner {
-    width: 180px;
-    height: 180px;
-    position: absolute;
+  #santaSleigh {
     z-index: $bubble-overlay-z-index - 2;
-    display: block;
+    height: $santaSleighHeight;
+    width: $santaSleighHeight;
+    position: absolute;
+    margin-top: -$santaSleighHeight/2;
+    margin-left: -$santaSleighHeight/2;
+    background-color: #13AB27;
+
+    img {
+       height: 120px;
+       width: 150px;
+       margin-top: 41px;
+       margin-left: 26px;
+    }
   }
 
-  .santa-sleigh {
-    z-index: $bubble-overlay-z-index - 1;
+  #santaPath {
+    position: absolute;
+    z-index: $bubble-overlay-z-index + 1;
+    overflow: hidden;
+    width: 0;
+    transition: width 0.8s;
   }
 
   bubble-overlay {
