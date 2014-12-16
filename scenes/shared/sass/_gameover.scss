@@ -8,7 +8,6 @@ $gameover-width-bp: 661px;
 ##{$name} {
   .gameover {
     background-color: $gameover-bg;
-    z-index: 120;
   }
 
   .gameover-dialog {

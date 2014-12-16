@@ -305,7 +305,7 @@ Matching scene.
             <!---->
           </div>
         </div>
-        <div class="actions">
+        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
           <button type="button" class="restart"></button>
           <button type="button" class="pause"></button>
         </div>
@@ -345,7 +345,10 @@ Matching scene.
     componentDir: 'scenes/matching/',
 
     animationHelper: null,
+
     game: null,
+
+    hasClickedStart: false,
 
     onPreload: function() {
       this.preloadSounds('m_load_sounds', 20);
@@ -360,21 +363,26 @@ Matching scene.
         'img/rotate.svg'
       ]);
     },
+
     onShow: function() {
       var module = this.$['module-matching'];
 
       this.animationHelper = new CSSAnimationHelper(module);
-      var game = this.game = new scenes.matching.Game(module);
-      startButton(this, module, function() {
-        game.start();
-      });
+      this.game = new scenes.matching.Game(module);
+      startButton(this, module, this.onClickStart.bind(this));
     },
+
     onHide: function() {
       this.animationHelper.destroy();
       this.animationHelper = null;
       this.game.destroy();
       this.game = null;
       this.fire('sound-ambient', 'm_end_game');
+    },
+
+    onClickStart: function() {
+      this.hasClickedStart = true;
+      this.game.start();
     }
   });
 

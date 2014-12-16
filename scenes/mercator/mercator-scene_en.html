@@ -108,7 +108,7 @@ Mercator scene.
           </div>
           <div class="status"></div>
         </div>
-        <div class="actions">
+        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
           <button type="button" class="restart"></button>
           <button type="button" class="pause"></button>
         </div>
@@ -284,6 +284,8 @@ Mercator scene.
 
     mapsReady: false,
 
+    hasClickedStart: false,
+
     onPreload: function() {
       this.preloadSounds('mercator_load_sounds', 40);
       this.preloadImages([
@@ -293,28 +295,34 @@ Mercator scene.
         'img/tutorial/shadow.svg'
       ]);
     },
+
     onShow: function() {
       if (!this.mapsReady) {
         this.showOnMapsReady = true;
       } else {
         var module = this.$['module-mercator'];
 
-        var game = this.game = new scenes.mercator.Game(module);
-        startButton(this, module, function() {
-          game.start();
-        });
+        this.game = new scenes.mercator.Game(module);
+        startButton(this, module, this.onClickStart.bind(this));
       }
     },
+
     onHide: function() {
       this.game.dispose();
       this.game = null;
       this.fire('sound-ambient', 'mercator_end');
     },
+
     mapsAPIReady: function() {
       this.mapsReady = true;
       if (this.showOnMapsReady) {
         this.onShow();
       }
+    },
+
+    onClickStart: function() {
+      this.hasClickedStart = true;
+      this.game.start();
     }
   });
 

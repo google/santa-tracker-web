@@ -76,7 +76,7 @@ Jetpack scene.
           </div>
           <div class="status"></div>
         </div>
-        <div class="actions">
+        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
           <button type="button" class="restart"></button>
           <button type="button" class="pause"></button>
         </div>
@@ -119,6 +119,8 @@ Jetpack scene.
 
     game: null,
 
+    hasClickedStart: false,
+
     onPreload: function() {
       this.preloadSounds('jp_load_sounds', 30);
       this.preloadImages([
@@ -136,18 +138,23 @@ Jetpack scene.
         'img/levelclouds.svg'
       ]);
     },
+
     onShow: function() {
       var module = this.$['module-jetpack'];
 
-      var game = this.game = new scenes.jetpack.Game(module);
-      startButton(this, module, function() {
-        game.start();
-      });
+      this.game = new scenes.jetpack.Game(module);
+      startButton(this, module, this.onClickStart.bind(this));
     },
+
     onHide: function() {
       this.game.dispose();
       this.game = null;
       this.fire('sound-ambient', 'jp_end_game');
+    },
+
+    onClickStart: function() {
+      this.hasClickedStart = true;
+      this.game.start();
     }
   });
 
