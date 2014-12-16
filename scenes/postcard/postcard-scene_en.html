@@ -141,10 +141,6 @@ Postcard scene.
       this.fire('sound-ambient', 'sm_end');
     },
     onQueryChanged: function(params) {
-      if (!scene) {
-        window.console.warn('onQueryChanged called before onShow');
-        return;
-      }
       this.scene.picker.fromUrl(params.bg || 0, params.fg || 0);
     }
   });

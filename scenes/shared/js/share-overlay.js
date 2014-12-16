@@ -70,7 +70,6 @@ app.shared.ShareOverlay.prototype.show = function(url, shorten) {
  */
 app.shared.ShareOverlay.prototype.shorten_ = function(url, callback) {
   if (!window.gapi || !window.gapi.client) {
-    console.warn('Google API not available.');
     callback(url);
     return;
   }
