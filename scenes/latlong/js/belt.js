@@ -17,7 +17,8 @@ app.Belt = function(elem, onLevelComplete, addScore, missedPresent, matchedPrese
   this.presents = [];
 
   this.grid.on('mouseup.latlong touchend.latlong', this.onGridClick.bind(this));
-  this.grid.find('.Grid-marker').on('mouseover.latlong', function() {
+
+  this.grid.find('.Grid-marker').on('mouseenter.latlong', function() {
     window.santaApp.fire('sound-trigger', 'latlong_over');
   });
 
