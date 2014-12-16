@@ -1,5 +1,6 @@
 goog.provide('app.Belt');
 goog.require('app.Present');
+goog.require('app.shared.utils');
 
 
 
@@ -235,12 +236,8 @@ app.Belt.prototype.onCorrect = function(present, marker) {
 
 
 app.Belt.prototype.onIncorrect = function(marker) {
-  marker.addClass('Grid-marker--incorrect');
   window.santaApp.fire('sound-trigger', 'latlong_failure');
-
-  setTimeout(function() {
-    marker.removeClass('Grid-marker--incorrect');
-  }, 1000);
+  app.shared.utils.animWithClass(marker, 'Grid-marker--incorrect')
 }
 
 
