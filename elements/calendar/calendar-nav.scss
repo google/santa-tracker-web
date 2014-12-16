@@ -76,7 +76,7 @@ $cardColor: #6541a4;
       position: absolute;
       top: 15px;
       right: 20px;
-
+      transform: translateZ(0); // promote layer
       cursor: pointer;
     }
 
