@@ -643,7 +643,7 @@
     },
     "citylights-contribute": {
         "description": "CTA link to a community where people can upload panoramas of their own. Includes a placeholder with current localised city/country name.",
-        "message": "Add your own photos of <ph name=\"LOCATION\"><ex>Trafalgar Square, London</ex>{{location}}</ph>"
+        "raw": "Add your own photos of <ph name=\"LOCATION\"><ex>Trafalgar Square, London</ex>{{location}}</ph>"
     },
     "codelab-block-whenrun": {
         "description": "Code block label. 15char limit. Start of the code, reads to indicate that blocks below it will execute in order",
