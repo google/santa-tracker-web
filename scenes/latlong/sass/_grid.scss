@@ -72,6 +72,7 @@ $grid-color-xs-width: $grid-number-xs-height;
     flex: 0 1 100vh;
     position: relative;
     z-index: 2;
+    pointer-events: none;
 
     &::before,
     &::after {
@@ -218,7 +219,7 @@ $grid-color-xs-width: $grid-number-xs-height;
   .Grid-marker--correct {
     .Grid-marker-border {
       opacity: 0 !important;
-      transform: scale(1);
+      transform: scale(2);
       transition: opacity 0.5s, transform 0.5s;
     }
 
@@ -282,8 +283,8 @@ $grid-color-xs-width: $grid-number-xs-height;
 
     .Grid-marker:hover {
       .Grid-marker-border, .Grid-marker-dot {
-        opacity: 1;
-        transition: opacity 0.3s;
+        transform: scale(1);
+        transition: transform 0.3s, opacity 0.3;
       }
     }
   }
