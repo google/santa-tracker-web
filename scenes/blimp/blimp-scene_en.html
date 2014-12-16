@@ -82,51 +82,37 @@ Blimp scene.
 
 
     onPreload: function() {
-      //this.preloadSounds('briefing_load_sounds', 30);
       this.preloadImages([
-        'img/logo.svg',
+        'img/cloud-4.png',
+        'img/comet.png',
+        'img/snooze-1.png',
+        'img/blimp.png',
+        'img/cloud-5.png',
+        'img/moon.png',
+        'img/snooze-2.png',
+        'img/boxes-belt.png',
+        'img/cloud-lg.png',
+        'img/nose-shadow.png',
+        'img/snooze-3.png',
+        'img/boxes-singles.png',
+        'img/cloud-med.png',
+        'img/nose.png',
+        'img/snooze-4.png',
+        'img/boxes-sleigh.png',
+        'img/cloud-sm.png',
+        'img/plane.png',
+        'img/snooze.png',
+        'img/cloud-1.png',
+        'img/cloud.png', 
+        'img/propeller.png',
+        'img/cloud-2.png',
+        'img/cog.png',
+        'img/sky-objects.png',
+        'img/cloud-3.png',
+        'img/cogs.png',
+        'img/sleigh.png'
       ]);
     },
-
-    onShow: function() {
-      /*var module = this.$['module-briefing'];
-
-      this.fire('sound-ambient', 'briefing_start');
-      this.scene = new scenes.briefing.Scene(module);*/
-    },
-
-    onHide: function() {
-      /*this.scene.destroy();
-      this.scene = null;
-      this.fire('sound-ambient', 'briefing_end');*/
-    },
-
-    keyHandler: function(e, details, sender) {
-      /*e.stopPropagation();
-
-      switch (e.detail.key) {
-        case 'left':
-          this.$.leftarrow.click();
-          break;
-        case 'right':
-          this.$.rightarrow.click();
-          break;
-        case 'down':
-          this.$['down-elevator-arrow'].click();
-          break;
-        case 'up':
-          this.$['up-elevator-arrow'].click();
-          break;
-        case 'enter':
-          this.$.showdeer.click();
-          break;
-        case 'space':
-          var spectators = this.$.audience.querySelectorAll('.spectator');
-          spectators[this.audienceIdx_++ % spectators.length].click();
-          break;
-      }*/
-    }
-
   });
 
 })();

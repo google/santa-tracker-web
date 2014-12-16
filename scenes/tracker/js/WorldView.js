@@ -207,22 +207,22 @@ WorldView.prototype.SCENES_ = [
   {
     id: 'blimp',
     pos: {lat: 37.160317, lng: 169.879395},
-    time: 1419420000000
+    time: +new Date('Wed, 24 Dec 2014 11:20:00 GMT')
   },
   {
     id: 'undersea',
     pos: {lat: 23.885838, lng: -39.388183},
-    time: 1419482280000
+    time: +new Date('Thu, 25 Dec 2014 04:38:00 GMT')
   },
   {
     id: 'island',
     pos: {lat: -16.045813, lng: 84.889161},
-    time: 1419447420000
+    time: +new Date('Wed, 24 Dec 2014 18:57:00 GMT')
   },
   {
     id: 'icecave',
     pos: {lat: -71.965388, lng: 3.678223},
-    time: 1419478200000
+    time: +new Date('Thu, 25 Dec 2014 03:30:00 GMT')
   },
 ];
 
