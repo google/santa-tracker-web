@@ -44,7 +44,6 @@ Analytics.prototype.trackPerf = function(category, variable, time, opt_label, op
   if (opt_maxTime != null && time > opt_maxTime) {
     variable += ' - outliers';
   }
-  console.warn('_trackTiming', category, variable, time);
   this.ga_.pushCommand(['_trackTiming', category, variable, time, opt_label]);
 };
 
