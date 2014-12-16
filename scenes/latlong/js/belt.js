@@ -200,7 +200,7 @@ app.Belt.prototype.onGridClick = function(e) {
     if (present) {
       this.onCorrect(present, marker);
     } else {
-      window.santaApp.fire('sound-trigger', 'latlong_failure');
+      this.onIncorrect(marker);
     }
   }
 };
@@ -231,6 +231,16 @@ app.Belt.prototype.onCorrect = function(present, marker) {
   present.deliver(marker, this.onDeliver_);
   this.matchedPresentCallback(present);
 };
+
+
+app.Belt.prototype.onIncorrect = function(marker) {
+  marker.addClass('Grid-marker--incorrect');
+  window.santaApp.fire('sound-trigger', 'latlong_failure');
+
+  setTimeout(function() {
+    marker.removeClass('Grid-marker--incorrect');
+  }, 1000);
+}
 
 
 app.Belt.prototype.onDeliver_ = function(present) {

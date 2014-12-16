@@ -229,6 +229,12 @@ $grid-color-xs-width: $grid-number-xs-height;
       transition: opacity 0.5s, transform 0.5s;
     }
   }
+
+  .Grid-marker--incorrect {
+    .Grid-marker-border, .Grid-marker-dot {
+      animation: shakeSmall 1s both;
+    }
+  }
 }
 
 @media (min-width: $break-tablet) {
@@ -287,5 +293,24 @@ $grid-color-xs-width: $grid-number-xs-height;
         transition: transform 0.3s, opacity 0.3;
       }
     }
+
+    .Grid-marker--incorrect {
+      .Grid-marker-border, .Grid-marker-dot {
+        animation: shake 1s both;
+      }
+    }
   }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateZ(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translate3d(-10px, 0, 0); }
+  20%, 40%, 60%, 80% { transform: translate3d(10px, 0, 0); }
+}
+
+@keyframes shakeSmall {
+  0%, 100% { transform: translateZ(0) scale(0.5); }
+  10%, 30%, 50%, 70%, 90% { transform: translate3d(-10px, 0, 0) scale(0.5); }
+  20%, 40%, 60%, 80% { transform: translate3d(10px, 0, 0) scale(0.5); }
+
 }
