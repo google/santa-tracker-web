@@ -16,7 +16,7 @@ app.Constants = {
 
   CLASS_PAUSED: 'paused',
 
-  VARITALK_URL: '//www.sendacallfromsanta.com'
+  VARITALK_URL: 'https://www.sendacallfromsanta.com'
 };
 
 Constants = app.Constants;
