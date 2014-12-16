@@ -34,6 +34,11 @@ function WorldView(base, componentDir) {
   this.circleView_ = null;
 
   this.throttledFilterMarkers_ = throttle(this.filterMarkers_, 1000);
+<<<<<<< HEAD
+=======
+
+  this.mode_ = 'track';
+>>>>>>> origin/trackerworld
 
   this.mode_ = 'track';
 }
@@ -149,6 +154,7 @@ WorldView.prototype.moveSanta = function(state) {
   this.santaLayer_.updateTrail(state);
 
   if (this.lockOnSanta_) {
+<<<<<<< HEAD
     var bounds = this.santaLayer_.getBounds();
     this.map_.fitBounds(bounds);
     if (this.centerOffset_) {
@@ -159,6 +165,12 @@ WorldView.prototype.moveSanta = function(state) {
     } else {
       this.map_.panTo(loc);
     }
+=======
+    // TODO(lukem): Just get the zoom level for the bounds
+    //var bounds = this.santaLayer_.getBounds();
+
+    this.map_.panTo(loc);
+>>>>>>> origin/trackerworld
   }
 
   this.throttledFilterMarkers_();
@@ -207,22 +219,38 @@ WorldView.prototype.SCENES_ = [
   {
     id: 'blimp',
     pos: {lat: 37.160317, lng: 169.879395},
+<<<<<<< HEAD
     time: +new Date('Wed, 24 Dec 2014 11:20:00 GMT')
+=======
+    time: 1419420000000
+>>>>>>> origin/trackerworld
   },
   {
     id: 'undersea',
     pos: {lat: 23.885838, lng: -39.388183},
+<<<<<<< HEAD
     time: +new Date('Thu, 25 Dec 2014 04:38:00 GMT')
+=======
+    time: 1419482280000
+>>>>>>> origin/trackerworld
   },
   {
     id: 'island',
     pos: {lat: -16.045813, lng: 84.889161},
+<<<<<<< HEAD
     time: +new Date('Wed, 24 Dec 2014 18:57:00 GMT')
+=======
+    time: 1419447420000
+>>>>>>> origin/trackerworld
   },
   {
     id: 'icecave',
     pos: {lat: -71.965388, lng: 3.678223},
+<<<<<<< HEAD
     time: +new Date('Thu, 25 Dec 2014 03:30:00 GMT')
+=======
+    time: 1419478200000
+>>>>>>> origin/trackerworld
   },
 ];
 
