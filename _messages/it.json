@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Benvenuto in Segui Babbo Natale su Google Maps"
 	},
+	"ae_country_name": {
+		"message": "Emirati Arabi Uniti"
+	},
 	"af_country_name": {
 		"message": "Afghanistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Arabo"
 	},
 	"ar_tradition": {
 		"message": "In Argentina il Natale inizia allo scoccare della mezzanotte. Sono molte le famiglie che iniziano le vacanze festeggiando in casa con i propri cari, aprendo i regali e accendendo fuochi d'artificio nelle prime ore della mattina."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Data la posizione dell'Australia nell'emisfero sud, nel mese di dicembre è piena estate. Il popolo australiano, invece di festeggiare con campanelli da slitta e cioccolate calde, si reca in spiaggia per un pranzo a base di gamberi e qualche partita di cricket."
 	},
+	"ba_country_name": {
+		"message": "Bosnia-Erzegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
 	"be_country_name": {
 		"message": "Belgio"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgaria"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
 	},
 	"by_country_name": {
 		"message": "Bielorussia"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Invia"
 	},
+	"cd_country_name": {
+		"message": "Repubblica Democratica del Congo"
+	},
 	"cf_country_name": {
 		"message": "Repubblica Centrafricana"
 	},
+	"cg_country_name": {
+		"message": "Repubblica del Congo"
+	},
 	"ch_country_name": {
 		"message": "Svizzera"
+	},
+	"ci_country_name": {
+		"message": "Costa d'Avorio"
 	},
 	"cl_country_name": {
 		"message": "Cile"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Germania"
+	},
+	"de_language_name": {
+		"message": "Tedesco"
 	},
 	"de_tradition": {
 		"message": "In Germania, quasi tutte le città ospitano i mercatini nelle loro piazze. Gli abitanti si riuniscono per ascoltare le bande di ottoni e assaggiare le tipiche pietanze della regione: biscotti allo zenzero, mandorle tostate zuccherate, dolcetti di tutti i tipi e vin brulé (Glühwein) o sidro di mele."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazakistan"
 	},
+	"la_country_name": {
+		"message": "Repubblica Popolare Democratica del Laos"
+	},
 	"language": {
 		"message": "Lingua"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
 	"lt_country_name": {
 		"message": "Lituania"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldavia"
 	},
+	"mg_country_name": {
+		"message": "Madagascar"
+	},
 	"minutes": {
 		"message": "Minuti"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritania"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
 	},
 	"mx_country_name": {
 		"message": "Messico"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Perù"
 	},
+	"pg_country_name": {
+		"message": "Papua Nuova Guinea"
+	},
 	"ph_country_name": {
 		"message": "Filippine"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Slovacchia"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Termini e privacy"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Inclina il tuo dispositivo."

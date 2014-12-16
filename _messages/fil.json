@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Welcome sa Google Maps Santa Tracker!"
 	},
+	"ae_country_name": {
+		"message": "United Arab Emirates"
+	},
 	"af_country_name": {
 		"message": "Afghanistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Arabic"
 	},
 	"ar_tradition": {
 		"message": "Sa Argentina, nagsisimula ang Pasko sa ganap na pagsapit ng hatinggabi. Sinisimulan ng maraming pamilya ang holiday sa pagdaraos ng masasayang pagdiriwang sa kanilang mga tahanan, pagbubukas ng mga regalo kasama ang kanilang mga mahal sa buhay at pagsisindi ng mga paputok pagsapit ng madaling araw."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Ayon sa lokasyon ng Australia sa Southern Hemisphere, tag-init doon kapag Disyembre. Sa halip na mga jingle bell at cocoa, maraming Australian ang pumupunta sa beach upang ipagdiwang ang mga holiday nang may hipon na tanghalian at ilang round ng cricket."
 	},
+	"ba_country_name": {
+		"message": "Bosnia and Herzegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
 	"be_country_name": {
 		"message": "Belgium"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgaria"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
 	},
 	"by_country_name": {
 		"message": "Belarus"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Ipadala"
 	},
+	"cd_country_name": {
+		"message": "Democratic Republic of the Congo"
+	},
 	"cf_country_name": {
 		"message": "Central African Republic"
 	},
+	"cg_country_name": {
+		"message": "Republic of Congo"
+	},
 	"ch_country_name": {
 		"message": "Switzerland"
+	},
+	"ci_country_name": {
+		"message": "Côte d'Ivoire"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Germany"
+	},
+	"de_language_name": {
+		"message": "German"
 	},
 	"de_tradition": {
 		"message": "Sa halos lahat ng bayan sa Germany, nagbubukas ng mga Christmas market sa mga town square. Nagtitipon ang taumbayan upang makinig sa mga brass band at mag-enjoy ng tradisyunal na kasiyahan ng rehiyon. Kumakain sila ng mga gingerbread na hugis puso, sugar-roasted na almond, lahat ng uri ng matatamis, at umiinom sila ng mulled wine (Glühwein) o apple cider."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
+	"la_country_name": {
+		"message": "Lao PDR"
+	},
 	"language": {
 		"message": "Wika"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
 	"lt_country_name": {
 		"message": "Lithuania"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldova"
 	},
+	"mg_country_name": {
+		"message": "Madagascar"
+	},
 	"minutes": {
 		"message": "Minuto"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritania"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
 	},
 	"mx_country_name": {
 		"message": "Mexico"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Peru"
 	},
+	"pg_country_name": {
+		"message": "Papua New Guinea"
+	},
 	"ph_country_name": {
 		"message": "Pilipinas"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Slovakia"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Mga Tuntunin at Privacy"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "I-tilt ang iyong device!"

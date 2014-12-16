@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Pozdravljeni v aplikaciji Spremljanje Božičkove poti v storitvi Google Zemljevidi!"
 	},
+	"ae_country_name": {
+		"message": "Združeni arabski emirati"
+	},
 	"af_country_name": {
 		"message": "Afganistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "arabščina"
 	},
 	"ar_tradition": {
 		"message": "V Argentini se božič začne takoj ob polnoči. Številne družine praznujejo tako, da priredijo bogate pogostitve v svojih domovih, odpiranje daril skupaj z najbližjimi in ognjemete zgodaj zjutraj."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Ker je Avstralija na južni polobli, to pomeni, da je decembra tam poletje. Namesto bi prisluhnili zvončkom sani in pili kakav, se številni Avstralci napotijo na plažo ter praznujejo tako, da si za kosilo privoščijo rakce in igrajo kriket."
 	},
+	"ba_country_name": {
+		"message": "Bosna in Hercegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladeš"
 	},
 	"be_country_name": {
 		"message": "Belgija"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bolgarija"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Butan"
+	},
+	"bw_country_name": {
+		"message": "Bocvana"
 	},
 	"by_country_name": {
 		"message": "Belorusija"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Pošlji"
 	},
+	"cd_country_name": {
+		"message": "Demokratična republika Kongo"
+	},
 	"cf_country_name": {
 		"message": "Centralnoafriška republika"
 	},
+	"cg_country_name": {
+		"message": "Republika Kongo"
+	},
 	"ch_country_name": {
 		"message": "Švica"
+	},
+	"ci_country_name": {
+		"message": "Slonokoščena obala"
 	},
 	"cl_country_name": {
 		"message": "Čile"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Nemčija"
+	},
+	"de_language_name": {
+		"message": "nemščina"
 	},
 	"de_tradition": {
 		"message": "V skoraj vsakem nemškem mestu se na mestnih trgih odvijajo božične tržnice. Meščani se zberejo ter poslušajo pihalne orkestre in uživajo tradicionalne regijske jedi. Jedo srca iz lecta, karamelirane mandlje, slaščice vseh vrst in pijejo kuhano vino ali jabolčnik."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazahstan"
 	},
+	"la_country_name": {
+		"message": "Laoška ljudska demokratična republika"
+	},
 	"language": {
 		"message": "Jezik"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Šrilanka"
 	},
+	"lr_country_name": {
+		"message": "Liberija"
+	},
 	"lt_country_name": {
 		"message": "Litva"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldavija"
 	},
+	"mg_country_name": {
+		"message": "Madagaskar"
+	},
 	"minutes": {
 		"message": "min"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mavretanija"
+	},
+	"mw_country_name": {
+		"message": "Malavi"
 	},
 	"mx_country_name": {
 		"message": "Mehika"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Peru"
 	},
+	"pg_country_name": {
+		"message": "Papua Nova Gvineja"
+	},
 	"ph_country_name": {
 		"message": "Filipini"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Slovaška"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Določila in zasebnost"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Nagnite napravo!"

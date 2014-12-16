@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "ยินดีต้อนรับสู่ Google Maps - ตามติดซานต้า"
 	},
+	"ae_country_name": {
+		"message": "สหรัฐอาหรับเอมิเรตส์"
+	},
 	"af_country_name": {
 		"message": "อัฟกานิสถาน"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "อาร์เจนตินา"
+	},
+	"ar_language_name": {
+		"message": "อาหรับ"
 	},
 	"ar_tradition": {
 		"message": "ในอาร์เจนตินา คริสต์มาสจะเริ่มขึ้นทันทีในตอนเที่ยงคืน ครอบครัวจำนวนมากเริ่มต้นวันหยุดนี้ด้วยการเฉลิมฉลองอย่างรื่นเริงในบ้านของตัวเอง เปิดของขวัญกับคนที่รัก และจุดเตาผิงในตอนเช้าตรู่"
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "ด้วยที่ตั้งทางซีกโลกใต้ของออสเตรเลีย เดือนธันวาคมจึงตรงกับหน้าร้อน ดังนั้นแทนที่จะรอฟังเสียงกระดิ่งรถเลื่อนระหว่างจิบโกโก้ร้อนๆ ชาวออสเตรเลียจึงออกไปเฉลิมฉลองวันหยุดนี้ที่ชายหาดด้วยมื้อกลางเมนูกุ้งและเล่นเกมคริกเก็ตกันรอบสองรอบ"
 	},
+	"ba_country_name": {
+		"message": "บอสเนียและเฮอร์เซโกวีนา"
+	},
 	"bd_country_name": {
 		"message": "บังกลาเทศ"
 	},
 	"be_country_name": {
 		"message": "เบลเยียม"
+	},
+	"bf_country_name": {
+		"message": "บูร์กินาฟาโซ"
 	},
 	"bg_country_name": {
 		"message": "บัลแกเรีย"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "ภูฏาน"
+	},
+	"bw_country_name": {
+		"message": "บอตสวานา"
 	},
 	"by_country_name": {
 		"message": "เบลารุส"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "ส่ง"
 	},
+	"cd_country_name": {
+		"message": "สาธารณรัฐประชาธิปไตยคองโก"
+	},
 	"cf_country_name": {
 		"message": "สาธารณรัฐแอฟริกากลาง"
 	},
+	"cg_country_name": {
+		"message": "สาธารณรัฐคองโก"
+	},
 	"ch_country_name": {
 		"message": "สวิตเซอร์แลนด์"
+	},
+	"ci_country_name": {
+		"message": "โกตดิวัวร์"
 	},
 	"cl_country_name": {
 		"message": "ชิลี"
@@ -141,7 +165,7 @@
 		"message": "ทำซ้ำข้อความบางข้อความหลายๆ ครั้ง"
 	},
 	"codelab-block-whenrun": {
-		"message": "เมื่อเรียกใช้"
+		"message": "ทิศทางในการเดิน"
 	},
 	"codelab-finish": {
 		"message": "เสร็จสิ้น"
@@ -189,7 +213,7 @@
 		"message": "คัดลอกลิงก์นี้เพื่อแชร์ข้อความของคุณ"
 	},
 	"countdownlabel": {
-		"message": "จนกว่าซานต้าจะจากไป"
+		"message": "ก่อนที่ซานต้าจะออกเดินทาง"
 	},
 	"cr_country_name": {
 		"message": "คอสตาริกา"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "เยอรมนี"
+	},
+	"de_language_name": {
+		"message": "เยอรมัน"
 	},
 	"de_tradition": {
 		"message": "ในเกือบทุกเมืองของเยอรมัน ตลาดคริสต์มาสจะเปิดขึ้นที่จัตุรัสของเมือง ผู้คนในเมืองจะมารวมตัวกันเพื่อฟังดนตรีของวงเครื่องเป่าทองเหลืองหรืออิ่มอร่อยกับอาหารประจำภูมิภาค พวกเขาจะรับประทานขนมปังขิงรูปหัวใจ อัลมอนด์อบน้ำตาล ขนมหวานทุกประเภท และดื่มไวน์เครื่องเทศ (Glühwein) หรือน้ำแอปเปิล"
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "คาซัคสถาน"
 	},
+	"la_country_name": {
+		"message": "สาธารณรัฐประชาธิปไตยประชาชนลาว"
+	},
 	"language": {
 		"message": "ภาษา"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "ศรีลังกา"
 	},
+	"lr_country_name": {
+		"message": "ไลบีเรีย"
+	},
 	"lt_country_name": {
 		"message": "ลิทัวเนีย"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "มอลโดวา"
 	},
+	"mg_country_name": {
+		"message": "มาดากัสการ์"
+	},
 	"minutes": {
 		"message": "นาที"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "มอริเตเนีย"
+	},
+	"mw_country_name": {
+		"message": "มาลาวี"
 	},
 	"mx_country_name": {
 		"message": "เม็กซิโก"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "เปรู"
 	},
+	"pg_country_name": {
+		"message": "ปาปัวนิวกินี"
+	},
 	"ph_country_name": {
 		"message": "ฟิลิปปินส์"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "สโลวะเกีย"
 	},
+	"sl_country_name": {
+		"message": "เซียร์ราลีโอน"
+	},
 	"sn_country_name": {
 		"message": "เซเนกัล"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "ข้อกำหนดและข้อมูลส่วนบุคคล"
+	},
+	"tg_country_name": {
+		"message": "โตโก"
 	},
 	"tilt": {
 		"message": "เอียงอุปกรณ์"

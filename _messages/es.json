@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Te damos la bienvenida a Sigue a Papá Noel de Google Maps"
 	},
+	"ae_country_name": {
+		"message": "Emiratos Árabes Unidos"
+	},
 	"af_country_name": {
 		"message": "Afganistán"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Árabe"
 	},
 	"ar_tradition": {
 		"message": "En Argentina, la Navidad empieza puntualmente a medianoche. Muchas familias inician las fiestas organizando celebraciones en sus casas, abriendo regalos con sus seres queridos y encendiendo fuegos artificiales durante las primeras horas de la mañana."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "En Australia, en el hemisferio sur, es verano en diciembre. En vez de escuchar las campanas del trineo y de tomar chocolate a la taza, muchos australianos van a la playa para celebrar las fiestas con un almuerzo de gambas y unas cuantas rondas de cricket."
 	},
+	"ba_country_name": {
+		"message": "Bosnia-Herzegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladés"
 	},
 	"be_country_name": {
 		"message": "Bélgica"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgaria"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bután"
+	},
+	"bw_country_name": {
+		"message": "Botsuana"
 	},
 	"by_country_name": {
 		"message": "Bielorrusia"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Enviar"
 	},
+	"cd_country_name": {
+		"message": "República Democrática del Congo"
+	},
 	"cf_country_name": {
 		"message": "República Centroafricana"
 	},
+	"cg_country_name": {
+		"message": "República del Congo"
+	},
 	"ch_country_name": {
 		"message": "Suiza"
+	},
+	"ci_country_name": {
+		"message": "Costa de Marfil"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -111,25 +135,25 @@
 		"message": "este"
 	},
 	"codelab-block-moveeast-tooltip": {
-		"message": "Muéveme un espacio hacia el este"
+		"message": "Muéveme un espacio hacia el este."
 	},
 	"codelab-block-movenorth": {
 		"message": "norte"
 	},
 	"codelab-block-movenorth-tooltip": {
-		"message": "Muéveme un espacio hacia el norte"
+		"message": "Muéveme un espacio hacia el norte."
 	},
 	"codelab-block-movesouth": {
 		"message": "sur"
 	},
 	"codelab-block-movesouth-tooltip": {
-		"message": "Muéveme un espacio hacia el sur"
+		"message": "Muéveme un espacio hacia el sur."
 	},
 	"codelab-block-movewest": {
 		"message": "oeste"
 	},
 	"codelab-block-movewest-tooltip": {
-		"message": "Muéveme un espacio hacia el oeste"
+		"message": "Muéveme un espacio hacia el oeste."
 	},
 	"codelab-block-repeat": {
 		"message": "repetir"
@@ -159,7 +183,7 @@
 		"message": "¡Vaya!"
 	},
 	"codelab-result-empty-repeat-fail": {
-		"message": "La pieza Repetir debe tener otras piezas en el interior para que funcione."
+		"message": "La pieza Repetir debe tener otras piezas dentro para que funcione."
 	},
 	"codelab-result-extra-top-block-fail": {
 		"message": "Algunas de las piezas no se han unido correctamente."
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Alemania"
+	},
+	"de_language_name": {
+		"message": "Alemán"
 	},
 	"de_tradition": {
 		"message": "En casi todas las poblaciones de Alemania hay mercados de Navidad en las plazas. Los habitantes acuden para escuchar bandas y disfrutar de platos tradicionales de la región. Comen corazones de pan de jengibre, almendras con azúcar tostado y beben vino caliente (Glühwein) o sidra de manzana."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazajistán"
 	},
+	"la_country_name": {
+		"message": "Laos"
+	},
 	"language": {
 		"message": "Idioma"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
 	"lt_country_name": {
 		"message": "Lituania"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldavia"
 	},
+	"mg_country_name": {
+		"message": "Madagascar"
+	},
 	"minutes": {
 		"message": "Minutos"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritania"
+	},
+	"mw_country_name": {
+		"message": "Malaui"
 	},
 	"mx_country_name": {
 		"message": "México"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Perú"
 	},
+	"pg_country_name": {
+		"message": "Papúa Nueva Guinea"
+	},
 	"ph_country_name": {
 		"message": "Filipinas"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Eslovaquia"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leona"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Condiciones y privacidad"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Inclina el dispositivo."
@@ -621,7 +669,7 @@
 		"message": "Idaho"
 	},
 	"trivia_beginner_004": {
-		"message": "¿Qué continente bordea los océanos Atlántico, Pacífico y Ártico?"
+		"message": "¿Qué continente es bañado por los océanos Atlántico, Pacífico y Ártico?"
 	},
 	"trivia_beginner_004_answer0": {
 		"message": "Asia"
@@ -657,7 +705,7 @@
 		"message": "Antártida"
 	},
 	"trivia_beginner_007": {
-		"message": "¿Qué estado de EE. UU. limita con el Gran Lago?"
+		"message": "¿Qué estado de EE. UU. limita con uno de los Grandes Lagos?"
 	},
 	"trivia_beginner_007_answer0": {
 		"message": "Ohio"
@@ -681,7 +729,7 @@
 		"message": "Norteamérica"
 	},
 	"trivia_beginner_009": {
-		"message": "¿Qué estado de Estados Unidos tiene la forma del mango de una sartén?"
+		"message": "¿Qué estado de Estados Unidos tiene una forma que incluye el mango de una sartén?"
 	},
 	"trivia_beginner_009_answer0": {
 		"message": "Oklahoma"
@@ -801,7 +849,7 @@
 		"message": "Asia"
 	},
 	"trivia_beginner_019": {
-		"message": "¿En qué país se encuentran Veracruz y Acapulco, los destinos más populares para las vacaciones?"
+		"message": "¿En qué país se encuentran los populares destinos vacacionales de Veracruz y Acapulco?"
 	},
 	"trivia_beginner_019_answer0": {
 		"message": "México"
@@ -849,7 +897,7 @@
 		"message": "Norteamérica"
 	},
 	"trivia_beginner_023": {
-		"message": "Para visitar Jackson Hole y subir a la Devils Tower, a qué estado de los EE. UU. hay que viajar?"
+		"message": "Para visitar Jackson Hole y subir a la Devils Tower, ¿a qué estado de los EE. UU. hay que viajar?"
 	},
 	"trivia_beginner_023_answer0": {
 		"message": "Wyoming"
@@ -1065,7 +1113,7 @@
 		"message": "Argel"
 	},
 	"trivia_beginner_041": {
-		"message": "El Partenón se encuentra encima de la Acrópolis, en el que una ciudad griega. ¿De qué ciudad se trata?"
+		"message": "El Partenón se encuentra en lo alto de la Acrópolis, ¿en qué ciudad griega?"
 	},
 	"trivia_beginner_041_answer0": {
 		"message": "Atenas"
@@ -1122,7 +1170,7 @@
 		"message": "Wichita"
 	},
 	"trivia_beginner_045_answer2": {
-		"message": "New Orleans"
+		"message": "Nueva Orleans"
 	},
 	"trivia_beginner_046": {
 		"message": "La John Hancock Tower es el edificio más alto de una ciudad estadounidense ubicada en la desembocadura del río Charles. ¿De qué ciudad se trata?"
@@ -1137,7 +1185,7 @@
 		"message": "Memphis"
 	},
 	"trivia_beginner_047": {
-		"message": "El Stratosphere Tower, el cual está situado al norte de una famosa avenida conocida como The Strip, es el edificio más alto de una ciudad estadounidense en el desierto de Mojave. ¿De qué ciudad se trata?"
+		"message": "La Stratosphere Tower, situada al norte de una famosa avenida conocida como The Strip, es el edificio más alto de una ciudad estadounidense en el desierto de Mojave. ¿De qué ciudad se trata?"
 	},
 	"trivia_beginner_047_answer0": {
 		"message": "Las Vegas"
@@ -1176,7 +1224,7 @@
 		"message": "El Arco Gateway, que simboliza la expansión hacia el oeste de Estados Unidos en 1800, está situado a lo largo del río Misisipi. ¿En qué ciudad de Estados Unidos se encuentra?"
 	},
 	"trivia_beginner_050_answer0": {
-		"message": "San Luis"
+		"message": "St. Louis"
 	},
 	"trivia_beginner_050_answer1": {
 		"message": "Indianápolis"
@@ -1329,7 +1377,7 @@
 		"message": "Asia"
 	},
 	"trivia_beginner_063": {
-		"message": "¿En qué continente se encuentra Mont Blanc, el punto más alto de los Alpes?"
+		"message": "¿En qué continente se encuentra el Mont Blanc, el punto más alto de los Alpes?"
 	},
 	"trivia_beginner_063_answer0": {
 		"message": "Europa"
@@ -1353,7 +1401,7 @@
 		"message": "Europa"
 	},
 	"trivia_beginner_065": {
-		"message": "Los guepardos son los mamíferos terrestres más rápidos del planeta y se pueden encontrar en Kenia y Tanzania. ¿En qué continente se encuentran?"
+		"message": "Los guepardos son los mamíferos terrestres más rápidos del planeta y se pueden encontrar en Kenia y Tanzania. ¿En qué continente viven?"
 	},
 	"trivia_beginner_065_answer0": {
 		"message": "África"
@@ -1791,7 +1839,7 @@
 		"message": "Chicago"
 	},
 	"trivia_hard_004_answer1": {
-		"message": "San Luis"
+		"message": "St. Louis"
 	},
 	"trivia_hard_004_answer2": {
 		"message": "Indianápolis"
@@ -1953,7 +2001,7 @@
 		"message": "Cuba"
 	},
 	"trivia_hard_018": {
-		"message": "¿Con qué masa de agua limita el Cabo Fear?"
+		"message": "¿Con qué masa de agua limita Cape Fear?"
 	},
 	"trivia_hard_018_answer0": {
 		"message": "Océano Atlántico"
@@ -2175,13 +2223,13 @@
 		"message": "Gobi"
 	},
 	"trivia_hard_036_answer1": {
-		"message": "Desierto de Thard"
+		"message": "Desierto de Thar"
 	},
 	"trivia_hard_036_answer2": {
 		"message": "Desierto Líbico"
 	},
 	"trivia_hard_037": {
-		"message": "¿De qué océano forma parte el Kamchatka actual?"
+		"message": "¿De qué océano forma parte la Corriente de Kamchatka?"
 	},
 	"trivia_hard_037_answer0": {
 		"message": "Océano Pacífico"
@@ -2205,7 +2253,7 @@
 		"message": "Mar Báltico"
 	},
 	"trivia_hard_039": {
-		"message": "Las montañas de Tatra son las más altas de un sistema europeo de montañas. ¿De qué sistema se trata?"
+		"message": "Las montañas de Tatra son las más altas de un sistema montañoso europeo. ¿De qué sistema se trata?"
 	},
 	"trivia_hard_039_answer0": {
 		"message": "Montes Cárpatos"
@@ -2262,7 +2310,7 @@
 		"message": "Bahamas"
 	},
 	"trivia_hard_043_answer2": {
-		"message": "Islas Fiji"
+		"message": "Islas Fiyi"
 	},
 	"trivia_hard_044": {
 		"message": "¿Qué río desemboca en el mar de Láptev?"
@@ -2397,7 +2445,7 @@
 		"message": "Río de Janeiro"
 	},
 	"trivia_hard_055": {
-		"message": "¿Qué ciudad, la cual fue parte de la antigua provincia de Transvaal, es la ciudad más grande de Sudáfrica?"
+		"message": "¿Qué ciudad, la cual formó parte de la antigua provincia de Transvaal, es la ciudad más grande de Sudáfrica?"
 	},
 	"trivia_hard_055_answer0": {
 		"message": "Johannesburgo"
@@ -2661,7 +2709,7 @@
 		"message": "Bangladés"
 	},
 	"trivia_hard_077": {
-		"message": "¿Qué país está rodeado por Rusia y Georgia?"
+		"message": "¿Qué país limita con Rusia y Georgia?"
 	},
 	"trivia_hard_077_answer0": {
 		"message": "Azerbaiyán"
@@ -2877,7 +2925,7 @@
 		"message": "España"
 	},
 	"trivia_hard_095": {
-		"message": "Con qué mar conecta el estrecho de Jubal el Golfo de Suez?"
+		"message": "¿Con qué mar conecta el estrecho de Jubal el Golfo de Suez?"
 	},
 	"trivia_hard_095_answer0": {
 		"message": "Mar Rojo"
@@ -2913,7 +2961,7 @@
 		"message": "Bahía de Bengala"
 	},
 	"trivia_hard_098": {
-		"message": "La catedral de Colonia se encuentra en la región de Renania. ¿En qué país se encuentra?"
+		"message": "La catedral de Colonia está en la región de Renania. ¿En qué país se encuentra?"
 	},
 	"trivia_hard_098_answer0": {
 		"message": "Alemania"
@@ -2949,7 +2997,7 @@
 		"message": "Mar de Tasmania"
 	},
 	"trivia_hard_101": {
-		"message": "Khmer es la lengua oficial de un país del sudeste asiático. ¿De qué país se trata?"
+		"message": "El jemer es la lengua oficial de un país del sudeste asiático. ¿De qué país se trata?"
 	},
 	"trivia_hard_101_answer0": {
 		"message": "Camboya"
@@ -2973,7 +3021,7 @@
 		"message": "Líbano"
 	},
 	"trivia_hard_103": {
-		"message": "El monte Kosciuszko, situado en las montañas cubiertas de nieve, es el pico más alto de un continente. ¿De qué continente se trata?"
+		"message": "El monte Kosciuszko, situado en las Snowy Mountains, es el pico más alto de un continente. ¿De qué continente se trata?"
 	},
 	"trivia_hard_103_answer0": {
 		"message": "Australia"
@@ -2997,7 +3045,7 @@
 		"message": "Pakistán"
 	},
 	"trivia_hard_105": {
-		"message": "El desierto de Taklamakán se encuentra al norte de la cordillera Kunlun. ¿En qué país asiático se encuentra?"
+		"message": "El desierto de Taklamakán está al norte de la cordillera Kunlun. ¿En qué país asiático se encuentra?"
 	},
 	"trivia_hard_105_answer0": {
 		"message": "China"
@@ -3012,7 +3060,7 @@
 		"message": "¿Cuál de estas ciudades de Estados Unidos se encuentra en el delta de un río?"
 	},
 	"trivia_medium_001_answer0": {
-		"message": "New Orleans"
+		"message": "Nueva Orleans"
 	},
 	"trivia_medium_001_answer1": {
 		"message": "Austin"
@@ -3105,7 +3153,7 @@
 		"message": "Burundi"
 	},
 	"trivia_medium_009": {
-		"message": "¿Qué gran isla se encuentra 200 kilómetros al noroeste de Islandia?"
+		"message": "¿Qué gran isla se encuentra 320 kilómetros al noroeste de Islandia?"
 	},
 	"trivia_medium_009_answer0": {
 		"message": "Groenlandia"
@@ -3150,10 +3198,10 @@
 		"message": "Toronto (Canadá)"
 	},
 	"trivia_medium_012_answer2": {
-		"message": "Hanoi (Vietnam)"
+		"message": "Hanói (Vietnam)"
 	},
 	"trivia_medium_013": {
-		"message": "¿Qué país no tiene una costa en el océano Atlántico?"
+		"message": "¿Qué país no tiene costa en el océano Atlántico?"
 	},
 	"trivia_medium_013_answer0": {
 		"message": "Malasia"
@@ -3165,7 +3213,7 @@
 		"message": "Uruguay"
 	},
 	"trivia_medium_014": {
-		"message": "¿Cuál de estos países tiene la costa más corta?"
+		"message": "¿Cuál de estos países tiene menos costa?"
 	},
 	"trivia_medium_014_answer0": {
 		"message": "El Salvador"
@@ -3261,7 +3309,7 @@
 		"message": "Helsinki"
 	},
 	"trivia_medium_022": {
-		"message": "¿Qué capital, ubicada 25 kilómetros al noreste del mar Muerto, es la ciudad más poblada de Jordania?"
+		"message": "¿Qué capital, ubicada 40 kilómetros al noreste del mar Muerto, es la ciudad más poblada de Jordania?"
 	},
 	"trivia_medium_022_answer0": {
 		"message": "Ammán"
@@ -3417,7 +3465,7 @@
 		"message": "Tailandia"
 	},
 	"trivia_medium_035": {
-		"message": "La ciudad de Irkutsk se encuentra cerca del lago Baikal. ¿En qué continente se encuentra?"
+		"message": "La ciudad de Irkutsk está cerca del lago Baikal. ¿En qué continente se encuentra?"
 	},
 	"trivia_medium_035_answer0": {
 		"message": "Asia"
@@ -3429,7 +3477,7 @@
 		"message": "Sudamérica"
 	},
 	"trivia_medium_036": {
-		"message": "¿De qué continente son el Dniéper y el Rin los ríos principales?"
+		"message": "¿De qué continente son ríos importantes el Dniéper y el Rin?"
 	},
 	"trivia_medium_036_answer0": {
 		"message": "Europa"
@@ -3477,7 +3525,7 @@
 		"message": "Alemania"
 	},
 	"trivia_medium_040": {
-		"message": "La ciudad de Novosibirsk se encuentra en el río Ob. ¿En qué país se encuentra?"
+		"message": "La ciudad de Novosibirsk está junto al río Obi. ¿En qué país se encuentra?"
 	},
 	"trivia_medium_040_answer0": {
 		"message": "Rusia"
@@ -3537,7 +3585,7 @@
 		"message": "Países Bajos"
 	},
 	"trivia_medium_045": {
-		"message": "¿Cuál de estos países tiene la costa más larga?"
+		"message": "¿Cuál de estos países tiene más costa?"
 	},
 	"trivia_medium_045_answer0": {
 		"message": "Tailandia"
@@ -3585,7 +3633,7 @@
 		"message": "Colorado"
 	},
 	"trivia_medium_049": {
-		"message": "¿Cuál de estos estados de Estados Unidos es tiene el área más grande?"
+		"message": "¿Cuál de estos estados de Estados Unidos tiene más superficie?"
 	},
 	"trivia_medium_049_answer0": {
 		"message": "Montana"
@@ -3597,7 +3645,7 @@
 		"message": "Carolina del Sur"
 	},
 	"trivia_medium_050": {
-		"message": "El monte Rushmore se encuentra cerca de Rapid City. ¿En qué estado de los EE. UU. se encuentra?"
+		"message": "El monte Rushmore está cerca de Rapid City. ¿En qué estado de los EE. UU. se encuentra?"
 	},
 	"trivia_medium_050_answer0": {
 		"message": "Dakota del Sur"
@@ -3633,7 +3681,7 @@
 		"message": "Nevada"
 	},
 	"trivia_medium_053": {
-		"message": "¿En qué país es Hamburgo un importante puerto?"
+		"message": "¿De qué país es Hamburgo un importante puerto?"
 	},
 	"trivia_medium_053_answer0": {
 		"message": "Alemania"
@@ -3729,7 +3777,7 @@
 		"message": "Senegal"
 	},
 	"trivia_medium_061": {
-		"message": "Ekaterimburgo se encuentra en las laderas orientales de los Montes Urales. ¿En qué país se encuentra?"
+		"message": "Ekaterimburgo está en las laderas orientales de los Montes Urales. ¿En qué país se encuentra?"
 	},
 	"trivia_medium_061_answer0": {
 		"message": "Rusia"
@@ -3765,7 +3813,7 @@
 		"message": "Bután"
 	},
 	"trivia_medium_064": {
-		"message": "La ciudad de Incheon se encuentra en el mar Amarillo. ¿En qué país se encuentra?"
+		"message": "La ciudad de Incheon está en el mar Amarillo. ¿En qué país se encuentra?"
 	},
 	"trivia_medium_064_answer0": {
 		"message": "Corea del Sur"
@@ -3801,7 +3849,7 @@
 		"message": "Canadá"
 	},
 	"trivia_medium_067": {
-		"message": "¿Qué país de la isla de Borneo bordea el pequeño país de Brunei?"
+		"message": "¿Qué país de la isla de Borneo limita con el pequeño país de Brunéi?"
 	},
 	"trivia_medium_067_answer0": {
 		"message": "Malasia"
@@ -3873,7 +3921,7 @@
 		"message": "Laos"
 	},
 	"trivia_medium_073": {
-		"message": "Cerca de la desembocadura del río Shannon, se pueden ver valles de glaciares y acantilados espectaculares. ¿De qué país se trata?"
+		"message": "Cerca de la desembocadura del río Shannon, se pueden ver valles de glaciares y acantilados espectaculares. ¿En qué país?"
 	},
 	"trivia_medium_073_answer0": {
 		"message": "Irlanda"
@@ -3957,7 +4005,7 @@
 		"message": "Bangladés"
 	},
 	"trivia_medium_080": {
-		"message": "¿Qué país de las Grandes Antillas utiliza el inglés como lengua oficial?"
+		"message": "¿Qué país de las Grandes Antillas tiene el inglés como lengua oficial?"
 	},
 	"trivia_medium_080_answer0": {
 		"message": "Jamaica"
@@ -4005,7 +4053,7 @@
 		"message": "Zambia"
 	},
 	"trivia_medium_084": {
-		"message": "Róterdam se encuentra en un delta, cerca del mar del Norte. ¿En qué país europeo se encuentra?"
+		"message": "Róterdam está en un delta, cerca del mar del Norte. ¿En qué país europeo se encuentra?"
 	},
 	"trivia_medium_084_answer0": {
 		"message": "Países Bajos"
@@ -4029,7 +4077,7 @@
 		"message": "Alpes"
 	},
 	"trivia_medium_086": {
-		"message": "¿De qué país islámico es el idioma oficial el farsi, también conocido como el persa?"
+		"message": "¿De qué país islámico es el idioma oficial el farsi, también conocido como persa?"
 	},
 	"trivia_medium_086_answer0": {
 		"message": "Irán"
@@ -4113,7 +4161,7 @@
 		"message": "Surinam"
 	},
 	"trivia_medium_093": {
-		"message": "¿Qué río forma parte en gran medida de la frontera norte de Bulgaria?"
+		"message": "¿Qué río forma una gran parte de la frontera norte de Bulgaria?"
 	},
 	"trivia_medium_093_answer0": {
 		"message": "Río Danubio"
@@ -4125,7 +4173,7 @@
 		"message": "Río Mekong"
 	},
 	"trivia_medium_094": {
-		"message": "Las montañas de Sayan se encuentran cerca del lago Baikal. ¿En qué país asiático se encuentran?"
+		"message": "Las montañas de Sayan están cerca del lago Baikal. ¿En qué país asiático se encuentran?"
 	},
 	"trivia_medium_094_answer0": {
 		"message": "Rusia"

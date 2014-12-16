@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Welkom by Google Maps se Waar is Kersvader!"
 	},
+	"ae_country_name": {
+		"message": "Verenigde Arabiese Emirate"
+	},
 	"af_country_name": {
 		"message": "Afganistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentinië"
+	},
+	"ar_language_name": {
+		"message": "Arabies"
 	},
 	"ar_tradition": {
 		"message": "In Argentinië begin Kersfees stiptelik om middernag. Baie gesinne begin die vakansiedag deur feestelike vierings by hul huis aan te bied, geskenke saam met hul geliefdes oop te maak en vuurwerk in die vroeë oggendure aan te steek."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Australië se ligging in die suidelike halfrond beteken dat dit in Desember somer is. Pleks van sleeklokke en kakao, kies baie Australiërs koers na die strand om die vakansiedae met 'n garnaalmiddagete en 'n paar beurte krieket te vier."
 	},
+	"ba_country_name": {
+		"message": "Bosnië en Herzegowina"
+	},
 	"bd_country_name": {
 		"message": "Bangladesj"
 	},
 	"be_country_name": {
 		"message": "België"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgarye"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bhoetan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
 	},
 	"by_country_name": {
 		"message": "Belarus"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Stuur"
 	},
+	"cd_country_name": {
+		"message": "Demokratiese Republiek van die Kongo"
+	},
 	"cf_country_name": {
 		"message": "Sentraal-Afrikaanse Republiek"
 	},
+	"cg_country_name": {
+		"message": "Republiek van die Kongo"
+	},
 	"ch_country_name": {
 		"message": "Switserland"
+	},
+	"ci_country_name": {
+		"message": "Ivoorkus"
 	},
 	"cl_country_name": {
 		"message": "Chili"
@@ -141,7 +165,7 @@
 		"message": "Herhaal 'n paar stellings verskeie keer."
 	},
 	"codelab-block-whenrun": {
-		"message": "wanneer loop"
+		"message": "Pak pyle hier"
 	},
 	"codelab-finish": {
 		"message": "Einde"
@@ -153,34 +177,34 @@
 		"message": "Bekyk meer Google-koderingprojekte by \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
-		"message": "Volg. uitdaging"
+		"message": "Volgende"
 	},
 	"codelab-oops": {
 		"message": "Oeps!"
 	},
 	"codelab-result-empty-repeat-fail": {
-		"message": "Die \"Herhaal\"-blok moet ander blokke bevat om te kan werk."
+		"message": "Die \"Herhaal\"-blokkie moet ander blokkies bevat om te kan werk."
 	},
 	"codelab-result-extra-top-block-fail": {
-		"message": "Sommige van die blokke is nie behoorlik saamgevoeg nie."
+		"message": "Sommige van die blokkies is nie behoorlik saamgevoeg nie."
 	},
 	"codelab-result-generic-fail": {
 		"message": "Lyk asof jy verdwaal het!"
 	},
 	"codelab-result-missing-block-fail": {
-		"message": "Probeer een of meer van die blokke hieronder om hierdie raaiselspeletjie op te los."
+		"message": "Probeer een of meer van die blokkies hieronder om hierdie legkaart op te los."
 	},
 	"codelab-result-missing-block-success": {
-		"message": "Het jy geweet jy kan hierdie vlak met net {{ideal}} blokke voltooi? Probeer om die blok hieronder te gebruik."
+		"message": "Het jy geweet dat jy hierdie vlak met net {{ideal}} blokkies kan voltooi? Probeer om die blokkie hieronder te gebruik."
 	},
 	"codelab-result-perfect-success": {
 		"message": "Geluk! Jy het die raaiselspeletjie perfek voltooi."
 	},
 	"codelab-result-too-few-blocks-fail": {
-		"message": "Jy gebruik die regte blokke, maar probeer om meer van hulle te gebruik om hierdie raaiselspeletjie te voltooi."
+		"message": "Jy gebruik die regte blokkies, maar probeer om meer van hulle te gebruik om hierdie legkaart te voltooi."
 	},
 	"codelab-result-too-many-blocks-success": {
-		"message": "Het jy geweet jy kan hierdie vlak met net {{ideal}} blokke voltooi?"
+		"message": "Het jy geweet dat jy hierdie vlak met net {{ideal}} blokkies kan voltooi?"
 	},
 	"codelab-try-again": {
 		"message": "Probeer weer"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Duitsland"
+	},
+	"de_language_name": {
+		"message": "Duits"
 	},
 	"de_tradition": {
 		"message": "In byna elke Duitse dorp is daar 'n Kersmark op die dorpsplein. Dorpsmense kom byeen om na blaasorkeste te luister en tradisionele kos van die streek te geniet. Hulle eet gemmerkoekharte, amandels in suiker gebraai en allerlei lekkergoed en drink gekruide wyn (Glühwein) of appelwyn."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazakstan"
 	},
+	"la_country_name": {
+		"message": "Laos DVR"
+	},
 	"language": {
 		"message": "Taal"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Liberië"
+	},
 	"lt_country_name": {
 		"message": "Litaue"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldawië"
 	},
+	"mg_country_name": {
+		"message": "Madagaskar"
+	},
 	"minutes": {
 		"message": "Minute"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritanië"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
 	},
 	"mx_country_name": {
 		"message": "Meksiko"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Peru"
 	},
+	"pg_country_name": {
+		"message": "Papoea-Nieu-Guinee"
+	},
 	"ph_country_name": {
 		"message": "Filippyne"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Slowakye"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Bepalings en privaatheid"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Kantel jou toestel!"
@@ -4227,7 +4275,7 @@
 		"message": "In die Verenigde Koninkryk geniet pretmakers van alle ouderdomme Kersklappers saam met aandete. Klappers is helderkleurige buise van karton en papier met punte aan elke kant wat getrek kan word. Wanneer jy die punte trek, bars die buis met 'n harde klap oop! Binne-in is papierhoede, speelgoed en lekkers om op Kersaand te geniet."
 	},
 	"upgrade-warning": {
-		"message": "Oeps! Waar is Kersvader word nie deur hierdie weergawe van jou blaaier gesteun nie. Om tot Waar is Kersvader toegang te verkry, laai 'n moderne blaaier af. Vir meer inligting besoek \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oeps! Jou blaaierweergawe steun nie Waar is Kersvader nie. Laai 'n moderne blaaier af om by Waar is Kersvader te kan ingaan. Besoek \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e vir meer inligting."
 	},
 	"us_country_name": {
 		"message": "Verenigde State"

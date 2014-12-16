@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Bem-vindo ao recurso \"Siga o Papai Noel\" no Google Maps!"
 	},
+	"ae_country_name": {
+		"message": "Emirados Árabes Unidos"
+	},
 	"af_country_name": {
 		"message": "Afeganistão"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Árabe"
 	},
 	"ar_tradition": {
 		"message": "Na Argentina, o Natal começa pontualmente à meia-noite. Muitas famílias começam o feriado organizando celebrações festivas nas suas casas, abrindo presentes com seus entes queridos e soltando fogos de artifício nas primeiras horas da manhã."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "A localização no Hemisfério Sul faz com que o mês de dezembro na Austrália seja de verão. Em vez de sinos do trenó e chocolate, muitos australianos vão para a praia comemorar as festas de final de ano com camarão no almoço e algumas rodadas de críquete."
 	},
+	"ba_country_name": {
+		"message": "Bósnia e Herzegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
 	"be_country_name": {
 		"message": "Bélgica"
+	},
+	"bf_country_name": {
+		"message": "Burkina Fasso"
 	},
 	"bg_country_name": {
 		"message": "Bulgária"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Butão"
+	},
+	"bw_country_name": {
+		"message": "Botsuana"
 	},
 	"by_country_name": {
 		"message": "Bielorrússia"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Enviar"
 	},
+	"cd_country_name": {
+		"message": "República Democrática do Congo"
+	},
 	"cf_country_name": {
 		"message": "República Centro-Africana"
 	},
+	"cg_country_name": {
+		"message": "República do Congo"
+	},
 	"ch_country_name": {
 		"message": "Suíça"
+	},
+	"ci_country_name": {
+		"message": "Costa do Marfim"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Alemanha"
+	},
+	"de_language_name": {
+		"message": "Alemão"
 	},
 	"de_tradition": {
 		"message": "Em quase todas as cidades alemãs, os mercados de Natal abrem nas praças da cidade. As pessoas se reúnem para ouvir bandas de música e degustam pratos típicos da região. Elas comem corações de gengibre, amêndoas de açúcar torrado, doces variados, e bebem vinho quente (Glühwein) ou cidra de maçã."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Cazaquistão"
 	},
+	"la_country_name": {
+		"message": "Lao, RDP"
+	},
 	"language": {
 		"message": "Idioma"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Libéria"
+	},
 	"lt_country_name": {
 		"message": "Lituânia"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldávia"
 	},
+	"mg_country_name": {
+		"message": "Madagascar"
+	},
 	"minutes": {
 		"message": "Minutos"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritânia"
+	},
+	"mw_country_name": {
+		"message": "Malauí"
 	},
 	"mx_country_name": {
 		"message": "México"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Peru"
 	},
+	"pg_country_name": {
+		"message": "Papua Nova Guiné"
+	},
 	"ph_country_name": {
 		"message": "Filipinas"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Eslováquia"
 	},
+	"sl_country_name": {
+		"message": "Serra Leoa"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Termos e Privacidade"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Incline o dispositivo"

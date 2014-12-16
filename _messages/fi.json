@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Tervetuloa Google Mapsin Joulupukin jäljittimeen!"
 	},
+	"ae_country_name": {
+		"message": "Arabiemiirikunnat"
+	},
 	"af_country_name": {
 		"message": "Afganistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentiina"
+	},
+	"ar_language_name": {
+		"message": "arabia"
 	},
 	"ar_tradition": {
 		"message": "Argentiinassa joulu alkaa tasan keskiyöllä. Useimmat perheet aloittavat joulun vieton järjestämällä juhlat kotonaan ja avaamalla lahjoja yhdessä läheistensä kanssa. Aamuyön tunteina ammutaan ilotulitteita."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Koska Australia sijaitsee maapallon eteläpuoliskolla, siellä on joulukuussa kesä. Kelkkojen ja kaakaon sijaan australialaiset viettävät joulua rannalla syöden lounaaksi rapuja ja pelaten krikettiä."
 	},
+	"ba_country_name": {
+		"message": "Bosnia ja Hertsegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
 	"be_country_name": {
 		"message": "Belgia"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgaria"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
 	},
 	"by_country_name": {
 		"message": "Valko-Venäjä"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Lähetä"
 	},
+	"cd_country_name": {
+		"message": "Kongon demokraattinen tasavalta"
+	},
 	"cf_country_name": {
 		"message": "Keski-Afrikan tasavalta"
 	},
+	"cg_country_name": {
+		"message": "Kongon tasavalta"
+	},
 	"ch_country_name": {
 		"message": "Sveitsi"
+	},
+	"ci_country_name": {
+		"message": "Norsunluurannikko"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -206,6 +230,9 @@
 	"de_country_name": {
 		"message": "Saksa"
 	},
+	"de_language_name": {
+		"message": "Saksa"
+	},
 	"de_tradition": {
 		"message": "Lähes jokaisessa saksalaiskaupungissa järjestetään joulumarkkinat. Kaupunkilaiset kokoontuvat kuuntelemaan puhallinorkestereja ja nauttimaan markkinatunnelmasta.Tarjolla on sydänpipareita, paahdettuja ja sokeroituja manteleita, makeisia, ja juomana hehkuviiniä (Glühwein) tai omenasiideriä."
 	},
@@ -291,7 +318,7 @@
 		"message": "Guinea"
 	},
 	"gotovillage": {
-		"message": "Mene kylään"
+		"message": "Joulupukin kylään"
 	},
 	"gplus": {
 		"message": "Google+"
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazakstan"
 	},
+	"la_country_name": {
+		"message": "Laos"
+	},
 	"language": {
 		"message": "Kieli"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
 	"lt_country_name": {
 		"message": "Liettua"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldova"
 	},
+	"mg_country_name": {
+		"message": "Madagaskar"
+	},
 	"minutes": {
 		"message": "minuuttia"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritania"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
 	},
 	"mx_country_name": {
 		"message": "Meksiko"
@@ -465,7 +504,7 @@
 		"message": "Oman"
 	},
 	"onthego": {
-		"message": "Joulupukki liikkeellä"
+		"message": "Joulupukki matkalla"
 	},
 	"openingtomorrow": {
 		"message": "Avajaiset huomenna"
@@ -475,6 +514,9 @@
 	},
 	"pe_country_name": {
 		"message": "Peru"
+	},
+	"pg_country_name": {
+		"message": "Papua-Uusi-Guinea"
 	},
 	"ph_country_name": {
 		"message": "Filippiinit"
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Slovakia"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Ehdot ja tietosuoja"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Kallista laitetta!"
@@ -4227,7 +4275,7 @@
 		"message": "Iso-Britanniassa kaikenikäiset joulunviettäjät pitävät illallispöydän paukkukaramelleista. Karamellit on kääritty värikkääseen paperiin, ja kun käärön päitä vedetään vastakkaisiin suuntiin, se repeää äänekkäästi. Paketin sisältä voi löytyä pahvihattu, lelu tai makeisia jouluillan iloksi."
 	},
 	"upgrade-warning": {
-		"message": "Hups! Joulupukin jäljitin ei tue tätä selaimen versiota. Lataa uudempi versio, jos haluat käyttää Joulupukin jäljitintä. Lisätietoja on osoitteessa \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Hups! Joulupukin jäljitin ei tue tätä selaimen versiota. Lataa uudempi versio, jos haluat käyttää Joulupukin jäljitintä. Lisätietoja osoitteessa \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Yhdysvallat"

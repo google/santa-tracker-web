@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Google മാപ്‌സ് സാന്താ ട്രാക്കറിലേക്ക് സ്വാഗതം!"
 	},
+	"ae_country_name": {
+		"message": "യുണൈറ്റഡ് അറബ് എമിറേറ്റ്‌സ്"
+	},
 	"af_country_name": {
 		"message": "അഫ്‌ഗാനിസ്ഥാൻ"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "അർജന്റീന"
+	},
+	"ar_language_name": {
+		"message": "അറബിക്"
 	},
 	"ar_tradition": {
 		"message": "അർജന്റീനയിൽ പാതിരാ കഴിഞ്ഞയുടൻ ക്രിസ്‌മസ് തുടങ്ങുകയായി. വീടുകളിൽ ഉത്സവത്തിന്റെ ആഘോഷങ്ങൾ പൊടിപാറിച്ചുകൊണ്ടും ഉറ്റവരുമൊത്ത് സമ്മാനപ്പൊതികൾ തുറന്നും രാവിലെ വരെ നീളുന്ന കരിമരുന്ന് പ്രയോഗങ്ങളിൽ ആറാടിയും അർജന്റീനക്കാർ ക്രിസ്‌മസ് ആഘോഷിക്കുന്നു."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "ഓസ്ട്രേലിയയുടെ വടക്കൻ ഗോളാർദ്ധത്തിൽ ഡിസംബർ എത്തുന്നത് വേനൽക്കാലത്താണ്. വേനൽക്കാലമായതിനാൽ ഹിമവണ്ടിയുടെ മണികളും ചൂടുള്ള കൊക്കോവ പാനീയവും ഇവർക്ക് അത്ര പരിചയമില്ല. ക്രിസ്‌മസ് എത്തിയാൽ ഇവരുടെ യാത്ര നേരെ ബീച്ചിലേക്കാണ്. ഞണ്ട് വിഭവങ്ങൾക്ക് പ്രാധാന്യമുള്ള സദ്യയും ക്രിക്കറ്റിന്റെ ആവേശവുമായി ഇവർ ബീച്ചുകളിൽ അവധിക്കാലം അടിച്ചുപൊളിക്കും."
 	},
+	"ba_country_name": {
+		"message": "ബോസ്‌നിയയും ഹെർസേഗോവിനയും"
+	},
 	"bd_country_name": {
 		"message": "ബംഗ്ലാദേശ്"
 	},
 	"be_country_name": {
 		"message": "ബെൽജിയം"
+	},
+	"bf_country_name": {
+		"message": "ബുർക്കിനോ ഫാസോ"
 	},
 	"bg_country_name": {
 		"message": "ബൾഗേറിയ"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "ഭൂട്ടാൻ"
+	},
+	"bw_country_name": {
+		"message": "ബോട്സ്വാന"
 	},
 	"by_country_name": {
 		"message": "ബെലാറസ്"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "അയക്കുക"
 	},
+	"cd_country_name": {
+		"message": "ഡെമോക്രാറ്റിക് റിപ്പബ്ലിക് ഓഫ് കോംഗോ"
+	},
 	"cf_country_name": {
 		"message": "സെൻട്രൽ ആഫ്രിക്കൻ റിപ്പബ്ലിക്"
 	},
+	"cg_country_name": {
+		"message": "റിപ്പബ്ലിക്ക് ഓഫ് കോംഗോ"
+	},
 	"ch_country_name": {
 		"message": "സ്വിറ്റ്സർലാന്റ്"
+	},
+	"ci_country_name": {
+		"message": "ഐവറി കോസ്റ്റ്"
 	},
 	"cl_country_name": {
 		"message": "ചിലി"
@@ -150,7 +174,7 @@
 		"message": "തകർപ്പൻ"
 	},
 	"codelab-mwc-promo": {
-		"message": "\u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e എന്നിടത്ത് കൂടുതൽ Google കോഡിംഗ് പ്രൊജക്റ്റുകൾ പരിചയപ്പെടൂ."
+		"message": "\u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e -ൽ കൂടുതൽ Google കോഡിംഗ് പ്രൊജക്റ്റുകൾ കാണൂ."
 	},
 	"codelab-next-challenge": {
 		"message": "അടുത്ത വെല്ലുവിളി"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "ജർമ്മനി"
+	},
+	"de_language_name": {
+		"message": "ജര്‍‌മ്മന്‍‌"
 	},
 	"de_tradition": {
 		"message": "ജർമ്മനിയിലെ ഓരോ നഗരത്തിലും ക്രിസ്‌മസ് രാത്രിയിൽ മാർക്കറ്റുകളിൽ ആഘോഷമായിരിക്കും. ബ്രാൻസ് ബാൻഡുകൾ കേൾക്കാൻ ആളുകൾ നാനാഭാഗത്തുനിന്നും നഗരത്തിന്റെ കവലകളിൽ ഒത്തുചേരുന്നു, പ്രദേശത്തിന്റെ വിനോദങ്ങളിൽ അവർ മുഴുകും. ജിഞ്ചെർബ്രെഡ് ഹാർട്ടും പഞ്ചസാരയിലിട്ട് റോസ്റ്റുചെയ്ത ആൽമണ്ടും എല്ലാ തരം മധുര പലഹാരങ്ങളും മാർക്കറ്റുകളിൽ ആ രാത്രി ലഭ്യമായിരിക്കും. വീഞ്ഞോ (ഗ്ലുഹ്‌വീൻ) ആപ്പിളിൽ നിന്നുണ്ടാക്കുന്ന മദ്യമോ ആണ് ആഘോഷിച്ച് തളരുന്നവർ അകത്താക്കുക."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "കസാക്കിസ്ഥാൻ"
 	},
+	"la_country_name": {
+		"message": "ലാവോ PDR"
+	},
 	"language": {
 		"message": "ഭാഷ"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "ശ്രീലങ്ക"
 	},
+	"lr_country_name": {
+		"message": "ലൈബീരിയ"
+	},
 	"lt_country_name": {
 		"message": "ലിത്വാനിയ"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "മൽഡോവ"
 	},
+	"mg_country_name": {
+		"message": "മഡഗാസ്‌കർ"
+	},
 	"minutes": {
 		"message": "മിനിറ്റ്"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "മൗറിറ്റാനിയ"
+	},
+	"mw_country_name": {
+		"message": "മലാവി"
 	},
 	"mx_country_name": {
 		"message": "മെക്‌സിക്കോ"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "പെറു"
 	},
+	"pg_country_name": {
+		"message": "പാപ്പുവ ന്യൂ ഗിനിയ"
+	},
 	"ph_country_name": {
 		"message": "ഫിലിപ്പീൻസ്"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "സ്ലോവാക്യ"
 	},
+	"sl_country_name": {
+		"message": "സിയെറ ലിയോൺ"
+	},
 	"sn_country_name": {
 		"message": "സെനഗൽ"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "നിബന്ധനകളും സ്വകാര്യതയും"
+	},
+	"tg_country_name": {
+		"message": "ടോഗോ"
 	},
 	"tilt": {
 		"message": "നിങ്ങളുടെ ഉപകരണം ചെരിക്കുക!"

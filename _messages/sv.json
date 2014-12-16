@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Välkommen till Följ jultomten i Google Maps!"
 	},
+	"ae_country_name": {
+		"message": "Förenade Arabemiraten"
+	},
 	"af_country_name": {
 		"message": "Afghanistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Arabiska"
 	},
 	"ar_tradition": {
 		"message": "I Argentina börjar julen precis vid midnatt. Många familjer drar igång firandet genom att ha fest hemma, öppna presenter med sina nära och kära och bränna av fyrverkerier under de tidiga morgontimmarna."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Australiens läge på södra halvklotet innebär att det är sommar i december. I stället för bjällror och varm choklad beger sig många australiensare ner till stranden för att fira julen med räklunch och ett par rundor cricket."
 	},
+	"ba_country_name": {
+		"message": "Bosnien-Hercegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
 	"be_country_name": {
 		"message": "Belgien"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgarien"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
 	},
 	"by_country_name": {
 		"message": "Vitryssland"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Skicka"
 	},
+	"cd_country_name": {
+		"message": "Demokratiska republiken Kongo"
+	},
 	"cf_country_name": {
 		"message": "Centralafrikanska republiken"
 	},
+	"cg_country_name": {
+		"message": "Republiken Kongo"
+	},
 	"ch_country_name": {
 		"message": "Schweiz"
+	},
+	"ci_country_name": {
+		"message": "Elfenbenskusten"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -108,7 +132,7 @@
 		"message": "Colombia"
 	},
 	"codelab-block-moveeast": {
-		"message": "öst"
+		"message": "österut"
 	},
 	"codelab-block-moveeast-tooltip": {
 		"message": "Flytta mig österut en ruta."
@@ -144,7 +168,7 @@
 		"message": "vid körning"
 	},
 	"codelab-finish": {
-		"message": "Slut\u0026för"
+		"message": "Slutför"
 	},
 	"codelab-great": {
 		"message": "Bra!"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Tyskland"
+	},
+	"de_language_name": {
+		"message": "Tyska"
 	},
 	"de_tradition": {
 		"message": "I nästan varje tysk stad hålls julmarknad på torgen. Stadsborna samlas för att höra mässingsorkestrar och äta regionens traditionella rätter. De äter pepparkakshjärtan, sockerrostade mandlar, godis av alla de slag, och de dricker glögg (Glühwein) eller äppelcider."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazakstan"
 	},
+	"la_country_name": {
+		"message": "Laos"
+	},
 	"language": {
 		"message": "Språk"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
 	"lt_country_name": {
 		"message": "Litauen"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldavien"
 	},
+	"mg_country_name": {
+		"message": "Madagaskar"
+	},
 	"minutes": {
 		"message": "Minuter"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauretanien"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
 	},
 	"mx_country_name": {
 		"message": "Mexiko"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Peru"
 	},
+	"pg_country_name": {
+		"message": "Papua Nya Guinea"
+	},
 	"ph_country_name": {
 		"message": "Filippinerna"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Slovakien"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Villkor och sekretess"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Luta enheten!"

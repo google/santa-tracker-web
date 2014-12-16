@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Bienvenue dans le service « Sur les traces du père Noël », une application de Google Maps!"
 	},
+	"ae_country_name": {
+		"message": "Émirats arabes unis"
+	},
 	"af_country_name": {
 		"message": "Afghanistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentine"
+	},
+	"ar_language_name": {
+		"message": "Arabe"
 	},
 	"ar_tradition": {
 		"message": "En Argentine, les célébrations de Noël commencent juste après minuit. Plusieurs familles ouvrent les festivités en donnant une fête dans leur maison, en échangeant des cadeaux avec leurs proches et en allumant des feux d'artifice en pleine nuit."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Compte tenu de l'emplacement de l'Australie, dans l'hémisphère Sud, Noël y a lieu en été. Les Australiens préfèrent donc célébrer les Fêtes à la plage, où ils mangent des crevettes et jouent au cricket, plutôt qu'avec des clochettes de traîneau et du chocolat chaud."
 	},
+	"ba_country_name": {
+		"message": "Bosnie-Herzégovine"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
 	"be_country_name": {
 		"message": "Belgique"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgarie"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bhoutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
 	},
 	"by_country_name": {
 		"message": "Biélorussie"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Envoyer"
 	},
+	"cd_country_name": {
+		"message": "République démocratique du Congo"
+	},
 	"cf_country_name": {
 		"message": "République centrafricaine"
 	},
+	"cg_country_name": {
+		"message": "République du Congo"
+	},
 	"ch_country_name": {
 		"message": "Suisse"
+	},
+	"ci_country_name": {
+		"message": "Côte d'Ivoire"
 	},
 	"cl_country_name": {
 		"message": "Chili"
@@ -206,6 +230,9 @@
 	"de_country_name": {
 		"message": "Allemagne"
 	},
+	"de_language_name": {
+		"message": "Allemand"
+	},
 	"de_tradition": {
 		"message": "Les habitants d'Allemagne se réunissent dans leur marché de Noël afin d'écouter des fanfares et manger des plats typiques de leur région. Ils y mangent des cœurs en pain d'épices, des amandes grillées au sucre et d'autres sucreries et y boivent du vin chaud (Glühwein) ou du cidre de pomme."
 	},
@@ -271,6 +298,9 @@
 	},
 	"gameover_level": {
 		"message": "Vous avez atteint le niveau :"
+	},
+	"gameover_score": {
+		"message": "Vos résultats :"
 	},
 	"getgooglemaps": {
 		"message": "Télécharger Google Maps"
@@ -356,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
+	"la_country_name": {
+		"message": "République démocratique populaire lao"
+	},
 	"language": {
 		"message": "Langue"
 	},
@@ -377,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Libéria"
+	},
 	"lt_country_name": {
 		"message": "Lituanie"
 	},
@@ -389,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldavie"
 	},
+	"mg_country_name": {
+		"message": "Madagascar"
+	},
 	"minutes": {
 		"message": "minutes"
 	},
@@ -400,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritanie"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
 	},
 	"mx_country_name": {
 		"message": "Mexique"
@@ -473,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Pérou"
 	},
+	"pg_country_name": {
+		"message": "Papouasie-Nouvelle-Guinée"
+	},
 	"ph_country_name": {
 		"message": "Philippines"
 	},
@@ -536,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Slovaquie"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
 	"sn_country_name": {
 		"message": "Sénégal"
 	},
@@ -553,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Conditions et confidentialité"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Faites basculer votre appareil!"
@@ -1278,7 +1329,7 @@
 		"message": "Europe"
 	},
 	"trivia_beginner_059": {
-		"message": "Quel continent se trouve en bordure dugolfe du Mexique?"
+		"message": "Quel continent se trouve en bordure du golfe du Mexique?"
 	},
 	"trivia_beginner_059_answer0": {
 		"message": "Amérique du Nord"

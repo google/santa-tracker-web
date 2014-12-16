@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Tere tulemast Google Mapsi jõuluvana teekonda jälgima!"
 	},
+	"ae_country_name": {
+		"message": "Araabia Ühendemiraadid"
+	},
 	"af_country_name": {
 		"message": "Afganistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Araabia"
 	},
 	"ar_tradition": {
 		"message": "Argentinas algavad jõulud kohe keskööl. Paljudes peredes tähistatakse pühasid koduste pidustustega, avatakse koos kingitusi ja varastel hommikutundidel lastakse ilutulestikku."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Kuna Austraalia asub lõunapoolkeral, on seal detsembris suvi. Aisakellade ja kakao asemel suunduvad paljud austraallased randa, söövad pühade puhul krevette ja mängivad pisut kriketit."
 	},
+	"ba_country_name": {
+		"message": "Bosnia ja Hertsegoviina"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
 	"be_country_name": {
 		"message": "Belgia"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgaaria"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
 	},
 	"by_country_name": {
 		"message": "Valgevene"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Saatke"
 	},
+	"cd_country_name": {
+		"message": "Kongo Demokraatlik Vabariik"
+	},
 	"cf_country_name": {
 		"message": "Kesk-Aafrika Vabariik"
 	},
+	"cg_country_name": {
+		"message": "Kongo"
+	},
 	"ch_country_name": {
 		"message": "Šveits"
+	},
+	"ci_country_name": {
+		"message": "Elevandiluurannik"
 	},
 	"cl_country_name": {
 		"message": "Tšiili"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Saksamaa"
+	},
+	"de_language_name": {
+		"message": "Saksa"
 	},
 	"de_tradition": {
 		"message": "Peaaegu igas Saksamaa linnas avatakse linnaplatsil jõuluturg. Inimesed kogunevad, et kuulata puhkpilliorkestreid ja nautida kohalikke kaupu. Nad söövad piparkoogisüdameid, magusaid mandleid, erinevaid maiustusi ning joovad hõõgveini (Glühwein) või õunasiidrit."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kasahstan"
 	},
+	"la_country_name": {
+		"message": "Laose Demokraatlik Rahvavabariik"
+	},
 	"language": {
 		"message": "Keel"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Libeeria"
+	},
 	"lt_country_name": {
 		"message": "Leedu"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldova"
 	},
+	"mg_country_name": {
+		"message": "Madagaskar"
+	},
 	"minutes": {
 		"message": "Minuteid"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritaania"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
 	},
 	"mx_country_name": {
 		"message": "Mehhiko"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Peruu"
 	},
+	"pg_country_name": {
+		"message": "Paapua Uus-Guinea"
+	},
 	"ph_country_name": {
 		"message": "Filipiinid"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Slovakkia"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Tingimused ja privaatsus"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Kallutage seadet!"

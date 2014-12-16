@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Trasa Świętego Mikołaja w Mapach Google – witamy!"
 	},
+	"ae_country_name": {
+		"message": "Zjednoczone Emiraty Arabskie"
+	},
 	"af_country_name": {
 		"message": "Afganistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentyna"
+	},
+	"ar_language_name": {
+		"message": "Arabski"
 	},
 	"ar_tradition": {
 		"message": "W Argentynie Boże Narodzenie zaczyna się punktualnie o północy. Wiele rodzin rozpoczyna świętowanie, organizując uroczystości w swoich domach, otwierając prezenty z bliskimi oraz puszczając fajerwerki o świcie."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Australia leży na półkuli południowej, dlatego grudzień wypada tam w lecie. Zamiast jeździć na kuligi i pić kakao, wielu Australijczyków wybiera się na plażę, by zjeść krewetki na świąteczny obiad oraz rozegrać kilka rund krykieta."
 	},
+	"ba_country_name": {
+		"message": "Bośnia i Hercegowina"
+	},
 	"bd_country_name": {
 		"message": "Bangladesz"
 	},
 	"be_country_name": {
 		"message": "Belgia"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bułgaria"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
 	},
 	"by_country_name": {
 		"message": "Białoruś"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Wyślij"
 	},
+	"cd_country_name": {
+		"message": "Demokratyczna Republika Konga"
+	},
 	"cf_country_name": {
 		"message": "Republika Środkowoafrykańska"
 	},
+	"cg_country_name": {
+		"message": "Kongo"
+	},
 	"ch_country_name": {
 		"message": "Szwajcaria"
+	},
+	"ci_country_name": {
+		"message": "Wybrzeże Kości Słoniowej"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -141,7 +165,7 @@
 		"message": "Powtórz niektóre działania kilka razy."
 	},
 	"codelab-block-whenrun": {
-		"message": "gdy działa"
+		"message": "trasa"
 	},
 	"codelab-finish": {
 		"message": "Zakończ"
@@ -168,10 +192,10 @@
 		"message": "Chyba się zgubiłeś!"
 	},
 	"codelab-result-missing-block-fail": {
-		"message": "Spróbuj użyć klocków poniżej, by ukończyć zadanie."
+		"message": "Spróbuj użyć klocka poniżej, by ukończyć zadanie."
 	},
 	"codelab-result-missing-block-success": {
-		"message": "Ten poziom można ukończyć dzięki zaledwie {{ideal}} klockom. Wykorzystaj ten poniżej."
+		"message": "To zadanie można wykonać za pomocą zaledwie {{ideal}} klocków. Użyj tego poniżej."
 	},
 	"codelab-result-perfect-success": {
 		"message": "Gratulacje! Udało Ci się doskonale rozwiązać zadanie."
@@ -180,10 +204,10 @@
 		"message": "Używasz właściwych klocków, ale spróbuj użyć jeszcze kilku, by ukończyć zadanie."
 	},
 	"codelab-result-too-many-blocks-success": {
-		"message": "Ten poziom można ukończyć dzięki zaledwie {{ideal}} klockom."
+		"message": "To zadanie można wykonać za pomocą zaledwie {{ideal}} klocków."
 	},
 	"codelab-try-again": {
-		"message": "Spróbuj znowu"
+		"message": "Spróbuj ponownie"
 	},
 	"copy-me": {
 		"message": "Skopiuj ten link, aby udostępnić wiadomość"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Niemcy"
+	},
+	"de_language_name": {
+		"message": "Niemiecki"
 	},
 	"de_tradition": {
 		"message": "Na rynku niemal każdego niemieckiego miasta otwierane są stragany. Mieszkańcy gromadzą się, by posłuchać orkiestry dętej oraz raczyć się regionalnymi potrawami. Zajadają się cynamonowymi sercami, prażonymi migdałami w cukrze, różnymi słodkościami oraz piją grzane wino (Glühwein) lub cydr."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazachstan"
 	},
+	"la_country_name": {
+		"message": "Laos"
+	},
 	"language": {
 		"message": "Język"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
 	"lt_country_name": {
 		"message": "Litwa"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Mołdawia"
 	},
+	"mg_country_name": {
+		"message": "Madagaskar"
+	},
 	"minutes": {
 		"message": "Minuty"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauretania"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
 	},
 	"mx_country_name": {
 		"message": "Meksyk"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Peru"
 	},
+	"pg_country_name": {
+		"message": "Papua-Nowa Gwinea"
+	},
 	"ph_country_name": {
 		"message": "Filipiny"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Słowacja"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Warunki i prywatność"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Przechyl urządzenie!"

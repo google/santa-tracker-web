@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Velkommen til Følg julemanden på Google Maps!"
 	},
+	"ae_country_name": {
+		"message": "Forenede Arabiske Emirater"
+	},
 	"af_country_name": {
 		"message": "Afghanistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Arabisk"
 	},
 	"ar_tradition": {
 		"message": "I Argentina begynder julen lige ved midnat. Mange familier starter helligdagene ved at holde festlige fejringer i hjemmet, hvor de åbner gaver og skyder fyrværkeri af tidligt om morgenen."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Australien ligger på den sydlige halvkugle, så det er sommer i december. I stedet for at køre i sneslæder og drikke varm kakao tager mange australiere til stranden for at fejre højtiden med rejer til frokost og et par spil cricket."
 	},
+	"ba_country_name": {
+		"message": "Bosnien-Hercegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
 	"be_country_name": {
 		"message": "Belgien"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgarien"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
 	},
 	"by_country_name": {
 		"message": "Hviderusland"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Send"
 	},
+	"cd_country_name": {
+		"message": "Den Demokratiske Republik Congo"
+	},
 	"cf_country_name": {
 		"message": "Den Centralafrikanske Republik"
 	},
+	"cg_country_name": {
+		"message": "Republikken Congo"
+	},
 	"ch_country_name": {
 		"message": "Schweiz"
+	},
+	"ci_country_name": {
+		"message": "Elfenbenskysten"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Tyskland"
+	},
+	"de_language_name": {
+		"message": "Tysk"
 	},
 	"de_tradition": {
 		"message": "I næsten alle tyske byer er der julemarkeder på byens pladser. Folk i byen samles for at høre hornorkestre og nyde områdets traditionelle retter. De spiser honninghjerter, sukkerristede mandler og slik, og de drikker Glühwein eller æblecider."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kasakhstan"
 	},
+	"la_country_name": {
+		"message": "Den Demokratiske Folkerepublik Laos"
+	},
 	"language": {
 		"message": "Sprog"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
 	"lt_country_name": {
 		"message": "Litauen"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldova"
 	},
+	"mg_country_name": {
+		"message": "Madagaskar"
+	},
 	"minutes": {
 		"message": "Minutter"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauretanien"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
 	},
 	"mx_country_name": {
 		"message": "Mexico"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Peru"
 	},
+	"pg_country_name": {
+		"message": "Papua Ny Guinea"
+	},
 	"ph_country_name": {
 		"message": "Filippinerne"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Slovakiet"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Vilkår og privatliv"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Roter din enhed!"

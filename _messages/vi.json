@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Chào mừng bạn đến với chương trình Theo chân ông già Noel trên Google Maps!"
 	},
+	"ae_country_name": {
+		"message": "Các tiểu vương quốc Ả Rập thống nhất"
+	},
 	"af_country_name": {
 		"message": "Afghanistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Arabic"
 	},
 	"ar_tradition": {
 		"message": "Ở Argentina, Giáng sinh bắt đầu đúng vào lúc nửa đêm. Nhiều gia đình bắt đầu kỳ nghỉ bằng cách tổ chức lễ hội kỷ niệm trong nhà của mình, mở quà tặng với những người thân yêu và đốt pháo hoa trong những giờ đầu của ngày mới."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Nằm ở Nam bán cầu, mùa hè tại Úc rơi vào tháng 12. Thay cho chuông của xe trượt tuyết và trái dừa, nhiều người Úc đến bãi biển để ăn mừng ngày lễ bằng bữa ăn trưa với tôm và chơi một vài ván crikê."
 	},
+	"ba_country_name": {
+		"message": "Bosnia và Herzegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
 	"be_country_name": {
 		"message": "Bỉ"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bungari"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
 	},
 	"by_country_name": {
 		"message": "Belarus"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Gửi"
 	},
+	"cd_country_name": {
+		"message": "Cộng hòa Dân chủ Congo"
+	},
 	"cf_country_name": {
 		"message": "Cộng hòa Trung Phi"
 	},
+	"cg_country_name": {
+		"message": "Cộng hòa Congo"
+	},
 	"ch_country_name": {
 		"message": "Thụy Sĩ"
+	},
+	"ci_country_name": {
+		"message": "Bờ Biển Ngà"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -150,7 +174,7 @@
 		"message": "Tuyệt vời"
 	},
 	"codelab-mwc-promo": {
-		"message": "Khám phá nhiều dự án mã hóa khác của Google tại \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Khám phá thêm các dự án viết mã của Google tại \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Thách thức mới"
@@ -171,7 +195,7 @@
 		"message": "Hãy thử một hoặc nhiều khối bên dưới để giải câu đố này."
 	},
 	"codelab-result-missing-block-success": {
-		"message": "Bạn có biết rằng bạn có thể hoàn tất cấp này chỉ với {{ideal}} khối không? Hãy thử sử dụng khối bên dưới."
+		"message": "Bạn có biết rằng bạn có thể hoàn tất cấp độ này chỉ với {{ideal}} khối không? Hãy thử sử dụng khối bên dưới."
 	},
 	"codelab-result-perfect-success": {
 		"message": "Xin chúc mừng! Bạn đã hoàn tất câu đố một cách hoàn hảo."
@@ -180,7 +204,7 @@
 		"message": "Bạn đang sử dụng đúng khối, nhưng hãy thử sử dụng nhiều khối hơn để hoàn thành câu đố này."
 	},
 	"codelab-result-too-many-blocks-success": {
-		"message": "Bạn có biết rằng bạn có thể hoàn tất cấp này chỉ với {{ideal}} khối không?"
+		"message": "Bạn có biết rằng bạn có thể hoàn tất cấp độ này chỉ với {{ideal}} khối không?"
 	},
 	"codelab-try-again": {
 		"message": "Thử lại"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Đức"
+	},
+	"de_language_name": {
+		"message": "Tiếng Đức"
 	},
 	"de_tradition": {
 		"message": "Ở hầu như mọi thị trấn tại Đức, chợ Giáng sinh mở cửa tại quảng trường thị trấn. Người dân trong thị trấn tụ tập để nghe các ban nhạc kèn đồng và thưởng thức món ăn truyền thống của vùng. Họ ăn bánh gừng hình trái tim, hạnh nhân ngào đường, tất cả các loại đồ ngọt và uống rượu được pha chế (Glühwein) hoặc rượu táo."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
+	"la_country_name": {
+		"message": "Cộng hòa Dân chủ Nhân dân Lào"
+	},
 	"language": {
 		"message": "Ngôn ngữ"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
 	"lt_country_name": {
 		"message": "Lithuania"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldova"
 	},
+	"mg_country_name": {
+		"message": "Madagascar"
+	},
 	"minutes": {
 		"message": "Phút"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritania"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
 	},
 	"mx_country_name": {
 		"message": "Mexico"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Peru"
 	},
+	"pg_country_name": {
+		"message": "Papua New Guinea"
+	},
 	"ph_country_name": {
 		"message": "Philipin"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Slovakia"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Điều khoản \u0026 bảo mật"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Nghiêng thiết bị của bạn!"

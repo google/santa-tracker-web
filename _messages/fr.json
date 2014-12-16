@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Bienvenue sur la piste du père Noël avec Google Maps !"
 	},
+	"ae_country_name": {
+		"message": "Émirats arabes unis"
+	},
 	"af_country_name": {
 		"message": "Afghanistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentine"
+	},
+	"ar_language_name": {
+		"message": "Arabe"
 	},
 	"ar_tradition": {
 		"message": "En Argentine, Noël commence dès minuit. Dans de nombreux foyers, les familles lancent les festivités en célébrant Noël à la maison, en ouvrant des cadeaux et en allumant des feux d'artifice jusqu'au petit matin."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "L'Australie étant située dans l'hémisphère sud, c'est l'été au mois de décembre. Les Australiens délaissent donc les grelots de traîneau et les chocolats chauds au profit de la plage, où ils célèbrent les fêtes en dégustant des crevettes et en jouant au cricket."
 	},
+	"ba_country_name": {
+		"message": "Bosnie-Herzégovine"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
 	"be_country_name": {
 		"message": "Belgique"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgarie"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bhoutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
 	},
 	"by_country_name": {
 		"message": "Biélorussie"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Envoyer"
 	},
+	"cd_country_name": {
+		"message": "République démocratique du Congo"
+	},
 	"cf_country_name": {
 		"message": "République Centrafricaine"
 	},
+	"cg_country_name": {
+		"message": "République du Congo"
+	},
 	"ch_country_name": {
 		"message": "Suisse"
+	},
+	"ci_country_name": {
+		"message": "Côte d'Ivoire"
 	},
 	"cl_country_name": {
 		"message": "Chili"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Allemagne"
+	},
+	"de_language_name": {
+		"message": "Allemand"
 	},
 	"de_tradition": {
 		"message": "Presque toutes les villes allemandes ont un marché de Noël sur leur place. Les habitants s'y rendent pour écouter des fanfares et découvrir des produits locaux traditionnels. Ils y dégustent des cœurs en pain d'épices, des amandes caramélisées, des bonbons et du vin chaud (Glühwein) ou du cidre."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
+	"la_country_name": {
+		"message": "Laos (RDP)"
+	},
 	"language": {
 		"message": "Langue"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Libéria"
+	},
 	"lt_country_name": {
 		"message": "Lituanie"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldavie"
 	},
+	"mg_country_name": {
+		"message": "Madagascar"
+	},
 	"minutes": {
 		"message": "Minutes"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritanie"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
 	},
 	"mx_country_name": {
 		"message": "Mexique"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Pérou"
 	},
+	"pg_country_name": {
+		"message": "Papouasie-Nouvelle-Guinée"
+	},
 	"ph_country_name": {
 		"message": "Philippines"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Slovaquie"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
 	"sn_country_name": {
 		"message": "Sénégal"
 	},
@@ -557,11 +602,14 @@
 	"terms-and-privacy": {
 		"message": "Condit. et confidentialité"
 	},
+	"tg_country_name": {
+		"message": "Togo"
+	},
 	"tilt": {
 		"message": "Inclinez votre appareil !"
 	},
 	"time": {
-		"message": "Heure"
+		"message": "Temps"
 	},
 	"tj_country_name": {
 		"message": "Tadjikistan"

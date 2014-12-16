@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Googleマップでサンタを追いかけよう！"
 	},
+	"ae_country_name": {
+		"message": "アラブ首長国連邦"
+	},
 	"af_country_name": {
 		"message": "アフガニスタン"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "アルゼンチン"
+	},
+	"ar_language_name": {
+		"message": "アラビア"
 	},
 	"ar_tradition": {
 		"message": "アルゼンチンのクリスマスはちょうど日付が変わる真夜中に始まります。家の中でお祝い事をしたり、親しい人とプレゼントを開けたり、明け方に花火を打ち上げたりして、家族で祭日を祝うのが定番です。"
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "南半球に位置するオーストラリアでは、12 月は夏です。スレイベルの音が鳴り響き、温かいココアを飲む代わりに、人々はビーチに繰り出し、シーフードのランチやクリケットを楽しみながらクリスマスを祝います。"
 	},
+	"ba_country_name": {
+		"message": "ボスニア ヘルツェゴビナ"
+	},
 	"bd_country_name": {
 		"message": "バングラデシュ"
 	},
 	"be_country_name": {
 		"message": "ベルギー"
+	},
+	"bf_country_name": {
+		"message": "ブルキナファソ"
 	},
 	"bg_country_name": {
 		"message": "ブルガリア"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "ブータン"
+	},
+	"bw_country_name": {
+		"message": "ボツワナ"
 	},
 	"by_country_name": {
 		"message": "ベラルーシ"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "送信"
 	},
+	"cd_country_name": {
+		"message": "コンゴ民主共和国"
+	},
 	"cf_country_name": {
 		"message": "中央アフリカ共和国"
 	},
+	"cg_country_name": {
+		"message": "コンゴ共和国"
+	},
 	"ch_country_name": {
 		"message": "スイス"
+	},
+	"ci_country_name": {
+		"message": "コートジボアール"
 	},
 	"cl_country_name": {
 		"message": "チリ"
@@ -138,16 +162,16 @@
 		"message": "回"
 	},
 	"codelab-block-repeat-tooltip": {
-		"message": "いくつかのステートメントを何度か繰り返してください。"
+		"message": "指定した回数分、同じ方角に続けて移動します。"
 	},
 	"codelab-block-whenrun": {
-		"message": "順番に実行"
+		"message": "ブロックを追加"
 	},
 	"codelab-finish": {
 		"message": "終了"
 	},
 	"codelab-great": {
-		"message": "クリアおめでとう"
+		"message": "クリア！"
 	},
 	"codelab-mwc-promo": {
 		"message": "Google コーディング プロジェクトの詳細は \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e をご覧ください。"
@@ -156,13 +180,13 @@
 		"message": "次のレベル"
 	},
 	"codelab-oops": {
-		"message": "残念！"
+		"message": "クリア失敗"
 	},
 	"codelab-result-empty-repeat-fail": {
 		"message": "「繰り返し」ブロックを使うには、その中に他のブロックが含まれている必要があります。"
 	},
 	"codelab-result-extra-top-block-fail": {
-		"message": "いくつかのブロックが正しく組み合わさっていません。"
+		"message": "正しくつなげられていないブロックがあります。"
 	},
 	"codelab-result-generic-fail": {
 		"message": "レベルをクリアできませんでした"
@@ -171,16 +195,16 @@
 		"message": "このパズルを解くには、下のブロックを使ってみてください。"
 	},
 	"codelab-result-missing-block-success": {
-		"message": "あと {{ideal}} ブロックでこのレベルをクリアできるところでした。下のブロックを使ってみてください。"
+		"message": "このレベルは {{ideal}} ブロックでクリアできます。下のブロックを使ってみてください。"
 	},
 	"codelab-result-perfect-success": {
 		"message": "おめでとう！パズルを完全にクリアしました。"
 	},
 	"codelab-result-too-few-blocks-fail": {
-		"message": "使用しているブロックは正解ですが、このパズルをクリアするには、使用するブロックを増やしてみてください。"
+		"message": "正しいブロックを選んでいますが、このパズルをクリアするにはブロックを追加してみてください。"
 	},
 	"codelab-result-too-many-blocks-success": {
-		"message": "あと {{ideal}} ブロックでこのレベルをクリアできるところでした。"
+		"message": "このレベルは {{ideal}} ブロックでクリアできます。"
 	},
 	"codelab-try-again": {
 		"message": "やり直し"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "ドイツ"
+	},
+	"de_language_name": {
+		"message": "ドイツ語"
 	},
 	"de_tradition": {
 		"message": "ドイツでは、ほとんどの町の広場でクリスマス マーケットが開かれ、ブラスバンドの演奏や宗教にちなんだ伝統的なお祭りを楽しむ人々で賑わいます。ハート型のジンジャー ブレッド、シュガー ロースト アーモンド、スイーツ全般、グリューヴァイン（ホットワイン）やリンゴ酒がクリスマスの定番メニューです。"
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "カザフスタン"
 	},
+	"la_country_name": {
+		"message": "ラオス人民民主共和国"
+	},
 	"language": {
 		"message": "言語"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "スリランカ"
 	},
+	"lr_country_name": {
+		"message": "リベリア"
+	},
 	"lt_country_name": {
 		"message": "リトアニア"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "モルドバ"
 	},
+	"mg_country_name": {
+		"message": "マダガスカル"
+	},
 	"minutes": {
 		"message": "分"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "モーリタニア"
+	},
+	"mw_country_name": {
+		"message": "マラウイ"
 	},
 	"mx_country_name": {
 		"message": "メキシコ"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "ペルー"
 	},
+	"pg_country_name": {
+		"message": "パプアニューギニア"
+	},
 	"ph_country_name": {
 		"message": "フィリピン"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "スロバキア"
 	},
+	"sl_country_name": {
+		"message": "シェラレオネ"
+	},
 	"sn_country_name": {
 		"message": "セネガル"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "利用規約とプライバシー"
+	},
+	"tg_country_name": {
+		"message": "トーゴ"
 	},
 	"tilt": {
 		"message": "端末を傾けよう"
