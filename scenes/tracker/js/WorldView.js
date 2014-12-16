@@ -33,6 +33,8 @@ function WorldView(base, componentDir) {
   this.lockOnSanta_ = true;
   this.circleView_ = null;
 
+  this.throttledFilterMarkers_ = throttle(this.filterMarkers_, 1000);
+
   this.mode_ = 'track';
 }
 
@@ -159,9 +161,7 @@ WorldView.prototype.moveSanta = function(state) {
     }
   }
 
-  if (window.DEV && state.stopover) {
-    this.filterMarkers_();
-  }
+  this.throttledFilterMarkers_();
 };
 
 WorldView.prototype.createSceneMarkers_ = function() {
@@ -175,7 +175,7 @@ WorldView.prototype.createSceneMarkers_ = function() {
       map: this.map_
     });
 
-    marker.addListener('click', this.onSceneMarkerClick_.bind(scene.id));
+    marker.addListener('click', this.onSceneMarkerClick_.bind(this, scene.id));
     this.sceneMarkers_.push(marker);
   }
 };
@@ -184,7 +184,10 @@ WorldView.prototype.showSceneMarkers_ = function() {
   var now = this.base_.santaApp.santaService.now();
   for (var i = 0, marker; marker = this.sceneMarkers_[i]; i++) {
     var time = marker.get('st_time');
-    marker.setVisible(now > time);
+    var visible = now > time;
+    if (marker.getVisible() != visible) {
+      marker.setVisible(visible);
+    }    
   }
 };
 
@@ -204,22 +207,22 @@ WorldView.prototype.SCENES_ = [
   {
     id: 'blimp',
     pos: {lat: 37.160317, lng: 169.879395},
-    time: 1356348000000
+    time: 1419420000000
   },
   {
     id: 'undersea',
     pos: {lat: 23.885838, lng: -39.388183},
-    time: 1356410280000
+    time: 1419482280000
   },
   {
     id: 'island',
     pos: {lat: -16.045813, lng: 84.889161},
-    time: 1356375420000
+    time: 1419447420000
   },
   {
     id: 'icecave',
     pos: {lat: -71.965388, lng: 3.678223},
-    time: 1356406200000
+    time: 1419478200000
   },
 ];
 
@@ -253,6 +256,7 @@ WorldView.prototype.addMarkers_ = function(dests) {
 
     this.routeMarkers_.push(marker);
   }
+
   this.filterMarkers_();
 };
 
