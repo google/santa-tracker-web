@@ -227,19 +227,23 @@ Polymer({
    * @param {!Array.<string>} imageUrls
    */
   preloadImages: function(imageUrls) {
+    console.warn(this.route + ': ' + imageUrls.length);
     this.totalAssets += imageUrls.length;
 
     var onload = function() {
       this.assetsLoaded++;
     }.bind(this);
 
-    var i = 0;
+    var imagesPerRaf = 10;
+    var imageCount = 0;
     var rafCallback = function() {
-      var img = new Image();
-      img.onerror = img.onload = onload;
-      img.src = this.resolvePath(imageUrls[i++]);
+      for (var i = 0; i < imagesPerRaf && imageCount < imageUrls.length; i++) {
+        var img = new Image();
+        img.onerror = img.onload = onload;
+        img.src = this.resolvePath(imageUrls[imageCount++]);
+      }
 
-      if (i < imageUrls.length) {
+      if (imageCount < imageUrls.length) {
         this.async(rafCallback);
       }
     };
