@@ -21,6 +21,7 @@ Intro for the tracker scene.
     display: block;
     position: relative;
     transition: transform 0.3s ease;
+    z-index: 3; /* higher than rest of tracker */
   }
   </style>
   <link rel="stylesheet" href="tracker-intro.css" no-shim>
@@ -323,6 +324,9 @@ Intro for the tracker scene.
         santaPath.style.width = 2 * this.bubbleOffset - 80 + 'px';
         this.async(function() {
           santaBubble.open(100);
+          this.async(function() {
+           this.skip(); // Remove intro screen after 4s.
+          }, null, 4000);
         }, null, 800);
 
       }.bind(this));
@@ -336,7 +340,7 @@ Intro for the tracker scene.
      * @method skip
      */
     skip: function(e, detail, sender) {
-      e.preventDefault();
+      e && e.preventDefault();
       this.style.transform = 'translateY(-' + 2 * this.winCenterY_ + 'px)';
       this.classList.add('offscreen');
     },
