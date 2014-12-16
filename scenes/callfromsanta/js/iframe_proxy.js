@@ -1,5 +1,7 @@
 goog.provide('app.IframeProxy');
 
+goog.require('app.Constants');
+
 /**
  * Iframe proxy class.
  * Handles all the postMessage communication.
@@ -71,7 +73,7 @@ app.IframeProxy.prototype.getUrlKey = function() {
  * Posts a message to the iframe
  **/
 app.IframeProxy.prototype.postMessage = function(message) {
-  this.$iframe[0].contentWindow.postMessage(message, '*');
+  this.$iframe[0].contentWindow.postMessage(message, Constants.VARITALK_URL);
 };
 
 /**
@@ -85,7 +87,7 @@ app.IframeProxy.prototype.setIframeSrc = function() {
     params += 'k=' + key;
   }
 
-  this.$iframe.attr('src', Constants.VARITALK_URL + params);
+  this.$iframe.attr('src', app.Constants.VARITALK_URL + params);
 };
 
 
