@@ -1,0 +1,630 @@
+$name: 'module-factory';
+
+@import "../shared/sass/penner-easing";
+@import "../shared/sass/board";
+@import "sass/animations";
+@import "sass/tetristruck";
+@import "sass/swimmer";
+
+##{$name} {
+  $view-height: 900px;
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: #fee300;
+
+  .factory {
+    position: absolute;
+    top: 50%;
+    height: 100%;
+    width: 100%;
+    margin-top: 150px;
+  }
+
+  .button {
+    position: absolute;
+
+    top: -140px;
+    left: 50%;
+
+    margin-top: 230px;
+    margin-left: -600px;
+
+    width: 150px;
+    height: 120px;
+
+    cursor: pointer;
+
+    background: rgba(0, 0, 0, .0001);
+  }
+
+  .candy-pipe-beam {
+    position: absolute;
+    top: -284px;
+    left: 50%;
+    margin-left: 489px;
+
+    height: 520px;
+    width: 36px;
+
+    background: center 0 url('img/candy-beam.png') repeat-y;
+
+    animation: 1s #{$name}-candyBeamAnimation infinite linear;
+  }
+
+  .color-machine-drops {
+    position: absolute;
+
+    top: -150px;
+    left: 50%;
+
+    margin-top: -120px / 2 + 330;
+    margin-left: 38px;
+
+    width: 300px;
+    height: 120px;
+
+    background: 0 bottom url('img/tube-shadow.png') no-repeat;
+
+    .lane {
+      position: relative;
+      float: left;
+
+      margin-right: 6px;
+
+      width: 93px;
+      height: 120px;
+
+      .tube {
+        position: absolute;
+
+
+        left: 0;
+        bottom: 5px;
+
+        width: 93px;
+        height: 90px;
+
+        background: center top url('img/tube.png') no-repeat;
+
+        transform-origin: 50% 100%;
+      }
+
+      .ball-wrap {
+        $length: 400px;
+
+        position: absolute;
+
+        left: 50%;
+        top: -$length;
+
+        overflow: hidden;
+
+        margin-left: -10px;
+
+        width: 20px;
+        height: $length + 100;
+
+        .ball {
+          position: absolute;
+
+          transform: translateY(-100px);
+
+          top: 0;
+          left: 0;
+
+          width: 20px;
+          height: 20px;
+
+          background: 0 0 url('img/balls.png');
+        }
+      }
+
+      &.l1 {
+        .ball {
+          background-position: -20px 0;
+          animation: 1.35s 2s #{$name}-ballDropAnimaition infinite ease-in;
+        }
+
+        .tube {
+          height: 55px;
+          animation: 1.35s 2s #{$name}-tubeCatchAnimation infinite ease-in;
+        }
+      }
+
+      &.l2 {
+        .ball {
+          background-position: -0px 0;
+          animation: 1.35s 3s #{$name}-ballDropAnimaition infinite ease-in;
+        }
+
+        .tube {
+          height: 100px;
+          animation: 1.35s 3s #{$name}-tubeCatchAnimation infinite ease-in;
+        }
+      }
+
+      &.l3 {
+        .ball-wrap {
+          height: 135px; //mask by elf swallowing
+        }
+        .ball {
+          background-position: -40px 0;
+        }
+        .tube {
+          height: 65px;
+        }
+
+        &.run-animation .ball {
+          background-position: -40px 0;
+          animation: 1.35s .6s #{$name}-ballDropAnimaition 1 ease-in;
+        }
+
+      }
+    }
+  }
+  .color-machine-barrel--red {
+    animation: 1.35s 2.4s #{$name}-tubeBarrelAnimation infinite ease-in;
+  }
+  .color-machine-barrel--blue {
+    animation: 1.35s 3.4s #{$name}-tubeBarrelAnimation infinite ease-in;
+  }
+  .color-machine-barrel--green.run-animation {
+    animation: 1.35s 1s #{$name}-tubeBarrelAnimation 1 ease-in;
+  }
+
+  .pinball {
+    position: absolute;
+
+    top: -489px;
+    left: 50%;
+
+    $width: 1250px;
+    $height: 701px;
+
+    margin-left: -585px;
+
+    width: $width;
+    height: $height;
+
+    .spring {
+      position: absolute;
+
+      left: 0;
+      bottom: 101px;
+
+      width: 30px;
+      height: 65px;
+
+      background: center url('img/pinball-spring.png') no-repeat;
+      background-size: 22px 100%;
+
+      .spring-ball {
+        position: absolute;
+
+        top: -23px;
+        left: 5px;
+
+        width: 20px;
+        height: 20px;
+
+        border-radius: 50%;
+
+        background: #B84E25;
+      }
+    }
+
+    .handle {
+      position: absolute;
+
+      left: 0;
+      top: 608px;
+
+      width: 32px;
+      height: 70px;
+      overflow: hidden;
+
+      svg {
+        position: absolute;
+        display: block;
+        bottom: 0;
+      }
+    }
+
+    .ball {
+      position: absolute;
+
+      opacity: 0;
+
+      left: 0;
+      right: 0;
+
+      width: 50px;
+      height: 20px;
+
+      transform-origin: 100% 50%;
+
+      &:before {
+        content: "";
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 20px;
+        height: 20px;
+
+        border-radius: 50%;
+
+        background: #B84E25;
+      }
+    }
+
+    &.fire {
+      .spring {
+        animation: 1s #{$name}-springAnimation 1;
+
+        .spring-ball {
+          animation: 5.5s #{$name}-springBallAnimation 1;
+        }
+      }
+
+      .handle {
+        animation: 1s #{$name}-handleAnimation 1;
+      }
+
+      .ball {
+        &.b1 {
+          animation-name: #{$name}-pinballAnimation;
+          animation-duration: 1.2s;
+          animation-delay: 1s;
+          animation-iteration-count: 1;
+          animation-timing-function: linear;
+          animation-fill-mode: none;
+        }
+
+        &.b2 {
+          animation: 1s #{$name}-pinballAnimation2 2.2s 1 linear;
+        }
+
+        &.b3 {
+          animation: 1s #{$name}-pinballAnimation3 3.2s 1 linear;
+        }
+      }
+    }
+  }
+
+  .chocolate-river {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    margin-top: 220px;
+
+    height: 1000px;
+
+    background: #b94f25;
+
+    &:before {
+      content: "";
+      position: absolute;
+
+      top: -8px;
+      left: 0;
+      right: 0;
+
+      height: 8px;
+
+      background: rgba(0,0,0,.12);
+    }
+
+    .tile {
+      position: relative;
+      float: left;
+
+      width: 25%;
+
+      height: 100%;
+
+      .bubble {
+        position: absolute;
+
+        top: 20px;
+        left: 5%;
+
+        width: 45px;
+        height: 20px;
+
+        background: center url('img/bubble.png') no-repeat;
+
+        transform-origin: 50% 100%;
+        animation: 1.2s #{$name}-bubbleAnimation infinite alternate ease-in-out;
+
+        &:first-child {
+          animation: .7s #{$name}-bubbleAnimation .5s infinite alternate ease-in-out;
+        }
+
+        &:nth-child(2n) {
+          top: 80px;
+          left: 20%;
+
+          animation: 1s #{$name}-bubbleSmallAnimation infinite alternate ease-in-out;
+        }
+
+        &:nth-child(4n) {
+          top: 80px;
+          left: 20%;
+
+          transform: scale(1);
+          animation: 1.3s #{$name}-bubbleAnimation .2s infinite alternate ease-in-out;
+        }
+
+        &:nth-child(3n) {
+          top: 80px;
+          left: 20%;
+
+          animation: .8s #{$name}-bubbleSmallAnimation infinite alternate ease-in-out;
+        }
+
+        &:nth-child(n+2) {
+          top: 80px;
+          left: 20%;
+        }
+
+        &:nth-child(n+3) {
+          top: 30px;
+          left: 40%;
+        }
+
+        &:nth-child(n+4) {
+          top: 100px;
+          left: 50%;
+        }
+
+        &:nth-child(n+5) {
+          top: 40px;
+          left: 65%;
+        }
+
+        &:nth-child(n+6) {
+          top: 95px;
+          left: 72%;
+        }
+
+        &:nth-child(n+7) {
+          top: 65px;
+          left: 95%;
+        }
+      }
+    }
+  }
+
+  .bg {
+    position: absolute;
+    top: -1195px; //center bridge walkway vertically
+    left: 50%;
+    margin-left: -2600 / 2 * 1px;
+  }
+
+  .fg {
+    position: absolute;
+    top: -1195px;
+    left: 50%;
+    margin-left: -2600 / 2 * 1px;
+  }
+
+  .tetris-machine-cog {
+    position: absolute;
+    top: -345px;
+    left: 50%;
+    margin-left: -105px;
+  }
+
+  .chocolate-pipe-lever {
+    position: absolute;
+    top: -518px;
+    left: 50%;
+    margin-left: -427px;
+    padding: 25px 35px;
+    width: 50px;
+    height: 80px;
+    cursor: pointer;
+  }
+  .chocolate-pipe-lever__handle {
+    position: absolute;
+    transform-origin: center 95%;
+    transition: transform .45s $easeInQuint;
+    svg {
+      display: block;
+    }
+  }
+  .chocolate-pipe-lever__knob {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 50%;
+    margin-left: -11px;
+    background: #E91C24;
+    border-radius: 100%;
+    top: 25px;
+    transition: transform .45s $easeInQuint;
+  }
+  .chocolate-pipe-lever.flip {
+     .chocolate-pipe-lever__handle {
+      transform: scaleY(-1);
+    }
+    .chocolate-pipe-lever__knob {
+      transform: translateY(75px);
+    }
+  }
+
+  .chocolate-drop {
+    position: absolute;
+    top: -310px;
+    left: 50%;
+    margin-left: -470px;
+    width: 200px;
+    height: 310px;
+  }
+
+  .chocolate-drop__elf {
+    position: absolute;
+    left: 50%;
+    margin-left: -28px;
+    bottom: 0;
+
+    svg {
+      display: block;
+    }
+  }
+
+  .chocolate-drop__drop {
+    position: absolute;
+    left: 50%;
+    margin-left: -6px;
+    width: 15px;
+    height: 118px;
+    background: #B84F26;
+    transform-origin: center top;
+    transform: scaleY(0);
+  }
+
+  .chocolate-drop__sploosh {
+    position: absolute;
+    left: 50%;
+    margin-left: -70px;
+
+    overflow: hidden;
+
+    top: 115px;
+    height: 0;
+
+    svg {
+      display: block;
+    }
+  }
+
+  .chocolate-drop.run-animation {
+    $delay: 500ms;
+    $dropDuration: 800ms;
+    $splooshDuration: 600ms;
+
+    .chocolate-drop__drop {
+      animation-name: #{$name}-chocolate-drop;
+      animation-iteration-count: 1;
+      animation-delay:  $delay;
+      animation-duration: $dropDuration;
+      animation-timing-function: $easeInQuint;
+      animation-fill-mode: both;
+    }
+    .chocolate-drop__sploosh {
+      height: 195px;
+      animation-name: #{$name}-chocolate-sploosh;
+      animation-iteration-count: 1;
+      animation-delay:  $delay + ($dropDuration * 0.66);
+      animation-duration: $splooshDuration;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+    }
+  }
+
+  .pull-to-drop {
+    position: absolute;
+    top: -327px;
+    left: 50%;
+    margin-left: 250px;
+    height: 330px;
+    width: 150px;
+    cursor: pointer;
+
+    svg {
+      display: block;
+    }
+  }
+  .pull-to-drop__lever,
+  .pull-to-drop__elf-body,
+  .pull-to-drop__elf-head,
+  .pull-to-drop__elf-arm,
+  .pull-to-drop__elf-belly,
+  .pull-to-drop__elf-belly__svg {
+    position: absolute;
+  }
+  .pull-to-drop__elf-body {
+    bottom: 0;
+    left: 0;
+  }
+  .pull-to-drop__elf-belly {
+    bottom: 44px;
+    left: 37px;
+    overflow: hidden;
+    width: 40px;
+    height: 60px;
+  }
+  .pull-to-drop__elf-belly__svg {
+    bottom: 4px;
+    left: -56px;
+    svg {
+      display: block;
+    }
+  }
+
+  .pull-to-drop__elf-head {
+    bottom: 95px;
+    left: -40px;
+    transform-origin: 60px 47px;
+    transform: rotateZ(95deg);
+  }
+  .pull-to-drop__elf-head__mouth {
+    position: absolute;
+    top: -1px;
+    transform-origin: 57px 46px;
+  }
+  .pull-to-drop__elf-head__face {
+    position: relative;
+  }
+  .pull-to-drop__elf-arm {
+    bottom: 100px;
+    left: 35px;
+  }
+  .pull-to-drop__lever {
+    bottom: 44px;
+    left: 77px;
+    transform-origin: center 110%;
+  }
+
+  .color-machine-barrel {
+    position: absolute;
+    top: -330px;
+    left: 50%;
+
+    background: url('img/color-machine-barrel_70percent.svg') center center no-repeat;
+    width: 31px;
+    height: 102px;
+    transform: translateZ(0);
+  }
+  .color-machine-barrel--red {
+     margin-left: 68px;
+  }
+  .color-machine-barrel--blue {
+     margin-left: 168px;
+  }
+  .color-machine-barrel--green {
+     margin-left: 266px;
+  }
+
+  .pinball-pipe {
+    position: absolute;
+    top: -1195px;
+    left: 50%;
+    margin-left: -2600 / 2 * 1px;
+  }
+}
+
+@import "../shared/sass/responsive";
