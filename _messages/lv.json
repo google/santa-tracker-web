@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Laipni lūdzam Google Maps Ziemassvētku vecīša ceļojumā!"
 	},
+	"ae_country_name": {
+		"message": "Apvienotie Arābu Emirāti"
+	},
 	"af_country_name": {
 		"message": "Afganistāna"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentīna"
+	},
+	"ar_language_name": {
+		"message": "Arābu valoda"
 	},
 	"ar_tradition": {
 		"message": "Argentīnā Ziemassvētki sākas tieši pusnaktī. Daudzas ģimenes šajos svētkos mājās rīko svinības, kuru laikā kopā ar tuvākajiem atver dāvanas, bet pašā rīta agrumā notiek uguņošana."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Austrālija atrodas dienvidu puslodē, tāpēc decembrī tur valda vasara. Tā vietā, lai vizinātos ragavās zvaniņu skaņas pavadijumā un dzertu kakao, austrālieši dodas uz pludmali un svin svētkus, ēdot garneles un spēlējot kriketu."
 	},
+	"ba_country_name": {
+		"message": "Bosnija un Hercegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladeša"
 	},
 	"be_country_name": {
 		"message": "Beļģija"
+	},
+	"bf_country_name": {
+		"message": "Burkinafaso"
 	},
 	"bg_country_name": {
 		"message": "Bulgārija"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Butāna"
+	},
+	"bw_country_name": {
+		"message": "Botsvana"
 	},
 	"by_country_name": {
 		"message": "Baltkrievija"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Sūtīt"
 	},
+	"cd_country_name": {
+		"message": "Kongo Demokrātiskā Republika"
+	},
 	"cf_country_name": {
 		"message": "Centrālāfrikas Republika"
 	},
+	"cg_country_name": {
+		"message": "Kongo Republika"
+	},
 	"ch_country_name": {
 		"message": "Šveice"
+	},
+	"ci_country_name": {
+		"message": "Kotdivuāra"
 	},
 	"cl_country_name": {
 		"message": "Čīle"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Vācija"
+	},
+	"de_language_name": {
+		"message": "Vācu valoda"
 	},
 	"de_tradition": {
 		"message": "Gandrīz ikvienas Vācijas pilsētas centrālajā laukumā darbojas Ziemassvētku tirdziņš. Iedzīvotāji pulcējas, lai klausītos pūtēju orķestrus un baudītu vietējos ēdienus. Tiek ēstas piparkūku sirdis, cukurotas mandeles, dažādi saldumi, piedzerot karstvīnu (Glühwein) vai ābolu sidru."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazahstāna"
 	},
+	"la_country_name": {
+		"message": "Laosas TDR"
+	},
 	"language": {
 		"message": "Valoda"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Šrilanka"
 	},
+	"lr_country_name": {
+		"message": "Libērija"
+	},
 	"lt_country_name": {
 		"message": "Lietuva"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldova"
 	},
+	"mg_country_name": {
+		"message": "Madagaskara"
+	},
 	"minutes": {
 		"message": "Minūte(-s)"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritānija"
+	},
+	"mw_country_name": {
+		"message": "Malāvija"
 	},
 	"mx_country_name": {
 		"message": "Meksika"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Peru"
 	},
+	"pg_country_name": {
+		"message": "Papua-Jaungvineja"
+	},
 	"ph_country_name": {
 		"message": "Filipīnas"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Slovākija"
 	},
+	"sl_country_name": {
+		"message": "Sjerraleone"
+	},
 	"sn_country_name": {
 		"message": "Senegāla"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Noteikumi"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Pagriez ierīci!"

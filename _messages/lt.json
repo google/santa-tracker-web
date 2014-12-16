@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Sveiki atvykę į „Google“ žemėlapių Kalėdų Senelio kelionės puslapį!"
 	},
+	"ae_country_name": {
+		"message": "Jungtiniai Arabų Emyratai"
+	},
 	"af_country_name": {
 		"message": "Afganistanas"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Arabų"
 	},
 	"ar_tradition": {
 		"message": "Argentinoje Kalėdos prasideda tiksliai vidurnaktį. Daugelyje šeimų šventės prasideda nuo šventinių iškilmių namuose, dovanų išpakavimo su mylimais žmonėmis ir fejerverkų anksti ryte."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Australijos Pietų Hampšyro regione gruodžio mėnesį būna vasara. Daugelis australų per šias šventes rogių žvangučius ir kakavą pakeičia išvyka į paplūdimį, pietumis su krevetėmis ir keliais kriketo raundais."
 	},
+	"ba_country_name": {
+		"message": "Bosnija ir Hercegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladešas"
 	},
 	"be_country_name": {
 		"message": "Belgija"
+	},
+	"bf_country_name": {
+		"message": "Burkina Fasas"
 	},
 	"bg_country_name": {
 		"message": "Bulgarija"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Butanas"
+	},
+	"bw_country_name": {
+		"message": "Botsvana"
 	},
 	"by_country_name": {
 		"message": "Baltarusija"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Siųsti"
 	},
+	"cd_country_name": {
+		"message": "Kongo Demokratinė Respublika"
+	},
 	"cf_country_name": {
 		"message": "Centrinės Afrikos Respublika"
 	},
+	"cg_country_name": {
+		"message": "Kongo Respublika"
+	},
 	"ch_country_name": {
 		"message": "Šveicarija"
+	},
+	"ci_country_name": {
+		"message": "Dramblio Kaulo Krantas"
 	},
 	"cl_country_name": {
 		"message": "Čilė"
@@ -141,7 +165,7 @@
 		"message": "Pakartokite tam tikrus teiginius kelis kartus."
 	},
 	"codelab-block-whenrun": {
-		"message": "kai vykdoma"
+		"message": "krypčių seka"
 	},
 	"codelab-finish": {
 		"message": "Baigti"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Vokietija"
+	},
+	"de_language_name": {
+		"message": "Vokiečių"
 	},
 	"de_tradition": {
 		"message": "Beveik kiekvieno Vokietijos miesto aikštėje atidaroma kalėdinė mugė. Miestelėnai susirenka pasiklausyti pučiamųjų instrumentų muzikos ir mėgaujasi tradiciniu regiono maistu. Jie valgo imbierines širdeles, cukruje skrudintus migdolus, visokiausius saldainius, geria su prieskoniai kaitintą vyną (Glühwein) arba obuolių sidrą."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazachstanas"
 	},
+	"la_country_name": {
+		"message": "Laoso Liaudies Demokratinė Respublika"
+	},
 	"language": {
 		"message": "Kalba"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Šri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Liberija"
+	},
 	"lt_country_name": {
 		"message": "Lietuva"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldavija"
 	},
+	"mg_country_name": {
+		"message": "Madagaskaras"
+	},
 	"minutes": {
 		"message": "min."
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritanija"
+	},
+	"mw_country_name": {
+		"message": "Malavis"
 	},
 	"mx_country_name": {
 		"message": "Meksika"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Peru"
 	},
+	"pg_country_name": {
+		"message": "Papua Naujoji Gvinėja"
+	},
 	"ph_country_name": {
 		"message": "Filipinai"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Slovakija"
 	},
+	"sl_country_name": {
+		"message": "Siera Leonė"
+	},
 	"sn_country_name": {
 		"message": "Senegalas"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Taisyklės ir privatumas"
+	},
+	"tg_country_name": {
+		"message": "Togas"
 	},
 	"tilt": {
 		"message": "Pakreipkite savo įrenginį!"

@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "¡Te damos la bienvenida a Sigue a Santa de Google Maps!"
 	},
+	"ae_country_name": {
+		"message": "Emiratos Árabes Unidos"
+	},
 	"af_country_name": {
 		"message": "Afganistán"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Árabe"
 	},
 	"ar_tradition": {
 		"message": "En Argentina, la Navidad comienza exactamente a la medianoche. Para dar inicio a esta festividad, muchas familias se reúnen a celebrar, se hacen regalos y encienden fuegos artificiales a primeras horas de la madrugada."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Su ubicación en el hemisferio sur hace que Australia reciba la Navidad en verano, en el mes de diciembre. En lugar de comer chocolate y decorar con cascabeles, muchos australianos celebran esta festividad en la playa con un almuerzo de camarones y algunas partidas de cricket."
 	},
+	"ba_country_name": {
+		"message": "Bosnia-Herzegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladés"
 	},
 	"be_country_name": {
 		"message": "Bélgica"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgaria"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bután"
+	},
+	"bw_country_name": {
+		"message": "Botsuana"
 	},
 	"by_country_name": {
 		"message": "Bielorrusia"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Enviar"
 	},
+	"cd_country_name": {
+		"message": "República Democrática del Congo"
+	},
 	"cf_country_name": {
 		"message": "República Centroafricana"
 	},
+	"cg_country_name": {
+		"message": "República del Congo"
+	},
 	"ch_country_name": {
 		"message": "Suiza"
+	},
+	"ci_country_name": {
+		"message": "Costa de Marfil"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Alemania"
+	},
+	"de_language_name": {
+		"message": "Alemán"
 	},
 	"de_tradition": {
 		"message": "En casi todas las ciudades alemanas, se instalan mercados de Navidad en las plazas principales. Los vecinos se reúnen para escuchar orquestas y probar comidas y bebidas típicas: corazones de jengibre, almendras garrapiñadas, dulces, \"glühwein\" (vino caliente con especias) o sidra de manzana."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazajistán"
 	},
+	"la_country_name": {
+		"message": "República Democrática Popular Lao"
+	},
 	"language": {
 		"message": "Idioma"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
 	"lt_country_name": {
 		"message": "Lituania"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldavia"
 	},
+	"mg_country_name": {
+		"message": "Madagascar"
+	},
 	"minutes": {
 		"message": "Minutos"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritania"
+	},
+	"mw_country_name": {
+		"message": "Malaui"
 	},
 	"mx_country_name": {
 		"message": "México"
@@ -465,7 +504,7 @@
 		"message": "Omán"
 	},
 	"onthego": {
-		"message": "Santa está en camino"
+		"message": "Santa en camino"
 	},
 	"openingtomorrow": {
 		"message": "Gran inauguración mañana"
@@ -475,6 +514,9 @@
 	},
 	"pe_country_name": {
 		"message": "Perú"
+	},
+	"pg_country_name": {
+		"message": "Papúa Nueva Guinea"
 	},
 	"ph_country_name": {
 		"message": "Filipinas"
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Eslovaquia"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leona"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Términos y privacidad"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Inclina tu teléfono."

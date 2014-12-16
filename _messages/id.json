@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Selamat Datang di Pelacak Sinterklas Google Maps!"
 	},
+	"ae_country_name": {
+		"message": "Uni Emirat Arab"
+	},
 	"af_country_name": {
 		"message": "Afganistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Arab"
 	},
 	"ar_tradition": {
 		"message": "Di Argentina, Natal dimulai tepat tengah malam. Banyak keluarga memulai liburan dengan mengadakan pesta meriah di rumahnya masing-masing, membuka hadiah bersama orang yang mereka cintai, dan menyalakan kembang api saat tengah malam tiba."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Di Belahan Selatan Australia, musim panas datang pada bulan Desember. Alih-alih bermain kereta luncur dan minum cokelat hangat, banyak orang Australia pergi ke pantai untuk merayakan liburan dengan makan udang di siang hari dan bermain kriket."
 	},
+	"ba_country_name": {
+		"message": "Bosnia dan Herzegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
 	"be_country_name": {
 		"message": "Belgia"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgaria"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
 	},
 	"by_country_name": {
 		"message": "Belarus"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Kirim"
 	},
+	"cd_country_name": {
+		"message": "Republik Demokratik Kongo"
+	},
 	"cf_country_name": {
 		"message": "Republik Afrika Tengah"
 	},
+	"cg_country_name": {
+		"message": "Republik Kongo"
+	},
 	"ch_country_name": {
 		"message": "Swiss"
+	},
+	"ci_country_name": {
+		"message": "Côte d'Ivoire"
 	},
 	"cl_country_name": {
 		"message": "Cile"
@@ -198,12 +222,15 @@
 		"message": "Kuba"
 	},
 	"cz_country_name": {
-		"message": "Republik Ceko"
+		"message": "Republik Cheska"
 	},
 	"days": {
 		"message": "Hari"
 	},
 	"de_country_name": {
+		"message": "Jerman"
+	},
+	"de_language_name": {
 		"message": "Jerman"
 	},
 	"de_tradition": {
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazakstan"
 	},
+	"la_country_name": {
+		"message": "Republik Demokratis Rakyat Laos"
+	},
 	"language": {
 		"message": "Bahasa"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
 	"lt_country_name": {
 		"message": "Lituania"
 	},
@@ -387,10 +420,13 @@
 		"message": "Latvia"
 	},
 	"ly_country_name": {
-		"message": "Libya"
+		"message": "Libia"
 	},
 	"md_country_name": {
 		"message": "Moldova"
+	},
+	"mg_country_name": {
+		"message": "Madagaskar"
 	},
 	"minutes": {
 		"message": "Menit"
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritania"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
 	},
 	"mx_country_name": {
 		"message": "Meksiko"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Peru"
 	},
+	"pg_country_name": {
+		"message": "Papua Nugini"
+	},
 	"ph_country_name": {
 		"message": "Filipina"
 	},
@@ -537,7 +579,10 @@
 		"message": "Bagikan"
 	},
 	"sk_country_name": {
-		"message": "Slowakia"
+		"message": "Slovakia"
+	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
 	},
 	"sn_country_name": {
 		"message": "Senegal"
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Persyaratan \u0026amp; Privasi"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Miringkan perangkat!"
@@ -609,7 +657,7 @@
 		"message": "Arkansas"
 	},
 	"trivia_beginner_003": {
-		"message": "Negara bagian AS manakah yang terletak di Great Plains?"
+		"message": "Negara bagian AS manakah yang terletak di Dataran Great Plains?"
 	},
 	"trivia_beginner_003_answer0": {
 		"message": "Kansas"
@@ -633,7 +681,7 @@
 		"message": "Amerika Selatan"
 	},
 	"trivia_beginner_005": {
-		"message": "Negara bagian manakah yang terletak di zona waktu Pasifik?"
+		"message": "Negara bagian manakah yang termasuk dalam zona waktu Pasifik?"
 	},
 	"trivia_beginner_005_answer0": {
 		"message": "California"
@@ -789,7 +837,7 @@
 		"message": "Amerika Utara"
 	},
 	"trivia_beginner_018": {
-		"message": "Terletak di benua manakah kaktus Saguaro yang ada di Gurun Sonoran?"
+		"message": "Terletak di benua manakah kaktus Saguaro yang ada di Gurun Sonora?"
 	},
 	"trivia_beginner_018_answer0": {
 		"message": "Amerika Utara"
@@ -816,7 +864,7 @@
 		"message": "Terletak di negara manakah Suaka Panda Raksasa Sichuan, yang merupakan rumah bagi 30 persen panda di dunia?"
 	},
 	"trivia_beginner_020_answer0": {
-		"message": "Cina"
+		"message": "China"
 	},
 	"trivia_beginner_020_answer1": {
 		"message": "Islandia"
@@ -957,7 +1005,7 @@
 		"message": "Afrika"
 	},
 	"trivia_beginner_032": {
-		"message": "Terletak di benua manakah habitat asli penguin emperor?"
+		"message": "Terletak di benua manakah habitat asli penguin kaisar?"
 	},
 	"trivia_beginner_032_answer0": {
 		"message": "Antarktika"
@@ -1089,10 +1137,10 @@
 		"message": "New Delhi"
 	},
 	"trivia_beginner_043": {
-		"message": "Ka'bah, bangunan paling suci dalam islam, terletak di Masjid al-Haram yang ada di kota mana di Arab Saudi?"
+		"message": "Ka'bah, tempat paling suci menurut agama Islam, terletak di Masjidil Haram yang ada di kota mana di Arab Saudi?"
 	},
 	"trivia_beginner_043_answer0": {
-		"message": "Mekah"
+		"message": "Mekkah"
 	},
 	"trivia_beginner_043_answer1": {
 		"message": "Buenos Aires"
@@ -1101,7 +1149,7 @@
 		"message": "Budapest"
 	},
 	"trivia_beginner_044": {
-		"message": "Kota Terlarang adalah bekas istana kekaisaran yang terletak di pusat kota di Cina. Apa nama kotanya?"
+		"message": "Kota Terlarang adalah bekas istana kekaisaran yang terletak di pusat kota di China. Apa nama kotanya?"
 	},
 	"trivia_beginner_044_answer0": {
 		"message": "Beijing"
@@ -1197,7 +1245,7 @@
 		"message": "Jerman"
 	},
 	"trivia_beginner_052": {
-		"message": "Gedung Kemerdekaan merupakan situs sejarah penting yang terkait dengan Revolusi Amerika dan terletak di dekat Sungai Delaware yang ada di kota mana di AS?"
+		"message": "Gedung Kemerdekaan merupakan situs sejarah penting yang terkait dengan Revolusi Amerika dan terletak di dekat Sungai Delaware, AS. Di kota manakah itu?"
 	},
 	"trivia_beginner_052_answer0": {
 		"message": "Philadelphia"
@@ -1293,7 +1341,7 @@
 		"message": "Asia"
 	},
 	"trivia_beginner_060": {
-		"message": "Apa nama sungai yang mengalir melalui Afrika dan merupakan sungai terpanjang di dunia?"
+		"message": "Apa nama sungai yang mengalir melintasi Afrika dan merupakan sungai terpanjang di dunia?"
 	},
 	"trivia_beginner_060_answer0": {
 		"message": "Sungai Nil"
@@ -1389,7 +1437,7 @@
 		"message": "Samudra Hindia"
 	},
 	"trivia_beginner_068": {
-		"message": "Sungai Donau mengalir melalui Vienna dan kota-kota lain di benua apa?"
+		"message": "Sungai Donau mengalir melalui Wina dan kota-kota lain di benua apa?"
 	},
 	"trivia_beginner_068_answer0": {
 		"message": "Eropa"
@@ -1593,7 +1641,7 @@
 		"message": "Bolivia"
 	},
 	"trivia_beginner_085": {
-		"message": "Kalau ingin makan pesto di Genoa dan menghadiri opera di Florence, kita harus pergi ke negara mana?"
+		"message": "Kalau ingin makan pesto di Genoa dan menonton opera di Florence, kita harus pergi ke negara mana?"
 	},
 	"trivia_beginner_085_answer0": {
 		"message": "Italia"
@@ -1602,7 +1650,7 @@
 		"message": "Paraguay"
 	},
 	"trivia_beginner_085_answer2": {
-		"message": "Libya"
+		"message": "Libia"
 	},
 	"trivia_beginner_086": {
 		"message": "Kalau ingin melakukan safari di Cagar Alam Maasai Mara dan berbelanja di Nairobi, kita harus pergi ke negara mana?"
@@ -1809,7 +1857,7 @@
 		"message": "Bhutan"
 	},
 	"trivia_hard_006": {
-		"message": "Manakah dari negara berikut yang memiliki luas daratan terbesar?"
+		"message": "Manakah dari negara berikut yang memiliki daratan terluas?"
 	},
 	"trivia_hard_006_answer0": {
 		"message": "Kazakstan"
@@ -1839,7 +1887,7 @@
 		"message": "Austria"
 	},
 	"trivia_hard_008_answer1": {
-		"message": "Slowakia"
+		"message": "Slovakia"
 	},
 	"trivia_hard_008_answer2": {
 		"message": "Irak"
@@ -1884,7 +1932,7 @@
 		"message": "Negara manakah yang tidak terletak di Semenanjung Balkan?"
 	},
 	"trivia_hard_012_answer0": {
-		"message": "Republik Ceko"
+		"message": "Republik Cheska"
 	},
 	"trivia_hard_012_answer1": {
 		"message": "Bulgaria"
@@ -1917,7 +1965,7 @@
 		"message": "Turki"
 	},
 	"trivia_hard_015": {
-		"message": "Negara manakah yang tidak terkurung daratan?"
+		"message": "Negara manakah yang tidak terkurung oleh daratan?"
 	},
 	"trivia_hard_015_answer0": {
 		"message": "Kroasia"
@@ -1935,7 +1983,7 @@
 		"message": "Angola"
 	},
 	"trivia_hard_016_answer1": {
-		"message": "Libya"
+		"message": "Libia"
 	},
 	"trivia_hard_016_answer2": {
 		"message": "Aljazair"
@@ -2025,7 +2073,7 @@
 		"message": "Winnipeg"
 	},
 	"trivia_hard_024": {
-		"message": "Pulau manakah yang merupakan bagian dari Antilla Kecil?"
+		"message": "Pulau manakah yang merupakan bagian dari Antilles Kecil?"
 	},
 	"trivia_hard_024_answer0": {
 		"message": "St. Kitts"
@@ -2175,10 +2223,10 @@
 		"message": "Gobi"
 	},
 	"trivia_hard_036_answer1": {
-		"message": "Gurun Great Indian"
+		"message": "Gurun Thar"
 	},
 	"trivia_hard_036_answer2": {
-		"message": "Gurun Libya"
+		"message": "Gurun Libia"
 	},
 	"trivia_hard_037": {
 		"message": "Arus Kamchatka merupakan bagian dari samudra apa?"
@@ -2337,7 +2385,7 @@
 		"message": "Amman"
 	},
 	"trivia_hard_050": {
-		"message": "Apa nama kota yang terletak di hulu fyord (teluk yang berasal dari lelehan gletser) pada selat Skagerrak dan merupakan kota terbesar di Norwegia?"
+		"message": "Apa nama kota yang terletak di hulu fyord (teluk yang berasal dari lelehan gletser) di selat Skagerrak dan merupakan kota terbesar di Norwegia?"
 	},
 	"trivia_hard_050_answer0": {
 		"message": "Oslo"
@@ -2445,7 +2493,7 @@
 		"message": "Kiev"
 	},
 	"trivia_hard_059": {
-		"message": "Apa nama kota yang menjadi perhentian penting di Pan-American Highway dan merupakan kota terbesar di Kosta Rika?"
+		"message": "Apa nama kota yang menjadi perhentian penting di Jalan Tol Pan Amerika dan merupakan kota terbesar di Kosta Rika?"
 	},
 	"trivia_hard_059_answer0": {
 		"message": "San José"
@@ -2457,7 +2505,7 @@
 		"message": "Sucre"
 	},
 	"trivia_hard_060": {
-		"message": "Apa nama kota yang menjadi pusat perdagangan hasil pertanian penting di Afrika selatan dan merupakan kota terbesar di Zimbabwe?"
+		"message": "Apa nama kota penting yang menjadi pusat perdagangan hasil pertanian di Afrika bagian selatan dan merupakan kota terbesar di Zimbabwe?"
 	},
 	"trivia_hard_060_answer0": {
 		"message": "Harare"
@@ -2481,7 +2529,7 @@
 		"message": "Dhaka"
 	},
 	"trivia_hard_062": {
-		"message": "Apa nama kota yang terletak di Samudra Atlantik di Cape Mesurado dan merupakan kota terbesar di Liberia?"
+		"message": "Apa nama kota yang terletak di Samudra Atlantik di Tanjung Mesurado dan merupakan kota terbesar di Liberia?"
 	},
 	"trivia_hard_062_answer0": {
 		"message": "Monrovia"
@@ -2529,7 +2577,7 @@
 		"message": "Laut Kaspia"
 	},
 	"trivia_hard_066": {
-		"message": "Perairan apa yang terletak di Lembah Celah Besar?"
+		"message": "Lembah Celah Besar terletak di perairan mana?"
 	},
 	"trivia_hard_066_answer0": {
 		"message": "Danau Malawi"
@@ -2541,7 +2589,7 @@
 		"message": "Danau Titicaca"
 	},
 	"trivia_hard_067": {
-		"message": "Terletak di perairan manakah kota pelabuhan Arkhangelsk di Rusia ?"
+		"message": "Terletak di perairan manakah kota pelabuhan Arkhangelsk di Rusia?"
 	},
 	"trivia_hard_067_answer0": {
 		"message": "Laut Putih"
@@ -2556,7 +2604,7 @@
 		"message": "Provinsi Hunan dan Shandong merupakan bagian dari negara apa?"
 	},
 	"trivia_hard_068_answer0": {
-		"message": "Cina"
+		"message": "China"
 	},
 	"trivia_hard_068_answer1": {
 		"message": "Thailand"
@@ -2589,7 +2637,7 @@
 		"message": "Guatemala"
 	},
 	"trivia_hard_071": {
-		"message": "Kota Basel yang wilayahnya terbagi menjadi dua karena Sungai Rhine, merupakan pusat transportasi penting di negara mana?"
+		"message": "Kota Basel yang wilayahnya terbagi dua oleh Sungai Rhine, merupakan pusat transportasi penting di negara mana?"
 	},
 	"trivia_hard_071_answer0": {
 		"message": "Swiss"
@@ -2634,7 +2682,7 @@
 		"message": "Bulgaria"
 	},
 	"trivia_hard_074_answer2": {
-		"message": "Libya"
+		"message": "Libia"
 	},
 	"trivia_hard_075": {
 		"message": "Setiap tahun, wildebeest bermigrasi dari Tanzania menyeberangi Sungai Mara ke negara tetangga di sebelah timur laut. Apa nama negara tetangga itu?"
@@ -2649,7 +2697,7 @@
 		"message": "Guinea"
 	},
 	"trivia_hard_076": {
-		"message": "Aleppo, terkenal karena Masjid Agungnya, merupakan kota terbesar di negara mana di Asia Barat?"
+		"message": "Aleppo, yang terkenal dengan Masjid Agungnya, merupakan kota terbesar di sebuah negara di Asia Barat. Apa nama negaranya?"
 	},
 	"trivia_hard_076_answer0": {
 		"message": "Suriah"
@@ -2673,7 +2721,7 @@
 		"message": "Korea Utara"
 	},
 	"trivia_hard_078": {
-		"message": "Negara manakah yang berbatasan dengan Panama dan Brazil?"
+		"message": "Negara manakah yang berbatasan dengan Panama dan Brasil?"
 	},
 	"trivia_hard_078_answer0": {
 		"message": "Kolombia"
@@ -2763,13 +2811,13 @@
 		"message": "Austria"
 	},
 	"trivia_hard_085_answer1": {
-		"message": "Slowakia"
+		"message": "Slovakia"
 	},
 	"trivia_hard_085_answer2": {
 		"message": "Finlandia"
 	},
 	"trivia_hard_086": {
-		"message": "Auckland, kota pelabuhan utama dengan beberapa dermaga, merupakan kota terbesar di negara mana?"
+		"message": "Auckland, kota pelabuhan utama yang memiliki banyak dermaga, merupakan kota terbesar di negara mana?"
 	},
 	"trivia_hard_086_answer0": {
 		"message": "Selandia Baru"
@@ -2781,7 +2829,7 @@
 		"message": "Indonesia"
 	},
 	"trivia_hard_087": {
-		"message": "Apa nama negara yang terletak tepat di sebelah barat Togo dan merupakan produsen utama coklat?"
+		"message": "Apa nama negara yang terletak tepat di sebelah barat Togo dan merupakan produsen utama cokelat?"
 	},
 	"trivia_hard_087_answer0": {
 		"message": "Ghana"
@@ -2841,7 +2889,7 @@
 		"message": "Republik Afrika Tengah"
 	},
 	"trivia_hard_092": {
-		"message": "Tbilisi yang terletak di tepi Sungai Kura merupakan ibu kota Negara apa?"
+		"message": "Tbilisi yang terletak di tepi Sungai Kura merupakan ibu kota negara apa?"
 	},
 	"trivia_hard_092_answer0": {
 		"message": "Georgia"
@@ -2967,7 +3015,7 @@
 		"message": "Ukraina"
 	},
 	"trivia_hard_102_answer1": {
-		"message": "Slowakia"
+		"message": "Slovakia"
 	},
 	"trivia_hard_102_answer2": {
 		"message": "Lebanon"
@@ -3000,7 +3048,7 @@
 		"message": "Terletak di negara Asia manakah Gurun Taklimakan yang ada di sebelah utara Pegunungan Kunlun?"
 	},
 	"trivia_hard_105_answer0": {
-		"message": "Cina"
+		"message": "China"
 	},
 	"trivia_hard_105_answer1": {
 		"message": "Arab Saudi"
@@ -3105,7 +3153,7 @@
 		"message": "Burundi"
 	},
 	"trivia_medium_009": {
-		"message": "Apa nama pulau besar yang terletak 200 mil di sebelah barat laut Islandia?"
+		"message": "Apa nama pulau besar yang terletak 321,8 km di sebelah barat laut Islandia?"
 	},
 	"trivia_medium_009_answer0": {
 		"message": "Greenland"
@@ -3243,7 +3291,7 @@
 		"message": "Estonia"
 	},
 	"trivia_medium_020_answer1": {
-		"message": "Libya"
+		"message": "Libia"
 	},
 	"trivia_medium_020_answer2": {
 		"message": "Kamboja"
@@ -3261,7 +3309,7 @@
 		"message": "Helsinki"
 	},
 	"trivia_medium_022": {
-		"message": "Apa nama ibu kota yang terletak 25 mil di sebelah timur laut dari Laut Mati dan merupakan kota yang paling padat penduduknya di Yordania?"
+		"message": "Apa nama ibu kota yang terletak 40,2 km di sebelah timur laut dari Laut Mati dan merupakan kota yang paling padat penduduknya di Yordania?"
 	},
 	"trivia_medium_022_answer0": {
 		"message": "Amman"
@@ -3273,7 +3321,7 @@
 		"message": "Seoul"
 	},
 	"trivia_medium_023": {
-		"message": "Terletak di ibu kota manakah Alun-alun Tahrir, yang merupakan titik fokus beberapa unjuk rasa besar rakyat Meksir?"
+		"message": "Terletak di ibu kota manakah Alun-alun Tahrir, yang merupakan titik fokus beberapa unjuk rasa berskala besar rakyat Meksir?"
 	},
 	"trivia_medium_023_answer0": {
 		"message": "Kairo"
@@ -3297,7 +3345,7 @@
 		"message": "Kinshasa"
 	},
 	"trivia_medium_025": {
-		"message": "Apa nama ibu kota yang terletak di Sungai Vltava dan merupakan kota\nterbesar di Republik Ceko?"
+		"message": "Apa nama ibu kota yang terletak di Sungai Vltava dan merupakan kota\nterbesar di Republik Cheska?"
 	},
 	"trivia_medium_025_answer0": {
 		"message": "Praha"
@@ -3309,7 +3357,7 @@
 		"message": "Sofia"
 	},
 	"trivia_medium_026": {
-		"message": "Apa nama ibu kota yang terletak di Laut Mediterania dan merupakan pelabuhan penting bagi Libya?"
+		"message": "Apa nama ibu kota yang terletak di Laut Mediterania dan merupakan pelabuhan penting bagi Libia?"
 	},
 	"trivia_medium_026_answer0": {
 		"message": "Tripoli"
@@ -3453,7 +3501,7 @@
 		"message": "Eropa"
 	},
 	"trivia_medium_038": {
-		"message": "Gurun Great Victoria dan Dataran Nullarbor merupakan ciri-ciri fisik dari benua apa?"
+		"message": "Gurun Victoria Besar dan Dataran Nullarbor merupakan bentang alam terkenal dari benua apa?"
 	},
 	"trivia_medium_038_answer0": {
 		"message": "Australia"
@@ -3477,7 +3525,7 @@
 		"message": "Jerman"
 	},
 	"trivia_medium_040": {
-		"message": "Terletak di negara manakah kota Novosibirsk yang ada di Sungai Ob?"
+		"message": "Terletak di negara manakah kota Novosibirsk yang ada di tepian Sungai Ob?"
 	},
 	"trivia_medium_040_answer0": {
 		"message": "Rusia"
@@ -3486,7 +3534,7 @@
 		"message": "Nepal"
 	},
 	"trivia_medium_040_answer2": {
-		"message": "Cina"
+		"message": "China"
 	},
 	"trivia_medium_041": {
 		"message": "Negara manakah yang terletak di Lingkar Pasifik dan lebih mungkin mengalami gempa bumi?"
@@ -3828,7 +3876,7 @@
 		"message": "Terletak di bagian timur laut negara manakah wilayah yang sebelumnya dikenal dengan nama Manchuria?"
 	},
 	"trivia_medium_069_answer0": {
-		"message": "Cina"
+		"message": "China"
 	},
 	"trivia_medium_069_answer1": {
 		"message": "Belarus"
@@ -3957,7 +4005,7 @@
 		"message": "Bangladesh"
 	},
 	"trivia_medium_080": {
-		"message": "Negara manakah di Antilla Besar yang menggunakan Bahasa Inggris sebagai bahasa resminya?"
+		"message": "Negara manakah di Kepulauan Antilles Besar yang menggunakan bahasa Inggris sebagai bahasa resminya?"
 	},
 	"trivia_medium_080_answer0": {
 		"message": "Jamaika"
@@ -4017,7 +4065,7 @@
 		"message": "Yunani"
 	},
 	"trivia_medium_085": {
-		"message": "Sungai Brahmaputra, yang mengalir ke sebuah delta besar dekat Teluk Benggala, bersumber dari rangkaian pegunungan besar apa?"
+		"message": "Sungai Brahmaputra, yang mengalir ke sebuah delta besar di dekat Teluk Benggala, bersumber dari rangkaian pegunungan besar apa?"
 	},
 	"trivia_medium_085_answer0": {
 		"message": "Himalaya"
@@ -4038,10 +4086,10 @@
 		"message": "Kuwait"
 	},
 	"trivia_medium_086_answer2": {
-		"message": "Libya"
+		"message": "Libia"
 	},
 	"trivia_medium_087": {
-		"message": "Orang-orang menonton penampilan matador beradu dengan banteng di kota Seville, sebuah kota di negara mana di Eropa?"
+		"message": "Bila ingin menonton pertunjukan matador beradu dengan banteng, kita harus pergi ke kota Sevilla di benua Eropa. Terletak di negara manakah kota itu?"
 	},
 	"trivia_medium_087_answer0": {
 		"message": "Spanyol"
@@ -4059,7 +4107,7 @@
 		"message": "Turki"
 	},
 	"trivia_medium_088_answer1": {
-		"message": "Slowakia"
+		"message": "Slovakia"
 	},
 	"trivia_medium_088_answer2": {
 		"message": "Oman"
@@ -4146,7 +4194,7 @@
 		"message": "Alberta"
 	},
 	"trivia_medium_095_answer2": {
-		"message": "Kolombia Inggris"
+		"message": "British Columbia"
 	},
 	"trivia_medium_096": {
 		"message": "Laut Balearik dan Laut Ionia merupakan bagian dari laut apa?"
@@ -4161,7 +4209,7 @@
 		"message": "Laut Karibia"
 	},
 	"trivia_medium_097": {
-		"message": "Terletak di benua manakah Danau Turkana dan Danau Natron, yang merupakan contoh danau lembah retak?"
+		"message": "Terletak di benua manakah Danau Turkana dan Danau Natron, yang termasuk dalam kumpulan danau lembah celah besar?"
 	},
 	"trivia_medium_097_answer0": {
 		"message": "Afrika"

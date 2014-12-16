@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "A viagem do Pai Natal com o Google Maps dá-lhe as boas-vindas!"
 	},
+	"ae_country_name": {
+		"message": "Emirados Árabes Unidos"
+	},
 	"af_country_name": {
 		"message": "Afeganistão"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Árabe"
 	},
 	"ar_tradition": {
 		"message": "Na Argentina, o Natal começa logo à meia-noite. Muitas famílias iniciam o feriado com celebrações festivas em casa, a abertura de presentes com os entes queridos e a iluminação de fogo de artifício, nas primeiras horas da manhã."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Na Austrália, a localização do hemisfério sul implica que seja verão em dezembro. Em vez de sinos em trenós e cacau, muitos australianos vão até à praia para celebrar o feriado com um almoço de gambas e jogar críquete."
 	},
+	"ba_country_name": {
+		"message": "Bósnia e Herzegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladeche"
 	},
 	"be_country_name": {
 		"message": "Bélgica"
+	},
+	"bf_country_name": {
+		"message": "Burquina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgária"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Butão"
+	},
+	"bw_country_name": {
+		"message": "Botsuana"
 	},
 	"by_country_name": {
 		"message": "Bielorrússia"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Enviar"
 	},
+	"cd_country_name": {
+		"message": "República Democrática do Congo"
+	},
 	"cf_country_name": {
 		"message": "República Centro-Africana"
 	},
+	"cg_country_name": {
+		"message": "República do Congo"
+	},
 	"ch_country_name": {
 		"message": "Suíça"
+	},
+	"ci_country_name": {
+		"message": "Costa do Marfim"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -111,25 +135,25 @@
 		"message": "este"
 	},
 	"codelab-block-moveeast-tooltip": {
-		"message": "Mover-me um espaço para este."
+		"message": "Mover-me um espaço na direção este."
 	},
 	"codelab-block-movenorth": {
 		"message": "norte"
 	},
 	"codelab-block-movenorth-tooltip": {
-		"message": "Mover-me um espaço para norte."
+		"message": "Mover-me um espaço na direção norte."
 	},
 	"codelab-block-movesouth": {
 		"message": "sul"
 	},
 	"codelab-block-movesouth-tooltip": {
-		"message": "Mover-me um espaço para sul."
+		"message": "Mover-me um espaço na direção sul."
 	},
 	"codelab-block-movewest": {
 		"message": "oeste"
 	},
 	"codelab-block-movewest-tooltip": {
-		"message": "Mover-me um espaço para oeste."
+		"message": "Mover-me um espaço na direção oeste."
 	},
 	"codelab-block-repeat": {
 		"message": "repetir"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Alemanha"
+	},
+	"de_language_name": {
+		"message": "Alemão"
 	},
 	"de_tradition": {
 		"message": "Em quase todas as cidades alemãs, os mercados de Natal são realizados em praças. Os habitantes das cidades reúnem-se para ouvir as bandas e usufruir do comércio tradicional da região. Comem corações feitos de pão de gengibre, amêndoas doces, guloseimas de toda a espécie e bebem vinho quente com açúcar (Glühwein) ou cidra de maçã."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Cazaquistão"
 	},
+	"la_country_name": {
+		"message": "RDP do Laos"
+	},
 	"language": {
 		"message": "Idioma"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanca"
 	},
+	"lr_country_name": {
+		"message": "Libéria"
+	},
 	"lt_country_name": {
 		"message": "Lituânia"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldávia"
 	},
+	"mg_country_name": {
+		"message": "Madagáscar"
+	},
 	"minutes": {
 		"message": "Minutos"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritânia"
+	},
+	"mw_country_name": {
+		"message": "Malaui"
 	},
 	"mx_country_name": {
 		"message": "México"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Peru"
 	},
+	"pg_country_name": {
+		"message": "Papua-Nova Guiné"
+	},
 	"ph_country_name": {
 		"message": "Filipinas"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Eslováquia"
 	},
+	"sl_country_name": {
+		"message": "Serra Leoa"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Termos e privacidade"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Incline o seu dispositivo!"
@@ -4227,7 +4275,7 @@
 		"message": "No Reino Unido, foliões de todas as idades desfrutam de bombons explosivos de Natal à mesa de jantar. Os bombons explosivos são tubos enrolados em papel colorido, com abas para se puxar em cada extremidade. Quando puxa as abas, o tubo rebenta com um estouro e de lá de dentro saltam chapéus de papel, brinquedos e doces para desfrutar na noite de Natal."
 	},
 	"upgrade-warning": {
-		"message": "Ups! A viagem do Pai Natal não é suportada nesta versão do seu navegador. Para aceder a este produto, transfira um navegador moderno. Para mais informações, visite \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ups! A viagem do Pai Natal não é suportada nesta versão do seu navegador. Para aceder a este produto, transfira um navegador mais atual. Para mais informações, visite \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"

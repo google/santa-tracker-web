@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "歡迎使用 Google 聖誕老人追蹤器！"
 	},
+	"ae_country_name": {
+		"message": "阿拉伯聯合大公國"
+	},
 	"af_country_name": {
 		"message": "阿富汗"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "阿根廷"
+	},
+	"ar_language_name": {
+		"message": "阿拉伯語"
 	},
 	"ar_tradition": {
 		"message": "阿根廷的聖誕節準時從午夜開始。許多家庭會在家中舉辦節慶活動、與親人一起拆禮物，並且在凌晨燃放煙火，為假期揭開序幕。"
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "地處南半球的澳洲到了十二月會進入夏季。這裡不流行雪橇鈴聲和熱可可，許多澳洲人會擁抱海灘，用一頓大蝦午餐來歡慶佳節，並且玩幾回合的板球。"
 	},
+	"ba_country_name": {
+		"message": "波士尼亞與赫塞哥維納"
+	},
 	"bd_country_name": {
 		"message": "孟加拉"
 	},
 	"be_country_name": {
 		"message": "比利時"
+	},
+	"bf_country_name": {
+		"message": "布吉納法索"
 	},
 	"bg_country_name": {
 		"message": "保加利亞"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "不丹"
+	},
+	"bw_country_name": {
+		"message": "波札那"
 	},
 	"by_country_name": {
 		"message": "白俄羅斯"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "傳送"
 	},
+	"cd_country_name": {
+		"message": "剛果民主共和國"
+	},
 	"cf_country_name": {
 		"message": "中非共和國"
 	},
+	"cg_country_name": {
+		"message": "剛果共和國"
+	},
 	"ch_country_name": {
 		"message": "瑞士"
+	},
+	"ci_country_name": {
+		"message": "象牙海岸"
 	},
 	"cl_country_name": {
 		"message": "智利"
@@ -111,25 +135,25 @@
 		"message": "東"
 	},
 	"codelab-block-moveeast-tooltip": {
-		"message": "東移一格。"
+		"message": "把我往東移一格。"
 	},
 	"codelab-block-movenorth": {
 		"message": "北"
 	},
 	"codelab-block-movenorth-tooltip": {
-		"message": "北移一格。"
+		"message": "把我往北移一格。"
 	},
 	"codelab-block-movesouth": {
 		"message": "南"
 	},
 	"codelab-block-movesouth-tooltip": {
-		"message": "南移一格。"
+		"message": "把我往南移一格。"
 	},
 	"codelab-block-movewest": {
 		"message": "西"
 	},
 	"codelab-block-movewest-tooltip": {
-		"message": "西移一格。"
+		"message": "把我往西移一格。"
 	},
 	"codelab-block-repeat": {
 		"message": "重複"
@@ -141,7 +165,7 @@
 		"message": "重複某些陳述式幾次。"
 	},
 	"codelab-block-whenrun": {
-		"message": "執行時"
+		"message": "從頭開始"
 	},
 	"codelab-finish": {
 		"message": "完成"
@@ -150,7 +174,7 @@
 		"message": "太棒了"
 	},
 	"codelab-mwc-promo": {
-		"message": "前往 \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e 進一步瞭解 Google 編碼專案。"
+		"message": "前往 \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e 進一步瞭解 Google 程式編寫專案。"
 	},
 	"codelab-next-challenge": {
 		"message": "下一關"
@@ -162,22 +186,22 @@
 		"message": "「重複」方塊裡面要有其他方塊才能運作。"
 	},
 	"codelab-result-extra-top-block-fail": {
-		"message": "某些方塊拼湊錯誤。"
+		"message": "有些方塊拼錯了。"
 	},
 	"codelab-result-generic-fail": {
 		"message": "看來您迷路了！"
 	},
 	"codelab-result-missing-block-fail": {
-		"message": "您可以用下面一或多個方塊來完成這個拼圖。"
+		"message": "您可以用下面一個或幾個方塊來完成這個拼圖。"
 	},
 	"codelab-result-missing-block-success": {
-		"message": "您知道嗎？您只要用 {{ideal}} 個方塊就能完成這一關！建議您用下面的方塊。"
+		"message": "您知道嗎？只要用 {{ideal}} 個方塊就能完成這一關！試試下面的方塊吧。"
 	},
 	"codelab-result-perfect-success": {
-		"message": "恭喜！您完成了這個拼圖，表現很好！"
+		"message": "恭喜！您完成了這個拼圖，真棒！"
 	},
 	"codelab-result-too-few-blocks-fail": {
-		"message": "您所用的方塊正確，但建議您多用一些方塊來完成這個拼圖。"
+		"message": "您選擇的方塊正確，只要再多用幾個方塊就能完成這個拼圖。"
 	},
 	"codelab-result-too-many-blocks-success": {
 		"message": "您知道嗎？您只要用 {{ideal}} 個方塊就能完成這一關！"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "德國"
+	},
+	"de_language_name": {
+		"message": "德語"
 	},
 	"de_tradition": {
 		"message": "幾乎每個德國小鎮都會在鎮廣場舉辦聖誕市集。鎮民聚在一起聆聽銅管樂隊演奏，享受當地的傳統美食。他們會吃心型薑餅、糖烤杏仁和各種甜點，並喝香料酒 (Glühwein) 或蘋果酒。"
@@ -270,7 +297,7 @@
 		"message": "遊戲結束！"
 	},
 	"gameover_level": {
-		"message": "您過到的關卡："
+		"message": "您挑戰成功的最高關卡："
 	},
 	"gameover_score": {
 		"message": "您的分數："
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "哈薩克"
 	},
+	"la_country_name": {
+		"message": "寮國"
+	},
 	"language": {
 		"message": "語言"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "斯里蘭卡"
 	},
+	"lr_country_name": {
+		"message": "賴比瑞亞"
+	},
 	"lt_country_name": {
 		"message": "立陶宛"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "摩爾多瓦"
 	},
+	"mg_country_name": {
+		"message": "馬達加斯加"
+	},
 	"minutes": {
 		"message": "分"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "茅利塔尼亞"
+	},
+	"mw_country_name": {
+		"message": "馬拉威"
 	},
 	"mx_country_name": {
 		"message": "墨西哥"
@@ -468,13 +507,16 @@
 		"message": "掌握聖誕老人的行蹤"
 	},
 	"openingtomorrow": {
-		"message": "明日盛大開幕"
+		"message": "明日盛大推出"
 	},
 	"pa_country_name": {
 		"message": "巴拿馬"
 	},
 	"pe_country_name": {
 		"message": "秘魯"
+	},
+	"pg_country_name": {
+		"message": "巴布亞紐幾內亞"
 	},
 	"ph_country_name": {
 		"message": "菲律賓"
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "斯洛伐克"
 	},
+	"sl_country_name": {
+		"message": "獅子山"
+	},
 	"sn_country_name": {
 		"message": "塞內加爾"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "條款與隱私權"
+	},
+	"tg_country_name": {
+		"message": "多哥"
 	},
 	"tilt": {
 		"message": "將裝置右傾或左傾！"
@@ -885,7 +933,7 @@
 		"message": "北卡羅萊那州"
 	},
 	"trivia_beginner_026": {
-		"message": "要參觀猛獁洞並前往丘吉爾唐斯 (Churchill Downs) 觀看賽馬，應前往美國的哪一州？"
+		"message": "要參觀猛獁洞並前往丘吉爾唐斯觀看賽馬，應前往美國的哪一州？"
 	},
 	"trivia_beginner_026_answer0": {
 		"message": "肯塔基州"
@@ -1677,7 +1725,7 @@
 		"message": "南達科他州"
 	},
 	"trivia_beginner_092": {
-		"message": "美國的哪一州有「孤星州」之稱，州旗上有一顆星星，且曾經是個獨立國家？"
+		"message": "美國的哪一州有「孤星州」之稱，州旗上有一顆星星，且曾經是獨立國家？"
 	},
 	"trivia_beginner_092_answer0": {
 		"message": "德州"

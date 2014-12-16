@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Dobro došli u Slijedi Djeda Božićnjaka na Google kartama!"
 	},
+	"ae_country_name": {
+		"message": "Ujedinjeni Arapski Emirati"
+	},
 	"af_country_name": {
 		"message": "Afganistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "arapski"
 	},
 	"ar_tradition": {
 		"message": "U Argentini Božić počinje točno u ponoć. Mnoge obitelji blagdan počinju proslavama u svojim domovima, otvaranjem poklona u društvu najmilijih i održavanjem vatrometa u ranim jutarnjim satima."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Smještaj Australije na južnoj hemisferi znači da je u prosincu ljetno doba. Umjesto uz sanjke i kakao, mnogi Australci blagdane slave na plažama uz ručak od račića i igranje kriketa."
 	},
+	"ba_country_name": {
+		"message": "Bosna i Hercegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladeš"
 	},
 	"be_country_name": {
 		"message": "Belgija"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bugarska"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Butan"
+	},
+	"bw_country_name": {
+		"message": "Bocvana"
 	},
 	"by_country_name": {
 		"message": "Bjelorusija"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Pošalji"
 	},
+	"cd_country_name": {
+		"message": "Demokratska Republika Kongo"
+	},
 	"cf_country_name": {
 		"message": "Srednjoafrička Republika"
 	},
+	"cg_country_name": {
+		"message": "Republika Kongo"
+	},
 	"ch_country_name": {
 		"message": "Švicarska"
+	},
+	"ci_country_name": {
+		"message": "Bjelokosna Obala"
 	},
 	"cl_country_name": {
 		"message": "Čile"
@@ -138,7 +162,7 @@
 		"message": "put(a)"
 	},
 	"codelab-block-repeat-tooltip": {
-		"message": "Ponovite neke naredbe nekoliko puta."
+		"message": "Ponovi neke naredbe nekoliko puta."
 	},
 	"codelab-block-whenrun": {
 		"message": "kada se pokrene"
@@ -150,7 +174,7 @@
 		"message": "Odlično"
 	},
 	"codelab-mwc-promo": {
-		"message": "Istražite više Googleovih projekata pisanja koda na adresi \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Istraži više Googleovih projekata pisanja koda na adresi \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Sljedeći izazov"
@@ -165,22 +189,22 @@
 		"message": "Neki blokovi nisu ispravno povezani."
 	},
 	"codelab-result-generic-fail": {
-		"message": "Čini se da ste izgubili!"
+		"message": "Čini se da si se izgubio!"
 	},
 	"codelab-result-missing-block-fail": {
-		"message": "Isprobajte jedan ili više blokova u nastavku da biste riješili ovu zagonetku."
+		"message": "Isprobaj jedan ili više blokova u nastavku da riješiš ovu zagonetku."
 	},
 	"codelab-result-missing-block-success": {
-		"message": "Jeste li znali da možete dovršiti ovu razinu već pomoću sljedećeg broja blokova: {{ideal}}? Pokušajte upotrijebiti blok u nastavku."
+		"message": "Znaš li da ovu razinu možeš završiti sa svega ovoliko blokova: {{ideal}}? Pokušaj upotrijebiti blok u nastavku."
 	},
 	"codelab-result-perfect-success": {
-		"message": "Čestitamo! Savršeno ste riješili zagonetku."
+		"message": "Čestitamo! Slagalica je riješena."
 	},
 	"codelab-result-too-few-blocks-fail": {
-		"message": "Upotrebljavate odgovarajuće blokove, no pokušajte ih više upotrijebiti da biste riješili ovu zagonetku."
+		"message": "Upotrebljavaš prave blokove, ali pokušaj ih dodati više da riješiš zagonetku."
 	},
 	"codelab-result-too-many-blocks-success": {
-		"message": "Jeste li znali da možete dovršiti ovu razinu već sa sljedećim brojem blokova: {{ideal}}?"
+		"message": "Znaš li da ovu razinu možeš dovršiti sa samo ovoliko blokova: {{ideal}}?"
 	},
 	"codelab-try-again": {
 		"message": "Pokušaj ponovno"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Njemačka"
+	},
+	"de_language_name": {
+		"message": "njemački"
 	},
 	"de_tradition": {
 		"message": "U gotovo svim njemačkim gradovima na trgovima se otvaraju božićni sajmovi. Građani se okupljaju da bi čuli limenu glazbu i uživali u tradicionalnim jelima regije. Jedu medena srca, pržene ušećerene bademe i slatkiše svih vrsta te piju kuhano vino (Glühwein) ili jabukovaču."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazahstan"
 	},
+	"la_country_name": {
+		"message": "NDR Laos"
+	},
 	"language": {
 		"message": "Jezik"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Šri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Liberija"
+	},
 	"lt_country_name": {
 		"message": "Litva"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldavija"
 	},
+	"mg_country_name": {
+		"message": "Madagaskar"
+	},
 	"minutes": {
 		"message": "min"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritanija"
+	},
+	"mw_country_name": {
+		"message": "Malavi"
 	},
 	"mx_country_name": {
 		"message": "Meksiko"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Peru"
 	},
+	"pg_country_name": {
+		"message": "Papua Nova Gvineja"
+	},
 	"ph_country_name": {
 		"message": "Filipini"
 	},
@@ -531,13 +573,16 @@
 		"message": "Dijeli s prijateljima na Google+"
 	},
 	"share-text": {
-		"message": "Napravio sam ovu razglednicu za tebe u aplikaciji Slijedi Djeda Božićnjaka s Googleom. Sretni blagdani!"
+		"message": "Ova je razglednica moj dar za tebe iz aplikacije Slijedi Djeda Božićnjaka s Googleom. Sretni blagdani!"
 	},
 	"share-this": {
 		"message": "Dijeli"
 	},
 	"sk_country_name": {
 		"message": "Slovačka"
+	},
+	"sl_country_name": {
+		"message": "Sijera Leone"
 	},
 	"sn_country_name": {
 		"message": "Senegal"
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Uvjeti i privatnost"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Nagni uređaj!"
@@ -4227,7 +4275,7 @@
 		"message": "U Ujedinjenom Kraljevstvu veseljaci svih dobi uživaju u božićnim praskavcima uz večeru. Praskavci su valjci omotani šarenim papirom s jezičcima za povlačenje na oba kraja. Kada te jezičke povučete, valjak se raspukne uz glasan prasak! Unutar njega nalaze se papirnate kape, igračke i slatkiši za zabavu na Badnjak."
 	},
 	"upgrade-warning": {
-		"message": "Kampanja Slijedite Djeda Božićnjaka nije podržana u ovoj verziji vašeg preglednika. Da biste pristupili kampanji Slijedite Djeda Božićnjaka, preuzmite suvremeniji preglednik. Više informacija potražite na adresi \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Aplikacija Slijedi Djeda Božićnjaka nije podržana u ovoj verziji tvog preglednika. Da ti bude dostupna, preuzmi suvremeniji preglednik. Više informacija potraži na adresi \u003ca href=\"http://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Sjedinjene Američke Države"

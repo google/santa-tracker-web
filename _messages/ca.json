@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Us donem la benvinguda a Segueix el Pare Noel!"
 	},
+	"ae_country_name": {
+		"message": "Emirats Àrabs Units"
+	},
 	"af_country_name": {
 		"message": "Afganistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Àrab"
 	},
 	"ar_tradition": {
 		"message": "A l'Argentina, el Nadal comença just a mitjanit. Moltes famílies comencen les vacances amb celebracions festives a casa i obren els regals amb els seus éssers estimats. També encenen focs d'artifici a primera hora del matí."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Com que Austràlia es troba a l'hemisferi sud del planeta, al desembre és estiu. Molts australians, en comptes de sentir cascavells i menjar xocolata, van de vacances a la platja, fan mariscades per dinar i juguen al criquet."
 	},
+	"ba_country_name": {
+		"message": "Bòsnia i Hercegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangla Desh"
 	},
 	"be_country_name": {
 		"message": "Bèlgica"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgària"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
 	},
 	"by_country_name": {
 		"message": "Bielorússia"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Envia"
 	},
+	"cd_country_name": {
+		"message": "República Democràtica del Congo"
+	},
 	"cf_country_name": {
 		"message": "República Centreafricana"
 	},
+	"cg_country_name": {
+		"message": "República del Congo"
+	},
 	"ch_country_name": {
 		"message": "Suïssa"
+	},
+	"ci_country_name": {
+		"message": "Costa d'Ivori"
 	},
 	"cl_country_name": {
 		"message": "Xile"
@@ -141,46 +165,46 @@
 		"message": "Repeteix unes quantes combinacions diverses vegades"
 	},
 	"codelab-block-whenrun": {
-		"message": "en ordre"
+		"message": "en executar"
 	},
 	"codelab-finish": {
 		"message": "Finalitza"
 	},
 	"codelab-great": {
-		"message": "Fantàstic"
+		"message": "Fantàstic!"
 	},
 	"codelab-mwc-promo": {
 		"message": "Exploreu més productes de codificació de Google a \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
-		"message": "Proper desafiament"
+		"message": "Desafiament següent"
 	},
 	"codelab-oops": {
 		"message": "Vaja!"
 	},
 	"codelab-result-empty-repeat-fail": {
-		"message": "Perquè vagi bé, el bloc de repetició ha de contenir altres blocs."
+		"message": "Perquè funcioni, la peça Repeteix ha de contenir altres peces."
 	},
 	"codelab-result-extra-top-block-fail": {
-		"message": "Hi ha blocs que no estan ben connectats."
+		"message": "Hi ha peces que no estan ben connectades."
 	},
 	"codelab-result-generic-fail": {
 		"message": "Sembla que us heu perdut."
 	},
 	"codelab-result-missing-block-fail": {
-		"message": "Proveu un o més dels blocs que es mostren a continuació per resoldre aquest trencaclosques."
+		"message": "Proveu una d'aquestes peces, o algunes, per resoldre aquest trencaclosques."
 	},
 	"codelab-result-missing-block-success": {
-		"message": "Sabeu que només us queden {{ideal}} blocs per acabar aquest nivell? Proveu de fer servir el bloc que trobareu a continuació."
+		"message": "Sabeu que només us falten {{ideal}} peces per acabar aquest nivell? Proveu de fer servir la peça que trobareu més avall."
 	},
 	"codelab-result-perfect-success": {
 		"message": "L'enhorabona. Heu resolt el trencaclosques a la perfecció."
 	},
 	"codelab-result-too-few-blocks-fail": {
-		"message": "Feu servir els blocs correctes, però proveu d'utilitzar-ne més per resoldre aquest trencaclosques."
+		"message": "Esteu fent servir les peces correctes, però proveu d'utilitzar-ne més per resoldre aquest trencaclosques."
 	},
 	"codelab-result-too-many-blocks-success": {
-		"message": "Sabeu que només us falten {{ideal}} blocs per acabar aquest nivell?"
+		"message": "Sabeu que només us falten {{ideal}} peces per finalitzar aquest nivell?"
 	},
 	"codelab-try-again": {
 		"message": "Torna-ho a provar"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Alemanya"
+	},
+	"de_language_name": {
+		"message": "Alemany"
 	},
 	"de_tradition": {
 		"message": "A gairebé tots els pobles d'Alemanya, s'obren mercats de Nadal a les places. Els ciutadans surten als carrers per sentir les xarangues i gaudeixen de la beguda i del menjar típics de la regió: cors de gingebre, ametlles garapinyades, llaminadures de tot tipus, Glühwein (vi calent) i sidra de poma."
@@ -273,7 +300,7 @@
 		"message": "Heu arribat al nivell:"
 	},
 	"gameover_score": {
-		"message": "La teva puntuació:"
+		"message": "Puntuació:"
 	},
 	"getgooglemaps": {
 		"message": "Obtén Google Maps"
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
+	"la_country_name": {
+		"message": "Laos"
+	},
 	"language": {
 		"message": "Idioma"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Libèria"
+	},
 	"lt_country_name": {
 		"message": "Lituània"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldàvia"
 	},
+	"mg_country_name": {
+		"message": "Madagascar"
+	},
 	"minutes": {
 		"message": "Minuts"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritània"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
 	},
 	"mx_country_name": {
 		"message": "Mèxic"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Perú"
 	},
+	"pg_country_name": {
+		"message": "Papua Nova Guinea"
+	},
 	"ph_country_name": {
 		"message": "Filipines"
 	},
@@ -489,7 +531,7 @@
 		"message": "Jocs"
 	},
 	"playagain": {
-		"message": "Torneu a jugar"
+		"message": "Torna a jugar"
 	},
 	"playdescription": {
 		"message": "Jugueu amb els vostres amics a l'aplicació Segueix el Pare Noel per a Android."
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Eslovàquia"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -557,11 +602,14 @@
 	"terms-and-privacy": {
 		"message": "Ús i privadesa"
 	},
+	"tg_country_name": {
+		"message": "Togo"
+	},
 	"tilt": {
 		"message": "Inclina el dispositiu"
 	},
 	"time": {
-		"message": "Hora"
+		"message": "Temps"
 	},
 	"tj_country_name": {
 		"message": "Tadjikistan"

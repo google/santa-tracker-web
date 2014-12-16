@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Willkommen bei Google Maps – auf den Spuren des Weihnachtsmanns"
 	},
+	"ae_country_name": {
+		"message": "Vereinigte Arabische Emirate"
+	},
 	"af_country_name": {
 		"message": "Afghanistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentinien"
+	},
+	"ar_language_name": {
+		"message": "Arabisch"
 	},
 	"ar_tradition": {
 		"message": "In Argentinien beginnt Weihnachten pünktlich um Mitternacht. Viele Familien schmücken ihr Zuhause festlich und beginnen das Fest mit dem Öffnen der Geschenke im Familienkreis. In den frühen Morgenstunden zünden sie ein Feuerwerk an."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Da Australien so weit südlich liegt, ist es dort im Dezember Sommer. Statt mit Schlitten und Kakao feiern die Australier Weihnachten am Strand, essen Krabben und spielen ein paar Runden Kricket."
 	},
+	"ba_country_name": {
+		"message": "Bosnien und Herzegowina"
+	},
 	"bd_country_name": {
 		"message": "Bangladesch"
 	},
 	"be_country_name": {
 		"message": "Belgien"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgarien"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botsuana"
 	},
 	"by_country_name": {
 		"message": "Belarus"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Senden"
 	},
+	"cd_country_name": {
+		"message": "Demokratische Republik Kongo"
+	},
 	"cf_country_name": {
 		"message": "Zentralafrikanische Republik"
 	},
+	"cg_country_name": {
+		"message": "Kongo"
+	},
 	"ch_country_name": {
 		"message": "Schweiz"
+	},
+	"ci_country_name": {
+		"message": "Côte d'Ivoire"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Deutschland"
+	},
+	"de_language_name": {
+		"message": "Deutsch"
 	},
 	"de_tradition": {
 		"message": "In nahezu jeder deutschen Stadt gibt es einen Weihnachtsmarkt. Die Menschen kommen zusammen, lauschen einer Blaskapelle, die Weihnachtslieder spielt, und genießen die traditionelle Küche der Region. Sie essen Lebkuchenherzen, geröstete Zuckermandeln, Süßigkeiten und trinken Glühwein oder Apfelwein."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kasachstan"
 	},
+	"la_country_name": {
+		"message": "Laos"
+	},
 	"language": {
 		"message": "Sprache"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
 	"lt_country_name": {
 		"message": "Litauen"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Republik Moldau"
 	},
+	"mg_country_name": {
+		"message": "Madagaskar"
+	},
 	"minutes": {
 		"message": "Minuten"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauretanien"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
 	},
 	"mx_country_name": {
 		"message": "Mexiko"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "Peru"
 	},
+	"pg_country_name": {
+		"message": "Papua-Neuguinea"
+	},
 	"ph_country_name": {
 		"message": "Philippinen"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Slowakei"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Nutzungsbedingungen/Datenschutz"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Neige dein Gerät."

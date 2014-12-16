@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "Bun venit Pe urmele lui Moș Crăciun în Google Maps!"
 	},
+	"ae_country_name": {
+		"message": "Emiratele Arabe Unite"
+	},
 	"af_country_name": {
 		"message": "Afganistan"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Arabă"
 	},
 	"ar_tradition": {
 		"message": "În Argentina, Crăciunul începe fix la miezul nopții. Multe familii încep sărbătoarea cu reuniuni festive în casele lor, deschid cadouri alături de cei dragi și aprind artificii la primele ore ale dimineții."
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "Pentru că Australia se află în emisfera sudică, în luna decembrie este vară. În loc de sănii cu zurgălăi și ciocolată caldă, mulți australieni își petrec sărbătorile cu un prânz cu creveți și câteva jocuri de crichet, pe plajă."
 	},
+	"ba_country_name": {
+		"message": "Bosnia și Herțegovina"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
 	"be_country_name": {
 		"message": "Belgia"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
 	},
 	"bg_country_name": {
 		"message": "Bulgaria"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
 	},
 	"by_country_name": {
 		"message": "Belarus"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "Trimite"
 	},
+	"cd_country_name": {
+		"message": "Republica Democrată Congo"
+	},
 	"cf_country_name": {
 		"message": "Republica Centrafricană"
 	},
+	"cg_country_name": {
+		"message": "Republica Congo"
+	},
 	"ch_country_name": {
 		"message": "Elveția"
+	},
+	"ci_country_name": {
+		"message": "Coasta de Fildeș"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -138,10 +162,10 @@
 		"message": "ori"
 	},
 	"codelab-block-repeat-tooltip": {
-		"message": "Repetă anumite afirmații de mai multe ori."
+		"message": "Repetă anumite comenzi de mai multe ori."
 	},
 	"codelab-block-whenrun": {
-		"message": "când se rulează"
+		"message": "ordinea"
 	},
 	"codelab-finish": {
 		"message": "Finalizează"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "Germania"
+	},
+	"de_language_name": {
+		"message": "Germană"
 	},
 	"de_tradition": {
 		"message": "În Germania, aproape fiecare orășel are piață de Crăciun. Locuitorii se adună să asculte muzică de fanfară și se bucură de târgurile tradiționale din regiunea lor. Se mănâncă inimioare de turtă dulce, migdale glazurate, dulciuri de toate felurile și se bea vin fiert (Glühwein) sau cidru de mere."
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "Kazahstan"
 	},
+	"la_country_name": {
+		"message": "Republica Democrată Populară Laos"
+	},
 	"language": {
 		"message": "Limbă"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
 	"lt_country_name": {
 		"message": "Lituania"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "Moldova"
 	},
+	"mg_country_name": {
+		"message": "Madagascar"
+	},
 	"minutes": {
 		"message": "minute"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritania"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
 	},
 	"mx_country_name": {
 		"message": "Mexic"
@@ -465,7 +504,7 @@
 		"message": "Oman"
 	},
 	"onthego": {
-		"message": "Moș Crăciun a pornit la drum!"
+		"message": "Moș Crăciun a pornit!"
 	},
 	"openingtomorrow": {
 		"message": "Marea deschidere de mâine"
@@ -475,6 +514,9 @@
 	},
 	"pe_country_name": {
 		"message": "Peru"
+	},
+	"pg_country_name": {
+		"message": "Papua Noua Guinee"
 	},
 	"ph_country_name": {
 		"message": "Filipine"
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "Slovacia"
 	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
 	"sn_country_name": {
 		"message": "Senegal"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "Confidențialitate"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"tilt": {
 		"message": "Înclină dispozitivul!"

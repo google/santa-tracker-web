@@ -14,6 +14,9 @@
 	"about_title": {
 		"message": "欢迎使用 Google 地图追踪圣诞老人！"
 	},
+	"ae_country_name": {
+		"message": "阿拉伯联合酋长国"
+	},
 	"af_country_name": {
 		"message": "阿富汗"
 	},
@@ -25,6 +28,9 @@
 	},
 	"ar_country_name": {
 		"message": "阿根廷"
+	},
+	"ar_language_name": {
+		"message": "阿拉伯语"
 	},
 	"ar_tradition": {
 		"message": "在阿根廷，圣诞节会在午夜准时开场。为了迎接节日，许多家庭会在家中举办庆祝活动、与亲爱之人一起拆开礼物并在凌晨燃放烟花。"
@@ -38,11 +44,17 @@
 	"au_tradition": {
 		"message": "澳大利亚地处南半球，意味着十二月的这里正值仲夏时节。这里没有雪橇铃声和热腾腾的可可，许多澳大利亚人会前往海滩庆祝节日，吃一顿全虾午餐，再打几场板球。"
 	},
+	"ba_country_name": {
+		"message": "波斯尼亚和黑塞哥维那"
+	},
 	"bd_country_name": {
 		"message": "孟加拉"
 	},
 	"be_country_name": {
 		"message": "比利时"
+	},
+	"bf_country_name": {
+		"message": "布基纳法索"
 	},
 	"bg_country_name": {
 		"message": "保加利亚"
@@ -61,6 +73,9 @@
 	},
 	"bt_country_name": {
 		"message": "不丹"
+	},
+	"bw_country_name": {
+		"message": "博茨瓦纳"
 	},
 	"by_country_name": {
 		"message": "白俄罗斯"
@@ -89,11 +104,20 @@
 	"category_send": {
 		"message": "发送"
 	},
+	"cd_country_name": {
+		"message": "刚果民主共和国"
+	},
 	"cf_country_name": {
 		"message": "中非共和国"
 	},
+	"cg_country_name": {
+		"message": "刚果共和国"
+	},
 	"ch_country_name": {
 		"message": "瑞士"
+	},
+	"ci_country_name": {
+		"message": "科特迪瓦"
 	},
 	"cl_country_name": {
 		"message": "智利"
@@ -141,7 +165,7 @@
 		"message": "将某些语句重复数次。"
 	},
 	"codelab-block-whenrun": {
-		"message": "运行时机"
+		"message": "程序开头"
 	},
 	"codelab-finish": {
 		"message": "完成"
@@ -205,6 +229,9 @@
 	},
 	"de_country_name": {
 		"message": "德国"
+	},
+	"de_language_name": {
+		"message": "德语"
 	},
 	"de_tradition": {
 		"message": "几乎每个德国小镇都会在城镇广场开设圣诞市场。市民们聚在一起欣赏铜管乐，并享用当地的传统美食。他们会一边吃心型姜饼、糖烤杏仁以及各种甜点，一边饮用香料热饮酒 (Glühwein) 或苹果酒。"
@@ -359,6 +386,9 @@
 	"kz_country_name": {
 		"message": "哈萨克斯坦"
 	},
+	"la_country_name": {
+		"message": "老挝人民民主共和国"
+	},
 	"language": {
 		"message": "语言"
 	},
@@ -380,6 +410,9 @@
 	"lk_country_name": {
 		"message": "斯里兰卡"
 	},
+	"lr_country_name": {
+		"message": "利比里亚"
+	},
 	"lt_country_name": {
 		"message": "立陶宛"
 	},
@@ -392,6 +425,9 @@
 	"md_country_name": {
 		"message": "摩尔多瓦"
 	},
+	"mg_country_name": {
+		"message": "马达加斯加"
+	},
 	"minutes": {
 		"message": "分钟"
 	},
@@ -403,6 +439,9 @@
 	},
 	"mr_country_name": {
 		"message": "毛里塔尼亚"
+	},
+	"mw_country_name": {
+		"message": "马拉维"
 	},
 	"mx_country_name": {
 		"message": "墨西哥"
@@ -476,6 +515,9 @@
 	"pe_country_name": {
 		"message": "秘鲁"
 	},
+	"pg_country_name": {
+		"message": "巴布亚新几内亚"
+	},
 	"ph_country_name": {
 		"message": "菲律宾"
 	},
@@ -539,6 +581,9 @@
 	"sk_country_name": {
 		"message": "斯洛伐克"
 	},
+	"sl_country_name": {
+		"message": "塞拉利昂"
+	},
 	"sn_country_name": {
 		"message": "塞内加尔"
 	},
@@ -556,6 +601,9 @@
 	},
 	"terms-and-privacy": {
 		"message": "条款与隐私权"
+	},
+	"tg_country_name": {
+		"message": "多哥"
 	},
 	"tilt": {
 		"message": "倾斜您的设备！"

@@ -29,6 +29,9 @@
 	"ar_country_name": {
 		"message": "Argentina"
 	},
+	"ar_language_name": {
+		"message": "Arabic"
+	},
 	"ar_tradition": {
 		"message": "In Argentina, Christmas begins promptly at midnight. Many families kick off the holiday by hosting festive celebrations in their homes, opening gifts with their loved ones, and lighting fireworks in the early hours of the morning."
 	},
@@ -43,6 +46,9 @@
 	},
 	"ba_country_name": {
 		"message": "Bosnia and Herzegovina"
+	},
+	"back_to_tracker": {
+		"message": "Back to Tracker"
 	},
 	"bd_country_name": {
 		"message": "Bangladesh"
@@ -115,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "Côte d'Ivoire"
+	},
+	"citylights-contribute": {
+		"message": "Add your own photos of {{location}}"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, USA"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Pushkin Square"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moscow, Russia"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Vienna, Austria"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Champs-Elysees to the Arc de Triomphe"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Paris, France"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, USA"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Christmas Market"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nuremberg, Germany"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Medellin River"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Colombia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Santa Claus Village"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lapland, Finland"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brussels, Belgium"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar Square"
+	},
+	"citylights-panorama-10-location": {
+		"message": "London, England"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Spain"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokyo, Japan"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Tivoli Gardens"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Copenhagen, Denmark"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapore, Singapore"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Lane of Light"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Gothenburg, Sweden"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Winter Festival of Lights"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagara Falls, Canada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hong Kong, China"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Rodrigo de Freitas Lake"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brazil"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -215,17 +332,26 @@
 	"cr_country_name": {
 		"message": "Costa Rica"
 	},
+	"cs_language_name": {
+		"message": "Czech"
+	},
 	"cu_country_name": {
 		"message": "Cuba"
 	},
 	"cz_country_name": {
 		"message": "Czech Republic"
 	},
+	"da_language_name": {
+		"message": "Danish"
+	},
 	"days": {
 		"message": "Days"
 	},
 	"de_country_name": {
 		"message": "Germany"
+	},
+	"de_language_name": {
+		"message": "German"
 	},
 	"de_tradition": {
 		"message": "In nearly Every German town Christmas markets open in town squares. Townspeople gather to hear brass bands, and enjoy traditional fare of the region. They eat gingerbread hearts, sugar-roasted almonds, sweets of all kinds, and drink mulled wine (Glühwein) or apple cider."
@@ -236,6 +362,12 @@
 	"deckdescription": {
 		"message": "Deck out your browser with a Santa Chrome extension."
 	},
+	"detected": {
+		"message": "detected"
+	},
+	"difficulty": {
+		"message": "Difficulty"
+	},
 	"dk_country_name": {
 		"message": "Denmark"
 	},
@@ -245,11 +377,23 @@
 	"dz_country_name": {
 		"message": "Algeria"
 	},
+	"easy_difficulty": {
+		"message": "Easy"
+	},
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
 	"ee_country_name": {
 		"message": "Estonia"
+	},
+	"el_language_name": {
+		"message": "Greek"
+	},
+	"elvish_language_name": {
+		"message": "Elvish"
+	},
+	"en_language_name": {
+		"message": "English"
 	},
 	"endofjourneymessage": {
 		"message": "Santa's finished his journey for the year! He and the elves are still having some fun in the North Pole before their annual vacation."
@@ -269,6 +413,9 @@
 	"error_try_again": {
 		"message": "Try again"
 	},
+	"es_language_name": {
+		"message": "Spanish"
+	},
 	"et_country_name": {
 		"message": "Ethiopia"
 	},
@@ -280,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "France"
+	},
+	"fr_language_name": {
+		"message": "French"
 	},
 	"fr_tradition": {
 		"message": "In France, children traditionally put their shoes out next to the fireplace in anticipation of Père Noël's arrival. If children have been good throughout the year, Père Noël will fill the shoes with gifts."
@@ -332,6 +482,12 @@
 	"gy_country_name": {
 		"message": "Guyana"
 	},
+	"hard_difficulty": {
+		"message": "Hard"
+	},
+	"hi_language_name": {
+		"message": "Hindi"
+	},
 	"hn_country_name": {
 		"message": "Honduras"
 	},
@@ -347,11 +503,17 @@
 	"hu_country_name": {
 		"message": "Hungary"
 	},
+	"hu_language_name": {
+		"message": "Hungarian"
+	},
 	"id_country_name": {
 		"message": "Indonesia"
 	},
 	"ie_country_name": {
 		"message": "Ireland"
+	},
+	"improve_google_translate": {
+		"message": "Help improve Google Translate"
 	},
 	"iq_country_name": {
 		"message": "Iraq"
@@ -368,6 +530,12 @@
 	"it_country_name": {
 		"message": "Italy"
 	},
+	"it_language_name": {
+		"message": "Italian"
+	},
+	"ja_language_name": {
+		"message": "Japanese"
+	},
 	"jm_country_name": {
 		"message": "Jamaica"
 	},
@@ -376,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "In Kyrgyzstan, Ayaz Ata (Grandfather Frost) comes at midnight on New Year's Eve and leaves presents under the New Year tree. When the clock strikes midnight, families throughout the country light fireworks to celebrate this beautiful occasion. The cities become as bright as day."
+	},
+	"ko_language_name": {
+		"message": "Korean"
 	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
@@ -418,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "Moldova"
+	},
+	"medium_difficulty": {
+		"message": "Medium"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -464,14 +638,23 @@
 	"nl_country_name": {
 		"message": "Netherlands"
 	},
+	"nl_language_name": {
+		"message": "Dutch"
+	},
 	"no_country_name": {
 		"message": "Norway"
+	},
+	"no_language_name": {
+		"message": "Norwegian"
 	},
 	"nonprofit-jane-description": {
 		"message": "Chimpanzees are human being's closest living relatives in the animal kingdom! Today, there are fewer than 300,000 chimpanzees remaining due to habitat loss, disease and illegal trade. The Jane Goodall Institute (JGI) protects chimpanzees by observing and understanding their behaviors as well as the habitats in which they live. JGI also works to build a community of people who are protecting and conserving wildlife and the environment we share. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore the Chimpanzee habitats\u003c/a\u003e in Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpanzee"
+	},
+	"nonprofit-more-information": {
+		"message": "For more information visit:"
 	},
 	"nonprofit-nature-description": {
 		"message": "The Nature Conservancy works to protect and restore forests in the United States and around the world. These iconic forests sustain life around the planet. They filter water, clean our air, support communities of people and provide habitat for important plant and animal species. At the current rate of deforestation, our forests will be wiped out within 100 years. The Nature Conservancy’s Plant a Billion Trees program is working to plant one billion trees by 2025 and restore the world’s most critical forests."
@@ -503,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "Grand opening tomorrow"
 	},
+	"ornament-print-instructions": {
+		"message": "Fold here and glue sides together"
+	},
 	"pa_country_name": {
 		"message": "Panama"
 	},
@@ -521,6 +707,9 @@
 	"pl_country_name": {
 		"message": "Poland"
 	},
+	"pl_language_name": {
+		"message": "Polish"
+	},
 	"play": {
 		"message": "Play"
 	},
@@ -533,6 +722,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"pt_language_name": {
+		"message": "Portuguese"
+	},
 	"py_country_name": {
 		"message": "Paraguay"
 	},
@@ -541,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "Russia"
+	},
+	"ru_language_name": {
+		"message": "Russian"
 	},
 	"ru_tradition": {
 		"message": "Russian children decorate a New Year's tree, instead of a Christmas tree. Children wait with longing for Grandfather Frost who travels with his granddaughter Snowmaiden, delivering presents across the land. Grandfather Frost lives deep in the woods in Veliky Ustyug, in northern Russia."
@@ -575,6 +770,9 @@
 	"sk_country_name": {
 		"message": "Slovakia"
 	},
+	"sk_language_name": {
+		"message": "Slovak"
+	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
 	},
@@ -590,6 +788,9 @@
 	"sv_country_name": {
 		"message": "El Salvador"
 	},
+	"sv_language_name": {
+		"message": "Swedish"
+	},
 	"td_country_name": {
 		"message": "Chad"
 	},
@@ -598,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Thai"
 	},
 	"tilt": {
 		"message": "Tilt your device!"
@@ -617,14 +821,29 @@
 	"tr_country_name": {
 		"message": "Turkey"
 	},
-	"tracker_intro_welcome": {
-		"message": "Welcome to"
+	"tr_language_name": {
+		"message": "Turkish"
 	},
-	"tracker_intro_user_location": {
-		"message": "You are in"
+	"tracker_arriving_in": {
+		"message": "Arriving in"
 	},
-	"tracker_intro_skip_intro": {
-		"message": "Skip intro"
+	"tracker_current_stop": {
+		"message": "Current stop"
+	},
+	"tracker_departing_in": {
+		"message": "Departing in"
+	},
+	"tracker_distance_from_you": {
+		"message": "Distance from you"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Gifts delivered"
+	},
+	"tracker_next_stop": {
+		"message": "Next stop"
+	},
+	"tracker_your_location": {
+		"message": "Your location"
 	},
 	"traditions-next": {
 		"message": "Next Tradition"
@@ -4259,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgaria"
 	},
+	"trivia_ngb_promo": {
+		"message": "Content by the National Geographic Bee"
+	},
 	"tw_country_name": {
 		"message": "Taiwan"
 	},
@@ -4303,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "Yemen"
+	},
+	"zh-CN_language_name": {
+		"message": "Chinese (simplified)"
+	},
+	"zh-TW_language_name": {
+		"message": "Chinese (traditional)"
 	},
 	"zm_country_name": {
 		"message": "Zambia"
