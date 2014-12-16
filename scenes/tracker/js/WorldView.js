@@ -34,11 +34,6 @@ function WorldView(base, componentDir) {
   this.circleView_ = null;
 
   this.throttledFilterMarkers_ = throttle(this.filterMarkers_, 1000);
-<<<<<<< HEAD
-=======
-
-  this.mode_ = 'track';
->>>>>>> origin/trackerworld
 
   this.mode_ = 'track';
 }
@@ -154,7 +149,6 @@ WorldView.prototype.moveSanta = function(state) {
   this.santaLayer_.updateTrail(state);
 
   if (this.lockOnSanta_) {
-<<<<<<< HEAD
     var bounds = this.santaLayer_.getBounds();
     this.map_.fitBounds(bounds);
     if (this.centerOffset_) {
@@ -165,12 +159,6 @@ WorldView.prototype.moveSanta = function(state) {
     } else {
       this.map_.panTo(loc);
     }
-=======
-    // TODO(lukem): Just get the zoom level for the bounds
-    //var bounds = this.santaLayer_.getBounds();
-
-    this.map_.panTo(loc);
->>>>>>> origin/trackerworld
   }
 
   this.throttledFilterMarkers_();
