@@ -72,7 +72,7 @@ Intro for the tracker scene.
     </div>
 
     <div class="skip">
-      <a href="{{pageUrl}}#" on-click="{{skip}}"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
+      <a href="{{pageUrl}}#" on-click="{{closeIntro}}"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
     </div>
   </div>
 
@@ -325,7 +325,7 @@ Intro for the tracker scene.
         this.async(function() {
           santaBubble.open(100);
           this.async(function() {
-           this.skip(); // Remove intro screen after 4s.
+           this.closeIntro(); // Remove intro screen after 4s.
           }, null, 4000);
         }, null, 800);
 
@@ -337,9 +337,9 @@ Intro for the tracker scene.
     /**
      * Hides the intro from view.
      *
-     * @method skip
+     * @method closeIntro
      */
-    skip: function(e, detail, sender) {
+    closeIntro: function(e, detail, sender) {
       e && e.preventDefault();
       this.style.transform = 'translateY(-' + 2 * this.winCenterY_ + 'px)';
       this.classList.add('offscreen');
