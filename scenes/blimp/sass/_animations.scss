@@ -1,0 +1,328 @@
+@import "../../shared/sass/_mixins.scss";
+
+@import "compass/css3/transform";
+
+@include keyframes(cloud) {
+  0% {
+    left: 110%;
+  }
+  100% {
+    left: -10%;
+  }
+}
+
+@include keyframes(propeller1) {
+  0% {
+    background-position: 0 0;
+  }
+  15% {
+    background-position: -40px 0;
+  }
+  30% {
+    background-position: -80px 0;
+  }
+  45% {
+    background-position: -120px 0;
+  }
+  60% {
+    background-position: -160px 0;
+  }
+  75% {
+    background-position: -120px 0;
+  }
+  90% {
+    background-position: -80px 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@include keyframes(propeller2) {
+  0% {
+    background-position: -40px 0;
+  }
+  15% {
+    background-position: -80px 0;
+  }
+  30% {
+    background-position: -120px 0;
+  }
+  45% {
+    background-position: -160px 0;
+  }
+  60% {
+    background-position: -120px 0;
+  }
+  75% {
+    background-position: -80px 0;
+  }
+  90% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -40px 0;
+  }
+}
+
+@include keyframes(propeller3) {
+  0% {
+    background-position: -160px 0;
+  }
+  15% {
+    background-position: -120px 0;
+  }
+  30% {
+    background-position: -80px 0;
+  }
+  45% {
+    background-position: 0 0;
+  }
+  60% {
+    background-position: -40px 0;
+  }
+  75% {
+    background-position: -80px 0;
+  }
+  90% {
+    background-position: -120px 0;
+  }
+  100% {
+    background-position: -160px 0;
+  }
+}
+
+@include keyframes(horizSlide) {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -462px 0;
+  }
+}
+
+@include keyframes(cogs) {
+  0% {
+    background-position: 0 0;
+  }
+  45% {
+    background-position: 0 -25px;
+  }
+  66% {
+    background-position: 0 -50px;
+  }
+  100% {
+    background-position: 0 -75px;
+  }
+}
+
+
+@include keyframes(blink) {
+  0% {
+    top: 0;
+    height: 44px;
+  }
+  10% {
+    top: 0;
+    height: 44px;
+  }
+  11% {
+    top: 22px;
+    height: 0;
+  }
+  12% {
+    top: 0;
+    height: 44px;
+  }
+  50% {
+    top: 0;
+    height: 44px;
+  }
+  51% {
+    top: 22px;
+    height: 0;
+  }
+  52% {
+    top: 0;
+    height: 44px;
+  }
+  100% {
+    top: 0;
+    height: 44px;
+  }
+}
+
+@include keyframes(eyeball) {
+  0% {
+    top: 13px;
+    left: 19px;
+  }
+  20% {
+    top: 13px;
+    left: 19px;
+  }
+  25% {
+    top: 18px;
+    left: 15px;
+  }
+  40% {
+    top: 18px;
+    left: 15px;
+  }
+  45% {
+    top: 17px;
+    left: 5px;
+  }
+  65% {
+    top: 17px;
+    left: 5px;
+  }
+  70% {
+    top: 13px;
+    left: 19px;
+  }
+  100% {
+    top: 13px;
+    left: 19px;
+  }
+}
+
+@include keyframes(flicker) {
+  0% {
+    background-color: #da4537;
+  }
+  10% {
+    background-color: #da4537;
+  }
+  11% {
+    background-color: #de856e;
+  }
+  12% {
+    background-color: #da4537;
+  }
+  40% {
+    background-color: #da4537;
+  }
+  41% {
+    background-color: #de856e;
+  }
+  42% {
+    background-color: #da4537;
+  }
+  43% {
+    background-color: #de856e;
+  }
+  44% {
+    background-color: #da4537;
+  }
+  52% {
+    background-color: #da4537;
+  }
+  53% {
+    background-color: #de856e;
+  }
+  54% {
+    background-color: #da4537;
+  }
+  80% {
+    background-color: #da4537;
+  }
+  81% {
+    background-color: #de856e;
+  }
+  82% {
+    background-color: #da4537;
+  }
+  100% {
+    background-color: #da4537;
+  }
+}
+
+@include keyframes(snooze) {
+  0% {
+    background-position: 0 0;
+    opacity: 0;
+  }
+  25% {
+    background-position: 0 -50px;
+    opacity: 1;
+  }
+  50% {
+    background-position: 0 -100px;
+    opacity: 0;
+  }
+  75% {
+    background-position: 0 -150px;
+    opacity: 1;
+  }
+  100% {
+    background-position: 0 -200px;
+    opacity: 0;
+  }
+}
+
+@include keyframes(boxesSingles1) {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.75;
+  }
+  25% {
+    opacity: 0;
+  }
+  60% {
+    @include transform(rotate(-100deg) translate(-300px, -200px));
+    left: -400px;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@include keyframes(boxesSingles2) {
+    0% {
+      opacity: 1;
+    }
+    20% {
+      opacity: 0.75;
+    }
+    25% {
+      opacity: 0;
+    }
+    50% {
+      @include transform(translate(-500px, -175px) rotate(-540deg));
+    }
+    100% {
+      opacity: 0;
+    }
+}
+
+@include keyframes(boxesSingles3) {
+  0% {
+    opacity: 1;
+  }
+  15% {
+    opacity: 0.75;
+  }
+  20% {
+    opacity:0;
+  }
+  30% {
+    @include transform(rotate(-540deg));
+    left: -400px;
+    top: -100px;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@include keyframes(comet) {
+  0% {
+    background-position: -100% 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+}
