@@ -188,11 +188,11 @@ Polymer({
   /**
    * Number of frames to spread image preload over.
    *
-   * @property PRELOAD_SPREAD_FRAMES
+   * @property NUM_FRAMES_TO_SPREAD_PRELOAD
    * @type number
    * @default 10
    */
-  PRELOAD_SPREAD_FRAMES: 10,
+  NUM_FRAMES_TO_SPREAD_PRELOAD: 10,
 
   /**
    * Max preload async handler
@@ -242,7 +242,7 @@ Polymer({
       this.assetsLoaded++;
     }.bind(this);
 
-    var imagesPerRaf = Math.ceil(imageUrls.length / this.PRELOAD_SPREAD_FRAMES);
+    var imagesPerRaf = Math.ceil(imageUrls.length / this.NUM_FRAMES_TO_SPREAD_PRELOAD);
     imagesPerRaf = Math.max(1, imagesPerRaf);
     var imageIndex = 0;
     var rafCallback = function() {
