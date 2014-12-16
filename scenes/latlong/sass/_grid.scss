@@ -232,7 +232,7 @@ $grid-color-xs-width: $grid-number-xs-height;
 
   .Grid-marker--incorrect {
     .Grid-marker-border, .Grid-marker-dot {
-      animation: shakeSmall 1s both;
+      animation: #{$name}-shakeSmall 1s both;
     }
   }
 }
@@ -296,19 +296,19 @@ $grid-color-xs-width: $grid-number-xs-height;
 
     .Grid-marker--incorrect {
       .Grid-marker-border, .Grid-marker-dot {
-        animation: shake 1s both;
+        animation: #{$name}-shake 1s both;
       }
     }
   }
 }
 
-@keyframes shake {
+@keyframes ##{$name}-shake {
   0%, 100% { transform: translateZ(0); }
   10%, 30%, 50%, 70%, 90% { transform: translate3d(-10px, 0, 0); }
   20%, 40%, 60%, 80% { transform: translate3d(10px, 0, 0); }
 }
 
-@keyframes shakeSmall {
+@keyframes ##{$name}-shakeSmall {
   0%, 100% { transform: translateZ(0) scale(0.5); }
   10%, 30%, 50%, 70%, 90% { transform: translate3d(-10px, 0, 0) scale(0.5); }
   20%, 40%, 60%, 80% { transform: translate3d(10px, 0, 0) scale(0.5); }
