@@ -302,7 +302,7 @@ Tracker scene.
     },
 
     loadTrackerScene_: function(sceneId) {
-      window.location = this.pageUrl + '#' + sceneId;
+      this.route = sceneId;
     },
 
     geoLocationSuccess_: function(position) {
