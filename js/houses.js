@@ -483,6 +483,8 @@ window.HOUSES = [{
 }, {
   module: "callfromsanta",
   iced: true,
+  cast: false,
+  disabled: false,
   launchDate: new Date('Dec 19, 2014'),
   category: "play",
   elves: {
