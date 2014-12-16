@@ -34,7 +34,6 @@ function WorldView(base, componentDir) {
   this.circleView_ = null;
 
   this.mode_ = 'track';
-
 }
 
 /**
@@ -57,6 +56,8 @@ WorldView.prototype.setMode = function(mode) {
     this.mode_ = 'track';
   }
 
+  this.centerOffset_ = this.computeCenterOffset_();
+
   if (this.mode_ == 'feed') {
     this.animateCircleIn_();
   } else {
@@ -67,9 +68,8 @@ WorldView.prototype.setMode = function(mode) {
 WorldView.prototype.animateCircleIn_ = function() {
   if (!this.circleView_) {
     this.circleView_ = new CircleView(this.base_.$['module-tracker'].querySelector('#trackermap'), 'rgba(141, 35, 169, 0.7)', 1, true);
-    this.circleView_.setCenter(this.santaLayer_.computeCenterOffset());
   }
-
+  this.circleView_.setCenter(this.centerOffset_);
   this.circleView_.show();
 };
 
@@ -89,6 +89,9 @@ WorldView.prototype.setupMap = function() {
     // staticmap.
     styles: mapstyles.styles
   });
+
+  this.dummyOverlayView_ = createDummyOverlayView();
+  this.dummyOverlayView_.setMap(this.map_);
 
   /**
   * @type {google.maps.Icon}
@@ -146,8 +149,14 @@ WorldView.prototype.moveSanta = function(state) {
   if (this.lockOnSanta_) {
     var bounds = this.santaLayer_.getBounds();
     this.map_.fitBounds(bounds);
-
-    this.map_.panTo(loc);
+    if (this.centerOffset_) {
+      this.map_.panTo(this.getLatLngOffset_(
+            loc,
+            this.centerOffset_.x,
+            this.centerOffset_.y + this.santaLayer_.getHeight() / 2));
+    } else {
+      this.map_.panTo(loc);
+    }
   }
 
   if (window.DEV && state.stopover) {
@@ -289,3 +298,60 @@ WorldView.prototype.clearRouteMarkers_ = function() {
   }
   this.routeMarkers_ = [];
 };
+
+WorldView.prototype.computeCenterOffset_ = function() {
+  if (this.mode_ == 'track') {
+    return null;
+  }
+  var top, left;
+  var width = $(window).width();
+  top = 130 + this.CIRCLE_HOLE_RADIUS;
+  if (width < 765) {
+    // mobile
+    left = width / 2;
+    //top = 20 + CircleView.HOLE_RADIUS;
+  } else {
+    // desktop
+    left = this.CIRCLE_LEFT_;
+    //top = $(window).height() / 2;
+  }
+  return new google.maps.Point(left, top);
+};
+
+WorldView.prototype.CIRCLE_LEFT_ = 260;
+WorldView.prototype.CIRCLE_HOLE_RADIUS = 74;
+
+/**
+ * Calculates the LatLng that is a given offset in pixels away from a given
+ * LatLng.
+ *
+ * @param {google.maps.LatLng} position
+ * @param {number} x (from top of map container div)
+ * @param {number} y (from left of map container div)
+ * container div.
+ * @return {google.maps.LatLng}
+ */
+WorldView.prototype.getLatLngOffset_ = function(position, x, y) {
+  var proj = this.dummyOverlayView_.getProjection();
+  if (!proj) {
+    return position;
+  }
+  var centerPoint = proj.fromLatLngToContainerPixel(this.map_.getCenter());
+  var positionPoint = proj.fromLatLngToContainerPixel(position);
+
+  var dx = x - positionPoint.x;
+  var dy = y - positionPoint.y;
+
+  var target = new google.maps.Point(Math.round(centerPoint.x - dx),
+                                     Math.round(centerPoint.y - dy));
+  return proj.fromContainerPixelToLatLng(target)
+};
+
+/**
+ * @return {!google.maps.OverlayView}
+ */
+function createDummyOverlayView() {
+  var dov = new google.maps.OverlayView();
+  dov.draw = dov.onRemove = dov.onAdd = function() {};
+  return dov;
+}
