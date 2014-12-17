@@ -1,0 +1,424 @@
+@import "compass/css3/transform";
+@import "compass/css3/border-radius";
+@import "compass/css3/images";
+
+$name: 'module-icecave';
+
+@import "../shared/sass/board";
+
+@import "sass/_animations.scss";
+
+##{$name} {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: #caeafc;
+
+  .scene {
+    position: absolute;
+    z-index: 10;
+
+    top: 50%;
+    left: 0;
+    right: 0;
+
+    margin-top: -650px / 2 - 40px;
+
+    height: 680px;
+
+    background: center bottom url('img/back-ice.png') repeat-x #00baf4;
+
+    .view {
+      position: absolute;
+
+      top: 0;
+      left: 50%;
+      bottom: 0;
+
+      margin-left: -500px - 100;
+
+      width: 1000px;
+
+      // background: rgba(0,0,0,.25);
+
+      .snowman {
+        position: absolute;
+        z-index: 50;
+
+        bottom: 0;
+        left: 400px;
+
+        height: 505px;
+        width: 260px;
+
+        background: 0 bottom url('img/snowman.png') no-repeat;
+
+        .mouth {
+          position: absolute;
+
+          top: 111px;
+          left: 124px;
+
+          width: 32px;
+          height: 16px;
+
+          background: url('img/snowman-mouth.png');
+
+          @include animations(4s snowmanTalk infinite step-start);
+        }
+
+        .steam {
+          position: absolute;
+
+          top: 204px;
+          left: 0px;
+
+          width: 20px;
+          height: 50px;
+
+          background: url('img/steam.png') repeat-y;
+
+          @include animations(2s coffieSteam infinite linear);
+
+          &:after {
+            content: "";
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            right: 0;
+
+            height: 30px;
+
+            background: 0 0 url('img/steam-fade.png') repeat-x;
+          }
+        }
+      }
+
+      .meter,
+      .tree,
+      .fish,
+      .snow-kids,
+      .polar-bear {
+        position: absolute;
+        z-index: 10;
+
+        bottom: 30px;
+        right: -250px;
+
+        width: 330px;
+        height: 90px;
+
+        background: url('img/objects.png') no-repeat;
+        background-position: -4px -110px;
+
+        &.tree {
+          bottom: 120px;
+          right: -150px;
+
+          width: 245px;
+          height: 283px;
+
+          background-position: 0px -208px;
+        }
+
+        &.snow-kids {
+          bottom: 20px;
+          right: 60px;
+
+          width: 305px;
+          height: 210px;
+
+          background-position: 0px -512px;
+        }
+
+        &.fish {
+          top: 240px;
+          right: 70px;
+
+          width: 106px;
+          height: 61px;
+
+          background-position: -369px -136px;
+        }
+
+        &.meter {
+          top: 150px;
+          left: 360px;
+
+          width: 61px;
+          height: 168px;
+
+          background-position: -265px -315px;
+
+          .bar {
+            position: absolute;
+
+            left: 25px;
+            bottom: 35px;
+
+            width: 6px;
+            height: 20px;
+
+            background: #d3392c;
+
+            @include animations(6s meterGrowth infinite ease-in-out);
+          }
+        }
+      }
+
+      .window {
+        position: absolute;
+        z-index: 1;
+
+        top: 180px;
+        left: 180px;
+
+        width: 130px;
+        height: 150px;
+
+        border-radius: 50%;
+
+        background: #caeafc;
+
+        .inner {
+          position: absolute;
+
+          top: 7px;
+          left: 10px;
+          right: 12px;
+          bottom: 18px;
+
+          border-radius: 50%;
+
+          background: #10367c;
+          background-image: url('img/snow.png'), url('img/snow.png');
+
+          @include animations(8s windowSnow infinite linear);
+        }
+
+        &.w2 {
+          top: 170px;
+          left: 650px;
+
+          width: 119px;
+          height: 137px;
+        }
+
+        &.w3 {
+          left: 1100px;
+
+          width: 135px;
+          height: 156px;
+
+          .inner {
+            top: 2px;
+            left: 3px;
+            right: 11px;
+            bottom: 15px;
+          }
+        }
+      }
+    }
+
+    .roof {
+      position: absolute;
+
+      top: -180px;
+      left: 0; right: 0;
+
+      height: 350px;
+
+      background: center bottom url('img/roof.png') repeat-x;
+    }
+
+    .ground {
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: -100px;
+
+      height: 100px;
+
+      background: #fff;
+    }
+
+    .sea {
+      position: absolute;
+      z-index: 10;
+
+      left: 0;
+      right: 0;
+      bottom: -216px;
+
+      height: 200px;
+
+      background: #caeafc;
+
+      .object {
+        position: absolute;
+        z-index: 10;
+
+        top: -20px;
+        left: 50%;
+
+        background: url('img/objects.png') no-repeat;
+
+        @include animations(5s seaObject infinite alternate ease-in-out);
+
+        &:nth-child(2n) {
+          @include animations(4s seaObject infinite alternate-reverse ease-in-out);
+        }
+
+        &.o1 {
+          z-index: 20;
+
+          top: -10px;
+
+          margin-left: -785px;
+
+          width: 220px;
+          height: 100px;
+
+          background-position: 0 0;
+        }
+
+        &.o2 {
+          z-index: 20;
+
+          margin-left: 200px;
+
+          width: 200px;
+          height: 130px;
+
+          background-position: -433px 0;
+        }
+
+        &.o3 {
+          z-index: 30;
+
+          top: 5px;
+
+          margin-left: -180px;
+
+          width: 200px;
+          height: 93px;
+
+          background-position: -235px 0;
+        }
+
+        &.o4 {
+          z-index: 30;
+
+          top: 30px;
+
+          margin-left: 500px;
+
+          width: 200px;
+          height: 100px;
+
+          background-position: -659px -16px;
+        }
+
+        &.santa {
+          top: -300px;
+          margin-left: -500px - 50;
+
+          width: 393px;
+          height: 345px;
+
+          background-position: -381px -235px;
+
+          @include apply-origin(25% 100%, false);
+          @include animations(4s santaObject infinite alternate-reverse ease-in-out);
+
+          .steam {
+            position: absolute;
+
+            top: -20px;
+            right: 61px;
+
+            width: 20px;
+            height: 50px;
+
+            background: url('img/steam.png') repeat-y;
+
+            @include animations(2.1s coffieSteam infinite linear);
+
+            &:after {
+              content: "";
+              position: absolute;
+
+              top: 0;
+              left: 0;
+              right: 0;
+
+              height: 30px;
+
+              background: 0 0 url('img/steam-fade.png') repeat-x;
+            }
+          }
+        }
+      }
+
+      .sea-layer {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        background: center top repeat-x;
+
+        &.s1 {
+          z-index: 10;
+          top: 12px;
+
+          background-image: url('img/sea-layer-1.png');
+
+          @include animations(40s seaWaves infinite linear);
+        }
+
+        &.s2 {
+          z-index: 20;
+          top: 42px;
+
+          background-image: url('img/sea-layer-2.png');
+
+          @include animations(35s seaWaves infinite reverse linear);
+        }
+
+        &.s3 {
+          z-index: 30;
+          top: 72px;
+
+          background-image: url('img/sea-layer-3.png');
+
+          @include animations(30s seaWaves infinite linear);
+        }
+      }
+    }
+  }
+
+  .sea-extend {
+    position: absolute;
+    z-index: 1;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 50%;
+
+    background: #00a2e7;
+  }
+}
+
+
+@import "../shared/sass/responsive";
