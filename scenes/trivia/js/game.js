@@ -157,8 +157,10 @@ app.Game.prototype.pause = function() {
 app.Game.prototype.resume = function() {
   this.paused = false;
 
-  if (!this.isGameover && !this.countdownActive) {
-    this.nextQuestion_();
+  if (this.nextQuestionOnResume) {
+    this.nextQuestionOnResume = false;
+    this.quiz.nextQuestion();
+    this.scene.fire('new-question');
   }
 };
 
@@ -211,7 +213,10 @@ app.Game.prototype.nextQuestion_ = function() {
   this.scoreboard.restart();
 
   app.shared.Coordinator.after(app.Constants.PAUSE_BETWEEN_QUESTIONS, function() {
-    if (this.paused) return;
+    if (this.paused) {
+      this.nextQuestionOnResume = true;
+      return;
+    }
 
     this.quiz.nextQuestion();
     this.scene.fire('new-question');
