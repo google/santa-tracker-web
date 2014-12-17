@@ -10,7 +10,7 @@ Intro for the tracker scene.
 
 @element tracker-intro
 -->
-<polymer-element name="tracker-intro" attributes="userLocation santaDistance"
+<polymer-element name="tracker-intro" attributes="userLocation santaLocation santaDistance"
                  on-transitionend="{{goesOffScreen}}">
 <template>
   <style>
@@ -21,7 +21,7 @@ Intro for the tracker scene.
     display: block;
     position: relative;
     transition: transform 0.3s ease;
-    z-index: 2;
+    z-index: 3; /* higher than rest of tracker */
   }
   </style>
   <link rel="stylesheet" href="tracker-intro.css" no-shim>
@@ -45,8 +45,6 @@ Intro for the tracker scene.
       <img class="pin" id="pin" src="img/pin.svg">
     </div>
 
-
-
     <div id="santaPath">
       <img src="img/tracker_intro_path.svg">
     </div>
@@ -58,8 +56,6 @@ Intro for the tracker scene.
     <div id="userMap">
       <div id="userMapInner"></div>
     </div>
-
-
 
     <div class="bottom-wrapper">
       <div class="user-location" id="userLocation">
@@ -76,7 +72,7 @@ Intro for the tracker scene.
     </div>
 
     <div class="skip">
-      <a href="{{pageUrl}}#" on-click="{{skip}}"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
+      <a href="{{pageUrl}}#" on-click="{{closeIntro}}"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
     </div>
   </div>
 
@@ -91,11 +87,29 @@ Intro for the tracker scene.
     /**
      * Name and coords of the user's location.
      *
-     * @property userLocation
+     * @attribute userLocation
      * @type Object
      * @default null
      */
     userLocation: null,
+
+    /**
+     * Santa's location.
+     *
+     * @attribute santaLocation
+     * @type Object
+     * @default null
+     */
+    santaLocation: null,
+
+    /**
+     * Santa's distance from the user when the page loads.
+     *
+     * @attribute santaDistance
+     * @type number
+     * @default null
+     */
+    santaDistance: null,
 
     /**
      * window center point.
@@ -310,6 +324,9 @@ Intro for the tracker scene.
         santaPath.style.width = 2 * this.bubbleOffset - 80 + 'px';
         this.async(function() {
           santaBubble.open(100);
+          this.async(function() {
+           this.closeIntro(); // Remove intro screen after 4s.
+          }, null, 4000);
         }, null, 800);
 
       }.bind(this));
@@ -320,10 +337,10 @@ Intro for the tracker scene.
     /**
      * Hides the intro from view.
      *
-     * @method skip
+     * @method closeIntro
      */
-    skip: function(e, detail, sender) {
-      e.preventDefault();
+    closeIntro: function(e, detail, sender) {
+      e && e.preventDefault();
       this.style.transform = 'translateY(-' + 2 * this.winCenterY_ + 'px)';
       this.classList.add('offscreen');
     },
