@@ -60,6 +60,7 @@ $santaSleighHeight: 204px;
 
   bubble-overlay {
     z-index: $bubble-overlay-z-index;
+    display: block;
   }
 
   p {
