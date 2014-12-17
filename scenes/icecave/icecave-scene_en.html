@@ -1,0 +1,79 @@
+<link rel="import" href="../base-scene.html">
+
+<!--
+Icecave scene.
+
+@element icecave-scene
+@extends base-scene
+-->
+<polymer-element name="icecave-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="icecave-scene.css" no-shim>
+
+  <div id="module-icecave">
+    <div class="scene">
+      <div class="view">
+        <div class="santa"></div>
+        <div class="snowman">
+          <div class="mouth"></div>
+          <div class="steam"></div>
+        </div>
+        <div class="snow-kids"></div>
+        <div class="polar-bear"></div>
+        <div class="tree"></div>
+        <div class="fish"></div>
+        <div class="meter"><div class="bar"></div></div>
+
+        <div class="window w1"><div class="inner"></div></div>
+        <div class="window w2"><div class="inner"></div></div>
+        <div class="window w3"><div class="inner"></div></div>
+      </div>
+      <div class="roof"></div>
+      <div class="ground"></div>
+      <div class="sea">
+        <div class="object santa"><div class="steam"></div></div>
+        <div class="object o1"></div>
+        <div class="object o3"></div>
+        <div class="object o2"></div>
+        <div class="object o4"></div>
+        <div class="sea-layer s1"></div>
+        <div class="sea-layer s2"></div>
+        <div class="sea-layer s3"></div>
+      </div>
+    </div>
+
+    <div class="sea-extend"></div>
+
+    <div class="gui">
+      <div class="board board--scene">
+        <a id="global-back-to-tracker" href="{{pageUrl}}#tracker" class="back"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
+      </div>
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+  Polymer({
+    componentDir: 'scenes/island/',
+
+    onPreload: function() {
+      this.preloadImages([
+        'img/back-ice.png',
+        'img/roof.png',
+        'img/sea-layer-2.png',
+        'img/snow.png',
+        'img/snowman.png',
+        'img/steam.png',
+        'img/objects.png',
+        'img/sea-layer-1.png',
+        'img/sea-layer-3.png',
+        'img/snowman-mouth.png',
+        'img/steam-fade.png'
+      ]);
+    }
+  });
+
+})();
+</script>
+</polymer-element>
