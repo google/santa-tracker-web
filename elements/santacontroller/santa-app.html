@@ -358,11 +358,6 @@ Polymer(Polymer.mixin({
         this.initChromecast();
         loadSound = false;
 
-        // disable any houses not suitable for cast
-        for (var i = 0; i < this.houses.length; i++) {
-          this.houses[i].disabled =
-              this.houses[i].disabled || !this.houses[i].cast;
-        }
         break;
       case 'web_embed':
         this.mode = 'embed';
@@ -399,18 +394,48 @@ Polymer(Polymer.mixin({
           location.pathname.replace(/[^\/]*$/, '') + 'error.html';
     });
 
-    // Disable Google Play house on iOS devices
-    if (navigator.userAgent.match(/iPhone|iPod|iPad/i)) {
-      if (this.houses[3].module === 'app') {
-        this.houses[3].disabled = true;
-      }
-    }
+    this.prepareHouses_();
 
     if (!this.route) {
       this.checkSchedule_();
       this.route = this.postCountdown ? TRACKER_ROUTE_ : DEFAULT_ROUTE_;
     }
   },
+
+  /**
+   * Catch-all place to do some kind of initialization of houses.
+   */
+  prepareHouses_: function() {
+    var castMode = this.mode === 'cast';
+    var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
+    var spanglish = /^e(n|s)/.test(this.language);
+
+    for (var i = this.houses.length - 1; i >= 0; i--) {
+      var house = this.houses[i];
+
+      // if on chromecast, disable any houses not suitable for cast
+      house.disabled = (castMode && !house.cast) || house.disabled;
+
+      switch (house.module) {
+        case 'app':
+          // Disable Google Play house on iOS devices
+          house.disabled = ios || house.disabled;
+          break;
+        case 'streetview':
+          // remove streetview where sendacall supported (en|en-GB|es|es-419)
+          if (spanglish) {
+            this.houses.splice(i, 1);
+          }
+          break;
+        case 'sendacall':
+          // remove sendacall where not supported (leaving streetview)
+          if (!spanglish) {
+            this.houses.splice(i, 1);
+          }
+          break;
+      }
+    }
+},
 
   languageChanged: function() {
     this.santaService.lang_ = this.language;
