@@ -45,6 +45,8 @@ app.Quiz.prototype.levelUp = function() {
 };
 
 app.Quiz.prototype.nextQuestion = function() {
+  if (this.questions.length === 0) return;
+
   // Get new question
   var index = this.questions[this.current.number];
   var questionElem = this.elem.querySelector('.quiz-' + this.difficulty + ' .question--' + index);
