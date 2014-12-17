@@ -183,6 +183,8 @@ Polymer({
   activeChanged: function() {
     // TODO(ericbidelman): shouldn't have to call this with new core-list. Investigate.
     this.$.feed.updateSize();
+
+    this.$.feed.scrollToItem(0); // scroll to top (latest item in feed).
   },
 
   sceneParamsChanged: function() {
@@ -193,6 +195,9 @@ Polymer({
     if (!this.latestDestinations || !this.latestDestinations.length) {
       return;
     }
+
+    // TODO(cbro, ebidel): this is going to get simplified. The API will handle
+    // the filtering for us.
 
     for (var i = 0, dest; dest = this.latestDestinations[i]; ++i) {
       // Don't add destination if it already exists.
