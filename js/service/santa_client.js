@@ -268,7 +268,7 @@ SantaService.prototype.findDestination_ = function(timestamp) {
 
 /**
  * Appends newly fetched destinations to the current destination list.
- * @param {number} index the index that newDestinations should be spliced into
+ * @param {number} index The index that newDestinations should be spliced into
  * the destinations list.
  * @param {!Array.<!SantaLocation>} newDestinations
  * @private
@@ -303,7 +303,7 @@ SantaService.prototype.appendDestinations_ = function(index, newDestinations) {
 
 /**
  * Appends newly fetched cards to the current card stream.
- * @param {number} index the index that newCards should be spliced into the
+ * @param {number} index The index that newCards should be spliced into the
  * stream list.
  * @param {!Array.<!StreamCard>} newCards
  * @private
