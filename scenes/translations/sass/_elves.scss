@@ -1,0 +1,33 @@
+
+##{$name} {
+
+  .elves {
+
+    #elf1-eye-left,
+    #elf1-eye-right {
+      animation-name: #{$name}-elves-blink;
+      animation-iteration-count: infinite;
+      animation-duration: 10s;
+      animation-delay: 1s;
+      animation-timing-function: $easeInOutQuad;
+      transform-origin: center 70%;
+    }
+
+    #elf2-eye-left,
+    #elf2-eye-right {
+      animation-name: #{$name}-elves-blink;
+      animation-iteration-count: infinite;
+      animation-duration: 11s;
+      animation-delay: 5s;
+      animation-timing-function: $easeInOutQuad;
+      transform-origin: center 70%;
+    }
+  }
+}
+
+
+@keyframes #{$name}-elves-blink {
+  0%, 20%   { transform: scaleY(1); }
+  21%       { transform: scaleY(0); }
+  22%, 100% { transform: scaleY(1); }
+}

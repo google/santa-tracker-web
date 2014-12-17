@@ -1,0 +1,108 @@
+
+##{$name} {
+
+  .record-player {
+    position: absolute;
+    top: -802px;
+    left: 50%;
+    margin-left: 150px;
+  }
+
+  .record-player-horn {
+    position: absolute;
+    bottom: 191px;
+    right: 50px;
+    transform-origin: 160px 114px;
+  }
+
+  .record-player-soundwaves {
+    position: absolute;
+    bottom: 225px;
+    right: 220px;
+    opacity: 0;
+  }
+
+  .record-player-crank {
+    position: absolute;
+    bottom: 25px;
+    right: 159px;
+    transform-origin: 53px 2px;
+    transition: transform 2s $easeOutCirc;
+  }
+
+  .record-player-disk {
+    position: absolute;
+    bottom: 107px;
+    left: 27px;
+    width: 3px;
+    background: rgba(188, 188, 188, 0.2);
+    height: 4px;
+    opacity: 0;
+  }
+}
+
+// enable some animations for tablet upwards
+@media (min-width: 400px) {
+  ##{$name} {
+    &.playing-phrase {
+      .record-player-horn {
+        animation-name: #{$name}-record-player-horn;
+        animation-iteration-count: infinite;
+        animation-duration: 1s;
+        animation-timing-function: $easeInOutQuad;
+      }
+
+      .record-player-soundwaves {
+        animation-name: #{$name}-record-player-soundwaves;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+      }
+
+      .record-player-crank {
+        animation-name: #{$name}-record-player-crank;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+        animation-timing-function: $easeInOutQuad;
+      }
+
+      .record-player-disk {
+        animation-name: #{$name}-record-player-disk;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+      }
+    }
+  }
+}
+
+@keyframes #{$name}-record-player-horn {
+  0%  { transform: scale(1); }
+  20% { transform: scale(1.05); }
+  40% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  60% { transform: scale(1); }
+  80% { transform: scale(1.07); }
+}
+
+@keyframes #{$name}-record-player-soundwaves {
+  0%   { transform: scale(0.7) translate(150%, 40%); opacity: 1}
+  45% { transform: scale(1) translate(0%, 0%) }
+  100% { transform: scale(2) translate(-120%, -20%); opacity: 0}
+}
+
+@keyframes #{$name}-record-player-crank {
+  // 0%    { transform: scaleX(1) rotate(0deg) }
+  // 30%   { transform: scaleX(1)rotate(110deg) }
+  // 30.1% { transform: rotate(-110deg) scaleX(-1) }
+  // 80%   { transform: rotate(70deg) scaleX(-1) }
+  // 80.1% { transform: scaleX(1) rotate(-70deg) }
+  // 100%  { transform: scaleX(1) rotate(0deg) }
+  from { transform: rotate(0deg) }
+  to   { transform: rotate(360deg) }
+}
+
+@keyframes #{$name}-record-player-disk {
+  from { transform: translate(0); opacity: 1;}
+  to   { transform: translateX(164px); opacity: 1;}
+}

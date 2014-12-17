@@ -75,6 +75,10 @@
       @include tutorial('mouse-mercator', 4);
     }
 
+    &.mouse-translations .tutorial-inner {
+      @include tutorial('mouse-translations', 2);
+    }
+
     // Touch
     &.touch-updown .tutorial-inner {
       @include tutorial('touch-updown-landscape', 4);
@@ -96,6 +100,10 @@
 
     &.touch-mercator .tutorial-inner {
       @include tutorial('touch-mercator', 4);
+    }
+
+    &.touch-translations .tutorial-inner {
+      @include tutorial('touch-translations', 2);
     }
 
     // Device
