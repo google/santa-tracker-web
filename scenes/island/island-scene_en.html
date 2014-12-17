@@ -76,7 +76,6 @@ Island scene.
         <a id="global-back-to-tracker" href="{{pageUrl}}#tracker" class="back"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
       </div>
     </div>
-
   </div>
 
 </template>
@@ -85,9 +84,12 @@ Island scene.
   Polymer({
     componentDir: 'scenes/island/',
 
-
     onPreload: function() {
       this.preloadImages([
+        'img/island-base.png',
+        'img/lights.png',
+        'img/objects.png',
+        'img/z.png'
       ]);
     }
   });
