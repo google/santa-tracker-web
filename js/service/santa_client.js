@@ -316,7 +316,7 @@ SantaService.prototype.appendStream_ = function(index, newCards) {
   // The server may return a value different to the current length of the
   // destinations (i.e. what we gave it). Always consider the server to be
   // correct. For example, if the server thinks we should replace the whole
-  // route, index will be 0 and the destinations list will be truncated.
+  // route, index will be 0 and the stream list will be truncated.
   this.stream_.splice(index, this.stream_.length - index);
   for (var i = 0; i < newCards.length; i++) {
     this.stream_.push(newCards[i]);
