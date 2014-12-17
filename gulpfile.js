@@ -91,7 +91,15 @@ var SCENE_CLOSURE_CONFIG = {
 };
 
 gulp.task('clean', function(cleanCallback) {
-  del([PROD_DIR, STATIC_DIR, PRETTY_DIR], cleanCallback);
+  del([
+    '{scenes,sass,elements}/**/*.css',
+    'scenes/*/*.min.js',
+    'js/service/*.min.js',
+  ], cleanCallback);
+});
+
+gulp.task('rm-dist', function(rmCallback) {
+  del([PROD_DIR, STATIC_DIR, PRETTY_DIR], rmCallback);
 });
 
 gulp.task('compass', function() {
@@ -229,7 +237,7 @@ function addCompilerFlagOptions(opts) {
   return opts;
 }
 
-gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function() {
+gulp.task('vulcanize-scenes', ['rm-dist', 'compass', 'compile-scenes'], function() {
   return gulp.src([
       'scenes/*/*-scene*.html'
     ], {base: './'})
@@ -268,7 +276,7 @@ gulp.task('vulcanize-scenes', ['clean', 'compass', 'compile-scenes'], function()
     }));
 });
 
-gulp.task('vulcanize-codelab-frame', ['clean', 'compass', 'compile-scenes'], function() {
+gulp.task('vulcanize-codelab-frame', ['rm-dist', 'compass', 'compile-scenes'], function() {
   return gulp.src('scenes/codelab/codelab-frame_en.html', {base: './'})
     .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
     .pipe(vulcanize({
@@ -286,7 +294,7 @@ gulp.task('vulcanize-codelab-frame', ['clean', 'compass', 'compile-scenes'], fun
 
 // vulcanize elements separately as we want to inline polymer.html and
 // base-scene.html here
-gulp.task('vulcanize-elements', ['clean', 'compass', 'compile-santa-api-service'], function() {
+gulp.task('vulcanize-elements', ['rm-dist', 'compass', 'compile-santa-api-service'], function() {
   return gulp.src('elements/elements_en.html', {base: './'})
     .pipe(vulcanize({
       strip: !argv.pretty,
@@ -316,7 +324,7 @@ gulp.task('i18n_index', function() {
 });
 
 // copy needed assets (images, sounds, polymer elements, etc) to dist directories
-gulp.task('copy-assets', ['clean', 'vulcanize', 'i18n_index'], function() {
+gulp.task('copy-assets', ['rm-dist', 'vulcanize', 'i18n_index'], function() {
   var staticStream = gulp.src([
     'manifest.json',
     'audio/*',
