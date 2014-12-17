@@ -113,7 +113,6 @@ gulp.task('compile-santa-api-service', function() {
     'js/service/*.js',
     '!js/service/externs.js',
     '!js/service/*.min.js',
-    'js/statuses/picker.js'
   ])
     .pipe(newer('js/service/service.min.js'))
     .pipe(closureCompiler({

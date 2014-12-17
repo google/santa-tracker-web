@@ -13,12 +13,15 @@
 function SantaService(clientId, lang) {
   this.lang_ = lang;
 
-  this.statusPicker_ = new StatusPicker();
-
   /**
    * @private {!Array.<!SantaLocation>}
    */
   this.destinations_ = [];
+
+  /**
+   * @private {!Array.<!StreamCard>}
+   */
+  this.stream_ = [];
 
   var that = this;
   this.boundFetchDetails_ = function(id, callback) {
@@ -138,7 +141,7 @@ SantaService.prototype.getCurrentLocation = function(callback) {
       stopover: dest,
       next: next
     });
-    callback(this.populateStatus_(now, state));
+    callback(state);
     return;
   }
 
@@ -161,12 +164,7 @@ SantaService.prototype.getCurrentLocation = function(callback) {
     stopover: null,
     next: next
   });
-  callback(this.populateStatus_(now, state));
-};
-
-SantaService.prototype.populateStatus_ = function(now, state) {
-  state.status = this.statusPicker_.pick(now, state);
-  return state;
+  callback(state);
 };
 
 /**
@@ -236,6 +234,14 @@ SantaService.prototype.getDestinations = function() {
 };
 
 /**
+ * @return {!Array.<!StreamCard>|null} a list of cards, or null if the
+ * service isn't ready.
+ */
+SantaService.prototype.getStream = function() {
+  return this.stream_.length ? this.stream_ : null;
+};
+
+/**
  * Finds Santa's current SantaLocation, or the one he was most recently at.
  *
  * @param {number} timestamp
@@ -262,7 +268,7 @@ SantaService.prototype.findDestination_ = function(timestamp) {
 
 /**
  * Appends newly fetched destinations to the current destination list.
- * @param {number} index the index that newDestinations should be spliced into
+ * @param {number} index The index that newDestinations should be spliced into
  * the destinations list.
  * @param {!Array.<!SantaLocation>} newDestinations
  * @private
@@ -293,6 +299,29 @@ SantaService.prototype.appendDestinations_ = function(index, newDestinations) {
   }
 
   Events.trigger(this, 'destinations_changed', this.destinations_);
+};
+
+/**
+ * Appends newly fetched cards to the current card stream.
+ * @param {number} index The index that newCards should be spliced into the
+ * stream list.
+ * @param {!Array.<!StreamCard>} newCards
+ * @private
+ */
+SantaService.prototype.appendStream_ = function(index, newCards) {
+  if (!newCards || !newCards.length) {
+    // Nothing to append.
+    return;
+  }
+  // The server may return a value different to the current length of the
+  // destinations (i.e. what we gave it). Always consider the server to be
+  // correct. For example, if the server thinks we should replace the whole
+  // route, index will be 0 and the stream list will be truncated.
+  this.stream_.splice(index, this.stream_.length - index);
+  for (var i = 0; i < newCards.length; i++) {
+    this.stream_.push(newCards[i]);
+  }
+  Events.trigger(this, 'stream_changed', this.stream_);
 };
 
 /**
@@ -362,7 +391,7 @@ SantaService.prototype.sync = function(opt_callback) {
       // the route and status message text.
       'fingerprint': this.fingerprint_,
       'routeOffset': this.destinations_.length,
-      'statuses': true
+      'streamOffset': this.stream_.length
     },
     done: function(result) {
       if (result['status'] != 'OK') {
@@ -380,10 +409,7 @@ SantaService.prototype.sync = function(opt_callback) {
       that.fingerprint_ = result['fingerprint'];
       that.clientSpecific_ = result['clientSpecific'];
       that.appendDestinations_(result['routeOffset'], result['destinations']);
-
-      if (result['statuses']) {
-        that.statusPicker_.setMessages(result['statuses']);
-      }
+      that.appendStream_(result['streamOffset'], result['stream']);
 
       that.synced_ = true;
       that.syncInFlight_ = false;
