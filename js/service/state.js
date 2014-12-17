@@ -30,11 +30,6 @@ SantaState.prototype.stopover;
 SantaState.prototype.next;
 
 /**
- * @type {string}
- */
-SantaState.prototype.status;
-
-/**
  * @type {number}
  */
 SantaState.prototype.presentsDelivered;

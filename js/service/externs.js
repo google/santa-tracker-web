@@ -32,12 +32,19 @@ Wiki.prototype.url;
 var Pano;
 Pano.prototype.id;
 Pano.prototype.heading;
+var Card;
+Card.prototype.timestamp;
+Card.prototype.didyouknow;
+Card.prototype.youtubeId;
+Card.prototype.imageUrl;
+Card.prototype.status;
 
 // Exports (used by other components)
 var Serv; // SantaService
 Serv.prototype.addListener;
 Serv.prototype.getCurrentLocation;
 Serv.prototype.getDestinations;
+Serv.prototype.getStream;
 Serv.prototype.sync;
 Serv.prototype.now;
 Serv.prototype.dateNow;
