@@ -70,6 +70,9 @@ var SCENE_CLOSURE_CONFIG = {
   playground: {
     entryPoint: 'app.Scene'
   },
+  postcard: {
+    entryPoint: 'app.Scene'
+  },
   presentdrop: {
     entryPoint: 'app.Game'
   },

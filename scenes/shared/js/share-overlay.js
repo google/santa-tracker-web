@@ -18,7 +18,9 @@ app.shared.ShareOverlay = function(elem) {
   this.closeElem = this.elem.find('.shareOverlay-close');
   this.urlElem = this.elem.find('.shareOverlay-url');
 
-  this.urlShortener = gapi.client.load('urlshortener', 'v1');
+  if (window.gapi && window.gapi.client) {
+    this.urlShortener = window.gapi.client.load('urlshortener', 'v1');
+  }
 
   this.attachEvents_();
 };
@@ -67,8 +69,17 @@ app.shared.ShareOverlay.prototype.show = function(url, shorten) {
  * @private
  */
 app.shared.ShareOverlay.prototype.shorten_ = function(url, callback) {
+  if (!window.gapi || !window.gapi.client) {
+    callback(url);
+    return;
+  }
+
+  if (!this.urlShortener) {
+    this.urlShortener = window.gapi.client.load('urlshortener', 'v1');
+  }
+
   this.urlShortener.then(function() {
-    gapi.client.urlshortener.url.insert({
+    window.gapi.client.urlshortener.url.insert({
       resource: {
         longUrl: url
       }
