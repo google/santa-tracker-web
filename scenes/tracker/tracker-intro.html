@@ -351,6 +351,8 @@ Intro for the tracker scene.
      * @method destroy
      */
     destroy: function() {
+      this.$.userBubble.bubble.destroy();
+      this.$.santaBubble.bubble.destroy();
       this.parentNode.removeChild(this);
     },
 
