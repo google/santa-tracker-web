@@ -200,7 +200,7 @@ app.Game.prototype.hideQuestion_ = function() {
   if (this.current.number === app.Constants.QUESTIONS_PER_LEVEL) {
     this.bumpLevel_();
   } else {
-    this.nextQuestion_();
+    app.shared.Coordinator.after(app.Constants.HIDE_QUESTION_TIME, this.nextQuestion_.bind(this));
   }
 };
 
