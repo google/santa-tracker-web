@@ -42,8 +42,10 @@ Village calendar navigation.
     <div id="module-nav">
       <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
         <template if="{{trackerActive && cityFeedActive}}">
-          <paper-fab id="back-to-tracker" icon="arrow-drop-up" mini
-                     data-text="Back to Tracker" on-tap="{{onBackToTracker}}"></paper-fab>
+          <a href="{{pageUrl}}#tracker" on-click="{{fabClick}}" on-tap="{{onBackToTracker}}">
+            <div id="back-to-tracker-text"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></div>
+            <paper-fab id="back-to-tracker" icon="arrow-drop-up" mini></paper-fab>
+          </a>
         </template>
         <a id="global-nav-btn" href="{{pageUrl}}#{{active ? (santaApp.prevSelectedRoute ? santaApp.prevSelectedRoute : 'village') : 'calendar'}}" on-click="{{fabClick}}">
           <paper-fab icon="today" on-core-transitionend="{{rippleDone}}"></paper-fab>
