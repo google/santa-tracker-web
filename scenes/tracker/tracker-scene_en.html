@@ -276,7 +276,7 @@ Tracker scene.
       } else {
         this.santaApp.santaService.sync(function() {
           this.destinations = this.santaApp.destinations;
-        });
+        }.bind(this));
       }
 
       this.$.intro.showTitle();
