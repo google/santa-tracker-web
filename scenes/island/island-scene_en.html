@@ -1,0 +1,97 @@
+<link rel="import" href="../base-scene.html">
+<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+
+<!--
+Island scene.
+
+@element island-scene
+@extends base-scene
+-->
+<polymer-element name="island-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="island-scene.css" no-shim>
+
+  <core-a11y-keys target="{{}}" keys="enter space left right down up"
+                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+
+  <div id="module-island">
+    <div class="scene">
+      <div class="sky">
+        <div class="cloud c1 small" data-speed="300" data-offset="-700"></div>
+        <div class="cloud c2 small" data-speed="300" data-offset="100"></div>
+        <div class="cloud c3 small" data-speed="300" data-offset="-300"></div> 
+        <div class="cloud c4 medium" data-speed="200" data-offset="400"></div>
+        <div class="cloud c5 medium" data-speed="200" data-offset="600"></div>
+        <div class="cloud c6 medium" data-speed="200" data-offset="-220"></div>
+        <div class="cloud c7 large" data-speed="100" data-offset="0"></div>
+        <div class="cloud c8 large" data-speed="100" data-offset="-600"></div>
+        <div class="cloud c9 large" data-speed="100" data-offset="220"></div>
+         <div class="airplain" data-speed="10" data-offset="-1000"></div>
+        <div class="sun"></div>
+      </div>
+
+      <div class="island-wrap">
+        <div class="zzz">
+          <div class="z"></div>
+          <div class="z"></div>
+          <div class="z"></div>
+          <div class="z"></div>
+        </div>
+
+        <div class="island"></div>
+        <div class="coconut"></div>
+
+        <div class="slider">
+          <div class="kid"></div>
+          <div class="splash"></div>
+        </div>
+
+        <div class="lights"></div>
+        <div class="object bird b1"></div>
+        <div class="object bird b2"></div>
+        <div class="object bird b3"></div>
+        <div class="object flask"></div>
+        <div class="object lady"></div>
+        <div class="object gift-stack"></div>
+        <div class="object boat">
+          <div class="helper">
+            <div class="elf">
+              <div class="hand"></div>
+              <div class="body"></div>
+            </div>
+            <div class="present"><div class="obj"></div></div>
+            <div class="cover"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sea">
+        <div class="object island-1"></div>
+        <div class="object island-2"></div>
+        <div class="object island-3"></div>
+      </div>
+    </div>
+
+    <div class="gui">
+      <div class="board board--scene">
+        <a id="global-back-to-tracker" href="{{pageUrl}}#tracker" class="back"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
+      </div>
+    </div>
+
+  </div>
+
+</template>
+<script>
+(function() {
+  Polymer({
+    componentDir: 'scenes/island/',
+
+
+    onPreload: function() {
+      this.preloadImages([
+      ]);
+    }
+  });
+
+})();
+</script>
+</polymer-element>
