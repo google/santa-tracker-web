@@ -186,7 +186,9 @@ Intro for the tracker scene.
       this.santaBubbleCenterX_ = this.winCenterX_ + this.bubbleOffset;
       this.userBubbleCenterX_ = this.winCenterX_ - this.bubbleOffset;
       this.updateLayout_();
-      this.$.santaPath.style.width = 2 * this.bubbleOffset - 80 + 'px';
+      if (this.$.santaPath.shown_) {
+        this.$.santaPath.style.width = 2 * this.bubbleOffset - 80 + 'px';
+      }
       this.$.overlay.draw();
     },
 
@@ -320,6 +322,7 @@ Intro for the tracker scene.
       bubble.move(this.winCenterX_ - this.bubbleOffset,
           this.winCenterY_, BUBBLE_RADIUS_SMALL, function() {
         santaSleigh.style.zIndex = 3;
+        santaPath.shown_ = true;
         santaPath.style.left = this.userBubbleCenterX_ + 30 + 'px';
         santaPath.style.width = 2 * this.bubbleOffset - 80 + 'px';
         this.async(function() {
