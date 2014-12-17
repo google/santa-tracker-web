@@ -153,9 +153,15 @@ app.OrnamentNavigation.prototype.handleShowGallery = function() {
 app.OrnamentNavigation.prototype.handleResize = function() {
   var self = this;
   var tempCSS;
+  var tempElem;
+  var topOffset;
+  var currentCopy;
+  var currentOrnamentNum;
+  var currentOrnament;
 
   if ($(window).width() < 1025) {
-    var topOffset = this.elem.find('.Tool-crayon--violet').offset().top - 84;
+    tempElem = this.elem.find('.Tool-crayon--violet')[0];
+    topOffset = tempElem.getBoundingClientRect().top - 84;
     tempCSS = {
       'left': '50%',
       'top': topOffset,
@@ -165,9 +171,16 @@ app.OrnamentNavigation.prototype.handleResize = function() {
     this.ornamentCopyContainer.css('height', $(window).height());
     this.buttonInfo.css('top', topOffset - 5);
   } else {
+    currentOrnamentNum = app.GameManager.currentIndex;
+    currentOrnament = this.elem.find('.scene-ornament-wrapper').eq(currentOrnamentNum);
+    if (this.elem.find('.scene-ornament-wrapper.active .ornament-copy').length > 0) {
+      currentCopy = this.elem.find('.scene-ornament-wrapper.active .ornament-copy');
+    } else {
+      currentCopy = this.elem.find('.scene-ornament-wrapper .ornament-copy');
+    }
     tempCSS = {
-      'left': self.ornamentCopy.position().left,
-      'top': self.ornamentCopy.offset().top - 98,
+      'left': currentCopy[0].getBoundingClientRect().left,
+      'top': currentCopy[0].getBoundingClientRect().top - 98,
       'transform': 'none',
       'width': '200px'
     };

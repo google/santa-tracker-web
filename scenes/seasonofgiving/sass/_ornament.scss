@@ -124,8 +124,7 @@ $santa-face-height: 375px;
     @media (max-width: 1024px) {
       position: relative;
       width: auto;
-      margin-top: 0;
-      margin-bottom: 70px;
+      margin: 70px 0;
 
       .Button-close {
         display: block;
@@ -178,8 +177,7 @@ $santa-face-height: 375px;
   .scene-ornament {
     width: 100%;
     position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
+    top: -260px;
 
     @media (max-width: 1024px) {
       top: auto;
@@ -201,6 +199,10 @@ $santa-face-height: 375px;
 
     @media (max-width: 1024px) {
       top: 0;
+    }
+
+    a:not(.Button) {
+      @extend .copy-link;
     }
   }
 

@@ -1,7 +1,7 @@
 goog.provide('app.Game');
 
-goog.require('app.Mouse');
 goog.require('app.GameManager');
+goog.require('app.Mouse');
 goog.require('app.Ornament');
 goog.require('app.OrnamentExporter');
 goog.require('app.OrnamentGallery');

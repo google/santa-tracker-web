@@ -16,7 +16,7 @@
   .Tools {
     box-sizing: border-box;
     max-height: 283px;
-    min-height: 200px;
+    min-height: 100px;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
@@ -372,6 +372,7 @@
       position: fixed;
       right: 0;
       z-index: 2;
+      margin-left: 70px;
     }
 
     .Tool-backContainer,
@@ -413,7 +414,7 @@
       padding-top: 15px;
 
       &:last-child {
-        margin-bottom: 30px;
+        margin-bottom: 40px;
       }
     }
 
@@ -506,7 +507,7 @@
 @media (max-width: 520px) {
   ##{$name} {
     .crayon-size-container {
-      bottom: 70px;
+      bottom: 55px;
     }
 
     .Tool-container {

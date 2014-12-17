@@ -96,6 +96,7 @@ app.Ornament.prototype.show = function(delayTime) {
   clearTimeout(self.wrapperDelay);
   this.wrapperDelay = setTimeout(function() {
     self.ornamentWrapper.addClass('active');
+    app.GameManager.navigation.handleResize();
   }, delayTime * .5);
 
   if (delayTime_ < 2) {
@@ -204,7 +205,7 @@ app.Ornament.prototype.relativeValue = function(value, minA, maxA, minB, maxB) {
 
 /**
  * Resize + redraw ornament
- * @param  {Event} event ...
+ * @param  {Event} event resize event
  */
 app.Ornament.prototype.resize = function(event) {
   var self = this;
@@ -269,7 +270,6 @@ app.Ornament.prototype.resize = function(event) {
 
 /**
  * Global Mouse up - use to fix mouse/touch draw when leaving canvas
- * @param  {MouseEvent} event ...
  */
 app.Ornament.prototype.globalMouseUp = function() {
   if (!this.isActive) {

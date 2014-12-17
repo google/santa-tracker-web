@@ -263,7 +263,7 @@ app.Tools.prototype.handleResize = function() {
 
   if ($(window).width() > 1024) {
     this.elem.css({
-      'height': wh - 198 - 204
+      'height': wh - 198 - 204 - 70
     });
 
     this.elem.find('.Tool-container').css({
@@ -271,13 +271,13 @@ app.Tools.prototype.handleResize = function() {
       'width': '33.3%'
     });
   } else {
-    if ($(window).width() > 520) {
+    if ($(window).width() > 550) {
       cols = 14;
     } else {
       cols = 7;
     }
 
-    var toolContainerSize = $(window).width() / cols;
+    var toolContainerSize = $(window).width() / cols - 10;
     this.elem.find('.Tool-container').css({
       'height': toolContainerSize,
       'width': toolContainerSize

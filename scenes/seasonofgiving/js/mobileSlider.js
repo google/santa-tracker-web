@@ -45,8 +45,9 @@ app.MobileSlider.prototype.expand = function() {
 
 /**
  * Collapse animation
+ * @param {Number} time time for collapse animation
  */
-app.MobileSlider.prototype.collapse = function() {
+app.MobileSlider.prototype.collapse = function(time) {
   if (!this.isExpanded) {
     return;
   }
@@ -58,7 +59,7 @@ app.MobileSlider.prototype.collapse = function() {
     ], {
       fill: 'forwards',
       delay: 200,
-      duration: 300,
+      duration: time || 300,
       easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)'
     }
   );
@@ -79,7 +80,8 @@ app.MobileSlider.prototype.init = function() {
     });
   });
 
-  this.toggle();
+  // Collapse by default
+  this.collapse(0);
 
   $(this.indicatorContainer).on('touchstart mousedown', this.handleIndicatorClick.bind(this));
 };
