@@ -124,7 +124,7 @@ Santa Track app.
         path="scenes/rollercoaster/rollercoaster-scene.html" hidden></rollercoaster-scene>
 
     <undersea-scene route="undersea"
-        path="scenes/undersea/undersea-scene.html" hidden></undersea-scene>
+        path="scenes/undersea/undersea-scene_[[language]].html" hidden></undersea-scene>
 
     <blimp-scene route="blimp"
         path="scenes/blimp/blimp-scene_[[language]].html" hidden></blimp-scene>
@@ -166,7 +166,7 @@ var VALID_ROUTES_ = [];
 // Routes/scenes which should always be accessible, no matter what the day.
 // These scenes are also not removed from the lazy-page switching.
 var PERMANENT_ROUTES_ = ['village', 'calendar', 'about'];
-var TRACKER_ROUTES_ = ['blimp', 'island'];
+var TRACKER_ROUTES_ = ['blimp', 'island', 'undersea'];
 
 // Check if date1 is the same date as date2.
 function isSameDay_(date1, date2) {
