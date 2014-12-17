@@ -845,6 +845,15 @@
 	"tracker_your_location": {
 		"message": "Your location"
 	},
+	"tracker_intro_welcome": {
+    "message": "Welcome to"
+  },
+  "tracker_intro_user_location": {
+    "message": "You are in"
+  },
+  "tracker_intro_skip_intro": {
+    "message": "Skip intro"
+  },
 	"traditions-next": {
 		"message": "Next Tradition"
 	},

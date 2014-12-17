@@ -6056,5 +6056,17 @@
     "tracker_distance_from_you": {
       "description": "Heading above a number that displays how far Santa is from your location",
       "message": "Distance from you"
+    },
+    "tracker_intro_welcome": {
+        "description": "An intro text at the Tracker intro overlay.",
+        "message": "Welcome to"
+    },
+    "tracker_intro_user_location": {
+        "description": "Text before the name of the user's current location.",
+        "message": "You are in"
+    },
+    "tracker_intro_skip_intro": {
+        "description": "Text on the skip intro button, which hides the Tracker intro.",
+        "message": "Skip intro"
     }
 }
