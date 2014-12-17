@@ -270,19 +270,13 @@ Tracker scene.
 
       // Santa API returning destinations is async. Upgrading this element is
       // async. The Maps API being ready is async. If destinations have not
-      // been returned by the API at this point, poll for them to guarantee
-      // they're eventually set. Would be ideal to use Promises, but they're not
-      // in IE 10+.
+      // been returned by the API at this point, sync santa and get us some!
       if (this.santaApp.destinations.length) {
         this.destinations = this.santaApp.destinations;
       } else {
-        var waitForDests = function() {
-          if (this.santaApp.destinations.length) {
-            clearInterval(destsInterval);
-            this.destinations = this.santaApp.destinations;
-          }
-        };
-        var destsInterval = window.setInterval(waitForDests.bind(this), 250);
+        this.santaApp.santaService.sync(function() {
+          this.destinations = this.santaApp.destinations;
+        });
       }
 
       this.$.intro.showTitle();
