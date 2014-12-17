@@ -80,6 +80,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       width: 26px;
     }
 
+    .is-answered .is-correct .check::after,
     .core-selected .check::after {
       display: block;
     }
@@ -167,6 +168,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     onAnswered: function () {
+      this.$.choices.classList.add('is-answered');
       this.$.selector.notap = true;
 
       if (this.isCorrect()) {
@@ -180,6 +182,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     reset: function () {
+      this.$.choices.classList.remove('is-answered');
       this.value = null;
       this.$.selector.notap = false;
       this.correct = false;
