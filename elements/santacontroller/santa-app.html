@@ -293,6 +293,15 @@ Polymer(Polymer.mixin({
    */
   scheduleChecked: false,
 
+  /**
+   * Full list of tracker destinations as they've come in.
+   *
+   * @property destinations
+   * @type array
+   * @default []
+   */
+  destinations: [],
+
   publish: {
     /**
      * True when the countdown is complete.
@@ -383,10 +392,8 @@ Polymer(Polymer.mixin({
     this.santaService = new SantaService(apiClient, this.language);
     this.santaService.sync(this.checkSchedule_.bind(this));
 
-    this.santaService.addListener('destinations_changed', function() {
-      if (this.$.tracker) {
-        this.$.tracker.destinations = this.santaService.getDestinations() || [];
-      }
+    this.santaService.addListener('destinations_changed', function(destinations) {
+      this.destinations = destinations || [];
     }.bind(this));
 
     this.santaService.addListener('kill', function() {
