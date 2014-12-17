@@ -28,7 +28,8 @@ Tracker scene.
                          on-api-load="{{mapsAPIReady}}"></google-maps-api>
       </template>
 
-      <city-feed id="feed" fit latestDestinations="{{destinations}}" active?="{{cityFeedActive}}"></city-feed>
+      <city-feed id="feed" fit latestDestinations="{{destinations}}" santaApp="{{santaApp}}"
+                 active?="{{cityFeedActive}}"></city-feed>
 
       <tracker-intro id="intro"
           userLocation="{{userLocation}}"
@@ -247,14 +248,6 @@ Tracker scene.
       this.location = {};
     },
 
-    ready: function() {
-      this.super();
-    },
-
-    mapsAPIReady: function() {
-      this.setup_();
-    },
-
     trackSanta: function() {
       if (this.trackingInterval_) return;
 
@@ -271,10 +264,26 @@ Tracker scene.
       }
     },
 
-    setup_: function() {
+    mapsAPIReady: function() {
       this.worldView_ = new WorldView(this, this.componentDir);
       this.worldView_.setupMap();
-      this.destinationsChanged();
+
+      // Santa API returning destinations is async. Upgrading this element is
+      // async. The Maps API being ready is async. If destinations have not
+      // been returned by the API at this point, poll for them to guarantee
+      // they're eventually set. Would be ideal to use Promises, but they're not
+      // in IE 10+.
+      if (this.santaApp.destinations.length) {
+        this.destinations = this.santaApp.destinations;
+      } else {
+        var waitForDests = function() {
+          if (this.santaApp.destinations.length) {
+            clearInterval(destsInterval);
+            this.destinations = this.santaApp.destinations;
+          }
+        };
+        var destsInterval = window.setInterval(waitForDests.bind(this), 250);
+      }
 
       this.$.intro.showTitle();
 

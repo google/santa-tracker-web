@@ -142,9 +142,10 @@ $name: 'module-city-feed';
       position: relative;
       background-color: rgb(121,49,164);
       border-radius: 0 0 5px 5px;
+      height: 250px;
 
       .photo {
-        height: 250px;
+        height: 100%;
         background-size: cover;
         background-repeat: no-repeat;
         border-radius: 0 0 5px 5px;
