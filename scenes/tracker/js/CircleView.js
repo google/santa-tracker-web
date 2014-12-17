@@ -15,7 +15,13 @@ function CircleView(target, color, opacity) {
   this.el_ = document.createElement('div');
   this.el_.className = CircleView.CLASS_NAME_;
 
+  this.closeTarget_ = document.createElement('div');
+  this.closeTarget_.className = CircleView.CLOSE_CLASS_NAME_;
+
   $(this.el_).insertBefore(target);
+  $(this.el_).append(this.closeTarget_);
+
+  $(this.closeTarget_).click(this.triggerClose_.bind(this));
 
   /**
    * @type {?number}
@@ -45,6 +51,7 @@ CircleView.prototype.animateIn_ = function() {
   window.clearTimeout(this.hideTimeout_);
 
   var el = $(this.el_);
+  var close = $(this.closeTarget_);
 
   el.css({
     borderWidth: 0
@@ -53,6 +60,7 @@ CircleView.prototype.animateIn_ = function() {
 
   this.showTimeout_ = window.setTimeout(function() {
     el.removeClass(CircleView.CIRCLE_IN_CLASS_NAME_);
+    close.show();
   }, CircleView.ANIMATION_DURATION_ + 1);
 
   window.setTimeout(this.render_.bind(this), 1);
@@ -69,6 +77,8 @@ CircleView.prototype.triggerClose_ = function() {
 
 CircleView.prototype.animateOut_ = function() {
   window.clearTimeout(this.showTimeout_);
+
+  $(this.closeTarget_).hide();
 
   var el = $(this.el_);
   el.css({
@@ -104,6 +114,15 @@ CircleView.HOLE_RADIUS = 74;
  * @const
  */
 CircleView.CLASS_NAME_ = 'circle';
+
+/**
+ * Close class name.
+ *
+ * @type {string}
+ * @private
+ * @const
+ */
+CircleView.CLOSE_CLASS_NAME_ = 'circle-close';
 
 /**
  * DOM class name for close button.
@@ -160,6 +179,8 @@ CircleView.prototype.render_ = function() {
     left: center.x - radius,
     top: center.y - radius
   });
+
+
 };
 
 /**
