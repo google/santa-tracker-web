@@ -332,7 +332,7 @@ Tracker scene.
 
     geoLocationError_: function(error) {
       this.userLocation = null;
-      this.$.intro.destroy();
+      this.$.intro.closeIntro();
     },
 
     destinationsChanged: function() {
