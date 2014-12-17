@@ -64,3 +64,8 @@ State.prototype.presentsDelivered;
 State.prototype.distanceTravelled;
 var Spher; // Spherical
 Spher.prototype.computeDistanceBetween;
+var SantaLoc; // SantaLocation
+SantaLoc.prototype.getDetails;
+//SantaLoc.prototype.distanceTo;
+//SantaLoc.prototype.getLocation;
+//SantaLoc.prototype.getDistanceTravelled;
