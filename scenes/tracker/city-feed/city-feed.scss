@@ -57,6 +57,9 @@ $name: 'module-city-feed';
 
   .card {
     $padding: 25px;
+    $cardPurple: rgb(121,49,164);
+    $cardContentHeight: 250px;
+
     pointer-events: all;
 
     border-radius: 5px;
@@ -109,7 +112,9 @@ $name: 'module-city-feed';
       position: absolute;
       right: $padding;
       bottom: -31px;
-      z-index: 1;
+      width: 270px; // FF
+      text-align: right; // FF
+      z-index: 2; // FF
 
       img {
         height: 50px;
@@ -121,6 +126,39 @@ $name: 'module-city-feed';
           transform: scale(0.75);
         }
 
+      }
+    }
+
+    .wikipedia {
+      .gradientbar {
+        height: 60px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background-image: linear-gradient(transparent, $cardPurple 65%);
+        pointer-events: none;
+        border-radius: 0 0 5px 5px;
+      }
+
+      .wikipedia__body {
+        overflow: auto;
+        height: $cardContentHeight;
+        padding: 25px 25px 0 25px;
+        display: block;
+        color: #fff;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .wikipedia__logo {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 27px;
+        height: 18px;
+        background: url("../img/wikipedia_2x.png") no-repeat;
+        background-size: contain;
       }
     }
 
@@ -140,25 +178,28 @@ $name: 'module-city-feed';
 
     .card-content {
       position: relative;
-      background-color: rgb(121,49,164);
+      background-color: $cardPurple;
       border-radius: 0 0 5px 5px;
-      height: 250px;
+      height: $cardContentHeight;
+      box-sizing: border-box;
+      overflow: hidden;
 
       .photo {
-        height: 100%;
-        background-size: cover;
-        background-repeat: no-repeat;
         border-radius: 0 0 5px 5px;
+        core-image {
+          background-color: #eee;
+          height: 100%;
+          width: 100%;
+        }
       }
 
       .attribution {
-        background: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.3);
         color: white;
         position: absolute;
         bottom: 0;
         padding: 5px;
-        border-bottom-left-radius: 5px;
-        border-top-right-radius: 5px;
+        border-radius: 0 0 5px 5px;
       }
       a {
         color: inherit;

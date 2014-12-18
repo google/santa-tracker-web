@@ -573,7 +573,7 @@ Polymer(Polymer.mixin({
 
   trackEvent: function(e, detail, sender) {
     this.analyticsService.trackEvent(
-        detail.category, detail.action, detail.label);
+        detail.category, detail.action, detail.label, detail.value);
   },
 
   trackPerf: function(e, detail, sender) {
