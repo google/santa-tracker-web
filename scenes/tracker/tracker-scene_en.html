@@ -1,4 +1,5 @@
 <link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
 <link rel="import" href="../base-scene.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="tracker-intro.html">
@@ -18,6 +19,8 @@ Tracker scene.
 <polymer-element name="tracker-scene" extends="base-scene">
 <template>
   <link rel="stylesheet" href="tracker-scene.css" no-shim>
+
+  <core-a11y-keys target="{{}}" keys="esc" on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
 
   <div id="module-tracker">
     <div class="scene">
@@ -46,7 +49,7 @@ Tracker scene.
           <div class="card-body"></div>
           <div class="card-footer"></div>
         </div>
-        
+
         <template if="{{false}}">
           <div class="card card-matching">
             <div class="card-header">
@@ -57,7 +60,7 @@ Tracker scene.
             <div class="card-body"></div>
             <div class="card-footer"></div>
           </div>
-          
+
           <div class="card card-gumball">
             <div class="card-header">
               <div class="corner-image"></div>
@@ -521,6 +524,11 @@ Tracker scene.
       google.maps.event.addListener(this.worldView_, 'santa_clicked', function(e) {
         this.cityFeedActive = !this.cityFeedActive;
 
+        if (this.location) {
+          var destId = this.location.stopover ? this.location.stopover.id : this.location.prev.id;
+          this.$.feed.scrollToDest(destId);
+        }
+
         var action = this.cityFeedActive ? 'show' : 'hide';
         this.fire('analytics-track-event', {category: 'cityfeed', action: action,
                                             label: 'from santa'});
@@ -653,6 +661,15 @@ Tracker scene.
       timestamp -= this.santaApp.santaService.now();
 
       return formatCountdown(timestamp);
+    },
+
+    keyHandler: function(e, detail, sender) {
+      switch(e.detail.key) {
+        case 'esc':
+          e.stopPropagation();
+          this.cityFeedActive = false;
+          break;
+      }
     }
   });
 })();
