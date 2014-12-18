@@ -1,0 +1,108 @@
+$name: 'module-streetview';
+$color-blue-sky: #0095d9;
+$color-gray-road: #6d787d;
+$horizon-y-offset: -350;
+
+@import "../shared/sass/board";
+@import "sass/_penner-easing";
+@import "sass/_controls";
+@import "sass/_neighbourhood";
+@import "sass/_clouds";
+@import "sass/_bird";
+@import "sass/_eyes-blinking";
+@import "sass/_biking-elf";
+@import "sass/_elves";
+
+##{$name} {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  .scene {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: 0 0;
+  }
+
+  .cloud {
+    bottom: 320px;
+    display: none;
+
+    @media (min-height: 800px) {
+      display: block;
+    }
+  }
+
+  .bird {
+    top: -150px;
+    display: none;
+
+    @media (min-height: 800px) {
+      display: block;
+    }
+
+  }
+
+  .anchor {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+  }
+
+  .sky {
+    background: $color-blue-sky;
+    height: 50%;
+    position: absolute;
+    top: -50%;
+    width: 100%;
+  }
+
+  .mountain {
+    background: transparent url(img/mountains.svg) repeat-x left bottom;
+    position: absolute;
+    width: 130%;
+    height: 413px;
+    margin-top: -413px;
+    top: 100%;
+    margin-left: -20%;
+    transform: translateZ(0);
+  }
+
+  .test {
+    display: block;
+    background: red;
+    width: 50px;
+    height: 50px;
+
+  }
+
+  .road {
+    background: $color-gray-road;
+    height: 165px;
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    margin-top: 218px;
+
+    // some ground to fix any possible bleeding
+    &:after {
+      content: '';
+      background: #fff;
+      position: absolute;
+      height: 50px;
+      width: 100%;
+      top: 164px;
+    }
+  }
+}
+
+@import "../shared/sass/responsive";

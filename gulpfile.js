@@ -88,6 +88,9 @@ var SCENE_CLOSURE_CONFIG = {
   santaselfie: {
     entryPoint: 'app.Game'
   },
+  streetview: {
+    entryPoint: 'app.Scene'
+  },
   translations: {
     entryPoint: 'app.Scene'
   },
