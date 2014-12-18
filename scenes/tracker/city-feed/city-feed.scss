@@ -17,8 +17,8 @@ $name: 'module-city-feed';
   }
 
   .ico {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -36,6 +36,10 @@ $name: 'module-city-feed';
   .ico-clock {
     background-image: url(img/tracker-and-city-SVGs_timer-blue.svg);
     opacity: 0.3;
+  }
+
+  .ico-weatherchanel {
+    background-image: url(../img/weatherchannel.png);
   }
 
   core-list {
@@ -89,7 +93,7 @@ $name: 'module-city-feed';
         text-transform: uppercase;
         color: white;
         font-size: 11px;
-        margin-bottom: 5px;
+        margin-bottom: 7px;
       }
     }
 
