@@ -135,7 +135,7 @@ $name: 'module-city-feed';
         bottom: 0;
         background-image: linear-gradient(transparent, $cardPurple 65%);
         pointer-events: none;
-        border-radius: 5px;
+        border-radius: 0 0 5px 5px;
       }
 
       .wikipedia__body {
@@ -183,10 +183,12 @@ $name: 'module-city-feed';
       overflow: hidden;
 
       .photo {
-        height: 100%;
-        background-size: cover;
-        background-repeat: no-repeat;
         border-radius: 0 0 5px 5px;
+        core-image {
+          background-color: #eee;
+          height: 100%;
+          width: 100%;
+        }
       }
 
       .attribution {
@@ -195,8 +197,7 @@ $name: 'module-city-feed';
         position: absolute;
         bottom: 0;
         padding: 5px;
-        border-bottom-left-radius: 5px;
-        border-top-right-radius: 5px;
+        border-radius: 0 0 5px 5px;
       }
       a {
         color: inherit;

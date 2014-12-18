@@ -23,10 +23,11 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^0.5.1",
-    "core-pages": "Polymer/core-pages#^0.5.1",
     "core-animated-pages": "Polymer/core-animated-pages#^0.5.1",
-    "core-range": "Polymer/core-range#^0.5.1",
+    "core-image": "Polymer/core-image#^0.5.1",
     "core-list": "Polymer/core-list#^0.5.2",
+    "core-pages": "Polymer/core-pages#^0.5.1",
+    "core-range": "Polymer/core-range#^0.5.1",
     "paper-tabs": "Polymer/paper-tabs#^0.5.1",
     "paper-fab": "Polymer/paper-fab#^0.5.1",
     "core-a11y-keys": "Polymer/core-a11y-keys#^0.5.1",

@@ -2,6 +2,7 @@
 <link rel="import" href="../../../components/core-list/core-list.html">
 <link rel="import" href="../../../components/core-pages/core-pages.html">
 <link rel="import" href="../../../components/core-selector/core-selector.html">
+<link rel="import" href="../../../components/core-image/core-image.html">
 
 <link rel="import" href="../../../js/utils.html">
 
@@ -81,10 +82,12 @@ City feed view in Tracker
             </div>
           </div>
           <core-pages class="card-content" selected="{{model.selectedCard}}">
-            <div class="photo" _style="background-image:url({{model.details.photos[0].url}})">
+            <div class="photo">
+              <core-image sizing="cover" preload fade src="{{model.details.photos[0].url}}"></core-image>
               <div class="attribution"><html-echo html="{{model.details.photos[0].attributionHtml}}"></html-echo></div>
             </div>
-            <div class="photo" _style="background-image:url({{model.details.photos[1].url}})">
+            <div class="photo">
+              <core-image sizing="cover" preload fade src="{{model.details.photos[1].url}}"></core-image>
               <div class="attribution"><html-echo html="{{model.details.photos[1].attributionHtml}}"></html-echo></div>
             </div>
             <div>TODO</div>
