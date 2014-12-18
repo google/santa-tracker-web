@@ -57,6 +57,9 @@ $name: 'module-city-feed';
 
   .card {
     $padding: 25px;
+    $cardPurple: rgb(121,49,164);
+    $cardContentHeight: 250px;
+
     pointer-events: all;
 
     border-radius: 5px;
@@ -124,6 +127,39 @@ $name: 'module-city-feed';
       }
     }
 
+    .wikipedia {
+      .gradientbar {
+        height: 60px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background-image: linear-gradient(transparent, $cardPurple 65%);
+        pointer-events: none;
+        border-radius: 5px;
+      }
+
+      .wikipedia__body {
+        overflow: auto;
+        height: $cardContentHeight;
+        padding: 25px 25px 0 25px;
+        display: block;
+        color: #fff;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .wikipedia__logo {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 27px;
+        height: 18px;
+        background: url("../img/wikipedia_2x.png") no-repeat;
+        background-size: contain;
+      }
+    }
+
     .corner-image {
       position: absolute;
       right: 0;
@@ -140,9 +176,11 @@ $name: 'module-city-feed';
 
     .card-content {
       position: relative;
-      background-color: rgb(121,49,164);
+      background-color: $cardPurple;
       border-radius: 0 0 5px 5px;
-      height: 250px;
+      height: $cardContentHeight;
+      box-sizing: border-box;
+      overflow: hidden;
 
       .photo {
         height: 100%;
@@ -152,7 +190,7 @@ $name: 'module-city-feed';
       }
 
       .attribution {
-        background: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.3);
         color: white;
         position: absolute;
         bottom: 0;

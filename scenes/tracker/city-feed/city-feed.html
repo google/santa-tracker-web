@@ -59,7 +59,7 @@ City feed view in Tracker
               <img src="img/tracker-and-city-SVGs_feed-city-icon.svg">
               <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg">
               <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg">
-              <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg">
+              <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg" on-tap="{{onWikipedia}}">
             </core-selector>
             <div id="stats">
               <div layout horizontal>
@@ -88,7 +88,17 @@ City feed view in Tracker
               <div class="attribution"><html-echo html="{{model.details.photos[1].attributionHtml}}"></html-echo></div>
             </div>
             <div>TODO</div>
-            <div>TODO</div>
+            <div class="wikipedia">
+              <div class="gradientbar"></div>
+              <div class="wikipedia__logo"></div>
+              <html-echo class="wikipedia__body" html="{{model.details.wikipedia.excerpt}}"></html-echo>
+              <div class="attribution">
+                <span class="wiki-cc">Available under
+                <a target="wiki" href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
+                terms</span> &nbsp;
+                <a target="wiki" href="{{model.details.wikipedia.url}}">{{model.details.wikipedia.url}}</a>
+              </div>
+            </div>
           </core-pages>
         </div>
 
@@ -250,6 +260,13 @@ Polymer({
 
   formatCountdown: function(timestamp) {
     return formatCountdown(timestamp);
+  },
+
+  onWikipedia: function(e, detail, sender) {
+    var location = sender.templateInstance.model.model;
+    location.getDetails(function(detail) {
+      location.details.wikipedia = detail.wikipedia;
+    });
   }
 });
 
