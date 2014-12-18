@@ -119,7 +119,7 @@ Boatload scene.
           </div>
           <div class="status"></div>
         </div>
-        <div class="actions">
+        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
           <button type="button" class="restart"></button>
           <button type="button" class="pause"></button>
         </div>
@@ -157,6 +157,8 @@ Boatload scene.
 
     game: null,
 
+    hasClickedStart: false,
+
     onPreload: function() {
       this.preloadSounds('bl_load_sounds', 40);
       this.preloadImages([
@@ -183,18 +185,23 @@ Boatload scene.
         'img/rotate.svg'
       ]);
     },
+
     onShow: function() {
       var module = this.$['module-boatload'];
 
-      var game = this.game = new scenes.boatload.Game(module);
-      startButton(this, module, function() {
-        game.start();
-      });
+      this.game = new scenes.boatload.Game(module);
+      startButton(this, module, this.onClickStart.bind(this));
     },
+
     onHide: function() {
       this.game.dispose();
       this.game = null;
       this.fire('sound-ambient', 'bl_end_game');
+    },
+
+    onClickStart: function() {
+      this.hasClickedStart = true;
+      this.game.start();
     }
   });
 

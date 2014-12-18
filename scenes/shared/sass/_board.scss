@@ -16,6 +16,8 @@ $board-border: #A52FB7;
 $board-dark-text: #9129A1;
 $board-skip-score: false !default;
 $board-level-bp: 1350px !default;
+$board-actions-height-md: 54px;
+
 
 @mixin board-color($color) {
   background-color: board-color($color, $board-dark-bg);
@@ -80,6 +82,13 @@ $board-level-bp: 1350px !default;
 
     .actions {
       display: block;
+      max-height: $board-actions-height-md;
+      overflow: hidden;
+      transition: max-height 0.3s;
+
+      &.is-collapsed {
+        max-height: 0;
+      }
     }
 
     .score, .restart {
@@ -120,7 +129,7 @@ $board-level-bp: 1350px !default;
     text-align: center;
     transform: scale(0.71);
     transform-origin: 100% 52px;
-    z-index: 110;
+    z-index: 120;
 
     .back {
       background: url(../shared/img/village-nav-bg.svg) 50% 100%/204px 45px no-repeat,

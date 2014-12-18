@@ -91,7 +91,7 @@ Presentdrop scene.
             <!---->
           </div>
         </div>
-        <div class="actions">
+        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
           <button type="button" class="restart"></button>
           <button type="button" class="pause"></button>
         </div>
@@ -193,6 +193,8 @@ Presentdrop scene.
 
     game: null,
 
+    hasClickedStart: false,
+
     onPreload: function() {
       this.preloadSounds('pd_load_sounds', 30);
       this.preloadImages([
@@ -207,18 +209,23 @@ Presentdrop scene.
         'img/tutorial.png'
       ]);
     },
+
     onShow: function() {
       var module = this.$['module-presentdrop'];
 
-      var game = this.game = new scenes.presentdrop.Game(module);
-      startButton(this, module, function() {
-        game.start();
-      });
+      this.game = new scenes.presentdrop.Game(module);
+      startButton(this, module, this.onClickStart.bind(this));
     },
+
     onHide: function() {
       this.game.dispose();
       this.game = null;
       this.fire('sound-ambient', 'pd_end_game');
+    },
+
+    onClickStart: function() {
+      this.hasClickedStart = true;
+      this.game.start();
     }
   });
 
