@@ -3,6 +3,7 @@
 <link rel="import" href="../../../components/core-pages/core-pages.html">
 <link rel="import" href="../../../components/core-selector/core-selector.html">
 <link rel="import" href="../../../components/core-image/core-image.html">
+<link rel="import" href="../../../components/google-streetview-pano/google-streetview-pano.html">
 
 <link rel="import" href="../../../js/utils.html">
 
@@ -56,11 +57,13 @@ City feed view in Tracker
               <h4 class="white">{{model.region}}</h4>
               <h1>{{model.city}}</h1>
             </div>
-            <core-selector class="card-icons" selected="{{model.selectedCard}}">
-              <img src="img/tracker-and-city-SVGs_feed-city-icon.svg">
-              <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg">
-              <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg">
-              <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg" on-tap="{{onWikipedia}}">
+            <core-selector class="card-icons" selected="{{model.selectedCard}}" on-core-activate="{{onCardSelected}}">
+              <img src="img/tracker-and-city-SVGs_feed-city-icon.svg" data-name="photo">
+              <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg" data-name="photo">
+              <template if="{{model.details.streetView}}">
+                <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg" data-name="streetview">
+              </template>
+              <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg" on-tap="{{onWikipedia}}" data-name="wikipedia">
             </core-selector>
             <div id="stats">
               <div layout horizontal>
@@ -90,7 +93,19 @@ City feed view in Tracker
               <core-image sizing="cover" preload fade src="{{model.details.photos[1].url}}"></core-image>
               <div class="attribution"><html-echo html="{{model.details.photos[1].attributionHtml}}"></html-echo></div>
             </div>
-            <div>TODO</div>
+            <template if="{{model.details.streetView}}">
+              <div>
+                <template if="{{model.selectedCard == 2}}">
+                  <google-streetview-pano version="3.exp" fit
+                      panoid="{{model.details.streetView.id}}"
+                      heading="{{model.details.streetView.heading}}"
+                      clientId="{{santaApp.config.CLIENT_ID}}"
+                      libraries="places,geometry"
+                      language="{{santaApp.language}}"
+                      disableDefaultUI></google-streetview-pano>
+                </template>
+              </div>
+            </template>
             <div class="wikipedia">
               <div class="gradientbar"></div>
               <div class="wikipedia__logo"></div>
@@ -114,6 +129,13 @@ City feed view in Tracker
 </template>
 <script>
 (function() {
+
+/**
+ * Fired when a page in the city card is selected.
+ *
+ * @event analytics-track-event
+ * @param {object} detail
+ */
 
 /**
  * Lookup table of destination id -> index into destinations array.
@@ -197,7 +219,15 @@ Polymer({
     // TODO(ericbidelman): shouldn't have to call this with new core-list. Investigate.
     this.$.feed.updateSize();
 
-    this.$.feed.scrollToItem(0); // scroll to top (latest item in feed).
+    if (!this.active) {
+      // Want the list to scroll fast and streetview is a hog. Make sure no
+      // streetview cards are activated when the list is opened again.
+      for (var i = 0, dest; dest = this.dests[i]; ++i) {
+        dest.selectedCard = 0;
+      }
+    } else {
+      this.$.feed.scrollToItem(0); // scroll to top (latest item in feed).
+    }
   },
 
   sceneParamsChanged: function() {
@@ -270,6 +300,13 @@ Polymer({
     location.getDetails(function(detail) {
       location.details.wikipedia = detail.wikipedia;
     });
+  },
+
+  onCardSelected: function(e, detail, sender) {
+    var destId = sender.templateInstance.model.model.id;
+    var type = detail.item.getAttribute('data-name');
+    this.fire('analytics-track-event', {category: 'citycard', action: type,
+                                        label: destId});
   }
 });
 

@@ -112,7 +112,9 @@ $name: 'module-city-feed';
       position: absolute;
       right: $padding;
       bottom: -31px;
-      z-index: 1;
+      width: 270px; // FF
+      text-align: right; // FF
+      z-index: 2; // FF
 
       img {
         height: 50px;
