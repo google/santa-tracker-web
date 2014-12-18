@@ -22,6 +22,7 @@ $button-bp: 661px;
     -webkit-font-smoothing: antialiased;
     border-radius: 5px;
     border: none;
+    box-sizing: border-box;
     color: #fff;
     cursor: pointer;
     display: inline-block;
@@ -35,6 +36,7 @@ $button-bp: 661px;
     outline: none;
     position: relative;
     text-align: center;
+    text-decoration: none;
     transform: translateZ(0);
     transition: transform 0.1s, box-shadow 0.1s;
     user-select: none;
@@ -74,10 +76,12 @@ $button-bp: 661px;
   }
 
   .Button--large {
+    margin-bottom: 10px;
     padding: 10px;
     width: 180px;
 
     @media (min-width: $button-bp) {
+      margin-bottom: 20px;
       padding: 18px 30px;
       width: 370px;
     }
