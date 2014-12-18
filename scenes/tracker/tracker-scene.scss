@@ -207,6 +207,15 @@ $name: 'module-tracker';
   }
 }
 
+@media (max-width: $mobileBreakpoint) {
+  city-feed {
+    margin-top: 35vh;
+  }
+  #status-bar {
+    display: none;
+  }
+}
+
 @media (max-width: $tabletBreakpoint) {
   ##{$name} {
     .sceneboard {
