@@ -162,6 +162,13 @@ Tracker scene.
      */
 
     /**
+     * Fired when city feed is activated.
+     *
+     * @event analytics-track-event
+     * @param {object} detail
+     */
+
+    /**
      * Initial Santa's location. Does not get updated.
      * @type {SantaState}
      * @private
@@ -283,11 +290,18 @@ Tracker scene.
 
       google.maps.event.addListener(this.worldView_, 'santa_clicked', function(e) {
         this.cityFeedActive = !this.cityFeedActive;
+
+        var action = this.cityFeedActive ? 'show' : 'hide';
+        this.fire('analytics-track-event', {category: 'cityfeed', action: action,
+                                            label: 'from santa'});
       }.bind(this));
 
       google.maps.event.addListener(this.worldView_, 'routemarker_clicked', function(destId) {
         this.cityFeedActive = true;
         this.$.feed.scrollToDest(destId);
+
+        this.fire('analytics-track-event', {category: 'cityfeed', action: 'show',
+                                            label: 'from route marker'});
       }.bind(this));
 
       google.maps.event.addListener(this.worldView_, 'scenemarker_clicked', function(sceneId) {
@@ -375,18 +389,7 @@ Tracker scene.
 
     cityFeedActiveChanged: function() {
       this.fire('tracker-action', {type: 'city-toggle', active: this.cityFeedActive});
-
       this.worldView_.setMode(this.cityFeedActive ? 'feed' : 'track');
-
-      if (this.cityFeedActive) {
-        this.async(function() {
-          var cityStats = this.$['module-tracker'].querySelector('#city-stats');
-          cityStats.style.opacity = 1;
-        }.bind(this), null, 500);
-      } else {
-        var cityStats = this.$['module-tracker'].querySelector('#city-stats');
-        cityStats.style.opacity = 0;
-      }
     },
 
     onShow: function() {
