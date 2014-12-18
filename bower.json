@@ -36,11 +36,13 @@
     "google-apis": "GoogleWebComponents/google-apis#^0.4.3",
     "google-map": "GoogleWebComponents/google-map#^0.4.0",
     "google-youtube": "GoogleWebComponents/google-youtube#^1.0.1",
-    "google-streetview-pano": "GoogleWebComponents/google-streetview-pano#^0.1.0",
+    "google-streetview-pano": "GoogleWebComponents/google-streetview-pano#0b05f32ebef99d633c1c5e8d779f1271747ac60e",
     "closure-compiler": "https://dl.google.com/closure-compiler/compiler-latest.zip",
     "closure-library": "google/closure-library#5fbc334ce7f86018da9fb5e673d2518143aa999e"
   },
   "resolutions": {
-    "polymer": "^0.5.1"
+    "polymer": "^0.5.1",
+    "core-component-page": "^0.5.1",
+    "webcomponentsjs": "^0.5.1"
   }
 }
