@@ -1,5 +1,3 @@
-//@import "../shared/sass/_mixins.scss";
-
 $tabletBreakpoint: 1024px;
 $mobileBreakpoint: 660px;
 
@@ -213,6 +211,7 @@ $name: 'module-city-feed';
   }
 }
 
+@import "_cards.scss";
 
 @media (min-width: $tabletBreakpoint) {
   ##{$name} {

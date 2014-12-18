@@ -1,0 +1,318 @@
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+
+.card {
+  width: 306px;
+  $padding: 20px;
+  pointer-events: all;
+  color: #fff;
+
+  border-radius: 5px;
+  background-color: rgb(106,27,154);
+  box-sizing: border-box;
+  position: relative;
+
+  &.card-coding, &.card-pins, &.card-app, &.card-mercator, &.card-gumball {
+    .card-header {
+      .corner-image {
+        background-image: url(img/cardavatars/Cards-avatars-04_general2.svg);
+      }
+    }
+  }
+
+  &.card-matching {
+    background-color: #1f8518;
+
+    .card-body {
+      background-image: url(img/cardavatars/card-matching.png);
+    }
+  }
+
+  &.card-gumball {
+    background-color: #b67a47;
+
+    .card-body {
+      background-image: url(img/cardavatars/card-gumball.png);
+    }
+  }
+
+  &.card-selfie {
+    background-color: #00adee;
+
+    .card-body {
+      background-image: url(img/cardavatars/card-selfie.png);
+    }
+  }
+
+  &.card-mercator {
+    background-color: #f19211;
+
+    .card-body {
+      background-image: url(img/cardavatars/card-mercator.png);
+    }
+  }
+
+  &.card-jamband {
+    background-color: #f2b825;
+
+    .card-body {
+      background-image: url(img/cardavatars/card-jamband.png);
+    }
+  }
+
+  &.card-coding {
+    background-color: #3e4da1;
+
+    .card-body {
+      background-image: url(img/cardavatars/card-code.png);
+    }
+  }
+
+  &.card-latlng, &.card-glider, &.card-giving {
+    background-color: #135aa2;
+    .card-header {
+      .corner-image {
+        background-image: url(img/cardavatars/Cards-avatars-04_delivergifts.svg);
+      }
+    }
+  }
+
+  &.card-photospheres, &.card-treks {
+    .card-header {
+      .corner-image {
+        background-image: url(img/cardavatars/Cards-avatars-04_treks.svg);
+      }
+    }
+  }
+
+  &.card-treks {
+    background-color: #25c5d9;
+  }
+
+  &.card-photospheres {
+    background-color: #1d87e4;
+  }
+
+  &.card-pins {
+    background-color: #e9b259;
+
+    .card-body {
+      background-image: url(img/cardavatars/card-pins.png);
+    }
+  }
+
+  &.card-village {
+    background-color: #00abc0;
+
+    .card-body {
+      background-image: url(img/cardavatars/card-village.png);
+    }
+  }
+
+  &.card-app {
+    background-color: #aa46bb;
+
+    .card-body {
+      background-image: url(img/cardavatars/card-app.png);
+    }
+  }
+
+  &.card-gmm {
+    background-color: #029ae4;
+
+    .card-body {
+      background-image: url(img/cardavatars/card-gmm.png);
+    }
+  }
+
+  &.card-giving {
+    background-color: #378d3b;
+
+    .card-body {
+      background-image: url(img/cardavatars/card-season-of-giving.png);
+    }
+  }
+
+  &.card-reindeer {
+    background-color: #135aa2;
+    .card-header {
+      .corner-image {
+        background-image: url(img/cardavatars/Cards-avatars-04_blitzenescaped.svg);
+      }
+    }
+
+    .card-body {
+      background-image: url(img/cardavatars/card-reindeer-run.png);
+    }
+  }
+
+  &.card-glider, &.card-latlng, &.card-video, &.card-reindeer, &.card-giving, &.card-gmm, &.card-app,
+  &.card-village, &.card-pins, &.card-coding, &.card-jamband, &.card-mercator, &.card-selfie,
+  &.card-gumball, &.card-matching {
+    .card-body {
+      height: 163px;
+      border-radius: 0 0 5px 5px;
+      text-align: center;
+
+      span {
+        font-size: 120px;
+        font-weight: 600;
+        line-height: 130px;
+      }
+    }
+  }
+
+  &.card-glider {
+    .card-body {
+      background-image: url(img/cardavatars/card-glider-elf.png);
+    }
+  }
+
+  &.card-latlng {
+    .card-body {
+      background-image: url(img/cardavatars/card-lat-lng.png);
+    }
+  }
+
+  &.card-update {
+    background-color: #e43834;
+
+    .card-header {
+      .corner-image {
+        background-image: url(img/cardavatars/Cards-avatars-04_santa.svg);
+      }
+    }
+
+    .card-footer {
+      display: none;
+    }
+  }
+
+  &.card-trivia {
+    background-color: #00be5d;
+
+    .card-header {
+      .corner-image {
+        background-image: url(img/cardavatars/Cards-avatars-04_worldfacts.svg);
+      }
+    }
+
+    .card-body {
+      height: 132px;
+      text-align: center;
+      background-image: url(img/cardavatars/card-trivia.png);
+      border-radius: 0 0 5px 5px;
+      span {
+        font-size: 120px;
+        font-weight: 600;
+        line-height: 130px;
+      }
+    }
+  }
+
+  &.card-video {
+    background-color: #eb3f79;
+
+    .card-header {
+      .corner-image {
+        background-image: url(img/cardavatars/Cards-avatars-04_video.svg);
+      }
+    }
+
+    .card-body {
+      background-image: url(img/cardavatars/card-video.png);
+    }
+  }
+
+  &.card-facts {
+    background-color: #1875d1;
+
+    .card-header {
+      .corner-image {
+        background-image: url(img/cardavatars/Cards-avatars-04_natgeo.svg);
+      }
+    }
+  }
+
+  &.card-photos {
+    height: 201px;
+
+    .card-header {
+      .corner-image {
+        background-image: url(img/cardavatars/Cards-avatars-04_photo.svg);
+      }
+    }
+
+    .card-body {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url(img/cardavatars/card-photo.png);
+      border-radius: 5px;
+    }
+
+    .card-footer {
+      display: none;
+    }
+  }
+
+  .card-header {
+    position: relative;
+    padding-right: 60px;
+
+    z-index: 2;
+    h3 {
+      margin: 0;
+      padding: 0 0 18px $padding;
+      font-size: 24px;
+      line-height: 24px;
+      font-weight: 300;
+    }
+
+    h4 {
+      margin: 0;
+      padding: $padding 0 18px $padding;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .corner-image {
+      position: absolute;
+      right: 0;
+      top: 0;
+      background-image: url(img/cardavatars/Cards-avatars-04_general.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 85px;
+      width: 85px;
+      border-radius: 0 5px 0 0;
+    }
+  }
+
+  .card-body {
+    z-index: 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    p {
+      margin: 0;
+      padding: 12px $padding;
+      font-size: 24px;
+      line-height: 31px;
+      font-weight: 300;
+    }
+  }
+
+  .card-footer {
+    p {
+      margin: 0;
+      padding: 12px $padding $padding $padding;
+      font-size: 11px;
+      font-weight: 400;
+    }
+  }
+
+}

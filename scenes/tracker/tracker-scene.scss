@@ -18,7 +18,26 @@ $name: 'module-tracker';
 
   @import "sass/_keyframe_animations.scss";
   @import "sass/_santa.scss";
-  @import "sass/_cards.scss";
+
+  #cards {
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    z-index: 2;
+
+    @include transition(transform 500ms ease-out, opacity 450ms linear);
+    @include transition-timing-function(cubic-bezier(0.4, 1.6, 0.2, 1));
+    @include transform(scale(0));
+    transform-origin: 100% 100%;
+    opacity: 0;
+
+    &.show {
+      @include transform(scale(1));
+      opacity: 1;
+    }
+
+    @import "city-feed/_cards.scss";
+  }
 
   .scene {
     height: 100%;
