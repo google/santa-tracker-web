@@ -17,6 +17,7 @@ app.Scene = function(div) {
   this.$el = $(div);
   this.div_ = div;
   this.pinballTimer_ = -1;
+  this.hasDroppedChocolate_ = false;
 
   this.$pinballButton_ = this.$el.find('#button');
   this.$chocolatePipeLever_ = this.$el.find('.js-chocolate-pipe-lever');
@@ -75,7 +76,10 @@ app.Scene.prototype.shootball_ = function() {
  * @private
  */
 app.Scene.prototype.dumpChocolate_ = function() {
-  this.$chocolatePipeLever_.addClass('flip');
-  this.$chocolateDrop_.addClass('run-animation');
-  window.santaApp.fire('sound-trigger', 'factory_choco');
+  if (!this.hasDroppedChocolate_) {
+    this.hasDroppedChocolate_ = true;
+    this.$chocolatePipeLever_.addClass('flip');
+    this.$chocolateDrop_.addClass('run-animation');
+    window.santaApp.fire('sound-trigger', 'factory_choco');
+  }
 };
