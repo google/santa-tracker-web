@@ -433,13 +433,13 @@ Polymer(Polymer.mixin({
           house.disabled = ios || house.disabled;
           break;
         case 'streetview':
-          // remove streetview where sendacall supported (en|en-GB|es|es-419)
+          // remove streetview where callfromsanta supported (en|en-GB|es|es-419)
           if (spanglish) {
             this.houses.splice(i, 1);
           }
           break;
-        case 'sendacall':
-          // remove sendacall where not supported (leaving streetview)
+        case 'callfromsanta':
+          // remove callfromsanta where not supported (leaving streetview)
           if (!spanglish) {
             this.houses.splice(i, 1);
           }

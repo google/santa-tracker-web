@@ -460,7 +460,7 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "sendacall",
+  module: "callfromsanta",
   iced: true,
   launchDate: new Date('Dec 19, 2014'),
   category: "play",
@@ -479,17 +479,6 @@ window.HOUSES = [{
     "elf-red-girl-snow-left",
     "elf-green"
     ]
-  }
-}, {
-  module: "callfromsanta",
-  iced: true,
-  cast: false,
-  disabled: false,
-  launchDate: new Date('Dec 19, 2014'),
-  category: "play",
-  elves: {
-    melt: [],
-    snow: []
   }
 }, {
   module: "translations",
