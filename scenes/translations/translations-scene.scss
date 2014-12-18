@@ -9,6 +9,8 @@ $sceneboard-bg: #FFDE00;
 @import "sass/elves";
 
 ##{$name} {
+  @include tutorial(mouse-translations, 'img/tutorial/mouse-translations.svg', 2);
+  @include tutorial(touch-translations, 'img/tutorial/touch-translations.svg', 2);
 
   position: absolute;
   bottom: 0;
