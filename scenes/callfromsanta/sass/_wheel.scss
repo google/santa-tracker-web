@@ -1,0 +1,39 @@
+$ease-santa-wheel: $easeOutSine;
+
+##{$name} {
+  .play {
+    .wheel {
+      animation-name: #{$name}__santa-wheel-turning;
+    }
+  }
+
+  .wheel {
+    position: absolute;
+    left: 50%;
+    margin-top: -80px;
+    margin-left: -227px;
+    transform-origin: 21px 21px;
+    animation-delay: $delay-santa-call;
+    animation-duration: $duration-santa-call;
+    animation-iteration-count: infinite;
+    animation-timing-function: $ease-santa-wheel;
+  }
+}
+
+@keyframes #{$name}__santa-wheel-turning {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(40deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

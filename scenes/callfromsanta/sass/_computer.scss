@@ -1,0 +1,129 @@
+##{$name} {
+  .computer {
+    background-color: #e2e3e4;
+    border-radius: 30px;
+    height: 600px;
+    left: 50%;
+    margin-left: -400px;
+    margin-top: -300px;
+    position: absolute;
+    top: 50%;
+    width: 800px;
+
+    .logo {
+      bottom: 30px;
+      height: 30px;
+      left: 50%;
+      margin-left: -45px;
+      position: absolute;
+      display: block;
+    }
+
+    .bg {
+      background-color: #fff;
+      border-radius: 30px;
+      height: 600px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 790px;
+    }
+  }
+
+  .computer-shadow {
+    background: url(img/sprite.png) -777px -588px no-repeat;
+    height: 31px;
+    left: 50%;
+    margin-left: -362px;
+    margin-top: 370px;
+    position: absolute;
+    top: 50%;
+    width: 724px;
+  }
+
+  .antenna {
+    background: url(img/sprite.png) -963px -332px no-repeat;
+    height: 128px;
+    left: 50%;
+    margin-left: -356px;
+    position: absolute;
+    top: -100px;
+    width: 53px;
+
+    .signal {
+      height: 34px;
+      left: 0px;
+      position: absolute;
+      top: -10px;
+      width: 53px;
+      background: url(img/sprite.png) -1045px -332px no-repeat;
+      opacity: 0;
+
+      &.first {
+        animation: 1.2s -500ms #{$name}-signal infinite linear;
+      }
+
+      &.second {
+        animation: 1.2s -250ms #{$name}-signal infinite linear;
+      }
+
+      &.third {
+        animation: 1.2s 0s #{$name}-signal infinite linear;
+      }
+    }
+  }
+
+  .screen {
+    background-color: #29b24b;
+    width: 700px;
+    height: 460px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    transition: height 0.4s ease-out;
+  }
+
+  .screen--minimized {
+    height: 30px;
+  }
+
+  .foot {
+    background-color: #e2e3e4;
+    bottom: -90px;
+    height: 90px;
+    position: absolute;
+    width: 55px;
+
+    &.left {
+      left: 290px;
+    }
+
+    &.right {
+      left: 440px;
+    }
+
+    &:after {
+      background-color: #c5c6c8;
+      content: "";
+      height: 25px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 55px;
+    }
+  }
+}
+
+/* Animations */
+@keyframes #{$name}-signal {
+  0% {
+    opacity: 1;
+    transform: scale(.7);
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2);
+  }
+}

@@ -481,6 +481,17 @@ window.HOUSES = [{
     ]
   }
 }, {
+  module: "callfromsanta",
+  iced: true,
+  cast: false,
+  disabled: false,
+  launchDate: new Date('Dec 19, 2014'),
+  category: "play",
+  elves: {
+    melt: [],
+    snow: []
+  }
+}, {
   module: "translations",
   iced: true,
   launchDate: new Date('Dec 20, 2014'),

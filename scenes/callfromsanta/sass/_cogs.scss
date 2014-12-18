@@ -1,0 +1,133 @@
+$ease-santa-eyes-rolling: ease-out;
+
+##{$name} {
+  .play {
+    .cog {
+      animation-name: #{$name}__santa-cog-moving;
+    }
+  }
+
+  .cog {
+    position: absolute;
+    left: 50%;
+    animation-delay: $delay-santa-call;
+    animation-duration: $duration-santa-call;
+    animation-iteration-count: infinite;
+    animation-timing-function: $ease-santa-eyes-rolling;
+    animation-direction: normal;
+  }
+
+  .cog--santa-right,
+  .cog--ear-right,
+  .cog--small-yellow,
+  .cog--small-purple {
+    animation-direction: reverse;
+  }
+
+  .cog--santa {
+    transform-origin: 57px 56px;
+  }
+
+  .cog--santa-left {
+    margin-top: -190px;
+    margin-left: -144px;
+  }
+
+  .cog--santa-right {
+    margin-top: -160px;
+    margin-left: 29px;
+  }
+
+  //
+  // ear
+  //
+  .cog--ear {
+    margin-top: -284px;
+  }
+
+  .cog--ear-left {
+    margin-left: -155px;
+  }
+
+  .cog--ear-right {
+    margin-left: 96px;
+  }
+
+  .ear-mask {
+    position: absolute;
+    left: 50%;
+    margin-top: -292px;
+  }
+
+  .ear-mask--left {
+    margin-left: -137px;
+    height: 67px;
+    overflow: hidden;
+  }
+
+  .ear-mask--right {
+    margin-left: 90px;
+  }
+
+  //
+  // medium
+  //
+  .cog--medium {
+    margin-top: -460px;
+    margin-left: -210px;
+    transform-origin: 32px 32px;
+  }
+
+  //
+  // small
+  //
+  .cog--small {
+    transform-origin: 19px 19px;
+  }
+
+  .cog--small-green {
+    margin-top: -357px;
+    margin-left: -227px;
+  }
+
+  .cog--small-red {
+    margin-top: -240px;
+    margin-left: -280px;
+  }
+
+  .cog--small-yellow {
+    margin-top: -135px;
+    margin-left: 177px;
+  }
+
+  .cog--small-purple {
+    margin-top: -85px;
+    margin-left: 245px;
+  }
+
+}
+
+// these keyframes should be the same as
+// santa-mouth animation
+// to keep the synchronization
+@keyframes #{$name}__santa-cog-moving {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(150deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}

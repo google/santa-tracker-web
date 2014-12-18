@@ -1,0 +1,42 @@
+$ease-santa-mouth: $easeOutSine;
+
+##{$name} {
+  .play {
+    .mouth {
+      animation-name: #{$name}__santa-mouth;
+    }
+  }
+
+  .mouth {
+    position: absolute;
+    left: 50%;
+    margin-top: -190px;
+    margin-left: -28px;
+    height: 163px;
+    overflow: hidden;
+    bottom: 23px;
+    animation-delay: $delay-santa-call;
+    animation-duration: $duration-santa-call;
+    animation-iteration-count: infinite;
+    animation-timing-function: $ease-santa-mouth;
+    transform: translateZ(0);
+  }
+}
+
+@keyframes #{$name}__santa-mouth {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(20px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
