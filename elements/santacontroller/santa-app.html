@@ -50,6 +50,10 @@ Santa Track app.
         path="scenes/briefing/briefing-scene_[[language]].html"
         hidden></briefing-scene>
 
+    <callfromsanta-scene route="callfromsanta"
+        path="scenes/callfromsanta/callfromsanta-scene_en.html"
+        loadingBgColor="'rgb(129,208,0)" hidden></callfromsanta-scene>
+
     <codelab-scene route="codelab"
         path="scenes/codelab/codelab-scene_[[language]].html"
         loadingBgColor="#3F4EA1"
@@ -429,13 +433,13 @@ Polymer(Polymer.mixin({
           house.disabled = ios || house.disabled;
           break;
         case 'streetview':
-          // remove streetview where sendacall supported (en|en-GB|es|es-419)
+          // remove streetview where callfromsanta supported (en|en-GB|es|es-419)
           if (spanglish) {
             this.houses.splice(i, 1);
           }
           break;
-        case 'sendacall':
-          // remove sendacall where not supported (leaving streetview)
+        case 'callfromsanta':
+          // remove callfromsanta where not supported (leaving streetview)
           if (!spanglish) {
             this.houses.splice(i, 1);
           }

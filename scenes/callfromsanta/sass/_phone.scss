@@ -1,0 +1,39 @@
+$ease-santa-phone: $easeOutExpo;
+
+##{$name} {
+  .play {
+    .phone {
+      animation-name: #{$name}__santa-phone;
+    }
+  }
+
+  .phone {
+    position: absolute;
+    left: 50%;
+    margin-top: -395px;
+    margin-left: 170px;
+    animation-delay: $delay-santa-call;
+    animation-duration: $duration-santa-call;
+    animation-iteration-count: infinite;
+    animation-timing-function: $ease-santa-phone;
+    animation-direction: alternate-reverse;
+  }
+}
+
+@keyframes #{$name}__santa-phone {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

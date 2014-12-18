@@ -1,0 +1,33 @@
+##{$name} {
+  .santa {
+    background-color: #006ab2;
+    width: 700px;
+    height: 460px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+  }
+
+  .santa-shadow {
+    position: absolute;
+    left: 50%;
+    margin-top: -434px;
+    margin-left: -350px;
+  }
+
+  .tower-mask {
+    position: absolute;
+    left: 50%;
+    margin-top: -225px;
+    margin-left: 180px;
+  }
+
+  .floor-mask {
+    position: absolute;
+    left: 50%;
+    margin-top: -28px;
+    margin-left: -28px;
+    height: 22px;
+    overflow: hidden;
+  }
+}

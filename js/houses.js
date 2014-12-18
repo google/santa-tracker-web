@@ -460,7 +460,7 @@ window.HOUSES = [{
     ]
   }
 }, {
-  module: "sendacall",
+  module: "callfromsanta",
   iced: true,
   launchDate: new Date('Dec 19, 2014'),
   category: "play",
