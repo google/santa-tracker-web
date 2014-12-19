@@ -37,3 +37,10 @@ StreamCard.prototype.imageUrl;
  * @type {string|undefined}
  */
 StreamCard.prototype.status;
+
+/**
+ * If present, show a card with details about a location.
+ *
+ * @type {SantaLocation|undefined}
+ */
+StreamCard.prototype.stop;

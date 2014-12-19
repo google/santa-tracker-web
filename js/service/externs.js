@@ -38,6 +38,7 @@ Card.prototype.didyouknow;
 Card.prototype.youtubeId;
 Card.prototype.imageUrl;
 Card.prototype.status;
+Card.prototype.stop;
 
 // Exports (used by other components)
 var Serv; // SantaService
