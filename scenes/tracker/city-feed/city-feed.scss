@@ -1,5 +1,3 @@
-//@import "../shared/sass/_mixins.scss";
-
 $tabletBreakpoint: 1024px;
 $mobileBreakpoint: 660px;
 
@@ -11,10 +9,6 @@ $name: 'module-city-feed';
   z-index: 3;
   overflow: auto;
   pointer-events: none;
-
-  .scene {
-    pointer-events: none;
-  }
 
   .ico {
     width: 25px;
@@ -46,6 +40,7 @@ $name: 'module-city-feed';
     width: 306px;
     margin: 0 auto;
     height: 100%;
+    pointer-events: all;
 
     &::after {
       content: '';
@@ -59,50 +54,47 @@ $name: 'module-city-feed';
     }
   }
 
-  .card {
+  .card.card-city {
+    $borderRadius: 5px;
     $padding: 25px;
     $cardPurple: rgb(121,49,164);
     $cardContentHeight: 250px;
 
-    pointer-events: all;
-
-    border-radius: 5px;
-    background-color: rgb(106,27,154);
+    border-radius: $borderRadius;
     box-sizing: border-box;
+    margin: 0 auto;
 
-    &.city {
-      margin: 0 auto;
-
-      h1, h2, h3, h4 {
-        margin: 0;
-      }
-
-      h1 {
-        color: #e5473a;
-        font-size: 42px;
-        line-height: 42px;
-        font-weight: 600;
-        margin-bottom: 18px;
-      }
-      h2 {
-        color: white;
-        font-size: 14px;
-        font-weight: 300;
-      }
-      h4 {
-        text-transform: uppercase;
-        color: white;
-        font-size: 11px;
-        margin-bottom: 7px;
-      }
+    h1, h2, h3, h4 {
+      margin: 0;
     }
 
-    #header {
+    h1 {
+      color: #e5473a;
+      font-size: 42px;
+      line-height: 42px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    h2 {
+      color: white;
+      font-size: 14px;
+      font-weight: 300;
+    }
+    h4 {
+      text-transform: uppercase;
+      color: white;
+      font-size: 11px;
+      margin-bottom: 7px;
+    }
+
+    .card-header {
+      background-color: rgb(106,27,154);
       padding: $padding;
       position: relative;
+      border-radius: $borderRadius $borderRadius 0 0;
     }
 
-    #stats {
+    .stats {
       margin-bottom: 10px;
       h4 {
         opacity: 0.5;
@@ -141,7 +133,7 @@ $name: 'module-city-feed';
         bottom: 0;
         background-image: linear-gradient(transparent, $cardPurple 65%);
         pointer-events: none;
-        border-radius: 0 0 5px 5px;
+        border-radius: 0 0 $borderRadius $borderRadius;
       }
 
       .wikipedia__body {
@@ -173,25 +165,22 @@ $name: 'module-city-feed';
       background-size: contain;
       height: 100px;
       width: 100px;
-      border-radius: 0 5px 0 0;
-
-      &.general {
-        background: url("img/cardavatars/Cards-avatars-04_general.svg") no-repeat;
-      }
+      border-radius: 0 $borderRadius 0 0;
+      background: url("img/cardavatars/Cards-avatars-04_general.svg") no-repeat;
     }
 
-    .card-content {
+    .card-body {
       position: relative;
       background-color: $cardPurple;
-      border-radius: 0 0 5px 5px;
+      border-radius: 0 0 $borderRadius $borderRadius;
       height: $cardContentHeight;
       box-sizing: border-box;
       overflow: hidden;
 
       .photo {
-        border-radius: 0 0 5px 5px;
+        border-radius: 0 0 $borderRadius $borderRadius;
         core-image {
-          background-color: #eee;
+          background-color: rgba(141, 35, 169, 0.7);
           height: 100%;
           width: 100%;
         }
@@ -203,7 +192,7 @@ $name: 'module-city-feed';
         position: absolute;
         bottom: 0;
         padding: 5px;
-        border-radius: 0 0 5px 5px;
+        border-radius: 0 0 $borderRadius $borderRadius;
       }
       a {
         color: inherit;
@@ -211,8 +200,9 @@ $name: 'module-city-feed';
       }
     }
   }
-}
 
+  @import "sass/_cards.scss";
+}
 
 @media (min-width: $tabletBreakpoint) {
   ##{$name} {
@@ -224,11 +214,10 @@ $name: 'module-city-feed';
     }
 
     core-list {
-      width: 550px;
+      width: 642px;
 
       .divider {
         height: $dividerHeight;
-        pointer-events: all;
         background: url('img/tracker-and-city-SVGs_gifts-pin.svg') no-repeat 50% 80%;
         background-size: 60px;
         z-index: 1;
@@ -236,14 +225,34 @@ $name: 'module-city-feed';
     }
 
     .card {
-      &.city {
-        &::after {
-          border-left: 2px solid $lineColor;
+      &::before {
+        content: '';
+        position: absolute;
+        border-left: 2px solid $lineColor;
+        left: 105%;
+        top: 0;
+        height: 100%;
+        z-index: -1;
+      }
+
+      &:not(.card-city) {
+        margin-top: 60px;
+      }
+
+      &.card-city {
+        &::before, &::after {
           content: '';
-          height: $dividerHeight;
-          width: 5px;
-          left: 50%;
           position: absolute;
+          left: 50%;
+          border-left: 2px solid $lineColor;
+        }
+        &::before {
+          height: 150px;
+          top: 0;
+        }
+        &::after {
+          bottom: -80px;
+          height: 80px;
         }
       }
 
