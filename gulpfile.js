@@ -19,7 +19,7 @@ var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/**/*.js';
 
-var STATIC_VERSION = 69;
+var STATIC_VERSION = 70;
 var VERSION = argv.build || STATIC_VERSION;
 
 var STATIC_BASE_URL = argv.baseurl ? argv.baseurl : '';
