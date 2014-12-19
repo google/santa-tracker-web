@@ -329,7 +329,7 @@ Village calendar navigation.
        */
 
       rippleDone: function(e, detail, sender) {
-        location.href = this.$['global-nav-btn'].href;
+        location.href = sender.parentNode.href;
       },
 
       trackerFabRippleDone: function(e, detail, sender) {
