@@ -119,7 +119,7 @@ Boatload scene.
           </div>
           <div class="status"></div>
         </div>
-        <div class="actions">
+        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
           <button type="button" class="restart"></button>
           <button type="button" class="pause"></button>
         </div>
@@ -141,6 +141,7 @@ Boatload scene.
           </div>
           <div class="gameover-buttons">
             <button type="button" class="Button Button--large gameover-play"><i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg></button>
+            <a href="{{pageUrl}}#village" class="Button Button--large"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
             <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
           </div>
         </div>
@@ -156,6 +157,8 @@ Boatload scene.
     componentDir: 'scenes/boatload/',
 
     game: null,
+
+    hasClickedStart: false,
 
     onPreload: function() {
       this.preloadSounds('bl_load_sounds', 40);
@@ -179,22 +182,26 @@ Boatload scene.
         'img/trees-left.svg',
         'img/trees-right.svg',
         'img/trees-top.svg',
-        'img/tutorial.png',
         'img/rotate.svg'
       ]);
     },
+
     onShow: function() {
       var module = this.$['module-boatload'];
 
-      var game = this.game = new scenes.boatload.Game(module);
-      startButton(this, module, function() {
-        game.start();
-      });
+      this.game = new scenes.boatload.Game(module);
+      startButton(this, module, this.onClickStart.bind(this));
     },
+
     onHide: function() {
       this.game.dispose();
       this.game = null;
       this.fire('sound-ambient', 'bl_end_game');
+    },
+
+    onClickStart: function() {
+      this.hasClickedStart = true;
+      this.game.start();
     }
   });
 

@@ -1,0 +1,104 @@
+<link rel="import" href="../base-scene.html">
+
+<script src="callfromsanta-scene.min.js"></script>
+<script src="../shared/js/css_animation_helper.js"></script>
+
+<!--
+Call from santa scene.
+
+@element callfromsanta-scene
+@extends base-scene
+-->
+<polymer-element name="callfromsanta-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="callfromsanta-scene.css" no-shim>
+
+  <div id="module-callfromsanta">
+    <div class="scene">
+      <div class="snow"></div>
+      <div class="mountains"></div>
+      <div class="computer-shadow"></div>
+      <div class="forest">
+        <div class="tree1"></div>
+        <div class="tree2"></div>
+        <div class="tree3"></div>
+        <div class="tree4"></div>
+        <div class="tree5"></div>
+        <div class="tree6"></div>
+        <div class="tree7"></div>
+        <div class="tree9"></div>
+        <div class="tree8"></div>
+        <div class="tree10"></div>
+      </div>
+      <div class="sky">
+        <div class="sun"></div>
+        <div class="cloud cloud1 js-resize-animation"><div class="cloud-inner"></div></div>
+        <div class="cloud cloud2 js-resize-animation"><div class="cloud-inner"></div></div>
+        <div class="cloud cloud3 js-resize-animation"><div class="cloud-inner"></div></div>
+        <div class="cloud cloud4 js-resize-animation"><div class="cloud-inner"></div></div>
+        <div class="cloud cloud5 js-resize-animation"><div class="cloud-inner"></div></div>
+        <div class="cloud cloud6 js-resize-animation"><div class="cloud-inner"></div></div>
+        <div class="cloud cloud7 js-resize-animation"><div class="cloud-inner"></div></div>
+        <div class="cloud cloud8 js-resize-animation"><div class="cloud-inner"></div></div>
+        <div class="blimp"><div class="blimp-inner"></div></div>
+      </div>
+
+      <div class="computer">
+        <div class="bg"></div>
+        <div class="antenna">
+          <div class="signal first"></div>
+          <div class="signal second"></div>
+          <div class="signal third"></div>
+        </div>
+
+        <div class="screen">
+        </div>
+        <div class="foot left"></div>
+        <div class="foot right"></div>
+      </div>
+    </div>
+
+    <div class="gui">
+      <div class="board board--scene">
+        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <div class="logo"></div>
+        <div class="actions" hidden>
+          <button type="button" class="restart"></button>
+          <button type="button" class="pause"></button>
+        </div>
+      </div>
+    </div>
+    <iframe id="santa-iframe" src="about:blank" width="100%" height="100%" frameBorder="0"></iframe>
+  </div>
+</template>
+<script>
+  Polymer({
+    componentDir: 'scenes/callfromsanta/',
+
+    onPreload: function() {
+      this.preloadSounds('callfromsanta_load_sounds', 30);
+      this.preloadImages([
+        'img/logo.svg',
+        'img/sprite.png'
+      ]);
+    },
+
+    onShow: function() {
+      this.fire('sound-ambient', 'callfromsanta_start');
+      var div = this.$['module-callfromsanta'];
+
+      this.animationHelper = new CSSAnimationHelper(div);
+      this.scene = new scenes.callfromsanta.Scene(div);
+      this.scene.init();
+    },
+
+    onHide: function() {
+      this.scene.destroy();
+      this.scene = null;
+      this.animationHelper.destroy();
+      this.animationHelper = null;
+      this.fire('sound-ambient', 'callfromsanta_end');
+    }
+  });
+</script>
+</polymer-element>

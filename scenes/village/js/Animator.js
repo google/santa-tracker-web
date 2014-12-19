@@ -6,7 +6,7 @@
 function Animator() {
   /**
    * Array of currently running animations.
-   * @type {Array.<Animation>}
+   * @type {Array.<SimpleAnimation>}
    * @private
    */
   this.animations_ = [];
@@ -49,14 +49,14 @@ Animator.isPageVisible = function() {
  * @param {function(number)} update Progress update callback function.
  * @param {number} duration Length of animation, in milliseconds.
  * @param {Function=} opt_easing Easing function.
- * @return {Animation} Animation object.
+ * @return {SimpleAnimation} Animation object.
  */
 Animator.prototype.animate = function(update, duration, opt_easing) {
   // TODO(bckenny): add delays
   // TODO(bckenny): explicit completion callback?
   var easing = opt_easing || Animator.EASE_IN_OUT;
   var start = Animator.now_();
-  var animation = new Animation(this, update, duration, easing, start);
+  var animation = new SimpleAnimation(this, update, duration, easing, start);
 
   // put animation in first empty slot
   // TODO(bckenny): animations should be kept strictly in order of adding?
@@ -118,7 +118,7 @@ Animator.prototype.scheduleUpdate_ = function() {
 
 /**
  * @private
- * @param {Animation} animation The animation to cancel.
+ * @param {SimpleAnimation} animation The animation to cancel.
  */
 Animator.prototype.cancelAnimation_ = function(animation) {
   for (var i = 0; i < this.animations_.length; i++) {
@@ -185,7 +185,7 @@ Animator.EASE_IN_OUT = function(t) {
  * @param {function(number): number} easing Easing function.
  * @param {number} start Start time for this animaton.
  */
-function Animation(animator, update, duration, easing, start) {
+function SimpleAnimation(animator, update, duration, easing, start) {
   this.animator_ = animator;
   this.update_ = update;
   this.duration_ = duration;
@@ -196,6 +196,6 @@ function Animation(animator, update, duration, easing, start) {
 /**
  * Cancel this animation.
  */
-Animation.prototype.cancel = function() {
+SimpleAnimation.prototype.cancel = function() {
   this.animator_.cancelAnimation_(this);
 };

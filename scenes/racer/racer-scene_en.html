@@ -100,7 +100,7 @@ Racer scene.
             <!---->
           </div>
         </div>
-        <div class="actions">
+        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
           <button type="button" class="restart"></button>
           <button type="button" class="pause"></button>
         </div>
@@ -118,6 +118,7 @@ Racer scene.
           </div>
           <div class="gameover-buttons">
             <button type="button" class="Button Button--large gameover-play"><i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg></button>
+            <a href="{{pageUrl}}#village" class="Button Button--large"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
             <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
           </div>
         </div>
@@ -133,6 +134,8 @@ Racer scene.
 
     game: null,
 
+    hasClickedStart: false,
+
     onPreload: function() {
       this.preloadSounds('rc_load_sounds', 30);
       this.preloadImages([
@@ -146,19 +149,25 @@ Racer scene.
         'img/tree.png'
       ]);
     },
+
     onShow: function() {
       var module = this.$['module-racer'];
-
       this.fire('sound-ambient', 'rc_landing_page');
-      var game = this.game = new scenes.racer.Game(module, this.componentDir);
-      startButton(this, module, function() {
-        game.initialize();
-      });
+
+      this.game = new scenes.racer.Game(module, this.componentDir);
+      startButton(this, module, this.onClickStart.bind(this));
     },
+
     onHide: function() {
-      this.game.dispose();
-      this.game = null;
+      if (this.game) {
+        this.game.dispose();
+      }
       this.fire('sound-ambient', 'rc_end_game');
+    },
+
+    onClickStart: function() {
+      this.hasClickedStart = true;
+      this.game.initialize();
     }
   });
 

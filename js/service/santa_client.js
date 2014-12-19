@@ -14,14 +14,32 @@ function SantaService(clientId, lang) {
   this.lang_ = lang;
 
   /**
+   * All known destinations (including future ones).
+   * Ordered chronologically (oldest destinations first).
    * @private {!Array.<!SantaLocation>}
    */
   this.destinations_ = [];
 
   /**
+   * Stream of cards (e.g. didyouknow, etc) but not destinations.
+   * Ordered chronologically (oldest cards first).
    * @private {!Array.<!StreamCard>}
    */
   this.stream_ = [];
+
+  /**
+   * Parts of the stream/destinations that have already elapsed (and should be
+   * shown in the timeline view).
+   * Ordered reverse chronologically (oldest cards last).
+   */
+  this.timeline_ = [];
+
+  /**
+   * Cards that have not been shown yet (they're to be displayed in the
+   * future), and moved to `timeline_`.
+   * Ordered chronologically (oldest cards first).
+   */
+  this.futureCards_ = [];
 
   var that = this;
   this.boundFetchDetails_ = function(id, callback) {
@@ -121,6 +139,8 @@ SantaService.prototype.getCurrentLocation = function(callback) {
     });
     return;
   }
+
+  this.updateTimeline_();
 
   // TODO: handle dest == null
   if (dest == null) {
@@ -226,6 +246,7 @@ SantaService.prototype.calculateDistanceTravelled_ = function(now, prev, next) {
 };
 
 /**
+ * List of destinations, sorted chronologically (latest destinations last).
  * @return {!Array.<!SantaLocation>|null} a list of destinations, or null if the
  * service isn't ready.
  */
@@ -234,11 +255,13 @@ SantaService.prototype.getDestinations = function() {
 };
 
 /**
+ * List of cards sorted reverse chronologically (lastest cards first).
  * @return {!Array.<!StreamCard>|null} a list of cards, or null if the
  * service isn't ready.
  */
-SantaService.prototype.getStream = function() {
-  return this.stream_.length ? this.stream_ : null;
+SantaService.prototype.getTimeline = function() {
+  this.updateTimeline_();
+  return this.timeline_;
 };
 
 /**
@@ -379,8 +402,6 @@ SantaService.prototype.sync = function(opt_callback) {
   }
   this.syncInFlight_ = true;
 
-  var that = this;
-
   crossDomainAjax({
     url: 'info',
     data: {
@@ -396,40 +417,114 @@ SantaService.prototype.sync = function(opt_callback) {
     done: function(result) {
       if (result['status'] != 'OK') {
         window.console.error(result['status']);
-        that.kill_();
+        this.kill_();
       }
 
-      that.offset_ = result['now'] + result['timeOffset'] - new Date();
+      this.offset_ = result['now'] + result['timeOffset'] - new Date();
       if (result['switchOff']) {
-        that.kill_();
+        this.kill_();
       } else {
-        that.resuscitate_();
+        this.resuscitate_();
       }
 
-      that.fingerprint_ = result['fingerprint'];
-      that.clientSpecific_ = result['clientSpecific'];
-      that.appendDestinations_(result['routeOffset'], result['destinations']);
-      that.appendStream_(result['streamOffset'], result['stream']);
+      this.fingerprint_ = result['fingerprint'];
+      this.clientSpecific_ = result['clientSpecific'];
 
-      that.synced_ = true;
-      that.syncInFlight_ = false;
-      Events.trigger(that, 'sync');
+      this.appendDestinations_(result['routeOffset'], result['destinations']);
+      this.appendStream_(result['streamOffset'], result['stream']);
+      this.rebuildTimeline_();
 
-      window.setTimeout(function() {
-        that.sync();
-      }, result['refresh']);
+      this.synced_ = true;
+      this.syncInFlight_ = false;
+      Events.trigger(this, 'sync');
+
+      window.setTimeout(this.sync.bind(this), result['refresh']);
 
       if (opt_callback) {
         opt_callback();
       }
-    },
+    }.bind(this),
     fail: function() {
       // TODO: perhaps trigger something other than kill, if a recovery can be
       // made.
-      that.kill_();
-    }
+      this.kill_();
+    }.bind(this)
   });
 };
+
+/**
+ * Collate the destination and card streams. Build the lists for timeline
+ * (cards already shown) and future cards to show.
+ * @private
+ */
+SantaService.prototype.rebuildTimeline_ = function() {
+  var historyStream = [];
+  var futureStream = [];
+  var dests = this.destinations_.slice(0);
+  var stream = this.stream_.slice(0);
+  var now = this.now();
+  while (dests.length && stream.length) {
+    var toPush;
+    if (!dests.length) {
+      // No more destinations - push all of the stream cards.
+      toPush = stream.shift();
+    } else if (!stream.length) {
+      // No more stream cards - push all of the destination cards.
+      var dest = dests.shift();
+      // Create a "card" for the stop.
+      toPush = /** @type {!StreamCard} */({
+        timestamp: dest.arrival,
+        stop: dest
+      });
+    } else if (dests[0].arrival < stream[0].timestamp) {
+      // Destination comes before the next stream card.
+      var dest = dests.shift();
+      // Create a "card" for the stop.
+      toPush = /** @type {!StreamCard} */({
+        timestamp: dest.arrival,
+        stop: dest
+      });
+    } else {
+      // Stream card comes before the next destination.
+      toPush = stream.shift();
+    }
+
+    // Check whether the card would have already been shown or whether it is
+    // scheduled to be shown in the future.
+    if (toPush.timestamp < now) {
+      // Insert at the beginning of the array.
+      historyStream.unshift(toPush);
+    } else {
+      futureStream.push(toPush);
+    }
+  }
+  this.timeline_ = historyStream;
+  this.futureCards_ = futureStream;
+
+  Events.trigger(this, 'timeline_changed', this.timeline_);
+};
+
+/**
+ * Ensures the timeline has all currently displayable cards.
+ * @private
+ */
+SantaService.prototype.updateTimeline_ = function() {
+  var now = this.now();
+  var dirty = false;
+  // Move any cards where the timestamp has elapsed onto the main feed
+  // (this.timeline_)
+  while (this.futureCards_.length && this.futureCards_[0].timestamp < now) {
+    // TODO(cbro): Fire events so they can be shown in the tracker world view
+    // as cards.
+    // Insert at the beginning of the timeline.
+    this.timeline_.unshift(this.futureCards_.shift());
+    dirty = true;
+  }
+  if (dirty) {
+    Events.trigger(this, 'timeline_changed', this.timeline_);
+  }
+};
+
 
 /**
  * Send the kill event.

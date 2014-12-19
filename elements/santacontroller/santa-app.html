@@ -50,6 +50,10 @@ Santa Track app.
         path="scenes/briefing/briefing-scene_[[language]].html"
         hidden></briefing-scene>
 
+    <callfromsanta-scene route="callfromsanta"
+        path="scenes/callfromsanta/callfromsanta-scene_en.html"
+        loadingBgColor="'rgb(129,208,0)" hidden></callfromsanta-scene>
+
     <codelab-scene route="codelab"
         path="scenes/codelab/codelab-scene_[[language]].html"
         loadingBgColor="#3F4EA1"
@@ -116,6 +120,10 @@ Santa Track app.
         path="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
         loadingSrc="scenes/seasonofgiving/img/loading.svg" hidden></seasonofgiving-scene>
 
+    <streetview-scene route="streetview"
+        path="scenes/streetview/streetview-scene_[[language]].html"
+        loadingBgColor="rgb(129,208,0)" hidden></streetview-scene>
+
     <workshop-scene route="workshop"
         path="scenes/workshop/workshop-scene.html"
         hidden></workshop-scene>
@@ -160,7 +168,7 @@ Santa Track app.
 
     <video-scene route="carpool"
         path="scenes/videoscene/video-scene_[[language]].html"
-        hidden></carpool-scene>
+        hidden></video-scene>
 
     <about-scene route="about"
         path="scenes/about/about-scene_[[language]].html"
@@ -297,6 +305,15 @@ Polymer(Polymer.mixin({
    */
   scheduleChecked: false,
 
+  /**
+   * Full list of tracker destinations as they've come in.
+   *
+   * @property destinations
+   * @type array
+   * @default []
+   */
+  destinations: [],
+
   publish: {
     /**
      * True when the countdown is complete.
@@ -387,10 +404,8 @@ Polymer(Polymer.mixin({
     this.santaService = new SantaService(apiClient, this.language);
     this.santaService.sync(this.checkSchedule_.bind(this));
 
-    this.santaService.addListener('destinations_changed', function() {
-      if (this.$.tracker) {
-        this.$.tracker.destinations = this.santaService.getDestinations() || [];
-      }
+    this.santaService.addListener('destinations_changed', function(destinations) {
+      this.destinations = destinations || [];
     }.bind(this));
 
     this.santaService.addListener('kill', function() {
@@ -426,13 +441,13 @@ Polymer(Polymer.mixin({
           house.disabled = ios || house.disabled;
           break;
         case 'streetview':
-          // remove streetview where sendacall supported (en|en-GB|es|es-419)
+          // remove streetview where callfromsanta supported (en|en-GB|es|es-419)
           if (spanglish) {
             this.houses.splice(i, 1);
           }
           break;
-        case 'sendacall':
-          // remove sendacall where not supported (leaving streetview)
+        case 'callfromsanta':
+          // remove callfromsanta where not supported (leaving streetview)
           if (!spanglish) {
             this.houses.splice(i, 1);
           }
@@ -562,7 +577,7 @@ Polymer(Polymer.mixin({
 
   trackEvent: function(e, detail, sender) {
     this.analyticsService.trackEvent(
-        detail.category, detail.action, detail.label);
+        detail.category, detail.action, detail.label, detail.value);
   },
 
   trackPerf: function(e, detail, sender) {

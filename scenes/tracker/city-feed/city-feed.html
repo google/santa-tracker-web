@@ -2,6 +2,8 @@
 <link rel="import" href="../../../components/core-list/core-list.html">
 <link rel="import" href="../../../components/core-pages/core-pages.html">
 <link rel="import" href="../../../components/core-selector/core-selector.html">
+<link rel="import" href="../../../components/core-image/core-image.html">
+<link rel="import" href="../../../components/google-streetview-pano/google-streetview-pano.html">
 
 <link rel="import" href="../../../js/utils.html">
 
@@ -28,7 +30,7 @@ City feed view in Tracker
 
 @element city-feed
 -->
-<polymer-element name="city-feed" attributes="active location latestDestinations">
+<polymer-element name="city-feed" attributes="active location latestDestinations santaApp">
 <template>
 <link rel="stylesheet" href="city-feed.css" no-shim>
 <style>
@@ -43,7 +45,7 @@ City feed view in Tracker
 <div id="module-city-feed" fit>
   <div class="scene" fit>
 
-    <core-list id="feed" data="{{dests}}" groups="{{groups}}" selectionEnabled="false" height="420">
+    <core-list id="feed" data="{{filteredDestinations}}" groups="{{groups}}" selectionEnabled="false" height="420">
       <template>
 
         <div divider class="divider"></div>
@@ -55,11 +57,13 @@ City feed view in Tracker
               <h4 class="white">{{model.region}}</h4>
               <h1>{{model.city}}</h1>
             </div>
-            <core-selector class="card-icons" selected="{{model.selectedCard}}">
-              <img src="img/tracker-and-city-SVGs_feed-city-icon.svg">
-              <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg">
-              <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg">
-              <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg">
+            <core-selector class="card-icons" selected="{{model.selectedCard}}" on-core-activate="{{onCardSelected}}">
+              <img src="img/tracker-and-city-SVGs_feed-city-icon.svg" data-name="photo">
+              <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg" data-name="photo">
+              <template if="{{model.details.streetView}}">
+                <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg" data-name="streetview">
+              </template>
+              <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg" on-tap="{{onWikipedia}}" data-name="wikipedia">
             </core-selector>
             <div id="stats">
               <div layout horizontal>
@@ -73,7 +77,7 @@ City feed view in Tracker
                 <div>
                   <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div layout horizontal center>
-                    <div class="ico ico-clock"></div>
+                    <div class="ico ico-weatherchanel"></div>
                     <h2 class="stat-large white">{{model.details.weather.tempC}}&deg;C / {{model.details.weather.tempF}}&deg;F</h2>
                   </div>
                 </div>
@@ -81,11 +85,38 @@ City feed view in Tracker
             </div>
           </div>
           <core-pages class="card-content" selected="{{model.selectedCard}}">
-            <div class="photo" relative _style="background-image:url({{model.details.photos[0].url}})">
+            <div class="photo">
+              <core-image sizing="cover" preload fade src="{{model.details.photos[0].url}}"></core-image>
               <div class="attribution"><html-echo html="{{model.details.photos[0].attributionHtml}}"></html-echo></div>
             </div>
-            <div>TODO</div>
-            <div>TODO</div>
+            <div class="photo">
+              <core-image sizing="cover" preload fade src="{{model.details.photos[1].url}}"></core-image>
+              <div class="attribution"><html-echo html="{{model.details.photos[1].attributionHtml}}"></html-echo></div>
+            </div>
+            <template if="{{model.details.streetView}}">
+              <div>
+                <template if="{{model.selectedCard == 2}}">
+                  <google-streetview-pano version="3.exp" fit
+                      panoid="{{model.details.streetView.id}}"
+                      heading="{{model.details.streetView.heading}}"
+                      clientId="{{santaApp.config.CLIENT_ID}}"
+                      libraries="places,geometry"
+                      language="{{santaApp.language}}"
+                      disableDefaultUI></google-streetview-pano>
+                </template>
+              </div>
+            </template>
+            <div class="wikipedia">
+              <div class="gradientbar"></div>
+              <div class="wikipedia__logo"></div>
+              <html-echo class="wikipedia__body" html="{{model.details.wikipedia.excerpt}}"></html-echo>
+              <div class="attribution">
+                <span class="wiki-cc">Available under
+                <a target="wiki" href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
+                terms</span> &nbsp;
+                <a target="wiki" href="{{model.details.wikipedia.url}}">{{model.details.wikipedia.url}}</a>
+              </div>
+            </div>
           </core-pages>
         </div>
 
@@ -98,6 +129,13 @@ City feed view in Tracker
 </template>
 <script>
 (function() {
+
+/**
+ * Fired when a page in the city card is selected.
+ *
+ * @event analytics-track-event
+ * @param {object} detail
+ */
 
 /**
  * Lookup table of destination id -> index into destinations array.
@@ -140,12 +178,21 @@ Polymer({
    */
 
   /**
-   * Full list of destinations as they've come in.
+   * Full saved list of destinations as they've come in.
    *
    * @property dests
    * @type array
    * @default []
    */
+
+  /**
+   * A `<santa-app>` controller element.
+   *
+   * @attribute santaApp
+   * @type HTMLElement
+   * @default null
+   */
+  santaApp: null,
 
   created: function() {
     this.location = {};
@@ -171,6 +218,14 @@ Polymer({
   activeChanged: function() {
     // TODO(ericbidelman): shouldn't have to call this with new core-list. Investigate.
     this.$.feed.updateSize();
+
+    if (!this.active) {
+      // Want the list to scroll fast and streetview is a hog. Make sure no
+      // streetview cards are activated when the list is opened again.
+      for (var i = 0, dest; dest = this.dests[i]; ++i) {
+        dest.selectedCard = 0;
+      }
+    }
   },
 
   sceneParamsChanged: function() {
@@ -182,16 +237,41 @@ Polymer({
       return;
     }
 
-    // Latest locations display at top of list. Prepend them to the destinations
-    // list in reverse order (so latest is first).
+    // TODO(cbro, ebidel): this is going to get simplified. The API will handle
+    // the filtering for us.
+
     for (var i = 0, dest; dest = this.latestDestinations[i]; ++i) {
-      dest.selectedCard = 0;
+      // Don't add destination if it already exists.
+      if (destLookup_[dest.id]) {
+        continue;
+      }
+
+      dest.selectedCard = 0; // select initial page on destination card.
+
+      // Latest locations display at top of list. Prepend them to the destinations
+      // list in reverse order (so latest is first).
       this.dests.splice(0, 0, dest);
-      this.groups.splice(0, 0, {length: 1, data: {idx: i}});
     }
 
+    var now = this.santaApp.santaService.now();
+
+    var groups = [];
+    // Filter destinations to only show those that the red dude has visited.
+    var count = 0;
+    var filteredDestinations = this.dests.filter(function(dest) {
+      if (dest.arrival < now) {
+        groups.push({length: 1, data: {idx: count}});
+        count++;
+        return true;
+      }
+      return false;
+    });
+
+    this.filteredDestinations = filteredDestinations;
+    this.groups = groups;
+
     destLookup_ = {}; // Re-create destLookup_ because indexes changed.
-    for (var i = 0, dest; dest = this.dests[i]; ++i) {
+    for (var i = 0, dest; dest = filteredDestinations[i]; ++i) {
       destLookup_[dest.id] = i;
     }
   },
@@ -211,6 +291,20 @@ Polymer({
 
   formatCountdown: function(timestamp) {
     return formatCountdown(timestamp);
+  },
+
+  onWikipedia: function(e, detail, sender) {
+    var location = sender.templateInstance.model.model;
+    location.getDetails(function(detail) {
+      location.details.wikipedia = detail.wikipedia;
+    });
+  },
+
+  onCardSelected: function(e, detail, sender) {
+    var destId = sender.templateInstance.model.model.id;
+    var type = detail.item.getAttribute('data-name');
+    this.fire('analytics-track-event', {category: 'citycard', action: type,
+                                        label: destId});
   }
 });
 

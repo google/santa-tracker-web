@@ -76,7 +76,7 @@ Jetpack scene.
           </div>
           <div class="status"></div>
         </div>
-        <div class="actions">
+        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
           <button type="button" class="restart"></button>
           <button type="button" class="pause"></button>
         </div>
@@ -104,6 +104,7 @@ Jetpack scene.
             <button type="button" class="Button Button--large gameover-play">
               <i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg>
             </button>
+            <a href="{{pageUrl}}#village" class="Button Button--large"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
             <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
           </div>
         </div>
@@ -119,6 +120,8 @@ Jetpack scene.
 
     game: null,
 
+    hasClickedStart: false,
+
     onPreload: function() {
       this.preloadSounds('jp_load_sounds', 30);
       this.preloadImages([
@@ -128,7 +131,6 @@ Jetpack scene.
         'img/logo.svg',
         'img/player.png',
         'img/touchpad.png',
-        'img/tutorial.png',
         'img/player-hit.svg',
         'img/player-overlay.svg',
         'img/clock.png',
@@ -136,18 +138,23 @@ Jetpack scene.
         'img/levelclouds.svg'
       ]);
     },
+
     onShow: function() {
       var module = this.$['module-jetpack'];
 
-      var game = this.game = new scenes.jetpack.Game(module);
-      startButton(this, module, function() {
-        game.start();
-      });
+      this.game = new scenes.jetpack.Game(module);
+      startButton(this, module, this.onClickStart.bind(this));
     },
+
     onHide: function() {
       this.game.dispose();
       this.game = null;
       this.fire('sound-ambient', 'jp_end_game');
+    },
+
+    onClickStart: function() {
+      this.hasClickedStart = true;
+      this.game.start();
     }
   });
 

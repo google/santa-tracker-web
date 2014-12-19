@@ -1,4 +1,5 @@
 <link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
 <link rel="import" href="../base-scene.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="tracker-intro.html">
@@ -19,6 +20,8 @@ Tracker scene.
 <template>
   <link rel="stylesheet" href="tracker-scene.css" no-shim>
 
+  <core-a11y-keys target="{{}}" keys="esc" on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+
   <div id="module-tracker">
     <div class="scene">
 
@@ -28,12 +31,243 @@ Tracker scene.
                          on-api-load="{{mapsAPIReady}}"></google-maps-api>
       </template>
 
-      <city-feed id="feed" fit latestDestinations="{{destinations}}" active?="{{cityFeedActive}}"></city-feed>
+      <city-feed id="feed" fit latestDestinations="{{destinations}}" santaApp="{{santaApp}}"
+                 active?="{{cityFeedActive}}"></city-feed>
 
       <tracker-intro id="intro"
           userLocation="{{userLocation}}"
           santaDistance="{{initialSantaDistance}}"
           santaLocation="{{initialSantaLocation}}"></tracker-intro>
+
+      <div id="cards">
+        <div class="card card-matching">
+          <div class="card-header">
+            <div class="corner-image"></div>
+            <h4>Santa's Village</h4>
+            <h3>Memory match</h3>
+          </div>
+          <div class="card-body"></div>
+          <div class="card-footer"></div>
+        </div>
+
+        <template if="{{false}}">
+          <div class="card card-matching">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Santa's Village</h4>
+              <h3>Memory match</h3>
+            </div>
+            <div class="card-body"></div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-gumball">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Santa's Village</h4>
+              <h3>Play Gumball</h3>
+            </div>
+            <div class="card-body"></div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-selfie">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Santa's Village</h4>
+              <h3>Give Santa a trim</h3>
+            </div>
+            <div class="card-body"></div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-mercator">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Santa's Village</h4>
+              <h3>Try the puzzle</h3>
+            </div>
+            <div class="card-body"></div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-jamband">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Santa's Village</h4>
+              <h3>Jam with us</h3>
+            </div>
+            <div class="card-body"></div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-coding">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Santa's Village</h4>
+              <h3>Start coding</h3>
+            </div>
+            <div class="card-body"></div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-treks">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Street View Treks</h4>
+              <h3>Journey beyond the road</h3>
+            </div>
+            <div class="card-body">Sphere goes here</div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-photospheres">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Photospheres</h4>
+              <h3>Check out photos of [CITYNAME]</h3>
+            </div>
+            <div class="card-body">Sphere goes here</div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-pins">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Santa Tracker</h4>
+              <h3>Click on pin's to explore cities</h3>
+            </div>
+            <div class="card-body"></div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-village">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Santa's Village</h4>
+              <h3>Play games in Santa's village</h3>
+            </div>
+            <div class="card-body"></div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-app">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Get the app</h4>
+              <h3>Track Santa on your phone</h3>
+            </div>
+            <div class="card-body"></div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-gmm">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Google Maps for Mobile</h4>
+              <h3>Follow Santa on the go</h3>
+            </div>
+            <div class="card-body"></div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-giving">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Santa's Village</h4>
+              <h3>Season of Giving</h3>
+            </div>
+            <div class="card-body"></div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-reindeer">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Help Santa</h4>
+              <h3>Deliver Gifts!</h3>
+            </div>
+            <div class="card-body"><span>!</span></div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-glider">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Help Santa</h4>
+              <h3>Deliver Gifts!</h3>
+            </div>
+            <div class="card-body"><span>!</span></div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-latlng">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Help Santa</h4>
+              <h3>Deliver Gifts!</h3>
+            </div>
+            <div class="card-body"></div>
+            <div class="card-footer">!</div>
+          </div>
+
+          <div class="card card-update">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Santa Update</h4>
+            </div>
+            <div class="card-body">
+              <p>Mmmm... These cookies are good!</p>
+            </div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-trivia">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Tracker Trivia</h4>
+              <h3>Test Your Knowledge</h3>
+            </div>
+            <div class="card-body">
+              <span>?</span>
+            </div>
+            <div class="card-footer">
+              <p>Content by the National Geographic Bee</p>
+            </div>
+          </div>
+
+          <div class="card card-video">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>Santa Tracker</h4>
+              <h3>Watch Movie</h3>
+            </div>
+            <div class="card-body"></div>
+            <div class="card-footer"></div>
+          </div>
+
+          <div class="card card-facts">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4>World Facts</h4>
+            </div>
+            <div class="card-body">
+              <p>Australia is the world's 6th largest country by area. Australia is the world's 6th largest country by area.</p>
+            </div>
+            <div class="card-footer">
+              <p>Content by the National Geographic</p>
+            </div>
+          </div>
+
+          <div class="card card-photos">
+            <div class="card-header">
+              <div class="corner-image"></div>
+            </div>
+            <div class="card-body"></div>
+            <div class="card-footer"></div>
+          </div>
+      </template>
+      </div>
 
       <div id="trackermap" fit></div>
 
@@ -161,6 +395,13 @@ Tracker scene.
      */
 
     /**
+     * Fired when city feed is activated.
+     *
+     * @event analytics-track-event
+     * @param {object} detail
+     */
+
+    /**
      * Initial Santa's location. Does not get updated.
      * @type {SantaState}
      * @private
@@ -247,14 +488,6 @@ Tracker scene.
       this.location = {};
     },
 
-    ready: function() {
-      this.super();
-    },
-
-    mapsAPIReady: function() {
-      this.setup_();
-    },
-
     trackSanta: function() {
       if (this.trackingInterval_) return;
 
@@ -271,20 +504,42 @@ Tracker scene.
       }
     },
 
-    setup_: function() {
+    mapsAPIReady: function() {
       this.worldView_ = new WorldView(this, this.componentDir);
       this.worldView_.setupMap();
-      this.destinationsChanged();
+
+      // Santa API returning destinations is async. Upgrading this element is
+      // async. The Maps API being ready is async. If destinations have not
+      // been returned by the API at this point, sync santa and get us some!
+      if (this.santaApp.destinations.length) {
+        this.destinations = this.santaApp.destinations;
+      } else {
+        this.santaApp.santaService.sync(function() {
+          this.destinations = this.santaApp.destinations;
+        }.bind(this));
+      }
 
       this.$.intro.showTitle();
 
       google.maps.event.addListener(this.worldView_, 'santa_clicked', function(e) {
         this.cityFeedActive = !this.cityFeedActive;
+
+        if (this.location) {
+          var destId = this.location.stopover ? this.location.stopover.id : this.location.prev.id;
+          this.$.feed.scrollToDest(destId);
+        }
+
+        var action = this.cityFeedActive ? 'show' : 'hide';
+        this.fire('analytics-track-event', {category: 'cityfeed', action: action,
+                                            label: 'from santa'});
       }.bind(this));
 
       google.maps.event.addListener(this.worldView_, 'routemarker_clicked', function(destId) {
         this.cityFeedActive = true;
         this.$.feed.scrollToDest(destId);
+
+        this.fire('analytics-track-event', {category: 'cityfeed', action: 'show',
+                                            label: 'from route marker'});
       }.bind(this));
 
       google.maps.event.addListener(this.worldView_, 'scenemarker_clicked', function(sceneId) {
@@ -372,7 +627,6 @@ Tracker scene.
 
     cityFeedActiveChanged: function() {
       this.fire('tracker-action', {type: 'city-toggle', active: this.cityFeedActive});
-
       this.worldView_.setMode(this.cityFeedActive ? 'feed' : 'track');
 
       if (this.cityFeedActive) {
@@ -417,6 +671,15 @@ Tracker scene.
       timestamp -= this.santaApp.santaService.now();
 
       return formatCountdown(timestamp);
+    },
+
+    keyHandler: function(e, detail, sender) {
+      switch(e.detail.key) {
+        case 'esc':
+          e.stopPropagation();
+          this.cityFeedActive = false;
+          break;
+      }
     }
   });
 })();

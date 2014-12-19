@@ -3,8 +3,6 @@
 @import "compass/css3/transition";
 
 @import "../shared/sass/_mixins.scss";
-@import "sass/_keyframe_animations.scss";
-@import "sass/_santa.scss";
 
 $tabletBreakpoint: 1024px;
 $mobileBreakpoint: 660px;
@@ -17,6 +15,10 @@ $name: 'module-tracker';
   width: 100%;
   height: 100%;
   background: #f6efe2;
+
+  @import "sass/_keyframe_animations.scss";
+  @import "sass/_santa.scss";
+  @import "sass/_cards.scss";
 
   .scene {
     height: 100%;
@@ -204,6 +206,15 @@ $name: 'module-tracker';
         }
       }
     }
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  city-feed {
+    margin-top: 35vh;
+  }
+  #status-bar {
+    display: none;
   }
 }
 

@@ -8,7 +8,6 @@ $gameover-width-bp: 661px;
 ##{$name} {
   .gameover {
     background-color: $gameover-bg;
-    z-index: 120;
   }
 
   .gameover-dialog {
@@ -103,12 +102,10 @@ $gameover-width-bp: 661px;
     background-position: 15px 50%;
     background-repeat: no-repeat;
     background-size: 20.5px 21px;
-    margin-bottom: 10px;
 
     @media (min-width: $gameover-width-bp) {
-      background-position: 40px 50%;
+      background-position: 30px 50%;
       background-size: 41px 42px;
-      margin-bottom: 20px;
     }
   }
 }

@@ -108,7 +108,7 @@ Mercator scene.
           </div>
           <div class="status"></div>
         </div>
-        <div class="actions">
+        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
           <button type="button" class="restart"></button>
           <button type="button" class="pause"></button>
         </div>
@@ -138,6 +138,7 @@ Mercator scene.
             <button type="button" class="Button Button--large gameover-play">
               <i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg>
             </button>
+            <a href="{{pageUrl}}#village" class="Button Button--large"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
             <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
           </div>
         </div>
@@ -284,37 +285,44 @@ Mercator scene.
 
     mapsReady: false,
 
+    hasClickedStart: false,
+
     onPreload: function() {
       this.preloadSounds('mercator_load_sounds', 40);
       this.preloadImages([
         'img/bg.svg',
         'img/logo.svg',
-        'img/pausescreen.svg',
-        'img/tutorial/shadow.svg'
+        'img/pausescreen.svg'
       ]);
     },
+
     onShow: function() {
       if (!this.mapsReady) {
         this.showOnMapsReady = true;
       } else {
         var module = this.$['module-mercator'];
 
-        var game = this.game = new scenes.mercator.Game(module);
-        startButton(this, module, function() {
-          game.start();
-        });
+        this.game = new scenes.mercator.Game(module);
+        startButton(this, module, this.onClickStart.bind(this));
       }
     },
+
     onHide: function() {
       this.game.dispose();
       this.game = null;
       this.fire('sound-ambient', 'mercator_end');
     },
+
     mapsAPIReady: function() {
       this.mapsReady = true;
       if (this.showOnMapsReady) {
         this.onShow();
       }
+    },
+
+    onClickStart: function() {
+      this.hasClickedStart = true;
+      this.game.start();
     }
   });
 

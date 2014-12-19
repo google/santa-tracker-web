@@ -1,0 +1,120 @@
+##{$name} {
+  .blimp {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+
+    .blimp-inner {
+      animation: 300s -50s #{$name}-move-clouds linear infinite;
+      background: url(img/sprite.png) -337px -477px no-repeat;
+      height: 84px;
+      margin-top: -170px;
+      position: absolute;
+      top: 50%;
+      width: 140px;
+    }
+  }
+
+  .cloud {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+
+    .cloud-inner {
+      background: url(img/sprite.png) -3px -520px no-repeat;
+      height: 91px;
+      position: absolute;
+      width: 150px;
+    }
+  }
+
+  .cloud1 {
+    // start: 5%
+    animation: 150s -7.5s #{$name}-move-clouds linear infinite;
+    .cloud-inner {
+      top: 40%;
+      transform: scale(.5) translateY(-50%);
+    }
+  }
+
+  .cloud2 {
+    // start: 15%
+    animation: 125s -18.75s #{$name}-move-clouds linear infinite;
+    .cloud-inner {
+      top: 30%;
+      transform: scale(.6) translateY(-50%);
+    }
+  }
+
+  .cloud3 {
+    // start: 12%
+    animation: 93.75s -11.25s #{$name}-move-clouds linear infinite;
+    .cloud-inner {
+      top: 20%;
+      transform: scale(.8) translateY(-50%);
+    }
+  }
+
+  .cloud4 {
+    // start: 46%
+    animation: 75s -34.5s #{$name}-move-clouds linear infinite;
+    .cloud-inner {
+      top: 35%;
+      transform: scale(1) translateY(-50%);
+    }
+  }
+
+  .cloud5 {
+    // start: 70%
+    animation: 300s -110s #{$name}-move-clouds linear infinite;
+    .cloud-inner {
+      top: 25%;
+      transform: scale(.25) translateY(-50%);
+    }
+  }
+
+  .cloud6 {
+    // start: 60%
+    animation: 300s -180s #{$name}-move-clouds linear infinite;
+    .cloud-inner {
+      top: 15%;
+      transform: scale(.25) translateY(-50%);
+    }
+  }
+
+  .cloud7 {
+    animation: 93.75s -44s #{$name}-move-clouds linear infinite;
+    .cloud-inner {
+      top: 5%;
+      transform: scale(.8) translateY(-50%);
+    }
+  }
+
+  .cloud8 {
+    // start: 82%
+    animation: 150s -103s #{$name}-move-clouds linear infinite;
+    .cloud-inner {
+      top: 45%;
+      transform: scale(1) translateY(-50%);
+    }
+  }
+
+  .cloud9 {
+    animation: 150s -50s #{$name}-move-clouds linear infinite;
+    .cloud-inner {
+      top: 55%;
+      transform: scale(1) translateY(-50%);
+    }
+  }
+}
+
+@keyframes #{$name}-move-clouds {
+  0% {
+    transform: translate3d(-10%, 0, 0);
+  }
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}

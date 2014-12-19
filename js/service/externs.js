@@ -38,6 +38,7 @@ Card.prototype.didyouknow;
 Card.prototype.youtubeId;
 Card.prototype.imageUrl;
 Card.prototype.status;
+Card.prototype.stop;
 
 // Exports (used by other components)
 var Serv; // SantaService
@@ -64,3 +65,8 @@ State.prototype.presentsDelivered;
 State.prototype.distanceTravelled;
 var Spher; // Spherical
 Spher.prototype.computeDistanceBetween;
+var SantaLoc; // SantaLocation
+SantaLoc.prototype.getDetails;
+//SantaLoc.prototype.distanceTo;
+//SantaLoc.prototype.getLocation;
+//SantaLoc.prototype.getDistanceTravelled;

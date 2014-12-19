@@ -305,7 +305,7 @@ Matching scene.
             <!---->
           </div>
         </div>
-        <div class="actions">
+        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
           <button type="button" class="restart"></button>
           <button type="button" class="pause"></button>
         </div>
@@ -327,6 +327,7 @@ Matching scene.
           </div>
           <div class="gameover-buttons">
             <button type="button" class="Button Button--large gameover-play"><i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg></button>
+            <a href="{{pageUrl}}#village" class="Button Button--large"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
             <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
           </div>
         </div>
@@ -345,7 +346,10 @@ Matching scene.
     componentDir: 'scenes/matching/',
 
     animationHelper: null,
+
     game: null,
+
+    hasClickedStart: false,
 
     onPreload: function() {
       this.preloadSounds('m_load_sounds', 20);
@@ -360,21 +364,26 @@ Matching scene.
         'img/rotate.svg'
       ]);
     },
+
     onShow: function() {
       var module = this.$['module-matching'];
 
       this.animationHelper = new CSSAnimationHelper(module);
-      var game = this.game = new scenes.matching.Game(module);
-      startButton(this, module, function() {
-        game.start();
-      });
+      this.game = new scenes.matching.Game(module);
+      startButton(this, module, this.onClickStart.bind(this));
     },
+
     onHide: function() {
       this.animationHelper.destroy();
       this.animationHelper = null;
       this.game.destroy();
       this.game = null;
       this.fire('sound-ambient', 'm_end_game');
+    },
+
+    onClickStart: function() {
+      this.hasClickedStart = true;
+      this.game.start();
     }
   });
 
