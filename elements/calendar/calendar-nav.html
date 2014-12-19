@@ -63,7 +63,7 @@ Village calendar navigation.
         </template>
 
         <template if="{{trackerActive}}">
-          <a id="tracker-nav-open-btn" href="{{pageUrl}}#tracker" on-click="{{trackerFabClick}}">
+          <a id="tracker-nav-open-btn" href="{{pageUrl}}#tracker" on-click="{{fabClick}}">
             <paper-fab id="tracker-nav-open-btn-fab" icon="menu" on-core-transitionend="{{trackerFabRippleDone}}"></paper-fab>
           </a>
         </template>
@@ -119,7 +119,7 @@ Village calendar navigation.
               </div>
             </div>
 
-            <a id="tracker-nav-close-btn" href="{{pageUrl}}#tracker" on-click="{{trackerFabClick}}">
+            <a id="tracker-nav-close-btn" href="{{pageUrl}}#tracker" on-click="{{fabClick}}">
               <paper-fab id="tracker-nav-close-btn-fab" icon="close" on-core-transitionend="{{trackerFabRippleCloseDone}}"></paper-fab>
             </a>
           </div>
@@ -341,10 +341,6 @@ Village calendar navigation.
       },
 
       fabClick: function(e, detail, sender) {
-        e.preventDefault();
-      },
-
-      trackerFabClick: function(e, detail, sender) {
         e.preventDefault();
       },
 
