@@ -628,6 +628,16 @@ Tracker scene.
     cityFeedActiveChanged: function() {
       this.fire('tracker-action', {type: 'city-toggle', active: this.cityFeedActive});
       this.worldView_.setMode(this.cityFeedActive ? 'feed' : 'track');
+
+      if (this.cityFeedActive) {
+        this.async(function() {
+          var cityStats = this.$['module-tracker'].querySelector('#city-stats');
+          cityStats.style.opacity = 1;
+        }.bind(this), null, 500);
+      } else {
+        var cityStats = this.$['module-tracker'].querySelector('#city-stats');
+        cityStats.style.opacity = 0;
+      }
     },
 
     onShow: function() {
