@@ -31,7 +31,7 @@ Tracker scene.
                          on-api-load="{{mapsAPIReady}}"></google-maps-api>
       </template>
 
-      <city-feed id="feed" fit latestDestinations="{{destinations}}" santaApp="{{santaApp}}"
+      <city-feed id="feed" fit timeline="{{timeline}}" santaApp="{{santaApp}}"
                  active?="{{cityFeedActive}}"></city-feed>
 
       <tracker-intro id="intro"
@@ -488,6 +488,10 @@ Tracker scene.
       this.location = {};
     },
 
+    santaAppChanged: function() {
+      this.super();
+    },
+
     trackSanta: function() {
       if (this.trackingInterval_) return;
 
@@ -513,9 +517,11 @@ Tracker scene.
       // been returned by the API at this point, sync santa and get us some!
       if (this.santaApp.destinations.length) {
         this.destinations = this.santaApp.destinations;
+        this.timeline = this.santaApp.timeline;
       } else {
         this.santaApp.santaService.sync(function() {
           this.destinations = this.santaApp.destinations;
+          this.timeline = this.santaApp.timeline;
         }.bind(this));
       }
 

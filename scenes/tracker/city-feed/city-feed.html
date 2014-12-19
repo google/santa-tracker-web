@@ -30,7 +30,7 @@ City feed view in Tracker
 
 @element city-feed
 -->
-<polymer-element name="city-feed" attributes="active location latestDestinations santaApp">
+<polymer-element name="city-feed" attributes="active location timeline santaApp">
 <template>
 <link rel="stylesheet" href="city-feed.css" no-shim>
 <style>
@@ -45,8 +45,8 @@ City feed view in Tracker
 <div id="module-city-feed" fit>
   <div class="scene" fit>
 
-    <core-list id="feed" data="{{filteredDestinations}}"
-               selectionEnabled="false" height="420" runwayFactor="2">
+    <core-list id="feed" data="{{stream}}"
+               selectionEnabled="false" runwayFactor="4">
       <template>
 
         <div class="card card-{{model.type}}">
@@ -55,13 +55,13 @@ City feed view in Tracker
             <div class="corner-image"></div>
             <template if="{{model.type == 'city'}}">
               <div>
-                <h4 class="white">{{model.region}}</h4>
-                <h1>{{model.city}}</h1>
+                <h4 class="white">{{model.stop.region}}</h4>
+                <h1>{{model.stop.city}}</h1>
               </div>
               <core-selector class="card-icons" selected="{{model.selectedCard}}" on-core-activate="{{onCardSelected}}">
                 <img src="img/tracker-and-city-SVGs_feed-city-icon.svg" data-name="photo">
                 <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg" data-name="photo">
-                <template if="{{model.details.streetView}}">
+                <template if="{{model.stop.details.streetView}}">
                   <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg" data-name="streetview">
                 </template>
                 <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg" on-tap="{{onWikipedia}}" data-name="wikipedia">
@@ -72,14 +72,14 @@ City feed view in Tracker
                     <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
                     <div layout horizontal center>
                       <div class="ico ico-clock"></div>
-                      <h2 class="stat-large">{{model.arrival | formatCountdown}}</h2>
+                      <h2 class="stat-large">{{model.stop.arrival | formatCountdown}}</h2>
                     </div>
                   </div>
                   <div>
                     <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
                     <div layout horizontal center>
                       <div class="ico ico-weatherchanel"></div>
-                      <h2 class="stat-large white">{{model.details.weather.tempC}}&deg;C / {{model.details.weather.tempF}}&deg;F</h2>
+                      <h2 class="stat-large white">{{model.stop.details.weather.tempC}}&deg;C / {{model.stop.details.weather.tempF}}&deg;F</h2>
                     </div>
                   </div>
                 </div>
@@ -93,19 +93,19 @@ City feed view in Tracker
           <template if="{{model.type == 'city'}}">
             <core-pages class="card-body" selected="{{model.selectedCard}}">
               <div class="photo">
-                <core-image sizing="cover" preload fade src="{{model.details.photos[0].url}}"></core-image>
-                <div class="attribution"><html-echo html="{{model.details.photos[0].attributionHtml}}"></html-echo></div>
+                <core-image sizing="cover" preload fade src="{{model.stop.details.photos[0].url}}"></core-image>
+                <div class="attribution"><html-echo html="{{model.stop.details.photos[0].attributionHtml}}"></html-echo></div>
               </div>
               <div class="photo">
-                <core-image sizing="cover" preload fade src="{{model.details.photos[1].url}}"></core-image>
-                <div class="attribution"><html-echo html="{{model.details.photos[1].attributionHtml}}"></html-echo></div>
+                <core-image sizing="cover" preload fade src="{{model.stop.details.photos[1].url}}"></core-image>
+                <div class="attribution"><html-echo html="{{model.stop.details.photos[1].attributionHtml}}"></html-echo></div>
               </div>
-              <template if="{{model.details.streetView}}">
+              <template if="{{model.stop.details.streetView}}">
                 <div>
                   <template if="{{model.selectedCard == 2}}">
                     <google-streetview-pano version="3.exp" fit
-                        panoid="{{model.details.streetView.id}}"
-                        heading="{{model.details.streetView.heading}}"
+                        panoid="{{model.stop.details.streetView.id}}"
+                        heading="{{model.stop.details.streetView.heading}}"
                         clientId="{{santaApp.config.CLIENT_ID}}"
                         libraries="places,geometry"
                         language="{{santaApp.language}}"
@@ -116,12 +116,12 @@ City feed view in Tracker
               <div class="wikipedia">
                 <div class="gradientbar"></div>
                 <div class="wikipedia__logo"></div>
-                <html-echo class="wikipedia__body" html="{{model.details.wikipedia.excerpt}}"></html-echo>
+                <html-echo class="wikipedia__body" html="{{model.stop.details.wikipedia.excerpt}}"></html-echo>
                 <div class="attribution">
                   <span class="wiki-cc">Available under
                   <a target="wiki" href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
                   terms</span> &nbsp;
-                  <a target="wiki" href="{{model.details.wikipedia.url}}">{{model.details.wikipedia.url}}</a>
+                  <a target="wiki" href="{{model.stop.details.wikipedia.url}}">{{model.stop.details.wikipedia.url}}</a>
                 </div>
               </div>
             </core-pages>
@@ -150,7 +150,7 @@ City feed view in Tracker
  */
 
 /**
- * Lookup table of destination id -> index into destinations array.
+ * Lookup table of destination id -> index into timeline array.
  *
  * @type object
  * @default {}
@@ -173,17 +173,9 @@ Polymer({
   },
 
   /**
-   * New incoming destinations to add.
+   * Current timeline feed.
    *
-   * @attribute latestDestinations
-   * @type array
-   * @default []
-   */
-
-  /**
-   * Full saved list of destinations as they've come in.
-   *
-   * @property dests
+   * @attribute timeline
    * @type array
    * @default []
    */
@@ -199,8 +191,7 @@ Polymer({
 
   created: function() {
     this.location = {};
-    this.latestDestinations = [];
-    this.dests = [];
+    this.timeline = [];
   },
 
   activeChanged: function() {
@@ -210,47 +201,38 @@ Polymer({
     if (!this.active) {
       // Want the list to scroll fast and streetview is a hog. Make sure no
       // streetview cards are activated when the list is opened again.
-      for (var i = 0, dest; dest = this.dests[i]; ++i) {
-        dest.selectedCard = 0;
+      for (var i = 0, item; item = this.stream[i]; ++i) {
+        item.selectedCard = 0;
       }
     }
   },
 
-  latestDestinationsChanged: function() {
-    if (!this.latestDestinations || !this.latestDestinations.length) {
+  timelineChanged: function() {
+    if (!this.timeline || !this.timeline.length) {
       return;
     }
 
-    // TODO(cbro, ebidel): this is going to get simplified. The API will handle
-    // the filtering for us.
+    destLookup_ = {};
 
-    for (var i = 0, dest; dest = this.latestDestinations[i]; ++i) {
-      // Don't add destination if it already exists.
-      if (destLookup_[dest.id]) {
-        continue;
+    // TODO(ebidel): decide if we need to make a copy.
+    this.stream = this.timeline.slice();
+
+    for (var i = 0, item; item = this.stream[i]; ++i) {
+      item.selectedCard = 0; // select initial page on destination card.
+
+      // Specify type of card to render in feed.
+      if (item.stop) {
+        item.type = 'city';
+        destLookup_[item.stop.id] = i; // Cache index for lookup later when scrolling to destination.
+      } else if (item.youtubeId) {
+        item.type = 'video';
+      } else if (item.imageUrl) {
+        item.type = 'photospheres';
+      } else if (item.status) {
+        item.type = 'update';
+      } else if (item.didyouknow) {
+        item.type = 'facts';
       }
-
-      dest.selectedCard = 0; // select initial page on destination card.
-
-      // TODO(crbro,ebidel): remove this when API has the data.
-      dest.type = 'city';
-
-      // Latest locations display at top of list. Prepend them to the destinations
-      // list in reverse order (so latest is first).
-      this.dests.splice(0, 0, dest);
-    }
-
-    // Filter destinations to only show those that the red dude has visited.
-    var now = this.santaApp.santaService.now();
-    var filteredDestinations = this.dests.filter(function(dest) {
-      return dest.arrival < now;
-    });
-
-    this.filteredDestinations = filteredDestinations;
-
-    destLookup_ = {}; // Re-create destLookup_ because indexes changed.
-    for (var i = 0, dest; dest = filteredDestinations[i]; ++i) {
-      destLookup_[dest.id] = i;
     }
   },
 

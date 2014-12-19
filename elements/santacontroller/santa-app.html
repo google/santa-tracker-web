@@ -310,6 +310,15 @@ Polymer(Polymer.mixin({
    */
   destinations: [],
 
+  /**
+   * Full list of timeline feed items.
+   *
+   * @property timeline
+   * @type array
+   * @default []
+   */
+  timeline: [],
+
   publish: {
     /**
      * True when the countdown is complete.
@@ -402,6 +411,10 @@ Polymer(Polymer.mixin({
 
     this.santaService.addListener('destinations_changed', function(destinations) {
       this.destinations = destinations || [];
+    }.bind(this));
+
+    this.santaService.addListener('timeline_changed', function(timeline) {
+      this.timeline = timeline || [];
     }.bind(this));
 
     this.santaService.addListener('kill', function() {

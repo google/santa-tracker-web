@@ -225,23 +225,34 @@ $name: 'module-city-feed';
     }
 
     .card {
-      float: left;
+      &::before {
+        content: '';
+        position: absolute;
+        border-left: 2px solid $lineColor;
+        left: 105%;
+        top: 0;
+        height: 100%;
+        z-index: -1;
+      }
 
       &:not(.card-city) {
         margin-top: 60px;
       }
 
       &.card-city {
-        float: none;
-        clear: both;
-
-        &::after {
-          border-left: 2px solid $lineColor;
+        &::before, &::after {
           content: '';
-          height: $dividerHeight;
-          width: 5px;
-          left: 50%;
           position: absolute;
+          left: 50%;
+          border-left: 2px solid $lineColor;
+        }
+        &::before {
+          height: 150px;
+          top: 0;
+        }
+        &::after {
+          bottom: -80px;
+          height: 80px;
         }
       }
 
