@@ -333,10 +333,12 @@ Village calendar navigation.
       },
 
       trackerFabRippleDone: function(e, detail, sender) {
+        this.santaApp.selectedScene.navOpen = true;
         this.onShow();
       },
 
       trackerFabRippleCloseDone: function(e, detail, sender) {
+        this.santaApp.selectedScene.navOpen = false;
         this.onHide();
       },
 
