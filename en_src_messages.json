@@ -6068,7 +6068,7 @@
     "tracker_intro_skip_intro": {
         "description": "Text on the skip intro button, which hides the Tracker intro.",
         "message": "Skip intro"
-    }
+    },
     "tracker_see_route": {
         "description": "Text underneath button in the tracker menu to show Santa's route. Please keep this short.",
         "message": "See the route"
@@ -6076,5 +6076,5 @@
     "today_only": {
       "description": "A heading above menu items that are only available today. Please keep this short.",
       "message": "Today only"
-    },
+    }
 }
