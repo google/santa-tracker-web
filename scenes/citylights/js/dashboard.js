@@ -42,7 +42,9 @@ app.Dashboard.prototype = {
       $sphere.data('location', $sphere.find('.location').remove().text());
       $sphere.data('description', $sphere.find('.description').remove().text());
 
-      var url = app.PhotoSphere.staticImageUrl($sphere.data('panoid'));
+      var url = app.PhotoSphere.staticImageUrl($sphere.data('panoid'),
+                                               $sphere.data('heading'),
+                                               $sphere.data('pitch'));
       $sphere.find('img').attr('src', url);
       $sphere.find('figcaption').text($sphere.data('location'));
     });
@@ -149,7 +151,11 @@ app.Dashboard.prototype = {
     return {
       id: $screen.data('panoid'),
       location: $screen.data('location'),
-      description: $screen.data('description')
+      description: $screen.data('description'),
+      pov: {
+        heading: $screen.data('heading'),
+        pitch: $screen.data('pitch')
+      }
     };
   },
 

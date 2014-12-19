@@ -59,7 +59,7 @@ app.PhotoSphere.prototype = {
    * @param {Function} callback Called when Photo Sphere has been created
    * @return {null}
    */
-  load: function(id, callback) {
+  load: function(id, pov, callback) {
     if (id === this.loadedId_) {
       return this.onPanoLoaded_(callback);
     }
@@ -68,7 +68,7 @@ app.PhotoSphere.prototype = {
 
     this.panorama = new google.maps.StreetViewPanorama(
         this.$el[0],
-        app.Constants.PANORAMA_OPTIONS);
+        $.extend({}, app.Constants.PANORAMA_OPTIONS, {pov: pov}));
 
     this.panoramaLoadListener_ = google.maps.event.addListener(
         this.panorama,
@@ -118,8 +118,15 @@ app.PhotoSphere.prototype = {
 /**
  * @public
  * @param {String} id Photo sphere unique id to get static image url for
+ * @param {String} heading Heading for the image in the panorama (degrees)
+ * @param {String} pitch Pitch for the image in the panorama (degrees)
+ * @param {String} fov Field of view for image (degrees) OPTIONAL
  * @return {String} URL
  */
-app.PhotoSphere.staticImageUrl = function(id) {
-  return app.Constants.STATIC_DOMAIN + app.Constants.STATIC_QS.replace('[ID]', id);
+app.PhotoSphere.staticImageUrl = function(id, heading, pitch, fov) {
+  var querystring = app.Constants.STATIC_QS.replace('[ID]', id);
+  querystring = querystring.replace('[HEADING]', heading);
+  querystring = querystring.replace('[PITCH]', pitch);
+  querystring = querystring.replace('[FOV]', fov || app.Constants.PANORMA_DEFAULT_FOV);
+  return app.Constants.STATIC_DOMAIN + querystring;
 };

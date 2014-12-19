@@ -12,7 +12,7 @@ app.Constants = {
   ROTATE_DISTANCE: 0.2, //degrees per frame
 
   STATIC_DOMAIN: 'https://maps.googleapis.com/maps/api/streetview',
-  STATIC_QS: '?size=620x400&fov=90&heading=350&pitch=-2&pano=[ID]&sensor=false',
+  STATIC_QS: '?size=620x400&fov=[FOV]&heading=[HEADING]&pitch=[PITCH]&pano=[ID]&sensor=false',
 
   POSITION_OFFSET: {
     'left': 0,
@@ -22,6 +22,8 @@ app.Constants = {
 
   EASE_IN_QUINT: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)',
   EASE_IN_OUT_CIRC: 'cubic-bezier(0.785, 0.135, 0.150, 0.860)',
+
+  PANORMA_DEFAULT_FOV: 90,
 
   PANORAMA_OPTIONS: {
     disableDefaultUI: false,
