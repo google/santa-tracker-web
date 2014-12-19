@@ -26,6 +26,10 @@ $sceneboard-bg: #FFDE00;
     box-sizing: border-box;
   }
 
+  .i18n-language-list {
+    display: none;
+  }
+
   .scene {
     // background color of the scene is the light blue wall
     background: #D6C4A2;
