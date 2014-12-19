@@ -1,17 +1,76 @@
 @import "compass/css3/transform";
 @import "compass/css3/transition";
 
-.card {
+.card:not(.card-city) {
   width: 306px;
   $padding: 20px;
-  pointer-events: all;
+  // pointer-events: all;
   color: #fff;
 
   border-radius: 5px;
   background-color: rgb(106,27,154);
   box-sizing: border-box;
-  position: relative;
 
+  .card-header {
+    position: relative;
+    padding-right: 60px;
+
+    z-index: 2;
+    h3 {
+      margin: 0;
+      padding: 0 0 18px $padding;
+      font-size: 24px;
+      line-height: 24px;
+      font-weight: 300;
+    }
+
+    h4 {
+      margin: 0;
+      padding: $padding 0 18px $padding;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .corner-image {
+      position: absolute;
+      right: 0;
+      top: 0;
+      background-image: url(img/cardavatars/Cards-avatars-04_general.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 85px;
+      width: 85px;
+      border-radius: 0 5px 0 0;
+    }
+  }
+
+  .card-body {
+    z-index: 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    p {
+      margin: 0;
+      padding: 12px $padding;
+      font-size: 24px;
+      line-height: 31px;
+      font-weight: 300;
+    }
+  }
+
+  .card-footer {
+    p {
+      margin: 0;
+      padding: 12px $padding $padding $padding;
+      font-size: 11px;
+      font-weight: 400;
+    }
+  }
+
+}
+
+.card {
   &.card-coding, &.card-pins, &.card-app, &.card-mercator, &.card-gumball {
     .card-header {
       .corner-image {
@@ -257,62 +316,5 @@
       display: none;
     }
   }
-
-  .card-header {
-    position: relative;
-    padding-right: 60px;
-
-    z-index: 2;
-    h3 {
-      margin: 0;
-      padding: 0 0 18px $padding;
-      font-size: 24px;
-      line-height: 24px;
-      font-weight: 300;
-    }
-
-    h4 {
-      margin: 0;
-      padding: $padding 0 18px $padding;
-      text-transform: uppercase;
-      font-size: 11px;
-      font-weight: 900;
-    }
-
-    .corner-image {
-      position: absolute;
-      right: 0;
-      top: 0;
-      background-image: url(img/cardavatars/Cards-avatars-04_general.svg);
-      background-size: contain;
-      background-repeat: no-repeat;
-      height: 85px;
-      width: 85px;
-      border-radius: 0 5px 0 0;
-    }
-  }
-
-  .card-body {
-    z-index: 1;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    p {
-      margin: 0;
-      padding: 12px $padding;
-      font-size: 24px;
-      line-height: 31px;
-      font-weight: 300;
-    }
-  }
-
-  .card-footer {
-    p {
-      margin: 0;
-      padding: 12px $padding $padding $padding;
-      font-size: 11px;
-      font-weight: 400;
-    }
-  }
-
 }
+
