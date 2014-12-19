@@ -37,6 +37,17 @@ Village calendar navigation.
       paper-tab::shadow .tab-content {
         opacity: 1;
       }
+
+      #back-to-tracker::shadow core-icon div {
+        background-size: 70% !important;
+        background-repeat: no-repeat;
+      }
+
+      #tracker-nav-open-btn-fab::shadow core-icon div {
+        background-size: 90% !important;
+        background-repeat: no-repeat;
+      }
+
     </style>
 
     <div id="module-nav">
@@ -44,133 +55,196 @@ Village calendar navigation.
         <template if="{{trackerActive && cityFeedActive}}">
           <a href="{{pageUrl}}#tracker" on-click="{{fabClick}}" on-tap="{{onBackToTracker}}">
             <div id="back-to-tracker-text"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></div>
-            <paper-fab id="back-to-tracker" icon="arrow-drop-up" mini></paper-fab>
+            <paper-fab id="back-to-tracker" src="img/back-to-tracker-arrow.svg" mini></paper-fab>
           </a>
         </template>
-        <a id="global-nav-btn" href="{{pageUrl}}#{{active ? (santaApp.prevSelectedRoute ? santaApp.prevSelectedRoute : 'village') : 'calendar'}}" on-click="{{fabClick}}">
-          <paper-fab icon="today" on-core-transitionend="{{rippleDone}}"></paper-fab>
-        </a>
-        <div id="global-nav-body">
-          <div id="global-nav-header" layout horizontal center-center>
-            <a id="global-back-to-village" href="{{pageUrl}}#village" title="Go to the Village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
-            <paper-tabs id="tabs" valueattr="filterOn" selected="{{filterOn}}"
-                        on-core-activate="{{onNavSelect}}" scrollable>
-              <paper-tab filterOn="calendar"><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></paper-tab>
-              <paper-tab filterOn="watch"><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></paper-tab>
-              <paper-tab filterOn="play"><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></paper-tab>
-              <paper-tab filterOn="learn"><i18n-msg msgid="learn">PLACEHOLDER_i18n</i18n-msg></paper-tab>
-              <paper-tab on-tap="{{onTheGo}}"><i18n-msg msgid="onthego">PLACEHOLDER_i18n</i18n-msg></paper-tab>
-            </paper-tabs>
+
+        <template if="{{trackerActive || cityFeedActive}}">
+          <a id="tracker-nav-open-btn" href="{{pageUrl}}#tracker" on-click="{{trackerFabClick}}">
+            <paper-fab id="tracker-nav-open-btn-fab" src="img/tracker-menu-open.svg" on-core-transitionend="{{trackerFabRippleDone}}"></paper-fab>
+          </a>
+        </template>
+
+        <template if="{{!trackerActive && !cityFeedActive}}">
+          <a id="global-nav-btn" href="{{pageUrl}}#{{active ? (santaApp.prevSelectedRoute ? santaApp.prevSelectedRoute : 'village') : 'calendar'}}" on-click="{{fabClick}}">
+            <paper-fab icon="today" on-core-transitionend="{{rippleDone}}"></paper-fab>
+          </a>
+        </template>
+
+        <template if="{{trackerActive || cityFeedActive}}">
+          <div id="tracker-nav">
+            <div id="tacker-nav-items">
+              <h2><i18n-msg msgid="today_only">PLACEHOLDER_i18n</i18n-msg></h2>
+              <hr>
+              <div id="tracker-nav-list" layout horizontal center-center wrap>
+                <div layout vertical center-center class="card card-trivia">
+                  <a href="{{pageUrl}}#trivia" on-click="{{ onTrackerMenuClick }}">
+                    <div class="icon"></div>
+                    <div><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></div>
+                  </a>
+                </div>
+                <div layout vertical center-center class="card card-reindeer">
+                  <a href="{{pageUrl}}#runner" on-click="{{ onTrackerMenuClick }}">
+                    <div class="icon"></div>
+                    <div><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></div>
+                  </a>
+                </div>
+                <div layout vertical center-center class="card card-tracker">
+                  <a href="{{pageUrl}}#tracker" on-click="{{ onTrackerMenuClick }}">
+                    <div class="icon"></div>
+                    <div><i18n-msg msgid="tracker_see_route">PLACEHOLDER_i18n</i18n-msg></div>
+                  </a>
+                </div>
+                <div layout vertical center-center class="card card-village">
+                  <a href="{{pageUrl}}#village" on-click="{{ onTrackerMenuClick }}">
+                    <div class="icon"></div>
+                    <div><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></div>
+                  </a>
+                </div>
+                <div layout vertical center-center class="card card-latlng">
+                  <a href="{{pageUrl}}#latlong" on-click="{{ onTrackerMenuClick }}">
+                    <div class="icon"></div>
+                    <div><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></div>
+                  </a>
+                </div>
+                <div layout vertical center-center class="card card-glider">
+                  <a href="{{pageUrl}}#glider" on-click="{{ onTrackerMenuClick }}">
+                    <div class="icon"></div>
+                    <div><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <a id="tracker-nav-close-btn" href="{{pageUrl}}#tracker" on-click="{{trackerFabClick}}">
+              <paper-fab src="img/tracker-menu-close.svg" on-core-transitionend="{{trackerFabRippleCloseDone}}"></paper-fab>
+            </a>
           </div>
+        </template>
 
-          <div id="global-nav-content">
+        <template if="{{!trackerActive && !cityFeedActive}}">
+          <div id="global-nav-body">
+            <div id="global-nav-header" layout horizontal center-center>
+              <a id="global-back-to-village" href="{{pageUrl}}#village" title="Go to the Village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+              <paper-tabs id="tabs" valueattr="filterOn" selected="{{filterOn}}"
+                          on-core-activate="{{onNavSelect}}" scrollable>
+                <paper-tab filterOn="calendar"><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></paper-tab>
+                <paper-tab filterOn="watch"><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></paper-tab>
+                <paper-tab filterOn="play"><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></paper-tab>
+                <paper-tab filterOn="learn"><i18n-msg msgid="learn">PLACEHOLDER_i18n</i18n-msg></paper-tab>
+                <paper-tab on-tap="{{onTheGo}}"><i18n-msg msgid="onthego">PLACEHOLDER_i18n</i18n-msg></paper-tab>
+              </paper-tabs>
+            </div>
 
-            <core-animated-pages transitions="cross-fade" selected="{{calNavSelection}}" valueattr="route">
-              <section route="calendar">
-                <div id="nav-calendar" cross-fade class="{{filterOn}}">
-                  <div layout horizontal center-center wrap>
-                    <div class="card"></div>
+            <div id="global-nav-content">
 
-                    <div layout vertical center-center data-index="1"
-                         class="card calendar scene video play learn">
-                      <template repeat="{{house, i in firstFour}}">
-                        <a href="{{house.link || pageUrl + '#' + house.module}}" on-click="{{onCalendarClick}}">
-                          <div class="menu-marker marker1 calendar [[house.category]]" style="background-image:url({{componentBaseDir}}img/menu-[[house.module]].svg);"></div>
-                        </a>
+              <core-animated-pages transitions="cross-fade" selected="{{calNavSelection}}" valueattr="route">
+                <section route="calendar">
+                  <div id="nav-calendar" cross-fade class="{{filterOn}}">
+                    <div layout horizontal center-center wrap>
+                      <div class="card"></div>
+
+                      <div layout vertical center-center data-index="1"
+                           class="card calendar scene video play learn">
+                        <template repeat="{{house, i in firstFour}}">
+                          <a href="{{house.link || pageUrl + '#' + house.module}}" on-click="{{onCalendarClick}}">
+                            <div class="menu-marker marker1 calendar [[house.category]]" style="background-image:url({{componentBaseDir}}img/menu-[[house.module]].svg);"></div>
+                          </a>
+                        </template>
+                      </div>
+
+                      <template repeat="{{house, i in regularSchedule}}">
+                        <div layout vertical center-center data-index="{{i + 2}}" data-category="[[house.category]]" class="card calendar [[house.category]] {{house.iced ? 'iced' : 'melt'}}">
+                          <a href="{{house.link || pageUrl + '#' + house.module}}" on-click="{{onCalendarClick}}">
+                            <div class="menu-marker marker{{i + 2}} calendar [[house.category]]" style="background-image:url({{componentBaseDir}}img/menu-[[house.module]].svg);"></div>
+                          </a>
+                        </div>
                       </template>
-                    </div>
-
-                    <template repeat="{{house, i in regularSchedule}}">
-                      <div layout vertical center-center data-index="{{i + 2}}" data-category="[[house.category]]" class="card calendar [[house.category]] {{house.iced ? 'iced' : 'melt'}}">
-                        <a href="{{house.link || pageUrl + '#' + house.module}}" on-click="{{onCalendarClick}}">
-                          <div class="menu-marker marker{{i + 2}} calendar [[house.category]]" style="background-image:url({{componentBaseDir}}img/menu-[[house.module]].svg);"></div>
+                      <div layout vertical center-center data-index="24" data-category="learn" class="card calendar learn iced">
+                        <a href="{{pageUrl}}#tracker" on-click="{{onCalendarClick}}">
+                          <div class="menu-marker marker24 calendar learn" style="background-image:url({{componentBaseDir}}img/menu-tracker.svg);"></div>
                         </a>
                       </div>
-                    </template>
-                    <div layout vertical center-center data-index="24" data-category="learn" class="card calendar learn iced">
-                      <a href="{{pageUrl}}#tracker" on-click="{{onCalendarClick}}">
-                        <div class="menu-marker marker24 calendar learn" style="background-image:url({{componentBaseDir}}img/menu-tracker.svg);"></div>
+                      <div class="card" id="spacer1"></div>
+                      <div class="card" id="spacer2"></div>
+                      <div class="card" id="spacer3"></div>
+                      <div class="card" id="spacer4"></div>
+                      <div class="card" id="spacer5"></div>
+                    </div>
+                  </div>
+                </section>
+                <section route="onthego">
+                  <div id="nav-onthego" cross-fade>
+                    <div class="onthego-item onthego-android">
+                      <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker" on-click="{{trackOutboundLink}}">
+                        <div class="logo"></div>
+                        <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
+                        <p><i18n-msg msgid="playdescription">PLACEHOLDER_i18n</i18n-msg></p>
                       </a>
                     </div>
-                    <div class="card" id="spacer1"></div>
-                    <div class="card" id="spacer2"></div>
-                    <div class="card" id="spacer3"></div>
-                    <div class="card" id="spacer4"></div>
-                    <div class="card" id="spacer5"></div>
+                    <div class="onthego-item onthego-chrome">
+                      <a href="//www.google.com/chrome/santatracker/" on-click="{{trackOutboundLink}}">
+                        <div class="logo"></div>
+                        <h2><i18n-msg msgid="deck">PLACEHOLDER_i18n</i18n-msg></h2>
+                        <p><i18n-msg msgid="deckdescription">PLACEHOLDER_i18n</i18n-msg></p>
+                      </a>
+                    </div>
+                    <div class="onthego-item onthego-cast">
+                      <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker" on-click="{{trackOutboundLink}}">
+                        <div class="logo"></div>
+                        <h2><i18n-msg msgid="light">PLACEHOLDER_i18n</i18n-msg></h2>
+                        <p><i18n-msg msgid="lightdescription">PLACEHOLDER_i18n</i18n-msg></p>
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </section>
-              <section route="onthego">
-                <div id="nav-onthego" cross-fade>
-                  <div class="onthego-item onthego-android">
-                    <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker" on-click="{{trackOutboundLink}}">
-                      <div class="logo"></div>
-                      <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
-                      <p><i18n-msg msgid="playdescription">PLACEHOLDER_i18n</i18n-msg></p>
-                    </a>
-                  </div>
-                  <div class="onthego-item onthego-chrome">
-                    <a href="//www.google.com/chrome/santatracker/" on-click="{{trackOutboundLink}}">
-                      <div class="logo"></div>
-                      <h2><i18n-msg msgid="deck">PLACEHOLDER_i18n</i18n-msg></h2>
-                      <p><i18n-msg msgid="deckdescription">PLACEHOLDER_i18n</i18n-msg></p>
-                    </a>
-                  </div>
-                  <div class="onthego-item onthego-cast">
-                    <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker" on-click="{{trackOutboundLink}}">
-                      <div class="logo"></div>
-                      <h2><i18n-msg msgid="light">PLACEHOLDER_i18n</i18n-msg></h2>
-                      <p><i18n-msg msgid="lightdescription">PLACEHOLDER_i18n</i18n-msg></p>
-                    </a>
-                  </div>
-                </div>
-              </section>
-            </core-animated-pages>
+                </section>
+              </core-animated-pages>
+            </div>
           </div>
-        </div>
 
-        <div id="global-nav-footer">
-          <core-icon icon="language" style="height:20px;width:20px;"></core-icon>
-          <select id="language" value="{{santaApp.language}}" on-change="{{onLanguageChanged}}">
-            <option value="af">Afrikaans</option>
-            <option value="ca">Català</option>
-            <option value="zh-CN">中文（香港）</option>
-            <option value="zh-TW">中文</option>
-            <option value="da">Dansk</option>
-            <option value="de">Deutsch</option>
-            <option value="et">Eesti</option>
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-            <option value="fr-CA">Français (Canada)</option>
-            <option value="hr">Hrvatski</option>
-            <option value="id">Indonesia</option>
-            <option value="it">Italiano</option>
-            <option value="ja">日本語</option>
-            <option value="lv">Latvijas</option>
-            <option value="lt">Lietuvos</option>
-            <option value="no">Norsk</option>
-            <option value="pl">Polski</option>
-            <option value="pt-BR">Português (Brasil)</option>
-            <option value="pt-PR">Português (Portugal)</option>
-            <option value="ro">Român</option>
-            <option value="sl">Slovenija</option>
-            <option value="sv">Svenska</option>
-            <option value="tl">Tagalog</option>
-            <option value="fi">Viimeistely</option>
-            <option value="bg">Български</option>
-            <option value="uk">Український</option>
-            <option value="ta-IN">தமிழ்</option>
-            <option value="ms">മലയാളം </option>
-            <option value="th">ภาษาไทย</option>
-          </select>
-          &bull;
-          <a href="{{pageUrl}}#about"><i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg></a>
-          &bull;
-          <a href="https://www.google.com/policies/"><i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg></a>
-          &bull;
-          <a href="https://maps.google.com/help/maps/helloworld/index.html"><i18n-msg msgid="getgooglemaps">PLACEHOLDER_i18n</i18n-msg></a>
-        </div>
+          <div id="global-nav-footer">
+            <core-icon icon="language" style="height:20px;width:20px;"></core-icon>
+            <select id="language" value="{{santaApp.language}}" on-change="{{onLanguageChanged}}">
+              <option value="af">Afrikaans</option>
+              <option value="ca">Català</option>
+              <option value="zh-CN">中文（香港）</option>
+              <option value="zh-TW">中文</option>
+              <option value="da">Dansk</option>
+              <option value="de">Deutsch</option>
+              <option value="et">Eesti</option>
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="fr-CA">Français (Canada)</option>
+              <option value="hr">Hrvatski</option>
+              <option value="id">Indonesia</option>
+              <option value="it">Italiano</option>
+              <option value="ja">日本語</option>
+              <option value="lv">Latvijas</option>
+              <option value="lt">Lietuvos</option>
+              <option value="no">Norsk</option>
+              <option value="pl">Polski</option>
+              <option value="pt-BR">Português (Brasil)</option>
+              <option value="pt-PR">Português (Portugal)</option>
+              <option value="ro">Român</option>
+              <option value="sl">Slovenija</option>
+              <option value="sv">Svenska</option>
+              <option value="tl">Tagalog</option>
+              <option value="fi">Viimeistely</option>
+              <option value="bg">Български</option>
+              <option value="uk">Український</option>
+              <option value="ta-IN">தமிழ்</option>
+              <option value="ms">മലയാളം </option>
+              <option value="th">ภาษาไทย</option>
+            </select>
+            &bull;
+            <a href="{{pageUrl}}#about"><i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg></a>
+            &bull;
+            <a href="https://www.google.com/policies/"><i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg></a>
+            &bull;
+            <a href="https://maps.google.com/help/maps/helloworld/index.html"><i18n-msg msgid="getgooglemaps">PLACEHOLDER_i18n</i18n-msg></a>
+          </div>
+        </template>
       </div>
 
       <div id="site-nav">
@@ -255,7 +329,19 @@ Village calendar navigation.
         location.href = this.$['global-nav-btn'].href;
       },
 
+      trackerFabRippleDone: function(e, detail, sender) {
+        this.onShow();
+      },
+
+      trackerFabRippleCloseDone: function(e, detail, sender) {
+        this.onHide();
+      },
+
       fabClick: function(e, detail, sender) {
+        e.preventDefault();
+      },
+
+      trackerFabClick: function(e, detail, sender) {
         e.preventDefault();
       },
 
@@ -281,6 +367,15 @@ Village calendar navigation.
         if (iced) {
           e.preventDefault();
         }
+      },
+
+      onTrackerMenuClick: function(e, detail, sender) {
+        e.preventDefault();
+
+        this.onHide();
+
+        location.href = sender.href;
+        //location.href = this.$['global-nav-btn'].href;
       },
 
       onTheGo: function(e, detail, sender) {

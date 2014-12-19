@@ -453,6 +453,14 @@ Tracker scene.
      */
     cityFeedActive: false,
 
+    /**
+     * True if the tracker is active.
+     * @property trackerActive
+     * @type {boolean}
+     * @default false
+     */
+    trackerActive: false,
+
     onPreload: function() {
       // TODO(lukem): Audit images and only preload what we need
       var images = [
@@ -641,6 +649,7 @@ Tracker scene.
     },
 
     onShow: function() {
+      this.trackerActive = true;
       this.$.intro.layoutReady();
       //TODO(lukem): figure out something nicer to do
       if (this.worldView_) {
@@ -651,6 +660,7 @@ Tracker scene.
     },
 
     onHide: function() {
+      this.trackerActive = false;
       this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
 
