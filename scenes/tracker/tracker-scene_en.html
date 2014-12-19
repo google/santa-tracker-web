@@ -568,6 +568,7 @@ Tracker scene.
       var geocoder = new google.maps.Geocoder();
       geocoder.geocode({'latLng': latlng}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
+          console.log(results);
           for (var i = 0; i < results.length; i++) {
             var types = results[i].types;
             if (types.indexOf('locality') != -1) {

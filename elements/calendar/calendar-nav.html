@@ -55,26 +55,26 @@ Village calendar navigation.
 
     <div id="module-nav">
       <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
-        <template if="{{trackerActive && cityFeedActive}}">
+        <template if="{{cityFeedActive}}">
           <a href="{{pageUrl}}#tracker" on-click="{{fabClick}}" on-tap="{{onBackToTracker}}">
             <div id="back-to-tracker-text"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></div>
             <paper-fab id="back-to-tracker" src="img/back-to-tracker-arrow.svg" mini></paper-fab>
           </a>
         </template>
 
-        <template if="{{trackerActive || cityFeedActive}}">
+        <template if="{{trackerActive}}">
           <a id="tracker-nav-open-btn" href="{{pageUrl}}#tracker" on-click="{{trackerFabClick}}">
             <paper-fab id="tracker-nav-open-btn-fab" icon="menu" on-core-transitionend="{{trackerFabRippleDone}}"></paper-fab>
           </a>
         </template>
 
-        <template if="{{!trackerActive && !cityFeedActive}}">
+        <template if="{{!trackerActive}}">
           <a id="global-nav-btn" href="{{pageUrl}}#{{active ? (santaApp.prevSelectedRoute ? santaApp.prevSelectedRoute : 'village') : 'calendar'}}" on-click="{{fabClick}}">
             <paper-fab id="global-nav-btn-fab" icon="today" on-core-transitionend="{{rippleDone}}"></paper-fab>
           </a>
         </template>
 
-        <template if="{{trackerActive || cityFeedActive}}">
+        <template if="{{trackerActive}}">
           <div id="tracker-nav">
             <div id="tacker-nav-items">
               <h2><i18n-msg msgid="today_only">PLACEHOLDER_i18n</i18n-msg></h2>
@@ -125,7 +125,7 @@ Village calendar navigation.
           </div>
         </template>
 
-        <template if="{{!trackerActive && !cityFeedActive}}">
+        <template if="{{!trackerActive}}">
           <div id="global-nav-body">
             <div id="global-nav-header" layout horizontal center-center>
               <a id="global-back-to-village" href="{{pageUrl}}#village" title="Go to the Village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
