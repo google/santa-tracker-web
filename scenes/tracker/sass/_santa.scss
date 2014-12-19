@@ -8,6 +8,7 @@
 }
 
 .santa-presents {
+  cursor: pointer;
   position: absolute;
   $width: 150px;
   $height: 144px;
@@ -34,7 +35,8 @@
   }
 }
 
-.santa-magic {  
+.santa-magic {
+  cursor: pointer;
   position: absolute;
   $width: 94px;
   $height: 120px;

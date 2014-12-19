@@ -18,6 +18,134 @@ $headerFooterColor: #6f41a4;
 $cardColor: #6541a4;
 
 ##{$name} {
+  #tracker-nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: #6541a2;
+    overflow: visible;
+    z-index: 2000;
+    @include transition(transform 500ms ease);
+    @include transform(translate3d(0, -500px, 0));
+
+    $padding: 20px;
+
+    #tacker-nav-items {
+      margin: 0 auto;
+      text-align: center;
+      padding: 11px 0;
+
+      h2 {
+        background: #6541a2;
+        color: #fff;
+        display: inline;
+        position: relative;
+        z-index: 2;
+        padding: 0 11px;
+        margin: $padding 0;
+        font-size: 19px;
+      }
+
+      hr {
+        height: 1px;
+        background: #774bae;
+        position: relative;
+        z-index: 1;
+        top: -18px;
+        width: 400px;
+        border: 0;
+      }
+    }
+
+    #tracker-nav-list {
+      overflow: auto;
+      max-height: 360px;
+    }
+
+    #tracker-nav-close-btn {
+      position: absolute;
+      right: 20px;
+      bottom: -30px;
+    }
+
+    $cardWidth: 141px;
+
+    .card {
+      width: $cardWidth;
+      position: relative;
+      font-weight: 600;
+      font-size: 14px;
+      box-sizing: border-box;
+      overflow: hidden;
+      margin: 11px $padding;
+
+      a {
+        text-decoration: none;
+        text-align: center;
+        color: #b756c5;
+
+        .icon {
+          background-size: 101px 101px;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          width: $cardWidth;
+          height: $cardWidth;
+          position: relative;
+          margin: 0 auto;
+        }
+      }
+
+      &.card-trivia {
+        a {
+          color: #00be5d;
+        }
+
+        .icon {
+          background-image: url(img/tracker-trivia-icon.svg);
+        }
+      }
+
+      &.card-reindeer {
+        .icon {
+          background-image: url(img/tracker-reindeer-icon.svg);
+        }
+      }
+
+      &.card-tracker {
+        a {
+          color: #25c5d9;
+        }
+
+        .icon {
+          background-size: 141px 141px;
+          background-image: url(img/tracker-route-icon.svg);
+        }
+      }
+
+      &.card-village {
+        a {
+          color: #25c5d9;
+        }
+        .icon {
+          background-size: 141px 141px;
+          background-image: url(img/tracker-village-icon.svg);
+        }
+      }
+
+      &.card-latlng {
+        .icon {
+          background-image: url(img/tracker-latlng-icon.svg);
+        }
+      }
+
+      &.card-glider {
+        .icon {
+          background-image: url(img/tracker-glider-icon.svg);
+        }
+      }
+    }
+  }
 
   #global-nav {
     position: absolute;
@@ -71,13 +199,14 @@ $cardColor: #6541a4;
       }
     }
 
-    #global-nav-btn {
+    #global-nav-btn, #tracker-nav-open-btn {
       z-index: 10000;
       position: absolute;
       top: 15px;
       right: 20px;
       transform: translateZ(0); // promote layer
       cursor: pointer;
+      @include transition(transform 500ms ease);
     }
 
     #back-to-tracker-text {
@@ -92,7 +221,7 @@ $cardColor: #6541a4;
     }
 
     #back-to-tracker {
-      z-index: 10000;
+      z-index: 1000;
       position: absolute;
       top: 23px;
       right: 95px;
@@ -308,7 +437,6 @@ $cardColor: #6541a4;
                 width: $markerWidth;
                 height: $markerWidth;
                 position: relative;
-                visibility: hidden;
               }
             }
           }
@@ -378,6 +506,10 @@ $cardColor: #6541a4;
         -webkit-transition: -webkit-transform $markerAnimationDuration ease;
         transition: transform $markerAnimationDuration ease;
       }
+
+      #tracker-nav-open-btn {
+        @include transform(translate3d(0, -100px, 0));
+      }
     }
 
     &.opened {
@@ -395,6 +527,10 @@ $cardColor: #6541a4;
         transform: translateY(0);
         -webkit-transition: -webkit-transform $markerAnimationDuration ease;
         transition: transform $markerAnimationDuration ease;
+      }
+
+      #tracker-nav {
+        @include transform(translate3d(0, 0, 0));
       }
 
       @for $i from 1 through 24 {

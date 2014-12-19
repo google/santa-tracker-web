@@ -19,6 +19,22 @@ $mobilePortraitBreakpoint: 400px;
         display: block;
       }
     }
+
+   #tracker-nav .card {
+     width: 101px;
+     margin: 11px;
+     font-size: 11px;
+
+     .icon {
+       background-size: 80px 80px;
+     }
+
+     &.card-tracker, &.card-village  {
+      .icon {
+        background-size: 101px 101px;
+      }
+    }
+   }
   }
 }
 
