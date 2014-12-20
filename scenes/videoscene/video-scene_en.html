@@ -26,10 +26,12 @@ Video scene.
         </div>
       </div>
 
-      <google-youtube id="player" videoid="{{VIDEO_IDS[route]}}" chromeless playsupported="false"
-                      on-google-youtube-ready="{{youtubeReady}}"
-                      on-google-youtube-state-change="{{youtubeStateChange}}"
-                      height="100%" width="100%" fit></google-youtube>
+      <template if="{{showPlayer}}">
+        <google-youtube id="player" videoid="{{VIDEO_IDS[route]}}" chromeless playsupported="false"
+                        on-google-youtube-ready="{{youtubeReady}}"
+                        on-google-youtube-state-change="{{youtubeStateChange}}"
+                        height="100%" width="100%" fit></google-youtube>
+      </template>
 
       <div id="videoboard" class="sceneboard">
         <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
@@ -38,7 +40,7 @@ Video scene.
         <div class="sceneboard-back"></div>
         <div id="controls" hidden?="{{!controls}}">
           <div class="scrubber">
-            <div class="tracker" style="transform: translateX({{($.player.currenttime / $.player.duration) * 150}}px)">{{$.player.currenttimeformatted}}</div>
+            <div class="tracker" style="transform: translateX({{(player.currenttime / player.duration) * 150}}px)">{{player.currenttimeformatted}}</div>
           </div>
           <ul class="actions">
             <li id="restart" class="restart" on-tap="{{restartVideo}}"></li>
@@ -90,6 +92,25 @@ Video scene.
     controls: false,
 
     /**
+     * True if the `google-youtube` element should be created. Used to keep the
+     * iframe in the DOM only when the scene is visible.
+     *
+     * @property showPlayer
+     * @type bool
+     * @default false
+     */
+    showPlayer: false,
+
+    /**
+     * A reference to the current `google-youtube` element, if there is one.
+     *
+     * @property player
+     * @type Element
+     * @default null
+     */
+    player: null,
+
+    /**
      * Mapping of routes to YouTube video IDs
      *
      * @property VIDEO_IDS
@@ -97,7 +118,9 @@ Video scene.
      */
     VIDEO_IDS: {
       trailer: 'IdpQSy4IB_I',
-      carpool: 'h83b1lWPuvQ'
+      carpool: 'h83b1lWPuvQ',
+      // TODO(bckenny): update ID and add poster image for liftoff
+      liftoff: 'G51zrfkSQnY'
     },
 
     /**
@@ -112,6 +135,12 @@ Video scene.
 
     youtubeReady: function() {
       this.start = true;
+
+      this.player = this.$['module-video'].querySelector('#player');
+
+      this.player.seekTo(0);
+      this.player.pause();
+      this.controls = false;
     },
 
     hidePoster: function(e, detail, sender) {
@@ -140,8 +169,8 @@ Video scene.
     },
 
     restartVideo: function() {
-      this.$.player.seekTo(0);
-      this.$.player.play();
+      this.player.seekTo(0);
+      this.player.play();
     },
 
     togglePause: function() {
@@ -149,18 +178,18 @@ Video scene.
       if (this.paused) {
         this.poster = false;
         this.start = false;
-        this.$.player.pause();
+        this.player.pause();
       } else {
         this.poster = false;
         this.start = false;
-        this.$.player.play();
+        this.player.play();
       }
     },
 
     playVideo: function() {
       this.poster = false;
       this.start = false;
-      this.$.player.play();
+      this.player.play();
     },
 
     onPreload: function() {
@@ -170,28 +199,32 @@ Video scene.
         'img/play.svg',
         'img/restart.svg'
       ]);
+
+      // get an early start in showing the youtube element the first time
+      this.showPlayer = true;
     },
 
     onShow: function() {
-      this.$.player.seekTo(0);
-      this.$.player.pause();
-      this.controls = false;
+      this.showPlayer = true;
 
       this.fire('sound-ambient', 'global_sound_off');
     },
 
     onHide: function() {
-      this.$.player.pause();
+      this.player.pause();
       this.fire('sound-ambient', 'global_sound_on');
+
+      this.showPlayer = false;
+      this.player = null;
     },
 
     onPause: function() {
-      this.$.player.pause();
+      this.player.pause();
     },
 
     onResume: function() {
       if (this.controls) {
-        this.$.player.play();
+        this.player.play();
       }
     },
 

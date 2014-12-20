@@ -380,7 +380,7 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 16, 2014'),
   category: "watch",
-  cast: false,
+  cast: true,
   disabled: false,
   elves: {
     melt: [
@@ -550,7 +550,7 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 23, 2014'),
   category: "watch",
-  cast: false,
+  cast: true,
   disabled: false,
   elves: {
     melt: [
