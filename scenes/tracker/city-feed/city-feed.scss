@@ -65,6 +65,13 @@ $name: 'module-city-feed';
     box-sizing: border-box;
     margin: 0 auto;
 
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      border-left: 2px solid $lineColor;
+    }
+
     h1, h2, h3, h4 {
       margin: 0;
     }
@@ -198,6 +205,15 @@ $name: 'module-city-feed';
   }
 
   .card {
+    &::before {
+      content: '';
+      position: absolute;
+      border-left: 2px solid $lineColor;
+      left: 50%;
+      top: 0;
+      height: 100%;
+      z-index: -1;
+    }
     .divider {
       height: 50px;
       z-index: 1;
@@ -225,14 +241,12 @@ $name: 'module-city-feed';
     }
 
     .card {
+      &:not(.card-city) {
+        width: 306px;
+      }
+
       &::before {
-        content: '';
-        position: absolute;
-        border-left: 2px solid $lineColor;
         left: 321px;
-        top: 0;
-        height: 100%;
-        z-index: -1;
       }
 
       &.card-photos {
@@ -242,12 +256,6 @@ $name: 'module-city-feed';
       }
 
       &.card-city {
-        &::before, &::after {
-          content: '';
-          position: absolute;
-          left: 50%;
-          border-left: 2px solid $lineColor;
-        }
         &::before {
           height: 150px;
           top: 0;
