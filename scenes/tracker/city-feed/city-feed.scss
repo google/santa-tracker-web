@@ -139,7 +139,7 @@ $name: 'module-city-feed';
         width: 100%;
         position: absolute;
         bottom: 0;
-        background-image: linear-gradient(transparent, $cardPurple 65%);
+        background-image: linear-gradient(transparent, $cardPurple 100%);
         pointer-events: none;
         border-radius: 0 0 $borderRadius $borderRadius;
       }
@@ -153,6 +153,7 @@ $name: 'module-city-feed';
         font-weight: 300;
         font-size: 14px;
         line-height: 1.5;
+        box-sizing: border-box;
       }
 
       .wikipedia__logo {
