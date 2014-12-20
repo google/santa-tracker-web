@@ -2,6 +2,7 @@ $tabletBreakpoint: 1024px;
 $mobileBreakpoint: 660px;
 
 $lineColor: rgb(151,216,255);
+$borderRadius: 5px;
 
 $name: 'module-city-feed';
 
@@ -55,7 +56,6 @@ $name: 'module-city-feed';
   }
 
   .card.card-city {
-    $borderRadius: 5px;
     $padding: 25px;
     $cardPurple: rgb(121,49,164);
     $cardContentHeight: 250px;
@@ -179,11 +179,6 @@ $name: 'module-city-feed';
 
       .photo {
         border-radius: 0 0 $borderRadius $borderRadius;
-        core-image {
-          background-color: rgba(141, 35, 169, 0.7);
-          height: 100%;
-          width: 100%;
-        }
       }
 
       .attribution {
@@ -207,21 +202,12 @@ $name: 'module-city-feed';
 @media (min-width: $tabletBreakpoint) {
   ##{$name} {
 
-    $dividerHeight: 130px;
-
     .scene {
       margin-left: 20%;
     }
 
     core-list {
       width: 642px;
-
-      .divider {
-        height: $dividerHeight;
-        background: url('img/tracker-and-city-SVGs_gifts-pin.svg') no-repeat 50% 80%;
-        background-size: 60px;
-        z-index: 1;
-      }
     }
 
     .card {
@@ -235,8 +221,10 @@ $name: 'module-city-feed';
         z-index: -1;
       }
 
-      &:not(.card-city) {
-        margin-top: 60px;
+      &.card-photos {
+        core-image {
+          border-radius: $borderRadius;
+        }
       }
 
       &.card-city {
@@ -254,6 +242,13 @@ $name: 'module-city-feed';
           bottom: -80px;
           height: 80px;
         }
+
+        .divider {
+          background: url('img/tracker-and-city-SVGs_gifts-pin.svg') no-repeat 50% 80%;
+          background-size: 60px;
+          z-index: 1;
+          height: 100px;
+        }
       }
 
       h2 {
@@ -264,6 +259,11 @@ $name: 'module-city-feed';
         margin-bottom: 0;
       }
 
+      .divider {
+        height: 50px;
+        z-index: 1;
+      }
+
       .corner-image {
         position: absolute;
         right: 0;
@@ -271,6 +271,11 @@ $name: 'module-city-feed';
         background-size: contain;
         height: 150px;
         width: 150px;
+      }
+
+      core-image {
+        height: 100%;
+        width: 100%;
       }
 
       .card-icons {

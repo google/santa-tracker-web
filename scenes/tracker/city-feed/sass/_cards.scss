@@ -8,12 +8,13 @@
   color: #fff;
 
   border-radius: 5px;
-  background-color: rgb(106,27,154);
+  // background-color: rgb(106,27,154);
   box-sizing: border-box;
 
   .card-header {
     position: relative;
     padding-right: 60px;
+    border-radius: 5px 5px 0 0;
 
     z-index: 2;
     h3 {
@@ -52,7 +53,7 @@
     background-position: 50% 50%;
     p {
       margin: 0;
-      padding: 12px $padding;
+      padding: $padding;
       font-size: 24px;
       line-height: 31px;
       font-weight: 300;
@@ -80,7 +81,9 @@
   }
 
   &.card-matching {
-    background-color: #1f8518;
+    .card-header, .card-body, .card-footer {
+      background-color: #1f8518;
+    }
 
     .card-body {
       background-image: url(img/cardavatars/card-matching.png);
@@ -88,7 +91,9 @@
   }
 
   &.card-gumball {
-    background-color: #b67a47;
+    .card-header, .card-body, .card-footer {
+      background-color: #b67a47;
+    }
 
     .card-body {
       background-image: url(img/cardavatars/card-gumball.png);
@@ -96,7 +101,9 @@
   }
 
   &.card-selfie {
-    background-color: #00adee;
+    .card-header, .card-body, .card-footer {
+      background-color: #00adee;
+    }
 
     .card-body {
       background-image: url(img/cardavatars/card-selfie.png);
@@ -104,7 +111,9 @@
   }
 
   &.card-mercator {
-    background-color: #f19211;
+    .card-header, .card-body, .card-footer {
+      background-color: #f19211;
+    }
 
     .card-body {
       background-image: url(img/cardavatars/card-mercator.png);
@@ -112,7 +121,9 @@
   }
 
   &.card-jamband {
-    background-color: #f2b825;
+    .card-header, .card-body, .card-footer {
+      background-color: #f2b825;
+    }
 
     .card-body {
       background-image: url(img/cardavatars/card-jamband.png);
@@ -120,7 +131,9 @@
   }
 
   &.card-coding {
-    background-color: #3e4da1;
+    .card-header, .card-body, .card-footer {
+      background-color: #3e4da1;
+    }
 
     .card-body {
       background-image: url(img/cardavatars/card-code.png);
@@ -128,7 +141,9 @@
   }
 
   &.card-latlng, &.card-glider, &.card-giving {
-    background-color: #135aa2;
+    .card-header, .card-body, .card-footer {
+      background-color: #135aa2;
+    }
     .card-header {
       .corner-image {
         background-image: url(img/cardavatars/Cards-avatars-04_delivergifts.svg);
@@ -145,15 +160,21 @@
   }
 
   &.card-treks {
-    background-color: #25c5d9;
+    .card-header, .card-body, .card-footer {
+      background-color: #25c5d9;
+    }
   }
 
   &.card-photospheres {
-    background-color: #1d87e4;
+    .card-header, .card-body, .card-footer {
+      background-color: #1d87e4;
+    }
   }
 
   &.card-pins {
-    background-color: #e9b259;
+    .card-header, .card-body, .card-footer {
+      background-color: #e9b259;
+    }
 
     .card-body {
       background-image: url(img/cardavatars/card-pins.png);
@@ -161,7 +182,9 @@
   }
 
   &.card-village {
-    background-color: #00abc0;
+    .card-header, .card-body, .card-footer {
+      background-color: #00abc0;
+    }
 
     .card-body {
       background-image: url(img/cardavatars/card-village.png);
@@ -169,7 +192,9 @@
   }
 
   &.card-app {
-    background-color: #aa46bb;
+    .card-header, .card-body, .card-footer {
+      background-color: #aa46bb;
+    }
 
     .card-body {
       background-image: url(img/cardavatars/card-app.png);
@@ -177,7 +202,9 @@
   }
 
   &.card-gmm {
-    background-color: #029ae4;
+    .card-header, .card-body, .card-footer {
+      background-color: #029ae4;
+    }
 
     .card-body {
       background-image: url(img/cardavatars/card-gmm.png);
@@ -185,7 +212,9 @@
   }
 
   &.card-giving {
-    background-color: #378d3b;
+    .card-header, .card-body, .card-footer {
+      background-color: #378d3b;
+    }
 
     .card-body {
       background-image: url(img/cardavatars/card-season-of-giving.png);
@@ -193,7 +222,9 @@
   }
 
   &.card-reindeer {
-    background-color: #135aa2;
+    .card-header, .card-body, .card-footer {
+      background-color: #135aa2;
+    }
     .card-header {
       .corner-image {
         background-image: url(img/cardavatars/Cards-avatars-04_blitzenescaped.svg);
@@ -234,7 +265,9 @@
   }
 
   &.card-update {
-    background-color: #e43834;
+    .card-header, .card-body, .card-footer {
+      background-color: #e43834;
+    }
 
     .card-header {
       .corner-image {
@@ -248,7 +281,9 @@
   }
 
   &.card-trivia {
-    background-color: #00be5d;
+    .card-header, .card-body, .card-footer {
+      background-color: #00be5d;
+    }
 
     .card-header {
       .corner-image {
@@ -270,7 +305,9 @@
   }
 
   &.card-video {
-    background-color: #eb3f79;
+    .card-header, .card-body, .card-footer {
+      background-color: #eb3f79;
+    }
 
     .card-header {
       .corner-image {
@@ -279,12 +316,15 @@
     }
 
     .card-body {
-      background-image: url(img/cardavatars/card-video.png);
+      // background-image: url(img/cardavatars/card-video.png);
+      position: relative;
     }
   }
 
   &.card-facts {
-    background-color: #1875d1;
+    .card-header, .card-body, .card-footer {
+      background-color: #1875d1;
+    }
 
     .card-header {
       .corner-image {
@@ -294,7 +334,7 @@
   }
 
   &.card-photos {
-    height: 201px;
+    height: 301px;
 
     .card-header {
       .corner-image {
@@ -303,13 +343,7 @@
     }
 
     .card-body {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url(img/cardavatars/card-photo.png);
-      border-radius: 5px;
+      height: 83%;
     }
 
     .card-footer {
