@@ -4,11 +4,9 @@
 .card:not(.card-city) {
   width: 306px;
   $padding: 20px;
-  // pointer-events: all;
   color: #fff;
 
   border-radius: 5px;
-  // background-color: rgb(106,27,154);
   box-sizing: border-box;
 
   .card-header {
@@ -316,7 +314,6 @@
     }
 
     .card-body {
-      // background-image: url(img/cardavatars/card-video.png);
       position: relative;
     }
   }
