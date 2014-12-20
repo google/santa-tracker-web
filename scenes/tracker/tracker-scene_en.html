@@ -31,8 +31,7 @@ Tracker scene.
                          on-api-load="{{mapsAPIReady}}"></google-maps-api>
       </template>
 
-      <city-feed id="feed" fit timeline="{{timeline}}" santaApp="{{santaApp}}"
-                 active?="{{cityFeedActive}}"></city-feed>
+      <city-feed id="feed" fit timeline="{{timeline}}" santaApp="{{santaApp}}"></city-feed>
 
       <tracker-intro id="intro"
           userLocation="{{userLocation}}"
@@ -636,18 +635,24 @@ Tracker scene.
     },
 
     cityFeedActiveChanged: function() {
-      this.fire('tracker-action', {type: 'city-toggle', active: this.cityFeedActive});
       this.worldView_.setMode(this.cityFeedActive ? 'feed' : 'track');
 
       if (this.cityFeedActive) {
+        // Wait for circle animation to finish before we fade in stats and city feed.
         this.async(function() {
+          this.$.feed.active = true;
+
           var cityStats = this.$['module-tracker'].querySelector('#city-stats');
           cityStats.style.opacity = 1;
-        }.bind(this), null, 500);
+        }, null, 500);
       } else {
+        this.$.feed.active = false;
+
         var cityStats = this.$['module-tracker'].querySelector('#city-stats');
         cityStats.style.opacity = 0;
       }
+
+      this.fire('tracker-action', {type: 'city-toggle', active: this.cityFeedActive});
     },
 
     onShow: function() {
