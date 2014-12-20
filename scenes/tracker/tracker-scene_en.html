@@ -299,7 +299,7 @@ Tracker scene.
       </template>
 
       <template if="{{!cityFeedActive}}">
-        <div id="status-bar" class="{{ {'slide-up': navOpen, 'show': location.presentsDelivered} | tokenList }}">
+        <div id="status-bar" class="{{ {'slide-up': navOpen, 'show': location} | tokenList }}">
           <div id="back-to-village">
             <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
               <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
@@ -452,6 +452,14 @@ Tracker scene.
      * @default false
      */
     cityFeedActive: false,
+
+    /**
+     * True if the tracker nav is open.
+     * @property navOpen
+     * @type {boolean}
+     * @default false
+     */
+    navOpen: false,
 
     onPreload: function() {
       // TODO(lukem): Audit images and only preload what we need
