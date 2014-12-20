@@ -6073,6 +6073,12 @@
         "description": "Text underneath button in the tracker menu to show Santa's route. Please keep this short.",
         "message": "See the route"
     },
+    "tracker_santa_update": {
+        "message": "Santa Update"
+    },
+    "tracker_world_facts": {
+        "message": "World Facts"
+    },
     "today_only": {
       "description": "A heading above menu items that are only available today. Please keep this short.",
       "message": "Today only"

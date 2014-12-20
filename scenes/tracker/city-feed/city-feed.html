@@ -4,6 +4,7 @@
 <link rel="import" href="../../../components/core-selector/core-selector.html">
 <link rel="import" href="../../../components/core-image/core-image.html">
 <link rel="import" href="../../../components/google-streetview-pano/google-streetview-pano.html">
+<link rel="import" href="../../../components/google-youtube/google-youtube.html">
 
 <link rel="import" href="../../../js/utils.html">
 
@@ -45,15 +46,15 @@ City feed view in Tracker
 <div id="module-city-feed" fit>
   <div class="scene" fit>
 
-    <core-list id="feed" data="{{stream}}"
-               selectionEnabled="false" runwayFactor="4">
+    <core-list id="feed" data="{{stream}}" selectionEnabled="false" runwayFactor="4">
       <template>
 
         <div class="card card-{{model.type}}">
-          <template if="{{model.type == 'city'}}"><div class="divider"></div></template>
-          <div class="card-header">
-            <div class="corner-image"></div>
-            <template if="{{model.type == 'city'}}">
+          <div class="divider"></div>
+
+          <template if="{{model.type == 'city'}}">
+            <div class="card-header">
+              <div class="corner-image"></div>
               <div>
                 <h4 class="white">{{model.stop.region}}</h4>
                 <h1>{{model.stop.city}}</h1>
@@ -84,13 +85,7 @@ City feed view in Tracker
                   </div>
                 </div>
               </div>
-            </template>
-            <template if="{{model.type != 'city'}}">
-              <h4>Santa's Village</h4>
-              <h3>Give Santa a trim</h3>
-            </template>
-          </div>
-          <template if="{{model.type == 'city'}}">
+            </div>
             <core-pages class="card-body" selected="{{model.selectedCard}}">
               <div class="photo">
                 <core-image sizing="cover" preload fade src="{{model.stop.details.photos[0].url}}"></core-image>
@@ -126,10 +121,52 @@ City feed view in Tracker
               </div>
             </core-pages>
           </template>
-          <template if="{{model.type != 'city'}}">
-            <div class="card-body">TODO</div>
-            <div class="card-footer"></div>
+
+          <template if="{{model.type == 'facts'}}">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
+            </div>
+            <div class="card-body">
+              <p>{{model.didyouknow}}</p>
+            </div>
+            <div class="card-footer">
+              <p><i18n-msg msgid="trivia_ngb_promo">PLACEHOLDER_i18n</i18n-msg></p>
+            </div>
           </template>
+
+          <template if="{{model.type == 'photos'}}">
+            <div class="card-header">
+              <div class="corner-image"></div>
+            </div>
+            <div class="card-body photo">
+              <core-image sizing="cover" preload fade src="{{model.imageUrl}}"></core-image>
+            </div>
+          </template>
+
+          <template if="{{model.type == 'update'}}">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4><i18n-msg msgid="tracker_santa_update">PLACEHOLDER_i18n</i18n-msg></h4>
+            </div>
+            <div class="card-body">
+              <p>{{model.status}}</p>
+            </div>
+          </template>
+
+          <template if="{{model.type == 'video'}}">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
+              <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
+            </div>
+            <div class="card-body">
+              <google-youtube videoid="{{model.youtubeId}}" chromeless fit
+                  playsupported="false"
+                  on-tap="{{onVideoPlay}}"></google-youtube>
+            </div>
+          </template>
+
         </div>
 
       </template>
@@ -143,7 +180,7 @@ City feed view in Tracker
 (function() {
 
 /**
- * Fired when a page in the city card is selected.
+ * Fired when a page in the city card is selected or a video is played.
  *
  * @event analytics-track-event
  * @param {object} detail
@@ -227,7 +264,7 @@ Polymer({
       } else if (item.youtubeId) {
         item.type = 'video';
       } else if (item.imageUrl) {
-        item.type = 'photospheres';
+        item.type = 'photos';
       } else if (item.status) {
         item.type = 'update';
       } else if (item.didyouknow) {
@@ -254,17 +291,22 @@ Polymer({
   },
 
   onWikipedia: function(e, detail, sender) {
-    var location = sender.templateInstance.model.model;
+    var location = sender.templateInstance.model.model.stop;
     location.getDetails(function(detail) {
       location.details.wikipedia = detail.wikipedia;
     });
   },
 
   onCardSelected: function(e, detail, sender) {
-    var destId = sender.templateInstance.model.model.id;
+    var destId = sender.templateInstance.model.model.stop.id;
     var type = detail.item.getAttribute('data-name');
     this.fire('analytics-track-event', {category: 'citycard', action: type,
                                         label: destId});
+  },
+
+  onVideoPlay: function(e, detail, sender) {
+    this.fire('analytics-track-event', {category: 'video', action: 'play',
+                                        label: sender.videoid});
   }
 });
 

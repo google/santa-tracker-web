@@ -267,6 +267,10 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'compass', 'compile-scenes'], function
             'core-shared-lib.html$',
             'google-maps-api.html$',
             'google-client-api.html',
+            'google-plusone-api.html', // tracker
+            'google-youtube-api.html',// tracker
+            'google-jsapi.html', // tracker
+            'google-youtube.html', // tracker
             'core-selection.html',
             'core-selector.html',
             'core-pages.html'
