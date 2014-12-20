@@ -142,6 +142,17 @@ $name: 'module-tracker';
     background-color: #e5473a;
     color: #fff;
     z-index: 2;
+    opacity: 0;
+    @include transform(translate3d(0, 0, 0));
+    @include transition(transform 500ms ease, opacity 500ms ease);
+
+    &.slide-up {
+      @include transform(translate3d(0, -1000px, 0));
+    }
+
+    &.show {
+      opacity: 1;
+    }
 
     #back-to-village {
       background: #d8433b url('img/village.svg') 25px 100%/115px auto no-repeat;
