@@ -433,7 +433,6 @@ app.Scene.prototype.destroyPlayer_ = function(player) {
   if (player) {
     player.pause();
     player.source = null;
-    player = null;
   }
 };
 
@@ -448,5 +447,7 @@ app.Scene.prototype.destroy = function() {
   this.destroyPlayer_(this.prevAnimPlayer_);
   this.destroyPlayer_(this.paginationPlayer_);
   this.destroyPlayer_(this.playAnimPlayer_);
-  this.playAnimPlayer_.removeEventListener('finish', this.removePlayingClass_, false);
+  if (this.playAnimPlayer_) {
+    this.playAnimPlayer_.removeEventListener('finish', this.removePlayingClass_, false);
+  }
 };
