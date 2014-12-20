@@ -297,12 +297,12 @@ Polymer({
     destLookup_ = {};
 
     // core-list uses a single template to render a linear list of items. To
-    // support side-by-side mini cards, we set a flag (.nextCard) on items
-    // which are mini cards and are followed by a subsequent mini card in the
-    // list. This is used in the core-list template to determine if an
-    // additional card should be rendered in the same row. The core-list template
-    // is wrapped in a flexbox container (<div layout horizontal start justified>)
-    // which handles the layout.
+    // support side-by-side mini cards, we pair mini cards together by storing
+    // a reference to the next mini card when it is followed by a subsequent
+    // mini card. The reference to the next mini card is used in the core-list
+    // template to determine if an additional card should be rendered in the
+    // same row. The template is wrapped in a flexbox container
+    // (<div layout horizontal start justified>) which handles the layout.
     for (var i = 0, item; item = stream[i]; ++i) {
       var nextCard = stream[i + 1];
       if (item.type == 'city') {
