@@ -530,8 +530,13 @@
       top: 0;
       width: 208px;
     }
-    
+
+    /**
+     * Some of this is repeated from shared/sass/board.
+     */
     .Tool-backContainer {
+      background: url(../shared/img/village-nav-bg.svg) 50% 100%/204px 45px no-repeat,
+          url(../shared/img/back-arrow.svg) 10px 50%/31px 31px no-repeat #72b300;
       box-sizing: border-box;
       color: #fff;
       display: inline-block;
