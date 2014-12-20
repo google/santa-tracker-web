@@ -88,6 +88,9 @@ var SCENE_CLOSURE_CONFIG = {
   santaselfie: {
     entryPoint: 'app.Game'
   },
+  seasonofgiving: {
+    entryPoint: 'app.Game',
+  },
   streetview: {
     entryPoint: 'app.Scene'
   },
@@ -167,13 +170,14 @@ gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
       // add shared scene code
       'scenes/shared/js/*.js',
 
-      // add closure's base.js to get @export support in scene code
-      'third_party/lib/base.js',
-
       // these externs are annotated with @externs, so we can import them as
       // source (so we can use use wildcards in the file name)
       'third_party/externs/greensock/*.js',
       'third_party/externs/jquery/*.js',
+
+      // all scenes need closure's base.js to get @export support, some need
+      // full closure library (like seasonofgiving)
+      'components/closure-library/closure/goog/**/*.js'
     ])
     .pipe(newer(dest + '/' + fileName))
     .pipe(closureCompiler({
