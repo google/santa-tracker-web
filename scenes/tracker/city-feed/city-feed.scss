@@ -196,6 +196,17 @@ $name: 'module-city-feed';
     }
   }
 
+  .card {
+    .divider {
+      height: 50px;
+      z-index: 1;
+    }
+    core-image {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
   @import "sass/_cards.scss";
 }
 
@@ -246,7 +257,6 @@ $name: 'module-city-feed';
         .divider {
           background: url('img/tracker-and-city-SVGs_gifts-pin.svg') no-repeat 50% 80%;
           background-size: 60px;
-          z-index: 1;
           height: 100px;
         }
       }
@@ -259,11 +269,6 @@ $name: 'module-city-feed';
         margin-bottom: 0;
       }
 
-      .divider {
-        height: 50px;
-        z-index: 1;
-      }
-
       .corner-image {
         position: absolute;
         right: 0;
@@ -271,11 +276,6 @@ $name: 'module-city-feed';
         background-size: contain;
         height: 150px;
         width: 150px;
-      }
-
-      core-image {
-        height: 100%;
-        width: 100%;
       }
 
       .card-icons {
@@ -287,4 +287,13 @@ $name: 'module-city-feed';
   }
 }
 
+@media (max-width: $mobileBreakpoint) {
+  ##{$name} {
+    .card-photos {
+      .card-body {
+        height: 100%;
+      }
+    }
+  }
+}
 
