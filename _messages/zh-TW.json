@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "波士尼亞與赫塞哥維納"
 	},
+	"back_to_tracker": {
+		"message": "返回追蹤器"
+	},
 	"bd_country_name": {
 		"message": "孟加拉"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "象牙海岸"
+	},
+	"citylights-contribute": {
+		"message": "新增您在%location%的相片"
+	},
+	"citylights-panorama-01-description": {
+		"message": "洛克斐勒廣場"
+	},
+	"citylights-panorama-01-location": {
+		"message": "美國紐約市"
+	},
+	"citylights-panorama-02-description": {
+		"message": "普希金廣場"
+	},
+	"citylights-panorama-02-location": {
+		"message": "俄羅斯莫斯科"
+	},
+	"citylights-panorama-03-description": {
+		"message": "市政府廣場"
+	},
+	"citylights-panorama-03-location": {
+		"message": "奧地利維也納"
+	},
+	"citylights-panorama-04-description": {
+		"message": "香榭麗舍大道到凱旋門"
+	},
+	"citylights-panorama-04-location": {
+		"message": "法國巴黎"
+	},
+	"citylights-panorama-05-description": {
+		"message": "壯麗大道"
+	},
+	"citylights-panorama-05-location": {
+		"message": "美國芝加哥"
+	},
+	"citylights-panorama-06-description": {
+		"message": "聖誕市集"
+	},
+	"citylights-panorama-06-location": {
+		"message": "德國紐倫堡"
+	},
+	"citylights-panorama-07-description": {
+		"message": "麥德林河"
+	},
+	"citylights-panorama-07-location": {
+		"message": "哥倫比亞麥德林"
+	},
+	"citylights-panorama-08-description": {
+		"message": "聖誕老人村"
+	},
+	"citylights-panorama-08-location": {
+		"message": "芬蘭拉普蘭"
+	},
+	"citylights-panorama-09-description": {
+		"message": "大廣場"
+	},
+	"citylights-panorama-09-location": {
+		"message": "比利時布魯塞爾"
+	},
+	"citylights-panorama-10-description": {
+		"message": "特拉法加廣場"
+	},
+	"citylights-panorama-10-location": {
+		"message": "英國倫敦"
+	},
+	"citylights-panorama-11-description": {
+		"message": "主廣場"
+	},
+	"citylights-panorama-11-location": {
+		"message": "西班牙馬德里"
+	},
+	"citylights-panorama-12-description": {
+		"message": "六本木新城"
+	},
+	"citylights-panorama-12-location": {
+		"message": "日本東京"
+	},
+	"citylights-panorama-13-description": {
+		"message": "趣伏里公園"
+	},
+	"citylights-panorama-13-location": {
+		"message": "丹麥哥本哈根"
+	},
+	"citylights-panorama-14-description": {
+		"message": "烏節路"
+	},
+	"citylights-panorama-14-location": {
+		"message": "新加坡"
+	},
+	"citylights-panorama-15-description": {
+		"message": "光廊"
+	},
+	"citylights-panorama-15-location": {
+		"message": "瑞典哥特堡"
+	},
+	"citylights-panorama-16-description": {
+		"message": "冬季燈節"
+	},
+	"citylights-panorama-16-location": {
+		"message": "加拿大尼加拉瀑布"
+	},
+	"citylights-panorama-17-description": {
+		"message": "繽紛冬日節"
+	},
+	"citylights-panorama-17-location": {
+		"message": "中國香港"
+	},
+	"citylights-panorama-18-description": {
+		"message": "羅德里戈湖"
+	},
+	"citylights-panorama-18-location": {
+		"message": "巴西里約熱內盧"
 	},
 	"cl_country_name": {
 		"message": "智利"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "哥斯大黎加"
 	},
+	"cs_language_name": {
+		"message": "捷克文"
+	},
 	"cu_country_name": {
 		"message": "古巴"
 	},
 	"cz_country_name": {
 		"message": "捷克共和國"
+	},
+	"da_language_name": {
+		"message": "丹麥文"
 	},
 	"days": {
 		"message": "天"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "用聖誕老人 Chrome 擴充功能為您的瀏覽器換上新裝。"
 	},
+	"detected": {
+		"message": "系統偵測"
+	},
+	"difficulty": {
+		"message": "難度"
+	},
 	"dk_country_name": {
 		"message": "丹麥"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "阿爾及利亞"
 	},
+	"easy_difficulty": {
+		"message": "簡單"
+	},
 	"ec_country_name": {
 		"message": "厄瓜多"
 	},
 	"ee_country_name": {
 		"message": "愛沙尼亞"
+	},
+	"el_language_name": {
+		"message": "希臘文"
+	},
+	"elvish_language_name": {
+		"message": "精靈文"
+	},
+	"en_language_name": {
+		"message": "英文"
 	},
 	"endofjourneymessage": {
 		"message": "聖誕老人已完成今年的旅程！他和精靈們在年假開始前仍會先在北極玩樂一下。"
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "再試一次"
 	},
+	"es_language_name": {
+		"message": "西班牙文"
+	},
 	"et_country_name": {
 		"message": "衣索比亞"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "法國"
+	},
+	"fr_language_name": {
+		"message": "法文"
 	},
 	"fr_tradition": {
 		"message": "根據傳統，法國兒童會把自己的鞋子拿到壁爐旁，盼望聖誕老人到來。如果孩子們一整年都很乖，聖誕老人就會將禮物裝進鞋子裡。"
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "蓋亞那"
 	},
+	"hard_difficulty": {
+		"message": "困難"
+	},
+	"hi_language_name": {
+		"message": "北印度文"
+	},
 	"hn_country_name": {
 		"message": "宏都拉斯"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "匈牙利"
 	},
+	"hu_language_name": {
+		"message": "匈牙利文"
+	},
 	"id_country_name": {
 		"message": "印尼"
 	},
 	"ie_country_name": {
 		"message": "愛爾蘭"
+	},
+	"improve_google_translate": {
+		"message": "協助改善 Google 翻譯的品質"
 	},
 	"iq_country_name": {
 		"message": "伊拉克"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "義大利"
 	},
+	"it_language_name": {
+		"message": "義大利文"
+	},
+	"ja_language_name": {
+		"message": "日文"
+	},
 	"jm_country_name": {
 		"message": "牙買加"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "吉爾吉斯的雪老人 (Ayaz Ata) 會在除夕午夜到訪，然後在新年樹下留下禮物。當午夜響起鐘聲時，全國各地的家庭都會燃放煙火來慶祝這個美好時刻，城市瞬間明亮如白晝。"
+	},
+	"ko_language_name": {
+		"message": "韓文"
 	},
 	"kz_country_name": {
 		"message": "哈薩克"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "摩爾多瓦"
+	},
+	"medium_difficulty": {
+		"message": "普通"
 	},
 	"mg_country_name": {
 		"message": "馬達加斯加"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "荷蘭"
 	},
+	"nl_language_name": {
+		"message": "荷蘭文"
+	},
 	"no_country_name": {
 		"message": "挪威"
+	},
+	"no_language_name": {
+		"message": "挪威文"
 	},
 	"nonprofit-jane-description": {
 		"message": "黑猩猩是現存的動物中與人類血緣最接近的親戚！然而，由於棲息地消失、疾病橫行及非法捕獵等因素，現存的黑猩猩總數不到 30 萬隻。Jane Goodall Institute 致力於觀察和研究黑猩猩的行為和棲地，希望能藉此保育這個珍貴的物種。此外，Jane Goodall Institute 也努力打造一個社群和交流平台，供有志於野生動物及自然環境保育的人士參與。歡迎探訪坦尚尼亞的貢貝國家公園，\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e認識黑猩猩的棲息環境\u003c/a\u003e。"
 	},
 	"nonprofit-jane-type": {
 		"message": "黑猩猩"
+	},
+	"nonprofit-more-information": {
+		"message": "如需詳細資訊，請前往："
 	},
 	"nonprofit-nature-description": {
 		"message": "Nature Conservancy 致力於保育和復育美國及世界各地的森林。這些具有代表性的森林能夠過濾水源、淨化空氣、協助人類社群的發展，並為眾多動植物提供棲息的環境，是維繫地球上生命的重要環節。遺憾的是，以人類目前砍伐森林的速度，不到一百年內，地球上的森林就將消失殆盡。Nature Conservancy 的「Plant a Billion Trees」(種植十億棵樹) 計劃打算在 2025 年前栽種十億棵樹，並復育世界各地瀕危的森林。"
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "明日盛大推出"
 	},
+	"ornament-print-instructions": {
+		"message": "在此摺疊，再將側邊黏起來"
+	},
 	"pa_country_name": {
 		"message": "巴拿馬"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "波蘭"
 	},
+	"pl_language_name": {
+		"message": "波蘭文"
+	},
 	"play": {
 		"message": "玩遊戲"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "波多黎各"
 	},
+	"pt_language_name": {
+		"message": "葡萄牙文"
+	},
 	"py_country_name": {
 		"message": "巴拉圭"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "俄羅斯"
+	},
+	"ru_language_name": {
+		"message": "俄文"
 	},
 	"ru_tradition": {
 		"message": "俄羅斯的孩子們不裝飾聖誕樹，而是裝飾新年樹。小孩們都期盼著環遊世界的「嚴寒老人」(Grandfather Frost) 和他的孫女「雪姑娘」(Snowmaiden) 為他們送來禮物。「嚴寒老人」住在俄羅斯北部的大烏斯秋格樹林深處。"
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "斯洛伐克"
 	},
+	"sk_language_name": {
+		"message": "斯洛伐克文"
+	},
 	"sl_country_name": {
 		"message": "獅子山"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "薩爾瓦多"
 	},
+	"sv_language_name": {
+		"message": "瑞典文"
+	},
 	"td_country_name": {
 		"message": "查德"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "多哥"
+	},
+	"th_language_name": {
+		"message": "泰文"
 	},
 	"tilt": {
 		"message": "將裝置右傾或左傾！"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "土耳其"
+	},
+	"tr_language_name": {
+		"message": "土耳其文"
+	},
+	"tracker_arriving_in": {
+		"message": "距離抵達時間還有"
+	},
+	"tracker_current_stop": {
+		"message": "目前站點"
+	},
+	"tracker_departing_in": {
+		"message": "距離出發時間還有"
+	},
+	"tracker_distance_from_you": {
+		"message": "與您的距離"
+	},
+	"tracker_gifts_delivered": {
+		"message": "已遞送的禮物"
+	},
+	"tracker_next_stop": {
+		"message": "下一站"
+	},
+	"tracker_your_location": {
+		"message": "您的位置"
 	},
 	"traditions-next": {
 		"message": "下個傳統"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "保加利亞"
 	},
+	"trivia_ngb_promo": {
+		"message": "內容由 National Geographic Bee 提供"
+	},
 	"tw_country_name": {
 		"message": "台灣"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "葉門"
+	},
+	"zh-CN_language_name": {
+		"message": "中文 (簡體)"
+	},
+	"zh-TW_language_name": {
+		"message": "中文 (繁體)"
 	},
 	"zm_country_name": {
 		"message": "尚比亞"

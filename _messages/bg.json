@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Босна и Херцеговина"
 	},
+	"back_to_tracker": {
+		"message": "Назад към програмата за проследяване"
+	},
 	"bd_country_name": {
 		"message": "Бангладеш"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "Кот д'Ивоар"
+	},
+	"citylights-contribute": {
+		"message": "Добавяне на ваши собствени снимки от %location%"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Рокфелер Плаза"
+	},
+	"citylights-panorama-01-location": {
+		"message": "Ню Йорк, САЩ"
+	},
+	"citylights-panorama-02-description": {
+		"message": "площад „Пушкин“"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Москва, Русия"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Ратхаузплац"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Виена, Австрия"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Шанз-Елизе до Триумфалната арка"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Париж, Франция"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Магнифисънт Майл"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Чикаго, САЩ"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Коледен пазар"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Нюрнберг, Германия"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Река Меделин"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Меделин, Колумбия"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Селцето на Дядо Коледа"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Лапландия, Финландия"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Гранд плас"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Брюксел, Белгия"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Площад „Трафалгар“"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Лондон, Англия"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Плаза Майор"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Мадрид, Испания"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Ропонги Хилс"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Токио, Япония"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Градините „Тиволи“"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Копенхаген, Дания"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Орчард Роуд"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Сингапур, Сингапур"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Алея на светлината"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Гьотеборг, Швеция"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Зимен фестивал на светлините"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Ниагарски водопад, Канада"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Хонконг, Китай"
+	},
+	"citylights-panorama-18-description": {
+		"message": "езеро Родриго де Фрейташ"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Рио де Жанейро, Бразилия"
 	},
 	"cl_country_name": {
 		"message": "Чили"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "Коста Рика"
 	},
+	"cs_language_name": {
+		"message": "чешки"
+	},
 	"cu_country_name": {
 		"message": "Куба"
 	},
 	"cz_country_name": {
 		"message": "Чешка република"
+	},
+	"da_language_name": {
+		"message": "датски"
 	},
 	"days": {
 		"message": "Дни"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "Обогатете браузъра си с разширение „Дядо Коледа“ за Chrome."
 	},
+	"detected": {
+		"message": "разпознат"
+	},
+	"difficulty": {
+		"message": "Трудност"
+	},
 	"dk_country_name": {
 		"message": "Дания"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "Алжир"
 	},
+	"easy_difficulty": {
+		"message": "Лесно ниво"
+	},
 	"ec_country_name": {
 		"message": "Еквадор"
 	},
 	"ee_country_name": {
 		"message": "Естония"
+	},
+	"el_language_name": {
+		"message": "гръцки"
+	},
+	"elvish_language_name": {
+		"message": "елфски"
+	},
+	"en_language_name": {
+		"message": "английски"
 	},
 	"endofjourneymessage": {
 		"message": "Дядо Коледа завърши пътуването си за годината! Той и джуджетата все още се забавляват на Северния полюс преди годишната си отпуска."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "Опитайте отново"
 	},
+	"es_language_name": {
+		"message": "испански"
+	},
 	"et_country_name": {
 		"message": "Етиопия"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "Франция"
+	},
+	"fr_language_name": {
+		"message": "френски"
 	},
 	"fr_tradition": {
 		"message": "Във Франция децата традиционно поставят обувките си до огнището в очакване на пристигането на Пер Ноел (Дядо Коледа). Ако са били послушни през годината, той ще напълни обувките им с подаръци"
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "Гаяна"
 	},
+	"hard_difficulty": {
+		"message": "Трудно ниво"
+	},
+	"hi_language_name": {
+		"message": "хинди"
+	},
 	"hn_country_name": {
 		"message": "Хондурас"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "Унгария"
 	},
+	"hu_language_name": {
+		"message": "унгарски"
+	},
 	"id_country_name": {
 		"message": "Индонезия"
 	},
 	"ie_country_name": {
 		"message": "Ирландия"
+	},
+	"improve_google_translate": {
+		"message": "Помогнете за подобряването на Google Преводач"
 	},
 	"iq_country_name": {
 		"message": "Ирак"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "Италия"
 	},
+	"it_language_name": {
+		"message": "италиански"
+	},
+	"ja_language_name": {
+		"message": "японски"
+	},
 	"jm_country_name": {
 		"message": "Ямайка"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "В Киргизстан Аяз Ата (Дядо Мраз) идва в полунощ на Нова година и оставя подаръци под новогодишното дърво. Когато часовникът удари полунощ, семействата в цялата страна палят фойерверки в чест на красивия празник. В градовете става светло като ден."
+	},
+	"ko_language_name": {
+		"message": "корейски"
 	},
 	"kz_country_name": {
 		"message": "Казахстан"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "Молдова"
+	},
+	"medium_difficulty": {
+		"message": "Средно ниво"
 	},
 	"mg_country_name": {
 		"message": "Мадагаскар"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "Нидерландия"
 	},
+	"nl_language_name": {
+		"message": "нидерландски"
+	},
 	"no_country_name": {
 		"message": "Норвегия"
+	},
+	"no_language_name": {
+		"message": "норвежки"
 	},
 	"nonprofit-jane-description": {
 		"message": "Шимпанзетата са най-близкият до човека съществуващ вид в животинското царство! Понастоящем са останали по-малко от 300 000 шимпанзета поради загуба на местообитание, заболявания и незаконна търговия. Jane Goodall Institute (JGI) защитава шимпанзетата чрез наблюдение и изучаване на поведението и местообитанието им. JGI съдейства и за изграждането на общност от хора, които защитават и опазват дивата природа и общата ни околна среда. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eИзследвайте местообитанията на шимпанзетата\u003c/a\u003e в Гомбе, Танзания."
 	},
 	"nonprofit-jane-type": {
 		"message": "Шимпанзе"
+	},
+	"nonprofit-more-information": {
+		"message": "За повече информация посетете:"
 	},
 	"nonprofit-nature-description": {
 		"message": "Организацията „The Nature Conservancy“ работи за опазването и възстановяването на гори в Съединените щати и по света. Тези емблематични гори поддържат живота на планетата – филтрират водата, пречистват въздуха, изхранват човешките общности и осигуряват местообитание на важни растителни и животински видове. При настоящото ниво на обезлесяване в рамките на 100 години горите ни ще изчезнат. Програмата „Да засадим милиард дървета“ на организацията цели засаждането на един милиард дървета до 2025 г. и възстановяването на най-засегнатите гори по света."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "Тържественото откриване е утре"
 	},
+	"ornament-print-instructions": {
+		"message": "Сгънете тук и залепете страните една за друга"
+	},
 	"pa_country_name": {
 		"message": "Панама"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "Полша"
 	},
+	"pl_language_name": {
+		"message": "полски"
+	},
 	"play": {
 		"message": "Играйте"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "Пуерто Рико"
 	},
+	"pt_language_name": {
+		"message": "португалски"
+	},
 	"py_country_name": {
 		"message": "Парагвай"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "Русия"
+	},
+	"ru_language_name": {
+		"message": "руски"
 	},
 	"ru_tradition": {
 		"message": "Руските деца украсяват новогодишно вместо коледно дърво. Те очакват с нетърпение Дядо Мраз, който пътува с внучката си Снежанка и раздава подаръци по цялата земя. Дядо Мраз живее далече в горите във Велики Устюг, Северна Русия."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "Словакия"
 	},
+	"sk_language_name": {
+		"message": "словашки"
+	},
 	"sl_country_name": {
 		"message": "Сиера Леоне"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "Салвадор"
 	},
+	"sv_language_name": {
+		"message": "шведски"
+	},
 	"td_country_name": {
 		"message": "Чад"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "Того"
+	},
+	"th_language_name": {
+		"message": "тайландски"
 	},
 	"tilt": {
 		"message": "Наклонете устройството си!"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "Турция"
+	},
+	"tr_language_name": {
+		"message": "турски"
+	},
+	"tracker_arriving_in": {
+		"message": "Пристигане след"
+	},
+	"tracker_current_stop": {
+		"message": "Текуща спирка"
+	},
+	"tracker_departing_in": {
+		"message": "Отпътуване след"
+	},
+	"tracker_distance_from_you": {
+		"message": "Разстояние от вас"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Доставени подаръци"
+	},
+	"tracker_next_stop": {
+		"message": "Следваща спирка"
+	},
+	"tracker_your_location": {
+		"message": "Вашето местоположение"
 	},
 	"traditions-next": {
 		"message": "Следваща традиция"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "България"
 	},
+	"trivia_ngb_promo": {
+		"message": "Съдържание от National Geographic Bee"
+	},
 	"tw_country_name": {
 		"message": "Тайван"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "Йемен"
+	},
+	"zh-CN_language_name": {
+		"message": "китайски (опростен)"
+	},
+	"zh-TW_language_name": {
+		"message": "китайски (традиционен)"
 	},
 	"zm_country_name": {
 		"message": "Замбия"

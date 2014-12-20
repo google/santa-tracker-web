@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnië en Herzegowina"
 	},
+	"back_to_tracker": {
+		"message": "Trug na spoorder"
+	},
 	"bd_country_name": {
 		"message": "Bangladesj"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "Ivoorkus"
+	},
+	"citylights-contribute": {
+		"message": "Voeg jou eie foto's van %location% by"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefellerplaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York-stad, VSA"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Poesjkinplein"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moskou, Rusland"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Wene, Oostenryk"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Champs-Elysees na die Arc de Triomphe"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Parys, Frankryk"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, VSA"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Kersmark"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Neurenberg, Duitsland"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Medellinrivier"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Colombië"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Kersvaderdorp"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lapland, Finland"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grote Mark"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brussel, België"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgarplein"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Londen, Engeland"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Spanje"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongiheuwels"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokio, Japan"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Tivolituine"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Kopenhagen, Denemarke"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchardweg"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapoer, Singapoer"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Liglaning"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Gotenburg, Swede"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Winterligtefees"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagara-waterval, Kanada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "Winterfees"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hongkong, China"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Rodrigo de Freitas-meer"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brasilië"
 	},
 	"cl_country_name": {
 		"message": "Chili"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "Costa Rica"
 	},
+	"cs_language_name": {
+		"message": "Tsjeggies"
+	},
 	"cu_country_name": {
 		"message": "Kuba"
 	},
 	"cz_country_name": {
 		"message": "Tsjeggiese Republiek"
+	},
+	"da_language_name": {
+		"message": "Deens"
 	},
 	"days": {
 		"message": "Dae"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "Versier jou blaaier met 'n Chrome-uitbreiding van Kersvader."
 	},
+	"detected": {
+		"message": "bespeur"
+	},
+	"difficulty": {
+		"message": "Moeilikheidvlak"
+	},
 	"dk_country_name": {
 		"message": "Denemarke"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "Algerië"
 	},
+	"easy_difficulty": {
+		"message": "Maklik"
+	},
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
 	"ee_country_name": {
 		"message": "Estland"
+	},
+	"el_language_name": {
+		"message": "Grieks"
+	},
+	"elvish_language_name": {
+		"message": "Elwetaal"
+	},
+	"en_language_name": {
+		"message": "Engels"
 	},
 	"endofjourneymessage": {
 		"message": "Kersvader het sy reis vir die jaar voltooi! Hy en die elwe het nog pret by die Noordpool voor hul jaarlikse vakansie."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "Probeer weer"
 	},
+	"es_language_name": {
+		"message": "Spaans"
+	},
 	"et_country_name": {
 		"message": "Etiopië"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "Frankryk"
+	},
+	"fr_language_name": {
+		"message": "Frans"
 	},
 	"fr_tradition": {
 		"message": "In Frankryk plaas kinders tradisioneel hul skoene langs die kaggel in afwagting van Père Noël se aankoms. As kinders deur die jaar soet was, sal Père Noël geskenke in die skoene plaas."
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "Guyana"
 	},
+	"hard_difficulty": {
+		"message": "Moeilik"
+	},
+	"hi_language_name": {
+		"message": "Hindi"
+	},
 	"hn_country_name": {
 		"message": "Honduras"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "Hongarye"
 	},
+	"hu_language_name": {
+		"message": "Hongaars"
+	},
 	"id_country_name": {
 		"message": "Indonesië"
 	},
 	"ie_country_name": {
 		"message": "Ierland"
+	},
+	"improve_google_translate": {
+		"message": "Help om Google Translate te verbeter"
 	},
 	"iq_country_name": {
 		"message": "Irak"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "Italië"
 	},
+	"it_language_name": {
+		"message": "Italiaans"
+	},
+	"ja_language_name": {
+		"message": "Japannees"
+	},
 	"jm_country_name": {
 		"message": "Jamaika"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "In Kirgistan kom Ayaz Ata (Oupa Ys) op Oujaarsaand teen middernag en los presente onder die Nuwejaarsboom. As middernag aanbreek, steek gesinne oor die land heen vuurwerk aan om hierdie pragtige geleentheid te vier. Die stede word so helder soos daglig."
+	},
+	"ko_language_name": {
+		"message": "Koreaans"
 	},
 	"kz_country_name": {
 		"message": "Kazakstan"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "Moldawië"
+	},
+	"medium_difficulty": {
+		"message": "Medium"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "Nederland"
 	},
+	"nl_language_name": {
+		"message": "Nederlands"
+	},
 	"no_country_name": {
 		"message": "Noorweë"
+	},
+	"no_language_name": {
+		"message": "Noors"
 	},
 	"nonprofit-jane-description": {
 		"message": "Sjimpansees is mense se naaste lewende familie in die diereryk! Vandag is daar minder as 300 000 sjimpansees oor weens habitatverliese, siekte en onwettige handel. Die Jane Goodall Instituut (JGI) beskerm sjimpansees deur hul gedrag, sowel as die habitatte waarin hulle leef, waar te neem en te verstaan. Die JGI beywer homself ook om 'n gemeenskap van mense te bou wat die natuurlewe en die omgewings wat ons deel, beskerm en bewaar. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eVerken die sjimpansee-habitatte\u003c/a\u003e in Gombe, Tanzanië."
 	},
 	"nonprofit-jane-type": {
 		"message": "Sjimpansee"
+	},
+	"nonprofit-more-information": {
+		"message": "Vir meer inligting besoek:"
 	},
 	"nonprofit-nature-description": {
 		"message": "Die Natuurbewaringsorganisasie beywer hom om woude in die Verenigde State en die res van die wêreld te beskerm en te herstel. Hierdie ikoniese woude onderhou lewe reg oor die planeet. Hulle filtreer water, maak ons lug skoon, onderhou gemeenskappe en voorsien 'n habitat vir belangrike plant- en dierspesies. Teen die huidige koers van ontbossing sal ons woude binne 100 jaar uitgewis wees. Die Natuurbewaringsorganisasie se Plant 'n miljard bome-program beoog om een miljard bome teen 2025 te plant en die wêreld se mees belangrike woude te herstel."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "Reuse openingdag môre"
 	},
+	"ornament-print-instructions": {
+		"message": "Vou hier en plak kante vas"
+	},
 	"pa_country_name": {
 		"message": "Panama"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "Pole"
 	},
+	"pl_language_name": {
+		"message": "Pools"
+	},
 	"play": {
 		"message": "Speel"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"pt_language_name": {
+		"message": "Portugees"
+	},
 	"py_country_name": {
 		"message": "Paraguay"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "Rusland"
+	},
+	"ru_language_name": {
+		"message": "Russies"
 	},
 	"ru_tradition": {
 		"message": "Russiese kinders versier 'n Nuwejaarsboom, pleks van 'n Kersboom. Kinders sien met verwagting uit na Oupa Ys, wat saam met sy kleindogter Sneeumeisie reis om presente oor die land heen af te lewer. Oupa Ys woon diep in 'n woud in Weliki Oestioeg in Noord-Rusland."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "Slowakye"
 	},
+	"sk_language_name": {
+		"message": "Slowaaks"
+	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "El Salvador"
 	},
+	"sv_language_name": {
+		"message": "Sweeds"
+	},
 	"td_country_name": {
 		"message": "Tsjaad"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Thais"
 	},
 	"tilt": {
 		"message": "Kantel jou toestel!"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "Turkye"
+	},
+	"tr_language_name": {
+		"message": "Turks"
+	},
+	"tracker_arriving_in": {
+		"message": "Arriveer oor"
+	},
+	"tracker_current_stop": {
+		"message": "Huidige stilhouplek"
+	},
+	"tracker_departing_in": {
+		"message": "Vertrek oor"
+	},
+	"tracker_distance_from_you": {
+		"message": "Afstand van jou af"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Geskenke afgelewer"
+	},
+	"tracker_next_stop": {
+		"message": "Volgende stilhouplek"
+	},
+	"tracker_your_location": {
+		"message": "Jou ligging"
 	},
 	"traditions-next": {
 		"message": "Volgende tradisie"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgarye"
 	},
+	"trivia_ngb_promo": {
+		"message": "Inhoud deur die National Geographic Bee"
+	},
 	"tw_country_name": {
 		"message": "Taiwan"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "Jemen"
+	},
+	"zh-CN_language_name": {
+		"message": "Chinees (vereenvoudig)"
+	},
+	"zh-TW_language_name": {
+		"message": "Chinees (tradisioneel)"
 	},
 	"zm_country_name": {
 		"message": "Zambië"

@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosna i Hercegovina"
 	},
+	"back_to_tracker": {
+		"message": "Natrag na alat za praćenje"
+	},
 	"bd_country_name": {
 		"message": "Bangladeš"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "Bjelokosna Obala"
+	},
+	"citylights-contribute": {
+		"message": "Dodajte vlastite fotografije lokacije: %location%"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "Grad New York, SAD"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Puškinov trg"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moskva, Rusija"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Beč, Austrija"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Elizejske poljane prema Slavoluku pobjede"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Pariz, Francuska"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Veličanstvena milja"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, SAD"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Božićni sajam"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nürnberg, Njemačka"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Rijeka Medellin"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Kolumbija"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Selo Djeda Božićnjaka"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lapland, Finska"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Bruxelles, Belgija"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar Square"
+	},
+	"citylights-panorama-10-location": {
+		"message": "London, Engleska"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Španjolska"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokio, Japan"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Vrtovi Tivoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Kopenhagen, Danska"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapur, Singapur"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Staza svjetlosti"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Göteborg, Švedska"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Zimski festival svjetlosti"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Slapovi Niagare, Kanada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "Zimski festival"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hong Kong, Kina"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Jezero Rodrigo de Freitas"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brazil"
 	},
 	"cl_country_name": {
 		"message": "Čile"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "Kostarika"
 	},
+	"cs_language_name": {
+		"message": "češki"
+	},
 	"cu_country_name": {
 		"message": "Kuba"
 	},
 	"cz_country_name": {
 		"message": "Češka Republika"
+	},
+	"da_language_name": {
+		"message": "danski"
 	},
 	"days": {
 		"message": "dan/a"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "Ukrasi preglednik proširenjem Djeda Božićnjaka za Chrome."
 	},
+	"detected": {
+		"message": "otkriveno"
+	},
+	"difficulty": {
+		"message": "Težina"
+	},
 	"dk_country_name": {
 		"message": "Danska"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "Alžir"
 	},
+	"easy_difficulty": {
+		"message": "Jednostavno"
+	},
 	"ec_country_name": {
 		"message": "Ekvador"
 	},
 	"ee_country_name": {
 		"message": "Estonija"
+	},
+	"el_language_name": {
+		"message": "grčki"
+	},
+	"elvish_language_name": {
+		"message": "vilinski"
+	},
+	"en_language_name": {
+		"message": "engleski"
 	},
 	"endofjourneymessage": {
 		"message": "Djed Božićnjak završio je svoje putovanje za ovu godinu! On i njegovi vilenjaci još uvijek se zabavljaju na Sjevernom polu prije godišnjeg odmora."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "Pokušaj ponovno"
 	},
+	"es_language_name": {
+		"message": "španjolski"
+	},
 	"et_country_name": {
 		"message": "Etiopija"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "Francuska"
+	},
+	"fr_language_name": {
+		"message": "francuski"
 	},
 	"fr_tradition": {
 		"message": "U Francuskoj djeca u očekivanju dolaska Père Noëla ostavljaju cipele uz kamin. Ako su kroz godinu bila dobra, Père Noël napunit će cipele darovima."
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "Gvajana"
 	},
+	"hard_difficulty": {
+		"message": "Teško"
+	},
+	"hi_language_name": {
+		"message": "hindski"
+	},
 	"hn_country_name": {
 		"message": "Honduras"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "Mađarska"
 	},
+	"hu_language_name": {
+		"message": "mađarski"
+	},
 	"id_country_name": {
 		"message": "Indonezija"
 	},
 	"ie_country_name": {
 		"message": "Irska"
+	},
+	"improve_google_translate": {
+		"message": "Pomozite nam poboljšati Google prevoditelj"
 	},
 	"iq_country_name": {
 		"message": "Irak"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "Italija"
 	},
+	"it_language_name": {
+		"message": "talijanski"
+	},
+	"ja_language_name": {
+		"message": "japanski"
+	},
 	"jm_country_name": {
 		"message": "Jamajka"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "U Kirgistanu Ayaz Ata (Djed Mraz) dolazi u ponoć na Staru godinu i ostavlja darove ispod novogodišnjeg drvca. Kada sat otkuca ponoć, obitelji diljem zemlje održavaju vatromet da bi proslavile taj prekrasan događaj. Gradovi postanu osvijetljeni kao da je dan."
+	},
+	"ko_language_name": {
+		"message": "korejski"
 	},
 	"kz_country_name": {
 		"message": "Kazahstan"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "Moldavija"
+	},
+	"medium_difficulty": {
+		"message": "Srednje"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "Nizozemska"
 	},
+	"nl_language_name": {
+		"message": "nizozemski"
+	},
 	"no_country_name": {
 		"message": "Norveška"
+	},
+	"no_language_name": {
+		"message": "norveški"
 	},
 	"nonprofit-jane-description": {
 		"message": "Čimpanze su najbliži živući srodnici ljudske vrste u životinjskom carstvu! Danas na svijetu živi manje od 300.000 čimpanzi zbog gubitka staništa i ilegalne trgovine. Institut Jane Goodall (JGI) čimpanze štiti promatranjem i analiziranjem njihova ponašanja i staništa u kojima žive. JGI također nastoji izgraditi zajednicu ljudi koji rade na zaštiti i očuvanju divljih životinja i okoliša koji dijelimo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eIstražite staništa čimpanzi\u003c/a\u003e u Gombeu, u Tanzaniji."
 	},
 	"nonprofit-jane-type": {
 		"message": "Čimpanza"
+	},
+	"nonprofit-more-information": {
+		"message": "Za više informacija posjetite:"
 	},
 	"nonprofit-nature-description": {
 		"message": "Organizacija Nature Conservancy radi na zaštiti i obnovi šuma u Sjedinjenim Američkim Državama i diljem svijeta. Te ikonične šume održavaju život diljem planete. One filtriraju vodu, pročišćuju zrak, podržavaju zajednice ljudi i pružaju stanište za važne vrste biljaka i životinja. Sudeći po trenutačnom tempu krčenja šuma, naše će šume nestati u roku od 100 godina. Program organizacije Nature Conservancy naziva Plant a Billion Trees nastoji posaditi milijardu stabala do 2025. godine i obnoviti najugroženije šume svijeta."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "Veliko otvorenje sutra"
 	},
+	"ornament-print-instructions": {
+		"message": "Ovdje preklopite i zalijepite rubove"
+	},
 	"pa_country_name": {
 		"message": "Panama"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "Poljska"
 	},
+	"pl_language_name": {
+		"message": "poljski"
+	},
 	"play": {
 		"message": "Zaigraj"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "Portoriko"
 	},
+	"pt_language_name": {
+		"message": "portugalski"
+	},
 	"py_country_name": {
 		"message": "Paragvaj"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "Rusija"
+	},
+	"ru_language_name": {
+		"message": "ruski"
 	},
 	"ru_tradition": {
 		"message": "Djeca u Rusiji ukrašavaju novogodišnje drvce umjesto božićnog drvca. Djeca s nestrpljenjem čekaju Djeda Mraza koji putuje s unukom Snjeguročkom i zajedno donose poklone diljem zemlje. Djeda Mraz živi duboko u šumi u mjestu Veliky Ustyug na sjeveru Rusije."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "Slovačka"
 	},
+	"sk_language_name": {
+		"message": "slovački"
+	},
 	"sl_country_name": {
 		"message": "Sijera Leone"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "Salvador"
 	},
+	"sv_language_name": {
+		"message": "švedski"
+	},
 	"td_country_name": {
 		"message": "Čad"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "tajski"
 	},
 	"tilt": {
 		"message": "Nagni uređaj!"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "Turska"
+	},
+	"tr_language_name": {
+		"message": "turski"
+	},
+	"tracker_arriving_in": {
+		"message": "Stiže za"
+	},
+	"tracker_current_stop": {
+		"message": "Trenutačna postaja"
+	},
+	"tracker_departing_in": {
+		"message": "Kreće za"
+	},
+	"tracker_distance_from_you": {
+		"message": "Udaljenost od vas"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Dostavljeni darovi"
+	},
+	"tracker_next_stop": {
+		"message": "Sljedeća postaja"
+	},
+	"tracker_your_location": {
+		"message": "Vaša lokacija"
 	},
 	"traditions-next": {
 		"message": "Sljedeća tradicija"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bugarska"
 	},
+	"trivia_ngb_promo": {
+		"message": "Sadržaj kviza National Geographic Bee"
+	},
 	"tw_country_name": {
 		"message": "Tajvan"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "Jemen"
+	},
+	"zh-CN_language_name": {
+		"message": "kineski (pojednostavljeni)"
+	},
+	"zh-TW_language_name": {
+		"message": "kineski (tradicionalni)"
 	},
 	"zm_country_name": {
 		"message": "Zambija"

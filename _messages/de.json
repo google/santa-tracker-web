@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnien und Herzegowina"
 	},
+	"back_to_tracker": {
+		"message": "Zurück zur Übersicht"
+	},
 	"bd_country_name": {
 		"message": "Bangladesch"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "Côte d'Ivoire"
+	},
+	"citylights-contribute": {
+		"message": "Eigene Fotos von %location% hinzufügen"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, USA"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Pushkin Square"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moskau, Russland"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Wien, Österreich"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Champs-Elysees bis zum Arc de Triomphe"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Paris, Frankreich"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, USA"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Weihnachtsmarkt"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nürnberg, Deutschland"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Rio Medellin"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Kolumbien"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Weihnachtsmanndorf"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lappland, Finnland"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brüssel, Belgien"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar Square"
+	},
+	"citylights-panorama-10-location": {
+		"message": "London, England"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Spanien"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokio, Japan"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Tivoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Kopenhagen, Dänemark"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapur, Singapur"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Lane of Light"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Göteborg, Schweden"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Winterfest der Lichter"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagarafälle, Kanada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "Winterfest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hongkong, China"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Rodrigo de Freitas-Lagune"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brasilien"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "Costa Rica"
 	},
+	"cs_language_name": {
+		"message": "Tschechisch"
+	},
 	"cu_country_name": {
 		"message": "Kuba"
 	},
 	"cz_country_name": {
 		"message": "Tschechische Republik"
+	},
+	"da_language_name": {
+		"message": "Dänisch"
 	},
 	"days": {
 		"message": "Tage"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "Schmücke deinen Browser mit einer weihnachtlichen Chrome-Erweiterung."
 	},
+	"detected": {
+		"message": "erkannt"
+	},
+	"difficulty": {
+		"message": "Schwierigkeit"
+	},
 	"dk_country_name": {
 		"message": "Dänemark"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "Algerien"
 	},
+	"easy_difficulty": {
+		"message": "Leicht"
+	},
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
 	"ee_country_name": {
 		"message": "Estland"
+	},
+	"el_language_name": {
+		"message": "Griechisch"
+	},
+	"elvish_language_name": {
+		"message": "Elfisch"
+	},
+	"en_language_name": {
+		"message": "Englisch"
 	},
 	"endofjourneymessage": {
 		"message": "Der Weihnachtsmann hat seine diesjährige Reise beendet. Er und seine Elfen feiern jetzt am Nordpol und machen dann erst einmal Urlaub."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "Erneut versuchen"
 	},
+	"es_language_name": {
+		"message": "Spanisch"
+	},
 	"et_country_name": {
 		"message": "Äthiopien"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "Frankreich"
+	},
+	"fr_language_name": {
+		"message": "Französisch"
 	},
 	"fr_tradition": {
 		"message": "In Frankreich stellen Kinder traditionell ihre Schuhe neben den Kamin und warten auf die Ankunft von Père Noël. Wenn die Kinder das Jahr über brav waren, füllt Père Noël die Schuhe mit Geschenken."
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "Guyana"
 	},
+	"hard_difficulty": {
+		"message": "Schwer"
+	},
+	"hi_language_name": {
+		"message": "Hindi"
+	},
 	"hn_country_name": {
 		"message": "Honduras"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "Ungarn"
 	},
+	"hu_language_name": {
+		"message": "Ungarisch"
+	},
 	"id_country_name": {
 		"message": "Indonesien"
 	},
 	"ie_country_name": {
 		"message": "Irland"
+	},
+	"improve_google_translate": {
+		"message": "Google Übersetzer verbessern"
 	},
 	"iq_country_name": {
 		"message": "Irak"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "Italien"
 	},
+	"it_language_name": {
+		"message": "Italienisch"
+	},
+	"ja_language_name": {
+		"message": "Japanisch"
+	},
 	"jm_country_name": {
 		"message": "Jamaika"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "In Kirgisistan kommt am Neujahrsabend Ayaz Ata, Väterchen Frost, und legt Geschenke unter den Neujahrsbaum. Um Mitternacht feiern Familien im ganzen Land dies mit einem Feuerwerk, das die Städte taghell erleuchtet."
+	},
+	"ko_language_name": {
+		"message": "Koreanisch"
 	},
 	"kz_country_name": {
 		"message": "Kasachstan"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "Republik Moldau"
+	},
+	"medium_difficulty": {
+		"message": "Mittel"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "Niederlande"
 	},
+	"nl_language_name": {
+		"message": "Niederländisch"
+	},
 	"no_country_name": {
 		"message": "Norwegen"
+	},
+	"no_language_name": {
+		"message": "Norwegisch"
 	},
 	"nonprofit-jane-description": {
 		"message": "Schimpansen sind die nächsten lebenden Verwandten des Menschen im Tierreich. Aufgrund zerstörter Lebensräume, Krankheiten und illegalem Handel gibt es heute weniger als 300.000 von ihnen. Das Jane Goodall Institute (JGI) schützt Schimpansen, indem es ihr Verhalten und ihren Lebensraum untersucht und versteht. Das JGI arbeitet an der Bildung neuer Personengruppen, die die Tierwelt und unsere gemeinsame Umwelt schützen und erhalten möchten. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eEntdecke die Lebensräume der Schimpansen\u003c/a\u003e in Gombe, Tansania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Schimpanse"
+	},
+	"nonprofit-more-information": {
+		"message": "Weitere Informationen auf:"
 	},
 	"nonprofit-nature-description": {
 		"message": "The Nature Conservancy befasst sich mit dem Schutz und der Wiederherstellung der Wälder in den USA und auf der ganzen Welt. Diese ikonenhaften Wälder erhalten das Leben auf unserem Planeten. Sie filtern das Wasser, säubern unsere Luft, unterstützen Gemeinschaften und bieten einen Lebensraum für wichtige Tier- und Pflanzenarten. Bei der derzeitigen Entwaldungsrate werden unsere Wälder in 100 Jahren nicht mehr existieren. Mit dem Programm \"Plant a Billion Trees\" von The Nature Conservancy sollen bis 2025 eine Milliarde Bäume gepflanzt und so die wichtigsten Wälder der Erde wieder aufgeforstet werden."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "Morgen große Eröffnung"
 	},
+	"ornament-print-instructions": {
+		"message": "Hier falten und Seiten zusammenkleben"
+	},
 	"pa_country_name": {
 		"message": "Panama"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "Polen"
 	},
+	"pl_language_name": {
+		"message": "Polnisch"
+	},
 	"play": {
 		"message": "Spielen"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"pt_language_name": {
+		"message": "Portugiesisch"
+	},
 	"py_country_name": {
 		"message": "Paraguay"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "Russland"
+	},
+	"ru_language_name": {
+		"message": "Russisch"
 	},
 	"ru_tradition": {
 		"message": "Russische Kinder schmücken statt eines Weihnachtsbaums einen Neujahrsbaum. Die Kinder warten sehnsüchtig auf Väterchen Frost, der mit seiner Enkelin Schneeflöckchen Geschenke im ganzen Land verteilt. Väterchen Frost lebt tief in den Wäldern von Weliki Ustjug in Nordrussland."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "Slowakei"
 	},
+	"sk_language_name": {
+		"message": "Slowakisch"
+	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "El Salvador"
 	},
+	"sv_language_name": {
+		"message": "Schwedisch"
+	},
 	"td_country_name": {
 		"message": "Tschad"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Thailändisch"
 	},
 	"tilt": {
 		"message": "Neige dein Gerät."
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "Türkei"
+	},
+	"tr_language_name": {
+		"message": "Türkisch"
+	},
+	"tracker_arriving_in": {
+		"message": "Ankunft in"
+	},
+	"tracker_current_stop": {
+		"message": "Aktueller Halt"
+	},
+	"tracker_departing_in": {
+		"message": "Abfahrt in"
+	},
+	"tracker_distance_from_you": {
+		"message": "Entfernung zu Ihnen"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Erhaltene Geschenke"
+	},
+	"tracker_next_stop": {
+		"message": "Nächster Halt"
+	},
+	"tracker_your_location": {
+		"message": "Ihr Standort"
 	},
 	"traditions-next": {
 		"message": "Nächste Tradition"
@@ -1611,7 +1833,7 @@
 		"message": "Brasilien"
 	},
 	"trivia_beginner_082_answer1": {
-		"message": "Großbritannien"
+		"message": "Vereinigtes Königreich"
 	},
 	"trivia_beginner_082_answer2": {
 		"message": "Vietnam"
@@ -1950,7 +2172,7 @@
 		"message": "Dänemark"
 	},
 	"trivia_hard_013_answer2": {
-		"message": "Großbritannien"
+		"message": "Vereinigtes Königreich"
 	},
 	"trivia_hard_014": {
 		"message": "Welches Land liegt nicht am Schwarzen Meer?"
@@ -2214,7 +2436,7 @@
 		"message": "Türkei"
 	},
 	"trivia_hard_035_answer2": {
-		"message": "Großbritannien"
+		"message": "Vereinigtes Königreich"
 	},
 	"trivia_hard_036": {
 		"message": "Welche Wüste nimmt den Großteil der Fläche zwischen Peking und Ulaanbaatar ein?"
@@ -3435,7 +3657,7 @@
 		"message": "Norwegen"
 	},
 	"trivia_medium_032_answer1": {
-		"message": "Großbritannien"
+		"message": "Vereinigtes Königreich"
 	},
 	"trivia_medium_032_answer2": {
 		"message": "Sri Lanka"
@@ -3699,7 +3921,7 @@
 		"message": "Island"
 	},
 	"trivia_medium_054_answer1": {
-		"message": "Großbritannien"
+		"message": "Vereinigtes Königreich"
 	},
 	"trivia_medium_054_answer2": {
 		"message": "Polen"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgarien"
 	},
+	"trivia_ngb_promo": {
+		"message": "Inhalte des National Geographic Bee"
+	},
 	"tw_country_name": {
 		"message": "Taiwan"
 	},
@@ -4269,7 +4494,7 @@
 		"message": "Uganda"
 	},
 	"uk_country_name": {
-		"message": "Großbritannien"
+		"message": "Vereinigtes Königreich"
 	},
 	"uk_tradition": {
 		"message": "In Großbritannien öffnen alle Familienmitglieder beim Abendessen Knallbonbons. Diese in buntes Papier gewickelten Röhren haben an beiden Enden Aufreißbänder. Beim Öffnen platzen sie mit einem lauten Knall auf und spucken Papierhüte, Spielzeug und Süßigkeiten für den Weihnachtsabend aus."
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "Jemen"
+	},
+	"zh-CN_language_name": {
+		"message": "Chinesisch (vereinfacht)"
+	},
+	"zh-TW_language_name": {
+		"message": "Chinesisch (traditionell)"
 	},
 	"zm_country_name": {
 		"message": "Sambia"

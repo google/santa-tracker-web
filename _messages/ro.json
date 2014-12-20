@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia și Herțegovina"
 	},
+	"back_to_tracker": {
+		"message": "Înapoi la traseu"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
@@ -105,7 +108,7 @@
 		"message": "Trimite"
 	},
 	"cd_country_name": {
-		"message": "Republica Democrată Congo"
+		"message": "Republica Democratică Congo"
 	},
 	"cf_country_name": {
 		"message": "Republica Centrafricană"
@@ -117,7 +120,118 @@
 		"message": "Elveția"
 	},
 	"ci_country_name": {
-		"message": "Coasta de Fildeș"
+		"message": "Côte d'Ivoire"
+	},
+	"citylights-contribute": {
+		"message": "Adaugă propriile fotografii de la %location%"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, S.U.A."
+	},
+	"citylights-panorama-02-description": {
+		"message": "Piața Pușkin"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moscova, Rusia"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Viena, Austria"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Champs-Elysées către Arcul de Triumf"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Paris, Franța"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, S.U.A."
+	},
+	"citylights-panorama-06-description": {
+		"message": "Piața de Crăciun"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nürnberg, Germania"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Râul Medellin"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Columbia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Satul lui Moș Crăciun"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Laponia, Finlanda"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Bruxelles, Belgia"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar Square"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Londra, Anglia"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Spania"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Colinele Roppongi"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokyo, Japonia"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Grădinile Tivoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Copenhaga, Danemarca"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapore – Singapore"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Lane of Light"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Göteborg, Suedia"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Festivalul de iarnă al luminilor"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Cascada Niagara, Canada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hong Kong, China"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Lacul Rodrigo de Freitas"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brazilia"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "Costa Rica"
 	},
+	"cs_language_name": {
+		"message": "Cehă"
+	},
 	"cu_country_name": {
 		"message": "Cuba"
 	},
 	"cz_country_name": {
 		"message": "Republica Cehă"
+	},
+	"da_language_name": {
+		"message": "Daneză"
 	},
 	"days": {
 		"message": "zile"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "Împodobește-ți browserul cu o extensie Chrome cu Moș Crăciun."
 	},
+	"detected": {
+		"message": "detectată"
+	},
+	"difficulty": {
+		"message": "Dificultate"
+	},
 	"dk_country_name": {
 		"message": "Danemarca"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "Algeria"
 	},
+	"easy_difficulty": {
+		"message": "Mică"
+	},
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
 	"ee_country_name": {
 		"message": "Estonia"
+	},
+	"el_language_name": {
+		"message": "Greacă"
+	},
+	"elvish_language_name": {
+		"message": "Elfă"
+	},
+	"en_language_name": {
+		"message": "Engleză"
 	},
 	"endofjourneymessage": {
 		"message": "Moș Crăciun și-a încheiat călătoria pentru anul acesta! Încă se distrează cu spiridușii la Polul Nord înainte de vacanța lor anuală."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "Încearcă din nou"
 	},
+	"es_language_name": {
+		"message": "Spaniolă"
+	},
 	"et_country_name": {
 		"message": "Etiopia"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "Franța"
+	},
+	"fr_language_name": {
+		"message": "Franceză"
 	},
 	"fr_tradition": {
 		"message": "În Franța, conform tradiției, copiii își pun încălțămintea lângă șemineu, în așteptarea lui Père Noël. Dacă au fost cuminți în timpul anului, Père Noël le va umple încălțămintea cu cadouri."
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "Guyana"
 	},
+	"hard_difficulty": {
+		"message": "Mare"
+	},
+	"hi_language_name": {
+		"message": "Hindi"
+	},
 	"hn_country_name": {
 		"message": "Honduras"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "Ungaria"
 	},
+	"hu_language_name": {
+		"message": "Maghiară"
+	},
 	"id_country_name": {
 		"message": "Indonezia"
 	},
 	"ie_country_name": {
 		"message": "Irlanda"
+	},
+	"improve_google_translate": {
+		"message": "Ajutați la îmbunătățirea serviciului Google Traducere"
 	},
 	"iq_country_name": {
 		"message": "Iraq"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "Italia"
 	},
+	"it_language_name": {
+		"message": "Italiană"
+	},
+	"ja_language_name": {
+		"message": "Japoneză"
+	},
 	"jm_country_name": {
 		"message": "Jamaica"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "În Kârgâzstan, Ayaz Ata (Moș Gerilă) sosește la miezul nopții în ajun de Anul Nou și lasă cadouri sub pomul de Anul Nou. Când bate miezul nopții, familiile din întreaga țară aprind artificii pentru a sărbători această ocazie specială. Orașele se luminează ca ziua."
+	},
+	"ko_language_name": {
+		"message": "Coreeană"
 	},
 	"kz_country_name": {
 		"message": "Kazahstan"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "Moldova"
+	},
+	"medium_difficulty": {
+		"message": "Medie"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "Țările de Jos"
 	},
+	"nl_language_name": {
+		"message": "Olandeză"
+	},
 	"no_country_name": {
 		"message": "Norvegia"
+	},
+	"no_language_name": {
+		"message": "Norvegiană"
 	},
 	"nonprofit-jane-description": {
 		"message": "Cimpanzeii sunt cele mai apropiate rude în viață ale oamenilor din regatul animalelor! În prezent, trăiesc mai puțin de 300.000 de cimpanzei din cauza distrugerii habitatului lor, a bolilor și a comerțului ilegal. Institutul Jane Goodall (JGI) protejează cimpanzeii prin observarea și înțelegerea comportamentelor lor, precum și a habitatelor în care trăiesc. De asemenea, JGI se ocupă și de crearea unei comunități de persoane care protejează și conservă fauna și mediul în care trăim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplorați habitatele cimpanzeilor\u003c/a\u003e din Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Cimpanzei"
+	},
+	"nonprofit-more-information": {
+		"message": "Pentru mai multe informații, accesează:"
 	},
 	"nonprofit-nature-description": {
 		"message": "Nature Conservancy lucrează la protejarea și la restaurarea pădurilor din Statele Unite și din lume. Aceste păduri seculare susțin viața de pe întreaga planetă. Filtrează apa, purifică aerul, oferă sprijin comunităților și asigură habitatul pentru mii de specii importante de plante și animale. În ritmul actual de despădurire, pădurile vor dispărea în decurs de 100 de ani. Obiectivul programului Plant a Billion Trees (Plantați un miliard de copaci) dezvoltat de Nature Conservancy este de a planta un miliard de copaci până în 2025 și de a reface pădurile de importanță majoră din lume."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "Marea deschidere de mâine"
 	},
+	"ornament-print-instructions": {
+		"message": "Îndoaie aici și lipește părțile una de alta"
+	},
 	"pa_country_name": {
 		"message": "Panama"
 	},
@@ -516,7 +696,7 @@
 		"message": "Peru"
 	},
 	"pg_country_name": {
-		"message": "Papua Noua Guinee"
+		"message": "Papua-Noua Guinee"
 	},
 	"ph_country_name": {
 		"message": "Filipine"
@@ -526,6 +706,9 @@
 	},
 	"pl_country_name": {
 		"message": "Polonia"
+	},
+	"pl_language_name": {
+		"message": "Poloneză"
 	},
 	"play": {
 		"message": "Joacă"
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"pt_language_name": {
+		"message": "Portugheză"
+	},
 	"py_country_name": {
 		"message": "Paraguay"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "Rusia"
+	},
+	"ru_language_name": {
+		"message": "Rusă"
 	},
 	"ru_tradition": {
 		"message": "Copiii din Rusia împodobesc un pom de Anul Nou, nu unul de Crăciun. Copiii îl așteaptă cu nerăbdare pe Moș Gerilă, care călătorește împreună cu nepoata sa Snegurochka pentru a împărți cadouri în toată țara. Moș Gerilă trăiește în adâncul pădurilor din Veliky Ustyug, în nordul Rusiei."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "Slovacia"
 	},
+	"sk_language_name": {
+		"message": "Slovacă"
+	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "El Salvador"
 	},
+	"sv_language_name": {
+		"message": "Suedeză"
+	},
 	"td_country_name": {
 		"message": "Ciad"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Thailandeză"
 	},
 	"tilt": {
 		"message": "Înclină dispozitivul!"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "Turcia"
+	},
+	"tr_language_name": {
+		"message": "Turcă"
+	},
+	"tracker_arriving_in": {
+		"message": "Sosește în"
+	},
+	"tracker_current_stop": {
+		"message": "Oprirea actuală"
+	},
+	"tracker_departing_in": {
+		"message": "Plecare în"
+	},
+	"tracker_distance_from_you": {
+		"message": "Distanța față de tine"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Cadouri livrate"
+	},
+	"tracker_next_stop": {
+		"message": "Următoarea oprire"
+	},
+	"tracker_your_location": {
+		"message": "Locația ta"
 	},
 	"traditions-next": {
 		"message": "Următoarea tradiție"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgaria"
 	},
+	"trivia_ngb_promo": {
+		"message": "Conținut de la National Geographic Bee"
+	},
 	"tw_country_name": {
 		"message": "Taiwan"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "Yemen"
+	},
+	"zh-CN_language_name": {
+		"message": "Chineză (simplificată)"
+	},
+	"zh-TW_language_name": {
+		"message": "Chineză (tradițională)"
 	},
 	"zm_country_name": {
 		"message": "Zambia"

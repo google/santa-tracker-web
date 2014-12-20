@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "บอสเนียและเฮอร์เซโกวีนา"
 	},
+	"back_to_tracker": {
+		"message": "กลับไปที่เครื่องมือติดตาม"
+	},
 	"bd_country_name": {
 		"message": "บังกลาเทศ"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "โกตดิวัวร์"
+	},
+	"citylights-contribute": {
+		"message": "เพิ่มรูปภาพ %location% ของคุณเอง"
+	},
+	"citylights-panorama-01-description": {
+		"message": "ร็อคกี้เฟลเลอร์พลาซ่า"
+	},
+	"citylights-panorama-01-location": {
+		"message": "นครนิวยอร์ก สหรัฐอเมริกา"
+	},
+	"citylights-panorama-02-description": {
+		"message": "พุชกินสแควร์"
+	},
+	"citylights-panorama-02-location": {
+		"message": "กรุงมอสโก รัสเซีย"
+	},
+	"citylights-panorama-03-description": {
+		"message": "รัทเฮาส์ซปลาทซ์"
+	},
+	"citylights-panorama-03-location": {
+		"message": "กรุงเวียนนา ออสเตรีย"
+	},
+	"citylights-panorama-04-description": {
+		"message": "ถนนช็องเซลีเซสู่ประตูชัยฝรั่งเศส"
+	},
+	"citylights-panorama-04-location": {
+		"message": "กรุงปารีส ฝรั่งเศส"
+	},
+	"citylights-panorama-05-description": {
+		"message": "แมกนิฟิเซนต์ ไมล์"
+	},
+	"citylights-panorama-05-location": {
+		"message": "ชิคาโก สหรัฐอเมริกา"
+	},
+	"citylights-panorama-06-description": {
+		"message": "ตลาดคริสต์มาส"
+	},
+	"citylights-panorama-06-location": {
+		"message": "นูเรมเบิร์ก เยอรมนี"
+	},
+	"citylights-panorama-07-description": {
+		"message": "แม่น้ำเมเดลลิน"
+	},
+	"citylights-panorama-07-location": {
+		"message": "เมเดลลิน โคลอมเบีย"
+	},
+	"citylights-panorama-08-description": {
+		"message": "หมู่บ้านซานตาคลอส"
+	},
+	"citylights-panorama-08-location": {
+		"message": "แลปแลนด์ ฟินแลนด์"
+	},
+	"citylights-panorama-09-description": {
+		"message": "แกรนด์ เพลส"
+	},
+	"citylights-panorama-09-location": {
+		"message": "กรุงบรัสเซลส์ เบลเยียม"
+	},
+	"citylights-panorama-10-description": {
+		"message": "ทราฟัลการ์ สแควร์"
+	},
+	"citylights-panorama-10-location": {
+		"message": "กรุงลอนดอน อังกฤษ"
+	},
+	"citylights-panorama-11-description": {
+		"message": "พลาซาเมเยอร์"
+	},
+	"citylights-panorama-11-location": {
+		"message": "กรุงมาดริด สเปน"
+	},
+	"citylights-panorama-12-description": {
+		"message": "รปปงงิฮิลส์"
+	},
+	"citylights-panorama-12-location": {
+		"message": "กรุงโตเกียว ญี่ปุ่น"
+	},
+	"citylights-panorama-13-description": {
+		"message": "สวนสนุกทิโวลี การ์เดนส์"
+	},
+	"citylights-panorama-13-location": {
+		"message": "กรุงโคเปนเฮเกน เดนมาร์ก"
+	},
+	"citylights-panorama-14-description": {
+		"message": "ถนนออร์ชาร์ด"
+	},
+	"citylights-panorama-14-location": {
+		"message": "กรุงสิงคโปร์ สิงคโปร์"
+	},
+	"citylights-panorama-15-description": {
+		"message": "เลนออฟไลท์"
+	},
+	"citylights-panorama-15-location": {
+		"message": "กอเทนเบิร์ก สวีเดน"
+	},
+	"citylights-panorama-16-description": {
+		"message": "เทศกาลแสดงไฟประจำฤดูหนาว"
+	},
+	"citylights-panorama-16-location": {
+		"message": "น้ำตกไนแอการา แคนาดา"
+	},
+	"citylights-panorama-17-description": {
+		"message": "เทศกาลฤดูหนาว"
+	},
+	"citylights-panorama-17-location": {
+		"message": "ฮ่องกง จีน"
+	},
+	"citylights-panorama-18-description": {
+		"message": "ทะเลสาบโรดริโก เด เฟรตาส"
+	},
+	"citylights-panorama-18-location": {
+		"message": "รีโอเดจาเนโร บราซิล"
 	},
 	"cl_country_name": {
 		"message": "ชิลี"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "คอสตาริกา"
 	},
+	"cs_language_name": {
+		"message": "ภาษาเช็ก"
+	},
 	"cu_country_name": {
 		"message": "คิวบา"
 	},
 	"cz_country_name": {
 		"message": "สาธารณรัฐเช็ก"
+	},
+	"da_language_name": {
+		"message": "ภาษาเดนมาร์ก"
 	},
 	"days": {
 		"message": "วัน"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "ตกแต่งเบราว์เซอร์ของคุณด้วยส่วนขยายซานต้า Chrome"
 	},
+	"detected": {
+		"message": "ตรวจพบ"
+	},
+	"difficulty": {
+		"message": "ความยาก"
+	},
 	"dk_country_name": {
 		"message": "เดนมาร์ก"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "แอลจีเรีย"
 	},
+	"easy_difficulty": {
+		"message": "ง่าย"
+	},
 	"ec_country_name": {
 		"message": "เอกวาดอร์"
 	},
 	"ee_country_name": {
 		"message": "เอสโตเนีย"
+	},
+	"el_language_name": {
+		"message": "ภาษากรีก"
+	},
+	"elvish_language_name": {
+		"message": "ภาษาเอลฟ์"
+	},
+	"en_language_name": {
+		"message": "ภาษาอังกฤษ"
 	},
 	"endofjourneymessage": {
 		"message": "การเดินทางประจำปีของซานต้าจบลงแล้ว ซานต้ากับเหล่าเอลฟ์กำลังสนุกสนานกันที่ขั้วโลกเหนือก่อนที่จะถึงวันหยุดประจำปีของพวกเขา"
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "ลองอีกครั้ง"
 	},
+	"es_language_name": {
+		"message": "ภาษาสเปน"
+	},
 	"et_country_name": {
 		"message": "เอธิโอเปีย"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "ฝรั่งเศส"
+	},
+	"fr_language_name": {
+		"message": "ภาษาฝรั่งเศส"
 	},
 	"fr_tradition": {
 		"message": "ในฝรั่งเศสมีประเพณีที่เด็กๆ จะวางรองเท้าไว้ข้างเตาผิงเพื่อรอให้ Père Noël มาถึง ถ้าพวกเขาเป็นเด็กดีตลอดทั้งปี Père Noël' จะวางของขวัญไว้ในรองเท้า"
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "กายอานา"
 	},
+	"hard_difficulty": {
+		"message": "ยาก"
+	},
+	"hi_language_name": {
+		"message": "ภาษาฮินดี"
+	},
 	"hn_country_name": {
 		"message": "ฮอนดูรัส"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "ฮังการี"
 	},
+	"hu_language_name": {
+		"message": "ภาษาฮังการี"
+	},
 	"id_country_name": {
 		"message": "อินโดนีเซีย"
 	},
 	"ie_country_name": {
 		"message": "ไอร์แลนด์"
+	},
+	"improve_google_translate": {
+		"message": "ช่วยพัฒนา Google แปลภาษา"
 	},
 	"iq_country_name": {
 		"message": "อิรัก"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "อิตาลี"
 	},
+	"it_language_name": {
+		"message": "ภาษาอิตาลี"
+	},
+	"ja_language_name": {
+		"message": "ภาษาญี่ปุ่น"
+	},
 	"jm_country_name": {
 		"message": "จาเมกา"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "ในคีร์กีซสถาน Ayaz Ata (Grandfather Frost) จะมาที่บ้านเด็กๆ ในตอนเที่ยงคืนของวันคริสต์มาสอีฟและวางของขวัญไว้ใต้ต้นปีใหม่ เมื่อเข็มนาฬิกาเดินถึงเลข 12 ครอบครัวทั่วประเทศจะจุดเตาผิงเพื่อเฉลิมฉลองโอกาสพิเศษอันงดงามนี้ ทั่วทั้งเมืองจะสว่างไสวราวกับเป็นตอนกลางวัน"
+	},
+	"ko_language_name": {
+		"message": "ภาษาเกาหลี"
 	},
 	"kz_country_name": {
 		"message": "คาซัคสถาน"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "มอลโดวา"
+	},
+	"medium_difficulty": {
+		"message": "ปานกลาง"
 	},
 	"mg_country_name": {
 		"message": "มาดากัสการ์"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "เนเธอร์แลนด์"
 	},
+	"nl_language_name": {
+		"message": "ภาษาดัตช์"
+	},
 	"no_country_name": {
 		"message": "นอร์เวย์"
+	},
+	"no_language_name": {
+		"message": "ภาษานอร์เวย์"
 	},
 	"nonprofit-jane-description": {
 		"message": "ชิมแปนซีเป็นญาติสนิทที่สุดของมนุษย์ที่ยังมีชีวิตอยู่ในอาณาจักรสัตว์! ทุกวันนี้มีลิงชิมแปนซีเหลืออยู่ไม่ถึง 300,000 ตัวเนื่องจากการสูญเสียแหล่งที่อยู่ โรคระบาด และการค้าสัตว์ผิดกฎหมาย Jane Goodall Institute (JGI) ปกป้องชิมแปนซีด้วยการเฝ้าสังเกตและทำความเข้าใจกับพฤติกรรม รวมถึงแหล่งที่อยู่ของพวกมัน นอกจากนี้ JGI ยังได้ต่อตั้งชุมชนของผู้ปกป้องและอนุรักษ์สัตว์ป่าและสิ่งแวดล้อมที่เราอาศัยอยู่ร่วมกัน \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eสำรวจแหล่งที่อยู่ของลิงชิมแปนซี\u003c/a\u003eในกอมเบ แทนซาเนีย"
 	},
 	"nonprofit-jane-type": {
 		"message": "ชิมแพนซี"
+	},
+	"nonprofit-more-information": {
+		"message": "สำหรับข้อมูลเพิ่มเติม โปรดไปที่"
 	},
 	"nonprofit-nature-description": {
 		"message": "The Nature Conservancy ทำงานเพื่อปกป้องและฟื้นฟูป่าทั้งในสหรัฐอเมริกาและทั่วโลก ป่าที่สำคัญเหล่านี้ช่วยค้ำจุนทุกชีวิตบนดาวโลก ทั้งกรองน้ำ ฟอกอากาศ ให้การเกื้อหนุนชุมชนมนุษย์และเป็นแหล่งที่อยู่ที่สำคัญของพืชและสัตว์หลากหลายสายพันธุ์ แต่ด้วยอัตราการทำลายป่าในปัจจุบัน ในอีก 100 ปีข้างหน้า ป่าของเราจะไม่มีเหลืออยู่อีกต่อไป โปรแกรม Plant a Billion Trees ของ The Nature Conservancy กำลังเร่งปลูกต้นไม้ให้ได้ 1 พันล้านต้นภายในปี 2025 และฟื้นฟูผืนป่าที่แสนสำคัญทั่วโลก"
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "เปิดตัวครั้งยิ่งใหญ่วันพรุ่งนี้"
 	},
+	"ornament-print-instructions": {
+		"message": "พับที่นี่ และติดกาวแต่ละด้านเข้าด้วยกัน"
+	},
 	"pa_country_name": {
 		"message": "ปานามา"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "โปแลนด์"
 	},
+	"pl_language_name": {
+		"message": "ภาษาโปแลนด์"
+	},
 	"play": {
 		"message": "เล่น"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "เปอร์โตริโก"
 	},
+	"pt_language_name": {
+		"message": "ภาษาโปรตุเกส"
+	},
 	"py_country_name": {
 		"message": "ปารากวัย"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "รัสเซีย"
+	},
+	"ru_language_name": {
+		"message": "ภาษารัสเซีย"
 	},
 	"ru_tradition": {
 		"message": "เด็กๆ ชาวรัสเซียจะตกแต่งต้นปีใหม่แทนต้นคริสต์มาส พวกเขาจะเฝ้ารอ Grandfather Frost ที่เดินทางมากับ Snowmaiden ผู้เป็นหลานสาวเพื่อแจกของขวัญทั่วเมือง Grandfather Frost อาศัยอยู่ในป่าลึกใน Veliky Ustyug ซึ่งอยู่ทางตอนเหนือของรัสเซีย"
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "สโลวะเกีย"
 	},
+	"sk_language_name": {
+		"message": "ภาษาสโลวัก"
+	},
 	"sl_country_name": {
 		"message": "เซียร์ราลีโอน"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "เอลซัลวาดอร์"
 	},
+	"sv_language_name": {
+		"message": "ภาษาสวีเดน"
+	},
 	"td_country_name": {
 		"message": "ชาด"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "โตโก"
+	},
+	"th_language_name": {
+		"message": "ภาษาไทย"
 	},
 	"tilt": {
 		"message": "เอียงอุปกรณ์"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "ตุรกี"
+	},
+	"tr_language_name": {
+		"message": "ภาษาตุรกี"
+	},
+	"tracker_arriving_in": {
+		"message": "จะถึงภายใน"
+	},
+	"tracker_current_stop": {
+		"message": "ป้ายจอดรถปัจจุบัน"
+	},
+	"tracker_departing_in": {
+		"message": "จะออกภายใน"
+	},
+	"tracker_distance_from_you": {
+		"message": "ระยะทางจากตำแหน่งของคุณ"
+	},
+	"tracker_gifts_delivered": {
+		"message": "ของขวัญที่ส่งแล้ว"
+	},
+	"tracker_next_stop": {
+		"message": "ป้ายจอดรถถัดไป"
+	},
+	"tracker_your_location": {
+		"message": "ตำแหน่งของคุณ"
 	},
 	"traditions-next": {
 		"message": "ประเพณีต่อไป"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "บัลแกเรีย"
 	},
+	"trivia_ngb_promo": {
+		"message": "เนื้อหาโดย National Geographic Bee"
+	},
 	"tw_country_name": {
 		"message": "ไต้หวัน"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "เยเมน"
+	},
+	"zh-CN_language_name": {
+		"message": "ภาษาจีน (ตัวย่อ)"
+	},
+	"zh-TW_language_name": {
+		"message": "ภาษาจีน (ตัวเต็ม)"
 	},
 	"zm_country_name": {
 		"message": "แซมเบีย"

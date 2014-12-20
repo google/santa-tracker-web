@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia-Erzegovina"
 	},
+	"back_to_tracker": {
+		"message": "Torna al tracker"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "Costa d'Avorio"
+	},
+	"citylights-contribute": {
+		"message": "Aggiungi le tue foto di %location%"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, Stati Uniti"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Piazza Pushkin"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Mosca, Russia"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Vienna, Austria"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Campi Elisi direzione Arco di Trionfo"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Parigi, Francia"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, Stati Uniti"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Mercato di Natale"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Norimberga, Germania"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Río Medellín"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Colombia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Villaggio di Santa Claus"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lapponia, Finlandia"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Bruxelles, Belgio"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar Square"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Londra, Inghilterra"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Spagna"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Colline di Roppongi"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokyo, Giappone"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Giardini di Tivoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Copenhagen, Danimarca"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapore, Singapore"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Viale della Luce"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Göteborg, Svezia"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Winter Festival of Lights"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Cascate del Niagara, Canada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hong Kong, Cina"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Lago Rodrigo de Freitas"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brasile"
 	},
 	"cl_country_name": {
 		"message": "Cile"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "Costa Rica"
 	},
+	"cs_language_name": {
+		"message": "Ceco"
+	},
 	"cu_country_name": {
 		"message": "Cuba"
 	},
 	"cz_country_name": {
 		"message": "Repubblica Ceca"
+	},
+	"da_language_name": {
+		"message": "Danese"
 	},
 	"days": {
 		"message": "Giorni"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "Decora il tuo browser con un'estensione di Babbo Natale per Chrome."
 	},
+	"detected": {
+		"message": "rilevata"
+	},
+	"difficulty": {
+		"message": "Difficoltà"
+	},
 	"dk_country_name": {
 		"message": "Danimarca"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "Algeria"
 	},
+	"easy_difficulty": {
+		"message": "Facile"
+	},
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
 	"ee_country_name": {
 		"message": "Estonia"
+	},
+	"el_language_name": {
+		"message": "Greco"
+	},
+	"elvish_language_name": {
+		"message": "Elvish"
+	},
+	"en_language_name": {
+		"message": "Inglese"
 	},
 	"endofjourneymessage": {
 		"message": "Babbo Natale ha terminato il suo viaggio per quest'anno. Si trova ancora al Polo Nord, dove si sta divertendo ancora un po' in compagnia dei folletti prima della vacanza annuale."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "Riprova"
 	},
+	"es_language_name": {
+		"message": "Spagnolo"
+	},
 	"et_country_name": {
 		"message": "Etiopia"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "Francia"
+	},
+	"fr_language_name": {
+		"message": "Francese"
 	},
 	"fr_tradition": {
 		"message": "In Francia, la tradizione prevede che i bambini mettano le loro scarpe accanto al caminetto prima dell'arrivo di Père Noël. Se sono stati buoni durante l'anno, Père Noël riempirà le scarpe di doni."
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "Guiana"
 	},
+	"hard_difficulty": {
+		"message": "Difficile"
+	},
+	"hi_language_name": {
+		"message": "Hindi"
+	},
 	"hn_country_name": {
 		"message": "Honduras"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "Ungheria"
 	},
+	"hu_language_name": {
+		"message": "Ungherese"
+	},
 	"id_country_name": {
 		"message": "Indonesia"
 	},
 	"ie_country_name": {
 		"message": "Irlanda"
+	},
+	"improve_google_translate": {
+		"message": "Contribuisci a migliorare Google Traduttore"
 	},
 	"iq_country_name": {
 		"message": "Iraq"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "Italia"
 	},
+	"it_language_name": {
+		"message": "Italiano"
+	},
+	"ja_language_name": {
+		"message": "Giapponese"
+	},
 	"jm_country_name": {
 		"message": "Giamaica"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "In Kirghizistan, Ayaz Ata (Nonno Gelo) arriva alla mezzanotte del 31 dicembre e lascia i regali sotto l'Albero dell'anno nuovo. Allo scoccare della mezzanotte, le famiglie in tutto il Paese accendono i fuochi d'artificio per festeggiare il lieto evento e le città si illuminano a giorno."
+	},
+	"ko_language_name": {
+		"message": "Coreano"
 	},
 	"kz_country_name": {
 		"message": "Kazakistan"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "Moldavia"
+	},
+	"medium_difficulty": {
+		"message": "Medio"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "Paesi Bassi"
 	},
+	"nl_language_name": {
+		"message": "Olandese"
+	},
 	"no_country_name": {
 		"message": "Norvegia"
+	},
+	"no_language_name": {
+		"message": "Norvegese"
 	},
 	"nonprofit-jane-description": {
 		"message": "Nel regno animale, gli scimpanzé sono la specie vivente più vicina all'uomo. Oggi, ne rimangono meno di 300.000 a causa della perdita del loro habitat, delle malattie e del commercio illegale. Il Jane Goodall Institute (JGI) protegge gli scimpanzé osservandone e capendone i comportamenti e gli habitat in cui vivono. Il JGI lavora anche per creare una comunità di persone che proteggono e conservano la natura e l'ambiente in cui noi tutti viviamo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eEsplora gli habitat degli scimpanzé\u003c/a\u003e in Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Scimpanzé"
+	},
+	"nonprofit-more-information": {
+		"message": "Per ulteriori informazioni visita:"
 	},
 	"nonprofit-nature-description": {
 		"message": "La Nature Conservancy lavora per proteggere e risanare le foreste negli Stati Uniti e nel resto del mondo. Queste rinomate foreste sostengono la vita del pianeta: filtrano l'acqua, puliscono l'aria, supportano comunità di persone e costituiscono l'habitat naturale di importanti specie animali e vegetali. Con l'attuale tasso di deforestazione, tra 100 anni, le nostre foreste non esisteranno più. Il programma Plant a Billion Trees della Nature Conservancy si sta impegnando per piantare un miliardo di alberi entro il 2025 e risanare le foreste più importanti del mondo."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "Grande inaugurazione domani"
 	},
+	"ornament-print-instructions": {
+		"message": "Piega qui e incolla insieme i lati"
+	},
 	"pa_country_name": {
 		"message": "Panamá"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "Polonia"
 	},
+	"pl_language_name": {
+		"message": "Polacco"
+	},
 	"play": {
 		"message": "Gioca"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "Portorico"
 	},
+	"pt_language_name": {
+		"message": "Portoghese"
+	},
 	"py_country_name": {
 		"message": "Paraguay"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "Russia"
+	},
+	"ru_language_name": {
+		"message": "Russo"
 	},
 	"ru_tradition": {
 		"message": "I bambini russi decorano l'albero di Capodanno anziché l'albero di Natale. Attendono con ansia l'arrivo di Nonno Gelo che viaggia con la nipote, La Fanciulla di Neve, distribuendo doni su tutta la terra. Nonno Gelo vive nei boschi di Veliky Ustyug, nel nord della Russia."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "Slovacchia"
 	},
+	"sk_language_name": {
+		"message": "Slovacco"
+	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "El Salvador"
 	},
+	"sv_language_name": {
+		"message": "Svedese"
+	},
 	"td_country_name": {
 		"message": "Ciad"
 	},
@@ -605,11 +800,14 @@
 	"tg_country_name": {
 		"message": "Togo"
 	},
+	"th_language_name": {
+		"message": "Tailandese"
+	},
 	"tilt": {
 		"message": "Inclina il tuo dispositivo."
 	},
 	"time": {
-		"message": "Orario"
+		"message": "Tempo"
 	},
 	"tj_country_name": {
 		"message": "Tagikistan"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "Turchia"
+	},
+	"tr_language_name": {
+		"message": "Turco"
+	},
+	"tracker_arriving_in": {
+		"message": "Arrivo tra"
+	},
+	"tracker_current_stop": {
+		"message": "Fermata attuale"
+	},
+	"tracker_departing_in": {
+		"message": "Partenza tra"
+	},
+	"tracker_distance_from_you": {
+		"message": "Distanza da te"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Regali consegnati"
+	},
+	"tracker_next_stop": {
+		"message": "Prossima fermata"
+	},
+	"tracker_your_location": {
+		"message": "La tua posizione"
 	},
 	"traditions-next": {
 		"message": "Tradizione successiva"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgaria"
 	},
+	"trivia_ngb_promo": {
+		"message": "Contenuti tratti da: National Geographic Bee"
+	},
 	"tw_country_name": {
 		"message": "Taiwan"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "Yemen"
+	},
+	"zh-CN_language_name": {
+		"message": "Cinese (semplificato)"
+	},
+	"zh-TW_language_name": {
+		"message": "Cinese (tradizionale)"
 	},
 	"zm_country_name": {
 		"message": "Zambia"

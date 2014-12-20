@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia và Herzegovina"
 	},
+	"back_to_tracker": {
+		"message": "Quay lại Công cụ theo dõi"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
@@ -105,7 +108,7 @@
 		"message": "Gửi"
 	},
 	"cd_country_name": {
-		"message": "Cộng hòa Dân chủ Congo"
+		"message": "Cộng hòa dân chủ Congo"
 	},
 	"cf_country_name": {
 		"message": "Cộng hòa Trung Phi"
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "Bờ Biển Ngà"
+	},
+	"citylights-contribute": {
+		"message": "Thêm ảnh %location% của riêng bạn"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Trung tâm Rockefeller"
+	},
+	"citylights-panorama-01-location": {
+		"message": "Thành phố New York, Hoa Kỳ"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Quảng trường Pushkin"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moscow, Nga"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Vienna, Áo"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Từ Đại lộ Champs-Elysees đến Khải Hoàn Môn"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Paris, Pháp"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, Hoa Kỳ"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Hội chợ Giáng sinh"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nuremberg, Đức"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Sông Medellin"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Colombia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Ngôi làng của ông già Noel"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lapland, Phần Lan"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brussels, Bỉ"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Quảng trường Trafalgar"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Luân Đôn, Anh"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Quảng trường Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Tây Ban Nha"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokyo, Nhật Bản"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Công viên giải trí Tivoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Copenhagen, Đan Mạch"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Đại lộ Orchard"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapore, Singapore"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Lane of Light"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Gothenburg, Thụy Điển"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Lễ hội ánh sáng mùa đông"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Thác Niagara, Canada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "Lễ hội mùa đông"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hồng Kông, Trung Quốc"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Hồ Rodrigo de Freitas"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Braxin"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "Costa Rica"
 	},
+	"cs_language_name": {
+		"message": "Tiếng Séc"
+	},
 	"cu_country_name": {
 		"message": "Cuba"
 	},
 	"cz_country_name": {
 		"message": "Cộng hòa Séc"
+	},
+	"da_language_name": {
+		"message": "Tiếng Đan Mạch"
 	},
 	"days": {
 		"message": "Ngày"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "Trang trí trình duyệt của bạn bằng tiện ích Ông già Noel của Chrome."
 	},
+	"detected": {
+		"message": "được phát hiện"
+	},
+	"difficulty": {
+		"message": "Độ khó"
+	},
 	"dk_country_name": {
 		"message": "Đan Mạch"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "Algeria"
 	},
+	"easy_difficulty": {
+		"message": "Dễ"
+	},
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
 	"ee_country_name": {
 		"message": "Estonia"
+	},
+	"el_language_name": {
+		"message": "Tiếng Hy Lạp"
+	},
+	"elvish_language_name": {
+		"message": "Elvish"
+	},
+	"en_language_name": {
+		"message": "Tiếng Anh"
 	},
 	"endofjourneymessage": {
 		"message": "Ông già Noel đã hoàn tất cuộc hành trình của mình trong năm nay! Ông già Noel và các chú lùn vẫn đang đùa vui ở Bắc Cực trước kỳ nghỉ hàng năm của họ."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "Thử lại"
 	},
+	"es_language_name": {
+		"message": "Tiếng Tây Ban Nha"
+	},
 	"et_country_name": {
 		"message": "Ethiopia"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "Pháp"
+	},
+	"fr_language_name": {
+		"message": "Tiếng Pháp"
 	},
 	"fr_tradition": {
 		"message": "Ở Pháp, theo truyền thống, trẻ em đặt giày của chúng bên cạnh lò sưởi để mong đợi ông già Noel sẽ đến. Nếu trẻ em làm điều tốt trong suốt cả năm, thì ông già Noel sẽ nhét đầy quà vào những đôi giày của chúng."
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "Guyana"
 	},
+	"hard_difficulty": {
+		"message": "Khó"
+	},
+	"hi_language_name": {
+		"message": "Tiếng Hindi"
+	},
 	"hn_country_name": {
 		"message": "Honduras"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "Hungary"
 	},
+	"hu_language_name": {
+		"message": "Tiếng Hungary"
+	},
 	"id_country_name": {
 		"message": "Indonesia"
 	},
 	"ie_country_name": {
 		"message": "Ireland"
+	},
+	"improve_google_translate": {
+		"message": "Giúp cải thiện Google Dịch"
 	},
 	"iq_country_name": {
 		"message": "Iraq"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "Ý"
 	},
+	"it_language_name": {
+		"message": "Tiếng Ý"
+	},
+	"ja_language_name": {
+		"message": "Tiếng Nhật"
+	},
 	"jm_country_name": {
 		"message": "Jamaica"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "Tại Kyrgyzstan, Ayaz Ata (Ông già tuyết) đến lúc nửa đêm vào Đêm giao thừa và để lại những món quà bên dưới cây Năm mới. Khi đồng hồ điểm nửa đêm, các gia đình trên khắp quốc gia đốt pháo hoa để ăn mừng dịp lễ tươi đẹp này. Các thành phố trở nên sáng rực như ban ngày."
+	},
+	"ko_language_name": {
+		"message": "Tiếng Hàn"
 	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "Moldova"
+	},
+	"medium_difficulty": {
+		"message": "Trung bình"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "Hà Lan"
 	},
+	"nl_language_name": {
+		"message": "Tiếng Hà Lan"
+	},
 	"no_country_name": {
 		"message": "Na Uy"
+	},
+	"no_language_name": {
+		"message": "Tiếng Na Uy"
 	},
 	"nonprofit-jane-description": {
 		"message": "Tinh tinh là họ hàng gần nhất với con người trong thế giới động vật! Ngày nay còn lại không quá 300.000 tinh tinh do môi trường sống bị mất, bệnh tật và buôn bán bất hợp pháp. Jane Goodall Institute (JGI) bảo vệ tinh tinh bằng cách quan sát và hiểu hành vi cũng như môi trường sống của chúng. JGI cũng làm việc để xây dựng một cộng đồng những người đang bảo vệ và bảo tồn động vật hoang dã cũng như môi trường chúng ta đang sống. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eKhám phá môi trường sống của Tinh tinh\u003c/a\u003e ở Gombe thuộc Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Tinh tinh"
+	},
+	"nonprofit-more-information": {
+		"message": "Để biết thêm thông tin, hãy truy cập vào:"
 	},
 	"nonprofit-nature-description": {
 		"message": "Nature Conservancy làm việc để bảo vệ và khôi phục rừng ở Hoa Kỳ cũng như khắp nơi trên thế giới. Những khu rừng mẫu này duy trì sự sống trên khắp hành tinh. Chúng lọc nước, làm sạch không khí, hỗ trợ cộng đồng người và cung cấp môi trường sống cho các loài thực vật và động vật quan trọng. Với tốc độ phá rừng hiện tại, các khu rừng của chúng ta sẽ bị xóa sổ trong vòng 100 năm tới. Chương trình Trồng 1 tỷ cây xanh của Nature Conservancy đang làm việc để trồng 1 tỷ cây xanh trước năm 2025 và khôi phục những khu rừng quan trọng nhất trên thế giới."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "Mở chính thức vào ngày mai"
 	},
+	"ornament-print-instructions": {
+		"message": "Gấp lại tại đây và dán các cạnh lại"
+	},
 	"pa_country_name": {
 		"message": "Panama"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "Ba Lan"
 	},
+	"pl_language_name": {
+		"message": "Tiếng Ba Lan"
+	},
 	"play": {
 		"message": "Chơi"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"pt_language_name": {
+		"message": "Tiếng Bồ Đào Nha"
+	},
 	"py_country_name": {
 		"message": "Paraguay"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "Nga"
+	},
+	"ru_language_name": {
+		"message": "Tiếng Nga"
 	},
 	"ru_tradition": {
 		"message": "Trẻ em Nga trang trí cây Năm mới, thay vì cây Giáng sinh. Trẻ em khao khát đợi Ông già tuyết đến cùng với người cháu gái của ông là Snowmaiden, phát quà trên khắp đất nước. Ông già tuyết sống sâu trong rừng ở Veliky Ustyug, miền bắc nước Nga."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "Slovakia"
 	},
+	"sk_language_name": {
+		"message": "Tiếng Slovak"
+	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "El Salvador"
 	},
+	"sv_language_name": {
+		"message": "Tiếng Thụy Điển"
+	},
 	"td_country_name": {
 		"message": "Chad"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Tiếng Thái"
 	},
 	"tilt": {
 		"message": "Nghiêng thiết bị của bạn!"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "Thổ Nhĩ Kỳ"
+	},
+	"tr_language_name": {
+		"message": "Tiếng Thổ Nhĩ Kỳ"
+	},
+	"tracker_arriving_in": {
+		"message": "Đến sau"
+	},
+	"tracker_current_stop": {
+		"message": "Điểm dừng hiện tại"
+	},
+	"tracker_departing_in": {
+		"message": "Khởi hành sau"
+	},
+	"tracker_distance_from_you": {
+		"message": "Khoảng cách từ bạn"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Số lượng quà tặng được phát"
+	},
+	"tracker_next_stop": {
+		"message": "Điểm dừng tiếp theo"
+	},
+	"tracker_your_location": {
+		"message": "Vị trí của bạn"
 	},
 	"traditions-next": {
 		"message": "Truyền thống tiếp theo"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bungari"
 	},
+	"trivia_ngb_promo": {
+		"message": "Nội dung của National Geographic Bee"
+	},
 	"tw_country_name": {
 		"message": "Đài Loan"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "Yemen"
+	},
+	"zh-CN_language_name": {
+		"message": "Tiếng Trung (giản thể)"
+	},
+	"zh-TW_language_name": {
+		"message": "Tiếng Trung (phồn thể)"
 	},
 	"zm_country_name": {
 		"message": "Zambia"

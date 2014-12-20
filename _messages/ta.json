@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "போஸ்னியா மற்றும் ஹெர்ஸெகோவினா"
 	},
+	"back_to_tracker": {
+		"message": "ட்ராக்கருக்கு திரும்புக"
+	},
 	"bd_country_name": {
 		"message": "வங்காளதேசம்"
 	},
@@ -105,7 +108,7 @@
 		"message": "அனுப்பு"
 	},
 	"cd_country_name": {
-		"message": "காங்கோ ஜனநாயக் குடியரசு"
+		"message": "காங்கோ ஜனநாயகக் குடியரசு"
 	},
 	"cf_country_name": {
 		"message": "மத்திய ஆப்பிரிக்கக் குடியரசு"
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "கோட்டெ டி'இவாய்ர்"
+	},
+	"citylights-contribute": {
+		"message": "%location%-இன் உங்கள் சொந்த புகைப்படங்களைச் சேர்க்கவும்"
+	},
+	"citylights-panorama-01-description": {
+		"message": "ராக்கெஃபெல்லெர் பிளாசா"
+	},
+	"citylights-panorama-01-location": {
+		"message": "நியூயார்க் நகரம், அமெரிக்கா"
+	},
+	"citylights-panorama-02-description": {
+		"message": "புஷ்கின் சதுக்கம்"
+	},
+	"citylights-panorama-02-location": {
+		"message": "மாஸ்கோ, ரஷ்யா"
+	},
+	"citylights-panorama-03-description": {
+		"message": "ரதாஸ்ப்ளாட்ஸ்"
+	},
+	"citylights-panorama-03-location": {
+		"message": "வியன்னா, ஆஸ்திரியா"
+	},
+	"citylights-panorama-04-description": {
+		"message": "ஆர்க் டி ட்ரியோம்பெ-க்கான சேம்ப்ஸ்-எலைசீஸ்"
+	},
+	"citylights-panorama-04-location": {
+		"message": "பாரீஸ், பிரான்ஸ்"
+	},
+	"citylights-panorama-05-description": {
+		"message": "மெக்னிஃபிஷியன்ட் மைல்"
+	},
+	"citylights-panorama-05-location": {
+		"message": "சிகாகோ, அமெரிக்கா"
+	},
+	"citylights-panorama-06-description": {
+		"message": "கிறிஸ்துமஸ் சந்தை"
+	},
+	"citylights-panorama-06-location": {
+		"message": "நுரெம்பெர்க், ஜெர்மனி"
+	},
+	"citylights-panorama-07-description": {
+		"message": "மெடெல்லின் நதி"
+	},
+	"citylights-panorama-07-location": {
+		"message": "மெடெல்லின், கொலம்பியா"
+	},
+	"citylights-panorama-08-description": {
+		"message": "சான்டா க்ளாஸ் கிராமம்"
+	},
+	"citylights-panorama-08-location": {
+		"message": "லேப்லாந்து, பின்லாந்து"
+	},
+	"citylights-panorama-09-description": {
+		"message": "கிராண்ட் ப்ளேஸ்"
+	},
+	"citylights-panorama-09-location": {
+		"message": "பிரஸ்ஸெல்ஸ், பெல்ஜியம்"
+	},
+	"citylights-panorama-10-description": {
+		"message": "டிராஃபல்கர் சதுக்கம்"
+	},
+	"citylights-panorama-10-location": {
+		"message": "லண்டன், இங்கிலாந்து"
+	},
+	"citylights-panorama-11-description": {
+		"message": "பிளாசா மேயர்"
+	},
+	"citylights-panorama-11-location": {
+		"message": "மாட்ரிட், ஸ்பெயின்"
+	},
+	"citylights-panorama-12-description": {
+		"message": "ரொப்போங்கி மலைகள்"
+	},
+	"citylights-panorama-12-location": {
+		"message": "டோக்கியோ, ஜப்பான்"
+	},
+	"citylights-panorama-13-description": {
+		"message": "டிவோலி தோட்டங்கள்"
+	},
+	"citylights-panorama-13-location": {
+		"message": "கோபன்ஹேகன், டென்மார்க்"
+	},
+	"citylights-panorama-14-description": {
+		"message": "ஆர்ச்சர்ட் சாலை"
+	},
+	"citylights-panorama-14-location": {
+		"message": "சிங்கப்பூர், சிங்கப்பூர்"
+	},
+	"citylights-panorama-15-description": {
+		"message": "லேன் ஆஃப் லைட்"
+	},
+	"citylights-panorama-15-location": {
+		"message": "கோதென்பர்க், சுவீடன்"
+	},
+	"citylights-panorama-16-description": {
+		"message": "குளிர்கால தீபங்களின் பண்டிகை"
+	},
+	"citylights-panorama-16-location": {
+		"message": "நயாகரா நீர்வீழ்ச்சி, கனடா"
+	},
+	"citylights-panorama-17-description": {
+		"message": "வின்டர்ஃபெஸ்ட்"
+	},
+	"citylights-panorama-17-location": {
+		"message": "ஹாங்காங், சீனா"
+	},
+	"citylights-panorama-18-description": {
+		"message": "ரோட்ரிகோ டி ஃப்ரீடஸ் ஏரி"
+	},
+	"citylights-panorama-18-location": {
+		"message": "ரியோ டி ஜெனிரோ, பிரேசில்"
 	},
 	"cl_country_name": {
 		"message": "சிலி"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "கோஸ்டா ரிகா"
 	},
+	"cs_language_name": {
+		"message": "செக்"
+	},
 	"cu_country_name": {
 		"message": "கியூபா"
 	},
 	"cz_country_name": {
 		"message": "செக் குடியரசு"
+	},
+	"da_language_name": {
+		"message": "டேனிஷ்"
 	},
 	"days": {
 		"message": "நாட்கள்"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "உங்கள் உலாவியை சான்டா Chrome நீட்டிப்புடன் அலங்கரிக்கவும்."
 	},
+	"detected": {
+		"message": "கண்டறியப்பட்டது"
+	},
+	"difficulty": {
+		"message": "கடினம்"
+	},
 	"dk_country_name": {
 		"message": "டென்மார்க்"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "அல்ஜீரியா"
 	},
+	"easy_difficulty": {
+		"message": "சுலபம்"
+	},
 	"ec_country_name": {
 		"message": "ஈக்வடோர்"
 	},
 	"ee_country_name": {
 		"message": "எஸ்டோனியா"
+	},
+	"el_language_name": {
+		"message": "கிரேக்கம்"
+	},
+	"elvish_language_name": {
+		"message": "எல்விஷ்"
+	},
+	"en_language_name": {
+		"message": "ஆங்கிலம்"
 	},
 	"endofjourneymessage": {
 		"message": "இந்த ஆண்டு கிறிஸ்துமஸ் பயணத்தை சான்டா முடித்து விட்டார்! அடுத்த ஆண்டு விடுமுறை வரும் வரை அவரும் அவரது குட்டி தேவதைகளும் வட துருவத்தில் வேடிக்கையாக காலத்தைக் கழிப்பார்கள்."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "மீண்டும் முயற்சிக்கவும்"
 	},
+	"es_language_name": {
+		"message": "ஸ்பானிஷ்"
+	},
 	"et_country_name": {
 		"message": "எத்தியோப்பியா"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "ஃபிரான்ஸ்"
+	},
+	"fr_language_name": {
+		"message": "பிரெஞ்சு"
 	},
 	"fr_tradition": {
 		"message": "ஃபிரான்ஸ் நாட்டில், குழந்தைகள் பாரம்பரியமாக பெரி நோயல்  வருகையை எதிர்பார்த்து நெருப்பு மூட்டிய இடத்திற்கு அருகில் தங்களது காலணிகளை வைத்து விடுவார்கள். குழந்தைகள் ஆண்டு முழுவதும் நல்ல காரியங்களைச் செய்திருந்தால், பெரி நோயல்  அவர்கள் காலணிகளில் பரிசுகளை நிரப்பி விட்டுச் செல்வார்."
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "கயானா"
 	},
+	"hard_difficulty": {
+		"message": "கடினம்"
+	},
+	"hi_language_name": {
+		"message": "ஹிந்தி"
+	},
 	"hn_country_name": {
 		"message": "ஹோண்டுராஸ்"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "ஹங்கேரி"
 	},
+	"hu_language_name": {
+		"message": "ஹங்கேரியன்"
+	},
 	"id_country_name": {
 		"message": "இந்தோனேஷியா"
 	},
 	"ie_country_name": {
 		"message": "அயர்லாந்து"
+	},
+	"improve_google_translate": {
+		"message": "Google Translate-ஐ மேம்படுத்த உதவுக"
 	},
 	"iq_country_name": {
 		"message": "ஈராக்"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "இத்தாலி"
 	},
+	"it_language_name": {
+		"message": "இத்தாலியன்"
+	},
+	"ja_language_name": {
+		"message": "ஜப்பானீஸ்"
+	},
 	"jm_country_name": {
 		"message": "ஜமைக்கா"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "கிர்கிஸ்தான் நாட்டில், Ayaz Ata (பனித் தாத்தா) என்றழைக்கப்படும் குளிர்காலக் கடவுள், புத்தாண்டு தின நள்ளிரவில் வந்து புத்தாண்டு மரத்தின் கீழ் பரிசுகளை விட்டுச் செல்வார். சரியாக புத்தாண்டு பிறக்கும் நள்ளிரவு நேரம் வந்தவுடன், நாடு முழுவதும் உள்ள குடும்பத்தினர் அனைவரும் வானவேடிக்கை வெடித்து, அழகான இந்தத் தருணத்தைக் கொண்டாடுவார்கள். இந்த நாளில் நகரங்கள் அனைத்தும் மிகப் பிரகாசமாகக் காட்சியளிக்கும்."
+	},
+	"ko_language_name": {
+		"message": "கொரியன்"
 	},
 	"kz_country_name": {
 		"message": "கஜகஸ்தான்"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "மால்டோவா"
+	},
+	"medium_difficulty": {
+		"message": "நடுத்தர"
 	},
 	"mg_country_name": {
 		"message": "மடகாஸ்கர்"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "நெதர்லாந்து"
 	},
+	"nl_language_name": {
+		"message": "டச்சு"
+	},
 	"no_country_name": {
 		"message": "நார்வே"
+	},
+	"no_language_name": {
+		"message": "நார்வேஜியன்"
 	},
 	"nonprofit-jane-description": {
 		"message": "விலங்கு வகைகளில், சிம்பன்ஸிகள் தான் மனித இனத்துக்கு நெருக்கமான உயிர் வாழும் உயிரினம்! வாழ்விடம் அழிந்து வருவது, நோய் மற்றும் சட்டவிரோதமான வியாபாரம் போன்ற காரணங்களினால் இன்றளவில் 300,000 சிம்பன்ஸிகளுக்கும் குறைவாகவே உலகத்தில் மிஞ்சியிருப்பதாகக் கூறப்படுகிறது, கிளிட்டர் மற்றும் கோஸ்ஸமர் போன்ற சிம்பன்ஸிகளின் நடத்தை மற்றும் வாழ்விடங்களைக் கவனித்துப் புரிந்துகொண்டு Jane Goodall Institute (JGI) அவற்றைப் பாதுகாக்கிறது. நாம் வாழும் சுற்றுச்சூழல் மற்றும் வன உயிரினங்களைப் பாதுகாக்கும் ஒரு சமூகத்தை உருவாக்குவதற்காகவும் JGI பணியாற்றுகிறது. தன்சானியா நாட்டில் உள்ள கோம்பே தேசியப் பூங்காவில் உள்ள \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eசிம்பன்ஸி வாழ்விடங்களைப் பாருங்கள்\u003c/a\u003e."
 	},
 	"nonprofit-jane-type": {
 		"message": "சிம்பன்ஸி"
+	},
+	"nonprofit-more-information": {
+		"message": "மேலும் விவரங்களுக்கு காணுங்கள்:"
 	},
 	"nonprofit-nature-description": {
 		"message": "யுனைடெட் ஸ்டேட்ஸிலும், உலகெங்கிலும் உள்ள காடுகளைப் பாதுகாப்பதிலும் மீளமைப்பதிலும் Nature Conservancy அமைப்பு பணியாற்றி வருகிறது, இது போன்ற மிகப்பெரிய காடுகள் நாம் வாழும் கிரகம் முழுவதும் உள்ள உயிரினங்களை நிலைபெறச் செய்கிறது. அவை நீரை வடிகட்டுகின்றன, காற்றைத் தூய்மைப்படுத்துகின்றன, மக்கள் சமுதாயத்துக்கு உதவி செய்கின்றன, முக்கியமான தாவரங்கள் மற்றும் விலங்கினங்களுக்கு வாழ்விடத்தை வழங்குகின்றன. இப்போது காடுகள் அழியும் வேகத்தில் 100 ஆண்டுகளுக்குள் நம்முடைய காடுகள் முற்றிலும் அழிந்தொழிந்துவிடும். Nature Conservancy அமைப்பின் 1 பில்லியன் மரங்களை நடும் (Plant a Billion Trees) திட்டத்தின் மூலம் அந்த அமைப்பு, 2025 ஆம் ஆண்டுக்குள் 1 பில்லியன் (100 கோடி) மரங்களை நடுவதற்கும், உலகின் மிக முக்கியத்துவம் வாய்ந்த காடுகளை மீட்டெடுக்கவும் பணியாற்றி வருகிறது."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "பிரமாண்டமான நாளைய காட்சி"
 	},
+	"ornament-print-instructions": {
+		"message": "இங்கு மடித்து, பக்கவாட்டுகளை ஒன்றாக ஒட்டவும்"
+	},
 	"pa_country_name": {
 		"message": "பனாமா"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "போலந்து"
 	},
+	"pl_language_name": {
+		"message": "போலிஷ்"
+	},
 	"play": {
 		"message": "இயக்கு"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "போர்டோ ரிக்கோ"
 	},
+	"pt_language_name": {
+		"message": "போர்ச்சுகீஸ்"
+	},
 	"py_country_name": {
 		"message": "பராகுவே"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "ரஷ்யா"
+	},
+	"ru_language_name": {
+		"message": "ரஷியன்"
 	},
 	"ru_tradition": {
 		"message": "ரஷ்ய நாட்டுக் குழந்தைகள் கிறிஸ்துமஸ் மரத்துக்குப் பதிலாக, புத்தாண்டு மரத்தை அலங்கரிப்பார்கள். ஸ்னோமெய்டன் என்றழைக்கப்படும் தனது பேத்தியுடன் பயணித்து, வழியெங்கும் பரிசுகளை வழங்கிவரும் பனித் தாத்தாவின் வருகைக்காக குழந்தைகள் காத்துக் கொண்டிருப்பார்கள். வடக்கு ரஷ்யாவின் வெலீகீயி உஸ்டக் பகுதியில் உள்ள அடர்ந்த காட்டுக்குள் பனித் தாத்தா வாழ்கிறார்."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "ஸ்லோவாக்கியா"
 	},
+	"sk_language_name": {
+		"message": "ஸ்லோவாக்"
+	},
 	"sl_country_name": {
 		"message": "சியரா லியோன்"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "எல் சால்வேடார்"
 	},
+	"sv_language_name": {
+		"message": "ஸ்வீடிஷ்"
+	},
 	"td_country_name": {
 		"message": "சாத்"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "டோகோ"
+	},
+	"th_language_name": {
+		"message": "தாய்"
 	},
 	"tilt": {
 		"message": "உங்கள் சாதனத்தைச் சாய்க்கவும்!"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "துருக்கி"
+	},
+	"tr_language_name": {
+		"message": "டர்கிஷ்"
+	},
+	"tracker_arriving_in": {
+		"message": "வரும் நேரம்"
+	},
+	"tracker_current_stop": {
+		"message": "நடப்பு நிறுத்தம்"
+	},
+	"tracker_departing_in": {
+		"message": "புறப்படும் நேரம்"
+	},
+	"tracker_distance_from_you": {
+		"message": "உங்களிடமிருந்துள்ள தூரம்"
+	},
+	"tracker_gifts_delivered": {
+		"message": "பரிசுகள் வழங்கப்பட்டன"
+	},
+	"tracker_next_stop": {
+		"message": "அடுத்த நிறுத்தம்"
+	},
+	"tracker_your_location": {
+		"message": "உங்கள் இருப்பிடம்"
 	},
 	"traditions-next": {
 		"message": "அடுத்த மரபு"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "பல்கேரியா"
 	},
+	"trivia_ngb_promo": {
+		"message": "நேஷனல் ஜியாக்ரஃபிக் பீ வழங்கும் உள்ளடக்கம்"
+	},
 	"tw_country_name": {
 		"message": "தைவான்"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "ஏமன்"
+	},
+	"zh-CN_language_name": {
+		"message": "சீனம் (எளிதாக்கப்பட்டது)"
+	},
+	"zh-TW_language_name": {
+		"message": "சீனம் (மரபுவழி)"
 	},
 	"zm_country_name": {
 		"message": "ஜாம்பியா"

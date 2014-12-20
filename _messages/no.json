@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia-Hercegovina"
 	},
+	"back_to_tracker": {
+		"message": "Tilbake til «Følg julenissen»"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "Elfenbenskysten"
+	},
+	"citylights-contribute": {
+		"message": "Legg til dine egne bilder av %location%"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, USA"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Pushkin-plassen"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moskva, Russland"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Wien, Østerrike"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Champs-Elysees til Arc de Triomphe"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Paris, Frankrike"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, USA"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Julemarkedet"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nürnberg, Tyskland"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Medellin-elven"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Colombia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Julenissens landsby"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lappland, Finland"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brüssel, Belgia"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar Square"
+	},
+	"citylights-panorama-10-location": {
+		"message": "London, England"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Spania"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi-fjellene"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokyo, Japan"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Tivoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "København, Danmark"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapore, Singapore"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Lysgaten"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Gøteborg, Sverige"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Vinterens lysfestival"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagara Falls, Canada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hong Kong, Kina"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Rodrigo de Freitas-sjøen"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brasil"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "Costa Rica"
 	},
+	"cs_language_name": {
+		"message": "Tsjekkisk"
+	},
 	"cu_country_name": {
 		"message": "Cuba"
 	},
 	"cz_country_name": {
 		"message": "Tsjekkia"
+	},
+	"da_language_name": {
+		"message": "Dansk"
 	},
 	"days": {
 		"message": "dager"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "Kle opp nettleseren din med julenisseutvidelsen til Chrome."
 	},
+	"detected": {
+		"message": "registrert"
+	},
+	"difficulty": {
+		"message": "Vanskelighetsgrad"
+	},
 	"dk_country_name": {
 		"message": "Danmark"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "Algerie"
 	},
+	"easy_difficulty": {
+		"message": "Enkelt"
+	},
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
 	"ee_country_name": {
 		"message": "Estland"
+	},
+	"el_language_name": {
+		"message": "Gresk"
+	},
+	"elvish_language_name": {
+		"message": "Alvisk"
+	},
+	"en_language_name": {
+		"message": "Engelsk"
 	},
 	"endofjourneymessage": {
 		"message": "Nissen er ferdig med årets reise! Han og alvene morer seg fremdeles på Nordpolen før den årlige ferien."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "Prøv igjen"
 	},
+	"es_language_name": {
+		"message": "Spansk"
+	},
 	"et_country_name": {
 		"message": "Etiopia"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "Frankrike"
+	},
+	"fr_language_name": {
+		"message": "Fransk"
 	},
 	"fr_tradition": {
 		"message": "I Frankrike setter barna tradisjonelt skoene sine ved siden av peisen i påvente av at Père Noël skal komme. Hvis barna har vært snille gjennom hele året, fyller Père Noël skoene med gaver."
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "Guyana"
 	},
+	"hard_difficulty": {
+		"message": "Vanskelig"
+	},
+	"hi_language_name": {
+		"message": "Hindi"
+	},
 	"hn_country_name": {
 		"message": "Honduras"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "Ungarn"
 	},
+	"hu_language_name": {
+		"message": "Ungarsk"
+	},
 	"id_country_name": {
 		"message": "Indonesia"
 	},
 	"ie_country_name": {
 		"message": "Irland"
+	},
+	"improve_google_translate": {
+		"message": "Bidra til å forbedre Google Oversetter"
 	},
 	"iq_country_name": {
 		"message": "Irak"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "Italia"
 	},
+	"it_language_name": {
+		"message": "Italiensk"
+	},
+	"ja_language_name": {
+		"message": "Japansk"
+	},
 	"jm_country_name": {
 		"message": "Jamaica"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "I Kirgisistan kommer Ayaz Ata (Bestefar Frost) ved midnatt på nyttårsaften og legger gaver under nyttårstreet. Når klokken slår midnatt, sender familier over hele landet opp fyrverkeri for å feire inngangen til det nye året, og byene lyser opp som om det var midt på dagen."
+	},
+	"ko_language_name": {
+		"message": "Koreansk"
 	},
 	"kz_country_name": {
 		"message": "Kasakhstan"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "Moldova"
+	},
+	"medium_difficulty": {
+		"message": "Middels"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "Nederland"
 	},
+	"nl_language_name": {
+		"message": "Nederlandsk"
+	},
 	"no_country_name": {
 		"message": "Norge"
+	},
+	"no_language_name": {
+		"message": "Norsk"
 	},
 	"nonprofit-jane-description": {
 		"message": "Sjimpansene er menneskets nærmeste levende slektninger i dyreriket. I dag finnes det færre enn 300 000 sjimpanser. Dette skyldes tap av leveområde, sykdom og ulovlig handel. Jane Goodall Institute (JGI) beskytter sjimpansene ved å observere og forstå atferden deres så vel som områdene der de bor. JGI jobber også for å bygge opp et felleskap av folk som beskytter og bevarer dyrelivet og miljøet vi alle deler. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUtforsk sjimpansenes leveområder\u003c/a\u003e i Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Sjimpanse"
+	},
+	"nonprofit-more-information": {
+		"message": "Hvis du vil ha mer informasjon, gå til:"
 	},
 	"nonprofit-nature-description": {
 		"message": "Nature Conservancy jobber for å bevare og fornye skogsområder i USA og verden rundt. Disse ikoniske skogene gir livsgrunnlag over hele planeten. De filtrerer vannet, renser luften, understøtter menneskesamfunn og er leveområde for viktige plante- og dyrearter. Hvis dagens avskoging fortsetter i samme tempo som nå, er skogene våre utryddet i løpet av 100 år. I Nature Conservancys program kalt Plant a Billion Trees (plant en milliard trær) jobber man for å plante én milliard trær innen 2025 og gjenopprette verdens viktigste skogsområder."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "Stor åpning i morgen"
 	},
+	"ornament-print-instructions": {
+		"message": "Brett her, og lim sammen sidene"
+	},
 	"pa_country_name": {
 		"message": "Panama"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "Polen"
 	},
+	"pl_language_name": {
+		"message": "Polsk"
+	},
 	"play": {
 		"message": "Spill"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"pt_language_name": {
+		"message": "Portugisisk"
+	},
 	"py_country_name": {
 		"message": "Paraguay"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "Russland"
+	},
+	"ru_language_name": {
+		"message": "Russisk"
 	},
 	"ru_tradition": {
 		"message": "Russiske barn pynter et nyttårstre, og ikke et juletre. Barna venter lengselsfullt på Bestefar Frost som reiser sammen med barnebarnet Snøjomfruen, og leverer gaver over hele landet. Bestefar Frost bor langt inne i skogen i Velikij Ustjug i det nordlige Russland."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "Slovakia"
 	},
+	"sk_language_name": {
+		"message": "Slovakisk"
+	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "El Salvador"
 	},
+	"sv_language_name": {
+		"message": "Svensk"
+	},
 	"td_country_name": {
 		"message": "Tsjad"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Thai"
 	},
 	"tilt": {
 		"message": "Vipp enheten din!"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "Tyrkia"
+	},
+	"tr_language_name": {
+		"message": "Tyrkisk"
+	},
+	"tracker_arriving_in": {
+		"message": "Ankommer om"
+	},
+	"tracker_current_stop": {
+		"message": "Nåværende stopp"
+	},
+	"tracker_departing_in": {
+		"message": "Reiser om"
+	},
+	"tracker_distance_from_you": {
+		"message": "Avstand fra deg"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Antall leverte gaver"
+	},
+	"tracker_next_stop": {
+		"message": "Neste stopp"
+	},
+	"tracker_your_location": {
+		"message": "Din posisjon"
 	},
 	"traditions-next": {
 		"message": "Neste tradisjon"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgaria"
 	},
+	"trivia_ngb_promo": {
+		"message": "Innholdet er levert av National Geographic Bee"
+	},
 	"tw_country_name": {
 		"message": "Taiwan"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "Jemen"
+	},
+	"zh-CN_language_name": {
+		"message": "Kinesisk (forenklet)"
+	},
+	"zh-TW_language_name": {
+		"message": "Kinesisk (tradisjonell)"
 	},
 	"zm_country_name": {
 		"message": "Zambia"

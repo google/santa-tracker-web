@@ -123,7 +123,7 @@
 		"message": "Côte d'Ivoire"
 	},
 	"citylights-contribute": {
-		"message": "Add your own photos of {{location}}"
+		"message": "Add your own photos of %location%"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -818,6 +818,9 @@
 	"tn_country_name": {
 		"message": "Tunisia"
 	},
+	"today_only": {
+		"message": "Today only"
+	},
 	"tr_country_name": {
 		"message": "Turkey"
 	},
@@ -839,20 +842,29 @@
 	"tracker_gifts_delivered": {
 		"message": "Gifts delivered"
 	},
-	"tracker_next_stop": {
-		"message": "Next stop"
-	},
-	"tracker_your_location": {
-		"message": "Your location"
-	},
-	"tracker_intro_welcome": {
-		"message": "Welcome to"
+	"tracker_intro_skip_intro": {
+		"message": "Skip intro"
 	},
 	"tracker_intro_user_location": {
 		"message": "You are in"
 	},
-	"tracker_intro_skip_intro": {
-		"message": "Skip intro"
+	"tracker_intro_welcome": {
+		"message": "Welcome to"
+	},
+	"tracker_next_stop": {
+		"message": "Next stop"
+	},
+	"tracker_santa_update": {
+		"message": "Santa Update"
+	},
+	"tracker_see_route": {
+		"message": "See the route"
+	},
+	"tracker_world_facts": {
+		"message": "World Facts"
+	},
+	"tracker_your_location": {
+		"message": "Your location"
 	},
 	"traditions-next": {
 		"message": "Next Tradition"

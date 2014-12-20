@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bòsnia i Hercegovina"
 	},
+	"back_to_tracker": {
+		"message": "Torna a l'eina de seguiment"
+	},
 	"bd_country_name": {
 		"message": "Bangla Desh"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "Costa d'Ivori"
+	},
+	"citylights-contribute": {
+		"message": "Afegiu fotos vostres de %location%"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "Nova York, EUA"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Plaça Pushkin"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moscou, Rússia"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz (Plaça de l'Ajuntament)"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Viena, Àustria"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Camps Elisis a l'Arc de Triomf"
+	},
+	"citylights-panorama-04-location": {
+		"message": "París, França"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile (Milla d'Or)"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, EUA"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Mercat de Nadal"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nuremberg, Alemanya"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Riu Medellín"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellín, Colòmbia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Vila de Santa Claus"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lapònia, Finlàndia"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brussel·les, Bèlgica"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar Square"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Londres, Anglaterra"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Espanya"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tòquio, Japó"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Jardins de Tívoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Copenhaguen, Dinamarca"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapur, Singapur"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Camí de la Llum"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Göteborg, Suècia"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Festival d'Hivern de les Llums"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Cascades del Niàgara, Canadà"
+	},
+	"citylights-panorama-17-description": {
+		"message": "Festival d'Hivern"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hong Kong, Xina"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Llac Rodrigo de Freitas"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brasil"
 	},
 	"cl_country_name": {
 		"message": "Xile"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "Costa Rica"
 	},
+	"cs_language_name": {
+		"message": "Txec"
+	},
 	"cu_country_name": {
 		"message": "Cuba"
 	},
 	"cz_country_name": {
 		"message": "República Txeca"
+	},
+	"da_language_name": {
+		"message": "Danès"
 	},
 	"days": {
 		"message": "Dies"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "Adorneu el navegador amb l'extensió de Segueix el Pare Noel."
 	},
+	"detected": {
+		"message": "detectat"
+	},
+	"difficulty": {
+		"message": "Dificultat"
+	},
 	"dk_country_name": {
 		"message": "Dinamarca"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "Algèria"
 	},
+	"easy_difficulty": {
+		"message": "Senzilla"
+	},
 	"ec_country_name": {
 		"message": "Equador"
 	},
 	"ee_country_name": {
 		"message": "Estònia"
+	},
+	"el_language_name": {
+		"message": "Grec"
+	},
+	"elvish_language_name": {
+		"message": "Èlfic"
+	},
+	"en_language_name": {
+		"message": "Anglès"
 	},
 	"endofjourneymessage": {
 		"message": "El Pare Noel ha arribat al final del seu viatge d'aquest any. Seguirà passant-s'ho bé amb els elfs al Pol Nord fins que comencin les vacances anuals."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "Torna-ho a provar"
 	},
+	"es_language_name": {
+		"message": "Espanyol"
+	},
 	"et_country_name": {
 		"message": "Etiòpia"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "França"
+	},
+	"fr_language_name": {
+		"message": "Francès"
 	},
 	"fr_tradition": {
 		"message": "A França, és tradició que els nens deixin les sabates al costat de la llar de foc abans que arribi el Père Noël. Si s'han portat durant tot l'any, el Père Noël els omple les sabates de regals."
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "Guyana"
 	},
+	"hard_difficulty": {
+		"message": "Difícil"
+	},
+	"hi_language_name": {
+		"message": "Hindi"
+	},
 	"hn_country_name": {
 		"message": "Hondures"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "Hongria"
 	},
+	"hu_language_name": {
+		"message": "Hongarès"
+	},
 	"id_country_name": {
 		"message": "Indonèsia"
 	},
 	"ie_country_name": {
 		"message": "Irlanda"
+	},
+	"improve_google_translate": {
+		"message": "Ajudeu a millorar Google Traductor"
 	},
 	"iq_country_name": {
 		"message": "Iraq"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "Itàlia"
 	},
+	"it_language_name": {
+		"message": "Italià"
+	},
+	"ja_language_name": {
+		"message": "Japonès"
+	},
 	"jm_country_name": {
 		"message": "Jamaica"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "Al Kirguizistan, l'Ayaz Ata (o avi de les neus) arriba la nit de Cap d'Any i deixa els regals a sota de l'arbre d'Any Nou. Quan el rellotge toca les dotze de la nit, les famílies encenen focs d'artifici per celebrar aquesta ocasió tan especial. Les ciutats s'il·luminen com si fos de dia."
+	},
+	"ko_language_name": {
+		"message": "Coreà"
 	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "Moldàvia"
+	},
+	"medium_difficulty": {
+		"message": "Mitjana"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "Països Baixos"
 	},
+	"nl_language_name": {
+		"message": "Neerlandès"
+	},
 	"no_country_name": {
 		"message": "Noruega"
+	},
+	"no_language_name": {
+		"message": "Noruec"
 	},
 	"nonprofit-jane-description": {
 		"message": "Els ximpanzés són la família d'animals més propera a l'ésser humà. Avui dia queden menys de 300.000 ximpanzés a causa de la pèrdua d'hàbitats, de malalties i del comerç il·legal. El Jane Goodall Institute (JGI) protegeix els ximpanzés observant i provant d'entendre el seu comportament i els seus hàbitats. El JGI també treballa per crear una comunitat de persones que protegeixin i conservin la fauna i el medi que compartim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExploreu els hàbitats dels ximpanzés\u003c/a\u003e de Gombe, a Tanzània."
 	},
 	"nonprofit-jane-type": {
 		"message": "Ximpanzé"
+	},
+	"nonprofit-more-information": {
+		"message": "Per obtenir més informació, visiteu:"
 	},
 	"nonprofit-nature-description": {
 		"message": "The Nature Conservancy treballa per protegir i restaurar boscos dels Estats Units i de tot el món. Gràcies a aquests boscos emblemàtics hi ha vida a tot el planeta. Filtren aigua, netegen l'aire, mantenen comunitats de persones i ofereixen un hàbitat per a espècies animals i plantes importants. Amb el ritme de desforestació que es produeix avui dia, els nostres boscos estaran totalment eliminats d'aquí a 100 anys. El programa Plant a Billion Trees (Planta mil milions d'arbres) de The Nature Conservancy està treballant per plantar mil milions d'arbres d'aquí al 2025 i restaurar els boscos més importants del món."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "Gran inauguració demà"
 	},
+	"ornament-print-instructions": {
+		"message": "Plegueu-lo aquí i enganxeu els laterals."
+	},
 	"pa_country_name": {
 		"message": "Panamà"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "Polònia"
 	},
+	"pl_language_name": {
+		"message": "Polonès"
+	},
 	"play": {
 		"message": "Jocs"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"pt_language_name": {
+		"message": "Portuguès"
+	},
 	"py_country_name": {
 		"message": "Paraguai"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "Rússia"
+	},
+	"ru_language_name": {
+		"message": "Rus"
 	},
 	"ru_tradition": {
 		"message": "Els nens russos guarneixen l'arbre de l'any nou en lloc de l'arbre de Nadal. La mainada espera amb il·lusió l'arribada de l'Avi de Gel, que viatja amb la seva néta, la Nena de Neu, per portar regals a la quitxalla de tot el país. L'Avi de Gel viu al mig del bosc a Veliki Ustiug, al nord de Rússia."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "Eslovàquia"
 	},
+	"sk_language_name": {
+		"message": "Eslovac"
+	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "El Salvador"
 	},
+	"sv_language_name": {
+		"message": "Suec"
+	},
 	"td_country_name": {
 		"message": "Txad"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Tai"
 	},
 	"tilt": {
 		"message": "Inclina el dispositiu"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "Turquia"
+	},
+	"tr_language_name": {
+		"message": "Turc"
+	},
+	"tracker_arriving_in": {
+		"message": "Arriba d'aquí a"
+	},
+	"tracker_current_stop": {
+		"message": "Parada actual"
+	},
+	"tracker_departing_in": {
+		"message": "Sortirà d'aquí a"
+	},
+	"tracker_distance_from_you": {
+		"message": "Distància respecte a l'usuari"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Regals entregats"
+	},
+	"tracker_next_stop": {
+		"message": "Propera parada"
+	},
+	"tracker_your_location": {
+		"message": "La vostra ubicació"
 	},
 	"traditions-next": {
 		"message": "Tradició següent"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgària"
 	},
+	"trivia_ngb_promo": {
+		"message": "Contingut de National Geographic Bee"
+	},
 	"tw_country_name": {
 		"message": "Taiwan"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "Iemen"
+	},
+	"zh-CN_language_name": {
+		"message": "Xinès (simplificat)"
+	},
+	"zh-TW_language_name": {
+		"message": "Xinès (tradicional)"
 	},
 	"zm_country_name": {
 		"message": "Zàmbia"

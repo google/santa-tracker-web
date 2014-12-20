@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "波斯尼亚和黑塞哥维那"
 	},
+	"back_to_tracker": {
+		"message": "返回至跟踪圣诞老人应用"
+	},
 	"bd_country_name": {
 		"message": "孟加拉"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "科特迪瓦"
+	},
+	"citylights-contribute": {
+		"message": "添加您自己拍摄的%location%的照片"
+	},
+	"citylights-panorama-01-description": {
+		"message": "洛克菲勒广场"
+	},
+	"citylights-panorama-01-location": {
+		"message": "美国纽约市"
+	},
+	"citylights-panorama-02-description": {
+		"message": "普希金广场"
+	},
+	"citylights-panorama-02-location": {
+		"message": "俄罗斯莫斯科"
+	},
+	"citylights-panorama-03-description": {
+		"message": "奥格斯堡市政厅广场"
+	},
+	"citylights-panorama-03-location": {
+		"message": "奥地利维也纳"
+	},
+	"citylights-panorama-04-description": {
+		"message": "香榭丽舍大街至凯旋门"
+	},
+	"citylights-panorama-04-location": {
+		"message": "法国巴黎"
+	},
+	"citylights-panorama-05-description": {
+		"message": "壮丽大道"
+	},
+	"citylights-panorama-05-location": {
+		"message": "美国芝加哥"
+	},
+	"citylights-panorama-06-description": {
+		"message": "圣诞集市"
+	},
+	"citylights-panorama-06-location": {
+		"message": "德国纽伦堡"
+	},
+	"citylights-panorama-07-description": {
+		"message": "麦德林河"
+	},
+	"citylights-panorama-07-location": {
+		"message": "哥伦比亚麦德林"
+	},
+	"citylights-panorama-08-description": {
+		"message": "圣诞老人小镇"
+	},
+	"citylights-panorama-08-location": {
+		"message": "芬兰拉普兰"
+	},
+	"citylights-panorama-09-description": {
+		"message": "布鲁塞尔大广场"
+	},
+	"citylights-panorama-09-location": {
+		"message": "比利时布鲁塞尔"
+	},
+	"citylights-panorama-10-description": {
+		"message": "特拉法尔加广场"
+	},
+	"citylights-panorama-10-location": {
+		"message": "英国伦敦"
+	},
+	"citylights-panorama-11-description": {
+		"message": "马约尔广场"
+	},
+	"citylights-panorama-11-location": {
+		"message": "西班牙马德里"
+	},
+	"citylights-panorama-12-description": {
+		"message": "六本木新城"
+	},
+	"citylights-panorama-12-location": {
+		"message": "日本东京"
+	},
+	"citylights-panorama-13-description": {
+		"message": "蒂沃利公园"
+	},
+	"citylights-panorama-13-location": {
+		"message": "丹麦哥本哈根"
+	},
+	"citylights-panorama-14-description": {
+		"message": "乌节路"
+	},
+	"citylights-panorama-14-location": {
+		"message": "新加坡新加坡市"
+	},
+	"citylights-panorama-15-description": {
+		"message": "光明巷"
+	},
+	"citylights-panorama-15-location": {
+		"message": "瑞典哥德堡"
+	},
+	"citylights-panorama-16-description": {
+		"message": "冬季彩灯节"
+	},
+	"citylights-panorama-16-location": {
+		"message": "加拿大尼亚加拉大瀑布"
+	},
+	"citylights-panorama-17-description": {
+		"message": "缤纷冬日节"
+	},
+	"citylights-panorama-17-location": {
+		"message": "中国香港"
+	},
+	"citylights-panorama-18-description": {
+		"message": "罗德里戈·德弗雷塔斯湖"
+	},
+	"citylights-panorama-18-location": {
+		"message": "巴西里约热内卢"
 	},
 	"cl_country_name": {
 		"message": "智利"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "哥斯达黎加"
 	},
+	"cs_language_name": {
+		"message": "捷克语"
+	},
 	"cu_country_name": {
 		"message": "古巴"
 	},
 	"cz_country_name": {
 		"message": "捷克共和国"
+	},
+	"da_language_name": {
+		"message": "丹麦语"
 	},
 	"days": {
 		"message": "天"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "用圣诞老人 Chrome 扩展程序装饰您的浏览器。"
 	},
+	"detected": {
+		"message": "已测出"
+	},
+	"difficulty": {
+		"message": "难度"
+	},
 	"dk_country_name": {
 		"message": "丹麦"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "阿尔及利亚"
 	},
+	"easy_difficulty": {
+		"message": "简单"
+	},
 	"ec_country_name": {
 		"message": "厄瓜多尔"
 	},
 	"ee_country_name": {
 		"message": "爱沙尼亚"
+	},
+	"el_language_name": {
+		"message": "希腊语"
+	},
+	"elvish_language_name": {
+		"message": "精灵语"
+	},
+	"en_language_name": {
+		"message": "英语"
 	},
 	"endofjourneymessage": {
 		"message": "圣诞老人已完成今年的旅程！他和精灵们正在北极继续庆祝，直至每年一度的假期来临。"
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "请重试"
 	},
+	"es_language_name": {
+		"message": "西班牙语"
+	},
 	"et_country_name": {
 		"message": "埃塞俄比亚"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "法国"
+	},
+	"fr_language_name": {
+		"message": "法语"
 	},
 	"fr_tradition": {
 		"message": "在法国，孩子们根据传统会将自己的鞋放在壁炉旁，期待圣诞老人 (Père Noël) 的到来。如果孩子们在这一年表现不错，圣诞老人就会在他们的鞋中装满礼物。"
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "圭亚那"
 	},
+	"hard_difficulty": {
+		"message": "困难"
+	},
+	"hi_language_name": {
+		"message": "印地语"
+	},
 	"hn_country_name": {
 		"message": "洪都拉斯"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "匈牙利"
 	},
+	"hu_language_name": {
+		"message": "匈牙利语"
+	},
 	"id_country_name": {
 		"message": "印度尼西亚"
 	},
 	"ie_country_name": {
 		"message": "爱尔兰"
+	},
+	"improve_google_translate": {
+		"message": "帮助我们改进 Google 翻译"
 	},
 	"iq_country_name": {
 		"message": "伊拉克"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "意大利"
 	},
+	"it_language_name": {
+		"message": "意大利语"
+	},
+	"ja_language_name": {
+		"message": "日语"
+	},
 	"jm_country_name": {
 		"message": "牙买加"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "在吉尔吉斯斯坦，Ayaz Ata（冰霜爷爷）会在新年前夕降临，将礼物留在新年树下。当午夜的钟声敲响时，举国上下都会燃放烟花，同庆这一美好时刻。城市会变得亮如白昼。"
+	},
+	"ko_language_name": {
+		"message": "韩语"
 	},
 	"kz_country_name": {
 		"message": "哈萨克斯坦"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "摩尔多瓦"
+	},
+	"medium_difficulty": {
+		"message": "中等"
 	},
 	"mg_country_name": {
 		"message": "马达加斯加"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "荷兰"
 	},
+	"nl_language_name": {
+		"message": "荷兰语"
+	},
 	"no_country_name": {
 		"message": "挪威"
+	},
+	"no_language_name": {
+		"message": "挪威语"
 	},
 	"nonprofit-jane-description": {
 		"message": "黑猩猩是动物王国中与人类基因最为接近的物种！由于栖息地不断减少，加上受到疾病和非法交易的危害，如今全世界只有不到 300,000 只黑猩猩。Jane Goodall Institute (JGI) 通过观察和了解黑猩猩行为及其栖息地来对它们加以保护。JGI 还致力于号召更多人来保护野生动物以及我们共同拥有的环境。\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e立即探索坦桑尼亚贡贝的黑猩猩栖息地\u003c/a\u003e。"
 	},
 	"nonprofit-jane-type": {
 		"message": "黑猩猩"
+	},
+	"nonprofit-more-information": {
+		"message": "如需更多信息，请访问："
 	},
 	"nonprofit-nature-description": {
 		"message": "Nature Conservancy 致力于保护和恢复美国及全球各地的森林。森林为地球上的生命提供了繁衍生息的环境。这些标志性的森林可以涵养水源、净化空气、为人类提供生活资料，还可以为各种重要的动植物提供赖以生存的栖息地。按照目前的森林采伐速度计算，我们的森林在 100 年后就会消耗殆尽。Nature Conservancy 发起了 Plant a Billion Trees 计划，希望能在 2025 年之前种植 10 亿棵树，并恢复全球范围内至关重要的大森林。"
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "明日开放"
 	},
+	"ornament-print-instructions": {
+		"message": "由此处对折并将两边粘在一起"
+	},
 	"pa_country_name": {
 		"message": "巴拿马"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "波兰"
 	},
+	"pl_language_name": {
+		"message": "波兰语"
+	},
 	"play": {
 		"message": "玩游戏"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "波多黎各"
 	},
+	"pt_language_name": {
+		"message": "葡萄牙语"
+	},
 	"py_country_name": {
 		"message": "巴拉圭"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "俄罗斯"
+	},
+	"ru_language_name": {
+		"message": "俄语"
 	},
 	"ru_tradition": {
 		"message": "俄罗斯的孩子们装饰“新年树”，而不是圣诞树。他们等待冰霜爷爷 (Grandfather Frost) 和他的孙女雪姑娘 (Snowmaiden) 给大家带来礼物。冰霜爷爷居住在俄罗斯北部大乌斯秋格 (Veliky Ustyug) 的森林深处。"
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "斯洛伐克"
 	},
+	"sk_language_name": {
+		"message": "斯洛伐克语"
+	},
 	"sl_country_name": {
 		"message": "塞拉利昂"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "萨尔瓦多"
 	},
+	"sv_language_name": {
+		"message": "瑞典语"
+	},
 	"td_country_name": {
 		"message": "乍得"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "多哥"
+	},
+	"th_language_name": {
+		"message": "泰语"
 	},
 	"tilt": {
 		"message": "倾斜您的设备！"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "土耳其"
+	},
+	"tr_language_name": {
+		"message": "土耳其语"
+	},
+	"tracker_arriving_in": {
+		"message": "抵达倒计时"
+	},
+	"tracker_current_stop": {
+		"message": "当前位置"
+	},
+	"tracker_departing_in": {
+		"message": "出发倒计时"
+	},
+	"tracker_distance_from_you": {
+		"message": "与您的距离"
+	},
+	"tracker_gifts_delivered": {
+		"message": "已送出的礼物数"
+	},
+	"tracker_next_stop": {
+		"message": "下一站"
+	},
+	"tracker_your_location": {
+		"message": "您所在的位置"
 	},
 	"traditions-next": {
 		"message": "下一个习俗"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "保加利亚"
 	},
+	"trivia_ngb_promo": {
+		"message": "内容由 National Geographic Bee 提供"
+	},
 	"tw_country_name": {
 		"message": "台湾"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "也门"
+	},
+	"zh-CN_language_name": {
+		"message": "中文（简体）"
+	},
+	"zh-TW_language_name": {
+		"message": "中文（繁体）"
 	},
 	"zm_country_name": {
 		"message": "赞比亚"
