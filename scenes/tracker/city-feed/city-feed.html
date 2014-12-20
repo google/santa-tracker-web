@@ -291,14 +291,14 @@ Polymer({
   },
 
   onWikipedia: function(e, detail, sender) {
-    var location = sender.templateInstance.model.model;
+    var location = sender.templateInstance.model.model.stop;
     location.getDetails(function(detail) {
       location.details.wikipedia = detail.wikipedia;
     });
   },
 
   onCardSelected: function(e, detail, sender) {
-    var destId = sender.templateInstance.model.model.id;
+    var destId = sender.templateInstance.model.model.stop.id;
     var type = detail.item.getAttribute('data-name');
     this.fire('analytics-track-event', {category: 'citycard', action: type,
                                         label: destId});
