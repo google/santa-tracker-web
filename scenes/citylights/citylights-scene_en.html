@@ -16,9 +16,8 @@ City lights scene.
   <div id="module-citylights">
     <div class="scene">
       <template if="{{santaApp}}">
-        <google-maps-api version="3.exp"
-                         clientId="{{santaApp.config.CLIENT_ID}}"
-                         language="{{santaApp.language}}"
+        <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
+                         libraries="places,geometry" language="{{santaApp.language}}"
                          on-api-load="{{mapsAPIReady}}"></google-maps-api>
       </template>
       <div class="dashboard">
