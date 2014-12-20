@@ -1,0 +1,168 @@
+##{$name} {
+
+  $topCoverMargin: 17px;
+  $leftCoverMargin: 13px;
+
+  .dashboard {
+    $width: 1898px;
+    position: absolute;
+    top: -398px;
+    left: 50%;
+    width: $width;
+    margin-left: -$width/2;
+
+    height: 909px;
+    overflow: hidden;
+  }
+
+  .dashboard__screens {
+    position: absolute;
+    top: $topCoverMargin;
+    left: $leftCoverMargin;
+    bottom: 0;
+    width: $screenWidth * 9;
+    background: #039BE5;
+
+    figure {
+      position: absolute;
+      left: 0;
+      top:0;
+
+      transform: translateX(-100%);
+      will-change: transform;
+
+      padding: 0;
+      margin: 0;
+      width: $screenWidth;
+      height: 100%;
+
+      img {
+        display: block;
+      }
+
+      figcaption {
+        position: absolute;
+        top: 437px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        height: 25px;
+        padding: 1em;
+        color: #003376;
+        font-size: 14px;
+        font-weight: bold;
+        font-family: Helvetica, Arial, sans-serif;
+        opacity: 0;
+        will-change: opacity;
+      }
+    }
+  }
+
+  .dashboard__cover {
+    position: absolute;
+    top: -$screenHeight;
+    left: $leftCoverMargin;
+    right: 0;
+    height: $screenHeight;
+    margin-top: $topCoverMargin;
+    transform: translate3d(0, 100%, 0);
+    will-change: transform;
+  }
+
+  .dashboard__cover__content {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    overflow: hidden;
+  }
+
+  .dashboard__cover__content__inner {
+    position: absolute;
+    top: $screenHeight;
+    left: 0;
+    right: 0;
+    height: 100%;
+    transform: translate3d(0, -100%, 0);
+    will-change: transform;
+  }
+
+  .dashboard__cover__content__inner__illustration {
+    position: absolute;
+    top: 20px;
+    left: 0;
+  }
+  .dashboard__cover__content__inner__grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    will-change: opacity;
+    background: url('img/screen-grids.png') center 77% no-repeat;
+  }
+
+  .dashboard__cover__scanline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    will-change: opacity;
+  }
+
+
+  .dashboard__overlay {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    pointer-events: none;
+  }
+
+  &.animate-scene-loaded {
+    .dashboard__cover__scanline,
+    .dashboard__cover__content__inner__grid,
+    .dashboard__screens figcaption {
+      transition: opacity 1s $easeInQuad;
+      opacity: 1;
+    }
+
+    .dashboard__cover {
+      display: none;
+    }
+
+    // we use overflow:hidden; & slide content in opposite direction so we can avoid repaints
+
+    .dashboard__cover {
+      display: block;
+      animation-name: #{$name}-dashboard-cover-slideup;
+      animation-duration: 1.5s;
+      animation-delay: 1s;
+      animation-timing-function: $easeInOutCirc;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+      transform: none;
+    }
+    .dashboard__cover__content__inner {
+      animation-name: #{$name}-dashboard-cover-content-slideup;
+      animation-duration: 1.5s;
+      animation-delay: 1s;
+      animation-timing-function: $easeInOutCirc;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+      transform: none;
+    }
+  }
+
+}
+
+@keyframes #{$name}-dashboard-cover-slideup {
+  from {transform: translate3d(0, 100%, 0); }
+  to   {transform: none; }
+}
+
+@keyframes #{$name}-dashboard-cover-content-slideup {
+  from {transform: translate3d(0, -100%, 0);}
+  to   {transform: none; }
+}

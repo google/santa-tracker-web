@@ -1,0 +1,46 @@
+
+##{$name} {
+
+  .fg__coffee {
+    position: absolute;
+    left: 50%;
+    margin-left: -173px;
+    top: 198px;
+
+    width: 50px;
+    height: 150px;
+
+    overflow: hidden;
+
+    transform: rotate(-12.5deg);
+    transform-origin: center bottom;
+  }
+
+  .fg__coffee__heatwave {
+    position: absolute;
+    width: 20px;
+    height: 60px;
+    background: url(img/heatwave.svg) center center no-repeat;
+
+    &:first-child {
+      left: 10px;
+      bottom: 5px;
+      animation-duration: 3s;
+    }
+    &:last-child {
+      bottom: 4px;
+      left: 18px;
+      animation-delay: -.5s;
+      animation-duration: 2.5s;
+    }
+
+    animation-name: #{$name}-heatwave;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes #{$name}-heatwave {
+  from { transform: translate3d(0, 100%, 0) scale(0.8); opacity: 1;}
+  to   { transform: translate3d(0, -25%, 0) scale(2) rotate(15deg); opacity: 0; }
+}
