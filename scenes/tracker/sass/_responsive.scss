@@ -1,0 +1,10 @@
+$tabletBreakpoint: 1024px;
+$mobileBreakpoint: 660px;
+
+@media (min-width: 1px) and (max-width: $mobileBreakpoint) {
+  ##{$name} {
+    #city-stats {
+      display: none;
+    }
+  }
+}

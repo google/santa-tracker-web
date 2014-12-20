@@ -39,9 +39,10 @@ $name: 'module-city-feed';
 
   core-list {
     width: 306px;
-    margin: 0 auto;
+    left: 300px;
     height: 100%;
     pointer-events: all;
+    border-radius: 5px;
 
     &::after {
       content: '';
@@ -219,6 +220,8 @@ $name: 'module-city-feed';
 
     core-list {
       width: 642px;
+      left: auto;
+      margin: 0 auto;
     }
 
     .card {
@@ -297,3 +300,15 @@ $name: 'module-city-feed';
   }
 }
 
+@media (min-width: 1px) and (max-width: $mobileBreakpoint) {
+  ##{$name} {
+    core-list {
+      left: 20px;
+      width: auto;
+    }
+
+    .scene {
+      right: 40px;
+    }
+  }
+}

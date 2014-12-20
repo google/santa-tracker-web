@@ -311,21 +311,24 @@ WorldView.prototype.computeCenterOffset_ = function() {
   }
   var top, left;
   var width = $(window).width();
-  top = 130 + this.CIRCLE_HOLE_RADIUS;
-  if (width < 765) {
+
+  var holeRadius = width < 660 ? this.CIRCLE_HOLE_RADIUS_MOBILE : this.CIRCLE_HOLE_RADIUS;
+
+  top = 130 + holeRadius;
+  if (width <= 660) {
     // mobile
     left = width / 2;
-    //top = 20 + CircleView.HOLE_RADIUS;
+    top = 20 + holeRadius;
   } else {
     // desktop
     left = this.CIRCLE_LEFT_;
-    //top = $(window).height() / 2;
   }
   return new google.maps.Point(left, top);
 };
 
-WorldView.prototype.CIRCLE_LEFT_ = 260;
+WorldView.prototype.CIRCLE_LEFT_ = 200;
 WorldView.prototype.CIRCLE_HOLE_RADIUS = 74;
+WorldView.prototype.CIRCLE_HOLE_RADIUS_MOBILE = 59;
 
 /**
  * Calculates the LatLng that is a given offset in pixels away from a given

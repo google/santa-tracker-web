@@ -151,6 +151,7 @@ $cardColor: #6541a4;
     position: absolute;
     top: 0;
     right: 0;
+    left: 0;
     z-index: 2000;
 
     #nav-onthego {
@@ -567,7 +568,6 @@ $cardColor: #6541a4;
         display: none;
       }
       bottom: auto;
-      left: auto;
     }
   }
 

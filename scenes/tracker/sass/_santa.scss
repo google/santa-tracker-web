@@ -2,6 +2,8 @@
 
 @import "../../shared/sass/_mixins.scss";
 
+$mobileBreakpoint: 660px;
+
 .santa-sleigh {
   position: absolute;
   cursor: pointer;
@@ -173,5 +175,12 @@
     :nth-child(8) {
       opacity: 1;
     }
+  }
+}
+
+@media (min-width: 1px) and (max-width: $mobileBreakpoint) {
+  .santa-sleigh, .santa-presents, .santa-magic {
+    @include transform(scale(0.8));
+    transform-origin: 50% 100%;
   }
 }
