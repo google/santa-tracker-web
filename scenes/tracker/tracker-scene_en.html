@@ -515,6 +515,7 @@ Tracker scene.
     mapsAPIReady: function() {
       this.worldView_ = new WorldView(this, this.componentDir);
       this.worldView_.setupMap();
+      this.worldView_.show();
 
       // Santa API returning destinations is async. Upgrading this element is
       // async. The Maps API being ready is async. If destinations have not
@@ -654,6 +655,7 @@ Tracker scene.
       this.$.intro.layoutReady();
       //TODO(lukem): figure out something nicer to do
       if (this.worldView_) {
+        this.worldView_.show();
         this.worldView_.fitBounds();
       }
 
@@ -661,6 +663,10 @@ Tracker scene.
     },
 
     onHide: function() {
+      if (this.worldView_) {
+        this.worldView_.hide();
+      }
+
       this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
 

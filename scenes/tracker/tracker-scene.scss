@@ -239,29 +239,4 @@ $name: 'module-tracker';
   }
 }
 
-@media (max-width: $mobileBreakpoint) {
-  city-feed {
-    margin-top: 151px;
-  }
-  #status-bar {
-    display: none;
-  }
-}
-
-@media (max-width: $tabletBreakpoint) {
-  ##{$name} {
-    .sceneboard {
-      height: auto;
-      right: 0;
-      bottom: 14px;
-      width: 204px;
-      left: auto;
-
-      .back, .sceneboard-back {
-        display: none;
-      }
-    }
-  }
-}
-
 @import "sass/_responsive.scss";

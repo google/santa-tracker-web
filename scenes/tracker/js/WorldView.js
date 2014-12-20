@@ -45,8 +45,41 @@ function WorldView(base, componentDir) {
 WorldView.HDPI_ = !!(window.devicePixelRatio &&
     window.devicePixelRatio > 1.5);
 
+WorldView.CYCLE_TIME_ = 5000;
+
 WorldView.prototype.show = function() {
-  this.showSceneMarkers_();
+  // Reset the cycle view incase show gets called more than once.
+  var status = this.base_.$['module-tracker'].querySelector('#status-bar');
+  $('li.show', status).removeClass('show');
+
+  this.base_.async(this.cycleStatus_.bind(this));
+};
+
+WorldView.prototype.hide = function() {
+  if (this.cycleTimeout_) {
+    window.clearInterval(this.cycleTimeout_);
+  }
+};
+
+WorldView.prototype.cycleStatus_ = function() {
+  window.clearInterval(this.cycleTimeout_);
+
+  var status = this.base_.$['module-tracker'].querySelector('#status-bar');
+
+  var active= $('li.show', status);
+  var next;
+  if (!active.length) {
+    next = $('li', status).first();
+    next.addClass('show');
+  } else {
+    active.removeClass('show');
+    next = active.nextAll('li').first();;
+  }
+
+  next.addClass('show');
+
+  this.cycleTimeout_ = window.setInterval(this.cycleStatus_.bind(this),
+      WorldView.CYCLE_TIME_);
 };
 
 WorldView.prototype.setMode = function(mode) {
