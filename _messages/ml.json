@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "ബോസ്‌നിയയും ഹെർസേഗോവിനയും"
 	},
+	"back_to_tracker": {
+		"message": "ട്രാക്കറിലേക്ക് തിരികെ"
+	},
 	"bd_country_name": {
 		"message": "ബംഗ്ലാദേശ്"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "ഐവറി കോസ്റ്റ്"
+	},
+	"citylights-contribute": {
+		"message": "%location% എന്ന ഇടത്തിന്റെ നിങ്ങളുടെ സ്വന്തം ഫോട്ടോകൾ ചേർക്കുക"
+	},
+	"citylights-panorama-01-description": {
+		"message": "റോക്ക്‌ഫെല്ലർ പ്ലാസ"
+	},
+	"citylights-panorama-01-location": {
+		"message": "ന്യൂയോർക്ക് സിറ്റി, യുഎസ്എ"
+	},
+	"citylights-panorama-02-description": {
+		"message": "പുഷ്കിൻ സ്ക്വയർ"
+	},
+	"citylights-panorama-02-location": {
+		"message": "മോസ്കോ, റഷ്യ"
+	},
+	"citylights-panorama-03-description": {
+		"message": "റാതൗസ്‌പ്ലാറ്റ്സ്"
+	},
+	"citylights-panorama-03-location": {
+		"message": "വിയന്ന, ആസ്‌ട്രിയ"
+	},
+	"citylights-panorama-04-description": {
+		"message": "ചാംപ്സ്-എലിസീസ് ടു ദ ആർക്ക് ഡി ട്രിയോംഫി"
+	},
+	"citylights-panorama-04-location": {
+		"message": "പാരീസ്, ഫ്രാൻസ്"
+	},
+	"citylights-panorama-05-description": {
+		"message": "മാഗ്നിഫിഷ്യന്റ് മൈൽ"
+	},
+	"citylights-panorama-05-location": {
+		"message": "ചിക്കാഗോ, യുഎസ്എ"
+	},
+	"citylights-panorama-06-description": {
+		"message": "ക്രിസ്‌മസ് വിപണി"
+	},
+	"citylights-panorama-06-location": {
+		"message": "ന്യൂറംബെർഗ്, ജർമ്മൻ"
+	},
+	"citylights-panorama-07-description": {
+		"message": "മെഡെല്ലിൻ നദി"
+	},
+	"citylights-panorama-07-location": {
+		"message": "മെഡെല്ലിൻ, കൊളംബിയ"
+	},
+	"citylights-panorama-08-description": {
+		"message": "സാന്താ ക്ലോസ് ഗ്രാമം"
+	},
+	"citylights-panorama-08-location": {
+		"message": "ലാപ്‌ലാന്റ്, ഫിൻലന്റ്"
+	},
+	"citylights-panorama-09-description": {
+		"message": "ഗ്രാൻഡ് പ്ലേസ്"
+	},
+	"citylights-panorama-09-location": {
+		"message": "ബ്രസ്സൽസ്, ബെൽജിയം"
+	},
+	"citylights-panorama-10-description": {
+		"message": "ട്രാഫൽഗർ സ്ക്വയർ"
+	},
+	"citylights-panorama-10-location": {
+		"message": "ലണ്ടൻ, ഇംഗ്ലണ്ട്"
+	},
+	"citylights-panorama-11-description": {
+		"message": "പ്ലാസ മേയർ"
+	},
+	"citylights-panorama-11-location": {
+		"message": "മാഡ്രിഡ്, സ്പെയിൻ"
+	},
+	"citylights-panorama-12-description": {
+		"message": "റോപ്പോംഗി ഹിൽസ്"
+	},
+	"citylights-panorama-12-location": {
+		"message": "ടോക്കിയോ, ജപ്പാൻ"
+	},
+	"citylights-panorama-13-description": {
+		"message": "ടിവോലി ഗാർഡൻസ്"
+	},
+	"citylights-panorama-13-location": {
+		"message": "കോപ്പെൻഹാഗെൻ, ഡെൻമാർക്ക്"
+	},
+	"citylights-panorama-14-description": {
+		"message": "ഓർക്കാർഡ് റോഡ്"
+	},
+	"citylights-panorama-14-location": {
+		"message": "സിംഗപ്പൂർ, സിംഗപ്പൂർ"
+	},
+	"citylights-panorama-15-description": {
+		"message": "ലേൻ ഓഫ് ലൈറ്റ്"
+	},
+	"citylights-panorama-15-location": {
+		"message": "ഗോഥെൻബെർഗ്, സ്വീഡൻ"
+	},
+	"citylights-panorama-16-description": {
+		"message": "ദീപങ്ങളുടെ മഞ്ഞുകാല ഉത്സവം"
+	},
+	"citylights-panorama-16-location": {
+		"message": "നയാഗ്ര വെള്ളച്ചാട്ടം, കാനഡ"
+	},
+	"citylights-panorama-17-description": {
+		"message": "വിന്റർ ഫെസ്റ്റ്"
+	},
+	"citylights-panorama-17-location": {
+		"message": "ഹോംഗ് കോംഗ്, ചൈന"
+	},
+	"citylights-panorama-18-description": {
+		"message": "റോഡ്രിഗോ ഡി ഫ്രീറ്റാസ് തടാകം"
+	},
+	"citylights-panorama-18-location": {
+		"message": "റിയോ ഡി ജനീറോ, ബ്രസീൽ"
 	},
 	"cl_country_name": {
 		"message": "ചിലി"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "കോസ്റ്റാറിക്ക"
 	},
+	"cs_language_name": {
+		"message": "ചെക്ക്"
+	},
 	"cu_country_name": {
 		"message": "ക്യൂബ"
 	},
 	"cz_country_name": {
 		"message": "ചെക്ക് റിപ്പബ്ലിക്"
+	},
+	"da_language_name": {
+		"message": "ഡാനിഷ്"
 	},
 	"days": {
 		"message": "ദിവസം"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "സാന്ത Chrome വിപുലീകരണം ഉപയോഗിച്ച് നിങ്ങളുടെ ബ്രൗസർ ആകർഷകമാക്കൂ."
 	},
+	"detected": {
+		"message": "തിരിച്ചറിഞ്ഞു"
+	},
+	"difficulty": {
+		"message": "പ്രയാസം"
+	},
 	"dk_country_name": {
 		"message": "ഡെൻമാര്‍‌ക്ക്"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "അൾജീരിയ"
 	},
+	"easy_difficulty": {
+		"message": "ലളിതം"
+	},
 	"ec_country_name": {
 		"message": "ഇക്വഡോർ"
 	},
 	"ee_country_name": {
 		"message": "എസ്‌റ്റോണിയ"
+	},
+	"el_language_name": {
+		"message": "ഗ്രീക്ക്"
+	},
+	"elvish_language_name": {
+		"message": "എൽവിഷ്"
+	},
+	"en_language_name": {
+		"message": "ഇംഗ്ലീഷ്"
 	},
 	"endofjourneymessage": {
 		"message": "സാന്ത ഈ വർഷത്തെ യാത്ര അവസാനിപ്പിച്ചു! വാർഷിക അവധിക്കാലത്തിന് മുമ്പായി സാന്തയും കുട്ടിച്ചാത്തൻമാരും ഉത്തര ധ്രുവത്തിൽ അടിച്ചുപൊളിക്കുകയാണ്."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "വീണ്ടും ശ്രമിക്കൂ"
 	},
+	"es_language_name": {
+		"message": "സ്പാനിഷ്"
+	},
 	"et_country_name": {
 		"message": "എത്യോപ്യ"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "ഫ്രാൻസ്"
+	},
+	"fr_language_name": {
+		"message": "ഫ്രഞ്ച്"
 	},
 	"fr_tradition": {
 		"message": "ഫ്രാൻസിൽ, പെരെ നോയെൽ വരുമെന്നും സമ്മാനം തരുമെന്നും പ്രതീക്ഷിച്ച് നെരിപ്പോടിനരികിൽ കുട്ടികൾ അവരുടെ ഷൂകൾ വയ്ക്കുന്ന ഒരു പാരമ്പര്യമുണ്ട്. വർഷം മുഴുവൻ അനുസരണയോടെയും അച്ചടക്കത്തോടെയും ജീവിച്ച കുട്ടികൾ നിരാശപ്പെടേണ്ടി വരില്ല. തീർച്ചയായും അവരുടെ ഷൂവിനുള്ളിൽ പെരെ നോയെൽ സമ്മാനം നിറച്ചിരിക്കും."
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "ഗയാന"
 	},
+	"hard_difficulty": {
+		"message": "കഠിനം"
+	},
+	"hi_language_name": {
+		"message": "ഹിന്ദി"
+	},
 	"hn_country_name": {
 		"message": "ഹോണ്ടുറാസ്"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "ഹംഗറി"
 	},
+	"hu_language_name": {
+		"message": "ഹംഗേറിയന്‍"
+	},
 	"id_country_name": {
 		"message": "ഇന്തോനേഷ്യ"
 	},
 	"ie_country_name": {
 		"message": "അയർലൻഡ്"
+	},
+	"improve_google_translate": {
+		"message": "Google Translate മെച്ചപ്പെടുത്തുന്നതിന് സഹായിക്കുക"
 	},
 	"iq_country_name": {
 		"message": "ഇറാഖ്"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "ഇറ്റലി"
 	},
+	"it_language_name": {
+		"message": "ഇറ്റാലിയന്‍"
+	},
+	"ja_language_name": {
+		"message": "ജാപ്പനീസ്"
+	},
 	"jm_country_name": {
 		"message": "ജമൈക്ക"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "പുതുവർഷ രാത്രിയിൽ പന്ത്രണ്ട് മണിയാകുമ്പോൾ, ആയാസ് ആത്തയെന്ന മഞ്ഞുമുത്തച്ഛൻ വരുമെന്നും പുതുവർഷ മരത്തിന് കീഴിൽ സമ്മാനങ്ങൾ വയ്ക്കുമെന്നും കിർഗിസ്ഥാനിലെ ജനത വിശ്വസിക്കുന്നു. ഘടികാരത്തിൽ പന്ത്രണ്ട് അടിക്കുമ്പോൾ, രാജ്യത്തെ കുടുംബങ്ങളെല്ലാം ഈ സുന്ദര മുഹൂർത്തം ആഘോഷിക്കുന്നതിന് നാടുമുഴുവൻ കരിമരുന്ന് പ്രയോഗം നടത്താറുണ്ട്."
+	},
+	"ko_language_name": {
+		"message": "കൊറിയന്‍‌"
 	},
 	"kz_country_name": {
 		"message": "കസാക്കിസ്ഥാൻ"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "മൽഡോവ"
+	},
+	"medium_difficulty": {
+		"message": "ഇടത്തരം"
 	},
 	"mg_country_name": {
 		"message": "മഡഗാസ്‌കർ"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "നെതർലാന്റ്സ്"
 	},
+	"nl_language_name": {
+		"message": "ഡച്ച്"
+	},
 	"no_country_name": {
 		"message": "നോർവേ"
+	},
+	"no_language_name": {
+		"message": "നോര്‍വീജിയൻ"
 	},
 	"nonprofit-jane-description": {
 		"message": "മൃഗലോകത്തിൽ മനുഷ്യരോട് ഏറ്റവും സാദൃശ്യമുള്ള ജീവി വിഭാഗമാണ് ചിമ്പാൻസികൾ! ആവാസവ്യവസ്ഥയുടെ നാശം, രോഗങ്ങൾ, നിയമവിരുദ്ധമായ വിൽപ്പന എന്നിവയാൽ ഭൂമിയിൽ നിലവിലുള്ളത് 300,000-ൽ താഴെ ചിമ്പാൻസികൾ മാത്രമാണ്. ചിമ്പാൻസി വിഭാഗങ്ങളെ, അവയുടെ പെരുമാറ്റങ്ങളും ജീവിക്കുന്ന ആവാസ വ്യവസ്ഥയും നിരീക്ഷിച്ചുകൊണ്ടും മനസ്സിലാക്കിക്കൊണ്ടും, ജാനെ ഗുഡ്‌വിൽ ഇൻസ്റ്റിറ്റ്യൂട്ട് (JGI) പരിരക്ഷിച്ചുവരുന്നു. വന്യജീവികളെയും നാം പങ്കിടുന്ന പരിസ്ഥിതിയെയും പരിരക്ഷിക്കുന്നതിനും നിലനിർത്തുന്നതിനുമുള്ള പ്രവർത്തനങ്ങളിൽ ഏർപ്പെട്ടിട്ടുള്ള ആളുകളുടെ ഒരു കമ്യൂണിറ്റി ഉണ്ടാക്കുന്നതിനും JGI പ്രവർത്തിക്കുന്നുണ്ട്. താൻസാനിയയിലെ ഗോംബെയിലുള്ള \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eചിമ്പാൻസി ആവാസവ്യവസ്ഥകൾ അടുത്തറിയുക\u003c/a\u003e."
 	},
 	"nonprofit-jane-type": {
 		"message": "ചിമ്പാൻസി"
+	},
+	"nonprofit-more-information": {
+		"message": "കൂടുതൽ വിവരങ്ങൾക്ക് സന്ദർശിക്കുക:"
 	},
 	"nonprofit-nature-description": {
 		"message": "യുണൈറ്റഡ് സ്റ്റേറ്റ്‌സിലും ലോകമെമ്പാടും, വന സംരക്ഷണത്തിനും വനമേഖലയുടെ വീണ്ടെടുക്കലിനുമായി പ്രവർത്തിക്കുന്ന സംഘടനയാണ് നേച്വർ കൺസർവൻസി. ഭൂമിയിലെ ജീവന്റെ നിലനിൽപ്പ് തന്നെ ഈ വനങ്ങളാണ്. ഈ വനങ്ങൾ, ജലം അരിച്ച് ശുദ്ധീകരിക്കുകയും വായു ശ്വസനയോഗ്യമാക്കുകയും മനുഷ്യ സമൂഹത്തെ പിന്തുണയ്ക്കുകയും പ്രധാനപ്പെട്ട ചെടി വർഗ്ഗങ്ങൾക്കും ജീവിവർഗ്ഗങ്ങൾക്കും ആവാസ വ്യവസ്ഥ ഒരുക്കുകയും ചെയ്യുന്നു. ഇപ്പോഴത്തെ തോതിൽ വന നശീകരണം തുടർന്നാൽ, 100 വർഷത്തിനുള്ളിൽ നമ്മുടെ വനങ്ങൾ തുടച്ചുനീക്കപ്പെടും. 2025-ഓടെ ഒരു ബില്യൺ വൃക്ഷങ്ങൾ നട്ടുപിടിപ്പിക്കാനും ലോകത്തെ ഏറ്റവും പ്രധാനപ്പെട്ട വനമേഖലകൾ പുനസ്ഥാപിക്കാനുമാണ് നേച്വർ കൺസർവൻസിയുടെ ഒരു ബില്യൺ വൃക്ഷത്തൈകൾ നട്ടുപിടിപ്പിക്കുക എന്ന പദ്ധതി (പ്ലാന്റ് എ ബില്യൺ ട്രീസ് പ്രോഗ്രാം) ശ്രമിക്കുന്നത്."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "നാളെ മഹത്തായ ഉദ്‌ഘാടനം"
 	},
+	"ornament-print-instructions": {
+		"message": "ഇവിടെ മടക്കുക, പശയുള്ള ഭാഗങ്ങൾ ഒരുമിച്ച് ചേർക്കുക"
+	},
 	"pa_country_name": {
 		"message": "പനാമ"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "പോളണ്ട്"
 	},
+	"pl_language_name": {
+		"message": "പോളീഷ്"
+	},
 	"play": {
 		"message": "പ്ലേചെയ്യുക"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "പ്യൂര്‍ട്ടോ റിക്കോ"
 	},
+	"pt_language_name": {
+		"message": "പോര്‍ച്ചുഗീസ്"
+	},
 	"py_country_name": {
 		"message": "പരാഗ്വേ"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "റഷ്യ"
+	},
+	"ru_language_name": {
+		"message": "റഷ്യന്‍"
 	},
 	"ru_tradition": {
 		"message": "റഷ്യൻ കുട്ടികൾ ക്രിസ്തുമസ് ട്രീക്ക് പകരം പുതുവൽസര ട്രീയാണ് അലങ്കരിക്കുന്നത്. സമ്മാനങ്ങൾ വിതരണം ചെയ്യുന്നതിനായി പേരക്കുട്ടിയായ സ്നോമെയ്‌ഡനൊപ്പം സഞ്ചരിക്കുന്ന ഗ്രാൻഡ്ഫാദർ ഫ്രോസ്റ്റിനായി കുട്ടികൾ ആകാംക്ഷയോടെ കാത്തിരിക്കുന്നു. വടക്കൻ റഷ്യയിലെ വെലികി ഉസ്ത്യുഗിൽ വനാന്തരത്തിലാണ് ഗ്രാൻഡ്ഫാദർ ഫ്രോസ്റ്റ് താമസിക്കുന്നത്."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "സ്ലോവാക്യ"
 	},
+	"sk_language_name": {
+		"message": "സ്ലൊവാക്"
+	},
 	"sl_country_name": {
 		"message": "സിയെറ ലിയോൺ"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "എൽ സാൽവദോർ"
 	},
+	"sv_language_name": {
+		"message": "സ്വീഡിഷ്"
+	},
 	"td_country_name": {
 		"message": "ഛാഡ്"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "ടോഗോ"
+	},
+	"th_language_name": {
+		"message": "തായ്"
 	},
 	"tilt": {
 		"message": "നിങ്ങളുടെ ഉപകരണം ചെരിക്കുക!"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "ടർക്കി"
+	},
+	"tr_language_name": {
+		"message": "ടര്‍ക്കിഷ്"
+	},
+	"tracker_arriving_in": {
+		"message": "എത്തുന്നത്"
+	},
+	"tracker_current_stop": {
+		"message": "നിലവിലെ സ്റ്റോപ്പ്"
+	},
+	"tracker_departing_in": {
+		"message": "പുറപ്പെടുന്നത്"
+	},
+	"tracker_distance_from_you": {
+		"message": "നിങ്ങളിൽ നിന്നുള്ള ദൂരം"
+	},
+	"tracker_gifts_delivered": {
+		"message": "വിതരണം ചെയ്ത സമ്മാനങ്ങൾ"
+	},
+	"tracker_next_stop": {
+		"message": "അടുത്ത സ്റ്റോപ്പ്"
+	},
+	"tracker_your_location": {
+		"message": "നിങ്ങളുടെ ലൊക്കേഷൻ"
 	},
 	"traditions-next": {
 		"message": "അടുത്ത പാരമ്പര്യം"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "ബൾഗേറിയ"
 	},
+	"trivia_ngb_promo": {
+		"message": "നാഷണൽ ജ്യോഗ്രഫിക്ക് ബീ നൽകുന്ന ഉള്ളടക്കം"
+	},
 	"tw_country_name": {
 		"message": "തായ്‌വാൻ"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "യെമൻ"
+	},
+	"zh-CN_language_name": {
+		"message": "ചൈനീസ് (ലളിതവല്‍‌ക്കരിച്ചത്)"
+	},
+	"zh-TW_language_name": {
+		"message": "ചൈനീസ് (പരമ്പരാഗതം)"
 	},
 	"zm_country_name": {
 		"message": "സാംബിയ"

@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia ja Hertsegovina"
 	},
+	"back_to_tracker": {
+		"message": "Takaisin jäljittimeen"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "Norsunluurannikko"
+	},
+	"citylights-contribute": {
+		"message": "Lisää omia valokuvia paikasta %location%"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, Yhdysvallat"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Pushkinin aukio"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moskova, Venäjä"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Raatihuoneentori"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Wien, Itävalta"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Champs-Élysées'tä Riemukaarelle"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Pariisi, Ranska"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, Yhdysvallat"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Joulumarkkinat"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nürnberg, Saksa"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Medellínjoki"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Kolumbia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Joulupukin Pajakylä"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lappi, Suomi"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand-Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Bryssel, Belgia"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgarin aukio"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Lontoo, Englanti"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Espanja"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Berliini, Saksa"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Tivoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Kööpenhamina, Tanska"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapore, Singapore"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Valokuja"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Göteborg, Ruotsi"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Winter Festival of Lights"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagaran putoukset, Kanada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hongkong, Kiina"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Rodrigo de Freitas -järvi"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brasilia"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "Costa Rica"
 	},
+	"cs_language_name": {
+		"message": "tšekki"
+	},
 	"cu_country_name": {
 		"message": "Kuuba"
 	},
 	"cz_country_name": {
 		"message": "Tšekin tasavalta"
+	},
+	"da_language_name": {
+		"message": "tanska"
 	},
 	"days": {
 		"message": "päivää"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "Koristele selaimesi joulupukin Chrome-laajennuksella."
 	},
+	"detected": {
+		"message": "tunnistettu"
+	},
+	"difficulty": {
+		"message": "Vaikeustaso"
+	},
 	"dk_country_name": {
 		"message": "Tanska"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "Algeria"
 	},
+	"easy_difficulty": {
+		"message": "Helppo"
+	},
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
 	"ee_country_name": {
 		"message": "Viro"
+	},
+	"el_language_name": {
+		"message": "kreikka"
+	},
+	"elvish_language_name": {
+		"message": "tonttukieli"
+	},
+	"en_language_name": {
+		"message": "englanti"
 	},
 	"endofjourneymessage": {
 		"message": "Joulupukki on saanut matkansa päätökseen tältä vuodelta! Joulupukki ja tontut pitävät Korvatunturilla kuitenkin ensin hieman hauskaa ennen ansaittua lomaa."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "Yritä uudelleen"
 	},
+	"es_language_name": {
+		"message": "espanja"
+	},
 	"et_country_name": {
 		"message": "Etiopia"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "Ranska"
+	},
+	"fr_language_name": {
+		"message": "ranska"
 	},
 	"fr_tradition": {
 		"message": "Ranskassa lapset perinteisesti laittavat kenkänsä takan ääreen odottamaan Père Noëlin saapumista. Jos lapset ovat olleet kilttejä koko vuoden, Père Noël täyttää kengät lahjoilla."
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "Guyana"
 	},
+	"hard_difficulty": {
+		"message": "Vaikea"
+	},
+	"hi_language_name": {
+		"message": "hindi"
+	},
 	"hn_country_name": {
 		"message": "Honduras"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "Unkari"
 	},
+	"hu_language_name": {
+		"message": "unkari"
+	},
 	"id_country_name": {
 		"message": "Indonesia"
 	},
 	"ie_country_name": {
 		"message": "Irlanti"
+	},
+	"improve_google_translate": {
+		"message": "Auta meitä parantamaan Google-kääntäjää"
 	},
 	"iq_country_name": {
 		"message": "Irak"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "Italia"
 	},
+	"it_language_name": {
+		"message": "italia"
+	},
+	"ja_language_name": {
+		"message": "japani"
+	},
 	"jm_country_name": {
 		"message": "Jamaika"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "Kirgisiassa Ayaz Ata (Pakkasukko) saapuu uuden vuoden aattona ja jättää lahjat uuden vuoden kuusen alle. Vuorokauden vaihtuessa perheet kokoontuvat ulos ampumaan raketteja juhlan kunniaksi. Kaupungeissa ilotulituksia on niin paljon, että taivas on yhtä kirkas kuin päivällä."
+	},
+	"ko_language_name": {
+		"message": "korea"
 	},
 	"kz_country_name": {
 		"message": "Kazakstan"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "Moldova"
+	},
+	"medium_difficulty": {
+		"message": "Keskitaso"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "Alankomaat"
 	},
+	"nl_language_name": {
+		"message": "hollanti"
+	},
 	"no_country_name": {
 		"message": "Norja"
+	},
+	"no_language_name": {
+		"message": "norja"
 	},
 	"nonprofit-jane-description": {
 		"message": "Simpanssit ovat ihmisen lähimpiä eläviä sukulaisia eläinmaailmassa! Elinympäristön pienenemisen, sairauksien ja laittoman kaupan seurauksena simpansseja on nykyisin alle 300 000. Jane Goodall -instituutti suojelee simpansseja tarkkailemalla ja ymmärtämällä niiden käyttäytymistä sekä elinympäristöjä. Instituutti toimii myös sellaisten ihmisten yhteisön luomiseksi, jotka suojelevat ja säilyttävät yhteistä luontoamme ja ympäristöämme. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eTutustu simpanssien elinympäristöihin\u003c/a\u003e Tansanian Gombessa."
 	},
 	"nonprofit-jane-type": {
 		"message": "Simpanssi"
+	},
+	"nonprofit-more-information": {
+		"message": "Lisätietoja:"
 	},
 	"nonprofit-nature-description": {
 		"message": "Nature Conservancy toimii metsien suojelemiseksi ja palauttamiseksi entiseen tilaansa Yhdysvalloissa ja muualla maailmassa. Nämä ikoniset metsät ylläpitävät elämää koko planeetalla. Ne suodattavat vettä, puhdistavat ilmaa, tukevat ihmisten muodostamia yhteisöjä ja tarjoavat elinympäristön tärkeille kasvi- ja eläinlajeille. Jos metsän hävittäminen jatkuu nykyiseen tapaan, metsämme tuhoutuvat sadassa vuodessa. Nature Conservancyn Plant a Billion Trees -ohjelman tarkoituksena on istuttaa miljardi puuta vuoteen 2025 mennessä ja palauttaa maailman tärkeimmät metsät entiseen tilaansa."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "Avajaiset huomenna"
 	},
+	"ornament-print-instructions": {
+		"message": "Taita tästä ja liimaa puoliskot vastakkain"
+	},
 	"pa_country_name": {
 		"message": "Panama"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "Puola"
 	},
+	"pl_language_name": {
+		"message": "puola"
+	},
 	"play": {
 		"message": "Pelaa"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"pt_language_name": {
+		"message": "portugali"
+	},
 	"py_country_name": {
 		"message": "Paraguay"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "Venäjä"
+	},
+	"ru_language_name": {
+		"message": "venäjä"
 	},
 	"ru_tradition": {
 		"message": "Venäjällä lapset koristelevat uuden vuoden kuusen joulukuusen sijaan. Lapset odottavat kovasti Pakkasukkoa, joka matkustaa lapsenlapsensa Lumitytön kanssa halki Venäjän lahjoja jakaen. Pakkasukko asuu keskellä metsää Pohjois-Venäjän Veliki Ustjugissa."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "Slovakia"
 	},
+	"sk_language_name": {
+		"message": "slovakki"
+	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "El Salvador"
 	},
+	"sv_language_name": {
+		"message": "ruotsi"
+	},
 	"td_country_name": {
 		"message": "Tšad"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "thai"
 	},
 	"tilt": {
 		"message": "Kallista laitetta!"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "Turkki"
+	},
+	"tr_language_name": {
+		"message": "turkki"
+	},
+	"tracker_arriving_in": {
+		"message": "Saapumiseen"
+	},
+	"tracker_current_stop": {
+		"message": "Tämänhetkinen pysähdyspaikka"
+	},
+	"tracker_departing_in": {
+		"message": "Lähtöön"
+	},
+	"tracker_distance_from_you": {
+		"message": "Etäisyys sijainnistasi"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Toimitetut lahjat"
+	},
+	"tracker_next_stop": {
+		"message": "Seuraava pysähdyspaikka"
+	},
+	"tracker_your_location": {
+		"message": "Sijaintisi"
 	},
 	"traditions-next": {
 		"message": "Seuraava perinne"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgaria"
 	},
+	"trivia_ngb_promo": {
+		"message": "Sisältö: National Geographic Bee"
+	},
 	"tw_country_name": {
 		"message": "Taiwan"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "Jemen"
+	},
+	"zh-CN_language_name": {
+		"message": "kiina (yksinkertaistettu)"
+	},
+	"zh-TW_language_name": {
+		"message": "kiina (perinteinen)"
 	},
 	"zm_country_name": {
 		"message": "Sambia"

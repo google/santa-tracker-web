@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia and Herzegovina"
 	},
+	"back_to_tracker": {
+		"message": "Bumalik sa Tracker"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "Côte d'Ivoire"
+	},
+	"citylights-contribute": {
+		"message": "Idagdag ang mga sarili mong larawan ng %location%"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, USA"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Pushkin Square"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moscow, Russia"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Vienna, Austria"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Champs-Elysees sa Arc de Triomphe"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Paris, France"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, USA"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Christmas Market"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nuremberg, Germany"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Medellin River"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Colombia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Santa Claus Village"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lapland, Finland"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brussels, Belgium"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar Square"
+	},
+	"citylights-panorama-10-location": {
+		"message": "London, England"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Spain"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokyo, Japan"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Tivoli Gardens"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Copenhagen, Denmark"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapore, Singapore"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Lane of Light"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Gothenburg, Sweden"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Winter Festival of Lights"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagara Falls, Canada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hong Kong, China"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Rodrigo de Freitas Lake"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brazil"
 	},
 	"cl_country_name": {
 		"message": "Chile"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "Costa Rica"
 	},
+	"cs_language_name": {
+		"message": "Czech"
+	},
 	"cu_country_name": {
 		"message": "Cuba"
 	},
 	"cz_country_name": {
 		"message": "Czech Republic"
+	},
+	"da_language_name": {
+		"message": "Danish"
 	},
 	"days": {
 		"message": "Araw"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "I-deck out ang iyong browser gamit ang isang extension ng Chrome ni Santa."
 	},
+	"detected": {
+		"message": "natukoy"
+	},
+	"difficulty": {
+		"message": "Hirap"
+	},
 	"dk_country_name": {
 		"message": "Denmark"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "Algeria"
 	},
+	"easy_difficulty": {
+		"message": "Madali"
+	},
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
 	"ee_country_name": {
 		"message": "Estonia"
+	},
+	"el_language_name": {
+		"message": "Greek"
+	},
+	"elvish_language_name": {
+		"message": "Elvish"
+	},
+	"en_language_name": {
+		"message": "Ingles"
 	},
 	"endofjourneymessage": {
 		"message": "Natapos na ni Santa ang kanyang paglalakbay para sa taon! Nagsasaya pa rin siya at ang mga elf sa North Pole bago ang kanilang taunang bakasyon."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "Subukang muli"
 	},
+	"es_language_name": {
+		"message": "Spanish"
+	},
 	"et_country_name": {
 		"message": "Ethiopia"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "France"
+	},
+	"fr_language_name": {
+		"message": "French"
 	},
 	"fr_tradition": {
 		"message": "Sa France, tradisyunal na inilalagay ng mga bata ang kanilang mga sapatos sa tabi ng tsimineya sa pag-asang darating si Père Noël. Kung naging mabait ang mga bata sa buong taon, pupunuin ni Père Noël ng mga regalo ang mga sapatos na iyon."
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "Guyana"
 	},
+	"hard_difficulty": {
+		"message": "Mahirap"
+	},
+	"hi_language_name": {
+		"message": "Hindi"
+	},
 	"hn_country_name": {
 		"message": "Honduras"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "Hungary"
 	},
+	"hu_language_name": {
+		"message": "Hungarian"
+	},
 	"id_country_name": {
 		"message": "Indonesia"
 	},
 	"ie_country_name": {
 		"message": "Ireland"
+	},
+	"improve_google_translate": {
+		"message": "Tumulong na pahusayin ang Google Translate"
 	},
 	"iq_country_name": {
 		"message": "Iraq"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "Italy"
 	},
+	"it_language_name": {
+		"message": "Italian"
+	},
+	"ja_language_name": {
+		"message": "Japanese"
+	},
 	"jm_country_name": {
 		"message": "Jamaica"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "Sa Kyrgyzstan, dumarating si Ayaz Ata (Grandfather Frost) sa hatinggabi sa Bisperas ng Bagong Taon at nag-iiwan ng mga regalo sa ilalim ng New Year tree. Kapag sumapit na ang hatinggabi, nagsisindi ng mga paputok ang mga pamilya sa buong bansa upang ipagdiwang ang magandang okasyon na ito. Nagliliwanag ang mga lungsod na parang umaga."
+	},
+	"ko_language_name": {
+		"message": "Korean"
 	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "Moldova"
+	},
+	"medium_difficulty": {
+		"message": "Katamtaman"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "Netherlands"
 	},
+	"nl_language_name": {
+		"message": "Dutch"
+	},
 	"no_country_name": {
 		"message": "Norway"
+	},
+	"no_language_name": {
+		"message": "Norwegian"
 	},
 	"nonprofit-jane-description": {
 		"message": "Ang Mga Chimpanzee ay ang pinakamalalapit na nabubuhay na kapamilya ng mga tao sa animal kingdom! Sa ngayon, mas kaunti sa 300,000 Chimpanzee na lang ang natitira dahil sa pagkawala ng tirahan, sakit at ilegal na kalakalan. Pinoprotektahan ng Jane Goodall Institute (JGI) ang mga chimpanzee sa pamamagitan ng pagbabantay at pag-unawa sa kanilang mga gawi pati na rin ang mga tirahan kung saan nabubuhay ang mga ito. Kumikilos din ang JGI upang makabuo ng komunidad ng mga tao na magpoprotekta at mangangalaga sa wildlife at sa iisang kapaligiran na ating pinapakinabangan. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eI-explore ang mga tirahan ng Chimpanzee\u003c/a\u003e sa Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpanzee"
+	},
+	"nonprofit-more-information": {
+		"message": "Para sa higit pang impormasyon bisitahin ang:"
 	},
 	"nonprofit-nature-description": {
 		"message": "Kumikilos ang The Nature Conservancy upang protektahan at muling buhayin ang mga kagubatan sa Estados Unidos at sa buong mundo. Pinapanatili ng mga natatanging kagubatang ito ang buhay sa buong planeta natin. Sinasala ng mga ito ang tubig, nililinis ang ating hangin, sinusuportahan ang mga komunidad ng mga tao at nagbibigay ng tahanan para sa mahahalagang species ng halaman at hayop. Sa kasalukuyang antas ng pagkakalbo ng kagubatan, mauubos ang ating mga kagubatan sa loob ng 100 taon. Ang programa ng The Nature Conservancy na Plant a Billion Trees ay kumikilos upang makapagtanim ng isang bilyong puno bago ang taong 2025 at muling buhayin ang mga pinakananganganib na kagubatan sa mundo."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "Bukas ang grand opening"
 	},
+	"ornament-print-instructions": {
+		"message": "Tupiin dito at pagdikitin ang dalawang gilid"
+	},
 	"pa_country_name": {
 		"message": "Panama"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "Poland"
 	},
+	"pl_language_name": {
+		"message": "Polish"
+	},
 	"play": {
 		"message": "Laruin"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"pt_language_name": {
+		"message": "Portuguese"
+	},
 	"py_country_name": {
 		"message": "Paraguay"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "Russia"
+	},
+	"ru_language_name": {
+		"message": "Russian"
 	},
 	"ru_tradition": {
 		"message": "Nagde-decor ang mga bata sa Russia ng New Year's tree sa halip na Christmas tree. Inaabangan ng mga bata si Grandfather Frost na naglalakbay kasama si Snowmaden ang kanyang apo para magbigay ng mga regalo sa buong lugar. Nakatira si Grandfather Frost sa kagubatan ng Veliky Ustyug sa hilagang Russia."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "Slovakia"
 	},
+	"sk_language_name": {
+		"message": "Slovak"
+	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "El Salvador"
 	},
+	"sv_language_name": {
+		"message": "Swedish"
+	},
 	"td_country_name": {
 		"message": "Chad"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Thai"
 	},
 	"tilt": {
 		"message": "I-tilt ang iyong device!"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "Turkey"
+	},
+	"tr_language_name": {
+		"message": "Turkish"
+	},
+	"tracker_arriving_in": {
+		"message": "Paparating sa loob ng"
+	},
+	"tracker_current_stop": {
+		"message": "Kasalukuyang hinto"
+	},
+	"tracker_departing_in": {
+		"message": "Aalis sa loob ng"
+	},
+	"tracker_distance_from_you": {
+		"message": "Distansya mula sa iyo"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Mga naihatid na regalo"
+	},
+	"tracker_next_stop": {
+		"message": "Susunod na hinto"
+	},
+	"tracker_your_location": {
+		"message": "Iyong lokasyon"
 	},
 	"traditions-next": {
 		"message": "Susunod na Tradisyon"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgaria"
 	},
+	"trivia_ngb_promo": {
+		"message": "Mula sa National Geographic Bee ang content"
+	},
 	"tw_country_name": {
 		"message": "Taiwan"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "Yemen"
+	},
+	"zh-CN_language_name": {
+		"message": "Chinese (simplified)"
+	},
+	"zh-TW_language_name": {
+		"message": "Chinese (traditional)"
 	},
 	"zm_country_name": {
 		"message": "Zambia"

@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnija un Hercegovina"
 	},
+	"back_to_tracker": {
+		"message": "Atgriezties lietotnē “Ziemassvētku vecīša ceļojums”"
+	},
 	"bd_country_name": {
 		"message": "Bangladeša"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "Kotdivuāra"
+	},
+	"citylights-contribute": {
+		"message": "Pievienojiet savus šīs atrašanās vietas fotoattēlus: %location%"
+	},
+	"citylights-panorama-01-description": {
+		"message": "\"Rockefeller Plaza\" laukums"
+	},
+	"citylights-panorama-01-location": {
+		"message": "Ņujorka, ASV"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Puškina laukums"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Maskava, Krievija"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rātslaukums"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Vīne, Austrija"
+	},
+	"citylights-panorama-04-description": {
+		"message": "No Elizejas laukiem līdz Triumfa arkai"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Parīze, Francija"
+	},
+	"citylights-panorama-05-description": {
+		"message": "\"Magnificent Mile\" tirdzniecības iela"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Čikāga, ASV"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Ziemassvētku tirdziņš"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nirnberga, Vācija"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Medeljina"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medeljina, Kolumbija"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Ziemassvētku vecīša ciemats"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lapzeme, Somija"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Lielais laukums"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brisele, Beļģija"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgāra laukums"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Londona, Anglija"
+	},
+	"citylights-panorama-11-description": {
+		"message": "\"Plaza Mayor\" laukums"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madride, Spānija"
+	},
+	"citylights-panorama-12-description": {
+		"message": "“Roppongi Hills” ēka"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokija, Japāna"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Tivoli parks"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Kopenhāgena, Dānija"
+	},
+	"citylights-panorama-14-description": {
+		"message": "\"Orchard Road\" tirdzniecības iela"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapūra, Singapūra"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Gaismas aleja"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Gēteborga, Zviedrija"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Ziemas gaismas festivāls"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagāras ūdenskritums, Kanāda"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Honkonga, Ķīna"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Rodrigo de Freitas ezers"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Riodežaneiro, Brazīlija"
 	},
 	"cl_country_name": {
 		"message": "Čīle"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "Kostarika"
 	},
+	"cs_language_name": {
+		"message": "Čehu"
+	},
 	"cu_country_name": {
 		"message": "Kuba"
 	},
 	"cz_country_name": {
 		"message": "Čehija"
+	},
+	"da_language_name": {
+		"message": "Dāņu"
 	},
 	"days": {
 		"message": "Dienas"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "Izrotājiet savu pārlūkprogrammu, izmantojot Ziemassvētku vecīša Chrome paplašinājumu."
 	},
+	"detected": {
+		"message": "noteikta"
+	},
+	"difficulty": {
+		"message": "Līmenis"
+	},
 	"dk_country_name": {
 		"message": "Dānija"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "Alžīrija"
 	},
+	"easy_difficulty": {
+		"message": "Viegls"
+	},
 	"ec_country_name": {
 		"message": "Ekvadora"
 	},
 	"ee_country_name": {
 		"message": "Igaunija"
+	},
+	"el_language_name": {
+		"message": "Grieķu"
+	},
+	"elvish_language_name": {
+		"message": "Rūķīšu"
+	},
+	"en_language_name": {
+		"message": "Angļu"
 	},
 	"endofjourneymessage": {
 		"message": "Šogad Ziemassvētku vecītis ir beidzis savu ceļojumu. Viņš ar rūķīšiem joprojām līksmo Ziemeļpolā pirms gadskārtējām brīvdienām."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "Mēģiniet vēlreiz"
 	},
+	"es_language_name": {
+		"message": "Spāņu"
+	},
 	"et_country_name": {
 		"message": "Etiopija"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "Francija"
+	},
+	"fr_language_name": {
+		"message": "Franču"
 	},
 	"fr_tradition": {
 		"message": "Francijā bērni parasti novieto apavus kamīna priekšā, gaidot Pjēra Noela (Père Noël) ierašanos. Ja bērni visu gadu ir labi uzvedušies, Pjērs Noels piepilda apavus ar dāvanām."
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "Gajāna"
 	},
+	"hard_difficulty": {
+		"message": "Grūts"
+	},
+	"hi_language_name": {
+		"message": "Hindi"
+	},
 	"hn_country_name": {
 		"message": "Hondurasa"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "Ungārija"
 	},
+	"hu_language_name": {
+		"message": "Ungāru"
+	},
 	"id_country_name": {
 		"message": "Indonēzija"
 	},
 	"ie_country_name": {
 		"message": "Īrija"
+	},
+	"improve_google_translate": {
+		"message": "Palīdziet uzlabot pakalpojumu “Google tulkotājs”"
 	},
 	"iq_country_name": {
 		"message": "Irāka"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "Itālija"
 	},
+	"it_language_name": {
+		"message": "Itāļu"
+	},
+	"ja_language_name": {
+		"message": "Japāņu"
+	},
 	"jm_country_name": {
 		"message": "Jamaika"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "Kirgizstānā tiek gaidīts Ayaz Ata (Salatēvs), kurš ierodas pusnaktī Vecgada vakarā un atstāj zem eglītes dāvanas. Kad pulkstenis iezvana pusnakti, visā valstī notiek uguņošana, lai svinētu šo skaisto notikumu. Pilsētās kļūst gaišs kā dienā."
+	},
+	"ko_language_name": {
+		"message": "Korejiešu"
 	},
 	"kz_country_name": {
 		"message": "Kazahstāna"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "Moldova"
+	},
+	"medium_difficulty": {
+		"message": "Vidējs"
 	},
 	"mg_country_name": {
 		"message": "Madagaskara"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "Nīderlande"
 	},
+	"nl_language_name": {
+		"message": "Holandiešu"
+	},
 	"no_country_name": {
 		"message": "Norvēģija"
+	},
+	"no_language_name": {
+		"message": "Norvēģu"
 	},
 	"nonprofit-jane-description": {
 		"message": "Šimpanzes ir cilvēkiem vistuvāk radniecīgie dzīvnieki! Džeinas Gudolas institūts (Jane Goodall Institute — JGI) aizsargā tādas šimpanzes, novērojot viņas, lai izprastu to uzvedību un dzīves vidi. JGI arī veido kopienu, kurā iesaistās cilvēki, kas aizsargā un saglabā savvaļas dzīvniekus un mūsu apkārtējo vidi. Uzziniet vairāk par Tanzānijas pilsētā Gombē \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003emītošajām šimpanzēm\u003c/a\u003e."
 	},
 	"nonprofit-jane-type": {
 		"message": "Šimpanze"
+	},
+	"nonprofit-more-information": {
+		"message": "Papildinformācija atrodama šajā vietnē:"
 	},
 	"nonprofit-nature-description": {
 		"message": "Labdarības organizācija Dabas aizsardzības pārvalde (Nature Conservancy) darbojas gan Amerikas Savienoto Valstu, gan visas pasaules mežu aizsardzības un atjaunošanas jomā. Šie milzu meži nodrošina dzīvību visā planētā. Tie filtrē ūdeni, attīra mūsu elpoto gaisu, nodrošina mājvietu cilvēku kopienām un dzīves vidi tūkstošiem svarīgu augu un dzīvnieku sugu. Ņemot vērā pašreizējo atmežošanas ātrumu, aptuveni pēc 100 gadiem mūsu meži izzudīs. Tieši tādēļ tika ieviesta programma Dabas aizsardzības organizācija stādīs miljardu koku (The Nature Conservancy’s Plant a Billion Trees) — saskaņā ar šo programmu līdz 2025. gadam tiks iestādīts viens miljards koku, tādējādi atjaunojot tos pasaules mežus, kuri ir viskritiskākajā stāvoklī."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "Lielā atklāšana būs rīt!"
 	},
+	"ornament-print-instructions": {
+		"message": "Nolokiet pa šo līniju un salīmējiet abas puses"
+	},
 	"pa_country_name": {
 		"message": "Panama"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "Polija"
 	},
+	"pl_language_name": {
+		"message": "Poļu"
+	},
 	"play": {
 		"message": "Spēlēt"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "Puertoriko"
 	},
+	"pt_language_name": {
+		"message": "Portugāļu"
+	},
 	"py_country_name": {
 		"message": "Paragvaja"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "Krievija"
+	},
+	"ru_language_name": {
+		"message": "Krievu"
 	},
 	"ru_tradition": {
 		"message": "Krievijā bērni rotā Jaungada eglīti un nespēj vien sagaidīt Salavectēva ierašanos. Viņš ceļo kopā ar savu mazmeitu Sniegbaltīti, piegādājot dāvanas visā valstī. Salavectēvs dzīvo Krievijas ziemeļos, Veļikijustjugas dziļajos mežos."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "Slovākija"
 	},
+	"sk_language_name": {
+		"message": "Slovāku"
+	},
 	"sl_country_name": {
 		"message": "Sjerraleone"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "Salvadora"
 	},
+	"sv_language_name": {
+		"message": "Zviedru"
+	},
 	"td_country_name": {
 		"message": "Čada"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Taju"
 	},
 	"tilt": {
 		"message": "Pagriez ierīci!"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "Turcija"
+	},
+	"tr_language_name": {
+		"message": "Turku"
+	},
+	"tracker_arriving_in": {
+		"message": "Ieradīsies pēc"
+	},
+	"tracker_current_stop": {
+		"message": "Pašreizējā apstāšanās vieta"
+	},
+	"tracker_departing_in": {
+		"message": "Dosies ceļā pēc"
+	},
+	"tracker_distance_from_you": {
+		"message": "Attālums no jūsu atrašanās vietas"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Piegādātās dāvanas"
+	},
+	"tracker_next_stop": {
+		"message": "Nākamā apstāšanās vieta"
+	},
+	"tracker_your_location": {
+		"message": "Jūsu atrašanās vieta"
 	},
 	"traditions-next": {
 		"message": "Nākamā tradīcija"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgārija"
 	},
+	"trivia_ngb_promo": {
+		"message": "Saturu veidoja konkursa “National Geographic Bee” komanda"
+	},
 	"tw_country_name": {
 		"message": "Taivāna"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "Jemena"
+	},
+	"zh-CN_language_name": {
+		"message": "Ķīniešu (vienkāršotā)"
+	},
+	"zh-TW_language_name": {
+		"message": "Ķīniešu (tradicionālā)"
 	},
 	"zm_country_name": {
 		"message": "Zambija"

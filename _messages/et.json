@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia ja Hertsegoviina"
 	},
+	"back_to_tracker": {
+		"message": "Tagasi teekonna jälgimise juurde"
+	},
 	"bd_country_name": {
 		"message": "Bangladesh"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "Elevandiluurannik"
+	},
+	"citylights-contribute": {
+		"message": "Lisage oma fotod asukohast %location%"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, Ameerika Ühendriigid"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Puškini väljak"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moskva, Venemaa"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Raekoja plats"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Viin, Austria"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Champs-Elysees'st Triumfikaareni"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Pariis, Prantsusmaa"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, Ameerika Ühendriigid"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Jõuluturg"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nürnberg, Saksamaa"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Medellini jõgi"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Colombia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Jõuluvana küla"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lapimaa, Soome"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand-Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brüssel, Belgia"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgari väljak"
+	},
+	"citylights-panorama-10-location": {
+		"message": "London, Inglismaa"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Hispaania"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokyo, Jaapan"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Tivoli lõbustuspark"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Kopenhaagen, Taani"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapuri linn, Singapur"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Tuledeallee"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Göteborg, Rootsi"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Talvine tulede festival"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagara juga, Kanada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hongkong, Hiina"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Rodrigo de Freitase laguun"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brasiilia"
 	},
 	"cl_country_name": {
 		"message": "Tšiili"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "Costa Rica"
 	},
+	"cs_language_name": {
+		"message": "tšehhi keel"
+	},
 	"cu_country_name": {
 		"message": "Kuuba"
 	},
 	"cz_country_name": {
 		"message": "Tšehhi Vabariik"
+	},
+	"da_language_name": {
+		"message": "taani keel"
 	},
 	"days": {
 		"message": "Päevi"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "Ehtige oma brauser Chrome'i jõuluvana laiendusega."
 	},
+	"detected": {
+		"message": "tuvastatud"
+	},
+	"difficulty": {
+		"message": "Raskusaste"
+	},
 	"dk_country_name": {
 		"message": "Taani"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "Alžeeria"
 	},
+	"easy_difficulty": {
+		"message": "Lihtne"
+	},
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
 	"ee_country_name": {
 		"message": "Eesti"
+	},
+	"el_language_name": {
+		"message": "kreeka keel"
+	},
+	"elvish_language_name": {
+		"message": "päkapiku keel"
+	},
+	"en_language_name": {
+		"message": "inglise keel"
 	},
 	"endofjourneymessage": {
 		"message": "Jõuluvana teekond on selleks aastaks läbi. Enne iga-aastast puhkust lõbutseb jõuluvana koos päkapikkudega pisut aega põhjanabal."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "Proovige uuesti"
 	},
+	"es_language_name": {
+		"message": "hispaania keel"
+	},
 	"et_country_name": {
 		"message": "Etioopia"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "Prantsusmaa"
+	},
+	"fr_language_name": {
+		"message": "prantsuse keel"
 	},
 	"fr_tradition": {
 		"message": "Prantsusmaal panevad lapsed traditsioonide kohaselt Père Noëli oodates kinga kamina kõrvale. Kui laps on terve aasta tubli olnud, täidab Père Noël tema kinga kinkidega."
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "Guyana"
 	},
+	"hard_difficulty": {
+		"message": "Raske"
+	},
+	"hi_language_name": {
+		"message": "hindi keel"
+	},
 	"hn_country_name": {
 		"message": "Honduras"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "Ungari"
 	},
+	"hu_language_name": {
+		"message": "ungari keel"
+	},
 	"id_country_name": {
 		"message": "Indoneesia"
 	},
 	"ie_country_name": {
 		"message": "Iirimaa"
+	},
+	"improve_google_translate": {
+		"message": "Aidake Google Translate'i paremaks muuta"
 	},
 	"iq_country_name": {
 		"message": "Iraak"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "Itaalia"
 	},
+	"it_language_name": {
+		"message": "itaalia keel"
+	},
+	"ja_language_name": {
+		"message": "jaapani keel"
+	},
 	"jm_country_name": {
 		"message": "Jamaika"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "Kõrgõzstanis saabub aastavahetusel keskööl Ayaz Ata (Külmataat) ja jätab puu alla kingitusi. Kesköö saabudes tervitavad pered terves riigis uut aastat ilutulestikuga. Linnad on valgustatud, nagu oleks päev."
+	},
+	"ko_language_name": {
+		"message": "korea keel"
 	},
 	"kz_country_name": {
 		"message": "Kasahstan"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "Moldova"
+	},
+	"medium_difficulty": {
+		"message": "Keskmine"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "Holland"
 	},
+	"nl_language_name": {
+		"message": "hollandi keel"
+	},
 	"no_country_name": {
 		"message": "Norra"
+	},
+	"no_language_name": {
+		"message": "norra keel"
 	},
 	"nonprofit-jane-description": {
 		"message": "Šimpansid on inimese lähimad elusolevad sugulased loomariigis. Tänasel päeval on elupaikade hävimise, haiguste ja ebaseadusliku kaubitsemise tõttu maailmas alles alla 300 000 šimpansi. Organisatsioon Jane Goodall Institute (JGI) tegeleb šimpansite kaitsmisega. Selleks jälgitakse ja üritatakse mõista nende käitumist ning elupaiku. Samuti on JGI eesmärgiks luua kogukond, kes tegeleb loomariigi ja meie ühise keskkonna kaitsmise ning säilitamisega. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eTutvuge šimpansite elupaikadega\u003c/a\u003e Gombes, Tansaanias."
 	},
 	"nonprofit-jane-type": {
 		"message": "Šimpansid"
+	},
+	"nonprofit-more-information": {
+		"message": "Lisateavet leiate veebisaidilt:"
 	},
 	"nonprofit-nature-description": {
 		"message": "Organisatsiooni The Nature Conservancy tegevuse eesmärgiks on kaitsta ja taastada Ameerika Ühendriikide ja maailma metsi. Need märgilise tähendusega metsad võimaldavad kogu maailmas elul jätkuda. Nad filtreerivad vett, puhastavad õhku, annavad eluks vajalikku tuge kogukondadele ja on oluliste taime- ja loomaliikide elupaigaks. Praeguse metsatustumise tempo juures on metsad vähem kui 100 aasta pärast hävinud. Organisatsiooni The Nature Conservancy programmi „Istuta miljard puud” eesmärk on istutada 2025. aastaks miljard puud ja taastada maailma kõige olulisemad metsad."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "Homme suurejooneline avamine"
 	},
+	"ornament-print-instructions": {
+		"message": "Murdke siit ja liimige kokku"
+	},
 	"pa_country_name": {
 		"message": "Panama"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "Poola"
 	},
+	"pl_language_name": {
+		"message": "poola keel"
+	},
 	"play": {
 		"message": "Mängige"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"pt_language_name": {
+		"message": "portugali keel"
+	},
 	"py_country_name": {
 		"message": "Paraguai"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "Venemaa"
+	},
+	"ru_language_name": {
+		"message": "vene keel"
 	},
 	"ru_tradition": {
 		"message": "Vene lapsed ehivad jõulupuu asemel nääripuud. Lapsed ootavad pikisilmi näärivana, kes koos oma lapselapse Lumehelbekesega kogu maal lastele kingitusi toob. Näärivana elab Venemaa põhjaosas sügaval Veliki Ustjugi metsades."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "Slovakkia"
 	},
+	"sk_language_name": {
+		"message": "slovaki keel"
+	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "El Salvador"
 	},
+	"sv_language_name": {
+		"message": "rootsi keel"
+	},
 	"td_country_name": {
 		"message": "Tšaad"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "tai keel"
 	},
 	"tilt": {
 		"message": "Kallutage seadet!"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "Türgi"
+	},
+	"tr_language_name": {
+		"message": "türgi keel"
+	},
+	"tracker_arriving_in": {
+		"message": "Saabumiseni jäänud aeg"
+	},
+	"tracker_current_stop": {
+		"message": "Praegune peatus"
+	},
+	"tracker_departing_in": {
+		"message": "Teele asumiseni jäänud aeg"
+	},
+	"tracker_distance_from_you": {
+		"message": "Kaugus teist"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Kohale toimetatud kingitusi"
+	},
+	"tracker_next_stop": {
+		"message": "Järgmine peatus"
+	},
+	"tracker_your_location": {
+		"message": "Teie asukoht"
 	},
 	"traditions-next": {
 		"message": "Järgmine traditsioon"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "Bulgaaria"
 	},
+	"trivia_ngb_promo": {
+		"message": "Sisu autor: National Geographic Bee"
+	},
 	"tw_country_name": {
 		"message": "Taiwan"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "Jeemen"
+	},
+	"zh-CN_language_name": {
+		"message": "hiina keel (lihtsustatud)"
+	},
+	"zh-TW_language_name": {
+		"message": "hiina keel (traditsiooniline)"
 	},
 	"zm_country_name": {
 		"message": "Sambia"

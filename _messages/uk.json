@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Боснія і Герцеговина"
 	},
+	"back_to_tracker": {
+		"message": "Назад до маршруту"
+	},
 	"bd_country_name": {
 		"message": "Бангладеш"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "Кот-д’Івуар"
+	},
+	"citylights-contribute": {
+		"message": "%location% є у вас на фотографіях? Додайте їх!"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Рокфеллер-плаза"
+	},
+	"citylights-panorama-01-location": {
+		"message": "Нью-Йорк, США"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Площа Пушкіна"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Москва, Росія"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Ратушна площа"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Відень, Австрія"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Єлисейські поля з видом на Тріумфальну арку"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Париж, Франція"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Чудова миля"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Чикаго, США"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Різдвяний ринок"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Нюрнберг, Німеччина"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Річка Медельїн"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Медельїн, Колумбія"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Містечко Діда Мороза"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Лапландія, Фінляндія"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Гран-Плас"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Брюссель, Бельгія"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Трафальгарська площа"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Лондон, Англія"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Пласа-Майор"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Мадрид, Іспанія"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Роппонгі Хіллс"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Токіо, Японія"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Парк Тіволі"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Копенгаген, Данія"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Орчард-роуд"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Сінгапур, Сінгапур"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Дорога світла"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Гетеборг, Швеція"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Зимовий фестиваль вогнів"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Ніагара-Фоллс, Канада"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Гонконг, Китай"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Озеро Родрігу-ді-Фрейташ"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Ріо-де-Жанейро, Бразилія"
 	},
 	"cl_country_name": {
 		"message": "Чилі"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "Коста-Рика"
 	},
+	"cs_language_name": {
+		"message": "чеська"
+	},
 	"cu_country_name": {
 		"message": "Куба"
 	},
 	"cz_country_name": {
 		"message": "Чеська Республіка"
+	},
+	"da_language_name": {
+		"message": "данська"
 	},
 	"days": {
 		"message": "Дні"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "Прикрасьте свій веб-переглядач із допомогою святкового розширення для Chrome."
 	},
+	"detected": {
+		"message": "визначено автоматично"
+	},
+	"difficulty": {
+		"message": "Складність"
+	},
 	"dk_country_name": {
 		"message": "Данія"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "Алжир"
 	},
+	"easy_difficulty": {
+		"message": "Низька"
+	},
 	"ec_country_name": {
 		"message": "Еквадор"
 	},
 	"ee_country_name": {
 		"message": "Естонія"
+	},
+	"el_language_name": {
+		"message": "грецька"
+	},
+	"elvish_language_name": {
+		"message": "ельфійська"
+	},
+	"en_language_name": {
+		"message": "англійська"
 	},
 	"endofjourneymessage": {
 		"message": "Ось і добігла кінця цьогорічна подорож Діда Мороза. Тепер він може й собі посвяткувати в Лапландії зі Снігуронькою, а потім вирушити у відпустку."
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "Спробуйте знову"
 	},
+	"es_language_name": {
+		"message": "іспанська"
+	},
 	"et_country_name": {
 		"message": "Ефіопія"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "Франція"
+	},
+	"fr_language_name": {
+		"message": "французька"
 	},
 	"fr_tradition": {
 		"message": "У Франції на Різдво діти ставлять своє взуття біля каміна. Якщо протягом року вони добре поводилися, Пер Ноель покладе у взуття подарунки."
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "Гаяна"
 	},
+	"hard_difficulty": {
+		"message": "Висока"
+	},
+	"hi_language_name": {
+		"message": "гінді"
+	},
 	"hn_country_name": {
 		"message": "Гондурас"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "Угорщина"
 	},
+	"hu_language_name": {
+		"message": "угорська"
+	},
 	"id_country_name": {
 		"message": "Індонезія"
 	},
 	"ie_country_name": {
 		"message": "Ірландія"
+	},
+	"improve_google_translate": {
+		"message": "Допоможіть покращити Перекладач Google"
 	},
 	"iq_country_name": {
 		"message": "Ірак"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "Італія"
 	},
+	"it_language_name": {
+		"message": "італійська"
+	},
+	"ja_language_name": {
+		"message": "японська"
+	},
 	"jm_country_name": {
 		"message": "Ямайка"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "У Киргизстані Аяз Ата (Дід Мороз) приходить в оселі в новорічну ніч і залишає під ялинкою подарунки. Коли годинники б’ють північ, родини по всій країні запалюють феєрверки. У цей час у містах стає світло, немов удень."
+	},
+	"ko_language_name": {
+		"message": "корейська"
 	},
 	"kz_country_name": {
 		"message": "Казахстан"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "Молдова"
+	},
+	"medium_difficulty": {
+		"message": "Середня"
 	},
 	"mg_country_name": {
 		"message": "Мадагаскар"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "Нідерланди"
 	},
+	"nl_language_name": {
+		"message": "нідерландська"
+	},
 	"no_country_name": {
 		"message": "Норвегія"
+	},
+	"no_language_name": {
+		"message": "норвезька"
 	},
 	"nonprofit-jane-description": {
 		"message": "Найближчі живі родичі людини зі світу тварин – це шимпанзе. На жаль, на сьогоднішній день їх залишилося менше 300 000. Причина цьому – зникнення природного середовища, хвороби та незаконна торгівля. Дослідники Інституту Джейн Гудолл (The Jane Goodall Institute) захищають цих мавп, вивчаючи їх поведінку та середовище проживання, а також організовують спільноту небайдужих людей, які піклуються про безпеку дикої природи. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eВідкрийте для себе домівку шимпанзе\u003c/a\u003e в Гомбе, Танзанія."
 	},
 	"nonprofit-jane-type": {
 		"message": "Шимпанзе"
+	},
+	"nonprofit-more-information": {
+		"message": "Дізнайтеся більше тут:"
 	},
 	"nonprofit-nature-description": {
 		"message": "Комітет з охорони природи Nature Conservancy працює над тим, щоб захищати й відновлювати ліси в США та всьому світі. Адже ліси – це основа життя на планеті: вони очищають воду й повітря, забезпечують природне середовище для важливих видів тварин і рослин, а також потрібні для існування суспільства. Якщо не зменшити темп вирубки лісів, усі дерева на планеті буде знищено протягом 100 років. Саме тому комітет Nature Conservancy створив програму, мета якої – насадити мільярд дерев до 2025 року та відродити ліси, яким загрожує найбільша небезпека."
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "Урочисте відкриття вже завтра"
 	},
+	"ornament-print-instructions": {
+		"message": "Загніть тут і склейте сторони"
+	},
 	"pa_country_name": {
 		"message": "Панама"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "Польща"
 	},
+	"pl_language_name": {
+		"message": "польська"
+	},
 	"play": {
 		"message": "Новорічні ігри"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "Пуерто-Рико"
 	},
+	"pt_language_name": {
+		"message": "португальська"
+	},
 	"py_country_name": {
 		"message": "Парагвай"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "Росія"
+	},
+	"ru_language_name": {
+		"message": "російська"
 	},
 	"ru_tradition": {
 		"message": "У Росії діти прикрашають новорічну ялинку та чекають, доки Дід Мороз зі своєю внучкою Снігуронькою принесе їм подарунки. Російські дітлахи вірять, що Дід Мороз живе на півночі Росії, у лісі в місті Великий Устюг."
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "Словаччина"
 	},
+	"sk_language_name": {
+		"message": "словацька"
+	},
 	"sl_country_name": {
 		"message": "Сьєрра-Леоне"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "Сальвадор"
 	},
+	"sv_language_name": {
+		"message": "шведська"
+	},
 	"td_country_name": {
 		"message": "Чад"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "Того"
+	},
+	"th_language_name": {
+		"message": "тайська"
 	},
 	"tilt": {
 		"message": "Нахиліть пристрій."
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "Туреччина"
+	},
+	"tr_language_name": {
+		"message": "турецька"
+	},
+	"tracker_arriving_in": {
+		"message": "Прибуття за"
+	},
+	"tracker_current_stop": {
+		"message": "Поточна зупинка"
+	},
+	"tracker_departing_in": {
+		"message": "Відправлення за"
+	},
+	"tracker_distance_from_you": {
+		"message": "Відстань від вас"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Доставлено подарунків"
+	},
+	"tracker_next_stop": {
+		"message": "Наступна зупинка"
+	},
+	"tracker_your_location": {
+		"message": "Ваше місцезнаходження"
 	},
 	"traditions-next": {
 		"message": "Наступна традиція"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "Болгарія"
 	},
+	"trivia_ngb_promo": {
+		"message": "Матеріали з National Geographic Bee"
+	},
 	"tw_country_name": {
 		"message": "Тайвань"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "Ємен"
+	},
+	"zh-CN_language_name": {
+		"message": "китайська (спрощена)"
+	},
+	"zh-TW_language_name": {
+		"message": "китайська (традиційна)"
 	},
 	"zm_country_name": {
 		"message": "Замбія"

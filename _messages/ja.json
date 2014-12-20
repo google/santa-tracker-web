@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "ボスニア ヘルツェゴビナ"
 	},
+	"back_to_tracker": {
+		"message": "追跡画面に戻る"
+	},
 	"bd_country_name": {
 		"message": "バングラデシュ"
 	},
@@ -118,6 +121,117 @@
 	},
 	"ci_country_name": {
 		"message": "コートジボアール"
+	},
+	"citylights-contribute": {
+		"message": "あなたが持っている %location% の写真を追加してください"
+	},
+	"citylights-panorama-01-description": {
+		"message": "ロックフェラー センター前広場"
+	},
+	"citylights-panorama-01-location": {
+		"message": "ニューヨーク（アメリカ合衆国）"
+	},
+	"citylights-panorama-02-description": {
+		"message": "プーシキン広場"
+	},
+	"citylights-panorama-02-location": {
+		"message": "モスクワ（ロシア）"
+	},
+	"citylights-panorama-03-description": {
+		"message": "ラートハウス広場"
+	},
+	"citylights-panorama-03-location": {
+		"message": "ウィーン（オーストリア）"
+	},
+	"citylights-panorama-04-description": {
+		"message": "シャンゼリゼ通りから見た凱旋門"
+	},
+	"citylights-panorama-04-location": {
+		"message": "パリ（フランス）"
+	},
+	"citylights-panorama-05-description": {
+		"message": "マグニフィセント マイル"
+	},
+	"citylights-panorama-05-location": {
+		"message": "シカゴ（アメリカ）"
+	},
+	"citylights-panorama-06-description": {
+		"message": "クリスマス マーケット"
+	},
+	"citylights-panorama-06-location": {
+		"message": "ニュルンベルク（ドイツ）"
+	},
+	"citylights-panorama-07-description": {
+		"message": "メデジン川"
+	},
+	"citylights-panorama-07-location": {
+		"message": "メデジン（コロンビア）"
+	},
+	"citylights-panorama-08-description": {
+		"message": "サンタクロース村"
+	},
+	"citylights-panorama-08-location": {
+		"message": "ラップランド（フィンランド）"
+	},
+	"citylights-panorama-09-description": {
+		"message": "グランプラス"
+	},
+	"citylights-panorama-09-location": {
+		"message": "ブリュッセル（ベルギー）"
+	},
+	"citylights-panorama-10-description": {
+		"message": "トラファルガー広場"
+	},
+	"citylights-panorama-10-location": {
+		"message": "ロンドン（イギリス）"
+	},
+	"citylights-panorama-11-description": {
+		"message": "マヨール広場"
+	},
+	"citylights-panorama-11-location": {
+		"message": "マドリード（スペイン）"
+	},
+	"citylights-panorama-12-description": {
+		"message": "六本木ヒルズ"
+	},
+	"citylights-panorama-12-location": {
+		"message": "東京（日本）"
+	},
+	"citylights-panorama-13-description": {
+		"message": "チボリ公園"
+	},
+	"citylights-panorama-13-location": {
+		"message": "コペンハーゲン（デンマーク）"
+	},
+	"citylights-panorama-14-description": {
+		"message": "オーチャード ロード"
+	},
+	"citylights-panorama-14-location": {
+		"message": "シンガポール（シンガポール）"
+	},
+	"citylights-panorama-15-description": {
+		"message": "光の道"
+	},
+	"citylights-panorama-15-location": {
+		"message": "ヨーテボリ（スウェーデン）"
+	},
+	"citylights-panorama-16-description": {
+		"message": "冬の光の祭典（ウィンター フェスティバル オブ ライツ）"
+	},
+	"citylights-panorama-16-location": {
+		"message": "ナイアガラの滝（カナダ）"
+	},
+	"citylights-panorama-17-description": {
+		"message": "ウィンターフェスト"
+	},
+	"citylights-panorama-17-location": {
+		"message": "香港（中国）"
+	},
+	"citylights-panorama-18-description": {
+		"message": "ロドリゴ デ フレイタス湖"
+	},
+	"citylights-panorama-18-location": {
+		"message": "リオ デジャネイロ（ブラジル）"
 	},
 	"cl_country_name": {
 		"message": "チリ"
@@ -218,11 +332,17 @@
 	"cr_country_name": {
 		"message": "コスタリカ"
 	},
+	"cs_language_name": {
+		"message": "チェコ語"
+	},
 	"cu_country_name": {
 		"message": "キューバ"
 	},
 	"cz_country_name": {
 		"message": "チェコ"
+	},
+	"da_language_name": {
+		"message": "デンマーク語"
 	},
 	"days": {
 		"message": "日"
@@ -242,6 +362,12 @@
 	"deckdescription": {
 		"message": "Chrome 拡張機能「サンタを追いかけよう」で、ブラウザを楽しく飾ろう。"
 	},
+	"detected": {
+		"message": "検出済み"
+	},
+	"difficulty": {
+		"message": "難易度"
+	},
 	"dk_country_name": {
 		"message": "デンマーク"
 	},
@@ -251,11 +377,23 @@
 	"dz_country_name": {
 		"message": "アルジェリア"
 	},
+	"easy_difficulty": {
+		"message": "低"
+	},
 	"ec_country_name": {
 		"message": "エクアドル"
 	},
 	"ee_country_name": {
 		"message": "エストニア"
+	},
+	"el_language_name": {
+		"message": "ギリシャ語"
+	},
+	"elvish_language_name": {
+		"message": "妖精語"
+	},
+	"en_language_name": {
+		"message": "英語"
 	},
 	"endofjourneymessage": {
 		"message": "メリー クリスマス！サンタさんは世界中の旅を終えたので、仲間たちと北極で楽しんでから長いお休みに入ります。来年もまたお楽しみに！"
@@ -275,6 +413,9 @@
 	"error_try_again": {
 		"message": "もう一度やり直してください"
 	},
+	"es_language_name": {
+		"message": "スペイン語"
+	},
 	"et_country_name": {
 		"message": "エチオピア"
 	},
@@ -286,6 +427,9 @@
 	},
 	"fr_country_name": {
 		"message": "フランス"
+	},
+	"fr_language_name": {
+		"message": "フランス語"
 	},
 	"fr_tradition": {
 		"message": "フランスでは、クリスマスになると子供たちは暖炉のそばに靴を置いてサンタクロースの「ペール・ノエル」がやってくるのを心待ちにします。子供たちが 1 年間ずっといい子にしていたら、ペール・ノエルからのプレゼントが靴の中に入っています。"
@@ -338,6 +482,12 @@
 	"gy_country_name": {
 		"message": "ガイアナ"
 	},
+	"hard_difficulty": {
+		"message": "高"
+	},
+	"hi_language_name": {
+		"message": "ヒンディー語"
+	},
 	"hn_country_name": {
 		"message": "ホンジュラス"
 	},
@@ -353,11 +503,17 @@
 	"hu_country_name": {
 		"message": "ハンガリー"
 	},
+	"hu_language_name": {
+		"message": "ハンガリー語"
+	},
 	"id_country_name": {
 		"message": "インドネシア"
 	},
 	"ie_country_name": {
 		"message": "アイルランド"
+	},
+	"improve_google_translate": {
+		"message": "Google 翻訳の改善に協力する"
 	},
 	"iq_country_name": {
 		"message": "イラク"
@@ -374,6 +530,12 @@
 	"it_country_name": {
 		"message": "イタリア"
 	},
+	"it_language_name": {
+		"message": "イタリア語"
+	},
+	"ja_language_name": {
+		"message": "日本語"
+	},
 	"jm_country_name": {
 		"message": "ジャマイカ"
 	},
@@ -382,6 +544,9 @@
 	},
 	"kg_tradition": {
 		"message": "キルギスでは、大晦日の深夜にジェッド・マロース（霜の精）がやってきて新年の木の下にプレゼントを置いていきます。時計の針が深夜を指すと、国中の家族は花火を打ち上げ、この華やかな行事を祝います。このとき、街は日中のように明るく照らされます。"
+	},
+	"ko_language_name": {
+		"message": "韓国語"
 	},
 	"kz_country_name": {
 		"message": "カザフスタン"
@@ -424,6 +589,9 @@
 	},
 	"md_country_name": {
 		"message": "モルドバ"
+	},
+	"medium_difficulty": {
+		"message": "中"
 	},
 	"mg_country_name": {
 		"message": "マダガスカル"
@@ -470,14 +638,23 @@
 	"nl_country_name": {
 		"message": "オランダ"
 	},
+	"nl_language_name": {
+		"message": "オランダ語"
+	},
 	"no_country_name": {
 		"message": "ノルウェー"
+	},
+	"no_language_name": {
+		"message": "ノルウェー語"
 	},
 	"nonprofit-jane-description": {
 		"message": "チンパンジーは、現存する生物種の中で人間の最も近い親戚と言える動物です。チンパンジーの生息数は棲息地の減少、病気、違法売買によって減少しており、現在では 300,000 頭にも満たない数となっています。Jane Goodall Institute（JGI）では、チンパンジーを観察し、行動や生活圏を理解することで同種の保護に努めています。また、野生生物、そして人類が共有する環境の保護に取り組む人々のためのコミュニティ作りも行っています。タンザニアのゴンベにある\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eチンパンジー生息域の様子\u003c/a\u003eをご覧ください。"
 	},
 	"nonprofit-jane-type": {
 		"message": "チンパンジー"
+	},
+	"nonprofit-more-information": {
+		"message": "詳細については次の URL をご覧ください。"
 	},
 	"nonprofit-nature-description": {
 		"message": "Nature Conservancy は、アメリカをはじめとする世界各国で、森林の保護と再生に取り組んでいます。これらの象徴的な森林は、地球全体の生命活動の基盤です。水を濾過し、空気を浄化し、人間のコミュニティーを支え、重要な動植物に住処を提供しているのは、こういった森林です。森林破壊が現在のペースで進行すれば、あと 100 年以内に地球の森林はなくなってしまうでしょう。Nature Conservancy の「Plant a Billion Trees」プログラムでは、世界各地の特に重要な森林地帯で、2025 年までに 10 億本の木を植えることを目指しています。"
@@ -509,6 +686,9 @@
 	"openingtomorrow": {
 		"message": "明日公開"
 	},
+	"ornament-print-instructions": {
+		"message": "ここで折り曲げて両端をのりづけ"
+	},
 	"pa_country_name": {
 		"message": "パナマ"
 	},
@@ -527,6 +707,9 @@
 	"pl_country_name": {
 		"message": "ポーランド"
 	},
+	"pl_language_name": {
+		"message": "ポーランド語"
+	},
 	"play": {
 		"message": "遊ぶ"
 	},
@@ -539,6 +722,9 @@
 	"pr_country_name": {
 		"message": "プエルトリコ"
 	},
+	"pt_language_name": {
+		"message": "ポルトガル語"
+	},
 	"py_country_name": {
 		"message": "パラグアイ"
 	},
@@ -547,6 +733,9 @@
 	},
 	"ru_country_name": {
 		"message": "ロシア"
+	},
+	"ru_language_name": {
+		"message": "ロシア語"
 	},
 	"ru_tradition": {
 		"message": "ロシアの子供たちは、クリスマス ツリーではなく新年の木に飾り付けを行います。子供たちは、ジェド・マロース（ファーザー・フロスト）が孫娘のスネグーラチカ雪姫とともにプレゼントをかかえてやってくるのを心待ちにしています。ジェド・マロースはロシア北部、ヴェリキイ・ウスチュグの深い森の中に住んでいます。"
@@ -581,6 +770,9 @@
 	"sk_country_name": {
 		"message": "スロバキア"
 	},
+	"sk_language_name": {
+		"message": "スロバキア語"
+	},
 	"sl_country_name": {
 		"message": "シェラレオネ"
 	},
@@ -596,6 +788,9 @@
 	"sv_country_name": {
 		"message": "エルサルバドル"
 	},
+	"sv_language_name": {
+		"message": "スウェーデン語"
+	},
 	"td_country_name": {
 		"message": "チャド"
 	},
@@ -604,6 +799,9 @@
 	},
 	"tg_country_name": {
 		"message": "トーゴ"
+	},
+	"th_language_name": {
+		"message": "タイ語"
 	},
 	"tilt": {
 		"message": "端末を傾けよう"
@@ -622,6 +820,30 @@
 	},
 	"tr_country_name": {
 		"message": "トルコ"
+	},
+	"tr_language_name": {
+		"message": "トルコ語"
+	},
+	"tracker_arriving_in": {
+		"message": "到着まであと..."
+	},
+	"tracker_current_stop": {
+		"message": "現在の位置"
+	},
+	"tracker_departing_in": {
+		"message": "出発まであと…"
+	},
+	"tracker_distance_from_you": {
+		"message": "あなたのいる場所からの距離"
+	},
+	"tracker_gifts_delivered": {
+		"message": "配ったプレゼントの数"
+	},
+	"tracker_next_stop": {
+		"message": "次の目的地"
+	},
+	"tracker_your_location": {
+		"message": "現在地"
 	},
 	"traditions-next": {
 		"message": "次の伝統"
@@ -4256,6 +4478,9 @@
 	"trivia_medium_100_answer2": {
 		"message": "ブルガリア"
 	},
+	"trivia_ngb_promo": {
+		"message": "コンテンツは National Geographic Bee により提供"
+	},
 	"tw_country_name": {
 		"message": "台湾"
 	},
@@ -4300,6 +4525,12 @@
 	},
 	"ye_country_name": {
 		"message": "イエメン"
+	},
+	"zh-CN_language_name": {
+		"message": "中国語（簡体）"
+	},
+	"zh-TW_language_name": {
+		"message": "中国語（繁体）"
 	},
 	"zm_country_name": {
 		"message": "ザンビア"
