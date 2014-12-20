@@ -36,6 +36,7 @@ function WorldView(base, componentDir) {
   this.throttledFilterMarkers_ = throttle(this.filterMarkers_, 1000);
 
   this.mode_ = 'track';
+  this.statusBar_ = null;
 }
 
 /**
@@ -49,8 +50,8 @@ WorldView.CYCLE_TIME_ = 5000;
 
 WorldView.prototype.show = function() {
   // Reset the cycle view incase show gets called more than once.
-  var status = this.base_.$['module-tracker'].querySelector('#status-bar');
-  $('li.show', status).removeClass('show');
+  this.statusBar_ = this.base_.$['module-tracker'].querySelector('#status-bar');
+  $('li.show', this.statusBar_).removeClass('show');
 
   this.base_.async(this.cycleStatus_.bind(this));
 };
@@ -64,16 +65,11 @@ WorldView.prototype.hide = function() {
 WorldView.prototype.cycleStatus_ = function() {
   window.clearInterval(this.cycleTimeout_);
 
-  var status = this.base_.$['module-tracker'].querySelector('#status-bar');
-
-  var active= $('li.show', status);
-  var next;
-  if (!active.length) {
-    next = $('li', status).first();
-    next.addClass('show');
-  } else {
-    active.removeClass('show');
-    next = active.nextAll('li').first();
+  var active = $('li.show', this.statusBar_);
+  active.removeClass('show');
+  var next = active.nextAll('li').first();
+  if (!next.length) {
+    next = $('li', this.statusBar_).first();
   }
 
   next.addClass('show');
