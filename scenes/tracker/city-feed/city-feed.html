@@ -46,13 +46,13 @@ City feed view in Tracker
 <div id="module-city-feed" fit>
   <div class="scene" fit>
 
-    <core-list id="feed" data="{{stream}}" selectionEnabled="false" runwayFactor="4">
+    <core-list id="feed" data="{{stream}}" selectionEnabled="false" height="425" runwayFactor="4">
       <template>
 
         <div class="card card-{{model.type}}">
           <div class="divider"></div>
 
-          <template if="{{model.type == 'city'}}">
+          <div hidden?="{{model.type != 'city'}}">
             <div class="card-header">
               <div class="corner-image"></div>
               <div>
@@ -120,9 +120,9 @@ City feed view in Tracker
                 </div>
               </div>
             </core-pages>
-          </template>
+          </div>
 
-          <template if="{{model.type == 'facts'}}">
+          <div hidden?="{{model.type != 'facts'}}">
             <div class="card-header">
               <div class="corner-image"></div>
               <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -133,18 +133,18 @@ City feed view in Tracker
             <div class="card-footer">
               <p><i18n-msg msgid="trivia_ngb_promo">PLACEHOLDER_i18n</i18n-msg></p>
             </div>
-          </template>
+          </div>
 
-          <template if="{{model.type == 'photos'}}">
+          <div hidden?="{{model.type != 'photos'}}" style="height:100%">
             <div class="card-header">
               <div class="corner-image"></div>
             </div>
             <div class="card-body photo">
               <core-image sizing="cover" preload fade src="{{model.imageUrl}}"></core-image>
             </div>
-          </template>
+          </div>
 
-          <template if="{{model.type == 'update'}}">
+          <div hidden?="{{model.type != 'update'}}">
             <div class="card-header">
               <div class="corner-image"></div>
               <h4><i18n-msg msgid="tracker_santa_update">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -152,9 +152,9 @@ City feed view in Tracker
             <div class="card-body">
               <p>{{model.status}}</p>
             </div>
-          </template>
+          </div>
 
-          <template if="{{model.type == 'video'}}">
+          <div hidden?="{{model.type != 'video'}}">
             <div class="card-header">
               <div class="corner-image"></div>
               <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -165,7 +165,7 @@ City feed view in Tracker
                   playsupported="false" thumbnail="scenes/tracker/city-feed/img/cardavatars/card-video.png"
                   on-tap="{{onVideoPlay}}"></google-youtube>
             </div>
-          </template>
+          </div>
 
         </div>
 
