@@ -104,7 +104,7 @@ app.Scene.prototype.onOpenSphere_ = function(e) {
 
   this.$sphereLocation.text(sphere.location);
   this.$sphereDescription.text(sphere.description);
-  this.$sphereCTA.text(this.ctaTemplate.replace('{{location}}', sphere.location));
+  this.$sphereCTA.text(this.ctaTemplate.replace('%location%', sphere.location));
 
   this.photosphere_.load(sphere.id, sphere.pov, this.showSphere_.bind(this));
 };
