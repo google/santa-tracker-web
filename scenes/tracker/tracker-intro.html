@@ -146,12 +146,17 @@ Intro for the tracker scene.
      */
     santaBubbleCenterX_: 0,
 
+    /**
+     * User's bubble center point.
+     *
+     * @private
+     * @type number
+     * @default 0
+     */
+    userBubbleCenterX_: 0,
+
     created: function() {
-      this.winCenterX_ = Math.floor(window.innerWidth / 2);
-      this.winCenterY_ = Math.floor(window.innerHeight / 2);
-      this.bubbleOffset = Math.floor(window.innerWidth / 8);
-      this.santaBubbleCenterX_ = this.winCenterX_ + this.bubbleOffset;
-      this.userBubbleCenterX_ = this.winCenterX_;
+      this.calculateLayoutValues_();
     },
 
     domReady: function() {
@@ -179,14 +184,18 @@ Intro for the tracker scene.
       this.$.santaPath.style.top = this.winCenterY_ + 'px';
     },
 
-    resize_: function() {
+    calculateLayoutValues_: function() {
       var isUserBubbleCentered = this.userBubbleCenterX_ === this.winCenterX_;
-      this.bubbleOffset = Math.max(Math.floor(window.innerWidth / 8), 80);
+      this.bubbleOffset = Math.max(Math.floor(window.innerWidth / 8), 90);
       this.winCenterX_ = Math.floor(window.innerWidth / 2);
       this.winCenterY_ = Math.floor(window.innerHeight / 2);
       this.santaBubbleCenterX_ = this.winCenterX_ + this.bubbleOffset;
       this.userBubbleCenterX_ = isUserBubbleCentered ?
           this.winCenterX_ : this.winCenterX_ - this.bubbleOffset;
+    },
+
+    resize_: function() {
+      this.calculateLayoutValues_();
       this.updateLayout_();
       if (this.$.santaPath.shown_) {
         this.$.santaPath.style.width = 2 * this.bubbleOffset - 80 + 'px';
@@ -328,6 +337,7 @@ Intro for the tracker scene.
         santaPath.style.left = this.userBubbleCenterX_ + 30 + 'px';
         santaPath.style.width = 2 * this.bubbleOffset - 80 + 'px';
         this.async(function() {
+          this.resize_();
           santaBubble.open(100);
           this.async(function() {
            this.closeIntro(); // Remove intro screen after 4s.
