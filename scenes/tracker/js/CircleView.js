@@ -106,6 +106,9 @@ CircleView.prototype.getEl = function() {
  */
 CircleView.HOLE_RADIUS = 74;
 
+CircleView.HOLE_RADIUS_MOBILE = 59;
+
+
 /**
  * DOM class name.
  *
@@ -170,10 +173,12 @@ CircleView.prototype.render_ = function() {
                         this.distTo_(pageWidth, 0),
                         this.distTo_(pageWidth, pageHeight));
 
+  var holeRadius = $(window).width() < 660 ? CircleView.HOLE_RADIUS_MOBILE : CircleView.HOLE_RADIUS;
+
   $(this.el_).css({
     borderColor: this.color_,
     opacity: this.opacity_,
-    borderWidth: radius - CircleView.HOLE_RADIUS,
+    borderWidth: radius - holeRadius,
     width: radius * 2,
     height: radius * 2,
     left: center.x - radius,

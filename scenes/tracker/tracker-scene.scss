@@ -80,7 +80,7 @@ $name: 'module-tracker';
   #city-stats {
     position: absolute;
     top: 290px;
-    left: 186px;
+    left: 115px;
     z-index: 2;
     color: #fff;
     opacity: 0;
@@ -241,7 +241,7 @@ $name: 'module-tracker';
 
 @media (max-width: $mobileBreakpoint) {
   city-feed {
-    margin-top: 35vh;
+    margin-top: 25vh;
   }
   #status-bar {
     display: none;
@@ -264,3 +264,4 @@ $name: 'module-tracker';
   }
 }
 
+@import "sass/_responsive.scss";

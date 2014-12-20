@@ -40,8 +40,14 @@ $mobilePortraitBreakpoint: 400px;
 
 @media (min-width: 1px) and (max-width: $tabletBreakpoint) {
   ##{$name} {
-    #site-nav {
+    #site-nav, #back-to-tracker-text {
       display: none;
+    }
+
+    #global-nav #back-to-tracker {
+      right: auto;
+      left: 20px;
+      top: 10px;
     }
 
     #global-nav #global-nav-body #nav-calendar {
@@ -169,7 +175,8 @@ $mobilePortraitBreakpoint: 400px;
 
   ##{$name} {
 
-    #global-nav #global-nav-btn {
+    #global-nav #global-nav-btn,
+    #global-nav #tracker-nav-open-btn {
       top: 10px;
       right: 10px;
 
@@ -178,6 +185,12 @@ $mobilePortraitBreakpoint: 400px;
         height: 40px;
         padding: 8px;
       }
+    }
+
+    #tracker-nav-close-btn paper-fab {
+      width: 40px;
+      height: 40px;
+      padding: 8px;
     }
 
     #back-to-tracker-text {

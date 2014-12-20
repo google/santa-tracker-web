@@ -55,7 +55,7 @@ Village calendar navigation.
 
     <div id="module-nav">
       <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
-        <template if="{{cityFeedActive}}">
+        <template if="{{trackerActive && cityFeedActive}}">
           <a href="{{pageUrl}}#tracker" on-click="{{fabClick}}" on-tap="{{onBackToTracker}}">
             <div id="back-to-tracker-text"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></div>
             <paper-fab id="back-to-tracker" src="img/back-to-tracker-arrow.svg" mini></paper-fab>
@@ -374,6 +374,7 @@ Village calendar navigation.
         e.preventDefault();
 
         this.onHide();
+        this.santaApp.selectedScene.cityFeedActive = false;
 
         location.href = sender.href;
       },
