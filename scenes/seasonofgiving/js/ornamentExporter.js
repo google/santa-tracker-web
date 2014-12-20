@@ -14,10 +14,13 @@ app.OrnamentExporter = function(game, componentDir) {
   this.extension = app.GameManager.extension();
   // Preload export assets.
   this.ornamentImg = new Image();
+  this.ornamentImg.crossOrigin = 'anonymous';
   this.ornamentImg.src = componentDir + 'img/download-ornament' + this.extension;
   this.compositeLogoImg = new Image();
+  this.compositeLogoImg.crossOrigin = 'anonymous';
   this.compositeLogoImg.src = componentDir + 'img/print-st-logo' + this.extension;
   this.printGuideImg = new Image();
+  this.printGuideImg.crossOrigin = 'anonymous';
   this.printGuideImg.src = componentDir + 'img/print-guide' + this.extension;
   this.printInstructionCopy = game.elem.find('.print-instructions-copy').text().trim();
   this.moreInformationCopy = game.elem.find('.more-information-copy').text().trim();
@@ -160,7 +163,7 @@ app.OrnamentExporter.prototype.print = function(ornament) {
   ctx.textAlign = 'center';
   ctx.textBaseline = 'top';
   ctx.fillStyle = '#29B6F6';
-  ctx.fillText(this.formatUrl_(location.href).toLowerCase(), l.CIRCLE_X_RIGHT, l.ST_LINK_Y);
+  ctx.fillText('santatracker.google.com', l.CIRCLE_X_RIGHT, l.ST_LINK_Y);
 
   // Draw instructions copy.
   var isEnglish = document.documentElement.lang.indexOf('en') === 0;
