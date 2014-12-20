@@ -73,7 +73,7 @@ WorldView.prototype.cycleStatus_ = function() {
     next.addClass('show');
   } else {
     active.removeClass('show');
-    next = active.nextAll('li').first();;
+    next = active.nextAll('li').first();
   }
 
   next.addClass('show');
