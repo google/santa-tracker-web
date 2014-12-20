@@ -180,11 +180,13 @@ Intro for the tracker scene.
     },
 
     resize_: function() {
+      var isUserBubbleCentered = this.userBubbleCenterX_ === this.winCenterX_;
       this.bubbleOffset = Math.max(Math.floor(window.innerWidth / 8), 80);
       this.winCenterX_ = Math.floor(window.innerWidth / 2);
       this.winCenterY_ = Math.floor(window.innerHeight / 2);
       this.santaBubbleCenterX_ = this.winCenterX_ + this.bubbleOffset;
-      this.userBubbleCenterX_ = this.winCenterX_ - this.bubbleOffset;
+      this.userBubbleCenterX_ = isUserBubbleCentered ?
+          this.winCenterX_ : this.winCenterX_ - this.bubbleOffset;
       this.updateLayout_();
       if (this.$.santaPath.shown_) {
         this.$.santaPath.style.width = 2 * this.bubbleOffset - 80 + 'px';
