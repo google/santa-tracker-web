@@ -163,7 +163,7 @@ City feed view in Tracker
                   <html-echo class="wikipedia__body" html="{{model.stop.details.wikipedia.excerpt}}"></html-echo>
                   <div class="attribution">
                     <span class="wiki-cc">Available under
-                    <a target="wiki" href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
+                    <a target="wiki" href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
                     terms</span> &nbsp;
                     <a target="wiki" href="{{model.stop.details.wikipedia.url}}">{{model.stop.details.wikipedia.url}}</a>
                   </div>
@@ -296,7 +296,13 @@ Polymer({
     var adjustedStream = [];
     destLookup_ = {};
 
-    // Support side-by-side mini cards in core-list template.
+    // core-list uses a single template to render a linear list of items. To
+    // support side-by-side mini cards, we set a flag (.nextCard) on items
+    // which are mini cards and are followed by a subsequent mini card in the
+    // list. This is used in the core-list template to determine if an
+    // additional card should be rendered in the same row. The core-list template
+    // is wrapped in a flexbox container (<div layout horizontal start justified>)
+    // which handles the layout.
     for (var i = 0, item; item = stream[i]; ++i) {
       var nextCard = stream[i + 1];
       if (item.type == 'city') {
