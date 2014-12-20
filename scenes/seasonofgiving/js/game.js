@@ -178,5 +178,4 @@ app.Game.prototype.dispose = function() {
   $(window).off('.seasonofgiving');
   $(document).off('.seasonofgiving');
   app.GameManager.dispose();
-  app.GameManager = null;
 };
