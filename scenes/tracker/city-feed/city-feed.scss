@@ -254,15 +254,15 @@ $name: 'module-city-feed';
           content: " ";
           height: 0;
           width: 0;
-          top: 80px;
+          top: 55px;
           position: absolute;
           pointer-events: none;
           border-color: rgba(151, 216, 255, 0);
-          border-width: 8px;
+          border-width: 6px;
         }
 
         &:nth-child(1) .divider::after {
-          left: 305px;
+          left: 309px;
           border-right-color: #97d8ff;
         }
 
