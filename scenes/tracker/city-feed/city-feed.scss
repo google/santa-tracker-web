@@ -247,6 +247,30 @@ $name: 'module-city-feed';
     .card {
       &:not(.card-city) {
         width: 306px;
+
+        &:nth-child(1) .divider::after,
+        &:nth-child(3) .divider::after {
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+          border-color: rgba(151, 216, 255, 0);
+          border-width: 8px;
+        }
+
+        &:nth-child(1) .divider::after {
+          left: 305px;
+          top: 80px;
+          border-right-color: #97d8ff;
+        }
+
+        &:nth-child(3) .divider::after {
+          left: 323px;
+          top: 80px;
+          border-left-color: #97d8ff;
+        }
       }
 
       &::before {
