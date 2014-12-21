@@ -12,6 +12,11 @@
   box-sizing: border-box;
   position: relative;
 
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
   &.card-coding, &.card-pins, &.card-app, &.card-mercator, &.card-gumball {
     .card-header {
       .corner-image {
@@ -218,10 +223,50 @@
         background-image: url(city-feed/img/cardavatars/Cards-avatars-04_video.svg);
       }
     }
+  }
 
-    .card-body {
-      background-image: url(city-feed/img/cardavatars/card-video.png);
-    }
+  .card-carpool {
+    background-image: url(city-feed/img/cardavatars/card-vid-carpool.png);
+  }
+
+  .card-jingle {
+    background-image: url(city-feed/img/cardavatars/card-vid-jingle.png);
+  }
+
+  .card-satellite {
+    background-image: url(city-feed/img/cardavatars/card-vid-satellite.png);
+  }
+
+  .card-temptation {
+    background-image: url(city-feed/img/cardavatars/card-vid-temptation.png);
+  }
+
+  .card-coffee {
+    background-image: url(city-feed/img/cardavatars/card-vid-coffee.png);
+  }
+
+  .card-office {
+    background-image: url(city-feed/img/cardavatars/card-vid-office.png);
+  }
+
+  .card-selfie {
+    background-image: url(city-feed/img/cardavatars/card-vid-selfie.png);
+  }
+
+  .card-tired {
+    background-image: url(city-feed/img/cardavatars/card-vid-tired.png);
+  }
+
+  .card-com-room {
+    background-image: url(city-feed/img/cardavatars/card-vid-com-room.png);
+  }
+
+  .card-reload {
+    background-image: url(city-feed/img/cardavatars/card-vid-reload.png);
+  }
+
+  .card-slacking-off {
+    background-image: url(city-feed/img/cardavatars/card-vid-slacking-off.png);
   }
 
   &.card-facts {
