@@ -283,7 +283,6 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'compass', 'compile-scenes'], function
             'google-plusone-api.html', // tracker
             'google-youtube-api.html',// tracker
             'google-jsapi.html', // tracker
-            'google-youtube.html', // tracker
             'core-selection.html',
             'core-selector.html',
             'core-pages.html'
