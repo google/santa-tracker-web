@@ -58,12 +58,12 @@ WorldView.prototype.show = function() {
 
 WorldView.prototype.hide = function() {
   if (this.cycleTimeout_) {
-    window.clearInterval(this.cycleTimeout_);
+    window.clearTimeout(this.cycleTimeout_);
   }
 };
 
 WorldView.prototype.cycleStatus_ = function() {
-  window.clearInterval(this.cycleTimeout_);
+  window.clearTimeout(this.cycleTimeout_);
 
   var active = $('li.show', this.statusBar_);
   active.removeClass('show');
@@ -74,7 +74,7 @@ WorldView.prototype.cycleStatus_ = function() {
 
   next.addClass('show');
 
-  this.cycleTimeout_ = window.setInterval(this.cycleStatus_.bind(this),
+  this.cycleTimeout_ = window.clearTimeout(this.cycleStatus_.bind(this),
       WorldView.CYCLE_TIME_);
 };
 
