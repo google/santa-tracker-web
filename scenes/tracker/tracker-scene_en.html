@@ -534,7 +534,7 @@ Tracker scene.
         if (this.location.stopover) {
           this.$.feed.scrollToDest(this.location.stopover.id);
         } else {
-          this.$.feed.scrollToItem(0); // Scroll to stop of feed if he's not at a stop.
+          this.$.feed.scrollToItem(0); // Scroll to top of feed if he's not at a stop.
         }
 
         var action = this.cityFeedActive ? 'show' : 'hide';
