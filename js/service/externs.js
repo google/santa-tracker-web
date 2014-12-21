@@ -45,7 +45,7 @@ var Serv; // SantaService
 Serv.prototype.addListener;
 Serv.prototype.getCurrentLocation;
 Serv.prototype.getDestinations;
-Serv.prototype.getStream;
+Serv.prototype.getTimeline;
 Serv.prototype.sync;
 Serv.prototype.now;
 Serv.prototype.dateNow;
