@@ -531,10 +531,12 @@ Tracker scene.
       google.maps.event.addListener(this.worldView_, 'santa_clicked', function(e) {
         this.cityFeedActive = !this.cityFeedActive;
 
-        if (this.location.stopover) {
-          this.$.feed.scrollToDest(this.location.stopover.id);
-        } else {
-          this.$.feed.scrollToItem(0); // Scroll to top of feed if he's not at a stop.
+        if (this.cityFeedActive) {
+          if (this.location.stopover) {
+            this.$.feed.scrollToDest(this.location.stopover.id);
+          } else {
+            this.$.feed.scrollToItem(0); // Scroll to top of feed if he's not at a stop.
+          }
         }
 
         var action = this.cityFeedActive ? 'show' : 'hide';
