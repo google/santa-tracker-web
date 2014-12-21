@@ -36,6 +36,7 @@ function WorldView(base, componentDir) {
   this.throttledFilterMarkers_ = throttle(this.filterMarkers_, 1000);
 
   this.mode_ = 'track';
+  this.statusBar_ = null;
 }
 
 /**
@@ -45,8 +46,30 @@ function WorldView(base, componentDir) {
 WorldView.HDPI_ = !!(window.devicePixelRatio &&
     window.devicePixelRatio > 1.5);
 
+WorldView.CYCLE_TIME_ = 5000;
+
 WorldView.prototype.show = function() {
-  this.showSceneMarkers_();
+  // Reset the cycle view incase show gets called more than once.
+  this.statusBar_ = this.base_.$['module-tracker'].querySelector('#status-bar');
+  $('li.show', this.statusBar_).removeClass('show');
+
+  this.base_.async(this.cycleStatus_.bind(this));
+};
+
+WorldView.prototype.cycleStatus_ = function() {
+  window.clearTimeout(this.cycleTimeout_);
+
+  var active = $('li.show', this.statusBar_);
+  active.removeClass('show');
+  var next = active.nextAll('li').first();
+  if (!next.length) {
+    next = $('li', this.statusBar_).first();
+  }
+
+  next.addClass('show');
+
+  this.cycleTimeout_ = window.setTimeout(this.cycleStatus_.bind(this),
+      WorldView.CYCLE_TIME_);
 };
 
 WorldView.prototype.setMode = function(mode) {
