@@ -146,7 +146,7 @@ $name: 'module-city-feed';
 
       .wikipedia__body {
         overflow: auto;
-        height: $cardContentHeight;
+        height: $cardContentHeight - 25px;
         padding: 25px 25px 0 25px;
         display: block;
         color: #fff;
@@ -247,6 +247,29 @@ $name: 'module-city-feed';
     .card {
       &:not(.card-city) {
         width: 306px;
+
+        &:nth-child(1) .divider::after,
+        &:nth-child(3) .divider::after {
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          top: 55px;
+          position: absolute;
+          pointer-events: none;
+          border-color: rgba(151, 216, 255, 0);
+          border-width: 6px;
+        }
+
+        &:nth-child(1) .divider::after {
+          left: 309px;
+          border-right-color: #97d8ff;
+        }
+
+        &:nth-child(3) .divider::after {
+          left: 323px;
+          border-left-color: #97d8ff;
+        }
       }
 
       &::before {

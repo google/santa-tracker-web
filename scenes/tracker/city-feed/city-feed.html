@@ -96,9 +96,7 @@ City feed view in Tracker
 
     <core-list id="feed" data="{{stream}}" selectionEnabled="false" height="425" runwayFactor="4">
       <template>
-
         <div layout?="{{!isPhoneSize}}" horizontal start justified>
-
           <div class="card card-{{model.type}}" flex?="{{model.type == 'city'}}">
             <div class="divider" layout horizontal end>{{model.timestamp | formatCountdown}}</div>
 
