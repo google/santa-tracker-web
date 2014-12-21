@@ -304,7 +304,7 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'compass', 'compile-scenes'], function
 
 gulp.task('vulcanize-codelab-frame', ['rm-dist', 'compass', 'compile-scenes'], function() {
   return gulp.src('scenes/codelab/codelab-frame_en.html', {base: './'})
-    // .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
+    .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
     .pipe(vulcanize({
       strip: !argv.pretty,
       csp: true,
@@ -339,7 +339,7 @@ gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements', 'vulcanize-cod
 
 gulp.task('i18n_index', function() {
   return gulp.src(['index.html', 'error.html', 'upgrade.html'])
-    // .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
+    .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
     .pipe(replace('<base href="">',
         '<base href="' + STATIC_URL + '">'))
     .pipe(i18n_replace({
