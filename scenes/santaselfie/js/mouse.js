@@ -41,7 +41,11 @@ app.Mouse = function($elem) {
     self.scaleFactor = scaleFactor;
   }
 
-  $(window).on('resize.santaselfie orientationchange.santaselfie', calculateScale);
+  $(window).on('resize.santaselfie orientationchange.santaselfie', function() {
+    calculateScale();
+    self.update();
+  });
+
   calculateScale();
 
   $elem.on('mousemove', function(e) {
@@ -112,6 +116,7 @@ app.Mouse.prototype.transformCoordinates = function(x, y, rect) {
     y: y - rect.top,
     relX: 2 * x / rect.width - 1,
     relY: 2 * y / rect.height - 1,
-    down: this.down
+    down: this.down,
+    scale: this.scaleFactor
   };
 };

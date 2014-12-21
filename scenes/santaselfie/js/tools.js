@@ -57,7 +57,9 @@ app.Tool.prototype.select = function() {
   this.el.addClass('Tool--selected');
   this.width = this.el.width();
 
-  if (!Modernizr.touch) {
+  if (Modernizr.touch) {
+    this.elem.css({ 'background-size': 0}); // Hide tool on touch devices
+  } else {
     this.elem.css({ cursor: 'none' });
   }
 
@@ -103,8 +105,8 @@ app.Tool.prototype.move = function(mouse) {
   }
 
   this.el.css({
-    left: mouse.x - offsetX,
-    top: mouse.y - this.mouseOffset.y
+    left: mouse.x - (offsetX * mouse.scale),
+    top: mouse.y - (this.mouseOffset.y * mouse.scale)
   });
 
   var shouldAnimate = this.shouldAnimate_(mouse);
@@ -369,8 +371,15 @@ app.Tools.prototype.start = function() {
       this.el.removeClass('Tool-hairdryer--center');
     }
 
+    if(mouse.relX < -0.3) {
+      this.el.addClass('Tool--left');
+    } else {
+      this.el.removeClass('Tool--left');
+    }
+
     if (mouse.relX > 0.3) {
       this.el.addClass('Tool--right');
+
     } else {
       this.el.removeClass('Tool--right');
     }
@@ -383,7 +392,9 @@ app.Tools.prototype.start = function() {
 
     if (mouse.relX > 0) {
       this.el.addClass('Tool--right');
+      this.el.removeClass('Tool--left');
     } else {
+      this.el.addClass('Tool--left');
       this.el.removeClass('Tool--right');
     }
   };
