@@ -514,10 +514,10 @@ SantaService.prototype.updateTimeline_ = function() {
   // Move any cards where the timestamp has elapsed onto the main feed
   // (this.timeline_)
   while (this.futureCards_.length && this.futureCards_[0].timestamp < now) {
-    // TODO(cbro): Fire events so they can be shown in the tracker world view
-    // as cards.
+    var card = this.futureCards_.shift();
+    Events.trigger(this, 'card', card);
     // Insert at the beginning of the timeline.
-    this.timeline_.unshift(this.futureCards_.shift());
+    this.timeline_.unshift(card);
     dirty = true;
   }
   if (dirty) {
