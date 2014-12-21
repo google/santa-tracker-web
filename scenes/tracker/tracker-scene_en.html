@@ -39,233 +39,57 @@ Tracker scene.
           santaLocation="{{initialSantaLocation}}"></tracker-intro>
 
       <div id="cards">
-        <div class="card card-matching">
-          <div class="card-header">
-            <div class="corner-image"></div>
-            <h4>Santa's Village</h4>
-            <h3>Memory match</h3>
-          </div>
-          <div class="card-body"></div>
-          <div class="card-footer"></div>
-        </div>
-
-        <template if="{{false}}">
-          <div class="card card-matching">
+        <template id="mini-cards-template">
+          <div hidden?="{{model.type != 'facts'}}">
             <div class="card-header">
               <div class="corner-image"></div>
-              <h4>Santa's Village</h4>
-              <h3>Memory match</h3>
-            </div>
-            <div class="card-body"></div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-gumball">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Santa's Village</h4>
-              <h3>Play Gumball</h3>
-            </div>
-            <div class="card-body"></div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-selfie">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Santa's Village</h4>
-              <h3>Give Santa a trim</h3>
-            </div>
-            <div class="card-body"></div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-mercator">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Santa's Village</h4>
-              <h3>Try the puzzle</h3>
-            </div>
-            <div class="card-body"></div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-jamband">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Santa's Village</h4>
-              <h3>Jam with us</h3>
-            </div>
-            <div class="card-body"></div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-coding">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Santa's Village</h4>
-              <h3>Start coding</h3>
-            </div>
-            <div class="card-body"></div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-treks">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Street View Treks</h4>
-              <h3>Journey beyond the road</h3>
-            </div>
-            <div class="card-body">Sphere goes here</div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-photospheres">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Photospheres</h4>
-              <h3>Check out photos of [CITYNAME]</h3>
-            </div>
-            <div class="card-body">Sphere goes here</div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-pins">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Santa Tracker</h4>
-              <h3>Click on pin's to explore cities</h3>
-            </div>
-            <div class="card-body"></div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-village">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Santa's Village</h4>
-              <h3>Play games in Santa's village</h3>
-            </div>
-            <div class="card-body"></div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-app">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Get the app</h4>
-              <h3>Track Santa on your phone</h3>
-            </div>
-            <div class="card-body"></div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-gmm">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Google Maps for Mobile</h4>
-              <h3>Follow Santa on the go</h3>
-            </div>
-            <div class="card-body"></div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-giving">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Santa's Village</h4>
-              <h3>Season of Giving</h3>
-            </div>
-            <div class="card-body"></div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-reindeer">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Help Santa</h4>
-              <h3>Deliver Gifts!</h3>
-            </div>
-            <div class="card-body"><span>!</span></div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-glider">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Help Santa</h4>
-              <h3>Deliver Gifts!</h3>
-            </div>
-            <div class="card-body"><span>!</span></div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-latlng">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Help Santa</h4>
-              <h3>Deliver Gifts!</h3>
-            </div>
-            <div class="card-body"></div>
-            <div class="card-footer">!</div>
-          </div>
-
-          <div class="card card-update">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Santa Update</h4>
+              <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
             </div>
             <div class="card-body">
-              <p>Mmmm... These cookies are good!</p>
-            </div>
-            <div class="card-footer"></div>
-          </div>
-
-          <div class="card card-trivia">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4>Tracker Trivia</h4>
-              <h3>Test Your Knowledge</h3>
-            </div>
-            <div class="card-body">
-              <span>?</span>
+              <p>{{model.didyouknow}}</p>
             </div>
             <div class="card-footer">
-              <p>Content by the National Geographic Bee</p>
+              <p><i18n-msg msgid="trivia_ngb_promo">PLACEHOLDER_i18n</i18n-msg></p>
             </div>
           </div>
 
-          <div class="card card-video">
+          <div hidden?="{{model.type != 'photos'}}" style="height:100%">
             <div class="card-header">
               <div class="corner-image"></div>
-              <h4>Santa Tracker</h4>
-              <h3>Watch Movie</h3>
             </div>
-            <div class="card-body"></div>
-            <div class="card-footer"></div>
+            <div class="card-body photo">
+              <core-image sizing="cover" preload fade src="{{model.imageUrl}}"></core-image>
+            </div>
           </div>
 
-          <div class="card card-facts">
+          <div hidden?="{{model.type != 'update'}}">
             <div class="card-header">
               <div class="corner-image"></div>
-              <h4>World Facts</h4>
+              <h4><i18n-msg msgid="tracker_santa_update">PLACEHOLDER_i18n</i18n-msg></h4>
             </div>
             <div class="card-body">
-              <p>Australia is the world's 6th largest country by area. Australia is the world's 6th largest country by area.</p>
-            </div>
-            <div class="card-footer">
-              <p>Content by the National Geographic</p>
+              <p>{{model.status}}</p>
             </div>
           </div>
 
-          <div class="card card-photos">
+          <div hidden?="{{model.type != 'video'}}">
             <div class="card-header">
               <div class="corner-image"></div>
+              <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
+              <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
             </div>
-            <div class="card-body"></div>
-            <div class="card-footer"></div>
+            <div class="card-body">
+              <google-youtube videoid="{{model.youtubeId}}" chromeless fit
+                  playsupported="false" thumbnail="scenes/tracker/city-feed/img/cardavatars/card-video.png"
+                  on-tap="{{onVideoPlay}}"></google-youtube>
+            </div>
           </div>
-      </template>
+        </template>
+        <template if="{{trackerCard}}" bind="{{trackerCard as model}}">
+          <div class="card card-{{model.type}}">
+            <template bind ref="mini-cards-template"></template>
+          </div>
+        </template>
       </div>
 
       <div id="trackermap" fit></div>
@@ -460,6 +284,14 @@ Tracker scene.
      */
     navOpen: false,
 
+    /**
+     * True if the tracker nav is open.
+     * @property navOpen
+     * @type {boolean}
+     * @default false
+     */
+    navOpen: false,
+
     onPreload: function() {
       // TODO(lukem): Audit images and only preload what we need
       var images = [
@@ -564,11 +396,40 @@ Tracker scene.
           maximumAge: Infinity // We really don't care
         });
 
+      /*this.santaApp.santaService.sync(function() {
+          this.destinations = this.santaApp.destinations;
+          this.timeline = this.santaApp.timeline;
+        }.bind(this));*/
+      this.santaApp.santaService.addListener('card', this.updateCard_.bind(this));
+      this.updateCard_();
       this.trackSanta();
     },
 
     loadTrackerScene_: function(sceneId) {
       this.santaApp.route = sceneId;
+    },
+
+    updateCard_: function(card) {
+      console.log('updateCard', card);
+      var card = {
+        timestamp: 1419416400000,
+        didyouknow: "Teotihuacán was the great center of an early civil… 30 miles Northeast of current day Mexico City! 8",
+        selectedCard: 0,
+        type: "facts"
+      };
+
+      this.trackerCard = card;
+    },
+
+    hideCard_: function() {
+
+    }
+
+    trackerCardChanged: function() {
+      this.hideCard_();
+
+      this.async()
+      console.log('tracker card changed');
     },
 
     geoLocationSuccess_: function(position) {
