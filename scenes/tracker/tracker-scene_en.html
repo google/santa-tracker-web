@@ -79,7 +79,7 @@ Tracker scene.
                 <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
                 <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
               </div>
-              <div class="card-{{ ytMapping[model.youtubeId] }} card-body"></div>
+              <div class="card-{{ytMapping[model.youtubeId]}} card-body"></div>
             </a>
           </div>
         </template>
@@ -439,11 +439,11 @@ Tracker scene.
       if (this.trackerCard) {
         this.async(function() {
           this.$.cards.classList.add('show');
-        }.bind(this), null, t);
+        }, null, t);
 
         this.async(function() {
           this.hideCard_();
-        }.bind(this), null, t + this.CARD_SHOW_TIME_);
+        }, null, t + this.CARD_SHOW_TIME_);
       }
     },
 
