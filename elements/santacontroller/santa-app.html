@@ -87,6 +87,11 @@ Santa Track app.
         loadingBgColor="#8fd7f7"
         loadingSrc="scenes/jetpack/img/loading.svg" hidden></jetpack-scene>
 
+    <latlong-scene route="latlong"
+        path="scenes/latlong/latlong-scene_[[language]].html"
+        loadingBgColor="#ffcc00"
+        loadingSrc="scenes/latlong/img/loading.svg" hidden></latlong-scene>
+
     <matching-scene route="matching"
         path="scenes/matching/matching-scene_[[language]].html"
         loadingBgColor="#b27644"
@@ -200,7 +205,8 @@ var VALID_ROUTES_ = [];
 var PERMANENT_ROUTES_ = ['village', 'calendar', 'about'];
 
 // Routes/scenes which will be accessible when the tracker is accessible.
-var TRACKER_ROUTES_ = ['blimp', 'island', 'undersea', 'icecave', 'runner'];
+var TRACKER_ROUTES_ = ['blimp', 'island', 'undersea', 'icecave', 'runner',
+    'latlong'];
 
 // Check if date1 is the same date as date2.
 function isSameDay_(date1, date2) {

@@ -70,6 +70,9 @@ var SCENE_CLOSURE_CONFIG = {
   jetpack: {
     entryPoint: 'app.Game'
   },
+  latlong: {
+    entryPoint: 'app.Game'
+  },
   matching: {
     entryPoint: 'app.Game'
   },

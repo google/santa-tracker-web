@@ -1,0 +1,316 @@
+$marker-size: 20px;
+$marker-border-size: 60px;
+$marker-hit-size: 100%;
+$border-thickness: 2px;
+
+$grid-number-md-height: 66px;
+$grid-number-md-width: 57px;
+$grid-number-xs-height: 32px;
+$grid-number-xs-width: 25px;
+
+$grid-color-md-height: $grid-number-md-width;
+$grid-color-md-width: $grid-number-md-height;
+$grid-color-xs-height: $grid-number-xs-width;
+$grid-color-xs-width: $grid-number-xs-height;
+
+##{$name} {
+  .Grid {
+    background-image: url(img/map.jpg);
+    background-size: cover;
+    box-shadow: inset 0 ($shadow-height / 2) 0 rgba(0, 0, 0, .16);
+    display: flex;
+    height: calc(100% - 150px);
+    margin-top: $shadow-height / 2;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  // Border of game
+  .Grid::after {
+    background-color: $board-game-color;
+    content: ' ';
+    height: $shadow-height / 2;
+    left: 0;
+    position: absolute;
+    top: -$shadow-height / 2;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .Grid-latitude {
+    border-bottom: $border-thickness solid rgba(0, 0, 0, 0.2);
+    flex: 0 1 100vh;
+    position: relative;
+  }
+
+  .Grid-longitude {
+    border-right: $border-thickness solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex: 0 1 100vw;
+  }
+
+  .Grid-longitude.is-borderless {
+    border: none;
+  }
+
+  .Grid-yAxis {
+    counter-reset: section;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 66px;
+  }
+
+  .Grid-number {
+    flex: 0 1 100vh;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+
+    &::before,
+    &::after {
+      border-bottom-right-radius: 57px;
+      border-top-right-radius: 57px;
+      bottom: -14px;
+      content: ' ';
+      height: $grid-number-xs-height;
+      left: 0;
+      position: absolute;
+      width: $grid-number-xs-width;
+    }
+
+    &::before {
+      background-color: rgba(0, 0, 0, .16);
+      margin-bottom: -$shadow-height / 2;
+      width: $grid-number-xs-width + ($shadow-width / 2);
+    }
+
+    &::after {
+      background: $board-game-color;
+      color: #fff;
+      content: counter(section);
+      counter-increment: section;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      font-weight: 900;
+      line-height: $grid-number-xs-height;
+      text-indent: 5px;
+    }
+
+    &:last-child::before,
+    &:last-child::after {
+      display: none;
+    }
+  }
+
+  &.is-paused .Grid-number {
+    z-index: 1;
+  }
+
+  // Color markers
+  .Grid-longitude[data-color]::before,
+  .Grid-longitude[data-color]::after {
+    border-bottom-left-radius: $grid-color-xs-width;
+    border-bottom-right-radius: $grid-color-xs-width;
+    content: ' ';
+    height: $grid-color-xs-height;
+    position: absolute;
+    right: -14px;
+    top: 0;
+    width: $grid-color-xs-width;
+  }
+
+  .Grid-longitude::after {
+    background: url(img/marker-colors.svg) no-repeat left bottom / cover;
+  }
+
+  .Grid-longitude::before {
+    background-color: rgba(0, 0, 0, .16);
+    margin-right: -$shadow-width / 2;
+    margin-top: $shadow-height / 2;
+  }
+
+  @mixin grid-longitude($color) {
+    &::after {
+      background-color: $color;
+    }
+    & {
+      border-color: rgba($color, 0.4);
+    }
+    .Grid-marker-border {
+      color: $color;
+      border-color: $color;
+    }
+    .Grid-marker-dot {
+      background-color: $color;
+    }
+  }
+
+  .Grid-longitude--red {
+    @include grid-longitude($red);
+  }
+
+  .Grid-longitude--green {
+    @include grid-longitude($green);
+  }
+
+  .Grid-longitude--blue {
+     @include grid-longitude($blue);
+  }
+
+  .Grid-longitude--pink {
+    @include grid-longitude($pink);
+  }
+
+  .Grid-longitude--cyan {
+    @include grid-longitude($cyan);
+  }
+
+  .Grid-marker {
+    bottom: (-$marker-hit-size / 2);
+    cursor: pointer;
+    height: $marker-hit-size;
+    margin-bottom: -1px;
+    margin-right: -1px;
+    position: absolute;
+    right: (-$marker-hit-size / 2);
+    -webkit-tap-highlight-color: transparent;
+    width: $marker-hit-size;
+    z-index: 1;
+  }
+
+  .Grid-marker-border {
+    border-radius: 50%;
+    border: $border-thickness solid;
+    box-sizing: border-box;
+    height: $marker-border-size;
+    left: 50%;
+    margin-left: -$marker-border-size / 2;
+    margin-top: -$marker-border-size / 2;
+    opacity: 0.4;
+    position: absolute;
+    top: 50%;
+    transform: translateZ(0) scale(0.5);
+    transition: opacity 0.1s, transform 0.1s;
+    width: $marker-border-size;
+  }
+
+  .Grid-marker-dot {
+    border-radius: 50%;
+    height: $marker-size;
+    left: 50%;
+    margin-left: -$marker-size / 2;
+    margin-top: -$marker-size / 2;
+    opacity: 0.4;
+    position: absolute;
+    top: 50%;
+    transform: translateZ(0) scale(0.5);
+    transition: opacity 0.1s, transform 0.1s;
+    width: $marker-size;
+  }
+
+  .Grid-marker--correct {
+    .Grid-marker-border {
+      opacity: 0 !important;
+      transform: scale(2);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .Grid-marker-dot {
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+  }
+
+  .Grid-marker--incorrect {
+    .Grid-marker-border, .Grid-marker-dot {
+      animation: #{$name}-shakeSmall 1s both;
+    }
+  }
+}
+
+@media (min-width: $break-tablet) {
+  ##{$name} .Grid {
+    width: calc(100% - 244px);
+  }
+}
+
+@media (min-width: $break-tablet) and (min-height: 600px) {
+  ##{$name} {
+    .Grid {
+      box-shadow: inset $shadow-width $shadow-height 0 rgba(0, 0, 0, .16);
+      margin-top: $shadow-height;
+    }
+
+    .Grid::after {
+      height: $shadow-height;
+      top: -$shadow-height;
+    }
+
+    .Grid-number::before,
+    .Grid-number::after {
+      bottom: -33px;
+      height: $grid-number-md-height;
+      width: $grid-number-md-width;
+    }
+
+    .Grid-number::before {
+      margin-bottom: -$shadow-height;
+      margin-left: $shadow-width;
+    }
+
+    .Grid-number::after {
+      font-size: 32px;
+      line-height: $grid-number-md-height;
+      text-indent: 10px;
+    }
+
+    .Grid-longitude[data-color]::before,
+    .Grid-longitude[data-color]::after {
+      border-bottom-left-radius: $grid-color-md-width;
+      border-bottom-right-radius: $grid-color-md-width;
+      height: $grid-color-md-height;
+      right: -33px;
+      width: $grid-color-md-width;
+    }
+
+    .Grid-longitude::before {
+      margin-right: -$shadow-width;
+      margin-top: $shadow-height;
+    }
+
+    .Grid-marker:hover {
+      .Grid-marker-border, .Grid-marker-dot {
+        transform: scale(1);
+        transition: transform 0.3s, opacity 0.3;
+      }
+    }
+
+    .Grid-marker--incorrect {
+      .Grid-marker-border, .Grid-marker-dot {
+        animation: #{$name}-shake 1s both;
+      }
+    }
+  }
+}
+
+@keyframes ##{$name}-shake {
+  0%, 100% { transform: translateZ(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translate3d(-10px, 0, 0); }
+  20%, 40%, 60%, 80% { transform: translate3d(10px, 0, 0); }
+}
+
+@keyframes ##{$name}-shakeSmall {
+  0%, 100% { transform: translateZ(0) scale(0.5); }
+  10%, 30%, 50%, 70%, 90% { transform: translate3d(-10px, 0, 0) scale(0.5); }
+  20%, 40%, 60%, 80% { transform: translate3d(10px, 0, 0) scale(0.5); }
+
+}
