@@ -4,7 +4,7 @@
 <link rel="import" href="../../../components/core-selector/core-selector.html">
 <link rel="import" href="../../../components/core-image/core-image.html">
 <link rel="import" href="../../../components/google-streetview-pano/google-streetview-pano.html">
-<link rel="import" href="../../../components/google-youtube/google-youtube.html">
+<link rel="import" href="../../../components/core-media-query/core-media-query.html">
 
 <link rel="import" href="../../../js/utils.html">
 
@@ -82,10 +82,8 @@ City feed view in Tracker
       <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
       <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
     </div>
-    <div class="card-body">
-      <google-youtube videoid="{{model.youtubeId}}" chromeless fit
-          playsupported="false" thumbnail="scenes/tracker/city-feed/img/cardavatars/card-video.png"
-          on-tap="{{onVideoPlay}}"></google-youtube>
+    <div class="card-body photo">
+      <core-image sizing="cover" preload fade src="{{componentDir}}city-feed/img/cardavatars/card-video.png"></core-image>
     </div>
   </div>
 </template>
@@ -93,10 +91,13 @@ City feed view in Tracker
 <div id="module-city-feed" fit>
   <div class="scene" fit>
 
+    <core-media-query query="(min-width:320px) and (max-width:768px)"
+                      queryMatches="{{isPhoneSize}}"></core-media-query>
+
     <core-list id="feed" data="{{stream}}" selectionEnabled="false" height="425" runwayFactor="4">
       <template>
 
-        <div layout horizontal start justified>
+        <div layout?="{{!isPhoneSize}}" horizontal start justified>
 
           <div class="card card-{{model.type}}" flex?="{{model.type == 'city'}}">
             <div class="divider" layout horizontal end>{{model.timestamp | formatCountdown}}</div>
@@ -351,11 +352,6 @@ Polymer({
     var type = detail.item.getAttribute('data-name');
     this.fire('analytics-track-event', {category: 'citycard', action: type,
                                         label: destId});
-  },
-
-  onVideoPlay: function(e, detail, sender) {
-    this.fire('analytics-track-event', {category: 'video', action: 'play',
-                                        label: sender.videoid});
   }
 });
 
