@@ -566,15 +566,4 @@ window.HOUSES = [{
     "elf-blue-snow-hide"
     ]
   }
-}, {
-  module: "latlong",
-  iced: true,
-  launchDate: new Date('Dec 24, 2014'),
-  category: "play",
-  cast: false,
-  disabled: false,
-  elves: {
-    melt: [],
-    snow: []
-  }
 }];
