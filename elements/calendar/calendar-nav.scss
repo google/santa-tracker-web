@@ -213,12 +213,14 @@ $cardColor: #6541a4;
     #back-to-tracker-text {
       position: absolute;
       text-transform: uppercase;
-      font-size: 14px;
+      font-size: 11px;
       color: #fff;
       font-weight: 500;
-      right: 152px;
-      top: 28px;
+      right: 145px;
+      top: 31px;
       line-height: 1.2;
+      width: 70px;
+      text-align: right;
     }
 
     #back-to-tracker {
