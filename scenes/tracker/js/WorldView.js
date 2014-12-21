@@ -56,12 +56,6 @@ WorldView.prototype.show = function() {
   this.base_.async(this.cycleStatus_.bind(this));
 };
 
-WorldView.prototype.hide = function() {
-  if (this.cycleTimeout_) {
-    window.clearTimeout(this.cycleTimeout_);
-  }
-};
-
 WorldView.prototype.cycleStatus_ = function() {
   window.clearTimeout(this.cycleTimeout_);
 
@@ -74,7 +68,7 @@ WorldView.prototype.cycleStatus_ = function() {
 
   next.addClass('show');
 
-  this.cycleTimeout_ = window.clearTimeout(this.cycleStatus_.bind(this),
+  this.cycleTimeout_ = window.setTimeout(this.cycleStatus_.bind(this),
       WorldView.CYCLE_TIME_);
 };
 
