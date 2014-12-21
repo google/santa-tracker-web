@@ -183,16 +183,17 @@ gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
       // source (so we can use use wildcards in the file name)
       'third_party/externs/greensock/*.js',
       'third_party/externs/jquery/*.js',
-
-      // all scenes need closure's base.js to get @export support, some need
-      // full closure library (like seasonofgiving)
-      'components/closure-library/closure/goog/**/*.js'
     ])
     .pipe(newer(dest + '/' + fileName))
     .pipe(closureCompiler({
       compilerPath: COMPILER_PATH,
       fileName: fileName,
       compilerFlags: addCompilerFlagOptions({
+        // all scenes need closure's base.js to get @export support, some need
+        // full closure library (like seasonofgiving)
+        // In compilerFlags since it's essentially a static library (and to work
+        // around gulp-closure-compiler's love of copying files to /tmp).
+        js: path.resolve('components/closure-library/closure/goog/**.js'),
         closure_entry_point: config.entryPoint,
         compilation_level: 'SIMPLE_OPTIMIZATIONS',
         // warning_level: 'VERBOSE',
