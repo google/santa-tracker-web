@@ -46,8 +46,8 @@ Runner scene.
       </div>
     </div>
     <div class="gui">
-      <div class="board board--game"><a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
-          <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+      <div class="board board--game"><a id="global-back-to-village" href="{{pageUrl}}#tracker" class="back">
+          <i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
         <div class="logo"></div>
         <div class="score">
           <div class="label">
@@ -122,7 +122,7 @@ Runner scene.
     game: null,
 
     onPreload: function() {
-      this.preloadSounds('selfie_load_sounds', 20);
+      this.preloadSounds('runner_load_sounds', 20);
       this.preloadImages([
         'img/bg-tile-layer1.png',
         'img/bg-tile-layer2.png',
