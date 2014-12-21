@@ -1,0 +1,15 @@
+@media (min-width: $break-tablet) {
+  ##{$name} .Sidebar {
+    background-color: $board-game-color;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 244px;
+    z-index: 1;
+  }
+
+  ##{$name} .Belt {
+    margin-left: 244px;
+  }
+}
