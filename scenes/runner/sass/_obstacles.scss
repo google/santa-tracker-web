@@ -1,0 +1,95 @@
+##{$name} {
+  .obstacle {
+    position: absolute;
+    bottom: $bottom-offset;
+    left: 0;
+  }
+
+  @mixin house($image-file) {
+    width: $house-width;
+    height: $house-height;
+    background: url('img/' + $image-file) no-repeat;
+  }
+
+  .house--1 {
+    @include house('hit-house-01.svg');
+  }
+
+  .house--2 {
+    @include house('hit-house-02.svg');
+  }
+
+  .house--3 {
+    @include house('hit-house-03.svg');
+  }
+
+  .house--4 {
+    @include house('hit-house-04.svg');
+  }
+
+  .tree-short--1 {
+    width: $tree-short-width;
+    height: $tree-short-height;
+    background: url(img/hit-tree-short-1.svg) no-repeat;
+  }
+
+  .tree-short--2 {
+    width: $tree-short-width;
+    height: $tree-short-height;
+    background: url(img/hit-tree-short-2.svg) no-repeat;
+  }
+
+  .tree-tall--1 {
+    width: $tree-tall1-width;
+    height: $tree-tall-height;
+    background: url(img/hit-tree-tall-1.svg) no-repeat;
+  }
+
+  .tree-tall--2 {
+    width: $tree-tall2-width;
+    height: $tree-tall-height;
+    background: url(img/hit-tree-tall-2.svg) no-repeat;
+  }
+
+  .antenna {
+    width: $antenna-width;
+    height: $roof-obstacle-height;
+    background: url(img/hit-roof-antenna.svg) no-repeat;
+  }
+
+  .chimney--1 {
+    width: $chimney1-width;
+    height: $roof-obstacle-height;
+    background: url(img/hit-roof-chimney-1.svg) no-repeat;
+  }
+
+  .chimney--2 {
+    width: $chimney2-width;
+    height: $roof-obstacle-height;
+    background: url(img/hit-roof-chimney-2.svg) no-repeat;
+  }
+
+  .watertower {
+    width: $watertower-width;
+    height: $roof-obstacle-height;
+    background: url(img/hit-roof-water.svg) no-repeat;
+  }
+
+  .trashcan {
+    overflow: hidden;
+    width: $trashcan-width;
+    height: $trashcan-height;
+
+    .obstacle__inner {
+      width: 2 * $trashcan-width;
+      height: $trashcan-height;
+      background: url(img/trashcan.svg) no-repeat;
+    }
+  }
+
+  .trashcan--hit {
+    .obstacle__inner {
+      transform: translateX(-$trashcan-width);
+    }
+  }
+}

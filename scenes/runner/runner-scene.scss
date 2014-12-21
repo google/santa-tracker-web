@@ -1,0 +1,65 @@
+$name: 'module-runner';
+$gameover-bg: #BFC932;
+$rotate-bg: $gameover-bg;
+
+@import "../shared/sass/board";
+@import "../shared/sass/gameover";
+@import "../shared/sass/rotate";
+@import "../shared/sass/startbutton";
+@import "../shared/sass/tutorial";
+
+@import "sass/variables";
+@import "sass/animations";
+@import "sass/environment";
+@import "sass/obstacles";
+@import "sass/platforms";
+@import "sass/player";
+@import "sass/presents";
+@import "sass/boosts";
+
+##{$name} {
+  .game {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    &.frozen {
+      .reindeer__inner,
+      .present__inner,
+      .layer,
+      .boost__inner-bg,
+      .boost-text--collected {
+        animation-play-state: paused;
+      }
+    }
+  }
+
+  .board.board--game {
+    .logo {
+      background-size: 100px;
+    }
+
+    .level {
+      display: none;
+    }
+
+    .score {
+        @media (min-width: 1025px) {
+          width: 100%;
+        }
+    }
+  }
+
+  /**
+   * Hides the element but still keeps it composed on the GPU by translating it off-screen.
+   * By keeping things composed we get respectable performance on android browsers since
+   * the biggest overhead is in moving things to the GPU there.
+   * http://code.google.com/p/android/issues/detail?id=25147
+   */
+  .hidden {
+    transform: translate3d(0, 9999px, 0) !important;
+    animation-play-state: paused !important;
+  }
+}
