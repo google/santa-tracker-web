@@ -35,13 +35,60 @@ City feed view in Tracker
 <template>
 <link rel="stylesheet" href="city-feed.css" no-shim>
 <style>
-:host {
-  display: none;
-}
-:host([active]) {
-  display: block;
-}
+  :host {
+    display: none;
+  }
+  :host([active]) {
+    display: block;
+  }
 </style>
+
+<template id="mini-cards-template">
+  <div hidden?="{{model.type != 'facts'}}">
+    <div class="card-header">
+      <div class="corner-image"></div>
+      <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
+    </div>
+    <div class="card-body">
+      <p>{{model.didyouknow}}</p>
+    </div>
+    <div class="card-footer">
+      <p><i18n-msg msgid="trivia_ngb_promo">PLACEHOLDER_i18n</i18n-msg></p>
+    </div>
+  </div>
+
+  <div hidden?="{{model.type != 'photos'}}" style="height:100%">
+    <div class="card-header">
+      <div class="corner-image"></div>
+    </div>
+    <div class="card-body photo">
+      <core-image sizing="cover" preload fade src="{{model.imageUrl}}"></core-image>
+    </div>
+  </div>
+
+  <div hidden?="{{model.type != 'update'}}">
+    <div class="card-header">
+      <div class="corner-image"></div>
+      <h4><i18n-msg msgid="tracker_santa_update">PLACEHOLDER_i18n</i18n-msg></h4>
+    </div>
+    <div class="card-body">
+      <p>{{model.status}}</p>
+    </div>
+  </div>
+
+  <div hidden?="{{model.type != 'video'}}">
+    <div class="card-header">
+      <div class="corner-image"></div>
+      <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
+      <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
+    </div>
+    <div class="card-body">
+      <google-youtube videoid="{{model.youtubeId}}" chromeless fit
+          playsupported="false" thumbnail="scenes/tracker/city-feed/img/cardavatars/card-video.png"
+          on-tap="{{onVideoPlay}}"></google-youtube>
+    </div>
+  </div>
+</template>
 
 <div id="module-city-feed" fit>
   <div class="scene" fit>
@@ -49,123 +96,90 @@ City feed view in Tracker
     <core-list id="feed" data="{{stream}}" selectionEnabled="false" height="425" runwayFactor="4">
       <template>
 
-        <div class="card card-{{model.type}}">
-          <div class="divider"></div>
+        <div layout horizontal start justified>
 
-          <div hidden?="{{model.type != 'city'}}">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <div>
-                <h4 class="white">{{model.stop.region}}</h4>
-                <h1>{{model.stop.city}}</h1>
-              </div>
-              <core-selector class="card-icons" selected="{{model.selectedCard}}" on-core-activate="{{onCardSelected}}">
-                <img src="img/tracker-and-city-SVGs_feed-city-icon.svg" data-name="photo">
-                <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg" data-name="photo">
-                <template if="{{model.stop.details.streetView}}">
-                  <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg" data-name="streetview">
-                </template>
-                <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg" on-tap="{{onWikipedia}}" data-name="wikipedia">
-              </core-selector>
-              <div class="stats">
-                <div layout horizontal>
-                  <div>
-                    <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
-                    <div layout horizontal center>
-                      <div class="ico ico-clock"></div>
-                      <h2 class="stat-large">{{model.stop.arrival | formatCountdown}}</h2>
-                    </div>
-                  </div>
-                  <div>
-                    <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
-                    <div layout horizontal center>
-                      <div class="ico ico-weatherchanel"></div>
-                      <h2 class="stat-large white">{{model.stop.details.weather.tempC}}&deg;C / {{model.stop.details.weather.tempF}}&deg;F</h2>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <core-pages class="card-body" selected="{{model.selectedCard}}">
-              <div class="photo">
-                <core-image sizing="cover" preload fade src="{{model.stop.details.photos[0].url}}"></core-image>
-                <div class="attribution"><html-echo html="{{model.stop.details.photos[0].attributionHtml}}"></html-echo></div>
-              </div>
-              <div class="photo">
-                <core-image sizing="cover" preload fade src="{{model.stop.details.photos[1].url}}"></core-image>
-                <div class="attribution"><html-echo html="{{model.stop.details.photos[1].attributionHtml}}"></html-echo></div>
-              </div>
-              <template if="{{model.stop.details.streetView}}">
+          <div class="card card-{{model.type}}" flex?="{{model.type == 'city'}}">
+            <div class="divider" layout horizontal end>{{model.timestamp | formatCountdown}}</div>
+
+            <div hidden?="{{model.type != 'city'}}">
+              <div class="card-header">
+                <div class="corner-image"></div>
                 <div>
-                  <template if="{{model.selectedCard == 2}}">
-                    <google-streetview-pano version="3.exp" fit
-                        panoid="{{model.stop.details.streetView.id}}"
-                        heading="{{model.stop.details.streetView.heading}}"
-                        clientId="{{santaApp.config.CLIENT_ID}}"
-                        libraries="places,geometry"
-                        language="{{santaApp.language}}"
-                        disableDefaultUI></google-streetview-pano>
-                  </template>
+                  <h4 class="white">{{model.stop.region}}</h4>
+                  <h1>{{model.stop.city}}</h1>
                 </div>
-              </template>
-              <div class="wikipedia">
-                <div class="gradientbar"></div>
-                <div class="wikipedia__logo"></div>
-                <html-echo class="wikipedia__body" html="{{model.stop.details.wikipedia.excerpt}}"></html-echo>
-                <div class="attribution">
-                  <span class="wiki-cc">Available under
-                  <a target="wiki" href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
-                  terms</span> &nbsp;
-                  <a target="wiki" href="{{model.stop.details.wikipedia.url}}">{{model.stop.details.wikipedia.url}}</a>
+                <core-selector class="card-icons" selected="{{model.selectedCard}}" on-core-activate="{{onCardSelected}}">
+                  <img src="img/tracker-and-city-SVGs_feed-city-icon.svg" data-name="photo">
+                  <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg" data-name="photo">
+                  <template if="{{model.stop.details.streetView}}">
+                    <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg" data-name="streetview">
+                  </template>
+                  <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg" on-tap="{{onWikipedia}}" data-name="wikipedia">
+                </core-selector>
+                <div class="stats">
+                  <div layout horizontal>
+                    <div>
+                      <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
+                      <div layout horizontal center>
+                        <div class="ico ico-clock"></div>
+                        <h2 class="stat-large">{{model.stop.arrival | formatCountdown}}</h2>
+                      </div>
+                    </div>
+                    <div>
+                      <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
+                      <div layout horizontal center>
+                        <div class="ico ico-weatherchanel"></div>
+                        <h2 class="stat-large white">{{model.stop.details.weather.tempC}}&deg;C / {{model.stop.details.weather.tempF}}&deg;F</h2>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </core-pages>
+              <core-pages class="card-body" selected="{{model.selectedCard}}">
+                <div class="photo">
+                  <core-image sizing="cover" preload fade src="{{model.stop.details.photos[0].url}}"></core-image>
+                  <div class="attribution"><html-echo html="{{model.stop.details.photos[0].attributionHtml}}"></html-echo></div>
+                </div>
+                <div class="photo">
+                  <core-image sizing="cover" preload fade src="{{model.stop.details.photos[1].url}}"></core-image>
+                  <div class="attribution"><html-echo html="{{model.stop.details.photos[1].attributionHtml}}"></html-echo></div>
+                </div>
+                <template if="{{model.stop.details.streetView}}">
+                  <div>
+                    <template if="{{model.selectedCard == 2}}">
+                      <google-streetview-pano version="3.exp" fit
+                          panoid="{{model.stop.details.streetView.id}}"
+                          heading="{{model.stop.details.streetView.heading}}"
+                          clientId="{{santaApp.config.CLIENT_ID}}"
+                          libraries="places,geometry"
+                          language="{{santaApp.language}}"
+                          disableDefaultUI></google-streetview-pano>
+                    </template>
+                  </div>
+                </template>
+                <div class="wikipedia">
+                  <div class="gradientbar"></div>
+                  <div class="wikipedia__logo"></div>
+                  <html-echo class="wikipedia__body" html="{{model.stop.details.wikipedia.excerpt}}"></html-echo>
+                  <div class="attribution">
+                    <span class="wiki-cc">Available under
+                    <a target="wiki" href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
+                    terms</span> &nbsp;
+                    <a target="wiki" href="{{model.stop.details.wikipedia.url}}">{{model.stop.details.wikipedia.url}}</a>
+                  </div>
+                </div>
+              </core-pages>
+            </div>
+
+            <template bind ref="mini-cards-template"></template>
           </div>
 
-          <div hidden?="{{model.type != 'facts'}}">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
+          <template if="{{model.nextCard}}" bind="{{model.nextCard as model}}">
+            <div class="card card-{{model.type}}">
+              <div class="divider" layout horizontal end>{{model.timestamp | formatCountdown}}</div>
+              <template bind ref="mini-cards-template"></template>
             </div>
-            <div class="card-body">
-              <p>{{model.didyouknow}}</p>
-            </div>
-            <div class="card-footer">
-              <p><i18n-msg msgid="trivia_ngb_promo">PLACEHOLDER_i18n</i18n-msg></p>
-            </div>
-          </div>
-
-          <div hidden?="{{model.type != 'photos'}}" style="height:100%">
-            <div class="card-header">
-              <div class="corner-image"></div>
-            </div>
-            <div class="card-body photo">
-              <core-image sizing="cover" preload fade src="{{model.imageUrl}}"></core-image>
-            </div>
-          </div>
-
-          <div hidden?="{{model.type != 'update'}}">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4><i18n-msg msgid="tracker_santa_update">PLACEHOLDER_i18n</i18n-msg></h4>
-            </div>
-            <div class="card-body">
-              <p>{{model.status}}</p>
-            </div>
-          </div>
-
-          <div hidden?="{{model.type != 'video'}}">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
-              <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
-            </div>
-            <div class="card-body">
-              <google-youtube videoid="{{model.youtubeId}}" chromeless fit
-                  playsupported="false" thumbnail="scenes/tracker/city-feed/img/cardavatars/card-video.png"
-                  on-tap="{{onVideoPlay}}"></google-youtube>
-            </div>
-          </div>
+          </template>
 
         </div>
 
@@ -218,6 +232,14 @@ Polymer({
    */
 
   /**
+   * The timeline feed with additional data and adjusted to support mini cards.
+   *
+   * @property stream
+   * @type array
+   * @default []
+   */
+
+  /**
    * A `<santa-app>` controller element.
    *
    * @attribute santaApp
@@ -229,6 +251,7 @@ Polymer({
   created: function() {
     this.location = {};
     this.timeline = [];
+    this.stream = [];
   },
 
   activeChanged: function() {
@@ -249,18 +272,16 @@ Polymer({
       return;
     }
 
-    destLookup_ = {};
+    // Make a copy so 2-way bindings don't alter original timeline data.
+    var stream = this.timeline.slice();
 
-    // TODO(ebidel): decide if we need to make a copy.
-    this.stream = this.timeline.slice();
-
-    for (var i = 0, item; item = this.stream[i]; ++i) {
+    // Add additional metadata needed by the template.
+    for (var i = 0, item; item = stream[i]; ++i) {
       item.selectedCard = 0; // select initial page on destination card.
 
       // Specify type of card to render in feed.
       if (item.stop) {
         item.type = 'city';
-        destLookup_[item.stop.id] = i; // Cache index for lookup later when scrolling to destination.
       } else if (item.youtubeId) {
         item.type = 'video';
       } else if (item.imageUrl) {
@@ -271,6 +292,30 @@ Polymer({
         item.type = 'facts';
       }
     }
+
+    var adjustedStream = [];
+    destLookup_ = {};
+
+    // core-list uses a single template to render a linear list of items. To
+    // support side-by-side mini cards, we pair mini cards together by storing
+    // a reference to the next mini card when it is followed by a subsequent
+    // mini card. The reference to the next mini card is used in the core-list
+    // template to determine if an additional card should be rendered in the
+    // same row. The template is wrapped in a flexbox container
+    // (<div layout horizontal start justified>) which handles the layout.
+    for (var i = 0, item; item = stream[i]; ++i) {
+      var nextCard = stream[i + 1];
+      if (item.type == 'city') {
+        // Cache index of stop to be able to scroll to destination.
+        destLookup_[item.stop.id] = adjustedStream.length;
+      } else if (item.type != 'city' && nextCard && nextCard.type != 'city') {
+        item.nextCard = nextCard;
+        i++; // skip next item in array.
+      }
+      adjustedStream.push(item);
+    }
+
+    this.stream = adjustedStream;
   },
 
   /**
