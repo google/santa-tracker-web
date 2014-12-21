@@ -331,6 +331,10 @@ Polymer({
     });
   },
 
+  scrollToItem: function(idx) {
+    this.$.feed.scrollToItem(idx);
+  },
+
   formatCountdown: function(timestamp) {
     return formatCountdown(timestamp);
   },
