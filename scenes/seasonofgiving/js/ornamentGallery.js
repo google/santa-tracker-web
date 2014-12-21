@@ -94,7 +94,8 @@ app.OrnamentGallery.prototype.handleResize = function() {
  * @param {Event} event Event for select handler
  */
 app.OrnamentGallery.prototype.handleSelectItem = function(event) {
-  var targetClass = event.currentTarget.classList[1];
+  // unwrap for when in the shadowdom polyfill
+  var targetClass = unwrap(event.currentTarget.classList)[1];
   var targetIndex = targetClass.indexOf('--');
   var endClass = targetClass.substring(targetIndex + 2);
 
