@@ -412,7 +412,7 @@ Tracker scene.
           if (this.location.stopover) {
             this.$.feed.scrollToDest(this.location.stopover.id);
           } else {
-            this.$.feed.scrollToItem(0); // Scroll to top of feed if he's not at a stop.
+            this.$.feed.scrollToIndex(0); // Scroll to top of feed if he's not at a stop.
           }
         }
 
@@ -573,6 +573,8 @@ Tracker scene.
         this.worldView_.fitBounds();
       }
 
+      this.sceneParamsChanged();
+
       this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
 
@@ -582,6 +584,17 @@ Tracker scene.
         this.worldView_.hide();
       }
       this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
+    },
+
+    sceneParamsChanged: function() {
+      if (this.sceneParams.timestamp) {
+        this.$.intro.closeIntro();
+        this.cityFeedActive = true;
+
+        if (this.sceneParams.timestamp) {
+          this.$.feed.scrollToTime(this.sceneParams.timestamp);
+        }
+      }
     },
 
     formatInt_: function(i) {

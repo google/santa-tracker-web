@@ -94,7 +94,8 @@ City feed view in Tracker
     <core-media-query query="(min-width:320px) and (max-width:768px)"
                       queryMatches="{{isPhoneSize}}"></core-media-query>
 
-    <core-list id="feed" data="{{stream}}" selectionEnabled="false" height="425" runwayFactor="4">
+    <core-list id="feed" data="{{stream}}" selectionEnabled="false"
+               height="350" runwayFactor="4" on-scroll="{{onScroll}}">
       <template>
         <div layout?="{{!isPhoneSize}}" horizontal start justified>
           <div class="card card-{{model.type}}" flex?="{{model.type == 'city'}}">
@@ -208,6 +209,8 @@ City feed view in Tracker
  */
 var destLookup_ = {};
 
+CARD_CENTERED_THRESHOLD_ = 100; // Top/bottom margin of a stream card to declare it as centered on screen.
+
 Polymer({
   componentDir: 'scenes/tracker/',
 
@@ -251,11 +254,40 @@ Polymer({
    * Mapping of YouTube video ids to URL routes.
    * @property videoMap
    * @type {object}
+   * @default null
    */
   videoMap: null,
 
+  /**
+   * The last scroll operation that was attempted.
+   * @property pendingScroll_
+   * @type {object}
+   * @default null
+   * @private
+   */
+  pendingScroll_: null,
+
+  /**
+   * True if the list has done its metrics setup and is ready to be shown.
+   * @property setupDone_
+   * @type {boolean}
+   * @default false
+   * @private
+   */
+  setupDone_: false,
+
+  /**
+   * True if a scroll update has been queued, due to the user scrolling the stream.
+   * @property updateQueued_
+   * @type {boolean}
+   * @default false
+   * @private
+   */
+  updateQueued_: false,
+
   created: function() {
     this.location = {};
+    this.pendingScroll_ = {};
     this.timeline = [];
     this.stream = [];
   },
@@ -265,10 +297,23 @@ Polymer({
     this.$.feed.updateSize();
 
     if (!this.active) {
+      // Remove any deep link URL params when stream is hidden.
+      var newHref = location.href.substr(0,
+                    location.href.length - location.hash.length) + '#tracker';
+      window.history.replaceState(null, '', newHref);
+
       // Want the list to scroll fast and streetview is a hog. Make sure no
       // streetview cards are activated when the list is opened again.
       for (var i = 0, item; item = this.stream[i]; ++i) {
         item.selectedCard = 0;
+      }
+    } else {
+      this.setupDone_ = true;
+      if (this.pendingScroll_.func) {
+        this.async(function() {
+          this.pendingScroll_.func.call(this, this.pendingScroll_.arg);
+          this.pendingScroll_ = {};
+        });
       }
     }
   },
@@ -325,20 +370,52 @@ Polymer({
   },
 
   /**
-   * Scrolls the city feed to the given item in the list.
+   * Scrolls the stream to the given destination card.
    *
    * @method scrollToDest
    * @param {string} destId Destination id
    */
   scrollToDest: function(destId) {
-    // Wait a rAF so list is rendered.
-    this.async(function() {
-      this.$.feed.scrollToItem(destLookup_[destId]);
-    });
+    var idx = destLookup_[destId];
+    this.scrollToIndex(idx);
+
+    if (this.setupDone_) {
+      // Add deep link to opened destination.
+      var newHref = location.href.substr(0,
+                    location.href.length - location.hash.length) +
+                    '#tracker?timestamp=' + this.stream[idx].timestamp;
+      window.history.replaceState(null, '', newHref);
+    }
   },
 
-  scrollToItem: function(idx) {
-    this.$.feed.scrollToItem(idx);
+  /**
+   * Scrolls the stream to the item at index.
+   *
+   * @method scrollToIndex
+   * @param {number} idx Index of item to scroll to.
+   */
+  scrollToIndex: function(idx) {
+    if (this.setupDone_) {
+      this.$.feed.scrollToItem(idx);
+    } else {
+      this.pendingScroll_ = {func: this.scrollToIndex, arg: idx};
+    }
+  },
+
+  /**
+   * Scrolls the stream item.
+   *
+   * @method scrollToTime
+   * @param {number} idx Index of item to scroll to.
+   */
+  scrollToTime: function(timestamp) {
+    var timestamp = parseInt(timestamp);
+    for (var i = 0, item; item = this.stream[i]; ++i) {
+      if (item.timestamp === timestamp) {
+        this.scrollToIndex(i);
+        break;
+      }
+    }
   },
 
   formatCountdown: function(timestamp) {
@@ -357,6 +434,41 @@ Polymer({
     var type = detail.item.getAttribute('data-name');
     this.fire('analytics-track-event', {category: 'citycard', action: type,
                                         label: destId});
+  },
+
+  update: function(sender) {
+    this.updateQueued_ = false;
+
+    var coreListHeight = sender.offsetHeight;
+    for (var i = 0, el; el = sender.children[i]; ++i) {
+      var elBounds = el.getBoundingClientRect();
+      if (0 < elBounds.top && elBounds.top < coreListHeight) {
+        var yMiddleOfElement = elBounds.top + (elBounds.height / 2);
+        var yUpper = (coreListHeight / 2) + CARD_CENTERED_THRESHOLD_;
+        var yLower = (coreListHeight / 2) - CARD_CENTERED_THRESHOLD_;
+
+        // If card is on center of screen, add deep link to URL.
+        if (yLower < yMiddleOfElement && yMiddleOfElement < yUpper) {
+          var timestamp = el.templateInstance.model.model.timestamp;
+          var newHref = location.href.substr(0,
+                        location.href.length - location.hash.length) + '#tracker?timestamp=' + timestamp;
+          window.history.replaceState(null, '', newHref);
+
+          break;
+        }
+      }
+    }
+  },
+
+  onScroll: function(e, detail, sender) {
+    // Debounce scrolling.
+    if (!this.updateQueued_) {
+      this.async(function() {
+        this.update(sender)
+      });
+    }
+
+    this.updateQueued_ = true;
   }
 });
 
