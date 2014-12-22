@@ -570,6 +570,7 @@ Tracker scene.
     },
 
     onHide: function() {
+      window.clearInterval(this.trackingInterval_);
       this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
 
