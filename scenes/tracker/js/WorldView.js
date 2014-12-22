@@ -113,12 +113,14 @@ WorldView.prototype.animateCircleOut_ = function() {
 };
 
 WorldView.prototype.zoomIn = function() {
+  this.startIdleTimeout_();
   if (!this.map_) return;
 
   this.map_.setZoom(this.map_.getZoom() + 1);
 };
 
 WorldView.prototype.zoomOut = function() {
+  this.startIdleTimeout_();
   if (!this.map_) return;
 
   this.map_.setZoom(this.map_.getZoom() - 1);
@@ -141,7 +143,6 @@ WorldView.prototype.setupMap = function() {
   for (var i = 0; i < events.length; i++) {
     google.maps.event.addListener(this.map_, events[i], this.unfollowSanta.bind(this));
   }
-
 
   this.dummyOverlayView_ = createDummyOverlayView();
   this.dummyOverlayView_.setMap(this.map_);
@@ -184,10 +185,13 @@ WorldView.prototype.setupMap = function() {
   }
 };
 
+WorldView.prototype.IDLE_TIMEOUT_ = 60000;
+
 /**
  * @private
  */
 WorldView.prototype.onSantaLayerClick_ = function() {
+  this.startIdleTimeout_();
   this.followSanta();
   google.maps.event.trigger(this, 'santa_clicked');
 };
@@ -200,6 +204,18 @@ WorldView.prototype.followSanta = function() {
 WorldView.prototype.unfollowSanta = function() {
   this.base_.$['module-tracker'].querySelector('#tracker-zoom-controls').hidden = false;
   this.lockOnSanta_ = false;
+  this.startIdleTimeout_();
+};
+
+WorldView.prototype.startIdleTimeout_ = function() {
+  window.clearTimeout(this.idleTimeout_);
+
+  this.idleTimeout_ = window.setTimeout(this.triggerIdle_.bind(this),
+    this.IDLE_TIMEOUT_);
+};
+
+WorldView.prototype.triggerIdle_ = function() {
+  google.maps.event.trigger(this, 'idle');
 };
 
 WorldView.prototype.moveSanta = function(state) {
@@ -258,6 +274,7 @@ WorldView.prototype.showSceneMarkers_ = function() {
  * @private
  */
 WorldView.prototype.onSceneMarkerClick_ = function(scene) {
+  this.startIdleTimeout_();
   google.maps.event.trigger(this, 'scenemarker_clicked', scene);
 };
 
@@ -353,6 +370,7 @@ WorldView.prototype.fitBounds = function() {
  * @param {string} destId
  */
 WorldView.prototype.onRouteMarkerClick_ = function(marker, destId) {
+  this.startIdleTimeout_();
   this.followSanta();
   google.maps.event.trigger(this, 'routemarker_clicked', destId);
 };
