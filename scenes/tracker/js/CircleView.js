@@ -69,10 +69,12 @@ CircleView.prototype.animateIn_ = function() {
 
 CircleView.prototype.triggerOpen_ = function() {
   google.maps.event.trigger(this, 'open');
+  $(window).on('resize.circle', this.render_.bind(this));
 };
 
 CircleView.prototype.triggerClose_ = function() {
   google.maps.event.trigger(this, 'close');
+  $(window).off('resize.circle');
 };
 
 CircleView.prototype.animateOut_ = function() {
@@ -184,8 +186,6 @@ CircleView.prototype.render_ = function() {
     left: center.x - radius,
     top: center.y - radius
   });
-
-
 };
 
 /**
