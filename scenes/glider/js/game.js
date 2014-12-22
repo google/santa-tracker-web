@@ -140,7 +140,7 @@ app.Game.prototype.restart = function() {
   this.scoreboard.reset();
   this.player.reset();
 
-  window.santaApp.fire('sound-trigger', 'glider_start');
+  window.santaApp.fire('sound-ambient', 'glider_start');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'glider'});
 
   // Start game
