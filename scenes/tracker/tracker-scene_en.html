@@ -573,6 +573,9 @@ Tracker scene.
 
     onHide: function() {
       window.clearInterval(this.trackingInterval_);
+      if (this.worldView_) {
+        this.worldView_.hide();
+      }
       this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
 
