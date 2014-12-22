@@ -95,7 +95,7 @@ City feed view in Tracker
                       queryMatches="{{isPhoneSize}}"></core-media-query>
 
     <core-list id="feed" data="{{stream}}" selectionEnabled="false"
-               height="425" runwayFactor="4" on-scroll="{{onScroll}}">
+               height="350" runwayFactor="4" on-scroll="{{onScroll}}">
       <template>
         <div layout?="{{!isPhoneSize}}" horizontal start justified>
           <div class="card card-{{model.type}}" flex?="{{model.type == 'city'}}">
