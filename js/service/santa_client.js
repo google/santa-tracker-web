@@ -427,12 +427,13 @@ SantaService.prototype.sync = function(opt_callback) {
         this.resuscitate_();
       }
 
+      var fingerprintChanged = result['fingerprint'] != this.fingerprint_;
       this.fingerprint_ = result['fingerprint'];
       this.clientSpecific_ = result['clientSpecific'];
 
       this.appendDestinations_(result['routeOffset'], result['destinations']);
       this.appendStream_(result['streamOffset'], result['stream']);
-      this.rebuildTimeline_();
+      this.rebuildTimeline_(fingerprintChanged);
 
       this.synced_ = true;
       this.syncInFlight_ = false;
@@ -455,9 +456,10 @@ SantaService.prototype.sync = function(opt_callback) {
 /**
  * Collate the destination and card streams. Build the lists for timeline
  * (cards already shown) and future cards to show.
+ * @param {boolean} forceDirty Force trigger of 'timeline_changed' event.
  * @private
  */
-SantaService.prototype.rebuildTimeline_ = function() {
+SantaService.prototype.rebuildTimeline_ = function(forceDirty) {
   var historyStream = [];
   var futureStream = [];
   var dests = this.destinations_.slice(0);
@@ -498,10 +500,13 @@ SantaService.prototype.rebuildTimeline_ = function() {
       futureStream.push(toPush);
     }
   }
+  var dirty = forceDirty || this.timeline_.length != historyStream.length;
   this.timeline_ = historyStream;
   this.futureCards_ = futureStream;
 
-  Events.trigger(this, 'timeline_changed', this.timeline_);
+  if (dirty) {
+    Events.trigger(this, 'timeline_changed', this.timeline_);
+  }
 };
 
 /**
