@@ -5,6 +5,7 @@
 <link rel="import" href="tracker-intro.html">
 <link rel="import" href="city-feed/city-feed.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
+<link rel="import" href="../../components/paper-fab/paper-fab.html">
 
 <link rel="import" href="dependencies.html">
 
@@ -88,6 +89,11 @@ Tracker scene.
             <template bind ref="mini-cards-template"></template>
           </div>
         </template>
+      </div>
+
+      <div id="tracker-zoom-controls" hidden="true">
+        <paper-fab icon="add" alt="Zoom in" mini on-core-transitionend="{{trackerZoomIn}}"></paper-fab>
+        <paper-fab icon="remove" alt="Zoom out" mini on-core-transitionend="{{trackerZoomOut}}"></paper-fab>
       </div>
 
       <div id="trackermap" fit></div>
@@ -345,6 +351,18 @@ Tracker scene.
       if (this.trackingInterval_) return;
 
       this.updateSanta_();
+    },
+
+    trackerZoomIn: function() {
+      if (this.worldView_) {
+        this.worldView_.zoomIn();
+      }
+    },
+
+    trackerZoomOut: function() {
+      if (this.worldView_) {
+        this.worldView_.zoomOut();
+      }
     },
 
     updateSanta_: function() {
