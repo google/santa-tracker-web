@@ -175,17 +175,15 @@ Santa Track app.
         path="scenes/tracker/tracker-scene_[[language]].html"
         hidden></tracker-scene>
 
-    <video-scene route="trailer"
+    <!-- NOTE: when these scenes are visited and then left, they are removed and
+         appended to the end of lazy-pages. This is fine as long as VIDEO_ROUTES
+         isn't modified (if it is, prevSelectedRouteChanged will need to be
+         modified). -->
+    <template repeat="{{ videoRoute in VIDEO_ROUTES }}">
+      <video-scene route="{{videoRoute}}"
         path="scenes/videoscene/video-scene_[[language]].html"
         hidden></video-scene>
-
-    <video-scene route="carpool"
-        path="scenes/videoscene/video-scene_[[language]].html"
-        hidden></video-scene>
-
-    <video-scene route="liftoff"
-        path="scenes/videoscene/video-scene_[[language]].html"
-        hidden></video-scene>
+    </template>
 
     <about-scene route="about"
         path="scenes/about/about-scene_[[language]].html"
@@ -204,9 +202,16 @@ var VALID_ROUTES_ = [];
 // These scenes are also not removed from the lazy-page switching.
 var PERMANENT_ROUTES_ = ['village', 'calendar', 'about'];
 
-// Routes/scenes which will be accessible when the tracker is accessible.
+// TODO(bckenny): add or remove commented-out routes when status is ascertained
+var VIDEO_ROUTES_ = [
+  'trailer', 'carpool', 'liftoff', /*'jingle',*/ 'satellite', 'temptation',
+  /*'coffee',*/ 'office', /*'selfie',*/ 'tired', 'com-room', 'reload',
+  'slacking-off'
+];
+
+// Routes/scenes unlocked with the tracker (including all video routes)
 var TRACKER_ROUTES_ = ['blimp', 'island', 'undersea', 'icecave', 'runner',
-    'latlong'];
+    'latlong'].concat(VIDEO_ROUTES_);
 
 // Check if date1 is the same date as date2.
 function isSameDay_(date1, date2) {
@@ -342,6 +347,15 @@ Polymer(Polymer.mixin({
    * @default []
    */
   timeline: [],
+
+  /**
+   * List of video routes.
+   *
+   * @property VIDEO_ROUTES
+   * @type array
+   * @default []
+   */
+  VIDEO_ROUTES: VIDEO_ROUTES_,
 
   publish: {
     /**
