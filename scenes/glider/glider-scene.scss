@@ -1,0 +1,55 @@
+$name: 'module-glider';
+$scoreboard-bg: #ac4dba;
+
+@import "../shared/sass/board";
+@import "../shared/sass/gameover";
+@import "../shared/sass/rotate";
+@import "../shared/sass/tutorial";
+@import "../shared/sass/startbutton";
+
+@import "sass/buildings";
+@import "sass/collisions";
+@import "sass/environment";
+@import "sass/items";
+@import "sass/obstacles";
+@import "sass/player";
+@import "sass/presents";
+
+##{$name} {
+  font-size: 10px;
+
+  .board.board--game .logo {
+    background-size: 70% 70%;
+  }
+
+  // Fix background animation bug when resizing.
+  .resizing {
+    animation: none !important;
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    -ms-animation: none !important;
+  }
+
+  // Pausing the game pauses all important animations.
+  &.frozen {
+    .sky,
+    .mountains,
+    .trees,
+    .scene,
+    .cloud,
+    .item .item-back,
+    .item .item-front,
+    .obstacle,
+    .player {
+      animation-play-state: paused;
+    }
+  }
+
+  .gameover {
+    background: #5e3fab;
+  }
+
+  .hidden {
+    display: none;
+  }
+}

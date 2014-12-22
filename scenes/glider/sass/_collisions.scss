@@ -1,0 +1,37 @@
+##{$name} {
+  .collision {
+    position: absolute;
+
+    .hit-cloud {
+      background-image: url(img/glider-sprite.svg);
+      background-position: -21em -40em;
+      background-repeat: no-repeat;;
+      background-size: 40em 60em;
+      height: 10em;
+      width: 9em;
+
+      &.active {
+        animation: 0.5s #{$name}-collide linear forwards;
+        transform: translate3d(0,0,0);
+      }
+    }
+  }
+}
+
+@keyframes #{$name}-collide {
+  0% {
+    transform: scale(1, 1);
+  }
+  33% {
+    transform: scale(3, 3);
+    opacity: 1;
+  }
+  66% {
+    transform: scale(1.5, 1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.5, 1.5);
+    opacity: 0;
+  }
+}
