@@ -94,7 +94,8 @@ City feed view in Tracker
     <core-media-query query="(min-width:320px) and (max-width:768px)"
                       queryMatches="{{isPhoneSize}}"></core-media-query>
 
-    <core-list id="feed" data="{{stream}}" selectionEnabled="false" height="425" runwayFactor="4">
+    <core-list id="feed" data="{{stream}}" selectionEnabled="false"
+               height="425" runwayFactor="4" on-scroll="{{onScroll}}">
       <template>
         <div layout?="{{!isPhoneSize}}" horizontal start justified>
           <div class="card card-{{model.type}}" flex?="{{model.type == 'city'}}">
@@ -254,7 +255,11 @@ Polymer({
    */
   videoMap: null,
 
+  pendingScroll_: null,
+  setupDone_: false,
+
   created: function() {
+    this.pendingScroll_ = {};
     this.location = {};
     this.timeline = [];
     this.stream = [];
@@ -270,6 +275,12 @@ Polymer({
       for (var i = 0, item; item = this.stream[i]; ++i) {
         item.selectedCard = 0;
       }
+    } else {
+      this.setupDone_ = true;
+      if (this.pendingScroll_.func) {
+        this.pendingScroll_.func.bind(this)(this.pendingScroll_.arg);
+        this.pendingScroll_ = {};
+      }
     }
   },
 
@@ -277,6 +288,8 @@ Polymer({
     if (!this.timeline || !this.timeline.length) {
       return;
     }
+
+    //this.setupDone_ = false;
 
     // Make a copy so 2-way bindings don't alter original timeline data.
     var stream = this.timeline.slice();
@@ -325,7 +338,7 @@ Polymer({
   },
 
   /**
-   * Scrolls the city feed to the given item in the list.
+   * Scrolls the stream to the given destination card.
    *
    * @method scrollToDest
    * @param {string} destId Destination id
@@ -337,8 +350,34 @@ Polymer({
     });
   },
 
-  scrollToItem: function(idx) {
+  /**
+   * Scrolls the stream to the item at index.
+   *
+   * @method scrollToIndex
+   * @param {number} idx Index of item to scroll to.
+   */
+  scrollToIndex: function(idx) {
     this.$.feed.scrollToItem(idx);
+  },
+
+  /**
+   * Scrolls the stream item.
+   *
+   * @method scrollToTime
+   * @param {number} idx Index of item to scroll to.
+   */
+  scrollToTime: function(timestamp) {
+    var timestamp = parseInt(timestamp);
+    for (var i = 0, item; item = this.stream[i]; ++i) {
+      if (item.timestamp === timestamp) {
+        if (this.setupDone_) {
+          this.scrollToIndex(i);
+        } else {
+          this.pendingScroll_ = {func: this.scrollToIndex, arg: i};
+        }
+        break;
+      }
+    }
   },
 
   formatCountdown: function(timestamp) {
@@ -357,6 +396,49 @@ Polymer({
     var type = detail.item.getAttribute('data-name');
     this.fire('analytics-track-event', {category: 'citycard', action: type,
                                         label: destId});
+  },
+
+  CARD_CENTERED_THRESHOLD_: 100,
+
+  scrolling: false,
+
+  update: function(sender) {
+    this.scrolling = false;
+
+    var coreListHeight = sender.offsetHeight;
+    for (var i = 0, el; el = sender.children[i]; ++i) {
+
+// el.style.background = 'none';
+
+      var elBounds = el.getBoundingClientRect();
+      if (0 < elBounds.top && elBounds.top < coreListHeight) {
+        var yMiddleOfElement = elBounds.top + (elBounds.height / 2);
+
+        var yUpper = (coreListHeight / 2) + this.CARD_CENTERED_THRESHOLD_;
+        var yLower = (coreListHeight / 2) - this.CARD_CENTERED_THRESHOLD_;
+        if (yLower < yMiddleOfElement && yMiddleOfElement < yUpper) {
+//el.style.background = 'rgba(255,255,255,0.2)';
+
+var timestamp = el.templateInstance.model.model.timestamp;
+var newHref = location.href.substr(0,
+              location.href.length - location.hash.length) + '#tracker?timestamp=' + timestamp;
+window.history.replaceState(null, '', newHref);
+
+          break;
+        }
+      }
+    }
+
+  },
+
+  onScroll: function(e, detail, sender) {
+    if (!this.scrolling) {
+      this.async(function() {
+        this.update(sender)
+      });
+    }
+
+    this.scrolling = true;
   }
 });
 
