@@ -108,14 +108,14 @@ function createSantaLayerConstructor() {
 
   SantaLayer.prototype.animate_ = function() {
     var active = $('.active', this.container_);
-    active.css('opacity', 0).removeClass('active');
+    active.removeClass('active');
 
     var next = active.next();
     if (!next.length) {
       next = this.container_.children().first();
     }
 
-    next.css('opacity', 1).addClass('active');
+    next.addClass('active');
     this.animationSync_ = this.base_.async(
         this.animate_.bind(this), true, this.ANIMATION_DURATION_);
   };
