@@ -7,7 +7,7 @@ $mobileBreakpoint: 660px;
 .santa-sleigh, .santa-presents, .santa-magic {
   position: absolute;
   cursor: pointer;
-  @include transform(translate3d(0,0,0));
+  @include transform(translateZ(0));
 }
 
 .santa-presents {
