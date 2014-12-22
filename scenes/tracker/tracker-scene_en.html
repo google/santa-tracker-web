@@ -407,6 +407,7 @@ Tracker scene.
 
       google.maps.event.addListener(this.worldView_, 'santa_clicked', function(e) {
         this.cityFeedActive = !this.cityFeedActive;
+        this.trackerCard = null;
 
         if (this.cityFeedActive) {
           if (this.location.stopover) {
@@ -423,6 +424,7 @@ Tracker scene.
 
       google.maps.event.addListener(this.worldView_, 'routemarker_clicked', function(destId) {
         this.cityFeedActive = true;
+        this.trackerCard = null;
         this.$.feed.scrollToDest(destId);
 
         this.fire('analytics-track-event', {category: 'cityfeed', action: 'show',
@@ -450,6 +452,7 @@ Tracker scene.
     },
 
     updateCard_: function(card) {
+      console.log('updateCard', this.cityFeedActive);
       if (this.cityFeedActive) {
         this.trackerCard = null;
       } else {
@@ -581,6 +584,8 @@ Tracker scene.
       if (this.worldView_) {
         this.worldView_.hide();
       }
+
+      this.cityFeedActive = false;
       this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
 

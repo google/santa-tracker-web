@@ -215,7 +215,6 @@ WorldView.prototype.startIdleTimeout_ = function() {
 };
 
 WorldView.prototype.triggerIdle_ = function() {
-  console.log('idle')
   google.maps.event.trigger(this, 'idle');
 };
 
