@@ -117,6 +117,12 @@ WorldView.prototype.setupMap = function() {
     styles: mapstyles.styles
   });
 
+  var events = ['dragstart', 'dblclick', 'rightclick'];
+  for (var i = 0; i < events.length; i++) {
+    google.maps.event.addListener(this.map_, events[i], this.unfollowSanta.bind(this));
+  }
+
+
   this.dummyOverlayView_ = createDummyOverlayView();
   this.dummyOverlayView_.setMap(this.map_);
 
@@ -162,7 +168,16 @@ WorldView.prototype.setupMap = function() {
  * @private
  */
 WorldView.prototype.onSantaLayerClick_ = function() {
+  this.followSanta();
   google.maps.event.trigger(this, 'santa_clicked');
+};
+
+WorldView.prototype.followSanta = function() {
+  this.lockOnSanta_ = true;
+};
+
+WorldView.prototype.unfollowSanta = function() {
+  this.lockOnSanta_ = false;
 };
 
 WorldView.prototype.moveSanta = function(state) {
@@ -316,6 +331,7 @@ WorldView.prototype.fitBounds = function() {
  * @param {string} destId
  */
 WorldView.prototype.onRouteMarkerClick_ = function(marker, destId) {
+  this.followSanta();
   google.maps.event.trigger(this, 'routemarker_clicked', destId);
 };
 
