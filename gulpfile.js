@@ -289,7 +289,8 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'compass', 'compile-scenes'], function
             'google-jsapi.html', // tracker
             'core-selection.html',
             'core-selector.html',
-            'core-pages.html'
+            'core-pages.html',
+            'paper-fab.html'
           ]
         },
         strip: !argv.pretty,
