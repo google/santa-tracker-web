@@ -44,6 +44,10 @@ $name: 'module-city-feed';
     pointer-events: all;
     border-radius: 5px;
 
+    &::-webkit-scrollbar {
+      width: 0 !important;
+    }
+
     &::after {
       content: '';
       background: url("img/tracker-and-city-SVGs_north-pole.svg") no-repeat 50% 50%;
