@@ -31,7 +31,8 @@ Tracker scene.
                          on-api-load="{{mapsAPIReady}}"></google-maps-api>
       </template>
 
-      <city-feed id="feed" fit timeline="{{santaApp.timeline}}" santaApp="{{santaApp}}"></city-feed>
+      <city-feed id="feed" fit timeline="{{santaApp.timeline}}"
+                 santaApp="{{santaApp}}" videoMap="{{ytMapping}}"></city-feed>
 
       <tracker-intro id="intro"
           userLocation="{{userLocation}}"
@@ -290,6 +291,12 @@ Tracker scene.
      */
     navOpen: false,
 
+    /**
+     * Mapping of YouTube video ids to URL routes.
+     * @property ytMapping
+     * @type {object}
+     */
+    // TODO(bckenny): commented out videos need to be found (or removed)
     ytMapping: {
       'h83b1lWPuvQ': 'carpool',
       'G51zrfkSQnY': 'liftoff',
@@ -521,7 +528,7 @@ Tracker scene.
 
           var cityStats = this.$['module-tracker'].querySelector('#city-stats');
           cityStats.style.opacity = 1;
-        }, null, 500);
+        }, null, 550);
       } else {
         this.$.feed.active = false;
 

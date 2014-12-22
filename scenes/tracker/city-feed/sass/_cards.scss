@@ -302,6 +302,11 @@
   }
 
   &.card-video {
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+
     .card-header, .card-body, .card-footer {
       background-color: #eb3f79;
     }
@@ -345,6 +350,50 @@
     .card-footer {
       display: none;
     }
+  }
+
+  .card-carpool {
+    background-image: url(img/cardavatars/cardavatars/card-vid-carpool.png);
+  }
+
+  .card-jingle {
+    background-image: url(img/cardavatars/card-vid-jingle.png);
+  }
+
+  .card-satellite {
+    background-image: url(img/cardavatars/card-vid-satellite.png);
+  }
+
+  .card-temptation {
+    background-image: url(img/cardavatars/card-vid-temptation.png);
+  }
+
+  .card-coffee {
+    background-image: url(img/cardavatars/card-vid-coffee.png);
+  }
+
+  .card-office {
+    background-image: url(img/cardavatars/card-vid-office.png);
+  }
+
+  .card-selfie {
+    background-image: url(img/cardavatars/card-vid-selfie.png);
+  }
+
+  .card-tired {
+    background-image: url(img/cardavatars/card-vid-tired.png);
+  }
+
+  .card-com-room {
+    background-image: url(img/cardavatars/card-vid-com-room.png);
+  }
+
+  .card-reload {
+    background-image: url(img/cardavatars/card-vid-reload.png);
+  }
+
+  .card-slacking-off {
+    background-image: url(img/cardavatars/card-vid-slacking-off.png);
   }
 }
 

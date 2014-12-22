@@ -185,10 +185,7 @@ $name: 'module-city-feed';
       height: $cardContentHeight;
       box-sizing: border-box;
       overflow: hidden;
-
-      .photo {
-        border-radius: 0 0 $borderRadius $borderRadius;
-      }
+      border-radius: 0 0 $borderRadius $borderRadius;
 
       .attribution {
         background: rgba(0,0,0,0.3);
