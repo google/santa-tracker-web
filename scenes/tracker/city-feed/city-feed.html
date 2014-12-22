@@ -271,6 +271,12 @@ Polymer({
       return;
     }
 
+    // If first item in new timeline is the same as the first item in the
+    // existing stream, that means the list hasn't changed. Don't do extra work.
+    if (this.stream.length &&  this.stream[0].timestamp === this.timeline[0].timestamp) {
+      return;
+    }
+
     // Make a copy so 2-way bindings don't alter original timeline data.
     var stream = this.timeline.slice();
 
