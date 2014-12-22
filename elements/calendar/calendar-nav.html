@@ -350,6 +350,12 @@ Village calendar navigation.
         this.santaApp.selectedScene.cityFeedActive = false;
       },
 
+      trackerActiveChanged: function() {
+        if (this.trackerActive) {
+          this.cityFeedActive = false;
+        }
+      },
+
       housesChanged: function() {
         this.firstFour = this.houses.slice(0, 4);
         this.regularSchedule = this.houses.slice(4);
