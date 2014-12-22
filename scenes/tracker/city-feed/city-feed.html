@@ -209,6 +209,8 @@ City feed view in Tracker
  */
 var destLookup_ = {};
 
+CARD_CENTERED_THRESHOLD_ = 100; // Top/bottom margin of a stream card to declare it as centered on screen.
+
 Polymer({
   componentDir: 'scenes/tracker/',
 
@@ -252,15 +254,40 @@ Polymer({
    * Mapping of YouTube video ids to URL routes.
    * @property videoMap
    * @type {object}
+   * @default null
    */
   videoMap: null,
 
+  /**
+   * True if the user tried to scroll the list before it has done its setup.
+   * @property pendingScroll_
+   * @type {object}
+   * @default null
+   * @private
+   */
   pendingScroll_: null,
+
+  /**
+   * True if the list has done its metrics setup and is ready to be shown.
+   * @property setupDone_
+   * @type {boolean}
+   * @default false
+   * @private
+   */
   setupDone_: false,
 
+  /**
+   * True if the user is scrolling the stream.
+   * @property scrolling_
+   * @type {boolean}
+   * @default false
+   * @private
+   */
+  scrolling_: false,
+
   created: function() {
-    this.pendingScroll_ = {};
     this.location = {};
+    this.pendingScroll_ = {};
     this.timeline = [];
     this.stream = [];
   },
@@ -270,6 +297,11 @@ Polymer({
     this.$.feed.updateSize();
 
     if (!this.active) {
+      // Remove deep link.
+      var newHref = location.href.substr(0,
+                    location.href.length - location.hash.length) + '#tracker';
+      window.history.replaceState(null, '', newHref);
+
       // Want the list to scroll fast and streetview is a hog. Make sure no
       // streetview cards are activated when the list is opened again.
       for (var i = 0, item; item = this.stream[i]; ++i) {
@@ -278,8 +310,10 @@ Polymer({
     } else {
       this.setupDone_ = true;
       if (this.pendingScroll_.func) {
-        this.pendingScroll_.func.bind(this)(this.pendingScroll_.arg);
-        this.pendingScroll_ = {};
+        this.async(function() {
+          this.pendingScroll_.func.bind(this)(this.pendingScroll_.arg);
+          this.pendingScroll_ = {};
+        });
       }
     }
   },
@@ -288,8 +322,6 @@ Polymer({
     if (!this.timeline || !this.timeline.length) {
       return;
     }
-
-    //this.setupDone_ = false;
 
     // Make a copy so 2-way bindings don't alter original timeline data.
     var stream = this.timeline.slice();
@@ -344,10 +376,18 @@ Polymer({
    * @param {string} destId Destination id
    */
   scrollToDest: function(destId) {
-    // Wait a rAF so list is rendered.
-    this.async(function() {
-      this.$.feed.scrollToItem(destLookup_[destId]);
-    });
+    if (this.setupDone_) {
+      var idx = destLookup_[destId];
+      this.scrollToIndex(idx);
+
+      // Add deep link to opened destination.
+      var newHref = location.href.substr(0,
+                    location.href.length - location.hash.length) +
+                    '#tracker?timestamp=' + this.stream[idx].timestamp;
+      window.history.replaceState(null, '', newHref);
+    } else {
+      this.pendingScroll_ = {func: this.scrollToIndex, arg: destLookup_[destId]};
+    }
   },
 
   /**
@@ -357,7 +397,11 @@ Polymer({
    * @param {number} idx Index of item to scroll to.
    */
   scrollToIndex: function(idx) {
-    this.$.feed.scrollToItem(idx);
+    if (this.setupDone_) {
+      this.$.feed.scrollToItem(idx);
+    } else {
+      this.pendingScroll_ = {func: this.scrollToIndex, arg: idx};
+    }
   },
 
   /**
@@ -398,47 +442,39 @@ Polymer({
                                         label: destId});
   },
 
-  CARD_CENTERED_THRESHOLD_: 100,
-
-  scrolling: false,
-
   update: function(sender) {
-    this.scrolling = false;
+    this.scrolling_ = false;
 
     var coreListHeight = sender.offsetHeight;
     for (var i = 0, el; el = sender.children[i]; ++i) {
-
-// el.style.background = 'none';
-
       var elBounds = el.getBoundingClientRect();
       if (0 < elBounds.top && elBounds.top < coreListHeight) {
         var yMiddleOfElement = elBounds.top + (elBounds.height / 2);
+        var yUpper = (coreListHeight / 2) + CARD_CENTERED_THRESHOLD_;
+        var yLower = (coreListHeight / 2) - CARD_CENTERED_THRESHOLD_;
 
-        var yUpper = (coreListHeight / 2) + this.CARD_CENTERED_THRESHOLD_;
-        var yLower = (coreListHeight / 2) - this.CARD_CENTERED_THRESHOLD_;
+        // If card is on center of screen, add deep link to URL.
         if (yLower < yMiddleOfElement && yMiddleOfElement < yUpper) {
-//el.style.background = 'rgba(255,255,255,0.2)';
-
-var timestamp = el.templateInstance.model.model.timestamp;
-var newHref = location.href.substr(0,
-              location.href.length - location.hash.length) + '#tracker?timestamp=' + timestamp;
-window.history.replaceState(null, '', newHref);
+          var timestamp = el.templateInstance.model.model.timestamp;
+          var newHref = location.href.substr(0,
+                        location.href.length - location.hash.length) + '#tracker?timestamp=' + timestamp;
+          window.history.replaceState(null, '', newHref);
 
           break;
         }
       }
     }
-
   },
 
   onScroll: function(e, detail, sender) {
-    if (!this.scrolling) {
+    // Debounce scrolling.
+    if (!this.scrolling_) {
       this.async(function() {
         this.update(sender)
       });
     }
 
-    this.scrolling = true;
+    this.scrolling_ = true;
   }
 });
 
