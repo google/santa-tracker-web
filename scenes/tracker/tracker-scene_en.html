@@ -20,6 +20,13 @@ Tracker scene.
 <polymer-element name="tracker-scene" extends="base-scene">
 <template>
   <link rel="stylesheet" href="tracker-scene.css" no-shim>
+  <style>
+      #tracker-zoom-controls-zoomin::shadow core-icon,
+      #tracker-zoom-controls-zoomout::shadow core-icon {
+        -webkit-filter: drop-shadow(0px 2px 0 rgba(0,0,0,0.2));
+        filter: drop-shadow(0 2px 0 rgba(0,0,0,0.2));
+      }
+    </style>
 
   <core-a11y-keys target="{{}}" keys="esc" on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
 
@@ -92,8 +99,8 @@ Tracker scene.
       </div>
 
       <div id="tracker-zoom-controls" hidden="true">
-        <paper-fab icon="add" alt="Zoom in" mini on-core-transitionend="{{trackerZoomIn}}"></paper-fab>
-        <paper-fab icon="remove" alt="Zoom out" mini on-core-transitionend="{{trackerZoomOut}}"></paper-fab>
+        <paper-fab id="tracker-zoom-controls-zoomin" icon="add" alt="Zoom in" mini on-core-transitionend="{{trackerZoomIn}}"></paper-fab>
+        <paper-fab id="tracker-zoom-controls-zoomout"icon="remove" alt="Zoom out" mini on-core-transitionend="{{trackerZoomOut}}"></paper-fab>
       </div>
 
       <div id="trackermap" fit></div>
