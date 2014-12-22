@@ -552,7 +552,9 @@ Tracker scene.
         this.$.feed.active = false;
 
         var cityStats = this.$['module-tracker'].querySelector('#city-stats');
-        cityStats.style.opacity = 0;
+        if (cityStats) {
+          cityStats.style.opacity = 0;
+        }
       }
 
       this.fire('tracker-action', {type: 'city-toggle', active: this.cityFeedActive});
