@@ -1,0 +1,198 @@
+<link rel="import" href="../base-scene.html">
+
+<script src="../shared/js/startbutton.js"></script>
+<script src="glider-scene.min.js"></script>
+
+<!--
+Glider scene.
+
+@element glider-scene
+@extends base-scene
+-->
+<polymer-element name="glider-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="glider-scene.css" no-shim>
+
+  <div id="module-glider">
+    <div class="bg">
+      <div class="sky"></div>
+      <div class="mountains"></div>
+      <div class="trees"></div>
+    </div>
+    <div class="scene">
+      <div class="clouds"></div>
+      <div class="collisions"></div>
+      <div class="items"></div>
+      <div class="obstacles"></div>
+      <div class="presents"></div>
+      <div class="buildings"></div>
+      <div class="player">
+        <div class="present-location"></div>
+      </div>
+    </div>
+    <div class="gui">
+      <div class="board board--game"><a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
+          <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <div class="logo"></div>
+        <div class="score">
+          <div class="label">
+            <i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value">0</div>
+        </div>
+        <div class="level has-count">
+          <div class="label">
+            <i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value"><span class="current-level">1</span><span class="dark-text">/10</span>
+          </div>
+          <div class="level-dots">
+            <template repeat="{{i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}}">
+              <div class="level-item{{i === 1 ? ' is-active' : ''}}">
+                <div class="level-dot"></div>
+                <div class="level-shadow"></div>
+                <div class="level-number">{{i}}</div>
+              </div>
+            </template>
+          </div>
+        </div>
+        <div class="time">
+          <div class="label">
+            <i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value"><span class="minutes dark-text">00</span><span class="dark-text"> : </span><span class="seconds">00</span></div>
+          <div class="tracker">
+            <div class="remaining"></div>
+          </div>
+          <div class="status"></div>
+        </div>
+        <div class="actions">
+          <button type="button" class="restart"></button>
+          <button type="button" class="pause"></button>
+        </div>
+      </div>
+      <div class="levelup"></div>
+      <div class="levelup--number"></div>
+      <div class="gameover overlay">
+        <div class="gameover-dialog overlay-dialog">
+          <h2 class="gameover-title">
+            <i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg>
+          </h2>
+          <div class="gameover-winner">
+            <div class="gameover-level">
+              <p class="gameover-label">
+                <i18n-msg msgid="gameover_level">PLACEHOLDER_i18n</i18n-msg>
+              </p>
+              <p class="gameover-number">0</p>
+            </div>
+            <div class="gameover-score">
+              <p class="gameover-label">
+                <i18n-msg msgid="gameover_score">PLACEHOLDER_i18n</i18n-msg>
+              </p>
+              <p class="gameover-number">0</p>
+            </div>
+          </div>
+          <div class="gameover-buttons">
+            <button type="button" class="Button Button--large gameover-play">
+              <i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg>
+            </button>
+            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="force-rotate landscape">
+        <div class="force-rotate-graphic"></div>
+        <div class="force-rotate-explanation">
+          <i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</template>
+<script>
+(function() {
+  Polymer({
+    componentDir: 'scenes/glider/',
+
+    game: null,
+
+    onPreload: function() {
+      this.preloadSounds('glider_load_sounds', 30);
+      this.preloadImages([
+        'img/bg-mountains.svg',
+        'img/bg-tile-trees.svg',
+        'img/cloud.svg',
+        'img/hit-beam.svg',
+        'img/hit-box.svg',
+        'img/hit-fireworks-center.svg',
+        'img/hit-fireworks-spark.svg',
+        'img/hit-house-01.svg',
+        'img/hit-house-02.svg',
+        'img/hit-house-03.svg',
+        'img/hit-house-04.svg',
+        'img/hit-house-05.svg',
+        'img/hit-house-06.svg',
+        'img/hit-house-07.svg',
+        'img/hit-house-08.svg',
+        'img/hit-house-09.svg',
+        'img/hit-house-10.svg',
+        'img/hit-house-11.svg',
+        'img/hit-house-12.svg',
+        'img/hit-house-13.svg',
+        'img/hit-house-14.svg',
+        'img/hit-house-15.svg',
+        'img/hit-house-16.svg',
+        'img/hit-house-17.svg',
+        'img/hit-house-18.svg',
+        'img/hit-house-19.svg',
+        'img/hit-house-20.svg',
+        'img/hit-house-21.svg',
+        'img/hit-house-22.svg',
+        'img/hit-house-23.svg',
+        'img/hit-house-23.svg',
+        'img/hit-tree-1.svg',
+        'img/hit-tree-2.svg',
+        'img/logo.svg',
+        'img/orb-santa-back.svg',
+        'img/orb-santa-front.svg',
+        'img/orb-snow-back.svg',
+        'img/orb-snow-front.svg',
+        'img/orb-time-back.svg',
+        'img/orb-time-front.svg',
+        'img/pin-elf-glider.svg',
+        'img/points-100.svg',
+        'img/points-200.svg',
+        'img/points-300.svg',
+        'img/present-01.svg',
+        'img/present-02.svg',
+        'img/present-03.svg',
+        'img/present-04.svg',
+        'img/present-05.svg',
+        'img/present-06.svg',
+        'img/present-07.svg',
+        'img/present-08.svg',
+        'img/stars-tile.svg',
+        'img/startbutton/button.svg',
+        'img/treat-candy.svg'
+      ]);
+    },
+    onShow: function() {
+      var module = this.$['module-glider'];
+
+      var game = this.game = new scenes.glider.Game(module);
+      startButton(this, module, function() {
+        game.start();
+      });
+    },
+    onHide: function() {
+      this.game.dispose();
+      this.game = null;
+      this.fire('sound-ambient', 'glider_end_game');
+    }
+  });
+
+})();
+</script>
+</polymer-element>

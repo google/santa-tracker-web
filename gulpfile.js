@@ -61,6 +61,9 @@ var SCENE_CLOSURE_CONFIG = {
   factory: {
     entryPoint: 'app.Scene'
   },
+  glider: {
+    entryPoint: 'app.Game'
+  },
   gumball: {
     entryPoint: 'app.Game'
   },

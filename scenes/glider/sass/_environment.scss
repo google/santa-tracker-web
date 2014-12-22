@@ -1,0 +1,66 @@
+##{$name} {
+  .bg {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: linear-gradient(#2369ba, #7d5ebc);
+
+    &.frozen {
+      .sky,
+      .mountains,
+      .trees {
+        animation-play-state: paused;
+      }
+    }
+  }
+
+  .sky,
+  .mountains {
+    animation: 1000s #{$name}-bgslide linear infinite;
+    background: url(img/stars-tile.svg) repeat-x;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateZ(0);
+    width: 200%;
+  }
+
+  .mountains {
+    animation: 500s #{$name}-bgslide linear infinite;
+    background: url(img/bg-mountains.svg) repeat-x;
+    height: 50em;
+    top: auto;
+    width: 1000%;
+  }
+
+  .trees {
+    animation: 50s #{$name}-bgslide linear infinite;
+    background: url(img/bg-tile-trees.svg) repeat-x;
+    bottom: 0;
+    height: 21em;
+    position: absolute;
+    transform: translateZ(0);
+    width: 200%;
+  }
+
+  .cloud {
+    background-image: url('img/cloud.svg');
+    height: 10.8em;
+    position: absolute;
+    width: 18em;
+  }
+}
+
+@keyframes #{$name}-bgslide {
+  0% {
+    transform: translate3d(0,0,0);
+  }
+
+  100% {
+    transform: translate3d(-50%,0,0);
+  }
+}
