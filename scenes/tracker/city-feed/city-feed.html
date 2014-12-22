@@ -31,7 +31,7 @@ City feed view in Tracker
 
 @element city-feed
 -->
-<polymer-element name="city-feed" attributes="active location timeline santaApp">
+<polymer-element name="city-feed" attributes="active location timeline santaApp videoMap">
 <template>
 <link rel="stylesheet" href="city-feed.css" no-shim>
 <style>
@@ -77,14 +77,14 @@ City feed view in Tracker
   </div>
 
   <div hidden?="{{model.type != 'video'}}">
-    <div class="card-header">
-      <div class="corner-image"></div>
-      <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
-      <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
-    </div>
-    <div class="card-body photo">
-      <core-image sizing="cover" preload fade src="{{componentDir}}city-feed/img/cardavatars/card-video.png"></core-image>
-    </div>
+    <a href="{{pageUrl}}#{{videoMap[model.youtubeId]}}">
+      <div class="card-header">
+        <div class="corner-image"></div>
+        <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
+        <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
+      </div>
+      <div class="card-body photo card-{{videoMap[model.youtubeId]}}"></div>
+    </a>
   </div>
 </template>
 
@@ -247,6 +247,13 @@ Polymer({
    */
   santaApp: null,
 
+  /**
+   * Mapping of YouTube video ids to URL routes.
+   * @property videoMap
+   * @type {object}
+   */
+  videoMap: null,
+
   created: function() {
     this.location = {};
     this.timeline = [];
@@ -268,12 +275,6 @@ Polymer({
 
   timelineChanged: function() {
     if (!this.timeline || !this.timeline.length) {
-      return;
-    }
-
-    // If first item in new timeline is the same as the first item in the
-    // existing stream, that means the list hasn't changed. Don't do extra work.
-    if (this.stream.length && this.stream[0].timestamp === this.timeline[0].timestamp) {
       return;
     }
 
