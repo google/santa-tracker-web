@@ -65,6 +65,7 @@ CircleView.prototype.animateIn_ = function() {
 
   window.setTimeout(this.render_.bind(this), 1);
   window.setTimeout(this.triggerOpen_(this), CircleView.ANIMATION_DURATION_);
+  $(window).on('resize.circle', this.render_.bind(this));
 };
 
 CircleView.prototype.triggerOpen_ = function() {
@@ -73,6 +74,7 @@ CircleView.prototype.triggerOpen_ = function() {
 
 CircleView.prototype.triggerClose_ = function() {
   google.maps.event.trigger(this, 'close');
+  this.hide();
 };
 
 CircleView.prototype.animateOut_ = function() {
@@ -89,6 +91,8 @@ CircleView.prototype.animateOut_ = function() {
   this.hideTimeout_ = window.setTimeout(function() {
     el.hide().removeClass(CircleView.CIRCLE_OUT_CLASS_NAME_);
   }, CircleView.ANIMATION_DURATION_ + 1);
+
+  $(window).off('resize.circle');
 };
 
 /**
@@ -184,8 +188,6 @@ CircleView.prototype.render_ = function() {
     left: center.x - radius,
     top: center.y - radius
   });
-
-
 };
 
 /**

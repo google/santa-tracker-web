@@ -56,6 +56,12 @@ WorldView.prototype.show = function() {
   this.base_.async(this.cycleStatus_.bind(this));
 };
 
+WorldView.prototype.hide = function() {
+  if (this.circleView_) {
+    this.circleView_.hide();
+  }
+};
+
 WorldView.prototype.cycleStatus_ = function() {
   window.clearTimeout(this.cycleTimeout_);
 
@@ -123,6 +129,7 @@ WorldView.prototype.setupMap = function() {
     center: {lat: 0, lng: 0},
     zoom: 1,
     minZoom: 1,
+    'noPerTile': true,
     disableDefaultUI: true,
     backgroundColor: '#f6efe2',
     // It's important that we have map styles -- this prevents a call to
