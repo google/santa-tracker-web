@@ -61,7 +61,7 @@ City feed view in Tracker
     <div class="card-header">
       <div class="corner-image"></div>
     </div>
-    <div class="card-body photo">
+    <div class="card-body">
       <core-image sizing="cover" preload fade src="{{model.imageUrl}}"></core-image>
     </div>
   </div>
@@ -83,7 +83,7 @@ City feed view in Tracker
         <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
         <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
       </div>
-      <div class="card-body photo card-{{videoMap[model.youtubeId]}}"></div>
+      <div class="card-body card-{{videoMap[model.youtubeId]}}"></div>
     </a>
   </div>
 </template>
@@ -135,11 +135,11 @@ City feed view in Tracker
                 </div>
               </div>
               <core-pages class="card-body" selected="{{model.selectedCard}}">
-                <div class="photo">
+                <div>
                   <core-image sizing="cover" preload fade src="{{model.stop.details.photos[0].url}}"></core-image>
                   <div class="attribution"><html-echo html="{{model.stop.details.photos[0].attributionHtml}}"></html-echo></div>
                 </div>
-                <div class="photo">
+                <div>
                   <core-image sizing="cover" preload fade src="{{model.stop.details.photos[1].url}}"></core-image>
                   <div class="attribution"><html-echo html="{{model.stop.details.photos[1].attributionHtml}}"></html-echo></div>
                 </div>
