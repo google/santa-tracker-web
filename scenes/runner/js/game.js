@@ -204,7 +204,8 @@ app.Game.prototype.dispose = function() {
   if (this.isPlaying) {
     window.santaApp.fire('analytics-track-game-quit', {
       gameid: 'runner',
-      timePlayed: new Date - this.gameStartTime
+      timePlayed: new Date - this.gameStartTime,
+      level: 1
     });
   }
   this.freezeGame();
