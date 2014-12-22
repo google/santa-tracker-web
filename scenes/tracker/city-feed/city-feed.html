@@ -259,7 +259,7 @@ Polymer({
   videoMap: null,
 
   /**
-   * True if the user tried to scroll the list before it has done its setup.
+   * The last scroll operation that was attempted.
    * @property pendingScroll_
    * @type {object}
    * @default null
@@ -278,12 +278,12 @@ Polymer({
 
   /**
    * True if the user is scrolling the stream.
-   * @property scrolling_
+   * @property updateQueued_
    * @type {boolean}
    * @default false
    * @private
    */
-  scrolling_: false,
+  updateQueued_: false,
 
   created: function() {
     this.location = {};
@@ -297,7 +297,7 @@ Polymer({
     this.$.feed.updateSize();
 
     if (!this.active) {
-      // Remove deep link.
+      // Remove any deep link URL params when stream is hidden.
       var newHref = location.href.substr(0,
                     location.href.length - location.hash.length) + '#tracker';
       window.history.replaceState(null, '', newHref);
@@ -311,7 +311,7 @@ Polymer({
       this.setupDone_ = true;
       if (this.pendingScroll_.func) {
         this.async(function() {
-          this.pendingScroll_.func.bind(this)(this.pendingScroll_.arg);
+          this.pendingScroll_.func.call(this, this.pendingScroll_.arg);
           this.pendingScroll_ = {};
         });
       }
@@ -376,17 +376,15 @@ Polymer({
    * @param {string} destId Destination id
    */
   scrollToDest: function(destId) {
-    if (this.setupDone_) {
-      var idx = destLookup_[destId];
-      this.scrollToIndex(idx);
+    var idx = destLookup_[destId];
+    this.scrollToIndex(idx);
 
+    if (this.setupDone_) {
       // Add deep link to opened destination.
       var newHref = location.href.substr(0,
                     location.href.length - location.hash.length) +
                     '#tracker?timestamp=' + this.stream[idx].timestamp;
       window.history.replaceState(null, '', newHref);
-    } else {
-      this.pendingScroll_ = {func: this.scrollToIndex, arg: destLookup_[destId]};
     }
   },
 
@@ -414,11 +412,7 @@ Polymer({
     var timestamp = parseInt(timestamp);
     for (var i = 0, item; item = this.stream[i]; ++i) {
       if (item.timestamp === timestamp) {
-        if (this.setupDone_) {
-          this.scrollToIndex(i);
-        } else {
-          this.pendingScroll_ = {func: this.scrollToIndex, arg: i};
-        }
+        this.scrollToIndex(i);
         break;
       }
     }
@@ -443,7 +437,7 @@ Polymer({
   },
 
   update: function(sender) {
-    this.scrolling_ = false;
+    this.updateQueued_ = false;
 
     var coreListHeight = sender.offsetHeight;
     for (var i = 0, el; el = sender.children[i]; ++i) {
@@ -468,13 +462,13 @@ Polymer({
 
   onScroll: function(e, detail, sender) {
     // Debounce scrolling.
-    if (!this.scrolling_) {
+    if (!this.updateQueued_) {
       this.async(function() {
         this.update(sender)
       });
     }
 
-    this.scrolling_ = true;
+    this.updateQueued_ = true;
   }
 });
 
