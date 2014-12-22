@@ -122,6 +122,7 @@ WorldView.prototype.setupMap = function() {
   this.map_ = new google.maps.Map(this.base_.$['module-tracker'].querySelector('#trackermap'), {
     center: {lat: 0, lng: 0},
     zoom: 1,
+    minZoom: 1,
     disableDefaultUI: true,
     backgroundColor: '#f6efe2',
     // It's important that we have map styles -- this prevents a call to
