@@ -106,10 +106,23 @@ WorldView.prototype.animateCircleOut_ = function() {
   }
 };
 
+WorldView.prototype.zoomIn = function() {
+  if (!this.map_) return;
+
+  this.map_.setZoom(this.map_.getZoom() + 1);
+};
+
+WorldView.prototype.zoomOut = function() {
+  if (!this.map_) return;
+
+  this.map_.setZoom(this.map_.getZoom() - 1);
+};
+
 WorldView.prototype.setupMap = function() {
   this.map_ = new google.maps.Map(this.base_.$['module-tracker'].querySelector('#trackermap'), {
     center: {lat: 0, lng: 0},
     zoom: 1,
+    minZoom: 1,
     disableDefaultUI: true,
     backgroundColor: '#f6efe2',
     // It's important that we have map styles -- this prevents a call to
@@ -173,10 +186,12 @@ WorldView.prototype.onSantaLayerClick_ = function() {
 };
 
 WorldView.prototype.followSanta = function() {
+  this.base_.$['module-tracker'].querySelector('#tracker-zoom-controls').hidden = true;
   this.lockOnSanta_ = true;
 };
 
 WorldView.prototype.unfollowSanta = function() {
+  this.base_.$['module-tracker'].querySelector('#tracker-zoom-controls').hidden = false;
   this.lockOnSanta_ = false;
 };
 

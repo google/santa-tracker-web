@@ -5,6 +5,7 @@
 <link rel="import" href="tracker-intro.html">
 <link rel="import" href="city-feed/city-feed.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
+<link rel="import" href="../../components/paper-fab/paper-fab.html">
 
 <link rel="import" href="dependencies.html">
 
@@ -19,6 +20,13 @@ Tracker scene.
 <polymer-element name="tracker-scene" extends="base-scene">
 <template>
   <link rel="stylesheet" href="tracker-scene.css" no-shim>
+  <style>
+      #tracker-zoom-controls-zoomin::shadow core-icon,
+      #tracker-zoom-controls-zoomout::shadow core-icon {
+        -webkit-filter: drop-shadow(0px 2px 0 rgba(0,0,0,0.2));
+        filter: drop-shadow(0 2px 0 rgba(0,0,0,0.2));
+      }
+    </style>
 
   <core-a11y-keys target="{{}}" keys="esc" on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
 
@@ -89,6 +97,11 @@ Tracker scene.
             <template bind ref="mini-cards-template"></template>
           </div>
         </template>
+      </div>
+
+      <div id="tracker-zoom-controls" hidden="true">
+        <paper-fab id="tracker-zoom-controls-zoomin" icon="add" alt="Zoom in" mini on-core-transitionend="{{trackerZoomIn}}"></paper-fab>
+        <paper-fab id="tracker-zoom-controls-zoomout"icon="remove" alt="Zoom out" mini on-core-transitionend="{{trackerZoomOut}}"></paper-fab>
       </div>
 
       <div id="trackermap" fit></div>
@@ -353,6 +366,18 @@ Tracker scene.
       this.updateSanta_();
     },
 
+    trackerZoomIn: function() {
+      if (this.worldView_) {
+        this.worldView_.zoomIn();
+      }
+    },
+
+    trackerZoomOut: function() {
+      if (this.worldView_) {
+        this.worldView_.zoomOut();
+      }
+    },
+
     updateSanta_: function() {
       this.santaApp.santaService.getCurrentLocation(function(location) {
         this.location = location;
@@ -551,6 +576,7 @@ Tracker scene.
     },
 
     onHide: function() {
+      window.clearInterval(this.trackingInterval_);
       this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
 
