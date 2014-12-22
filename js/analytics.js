@@ -6,6 +6,8 @@
 function Analytics() {
   this.ga_ = window.ga_;
 
+  this._gaq = window._gaq;
+
   /**
    * A collection of timing categories, each a collection of start times.
    * @private {!Object<string, Object<string, ?number>}
@@ -14,6 +16,15 @@ function Analytics() {
 }
 
 Analytics.prototype.THROTTLE_TIME_ = 10; // 10ms
+
+/**
+ * Push a function onto the analytics queue. It will be executed along with any
+ * other analytics actions, in the order pushed onto the queue.
+ * @param {function()} fn
+ */
+Analytics.prototype.executeFunction = function(fn) {
+  this._gaq.push(fn);
+};
 
 /**
  * Tracks a page view. Page view tracking is throttled to prevent logging

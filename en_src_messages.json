@@ -6079,6 +6079,12 @@
     "tracker_world_facts": {
         "message": "World Facts"
     },
+    "tracker_arrival": {
+        "message": "Arrival"
+    },
+    "tracker_weather": {
+        "message": "Weather"
+    },
     "today_only": {
       "description": "A heading above menu items that are only available today. Please keep this short.",
       "message": "Today only"

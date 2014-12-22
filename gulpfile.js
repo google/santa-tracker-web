@@ -19,7 +19,7 @@ var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/**/*.js';
 
-var STATIC_VERSION = 73;
+var STATIC_VERSION = 74;
 var VERSION = argv.build || STATIC_VERSION;
 
 var STATIC_BASE_URL = argv.baseurl ? argv.baseurl : '';
@@ -289,7 +289,8 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'compass', 'compile-scenes'], function
             'google-jsapi.html', // tracker
             'core-selection.html',
             'core-selector.html',
-            'core-pages.html'
+            'core-pages.html',
+            'paper-fab.html'
           ]
         },
         strip: !argv.pretty,
