@@ -175,6 +175,10 @@ Santa Track app.
         path="scenes/tracker/tracker-scene_[[language]].html"
         hidden></tracker-scene>
 
+    <!-- NOTE: when these scenes are visited and then left, they are removed and
+         appended to the end of lazy-pages. This is fine as long as VIDEO_ROUTES
+         isn't modified (if it is, prevSelectedRouteChanged will need to be
+         modified). -->
     <template repeat="{{ videoRoute in VIDEO_ROUTES }}">
       <video-scene route="{{videoRoute}}"
         path="scenes/videoscene/video-scene_[[language]].html"
