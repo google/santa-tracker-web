@@ -4,9 +4,10 @@
 
 $mobileBreakpoint: 660px;
 
-.santa-sleigh {
+.santa-sleigh, .santa-presents, .santa-magic {
   position: absolute;
   cursor: pointer;
+  @include transform(translateZ(0));
 }
 
 .santa-presents {
@@ -20,14 +21,17 @@ $mobileBreakpoint: 660px;
   height: $height;
 
   div {
-    opacity: 0;
-    @include transition(opacity 10ms ease-out);
+    visibility: hidden;
     width: $width;
     height: $height;
     position: absolute;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: 112%;
+
+    &.active {
+      visibility: visible;
+    }
   }
 
   @for $i from 1 through 8 {
@@ -48,14 +52,17 @@ $mobileBreakpoint: 660px;
   height: $height;
 
   div {
-    opacity: 0;
-    @include transition(opacity 10ms ease-out);
+    visibility: hidden;
     width: $width;
     height: $height;
     position: absolute;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: 175%;
+
+    &.active {
+      visibility: visible;
+    }
   }
 
   $steps: 1 2 3 4 5 4 3 2 1 6 7 8 9 8 7 6;
@@ -85,8 +92,7 @@ $mobileBreakpoint: 660px;
   }
 
   div {
-    opacity: 0;
-    @include transition(opacity 250ms ease-out);
+    visibility: hidden;
     width: $width;
     height: $height;
     position: absolute;
@@ -101,7 +107,7 @@ $mobileBreakpoint: 660px;
 
   &.n {
     :nth-child(1) {
-      opacity: 1;
+      visibility: visible;
     }
   }
 
@@ -112,7 +118,7 @@ $mobileBreakpoint: 660px;
 
   &.ne {
     :nth-child(2) {
-      opacity: 1;
+      visibility: visible;
     }
   }
 
@@ -122,7 +128,7 @@ $mobileBreakpoint: 660px;
 
   &.e {
     :nth-child(3) {
-      opacity: 1;
+      visibility: visible;
     }
   }
 
@@ -132,7 +138,7 @@ $mobileBreakpoint: 660px;
 
   &.se {
     :nth-child(4) {
-      opacity: 1;
+      visibility: visible;
     }
   }
 
@@ -142,7 +148,7 @@ $mobileBreakpoint: 660px;
 
   &.s {
     :nth-child(5) {
-      opacity: 1;
+      visibility: visible;
     }
   }
 
@@ -152,7 +158,7 @@ $mobileBreakpoint: 660px;
 
   &.sw {
     :nth-child(6) {
-      opacity: 1;
+      visibility: visible;
     }
   }
 
@@ -162,7 +168,7 @@ $mobileBreakpoint: 660px;
 
   &.w {
     :nth-child(7) {
-      opacity: 1;
+      visibility: visible;
     }
   }
 
@@ -173,7 +179,7 @@ $mobileBreakpoint: 660px;
 
   &.nw {
     :nth-child(8) {
-      opacity: 1;
+      visibility: visible;
     }
   }
 }
