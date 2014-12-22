@@ -123,6 +123,7 @@ WorldView.prototype.setupMap = function() {
     center: {lat: 0, lng: 0},
     zoom: 1,
     minZoom: 1,
+    'noPerTile': true,
     disableDefaultUI: true,
     backgroundColor: '#f6efe2',
     // It's important that we have map styles -- this prevents a call to
