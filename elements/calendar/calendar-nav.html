@@ -93,7 +93,7 @@ Village calendar navigation.
                   </a>
                 </div>
                 <div layout vertical center-center class="card card-tracker">
-                  <a href="{{pageUrl}}#tracker" on-click="{{ onTrackerMenuClick }}">
+                  <a href="{{pageUrl}}#tracker" on-click="{{ onTrackerMenuClick }}" on-tap="{{onShowCityFeed}}">
                     <div class="icon"></div>
                     <div><i18n-msg msgid="tracker_see_route">PLACEHOLDER_i18n</i18n-msg></div>
                   </a>
@@ -383,6 +383,10 @@ Village calendar navigation.
         this.santaApp.selectedScene.cityFeedActive = false;
 
         location.href = sender.href;
+      },
+
+      onShowCityFeed: function(e, detail, sender) {
+        this.santaApp.selectedScene.cityFeedActive = true;
       },
 
       onTheGo: function(e, detail, sender) {
