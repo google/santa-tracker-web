@@ -6,6 +6,7 @@
 <link rel="import" href="city-feed/city-feed.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 <link rel="import" href="../../components/paper-fab/paper-fab.html">
+<link rel="import" href="../../components/core-media-query/core-media-query.html">
 
 <link rel="import" href="dependencies.html">
 
@@ -121,6 +122,8 @@ Tracker scene.
       </div>
 
       <div id="trackermap" fit></div>
+
+      <core-media-query query="max-width:660px" queryMatches="{{isPhoneSize}}"></core-media-query>
 
       <template if="{{cityFeedActive}}">
         <div id="city-stats">
@@ -474,8 +477,14 @@ Tracker scene.
       this.santaApp.route = sceneId;
     },
 
+    isPhoneSizeChanged: function() {
+      if (this.isPhoneSize) {
+        this.trackerCard = null;
+      }
+    },
+
     updateCard_: function(card) {
-      if (this.cityFeedActive) {
+      if (this.cityFeedActive || this.isPhoneSize) {
         this.trackerCard = null;
       } else {
         this.trackerCard = card;
