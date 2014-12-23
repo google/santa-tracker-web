@@ -371,16 +371,16 @@ Village calendar navigation.
       },
 
       onCalendarClick: function(e, detail, sender) {
+        // Don't allow opening iced scenes.
         var house = sender.templateInstance.model.house;
         if (house && house.iced) {
           e.preventDefault();
           return;
         }
 
-        var isTracker = sender.href.indexOf('#tracker') != -1;
+        // Don't allow opening the tracker if it's not within tracking time.
         var trackerTimeRange = this.santaApp.postCountdown && !this.santaApp.postFlight;
-
-        if (isTracker && !trackerTimeRange) {
+        if (!trackerTimeRange) {
           e.preventDefault();
         }
       },
