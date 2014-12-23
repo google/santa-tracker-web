@@ -824,6 +824,9 @@
 	"tr_language_name": {
 		"message": "Turco"
 	},
+	"tracker_arrival": {
+		"message": "Llegada"
+	},
 	"tracker_arriving_in": {
 		"message": "Llegará en"
 	},
@@ -839,8 +842,23 @@
 	"tracker_gifts_delivered": {
 		"message": "Regalos entregados"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Saltar introducción"
+	},
+	"tracker_intro_welcome": {
+		"message": "Te damos la bienvenida a"
+	},
 	"tracker_next_stop": {
 		"message": "Próxima parada"
+	},
+	"tracker_santa_update": {
+		"message": "Notificación de Papá Noel"
+	},
+	"tracker_weather": {
+		"message": "Tiempo"
+	},
+	"tracker_world_facts": {
+		"message": "¿SABÍAS QUE..."
 	},
 	"tracker_your_location": {
 		"message": "Tu ubicación"

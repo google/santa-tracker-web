@@ -818,11 +818,17 @@
 	"tn_country_name": {
 		"message": "ตูนิเซีย"
 	},
+	"today_only_1": {
+		"message": "เฉพาะวันนี้"
+	},
 	"tr_country_name": {
 		"message": "ตุรกี"
 	},
 	"tr_language_name": {
 		"message": "ภาษาตุรกี"
+	},
+	"tracker_arrival": {
+		"message": "เที่ยวบินขาเข้า"
 	},
 	"tracker_arriving_in": {
 		"message": "จะถึงภายใน"
@@ -839,8 +845,29 @@
 	"tracker_gifts_delivered": {
 		"message": "ของขวัญที่ส่งแล้ว"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "ข้ามช่วงแนะนำ"
+	},
+	"tracker_intro_user_location": {
+		"message": "คุณอยู่ใน"
+	},
+	"tracker_intro_welcome": {
+		"message": "ยินดีต้อนรับสู่"
+	},
 	"tracker_next_stop": {
 		"message": "ป้ายจอดรถถัดไป"
+	},
+	"tracker_santa_update": {
+		"message": "อัปเดตจากซานต้า"
+	},
+	"tracker_see_route": {
+		"message": "ดูเส้นทาง"
+	},
+	"tracker_weather": {
+		"message": "สภาพอากาศ"
+	},
+	"tracker_world_facts": {
+		"message": "คุณรู้ไหม"
 	},
 	"tracker_your_location": {
 		"message": "ตำแหน่งของคุณ"

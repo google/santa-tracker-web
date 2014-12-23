@@ -818,11 +818,17 @@
 	"tn_country_name": {
 		"message": "Tunisia"
 	},
+	"today_only_1": {
+		"message": "Bare i dag"
+	},
 	"tr_country_name": {
 		"message": "Tyrkia"
 	},
 	"tr_language_name": {
 		"message": "Tyrkisk"
+	},
+	"tracker_arrival": {
+		"message": "Ankomst"
 	},
 	"tracker_arriving_in": {
 		"message": "Ankommer om"
@@ -839,8 +845,29 @@
 	"tracker_gifts_delivered": {
 		"message": "Antall leverte gaver"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Hopp over intro"
+	},
+	"tracker_intro_user_location": {
+		"message": "Du er i"
+	},
+	"tracker_intro_welcome": {
+		"message": "Velkommen til"
+	},
 	"tracker_next_stop": {
 		"message": "Neste stopp"
+	},
+	"tracker_santa_update": {
+		"message": "OPPDATERING FRA JULENISSEN"
+	},
+	"tracker_see_route": {
+		"message": "Se ruten"
+	},
+	"tracker_weather": {
+		"message": "Vær"
+	},
+	"tracker_world_facts": {
+		"message": "VISSTE DU DETTE?"
 	},
 	"tracker_your_location": {
 		"message": "Din posisjon"

@@ -824,6 +824,9 @@
 	"tr_language_name": {
 		"message": "Turks"
 	},
+	"tracker_arrival": {
+		"message": "Aankoms"
+	},
 	"tracker_arriving_in": {
 		"message": "Arriveer oor"
 	},
@@ -839,8 +842,20 @@
 	"tracker_gifts_delivered": {
 		"message": "Geskenke afgelewer"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Gaan verby inleiding"
+	},
 	"tracker_next_stop": {
 		"message": "Volgende stilhouplek"
+	},
+	"tracker_santa_update": {
+		"message": "KERSVADER SE NUUS"
+	},
+	"tracker_weather": {
+		"message": "Weer"
+	},
+	"tracker_world_facts": {
+		"message": "HET JY GEWEET"
 	},
 	"tracker_your_location": {
 		"message": "Jou ligging"

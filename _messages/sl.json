@@ -824,6 +824,9 @@
 	"tr_language_name": {
 		"message": "turščina"
 	},
+	"tracker_arrival": {
+		"message": "Prihod"
+	},
 	"tracker_arriving_in": {
 		"message": "Prihod čez"
 	},
@@ -839,8 +842,23 @@
 	"tracker_gifts_delivered": {
 		"message": "Dostavljena darila"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Preskoči uvod"
+	},
+	"tracker_intro_welcome": {
+		"message": "Dobrodošli v"
+	},
 	"tracker_next_stop": {
 		"message": "Naslednji postanek"
+	},
+	"tracker_santa_update": {
+		"message": "POSODOBITEV BOŽIČKOVEGA STANJA"
+	},
+	"tracker_weather": {
+		"message": "Vreme"
+	},
+	"tracker_world_facts": {
+		"message": "ALI STE VEDELI"
 	},
 	"tracker_your_location": {
 		"message": "Vaša lokacija"

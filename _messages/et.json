@@ -818,11 +818,17 @@
 	"tn_country_name": {
 		"message": "Tuneesia"
 	},
+	"today_only_1": {
+		"message": "Ainult täna"
+	},
 	"tr_country_name": {
 		"message": "Türgi"
 	},
 	"tr_language_name": {
 		"message": "türgi keel"
+	},
+	"tracker_arrival": {
+		"message": "Saabumine"
 	},
 	"tracker_arriving_in": {
 		"message": "Saabumiseni jäänud aeg"
@@ -839,8 +845,29 @@
 	"tracker_gifts_delivered": {
 		"message": "Kohale toimetatud kingitusi"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Jäta intro vahele"
+	},
+	"tracker_intro_user_location": {
+		"message": "Olete asukohas"
+	},
+	"tracker_intro_welcome": {
+		"message": "Tere tulemast:"
+	},
 	"tracker_next_stop": {
 		"message": "Järgmine peatus"
+	},
+	"tracker_santa_update": {
+		"message": "JÕULUVANA UUDISED"
+	},
+	"tracker_see_route": {
+		"message": "Vaadake marsruuti"
+	},
+	"tracker_weather": {
+		"message": "Ilm"
+	},
+	"tracker_world_facts": {
+		"message": "KAS TEADSITE?"
 	},
 	"tracker_your_location": {
 		"message": "Teie asukoht"

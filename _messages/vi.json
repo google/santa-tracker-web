@@ -824,6 +824,9 @@
 	"tr_language_name": {
 		"message": "Tiếng Thổ Nhĩ Kỳ"
 	},
+	"tracker_arrival": {
+		"message": "Điểm đến"
+	},
 	"tracker_arriving_in": {
 		"message": "Đến sau"
 	},
@@ -839,8 +842,23 @@
 	"tracker_gifts_delivered": {
 		"message": "Số lượng quà tặng được phát"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Bỏ qua giới thiệu"
+	},
+	"tracker_intro_welcome": {
+		"message": "Chào mừng bạn đến với"
+	},
 	"tracker_next_stop": {
 		"message": "Điểm dừng tiếp theo"
+	},
+	"tracker_santa_update": {
+		"message": "NỘI DUNG CẬP NHẬT TỪ ÔNG GIÀ NOEL"
+	},
+	"tracker_weather": {
+		"message": "Thời tiết"
+	},
+	"tracker_world_facts": {
+		"message": "BẠN CÓ BIẾT"
 	},
 	"tracker_your_location": {
 		"message": "Vị trí của bạn"

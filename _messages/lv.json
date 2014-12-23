@@ -818,11 +818,17 @@
 	"tn_country_name": {
 		"message": "Tunisija"
 	},
+	"today_only_1": {
+		"message": "Tikai šodien"
+	},
 	"tr_country_name": {
 		"message": "Turcija"
 	},
 	"tr_language_name": {
 		"message": "Turku"
+	},
+	"tracker_arrival": {
+		"message": "Ielidošana"
 	},
 	"tracker_arriving_in": {
 		"message": "Ieradīsies pēc"
@@ -839,8 +845,29 @@
 	"tracker_gifts_delivered": {
 		"message": "Piegādātās dāvanas"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Izlaist ievadu"
+	},
+	"tracker_intro_user_location": {
+		"message": "Jūs esat vietā:"
+	},
+	"tracker_intro_welcome": {
+		"message": "Laipni lūdzam"
+	},
 	"tracker_next_stop": {
 		"message": "Nākamā apstāšanās vieta"
+	},
+	"tracker_santa_update": {
+		"message": "JAUNUMI NO ZIEMASSVĒTKU VECĪŠA"
+	},
+	"tracker_see_route": {
+		"message": "Skatīt maršrutu"
+	},
+	"tracker_weather": {
+		"message": "Laikapstākļi"
+	},
+	"tracker_world_facts": {
+		"message": "INTERESANTA INFORMĀCIJA"
 	},
 	"tracker_your_location": {
 		"message": "Jūsu atrašanās vieta"

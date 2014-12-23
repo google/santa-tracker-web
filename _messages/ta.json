@@ -591,7 +591,7 @@
 		"message": "மால்டோவா"
 	},
 	"medium_difficulty": {
-		"message": "நடுத்தர"
+		"message": "இடைநிலை"
 	},
 	"mg_country_name": {
 		"message": "மடகாஸ்கர்"
@@ -824,6 +824,9 @@
 	"tr_language_name": {
 		"message": "டர்கிஷ்"
 	},
+	"tracker_arrival": {
+		"message": "வருகை"
+	},
 	"tracker_arriving_in": {
 		"message": "வரும் நேரம்"
 	},
@@ -839,8 +842,23 @@
 	"tracker_gifts_delivered": {
 		"message": "பரிசுகள் வழங்கப்பட்டன"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "அறிமுகத்தை தவிர்"
+	},
+	"tracker_intro_welcome": {
+		"message": "வருக"
+	},
 	"tracker_next_stop": {
 		"message": "அடுத்த நிறுத்தம்"
+	},
+	"tracker_santa_update": {
+		"message": "சான்டாவின் அறிவிப்பு"
+	},
+	"tracker_weather": {
+		"message": "வானிலை"
+	},
+	"tracker_world_facts": {
+		"message": "உங்களுக்குத் தெரியுமா?"
 	},
 	"tracker_your_location": {
 		"message": "உங்கள் இருப்பிடம்"

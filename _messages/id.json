@@ -48,7 +48,7 @@
 		"message": "Bosnia dan Herzegovina"
 	},
 	"back_to_tracker": {
-		"message": "Kembali ke Pelacak"
+		"message": "Kembali ke Pelacak Sinterklas"
 	},
 	"bd_country_name": {
 		"message": "Bangladesh"
@@ -198,7 +198,7 @@
 		"message": "Tokyo, Jepang"
 	},
 	"citylights-panorama-13-description": {
-		"message": "Tivoli Gardens"
+		"message": "Taman Tivoli"
 	},
 	"citylights-panorama-13-location": {
 		"message": "Kopenhagen, Denmark"
@@ -366,7 +366,7 @@
 		"message": "terdeteksi"
 	},
 	"difficulty": {
-		"message": "Tingkat kesulitan"
+		"message": "Kesulitan"
 	},
 	"dk_country_name": {
 		"message": "Denmark"
@@ -687,7 +687,7 @@
 		"message": "Akan dibuka besok"
 	},
 	"ornament-print-instructions": {
-		"message": "Lipat di sini dan rekatkan dengan lem"
+		"message": "Lipat di sini dan rekatkan kedua sisinya dengan lem"
 	},
 	"pa_country_name": {
 		"message": "Panama"
@@ -771,7 +771,7 @@
 		"message": "Slovakia"
 	},
 	"sk_language_name": {
-		"message": "Slowakia"
+		"message": "Slovak"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -801,7 +801,7 @@
 		"message": "Togo"
 	},
 	"th_language_name": {
-		"message": "Thailand"
+		"message": "Thai"
 	},
 	"tilt": {
 		"message": "Miringkan perangkat!"
@@ -824,6 +824,9 @@
 	"tr_language_name": {
 		"message": "Turki"
 	},
+	"tracker_arrival": {
+		"message": "Kedatangan"
+	},
 	"tracker_arriving_in": {
 		"message": "Akan tiba dalam"
 	},
@@ -834,13 +837,28 @@
 		"message": "Akan berangkat dalam"
 	},
 	"tracker_distance_from_you": {
-		"message": "Jarak dari Anda"
+		"message": "Jarak dari lokasi Anda"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Hadiah terkirim"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Lompati intro"
+	},
+	"tracker_intro_welcome": {
+		"message": "Selamat datang di"
+	},
 	"tracker_next_stop": {
 		"message": "Perhentian berikutnya"
+	},
+	"tracker_santa_update": {
+		"message": "PEMBARUAN SINTERKLAS"
+	},
+	"tracker_weather": {
+		"message": "Cuaca"
+	},
+	"tracker_world_facts": {
+		"message": "TAHUKAH ANDA"
 	},
 	"tracker_your_location": {
 		"message": "Lokasi Anda"
