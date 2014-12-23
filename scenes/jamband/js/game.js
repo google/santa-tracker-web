@@ -91,7 +91,7 @@ app.Game.prototype.restoreBand = function(band) {
  */
 app.Game.prototype.dispose = function() {
   window.santaApp.fire('analytics-track-game-quit', {
-    gameid: 'jamband', timePlayed: new Date - this.gameStartTime
+    gameid: 'jamband', timePlayed: new Date - this.gameStartTime, level: 1
   });
 
   app.Fallback.stop();

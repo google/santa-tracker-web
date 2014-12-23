@@ -191,7 +191,8 @@ app.Game.prototype.restoreBeard = function(beard) {
 app.Game.prototype.dispose = function() {
   if (this.isPlaying) {
     window.santaApp.fire('analytics-track-game-quit',
-                         {gameid: 'santaselfie', timePlayed: new Date - this.gameStartTime});
+                         {gameid: 'santaselfie', timePlayed: new Date - this.gameStartTime,
+                          level: 1});
   }
   this.freezeGame();
 

@@ -248,7 +248,7 @@ app.Game.prototype.watchWindowSize_ = function() {
  * @export
  */
 app.Game.prototype.dispose = function() {
-  window.santaApp.fire('analytics-track-game-quit', {gameid: 'latlong', timePlayed: new Date - this.gameStartTime});
+  window.santaApp.fire('analytics-track-game-quit', {gameid: 'latlong', timePlayed: new Date - this.gameStartTime, level: this.level});
 
   $(window).off('.latlong');
   $(document).off('.latlong');

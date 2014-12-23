@@ -655,16 +655,18 @@ Polymer(Polymer.mixin({
   },
 
   trackGameStart: function(e, detail, sender) {
-    this.analyticsService.trackGameStart(detail.gameid);
+    this.analyticsService.trackGameStart(detail.gameId || detail.gameid);
   },
 
   trackGameQuit: function(e, detail, sender) {
-    this.analyticsService.trackGameQuit(detail.gameId, detail.timePlayed);
+    this.analyticsService.trackGameQuit(detail.gameId || detail.gameid,
+        detail.level, detail.timePlayed);
   },
 
   trackGameOver: function(e, detail, sender) {
     this.analyticsService.trackGameOver(
-        detail.gameId, detail.score, detail.level, detail.timePlayed);
+        detail.gameId || detail.gameid, detail.score, detail.level,
+        detail.timePlayed);
   },
 
   onIframeFocusChange: function(e, detail, sender) {
