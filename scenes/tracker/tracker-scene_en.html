@@ -304,6 +304,8 @@ Tracker scene.
      */
     navOpen: false,
 
+    introHasShown_: false,
+
     /**
      * Mapping of YouTube video ids to URL routes.
      * @property ytMapping
@@ -568,7 +570,13 @@ Tracker scene.
     },
 
     onShow: function() {
-      this.$.intro.layoutReady();
+      if (!this.santaApp.hasTrackerIntroShown_) {
+        this.santaApp.hasTrackerIntroShown_ = true;
+        this.$.intro.layoutReady();
+      } else {
+        this.$.intro.destroy();
+      }
+
       //TODO(lukem): figure out something nicer to do
       if (this.worldView_) {
         this.worldView_.show();

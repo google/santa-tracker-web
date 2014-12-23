@@ -155,6 +155,8 @@ Intro for the tracker scene.
      */
     userBubbleCenterX_: 0,
 
+    hasShown: false,
+
     created: function() {
       this.calculateLayoutValues_();
     },
@@ -243,8 +245,6 @@ Intro for the tracker scene.
         this.translateMap_(el, e.target.bubble, icon);
       }.bind(this));
     },
-
-
 
     userLocationChanged: function() {
       if (this.layoutReady_ && ! this.map_) {
