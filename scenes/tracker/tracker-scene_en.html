@@ -57,7 +57,7 @@ Tracker scene.
                 <h3>{{model.stop.city}}</h3>
                 <h5><span class="icon-clock"></span>{{model.stop.arrival | formatCountdown_}}</h4>
               </div>
-              <div class="card-body photo">
+              <div class="card-body">
                 <div fit class="cover"></div>
                 <core-image sizing="cover" fit preload fade src="{{model.stop.details.photos[0].url}}"></core-image>
               </div>
@@ -82,7 +82,7 @@ Tracker scene.
             <div class="card-header">
               <div class="corner-image"></div>
             </div>
-            <div class="card-body photo">
+            <div class="card-body">
               <core-image sizing="cover" preload fade src="{{model.imageUrl}}"></core-image>
             </div>
           </div>
@@ -371,9 +371,11 @@ Tracker scene.
       this.preloadImages(images);
     },
 
-    onTrackerCardClicked: function(e) {
+    onTrackerCardClicked: function(e, detail, sender) {
       e.preventDefault();
       this.cityFeedActive = true;
+      var destId = sender.templateInstance.model.model.stop.id;
+      this.$.feed.scrollToDest(destId);
     },
 
     created: function() {
