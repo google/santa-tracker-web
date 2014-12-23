@@ -22,6 +22,12 @@ body {
   &:not([unresolved]) #preload_placeholder {
     display: none;
   }
+
+  &.posttakeoff {
+    #timer {
+      display: none;
+    }
+  }
 }
 
 #preload_placeholder {
