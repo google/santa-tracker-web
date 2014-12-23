@@ -4,7 +4,7 @@
   $leftCoverMargin: 13px;
 
   .dashboard {
-    $width: 1898px;
+    $width: 1895px;
     position: absolute;
     top: -398px;
     left: 50%;
@@ -92,6 +92,9 @@
     position: absolute;
     top: 20px;
     left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('img/screen-illustrations.png') 0 0 no-repeat;
   }
   .dashboard__cover__content__inner__grid {
     position: absolute;
@@ -116,7 +119,7 @@
   .dashboard__overlay {
     position: absolute;
     top: -2px;
-    left: -2px;
+    left: -3px;
     pointer-events: none;
   }
 
