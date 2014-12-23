@@ -49,6 +49,14 @@ Tracker scene.
 
       <div id="cards">
         <template id="mini-cards-template">
+          <div hidden?="{{model.type != 'city'}}" class="card-city">
+            <div class="card-header">
+              <div class="corner-image"></div>
+            </div>
+            <div class="card-body photo">
+              <core-image sizing="cover" preload fade src="{{model.stop.details.photos[0].url}}"></core-image>
+            </div>
+          </div>
           <div hidden?="{{model.type != 'facts'}}">
             <div class="card-header">
               <div class="corner-image"></div>
@@ -442,7 +450,29 @@ Tracker scene.
           maximumAge: Infinity // We really don't care
         });
 
-      this.santaApp.santaService.addListener('card', this.updateCard_.bind(this));
+      //this.santaApp.santaService.addListener('card', this.updateCard_.bind(this));
+
+      var card = {
+        selectedCard: 0,
+        stop: {
+          arrival: 1419443100000,
+          city: "Mazar-e Sharif",
+          departure: 1419443160000,
+          details: {
+            altitude: 0,
+            photos:[{
+              attributionHtml: 'Photo by <a href="http://panoramio.com/photo/11337379">martinme</a>',
+              url: "https://mw2.google.com/mw-panoramio/photos/medium/11337379.jpg"
+            }, {
+              attributionHtml: 'Photo by <a href="http://panoramio.com/photo/5072617">Reza Shahran</a>',
+              url: "https://mw2.google.com/mw-panoramio/photos/medium/5072617.jpg"
+            }]
+          }
+        },
+        type: "city"
+      };
+
+      this.updateCard_(card);
 
       this.trackSanta();
     },
