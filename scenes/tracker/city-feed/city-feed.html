@@ -267,6 +267,15 @@ Polymer({
   videoMap: null,
 
   /**
+   * The timestamp of the card which is currently visible in the center of
+   * the stream.
+   * @property cardInView
+   * @type {number}
+   * @default null
+   */
+  cardInView: null,
+
+  /**
    * A basename for links within Santa Tracker. The hash is removed for nicer
    * display URLs in the status bar.
    * @property pageUrl
@@ -325,6 +334,8 @@ Polymer({
         });
       }
     } else {
+      this.cardInView = null;
+
       // Remove any deep link URL params when stream is hidden.
       var newHref = location.href.substr(0,
                     location.href.length - location.hash.length) + '#tracker';
@@ -389,6 +400,10 @@ Polymer({
     }
 
     this.stream = adjustedStream;
+
+    if (this.active && this.cardInView) {
+      this.scrollToTime(this.cardInView);
+    }
   },
 
   /**
@@ -464,11 +479,13 @@ Polymer({
                                         label: destId});
   },
 
-  update: function(sender) {
+  // Determines the most central visible card in the stream's viewport.
+  updateCardInView: function() {
     this.updateQueued_ = false;
 
-    var coreListHeight = sender.offsetHeight;
-    for (var i = 0, el; el = sender.children[i]; ++i) {
+    var coreListHeight = this.$.feed.offsetHeight;
+
+    for (var i = 0, el; el = this.$.feed.children[i]; ++i) {
       var elBounds = el.getBoundingClientRect();
       if (0 < elBounds.top && elBounds.top < coreListHeight) {
         var yMiddleOfElement = elBounds.top + (elBounds.height / 2);
@@ -478,6 +495,9 @@ Polymer({
         // If card is on center of screen, add deep link to URL.
         if (yLower < yMiddleOfElement && yMiddleOfElement < yUpper) {
           var timestamp = el.templateInstance.model.model.timestamp;
+
+          this.cardInView = timestamp;
+
           var newHref = location.href.substr(0,
                         location.href.length - location.hash.length) + '#tracker?timestamp=' + timestamp;
           window.history.replaceState(null, '', newHref);
@@ -492,7 +512,7 @@ Polymer({
     // Debounce scrolling.
     if (!this.updateQueued_) {
       this.async(function() {
-        this.update(sender)
+        this.updateCardInView();
       });
     }
 
