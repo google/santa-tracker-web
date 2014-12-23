@@ -54,7 +54,7 @@ Village calendar navigation.
     </style>
 
     <div id="module-nav">
-      <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}">
+      <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}" on-tap="{{dimissTrackerNav}}">
         <template if="{{trackerActive && cityFeedActive}}">
           <a href="{{pageUrl}}#tracker" on-click="{{fabClick}}" on-tap="{{onBackToTracker}}">
             <div id="back-to-tracker-text"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></div>
@@ -120,7 +120,7 @@ Village calendar navigation.
             </div>
 
             <a id="tracker-nav-close-btn" href="{{pageUrl}}#tracker" on-click="{{fabClick}}">
-              <paper-fab id="tracker-nav-close-btn-fab" icon="close" on-core-transitionend="{{trackerFabRippleCloseDone}}"></paper-fab>
+              <paper-fab id="tracker-nav-close-btn-fab" icon="close" on-core-transitionend="{{hideTrackerNav}}"></paper-fab>
             </a>
           </div>
         </template>
@@ -337,7 +337,7 @@ Village calendar navigation.
         this.onShow();
       },
 
-      trackerFabRippleCloseDone: function(e, detail, sender) {
+      hideTrackerNav: function(e, detail, sender) {
         this.santaApp.selectedScene.navOpen = false;
         this.onHide();
       },
@@ -518,6 +518,13 @@ Village calendar navigation.
           this.fire('sound-ambient', 'global_sound_off');
         } else {
           this.fire('sound-ambient', 'global_sound_on');
+        }
+      },
+
+      dimissTrackerNav: function(e, detail, sender) {
+        // Toggle off tracker nav if the map area was clicked.
+        if (this.trackerActive && e.target == this.$['global-nav']) {
+          this.hideTrackerNav();
         }
       }
 
