@@ -745,13 +745,16 @@ Village scene.
       this.fire('sound-ambient', 'village_start');
 
       var todayEl = this.$.houses.querySelector('.today');
-      if (todayEl) {
-        if (this.mode !== 'cast') {
-          this.panToHouse(todayEl, 0);
-        } else {
-          // for cast, start off with today's house activated
-          this.changeActiveMarker_(0);
-        }
+      if (!todayEl) {
+        // If no house opening today (like after the 23rd), pick a random house.
+        var houses = this.$.houses.querySelectorAll('.house.melt');
+        todayEl = houses[Math.floor(houses.length * Math.random())];
+      }
+      if (this.mode !== 'cast') {
+        this.panToHouse(todayEl, 0);
+      } else {
+        // for cast, start off with today's house activated
+        this.changeActiveMarker_(0);
       }
     },
 
