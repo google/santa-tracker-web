@@ -818,11 +818,17 @@
 	"tn_country_name": {
 		"message": "チュニジア"
 	},
+	"today_only": {
+		"message": "本日のみ"
+	},
 	"tr_country_name": {
 		"message": "トルコ"
 	},
 	"tr_language_name": {
 		"message": "トルコ語"
+	},
+	"tracker_arrival": {
+		"message": "到着情報"
 	},
 	"tracker_arriving_in": {
 		"message": "到着まであと..."
@@ -839,8 +845,23 @@
 	"tracker_gifts_delivered": {
 		"message": "配ったプレゼントの数"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "イントロをスキップ"
+	},
+	"tracker_intro_welcome": {
+		"message": "ようこそ"
+	},
 	"tracker_next_stop": {
 		"message": "次の目的地"
+	},
+	"tracker_santa_update": {
+		"message": "サンタさんの最新情報"
+	},
+	"tracker_weather": {
+		"message": "天気情報"
+	},
+	"tracker_world_facts": {
+		"message": "トリビア"
 	},
 	"tracker_your_location": {
 		"message": "現在地"

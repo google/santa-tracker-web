@@ -144,7 +144,7 @@
 		"message": "Viena, Áustria"
 	},
 	"citylights-panorama-04-description": {
-		"message": "Champs-Élysées para o Arco do Triunfo"
+		"message": "Campos Elísios para o Arco do Triunfo"
 	},
 	"citylights-panorama-04-location": {
 		"message": "Paris, França"
@@ -818,11 +818,17 @@
 	"tn_country_name": {
 		"message": "Tunísia"
 	},
+	"today_only": {
+		"message": "Apenas hoje"
+	},
 	"tr_country_name": {
 		"message": "Turquia"
 	},
 	"tr_language_name": {
 		"message": "Turco"
+	},
+	"tracker_arrival": {
+		"message": "Chegada"
 	},
 	"tracker_arriving_in": {
 		"message": "Chegada em"
@@ -839,8 +845,23 @@
 	"tracker_gifts_delivered": {
 		"message": "Presentes entregues"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Ignorar introdução"
+	},
+	"tracker_intro_welcome": {
+		"message": "Bem-vindo a"
+	},
 	"tracker_next_stop": {
 		"message": "Próxima paragem"
+	},
+	"tracker_santa_update": {
+		"message": "INFORMAÇÃO ATUALIZADA SOBRE O PAI NATAL"
+	},
+	"tracker_weather": {
+		"message": "Meteorologia"
+	},
+	"tracker_world_facts": {
+		"message": "Sabia que"
 	},
 	"tracker_your_location": {
 		"message": "Local onde se encontra"

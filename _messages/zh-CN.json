@@ -818,11 +818,17 @@
 	"tn_country_name": {
 		"message": "突尼斯"
 	},
+	"today_only": {
+		"message": "仅限今天"
+	},
 	"tr_country_name": {
 		"message": "土耳其"
 	},
 	"tr_language_name": {
 		"message": "土耳其语"
+	},
+	"tracker_arrival": {
+		"message": "抵达"
 	},
 	"tracker_arriving_in": {
 		"message": "抵达倒计时"
@@ -839,8 +845,23 @@
 	"tracker_gifts_delivered": {
 		"message": "已送出的礼物数"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "跳过介绍页面"
+	},
+	"tracker_intro_welcome": {
+		"message": "欢迎使用"
+	},
 	"tracker_next_stop": {
 		"message": "下一站"
+	},
+	"tracker_santa_update": {
+		"message": "圣诞老人最新行踪"
+	},
+	"tracker_weather": {
+		"message": "天气"
+	},
+	"tracker_world_facts": {
+		"message": "您知道吗"
 	},
 	"tracker_your_location": {
 		"message": "您所在的位置"

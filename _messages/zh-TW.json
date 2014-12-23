@@ -818,29 +818,50 @@
 	"tn_country_name": {
 		"message": "突尼西亞"
 	},
+	"today_only": {
+		"message": "僅限今天"
+	},
 	"tr_country_name": {
 		"message": "土耳其"
 	},
 	"tr_language_name": {
 		"message": "土耳其文"
 	},
+	"tracker_arrival": {
+		"message": "抵達"
+	},
 	"tracker_arriving_in": {
 		"message": "距離抵達時間還有"
 	},
 	"tracker_current_stop": {
-		"message": "目前站點"
+		"message": "目前抵達"
 	},
 	"tracker_departing_in": {
 		"message": "距離出發時間還有"
 	},
 	"tracker_distance_from_you": {
-		"message": "與您的距離"
+		"message": "與您相距多遠"
 	},
 	"tracker_gifts_delivered": {
-		"message": "已遞送的禮物"
+		"message": "已遞送的禮物數量"
+	},
+	"tracker_intro_skip_intro": {
+		"message": "略過簡介"
+	},
+	"tracker_intro_welcome": {
+		"message": "歡迎使用"
 	},
 	"tracker_next_stop": {
 		"message": "下一站"
+	},
+	"tracker_santa_update": {
+		"message": "聖誕老人的最新狀態"
+	},
+	"tracker_weather": {
+		"message": "天氣"
+	},
+	"tracker_world_facts": {
+		"message": "您知道嗎？"
 	},
 	"tracker_your_location": {
 		"message": "您的位置"

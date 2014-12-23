@@ -490,6 +490,10 @@ SantaService.prototype.rebuildTimeline_ = function(forceDirty) {
       // Stream card comes before the next destination.
       toPush = stream.shift();
     }
+    if (toPush.game && toPush.status) {
+      // Trump status with game.
+      toPush.status = null;
+    }
 
     // Check whether the card would have already been shown or whether it is
     // scheduled to be shown in the future.

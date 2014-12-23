@@ -818,11 +818,17 @@
 	"tn_country_name": {
 		"message": "Tunísia"
 	},
+	"today_only": {
+		"message": "Somente hoje"
+	},
 	"tr_country_name": {
 		"message": "Turquia"
 	},
 	"tr_language_name": {
 		"message": "Turco"
+	},
+	"tracker_arrival": {
+		"message": "Chegada"
 	},
 	"tracker_arriving_in": {
 		"message": "Chegada em"
@@ -839,8 +845,23 @@
 	"tracker_gifts_delivered": {
 		"message": "Presentes entregues"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Pular intr."
+	},
+	"tracker_intro_welcome": {
+		"message": "Bem-vindo ao"
+	},
 	"tracker_next_stop": {
 		"message": "Próxima parada"
+	},
+	"tracker_santa_update": {
+		"message": "ATUALIZAÇÃO SOBRE O PAPAI NOEL"
+	},
+	"tracker_weather": {
+		"message": "Clima"
+	},
+	"tracker_world_facts": {
+		"message": "VOCÊ SABIA"
 	},
 	"tracker_your_location": {
 		"message": "Seu local"

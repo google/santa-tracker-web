@@ -17,10 +17,9 @@ Utility element to use response HTML returned by the Santa Tracker API.
 <script>
 Polymer({
   htmlChanged: function() {
-    if (this.innerHTML) {
-      return; // Only set what the API returned (i.e. ignore future updates).
+    if (this.html) {
+      this.innerHTML = this.html;
     }
-    this.innerHTML = this.html;
   }
 });
 </script>
@@ -259,6 +258,17 @@ Polymer({
   videoMap: null,
 
   /**
+   * A basename for links within Santa Tracker. The hash is removed for nicer
+   * display URLs in the status bar.
+   * @property pageUrl
+   * @type string
+   * @default
+   */
+  get pageUrl() {
+    return location.href.substr(0, location.href.length - location.hash.length);
+  },
+
+  /**
    * The last scroll operation that was attempted.
    * @property pendingScroll_
    * @type {object}
@@ -424,6 +434,12 @@ Polymer({
 
   onWikipedia: function(e, detail, sender) {
     var location = sender.templateInstance.model.model.stop;
+
+    // Don't make details API request if wikipedia article has already been fetched.
+    if (location.details.wikipedia) {
+      return;
+    }
+
     location.getDetails(function(detail) {
       location.details.wikipedia = detail.wikipedia;
     });

@@ -370,7 +370,8 @@ SB.Game.prototype.restart = function() {
 SB.Game.prototype.dispose = function() {
   if (this.playing) {
     window.santaApp.fire('analytics-track-game-quit',
-                         {gameid: 'racer', timePlayed: new Date - this.gameStartTime});
+                         {gameid: 'racer', timePlayed: new Date - this.gameStartTime,
+                          level: this.level});
   }
   this.playing = false;
 

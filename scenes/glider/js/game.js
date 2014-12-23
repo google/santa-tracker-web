@@ -489,7 +489,8 @@ app.Game.prototype.dispose = function() {
   if (this.isPlaying) {
     window.santaApp.fire('analytics-track-game-quit', {
       gameid: 'glider',
-      timePlayed: new Date - this.gameStartTime
+      timePlayed: new Date - this.gameStartTime,
+      level: this.level
     });
   }
   this.freezeGame();

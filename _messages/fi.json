@@ -818,11 +818,20 @@
 	"tn_country_name": {
 		"message": "Tunisia"
 	},
+	"today_only": {
+		"message": "Vain tänään"
+	},
+	"today_only_1": {
+		"message": "Vain tänään"
+	},
 	"tr_country_name": {
 		"message": "Turkki"
 	},
 	"tr_language_name": {
 		"message": "turkki"
+	},
+	"tracker_arrival": {
+		"message": "Saapuvat"
 	},
 	"tracker_arriving_in": {
 		"message": "Saapumiseen"
@@ -839,8 +848,29 @@
 	"tracker_gifts_delivered": {
 		"message": "Toimitetut lahjat"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Ohita esittely"
+	},
+	"tracker_intro_user_location": {
+		"message": "Sijaintisi on"
+	},
+	"tracker_intro_welcome": {
+		"message": "Tervetuloa"
+	},
 	"tracker_next_stop": {
 		"message": "Seuraava pysähdyspaikka"
+	},
+	"tracker_santa_update": {
+		"message": "JOULUPUKIN PÄIVITYS"
+	},
+	"tracker_see_route": {
+		"message": "Katso reitti"
+	},
+	"tracker_weather": {
+		"message": "Sää"
+	},
+	"tracker_world_facts": {
+		"message": "TIESITKÖ?"
 	},
 	"tracker_your_location": {
 		"message": "Sijaintisi"

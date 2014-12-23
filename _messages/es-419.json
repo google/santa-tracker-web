@@ -818,11 +818,20 @@
 	"tn_country_name": {
 		"message": "Túnez"
 	},
+	"today_only": {
+		"message": "Solo hoy"
+	},
+	"today_only_1": {
+		"message": "Solo por hoy"
+	},
 	"tr_country_name": {
 		"message": "Turquía"
 	},
 	"tr_language_name": {
 		"message": "Turco"
+	},
+	"tracker_arrival": {
+		"message": "Arribo"
 	},
 	"tracker_arriving_in": {
 		"message": "Llegará en"
@@ -839,8 +848,29 @@
 	"tracker_gifts_delivered": {
 		"message": "Regalos entregados"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Omitir introducción"
+	},
+	"tracker_intro_user_location": {
+		"message": "Estás en"
+	},
+	"tracker_intro_welcome": {
+		"message": "Bienvenido a"
+	},
 	"tracker_next_stop": {
 		"message": "Próxima parada"
+	},
+	"tracker_santa_update": {
+		"message": "ACTUALIZACIÓN DE SANTA"
+	},
+	"tracker_see_route": {
+		"message": "Ve la ruta."
+	},
+	"tracker_weather": {
+		"message": "Clima"
+	},
+	"tracker_world_facts": {
+		"message": "SABÍAS QUE"
 	},
 	"tracker_your_location": {
 		"message": "Tu ubicación"

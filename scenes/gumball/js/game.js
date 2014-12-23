@@ -452,7 +452,7 @@ app.Game.prototype.watchSceneSize_ = function() {
  */
 app.Game.prototype.dispose = function() {
   if (this.isPlaying) {
-    window.santaApp.fire('analytics-track-game-quit', {gameid: 'gumball', timePlayed: new Date - this.gameStartTime});
+    window.santaApp.fire('analytics-track-game-quit', {gameid: 'gumball', timePlayed: new Date - this.gameStartTime, level: this.level});
   }
   this.freezeGame();
 

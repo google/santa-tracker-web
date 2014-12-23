@@ -818,11 +818,20 @@
 	"tn_country_name": {
 		"message": "Tunisien"
 	},
+	"today_only": {
+		"message": "Endast idag"
+	},
+	"today_only_1": {
+		"message": "Endast i dag"
+	},
 	"tr_country_name": {
 		"message": "Turkiet"
 	},
 	"tr_language_name": {
 		"message": "turkiska"
+	},
+	"tracker_arrival": {
+		"message": "Ankomst"
 	},
 	"tracker_arriving_in": {
 		"message": "Framme om"
@@ -839,8 +848,29 @@
 	"tracker_gifts_delivered": {
 		"message": "Levererade paket"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Hoppa över intro"
+	},
+	"tracker_intro_user_location": {
+		"message": "Du är i"
+	},
+	"tracker_intro_welcome": {
+		"message": "Välkommen till"
+	},
 	"tracker_next_stop": {
 		"message": "Nästa plats"
+	},
+	"tracker_santa_update": {
+		"message": "UPPDATERING FRÅN TOMTEN"
+	},
+	"tracker_see_route": {
+		"message": "Visa rutten"
+	},
+	"tracker_weather": {
+		"message": "Väder"
+	},
+	"tracker_world_facts": {
+		"message": "VISSTE DU"
 	},
 	"tracker_your_location": {
 		"message": "Din position"

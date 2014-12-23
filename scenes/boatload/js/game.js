@@ -446,7 +446,8 @@ Game.prototype.reuseBubbles_ = function() {
 Game.prototype.dispose = function() {
   if (this.isPlaying) {
     window.santaApp.fire('analytics-track-game-quit',
-                         {gameid: 'boatload', timePlayed: new Date - this.gameStartTime});
+                         {gameid: 'boatload', timePlayed: new Date - this.gameStartTime,
+                          level: this.level});
   }
   this.freezeGame();
 

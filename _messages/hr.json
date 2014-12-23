@@ -818,11 +818,20 @@
 	"tn_country_name": {
 		"message": "Tunis"
 	},
+	"today_only": {
+		"message": "Samo danas"
+	},
+	"today_only_1": {
+		"message": "Samo danas"
+	},
 	"tr_country_name": {
 		"message": "Turska"
 	},
 	"tr_language_name": {
 		"message": "turski"
+	},
+	"tracker_arrival": {
+		"message": "Dolazak"
 	},
 	"tracker_arriving_in": {
 		"message": "Stiže za"
@@ -839,8 +848,29 @@
 	"tracker_gifts_delivered": {
 		"message": "Dostavljeni darovi"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Preskoči uvod"
+	},
+	"tracker_intro_user_location": {
+		"message": "Nalazite se na lokaciji"
+	},
+	"tracker_intro_welcome": {
+		"message": "Dobro došli u"
+	},
 	"tracker_next_stop": {
 		"message": "Sljedeća postaja"
+	},
+	"tracker_santa_update": {
+		"message": "NOVOSTI OD DJEDICE"
+	},
+	"tracker_see_route": {
+		"message": "Pregled rute"
+	},
+	"tracker_weather": {
+		"message": "Vrijeme"
+	},
+	"tracker_world_facts": {
+		"message": "ZNAŠ LI OVO?"
 	},
 	"tracker_your_location": {
 		"message": "Vaša lokacija"

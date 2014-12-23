@@ -824,6 +824,9 @@
 	"tr_language_name": {
 		"message": "ടര്‍ക്കിഷ്"
 	},
+	"tracker_arrival": {
+		"message": "എത്തിച്ചേരൽ"
+	},
 	"tracker_arriving_in": {
 		"message": "എത്തുന്നത്"
 	},
@@ -839,8 +842,23 @@
 	"tracker_gifts_delivered": {
 		"message": "വിതരണം ചെയ്ത സമ്മാനങ്ങൾ"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "ഇന്‍ട്രൊ ഒഴിവാക്കുക"
+	},
+	"tracker_intro_welcome": {
+		"message": "ഇതിലേക്ക് സ്വാഗതം"
+	},
 	"tracker_next_stop": {
 		"message": "അടുത്ത സ്റ്റോപ്പ്"
+	},
+	"tracker_santa_update": {
+		"message": "സാന്തയിൽ നിന്നുള്ള പുതുവിവരം"
+	},
+	"tracker_weather": {
+		"message": "കാലാവസ്ഥ"
+	},
+	"tracker_world_facts": {
+		"message": "നിങ്ങൾക്ക് അറിയാമോ"
 	},
 	"tracker_your_location": {
 		"message": "നിങ്ങളുടെ ലൊക്കേഷൻ"

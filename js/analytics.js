@@ -129,10 +129,12 @@ Analytics.prototype.trackGameStart = function(gameId) {
 /**
  * Tracks that the user quit the game before finishing it.
  * @param {string} gameId module id.
+ * @param {number} level
  * @param {number} timePlayed milliseconds played.
  */
-Analytics.prototype.trackGameQuit = function(gameId, timePlayed) {
+Analytics.prototype.trackGameQuit = function(gameId, level, timePlayed) {
   this.trackEvent('game', 'quit', gameId, Math.floor(timePlayed / 1000));
+  this.trackEvent('game', 'level', gameId, level);
 };
 
 /**

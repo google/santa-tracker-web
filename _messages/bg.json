@@ -132,19 +132,19 @@
 		"message": "Ню Йорк, САЩ"
 	},
 	"citylights-panorama-02-description": {
-		"message": "площад „Пушкин“"
+		"message": "Площад „Пушкин“"
 	},
 	"citylights-panorama-02-location": {
 		"message": "Москва, Русия"
 	},
 	"citylights-panorama-03-description": {
-		"message": "Ратхаузплац"
+		"message": "Ратхаусплац"
 	},
 	"citylights-panorama-03-location": {
 		"message": "Виена, Австрия"
 	},
 	"citylights-panorama-04-description": {
-		"message": "Шанз-Елизе до Триумфалната арка"
+		"message": "Шан-з-Елизе до Триумфалната арка"
 	},
 	"citylights-panorama-04-location": {
 		"message": "Париж, Франция"
@@ -174,7 +174,7 @@
 		"message": "Лапландия, Финландия"
 	},
 	"citylights-panorama-09-description": {
-		"message": "Гранд плас"
+		"message": "Гран Плас"
 	},
 	"citylights-panorama-09-location": {
 		"message": "Брюксел, Белгия"
@@ -228,7 +228,7 @@
 		"message": "Хонконг, Китай"
 	},
 	"citylights-panorama-18-description": {
-		"message": "езеро Родриго де Фрейташ"
+		"message": "Езеро Родриго де Фрейташ"
 	},
 	"citylights-panorama-18-location": {
 		"message": "Рио де Жанейро, Бразилия"
@@ -378,7 +378,7 @@
 		"message": "Алжир"
 	},
 	"easy_difficulty": {
-		"message": "Лесно ниво"
+		"message": "Ниска трудност"
 	},
 	"ec_country_name": {
 		"message": "Еквадор"
@@ -483,7 +483,7 @@
 		"message": "Гаяна"
 	},
 	"hard_difficulty": {
-		"message": "Трудно ниво"
+		"message": "Висока трудност"
 	},
 	"hi_language_name": {
 		"message": "хинди"
@@ -591,7 +591,7 @@
 		"message": "Молдова"
 	},
 	"medium_difficulty": {
-		"message": "Средно ниво"
+		"message": "Средна трудност"
 	},
 	"mg_country_name": {
 		"message": "Мадагаскар"
@@ -818,11 +818,17 @@
 	"tn_country_name": {
 		"message": "Тунис"
 	},
+	"today_only": {
+		"message": "Само днес"
+	},
 	"tr_country_name": {
 		"message": "Турция"
 	},
 	"tr_language_name": {
 		"message": "турски"
+	},
+	"tracker_arrival": {
+		"message": "Пристигане"
 	},
 	"tracker_arriving_in": {
 		"message": "Пристигане след"
@@ -839,8 +845,23 @@
 	"tracker_gifts_delivered": {
 		"message": "Доставени подаръци"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Пропуснете въведението"
+	},
+	"tracker_intro_welcome": {
+		"message": "Добре дошли в"
+	},
 	"tracker_next_stop": {
 		"message": "Следваща спирка"
+	},
+	"tracker_santa_update": {
+		"message": "АКТУАЛНА ИНФОРМАЦИЯ ЗА ДЯДО КОЛЕДА"
+	},
+	"tracker_weather": {
+		"message": "Времето"
+	},
+	"tracker_world_facts": {
+		"message": "ЗНАЕТЕ ЛИ, ЧЕ"
 	},
 	"tracker_your_location": {
 		"message": "Вашето местоположение"

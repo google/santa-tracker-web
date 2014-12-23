@@ -818,11 +818,20 @@
 	"tn_country_name": {
 		"message": "Tunisas"
 	},
+	"today_only": {
+		"message": "Tik šiandien"
+	},
+	"today_only_1": {
+		"message": "Tik šiandien"
+	},
 	"tr_country_name": {
 		"message": "Turkija"
 	},
 	"tr_language_name": {
 		"message": "Turkų"
+	},
+	"tracker_arrival": {
+		"message": "Atvykimas"
 	},
 	"tracker_arriving_in": {
 		"message": "Atvyksta po"
@@ -839,8 +848,29 @@
 	"tracker_gifts_delivered": {
 		"message": "Pristatytos dovanos"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Praleisti įžangą"
+	},
+	"tracker_intro_user_location": {
+		"message": "Jūs esate"
+	},
+	"tracker_intro_welcome": {
+		"message": "Sveiki! Tai -"
+	},
 	"tracker_next_stop": {
 		"message": "Kitas sustojimas"
+	},
+	"tracker_santa_update": {
+		"message": "KALĖDŲ SENELIO BŪSENOS ATNAUJINIMAS"
+	},
+	"tracker_see_route": {
+		"message": "Žiūrėkite maršrutą"
+	},
+	"tracker_weather": {
+		"message": "Oras"
+	},
+	"tracker_world_facts": {
+		"message": "Ar žinojote"
 	},
 	"tracker_your_location": {
 		"message": "Jūsų vieta"

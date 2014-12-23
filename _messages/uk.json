@@ -150,7 +150,7 @@
 		"message": "Париж, Франція"
 	},
 	"citylights-panorama-05-description": {
-		"message": "Чудова миля"
+		"message": "Магніфісент Майл"
 	},
 	"citylights-panorama-05-location": {
 		"message": "Чикаго, США"
@@ -818,11 +818,20 @@
 	"tn_country_name": {
 		"message": "Туніс"
 	},
+	"today_only": {
+		"message": "Лише сьогодні"
+	},
+	"today_only_1": {
+		"message": "Лише сьогодні"
+	},
 	"tr_country_name": {
 		"message": "Туреччина"
 	},
 	"tr_language_name": {
 		"message": "турецька"
+	},
+	"tracker_arrival": {
+		"message": "Прибуття"
 	},
 	"tracker_arriving_in": {
 		"message": "Прибуття за"
@@ -839,8 +848,29 @@
 	"tracker_gifts_delivered": {
 		"message": "Доставлено подарунків"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Пропустити вступ"
+	},
+	"tracker_intro_user_location": {
+		"message": "Ви зараз тут:"
+	},
+	"tracker_intro_welcome": {
+		"message": "Ласкаво просимо до"
+	},
 	"tracker_next_stop": {
 		"message": "Наступна зупинка"
+	},
+	"tracker_santa_update": {
+		"message": "НОВИНИ ДІДА МОРОЗА"
+	},
+	"tracker_see_route": {
+		"message": "Маршрут"
+	},
+	"tracker_weather": {
+		"message": "Погода"
+	},
+	"tracker_world_facts": {
+		"message": "ЧИ ЗНАЄТЕ ВИ"
 	},
 	"tracker_your_location": {
 		"message": "Ваше місцезнаходження"

@@ -84,7 +84,7 @@ Game.prototype.start = function() {
  */
 Game.prototype.destroy = function() {
   if (this.isPlaying) {
-    window.santaApp.fire('analytics-track-game-quit', {gameid: 'matching', timePlayed: new Date - this.gameStartTime});
+    window.santaApp.fire('analytics-track-game-quit', {gameid: 'matching', timePlayed: new Date - this.gameStartTime, level: this.levelModel.get() - 1});
   }
   if (this.mismatchTimeout != null) {
     window.clearTimeout(this.mismatchTimeout);

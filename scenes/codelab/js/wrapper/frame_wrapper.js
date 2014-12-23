@@ -29,6 +29,9 @@ app.wrapper.FrameWrapper = function(el, staticDir) {
     triggerSound: this.triggerSound.bind(this)
   });
 
+  // internal level number for analytics
+  this.level_ = 1;
+
   // Load the iframe.
   this.setIframeSrc();
 
@@ -52,7 +55,8 @@ app.wrapper.FrameWrapper.prototype.restart = function() {
 app.wrapper.FrameWrapper.prototype.dispose = function() {
   if (this.isPlaying) {
     window.santaApp.fire('analytics-track-game-quit', {gameid: 'codelab',
-        timePlayed: new Date - this.gameStartTime});
+        timePlayed: new Date - this.gameStartTime,
+        level: this.level_});
   }
 
   this.iframeChannel.dispose();
@@ -102,5 +106,6 @@ app.wrapper.FrameWrapper.prototype.iframeFocusChange = function(state) {
  * @param {number} level - which level is it.
  */
 app.wrapper.FrameWrapper.prototype.setLevel = function(level) {
+  this.level_ = level;
   this.scoreboardView.setLevel(level);
 };
