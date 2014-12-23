@@ -581,6 +581,9 @@ Tracker scene.
         this.worldView_.fitBounds();
       }
 
+      // always start with cityFeed closed
+      this.cityFeedActive = false;
+
       this.sceneParamsChanged();
 
       this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
@@ -592,7 +595,6 @@ Tracker scene.
         this.worldView_.hide();
       }
 
-      this.cityFeedActive = false;
       this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
 
