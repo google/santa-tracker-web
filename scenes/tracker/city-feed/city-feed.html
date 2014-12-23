@@ -258,6 +258,17 @@ Polymer({
   videoMap: null,
 
   /**
+   * A basename for links within Santa Tracker. The hash is removed for nicer
+   * display URLs in the status bar.
+   * @property pageUrl
+   * @type string
+   * @default
+   */
+  get pageUrl() {
+    return location.href.substr(0, location.href.length - location.hash.length);
+  },
+
+  /**
    * The last scroll operation that was attempted.
    * @property pendingScroll_
    * @type {object}
