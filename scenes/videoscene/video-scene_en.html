@@ -27,15 +27,18 @@ Video scene.
       </div>
 
       <template if="{{showPlayer}}">
-        <google-youtube id="player" videoid="{{VIDEO_IDS[route]}}" chromeless playsupported="false"
+        <google-youtube id="player" videoid="{{VIDEO_IDS[route].id}}" chromeless playsupported="false"
                         on-google-youtube-ready="{{youtubeReady}}"
                         on-google-youtube-state-change="{{youtubeStateChange}}"
                         height="100%" width="100%" fit></google-youtube>
       </template>
 
       <div id="videoboard" class="sceneboard">
-        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
+        <a href="{{pageUrl}}#village" class="back" hidden?="{{VIDEO_IDS[route].source !== 'village'}}">
           <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
+        </a>
+        <a href="{{pageUrl}}#tracker" class="back" hidden?="{{VIDEO_IDS[route].source !== 'tracker'}}">
+          <i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg>
         </a>
         <div class="sceneboard-back"></div>
         <div id="controls" hidden?="{{!controls}}">
@@ -111,25 +114,57 @@ Video scene.
     player: null,
 
     /**
-     * Mapping of routes to YouTube video IDs
+     * Mapping of routes to YouTube video IDs. `source` gives where the user
+     * should go when they hit the in-scene back button.
      *
      * @property VIDEO_IDS
      * @type object
      */
     VIDEO_IDS: {
-      'trailer': 'IdpQSy4IB_I',
-      'carpool': 'h83b1lWPuvQ',
-      'liftoff': 'oCAKV4Ikhec',
-
-      // tracker videos
-      'jingle': 'sQnKCU_A0Yc',
-      'satellite': 'ZJPL56IPTjw',
-      'temptation': '2FtcJJ9vzVQ',
-      'office': 'IXmDOu-eSx4',
-      'tired': '2UGX3bT9u20',
-      'com-room': '_WdYujHlmHA',
-      'reload': 'vHMeXs36NTE',
-      'slacking-off': 'uEl2WIZOVdQ'
+      'trailer': {
+        id: 'IdpQSy4IB_I',
+        source: 'village'
+      },
+      'carpool': {
+        id: 'h83b1lWPuvQ',
+        source: 'village'
+      },
+      'liftoff': {
+        id: 'oCAKV4Ikhec',
+        source: 'village'
+      },
+      'jingle': {
+        id: 'sQnKCU_A0Yc',
+        source: 'tracker'
+      },
+      'satellite': {
+        id: 'ZJPL56IPTjw',
+        source: 'tracker'
+      },
+      'temptation': {
+        id: '2FtcJJ9vzVQ',
+        source: 'tracker'
+      },
+      'office': {
+        id: 'IXmDOu-eSx4',
+        source: 'tracker'
+      },
+      'tired': {
+        id: '2UGX3bT9u20',
+        source: 'tracker'
+      },
+      'com-room': {
+        id: '_WdYujHlmHA',
+        source: 'tracker'
+      },
+      'reload': {
+        id: 'vHMeXs36NTE',
+        source: 'tracker'
+      },
+      'slacking-off': {
+        id: 'uEl2WIZOVdQ',
+        source: 'tracker'
+      }
     },
 
     /**
