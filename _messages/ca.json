@@ -818,11 +818,17 @@
 	"tn_country_name": {
 		"message": "Tunísia"
 	},
+	"today_only_1": {
+		"message": "Només avui"
+	},
 	"tr_country_name": {
 		"message": "Turquia"
 	},
 	"tr_language_name": {
 		"message": "Turc"
+	},
+	"tracker_arrival": {
+		"message": "Arribada"
 	},
 	"tracker_arriving_in": {
 		"message": "Arriba d'aquí a"
@@ -839,8 +845,29 @@
 	"tracker_gifts_delivered": {
 		"message": "Regals entregats"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Omet la presentació"
+	},
+	"tracker_intro_user_location": {
+		"message": "Us trobeu a"
+	},
+	"tracker_intro_welcome": {
+		"message": "Benvingut a"
+	},
 	"tracker_next_stop": {
 		"message": "Propera parada"
+	},
+	"tracker_santa_update": {
+		"message": "NOTIFICACIÓ DEL PARE NOEL"
+	},
+	"tracker_see_route": {
+		"message": "Mostra la ruta"
+	},
+	"tracker_weather": {
+		"message": "Temps"
+	},
+	"tracker_world_facts": {
+		"message": "SABÍEU QUE"
 	},
 	"tracker_your_location": {
 		"message": "La vostra ubicació"

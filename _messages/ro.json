@@ -818,11 +818,17 @@
 	"tn_country_name": {
 		"message": "Tunisia"
 	},
+	"today_only_1": {
+		"message": "Numai astăzi"
+	},
 	"tr_country_name": {
 		"message": "Turcia"
 	},
 	"tr_language_name": {
 		"message": "Turcă"
+	},
+	"tracker_arrival": {
+		"message": "Aterizare"
 	},
 	"tracker_arriving_in": {
 		"message": "Sosește în"
@@ -839,8 +845,29 @@
 	"tracker_gifts_delivered": {
 		"message": "Cadouri livrate"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Treceţi peste introducere"
+	},
+	"tracker_intro_user_location": {
+		"message": "Sunteți la"
+	},
+	"tracker_intro_welcome": {
+		"message": "Bun venit"
+	},
 	"tracker_next_stop": {
 		"message": "Următoarea oprire"
+	},
+	"tracker_santa_update": {
+		"message": "NOUTĂȚI DE LA MOȘ CRĂCIUN"
+	},
+	"tracker_see_route": {
+		"message": "Vezi traseul"
+	},
+	"tracker_weather": {
+		"message": "Condiţiile meteo"
+	},
+	"tracker_world_facts": {
+		"message": "ȘTIAȚI CĂ"
 	},
 	"tracker_your_location": {
 		"message": "Locația ta"

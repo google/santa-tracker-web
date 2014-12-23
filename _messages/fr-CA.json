@@ -824,6 +824,9 @@
 	"tr_language_name": {
 		"message": "Turque"
 	},
+	"tracker_arrival": {
+		"message": "Arrivée"
+	},
 	"tracker_arriving_in": {
 		"message": "ARRIVE DANS"
 	},
@@ -839,8 +842,20 @@
 	"tracker_gifts_delivered": {
 		"message": "Cadeaux distribués"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Passer l'intro"
+	},
 	"tracker_next_stop": {
 		"message": "Prochain arrêt"
+	},
+	"tracker_santa_update": {
+		"message": "COMPTE RENDU DU PÈRE NOËL"
+	},
+	"tracker_weather": {
+		"message": "Météo"
+	},
+	"tracker_world_facts": {
+		"message": "LE SAVIEZ-VOUS?"
 	},
 	"tracker_your_location": {
 		"message": "Votre position"

@@ -824,6 +824,9 @@
 	"tr_language_name": {
 		"message": "Turkish"
 	},
+	"tracker_arrival": {
+		"message": "Pagdating"
+	},
 	"tracker_arriving_in": {
 		"message": "Paparating sa loob ng"
 	},
@@ -839,8 +842,23 @@
 	"tracker_gifts_delivered": {
 		"message": "Mga naihatid na regalo"
 	},
+	"tracker_intro_skip_intro": {
+		"message": "Laktawan ang intro"
+	},
+	"tracker_intro_welcome": {
+		"message": "Isang Maligayang Pagdating sa"
+	},
 	"tracker_next_stop": {
 		"message": "Susunod na hinto"
+	},
+	"tracker_santa_update": {
+		"message": "UPDATE KAY SANTA"
+	},
+	"tracker_weather": {
+		"message": "Panahon"
+	},
+	"tracker_world_facts": {
+		"message": "ALAM MO BA"
 	},
 	"tracker_your_location": {
 		"message": "Iyong lokasyon"
