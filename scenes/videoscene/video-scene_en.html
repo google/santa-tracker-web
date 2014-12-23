@@ -34,10 +34,10 @@ Video scene.
       </template>
 
       <div id="videoboard" class="sceneboard">
-        <a href="{{pageUrl}}#village" class="back" hidden?="{{VIDEO_IDS[route].backTarget !== 'village'}}">
+        <a href="{{pageUrl}}#village" class="back" hidden?="{{VIDEO_IDS[route].source !== 'village'}}">
           <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
         </a>
-        <a href="{{pageUrl}}#tracker" class="back" hidden?="{{VIDEO_IDS[route].backTarget !== 'tracker'}}">
+        <a href="{{pageUrl}}#tracker" class="back" hidden?="{{VIDEO_IDS[route].source !== 'tracker'}}">
           <i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg>
         </a>
         <div class="sceneboard-back"></div>
@@ -114,7 +114,7 @@ Video scene.
     player: null,
 
     /**
-     * Mapping of routes to YouTube video IDs. `backTarget` gives where the user
+     * Mapping of routes to YouTube video IDs. `source` gives where the user
      * should go when they hit the in-scene back button.
      *
      * @property VIDEO_IDS
@@ -123,48 +123,47 @@ Video scene.
     VIDEO_IDS: {
       'trailer': {
         id: 'IdpQSy4IB_I',
-        backTarget: 'village'
+        source: 'village'
       },
       'carpool': {
         id: 'h83b1lWPuvQ',
-        backTarget: 'village'
+        source: 'village'
       },
       'liftoff': {
         id: 'oCAKV4Ikhec',
-        backTarget: 'village'
+        source: 'village'
       },
-
       'jingle': {
         id: 'sQnKCU_A0Yc',
-        backTarget: 'tracker'
+        source: 'tracker'
       },
       'satellite': {
         id: 'ZJPL56IPTjw',
-        backTarget: 'tracker'
+        source: 'tracker'
       },
       'temptation': {
         id: '2FtcJJ9vzVQ',
-        backTarget: 'tracker'
+        source: 'tracker'
       },
       'office': {
         id: 'IXmDOu-eSx4',
-        backTarget: 'tracker'
+        source: 'tracker'
       },
       'tired': {
         id: '2UGX3bT9u20',
-        backTarget: 'tracker'
+        source: 'tracker'
       },
       'com-room': {
         id: '_WdYujHlmHA',
-        backTarget: 'tracker'
+        source: 'tracker'
       },
       'reload': {
         id: 'vHMeXs36NTE',
-        backTarget: 'tracker'
+        source: 'tracker'
       },
       'slacking-off': {
         id: 'uEl2WIZOVdQ',
-        backTarget: 'tracker'
+        source: 'tracker'
       }
     },
 
