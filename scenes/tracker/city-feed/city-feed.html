@@ -17,7 +17,9 @@ Utility element to use response HTML returned by the Santa Tracker API.
 <script>
 Polymer({
   htmlChanged: function() {
-    this.innerHTML = this.html;
+    if (this.html) {
+      this.innerHTML = this.html;
+    }
   }
 });
 </script>
@@ -421,6 +423,12 @@ Polymer({
 
   onWikipedia: function(e, detail, sender) {
     var location = sender.templateInstance.model.model.stop;
+
+    // Don't make details API request if wikipedia article has already been fetched.
+    if (location.details.wikipedia) {
+      return;
+    }
+
     location.getDetails(function(detail) {
       location.details.wikipedia = detail.wikipedia;
     });
