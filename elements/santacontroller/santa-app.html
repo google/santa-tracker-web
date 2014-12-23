@@ -694,9 +694,6 @@ Polymer(Polymer.mixin({
     // TODO(lukem): lock houses that need locking.
   },
 
-  /**
-   * When the countdown finishes, redirect the user to the tracker.
-   */
   postCountdownChanged: function() {
     if (this.santaService.now() > this.FLIGHT_FINISHED) {
       this.postFlight = true;
