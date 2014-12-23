@@ -308,9 +308,11 @@ Polymer({
 
     if (!this.active) {
       // Remove any deep link URL params when stream is hidden.
-      var newHref = location.href.substr(0,
-                    location.href.length - location.hash.length) + '#tracker';
-      window.history.replaceState(null, '', newHref);
+      if (location.hash.indexOf('#tracker') === 0) {
+        var newHref = location.href.substr(0,
+                      location.href.length - location.hash.length) + '#tracker';
+        window.history.replaceState(null, '', newHref);
+      }
 
       // Want the list to scroll fast and streetview is a hog. Make sure no
       // streetview cards are activated when the list is opened again.
