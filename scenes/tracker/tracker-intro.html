@@ -354,7 +354,7 @@ Intro for the tracker scene.
      */
     closeIntro: function(e, detail, sender) {
       e && e.preventDefault();
-      this.style.transform = 'translateY(-' + 2 * this.winCenterY_ + 'px)';
+      this.style.transform = this.style.webkitTransform = 'translateY(-' + 2 * this.winCenterY_ + 'px)';
       this.classList.add('offscreen');
     },
 
