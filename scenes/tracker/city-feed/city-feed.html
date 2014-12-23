@@ -61,8 +61,17 @@ City feed view in Tracker
       <div class="corner-image"></div>
     </div>
     <div class="card-body">
-      <core-image sizing="cover" preload fade src="{{model.imageUrl}}"></core-image>
+      <core-image sizing="cover" preload load?="{{model.imageUrl}}" fade src="{{model.imageUrl}}"></core-image>
     </div>
+  </div>
+
+  <div hidden?="{{model.type != 'scene'}}" style="height:100%">
+    <a href="{{pageUrl}}#{{model.game}}">
+      <div class="card-header">
+        <div class="corner-image"></div>
+      </div>
+      <div class="card-body"></div>
+    </a>
   </div>
 
   <div hidden?="{{model.type != 'update'}}">
@@ -97,7 +106,8 @@ City feed view in Tracker
                height="350" runwayFactor="4" on-scroll="{{onScroll}}">
       <template>
         <div layout?="{{!isPhoneSize}}" horizontal start justified>
-          <div class="card card-{{model.type}}" flex?="{{model.type == 'city'}}">
+          <div class="card card-{{model.type}} {{model.game ? 'card-' + model.game : ''}}"
+               flex?="{{model.type == 'city'}}">
             <div class="divider" layout horizontal end>{{model.timestamp | formatCountdown}}</div>
 
             <div hidden?="{{model.type != 'city'}}">
@@ -136,11 +146,11 @@ City feed view in Tracker
               </div>
               <core-pages class="card-body" selected="{{model.selectedCard}}">
                 <div>
-                  <core-image sizing="cover" preload fade src="{{model.stop.details.photos[0].url}}"></core-image>
+                  <core-image sizing="cover" load?="{{model.stop.details.photos[0]}}" preload fade src="{{model.stop.details.photos[0].url}}"></core-image>
                   <div class="attribution"><html-echo html="{{model.stop.details.photos[0].attributionHtml}}"></html-echo></div>
                 </div>
                 <div>
-                  <core-image sizing="cover" preload fade src="{{model.stop.details.photos[1].url}}"></core-image>
+                  <core-image sizing="cover" preload load?="{{model.stop.details.photos[1]}}" fade src="{{model.stop.details.photos[1].url}}"></core-image>
                   <div class="attribution"><html-echo html="{{model.stop.details.photos[1].attributionHtml}}"></html-echo></div>
                 </div>
                 <template if="{{model.stop.details.streetView}}">
@@ -174,7 +184,7 @@ City feed view in Tracker
           </div>
 
           <template if="{{model.nextCard}}" bind="{{model.nextCard as model}}">
-            <div class="card card-{{model.type}}">
+            <div class="card card-{{model.type}} {{model.game ? 'card-' + model.game : ''}}">
               <div class="divider" layout horizontal end>{{model.timestamp | formatCountdown}}</div>
               <template bind ref="mini-cards-template"></template>
             </div>
@@ -345,6 +355,8 @@ Polymer({
       // Specify type of card to render in feed.
       if (item.stop) {
         item.type = 'city';
+      } else if (item.game) {
+        item.type = 'scene';
       } else if (item.youtubeId) {
         item.type = 'video';
       } else if (item.imageUrl) {
