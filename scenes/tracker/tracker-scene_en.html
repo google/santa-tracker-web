@@ -49,24 +49,40 @@ Tracker scene.
 
       <div id="cards">
         <template id="mini-cards-template">
+          <div hidden?="{{model.type != 'city'}}" class="card-city">
+            <a href="{{pageUrl}}#tracker" on-tap="{{onTrackerCardClicked}}">
+              <div class="card-header">
+                <div class="corner-image"></div>
+                <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h3>{{model.stop.city}}</h3>
+                <h5><span class="icon-clock"></span>{{model.stop.arrival | formatCountdown_}}</h4>
+              </div>
+              <div class="card-body">
+                <div fit class="cover"></div>
+                <core-image sizing="cover" fit preload fade src="{{model.stop.details.photos[0].url}}" load?="{{model.stop.details.photos[0]}}"></core-image>
+              </div>
+            </a>
+          </div>
           <div hidden?="{{model.type != 'facts'}}">
-            <div class="card-header">
-              <div class="corner-image"></div>
-              <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
-            </div>
-            <div class="card-body">
-              <p>{{model.didyouknow}}</p>
-            </div>
-            <div class="card-footer">
-              <p><i18n-msg msgid="trivia_ngb_promo">PLACEHOLDER_i18n</i18n-msg></p>
-            </div>
+            <a href="{{pageUrl}}#tracker" on-tap="{{onTrackerCardClicked}}">
+              <div class="card-header">
+                <div class="corner-image"></div>
+                <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
+              </div>
+              <div class="card-body">
+                <p>{{model.didyouknow}}</p>
+              </div>
+              <div class="card-footer">
+                <p><i18n-msg msgid="trivia_ngb_promo">PLACEHOLDER_i18n</i18n-msg></p>
+              </div>
+            </a>
           </div>
 
           <div hidden?="{{model.type != 'photos'}}" style="height:100%">
             <div class="card-header">
               <div class="corner-image"></div>
             </div>
-            <div class="card-body photo">
+            <div class="card-body">
               <core-image sizing="cover" preload fade src="{{model.imageUrl}}"></core-image>
             </div>
           </div>
@@ -353,6 +369,13 @@ Tracker scene.
       }
 
       this.preloadImages(images);
+    },
+
+    onTrackerCardClicked: function(e, detail, sender) {
+      e.preventDefault();
+      this.cityFeedActive = true;
+      var destId = sender.templateInstance.model.model.stop.id;
+      this.$.feed.scrollToDest(destId);
     },
 
     created: function() {

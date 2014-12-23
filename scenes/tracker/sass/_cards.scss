@@ -17,6 +17,59 @@
     color: #fff;
   }
 
+  &.card-city {
+    height: 201px;
+
+    .card-header {
+      h3 {
+        padding-bottom: 0;
+      }
+      h4 {
+        padding-bottom: 0;
+      }
+
+      h5 {
+        margin: 0;
+        padding: 6px 0 0 20px;
+      }
+
+      .icon-clock {
+        width: 10px;
+        height: 10px;
+        background: url(img/clock-white.svg) no-repeat;
+        background-size: cover;
+        display: inline-block;
+        background-size: 9px;
+        display: inline-block;
+        position: relative;
+        background-position: 0 0;
+        top: 2px;
+        padding-right: 2px;
+      }
+    }
+
+    .card-body {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 5px;
+
+      core-image {
+        z-index: 1;
+        border-radius: 5px;
+      }
+
+      .cover {
+        position: absolute;
+        z-index: 2;
+        border-radius: 5px;
+        @include background-image(linear-gradient(-200deg, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 65%,rgba(0,0,0,0) 100%));
+      }
+    }
+  }
+
   &.card-coding, &.card-pins, &.card-app, &.card-mercator, &.card-gumball {
     .card-header {
       .corner-image {
