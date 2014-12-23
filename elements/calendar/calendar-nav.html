@@ -163,7 +163,7 @@ Village calendar navigation.
                           </a>
                         </div>
                       </template>
-                      <div layout vertical center-center data-index="24" data-category="learn" class="card calendar learn iced">
+                      <div layout vertical center-center data-index="24" data-category="learn" class="card calendar learn {{ {iced: !santaApp.postCountdown || santaApp.postFlight} | tokenList}}">
                         <a href="{{pageUrl}}#tracker" on-click="{{onCalendarClick}}">
                           <div class="menu-marker marker24 calendar learn" style="background-image:url({{componentBaseDir}}img/menu-tracker.svg);"></div>
                         </a>
@@ -372,8 +372,15 @@ Village calendar navigation.
 
       onCalendarClick: function(e, detail, sender) {
         var house = sender.templateInstance.model.house;
-        var iced = !house || house.iced;
-        if (iced) {
+        if (house && house.iced) {
+          e.preventDefault();
+          return;
+        }
+
+        var isTracker = sender.href.indexOf('#tracker') != -1;
+        var trackerTimeRange = this.santaApp.postCountdown && !this.santaApp.postFlight;
+
+        if (isTracker && !trackerTimeRange) {
           e.preventDefault();
         }
       },
