@@ -197,7 +197,11 @@ $name: 'module-city-feed';
         position: absolute;
         bottom: 0;
         padding: 5px;
-        border-radius: 0 0 $borderRadius $borderRadius;
+        border-radius: 0 $borderRadius 0 $borderRadius;
+
+        > * {
+          margin-right: 10px;
+        }
       }
       a {
         color: inherit;
