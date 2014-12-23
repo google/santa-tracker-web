@@ -17,9 +17,6 @@ Utility element to use response HTML returned by the Santa Tracker API.
 <script>
 Polymer({
   htmlChanged: function() {
-    if (this.innerHTML) {
-      return; // Only set what the API returned (i.e. ignore future updates).
-    }
     this.innerHTML = this.html;
   }
 });
