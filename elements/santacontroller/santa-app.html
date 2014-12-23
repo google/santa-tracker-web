@@ -399,7 +399,8 @@ Polymer(Polymer.mixin({
     'analytics-track-game-start': 'trackGameStart',
     'analytics-track-game-quit': 'trackGameQuit',
     'analytics-track-game-over': 'trackGameOver',
-    'tracker-action': 'onTrackerAction'
+    'tracker-action': 'onTrackerAction',
+    'countdown-timer-finish': 'onCountdownFinish'
   },
 
   ready: function() {
@@ -824,6 +825,15 @@ Polymer(Polymer.mixin({
       calendar.trackerActive = detail.active;
     } else if (detail.type == 'city-toggle') {
       calendar.cityFeedActive = detail.active;
+    }
+  },
+
+  onCountdownFinish: function(e, detail, sender) {
+    // Redirect to village -> tracker when the countdown finishes. This allows
+    // users to go back to the village.
+    if (!this.postCountdown && this.santaService.now() > this.countDownEndDate) {
+      this.postCountdown = true;
+      this.route = TRACKER_ROUTE_;
     }
   }
 
