@@ -99,13 +99,12 @@ City feed view in Tracker
 <div id="module-city-feed" fit>
   <div class="scene" fit>
 
-    <core-media-query query="(min-width:320px) and (max-width:768px)"
-                      queryMatches="{{isPhoneSize}}"></core-media-query>
+    <core-media-query query="(max-width:960px)" queryMatches="{{isMobileSize}}"></core-media-query>
 
     <core-list id="feed" data="{{stream}}" selectionEnabled="false"
                height="350" runwayFactor="4" on-scroll="{{onScroll}}">
       <template>
-        <div layout?="{{!isPhoneSize}}" horizontal start justified>
+        <div layout?="{{!isMobileSize}}" horizontal start justified>
           <div class="card card-{{model.type}} {{model.game ? 'card-' + model.game : ''}}"
                flex?="{{model.type == 'city'}}">
             <div class="divider" layout horizontal end>{{model.timestamp | formatCountdown}}</div>
