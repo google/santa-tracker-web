@@ -258,6 +258,8 @@ Village scene.
      */
     timeOfDay: 'day',
 
+    finished: false,
+
     /**
      * End of Santa's flight (ms).
      *
@@ -333,6 +335,10 @@ Village scene.
       if (this.mode == 'cast') {
         // TODO(luke,bckenny): shut off stuff.
       }
+    },
+
+    finishedChanged: function() {
+      console.log('finished  changed');
     },
 
     /**
