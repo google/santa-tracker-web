@@ -379,8 +379,9 @@ Village calendar navigation.
         }
 
         // Don't allow opening the tracker if it's not within tracking time.
+        var isTracker = sender.href.indexOf('#tracker') != -1;
         var trackerTimeRange = this.santaApp.postCountdown && !this.santaApp.postFlight;
-        if (!trackerTimeRange) {
+        if (isTracker && !trackerTimeRange) {
           e.preventDefault();
         }
       },
