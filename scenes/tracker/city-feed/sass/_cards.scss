@@ -69,7 +69,7 @@
 }
 
 .card {
-  &.card-coding, &.card-pins, &.card-app, &.card-mercator, &.card-gumball {
+  &.card-codelab, &.card-pins, &.card-app, &.card-mercator, &.card-gumball {
     .card-header {
       .corner-image {
         background-image: url(img/cardavatars/Cards-avatars-04_general2.svg);
@@ -97,7 +97,7 @@
     }
   }
 
-  &.card-selfie {
+  &.card-santaselfie {
     .card-header, .card-body, .card-footer {
       background-color: #00adee;
     }
@@ -127,7 +127,7 @@
     }
   }
 
-  &.card-coding {
+  &.card-codelab {
     .card-header, .card-body, .card-footer {
       background-color: #3e4da1;
     }
@@ -137,7 +137,7 @@
     }
   }
 
-  &.card-latlng, &.card-glider, &.card-giving {
+  &.card-latlong, &.card-glider, &.card-seasonofgiving {
     .card-header, .card-body, .card-footer {
       background-color: #135aa2;
     }
@@ -208,7 +208,7 @@
     }
   }
 
-  &.card-giving {
+  &.card-seasonofgiving {
     .card-header, .card-body, .card-footer {
       background-color: #378d3b;
     }
@@ -218,7 +218,7 @@
     }
   }
 
-  &.card-reindeer {
+  &.card-runner {
     .card-header, .card-body, .card-footer {
       background-color: #135aa2;
     }
@@ -233,19 +233,25 @@
     }
   }
 
-  &.card-glider, &.card-latlng, &.card-video, &.card-reindeer, &.card-giving, &.card-gmm, &.card-app,
-  &.card-village, &.card-pins, &.card-coding, &.card-jamband, &.card-mercator, &.card-selfie,
+  &.card-glider, &.card-latlong, &.card-video, &.card-runner, &.card-seasonofgiving, &.card-gmm, &.card-app,
+  &.card-village, &.card-pins, &.card-codelab, &.card-jamband, &.card-mercator, &.card-santaselfie,
   &.card-gumball, &.card-matching {
     .card-body {
       height: 163px;
-      border-radius: 0 0 5px 5px;
-      text-align: center;
+      border-radius:5px;
+      // text-align: center;
 
-      span {
-        font-size: 120px;
-        font-weight: 600;
-        line-height: 130px;
-      }
+      // span {
+      //   font-size: 120px;
+      //   font-weight: 600;
+      //   line-height: 130px;
+      // }
+    }
+  }
+
+  &.card-scene {
+     .card-body {
+      height: 230px;
     }
   }
 
@@ -255,7 +261,7 @@
     }
   }
 
-  &.card-latlng {
+  &.card-latlong {
     .card-body {
       background-image: url(img/cardavatars/card-lat-lng.png);
     }
@@ -326,6 +332,9 @@
     .card-header, .card-body, .card-footer {
       background-color: #1875d1;
     }
+    .card-footer {
+      border-radius: 0 0 5px 5px;
+    }
 
     .card-header {
       .corner-image {
@@ -376,7 +385,7 @@
     background-image: url(img/cardavatars/card-vid-office.png);
   }
 
-  .card-selfie {
+  .card-santaselfie {
     background-image: url(img/cardavatars/card-vid-selfie.png);
   }
 
