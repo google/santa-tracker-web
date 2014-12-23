@@ -312,10 +312,19 @@ Polymer({
   },
 
   activeChanged: function() {
-    // TODO(ericbidelman): shouldn't have to call this with new core-list. Investigate.
-    this.$.feed.updateSize();
+    if (this.active) {
+      // TODO(ericbidelman): shouldn't have to call this with new core-list. Investigate.
+      this.$.feed.updateSize();
 
-    if (!this.active) {
+      this.setupDone_ = true;
+
+      if (this.pendingScroll_.func) {
+        this.async(function() {
+          this.pendingScroll_.func.call(this, this.pendingScroll_.arg);
+          this.pendingScroll_ = {};
+        });
+      }
+    } else {
       // Remove any deep link URL params when stream is hidden.
       var newHref = location.href.substr(0,
                     location.href.length - location.hash.length) + '#tracker';
@@ -325,14 +334,6 @@ Polymer({
       // streetview cards are activated when the list is opened again.
       for (var i = 0, item; item = this.stream[i]; ++i) {
         item.selectedCard = 0;
-      }
-    } else {
-      this.setupDone_ = true;
-      if (this.pendingScroll_.func) {
-        this.async(function() {
-          this.pendingScroll_.func.call(this, this.pendingScroll_.arg);
-          this.pendingScroll_ = {};
-        });
       }
     }
   },
