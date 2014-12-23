@@ -353,6 +353,8 @@ Village calendar navigation.
       trackerActiveChanged: function() {
         if (this.trackerActive) {
           this.cityFeedActive = false;
+        } else {
+          this.hideTrackerNav();
         }
       },
 
@@ -425,7 +427,9 @@ Village calendar navigation.
 
         this.$['global-nav-content'].scrollTop = 0;
 
-        this.$.tabs.selected = 'calendar';
+        // Start with calendar page open and its filtering tab selected.
+        this.calNavSelection = 'calendar';
+        this.filterOn = 'calendar';
 
         this.closed = this.closing = false;
         this.opening = true;
@@ -442,7 +446,6 @@ Village calendar navigation.
         this.closing = true;
 
         this.closeTimeout_ = this.async(function() {
-          this.calNavSelection = 'calendar';
           this.closed = true;
         }, null, this.TIMEOUT_DELAY);
 
