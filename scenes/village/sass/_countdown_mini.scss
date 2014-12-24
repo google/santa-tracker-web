@@ -91,13 +91,21 @@
   }
 
   &.finished {
-    countdown-timer, h2 {
+    countdown-timer {
       display: none;
     }
 
     #finished-tracker {
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
+    }
+
+    #endof {
+      background: rgba(255,255,255,.24);
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 6px;
+      padding: 19px;
+      max-width: 470px;
     }
   }
 
