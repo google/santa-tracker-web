@@ -142,6 +142,9 @@ Santa Track app.
         path="scenes/streetview/streetview-scene_[[language]].html"
         loadingBgColor="rgb(129,208,0)" hidden></streetview-scene>
 
+    <trivia-scene route="trivia"
+        path="scenes/trivia/trivia-scene_[[language]].html" hidden></trivia-scene>
+
     <workshop-scene route="workshop"
         path="scenes/workshop/workshop-scene.html"
         hidden></workshop-scene>
@@ -214,7 +217,7 @@ var VIDEO_ROUTES_ = [
 
 // Routes/scenes unlocked with the tracker (including all video routes)
 var TRACKER_ROUTES_ = ['blimp', 'island', 'undersea', 'icecave', 'runner',
-    'latlong', 'glider'].concat(VIDEO_ROUTES_);
+    'latlong', 'glider', 'trivia'].concat(VIDEO_ROUTES_);
 
 // Check if date1 is the same date as date2.
 function isSameDay_(date1, date2) {

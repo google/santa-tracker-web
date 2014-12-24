@@ -1,0 +1,101 @@
+<link rel="import" href="../../../components/google-apis/google-maps-api.html">
+
+<polymer-element name="map-hint" attributes="place santaApp">
+<template>
+  <link rel="stylesheet" href="map-hint.css" />
+  <div id="map" fit></div>
+  <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
+                         libraries="places,geometry" language="{{santaApp.language}}"
+                         on-api-load="{{onMapsAPIReady}}"></google-maps-api>
+  <div id="globe" class="globe" fit>
+    <template repeat="{{part in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}}">
+      <div class="globe-part globe-part--{{part}}"></div>
+    </template>
+  </div>
+</template>
+<script>
+  Polymer({
+    observe: {
+      'place': 'onSearch'
+    },
+
+    // Provide better bounds than the geocoder gives us
+    // [[S,W], [N, E]]
+    BOUNDS_OVERRIDE: {
+      'Antarctica': [[-76.978265, -28.910547], [-59.487125, 90.963891]]
+    },
+
+    apiReady: false,
+
+    found: false,
+
+    onMapsAPIReady: function() {
+      this.apiReady = true;
+
+      this.map = new google.maps.Map(this.$.map, {
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        disableDefaultUI: true,
+        draggable: false,
+        disableDoubleClickZoom: true,
+        backgroundColor: '#00A6A3',
+        minZoom: 2,
+        maxZoom: 5,
+        styles: [{
+            stylers: [{visibility: 'off'}]
+          }, {
+            featureType: 'administrative.country',
+            elementType: 'geometry.stroke',
+            stylers: [{visibility: 'on'}, {weight: 1}, {color: '#00A6A3'}]
+          }, {
+            featureType: 'water',
+            elementType: 'geometry.fill',
+            stylers: [{visibility: 'on'}, {color: '#00A6A3'}]
+          }, {
+            featureType: 'landscape',
+            elementType: 'geometry.fill',
+            stylers: [{visibility: 'on'}, {color: '#008F8C'}]
+          }
+        ]
+      });
+
+      this.onSearch();
+    },
+
+    onSearch: function() {
+      if (!this.apiReady || !this.place) return;
+      this.found = true;
+
+      if (this.BOUNDS_OVERRIDE[this.place]) {
+        var bounds = this.BOUNDS_OVERRIDE[this.place];
+        this.bounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(bounds[0][0], bounds[0][1]),
+            new google.maps.LatLng(bounds[1][0], bounds[1][1]));
+        return;
+      }
+
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({
+        'address': this.place
+      }, function(results, status) {
+        if (results.length === 0) {
+          this.found = false;
+          return;
+        }
+        this.bounds = results[0].geometry.viewport;
+      }.bind(this));
+    },
+
+    animate: function() {
+      if (!this.found) return;
+      this.$.globe.classList.remove('is-reset');
+      this.$.globe.classList.add('is-animating');
+      this.map.fitBounds(this.bounds);
+    },
+
+    reset: function() {
+      this.$.globe.classList.add('is-reset');
+      this.$.globe.classList.remove('is-animating');
+    }
+  });
+</script>
+</polymer-element>

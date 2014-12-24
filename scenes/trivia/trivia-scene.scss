@@ -1,0 +1,109 @@
+$name: 'module-trivia';
+$gameover-bg: #fbbf2c;
+$rotate-bg: $gameover-bg;
+$trivia-bp: 661px;
+
+@import "../shared/sass/gameover";
+@import "../shared/sass/board";
+@import "../shared/sass/levelup";
+
+@import "sass/question";
+
+##{$name} {
+  background: #00C55D;
+
+  .content {
+    box-sizing: border-box;
+    padding: 0 10px;
+    position: relative;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      margin: 0 auto;
+      padding: 0;
+      width: 767px;
+    }
+  }
+
+  .map-hint {
+    background-color: #00A6A3;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    @media (min-width: $trivia-bp) {
+      height: 340px;
+    }
+
+    // The bottom shadow
+    &::before,
+    &::after {
+      background: rgba(0, 0, 0, 0.07);
+      bottom: 0;
+      content: '';
+      height: 12px;
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+      z-index: 5;
+    }
+
+    &::after {
+      height: 6px;
+    }
+  }
+
+  .menu {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+
+  .menu--hidden {
+    opacity: 0;
+  }
+
+  .board .logo {
+    display: none;
+  }
+
+  .ngb-logo {
+    background: url(img/ngb-logo.svg) no-repeat;
+    background-size: 42px;
+    bottom: 5px;
+    left: 50px;
+    line-height: 1;
+    overflow: hidden;
+    padding-top: 42px;
+    position: fixed;
+    text-indent: -100%;
+    width: 42px;
+    z-index: 6;
+
+    @media (min-width: $trivia-bp) {
+      background-size: 116px;
+      bottom: auto;
+      color: #fff;
+      font-family: Roboto, sans-serif;
+      font-size: 10px;
+      left: auto;
+      letter-spacing: 0.7px;
+      line-height: 13px;
+      overflow: auto;
+      padding-top: 116px;
+      position: absolute;
+      right: -126px;
+      text-align: center;
+      text-decoration: none;
+      text-indent: 0;
+      text-transform: uppercase;
+      top: -55px;
+      width: 116px;
+    }
+  }
+
+  .levelup,
+  .levelup--number {
+    z-index: 7;
+  }
+}

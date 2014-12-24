@@ -109,6 +109,9 @@ var SCENE_CLOSURE_CONFIG = {
   translations: {
     entryPoint: 'app.Scene'
   },
+  trivia: {
+    entryPoint: 'app.Game'
+  },
   windtunnel: {
     entryPoint: 'app.Scene'
   }
@@ -169,7 +172,6 @@ gulp.task('compile-santa-api-service', function() {
 
 gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
   var sceneNames = Object.keys(SCENE_CLOSURE_CONFIG);
-
   // compile each scene, merging them into a single gulp stream as we go
   return sceneNames.reduce(function(stream, sceneName) {
     var config = SCENE_CLOSURE_CONFIG[sceneName];
@@ -290,7 +292,8 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'compass', 'compile-scenes'], function
             'core-selection.html',
             'core-selector.html',
             'core-pages.html',
-            'paper-fab.html'
+            'paper-fab.html',
+            'paper-item.html'
           ]
         },
         strip: !argv.pretty,
