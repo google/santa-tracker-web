@@ -6,8 +6,6 @@
 <link rel="import" href="../../../components/google-streetview-pano/google-streetview-pano.html">
 <link rel="import" href="../../../components/core-media-query/core-media-query.html">
 
-<link rel="import" href="../../../js/utils.html">
-
 <!--
 Utility element to use response HTML returned by the Santa Tracker API.
 
@@ -107,7 +105,7 @@ City feed view in Tracker
         <div layout?="{{!isMobileSize}}" horizontal start justified>
           <div class="card card-{{model.type}} {{model.game ? 'card-' + model.game : ''}}"
                flex?="{{model.type == 'city'}}">
-            <div class="divider" layout horizontal end>{{model.timestamp | formatCountdown}}</div>
+            <div class="divider" layout horizontal end>{{model.timestamp | formatTime}}</div>
 
             <div hidden?="{{model.type != 'city'}}">
               <div class="card-header">
@@ -136,7 +134,7 @@ City feed view in Tracker
                       <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
                       <div layout horizontal center>
                         <div class="ico ico-clock"></div>
-                        <h2 class="stat-large">{{model.stop.arrival | formatCountdown}}</h2>
+                        <h2 class="stat-large">{{model.stop.arrival | formatTime}}</h2>
                       </div>
                     </div>
                     <div>
@@ -190,7 +188,7 @@ City feed view in Tracker
 
           <template if="{{model.nextCard}}" bind="{{model.nextCard as model}}">
             <div class="card card-{{model.type}} {{model.game ? 'card-' + model.game : ''}}">
-              <div class="divider" layout horizontal end>{{model.timestamp | formatCountdown}}</div>
+              <div class="divider" layout horizontal end>{{model.timestamp | formatTime}}</div>
               <template bind ref="mini-cards-template"></template>
             </div>
           </template>
@@ -447,8 +445,28 @@ Polymer({
     }
   },
 
-  formatCountdown: function(timestamp) {
-    return formatCountdown(timestamp);
+  formatTime: function(timestamp) {
+    if (isNaN(timestamp)) {
+      return '';
+    }
+
+    timestamp /= 1000;
+
+    var seconds = Math.floor(timestamp) % 60;
+    timestamp /= 60;
+    var mins = Math.floor(timestamp) % 60;
+    timestamp /= 60;
+    var hours = Math.floor(timestamp) % 24;
+    var parts = [this.pad(hours), this.pad(mins), this.pad(seconds)];
+
+    return parts.join(':');
+  },
+
+  pad: function (n) {
+    if (n > 9) {
+      return n;
+    }
+    return '0' + n;
   },
 
   onWikipedia: function(e, detail, sender) {
