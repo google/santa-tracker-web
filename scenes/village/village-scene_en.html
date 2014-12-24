@@ -54,13 +54,13 @@ Village scene.
           <h3><i18n-msg msgid="minutes">PLACEHOLDER_i18n</i18n-msg></h3>
           <h3><i18n-msg msgid="seconds">PLACEHOLDER_i18n</i18n-msg></h3>
         </countdown-timer>
-        <h2><i18n-msg msgid="countdownlabel">PLACEHOLDER_i18n</i18n-msg><span id="learnmore"> &centerdot; <a href="{{pageUrl}}#about"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a></span></h2>
+        <h2 hidden?="{{countdownFinished || santaApp.postFlight}}"><i18n-msg msgid="countdownlabel">PLACEHOLDER_i18n</i18n-msg><span id="learnmore"> &centerdot; <a href="{{pageUrl}}#about"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a></span></h2>
         <div id="finished-tracker" hidden?="{{!santaApp.postCountdown}}">
           <div id="sign-back"><div></div></div>
           <div id="sign-front"><div></div></div>
           <a href="{{pageUrl}}#tracker" tabindex="{{countdownFinished ? 0 : -1}}"></a>
         </div>
-        <h2 hidden?="{{!santaApp.postFlight}}"><i18n-msg msgid="endofjourneymessage">PLACEHOLDER_i18n</i18n-msg></h2>
+        <h2 hidden?="{{!santaApp.postFlight}}" id="endof"><i18n-msg msgid="endofjourneymessage">PLACEHOLDER_i18n</i18n-msg></h2>
       </div>
 
       <div id="hit-area-left" on-mouseenter="{{onHitArea}}" on-mouseleave="{{cancelScrollAnimation}}"
