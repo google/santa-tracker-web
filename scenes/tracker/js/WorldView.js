@@ -228,8 +228,13 @@ WorldView.prototype.moveSanta = function(state) {
 
   if (this.lockOnSanta_) {
     var bounds = this.santaLayer_.getBounds();
-    bounds.extend(mapsLatLng(state.next.location));
     this.map_.fitBounds(bounds);
+    if (this.centerOffset_) {
+      this.map_.panTo(this.getLatLngOffset_(
+            loc,
+            this.centerOffset_.x,
+            this.centerOffset_.y + this.santaLayer_.getHeight() / 2));
+    }
   }
 
   this.throttledFilterMarkers_();
