@@ -114,19 +114,11 @@ City feed view in Tracker
                   <h4 class="white">{{model.stop.region}}</h4>
                   <h1>{{model.stop.city}}</h1>
                 </div>
-                <core-selector class="card-icons" selected="{{model.selectedCard}}" on-core-activate="{{onCardSelected}}">
-                  <template if="{{model.stop.details.photos[0]}}">
-                    <img src="img/tracker-and-city-SVGs_feed-city-icon.svg" data-name="photo">
-                  </template>
-                  <template if="{{model.stop.details.photos[1]}}">
-                    <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg" data-name="photo">
-                  </template>
-                  <template if="{{model.stop.details.streetView}}">
-                    <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg" data-name="streetview">
-                  </template>
-                  <template if="{{model.stop.details.hasWiki}}">
-                    <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg" on-tap="{{onWikipedia}}" data-name="wikipedia">
-                  </template>
+                <core-selector id="cardselector" class="card-icons" selected="{{model.selectedCard}}" on-core-activate="{{onCardSelected}}">
+                  <img src="img/tracker-and-city-SVGs_feed-city-icon.svg" data-name="photo" hidden?="{{!model.stop.details.photos[0]}}">
+                  <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg" data-name="photo" hidden?="{{!model.stop.details.photos[1]}}">
+                  <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg" data-name="streetview" hidden?="{{!model.stop.details.streetView}}">
+                  <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg" on-tap="{{onWikipedia}}" data-name="wikipedia" hidden?="{{!model.stop.details.hasWiki}}">
                 </core-selector>
                 <div class="stats">
                   <div layout horizontal>
