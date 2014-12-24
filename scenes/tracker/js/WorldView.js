@@ -60,6 +60,10 @@ WorldView.prototype.hide = function() {
   if (this.circleView_) {
     this.circleView_.hide();
   }
+
+  if (this.santaLayer_) {
+    this.santaLayer_.hide();
+  }
 };
 
 WorldView.prototype.cycleStatus_ = function() {
@@ -127,6 +131,7 @@ WorldView.prototype.zoomOut = function() {
 };
 
 WorldView.prototype.setupMap = function() {
+  if (this.map_) return;
   this.map_ = new google.maps.Map(this.base_.$['module-tracker'].querySelector('#trackermap'), {
     center: {lat: 0, lng: 0},
     zoom: 1,
@@ -362,8 +367,10 @@ WorldView.prototype.fitBounds = function() {
     }
   }
 
-  this.map_.fitBounds(bounds);
-  google.maps.event.trigger(this.map_, 'resize');
+  if (this.map_) {
+    this.map_.fitBounds(bounds);
+    google.maps.event.trigger(this.map_, 'resize');
+  }
 };
 
 /**
