@@ -67,6 +67,10 @@ function createSantaLayerConstructor() {
     this.draw();
   };
 
+  SantaLayer.prototype.hide = function() {
+    this.stopAnimation_();
+  };
+
   SantaLayer.prototype.getHeight = function() {
     var type = this.get('type');
     switch (type) {

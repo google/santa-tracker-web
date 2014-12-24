@@ -329,6 +329,9 @@ Tracker scene.
      */
     navOpen: false,
 
+    mapReady_: false,
+    shown: false,
+
     /**
      * Mapping of YouTube video ids to URL routes.
      * @property ytMapping
@@ -420,6 +423,13 @@ Tracker scene.
     },
 
     mapsAPIReady: function() {
+      this.mapReady_ = true;
+      this.setupTracker();
+    },
+
+    setupTracker: function() {
+      if (!this.mapReady_ || !this.shown || this.worldView_) return;
+
       this.worldView_ = new WorldView(this, this.componentDir);
       this.worldView_.setupMap();
       this.worldView_.show();
@@ -477,6 +487,7 @@ Tracker scene.
       this.santaApp.santaService.addListener('card', this.updateCard_.bind(this));
 
       this.trackSanta();
+      this.worldView_.fitBounds();
     },
 
     loadTrackerScene_: function(sceneId) {
@@ -606,17 +617,14 @@ Tracker scene.
     },
 
     onShow: function() {
+      this.shown = true;
+      this.setupTracker();
+
       if (!this.santaApp.hasTrackerIntroShown_) {
         this.santaApp.hasTrackerIntroShown_ = true;
         this.$.intro.layoutReady();
       } else {
         this.$.intro.destroy();
-      }
-
-      //TODO(lukem): figure out something nicer to do
-      if (this.worldView_) {
-        this.worldView_.show();
-        this.worldView_.fitBounds();
       }
 
       // Always start with cityFeed and tracker nav closed.
@@ -633,6 +641,9 @@ Tracker scene.
       if (this.worldView_) {
         this.worldView_.hide();
       }
+
+      this.shown = false;
+      this.mapReady_ = false;
 
       this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
