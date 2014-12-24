@@ -479,8 +479,8 @@ Polymer(Polymer.mixin({
 
     this.prepareHouses_();
 
+    this.checkSchedule_();
     if (!this.route) {
-      this.checkSchedule_();
       this.route = this.postCountdown ? TRACKER_ROUTE_ : DEFAULT_ROUTE_;
     }
   },
