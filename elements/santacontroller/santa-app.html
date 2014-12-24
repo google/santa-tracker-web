@@ -695,10 +695,6 @@ Polymer(Polymer.mixin({
   },
 
   postCountdownChanged: function() {
-    if (document.body.classList.contains('posttakeoff')) {
-      return;
-    }
-
     document.body.classList.add('posttakeoff');
   },
 
