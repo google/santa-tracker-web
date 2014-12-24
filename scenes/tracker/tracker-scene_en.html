@@ -129,9 +129,11 @@ Tracker scene.
         <div id="city-stats">
           <ul>
             <li hidden?="{{!location.stopover}}">
-              <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
-              <div class="ico ico-marker"></div>
-              <div class="stat">{{ location.stopover.city }}</div>
+              <a href="{{pageUrl}}#tracker" on-tap="{{onCurrentLocationClicked}}">
+                <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                <div class="ico ico-marker"></div>
+                <div class="stat">{{ location.stopover.city }}</div>
+              </a>
             </li>
             <li>
               <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -344,6 +346,13 @@ Tracker scene.
     shown: false,
 
     /**
+     * True if the city feed was opened from arriving at a city.
+     * @type {boolean}
+     * defaul false
+     */
+    feedWasOpenForCurrentCity: false,
+
+    /**
      * Mapping of YouTube video ids to URL routes.
      * @property ytMapping
      * @type {object}
@@ -476,7 +485,6 @@ Tracker scene.
 
       google.maps.event.addListener(this.worldView_, 'santa_clicked', function(e) {
         this.cityFeedActive = !this.cityFeedActive;
-        this.trackerCard = null;
 
         if (this.cityFeedActive) {
           if (this.location.stopover) {
@@ -493,7 +501,6 @@ Tracker scene.
 
       google.maps.event.addListener(this.worldView_, 'routemarker_clicked', function(destId) {
         this.cityFeedActive = true;
-        this.trackerCard = null;
         this.$.feed.scrollToDest(destId);
 
         this.fire('analytics-track-event', {category: 'cityfeed', action: 'show',
@@ -599,7 +606,20 @@ Tracker scene.
       this.arrival_ = this.formatCountdown_(location.next.arrival);
 
       if (location.stopover) {
+        // Make sure the feed doesn't automatically reopen if it was already
+        // open for this city.
+        if (!this.feedWasOpenForCurrentCity) {
+          this.feedWasOpenForCurrentCity = true;
+
+          // Open city feed at the stop location if it's not already open.
+          if (!this.cityFeedActive) {
+            this.cityFeedActive = true;
+            this.$.feed.scrollToDest(location.stopover.id);
+          }
+        }
         this.departure_ = this.formatCountdown_(location.stopover.departure);
+      } else {
+        this.feedWasOpenForCurrentCity = false; // left the location, reset.
       }
 
       if (this.userLocation) {
@@ -626,6 +646,8 @@ Tracker scene.
       this.worldView_.setMode(this.cityFeedActive ? 'feed' : 'track');
 
       if (this.cityFeedActive) {
+        this.trackerCard = null;
+
         // Wait for circle animation to finish before we fade in stats and city feed.
         this.async(function() {
           this.$.feed.active = true;
@@ -656,8 +678,9 @@ Tracker scene.
         this.$.intro.destroy();
       }
 
-      // Always start with cityFeed and tracker nav closed.
+      // Always start with cityFeed, tracker nav, and tracker card closed.
       this.cityFeedActive = false;
+      this.trackerCard = null;
       this.navOpen = false;
 
       if (this.mode === 'cast') {
@@ -691,7 +714,6 @@ Tracker scene.
     openStraightToFeed: function() {
       this.$.intro.closeIntro();
       this.cityFeedActive = true;
-      this.trackerCard = null;
     },
 
     formatInt_: function(i) {
