@@ -44,3 +44,9 @@ StreamCard.prototype.status;
  * @type {SantaLocation|undefined}
  */
 StreamCard.prototype.stop;
+
+/**
+ * The type of card. One of stop, scene, video, photos, update, facts.
+ * @type {string}
+ */
+StreamCard.prototype.type;

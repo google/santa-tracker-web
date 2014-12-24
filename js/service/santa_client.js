@@ -195,8 +195,8 @@ SantaService.prototype.getCurrentLocation = function(callback) {
 
   // After Santa has left the stop, trigger the next stop card.
   if (!this.nextStop_ || this.nextStop_.id != next.id) {
-    console.log('trigger next stop', next.id)
     Events.trigger(this, 'card', /** @type {!StreamCard} */({
+      type: 'city',
       timestamp: now,
       stop: next
     }));
@@ -493,7 +493,8 @@ SantaService.prototype.rebuildTimeline_ = function(forceDirty) {
       // Create a "card" for the stop.
       toPush = /** @type {!StreamCard} */({
         timestamp: dest.arrival,
-        stop: dest
+        stop: dest,
+        type: 'city'
       });
     } else if (dests[0].arrival < stream[0].timestamp) {
       // Destination comes before the next stream card.
@@ -501,7 +502,8 @@ SantaService.prototype.rebuildTimeline_ = function(forceDirty) {
       // Create a "card" for the stop.
       toPush = /** @type {!StreamCard} */({
         timestamp: dest.arrival,
-        stop: dest
+        stop: dest,
+        type: 'city'
       });
     } else {
       // Stream card comes before the next destination.
@@ -510,6 +512,17 @@ SantaService.prototype.rebuildTimeline_ = function(forceDirty) {
     if (toPush.game && toPush.status) {
       // Trump status with game.
       toPush.status = null;
+    }
+    if (toPush.game) {
+      toPush.type = 'scene';
+    } else if (toPush.youtubeId) {
+      toPush.type = 'video';
+    } else if (toPush.imageUrl) {
+      toPush.type = 'photos';
+    } else if (toPush.status) {
+      toPush.type = 'update';
+    } else if (toPush.didyouknow) {
+      toPush.type = 'facts';
     }
 
     // Check whether the card would have already been shown or whether it is
