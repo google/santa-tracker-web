@@ -6,8 +6,6 @@
 <link rel="import" href="../../../components/google-streetview-pano/google-streetview-pano.html">
 <link rel="import" href="../../../components/core-media-query/core-media-query.html">
 
-<link rel="import" href="../../../js/utils.html">
-
 <!--
 Utility element to use response HTML returned by the Santa Tracker API.
 
@@ -453,9 +451,16 @@ Polymer({
     var mins = Math.floor(timestamp) % 60;
     timestamp /= 60;
     var hours = Math.floor(timestamp) % 24;
-    var parts = [pad(hours), pad(mins), pad(seconds)];
+    var parts = [this.pad(hours), this.pad(mins), this.pad(seconds)];
 
     return parts.join(':');
+  },
+
+  pad: function (n) {
+    if (n > 9) {
+      return n;
+    }
+    return '0' + n;
   },
 
   onWikipedia: function(e, detail, sender) {
