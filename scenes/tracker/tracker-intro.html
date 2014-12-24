@@ -41,6 +41,7 @@ Intro for the tracker scene.
         <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
       </p>
     </div>
+    <div id="santa-loading"></div>
 
     <div class="pin-wrapper" id="pinWrapper">
       <img class="pin" id="pin" src="img/pin.svg">
@@ -156,6 +157,16 @@ Intro for the tracker scene.
      */
     userBubbleCenterX_: 0,
 
+    /**
+     * How long to wait for user to click the geo location browser buttons
+     *
+     * @private
+     * @const
+     * @type number
+     * @default 20000
+     */
+    GEO_WAIT_TIME_: 20000,
+
     created: function() {
       this.calculateLayoutValues_();
     },
@@ -246,7 +257,9 @@ Intro for the tracker scene.
     },
 
     userLocationChanged: function() {
+      this.$['santa-loading'].classList.remove('final');
       if (this.layoutReady_ && ! this.map_) {
+        window.clearTimeout(this.continueTimeout_);
         this.setupUserMap_();
       }
     },
@@ -254,9 +267,15 @@ Intro for the tracker scene.
     layoutReady: function() {
       this.layoutReady_ = true;
 
+      this.continueTimeout_ = window.setTimeout(this.bypass.bind(this), this.GEO_WAIT_TIME_);
+
       if (this.userLocation) {
         this.setupUserMap_();
       }
+    },
+
+    bypass: function() {
+      this.closeIntro();
     },
 
     setupUserMap_: function() {
@@ -289,6 +308,7 @@ Intro for the tracker scene.
     showTitle: function() {
       this.async(function() {
         this.$.top.classList.add('final');
+        this.$['santa-loading'].classList.add('final');
       }, null, 300);
     },
 
