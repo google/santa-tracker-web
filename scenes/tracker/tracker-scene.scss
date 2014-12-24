@@ -190,6 +190,11 @@ $name: 'module-tracker';
         margin: 0 25px;
         border-bottom: 1px solid rgba(166,16,16,0.5);
 
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+
         h4 {
           text-transform: uppercase;
           color: #f2d9a2;
