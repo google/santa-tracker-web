@@ -399,6 +399,10 @@ Tracker scene.
       this.cityFeedActive = true;
       var destId = sender.templateInstance.model.model.stop.id;
       this.$.feed.scrollToDest(destId);
+
+      var cardType = sender.templateInstance.model.model.type;
+      this.fire('analytics-track-event', {category: 'card', action: 'click',
+                                          label: 'type: ' + cardType});
     },
 
     created: function() {
@@ -567,11 +571,14 @@ Tracker scene.
           }
         }
       }.bind(this));
+
+      this.fire('analytics-track-event', {category: 'geolocation', action: 'success'});
     },
 
     geoLocationError_: function(error) {
       this.userLocation = null;
       this.$.intro.closeIntro();
+      this.fire('analytics-track-event', {category: 'geolocation', action: 'error'});
     },
 
     destinationsChanged: function() {
