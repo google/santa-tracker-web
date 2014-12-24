@@ -807,6 +807,9 @@ Polymer(Polymer.mixin({
   onTrackerAction: function(e, detail, sender) {
     // Note: needs to go qS() because DOM is not guaranteed to exist if on cast.
     var calendar = this.$.lazypages.querySelector('calendar-nav');
+    if (!calendar) {
+      return; // cast mode
+    }
     if (detail.type == 'tracker-toggle') {
       calendar.trackerActive = detail.active;
     } else if (detail.type == 'city-toggle') {
