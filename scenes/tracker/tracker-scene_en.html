@@ -129,9 +129,11 @@ Tracker scene.
         <div id="city-stats">
           <ul>
             <li hidden?="{{!location.stopover}}">
-              <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
-              <div class="ico ico-marker"></div>
-              <div class="stat">{{ location.stopover.city }}</div>
+              <a href="{{pageUrl}}#tracker" on-tap="{{onCurrentLocationClicked}}">
+                <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                <div class="ico ico-marker"></div>
+                <div class="stat">{{ location.stopover.city }}</div>
+              </a>
             </li>
             <li>
               <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -604,7 +606,8 @@ Tracker scene.
       this.arrival_ = this.formatCountdown_(location.next.arrival);
 
       if (location.stopover) {
-        // Make sure users can close the feed if they already have it open.
+        // Make sure the feed doesn't automatically reopen if it was already
+        // open for this city.
         if (!this.feedWasOpenForCurrentCity) {
           this.feedWasOpenForCurrentCity = true;
 
