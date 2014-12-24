@@ -5,7 +5,8 @@
   <link rel="stylesheet" href="map-hint.css" />
   <div id="map" fit></div>
   <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
-                   language="{{santaApp.language}}" on-api-load="{{onMapsAPIReady}}"></google-maps-api>
+                         libraries="places,geometry" language="{{santaApp.language}}"
+                         on-api-load="{{mapsAPIReady}}"></google-maps-api>
   <div id="globe" class="globe" fit>
     <template repeat="{{part in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}}">
       <div class="globe-part globe-part--{{part}}"></div>
