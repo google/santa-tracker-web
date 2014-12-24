@@ -348,7 +348,7 @@ Tracker scene.
      * @type {boolean}
      * defaul false
      */
-    openedCityFeedUponArrival: false,
+    feedWasOpenForCurrentCity: false,
 
     /**
      * Mapping of YouTube video ids to URL routes.
@@ -605,8 +605,8 @@ Tracker scene.
 
       if (location.stopover) {
         // Make sure users can close the feed if they already have it open.
-        if (!this.openedCityFeedUponArrival) {
-          this.openedCityFeedUponArrival = true;
+        if (!this.feedWasOpenForCurrentCity) {
+          this.feedWasOpenForCurrentCity = true;
 
           // Open city feed at the stop location if it's not already open.
           if (!this.cityFeedActive) {
@@ -616,7 +616,7 @@ Tracker scene.
         }
         this.departure_ = this.formatCountdown_(location.stopover.departure);
       } else {
-        this.openedCityFeedUponArrival = false; // left the location, reset.
+        this.feedWasOpenForCurrentCity = false; // left the location, reset.
       }
 
       if (this.userLocation) {
