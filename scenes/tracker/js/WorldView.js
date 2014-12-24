@@ -54,6 +54,10 @@ WorldView.prototype.show = function() {
   $('li.show', this.statusBar_).removeClass('show');
 
   this.base_.async(this.cycleStatus_.bind(this));
+
+  this.resizeHandler_ = this.onResize_.bind(this);
+  this.resizeHandler_();
+  window.addEventListener('resize', this.resizeHandler_);
 };
 
 WorldView.prototype.hide = function() {
@@ -64,6 +68,15 @@ WorldView.prototype.hide = function() {
   if (this.santaLayer_) {
     this.santaLayer_.hide();
   }
+
+  window.removeEventListener('resize', this.resizeHandler_);
+  this.resizeHandler_ = null;
+};
+
+WorldView.prototype.onResize_ = function() {
+  var width = windowWidth();
+  var height = windowHeight();
+  this.mapSize_ = new google.maps.Size(width, height);
 };
 
 WorldView.prototype.cycleStatus_ = function() {
@@ -232,17 +245,7 @@ WorldView.prototype.moveSanta = function(state) {
   this.santaLayer_.updateTrail(state);
 
   if (this.lockOnSanta_) {
-    var bounds = this.santaLayer_.getBounds();
-    bounds.extend(mapsLatLng(state.next.location));
-    this.map_.fitBounds(bounds);
-    if (this.centerOffset_) {
-      this.map_.panTo(this.getLatLngOffset_(
-            loc,
-            this.centerOffset_.x,
-            this.centerOffset_.y + this.santaLayer_.getHeight() / 2));
-    } else {
-      this.map_.panTo(loc);
-    }
+    this.updateCamera_(state);
   }
 
   this.throttledFilterMarkers_();
@@ -359,18 +362,68 @@ WorldView.prototype.filterMarkers_ = function() {
   this.showSceneMarkers_();
 };
 
-WorldView.prototype.fitBounds = function() {
-  var bounds = new google.maps.LatLngBounds();
-  if (this.routeMarkers_) {
-    for (var i = 0, marker; marker = this.routeMarkers_[i]; i++) {
-      bounds.extend(marker.getPosition());
+/**
+ * Updates the camera locked on Santa.
+ * @param {SantaState}
+ * @private
+ */
+WorldView.prototype.updateCamera_ = function(state) {
+  // Work around https://b/18847104
+  var bounds = this.santaLayer_.getBounds();
+  bounds.extend(mapsLatLng(state.next.location));
+  var windowSize = this.mapSize_;
+  var proj = this.map_.getProjection();
+  if (proj) {
+    var zoom = this.getBoundsZoomLevel_(proj, bounds, windowSize);
+    if (this.map_.getZoom() != zoom) {
+      // Viewport request triggered if setZoom called (even if not changed).
+      this.map_.setZoom(zoom);
     }
   }
-
-  if (this.map_) {
-    this.map_.fitBounds(bounds);
-    google.maps.event.trigger(this.map_, 'resize');
+  var center = mapsLatLng(state.position);
+  if (this.centerOffset_) {
+    center = this.getLatLngOffset_(
+          center,
+          this.centerOffset_.x,
+          this.centerOffset_.y + this.santaLayer_.getHeight() / 2);
   }
+  this.map_.panTo(center);
+};
+
+/**
+ * From f:maps f:api util.js
+ */
+WorldView.prototype.getBoundsZoomLevel_ = function(projection, latLngBounds, viewSize) {
+  var sw = latLngBounds.getSouthWest();
+  var ne = latLngBounds.getNorthEast();
+  var west = sw.lng();
+  var east = ne.lng();
+  // Wrap to ensure that west <= east.  This is necessary when the latLngBounds
+  // crosses the longitudinal meridian.
+  if (west > east) {
+    sw = new LatLng(sw.lat(), west - 360, true);
+  }
+
+  // Compute the bounds in projected coordinates (pixels at zoom 0).
+  // corner1 and corner2 are opposite corners of the bounding rectangle,
+  // though we do not which way is "up".
+  var corner1 = projection.fromLatLngToPoint(sw);
+  var corner2 = projection.fromLatLngToPoint(ne);
+  var width = Math.max(corner1.x, corner2.x) - Math.min(corner1.x, corner2.x);
+  var height = Math.max(corner1.y, corner2.y) - Math.min(corner1.y, corner2.y);
+
+  // If the bounds is too large to display even at zoom level 0,
+  // return zoom level 0 regardless.
+  if (width > viewSize.width || height > viewSize.height) return 0;
+
+  function log2(val) {
+    return Math.log(val) / Math.LN2;
+  }
+  var eps = 1E-12;  // Avoid log of zero.
+  var xZoom = log2(viewSize.width + eps) - log2(width + eps);
+  var yZoom = log2(viewSize.height + eps) - log2(height + eps);
+  var zoom = Math.floor(Math.min(xZoom, yZoom));
+  return zoom;
 };
 
 /**
