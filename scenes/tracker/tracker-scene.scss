@@ -152,6 +152,7 @@ $name: 'module-tracker';
     color: #fff;
     z-index: 2;
     opacity: 0;
+    min-width: 250px;
     @include transform(translate3d(0, 0, 0));
     @include transition(transform 500ms ease, opacity 500ms ease);
 
@@ -187,7 +188,7 @@ $name: 'module-tracker';
       li {
         padding: 12px 0;
         margin: 0 25px;
-        border-bottom: 1px solid #a61010;
+        border-bottom: 1px solid rgba(166,16,16,0.5);
 
         h4 {
           text-transform: uppercase;
@@ -198,11 +199,10 @@ $name: 'module-tracker';
         }
 
         &:first-child {
-          border-top: 1px solid #a61010;
+          border-top: 1px solid rgba(166,16,16,0.5);
         }
 
         &:last-of-type {
-          background: #d8433b;
           border-radius: 0 0 5px 5px;
           margin: 0;
           padding: 12px 25px;
