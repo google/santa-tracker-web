@@ -479,8 +479,8 @@ Polymer(Polymer.mixin({
 
     this.prepareHouses_();
 
+    this.checkSchedule_();
     if (!this.route) {
-      this.checkSchedule_();
       this.route = this.postCountdown ? TRACKER_ROUTE_ : DEFAULT_ROUTE_;
     }
   },
@@ -695,15 +695,6 @@ Polymer(Polymer.mixin({
   },
 
   postCountdownChanged: function() {
-    if (this.santaService.now() > this.FLIGHT_FINISHED) {
-      this.postFlight = true;
-      return;
-    }
-
-    if (document.body.classList.contains('posttakeoff')) {
-      return;
-    }
-
     document.body.classList.add('posttakeoff');
   },
 
@@ -765,13 +756,8 @@ Polymer(Polymer.mixin({
     tomorrowDate.setDate(todayDate.getDate() + 1);
 
     // Set post countdown/post flight flags based on current time.
-    if (todayDate > this.countDownEndDate) {
-      if (todayDate < this.FLIGHT_FINISHED) {
-        this.postCountdown = true;
-      } else {
-        this.postFlight = true;
-      }
-    }
+    this.postFlight = todayDate >= this.FLIGHT_FINISHED;
+    this.postCountdown = todayDate > this.countDownEndDate && !this.postFlight;
 
     switch(todayDate.getMonth()) {
       case 11: // DECEMBER
@@ -826,11 +812,13 @@ Polymer(Polymer.mixin({
   },
 
   onCountdownFinish: function(e, detail, sender) {
-    // Redirect to village -> tracker when the countdown finishes. This allows
+    // Redirect village -> tracker when the countdown finishes. This allows
     // users to go back to the village.
-    if (!this.postCountdown && this.santaService.now() > this.countDownEndDate) {
-      this.postCountdown = true;
-      this.route = TRACKER_ROUTE_;
+    if (!this.postCountdown) {
+      this.checkSchedule_();
+      if (this.postCountdown && this.route === DEFAULT_ROUTE_) {
+        this.route = TRACKER_ROUTE_;
+      }
     }
   }
 
