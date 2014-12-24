@@ -403,7 +403,8 @@ Polymer(Polymer.mixin({
     'analytics-track-game-quit': 'trackGameQuit',
     'analytics-track-game-over': 'trackGameOver',
     'tracker-action': 'onTrackerAction',
-    'countdown-timer-finish': 'onCountdownFinish'
+    'countdown-timer-finish': 'onCountdownFinish',
+    'tracker-end': 'onTrackerEnd'
   },
 
   ready: function() {
@@ -823,6 +824,10 @@ Polymer(Polymer.mixin({
         this.route = TRACKER_ROUTE_;
       }
     }
+  },
+
+  onTrackerEnd: function(e, detail, sender) {
+    this.checkSchedule_();
   }
 
 }, chromecastMixin));

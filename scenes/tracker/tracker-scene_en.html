@@ -428,6 +428,11 @@ Tracker scene.
         this.location = location;
       }.bind(this));
 
+      // if santaApp doesn't notice, remind it that tracking is finished.
+      if (this.santaApp.santaService.now() > this.santaApp.FLIGHT_FINISHED) {
+        this.santaApp.fire('tracker-end');
+      }
+
       if (!this.trackingInterval_) {
         this.trackingInterval_ = window.setInterval(this.updateSanta_.bind(this), 250);
       }
