@@ -198,8 +198,7 @@ Tracker scene.
                   <div class="stat">{{ departure_ }}</div>
                 </li>
                 <li>
-                  <a href="{{pageUrl}}#tracker" on-tap="{{onCurrentLocationClicked}}"
-                    data-stopid="{{location.stopover.id}}"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <a href="{{pageUrl}}#tracker" on-tap="{{onCurrentLocationClicked}}"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div class="ico ico-marker"></div>
                   <div class="stat">{{ location.stopover.city }}</div></a>
                 </li>
@@ -211,8 +210,7 @@ Tracker scene.
             <ul>
               <template if="{{location.stopover}}">
                 <li>
-                  <a href="{{pageUrl}}#tracker" on-tap="{{onCurrentLocationClicked}}"
-                    data-stopid="{{location.stopover.id}}"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <a href="{{pageUrl}}#tracker" on-tap="{{onCurrentLocationClicked}}"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div class="ico ico-marker"></div>
                   <div class="stat">{{ location.stopover.city }}</div></a>
                 </li>
@@ -398,7 +396,7 @@ Tracker scene.
 
     onCurrentLocationClicked: function(e, detail, sender) {
       e.preventDefault();
-      var destId = sender.getAttribute('data-stopid');
+      var destId = sender.templateInstance.model.location.stopover.id;
       this.cityFeedActive = true;
       this.$.feed.scrollToDest(destId);
     },
