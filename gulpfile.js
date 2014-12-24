@@ -292,7 +292,8 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'compass', 'compile-scenes'], function
             'core-selection.html',
             'core-selector.html',
             'core-pages.html',
-            'paper-fab.html'
+            'paper-fab.html',
+            'paper-item.html'
           ]
         },
         strip: !argv.pretty,
