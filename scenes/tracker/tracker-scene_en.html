@@ -642,7 +642,11 @@ Tracker scene.
       this.cityFeedActive = false;
       this.navOpen = false;
 
-      this.sceneParamsChanged();
+      if (this.mode === 'cast') {
+        this.openStraightToFeed();
+      } else {
+        this.sceneParamsChanged();
+      }
 
       this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
@@ -661,13 +665,15 @@ Tracker scene.
 
     sceneParamsChanged: function() {
       if (this.sceneParams.timestamp) {
-        this.$.intro.closeIntro();
-        this.cityFeedActive = true;
-
-        if (this.sceneParams.timestamp) {
-          this.$.feed.scrollToTime(this.sceneParams.timestamp);
-        }
+        this.openStraightToFeed();
+        this.$.feed.scrollToTime(this.sceneParams.timestamp);
       }
+    },
+
+    openStraightToFeed: function() {
+      this.$.intro.closeIntro();
+      this.cityFeedActive = true;
+      this.trackerCard = null;
     },
 
     formatInt_: function(i) {
