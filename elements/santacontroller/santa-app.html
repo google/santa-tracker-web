@@ -695,7 +695,11 @@ Polymer(Polymer.mixin({
   },
 
   postCountdownChanged: function() {
-    // TODO: any tasks we need during flight
+    if (document.body.classList.contains('posttakeoff')) {
+      return;
+    }
+
+    document.body.classList.add('posttakeoff');
   },
 
   /**
