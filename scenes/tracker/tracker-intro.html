@@ -166,7 +166,7 @@ Intro for the tracker scene.
 
     attached: function() {
       this.resizeHandler_ =  this.resize_.bind(this);
-      window.addEventListener('resize',  this.resize_.bind(this));
+      window.addEventListener('resize', this.resizeHandler_);
     },
 
     detached: function() {
