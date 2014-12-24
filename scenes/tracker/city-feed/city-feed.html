@@ -442,13 +442,11 @@ Polymer({
       return '';
     }
 
-    timestamp /= 1000;
+    var dateStamp = new Date(timestamp);
 
-    var seconds = Math.floor(timestamp) % 60;
-    timestamp /= 60;
-    var mins = Math.floor(timestamp) % 60;
-    timestamp /= 60;
-    var hours = Math.floor(timestamp) % 24;
+    var seconds = dateStamp.getSeconds();
+    var mins = dateStamp.getMinutes();
+    var hours = dateStamp.getHours();
     var parts = [this.pad(hours), this.pad(mins), this.pad(seconds)];
 
     return parts.join(':');
