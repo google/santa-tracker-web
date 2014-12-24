@@ -171,7 +171,8 @@ app.Game.prototype.resume = function() {
 app.Game.prototype.dispose = function() {
   window.santaApp.fire('analytics-track-game-quit', {
     gameid: 'trivia',
-    timePlayed: new Date - this.gameStartTime
+    timePlayed: new Date - this.gameStartTime,
+    level: this.level
   });
 
   app.shared.utils.cancelAnimFrame(this.requestId);
