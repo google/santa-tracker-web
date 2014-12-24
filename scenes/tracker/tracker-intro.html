@@ -11,7 +11,8 @@ Intro for the tracker scene.
 @element tracker-intro
 -->
 <polymer-element name="tracker-intro" attributes="userLocation santaLocation santaDistance"
-                 on-transitionend="{{goesOffScreen}}">
+                 on-transitionend="{{goesOffScreen}}"
+                 on-webkitTransitionEnd="{{goesOffScreen}}">
 <template>
   <style>
   /* Outside of tracker-intro.scss because it requires shimming. */
