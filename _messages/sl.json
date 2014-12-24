@@ -821,6 +821,9 @@
 	"today_only": {
 		"message": "Samo danes"
 	},
+	"today_only_1": {
+		"message": "Samo danes"
+	},
 	"tr_country_name": {
 		"message": "Turčija"
 	},
@@ -848,14 +851,20 @@
 	"tracker_intro_skip_intro": {
 		"message": "Preskoči uvod"
 	},
+	"tracker_intro_user_location": {
+		"message": "Ste na naslednji lokaciji:"
+	},
 	"tracker_intro_welcome": {
-		"message": "Dobrodošli v"
+		"message": "Pozdravljeni v"
 	},
 	"tracker_next_stop": {
 		"message": "Naslednji postanek"
 	},
 	"tracker_santa_update": {
 		"message": "POSODOBITEV BOŽIČKOVEGA STANJA"
+	},
+	"tracker_see_route": {
+		"message": "Ogled poti"
 	},
 	"tracker_weather": {
 		"message": "Vreme"

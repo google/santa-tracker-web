@@ -818,6 +818,9 @@
 	"tn_country_name": {
 		"message": "ടുണീഷ്യ"
 	},
+	"today_only_1": {
+		"message": "ഇന്ന് മാത്രം"
+	},
 	"tr_country_name": {
 		"message": "ടർക്കി"
 	},
@@ -845,14 +848,20 @@
 	"tracker_intro_skip_intro": {
 		"message": "ഇന്‍ട്രൊ ഒഴിവാക്കുക"
 	},
+	"tracker_intro_user_location": {
+		"message": "നിങ്ങളുള്ളത്:"
+	},
 	"tracker_intro_welcome": {
-		"message": "ഇതിലേക്ക് സ്വാഗതം"
+		"message": "ഇതിലേക്ക് സ്വാഗതം:"
 	},
 	"tracker_next_stop": {
 		"message": "അടുത്ത സ്റ്റോപ്പ്"
 	},
 	"tracker_santa_update": {
 		"message": "സാന്തയിൽ നിന്നുള്ള പുതുവിവരം"
+	},
+	"tracker_see_route": {
+		"message": "റൂട്ട് കാണുക"
 	},
 	"tracker_weather": {
 		"message": "കാലാവസ്ഥ"

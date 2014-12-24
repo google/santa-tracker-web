@@ -821,6 +821,9 @@
 	"today_only": {
 		"message": "仅限今天"
 	},
+	"today_only_1": {
+		"message": "仅限今天"
+	},
 	"tr_country_name": {
 		"message": "土耳其"
 	},
@@ -848,6 +851,9 @@
 	"tracker_intro_skip_intro": {
 		"message": "跳过介绍页面"
 	},
+	"tracker_intro_user_location": {
+		"message": "您的位置是"
+	},
 	"tracker_intro_welcome": {
 		"message": "欢迎使用"
 	},
@@ -856,6 +862,9 @@
 	},
 	"tracker_santa_update": {
 		"message": "圣诞老人最新行踪"
+	},
+	"tracker_see_route": {
+		"message": "查看路线"
 	},
 	"tracker_weather": {
 		"message": "天气"
