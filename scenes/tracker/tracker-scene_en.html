@@ -613,6 +613,7 @@ Tracker scene.
 
           // Open city feed at the stop location if it's not already open.
           if (!this.cityFeedActive) {
+            this.worldView_.followSanta();
             this.cityFeedActive = true;
             this.$.feed.scrollToDest(location.stopover.id);
           }
