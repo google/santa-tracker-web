@@ -87,6 +87,13 @@ function SantaService(clientId, lang) {
   this.synced_ = false;
 
   /**
+   * Santa's next stop. Used to determine whether to trigger the "next stop"
+   * card.
+   * @private {SantaLocation}
+   */
+  this.nextStop_ = null;
+
+  /**
    * An extra offset determined by a URL parameter ("timestamp_override")
    *
    * @private {number|undefined}
@@ -185,6 +192,16 @@ SantaService.prototype.getCurrentLocation = function(callback) {
     next: next
   });
   callback(state);
+
+  // After Santa has left the stop, trigger the next stop card.
+  if (!this.nextStop_ || this.nextStop_.id != next.id) {
+    console.log('trigger next stop', next.id)
+    Events.trigger(this, 'card', /** @type {!StreamCard} */({
+      timestamp: now,
+      stop: next
+    }));
+  }
+  this.nextStop_ = next;
 };
 
 /**
@@ -524,7 +541,9 @@ SantaService.prototype.updateTimeline_ = function() {
   // (this.timeline_)
   while (this.futureCards_.length && this.futureCards_[0].timestamp < now) {
     var card = this.futureCards_.shift();
-    Events.trigger(this, 'card', card);
+    if (!card.stop) {
+      Events.trigger(this, 'card', card);
+    }
     // Insert at the beginning of the timeline.
     this.timeline_.unshift(card);
     dirty = true;
