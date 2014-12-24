@@ -148,8 +148,8 @@ City feed view in Tracker
                   <core-image sizing="cover" preload load?="{{model.stop.details.photos[1]}}" fade src="{{model.stop.details.photos[1].url}}"></core-image>
                   <div class="attribution" hidden?="{{!model.stop.details.photos[1]}}"><html-echo html="{{model.stop.details.photos[1].attributionHtml}}"></html-echo></div>
                 </div>
-                <template if="{{model.stop.details.streetView}}">
-                  <div>
+                <div>
+                  <template if="{{model.stop.details.streetView}}">
                     <template if="{{model.selectedCard == 2}}">
                       <google-streetview-pano version="3.exp" fit
                           panoid="{{model.stop.details.streetView.id}}"
@@ -159,8 +159,8 @@ City feed view in Tracker
                           language="{{santaApp.language}}"
                           disableDefaultUI></google-streetview-pano>
                     </template>
-                  </div>
-                </template>
+                  </template>
+                </div>
                 <div class="wikipedia">
                   <div class="gradientbar"></div>
                   <div class="wikipedia__logo"></div>
