@@ -765,8 +765,8 @@ Polymer(Polymer.mixin({
     tomorrowDate.setDate(todayDate.getDate() + 1);
 
     // Set post countdown/post flight flags based on current time.
-    this.postCountdown = todayDate > this.countDownEndDate && todayDate < this.FLIGHT_FINISHED;
-    this.postFlight = todayDate > this.countDownEndDate && todayDate >= this.FLIGHT_FINISHED
+    this.postFlight = todayDate >= this.FLIGHT_FINISHED;
+    this.postCountdown = todayDate > this.countDownEndDate && !this.postFlight;
 
     switch(todayDate.getMonth()) {
       case 11: // DECEMBER
