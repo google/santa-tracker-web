@@ -235,8 +235,8 @@ WorldView.prototype.moveSanta = function(state) {
             loc,
             this.centerOffset_.x,
             this.centerOffset_.y + this.santaLayer_.getHeight() / 2));
-    } else {    
-      this.map_.panTo(loc);    
+    } else {
+      this.map_.panTo(loc);
     }
   }
 
