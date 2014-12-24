@@ -184,6 +184,13 @@ Tracker scene.
               </template>
               <template if="{{location.stopover}}">
                 <li>
+                  <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div class="ico ico-marker"></div>
+                  <div class="stat">{{ location.stopover.city }}</div>
+                </li>
+              </template>
+              <template if="{{location.stopover}}">
+                <li>
                   <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div class="ico ico-clock"></div>
                   <div class="stat">{{ departure_ }}</div>
@@ -199,26 +206,32 @@ Tracker scene.
 
           <template if="{{!userLocation}}">
             <ul>
-              <li hidden?="{{!location.stopover}}">
-                <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="ico ico-marker"></div>
-                <div class="stat">{{ location.stopover.city }}</div>
-              </li>
+              <template if="{{location.stopover}}">
+                <li>
+                  <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div class="ico ico-marker"></div>
+                  <div class="stat">{{ location.stopover.city }}</div>
+                </li>
+              </template>
               <li>
                 <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="ico ico-arrow"></div>
                 <div class="stat">{{ location.next.city }}</div>
               </li>
-              <li hidden?="{{location.stopover}}">
-                <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="ico ico-clock"></div>
-                <div class="stat">{{ arrival_ }}</div>
-              </li>
-              <li hidden?="{{!location.stopover}}">
-                <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="ico ico-clock"></div>
-                <div class="stat">{{ departure_ }}</div>
-              </li>
+              <template if="{{!location.stopover}}">
+                <li>
+                  <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div class="ico ico-clock"></div>
+                  <div class="stat">{{ arrival_ }}</div>
+                </li>
+              </template>
+              <template if="{{location.stopover}}">
+                <li>
+                  <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div class="ico ico-clock"></div>
+                  <div class="stat">{{ departure_ }}</div>
+                </li>
+              </template>
               <li>
                 <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
