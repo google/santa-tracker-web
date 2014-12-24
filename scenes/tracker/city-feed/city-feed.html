@@ -146,11 +146,11 @@ City feed view in Tracker
               <core-pages class="card-body" selected="{{model.selectedCard}}">
                 <div>
                   <core-image sizing="cover" load?="{{model.stop.details.photos[0]}}" preload fade src="{{model.stop.details.photos[0].url}}"></core-image>
-                  <div class="attribution"><html-echo html="{{model.stop.details.photos[0].attributionHtml}}"></html-echo></div>
+                  <div class="attribution" hidden?="{{!model.stop.details.photos[0]}}"><html-echo html="{{model.stop.details.photos[0].attributionHtml}}"></html-echo></div>
                 </div>
                 <div>
                   <core-image sizing="cover" preload load?="{{model.stop.details.photos[1]}}" fade src="{{model.stop.details.photos[1].url}}"></core-image>
-                  <div class="attribution"><html-echo html="{{model.stop.details.photos[1].attributionHtml}}"></html-echo></div>
+                  <div class="attribution" hidden?="{{!model.stop.details.photos[1]}}"><html-echo html="{{model.stop.details.photos[1].attributionHtml}}"></html-echo></div>
                 </div>
                 <template if="{{model.stop.details.streetView}}">
                   <div>
