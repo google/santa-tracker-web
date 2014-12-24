@@ -695,16 +695,7 @@ Polymer(Polymer.mixin({
   },
 
   postCountdownChanged: function() {
-    if (this.santaService.now() > this.FLIGHT_FINISHED) {
-      this.postFlight = true;
-      return;
-    }
-
-    if (document.body.classList.contains('posttakeoff')) {
-      return;
-    }
-
-    document.body.classList.add('posttakeoff');
+    // TODO: any tasks we need during flight
   },
 
   /**

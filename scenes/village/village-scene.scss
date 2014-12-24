@@ -18,22 +18,6 @@ $name: 'module-village';
   }
 }
 
-.posttakeoff {
-  ##{$name} {
-    // These selectors are for the house with the telescope that becomes active
-    // after takeoff
-    #house3 {
-      &.interactive {
-        cursor: pointer !important;
-      }
-    }
-
-    #marker2 {
-      display: block !important;
-    }
-  }
-}
-
 ##{$name} {
   @import "sass/countdown_mini";
 
