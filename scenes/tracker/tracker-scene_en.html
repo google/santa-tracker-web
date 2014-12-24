@@ -198,9 +198,10 @@ Tracker scene.
                   <div class="stat">{{ departure_ }}</div>
                 </li>
                 <li>
-                  <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <a href="{{pageUrl}}#tracker" on-tap="{{onCurrentLocationClicked}}"
+                    data-stopid="{{location.stopover.id}}"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div class="ico ico-marker"></div>
-                  <div class="stat">{{ location.stopover.city }}</div>
+                  <div class="stat">{{ location.stopover.city }}</div></a>
                 </li>
               </template>
             </ul>
@@ -210,9 +211,10 @@ Tracker scene.
             <ul>
               <template if="{{location.stopover}}">
                 <li>
-                  <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <a href="{{pageUrl}}#tracker" on-tap="{{onCurrentLocationClicked}}"
+                    data-stopid="{{location.stopover.id}}"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div class="ico ico-marker"></div>
-                  <div class="stat">{{ location.stopover.city }}</div>
+                  <div class="stat">{{ location.stopover.city }}</div></a>
                 </li>
                 <li>
                   <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -392,6 +394,13 @@ Tracker scene.
       }
 
       this.preloadImages(images);
+    },
+
+    onCurrentLocationClicked: function(e, detail, sender) {
+      e.preventDefault();
+      var destId = sender.getAttribute('data-stopid');
+      this.cityFeedActive = true;
+      this.$.feed.scrollToDest(destId);
     },
 
     onTrackerCardClicked: function(e, detail, sender) {
