@@ -177,7 +177,7 @@ CircleView.prototype.render_ = function() {
                         this.distTo_(pageWidth, 0),
                         this.distTo_(pageWidth, pageHeight));
 
-  var holeRadius = $(window).width() < 660 ? CircleView.HOLE_RADIUS_MOBILE : CircleView.HOLE_RADIUS;
+  var holeRadius = $(window).width() < 668 ? CircleView.HOLE_RADIUS_MOBILE : CircleView.HOLE_RADIUS;
 
   $(this.el_).css({
     borderColor: this.color_,
