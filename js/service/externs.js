@@ -40,6 +40,7 @@ Card.prototype.imageUrl;
 Card.prototype.status;
 Card.prototype.game;
 Card.prototype.stop;
+Card.prototype.type;
 
 // Exports (used by other components)
 var Serv; // SantaService

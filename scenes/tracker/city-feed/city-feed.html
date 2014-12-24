@@ -360,21 +360,6 @@ Polymer({
     // Add additional metadata needed by the template.
     for (var i = 0, item; item = stream[i]; ++i) {
       item.selectedCard = 0; // select initial page on destination card.
-
-      // Specify type of card to render in feed.
-      if (item.stop) {
-        item.type = 'city';
-      } else if (item.game) {
-        item.type = 'scene';
-      } else if (item.youtubeId) {
-        item.type = 'video';
-      } else if (item.imageUrl) {
-        item.type = 'photos';
-      } else if (item.status) {
-        item.type = 'update';
-      } else if (item.didyouknow) {
-        item.type = 'facts';
-      }
     }
 
     var adjustedStream = [];
