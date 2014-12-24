@@ -821,6 +821,9 @@
 	"today_only": {
 		"message": "Tylko dzisiaj"
 	},
+	"today_only_1": {
+		"message": "Tylko dzisiaj"
+	},
 	"tr_country_name": {
 		"message": "Turcja"
 	},
@@ -848,14 +851,20 @@
 	"tracker_intro_skip_intro": {
 		"message": "Pomiń wprowadzenie"
 	},
+	"tracker_intro_user_location": {
+		"message": "Jesteś tutaj:"
+	},
 	"tracker_intro_welcome": {
-		"message": "Witamy w"
+		"message": "Witamy:"
 	},
 	"tracker_next_stop": {
 		"message": "Następny przystanek"
 	},
 	"tracker_santa_update": {
 		"message": "CO SŁYCHAĆ U MIKOŁAJA"
+	},
+	"tracker_see_route": {
+		"message": "Zobacz trasę"
 	},
 	"tracker_weather": {
 		"message": "Pogoda"

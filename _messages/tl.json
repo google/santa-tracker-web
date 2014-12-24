@@ -821,6 +821,9 @@
 	"today_only": {
 		"message": "Ngayong Araw Lamang"
 	},
+	"today_only_1": {
+		"message": "Ngayon lang"
+	},
 	"tr_country_name": {
 		"message": "Turkey"
 	},
@@ -848,14 +851,20 @@
 	"tracker_intro_skip_intro": {
 		"message": "Laktawan ang intro"
 	},
+	"tracker_intro_user_location": {
+		"message": "Ikaw ay nasa"
+	},
 	"tracker_intro_welcome": {
-		"message": "Isang Maligayang Pagdating sa"
+		"message": "Welcome sa"
 	},
 	"tracker_next_stop": {
 		"message": "Susunod na hinto"
 	},
 	"tracker_santa_update": {
 		"message": "UPDATE KAY SANTA"
+	},
+	"tracker_see_route": {
+		"message": "Tingnan ang ruta"
 	},
 	"tracker_weather": {
 		"message": "Panahon"

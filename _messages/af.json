@@ -818,6 +818,9 @@
 	"tn_country_name": {
 		"message": "Tunisië"
 	},
+	"today_only_1": {
+		"message": "Net vandag"
+	},
 	"tr_country_name": {
 		"message": "Turkye"
 	},
@@ -845,11 +848,20 @@
 	"tracker_intro_skip_intro": {
 		"message": "Gaan verby inleiding"
 	},
+	"tracker_intro_user_location": {
+		"message": "Jy is in"
+	},
+	"tracker_intro_welcome": {
+		"message": "Welkom by"
+	},
 	"tracker_next_stop": {
 		"message": "Volgende stilhouplek"
 	},
 	"tracker_santa_update": {
 		"message": "KERSVADER SE NUUS"
+	},
+	"tracker_see_route": {
+		"message": "Sien die roete"
 	},
 	"tracker_weather": {
 		"message": "Weer"

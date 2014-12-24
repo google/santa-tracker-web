@@ -821,6 +821,9 @@
 	"today_only": {
 		"message": "இன்று மட்டும்"
 	},
+	"today_only_1": {
+		"message": "இன்று மட்டும்"
+	},
 	"tr_country_name": {
 		"message": "துருக்கி"
 	},
@@ -848,14 +851,20 @@
 	"tracker_intro_skip_intro": {
 		"message": "அறிமுகத்தை தவிர்"
 	},
+	"tracker_intro_user_location": {
+		"message": "இங்கே இருக்கிறீர்கள்"
+	},
 	"tracker_intro_welcome": {
-		"message": "வருக"
+		"message": "வரவேற்கிறோம்"
 	},
 	"tracker_next_stop": {
 		"message": "அடுத்த நிறுத்தம்"
 	},
 	"tracker_santa_update": {
 		"message": "சான்டாவின் அறிவிப்பு"
+	},
+	"tracker_see_route": {
+		"message": "வழியைக் காட்டு"
 	},
 	"tracker_weather": {
 		"message": "வானிலை"

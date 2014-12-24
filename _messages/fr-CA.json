@@ -818,6 +818,9 @@
 	"tn_country_name": {
 		"message": "Tunisie"
 	},
+	"today_only_1": {
+		"message": "Aujourd'hui seulement"
+	},
 	"tr_country_name": {
 		"message": "Turquie"
 	},
@@ -845,11 +848,20 @@
 	"tracker_intro_skip_intro": {
 		"message": "Passer l'intro"
 	},
+	"tracker_intro_user_location": {
+		"message": "Emplacement actuel :"
+	},
+	"tracker_intro_welcome": {
+		"message": "Bienvenue à"
+	},
 	"tracker_next_stop": {
 		"message": "Prochain arrêt"
 	},
 	"tracker_santa_update": {
 		"message": "COMPTE RENDU DU PÈRE NOËL"
+	},
+	"tracker_see_route": {
+		"message": "Afficher l'itinéraire"
 	},
 	"tracker_weather": {
 		"message": "Météo"
