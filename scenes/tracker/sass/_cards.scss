@@ -349,6 +349,10 @@
       bottom: 0;
       background-image: url(city-feed/img/cardavatars/card-photo.png);
       border-radius: 5px;
+
+      core-image {
+        border-radius: 5px;
+      }
     }
 
     .card-footer {
