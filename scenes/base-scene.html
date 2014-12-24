@@ -270,7 +270,9 @@ Polymer({
   },
 
   preloadProgressChanged: function() {
-    if (this.preloadProgress === 100) {
+    // Only show scene if the preload reaches 100% and we haven't loaded the
+    // scene before.
+    if (this.preloadProgress === 100 && !this.loaded) {
       this.showScene();
     }
   },

@@ -313,14 +313,6 @@ Tracker scene.
     navOpen: false,
 
     /**
-     * True if the tracker nav is open.
-     * @property navOpen
-     * @type {boolean}
-     * @default false
-     */
-    navOpen: false,
-
-    /**
      * Mapping of YouTube video ids to URL routes.
      * @property ytMapping
      * @type {object}
@@ -604,8 +596,9 @@ Tracker scene.
         this.worldView_.fitBounds();
       }
 
-      // always start with cityFeed closed
+      // Always start with cityFeed and tracker nav closed.
       this.cityFeedActive = false;
+      this.navOpen = false;
 
       this.sceneParamsChanged();
 
