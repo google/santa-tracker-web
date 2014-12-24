@@ -114,16 +114,16 @@ app.Controls.prototype.onFrame = function(delta) {
 
   if (this.isDesktopish) {
     if (this.keys['left']) {
-      x--;
+      x -= 0.6;
     }
     if (this.keys['right']) {
-      x++;
+      x += 0.6;
     }
     if (this.keys['up']) {
-      y--;
+      y -= 0.6;
     }
     if (this.keys['down']) {
-      y++;
+      y += 0.6;
     }
 
     // drop presents
