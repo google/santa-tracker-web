@@ -392,13 +392,14 @@ Polymer({
   },
 
   /**
-   * Scrolls the stream to the given destination card.
+   * Scrolls the stream to the given destination card. If the index doesn't exist,
+   * the stream scrolls to the top.
    *
    * @method scrollToDest
    * @param {string} destId Destination id
    */
   scrollToDest: function(destId) {
-    var idx = destLookup_[destId];
+    var idx = destLookup_[destId] || 0;
     this.scrollToIndex(idx);
 
     if (this.setupDone_) {
