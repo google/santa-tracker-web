@@ -1,9 +1,6 @@
 
 goog.provide('app.shared.Coordinator');
 
-// We are *leaking* the Coordinator global for backwards compatibility.
-app.shared.Coordinator = Coordinator;
-
 /**
  * Coordinator is a timer based on deltas from onFrame.
  * @const
@@ -92,3 +89,6 @@ Coordinator.onFrame = function(delta) {
     }
   }
 };
+
+// We are *leaking* the Coordinator global for backwards compatibility.
+app.shared.Coordinator = Coordinator;

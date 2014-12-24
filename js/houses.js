@@ -566,4 +566,13 @@ window.HOUSES = [{
     "elf-blue-snow-hide"
     ]
   }
+}, {
+  module: "trivia",
+  iced: true,
+  launchDate: new Date('Dec 24, 2014'),
+  category: "learn",
+  elves: {
+    melt: [],
+    snow: []
+  }
 }];

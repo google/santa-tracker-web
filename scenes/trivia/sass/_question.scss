@@ -1,0 +1,73 @@
+##{$name} {
+  .question {
+    margin-bottom: 10px;
+    margin-top: 20px;
+    position: relative;
+
+    @media (min-width: $trivia-bp) {
+      margin-bottom: 20px;
+      margin-top: 30px;
+    }
+  }
+
+  .question-number,
+  .question-text {
+    font-family: Roboto;
+    font-size : 21px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    opacity: 0;
+    transition: opacity 500ms, visibility 500ms;
+    visibility: hidden;
+    z-index: 10;
+
+    @media (min-width: $trivia-bp) {
+      font-size: 39px;
+    }
+  }
+
+  .question.is-visible .question-number,
+  .question.is-visible .question-text {
+    opacity: 1;
+    transition: opacity 500ms;
+    visibility: visible;
+  }
+
+  .question-number {
+    color: #005B6C;
+    left: 10px;
+    line-height: 1;
+    position: absolute;
+    top: 1px;
+
+    @media (min-width: $trivia-bp) {
+      top: 3px;
+    }
+
+    // The underline
+    &:after {
+      background: #005B6C;
+      bottom: -5px;
+      content: '';
+      height: 2px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+
+      @media (min-width: $trivia-bp) {
+        height: 3px;
+      }
+    }
+  }
+
+  .question-text {
+    color: #fff;
+    line-height : 25px;
+    margin-left: 50px;
+
+    @media (min-width: $trivia-bp) {
+      line-height: 44px;
+      margin-left: 77px;
+    }
+  }
+}
