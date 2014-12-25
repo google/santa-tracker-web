@@ -192,15 +192,26 @@ $name: 'module-city-feed';
       border-radius: 0 0 $borderRadius $borderRadius;
 
       .attribution {
-        background: rgba(0,0,0,0.3);
+        background: rgba(0,0,0,0.6);
         color: white;
         position: absolute;
         bottom: 0;
-        padding: 5px;
         border-radius: 0 $borderRadius 0 $borderRadius;
+        padding: 1px 0;
 
-        > * {
-          margin-right: 10px;
+        .attrib {
+          border-right: 1px solid rgba(255,255,255,.4);
+          padding: 4px 10px 4px 5px;
+          display: inline-block;
+        }
+
+        .addview {
+          padding: 4px 10px;
+          display: inline-block;
+        }
+
+        a {
+          color: #3d97ff;
         }
       }
       a {
