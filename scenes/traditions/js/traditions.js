@@ -59,16 +59,10 @@ Traditions.prototype.setup = function() {
    */
   this.markerBounds_ = new google.maps.LatLngBounds();
 
-  if (Traditions.LANGUAGES_.indexOf(document.documentElement.lang) != -1) {
+  if (document.documentElement.lang.indexOf('en') == 0) {
     this.el_.querySelector('#lessons-popup').hidden = false;
   }
 };
-
-/**
- * @private
- * @type {Array.<string>}
- */
-Traditions.LANGUAGES_ = ['en', 'en-GB'];
 
 Traditions.prototype.onShow = function() {
   this.map_ = new google.maps.Map(this.el_.querySelector('#traditions-map'), {
