@@ -44,23 +44,6 @@ FauxTimeline.prototype = {
   },
 
   /**
-   * Play this FauxTimeline.
-   */
-  play: function() {
-    this.anim_.play();
-    this.players_.forEach(function(p) { p.play(); });
-  },
-
-  /**
-   * Pause this FauxTimeline.
-   */
-  pause: function() {
-    this.localTime_ = this.anim_.currentTime;
-    this.anim_.pause();
-    this.players_.forEach(function(p) { p.pause(); });
-  },
-
-  /**
    * Schedule an animation on this FauxTimeline.
    *
    * @param {number} when to start the animation, may be in the past
@@ -74,12 +57,6 @@ FauxTimeline.prototype = {
     var player = this.buildPlayer_(el, steps, duration);
 
     player.playbackRate = this.anim_.playbackRate;
-    if (this.anim_.paused) {
-      player.pause();
-    } else {
-      player.play();
-    }
-
     player.currentTime = now - when;
     this.players_.push(player);
     return player;
