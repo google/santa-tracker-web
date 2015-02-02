@@ -8,113 +8,105 @@ Blimp scene.
 @extends base-scene
 -->
 <polymer-element name="blimp-scene" extends="base-scene">
-<template>
-  <link rel="stylesheet" href="blimp-scene.css" no-shim>
-
-  <core-a11y-keys target="{{}}" keys="enter space left right down up"
-                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
-
-  <div id="module-blimp">
-    <div class="scene">
-      <div class="blimp">
-        <div class="eye">
-          <div class="eyeball">
+  <template>
+    <link rel="stylesheet" href="blimp-scene.css" no-shim>
+    <core-a11y-keys target="{{}}" keys="enter space left right down up"
+                    on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+    <div id="module-blimp">
+      <div class="scene">
+        <div class="blimp">
+          <div class="eye">
+            <div class="eyeball">
+              <div class="obj"></div>
+            </div>
+          </div>
+          <div class="nose"></div>
+        </div>
+        <div class="belt">
+          <div class="cogs">
             <div class="obj"></div>
           </div>
         </div>
-        <div class="nose"></div>
+        <div class="sleigh">
+          <div class="boxes"></div>
+          <ul class="propellers">
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <ul class="boxes-singles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li class="small"></li>
+          <li class="small"></li>
+          <li class="medium"></li>
+          <li class="medium"></li>
+        </ul>
+        <div class="snooze"></div>
+        <div class="comet"></div>
       </div>
-      <div class="belt">
-        <div class="cogs">
+      <div class="background">
+        <div class="plane"></div>
+        <div class="clouds small visible"></div>
+        <div class="clouds small alt visible"></div>
+        <div class="clouds medium visible"></div>
+        <div class="clouds medium visible"></div>
+        <div class="clouds medium alt visible"></div>
+        <div class="clouds large visible"></div>
+        <div class="moon up">
           <div class="obj"></div>
         </div>
+        <div class="sky night-alt visible"></div>
       </div>
-      <div class="sleigh">
-        <div class="boxes"></div>
-        <ul class="propellers">
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-      <ul class="boxes-singles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li class="small"></li>
-        <li class="small"></li>
-        <li class="medium"></li>
-        <li class="medium"></li>
-      </ul>
-      <div class="snooze"></div>
-      <div class="comet"></div>
-    </div>
-
-    <div class="background">
-      <div class="plane"></div>
-      <div class="clouds small visible" data-pos-left="3000" data-pos-top="300" data-speed="1"></div>
-      <div class="clouds small alt visible" data-pos-left="-1000" data-pos-top="600" data-speed="1"></div>
-      <div class="clouds medium visible" data-pos-left="1500" data-pos-top="200" data-speed="5"></div>
-      <div class="clouds medium visible" data-pos-left="-500" data-pos-top="400" data-speed="5"></div>
-      <div class="clouds medium alt visible" data-pos-left="-1000" data-pos-top="300" data-speed="5"></div>
-      <div class="clouds large visible" data-pos-left="-4000" data-pos-top="200" data-speed="10"></div>
-      <div class="moon up">
-        <div class="obj"></div>
-      </div>
-      <div class="sky night-alt visible"></div>
-    </div>
-
-    <div class="gui">
-      <div class="board board--scene">
-        <a id="global-back-to-tracker" href="{{pageUrl}}#tracker" class="back"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
+      <div class="gui">
+        <div class="board board--scene">
+          <a id="global-back-to-tracker" href="{{pageUrl}}#tracker" class="back"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
+        </div>
       </div>
     </div>
+  </template>
+  <script>
+  (function() {
+    Polymer({
+      componentDir: 'scenes/blimp/',
 
-  </div>
-
-</template>
-<script>
-(function() {
-  Polymer({
-    componentDir: 'scenes/blimp/',
-
-
-    onPreload: function() {
-      this.preloadImages([
-        'img/cloud-4.png',
-        'img/comet.png',
-        'img/snooze-1.png',
-        'img/blimp.png',
-        'img/cloud-5.png',
-        'img/moon.png',
-        'img/snooze-2.png',
-        'img/boxes-belt.png',
-        'img/cloud-lg.png',
-        'img/nose-shadow.png',
-        'img/snooze-3.png',
-        'img/boxes-singles.png',
-        'img/cloud-med.png',
-        'img/nose.png',
-        'img/snooze-4.png',
-        'img/boxes-sleigh.png',
-        'img/cloud-sm.png',
-        'img/plane.png',
-        'img/snooze.png',
-        'img/cloud-1.png',
-        'img/cloud.png', 
-        'img/propeller.png',
-        'img/cloud-2.png',
-        'img/cog.png',
-        'img/sky-objects.png',
-        'img/cloud-3.png',
-        'img/cogs.png',
-        'img/sleigh.png'
-      ]);
-    }
-  });
-
-})();
-</script>
+      onPreload: function() {
+        this.preloadImages([
+          'img/cloud-4.png',
+          'img/comet.png',
+          'img/snooze-1.png',
+          'img/blimp.png',
+          'img/cloud-5.png',
+          'img/moon.png',
+          'img/snooze-2.png',
+          'img/boxes-belt.png',
+          'img/cloud-lg.png',
+          'img/nose-shadow.png',
+          'img/snooze-3.png',
+          'img/boxes-singles.png',
+          'img/cloud-med.png',
+          'img/nose.png',
+          'img/snooze-4.png',
+          'img/boxes-sleigh.png',
+          'img/cloud-sm.png',
+          'img/plane.png',
+          'img/snooze.png',
+          'img/cloud-1.png',
+          'img/cloud.png', 
+          'img/propeller.png',
+          'img/cloud-2.png',
+          'img/cog.png',
+          'img/sky-objects.png',
+          'img/cloud-3.png',
+          'img/cogs.png',
+          'img/sleigh.png'
+        ]);
+      }
+    });
+  })();
+  </script>
 </polymer-element>

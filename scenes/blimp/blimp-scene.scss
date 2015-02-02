@@ -48,6 +48,7 @@ $name: 'module-blimp';
       margin-left: -178px;
       background: 0 0 url('img/blimp.png') no-repeat;
       z-index: 25;
+
       .eye {
         position: relative;
         width: 44px;
@@ -303,6 +304,5 @@ $name: 'module-blimp';
     }
   }
 }
-
 
 @import "../shared/sass/responsive";
