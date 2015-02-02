@@ -6,8 +6,7 @@ goog.provide('app.PresentPool');
 
 /**
  * Class for pooling reusable Present instances
- * @author david@14islands.com (David Lindkvist - 14islands.com)
- * @param {Array} domEls Array of DOM element containing the markup for each Present
+ * @param {!Array.<!Element>} domEls Array of DOM element containing the markup for each Present
  * @constructor
  */
 app.PresentPool = function(domEls) {
@@ -32,8 +31,7 @@ app.PresentPool.prototype = {
 
   /**
    * Get next free Present in the pool
-   * @public
-   * @return {Present}
+   * @return {app.Present}
    */
   getFreeItem: function() {
     var l = this.items_.length,

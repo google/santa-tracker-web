@@ -8,8 +8,7 @@ goog.require('app.shared.utils');
 
 /**
  * Main PresentsScreen class
- * @author david@14islands.com (David Lindkvist - 14islands.com)
- * @param {Element} elem a DOM element context for the screen
+ * @param {!Element} elem a DOM element context for the screen
  * @constructor
  */
 app.PresentsScreen = function(elem) {
@@ -23,7 +22,6 @@ app.PresentsScreen.prototype = {
 
   /**
    * Tell screen that it is visible
-   * @public
    */
   onActive: function() {
     this.isActive = true;
@@ -35,7 +33,6 @@ app.PresentsScreen.prototype = {
 
   /**
    * Tell screen that it is hidden
-   * @public
    */
   onInactive: function() {
     this.isActive = false;
