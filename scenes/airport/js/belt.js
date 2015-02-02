@@ -174,7 +174,6 @@ app.Belt.prototype = {
     var seekTime = 1;
     var preLoadWidth = 0;
 
-    // TODO(samthor): Add many elves to start with (currently would bunch up)
     var elvesToAdd = 6;
     for (var j = 0; j < elvesToAdd; j++) {
       var item = this.addItem(seekTime);
