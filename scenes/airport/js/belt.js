@@ -165,8 +165,6 @@ app.Belt.prototype = {
 
   init_: function() {
     this.timeline = new FauxTimeline();
-    this.timeline.pause();
-
     this.$state.bind('change', this.onStateChange_.bind(this));
 
     //////////////////////////////////////////////
@@ -187,7 +185,6 @@ app.Belt.prototype = {
     // TODO(samthor): Add .seek to FauxTimeline
 //    this.timeline.seek(seekTime - 1, false);
     this.setup = false;
-    this.timeline.play();
   },
 
   destroy: function() {
