@@ -7,8 +7,7 @@ goog.require('app.shared.utils');
  *
  * Class responsible for handling the Elevator interactions.
  *
- * @author  14islands (14islands.com)
- * @param {Object} context Module context in a HTML element*
+ * @param {!Element} context Module context in a HTML element*
  * @constructor
  */
 app.Elevator = function(context) {
@@ -24,17 +23,18 @@ app.Elevator = function(context) {
   this.showCount = 0;
 
   this.charactersSet = {
-    0 : [this.$penguin],
-    1 : [this.$penguin, this.$snowman],
-    2 : [this.$penguin, this.$snowman, this.$deer]
+    0: [this.$penguin],
+    1: [this.$penguin, this.$snowman],
+    2: [this.$penguin, this.$snowman, this.$deer]
   };
   this.randomCharactersSet = {
-    0 : [this.$penguin, this.$snowman],
-    1 : [this.$penguin, this.$deer],
-    2 : [this.$penguin, this.$snowman, this.$deer],
-    3 : [this.$deer, this.$snowman]
+    0: [this.$penguin, this.$snowman],
+    1: [this.$penguin, this.$deer],
+    2: [this.$penguin, this.$snowman, this.$deer],
+    3: [this.$deer, this.$snowman]
   };
 
+  this.onButtonClick_ = this.onButtonClick_.bind(this)
 };
 
 /**
@@ -59,7 +59,7 @@ app.Elevator.prototype.destroy = function() {
  * @private
  */
 app.Elevator.prototype.addEventListeners_ = function() {
-  this.$button.on('click', this.onButtonClick_.bind(this));
+  this.$button.on('click', this.onButtonClick_);
 };
 
 /**
@@ -68,14 +68,14 @@ app.Elevator.prototype.addEventListeners_ = function() {
  * @private
  */
 app.Elevator.prototype.removeEventListeners_ = function() {
-  this.$button.off('click', this.onButtonClick_.bind(this));
+  this.$button.off('click', this.onButtonClick_);
 };
 
 /**
  * Callback for when an elevator button is clicked.
  *
  * @private
- * @param  {Object} event Event object
+ * @param {Event} event Event object
  */
 app.Elevator.prototype.onButtonClick_ = function(event) {
   if (this.isBusy) return;
@@ -84,8 +84,7 @@ app.Elevator.prototype.onButtonClick_ = function(event) {
   this.$activeButton = $(event.currentTarget);
 
   // Set button active
-  this.$activeButton
-    .addClass(app.Constants.CLASS_ACTIVE_BUTTON);
+  this.$activeButton.addClass(app.Constants.CLASS_ACTIVE_BUTTON);
 
   // Call the lift
   this.callElevator_();
@@ -99,19 +98,10 @@ app.Elevator.prototype.onButtonClick_ = function(event) {
  * @private
  */
 app.Elevator.prototype.showCharacters_ = function() {
-  var $charactersArr = null;
-  var i = null;
-  var len = null;
-
-  // Find out which ones to pick
-  $charactersArr = this.getCharacters_();
-  len = $charactersArr.length;
-
-  // Make them visible
-  for (i = 0; i < len; i++) {
-    $charactersArr[i].addClass(app.Constants.CLASS_ACTIVE_CHARACTER);
-  }
-
+  var characters = this.getCharacters_();
+  characters.forEach(function(c) {
+    c.addClass(app.Constants.CLASS_ACTIVE_CHARACTER);
+  });
 };
 
 /**

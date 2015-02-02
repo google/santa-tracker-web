@@ -6,11 +6,10 @@ goog.require('app.Constants');
  *
  * Sleepy class responsible for the sleepy elements (elves).
  *
- * @param {Element} context An DOM element which wraps the scene.
- * @param {Object} delayPool reference to the delayPool.
- * @param {Object} sleepyController reference to the sleepy controller.
+ * @param {!Element} context An DOM element which wraps the scene.
+ * @param {!app.DelayPool} delayPool reference to the delayPool.
+ * @param {!app.SleepyController} sleepyController reference to the sleepy controller.
  * @constructor
- * @author  14islands (14islands.com)
  */
 app.Sleepy = function(context, delayPool, sleepyController) {
   this.$context_ = $(context);
@@ -29,9 +28,11 @@ app.Sleepy = function(context, delayPool, sleepyController) {
   this.scheduleSleepingTimer_ = -1;
   this.headRotateZTimeline = null;
   this.headRotateYTimeline = null;
-  this.sleepingMode = 1;
+  this.sleepingVertically = true;
   this.delayPool = delayPool;
   this.sleepyController = sleepyController;
+
+  this.onSleepyClick = this.onSleepyClick.bind(this);
 };
 
 /**
@@ -62,7 +63,7 @@ app.Sleepy.prototype.destroy = function() {
  * @private
  */
 app.Sleepy.prototype.addEventListeners_ = function() {
-  this.$context_.on('click', this.onSleepyClick.bind(this));
+  this.$context_.on('click', this.onSleepyClick);
 };
 
 /**
@@ -71,7 +72,7 @@ app.Sleepy.prototype.addEventListeners_ = function() {
  * @private
  */
 app.Sleepy.prototype.removeEventListeners_ = function() {
-  this.$context_.off('click', this.onSleepyClick.bind(this));
+  this.$context_.off('click', this.onSleepyClick);
 };
 
 /**
@@ -90,16 +91,14 @@ app.Sleepy.prototype.scheduleSleep_ = function() {
  * @private
  */
 app.Sleepy.prototype.tryToSleep_ = function() {
-
   if (!this.sleepyController.canSleep()) {
     // try again
     this.scheduleSleep_();
     return;
   }
 
-  this.setSleepingMode_();
-
-  if (this.isSleepingVertically_()) {
+  this.chooseSleepingMode_();
+  if (this.sleepingVertically) {
     this.tweenRotateYHead_();
   } else {
     this.tweenRotateZHead_();
@@ -122,7 +121,7 @@ app.Sleepy.prototype.wakeUp_ = function() {
 
   this.stopSleepingKeyframes_();
 
-  if (this.isSleepingVertically_() &&
+  if (this.sleepingVertically &&
     this.headRotateYTimeline !== null) {
 
     this.headRotateYTimeline
@@ -152,18 +151,8 @@ app.Sleepy.prototype.wakeUp_ = function() {
  *
  * @private
  */
-app.Sleepy.prototype.setSleepingMode_ = function() {
-  this.sleepingMode = Math.floor(Math.random() * 2);
-};
-
-/**
- * Checks if the character is supposed to be sleeping vertically.
- *
- * @return {Boolean} True or false for the sleepingMode
- * @private
- */
-app.Sleepy.prototype.isSleepingVertically_ = function() {
-  return this.sleepingMode === 1;
+app.Sleepy.prototype.chooseSleepingMode_ = function() {
+  this.sleepingVertically = (Math.random() > 0.5);
 };
 
 /**
@@ -173,18 +162,15 @@ app.Sleepy.prototype.isSleepingVertically_ = function() {
  * @private
  */
 app.Sleepy.prototype.startSleepingKeyframes_ = function() {
-  var _this = this;
   this.$letters.addClass(this.CSS_SLEEPING_CLASS);
 
   this.bouncingKeyframesTimer_ = window.setTimeout(function() {
-    if (_this.isSleepingVertically_()) {
-      _this.$headVerticalFinal
-        .addClass(_this.CSS_BOUNCING_CLASS);
+    if (this.sleepingVertically) {
+      this.$headVerticalFinal.addClass(this.CSS_BOUNCING_CLASS);
     } else {
-      _this.$head
-        .addClass(_this.CSS_BOUNCING_CLASS);
+      this.$head.addClass(this.CSS_BOUNCING_CLASS);
     }
-  }, 3000);
+  }.bind(this), 3000);
 };
 
 /**
@@ -300,6 +286,6 @@ app.Sleepy.prototype.tweenRotateZHead_ = function() {
 app.Sleepy.prototype.onSleepyClick = function() {
   if (this.isSleeping) {
     // give it some time to react to look more organic
-    setTimeout(this.wakeUp_.bind(this), 200);
+    window.setTimeout(this.wakeUp_.bind(this), 200);
   }
 };

@@ -6,8 +6,7 @@ goog.require('app.Constants');
  *
  * Sleepy class responsible for the sleepy elements (elves).
  *
- * @author  14islands (14islands.com)
- * @param {Object} context Module context in a HTML element
+ * @param {!Element} context Module context in a HTML element
  * @constructor
  */
 
@@ -58,19 +57,11 @@ app.DelayPool.prototype.setRandomDelayPool_ = function() {
  * Returns a random delay as specified in Constants.
  *
  * @private
- * @return {Integer} Delay in milliseconds.
+ * @return {number} Delay in milliseconds.
  */
 app.DelayPool.prototype.getRandomDelay_ = function() {
-
-  // check if array length > 1
-  if (this.randomDelayPool && this.randomDelayPool.length > 1) {
-
-    return this.randomDelayPool.pop();
-
-  } else {
-
+  if (!this.randomDelayPool || !this.randomDelayPool.length) {
     this.setRandomDelayPool_();
-    this.getRandomDelay_();
-
   }
+  return this.randomDelayPool.pop();
 };

@@ -4,7 +4,6 @@ goog.provide('app.Constants');
  * Briefing Slidehow constants
  *
  * @const
- * @author  14islands (14islands.com)
  */
 app.Constants = {
 
@@ -21,17 +20,18 @@ app.Constants = {
 
   LAST_SLIDE_INDEX: 3,
 
-
   // Duration for when the door opens
   ELEVATOR_UNTIL_DOOR_OPENS_MS: 2000,
   ELEVATOR_DOOR_OPENED_MS: 2200,
   ELEVATOR_UNTIL_DOOR_CLOSES_MS: 5000,
 
   // Note: this MUST match the total duration
-  // of it's child elements keyframes animations
+  // of its child elements keyframes animations
   ELEVATOR_ANIMATION_DURATION_MS: 8000,
 
   SCREEN_SLIDE_DURATION_MS: 2000,
+
+  SCREEN_SLIDE_CYCLE_MS: 7000,
 
   SLEEPING_ELVES_LIMIT: 3,
 

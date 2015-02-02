@@ -7,8 +7,7 @@ goog.require('app.Constants');
  *
  * Clock class for handling an individual clock animation.
  *
- * @author  14islands (14islands.com)
- * @param {Object} context Module context in a HTML element
+ * @param {!Element} context Module context in a HTML element
  * @constructor
  */
 app.Clock = function(context) {
@@ -17,6 +16,8 @@ app.Clock = function(context) {
   this.$secondsPointer = this.$context_.find('.js-clock-pointer-seconds');
   this.$minutesPointer = this.$context_.find('.js-clock-pointer-minutes');
   this.$hourPointer = this.$context_.find('.js-clock-pointer-hour');
+
+  this.onClockClick_ = this.onClockClick_.bind(this);
 };
 
 /**
@@ -41,7 +42,7 @@ app.Clock.prototype.destroy = function() {
  * @private
  */
 app.Clock.prototype.addEventListeners_ = function() {
-  this.$context_.on('click', this.onClockClick_.bind(this));
+  this.$context_.on('click', this.onClockClick_);
 };
 
 /**
@@ -49,7 +50,7 @@ app.Clock.prototype.addEventListeners_ = function() {
  * @private
  */
 app.Clock.prototype.removeEventListeners_ = function() {
-  this.$context_.off('click', this.onClockClick_.bind(this));
+  this.$context_.off('click', this.onClockClick_);
 };
 
 /**
@@ -57,8 +58,6 @@ app.Clock.prototype.removeEventListeners_ = function() {
  * @private
  */
 app.Clock.prototype.spinPointers_ = function() {
-
-  var _this = this;
 
   this.stopSpinSeconds_();
 
@@ -68,7 +67,7 @@ app.Clock.prototype.spinPointers_ = function() {
     {
       rotation: '+=1460',
       ease: Power4.easeOut,
-      onComplete: _this.startSpinSeconds_.bind(_this)
+      onComplete: this.startSpinSeconds_.bind(this)
     }
   );
 

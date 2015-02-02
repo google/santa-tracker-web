@@ -4,11 +4,10 @@ goog.require('app.Constants');
 goog.require('app.shared.utils');
 
 /**
- * Briefing Projection class
- * Takes care of sliding the container
- * to show an projector image.
+ * Briefing Projection class. Takes care of sliding the container to show a
+ * projector image.
  *
- * @param {Element} context An DOM element which wraps the scene.
+ * @param {!Element} context An DOM element which wraps the scene.
  * @constructor
  */
 app.Projection = function(context) {
@@ -36,11 +35,14 @@ app.Projection = function(context) {
   this.$projection = this.$context_.find('.js-projection');
   this.$clickHandler = this.$context_.find('.js-screen-click-handler');
   this.$waterDashes = this.$context_.find('.js-shower-water');
+
+  this.prevSlide_ = this.prevSlide_.bind(this);
+  this.nextSlide_ = this.nextSlide_.bind(this);
+  this.onContextClick_ = this.onContextClick_.bind(this);
 };
 
 /**
- * Initializes the slideshow by binding events
- * and starting the interval timer.
+ * Initializes the slideshow by binding events and starting the interval timer.
  */
 app.Projection.prototype.init = function() {
   this.addEventListeners_();
@@ -48,8 +50,8 @@ app.Projection.prototype.init = function() {
 };
 
 /**
- * Prepares to destroy this instance by removing
- * any event listeners and doing additional cleaning up.
+ * Prepares to destroy this instance by removing any event listeners and doing
+ * additional cleaning up.
  */
 app.Projection.prototype.destroy = function() {
   this.removeEventListeners_();
@@ -57,16 +59,15 @@ app.Projection.prototype.destroy = function() {
   this.stopAnimatingWater_();
 };
 
-
 /**
  * Binds event listeners to some elements.
  *
  * @private
  */
 app.Projection.prototype.addEventListeners_ = function() {
-  this.$arrowLeft.on('click', this.prevSlide_.bind(this));
-  this.$arrowRight.on('click', this.nextSlide_.bind(this));
-  this.$clickHandler.on('click', this.onContextClick_.bind(this));
+  this.$arrowLeft.on('click', this.prevSlide_);
+  this.$arrowRight.on('click', this.nextSlide_);
+  this.$clickHandler.on('click', this.onContextClick_);
 };
 
 /**
@@ -75,57 +76,46 @@ app.Projection.prototype.addEventListeners_ = function() {
  * @private
  */
 app.Projection.prototype.removeEventListeners_ = function() {
-  this.$arrowLeft.off('click', this.prevSlide_.bind(this));
-  this.$arrowRight.off('click', this.nextSlide_.bind(this));
+  this.$arrowLeft.off('click', this.prevSlide_);
+  this.$arrowRight.off('click', this.nextSlide_);
+  this.$clickHandler.off('click', this.onContextClick_);
 };
 
 /**
- * Callback for when you are clicking the screen area
- * This handles the sliding up or down of the screen
- * to show/hide the showering deer easter egg.
+ * Callback for clicking the projector screen. This handles sliding up or down
+ * of the screen to show the reindeer easter egg.
  *
  * @private
  */
 app.Projection.prototype.onContextClick_ = function() {
-  var _this = this;
-
   if (this.isAnimating) return;
   this.isAnimating = true;
 
   window.clearTimeout(this.slidingTimer_);
 
   if (this.isToggled) {
-
     this.isToggled = false;
     this.slideScreenDown_();
     this.startCycle_();
 
     this.slidingTimer_ = window.setTimeout(function() {
-
-      _this.stopAnimatingWater_();
-      _this.$context_.removeClass(_this.CLASS_SHOWERING);
-
-    }, app.Constants.SCREEN_SLIDE_DURATION_MS);
-
+      this.stopAnimatingWater_();
+      this.$context_.removeClass(this.CLASS_SHOWERING);
+    }.bind(this), app.Constants.SCREEN_SLIDE_DURATION_MS);
   } else {
-
     this.isToggled = true;
     this.slideScreenUp_();
     this.startAnimatingWater_();
     this.stopCycle_();
 
     this.slidingTimer_ = window.setTimeout(function() {
-
-      _this.$context_.addClass(_this.CLASS_SHOWERING);
-
-    }, app.Constants.SCREEN_SLIDE_DURATION_MS / 2.5);
-
+      this.$context_.addClass(this.CLASS_SHOWERING);
+    }.bind(this), app.Constants.SCREEN_SLIDE_DURATION_MS / 2.5);
   }
-
 };
 
 /**
- * Starts tweening the water in the showering deer.
+ * Starts tweening the water in the easter egg.
  *
  * @private
  */
@@ -138,12 +128,12 @@ app.Projection.prototype.startAnimatingWater_ = function() {
       repeat: -1,
       ease: Linear.easeNone
     }
- );
+  );
 
 };
 
 /**
- * Stops tweening the water in the showering deer.
+ * Stops tweening the water in the easter egg.
  *
  * @private
  */
@@ -152,20 +142,18 @@ app.Projection.prototype.stopAnimatingWater_ = function() {
 };
 
 /**
- * Slides the projector screen all the way up
- * revealing what's behind it.
+ * Slides the projector screen all the way up, revealing what's behind it.
  *
  * @private
  */
 app.Projection.prototype.slideScreenUp_ = function() {
-  var _this = this;
   TweenMax.to(this.$projectionGroup_, 1,
     {
       y: -273,
       ease: Back.easeIn.config(1),
       onComplete: function() {
-        _this.isAnimating = false;
-      }
+        this.isAnimating = false;
+      }.bind(this)
     }
   );
   window.santaApp.fire('sound-trigger', 'briefing_screen_up');
@@ -178,36 +166,33 @@ app.Projection.prototype.slideScreenUp_ = function() {
  * @private
  */
 app.Projection.prototype.slideScreenDown_ = function() {
-  var _this = this;
   TweenMax.to(this.$projectionGroup_, 1,
     {
       y: 0,
       ease: Power4.easeOut,
       onComplete: function() {
-        _this.isAnimating = false;
-      }
+        this.isAnimating = false;
+      }.bind(this)
     }
   );
   window.santaApp.fire('sound-trigger', 'briefing_screen_down');
 };
 
 /**
- * Changes the slide by translating the projection
- * by an ammount of pixels.
+ * Changes the slide by translating the projection by an ammount of pixels.
  *
  * @private
  */
 app.Projection.prototype.changeSlide_ = function() {
-  var value_ = this.currentSlide_ * app.Constants.SLIDE_SIZE * -1;
+  var value = this.currentSlide_ * app.Constants.SLIDE_SIZE * -1;
 
   window.santaApp.fire('sound-trigger', 'briefing_change_slide');
 
   this.$projection.css({
-    '-webkit-transform': 'translateX(' + value_ + 'px)',
-    '-ms-transform': 'translateX(' + value_ + 'px)',
-    'transform': 'translateX(' + value_ + 'px)'
+    '-webkit-transform': 'translateX(' + value + 'px)',
+    '-ms-transform': 'translateX(' + value + 'px)',
+    'transform': 'translateX(' + value + 'px)'
   });
-
 };
 
 /**
@@ -220,14 +205,12 @@ app.Projection.prototype.prevSlide_ = function() {
 
   window.clearInterval(this.slideshowTimer_);
 
-  this.currentSlide_--;
-  this.currentSlide_ = Math.max(this.currentSlide_, 0);
+  this.currentSlide_ = Math.max(this.currentSlide_ - 1, 0);
 
   if (this.previousSlide_ !== this.currentSlide_) {
     this.previousSlide_ = this.currentSlide_;
     this.changeSlide_();
   }
-
   this.startCycle_();
 };
 
@@ -242,7 +225,6 @@ app.Projection.prototype.nextSlide_ = function() {
   window.clearInterval(this.slideshowTimer_);
 
   this.currentSlide_++;
-
   if (this.currentSlide_ > app.Constants.LAST_SLIDE_INDEX) {
     this.currentSlide_ = 0;
   }
@@ -251,7 +233,6 @@ app.Projection.prototype.nextSlide_ = function() {
     this.previousSlide_ = this.currentSlide_;
     this.changeSlide_();
   }
-
   this.startCycle_();
 };
 
@@ -271,5 +252,6 @@ app.Projection.prototype.stopCycle_ = function() {
  */
 app.Projection.prototype.startCycle_ = function() {
   window.clearInterval(this.slideshowTimer_);
-  this.slideshowTimer_ = window.setInterval(this.nextSlide_.bind(this), 7 * 1000);
+  this.slideshowTimer_ = window.setInterval(
+      this.nextSlide_.bind(this), app.Constants.SCREEN_SLIDE_CYCLE_MS);
 };
