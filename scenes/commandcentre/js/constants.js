@@ -8,8 +8,6 @@ goog.provide('app.Constants');
 app.Constants = {
   DEFAULT_SCREEN: 'map',
 
-  // WINDSOCK_SCREEN_SELECTOR: '.windsock-screen',
-
   PRESENTS_SCREEN_SELECTOR: '.presents-screen',
   PRESENTS_PRELOAD_AMOUNT: 6, // items to preload on belt
   PRESENTS_BELT_DURATION: 12, // s
