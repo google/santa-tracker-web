@@ -1,9 +1,13 @@
 
+/**
+ * @constructor
+ */
 var FauxTimeline = function() {
   var timing = { duration: 1000, iterations: Infinity };
   this.anim_ = this.buildPlayer_(null, [], timing);
   this.localTime_ = 0;
   this.players_ = [];
+  this.calls_ = [];
 };
 
 FauxTimeline.prototype = {
@@ -44,6 +48,28 @@ FauxTimeline.prototype = {
   },
 
   /**
+   * Seek to the specified time.
+   *
+   * @param {number} to seek to, may not be in past
+   */
+  seek: function(to) {
+    var delta = to - this.currentTime;
+    if (delta < 0) {
+      throw new Error('FauxTimeline doesn\'t support -ve seeks');
+    }
+    this.anim_.currentTime += delta;
+    this.players_.forEach(function(p) { p.currentTime += delta; });
+
+    this.calls_ = this.calls_.filter(function(p) {
+      if (p.currentTime < 0) {
+        return true; // not run yet
+      }
+      p.onfinish();
+      return false;
+    });
+  },
+
+  /**
    * Schedule an animation on this FauxTimeline.
    *
    * @param {number} when to start the animation, may be in the past
@@ -71,15 +97,20 @@ FauxTimeline.prototype = {
   call: function(when, fn) {
     var now = this.currentTime;
     if (when < now) {
-      throw new Error('FauxTimeline doesn\'t support calls in past');
+      throw new Error('FauxTimeline doesn\'t support calls in past: ' + (now - when));
     }
 
     var player = this.schedule(when, document.body, [], 0);
     player.onfinish = function() {
       // TODO: make the client remove this / support in past?
       this.remove(player);
+
+      player.onfinish = null; // clear self
       fn();
     }.bind(this);
+    console.info(player.source);
+
+    this.calls_.push(player);
   },
 
   /**
@@ -91,6 +122,10 @@ FauxTimeline.prototype = {
     var index = this.players_.indexOf(player);
     if (index > -1) {
       this.players_.splice(index, 1);
+    }
+    index = this.calls_.indexOf(player);
+    if (index > -1) {
+      this.calls_.splice(index, 1);
     }
   }
 

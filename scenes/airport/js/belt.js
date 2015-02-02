@@ -175,15 +175,14 @@ app.Belt.prototype = {
     var preLoadWidth = 0;
 
     // TODO(samthor): Add many elves to start with (currently would bunch up)
-    var elvesToAdd = /* 6 */ 1;
+    var elvesToAdd = 6;
     for (var j = 0; j < elvesToAdd; j++) {
       var item = this.addItem(seekTime);
       seekTime += this.itemWidthAsSeconds(item);
     }
 
     // start 1 second before to be sure we trigger callbacks for last item
-    // TODO(samthor): Add .seek to FauxTimeline
-//    this.timeline.seek(seekTime - 1, false);
+    this.timeline.seek((seekTime - 1) * 1000, false);
     this.setup = false;
   },
 
