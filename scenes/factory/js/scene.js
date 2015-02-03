@@ -30,14 +30,17 @@ app.Scene = function(div) {
   this.candyMachine = new app.CandyMachine(div);
 
   this.init_();
+
+  this.shootBall = this.shootBall.bind(this);
+  this.dumpChocolate = this.dumpChocolate.bind(this);
 };
 
 /**
  * @private
  */
 app.Scene.prototype.init_ = function() {
-  this.$pinballButton_.on(app.InputEvent.START, this.shootball_.bind(this));
-  this.$chocolatePipeLever_.on(app.InputEvent.START, this.dumpChocolate_.bind(this));
+  this.$pinballButton_.on(app.InputEvent.START, this.shootBall);
+  this.$chocolatePipeLever_.on(app.InputEvent.START, this.dumpChocolate);
 };
 
 /**
@@ -47,8 +50,8 @@ app.Scene.prototype.init_ = function() {
 app.Scene.prototype.stop = function() {
   window.clearTimeout(this.pinballTimer_);
 
-  this.$pinballButton_.off(app.InputEvent.START, this.shootball_.bind(this));
-  this.$chocolatePipeLever_.off(app.InputEvent.START, this.dumpChocolate_.bind(this));
+  this.$pinballButton_.off(app.InputEvent.START, this.shootBall);
+  this.$chocolatePipeLever_.off(app.InputEvent.START, this.dumpChocolate);
 
   this.tetrisTruck.destroy();
   this.tetrisTruck = null;
@@ -58,9 +61,9 @@ app.Scene.prototype.stop = function() {
 };
 
 /**
- * @private
+ * Shoots a ball through the tube.
  */
-app.Scene.prototype.shootball_ = function() {
+app.Scene.prototype.shootBall = function() {
   var pinball = this.$el.find('.pinball');
   if (pinball.hasClass('fire')) return;
 
@@ -73,13 +76,20 @@ app.Scene.prototype.shootball_ = function() {
 };
 
 /**
- * @private
+ * Dump chocolate on the poor elf. This can only happen once.
  */
-app.Scene.prototype.dumpChocolate_ = function() {
+app.Scene.prototype.dumpChocolate = function() {
   if (!this.hasDroppedChocolate_) {
     this.hasDroppedChocolate_ = true;
     this.$chocolatePipeLever_.addClass('flip');
     this.$chocolateDrop_.addClass('run-animation');
     window.santaApp.fire('sound-trigger', 'factory_choco');
   }
+};
+
+/**
+ * Has the elf eat candy.
+ */
+app.Scene.prototype.eatCandy = function() {
+  this.candyMachine.run();
 };

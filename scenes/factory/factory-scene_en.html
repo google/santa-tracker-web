@@ -13,6 +13,9 @@ Factory scene.
 <template>
   <link rel="stylesheet" href="factory-scene.css" no-shim>
 
+  <core-a11y-keys target="{{}}" keys="enter space up down left right"
+                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+
   <div id="module-factory">
     <div class="scene">
       <div class="factory">
@@ -189,6 +192,25 @@ Factory scene.
       this.scene.stop();
       this.scene = null;
       this.fire('sound-ambient', 'factory_end');
+    },
+
+    keyHandler: function(e, details, sender) {
+      e.stopPropagation();
+
+      switch (e.detail.key) {
+        case 'right':
+        case 'left':
+          this.scene.eatCandy();
+          break;
+        case 'up':
+        case 'enter':
+          this.scene.shootBall();
+          break;
+        case 'space':
+        case 'down':
+          this.scene.dumpChocolate();
+          break;
+      }
     }
   });
 </script>
