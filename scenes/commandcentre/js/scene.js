@@ -21,7 +21,7 @@ app.Scene = function(elem) {
   this.$presentsEl = this.$el.find(app.Constants.PRESENTS_SCREEN_SELECTOR);
   this.$sleighEl = this.$el.find(app.Constants.SLEIGH_SCREEN_SELECTOR);
 
-  this.javascriptScreens = [];
+  this.javascriptScreens = {};
   this.javascriptScreens['windsock'] = new app.WindsockScreen();
   this.javascriptScreens['presents'] = new app.PresentsScreen(this.$presentsEl);
   this.javascriptScreens['sleigh'] = new app.SleighScreen(this.$sleighEl);
@@ -107,9 +107,10 @@ app.Scene.prototype = {
   destroy: function() {
     this.removeEventHandlers_();
 
-    this.javascriptScreens.forEach(function(screen) {
+    Object.keys(this.javascriptScreens).forEach(function(name) {
+      var screen = this.javascriptScreens[name];
       screen.onInactive();
-    });
+    }, this);
 
     this.javascriptScreens = null;
   }
