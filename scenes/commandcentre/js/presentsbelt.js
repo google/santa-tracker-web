@@ -7,8 +7,7 @@ goog.provide('app.PresentsBelt');
 
 /**
  * Class for belt with presents dropping of the edge
- * @author david@14islands.com (David Lindkvist - 14islands.com)
- * @param {Element} domEl DOM element containing the belt
+ * @param {!Element} domEl DOM element containing the belt
  * @param {Object} options Configuration options for the belt
  * @constructor
  */
@@ -59,7 +58,7 @@ app.PresentsBelt.prototype = {
   /**
    * Return length of present (including margin to next present) as duration of seconds
    * @private
-   * @return {Number}
+   * @return {number}
    */
   itemWidthAsSeconds_: function(present) {
     return this.dx_ * present.outerWidth();
@@ -68,7 +67,7 @@ app.PresentsBelt.prototype = {
   /**
    * Generate a random rotation angle based on app constants min/max
    * @private
-   * @return {Number}
+   * @return {number}
    */
   getRandomDropRotation_: function() {
     var c = app.Constants;
@@ -155,7 +154,7 @@ app.PresentsBelt.prototype = {
   /**
    * Add a Present to animate across the belt
    * @private
-   * @return {Present}
+   * @return {app.Present}
    */
   addItem_: function(startTime) {
     var startTime = startTime || this.timeline.time();
@@ -166,7 +165,7 @@ app.PresentsBelt.prototype = {
       this.scheduleItem_(present, startTime);
     }
     else {
-      // pool size and margin between items must be set so we dont run out of items in the pool
+      // pool size and margin between items must be set so we don't run out of items in the pool
       console.log('NO FREE present IN POOL');
     }
 
@@ -196,7 +195,6 @@ app.PresentsBelt.prototype = {
 
   /**
    * Destroy belt and all scheduled animations
-   * @public
    */
   destroy: function() {
     this.timeline.kill();

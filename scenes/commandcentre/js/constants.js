@@ -3,14 +3,10 @@ goog.provide('app.Constants');
 
 /**
  * Scene constants
- * @author david@14islands.com (David Lindkvist - 14islands.com)
  * @const
  */
 app.Constants = {
   DEFAULT_SCREEN: 'map',
-
-  WINDSOCK_SCREEN_SELECTOR: '.windsock-screen',
-  WINDSOCK_POLYGONS_SELECTOR: '.windsock-screen__sock svg polygon',
 
   PRESENTS_SCREEN_SELECTOR: '.presents-screen',
   PRESENTS_PRELOAD_AMOUNT: 6, // items to preload on belt

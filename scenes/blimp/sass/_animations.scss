@@ -1,5 +1,4 @@
 @import "../../shared/sass/_mixins.scss";
-
 @import "compass/css3/transform";
 
 @include keyframes(cloud) {
@@ -281,21 +280,21 @@
 }
 
 @include keyframes(boxesSingles2) {
-    0% {
-      opacity: 1;
-    }
-    20% {
-      opacity: 0.75;
-    }
-    25% {
-      opacity: 0;
-    }
-    50% {
-      @include transform(translate(-500px, -175px) rotate(-540deg));
-    }
-    100% {
-      opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.75;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    @include transform(translate(-500px, -175px) rotate(-540deg));
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @include keyframes(boxesSingles3) {

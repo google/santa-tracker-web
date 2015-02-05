@@ -22,7 +22,7 @@ app.CandyMachine = function(context) {
   this.$barrelEl = this.$el.find('.js-drop-barrel');
   this.$ballEl = this.$el.find('.js-drop-ball');
 
-  this.run_ = this.run_.bind(this);
+  this.run = this.run.bind(this);
   this.onBellyFull_ = this.onBellyFull_.bind(this);
   this.reduceBelly_ = this.reduceBelly_.bind(this);
   this.reduceBellyTimer_ = undefined;
@@ -56,7 +56,7 @@ app.CandyMachine.prototype = {
 
     this.duration_ = duration;
 
-    this.$btnEl.on(app.InputEvent.START, this.run_);
+    this.$btnEl.on(app.InputEvent.START, this.run);
   },
 
   /**
@@ -134,9 +134,9 @@ app.CandyMachine.prototype = {
   },
 
   /**
-   * @private
+   * Runs the eating candy animation.
    */
-  run_: function() {
+  run: function() {
     if (this.player && !this.player.finished) {
       return;
     }
