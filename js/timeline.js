@@ -102,13 +102,12 @@ FauxTimeline.prototype = {
 
     var player = this.schedule(when, document.body, [], 0);
     player.onfinish = function() {
-      // TODO: make the client remove this / support in past?
+      // Run and remove this finish handler, as it may be invoked manually from
+      // within seek.
       this.remove(player);
-
-      player.onfinish = null; // clear self
+      player.onfinish = null;
       fn();
     }.bind(this);
-    console.info(player.source);
 
     this.calls_.push(player);
   },
