@@ -7,8 +7,7 @@ goog.require('app.shared.utils');
 
 /**
  * Main SleighScreen class
- * @author david@14islands.com (David Lindkvist - 14islands.com)
- * @param {Element} elem a DOM element context for the screen
+ * @param {!Element} elem a DOM element context for the screen
  * @constructor
  */
 app.SleighScreen = function(elem) {
@@ -19,6 +18,7 @@ app.SleighScreen = function(elem) {
   this.isActive = false;
 
   this.timeoutShimmer = undefined;
+  this.hammerTimeout = undefined;
 
   this.onTimeToShimmer_ = this.onTimeToShimmer_.bind(this);
   this.scheduleShimmerAnimation_ = this.scheduleShimmerAnimation_.bind(this);
@@ -28,54 +28,70 @@ app.SleighScreen = function(elem) {
 
 app.SleighScreen.prototype = {
 
-  getRandomShimmerDelay_: function() {
-    var max = (app.Constants.SLEIGH_SHIMMER_DELAY_MAX - app.Constants.SLEIGH_SHIMMER_DELAY_MIN + 1);
-    var min = app.Constants.SLEIGH_SHIMMER_DELAY_MIN;
-    return Math.floor(Math.random() * max + min);
-  },
-
-  getRandomHammerDelay_: function() {
-    var max = (app.Constants.SLEIGH_HAMMER_DELAY_MAX - app.Constants.SLEIGH_HAMMER_DELAY_MIN + 1);
-    var min = app.Constants.SLEIGH_HAMMER_DELAY_MIN;
-    return Math.floor(Math.random() * max + min);
+  /**
+   * @private
+   */
+  getRandomDelay_: function(max, min) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
   },
 
   /**
-   *
+   * @private
+   */
+  getRandomShimmerDelay_: function() {
+    return this.getRandomDelay_(app.Constants.SLEIGH_SHIMMER_DELAY_MAX,
+        app.Constants.SLEIGH_SHIMMER_DELAY_MIN);
+  },
+
+  /**
+   * @private
+   */
+  getRandomHammerDelay_: function() {
+    return this.getRandomDelay_(app.Constants.SLEIGH_HAMMER_DELAY_MAX,
+        app.Constants.SLEIGH_HAMMER_DELAY_MIN);
+  },
+
+  /**
    * @private
    */
   onTimeToShimmer_: function() {
-    app.shared.utils.animWithClass(this.$shimmerEl,
-                                   'run-animation',
-                                   this.scheduleShimmerAnimation_);
+    app.shared.utils.animWithClass(this.$shimmerEl, 'run-animation',
+        this.scheduleShimmerAnimation_);
   },
 
+  /**
+   * @private
+   */
   scheduleShimmerAnimation_: function() {
     if (this.isActive) {
       var randomDelay = this.getRandomShimmerDelay_();
-      this.timeoutShimmer = setTimeout(this.onTimeToShimmer_, randomDelay);
+      this.timeoutShimmer = window.setTimeout(this.onTimeToShimmer_, randomDelay);
     }
   },
 
+  /**
+   * @private
+   */
   runHammerAnimation_: function() {
     if (this.isActive) {
-      app.shared.utils.animWithClass(this.$hammerArm,
-                                     'run-animation',
-                                     this.onHammerAnimationEnd_);
+      app.shared.utils.animWithClass(this.$hammerArm, 'run-animation',
+          this.onHammerAnimationEnd_);
     }
   },
 
+  /**
+   * @private
+   */
   onHammerAnimationEnd_: function() {
     if (this.isActive) {
       window.santaApp.fire('sound-trigger', 'command_hammer');
       var randomDelay = this.getRandomHammerDelay_();
-      this.hammerTimeout = setTimeout(this.runHammerAnimation_, randomDelay);
+      this.hammerTimeout = window.setTimeout(this.runHammerAnimation_, randomDelay);
     }
   },
 
   /**
    * Tell screen that it is visible
-   * @public
    */
   onActive: function() {
     this.startTime = Date.now();
@@ -86,12 +102,11 @@ app.SleighScreen.prototype = {
 
   /**
    * Tell screen that it is hidden
-   * @public
    */
   onInactive: function() {
     this.isActive = false;
-    clearTimeout(this.timeoutShimmer);
-    clearTimeout(this.hammerTimeout);
+    window.clearTimeout(this.timeoutShimmer);
+    window.clearTimeout(this.hammerTimeout);
     this.$hammerArm.off();
   }
 

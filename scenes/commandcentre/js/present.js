@@ -6,7 +6,6 @@ goog.provide('app.Present');
 
 /**
  * Class for a present on the belt
- * @author david@14islands.com (David Lindkvist - 14islands.com)
  * @param {Element} el DOM element containing the markup of the item
  * @constructor
  */
@@ -41,7 +40,6 @@ app.Present.prototype = {
 
   /**
    * Flag present as being used
-   * @private
    */
   use: function() {
     this.free = false;
@@ -49,8 +47,7 @@ app.Present.prototype = {
 
   /**
    * Check if present is free for use
-   * @private
-   * @return {Boolean}
+   * @return {boolean}
    */
   isFree: function() {
     return this.free;
@@ -58,14 +55,12 @@ app.Present.prototype = {
 
   /**
    * Callback when present enters belt
-   * @private
    */
   onEnterBelt: function() {
   },
 
   /**
    * Callback when present leaves the belt
-   * @private
    */
   onExitBelt: function() {
     this.free = true;
@@ -74,7 +69,6 @@ app.Present.prototype = {
 
   /**
    * Returns width of present
-   * @private
    * @return {number}
    */
   width: function() {
@@ -86,7 +80,6 @@ app.Present.prototype = {
 
   /**
    * Returns width of present with margin to next present
-   * @private
    * @return {number}
    */
   outerWidth: function() {
