@@ -38,27 +38,6 @@ app.Scene = function(elem) {
 app.Scene.prototype = {
 
   /**
-   * Notifies Javascript for currently loaded screen that it's inactive
-   * @private
-   */
-  inactivateCurrentScreenJavascript_: function() {
-    if (this.currentScreen && this.javascriptScreens.hasOwnProperty(this.currentScreen)) {
-      this.javascriptScreens[this.currentScreen].onInactive();
-    }
-  },
-
-  /**
-   * Notifies Javascript for screen that it's active
-   * @param {string} name Name of screen to activate
-   * @private
-   */
-  activateScreenJavascript_: function(name) {
-    if (this.javascriptScreens.hasOwnProperty(name)) {
-      this.javascriptScreens[name].onActive();
-    }
-  },
-
-  /**
    * Shows screen and activates any associated JavaScript class
    * @param {string} name Name of screen to show
    * @private
@@ -68,19 +47,25 @@ app.Scene.prototype = {
       return;
     }
 
+    var previousScreen = this.javascriptScreens[this.currentScreen];
+    if (previousScreen) {
+      previousScreen.onInactive();
+    }
+
     this.$el.find('.big-screen__container').hide();
     this.$el.find('.big-screen__container[data-screen=' + name + ']').show();
 
-    this.inactivateCurrentScreenJavascript_();
-    this.activateScreenJavascript_(name);
+    this.currentScreen = name;
+    var upcomingScreen = this.javascriptScreens[this.currentScreen];
+    if (upcomingScreen) {
+      upcomingScreen.onActive();
+    }
 
     // NOTE: This fires a single event for the 'map' scene, rather than
     // creating a whole Screen class.
     if (name === 'map') {
       window.santaApp.fire('sound-trigger', 'command_map');
     }
-
-    this.currentScreen = name;
   },
 
   /**

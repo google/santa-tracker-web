@@ -28,15 +28,24 @@ app.SleighScreen = function(elem) {
 
 app.SleighScreen.prototype = {
 
+  /**
+   * @private
+   */
   getRandomDelay_: function(max, min) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   },
 
+  /**
+   * @private
+   */
   getRandomShimmerDelay_: function() {
     return this.getRandomDelay_(app.Constants.SLEIGH_SHIMMER_DELAY_MAX,
         app.Constants.SLEIGH_SHIMMER_DELAY_MIN);
   },
 
+  /**
+   * @private
+   */
   getRandomHammerDelay_: function() {
     return this.getRandomDelay_(app.Constants.SLEIGH_HAMMER_DELAY_MAX,
         app.Constants.SLEIGH_HAMMER_DELAY_MIN);
