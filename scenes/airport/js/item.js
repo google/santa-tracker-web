@@ -4,7 +4,7 @@ goog.provide('app.BeltItem');
 
 /**
  * Class for an item on the belt
- * @param {Element} el DOM element containing the markup of the item
+ * @param {!Element} el DOM element containing the markup of the item
  * @constructor
  */
 app.BeltItem = function(el) {

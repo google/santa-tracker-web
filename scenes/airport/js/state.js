@@ -4,7 +4,7 @@ goog.provide('app.State');
 
 /**
  * Class for keeping the scene state
- * @param {Number} beltLength Length of belt in pixels
+ * @param {number} beltLength Length of belt in pixels
  * @constructor
  */
 app.State = function(beltLength) {
@@ -30,36 +30,31 @@ app.State.prototype = {
   },
 
   /**
-   * @public
-   * @return {Number} pixels per second
+   * @return {number} pixels per second
    */
   dx: function() {
     return this.dx_;
   },
 
   /**
-   * @public
-   * @return {Number} Timescale to use for running animations
+   * @return {number} Timescale to use for running animations
    */
   timeScale: function() {
     if (this.isMediumState()) {
       return app.Constants.TIMESCALE_MEDIUM;
-    }
-    else if (this.isFastState()) {
+    } else if (this.isFastState()) {
      return app.Constants.TIMESCALE_FAST;
     }
     return app.Constants.TIMESCALE_NORMAL;
   },
 
   /**
-   * @public
-   * @return {String} CSS class name for current state
+   * @return {string} CSS class name for current state
    */
   className: function() {
     if (this.isMediumState()) {
       return app.Constants.CLASS_SPEED_MEDIUM;
-    }
-    else if (this.isFastState()) {
+    } else if (this.isFastState()) {
      return app.Constants.CLASS_SPEED_FAST;
     }
     return app.Constants.CLASS_SPEED_NORMAL;
@@ -68,59 +63,46 @@ app.State.prototype = {
   soundEventName: function() {
     if (this.isMediumState()) {
       return 'airport_conveyor_speed_2';
-    }
-    else if (this.isFastState()) {
+    } else if (this.isFastState()) {
      return 'airport_conveyor_speed_3';
     }
     return 'airport_conveyor_speed_1';
   },
 
   /**
-   * @public
-   * @return {Boolean}
+   * @return {boolean}
    */
   isNormalState: function() {
     return this.currentState_ === app.Constants.STATE_NORMAL;
   },
 
   /**
-   * @public
-   * @return {Boolean}
+   * @return {boolean}
    */
   isMediumState: function() {
     return this.currentState_ === app.Constants.STATE_MEDIUM;
   },
 
   /**
-   * @public
-   * @return {Boolean}
+   * @return {boolean}
    */
   isFastState: function() {
     return this.currentState_ === app.Constants.STATE_FAST;
   },
 
-  /**
-   * @public
-   */
   cycleState: function() {
     var direction = this.currentState_ - this.previousState_;
     if (this.isFastState()) {
       this.previousState();
-    }
-    else if (this.isNormalState()) {
+    } else if (this.isNormalState()) {
       this.nextState();
-    }
-    else if (direction < 0) {
+    } else if (direction < 0) {
       this.previousState();
-    }
-    else if (direction > 0) {
+    } else if (direction > 0) {
       this.nextState();
     }
   },
 
-  /**
-   * @public
-   */
   nextState: function() {
     var nextState = this.stateCycle_[this.currentState_ + 1 % this.stateCycle_.length];
     if (nextState > this.currentState_) {
@@ -128,9 +110,6 @@ app.State.prototype = {
     }
   },
 
-  /**
-   * @public
-   */
   previousState: function() {
     var previousState = this.stateCycle_[this.currentState_ - 1 % this.stateCycle_.length];
     if (previousState < this.currentState_) {
