@@ -51,7 +51,7 @@ app.Projection.prototype.init = function() {
 
 /**
  * Prepares to destroy this instance by removing any event listeners and doing
- * additional cleaning up.
+ * additional cleanup work.
  */
 app.Projection.prototype.destroy = function() {
   this.removeEventListeners_();
@@ -120,7 +120,6 @@ app.Projection.prototype.onContextClick_ = function() {
  * @private
  */
 app.Projection.prototype.startAnimatingWater_ = function() {
-
   TweenMax.to(this.$waterDashes, 1,
     {
       strokeDashoffset: '-=100',
@@ -142,7 +141,7 @@ app.Projection.prototype.stopAnimatingWater_ = function() {
 };
 
 /**
- * Slides the projector screen all the way up, revealing what's behind it.
+ * Slides the projector screen all the way up, revealing what is behind it.
  *
  * @private
  */
@@ -160,8 +159,7 @@ app.Projection.prototype.slideScreenUp_ = function() {
 };
 
 /**
- * Slides the projector screen back to it's place
- * covering what's behind it.
+ * Slides the projector screen back to its place, covering what is behind it.
  *
  * @private
  */
@@ -179,7 +177,7 @@ app.Projection.prototype.slideScreenDown_ = function() {
 };
 
 /**
- * Changes the slide by translating the projection by an ammount of pixels.
+ * Changes the visible slide by translating a number of pixels on the x-axis.
  *
  * @private
  */
