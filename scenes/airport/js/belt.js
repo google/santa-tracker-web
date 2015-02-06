@@ -9,7 +9,7 @@ goog.require('app.State');
 
 /**
  * Class for main conveyor belt with animates elves and raindeers
- * @param {Element} context DOM element containing the scene.
+ * @param {!Element} context DOM element containing the scene.
  * @constructor
  * @export
  */
@@ -32,6 +32,10 @@ app.Belt = function(context) {
 
 app.Belt.prototype = {
 
+  /**
+   * @return {boolean} whether there is no reindeer being shown
+   * @private
+   */
   noReindeerOnBelt_: function() {
     var l = this.itemsOnBelt.length,
         item,
@@ -46,6 +50,10 @@ app.Belt.prototype = {
     return true;
   },
 
+  /**
+   * @return {boolean} whether to now add a reindeer
+   * @private
+   */
   timeForReindeer_: function() {
     if (this.noReindeerOnBelt_()) {
       return true;
@@ -88,8 +96,8 @@ app.Belt.prototype = {
 
   /**
    * Recycle elf DOM element
-   * @param {BeltItem} item BeltItem object
-   * @param {AnimationPlayer} player to remove from timeline
+   * @param {!BeltItem} item BeltItem object
+   * @param {!AnimationPlayer} player to remove from timeline
    */
   onExitBelt: function(item, player) {
     this.closet.undress(item);
@@ -148,6 +156,9 @@ app.Belt.prototype = {
     return item;
   },
 
+  /**
+   * @private
+   */
   setSpeedClass_: function(className) {
     this.$context.removeClass(app.Constants.CLASS_SPEED_MEDIUM);
     this.$context.removeClass(app.Constants.CLASS_SPEED_FAST);
@@ -156,6 +167,9 @@ app.Belt.prototype = {
     }
   },
 
+  /**
+   * @private
+   */
   onStateChange_: function() {
     this.setSpeedClass_(this.state.className());
     this.timeline.playbackRate = this.state.timeScale();
@@ -163,6 +177,9 @@ app.Belt.prototype = {
     window.santaApp.fire('sound-trigger', this.state.soundEventName());
   },
 
+  /**
+   * @private
+   */
   init_: function() {
     this.timeline = new FauxTimeline();
     this.$state.bind('change', this.onStateChange_.bind(this));

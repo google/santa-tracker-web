@@ -2,9 +2,9 @@ goog.provide('app.Closet');
 
 /**
  * Class for the machine dressing elves on the conveyor belt
- * @param {Element} el DOM element containing the markup for this component
- * @param {Element} context DOM element containing the scene
- * @param {State} state Instance of the game state
+ * @param {!Element} el DOM element containing the markup for this component
+ * @param {!Element} context DOM element containing the scene
+ * @param {!app.State} state Instance of the game state
  * @constructor
  */
 app.Closet = function(el, context, state) {
@@ -20,10 +20,9 @@ app.Closet = function(el, context, state) {
 app.Closet.prototype = {
 
   /**
-   * @param {BeltItem} item currently in the closet
+   * @param {!app.BeltItem} item currently in the closet
    */
   flashLights_: function(item) {
-
     var animationName = app.Constants.CLOSET_DRESS_ANIMATION_NAME;
     animationName = animationName.replace('#{color}', item.color);
 
@@ -48,9 +47,9 @@ app.Closet.prototype = {
 
     // animate with class and remove it after timeout (debouce-end if called repeatedly)
     this.$context.addClass('closet--processing');
-    clearTimeout(this.removeClassTimer);
+    window.clearTimeout(this.removeClassTimer);
     this.removeClassTimer = setTimeout(function() {
-       this.$context.removeClass('closet--processing');
+      this.$context.removeClass('closet--processing');
     }.bind(this), leverDuration * 1000);
   },
 
@@ -60,11 +59,10 @@ app.Closet.prototype = {
 
     if (this.state.isFastState()) {
       item.$el.find('.crazy').css('display', 'block');
-      setTimeout(function() {
+      window.setTimeout(function() {
         item.startCrazyAnimation();
       }, 100);
-    }
-    else {
+    } else {
       item.$el.find('.dressed').css('display', 'block');
     }
 

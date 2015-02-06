@@ -4,7 +4,7 @@ goog.provide('app.BeltItemPool');
 
 /**
  * Class for pooling reusable belt item instances
- * @param {Array} domEls Array of DOM element containing the markup for each BeltItem
+ * @param {!jQuery} domEls Array of DOM element containing the markup for each BeltItem
  * @constructor
  */
 app.BeltItemPool = function(domEls) {
@@ -22,7 +22,7 @@ app.BeltItemPool.prototype = {
 
   /**
    * @private
-   * @return {Boolean}
+   * @return {boolean}
    */
   notSameAsPrevious_: function(item) {
     if (!this.lastUsedItem_) {
@@ -31,16 +31,12 @@ app.BeltItemPool.prototype = {
     return this.lastUsedItem_.id != item.id && this.lastUsedItem_.crazyType != item.crazyType;
   },
 
-  /**
-   * @public
-   */
   addItem: function(domEl) {
     this.items_.push(new app.BeltItem(domEl));
   },
 
   /**
-   * @public
-   * @return {BeltItem}
+   * @return {app.BeltItem}
    */
   getFreeItem: function() {
     var l = this.items_.length,

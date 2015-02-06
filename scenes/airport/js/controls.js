@@ -5,8 +5,8 @@ goog.provide('app.Controls');
 
 /**
  * Class for the scenes user controls
- * @param {Element} el DOM element containing the markup of the item
- * @param {State} state Instance of the game state
+ * @param {!Element} el DOM element containing the markup of the item
+ * @param {!app.State} state Instance of the game state
  * @constructor
  */
 app.Controls = function(el, state) {
@@ -31,11 +31,9 @@ app.Controls.prototype = {
   updateState_: function(direction) {
     if (direction > 0) {
       this.state.nextState();
-    }
-    else if (direction < 0) {
+    } else if (direction < 0) {
       this.state.previousState();
-    }
-    else if (direction === 0) {
+    } else if (direction === 0) {
       this.state.cycleState();
     }
   },
@@ -93,7 +91,6 @@ app.Controls.prototype = {
 
   /**
    * Destructor
-   * @public
    */
   destroy: function() {
     this.$el.off();
