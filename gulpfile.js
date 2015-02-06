@@ -225,6 +225,9 @@ gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
 });
 
 gulp.task('compile-codelab-frame', function() {
+  var dest = 'scenes/codelab';
+  var fileName = 'codelab-frame.min.js';
+
   return gulp.src([
       'scenes/codelab/js/**/*.js',
 
@@ -234,9 +237,10 @@ gulp.task('compile-codelab-frame', function() {
       // add closure library
       'components/closure-library/closure/goog/**/*.js'
     ])
+    .pipe(newer(dest + '/' + fileName))
     .pipe(closureCompiler({
       compilerPath: COMPILER_PATH,
-      fileName: 'codelab-frame.min.js',
+      fileName: fileName,
       compilerFlags: addCompilerFlagOptions({
         closure_entry_point: 'app.Game',
         compilation_level: 'SIMPLE_OPTIMIZATIONS',
@@ -254,7 +258,7 @@ gulp.task('compile-codelab-frame', function() {
         output_wrapper: '(function(){%output%}).call(this);'
       })
     }))
-    .pipe(gulp.dest('scenes/codelab'));
+    .pipe(gulp.dest(dest));
 });
 
 function addCompilerFlagOptions(opts) {
