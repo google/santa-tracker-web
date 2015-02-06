@@ -14,6 +14,8 @@ app.Spectator = function(context) {
   this.$context_ = $(context);
   this.$group = this.$context_.find('.js-spectator-group');
   this.context_ = this.$context_[0];
+
+  this.onSpectatorClick_ = this.onSpectatorClick_.bind(this);
 };
 
 /**
@@ -37,7 +39,7 @@ app.Spectator.prototype.destroy = function() {
  * @private
  */
 app.Spectator.prototype.addEventListeners_ = function() {
-  this.$context_.on('click', this.onSpectatorClick.bind(this));
+  this.$context_.on('click', this.onSpectatorClick_);
 };
 
 /**
@@ -46,7 +48,7 @@ app.Spectator.prototype.addEventListeners_ = function() {
  * @private
  */
 app.Spectator.prototype.removeEventListeners_ = function() {
-  this.$context_.off('click', this.onSpectatorClick.bind(this));
+  this.$context_.off('click', this.onSpectatorClick_);
 };
 
 /**
@@ -85,7 +87,7 @@ app.Spectator.prototype.tweenShakeChair_ = function() {
 /**
  * Callback for when a spectator on its chair is clicked.
  */
-app.Spectator.prototype.onSpectatorClick = function() {
+app.Spectator.prototype.onSpectatorClick_ = function() {
   this.tweenShakeChair_();
 };
 

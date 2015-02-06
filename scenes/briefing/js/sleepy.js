@@ -32,7 +32,7 @@ app.Sleepy = function(context, delayPool, sleepyController) {
   this.delayPool = delayPool;
   this.sleepyController = sleepyController;
 
-  this.onSleepyClick = this.onSleepyClick.bind(this);
+  this.onSleepyClick_ = this.onSleepyClick_.bind(this);
 };
 
 /**
@@ -63,7 +63,7 @@ app.Sleepy.prototype.destroy = function() {
  * @private
  */
 app.Sleepy.prototype.addEventListeners_ = function() {
-  this.$context_.on('click', this.onSleepyClick);
+  this.$context_.on('click', this.onSleepyClick_);
 };
 
 /**
@@ -72,7 +72,7 @@ app.Sleepy.prototype.addEventListeners_ = function() {
  * @private
  */
 app.Sleepy.prototype.removeEventListeners_ = function() {
-  this.$context_.off('click', this.onSleepyClick);
+  this.$context_.off('click', this.onSleepyClick_);
 };
 
 /**
@@ -283,7 +283,7 @@ app.Sleepy.prototype.tweenRotateZHead_ = function() {
 /**
  * Callback for when a chair clicked
  */
-app.Sleepy.prototype.onSleepyClick = function() {
+app.Sleepy.prototype.onSleepyClick_ = function() {
   if (this.isSleeping) {
     // give it some time to react to look more organic
     window.setTimeout(this.wakeUp_.bind(this), 200);

@@ -9,7 +9,6 @@ goog.require('app.Constants');
  * @param {!Element} context Module context in a HTML element
  * @constructor
  */
-
 app.DelayPool = function(context) {
   this.randomDelayPool = null;
   this.count = 0;

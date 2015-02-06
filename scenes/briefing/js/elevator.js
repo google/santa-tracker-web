@@ -197,18 +197,18 @@ app.Elevator.prototype.callElevator_ = function() {
   this.$context_
     .addClass(app.Constants.CLASS_INCOMING_ELEVATOR);
 
-  setTimeout(function() {
+  window.setTimeout(function() {
     window.santaApp.fire('sound-trigger', 'briefing_elevator_open');
   }, app.Constants.ELEVATOR_UNTIL_DOOR_OPENS_MS);
 
   // Animate the characters inside when the door is open
-  setTimeout(this.activateCharacters_.bind(this), app.Constants.ELEVATOR_DOOR_OPENED_MS);
+  window.setTimeout(this.activateCharacters_.bind(this), app.Constants.ELEVATOR_DOOR_OPENED_MS);
 
-  setTimeout(function() {
+  window.setTimeout(function() {
     window.santaApp.fire('sound-trigger', 'briefing_elevator_close');
   }, app.Constants.ELEVATOR_UNTIL_DOOR_CLOSES_MS);
 
   // Close after animation duration is complete
-  setTimeout(this.closeElevator_.bind(this), app.Constants.ELEVATOR_ANIMATION_DURATION_MS);
+  window.setTimeout(this.closeElevator_.bind(this), app.Constants.ELEVATOR_ANIMATION_DURATION_MS);
 
 };
