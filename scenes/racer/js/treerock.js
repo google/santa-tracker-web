@@ -11,7 +11,7 @@ goog.require('SB.Object.Renderable');
  * @constructor
  * @extends SB.Object.Renderable
  */
-SB.Object.TreeRock = function (position, rotation, scale) {
+SB.Object.TreeRock = function(position, rotation, scale) {
 
   /**
    * The position of the object in world space.
@@ -58,7 +58,7 @@ SB.Object.TreeRock.prototype = new SB.Object.Renderable();
 /**
  * Chooses a tree or rock image from the sprite at random.
  */
-SB.Object.TreeRock.prototype.chooseRender = function () {
+SB.Object.TreeRock.prototype.chooseRender = function() {
   this.imageX_ = 0;
 
   if (Math.random() > 0.8) {
@@ -69,7 +69,7 @@ SB.Object.TreeRock.prototype.chooseRender = function () {
 /**
  * Renders the scenery to the canvas context.
  */
-SB.Object.TreeRock.prototype.render = function (ctx) {
+SB.Object.TreeRock.prototype.render = function(ctx) {
   ctx.save();
   ctx.translate(-50, -50);
   ctx.drawImage(this.IMAGE, this.imageX_,

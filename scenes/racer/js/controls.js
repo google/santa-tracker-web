@@ -2,7 +2,7 @@ goog.provide('Controls');
 
 /**
  * Handles user input for controlling the game.
- * @param {Game} game The game object.
+ * @param {!Game} game The game object.
  * @constructor
  */
 Controls = function(game) {

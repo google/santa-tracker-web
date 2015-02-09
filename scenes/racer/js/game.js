@@ -22,7 +22,7 @@ goog.require('app.shared.utils');
 /**
  * Represents the game, captures the user input and overall game state
  * including score and level. Also runs the render loop.
- * @param {Element} elem
+ * @param {!Element} elem
  * @param {string} componentDir The path to the Racer scene directory.
  * @constructor
  */
@@ -150,7 +150,6 @@ SB.Game.prototype.update_ = function() {
   this.lastUpdateTime = this.updateTime;
 
   if (!this.paused) {
-
     this.controls.onFrame(deltaSec);
 
     // clear the render
