@@ -3,12 +3,11 @@ goog.provide('app.TetrisTruck');
 goog.require('app.Constants');
 goog.require('app.shared.utils');
 
-
-
 /**
  * Class for the Truck picking up Tetris blocks
- * @param {Element} truckEl DOM element containing the truck.
- * @param {Element} cogEl DOM element containing the tetris machine cog.
+ *
+ * @param {!Element} truckEl DOM element containing the truck.
+ * @param {!Element} cogEl DOM element containing the tetris machine cog.
  * @constructor
  */
 app.TetrisTruck = function(truckEl, cogEl) {
@@ -28,11 +27,11 @@ app.TetrisTruck = function(truckEl, cogEl) {
 };
 
 app.TetrisTruck.prototype = {
+
   /**
    * @private
    */
   init_: function() {
-
     var c = app.Constants;
     var totalDuration = c.DELAY_MS + (c.DRIVE_MS * 2) + c.LOAD_MS + c.DROP_MS;
 
@@ -53,7 +52,7 @@ app.TetrisTruck.prototype = {
 
   /**
    * @private
-   * @return {Element}
+   * @return {!Element}
    */
   getLoad_: function() {
     this.loadCounter++;
@@ -63,7 +62,7 @@ app.TetrisTruck.prototype = {
 
   /**
    * @private
-   * @return {Animation}
+   * @return {!Animation}
    */
   getDriveAnimation_: function() {
     var c = app.Constants;
@@ -79,7 +78,7 @@ app.TetrisTruck.prototype = {
 
   /**
    * @private
-   * @return {Animation}
+   * @return {!Animation}
    */
   getWheelAnimation_: function() {
     var c = app.Constants;
@@ -98,7 +97,7 @@ app.TetrisTruck.prototype = {
 
   /**
    * @private
-   * @return {Animation}
+   * @return {!Animation}
    */
   getCogAnimation_: function() {
     var cogAnimationKeyframes = [
@@ -112,7 +111,7 @@ app.TetrisTruck.prototype = {
 
   /**
    * @private
-   * @return {Animation}
+   * @return {!Animation}
    */
   getLoadAnimation_: function() {
     var c = app.Constants;
