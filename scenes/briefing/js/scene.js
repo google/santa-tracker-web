@@ -11,12 +11,11 @@ goog.require('app.Spectator');
 
 /**
  * Briefing Scene class
- * Main class responsible for kicking off the scene
- * additional classes and elements.
+ * Main class responsible for kicking off the scene's additional classes and
+ * elements.
  *
- * @param {Element} context An DOM element which wraps the scene.
+ * @param {!Element} context An DOM element which wraps the scene.
  * @constructor
- * @author 14islands (14islands.com)
  * @export
  */
 app.Scene = function(context) {
