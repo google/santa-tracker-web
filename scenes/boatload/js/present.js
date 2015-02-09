@@ -25,6 +25,9 @@ Present = function(game) {
  */
 pools.mixin(Present);
 
+/** @const */
+Present.PRESENT_CENTER = Constants.PRESENT_WIDTH / 2;
+
 /**
  * Resets the present for reuse.
  * @param {Number} y The Y position.
@@ -93,9 +96,7 @@ Present.prototype.onFrame = function(delta) {
 
   // Collition detection
   for (var i = 0, len = this.game.entities.length; i < len; i++) {
-    if (!this.game.entities[i].getHitbox) {
-      continue;
-    }
+    if (!this.game.entities[i].getHitbox) continue;
     this.checkCollition_(this.game.entities[i]);
   }
   var distance = (this.x - Constants.PRESENT_START_X) /
@@ -112,18 +113,18 @@ Present.prototype.onFrame = function(delta) {
 Present.prototype.checkCollition_ = function(entity) {
   var hitbox = entity.getHitbox();
 
+  var boxWidth = 30; /* width */
+  var boxEdges = 20; /* edges */
+
   // Check vertical hit
-  if (hitbox.x < this.x || hitbox.x >= this.x + 30 /* width */) {
+  if (hitbox.x < this.x || hitbox.x >= this.x + boxWidth) {
     return;
   }
 
   // Check for horizontal hit
   if (Math.abs(this.y - hitbox.y - hitbox.center) <=
-      hitbox.center - Present.PRESENT_CENTER + 20 /* edges */) {
+      hitbox.center - Present.PRESENT_CENTER + boxEdges) {
     // Entity hit
     entity.hit(this, this.x + Present.PRESENT_CENTER, this.y + Present.PRESENT_CENTER);
   }
 };
-
-/** @const */
-Present.PRESENT_CENTER = Constants.PRESENT_WIDTH / 2;

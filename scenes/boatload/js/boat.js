@@ -8,11 +8,11 @@ goog.require('app.shared.pools');
  * @constructor
  * @param {Game} game The current game object.
  */
-Boat = function(game) {
+var Boat = function(game) {
   this.game = game;
   this.elem = $('<div class="boat hidden"></div>');
   this.game.boatsElem.append(this.elem);
-}
+};
 
 /**
  * Add methods for reusing objects.
@@ -20,7 +20,7 @@ Boat = function(game) {
 pools.mixin(Boat);
 
 /**
- * Resets the boat for reuse.
+ * Initializes the Boat for use.
  * @param {Object} type The type of boat in Constants.BOATS.
  */
 Boat.prototype.onInit = function(type) {
@@ -59,7 +59,7 @@ Boat.prototype.onDispose = function() {
  * Position the boat.
  */
 Boat.prototype.draw = function() {
-    this.elem.css('transform', 'translateY(' + (this.y + this.height) + 'px) translateZ(0)');
+  this.elem.css('transform', 'translateY(' + (this.y + this.height) + 'px) translateZ(0)');
 };
 
 /**
