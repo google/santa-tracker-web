@@ -1,6 +1,10 @@
 goog.provide('app.Audio');
 
-
+/**
+ * @constructor
+ * @param {string} name of audio
+ * @param {number} beat of audio
+ */
 app.Audio = function(name, beat) {
   this.name = name;
   this.beat = beat;
@@ -13,13 +17,17 @@ app.Audio = function(name, beat) {
   this.beatsPerSecond = 1 / this.beatduration;
 };
 
-
 /**
- * Play the provided pattern. The callback is called when the pattern starts playing.
+ * Play the provided pattern. The callback is called when the pattern starts
+ * playing.
+ *
+ * @param {number} pattern number, either 0 or 1
+ * @param {number} volume gain, in range [0,1]
+ * @param {function} callback to invoke once audio is done
  */
 app.Audio.prototype.play = function(pattern, volume, callback) {
   if (!(pattern === 0 || pattern === 1)) {
-    console.log('There are only two patterns. You should pass 0 or 1');
+    console.warn('There are only two patterns. You should pass 0 or 1');
     pattern = 0;
   }
 
@@ -40,7 +48,6 @@ app.Audio.prototype.play = function(pattern, volume, callback) {
   }
 };
 
-
 /**
  * Stop the currently playing audio
  */
@@ -53,9 +60,11 @@ app.Audio.prototype.stop = function() {
   }
 };
 
-
 /**
  * Start playing the provided audiosource at the start of the next bar
+ *
+ * @param {!AudioSource} audiosource to play
+ * @param {function} callback to run then
  */
 app.Audio.prototype.playNext = function(audiosource, callback) {
   var when = Klang.$('jamband_sequencer').getBeatTime(this.beatSync16th);
@@ -68,15 +77,14 @@ app.Audio.prototype.playNext = function(audiosource, callback) {
   Klang.schedule(when, callback);
 };
 
-
 /**
  * Stop the provided audiosource at the start of the next bar
+ * @param {!AudioSource} audiosource to stop
  */
 app.Audio.prototype.stopNext = function(audiosource) {
   var when = Klang.$('jamband_sequencer').getBeatTime(this.beatSync16th);
   audiosource.fadeOutAndStop(0.5, when);
 };
-
 
 /**
  * Play a preview of the instrument
@@ -88,10 +96,9 @@ app.Audio.prototype.preview = function() {
   });
 };
 
-
 /**
- * Test for web audio support
+ * @return {boolean} whether Web Audio is supported
  */
 app.Audio.isSupported = function() {
-  return !!(window.webkitAudioContext || window.AudioContext);
+ return !!(window.webkitAudioContext || window.AudioContext);
 };

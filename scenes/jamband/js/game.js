@@ -7,11 +7,10 @@ goog.require('app.Instruments');
 goog.require('app.Lights');
 goog.require('app.shared.ShareOverlay');
 
-
-
 /**
- * Main game class
- * @param {Element} elem An DOM element which wraps the game.
+ * Main jamband game class
+ *
+ * @param {!Element} elem An DOM element which wraps the game.
  * @constructor
  * @export
  */
@@ -25,7 +24,6 @@ app.Game = function(elem) {
   this.lights = new app.Lights(this.elem);
   this.instruments = null;
 };
-
 
 /**
  * Starts the game.
@@ -77,13 +75,13 @@ app.Game.prototype.showShareOverlay = function() {
 
 /**
  * Loads up a url-serialized band on the stage.
+ *
  * @param {string} band
  * @export
  */
 app.Game.prototype.restoreBand = function(band) {
   this.instruments.restore(band);
 };
-
 
 /**
  * Cleanup
