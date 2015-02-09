@@ -3,12 +3,12 @@ goog.provide('SB.Object.Scenery');
 goog.require('SB.Object.Renderable');
 
 /**
- * Grid system representing the scenery through
- * which Santa and Rudolf are racing.
+ * Grid system representing the scenery through which Santa and Rudolf are
+ * racing.
  * @constructor
  * @extends SB.Object.Renderable
  */
-SB.Object.Scenery = function () {
+SB.Object.Scenery = function() {
 
   /**
    * The size of a grid cell.
@@ -259,15 +259,14 @@ SB.Object.Scenery.prototype = new SB.Object.Renderable();
  * Stores a reference to the world instance for convenience.
  * @param {SB.Object.Renderable} newWorld The world instance to store.
  */
-SB.Object.Scenery.prototype.connectTo = function (newWorld) {
+SB.Object.Scenery.prototype.connectTo = function(newWorld) {
   this.worldEl_ = newWorld;
 };
 
 /**
  * Resets the scenery.
  */
-SB.Object.Scenery.prototype.reset = function () {
-
+SB.Object.Scenery.prototype.reset = function() {
   var g = 0;
 
   // reset all the internal vars
@@ -283,7 +282,6 @@ SB.Object.Scenery.prototype.reset = function () {
 
   for (var y = 0, h = this.gridHeight_; y < h; y += this.GRID_SIZE) {
     for (var x = 0, w = window.worldWidth; x < w; x += this.GRID_SIZE) {
-
       this.cell_ = this.grid_[g];
 
       // remove any objects if they're in use
@@ -313,18 +311,16 @@ SB.Object.Scenery.prototype.reset = function () {
 /**
  * Tests an object (Santa, Rudolf) against the scenery for collisions. Handles
  * the collision response directly.
+ * Scenery collisions are handled internally and not returned.
  * @param {SB.Object.Renderable} target The target to test.
  * @return {boolean} Whether or not the target hit a present.
- * Scenery collisions are handled internally and not returned.
  */
-SB.Object.Scenery.prototype.test = function (target) {
-
+SB.Object.Scenery.prototype.test = function(target) {
   var targetAngle = null;
   var hitPresent = false;
 
   // check for matches against the 0th grid items
   for (var g = 0, l = this.grid_.length; g < l; g++) {
-
     this.cell_ = this.grid_[g];
 
     if (target.position.y >= this.cell_.y &&
@@ -352,7 +348,6 @@ SB.Object.Scenery.prototype.test = function (target) {
       // cell of each row of blocks so check
       // that before proceeding
       if (g % this.gridMarkersX_ === 0) {
-
         var relativeY = target.position.y - this.cell_.y;
         var leftBound = this.cell_.leftBound +
             Math.sin(this.cell_.leftAngle * 2) * relativeY;
@@ -361,15 +356,11 @@ SB.Object.Scenery.prototype.test = function (target) {
 
         // check for left and right
         if (target.position.x - target.radius <= leftBound) {
-
           targetAngle = this.cell_.leftAngle - this.HALF_PI;
           target.position.x = leftBound + target.radius + 0.1;
-
         } else if (target.position.x + target.radius >= rightBound) {
-
           targetAngle = -this.cell_.rightAngle + this.HALF_PI;
           target.position.x = rightBound - target.radius - 0.1;
-
         } else {
           // the target did not hit anything
           // so is no longer immune to collisions
@@ -380,7 +371,6 @@ SB.Object.Scenery.prototype.test = function (target) {
         // object match the grid's boundary's angle
         // and slow it down.
         if (targetAngle !== null) {
-
           if (!target.rebound) {
             target.hit();
           }
@@ -402,7 +392,7 @@ SB.Object.Scenery.prototype.test = function (target) {
  * Picks a new clearing value and clearing width. Called whenever
  * a grid row is recycled.
  */
-SB.Object.Scenery.prototype.updateClearingValues = function () {
+SB.Object.Scenery.prototype.updateClearingValues = function() {
 
   // pick a new clearing value
   // start by making it more likely
@@ -422,7 +412,6 @@ SB.Object.Scenery.prototype.updateClearingValues = function () {
   this.clearingWidth_ = Math.max(this.clearingWidth_, this.GRID_SIZE * 3);
 
   if (Math.random() > this.clearingTolerance_) {
-
     var oldTargetClearing = this.targetClearing_;
 
     // pick a new one based on the world width
@@ -442,19 +431,16 @@ SB.Object.Scenery.prototype.updateClearingValues = function () {
  * Checks for a grid row needing to be recycled. If recycled it moves
  * the entire row and populates it with scenery and presents.
  */
-SB.Object.Scenery.prototype.update = function () {
-
+SB.Object.Scenery.prototype.update = function() {
   var adjustedWorldPos = (this.worldEl_.position.y - window.worldHeight) -
     (this.GRID_SIZE * 2);
   var adjustedGridPos = -this.grid_[this.gridMarker_].y;
   var gridMarkerCount = this.gridMarker_ + this.gridMarkersX_;
 
   if (adjustedWorldPos > adjustedGridPos) {
-
     this.updateClearingValues();
 
     for (var g = this.gridMarker_; g < gridMarkerCount; g++) {
-
       this.cell_ = this.grid_[g];
       this.cell_.y = this.gridLastY_;
       this.cell_.valid = true;
@@ -470,7 +456,6 @@ SB.Object.Scenery.prototype.update = function () {
       }
 
       if (g === this.gridMarker_) {
-
         this.cell_.leftBound = Math.ceil((this.clearing_ -
             this.clearingWidth_) / this.GRID_SIZE) * this.GRID_SIZE;
         this.cell_.rightBound = Math.floor((this.clearing_ +
@@ -487,7 +472,6 @@ SB.Object.Scenery.prototype.update = function () {
 
         this.lastLeftBound_ = this.cell_.leftBound;
         this.lastRightBound_ = this.cell_.rightBound;
-
       }
 
       this.objectIndex_ = null;
@@ -564,6 +548,10 @@ SB.Object.Scenery.prototype.update = function () {
   }
 };
 
+/**
+ * Renders a score.
+ * @param {number} score
+ */
 SB.Object.Scenery.prototype.addScore = function(score) {
   SB.Object.Text.pop(null, this.lastHitPresent_, score, this.worldEl_);
 };
@@ -572,7 +560,7 @@ SB.Object.Scenery.prototype.addScore = function(score) {
  * Removes an object from the world and makes it available for use.
  * @param {object} cell The cell containing the recyclable object.
  */
-SB.Object.Scenery.prototype.resetObject = function (cell) {
+SB.Object.Scenery.prototype.resetObject = function(cell) {
 
   // get the object
   this.object_ = this.objectPool_[cell.objectIndex];
@@ -588,8 +576,9 @@ SB.Object.Scenery.prototype.resetObject = function (cell) {
 
 /**
  * Renders the scenery and race boundary lines to the canvas context.
+ * @param {!CanvasRenderingContext2D} ctx
  */
-SB.Object.Scenery.prototype.render = function (ctx) {
+SB.Object.Scenery.prototype.render = function(ctx) {
   ctx.save();
   ctx.beginPath();
   ctx.lineWidth = 6;

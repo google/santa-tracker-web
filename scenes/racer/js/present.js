@@ -15,6 +15,13 @@ goog.require('SB.Object.Renderable');
 SB.Object.Present = function(position, rotation, scale) {
 
   /**
+   * Dimension of each present image.
+   * @type {number}
+   * @const
+   */
+  this.PRESENT_DIM = 64;
+
+  /**
    * The position of the object in world space.
    * @type {object}
    */
@@ -59,17 +66,18 @@ SB.Object.Present.prototype = new SB.Object.Renderable();
 /**
  * Chooses a present image from the sprite at random.
  */
-SB.Object.Present.prototype.chooseRender = function () {
-  this.imageX_ = Math.floor(Math.random() * 4) * 64;
+SB.Object.Present.prototype.chooseRender = function() {
+  this.imageX_ = Math.floor(Math.random() * 4) * this.PRESENT_DIM;
 };
 
 /**
  * Draws the present to the canvas context.
+ * @param {!CanvasRenderingContext2D} ctx
  */
-SB.Object.Present.prototype.render = function (ctx) {
+SB.Object.Present.prototype.render = function(ctx) {
+  var dim = this.PRESENT_DIM;
   ctx.save();
   ctx.translate(-22, -17);
-  ctx.drawImage(this.IMAGE, this.imageX_,
-    0, 64, 64, 0, 0, 64, 64);
+  ctx.drawImage(this.IMAGE, this.imageX_, 0, dim, dim, 0, 0, dim, dim);
   ctx.restore();
 };

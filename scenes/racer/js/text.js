@@ -73,8 +73,9 @@ app.shared.pools.mixin(SB.Object.Text);
 
 /**
  * Draws the present to the canvas context.
+ * @param {!CanvasRenderingContext2D} ctx
  */
-SB.Object.Text.prototype.render = function (ctx) {
+SB.Object.Text.prototype.render = function(ctx) {
   if (!this.active) return;
 
   // Calculate delta since last frame.

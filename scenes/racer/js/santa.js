@@ -10,7 +10,7 @@ goog.require('SB.Object.Renderable');
  * @constructor
  * @extends SB.Object.Renderable
  */
-SB.Object.Santa = function (position, rotation, scale) {
+SB.Object.Santa = function(position, rotation, scale) {
 
   /**
    * The sprite for rendering Rudolf.
@@ -85,14 +85,14 @@ SB.Object.Santa.prototype = new SB.Object.Renderable();
 /**
  * The sound to play when Rudolf has a collision.
  */
-SB.Object.Santa.prototype.hit = function () {
+SB.Object.Santa.prototype.hit = function() {
   window.santaApp.fire('sound-trigger', "rc_player_crash");
 };
 
 /**
  * Updates Santa's acceleration, velocity and position.
  */
-SB.Object.Santa.prototype.update = function () {
+SB.Object.Santa.prototype.update = function() {
 
   // calculate the force being exerted,
   // which should be the extension on the reins
@@ -127,6 +127,7 @@ SB.Object.Santa.prototype.update = function () {
 
 /**
  * Renders Santa to the canvas context
+ * @param {!CanvasRenderingContext2D} ctx
  */
 SB.Object.Santa.prototype.render = function(ctx) {
   var rudolfRotationX = Math.sin(this.rudolf_.rotation) * 6;
@@ -163,12 +164,11 @@ SB.Object.Santa.prototype.render = function(ctx) {
     startX + ((endX - startX) * 0.5) + curve,
     startY + ((endY - startY) * 0.5),
     endX, endY
-    );
+  );
   ctx.stroke();
   ctx.closePath();
 
   // right rein
-
   ctx.beginPath();
 
   startX = 6;
@@ -181,7 +181,7 @@ SB.Object.Santa.prototype.render = function(ctx) {
     startX + ((endX - startX) * 0.5) - curve,
     startY + ((endY - startY) * 0.5),
     endX, endY
-    );
+  );
 
   ctx.stroke();
   ctx.closePath();

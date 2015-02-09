@@ -10,7 +10,7 @@ goog.require('SB.Object.Renderable');
  * @constructor
  * @extends SB.Object.Renderable
  */
-SB.Object.Rudolf = function (position, rotation, scale) {
+SB.Object.Rudolf = function(position, rotation, scale) {
 
   /**
    * Rudolf's maximum velocity.
@@ -89,7 +89,7 @@ SB.Object.Rudolf.prototype = new SB.Object.Renderable();
 /**
  * Lower speed on hit.
  */
-SB.Object.Rudolf.prototype.hit = function () {
+SB.Object.Rudolf.prototype.hit = function() {
   this.velocity = this.MAX_VELOCITY / 3;
 };
 
@@ -101,7 +101,7 @@ SB.Object.Rudolf.prototype.hit = function () {
  * @return {number} The value clamped to max and min.
  * @private
  */
-SB.Object.Rudolf.prototype.limit_ = function (value, max, min) {
+SB.Object.Rudolf.prototype.limit_ = function(value, max, min) {
   return Math.min(max, Math.max(min, value));
 };
 
@@ -109,7 +109,7 @@ SB.Object.Rudolf.prototype.limit_ = function (value, max, min) {
  * Updates Rudolf's target rotation.
  * @param {number} value The rotation delta, in radians.
  */
-SB.Object.Rudolf.prototype.turn = function (value) {
+SB.Object.Rudolf.prototype.turn = function(value) {
   var amount = value -
       (value * 0.3 * (this.targetVelocity / this.MAX_VELOCITY));
 
@@ -120,7 +120,7 @@ SB.Object.Rudolf.prototype.turn = function (value) {
  * Causes Rudolf to accelerate.
  * @param {number} value The velocity delta.
  */
-SB.Object.Rudolf.prototype.accelerate = function (value) {
+SB.Object.Rudolf.prototype.accelerate = function(value) {
   this.targetVelocity += value;
 };
 
@@ -128,15 +128,14 @@ SB.Object.Rudolf.prototype.accelerate = function (value) {
  * Causes Rudolf to decelerate.
  * @param {number} value The velocity delta.
  */
-SB.Object.Rudolf.prototype.decelerate = function (value) {
+SB.Object.Rudolf.prototype.decelerate = function(value) {
   this.targetVelocity -= value;
 };
 
 /**
  * Updates Rudolf's velocity, rotation and position.
  */
-SB.Object.Rudolf.prototype.update = function () {
-
+SB.Object.Rudolf.prototype.update = function() {
   this.targetVelocity = this.limit_(this.targetVelocity,
       this.MAX_VELOCITY, 0);
   this.targetRotation = this.limit_(this.targetRotation,
@@ -165,8 +164,9 @@ SB.Object.Rudolf.prototype.update = function () {
 
 /**
  * Draws Rudolf to the canvas context.
+ * @param {!CanvasRenderingContext2D} ctx
  */
-SB.Object.Rudolf.prototype.render = function (ctx) {
+SB.Object.Rudolf.prototype.render = function(ctx) {
   ctx.fillStyle = "#FF0000";
   ctx.save();
   ctx.translate(-15, -20);
