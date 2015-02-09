@@ -6,8 +6,8 @@ goog.require('app.FanStateManager');
 /**
  * Manages changes in fan speed.
  *
- * @param {Element} context DOM element that wraps the fan.
- * @param {app.FanStateManager} stateManager The fan state object.
+ * @param {!Element} context DOM element that wraps the fan.
+ * @param {!app.FanStateManager} stateManager The fan state object.
  * @constructor
  */
 app.Fan = function(context, stateManager) {
@@ -29,7 +29,6 @@ app.Fan = function(context, stateManager) {
 app.Fan.prototype.init = function() {
   this.addEventListeners_();
 };
-
 
 /**
  * Removes event listeners and other cleanup.
@@ -65,7 +64,7 @@ app.Fan.prototype.onLeverClicked_ = function() {
   this.fanStateManager_.cycleState();
   this.updateLeverAngle_();
   this.updateIndicatorPosition_();
-  setTimeout(function() {
+  window.setTimeout(function() {
     this.updateThreads_();
   }.bind(this), app.Constants.FAN_SPEED_CHANGE_DELAY_MS);
 };

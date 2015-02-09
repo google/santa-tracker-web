@@ -5,10 +5,10 @@ goog.require('app.shared.utils');
 
 /**
  * Class to control the snow from snowblower.
- * @param {HTMLCanvas} canvas The canvas element for the snow.
- * @param {app.Snowblower} snowblower The scene's snowblower.
- * @param {app.FanStateManager} fanState The fan state.
  *
+ * @param {!HTMLCanvasElement} canvas The canvas element for the snow.
+ * @param {!app.Snowblower} snowblower The scene's snowblower.
+ * @param {!app.FanStateManager} fanState The fan state.
  * @constructor
  */
 app.Snow = function(canvas, snowblower, fanState) {
@@ -41,13 +41,14 @@ app.Snow = function(canvas, snowblower, fanState) {
   this.snowMaxAge_ = 250;
 
   this.snowflakes_ = [];
+
+  this.onFrame_ = this.onFrame_.bind(this);
 };
 
 /**
  * Initializes the snow engine.
  */
 app.Snow.prototype.init = function() {
-  this.onFrame_ = this.onFrame_.bind(this);
   this.requestId_ = app.shared.utils.requestAnimFrame(this.onFrame_);
 };
 
@@ -116,8 +117,8 @@ app.Snow.prototype.update_ = function() {
 
 /**
  * Draws the snowflake to canvas.
- * @param  {Object} snowflake The snowflake object.
  *
+ * @param {object} snowflake The snowflake object.
  * @private
  */
 app.Snow.prototype.drawSnowflake_ = function(snowflake) {
@@ -131,7 +132,6 @@ app.Snow.prototype.drawSnowflake_ = function(snowflake) {
     var alphaY = (this.height_ - snowflake.y) / this.snowFadeAreaSize_;
     alpha = Math.min(alpha, alphaY);
   }
-
 
   this.ctx_.fillStyle = 'rgba(255, 255, 255, ' + alpha + ')';
   this.ctx_.beginPath();

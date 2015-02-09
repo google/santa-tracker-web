@@ -27,10 +27,10 @@ app.Animations = function() {
 };
 
 /**
- * @param  {Element} element  The animation target element.
- * @param  {number} fanState The fan state.
- * @param  {number} duration The animation duration in milliseconds.
- * @return {AnimationSequence} The animation for the given element and fan state.
+ * @param {!Element} element  The animation target element.
+ * @param {number} fanState The fan state.
+ * @param {number} duration The animation duration in milliseconds.
+ * @return {!AnimationSequence} The animation for the given element and fan state.
  */
 app.Animations.prototype.getParachuteAnimation = function(element, fanState,
     duration) {
@@ -41,7 +41,7 @@ app.Animations.prototype.getParachuteAnimation = function(element, fanState,
   var initialTransition = new Animation(element[0], [
       {transform: 'rotateZ(' + currentAngle + 'deg)'},
       {transform: 'rotateZ(' + beginAngle + 'deg)'}
-    ], 500 * Math.abs(beginAngle - currentAngle) / 20.0);
+  ], 500 * Math.abs(beginAngle - currentAngle) / 20.0);
 
   var timing = {
     direction: 'alternate',
@@ -59,9 +59,9 @@ app.Animations.prototype.getParachuteAnimation = function(element, fanState,
 };
 
 /**
- * @param  {Element} element  The animation target element.
- * @param  {number} fanState The fan state.
- * @return {AnimationSequence} The animation for the given element and fan state.
+ * @param {!Element} element  The animation target element.
+ * @param {number} fanState The fan state.
+ * @return {!AnimationSequence} The animation for the given element and fan state.
  */
 app.Animations.prototype.getBackgroundAnimation = function(element, fanState) {
   var currentOffset = this.getOffset_(element);
@@ -71,23 +71,22 @@ app.Animations.prototype.getBackgroundAnimation = function(element, fanState) {
   var initialTransition = new Animation(element[0], [
       {transform: 'translateX(' + currentOffset + ')'},
       {transform: 'translateX(' + endOffset + 'px)'}
-    ], (duration * 1000) * ((endOffset - currentOffset) / endOffset));
+  ], (duration * 1000) * ((endOffset - currentOffset) / endOffset));
 
   var animation = new Animation(element[0], [
       {transform: 'translateX(0)'},
       {transform: 'translateX(' + endOffset + 'px)'}
-    ], {
+  ], {
       duration: duration * 1000,
       iterations: Infinity
-    });
+  });
 
   return new AnimationSequence([initialTransition, animation]);
 };
 
 /**
- * @param  {Element} element The element to get the rotation of.
+ * @param {!Element} element The element to get the rotation of.
  * @return {number} The rotation angle of the given element in degrees.
- *
  * @private
  */
 app.Animations.prototype.getRotation_ = function(element) {
@@ -95,14 +94,12 @@ app.Animations.prototype.getRotation_ = function(element) {
   if (values) {
     return Math.round(Math.atan2(values[1], values[0]) * (180 / Math.PI));
   }
-
   return 0;
 };
 
 /**
- * @param  {Element} element The element to get the X offset of.
+ * @param {!Element} element The element to get the X offset of.
  * @return {number} The offset of the given element.
- *
  * @private
  */
 app.Animations.prototype.getOffset_ = function(element) {
@@ -110,20 +107,18 @@ app.Animations.prototype.getOffset_ = function(element) {
   if (values) {
     return values[4];
   }
-
   return 0;
 };
 
 /**
- * @param  {Element} element The element to get the transform matrix of.
- * @return {Array} Array of values from the transform matrix.
- *
+ * @param {Element} element The element to get the transform matrix of.
+ * @return {Array.<number>} Array of values from the transform matrix.
  * @private
  */
 app.Animations.prototype.getTransformMatrixValues_ = function(element) {
   var matrixString = element.css('transform');
-
   if (matrixString && matrixString !== 'none') {
-    return matrixString.split('(')[1].split(')')[0].split(',');
+    var parts = matrixString.split('(')[1].split(')')[0].split(',');
+    return parts.map(function(x) { return parseInt(x); });
   }
 };
