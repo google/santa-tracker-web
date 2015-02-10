@@ -17,8 +17,7 @@ goog.require('app.shared.Tutorial');
 
 /**
  * Main game class.
- * @param {Element} elem DOM element containing the game.
- * @author aranja@aranja.com
+ * @param {!Element} elem DOM element containing the game.
  * @constructor
  * @export
  */
@@ -48,7 +47,7 @@ app.Game = function(elem) {
   this.controls = new app.Controls(this);
 
   // Cache a bound onFrame since we need it each frame.
-  this.onFrame = this.onFrame.bind(this);
+  this.onFrame_ = this.onFrame_.bind(this);
 
   this.preloadPools_();
 };
@@ -125,8 +124,9 @@ app.Game.prototype.restart = function() {
 
 /**
  * Runs every frame. Calculates a delta and allows each game entity to update itself.
+ * @private
  */
-app.Game.prototype.onFrame = function() {
+app.Game.prototype.onFrame_ = function() {
   if (!this.isPlaying) {
     return;
   }
@@ -159,13 +159,13 @@ app.Game.prototype.onFrame = function() {
   }
 
   // Request next frame.
-  this.requestId = utils.requestAnimFrame(this.onFrame);
+  this.requestId = utils.requestAnimFrame(this.onFrame_);
 };
 
 
 /**
  * Scale the game down for smaller resolutions.
- * @param {Number} scale A scale between 0 and 1 on how much to scale.
+ * @param {number} scale A scale between 0 and 1 on how much to scale.
  */
 app.Game.prototype.setScale = function(scale) {
   this.scale = scale;
@@ -287,7 +287,7 @@ app.Game.prototype.updateLevel_ = function(delta) {
 
 /**
  * Iterates over all collidable entities and calls a callback with it.
- * @param {function(Item)} callback A function which processes each collidable.
+ * @param {function(!Item)} callback A function which processes each collidable.
  */
 app.Game.prototype.forEachCollidable = function(callback) {
   for (var i = 0, entity; entity = this.entities[i]; i++) {
@@ -329,7 +329,7 @@ app.Game.prototype.unfreezeGame = function() {
 
     // Restart the onFrame loop
     this.lastFrame = +new Date() / 1000;
-    this.requestId = utils.requestAnimFrame(this.onFrame);
+    this.requestId = utils.requestAnimFrame(this.onFrame_);
   }
 };
 

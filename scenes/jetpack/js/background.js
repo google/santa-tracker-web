@@ -4,7 +4,7 @@ goog.provide('app.Background');
 
 /**
  * Manages the dynamic background color and level transitions.
- * @param {jQuery} els contains two elements, current and next level background divs.
+ * @param {!jQuery} els contains two elements, current and next level background divs.
  * @constructor
  */
 app.Background = function(els) {
@@ -21,6 +21,7 @@ app.Background = function(els) {
  * Height of app.Backgrounds in percentages relative to the
  * window innerHeight.
  * @type {number}
+ * @const
  */
 app.Background.BACKGROUND_HEIGHT = 150;
 
@@ -28,6 +29,7 @@ app.Background.BACKGROUND_HEIGHT = 150;
 /**
  * How long should it take to transition between levels?
  * @type {number}
+ * @const
  */
 app.Background.TRANSITION_DURATION = 5;
 

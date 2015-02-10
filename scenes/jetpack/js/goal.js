@@ -6,8 +6,8 @@ goog.require('app.Constants');
 
 /**
  * The goal
- * @param {Element} elem
- * @param {Game} game The game object.
+ * @param {!Element} elem The goal object
+ * @param {!Game} game The game object.
  * @constructor
  */
 app.Goal = function(elem, game) {
@@ -44,7 +44,7 @@ app.Goal.prototype.transition = function() {
     .removeClass('goal--hidden')
     .css('transform', 'translate3d(0, ' + yPosition + 'px, 0)');
 
-  setTimeout(function() {
+  window.setTimeout(function() {
     this.game.gameover();
   }.bind(this), app.Constants.GOAL_DURATION * 1000);
 };
