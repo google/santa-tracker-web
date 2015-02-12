@@ -27,7 +27,7 @@ app.Draggable.prototype.dragStart_ = function(startX, startY) {
   this.el.addClass('dragging');
   this.el.trigger('dragging');
 
-  $('.droppable:not(:has(.draggable))').addClass('dropTarget');
+  this.rootEl.find('.droppable:not(:has(.draggable))').addClass('dropTarget');
 };
 
 /**
