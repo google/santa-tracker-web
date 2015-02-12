@@ -10,7 +10,7 @@ goog.require('app.shared.pools');
  * Constructor for scoring items that the player can catch.
  * @constructor
  * @extends {Item}
- * @param {Game} game The game object.
+ * @param {!Game} game The game object.
  */
 app.DangerItem = function(game) {
   app.Item.call(this, game);
@@ -75,7 +75,7 @@ app.DangerItem.prototype.hit = function() {
 
 
 /**
- * Returns a random number between min and max
+ * Returns a random floating-point number between min and max
  * @param {number} min
  * @param {number} max
  * @return {number}

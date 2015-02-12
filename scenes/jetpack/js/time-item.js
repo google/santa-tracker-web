@@ -10,7 +10,7 @@ goog.require('app.shared.pools');
  * Constructor for clock items that the player can catch.
  * @constructor
  * @extends {Item}
- * @param {Game} game The game object.
+ * @param {!Game} game The game object.
  */
 app.TimeItem = function(game) {
   app.Item.call(this, game);
@@ -55,7 +55,7 @@ app.TimeItem.prototype.hit = function() {
 /**
  * Returns the time received for catching this clock.
  * @param {number} level The current level, 0-based.
- * @param {ItemType} type The type of the item giving the score.
+ * @param {Constants.ItemType} type The type of the item giving the score.
  * @return {number} The time received.
  * @private
  */

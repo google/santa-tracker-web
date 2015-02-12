@@ -6,7 +6,7 @@ goog.require('app.Constants');
 
 /**
  * Handles user input for controlling the game.
- * @param {Game} game The game object.
+ * @param {!Game} game The game object.
  * @constructor
  */
 app.Controls = function(game) {
@@ -170,7 +170,7 @@ app.Controls.prototype.onTouchmove = function(e) {
 
 /**
  * Handles the touch up event. Hide widget and stop moving.
- * @param  {Event} e The event object.
+ * @param {Event} e The event object.
  */
 app.Controls.prototype.onTouchend = function(e) {
   var touch = this.getCurrentTouch(e.originalEvent);
@@ -183,8 +183,8 @@ app.Controls.prototype.onTouchend = function(e) {
 
 /**
  * Returns the active touch from a touch event.
- * @param  {Event} e A touch event.
- * @return {Touch}   The active touch.
+ * @param {Event} e touch event
+ * @return {Touch} the optional active touch
  */
 app.Controls.prototype.getCurrentTouch = function(e) {
   if (this.currentTouchId === null) {
@@ -211,7 +211,7 @@ app.Controls.prototype.getCurrentTouch = function(e) {
 
 /**
  * Shows the touch widget for the provided touch event.
- * @param  {TouchEvent} touch A touch event initiating the widget.
+ * @param {TouchEvent} touch A touch event initiating the widget.
  */
 app.Controls.prototype.showTouchWidget = function(touch) {
   this.currentTouchId = touch.identifier;

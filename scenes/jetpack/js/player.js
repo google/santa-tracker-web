@@ -7,8 +7,8 @@ goog.require('app.DangerItem');
 
 /**
  * The player entity.
- * @param {Game} game The game object.
- * @param {Element} elem DOM element containing the player.
+ * @param {!Game} game The game object.
+ * @param {!Element} elem DOM element containing the player.
  * @constructor
  */
 app.Player = function(game, elem) {
