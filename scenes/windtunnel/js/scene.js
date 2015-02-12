@@ -9,7 +9,7 @@ goog.require('app.Snowblower');
 /**
  * Main class for Windtunnel scene.
  *
- * @param {Element} context DOM element that wraps the scene.
+ * @param {!Element} context DOM element that wraps the scene.
  * @constructor
  * @export
  */
@@ -45,6 +45,7 @@ app.Scene.prototype.init_ = function() {
 
 /**
  * Stops the scene.
+ *
  * @export
  */
 app.Scene.prototype.destroy = function() {

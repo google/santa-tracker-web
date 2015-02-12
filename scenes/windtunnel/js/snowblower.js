@@ -5,7 +5,7 @@ goog.require('app.Constants');
 /**
  * Windtunnel Snowblower class
  *
- * @param {Element} context DOM element that wraps the snowblower.
+ * @param {!Element} context DOM element that wraps the snowblower.
  * @constructor
  */
 app.Snowblower = function(context) {

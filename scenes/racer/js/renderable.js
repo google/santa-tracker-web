@@ -8,7 +8,7 @@ goog.provide('SB.Object.Renderable');
  * @param {object} scale The local scale of the object.
  * @constructor
  */
-SB.Object.Renderable = function (position, rotation, scale) {
+SB.Object.Renderable = function(position, rotation, scale) {
 
   /**
    * The position of the object in world space.
@@ -52,8 +52,9 @@ SB.Object.Renderable = function (position, rotation, scale) {
 /**
  * Recursive function working depth first down
  * the renderable object's children.
+ * @param {!CanvasRenderingContext2D} ctx
  */
-SB.Object.Renderable.prototype.traverse = function (ctx) {
+SB.Object.Renderable.prototype.traverse = function(ctx) {
   // update the canvas
   ctx.translate(this.position.x, this.position.y);
   ctx.scale(this.scale.x, this.scale.y);
@@ -85,7 +86,7 @@ SB.Object.Renderable.prototype.traverse = function (ctx) {
  * Adds a child object to this renderable.
  * @param {SB.Object.Renderable} child The child to add.
  */
-SB.Object.Renderable.prototype.addChild = function (child) {
+SB.Object.Renderable.prototype.addChild = function(child) {
   this.children.push(child);
   this.childCount_++;
 };
@@ -94,8 +95,7 @@ SB.Object.Renderable.prototype.addChild = function (child) {
  * Removes a child object from this renderable's children.
  * @param {SB.Object.Renderable} child The child to remove.
  */
-SB.Object.Renderable.prototype.removeChild = function (child) {
-
+SB.Object.Renderable.prototype.removeChild = function(child) {
   var index = this.children.indexOf(child);
   if (index > -1) {
     this.children.splice(index, 1);

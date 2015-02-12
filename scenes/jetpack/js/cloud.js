@@ -7,7 +7,7 @@ goog.require('app.shared.pools');
 /**
  * Manages a cloud. It appears randomly across the whole screen, in 3 different
  * sizes and moves in different speeds down the screen.
- * @param {Game} game The game object.
+ * @param {!Game} game The game object.
  * @constructor
  */
 app.Cloud = function(game) {
@@ -19,12 +19,6 @@ app.Cloud = function(game) {
 
   /** @type {boolean} */
   this.dead = false;
-
-  /**
-   * 0-2, three different sizes/speeds
-   * @type {number}
-   */
-  var type = 0;
 
   /**
    * Size of the cloud in % of original. Used in transformation.
@@ -57,19 +51,8 @@ app.Cloud.prototype.onInit = function() {
   /** 0-2, three different sizes/speeds */
   var type = Math.floor(Math.random() * 3);
 
-  /**
-   * Size of the cloud in % of original. Used in transformation.
-   * @type {number}
-   */
   this.size = 1 - type * 0.25;
-
-  /**
-   * Speed in pixels.
-   * @type {number}
-   */
   this.speed = 120 - type * 30;
-
-  /** @type {number} */
   this.y = -150;
 
   this.elem.css('left', Math.random() * this.game.sceneSize.width);

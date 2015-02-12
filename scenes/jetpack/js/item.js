@@ -107,7 +107,7 @@ app.Item.prototype.onFrame = function(delta) {
 
 /**
  * Returns a random type with weighting.
- * @param {number} weight - Total weight of item type.
+ * @param {number} weight Total weight of item type.
  * @return {app.Constants.ClockType} The item type picked.
  */
 app.Item.prototype.weightedRandomType = function(weight) {
@@ -128,8 +128,8 @@ app.Item.prototype.weightedRandomType = function(weight) {
 /**
  * Registers a collision with the player.
  * @param {number} score
- * @param {number} time - In seconds.
- * @param {string} message - Message displayed to player.
+ * @param {number} time in seconds.
+ * @param {string} message displayed to player.
  */
 app.Item.prototype.triggerHit = function(score, time, message) {
   this.isHit = true;

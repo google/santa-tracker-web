@@ -6,7 +6,7 @@ goog.require('app.Constants');
 /**
  * Windtunnel Rudolf class.
  *
- * @param {Element} context DOM element that wraps Rudolf.
+ * @param {!Element} context DOM element that wraps Rudolf.
  * @constructor
  */
 app.Rudolf = function(context) {
@@ -38,7 +38,6 @@ app.Rudolf.prototype.init = function() {
   this.startParachuteAnimation_();
 };
 
-
 /**
  * Removes event listeners and other cleanup.
  */
@@ -65,7 +64,6 @@ app.Rudolf.prototype.onFanStateChanged = function(state) {
   this.stopParachuteAnimation_();
   this.updateAnimations_();
   this.startParachuteAnimation_();
-
 };
 
 /**
@@ -102,12 +100,12 @@ app.Rudolf.prototype.onRudolfClicked_ = function() {
  * @private
  */
 app.Rudolf.prototype.updateAnimations_ = function() {
-    this.parachuteAnimation_ = this.animations_.getParachuteAnimation(
-        this.parachuteElem_, this.fanState_,
-        app.Constants.PARACHUTE_ANIMATION_DURATION_MS);
-    this.parachuteShadowAnimation_ = this.animations_.getParachuteAnimation(
-        this.parachuteShadowElem_, this.fanState_,
-        app.Constants.PARACHUTE_ANIMATION_DURATION_MS);
+  this.parachuteAnimation_ = this.animations_.getParachuteAnimation(
+      this.parachuteElem_, this.fanState_,
+      app.Constants.PARACHUTE_ANIMATION_DURATION_MS);
+  this.parachuteShadowAnimation_ = this.animations_.getParachuteAnimation(
+      this.parachuteShadowElem_, this.fanState_,
+      app.Constants.PARACHUTE_ANIMATION_DURATION_MS);
 };
 
 /**

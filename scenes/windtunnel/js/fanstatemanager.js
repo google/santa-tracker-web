@@ -6,8 +6,8 @@ goog.require('app.Constants');
 /**
  * Manages the current fan speed and scene elements that depend on it.
  *
- * @param {Element} context DOM element that wraps the scene.
- * @param {app.Rudolf} rudolf The scene's rudolf.
+ * @param {!Element} context DOM element that wraps the scene.
+ * @param {!app.Rudolf} rudolf The scene's rudolf.
  * @constructor
  */
 app.FanStateManager = function(context, rudolf) {
@@ -51,7 +51,6 @@ app.FanStateManager.prototype.init = function() {
   this.startAnimations_();
 };
 
-
 /**
  * Clean up.
  */
@@ -71,7 +70,7 @@ app.FanStateManager.prototype.cycleState = function() {
   }
   this.currentStateIndex_ = newIndex;
 
-  setTimeout(function() {
+  window.setTimeout(function() {
     this.updateScene_();
   }.bind(this), app.Constants.FAN_SPEED_CHANGE_DELAY_MS);
 
@@ -136,11 +135,11 @@ app.FanStateManager.prototype.updateScene_ = function() {
  * @private
  */
 app.FanStateManager.prototype.updateAnimations_ = function() {
-    this.windBalloonAnimation_ = this.animations_.getParachuteAnimation(
-        this.windBalloonElem_, this.getState(),
-        app.Constants.WIND_BALLOON_ANIMATION_DURATION_MS);
-    this.screenAnimation_ = this.animations_.getBackgroundAnimation(
-        this.screenElem_, this.getState());
+  this.windBalloonAnimation_ = this.animations_.getParachuteAnimation(
+      this.windBalloonElem_, this.getState(),
+      app.Constants.WIND_BALLOON_ANIMATION_DURATION_MS);
+  this.screenAnimation_ = this.animations_.getBackgroundAnimation(
+      this.screenElem_, this.getState());
 };
 
 /**

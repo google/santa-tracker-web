@@ -11,7 +11,7 @@ goog.require('SB.Object.Renderable');
  * @constructor
  * @extends SB.Object.Renderable
  */
-SB.Object.MarkerLine = function (position, rotation, scale) {
+SB.Object.MarkerLine = function(position, rotation, scale) {
 
   /**
    * Whether the marker line should include 3, 2, 1 numbers below itself
@@ -55,8 +55,9 @@ SB.Object.MarkerLine.prototype = new SB.Object.Renderable();
 
 /**
  * Draws the marker line to the canvas.
+ * @param {!CanvasRenderingContext2D} ctx
  */
-SB.Object.MarkerLine.prototype.render = function (ctx) {
+SB.Object.MarkerLine.prototype.render = function(ctx) {
   // line shadow
   ctx.fillStyle = "#f9c6c8";
   ctx.fillRect(2, -1, window.worldWidth - 4, 4);
@@ -83,7 +84,7 @@ SB.Object.MarkerLine.prototype.render = function (ctx) {
 /**
  * Reset the marker line.
  */
-SB.Object.MarkerLine.prototype.reset = function () {
+SB.Object.MarkerLine.prototype.reset = function() {
   /**
    * The number of the next level.
    * @type {number}

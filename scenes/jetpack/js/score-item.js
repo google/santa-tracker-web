@@ -10,7 +10,7 @@ goog.require('app.shared.pools');
  * Constructor for scoring items that the player can catch.
  * @constructor
  * @extends {Item}
- * @param {Game} game The game object.
+ * @param {!Game} game The game object.
  */
 app.ScoreItem = function(game) {
   app.Item.call(this, game);
@@ -52,7 +52,7 @@ app.ScoreItem.prototype.hit = function() {
  * Returns the score received for catching this item. Can be tweaked for
  * different scoring rules.
  * @param {number} level The current level, 0-based.
- * @param {ItemType} type The type of the item giving the score.
+ * @param {Constants.ItemType} type The type of the item giving the score.
  * @return {number} The score received.
  * @private
  */

@@ -1,7 +1,7 @@
 goog.provide('app.Constants');
 
 /**
- * Constants for Windtunnel
+ * Constants for Wind Tunnel scene.
  *
  * @const
  */
