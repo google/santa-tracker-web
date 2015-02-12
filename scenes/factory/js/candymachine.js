@@ -4,11 +4,10 @@ goog.require('app.Constants');
 goog.require('app.InputEvent');
 goog.require('app.shared.utils');
 
-
-
 /**
  * Class for the Elf pulling a lever to activate the Candy machine
- * @param {Element} context DOM element containing the scene
+ *
+ * @param {!Element} context DOM element containing the scene
  * @constructor
  */
 app.CandyMachine = function(context) {
@@ -32,6 +31,7 @@ app.CandyMachine = function(context) {
 };
 
 app.CandyMachine.prototype = {
+
   /**
    * @private
    */
@@ -61,7 +61,7 @@ app.CandyMachine.prototype = {
 
   /**
    * @private
-   * @return {Animation}
+   * @return {!Animation}
    */
   getPullAnimation_: function() {
     var c = app.Constants;
@@ -88,7 +88,7 @@ app.CandyMachine.prototype = {
 
   /**
    * @private
-   * @return {Animation}
+   * @return {!Animation}
    */
   getSwallowAnimation_: function() {
     var c = app.Constants;
@@ -118,7 +118,7 @@ app.CandyMachine.prototype = {
 
   /**
    * @private
-   * @return {Animation}
+   * @return {!Animation}
    */
   getBellyAnimation_: function() {
     var c = app.Constants;
@@ -126,7 +126,7 @@ app.CandyMachine.prototype = {
     var bellyKeyframes = [
       {transform: 'translateX(0)', offset: 0},
       {transform: 'translateX(0)', offset: this.offsets_.swallow, easing: c.EASE_IN_OUT_QUAD},
-      {transform: 'translateX(14px))', offset: this.offsets_.push, easing: c.EASE_IN_OUT_QUAD},
+      {transform: 'translateX(14px)', offset: this.offsets_.push, easing: c.EASE_IN_OUT_QUAD},
       {transform: 'translateX(14px)', offset: 1}
     ];
 

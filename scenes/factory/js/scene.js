@@ -9,7 +9,8 @@ goog.require('app.shared.utils');
 
 /**
  * Class for main Factory scene
- * @param {Element} div DOM element containing the scene.
+ *
+ * @param {!Element} div DOM element containing the scene.
  * @constructor
  * @export
  */
