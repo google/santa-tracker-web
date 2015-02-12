@@ -95,7 +95,6 @@ app.Instrument.prototype.reset = function() {
 app.Instrument.prototype.putOnStage = function(stage) {
   this.el.trigger('dragging');
   this.el.appendTo(stage);
-  console.info('dropped', stage.data(), stage);
   this.el.trigger('dropped', stage.data());
 };
 
