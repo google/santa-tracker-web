@@ -192,7 +192,8 @@ Game.prototype.onDoorClick_ = function(door) {
 };
 
 /**
- * Checks if the opened doors match (same number).
+ * Checks if the opened doors match (same number). If so, complete those doors
+ * and award points.
  * @param {!Door} door instance.
  * @private
  */
@@ -225,6 +226,7 @@ Game.prototype.checkDoorMatch_ = function(door) {
  * Do we have two open doors with the same id (same number)?
  * @param {number} doorId number.
  * @return {boolean} whether there is a match
+ * @private
  */
 Game.prototype.isDoorMatched_ = function(doorId) {
   var cardCount = 0;
@@ -373,7 +375,7 @@ Game.prototype.resetDoors_ = function() {
  */
 Game.prototype.restart = function() {
   this.levelModel.set(1);
-  this.startLevel();
+  this.startLevel_();
 
   // Reset the scoreboard
   this.scoreboard.reset();
@@ -382,26 +384,25 @@ Game.prototype.restart = function() {
 
 /**
  * Restarts the whole level, including its doors and the scoreboard.
+ * @private
  */
-Game.prototype.startLevel = function() {
-
-  // Fix our doors by creating them again with new cards
-  this.restartDoors();
+Game.prototype.startLevel_ = function() {
+  this.restartDoors_();  // closes and recreates doors
 
   if (this.paused) {
     this.togglePause();
   }
 
-  this.unfreezeGame();
+  this.unfreezeGame_();
   window.santaApp.fire('sound-trigger', 'm_game_start');
 };
 
 /**
- * Restart the doors by creating them again.
- * This is abstracted so you can restart the doors without restarting
- * the whole level.
+ * Restart the doors by closing and then creating them again. This is
+ * abstracted so you can restart the doors without restarting the whole level.
+ * @private
  */
-Game.prototype.restartDoors = function() {
+Game.prototype.restartDoors_ = function() {
   var timeout = 0;
 
   // Reset our cards deck again
@@ -447,7 +448,7 @@ Game.prototype.onFrame_ = function() {
  */
 Game.prototype.finishLevel = function() {
   if (this.levelModel.get() === 10) {
-    this.gameover();
+    this.gameover_();
     return;
   }
 
@@ -477,8 +478,8 @@ Game.prototype.finishLevel = function() {
 
   function prepareNextLevel() {
     // Update our time for this level
-    this.updateTime();
-    this.startLevel();
+    this.updateTime_();
+    this.startLevel_();
   }
 };
 
@@ -510,7 +511,7 @@ Game.prototype.getMatchScore = function() {
 /**
  * Updates the time in the scoreboard.
  */
-Game.prototype.updateTime = function() {
+Game.prototype.updateTime_ = function() {
   var levelDuration = Constants.INITIAL_COUNTDOWN - ((this.levelModel.get() - 1) * 5);
   levelDuration = Math.max(levelDuration, Constants.LEVEL_CAP_DURATION);
 
@@ -519,9 +520,10 @@ Game.prototype.updateTime = function() {
 
 /**
  * For when the game is over.
+ * @private
  */
-Game.prototype.gameover = function() {
-  this.freezeGame();
+Game.prototype.gameover_ = function() {
+  this.freezeGame_();
   this.gameoverDialog.show(0, this.levelModel.get());
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'matching',
@@ -534,16 +536,18 @@ Game.prototype.gameover = function() {
 /**
  * Freezes the game. Stops the onFrame loop and stops any CSS3 animations.
  * Used both for game over and pausing.
+ * @private
  */
-Game.prototype.freezeGame = function() {
+Game.prototype.freezeGame_ = function() {
   this.isPlaying = false;
   this.elem.addClass('frozen');
 };
 
 /**
  * Unfreezes the game.
+ * @private
  */
-Game.prototype.unfreezeGame = function() {
+Game.prototype.unfreezeGame_ = function() {
   if (!this.isPlaying) {
     this.isPlaying = true;
     this.elem.removeClass('frozen').focus();
@@ -571,7 +575,7 @@ Game.prototype.togglePause = function() {
  */
 Game.prototype.pause = function() {
   this.paused = true;
-  this.freezeGame();
+  this.freezeGame_();
 };
 
 /**
@@ -579,7 +583,7 @@ Game.prototype.pause = function() {
  */
 Game.prototype.resume = function() {
   this.paused = false;
-  this.unfreezeGame();
+  this.unfreezeGame_();
 };
 
 /**
