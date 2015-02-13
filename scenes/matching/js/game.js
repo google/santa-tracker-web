@@ -13,7 +13,7 @@ goog.require('LevelModel');
 
 /**
  * Main game class.
- * @param {Element} elem DOM element containing the game.
+ * @param {!Element} elem DOM element containing the game.
  * @constructor
  */
 var Game = function(elem) {
@@ -34,7 +34,6 @@ var Game = function(elem) {
   this.scoreboard = new Scoreboard(this, this.elem.find('.board'), 10);
   this.tutorial = new Tutorial(this.elem, 'touch-matching', 'mouse-matching');
 
-
   this.$doors = this.elem.find(Constants.SELECTOR_DOOR);
   this.$targets = this.elem.find(Constants.SELECTOR_DOOR_TARGET);
   this.mismatchTimeout = null;
@@ -43,7 +42,7 @@ var Game = function(elem) {
   this.levelUp = new LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
 
   // Cache a bound onFrame since we need it each frame.
-  this.onFrame = this.onFrame.bind(this);
+  this.onFrame_ = this.onFrame_.bind(this);
 };
 
 /**
@@ -52,8 +51,8 @@ var Game = function(elem) {
  * @export
  */
 Game.prototype.start = function() {
-  this.$targets.on('click', this.onTargetClick.bind(this));
-  this.$targets.on('touchstart', this.onTargetTouch.bind(this));
+  this.$targets.on('click', this.onTargetClick_.bind(this));
+  this.$targets.on('touchstart', this.onTargetTouch_.bind(this));
 
   // Prepare the cards deck
   this.cards.prepare();
@@ -65,17 +64,16 @@ Game.prototype.start = function() {
   this.restart();
 
   // Start tutorial
-  var game = this;
   this.tutorial.start();
   this.elem.on('click.tutorial', function(event) {
     if ($(event.target).closest('.start').length) {
       return;
     }
-    game.tutorial.off('mouse-matching');
-    game.elem.off('click.tutorial');
-  }).one('touchstart', function() {
-    game.tutorial.off('touch-matching');
-  });
+    this.tutorial.off('mouse-matching');
+    this.elem.off('click.tutorial');
+  }.bind(this)).one('touchstart', function() {
+    this.tutorial.off('touch-matching');
+  }.bind(this));
 };
 
 /**
@@ -84,25 +82,31 @@ Game.prototype.start = function() {
  */
 Game.prototype.destroy = function() {
   if (this.isPlaying) {
-    window.santaApp.fire('analytics-track-game-quit', {gameid: 'matching', timePlayed: new Date - this.gameStartTime, level: this.levelModel.get() - 1});
+    var opts = {
+      gameid: 'matching',
+      timePlayed: new Date - this.gameStartTime,
+      level: this.levelModel.get() - 1
+    };
+    window.santaApp.fire('analytics-track-game-quit', opts);
   }
   if (this.mismatchTimeout != null) {
     window.clearTimeout(this.mismatchTimeout);
   }
 
-  for (var i = 0; i < this.doors.length; i++) {
-    this.doors[i].destroy();
-  }
+  this.doors.forEach(function(door) {
+    door.destroy();
+  });
 
   utils.cancelAnimFrame(this.requestId);
 };
 
 /**
  * Creates all of the doors for this level
- **/
-Game.prototype.createDoors = function() {
-  // Need to check this every creation time
-  // because it depends on the level you are
+ * @private
+ */
+Game.prototype.createDoors_ = function() {
+  // Check the number of doors on creation, as it depends on the level the
+  // player is currently on.
   this.numberOfDoors = this.levelModel.getNumberOfDoors();
   this.doors = [];
 
@@ -113,24 +117,24 @@ Game.prototype.createDoors = function() {
   var cardClass = null;
 
   for (var i = 0; i < this.numberOfDoors; i++) {
-
     $door = this.$doors.eq(this.levelModel.getDoorIndex(i));
     cardClass = levelCards.pop();
 
-    this.doors.push(this.createDoor($door, cardClass));
+    this.doors.push(this.createDoor_($door, cardClass));
   }
 };
 
 /**
  * Creates a single door with a card class.
- * @param {jQuery} $door
+ * @param {!jQuery} $door
  * @param {string} cardClass
- * @return {Door}
+ * @return {!Door}
+ * @private
  */
-Game.prototype.createDoor = function($door, cardClass) {
+Game.prototype.createDoor_ = function($door, cardClass) {
   // the id is going to be the number of the card class
   var id = cardClass.match(/\d+$/)[0];
-  return new Door(id, $door, this.onDoorClick.bind(this), cardClass);
+  return new Door(id, $door, this.onDoorClick_.bind(this), cardClass);
 };
 
 /**
@@ -138,8 +142,9 @@ Game.prototype.createDoor = function($door, cardClass) {
  * Since our doors are located behind it, for design purposes (animation),
  * we need to add dummy elements to act as targets in front of the house.
  * @param {Event} event
+ * @private
  */
-Game.prototype.onTargetClick = function(event) {
+Game.prototype.onTargetClick_ = function(event) {
   var target = $(event.target).data('target');
   target = parseInt(target, 10);
 
@@ -149,83 +154,84 @@ Game.prototype.onTargetClick = function(event) {
 
 
 /**
- * Event to let the touch go "through" and thus
- * prevent any delay if we are in a touch device.
+ * Handles a touch and fakes a click event. This prevents any delay on touch
+ * devices, which take time to register a click.
  * @param {Event} event
+ * @private
  */
-Game.prototype.onTargetTouch = function(event) {
+Game.prototype.onTargetTouch_ = function(event) {
   event.preventDefault();
   this.onTargetClick(event);
 };
 
 /**
  * Handles the door click event.
- * @param {Door} door
+ * @param {!Door} door
+ * @private
  */
-Game.prototype.onDoorClick = function(door) {
+Game.prototype.onDoorClick_ = function(door) {
   if (door.isCompleted || this.paused) {
     return;
   }
-
   if (door.isOpened) {
-    this.closeDoor(door);
-  } else {
-    // Make sure we don't have too many doors opened first
-    if (this.numberOfOpenedDoors >= Constants.MAX_OPEN_DOORS) {
-      this.closeLastOpenedDoors();
-    }
+    this.closeDoor_(door);
+    return;
+  }
 
-    this.openDoor(door);
+  // Make sure we don't have too many doors opened first
+  if (this.numberOfOpenedDoors >= Constants.MAX_OPEN_DOORS) {
+    this.closeLastOpenedDoors_();
+  }
+  this.openDoor_(door);
 
-    // Don't count those previously set to close
-    // enough to do a match check
-    if (Math.max(this.numberOfOpenedDoors - this.numberOfMismatchedDoors, 0) > 1) {
-      this.checkDoorMatch(door);
-    }
+  // Don't count those previously set to close
+  // enough to do a match check
+  if (this.numberOfOpenedDoors - this.numberOfMismatchedDoors > 1) {
+    this.checkDoorMatch_(door);
   }
 };
 
 /**
  * Checks if the opened doors match (same number).
- * @param {Door} door instance.
+ * @param {!Door} door instance.
+ * @private
  */
-Game.prototype.checkDoorMatch = function(door) {
-  var _this = this;
-
-  if (this.isDoorMatched(door.id)) {
+Game.prototype.checkDoorMatch_ = function(door) {
+  if (this.isDoorMatched_(door.id)) {
     this.scoreboard.addScore(this.getMatchScore());
-    this.completeDoors(door.id);
+    this.completeDoors_(door.id);
 
     window.santaApp.fire('sound-trigger', 'm_match');
-  } else {
-    // Set them as a mismatch
-    // so it doesn't get in our way if the user clicks fast
-    // before the timeout is run
-    for (var i in this.doorsOpen) {
-        this.doorsOpen[i].isMismatched = true;
-        this.numberOfMismatchedDoors++;
-    }
-
-    // Set a timeout to close this mismatch
-    // for when the doors is done opening (transition duration)
-    this.mismatchTimeout = window.setTimeout(function() {
-      _this.closeMismatchedDoors();
-    }, Constants.SLIDING_DOOR_DURATION);
-
-    window.santaApp.fire('sound-trigger', 'm_mismatch');
+    return;
   }
+
+  // Set them as a mismatch so it doesn't get in our way if the user clicks
+  // fast before the timeout is run.
+  for (var i in this.doorsOpen) {
+    this.doorsOpen[i].isMismatched = true;
+    this.numberOfMismatchedDoors++;
+  }
+
+  // Set a timeout to close this mismatch after the doors are done opening
+  // (transition duration).
+  this.mismatchTimeout = window.setTimeout(
+      this.closeMismatchedDoors_.bind(this),
+      Constants.SLIDING_DOOR_DURATION);
+
+  window.santaApp.fire('sound-trigger', 'm_mismatch');
 };
 
 /**
- * Do we have two doors with the same id (same number)?
- * @param {Number} doorId number.
- * @return {boolean}
+ * Do we have two open doors with the same id (same number)?
+ * @param {number} doorId number.
+ * @return {boolean} whether there is a match
  */
-Game.prototype.isDoorMatched = function(doorId) {
+Game.prototype.isDoorMatched_ = function(doorId) {
   var cardCount = 0;
+  var door;
   for (var i in this.doorsOpen) {
-    if (!this.doorsOpen[i].isMismatched &&
-        this.doorsOpen[i].id === doorId) {
+    var door = this.doorsOpen[i];
+    if (!door.isMismatched && door.id === doorId) {
       cardCount++;
     }
   }
@@ -233,13 +239,13 @@ Game.prototype.isDoorMatched = function(doorId) {
 };
 
 /**
- * Adds a door to the doorsOpen model and
- * calls the door to be opened.
- * @param {Object} door door instance.
+ * Adds a door to the doorsOpen model and calls the door to be opened.
+ * @param {Door} door instance.
+ * @private
  */
-Game.prototype.openDoor = function(door) {
-  if (door === undefined) {
-    throw new Error('Door is undefined.');
+Game.prototype.openDoor_ = function(door) {
+  if (!door) {
+    throw new Error('Door is missing.');
   }
   door.open();
   this.doorsOpen[door.uniqueId] = door;
@@ -248,21 +254,17 @@ Game.prototype.openDoor = function(door) {
 };
 
 /**
- * Removes a door from the doorsOpen model and
- * calls the door to be closed.
- * @param {Door} door instance.
- * @param {boolean} mute
+ * Removes a door from the doorsOpen model and calls the door to be closed.
+ * @param {Door} door instance
+ * @param {boolean} mute whether to mute the sound
+ * @private
  */
-Game.prototype.closeDoor = function(door, mute) {
-  if (door === undefined) {
-    throw new Error('Door is undefined.');
+Game.prototype.closeDoor_ = function(door, mute) {
+  if (!door) {
+    throw new Error('Door is missing.');
   }
-
   door.close();
-
-  if (this.doorsOpen.hasOwnProperty(door.uniqueId)) {
-    delete this.doorsOpen[door.uniqueId];
-  }
+  delete this.doorsOpen[door.uniqueId];
 
   this.numberOfOpenedDoors--;
   this.numberOfOpenedDoors = Math.max(this.numberOfOpenedDoors, 0);
@@ -276,35 +278,40 @@ Game.prototype.closeDoor = function(door, mute) {
 
 /**
  * Closes all opened doors according to our doorsOpen model.
+ * @private
  */
-Game.prototype.closeLastOpenedDoors = function() {
+Game.prototype.closeLastOpenedDoors_ = function() {
+  var door;
   for (var i in this.doorsOpen) {
-    if (!this.doorsOpen[i].isCompleted) {
-      this.closeDoor(this.doorsOpen[i]);
+    door = this.doorsOpen[i];
+    if (!door.isCompleted) {
+      this.closeDoor_(door);
     }
   }
 };
 
 /**
  * Closes all opened doors according to our doorsOpen model.
+ * @private
  */
-Game.prototype.closeMismatchedDoors = function() {
+Game.prototype.closeMismatchedDoors_ = function() {
+  var door;
   for (var i in this.doorsOpen) {
-    if (!this.doorsOpen[i].isCompleted &&
-        this.doorsOpen[i].isMismatched) {
-      this.closeDoor(this.doorsOpen[i]);
+    door = this.doorsOpen[i];
+    if (!door.isCompleted && door.isMismatched) {
+      this.closeDoor_(door);
     }
   }
 };
 
 /**
- * Closes all doors - completed or not.
- * This is useful to call when restarting the level
- * as you want the doors to be closed before changing cards.
+ * Closes all doors - completed or not. This is useful to call when restarting
+ * the level as you want the doors to be closed before changing cards.
+ * @private
  */
-Game.prototype.closeAllDoors = function() {
+Game.prototype.closeAllDoors_ = function() {
   for (var i in this.doors) {
-    this.closeDoor(this.doors[i], true);
+    this.closeDoor_(this.doors[i], true);
   }
 };
 
@@ -313,12 +320,14 @@ Game.prototype.closeAllDoors = function() {
  * Also resets the model so we can compare again next time,
  * since these doors are already 'done' (completed).
  * @param {string} id
+ * @private
  */
-Game.prototype.completeDoors = function(id) {
-
+Game.prototype.completeDoors_ = function(id) {
+  var door;
   for (var i in this.doorsOpen) {
-    if (this.doorsOpen[i].id === id) {
-      this.doorsOpen[i].complete();
+    door = this.doorsOpen[i];
+    if (door.id === id) {
+      door.complete();
       this.numberOfCompletedDoors++;
       this.numberOfMismatchedDoors--;
       this.numberOfMismatchedDoors = Math.max(this.numberOfMismatchedDoors, 0);
@@ -329,15 +338,15 @@ Game.prototype.completeDoors = function(id) {
   this.numberOfOpenedDoors = 0;
 
   // Are we going to another level?
-  this.checkCompletion();
-
+  this.checkCompletion_();
 };
 
 /**
- * Checks if we are finishing this level or
- * just playing indefinitely because the player completed all.
+ * Checks if we are finishing this level or just playing indefinitely because
+ * the player completed all levels.
+ * @private
  */
-Game.prototype.checkCompletion = function() {
+Game.prototype.checkCompletion_ = function() {
   // Are we finishing the level and have more to go?
   if (this.numberOfCompletedDoors === this.numberOfDoors) {
     this.finishLevel();
@@ -345,13 +354,13 @@ Game.prototype.checkCompletion = function() {
 };
 
 /**
- * Resets all the doors to it's initial state.
+ * Resets all the doors to their initial state.
  * @private
  */
 Game.prototype.resetDoors_ = function() {
-  for (var i = 0; i < this.doors.length; i++) {
-    this.doors[i].reset();
-  }
+  this.doors.forEach(function(door) {
+    door.reset();
+  });
 
   this.doorsOpen = {};
   this.numberOfOpenedDoors = 0;
@@ -372,7 +381,7 @@ Game.prototype.restart = function() {
 };
 
 /**
- * Restarts the whole level, including it's doors and the scoreboard.
+ * Restarts the whole level, including its doors and the scoreboard.
  */
 Game.prototype.startLevel = function() {
 
@@ -393,37 +402,32 @@ Game.prototype.startLevel = function() {
  * the whole level.
  */
 Game.prototype.restartDoors = function() {
-  var _timeout = 0;
-  var _this = this;
+  var timeout = 0;
 
   // Reset our cards deck again
   this.cards.prepare();
 
   // Do we have any door opened?
-  if (this.numberOfOpenedDoors > 0 ||
-    this.numberOfCompletedDoors > 0) {
-
-    // Timeout to make sure the doors are closed
-    // before restarting
-    _timeout = Constants.SLIDING_DOOR_DURATION;
-
+  if (this.numberOfOpenedDoors > 0 || this.numberOfCompletedDoors > 0) {
+    // Timeout to make sure the doors are closed before restarting
+    timeout = Constants.SLIDING_DOOR_DURATION;
   }
 
   // Force them closed
-  this.closeAllDoors();
+  this.closeAllDoors_();
 
   window.setTimeout(function() {
     // Make our doors
-    _this.resetDoors_();
-    _this.createDoors();
-  }, _timeout);
-
+    this.resetDoors_();
+    this.createDoors_();
+  }.bind(this), timeout);
 };
 
 /**
  * Called every frame.
+ * @private
  */
-Game.prototype.onFrame = function() {
+Game.prototype.onFrame_ = function() {
   if (!this.isPlaying) {
     return;
   }
@@ -435,15 +439,13 @@ Game.prototype.onFrame = function() {
   this.scoreboard.onFrame(delta);
 
   // Request next frame.
-  this.requestId = utils.requestAnimFrame(this.onFrame);
+  this.requestId = utils.requestAnimFrame(this.onFrame_);
 };
 
 /**
  * Finishes the level by calling levelComplete instance.
  */
 Game.prototype.finishLevel = function() {
-  var _this = this;
-
   if (this.levelModel.get() === 10) {
     this.gameover();
     return;
@@ -471,22 +473,13 @@ Game.prototype.finishLevel = function() {
 
   this.levelUp
     .bgElem
-    .one(utils.TRANSITION_END, function() {
-      _this.prepareNextLevel();
-    });
+    .one(utils.TRANSITION_END, prepareNextLevel.bind(this));
 
-};
-
-/**
- * Next level funtionality.
- * Note: finishLevel should be called before this one.
- */
-Game.prototype.prepareNextLevel = function() {
-  // Update our time for this level
-  this.updateTime();
-
-  // Go
-  this.startLevel();
+  function prepareNextLevel() {
+    // Update our time for this level
+    this.updateTime();
+    this.startLevel();
+  }
 };
 
 /**
@@ -500,7 +493,7 @@ Game.prototype.getLevelScore = function() {
   var remainingSeconds = this.scoreboard.countdown;
   var timeMultiplier = remainingSeconds / 30;
   var baseScore = Constants.SCORE_LEVEL_UP;
-  var extraScore = Constants.SCORE_LEVEL_UP / 10 * (this.levelModel.get() - 1)
+  var extraScore = Constants.SCORE_LEVEL_UP / 10 * (this.levelModel.get() - 1);
   return Math.ceil((baseScore + extraScore) * timeMultiplier);
 };
 
@@ -557,7 +550,7 @@ Game.prototype.unfreezeGame = function() {
 
     // Restart the onFrame loop
     this.lastFrame = +new Date() / 1000;
-    this.requestId = utils.requestAnimFrame(this.onFrame);
+    this.requestId = utils.requestAnimFrame(this.onFrame_);
   }
 };
 

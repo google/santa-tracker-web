@@ -1,21 +1,23 @@
 goog.provide('Door');
 
 /**
+ * Holds a reference to a Door and its state (completed, matched, opened etc).
  * @param {string} id
- * @param {jQuery} $el
+ * @param {!jQuery} $el
  * @param {function} clickHandler
  * @param {string} cardClass
  * @constructor
  */
 var Door = function(id, $el, clickHandler, cardClass) {
-  this.elem = $el;
+  this.elem_ = $el;
+  this.cardClass_ = cardClass;
+  this.clickHandler_ = clickHandler;
+
   this.id = id;
   this.uniqueId = Door.ID_COUNTER++;
   this.isCompleted = false;
   this.isOpened = false;
   this.isMismatched = false;
-  this.cardClass = cardClass;
-  this.clickHandler = clickHandler;
 
   this.setCard();
   this.enable();
@@ -34,8 +36,8 @@ Door.ID_COUNTER = 0;
  * @private
  */
 Door.prototype.attachEvents_ = function() {
-  this.elem.on('click', function() {
-    this.clickHandler(this);
+  this.elem_.on('click', function() {
+    this.clickHandler_(this);
   }.bind(this));
 };
 
@@ -43,26 +45,25 @@ Door.prototype.attachEvents_ = function() {
  * Removes the event handlers of the door;
  */
 Door.prototype.destroy = function() {
-  this.elem.off('click');
+  this.elem_.off('click');
 };
 
 /**
- * Removes additional states or classes from a door
- * so it goes back to it's initial state.
+ * Removes additional states or classes from a door so it goes back to its
+ * initial state.
  */
 Door.prototype.reset = function() {
-
   if (this.isOpened) {
     this.close();
   }
 
   this.isCompleted = false;
 
-  this.elem
+  this.elem_
     .find(Constants.SELECTOR_CARD)
     .attr('class', 'card');
 
-  this.elem
+  this.elem_
     .attr('class', 'door')
     .off('click');
 };
@@ -71,7 +72,7 @@ Door.prototype.reset = function() {
  * Set the door to be closed.
  */
 Door.prototype.close = function() {
-  this.elem.removeClass(Constants.CLASS_DOOR_OPEN);
+  this.elem_.removeClass(Constants.CLASS_DOOR_OPEN);
   this.isOpened = false;
   this.isMismatched = false;
 };
@@ -80,13 +81,12 @@ Door.prototype.close = function() {
  * Set the door to be open.
  */
 Door.prototype.open = function() {
-  this.elem.addClass(Constants.CLASS_DOOR_OPEN);
+  this.elem_.addClass(Constants.CLASS_DOOR_OPEN);
   this.isOpened = true;
 };
 
 /**
- * Set the door to be either closed or opened
- * depending on it's state.
+ * Set the door to be either closed or opened depending on its state.
  */
 Door.prototype.toggle = function() {
   if (this.isOpened) {
@@ -97,7 +97,7 @@ Door.prototype.toggle = function() {
 };
 
 /**
- * Set a door to be completed (sed when a match is found).
+ * Set a door to be completed (e.g., when a match is found).
  **/
 Door.prototype.complete = function() {
   this.isCompleted = true;
@@ -105,36 +105,20 @@ Door.prototype.complete = function() {
 };
 
 /**
- * Returns if this door instance is completed (match found).
- * @return {boolean}
- */
-Door.prototype.isCompleted = function() {
-  return this.isCompleted;
-};
-
-/**
- * Returns the id of this door instance.
- * @return {string}
- */
-Door.prototype.getId = function() {
-  return this.id;
-};
-
-/**
  * Set a card background for this door
  * with a class.
  */
 Door.prototype.setCard = function() {
-  this.elem
+  this.elem_
     .find(Constants.SELECTOR_CARD)
-    .addClass(this.cardClass);
+    .addClass(this.cardClass_);
 };
 
 /**
  * Enables the door to look playable (green).
  */
 Door.prototype.enable = function() {
-  this.elem
+  this.elem_
     .addClass(Constants.CLASS_DOOR_ENABLED);
 };
 
@@ -142,7 +126,7 @@ Door.prototype.enable = function() {
  * Disables the door to look unplayable (red).
  */
 Door.prototype.disable = function() {
-  this.elem
+  this.elem_
     .removeClass(Constants.CLASS_DOOR_ENABLED);
 };
 
