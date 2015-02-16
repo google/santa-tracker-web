@@ -1,32 +1,32 @@
-goog.provide('Present');
+goog.provide('app.Present');
 
 goog.require('app.shared.pools');
 
 /**
  * Drops a present.
  * @constructor
- * @param {Game} game The current game object.
+ * @param {!app.Game} game The current game object.
  */
-Present = function(game) {
+app.Present = function(game) {
   this.game = game;
   this.elem = $('<div class="present hidden" />');
   game.presentsElem.append(this.elem);
 };
 
-app.shared.pools.mixin(Present);
+app.shared.pools.mixin(app.Present);
 
 /**
  * Resets the present for reuse.
  * @param {number} x The X position.
  */
-Present.prototype.onInit = function(x) {
+app.Present.prototype.onInit = function(x) {
   this.elem.removeClass('hidden');
   this.dead = false;
 
   // State
-  this.x = x - Present.PRESENT_CENTER;
-  this.y = Constants.PRESENT_START_Y;
-  this.velocity = Constants.PRESENT_INITIAL_VELOCITY;
+  this.x = x - app.Present.PRESENT_CENTER;
+  this.y = app.Constants.PRESENT_START_Y;
+  this.velocity = app.Constants.PRESENT_INITIAL_VELOCITY;
   this.elem.css('left', this.x + 'px');
   this.draw();
 };
@@ -34,14 +34,14 @@ Present.prototype.onInit = function(x) {
 /**
  * Remove present from pool.
  */
-Present.prototype.remove = function() {
-  Present.push(this);
+app.Present.prototype.remove = function() {
+  app.Present.push(this);
 };
 
 /**
  * Remove the present from the dom and game loop.
  */
-Present.prototype.onDispose = function() {
+app.Present.prototype.onDispose = function() {
   this.elem.addClass('hidden');
   this.dead = true;
 };
@@ -49,23 +49,23 @@ Present.prototype.onDispose = function() {
 /**
  * Position the present.
  */
-Present.prototype.draw = function() {
+app.Present.prototype.draw = function() {
   this.elem.css('top', this.y + 'px');
 };
 
 /**
  * Moves the present each frame.
- * @param  {number} delta Time since last frame.
+ * @param {number} delta time in seconds since last frame.
  */
-Present.prototype.onFrame = function(delta) {
+app.Present.prototype.onFrame = function(delta) {
   var lasty = this.y, present = this;
 
   // Calculate gravity
-  if (this.y < Constants.PRESENT_END_Y) {
-    this.velocity += Constants.PRESENT_GRAVITY * delta;
+  if (this.y < app.Constants.PRESENT_END_Y) {
+    this.velocity += app.Constants.PRESENT_GRAVITY * delta;
     this.y += this.velocity * delta;
-    if (this.y > Constants.PRESENT_END_Y) {
-      this.y = Constants.PRESENT_END_Y;
+    if (this.y > app.Constants.PRESENT_END_Y) {
+      this.y = app.Constants.PRESENT_END_Y;
     }
   } else {
     present.remove();
@@ -84,12 +84,12 @@ Present.prototype.onFrame = function(delta) {
     // Check for horizontal hit
     var diff = Math.abs(present.x - hitbox.x - hitbox.center);
 
-    if (diff <= hitbox.center - Present.PRESENT_CENTER) {
+    if (diff <= hitbox.center - app.Present.PRESENT_CENTER) {
       // Hits inside chimney.
       present.remove();
       chimney.hit();
 
-    } else if (diff < hitbox.center + Present.PRESENT_CENTER) {
+    } else if (diff < hitbox.center + app.Present.PRESENT_CENTER) {
       // Hits on edge. Should bounce away?
       present.remove();
       chimney.hit();
@@ -103,11 +103,11 @@ Present.prototype.onFrame = function(delta) {
  * Drop a present.
  * @param {number} x The x location of the present.
  */
-Present.prototype.drop = function(x) {
+app.Present.prototype.drop = function(x) {
   this.elem.addClass('drop');
-  this.elem.css({left: (x - Present.PRESENT_CENTER) + 'px'});
+  this.elem.css({left: (x - app.Present.PRESENT_CENTER) + 'px'});
   this.elem.appendTo(this.elem.closest('.stage').find('.presents'));
 };
 
 /** @const */
-Present.PRESENT_CENTER = Constants.PRESENT_WIDTH / 2;
+app.Present.PRESENT_CENTER = app.Constants.PRESENT_WIDTH / 2;

@@ -1,11 +1,11 @@
-goog.provide('Controls');
+goog.provide('app.Controls');
 
 /**
  * Handles user input for controlling the game.
- * @param {Game} game The game object.
+ * @param {!app.Game} game The game object.
  * @constructor
  */
-Controls = function(game) {
+app.Controls = function(game) {
   // This is what we're controlling
   this.game = game;
   this.player = this.game.player;
@@ -27,7 +27,7 @@ Controls = function(game) {
  * Handle all keyboard and touch events.
  * @param {event} e The event data.
  */
-Controls.prototype.handle = function(e) {
+app.Controls.prototype.handle = function(e) {
   // Paused or Gameover
   if (!this.game.isPlaying) {
     return;
@@ -42,34 +42,34 @@ Controls.prototype.handle = function(e) {
  * @type {bool}
  * @private
  */
-Controls.prototype.isRightDown_ = false;
+app.Controls.prototype.isRightDown_ = false;
 
 /**
  * Keep track of the left key.
  * @type {bool}
  * @private
  */
-Controls.prototype.isLeftDown_ = false;
+app.Controls.prototype.isLeftDown_ = false;
 
 /**
  * Keep track of the space bar.
  * @type {bool}
  * @private
  */
-Controls.prototype.isSpaceDown_ = false;
+app.Controls.prototype.isSpaceDown_ = false;
 
 /**
  * Keep track of player movements.
  * @type {bool}
  * @private
  */
-Controls.prototype.isMoving_ = false;
+app.Controls.prototype.isMoving_ = false;
 
 /**
  * Handles the key down event. Called dynamically.
  * @param  {Event} e The event object.
  */
-Controls.prototype['onKeydown'] = function(e) {
+app.Controls.prototype['onKeydown'] = function(e) {
   if (e.keyCode === 37) { // Left
     this.isLeftDown_ = true;
   } else if (e.keyCode === 39) { // Right
@@ -99,9 +99,9 @@ Controls.prototype['onKeydown'] = function(e) {
 /**
  * Handles the key up event. Called dynamically.
  * @param  {Event} e The event object.
- * @this {Controls} The Controls object.
+ * @this {app.Controls} The app.Controls object.
  */
-Controls.prototype['onKeyup'] = function(e) {
+app.Controls.prototype['onKeyup'] = function(e) {
   if (e.keyCode === 37) { // Left
     this.isLeftDown_ = false;
   } else if (e.keyCode === 39) { // Right
@@ -115,7 +115,7 @@ Controls.prototype['onKeyup'] = function(e) {
 /**
  * Updates the player.
  */
-Controls.prototype.updatePlayerFromKeyboard = function() {
+app.Controls.prototype.updatePlayerFromKeyboard = function() {
   if (this.isRightDown_) {
     this.player.keyboardGoRight();
   } else if (this.isLeftDown_) {
@@ -135,13 +135,13 @@ Controls.prototype.updatePlayerFromKeyboard = function() {
 /**
  * Touch controls
  */
-Controls.prototype.touchStartedInGUI = null;
+app.Controls.prototype.touchStartedInGUI = null;
 
 /**
  * Touch started. Ignores gui touches. Called dynamically.
  * @param  {Event} e The event object.
  */
-Controls.prototype['onTouchstart'] = function(e) {
+app.Controls.prototype['onTouchstart'] = function(e) {
   // Ignore the touch if it starts in GUI or if we are already tracking a touch.
   this.touchStartedInGUI = !!$(e.target).closest('.gui').length;
   if (this.currentTouchId !== null || this.touchStartedInGUI) {
@@ -169,9 +169,9 @@ Controls.prototype['onTouchstart'] = function(e) {
 /**
  * Touch moved. Called dynamically.
  * @param  {Event} e The event object.
- * @this {Controls} The Controls object.
+ * @this {app.Controls} The app.Controls object.
  */
-Controls.prototype['onTouchmove'] = function(e) {
+app.Controls.prototype['onTouchmove'] = function(e) {
   var touch = this.getCurrentTouch(e.originalEvent);
   if (touch) {
     var stagePos = this.stage.offset();
@@ -188,9 +188,9 @@ Controls.prototype['onTouchmove'] = function(e) {
 /**
  * Touch ended. Called dynamically.
  * @param  {Event} e The event object.
- * @this {Controls} The Controls object.
+ * @this {app.Controls} The app.Controls object.
  */
-Controls.prototype['onTouchend'] = function(e) {
+app.Controls.prototype['onTouchend'] = function(e) {
   var touch = this.getCurrentTouch(e.originalEvent);
   if (!touch) {
     return;
@@ -205,7 +205,7 @@ Controls.prototype['onTouchend'] = function(e) {
  * @param  {Event} e A touch event.
  * @return {Touch}   The active touch.
  */
-Controls.prototype.getCurrentTouch = function(e) {
+app.Controls.prototype.getCurrentTouch = function(e) {
   if (this.currentTouchId === null) {
     return;
   }

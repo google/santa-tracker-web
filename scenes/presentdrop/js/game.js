@@ -1,32 +1,31 @@
 goog.provide('app.Game');
 
-goog.require('Constants');
+goog.require('app.Constants');
 goog.require('app.shared.utils');
 goog.require('app.shared.pools');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.Scoreboard');
 goog.require('app.shared.Tutorial');
-goog.require('Chimney');
-goog.require('Controls');
-goog.require('Levels');
-goog.require('Player');
-goog.require('Present');
+goog.require('app.Chimney');
+goog.require('app.Controls');
+goog.require('app.Levels');
+goog.require('app.Player');
+goog.require('app.Present');
 
 /**
  * Main game class.
- * @param {Element} elem An DOM element which wraps the game.
- * @author aranja@aranja.com
+ * @param {!Element} elem An DOM element which wraps the game.
  * @constructor
  */
-function Game(elem) {
+app.Game = function(elem) {
   this.elem = $(elem);
 
-  this.player = new Player(this, this.elem.find('.player'));
-  this.scoreboard = new Scoreboard(this, this.elem.find('.board'), Constants.TOTAL_LEVELS);
+  this.player = new app.Player(this, this.elem.find('.player'));
+  this.scoreboard = new Scoreboard(this, this.elem.find('.board'), app.Constants.TOTAL_LEVELS);
   this.gameoverDialog = new Gameover(this, this.elem.find('.gameover'));
   this.tutorial = new Tutorial(this.elem, 'touch-leftright', 'keys-space keys-leftright');
-  this.controls = new Controls(this);
-  this.levels = new Levels(this);
+  this.controls = new app.Controls(this);
+  this.levels = new app.Levels(this);
   this.entities = [];
   this.isPlaying = false;
   this.paused = false;
@@ -48,22 +47,22 @@ function Game(elem) {
  * during gameplay on android browsers.
  * @private
  */
-Game.prototype.preloadPools_ = function() {
+app.Game.prototype.preloadPools_ = function() {
   // We shouldn't need more than 7 chimneys during gameplay.
   for (var i = 0; i < 7; i++) {
-    Chimney.pool(this);
+    app.Chimney.pool(this);
   }
 
   // There won't ever exist more than 2 presents at same time, thanks to gravity.
-  Present.pool(this);
-  Present.pool(this);
+  app.Present.pool(this);
+  app.Present.pool(this);
 };
 
 /**
  * Starts the game.
  * @export
  */
-Game.prototype.start = function() {
+app.Game.prototype.start = function() {
   this.restart();
   this.tutorial.start();
 };
@@ -71,7 +70,7 @@ Game.prototype.start = function() {
 /**
  * Resets all game entities and restarts the game. Can be called at any time.
  */
-Game.prototype.restart = function() {
+app.Game.prototype.restart = function() {
   // Cleanup last game
   this.entities.forEach(function(e) { e.remove(); });
   this.entities = [];
@@ -82,7 +81,7 @@ Game.prototype.restart = function() {
   this.scoreboard.reset();
   this.scoreboard.setLevel(this.level);
 
-  this.chimneySpeed = Constants.CHIMNEY_START_SPEED;
+  this.chimneySpeed = app.Constants.CHIMNEY_START_SPEED;
   this.nextChimney = 0;
 
   this.player.reset();
@@ -98,7 +97,7 @@ Game.prototype.restart = function() {
 /**
  * Called each frame while game is running. Calls onFrame on all entities.
  */
-Game.prototype.onFrame = function() {
+app.Game.prototype.onFrame = function() {
   if (!this.isPlaying) {
     return;
   }
@@ -137,7 +136,7 @@ Game.prototype.onFrame = function() {
  * Scale the game down for smaller resolutions.
  * @param {Number} scale A scale between 0 and 1 on how much to scale.
  */
-Game.prototype.setScale = function(scale) {
+app.Game.prototype.setScale = function(scale) {
   this.scale = scale;
   var view = this.elem.find('.view'),
       bg = this.elem.find('.bg');
@@ -153,21 +152,21 @@ Game.prototype.setScale = function(scale) {
  * Called each frame. Creates new chimneys on a set interval.
  * @param {number} delta Seconds since last update.
  */
-Game.prototype.updateChimneys = function(delta) {
+app.Game.prototype.updateChimneys = function(delta) {
   this.nextChimney -= delta;
   if (this.nextChimney > 0) {
     return;
   }
 
   // Create chimney
-  var chimney = Chimney.pop(this);
+  var chimney = app.Chimney.pop(this);
   this.entities.push(chimney);
 
   // Schedule next chimney.
   var multiply =
-        Math.pow(Constants.CHIMNEY_SPAWN_MULTIPLY_EACH_LEVEL, this.level),
-      interval = Constants.CHIMNEY_SPAWN_BASE + Constants.CHIMNEY_SPAWN_INTERVAL * multiply,
-      variance = Constants.CHIMNEY_SPAWN_VARIANCE * multiply;
+        Math.pow(app.Constants.CHIMNEY_SPAWN_MULTIPLY_EACH_LEVEL, this.level),
+      interval = app.Constants.CHIMNEY_SPAWN_BASE + app.Constants.CHIMNEY_SPAWN_INTERVAL * multiply,
+      variance = app.Constants.CHIMNEY_SPAWN_VARIANCE * multiply;
   this.nextChimney = (interval - variance / 2) + Math.random() * variance;
 };
 
@@ -175,8 +174,8 @@ Game.prototype.updateChimneys = function(delta) {
  * Called by player to create a present at the specified x position.
  * @param {number} x The position which the present should be created at.
  */
-Game.prototype.createPresent = function(x) {
-  var present = Present.pop(this, x);
+app.Game.prototype.createPresent = function(x) {
+  var present = app.Present.pop(this, x);
   this.entities.push(present);
 };
 
@@ -184,7 +183,7 @@ Game.prototype.createPresent = function(x) {
  * Called by a chimney when it is hit to record its score.
  * @param {number} score The score gained.
  */
-Game.prototype.hitChimney = function(score) {
+app.Game.prototype.hitChimney = function(score) {
   this.scoreboard.addScore(score);
   this.scoreboard.addTime(1);
   window.santaApp.fire('sound-trigger', 'pd_player_present_pickup');
@@ -192,11 +191,11 @@ Game.prototype.hitChimney = function(score) {
 
 /**
  * Iterates all chimneys that have not been hit. Used for collision detection.
- * @param {function(Chimney): void} fun The function to run for each chimney.
+ * @param {!Function(app.Chimney)} fun The function to run for each chimney.
  */
-Game.prototype.forEachActiveChimney = function(fun) {
+app.Game.prototype.forEachActiveChimney = function(fun) {
   for (var i = 0, chimney; chimney = this.entities[i]; i++) {
-    if (chimney instanceof Chimney && !chimney.isHit) {
+    if (chimney instanceof app.Chimney && !chimney.isHit) {
       fun(chimney);
     }
   }
@@ -206,7 +205,7 @@ Game.prototype.forEachActiveChimney = function(fun) {
  * Stops the onFrame loop and stops all relevant CSS3 animations.
  * Used by pause and gameover.
  */
-Game.prototype.freezeGame = function() {
+app.Game.prototype.freezeGame = function() {
   this.isPlaying = false;
   this.elem.addClass('frozen');
 };
@@ -215,7 +214,7 @@ Game.prototype.freezeGame = function() {
  * Starts the onFrame loop and enables CSS3 animations.
  * Used by unpause and restart.
  */
-Game.prototype.unfreezeGame = function() {
+app.Game.prototype.unfreezeGame = function() {
   if (!this.isPlaying) {
     this.elem.removeClass('frozen').focus();
 
@@ -228,22 +227,22 @@ Game.prototype.unfreezeGame = function() {
 /**
  * Called by levels to bump the level.
  */
-Game.prototype.nextLevel = function() {
-  if (this.level === Constants.TOTAL_LEVELS - 1) {
+app.Game.prototype.nextLevel = function() {
+  if (this.level === app.Constants.TOTAL_LEVELS - 1) {
     this.gameover();
     return;
   }
 
   this.level++;
   this.scoreboard.setLevel(this.level);
-  this.chimneySpeed += Constants.CHIMNEY_SPEED_PER_LEVEL;
+  this.chimneySpeed += app.Constants.CHIMNEY_SPEED_PER_LEVEL;
   window.santaApp.fire('sound-trigger', 'pd_player_level_up');
 };
 
 /**
  * Called by the scoreboard to stop the game when the time is up.
  */
-Game.prototype.gameover = function() {
+app.Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverDialog.show();
   window.santaApp.fire('sound-trigger', 'pd_game_over');
@@ -258,7 +257,7 @@ Game.prototype.gameover = function() {
 /**
  * Pauses/unpauses the game.
  */
-Game.prototype.togglePause = function() {
+app.Game.prototype.togglePause = function() {
   if (this.paused) {
     this.resume();
   // Only allow pausing if the game is playing (not game over).
@@ -270,7 +269,7 @@ Game.prototype.togglePause = function() {
 /**
  * Pause the game.
  */
-Game.prototype.pause = function() {
+app.Game.prototype.pause = function() {
   this.paused = true;
   this.freezeGame();
 };
@@ -278,7 +277,7 @@ Game.prototype.pause = function() {
 /**
  * Resume the game.
  */
-Game.prototype.resume = function() {
+app.Game.prototype.resume = function() {
   this.paused = false;
   this.unfreezeGame();
 };
@@ -287,7 +286,7 @@ Game.prototype.resume = function() {
  * Detects scene size and manages scale. Updates on window resize.
  * @private
  */
-Game.prototype.watchSceneSize_ = function() {
+app.Game.prototype.watchSceneSize_ = function() {
   var win = $(window),
       game = this;
 
@@ -307,7 +306,7 @@ Game.prototype.watchSceneSize_ = function() {
  * Cleanup
  * @export
  */
-Game.prototype.dispose = function() {
+app.Game.prototype.dispose = function() {
   if (this.isPlaying) {
     window.santaApp.fire('analytics-track-game-quit', {
       gameid: 'presentdrop',
@@ -323,13 +322,13 @@ Game.prototype.dispose = function() {
   this.elem.off('.presentdrop');
 
   this.tutorial.dispose();
-  Chimney.pool_ = [];
-  Present.pool_ = [];
+  app.Chimney.pool_ = [];
+  app.Present.pool_ = [];
 };
 
 /**
  * Export game object.
- * @type {Game}
+ * @type {app.Game}
  * @export
  */
-app.Game = Game;
+app.Game = app.Game;
