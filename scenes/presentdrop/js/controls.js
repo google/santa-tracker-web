@@ -17,25 +17,19 @@ app.Controls = function(game) {
   // Touch state
   this.currentTouchId = null;
 
-  // Let's bind our events.
-  var handler = this.handle.bind(this);
-  this.game.elem.on('touchstart.presentdrop touchmove.presentdrop touchend.presentdrop', handler);
-  $(window).on('keydown.presentdrop keyup.presentdrop', handler);
+  this.onTouchStart_ = this.onTouchStart_.bind(this);
+  this.onTouchMove_ = this.onTouchMove_.bind(this);
+  this.onTouchEnd_ = this.onTouchEnd_.bind(this);
+  this.onKeyDown_ = this.onKeyDown_.bind(this);
+  this.onKeyUp_ = this.onKeyUp_.bind(this);
+
+  // Listeners removed as part of game dispose.
+  this.game.elem.on('touchstart.presentdrop', this.onTouchStart_);
+  this.game.elem.on('touchmove.presentdrop', this.onTouchMove_);
+  this.game.elem.on('touchend.presentdrop', this.onTouchEnd_);
+  $(window).on('keydown.presentdrop', this.onKeyDown_);
+  $(window).on('keyup.presentdrop', this.onKeyUp_);
 }
-
-/**
- * Handle all keyboard and touch events.
- * @param {event} e The event data.
- */
-app.Controls.prototype.handle = function(e) {
-  // Paused or Gameover
-  if (!this.game.isPlaying) {
-    return;
-  }
-
-  var methodName = 'on' + e.type[0].toUpperCase() + e.type.slice(1);
-  this[methodName](e);
-};
 
 /**
  * Keep track of the right key.
@@ -59,17 +53,11 @@ app.Controls.prototype.isLeftDown_ = false;
 app.Controls.prototype.isSpaceDown_ = false;
 
 /**
- * Keep track of player movements.
- * @type {bool}
+ * Handles the key down event. Called dynamically.
+ * @param {!Event} e The event object.
  * @private
  */
-app.Controls.prototype.isMoving_ = false;
-
-/**
- * Handles the key down event. Called dynamically.
- * @param  {Event} e The event object.
- */
-app.Controls.prototype['onKeydown'] = function(e) {
+app.Controls.prototype.onKeyDown_ = function(e) {
   if (e.keyCode === 37) { // Left
     this.isLeftDown_ = true;
   } else if (e.keyCode === 39) { // Right
@@ -83,7 +71,9 @@ app.Controls.prototype['onKeydown'] = function(e) {
     }
 
     this.isSpaceDown_ = true;
-    this.player.dropPresent();
+    if (this.game.isPlaying) {
+      this.player.dropPresent();
+    }
   }
 
   if (!this.arrowPressed && (e.keyCode === 37 || e.keyCode === 39)) {
@@ -98,10 +88,10 @@ app.Controls.prototype['onKeydown'] = function(e) {
 
 /**
  * Handles the key up event. Called dynamically.
- * @param  {Event} e The event object.
- * @this {app.Controls} The app.Controls object.
+ * @param {Event} e The event object.
+ * @private
  */
-app.Controls.prototype['onKeyup'] = function(e) {
+app.Controls.prototype.onKeyUp_ = function(e) {
   if (e.keyCode === 37) { // Left
     this.isLeftDown_ = false;
   } else if (e.keyCode === 39) { // Right
@@ -123,13 +113,6 @@ app.Controls.prototype.updatePlayerFromKeyboard = function() {
   } else {
     this.player.keyboardStop();
   }
-
-  // Pull sound
-  if (!this.isRightDown_ && !this.isLeftDown_) {
-    this.isMoving_ = false;
-  } else if (!this.isMoving_) {
-    this.isMoving_ = true;
-  }
 };
 
 /**
@@ -139,9 +122,11 @@ app.Controls.prototype.touchStartedInGUI = null;
 
 /**
  * Touch started. Ignores gui touches. Called dynamically.
- * @param  {Event} e The event object.
+ * @param {!Event} e The event object.
  */
-app.Controls.prototype['onTouchstart'] = function(e) {
+app.Controls.prototype.onTouchStart_ = function(e) {
+  if (!this.game.isPlaying) return;
+
   // Ignore the touch if it starts in GUI or if we are already tracking a touch.
   this.touchStartedInGUI = !!$(e.target).closest('.gui').length;
   if (this.currentTouchId !== null || this.touchStartedInGUI) {
@@ -168,10 +153,12 @@ app.Controls.prototype['onTouchstart'] = function(e) {
 
 /**
  * Touch moved. Called dynamically.
- * @param  {Event} e The event object.
- * @this {app.Controls} The app.Controls object.
+ * @param {!Event} e The event object.
+ * @private
  */
-app.Controls.prototype['onTouchmove'] = function(e) {
+app.Controls.prototype.onTouchMove_ = function(e) {
+  if (!this.game.isPlaying) return;
+
   var touch = this.getCurrentTouch_(e.originalEvent);
   if (touch) {
     var stagePos = this.stage.offset();
@@ -187,10 +174,10 @@ app.Controls.prototype['onTouchmove'] = function(e) {
 
 /**
  * Touch ended. Called dynamically.
- * @param  {Event} e The event object.
- * @this {app.Controls} The app.Controls object.
+ * @param {!Event} e The event object.
+ * @private
  */
-app.Controls.prototype['onTouchend'] = function(e) {
+app.Controls.prototype.onTouchEnd_ = function(e) {
   var touch = this.getCurrentTouch_(e.originalEvent);
   if (!touch) {
     return;
