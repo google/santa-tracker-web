@@ -13,9 +13,8 @@ goog.require('app.shared.ShareOverlay');
 
 /**
  * Main game class
- * @param {Element} elem An DOM element which wraps the game.
+ * @param {!Element} elem An DOM element which wraps the game.
  * @constructor
- * @author aranja@aranja.com
  * @export
  */
 app.Game = function(elem) {
@@ -32,7 +31,7 @@ app.Game = function(elem) {
 
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
 
-  this.onFrame = this.onFrame.bind(this);
+  this.onFrame_ = this.onFrame_.bind(this);
   this.accumulator = 0;
 };
 
@@ -130,7 +129,7 @@ app.Game.prototype.unfreezeGame = function() {
 
     this.isPlaying = true;
     this.lastFrame = +new Date();
-    this.requestId = utils.requestAnimFrame(this.onFrame);
+    this.requestId = utils.requestAnimFrame(this.onFrame_);
   }
 };
 
@@ -153,7 +152,7 @@ app.Game.prototype.onFrame = function() {
   this.hair.draw();
 
   // Request next frame
-  this.requestId = utils.requestAnimFrame(this.onFrame);
+  this.requestId = utils.requestAnimFrame(this.onFrame_);
 };
 
 

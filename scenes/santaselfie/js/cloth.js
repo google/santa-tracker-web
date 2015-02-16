@@ -8,7 +8,7 @@ goog.require('app.utils');
 
 /**
  * Cloth simulation
- * @param {Canvas} canvas A canvas to render the cloth to.
+ * @param {!HTMLCanvasElement} canvas A canvas to render the cloth to.
  * @constructor
  */
 app.Cloth = function(canvas) {

@@ -7,7 +7,7 @@ goog.require('app.utils');
 /**
  * Base tool item
  * @constructor
- * @extends {app.GameObject}
+ * @extends {!app.GameObject}
  * @param {string} name The name of the tool.
  * Element should have class Tool-name.
  * @param {{x: number, y: number}} mouseOffset Tool offset relative to the mouse
@@ -95,7 +95,7 @@ app.Tool.prototype.deselect = function() {
 
 /**
  * Move the tool to the specified mouse position
- * @param {app.Mouse} mouse Game mouse object
+ * @param {!app.Mouse} mouse Game mouse object
  */
 app.Tool.prototype.move = function(mouse) {
   var offsetX = this.mouseOffset.x;
@@ -159,8 +159,9 @@ app.Tool.prototype.createAnimation_ = function() {
 
 
 /**
- * Evaluate if the tool should play its animation.
- * @param {app.Mouse.transformCoordinates} mouse info.
+ * Evaluate if the tool should play its animation. Should be overwritten if
+ * relevant.
+ * @param {!app.Mouse.transformCoordinates} mouse info.
  * @return {boolean}
  * @private
  */
@@ -194,8 +195,8 @@ app.Clipper.prototype.createAnimation_ = function() {
 
 
 /**
- * Creates a web Animation instance for the tool effect.
- * @return {Animation}
+ * Evaluate whether the Clipper should play its animation.
+ * @return {boolean}
  * @private
  */
 app.Clipper.prototype.shouldAnimate_ = function(mouse) {
@@ -265,7 +266,6 @@ app.Spray = function(name, color) {
   this.color = color;
   this.spray = this.elem.find('#spray--' + name)[0];
 };
-
 app.Spray.prototype = Object.create(app.Tool.prototype);
 
 
@@ -276,20 +276,20 @@ app.Spray.prototype = Object.create(app.Tool.prototype);
  * @extends {app.Tool}
  * @param {string} name The name of the decoration
  * @param {{x: number, y: number}} offset Tool offset relative to the mouse
- * @param {Image} decoration image.
+ * @param {!Image} decoration image.
  */
 app.Decoration = function(name, offset, decoration) {
   app.Tool.call(this, 'decoration--' + name, offset);
 
   this.decoration = decoration;
 };
-
 app.Decoration.prototype = Object.create(app.Tool.prototype);
 
 
 
 /**
  * The toolbox
+ * @param {!jQuery} $elem
  * @constructor
  */
 app.Tools = function($elem) {
@@ -407,13 +407,14 @@ app.Tools.prototype.start = function() {
     game.mouse.subscribe(faceInward, this.hairgrow);
   }
 
-  this.elem.on('click touchend', this.selectTool.bind(this));
+  this.selectTool_ = this.selectTool_.bind(this);
+  this.elem.on('click touchend', this.selectTool_);
 };
 
 
 /**
  * @extends {app.GameObject.mouseChanged}
- * @param {app.Mouse} mouse
+ * @param {!app.Mouse} mouse
  */
 app.Tools.prototype.mouseChanged = function(mouse) {
   if (this.selectedTool) {
@@ -448,9 +449,10 @@ app.Tools.prototype.mouseChanged = function(mouse) {
 
 /**
  * Handle clicks on the toolbox to select a tool
- * @param {Event} e DOM click event
+ * @param {!Event} e DOM click event
+ * @private
  */
-app.Tools.prototype.selectTool = function(e) {
+app.Tools.prototype.selectTool_ = function(e) {
   var previousTool = this.selectedTool;
 
   this.selectedTool = this.tools.filter(function(tool) {

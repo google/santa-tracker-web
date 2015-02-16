@@ -8,7 +8,7 @@ goog.require('app.utils');
  * Interactions for Santa's face
  * @constructor
  * @extends {app.GameObject}
- * @param {jQuery} $elem The container element
+ * @param {!jQuery} $elem The container element
  */
 app.Face = function($elem) {
   this.eyes = $elem.find('.eye');
@@ -26,7 +26,7 @@ app.Face.prototype.start = function() {
     this.eyes.each(function(index, eye) {
       $(eye).addClass('eye--blink');
 
-      setTimeout(function() {
+      window.setTimeout(function() {
         $(eye).removeClass('eye--blink');
       }, 200);
     }, this);
@@ -39,7 +39,7 @@ app.Face.prototype.start = function() {
 
 /**
  * @extends {app.GameObject.mouseChanged}
- * @param {app.Mouse} mouse
+ * @param {!app.Mouse} mouse
  */
 app.Face.prototype.mouseChanged = function(mouse) {
   function transform(element, x, y) {

@@ -4,7 +4,11 @@ goog.require('app.Constants');
 goog.require('app.utils');
 
 
-
+/**
+ * Each Point represents a discrete part of the cloth, aka Santa's beard.
+ * @param {object} options
+ * @constructor
+ */
 app.Point = function(options) {
   this.options = options; // store the options so we can reset the point
 

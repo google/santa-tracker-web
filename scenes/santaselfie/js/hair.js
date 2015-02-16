@@ -11,7 +11,7 @@ goog.require('app.encoding');
  * Based on work Copyright (c) 2013 Suffick at Codepen (http://codepen.io/suffick),
  * GitHub (https://github.com/suffick) and lonely-pixel.com
  * @constructor
- * @param {jQuery} $elem The container element
+ * @param {!jQuery} $elem The container element
  * @extends {app.GameObject}
  */
 app.Hair = function($elem) {
@@ -48,7 +48,7 @@ app.Hair.prototype.draw = function() {
 
 /**
  * Serialize the current state of the beard.
- * @return {String} encoded
+ * @return {string} encoded
  */
 app.Hair.prototype.save = function() {
   var points = this.cloth.points;
@@ -80,7 +80,7 @@ app.Hair.prototype.save = function() {
 
 /**
  * Replace the current beard with a saved state.
- * @param {String} encoded string representing beard state.
+ * @param {string} encoded string representing beard state.
  */
 app.Hair.prototype.restore = function(encoded) {
   var encoder = app.Constants.ENCODER;
