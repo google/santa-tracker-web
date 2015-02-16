@@ -136,8 +136,9 @@ app.Game.prototype.unfreezeGame = function() {
 
 /**
  * Game loop. Runs every frame using requestAnimationFrame.
+ * @private
  */
-app.Game.prototype.onFrame = function() {
+app.Game.prototype.onFrame_ = function() {
   if (!this.isPlaying) {
     return;
   }
