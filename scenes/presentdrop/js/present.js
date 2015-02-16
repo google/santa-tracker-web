@@ -58,7 +58,7 @@ app.Present.prototype.draw = function() {
  * @param {number} delta time in seconds since last frame.
  */
 app.Present.prototype.onFrame = function(delta) {
-  var lasty = this.y, present = this;
+  var lasty = this.y;
 
   // Calculate gravity
   if (this.y < app.Constants.PRESENT_END_Y) {
@@ -68,7 +68,7 @@ app.Present.prototype.onFrame = function(delta) {
       this.y = app.Constants.PRESENT_END_Y;
     }
   } else {
-    present.remove();
+    this.remove();
     window.santaApp.fire('sound-trigger', 'pd_item_miss');
   }
 
@@ -77,24 +77,24 @@ app.Present.prototype.onFrame = function(delta) {
     var hitbox = chimney.getHitbox();
 
     // Check vertical hit
-    if (hitbox.y <= lasty || hitbox.y >= present.y) {
+    if (hitbox.y <= lasty || hitbox.y >= this.y) {
       return;
     }
 
     // Check for horizontal hit
-    var diff = Math.abs(present.x - hitbox.x - hitbox.center);
+    var diff = Math.abs(this.x - hitbox.x - hitbox.center);
 
     if (diff <= hitbox.center - app.Present.PRESENT_CENTER) {
       // Hits inside chimney.
-      present.remove();
+      this.remove();
       chimney.hit();
 
     } else if (diff < hitbox.center + app.Present.PRESENT_CENTER) {
       // Hits on edge. Should bounce away?
-      present.remove();
+      this.remove();
       chimney.hit();
     }
-  });
+  }, this);
 
   this.draw();
 };

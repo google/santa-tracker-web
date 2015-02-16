@@ -36,7 +36,7 @@ app.Game = function(elem) {
   this.gameStartTime = +new Date;
 
   // Cache a bound onFrame since we need it each frame.
-  this.onFrame = this.onFrame.bind(this);
+  this.onFrame_ = this.onFrame_.bind(this);
 
   this.watchSceneSize_();
   this.preloadPools_();
@@ -97,7 +97,7 @@ app.Game.prototype.restart = function() {
 /**
  * Called each frame while game is running. Calls onFrame on all entities.
  */
-app.Game.prototype.onFrame = function() {
+app.Game.prototype.onFrame_ = function() {
   if (!this.isPlaying) {
     return;
   }
@@ -111,7 +111,7 @@ app.Game.prototype.onFrame = function() {
   this.player.onFrame(delta);
   this.levels.onFrame(delta);
   this.scoreboard.onFrame(delta);
-  this.updateChimneys(delta);
+  this.updateChimneys_(delta);
 
   // Update entities and track which are dead.
   var deadEntities = [];
@@ -124,17 +124,17 @@ app.Game.prototype.onFrame = function() {
   }
 
   // Cleanup dead entities
-  for (var i = 0, deadEntity; (deadEntity = deadEntities[i]) != null; i++) {
-    this.entities.splice(deadEntity - i, 1);
-  }
+  deadEntities.forEach(function(index, i) {
+    this.entities.splice(index - i, 1);
+  }, this);
 
   // Request next frame
-  this.requestId = utils.requestAnimFrame(this.onFrame);
+  this.requestId = utils.requestAnimFrame(this.onFrame_);
 };
 
 /**
  * Scale the game down for smaller resolutions.
- * @param {Number} scale A scale between 0 and 1 on how much to scale.
+ * @param {number} scale A scale between 0 and 1 on how much to scale.
  */
 app.Game.prototype.setScale = function(scale) {
   this.scale = scale;
@@ -151,8 +151,9 @@ app.Game.prototype.setScale = function(scale) {
 /**
  * Called each frame. Creates new chimneys on a set interval.
  * @param {number} delta Seconds since last update.
+ * @private
  */
-app.Game.prototype.updateChimneys = function(delta) {
+app.Game.prototype.updateChimneys_ = function(delta) {
   this.nextChimney -= delta;
   if (this.nextChimney > 0) {
     return;
@@ -192,11 +193,12 @@ app.Game.prototype.hitChimney = function(score) {
 /**
  * Iterates all chimneys that have not been hit. Used for collision detection.
  * @param {!Function(app.Chimney)} fun The function to run for each chimney.
+ * @param {object=} opt_this to use
  */
-app.Game.prototype.forEachActiveChimney = function(fun) {
+app.Game.prototype.forEachActiveChimney = function(fun, opt_this) {
   for (var i = 0, chimney; chimney = this.entities[i]; i++) {
     if (chimney instanceof app.Chimney && !chimney.isHit) {
-      fun(chimney);
+      fun.call(opt_this || null, chimney);
     }
   }
 };
@@ -220,7 +222,7 @@ app.Game.prototype.unfreezeGame = function() {
 
     this.isPlaying = true;
     this.lastFrame = +new Date() / 1000;
-    this.requestId = utils.requestAnimFrame(this.onFrame);
+    this.requestId = utils.requestAnimFrame(this.onFrame_);
   }
 };
 
@@ -287,16 +289,15 @@ app.Game.prototype.resume = function() {
  * @private
  */
 app.Game.prototype.watchSceneSize_ = function() {
-  var win = $(window),
-      game = this;
+  var win = $(window);
 
   var updateSize = function() {
     var width = win.width(),
       height = win.height(),
       scale = width < 890 ? width / 890 : 1;
     scale = height < 660 ? Math.min(height / 640, scale) : scale;
-    game.setScale(scale);
-  };
+    this.setScale(scale);
+  }.bind(this);
 
   updateSize();
   $(window).on('resize.presentdrop', updateSize);

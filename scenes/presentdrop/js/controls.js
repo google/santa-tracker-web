@@ -172,7 +172,7 @@ app.Controls.prototype['onTouchstart'] = function(e) {
  * @this {app.Controls} The app.Controls object.
  */
 app.Controls.prototype['onTouchmove'] = function(e) {
-  var touch = this.getCurrentTouch(e.originalEvent);
+  var touch = this.getCurrentTouch_(e.originalEvent);
   if (touch) {
     var stagePos = this.stage.offset();
 
@@ -191,7 +191,7 @@ app.Controls.prototype['onTouchmove'] = function(e) {
  * @this {app.Controls} The app.Controls object.
  */
 app.Controls.prototype['onTouchend'] = function(e) {
-  var touch = this.getCurrentTouch(e.originalEvent);
+  var touch = this.getCurrentTouch_(e.originalEvent);
   if (!touch) {
     return;
   }
@@ -202,17 +202,18 @@ app.Controls.prototype['onTouchend'] = function(e) {
 
 /**
  * Returns the active touch from a touch event.
- * @param  {Event} e A touch event.
- * @return {Touch}   The active touch.
+ * @param {!Event} e A touch event.
+ * @return {Touch} The active touch.
+ * @private
  */
-app.Controls.prototype.getCurrentTouch = function(e) {
+app.Controls.prototype.getCurrentTouch_ = function(e) {
   if (this.currentTouchId === null) {
-    return;
+    return null;
   }
-
   for (var i = 0, touch; touch = e.changedTouches[i]; i++) {
     if (touch.identifier === this.currentTouchId) {
       return touch;
     }
   }
+  return null;
 };
