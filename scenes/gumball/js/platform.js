@@ -5,7 +5,7 @@ goog.require('app.shared.pools');
 
 /**
  * A Platform
- * @param {app.Board} board The board object.
+ * @param {!app.Board} board The board object.
  * @constructor
  */
 app.Platform = function(board) {
@@ -27,7 +27,7 @@ app.shared.pools.mixin(app.Platform);
  * @param {number} y
  * @param {number} width
  * @param {number} angle
- * @param {bool} mirrorX
+ * @param {boolean} mirrorX
  */
 app.Platform.prototype.onInit = function(x, y, width, angle, mirrorX) {
   this.createStick2(x, y, width, angle, mirrorX);
@@ -40,6 +40,9 @@ app.Platform.prototype.onInit = function(x, y, width, angle, mirrorX) {
   }).appendTo(this.board.elem);
 };
 
+/**
+ * Dispose of this platform.
+ */
 app.Platform.prototype.onDispose = function() {
   this.elem.remove();
 };

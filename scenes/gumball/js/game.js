@@ -15,8 +15,7 @@ goog.require('app.Sphere');
 
 /**
  * Main game class
- * @param {Element} elem An DOM element which wraps the game.
- * @author aranja@aranja.com
+ * @param {!Element} elem An DOM element which wraps the game.
  * @constructor
  * @export
  */
@@ -51,7 +50,7 @@ app.Game = function(elem) {
   this.board = new app.Board(this, this.boardElem);
 
   // Cache a bound onFrame since we need it each frame.
-  this.onFrame = this.onFrame.bind(this);
+  this.onFrame_ = this.onFrame_.bind(this);
   this.bumpLevel_ = this.bumpLevel_.bind(this);
 
   this.watchSceneSize_();
@@ -190,8 +189,9 @@ app.Game.prototype.createBoxWorld_ = function() {
 
 /**
  * Game loop. Runs every frame using requestAnimationFrame.
+ * @private
  */
-app.Game.prototype.onFrame = function() {
+app.Game.prototype.onFrame_ = function() {
   if (!this.isPlaying) {
     return;
   }
@@ -207,9 +207,10 @@ app.Game.prototype.onFrame = function() {
   // Render game state.
   this.spawner.render();
   this.board.render();
-  for (var i = 0, sphere; sphere = this.spheres[i]; i++) {
+
+  this.spheres.forEach(function(sphere) {
     sphere.render();
-  }
+  });
 
   this.scoreboard.onFrame(delta);
 
@@ -219,7 +220,7 @@ app.Game.prototype.onFrame = function() {
   }
 
   // Request next frame
-  this.requestId = utils.requestAnimFrame(this.onFrame);
+  this.requestId = utils.requestAnimFrame(this.onFrame_);
 };
 
 /**
@@ -278,21 +279,20 @@ app.Game.prototype.bumpLevel_ = function() {
   this.ballsAvailable.css('transform', 'translateZ(0) scaleX(' + 0 + ')');
   this.ballsRemaining.css('transform', 'translateZ(0) scaleX(' + (this.remainingBalls / 10) + ')');
 
-  var that = this;
   Coordinator.after(1, function() {
-    for (var i = 0, ball; ball = levelInfo.balls[i]; i++) {
-      var sphere = app.Sphere.pop(that, 600 + ball.x);
-      that.spawner.spawnSphere(sphere);
-      that.spheres.push(sphere);
-    }
-  });
+    levelInfo.balls.forEach(function(ball) {
+      var sphere = app.Sphere.pop(this, 600 + ball.x);
+      this.spawner.spawnSphere(sphere);
+      this.spheres.push(sphere);
+    }, this);
+  }.bind(this));
 };
 
 /**
  * Update gameplay when a sphere has hit the target.
- * @param {app.Sphere} sphere The ball.
- * @param {Number} x X position of the ball that hit.
- * @param {Number} y Y position of the ball that hit.
+ * @param {!app.Sphere} sphere The ball.
+ * @param {number} x X position of the ball that hit.
+ * @param {number} y Y position of the ball that hit.
  */
 app.Game.prototype.hitTarget = function(sphere, x, y) {
   this.remainingBalls--;
@@ -361,7 +361,7 @@ app.Game.prototype.unfreezeGame = function() {
 
     this.isPlaying = true;
     this.lastFrame = +new Date() / 1000;
-    this.requestId = utils.requestAnimFrame(this.onFrame);
+    this.requestId = utils.requestAnimFrame(this.onFrame_);
   }
 };
 

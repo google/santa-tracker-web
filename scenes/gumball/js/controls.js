@@ -4,7 +4,7 @@ goog.provide('app.Controls');
 
 /**
  * Handles user input for controlling the game.
- * @param {app.Game} game The game object.
+ * @param {!app.Game} game The game object.
  * @constructor
  */
 app.Controls = function(game) {
@@ -12,7 +12,7 @@ app.Controls = function(game) {
   this.game = game;
   this.tutorial = game.tutorial;
 
-  // Some laptops expose accelerometers to the browser (non-retina Macbook Pro's)
+  // Some laptops expose accelerometers to the browser (non-retina Macbook Pros)
   // This check will have to do, unless someone can propose a better one.
   this.isDesktopish = !Modernizr.touch;
 
@@ -24,7 +24,7 @@ app.Controls = function(game) {
 
 /**
  * Handle all keyboard events.
- * @param {event} e The event data.
+ * @param {!Event} e The event data.
  */
 app.Controls.prototype.handle = function(e) {
   // Paused or Gameover
@@ -38,41 +38,41 @@ app.Controls.prototype.handle = function(e) {
 
 /**
  * Keep track of the right key.
- * @type {bool}
+ * @type {boolean}
  * @private
  */
 app.Controls.prototype.isRightDown_ = false;
 
 /**
  * Keep track of the left key.
- * @type {bool}
+ * @type {boolean}
  * @private
  */
 app.Controls.prototype.isLeftDown_ = false;
 
 /**
  * Keep track of the space bar.
- * @type {bool}
+ * @type {boolean}
  * @private
  */
 app.Controls.prototype.isSpaceDown_ = false;
 
 /**
  * Keep track of player movements.
- * @type {bool}
+ * @type {boolean}
  * @private
  */
 app.Controls.prototype.isMoving_ = false;
 
 /**
- * Keep track of device orientation in degrees.
- * @type {Number}
+ * Keep track of device orientation, in degrees.
+ * @type {number}
  */
 app.Controls.prototype.tilt = 0;
 
 /**
  * Handles the device orientation event.
- * @param  {Event} e The event object.
+ * @param {!Event} e The event object.
  */
 app.Controls.prototype.onDeviceorientation = function(e) {
   e = e.originalEvent;
@@ -100,7 +100,7 @@ app.Controls.prototype.onDeviceorientation = function(e) {
 
 /**
  * Handles the key down event. Called dynamically.
- * @param  {Event} e The event object.
+ * @param {!Event} e The event object.
  */
 app.Controls.prototype.onKeydown = function(e) {
   if (e.keyCode === 37) { // Left
@@ -110,17 +110,16 @@ app.Controls.prototype.onKeydown = function(e) {
   }
 
   if (!this.arrowPressed && (e.keyCode === 37 || e.keyCode === 39)) {
-     // Let tutorial know if arrow has been pressed
-     // and hide tutorial when user presses the button
-     this.tutorial.off('keys-leftright');
-     this.arrowPressed = true;
+    // Let tutorial know if arrow has been pressed
+    // and hide tutorial when user presses the button
+    this.tutorial.off('keys-leftright');
+    this.arrowPressed = true;
   }
 };
 
 /**
  * Handles the key up event. Called dynamically.
- * @param  {Event} e The event object.
- * @this {app.Controls} The Controls object.
+ * @param {!Event} e The event object.
  */
 app.Controls.prototype.onKeyup = function(e) {
   if (e.keyCode === 37) { // Left
