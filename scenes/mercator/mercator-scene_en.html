@@ -303,7 +303,7 @@ Mercator scene.
         var module = this.$['module-mercator'];
 
         this.game = new scenes.mercator.Game(module);
-        startButton(this, module, this.onClickStart.bind(this));
+        startButton(this, module, this.onClickStart_.bind(this));
       }
     },
 
@@ -320,7 +320,7 @@ Mercator scene.
       }
     },
 
-    onClickStart: function() {
+    onClickStart_: function() {
       this.hasClickedStart = true;
       this.game.start();
     }
