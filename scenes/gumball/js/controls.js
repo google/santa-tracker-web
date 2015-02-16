@@ -14,55 +14,29 @@ app.Controls = function(game) {
 
   // Some laptops expose accelerometers to the browser (non-retina Macbook Pros)
   // This check will have to do, unless someone can propose a better one.
-  this.isDesktopish = !Modernizr.touch;
+  this.isDesktopish_ = !Modernizr.touch;
 
-  // Let's bind our events.
-  var handler = this.handle.bind(this);
-  $(window).on('keydown.gumball keyup.gumball', handler)
-      .on('deviceorientation.gumball', handler);
-};
+  this.onKeyDown_ = this.onKeyDown_.bind(this);
+  this.onKeyUp_ = this.onKeyUp_.bind(this);
+  this.onDeviceOrientation_ = this.onDeviceOrientation_.bind(this);
 
-/**
- * Handle all keyboard events.
- * @param {!Event} e The event data.
- */
-app.Controls.prototype.handle = function(e) {
-  // Paused or Gameover
-  if (!this.game.isPlaying) {
-    return;
-  }
-
-  var methodName = 'on' + e.type[0].toUpperCase() + e.type.slice(1);
-  this[methodName](e);
+  // Events are cleared by app.Game in its dispose method.
+  $(window).on('keydown.gumball', this.onKeyDown_);
+  $(window).on('keyup.gumball', this.onKeyUp_);
+  $(window).on('deviceorientation.gumball', this.onDeviceOrientation_);
 };
 
 /**
  * Keep track of the right key.
  * @type {boolean}
- * @private
  */
-app.Controls.prototype.isRightDown_ = false;
+app.Controls.prototype.isRightDown = false;
 
 /**
  * Keep track of the left key.
  * @type {boolean}
- * @private
  */
-app.Controls.prototype.isLeftDown_ = false;
-
-/**
- * Keep track of the space bar.
- * @type {boolean}
- * @private
- */
-app.Controls.prototype.isSpaceDown_ = false;
-
-/**
- * Keep track of player movements.
- * @type {boolean}
- * @private
- */
-app.Controls.prototype.isMoving_ = false;
+app.Controls.prototype.isLeftDown = false;
 
 /**
  * Keep track of device orientation, in degrees.
@@ -73,10 +47,11 @@ app.Controls.prototype.tilt = 0;
 /**
  * Handles the device orientation event.
  * @param {!Event} e The event object.
+ * @private
  */
-app.Controls.prototype.onDeviceorientation = function(e) {
+app.Controls.prototype.onDeviceOrientation_ = function(e) {
   e = e.originalEvent;
-  if (e.gamma == null || this.isDesktopish) {
+  if (e.gamma == null || this.isDesktopish_) {
     return;
   }
 
@@ -101,8 +76,9 @@ app.Controls.prototype.onDeviceorientation = function(e) {
 /**
  * Handles the key down event. Called dynamically.
  * @param {!Event} e The event object.
+ * @private
  */
-app.Controls.prototype.onKeydown = function(e) {
+app.Controls.prototype.onKeyDown_ = function(e) {
   if (e.keyCode === 37) { // Left
     this.isLeftDown_ = true;
   } else if (e.keyCode === 39) { // Right
@@ -120,13 +96,12 @@ app.Controls.prototype.onKeydown = function(e) {
 /**
  * Handles the key up event. Called dynamically.
  * @param {!Event} e The event object.
+ * @private
  */
-app.Controls.prototype.onKeyup = function(e) {
+app.Controls.prototype.onKeyUp_ = function(e) {
   if (e.keyCode === 37) { // Left
     this.isLeftDown_ = false;
   } else if (e.keyCode === 39) { // Right
     this.isRightDown_ = false;
-  } else if (e.keyCode === 32) { // Space
-    this.isSpaceDown_ = false;
   }
 };

@@ -83,10 +83,10 @@ app.Board.prototype.update = function(delta) {
   if (!this.boardBody) return;
 
   var targetAngle = this.game.controls.tilt;
-  if (this.game.controls.isRightDown_) {
+  if (this.game.controls.isRightDown) {
     targetAngle += 90;
   }
-  if (this.game.controls.isLeftDown_) {
+  if (this.game.controls.isLeftDown) {
     targetAngle -= 90;
   }
   targetAngle = Math.min(Constants.MAX_ANGLE, Math.max(-Constants.MAX_ANGLE, targetAngle));
