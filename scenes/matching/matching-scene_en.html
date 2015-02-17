@@ -370,7 +370,7 @@ Matching scene.
 
       this.animationHelper = new CSSAnimationHelper(module);
       this.game = new scenes.matching.Game(module);
-      startButton(this, module, this.onClickStart.bind(this));
+      startButton(this, module, this.onClickStart_.bind(this));
     },
 
     onHide: function() {
@@ -381,7 +381,7 @@ Matching scene.
       this.fire('sound-ambient', 'm_end_game');
     },
 
-    onClickStart: function() {
+    onClickStart_: function() {
       this.hasClickedStart = true;
       this.game.start();
     }
