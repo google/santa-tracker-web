@@ -6,8 +6,8 @@ goog.require('app.utils');
 
 /**
  * Each Point represents a discrete part of the cloth, aka Santa's beard.
- * @param {!app.Game} game
- * @param {object} options
+ * @param {!app.Game} game point is part of
+ * @param {!app.Point.Options} options for point
  * @constructor
  */
 app.Point = function(game, options) {
@@ -199,3 +199,9 @@ app.Point.prototype.resolveConstraint = function(point) {
   point.x -= px;
   point.y -= py;
 };
+
+
+/**
+ * @typedef {{x: number, y: number, pinned: bool, rotation: number, constraints: Array<number>}}
+ */
+app.Point.Options;

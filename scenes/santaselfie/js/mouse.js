@@ -110,7 +110,7 @@ app.Mouse.prototype.update = function() {
 
 /**
  * Retrieves the transformed coordinates for this mouse.
- * @return {object} transformed coordinates
+ * @return {!app.Mouse.CoordsType} transformed coordinates
  */
 app.Mouse.prototype.coordinates = function() {
   return this.transformCoordinates(this.x, this.y, this.rect);
@@ -122,7 +122,7 @@ app.Mouse.prototype.coordinates = function() {
  * @param {number} x The x coordinate
  * @param {number} y The y coordinate
  * @param {!ClientRect} rect A client rect to transform the coordinates relative to
- * @return {object} transformed coordinates
+ * @return {!app.Mouse.CoordsType} transformed coordinates
  **/
 app.Mouse.prototype.transformCoordinates = function(x, y, rect) {
   return {
@@ -134,3 +134,10 @@ app.Mouse.prototype.transformCoordinates = function(x, y, rect) {
     scale: this.scaleFactor
   };
 };
+
+
+/**
+ * @typedef {{x: number, y: number, relX: number, relY: number, down: boolean, scale: number}}
+ */
+app.Mouse.CoordsType;
+

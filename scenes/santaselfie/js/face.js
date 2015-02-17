@@ -41,7 +41,7 @@ app.Face.prototype.start = function() {
 /**
  * @extends {app.GameObject.mouseChanged}
  * @param {!app.Mouse} mouse
- * @param {!object} mouseCoords transformed coords
+ * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
  */
 app.Face.prototype.mouseChanged = function(mouse, mouseCoords) {
   if (mouse !== this.game_.mouse) {

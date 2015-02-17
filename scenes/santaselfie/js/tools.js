@@ -52,7 +52,7 @@ app.Tool = function($elem, name, mouseOffset) {
 
 /**
  * Select this tool from the toolbox
- * @param {object} mouseCoords
+ * @param {!app.Mouse.CoordsType} mouseCoords at selection time
  */
 app.Tool.prototype.select = function(mouseCoords) {
   this.isSelected = true;
@@ -99,7 +99,7 @@ app.Tool.prototype.isLeftRightTool_ = function() {
 
 /**
  * Move the tool to the specified mouse position
- * @param {object} mouseCoords transformed coords
+ * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
  */
 app.Tool.prototype.move = function(mouseCoords) {
   var offsetX = this.mouseOffset.x;
@@ -165,7 +165,7 @@ app.Tool.prototype.createAnimation_ = function() {
 /**
  * Evaluate if the tool should play its animation. Should be overwritten if
  * relevant.
- * @param {object} mouseCoords transformed coords
+ * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
  * @return {boolean}
  * @private
  */
@@ -203,7 +203,7 @@ app.Clipper.prototype.createAnimation_ = function() {
 
 /**
  * Evaluate whether the Clipper should play its animation.
- * @param {object} mouseCoords transformed coords
+ * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
  * @return {boolean}
  * @private
  */
@@ -449,7 +449,7 @@ app.Tools.prototype.start = function() {
 /**
  * @extends {app.GameObject.mouseChanged}
  * @param {!app.Mouse} mouse
- * @param {object} mouseCoords transformed coords
+ * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
  */
 app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
   if (this.selectedTool) {
