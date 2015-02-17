@@ -6,10 +6,12 @@ goog.require('app.utils');
 
 /**
  * Each Point represents a discrete part of the cloth, aka Santa's beard.
+ * @param {!app.Game} game
  * @param {object} options
  * @constructor
  */
-app.Point = function(options) {
+app.Point = function(game, options) {
+  this.game_ = game;
   this.options = options; // store the options so we can reset the point
 
   this.x = options.x;
@@ -32,11 +34,11 @@ app.Point.prototype.reset = function() {
   if (this.draw) {
     var decoration = this.decoration;
     var spray = this.spray;
-    point = new app.Point(this.options);
+    point = new app.Point(this.game_, this.options);
     point.decoration = decoration;
     point.spray = spray;
   } else {
-    point = new app.Point(this.options);
+    point = new app.Point(this.game_, this.options);
   }
 
   point.draw = true;
@@ -52,19 +54,19 @@ app.Point.prototype.update = function(mouse) {
   var DAMPING = app.Constants.DAMPING;
   var HAIRDRYER_FORCE = app.Constants.HAIRDRYER_FORCE;
   var PHYSICS_DELTA = app.Constants.PHYSICS_DELTA;
-  var selectedTool = game.tools.selectedTool;
-  var scale = game.mouse.scaleFactor;
+  var selectedTool = this.game_.tools.selectedTool;
+  var scale = this.game_.mouse.scaleFactor;
 
   var differenceX = this.x * scale - mouse.x;
   var differenceY = this.y * scale - mouse.y;
   var dist = app.utils.distance(differenceX, differenceY);
 
   if (mouse.down) {
-    if (game.tools.clipper.isSelected && dist < MOUSE_CUT) {
+    if (this.game_.tools.clipper.isSelected && dist < MOUSE_CUT) {
       this.removeConstraint();
     }
 
-    if (game.tools.hairdryer.isSelected) {
+    if (this.game_.tools.hairdryer.isSelected) {
       this.addForce((differenceX / Math.abs(differenceX)) * HAIRDRYER_FORCE, 0);
     }
 
@@ -120,7 +122,7 @@ app.Point.prototype.drawDecoration = function(ctx, scale) {
   if (this.decoration && this.draw) {
     var x = this.x - this.decoration.width / 2;
     var y = this.y - this.decoration.height / 2;
-    var scale = game.mouse.scaleFactor;
+    var scale = this.game_.mouse.scaleFactor;
 
     ctx.drawImage(this.decoration, x * scale, y * scale, this.decoration.width * scale,
                   this.decoration.height * scale);
@@ -185,7 +187,7 @@ app.Point.prototype.resolveConstraint = function(point) {
   var dist = app.utils.distance(differenceX, differenceY);
   var diff = (SPACING - dist) / dist;
 
-  if (game.tools.clipper.isSelected && differenceY > TEAR_DISTANCE) {
+  if (this.game_.tools.clipper.isSelected && differenceY > TEAR_DISTANCE) {
     this.removeConstraint();
   }
 

@@ -8,6 +8,7 @@ goog.provide('app.Mouse');
  * @constructor
  */
 app.Mouse = function($elem) {
+  this.$elem = $elem;
   this.elem = $elem[0];
   this.rect = this.elem.getBoundingClientRect();
   this.down = false;
@@ -18,33 +19,12 @@ app.Mouse = function($elem) {
 
   this.subscribers = [];
 
-  var calculateScale = function() {
-    var originalWidth = 1920;
-    var originalHeight = 985;
-
-    var widthReductionFactor = 1420; // The game should get bigger as the width decreases.
-
-    var width = $(window).width();
-    var height = $(window).height();
-
-    var scaleWidth = (width + widthReductionFactor) / (originalWidth + widthReductionFactor);
-    var scaleHeight = height / originalHeight;
-    var scaleFactor = Math.min(scaleWidth, scaleHeight);
-
-    $elem.css({
-      'font-size': scaleFactor
-    });
-
-    this.rect = this.elem.getBoundingClientRect();
-    this.scaleFactor = scaleFactor;
-  }.bind(this)
-
   $(window).on('resize.santaselfie orientationchange.santaselfie', function() {
-    calculateScale();
+    this.calculateScale_();
     this.update();
   }.bind(this));
 
-  calculateScale();
+  this.calculateScale_();
 
   $elem.on('mousemove', function(e) {
     this.x = e.clientX;
@@ -77,6 +57,33 @@ app.Mouse = function($elem) {
 
 
 /**
+ * Calculate scale based on the window's width and height. Called on resize.
+ * @private
+ */
+app.Mouse.prototype.calculateScale_ = function() {
+  var originalWidth = 1920;
+  var originalHeight = 985;
+
+  // The game should get bigger as the width decreases.
+  var widthReductionFactor = 1420;
+
+  var width = $(window).width();
+  var height = $(window).height();
+
+  var scaleWidth = (width + widthReductionFactor) / (originalWidth + widthReductionFactor);
+  var scaleHeight = height / originalHeight;
+  var scaleFactor = Math.min(scaleWidth, scaleHeight);
+
+  this.$elem.css({
+    'font-size': scaleFactor
+  });
+
+  this.rect = this.elem.getBoundingClientRect();
+  this.scaleFactor = scaleFactor;
+};
+
+
+/**
  * Subscribe to mouse and touch events
  * @param {function} callback The callback to be called
  * @param {object} context The value of this passed to the callback
@@ -93,11 +100,20 @@ app.Mouse.prototype.subscribe = function(callback, context) {
  * Notify subscribers of mouse updates. Called on animation frame.
  **/
 app.Mouse.prototype.update = function() {
-  var coordinates = this.transformCoordinates(this.x, this.y, this.rect);
+  var coordinates = this.coordinates();
 
   this.subscribers.forEach(function(subscriber) {
-    subscriber.callback.call(subscriber.context, coordinates);
-  });
+    subscriber.callback.call(subscriber.context, this, coordinates);
+  }, this);
+};
+
+
+/**
+ * Retrieves the transformed coordinates for this mouse.
+ * @return {object} transformed coordinates
+ */
+app.Mouse.prototype.coordinates = function() {
+  return this.transformCoordinates(this.x, this.y, this.rect);
 };
 
 
@@ -106,7 +122,7 @@ app.Mouse.prototype.update = function() {
  * @param {number} x The x coordinate
  * @param {number} y The y coordinate
  * @param {!ClientRect} rect A client rect to transform the coordinates relative to
- * @return {object} mouse
+ * @return {object} transformed coordinates
  **/
 app.Mouse.prototype.transformCoordinates = function(x, y, rect) {
   return {
