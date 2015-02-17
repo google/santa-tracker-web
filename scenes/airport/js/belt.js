@@ -7,7 +7,6 @@ goog.require('app.Constants');
 goog.require('app.Controls');
 goog.require('app.State');
 
-
 /**
  * Class for main conveyor belt with animates elves and raindeers
  * @param {!Element} context DOM element containing the scene.
@@ -96,24 +95,18 @@ app.Belt.prototype = {
   },
 
   /**
-   * Recycle elf DOM element and clean up tweens/callbacks from the timeline
-   * @param {!app.BeltItem} item BeltItem object
-   * @param {!Array.<!Object>} tweenReferences Array of GSAP items to remove from the timeline
+   * Recycle elf DOM element
+   * @param {!BeltItem} item BeltItem object
+   * @param {!AnimationPlayer} player to remove from timeline
    */
-  onExitBelt: function(item, tweenReferences) {
-    var i,
-        l = tweenReferences.length;
-
-    for (i = 0; i < l; i++) {
-      this.timeline.remove(tweenReferences[i]);
-    }
-
+  onExitBelt: function(item, player) {
     this.closet.undress(item);
     item.exitBelt();
     var index = this.itemsOnBelt.indexOf(item);
     if (index > -1) {
       this.itemsOnBelt.splice(index, 1);
     }
+    this.timeline.remove(player);
   },
 
   timeToCloset: function(time) {
@@ -127,35 +120,27 @@ app.Belt.prototype = {
   },
 
   scheduleItem: function(item, startTime) {
-    var tweenReferences = [],
-        startCallback,
-        elfTween,
-        closetCallback;
+    var elfSteps,
+        elfPlayer,
+        timing;
 
     this.itemsOnBelt.push(item);
-    
-    startCallback = TweenLite.delayedCall(0, this.onEnterBelt, [item], this);
 
-    elfTween = TweenLite.fromTo(item.$el, app.Constants.DURATION, {x: 0}, {
-      css: {x: this.distance, force3D: true},
-      ease: Linear.easeNone,
-      onComplete: this.onExitBelt.bind(this),
-      onCompleteParams: [item, tweenReferences]
-    });
+    elfSteps = [{transform: 'translate3d(0px, 0, 0)'},
+                {transform: 'translate3d(' + this.distance + 'px, 0, 0)'}];
 
-    closetCallback = TweenLite.delayedCall(0, this.onInsideCloset, [item, startTime], this);
+    elfPlayer = this.timeline.schedule(startTime * 1000,
+        item.$el.get(0), elfSteps, app.Constants.DURATION * 1000);
+    elfPlayer.onfinish = this.onExitBelt.bind(this, item, elfPlayer);
 
-    this.timeline.add(startCallback, startTime);
-    this.timeline.add(elfTween, startTime);
-    this.timeline.add(closetCallback, this.timeToCloset(startTime));
-
-    tweenReferences.push(startCallback);
-    tweenReferences.push(elfTween);
-    tweenReferences.push(closetCallback);
+    this.timeline.call(startTime * 1000,
+        this.onEnterBelt.bind(this, item, startTime));
+    this.timeline.call(this.timeToCloset(startTime) * 1000,
+        this.onInsideCloset.bind(this, item));
   },
 
   addItem: function(startTime) {
-    var startTime = startTime || this.timeline.time();
+    var startTime = startTime || this.timeline.currentTime / 1000;
 
     var item = this.getNextItem();
     if (item) {
@@ -187,7 +172,7 @@ app.Belt.prototype = {
    */
   onStateChange_: function() {
     this.setSpeedClass_(this.state.className());
-    this.timeline.timeScale(this.state.timeScale());
+    this.timeline.playbackRate = this.state.timeScale();
 
     window.santaApp.fire('sound-trigger', this.state.soundEventName());
   },
@@ -196,9 +181,7 @@ app.Belt.prototype = {
    * @private
    */
   init_: function() {
-    this.timeline = new TimelineMax();
-    this.timeline.stop();
-
+    this.timeline = new FauxTimeline();
     this.$state.bind('change', this.onStateChange_.bind(this));
 
     //////////////////////////////////////////////
@@ -208,15 +191,15 @@ app.Belt.prototype = {
     var seekTime = 1;
     var preLoadWidth = 0;
 
-    for (var j = 0; j < 6; j++) {
+    var elvesToAdd = 6;
+    for (var j = 0; j < elvesToAdd; j++) {
       var item = this.addItem(seekTime);
       seekTime += this.itemWidthAsSeconds(item);
     }
 
     // start 1 second before to be sure we trigger callbacks for last item
-    this.timeline.seek(seekTime - 1, false);
+    this.timeline.seek((seekTime - 1) * 1000, false);
     this.setup = false;
-    this.timeline.play();
   },
 
   destroy: function() {
