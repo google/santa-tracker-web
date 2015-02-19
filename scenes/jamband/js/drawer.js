@@ -1,10 +1,9 @@
 goog.provide('app.Drawer');
 
-
-
 /**
  * A drawer to store the instruments in
- * @param {Element} elem A DOM element which wraps the game.
+ *
+ * @param {!Element} elem A DOM element which wraps the game.
  * @constructor
  */
 app.Drawer = function(elem) {
@@ -28,7 +27,6 @@ app.Drawer = function(elem) {
     scrollToOffset(1);
   });
 };
-
 
 /**
  * Show or hide the drawer
