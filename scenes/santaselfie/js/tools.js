@@ -170,7 +170,7 @@ app.Tool.prototype.createAnimation_ = function() {
  * @private
  */
 app.Tool.prototype.shouldAnimate_ = function(mouseCoords) {
-  return this.animationPlayer && mouseCoords.down && mouseCoords.x > 230;
+  return this.animationPlayer && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM;
 };
 
 
@@ -208,7 +208,7 @@ app.Clipper.prototype.createAnimation_ = function() {
  * @private
  */
 app.Clipper.prototype.shouldAnimate_ = function(mouseCoords) {
-  return mouseCoords.down && mouseCoords.x > 230 && this.cloth_.nearBeard;
+  return mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM && this.cloth_.nearBeard;
 };
 
 /**
@@ -453,28 +453,28 @@ app.Tools.prototype.start = function() {
  */
 app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
   if (this.selectedTool) {
-    this.selectedTool.move(mouseCoords);
+    this.selectedTool.move(mouseCoords);app.Constants.NEAR_SANTA_DIM
   }
 
-  if (this.hairdryer.isSelected && mouseCoords.down && mouseCoords.x > 230) {
+  if (this.hairdryer.isSelected && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
     app.utils.triggerStart('selfie_dryer');
   } else if (!mouseCoords.down) {
     app.utils.triggerStop('selfie_dryer');
   }
 
-  if (this.clipper.isSelected && mouseCoords.down && mouseCoords.x > 230) {
+  if (this.clipper.isSelected && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
     app.utils.triggerStart('selfie_shave');
   } else if (!mouseCoords.down) {
     app.utils.triggerStop('selfie_shave');
   }
 
-  if (this.hairgrow.isSelected && mouseCoords.down && mouseCoords.x > 230) {
+  if (this.hairgrow.isSelected && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
     app.utils.triggerOnce('selfie_spray_small');
   } else if (!mouseCoords.down) {
     app.utils.triggerReset('selfie_spray_small');
   }
 
-  if (this.hairclean.isSelected && mouseCoords.down && mouseCoords.x > 230) {
+  if (this.hairclean.isSelected && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
     app.utils.triggerOnce('selfie_spray_big');
   } else if (!mouseCoords.down) {
     app.utils.triggerReset('selfie_spray_big');

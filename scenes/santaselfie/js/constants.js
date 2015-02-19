@@ -25,6 +25,8 @@ app.Constants = {
   DAMPING: 0.8,
   HAIRDRYER_FORCE: 5500,
 
+  NEAR_SANTA_DIM: 230,
+
   // Serialization constants
   ENCODER: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
 };

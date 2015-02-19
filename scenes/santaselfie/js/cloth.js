@@ -125,7 +125,7 @@ app.Cloth.prototype.mouseChanged = function(mouse, mouseCoords) {
     }
   }
 
-  if (tools.selectedTool && tools.selectedTool.spray && mouseCoords.down && mouseCoords.x > 230) {
+  if (tools.selectedTool && tools.selectedTool.spray && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
     app.utils.triggerStart('selfie_color');
   } else if (!mouseCoords.down) {
     app.utils.triggerStop('selfie_color');
@@ -374,7 +374,7 @@ app.Cloth.prototype.save = function() {
     }
 
     if (point.draw && point.spray) {
-      index += (sprays.indexOf(point.spray) + 1) * 5; // color + color with decoration * 4
+      index += (sprays.indexOf(point.spray) + 1) * 5; // color + color with decoration * 5
     }
 
     if (point.draw && point.decoration) {

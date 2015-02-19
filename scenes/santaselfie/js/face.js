@@ -45,7 +45,7 @@ app.Face.prototype.start = function() {
  */
 app.Face.prototype.mouseChanged = function(mouse, mouseCoords) {
   if (mouse !== this.game_.mouse) {
-    console.warn('got mouse', mouse, 'expected game', this.game_.mouse);
+    throw new Error('unexpected mouse callback');
   }
 
   function transform(element, x, y) {
