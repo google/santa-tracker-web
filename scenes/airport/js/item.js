@@ -36,12 +36,13 @@ app.BeltItem.prototype = {
   },
 
   enterBelt: function() {
-    TweenMax.set(this.$el, {visibility: 'visible'});
+    this.$el.css('visibility', 'visible');
   },
 
   exitBelt: function() {
     this.free = true;
-    TweenMax.set(this.$el, {background: '', visibility: 'hidden'});
+    this.$el.css('visibility', 'hidden');
+    this.$el.css('background', '');
   },
 
   width: function() {
