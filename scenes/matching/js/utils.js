@@ -2,7 +2,7 @@ goog.provide('app.utils');
 
 /**
  * Generic shuffle function that shuffles an array.
- * @param {Array} arr The array to be shuffled.
+ * @param {!Array} arr The array to be shuffled.
  */
 app.utils.shuffleArray = function(arr) {
   var count = arr.length;

@@ -3,7 +3,16 @@ goog.provide('app.Instruments');
 goog.require('app.Audio');
 goog.require('app.Fallback');
 
+/**
+ * @typedef {{beat: number}}
+ */
+app.InstrumentOptions;
 
+/**
+ * @param {string} name of instrument
+ * @param {!app.InstrumentOptions} options of instrument
+ * @constructor
+ */
 app.Instrument = function(name, options) {
   this.name = name;
   this.el = this.elem.find('.Instrument-' + name.toLowerCase());
@@ -24,7 +33,9 @@ app.Instrument = function(name, options) {
   this.el.on('mousedown.jamband touchstart.jamband', this.preview.bind(this));
 };
 
-
+/**
+ * Preview this Instrument.
+ */
 app.Instrument.prototype.preview = function() {
   // Play preview sound if the instrument is in the drawer or if we're in fallback mode.
   if (this.el.parent().is(this.container) || !app.Audio.isSupported()) {
@@ -32,7 +43,10 @@ app.Instrument.prototype.preview = function() {
   }
 };
 
-
+/**
+ * Start this instrument playing.
+ * @param {object} data
+ */
 app.Instrument.prototype.play = function(data) {
   var onPlaying = (function() {
     // Check we are still on stage
@@ -47,20 +61,26 @@ app.Instrument.prototype.play = function(data) {
   this.audio.play(data.pattern, data.volume, onPlaying);
 };
 
-
+/**
+ * Called when this Instrument is being dragged.
+ */
 app.Instrument.prototype.drag = function() {
   this.container.removeClass('collapse');
   this.el.removeClass('Instrument--small');
 };
 
-
+/**
+ * Called when this Instrument is dropped.
+ */
 app.Instrument.prototype.drop = function(data) {
   this.play(data);
   this.container.addClass('collapse');
   this.el.addClass('waiting');
 };
 
-
+/**
+ * Reset this Instrument. Called as part of being removed from the stage.
+ */
 app.Instrument.prototype.reset = function() {
   this.audio.stop();
   this.el.addClass('Instrument--small');
@@ -68,30 +88,38 @@ app.Instrument.prototype.reset = function() {
   this.countOnStage();
 };
 
-
+/**
+ * Places this Instrument on a specific stage.
+ * @param {!jQuery} stage to place on
+ */
 app.Instrument.prototype.putOnStage = function(stage) {
   this.el.trigger('dragging');
   this.el.appendTo(stage);
   this.el.trigger('dropped', stage.data());
 };
 
-
+/**
+ * Return this Instrument to the drawer.
+ */
 app.Instrument.prototype.putInDrawer = function() {
   this.el.trigger('dragging');
   this.el.appendTo(this.container);
   this.el.trigger('returned');
 };
 
-
+/**
+ * Trigger the stage count event, which informs listeners of how many
+ * instruments are on the stage.
+ */
 app.Instrument.prototype.countOnStage = function() {
   var count = this.elem.find('.Stage .Instrument').length;
   this.elem.trigger('stagechanged.jamband', {count: count});
 };
 
-
 /**
  * Game instruments
- * @param {Element} elem A DOM element.
+ *
+ * @param {!Element} elem A DOM element.
  * @constructor
  */
 app.Instruments = function(elem) {
@@ -137,7 +165,6 @@ app.Instruments = function(elem) {
   }
 };
 
-
 /**
  * Show help arrows if no instruments on stage
  */
@@ -145,7 +172,6 @@ app.Instruments.prototype.checkIfAllEmpty = function() {
   var count = this.elem.find('.Stage .Instrument').length;
   this.elem.toggleClass('is-allEmpty', count === 0);
 };
-
 
 /**
  * Put a random selection of instruments on stage
@@ -172,7 +198,6 @@ app.Instruments.prototype.randomize = function() {
   this.elem.trigger('randomize');
 };
 
-
 /**
  * Remove all the instruments from the stage
  */
@@ -182,7 +207,11 @@ app.Instruments.prototype.reset = function() {
   });
 };
 
-
+/**
+ * Save serializes the current configuration of instruments to a string.
+ *
+ * @return {string} serialized config of instruments
+ */
 app.Instruments.prototype.save = function() {
   if (!app.Audio.isSupported()) {
     return false;
@@ -210,8 +239,14 @@ app.Instruments.prototype.save = function() {
   return instruments.join(',');
 };
 
-
+/**
+ * Restores a previously serialized configuration of instruments.
+ *
+ * @param {string} instrumentString to restore
+ */
 app.Instruments.prototype.restore = function(instrumentString) {
+  this.reset(); // clear stage
+
   var data = instrumentString.split(',').map(function(i) {
     return parseInt(i, 10);
   });
@@ -228,4 +263,3 @@ app.Instruments.prototype.restore = function(instrumentString) {
 
   this.elem.trigger('restore');
 };
-

@@ -12,8 +12,7 @@ var Cards = function(id, selector) {
 };
 
 /**
- * Prepares the card deck
- * with all the possible card classes from the sprite.
+ * Prepares the card deck with all the possible card classes from the sprite.
  */
 Cards.prototype.prepare = function() {
   // reset the array
@@ -25,8 +24,8 @@ Cards.prototype.prepare = function() {
 
 /**
  * Returns an array of card for a specific level
- * @param {Number} numberOfCards How many cards are we returning.
- * @return {Array.<string>}
+ * @param {number} numberOfCards How many cards are we returning.
+ * @return {!Array.<string>} array of classes to use to find cards
  */
 Cards.prototype.getLevelCards = function(numberOfCards) {
   var card = null;
