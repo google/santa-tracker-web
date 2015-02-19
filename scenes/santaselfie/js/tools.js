@@ -453,7 +453,7 @@ app.Tools.prototype.start = function() {
  */
 app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
   if (this.selectedTool) {
-    this.selectedTool.move(mouseCoords);app.Constants.NEAR_SANTA_DIM
+    this.selectedTool.move(mouseCoords);
   }
 
   if (this.hairdryer.isSelected && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
