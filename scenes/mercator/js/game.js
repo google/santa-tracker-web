@@ -13,7 +13,7 @@ goog.require('app.utils');
 
 /**
  * Main game class
- * @param {!Element} elem An DOM element which wraps the game.
+ * @param {!Element} elem A DOM element which wraps the game.
  * @constructor
  * @export
  */
