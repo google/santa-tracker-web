@@ -2,7 +2,7 @@ goog.provide('LevelModel');
 
 /**
  * @constructor
- * @param {jQuery} elem
+ * @param {!jQuery} elem
  */
 var LevelModel = function(elem) {
   this.level = null;
@@ -137,8 +137,8 @@ LevelModel.prototype.getDoorIndex = function(i) {
 
 /**
  * Shuffles cards of a level according to different level-appropriate rules
- * @param {Array.<string>} cards
- * @return {Array.<string>}
+ * @param {!Array.<string>} cards
+ * @return {!Array.<string>}
  */
 LevelModel.prototype.shuffleCards = function(cards) {
   var levelPatterns = this.PATTERNS_LEVEL_MAP[this.level];
@@ -156,10 +156,10 @@ LevelModel.prototype.shuffleCards = function(cards) {
 
 /**
  * Shuffles cards either randomly or with a pattern.
- * @param {Array.<string>} cards to shuffle.
+ * @param {!Array.<string>} cards to shuffle.
  * @param {string} pattern to use.
  * @param {number} level to shuffle for.
- * @return {Array.<string>} shuffled cards.
+ * @return {!Array.<string>} shuffled cards.
  * @private
  */
 LevelModel.prototype.shuffle_ = function(cards, pattern, level) {
@@ -172,10 +172,10 @@ LevelModel.prototype.shuffle_ = function(cards, pattern, level) {
 
 /**
  * Shuffles cards based on a predefined pattern.
- * @param {Array.<string>} cards to shuffle.
+ * @param {!Array.<string>} cards to shuffle.
  * @param {string} pattern to use.
  * @param {number} level to shuffle for.
- * @return {Array.<string>} shuffled cards.
+ * @return {!Array.<string>} shuffled cards.
  * @private
  */
 LevelModel.prototype.patternShuffle_ = function(cards, pattern, level) {
@@ -203,7 +203,7 @@ LevelModel.prototype.set = function(level) {
 
 /**
  * Gets the current level.
- * @return {Number}
+ * @return {number}
  */
 LevelModel.prototype.get = function() {
   return this.level + 1;
