@@ -115,14 +115,25 @@ FauxTimeline.prototype = {
   /**
    * Removes a previously registered animation via its AnimationPlayer.
    *
-   * @param {AnimationPlayer} player to remove
+   * @param {AnimationPlayer=} opt_player to remove, undefined for all
    */
-  remove: function(player) {
-    var index = this.players_.indexOf(player);
+  remove: function(opt_player) {
+    if (opt_player === undefined) {
+      this.players_.forEach(function(player) {
+        player.cancel();
+      });
+      this.players_ = [];
+      this.calls_ = [];
+      return;
+    }
+
+    opt_player.cancel();
+
+    var index = this.players_.indexOf(opt_player);
     if (index > -1) {
       this.players_.splice(index, 1);
     }
-    index = this.calls_.indexOf(player);
+    index = this.calls_.indexOf(opt_player);
     if (index > -1) {
       this.calls_.splice(index, 1);
     }
