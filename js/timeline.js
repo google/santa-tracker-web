@@ -48,7 +48,7 @@ FauxTimeline.prototype = {
   },
 
   /**
-   * Seek to the specified time.
+   * Seek to the specified time. Synchronously runs any registered calls.
    *
    * @param {number} to seek to, may not be in past
    */
@@ -64,6 +64,10 @@ FauxTimeline.prototype = {
       if (p.currentTime < 0) {
         return true; // not run yet
       }
+
+      // Invoke known finish handler manually, as this should happen
+      // synchronously with the seek. The finish state causes an async call,
+      // which is fine for the timeline normally, just not here.
       p.onfinish();
       return false;
     });
@@ -102,8 +106,11 @@ FauxTimeline.prototype = {
 
     var player = this.schedule(when, document.body, [], 0);
     player.onfinish = function() {
-      // Run and remove this finish handler, as it may be invoked manually from
-      // within seek.
+      // Check for racey finish being triggered twice. This handler was already
+      // cleared so just ignore this call.
+      if (player.onfinish === null) { return; }
+
+      // Run and clear this call plus its finish handler.
       this.remove(player);
       player.onfinish = null;
       fn();
@@ -127,6 +134,9 @@ FauxTimeline.prototype = {
       return;
     }
 
+    if (!('cancel' in opt_player)) {
+      throw new Error('FauxTimeline remove expects AnimationPlayer, was: ' + opt_player);
+    }
     opt_player.cancel();
 
     var index = this.players_.indexOf(opt_player);
