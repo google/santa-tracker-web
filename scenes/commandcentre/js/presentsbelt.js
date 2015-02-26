@@ -120,7 +120,7 @@ app.PresentsBelt.prototype = {
     this.timeline.call(dropTime * 1000, function() {
       window.santaApp.fire('sound-trigger', 'command_presentdrop');
     });
-    this.timeline.call(endTime * 1000, this.onExitBelt_.bind(this, present, [player]));
+    this.timeline.call(endTime * 1000, this.onExitBelt_.bind(this, present, player));
   },
 
   /**
