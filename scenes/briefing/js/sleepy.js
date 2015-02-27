@@ -26,7 +26,7 @@ app.Sleepy = function(context, delayPool, sleepyController) {
   this.sleepingKeyframesTimer_ = -1;
   this.bouncingKeyframesTimer_ = -1;
   this.scheduleSleepingTimer_ = -1;
-  this.headRotateZTimeline = null;
+  this.headRotateZPlayer = null;
   this.headRotateYTimeline = null;
   this.sleepingVertically = true;
   this.delayPool = delayPool;
@@ -128,11 +128,9 @@ app.Sleepy.prototype.wakeUp_ = function() {
       .timeScale(3)
       .reverse();
 
-  } else if (this.headRotateZTimeline !== null) {
+  } else if (this.headRotateZPlayer !== null) {
 
-    this.headRotateZTimeline
-      .timeScale(5)
-      .reverse();
+    this.headRotateZPlayer.playbackRate = -5;
 
   }
 
@@ -255,29 +253,14 @@ app.Sleepy.prototype.tweenRotateYHead_ = function() {
  * @private
  */
 app.Sleepy.prototype.tweenRotateZHead_ = function() {
-  this.headRotateZTimeline = new TimelineMax();
+  var el = this.$head.get(0);
 
-  this.headRotateZTimeline
-    .set(
-      this.$head,
-      {
-        transformOrigin: 'center bottom'
-      }
-    );
+  var steps = [
+    {transform: 'rotate(0)', easing: 'ease-out'},
+    {transform: 'rotate(70)'}
+  ];
 
-  this.headRotateZTimeline
-    .fromTo(
-      this.$head,
-      2,
-      {
-        rotation: 0
-      },
-      {
-        rotation: 70,
-        ease: Circ.EaseOut
-      }
-    );
-
+  this.headRotateZPlayer = el.animate(steps, { duration: 2000, fill: 'forwards' });
 };
 
 /**
