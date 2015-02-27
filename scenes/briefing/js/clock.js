@@ -102,7 +102,7 @@ app.Clock.prototype.removeEventListeners_ = function() {
 app.Clock.prototype.spinPointers_ = function() {
 
   var secondsEl = this.$secondsPointer.get(0);
-  var secondsRotate = this.getRotateForElement_(secondsEl);
+  var secondsRotate = Math.round(this.getRotateForElement_(secondsEl));
   secondsEl.animate([
     {transform: 'rotate(' + secondsRotate + 'deg)'},
     {transform: 'rotate(' + (secondsRotate + (360 * 2.5)) + 'deg)'}
@@ -113,23 +113,27 @@ app.Clock.prototype.spinPointers_ = function() {
   this.secondsPlayer_.currentTime += (-1.25 + 30) * 1000;
 
   var hourEl = this.$hourPointer.get(0);
-  var hourRotate = this.getRotateForElement_(hourEl);
+  var hourRotate = Math.round(this.getRotateForElement_(hourEl));
+  var hourFinal = 'rotate(' + (hourRotate + 30) + 'deg)';
   var hourAnim = hourEl.animate([
     {transform: 'rotate(' + hourRotate + 'deg)'},
-    {transform: 'rotate(' + (hourRotate + 30) + 'deg)'}
+    {transform: hourFinal}
   ], {duration: 500, easing: 'ease-out'});
   hourAnim.onfinish = function() {
-    hourEl.style.transform = 'rotate(' + (hourRotate + 30) + 'deg)';
+    hourEl.style.webkitTransform = hourFinal;
+    hourEl.style.transform = hourFinal;
   };
 
   var minutesEl = this.$minutesPointer.get(0);
-  var minutesRotate = this.getRotateForElement_(minutesEl);
+  var minutesRotate = Math.round(this.getRotateForElement_(minutesEl));
+  var minutesFinal = 'rotate(' + (minutesRotate + 390) + 'deg)';
   var minutesAnim = minutesEl.animate([
     {transform: 'rotate(' + minutesRotate + 'deg)'},
-    {transform: 'rotate(' + (minutesRotate + 390) + 'deg)'}
+    {transform: minutesFinal}
   ], {duration: 500, easing: 'ease-out'});
   minutesAnim.onfinish = function() {
-    minutesEl.style.transform = 'rotate(' + (minutesRotate + 390) + 'deg)';
+    minutesEl.style.webkitTransform = minutesFinal;
+    minutesEl.style.transform = minutesFinal;
   };
 
 };
