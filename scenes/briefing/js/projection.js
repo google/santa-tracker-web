@@ -34,11 +34,38 @@ app.Projection = function(context) {
   this.$arrowRight = this.$context_.find('.js-arrow-right');
   this.$projection = this.$context_.find('.js-projection');
   this.$clickHandler = this.$context_.find('.js-screen-click-handler');
-  this.$waterDashes = this.$context_.find('.js-shower-water');
+  this.$waterDashHolder = this.$context_.find('.js-shower-water');
 
   this.prevSlide_ = this.prevSlide_.bind(this);
   this.nextSlide_ = this.nextSlide_.bind(this);
   this.onContextClick_ = this.onContextClick_.bind(this);
+
+  this.projectionPlayer_ = (function(el) {
+    var steps = [
+      {transform: 'translateY(0px)'},
+      {transform: 'translateY(-273px)'}
+    ];
+    var timing = { duration: 1000, easing: 'ease-in-out', fill: 'forwards' };
+    var player = el.animate(steps, timing);
+    player.playbackRate = 0;
+    return player;
+  }(this.$projectionGroup_.get(0)));
+
+  this.projectionPlayer_.onfinish = function() {
+    this.isAnimating = false;
+  }.bind(this);
+
+  this.waterDashPlayer_ = (function(el) {
+    var steps = [
+      {'stroke-dashoffset': '-100px'},
+      {'stroke-dashoffset': '-200px'}
+    ];
+    var timing = { duration: 1000, iterations: Infinity };
+    var player = el.animate(steps, timing);
+    player.pause();
+    return player;
+  }(this.$waterDashHolder.get(0)));
+
 };
 
 /**
@@ -95,85 +122,31 @@ app.Projection.prototype.onContextClick_ = function() {
 
   if (this.isToggled) {
     this.isToggled = false;
-    this.slideScreenDown_();
+
+    // Slide the screen down, hiding the easter egg.
+    this.projectionPlayer_.playbackRate = -1;
+    window.santaApp.fire('sound-trigger', 'briefing_screen_down');
+
     this.startCycle_();
 
     this.slidingTimer_ = window.setTimeout(function() {
-      this.stopAnimatingWater_();
+      this.waterDashPlayer_.pause();  // stop the shower effect
       this.$context_.removeClass(this.CLASS_SHOWERING);
     }.bind(this), app.Constants.SCREEN_SLIDE_DURATION_MS);
   } else {
     this.isToggled = true;
-    this.slideScreenUp_();
-    this.startAnimatingWater_();
+
+    // Slide the screen up, revealing the easter egg.
+    this.projectionPlayer_.playbackRate = 1;
+    window.santaApp.fire('sound-trigger', 'briefing_screen_up');
+
+    this.waterDashPlayer_.play();  // start the shower effect
     this.stopCycle_();
 
     this.slidingTimer_ = window.setTimeout(function() {
       this.$context_.addClass(this.CLASS_SHOWERING);
     }.bind(this), app.Constants.SCREEN_SLIDE_DURATION_MS / 2.5);
   }
-};
-
-/**
- * Starts tweening the water in the easter egg.
- *
- * @private
- */
-app.Projection.prototype.startAnimatingWater_ = function() {
-  TweenMax.to(this.$waterDashes, 1,
-    {
-      strokeDashoffset: '-=100',
-      force3D: true,
-      repeat: -1,
-      ease: Linear.easeNone
-    }
-  );
-
-};
-
-/**
- * Stops tweening the water in the easter egg.
- *
- * @private
- */
-app.Projection.prototype.stopAnimatingWater_ = function() {
-  TweenMax.killTweensOf(this.$waterDashes);
-};
-
-/**
- * Slides the projector screen all the way up, revealing what is behind it.
- *
- * @private
- */
-app.Projection.prototype.slideScreenUp_ = function() {
-  TweenMax.to(this.$projectionGroup_, 1,
-    {
-      y: -273,
-      ease: Back.easeIn.config(1),
-      onComplete: function() {
-        this.isAnimating = false;
-      }.bind(this)
-    }
-  );
-  window.santaApp.fire('sound-trigger', 'briefing_screen_up');
-};
-
-/**
- * Slides the projector screen back to its place, covering what is behind it.
- *
- * @private
- */
-app.Projection.prototype.slideScreenDown_ = function() {
-  TweenMax.to(this.$projectionGroup_, 1,
-    {
-      y: 0,
-      ease: Power4.easeOut,
-      onComplete: function() {
-        this.isAnimating = false;
-      }.bind(this)
-    }
-  );
-  window.santaApp.fire('sound-trigger', 'briefing_screen_down');
 };
 
 /**
