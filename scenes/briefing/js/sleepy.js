@@ -27,7 +27,7 @@ app.Sleepy = function(context, delayPool, sleepyController) {
   this.bouncingKeyframesTimer_ = -1;
   this.scheduleSleepingTimer_ = -1;
   this.headRotateZPlayer = null;
-  this.headRotateYTimeline = null;
+  this.headRotateYPlayer = null;
   this.sleepingVertically = true;
   this.delayPool = delayPool;
   this.sleepyController = sleepyController;
@@ -121,16 +121,21 @@ app.Sleepy.prototype.wakeUp_ = function() {
 
   this.stopSleepingKeyframes_();
 
-  if (this.sleepingVertically &&
-    this.headRotateYTimeline !== null) {
+  if (this.sleepingVertically && this.headRotateYPlayer !== null) {
 
-    this.headRotateYTimeline
-      .timeScale(3)
-      .reverse();
+    this.headRotateYPlayer.playbackRate = -0.02;
+    this.headRotateYPlayer.onfinish = function() {
+      this.headRotateYPlayer.cancel();
+      this.headRotateYPlayer = null;
+    }.bind(this);
 
   } else if (this.headRotateZPlayer !== null) {
 
     this.headRotateZPlayer.playbackRate = -5;
+    this.headRotateZPlayer.onfinish = function() {
+      this.headRotateZPlayer.cancel();
+      this.headRotateZPlayer = null;
+    }.bind(this);
 
   }
 
@@ -190,61 +195,34 @@ app.Sleepy.prototype.stopSleepingKeyframes_ = function() {
  * @private
  */
 app.Sleepy.prototype.tweenRotateYHead_ = function() {
-  this.headRotateYTimeline = new TimelineMax();
 
-  this.headRotateYTimeline
-    .to(
-      this.$head,
-      0.07,
-      {
-        display: 'none'
-      }
-    );
+  var duration = 70;
 
-  this.headRotateYTimeline
-    .to(
-      this.$headVerticalStep1,
-      0.07,
-      {
-        display: 'block'
-      }
-    );
+  // TODO: Issues playing in reverse.
 
-  this.headRotateYTimeline
-    .to(
-      this.$headVerticalStep1,
-      0.07,
-      {
-        display: 'none'
-      }
-    );
+  var steps = [
+    new Animation(this.$head.get(0), [
+      {visibility: 'visible'},
+      {visibility: 'hidden'}
+    ], {duration: duration, fill: 'forwards'}),
+    
+    new Animation(this.$headVerticalStep1.get(0), [
+      {visibility: 'visible'},
+      {visibility: 'hidden'}
+    ], {duration: duration, fill: 'none'}),
 
-  this.headRotateYTimeline
-    .to(
-      this.$headVerticalStep2,
-      0.07,
-      {
-        display: 'block'
-      }
-    );
+    new Animation(this.$headVerticalStep2.get(0), [
+      {visibility: 'visible'},
+      {visibility: 'hidden'}
+    ], {duration: duration, fill: 'none'}),
 
-  this.headRotateYTimeline
-    .to(
-      this.$headVerticalStep2,
-      0.07,
-      {
-        display: 'none'
-      }
-    );
+    new Animation(this.$headVerticalFinal.get(0), [
+      {visibility: 'visible'},  // forces last element to remain visible
+      {visibility: 'visible'}
+    ], {duration: duration, easing: 'step-final', fill: 'fowards'})
+  ];
 
-  this.headRotateYTimeline
-    .to(
-      this.$headVerticalFinal,
-      0.07,
-      {
-        display: 'block'
-      }
-    );
+  this.headRotateYPlayer = document.timeline.play(new AnimationSequence(steps, { fill: 'forwards' }));
 };
 
 /**

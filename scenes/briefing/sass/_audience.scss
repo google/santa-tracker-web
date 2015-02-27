@@ -99,7 +99,7 @@
 }
 
 .spectator__head--vertical {
-	display: none;
+  visibility: hidden;
 	top: 28px;
 	&.is-bouncing {
 		animation-name: #{$name}-sleeping-head-vertical;
@@ -109,7 +109,7 @@
 
 .spectator__head--vertical--2,
 .spectator__head--vertical--3 {
-	display: none;
+  visibility: hidden;
 }
 
 .spectator__head--vertical--1 {
