@@ -256,8 +256,8 @@ app.Sleepy.prototype.tweenRotateZHead_ = function() {
   var el = this.$head.get(0);
 
   var steps = [
-    {transform: 'rotate(0)', easing: 'ease-out'},
-    {transform: 'rotate(70)'}
+    {transform: 'rotate(0deg)', easing: 'ease-out'},
+    {transform: 'rotate(70deg)'}
   ];
 
   this.headRotateZPlayer = el.animate(steps, { duration: 2000, fill: 'forwards' });
