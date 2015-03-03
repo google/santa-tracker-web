@@ -6,7 +6,7 @@ goog.require('app.utils');
 /**
  * The country object.
  * @param {!google.maps.Map} map A Google map.
- * @param {object} feature The data for the country from GeoJSON.
+ * @param {!Object} feature The data for the country from GeoJSON.
  * @constructor
  */
 app.Country = function(map, feature) {
