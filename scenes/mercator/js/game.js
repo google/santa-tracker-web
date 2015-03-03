@@ -13,8 +13,7 @@ goog.require('app.utils');
 
 /**
  * Main game class
- * @param {Element} elem An DOM element which wraps the game.
- * @author aranja@aranja.com
+ * @param {!Element} elem A DOM element which wraps the game.
  * @constructor
  * @export
  */
@@ -36,7 +35,7 @@ app.Game = function(elem) {
   this.mapReady = false;
   this.startOnReady = false;
 
-  // For IE 10 that does not support pointer-event: none.
+  // For IE10, which does not support pointer-event: none.
   if (Modernizr.pointerevents !== true && Modernizr.pointerevents != null) {
     this.bgElem.prependTo(this.sceneElem);
   }
@@ -46,8 +45,8 @@ app.Game = function(elem) {
     $(event.target).remove();
   });
 
-  // Cache a bound functions
-  this.onFrame = this.onFrame.bind(this);
+  // Cache bound functions
+  this.onFrame_ = this.onFrame_.bind(this);
   this.countryMatched_ = this.countryMatched_.bind(this);
   this.updateSize_ = this.updateSize_.bind(this);
   this.disableTutorial_ = this.disableTutorial_.bind(this);
@@ -100,11 +99,9 @@ app.Game.prototype.init_ = function() {
   this.scoreboard.reset();
   this.scoreboard.setLevel(this.level);
 
-  if (this.countries) {
-    this.countries.forEach(function(country) {
-      country.hide();
-    });
-  }
+  this.countries && this.countries.forEach(function(country) {
+    country.hide();
+  });
 };
 
 /**
@@ -123,7 +120,7 @@ app.Game.prototype.restart = function() {
 /**
  * Freezes the game. Stops the onFrame loop and stops any CSS3 animations.
  * Used both for game over and pausing.
- * @param {bool} gameEnded Is the game over?
+ * @param {boolean} gameEnded Is the game over?
  */
 app.Game.prototype.freezeGame = function(gameEnded) {
   this.isPlaying = false;
@@ -141,7 +138,7 @@ app.Game.prototype.unfreezeGame = function() {
 
     this.isPlaying = true;
     this.lastFrame = +new Date() / 1000;
-    this.requestId = utils.requestAnimFrame(this.onFrame);
+    this.requestId = utils.requestAnimFrame(this.onFrame_);
   }
 };
 
@@ -173,11 +170,11 @@ app.Game.prototype.resume = function() {
   this.unfreezeGame();
 };
 
-
 /**
  * Game loop. Runs every frame using requestAnimationFrame.
+ * @private
  */
-app.Game.prototype.onFrame = function() {
+app.Game.prototype.onFrame_ = function() {
   if (!this.isPlaying) {
     return;
   }
@@ -191,12 +188,12 @@ app.Game.prototype.onFrame = function() {
   this.scoreboard.onFrame(delta);
 
   // Request next frame
-  this.requestId = utils.requestAnimFrame(this.onFrame);
+  this.requestId = utils.requestAnimFrame(this.onFrame_);
 };
 
 /**
  * Go to next level or end the game.
- * @param {bool} won Is the game over?
+ * @param {boolean} won Is the game over?
  * @private
  */
 app.Game.prototype.bumpLevel_ = function(won) {
@@ -228,7 +225,7 @@ app.Game.prototype.setupLevel_ = function() {
     country.onMatched = this.countryMatched_;
     country.onDrag = this.disableTutorial_;
     this.countries.push(country);
-  }.bind(this));
+  }, this);
 
   this.mapBounds = new google.maps.LatLngBounds();
   this.mapBounds.extend(new google.maps.LatLng(data.bounds.s, data.bounds.w));
@@ -285,24 +282,26 @@ app.Game.prototype.showCountries_ = function() {
   while (shown < total) {
     var index = Math.floor(Math.random() * this.countries.length);
     var country = this.countries[index];
+    if (country.visible) {
+      continue;
+    }
 
-    if (!country.visible) {
-      var x = (Math.random() * dX) + ne.x;
-      var y = (Math.random() * dY) + ne.y;
-      country.setPosition(new google.maps.Point(x, y));
-      country.show(app.Constants.COUNTRY_COLORS[shown % app.Constants.COUNTRY_COLORS.length]);
-      shown++;
+    var x = (Math.random() * dX) + ne.x;
+    var y = (Math.random() * dY) + ne.y;
+    var color = app.Constants.COUNTRY_COLORS[shown % app.Constants.COUNTRY_COLORS.length];
+    country.setPosition(new google.maps.Point(x, y));
+    country.show(color);
+    shown++;
 
-      if (this.debug) {
-        country.showBounds();
-      }
+    if (this.debug) {
+      country.showBounds();
     }
   }
 };
 
 /**
  * Calculate the score to give for a match.
- * @param {Number} time The number of seconds from the start of the game.
+ * @param {number} time The number of seconds from the start of the game.
  * @return {number}
  */
 app.Game.prototype.getScore = function(time) {
@@ -322,7 +321,7 @@ app.Game.prototype.getScore = function(time) {
 
 /**
  * Event handler for when a country is matched.
- * @param {app.Country} country The country that was matched.
+ * @param {!app.Country} country The country that was matched.
  * @private
  */
 app.Game.prototype.countryMatched_ = function(country) {
@@ -349,13 +348,9 @@ app.Game.prototype.countryMatched_ = function(country) {
   this.scoreboard.addScore(this.getScore(this.levelElapsed));
 
   // Go to next level?
-  var levelOver = true;
-  for (var i = 0; i < this.countries.length; i++) {
-    if (this.countries[i].visible && !this.countries[i].matched) {
-      levelOver = false;
-    }
-  }
-
+  var levelOver = this.countries.every(function(country) {
+    return country.matched || !country.visible;
+  });
   if (!levelOver) return;
 
   if (this.level === app.Constants.TOTAL_LEVELS - 1) {
@@ -412,7 +407,7 @@ app.Game.prototype.initMap_ = function() {
       if (this.debug) {
         country.showBounds();
       }
-    }.bind(this));
+    }, this);
   }.bind(this));
 
   google.maps.event.addListenerOnce(this.map, 'idle', function() {

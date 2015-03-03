@@ -5,8 +5,8 @@ goog.require('app.utils');
 
 /**
  * The country object.
- * @param {google.maps.Map} map A Google map.
- * @param {Object} feature The data for the country from GeoJSON.
+ * @param {!google.maps.Map} map A Google map.
+ * @param {!Object} feature The data for the country from GeoJSON.
  * @constructor
  */
 app.Country = function(map, feature) {
@@ -63,7 +63,7 @@ app.Country.prototype.hide = function() {
 
 /**
  * Set the position of the country on the map.
- * @param {google.maps.Point} point A Google maps point.
+ * @param {!google.maps.Point} point A Google maps point.
  */
 app.Country.prototype.setPosition = function(point) {
   var map = this.map;
