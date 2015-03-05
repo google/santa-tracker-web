@@ -8,14 +8,14 @@ goog.provide('app.PresentsBelt');
 /**
  * Class for belt with presents dropping of the edge
  * @param {!Element} domEl DOM element containing the belt
- * @param {Object} options Configuration options for the belt
+ * @param {object} options Configuration options for the belt
  * @constructor
  */
 app.PresentsBelt = function(domEl, options) {
   this.$el = $(domEl);
   this.options = options || {};
-  this.options.timeOffset = this.options.timeOffset ? this.options.timeOffset : 0;
-  this.options.direction = this.options.direction ? this.options.direction : 'ltr';
+  this.options.timeOffset = this.options.timeOffset || 0;
+  this.options.direction = this.options.direction || 'ltr';
   this.$presentEls = this.$el.find('.presents-screen__belt__present');
 
   this.distance_ = this.$el.width();
@@ -30,6 +30,7 @@ app.PresentsBelt.prototype = {
 
   /**
    * Callback when present is added to timeline
+   * @param {!app.Present} present added
    * @private
    */
   onEnterBelt_: function(present) {
@@ -42,21 +43,18 @@ app.PresentsBelt.prototype = {
 
   /**
    * Callback when present reaches end of timeline
+   * @param {!app.Present} present to remove
+   * @param {!AnimationPlayer} player to remove from timeline
    * @private
    */
-  onExitBelt_: function(present, tweenReferences) {
-    var i,
-        l = tweenReferences.length;
-
-    for (i = 0; i < l; i++) {
-      this.timeline.remove(tweenReferences[i]);
-    }
-
+  onExitBelt_: function(present, player) {
+    this.timeline.remove(player);
     present.onExitBelt();
   },
 
   /**
    * Return length of present (including margin to next present) as duration of seconds
+   * @param {!app.Present} present added
    * @private
    * @return {number}
    */
@@ -78,77 +76,51 @@ app.PresentsBelt.prototype = {
 
   /**
    * Schedule present tweens on the timeline
+   * @param {!app.Present} present added
+   * @param {number} startTime to start at, in seconds
    * @private
    */
   scheduleItem_: function(present, startTime) {
-    var tweenReferences = [],
-        startCallback,
-        beltTween,
-        rotationTween,
-        dropTween;
+    var directionMultiplier = this.options.direction === 'ltr' ? 1 : -1;
+    var presentMidpoint = present.width() * 0.5;
+    var startDropRotation = 35 * directionMultiplier;
+    var finalDropRotation = (this.getRandomDropRotation_() + 35) * directionMultiplier;
 
-    var directionMultiplier = this.options.direction === 'ltr' ? -1 : 1;
-    var directionPrefix = directionMultiplier < 0 ? '+=' : '-=';
-    var presentMidpoint = directionMultiplier * present.width() * 0.5;
-    var dropRotation = this.getRandomDropRotation_();
+    var endOfBeltX = directionMultiplier * this.distance_ - presentMidpoint;
+    var presentBagX = endOfBeltX + 90 * directionMultiplier;
 
+    // all values in seconds
     var rotationTime = startTime + app.Constants.PRESENTS_BELT_DURATION;
     var dropTime = rotationTime + app.Constants.PRESENTS_ROTATION_DURATION;
+    var endTime = dropTime + app.Constants.PRESENTS_DROP_DURATION;
+    var duration = endTime - startTime;
 
-    startCallback = TweenLite.delayedCall(0, this.onEnterBelt_, [present], this);
-
-    // horizontal tween on belt
-    beltTween = TweenLite.fromTo(
-        present.$el,
-        app.Constants.PRESENTS_BELT_DURATION,
-        {
-          x: 0,
-          y: 0,
-          rotation: 0
-        },
-        {
-          css: {
-            x: directionPrefix + (this.distance_ + presentMidpoint),
-            force3D: true
-          },
-          ease: Linear.easeNone
-        }
-        );
-
-    // rotating over belt end
-    rotationTween = TweenLite.to(present.$el, app.Constants.PRESENTS_ROTATION_DURATION, {
-      css: {
-        rotation: directionPrefix + 35,
-        force3D: true
+    var beltSteps = [
+      {
+        transform: 'translate(0px, 0px)'
       },
-      onComplete: function() {
-        window.santaApp.fire('sound-trigger', 'command_presentdrop');
+      {
+        transform: 'translate(' + endOfBeltX + 'px, 0px)',
+        offset: (rotationTime - startTime) / duration
       },
-      ease: Linear.easeNone
+      {
+        transform: 'translate(' + endOfBeltX + 'px, 0px) rotate(' + startDropRotation + 'deg)',
+        offset: (dropTime - startTime) / duration,
+        easing: 'ease-in'
+      },
+      {
+        transform: 'translate(' + presentBagX + 'px, 100px) rotate(' + finalDropRotation + 'deg)'
+      },
+    ];
+
+    var presentEl = present.$el.get(0);
+    var player = this.timeline.schedule(startTime * 1000, presentEl, beltSteps, duration * 1000);
+
+    this.timeline.call(startTime * 1000, this.onEnterBelt_.bind(this, present));
+    this.timeline.call(dropTime * 1000, function() {
+      window.santaApp.fire('sound-trigger', 'command_presentdrop');
     });
-
-    // dropping into sack
-    dropTween = TweenLite.to(present.$el, app.Constants.PRESENTS_DROP_DURATION, {
-      css: {
-        x: directionPrefix + 90,
-        y: '+=100',
-        rotation: directionPrefix + dropRotation,
-        force3D: true
-      },
-      ease: Sine.easeIn,
-      onComplete: this.onExitBelt_.bind(this),
-      onCompleteParams: [present, tweenReferences]
-    });
-
-    this.timeline.add(startCallback, startTime);
-    this.timeline.add(beltTween, startTime);
-    this.timeline.add(rotationTween, rotationTime);
-    this.timeline.add(dropTween, dropTime);
-
-    tweenReferences.push(startCallback);
-    tweenReferences.push(beltTween);
-    tweenReferences.push(rotationTween);
-    tweenReferences.push(dropTween);
+    this.timeline.call(endTime * 1000, this.onExitBelt_.bind(this, present, player));
   },
 
   /**
@@ -157,14 +129,13 @@ app.PresentsBelt.prototype = {
    * @return {app.Present}
    */
   addItem_: function(startTime) {
-    var startTime = startTime || this.timeline.time();
+    var startTime = startTime || this.timeline.currentTime / 1000;
 
     var present = this.presentPool.getFreeItem();
     if (present) {
       startTime += this.itemWidthAsSeconds_(present); // delay based on width of present
       this.scheduleItem_(present, startTime);
-    }
-    else {
+    } else {
       // pool size and margin between items must be set so we don't run out of items in the pool
       console.log('NO FREE present IN POOL');
     }
@@ -177,8 +148,7 @@ app.PresentsBelt.prototype = {
    * @private
    */
   init_: function() {
-    this.timeline = new TimelineMax();
-    this.timeline.stop();
+    this.timeline = new FauxTimeline();
 
     this.setup = true;
     var seekTime = 1;
@@ -188,16 +158,14 @@ app.PresentsBelt.prototype = {
     }
 
     // start 1 second before to be sure we trigger callbacks for last present
-    this.timeline.seek(seekTime - 1 + this.options.timeOffset, false);
+    this.timeline.seek((seekTime - 1 + this.options.timeOffset) * 1000);
     this.setup = false;
-    this.timeline.play();
   },
 
   /**
    * Destroy belt and all scheduled animations
    */
   destroy: function() {
-    this.timeline.kill();
     this.timeline.remove();
     this.presentPool = null;
   }
