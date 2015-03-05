@@ -81,7 +81,7 @@ app.PresentsBelt.prototype = {
    * @private
    */
   scheduleItem_: function(present, startTime) {
-    var directionMultiplier = this.options.direction === 'ltr' ? +1 : -1;
+    var directionMultiplier = this.options.direction === 'ltr' ? 1 : -1;
     var presentMidpoint = present.width() * 0.5;
     var startDropRotation = 35 * directionMultiplier;
     var finalDropRotation = (this.getRandomDropRotation_() + 35) * directionMultiplier;
