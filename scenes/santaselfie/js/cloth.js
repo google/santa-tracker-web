@@ -3,18 +3,21 @@ goog.provide('app.Cloth');
 goog.require('app.Constants');
 goog.require('app.Point');
 goog.require('app.utils');
+goog.require('app.encoding');
 
 
 
 /**
  * Cloth simulation
- * @param {Canvas} canvas A canvas to render the cloth to.
+ * @param {!app.Game} game
+ * @param {!HTMLCanvasElement} canvas A canvas to render the cloth to.
  * @constructor
  */
-app.Cloth = function(canvas) {
+app.Cloth = function(game, canvas) {
   this.canvas = canvas;
   this.ctx = this.canvas.getContext('2d');
   this.hairCanvas = null;
+  this.game_ = game;
   this.mouse = {
     down: false,
     x: 0,
@@ -27,17 +30,18 @@ app.Cloth = function(canvas) {
 };
 
 
+/**
+ * @extends {app.GameObject.start}
+ */
 app.Cloth.prototype.start = function() {
-  this.hairShape = this.drawHairShape();
+  this.hairShape = this.drawHairShape_();
   this.points = this.drawInitialCloth();
 
-  $(this.canvas).on('click.santaselfie touchend.santaselfie', this.addHair.bind(this));
-
-  var self = this;
+  $(this.canvas).on('click.santaselfie touchend.santaselfie', this.addHair_.bind(this));
 
   $(window).on('resize.santaselfie', function() {
-    self.hairShape = self.drawHairShape();
-  });
+    this.hairShape = this.drawHairShape_();
+  }.bind(this));
 };
 
 
@@ -51,28 +55,35 @@ app.Cloth.prototype.resetCloth = function() {
 
 /**
  * @extends {app.GameObject.mouseChanged}
- * @param {app.Mouse} mouse
+ * @param {!app.Mouse} mouse
+ * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
  */
-app.Cloth.prototype.mouseChanged = function(mouse) {
-  var coordinates = game.mouse.transformCoordinates(mouse.x, mouse.y,
-                                                    this.canvas.getBoundingClientRect());
+app.Cloth.prototype.mouseChanged = function(mouse, mouseCoords) {
+  if (mouse !== this.game_.mouse) {
+    throw new Error('unexpected mouse callback');
+  }
+
+  var tools = this.game_.tools;
+
+  var rect = this.canvas.getBoundingClientRect();
+  var canvasCoords = mouse.transformCoordinates(mouse.x, mouse.y, rect);
 
   this.mouse.px = this.mouse.x;
   this.mouse.py = this.mouse.y;
 
-  this.mouse.x = coordinates.x;
-  this.mouse.y = coordinates.y;
-  this.mouse.down = coordinates.down;
+  this.mouse.x = canvasCoords.x;
+  this.mouse.y = canvasCoords.y;
+  this.mouse.down = canvasCoords.down;
 
   if (!this.canPlaceDecoration) {
     // wait for mouse up before placing another decoration
-    this.canPlaceDecoration = !mouse.down;
+    this.canPlaceDecoration = !mouseCoords.down;
   }
 
-  if (this.mouse.down && game.tools.selectedTool &&
-      (game.tools.selectedTool.spray || game.tools.hairclean.isSelected ||
-       game.tools.selectedTool.decoration || game.tools.clipper.isSelected)) {
-    var scale = game.mouse.scaleFactor;
+  if (this.mouse.down && tools.selectedTool &&
+      (tools.selectedTool.spray || tools.hairclean.isSelected ||
+       tools.selectedTool.decoration || tools.clipper.isSelected)) {
+    var scale = mouse.scaleFactor;
     var anyNearBeard = false;
 
     var i = this.points.length;
@@ -86,22 +97,22 @@ app.Cloth.prototype.mouseChanged = function(mouse) {
       var dist = app.utils.distance(differenceX, differenceY);
 
       if (dist < app.Constants.SPACING * scale) {
-        if (game.tools.clipper.isSelected) {
+        if (tools.clipper.isSelected) {
           this.nearBeard = true;
           anyNearBeard = true;
         }
 
-        if (game.tools.selectedTool.spray) {
-          this.points[i].spray = game.tools.selectedTool.spray;
+        if (tools.selectedTool.spray) {
+          this.points[i].spray = tools.selectedTool.spray;
         }
 
-        if (game.tools.hairclean.isSelected) {
+        if (tools.hairclean.isSelected) {
           this.points[i].spray = null;
           this.points[i].decoration = null;
         }
 
-        if (game.tools.selectedTool.decoration && this.canPlaceDecoration) {
-          this.points[i].decoration = game.tools.selectedTool.decoration;
+        if (tools.selectedTool.decoration && this.canPlaceDecoration) {
+          this.points[i].decoration = tools.selectedTool.decoration;
           window.santaApp.fire('sound-trigger', 'selfie_item');
           this.canPlaceDecoration = false;
           break;
@@ -114,19 +125,25 @@ app.Cloth.prototype.mouseChanged = function(mouse) {
     }
   }
 
-  if (game.tools.selectedTool && game.tools.selectedTool.spray && mouse.down && mouse.x > 230) {
+  if (tools.selectedTool && tools.selectedTool.spray && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
     app.utils.triggerStart('selfie_color');
-  } else if (!mouse.down) {
+  } else if (!mouseCoords.down) {
     app.utils.triggerStop('selfie_color');
   }
 
-  if (this.nearBeard && game.tools.clipper.isSelected && mouse.down) {
+  if (this.nearBeard && tools.clipper.isSelected && mouseCoords.down) {
     app.utils.triggerStart('selfie_shave_cutting');
-  } else if (!this.nearBeard || !mouse.down) {
+  } else if (!this.nearBeard || !mouseCoords.down) {
     app.utils.triggerStop('selfie_shave_cutting');
   }
 };
 
+/**
+ * Returns the initial cloth points (aka, where Santa has hair). This method
+ * is idempotent and does not have effect on this object.
+ *
+ * @return {!Array.<!app.Point>}
+ */
 app.Cloth.prototype.drawInitialCloth = function() {
   var CANVAS_WIDTH = app.Constants.CANVAS_WIDTH;
   var CLOTH_WIDTH = app.Constants.CLOTH_WIDTH;
@@ -136,6 +153,9 @@ app.Cloth.prototype.drawInitialCloth = function() {
 
   var points = [];
   var startX = CANVAS_WIDTH / 2 - CLOTH_WIDTH * SPACING / 2;
+  var pointFactory = function(options) {
+    return new app.Point(this.game_, options);
+  }.bind(this);
 
   for (var y = 0; y <= CLOTH_HEIGHT; y++) {
     for (var x = 0; x <= CLOTH_WIDTH; x++) {
@@ -161,7 +181,7 @@ app.Cloth.prototype.drawInitialCloth = function() {
               radius * radius :
           true;
 
-      var point = new app.Point({
+      var point = pointFactory({
         x: pointX,
         y: pointY,
         pinned: pinned,
@@ -174,7 +194,7 @@ app.Cloth.prototype.drawInitialCloth = function() {
   }
 
   function drawSideburn(x, y) {
-    var point = new app.Point({
+    var point = pointFactory({
       x: startX + x * SPACING,
       y: START_Y - y * SPACING,
       pinned: true
@@ -192,7 +212,7 @@ app.Cloth.prototype.drawInitialCloth = function() {
   }
 
   function drawHair(x, y) {
-    var point = new app.Point({
+    var point = pointFactory({
       x: startX + 60 + x * SPACING,
       y: START_Y - 165 - y * SPACING,
       pinned: true
@@ -221,12 +241,17 @@ app.Cloth.prototype.drawInitialCloth = function() {
   return points;
 };
 
-app.Cloth.prototype.drawHairShape = function() {
+/**
+ * Draws a single unit of Santa's hair based on the current scaleFactor.
+ * @return {!HTMLCanvasElement} containing Santa's hair
+ * @private
+ */
+app.Cloth.prototype.drawHairShape_ = function() {
   if (!this.hairCanvas) {
     this.hairCanvas = document.createElement('canvas');
   }
   var ctx = this.hairCanvas.getContext('2d');
-  var scale = game.mouse.scaleFactor;
+  var scale = this.game_.mouse.scaleFactor;
 
   this.hairCanvas.width = 53 * scale;
   this.hairCanvas.height = 52 * scale;
@@ -263,7 +288,10 @@ app.Cloth.prototype.drawHairShape = function() {
   return this.hairCanvas;
 };
 
-app.Cloth.prototype.update = function(timeSteps) {
+/**
+ * Updates all points of Santa's hair vis-á-vis their physical model.
+ */
+app.Cloth.prototype.update = function() {
   var i = app.Constants.PHYSICS_ACCURACY;
 
   while (i--) {
@@ -280,7 +308,7 @@ app.Cloth.prototype.update = function(timeSteps) {
 };
 
 app.Cloth.prototype.draw = function() {
-  var scale = game.mouse.scaleFactor;
+  var scale = this.game_.mouse.scaleFactor;
 
   this.canvas.width = app.Constants.CANVAS_WIDTH * scale;
   this.canvas.height = app.Constants.CANVAS_HEIGHT * scale;
@@ -305,12 +333,16 @@ app.Cloth.prototype.draw = function() {
   }
 };
 
-app.Cloth.prototype.addHair = function() {
-  if (!game.tools.hairgrow.isSelected) {
+/**
+ * Adds hair at the current point.
+ * @private
+ */
+app.Cloth.prototype.addHair_ = function() {
+  if (!this.game_.tools.hairgrow.isSelected) {
     return;
   }
 
-  var scale = game.mouse.scaleFactor;
+  var scale = this.game_.mouse.scaleFactor;
   var i = this.points.length;
 
   while (i--) {
@@ -322,4 +354,66 @@ app.Cloth.prototype.addHair = function() {
       this.points[i] = this.points[i].reset();
     }
   }
+};
+
+/**
+ * Serialize the current state of the beard.
+ * @return {string} encoded
+ */
+app.Cloth.prototype.save = function() {
+  var points = this.points;
+  var encoder = app.Constants.ENCODER;
+  var sprays = this.game_.tools.sprays;
+  var decorations = this.game_.tools.decorations;
+
+  var data = points.map(function(point) {
+    var index = 0;
+
+    if (point.draw) {
+      index += 1;
+    }
+
+    if (point.draw && point.spray) {
+      index += (sprays.indexOf(point.spray) + 1) * 5; // color + color with decoration * 5
+    }
+
+    if (point.draw && point.decoration) {
+      index += decorations.indexOf(point.decoration) + 1;
+    }
+
+    return encoder[index];
+  });
+
+  return app.encoding.encode(data.join(''));
+};
+
+
+/**
+ * Replace the current beard with a saved state.
+ * @param {string} encoded string representing beard state.
+ */
+app.Cloth.prototype.restore = function(encoded) {
+  var encoder = app.Constants.ENCODER;
+  var sprays = this.game_.tools.sprays;
+  var decorations = this.game_.tools.decorations;
+
+  var decoded = app.encoding.decode(encoded);
+
+  var data = decoded.split('').map(function(char) {
+    return encoder.indexOf(char);
+  });
+
+  var beardPoints = this.drawInitialCloth();
+
+  for (var i = 0; i < beardPoints.length; i++) {
+    beardPoints[i].draw = beardPoints[i].constrain = data[i] > 0;
+
+    var spray = Math.floor((data[i] - 1) / 5);
+    beardPoints[i].spray = spray > 0 ? sprays[spray - 1] : undefined;
+
+    var decoration = (data[i] - 1) % 5;
+    beardPoints[i].decoration = decoration > 0 ? decorations[decoration - 1] : undefined;
+  }
+
+  this.points = beardPoints;
 };

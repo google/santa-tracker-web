@@ -3,7 +3,7 @@ goog.provide('app.encoding');
 
 /**
  * Provides run length encoding functions
- * @return {encode: {Function}, decode: {Function}} Functions to encode and decode strings
+ * @return {encode: {function}, decode: {function}} Functions to encode and decode strings
  */
 app.encoding = {
   encode: function(data) {

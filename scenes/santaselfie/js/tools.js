@@ -7,12 +7,14 @@ goog.require('app.utils');
 /**
  * Base tool item
  * @constructor
- * @extends {app.GameObject}
+ * @extends {!app.GameObject}
+ * @param {!jQuery} $elem toolbox elem
  * @param {string} name The name of the tool.
  * Element should have class Tool-name.
  * @param {{x: number, y: number}} mouseOffset Tool offset relative to the mouse
  */
-app.Tool = function(name, mouseOffset) {
+app.Tool = function($elem, name, mouseOffset) {
+  this.elem = $elem;
   this.el = this.elem.find('.Tool-' + name);
   this.container = this.el.closest('.Tool-container');
   this.isSelected = false;
@@ -50,24 +52,21 @@ app.Tool = function(name, mouseOffset) {
 
 /**
  * Select this tool from the toolbox
+ * @param {!app.Mouse.CoordsType} mouseCoords at selection time
  */
-app.Tool.prototype.select = function() {
+app.Tool.prototype.select = function(mouseCoords) {
   this.isSelected = true;
 
   this.el.addClass('Tool--selected');
   this.width = this.el.width();
 
   if (Modernizr.touch) {
-    this.elem.css({ 'background-size': 0}); // Hide tool on touch devices
+    this.elem.css({ 'background-size': 0 }); // Hide tool on touch devices
   } else {
     this.elem.css({ cursor: 'none' });
   }
 
-  if (this === game.tools.clipper) {
-    window.santaApp.fire('sound-trigger', 'selfie_concerned');
-  }
-
-  this.move(game.mouse);
+  this.move(mouseCoords);
   window.santaApp.fire('sound-trigger', 'selfie_click');
 };
 
@@ -77,10 +76,6 @@ app.Tool.prototype.select = function() {
  */
 app.Tool.prototype.deselect = function() {
   this.isSelected = false;
-
-  if (this === game.tools.clipper) {
-    window.santaApp.fire('sound-trigger', 'selfie_happy');
-  }
 
   this.el.removeClass('Tool--selected');
   this.el.css({
@@ -94,22 +89,31 @@ app.Tool.prototype.deselect = function() {
 
 
 /**
- * Move the tool to the specified mouse position
- * @param {app.Mouse} mouse Game mouse object
+ * @private
+ * @return {boolean} whether this tool orients both left and right
  */
-app.Tool.prototype.move = function(mouse) {
+app.Tool.prototype.isLeftRightTool_ = function() {
+  return false;
+};
+
+
+/**
+ * Move the tool to the specified mouse position
+ * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
+ */
+app.Tool.prototype.move = function(mouseCoords) {
   var offsetX = this.mouseOffset.x;
 
-  if (mouse.relX > 0 && (this === game.tools.hairgrow || this === game.tools.hairclean)) {
+  if (mouseCoords.relX > 0 && this.isLeftRightTool_()) {
     offsetX = this.width - this.mouseOffset.x;
   }
 
   this.el.css({
-    left: mouse.x - (offsetX * mouse.scale),
-    top: mouse.y - (this.mouseOffset.y * mouse.scale)
+    left: mouseCoords.x - (offsetX * mouseCoords.scale),
+    top: mouseCoords.y - (this.mouseOffset.y * mouseCoords.scale)
   });
 
-  var shouldAnimate = this.shouldAnimate_(mouse);
+  var shouldAnimate = this.shouldAnimate_(mouseCoords);
   if (shouldAnimate === this.isAnimating) {
     return;
   }
@@ -159,23 +163,27 @@ app.Tool.prototype.createAnimation_ = function() {
 
 
 /**
- * Evaluate if the tool should play its animation.
- * @param {app.Mouse.transformCoordinates} mouse info.
+ * Evaluate if the tool should play its animation. Should be overwritten if
+ * relevant.
+ * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
  * @return {boolean}
  * @private
  */
-app.Tool.prototype.shouldAnimate_ = function(mouse) {
-  return this.animationPlayer && mouse.down && mouse.x > 230;
+app.Tool.prototype.shouldAnimate_ = function(mouseCoords) {
+  return this.animationPlayer && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM;
 };
 
 
 
 /**
  * Clipper tool.
+ * @param {!jQuery} $elem toolbox elem
+ * @param {!app.Cloth} cloth of Santa's hair
  * @constructor
  */
-app.Clipper = function() {
-  app.Tool.call(this, 'clipper', {x: 40, y: 0});
+app.Clipper = function($elem, cloth) {
+  app.Tool.call(this, $elem, 'clipper', {x: 40, y: 0});
+  this.cloth_ = cloth;
 };
 goog.inherits(app.Clipper, app.Tool);
 
@@ -194,22 +202,38 @@ app.Clipper.prototype.createAnimation_ = function() {
 
 
 /**
- * Creates a web Animation instance for the tool effect.
- * @return {Animation}
+ * Evaluate whether the Clipper should play its animation.
+ * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
+ * @return {boolean}
  * @private
  */
-app.Clipper.prototype.shouldAnimate_ = function(mouse) {
-  return mouse.down && mouse.x > 230 && game.hair.cloth.nearBeard;
+app.Clipper.prototype.shouldAnimate_ = function(mouseCoords) {
+  return mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM && this.cloth_.nearBeard;
 };
 
+/**
+ * @extends {app.Tool.select}
+ */
+app.Clipper.prototype.select = function(mouseCoords) {
+  app.Tool.prototype.select.call(this, mouseCoords);
+  window.santaApp.fire('sound-trigger', 'selfie_concerned');
+};
 
+/**
+ * @extends {app.Tool.deselect}
+ */
+app.Clipper.prototype.deselect = function() {
+  app.Tool.prototype.deselect.call(this);
+  window.santaApp.fire('sound-trigger', 'selfie_happy');
+};
 
 /**
  * Hairgrow tool.
+ * @param {!jQuery} $elem toolbox elem
  * @constructor
  */
-app.Hairgrow = function() {
-  app.Tool.call(this, 'hairgrow', {x: 110, y: 25});
+app.Hairgrow = function($elem) {
+  app.Tool.call(this, $elem, 'hairgrow', {x: 110, y: 25});
 };
 goog.inherits(app.Hairgrow, app.Tool);
 
@@ -226,14 +250,20 @@ app.Hairgrow.prototype.createAnimation_ = function() {
   ], {duration: 230, easing: 'steps(8, end)'});
 };
 
-
+/**
+ * @extends {app.Tool.isLeftRightTool_}
+ */
+app.Hairgrow.prototype.isLeftRightTool_ = function() {
+  return true;
+};
 
 /**
  * Hairclean tool.
+ * @param {!jQuery} $elem toolbox elem
  * @constructor
  */
-app.Hairclean = function() {
-  app.Tool.call(this, 'hairclean', {x: 120, y: 10});
+app.Hairclean = function($elem) {
+  app.Tool.call(this, $elem, 'hairclean', {x: 120, y: 10});
 };
 goog.inherits(app.Hairclean, app.Tool);
 
@@ -250,22 +280,28 @@ app.Hairclean.prototype.createAnimation_ = function() {
   ], {duration: 460, easing: 'steps(14, end)', iterations: Infinity});
 };
 
+/**
+ * @extends {app.Tool.isLeftRightTool_}
+ */
+app.Hairclean.prototype.isLeftRightTool_ = function() {
+  return true;
+};
 
 
 /**
  * Coloured spray tool
  * @constructor
  * @extends {app.Tool}
+ * @param {!jQuery} $elem toolbox elem
  * @param {string} name The name of the color.
  * @param {string} color The color in css hex.
  */
-app.Spray = function(name, color) {
-  app.Tool.call(this, 'spray--' + name, {x: 47, y: 0});
+app.Spray = function($elem, name, color) {
+  app.Tool.call(this, $elem, 'spray--' + name, {x: 47, y: 0});
 
   this.color = color;
   this.spray = this.elem.find('#spray--' + name)[0];
 };
-
 app.Spray.prototype = Object.create(app.Tool.prototype);
 
 
@@ -274,46 +310,48 @@ app.Spray.prototype = Object.create(app.Tool.prototype);
  * Decorations that stick on the beard
  * @constructor
  * @extends {app.Tool}
+ * @param {!jQuery} $elem toolbox elem
  * @param {string} name The name of the decoration
  * @param {{x: number, y: number}} offset Tool offset relative to the mouse
- * @param {Image} decoration image.
+ * @param {!Image} decoration image.
  */
-app.Decoration = function(name, offset, decoration) {
-  app.Tool.call(this, 'decoration--' + name, offset);
+app.Decoration = function($elem, name, offset, decoration) {
+  app.Tool.call(this, $elem, 'decoration--' + name, offset);
 
   this.decoration = decoration;
 };
-
 app.Decoration.prototype = Object.create(app.Tool.prototype);
 
 
 
 /**
  * The toolbox
+ * @param {!app.Game} game
+ * @param {!jQuery} $elem
  * @constructor
  */
-app.Tools = function($elem) {
-  app.Tool.prototype.elem = $elem;
+app.Tools = function(game, $elem) {
+  this.game_ = game;
 
   this.elem = $elem.find('.Tools');
-  this.clipper = new app.Clipper();
-  this.hairdryer = new app.Tool('hairdryer', {x: 100, y: 0});
-  this.hairgrow = new app.Hairgrow();
-  this.hairclean = new app.Hairclean();
+  this.clipper = new app.Clipper($elem, game.cloth);
+  this.hairdryer = new app.Tool($elem, 'hairdryer', {x: 100, y: 0});
+  this.hairgrow = new app.Hairgrow($elem);
+  this.hairclean = new app.Hairclean($elem);
 
-  this.sprayRed = new app.Spray('red');
-  this.sprayOrange = new app.Spray('orange');
-  this.sprayYellow = new app.Spray('yellow');
-  this.sprayGreen = new app.Spray('green');
-  this.sprayCyan = new app.Spray('cyan');
-  this.sprayPurple = new app.Spray('purple');
-  this.sprayPink = new app.Spray('pink');
-  this.sprayBlue = new app.Spray('blue');
+  this.sprayRed = new app.Spray($elem, 'red');
+  this.sprayOrange = new app.Spray($elem, 'orange');
+  this.sprayYellow = new app.Spray($elem, 'yellow');
+  this.sprayGreen = new app.Spray($elem, 'green');
+  this.sprayCyan = new app.Spray($elem, 'cyan');
+  this.sprayPurple = new app.Spray($elem, 'purple');
+  this.sprayPink = new app.Spray($elem, 'pink');
+  this.sprayBlue = new app.Spray($elem, 'blue');
 
-  this.decorationSnowman = new app.Decoration('snowman', {x: 40, y: 50}, $elem.find('#snowman')[0]);
-  this.decorationBauble = new app.Decoration('bauble', {x: 40, y: 50}, $elem.find('#bauble')[0]);
-  this.decorationBow = new app.Decoration('bow', {x: 50, y: 45}, $elem.find('#bow')[0]);
-  this.decorationHolly = new app.Decoration('holly', {x: 40, y: 45}, $elem.find('#holly')[0]);
+  this.decorationSnowman = new app.Decoration($elem, 'snowman', {x: 40, y: 50}, $elem.find('#snowman')[0]);
+  this.decorationBauble = new app.Decoration($elem, 'bauble', {x: 40, y: 50}, $elem.find('#bauble')[0]);
+  this.decorationBow = new app.Decoration($elem, 'bow', {x: 50, y: 45}, $elem.find('#bow')[0]);
+  this.decorationHolly = new app.Decoration($elem, 'holly', {x: 40, y: 45}, $elem.find('#holly')[0]);
 
   this.tools = [
     this.clipper,
@@ -360,37 +398,39 @@ app.Tools = function($elem) {
  * @extends {app.GameObject.start}
  */
 app.Tools.prototype.start = function() {
-  this.hairdryer.faceInward = function(mouse) {
+  this.selectTool_ = this.selectTool_.bind(this);
+  this.elem.on('click touchend', this.selectTool_);
+
+  var hairdryerFaceInward = faceInward = function(mouse, mouseCoords) {
     if (!this.isSelected) {
       return;
     }
 
-    if (Math.abs(mouse.relX) <= 0.3) {
+    if (Math.abs(mouseCoords.relX) <= 0.3) {
       this.el.addClass('Tool-hairdryer--center');
     } else {
       this.el.removeClass('Tool-hairdryer--center');
     }
 
-    if(mouse.relX < -0.3) {
+    if(mouseCoords.relX < -0.3) {
       this.el.addClass('Tool--left');
     } else {
       this.el.removeClass('Tool--left');
     }
 
-    if (mouse.relX > 0.3) {
+    if (mouseCoords.relX > 0.3) {
       this.el.addClass('Tool--right');
-
     } else {
       this.el.removeClass('Tool--right');
     }
   };
 
-  var faceInward = function(mouse) {
+  var faceInward = function(mouse, mouseCoords) {
     if (!this.isSelected) {
       return;
     }
 
-    if (mouse.relX > 0) {
+    if (mouseCoords.relX > 0) {
       this.el.addClass('Tool--right');
       this.el.removeClass('Tool--left');
     } else {
@@ -399,48 +439,44 @@ app.Tools.prototype.start = function() {
     }
   };
 
-  game.mouse.subscribe(this.mouseChanged, this);
-
-  if (!Modernizr.touch) {
-    game.mouse.subscribe(this.hairdryer.faceInward, this.hairdryer);
-    game.mouse.subscribe(faceInward, this.hairclean);
-    game.mouse.subscribe(faceInward, this.hairgrow);
-  }
-
-  this.elem.on('click touchend', this.selectTool.bind(this));
+  var mouse = this.game_.mouse;
+  mouse.subscribe(hairdryerFaceInward, this.hairdryer);
+  mouse.subscribe(faceInward, this.hairclean);
+  mouse.subscribe(faceInward, this.hairgrow);
 };
 
 
 /**
  * @extends {app.GameObject.mouseChanged}
- * @param {app.Mouse} mouse
+ * @param {!app.Mouse} mouse
+ * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
  */
-app.Tools.prototype.mouseChanged = function(mouse) {
+app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
   if (this.selectedTool) {
-    this.selectedTool.move(mouse);
+    this.selectedTool.move(mouseCoords);
   }
 
-  if (game.tools.hairdryer.isSelected && mouse.down && mouse.x > 230) {
+  if (this.hairdryer.isSelected && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
     app.utils.triggerStart('selfie_dryer');
-  } else if (!mouse.down) {
+  } else if (!mouseCoords.down) {
     app.utils.triggerStop('selfie_dryer');
   }
 
-  if (game.tools.clipper.isSelected && mouse.down && mouse.x > 230) {
+  if (this.clipper.isSelected && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
     app.utils.triggerStart('selfie_shave');
-  } else if (!mouse.down) {
+  } else if (!mouseCoords.down) {
     app.utils.triggerStop('selfie_shave');
   }
 
-  if (game.tools.hairgrow.isSelected && mouse.down && mouse.x > 230) {
+  if (this.hairgrow.isSelected && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
     app.utils.triggerOnce('selfie_spray_small');
-  } else if (!mouse.down) {
+  } else if (!mouseCoords.down) {
     app.utils.triggerReset('selfie_spray_small');
   }
 
-  if (game.tools.hairclean.isSelected && mouse.down && mouse.x > 230) {
+  if (this.hairclean.isSelected && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
     app.utils.triggerOnce('selfie_spray_big');
-  } else if (!mouse.down) {
+  } else if (!mouseCoords.down) {
     app.utils.triggerReset('selfie_spray_big');
   }
 };
@@ -448,9 +484,10 @@ app.Tools.prototype.mouseChanged = function(mouse) {
 
 /**
  * Handle clicks on the toolbox to select a tool
- * @param {Event} e DOM click event
+ * @param {!Event} e DOM click event
+ * @private
  */
-app.Tools.prototype.selectTool = function(e) {
+app.Tools.prototype.selectTool_ = function(e) {
   var previousTool = this.selectedTool;
 
   this.selectedTool = this.tools.filter(function(tool) {
@@ -460,7 +497,8 @@ app.Tools.prototype.selectTool = function(e) {
   })[0];
 
   if (this.selectedTool) {
-    this.selectedTool.select();
+    var coords = this.game_.mouse.coordinates();
+    this.selectedTool.select(coords);
   }
 
   if (previousTool) {

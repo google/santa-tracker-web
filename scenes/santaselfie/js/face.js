@@ -8,9 +8,11 @@ goog.require('app.utils');
  * Interactions for Santa's face
  * @constructor
  * @extends {app.GameObject}
- * @param {jQuery} $elem The container element
+ * @param {!app.Game} game
+ * @param {!jQuery} $elem The container element
  */
-app.Face = function($elem) {
+app.Face = function(game, $elem) {
+  this.game_ = game;
   this.eyes = $elem.find('.eye');
   this.eyebrows = $elem.find('.eyebrow');
   this.nose = $elem.find('.nose');
@@ -26,22 +28,26 @@ app.Face.prototype.start = function() {
     this.eyes.each(function(index, eye) {
       $(eye).addClass('eye--blink');
 
-      setTimeout(function() {
+      window.setTimeout(function() {
         $(eye).removeClass('eye--blink');
       }, 200);
     }, this);
   }
 
   app.utils.randomLoop(blink.bind(this), 1000, 8000);
-  game.mouse.subscribe(this.mouseChanged, this);
 };
 
 
 /**
  * @extends {app.GameObject.mouseChanged}
- * @param {app.Mouse} mouse
+ * @param {!app.Mouse} mouse
+ * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
  */
-app.Face.prototype.mouseChanged = function(mouse) {
+app.Face.prototype.mouseChanged = function(mouse, mouseCoords) {
+  if (mouse !== this.game_.mouse) {
+    throw new Error('unexpected mouse callback');
+  }
+
   function transform(element, x, y) {
     element.css({
       'transform': 'translate3d(' + x + 'em, ' + y + 'em, 0)'
@@ -53,8 +59,8 @@ app.Face.prototype.mouseChanged = function(mouse) {
 
     var centerX = (rect.left + rect.right) / 2;
     var centerY = (rect.top + rect.bottom) / 2;
-    var differenceX = mouse.x - centerX;
-    var differenceY = mouse.y - 86 - centerY;
+    var differenceX = mouseCoords.x - centerX;
+    var differenceY = mouseCoords.y - 86 - centerY;
 
     return Math.sqrt(differenceX * differenceX + differenceY * differenceY) < distance;
   }
@@ -62,18 +68,20 @@ app.Face.prototype.mouseChanged = function(mouse) {
   var EYE_MOVEMENT_X = 10;
   var EYE_MOVEMENT_Y = 5;
 
-  transform(this.eyes, mouse.relX * EYE_MOVEMENT_X, mouse.relY * EYE_MOVEMENT_Y);
+  transform(this.eyes, mouseCoords.relX * EYE_MOVEMENT_X, mouseCoords.relY * EYE_MOVEMENT_Y);
   transform(this.eyebrows, 0, mouse.relY * EYE_MOVEMENT_Y);
-  transform(this.face, mouse.relX * EYE_MOVEMENT_X, mouse.relY * EYE_MOVEMENT_Y);
+  transform(this.face, mouseCoords.relX * EYE_MOVEMENT_X, mouseCoords.relY * EYE_MOVEMENT_Y);
+
+  var tools = this.game_.tools;
 
   this.face.toggleClass('Face--hairdryerLeft',
-      game.tools.hairdryer.isSelected && mouse.down && mouse.relX < -0.3);
+      tools.hairdryer.isSelected && mouseCoords.down && mouseCoords.relX < -0.3);
   this.face.toggleClass('Face--hairdryerRight',
-      game.tools.hairdryer.isSelected && mouse.down && mouse.relX > 0.3);
+      tools.hairdryer.isSelected && mouseCoords.down && mouseCoords.relX > 0.3);
   this.face.toggleClass('Face--hairdryerCenter',
-      game.tools.hairdryer.isSelected && mouse.down && Math.abs(mouse.relX) < 0.3);
+      tools.hairdryer.isSelected && mouseCoords.down && Math.abs(mouseCoords.relX) < 0.3);
   this.face.toggleClass('Face--alarmed',
-      game.tools.clipper.isSelected);
+      tools.clipper.isSelected);
   this.face.toggleClass('Face--shaving',
-      game.tools.clipper.isSelected && mouse.down && nearNose.call(this, 120));
+      tools.clipper.isSelected && mouseCoords.down && nearNose.call(this, 120));
 };
