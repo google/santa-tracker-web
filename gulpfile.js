@@ -186,7 +186,6 @@ gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
 
       // these externs are annotated with @externs, so we can import them as
       // source (so we can use use wildcards in the file name)
-      'third_party/externs/greensock/*.js',
       'third_party/externs/jquery/*.js',
     ])
     .pipe(newer(dest + '/' + fileName))
