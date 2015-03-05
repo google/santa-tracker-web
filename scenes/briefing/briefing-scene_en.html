@@ -1,7 +1,7 @@
 <link rel="import" href="../base-scene.html">
 <link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../../js/webanimations.html">
 
-<script src="../../third_party/lib/TweenMax.min.js"></script>
 <script src="briefing-scene.min.js"></script>
 
 <!--
@@ -59,15 +59,17 @@ Briefing scene.
                   <div class="shower-deer__iris"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3.3 3.3" enable-background="new 0 0 3.3 3.3"><path fill="#59595C" d="M.8.2c-.8.5-1 1.6-.6 2.3s1.5 1 2.3.6c.8-.5 1-1.5.6-2.3-.6-.8-1.5-1-2.3-.6"/></svg>
                   </div>
                 </div>
-                <div class="shower-deer__water shower-deer__water--1 js-shower-water"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.7 123.8" enable-background="new 0 0 55.7 123.8"><line opacity=".6" stroke="#fff" stroke-width=".713" stroke-miterlimit="10" stroke-dasharray="3.5651,8.5562" enable-background="new" x1=".3" y1=".1" x2="55.4" y2="123.7" fill="none"/></svg>
-                </div>
-                <div class="shower-deer__water shower-deer__water--2 js-shower-water"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58.6 132" enable-background="new 0 0 58.6 132"><line opacity=".6" stroke="#fff" stroke-width=".713" stroke-miterlimit="10" stroke-dasharray="3.5651,8.5562" enable-background="new" x1=".3" y1=".1" x2="58.3" y2="131.9" fill="none"/></svg>
-                </div>
-                <div class="shower-deer__water shower-deer__water--3 js-shower-water"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 69.3 155.2" enable-background="new 0 0 69.3 155.2"><line opacity=".6" stroke="#fff" stroke-width=".713" stroke-miterlimit="10" stroke-dasharray="3.5651,8.5562" enable-background="new" x1=".3" y1=".1" x2="68.9" y2="155.1" fill="none"/></svg>
-                </div>
-                <div class="shower-deer__water shower-deer__water--4 js-shower-water"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58.5 130.9" enable-background="new 0 0 58.5 130.9"><line opacity=".6" stroke="#fff" stroke-width=".713" stroke-miterlimit="10" stroke-dasharray="3.5651,8.5562" enable-background="new" x1=".3" y1=".1" x2="58.1" y2="130.8" fill="none"/></svg>
-                </div>
-                <div class="shower-deer__water shower-deer__water--5 js-shower-water"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 124.4" enable-background="new 0 0 56 124.4"><line opacity=".6" stroke="#fff" stroke-width=".713" stroke-miterlimit="10" stroke-dasharray="3.5651,8.5562" enable-background="new" x1=".3" y1=".1" x2="55.6" y2="124.3" fill="none"/></svg>
+                <div class="shower-deer__waterholder js-shower-water">
+                  <div class="shower-deer__water shower-deer__water--1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.7 123.8" enable-background="new 0 0 55.7 123.8"><line opacity=".6" stroke="#fff" stroke-width=".713" stroke-miterlimit="10" stroke-dasharray="3.5651,8.5562" enable-background="new" x1=".3" y1=".1" x2="55.4" y2="123.7" fill="none"/></svg>
+                  </div>
+                  <div class="shower-deer__water shower-deer__water--2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58.6 132" enable-background="new 0 0 58.6 132"><line opacity=".6" stroke="#fff" stroke-width=".713" stroke-miterlimit="10" stroke-dasharray="3.5651,8.5562" enable-background="new" x1=".3" y1=".1" x2="58.3" y2="131.9" fill="none"/></svg>
+                  </div>
+                  <div class="shower-deer__water shower-deer__water--3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 69.3 155.2" enable-background="new 0 0 69.3 155.2"><line opacity=".6" stroke="#fff" stroke-width=".713" stroke-miterlimit="10" stroke-dasharray="3.5651,8.5562" enable-background="new" x1=".3" y1=".1" x2="68.9" y2="155.1" fill="none"/></svg>
+                  </div>
+                  <div class="shower-deer__water shower-deer__water--4"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58.5 130.9" enable-background="new 0 0 58.5 130.9"><line opacity=".6" stroke="#fff" stroke-width=".713" stroke-miterlimit="10" stroke-dasharray="3.5651,8.5562" enable-background="new" x1=".3" y1=".1" x2="58.1" y2="130.8" fill="none"/></svg>
+                  </div>
+                  <div class="shower-deer__water shower-deer__water--5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 124.4" enable-background="new 0 0 56 124.4"><line opacity=".6" stroke="#fff" stroke-width=".713" stroke-miterlimit="10" stroke-dasharray="3.5651,8.5562" enable-background="new" x1=".3" y1=".1" x2="55.6" y2="124.3" fill="none"/></svg>
+                  </div>
                 </div>
                 <div class="shower-deer__bubble shower-deer__bubble--1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3.3 3.3" enable-background="new 0 0 3.3 3.3"><circle opacity=".5" fill="#fff" enable-background="new" cx="1.6" cy="1.6" r="1.6"/></svg>
                 </div>

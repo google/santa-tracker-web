@@ -62,36 +62,6 @@
   }
 }
 
-@keyframes #{$name}-clockPointer2Movement {
-  0% {
-    transform: rotateZ(45deg);
-  }
-
-  100% {
-    transform: rotateZ(405deg);
-  }
-}
-
-@keyframes #{$name}-clockPointer3Movement {
-  0% {
-    transform: rotateZ(95deg);
-  }
-
-  100% {
-    transform: rotateZ(455deg);
-  }
-}
-
-@keyframes #{$name}-clockPointer4Movement {
-  0% {
-    transform: rotateZ(150deg);
-  }
-
-  100% {
-    transform: rotateZ(510deg);
-  }
-}
-
 //
 // Elevator
 //

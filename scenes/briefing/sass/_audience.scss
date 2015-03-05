@@ -87,6 +87,7 @@
 	left: 0;
 	margin-top: -80px;
 	margin-left: 23px;
+	transform-origin: center bottom;
 
 	&.is-bouncing {
 		animation-timing-function: $easeInOutQuad;
@@ -98,7 +99,7 @@
 }
 
 .spectator__head--vertical {
-	display: none;
+  visibility: hidden;
 	top: 28px;
 	&.is-bouncing {
 		animation-name: #{$name}-sleeping-head-vertical;
@@ -108,7 +109,7 @@
 
 .spectator__head--vertical--2,
 .spectator__head--vertical--3 {
-	display: none;
+  visibility: hidden;
 }
 
 .spectator__head--vertical--1 {
