@@ -20,10 +20,10 @@ app.Clock = function(context) {
 
   this.secondsPlayer_ = (function(el) {
     var steps = [
-      {'transform': 'rotate(0deg)'},
-      {'transform': 'rotate(360deg)'}
+      {transform: 'rotate(0deg)'},
+      {transform: 'rotate(360deg)'}
     ];
-    return el.animate(steps, { duration: 60 * 1000, iterations: Infinity});
+    return el.animate(steps, {duration: 60 * 1000, iterations: Infinity});
   }(this.$secondsPointer.get(0)));
 };
 
@@ -58,9 +58,9 @@ app.Clock.prototype.getRotateForElement_ = function(element) {
   var scale = Math.sqrt(a*a + b*b);
 
   // arc sin, convert from radians to degrees, round
-  var sin = b/scale;
+  var sin = b / scale;
   // next line works for 30deg but not 130deg (returns 50);
-  return Math.atan2(b, a) * (180/Math.PI);
+  return Math.atan2(b, a) * (180 / Math.PI);
 };
 
 /**
@@ -76,7 +76,7 @@ app.Clock.prototype.init = function() {
  */
 app.Clock.prototype.destroy = function() {
   this.removeEventListeners_();
-//  this.secondsPlayer_.cancel();
+  this.secondsPlayer_.cancel();
 };
 
 /**
@@ -112,13 +112,15 @@ app.Clock.prototype.spinPointers_ = function() {
   // 1.25 seconds back (animation time) plus 30 seconds (half offset).
   this.secondsPlayer_.currentTime += (-1.25 + 30) * 1000;
 
+  var sharedTiming = {duration: 500, easing: 'ease-out'};
+
   var hourEl = this.$hourPointer.get(0);
   var hourRotate = Math.round(this.getRotateForElement_(hourEl));
   var hourFinal = 'rotate(' + (hourRotate + 30) + 'deg)';
   var hourAnim = hourEl.animate([
     {transform: 'rotate(' + hourRotate + 'deg)'},
     {transform: hourFinal}
-  ], {duration: 500, easing: 'ease-out'});
+  ], sharedTiming);
   hourAnim.onfinish = function() {
     hourEl.style.webkitTransform = hourFinal;
     hourEl.style.transform = hourFinal;
@@ -130,7 +132,7 @@ app.Clock.prototype.spinPointers_ = function() {
   var minutesAnim = minutesEl.animate([
     {transform: 'rotate(' + minutesRotate + 'deg)'},
     {transform: minutesFinal}
-  ], {duration: 500, easing: 'ease-out'});
+  ], sharedTiming);
   minutesAnim.onfinish = function() {
     minutesEl.style.webkitTransform = minutesFinal;
     minutesEl.style.transform = minutesFinal;

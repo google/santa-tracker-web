@@ -45,7 +45,7 @@ app.Projection = function(context) {
       {transform: 'translateY(0px)'},
       {transform: 'translateY(-273px)'}
     ];
-    var timing = { duration: 1000, easing: 'ease-in-out', fill: 'forwards' };
+    var timing = {duration: 1000, easing: 'ease-in-out', fill: 'forwards'};
     var player = el.animate(steps, timing);
     player.playbackRate = 0;
     return player;
@@ -60,7 +60,7 @@ app.Projection = function(context) {
       {'stroke-dashoffset': '-100px'},
       {'stroke-dashoffset': '-200px'}
     ];
-    var timing = { duration: 1000, iterations: Infinity };
+    var timing = {duration: 1000, iterations: Infinity};
     var player = el.animate(steps, timing);
     player.pause();
     return player;
@@ -83,7 +83,6 @@ app.Projection.prototype.init = function() {
 app.Projection.prototype.destroy = function() {
   this.removeEventListeners_();
   this.stopCycle_();
-  this.stopAnimatingWater_();
 };
 
 /**
@@ -162,7 +161,7 @@ app.Projection.prototype.changeSlide_ = function() {
   this.$projection.css({
     '-webkit-transform': 'translateX(' + value + 'px)',
     '-ms-transform': 'translateX(' + value + 'px)',
-    'transform': 'translateX(' + value + 'px)'
+    transform: 'translateX(' + value + 'px)'
   });
 };
 
