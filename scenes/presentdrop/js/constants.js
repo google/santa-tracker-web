@@ -1,10 +1,11 @@
+goog.provide('app.Constants');
 goog.provide('Constants');
 
 /**
  * Gameplay constants
  * @const
  */
-Constants = {
+app.Constants = {
   // Countdown, in seconds
   INITIAL_COUNTDOWN: 60,
   TIME_PER_CHIMNEY: 3,
@@ -61,3 +62,6 @@ Constants = {
   TUTORIAL_SPACE_TIMEOUT: 5000,
   TUTORIAL_ARROW_TIMEOUT: 3000
 };
+
+// Hack to support shared scoreboard with other apps.
+Constants = app.Constants;

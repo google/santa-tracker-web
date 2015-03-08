@@ -1,11 +1,11 @@
-goog.provide('Controls');
+goog.provide('app.Controls');
 
 /**
  * Handles user input for controlling the game.
- * @param {Game} game The game object.
+ * @param {!app.Game} game The game object.
  * @constructor
  */
-Controls = function(game) {
+app.Controls = function(game) {
   // This is what we're controlling
   this.game = game;
   this.player = this.game.player;
@@ -17,59 +17,47 @@ Controls = function(game) {
   // Touch state
   this.currentTouchId = null;
 
-  // Let's bind our events.
-  var handler = this.handle.bind(this);
-  this.game.elem.on('touchstart.presentdrop touchmove.presentdrop touchend.presentdrop', handler);
-  $(window).on('keydown.presentdrop keyup.presentdrop', handler);
+  this.onTouchStart_ = this.onTouchStart_.bind(this);
+  this.onTouchMove_ = this.onTouchMove_.bind(this);
+  this.onTouchEnd_ = this.onTouchEnd_.bind(this);
+  this.onKeyDown_ = this.onKeyDown_.bind(this);
+  this.onKeyUp_ = this.onKeyUp_.bind(this);
+
+  // Listeners removed as part of game dispose.
+  this.game.elem.on('touchstart.presentdrop', this.onTouchStart_);
+  this.game.elem.on('touchmove.presentdrop', this.onTouchMove_);
+  this.game.elem.on('touchend.presentdrop', this.onTouchEnd_);
+  $(window).on('keydown.presentdrop', this.onKeyDown_);
+  $(window).on('keyup.presentdrop', this.onKeyUp_);
 }
-
-/**
- * Handle all keyboard and touch events.
- * @param {event} e The event data.
- */
-Controls.prototype.handle = function(e) {
-  // Paused or Gameover
-  if (!this.game.isPlaying) {
-    return;
-  }
-
-  var methodName = 'on' + e.type[0].toUpperCase() + e.type.slice(1);
-  this[methodName](e);
-};
 
 /**
  * Keep track of the right key.
  * @type {bool}
  * @private
  */
-Controls.prototype.isRightDown_ = false;
+app.Controls.prototype.isRightDown_ = false;
 
 /**
  * Keep track of the left key.
  * @type {bool}
  * @private
  */
-Controls.prototype.isLeftDown_ = false;
+app.Controls.prototype.isLeftDown_ = false;
 
 /**
  * Keep track of the space bar.
  * @type {bool}
  * @private
  */
-Controls.prototype.isSpaceDown_ = false;
-
-/**
- * Keep track of player movements.
- * @type {bool}
- * @private
- */
-Controls.prototype.isMoving_ = false;
+app.Controls.prototype.isSpaceDown_ = false;
 
 /**
  * Handles the key down event. Called dynamically.
- * @param  {Event} e The event object.
+ * @param {!Event} e The event object.
+ * @private
  */
-Controls.prototype['onKeydown'] = function(e) {
+app.Controls.prototype.onKeyDown_ = function(e) {
   if (e.keyCode === 37) { // Left
     this.isLeftDown_ = true;
   } else if (e.keyCode === 39) { // Right
@@ -83,7 +71,9 @@ Controls.prototype['onKeydown'] = function(e) {
     }
 
     this.isSpaceDown_ = true;
-    this.player.dropPresent();
+    if (this.game.isPlaying) {
+      this.player.dropPresent();
+    }
   }
 
   if (!this.arrowPressed && (e.keyCode === 37 || e.keyCode === 39)) {
@@ -98,10 +88,10 @@ Controls.prototype['onKeydown'] = function(e) {
 
 /**
  * Handles the key up event. Called dynamically.
- * @param  {Event} e The event object.
- * @this {Controls} The Controls object.
+ * @param {Event} e The event object.
+ * @private
  */
-Controls.prototype['onKeyup'] = function(e) {
+app.Controls.prototype.onKeyUp_ = function(e) {
   if (e.keyCode === 37) { // Left
     this.isLeftDown_ = false;
   } else if (e.keyCode === 39) { // Right
@@ -115,7 +105,7 @@ Controls.prototype['onKeyup'] = function(e) {
 /**
  * Updates the player.
  */
-Controls.prototype.updatePlayerFromKeyboard = function() {
+app.Controls.prototype.updatePlayerFromKeyboard = function() {
   if (this.isRightDown_) {
     this.player.keyboardGoRight();
   } else if (this.isLeftDown_) {
@@ -123,25 +113,20 @@ Controls.prototype.updatePlayerFromKeyboard = function() {
   } else {
     this.player.keyboardStop();
   }
-
-  // Pull sound
-  if (!this.isRightDown_ && !this.isLeftDown_) {
-    this.isMoving_ = false;
-  } else if (!this.isMoving_) {
-    this.isMoving_ = true;
-  }
 };
 
 /**
  * Touch controls
  */
-Controls.prototype.touchStartedInGUI = null;
+app.Controls.prototype.touchStartedInGUI = null;
 
 /**
  * Touch started. Ignores gui touches. Called dynamically.
- * @param  {Event} e The event object.
+ * @param {!Event} e The event object.
  */
-Controls.prototype['onTouchstart'] = function(e) {
+app.Controls.prototype.onTouchStart_ = function(e) {
+  if (!this.game.isPlaying) return;
+
   // Ignore the touch if it starts in GUI or if we are already tracking a touch.
   this.touchStartedInGUI = !!$(e.target).closest('.gui').length;
   if (this.currentTouchId !== null || this.touchStartedInGUI) {
@@ -168,11 +153,13 @@ Controls.prototype['onTouchstart'] = function(e) {
 
 /**
  * Touch moved. Called dynamically.
- * @param  {Event} e The event object.
- * @this {Controls} The Controls object.
+ * @param {!Event} e The event object.
+ * @private
  */
-Controls.prototype['onTouchmove'] = function(e) {
-  var touch = this.getCurrentTouch(e.originalEvent);
+app.Controls.prototype.onTouchMove_ = function(e) {
+  if (!this.game.isPlaying) return;
+
+  var touch = this.getCurrentTouch_(e.originalEvent);
   if (touch) {
     var stagePos = this.stage.offset();
 
@@ -187,11 +174,11 @@ Controls.prototype['onTouchmove'] = function(e) {
 
 /**
  * Touch ended. Called dynamically.
- * @param  {Event} e The event object.
- * @this {Controls} The Controls object.
+ * @param {!Event} e The event object.
+ * @private
  */
-Controls.prototype['onTouchend'] = function(e) {
-  var touch = this.getCurrentTouch(e.originalEvent);
+app.Controls.prototype.onTouchEnd_ = function(e) {
+  var touch = this.getCurrentTouch_(e.originalEvent);
   if (!touch) {
     return;
   }
@@ -202,17 +189,18 @@ Controls.prototype['onTouchend'] = function(e) {
 
 /**
  * Returns the active touch from a touch event.
- * @param  {Event} e A touch event.
- * @return {Touch}   The active touch.
+ * @param {!Event} e A touch event.
+ * @return {Touch} The active touch.
+ * @private
  */
-Controls.prototype.getCurrentTouch = function(e) {
+app.Controls.prototype.getCurrentTouch_ = function(e) {
   if (this.currentTouchId === null) {
-    return;
+    return null;
   }
-
   for (var i = 0, touch; touch = e.changedTouches[i]; i++) {
     if (touch.identifier === this.currentTouchId) {
       return touch;
     }
   }
+  return null;
 };
