@@ -52,35 +52,22 @@ app.Spectator.prototype.removeEventListeners_ = function() {
 };
 
 /**
- * Shakes the spectator by moving its grouping element with a custom easing.
+ * Shakes the spectator by moving its grouping element.
  *
  * @private
  */
 app.Spectator.prototype.tweenShakeChair_ = function() {
 
-  TweenMax.set(this.$group,
-    {
-      transformOrign: '50% 100%'
-    }
-  );
+  var el = this.$group.get(0);
 
-  TweenLite.fromTo(this.$group, 0.6,
-    {
-      x: -1
-    },
-    {
-      x: 1,
-      ease: RoughEase.ease.config(
-        {
-          strength: 20,
-          points: 5,
-          template: Power4.easeOut,
-          randomize: false
-        }
-      ),
-      clearProps: 'x'
-    }
-  );
+  var steps = [
+    {transform: 'translate(0)'},
+    {transform: 'translate(+10px)', offset: 0.25},
+    {transform: 'translate(-10px)', offset: 0.75},
+    {transform: 'translate(0)'}
+  ];
+
+  el.animate(steps, { duration: 600, easing: 'ease-in-out' });
 
 };
 

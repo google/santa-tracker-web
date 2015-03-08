@@ -1,12 +1,12 @@
-goog.provide('Levels');
+goog.provide('app.Levels');
 
 /**
- * Keeps track of current level, the level animation and
- * transitions between them.
+ * Keeps track of current level, the level animation and transitions between
+ * them.
  * @constructor
- * @param {Game} game The game object.
+ * @param {!app.Game} game The game object.
  */
-Levels = function(game) {
+app.Levels = function(game) {
   this.game = game;
 
   this.bgElem = this.game.elem.find('.level-bg');
@@ -18,7 +18,7 @@ Levels = function(game) {
 /**
  * Resets the levels animation for a new game.
  */
-Levels.prototype.reset = function() {
+app.Levels.prototype.reset = function() {
   this.fgElem.css('right', '0px').children().attr('class', 'level-fg0');
   this.bgElem.css('right', '0px');
   this.bgRight = this.bgRightTarget = 0;
@@ -30,7 +30,7 @@ Levels.prototype.reset = function() {
  * Runs every frame and updates the level animation.
  * @param {number} delta Seconds since last onFrame.
  */
-Levels.prototype.onFrame = function(delta) {
+app.Levels.prototype.onFrame = function(delta) {
   /**
    * This is the nastiest function in the game. This was moved here from
    * CSS3 Animations to make sure FG images always fit when switching levels.
@@ -38,32 +38,32 @@ Levels.prototype.onFrame = function(delta) {
    */
 
   var nextLevel = false,
-      newFgRight = this.fgRight + Levels.FG_TRANSITION_SPEED * delta;
+      newFgRight = this.fgRight + app.Levels.FG_TRANSITION_SPEED * delta;
 
   // If a fg animation loop finished, check if the level is finished.
-  if (newFgRight > Constants.LEVEL_FG_WIDTH) {
+  if (newFgRight > app.Constants.LEVEL_FG_WIDTH) {
     this.lastFgElem.attr('class', this.nextFgElem.attr('class'));
     this.fgLoopCounter = (this.fgLoopCounter + 1) %
-        Levels.FG_ITERATIONS_PER_LEVEL;
+        app.Levels.FG_ITERATIONS_PER_LEVEL;
 
     nextLevel = this.fgLoopCounter === 0;
     if (nextLevel) {
       this.nextFgElem.attr('class', 'level-fg' + this.game.level %
-          Constants.LEVEL_COUNT);
-      this.bgRightTarget = this.bgRight + Constants.LEVEL_BG_WIDTH;
+          app.Constants.LEVEL_COUNT);
+      this.bgRightTarget = this.bgRight + app.Constants.LEVEL_BG_WIDTH;
     }
   }
 
   // Update foreground
-  this.fgRight = newFgRight % Constants.LEVEL_FG_WIDTH;
+  this.fgRight = newFgRight % app.Constants.LEVEL_FG_WIDTH;
   this.fgElem.css('right', -this.fgRight + 'px');
 
   // When switching levels, update the background.
   if (this.bgRight !== this.bgRightTarget) {
-    this.bgRight += Levels.BG_TRANSITION_SPEED * delta;
+    this.bgRight += app.Levels.BG_TRANSITION_SPEED * delta;
     if (this.bgRight > this.bgRightTarget) {
       this.bgRight = this.bgRightTarget = (this.game.level - 1) %
-          Constants.LEVEL_COUNT ? this.bgRightTarget : 0;
+          app.Constants.LEVEL_COUNT ? this.bgRightTarget : 0;
     }
     this.bgElem.css('right', -this.bgRight + 'px');
   }
@@ -75,11 +75,11 @@ Levels.prototype.onFrame = function(delta) {
 };
 
 /** @const */
-Levels.FG_ITERATIONS_PER_LEVEL = Math.round(Constants.LEVEL_DURATION /
-    Constants.LEVEL_FG_TRANSITION);
+app.Levels.FG_ITERATIONS_PER_LEVEL = Math.round(app.Constants.LEVEL_DURATION /
+    app.Constants.LEVEL_FG_TRANSITION);
 /** @const */
-Levels.FG_TRANSITION_SPEED = Constants.LEVEL_FG_WIDTH /
-    Constants.LEVEL_FG_TRANSITION;
+app.Levels.FG_TRANSITION_SPEED = app.Constants.LEVEL_FG_WIDTH /
+    app.Constants.LEVEL_FG_TRANSITION;
 /** @const */
-Levels.BG_TRANSITION_SPEED = Constants.LEVEL_BG_WIDTH /
-    Constants.LEVEL_BG_TRANSITION;
+app.Levels.BG_TRANSITION_SPEED = app.Constants.LEVEL_BG_WIDTH /
+    app.Constants.LEVEL_BG_TRANSITION;

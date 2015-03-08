@@ -14,7 +14,6 @@ app.Present = function(el) {
   this.free = true;
   this.width_ = undefined;
   this.margin_ = this.getRandomMargin_();
-  this.reset_();
 };
 
 
@@ -28,14 +27,6 @@ app.Present.prototype = {
     var max = app.Constants.PRESENTS_MARGIN_MAX - app.Constants.PRESENTS_MARGIN_MIN + 1;
     var min = app.Constants.PRESENTS_MARGIN_MIN;
     return Math.floor(Math.random() * max + min);
-  },
-
-  /**
-   * Reset animation properties
-   * @private
-   */
-  reset_: function() {
-    TweenMax.set(this.$el, {background: '', clearProps: 'all'});
   },
 
   /**
@@ -64,7 +55,6 @@ app.Present.prototype = {
    */
   onExitBelt: function() {
     this.free = true;
-    this.reset_();
   },
 
   /**

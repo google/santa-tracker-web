@@ -214,7 +214,7 @@ Presentdrop scene.
       var module = this.$['module-presentdrop'];
 
       this.game = new scenes.presentdrop.Game(module);
-      startButton(this, module, this.onClickStart.bind(this));
+      startButton(this, module, this.onClickStart_.bind(this));
     },
 
     onHide: function() {
@@ -223,7 +223,7 @@ Presentdrop scene.
       this.fire('sound-ambient', 'pd_end_game');
     },
 
-    onClickStart: function() {
+    onClickStart_: function() {
       this.hasClickedStart = true;
       this.game.start();
     }

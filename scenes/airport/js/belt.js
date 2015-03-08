@@ -198,12 +198,11 @@ app.Belt.prototype = {
     }
 
     // start 1 second before to be sure we trigger callbacks for last item
-    this.timeline.seek((seekTime - 1) * 1000, false);
+    this.timeline.seek((seekTime - 1) * 1000);
     this.setup = false;
   },
 
   destroy: function() {
-    this.timeline.kill();
     this.timeline.remove();
     this.$state.unbind();
 

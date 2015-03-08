@@ -4,7 +4,7 @@
 
 /**
  * @constructor
- * @param {jQuery} $elem The container element
+ * @param {!jQuery} $elem The container element
  */
 app.GameObject = function($elem) {};
 
@@ -18,6 +18,6 @@ app.GameObject.prototype.start = function() {};
 
 /**
  * Respond to mouse and touch events.
- * @param {app.Mouse} mouse Global game mouse object
+ * @param {!app.Mouse} mouse Global game mouse object
  */
 app.GameObject.prototype.mouseChanged = function(mouse) {};

@@ -4,7 +4,6 @@ goog.require('app.Constants');
 
 
 /**
- *
  * Clock class for handling an individual clock animation.
  *
  * @param {!Element} context Module context in a HTML element
@@ -18,6 +17,50 @@ app.Clock = function(context) {
   this.$hourPointer = this.$context_.find('.js-clock-pointer-hour');
 
   this.onClockClick_ = this.onClockClick_.bind(this);
+
+  this.secondsPlayer_ = (function(el) {
+    var steps = [
+      {transform: 'rotate(0deg)'},
+      {transform: 'rotate(360deg)'}
+    ];
+    return el.animate(steps, {duration: 60 * 1000, iterations: Infinity});
+  }(this.$secondsPointer.get(0)));
+};
+
+/**
+ * Finds the current rotation value of an element, in degrees.
+ *
+ * Source: https://css-tricks.com/get-value-of-css-rotation-through-javascript/
+ *
+ * @param {!Element} element to find rotation of
+ * @return {number} rotation of the current element
+ */
+app.Clock.prototype.getRotateForElement_ = function(element) {
+  var style = window.getComputedStyle(element);
+  var transform;
+
+  ['-webkit-', '-moz-', '-ms-', '-o-', ''].some(function(prefix) {
+    var t = style.getPropertyValue(prefix + 'transform');
+    if (!t) { return false; }
+    transform = t;
+    return true;
+  });
+
+  var values;
+  try {
+    values = transform.split('(')[1].split(')')[0].split(',');
+  } catch(e) {
+    return 0;
+  }
+  var a = values[0];
+  var b = values[1];
+
+  var scale = Math.sqrt(a*a + b*b);
+
+  // arc sin, convert from radians to degrees, round
+  var sin = b / scale;
+  // next line works for 30deg but not 130deg (returns 50);
+  return Math.atan2(b, a) * (180 / Math.PI);
 };
 
 /**
@@ -25,7 +68,6 @@ app.Clock = function(context) {
  */
 app.Clock.prototype.init = function() {
   this.addEventListeners_();
-  this.startSpinSeconds_();
 };
 
 /**
@@ -34,7 +76,7 @@ app.Clock.prototype.init = function() {
  */
 app.Clock.prototype.destroy = function() {
   this.removeEventListeners_();
-  this.stopSpinSeconds_();
+  this.secondsPlayer_.cancel();
 };
 
 /**
@@ -59,60 +101,43 @@ app.Clock.prototype.removeEventListeners_ = function() {
  */
 app.Clock.prototype.spinPointers_ = function() {
 
-  this.stopSpinSeconds_();
+  var secondsEl = this.$secondsPointer.get(0);
+  var secondsRotate = Math.round(this.getRotateForElement_(secondsEl));
+  secondsEl.animate([
+    {transform: 'rotate(' + secondsRotate + 'deg)'},
+    {transform: 'rotate(' + (secondsRotate + (360 * 2.5)) + 'deg)'}
+  ], {duration: 1250, easing: 'ease-out'});
 
-  TweenMax.to(
-    this.$secondsPointer,
-    2,
-    {
-      rotation: '+=1460',
-      ease: Power4.easeOut,
-      onComplete: this.startSpinSeconds_.bind(this)
-    }
-  );
+  // Offset the background animation by the interactive animation's length: at
+  // 1.25 seconds back (animation time) plus 30 seconds (half offset).
+  this.secondsPlayer_.currentTime += (-1.25 + 30) * 1000;
 
-  TweenMax.to(
-    this.$hourPointer,
-    0.5,
-    {
-      rotation: '+=30',
-      ease: Power4.easeOut
-    }
-  );
+  var sharedTiming = {duration: 500, easing: 'ease-out'};
 
-  TweenMax.to(
-    this.$minutesPointer,
-    1,
-    {
-      rotation: '+=390',
-      ease: Power4.easeOut
-    }
-  );
+  var hourEl = this.$hourPointer.get(0);
+  var hourRotate = Math.round(this.getRotateForElement_(hourEl));
+  var hourFinal = 'rotate(' + (hourRotate + 30) + 'deg)';
+  var hourAnim = hourEl.animate([
+    {transform: 'rotate(' + hourRotate + 'deg)'},
+    {transform: hourFinal}
+  ], sharedTiming);
+  hourAnim.onfinish = function() {
+    hourEl.style.webkitTransform = hourFinal;
+    hourEl.style.transform = hourFinal;
+  };
 
-};
+  var minutesEl = this.$minutesPointer.get(0);
+  var minutesRotate = Math.round(this.getRotateForElement_(minutesEl));
+  var minutesFinal = 'rotate(' + (minutesRotate + 390) + 'deg)';
+  var minutesAnim = minutesEl.animate([
+    {transform: 'rotate(' + minutesRotate + 'deg)'},
+    {transform: minutesFinal}
+  ], sharedTiming);
+  minutesAnim.onfinish = function() {
+    minutesEl.style.webkitTransform = minutesFinal;
+    minutesEl.style.transform = minutesFinal;
+  };
 
-/**
- * Stops the tween for the seconds on the clock.
- * @private
- */
-app.Clock.prototype.stopSpinSeconds_ = function() {
-  TweenMax.killTweensOf(this.$secondsPointer);
-};
-
-/**
- * Starts the tween for the seconds on the clock.
- * @private
- */
-app.Clock.prototype.startSpinSeconds_ = function() {
-  TweenMax.to(
-    this.$secondsPointer,
-    60,
-    {
-      rotation: '+=360',
-      repeat: -1,
-      ease: Linear.easeOut
-    }
-  );
 };
 
 /**

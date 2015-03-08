@@ -13,7 +13,7 @@ app.utils = function() {
     randomLoop: function(fn, minInterval, maxInterval) {
       var random = Math.max(minInterval, Math.random() * maxInterval);
 
-      setTimeout(function() {
+      window.setTimeout(function() {
         fn();
         app.utils.randomLoop(fn, minInterval, maxInterval);
       }, random);

@@ -48,7 +48,7 @@ FauxTimeline.prototype = {
   },
 
   /**
-   * Seek to the specified time.
+   * Seek to the specified time. Synchronously runs any registered calls.
    *
    * @param {number} to seek to, may not be in past
    */
@@ -64,6 +64,10 @@ FauxTimeline.prototype = {
       if (p.currentTime < 0) {
         return true; // not run yet
       }
+
+      // Invoke known finish handler manually, as this should happen
+      // synchronously with the seek. The finish state causes an async call,
+      // which is fine for the timeline normally, just not here.
       p.onfinish();
       return false;
     });
@@ -102,8 +106,11 @@ FauxTimeline.prototype = {
 
     var player = this.schedule(when, document.body, [], 0);
     player.onfinish = function() {
-      // Run and remove this finish handler, as it may be invoked manually from
-      // within seek.
+      // Check for racey finish being triggered twice. This handler was already
+      // cleared so just ignore this call.
+      if (player.onfinish === null) { return; }
+
+      // Run and clear this call plus its finish handler.
       this.remove(player);
       player.onfinish = null;
       fn();
@@ -115,14 +122,28 @@ FauxTimeline.prototype = {
   /**
    * Removes a previously registered animation via its AnimationPlayer.
    *
-   * @param {AnimationPlayer} player to remove
+   * @param {AnimationPlayer=} opt_player to remove, undefined for all
    */
-  remove: function(player) {
-    var index = this.players_.indexOf(player);
+  remove: function(opt_player) {
+    if (opt_player === undefined) {
+      this.players_.forEach(function(player) {
+        player.cancel();
+      });
+      this.players_ = [];
+      this.calls_ = [];
+      return;
+    }
+
+    if (!('cancel' in opt_player)) {
+      throw new Error('FauxTimeline remove expects AnimationPlayer, was: ' + opt_player);
+    }
+    opt_player.cancel();
+
+    var index = this.players_.indexOf(opt_player);
     if (index > -1) {
       this.players_.splice(index, 1);
     }
-    index = this.calls_.indexOf(player);
+    index = this.calls_.indexOf(opt_player);
     if (index > -1) {
       this.calls_.splice(index, 1);
     }
