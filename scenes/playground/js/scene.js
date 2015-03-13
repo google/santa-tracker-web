@@ -7,11 +7,9 @@ goog.require('app.HouseEyesMediator');
 
 /**
  * Playground Scene class
- * Main class responsible for kicking off the scene
- * additional classes and elements.
+ * Main class responsible for kicking off the scene plus its additional classes
+ * and elements.
  *
- * @param {Element} context An DOM element which wraps the scene.
- * @author  14islands (14islands.com)
  * @constructor
  * @export
  */
@@ -27,7 +25,7 @@ app.Scene = function(context) {
 };
 
 /**
- * Initializes the Scene by biding some events
+ * Initializes the Scene by binding some events.
  * @private
  */
 app.Scene.prototype.init_ = function() {
@@ -50,7 +48,7 @@ app.Scene.prototype.init_ = function() {
 };
 
 /**
- * Stops the Briefing scene from running
+ * Stops the playground scene.
  * @export
  */
 app.Scene.prototype.destroy = function() {

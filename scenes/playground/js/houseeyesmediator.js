@@ -7,55 +7,31 @@ goog.require('app.Constants');
  * Main class responsible for kicking off the scene
  * additional classes and elements.
  *
- * @param {Element} context An DOM element which wraps the scene.
- * @author  14islands (14islands.com)
+ * @param {!Element} context An DOM element which wraps the scene.
  * @constructor
  */
 app.HouseEyesMediator = function(context) {
+  this.onMouseMove_ = this.onMouseMove_.bind(this);
+
   this.$context_ = $(context);
   this.houses = {};
 
-  // Go!
-  this.init_();
+  this.$context_.on('mousemove', this.onMouseMove_);
 };
 
 /**
- * Initializes the Scene by binding some events
- * @private
- */
-app.HouseEyesMediator.prototype.init_ = function() {
-  this.addEventListeners_();
-};
-
-/**
- * Stops the Briefing scene from running
+ * Destroys this mediator.
  */
 app.HouseEyesMediator.prototype.destroy = function() {
   this.houses = {};
-  this.removeEventListeners_();
-};
-
-/**
- * Add listeners related to this context.
- * @private
- */
-app.HouseEyesMediator.prototype.addEventListeners_ = function() {
-  this.$context_.on('mousemove', this.onMouseMove.bind(this));
-};
-
-/**
- * Removes the listeners from this context.
- * @private
- */
-app.HouseEyesMediator.prototype.removeEventListeners_ = function() {
-  this.$context_.off('mousemove', this.onMouseMove.bind(this));
+  this.$context_.off('mousemove', this.onMouseMove_);
 };
 
 /**
  * Subscribe to this mediator to be able to receive published messages.
  *
- * @param  {String} key   Unique key name representing the "name" of this house.
- * @param  {Object} house House instance.
+ * @param {string} key Unique key name representing the "name" of this house.
+ * @param {!Object} house House instance.
  */
 app.HouseEyesMediator.prototype.subscribe = function(key, house) {
   if (house) {
@@ -67,7 +43,7 @@ app.HouseEyesMediator.prototype.subscribe = function(key, house) {
 /**
  * Unsubscribe to this mediator to no longer receive published messages.
  *
- * @param  {String} key Unique key name represending the "name" of this house.
+ * @param {string} key Unique key name represending the "name" of this house.
  */
 app.HouseEyesMediator.prototype.unsubscribe = function(key) {
   if (this.houses.hasOwnProperty(hey)) {
@@ -78,9 +54,10 @@ app.HouseEyesMediator.prototype.unsubscribe = function(key) {
 /**
  * Callback for when the mouse is moving.
  *
- * @param  {Obect} event Event object.
+ * @param {!Event} event Event object.
+ * @private
  */
-app.HouseEyesMediator.prototype.onMouseMove = function(event) {
+app.HouseEyesMediator.prototype.onMouseMove_ = function(event) {
   var key = null;
   var mouse = {
     x: event.pageX,

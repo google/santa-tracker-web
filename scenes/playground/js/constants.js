@@ -4,7 +4,6 @@ goog.provide('app.Constants');
  * Playground scene constants
  *
  * @const
- * @author  14islands (14islands.com)
  */
 app.Constants = {
   HOUSE_CSS_SELECTOR: '.js-house',

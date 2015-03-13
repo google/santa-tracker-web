@@ -4,13 +4,10 @@ goog.require('app.Constants');
 goog.require('app.InputEvent');
 
 /**
- * Playground Scene class
- * Main class responsible for kicking off the scene
- * additional classes and elements.
+ * House class. Encapsulates the behavior of a single house in the playground.
  *
- * @param {Element} context An DOM element which wraps the scene.
+ * @param {!Element} context An DOM element which wraps the house.
  * @constructor
- * @author  14islands (14islands.com)
  */
 app.House = function(context) {
   this.context_ = context;
@@ -41,14 +38,18 @@ app.House = function(context) {
   this.numberOfNoses_ = this.$noses_.length;
   this.prevTheta = 0;
 
+  this.eyesPosition_ = {x: 0, y: 0};
+
   // Go!
   this.init_();
 };
 
-/**
- * Initializes the Scene by biding some events
- */
 app.House.prototype = {
+
+  /**
+   * Initializes the house by binding some events.
+   * @private
+   */
   init_: function() {
     this.addEventListeners_();
 
@@ -65,8 +66,10 @@ app.House.prototype = {
     this.calculatePositions_();
   },
 
+  /**
+   * @private
+   */
   calculatePositions_: function() {
-
     this.iris_ = {
       x: 0,
       y: 0,
@@ -74,9 +77,11 @@ app.House.prototype = {
       radius: this.$iris_.width() / 2
     };
 
+    var houseRect = this.$context_[0].getBoundingClientRect();
+    var irisRect = this.$iris_[0].getBoundingClientRect();
     this.eyesPosition_ = {
-      x: this.$context_.offset().left + (this.$context_.width() * 0.5),
-      y: this.$iris_.offset().top + this.iris_.radius
+      x: (houseRect.left + houseRect.right) / 2,
+      y: irisRect.top + this.iris_.radius
     };
 
     // How much far the iris can go, don't exceed the eye
@@ -86,27 +91,42 @@ app.House.prototype = {
     this.maxEyeMoveThreashold_ = this.$context_.width();
   },
 
+  /**
+   * @private
+   */
   onWindowResize_: function() {
     this.calculatePositions_();
   },
 
+  /**
+   * @private
+   */
   addEventListeners_: function() {
     this.$context_.on(app.InputEvent.START, this.onHouseClick_);
     this.$noses_.on(app.InputEvent.START, this.onNoseClick_);
     this.$window_.on('resize', this.onWindowResize_);
   },
 
+  /**
+   * @private
+   */
   removeEventListeners_: function() {
     this.$context_.off(app.InputEvent.START, this.onHouseClick_);
     this.$noses_.off(app.InputEvent.START, this.onNoseClick_);
     this.$window_.off('resize', this.onWindowResize_);
   },
 
+  /**
+   * @private
+   */
   onHouseClick_: function() {
     this.colorMediator.publish(this.color, this);
     window.santaApp.fire('sound-trigger', 'playground_color');
   },
 
+  /**
+   * @private
+   */
   onNoseClick_: function(e) {
     e.stopPropagation();
     e.stopImmediatePropagation();
@@ -125,7 +145,7 @@ app.House.prototype = {
       easing: app.Constants.EASE_OUT_QUAD
     };
 
-    var anm = new AnimationGroup([
+    var anim = new AnimationGroup([
       new Animation(newNose, [
         {transform: 'scale(0) rotate(-90deg)', visibility: 'hidden'},
         {transform: 'scale(1) rotate(0deg)', visibility: 'visible'}
@@ -136,7 +156,7 @@ app.House.prototype = {
       ], animationTiming)
     ]);
 
-    var player = document.timeline.play(anm);
+    var player = document.timeline.play(anim);
 
     this.makeSurpriseFace_(
       app.Constants.SURPRISED_FACE_NOSE_DURATION,
@@ -146,7 +166,10 @@ app.House.prototype = {
     window.santaApp.fire('sound-trigger', 'playground_nose');
   },
 
-  animateSmallMouth: function(timeFraction, currentTarget, animation) {
+  /**
+   * @private
+   */
+  animateSmallMouth_: function(timeFraction, currentTarget, animation) {
     var rx = this.mouthNormal.rx + (this.mouthSurprised.rx - this.mouthNormal.rx) * timeFraction;
     var ry = this.mouthNormal.ry + (this.mouthSurprised.ry - this.mouthNormal.ry) * timeFraction;
     var cx = this.mouthNormal.cx + (this.mouthSurprised.cx - this.mouthNormal.cx) * timeFraction;
@@ -157,7 +180,10 @@ app.House.prototype = {
     currentTarget.setAttribute('cy', cy);
   },
 
-  animateLargeMouth: function(timeFraction, currentTarget, animation) {
+  /**
+   * @private
+   */
+  animateLargeMouth_: function(timeFraction, currentTarget, animation) {
     var rx = this.mouthSurprised.rx + (this.mouthNormal.rx - this.mouthSurprised.rx) * timeFraction;
     var ry = this.mouthSurprised.ry + (this.mouthNormal.ry - this.mouthSurprised.ry) * timeFraction;
     var cx = this.mouthSurprised.cx + (this.mouthNormal.cx - this.mouthSurprised.cx) * timeFraction;
@@ -168,6 +194,9 @@ app.House.prototype = {
     currentTarget.setAttribute('cy', cy);
   },
 
+  /**
+   * @private
+   */
   makeSuprisedMouth_: function(surprisedDuration, surprisedDelay) {
     if (this.mouthPlayer && !this.mouthPlayer.finished) {
       // keep surprised face while clicking fast on nose
@@ -178,7 +207,7 @@ app.House.prototype = {
     this.mouthAnimation = new AnimationSequence([
       new Animation(
         this.mouthEllipse,
-        this.animateSmallMouth.bind(this),
+        this.animateSmallMouth_.bind(this),
         {
           delay: surprisedDelay,
           duration: app.Constants.SUPRISED_ANIMATION_DURATION,
@@ -188,7 +217,7 @@ app.House.prototype = {
       ),
       new Animation(
         this.mouthEllipse,
-        this.animateLargeMouth.bind(this),
+        this.animateLargeMouth_.bind(this),
         {
           delay: surprisedDuration,
           duration: app.Constants.SUPRISED_ANIMATION_DURATION,
@@ -201,9 +230,10 @@ app.House.prototype = {
     this.mouthPlayer = document.timeline.play(this.mouthAnimation);
   },
 
+  /**
+   * @private
+   */
   makeSuprisedEyes_: function(surprisedDuration, surprisedDelay) {
-    var _this = this;
-
     if (this.eyesPlayer && !this.eyesPlayer.finished) {
       // keep surprised face while clicking fast on nose
       this.eyesPlayer.currentTime = surprisedDelay + app.Constants.SUPRISED_ANIMATION_DURATION;
@@ -235,7 +265,7 @@ app.House.prototype = {
       }
     };
 
-    var anm = new AnimationGroup([
+    var anim = new AnimationGroup([
       new AnimationSequence([
         new Animation(this.$iris_.eq(0)[0],
           [animObj.aIn.from, animObj.aIn.to],
@@ -258,24 +288,30 @@ app.House.prototype = {
       ])
     ], {fill: 'none'});
 
-
-    this.eyesPlayer = document.timeline.play(anm);
+    this.eyesPlayer = document.timeline.play(anim);
 
     this.eyesPlayer.addEventListener('finish', function() {
       // Unlock the surprised flag so the eyes cal follow the mouse
-      _this.isBusyBeingSurprised = false;
-    });
+      this.isBusyBeingSurprised = false;
+    }.bind(this));
   },
 
+  /**
+   * @private
+   */
   makeSurpriseFace_: function(surprisedDuration, surprisedDelay) {
     this.makeSuprisedMouth_(surprisedDuration, surprisedDelay);
     this.makeSuprisedEyes_(surprisedDuration, surprisedDelay);
   },
 
+  /**
+   * Change the color of this house (temporarily) to the given color.
+   * @param {string} hexColor target color
+   */
   changeColor: function(hexColor) {
     var el = this.$background_[0];
 
-    var anm = new AnimationSequence([
+    var anim = new AnimationSequence([
         new Animation(el,
           [{
             fill: hexColor
@@ -297,7 +333,7 @@ app.House.prototype = {
           })
     ]);
 
-    this.colorPlayer = document.timeline.play(anm);
+    this.colorPlayer = document.timeline.play(anim);
 
     this.makeSurpriseFace_(
       app.Constants.SURPRISED_FACE_COLOR_DURATION,
@@ -305,8 +341,11 @@ app.House.prototype = {
     );
   },
 
+  /**
+   * Orient the house eyes to focus on the current mouse position.
+   * @param {!Object} mouse containing x/y
+   */
   moveEyes: function(mouse) {
-
     if (this.isBusyBeingSurprised) {
       return;
     }
@@ -321,7 +360,7 @@ app.House.prototype = {
 
     this.$iris_.css(
       Modernizr.prefixed('transform'),
-      'rotate(' + theta + 'deg)translateY(' + px + 'px)'
+      'rotate(' + theta + 'deg) translateY(' + px + 'px)'
     );
 
     this.prevTheta = theta;
