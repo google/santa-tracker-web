@@ -456,6 +456,8 @@ Game.prototype.dispose = function() {
   $(document).off('.boatload');
   this.elem.off('.boatload');
 
+  this.levelUp.dispose();
+
   pools.empty();
   this.tutorial.dispose();
   Coordinator.waiting = [];

@@ -9,8 +9,8 @@ app.shared.Gameover = Gameover;
 
 /**
  * Gameover screen.
- * @param {Game} game The game object.
- * @param {HTMLElement} elem The gameover element.
+ * @param {!Game} game The game object.
+ * @param {!HTMLElement} elem The gameover element.
  * @constructor
  */
 function Gameover(game, elem) {
@@ -30,20 +30,19 @@ function Gameover(game, elem) {
  * @private
  */
 Gameover.prototype.attachEvents_ = function() {
-  var self = this;
   this.elem.find('.gameover-play').on('click', function(e) {
     e.preventDefault();
 
-    self.hide();
-    self.game.restart();
-  });
+    this.hide();
+    this.game.restart();
+  }.bind(this));
 };
 
 /**
  * Shows the gameover screen with an animation. Displays score and time
  * from the game.
- * @param {Number} score The final score.
- * @param {Number} level The final level.
+ * @param {number} score The final score.
+ * @param {number} level The final level.
  */
 Gameover.prototype.show = function(score, level) {
   this.scoreElem.text(score || this.game.scoreboard.score);
@@ -53,7 +52,7 @@ Gameover.prototype.show = function(score, level) {
 
 /**
  * Hides the gameover screen with an animation.
- * @param  {Function} callback Runs when the animation is finished.
+ * @param {function} callback Runs when the animation is finished.
  */
 Gameover.prototype.hide = function(callback) {
   this.overlay.hide(callback);

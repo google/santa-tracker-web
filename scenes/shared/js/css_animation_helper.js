@@ -9,7 +9,7 @@
  * been uploaded to the GPU it doesn't update when window is resized.
  *
  * @constructor
- * @param {HTMLElement} context The current scene wrapper.
+ * @param {!HTMLElement} context The current scene wrapper.
  */
 
 var CSSAnimationHelper = function(context) {
@@ -56,12 +56,12 @@ CSSAnimationHelper.prototype = {
         timeout = null;
       }
       if (timeout) {
-        clearTimeout(timeout);
+        window.clearTimeout(timeout);
       }
       else if (execAsap) {
         func.apply(obj, args);
       }
-      timeout = setTimeout(delayed, threshold || 100);
+      timeout = window.setTimeout(delayed, threshold || 100);
     };
   },
 

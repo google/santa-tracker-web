@@ -178,6 +178,7 @@ app.Game.prototype.dispose = function() {
   app.shared.utils.cancelAnimFrame(this.requestId);
   $(window).off('.trivia');
   $(document).off('.trivia');
+  this.levelUp.dispose();
 };
 
 /**

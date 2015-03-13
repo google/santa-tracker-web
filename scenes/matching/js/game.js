@@ -97,6 +97,8 @@ Game.prototype.destroy = function() {
     door.destroy();
   });
 
+  this.levelUp.dispose();
+
   utils.cancelAnimFrame(this.requestId);
 };
 

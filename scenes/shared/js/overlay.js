@@ -4,7 +4,7 @@ goog.require('app.shared.utils');
 
 /**
  * Overlay.
- * @param {HTMLElement} elem The overlay element.
+ * @param {!HTMLElement} elem The overlay element.
  * @constructor
  */
 app.shared.Overlay = function(elem) {
@@ -12,8 +12,7 @@ app.shared.Overlay = function(elem) {
 }
 
 /**
- * Shows the overlay with an animation.
- * from the game.
+ * Shows the overlay with an animation from the game.
  */
 app.shared.Overlay.prototype.show = function() {
   this.elem.addClass('is-visible');
@@ -21,7 +20,7 @@ app.shared.Overlay.prototype.show = function() {
 
 /**
  * Hides the overlay with an animation.
- * @param  {Function} callback Runs when the animation is finished.
+ * @param {!Function} callback Runs when the animation is finished.
  */
 app.shared.Overlay.prototype.hide = function(callback) {
   this.elem.one(app.shared.utils.ANIMATION_END, function() {

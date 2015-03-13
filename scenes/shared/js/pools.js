@@ -10,7 +10,7 @@ var pools = app.shared.pools = {
     /**
      * Get an object from the pool or create a new one.
      * @param {Object} owner An owner which is passed to the constructor.
-     * @return {?Object} A new or reused object. Or null if a fixed pool is empty.
+     * @return {Object} A new or reused object. Or null if a fixed pool is empty.
      */
     obj.pop = function(owner) {
       ensurePooled_(owner);
@@ -22,8 +22,8 @@ var pools = app.shared.pools = {
 
     /**
      * Get a random object from the pool or create a new one.
-     * @param {object} owner An owner which is passed to the constructor.
-     * @return {?Object} A new or reused object. Or null if a fixed pool is empty.
+     * @param {Object} owner An owner which is passed to the constructor.
+     * @return {Object} A new or reused object. Or null if a fixed pool is empty.
      */
     obj.popRandom = function(owner) {
       ensurePooled_(owner);
@@ -50,7 +50,7 @@ var pools = app.shared.pools = {
 
     /**
      * Return an used object for reuse.
-     * @param  {Object} instance The instance of the object.
+     * @param {Object} instance The instance of the object.
      */
     obj.push = function(instance) {
       if (instance.onDispose) {
@@ -79,7 +79,7 @@ var pools = app.shared.pools = {
 
     /**
      * Conditionally pools an item for use if needed and allowed.
-     * @param {object} owner
+     * @param {Object} owner
      * @private
      */
     function ensurePooled_(owner) {
@@ -90,9 +90,9 @@ var pools = app.shared.pools = {
 
     /**
      * Initialises a pooled instance if one exists.
-     * @param {?object} instance
-     * @param {Array} popArgs
-     * @return {?object}
+     * @param {Object} instance
+     * @param {!Array.<Object>} popArgs
+     * @return {Object}
      * @private
      */
     function initInstance_(instance, popArgs) {

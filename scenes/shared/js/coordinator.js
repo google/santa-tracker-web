@@ -18,8 +18,8 @@ Coordinator.reset = function() {
 
 /**
  * Execute a function after time specified.
- * @param  {Number}   sec       The time in seconds.
- * @param  {Function} callback The function to call.
+ * @param {number} sec The time in seconds.
+ * @param {function} callback The function to call.
  */
 Coordinator.after = function(sec, callback) {
   this.waiting.push({
@@ -30,9 +30,9 @@ Coordinator.after = function(sec, callback) {
 
 /**
  * Execute a function after time specified and report progress on each frame.
- * @param  {Number}   sec       The time in seconds.
- * @param  {Function}   step   The function called to report progress.
- * @param  {Function} callback The function to call in the end.
+ * @param {number} sec The time in seconds.
+ * @param {function} step The function called to report progress.
+ * @param {function} callback The function to call in the end.
  */
 Coordinator.step = function(sec, step, callback) {
   this.waiting.push({
@@ -46,9 +46,9 @@ Coordinator.step = function(sec, step, callback) {
 /**
  * Execute a function after time specified and report progress on each frame.
  * Reports the progress in reverse. Starts in 1 and ends in 0.
- * @param  {Number}   sec       The time in seconds.
- * @param  {Function}   step   The function called to report progress.
- * @param  {Function} callback The function to call in the end.
+ * @param {number} sec The time in seconds.
+ * @param {function} step The function called to report progress.
+ * @param {function} callback The function to call in the end.
  */
 Coordinator.stepReverse = function(sec, step, callback) {
   this.waiting.push({
@@ -62,7 +62,7 @@ Coordinator.stepReverse = function(sec, step, callback) {
 
 /**
  * Called on every frame.
- * @param  {Number} delta The time since last frame.
+ * @param {number} delta The time since last frame.
  */
 Coordinator.onFrame = function(delta) {
   for (var i = 0, wait; wait = this.waiting[i]; i++) {

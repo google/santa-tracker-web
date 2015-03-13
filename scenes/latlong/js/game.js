@@ -253,5 +253,7 @@ app.Game.prototype.dispose = function() {
   $(window).off('.latlong');
   $(document).off('.latlong');
 
+  this.levelUp.dispose();
+
   app.shared.pools.empty();
 };
