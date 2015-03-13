@@ -1,20 +1,23 @@
 Google Santa Tracker 2014
 ============
 
+This repository contains the code to Google Santa Tracker.
+
+# Prerequisites
+
+You'll need node installed, then bower (`npm install -g bower`) and compass >=1.0.1 (`gem install compass`).
+
 # Setup
 
-You'll need node installed, then bower (`npm install -g bower`). You'll also need `Compass` 1.0.1 available on your path, which is kind of a pain to install if you have 0.12ish, sorry.
-
-Clone project, then
+Clone project, then:
 
 `bower install`
 
 `npm install`
 
-then `gulp --pretty` to build.
+Finally, use `gulp --pretty` to build. Alternatively, you can rebuild just the scenes with `gulp compile-scenes`.
 
-The raw site can be served from the root directory, or the built version can be
-served out of `./dist_pretty`.
+The raw site can be served from the root directory, or the built version can be served out of `./dist_pretty`.
 
 # Design 
 
