@@ -1,3 +1,4 @@
+
 goog.provide('app.CandyMachine');
 
 goog.require('app.Constants');
@@ -26,6 +27,9 @@ app.CandyMachine = function(context) {
   this.reduceBelly_ = this.reduceBelly_.bind(this);
   this.reduceBellyTimer_ = undefined;
   this.hasBigBelly_ = false;
+
+  this.player = null;
+  this.bellyPlayer = null;
 
   this.init_();
 };
@@ -67,17 +71,17 @@ app.CandyMachine.prototype = {
     var c = app.Constants;
 
     var armKeyframes = [
-      {transform: 'translate3d(0,0,0)', offset: 0},
+      {transform: 'translate3d(0px,0,0)', offset: 0},
       {transform: 'translate3d(-20px,0,0)', offset: this.offsets_.lookup},
       {transform: 'translate3d(-20px,0,0)', offset: this.offsets_.push, easing: c.EASE_IN_QUAD},
-      {transform: 'translate3d(0,0,0)', offset: 1}
+      {transform: 'translate3d(0px,0,0)', offset: 1}
     ];
 
     var leverKeyframes = [
-      {transform: 'rotateZ(0)', offset: 0},
+      {transform: 'rotateZ(0deg)', offset: 0},
       {transform: 'rotateZ(-18deg)', offset: this.offsets_.lookup},
       {transform: 'rotateZ(-18deg)', offset: this.offsets_.push, easing: c.EASE_IN_QUAD},
-      {transform: 'rotateZ(0)', offset: 1}
+      {transform: 'rotateZ(0deg)', offset: 1}
     ];
 
     var arm = new Animation(this.$elfArmEl[0], armKeyframes, this.timing_);
@@ -96,18 +100,19 @@ app.CandyMachine.prototype = {
     var headKeyframes = [
       {transform: 'rotateZ(95deg)', offset: 0},
       {transform: 'rotateZ(95deg)', offset: this.offsets_.pull},
-      {transform: 'rotateZ(0)', offset: this.offsets_.gape},
-      {transform: 'rotateZ(0)', offset: this.offsets_.swallow},
-      {transform: 'rotateZ(95deg)', offset: this.offsets_.belly}
+      {transform: 'rotateZ(0deg)', offset: this.offsets_.gape},
+      {transform: 'rotateZ(0deg)', offset: this.offsets_.swallow},
+      {transform: 'rotateZ(95deg)', offset: this.offsets_.belly},
+      {transform: 'rotateZ(95deg)', offset: 1}
     ];
 
     var mouthKeyframes = [
-      {transform: 'rotateZ(0)', offset: 0},
-      {transform: 'rotateZ(0)', offset: this.offsets_.pull},
+      {transform: 'rotateZ(0deg)', offset: 0},
+      {transform: 'rotateZ(0deg)', offset: this.offsets_.pull},
       {transform: 'rotateZ(45deg)', offset: this.offsets_.gape},
       {transform: 'rotateZ(45deg)', offset: this.offsets_.swallow},
-      {transform: 'rotateZ(0)', offset: this.offsets_.belly},
-      {transform: 'rotateZ(0)', offset: 1}
+      {transform: 'rotateZ(0deg)', offset: this.offsets_.belly},
+      {transform: 'rotateZ(0deg)', offset: 1}
     ];
 
     var head = new Animation(this.$elfHeadEl[0], headKeyframes, this.timing_);
@@ -124,8 +129,8 @@ app.CandyMachine.prototype = {
     var c = app.Constants;
 
     var bellyKeyframes = [
-      {transform: 'translateX(0)', offset: 0},
-      {transform: 'translateX(0)', offset: this.offsets_.swallow, easing: c.EASE_IN_OUT_QUAD},
+      {transform: 'translateX(0px)', offset: 0},
+      {transform: 'translateX(0px)', offset: this.offsets_.swallow, easing: c.EASE_IN_OUT_QUAD},
       {transform: 'translateX(14px)', offset: this.offsets_.push, easing: c.EASE_IN_OUT_QUAD},
       {transform: 'translateX(14px)', offset: 1}
     ];
@@ -146,13 +151,11 @@ app.CandyMachine.prototype = {
 
     var pullAnimation = this.getPullAnimation_();
     var swallowAnimation = this.getSwallowAnimation_();
-    var bellyAnimation = this.getBellyAnimation_();
 
-    var animationsTiming = {iterations: 1};
     var animations = new AnimationGroup([
       pullAnimation,
       swallowAnimation
-    ], animationsTiming);
+    ], {iterations: 1}); // needed for finish event
 
     this.player = document.timeline.play(animations);
     app.shared.utils.onWebAnimationFinished(this.player, this.onBellyFull_);
@@ -160,9 +163,9 @@ app.CandyMachine.prototype = {
     window.santaApp.fire('sound-trigger', 'factory_candy');
 
     if (this.hasBigBelly_) {
-      clearTimeout(this.reduceBellyTimer_);
-    }
-    else {
+      window.clearTimeout(this.reduceBellyTimer_);
+    } else {
+      var bellyAnimation = this.getBellyAnimation_();
       this.hasBigBelly_ = true;
       this.bellyPlayer = document.timeline.play(bellyAnimation);
     }
@@ -185,7 +188,7 @@ app.CandyMachine.prototype = {
    * @private
    */
   onBellyFull_: function() {
-    this.reduceBellyTimer_ = setTimeout(this.reduceBelly_, 3000);
+    this.reduceBellyTimer_ = window.setTimeout(this.reduceBelly_, 3000);
   },
 
   /**
@@ -194,15 +197,9 @@ app.CandyMachine.prototype = {
   destroy: function() {
     this.$btnEl.on(app.InputEvent.START, this.run_);
 
-    this.player.pause();
-    this.player.removeEventListener('finish', this.onBellyFull_, false);
-    this.player.source = null;
-    this.player = null;
+    this.player && this.player.cancel();
+    this.bellyPlayer && this.bellyPlayer.cancel();
 
-    this.bellyPlayer.pause();
-    this.bellyPlayer.source = null;
-    this.bellyPlayer = null;
-
-    clearTimeout(this.reduceBellyTimer_);
+    window.clearTimeout(this.reduceBellyTimer_);
   }
 };
