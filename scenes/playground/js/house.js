@@ -2,6 +2,7 @@ goog.provide('app.House');
 
 goog.require('app.Constants');
 goog.require('app.InputEvent');
+goog.require('app.shared.utils');
 
 /**
  * Playground Scene class
@@ -27,6 +28,7 @@ app.House = function(context) {
   this.mouthContainer = this.$context_.find('.face__mouth')[0];
   this.mouthEllipse = this.$context_.find('.face__mouth svg ellipse')[0];
 
+  this.colorPlayer = null;
   this.eyesPlayer = null;
   this.mouthPlayer = null;
 
@@ -215,7 +217,7 @@ app.House.prototype = {
     var animObj = {
       aIn: {
         from: { transform: 'scale(1)' },
-        to: { transform: 'translateX(0) translateY(0) scale(0.6)' }
+        to: { transform: 'scale(0.6)' }
       },
       aOut: {
         from: { transform: 'scale(0.6)' },
@@ -274,28 +276,31 @@ app.House.prototype = {
 
   changeColor: function(hexColor) {
     var el = this.$background_[0];
+    var style = window.getComputedStyle(el);
 
     var anm = new AnimationSequence([
         new Animation(el,
-          [{
-            fill: hexColor
-          }],
+          [
+            { fill: style.fill },  // transform from current color
+            { fill: hexColor }
+          ],
           {
             duration: app.Constants.COLOR_IN_DURATION,
             fill: 'forwards',
             easing: app.Constants.EASE_IN_QUAD
           }),
         new Animation(el,
-          [{
-            fill: this.color
-          }],
+          [
+            { fill: hexColor },
+            { fill: this.color }
+          ],
           {
             duration: app.Constants.COLOR_OUT_DURATION,
             delay: app.Constants.COLOR_OUT_DELAY,
             fill: 'forwards',
             easing: app.Constants.EASE_OUT_QUAD
           })
-    ]);
+    ], {fill: 'none'});
 
     this.colorPlayer = document.timeline.play(anm);
 

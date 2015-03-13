@@ -5,7 +5,7 @@ goog.provide('app.MobileSlider');
 /**
  * Mobile slider - not really a slider...
  * @constructor
- * @param {String} el string target for DOM element
+ * @param {string} el string target for DOM element
  */
 app.MobileSlider = function(el) {
   this.el = $(el);
@@ -54,7 +54,7 @@ app.MobileSlider.prototype.collapse = function(time) {
 
   this.sizeContainer.animate([
       {transform: 'translate3d(0, ' + this.expandOffset + 'px, 0)'},
-      {transform: 'translate3d(0, ' + (this.expandOffset - 20) + ', 0)'},
+      {transform: 'translate3d(0, ' + (this.expandOffset - 20) + 'px, 0)'},
       {transform: 'translate3d(0, 220px, 0)'}
     ], {
       fill: 'forwards',
@@ -128,8 +128,8 @@ app.MobileSlider.prototype.changeActiveSize = function(size, maxSize) {
 
 /**
  * Offset expand
- * @param {Number} toolSize Width/height of button
- * @param {Number} cols Current columns
+ * @param {number} toolSize Width/height of button
+ * @param {number} cols Current columns
  */
 app.MobileSlider.prototype.updateExpandOffset = function(toolSize, cols) {
   this.expandOffset = -15 + (1 - (toolSize - 35) / 40) * 35;
