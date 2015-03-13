@@ -1,6 +1,7 @@
 goog.provide('app.Animations');
 
 goog.require('app.Constants');
+goog.require('app.shared.utils');
 
 /**
  * Class to manage animations.
@@ -34,11 +35,12 @@ app.Animations = function() {
  */
 app.Animations.prototype.getParachuteAnimation = function(element, fanState,
     duration) {
-  var currentAngle = this.getRotation_(element);
+  var transform = app.shared.utils.computedTransform(element);
+  var currentAngle = transform.rotate;
   var beginAngle = this.fanStateMap_[fanState].beginAngle;
   var endAngle = this.fanStateMap_[fanState].endAngle;
 
-  var initialTransition = new Animation(element[0], [
+  var initialTransition = new Animation(element, [
       {transform: 'rotateZ(' + currentAngle + 'deg)'},
       {transform: 'rotateZ(' + beginAngle + 'deg)'}
   ], 500 * Math.abs(beginAngle - currentAngle) / 20.0);
@@ -50,7 +52,7 @@ app.Animations.prototype.getParachuteAnimation = function(element, fanState,
     iterations: Infinity
   };
 
-  var animation = new Animation(element[0], [
+  var animation = new Animation(element, [
       {transform: 'rotateZ(' + beginAngle + 'deg)'},
       {transform: 'rotateZ(' + endAngle + 'deg)'}
     ], timing);
@@ -64,16 +66,17 @@ app.Animations.prototype.getParachuteAnimation = function(element, fanState,
  * @return {!AnimationSequence} The animation for the given element and fan state.
  */
 app.Animations.prototype.getBackgroundAnimation = function(element, fanState) {
-  var currentOffset = this.getOffset_(element);
+  var transform = app.shared.utils.computedTransform(element);
+  var currentOffset = transform.x;
   var endOffset = -app.Constants.SCREEN_BACKGROUND_WIDTH;
   var duration = this.fanStateMap_[fanState].backgroundDuration;
 
-  var initialTransition = new Animation(element[0], [
-      {transform: 'translateX(' + currentOffset + ')'},
+  var initialTransition = new Animation(element, [
+      {transform: 'translateX(' + currentOffset + 'px)'},
       {transform: 'translateX(' + endOffset + 'px)'}
   ], (duration * 1000) * ((endOffset - currentOffset) / endOffset));
 
-  var animation = new Animation(element[0], [
+  var animation = new Animation(element, [
       {transform: 'translateX(0)'},
       {transform: 'translateX(' + endOffset + 'px)'}
   ], {
@@ -82,43 +85,4 @@ app.Animations.prototype.getBackgroundAnimation = function(element, fanState) {
   });
 
   return new AnimationSequence([initialTransition, animation]);
-};
-
-/**
- * @param {!Element} element The element to get the rotation of.
- * @return {number} The rotation angle of the given element in degrees.
- * @private
- */
-app.Animations.prototype.getRotation_ = function(element) {
-  var values = this.getTransformMatrixValues_(element);
-  if (values) {
-    return Math.round(Math.atan2(values[1], values[0]) * (180 / Math.PI));
-  }
-  return 0;
-};
-
-/**
- * @param {!Element} element The element to get the X offset of.
- * @return {number} The offset of the given element.
- * @private
- */
-app.Animations.prototype.getOffset_ = function(element) {
-  var values = this.getTransformMatrixValues_(element);
-  if (values) {
-    return values[4];
-  }
-  return 0;
-};
-
-/**
- * @param {Element} element The element to get the transform matrix of.
- * @return {Array.<number>} Array of values from the transform matrix.
- * @private
- */
-app.Animations.prototype.getTransformMatrixValues_ = function(element) {
-  var matrixString = element.css('transform');
-  if (matrixString && matrixString !== 'none') {
-    var parts = matrixString.split('(')[1].split(')')[0].split(',');
-    return parts.map(function(x) { return parseInt(x); });
-  }
 };

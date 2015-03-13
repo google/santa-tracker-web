@@ -136,10 +136,10 @@ app.FanStateManager.prototype.updateScene_ = function() {
  */
 app.FanStateManager.prototype.updateAnimations_ = function() {
   this.windBalloonAnimation_ = this.animations_.getParachuteAnimation(
-      this.windBalloonElem_, this.getState(),
+      this.windBalloonElem_.get(0), this.getState(),
       app.Constants.WIND_BALLOON_ANIMATION_DURATION_MS);
   this.screenAnimation_ = this.animations_.getBackgroundAnimation(
-      this.screenElem_, this.getState());
+      this.screenElem_.get(0), this.getState());
 };
 
 /**
