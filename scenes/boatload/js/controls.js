@@ -52,11 +52,11 @@ Controls.prototype.isMoving_ = false;
  * Touch controls
  * @type {boolean}
  */
-Controls.prototype.touchStartedInGUI = null;
+Controls.prototype.touchStartedInGUI = false;
 
 /**
  * Handle all keyboard and touch events.
- * @param {event} e The event data.
+ * @param {Event} e The event data.
  */
 Controls.prototype.handle = function(e) {
   // Paused or Gameover
@@ -102,7 +102,6 @@ Controls.prototype['onKeydown'] = function(e) {
 /**
  * Handles the key up event. Called dynamically.
  * @param  {Event} e The event object.
- * @this {Controls} The Controls object.
  */
 Controls.prototype['onKeyup'] = function(e) {
   if (e.keyCode === 38) { // Up
@@ -138,7 +137,7 @@ Controls.prototype.updatePlayerFromKeyboard = function() {
 
 /**
  * Touch started. Ignores gui touches. Called dynamically.
- * @param  {Event} e The event object.
+ * @param {Event} e The event object.
  */
 Controls.prototype['onTouchstart'] = function(e) {
   // Ignore the touch if it starts in GUI
@@ -168,8 +167,7 @@ Controls.prototype['onTouchstart'] = function(e) {
 
 /**
  * Touch moved. Called dynamically.
- * @param  {Event} e The event object.
- * @this {Controls} The Controls object.
+ * @param {Event} e The event object.
  */
 Controls.prototype['onTouchmove'] = function(e) {
   var touch = this.getCurrentTouch(e.originalEvent);
@@ -184,8 +182,7 @@ Controls.prototype['onTouchmove'] = function(e) {
 
 /**
  * Touch ended. Called dynamically.
- * @param  {Event} e The event object.
- * @this {Controls} The Controls object.
+ * @param {Event} e The event object.
  */
 Controls.prototype['onTouchend'] = function(e) {
   var touch = this.getCurrentTouch(e.originalEvent);
@@ -199,7 +196,7 @@ Controls.prototype['onTouchend'] = function(e) {
 
 /**
  * Returns the active touch from a touch event.
- * @param  {Event} e A touch event.
+ * @param {Event} e A touch event.
  * @return {Touch}   The active touch.
  */
 Controls.prototype.getCurrentTouch = function(e) {

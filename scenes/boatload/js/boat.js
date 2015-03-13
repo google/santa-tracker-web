@@ -21,7 +21,7 @@ pools.mixin(Boat);
 
 /**
  * Initializes the Boat for use.
- * @param {Object} type The type of boat in Constants.BOATS.
+ * @param {Constants.BoatType} type The type of boat in Constants.BOATS.
  */
 Boat.prototype.onInit = function(type) {
   this.elem.removeClass('boat--1 boat--2 boat--3 hidden hit');
