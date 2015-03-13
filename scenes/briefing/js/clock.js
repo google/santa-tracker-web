@@ -1,7 +1,7 @@
 goog.provide('app.Clock');
 
 goog.require('app.Constants');
-
+goog.require('app.shared.utils');
 
 /**
  * Clock class for handling an individual clock animation.
@@ -121,10 +121,10 @@ app.Clock.prototype.spinPointers_ = function() {
     {transform: 'rotate(' + hourRotate + 'deg)'},
     {transform: hourFinal}
   ], sharedTiming);
-  hourAnim.onfinish = function() {
+  app.shared.utils.onWebAnimationFinished(hourAnim, function() {
     hourEl.style.webkitTransform = hourFinal;
     hourEl.style.transform = hourFinal;
-  };
+  });
 
   var minutesEl = this.$minutesPointer.get(0);
   var minutesRotate = Math.round(this.getRotateForElement_(minutesEl));
@@ -133,10 +133,10 @@ app.Clock.prototype.spinPointers_ = function() {
     {transform: 'rotate(' + minutesRotate + 'deg)'},
     {transform: minutesFinal}
   ], sharedTiming);
-  minutesAnim.onfinish = function() {
+  app.shared.utils.onWebAnimationFinished(minutesAnim, function() {
     minutesEl.style.webkitTransform = minutesFinal;
     minutesEl.style.transform = minutesFinal;
-  };
+  });
 
 };
 
