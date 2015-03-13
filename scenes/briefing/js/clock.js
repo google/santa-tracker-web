@@ -28,42 +28,6 @@ app.Clock = function(context) {
 };
 
 /**
- * Finds the current rotation value of an element, in degrees.
- *
- * Source: https://css-tricks.com/get-value-of-css-rotation-through-javascript/
- *
- * @param {!Element} element to find rotation of
- * @return {number} rotation of the current element
- */
-app.Clock.prototype.getRotateForElement_ = function(element) {
-  var style = window.getComputedStyle(element);
-  var transform;
-
-  ['-webkit-', '-moz-', '-ms-', '-o-', ''].some(function(prefix) {
-    var t = style.getPropertyValue(prefix + 'transform');
-    if (!t) { return false; }
-    transform = t;
-    return true;
-  });
-
-  var values;
-  try {
-    values = transform.split('(')[1].split(')')[0].split(',');
-  } catch(e) {
-    return 0;
-  }
-  var a = values[0];
-  var b = values[1];
-
-  var scale = Math.sqrt(a*a + b*b);
-
-  // arc sin, convert from radians to degrees, round
-  var sin = b / scale;
-  // next line works for 30deg but not 130deg (returns 50);
-  return Math.atan2(b, a) * (180 / Math.PI);
-};
-
-/**
  * Initializes the class.
  */
 app.Clock.prototype.init = function() {
@@ -102,10 +66,10 @@ app.Clock.prototype.removeEventListeners_ = function() {
 app.Clock.prototype.spinPointers_ = function() {
 
   var secondsEl = this.$secondsPointer.get(0);
-  var secondsRotate = Math.round(this.getRotateForElement_(secondsEl));
+  var secondsTransform = app.shared.utils.computedTransform(secondsEl);
   secondsEl.animate([
-    {transform: 'rotate(' + secondsRotate + 'deg)'},
-    {transform: 'rotate(' + (secondsRotate + (360 * 2.5)) + 'deg)'}
+    {transform: 'rotate(' + secondsTransform.rotate + 'deg)'},
+    {transform: 'rotate(' + (secondsTransform.rotate + (360 * 2.5)) + 'deg)'}
   ], {duration: 1250, easing: 'ease-out'});
 
   // Offset the background animation by the interactive animation's length: at
@@ -115,10 +79,10 @@ app.Clock.prototype.spinPointers_ = function() {
   var sharedTiming = {duration: 500, easing: 'ease-out'};
 
   var hourEl = this.$hourPointer.get(0);
-  var hourRotate = Math.round(this.getRotateForElement_(hourEl));
-  var hourFinal = 'rotate(' + (hourRotate + 30) + 'deg)';
+  var hourTransform = app.shared.utils.computedTransform(hourEl);
+  var hourFinal = 'rotate(' + (hourTransform.rotate + 30) + 'deg)';
   var hourAnim = hourEl.animate([
-    {transform: 'rotate(' + hourRotate + 'deg)'},
+    {transform: 'rotate(' + hourTransform.rotate + 'deg)'},
     {transform: hourFinal}
   ], sharedTiming);
   app.shared.utils.onWebAnimationFinished(hourAnim, function() {
@@ -127,10 +91,10 @@ app.Clock.prototype.spinPointers_ = function() {
   });
 
   var minutesEl = this.$minutesPointer.get(0);
-  var minutesRotate = Math.round(this.getRotateForElement_(minutesEl));
-  var minutesFinal = 'rotate(' + (minutesRotate + 390) + 'deg)';
+  var minutesTransform = app.shared.utils.computedTransform(minutesEl);
+  var minutesFinal = 'rotate(' + (minutesTransform.rotate + 390) + 'deg)';
   var minutesAnim = minutesEl.animate([
-    {transform: 'rotate(' + minutesRotate + 'deg)'},
+    {transform: 'rotate(' + minutesTransform.rotate + 'deg)'},
     {transform: minutesFinal}
   ], sharedTiming);
   app.shared.utils.onWebAnimationFinished(minutesAnim, function() {

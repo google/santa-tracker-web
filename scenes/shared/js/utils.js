@@ -122,6 +122,48 @@ var utils = app.shared.utils = (function() {
     },
 
     /**
+     * Returns the computed transform values as a raw object containing x, y
+     * and rotate values (in degrees).
+     * @param {!Element} elem to examine
+     * @return {!Object} containing x, y, rotation
+     */
+    computedTransform: function(elem) {
+      var style = window.getComputedStyle(elem);
+      var transform;
+
+      ['-webkit-', '-moz-', '-ms-', '-o-', ''].some(function(prefix) {
+        var t = style.getPropertyValue(prefix + 'transform');
+        if (!t) { return false; }
+        transform = t;
+        return true;
+      });
+
+      if (transform === 'none') {
+        return {x: 0, y: 0, rotate: 0};
+      }
+
+      var values;
+      try {
+        // expected to be matrix(....)
+        values = transform.split('(')[1].split(')')[0].split(',');
+        values = values.map(function(x) { return +x; });
+      } catch(e) {
+        return {};
+      }
+      var out = {x: values[4], y: values[5], rotate: null};
+
+      var a = values[0];
+      var b = values[1];
+      var scale = Math.sqrt(a*a + b*b);
+
+      // arc sin, convert from radians to degrees, round
+      var sin = b / scale;
+      out.rotate = Math.atan2(b, a) * (180 / Math.PI);
+
+      return out;
+    },
+
+    /**
      * Register listener for finish event on WebAnimations player
      * @param {AnimationPlayer} player The animation player object which will finish
      * @param {Function} fn A callback function to execute when player finishes

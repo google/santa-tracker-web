@@ -101,10 +101,10 @@ app.Rudolf.prototype.onRudolfClicked_ = function() {
  */
 app.Rudolf.prototype.updateAnimations_ = function() {
   this.parachuteAnimation_ = this.animations_.getParachuteAnimation(
-      this.parachuteElem_, this.fanState_,
+      this.parachuteElem_.get(0), this.fanState_,
       app.Constants.PARACHUTE_ANIMATION_DURATION_MS);
   this.parachuteShadowAnimation_ = this.animations_.getParachuteAnimation(
-      this.parachuteShadowElem_, this.fanState_,
+      this.parachuteShadowElem_.get(0), this.fanState_,
       app.Constants.PARACHUTE_ANIMATION_DURATION_MS);
 };
 
