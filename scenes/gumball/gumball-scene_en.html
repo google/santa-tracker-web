@@ -238,7 +238,7 @@ Gumball scene.
       var module = this.$['module-gumball'];
 
       this.game = new scenes.gumball.Game(module);
-      startButton(this, module, this.onClickStart.bind(this));
+      startButton(this, module, this.onClickStart_.bind(this));
     },
 
     onHide: function() {
@@ -247,7 +247,7 @@ Gumball scene.
       this.fire('sound-ambient', 'gb_end_game');
     },
 
-    onClickStart: function() {
+    onClickStart_: function() {
       this.hasClickedStart = true;
       this.game.start();
     }
