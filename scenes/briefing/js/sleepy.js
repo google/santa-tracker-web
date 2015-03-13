@@ -1,6 +1,7 @@
 goog.provide('app.Sleepy');
 
 goog.require('app.Constants');
+goog.require('app.shared.utils');
 
 /**
  *
@@ -124,18 +125,19 @@ app.Sleepy.prototype.wakeUp_ = function() {
   if (this.sleepingVertically && this.headRotateYPlayer !== null) {
 
     this.headRotateYPlayer.playbackRate = -0.02;
-    this.headRotateYPlayer.onfinish = function() {
+
+    app.shared.utils.onWebAnimationFinished(this.headRotateYPlayer, function() {
       this.headRotateYPlayer.cancel();
       this.headRotateYPlayer = null;
-    }.bind(this);
+    }.bind(this));
 
   } else if (this.headRotateZPlayer !== null) {
 
     this.headRotateZPlayer.playbackRate = -5;
-    this.headRotateZPlayer.onfinish = function() {
+    app.shared.utils.onWebAnimationFinished(this.headRotateZPlayer, function() {
       this.headRotateZPlayer.cancel();
       this.headRotateZPlayer = null;
-    }.bind(this);
+    }.bind(this));
 
   }
 

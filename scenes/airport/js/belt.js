@@ -6,6 +6,7 @@ goog.require('app.Closet');
 goog.require('app.Constants');
 goog.require('app.Controls');
 goog.require('app.State');
+goog.require('app.shared.utils');
 
 /**
  * Class for main conveyor belt with animates elves and raindeers
@@ -131,7 +132,8 @@ app.Belt.prototype = {
 
     elfPlayer = this.timeline.schedule(startTime * 1000,
         item.$el.get(0), elfSteps, app.Constants.DURATION * 1000);
-    elfPlayer.onfinish = this.onExitBelt.bind(this, item, elfPlayer);
+    app.shared.utils.onWebAnimationFinished(
+        elfPlayer, this.onExitBelt.bind(this, item, elfPlayer));
 
     this.timeline.call(startTime * 1000,
         this.onEnterBelt.bind(this, item, startTime));

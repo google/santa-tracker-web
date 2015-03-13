@@ -51,9 +51,9 @@ app.Projection = function(context) {
     return player;
   }(this.$projectionGroup_.get(0)));
 
-  this.projectionPlayer_.onfinish = function() {
+  app.shared.utils.onWebAnimationFinished(this.projectionPlayer_, function() {
     this.isAnimating = false;
-  }.bind(this);
+  }.bind(this));
 
   this.waterDashPlayer_ = (function(el) {
     var steps = [
