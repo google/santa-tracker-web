@@ -5,7 +5,7 @@ This repository contains the code to Google Santa Tracker.
 
 # Prerequisites
 
-You'll need node installed, then bower (`npm install -g bower`) and compass above 1.0.1 (`gem install bower`).
+You'll need node installed, then bower (`npm install -g bower`) and compass >=1.0.1 (`gem install compass`).
 
 # Setup
 
