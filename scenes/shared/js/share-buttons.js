@@ -4,8 +4,8 @@ goog.require('app.shared.utils');
 
 /**
  * Share buttons.
- * @param {HTMLElement} elem The share buttons element.
- * @param {String} url The url to share.
+ * @param {!HTMLElement} elem The share buttons element.
+ * @param {string} url The url to share.
  * @constructor
  */
 app.shared.ShareButtons = function(elem, url) {
@@ -18,7 +18,7 @@ app.shared.ShareButtons = function(elem, url) {
 
 /**
  * Change the url to share.
- * @param url {String} The url.
+ * @param url {string} The url.
  */
 app.shared.ShareButtons.prototype.setUrl = function(url) {
   url = window.encodeURIComponent(url || window.location.href);
@@ -32,7 +32,7 @@ app.shared.ShareButtons.prototype.setUrl = function(url) {
 
 /**
  * Open the share dialogs in a popup window.
- * @param event {Event} The click event.
+ * @param event {!Event} The click event.
  * @private
  */
 app.shared.ShareButtons.prototype.handleClick_ = function(event) {

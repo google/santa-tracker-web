@@ -6,7 +6,7 @@ goog.require('app.shared.Overlay');
 
 /**
  * Pause screen.
- * @param {HTMLElement} elem The game element.
+ * @param {!HTMLElement} elem The game element.
  * @constructor
  */
 app.shared.PauseOverlay = function(elem) {

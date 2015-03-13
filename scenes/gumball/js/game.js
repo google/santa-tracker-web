@@ -460,6 +460,8 @@ app.Game.prototype.dispose = function() {
   $(window).off('.gumball');
   $(document).off('.gumball');
 
+  this.levelUp.dispose();
+
   this.tutorial.dispose();
   app.shared.pools.empty();
 };

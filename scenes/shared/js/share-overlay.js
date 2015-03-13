@@ -6,7 +6,7 @@ goog.require('app.shared.utils');
 
 /**
  * Gameover screen.
- * @param {HTMLElement} elem The gameover element.
+ * @param {!HTMLElement} elem The gameover element.
  * @constructor
  */
 app.shared.ShareOverlay = function(elem) {
@@ -64,8 +64,8 @@ app.shared.ShareOverlay.prototype.show = function(url, shorten) {
 
 /**
  * Shorten a url with Google shortener.
- * @param {String} url The long url.
- * @param {Function} callback Call this function with the shortened url.
+ * @param {string} url The long url.
+ * @param {function} callback Call this function with the shortened url.
  * @private
  */
 app.shared.ShareOverlay.prototype.shorten_ = function(url, callback) {
@@ -91,7 +91,7 @@ app.shared.ShareOverlay.prototype.shorten_ = function(url, callback) {
 
 /**
  * Hides the share screen with an animation.
- * @param  {Function} callback Runs when the animation is finished.
+ * @param {Function} callback Runs when the animation is finished.
  */
 app.shared.ShareOverlay.prototype.hide = function(callback) {
   this.overlay.hide(callback);

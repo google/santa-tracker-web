@@ -10,9 +10,9 @@ app.shared.Tutorial = Tutorial;
  * touch swipe, rotate the device, tilting, tap the screen,
  * and how to play matching.
  * @constructor
- * @param {Element} moduleElem The module element.
- * @param {String} touchTutorials Tutorials when touch is enabled.
- * @param {String} notouchTutorials Tutorials when touch is disabled.
+ * @param {!Element} moduleElem The module element.
+ * @param {string} touchTutorials Tutorials when touch is enabled.
+ * @param {string} notouchTutorials Tutorials when touch is disabled.
  */
 function Tutorial(moduleElem, touchTutorials, notouchTutorials) {
   // Ability to disable tutorial
@@ -30,7 +30,7 @@ function Tutorial(moduleElem, touchTutorials, notouchTutorials) {
     this.tutorials = notouchTutorials.split(' ');
   }
 
-  this.ontimeout_ = this.ontimeout_.bind(this);
+  this.onTimeout_ = this.onTimeout_.bind(this);
 }
 
 // Default timeouts
@@ -41,20 +41,21 @@ Tutorial.SECOND_TIMEOUT = 3000;
  * Start the tutorial timer.
  */
 Tutorial.prototype.start = function() {
-  if (!this.tutorials.length)
+  if (!this.tutorials.length) {
     return;
+  }
 
-  this.timer = window.setTimeout(this.ontimeout_,
+  this.timer = window.setTimeout(this.onTimeout_,
     this.first ? Tutorial.FIRST_TIMEOUT : Tutorial.SECOND_TIMEOUT);
   this.first = false;
 };
 
 /**
  * Turn off a tutorial because user has already used the controls.
- * @param {String} name The name of the tutorial.
+ * @param {string} name The name of the tutorial.
  */
 Tutorial.prototype.off = function(name) {
-  this.tutorials = this.tutorials.filter(function(tut, i) {
+  this.tutorials = this.tutorials.filter(function(tut) {
     return tut != name;
   });
 
@@ -73,7 +74,7 @@ Tutorial.prototype.off = function(name) {
 /**
  * When the wait has ended.
  */
-Tutorial.prototype.ontimeout_ = function() {
+Tutorial.prototype.onTimeout_ = function() {
   this.show_(this.tutorials.shift());
 };
 

@@ -8,9 +8,9 @@ app.shared.Effect = Effect;
  * Creates some effect using css animations.
  * Adds animate class to element to activate animation.
  * @constructor
- * @param {Game} game The current game object.
- * @param {HTMLElement} elem The element for the effect.
- * @param {Function} callback Called when animation is over.
+ * @param {!Game} game The current game object.
+ * @param {!HTMLElement} elem The element for the effect.
+ * @param {function} callback Called when animation is over.
  */
 function Effect(game, elem, callback) {
   this.game = game;
@@ -22,8 +22,8 @@ function Effect(game, elem, callback) {
 
 /**
  * Animate the effect at a position.
- * @param  {Number} x The X position.
- * @param  {Number} y The Y position.
+ * @param {number} x The X position.
+ * @param {number} y The Y position.
  */
 Effect.prototype.animate = function(x, y) {
   // Position

@@ -7,16 +7,25 @@ app.shared.LevelUp = LevelUp;
 /**
  * Animation for level up.
  * @constructor
- * @param {Game} game The current game object.
- * @param {HTMLElement} bgElem The element for the background.
- * @param {HTMLElement} numberElem The element for the level number.
+ * @param {!Game} game The current game object.
+ * @param {!HTMLElement} bgElem The element for the background.
+ * @param {!HTMLElement} numberElem The element for the level number.
  */
 function LevelUp(game, bgElem, numberElem) {
   this.bgElem = bgElem;
   this.numberElem = numberElem;
 
-  $(window).on('resize', this.onResize_.bind(this));
+  this.onResizeBound_ = this.onResize_.bind(this);
+  $(window).on('resize', this.onResizeBound_);
+
   this.onResize_();
+}
+
+/**
+ * Dispose of this LevelUp object, removing listeners.
+ */
+LevelUp.prototype.dispose = function() {
+  $(window).off('resize', this.onResizeBound_);
 }
 
 /**
@@ -24,8 +33,7 @@ function LevelUp(game, bgElem, numberElem) {
  * @private
  */
 LevelUp.prototype.onResize_ = function() {
-  var width = window.innerWidth,
-    height = window.innerHeight;
+  var width = window.innerWidth, height = window.innerHeight;
 
   this.bgBorderWidth = width;
   this.bgElem.css({
@@ -75,7 +83,7 @@ LevelUp.prototype.show = function(level, callback) {
 
 /**
  * A utility for waiting for an event with a timeout.
- * @param {jQuery} elem
+ * @param {!jQuery} elem
  * @param {string} event
  * @param {number} timeout
  * @param {function} callback
@@ -95,5 +103,5 @@ function timeoutOneEvent(elem, event, timeout, callback) {
 
   // Which comes first, the event or the timeout?
   elem.on(event, finish);
-  setTimeout(finish, timeout * 1000);
+  window.setTimeout(finish, timeout * 1000);
 }

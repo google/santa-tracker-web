@@ -9,8 +9,8 @@ app.shared.Scoreboard = Scoreboard;
 /**
  * Manages the scoreboard and game countdown.
  * @constructor
- * @param {Game} game The game object.
- * @param {HTMLElement} elem The scoreboard element.
+ * @param {!Game} game The game object.
+ * @param {!HTMLElement} elem The scoreboard element.
  * @param {number} levels The total number of levels.
  */
 function Scoreboard(game, elem, levels) {
@@ -75,7 +75,7 @@ Scoreboard.prototype.restart = function() {
  * Attaches events for scoreboard interactions.
  */
 Scoreboard.prototype.attachEvents = function() {
-  var self = this;
+  var self = this;  // intentionally held, so that 'this' is the element
   this.elem.find('.pause').on('click', function(event) {
     $(event.target).blur();
 
@@ -118,27 +118,28 @@ Scoreboard.prototype.onFrame = function(delta) {
 
   // Cache track text changes.
   var seconds = Math.ceil(this.countdown);
-  if (seconds !== this.lastSeconds) {
-    this.lastSeconds = seconds;
+  if (seconds === this.lastSeconds) {
+    return;
+  }
+  this.lastSeconds = seconds;
 
-    if (this.minutesElem.length > 0) {
-      this.minutesElem[0].textContent = Scoreboard.pad_(Math.floor(seconds / 60));
-    }
+  if (this.minutesElem.length > 0) {
+    this.minutesElem[0].textContent = Scoreboard.pad_(Math.floor(seconds / 60));
+  }
 
-    if (this.secondsElem.length > 0) {
-      this.secondsElem[0].textContent = Scoreboard.pad_(seconds % 60);
-    }
+  if (this.secondsElem.length > 0) {
+    this.secondsElem[0].textContent = Scoreboard.pad_(seconds % 60);
+  }
 
-    // Are we losing (But not yet gameover).
-    var losing = seconds <= Constants.COUNTDOWN_FLASH && seconds !== 0;
-    if (this.losing !== losing) {
-      this.losing = losing;
-      if (this.remainingElem.length > 0) {
-        this.remainingElem.toggleClass('losing', losing);
-      }
-      window.santaApp.fire('sound-trigger',
-          losing ? 'game_hurry_up' : 'game_hurry_up_end');
+  // Are we losing (But not yet gameover).
+  var losing = seconds <= Constants.COUNTDOWN_FLASH && seconds !== 0;
+  if (this.losing !== losing) {
+    this.losing = losing;
+    if (this.remainingElem.length > 0) {
+      this.remainingElem.toggleClass('losing', losing);
     }
+    window.santaApp.fire('sound-trigger',
+        losing ? 'game_hurry_up' : 'game_hurry_up_end');
   }
 };
 

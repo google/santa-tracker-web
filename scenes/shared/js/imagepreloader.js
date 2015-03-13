@@ -9,9 +9,9 @@ app.shared.ImagePreloader = ImagePreloader;
  * An image preloader. Loads images and updates progress.
  * Only does something useful if the images are served with expires headers.
  * @constructor
- * @param {String} moduleId The id/folder name of the module.
- * @param {Preloader} preloader The Santa Tracker preloader object.
- * @param {array} images List of images to load.
+ * @param {string} moduleId The id/folder name of the module.
+ * @param {!Preloader} preloader The Santa Tracker preloader object.
+ * @param {!Array.<string>} images List of images to load.
  */
 function ImagePreloader(moduleId, preloader, images) {
   this.directory_ = santatracker.getStaticDir(moduleId) || '/apps/' + moduleId;
@@ -20,7 +20,7 @@ function ImagePreloader(moduleId, preloader, images) {
     this.directory_ += '/';
   }
 
-  /** @private @type {array} */
+  /** @private @type {!Array.<string>} */
   this.images_ = images;
 
   /** @private @type {number} */
@@ -44,13 +44,13 @@ ImagePreloader.TIMEOUT = 30; // sec
  * @private
  */
 ImagePreloader.prototype.load_ = function() {
-  var image,
-      onload = this.loaded_.bind(this);
-  for (var i = 0, src; src = this.images_[i]; i++) {
-    image = new Image();
+  var onload = this.loaded_.bind(this);
+
+  this.images_.forEach(function(src) {
+    var image = new Image();
     image.onerror = image.onload = onload;
     image.src = this.directory_ + src;
-  }
+  }, this);
 };
 
 /**

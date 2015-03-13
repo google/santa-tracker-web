@@ -460,5 +460,6 @@ app.Game.prototype.dispose = function() {
   $(window).off('.mercator');
   $(document).off('.mercator');
 
+  this.levelUp.dispose();
   this.tutorial.dispose();
 };
