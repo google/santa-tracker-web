@@ -10,201 +10,194 @@ Boatload scene.
 @extends base-scene
 -->
 <polymer-element name="boatload-scene" extends="base-scene">
-<template>
-  <link rel="stylesheet" href="boatload-scene.css" no-shim>
+  <template>
+    <link rel="stylesheet" href="boatload-scene.css" no-shim>
 
-  <div id="module-boatload">
-
-    <div class="bg">
-      <div class="river"></div>
+    <div id="module-boatload">
+      <div class="bg">
+        <div class="river"></div>
+      </div>
+      <div class="view">
+        <div class="background">
+          <div class="trees trees--left"></div>
+          <div class="trees trees--top"></div>
+          <div class="trees trees--bottom"></div>
+          <div class="trees trees--right"></div>
+        </div>
+        <div class="player-rails"></div>
+        <div class="player">
+          <div class="player-crossbow"></div>
+          <div class="player-elf"></div>
+          <div class="player-rope player-rope--left"></div>
+          <div class="player-rope player-rope--right"></div>
+        </div>
+        <div class="splash hidden">
+          <div class="splash--1"></div>
+          <div class="splash--2"></div>
+          <div class="splash--3"></div>
+          <div class="splash--4"></div>
+        </div>
+        <div class="icebergs"></div>
+        <div class="bubbles"></div>
+        <div class="boats"></div>
+        <div class="presents"></div>
+        <div class="score-sign hidden"></div>
+      </div>
+      <div class="gui">
+        <div class="board board--game">
+          <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+          <div class="logo">
+            <!---->
+          </div>
+          <div class="score">
+            <div class="label"><i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg></div>
+            <div class="value">0</div>
+          </div>
+          <div class="level has-count">
+            <div class="label"><i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg></div>
+            <div class="value"><span class="current-level">1</span><span class="dark-text">/10</span>
+            </div>
+            <div class="level-dots">
+              <div class="level-item is-active">
+                <div class="level-dot"></div>
+                <div class="level-shadow"></div>
+                <div class="level-number">1</div>
+              </div>
+              <div class="level-item">
+                <div class="level-dot"></div>
+                <div class="level-shadow"></div>
+                <div class="level-number">2</div>
+              </div>
+              <div class="level-item">
+                <div class="level-dot"></div>
+                <div class="level-shadow"></div>
+                <div class="level-number">3</div>
+              </div>
+              <div class="level-item">
+                <div class="level-dot"></div>
+                <div class="level-shadow"></div>
+                <div class="level-number">4</div>
+              </div>
+              <div class="level-item">
+                <div class="level-dot"></div>
+                <div class="level-shadow"></div>
+                <div class="level-number">5</div>
+              </div>
+              <div class="level-item">
+                <div class="level-dot"></div>
+                <div class="level-shadow"></div>
+                <div class="level-number">6</div>
+              </div>
+              <div class="level-item">
+                <div class="level-dot"></div>
+                <div class="level-shadow"></div>
+                <div class="level-number">7</div>
+              </div>
+              <div class="level-item">
+                <div class="level-dot"></div>
+                <div class="level-shadow"></div>
+                <div class="level-number">8</div>
+              </div>
+              <div class="level-item">
+                <div class="level-dot"></div>
+                <div class="level-shadow"></div>
+                <div class="level-number">9</div>
+              </div>
+              <div class="level-item">
+                <div class="level-dot"></div>
+                <div class="level-shadow"></div>
+                <div class="level-number">10</div>
+              </div>
+            </div>
+          </div>
+          <div class="time">
+            <div class="label"><i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg></div>
+            <div class="value"><span class="minutes dark-text">00</span><span class="dark-text"> : </span><span class="seconds">00</span></div>
+            <div class="tracker">
+              <div class="remaining"></div>
+            </div>
+            <div class="status"></div>
+          </div>
+          <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
+            <button type="button" class="restart"></button>
+            <button type="button" class="pause"></button>
+          </div>
+        </div>
+        <div class="levelup"></div>
+        <div class="levelup--number"></div>
+        <div class="force-rotate landscape">
+          <div class="force-rotate-graphic"></div>
+          <div class="force-rotate-explanation"><i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg></div>
+        </div>
+        <div class="gameover overlay">
+          <div class="gameover-dialog overlay-dialog">
+            <h2 class="gameover-title"><i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg></h2>
+            <div class="gameover-winner">
+              <div class="gameover-score">
+                <p class="gameover-label"><i18n-msg msgid="gameover_score">PLACEHOLDER_i18n</i18n-msg></p>
+                <p class="gameover-number">0</p>
+              </div>
+            </div>
+            <div class="gameover-buttons">
+              <button type="button" class="Button Button--large gameover-play"><i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg></button>
+              <a href="{{pageUrl}}#village" class="Button Button--large"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+              <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="view">
-      <div class="background">
-        <div class="trees trees--left"></div>
-        <div class="trees trees--top"></div>
-        <div class="trees trees--bottom"></div>
-        <div class="trees trees--right"></div>
-      </div>
-      <div class="player-rails"></div>
-      <div class="player">
-        <div class="player-crossbow"></div>
-        <div class="player-elf"></div>
-        <div class="player-rope player-rope--left"></div>
-        <div class="player-rope player-rope--right"></div>
-      </div>
-      <div class="splash hidden">
-        <div class="splash--1"></div>
-        <div class="splash--2"></div>
-        <div class="splash--3"></div>
-        <div class="splash--4"></div>
-      </div>
-      <div class="icebergs"></div>
-      <div class="bubbles"></div>
-      <div class="boats"></div>
-      <div class="presents"></div>
-      <div class="score-sign hidden"></div>
-    </div>
-    <div class="gui">
-      <div class="board board--game">
-        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
-        <div class="logo">
-          <!---->
-        </div>
-        <div class="score">
-          <div class="label"><i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg></div>
-          <div class="value">0</div>
-        </div>
-        <div class="level has-count">
-          <div class="label"><i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg></div>
-          <div class="value"><span class="current-level">1</span><span class="dark-text">/10</span>
-          </div>
-          <div class="level-dots">
-            <div class="level-item is-active">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">1</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">2</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">3</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">4</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">5</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">6</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">7</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">8</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">9</div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-shadow"></div>
-              <div class="level-number">10</div>
-            </div>
-          </div>
-        </div>
-        <div class="time">
-          <div class="label"><i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg></div>
-          <div class="value"><span class="minutes dark-text">00</span><span class="dark-text"> : </span><span class="seconds">00</span></div>
-          <div class="tracker">
-            <div class="remaining"></div>
-          </div>
-          <div class="status"></div>
-        </div>
-        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
-          <button type="button" class="restart"></button>
-          <button type="button" class="pause"></button>
-        </div>
-      </div>
-      <div class="levelup"></div>
-      <div class="levelup--number"></div>
-      <div class="force-rotate landscape">
-        <div class="force-rotate-graphic"></div>
-        <div class="force-rotate-explanation"><i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg></div>
-      </div>
-      <div class="gameover overlay">
-        <div class="gameover-dialog overlay-dialog">
-          <h2 class="gameover-title"><i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg></h2>
-          <div class="gameover-winner">
-            <div class="gameover-score">
-              <p class="gameover-label"><i18n-msg msgid="gameover_score">PLACEHOLDER_i18n</i18n-msg></p>
-              <p class="gameover-number">0</p>
-            </div>
-          </div>
-          <div class="gameover-buttons">
-            <button type="button" class="Button Button--large gameover-play"><i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg></button>
-            <a href="{{pageUrl}}#village" class="Button Button--large"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
-            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
+  </template>
+  <script>
+  (function() {
+    Polymer({
+      componentDir: 'scenes/boatload/',
+      game: null,
+      hasClickedStart: false,
 
-  </div>
+      onPreload: function() {
+        this.preloadSounds('bl_load_sounds', 40);
+        this.preloadImages([
+          'img/boat1.svg',
+          'img/boat2.svg',
+          'img/boat3.svg',
+          'img/iceberg1.svg',
+          'img/iceberg2.svg',
+          'img/iceberg3.svg',
+          'img/iceberg4.svg',
+          'img/iceberg5.svg',
+          'img/iceberg6.svg',
+          'img/logo.svg',
+          'img/player-crossbow.svg',
+          'img/player-elf.svg',
+          'img/player-ropes.svg',
+          'img/present.svg',
+          'img/rail.png',
+          'img/trees-bottom.svg',
+          'img/trees-left.svg',
+          'img/trees-right.svg',
+          'img/trees-top.svg',
+          'img/rotate.svg'
+        ]);
+      },
 
-</template>
-<script>
-(function() {
-  Polymer({
-    componentDir: 'scenes/boatload/',
+      onShow: function() {
+        var module = this.$['module-boatload'];
+        this.game = new scenes.boatload.Game(module);
+        startButton(this, module, this.onClickStart.bind(this));
+      },
 
-    game: null,
+      onHide: function() {
+        this.game.dispose();
+        this.game = null;
+        this.fire('sound-ambient', 'bl_end_game');
+      },
 
-    hasClickedStart: false,
-
-    onPreload: function() {
-      this.preloadSounds('bl_load_sounds', 40);
-      this.preloadImages([
-        'img/boat1.svg',
-        'img/boat2.svg',
-        'img/boat3.svg',
-        'img/iceberg1.svg',
-        'img/iceberg2.svg',
-        'img/iceberg3.svg',
-        'img/iceberg4.svg',
-        'img/iceberg5.svg',
-        'img/iceberg6.svg',
-        'img/logo.svg',
-        'img/player-crossbow.svg',
-        'img/player-elf.svg',
-        'img/player-ropes.svg',
-        'img/present.svg',
-        'img/rail.png',
-        'img/trees-bottom.svg',
-        'img/trees-left.svg',
-        'img/trees-right.svg',
-        'img/trees-top.svg',
-        'img/rotate.svg'
-      ]);
-    },
-
-    onShow: function() {
-      var module = this.$['module-boatload'];
-
-      this.game = new scenes.boatload.Game(module);
-      startButton(this, module, this.onClickStart.bind(this));
-    },
-
-    onHide: function() {
-      this.game.dispose();
-      this.game = null;
-      this.fire('sound-ambient', 'bl_end_game');
-    },
-
-    onClickStart: function() {
-      this.hasClickedStart = true;
-      this.game.start();
-    }
-  });
-
-})();
-</script>
+      onClickStart: function() {
+        this.hasClickedStart = true;
+        this.game.start();
+      }
+    });
+  })();
+  </script>
 </polymer-element>

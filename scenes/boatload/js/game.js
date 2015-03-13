@@ -135,8 +135,8 @@ Game.prototype.onFrame = function() {
   }
 
   // Calculate delta
-  var now = +new Date() / 1000,
-    delta = now - this.lastFrame;
+  var now = +new Date() / 1000;
+  var delta = now - this.lastFrame;
   this.lastFrame = now;
 
   Coordinator.onFrame(delta);
@@ -187,9 +187,7 @@ Game.prototype.setScale = function(scale) {
  */
 Game.prototype.updateBoats = function(delta) {
   this.nextBoat -= delta;
-  if (this.nextBoat > 0) {
-    return;
-  }
+  if (this.nextBoat > 0) return;
 
   if (!this.nextBoatType) {
     // Find a random type for the boat
@@ -215,9 +213,9 @@ Game.prototype.updateBoats = function(delta) {
   this.nextBoatType = null;
 
   // Schedule next boat.
-  var multiply = Math.pow(Constants.BOAT_SPAWN_MULTIPLY_EACH_LEVEL, this.level),
-      interval = Constants.BOAT_SPAWN_BASE + Constants.BOAT_SPAWN_INTERVAL * multiply,
-      variance = Constants.BOAT_SPAWN_VARIANCE * multiply;
+  var multiply = Math.pow(Constants.BOAT_SPAWN_MULTIPLY_EACH_LEVEL, this.level);
+  var interval = Constants.BOAT_SPAWN_BASE + Constants.BOAT_SPAWN_INTERVAL * multiply;
+  var variance = Constants.BOAT_SPAWN_VARIANCE * multiply;
   this.nextBoat = (interval - variance / 2) + Math.random() * variance;
 
   // Make sure there is always one boat on the screen
@@ -234,9 +232,7 @@ Game.prototype.updateBoats = function(delta) {
  */
 Game.prototype.updateIcebergs = function(delta) {
   this.nextIceberg -= delta;
-  if (this.nextIceberg > 0) {
-    return;
-  }
+  if (this.nextIceberg > 0) return;
 
   // Get a random type for the iceberg
   var typeNumber = Math.ceil(Math.random() * Constants.ICEBERGS.length);
@@ -250,9 +246,7 @@ Game.prototype.updateIcebergs = function(delta) {
 
   // Check if that X position will collide with another iceberg
   for (var i = 0; i < this.entities.length; i++) {
-    if (!(this.entities[i] instanceof Iceberg)) {
-      continue;
-    }
+    if (!(this.entities[i] instanceof Iceberg)) continue;
 
     if (timeleft < (this.sceneSize.height + this.entities[i].height -
         this.entities[i].y) / this.entities[i].speed) {
@@ -266,10 +260,9 @@ Game.prototype.updateIcebergs = function(delta) {
   this.entities.push(iceberg);
 
   // Schedule next iceberg.
-  var multiply =
-        Math.pow(Constants.ICEBERG_SPAWN_MULTIPLY_EACH_LEVEL, this.level),
-      interval = Constants.ICEBERG_SPAWN_BASE + Constants.ICEBERG_SPAWN_INTERVAL * multiply,
-      variance = Constants.ICEBERG_SPAWN_VARIANCE * multiply;
+  var multiply = Math.pow(Constants.ICEBERG_SPAWN_MULTIPLY_EACH_LEVEL, this.level);
+  var interval = Constants.ICEBERG_SPAWN_BASE + Constants.ICEBERG_SPAWN_INTERVAL * multiply;
+  var variance = Constants.ICEBERG_SPAWN_VARIANCE * multiply;
   this.nextIceberg = (interval - variance / 2) + Math.random() * variance;
 };
 
@@ -280,9 +273,7 @@ Game.prototype.updateIcebergs = function(delta) {
  */
 Game.prototype.updateLevel_ = function(delta) {
   this.nextLevel -= delta;
-  if (this.nextLevel > 0) {
-    return;
-  }
+  if (this.nextLevel > 0) return;
 
   // Check for game end
   if (this.level === Constants.TOTAL_LEVELS - 1) {
@@ -381,8 +372,8 @@ Game.prototype.gameover = function() {
 Game.prototype.togglePause = function() {
   if (this.paused) {
     this.resume();
-  // Only allow pausing if the game is playing (not game over).
   } else if (this.isPlaying) {
+    // Only allow pausing if the game is playing (not game over).
     this.pause();
   }
 };
@@ -408,17 +399,15 @@ Game.prototype.resume = function() {
  * @private
  */
 Game.prototype.watchSceneSize_ = function() {
-  var size = this.sceneSize,
-      bgElem = this.bgElem,
-      game = this;
+  var size = this.sceneSize;
+  var bgElem = this.bgElem;
+  var game = this;
 
   var updateSize = function() {
-    var width = window.innerWidth,
-      height = window.innerHeight,
-      scale = width < 980 ? width / 980 : 1;
-    scale = height < 600 ?
-        Math.min(height / 600, scale) :
-        scale;
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    var scale = width < 980 ? width / 980 : 1;
+    var scale = height < 600 ? Math.min(height / 600, scale) : scale;
 
     size.height = window.innerHeight * (1 / scale);
     size.width = window.innerWidth * (1 / scale);
@@ -445,9 +434,11 @@ Game.prototype.reuseBubbles_ = function() {
  */
 Game.prototype.dispose = function() {
   if (this.isPlaying) {
-    window.santaApp.fire('analytics-track-game-quit',
-                         {gameid: 'boatload', timePlayed: new Date - this.gameStartTime,
-                          level: this.level});
+    window.santaApp.fire('analytics-track-game-quit', {
+      gameid: 'boatload',
+      timePlayed: new Date - this.gameStartTime,
+      level: this.level
+    });
   }
   this.freezeGame();
 

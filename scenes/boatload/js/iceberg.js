@@ -20,15 +20,14 @@ pools.mixin(Iceberg);
 
 /**
  * Resets the Iceberg for reuse.
- * @param {Number} type The type of the iceberg.
- * @param {Number} x The X position.
+ * @param {number} type The type of the iceberg.
+ * @param {number} x The X position.
  */
 Iceberg.prototype.onInit = function(type, x) {
   var classes = 'hidden hit iceberg--1 iceberg--2 iceberg--3 ' +
         'iceberg--4 iceberg--5 iceberg--6';
 
-  this.elem.removeClass(classes)
-      .addClass(type.css);
+  this.elem.removeClass(classes).addClass(type.css);
   this.dead = false;
 
   this.height = type.height;
@@ -97,8 +96,8 @@ Iceberg.prototype.onFrame = function(delta) {
 /**
  * Registers a collision with the Iceberg.
  * @param {Present} present The present.
- * @param {Number} x The X position.
- * @param {Number} y The Y position.
+ * @param {number} x The X position.
+ * @param {number} y The Y position.
  */
 Iceberg.prototype.hit = function(present, x, y) {
   present.dead = true;
@@ -109,7 +108,7 @@ Iceberg.prototype.hit = function(present, x, y) {
 
 /**
  * Get the current hitbox of the Iceberg.
- * @return {{x: Number, y: Number, center: Number}} The hitbox.
+ * @return {{x: number, y: number, center: number}} The hitbox.
  */
 Iceberg.prototype.getHitbox = function() {
   return {

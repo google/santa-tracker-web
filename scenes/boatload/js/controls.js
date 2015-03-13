@@ -18,11 +18,45 @@ Controls = function(game) {
   var handler = this.handle.bind(this);
   this.game.elem.on('touchstart.boatload touchmove.boatload touchend.boatload', handler);
   $(window).on('keydown.boatload keyup.boatload', handler);
-}
+};
+
+/**
+ * Keep track of the up key.
+ * @type {boolean}
+ * @private
+ */
+Controls.prototype.isUpDown_ = false;
+
+/**
+ * Keep track of the down key.
+ * @type {boolean}
+ * @private
+ */
+Controls.prototype.isDownDown_ = false;
+
+/**
+ * Keep track of the space bar.
+ * @type {boolean}
+ * @private
+ */
+Controls.prototype.isSpaceDown_ = false;
+
+/**
+ * Keep track of player movements.
+ * @type {boolean}
+ * @private
+ */
+Controls.prototype.isMoving_ = false;
+
+/**
+ * Touch controls
+ * @type {boolean}
+ */
+Controls.prototype.touchStartedInGUI = false;
 
 /**
  * Handle all keyboard and touch events.
- * @param {event} e The event data.
+ * @param {Event} e The event data.
  */
 Controls.prototype.handle = function(e) {
   // Paused or Gameover
@@ -33,34 +67,6 @@ Controls.prototype.handle = function(e) {
   var methodName = 'on' + e.type[0].toUpperCase() + e.type.slice(1);
   this[methodName](e);
 };
-
-/**
- * Keep track of the up key.
- * @type {bool}
- * @private
- */
-Controls.prototype.isUpDown_ = false;
-
-/**
- * Keep track of the down key.
- * @type {bool}
- * @private
- */
-Controls.prototype.isDownDown_ = false;
-
-/**
- * Keep track of the space bar.
- * @type {bool}
- * @private
- */
-Controls.prototype.isSpaceDown_ = false;
-
-/**
- * Keep track of player movements.
- * @type {bool}
- * @private
- */
-Controls.prototype.isMoving_ = false;
 
 /**
  * Handles the key down event. Called dynamically.
@@ -96,7 +102,6 @@ Controls.prototype['onKeydown'] = function(e) {
 /**
  * Handles the key up event. Called dynamically.
  * @param  {Event} e The event object.
- * @this {Controls} The Controls object.
  */
 Controls.prototype['onKeyup'] = function(e) {
   if (e.keyCode === 38) { // Up
@@ -131,20 +136,13 @@ Controls.prototype.updatePlayerFromKeyboard = function() {
 };
 
 /**
- * Touch controls
- */
-Controls.prototype.touchStartedInGUI = null;
-
-/**
  * Touch started. Ignores gui touches. Called dynamically.
- * @param  {Event} e The event object.
+ * @param {Event} e The event object.
  */
 Controls.prototype['onTouchstart'] = function(e) {
   // Ignore the touch if it starts in GUI
   this.touchStartedInGUI = !!$(e.target).closest('.gui').length;
-  if (this.touchStartedInGUI) {
-    return;
-  }
+  if (this.touchStartedInGUI) return;
 
   // If no end event was fired
   if (this.currentTouchId !== null) {
@@ -165,13 +163,11 @@ Controls.prototype['onTouchstart'] = function(e) {
     this.tutorial.off('touch-updown');
     this.touchStarted = true;
   }
-
 };
 
 /**
  * Touch moved. Called dynamically.
- * @param  {Event} e The event object.
- * @this {Controls} The Controls object.
+ * @param {Event} e The event object.
  */
 Controls.prototype['onTouchmove'] = function(e) {
   var touch = this.getCurrentTouch(e.originalEvent);
@@ -186,8 +182,7 @@ Controls.prototype['onTouchmove'] = function(e) {
 
 /**
  * Touch ended. Called dynamically.
- * @param  {Event} e The event object.
- * @this {Controls} The Controls object.
+ * @param {Event} e The event object.
  */
 Controls.prototype['onTouchend'] = function(e) {
   var touch = this.getCurrentTouch(e.originalEvent);
@@ -201,7 +196,7 @@ Controls.prototype['onTouchend'] = function(e) {
 
 /**
  * Returns the active touch from a touch event.
- * @param  {Event} e A touch event.
+ * @param {Event} e A touch event.
  * @return {Touch}   The active touch.
  */
 Controls.prototype.getCurrentTouch = function(e) {

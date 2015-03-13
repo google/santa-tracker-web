@@ -149,7 +149,7 @@ Player.prototype.releasePresent_ = function() {
   this.throwing = false;
 
   this.waiting = true;
-  setTimeout(function() {
+  window.setTimeout(function() {
     if (this.present) return;
 
     this.present = Present.pop(this.game, this.y - 10);
@@ -189,9 +189,9 @@ Player.prototype.dropPresent = function() {
  * @param  {Number} status The animation progress (between 0 and 1).
  */
 Player.prototype.animate = function(status) {
-  var left = -60 * status,
-      scale = .48 + .2 * status,
-      rotate = 14 + 36 * status;
+  var left = -60 * status;
+  var scale = .48 + .2 * status;
+  var rotate = 14 + 36 * status;
   this.elfElem.css('transform', 'translateX(' + left + 'px) translateZ(0)');
   this.present.addX = left;
   this.present.draw();
@@ -210,8 +210,7 @@ Player.prototype.preparePresent = function() {
     return;
   }
 
-  if (this.preparing || this.throwing || !this.present)
-    return;
+  if (this.preparing || this.throwing || !this.present) return;
 
   this.preparing = true;
   window.santaApp.fire('sound-trigger', 'bl_rope_stretch');

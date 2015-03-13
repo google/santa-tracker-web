@@ -15,7 +15,7 @@ Bubble = function(game) {
   var type = Math.ceil(Math.random() * 6);
   this.elem.addClass('bubble--' + type);
   this.game.bubblesElem.append(this.elem);
-}
+};
 
 pools.mixin(Bubble);
 
@@ -38,10 +38,9 @@ Bubble.prototype.onInit = function(x, y, speed) {
  * Remove bubble.
  */
 Bubble.prototype.onDispose = function() {
-  this.elem.addClass('hidden').removeClass('animate')
-      .css({
-        top: -100,
-        animation: '',
-        opacity: 1
-      });
+  this.elem.addClass('hidden').removeClass('animate').css({
+    top: -100,
+    animation: '',
+    opacity: 1
+  });
 };

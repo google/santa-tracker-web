@@ -4,7 +4,7 @@ goog.provide('Constants');
  * Gameplay constants
  * @const
  */
-var Constants = {
+Constants = {
   // Countdown, in seconds
   INITIAL_COUNTDOWN: 60,
   TIME_PER_BOAT: 2,
