@@ -2,7 +2,6 @@
 <link rel="import" href="../../js/webanimations.html">
 
 <script src="playground-scene.min.js"></script>
-<script src="../shared/js/css_animation_helper.js"></script>
 
 <!--
 Playground scene.
@@ -203,13 +202,10 @@ Playground scene.
       this.fire('sound-ambient', 'playground_start');
       var div = this.$['module-playground'];
 
-      this.animationHelper = new CSSAnimationHelper(div);
       this.scene = new scenes.playground.Scene(div);
     },
 
     onHide: function() {
-      this.animationHelper.destroy();
-      this.animationHelper = null;
       this.scene.destroy();
       this.scene = null;
       this.fire('sound-ambient', 'playground_end');
