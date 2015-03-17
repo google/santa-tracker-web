@@ -9,7 +9,7 @@ goog.require('app.shared.Tutorial');
 
 /**
  * Main scene class.
- * @param {Element} elem The scene element.
+ * @param {!Element} elem The scene element.
  * @constructor
  * @export
  */
@@ -30,13 +30,13 @@ app.Scene = function(elem) {
   this.foreground = new app.Slider(this.elem.find('.message .fgs'), {
     max: Constants.FOREGROUND_COUNT,
     size: Constants.SCREEN_HEIGHT,
-    changed: this.fgsChanged.bind(this)
+    changed: this.fgsChanged_.bind(this)
   });
   this.background = new app.Slider(this.elem.find('.message .bgs'), {
     max: Constants.BACKGROUND_COUNT,
     size: Constants.SCREEN_WIDTH,
     horizontal: true,
-    changed: this.bgsChanged.bind(this)
+    changed: this.bgsChanged_.bind(this)
   });
 
   this.picker = new app.Picker(this);
@@ -61,14 +61,15 @@ app.Scene.prototype.showShareOverlay_ = function() {
 
 /**
  * Is notified when foreground changes.
+ * @private
  * @param {number} selected The number of the selected foreground.
  * @param {number} pos The position of the selected foreground.
  *                     Multiply with width to get position.
  */
-app.Scene.prototype.fgsChanged = function(selected, pos) {
+app.Scene.prototype.fgsChanged_ = function(selected, pos) {
   // Start change animation with gears rotating
-  clearTimeout(this.fgsTimer);
-  this.fgsTimer = setTimeout(function() {
+  window.clearTimeout(this.fgsTimer);
+  this.fgsTimer = window.setTimeout(function() {
     this.elem.removeClass('fgs-active');
   }.bind(this), 500);
   this.elem.addClass('fgs-active');
@@ -87,14 +88,15 @@ app.Scene.prototype.fgsChanged = function(selected, pos) {
 
 /**
  * Is notified when background changes.
+ * @private
  * @param {number} selected The number of the selected background.
  * @param {number} pos The position of the selected background.
  *                     Multiply with width to get position.
  */
-app.Scene.prototype.bgsChanged = function(selected, pos) {
+app.Scene.prototype.bgsChanged_ = function(selected, pos) {
   // Start change animation with gears rotating
-  clearTimeout(this.bgsTimer);
-  this.bgsTimer = setTimeout(function() {
+  window.clearTimeout(this.bgsTimer);
+  this.bgsTimer = window.setTimeout(function() {
     this.elem.removeClass('bgs-active');
   }.bind(this), 500);
   this.elem.addClass('bgs-active');

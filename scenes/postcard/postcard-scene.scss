@@ -19,6 +19,21 @@ $name: 'module-postcard';
   right: 0;
   top: 0;
 
+  .board.board--scene.board--scene .back {
+    border-radius: none;
+  }
+
+  .board .sharebutton {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 48px;
+    text-align: center;
+    width: 96px;
+    border: 0;
+  }
+
   .plusInfo {
     display: none;
   }

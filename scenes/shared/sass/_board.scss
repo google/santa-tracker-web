@@ -312,9 +312,15 @@ $board-actions-height-md: 54px;
 
     .board-button {
       border-radius: 22px 0 0 22px;
-      height: 44px;
-      line-height: 44px;
+      height: 45px;
+      line-height: 45px;
       width: 140px;
+      border: 0;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
     }
 
     // Tablet UI
@@ -367,14 +373,9 @@ $board-actions-height-md: 54px;
       }
 
       .board-button {
-        border: 0;
-        border-radius: 0 0 4px 4px;
-        color: #fff;
-        font-size: 18px;
-        font-weight: 700;
         height: 52px;
         line-height: 52px;
-        text-align: center;
+        border-radius: 0 0 4px 4px;
         width: 204px;
       }
     }

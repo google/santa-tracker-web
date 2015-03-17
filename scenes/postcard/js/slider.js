@@ -2,7 +2,7 @@ goog.provide('app.Slider');
 
 /**
  * Slides the background and the foreground.
- * @param {Element} elem The slider element.
+ * @param {!Element} elem The slider element.
  * @param {{track: Element, changed: function,
  *     max: number, width: number, size: number,
  *     horizontal: bool}} options
@@ -17,9 +17,7 @@ app.Slider = function(elem, options) {
 
   // Keep track of children ordering in an array
   this.children = [].slice.call(this.elem.children());
-  for (var i = 0, child; child = this.children[i]; i++) {
-    this.children[i] = $(child);
-  }
+  this.children = this.children.map(function(x) { return $(x); });
 
   // Keep track of what fg and bg is selected
   this.center = Math.ceil(this.max / 2) - 1;
@@ -34,8 +32,8 @@ app.Slider = function(elem, options) {
 
 /**
  * Calculates position after adding/substracting a number.
- * @param  {number} change This number gets added to the selected position.
- * @return {number}        The position.
+ * @param {number} change This number gets added to the selected position.
+ * @return {number} The position.
  */
 app.Slider.prototype.getPosition = function(change) {
   var number = this.selected + change;
@@ -52,8 +50,7 @@ app.Slider.prototype.getPosition = function(change) {
 
 /**
  * Set positions to trigger animations.
- * @param  {number} change How many slides to animate,
- *                         negative numbers go left.
+ * @param {number} change How many slides to animate, negative numbers go left.
  * @private
  */
 app.Slider.prototype.update_ = function(change) {
@@ -64,10 +61,9 @@ app.Slider.prototype.update_ = function(change) {
 };
 
 /**
- * Balance childrens to allow endless looping
+ * Balance children to allow endless looping
+ * @param {number} change How many slides to animate, negative numbers go left.
  * @private
- * @param  {number} change How many slides to animate,
- *                         negative numbers go left.
  */
 app.Slider.prototype.balance_ = function(change) {
   var elems, alignment = this.horizontal ? 'left' : 'top';
@@ -98,8 +94,7 @@ app.Slider.prototype.balance_ = function(change) {
 
 /**
  * Slide slider by a given change
- * @param  {number} change How many slides to animate,
- *                         negative numbers go left.
+ * @param {number} change How many slides to animate, negative numbers go left.
  */
 app.Slider.prototype.slide = function(change) {
   this.selected = this.getPosition(change);
@@ -110,8 +105,7 @@ app.Slider.prototype.slide = function(change) {
 
 /**
  * Update the UI.
- * @param  {number} change How many slides to animate,
- *                         negative numbers go left.
+ * @param {number} change How many slides to animate, negative numbers go left.
  */
 app.Slider.prototype.draw = function(change) {
   // Balance slides before animating

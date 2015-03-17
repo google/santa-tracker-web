@@ -3,7 +3,7 @@ goog.provide('app.Picker');
 /**
  * Manages the background and foreground picker.
  * @constructor
- * @param {Scene} scene The scene object.
+ * @param {!Scene} scene The scene object.
  */
 app.Picker = function(scene) {
   this.elem = scene.elem;
