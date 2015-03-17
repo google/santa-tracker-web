@@ -17,9 +17,9 @@ goog.require('goog.style');
  * The main view for the maze game. Manages the gameplay viewport and
  * graphics which appear to the right of the blockly scene.
  *
- * @param {Element} el root .scene element.
- * @param {app.Game} game instance.
- * @param {app.Blockly} blockly wrapper.
+ * @param {!Element} el root .scene element.
+ * @param {!app.Game} game instance.
+ * @param {!app.Blockly} blockly wrapper.
  * @constructor
  */
 app.Scene = function(el, game, blockly) {
@@ -169,8 +169,6 @@ app.Scene.prototype.createWorld_ = function() {
     }
   }
 
-  var that = this;
-
   if (this.squares_.length) {
     this.map_.iterateTiles(this.level.minY - 1, Math.min(existingMin, this.level.maxY + 1),
                            this.createSquare_);
@@ -246,7 +244,7 @@ app.Scene.prototype.setLevel = function(level) {
 
   // Show the scene in portrait, then hide it after 3 seconds.
   this.portraitToggleScene(true);
-  setTimeout(this.portraitToggleScene.bind(this, false), 3000);
+  window.setTimeout(this.portraitToggleScene.bind(this, false), 3000);
 };
 
 /**
@@ -498,7 +496,7 @@ app.Scene.prototype.onClickRun_ = function() {
 
   if (this.portraitMode_ && !this.isSceneVisibleInPortrait_()) {
     this.portraitToggleScene(true);
-    setTimeout(this.blockRunner_.execute.bind(this.blockRunner_),
+    window.setTimeout(this.blockRunner_.execute.bind(this.blockRunner_),
         app.Constants.SCENE_TOGGLE_DURATION);
   } else {
     this.blockRunner_.execute();

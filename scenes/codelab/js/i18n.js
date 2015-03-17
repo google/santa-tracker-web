@@ -2,7 +2,7 @@ goog.provide('app.I18n');
 
 /**
  * A simple cache of translations.
- * @type {Object.<string>}
+ * @type {Object<string>}
  * @private
  */
 app.I18n.CACHE_ = {};

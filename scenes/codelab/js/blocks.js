@@ -24,7 +24,7 @@ app.blocks.miniBlockXml = function(type) {
  * Utility function to define a block.
  * @param {string} type of block to create
  * @param {Object.<string>} attrs map of block attributes
- * @param {Object.<string>=} fields map of field keys to values
+ * @param {Object.<string>} fields map of field keys to values
  * @param {string} children blocks to run as DO statement.
  * @return {string} XML of block definition
  */

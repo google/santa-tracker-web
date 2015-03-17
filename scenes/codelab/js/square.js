@@ -8,7 +8,7 @@ goog.require('goog.style');
 
 /**
  * Abstract base-class which represents a square on the maze.
- * @param {app.Scene} scene which owns this square.
+ * @param {!app.Scene} scene which owns this square.
  * @constructor
  */
 app.Square = function(scene) {
@@ -43,7 +43,7 @@ app.Square.prototype.onDispose = function() {
 
 /**
  * Draws an empty square on the maze.
- * @param {app.Scene} scene which owns this square.
+ * @param {!app.Scene} scene which owns this square.
  * @constructor
  */
 app.EmptySquare = function(scene) {
@@ -57,7 +57,7 @@ app.shared.pools.mixin(app.EmptySquare);
 
 /**
  * Draws a tree square on the maze.
- * @param {app.Scene} scene which owns this square.
+ * @param {!app.Scene} scene which owns this square.
  * @constructor
  */
 app.TreeSquare = function(scene) {
@@ -77,7 +77,7 @@ app.shared.pools.mixin(app.TreeSquare);
 
 /**
  * An empty square which has a special graphic on top of it.
- * @param {app.Scene} scene which owns this square.
+ * @param {!app.Scene} scene which owns this square.
  * @constructor
  */
 app.DecoratedSquare = function(scene) {
@@ -95,7 +95,8 @@ app.shared.pools.mixin(app.DecoratedSquare);
 
 /**
  * Map from tile types to decoration names.
- * @type {object}
+ * @type {!Object<app.TileType, string>}
+ * @const
  */
 app.DecoratedSquare.DECORATIONS = {};
 app.DecoratedSquare.DECORATIONS[app.TileType.SLED] = 'sled';

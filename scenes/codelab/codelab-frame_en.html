@@ -154,12 +154,12 @@
         I18nMsg.messagesPath = '../../_messages/';
 
         // Wait for i18n initialisation. Bad race-condition, should we add an event?
-        setTimeout(function() {
+        window.setTimeout(function() {
           window.game = new app.Game(document.getElementById('module-codelab'));
         }, 100);
       });
     } else {
-    window.game = new app.Game(document.getElementById('module-codelab'));
+      window.game = new app.Game(document.getElementById('module-codelab'));
     }
     </script>
 

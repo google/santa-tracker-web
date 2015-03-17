@@ -6,6 +6,7 @@ goog.require('app.Blockly');
 goog.require('app.Constants');
 goog.require('app.Result');
 goog.require('app.Scene');
+goog.require('app.SceneTutorial');
 goog.require('app.levels');
 goog.require('app.monkeypatches');
 goog.require('app.shared.FrameRPC');
@@ -13,8 +14,7 @@ goog.require('app.shared.utils');
 
 /**
  * Main game class
- * @param {Element} elem An DOM element which wraps the game.
- * @author aranja@aranja.com
+ * @param {!Element} elem An DOM element which wraps the game.
  * @constructor
  * @export
  */
@@ -48,6 +48,7 @@ app.Game = function(elem) {
  */
 app.Game.prototype.dispose_ = function() {
   app.shared.utils.cancelAnimFrame(this.frameId);
+  this.tutorial_.dispose();
   this.scene.dispose();
 };
 

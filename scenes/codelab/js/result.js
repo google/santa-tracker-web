@@ -2,8 +2,8 @@ goog.provide('app.Result');
 
 /**
  * Level result display.
- * @param {Element} el dom element for this result.
- * @param {app.Game} game instance to handle user response.
+ * @param {!Element} el dom element for this result.
+ * @param {!app.Game} game instance to handle user response.
  * @constructor
  */
 app.Result = function(el, game) {
