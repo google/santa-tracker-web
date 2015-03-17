@@ -1,0 +1,553 @@
+##{$name} {
+  .Tool-wrapper {
+    background: #9EC847;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: 5px 5px 20px -7px rgba(0, 0, 0, .23);
+    box-sizing: border-box;
+    left: 20px;
+    min-height: 300px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 208px;
+  }
+
+  .Tools {
+    box-sizing: border-box;
+    max-height: 283px;
+    min-height: 100px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .Tool-container {
+    background-color: #96BE43;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 154px;
+    margin: 0 auto;
+    position: relative;
+    width: 102px;
+
+    border-right: 1px solid #7db249;
+    border-bottom: 1px solid #7db249;
+
+    &:nth-child(3n) {
+      border-right: 0;
+    }
+
+    &:nth-child(n+10) {
+      border-bottom: 0;
+    }
+
+    &:after {
+      clear: both;
+    }
+  }
+
+  .Tool-row {
+    &:after {
+      clear: both;
+      content: "";
+      display: block;
+    }
+
+    .Tool-container--third {
+      &:not(:last-child) {
+        border-bottom: 1px solid #7DB249;
+        border-right: 1px solid #7DB249;
+      }
+
+      &:last-child {
+        border-bottom: 1px solid #7DB249;
+      }
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  .Tool-container--quarter {
+    width: 25%;
+    height: 78px;
+  }
+  
+  .Tool-container--third {
+    width: 33.3%;
+    height: 70px;
+  }
+
+  .Tool-container--half {
+    width: 50%;
+    height: 156px;
+  }
+
+  .Tool {
+    pointer-events: none;
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+  }
+
+  .Tool-shadow {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+  }
+
+  .Tool-backContainer {
+    background-color: #96BE43;
+    height: 45px;
+    width: 100%;
+  }
+
+  .Tool-header-container {
+    height: 153px;
+
+    position: relative;
+  }
+
+  .Tool-header {
+    background: url('img/header-icon.svg') no-repeat;
+    background-size: contain;
+    height: 111px;
+    width: 109px;
+
+    @include center();
+  }
+
+  .Slider {
+    height: 100%;
+    outline: none;
+  }
+
+  .goog-slider-vertical,
+  .goog-slider-horizontal {
+    left: -1px;
+    overflow: hidden;
+    position: relative;
+    top: 10px;
+    user-select: none;
+    width: 177px;
+    z-index: 2;
+  }
+
+  .Slider-thumb {
+    position: absolute;
+    transition: left .1s ease-out;
+  }
+
+  .Slider-thumb--scale {
+    background-color: #aa46bb;
+    border-radius: 15px;
+    box-shadow: 0 2px 0 #8d23a9;
+    cursor: pointer;
+    height: 20px;
+    transform: scale(.4);
+    transition: transform .2s ease-out;
+    transition-delay: .01s;
+  }
+
+  .goog-slider-vertical .goog-slider-thumb {
+    left: 0;
+    height: 20px;
+    width: 100%;
+  }
+
+  .goog-slider-horizontal .goog-slider-thumb {
+    top: 0;
+    width: 20px;
+    height: 100%;
+  }
+
+  // Custom styles for game
+  .Tool-bottomContainer {
+    height: 80px;
+    position: relative;
+  }
+  
+  .Tool-sliderContainer {
+    background: url('img/tools/slider-size-bg.svg') no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+    bottom: 0;
+    height: 42px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 182px;
+  }
+  
+  .goog-slider-thumb,
+  .Slider-thumb {
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    width: 20px;
+  }
+
+  .Tool--mobileOnly {
+    display: none;
+  }
+
+  .Tool--selected {
+    background-size: contain !important;
+    position: fixed;
+    z-index: 3;
+    transform-origin: 4% 100% 0;
+  }
+
+  .Tool-bounce--activate {
+  }
+
+  .Tool-crayon--red {
+    @include makeCrayon('img/tools/crayon-red.svg');
+
+    &.Tool--selected {
+      width: 176px;
+      height: 176px;
+    }
+  }
+
+  .Tool-crayon--orange {
+    @include makeCrayon('img/tools/crayon-orange.svg');
+
+    &.Tool--selected {
+      width: 176px;
+      height: 176px;
+    }
+  }
+
+  .Tool-crayon--yellow {
+    @include makeCrayon('img/tools/crayon-yellow.svg');
+
+    &.Tool--selected {
+      width: 176px;
+      height: 176px;
+    }
+  }
+  
+  .Tool-crayon--light-green {
+    @include makeCrayon('img/tools/crayon-light-green.svg');
+
+    &.Tool--selected {
+      width: 176px;
+      height: 176px;
+    }
+  }
+
+  .Tool-crayon--green {
+    @include makeCrayon('img/tools/crayon-green.svg');
+
+    &.Tool--selected {
+      width: 176px;
+      height: 176px;
+    }
+  }
+
+  .Tool-crayon--light-blue {
+    @include makeCrayon('img/tools/crayon-light-blue.svg');
+
+    &.Tool--selected {
+      width: 176px;
+      height: 176px;
+    }
+  }
+
+  .Tool-crayon--blue {
+    @include makeCrayon('img/tools/crayon-blue.svg');
+
+    &.Tool--selected {
+      width: 176px;
+      height: 176px;
+    }
+  }
+
+  .Tool-crayon--light-purple {
+    @include makeCrayon('img/tools/crayon-light-purple.svg');
+
+    &.Tool--selected {
+      width: 176px;
+      height: 176px;
+    }
+  }
+  
+  .Tool-crayon--violet {
+    @include makeCrayon('img/tools/crayon-violet.svg');
+
+    &.Tool--selected {
+      width: 176px;
+      height: 176px;
+    }
+  }
+
+  .Tool-crayon--purple {
+    @include makeCrayon('img/tools/crayon-purple.svg');
+
+    &.Tool--selected {
+      width: 176px;
+      height: 176px;
+    }
+  }
+
+  .Tool-crayon--black {
+    @include makeCrayon('img/tools/crayon-black.svg');
+
+    &.Tool--selected {
+      width: 176px;
+      height: 176px;
+    }
+  }
+
+  .Tool-crayon--brown {
+    @include makeCrayon('img/tools/crayon-brown.svg');
+
+    &.Tool--selected {
+      width: 176px;
+      height: 176px;
+    }
+  }
+
+  .Tool-crayon--rainbow {
+    @include makeCrayon('img/tools/crayon-rainbow.svg');
+
+    &.Tool--selected {
+      width: 176px;
+      height: 176px;
+    }
+  }
+
+  .Tool-crayon--eraser {
+    @include makeCrayon('img/tools/eraser.svg');
+
+    &.Tool--selected {
+      width: 176px;
+      height: 176px;
+    }
+  }
+
+  .Tool-shadow--crayon {
+    background-image: url(img/tools/shadow-crayon.svg);
+  }
+
+  .Tool-shadow--eraser {
+    background-image: url(img/tools/shadow-eraser.svg);
+  }
+}
+
+@media (max-width: 1024px) {
+  ##{$name} {
+    .Tool-wrapper {
+      bottom: 0;
+      min-height: 0;
+      right: 20px;
+    }
+
+    .Tool-panel {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    .Tools {
+      align-content: flex-start;
+      align-items: flex-start;
+      bottom: 0;
+      display: flex;
+      flex-wrap: wrap-reverse;
+      justify-content: space-between;
+      height: auto;
+      min-height: 0;
+      overflow: visible;
+      position: fixed;
+      right: 0;
+      z-index: 2;
+      margin-left: 70px;
+    }
+
+    .Tool-backContainer,
+    .Tool-header-container,
+    .Tool-bottomContainer {
+      display: none;
+    }
+
+    .Tool-container {
+      border-bottom: 0 !important;
+      border-right: 1px solid #7db249 !important;
+      display: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .Tool--mobile {
+      display: block !important;
+    }
+
+    .Tool--mobileOnly {
+      display: block !important;
+    }
+
+    .Tool-row {
+      display: inline-block;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    .Tool-container--third {
+      height: 70px;
+      width: 68px;
+    }
+
+    .crayon-padding {
+      padding-top: 15px;
+
+      &:last-child {
+        margin-bottom: 40px;
+      }
+    }
+
+    .crayon-size-container {
+      background-color: #7bb241;
+      bottom: 38px;
+      position: absolute;
+      width: 100%;
+      z-index: -1;
+    }
+
+    .crayon-size {
+      background-color: rgba(84, 138, 36, .45);
+      border-radius: 50%;
+      display: flex;
+      float: none;
+      margin: 0 auto;
+      transition: transform .3s ease;
+
+      &.active {
+        background-color: #aa4cba;
+        transform: scale(1);
+      }
+    }
+
+    .crayon-size--lg {
+      height: 20px;
+      width: 20px;
+    }
+
+    .crayon-size--md {
+      height: 15px;
+      width: 15px;
+    }
+
+    .crayon-size--sm {
+      height: 10px;
+      width: 10px;
+    }
+
+    .crayon-size--xs {
+      height: 6px;
+      width: 6px;
+    }
+
+    .crayon-size-indicator-container {
+      align-items: center;
+      background: #96be43;
+      display: flex;
+      height: 100%;
+      justify-content: space-around;
+      position: relative;
+      z-index: 5;
+    }
+
+    .crayon-size-indicator {
+      align-self: center;
+      background-color: rgba(84, 138, 36, .45);
+      border-radius: 50%;
+      float: left;
+
+      &.active {
+        background-color: #aa4cba;
+      }
+    }
+
+    .crayon-size-indicator--xs {
+      height: 3px;
+      width: 3px;
+    }
+
+    .crayon-size-indicator--sm {
+      height: 6px;
+      width: 6px;
+    }
+
+    .crayon-size-indicator--md {
+      height: 9px;
+      width: 9px;
+    }
+
+    .crayon-size-indicator--lg {
+      height: 12px;
+      width: 12px;
+    }
+  }
+}
+
+// Stack tools on small devices
+@media (max-width: 520px) {
+  ##{$name} {
+    .crayon-size-container {
+      bottom: 55px;
+    }
+
+    .Tool-container {
+      border-bottom: 1px solid #7db249 !important;
+    }
+
+    .Tools {
+      align-content: flex-start;
+      align-items: flex-end;
+    }
+  }
+}
+
+@media (min-width: 800px) and (min-height: 690px) {
+  ##{$name} {
+    .Tool-wrapper {
+      border-radius: 0 0 5px 5px;
+      box-shadow: 1.53px 1.53px 3px rgba(0, 0, 0, 0.16);
+      left: 20px;
+      top: 0;
+      width: 208px;
+    }
+
+    /**
+     * Some of this is repeated from shared/sass/board.
+     */
+    .Tool-backContainer {
+      background: url(../shared/img/village-nav-bg.svg) 50% 100%/204px 45px no-repeat,
+          url(../shared/img/back-arrow.svg) 10px 50%/31px 31px no-repeat #72b300;
+      box-sizing: border-box;
+      color: #fff;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 400;
+      height: 45px;
+      line-height: 45px;
+      padding: 0 0 0 30px;
+      text-align: center;
+      text-decoration: none;
+      width: 100%;
+    }
+  }
+}

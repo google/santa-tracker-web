@@ -1,0 +1,82 @@
+$name: 'module-jetpack';
+$gameover-bg: #8fd7f7;
+
+@import "../shared/sass/gameover";
+@import "../shared/sass/board";
+@import "../shared/sass/tutorial";
+@import "../shared/sass/startbutton";
+
+@import "sass/background";
+@import "sass/goal";
+@import "sass/environment";
+@import "sass/items";
+@import "sass/player";
+
+##{$name} {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  .scene {
+    position: absolute;
+    left: 50%;
+    margin-left: -490px;
+    width: 980px;
+    top: 0;
+    z-index: 2;
+  }
+
+  // Pausing the game pauses all important animations.
+  &.frozen {
+    .item-present,
+    .item-candy,
+    .item-score,
+    .sparkle,
+    .fire-orange,
+    .fire-yellow,
+    .sky,
+    .player-overlay {
+      animation-play-state: paused;
+    }
+  }
+
+  .touchpad {
+    background: url(img/touchpad.png) -79px 0 no-repeat;
+    height: 258px;
+    margin-left: -125px;
+    margin-top: -125px;
+    position: absolute;
+    transform: translate3d(0, 0, 0) scale(0.6);
+    width: 255px;
+  }
+
+  /* Bigger on tablets */
+  @media (min-width: 668px) {
+    .touchpad {
+      transform: translate3d(0, 0, 0) scale(0.8);
+    }
+  }
+
+  .touchpad-nub {
+    background: url(img/touchpad.png) no-repeat;
+    height: 85px;
+    left: 49.02%;
+    margin-left: -35px;
+    margin-top: -35px;
+    position: absolute;
+    top: 48.45%;
+    width: 79px;
+  }
+
+  /**
+   * Hides the element but still keeps it composed on the GPU by translating it off-screen.
+   * By keeping things composed we get respectable performance on android browsers since
+   * the biggest overhead is in moving things to the GPU there.
+   * http://code.google.com/p/android/issues/detail?id=25147
+   */
+  .hidden {
+    transform: translate3d(0, 9999px, 0) !important;
+  }
+}

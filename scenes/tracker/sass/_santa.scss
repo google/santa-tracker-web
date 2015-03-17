@@ -1,0 +1,192 @@
+@import "compass/css3/transition";
+
+@import "../../shared/sass/_mixins.scss";
+
+$mobileBreakpoint: 668px;
+
+.santa-sleigh, .santa-presents, .santa-magic {
+  position: absolute;
+  cursor: pointer;
+  @include transform(translateZ(0));
+}
+
+.santa-presents {
+  cursor: pointer;
+  position: absolute;
+  $width: 150px;
+  $height: 144px;
+  margin-top: -$height;
+  margin-left: -($width / 2);
+  width: $width;
+  height: $height;
+
+  div {
+    visibility: hidden;
+    width: $width;
+    height: $height;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 112%;
+
+    &.active {
+      visibility: visible;
+    }
+  }
+
+  @for $i from 1 through 8 {
+    :nth-child(#{$i}) {
+      background-image: url(img/santa_presents_#{$i}.svg);
+    }
+  }
+}
+
+.santa-magic {
+  cursor: pointer;
+  position: absolute;
+  $width: 94px;
+  $height: 120px;
+  margin-top: -$height;
+  margin-left: -($width / 2);
+  width: $width;
+  height: $height;
+
+  div {
+    visibility: hidden;
+    width: $width;
+    height: $height;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 175%;
+
+    &.active {
+      visibility: visible;
+    }
+  }
+
+  $steps: 1 2 3 4 5 4 3 2 1 6 7 8 9 8 7 6;
+  @for $i from 1 through length($steps) {
+    :nth-child(#{$i}) {
+      background-image: url(img/santa_magic_#{nth($steps, $i)}.svg);
+    }
+  }
+}
+
+.santa-sleigh {
+  $height: 68px;
+  $width: 84px;
+  margin-top: -56px;
+  margin-left: -($width / 2);
+  width: $width;
+  height: $height;
+
+  &:after {
+    content: "";
+    background: url(img/santa_effects.svg) 50% 0 no-repeat;
+    position: absolute;
+    width: $width;
+    height: 44px;
+    top: 57px;
+    z-index: 1;
+  }
+
+  div {
+    visibility: hidden;
+    width: $width;
+    height: $height;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    z-index: 2;
+  }
+
+  :nth-child(1) {
+    background-image: url(img/santa_n.svg);
+  }
+
+  &.n {
+    :nth-child(1) {
+      visibility: visible;
+    }
+  }
+
+  :nth-child(2) {
+    background-image: url(img/santa_ne.svg);
+    background-size: 85% 85%;
+  }
+
+  &.ne {
+    :nth-child(2) {
+      visibility: visible;
+    }
+  }
+
+  :nth-child(3) {
+    background-image: url(img/santa_e.svg);
+  }
+
+  &.e {
+    :nth-child(3) {
+      visibility: visible;
+    }
+  }
+
+  :nth-child(4) {
+    background-image: url(img/santa_se.svg);
+  }
+
+  &.se {
+    :nth-child(4) {
+      visibility: visible;
+    }
+  }
+
+  :nth-child(5) {
+    background-image: url(img/santa_s.svg);
+  }
+
+  &.s {
+    :nth-child(5) {
+      visibility: visible;
+    }
+  }
+
+  :nth-child(6) {
+    background-image: url(img/santa_sw.svg);
+  }
+
+  &.sw {
+    :nth-child(6) {
+      visibility: visible;
+    }
+  }
+
+  :nth-child(7) {
+    background-image: url(img/santa_w.svg);
+  }
+
+  &.w {
+    :nth-child(7) {
+      visibility: visible;
+    }
+  }
+
+  :nth-child(8) {
+    background-image: url(img/santa_nw.svg);
+    background-size: 85% 85%;
+  }
+
+  &.nw {
+    :nth-child(8) {
+      visibility: visible;
+    }
+  }
+}
+
+@media (min-width: 1px) and (max-width: $mobileBreakpoint) {
+  .santa-sleigh, .santa-presents, .santa-magic {
+    @include transform(scale(0.8));
+    transform-origin: 50% 100%;
+  }
+}

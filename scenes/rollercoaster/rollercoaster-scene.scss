@@ -1,0 +1,78 @@
+$name: 'module-rollercoaster';
+
+// All sizes scaled down to 60% of illustrator size
+// The middle of the rollercoaster should be visible in a 1000x700 viewport
+$scene-width: 3839;
+$scene-middle: $scene-width / 2;
+
+//@import "../shared/sass/sceneboard";
+@import "sass/penner-easing";
+@import "sass/rollercoaster";
+@import "sass/seal";
+@import "sass/elf-waving";
+@import "sass/mountains";
+
+##{$name} {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  .scene {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: 0 0;
+  }
+
+  .anchor {
+    // We'll position everything relative to the top of the tree line
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: -500px; // move center of scene
+  }
+
+  .bg {
+    height: 930px;
+    background: #9FDDF9 url('img/gradient_60percent-01.svg') center bottom no-repeat;
+
+    // Blue sky
+    &:before {
+      background: #9FDDF9;
+      content: '';
+      position: absolute;
+      top: -99%; // -2px to compensante rounded px
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    // Blue water
+    &:after {
+      background: #00baf1;
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 5000px; // long enough
+      top: 888px;
+      left: 0;
+      z-index: 1;
+    }
+  }
+
+  .main {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -1771px;
+    margin-top: -319px;
+  }
+}
+
+@import "../shared/sass/responsive";

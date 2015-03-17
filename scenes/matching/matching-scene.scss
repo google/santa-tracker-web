@@ -1,0 +1,122 @@
+$name: 'module-matching';
+$color-blue-sky: #80c0dd;
+$gameover-bg: #b27644;
+$rotate-bg: $gameover-bg;
+
+@import "../shared/sass/levelup";
+@import "../shared/sass/gameover";
+@import "../shared/sass/board";
+@import "../shared/sass/startbutton";
+@import "../shared/sass/rotate";
+@import "../shared/sass/tutorial";
+
+@import "sass/penner-easing";
+@import "sass/house";
+@import "sass/trees";
+@import "sass/doors";
+@import "sass/cards";
+@import "sass/clouds";
+
+##{$name} {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  .scene {
+    background: $color-blue-sky;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: 0 0;
+  }
+
+  .door__nail,
+  .door__bar {
+    z-index: 2;
+  }
+
+  .door-target {
+    z-index: 11;
+  }
+
+  .start {
+    z-index: 13;
+  }
+
+  .levelup,
+  .levelup--number,
+  .levelcomplete {
+    z-index: 10;
+  }
+
+  // position everything relative to the ground level
+  .anchor {
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 300px;
+  }
+
+  .background {
+    height: 462px;
+    background: transparent url(img/mountains.svg) left bottom repeat-x;
+    margin-top: -452px;
+    width: 100%;
+  }
+
+  .sky {
+    position: absolute;
+    top: 0;
+    height: 50%;
+    width: 100%;
+  }
+
+  // Pausing the game pauses all important animations.
+  &.frozen {
+    .present,
+    .candy,
+    .item-score,
+    .sparkle,
+    .fire-orange,
+    .fire-yellow,
+    .sky {
+      animation-play-state: paused;
+    }
+  }
+
+  /**
+   * Hides the element but still keeps it composed on the GPU by translating it off-screen.
+   * By keeping things composed we get respectable performance on android browsers since
+   * the biggest overhead is in moving things to the GPU there.
+   * http://code.google.com/p/android/issues/detail?id=25147
+   */
+  .hidden {
+    transform: translate3d(0, 9999px, 0) !important;
+  }
+
+  // Custom tutorial
+  @include tutorial(mouse-matching, 'img/tutorial/mouse-matching.svg', 5);
+  @include tutorial(touch-matching, 'img/tutorial/touch-matching.svg', 5);
+}
+
+//
+// Breakpoints
+//
+
+// No clouds in small screens
+@media (max-height: 600px) {
+  ##{$name} {
+    .sky {
+      display: none;
+    }
+  }
+}
+
+@import "../shared/sass/responsive";

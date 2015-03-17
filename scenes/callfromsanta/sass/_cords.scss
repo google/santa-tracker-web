@@ -1,0 +1,250 @@
+$ease-santa-cord-moving: ease-out; // should match the cog easing
+
+##{$name} {
+  .play {
+    .cord--y {
+      > svg {
+        animation-name: #{$name}__santa-cord--y;
+      }
+    }
+
+    .cord--x {
+      > svg {
+        animation-name: #{$name}__santa-cord--x;
+      }
+    }
+
+    .cord--top > svg,
+    .cord--red-1 > svg,
+    .cord--purple-1 > svg {
+      animation-name: #{$name}__santa-cord--x--inverted;
+    }
+
+    .cord--purple-1 > svg,
+    .cord--yellow-2 > svg {
+      animation-direction: reverse;
+    }
+
+    .cord--purple-2 > svg,
+    .cord--yellow-1 > svg {
+      animation-name: #{$name}__santa-cord--y--inverted;
+    }
+
+    .cord--ear-1 > svg,
+    .cord--ear-2 > svg {
+      animation-name: #{$name}__santa-cord--y--inverted;
+      animation-direction: reverse;
+    }
+  }
+
+  .cord {
+    background-color: #c34d27;
+    display: block;
+    position: absolute;
+    left: 50%;
+    overflow: hidden;
+
+    > svg {
+      position: absolute;
+      animation-delay: $delay-santa-call;
+      animation-duration: $duration-santa-call;
+      animation-iteration-count: infinite;
+      animation-timing-function: $ease-santa-cord-moving;
+      animation-direction: normal;
+    }
+  }
+
+  // offset some cords svg to have enough to animate
+  .cord--top > svg,
+  .cord--green-1 > svg,
+  .cord--red-1 > svg,
+  .cord--purple-1 > svg {
+    margin-left: -50px;
+  }
+
+  .cord--red-green > svg,
+  .cord--yellow-1 > svg,
+  .cord--yellow-2 > svg {
+    margin-top: -50px;
+  }
+
+  .cog-medium-mask {
+    position: absolute;
+    left: 50%;
+    margin-top: -470px;
+    margin-left: -220px;
+  }
+
+  .cord--top {
+    width: 124px;
+    height: 4px;
+    margin-top: -395px;
+    margin-left: -299px;
+  }
+
+  .cord--green-1 {
+    width: 85px;
+    height: 4px;
+    margin-top: -348px;
+    margin-left: -299px;
+  }
+
+  .cord--red-1 {
+    width: 42px;
+    height: 4px;
+    margin-left: -299px;
+    margin-top: -216px;
+  }
+
+  .cord--red-green {
+    height: 135px;
+    width: 4px;
+    margin-left: -248px;
+    margin-top: -350px;
+    transform-origin: 0px 114px;
+    transform: rotate(24deg);
+  }
+
+  .cord--ear-1 {
+    width: 4px;
+    height: 140px;
+    margin-top: -228px;
+    margin-left: -209px;
+  }
+
+  .cord--ear-2 {
+    height: 96px;
+    width: 4px;
+    margin-top: -325px;
+    margin-left: -209px;
+    transform: rotate(51deg);
+    transform-origin: 0px 96px;
+  }
+
+  .cord--yellow-1 {
+    height: 139px;
+    width: 4px;
+    margin-top: -253px;
+    margin-left: 170px;
+    transform: rotate(-15deg);
+  }
+
+  .cord--yellow-2 {
+    height: 91px;
+    width: 4px;
+    margin-top: -210px;
+    margin-left: 199px;
+  }
+
+  .cord--purple-1 {
+    width: 38px;
+    height: 4px;
+    margin-top: -60px;
+    margin-left: 264px;
+  }
+
+  .cord--purple-2 {
+    margin-top: -200px;
+    margin-left: 255px;
+    height: 127px;
+    width: 4px;
+  }
+
+  .ear-mask--cord-left {
+    margin-left: -162px;
+    height: 68px;
+    overflow: hidden;
+  }
+
+  .ear-mask--cord-right {
+    margin-left: 123px;
+  }
+}
+
+@keyframes #{$name}__santa-cord--y {
+  0% {
+    transform: translateY(0px);
+  }
+
+  25% {
+    transform: translateY(20px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(40px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes #{$name}__santa-cord--y--inverted {
+  0% {
+    transform: translateY(0px);
+  }
+
+  25% {
+    transform: translateY(-40px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes #{$name}__santa-cord--x {
+  0% {
+    transform: translateX(0px);
+  }
+
+  25% {
+    transform: translateX(20px);
+  }
+
+  50% {
+    transform: translateX(0px);
+  }
+
+  75% {
+    transform: translateX(40px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes #{$name}__santa-cord--x--inverted {
+  0% {
+    transform: translateX(0px);
+  }
+
+  25% {
+    transform: translateX(-20px);
+  }
+
+  50% {
+    transform: translateX(0px);
+  }
+
+  75% {
+    transform: translateX(-40px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}

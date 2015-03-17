@@ -1,0 +1,185 @@
+##{$name} {
+  .Background {
+    @extend .fill;
+  }
+
+  .Background-mountains {
+    background-color: #0088E1;
+    background-image: url(img/background-mountains.svg);
+    background-repeat: repeat-x;
+    background-position: 50% 100%;
+    background-size: 1599em 373em;
+    height: 50%;
+    width: 100%;
+  }
+
+  .Background-trees {
+    background-image: url(img/background-trees.svg);
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    background-size: 1695.6em 564.6em;
+    height: 100%;
+    bottom: calc(50% - 83em);
+    width: 100%;
+    position: absolute;
+  }
+
+  .Background-snow {
+    background-color: #ffffff;
+    width: 100%;
+    height: 60em;
+  }
+
+  .Background-stageBackdrop {
+    background-color: #92CBF7;
+    border-radius: 10em;
+    // clip-path: url("#backdrop");
+    height: 540em;
+    left: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    transform: translate(-49%, -82%);
+    width: 1196em;
+  }
+
+  .Background-circle {
+    background-color: #ffffff;
+    opacity: 0.3;
+    transform: translateZ(0);
+    position: absolute;
+  }
+
+  .Background-circle:nth-of-type(1) {
+    animation: #{$name}-backgroundLight 6s linear infinite forwards;
+    transform-origin: 229em 12em;
+    left: 167em;
+    top: 139em;
+    height: 200em;
+    width: 200em;
+    border-radius: 100em;
+  }
+
+  .Background-circle:nth-of-type(2) {
+    animation: #{$name}-backgroundLight 4.14s linear infinite forwards;
+    transform-origin: 100em 100em;
+    left: 34em;
+    top: 113em;
+    height: 414em;
+    width: 414em;
+    border-radius: 207em;
+  }
+
+  .Background-circle:nth-of-type(3) {
+    animation: #{$name}-backgroundLight 1.6s linear infinite forwards;
+    transform-origin: 100em 100em;
+    left: 534em;
+    top: 24em;
+    height: 166em;
+    width: 166em;
+    border-radius: 83em;
+  }
+
+  .Background-circle:nth-of-type(4) {
+    animation: #{$name}-backgroundLight 3.74s linear infinite forwards;
+    transform-origin: 100em 100em;
+    left: 834em;
+    top: 124em;
+    height: 374em;
+    width: 374em;
+    border-radius: 187em;
+  }
+
+  .Background-circle:nth-of-type(5) {
+    animation: #{$name}-backgroundLight 1.8s linear infinite forwards;
+    transform-origin: 100em 100em;
+    left: 724em;
+    top: 254em;
+    height: 180em;
+    width: 180em;
+    border-radius: 90em;
+  }
+
+  .Background-circle:nth-of-type(6) {
+    animation: #{$name}-backgroundLight 3s linear infinite forwards;
+    transform-origin: 100em 100em;
+    left: 621em;
+    top: 126em;
+    height: 300em;
+    width: 300em;
+    border-radius: 150em;
+  }
+
+  .Background-stage--top {
+    background-color: #555555;
+    width: 100%;
+    height: 163em;
+  }
+
+  .Background-stage--front {
+    background-color: #424242;
+    width: 100%;
+    height: 175em;
+  }
+
+  .Background-floor {
+    background-color: #ffffff;
+    width: 100%;
+    height: 50%;
+  }
+
+  .Background-stage {
+    @extend .fill;
+    background-image: url(img/stage.svg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 1608.5em 938.9em;
+  }
+
+  .Background-crowd {
+    background-image: url(img/crowd.svg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: calc(50% + 240em);
+    height: 355.7em;
+    position: absolute;
+    transform: translate3d(0, 0, 0);
+    width: 1800em;
+  }
+
+  .Background-crowd1 {
+    background-image: url(img/crowd1.svg);
+    animation: #{$name}-jump 0.6s ease forwards infinite;
+  }
+
+  .Background-crowd2 {
+    background-image: url(img/crowd2.svg);
+    animation: #{$name}-jump 0.65s ease forwards infinite;
+  }
+}
+
+@keyframes #{$name}-jump {
+  0%, 80%, 100% {
+    transform: none;
+    animation-timing-function: ease-out;
+  }
+  40% {
+    transform: translate3d(0, -10em, 0);
+    animation-timing-function: ease-in;
+  }
+}
+
+@keyframes #{$name}-backgroundLight {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(8%, -12%) rotate(180deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}

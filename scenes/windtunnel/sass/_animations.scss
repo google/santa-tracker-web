@@ -1,0 +1,112 @@
+@keyframes #{$name}-hover {
+  0% {
+    transform: translateY(-2px);
+  }
+
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes #{$name}-thread {
+  0% {
+    transform: rotateZ(10deg);
+  }
+
+  100% {
+    transform: rotateZ(-10px);
+  }
+}
+
+@keyframes #{$name}-fanArrow {
+  0% {
+    transform: rotateZ(-30deg);
+  }
+
+  20% {
+    transform: rotateZ(-10deg);
+  }
+
+  40% {
+    transform: rotateZ(-30deg);
+  }
+
+  60% {
+    transform: rotateZ(10deg);
+  }
+
+  80% {
+    transform: rotateZ(-10deg);
+  }
+
+  100% {
+    transform: rotateZ(30deg);
+  }
+}
+
+@keyframes #{$name}-snow {
+  0% {
+    background-position: center 0, center 0, center 0, center 0;
+  }
+
+  100% {
+    background-position: center 150px, center 100px, center 80px, center 66px;
+  }
+}
+
+@keyframes #{$name}-spin {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+
+@keyframes #{$name}-lights {
+  0% {
+    background-position: 0 0;
+  }
+
+  20% {
+    background-position: -62px 0;
+  }
+
+  40% {
+    background-position: -124px 0;
+  }
+
+  60% {
+    background-position: 0 0;
+  }
+
+  80% {
+    background-position: -62px 0;
+  }
+}
+
+@keyframes #{$name}-consoleGraph {
+  0% {
+    background-position: 0 center;
+  }
+
+  100% {
+    background-position: -55px center;
+  }
+}
+
+@keyframes #{$name}-consoleMeters {
+  0% {
+    background-position: 0 0;
+  }
+
+  33% {
+    background-position: -69px 0;
+  }
+
+  66% {
+    background-position: -69px * 2 0;
+  }
+}

@@ -1,0 +1,441 @@
+##{$name} {
+  .Tools {
+    bottom: 0;
+    position: fixed;
+    right: 0;
+  }
+
+  .Tools--scrollable {
+    background-color: #B444BB;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .Tool-container {
+    border: 1px solid #AD35B6;
+    box-sizing:border-box;
+    cursor: pointer;
+    display: none;
+    height: 48px;
+    position: relative;
+    width: 48px;
+  }
+
+  .Tool--mobile {
+    display: initial;
+  }
+
+  .Tool {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+  }
+
+  .Tool {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .Tool--selected {
+    background-size: contain !important;
+    position: fixed;
+    z-index: 1;
+  }
+
+  .Tool-buttons {
+    display: flex;
+  }
+
+  .Tool-button {
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 48px;
+    text-align: center;
+    width: 96px;
+  }
+
+  .Tool-clipper {
+    background-image: url(img/tools/clipper.svg);
+  }
+
+  .Tool-hairdryer {
+    background-image: url(img/tools/hairdryer--left.svg);
+  }
+
+  .Tool-hairdryer--center {
+    background-image: url(img/tools/hairdryer--center.svg);
+  }
+
+  .Tool-hairgrow {
+    background-image: url(img/tools/hairgrow.svg);
+  }
+
+  .Tool-hairclean {
+    background-image: url(img/tools/hairclean.svg);
+  }
+
+  .Tool-spray--red {
+    background-image: url(img/tools/spray--red.svg);
+  }
+
+  .Tool-spray--orange {
+    background-image: url(img/tools/spray--orange.svg);
+  }
+
+  .Tool-spray--yellow {
+    background-image: url(img/tools/spray--yellow.svg);
+  }
+
+  .Tool-spray--green {
+    background-image: url(img/tools/spray--green.svg);
+  }
+
+  .Tool-spray--cyan {
+    background-image: url(img/tools/spray--cyan.svg);
+  }
+
+  .Tool-spray--purple {
+    background-image: url(img/tools/spray--purple.svg);
+  }
+
+  .Tool-spray--pink {
+    background-image: url(img/tools/spray--pink.svg);
+  }
+
+  .Tool-spray--blue {
+    background-image: url(img/tools/spray--blue.svg);
+  }
+
+  .Tool-decoration--snowman {
+    background-image: url(img/tools/decorations/snowman.svg);
+  }
+
+  .Tool-decoration--bauble {
+    background-image: url(img/tools/decorations/bauble.svg);
+  }
+
+  .Tool-decoration--bow {
+    background-image: url(img/tools/decorations/bow.svg);
+  }
+
+  .Tool-decoration--holly {
+    background-image: url(img/tools/decorations/holly.svg);
+  }
+
+  .Tool-clipper {
+    &.Tool--selected {
+      width: 80em;
+      height: 172em;
+    }
+  }
+
+  .Tool-hairdryer {
+    &.Tool--selected {
+      height: 257em;
+      width: 221em;
+    }
+  }
+
+  .Tool-hairdryer--center {
+    height: 260em;
+    width: 143em;
+  }
+
+  .Tool--left {
+    transform: scaleX(1);
+  }
+
+  .Tool--right {
+    transform: scaleX(-1);
+  }
+
+  .Tool-hairgrow {
+    &.Tool--selected {
+      height: 161em;
+      width: 140em;
+    }
+  }
+
+  .Tool-hairclean {
+    &.Tool--selected {
+      height: 175em;
+      width: 115em;
+    }
+  }
+
+  .Tool-spray {
+    &.Tool--selected {
+      height: 196em;
+      width: 93em;
+    }
+  }
+
+  .Tool-decoration--snowman {
+    &.Tool--selected {
+      height: 138em;
+      width: 84em;
+    }
+  }
+
+  .Tool-decoration--bauble {
+    &.Tool--selected {
+      height: 128em;
+      width: 75em;
+    }
+  }
+
+  .Tool-decoration--bow {
+    &.Tool--selected {
+      height: 94em;
+      width: 127em;
+    }
+  }
+
+  .Tool-decoration--holly {
+    &.Tool--selected {
+      height: 138em;
+      width: 120em;
+    }
+  }
+}
+
+@media (min-width: 800px) and (min-height: 690px) {
+  ##{$name} {
+    .Tools {
+      border-radius: 0 0 5px 5px;
+      box-shadow: 1.53px 1.53px 3px rgba(0, 0, 0, 0.16);
+      height: 45px + 2 * 156px + 3 * 78px;
+      left: 20px;
+      top: 0;
+      width: 208px;
+    }
+
+    /**
+     * Some of this is repeated from shared/sass/board.
+     */
+    .Tool-backContainer {
+      background: url(../shared/img/village-nav-bg.svg) 50% 100%/204px 45px no-repeat,
+          url(../shared/img/back-arrow.svg) 10px 50%/31px 31px no-repeat #B444BB;
+      box-sizing: border-box;
+      color: #fff;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 400;
+      height: 45px;
+      line-height: 45px;
+      padding: 0 0 0 30px;
+      text-align: center;
+      text-decoration: none;
+      width: 100%;
+    }
+
+    .Tool-container {
+      display: block;
+      height: 156px;
+      width: 104px;
+
+      &--small {
+        width: 52px;
+        height: 78px;
+      }
+    }
+
+    .Tool-shadow {
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: 90% 90%;
+    }
+
+    .Tool--mobileOnly {
+      display: none;
+    }
+
+    .Tool-clipper {
+      background-size: 47px 99px;
+    }
+
+    .Tool-hairdryer {
+      background-size: 84px 98px;
+    }
+
+    .Tool-hairgrow {
+      background-size: 85px 98px;
+    }
+
+    .Tool-hairclean {
+      background-size: 69px 105px;
+    }
+
+    .Tool-spray {
+      background-size: 27px 56px;
+    }
+
+    .Tool-decoration--snowman {
+      background-size: 33px 54px;
+    }
+
+    .Tool-decoration--bauble {
+      background-size: 27px 46px;
+    }
+
+    .Tool-decoration--bow {
+      background-size: 41px 31px;
+    }
+
+    .Tool-decoration--holly {
+      background-size: 39px 45px;
+    }
+
+    .Tool-animation {
+      display: none;
+      position: absolute;
+    }
+
+    .Tool-hairgrow--animate {
+      background-image: url(img/sprites/hairgrow.png);
+      background-repeat: no-repeat;
+      height: 350px;
+      left: -50px;
+      top: -140px;
+      width: 350px;
+    }
+
+    .Tool-hairclean--animate {
+      background-image: url(img/sprites/hairclean.png);
+      background-repeat: no-repeat;
+      height: 150px;
+      left: 20px;
+      top: -60px;
+      width: 230px;
+    }
+
+    .Tool-clipper--animate {
+      background-image: url(img/sprites/clipper.png);
+      background-repeat: no-repeat;
+      height: 150px;
+      left: -70px;
+      top: -80px;
+      width: 230px;
+    }
+
+    .Tool-shadow {
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+    }
+
+    .Tool-shadow--clipper {
+      background-size: 46px 98px;
+    }
+
+    .Tool-shadow--hairgrow {
+      background-size: 84px 97px;
+    }
+
+    .Tool-shadow--hairclean {
+      background-size: 68px 104px;
+    }
+
+    .Tool-shadow--hairdryer {
+      background-size: 83px 97px;
+    }
+
+    .Tool-shadow--spray {
+      background-size: 26px 55px;
+    }
+
+    .Tool-shadow--snowman {
+      background-size: 32px 53px;
+      border-radius: 0 0 0 5px;
+    }
+
+    .Tool-shadow--bauble {
+      background-size: 27px 45px;
+    }
+
+    .Tool-shadow--bow {
+      background-size: 40px 30px;
+    }
+
+    .Tool-shadow--holly {
+      background-size: 38px 44px;
+      border-radius: 0 0 5px 0;
+    }
+
+    .Tool-shadow--clipper {
+      background-image: url(img/tools/shadows/clipper.svg);
+    }
+
+    .Tool-shadow--hairgrow {
+      background-image: url(img/tools/shadows/hairgrow.svg);
+    }
+
+    .Tool-shadow--hairclean {
+      background-image: url(img/tools/shadows/hairclean.svg);
+    }
+
+    .Tool-shadow--hairdryer {
+      background-image: url(img/tools/shadows/hairdryer.svg);
+    }
+
+    .Tool-shadow--spray {
+      background-image: url(img/tools/shadows/spray.svg);
+    }
+
+    .Tool-shadow--snowman {
+      background-image: url(img/tools/shadows/snowman.svg);
+    }
+
+    .Tool-shadow--bauble {
+      background-image: url(img/tools/shadows/bauble.svg);
+    }
+
+    .Tool-shadow--bow {
+      background-image: url(img/tools/shadows/bow.svg);
+    }
+
+    .Tool-shadow--holly {
+      background-image: url(img/tools/shadows/holly.svg);
+    }
+  }
+}
+
+@media (min-width: 800px) and (min-height: 840px) {
+  ##{$name} {
+    .Tools {
+      height: 45px + 153px + 2 * 156px + 3 * 78px;
+    }
+
+    .Tool-poleContainer {
+      background-color: #BD57C2;
+      height: 153px;
+      position: relative;
+    }
+
+    .Tool-pole {
+      background-size: contain;
+      background: url('img/pole.svg') no-repeat;
+      height: 125px;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 54px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  ##{$name} {
+    .Tools {
+      right: 50px; // make sure toolbox doesn't overlap mute button
+    }
+  }
+}

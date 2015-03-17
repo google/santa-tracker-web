@@ -1,0 +1,102 @@
+@import "../../shared/sass/_mixins.scss";
+
+@import "compass/css3/transform";
+
+@include keyframes(seaWaves) {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 1777px 0;
+  }
+}
+
+@include keyframes(seaObject) {
+  0% {
+    @include transform(translateX(20px) translateY(-5px) rotateZ(5deg));
+  }
+
+  100% {
+    @include transform(translateX(-20px) translateY(5px) rotateZ(-5deg));
+  }
+
+}
+
+
+@include keyframes(santaObject) {
+  0% {
+    @include transform(translateX(0px) translateY(-5px) rotateZ(2deg));
+  }
+
+  100% {
+    @include transform(translateX(0px) translateY(5px) rotateZ(-2deg));
+  }
+}
+
+@include keyframes(windowSnow) {
+  0% {
+    background-position: 0 0, 150px 0;
+  }
+
+  50% {
+    background-position: 0 200px, 150px 100px;
+  }
+
+  100% {
+    background-position: 0 400px, 150px 200px;
+  }
+
+}
+
+@include keyframes(meterGrowth) {
+  20% {
+    height: 20px;
+  }
+
+  50% {
+    height: 40px;
+  }
+
+  70% {
+    height: 40px;
+  }
+
+  100% {
+    height: 20px;
+  }
+
+}
+
+@include keyframes(snowmanTalk) {
+  0% {
+    background-position: 0 0;
+  }
+
+  10% {
+    background-position: -32px 0;
+  }
+
+  20% {
+    background-position: -64px 0;
+  }
+
+  30% {
+    background-position: -32px 0;
+  }
+
+  40% {
+    background-position: 0 0;
+  }
+
+}
+
+@include keyframes(coffieSteam){
+  0% {
+    background-position: 50% 0;
+  }
+
+  100% {
+    background-position: 50% -21px;
+  }
+}

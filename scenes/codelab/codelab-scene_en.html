@@ -1,0 +1,177 @@
+<link rel="import" href="../base-scene.html">
+
+<script src="codelab-scene.min.js"></script>
+
+<!--
+Codelab scene.
+
+@element codelab-scene
+@extends base-scene
+-->
+<polymer-element name="codelab-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="codelab-scene.css" no-shim>
+
+  <div id="module-codelab">
+    <iframe src="about:blank" scrolling="no" width="100%" height="100%" frameBorder="0" data-computer-love></iframe>
+    <div class="gui">
+      <div class="board board--game board--levelOnly">
+        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <div class="logo"></div>
+        <div class="score">
+          <div class="label">
+            <i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value">0</div>
+        </div>
+        <div class="level has-count">
+          <div class="label">
+            <i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value"><span class="current-level">1</span><span class="dark-text">/10</span>
+          </div>
+          <div class="level-dots">
+            <div class="level-item is-active">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">1</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">2</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">3</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">4</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">5</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">6</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">7</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">8</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">9</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">10</div>
+            </div>
+          </div>
+        </div>
+        <div class="time">
+          <div class="label">
+            <i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value"><span class="minutes dark-text">00</span><span class="dark-text"> : </span><span class="seconds">00</span></div>
+          <div class="tracker">
+            <div class="remaining">
+              <!---->
+            </div>
+          </div>
+          <div class="status">
+            <!---->
+          </div>
+        </div>
+        <div class="actions">
+          <button type="button" class="restart"></button>
+          <button type="button" class="pause"></button>
+        </div>
+      </div>
+      <div class="gameover overlay is-levelOnly">
+        <div class="gameover-dialog overlay-dialog">
+          <h2 class="gameover-title">
+            <i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg>
+          </h2>
+          <div class="gameover-winner">
+            <div class="gameover-level">
+              <p class="gameover-label">
+                <i18n-msg msgid="gameover_level">PLACEHOLDER_i18n</i18n-msg>
+              </p>
+              <p class="gameover-number">0</p>
+            </div>
+          </div>
+          <div class="gameover-buttons">
+            <button type="button" class="Button Button--large gameover-play">
+              <i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg>
+            </button>
+            <a href="{{pageUrl}}#village" class="Button Button--large"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+          </div>
+          <div class="footer-promo">
+            <i18n-msg msgid="codelab-mwc-promo">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+        </div>
+      </div>
+      <div class="force-rotate portrait">
+        <div class="force-rotate-graphic"></div>
+        <div class="force-rotate-explanation">
+          <i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+  Polymer({
+    componentDir: 'scenes/codelab/',
+
+    frame: null,
+
+    onPreload: function() {
+      this.preloadSounds('computer_load_sounds', 40);
+      this.preloadImages([
+        'img/block-east.svg',
+        'img/block-north.svg',
+        'img/block-repeat.svg',
+        'img/block-south.svg',
+        'img/block-west.svg',
+        'img/jigsaw.png',
+        'img/logo.svg',
+        'img/puzzle-1.png',
+        'img/puzzle-2.png',
+        'img/tutorial/maze.gif',
+        'img/tutorial/puzzle.gif',
+        'img/tutorial/shadow.svg'
+      ]);
+    },
+    onShow: function() {
+      var module = this.$['module-codelab'];
+      this.frame = new scenes.codelab.wrapper.FrameWrapper(module, this.componentDir);
+    },
+    onHide: function() {
+      this.frame.dispose();
+      this.frame = null;
+      this.fire('sound-ambient', 'computer_end');
+    }
+  });
+
+})();
+</script>
+</polymer-element>

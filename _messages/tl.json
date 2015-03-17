@@ -1,0 +1,4571 @@
+{
+	"about-content-one": {
+		"message": "Sa Bisperas ng Pasko, ipinagmamalaki naming ipakita ang preview ng dashboard ni Santa -- ang teknolohiyang nagpapatakbo sa kanyang sleigh habang lumilibot siya sa buong mundo. Natanggap namin ang espesyal na preview na ito mula sa isa sa maraming gumagawang elf ni Santa, na nagtatrabaho nang husto sa North Pole upang matulungan si Santa sa paghahanda para sa pinakahihintay niyang araw. Ang dashboard ni Santa - itinatampok ang pinakabago at pinakamahusay sa teknolohiya ng Google Maps at paggawa ng sleigh - ay magbibigay-daan sa iyong subaybayan ang mga lugar na pinupuntahan niya sa buong mundo, at matuto rin nang kaunti tungkol sa ilang lugar na titigilan niya sa kanyang paglalakbay."
+	},
+	"about-content-three": {
+		"message": "Ginawa at binuo ng Google ang Google Maps Santa Tracker, sa tulong ng mga elf ni Santa. Kailangan mo ba ng tulong o mayroong ka pa bang tanong? Bisitahin ang aming \u003ca href=\"//support.google.com/santatracker\"\u003eHelp Center\u003c/a\u003e."
+	},
+	"about-content-two": {
+		"message": "Inanyayahan ka rin ng aming mga magiliw na elf na mamasyal sa village ni Santa habang naghahanda siya para sa kanyang paglalakbay. Kaya huwag mahiya at mamasyal sa kanyang village at maaaring makakita ka ng ilang masayang gagawin at makakilala ng ilang kawili-wiling elf."
+	},
+	"about-santa": {
+		"message": "Tungkol Dito"
+	},
+	"about_title": {
+		"message": "Welcome sa Google Maps Santa Tracker!"
+	},
+	"ae_country_name": {
+		"message": "United Arab Emirates"
+	},
+	"af_country_name": {
+		"message": "Afghanistan"
+	},
+	"al_country_name": {
+		"message": "Albania"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
+	"ar_country_name": {
+		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Arabic"
+	},
+	"ar_tradition": {
+		"message": "Sa Argentina, nagsisimula ang Pasko sa ganap na pagsapit ng hatinggabi. Sinisimulan ng maraming pamilya ang holiday sa pagdaraos ng masasayang pagdiriwang sa kanilang mga tahanan, pagbubukas ng mga regalo kasama ang kanilang mga mahal sa buhay at pagsisindi ng mga paputok pagsapit ng madaling araw."
+	},
+	"at_country_name": {
+		"message": "Austria"
+	},
+	"au_country_name": {
+		"message": "Australia"
+	},
+	"au_tradition": {
+		"message": "Ayon sa lokasyon ng Australia sa Southern Hemisphere, tag-init doon kapag Disyembre. Sa halip na mga jingle bell at cocoa, maraming Australian ang pumupunta sa beach upang ipagdiwang ang mga holiday nang may hipon na tanghalian at ilang round ng cricket."
+	},
+	"ba_country_name": {
+		"message": "Bosnia and Herzegovina"
+	},
+	"back_to_tracker": {
+		"message": "Bumalik sa Tracker"
+	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Belgium"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
+	},
+	"bg_country_name": {
+		"message": "Bulgaria"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
+	},
+	"br_country_name": {
+		"message": "Brazil"
+	},
+	"br_tradition": {
+		"message": "Nagsisimula ang mga pagdiriwang ng Pasko bago sumapit ang hatinggabi at karaniwang may malalaking pagsasalu-salo ng pamilya, pagbubukas ng regalo at pagdaraos sa 'Missa do Galo' (misa ng tandang) sa mga simbahan. Mainit man ang klimang tropikal, hindi kakaiba ang mga tema ng taglamig at niyebe."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
+	},
+	"by_country_name": {
+		"message": "Belarus"
+	},
+	"bz_country_name": {
+		"message": "Belize"
+	},
+	"ca_country_name": {
+		"message": "Canada"
+	},
+	"ca_tradition": {
+		"message": "Karaniwang nagdiriwang ang mga bata sa Canada ng may niyebe at puting Pasko. Nagsusuot sila ng scarf at toque, isang sumbrerong Canadian na yari sa lana, upang maglaro sa niyebe, mag-ice skate at mag-toboggan! Sa Bisperas ng Pasko, nag-iiwan sila ng gatas at cookie malapit sa tsimineya para kay Santa (at carrot kung minsan para sa reindeer)."
+	},
+	"calendar": {
+		"message": "Ang Kalendaryo"
+	},
+	"category_code": {
+		"message": "CODE2040"
+	},
+	"category_draw": {
+		"message": "Iguhit"
+	},
+	"category_listen": {
+		"message": "Makinig"
+	},
+	"category_send": {
+		"message": "Ipadala"
+	},
+	"cd_country_name": {
+		"message": "Democratic Republic of the Congo"
+	},
+	"cf_country_name": {
+		"message": "Central African Republic"
+	},
+	"cg_country_name": {
+		"message": "Republic of Congo"
+	},
+	"ch_country_name": {
+		"message": "Switzerland"
+	},
+	"ci_country_name": {
+		"message": "Côte d'Ivoire"
+	},
+	"citylights-contribute": {
+		"message": "Idagdag ang mga sarili mong larawan ng %location%"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, USA"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Pushkin Square"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moscow, Russia"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Vienna, Austria"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Champs-Elysees sa Arc de Triomphe"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Paris, France"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, USA"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Christmas Market"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nuremberg, Germany"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Medellin River"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Colombia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Santa Claus Village"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lapland, Finland"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brussels, Belgium"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar Square"
+	},
+	"citylights-panorama-10-location": {
+		"message": "London, England"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Spain"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokyo, Japan"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Tivoli Gardens"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Copenhagen, Denmark"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapore, Singapore"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Lane of Light"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Gothenburg, Sweden"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Winter Festival of Lights"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagara Falls, Canada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hong Kong, China"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Rodrigo de Freitas Lake"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brazil"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
+	"close-this": {
+		"message": "Kanselahin"
+	},
+	"cm_country_name": {
+		"message": "Cameroon"
+	},
+	"co_country_name": {
+		"message": "Colombia"
+	},
+	"codelab-block-moveeast": {
+		"message": "silangan"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Ilipat ako sa silangan nang isang espasyo."
+	},
+	"codelab-block-movenorth": {
+		"message": "hilaga"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Ilipat ako sa hilaga nang isang espasyo."
+	},
+	"codelab-block-movesouth": {
+		"message": "timog"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Ilipat ako sa timog nang isang espasyo."
+	},
+	"codelab-block-movewest": {
+		"message": "kanluran"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Ilipat ako sa kanluran nang isang espasyo."
+	},
+	"codelab-block-repeat": {
+		"message": "ulitin"
+	},
+	"codelab-block-repeat-times": {
+		"message": "(na) beses"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Ulitin ang ilang pahayag nang ilang beses."
+	},
+	"codelab-block-whenrun": {
+		"message": "kapag pinatakbo"
+	},
+	"codelab-finish": {
+		"message": "Tapusin"
+	},
+	"codelab-great": {
+		"message": "Mahusay"
+	},
+	"codelab-mwc-promo": {
+		"message": "Mag-explore ng higit pang mga proyekto sa pagko-code ng Google sa \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Sunod na Hamon"
+	},
+	"codelab-oops": {
+		"message": "Oops!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Ang block na \"Ulitin\" ay kailangang may lamang iba pang mga block upang gumana."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Hindi maayos na naka-attach ang ilan sa mga block."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Mukhang nawala ka!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Subukan ang isa o higit pa sa block sa ibaba upang malutas ang puzzle na ito."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Alam mo bang matatapos mo ang level na ito sa pamamagitan lang ng {{ideal}} (na) block? Subukang gamitin ang block sa ibaba."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Binabati ka namin! Mahusay mong natapos ang puzzle!"
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Ginagamit mo ang mga tamang block, ngunit subukang gumamit ng marami sa mga ito upang makumpleto ang puzzle na ito."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Alam mo bang matatapos mo ang level na ito sa pamamagitan lang ng {{ideal}} (na) block?"
+	},
+	"codelab-try-again": {
+		"message": "Subukang Muli"
+	},
+	"copy-me": {
+		"message": "Kopyahin ang link na ito upang ibahagi ang iyong mensahe"
+	},
+	"countdownlabel": {
+		"message": "Hanggang sa Umalis si Santa"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cs_language_name": {
+		"message": "Czech"
+	},
+	"cu_country_name": {
+		"message": "Cuba"
+	},
+	"cz_country_name": {
+		"message": "Czech Republic"
+	},
+	"da_language_name": {
+		"message": "Danish"
+	},
+	"days": {
+		"message": "Araw"
+	},
+	"de_country_name": {
+		"message": "Germany"
+	},
+	"de_language_name": {
+		"message": "German"
+	},
+	"de_tradition": {
+		"message": "Sa halos lahat ng bayan sa Germany, nagbubukas ng mga Christmas market sa mga town square. Nagtitipon ang taumbayan upang makinig sa mga brass band at mag-enjoy ng tradisyunal na kasiyahan ng rehiyon. Kumakain sila ng mga gingerbread na hugis puso, sugar-roasted na almond, lahat ng uri ng matatamis, at umiinom sila ng mulled wine (Glühwein) o apple cider."
+	},
+	"deck": {
+		"message": "I-deck out"
+	},
+	"deckdescription": {
+		"message": "I-deck out ang iyong browser gamit ang isang extension ng Chrome ni Santa."
+	},
+	"detected": {
+		"message": "natukoy"
+	},
+	"difficulty": {
+		"message": "Hirap"
+	},
+	"dk_country_name": {
+		"message": "Denmark"
+	},
+	"do_country_name": {
+		"message": "Dominican Republic"
+	},
+	"dz_country_name": {
+		"message": "Algeria"
+	},
+	"easy_difficulty": {
+		"message": "Madali"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Estonia"
+	},
+	"el_language_name": {
+		"message": "Greek"
+	},
+	"elvish_language_name": {
+		"message": "Elvish"
+	},
+	"en_language_name": {
+		"message": "Ingles"
+	},
+	"endofjourneymessage": {
+		"message": "Natapos na ni Santa ang kanyang paglalakbay para sa taon! Nagsasaya pa rin siya at ang mga elf sa North Pole bago ang kanilang taunang bakasyon."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
+	},
+	"error": {
+		"message": "Mukhang nawala ang ating koneksyon sa North Pole. Nagsisikap ang mga elf ni Santa na ayusin ito - manatiling nakaantabay!"
+	},
+	"error-lost-connection": {
+		"message": "Mukhang nawala ang ating koneksyon sa North Pole. Nagsisikap ang mga elf ni Santa na ayusin ito - manatiling nakaantabay!"
+	},
+	"error-try-again": {
+		"message": "Subukang muli"
+	},
+	"error_try_again": {
+		"message": "Subukang muli"
+	},
+	"es_language_name": {
+		"message": "Spanish"
+	},
+	"et_country_name": {
+		"message": "Ethiopia"
+	},
+	"fi_country_name": {
+		"message": "Finland"
+	},
+	"finished-text": {
+		"message": "Maligayang Pasko! Natapos na ni Santa ang kanyang pag-ikot sa buong mundo at kasalukuyan nang nagpapahinga. Bisitahin muli kami sa susunod na taon!"
+	},
+	"fr_country_name": {
+		"message": "France"
+	},
+	"fr_language_name": {
+		"message": "French"
+	},
+	"fr_tradition": {
+		"message": "Sa France, tradisyunal na inilalagay ng mga bata ang kanilang mga sapatos sa tabi ng tsimineya sa pag-asang darating si Père Noël. Kung naging mabait ang mga bata sa buong taon, pupunuin ni Père Noël ng mga regalo ang mga sapatos na iyon."
+	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
+	"gameover": {
+		"message": "Tapos na ang Laro!"
+	},
+	"gameover_level": {
+		"message": "Nakarating ka na sa level:"
+	},
+	"gameover_score": {
+		"message": "Iyong score:"
+	},
+	"getgooglemaps": {
+		"message": "Kunin ang Google Maps"
+	},
+	"gh_country_name": {
+		"message": "Ghana"
+	},
+	"gh_tradition": {
+		"message": "Kasama ang buong pamilya sa pagdiriwang ng Pasko sa Ghana. Nagsusuot ang matatanda ng mga costume at namimigay ng mga candy at matatamis na pagkain sa kapitbahayan. Pinapalamutihan ng mga bata ang kanilang mga bahay gamit ang mga papel na dekorasyon at drawing na ginagawa nila sa paaralan."
+	},
+	"gl_country_name": {
+		"message": "Greenland"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
+	},
+	"gotovillage": {
+		"message": "Pumunta sa Village"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "Greece"
+	},
+	"gr_tradition": {
+		"message": "Sa Greece, naninirahan sa pusod ng lupa sa mas malaking bahagi ng taon ang magigiliw ngunit magugulong nilalang na tinatawag na 'kallikántzari'. Gayunpaman, kapag Pasko, mahilig silang magtago sa bahay ng mga tao, manakot, manlinlang o kumain ng pagkain sa Pasko. Nagsasagawa ang mga Greek ng ritwal upang itaboy ang mga lamang-lupa na ito."
+	},
+	"gt_country_name": {
+		"message": "Guatemala"
+	},
+	"gt_tradition": {
+		"message": "Ipinagdiriwang ng mga taga-Guatemala ang Pasko nang may kasiyahan at sayawan. Nagsusuot sila ng mga sumbrerong tinatawag na Puritina, kumakain ng mga Guatemalan na tamale, nagsisindi ng mga paputok sa hatinggabi, at nagsasayawan sa buong gabi ng iba't ibang istilo ng sayaw."
+	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hard_difficulty": {
+		"message": "Mahirap"
+	},
+	"hi_language_name": {
+		"message": "Hindi"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
+	"hours": {
+		"message": "Oras"
+	},
+	"hr_country_name": {
+		"message": "Croatia"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Hungary"
+	},
+	"hu_language_name": {
+		"message": "Hungarian"
+	},
+	"id_country_name": {
+		"message": "Indonesia"
+	},
+	"ie_country_name": {
+		"message": "Ireland"
+	},
+	"improve_google_translate": {
+		"message": "Tumulong na pahusayin ang Google Translate"
+	},
+	"iq_country_name": {
+		"message": "Iraq"
+	},
+	"ir_country_name": {
+		"message": "Iran"
+	},
+	"is_country_name": {
+		"message": "Iceland"
+	},
+	"is_tradition": {
+		"message": "Kapag Pasko sa Iceland, nagbibigayan ang magkakapamilya ng mga regalo ng maiinit na kasuotan. Ayon sa alamat, may nakakatakot na Christmas Cat na kumakain sa sinumang hindi nakagayak para sa malamig na panahon. Nagtutulungan ang magkakapamilya upang matiyak na walang 'mapupunta sa Christmas Cat.'"
+	},
+	"it_country_name": {
+		"message": "Italy"
+	},
+	"it_language_name": {
+		"message": "Italian"
+	},
+	"ja_language_name": {
+		"message": "Japanese"
+	},
+	"jm_country_name": {
+		"message": "Jamaica"
+	},
+	"kg_country_name": {
+		"message": "Kyrgyzstan"
+	},
+	"kg_tradition": {
+		"message": "Sa Kyrgyzstan, dumarating si Ayaz Ata (Grandfather Frost) sa hatinggabi sa Bisperas ng Bagong Taon at nag-iiwan ng mga regalo sa ilalim ng New Year tree. Kapag sumapit na ang hatinggabi, nagsisindi ng mga paputok ang mga pamilya sa buong bansa upang ipagdiwang ang magandang okasyon na ito. Nagliliwanag ang mga lungsod na parang umaga."
+	},
+	"ko_language_name": {
+		"message": "Korean"
+	},
+	"kz_country_name": {
+		"message": "Kazakhstan"
+	},
+	"la_country_name": {
+		"message": "Lao PDR"
+	},
+	"language": {
+		"message": "Wika"
+	},
+	"learn": {
+		"message": "Matuto"
+	},
+	"learnmore": {
+		"message": "Matuto Nang Higit Pa"
+	},
+	"level": {
+		"message": "Level"
+	},
+	"light": {
+		"message": "Pailawin"
+	},
+	"lightdescription": {
+		"message": "Pailawin ang iyong TV gamit ang Santa Tracker Android app at Chromecast."
+	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
+	"lt_country_name": {
+		"message": "Lithuania"
+	},
+	"lv_country_name": {
+		"message": "Latvia"
+	},
+	"ly_country_name": {
+		"message": "Libya"
+	},
+	"md_country_name": {
+		"message": "Moldova"
+	},
+	"medium_difficulty": {
+		"message": "Katamtaman"
+	},
+	"mg_country_name": {
+		"message": "Madagascar"
+	},
+	"minutes": {
+		"message": "Minuto"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritania"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
+	},
+	"mx_country_name": {
+		"message": "Mexico"
+	},
+	"mx_tradition": {
+		"message": "Sa Mexico, ipinagdiriwang ng mga bata ang Pasko sa pagsira ng mga pinata. Nagsasaya ang matatanda at mga bata sa pagtatakip ng mata, pag-ikot at pagwasiwas ng patpat upang mabuksan ang nakabitin na pasong hugis bituin. Kapag nasira na ang pinata, uulan ng mani, prutas at candy na para sa lahat."
+	},
+	"my_country_name": {
+		"message": "Malaysia"
+	},
+	"mz_country_name": {
+		"message": "Mozambique"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
+	"newtoday": {
+		"message": "Bago Ngayon"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Netherlands"
+	},
+	"nl_language_name": {
+		"message": "Dutch"
+	},
+	"no_country_name": {
+		"message": "Norway"
+	},
+	"no_language_name": {
+		"message": "Norwegian"
+	},
+	"nonprofit-jane-description": {
+		"message": "Ang Mga Chimpanzee ay ang pinakamalalapit na nabubuhay na kapamilya ng mga tao sa animal kingdom! Sa ngayon, mas kaunti sa 300,000 Chimpanzee na lang ang natitira dahil sa pagkawala ng tirahan, sakit at ilegal na kalakalan. Pinoprotektahan ng Jane Goodall Institute (JGI) ang mga chimpanzee sa pamamagitan ng pagbabantay at pag-unawa sa kanilang mga gawi pati na rin ang mga tirahan kung saan nabubuhay ang mga ito. Kumikilos din ang JGI upang makabuo ng komunidad ng mga tao na magpoprotekta at mangangalaga sa wildlife at sa iisang kapaligiran na ating pinapakinabangan. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eI-explore ang mga tirahan ng Chimpanzee\u003c/a\u003e sa Gombe, Tanzania."
+	},
+	"nonprofit-jane-type": {
+		"message": "Chimpanzee"
+	},
+	"nonprofit-more-information": {
+		"message": "Para sa higit pang impormasyon bisitahin ang:"
+	},
+	"nonprofit-nature-description": {
+		"message": "Kumikilos ang The Nature Conservancy upang protektahan at muling buhayin ang mga kagubatan sa Estados Unidos at sa buong mundo. Pinapanatili ng mga natatanging kagubatang ito ang buhay sa buong planeta natin. Sinasala ng mga ito ang tubig, nililinis ang ating hangin, sinusuportahan ang mga komunidad ng mga tao at nagbibigay ng tahanan para sa mahahalagang species ng halaman at hayop. Sa kasalukuyang antas ng pagkakalbo ng kagubatan, mauubos ang ating mga kagubatan sa loob ng 100 taon. Ang programa ng The Nature Conservancy na Plant a Billion Trees ay kumikilos upang makapagtanim ng isang bilyong puno bago ang taong 2025 at muling buhayin ang mga pinakananganganib na kagubatan sa mundo."
+	},
+	"nonprofit-nature-type": {
+		"message": "Kagubatan"
+	},
+	"nonprofit-wwf-description": {
+		"message": "Patuloy na sinisira ng pagbabago sa klima ang balanse ng marami sa mga ecosystem sa mundo, sa parehong maiinit at malalamig na lugar. Sa Arctic, nawawalan na ang mga polar bear ng mga nagyeyelong dagat na tirahan dahil sa pagtaas ng temperatura, at nahaharap sa mga karagdagang banta mula sa mga aktibidad ng tao, gaya ng development ng langis at gasolina at shipping. Kumikilos ang World Wildlife Fund upang matiyak ang kaligtasan ng species sa pamamagitan ng siyentipikong pananaliksik at pakikipagtulungan sa mga katutubong komunidad sa Arctic. Ipinagmamalaki ng Google.org na maging isang \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e tagasuporta\u003c/a\u003e sa World Wildlife Fund."
+	},
+	"nonprofit-wwf-type": {
+		"message": "Polar Bear"
+	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
+	"nz_country_name": {
+		"message": "New Zealand"
+	},
+	"nz_tradition": {
+		"message": "Dahil tag-init ang Pasko sa New Zealand, nagsasalu-salo ang mga kaibigan at pamilya sa barbecue. Kabilang sa mga karaniwang pagkain sa Pasko ang inihaw na tupa, na niluluto kung minsan sa 'hangi' - isang butas sa ilalim ng lupa o lupang hurno. Isang paboritong panghimagas ang pavlova: meringue na ginayakan ng sariwang prutas tulad ng strawberry at kiwi."
+	},
+	"om_country_name": {
+		"message": "Oman"
+	},
+	"onthego": {
+		"message": "Abala si Santa"
+	},
+	"openingtomorrow": {
+		"message": "Bukas ang grand opening"
+	},
+	"ornament-print-instructions": {
+		"message": "Tupiin dito at pagdikitin ang dalawang gilid"
+	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
+	"pg_country_name": {
+		"message": "Papua New Guinea"
+	},
+	"ph_country_name": {
+		"message": "Pilipinas"
+	},
+	"ph_tradition": {
+		"message": "Kilala ang Pilipinas sa pagkakaroon ng pinakamahabang pagdiriwang ng Pasko sa buong mundo. Apat na buwan ang itinuturing na buwan ng Kapaskuhan: Setyembre, Oktubre, Nobyembre at Disyembre. Kadalasan ay makakarinig na ng mga awiting Pamasko pagpasok pa lang ng Setyembre."
+	},
+	"pl_country_name": {
+		"message": "Poland"
+	},
+	"pl_language_name": {
+		"message": "Polish"
+	},
+	"play": {
+		"message": "Laruin"
+	},
+	"playagain": {
+		"message": "Maglarong muli"
+	},
+	"playdescription": {
+		"message": "Makipaglaro sa mga kaibigan sa Santa Tracker Android App."
+	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"pt_language_name": {
+		"message": "Portuguese"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "Romania"
+	},
+	"ru_country_name": {
+		"message": "Russia"
+	},
+	"ru_language_name": {
+		"message": "Russian"
+	},
+	"ru_tradition": {
+		"message": "Nagde-decor ang mga bata sa Russia ng New Year's tree sa halip na Christmas tree. Inaabangan ng mga bata si Grandfather Frost na naglalakbay kasama si Snowmaden ang kanyang apo para magbigay ng mga regalo sa buong lugar. Nakatira si Grandfather Frost sa kagubatan ng Veliky Ustyug sa hilagang Russia."
+	},
+	"sa_country_name": {
+		"message": "Saudi Arabia"
+	},
+	"santatracker": {
+		"message": "Santa Tracker"
+	},
+	"score": {
+		"message": "Score"
+	},
+	"se_country_name": {
+		"message": "Sweden"
+	},
+	"seconds": {
+		"message": "Segundo"
+	},
+	"select-language": {
+		"message": "Pumili ng Wika"
+	},
+	"share-button": {
+		"message": "Ibahagi sa iyong mga kaibigan sa Google+"
+	},
+	"share-text": {
+		"message": "Ginawa ko ang postcard na ito para sa iyo sa Google Santa Tracker. Maligayang Pasko at Manigong Bagong Taon!"
+	},
+	"share-this": {
+		"message": "Ibahagi"
+	},
+	"sk_country_name": {
+		"message": "Slovakia"
+	},
+	"sk_language_name": {
+		"message": "Slovak"
+	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalia"
+	},
+	"sr_country_name": {
+		"message": "Suriname"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"sv_language_name": {
+		"message": "Swedish"
+	},
+	"td_country_name": {
+		"message": "Chad"
+	},
+	"terms-and-privacy": {
+		"message": "Mga Tuntunin at Privacy"
+	},
+	"tg_country_name": {
+		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Thai"
+	},
+	"tilt": {
+		"message": "I-tilt ang iyong device!"
+	},
+	"time": {
+		"message": "Oras"
+	},
+	"tj_country_name": {
+		"message": "Tajikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunisia"
+	},
+	"today_only": {
+		"message": "Ngayong Araw Lamang"
+	},
+	"today_only_1": {
+		"message": "Ngayon lang"
+	},
+	"tr_country_name": {
+		"message": "Turkey"
+	},
+	"tr_language_name": {
+		"message": "Turkish"
+	},
+	"tracker_arrival": {
+		"message": "Pagdating"
+	},
+	"tracker_arriving_in": {
+		"message": "Paparating sa loob ng"
+	},
+	"tracker_current_stop": {
+		"message": "Kasalukuyang hinto"
+	},
+	"tracker_departing_in": {
+		"message": "Aalis sa loob ng"
+	},
+	"tracker_distance_from_you": {
+		"message": "Distansya mula sa iyo"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Mga naihatid na regalo"
+	},
+	"tracker_intro_skip_intro": {
+		"message": "Laktawan ang intro"
+	},
+	"tracker_intro_user_location": {
+		"message": "Ikaw ay nasa"
+	},
+	"tracker_intro_welcome": {
+		"message": "Welcome sa"
+	},
+	"tracker_next_stop": {
+		"message": "Susunod na hinto"
+	},
+	"tracker_santa_update": {
+		"message": "UPDATE KAY SANTA"
+	},
+	"tracker_see_route": {
+		"message": "Tingnan ang ruta"
+	},
+	"tracker_weather": {
+		"message": "Panahon"
+	},
+	"tracker_world_facts": {
+		"message": "ALAM MO BA"
+	},
+	"tracker_your_location": {
+		"message": "Iyong lokasyon"
+	},
+	"traditions-next": {
+		"message": "Susunod na Tradisyon"
+	},
+	"traditions-prev": {
+		"message": "Nakaraang Tradisyon"
+	},
+	"traditions-world": {
+		"message": "Mundo"
+	},
+	"trivia_beginner_001": {
+		"message": "Saang kontinente matatagpuan ang Andes Mountains?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "South America"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Europe"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_002": {
+		"message": "Anong estado sa U.S. ang binubuo ng walong pangunahing isla?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkansas"
+	},
+	"trivia_beginner_003": {
+		"message": "Anong estado sa U.S. ang matatagpuan sa Great Plains?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delaware"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Idaho"
+	},
+	"trivia_beginner_004": {
+		"message": "Anong kontinente ang nasa hangganan ng Atlantic, Pacific at Arctic Ocean?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "South America"
+	},
+	"trivia_beginner_005": {
+		"message": "Anong estado ang matatagpuan sa Pacific time zone?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "California"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Georgia"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "Anong kontinente ang kinalalagyan ng Atlas Mountains at ng Kalahari Desert?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Europe"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_007": {
+		"message": "Anong estado sa U.S. ang nasa hangganan ng Great Lake?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montana"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "New Mexico"
+	},
+	"trivia_beginner_008": {
+		"message": "Saang kontinente nagsasalita ng alinman sa Portuguese o Spanish ang karamihan ng tao?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "South America"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Africa"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "North America"
+	},
+	"trivia_beginner_009": {
+		"message": "Anong estado sa U.S. ang mayroong hugis na hawakan ng kawali?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_010": {
+		"message": "Ganap na makikita sa Southern Hemisphere ang Antarctica at anong isa pang kontinente?"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "North America"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_011": {
+		"message": "Nasa hangganan ng anong kontinente ang Ronne Ice Shelf?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Africa"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "South America"
+	},
+	"trivia_beginner_012": {
+		"message": "Matatagpuan sa kanlurang baybayin ng anong kontinente ang Vancouver Island at Kodiak Island?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "North America"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_013": {
+		"message": "Sa hilagang-kanlurang bahagi ng anong kontinente matatagpuan ang Niger, isang bansang nagtataglay ng isa sa mga pinakamabilis na lumalaking populasyon sa mundo?"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Europe"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "North America"
+	},
+	"trivia_beginner_014": {
+		"message": "Anong kontinente ang may pinakakaunting mga halaman at puno?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "North America"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "South America"
+	},
+	"trivia_beginner_015": {
+		"message": "Likas na matatagpuan sa isang isla sa timog baybayin ng anong kontinente ang mga Tasmanian Devil?"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Europe"
+	},
+	"trivia_beginner_016": {
+		"message": "Saang bansa sa Mediterranea matatagpuan ang Leaning Tower of Pisa na isang sikat na puntahan ng mga turista?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Italy"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Canada"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Ghana"
+	},
+	"trivia_beginner_017": {
+		"message": "Mga makasaysayang lungsod sa hilagang baybayin ng anong kontinente ang Casablanca at Tripoli?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "North America"
+	},
+	"trivia_beginner_018": {
+		"message": "Saang kontinente matatagpuan ang saguaro cactus na nasa Sonoran Desert?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "North America"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Europe"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_019": {
+		"message": "Saang bansa matatagpuan ang Veracruz at Acapulco, mga sikat na bakasyunan?"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Argentina"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "India"
+	},
+	"trivia_beginner_020": {
+		"message": "Saang bansa matatagpuan ang Sichuan Giant Panda Sanctuaries, kung saan nakatira ang 30 porsyento ng mga panda sa mundo?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "China"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "Iceland"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "Ethiopia"
+	},
+	"trivia_beginner_021": {
+		"message": "Saang kontinente matatagpuan ang halos 90 porsyento ng yelo sa mundo?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Africa"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Europe"
+	},
+	"trivia_beginner_022": {
+		"message": "Saang kontinente matatagpuan ang Angel Falls, ang pinakamataas na talon sa mundo?"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "South America"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "North America"
+	},
+	"trivia_beginner_023": {
+		"message": "Upang mabisita ang Jackson Hole at maakyat ang Devils Tower, saang estado sa U.S. ka maglalakbay?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "North Dakota"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Connecticut"
+	},
+	"trivia_beginner_024": {
+		"message": "Upang makita ang pagkuha ng dagta ng maple at mag-ski sa Green Mountains, saang estado sa U.S. ka maglalakbay?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermont"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "Anong estado sa U.S. ang bibisitahin mo upang makatawid sa Chesapeake Bay Bridge at makapaglakad sa boardwalk sa Ocean City?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "North Carolina"
+	},
+	"trivia_beginner_026": {
+		"message": "Upang mabisita ang Mammoth Cave at manood ng karera ng kabayo sa Churchill Downs, sa anong estado sa U.S. ka maglalakbay?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentucky"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "West Virginia"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Utah"
+	},
+	"trivia_beginner_027": {
+		"message": "Upang makita ang mga higanteng puno ng sequoia at ang Channel Islands, saang estado sa U.S. ka maglalakbay?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "California"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "New Jersey"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virginia"
+	},
+	"trivia_beginner_028": {
+		"message": "Anong wetlands ang bibisitahin mo kung ikaw ay nasa estado sa U.S. na Florida?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Everglades"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Dismal Swamp"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Great Cypress Swamp"
+	},
+	"trivia_beginner_029": {
+		"message": "Upang malibot ang St. Lawrence Seaway at ang Finger Lakes, saang estado sa U.S. ka maglalakbay?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "New York"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Michigan"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "Saang kontinente matatagpuan ang Mount Everest, ang pinakamataas na bundok sa mundo?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "North America"
+	},
+	"trivia_beginner_031": {
+		"message": "Sinasakupan ng rehiyon ng Patagonia ang malaking bahagi ng timog ng anong kontinente?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "South America"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Europe"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Africa"
+	},
+	"trivia_beginner_032": {
+		"message": "Sa anong kontinente makikita ang mga Emperor penguin sa likas na tirahan ng mga ito?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "North America"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Europe"
+	},
+	"trivia_beginner_033": {
+		"message": "Saang bansa nagmula ang mga kangaroo at koala?"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "Europe"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "South America"
+	},
+	"trivia_beginner_034": {
+		"message": "Saang kontinente matatagpuan ang Serengeti National Park kung saan nakakahikayat ng mga turista ang wildlife?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_035": {
+		"message": "Anong kontinente ang may pinakamalaking sukat ng lupa?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "Europe"
+	},
+	"trivia_beginner_036": {
+		"message": "Sa anong lungsod sa Europe tumatawid ang Tower Bridge sa River Thames?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "London"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Havana"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Cape Town"
+	},
+	"trivia_beginner_037": {
+		"message": "Saang lungsod sa Russia matatagpuan ang Saint Basil’s Cathedral na nakatayo sa Red Square sa tabi ng Kremlin?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Moscow"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Brussels"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
+	},
+	"trivia_beginner_038": {
+		"message": "Saang lungsod sa Europe matatagpuan ang Colosseum, na itinayo noong unang siglo A.D. bilang pagdarausan ng mga labanan ng gladiator?"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "Rome"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Khartoum"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manila"
+	},
+	"trivia_beginner_039": {
+		"message": "Saang lungsod sa Australia matatagpuan ang Opera House at Harbour Bridge?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sydney"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Jakarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Prague"
+	},
+	"trivia_beginner_040": {
+		"message": "Ang Dome of the Rock at ang Western Wall ay dalawa lang sa maraming banal na lugar na nakita sa loob ng mga lumang pader ng lungsod ng anong lungsod sa Middle East?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Jerusalem"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tokyo"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Algiers"
+	},
+	"trivia_beginner_041": {
+		"message": "Saang lungsod sa Greece matatagpuan ang Parthenon na nakatayo sa ibabaw ng Acropolis?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Athens"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kiev"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "Nakatayo ang Eiffel Tower malapit sa Seine River at natatanaw ang sentro ng anong lungsod sa France?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "Paris"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "New Delhi"
+	},
+	"trivia_beginner_043": {
+		"message": "Saang lungsod sa Saudi Arabia matatagpuan ang al-Haram Mosque, ang tahanan ng Kaaba at pinakabanal na lugar sa Islam?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Mecca"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Buenos Aires"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Budapest"
+	},
+	"trivia_beginner_044": {
+		"message": "Sa gitna ng anong lungsod sa China matatagpuan ang Forbidden City na dating imperial palace?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Beijing"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santiago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbane"
+	},
+	"trivia_beginner_045": {
+		"message": "Ang Space Needle ay isang observation tower na matatagpuan sa anong lungsod sa U.S. sa Puget Sound?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Wichita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "New Orleans"
+	},
+	"trivia_beginner_046": {
+		"message": "Ang John Hancock Tower ang pinakamataas na gusali sa anong lungsod sa U.S. na matatagpuan sa bukana ng Charles River?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Boston"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pittsburgh"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memphis"
+	},
+	"trivia_beginner_047": {
+		"message": "Ang Stratosphere Tower, na matatagpuan sa hilaga lang ng isang sikat na boulevard na kilala bilang The Strip, ang pinakamataas na gusali sa anong lungsod sa U.S. sa Mojave Desert?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Las Vegas"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Minneapolis"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denver"
+	},
+	"trivia_beginner_048": {
+		"message": "Sa harbor ng anong lungsod sa U.S. matatagpuan ang Statue of Liberty, isang malaking iskultura na makikita sa Liberty Island?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "New York City"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Los Angeles"
+	},
+	"trivia_beginner_049": {
+		"message": "Anong lungsod ng U.S. ang ikinokonekta ng Golden Gate Bridge sa Marin Peninsula?"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "San Francisco"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boise"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimore"
+	},
+	"trivia_beginner_050": {
+		"message": "Saang lungsod sa U.S. makikita ang Gateway Arch, na sumisimbolo sa pakanlurang pagpapalawak ng America noong 1800s at matatagpuan sa Mississippi River?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "St. Louis"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianapolis"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Miami"
+	},
+	"trivia_beginner_051": {
+		"message": "Saang bansa sa Africa matatagpuan ang Talampas ng Giza, ang tahanan ng Great Pyramid at ng Sphinx?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Egypt"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Brazil"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Germany"
+	},
+	"trivia_beginner_052": {
+		"message": "Saang lungsod sa U.S. matatagpuan ang Independence Hall, isang mahalagang makasaysayang lugar na nauugnay sa American Revolution na malapit sa Delaware River?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Philadelphia"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "San Antonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Chicago"
+	},
+	"trivia_beginner_053": {
+		"message": "Tumatawid sa Canada at anong isa pang bansa ang Rocky Mountains?"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "Estados Unidos"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Venezuela"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Russia"
+	},
+	"trivia_beginner_054": {
+		"message": "Anong karagatan ang nasa hangganan ng Brazil at Uruguay?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Atlantic Ocean"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Indian Ocean"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Arctic Ocean"
+	},
+	"trivia_beginner_055": {
+		"message": "Saang karagatan matatagpuan ang isla ng Newfoundland na nasa silangang baybayin ng Canada?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Atlantic Ocean"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Indian Ocean"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Pacific Ocean"
+	},
+	"trivia_beginner_056": {
+		"message": "Saang karagatan matatagpuan ang isla ng Madagascar na nasa silangang baybayin ng Africa?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Indian Ocean"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Pacific Ocean"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Arctic Ocean"
+	},
+	"trivia_beginner_057": {
+		"message": "Sa gitna ng anong karagatan dumadaan ang karamihan ng international date line?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Pacific Ocean"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Indian Ocean"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Atlantic Ocean"
+	},
+	"trivia_beginner_058": {
+		"message": "Saang kontinente dumadaan ang Ekwador sa Congo Basin?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Europe"
+	},
+	"trivia_beginner_059": {
+		"message": "Anong kontinente ang nasa hangganan ng Gulf of Mexico?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "North America"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Europe"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_060": {
+		"message": "Anong ilog na dumadaloy sa Africa ang pinakamahabang ilog sa mundo?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Nile River"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Colorado River"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Orange River"
+	},
+	"trivia_beginner_061": {
+		"message": "Saang kontinente matatagpuan ang mga guho ng Machu Picchu?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "South America"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Europe"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_062": {
+		"message": "Ang Amazon River, na nagdadala ng mas maraming tubig kaysa sa anumang iba pang ilog sa mundo, ay dumadaloy sa anong kontinente?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "South America"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_063": {
+		"message": "Saang kontinente matatagpuan ang Mont Blanc, ang pinakamataas na lugar sa Alps?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Europe"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "North America"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "South America"
+	},
+	"trivia_beginner_064": {
+		"message": "Anong kontinente ang ikinokonekta ng Isthmus of Panama sa Central America?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "South America"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Europe"
+	},
+	"trivia_beginner_065": {
+		"message": "Ang mga Cheetah ang pinakamabibilis na mammal sa lupa sa Mundo at makikita sa Kenya at Tanzania sa anong kontinente?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Europe"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "North America"
+	},
+	"trivia_beginner_066": {
+		"message": "Matatagpuan malapit sa dulong timog ng anong kontinente ang Cape of Good Hope?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Europe"
+	},
+	"trivia_beginner_067": {
+		"message": "Saang karagatan makikita ang Galápagos Islands, kung saan nakatira ang mga giant tortoise at matatagpuan sa kanluran ng South America?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Pacific Ocean"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Arctic Ocean"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Indian Ocean"
+	},
+	"trivia_beginner_068": {
+		"message": "Saang kontinente dumadaloy ang Danube River sa Vienna at iba pang mga lungsod?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Europe"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "Africa"
+	},
+	"trivia_beginner_069": {
+		"message": "Anong ilog ang parehong hangganan ng mga isla ng Cuba at Hispaniola?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Caribbean Sea"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Bering Sea"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Baltic Sea"
+	},
+	"trivia_beginner_070": {
+		"message": "Nasa hangganan ng anong kontinente ang Gulf of Guinea?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "North America"
+	},
+	"trivia_beginner_071": {
+		"message": "Si Ernest Shackleton ay isang sikat na manggagalugad ng anong kontinente?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "North America"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Europe"
+	},
+	"trivia_beginner_072": {
+		"message": "Bahagi ng anong karagatan ang Labrador Sea?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Atlantic Ocean"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Indian Ocean"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Pacific Ocean"
+	},
+	"trivia_beginner_073": {
+		"message": "Saang kontinente matatagpuan ang Sahara, ang pinakamalaking disyerto sa mundo?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Europe"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_074": {
+		"message": "Saang kontinente matatagpuan ang Talampas ng Tibet?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "North America"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "South America"
+	},
+	"trivia_beginner_075": {
+		"message": "Makikita ang Drake Passage sa timog ng anong kontinente?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "South America"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Europe"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_076": {
+		"message": "Nasa baybayin ng anong kontinente ang Great Barrier Reef na matatagpuan sa Coral Sea?"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "North America"
+	},
+	"trivia_beginner_077": {
+		"message": "Upang makatawid sa Suez Canal at mabisita ang City of the Dead ng Cairo, saang bansa ka pupunta?"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "Egypt"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Colombia"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Finland"
+	},
+	"trivia_beginner_078": {
+		"message": "Upang makakita ng mga gaucho na nag-aalaga ng baka at upang manood ng mga mananayaw ng tango sa lungsod ng Buenos Aires, saang bansa ka pupunta?"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Argentina"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Niger"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nepal"
+	},
+	"trivia_beginner_079": {
+		"message": "Upang mabisita ang lumang tirahan sa lungsod ng Fez at upang makaakyat sa Atlas Mountains, saang bansa ka pupunta?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Morocco"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Thailand"
+	},
+	"trivia_beginner_080": {
+		"message": "Upang mabisita ang mga guho ng Maya mula sa sinaunang panahon at makalangoy sa mga dalampasigan ng Cancún, saang bansa ka\npupunta?"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "Netherlands"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Turkey"
+	},
+	"trivia_beginner_081": {
+		"message": "Upang mabisita ang St. Patrick’s Cathedral sa Dublin at makasali sa Arts Festival sa Kilkenny, saang bansa ka pupunta?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Ireland"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Somalia"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_beginner_082": {
+		"message": "Upang makapaglibot sa isang kagubatan at makapagsayaw sa pagdiriwang ng Carnival ng Rio de Janeiro, saang bansa ka dapat pumunta?"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Brazil"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "United Kingdom"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_beginner_083": {
+		"message": "Upang mabisita ang Hermitage Museum sa Saint Petersburg at upang makasakay sa Trans-Siberian Railway, saang bansa ka pupunta?"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Russia"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indonesia"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Belize"
+	},
+	"trivia_beginner_084": {
+		"message": "Upang makasakay sa napakabilis na tren at upang magpalipas ng gabi sa isang hotel sa Tokyo, saang bansa ka pupunta?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Japan"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_beginner_085": {
+		"message": "Upang kumain ng pesto sa Genoa at upang dumalo sa isang opera sa Florence, saang bansa ka pupunta?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Italy"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paraguay"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Libya"
+	},
+	"trivia_beginner_086": {
+		"message": "Upang makapunta sa safari sa Maasai Mara Nature Reserve at upang mamili sa Nairobi, saang bansa ka pupunta?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Kenya"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "South Korea"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Chile"
+	},
+	"trivia_beginner_087": {
+		"message": "Upang makita ang Ganges River at upang magalugad ang masisikip na kalsada ng Kolkata, saang bansa ka pupunta?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "India"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Germany"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "Jordan"
+	},
+	"trivia_beginner_088": {
+		"message": "Sa gitna ng anong karagatan matatagpuan ang North Pole, ang pinakahilagang lugar sa Mundo?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Arctic Ocean"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Pacific Ocean"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Indian Ocean"
+	},
+	"trivia_beginner_089": {
+		"message": "Anong bansa ang nasa hangganan ng Atlantic Ocean?"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "Iceland"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Pakistan"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Japan"
+	},
+	"trivia_beginner_090": {
+		"message": "Anong estado sa U.S. ang kilala bilang Sunshine State dahil sa mainit na klima at mga sikat na dalampasigan nito?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Florida"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Maine"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Washington"
+	},
+	"trivia_beginner_091": {
+		"message": "Saang estado sa U.S. matatagpuan ang Grand Canyon?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "West Virginia"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "South Dakota"
+	},
+	"trivia_beginner_092": {
+		"message": "Anong estado sa U.S., na kilala bilang ang Lone Star State, ang may iisang bituin sa bandila nito at dating isang nakapagsasariling bansa?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Texas"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Wisconsin"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_093": {
+		"message": "Saang kontinente matatagpuan ang Tigris at Euphrates River?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Europe"
+	},
+	"trivia_beginner_094": {
+		"message": "Saang kontinente matatagpuan ang Lake Victoria at ang Virunga Mountains?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "North America"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_095": {
+		"message": "Anong bansa ang binubuo ng pulo sa Pacific Ocean?"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "New Zealand"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "South Africa"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "Iceland"
+	},
+	"trivia_beginner_096": {
+		"message": "Anong bansa ang matatagpuan sa Scandinavian Peninsula?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Sweden"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Romania"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Peru"
+	},
+	"trivia_beginner_097": {
+		"message": "Anong bansa ang nasa hangganan ng Mediterranean Sea?"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "France"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_001": {
+		"message": "Anong lungsod sa U.S. ang pinakamalapit sa hangganan ng Canada?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sacramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "Anong lungsod sa U.S. ang pinakamalamang na makaranas ng bagyo?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Miami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Los Angeles"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pittsburgh"
+	},
+	"trivia_hard_003": {
+		"message": "Alin sa mga lawang ito ang may pinakamalaking surface area?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Lake Huron"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Lake Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Lake Erie"
+	},
+	"trivia_hard_004": {
+		"message": "Alin sa mga lungsod sa U.S. na ito ang pinakamatao?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Chicago"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "St. Louis"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianapolis"
+	},
+	"trivia_hard_005": {
+		"message": "Anong bansa ang pinakamalapit sa Persian Gulf?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Turkey"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_hard_006": {
+		"message": "Alin sa mga bansang ito ang may pinakamalaking sukat ng lupa?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Kazakhstan"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Romania"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Poland"
+	},
+	"trivia_hard_007": {
+		"message": "Alin sa mga bansang ito ang may pinakamaraming populasyon?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Singapore"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Laos"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_008": {
+		"message": "Alin sa mga bansang ito ang may pinakamalaking bilang ng mga nagsasalita ng German?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Austria"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Slovakia"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Iraq"
+	},
+	"trivia_hard_009": {
+		"message": "Alin sa mga bansang ito ang nasa hangganan ng pinakamaraming bansa?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Saudi Arabia"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Morocco"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mongolia"
+	},
+	"trivia_hard_010": {
+		"message": "Anong bansa ang wala sa hangganan ng Lake Tanganyika?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benin"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Burundi"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_hard_011": {
+		"message": "Anong bansa ang hindi dinadaanan ng Ekwador?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Mauritania"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indonesia"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_hard_012": {
+		"message": "Anong bansa ang hindi matatagpuan sa Balkan Peninsula?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Czech Republic"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Bulgaria"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Macedonia"
+	},
+	"trivia_hard_013": {
+		"message": "Anong bansa ang wala sa hangganan ng North Sea?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Finland"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Denmark"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "United Kingdom"
+	},
+	"trivia_hard_014": {
+		"message": "Anong bansa ang wala sa hanggan ng Black Sea?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Azerbaijan"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Ukraine"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Turkey"
+	},
+	"trivia_hard_015": {
+		"message": "Anong bansa ang hindi napapalibutan ng lupa?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Croatia"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Belarus"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Hungary"
+	},
+	"trivia_hard_016": {
+		"message": "Anong bansa ang hindi matatagpuan sa Sahara?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angola"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Libya"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Algeria"
+	},
+	"trivia_hard_017": {
+		"message": "Anong isla ang matatagpuan sa pinakasilangang bahagi?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinidad"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Cuba"
+	},
+	"trivia_hard_018": {
+		"message": "Nasa hangganan ng anong katubigan ang Cape Fear?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Atlantic Ocean"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Caribbean Sea"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Pacific Ocean"
+	},
+	"trivia_hard_019": {
+		"message": "Anong lungsod ang isang daungan sa Gulf of Mexico?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Veracruz"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tijuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Acapulco"
+	},
+	"trivia_hard_020": {
+		"message": "Saang bansa dumadaan ang Tropic of Cancer?"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Canada"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Brazil"
+	},
+	"trivia_hard_021": {
+		"message": "Alin sa mga islang ito ang pinakamalaki ang sukat?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Baffin Island"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Hispaniola"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Sardinia"
+	},
+	"trivia_hard_022": {
+		"message": "Pinaghihiwalay ng Yucatán Channel ang Mexico at anong isla?"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "Cuba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Puerto Rico"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dominica"
+	},
+	"trivia_hard_023": {
+		"message": "Anong lungsod sa Canada ang matatagpuan sa pinakahilagang bahagi?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Yellowknife"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Ottawa"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Winnipeg"
+	},
+	"trivia_hard_024": {
+		"message": "Anong isla ang bahagi ng Lesser Antilles?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "St. Kitts"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Bermuda"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Nova Scotia"
+	},
+	"trivia_hard_025": {
+		"message": "Ang Port-au-Prince ang pinakamataong lungsod sa anong bansa?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haiti"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_hard_026": {
+		"message": "Anong bansa ang nasa bulubundukin ng Carpathia?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Romania"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albania"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Turkmenistan"
+	},
+	"trivia_hard_027": {
+		"message": "Saang bansa opisyal na wika ang French?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabon"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tanzania"
+	},
+	"trivia_hard_028": {
+		"message": "Alin sa mga bansang ito ang pinakamalaki ang sukat ng lupa?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Israel"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Bahrain"
+	},
+	"trivia_hard_029": {
+		"message": "Anong bansa ang sumasaklaw sa pinakamaraming degree ng longhitud?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Kazakhstan"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afghanistan"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Syria"
+	},
+	"trivia_hard_030": {
+		"message": "Anong bansa ang binubuo ng maraming isla?"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Pilipinas"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Cambodia"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Tajikistan"
+	},
+	"trivia_hard_031": {
+		"message": "Alin sa mga bansang ito ang may pinakamaraming time zone?"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Brazil"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "Belize"
+	},
+	"trivia_hard_032": {
+		"message": "Anong bansa ang matatagpuan sa pinakahilagang bahagi?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Cameroon"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Mozambique"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Australia"
+	},
+	"trivia_hard_033": {
+		"message": "Anong bansa ang matatagpuan sa pagitan ng France at Spain?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andorra"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Luxembourg"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Vatican City"
+	},
+	"trivia_hard_034": {
+		"message": "Nasa hangganan ng anong bansa ang Denmark?"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Germany"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "Finland"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Moldova"
+	},
+	"trivia_hard_035": {
+		"message": "Saang bansa nabibilang ang isla ng Sardinia?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Italy"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Turkey"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "United Kingdom"
+	},
+	"trivia_hard_036": {
+		"message": "Anong disyerto ang nakakasakop sa malaking bahagi sa pagitan ng Beijing at Ulaanbaatar?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Great Indian Desert"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Libyan Desert"
+	},
+	"trivia_hard_037": {
+		"message": "Bahagi ng anong karagatan ang Kamchatka Current?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Pacific Ocean"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Indian Ocean"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Atlantic Ocean"
+	},
+	"trivia_hard_038": {
+		"message": "Ang Gulf of Sidra ay matatagpuan sa timog na bahagi ng anong dagat?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Mediterranean Sea"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Arabian Sea"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Baltic Sea"
+	},
+	"trivia_hard_039": {
+		"message": "Ang Tatra Mountains ay ang pinakamataas na hanay sa anong bulubundukin sa Europe?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Carpathian Mountains"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Cantabrian Mountains"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Pyrenees"
+	},
+	"trivia_hard_040": {
+		"message": "Anong ilog ang dumadaloy sa Lake Kariba at binubuo ang hangganan sa pagitan ng Zambia at Zimbabwe?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Zambezi River"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Nile River"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Congo River"
+	},
+	"trivia_hard_041": {
+		"message": "Saang dagat dumadaloy ang Thames, Meuse at Schelde River?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "North Sea"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Mediterranean Sea"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Black Sea"
+	},
+	"trivia_hard_042": {
+		"message": "Inihihiwalay ng Luzon Strait ang Pilipinas mula sa anong malaking isla sa hilaga?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Taiwan"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Algeria"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_hard_043": {
+		"message": "Anong mga isla ang makikita Mid-Atlantic Ridge?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Azores"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Bahamas"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Fiji Islands"
+	},
+	"trivia_hard_044": {
+		"message": "Anong ilog ang dumadaloy patungong Laptev Sea?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Lena River"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Yangtze River"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Indus River"
+	},
+	"trivia_hard_045": {
+		"message": "Anong bundok ang pinakamalapit sa Ekwador?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimanjaro"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Mont Blanc"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Mount McKinley"
+	},
+	"trivia_hard_046": {
+		"message": "Anong kabisera ang pinakamatao?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Moscow"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Helsinki"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Algiers"
+	},
+	"trivia_hard_047": {
+		"message": "Anong lungsod, na matatagpuan sa Liffey River, ang pinakamalaking lungsod sa Republic of Ireland?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dublin"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Oslo"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Copenhagen"
+	},
+	"trivia_hard_048": {
+		"message": "Anong lungsod, na matatagpuan sa lambak ng Hindu Kush, ang pinakamalaking lungsod sa Afghanistan?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Kabul"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Sarajevo"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "Anong lungsod, na matatagpuan sa Chao Phraya River, ang pinakamalaking lungsod sa Thailand?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Bangkok"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Beijing"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Amman"
+	},
+	"trivia_hard_050": {
+		"message": "Anong lungsod, na matatagpuan sa unahan ng isang fjord sa Skagerrak strait, ang pinakamalaking lungsod sa Norway?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Oslo"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "London"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Brussels"
+	},
+	"trivia_hard_051": {
+		"message": "Anong lungsod, na matatagpuan sa silangan ng Mediterranean Sea, ang pinakamalaking lungsod sa Lebanon?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Beirut"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Riyadh"
+	},
+	"trivia_hard_052": {
+		"message": "Anong lungsod, na matatagpuan sa baybayin ng Java, ang pinakamalaking lungsod sa Indonesia?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Jakarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tokyo"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "Anong lungsod, na matatagpuan sa rehiyon ng Attica, ang pinakamalaking lungsod sa Greece?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Athens"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Rome"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barcelona"
+	},
+	"trivia_hard_054": {
+		"message": "Anong lungsod, na matatagpuan sa estuary ng Río de la Plata, ang pinakamalaking lungsod sa Uruguay?"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Quito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Rio de Janeiro"
+	},
+	"trivia_hard_055": {
+		"message": "Anong lungsod, na naging bahagi ng dating probinsya ng Transvaal, ang pinakamalaking lungsod sa South Africa?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Johannesburg"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abuja"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputo"
+	},
+	"trivia_hard_056": {
+		"message": "Anong lungsod, isang mahalagang sentro ng pagpapadala sa Caribbean Sea, ang pinakamalaking lungsod sa Jamaica?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Kingston"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Caracas"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Buenos Aires"
+	},
+	"trivia_hard_057": {
+		"message": "Anong lungsod, na matatagpuan sa Great Rift Valley, ang pinakamalaking lungsod sa Eritrea?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Baghdad"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazzaville"
+	},
+	"trivia_hard_058": {
+		"message": "Anong lungsod, na matatagpuan sa pampang ng Vistula River, ang pinakamalaking lungsod sa Poland?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Warsaw"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kiev"
+	},
+	"trivia_hard_059": {
+		"message": "Anong lungsod, isang mahalagang hintuan sa Pan-American Highway, ang pinakamalaking lungsod sa Costa Rica?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "San José"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sucre"
+	},
+	"trivia_hard_060": {
+		"message": "Anong lungsod, isang mahalagang sentro ng kalakalang pang-agrikultura sa timog ng Africa, ang pinakamalaking lungsod sa Zimbabwe?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Windhoek"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "Anong lungsod, na dating napasailalim sa pamumuno ng Khmer Rouge, ang pinakamalaking lungsod sa Cambodia?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Phnom Penh"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kuala Lumpur"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Dhaka"
+	},
+	"trivia_hard_062": {
+		"message": "Anong lungsod, na matatagpuan sa Atlantic Ocean sa Cape Mesurado, ang pinakamalaking lungsod sa Liberia?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monrovia"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Accra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaka"
+	},
+	"trivia_hard_063": {
+		"message": "Anong lungsod, na matatagpuan sa isang mataas na talampas sa Andes, ang pinakamalaking lungsod sa Colombia?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogotá"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managua"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterrey"
+	},
+	"trivia_hard_064": {
+		"message": "Anong lungsod, na matatagpuan sa paanan ng Elburz Mountains, ang pinakamalaking lungsod sa Iran?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Tehran"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Tashkent"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Istanbul"
+	},
+	"trivia_hard_065": {
+		"message": "Anong katubigan ang dinadaanan ng Arctic Circle?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Norwegian Sea"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Lake Volta"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Caspian Sea"
+	},
+	"trivia_hard_066": {
+		"message": "Anong katubigan ang makikita sa Great Rift Valley?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Lake Malawi"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Tasman Sea"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Lake Titicaca"
+	},
+	"trivia_hard_067": {
+		"message": "Saang katubigan makikita ang lungsod na daungan sa Russia na Arkhangelsk?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "White Sea"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Bass Strait"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Bay of Biscay"
+	},
+	"trivia_hard_068": {
+		"message": "Anong bansa ang kinabibilangan ng mga probinsya ng Hunan at Shandong?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "China"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Thailand"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Yemen"
+	},
+	"trivia_hard_069": {
+		"message": "Anong bansa sa Mediterranea ang may opisyal na wika na Castillian?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Spain"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Greece"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "Azerbaijan"
+	},
+	"trivia_hard_070": {
+		"message": "Anong bansa sa Central America ang dating isang probinsya na bahagi ng Colombia?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panama"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Guatemala"
+	},
+	"trivia_hard_071": {
+		"message": "Ang lungsod ng Basel, na hinahati ng Rhine River, ay isang mahalagang sentro ng transportasyon sa anong bansa?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Switzerland"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Belgium"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Russia"
+	},
+	"trivia_hard_072": {
+		"message": "Saang bansa matatagpuan ang Provence, isang rehiyon na may mga tanawing naging inspirasyon ng mga pintor gaya ni Cézanne?"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "France"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "Netherlands"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Romania"
+	},
+	"trivia_hard_073": {
+		"message": "Saang bansa nagsisilbing pangunahing daungan para sa rehiyon ng Pampas ang Bahía Blanca?"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Argentina"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_074": {
+		"message": "Anong bansa ang nasa hangganan ng Mediterranean, Black at Aegean Sea?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Turkey"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Bulgaria"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Libya"
+	},
+	"trivia_hard_075": {
+		"message": "Bawat taon, lumilipat ang mga wildebeest mula sa Tanzania sa Mara River patungo sa anong kalapit na bansa sa hilagang-silangan?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Kenya"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Zambia"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Guinea"
+	},
+	"trivia_hard_076": {
+		"message": "Ang Aleppo, na kilala dahil sa Great Mosque, ang pinakamalaking lungsod sa anong bansa sa southwest Asia?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Syria"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Oman"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_hard_077": {
+		"message": "Anong bansa ang nasa hangganan ng Russia at Georgia?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Azerbaijan"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Uzbekistan"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "North Korea"
+	},
+	"trivia_hard_078": {
+		"message": "Anong bansa ang nasa hangganan ng Panama at Brazil?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Colombia"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Peru"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_hard_079": {
+		"message": "Anong bansa ang nasa hangganan ng Guatemala at ng Estados Unidos?"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "El Salvador"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Canada"
+	},
+	"trivia_hard_080": {
+		"message": "Anong bansa ang nasa hangganan ng Iraq at Afghanistan?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Ukraine"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mongolia"
+	},
+	"trivia_hard_081": {
+		"message": "Anong bansa ang nasa hangganan ng Lesotho at Botswana?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "South Africa"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Congo"
+	},
+	"trivia_hard_082": {
+		"message": "Saang bansa makikita ang Antwerp na bahaging nagsasalita ng Flemish?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Belgium"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Netherlands"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "Iceland"
+	},
+	"trivia_hard_083": {
+		"message": "Saang bansa sa Europe nagsisilbing pangunahing daungan ang Gdańsk, na matatagpuan malapit sa bukana ng Vistula River?"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "Poland"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Spain"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Croatia"
+	},
+	"trivia_hard_084": {
+		"message": "Ang Madeira at Purus Rivers ay mga pangunahing sanga ng ilog ng anong malaking ilog sa South America?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Amazon River"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Orinoco River"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Paraná River"
+	},
+	"trivia_hard_085": {
+		"message": "Ang Lake Constance ay nasa hangganan ng Switzerland, Germany, at ng anong isa pang bansa?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Austria"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Slovakia"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Finland"
+	},
+	"trivia_hard_086": {
+		"message": "Ang Auckland, isang pangunahing lungsod na daungan na may maraming harbor, ang pinakamalaking lungsod sa anong bansa?"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "New Zealand"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Australia"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "Indonesia"
+	},
+	"trivia_hard_087": {
+		"message": "Anong bansa, na direktang matatagpuan sa kanluran ng Togo, ang pangunahing tagagawa ng kakaw?"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Ghana"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Sudan"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Tunisia"
+	},
+	"trivia_hard_088": {
+		"message": "Ang Guaraní ay ang pangalan ng isa sa mga opisyal na wika at currency ng anong bansa sa South America?"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "Paraguay"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Brazil"
+	},
+	"trivia_hard_089": {
+		"message": "Anong bulubundukin ang makikita sa hangganan sa pagitan ng France at Spain?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Pyrenees"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Apennines"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Caucasus Mountains"
+	},
+	"trivia_hard_090": {
+		"message": "Saang bansa matatagpuan ang Torrens River na dumadaloy patungong Gulf Saint Vincent?"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Australia"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Canada"
+	},
+	"trivia_hard_091": {
+		"message": "Anong bansa sa Africa na nasa hangganan ng Mediterranean Sea ang isang monarkiya?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Morocco"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Egypt"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Central African Republic"
+	},
+	"trivia_hard_092": {
+		"message": "Kabisera ng anong bansa ang Tbilisi, na matatagpuan sa pampang ng Kura River?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Georgia"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Syria"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Hungary"
+	},
+	"trivia_hard_093": {
+		"message": "Saang bansa matatagpuan ang Abruzzo, isang bulubunduking rehiyon na nasa Adriatic Sea?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Italy"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "France"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "Luxembourg"
+	},
+	"trivia_hard_094": {
+		"message": "Nasa hangganan ng Latvia at ng anong isa pang bansa ang Gulf of Riga?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Estonia"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Belarus"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Spain"
+	},
+	"trivia_hard_095": {
+		"message": "Anong dagat ang ikinokonekta ng Strait of Jubal sa Gulf of Suez?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Red Sea"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Caribbean Sea"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Caspian Sea"
+	},
+	"trivia_hard_096": {
+		"message": "Mula sa tubig ng anong ilog nagmumula ang karamihan ng dumadaloy sa Sea of Galilee?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Jordan River"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amu Darya"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Ganges River"
+	},
+	"trivia_hard_097": {
+		"message": "Anong malaking look ang naghihiwalay sa New Brunswick mula sa Nova Scotia?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Bay of Fundy"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Hudson Bay"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Bay of Bengal"
+	},
+	"trivia_hard_098": {
+		"message": "Saang bansa matatagpuan ang Cologne Cathedral na nasa rehiyong Rhineland?"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Germany"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Denmark"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_099": {
+		"message": "Ang Chiapas, lugar ng ilang guho ng Maya, ay ang pinakatimog na estado sa anong bansa?"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Chile"
+	},
+	"trivia_hard_100": {
+		"message": "Sa anong dagat ikinokonekta ng Dardanelles, isang kipot, ang Sea of Marmara?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Aegean Sea"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Barents Sea"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Tasman Sea"
+	},
+	"trivia_hard_101": {
+		"message": "Anong bansa sa Southeast Asia ang may opisyal na wika na Khmer?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Cambodia"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_hard_102": {
+		"message": "Ang Donets Basin ay isang industrial area na sinasakupan ng Russia at anong bansa?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Ukraine"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Slovakia"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Lebanon"
+	},
+	"trivia_hard_103": {
+		"message": "Ang Mount Kosciuszko, na matatagpuan sa Snowy Mountains, ang pinakamataas na bundok sa anong kontinente?"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Australia"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Europe"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "South America"
+	},
+	"trivia_hard_104": {
+		"message": "Bahagi ng anong bansa ang mga isla ng Madura at Bali?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indonesia"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Japan"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_105": {
+		"message": "Saang bansa sa Asia matatagpuan ang Taklimakan Desert na nasa hilaga ng Kunlun Mountains?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "China"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Saudi Arabia"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "South Korea"
+	},
+	"trivia_medium_001": {
+		"message": "Alin sa mga estado sa U.S. na ito ang matatagpuan sa isang delta ng ilog?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "New Orleans"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Austin"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Oklahoma City"
+	},
+	"trivia_medium_002": {
+		"message": "Saang kontinente makikita ang Angkor Wat at Cappadocia na mga UNESCO World Heritage site?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Asia"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Europe"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Africa"
+	},
+	"trivia_medium_003": {
+		"message": "Saang kontinente sinasalita ang mga wikang Kurdish at Persian ng mga tao sa timog-kanlurang bahagi?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Asia"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "South America"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Europe"
+	},
+	"trivia_medium_004": {
+		"message": "Saang kontinente nagsilbing prominenteng sentro ng isang sinaunang sibilisasyon ang Teotihuacán?"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "North America"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Africa"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Asia"
+	},
+	"trivia_medium_005": {
+		"message": "Nasa hangganan ng anong kontinente ang Bellingshausen Sea at ang Ross Sea?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Europe"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Asia"
+	},
+	"trivia_medium_006": {
+		"message": "Sa baybayin ng anong kontinente dumadaloy ang Mozambique at Benguela Current?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Africa"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Europe"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "North America"
+	},
+	"trivia_medium_007": {
+		"message": "Makikita sa timog-silangang dulo ng anong kontinente ang kapuluan ng Islas Malvinas, na tinatawag ding Falkland Islands?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "South America"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "North America"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Europe"
+	},
+	"trivia_medium_008": {
+		"message": "Alin sa mga bansa sa Africa ang may pinakamalaking sukat?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Algeria"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gambia"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Burundi"
+	},
+	"trivia_medium_009": {
+		"message": "Anong malaking isla ang matatagpuan 200 milya sa hilagang-kanluran ng Iceland?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Greenland"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "New Guinea"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Ireland"
+	},
+	"trivia_medium_010": {
+		"message": "Bahagi ng anong karagatan ang Kara Sea at ang East Siberian Sea?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Arctic Ocean"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Indian Ocean"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Pacific Ocean"
+	},
+	"trivia_medium_011": {
+		"message": "Anong bansa ang nasa hangganan ng Baltic Sea?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Latvia"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Slovenia"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Ukraine"
+	},
+	"trivia_medium_012": {
+		"message": "Alin sa mga pangunahing lungsod na ito ang pinakamatao?"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "São Paulo, Brazil"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto, Canada"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hanoi, Vietnam"
+	},
+	"trivia_medium_013": {
+		"message": "Anong bansa ang walang dalampasigan sa Atlantic Ocean?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Malaysia"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Uruguay"
+	},
+	"trivia_medium_014": {
+		"message": "Alin sa mga bansang ito ang may pinakamaikling dalampasigan?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Peru"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Chile"
+	},
+	"trivia_medium_015": {
+		"message": "Anong disyerto ang matatagpuan sa Asia?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalahari"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atacama"
+	},
+	"trivia_medium_016": {
+		"message": "Alin sa mga bansang ito ang nakakaranas ng pinakamaraming aktibidad ng bulkan?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indonesia"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Egypt"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Israel"
+	},
+	"trivia_medium_017": {
+		"message": "Alin sa mga bansang ito ang may pinakamalaking populasyon?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_018": {
+		"message": "Alin sa mga bansang ito ang may pinakamaraming isla?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Bahamas"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_019": {
+		"message": "Anong bansa ang pinakamalapit sa Ekwador?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Rwanda"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "South Africa"
+	},
+	"trivia_medium_020": {
+		"message": "Anong bansa ang matatagpuan sa pinakahilagang bahagi?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Estonia"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Libya"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Cambodia"
+	},
+	"trivia_medium_021": {
+		"message": "Saang kabisera matatagpuan ang Alfama district na makikita sa Portugal sa pampang ng Tagus River?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lisbon"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Helsinki"
+	},
+	"trivia_medium_022": {
+		"message": "Anong kabisera, matatagpuan 25 milya sa hilagang-silangan ng Dead Sea, ang pinakamataong lungsod sa Jordan?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Amman"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Islamabad"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Seoul"
+	},
+	"trivia_medium_023": {
+		"message": "Saang kabisera matatagpuan ang Tahrir Square, ang sentro ng ilang mahahalagang protesta sa Egypt?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Cairo"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Muscat"
+	},
+	"trivia_medium_024": {
+		"message": "Anong kabiserang matatagpuan sa Table Bay ang nagsisilbing sentro ng pambansang parliyamento ng South Africa?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Cape Town"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaka"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinshasa"
+	},
+	"trivia_medium_025": {
+		"message": "Matatagpuan sa Vltava River, anong kabisera ang pinakalamaking lungsod sa\nCzech Republic?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Prague"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dublin"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Sofia"
+	},
+	"trivia_medium_026": {
+		"message": "Anong kabisera, na matatagpuan sa Mediterranean Sea, ang mahalagang daungan para sa Libya?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Tripoli"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monrovia"
+	},
+	"trivia_medium_027": {
+		"message": "Anong kabisera, isang mahalagang sentro ng kalakalan at transportasyon sa Sudan, ang matatagpuan sa lugar kung saan nagsasalubong ang White Nile at Blue Nile River?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Khartoum"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Tunis"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Johannesburg"
+	},
+	"trivia_medium_028": {
+		"message": "Anong kabisera ang makikita sa mga isla ng Denmark na Zealand at Amager?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Copenhagen"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Bern"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Bratislava"
+	},
+	"trivia_medium_029": {
+		"message": "Anong kabisera, na matatagpuan sa isla ng New Providence, ang pinakamalaking lungsod sa Bahamas?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Nassau"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santo Domingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopan"
+	},
+	"trivia_medium_030": {
+		"message": "Anong kabiserang matatagpuan sa timog ng Black Sea ang nagsisilbing sentro ng sistema ng transportasyon ng Turkey?"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "Ankara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minsk"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Tehran"
+	},
+	"trivia_medium_031": {
+		"message": "Alin sa mga bansang ito ang bahagyang matatagpuan sa Horn of Africa?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Niger"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Swaziland"
+	},
+	"trivia_medium_032": {
+		"message": "Ang Skagerrak ay isang kipot na naghihiwalay sa Denmark mula sa anong bansa?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Norway"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "United Kingdom"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_medium_033": {
+		"message": "Anong bansa ang may mas malaking sukat ng lupa na nababalot ng disyerto?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Chad"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Norway"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_034": {
+		"message": "Saang bansa dumadaloy ang Euphrates River?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Syria"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Switzerland"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Thailand"
+	},
+	"trivia_medium_035": {
+		"message": "Saang kontinente matatagpuan ang lungsod ng Irkutsk na malapit sa Lake Baikal?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Asia"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Africa"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "South America"
+	},
+	"trivia_medium_036": {
+		"message": "Ang Dnieper at Rhine ay mga pangunahing ilog sa anong kontinente?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Europe"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Antarctica"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "Asia"
+	},
+	"trivia_medium_037": {
+		"message": "Saang kontinente matatagpuan ang Guiana Highlands at ang rehiyong Pantanal?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "South America"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "North America"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Europe"
+	},
+	"trivia_medium_038": {
+		"message": "Saang kontinente makikita ang mga tampok na Great Victoria Desert at Nullarbor Plain?"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Asia"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Europe"
+	},
+	"trivia_medium_039": {
+		"message": "Ang Rio Grande do Sul ang estado sa pinakatimog na bahagi ng anong bansa?"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Brazil"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "Mexico"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Germany"
+	},
+	"trivia_medium_040": {
+		"message": "Saang bansa matatagpuan ang lungsod ng Novosibirsk na nasa Ob River?"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Russia"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "China"
+	},
+	"trivia_medium_041": {
+		"message": "Anong bansa ang matatagpuan sa Pacific Rim at mas malamang na makaranas ng lindol?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Chile"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "France"
+	},
+	"trivia_medium_042": {
+		"message": "Sa hilagang baybayin ng anong bansa matatagpuan ang Lake Maracaibo?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Canada"
+	},
+	"trivia_medium_043": {
+		"message": "Anong bansa ang nasa hangganan ng Arabian Sea?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Tajikistan"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Greece"
+	},
+	"trivia_medium_044": {
+		"message": "Anong bansa ang matatagpuan sa Iberian Peninsula?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Portugal"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Netherlands"
+	},
+	"trivia_medium_045": {
+		"message": "Alin sa mga bansang ito ang may pinakamahabang dalampasigan?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Thailand"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Congo"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Qatar"
+	},
+	"trivia_medium_046": {
+		"message": "Anong estado sa U.S. ang matatagpuan sa kanluran ng Mississippi River?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Colorado"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Maryland"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Michigan"
+	},
+	"trivia_medium_047": {
+		"message": "Anong estado sa U.S. ang humigit-kumulang 60 porsyentong nababalot ng mga gubat?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virginia"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "Saang estado sa U.S. matatagpuan ang Mount McKinley, ang pinakamataas na bundok sa North America?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Alaska"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_medium_049": {
+		"message": "Alin sa mga estado sa U.S. na ito ang pinakamalaki ang sukat?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montana"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "South Carolina"
+	},
+	"trivia_medium_050": {
+		"message": "Saang estado sa U.S. matatagpuan ang Mount Rushmore na malapit sa Rapid City?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "South Dakota"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Florida"
+	},
+	"trivia_medium_051": {
+		"message": "Anong estado sa U.S. ang nakikihati ng hangganan sa Canada?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebraska"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentucky"
+	},
+	"trivia_medium_052": {
+		"message": "Saang baybayin ng estado sa U.S. matatagpuan ang mga coral reef?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "Saang bansa matatagpuan ang mahalagang daungan na Hamburg?"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Germany"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Croatia"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Belgium"
+	},
+	"trivia_medium_054": {
+		"message": "Anong bansa ang nakakaranas ng pinakamaraming aktibidad ng bulkan?"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "Iceland"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "United Kingdom"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "Poland"
+	},
+	"trivia_medium_055": {
+		"message": "Anong bansa ang pangunahing makikita sa Asia Minor peninsula?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Turkey"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Myanmar"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Estonia"
+	},
+	"trivia_medium_056": {
+		"message": "Binubuo ng Dead Sea ang bahagi ng hangganan sa pagitan ng Israel at anong isa pang bansa?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Jordan"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Japan"
+	},
+	"trivia_medium_057": {
+		"message": "Saang bansa matatagpuan ang Serengeti National Park na nasa silangan ng Lake Victoria?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tanzania"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Yemen"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_058": {
+		"message": "Anong bansa ang nasa hangganan ng Caribbean Sea at isang pangunahing tagaluwas ng langis?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paraguay"
+	},
+	"trivia_medium_059": {
+		"message": "Anong bansang napapalibutan ng lupa ang makikita sa timog lang ng Ekwador?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Burundi"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Djibouti"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Tunisia"
+	},
+	"trivia_medium_060": {
+		"message": "Nasa hangganan ng anong bansa sa Mediterranea ang Tyrrhenian Sea?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Italy"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Israel"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Senegal"
+	},
+	"trivia_medium_061": {
+		"message": "Saang bansa matatagpuan ang Yekaterinburg na makikita sa dalisdis sa silangan ng Ural Mountains?"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Russia"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Lithuania"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Belgium"
+	},
+	"trivia_medium_062": {
+		"message": "Anong bansang isla ang makikita sa timog-silangan ng Australia at isang nangungunang tagagawa ng lana?"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "New Zealand"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Pilipinas"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_063": {
+		"message": "Saang bansa isang pangunahing lungsod na daungan ang Mumbai?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Switzerland"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_medium_064": {
+		"message": "Saang bansa matatagpuan ang lungsod ng Incheon na nasa Yellow Sea?"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "South Korea"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Thailand"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mongolia"
+	},
+	"trivia_medium_065": {
+		"message": "Anong maliit na bansa ang matatagpuan sa hangganan ng Austria sa kanluran?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Liechtenstein"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Syria"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Moldova"
+	},
+	"trivia_medium_066": {
+		"message": "Saang bansa matatagpuan ang dalawang estado na Victoria at New South Wales?"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "Estados Unidos"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Canada"
+	},
+	"trivia_medium_067": {
+		"message": "Anong bansa sa isla ng Borneo ang nasa hangganan ng maliit na bansa ng Brunei?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Malaysia"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Ukraine"
+	},
+	"trivia_medium_068": {
+		"message": "Makikita ang Julian Alps sa hangganan sa pagitan ng Italy at anong isa pang bansa?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Slovenia"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Tajikistan"
+	},
+	"trivia_medium_069": {
+		"message": "Matatagpuan sa hilagang-silangang bahagi ng anong bansa ang rehiyong dating kilala bilang Manchuria?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "China"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Belarus"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afghanistan"
+	},
+	"trivia_medium_070": {
+		"message": "Anong bansa ang nasa hangganan ng El Salvador?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panama"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Dominican Republic"
+	},
+	"trivia_medium_071": {
+		"message": "Anong bansa ang matatagpuan sa Caucasus Mountains?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Georgia"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Hungary"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andorra"
+	},
+	"trivia_medium_072": {
+		"message": "Pinaghihiwalay ng Sunda Strait ang dalawang isla sa anong bansa sa Asia?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indonesia"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "New Zealand"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Laos"
+	},
+	"trivia_medium_073": {
+		"message": "Saang bansa matatagpuan ang mga lambak na may glacier at nakakamanghang bangin na makikita malapit sa bukana ng Shannon River?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Ireland"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "France"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "Uzbekistan"
+	},
+	"trivia_medium_074": {
+		"message": "Saang bansa sa South Asia dumadaloy ang Indus River?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "North Korea"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Azerbaijan"
+	},
+	"trivia_medium_075": {
+		"message": "Anong bansa ang nasa hangganan ng Red Sea?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_medium_076": {
+		"message": "Mga estado sa anong bansa ang Zacatecas at Tabasco?"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "Belize"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Argentina"
+	},
+	"trivia_medium_077": {
+		"message": "Saang bansa matatagpuan ang Riyadh, isang lungsod na may mahigit sa 4,000 mosque?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Saudi Arabia"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albania"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Syria"
+	},
+	"trivia_medium_078": {
+		"message": "Anong bansa sa Africa ang napapalibutan ng lupa?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Mauritania"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Egypt"
+	},
+	"trivia_medium_079": {
+		"message": "Saang bansa sagradong lugar ang Mount Fuji?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Japan"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Pilipinas"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_080": {
+		"message": "Anong bansa ng Greater Antilles ang gumagamit ng Ingles bilang opisyal nitong wika?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Cuba"
+	},
+	"trivia_medium_081": {
+		"message": "Ano ang opisyal na wika ng Syria, Kuwait at Algeria?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "Arabic"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "Armenian"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "German"
+	},
+	"trivia_medium_082": {
+		"message": "Ang mga opera ni Mozart ay kadalasang itinatanghal sa taunang Salzburg Festival na ginagawa sa anong bulubunduking bansa sa Europe?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Austria"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Hungary"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Romania"
+	},
+	"trivia_medium_083": {
+		"message": "Saang bansa sa hilaga ng Sudan matatagpuan ang Valley of the Whales, isang disyertong puno ng mga fossil na labi ng mga sinaunang balyena?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Egypt"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_medium_084": {
+		"message": "Saang bansa sa Europe matatagpuan ang Rotterdam na makikita sa isang delta malapit sa North Sea?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Netherlands"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Sweden"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Greece"
+	},
+	"trivia_medium_085": {
+		"message": "Anong pangunahing bulubundukin ang pinagmumulan ng Brahmaputra River, na dumadaloy sa isang malaking delta malapit sa Bay of Bengal?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himalayas"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Urals"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Alps"
+	},
+	"trivia_medium_086": {
+		"message": "Ang Farsi, na kilala rin bilang Persian, ay ang opisyal na wika ng anong bansang Islam?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Iran"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Libya"
+	},
+	"trivia_medium_087": {
+		"message": "Pinapanood ng mga tao ang mga matador na gumanap sa mga bullfight sa Seville, isang lungsod sa anong bansa sa Europe?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Spain"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Germany"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "Macedonia"
+	},
+	"trivia_medium_088": {
+		"message": "Saang bansa matatagpuan ang lungsod ng Istanbul, na itinuturing na isang lugar kung saan naghahalo ang mga kultura mula sa Silangan at Kanluran?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Turkey"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Slovakia"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Oman"
+	},
+	"trivia_medium_089": {
+		"message": "Saang bansa na nasa pagitan ng El Salvador at Nicaragua matatagpuan ang lungsod ng Maya na Copán, isang sikat na puntahan ng mga turista?"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Canada"
+	},
+	"trivia_medium_090": {
+		"message": "Saang bansang napapalibutan ng lupa matatagpuan ang Timbuktu, isang sentro ng kalakalang caravan sa loob ng halos isang libong taon, na matatagpuan sa hilaga ng Niger River?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namibia"
+	},
+	"trivia_medium_091": {
+		"message": "Anong bansa sa South America na napapalibutan ng lupa ang nasa hangganan ng Chile at Brazil?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Bolivia"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Colombia"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Guyana"
+	},
+	"trivia_medium_092": {
+		"message": "Saang bansa matatagpuan ang lungsod ng Belém, na nasa timog na bukana ng Amazon River?"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Brazil"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "Costa Rica"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_medium_093": {
+		"message": "Anong ilog ang bumubuo sa malaking bahagi ng hilagang hangganan ng Bulgaria?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Danube River"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Ob River"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Mekong River"
+	},
+	"trivia_medium_094": {
+		"message": "Saang bansa sa Asia matatagpuan ang Sayan Mountains na malapit sa Lake Baikal?"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Russia"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "India"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Kyrgyzstan"
+	},
+	"trivia_medium_095": {
+		"message": "Ang Lake Nipigon ang pinakamalaking lawa sa anong probinsya ng Canada?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontario"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "British Columbia"
+	},
+	"trivia_medium_096": {
+		"message": "Ang Balearic Sea at Ionian Sea ay parehong bahagi ng anong mas malaking dagat?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Mediterranean Sea"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Baltic Sea"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Caribbean Sea"
+	},
+	"trivia_medium_097": {
+		"message": "Saang kontinente matatagpuan ang Lake Turkana at Lake Natron, mga halimbawa ng lawa sa rift valley?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Africa"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "South America"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Europe"
+	},
+	"trivia_medium_098": {
+		"message": "Ang Puerto Rico Trench ang pinakamalalim na lugar sa anong karagatan?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Atlantic Ocean"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Arctic Ocean"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Pacific Ocean"
+	},
+	"trivia_medium_099": {
+		"message": "Sa silangang bahagi ng anong kontinente matatagpuan ang tumatawang ibon na kookaburra, na likas sa mga gubat ng eucalyptus?"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Africa"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "South America"
+	},
+	"trivia_medium_100": {
+		"message": "Ang Hague, tahanan ng International Court of Justice, ay isang lungsod sa kanlurang baybayin ng anong bansa sa Europe?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Netherlands"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Finland"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Bulgaria"
+	},
+	"trivia_ngb_promo": {
+		"message": "Mula sa National Geographic Bee ang content"
+	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
+	},
+	"uk_country_name": {
+		"message": "United Kingdom"
+	},
+	"uk_tradition": {
+		"message": "Sa United Kingdom, nagpapaputok ang mga nagdiriwang, anuman ang edad, ng mga Christmas cracker sa hapag sa hapunan. Ang cracker ay tube na binalot sa makukulay na papel, na may hahataking tab sa magkabilang dulo. Kapag hinatak mo ang mga tab, sasabog ang tube nang may malakas na tunog! May laman itong mga paper hat, laruan at candy na ie-enjoy sa gabi ng Pasko."
+	},
+	"upgrade-warning": {
+		"message": "Oops! Hindi sinusuportahan ang Santa Tracker sa bersyong ito ng iyong browser. Upang ma-access ang Santa Tracker, mag-download ng makabagong browser. Para sa higit pang impormasyon, bisitahin ang \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
+	"us_country_name": {
+		"message": "Estados Unidos"
+	},
+	"us_tradition": {
+		"message": "Sa Estados Unidos, nagsasabit ng mga stocking sa Bisperas ng Pasko. Ayon sa alamat, nabalitaan ni St Nicholas ang tungkol sa isang pamilyang naghihirap. Upang sorpresahin sila, bumaba siya sa kanilang tsimineya at naglagay ng mga bag ng ginto sa mga nakasabit na stocking. Mula noon, nakilala si St Nicholas bilang si Santa Claus, ang tagabigay ng regalo."
+	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
+	"watch": {
+		"message": "Panoorin"
+	},
+	"ye_country_name": {
+		"message": "Yemen"
+	},
+	"zh-CN_language_name": {
+		"message": "Chinese (simplified)"
+	},
+	"zh-TW_language_name": {
+		"message": "Chinese (traditional)"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
+	}
+}

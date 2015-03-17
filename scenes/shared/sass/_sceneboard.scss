@@ -1,0 +1,81 @@
+$sceneboard-bg: #9ece2b !default;
+$sceneboard-backbg: darken($sceneboard-bg, 10%) !default;
+
+$headerPadding: 30px;
+$headerHeight: 45px;
+
+##{$name} {
+  .sceneboard {
+    background: $sceneboard-bg url(img/logo.svg) no-repeat 50% 72.5%;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.23);
+    height: 200px;
+    left: 20px;
+    position: fixed;
+    top: 0;
+    width: 204px;
+    z-index: 120;
+
+    .back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      color: #fff;
+      width: 100%;
+      line-height: $headerHeight;
+      padding: 0 0 0 $headerPadding;
+      background: url(../shared/img/village-nav-bg.svg) 50% 100%/204px 45px no-repeat,
+      url(../shared/img/back-arrow.svg) 10px 50%/31px 31px no-repeat;
+      box-sizing: border-box;
+    }
+  }
+
+  .sceneboard--withButton {
+    background: $sceneboard-bg url(img/logo.svg) no-repeat 50% 50%;
+    height: 252px;
+  }
+
+  .sceneboard-back {
+    background: $sceneboard-backbg;
+    height: $headerHeight;
+  }
+
+  .sceneboard-button {
+    background: #12b319;
+    border-radius: 0 0 5px 5px;
+    bottom: 0;
+    color: #fff;
+    font-size: 1.4em;
+    font-weight: 700;
+    height: 52px;
+    line-height: 52px;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    width: 204px;
+  }
+
+  @media (min-width: 1px) and (max-width: 1024px) {
+    .sceneboard {
+      background: none;
+      box-shadow: none;
+      height: 44px;
+      left: auto;
+      right: 0;
+      top: auto;
+      transform-origin: 140px 44px;
+      width: 140px;
+    }
+
+    .sceneboard-button {
+      border-radius: 22px 0 0 22px;
+      height: 44px;
+      line-height: 44px;
+      width: 140px;
+    }
+  }
+}

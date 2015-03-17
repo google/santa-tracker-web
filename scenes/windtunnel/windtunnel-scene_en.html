@@ -1,0 +1,219 @@
+<link rel="import" href="../base-scene.html">
+<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../../js/webanimations.html">
+
+<script src="windtunnel-scene.min.js"></script>
+
+<!--
+Wind tunnel scene.
+
+@element windtunnel-scene
+@extends base-scene
+-->
+<polymer-element name="windtunnel-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="windtunnel-scene.css" no-shim>
+
+  <core-a11y-keys target="{{}}" keys="enter space left right down up"
+                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+
+  <div id="module-windtunnel">
+    <div class="scene">
+      <div class="windtunnel">
+        <div class="main">
+          <div class="machine">
+            <div class="lights">
+              <div class="light"></div>
+              <div class="light"></div>
+              <div class="light"></div>
+              <div class="light"></div>
+            </div>
+
+            <div class="rudolf-wrap rudolf-wrap--normal">
+              <div id="rudolf" class="rudolf">
+                <div class="rudolf-light"></div>
+              </div>
+
+              <div class="parachute-wrap">
+                <div class="parachute"></div>
+                <div class="parachute-shadow"></div>
+              </div>
+            </div>
+
+            <div class="lift-wrap">
+              <div class="lift"></div>
+            </div>
+
+            <div class="fan-base">
+              <div class="fan">
+                <div class="threads">
+                  <div class="thread thread--low"></div>
+                  <div class="thread thread--low"></div>
+                  <div class="thread thread--low"></div>
+                  <div class="thread thread--low"></div>
+                  <div class="thread thread--low"></div>
+                  <div class="thread thread--low"></div>
+                  <div class="thread thread--low"></div>
+                  <div class="thread thread--low"></div>
+                  <div class="thread thread--low"></div>
+                  <div class="thread thread--low"></div>
+                </div>
+
+                <div class="indicator-wrap">
+                  <div class="indicator"></div>
+                </div>
+
+                <div id="leverwrap" class="lever-wrap">
+                  <div class="lever"></div>
+                  <div class="lever-base"></div>
+                </div>
+
+                <div class="controller">
+                  <div class="elf"></div>
+                  <div class="shadow"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="consoles">
+              <div class="console c1"></div>
+              <div class="console c2">
+                <div class="meters"></div>
+              </div>
+              <div class="console c3">
+                <div class="tapes">
+                  <div class="tape"></div>
+                  <div class="tape"></div>
+                </div>
+              </div>
+              <div class="console c4">
+                <div class="graph"></div>
+                <div class="blibs"></div>
+              </div>
+              <div class="console c5">
+                <div class="tapes">
+                  <div class="tape"></div>
+                  <div class="tape"></div>
+                </div>
+                <div class="lights"></div>
+              </div>
+            </div>
+
+            <div class="snowblower">
+              <div id="snowblower" class="snowblower-switch snowblower-switch--med"></div>
+            </div>
+
+            <canvas class="snow-canvas"></canvas>
+
+            <div class="screen-frame">
+              <div class="screen"></div>
+              <div class="shadow"></div>
+            </div>
+
+            <div class="window"></div>
+
+            <div class="cogs">
+              <div class="cog small"></div>
+              <div class="cog big"></div>
+            </div>
+
+            <div class="wind-balloon"></div>
+          </div>
+        </div>
+        <div class="split"></div>
+      </div>
+    </div>
+    <div class="gui">
+      <div class="board board--scene">
+        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <div class="logo"></div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  Polymer({
+    componentDir: 'scenes/windtunnel/',
+
+    onPreload: function() {
+      this.preloadSounds('windtunnel_load_sounds', 10);
+      this.preloadImages([
+        'img/logo.svg',
+        'img/base-back.png',
+        'img/cog-big.png',
+        'img/cog-small.png',
+        'img/console-blibs.png',
+        'img/console-graph.png',
+        'img/console-lights.png',
+        'img/console-meters.png',
+        'img/console-tape.png',
+        'img/consoles.png',
+        'img/elfs.png',
+        'img/fan-base.png',
+        'img/fan-controller-shadow.png',
+        'img/fan-controller.png',
+        'img/fan-indicator.png',
+        'img/fan-lever-base.png',
+        'img/fan-lever-handle.png',
+        'img/fan-shadow.png',
+        'img/fan-threads-high.png',
+        'img/fan-threads-low.png',
+        'img/fan-threads-med.png',
+        'img/lift-shadow.png',
+        'img/lift.png',
+        'img/light.png',
+        'img/machine-base.png',
+        'img/parachute-shadow.png',
+        'img/parachute.png',
+        'img/rudolf-nose-light.png',
+        'img/rudolf-serious.png',
+        'img/rudolf-serious-shadow.png',
+        'img/rudolf-shadow.png',
+        'img/rudolf.png',
+        'img/screen.png',
+        'img/snow-layer1.png',
+        'img/snow-layer2.png',
+        'img/snow-layer3.png',
+        'img/snow-layer4.png',
+        'img/snowblower-switch.png',
+        'img/snowblower.png',
+        'img/wind-balloon.png',
+        'img/wires.png'
+      ]);
+    },
+
+    onShow: function() {
+      this.fire('sound-ambient', 'windtunnel_start');
+      var div = this.$['module-windtunnel'];
+
+      this.scene = new scenes.windtunnel.Scene(div);
+    },
+
+    onHide: function() {
+      this.scene.destroy();
+      this.scene = null;
+      this.fire('sound-ambient', 'windtunnel_end');
+    },
+
+    keyHandler: function(e, details, sender) {
+      e.stopPropagation();
+
+      switch (e.detail.key) {
+        case 'left':
+        case 'right':
+          this.$.leverwrap.click();
+          break;
+        case 'down':
+        case 'up':
+          this.$.snowblower.click();
+          break;
+        case 'enter':
+        case 'space':
+          this.$.rudolf.click();
+          break;
+      }
+    }
+  });
+</script>
+</polymer-element>
+

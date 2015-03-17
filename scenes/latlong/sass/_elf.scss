@@ -1,0 +1,126 @@
+$elf-height: 140px;
+$elf-width: 104px;
+
+##{$name} {
+  .Elf {
+    height: $elf-height;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: $elf-width;
+    pointer-events: none; // Stop elfs interfering with gameplay (unless you have IE10)
+    transform-origin: 50% 50%;
+    transform: scale(2);
+  }
+
+  .Elf--withPresent {
+    .Elf-body {
+      background-image: url(img/elfs.svg);
+    }
+  }
+
+  // Elf body + jetpack
+  .Elf-body {
+    background: url(img/elfs.svg) no-repeat;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .Elf--red .Elf-body {
+    background-position: 0 -583px;
+  }
+
+  .Elf--cyan .Elf-body {
+    background-position: 0 -146px;
+  }
+
+  .Elf--blue .Elf-body {
+    background-position: 0 -291px;
+  }
+
+  .Elf--pink .Elf-body {
+    background-position: 0 -438px;
+  }
+
+  // Thruster fire
+  .Elf-fire {
+    height: 98px;
+    margin: -43px auto 0;
+    position: relative;
+    transition: all 0.20s;
+    transform-origin: center top;
+    width: 33px;
+  }
+
+  .Elf-fireOrange {
+    background: url(img/elf-fire.svg) no-repeat;
+    height: 98px;
+    position: absolute;
+    transform-origin: center top;
+    width: 33px;
+  }
+
+  .Elf-fireYellow {
+    background: url(img/elf-fire.svg) -39px -20px no-repeat;
+    height: 60px;
+    left: 7px;
+    position: absolute;
+    top: 5px;
+    transform-origin: center top;
+    width: 19px;
+  }
+
+  .Elf-spark {
+    background-image: url(img/elf-fire.svg);
+    background-position: -40px 0;
+    position: absolute;
+    height: 12px;
+    width: 12px;
+  }
+
+  .Elf-spark:nth-child(odd) {
+    background-position: -60px 0;
+  }
+
+  .Elf-sparks {
+    left: 35px;
+    position: absolute;
+    top: 140px;
+  }
+
+  .Elf-spark:nth-child(1) {
+    left: 0;
+    top: 10px;
+  }
+
+  .Elf-spark:nth-child(2) {
+    left: 20px;
+    top: 10px;
+  }
+
+  .Elf-spark:nth-child(3) {
+    left: 5px;
+    top: 20px;
+  }
+
+  .Elf-spark:nth-child(4) {
+    left: 15px;
+    top: 15px;
+  }
+
+  .Elf-spark:nth-child(5) {
+    left: 5px;
+    top: 0;
+  }
+
+  .Elf-spark:nth-child(6) {
+    left: 0;
+    top: 10px;
+  }
+
+  .Elf-spark:nth-child(7) {
+    left: 20px;
+    top: 15px;
+  }
+}

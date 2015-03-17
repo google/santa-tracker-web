@@ -1,0 +1,43 @@
+$name: 'module-mercator';
+$gameover-bg: #fbbf2c;
+$rotate-bg: $gameover-bg;
+
+@import "../shared/sass/levelup";
+@import "../shared/sass/gameover";
+@import "../shared/sass/rotate";
+@import "../shared/sass/board";
+@import "../shared/sass/startbutton";
+@import "../shared/sass/tutorial";
+
+@import "sass/country";
+@import "sass/map";
+
+##{$name} {
+  background: #FBBF2C;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  .scene {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform-origin: 0 0;
+  }
+
+  .countries {
+    display: none;
+  }
+
+  &.frozen .gmap {
+    opacity: 0;
+  }
+
+  // Custom tutorial
+  @include tutorial(mouse-mercator, 'img/tutorial/mouse-mercator.svg', 4);
+  @include tutorial(touch-mercator, 'img/tutorial/touch-mercator.svg', 4);
+}

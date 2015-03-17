@@ -1,0 +1,331 @@
+<link rel="import" href="../base-scene.html">
+<link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="../../components/google-apis/google-maps-api.html">
+
+<script src="../shared/js/startbutton.js"></script>
+<script src="mercator-scene.min.js"></script>
+
+<!--
+Mercator scene.
+
+@element mercator-scene
+@extends base-scene
+-->
+<polymer-element name="mercator-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="mercator-scene.css" no-shim>
+
+  <div id="module-mercator">
+    <div class="scene">
+      <template if="{{santaApp}}">
+        <google-maps-api version="3.exp"
+                         clientId="{{santaApp.config.CLIENT_ID}}"
+                         libraries="places,geometry"
+                         language="{{santaApp.language}}"
+                         on-api-load="{{mapsAPIReady}}"></google-maps-api>
+      </template>
+      <div class="map">
+        <div class="gmap"></div>
+      </div>
+      <div class="bg"></div>
+    </div>
+    <div class="gui">
+      <div class="board board--game">
+        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <div class="logo"></div>
+        <div class="score">
+          <div class="label">
+            <i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value">0</div>
+        </div>
+        <div class="level has-count">
+          <div class="label">
+            <i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value"><span class="current-level">1</span><span class="dark-text">/10</span>
+          </div>
+          <div class="level-dots">
+            <div class="level-item is-active">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">1</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">2</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">3</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">4</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">5</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">6</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">7</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">8</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">9</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">10</div>
+            </div>
+          </div>
+        </div>
+        <div class="time">
+          <div class="label">
+            <i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value"><span class="minutes dark-text">00</span><span class="dark-text"> : </span><span class="seconds">00</span></div>
+          <div class="tracker">
+            <div class="remaining"></div>
+          </div>
+          <div class="status"></div>
+        </div>
+        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
+          <button type="button" class="restart"></button>
+          <button type="button" class="pause"></button>
+        </div>
+      </div>
+      <div class="levelup"></div>
+      <div class="levelup--number"></div>
+      <div class="gameover overlay">
+        <div class="gameover-dialog overlay-dialog">
+          <h2 class="gameover-title">
+            <i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg>
+          </h2>
+          <div class="gameover-winner">
+            <div class="gameover-level">
+              <p class="gameover-label">
+                <i18n-msg msgid="gameover_level">PLACEHOLDER_i18n</i18n-msg>
+              </p>
+              <p class="gameover-number">0</p>
+            </div>
+            <div class="gameover-score">
+              <p class="gameover-label">
+                <i18n-msg msgid="gameover_score">PLACEHOLDER_i18n</i18n-msg>
+              </p>
+              <p class="gameover-number">0</p>
+            </div>
+          </div>
+          <div class="gameover-buttons">
+            <button type="button" class="Button Button--large gameover-play">
+              <i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg>
+            </button>
+            <a href="{{pageUrl}}#village" class="Button Button--large"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="force-rotate landscape">
+        <div class="force-rotate-graphic"></div>
+        <div class="force-rotate-explanation">
+          <i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg>
+        </div>
+      </div>
+    </div>
+    <div class="countries">
+      <ul>
+        <li data-country="Australia"><i18n-msg msgid="au_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="New Zealand"><i18n-msg msgid="nz_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Argentina"><i18n-msg msgid="ar_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Brazil"><i18n-msg msgid="br_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Canada"><i18n-msg msgid="ca_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="France"><i18n-msg msgid="fr_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Ghana"><i18n-msg msgid="gh_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Greece"><i18n-msg msgid="gr_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Guatemala"><i18n-msg msgid="gt_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Iceland"><i18n-msg msgid="is_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Kyrgyzstan"><i18n-msg msgid="kg_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Mexico"><i18n-msg msgid="mx_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Philippines"><i18n-msg msgid="ph_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Papua New Guinea"><i18n-msg msgid="pg_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Bolivia"><i18n-msg msgid="bo_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Chile"><i18n-msg msgid="cl_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Colombia"><i18n-msg msgid="co_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Ecuador"><i18n-msg msgid="ec_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Guyana"><i18n-msg msgid="gy_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Peru"><i18n-msg msgid="pe_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Paraguay"><i18n-msg msgid="py_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Suriname"><i18n-msg msgid="sr_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Uruguay"><i18n-msg msgid="uy_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Venezuela"><i18n-msg msgid="ve_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Belize"><i18n-msg msgid="bz_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Costa Rica"><i18n-msg msgid="cr_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Cuba"><i18n-msg msgid="cu_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Dominican Republic"><i18n-msg msgid="do_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Honduras"><i18n-msg msgid="hn_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Haiti"><i18n-msg msgid="ht_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Jamaica"><i18n-msg msgid="jm_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Panama"><i18n-msg msgid="pa_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Puerto Rico"><i18n-msg msgid="pr_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="El Salvador"><i18n-msg msgid="sv_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Austria"><i18n-msg msgid="at_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Belgium"><i18n-msg msgid="be_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Belarus"><i18n-msg msgid="by_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Switzerland"><i18n-msg msgid="ch_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Germany"><i18n-msg msgid="de_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Denmark"><i18n-msg msgid="dk_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Estonia"><i18n-msg msgid="ee_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Finland"><i18n-msg msgid="fi_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Ireland"><i18n-msg msgid="ie_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Lithuania"><i18n-msg msgid="lt_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Latvia"><i18n-msg msgid="lv_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Netherlands"><i18n-msg msgid="nl_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Norway"><i18n-msg msgid="no_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Poland"><i18n-msg msgid="pl_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Sweden"><i18n-msg msgid="se_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Albania"><i18n-msg msgid="al_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Bulgaria"><i18n-msg msgid="bg_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Bosnia and Herzegovina"><i18n-msg msgid="ba_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Czech Republic"><i18n-msg msgid="cz_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Croatia"><i18n-msg msgid="hr_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Hungary"><i18n-msg msgid="hu_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Italy"><i18n-msg msgid="it_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Moldova"><i18n-msg msgid="md_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Romania"><i18n-msg msgid="ro_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Slovakia"><i18n-msg msgid="sk_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Benin"><i18n-msg msgid="bj_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Burkina Faso"><i18n-msg msgid="bf_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Côte d'Ivoire"><i18n-msg msgid="ci_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Algeria"><i18n-msg msgid="dz_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Guinea"><i18n-msg msgid="gn_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Liberia"><i18n-msg msgid="lr_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Libya"><i18n-msg msgid="ly_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Mali"><i18n-msg msgid="ml_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Mauritania"><i18n-msg msgid="mr_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Niger"><i18n-msg msgid="ne_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Nigeria"><i18n-msg msgid="ng_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Senegal"><i18n-msg msgid="sn_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Sierra Leone"><i18n-msg msgid="sl_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Togo"><i18n-msg msgid="tg_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Tunisia"><i18n-msg msgid="tn_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Angola"><i18n-msg msgid="ao_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Botswana"><i18n-msg msgid="bw_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Central African Republic"><i18n-msg msgid="cf_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Cameroon"><i18n-msg msgid="cm_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Democratic Republic of the Congo"><i18n-msg msgid="cd_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Republic of Congo"><i18n-msg msgid="cg_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Eritrea"><i18n-msg msgid="er_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Ethiopia"><i18n-msg msgid="et_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Gabon"><i18n-msg msgid="ga_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Madagascar"><i18n-msg msgid="mg_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Mozambique"><i18n-msg msgid="mz_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Malawi"><i18n-msg msgid="mw_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Namibia"><i18n-msg msgid="na_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Somalia"><i18n-msg msgid="so_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Chad"><i18n-msg msgid="td_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Tanzania"><i18n-msg msgid="tz_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Uganda"><i18n-msg msgid="ug_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Zambia"><i18n-msg msgid="zm_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Zimbabwe"><i18n-msg msgid="zw_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Bangladesh"><i18n-msg msgid="bd_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Bhutan"><i18n-msg msgid="bt_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Indonesia"><i18n-msg msgid="id_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Lao PDR"><i18n-msg msgid="la_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Sri Lanka"><i18n-msg msgid="lk_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Myanmar"><i18n-msg msgid="mm_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Malaysia"><i18n-msg msgid="my_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Nepal"><i18n-msg msgid="np_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Taiwan"><i18n-msg msgid="tw_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Vietnam"><i18n-msg msgid="vn_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Afghanistan"><i18n-msg msgid="af_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="United Arab Emirates"><i18n-msg msgid="ae_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Iran"><i18n-msg msgid="ir_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Iraq"><i18n-msg msgid="iq_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Kazakhstan"><i18n-msg msgid="kz_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Oman"><i18n-msg msgid="om_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Saudi Arabia"><i18n-msg msgid="sa_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Tajikistan"><i18n-msg msgid="tj_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Turkmenistan"><i18n-msg msgid="tm_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Turkey"><i18n-msg msgid="tr_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Uzbekistan"><i18n-msg msgid="uz_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Yemen"><i18n-msg msgid="ye_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="United States"><i18n-msg msgid="us_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+        <li data-country="Greenland"><i18n-msg msgid="gl_country_name">PLACEHOLDER_i18n</i18n-msg></li>
+      </ul>
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+  Polymer({
+    componentDir: 'scenes/mercator/',
+
+    game: null,
+
+    showOnMapsReady: false,
+
+    mapsReady: false,
+
+    hasClickedStart: false,
+
+    onPreload: function() {
+      this.preloadSounds('mercator_load_sounds', 40);
+      this.preloadImages([
+        'img/bg.svg',
+        'img/logo.svg',
+        'img/pausescreen.svg'
+      ]);
+    },
+
+    onShow: function() {
+      if (!this.mapsReady) {
+        this.showOnMapsReady = true;
+      } else {
+        var module = this.$['module-mercator'];
+
+        this.game = new scenes.mercator.Game(module);
+        startButton(this, module, this.onClickStart_.bind(this));
+      }
+    },
+
+    onHide: function() {
+      this.game.dispose();
+      this.game = null;
+      this.fire('sound-ambient', 'mercator_end');
+    },
+
+    mapsAPIReady: function() {
+      this.mapsReady = true;
+      if (this.showOnMapsReady) {
+        this.onShow();
+      }
+    },
+
+    onClickStart_: function() {
+      this.hasClickedStart = true;
+      this.game.start();
+    }
+  });
+
+})();
+</script>
+</polymer-element>

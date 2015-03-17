@@ -1,0 +1,529 @@
+<link rel="import" href="../../../components/polymer/polymer.html">
+<link rel="import" href="../../../components/core-list/core-list.html">
+<link rel="import" href="../../../components/core-pages/core-pages.html">
+<link rel="import" href="../../../components/core-selector/core-selector.html">
+<link rel="import" href="../../../components/core-image/core-image.html">
+<link rel="import" href="../../../components/google-streetview-pano/google-streetview-pano.html">
+<link rel="import" href="../../../components/core-media-query/core-media-query.html">
+
+<!--
+Utility element to use response HTML returned by the Santa Tracker API.
+
+@element html-echo
+-->
+<polymer-element name="html-echo" attributes="html">
+<script>
+Polymer({
+  htmlChanged: function() {
+    if (this.html) {
+      this.innerHTML = this.html;
+    }
+  }
+});
+</script>
+</polymer-element>
+
+<!--
+City feed view in Tracker
+
+@element city-feed
+-->
+<polymer-element name="city-feed" attributes="active location timeline santaApp videoMap">
+<template>
+<link rel="stylesheet" href="city-feed.css" no-shim>
+<style>
+  :host {
+    display: none;
+  }
+  :host([active]) {
+    display: block;
+  }
+</style>
+
+<template id="mini-cards-template">
+  <div hidden?="{{model.type != 'facts'}}">
+    <div class="card-header">
+      <div class="corner-image"></div>
+      <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
+    </div>
+    <div class="card-body">
+      <p>{{model.didyouknow}}</p>
+    </div>
+    <div class="card-footer">
+      <p><i18n-msg msgid="trivia_ngb_promo">PLACEHOLDER_i18n</i18n-msg></p>
+    </div>
+  </div>
+
+  <div hidden?="{{model.type != 'photos'}}" style="height:100%">
+    <div class="card-header">
+      <div class="corner-image"></div>
+    </div>
+    <div class="card-body">
+      <core-image sizing="cover" preload load?="{{model.imageUrl}}" fade src="{{model.imageUrl}}"></core-image>
+    </div>
+  </div>
+
+  <div hidden?="{{model.type != 'scene'}}" style="height:100%">
+    <a href="{{pageUrl}}#{{model.game}}">
+      <div class="card-header">
+        <div class="corner-image"></div>
+      </div>
+      <div class="card-body"></div>
+    </a>
+  </div>
+
+  <div hidden?="{{model.type != 'update'}}">
+    <div class="card-header">
+      <div class="corner-image"></div>
+      <h4><i18n-msg msgid="tracker_santa_update">PLACEHOLDER_i18n</i18n-msg></h4>
+    </div>
+    <div class="card-body">
+      <p>{{model.status}}</p>
+    </div>
+  </div>
+
+  <div hidden?="{{model.type != 'video'}}">
+    <a href="{{pageUrl}}#{{videoMap[model.youtubeId]}}">
+      <div class="card-header">
+        <div class="corner-image"></div>
+        <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
+        <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
+      </div>
+      <div class="card-body card-{{videoMap[model.youtubeId]}}"></div>
+    </a>
+  </div>
+</template>
+
+<div id="module-city-feed" fit>
+  <div class="scene" fit>
+
+    <core-media-query query="(max-width:960px)" queryMatches="{{isMobileSize}}"></core-media-query>
+
+    <core-list id="feed" data="{{stream}}" selectionEnabled="false"
+               height="350" runwayFactor="4" on-scroll="{{onScroll}}">
+      <template>
+        <div layout?="{{!isMobileSize}}" horizontal start justified>
+          <div class="card card-{{model.type}} {{model.game ? 'card-' + model.game : ''}}"
+               flex?="{{model.type == 'city'}}">
+            <div class="divider" layout horizontal end>{{model.timestamp | formatTime}}</div>
+
+            <div hidden?="{{model.type != 'city'}}">
+              <div class="card-header">
+                <div class="corner-image"></div>
+                <div>
+                  <h4 class="white">{{model.stop.region}}</h4>
+                  <h1>{{model.stop.city}}</h1>
+                </div>
+                <core-selector id="cardselector" class="card-icons" selected="{{model.selectedCard}}" on-core-activate="{{onCardSelected}}">
+                  <img src="img/tracker-and-city-SVGs_feed-city-icon.svg" data-name="photo" hidden?="{{!model.stop.details.photos[0]}}">
+                  <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg" data-name="photo" hidden?="{{!model.stop.details.photos[1]}}">
+                  <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg" data-name="streetview" hidden?="{{!model.stop.details.streetView}}">
+                  <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg" on-tap="{{onWikipedia}}" data-name="wikipedia" hidden?="{{!model.stop.details.hasWiki}}">
+                </core-selector>
+                <div class="stats">
+                  <div layout horizontal>
+                    <div>
+                      <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
+                      <div layout horizontal center>
+                        <div class="ico ico-clock"></div>
+                        <h2 class="stat-large">{{model.stop.arrival | formatTime}}</h2>
+                      </div>
+                    </div>
+                    <div>
+                      <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
+                      <div layout horizontal center>
+                        <div class="ico ico-weatherchanel"></div>
+                        <h2 class="stat-large white">{{model.stop.details.weather.tempC}}&deg;C / {{model.stop.details.weather.tempF}}&deg;F</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <core-pages class="card-body" selected="{{model.selectedCard}}">
+                <div>
+                  <core-image sizing="cover" load?="{{model.stop.details.photos[0]}}" preload fade src="{{model.stop.details.photos[0].url}}"></core-image>
+                  <div class="attribution" hidden?="{{!model.stop.details.photos[0]}}">
+                    <span class="attrib"><html-echo html="{{model.stop.details.photos[0].attributionHtml}}"></html-echo></span><span class="addview">Add your own <a href="https://www.google.com/maps/views/home">photos</a> to {{model.stop.city}}</span>
+                  </div>
+                </div>
+                <div>
+                  <core-image sizing="cover" preload load?="{{model.stop.details.photos[1]}}" fade src="{{model.stop.details.photos[1].url}}"></core-image>
+                  <div class="attribution" hidden?="{{!model.stop.details.photos[1]}}">
+                    <span class="attrib"><html-echo html="{{model.stop.details.photos[1].attributionHtml}}"></html-echo></span><span class="addview">Add your own <a href="https://www.google.com/maps/views/home">photos</a> to {{model.stop.city}}</span>
+                  </div>
+                </div>
+                <div>
+                  <template if="{{model.stop.details.streetView}}">
+                    <template if="{{model.selectedCard == 2}}">
+                      <google-streetview-pano version="3.exp" fit
+                          panoid="{{model.stop.details.streetView.id}}"
+                          heading="{{model.stop.details.streetView.heading}}"
+                          clientId="{{santaApp.config.CLIENT_ID}}"
+                          libraries="places,geometry"
+                          language="{{santaApp.language}}"
+                          disableDefaultUI></google-streetview-pano>
+                    </template>
+                  </template>
+                </div>
+                <div class="wikipedia">
+                  <div class="gradientbar"></div>
+                  <div class="wikipedia__logo"></div>
+                  <html-echo class="wikipedia__body" html="{{model.stop.details.wikipedia.excerpt}}"></html-echo>
+                  <div class="attribution">
+                    <span class="wiki-cc">Available under
+                    <a target="wiki" href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
+                    terms</span>
+                    <a target="wiki" href="{{model.stop.details.wikipedia.url}}">{{model.stop.details.wikipedia.url}}</a>
+                  </div>
+                </div>
+              </core-pages>
+            </div>
+
+            <template bind ref="mini-cards-template"></template>
+          </div>
+
+          <template if="{{model.nextCard}}" bind="{{model.nextCard as model}}">
+            <div class="card card-{{model.type}} {{model.game ? 'card-' + model.game : ''}}">
+              <div class="divider" layout horizontal end>{{model.timestamp | formatTime}}</div>
+              <template bind ref="mini-cards-template"></template>
+            </div>
+          </template>
+
+        </div>
+
+      </template>
+    </core-list>
+
+  </div>
+</div>
+
+</template>
+<script>
+(function() {
+
+/**
+ * Fired when a page in the city card is selected or a video is played.
+ *
+ * @event analytics-track-event
+ * @param {object} detail
+ */
+
+/**
+ * Lookup table of destination id -> index into timeline array.
+ *
+ * @type object
+ * @default {}
+ * @private
+ */
+var destLookup_ = {};
+
+CARD_CENTERED_THRESHOLD_ = 100; // Top/bottom margin of a stream card to declare it as centered on screen.
+
+Polymer({
+  componentDir: 'scenes/tracker/',
+
+  publish: {
+    /**
+     * If `true`, the feed is showing.
+     *
+     * @attribute active
+     * @type bool
+     * @default false
+     */
+    active: {value: false, reflect: true}
+  },
+
+  /**
+   * Current timeline feed.
+   *
+   * @attribute timeline
+   * @type array
+   * @default []
+   */
+
+  /**
+   * The timeline feed with additional data and adjusted to support mini cards.
+   *
+   * @property stream
+   * @type array
+   * @default []
+   */
+
+  /**
+   * A `<santa-app>` controller element.
+   *
+   * @attribute santaApp
+   * @type HTMLElement
+   * @default null
+   */
+  santaApp: null,
+
+  /**
+   * Mapping of YouTube video ids to URL routes.
+   * @property videoMap
+   * @type {object}
+   * @default null
+   */
+  videoMap: null,
+
+  /**
+   * The timestamp of the card which is currently visible in the center of
+   * the stream.
+   * @property cardInView
+   * @type {number}
+   * @default null
+   */
+  cardInView: null,
+
+  /**
+   * A basename for links within Santa Tracker. The hash is removed for nicer
+   * display URLs in the status bar.
+   * @property pageUrl
+   * @type string
+   * @default
+   */
+  get pageUrl() {
+    return location.href.substr(0, location.href.length - location.hash.length);
+  },
+
+  /**
+   * The last scroll operation that was attempted.
+   * @property pendingScroll_
+   * @type {object}
+   * @default null
+   * @private
+   */
+  pendingScroll_: null,
+
+  /**
+   * True if the list has done its metrics setup and is ready to be shown.
+   * @property setupDone_
+   * @type {boolean}
+   * @default false
+   * @private
+   */
+  setupDone_: false,
+
+  /**
+   * True if a scroll update has been queued, due to the user scrolling the stream.
+   * @property updateQueued_
+   * @type {boolean}
+   * @default false
+   * @private
+   */
+  updateQueued_: false,
+
+  created: function() {
+    this.location = {};
+    this.pendingScroll_ = {};
+    this.timeline = [];
+    this.stream = [];
+  },
+
+  activeChanged: function() {
+    if (this.active) {
+      // TODO(ericbidelman): shouldn't have to call this with new core-list. Investigate.
+      this.$.feed.updateSize();
+
+      this.setupDone_ = true;
+
+      if (this.pendingScroll_.func) {
+        this.async(function() {
+          this.pendingScroll_.func.call(this, this.pendingScroll_.arg);
+          this.pendingScroll_ = {};
+        });
+      }
+    } else {
+      this.cardInView = null;
+
+      // Remove any deep link URL params when stream is hidden.
+      var newHref = location.href.substr(0,
+                    location.href.length - location.hash.length) + '#tracker';
+      window.history.replaceState(null, '', newHref);
+
+      // Want the list to scroll fast and streetview is a hog. Make sure no
+      // streetview cards are activated when the list is opened again.
+      for (var i = 0, item; item = this.stream[i]; ++i) {
+        item.selectedCard = 0;
+      }
+    }
+  },
+
+  timelineChanged: function() {
+    if (!this.timeline || !this.timeline.length) {
+      return;
+    }
+
+    // Make a copy so 2-way bindings don't alter original timeline data.
+    var stream = this.timeline.slice();
+
+    // Add additional metadata needed by the template.
+    for (var i = 0, item; item = stream[i]; ++i) {
+      item.selectedCard = 0; // select initial page on destination card.
+    }
+
+    var adjustedStream = [];
+    destLookup_ = {};
+
+    // core-list uses a single template to render a linear list of items. To
+    // support side-by-side mini cards, we pair mini cards together by storing
+    // a reference to the next mini card when it is followed by a subsequent
+    // mini card. The reference to the next mini card is used in the core-list
+    // template to determine if an additional card should be rendered in the
+    // same row. The template is wrapped in a flexbox container
+    // (<div layout horizontal start justified>) which handles the layout.
+    for (var i = 0, item; item = stream[i]; ++i) {
+      var nextCard = stream[i + 1];
+      if (item.type == 'city') {
+        // Cache index of stop to be able to scroll to destination.
+        destLookup_[item.stop.id] = adjustedStream.length;
+      } else if (item.type != 'city' && nextCard && nextCard.type != 'city') {
+        item.nextCard = nextCard;
+        i++; // skip next item in array.
+      }
+      adjustedStream.push(item);
+    }
+
+    this.stream = adjustedStream;
+
+    if (this.active && this.cardInView) {
+      this.scrollToTime(this.cardInView);
+    }
+  },
+
+  /**
+   * Scrolls the stream to the given destination card. If the index doesn't exist,
+   * the stream scrolls to the top.
+   *
+   * @method scrollToDest
+   * @param {string} destId Destination id
+   */
+  scrollToDest: function(destId) {
+    var idx = destLookup_[destId] || 0;
+    this.scrollToIndex(idx);
+
+    if (this.setupDone_) {
+      // Add deep link to opened destination.
+      var newHref = location.href.substr(0,
+                    location.href.length - location.hash.length) +
+                    '#tracker?timestamp=' + this.stream[idx].timestamp;
+      window.history.replaceState(null, '', newHref);
+    }
+  },
+
+  /**
+   * Scrolls the stream to the item at index.
+   *
+   * @method scrollToIndex
+   * @param {number} idx Index of item to scroll to.
+   */
+  scrollToIndex: function(idx) {
+    if (this.setupDone_) {
+      this.$.feed.scrollToItem(idx);
+    } else {
+      this.pendingScroll_ = {func: this.scrollToIndex, arg: idx};
+    }
+  },
+
+  /**
+   * Scrolls the stream item.
+   *
+   * @method scrollToTime
+   * @param {number} idx Index of item to scroll to.
+   */
+  scrollToTime: function(timestamp) {
+    var timestamp = parseInt(timestamp);
+    for (var i = 0, item; item = this.stream[i]; ++i) {
+      if (item.timestamp === timestamp) {
+        this.scrollToIndex(i);
+        break;
+      }
+    }
+  },
+
+  formatTime: function(timestamp) {
+    if (isNaN(timestamp)) {
+      return '';
+    }
+
+    var dateStamp = new Date(timestamp);
+
+    var seconds = dateStamp.getSeconds();
+    var mins = dateStamp.getMinutes();
+    var hours = dateStamp.getHours();
+    var parts = [this.pad(hours), this.pad(mins), this.pad(seconds)];
+
+    return parts.join(':');
+  },
+
+  pad: function (n) {
+    if (n > 9) {
+      return n;
+    }
+    return '0' + n;
+  },
+
+  onWikipedia: function(e, detail, sender) {
+    var location = sender.templateInstance.model.model.stop;
+
+    // Don't make details API request if wikipedia article has already been fetched.
+    if (location.details.wikipedia) {
+      return;
+    }
+
+    location.getDetails(function(detail) {
+      location.details.wikipedia = detail.wikipedia;
+    });
+  },
+
+  onCardSelected: function(e, detail, sender) {
+    var destId = sender.templateInstance.model.model.stop.id;
+    var type = detail.item.getAttribute('data-name');
+    this.fire('analytics-track-event', {category: 'citycard', action: type,
+                                        label: destId});
+  },
+
+  // Determines the most central visible card in the stream's viewport.
+  updateCardInView: function() {
+    this.updateQueued_ = false;
+
+    var coreListHeight = this.$.feed.offsetHeight;
+
+    for (var i = 0, el; el = this.$.feed.children[i]; ++i) {
+      var elBounds = el.getBoundingClientRect();
+      if (0 < elBounds.top && elBounds.top < coreListHeight) {
+        var yMiddleOfElement = elBounds.top + (elBounds.height / 2);
+        var yUpper = (coreListHeight / 2) + CARD_CENTERED_THRESHOLD_;
+        var yLower = (coreListHeight / 2) - CARD_CENTERED_THRESHOLD_;
+
+        // If card is on center of screen, add deep link to URL.
+        if (yLower < yMiddleOfElement && yMiddleOfElement < yUpper) {
+          var timestamp = el.templateInstance.model.model.timestamp;
+
+          this.cardInView = timestamp;
+
+          var newHref = location.href.substr(0,
+                        location.href.length - location.hash.length) + '#tracker?timestamp=' + timestamp;
+          window.history.replaceState(null, '', newHref);
+
+          break;
+        }
+      }
+    }
+  },
+
+  onScroll: function(e, detail, sender) {
+    // Debounce scrolling.
+    if (!this.updateQueued_) {
+      this.async(function() {
+        this.updateCardInView();
+      });
+    }
+
+    this.updateQueued_ = true;
+  }
+});
+
+})();
+</script>
+</polymer-element>

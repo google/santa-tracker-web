@@ -1,0 +1,758 @@
+$name: 'module-undersea';
+
+@import "../shared/sass/board";
+
+@import "sass/animations";
+
+##{$name} {
+  background: #2fbdbd;
+
+  .bubbles {
+    position: absolute;
+
+    width: 80px;
+    height: 100px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    li {
+      position: absolute;
+
+      left: 0;
+      bottom: 0;
+
+      margin: 0;
+      padding: 0;
+
+      width: 15px;
+      height: 15px;
+
+      border-radius: 50%;
+
+      background: #b6e2ea;
+
+      opacity: 0;
+
+      &:nth-child(2n) {
+      }
+
+      &:nth-child(n+1) {
+        left: 0px;
+
+        animation: 2s #{$name}-bubbleSmallFloat infinite linear;
+      }
+
+      &:nth-child(n+2) {
+        left: 20px;
+
+        animation: 2s 1s #{$name}-bubbleFloat infinite linear;
+      }
+
+      &:nth-child(n+3) {
+        bottom: 10px;
+        left: 30px;
+
+        animation: 3s 1.5s #{$name}-bubbleFloat infinite linear;
+      }
+
+      &:nth-child(n+3) {
+        bottom: 30px;
+        left: 40px;
+
+        animation: 2.5s 1.75s #{$name}-bubbleSmallFloat infinite linear;
+      }
+
+      &:nth-child(n+4) {
+        bottom: 30px;
+        left: 50px;
+
+        animation: 3s 1.5s #{$name}-bubbleFloat infinite linear;
+      }
+
+      &:nth-child(n+5) {
+        bottom: 10px;
+        left: 10px;
+
+        animation: 2s 3.5s #{$name}-bubbleSmallFloat infinite linear;
+      }
+
+      &:nth-child(n+6) {
+        bottom: 30px;
+        left: 40px;
+
+        animation: 5s 1.5s #{$name}-bubbleSmallFloat infinite linear;
+      }
+    }
+  }
+
+  .santa {
+    position: absolute;
+    z-index: 100;
+
+    top: 50%;
+    left: 50%;
+
+    margin-top: -362px / 2 - 120px;
+    margin-left: -222px / 2;
+
+    width: 222px;
+    height: 362px;
+
+    background: url('img/santa.png') no-repeat;
+
+    animation: 5s #{$name}-mermaidFloat infinite alternate ease-in-out;
+
+    &:before {
+      content: "";
+
+      position: absolute;
+
+      top: -5000px;
+      left: 98px;
+
+      width: 8px;
+      height: 5000px;
+
+      background: #f2b41c;
+    }
+
+    .bubbles {
+      top: 65px;
+      left: 50px;
+    }
+  }
+
+  .elf-wrap {
+    position: absolute;
+    z-index: 90;
+
+    top: 0;
+    left: 50%;
+    bottom: 30%;
+
+    margin-left: 50px;
+
+    width: 134px;
+
+    .elf-track {
+      position: absolute;
+
+      top: -200px;
+      left: 0;
+      right: 0;
+      bottom: -190px + 177px;
+
+      .elf {
+        position: absolute;
+
+        top: 0%;
+        left: 0;
+
+        width: 134px;
+        height: 177px;
+
+        background: url('img/elf.png');
+
+        &.go-down {
+          top: 100%;
+          background-position: 0 0;
+          animation: 10s #{$name}-elfAnim 1 ease-in-out;
+        }
+
+        &.go-up {
+          top: 0%;
+          background-position: -134px 0;
+          animation: 10s #{$name}-elfAnim 1 reverse ease-in-out;
+        }
+
+        &:before {
+          content: "";
+
+          position: absolute;
+
+          top: -5000px + 22px;
+          left: 66px;
+
+          height: 5000px;
+          width: 3px;
+
+          background: #004545;
+        }
+
+        .bubbles {
+          top: -60px;
+          right: -20px;
+        }
+      }
+    }
+  }
+
+  .mermaids {
+    position: absolute;
+    z-index: 110;
+
+    top: 50%;
+    left: 50%;
+
+    margin-top: -80px;
+    margin-left: -380px;
+
+    width: 335px;
+    height: 250px;
+
+    .mermaid {
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 205px;
+      height: 201px;
+
+      background: url('img/mermaids.png');
+
+      animation: 3s #{$name}-mermaidFloat infinite alternate ease-in-out;
+
+      &.boy {
+        top: 100px;
+        left: 100px;
+
+        width: 140px;
+        height: 131px;
+
+        background-position: -215px -70px;
+
+        animation: 2s #{$name}-mermaidFloat infinite alternate-reverse ease-in-out;
+      }
+
+      &.girl {
+        top: 120px;
+        left: 210px;
+
+        width: 118px;
+        height: 141px;
+
+        background-position: -376px -59px;
+
+        animation: 2.5s #{$name}-mermaidFloat infinite alternate ease-in-out;
+      }
+    }
+  }
+
+  .boat {
+    $width: 914px;
+
+    position: absolute;
+    z-index: 5;
+
+    top: 0;
+    left: 50%;
+
+    margin-left: -$width / 2 - 38;
+
+    width: $width;
+    height: 193px;
+
+    background: center url('img/boat.png') no-repeat;
+
+    animation: 4s #{$name}-boatFloat infinite alternate ease-in-out;
+  }
+
+  .fish-wrap {
+    z-index: 1;
+
+    position: absolute;
+
+    top: 5%;
+    bottom: 30%;
+    left: 0;
+    right: 0;
+
+    .fish {
+      position: absolute;
+
+      top: 0%;
+      left: 0;
+      right: 0;
+
+      height: 80px;
+
+      background: 50% -100% url('img/fish.png') no-repeat;
+
+      animation: 50s #{$name}-fish1Swim infinite linear;
+
+      &:nth-child(2n) {
+        transform: rotateY(180deg);
+      }
+
+      &:nth-child(n+2) {
+        top: 10%;
+        animation: 22s 5s #{$name}-fish2Swim infinite linear;
+      }
+
+      &:nth-child(n+3) {
+        top: 20%;
+
+        animation: 40s 10s #{$name}-fish3Swim infinite linear;
+      }
+
+      &:nth-child(n+4) {
+        top: 30%;
+
+        animation: 30s 3s #{$name}-fish4Swim infinite linear;
+      }
+
+      &:nth-child(n+5) {
+        top: 40%;
+
+        animation: 25s 10s #{$name}-fish5Swim infinite linear;
+      }
+
+      &:nth-child(n+6) {
+        top: 50%;
+
+        animation: 50s #{$name}-fish1Swim infinite linear;
+      }
+
+      &:nth-child(n+7) {
+        top: 60%;
+
+        animation: 20s 15s #{$name}-fish2Swim infinite linear;
+      }
+
+      &:nth-child(n+8) {
+        top: 70%;
+
+        animation: 40s 22s #{$name}-fish3Swim infinite linear;
+      }
+
+      &:nth-child(n+9) {
+        top: 80%;
+
+        animation: 30s #{$name}-fish4Swim infinite linear;
+      }
+
+      &:nth-child(n+10) {
+        top: 85%;
+
+        animation: 24s #{$name}-fish5Swim infinite linear;
+      }
+    }
+  }
+
+  .bottom {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 30%;
+
+    .view {
+      position: absolute;
+      z-index: 100;
+
+      top: -50px;
+      left: 50%;
+
+      margin-left: -1250px / 2;
+
+      width: 1250px;
+      height: 350px;
+
+      .presents {
+        position: absolute;
+
+        top: 100px;
+        left: 585px;
+
+        width: 262px;
+        height: 156px;
+
+        background: url('img/presents.png');
+      }
+
+      .chest {
+        position: absolute;
+        z-index: 1;
+
+        top: 200px;
+        right: 150px;
+
+        width: 164px;
+        height: 88px;
+
+        background: url('img/chest.png');
+
+        animation: 20s #{$name}-chestOpen infinite step-start;
+      }
+
+      .object {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        background: url('img/bottom-objects.png') no-repeat;
+
+        &.tree-big {
+          top: 12px;
+          left: 260px;
+
+          width: 160px;
+          height: 256px;
+
+          background-position: -6px -40px;
+        }
+
+        &.tree-medium {
+          top: 25px;
+          right: 70px;
+          left: auto;
+
+          width: 91px;
+          height: 172px;
+
+          background-position: -174px -123px;
+        }
+
+        &.tree-small {
+          top: 60px;
+          left: -50px;
+
+          width: 75px;
+          height: 130px;
+
+          background-position: -279px -160px;
+        }
+
+        &.flask-big {
+          top: 220px;
+          left: 50px;
+
+          width: 71px;
+          height: 57px;
+
+          background-position: -191px -40px;
+        }
+
+        &.flask-medium {
+          top: 210px;
+          left: 460px;
+
+          width: 51px;
+          height: 39px;
+
+          background-position: -287px -56px;
+        }
+
+        &.flask-small {
+          top: 220px;
+          right: 0px;
+          left: auto;
+
+          width: 41px;
+          height: 33px;
+
+          background-position: -294px -9px;
+        }
+      }
+    }
+
+    .sand,
+    .sand-away,
+    .reefs {
+      position: absolute;
+
+      top: 0;
+      left: 0;
+      right: 0;
+
+      height: 250px;
+
+      background: center top repeat-x;
+
+      &.reefs {
+        z-index: 1;
+        background-image: url('img/bottom-reefs.png');
+      }
+
+      &.sand-away {
+        z-index: 2;
+        top: 100px;
+
+        background-image: url('img/bottom-sand-away.png');
+      }
+
+      &.sand {
+        z-index: 3;
+
+        top: 150px;
+        bottom: 0;
+
+        height: auto;
+
+        background-image: url('img/bottom-sand.png');
+
+        &:after {
+          content: "";
+
+          position: absolute;
+
+          top: 250px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+
+          background: #ffe29c;
+        }
+      }
+    }
+  }
+
+  .mega-bubbles {
+    position: absolute;
+    z-index: 1;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .bubble {
+      position: absolute;
+
+      top: 0;
+      bottom: 0;
+      left: 20%;
+
+      width: 67px;
+
+      opacity: .8;
+
+      background: 0 -50% url('img/mega-bubble.png') no-repeat;
+
+      animation: 28s 2s #{$name}-megaBubbles infinite linear;
+
+      &:nth-child(n+2){
+        left: 40%;
+
+        animation: 32s 10s #{$name}-megaBubbles infinite linear;
+      }
+
+      &:nth-child(n+3){
+        left: 60%;
+
+        animation: 22s 15s #{$name}-megaBubbles infinite linear;
+      }
+
+      &:nth-child(n+4){
+        left: 80%;
+
+        animation: 40s 5s #{$name}-megaBubbles infinite linear;
+      }
+    }
+  }
+}
+
+.crabby-path {
+  position: absolute;
+  z-index: 100;
+
+  top: 200px;
+  left: 0;
+  right: 0;
+
+  height: 90px;
+
+  .crabby {
+    position: absolute;
+
+    top: 0;
+    left: -50%;
+
+    width: 150px;
+    height: 90px;
+
+    .body {
+      position: absolute;
+      z-index: 1;
+
+      top: 0;
+      left: 0;
+
+      width: 150px;
+      height: 90px;
+
+      background: center url('img/crabby-small.png') no-repeat;
+
+      .leg {
+        position: absolute;
+
+        top: 60px;
+        left: 35px;
+
+        width: 25px;
+        height: 20px;
+
+        background: url('img/crabby-leg.png');
+
+        transform-origin: 100% 50%;
+        animation: 200ms #{$name}-crabbyLeg infinite alternate linear;
+
+        &:nth-child(n + 2){
+          left: 40px;
+
+          animation: 200ms 100ms #{$name}-crabbyLeg infinite alternate linear;
+        }
+        &:nth-child(n + 3){
+          left: 45px;
+
+          animation: 200ms 200ms #{$name}-crabbyLeg infinite alternate linear;
+        }
+
+        &:nth-child(n + 4){
+          left: 55px;
+
+          animation: 200ms 0ms #{$name}-crabbyLegRight infinite alternate linear;
+        }
+
+        &:nth-child(n + 5){
+          left: 60px;
+
+          animation: 200ms 100ms #{$name}-crabbyLegRight infinite alternate linear;
+        }
+        &:nth-child(n + 6){
+          left: 65px;
+
+          animation: 200ms 200ms #{$name}-crabbyLegRight infinite alternate linear;
+        }
+      }
+    }
+
+    .steps {
+      position: absolute;
+      z-index: 0;
+
+      left: -80px;
+      bottom: 5px;
+
+      width: 195px;
+      height: 11px;
+
+      background: url('img/crabby-steps.png') fixed;
+
+      &:before {
+        display: block;
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        bottom: 0;
+
+        width: 100px;
+
+        background: 0 0 url('img/crabby-steps-fade.png');
+      }
+    }
+
+    &.run {
+      animation: 20s #{$name}-crabbyRun 1 linear;
+      left: -50%;
+    }
+  }
+}
+
+.crabby-large-path {
+  position: fixed;
+  z-index: 10000;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 475px;
+
+  .crabby {
+    position: absolute;
+
+    top: 100%;
+    left: 50%;
+
+    $width: 612px;
+
+    margin-left: -$width / 2;
+
+    width: $width;
+    height: 617px;
+
+    background: center url('img/crabby-large.png') no-repeat;
+
+    &.walk {
+      animation: 2s #{$name}-crabbyWalk 1 ease-out;
+
+      top: 0%;
+      left: 50%;
+    }
+
+    &.hide {
+      animation: 4s #{$name}-crabbyHide 1 ease-in;
+      top: 100%;
+    }
+
+    .eye {
+      position: absolute;
+
+      top: 200px;
+      left: 213px;
+
+      width: 45px;
+      height: 45px;
+
+      border-radius: 50%;
+
+      overflow: hidden;
+
+      background: #e2e3e4;
+
+      &.look {
+        animation: 1s #{$name}-crabEyes 1 linear;
+
+        top: 200px + 20px;
+        height: 10px;
+      }
+
+      &:before {
+        content: "";
+
+        position: absolute;
+
+        left: 50%;
+        top: 50%;
+
+        margin-top: -11px;
+        margin-left: -11px;
+
+        width: 22px;
+        height: 22px;
+
+        border-radius: 50%;
+
+        background: #725d4d;
+      }
+
+      &:last-child {
+        left: auto;
+        right: 219px;
+      }
+    }
+  }
+}
+
+@import "../shared/sass/responsive";

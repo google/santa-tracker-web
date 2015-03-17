@@ -1,0 +1,4571 @@
+{
+	"about-content-one": {
+		"message": "En Nochebuena, presentaremos con orgullo una vista previa del panel de control de Papá Noel (la tecnología que impulsa su trineo durante su viaje alrededor del mundo). Hemos recibido esta vista previa especial de uno de los muchos elfos desarrolladores que trabajan muy duro en el Polo Norte ayudando a Papá Noel a prepararse para el gran día. El panel de control de Papá Noel (el cual cuenta con novedades inmejorables en tecnología de Google Maps y en ingeniería de trineos) te permitirá seguir su progreso por todo el mundo y aprender un poco sobre sus paradas a lo largo del viaje."
+	},
+	"about-content-three": {
+		"message": "Google ha creado y desarrollado Sigue a Papá Noel de Google Maps con un poco de ayuda de los elfos de Papá Noel. ¿Necesitas ayuda o tienes alguna otra pregunta? Visita el \u003ca href=\"//support.google.com/santatracker\"\u003eCentro de ayuda\u003c/a\u003e."
+	},
+	"about-content-two": {
+		"message": "Nuestros amigos, los elfos, te han invitado a visitar el pueblo de Papá Noel mientras él se prepara para el viaje. Pasa y explora el pueblo; puede que encuentres actividades divertidas y conozcas a elfos muy interesantes."
+	},
+	"about-santa": {
+		"message": "Acerca de"
+	},
+	"about_title": {
+		"message": "Te damos la bienvenida a Sigue a Papá Noel de Google Maps"
+	},
+	"ae_country_name": {
+		"message": "Emiratos Árabes Unidos"
+	},
+	"af_country_name": {
+		"message": "Afganistán"
+	},
+	"al_country_name": {
+		"message": "Albania"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
+	"ar_country_name": {
+		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Árabe"
+	},
+	"ar_tradition": {
+		"message": "En Argentina, la Navidad empieza puntualmente a medianoche. Muchas familias inician las fiestas organizando celebraciones en sus casas, abriendo regalos con sus seres queridos y encendiendo fuegos artificiales durante las primeras horas de la mañana."
+	},
+	"at_country_name": {
+		"message": "Austria"
+	},
+	"au_country_name": {
+		"message": "Australia"
+	},
+	"au_tradition": {
+		"message": "En Australia, en el hemisferio sur, es verano en diciembre. En vez de escuchar las campanas del trineo y de tomar chocolate a la taza, muchos australianos van a la playa para celebrar las fiestas con un almuerzo de gambas y unas cuantas rondas de cricket."
+	},
+	"ba_country_name": {
+		"message": "Bosnia-Herzegovina"
+	},
+	"back_to_tracker": {
+		"message": "Volver a rastreador"
+	},
+	"bd_country_name": {
+		"message": "Bangladés"
+	},
+	"be_country_name": {
+		"message": "Bélgica"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
+	},
+	"bg_country_name": {
+		"message": "Bulgaria"
+	},
+	"bj_country_name": {
+		"message": "Benín"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
+	},
+	"br_country_name": {
+		"message": "Brasil"
+	},
+	"br_tradition": {
+		"message": "Las celebraciones de Navidad empiezan hacia la medianoche, normalmente con grandes cenas familiares, la apertura de regalos y la celebración de la Missa do Galo (misa del gallo) en las iglesias. A pesar del cálido clima tropical, los temas de invierno y la nieve son habituales."
+	},
+	"bt_country_name": {
+		"message": "Bután"
+	},
+	"bw_country_name": {
+		"message": "Botsuana"
+	},
+	"by_country_name": {
+		"message": "Bielorrusia"
+	},
+	"bz_country_name": {
+		"message": "Belice"
+	},
+	"ca_country_name": {
+		"message": "Canadá"
+	},
+	"ca_tradition": {
+		"message": "Normalmente, los niños canadienses celebran una Navidad blanca y nevada. Se enfundan sus bufandas y toques (unos gorros canadienses de lana) para jugar en la nieve y patinar. En Nochebuena, dejan leche y galletas cerca de la chimenea para Papá Noel y, a veces, una zanahoria para su reno."
+	},
+	"calendar": {
+		"message": "Calendario"
+	},
+	"category_code": {
+		"message": "Código:"
+	},
+	"category_draw": {
+		"message": "Dibujar"
+	},
+	"category_listen": {
+		"message": "Escuchar"
+	},
+	"category_send": {
+		"message": "Enviar"
+	},
+	"cd_country_name": {
+		"message": "República Democrática del Congo"
+	},
+	"cf_country_name": {
+		"message": "República Centroafricana"
+	},
+	"cg_country_name": {
+		"message": "República del Congo"
+	},
+	"ch_country_name": {
+		"message": "Suiza"
+	},
+	"ci_country_name": {
+		"message": "Costa de Marfil"
+	},
+	"citylights-contribute": {
+		"message": "Añadir tus fotos de %location%"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "Ciudad de Nueva York, EE. UU."
+	},
+	"citylights-panorama-02-description": {
+		"message": "Plaza Pushkin"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moscú, Rusia"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Plaza Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Viena, Austria"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Campos Elíseos hasta el Arco del Triunfo"
+	},
+	"citylights-panorama-04-location": {
+		"message": "París, Francia"
+	},
+	"citylights-panorama-05-description": {
+		"message": "La Milla Magnífica"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, EE. UU."
+	},
+	"citylights-panorama-06-description": {
+		"message": "Mercado de Navidad"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nuremberg, Alemania"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Río Medellín"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellín, Colombia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Aldea de Papá Noel"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Laponia, Finlandia"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Plaza Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Bruselas, Bélgica"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Plaza de Trafalgar"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Londres, Inglaterra"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, España"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokio (Japón)"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Jardines de Tivoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Copenhague, Dinamarca"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Calle Orchard"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapur, Singapur"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Avenida de la Luz"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Gotemburgo, Suecia"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Festival Luces de Invierno"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagara Falls, Canadá"
+	},
+	"citylights-panorama-17-description": {
+		"message": "Festival de Invierno"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hong Kong, China"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Laguna Rodrigo de Freitas"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Río de Janeiro, Brasil"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
+	"close-this": {
+		"message": "Cancelar"
+	},
+	"cm_country_name": {
+		"message": "Camerún"
+	},
+	"co_country_name": {
+		"message": "Colombia"
+	},
+	"codelab-block-moveeast": {
+		"message": "este"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Muéveme un espacio hacia el este."
+	},
+	"codelab-block-movenorth": {
+		"message": "norte"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Muéveme un espacio hacia el norte."
+	},
+	"codelab-block-movesouth": {
+		"message": "sur"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Muéveme un espacio hacia el sur."
+	},
+	"codelab-block-movewest": {
+		"message": "oeste"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Muéveme un espacio hacia el oeste."
+	},
+	"codelab-block-repeat": {
+		"message": "repetir"
+	},
+	"codelab-block-repeat-times": {
+		"message": "veces"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Repite algunas declaraciones varias veces"
+	},
+	"codelab-block-whenrun": {
+		"message": "al ejecutar"
+	},
+	"codelab-finish": {
+		"message": "Finalizar"
+	},
+	"codelab-great": {
+		"message": "Genial"
+	},
+	"codelab-mwc-promo": {
+		"message": "Explora más proyectos de codificación de Google en \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Desafío siguiente"
+	},
+	"codelab-oops": {
+		"message": "¡Vaya!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "La pieza Repetir debe tener otras piezas dentro para que funcione."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Algunas de las piezas no se han unido correctamente."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Parece que te has perdido."
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Prueba una o varias de las piezas siguientes para resolver este rompecabezas."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "¿Sabías que puedes terminar este nivel con {{ideal}} piezas? Prueba a utilizar la pieza de abajo."
+	},
+	"codelab-result-perfect-success": {
+		"message": "¡Enhorabuena! Has finalizado correctamente el rompecabezas."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Estás utilizando las piezas adecuadas, pero prueba a utilizar más para finalizar este rompecabezas."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "¿Sabías que puedes finalizar este nivel con {{ideal}} bloques?"
+	},
+	"codelab-try-again": {
+		"message": "Reintentar"
+	},
+	"copy-me": {
+		"message": "Copia este enlace y comparte tu mensaje"
+	},
+	"countdownlabel": {
+		"message": "Hasta que despegue"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cs_language_name": {
+		"message": "Checo"
+	},
+	"cu_country_name": {
+		"message": "Cuba"
+	},
+	"cz_country_name": {
+		"message": "República Checa"
+	},
+	"da_language_name": {
+		"message": "Danés"
+	},
+	"days": {
+		"message": "Días"
+	},
+	"de_country_name": {
+		"message": "Alemania"
+	},
+	"de_language_name": {
+		"message": "Alemán"
+	},
+	"de_tradition": {
+		"message": "En casi todas las poblaciones de Alemania hay mercados de Navidad en las plazas. Los habitantes acuden para escuchar bandas y disfrutar de platos tradicionales de la región. Comen corazones de pan de jengibre, almendras con azúcar tostado y beben vino caliente (Glühwein) o sidra de manzana."
+	},
+	"deck": {
+		"message": "Decorar"
+	},
+	"deckdescription": {
+		"message": "Decora tu navegador con una extensión de Sigue a Papá Noel"
+	},
+	"detected": {
+		"message": "detectado"
+	},
+	"difficulty": {
+		"message": "Dificultad"
+	},
+	"dk_country_name": {
+		"message": "Dinamarca"
+	},
+	"do_country_name": {
+		"message": "República Dominicana"
+	},
+	"dz_country_name": {
+		"message": "Argelia"
+	},
+	"easy_difficulty": {
+		"message": "Fácil"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Estonia"
+	},
+	"el_language_name": {
+		"message": "Griego"
+	},
+	"elvish_language_name": {
+		"message": "Élvico"
+	},
+	"en_language_name": {
+		"message": "Inglés"
+	},
+	"endofjourneymessage": {
+		"message": "¡Papá Noel ha terminado su viaje de este año! Él y los elfos todavía lo están celebrando en el Polo Norte, antes de coger sus vacaciones anuales."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
+	},
+	"error": {
+		"message": "Parece que acabamos de perder la conexión con el Polo Norte. Los elfos de Papá Noel están trabajando duro para arreglar el problema. No te vayas muy lejos."
+	},
+	"error-lost-connection": {
+		"message": "Parece que acabamos de perder la conexión con el Polo Norte. Los elfos de Papá Noel están trabajando duro para arreglar el problema. No te vayas muy lejos."
+	},
+	"error-try-again": {
+		"message": "Inténtalo de nuevo"
+	},
+	"error_try_again": {
+		"message": "Inténtalo de nuevo"
+	},
+	"es_language_name": {
+		"message": "Español"
+	},
+	"et_country_name": {
+		"message": "Etiopía"
+	},
+	"fi_country_name": {
+		"message": "Finlandia"
+	},
+	"finished-text": {
+		"message": "¡Felices fiestas! Papá Noel ha llegado al final de su viaje alrededor del mundo y se va a tomar un descanso más que merecido. Visítanos de nuevo el año que viene."
+	},
+	"fr_country_name": {
+		"message": "Francia"
+	},
+	"fr_language_name": {
+		"message": "Francés"
+	},
+	"fr_tradition": {
+		"message": "En Francia, tradicionalmente, los niños ponen sus zapatos junto a la chimenea en previsión de la llegada del Père Noël. Si los niños han sido buenos durante todo el año, el Père Noël llenará los zapatos con regalos."
+	},
+	"ga_country_name": {
+		"message": "Gabón"
+	},
+	"gameover": {
+		"message": "¡Fin de la partida!"
+	},
+	"gameover_level": {
+		"message": "Has conseguido llegar al nivel:"
+	},
+	"gameover_score": {
+		"message": "Tu puntuación:"
+	},
+	"getgooglemaps": {
+		"message": "Descargar Google Maps"
+	},
+	"gh_country_name": {
+		"message": "Ghana"
+	},
+	"gh_tradition": {
+		"message": "La Navidad en Ghana implica a toda la familia. Los adultos se disfrazan y reparten caramelos y dulces por el barrio. Los niños decoran sus casas con adornos de papel y dibujos que hacen en la escuela."
+	},
+	"gl_country_name": {
+		"message": "Groenlandia"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
+	},
+	"gotovillage": {
+		"message": "Ir a la aldea"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "Grecia"
+	},
+	"gr_tradition": {
+		"message": "En Grecia, hay unos duendes amistosos, pero molestos, llamados kallikántzari que viven la mayor parte del año en el centro de la Tierra. Sin embargo, en Navidad, les gusta esconderse en casas, dar sustos, hacer bromas o devorar comida de Navidad. Los griegos hacen rituales para alejar a los duendes."
+	},
+	"gt_country_name": {
+		"message": "Guatemala"
+	},
+	"gt_tradition": {
+		"message": "Los guatemaltecos celebran la Navidad con diversión y bailes. Llevan sombreros llamados puritina, comen tamales al estilo guatemalteco, encienden petardos en la medianoche y bailan toda la noche con varios estilos de baile."
+	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hard_difficulty": {
+		"message": "Difícil"
+	},
+	"hi_language_name": {
+		"message": "Hindi"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
+	"hours": {
+		"message": "Horas"
+	},
+	"hr_country_name": {
+		"message": "Croacia"
+	},
+	"ht_country_name": {
+		"message": "Haití"
+	},
+	"hu_country_name": {
+		"message": "Hungría"
+	},
+	"hu_language_name": {
+		"message": "Húngaro"
+	},
+	"id_country_name": {
+		"message": "Indonesia"
+	},
+	"ie_country_name": {
+		"message": "Irlanda"
+	},
+	"improve_google_translate": {
+		"message": "Ayudar a mejorar el Traductor de Google"
+	},
+	"iq_country_name": {
+		"message": "Iraq"
+	},
+	"ir_country_name": {
+		"message": "Irán"
+	},
+	"is_country_name": {
+		"message": "Islandia"
+	},
+	"is_tradition": {
+		"message": "En la época de Navidad en Islandia, las familias regalan ropa de abrigo a sus miembros. Según la leyenda, hay un gato aterrador que se come a los que no estén equipados para el frío y el invierno. Las familias colaboran unidas para asegurarse de que el Gato de Navidad no se coma a nadie."
+	},
+	"it_country_name": {
+		"message": "Italia"
+	},
+	"it_language_name": {
+		"message": "Italiano"
+	},
+	"ja_language_name": {
+		"message": "Japonés"
+	},
+	"jm_country_name": {
+		"message": "Jamaica"
+	},
+	"kg_country_name": {
+		"message": "Kirguistán"
+	},
+	"kg_tradition": {
+		"message": "En Kirguistán, Ayaz Ata (el Abuelo de las Nieves) llega la medianoche de la Nochevieja y deja regalos debajo del árbol de Año Nuevo. Cuando el reloj marca las doce de la noche, las familias encienden fuegos artificiales para celebrar la ocasión. Las ciudades brillan como si fuera de día."
+	},
+	"ko_language_name": {
+		"message": "Coreano"
+	},
+	"kz_country_name": {
+		"message": "Kazajistán"
+	},
+	"la_country_name": {
+		"message": "Laos"
+	},
+	"language": {
+		"message": "Idioma"
+	},
+	"learn": {
+		"message": "Aprender"
+	},
+	"learnmore": {
+		"message": "Más información"
+	},
+	"level": {
+		"message": "Nivel"
+	},
+	"light": {
+		"message": "Encender"
+	},
+	"lightdescription": {
+		"message": "Anima tu TV con la aplicación de Android Sigue a Papá Noel y Chromecast."
+	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
+	"lt_country_name": {
+		"message": "Lituania"
+	},
+	"lv_country_name": {
+		"message": "Letonia"
+	},
+	"ly_country_name": {
+		"message": "Libia"
+	},
+	"md_country_name": {
+		"message": "Moldavia"
+	},
+	"medium_difficulty": {
+		"message": "Medio"
+	},
+	"mg_country_name": {
+		"message": "Madagascar"
+	},
+	"minutes": {
+		"message": "Minutos"
+	},
+	"ml_country_name": {
+		"message": "Malí"
+	},
+	"mm_country_name": {
+		"message": "Birmania"
+	},
+	"mr_country_name": {
+		"message": "Mauritania"
+	},
+	"mw_country_name": {
+		"message": "Malaui"
+	},
+	"mx_country_name": {
+		"message": "México"
+	},
+	"mx_tradition": {
+		"message": "En México, niños de todas las edades celebran la Navidad rompiendo piñatas. Los adultos y los niños se divierten jugando a ponerse una venda en los ojos, dar vueltas y mover un palo para romper figuras colgantes en forma de estrella. Cuando la piñata se rompe, salen frutos secos, frutas y dulces para que todos disfruten."
+	},
+	"my_country_name": {
+		"message": "Malasia"
+	},
+	"mz_country_name": {
+		"message": "Mozambique"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Níger"
+	},
+	"newtoday": {
+		"message": "Nuevo hoy"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Países Bajos"
+	},
+	"nl_language_name": {
+		"message": "Holandés"
+	},
+	"no_country_name": {
+		"message": "Noruega"
+	},
+	"no_language_name": {
+		"message": "Noruego"
+	},
+	"nonprofit-jane-description": {
+		"message": "Los chimpancés son la familia de animales más próxima al ser humano. Actualmente, quedan menos de 300.000 chimpancés debido a la pérdida del hábitat, las enfermedades y el comercio ilegal. El Jane Goodall Institute (JGI) protege a los chimpancés observando e intentando entender su comportamiento y el hábitat en el que viven. El JGI también trabaja para crear una comunidad de personas que protejan y conserven la fauna y el medio que compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eObserva el hábitat de los chimpancés\u003c/a\u003e de Gombe, Tanzania."
+	},
+	"nonprofit-jane-type": {
+		"message": "Chimpancé"
+	},
+	"nonprofit-more-information": {
+		"message": "Para obtener más información, visita:"
+	},
+	"nonprofit-nature-description": {
+		"message": "The Nature Conservancy trabaja para proteger y restaurar bosques de Estados Unidos y de todo el mundo. Gracias a estos emblemáticos bosques hay vida en todo el planeta. Filtran el agua, limpian el aire, dan empleo a comunidades de personas y proporcionan un entorno para importantes especies animales y de plantas. Con el ritmo diario actual de deforestación, nuestros bosques habrán desaparecido dentro de 100 años. Por ello, el programa Plant a Billion Trees (Planta mil millones de árboles) de The Nature Conservancy está trabajando para plantar mil millones de árboles de aquí a 2025 y restaurar los bosques más importantes del mundo."
+	},
+	"nonprofit-nature-type": {
+		"message": "Bosques"
+	},
+	"nonprofit-wwf-description": {
+		"message": "El cambio climático sigue alterando el equilibrio de muchos ecosistemas del mundo, tanto en las zonas cálidas como en las frías. En el Ártico, los osos polares están perdiendo su hábitat de la banquisa debido al aumento de la temperatura, y se enfrentan a otras amenazas originadas por las actividades humanas, como las explotaciones y el transporte de petróleo y de gas. World Wildlife Fund trabaja para garantizar la supervivencia de las especies mediante la investigación científica en cooperación con comunidades nativas del Ártico. En Google.org estamos orgullosos de \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ecooperar\u003c/a\u003e con World Wildlife Fund."
+	},
+	"nonprofit-wwf-type": {
+		"message": "Oso polar"
+	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
+	"nz_country_name": {
+		"message": "Nueva Zelanda"
+	},
+	"nz_tradition": {
+		"message": "Como la Navidad es en verano en Nueva Zelanda, los amigos y familiares se reúnen en torno a una barbacoa. Las comidas típicas de Navidad son el cordero asado, a veces cocinado en un hangi (un hoyo u horno bajo tierra). El postre favorito es el pavlova: merengue cubierto de fruta fresca."
+	},
+	"om_country_name": {
+		"message": "Omán"
+	},
+	"onthego": {
+		"message": "Papá Noel de camino"
+	},
+	"openingtomorrow": {
+		"message": "Mañana gran inauguración"
+	},
+	"ornament-print-instructions": {
+		"message": "Dobla aquí y pega los lados juntos."
+	},
+	"pa_country_name": {
+		"message": "Panamá"
+	},
+	"pe_country_name": {
+		"message": "Perú"
+	},
+	"pg_country_name": {
+		"message": "Papúa Nueva Guinea"
+	},
+	"ph_country_name": {
+		"message": "Filipinas"
+	},
+	"ph_tradition": {
+		"message": "Filipinas es conocido por tener la Navidad más larga del mundo. Cuatro meses son los que se consideran meses de Navidad: septiembre, octubre, noviembre y diciembre. A menudo, se pueden escuchar villancicos a principios de septiembre."
+	},
+	"pl_country_name": {
+		"message": "Polonia"
+	},
+	"pl_language_name": {
+		"message": "Polaco"
+	},
+	"play": {
+		"message": "Jugar"
+	},
+	"playagain": {
+		"message": "Volver a jugar"
+	},
+	"playdescription": {
+		"message": "Juega con tus amigos en la aplicación de Android Sigue a Papá Noel."
+	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"pt_language_name": {
+		"message": "Portugués"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "Rumanía"
+	},
+	"ru_country_name": {
+		"message": "Rusia"
+	},
+	"ru_language_name": {
+		"message": "Ruso"
+	},
+	"ru_tradition": {
+		"message": "Los niños rusos decoran el árbol de Año Nuevo, en lugar del árbol de Navidad, y esperan con anhelo al Abuelo de las Nieves, que viaja con su nieta, la Doncella de la Nieve, entregando regalos por el mundo. El Abuelo de las Nieves vive en el bosque de Veliki Ústiug, en el norte de Rusia."
+	},
+	"sa_country_name": {
+		"message": "Arabia Saudí"
+	},
+	"santatracker": {
+		"message": "Sigue a Papá Noel"
+	},
+	"score": {
+		"message": "Puntuación"
+	},
+	"se_country_name": {
+		"message": "Suecia"
+	},
+	"seconds": {
+		"message": "Segundos"
+	},
+	"select-language": {
+		"message": "Seleccionar idioma"
+	},
+	"share-button": {
+		"message": "Compartir con tus amigos en Google+"
+	},
+	"share-text": {
+		"message": "He creado esta tarjeta para ti en Sigue a Papá Noel de Google. ¡Felices fiestas!"
+	},
+	"share-this": {
+		"message": "Compartir"
+	},
+	"sk_country_name": {
+		"message": "Eslovaquia"
+	},
+	"sk_language_name": {
+		"message": "Eslovaco"
+	},
+	"sl_country_name": {
+		"message": "Sierra Leona"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalia"
+	},
+	"sr_country_name": {
+		"message": "Surinam"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"sv_language_name": {
+		"message": "Sueco"
+	},
+	"td_country_name": {
+		"message": "Chad"
+	},
+	"terms-and-privacy": {
+		"message": "Condiciones y privacidad"
+	},
+	"tg_country_name": {
+		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Tailandés"
+	},
+	"tilt": {
+		"message": "Inclina el dispositivo."
+	},
+	"time": {
+		"message": "Tiempo"
+	},
+	"tj_country_name": {
+		"message": "Tayikistán"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistán"
+	},
+	"tn_country_name": {
+		"message": "Túnez"
+	},
+	"today_only": {
+		"message": "Sólo hoy"
+	},
+	"today_only_1": {
+		"message": "Solo hoy"
+	},
+	"tr_country_name": {
+		"message": "Turquía"
+	},
+	"tr_language_name": {
+		"message": "Turco"
+	},
+	"tracker_arrival": {
+		"message": "Llegada"
+	},
+	"tracker_arriving_in": {
+		"message": "Llegará en"
+	},
+	"tracker_current_stop": {
+		"message": "Parada actual"
+	},
+	"tracker_departing_in": {
+		"message": "Salida en"
+	},
+	"tracker_distance_from_you": {
+		"message": "Distancia de ti"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Regalos entregados"
+	},
+	"tracker_intro_skip_intro": {
+		"message": "Saltar introducción"
+	},
+	"tracker_intro_user_location": {
+		"message": "Estás en"
+	},
+	"tracker_intro_welcome": {
+		"message": "Te damos la bienvenida a"
+	},
+	"tracker_next_stop": {
+		"message": "Próxima parada"
+	},
+	"tracker_santa_update": {
+		"message": "Notificación de Papá Noel"
+	},
+	"tracker_see_route": {
+		"message": "Ver la ruta"
+	},
+	"tracker_weather": {
+		"message": "Tiempo"
+	},
+	"tracker_world_facts": {
+		"message": "¿SABÍAS QUE..."
+	},
+	"tracker_your_location": {
+		"message": "Tu ubicación"
+	},
+	"traditions-next": {
+		"message": "Tradición siguiente"
+	},
+	"traditions-prev": {
+		"message": "Tradición anterior"
+	},
+	"traditions-world": {
+		"message": "Mundo"
+	},
+	"trivia_beginner_001": {
+		"message": "¿En qué continente se encuentran las montañas de los Andes?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Sudamérica"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_002": {
+		"message": "¿Qué estado de Estados Unidos está formado por ocho islas principales?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Hawái"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkansas"
+	},
+	"trivia_beginner_003": {
+		"message": "¿Qué estado de Estados Unidos se encuentra en las Grandes Llanuras?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delaware"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Idaho"
+	},
+	"trivia_beginner_004": {
+		"message": "¿Qué continente es bañado por los océanos Atlántico, Pacífico y Ártico?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "Sudamérica"
+	},
+	"trivia_beginner_005": {
+		"message": "¿Qué estado se encuentra en la zona horaria del Pacífico?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "California"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Georgia"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "¿En qué continente están las montañas del Atlas y el desierto del Kalahari?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_007": {
+		"message": "¿Qué estado de EE. UU. limita con uno de los Grandes Lagos?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montana"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "Nuevo México"
+	},
+	"trivia_beginner_008": {
+		"message": "¿En qué continente la mayoría de la gente habla en portugués o en español?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Sudamérica"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "África"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_009": {
+		"message": "¿Qué estado de Estados Unidos tiene una forma que incluye el mango de una sartén?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_010": {
+		"message": "La Antártida y otro continente se encuentran en su totalidad en el hemisferio sur. ¿De qué continente se trata?"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_011": {
+		"message": "¿En qué continente se encuentra la barrera de hielo Ronne?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "África"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Sudamérica"
+	},
+	"trivia_beginner_012": {
+		"message": "La isla de Vancouver y la isla de Kodiak se encuentran frente a la costa oeste de un continente. ¿De qué continente se trata?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_013": {
+		"message": "Níger, un país con una de las poblaciones de crecimiento más rápido del mundo, se encuentra en la parte noroeste de un continente. ¿De qué continente se trata?"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_014": {
+		"message": "¿Qué continente tiene menos plantas y árboles?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Sudamérica"
+	},
+	"trivia_beginner_015": {
+		"message": "Los demonios de Tasmania son originarios de una isla situada en la costa sur de un continente. ¿De qué continente se trata?"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_016": {
+		"message": "La torre inclinada de Pisa es una atracción turística famosa de un país del Mediterráneo. ¿De qué país se trata?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Italia"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Canadá"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Ghana"
+	},
+	"trivia_beginner_017": {
+		"message": "Casablanca y Trípoli son las ciudades históricas de la costa norte de un continente. ¿De qué continente se trata?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_018": {
+		"message": "El cactus Saguaro se encuentra en el desierto de Sonora. ¿En qué continente se encuentra?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_019": {
+		"message": "¿En qué país se encuentran los populares destinos vacacionales de Veracruz y Acapulco?"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "México"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Argentina"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "India"
+	},
+	"trivia_beginner_020": {
+		"message": "El hogar del 30 por ciento de los pandas del mundo son los Santuarios del panda gigante de Sichuan. ¿En qué país se encuentran?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "China"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "Islandia"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "Etiopía"
+	},
+	"trivia_beginner_021": {
+		"message": "¿En qué continente se puede encontrar alrededor del 90 por ciento del hielo del mundo?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "África"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_022": {
+		"message": "¿En qué continente se encuentra el Salto Ángel, la cascada más alta del mundo?"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "Sudamérica"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_023": {
+		"message": "Para visitar Jackson Hole y subir a la Devils Tower, ¿a qué estado de los EE. UU. hay que viajar?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "Dakota del Norte"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Connecticut"
+	},
+	"trivia_beginner_024": {
+		"message": "Para ver la recogida de la savia del arce e ir a esquiar a las Green Mountains, ¿a qué estado de EE. UU. hay que viajar?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermont"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregón"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "¿Qué estado de Estados Unidos hay que visitar para conducir a través del puente de la bahía de Chesapeake y caminar por el paseo marítimo en Ocean City?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "Carolina del Norte"
+	},
+	"trivia_beginner_026": {
+		"message": "Para visitar la Cueva del Mamut y ver una carrera de caballos en el Churchill Downs, ¿a qué estado de los EE. UU. hay que viajar?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentucky"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "Virginia Occidental"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Utah"
+	},
+	"trivia_beginner_027": {
+		"message": "Para ver secuoyas gigantes y las islas del Canal, ¿a qué estado de los EE. UU. hay que viajar?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "California"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "Nueva Jersey"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virginia"
+	},
+	"trivia_beginner_028": {
+		"message": "¿Qué pantanos visitarías si estuvieras en el estado norteamericano de Florida?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Everglades"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Gran Ciénaga Dismal"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Pantano del Gran Ciprés"
+	},
+	"trivia_beginner_029": {
+		"message": "Para recorrer el canal de San Lorenzo y los lagos Finger, ¿a qué estado de EE. UU. hay que viajar?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "Nueva York"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Michigan"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "¿En qué continente se encuentra el Everest, la montaña más alta del mundo?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_031": {
+		"message": "La región de la Patagonia cubre gran parte de la zona sur de un continente. ¿De qué continente se trata?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Sudamérica"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "África"
+	},
+	"trivia_beginner_032": {
+		"message": "¿En qué continente se encuentra el hábitat natural de los pingüinos emperador?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033": {
+		"message": "¿De qué país son originarios los canguros y los koalas?"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Sudamérica"
+	},
+	"trivia_beginner_034": {
+		"message": "La fauna salvaje atrae a muchos turistas al Parque Nacional del Serengueti. ¿En qué continente se encuentra?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_035": {
+		"message": "¿Qué continente tiene la superficie de tierra más grande?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_036": {
+		"message": "El Puente de la Torre cruza el río Támesis de una ciudad europea. ¿De qué ciudad se trata?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "Londres"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "La Habana"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Ciudad del Cabo"
+	},
+	"trivia_beginner_037": {
+		"message": "La Catedral de San Basilio se encuentra en la Plaza Roja junto al Kremlin. ¿En qué ciudad se encuentra?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Moscú"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Bruselas"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
+	},
+	"trivia_beginner_038": {
+		"message": "El Coliseo se construyó en el siglo I d. C. como un lugar para las luchas de gladiadores. ¿En qué ciudad europea se encuentra?"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "Roma"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Jartún"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manila"
+	},
+	"trivia_beginner_039": {
+		"message": "¿En qué ciudad australiana se encuentran el teatro Opera House y el Puente de la Bahía?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sídney"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Yakarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Praga"
+	},
+	"trivia_beginner_040": {
+		"message": "La Cúpula de la Roca y el Muro de las Lamentaciones son solo dos de los muchos lugares sagrados que se encuentran dentro de las antiguas murallas de una ciudad de Oriente Medio. ¿De qué ciudad se trata?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Jerusalén"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tokio"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Argel"
+	},
+	"trivia_beginner_041": {
+		"message": "El Partenón se encuentra en lo alto de la Acrópolis, ¿en qué ciudad griega?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Atenas"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kiev"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "La torre Eiffel se encuentra cerca del río Sena y en el centro de una ciudad francesa. ¿De qué ciudad se trata?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "París"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "Nueva Delhi"
+	},
+	"trivia_beginner_043": {
+		"message": "La mezquita al-Haram es el hogar de la Kaaba, el lugar más sagrado del islam, y está situada en una ciudad árabe. ¿De qué ciudad se trata?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "La Meca"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Buenos Aires"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Budapest"
+	},
+	"trivia_beginner_044": {
+		"message": "La Ciudad Prohibida es un antiguo palacio imperial situado en el centro de una ciudad china. ¿De qué ciudad china se trata?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Pekín"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santiago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbane"
+	},
+	"trivia_beginner_045": {
+		"message": "La Aguja Espacial es una torre de observación situada en una ciudad de EE. UU. en el estrecho de Puget. ¿De qué ciudad se trata?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Wichita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "Nueva Orleans"
+	},
+	"trivia_beginner_046": {
+		"message": "La John Hancock Tower es el edificio más alto de una ciudad estadounidense ubicada en la desembocadura del río Charles. ¿De qué ciudad se trata?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Boston"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pittsburgh"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memphis"
+	},
+	"trivia_beginner_047": {
+		"message": "La Stratosphere Tower, situada al norte de una famosa avenida conocida como The Strip, es el edificio más alto de una ciudad estadounidense en el desierto de Mojave. ¿De qué ciudad se trata?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Las Vegas"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Mineápolis"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denver"
+	},
+	"trivia_beginner_048": {
+		"message": "La Estatua de la Libertad es una gran escultura situada en la isla de la Libertad, en el puerto de una ciudad estadounidense. ¿De qué ciudad se trata?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "Nueva York"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Los Ángeles"
+	},
+	"trivia_beginner_049": {
+		"message": "El puente de Golden Gate conecta una ciudad de Estados Unidos con la península de Marín. ¿De qué ciudad se trata?"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "San Francisco"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boise"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimore"
+	},
+	"trivia_beginner_050": {
+		"message": "El Arco Gateway, que simboliza la expansión hacia el oeste de Estados Unidos en 1800, está situado a lo largo del río Misisipi. ¿En qué ciudad de Estados Unidos se encuentra?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "St. Louis"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianápolis"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Miami"
+	},
+	"trivia_beginner_051": {
+		"message": "¿En qué país africano se encuentra la meseta de Guiza, el hogar de la Gran Pirámide y la Esfinge?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Egipto"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Brasil"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Alemania"
+	},
+	"trivia_beginner_052": {
+		"message": "El Salón de la Independencia, un importante sitio histórico asociado a la Revolución americana, está situado cerca del río Delaware en una ciudad de Estados Unidos. ¿De qué ciudad se trata?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Filadelfia"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "San Antonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Chicago"
+	},
+	"trivia_beginner_053": {
+		"message": "Las Montañas Rocosas cruzan Canadá y otro país. ¿De qué país se trata?"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "Estados Unidos"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Venezuela"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Rusia"
+	},
+	"trivia_beginner_054": {
+		"message": "¿Con qué océano limitan Brasil y Uruguay?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Océano Atlántico"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Océano Índico"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Océano Ártico"
+	},
+	"trivia_beginner_055": {
+		"message": "La isla de Terranova se encuentra frente a la costa este de Canadá. ¿En qué océano se encuentra?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Océano Atlántico"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Océano Índico"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_beginner_056": {
+		"message": "La isla de Madagascar se encuentra frente a la costa este de África. ¿En qué océano está?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Océano Índico"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Océano Ártico"
+	},
+	"trivia_beginner_057": {
+		"message": "¿Qué océano atraviesa la mayor parte de la línea internacional de cambio de fecha?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Océano Índico"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Océano Atlántico"
+	},
+	"trivia_beginner_058": {
+		"message": "El ecuador pasa a través de la cuenca del Congo. ¿En qué continente se encuentra?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059": {
+		"message": "¿Qué continente limita con el golfo de México?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_060": {
+		"message": "¿Qué río fluye a través de África y es el río más largo del mundo?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Río Nilo"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Río Colorado"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Río Orange"
+	},
+	"trivia_beginner_061": {
+		"message": "¿En qué continente se encuentran las antiguas ruinas de Machu Picchu?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Sudamérica"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_062": {
+		"message": "El río Amazonas, el cual lleva más agua que cualquier otro río del mundo, fluye a través de un continente. ¿De qué continente se trata?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Sudamérica"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_063": {
+		"message": "¿En qué continente se encuentra el Mont Blanc, el punto más alto de los Alpes?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Europa"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Sudamérica"
+	},
+	"trivia_beginner_064": {
+		"message": "¿Con qué continente conecta el istmo de Panamá a Centroamérica?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Sudamérica"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065": {
+		"message": "Los guepardos son los mamíferos terrestres más rápidos del planeta y se pueden encontrar en Kenia y Tanzania. ¿En qué continente viven?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_066": {
+		"message": "El Cabo de Buena Esperanza se encuentra cerca del extremo sur de un continente. ¿De qué continente se trata?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_067": {
+		"message": "Las tortugas gigantes viven en las islas Galápagos, que se encuentran al oeste de Sudamérica. ¿En qué océano se encuentran?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Océano Ártico"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Océano Índico"
+	},
+	"trivia_beginner_068": {
+		"message": "El río Danubio fluye a través de Viena y de otras ciudades. ¿En qué continente se encuentra?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Europa"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "África"
+	},
+	"trivia_beginner_069": {
+		"message": "¿Con qué mar limitan las islas de Cuba y La Española?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Mar Caribe"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Mar de Bering"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Mar Báltico"
+	},
+	"trivia_beginner_070": {
+		"message": "¿Con qué continente limita el golfo de Guinea?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_071": {
+		"message": "¿De qué continente fue Ernest Shackleton un famoso explorador?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_072": {
+		"message": "¿De qué océano forma parte el mar de Labrador?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Océano Atlántico"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Océano Índico"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_beginner_073": {
+		"message": "¿En qué continente se encuentra el Sahara, el desierto más grande del mundo?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_074": {
+		"message": "¿En qué continente se encuentra la meseta del Tíbet?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Sudamérica"
+	},
+	"trivia_beginner_075": {
+		"message": "El pasaje de Drake se encuentra al sur de un continente. ¿De qué continente se trata?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Sudamérica"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_076": {
+		"message": "La Gran Barrera de Coral se encuentra en el mar del Coral frente a la costa de un continente. ¿De qué continente se trata?"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_077": {
+		"message": "Para navegar por el canal de Suez y visitar la Ciudad de los Muertos del Cairo, ¿a que país hay que viajar?"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "Egipto"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Colombia"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Finlandia"
+	},
+	"trivia_beginner_078": {
+		"message": "Para ver gauchos cuidando del ganado y bailarines de tango en la ciudad de Buenos Aires, ¿a qué país hay que viajar?"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Argentina"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Níger"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nepal"
+	},
+	"trivia_beginner_079": {
+		"message": "Para visitar el casco antiguo de la ciudad de Fez y practicar senderismo en las montañas del Atlas, ¿a qué país hay que viajar?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Marruecos"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Tailandia"
+	},
+	"trivia_beginner_080": {
+		"message": "Para visitar las antiguas ruinas mayas y nadar en las playas de Cancún, ¿a qué país debes viajar?"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "México"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "Países Bajos"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Turquía"
+	},
+	"trivia_beginner_081": {
+		"message": "Para visitar la Catedral de San Patricio de Dublín y disfrutar del Festival de las Artes de Kilkenny, ¿a qué país hay que viajar?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Irlanda"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Somalia"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_beginner_082": {
+		"message": "Para hacer un recorrido por la selva tropical y bailar en el carnaval de Río de Janeiro, ¿a qué país debes viajar?"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Brasil"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "Reino Unido"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_beginner_083": {
+		"message": "Para visitar el Museo del Hermitage de San Petersburgo y viajar en el ferrocarril transiberiano, ¿a qué país hay que viajar?"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indonesia"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Belice"
+	},
+	"trivia_beginner_084": {
+		"message": "Para viajar en el tren bala y pasar la noche en un hotel de Tokio, ¿a qué país hay que viajar?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Japón"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Zimbabue"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_beginner_085": {
+		"message": "Para comer pesto en Génova y asistir a una ópera en Florencia, ¿a qué país hay que viajar?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Italia"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paraguay"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Libia"
+	},
+	"trivia_beginner_086": {
+		"message": "Para ir de safari por la reserva natural de Masai Mara e ir de compras por Nairobi, ¿a qué país hay que viajar?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Kenia"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "Corea del Sur"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Chile"
+	},
+	"trivia_beginner_087": {
+		"message": "Para ver el río Ganges y explorar las atestadas calles de Calcuta, ¿a qué país hay que viajar?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "India"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Alemania"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "Jordania"
+	},
+	"trivia_beginner_088": {
+		"message": "El Polo Norte, el punto más septentrional del planeta, se encuentra en medio de un océano. ¿De qué océano se trata?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Océano Ártico"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Océano Índico"
+	},
+	"trivia_beginner_089": {
+		"message": "¿Qué país limita con el océano Atlántico?"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "Islandia"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Pakistán"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Japón"
+	},
+	"trivia_beginner_090": {
+		"message": "¿Qué estado de EE. UU. se conoce como el estado soleado por su clima cálido y sus playas famosas?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Florida"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Maine"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Washington"
+	},
+	"trivia_beginner_091": {
+		"message": "¿En qué estado de los EE. UU. se encuentra el Gran Cañón?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "Virginia Occidental"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "Dakota del Sur"
+	},
+	"trivia_beginner_092": {
+		"message": "¿Qué estado de EE. UU., conocido como el estado de la estrella solitaria, tiene una sola estrella en su bandera y fue un país independiente?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Texas"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Wisconsin"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_093": {
+		"message": "¿En qué continente se encuentran el Tigris y el Éufrates?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_094": {
+		"message": "¿En qué continente se encuentran el lago Victoria y las montañas Virunga?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Norteamérica"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_095": {
+		"message": "¿Qué país es un país insular del océano Pacífico?"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "Nueva Zelanda"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "Sudáfrica"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "Islandia"
+	},
+	"trivia_beginner_096": {
+		"message": "¿Qué país se encuentra en la península escandinava?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Suecia"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Rumanía"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Perú"
+	},
+	"trivia_beginner_097": {
+		"message": "¿Qué país limita con el mar Mediterráneo?"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "Francia"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "Bangladés"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_001": {
+		"message": "¿Qué ciudad estadounidense es la más cercana a la frontera con Canadá?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sacramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "¿Qué ciudad estadounidense es más propensa a sufrir huracanes?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Miami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Los Ángeles"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pittsburgh"
+	},
+	"trivia_hard_003": {
+		"message": "¿Cuál de estos lagos tiene la mayor superficie?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Lago Hurón"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Lago Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Lago Erie"
+	},
+	"trivia_hard_004": {
+		"message": "¿Cuál de estas ciudades de Estados Unidos es la más poblada?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Chicago"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "St. Louis"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianápolis"
+	},
+	"trivia_hard_005": {
+		"message": "¿Qué país está más cerca del golfo Pérsico?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Irán"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Turquía"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Bután"
+	},
+	"trivia_hard_006": {
+		"message": "¿Cuál de estos países tiene más superficie?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Kazajistán"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Rumanía"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Polonia"
+	},
+	"trivia_hard_007": {
+		"message": "¿Cuál de estos países está más poblado?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Singapur"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Laos"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_008": {
+		"message": "¿Cuál de estos países tiene el mayor número de hablantes de alemán?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Austria"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Eslovaquia"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Iraq"
+	},
+	"trivia_hard_009": {
+		"message": "¿Cuál de estos países limita con más países?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Arabia Saudí"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Marruecos"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mongolia"
+	},
+	"trivia_hard_010": {
+		"message": "¿Qué país no limita con el lago Tanganica?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benín"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Burundi"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_hard_011": {
+		"message": "¿Qué país no está atravesado por el ecuador?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Mauritania"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indonesia"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Kenia"
+	},
+	"trivia_hard_012": {
+		"message": "¿Qué país no se encuentra en la península de los Balcanes?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "República Checa"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Bulgaria"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Macedonia"
+	},
+	"trivia_hard_013": {
+		"message": "¿Qué país no limita con el mar del Norte?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Finlandia"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Dinamarca"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "Reino Unido"
+	},
+	"trivia_hard_014": {
+		"message": "¿Qué país no rodea el Mar Negro?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Azerbaiyán"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Ucrania"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Turquía"
+	},
+	"trivia_hard_015": {
+		"message": "¿Qué país no está rodeado de tierra?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Croacia"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Bielorrusia"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Hungría"
+	},
+	"trivia_hard_016": {
+		"message": "¿Qué país no se encuentra en el Sáhara?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angola"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Libia"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Argelia"
+	},
+	"trivia_hard_017": {
+		"message": "¿Qué isla se encuentra más alejada al este?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinidad"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Cuba"
+	},
+	"trivia_hard_018": {
+		"message": "¿Con qué masa de agua limita Cape Fear?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Océano Atlántico"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Mar Caribe"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_hard_019": {
+		"message": "¿Qué ciudad es un puerto en el golfo de México?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Veracruz"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tijuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Acapulco"
+	},
+	"trivia_hard_020": {
+		"message": "¿Qué país atraviesa el Trópico de Cáncer?"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "México"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Canadá"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Brasil"
+	},
+	"trivia_hard_021": {
+		"message": "¿Cuál de estas islas tiene más superficie?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Isla de Baffin"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "La Española"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Cerdeña"
+	},
+	"trivia_hard_022": {
+		"message": "El canal de Yucatán separa México de una isla. ¿De qué isla se trata?"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "Cuba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Puerto Rico"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dominica"
+	},
+	"trivia_hard_023": {
+		"message": "¿Qué ciudad canadiense se encuentra más al norte?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Yellowknife"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Otawa"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Winnipeg"
+	},
+	"trivia_hard_024": {
+		"message": "¿Qué isla forma parte de las Antillas Menores?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "San Cristóbal"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Bermudas"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Nueva Escocia"
+	},
+	"trivia_hard_025": {
+		"message": "¿De qué país es Port-au-Prince la ciudad más poblada?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haití"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Surinam"
+	},
+	"trivia_hard_026": {
+		"message": "¿Qué país está en el sistema montañoso de los Cárpatos?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Rumanía"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albania"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Turkmenistán"
+	},
+	"trivia_hard_027": {
+		"message": "¿En qué país es el francés un idioma oficial?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabón"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tanzania"
+	},
+	"trivia_hard_028": {
+		"message": "¿Cuál de estos países tiene el área de tierra más grande?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Irán"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Israel"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Bahréin"
+	},
+	"trivia_hard_029": {
+		"message": "¿Qué país abarca más grados de longitud?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Kazajistán"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afganistán"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Siria"
+	},
+	"trivia_hard_030": {
+		"message": "¿Qué país se compone de muchas islas?"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Filipinas"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Camboya"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Tayikistán"
+	},
+	"trivia_hard_031": {
+		"message": "¿Cuál de estos países tiene más zonas horarias?"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Brasil"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "Belice"
+	},
+	"trivia_hard_032": {
+		"message": "¿Qué país se encuentra más al norte?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Camerún"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Mozambique"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Australia"
+	},
+	"trivia_hard_033": {
+		"message": "¿Qué país se encuentra entre Francia y España?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andorra"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Luxemburgo"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Ciudad del Vaticano"
+	},
+	"trivia_hard_034": {
+		"message": "¿Con qué país limita Dinamarca?"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Alemania"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "Finlandia"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Moldavia"
+	},
+	"trivia_hard_035": {
+		"message": "¿A qué país pertenece la isla de Cerdeña?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Italia"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Turquía"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "Reino Unido"
+	},
+	"trivia_hard_036": {
+		"message": "¿Qué desierto cubre gran parte del área entre Pekín y Ulán Bator?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Desierto de Thar"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Desierto Líbico"
+	},
+	"trivia_hard_037": {
+		"message": "¿De qué océano forma parte la Corriente de Kamchatka?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Océano Índico"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Océano Atlántico"
+	},
+	"trivia_hard_038": {
+		"message": "El golfo de Sidra se encuentra en la parte sur de un mar. ¿De qué mar se trata?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Mar Mediterráneo"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Mar de Arabia"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Mar Báltico"
+	},
+	"trivia_hard_039": {
+		"message": "Las montañas de Tatra son las más altas de un sistema montañoso europeo. ¿De qué sistema se trata?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Montes Cárpatos"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Cordillera cantábrica"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Pirineos"
+	},
+	"trivia_hard_040": {
+		"message": "¿Qué río fluye a través del lago Kariba y forma la frontera entre Zambia y Zimbabue?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Río Zambeze"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Río Nilo"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Río Congo"
+	},
+	"trivia_hard_041": {
+		"message": "¿En qué mar desembocan los ríos Támesis, Mosa y Escalda?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Mar del Norte"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Mar Mediterráneo"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Mar Negro"
+	},
+	"trivia_hard_042": {
+		"message": "El estrecho de Luzón separa las Filipinas de una isla grande al norte. ¿De qué isla se trata?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Taiwán"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Argelia"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_hard_043": {
+		"message": "¿Qué islas se encuentran a lo largo de la Cordillera del Atlántico?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Azores"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Bahamas"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Islas Fiyi"
+	},
+	"trivia_hard_044": {
+		"message": "¿Qué río desemboca en el mar de Láptev?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Río Lena"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Río Yangtsé"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Río Indo"
+	},
+	"trivia_hard_045": {
+		"message": "¿Qué pico está más cerca del ecuador?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimanjaro"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Mont Blanc"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Monte McKinley"
+	},
+	"trivia_hard_046": {
+		"message": "¿Qué capital es la más poblada?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Moscú"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Helsinki"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Argel"
+	},
+	"trivia_hard_047": {
+		"message": "¿Qué ciudad, situada en el río Liffey, es la ciudad más grande de la República de Irlanda?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dublín"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Oslo"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Copenhague"
+	},
+	"trivia_hard_048": {
+		"message": "¿Qué ciudad, situada en un valle de la región del Hindu Kush, es la ciudad más grande de Afganistán?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Kabul"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Sarajevo"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "¿Qué ciudad, ubicada en el río Chao Phraya, es la ciudad más grande de Tailandia?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Bangkok"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Pekín"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Ammán"
+	},
+	"trivia_hard_050": {
+		"message": "¿Qué ciudad, situada en lo alto de un fiordo en el estrecho de Skagerrak, es la ciudad más grande de Noruega?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Oslo"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "Londres"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Bruselas"
+	},
+	"trivia_hard_051": {
+		"message": "¿Qué ciudad, situada a lo largo del este del mar Mediterráneo, es la ciudad más grande del Líbano?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Beirut"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Mogadiscio"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Riad"
+	},
+	"trivia_hard_052": {
+		"message": "¿Qué ciudad, situada en la costa de Java, es la ciudad más grande de Indonesia?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Yakarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tokio"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "¿Qué ciudad, situada en la región del Ática, es la ciudad más grande de Grecia?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Atenas"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Roma"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barcelona"
+	},
+	"trivia_hard_054": {
+		"message": "¿Qué ciudad, situada en el estuario del Río de la Plata, es la ciudad más grande de Uruguay?"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Quito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Río de Janeiro"
+	},
+	"trivia_hard_055": {
+		"message": "¿Qué ciudad, la cual formó parte de la antigua provincia de Transvaal, es la ciudad más grande de Sudáfrica?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Johannesburgo"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abuya"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputo"
+	},
+	"trivia_hard_056": {
+		"message": "¿Qué ciudad, la cual es un centro importante de comercio en el mar Caribe, es la ciudad más grande de Jamaica?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Parroquia de Kingston"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Caracas"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Buenos Aires"
+	},
+	"trivia_hard_057": {
+		"message": "¿Qué ciudad, situada en el Gran Valle del Rift, es la ciudad más grande de Eritrea?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Bagdad"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazzaville"
+	},
+	"trivia_hard_058": {
+		"message": "¿Qué ciudad, situada a orillas del río Vístula, es la ciudad más grande de Polonia?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Varsovia"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berlín"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kiev"
+	},
+	"trivia_hard_059": {
+		"message": "¿Qué ciudad, la cual es una importante parada en la Carretera Panamericana, es la ciudad más grande de Costa Rica?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "San José"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sucre"
+	},
+	"trivia_hard_060": {
+		"message": "¿Qué ciudad, la cual es un importante centro de comercio agrícola en el sur de África, es la ciudad más grande de Zimbabue?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Windhoek"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "¿Qué ciudad, la cual fue ocupada por el régimen de los Jemeres Rojos, es la ciudad más grande de Camboya?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Phnom Penh"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kuala Lumpur"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Dacca"
+	},
+	"trivia_hard_062": {
+		"message": "¿Qué ciudad, situada en el océano Atlántico en el cabo Mesurado, es la ciudad más grande de Liberia?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monrovia"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Accra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaka"
+	},
+	"trivia_hard_063": {
+		"message": "¿Qué ciudad, situada en un altiplano de los Andes, es la ciudad más grande de Colombia?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogotá"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managua"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterrey"
+	},
+	"trivia_hard_064": {
+		"message": "¿Qué ciudad, situada a los pies de los montes Elburz, es la ciudad más grande de Irán?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Teherán"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Taskent"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Estambul"
+	},
+	"trivia_hard_065": {
+		"message": "¿Qué masa de agua atraviesa el círculo polar ártico?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Mar de Noruega"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Lago Volta"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Mar Caspio"
+	},
+	"trivia_hard_066": {
+		"message": "¿Qué masa de agua se encuentra en el Gran Valle del Rift?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Lago Malaui"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Mar de Tasmania"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Lago Titicaca"
+	},
+	"trivia_hard_067": {
+		"message": "La ciudad portuaria rusa de Arkhangelsk se encuentra en la orilla de una masa de agua. ¿Cuál es su nombre?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Mar Blanco"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Estrecho de Bass"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Golfo de Vizcaya"
+	},
+	"trivia_hard_068": {
+		"message": "¿Qué país incluye las provincias de Hunan y Shandong?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "China"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Tailandia"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Yemen"
+	},
+	"trivia_hard_069": {
+		"message": "¿En qué país mediterráneo es el castellano la lengua oficial?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "España"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Grecia"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "Azerbaiyán"
+	},
+	"trivia_hard_070": {
+		"message": "¿Qué país centroamericano fue una provincia de Colombia?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panamá"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Guatemala"
+	},
+	"trivia_hard_071": {
+		"message": "La ciudad de Basilea, dividida por el río Rin, es un importante centro de transportes. ¿En qué país se encuentra?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Suiza"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Bélgica"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Rusia"
+	},
+	"trivia_hard_072": {
+		"message": "Pintores como Cézanne se inspiraron en el paisaje de la Provenza. ¿En qué país se encuentra esta región?"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "Francia"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "Países Bajos"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Rumanía"
+	},
+	"trivia_hard_073": {
+		"message": "Bahía Blanca es un punto importante de expedición en la región de La Pampa. ¿En qué país se encuentra?"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Argentina"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_074": {
+		"message": "¿Qué país está limitado por los mares Mediterráneo, Negro y Egeo?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Turquía"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Bulgaria"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Libia"
+	},
+	"trivia_hard_075": {
+		"message": "Cada año, los ñus emigran desde Tanzania a través del río Mara hacia un país vecino situado al noreste. ¿De qué país se trata?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Kenia"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Zambia"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Guinea"
+	},
+	"trivia_hard_076": {
+		"message": "Alepo, famosa por la Gran Mezquita, es la ciudad más grande de un país situado al suroeste de Asia. ¿De qué país se trata?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Siria"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Omán"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Bangladés"
+	},
+	"trivia_hard_077": {
+		"message": "¿Qué país limita con Rusia y Georgia?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Azerbaiyán"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Uzbekistán"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Corea del Norte"
+	},
+	"trivia_hard_078": {
+		"message": "¿Qué país limita con Panamá y Brasil?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Colombia"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Perú"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_hard_079": {
+		"message": "¿Qué país limita con Guatemala y Estados Unidos?"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "México"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "El Salvador"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Canadá"
+	},
+	"trivia_hard_080": {
+		"message": "¿Qué país limita con Irak y Afganistán?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Irán"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Ucrania"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mongolia"
+	},
+	"trivia_hard_081": {
+		"message": "¿Qué país limita con Lesoto y Botsuana?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Sudáfrica"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Zimbabue"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Congo"
+	},
+	"trivia_hard_082": {
+		"message": "Amberes se encuentra en la parte de habla flamenca de un país. ¿De qué país se trata?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Bélgica"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Países Bajos"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "Islandia"
+	},
+	"trivia_hard_083": {
+		"message": "Gdansk es un puerto importante situado cerca de la desembocadura del río Vístula. ¿En qué país europeo se encuentra?"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "Polonia"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "España"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Croacia"
+	},
+	"trivia_hard_084": {
+		"message": "Los ríos Madeira y Purus son los principales afluentes de un río grande situado en América del Sur. ¿De qué río se trata?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Río Amazonas"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Río Orinoco"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Río Paraná"
+	},
+	"trivia_hard_085": {
+		"message": "El lago de Constanza limita con Suiza, Alemania y otro país. ¿De qué país se trata?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Austria"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Eslovaquia"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Finlandia"
+	},
+	"trivia_hard_086": {
+		"message": "Auckland, una importante ciudad portuaria con múltiples puertos, es la ciudad más grande de un país. ¿De qué país se trata?"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "Nueva Zelanda"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Australia"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "Indonesia"
+	},
+	"trivia_hard_087": {
+		"message": "¿Qué país, situado al oeste de Togo, es un importante productor de cacao?"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Ghana"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Sudán"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Túnez"
+	},
+	"trivia_hard_088": {
+		"message": "Guaraní es el nombre de una de las lenguas oficiales y también la moneda de un país de Sudamérica. ¿De qué país se trata?"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "Paraguay"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Brasil"
+	},
+	"trivia_hard_089": {
+		"message": "¿Qué cordillera se extiende a lo largo de la frontera entre Francia y España?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Pirineos"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Apeninos"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Montañas del Cáucaso"
+	},
+	"trivia_hard_090": {
+		"message": "El río Torrens desemboca en el golfo de San Vicente. ¿En qué país se encuentra?"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Australia"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Canadá"
+	},
+	"trivia_hard_091": {
+		"message": "¿Qué país africano limita con el mar Mediterráneo y es una monarquía?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Marruecos"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Egipto"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "República Centroafricana"
+	},
+	"trivia_hard_092": {
+		"message": "¿De qué país es capital Tbilisi, situada en las orillas del río Kura?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Georgia"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Siria"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Hungría"
+	},
+	"trivia_hard_093": {
+		"message": "Abruzzo es una región montañosa situada en el mar Adriático. ¿En qué país se encuentra?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Italia"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "Francia"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "Luxemburgo"
+	},
+	"trivia_hard_094": {
+		"message": "El golfo de Riga limita con Letonia y con otro país. ¿De qué país se trata?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Estonia"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Bielorrusia"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "España"
+	},
+	"trivia_hard_095": {
+		"message": "¿Con qué mar conecta el estrecho de Jubal el Golfo de Suez?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Mar Rojo"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Mar Caribe"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Mar Caspio"
+	},
+	"trivia_hard_096": {
+		"message": "¿De qué río son las aguas que derivan principalmente en el mar de Galilea?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Río Jordán"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amu Darya"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Río Ganges"
+	},
+	"trivia_hard_097": {
+		"message": "¿Qué gran bahía separa Nuevo Brunswick de Nueva Escocia?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Bahía de Fundy"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Bahía de Hudson"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Bahía de Bengala"
+	},
+	"trivia_hard_098": {
+		"message": "La catedral de Colonia está en la región de Renania. ¿En qué país se encuentra?"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Alemania"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Dinamarca"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Pakistán"
+	},
+	"trivia_hard_099": {
+		"message": "Chiapas, sede de varias antiguas ruinas mayas, es el estado más meridional de un país. ¿De qué país se trata?"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "México"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Chile"
+	},
+	"trivia_hard_100": {
+		"message": "Los Dardanelos es un estrecho angosto que une el mar de Mármara con otro mar. ¿De qué mar se trata?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Mar Egeo"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Mar de Barents"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Mar de Tasmania"
+	},
+	"trivia_hard_101": {
+		"message": "El jemer es la lengua oficial de un país del sudeste asiático. ¿De qué país se trata?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Camboya"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_hard_102": {
+		"message": "La cuenca del Donets es una zona industrial compartida por Rusia y por otro país. ¿De qué país se trata?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Ucrania"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Eslovaquia"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Líbano"
+	},
+	"trivia_hard_103": {
+		"message": "El monte Kosciuszko, situado en las Snowy Mountains, es el pico más alto de un continente. ¿De qué continente se trata?"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Australia"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Europa"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Sudamérica"
+	},
+	"trivia_hard_104": {
+		"message": "¿De qué país forman parte las islas de Madura y Bali?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indonesia"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Japón"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Pakistán"
+	},
+	"trivia_hard_105": {
+		"message": "El desierto de Taklamakán está al norte de la cordillera Kunlun. ¿En qué país asiático se encuentra?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "China"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Arabia Saudí"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "Corea del Sur"
+	},
+	"trivia_medium_001": {
+		"message": "¿Cuál de estas ciudades de Estados Unidos se encuentra en el delta de un río?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "Nueva Orleans"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Austin"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Oklahoma"
+	},
+	"trivia_medium_002": {
+		"message": "Angkor Wat y Capadocia son sitios del Patrimonio Mundial de la UNESCO. ¿En qué continente se encuentran?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Asia"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "África"
+	},
+	"trivia_medium_003": {
+		"message": "El kurdo y el persa son idiomas que se hablan en la parte suroeste de un continente. ¿De qué continente se trata?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Asia"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Sudamérica"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_004": {
+		"message": "Teotihuacán fue el gran centro de una civilización temprana. ¿En qué continente estaba?"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "Norteamérica"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "África"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Asia"
+	},
+	"trivia_medium_005": {
+		"message": "¿Con qué continente limitan el mar de Bellingshausen y el mar de Ross?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Antártida"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Asia"
+	},
+	"trivia_medium_006": {
+		"message": "Las corrientes de Mozambique y Benguela fluyen a lo largo de la costa de un continente. ¿De qué continente se trata?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "África"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Norteamérica"
+	},
+	"trivia_medium_007": {
+		"message": "El archipiélago de las islas Malvinas, también llamadas Falkland Islands, se encuentra en el borde sureste de un continente. ¿De qué continente se trata?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Sudamérica"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Norteamérica"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_008": {
+		"message": "¿Cuál de estos países africanos tiene más superficie?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Argelia"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gambia"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Burundi"
+	},
+	"trivia_medium_009": {
+		"message": "¿Qué gran isla se encuentra 320 kilómetros al noroeste de Islandia?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Groenlandia"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Nueva Guinea"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Irlanda"
+	},
+	"trivia_medium_010": {
+		"message": "¿De qué océano forman parte el mar de Kara y el mar de Siberia Oriental?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Océano Ártico"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Océano Índico"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_medium_011": {
+		"message": "¿Qué país limita con el Mar Báltico?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Letonia"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Eslovenia"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Ucrania"
+	},
+	"trivia_medium_012": {
+		"message": "¿Cuál de estas grandes ciudades es la más poblada?"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "São Paulo, Brasil"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto (Canadá)"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hanói (Vietnam)"
+	},
+	"trivia_medium_013": {
+		"message": "¿Qué país no tiene costa en el océano Atlántico?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Malasia"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Uruguay"
+	},
+	"trivia_medium_014": {
+		"message": "¿Cuál de estos países tiene menos costa?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Perú"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Chile"
+	},
+	"trivia_medium_015": {
+		"message": "¿Qué desierto se encuentra en Asia?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalahari"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atacama"
+	},
+	"trivia_medium_016": {
+		"message": "¿Cuál de estos países sufre más actividad volcánica?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indonesia"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Egipto"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Israel"
+	},
+	"trivia_medium_017": {
+		"message": "¿Cuál de estos países tiene más habitantes?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Pakistán"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haití"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_018": {
+		"message": "¿Cuál de estos países tiene más islas?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Bahamas"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_019": {
+		"message": "¿Qué país se encuentra más cerca del ecuador?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Ruanda"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "Sudáfrica"
+	},
+	"trivia_medium_020": {
+		"message": "¿Qué país se encuentra más al norte?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Estonia"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Libia"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Camboya"
+	},
+	"trivia_medium_021": {
+		"message": "El barrio de Alfama se encuentra en Portugal, en las orillas del río Tajo. ¿En qué capital está?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lisboa"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berlín"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Helsinki"
+	},
+	"trivia_medium_022": {
+		"message": "¿Qué capital, ubicada 40 kilómetros al noreste del mar Muerto, es la ciudad más poblada de Jordania?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Ammán"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Islamabad"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Seúl"
+	},
+	"trivia_medium_023": {
+		"message": "¿En qué capital se encuentra la plaza Tahrir, punto central de varias de las principales protestas en Egipto?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "El Cairo"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Mascate"
+	},
+	"trivia_medium_024": {
+		"message": "¿Qué capital, situada en la bahía de la Mesa, es la sede del parlamento nacional de Sudáfrica?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Ciudad del Cabo"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaka"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinshasa"
+	},
+	"trivia_medium_025": {
+		"message": "Situada a orillas del río Moldava, ¿qué capital es la ciudad más grande de la República Checa?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Praga"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dublín"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Sofía"
+	},
+	"trivia_medium_026": {
+		"message": "¿Qué capital, situada en el mar Mediterráneo, es un puerto importante para Libia?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Trípoli"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Mogadiscio"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monrovia"
+	},
+	"trivia_medium_027": {
+		"message": "¿Qué capital, la cual es un importante centro de comercio y transporte en Sudán, se encuentra en el cruce de los ríos Nilo Blanco y Nilo Azul?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Jartún"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Túnez"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Johannesburgo"
+	},
+	"trivia_medium_028": {
+		"message": "¿Qué capital se encuentra en las islas danesas de Zelanda y Amager?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Copenhague"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Berna"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Bratislava"
+	},
+	"trivia_medium_029": {
+		"message": "¿Qué capital, situada en la isla de Nueva Providencia, es la ciudad más grande de las Bahamas?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Nassau"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santo Domingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopán"
+	},
+	"trivia_medium_030": {
+		"message": "Situada al sur del Mar Negro, ¿qué capital es el centro del sistema de transportes de Turquía?"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "Ankara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minsk"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Teherán"
+	},
+	"trivia_medium_031": {
+		"message": "¿Cuál de estos países está parcialmente situado en el Cuerno de África?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Níger"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Suazilandia"
+	},
+	"trivia_medium_032": {
+		"message": "El Skagerrak es un estrecho que separa Dinamarca de otro país. ¿De qué país se trata?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Noruega"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "Reino Unido"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_medium_033": {
+		"message": "¿Qué país tiene más superficie cubierta por desierto?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Chad"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Noruega"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_034": {
+		"message": "¿A través de qué país fluye el río Éufrates?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Siria"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Suiza"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Tailandia"
+	},
+	"trivia_medium_035": {
+		"message": "La ciudad de Irkutsk está cerca del lago Baikal. ¿En qué continente se encuentra?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Asia"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "África"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Sudamérica"
+	},
+	"trivia_medium_036": {
+		"message": "¿De qué continente son ríos importantes el Dniéper y el Rin?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Europa"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Antártida"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "Asia"
+	},
+	"trivia_medium_037": {
+		"message": "¿En qué continente se encuentran el Escudo guayanés y la región del Pantanal?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Sudamérica"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Norteamérica"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_038": {
+		"message": "El Gran Desierto de Victoria y la llanura de Nullarbor son accidentes geográficos de un continente. ¿De qué continente se trata?"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Asia"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_039": {
+		"message": "¿De qué país es Río Grande del Sur el estado más meridional?"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Brasil"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "México"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Alemania"
+	},
+	"trivia_medium_040": {
+		"message": "La ciudad de Novosibirsk está junto al río Obi. ¿En qué país se encuentra?"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "China"
+	},
+	"trivia_medium_041": {
+		"message": "¿Qué país se encuentra en la costa del Pacífico y es más probable que experimente terremotos?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Chile"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "Francia"
+	},
+	"trivia_medium_042": {
+		"message": "El lago de Maracaibo se encuentra a lo largo de la costa norte de un país. ¿De qué país se trata?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Canadá"
+	},
+	"trivia_medium_043": {
+		"message": "¿Qué país limita con el mar de Arabia?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Tayikistán"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Grecia"
+	},
+	"trivia_medium_044": {
+		"message": "¿Qué país se encuentra en la península ibérica?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Portugal"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Bangladés"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Países Bajos"
+	},
+	"trivia_medium_045": {
+		"message": "¿Cuál de estos países tiene más costa?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Tailandia"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Congo"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Qatar"
+	},
+	"trivia_medium_046": {
+		"message": "¿Qué estado de Estados Unidos se encuentra al oeste del río Misisipi?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Colorado"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Maryland"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Michigan"
+	},
+	"trivia_medium_047": {
+		"message": "Los bosques cubren aproximadamente el 60 por ciento de un estado de EE. UU. ¿De qué estado se trata?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virginia"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "¿En qué estado de los EE. UU. se encuentra el monte McKinley, el pico más alto de Norteamérica?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Alaska"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_medium_049": {
+		"message": "¿Cuál de estos estados de Estados Unidos tiene más superficie?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montana"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "Carolina del Sur"
+	},
+	"trivia_medium_050": {
+		"message": "El monte Rushmore está cerca de Rapid City. ¿En qué estado de los EE. UU. se encuentra?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "Dakota del Sur"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregón"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Florida"
+	},
+	"trivia_medium_051": {
+		"message": "¿Qué estado de EE. UU. comparte frontera con Canadá?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebraska"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentucky"
+	},
+	"trivia_medium_052": {
+		"message": "Los arrecifes de coral se encuentran frente a las costas de un estado de EE. UU. ¿De qué estado se trata?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Hawái"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "¿De qué país es Hamburgo un importante puerto?"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Alemania"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Croacia"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Bélgica"
+	},
+	"trivia_medium_054": {
+		"message": "¿Qué país experimenta más actividad volcánica?"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "Islandia"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "Reino Unido"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "Polonia"
+	},
+	"trivia_medium_055": {
+		"message": "¿Qué país se encuentra principalmente en la península de Asia Menor?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Turquía"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Birmania"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Estonia"
+	},
+	"trivia_medium_056": {
+		"message": "El mar Muerto forma parte de la frontera entre Israel y otro país. ¿De qué país se trata?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Jordania"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Irán"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Japón"
+	},
+	"trivia_medium_057": {
+		"message": "El Parque Nacional del Serengueti se encuentra al este del lago Victoria. ¿En qué país se encuentra?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tanzania"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Yemen"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_058": {
+		"message": "¿Qué país limita con el mar Caribe y es un importante exportador de petróleo?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paraguay"
+	},
+	"trivia_medium_059": {
+		"message": "¿Qué país rodeado de tierra se encuentra justo al sur del ecuador?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Burundi"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Yibuti"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Túnez"
+	},
+	"trivia_medium_060": {
+		"message": "¿Con qué país mediterráneo limita el mar Tirreno?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Italia"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Israel"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Senegal"
+	},
+	"trivia_medium_061": {
+		"message": "Ekaterimburgo está en las laderas orientales de los Montes Urales. ¿En qué país se encuentra?"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Lituania"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Bélgica"
+	},
+	"trivia_medium_062": {
+		"message": "¿Qué país insular se encuentra al sureste de Australia y es un importante productor de lana?"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "Nueva Zelanda"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Filipinas"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_063": {
+		"message": "Mumbai es una importante ciudad portuaria. ¿En qué país se encuentra?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Suiza"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Bután"
+	},
+	"trivia_medium_064": {
+		"message": "La ciudad de Incheon está en el mar Amarillo. ¿En qué país se encuentra?"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "Corea del Sur"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Tailandia"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mongolia"
+	},
+	"trivia_medium_065": {
+		"message": "¿Qué pequeño país se encuentra en la frontera occidental de Austria?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Liechtenstein"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Siria"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Moldavia"
+	},
+	"trivia_medium_066": {
+		"message": "Victoria y Nueva Gales del Sur son dos estados. ¿En qué país se encuentran?"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "Estados Unidos"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Canadá"
+	},
+	"trivia_medium_067": {
+		"message": "¿Qué país de la isla de Borneo limita con el pequeño país de Brunéi?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Malasia"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Irán"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Ucrania"
+	},
+	"trivia_medium_068": {
+		"message": "Los Alpes julianos se encuentran en la frontera entre Italia y otro país. ¿De qué país se trata?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Eslovenia"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Tayikistán"
+	},
+	"trivia_medium_069": {
+		"message": "Una región antes conocida como Manchuria se encuentra en la parte noreste de un país. ¿De qué país se trata?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "China"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Bielorrusia"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afganistán"
+	},
+	"trivia_medium_070": {
+		"message": "¿Qué país limita con El Salvador?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panamá"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "República Dominicana"
+	},
+	"trivia_medium_071": {
+		"message": "¿Qué país se encuentra en las montañas del Cáucaso?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Georgia"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Hungría"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andorra"
+	},
+	"trivia_medium_072": {
+		"message": "El estrecho de Sunda separa dos islas de un país asiático. ¿De qué país se trata?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indonesia"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "Nueva Zelanda"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Laos"
+	},
+	"trivia_medium_073": {
+		"message": "Cerca de la desembocadura del río Shannon, se pueden ver valles de glaciares y acantilados espectaculares. ¿En qué país?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Irlanda"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "Francia"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "Uzbekistán"
+	},
+	"trivia_medium_074": {
+		"message": "El río Indo fluye a través del un país situado al sur de Asia. ¿De qué país se trata?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Pakistán"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Corea del Norte"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Azerbaiyán"
+	},
+	"trivia_medium_075": {
+		"message": "¿Qué país limita con el mar Rojo?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Kenia"
+	},
+	"trivia_medium_076": {
+		"message": "¿A qué país pertenecen los estados de Zacatecas y Tabasco?"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "México"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "Belice"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Argentina"
+	},
+	"trivia_medium_077": {
+		"message": "¿En qué país se encuentra Riad, una ciudad con más de 4.000 mezquitas?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Arabia Saudí"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albania"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Siria"
+	},
+	"trivia_medium_078": {
+		"message": "¿Qué país africano está rodeado de tierra?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Malí"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Mauritania"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Egipto"
+	},
+	"trivia_medium_079": {
+		"message": "¿En qué país es el monte Fuji un lugar sagrado?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Japón"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Filipinas"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "Bangladés"
+	},
+	"trivia_medium_080": {
+		"message": "¿Qué país de las Grandes Antillas tiene el inglés como lengua oficial?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haití"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Cuba"
+	},
+	"trivia_medium_081": {
+		"message": "¿Cuál es el idioma oficial de Siria, Kuwait y Argelia?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "Árabe"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "Armenio"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "Alemán"
+	},
+	"trivia_medium_082": {
+		"message": "Las óperas de Mozart a menudo se escenifican durante el festival anual celebrado en Salzburgo. ¿En qué país europeo y montañoso se encuentra?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Austria"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Hungría"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Rumanía"
+	},
+	"trivia_medium_083": {
+		"message": "El Valle de las Ballenas, un desierto lleno de restos fosilizados de ballenas prehistóricas, se encuentra en un país del norte de Sudán. ¿De qué país se trata?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Egipto"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_medium_084": {
+		"message": "Róterdam está en un delta, cerca del mar del Norte. ¿En qué país europeo se encuentra?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Países Bajos"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Suecia"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Grecia"
+	},
+	"trivia_medium_085": {
+		"message": "El río Brahmaputra, que desemboca en un gran delta, cerca de la bahía de Bengala, tiene su origen en un gran sistema montañoso. ¿Cuál es el nombre de este sistema?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himalaya"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Urales"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Alpes"
+	},
+	"trivia_medium_086": {
+		"message": "¿De qué país islámico es el idioma oficial el farsi, también conocido como persa?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Irán"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Libia"
+	},
+	"trivia_medium_087": {
+		"message": "La gente ve a los matadores en las corridas de toros de Sevilla, ¿en qué país europeo se encuentra esta ciudad?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "España"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Alemania"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "Macedonia"
+	},
+	"trivia_medium_088": {
+		"message": "¿En qué país se encuentra la ciudad de Estambul, considerada un lugar de encuentro de las culturas orientales y occidentales?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Turquía"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Eslovaquia"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Omán"
+	},
+	"trivia_medium_089": {
+		"message": "La ciudad maya de Copán es una atracción turística popular situada en un país que limita con El Salvador y Nicaragua. ¿De qué país se trata?"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Canadá"
+	},
+	"trivia_medium_090": {
+		"message": "Tombuctú, un centro de comercio de caravanas durante casi mil años, se encuentra al norte del río Níger. ¿En qué país rodeado de tierra se encuentra?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Malí"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namibia"
+	},
+	"trivia_medium_091": {
+		"message": "¿Qué país sudamericano rodeado de tierra limita con Chile y Brasil?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Bolivia"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Colombia"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Guyana"
+	},
+	"trivia_medium_092": {
+		"message": "La ciudad de Belén se encuentra en la desembocadura sur del río Amazonas. ¿En qué país se encuentra?"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Brasil"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "Costa Rica"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Surinam"
+	},
+	"trivia_medium_093": {
+		"message": "¿Qué río forma una gran parte de la frontera norte de Bulgaria?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Río Danubio"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Río Obi"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Río Mekong"
+	},
+	"trivia_medium_094": {
+		"message": "Las montañas de Sayan están cerca del lago Baikal. ¿En qué país asiático se encuentran?"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "India"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Kirguistán"
+	},
+	"trivia_medium_095": {
+		"message": "El lago Nipigon es el lago más grande de una provincia canadiense. ¿De qué provincia se trata?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontario"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "Columbia Británica"
+	},
+	"trivia_medium_096": {
+		"message": "¿De qué mar mayor forman parte el mar Balear y el mar Jónico?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Mar Mediterráneo"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Mar Báltico"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Mar Caribe"
+	},
+	"trivia_medium_097": {
+		"message": "¿En qué continente se encuentran los lagos Turkana y Natron, dos de los lagos situados en el Valle del Rift?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "África"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Sudamérica"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_098": {
+		"message": "La fosa de Puerto Rico es el punto más profundo de un océano. ¿De qué océano se trata?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Océano Atlántico"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Océano Ártico"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_medium_099": {
+		"message": "Los pájaros cucaburras son originarios de los bosques de eucalipto en la parte oriental de un continente. ¿De qué continente se trata?"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "África"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Sudamérica"
+	},
+	"trivia_medium_100": {
+		"message": "La Haya, sede de la Corte Internacional de Justicia, es una ciudad situada en la costa oeste de un país europeo. ¿De qué país se trata?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Países Bajos"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Finlandia"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Bulgaria"
+	},
+	"trivia_ngb_promo": {
+		"message": "Contenido de National Geographic Bee"
+	},
+	"tw_country_name": {
+		"message": "Taiwán"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
+	},
+	"uk_country_name": {
+		"message": "Reino Unido"
+	},
+	"uk_tradition": {
+		"message": "En el Reino Unido, juerguistas de todas las edades disfrutan de los crackers de Navidad en la mesa durante la cena. Consisten en tubos envueltos en papel de colores, con lengüetas en cada extremo. Cuando se tira de las lengüetas, el tubo estalla con un fuerte chasquido. En su interior, hay sombreros de papel, juguetes y dulces para disfrutar de la Nochebuena."
+	},
+	"upgrade-warning": {
+		"message": "¡Vaya! Esta versión de tu navegador no admite Sigue a Papá Noel. Para acceder a Sigue a Papá Noel, descarga un navegador moderno. Para obtener más información, visita \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
+	"us_country_name": {
+		"message": "Estados Unidos"
+	},
+	"us_tradition": {
+		"message": "En Estados Unidos, se cuelgan los calcetines en Nochebuena. La leyenda dice que San Nicolás bajó por la chimenea y colocó bolsas preciosas de oro en los calcetines que había colgados en la casa de una familia necesitada. Desde entonces, fue conocido como Papá Noel, el repartidor de regalos."
+	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistán"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
+	"watch": {
+		"message": "Ver"
+	},
+	"ye_country_name": {
+		"message": "Yemen"
+	},
+	"zh-CN_language_name": {
+		"message": "Chino (simplificado)"
+	},
+	"zh-TW_language_name": {
+		"message": "Chino (tradicional)"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabue"
+	}
+}

@@ -1,0 +1,286 @@
+<link rel="import" href="../base-scene.html">
+<link rel="import" href="../../components/google-youtube/google-youtube.html">
+<link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+
+<!--
+Video scene.
+
+@element video-scene
+@extends base-scene
+-->
+<polymer-element name="video-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="video-scene.css" no-shim>
+
+  <core-a11y-keys target="{{}}" keys="enter space"
+                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+
+  <div id="module-video" fit>
+    <div class="scene" fit>
+      <div id="poster" class="{{ {faded: !poster} | tokenList }}"
+          on-transitionend="{{hidePoster}}"
+          style="background-image: url({{componentDir}}img/{{route}}-poster.jpg)">
+        <div id="start" hidden?="{{!start}}">
+          <div class="start-button" on-tap="{{playVideo}}"></div>
+        </div>
+      </div>
+
+      <template if="{{showPlayer}}">
+        <google-youtube id="player" videoid="{{VIDEO_IDS[route].id}}" chromeless playsupported="false"
+                        on-google-youtube-ready="{{youtubeReady}}"
+                        on-google-youtube-state-change="{{youtubeStateChange}}"
+                        height="100%" width="100%" fit></google-youtube>
+      </template>
+
+      <div id="videoboard" class="sceneboard">
+        <a href="{{pageUrl}}#village" class="back" hidden?="{{VIDEO_IDS[route].source !== 'village'}}">
+          <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
+        </a>
+        <a href="{{pageUrl}}#tracker" class="back" hidden?="{{VIDEO_IDS[route].source !== 'tracker'}}">
+          <i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg>
+        </a>
+        <div class="sceneboard-back"></div>
+        <div id="controls" hidden?="{{!controls}}">
+          <div class="scrubber">
+            <div class="tracker" style="transform: translateX({{(player.currenttime / player.duration) * 150}}px)">{{player.currenttimeformatted}}</div>
+          </div>
+          <ul class="actions">
+            <li id="restart" class="restart" on-tap="{{restartVideo}}"></li>
+            <li id="pause" class="pause {{ {paused: paused} | tokenList }}" on-tap="{{togglePause}}"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  Polymer({
+    componentDir: 'scenes/videoscene/',
+
+    /**
+     * True if the video is paused.
+     *
+     * @property paused
+     * @type bool
+     * @default true
+     */
+    paused: true,
+
+    /**
+     * True if the poster image should show.
+     *
+     * @property poster
+     * @type bool
+     * @default false
+     */
+    poster: true,
+
+    /**
+     * True if the start button should show.
+     *
+     * @property start
+     * @type bool
+     * @default true
+     */
+    start: false,
+
+    /**
+     * True if the scene board play controls should show.
+     *
+     * @property controls
+     * @type bool
+     * @default false
+     */
+    controls: false,
+
+    /**
+     * True if the `google-youtube` element should be created. Used to keep the
+     * iframe in the DOM only when the scene is visible.
+     *
+     * @property showPlayer
+     * @type bool
+     * @default false
+     */
+    showPlayer: false,
+
+    /**
+     * A reference to the current `google-youtube` element, if there is one.
+     *
+     * @property player
+     * @type Element
+     * @default null
+     */
+    player: null,
+
+    /**
+     * Mapping of routes to YouTube video IDs. `source` gives where the user
+     * should go when they hit the in-scene back button.
+     *
+     * @property VIDEO_IDS
+     * @type object
+     */
+    VIDEO_IDS: {
+      'trailer': {
+        id: 'IdpQSy4IB_I',
+        source: 'village'
+      },
+      'carpool': {
+        id: 'h83b1lWPuvQ',
+        source: 'village'
+      },
+      'liftoff': {
+        id: 'oCAKV4Ikhec',
+        source: 'village'
+      },
+      'jingle': {
+        id: 'sQnKCU_A0Yc',
+        source: 'tracker'
+      },
+      'satellite': {
+        id: 'ZJPL56IPTjw',
+        source: 'tracker'
+      },
+      'temptation': {
+        id: '2FtcJJ9vzVQ',
+        source: 'tracker'
+      },
+      'office': {
+        id: 'IXmDOu-eSx4',
+        source: 'tracker'
+      },
+      'tired': {
+        id: '2UGX3bT9u20',
+        source: 'tracker'
+      },
+      'com-room': {
+        id: '_WdYujHlmHA',
+        source: 'tracker'
+      },
+      'reload': {
+        id: 'vHMeXs36NTE',
+        source: 'tracker'
+      },
+      'slacking-off': {
+        id: 'uEl2WIZOVdQ',
+        source: 'tracker'
+      }
+    },
+
+    /**
+     * Fired to track a video play.
+     *
+     * @event analytics-track-event
+     * @param {Object} detail
+     *   @param {string} detail.category
+     *   @param {string} detail.action
+     *   @param {string} detail.label
+     */
+
+    youtubeReady: function() {
+      this.start = true;
+
+      this.player = this.$['module-video'].querySelector('#player');
+
+      this.player.seekTo(0);
+      this.player.pause();
+      this.controls = false;
+    },
+
+    hidePoster: function(e, detail, sender) {
+      this.$.poster.hidden = true;
+    },
+
+    youtubeStateChange: function(e, detail, sender) {
+      var state = e.detail.data;
+
+      switch (state) {
+        case -1:
+          break;
+        case 0: // ended
+          this.controls = false;
+          break;
+        case 1: // playing
+          this.paused = false;
+          this.controls = true;
+          this.fire('analytics-track-event', {category: 'video', action: 'play',
+                                              label: this.route});
+          break;
+        case 2: // paused
+          this.paused = true;
+          break;
+      }
+    },
+
+    restartVideo: function() {
+      this.player.seekTo(0);
+      this.player.play();
+    },
+
+    togglePause: function() {
+      this.paused = !this.paused;
+      if (this.paused) {
+        this.poster = false;
+        this.start = false;
+        this.player.pause();
+      } else {
+        this.poster = false;
+        this.start = false;
+        this.player.play();
+      }
+    },
+
+    playVideo: function() {
+      this.poster = false;
+      this.start = false;
+      this.player.play();
+    },
+
+    onPreload: function() {
+      this.preloadImages([
+        'img/button.svg',
+        'img/pause.svg',
+        'img/play.svg',
+        'img/restart.svg'
+      ]);
+
+      // get an early start in showing the youtube element the first time
+      this.showPlayer = true;
+    },
+
+    onShow: function() {
+      this.showPlayer = true;
+
+      this.fire('sound-ambient', 'global_sound_off');
+    },
+
+    onHide: function() {
+      this.player.pause();
+      this.fire('sound-ambient', 'global_sound_on');
+
+      this.showPlayer = false;
+      this.player = null;
+    },
+
+    onPause: function() {
+      this.player.pause();
+    },
+
+    onResume: function() {
+      if (this.controls) {
+        this.player.play();
+      }
+    },
+
+    keyHandler: function(e, details, sender) {
+      switch (e.detail.key) {
+        case 'enter':
+        case 'space':
+          e.stopPropagation();
+          this.togglePause();
+          break;
+      }
+    }
+  });
+</script>
+</polymer-element>

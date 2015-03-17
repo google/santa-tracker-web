@@ -1,0 +1,120 @@
+$name: 'module-video';
+
+@import "../shared/sass/sceneboard";
+
+##{$name} {
+  background: #000;
+
+  google-youtube {
+    z-index: 1;
+  }
+
+  #poster {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 2;
+    transition: opacity 1000ms;
+
+    &.faded {
+      opacity: 0;
+    }
+  }
+
+  #videoboard {
+    background: #22b129;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 3px rgba(0,0,0,.23);
+    color: #fff;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 400;
+    left: 20px;
+    text-align: center;
+    top: 0;
+    width: 204px;
+    height: auto;
+    z-index: 3;
+
+    .back {
+      background-color: #ce2764;
+      height: 45px;
+    }
+
+    .scrubber {
+      background-color: #ec4582;
+      clear: left;
+      height: 36px;
+      position: relative;
+    }
+
+    .tracker {
+      background: #be2a60;
+      font-size: 18px;
+      line-height: 36px;
+      position: absolute;
+      top: 0;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      width: 54px;
+    }
+
+    .actions {
+      height: 52px;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .restart, .play, .pause {
+      border-left: 1px solid #19991f;
+      box-sizing: border-box;
+      cursor: pointer;
+      float: left;
+      height: 52px;
+      list-style: none;
+      width: 102px;
+    }
+
+    .restart {
+      background: url(img/restart.svg) no-repeat 50% 50%;
+      border-left: none;
+    }
+
+    .pause {
+      background: url(img/pause.svg) no-repeat 50% 50%;
+    }
+
+    .paused {
+      background: url(img/play.svg) no-repeat 50% 50%;
+    }
+  }
+
+  #start {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 100;
+
+    .start-button {
+      background: url(img/button.svg);
+      content: '';
+      cursor: pointer;
+      height: 250px;
+      left: 50%;
+      margin-left: -125px;
+      margin-top: -125px;
+      position: absolute;
+      top: 50%;
+      width: 250px;
+    }
+  }
+}
+
+@import "../shared/sass/responsive";

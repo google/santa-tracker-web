@@ -1,0 +1,51 @@
+$name: 'module-briefing';
+
+@import "../shared/sass/board";
+@import "../shared/sass/penner-easing";
+
+@import "sass/animations";
+
+##{$name} {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: #007bb8;
+
+  $width: 1400px;
+  $height: 650px;
+
+  .view {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    margin-top: -$height / 2;
+    margin-left: -$width / 2;
+
+    width: $width;
+    height: $height;
+
+  }
+
+  @import "sass/dashboard";
+  @import "sass/wall";
+  @import "sass/decorations";
+  @import "sass/audience";
+  @import "sass/controller";
+  @import "sass/elevator";
+  @import "sass/lady";
+  @import "sass/projector";
+  @import "sass/floor";
+  @import "sass/shower-deer";
+  @import "sass/shower-bubble";
+  @import "sass/shower-water";
+
+}
+
+
+@import "../shared/sass/responsive";

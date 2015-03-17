@@ -1,0 +1,45 @@
+@import "scenes/shared/sass/_mixins.scss";
+
+html, body {
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #3ec4f0;
+  position: absolute;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+// Override Polymer's FOUC. Control it ourselves.
+body {
+  &[unresolved] {
+    opacity: 1 !important;
+  }
+
+  &:not([unresolved]) #preload_placeholder {
+    display: none;
+  }
+
+  &.posttakeoff {
+    #timer {
+      display: none;
+    }
+  }
+}
+
+#preload_placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../images/village.gif') no-repeat 50% 50%;
+  @include media-hdpi(2) {
+    background: url('../images/village_2x.gif') no-repeat 50% 50%;
+    background-size: 340px;
+  }
+  margin-top: -104px;
+}

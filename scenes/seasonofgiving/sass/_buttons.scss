@@ -1,0 +1,180 @@
+##{$name} {
+  .Buttons {
+    display: flex;
+    position: absolute;
+    z-index: 2;
+  }
+
+  .Button {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+
+    background-color: #B148B9;
+    height: 60px;
+    margin-right: 14px;
+
+    bottom: 0px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 8px 0 #852C81;
+    text-decoration: none;
+
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+
+    position: relative;
+
+    transition: bottom 0.1s, box-shadow 0.1s;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  .ornament-link.Button {
+    min-height: 54px !important;
+    height: 54px !important;
+  }
+
+  .Button--copy {
+    font-size: 24px;
+    padding: 12px 22px;
+  }
+
+  .Button:active {
+    box-shadow: none;
+    bottom: -8px;
+
+    transition: bottom 0.2s, box-shadow 0.2s;
+  }
+
+  .Button:after {
+    content: '';
+    display: block;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    border-radius: 5px;
+    box-shadow: 4px 12px rgba(0, 0, 0, 0.1);
+
+    transition: box-shadow 0.1s
+  }
+
+  .Button:active:after {
+    box-shadow: none;
+    transition: box-shadow 0.2s
+  }
+
+  .Button-print {
+    background-image: url(img/icons/print.svg);
+    background-size: 34px 34px;
+    width: 60px;
+  }
+
+  .Button-download {
+    background-image: url(img/icons/download.svg);
+    background-size: 33px 33px;
+    width: 60px;
+  }
+
+  .Button-reset {
+    background-image: url(img/icons/trash.svg);
+    background-size: 33px 33px;
+    width: 60px;
+  }
+
+  .Button-download--mobile {
+    background-image: url(img/icons/download.svg);
+    background-size: 33px 33px;
+    width: 97px;
+  }
+
+  .Button-reset--mobile {
+    background-image: url(img/icons/trash.svg);
+    background-size: 33px 33px;
+    width: 97px;
+  }
+
+  .Button-nav-ornament {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    float: left;
+    height: 48px;
+    width: 48px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .Button-info {
+    background-image: url(img/icons/info.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 260px;
+    cursor: pointer;
+    height: 54px;
+    opacity: 0;
+    position: absolute;
+    right: 20px;
+    visibility: hidden;
+    width: 40px;
+    z-index: 4;
+
+    &.active {
+      transition-delay: 0;
+      visibility: hidden;
+
+      @media (max-width: 1024px) {
+        bottom: 94px;
+        opacity: 1;
+        visibility: visible;
+        transition: .6s opacity ease;
+        transition-delay: 1s;
+      }
+
+      @media (max-width: 520px) {
+        bottom: 166px;
+        opacity: 1;
+        visibility: visible;
+        transition: .6s opacity ease;
+        transition-delay: 1s;
+      }
+    }
+  }
+
+  .Button-prev-ornament {
+    background-image: url(img/icons/prev.svg);
+    background-repeat: no-repeat;
+  }
+
+  .Button-next-ornament {
+    background-image: url(img/icons/next.svg);
+    background-repeat: no-repeat;
+  }
+
+  .Button-show-all {
+    background-image: url(img/icons/show-all.svg);
+    background-repeat: no-repeat;
+  }
+
+  .Button-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    background-image: url(img/icons/close.svg);
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+  }
+}

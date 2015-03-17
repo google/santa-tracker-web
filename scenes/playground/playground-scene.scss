@@ -1,0 +1,91 @@
+$name: 'module-playground';
+
+@import "../shared/sass/board";
+@import "../shared/sass/penner-easing";
+
+@import "sass/variables";
+@import "sass/animations";
+
+##{$name} {
+  // All sizes scaled down to 80% of illustrator size (as discussed with halli)
+  // The middle of the playground should be visible in a 1000x700 viewport
+  $scene-width: 2548;
+  $scene-middle: $scene-width / 2;
+
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  .scene {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: 0 0;
+  }
+
+  .anchor {
+    background: #fff; // floor color
+    // We'll position everything relative to the top of the tree line
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 400px; // move center of scene
+  }
+
+  .cloud {
+    bottom: 450px;
+    display: none;
+    @media (min-height: 650px) {
+      display: block;
+    }
+  }
+
+  .moon {
+    position: absolute;
+    top: 276px;
+    left: 50%;
+    margin-left: 750px;
+  }
+
+  //
+  // Background
+  //
+  .bg {
+    position: absolute;
+    top: -1190px;
+    height: 1190px;
+    left: 0;
+    right: 0;
+    background-color: #0a0049;
+    background-image: linear-gradient(top, #0a0049, #003f7c);
+    // fill up the gap because the gradient
+    // can't be longer than 1190px high
+    &:before {
+      background: #0a0049;
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 5000px;
+      top: -4999px // -2px to compensate the floor numbers
+    }
+  }
+
+  @import "sass/clouds";
+  @import "sass/mountains";
+  @import "sass/trees";
+  @import "sass/playground";
+  @import "sass/playground-faces";
+  @import "sass/elves-sliding";
+  @import "sass/elves-seesaw";
+  @import "sass/elf-peeking";
+  @import "sass/elf-sitting";
+  @import "sass/eyes";
+}
+
+@import "../shared/sass/responsive";

@@ -1,0 +1,192 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../../components/core-selector/core-selector.html">
+<link rel="import" href="../../../components/paper-item/paper-item.html">
+
+<polymer-element name="select-answer" attributes="choices">
+<template>
+
+  <style>
+    :host paper-item {
+      padding: 0 15px;
+    }
+
+    paper-item.core-selected {
+      background-color: #00C55D;
+    }
+
+    paper-item::shadow #ripple {
+      color: #009345;
+    }
+
+    .is-correct paper-item::shadow #ripple {
+      color: #7cd9e6;
+    }
+
+    paper-item::shadow .button-content {
+      padding: 0.3em 1em;
+    }
+
+    #choices {
+      opacity: 1;
+      transition: opacity 500ms;
+      visibility: visible;
+    }
+
+    #choices.is-hidden {
+      opacity: 0;
+      transition: opacity 500ms, visibility 500ms;
+      visibility: hidden;
+    }
+
+    .check {
+      border-radius: 50%;
+      border: 2px solid #7DE1AC;
+      height: 8px;
+      left: -2px;
+      margin-top: -6px;
+      position: absolute;
+      top: 50%;
+      width: 8px;
+    }
+
+    .check::after {
+      background: url(../img/incorrect.svg) no-repeat;
+      background-size: 100%;
+      content: '';
+      display: none;
+      height: 20px;
+      left: 50%;
+      margin-left: -10px;
+      margin-top: -10px;
+      position: absolute;
+      top: 50%;
+      width: 20px;
+    }
+
+    .is-correct .check::after {
+      background: url(../img/correct.svg) no-repeat;
+      background-size: 100%;
+      height: 20px;
+      margin-left: -10px;
+      margin-top: -13px;
+      width: 26px;
+    }
+
+    .is-answered .is-correct .check::after,
+    .core-selected .check::after {
+      display: block;
+    }
+
+    .text {
+      color: #fff;
+      font-family: Roboto, sans-serif;
+      font-size: 21px;
+      font-weight: 400;
+      letter-spacing: 0.8px;
+      line-height: 1.4;
+      padding-left: 20px;
+    }
+
+    @media (min-width: 661px) {
+      :host paper-item {
+        padding: 5px 30px;
+      }
+
+      .check {
+        height: 16px;
+        left: -15px;
+        margin-top: -10px;
+        width: 16px;
+      }
+
+      .check::after {
+        height: 30px;
+        margin-left: -15px;
+        margin-top: -15px;
+        width: 30px;
+      }
+
+      .is-correct .check::after {
+        height: 33px;
+        margin-left: -18px;
+        margin-top: -22px;
+        width: 44px;
+      }
+
+      .text {
+        font-size: 39px;
+        line-height: 50px;
+        padding-left: 30px;
+      }
+    }
+
+  </style>
+
+  <div id="choices">
+    <template repeat="{{item in shuffled}}">
+      <div class="{{ { 'is-correct': isCorrect(item) } | tokenList }}">
+        <paper-item disabled?="{{$.selector.notap}}">
+          <span class="check"></span>
+          <span class="text">{{item}}</span>
+        </paper-item>
+      </div>
+    </template>
+  </div>
+
+  <core-selector id="selector" target="{{$.choices}}" selected="{{value}}"></core-selector>
+
+</template>
+<script>
+  Polymer({
+    eventDelegates: {
+      'core-activate': 'onAnswered'
+    },
+
+    shuffled: [],
+
+    showChoices: function() {
+      this.shuffled = this.choices.slice(0);
+      for (var i = this.shuffled.length; i >= 0; i--) {
+        this.shuffled.push(this.shuffled.splice(Math.random() * i | 0, 1)[0]);
+      }
+      this.$.choices.classList.remove('is-hidden');
+    },
+
+    isCorrect: function (choice) {
+      if (!choice && this.value != null) {
+        choice = this.shuffled[this.value];
+      }
+      return choice && choice === this.choices[0];
+    },
+
+    onAnswered: function () {
+      this.$.choices.classList.add('is-answered');
+      this.$.selector.notap = true;
+
+      if (this.isCorrect()) {
+        this.correct = true;
+      }
+      this.fire('answered');
+    },
+
+    hide: function() {
+      this.$.choices.classList.add('is-hidden');
+    },
+
+    reset: function () {
+      this.$.choices.classList.remove('is-answered');
+      this.value = null;
+      this.$.selector.notap = false;
+      this.correct = false;
+    }
+  });
+</script>
+</polymer-element>

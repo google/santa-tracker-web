@@ -1,0 +1,54 @@
+$name: 'module-about';
+
+@import "../shared/sass/sceneboard";
+
+##{$name} {
+  background: #7847b2;
+  overflow: auto;
+
+
+
+  #about-banner {
+    display: block;
+    height: 315px;
+    background: url(img/about.png) 50% 30px no-repeat;
+  }
+
+  .sceneboard {
+    height: 45px;
+    background: #9ece2b;
+  }
+
+  .sceneboard-back {
+    border-radius: 0 0 4px 4px;
+  }
+
+  #about-banner, #about-content {
+    width: 474px;
+    margin: 0 auto;
+  }
+
+  #about-content {
+    color: #fff;
+
+    a {
+      color: #fff;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-family: 'Lobster', sans-serif;
+      font-weight: 600;
+      font-size: 40px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 22px;
+      padding: 15px 0;
+    }
+  }
+
+}

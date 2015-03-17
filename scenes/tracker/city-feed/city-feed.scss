@@ -1,0 +1,365 @@
+$tabletBreakpoint: 960px;
+$mobileBreakpoint: 668px;
+
+$lineColor: rgb(151,216,255);
+$borderRadius: 5px;
+
+$name: 'module-city-feed';
+
+##{$name} {
+  z-index: 3;
+  overflow: auto;
+  pointer-events: none;
+
+  .ico {
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    margin-right: 5px;
+  }
+
+  .ico-marker {
+    background-image: url(../img/marker.svg);
+  }
+
+  .ico-arrow {
+    background-image: url(../img/arrow.svg);
+  }
+
+  .ico-clock {
+    background-image: url(img/tracker-and-city-SVGs_timer-blue.svg);
+    opacity: 0.3;
+  }
+
+  .ico-weatherchanel {
+    background-image: url(../img/weatherchannel.png);
+  }
+
+  core-list {
+    width: 306px;
+    left: 300px;
+    height: 100%;
+    pointer-events: all;
+    border-radius: 5px;
+
+    &::-webkit-scrollbar {
+      width: 0 !important;
+    }
+
+    &::after {
+      content: '';
+      background: url("img/tracker-and-city-SVGs_north-pole.svg") no-repeat 50% 50%;
+      height: 115px;
+      width: 100%;
+      display: block;
+      margin: 90px 0 20px 0;
+      z-index: 1;
+      position: relative;
+    }
+  }
+
+  .card.card-city {
+    $padding: 25px;
+    $cardPurple: rgb(121,49,164);
+    $cardContentHeight: 250px;
+
+    border-radius: $borderRadius;
+    box-sizing: border-box;
+    margin: 0 auto;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      border-left: 2px solid $lineColor;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0;
+    }
+
+    h1 {
+      color: #e5473a;
+      font-size: 42px;
+      line-height: 42px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    h2 {
+      color: white;
+      font-size: 14px;
+      font-weight: 300;
+    }
+    h4 {
+      text-transform: uppercase;
+      color: white;
+      font-size: 11px;
+      margin-bottom: 7px;
+    }
+
+    .card-header {
+      background-color: rgb(106,27,154);
+      padding: $padding;
+      position: relative;
+      border-radius: $borderRadius $borderRadius 0 0;
+    }
+
+    .stats {
+      margin-bottom: 10px;
+      h4 {
+        opacity: 0.5;
+      }
+      > div > div {
+        margin-right: 20px;
+      }
+    }
+
+    .card-icons {
+      position: absolute;
+      right: $padding;
+      bottom: -31px;
+      width: 270px; // FF
+      text-align: right; // FF
+      z-index: 2; // FF
+
+      img {
+        height: 50px;
+        margin-left: 10px;
+        transition: transform 200ms ease-in-out;
+        cursor: pointer;
+
+        &.core-selected {
+          transform: scale(0.75);
+        }
+
+      }
+    }
+
+    .wikipedia {
+      .gradientbar {
+        height: 60px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background-image: linear-gradient(transparent, $cardPurple 100%);
+        pointer-events: none;
+        border-radius: 0 0 $borderRadius $borderRadius;
+      }
+
+      .wikipedia__body {
+        overflow: auto;
+        height: $cardContentHeight - 25px;
+        padding: 25px 25px 0 25px;
+        display: block;
+        color: #fff;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 1.5;
+        box-sizing: border-box;
+      }
+
+      .wikipedia__logo {
+        position: absolute;
+        bottom: 10px;
+        right: 15px;
+        width: 27px;
+        height: 18px;
+        background: url("../img/wikipedia_2x.png") no-repeat;
+        background-size: contain;
+      }
+    }
+
+    .corner-image {
+      position: absolute;
+      right: 0;
+      top: 0;
+      background-size: contain;
+      height: 100px;
+      width: 100px;
+      border-radius: 0 $borderRadius 0 0;
+      background: url("img/cardavatars/Cards-avatars-04_general.svg") no-repeat;
+    }
+
+    .card-body {
+      position: relative;
+      background-color: $cardPurple;
+      border-radius: 0 0 $borderRadius $borderRadius;
+      height: $cardContentHeight;
+      box-sizing: border-box;
+      overflow: hidden;
+      border-radius: 0 0 $borderRadius $borderRadius;
+
+      .attribution {
+        background: rgba(0,0,0,0.6);
+        color: white;
+        position: absolute;
+        bottom: 0;
+        border-radius: 0 $borderRadius 0 $borderRadius;
+        padding: 1px 0;
+
+        .attrib {
+          border-right: 1px solid rgba(255,255,255,.4);
+          padding: 4px 10px 4px 5px;
+          display: inline-block;
+        }
+
+        .addview {
+          padding: 4px 10px;
+          display: inline-block;
+        }
+
+        a {
+          color: #3d97ff;
+        }
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .card {
+    &::before {
+      content: '';
+      position: absolute;
+      border-left: 2px solid $lineColor;
+      left: 50%;
+      top: 0;
+      height: 100%;
+      z-index: -1;
+    }
+    .divider {
+      height: 50px;
+      z-index: 1;
+      padding-bottom: 5px;
+      color: #97d8ff;
+      font-weight: 900;
+    }
+    core-image {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  @import "sass/_cards.scss";
+}
+
+@media (min-width: $tabletBreakpoint) {
+  ##{$name} {
+
+    .scene {
+      margin-left: 20%;
+    }
+
+    core-list {
+      width: 642px;
+      left: auto;
+      margin: 0 auto;
+    }
+
+    .card {
+      &:not(.card-city) {
+        width: 306px;
+
+        &:nth-child(1) .divider::after,
+        &:nth-child(3) .divider::after {
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          top: 55px;
+          position: absolute;
+          pointer-events: none;
+          border-color: rgba(151, 216, 255, 0);
+          border-width: 6px;
+        }
+
+        &:nth-child(1) .divider::after {
+          left: 309px;
+          border-right-color: #97d8ff;
+        }
+
+        &:nth-child(3) .divider::after {
+          left: 323px;
+          border-left-color: #97d8ff;
+        }
+      }
+
+      &::before {
+        left: 321px;
+      }
+
+      &.card-photos {
+        core-image {
+          border-radius: $borderRadius;
+        }
+      }
+
+      &.card-city {
+        &::before {
+          height: 150px;
+          top: 0;
+        }
+        &::after {
+          bottom: -80px;
+          height: 80px;
+        }
+
+        .divider {
+          background: url('img/tracker-and-city-SVGs_gifts-pin.svg') no-repeat 50% 80%;
+          background-size: 60px;
+          height: 100px;
+        }
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      #stats {
+        margin-bottom: 0;
+      }
+
+      .corner-image {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-size: contain;
+        height: 150px;
+        width: 150px;
+      }
+
+      .card-icons {
+        img {
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  ##{$name} {
+    .card-photos {
+      .card-body {
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1px) and (max-width: $mobileBreakpoint) {
+  ##{$name} {
+    core-list {
+      left: 20px;
+      width: auto;
+    }
+
+    .scene {
+      right: 40px;
+    }
+  }
+}

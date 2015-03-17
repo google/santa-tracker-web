@@ -1,0 +1,49 @@
+{
+  "name": "SantaTracker",
+  "version": "0.0.1",
+  "private": true,
+  "authors": [
+    "Eric Bidelman <ebidel@gmail.com>"
+  ],
+  "description": "Google Santa Tracker",
+  "main": "index.html",
+  "keywords": [
+    "webcomponents",
+    "web components",
+    "polymer",
+    "santa"
+  ],
+  "license": "Apache-2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.2",
+    "core-animated-pages": "Polymer/core-animated-pages#^0.5.2",
+    "core-image": "Polymer/core-image#^0.5.2",
+    "core-list": "Polymer/core-list#^0.5.2",
+    "core-pages": "Polymer/core-pages#^0.5.2",
+    "core-range": "Polymer/core-range#^0.5.2",
+    "paper-tabs": "Polymer/paper-tabs#^0.5.2",
+    "paper-fab": "Polymer/paper-fab#^0.5.2",
+    "core-a11y-keys": "Polymer/core-a11y-keys#^0.5.2",
+    "flatiron-director": "PolymerLabs/flatiron-director#master",
+    "jquery": "2.1.1",
+    "google-apis": "GoogleWebComponents/google-apis#^0.4.3",
+    "google-map": "GoogleWebComponents/google-map#^0.4.0",
+    "google-youtube": "GoogleWebComponents/google-youtube#^1.0.1",
+    "google-streetview-pano": "GoogleWebComponents/google-streetview-pano#0b05f32ebef99d633c1c5e8d779f1271747ac60e",
+    "closure-compiler": "https://dl.google.com/closure-compiler/compiler-latest.zip",
+    "closure-library": "google/closure-library#5fbc334ce7f86018da9fb5e673d2518143aa999e",
+    "paper-item": "Polymer/paper-item#^0.5.2"
+  },
+  "resolutions": {
+    "polymer": "^0.5.2",
+    "core-component-page": "^0.5.2",
+    "webcomponentsjs": "^0.5.2"
+  }
+}

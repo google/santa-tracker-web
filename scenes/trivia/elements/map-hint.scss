@@ -1,0 +1,139 @@
+$globe-bp: 661px;
+$globe-tile-size: 75px;
+$globe-tile-size-large: 170px;
+$globe-tile-start-delay: 1s;
+$globe-tile-delay-increase: 1.7s;
+
+@mixin globe-tile-delay($number) {
+  $delay: $globe-tile-start-delay + (floor((10 - $number) / 2) * $globe-tile-delay-increase);
+  animation-delay: $delay;
+
+  .globe.is-reset & {
+    animation-delay: $delay / 20;
+  }
+}
+
+@mixin globe-tile($posX, $posY) {
+  background-position: (-$globe-tile-size * $posX) (-$globe-tile-size * $posY);
+  left: calc(50% + #{(-2 * $globe-tile-size) + ($posX * $globe-tile-size)});
+  top: $globe-tile-size * $posY;
+
+  @media (min-width: $globe-bp) {
+    background-position: (-$globe-tile-size-large * $posX) (-$globe-tile-size-large * $posY);
+    left: calc(50% + #{(-2 * $globe-tile-size-large) + ($posX * $globe-tile-size-large)});
+    top: $globe-tile-size-large * $posY;
+  }
+}
+
+.globe-part {
+  animation: globe-part-falling 500ms ease-out 1 forwards paused;
+  background: #005B6C url(../img/globe.svg) no-repeat;
+  background-size: 290px 150px;
+  height: $globe-tile-size;
+  position: absolute;
+  top: 0;
+  transition: opacity 500ms;
+  width: $globe-tile-size;
+
+  @media (min-width: $globe-bp) {
+    background-size: 660px 340px;
+    height: $globe-tile-size-large;
+    width: $globe-tile-size-large;
+  }
+}
+
+.globe.is-animating .globe-part {
+  animation-play-state: running;
+}
+
+.globe.is-reset .globe-part {
+  animation: globe-part-visible 500ms ease-in 1 forwards;
+  opacity: 0;
+  transition: none;
+}
+
+.globe-part--1 {
+  @include globe-tile-delay(1);
+  @include globe-tile(2, 0);
+}
+
+.globe-part--2 {
+  @include globe-tile-delay(2);
+  @include globe-tile(1, 1);
+}
+
+.globe-part--3 {
+  @include globe-tile-delay(3);
+  @include globe-tile(1, 0);
+}
+
+.globe-part--4 {
+  @include globe-tile-delay(4);
+  @include globe-tile(2, 1);
+}
+
+.globe-part--5 {
+  @include globe-tile-delay(5);
+  @include globe-tile(0, 0);
+}
+
+.globe-part--6 {
+  @include globe-tile-delay(6);
+  @include globe-tile(3, 1);
+}
+
+.globe-part--7 {
+  @include globe-tile-delay(7);
+  @include globe-tile(3, 0);
+}
+
+.globe-part--8 {
+  @include globe-tile-delay(8);
+  @include globe-tile(0, 1);
+}
+
+/* The spacing on each side of the globe */
+.globe-part--9,
+.globe-part--10 {
+  background: #005B6C;
+  height: $globe-tile-size * 2;
+  width: auto;
+
+  @media (min-width: $globe-bp) {
+    height: $globe-tile-size-large * 2;
+  }
+}
+
+.globe-part--9 {
+  @include globe-tile-delay(9);
+  @include globe-tile(4, 0);
+  right: 0;
+}
+
+.globe-part--10 {
+  @include globe-tile-delay(10);
+  left: 0;
+  right: calc(50% + #{$globe-tile-size * 2});
+
+  @media (min-width: $globe-bp) {
+    right: calc(50% + #{$globe-tile-size-large * 2});
+  }
+}
+
+@keyframes globe-part-visible {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes globe-part-falling {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  100% {
+    transform: translate(130px, 360px) rotate(180deg);
+  }
+}

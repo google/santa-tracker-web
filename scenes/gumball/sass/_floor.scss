@@ -1,0 +1,139 @@
+##{$name} {
+  /**
+   * Floor
+   */
+  .floor {
+    position: absolute;
+    bottom: 0;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-top: 265px;
+    background-color: #787575;
+    z-index: 10;
+  }
+
+  .rail {
+    position: absolute;
+    top: 20px;
+    height: 6px;
+    left: 0;
+    right: 0;
+    background-color: #58595b;
+  }
+
+  .bottomPipe {
+    position: absolute;
+    top: 0;
+    height: 61px;
+    left: 0;
+    right: 0;
+    background-color: #9d9fa2;
+    transform: translateZ(0);
+  }
+
+  .bottomPipe-panel {
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    height: 49px;
+    width: 340px;
+    margin-left: (-340px / 2);
+    background: url('img/panel.svg') no-repeat;
+  }
+
+  .bottomPipe-balls {
+    position: absolute;
+    left: 50%;
+    top: 15px;
+    margin-left: -160px;
+    width: 320px;
+    height: 32px;
+    background: #bbbdc0;
+  }
+
+  .bottomPipe-balls-available,
+  .bottomPipe-balls-remaining {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transform-origin: left center;
+    transform: translateZ(0) scaleX(0);
+  }
+
+  .bottomPipe-balls-available {
+    background-color: #17a454;
+  }
+
+  .bottomPipe-balls-remaining {
+    background-color: #ffe800;
+  }
+
+  .bottomPipe-stripes {
+    position: absolute;
+    width: 43px;
+    top: 0;
+    bottom: 0;
+    margin: 12px 0;
+    left: 50%;
+    background: linear-gradient(#797575, #797575 30%, #9d9fa2 30%) repeat-y;
+    background-size: 100% 7px;
+  }
+
+  .bottomPipe-stripes--1 {
+    margin-left: -400px - 43px;
+  }
+
+  .bottomPipe-stripes--2 {
+    margin-left: -240px - 43px;
+  }
+
+  .bottomPipe-stripes--3 {
+    margin-left: 240px;
+  }
+
+  .bottomPipe-stripes--4 {
+    margin-left: 400px;
+  }
+
+  .bottomPipe-rail {
+    position: absolute;
+    top: -53px;
+    height: 53px;
+    background: linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0) 87.5%, #895930 87.5%) right top repeat-x;
+    background-size: 48px 100%;
+  }
+
+  .bottomPipe-rail--left {
+    right: 50%;
+    margin-right: 517px;
+    left: 0;
+  }
+
+  .bottomPipe-rail--right {
+    right: 0;
+    left: 50%;
+    margin-left: 517px;
+    background-position: 6px top;
+  }
+
+  .bottomPipe-rail-top {
+    display: block;
+    height: 6px;
+    margin: 0 -7px;
+    background: #895930;
+    border-radius: 6px;
+  }
+
+  .funnel {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    margin-left: -(242px / 2);
+    width: 242px;
+    height: 72px;
+    background: url('img/bowl.svg');
+  }
+}

@@ -1,0 +1,170 @@
+.postflight #finished-tracker {
+  display: none;
+}
+
+#countdown {
+  z-index: 49;
+  color: #fff;
+  top: 75px;
+  position: absolute;
+  width: 100%;
+  &:not(.finished) {
+    pointer-events: none;
+  }
+
+  $counterPadding: 19px;
+
+  #finished-tracker {
+    width: 536px;
+    height: 554px;
+    left: 50%;
+    //bottom: -170px;
+    margin-left: #{-536/2}px;
+    top: -200px;
+    position: absolute;
+    @include transform(translate3d(0, -1000px, 0));
+    @include transition(all 1.5s cubic-bezier(0.4, 1.6, 0.2, 1));
+
+    #sign-back {
+      background: url(img/sign-back.svg) no-repeat;
+      width: 536px;
+      height: 536px;
+      position: absolute;
+      bottom: 0;
+      z-index: 1;
+      background-position: 50% 100%;
+
+      div {
+        width: 466px;
+        height: 199px;
+        position: absolute;
+        bottom: 33px;
+        left: 35px;
+        background: url(img/sign-map.svg) no-repeat 50% 50%;
+        background-size: cover;
+      }
+    }
+
+    #sign-front {
+      background: url(img/sign-front.svg) no-repeat;
+      width: 536px;
+      height: 536px;
+      position: absolute;
+      bottom: 0;
+      z-index: 3;
+      background-position: 50% 100%;
+
+      div {
+        background: url(img/santa-sign.gif) no-repeat 50% 50%;
+        background-size: 144px 96px;
+        position: absolute;
+        width: 466px;
+        height: 199px;
+        position: absolute;
+        bottom: 33px;
+        left: 35px;
+      }
+    }
+
+    a {
+      display: block;
+      position: absolute;
+      left: 25px;
+      right: 25px;
+      bottom: 28px;
+      height: 210px;
+      z-index: 5;
+
+      background: url(img/sign-btn-up.svg) no-repeat 50% 100%;
+      background-size: 170px;
+
+      &:hover {
+        background: url(img/sign-btn-hover.svg) no-repeat 50% 100%;
+        background-size: 170px;
+      }
+
+      &:active {
+        background: url(img/sign-btn-down.svg) no-repeat 50% 100%;
+        background-size: 170px;
+      }
+    }
+  }
+
+  &.finished {
+    countdown-timer {
+      display: none;
+    }
+
+    #finished-tracker {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    #endof {
+      background: rgba(255,255,255,.24);
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 6px;
+      padding: 19px;
+      max-width: 470px;
+    }
+  }
+
+  h1 {
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-family: 'Lobster', sans-serif;
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: normal;
+
+    &.logo {
+      display: inline-block;
+      line-height: 0;
+      text-indent: -3000em;
+      background-position: -1863px -251px;
+      font-size: 0;
+      height: 23px;
+      width: 71px;
+    }
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: ($counterPadding / 2) 0;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.14);
+    a {
+      color: #fff;
+    }
+  }
+
+  #learnmore {
+    pointer-events: initial;
+  }
+
+}
+
+
+// .no-3d-transforms #village {
+//   countdown-timer {
+//     .digit-ani .digit-flip {
+//       -webkit-transition-property: none;
+//       transition-property: none;
+//     }
+//     .digit-bottom, .digit-top-behind {
+//       display: none;
+//     }
+//     .digit .digit-top-front {
+//       height: 53px;
+//       -webkit-transform: rotateX(0);
+//       transform: rotateX(0);
+//       border-top: 1px solid transparent;
+//       border-radius: 4px;
+//     }
+//     .digit-top-front.digit-flip {
+//       -webkit-transform: rotateX(0);
+//       transform: rotateX(0);
+//       border-top: 1px solid transparent;
+//     }
+//   }
+// }

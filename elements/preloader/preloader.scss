@@ -1,0 +1,56 @@
+#page-progress {
+  height: 100%;
+  margin: -80px;
+}
+
+.preload-bar {
+  width: 240px;
+  margin: -40px auto;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.preload-progress {
+  height: 20px;
+  background-image: -webkit-gradient(linear,left top,right bottom,color-stop(0.25,#ea4537),color-stop(0.25,#fff),color-stop(0.5,#fff),color-stop(0.5,#ea4537),color-stop(0.75,#ea4537),color-stop(0.75,#fff),to(#fff));
+  background-image: -webkit-linear-gradient(135deg,#ea4537 25%,#fff 25%,#fff 50%,#ea4537 50%,#ea4537 75%,#fff 75%,#fff);
+  background-image: -moz-linear-gradient(135deg,#ea4537 25%,#fff 25%,#fff 50%,#ea4537 50%,#ea4537 75%,#fff 75%,#fff);
+  background-image: -ms-linear-gradient(135deg,#ea4537 25%,#fff 25%,#fff 50%,#ea4537 50%,#ea4537 75%,#fff 75%,#fff);
+  background-image: linear-gradient(135deg,#ea4537 25%,#fff 25%,#fff 50%,#ea4537 50%,#ea4537 75%,#fff 75%,#fff);
+  background-size: 30px 30px;
+  border-radius: inherit;
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -ms-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-ms-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}

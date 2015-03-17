@@ -1,0 +1,311 @@
+$santa-body-width: 797px;
+$santa-body-height: 809px;
+
+$santa-face-width: 421px;
+$santa-face-height: 375px;
+
+##{$name} {
+  .ornament {
+    float: left;
+    margin-right: 114px;
+    max-width: 520px;
+    margin-left: 30%;
+    position: relative;
+    top: -160px;
+    user-select: none;
+    width: 100%;
+    z-index: 2;
+
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 100%;
+    }
+
+    @media (min-width: 1024px) {
+      opacity: 0;
+    }
+
+    @media (max-width: 1276px) {
+      top: -17px;
+    }
+
+    @media (max-width: 1150px) {
+      top: 35px;
+    }
+
+
+    @media (max-width: 1024px) {
+      margin-left: 0;
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      transform: translate(-50%, -100%);
+    }
+
+    @media (max-width: 400px) and (max-height: 600px) {
+      top: 40%;
+    }
+  }
+
+  .ornament-logo {
+    @media (max-width: 400px) {
+      max-width: 70%;
+    }
+  }
+
+  .ornament-copy-container {
+    background-color: transparent;
+    z-index: 2;
+    transition: .3s opacity ease;
+
+    @media (max-width: 1024px) {
+      background-color: rgba(14, 195, 19, .95);
+      opacity: 0;
+      padding: 20px;
+      position: absolute;
+      overflow: scroll;
+      visibility: hidden;
+      z-index: 20;
+
+      &.hide {
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      &.show {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      display: block;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  .ornament-copy {
+    color: #fff;
+    display: inline-block;
+    float: left;
+    margin-top: 60px;
+    width: 304px;
+
+    h1 {
+      font-size: 30px;
+      margin: 29px 0 5px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.7em;
+      margin: 0 0 30px;
+    }
+
+    .copy-link {
+      color: #f1ca3a;
+      text-decoration: none;
+
+       &:hover {
+        color: #f1ca3a;
+       }
+    }
+
+    .Button-close {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      opacity: 0;
+    }
+
+    @media (max-width: 1024px) {
+      position: relative;
+      width: auto;
+      margin: 70px 0;
+
+      .Button-close {
+        display: block;
+      }
+    }
+  }
+
+  .ornament-hook {
+    background: url(img/ornament-hook.svg) no-repeat;
+    background-position: top center;
+    background-size: contain;
+    height: 50%;
+    max-height: 222px;
+    max-width: 138px;
+    left: 50%;
+    pointer-events: none;
+    position: absolute;
+    width: 23%;
+    transform: translate(-50%, 0);
+    z-index: 5;
+  }
+
+  .ornament-shadow {
+    background-color: rgba(0,0,0,.05);
+    border-radius: 50%;
+    height: 90%;
+    max-height: 520px;
+    max-width: 520px;
+    position: absolute;
+    right: -10%;
+    top: 55%;
+    width: 90%;
+    z-index: 1;
+  }
+
+  .color-guide {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    left: 0;
+    max-height: 520px;
+    max-width: 520px;
+    pointer-events: none;
+    position: absolute;
+    top: 36%;
+    width: 100%;
+    z-index: 4;
+  }
+
+  .scene-ornament {
+    width: 100%;
+    position: absolute;
+    top: -260px;
+
+    @media (max-width: 1024px) {
+      top: auto;
+      transform: none;
+    }
+  }
+
+  .scene-ornament-wrapper {
+    display: inline-block;
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+
+    &.active {
+      opacity: 1;
+      transform: translate(0,0) !important;
+      transition-delay: .5s;
+    }
+
+    @media (max-width: 1024px) {
+      top: 0;
+    }
+
+    a:not(.Button) {
+      @extend .copy-link;
+    }
+  }
+
+  .icon {
+    background-repeat: no-repeat;
+  }
+
+  .icon--goodall-institution {
+    background-image: url(img/icons/goodall.svg);
+    height: 65px;
+    width: 274px;
+  }
+
+  .icon--nature-conservancy {
+    background-image: url(img/icons/the-nature-conservancy.svg);
+    height: 56px;
+    width: 187px;
+  }
+
+  .icon--wwf {
+    background-image: url(img/icons/wwf.svg);
+    height: 81px;
+    width: 54px;
+  }
+
+  .icon--agastya {
+    background-image: url(img/icons/agastya.svg);
+    height: 65px;
+    width: 274px;
+  }
+
+  .icon--solar-aid {
+    background-image: url(img/icons/solar-aid.svg);
+    height: 74px;
+    width: 92px;
+  }
+
+  .icon--charity-water {
+    background-image: url(img/icons/charity-water.svg);
+    height: 32px;
+    width: 282px;
+  }
+
+  .ornament-stage-container {
+    border-radius: 50%;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+
+  }
+
+  .canvas {
+    background-color: #fff;
+    border-radius: 50% 50%;
+    box-shadow: 0 0 0 18px #28b5f5;
+    overflow: hidden;
+    position: absolute;
+    top: 36%;
+  }
+
+  .temp-canvas {
+    background-color: transparent;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: 3;
+  }
+
+  .temp-canvas--active {
+    visibility: visible;
+  }
+
+  .ornament-outline--wwf {
+    border-color: #f3a72f;
+  }
+
+  .ornament-outline--nature-conservancy {
+    border-color: #c0c842;
+  }
+
+  .ornament-outline--solar-aid {
+    border-color: #d62261;
+  }
+
+  .ornament-outline--agastya {
+    border-color: #f37c22;
+  }
+
+  .ornament-outline--charity-water {
+    border-color: #f37c22;
+  }
+
+  .ornament-outline--goodall-institution {
+    border-color: #2278cf;
+  }
+
+  #ornament-stage {
+    background: rgba(255, 255, 255, 0.2);
+    height: 100%;
+    max-height: 520px;
+    max-width: 520px;
+    width: 100%;
+  }
+}

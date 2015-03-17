@@ -1,0 +1,114 @@
+##{$name} {
+  .obstacle {
+    position: absolute;
+    background-image: url(img/glider-sprite.svg);
+    background-repeat: no-repeat;
+    background-size: 40em 60em;
+
+    &.balloon {
+      animation: 0.6s #{$name}-balloon step-start infinite;
+      background-position: -31em 0;
+      height: 10em;
+      width: 9em;
+
+      &.pop {
+        animation: 0.6s #{$name}-balloonpop linear forwards;
+        background-position: -31em -40em;
+      }
+    }
+
+    &.beam {
+      background: url(img/hit-beam.svg) no-repeat;
+      height: 63em;
+      width: 11.2em;
+    }
+
+    &.box {
+      background: url(img/hit-box.svg) no-repeat;
+      height: 75.5em;
+      width: 11.2em;
+    }
+
+    &.bird {
+      animation: 0.6s #{$name}-bird step-start infinite;
+      background-position: -21em 0;
+      height: 10em;
+      width: 9em;
+    }
+
+    &.frisbee {
+      animation: 0.3s #{$name}-frisbee step-start infinite;
+      background-position: -21em -50em;
+      height: 4em;
+      width: 9em;
+    }
+  }
+}
+
+@keyframes #{$name}-balloon {
+  0% {
+    background-position: -31em 0;
+  }
+  17% {
+    background-position: -31em -10em;
+  }
+  34% {
+    background-position: -31em -20em;
+  }
+  50% {
+    background-position: -31em -30em;
+  }
+  67% {
+    background-position: -31em -20em;
+  }
+  84% {
+    background-position: -31em -10em;
+  }
+  84% {
+    background-position: -31em 0;
+  }
+}
+
+@keyframes #{$name}-bird {
+  0% {
+    background-position: -21em 0;
+  }
+  17% {
+    background-position: -21em -10em;
+  }
+  34% {
+    background-position: -21em -20em;
+  }
+  50% {
+    background-position: -21em -30em;
+  }
+  67% {
+    background-position: -21em -20em;
+  }
+  84% {
+    background-position: -21em -10em;
+  }
+  84% {
+    background-position: -21em 0;
+  }
+}
+
+@keyframes #{$name}-frisbee {
+  50% {
+    background-position: -21em -55em;
+  }
+  100% {
+    background-position: -21em -50em;
+  }
+}
+
+@keyframes #{$name}-balloonpop {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+

@@ -1,0 +1,238 @@
+$calendarBreak1: 1120px;
+$calendarBreak2: 800px;
+$calendarBreak3: 645px;
+$calendarBreak4: 600px;
+$calendarBreak5: 480px;
+
+$tabletBreakpoint: 1024px;
+$mobileBreakpoint: 668px;
+$mobilePortraitBreakpoint: 400px;
+
+@media (min-width: 1px) and (max-width: $calendarBreak1) {
+  ##{$name} {
+    #global-nav #global-nav-body #nav-calendar {
+      max-width: 960px;
+    }
+
+    #global-nav #global-nav-body #nav-calendar div {
+      #spacer4, #spacer5 {
+        display: block;
+      }
+    }
+
+   #tracker-nav .card {
+     width: 101px;
+     margin: 11px;
+     font-size: 11px;
+
+     .icon {
+       background-size: 80px 80px;
+     }
+
+     &.card-tracker, &.card-village  {
+      .icon {
+        background-size: 101px 101px;
+      }
+    }
+   }
+  }
+}
+
+@media (min-width: 1px) and (max-width: $tabletBreakpoint) {
+  ##{$name} {
+    #site-nav, #back-to-tracker-text {
+      display: none;
+    }
+
+    #global-nav #back-to-tracker {
+      right: auto;
+      left: 20px;
+      top: 10px;
+    }
+
+    #global-nav #global-nav-body #nav-calendar {
+      max-width: 800px;
+      box-shadow: none;
+      margin: 20px auto 30px auto;
+    }
+
+    #sound {
+      left: 0;
+      right: auto;
+      bottom: 14px;
+
+      a {
+        border-radius: 0 20px 20px 0;
+        i {
+          margin: 7px 0 0 3px;
+        }
+      }
+    }
+
+    #global-nav #global-nav-body #nav-calendar div {
+      #spacer1, #spacer2, #spacer3, #spacer4, #spacer5 {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 1px) and (max-width: $calendarBreak2) {
+  ##{$name} {
+    #global-nav #global-nav-body #nav-calendar div {
+      #spacer1, #spacer2, #spacer3 {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (min-width: 1px) and (max-width: $calendarBreak3) {
+  ##{$name} {
+    #global-nav #global-nav-body #nav-calendar div {
+      #spacer1, #spacer2, #spacer3 {
+        display: none;
+      }
+    }
+
+    #global-nav #global-nav-body #nav-calendar {
+      max-width: 100%;
+      $cardWidth: 120px;
+      $markerWidth: 70px;
+
+      div .card {
+        width: $cardWidth;
+        height: $cardWidth;
+
+        a {
+          .menu-marker {
+            width: $markerWidth;
+            height: $markerWidth;
+          }
+
+          &::before {
+            width: $markerWidth;
+            height: $markerWidth;
+            margin-top: -$markerWidth/2;
+            margin-left: -$markerWidth/2;
+          }
+        }
+
+        &.iced {
+          .menu-marker {
+            width: $markerWidth + 8px !important;
+            height: $markerWidth + 8px !important;
+            top: -4px;
+            right: -4px;
+          }
+        }
+
+        &[data-index="1"] {
+          $smallMarkerWidth: 40px;
+
+          a {
+            width: $smallMarkerWidth;
+            height: $smallMarkerWidth;
+            position: absolute;
+
+            .menu-marker {
+              width: 100%;
+              height: 100%;
+            }
+
+            &::before {
+              width: $smallMarkerWidth;
+              height: $smallMarkerWidth;
+              margin-top: -$smallMarkerWidth/2;
+              margin-left: -$smallMarkerWidth/2;
+            }
+
+            &:nth-of-type(1) {
+              left: 9px;
+              top: $cardWidth / 2 - $smallMarkerWidth / 2;
+            }
+            &:nth-of-type(2) {
+              left: $cardWidth / 2 - $smallMarkerWidth / 2;
+              top: 10px;
+            }
+            &:nth-of-type(3) {
+              right: 7px;
+              top: $cardWidth / 2 - $smallMarkerWidth / 2;
+            }
+            &:nth-of-type(4) {
+              bottom: 11px;
+              left: $cardWidth / 2 - $smallMarkerWidth / 2;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1px) and (max-width: $mobileBreakpoint) {
+  $headerHeight: 62px;
+
+  ##{$name} {
+
+    paper-fab {
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+    }
+
+    #global-nav #global-nav-btn,
+    #global-nav #tracker-nav-open-btn {
+      top: 10px;
+      right: 10px;
+    }
+
+    #back-to-tracker-text {
+      display: none;
+    }
+
+    #global-nav #global-nav-header {
+      height: $headerHeight;
+
+      .back {
+        line-height: $headerHeight;
+      }
+
+      paper-tabs {
+        display: none;
+      }
+    }
+
+    #global-nav #global-nav-content {
+      top: $headerHeight;
+    }
+  }
+}
+
+@media (min-width: 1px) and (max-width: $calendarBreak4) {
+  ##{$name} {
+    #global-nav #global-nav-body #nav-calendar div {
+      #spacer1, #spacer2, #spacer3 {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (min-width: 1px) and (max-width: $calendarBreak5) {
+  ##{$name} {
+    #global-nav #global-nav-body #nav-calendar div {
+      #spacer3 {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-height: 1px) and (max-height:450px) {
+  ##{$name} {
+    #site-nav {
+      display: none;
+    }
+  }
+}

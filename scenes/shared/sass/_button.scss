@@ -1,0 +1,101 @@
+$button-bp: 661px;
+
+@mixin ButtonColor($bg, $bs) {
+  background-color: $bg;
+  box-shadow: 0 4px 0 $bs, 3px 7px rgba(0, 0, 0, 0.16);
+
+  @media (min-width: $button-bp) {
+    box-shadow: 0 7px 0 $bs, 5px 12px rgba(0, 0, 0, 0.16);
+  }
+
+  &.Button--small {
+    box-shadow: 0 3px 0 $bs, 2px 6px rgba(0, 0, 0, 0.16);
+
+    @media (min-width: $button-bp) {
+      box-shadow: 0 5px 0 $bs, 4px 10px rgba(0, 0, 0, 0.16);
+    }
+  }
+}
+
+##{$name} {
+  .Button {
+    -webkit-font-smoothing: antialiased;
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 900;
+    line-height: 1.2;
+    outline: none;
+    min-height: 30px;
+    outline: none;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transform: translateZ(0);
+    transition: transform 0.1s, box-shadow 0.1s;
+    user-select: none;
+
+    @include ButtonColor(#B148B9, #852C81);
+
+    @media (min-width: $button-bp) {
+      font-size: 28px;
+      min-height: 60px;
+    }
+
+    &:active {
+      box-shadow: none !important;
+      transform: translateY(4px) translateZ(0);
+      transition: transform 0.2s, box-shadow 0.2s;
+
+      @media (min-width: $button-bp) {
+        transform: translateY(7px) translateZ(0);
+      }
+    }
+  }
+
+  .Button--small {
+    width: 40px;
+
+    @media (min-width: $button-bp) {
+      width: 95px;
+    }
+
+    &:active {
+      transform: translateY(3px) translateZ(0);
+
+      @media (min-width: $button-bp) {
+        transform: translateY(5px) translateZ(0);
+      }
+    }
+  }
+
+  .Button--large {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 180px;
+
+    @media (min-width: $button-bp) {
+      margin-bottom: 20px;
+      padding: 18px 30px;
+      width: 370px;
+    }
+  }
+
+  .Button--round {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+
+  .Button--noText {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}

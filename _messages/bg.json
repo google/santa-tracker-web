@@ -1,0 +1,4571 @@
+{
+	"about-content-one": {
+		"message": "В коледната нощ с гордост ще представим визуализация на таблото на Дядо Коледа – технологията, която задвижва шейната му, докато той пътува по света. Получихме тази специална визуализация от един от многото му елфи програмисти, които работят упорито на северния полюс, за да помогнат на добрия старец да се подготви за големия празник. Таблото на Дядо Коледа, което включва най-новото и най-доброто от технологията на Google Карти и от инженерните науки в областта на шейните, ще ви позволи да следите неговото пътешествие по света, а също и да научите по нещо за някои от спирките по пътя му."
+	},
+	"about-content-three": {
+		"message": "Къде е Дядо Коледа на Google Карти е създаден и разработен от Google с малко помощ от джуджетата на Дядо Коледа. Имате нужда от помощ или пък друг въпрос? Посетете \u003ca href=\"//support.google.com/santatracker\"\u003eПомощния ни център\u003c/a\u003e."
+	},
+	"about-content-two": {
+		"message": "Дружелюбните джуджета ви канят да се разходите из селцето на Дядо Коледа, докато той се подготвя за пътуването си. Така че, заповядайте на разходка из селцето и може да се натъкнете на някоя развлекателна дейност и да срещнете интересни джуджета."
+	},
+	"about-santa": {
+		"message": "Информация"
+	},
+	"about_title": {
+		"message": "Добре дошли в Google Карти Къде е Дядо Коледа!"
+	},
+	"ae_country_name": {
+		"message": "Обединени арабски емирства"
+	},
+	"af_country_name": {
+		"message": "Афганистан"
+	},
+	"al_country_name": {
+		"message": "Албания"
+	},
+	"ao_country_name": {
+		"message": "Ангола"
+	},
+	"ar_country_name": {
+		"message": "Аржентина"
+	},
+	"ar_language_name": {
+		"message": "Арабски"
+	},
+	"ar_tradition": {
+		"message": "В Аржентина Коледа започва точно в полунощ. Много семейства започват празника, като организират празнични тържества в домовете си, отварят подаръците с любимите си хора и палят фойерверки в ранните утринни часове."
+	},
+	"at_country_name": {
+		"message": "Австрия"
+	},
+	"au_country_name": {
+		"message": "Австралия"
+	},
+	"au_tradition": {
+		"message": "Местоположението на Австралия в Южното полукълбо означава, че през декември там е лято. Вместо да карат шейни и да пият какао, много австралийци се отправят към плажа, за да посрещнат празника с обяд със скариди и няколко игри на крикет."
+	},
+	"ba_country_name": {
+		"message": "Босна и Херцеговина"
+	},
+	"back_to_tracker": {
+		"message": "Назад към програмата за проследяване"
+	},
+	"bd_country_name": {
+		"message": "Бангладеш"
+	},
+	"be_country_name": {
+		"message": "Белгия"
+	},
+	"bf_country_name": {
+		"message": "Буркина Фасо"
+	},
+	"bg_country_name": {
+		"message": "България"
+	},
+	"bj_country_name": {
+		"message": "Бенин"
+	},
+	"bo_country_name": {
+		"message": "Боливия"
+	},
+	"br_country_name": {
+		"message": "Бразилия"
+	},
+	"br_tradition": {
+		"message": "Коледните празници започват около полунощ, обикновено с голяма семейна вечеря, отваряне на подаръците и службата „Missa do Galo“ в църквите. Въпреки топлото време и тропическото лято темите за зимата и снега са често срещани."
+	},
+	"bt_country_name": {
+		"message": "Бутан"
+	},
+	"bw_country_name": {
+		"message": "Ботсвана"
+	},
+	"by_country_name": {
+		"message": "Беларус"
+	},
+	"bz_country_name": {
+		"message": "Белиз"
+	},
+	"ca_country_name": {
+		"message": "Канада"
+	},
+	"ca_tradition": {
+		"message": "Канадските деца обикновено празнуват снежнобяла Коледа. Те се увиват в шаловете и типичните за Канада вълнени шапки, за да играят в снега, да се пързалят на леда и да се спускат с тобоган! В навечерието на Коледа те оставят мляко и сладки до огнището за Дядо Коледа (а понякога и морков за елена му)."
+	},
+	"calendar": {
+		"message": "Календарът"
+	},
+	"category_code": {
+		"message": "Програмиране"
+	},
+	"category_draw": {
+		"message": "Рисуване"
+	},
+	"category_listen": {
+		"message": "Слушане"
+	},
+	"category_send": {
+		"message": "Изпращане"
+	},
+	"cd_country_name": {
+		"message": "Демократична република Конго"
+	},
+	"cf_country_name": {
+		"message": "Централноафриканска република"
+	},
+	"cg_country_name": {
+		"message": "Република Конго"
+	},
+	"ch_country_name": {
+		"message": "Швейцария"
+	},
+	"ci_country_name": {
+		"message": "Кот д'Ивоар"
+	},
+	"citylights-contribute": {
+		"message": "Добавяне на ваши собствени снимки от %location%"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Рокфелер Плаза"
+	},
+	"citylights-panorama-01-location": {
+		"message": "Ню Йорк, САЩ"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Площад „Пушкин“"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Москва, Русия"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Ратхаусплац"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Виена, Австрия"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Шан-з-Елизе до Триумфалната арка"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Париж, Франция"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Магнифисънт Майл"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Чикаго, САЩ"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Коледен пазар"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Нюрнберг, Германия"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Река Меделин"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Меделин, Колумбия"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Селцето на Дядо Коледа"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Лапландия, Финландия"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Гран Плас"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Брюксел, Белгия"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Площад „Трафалгар“"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Лондон, Англия"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Плаза Майор"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Мадрид, Испания"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Ропонги Хилс"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Токио, Япония"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Градините „Тиволи“"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Копенхаген, Дания"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Орчард Роуд"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Сингапур, Сингапур"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Алея на светлината"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Гьотеборг, Швеция"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Зимен фестивал на светлините"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Ниагарски водопад, Канада"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Хонконг, Китай"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Езеро Родриго де Фрейташ"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Рио де Жанейро, Бразилия"
+	},
+	"cl_country_name": {
+		"message": "Чили"
+	},
+	"close-this": {
+		"message": "Отказ"
+	},
+	"cm_country_name": {
+		"message": "Камерун"
+	},
+	"co_country_name": {
+		"message": "Колумбия"
+	},
+	"codelab-block-moveeast": {
+		"message": "изток"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Премести ме с едно поле на изток."
+	},
+	"codelab-block-movenorth": {
+		"message": "север"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Премести ме с едно поле на север."
+	},
+	"codelab-block-movesouth": {
+		"message": "юг"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Премести ме с едно поне на юг."
+	},
+	"codelab-block-movewest": {
+		"message": "запад"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Премести ме с едно поле на запад."
+	},
+	"codelab-block-repeat": {
+		"message": "повторете"
+	},
+	"codelab-block-repeat-times": {
+		"message": "пъти"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Повторете някои твърдения по няколко пъти."
+	},
+	"codelab-block-whenrun": {
+		"message": "маршрут"
+	},
+	"codelab-finish": {
+		"message": "Край"
+	},
+	"codelab-great": {
+		"message": "Отлично"
+	},
+	"codelab-mwc-promo": {
+		"message": "Разгледайте още проекти за кодиране на Google на \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Следващо ниво"
+	},
+	"codelab-oops": {
+		"message": "Ами сега!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Блокчето „Повторете“ трябва да съдържа други блокчета в себе си, за да функционира."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Някои от блокчетата не са закрепени едно за друго по правилния начин."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Май се изгубихте!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Изпробвайте едно или повече от блокчетата по-долу, за да решите пъзела."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Знаете ли, че можете да завършите нивото само с/ъс {{ideal}} блокчета? Опитайте да използвате блокчето по-долу."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Поздравления! Завършихте пъзела перфектно."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Използвате правилните блокчета, но опитайте да използвате повече от тях, за да завършите пъзела."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Знаете ли, че можете да завършите това ниво само с/ъс {{ideal}} блокчета?"
+	},
+	"codelab-try-again": {
+		"message": "Опитайте отново"
+	},
+	"copy-me": {
+		"message": "Копирайте тази връзка, за да споделите съобщението си"
+	},
+	"countdownlabel": {
+		"message": "До потеглянето на Дядо Коледа"
+	},
+	"cr_country_name": {
+		"message": "Коста Рика"
+	},
+	"cs_language_name": {
+		"message": "чешки"
+	},
+	"cu_country_name": {
+		"message": "Куба"
+	},
+	"cz_country_name": {
+		"message": "Чешка република"
+	},
+	"da_language_name": {
+		"message": "датски"
+	},
+	"days": {
+		"message": "Дни"
+	},
+	"de_country_name": {
+		"message": "Германия"
+	},
+	"de_language_name": {
+		"message": "Немски"
+	},
+	"de_tradition": {
+		"message": "В почти всеки германски град се откриват коледни пазари на градския площад. Гражданите се събират, за да слушат духови оркестри и да се насладят на традиционната храна за региона. Ядат джинджифилови курабийки във формата на сърца, печени захарни бадеми, различни видове сладкиши и пият греяно вино (Glühwein) или ябълков сайдер."
+	},
+	"deck": {
+		"message": "Украсяване"
+	},
+	"deckdescription": {
+		"message": "Обогатете браузъра си с разширение „Дядо Коледа“ за Chrome."
+	},
+	"detected": {
+		"message": "разпознат"
+	},
+	"difficulty": {
+		"message": "Трудност"
+	},
+	"dk_country_name": {
+		"message": "Дания"
+	},
+	"do_country_name": {
+		"message": "Доминиканска република"
+	},
+	"dz_country_name": {
+		"message": "Алжир"
+	},
+	"easy_difficulty": {
+		"message": "Ниска трудност"
+	},
+	"ec_country_name": {
+		"message": "Еквадор"
+	},
+	"ee_country_name": {
+		"message": "Естония"
+	},
+	"el_language_name": {
+		"message": "гръцки"
+	},
+	"elvish_language_name": {
+		"message": "елфски"
+	},
+	"en_language_name": {
+		"message": "английски"
+	},
+	"endofjourneymessage": {
+		"message": "Дядо Коледа завърши пътуването си за годината! Той и джуджетата все още се забавляват на Северния полюс преди годишната си отпуска."
+	},
+	"er_country_name": {
+		"message": "Еритрея"
+	},
+	"error": {
+		"message": "Изглежда, че току-що изгубихме връзка със Северния полюс. Джуджетата на Дядо Коледа работят усърдно по отстраняване на проблема – не си тръгвайте!"
+	},
+	"error-lost-connection": {
+		"message": "Изглежда, че току-що изгубихме връзка със Северния полюс. Джуджетата на Дядо Коледа работят усърдно по отстраняване на проблема – не си тръгвайте!"
+	},
+	"error-try-again": {
+		"message": "Опитайте отново"
+	},
+	"error_try_again": {
+		"message": "Опитайте отново"
+	},
+	"es_language_name": {
+		"message": "испански"
+	},
+	"et_country_name": {
+		"message": "Етиопия"
+	},
+	"fi_country_name": {
+		"message": "Финландия"
+	},
+	"finished-text": {
+		"message": "Весели празници! Дядо Коледа приключи обиколката си около света и сега заслужено си почива. Посетете ни отново догодина!"
+	},
+	"fr_country_name": {
+		"message": "Франция"
+	},
+	"fr_language_name": {
+		"message": "френски"
+	},
+	"fr_tradition": {
+		"message": "Във Франция децата традиционно поставят обувките си до огнището в очакване на пристигането на Пер Ноел (Дядо Коледа). Ако са били послушни през годината, той ще напълни обувките им с подаръци"
+	},
+	"ga_country_name": {
+		"message": "Габон"
+	},
+	"gameover": {
+		"message": "Край на играта!"
+	},
+	"gameover_level": {
+		"message": "Стигнахте до ниво:"
+	},
+	"gameover_score": {
+		"message": "Вашият резултат:"
+	},
+	"getgooglemaps": {
+		"message": "Изтегляне на Google Карти"
+	},
+	"gh_country_name": {
+		"message": "Гана"
+	},
+	"gh_tradition": {
+		"message": "Коледа в Гана събира цялото семейство. Възрастните се обличат в костюми и раздават бонбони и сладкиши в квартала. Децата украсяват домовете си с хартиени орнаменти и рисунки, направени от тях в училище."
+	},
+	"gl_country_name": {
+		"message": "Гренландия"
+	},
+	"gn_country_name": {
+		"message": "Гвинея"
+	},
+	"gotovillage": {
+		"message": "Към селцето"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "Гърция"
+	},
+	"gr_tradition": {
+		"message": "В Гърция приятелски, но немирни същества, наречени „каликандзари“, живеят през цялата година в центъра на земята. На Коледа обаче те обичат да се крият в къщите на хората, като ги плашат, погаждат им номера или изяждат коледната храна. Гърците изпълняват ритуали, за да се опазят от тези демони."
+	},
+	"gt_country_name": {
+		"message": "Гватемала"
+	},
+	"gt_tradition": {
+		"message": "Гватемалците празнуват Коледа със смях и танци. Те носят шапки, наречени „пуритина“, похапват тамале по гватемалски, палят фойерверки в полунощ и цяла нощ танцуват разнообразни танци."
+	},
+	"gy_country_name": {
+		"message": "Гаяна"
+	},
+	"hard_difficulty": {
+		"message": "Висока трудност"
+	},
+	"hi_language_name": {
+		"message": "хинди"
+	},
+	"hn_country_name": {
+		"message": "Хондурас"
+	},
+	"hours": {
+		"message": "Часа"
+	},
+	"hr_country_name": {
+		"message": "Хърватия"
+	},
+	"ht_country_name": {
+		"message": "Хаити"
+	},
+	"hu_country_name": {
+		"message": "Унгария"
+	},
+	"hu_language_name": {
+		"message": "унгарски"
+	},
+	"id_country_name": {
+		"message": "Индонезия"
+	},
+	"ie_country_name": {
+		"message": "Ирландия"
+	},
+	"improve_google_translate": {
+		"message": "Помогнете за подобряването на Google Преводач"
+	},
+	"iq_country_name": {
+		"message": "Ирак"
+	},
+	"ir_country_name": {
+		"message": "Иран"
+	},
+	"is_country_name": {
+		"message": "Исландия"
+	},
+	"is_tradition": {
+		"message": "По време на Коледа в Исландия семействата подаряват топли дрехи на всеки член на домакинството. Според легендата там живее страховита коледна котка, която изяжда всеки недобре екипиран за студа и зимното време. Всеки в семейството дава своя принос, за да е сигурно, че никой няма да „отиде при коледната котка“."
+	},
+	"it_country_name": {
+		"message": "Италия"
+	},
+	"it_language_name": {
+		"message": "италиански"
+	},
+	"ja_language_name": {
+		"message": "японски"
+	},
+	"jm_country_name": {
+		"message": "Ямайка"
+	},
+	"kg_country_name": {
+		"message": "Киргизстан"
+	},
+	"kg_tradition": {
+		"message": "В Киргизстан Аяз Ата (Дядо Мраз) идва в полунощ на Нова година и оставя подаръци под новогодишното дърво. Когато часовникът удари полунощ, семействата в цялата страна палят фойерверки в чест на красивия празник. В градовете става светло като ден."
+	},
+	"ko_language_name": {
+		"message": "корейски"
+	},
+	"kz_country_name": {
+		"message": "Казахстан"
+	},
+	"la_country_name": {
+		"message": "Лаоска народнодемократична република"
+	},
+	"language": {
+		"message": "Език"
+	},
+	"learn": {
+		"message": "Научете"
+	},
+	"learnmore": {
+		"message": "Научете повече"
+	},
+	"level": {
+		"message": "Ниво"
+	},
+	"light": {
+		"message": "Осветяване"
+	},
+	"lightdescription": {
+		"message": "Осветете телевизора си с приложението „Къде е Дядо Коледа“ за Android и Chromecast."
+	},
+	"lk_country_name": {
+		"message": "Шри Ланка"
+	},
+	"lr_country_name": {
+		"message": "Либерия"
+	},
+	"lt_country_name": {
+		"message": "Литва"
+	},
+	"lv_country_name": {
+		"message": "Латвия"
+	},
+	"ly_country_name": {
+		"message": "Либия"
+	},
+	"md_country_name": {
+		"message": "Молдова"
+	},
+	"medium_difficulty": {
+		"message": "Средна трудност"
+	},
+	"mg_country_name": {
+		"message": "Мадагаскар"
+	},
+	"minutes": {
+		"message": "Минути"
+	},
+	"ml_country_name": {
+		"message": "Мали"
+	},
+	"mm_country_name": {
+		"message": "Мианмар"
+	},
+	"mr_country_name": {
+		"message": "Мавритания"
+	},
+	"mw_country_name": {
+		"message": "Малави"
+	},
+	"mx_country_name": {
+		"message": "Мексико"
+	},
+	"mx_tradition": {
+		"message": "В Мексико децата от всички възрасти посрещат Коледа, като чупят пинята. Възрастни и деца се забавляват, като се въртят със завързани очи и размахват пръчка, за да счупят тези висящи контейнери във формата на звезда. Когато пинятата се строши, от нея се посипват ядки, плодове и бонбони за радост на всички."
+	},
+	"my_country_name": {
+		"message": "Малайзия"
+	},
+	"mz_country_name": {
+		"message": "Мозамбик"
+	},
+	"na_country_name": {
+		"message": "Намибия"
+	},
+	"ne_country_name": {
+		"message": "Нигер"
+	},
+	"newtoday": {
+		"message": "Ново днес"
+	},
+	"ng_country_name": {
+		"message": "Нигерия"
+	},
+	"nl_country_name": {
+		"message": "Нидерландия"
+	},
+	"nl_language_name": {
+		"message": "нидерландски"
+	},
+	"no_country_name": {
+		"message": "Норвегия"
+	},
+	"no_language_name": {
+		"message": "норвежки"
+	},
+	"nonprofit-jane-description": {
+		"message": "Шимпанзетата са най-близкият до човека съществуващ вид в животинското царство! Понастоящем са останали по-малко от 300 000 шимпанзета поради загуба на местообитание, заболявания и незаконна търговия. Jane Goodall Institute (JGI) защитава шимпанзетата чрез наблюдение и изучаване на поведението и местообитанието им. JGI съдейства и за изграждането на общност от хора, които защитават и опазват дивата природа и общата ни околна среда. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eИзследвайте местообитанията на шимпанзетата\u003c/a\u003e в Гомбе, Танзания."
+	},
+	"nonprofit-jane-type": {
+		"message": "Шимпанзе"
+	},
+	"nonprofit-more-information": {
+		"message": "За повече информация посетете:"
+	},
+	"nonprofit-nature-description": {
+		"message": "Организацията „The Nature Conservancy“ работи за опазването и възстановяването на гори в Съединените щати и по света. Тези емблематични гори поддържат живота на планетата – филтрират водата, пречистват въздуха, изхранват човешките общности и осигуряват местообитание на важни растителни и животински видове. При настоящото ниво на обезлесяване в рамките на 100 години горите ни ще изчезнат. Програмата „Да засадим милиард дървета“ на организацията цели засаждането на един милиард дървета до 2025 г. и възстановяването на най-засегнатите гори по света."
+	},
+	"nonprofit-nature-type": {
+		"message": "Гори"
+	},
+	"nonprofit-wwf-description": {
+		"message": "Климатичните промени продължават да нарушават равновесието в много от световните екосистеми както на топли, така и на студени места. В Арктика белите мечки губят леденото си местообитание с покачването на температурите и са изправени пред допълнителни заплахи от човешката дейност, като разработването на петролни и газови находища и корабоплаването. World Wildlife Fund се стреми да гарантира оцеляването на видовете чрез научноизследователска дейност и в сътрудничество с коренните общности в Арктика. Google.org с гордост \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eподкрепя\u003c/a\u003e World Wildlife Fund."
+	},
+	"nonprofit-wwf-type": {
+		"message": "Бяла мечка"
+	},
+	"np_country_name": {
+		"message": "Непал"
+	},
+	"nz_country_name": {
+		"message": "Нова Зеландия"
+	},
+	"nz_tradition": {
+		"message": "Тъй като Коледа в Нова Зеландия е през лятото, приятели и роднини се събират около барбекюто. Типичното коледно ястие е печено агнешко, понякога приготвено в „ханги“ – дупка в земята или глинена пещ. Любимият им десерт е „Павлова“ – целувки, покрити с пресни плодове, като ягоди или киви."
+	},
+	"om_country_name": {
+		"message": "Оман"
+	},
+	"onthego": {
+		"message": "Дядо Коледа на път"
+	},
+	"openingtomorrow": {
+		"message": "Тържественото откриване е утре"
+	},
+	"ornament-print-instructions": {
+		"message": "Сгънете тук и залепете страните една за друга"
+	},
+	"pa_country_name": {
+		"message": "Панама"
+	},
+	"pe_country_name": {
+		"message": "Перу"
+	},
+	"pg_country_name": {
+		"message": "Папуа Нова Гвинея"
+	},
+	"ph_country_name": {
+		"message": "Филипини"
+	},
+	"ph_tradition": {
+		"message": "Филипините са известни с това, че имат най-дългите коледни празници. Цели четири месеца се считат за коледни: септември, октомври, ноември, декември. Коледни песни често могат да се чуят още в началото на септември."
+	},
+	"pl_country_name": {
+		"message": "Полша"
+	},
+	"pl_language_name": {
+		"message": "полски"
+	},
+	"play": {
+		"message": "Играйте"
+	},
+	"playagain": {
+		"message": "Играйте отново"
+	},
+	"playdescription": {
+		"message": "Играйте с приятели в приложението за Android „Къде е Дядо Коледа“."
+	},
+	"pr_country_name": {
+		"message": "Пуерто Рико"
+	},
+	"pt_language_name": {
+		"message": "португалски"
+	},
+	"py_country_name": {
+		"message": "Парагвай"
+	},
+	"ro_country_name": {
+		"message": "Румъния"
+	},
+	"ru_country_name": {
+		"message": "Русия"
+	},
+	"ru_language_name": {
+		"message": "руски"
+	},
+	"ru_tradition": {
+		"message": "Руските деца украсяват новогодишно вместо коледно дърво. Те очакват с нетърпение Дядо Мраз, който пътува с внучката си Снежанка и раздава подаръци по цялата земя. Дядо Мраз живее далече в горите във Велики Устюг, Северна Русия."
+	},
+	"sa_country_name": {
+		"message": "Саудитска Арабия"
+	},
+	"santatracker": {
+		"message": "Къде е Дядо Коледа"
+	},
+	"score": {
+		"message": "Резултат"
+	},
+	"se_country_name": {
+		"message": "Швеция"
+	},
+	"seconds": {
+		"message": "Секунди"
+	},
+	"select-language": {
+		"message": "Избор на език"
+	},
+	"share-button": {
+		"message": "Споделяне с приятелите ви в Google+"
+	},
+	"share-text": {
+		"message": "Създадох тази картичка за вас в приложението Google Къде е Дядо Коледа. Весели празници!"
+	},
+	"share-this": {
+		"message": "Споделяне"
+	},
+	"sk_country_name": {
+		"message": "Словакия"
+	},
+	"sk_language_name": {
+		"message": "словашки"
+	},
+	"sl_country_name": {
+		"message": "Сиера Леоне"
+	},
+	"sn_country_name": {
+		"message": "Сенегал"
+	},
+	"so_country_name": {
+		"message": "Сомалия"
+	},
+	"sr_country_name": {
+		"message": "Суринам"
+	},
+	"sv_country_name": {
+		"message": "Салвадор"
+	},
+	"sv_language_name": {
+		"message": "шведски"
+	},
+	"td_country_name": {
+		"message": "Чад"
+	},
+	"terms-and-privacy": {
+		"message": "Условия/Поверителн."
+	},
+	"tg_country_name": {
+		"message": "Того"
+	},
+	"th_language_name": {
+		"message": "тайландски"
+	},
+	"tilt": {
+		"message": "Наклонете устройството си!"
+	},
+	"time": {
+		"message": "Време"
+	},
+	"tj_country_name": {
+		"message": "Таджикистан"
+	},
+	"tm_country_name": {
+		"message": "Туркменистан"
+	},
+	"tn_country_name": {
+		"message": "Тунис"
+	},
+	"today_only": {
+		"message": "Само днес"
+	},
+	"today_only_1": {
+		"message": "Само днес"
+	},
+	"tr_country_name": {
+		"message": "Турция"
+	},
+	"tr_language_name": {
+		"message": "турски"
+	},
+	"tracker_arrival": {
+		"message": "Пристигане"
+	},
+	"tracker_arriving_in": {
+		"message": "Пристигане след"
+	},
+	"tracker_current_stop": {
+		"message": "Текуща спирка"
+	},
+	"tracker_departing_in": {
+		"message": "Отпътуване след"
+	},
+	"tracker_distance_from_you": {
+		"message": "Разстояние от вас"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Доставени подаръци"
+	},
+	"tracker_intro_skip_intro": {
+		"message": "Пропуснете въведението"
+	},
+	"tracker_intro_user_location": {
+		"message": "Вие сте в"
+	},
+	"tracker_intro_welcome": {
+		"message": "Добре дошли в"
+	},
+	"tracker_next_stop": {
+		"message": "Следваща спирка"
+	},
+	"tracker_santa_update": {
+		"message": "АКТУАЛНА ИНФОРМАЦИЯ ЗА ДЯДО КОЛЕДА"
+	},
+	"tracker_see_route": {
+		"message": "Вижте маршрута"
+	},
+	"tracker_weather": {
+		"message": "Времето"
+	},
+	"tracker_world_facts": {
+		"message": "ЗНАЕТЕ ЛИ, ЧЕ"
+	},
+	"tracker_your_location": {
+		"message": "Вашето местоположение"
+	},
+	"traditions-next": {
+		"message": "Следваща традиция"
+	},
+	"traditions-prev": {
+		"message": "Предходна традиция"
+	},
+	"traditions-world": {
+		"message": "Свят"
+	},
+	"trivia_beginner_001": {
+		"message": "На кой континент се намират планините Анди?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Южна Америка"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Азия"
+	},
+	"trivia_beginner_002": {
+		"message": "Кой северноамерикански щат е съставен от осем основни острова?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Хаваи"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Охайо"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Арканзас"
+	},
+	"trivia_beginner_003": {
+		"message": "Кой северноамерикански щат се намира в Големите равнини?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Канзас"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Делауеър"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Айдахо"
+	},
+	"trivia_beginner_004": {
+		"message": "Кой континент граничи с Атлантическия, Тихия и Северния ледовит океан?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Азия"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Австралия"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "Южна Америка"
+	},
+	"trivia_beginner_005": {
+		"message": "Кой щат се намира в Тихоокеанската часова зона?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "Калифорния"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Грузия"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Индиана"
+	},
+	"trivia_beginner_006": {
+		"message": "На кой континент са Атласките планини и пустинята Калахари?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Антарктика"
+	},
+	"trivia_beginner_007": {
+		"message": "Кой северноамерикански щат граничи с едно от Големите езера?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Охайо"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Монтана"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "Ню Мексико"
+	},
+	"trivia_beginner_008": {
+		"message": "На кой континент повечето хора говорят португалски или испански език?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Южна Америка"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Африка"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_009": {
+		"message": "Формата на кой северноамерикански щат има вдадена в съседна територия част?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Оклахома"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Уайоминг"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Колорадо"
+	},
+	"trivia_beginner_010": {
+		"message": "Кой континент освен Антарктика се намира изцяло в Южното полукълбо?"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Австралия"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Азия"
+	},
+	"trivia_beginner_011": {
+		"message": "С кой континент гранични шелфовият ледник Роне?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Антарктика"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Африка"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Южна Америка"
+	},
+	"trivia_beginner_012": {
+		"message": "Край западното крайбрежие на кой континент се намират островите Ванкувър и Кодиак?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Азия"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Австралия"
+	},
+	"trivia_beginner_013": {
+		"message": "В североизточната част на кой континент е разположена Нигер, държавата с едно от най-бързо растящите населения в света?"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_014": {
+		"message": "На кой континент има най-малко растения?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Антарктика"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Южна Америка"
+	},
+	"trivia_beginner_015": {
+		"message": "От остров край южния бряг на кой континент произхождат тасманийските дяволи?"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Австралия"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Азия"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_016": {
+		"message": "В коя средиземноморска държава се намира популярната туристическа атракция Наклонената кула в Пиза?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Италия"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Канада"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Гана"
+	},
+	"trivia_beginner_017": {
+		"message": "На северния бряг на кой континент са разположени историческите градове Казабланка и Триполи?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Антарктика"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_018": {
+		"message": "На кой континент се среща кактусът Сагуаро в пустинята Сонора?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Азия"
+	},
+	"trivia_beginner_019": {
+		"message": "В коя държава са популярните ваканционни дестинации Веракрус и Акапулко?"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "Мексико"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Аржентина"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "Индия"
+	},
+	"trivia_beginner_020": {
+		"message": "В коя държава се намират убежищата на гигантската панда в провинция Сечуан, естествен дом на 30 процента от пандите по света?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "Китай"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "Исландия"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "Етиопия"
+	},
+	"trivia_beginner_021": {
+		"message": "На кой континент може да се намери около 90 процента от леда в света?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Антарктика"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Африка"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_022": {
+		"message": "На кой континент се намира водопадът Анхел, най-високият в света?"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "Южна Америка"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Австралия"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_023": {
+		"message": "До кой северноамерикански щат ще трябва да пътувате, за да посетите Джаксън Хол и да се изкачите на Дяволската кула?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Уайоминг"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "Северна Дакота"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Кънектикът"
+	},
+	"trivia_beginner_024": {
+		"message": "До кой северноамерикански щат ще трябва да пътувате, за да видите събирането на реколтата от кленов сок и да покарате ски в Зелените планини?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Върмонт"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Орегон"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Аризона"
+	},
+	"trivia_beginner_025": {
+		"message": "Кой северноамерикански щат ще трябва да посетите, за да минете по моста Чесапийк Бей Бридж и да се разходите по крайбрежната алея в Оушън Сити?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Мериленд"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Канзас"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "Северна Каролина"
+	},
+	"trivia_beginner_026": {
+		"message": "До кой северноамерикански щат ще трябва да пътувате, за да посетите Мамутовата пещера и да гледате състезание с коне на хиподрума „Чърчил Доунс“?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Кентъки"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "Западна Вирджиния"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Юта"
+	},
+	"trivia_beginner_027": {
+		"message": "До кой северноамерикански щат ще трябва да пътувате, за да видите гигантски секвои и Нормандските острови?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "Калифорния"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "Ню Джърси"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Вирджиния"
+	},
+	"trivia_beginner_028": {
+		"message": "Кое мочурище бихте посетили, ако се намирахте в северноамериканския щат Флорида?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Евърглейдс"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Дисмал суомп"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Голямо кипарисово блато"
+	},
+	"trivia_beginner_029": {
+		"message": "До кой северноамерикански щат ще трябва да пътувате, за да участвате в туристическата обиколка „Сейнт Лорънс“ и да посетите езерата Фингър Лейкс?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "Ню Йорк"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Мичиган"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Невада"
+	},
+	"trivia_beginner_030": {
+		"message": "На кой континент се намира най-високият връх в света Еверест?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Азия"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Антарктика"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_031": {
+		"message": "По-голямата южна част на кой континент заема областта Патагония?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Южна Америка"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Африка"
+	},
+	"trivia_beginner_032": {
+		"message": "На кой континент императорските пингвини са в естественото си местообитание?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Антарктика"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_033": {
+		"message": "От коя държава произхождат кенгурата и коалите?"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Австралия"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Южна Америка"
+	},
+	"trivia_beginner_034": {
+		"message": "На кой континент дивата природа привлича туристи в Националния парк „Серенгети“?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Азия"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Австралия"
+	},
+	"trivia_beginner_035": {
+		"message": "Кой континент има най-голяма сухоземна площ?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Азия"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Австралия"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_036": {
+		"message": "В кой европейски град се намира мостът Тауър Бридж, построен на река Темза?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "Лондон"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Хавана"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Кейптаун"
+	},
+	"trivia_beginner_037": {
+		"message": "В кой руски град се намира катедралата ;Свети Василий“, разположена до Кремъл на Червения площад?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Москва"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Брюксел"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Монтевидео"
+	},
+	"trivia_beginner_038": {
+		"message": "В кой европейски град се намира Колизеят, построен през първи век от н.е. като място за гладиаторски състезания?"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "Рим"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Хартум"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Манила"
+	},
+	"trivia_beginner_039": {
+		"message": "В кой австралийски град са сградата на операта и мостът Харбър Бридж?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Сидни"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Джакарта"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Прага"
+	},
+	"trivia_beginner_040": {
+		"message": "В кой близкоизточен град са Куполът на скалата и Стената на плача – само две от многобройните свети места, разположени зад стените на стария град?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Ерусалим"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Токио"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Алжир"
+	},
+	"trivia_beginner_041": {
+		"message": "В кой град в Гърция е Партенонът, разположен на върха на Акропола?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Атина"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Киев"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Лима"
+	},
+	"trivia_beginner_042": {
+		"message": "В центъра на кой град се извисява Айфеловата кула, разположена близо до река Сена?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "Париж"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Торонто"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "Ню Делхи"
+	},
+	"trivia_beginner_043": {
+		"message": "В кой град в Саудитска Арабия се намира джамията ал-Харам – дом на Кааба, най-голямата ислямска светиня?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Мека"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Буенос Айрес"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Будапеща"
+	},
+	"trivia_beginner_044": {
+		"message": "В центъра на кой китайски град се намира Забраненият град – някогашен императорски дворец?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Пекин"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Сантяго"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Бризбейн"
+	},
+	"trivia_beginner_045": {
+		"message": "На залива Пюджет саунд в кой град в САЩ е разположена наблюдателната кула „Спейс нийдъл“?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Сиатъл"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Уичита"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "Ню Орлиънс"
+	},
+	"trivia_beginner_046": {
+		"message": "Най-високата сграда в кой град в САЩ е кулата „Джон Ханкок“, разположена по устието на река Чарлз?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Бостън"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Питсбърг"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Мемфис"
+	},
+	"trivia_beginner_047": {
+		"message": "В кой град в САЩ в пустинята Мохаве най-високата сграда е кулата „Стратосфера“, разположена малко по на север от известен булевард, наречен „Стрип“?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Лас Вегас"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Минеаполис"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Денвър"
+	},
+	"trivia_beginner_048": {
+		"message": "В пристанището на кой град в САЩ е остров Либърти, където е разположена внушителната скулптура на Статуята на свободата?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "Ню Йорк"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Атланта"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Лос Анджелис"
+	},
+	"trivia_beginner_049": {
+		"message": "Кой американски град се свързва с полуостров Марин от моста „Голдън гейт“?"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "Сан Франциско"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Бойзи"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Балтимор"
+	},
+	"trivia_beginner_050": {
+		"message": "В кой град в САЩ се намира арката „Гейтуей“, символизираща разширяването на Америка на запад през 19 век?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "Сейнт Луис"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Индианополис"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Маями"
+	},
+	"trivia_beginner_051": {
+		"message": "В коя африканска държава се намира платото Гиза, дом на Хеопсовата пирамида и Сфинкса?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Египет"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Бразилия"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Германия"
+	},
+	"trivia_beginner_052": {
+		"message": "Близо до река Делауеър в кой град в САЩ се намира Залата на независимостта – важен исторически обект, свързан с Американската революция?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Филаделфия"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "Сан Антонио"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Чикаго"
+	},
+	"trivia_beginner_053": {
+		"message": "В Канада и в коя друга държава се простират Скалистите планини."
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "Съединени щати"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Венецуела"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Русия"
+	},
+	"trivia_beginner_054": {
+		"message": "С кой океан граничат Бразилия и Уругвай?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Атлантически океан"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Индийски океан"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Северен ледовит океан"
+	},
+	"trivia_beginner_055": {
+		"message": "Край източния бряг на Канада в кой океан се намира остров Нюфаундленд?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Атлантически океан"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Индийски океан"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Тихи океан"
+	},
+	"trivia_beginner_056": {
+		"message": "Край източния бряг на Африка в кой океан се намира остров Мадагаскар?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Индийски океан"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Тихи океан"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Северен ледовит океан"
+	},
+	"trivia_beginner_057": {
+		"message": "По средата на кой океан минава по-голямата част от Международната линия за смяна на времето?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Тихи океан"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Индийски океан"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Атлантически океан"
+	},
+	"trivia_beginner_058": {
+		"message": "На кой континент Екваторът минава през басейна на река Конго?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Австралия"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_059": {
+		"message": "С кой континент граничи Мексиканският залив?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Азия"
+	},
+	"trivia_beginner_060": {
+		"message": "Коя река, течаща през Африка, е най-голямата в света?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Река Нил"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Река Колорадо"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Оранжева река"
+	},
+	"trivia_beginner_061": {
+		"message": "На кой континент се намират древните руини на Мачу Пикчу?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Южна Америка"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Антарктика"
+	},
+	"trivia_beginner_062": {
+		"message": "През кой континент тече река Амазонка, по-пълноводна от всяка друга река в света?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Южна Америка"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Австралия"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "Азия"
+	},
+	"trivia_beginner_063": {
+		"message": "На кой континент се намира Монблан – най-високият връх в Алпите?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Европа"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Южна Америка"
+	},
+	"trivia_beginner_064": {
+		"message": "Кой континент се свързва с Централна Америка от Панамския провлак?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Южна Америка"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Азия"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_065": {
+		"message": "На кой континент в Кения и Танзания могат да се срещнат гепарди – най-бързите бозайници на сушата?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_066": {
+		"message": "Близо до най-южната точка на кой континент се намира нос Добра надежда?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Азия"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_067": {
+		"message": "В кой океан се намират Галапагоските острови, на които живеят гигантски костенурки и са разположени западно от Южна Америка?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Тихи океан"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Северен ледовит океан"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Индийски океан"
+	},
+	"trivia_beginner_068": {
+		"message": "През Виена и други градове на кой континент тече река Дунав?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Европа"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Австралия"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "Африка"
+	},
+	"trivia_beginner_069": {
+		"message": "С кое море граничат островите Куба и Еспаньола?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Карибско море"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Берингово море"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Балтийско море"
+	},
+	"trivia_beginner_070": {
+		"message": "С кой континент граничи Гвинейският залив?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Австралия"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_071": {
+		"message": "Известен изследовател на кой континент е Ърнест Шакълтън?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Антарктика"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_072": {
+		"message": "Част от кой океан е морето Лабрадор?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Атлантически океан"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Индийски океан"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Тихи океан"
+	},
+	"trivia_beginner_073": {
+		"message": "На кой континент се намира най-голямата пустиня в света Сахара?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Антарктика"
+	},
+	"trivia_beginner_074": {
+		"message": "На кой континент се намира Тибетското плато?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Азия"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Южна Америка"
+	},
+	"trivia_beginner_075": {
+		"message": "На юг от кой континент е протокът Дрейк?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Южна Америка"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Австралия"
+	},
+	"trivia_beginner_076": {
+		"message": "Край брега на кой континент се намира Големият бариерен риф в Коралово море?"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Австралия"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Азия"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_077": {
+		"message": "До коя държава ще трябва да пътувате, за да плавате по Суецкия канал и да посетите „Града на мъртвите“ в Кайро?"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "Египет"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Колумбия"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Финландия"
+	},
+	"trivia_beginner_078": {
+		"message": "До коя държава ще трябва да пътувате, за да видите гаучоси, отглеждащи добитък, и танцьори на танго в Буенос Айрес?"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Аржентина"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Нигер"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Непал"
+	},
+	"trivia_beginner_079": {
+		"message": "До коя държава ще трябва да пътувате, за да посетите стария квартал в град Фес\nи да направите излет до Атласките планини?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Мароко"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Еквадор"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Тайланд"
+	},
+	"trivia_beginner_080": {
+		"message": "До коя държава ще пътувате, за да посетите руини на древните маи и да поплувате на плажовете на Канкун?"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "Мексико"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "Нидерландия"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Турция"
+	},
+	"trivia_beginner_081": {
+		"message": "До коя държава ще трябва да пътувате, за да посетите катедралата „Свети Патрик“ в Дъблин и да се забавлявате на Фестивала на изкуствата в Килкени?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Ирландия"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Сомалия"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Коста Рика"
+	},
+	"trivia_beginner_082": {
+		"message": "До коя държава ще трябва да пътувате, за да се разходите в тропическа гора и да танцувате на карнавала в Рио де Жанейро?"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Бразилия"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "Великобритания"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "Виетнам"
+	},
+	"trivia_beginner_083": {
+		"message": "До коя държава ще трябва да пътувате, за да посетите музея Ермитаж в Санкт\nПетербург и да се возите на Транссибирската железопътна линия?"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Русия"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Индонезия"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Белиз"
+	},
+	"trivia_beginner_084": {
+		"message": "До коя държава ще трябва да пътувате, за да се повозите на влака стрела и да отседнете в хотел „Токио“?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Япония"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Зимбабве"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Боливия"
+	},
+	"trivia_beginner_085": {
+		"message": "До коя държава ще трябва да пътувате, за да хапнете песто в Геноа и да отидете\nна опера във Флоренция?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Италия"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Парагвай"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Либия"
+	},
+	"trivia_beginner_086": {
+		"message": "До коя държава ще трябва да пътувате, за да отидете на сафари в Националния\nрезерват „Масай Мара“ и да пазарувате в Найроби?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Кения"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "Южна Корея"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Чили"
+	},
+	"trivia_beginner_087": {
+		"message": "До коя държава ще трябва да пътувате, за да видите реката Ганг и да се разходите по оживените улици на Колката?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "Индия"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Германия"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "Йордания"
+	},
+	"trivia_beginner_088": {
+		"message": "В средата на кой океан се намира Северният полюс – най-северната точка на Земята?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Северен ледовит океан"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Тихи океан"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Индийски океан"
+	},
+	"trivia_beginner_089": {
+		"message": "Коя държава граничи с Атлантическия океан?"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "Исландия"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Пакистан"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Япония"
+	},
+	"trivia_beginner_090": {
+		"message": "Кой северноамерикански щат е известен като „Слънчевият щат“ заради топлия климат и посещаваните си плажове?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Флорида"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Мейн"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Вашингтон"
+	},
+	"trivia_beginner_091": {
+		"message": "В кой северноамерикански щат се намира Гранд Каньон?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Аризона"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "Западна Вирджиния"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "Южна Дакота"
+	},
+	"trivia_beginner_092": {
+		"message": "Кой северноамерикански щат, известен като „Щатът на самотната звезда“, има само една звезда на знамето си и някога е бил независима държава?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Тексас"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Уисконсин"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Мериленд"
+	},
+	"trivia_beginner_093": {
+		"message": "На кой континент се намират реките Тигър и Ефрат?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Азия"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Антарктика"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_094": {
+		"message": "На кой континент се намират езерото Виктория и планините Вирунга?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Азия"
+	},
+	"trivia_beginner_095": {
+		"message": "Коя държава е островна и се намира в Тихия океан?"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "Нова Зеландия"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "Южноафриканска република"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "Исландия"
+	},
+	"trivia_beginner_096": {
+		"message": "Коя държава се намира на Скандинавския полуостров?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Швеция"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Румъния"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Перу"
+	},
+	"trivia_beginner_097": {
+		"message": "Коя държава граничи със Средиземно море?"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "Франция"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "Бангладеш"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Никарагуа"
+	},
+	"trivia_hard_001": {
+		"message": "Кой град в САЩ е най-близо до канадската граница?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Сиатъл"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Сакраменто"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Омаха"
+	},
+	"trivia_hard_002": {
+		"message": "В кой град в САЩ има най-голяма вероятност за ураган?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Маями"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Лос Анджелис"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Питсбърг"
+	},
+	"trivia_hard_003": {
+		"message": "Кое от тези езера е с най-голяма повърхностна площ?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Езеро Хюрън"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Язовир Мийд"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Езеро Ери"
+	},
+	"trivia_hard_004": {
+		"message": "Кой от тези северноамерикански щати е с най-голямо население?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Чикаго"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "Сейнт Луис"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Индианополис"
+	},
+	"trivia_hard_005": {
+		"message": "Коя държава е най-близо до Персийския залив?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Иран"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Турция"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Бутан"
+	},
+	"trivia_hard_006": {
+		"message": "Коя от тези държави има най-голяма сухоземна площ?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Казахстан"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Румъния"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Полша"
+	},
+	"trivia_hard_007": {
+		"message": "Коя от тези държави е най-гъстонаселена?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Сингапур"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Лаос"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Боливия"
+	},
+	"trivia_hard_008": {
+		"message": "В коя от тези държави има най-много немскоговорящи жители?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Австрия"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Словакия"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Ирак"
+	},
+	"trivia_hard_009": {
+		"message": "Коя от тези държави граничи с най-много съседи?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Саудитска Арабия"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Мароко"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Монголия"
+	},
+	"trivia_hard_010": {
+		"message": "Коя държава не граничи с езерото Танганика?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Бенин"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Бурунди"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Замбия"
+	},
+	"trivia_hard_011": {
+		"message": "Коя държава не се пресича от Екватора?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Мавритания"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Индонезия"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Кения"
+	},
+	"trivia_hard_012": {
+		"message": "Коя държава не се намира на Балканския полуостров?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Чешка република"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "България"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Македония"
+	},
+	"trivia_hard_013": {
+		"message": "Коя държава не граничи със Северно море?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Финландия"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Дания"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "Великобритания"
+	},
+	"trivia_hard_014": {
+		"message": "Коя държава граничи с Черно море?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Азербайджан"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Украйна"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Турция"
+	},
+	"trivia_hard_015": {
+		"message": "Коя държава има излаз на море?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Хърватия"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Беларус"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Унгария"
+	},
+	"trivia_hard_016": {
+		"message": "Коя държава не се намира в Сахара?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Ангола"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Либия"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Алжир"
+	},
+	"trivia_hard_017": {
+		"message": "Кой остров е най-отдалечен на изток?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Тринидад"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Ямайка"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Куба"
+	},
+	"trivia_hard_018": {
+		"message": "С кой воден басейн граничи нос Страх?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Атлантически океан"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Карибско море"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Тихи океан"
+	},
+	"trivia_hard_019": {
+		"message": "Кой град е пристанище в Мексиканския залив?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Веракрус"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Тихуана"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Акапулко"
+	},
+	"trivia_hard_020": {
+		"message": "Коя държава пресича Тропика на рака?"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "Мексико"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Канада"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Бразилия"
+	},
+	"trivia_hard_021": {
+		"message": "Кой от тези острови е с най-голяма площ?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Остров Бафинова земя"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Еспаньола"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Сардиния"
+	},
+	"trivia_hard_022": {
+		"message": "Кой остров е отделен от Мексико от канала Юкатан?"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "Куба"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Пуерто Рико"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Доминика"
+	},
+	"trivia_hard_023": {
+		"message": "Кой канадски град е най-отдалечен на север?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Йелоунайф"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Отава"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Уинипег"
+	},
+	"trivia_hard_024": {
+		"message": "Кой остров е част от Малките Антили?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "Сейнт Китс"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Бермудски острови"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Нова Скотия"
+	},
+	"trivia_hard_025": {
+		"message": "В коя държава градът с най-голямо население е Порт о Пренс?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Хаити"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Никарагуа"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Суринам"
+	},
+	"trivia_hard_026": {
+		"message": "В коя държава е Карпатската планинска система?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Румъния"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Албания"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Туркменистан"
+	},
+	"trivia_hard_027": {
+		"message": "В коя държава официалният език е френски?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Габон"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Кувейт"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Танзания"
+	},
+	"trivia_hard_028": {
+		"message": "Коя от тези държави има най-голяма сухоземна площ?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Иран"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Израел"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Бахрейн"
+	},
+	"trivia_hard_029": {
+		"message": "Коя държава обхваща най-голямата географска дължина?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Казахстан"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Афганистан"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Сирия"
+	},
+	"trivia_hard_030": {
+		"message": "Коя държава е разположена на много острови?"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Филипини"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Камбоджа"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Таджикистан"
+	},
+	"trivia_hard_031": {
+		"message": "В коя от тези държави има най-много часови зони?"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Бразилия"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Гана"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "Белиз"
+	},
+	"trivia_hard_032": {
+		"message": "Коя държава е най-отдалечена на север?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Камерун"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Мозамбик"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Австралия"
+	},
+	"trivia_hard_033": {
+		"message": "Коя държава се намира между Франция и Испания?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Андора"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Люксембург"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Ватикан"
+	},
+	"trivia_hard_034": {
+		"message": "С коя държава граничи Дания?"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Германия"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "Финландия"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Молдова"
+	},
+	"trivia_hard_035": {
+		"message": "Към коя държава принадлежи остров Сардиния?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Италия"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Турция"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "Великобритания"
+	},
+	"trivia_hard_036": {
+		"message": "Коя пустиня покрива по-голямата част от областта между Пекин и Улан Батор?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Гоби"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Пустиня Тар"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Либийска пустиня"
+	},
+	"trivia_hard_037": {
+		"message": "Част от кой океан е Камчатското течение?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Тихи океан"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Индийски океан"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Атлантически океан"
+	},
+	"trivia_hard_038": {
+		"message": "В южната част на кое море се намира заливът Сирт?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Средиземно море"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Арабско море"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Балтийско море"
+	},
+	"trivia_hard_039": {
+		"message": "В коя европейска планинска система най-високата планина е Татри?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Карпатски планини"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Кантабрийски планини"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Пиринеи"
+	},
+	"trivia_hard_040": {
+		"message": "Коя река минава през езерото Кариба и формира границата между Замбия и Зимбабве?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Река Замбези"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Река Нил"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Река Конго"
+	},
+	"trivia_hard_041": {
+		"message": "В кое море се вливат реките Темза, Маас и Шелда?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Северно море"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Средиземно море"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Черно море"
+	},
+	"trivia_hard_042": {
+		"message": "От кой голям остров Лузонският проток разделя на север Филипините?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Тайван"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Алжир"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Шри Ланка"
+	},
+	"trivia_hard_043": {
+		"message": "Кои острови са разположени по протежение на Средноатлантическия хребет?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Азорски острови"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Бахамски острови"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Острови Фиджи"
+	},
+	"trivia_hard_044": {
+		"message": "Коя река се влива в море Лаптеви?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Река Лена"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Река Яндзъ"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Река Инд"
+	},
+	"trivia_hard_045": {
+		"message": "Кой връх се извисява най-близо до Екватора?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Килиманджаро"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Монблан"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Връх Маккинли"
+	},
+	"trivia_hard_046": {
+		"message": "Кой столичен град е с най-голямо население?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Москва"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Хелзинки"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Алжир"
+	},
+	"trivia_hard_047": {
+		"message": "Кой град, разположен на река Лифи, е най-големият в Република Ирландия."
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Дъблин"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Осло"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Копенхаген"
+	},
+	"trivia_hard_048": {
+		"message": "Кой град, разположен в долина на Хиндукуш, е най-големият в Афганистан?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Кабул"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Сараево"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Кампала"
+	},
+	"trivia_hard_049": {
+		"message": "Кой град, разположен на река Чао Прая, е най-големият в Тайланд?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Банкок"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Пекин"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Аман"
+	},
+	"trivia_hard_050": {
+		"message": "Кой град, разположен в края на фиорд в протока Скагерак, е най-големият в Норвегия?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Осло"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "Лондон"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Брюксел"
+	},
+	"trivia_hard_051": {
+		"message": "Кой град, разположен на източния бряг на Средиземно море, е най-големият в Ливан?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Бейрут"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Могадишу"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Рияд"
+	},
+	"trivia_hard_052": {
+		"message": "Кой град, разположен по крайбрежието на о. Ява, е най-големият в Индонезия?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Джакарта"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Токио"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Найроби"
+	},
+	"trivia_hard_053": {
+		"message": "Кой град, разположен в областта Атика, е най-големият в Гърция?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Атина"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Рим"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Барселона"
+	},
+	"trivia_hard_054": {
+		"message": "Кой град, разположен на устието на река Ла Плата, е най-големият град в Уругвай?"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "Монтевидео"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Кито"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Рио де Жанейро"
+	},
+	"trivia_hard_055": {
+		"message": "Кой град, някога част от вече бившата провинция Трансваал, е най-големият в Южна Африка?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Йоханесбург"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Абуджа"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Мапуто"
+	},
+	"trivia_hard_056": {
+		"message": "Кой град, важен пристанищен център в Карибско море, е най-големият в Ямайка?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Кингстън"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Каракас"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Буенос Айрес"
+	},
+	"trivia_hard_057": {
+		"message": "Кой град, разположен в Голямата рифтова долина, е най-големият в Еритрея?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Асмара"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Багдад"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Бразавил"
+	},
+	"trivia_hard_058": {
+		"message": "Кой град, разположен по бреговете на река Висла, е най-големият в Полша?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Варшава"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Берлин"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Киев"
+	},
+	"trivia_hard_059": {
+		"message": "Кой град, важна спирка по пътя на Панамериканската магистрала, е най-големият в Коста Рика?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "Сах Хосе"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Лима"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Сукре"
+	},
+	"trivia_hard_060": {
+		"message": "Кой град, важен търговски център за селскостопанска продукция в южната част на Африка, е най-големият в Зимбабве?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Хараре"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Уиндхоек"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Кампала"
+	},
+	"trivia_hard_061": {
+		"message": "Кой град, окупиран в миналото от режима на Червените кхмери, е най-големият в Камбоджа?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Пном Пен"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Куала Лумпур"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Дака"
+	},
+	"trivia_hard_062": {
+		"message": "Кой град, разположен на вдадения в Атлантическия океан нос Мезурадо, е най-големият в Либерия?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Монровия"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Акра"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Лусака"
+	},
+	"trivia_hard_063": {
+		"message": "Кой град, разположен върху високо плато в Андите, е най-големият в Колумбия?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Богота"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Манагуа"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Монтерей"
+	},
+	"trivia_hard_064": {
+		"message": "Кой град, разположен в подножието на планината Алборз, е най-големият в Иран?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Техеран"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Ташкент"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Истанбул"
+	},
+	"trivia_hard_065": {
+		"message": "Кой воден басейн се пресича от Северния полярен кръг?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Норвежко море"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Езеро Волта"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Каспийско море"
+	},
+	"trivia_hard_066": {
+		"message": "Кой воден басейн се намира в Голямата рифтова долина?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Езеро Малави"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Тасманийско море"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Езеро Титикака"
+	},
+	"trivia_hard_067": {
+		"message": "На брега на кой воден басейн е разположен руският пристанищен град Архангелск?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Бяло море"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Пролив Бас"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Бискайски залив"
+	},
+	"trivia_hard_068": {
+		"message": "В коя държава са провинциите Хунан и Шандун?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "Китай"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Тайланд"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Йемен"
+	},
+	"trivia_hard_069": {
+		"message": "В коя средиземноморска държава официалният език е кастилски?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Испания"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Гърция"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "Азербайджан"
+	},
+	"trivia_hard_070": {
+		"message": "Коя централноамериканска държава някога е била провинция, част от Колумбия?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Панама"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Хондурас"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Гватемала"
+	},
+	"trivia_hard_071": {
+		"message": "Важен транспортен център в коя държава е град Базел, разделен от реката Рейн?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Швейцария"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Белгия"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Русия"
+	},
+	"trivia_hard_072": {
+		"message": "Регион в коя държава е Прованс, чийто пейзаж е вдъхновявал художници като Сезан?"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "Франция"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "Нидерландия"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Румъния"
+	},
+	"trivia_hard_073": {
+		"message": "В коя държава се намира Баия Бланка, важен пристанищен град в региона на пампасите?"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Аржентина"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "Боливия"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Никарагуа"
+	},
+	"trivia_hard_074": {
+		"message": "Коя държава граничи със Средиземно, Черно и Егейско море?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Турция"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "България"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Либия"
+	},
+	"trivia_hard_075": {
+		"message": "В коя съседна държава на северозапад мигрират всяка година антилопите гну от Танзания през река Мара?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Кения"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Замбия"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Гвинея"
+	},
+	"trivia_hard_076": {
+		"message": "Халеб, известен с Голямата джамия, е най-големият град в коя държава в Югозападна Азия?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Сирия"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Оман"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Бангладеш"
+	},
+	"trivia_hard_077": {
+		"message": "С коя държава граничат Русия и Грузия?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Азербайджан"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Узбекистан"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Северна Корея"
+	},
+	"trivia_hard_078": {
+		"message": "С коя държава граничат Панама и Бразилия?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Колумбия"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Перу"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Коста Рика"
+	},
+	"trivia_hard_079": {
+		"message": "С коя държава граничат Гватемала и Съединените щати?"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "Мексико"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "Салвадор"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Канада"
+	},
+	"trivia_hard_080": {
+		"message": "С коя държава граничат Ирак и Афганистан?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Иран"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Украйна"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Монголия"
+	},
+	"trivia_hard_081": {
+		"message": "С коя държава граничат Лесото и Ботсвана?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Южноафриканска република"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Зимбабве"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Конго"
+	},
+	"trivia_hard_082": {
+		"message": "В частта с фламандскоговорящо население на коя държава се намира Антверп?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Белгия"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Нидерландия"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "Исландия"
+	},
+	"trivia_hard_083": {
+		"message": "В коя европейска държава се намира Гданск, важно пристанище, разположено близо до устието на река Висла?"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "Полша"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Испания"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Хърватия"
+	},
+	"trivia_hard_084": {
+		"message": "Основни притоци на коя голяма река в Южна Америка са реките Мадейра и Пурус?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Река Амазонка"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Река Ориноко"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Река Парана"
+	},
+	"trivia_hard_085": {
+		"message": "Освен с Швейцария и Германия, с коя друга държава граничи Боденското езеро?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Австрия"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Словакия"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Финландия"
+	},
+	"trivia_hard_086": {
+		"message": "Окланд е най-големият град в коя държава – основно пристанище с няколко пристана?"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "Нова Зеландия"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Австралия"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "Индонезия"
+	},
+	"trivia_hard_087": {
+		"message": "Коя държава, разположена непосредствено на запад от Того, е основен производител на какао?"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Гана"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Судан"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Тунис"
+	},
+	"trivia_hard_088": {
+		"message": "В коя южноамериканска държава един от официалните езици, както и валутата, се наричат „гуарани“?"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "Парагвай"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Еквадор"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Бразилия"
+	},
+	"trivia_hard_089": {
+		"message": "Коя планинска верига се простира по границата между Франция и Испания?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Пиринеи"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Апенини"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Каквказки планини"
+	},
+	"trivia_hard_090": {
+		"message": "В коя държава реката Торенс се влива в залива Сейнт Винсънт?"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Австралия"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "Уганда"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Канада"
+	},
+	"trivia_hard_091": {
+		"message": "Коя африканска държава, граничеща със Средиземно море, е монархия?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Мароко"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Египет"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Централноафриканска република"
+	},
+	"trivia_hard_092": {
+		"message": "Столица на коя държава е град Тбилиси, разположен по бреговете на река Кура?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Грузия"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Сирия"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Унгария"
+	},
+	"trivia_hard_093": {
+		"message": "В коя държава е планинският регион Абруцо, разположен на Адриатическо море?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Италия"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "Франция"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "Люксембург"
+	},
+	"trivia_hard_094": {
+		"message": "С коя друга държава освен Латвия граничи Рижкият залив?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Естония"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Беларус"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Испания"
+	},
+	"trivia_hard_095": {
+		"message": "Кое море се свързва със Суецкия залив от протока Джубал?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Червено море"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Карибско море"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Каспийско море"
+	},
+	"trivia_hard_096": {
+		"message": "От коя река идват по-голямата част от водите, вливащи се в Галилейско море?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Река Йордан"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Амударя"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Река Ганг"
+	},
+	"trivia_hard_097": {
+		"message": "Кой голям залив разделя Ню Брънзуик от Нова Скотия?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Залив Фънди"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Залив Хъдсън"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Бенгалски залив"
+	},
+	"trivia_hard_098": {
+		"message": "В Рейнската област в коя държава се намира Кьолнската катедрала?"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Германия"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Дания"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Пакистан"
+	},
+	"trivia_hard_099": {
+		"message": "Най-южният щат в коя държава е Чиапас, с находки на руини от древните маи?"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "Мексико"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "Хондурас"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Чили"
+	},
+	"trivia_hard_100": {
+		"message": "Кое море се свързва с Мраморно от тесния проток Дарданели?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Егейско море"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Баренцово море"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Тасманийско море"
+	},
+	"trivia_hard_101": {
+		"message": "В коя държава в Югоизточна Азия официалният език е кхмерски?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Камбоджа"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Непал"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Виетнам"
+	},
+	"trivia_hard_102": {
+		"message": "В Русия и коя друга държава се намира промишлената област Донецки басейн?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Украйна"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Словакия"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Ливан"
+	},
+	"trivia_hard_103": {
+		"message": "Най-високият връх на кой континент е Косцюшко в Снежните планини?"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Австралия"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Европа"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Южна Америка"
+	},
+	"trivia_hard_104": {
+		"message": "Част от коя държава са островите Мадура и Бали?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Индонезия"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Япония"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Пакистан"
+	},
+	"trivia_hard_105": {
+		"message": "В планините Кунлун на кой континент се намира пустинята Такламакан?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "Китай"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Саудитска Арабия"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "Южна Корея"
+	},
+	"trivia_medium_001": {
+		"message": "Кой от тези северноамерикански градове е разположен на речна делта?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "Ню Орлиънс"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Остин"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Оклахома Сити"
+	},
+	"trivia_medium_002": {
+		"message": "На кой континент се намират Ангкор Ват и Кападокия – обекти от Списъка на световното наследство на ЮНЕСКО?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Азия"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Европа"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Африка"
+	},
+	"trivia_medium_003": {
+		"message": "В югозападната част на кой континент хората говорят кюрдски и персийски език?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Азия"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Южна Америка"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Европа"
+	},
+	"trivia_medium_004": {
+		"message": "На кой континент се намира Теотиуакан, който е бил най-големият център на ранна цивилизация?"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "Северна Америка"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Африка"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Азия"
+	},
+	"trivia_medium_005": {
+		"message": "С кой континент граничат моретата Белингсхаузен и Рос?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Антарктика"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Европа"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Азия"
+	},
+	"trivia_medium_006": {
+		"message": "Покрай бреговете на кой континент минават Мозамбикското и Бенгелското течение?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Африка"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Европа"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_medium_007": {
+		"message": "До югоизточния край на кой континент се намира архипелагът Малвински острови, наричани също Фолкландски?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Южна Америка"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Европа"
+	},
+	"trivia_medium_008": {
+		"message": "Коя от тези африкански държави е с най-голяма площ?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Алжир"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Гамбия"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Бурунди"
+	},
+	"trivia_medium_009": {
+		"message": "Кой голям остров се намира на 200 мили северозападно от Исландия?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Гренландия"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Нова Гвинея"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Ирландия"
+	},
+	"trivia_medium_010": {
+		"message": "Част от кой океан са Карско и Източносибирско море?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Северен ледовит океан"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Индийски океан"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Тихи океан"
+	},
+	"trivia_medium_011": {
+		"message": "Коя държава граничи с Балтийско море?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Латвия"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Словения"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Украйна"
+	},
+	"trivia_medium_012": {
+		"message": "В кой от тези големи градове живеят най-много хора?"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "Сао Пауло, Бразилия"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Торонто, Канада"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Ханой, Виетнам"
+	},
+	"trivia_medium_013": {
+		"message": "Коя държава няма брегова линия на Атлантическия океан?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Малайзия"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Ангола"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Уругвай"
+	},
+	"trivia_medium_014": {
+		"message": "Коя от тези държави има най-къса брегова линия?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "Салвадор"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Перу"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Чили"
+	},
+	"trivia_medium_015": {
+		"message": "Коя пустиня се намира в Азия?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Гоби"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Калахари"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Атакама"
+	},
+	"trivia_medium_016": {
+		"message": "В коя от тези държави има най-силна вулканична дейност?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Индонезия"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Египет"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Израел"
+	},
+	"trivia_medium_017": {
+		"message": "Коя от тези държави е с най-голямо население?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Пакистан"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Хаити"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Венецуела"
+	},
+	"trivia_medium_018": {
+		"message": "Коя от тези държави има най-много острови?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Бахамски острови"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Ямайка"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "Салвадор"
+	},
+	"trivia_medium_019": {
+		"message": "Коя държава се намира най-близо до Екватора?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Руанда"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Гватемала"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "Южноафриканска република"
+	},
+	"trivia_medium_020": {
+		"message": "Коя държава е най-отдалечена на север?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Естония"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Либия"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Камбоджа"
+	},
+	"trivia_medium_021": {
+		"message": "В коя столица се намира кварталът Алфама, разположен по бреговете на река Тагус в Португалия?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Лисабон"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Берлин"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Хелзинки"
+	},
+	"trivia_medium_022": {
+		"message": "Кой столичен град, разположен на 25 мили североизточно от Мъртво море, е с най-голямо население в Йордания?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Аман"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Исламабад"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Сеул"
+	},
+	"trivia_medium_023": {
+		"message": "В кой столичен град се намира площадът Тахрир – център на няколко големи протеста в Египет?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Кайро"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Найроби"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Мускат"
+	},
+	"trivia_medium_024": {
+		"message": "Коя столичен град, разположен на залива Тейбъл Бей, е седалище на националния парламент на Южна Африка?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Кейптаун"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Лусака"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Киншаса"
+	},
+	"trivia_medium_025": {
+		"message": "Кой столичен град, разположен на река Вълтава, е най-големият\nв Чешката република?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Прага"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Дъблин"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "София"
+	},
+	"trivia_medium_026": {
+		"message": "Коя столица, разположена на Средиземно море, е важно пристанище в Либия?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Триполи"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Могадишу"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Монровия"
+	},
+	"trivia_medium_027": {
+		"message": "Кой столичен град, важен търговски и транспортен център в Судан, е разположен при съединението на реките Бели Нил и Сини Нил?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Хартум"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Тунис"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Йоханесбург"
+	},
+	"trivia_medium_028": {
+		"message": "Кой столичен град е разположен на датските острови Шеланд и Амагер?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Копенхаген"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Берн"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Братислава"
+	},
+	"trivia_medium_029": {
+		"message": "Кой столичен град, разположен на остров Ню Провидънс, е най-големият на Бахамите?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Насау"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Санто Доминго"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Белмопан"
+	},
+	"trivia_medium_030": {
+		"message": "Кой столичен град, разположен южно от Черно море, е центърът на транспортната система на Турция?"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "Анкара"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Минск"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Техеран"
+	},
+	"trivia_medium_031": {
+		"message": "Кои от тези държави са частично разположени на Африканския рог?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Еритрея"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Нигер"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Свазиленд"
+	},
+	"trivia_medium_032": {
+		"message": "Коя държава се разделя от Дания чрез протока Скагерак?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Норвегия"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "Великобритания"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Шри Ланка"
+	},
+	"trivia_medium_033": {
+		"message": "Коя държава има по-голяма площ, заета от пустиня?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Чад"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Норвегия"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Виетнам"
+	},
+	"trivia_medium_034": {
+		"message": "През коя държава тече река Ефрат?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Сирия"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Швейцария"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Тайланд"
+	},
+	"trivia_medium_035": {
+		"message": "Близо до езеро Байкал на кой континент се намира Иркутск?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Азия"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Африка"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Южна Америка"
+	},
+	"trivia_medium_036": {
+		"message": "На кой континент се намират големите реки Днепър и Рейн?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Европа"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Антарктика"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "Азия"
+	},
+	"trivia_medium_037": {
+		"message": "На кой континент се намират Гвианското плато и областта Пантанал?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Южна Америка"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Европа"
+	},
+	"trivia_medium_038": {
+		"message": "На кой континент се намират земните форми пустинята Виктория и равнината Наларбор?"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Австралия"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Азия"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Европа"
+	},
+	"trivia_medium_039": {
+		"message": "Най-южният щат на коя държава е Рио Гранде до Сул?"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Бразилия"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "Мексико"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Германия"
+	},
+	"trivia_medium_040": {
+		"message": "В коя държава се намира град Новосибирск, разположен на река Об?"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Русия"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "Непал"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "Китай"
+	},
+	"trivia_medium_041": {
+		"message": "Коя държава се намира в Тихоокеанския регион и е по-вероятно в нея да стане земетресение?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Чили"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Ангола"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "Франция"
+	},
+	"trivia_medium_042": {
+		"message": "По северния бряг на коя държава е разположено езерото Маракайбо?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Венецуела"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Гватемала"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Канада"
+	},
+	"trivia_medium_043": {
+		"message": "Коя държава граничи с Арабско море?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "Индия"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Таджикистан"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Гърция"
+	},
+	"trivia_medium_044": {
+		"message": "Коя държава се намира на Иберийския полуостров?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Португалия"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Бангладеш"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Нидерландия"
+	},
+	"trivia_medium_045": {
+		"message": "Коя от тези държави има най-дълга брегова линия?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Тайланд"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Конго"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Катар"
+	},
+	"trivia_medium_046": {
+		"message": "Кой северноамерикански щат се намира на запад от река Мисисипи?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Колорадо"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Мериленд"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Мичиган"
+	},
+	"trivia_medium_047": {
+		"message": "Кой северноамерикански щат е почти 60% покрит с гори?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Вирджиния"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Аризона"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Невада"
+	},
+	"trivia_medium_048": {
+		"message": "В кой северноамерикански щат се намира връх Маккинли – най-високата точка в Северна Америка?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Аляска"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Минесота"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Колорадо"
+	},
+	"trivia_medium_049": {
+		"message": "Кой от тези северноамерикански щати е с най-голяма площ?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Монтана"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Кънектикът"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "Южна Каролина"
+	},
+	"trivia_medium_050": {
+		"message": "Близо до град Рапид в кой северноамерикански щат се намира планината Ръшмор?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "Южна Дакота"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Орегон"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Флорида"
+	},
+	"trivia_medium_051": {
+		"message": "Кой северноамерикански щат има обща граница с Канада?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Минесота"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Небраска"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Кентъки"
+	},
+	"trivia_medium_052": {
+		"message": "Край бреговете на кой северноамерикански щат се срещат коралови рифове?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Хаваи"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Кънектикът"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Невада"
+	},
+	"trivia_medium_053": {
+		"message": "Важно пристанище в коя държава е Хамбург?"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Германия"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Хърватия"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Белгия"
+	},
+	"trivia_medium_054": {
+		"message": "В коя държава има най-силна вулканична дейност?"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "Исландия"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "Великобритания"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "Полша"
+	},
+	"trivia_medium_055": {
+		"message": "Коя държава се намира основно на полуостров Мала Азия?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Турция"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Мианмар"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Естония"
+	},
+	"trivia_medium_056": {
+		"message": "Част от границата между Израел и коя държава се формира от Мъртво море?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Йордания"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Иран"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Япония"
+	},
+	"trivia_medium_057": {
+		"message": "Източно от езерото Виктория в коя държава се намира Националният парк „Серенгети“?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Танзания"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Йемен"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Нигерия"
+	},
+	"trivia_medium_058": {
+		"message": "Коя държава граничи с Карибско море и е основен износител на нефт?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Венецуела"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Чили"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Парагвай"
+	},
+	"trivia_medium_059": {
+		"message": "Коя държава без излаз на море е малко по на юг от Екватора?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Бурунди"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Джибути"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Тунис"
+	},
+	"trivia_medium_060": {
+		"message": "С коя средиземноморска държава граничи Тиренско море?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Италия"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Израел"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Сенегал"
+	},
+	"trivia_medium_061": {
+		"message": "По източния склон на планина Урал в коя държава е разположен Екатеринбург?"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Русия"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Литва"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Белгия"
+	},
+	"trivia_medium_062": {
+		"message": "Коя островна държава се намира югоизточно от Австралия и е водещ производител на вълна?"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "Нова Зеландия"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Филипини"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Виетнам"
+	},
+	"trivia_medium_063": {
+		"message": "В коя държава е основният пристанищен град Мумбай?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "Индия"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Швейцария"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Бутан"
+	},
+	"trivia_medium_064": {
+		"message": "В коя държава се намира град Инчхън, разположен на Жълто море?"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "Южна Корея"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Тайланд"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Монголия"
+	},
+	"trivia_medium_065": {
+		"message": "Коя малка държава се намира до западната граница на Австрия?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Лихтенщайн"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Сирия"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Молдова"
+	},
+	"trivia_medium_066": {
+		"message": "В коя държава се намират щатите Виктория и Нов Южен Уелс?"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Австралия"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "Съединени щати"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Канада"
+	},
+	"trivia_medium_067": {
+		"message": "Коя държава на остров Борнео граничи с малката държава Бруней?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Малайзия"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Иран"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Украйна"
+	},
+	"trivia_medium_068": {
+		"message": "На границата между Италия и коя друга държава лежат Юлийските Алпи?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Словения"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Непал"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Таджикистан"
+	},
+	"trivia_medium_069": {
+		"message": "В североизточната част на коя държава се намира областта, известна преди като Манджурия?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "Китай"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Беларус"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Афганистан"
+	},
+	"trivia_medium_070": {
+		"message": "Коя държава граничи със Салвадор?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Хондурас"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Панама"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Доминиканска република"
+	},
+	"trivia_medium_071": {
+		"message": "Коя държава се намира в планина Кавказ?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Грузия"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Унгария"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Андора"
+	},
+	"trivia_medium_072": {
+		"message": "В коя азиатска държава Зондският пролив разделя два острова?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Индонезия"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "Нова Зеландия"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Лаос"
+	},
+	"trivia_medium_073": {
+		"message": "В коя държава могат да се видят глетчерни долини и живописни стръмни скали близо до устието на река Шанън?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Ирландия"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "Франция"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "Узбекистан"
+	},
+	"trivia_medium_074": {
+		"message": "През коя южноазиатска държава тече река Инд?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Пакистан"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Северна Корея"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Азербайджан"
+	},
+	"trivia_medium_075": {
+		"message": "Коя държава граничи с Червено море?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Еритрея"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Гана"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Кения"
+	},
+	"trivia_medium_076": {
+		"message": "Щати в коя държава са Сакатекас и Табаско?"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "Мексико"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "Белиз"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Аржентина"
+	},
+	"trivia_medium_077": {
+		"message": "В коя държава се намира Риад – град с повече от 4 000 джамии?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Саудитска Арабия"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Албания"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Сирия"
+	},
+	"trivia_medium_078": {
+		"message": "Коя африканска държава няма излаз на море?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Мали"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Мавритания"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Египет"
+	},
+	"trivia_medium_079": {
+		"message": "Свещено място в коя държава е планината Фуджи?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Япония"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Филипини"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "Бангладеш"
+	},
+	"trivia_medium_080": {
+		"message": "Коя държава в Големите Антили използва английски за свой официален език?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Ямайка"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Хаити"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Куба"
+	},
+	"trivia_medium_081": {
+		"message": "Кой е официалният език в Сирия, Кувейт и Алжир?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "Арабски"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "Арменски"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "Немски"
+	},
+	"trivia_medium_082": {
+		"message": "В коя държава се провежда ежегодният Залцбургски фестивал, по време на който често се изпълняват опери на Моцарт?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Австрия"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Унгария"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Румъния"
+	},
+	"trivia_medium_083": {
+		"message": "В коя държава северно от Судан се намира Долината на китовете – пустиня, в която често се срещат фосилизирани останки от праисторически китове?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Египет"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Нигерия"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Замбия"
+	},
+	"trivia_medium_084": {
+		"message": "В коя европейска държава Ротердам е разположен на делта близо до Северно море?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Нидерландия"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Швеция"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Гърция"
+	},
+	"trivia_medium_085": {
+		"message": "В коя голяма планинска система е изворът на река Брахмапутра, вливаща се в обширна делта близо до Бенгалския залив?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Хималаи"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Урал"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Алпи"
+	},
+	"trivia_medium_086": {
+		"message": "Официален език в коя ислямска държава е фарси, известен още като персийски?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Иран"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Кувейт"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Либия"
+	},
+	"trivia_medium_087": {
+		"message": "В коя европейска държава се намира град Севиля, където хората наблюдават борбите на матадорите с бикове?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Испания"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Германия"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "Македония"
+	},
+	"trivia_medium_088": {
+		"message": "В коя държава се намира град Истанбул, смятан за пресечна точка на източната и западната култури?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Турция"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Словакия"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Оман"
+	},
+	"trivia_medium_089": {
+		"message": "В която държава, граничеща със Салвадор и Никарагуа, се намира градът на маите Копан, който е популярна туристическа забележителност?"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "Хондурас"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Чили"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Канада"
+	},
+	"trivia_medium_090": {
+		"message": "В коя държава без излаз на море, северно от река Нигер, е разположен Тимбукту – център на търговията с кервани в продължение на повече от хиляда години?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Мали"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Уганда"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Намибия"
+	},
+	"trivia_medium_091": {
+		"message": "С коя южноамериканска държава без излаз на море граничат Чили и Бразилия?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Боливия"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Колумбия"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Гаяна"
+	},
+	"trivia_medium_092": {
+		"message": "В коя държава се намира град Белен, разположен в южната част на устието на река Амазонка?"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Бразилия"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "Коста Рика"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Суринам"
+	},
+	"trivia_medium_093": {
+		"message": "Коя река формира по-голямата част от северната граница на България?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Река Дунав"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Река Об"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Река Меконг"
+	},
+	"trivia_medium_094": {
+		"message": "Близо до езеро Байкал в коя азиатска държава се намират Саянските планини?"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Русия"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "Индия"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Киргизстан"
+	},
+	"trivia_medium_095": {
+		"message": "Най-голямото езеро в коя канадска провинция е Нипигон?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Онтарио"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Албърта"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "Британска Колумбия"
+	},
+	"trivia_medium_096": {
+		"message": "Част от кое по-голямо море са Балеарско и Йонийско?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Средиземно море"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Балтийско море"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Карибско море"
+	},
+	"trivia_medium_097": {
+		"message": "В кой континент се намират езерата от рифтова долина Туркана и Натрон?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Африка"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Южна Америка"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Европа"
+	},
+	"trivia_medium_098": {
+		"message": "Най-дълбокото място в кой океан е Падината Пуерто Рико?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Атлантически океан"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Северен ледовит океан"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Тихи океан"
+	},
+	"trivia_medium_099": {
+		"message": "От евкалиптовите гори в източната част на кой континент произхожда птицата смееща се кукабура?"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Австралия"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Африка"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Южна Америка"
+	},
+	"trivia_medium_100": {
+		"message": "На западния морски бряг на коя европейска държава е разположен град Хага, седалище на Международния съд?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Нидерландия"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Финландия"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "България"
+	},
+	"trivia_ngb_promo": {
+		"message": "Съдържание от National Geographic Bee"
+	},
+	"tw_country_name": {
+		"message": "Тайван"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Танзания"
+	},
+	"ug_country_name": {
+		"message": "Уганда"
+	},
+	"uk_country_name": {
+		"message": "Великобритания"
+	},
+	"uk_tradition": {
+		"message": "Във Великобритания празнуващите от всички възрасти се забавляват с „коледните бонбони“ на масата по време на вечеря. Това са тръбички, увити в многоцветна хартия, с издърпващи се капачета от двете страни. Когато тези капачета се дръпнат, тръбичката се отваря с трясък! В нея има хартиени шапки, играчки и бонбони за забавление през коледната нощ."
+	},
+	"upgrade-warning": {
+		"message": "Ами сега! „Къде е Дядо Коледа“ не се поддържа в тази версия на браузъра ви. За достъп до „Къде е Дядо Коледа“ изтеглете съвременен браузър. За повече информация посетете \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
+	"us_country_name": {
+		"message": "Съединени щати"
+	},
+	"us_tradition": {
+		"message": "В САЩ в навечерието на Коледа се окачват чорапи на камината. Според легендата Сейнт Николас научил за семейство, което било изпаднало в нужда. За да ги изненада, той се спуснал през комина им и поставил торбички със злато в окачените чорапи. Оттогава Сейнт Николас станал известен като Санта Клаус, даващ подаръци."
+	},
+	"uy_country_name": {
+		"message": "Уругвай"
+	},
+	"uz_country_name": {
+		"message": "Узбекистан"
+	},
+	"ve_country_name": {
+		"message": "Венецуела"
+	},
+	"vn_country_name": {
+		"message": "Виетнам"
+	},
+	"watch": {
+		"message": "Гледайте"
+	},
+	"ye_country_name": {
+		"message": "Йемен"
+	},
+	"zh-CN_language_name": {
+		"message": "китайски (опростен)"
+	},
+	"zh-TW_language_name": {
+		"message": "китайски (традиционен)"
+	},
+	"zm_country_name": {
+		"message": "Замбия"
+	},
+	"zw_country_name": {
+		"message": "Зимбабве"
+	}
+}

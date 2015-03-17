@@ -1,0 +1,261 @@
+@import "compass/css3";
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+
+@import "../shared/sass/_mixins.scss";
+
+$tabletBreakpoint: 1024px;
+$mobileBreakpoint: 668px;
+
+$name: 'module-tracker';
+
+@import "sass/santa";
+
+##{$name} {
+  width: 100%;
+  height: 100%;
+  background: #f6efe2;
+
+  @import "sass/_keyframe_animations.scss";
+  @import "sass/_santa.scss";
+
+  #cards {
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    z-index: 2;
+
+    @include transition(transform 500ms ease-out, opacity 450ms linear);
+    @include transition-timing-function(cubic-bezier(0.4, 1.6, 0.2, 1));
+    @include transform(scale(0));
+    transform-origin: 100% 100%;
+    opacity: 0;
+
+    &.show {
+      @include transform(scale(1));
+      opacity: 1;
+    }
+
+    @import "sass/_cards.scss";
+  }
+
+  .scene {
+    height: 100%;
+  }
+
+  .circle {
+    box-sizing: border-box;
+    position: absolute;
+    border-style: solid;
+    border-radius: 50%;
+    display: none;
+    z-index: 1;
+
+    .circle-close {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+    }
+  }
+
+  .circle-in {
+    @include transition(border-width .5s ease-out);
+  }
+
+  .circle-out {
+    @include transition(border-width .5s ease-in);
+  }
+
+  #tracker-zoom-controls {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    z-index: 2;
+    width: 40px;
+    margin-top: -43px;
+  }
+
+  #trackermap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  #city-stats {
+    position: absolute;
+    top: 290px;
+    left: 115px;
+    z-index: 2;
+    color: #fff;
+    opacity: 0;
+    @include transition(opacity .5s ease);
+
+     a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding: 12px 0;
+        margin: 0 25px;
+
+        h4 {
+          text-transform: uppercase;
+          color: #97d8ff;
+          font-weight: 900;
+          font-size: 11px;
+          margin: 0 0 12px 0;
+        }
+
+        .stat {
+          font-weight: 400;
+          font-size: 16px;
+          margin-left: 16px;
+          line-height: 16px;
+        }
+
+        .ico {
+          float: left;
+          width: 16px;
+          height: 16px;
+          background-size: 12px 12px;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+        }
+
+        .ico-marker {
+          background-image: url(img/marker-blue.svg);
+        }
+
+        .ico-reindeer {
+          background-image: url(img/reindeer-blue.svg);
+        }
+
+        .ico-clock {
+          background-image: url(img/clock-blue.svg);
+        }
+      }
+    }
+  }
+
+  #status-bar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border-radius: 5px;
+    background-color: #e5473a;
+    color: #fff;
+    z-index: 2;
+    opacity: 0;
+    min-width: 250px;
+    @include transform(translate3d(0, 0, 0));
+    @include transition(transform 500ms ease, opacity 500ms ease);
+
+    &.slide-up {
+      @include transform(translate3d(0, -1000px, 0));
+    }
+
+    &.show {
+      opacity: 1;
+    }
+
+    #back-to-village {
+      background: #d8433b url('img/village.svg') 25px 100%/115px auto no-repeat;
+      border-radius: 5px 5px 0 0;
+      padding: 25px;
+
+      a {
+        color: #f2d9a2;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: url(img/arrow-circle.svg) 0 50% no-repeat;
+        padding-left: 20px;
+        font-weight: 900;
+        font-size: 11px;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding: 12px 0;
+        margin: 0 25px;
+        border-bottom: 1px solid rgba(166,16,16,0.5);
+
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+
+        h4 {
+          text-transform: uppercase;
+          color: #f2d9a2;
+          font-weight: 900;
+          font-size: 11px;
+          margin: 0 0 12px 0;
+        }
+
+        &:first-child {
+          border-top: 1px solid rgba(166,16,16,0.5);
+        }
+
+        &:last-of-type {
+          border-radius: 0 0 5px 5px;
+          margin: 0;
+          padding: 12px 25px;
+          border-bottom: 0;
+        }
+
+        .stat {
+          font-weight: 400;
+          font-size: 16px;
+          margin-left: 16px;
+          line-height: 16px;
+        }
+
+        .ico {
+          float: left;
+          width: 16px;
+          height: 16px;
+          background-size: 12px 12px;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+        }
+
+        .ico-marker {
+          background-image: url(img/marker.svg);
+        }
+
+        .ico-arrow {
+          background-image: url(img/arrow.svg);
+        }
+
+        .ico-clock {
+          background-image: url(img/clock.svg);
+        }
+
+        .stat-large {
+          font-size: 42px;
+          line-height: 42px;
+          font-weight: 900;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+@import "sass/_responsive.scss";

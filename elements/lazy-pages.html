@@ -1,0 +1,70 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/core-pages/core-pages.html">
+
+<!--
+Lazy loads children "pages".
+
+@element lazy-pages
+@extends core-pages
+-->
+<polymer-element name="lazy-pages" extends="core-pages" attributes="santaApp preloader">
+<template>
+  <style>
+    :host {
+      position: static;
+    }
+  </style>
+  <shadow></shadow>
+</template>
+<script>
+  Polymer({
+
+    /**
+     * A `<santa-app>` controller element.
+     *
+     * @attribute santaApp
+     * @type HTMLElement
+     * @default null
+     */
+    santaApp: null,
+
+    /**
+     * A `<preload-overlay>` element.
+     *
+     * @attribute preloader
+     * @type HTMLElement
+     * @default null
+     */
+    preloader: null,
+
+    selectedItemChanged: function() {
+
+      this.super();
+
+      var scene = this.selectedItem;
+
+      // Can't use scene.path because element definition may not be loaded yet
+      // and .path property won't exist.
+      var path = scene.getAttribute('path');
+
+      if (!path || !scene || !this.selected || scene.loaded) {
+        return;
+      }
+
+      // Since this is the first time the scene is being loaded, send loading
+      // start time to analytics (timing is ended in base-scene.html)
+      var route = scene.getAttribute('route');
+      this.fire('analytics-time-start', {category: 'Scene Load Time',
+          variable: route, time: Date.now()});
+
+      // (Re)set the preload bg color and loading image before scene is loaded.
+      this.preloader.color = scene.getAttribute('loadingBgColor');
+      this.preloader.src = scene.getAttribute('loadingSrc');
+
+      Polymer.import([path], function(e) {
+        scene.santaApp = this.santaApp;
+      }.bind(this));
+    }
+  });
+</script>
+</polymer-element>

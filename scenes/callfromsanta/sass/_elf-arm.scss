@@ -1,0 +1,43 @@
+$ease-santa-elf-arm: $easeOutSine;
+
+##{$name} {
+  .play {
+    .elf-arm {
+      animation-name: #{$name}__elf-arm;
+    }
+  }
+
+  .elf-arm {
+    position: absolute;
+    left: 50%;
+    margin-left: -253px;
+    margin-top: -81px;
+    animation-delay: $delay-santa-call;
+    animation-duration: $duration-santa-call;
+    animation-iteration-count: infinite;
+    animation-timing-function: $ease-santa-elf-arm;
+    transform-origin: 0px 0px;
+  }
+}
+
+@keyframes #{$name}__elf-arm {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(0px, 0px) rotate(-17deg);
+  }
+
+  50% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+
+  75% {
+    transform: translate(1px, 3px) rotate(-29deg);
+  }
+
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}

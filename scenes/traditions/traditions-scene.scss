@@ -1,0 +1,375 @@
+@import "compass/css3";
+@import "compass/css3/transform";
+@import "compass/css3/border-radius";
+
+$tabletBreakpoint: 1024px;
+$mobileBreakpoint: 668px;
+
+$name: 'module-traditions';
+
+@import "../shared/sass/sceneboard";
+
+##{$name} {
+  width: 100%;
+  height: 100%;
+  background: #f6efe2;
+
+  #tradition-img {
+    position: absolute;
+    right: -400px;
+    top: -400px;
+    width: 300px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+    @include transition(all .2s ease);
+
+    &.active {
+      right: 90px;
+      top: -20px;
+    }
+
+    &.ar {
+      background-image: url(img/ar.png);
+    }
+
+    &.au {
+      background-image: url(img/au.png);
+    }
+
+    &.br {
+      background-image: url(img/br.png);
+    }
+
+    &.ca {
+      background-image: url(img/ca.png);
+    }
+
+    &.cl {
+      background-image: url(img/cl.png);
+    }
+
+    &.de {
+      background-image: url(img/de.png);
+    }
+
+    &.dk {
+      background-image: url(img/dk.png);
+    }
+
+    &.fr {
+      background-image: url(img/fr.png);
+    }
+
+    &.gh {
+      background-image: url(img/gh.png);
+    }
+
+    &.gr {
+      background-image: url(img/gr.png);
+    }
+
+    &.gt {
+      background-image: url(img/gt.png);
+    }
+
+    &.is {
+      background-image: url(img/is.png);
+    }
+
+    &.kg {
+      background-image: url(img/kg.png);
+    }
+
+    &.mx {
+      background-image: url(img/mx.png);
+    }
+
+    &.nz {
+      background-image: url(img/nz.png);
+    }
+
+    &.ph {
+      background-image: url(img/ph.png);
+    }
+
+    &.ru {
+      background-image: url(img/ru.png);
+    }
+
+    &.uk {
+      background-image: url(img/uk.png);
+    }
+
+    &.us {
+      background-image: url(img/us.png);
+    }
+  }
+
+  #lessons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(254, 216, 60, 0.8);
+
+    #lessons-inner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 350px;
+      height: 505px;
+      margin-left: -175px;
+      margin-top: -252px;
+
+      #close-lessons {
+        width: 79px;
+        height: 79px;
+        background: url(img/close.svg) no-repeat;
+        position: absolute;
+        right: -79px;
+        top: 0;
+      }
+
+      ul {
+        list-style: none;
+        li {
+          border-bottom: 3px solid #fadc72;
+
+          &:last-child {
+            border-bottom: 0;
+          }
+
+          a {
+            text-decoration: none;
+            display: block;
+            line-height: 115px;
+            font-size: 40px;
+            font-weight: bold;
+            color: #fff;
+          }
+
+          .crayon {
+            width: 75px;
+            height: 75px;
+            display: inline-block;
+            position: relative;
+            top: 20px;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+
+          .crayon-k-2 {
+            background-image: url(img/crayon-k-2.svg);
+          }
+
+          .crayon-3-5 {
+            background-image: url(img/crayon-3-5.svg);
+          }
+
+          .crayon-6-8 {
+            background-image: url(img/crayon-6-8.svg);
+          }
+
+          .crayon-9-10 {
+            background-image: url(img/crayon-9-10.svg);
+          }
+        }
+      }
+    }
+  }
+
+  #lessons-popup {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -227px;
+    color: #615c4c;
+
+    p {
+      margin: 0;
+      padding: 0;
+      line-height: 65px;
+      font-weight: bold;
+    }
+
+    #teacher-elf {
+      width: 53px;
+      height: 75px;
+      display: inline-block;
+      background: url(img/teacher.svg) no-repeat;
+      position: relative;
+      top: 29px;
+    }
+
+    a {
+      color: #35afdb;
+    }
+  }
+
+  #traditions-map {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .traditions-tradition {
+    display: none;
+    //background: rgba(246, 239, 226, .8);
+
+    position: absolute;
+    max-width: 390px;
+    left: 250px;
+    top: 50%;
+
+    h2 {
+      font-family: 'Lobster', sans-serif;
+      font-size: 55px;
+      color: #424242;
+      white-space: nowrap;
+      margin: 0;
+    }
+
+    p {
+      color: #504f4a;
+      font-size: 1.2em;
+    }
+  }
+
+  .tradition-active {
+    display: block;
+  }
+
+  .sceneboard {
+    background: #fed83c url(img/traditions_icon.svg) no-repeat 50% 30px;
+    height: 220px;
+
+    .controls {
+      background: #22b129;
+      @include border-radius(0 0 4px 4px);
+      position: absolute;
+      bottom: 0;
+      width: 204px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          @include box-sizing(border-box);
+          width: 33%;
+          float: left;
+
+          &:nth-child(2) {
+            border-left: 1px solid #19991f;
+            border-right: 1px solid #19991f;
+          }
+
+          a {
+            display: block;
+            height: 52px;
+            text-indent: -3000em;
+          }
+
+          #traditions-world {
+            background-image: url(img/smallglobe.svg);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+          }
+
+          #traditions-prev {
+            background-image: url(img/left.svg);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+          }
+
+          #traditions-next {
+            background-image: url(img/right.svg);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1px) and (max-width: $tabletBreakpoint) {
+  ##{$name} {
+    .traditions-tradition {
+      left: 20px;
+
+      h2 {
+        font-size: 45px;
+      }
+    }
+
+    .sceneboard {
+      height: auto;
+      right: 0;
+      bottom: 14px;
+      width: 204px;
+      left: auto;
+
+      .back, .sceneboard-back {
+        display: none;
+      }
+
+      .controls {
+        border-radius: 20px 0 0 20px;
+        bottom: 0;
+
+        ul li a {
+          height: 45px;
+        }
+      }
+    }
+
+    #tradition-img {
+      @include transform(scale(0.8));
+      &.active {
+        right: 70px;
+        top: -40px;
+      }
+    }
+
+    #lessons-popup {
+      left: 50px;
+      margin-left: 0;
+      color: #615c4c;
+    }
+  }
+}
+
+@media (min-width: 1px) and (max-width: $mobileBreakpoint) {
+  ##{$name} {
+    .traditions-tradition {
+      left: 20px;
+      right: 20px;
+      margin-top: 0 !important;
+      max-width: 100%;
+      bottom: 50px;
+      top: auto;
+
+      h2 {
+        font-size: 35px;
+      }
+    }
+
+    #lessons-popup {
+      display: none;
+    }
+
+    #tradition-img {
+      @include transform(scale(0.5));
+      &.active {
+        top: -80px;
+        right: -10px;
+      }
+    }
+  }
+}

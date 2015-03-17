@@ -1,0 +1,89 @@
+##{$name} {
+  .Face--hairdryerLeft {
+    .eye--left {
+      @extend .eye--blink;
+    }
+
+    .mouth {
+      @extend .mouth--breathRight;
+    }
+	}
+
+  .Face--hairdryerRight {
+    .eye--right {
+      @extend .eye--blink;
+    }
+
+    .mouth {
+      @extend .mouth--breathLeft;
+    }
+  }
+
+  .Face--hairdryerCenter {
+    .eye {
+      @extend .eye--closed;
+    }
+
+    .mouth {
+      @extend .mouth--breath;
+    }
+  }
+
+  .Face--alarmed {
+    .eyebrow {
+      @extend .eyebrow--raised;
+    }
+
+    .mouth {
+      @extend .mouth--open;
+    }
+  }
+
+  .Face--shaving {
+    .nose {
+      @extend .nose--squashed;
+    }
+
+    .mouth {
+      @extend .mouth--open;
+    }
+  }
+
+  .Face--happy {
+    .mouth {
+      @extend .mouth--smile;
+    }
+  }
+
+  .Face--delighted {
+    .mouth {
+      @extend .mouth--smile;
+    }
+
+    .cheek {
+      @extend .cheek--show;
+    }
+
+    .eye {
+      @extend .eye--closed;
+    }
+
+    .eyebrow {
+      @extend .eyebrow--raised;
+    }
+  }
+
+  .Face--sad {
+    .eyebrow--left {
+      @extend .eyebrow--sadLeft;
+    }
+
+    .eyebrow--right {
+      @extend .eyebrow--sadRight;
+    }
+
+    .mouth {
+      @extend .mouth--sad;
+    }
+  }
+}

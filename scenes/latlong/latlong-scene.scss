@@ -1,0 +1,64 @@
+$name: 'module-latlong';
+@import "sass/colors";
+
+$gameover-bg: #EF3A3B;
+$rotate-bg: $gameover-bg;
+$board-game-color: $orange;
+$shadow-height: 7px;
+$shadow-width: 4px;
+$break-tablet: 1025px;
+
+@import "../shared/sass/levelup";
+@import "../shared/sass/gameover";
+@import "../shared/sass/board";
+@import "../shared/sass/startbutton";
+@import "../shared/sass/rotate";
+@import "../shared/sass/pause-overlay";
+
+@import "sass/background";
+@import "sass/grid";
+@import "sass/present";
+@import "sass/elf";
+@import "sass/sidebar";
+@import "sass/tutorial";
+
+##{$name} {
+  .fill {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  @extend .fill;
+
+  .scene {
+    @extend .fill;
+    transform-origin: 0 0;
+  }
+
+  /* overrides for shared controls */
+  .levelup, .levelup--number {
+    z-index: 2;
+  }
+
+  .pauseOverlay {
+    z-index: 2 !important;
+  }
+
+  .board {
+    .level-item.is-active .level-number, .remaining {
+      background-color: #AC46BC;
+    }
+
+    .status {
+      background: url(img/status.svg) no-repeat;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+}

@@ -1,0 +1,366 @@
+<link rel="import" href="../base-scene.html">
+<link rel="import" href="../../js/webanimations.html">
+
+<script src="../shared/js/startbutton.js"></script>
+<script src="latlong-scene.min.js"></script>
+
+<!--
+Lat long scene.
+
+@element latlong-scene
+@extends base-scene
+-->
+<polymer-element name="latlong-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="latlong-scene.css" no-shim>
+
+  <div id="module-latlong">
+    <div class="latlong">
+      <div class="scene">
+        <div class="Background">
+          <div class="Grid">
+            <div data-color="red" class="Grid-longitude Grid-longitude--red">
+              <div data-number="1" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="2" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="3" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="4" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="5" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div class="Grid-latitude"></div>
+            </div>
+            <div data-color="green" class="Grid-longitude Grid-longitude--green">
+              <div data-number="1" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="2" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="3" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="4" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="5" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div class="Grid-latitude"></div>
+            </div>
+            <div data-color="blue" class="Grid-longitude Grid-longitude--blue">
+              <div data-number="1" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="2" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="3" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="4" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="5" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div class="Grid-latitude"></div>
+            </div>
+            <div data-color="pink" class="Grid-longitude Grid-longitude--pink">
+              <div data-number="1" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="2" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="3" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="4" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="5" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div class="Grid-latitude"></div>
+            </div>
+            <div data-color="cyan" class="Grid-longitude Grid-longitude--cyan">
+              <div data-number="1" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="2" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="3" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="4" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div data-number="5" class="Grid-latitude">
+                <div class="Grid-marker">
+                  <div class="Grid-marker-border"></div>
+                  <div class="Grid-marker-dot"></div>
+                </div>
+              </div>
+              <div class="Grid-latitude"></div>
+            </div>
+            <div class="Grid-longitude is-borderless">
+              <div class="Grid-latitude"></div>
+              <div class="Grid-latitude"></div>
+              <div class="Grid-latitude"></div>
+              <div class="Grid-latitude"></div>
+              <div class="Grid-latitude"></div>
+              <div class="Grid-latitude"></div>
+            </div>
+            <div class="Grid-yAxis">
+              <div class="Grid-number"></div>
+              <div class="Grid-number"></div>
+              <div class="Grid-number"></div>
+              <div class="Grid-number"></div>
+              <div class="Grid-number"></div>
+              <div class="Grid-number"></div>
+            </div>
+          </div>
+        </div>
+        <div class="hidden">
+          <div id="present-template" class="Present">
+            <div class="Present-box">
+              <div class="Present-shadow"></div>
+              <div class="Present-ribbon"></div>
+              <div class="Present-tag"></div>
+            </div>
+          </div>
+          <div id="elf-template" class="Elf Elf--withPresent">
+            <div class="Elf-body"></div>
+            <div class="Elf-fire">
+              <div class="Elf-fireOrange"></div>
+              <div class="Elf-fireYellow"></div>
+            </div>
+            <div class="Elf-sparks">
+              <div class="Elf-spark"></div>
+              <div class="Elf-spark"></div>
+              <div class="Elf-spark"></div>
+              <div class="Elf-spark"></div>
+              <div class="Elf-spark"></div>
+              <div class="Elf-spark"></div>
+              <div class="Elf-spark"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gui">
+        <div class="Belt"></div>
+        <div class="Presents"></div>
+        <div class="Sidebar">
+          <div class="pauseOverlay overlay">
+            <div class="pauseOverlay-icon"></div>
+          </div>
+          <div class="board board--game">
+            <a href="{{pageUrl}}#tracker" class="back"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
+            <div class="logo">
+              <!---->
+            </div>
+            <div class="score">
+              <div class="label"><i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg></div>
+              <div class="value">0</div>
+            </div>
+            <div class="level has-count">
+              <div class="label"><i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg></div>
+              <div class="value"><span class="current-level">1</span><span class="dark-text">/5</span>
+              </div>
+              <div class="level-dots">
+                <div class="level-item is-active">
+                  <div class="level-dot"></div>
+                  <div class="level-shadow"></div>
+                  <div class="level-number">1</div>
+                </div>
+                <div class="level-item">
+                  <div class="level-dot"></div>
+                  <div class="level-shadow"></div>
+                  <div class="level-number">2</div>
+                </div>
+                <div class="level-item">
+                  <div class="level-dot"></div>
+                  <div class="level-shadow"></div>
+                  <div class="level-number">3</div>
+                </div>
+                <div class="level-item">
+                  <div class="level-dot"></div>
+                  <div class="level-shadow"></div>
+                  <div class="level-number">4</div>
+                </div>
+                <div class="level-item">
+                  <div class="level-dot"></div>
+                  <div class="level-shadow"></div>
+                  <div class="level-number">5</div>
+                </div>
+              </div>
+            </div>
+            <div class="time">
+              <div class="label"><i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg></div>
+              <div class="value"><span class="minutes dark-text">00</span><span class="dark-text"> : </span><span class="seconds">00</span></div>
+              <div class="tracker">
+                <div class="remaining">
+                  <!---->
+                </div>
+              </div>
+              <div class="status">
+                <!---->
+              </div>
+            </div>
+            <div class="actions">
+              <button type="button" class="restart"></button>
+              <button type="button" class="pause"></button>
+            </div>
+          </div>
+        </div>
+        <div class="Tutorial"></div>
+        <div class="levelup"></div>
+        <div class="levelup--number"></div>
+        <div class="gameover overlay">
+          <div class="gameover-dialog overlay-dialog">
+            <h2 class="gameover-title"><i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg></h2>
+            <div class="gameover-winner">
+              <div class="gameover-score">
+                <p class="gameover-label"><i18n-msg msgid="gameover_score">PLACEHOLDER_i18n</i18n-msg></p>
+                <p class="gameover-number">0</p>
+              </div>
+            </div>
+            <div class="gameover-buttons">
+              <button type="button" class="Button Button--large gameover-play"><i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg></button>
+              <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="force-rotate portrait">
+          <div class="force-rotate-graphic"></div>
+          <div class="force-rotate-explanation"><i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+  Polymer({
+    componentDir: 'scenes/latlong/',
+
+    game: null,
+
+    onPreload: function() {
+      this.preloadSounds('latlong_load_sounds', 30);
+      this.preloadImages([
+        'img/belt.svg',
+        'img/elf-fire.svg',
+        'img/elfs.svg',
+        'img/logo.svg',
+        'img/map.jpg',
+        'img/marker-colors.svg',
+        'img/present-ribbon.svg',
+        'img/present-shadow.svg',
+        'img/present-tag.svg',
+        'img/status.svg',
+        'img/tutorial/tutorial.gif'
+      ]);
+    },
+    onShow: function() {
+      var module = this.$['module-latlong'];
+
+      this.game = new scenes.latlong.Game(module);
+      var that = this;
+      startButton(this, module, function() {
+        that.game.start();
+        that.fire('sound-ambient', 'latlong_start');
+      });
+    },
+    onHide: function() {
+      this.game.dispose();
+      this.game = null;
+      this.fire('sound-ambient', 'latlong_end');
+    }
+  });
+
+})();
+</script>
+</polymer-element>

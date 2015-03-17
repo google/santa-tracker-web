@@ -1,0 +1,46 @@
+##{$name} {
+  .tetris-truck {
+    height: 186px;
+    position: absolute;
+    left: 50%;
+    margin-left: -302px;
+    top: -185px;
+    svg {
+      display: block;
+    }
+    width: 100%;
+    transform: translateX(100%);
+  }
+
+  .tetris-truck__wheel {
+    position: absolute;
+    width: 58px;
+    height: 58px;
+    bottom: 0;
+    background: url('img/tetris-truck-wheel_70percent.svg') center bottom no-repeat;
+  }
+
+  .tetris-truck__wheel--one {
+    left: 45px;
+  }
+
+  .tetris-truck__wheel--two {
+    left: 200px;
+  }
+
+  .tetris-truck__load {
+    position: absolute;
+    width: 130px;
+    height: 120px;
+    top: -18px;
+    left: 172px;
+    overflow: hidden;
+  }
+
+  .tetris-truck__load__block {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(-122px);
+  }
+}

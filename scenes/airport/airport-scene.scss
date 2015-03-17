@@ -1,0 +1,966 @@
+$name: 'module-airport';
+
+@import "../shared/sass/board";
+@import "sass/penner-easing";
+@import "sass/clouds";
+
+$green: #00a550;
+$red: #e53934;
+$orange: #fbad17;
+$purple: #914296;
+$blue: #43b3e6;
+$olive: #7bb241;
+$yellow: #f9ce1e;
+$turquoise: #00abc0;
+
+$outfit-no-color: #ddd;
+
+
+$room-from-center: 853px;
+$big-plane-width: 1258px;
+
+$cycleDuration: 20; // 20s
+
+##{$name} {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  .scene {
+    // We'll position everything relative to the top of the conveyor belt.
+    position: absolute;
+    top: 70%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform-origin: 0 0;
+    height: 100%; // make it full height of screen
+    background: #58595b;
+  }
+
+  /**
+   * Background
+   */
+  .bg {
+    position: absolute;
+    top: -70%;
+    height: 70%;
+    left: 0;
+    right: 0;
+    background: #70cbf3;
+  }
+
+  .glass {
+    position: absolute;
+    bottom: 0;
+    height: 380px;
+    left: 0;
+    right: 0;
+    background: #dcecf9;
+    opacity: 0.9;
+  }
+
+  // sky starts above glass
+  .clouds {
+    position: absolute;
+    display: none;
+    bottom: 450px;
+    top: auto;
+    left: 0;
+    right: 0;
+    height: 50%;
+    max-height: 900px;
+  }
+
+
+  .glass:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 43px;
+    left: 0;
+    right: 0;
+    background: #bedaf3;
+  }
+
+  .pole-hor {
+    position: absolute;
+    height: 50px;
+    left: 0;
+    right: 0;
+    background: #fff;
+  }
+  .pole-hor--first-row {
+     bottom: 380px;
+  }
+  .pole-hor--second-row {
+     bottom: 880px;
+  }
+
+  .roof {
+    position: absolute;
+    top: 0;
+    bottom: 1380px;
+    left: 0;
+    right: 0;
+    background: #fff;
+  }
+
+  .pole-ver {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 44px;
+    background: #fff;
+  }
+
+  .pole-ver--0 {
+    right: 50%;
+    margin-right: 885px;
+  }
+
+  .pole-ver--1 {
+    right: 50%;
+    margin-right: 522px;
+  }
+
+  .pole-ver--2 {
+    right: 50%;
+    margin-right: 159px;
+  }
+
+  .pole-ver--3 {
+    left: 50%;
+    margin-left: 159px;
+  }
+
+  .pole-ver--4 {
+    left: 50%;
+    margin-left: 522px;
+  }
+
+  .pole-ver--5 {
+    left: 50%;
+    margin-left: 885px;
+  }
+
+  .sign {
+    position: absolute;
+    width: 317px;
+    height: 76px;
+    margin-bottom: -76px;
+    bottom: 380px;
+  }
+
+  .sign--left {
+    background: url('img/sign1.png');
+    right: 50%;
+    margin-right: 396px;
+  }
+
+  .sign--right {
+    background: url('img/sign2.png');
+    left: 50%;
+    margin-left: 396px;
+  }
+
+  .big-plane {
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-left: -$big-plane-width - $room-from-center;
+    bottom: -20px;
+    background: url('img/bigplane.png');
+    width: $big-plane-width;
+    height: 312px;
+  }
+
+  .plane {
+    position: absolute;
+
+  }
+  .plane--departing {
+    display: none;
+    top: 0;
+    bottom: 2%;
+    left: -400px;
+    width: 380px;
+    background: url('img/plane-departing.png') left bottom no-repeat;
+    transform-origin: bottom left;
+  }
+  .plane--flying {
+    display: none;
+    bottom: 630px;
+    left: 100%;
+    height: 67px;
+    width: 130px;
+    background: url('img/plane-flying.png') left bottom no-repeat;
+  }
+
+  /**
+   * Main floor. Elves.
+   */
+  .escalator {
+    position: absolute;
+    width: 30px;
+    height: 268px;
+    top: -240px;
+    background: #58595b;
+  }
+
+  .escalator:after {
+    content: '';
+    background: url('img/escalator.png');
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 255px;
+    height: 120px;
+    z-index: 1;
+  }
+
+  .escalator--right {
+    margin-left: 875px;
+    left: 50%;
+  }
+
+  .escalator--left {
+    margin-right: 875px;
+    right: 50%;
+  }
+
+  .escalator--left:after {
+    right: 30px;
+    transform: scaleX(-1);
+    transform-origin: 100% 0;
+  }
+
+
+  .conveyor-belt {
+    overflow: hidden;
+    position: absolute;
+    width: 905 * 2px;
+    margin-left: -905px;
+    left: 50%;
+    top: -240px;
+    height: 240px;
+  }
+
+  .conveyor-belt__item {
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    left: -200px;
+    display: block;
+    svg {
+      display: block;
+    }
+    .dressed,
+    .crazy {
+      //display: none;
+    }
+    .undressed {
+      display: block;
+    }
+  }
+  .conveyor-belt__item--reindeer {
+    width: 200px;
+  }
+
+
+  .closet {
+    background: url('img/closet.png');
+    width: 250px;
+    height: 421px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -125px;
+    margin-top: -346px;
+    z-index: 3;
+  }
+
+  .closet-lever {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-top: -345px;
+    z-index: 1;
+    animation-timing-function: $easeInOutQuint;
+    animation-iteration-count: infinite;
+
+    background: url('img/lever.min.svg') center bottom no-repeat;
+    height: 71px;
+    width: 18px;
+
+    &.closet-lever--one {
+      margin-left: -55px;
+    }
+    &.closet-lever--two {
+      margin-left: -33px;
+      animation-delay: 250ms
+    }
+  }
+  .closet-light {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: -295px;
+    background: #57585b;
+    z-index: 1;
+    &.closet-light--go {
+      margin-left: 73px;
+      background: $green;
+    }
+    &.closet-light--stop {
+      margin-left: -110px;
+    }
+    &.closet-light--stop-small {
+      margin-left: -69px;
+      margin-top: 277px;
+      width: 10px;
+      height: 10px;
+      z-index: 5;
+    }
+  }
+
+  &.closet--processing {
+    .closet-light--go {
+      margin-left: 73px;
+      background: #57585b;
+    }
+    .closet-light--stop,
+    .closet-light--stop-small {
+      background: $red;
+    }
+    .closet-lever--one {
+      animation-name: #{$name}-closet-lever;
+    }
+    .closet-lever--two {
+      animation-name: #{$name}-closet-lever;
+    }
+  }
+
+  .outfit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -57px;
+    margin-top: -113px;
+
+    .colorable {
+      fill: $outfit-no-color;
+      animation-duration: 2s;
+      animation-timing-function: steps(1, start);
+      animation-fill-mode: forwards;
+    }
+    .colorable.hat {
+      animation-delay: 0;
+    }
+    .colorable.shirt {
+      animation-delay: .15s;
+    }
+    .colorable.pants {
+      animation-delay: .3s;
+    }
+  }
+
+  .closet-outfit-lights {
+    position: absolute;
+    right: 11px;
+    top: 139px;
+    height: 240px;
+    width: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .closet-outfit-light {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      animation-name: #{$name}-outfit-light;
+      animation-duration: #{$cycleDuration/6}s;
+      animation-timing-function: step-end;
+      animation-iteration-count: infinite;
+      $lightDelay: .08s;
+      &:nth-child(2) { animation-delay: $lightDelay; }
+      &:nth-child(3) { animation-delay: $lightDelay*2; }
+      &:nth-child(4) { animation-delay: $lightDelay*3; }
+      &:nth-child(5) { animation-delay: $lightDelay*4; }
+    }
+  }
+
+  .closet-side-lights {
+    position: absolute;
+    left: 12px;
+    top: 190px;
+    height: 75px;
+    width: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .closet-side-light {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #FFFFFF;
+
+      animation-name: #{$name}-closet-side-light;
+      animation-duration: 4s;
+      animation-timing-function: step-end;
+      animation-iteration-count: infinite;
+      &:nth-child(1) {
+        animation-delay: 1s;
+      }
+      &:nth-child(2) {
+        animation-delay: 2s;
+      }
+      &:nth-child(3) {
+        animation-delay: .5s;
+        animation-direction: reverse;
+        animation-duration: 6s;
+      }
+      &:nth-child(4) {
+        animation-delay: 4s;
+      }
+    }
+  }
+
+  .room {
+    position: absolute;
+    top: 28px;
+    margin-top: -458px;
+    height: 458px;
+    background: #e6e7e8;
+  }
+
+  .room:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 76px;
+    background: #fff;
+  }
+
+  .room--left {
+    display: block;
+    backface-visibility: hidden;
+    right: 50%;
+    margin-right: $room-from-center;
+    left: -$room-from-center; //iphone fix - left:-10px; causes grey box from mid of screen
+  }
+
+  .room--left:after {
+    right: 0;
+  }
+
+  .room--right {
+    left: 50%;
+    margin-left: $room-from-center;
+    right: -10px;
+  }
+
+  .room--right:after {
+    left: 0;
+  }
+
+  /**
+   * Bottom of scene.
+   */
+  .floor {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    right: 0;
+    height:132px;
+    background: #ffe8b8;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 38px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #c49a6b;
+    }
+  }
+
+  .conveyor {
+    position: absolute;
+    box-sizing: border-box;
+    border: 5px solid #58595b;
+    height: 56px;
+    padding: 8px 8px;
+    border-radius: 56px;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .conveyor--floor {
+    top: 117px;
+    left: 50%;
+    margin-left: (-1904px / 2);
+    width: 1904px;
+    background: #657680;
+    padding: 6px 8px;
+
+    .conveyor-bolt {
+      animation-timing-function: linear;
+      animation-duration: 3.7s;
+      animation-iteration-count: infinite;
+      animation-name: #{$name}-conveyor-bolt;
+
+      background: url('img/cog-floor.min.svg') center center no-repeat;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .conveyor--main {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: (-1444px / 2);
+    width: 1444px;
+    background: #8ba0ac;
+    z-index: 2;
+
+    .conveyor-bolt {
+      animation-timing-function: linear;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-name: #{$name}-conveyor-bolt;
+
+      background: url('img/cog-main.min.svg') center center no-repeat;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &.speed-mode--medium {
+    .conveyor--main .conveyor-bolt {
+      animation-duration: 1.5s;
+      animation-name: #{$name}-conveyor-bolt-medium; // need to change animation for duration to take affect
+    }
+  }
+  &.speed-mode--fast {
+    .conveyor--main .conveyor-bolt {
+      animation-duration: 0.5s;
+      animation-name: #{$name}-conveyor-bolt-fast; // need to change animation for duration to take affect
+    }
+  }
+
+  .conveyor-bolt {
+    height: 31px;
+    width: 31px;
+  }
+
+  .bagdoor {
+    position: absolute;
+    width: 50%;
+  }
+  .bagdoor:before {
+    content: '';
+    position: absolute;
+    height: 96px;
+    top: 28px;
+    border: 5px solid #58595b;
+    background: #8ba0ac;
+  }
+
+  .bagdoor--left {
+    left: 0;
+  }
+
+  .bagdoor--left:before {
+    left: -10px;
+    right: 916px;
+  }
+
+  .bagdoor--right {
+    right: 0;
+  }
+
+  .bagdoor--right:before {
+    right: -10px;
+    left: 916px;
+  }
+
+  .bags {
+    position: absolute;
+    top: 56px;
+    left: 50%;
+    width: 1836px;
+    height: 100px;
+    margin-left: (-1836px / 2);
+  }
+
+  .bags__animation {
+    $bagsWidth: 2374px;
+    position: absolute;
+    height: 100%;
+    width: #{$bagsWidth*2};
+    background: url('img/baskets.png') left top repeat-x;
+    animation-timing-function: linear;
+    animation-duration: 80s;
+    animation-iteration-count: infinite;
+    animation-name: #{$name}-move-bags;
+  }
+
+  .speed-controls {
+    position: absolute;
+    bottom: 70%;
+    right: 10%;
+    z-index: 100;
+
+    svg {
+      display: block;
+    }
+  }
+  .speed-controls__lever {
+    cursor: pointer;
+    position: absolute;
+    bottom: -101px;
+    left: 50%;
+    margin-left: -55px;
+
+    transform-origin: 50% 100%;
+    transform: rotate(-45deg);
+    transition: transform 1s $easeOutQuint;
+  }
+
+  &.speed-mode--medium .speed-controls__lever {
+    transform: rotate(0deg);
+  }
+  &.speed-mode--fast .speed-controls__lever {
+    transform: rotate(45deg);
+  }
+
+  .conveyor-belt__item--reindeer__z {
+    display: none;
+  }
+}
+
+// enable some animations for tablet upwards
+@media (min-height: 700px) {
+  ##{$name} {
+    .big-plane {
+      display: block;
+      animation: linear 40s -15s infinite module-airport-move-plane;
+    }
+    .plane--departing {
+      display: block;
+      animation: linear 25s infinite module-airport-plane-departing 5s;
+    }
+    .plane--flying {
+      display: block;
+      animation: linear 55s infinite module-airport-plane-flying 10s;
+    }
+    .clouds {
+      display: block;
+    }
+
+    .elf-fallingBackwards .crazy {
+      animation-timing-function: $easeInOutQuad;
+      animation-duration: 3s;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+      animation-name: #{$name}-elf-fallingBackwards;
+      transform-origin: 44px bottom;
+    }
+    .elf-fallingBackwards .crazy #upperbody {
+      animation-timing-function: $easeInOutQuad;
+      animation-duration: 3s;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+      animation-name: #{$name}-elf-fallingBackwards-upperbody;
+      transform-origin: 40% 80%;
+    }
+    .elf-fallingBackwards .crazy #arm {
+      animation-timing-function: $easeInOutQuad;
+      animation-duration: 3s;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+      animation-name: #{$name}-elf-fallingBackwards-arm;
+      transform-origin: 100% 50%;
+    }
+
+    .elf-lookingDown .crazy #upperbody {
+      animation-timing-function: $easeInOutCirc;
+      animation-duration: 1.8s;
+      animation-delay: 1s;
+      animation-fill-mode: both;
+      animation-iteration-count: 1;
+      animation-name: #{$name}-elf-lookingDown;
+      transform-origin: 95% 95%;
+    }
+
+    .elf-rollingOnBack .crazy #elf {
+      animation-timing-function: $easeInOutQuad;
+      animation-duration: 2s;
+      animation-fill-mode: both;
+      animation-iteration-count: infinite;
+      animation-name: #{$name}-elf-rollingOnBack;
+      transform-origin: 114px bottom;
+    }
+
+    .conveyor-belt__item--reindeer__z {
+      display: block;
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      animation-timing-function: $easeOutQuad;
+      animation-duration: 3s;
+      animation-fill-mode: both;
+      animation-iteration-count: infinite;
+      animation-name: #{$name}-reindeer-z;
+
+      &:nth-child(3) {
+        animation-delay: .6s;
+      }
+      &:nth-child(2) {
+        animation-delay: 1.2s;
+      }
+      &:nth-child(1) {
+        animation-delay: 1.8s;
+      }
+    }
+  }
+}
+
+@keyframes #{$name}-plane-departing {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(20deg);
+  }
+  30%, 100% {
+    transform: translate3d(3000px, -1200px, 0) scale(.5);
+  }
+}
+
+@keyframes #{$name}-plane-flying {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50%, 100% {
+    transform: translate3d(-6000px, 0, 0);
+  }
+}
+
+@keyframes #{$name}-move-bags {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes #{$name}-move-plane {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX($room-from-center * 2 + $big-plane-width + 500px);
+  }
+}
+
+
+@keyframes #{$name}-outfit-cycle-green {
+  20%  { fill: $outfit-no-color; }
+  30%  { fill: $purple; }
+  40%  { fill: $orange; }
+  50%  { fill: $green; }
+  60%  { fill: $red; }
+  70%  { fill: $green; }
+  80%  { fill: $orange; }
+  90%  { fill: $purple; }
+  100%  { fill: $green; }
+}
+@keyframes #{$name}-outfit-cycle-red {
+  20%  { fill: $outfit-no-color; }
+  30%  { fill: $purple; }
+  40%  { fill: $orange; }
+  50%  { fill: $green; }
+  60%  { fill: $red; }
+  70%  { fill: $green; }
+  80%  { fill: $orange; }
+  90%  { fill: $purple; }
+  100% { fill: $red; }
+}
+@keyframes #{$name}-outfit-cycle-orange {
+  20%  { fill: $outfit-no-color; }
+  30%  { fill: $purple; }
+  40%  { fill: $orange; }
+  50%  { fill: $green; }
+  60%  { fill: $red; }
+  70%  { fill: $green; }
+  80%  { fill: $orange; }
+  90%  { fill: $purple; }
+  100%  { fill: $orange; }
+}
+
+@keyframes #{$name}-outfit-cycle-purple {
+  20%  { fill: $outfit-no-color; }
+  30%  { fill: $red; }
+  40%  { fill: $purple; }
+  50%  { fill: $orange; }
+  60%  { fill: $green; }
+  70%  { fill: $red; }
+  80%  { fill: $green; }
+  90%  { fill: $orange; }
+  100%  { fill: $purple; }
+}
+
+
+@keyframes #{$name}-outfit-cycle-blue {
+  20%  { fill: $outfit-no-color; }
+  30%  { fill: $red; }
+  40%  { fill: $purple; }
+  50%  { fill: $orange; }
+  60%  { fill: $green; }
+  70%  { fill: $red; }
+  80%  { fill: $green; }
+  90%  { fill: $orange; }
+  100%  { fill: $blue; }
+}
+
+@keyframes #{$name}-outfit-cycle-olive {
+  20%  { fill: $outfit-no-color; }
+  30%  { fill: $red; }
+  40%  { fill: $purple; }
+  50%  { fill: $orange; }
+  60%  { fill: $green; }
+  70%  { fill: $red; }
+  80%  { fill: $green; }
+  90%  { fill: $orange; }
+  100%  { fill: $olive; }
+}
+
+@keyframes #{$name}-outfit-cycle-yellow {
+  20%  { fill: $outfit-no-color; }
+  30%  { fill: $red; }
+  40%  { fill: $purple; }
+  50%  { fill: $orange; }
+  60%  { fill: $green; }
+  70%  { fill: $red; }
+  80%  { fill: $green; }
+  90%  { fill: $turquoise; }
+  100%  { fill: $yellow; }
+}
+
+@keyframes #{$name}-outfit-cycle-turquoise {
+  20%  { fill: $outfit-no-color; }
+  30%  { fill: $orange; }
+  40%  { fill: $purple; }
+  50%  { fill: $orange; }
+  60%  { fill: $green; }
+  70%  { fill: $red; }
+  80%  { fill: $green; }
+  90%  { fill: $blue; }
+  100%  { fill: $turquoise; }
+}
+
+@keyframes #{$name}-closet-lever {
+  from, to {
+    transform: translateY(0);
+  }
+  20%  { transform: translateY(40px); }
+  40% { transform: translateY(10px); }
+  50% { transform: translateY(40px); }
+  60% { transform: translateY(10px); }
+  70% { transform: translateY(30px); }
+  90% { transform: translateY(0px);  }
+}
+
+@keyframes #{$name}-outfit-light {
+  from, to {
+    background: #FFFFFF;
+  }
+  5%  { background: #FFF100; }
+  10% { background: #FFFFFF; }
+  15% { background: #FFF100; }
+  20% { background: #FFFFFF; }
+  25% { background: #FFF100; }
+  30% { background: #FFFFFF; }
+  35% { background: #FFF100; }
+}
+
+@keyframes #{$name}-closet-side-light {
+  0%   { background: #EA1C23; }
+  25%  { background: #FFF100; }
+  50%  { background: #29B04A; }
+  75%  { background: #0084CB; }
+}
+
+@keyframes #{$name}-conveyor-bolt {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes #{$name}-conveyor-bolt-medium {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes #{$name}-conveyor-bolt-fast {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes #{$name}-elf-fallingBackwards {
+  0%  { transform: rotate(-5deg); }
+  60% { transform: rotate(20deg);  }
+  100%  { transform: rotate(-5deg); }
+}
+@keyframes #{$name}-elf-fallingBackwards-upperbody {
+  0%   { transform: rotate(0); }
+  60% { transform: rotate(10deg); }
+  70% { transform: rotate(-20deg); }
+}
+@keyframes #{$name}-elf-fallingBackwards-arm {
+  45% { transform: rotate(80deg); }
+  50% { transform: rotate(15deg); }
+  54% { transform: rotate(-15deg); }
+  56% { transform: rotate(15deg); }
+  58% { transform: rotate(-15deg);  }
+  60% { transform: rotate(15deg);  }
+  62% { transform: rotate(-15deg); }
+  64% { transform: rotate(15deg);  }
+  66% { transform: rotate(-15deg); }
+  68% { transform: rotate(15deg);  }
+  70% { transform: rotate(-15deg); }
+  72% { transform: rotate(15deg);  }
+  74% { transform: rotate(-15deg); }
+  80% { transform: rotate(0);  }
+}
+
+@keyframes #{$name}-elf-lookingDown {
+  0% { transform: rotate(40deg); }
+  100% { transform: rotate(10deg); }
+}
+
+@keyframes #{$name}-elf-rollingOnBack {
+  0% { transform: rotate(-5deg); }
+  50% { transform: rotate(12deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+@keyframes #{$name}-reindeer-z {
+  0%   { opacity:1; transform: translate3d(0,0,0) scaleX(1.4) scaleY(1); }
+  66%  { opacity:0; transform: translate3d(-200%,-200%, 0) scaleX(2.4) scaleY(2); }
+  100% { opacity:0; transform: translate3d(0,0,0) scaleX(1.4) scaleY(1);}
+}
+
+
+
+@import "../shared/sass/responsive";

@@ -1,0 +1,551 @@
+<link rel="import" href="../../scenes/base-scene.html">
+<link rel="import" href="../../components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../components/core-animated-pages/transitions/cross-fade.html">
+<link rel="import" href="../../components/paper-fab/paper-fab.html">
+
+<!-- Only show pin categories for en. They're not translated. -->
+<style shim-shadowdom>
+  html[lang="en"] /deep/ calendar-nav::shadow div.card::after {
+    display: block !important;
+  }
+
+  html[lang="de"] /deep/ calendar-nav::shadow #site-nav h2 {
+    padding: 5px 6px;
+    font-size: 23px;
+    line-height: 25px;
+  }
+</style>
+
+<!--
+Village calendar navigation.
+
+@element calendar-nav
+@extends base-scene
+-->
+<polymer-element name="calendar-nav" extends="base-scene" attributes="houses mute">
+  <template>
+    <link rel="stylesheet" href="calendar-nav.css" no-shim>
+    <style>
+      paper-tabs::shadow #selectionBar {
+        background-color: #fcdb32;
+        height: 4px;
+      }
+      paper-tab::shadow #ink {
+        color: rgba(254, 222, 50, 0.5);
+      }
+      paper-tab::shadow .tab-content {
+        opacity: 1;
+      }
+
+      #back-to-tracker::shadow core-icon div {
+        background-size: 70% !important;
+        background-repeat: no-repeat;
+      }
+
+      #global-nav-btn-fab::shadow core-icon,
+      #tracker-nav-open-btn-fab::shadow core-icon,
+      #tracker-nav-close-btn-fab::shadow core-icon,
+      #back-to-tracker::shadow core-icon div {
+        -webkit-filter: drop-shadow(0px 2px 0 rgba(0,0,0,0.2));
+        filter: drop-shadow(0 2px 0 rgba(0,0,0,0.2));
+      }
+
+    </style>
+
+    <div id="module-nav">
+      <div id="global-nav" class="{{ {opened: opened, opening: opening, closing: closing, closed: closed, scrollable: scrollable} | tokenList}}" on-tap="{{dimissTrackerNav}}">
+        <template if="{{trackerActive && cityFeedActive}}">
+          <a href="{{pageUrl}}#tracker" on-click="{{fabClick}}" on-tap="{{onBackToTracker}}">
+            <div id="back-to-tracker-text"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></div>
+            <paper-fab id="back-to-tracker" src="img/back-to-tracker-arrow.svg" mini></paper-fab>
+          </a>
+        </template>
+
+        <template if="{{trackerActive}}">
+          <a id="tracker-nav-open-btn" href="{{pageUrl}}#tracker" on-click="{{fabClick}}">
+            <paper-fab id="tracker-nav-open-btn-fab" icon="menu" on-core-transitionend="{{trackerFabRippleDone}}"></paper-fab>
+          </a>
+        </template>
+
+        <template if="{{!trackerActive}}">
+          <a id="global-nav-btn" href="{{pageUrl}}#{{active ? (santaApp.prevSelectedRoute ? santaApp.prevSelectedRoute : 'village') : 'calendar'}}" on-click="{{fabClick}}">
+            <paper-fab id="global-nav-btn-fab" icon="today" on-core-transitionend="{{rippleDone}}"></paper-fab>
+          </a>
+        </template>
+
+        <template if="{{trackerActive}}">
+          <div id="tracker-nav">
+            <div id="tacker-nav-items">
+              <h2><i18n-msg msgid="today_only">PLACEHOLDER_i18n</i18n-msg></h2>
+              <hr>
+              <div id="tracker-nav-list" layout horizontal center-center wrap>
+                <div layout vertical center-center class="card card-trivia">
+                  <a href="{{pageUrl}}#trivia" on-click="{{ onTrackerMenuClick }}">
+                    <div class="icon"></div>
+                    <div><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></div>
+                  </a>
+                </div>
+                <div layout vertical center-center class="card card-reindeer">
+                  <a href="{{pageUrl}}#runner" on-click="{{ onTrackerMenuClick }}">
+                    <div class="icon"></div>
+                    <div><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></div>
+                  </a>
+                </div>
+                <div layout vertical center-center class="card card-tracker">
+                  <a href="{{pageUrl}}#tracker" on-click="{{ onTrackerMenuClick }}" on-tap="{{onShowCityFeed}}">
+                    <div class="icon"></div>
+                    <div><i18n-msg msgid="tracker_see_route">PLACEHOLDER_i18n</i18n-msg></div>
+                  </a>
+                </div>
+                <div layout vertical center-center class="card card-village">
+                  <a href="{{pageUrl}}#village" on-click="{{ onTrackerMenuClick }}">
+                    <div class="icon"></div>
+                    <div><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></div>
+                  </a>
+                </div>
+                <div layout vertical center-center class="card card-latlng">
+                  <a href="{{pageUrl}}#latlong" on-click="{{ onTrackerMenuClick }}">
+                    <div class="icon"></div>
+                    <div><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></div>
+                  </a>
+                </div>
+                <div layout vertical center-center class="card card-glider">
+                  <a href="{{pageUrl}}#glider" on-click="{{ onTrackerMenuClick }}">
+                    <div class="icon"></div>
+                    <div><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <a id="tracker-nav-close-btn" href="{{pageUrl}}#tracker" on-click="{{fabClick}}">
+              <paper-fab id="tracker-nav-close-btn-fab" icon="close" on-core-transitionend="{{hideTrackerNav}}"></paper-fab>
+            </a>
+          </div>
+        </template>
+
+        <template if="{{!trackerActive}}">
+          <div id="global-nav-body">
+            <div id="global-nav-header" layout horizontal center-center>
+              <a id="global-back-to-village" href="{{pageUrl}}#village" title="Go to the Village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+              <paper-tabs id="tabs" valueattr="filterOn" selected="{{filterOn}}"
+                          on-core-activate="{{onNavSelect}}" scrollable>
+                <paper-tab filterOn="calendar"><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></paper-tab>
+                <paper-tab filterOn="watch"><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></paper-tab>
+                <paper-tab filterOn="play"><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></paper-tab>
+                <paper-tab filterOn="learn"><i18n-msg msgid="learn">PLACEHOLDER_i18n</i18n-msg></paper-tab>
+                <paper-tab on-tap="{{onTheGo}}"><i18n-msg msgid="onthego">PLACEHOLDER_i18n</i18n-msg></paper-tab>
+              </paper-tabs>
+            </div>
+
+            <div id="global-nav-content">
+
+              <core-animated-pages transitions="cross-fade" selected="{{calNavSelection}}" valueattr="route">
+                <section route="calendar">
+                  <div id="nav-calendar" cross-fade class="{{filterOn}}">
+                    <div layout horizontal center-center wrap>
+                      <div class="card"></div>
+
+                      <div layout vertical center-center data-index="1"
+                           class="card calendar scene video play learn">
+                        <template repeat="{{house, i in firstFour}}">
+                          <a href="{{house.link || pageUrl + '#' + house.module}}" on-click="{{onCalendarClick}}">
+                            <div class="menu-marker marker1 calendar [[house.category]]" style="background-image:url({{componentBaseDir}}img/menu-[[house.module]].svg);"></div>
+                          </a>
+                        </template>
+                      </div>
+
+                      <template repeat="{{house, i in regularSchedule}}">
+                        <div layout vertical center-center data-index="{{i + 2}}" data-category="[[house.category]]" class="card calendar [[house.category]] {{house.iced ? 'iced' : 'melt'}}">
+                          <a href="{{house.link || pageUrl + '#' + house.module}}" on-click="{{onCalendarClick}}">
+                            <div class="menu-marker marker{{i + 2}} calendar [[house.category]]" style="background-image:url({{componentBaseDir}}img/menu-[[house.module]].svg);"></div>
+                          </a>
+                        </div>
+                      </template>
+                      <div layout vertical center-center data-index="24" data-category="learn" class="card calendar learn {{ {iced: !santaApp.postCountdown || santaApp.postFlight} | tokenList}}">
+                        <a href="{{pageUrl}}#tracker" on-click="{{onCalendarClick}}">
+                          <div class="menu-marker marker24 calendar learn" style="background-image:url({{componentBaseDir}}img/menu-tracker.svg);"></div>
+                        </a>
+                      </div>
+                      <div class="card" id="spacer1"></div>
+                      <div class="card" id="spacer2"></div>
+                      <div class="card" id="spacer3"></div>
+                      <div class="card" id="spacer4"></div>
+                      <div class="card" id="spacer5"></div>
+                    </div>
+                  </div>
+                </section>
+                <section route="onthego">
+                  <div id="nav-onthego" cross-fade>
+                    <div class="onthego-item onthego-android">
+                      <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker" on-click="{{trackOutboundLink}}">
+                        <div class="logo"></div>
+                        <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
+                        <p><i18n-msg msgid="playdescription">PLACEHOLDER_i18n</i18n-msg></p>
+                      </a>
+                    </div>
+                    <div class="onthego-item onthego-chrome">
+                      <a href="//www.google.com/chrome/santatracker/" on-click="{{trackOutboundLink}}">
+                        <div class="logo"></div>
+                        <h2><i18n-msg msgid="deck">PLACEHOLDER_i18n</i18n-msg></h2>
+                        <p><i18n-msg msgid="deckdescription">PLACEHOLDER_i18n</i18n-msg></p>
+                      </a>
+                    </div>
+                    <div class="onthego-item onthego-cast">
+                      <a href="//play.google.com/store/apps/details?id=com.google.android.apps.santatracker" on-click="{{trackOutboundLink}}">
+                        <div class="logo"></div>
+                        <h2><i18n-msg msgid="light">PLACEHOLDER_i18n</i18n-msg></h2>
+                        <p><i18n-msg msgid="lightdescription">PLACEHOLDER_i18n</i18n-msg></p>
+                      </a>
+                    </div>
+                  </div>
+                </section>
+              </core-animated-pages>
+            </div>
+          </div>
+        </template>
+
+        <div id="global-nav-footer">
+          <core-icon icon="language" style="height:20px;width:20px;"></core-icon>
+          <select id="language" value="{{santaApp.language}}" on-change="{{onLanguageChanged}}">
+            <option value="af">Afrikaans</option>
+            <option value="ca">Català</option>
+            <option value="zh-CN">中文（香港）</option>
+            <option value="zh-TW">中文</option>
+            <option value="da">Dansk</option>
+            <option value="de">Deutsch</option>
+            <option value="et">Eesti</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="fr-CA">Français (Canada)</option>
+            <option value="hr">Hrvatski</option>
+            <option value="id">Indonesia</option>
+            <option value="it">Italiano</option>
+            <option value="ja">日本語</option>
+            <option value="lv">Latvijas</option>
+            <option value="lt">Lietuvos</option>
+            <option value="no">Norsk</option>
+            <option value="pl">Polski</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="pt-PR">Português (Portugal)</option>
+            <option value="ro">Român</option>
+            <option value="sl">Slovenija</option>
+            <option value="sv">Svenska</option>
+            <option value="tl">Tagalog</option>
+            <option value="fi">Viimeistely</option>
+            <option value="bg">Български</option>
+            <option value="uk">Український</option>
+            <option value="ta-IN">தமிழ்</option>
+            <option value="ms">മലയാളം </option>
+            <option value="th">ภาษาไทย</option>
+          </select>
+          &bull;
+          <a href="{{pageUrl}}#about"><i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg></a>
+          &bull;
+          <a href="https://www.google.com/policies/"><i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg></a>
+          &bull;
+          <a href="https://maps.google.com/help/maps/helloworld/index.html"><i18n-msg msgid="getgooglemaps">PLACEHOLDER_i18n</i18n-msg></a>
+        </div>
+      </div>
+
+      <div id="site-nav">
+        <h2><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h2>
+        <div class="share">
+          <ul>
+            <li><a href="{{pageUrl}}#" class="gplus" on-click="{{shareGplus}}"><i><i18n-msg msgid="gplus">PLACEHOLDER_i18n</i18n-msg></i></a></li>
+            <li><a href="{{pageUrl}}#" class="fb" on-click="{{shareFB}}"><i>Facebook</i></a></li>
+            <li><a href="{{pageUrl}}#" class="twitter" on-click="{{shareTwitter}}"><i><i18n-msg msgid="twitter">PLACEHOLDER_i18n</i18n-msg></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="sound" hidden?="{{mode == 'embed'}}">
+        <a href="{{pageUrl}}#" class="{{mute ? 'off' : 'on'}}" on-click="{{toggleSounds}}"><i></i></a>
+      </div>
+
+    </div>
+
+  </template>
+  <script>
+  (function() {
+    Polymer({
+      opened: false,
+      opening: false,
+      closed: true,
+      closing: false,
+
+      /**
+       * True if sounds should be muted.
+       *
+       * @property mute
+       * @type bool
+       * @default false
+       */
+      mute: false,
+
+      /**
+       * True if the tracker is active.
+       *
+       * @property trackerActive
+       * @type bool
+       * @default false
+       */
+      trackerActive: false,
+
+      /**
+       * True if the city feed is active. This implies trackerActive is also
+       * true.
+       *
+       * @property cityFeedActive
+       * @type bool
+       * @default false
+       */
+      cityFeedActive: false,
+
+      TIMEOUT_DELAY: 300 + (25 * 42),
+
+      componentDir: 'elements/calendar/',
+
+      /**
+       * Fired when a general tracking event should be recorded in analytics.
+       *
+       * @event analytics-track-event
+       * @param {Object} detail
+       *   @param {string} detail.category
+       *   @param {string} detail.action
+       *   @param {string} detail.label
+       */
+
+      /**
+       * Fired when a social/share should be recorded in analytics.
+       *
+       * @event analytics-track-social
+       * @param {Object} detail
+       *   @param {string} detail.network
+       *   @param {string} detail.action
+       *   @param {string} detail.target
+       */
+
+      rippleDone: function(e, detail, sender) {
+        location.href = sender.parentNode.href;
+      },
+
+      trackerFabRippleDone: function(e, detail, sender) {
+        this.santaApp.selectedScene.navOpen = true;
+        this.onShow();
+      },
+
+      hideTrackerNav: function(e, detail, sender) {
+        this.santaApp.selectedScene.navOpen = false;
+        this.onHide();
+      },
+
+      fabClick: function(e, detail, sender) {
+        e.preventDefault();
+      },
+
+      onBackToTracker: function(e, detail, sender) {
+        this.santaApp.selectedScene.cityFeedActive = false;
+        this.santaApp.selectedScene.feedWasOpenForCurrentCity = true;
+      },
+
+      trackerActiveChanged: function() {
+        if (this.trackerActive) {
+          this.cityFeedActive = false;
+        } else {
+          this.hideTrackerNav();
+        }
+      },
+
+      housesChanged: function() {
+        this.firstFour = this.houses.slice(0, 4);
+        this.regularSchedule = this.houses.slice(4);
+      },
+
+      onNavSelect: function(e, detail, sender) {
+        // Ensure the calendar comes back up when a filter nav item is clicked.
+        if (detail.item.hasAttribute('filterOn')) {
+          this.calNavSelection = 'calendar';
+        }
+      },
+
+      onCalendarClick: function(e, detail, sender) {
+        // Don't allow opening iced scenes.
+        var house = sender.templateInstance.model.house;
+        if (house && house.iced) {
+          e.preventDefault();
+          return;
+        }
+
+        // Don't allow opening the tracker if it's not within tracking time.
+        var isTracker = sender.href.indexOf('#tracker') != -1;
+        var trackerTimeRange = this.santaApp.postCountdown && !this.santaApp.postFlight;
+        if (isTracker && !trackerTimeRange) {
+          e.preventDefault();
+        }
+      },
+
+      onTrackerMenuClick: function(e, detail, sender) {
+        e.preventDefault();
+
+        this.onHide();
+        this.santaApp.selectedScene.cityFeedActive = false;
+
+        location.href = sender.href;
+      },
+
+      onShowCityFeed: function(e, detail, sender) {
+        this.santaApp.selectedScene.cityFeedActive = true;
+      },
+
+      onTheGo: function(e, detail, sender) {
+        e.preventDefault();
+        this.calNavSelection = 'onthego';
+      },
+
+      trackOutboundLink: function(e, detail, sender) {
+        e.preventDefault();
+
+        this.fire('analytics-track-event', {category: 'outbound', action: 'click',
+                                            label: sender.href});
+
+        this.async(function() {
+          document.location.href = sender.href;
+        }, null, 100);
+      },
+
+      onLanguageChanged: function(e, detail, sender) {
+        var lang = sender.value;
+
+        this.fire('analytics-track-event', {category: 'language', action: 'click',
+                                            label: 'change', value: lang});
+
+        // This is done as a RAF because we want to make sure the analytics
+        // event is triggered.
+        this.async(function() {
+          // TODO(bckenny): hardcode this for now
+          window.location = 'https://santatracker.google.com/intl/' + lang +
+              '/' + location.search + location.hash;
+        }, null, 100);
+      },
+
+      onShow: function() {
+        this.cancelAsync(this.closeTimeout_);
+
+        this.$['global-nav-content'].scrollTop = 0;
+
+        // Start with calendar page open and its filtering tab selected.
+        this.calNavSelection = 'calendar';
+        this.filterOn = 'calendar';
+
+        this.closed = this.closing = false;
+        this.opening = true;
+
+        this.async(function() {
+          this.opened = true;
+        });
+
+        this.fire('sound-trigger', 'menu_open');
+      },
+
+      onHide: function() {
+        this.opening = this.opened = false;
+        this.closing = true;
+
+        this.closeTimeout_ = this.async(function() {
+          this.closed = true;
+        }, null, this.TIMEOUT_DELAY);
+
+        this.fire('sound-trigger', 'menu_close');
+      },
+
+      getNicePageUrl: function() {
+        // We don't want to share urls with #village or #calendar in them.
+        var hash = location.hash.replace(/#village|#calendar/ig, '');
+
+        return 'https://santatracker.google.com/' + hash;
+      },
+
+      shareGplus: function(e) {
+        e.preventDefault();
+
+        var target = this.getNicePageUrl();
+
+        this.fire('analytics-track-social', {
+          network: 'googleplus', action: 'share',
+          target: target
+        });
+
+        this.openPage_('https://plus.google.com/share?url=' +
+                       encodeURIComponent(target) +
+                       '&hl=' + encodeURIComponent(document.documentElement.lang));
+      },
+
+      shareFB: function(e) {
+        e.preventDefault();
+
+        var target = this.getNicePageUrl();
+
+        this.fire('analytics-track-social', {
+          network: 'facebook', action: 'share',
+          target: target
+        });
+
+        this.openPage_('https://www.facebook.com/sharer.php?u=' +
+                       encodeURIComponent(target) +
+                       '&t=' + encodeURIComponent(document.title));
+
+      },
+
+      shareTwitter: function(e) {
+        e.preventDefault();
+
+        var target = this.getNicePageUrl();
+
+        this.fire('analytics-track-social', {
+          network: 'twitter', action: 'share',
+          target: target
+        });
+
+        this.openPage_('https://twitter.com/share?text=' +
+                       encodeURIComponent('Google Santa Tracker - ' +
+                       'Follow Santa on his journey around the ' +
+                       'world -') + '&url=' +
+                       encodeURIComponent(target));
+      },
+
+      /**
+       * Open a fixed size window to a url
+       * @param {string} url
+       */
+      openPage_: function(url) {
+        window.open(url, 'Share', 'toolbar=0,status=0,width=626,height=480');
+      },
+
+      toggleSounds: function(e, detail, sender) {
+        this.mute = !this.mute;
+        e.preventDefault();
+      },
+
+      muteChanged: function() {
+        if (this.mute) {
+          this.fire('sound-ambient', 'global_sound_off');
+        } else {
+          this.fire('sound-ambient', 'global_sound_on');
+        }
+      },
+
+      dimissTrackerNav: function(e, detail, sender) {
+        // Toggle off tracker nav if the map area was clicked.
+        if (this.trackerActive && e.target == this.$['global-nav']) {
+          this.hideTrackerNav();
+        }
+      }
+
+    });
+
+  })();
+  </script>
+</polymer-element>

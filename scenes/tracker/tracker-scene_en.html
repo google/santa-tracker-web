@@ -1,0 +1,750 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../base-scene.html">
+<link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="tracker-intro.html">
+<link rel="import" href="city-feed/city-feed.html">
+<link rel="import" href="../../components/google-apis/google-maps-api.html">
+<link rel="import" href="../../components/paper-fab/paper-fab.html">
+<link rel="import" href="../../components/core-media-query/core-media-query.html">
+
+<link rel="import" href="dependencies.html">
+
+<script src="../shared/js/mapstyles.js"></script>
+
+<!--
+Tracker scene.
+
+@element tracker-scene
+@extends base-scene
+-->
+<polymer-element name="tracker-scene" extends="base-scene">
+<template>
+  <link rel="stylesheet" href="tracker-scene.css" no-shim>
+  <style>
+      #tracker-zoom-controls-zoomin::shadow core-icon,
+      #tracker-zoom-controls-zoomout::shadow core-icon {
+        -webkit-filter: drop-shadow(0px 2px 0 rgba(0,0,0,0.2));
+        filter: drop-shadow(0 2px 0 rgba(0,0,0,0.2));
+      }
+    </style>
+
+  <core-a11y-keys target="{{}}" keys="esc" on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+
+  <div id="module-tracker">
+    <div class="scene">
+
+      <template if="{{santaApp}}">
+        <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
+                         libraries="places,geometry" language="{{santaApp.language}}"
+                         on-api-load="{{mapsAPIReady}}"></google-maps-api>
+      </template>
+
+      <city-feed id="feed" fit timeline="{{santaApp.timeline}}"
+                 santaApp="{{santaApp}}" videoMap="{{ytMapping}}"></city-feed>
+
+      <tracker-intro id="intro"
+          userLocation="{{userLocation}}"
+          santaDistance="{{initialSantaDistance}}"
+          santaLocation="{{initialSantaLocation}}"></tracker-intro>
+
+      <div id="cards">
+        <template id="mini-cards-template">
+          <div hidden?="{{model.type != 'city'}}" class="card-city">
+            <a href="{{pageUrl}}#tracker" on-tap="{{onTrackerCardClicked}}">
+              <div class="card-header">
+                <div class="corner-image"></div>
+                <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h3>{{model.stop.city}}</h3>
+                <h5><span class="icon-clock"></span>{{model.stop.arrival | formatCountdown_}}</h4>
+              </div>
+              <div class="card-body">
+                <div fit class="cover"></div>
+                <core-image sizing="cover" fit preload fade src="{{model.stop.details.photos[0].url}}" load?="{{model.stop.details.photos[0]}}"></core-image>
+              </div>
+            </a>
+          </div>
+          <div hidden?="{{model.type != 'facts'}}">
+            <a href="{{pageUrl}}#tracker" on-tap="{{onTrackerCardClicked}}">
+              <div class="card-header">
+                <div class="corner-image"></div>
+                <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
+              </div>
+              <div class="card-body">
+                <p>{{model.didyouknow}}</p>
+              </div>
+              <div class="card-footer">
+                <p><i18n-msg msgid="trivia_ngb_promo">PLACEHOLDER_i18n</i18n-msg></p>
+              </div>
+            </a>
+          </div>
+
+          <div hidden?="{{model.type != 'photos'}}" style="height:100%">
+            <div class="card-header">
+              <div class="corner-image"></div>
+            </div>
+            <div class="card-body">
+              <core-image sizing="cover" preload fade src="{{model.imageUrl}}" fit></core-image>
+            </div>
+          </div>
+
+          <div hidden?="{{model.type != 'update'}}">
+            <div class="card-header">
+              <div class="corner-image"></div>
+              <h4><i18n-msg msgid="tracker_santa_update">PLACEHOLDER_i18n</i18n-msg></h4>
+            </div>
+            <div class="card-body">
+              <p>{{model.status}}</p>
+            </div>
+          </div>
+
+          <div hidden?="{{model.type != 'video'}}">
+            <a href="{{pageUrl}}#{{ytMapping[model.youtubeId]}}">
+              <div class="card-header">
+                <div class="corner-image"></div>
+                <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
+              </div>
+              <div class="card-{{ytMapping[model.youtubeId]}} card-body"></div>
+            </a>
+          </div>
+        </template>
+        <template if="{{trackerCard}}" bind="{{trackerCard as model}}">
+          <div class="card card-{{model.type}}">
+            <template bind ref="mini-cards-template"></template>
+          </div>
+        </template>
+      </div>
+
+      <div id="tracker-zoom-controls" hidden="true">
+        <paper-fab id="tracker-zoom-controls-zoomin" icon="add" alt="Zoom in" mini on-tap="{{trackerZoomIn}}"></paper-fab>
+        <paper-fab id="tracker-zoom-controls-zoomout"icon="remove" alt="Zoom out" mini on-tap="{{trackerZoomOut}}"></paper-fab>
+      </div>
+
+      <div id="trackermap" fit></div>
+
+      <core-media-query query="max-width:660px" queryMatches="{{isPhoneSize}}"></core-media-query>
+
+      <template if="{{cityFeedActive}}">
+        <div id="city-stats">
+          <ul>
+            <li hidden?="{{!location.stopover}}">
+              <a href="{{pageUrl}}#tracker" on-tap="{{onCurrentLocationClicked}}">
+                <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                <div class="ico ico-marker"></div>
+                <div class="stat">{{ location.stopover.city }}</div>
+              </a>
+            </li>
+            <li>
+              <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+              <div class="ico ico-reindeer"></div>
+              <div class="stat">{{ location.next.city }}</div>
+            </li>
+            <template if="{{!location.stopover}}">
+              <li>
+                <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                <div class="ico ico-clock"></div>
+                <div class="stat">{{ arrival_ }}</div>
+              </li>
+            </template>
+            <template if="{{location.stopover}}">
+              <li>
+                <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                <div class="ico ico-clock"></div>
+                <div class="stat">{{ departure_ }}</div>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </template>
+
+      <template if="{{!cityFeedActive}}">
+        <div id="status-bar" class="{{ {'slide-up': navOpen, 'show': location} | tokenList }}">
+          <div id="back-to-village">
+            <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
+              <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
+            </a>
+          </div>
+
+          <template if="{{userLocation}}">
+            <ul>
+              <li>
+                <h4><i18n-msg msgid="tracker_your_location">PLACEHOLDER_i18n</i18n-msg></h4>
+                <div class="ico ico-marker"></div>
+                <div class="stat">{{ userLocation.name }}</div>
+              </li>
+              <li>
+                <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
+                <div class="stat-large"> {{ santaDistance | formatDistance_ }}</div>
+              </li>
+              <li >
+                <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
+                <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
+              </li>
+              <template if="{{!location.stopover}}">
+                <li>
+                  <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div class="ico ico-clock"></div>
+                  <div class="stat">{{ arrival_ }}</div>
+                </li>
+                <li>
+                  <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div class="ico ico-arrow"></div>
+                  <div class="stat">{{ location.next.city }}</div>
+                </li>
+              </template>
+              <template if="{{location.stopover}}">
+                <li>
+                  <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div class="ico ico-clock"></div>
+                  <div class="stat">{{ departure_ }}</div>
+                </li>
+                <li>
+                  <a href="{{pageUrl}}#tracker" on-tap="{{onCurrentLocationClicked}}"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div class="ico ico-marker"></div>
+                  <div class="stat">{{ location.stopover.city }}</div></a>
+                </li>
+              </template>
+            </ul>
+          </template>
+
+          <template if="{{!userLocation}}">
+            <ul>
+              <template if="{{location.stopover}}">
+                <li>
+                  <a href="{{pageUrl}}#tracker" on-tap="{{onCurrentLocationClicked}}"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div class="ico ico-marker"></div>
+                  <div class="stat">{{ location.stopover.city }}</div></a>
+                </li>
+                <li>
+                  <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div class="ico ico-clock"></div>
+                  <div class="stat">{{ departure_ }}</div>
+                </li>
+
+              </template>
+              <template if="{{!location.stopover}}">
+                <li>
+                  <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div class="ico ico-arrow"></div>
+                  <div class="stat">{{ location.next.city }}</div>
+                </li>
+                 <li>
+                  <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <div class="ico ico-clock"></div>
+                  <div class="stat">{{ arrival_ }}</div>
+                </li>
+              </template>
+              <li>
+                <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
+                <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
+              </li>
+            </ul>
+          </template>
+        </div>
+      </template>
+
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+
+  Polymer({
+    componentDir: 'scenes/tracker/',
+
+    /**
+     * Fired when the tracker
+     *
+     * @event tracker-action
+     * @param {object} detail
+     *     @param {string} type The type of action that was triggered. Possible
+     *         values are 'tracker-toggle' or 'city-toggle'.
+     *     @param {boolean} active True if the item in question is being shown.
+     */
+
+    /**
+     * Fired when city feed is activated.
+     *
+     * @event analytics-track-event
+     * @param {object} detail
+     */
+
+    /**
+     * Initial Santa's location. Does not get updated.
+     * @type {SantaState}
+     * @private
+     */
+    initialSantaLocation: null,
+
+    /**
+     * Initial Santa's distance from user. Does not get updated.
+     * @type {SantaState}
+     * @private
+     */
+    initialSantaDistance: null,
+
+    /**
+     * Current Santa's location.
+     * @type {SantaState}
+     * @private
+     */
+    location: null,
+
+    /**
+     * Santas time of arrival.
+     * @type {string}
+     * @private
+     */
+    arrival_: null,
+
+    /**
+     * Santas time of arrival.
+     * @type {string}
+     * @private
+     */
+    departure_: null,
+
+    /**
+     * User's location.
+     * @type {Position}
+     * @private
+     */
+    userLocation: null,
+
+    worldView_: false,
+
+    /**
+     * True if the city feed is open.
+     * @property cityFeedActive
+     * @type {boolean}
+     * @default false
+     */
+    cityFeedActive: false,
+
+    /**
+     * True if the tracker nav is open.
+     * @property navOpen
+     * @type {boolean}
+     * @default false
+     */
+    navOpen: false,
+
+    /**
+     * True if the maps api is ready to use
+     * @type {booelan}
+     * default false
+     */
+    mapReady_: false,
+
+    /**
+     * True if the scene has been displayed and is ready to render
+     * @type {boolean}
+     * defaul false
+     */
+    shown: false,
+
+    /**
+     * True if the city feed was opened from arriving at a city.
+     * @type {boolean}
+     * defaul false
+     */
+    feedWasOpenForCurrentCity: false,
+
+    /**
+     * Mapping of YouTube video ids to URL routes.
+     * @property ytMapping
+     * @type {object}
+     */
+    ytMapping: {
+      'h83b1lWPuvQ': 'carpool',
+      'oCAKV4Ikhec': 'liftoff',
+      'sQnKCU_A0Yc': 'jingle',
+      'ZJPL56IPTjw': 'satellite',
+      '2FtcJJ9vzVQ': 'temptation',
+      'IXmDOu-eSx4': 'office',
+      '2UGX3bT9u20': 'tired',
+      '_WdYujHlmHA': 'com-room',
+      'vHMeXs36NTE': 'reload',
+      'uEl2WIZOVdQ': 'slacking-off'
+    },
+
+    CARD_SHOW_TIME_: 7000, // 7 seconds
+
+    onPreload: function() {
+      // TODO(lukem): Audit images and only preload what we need
+      var images = [
+        'img/arrow-circle.svg',
+        'img/arrow.svg',
+        'img/clock.svg',
+        'img/marker.svg',
+        'img/pin.svg',
+        'img/santa_n.svg',
+        'img/santa_ne.svg',
+        'img/santa_e.svg',
+        'img/santa_se.svg',
+        'img/santa_s.svg',
+        'img/santa_sw.svg',
+        'img/santa_w.svg',
+        'img/santa_nw.svg',
+        'img/santa_effects.svg',
+        'img/village.svg'
+      ];
+
+      for (var i = 1; i <= 9; i++) {
+        images.push('img/santa_magic_' + i + '.svg');
+      }
+
+      for (var i = 1; i <= 8; i++) {
+        images.push('img/santa_presents_' + i + '.svg');
+      }
+
+      this.preloadImages(images);
+    },
+
+    onCurrentLocationClicked: function(e, detail, sender) {
+      e.preventDefault();
+      var destId = sender.templateInstance.model.location.stopover.id;
+      this.cityFeedActive = true;
+      this.$.feed.scrollToDest(destId);
+    },
+
+    onTrackerCardClicked: function(e, detail, sender) {
+      e.preventDefault();
+      this.cityFeedActive = true;
+      var destId = sender.templateInstance.model.model.stop.id;
+      this.$.feed.scrollToDest(destId);
+
+      var cardType = sender.templateInstance.model.model.type;
+      this.fire('analytics-track-event', {category: 'card', action: 'click',
+                                          label: 'type: ' + cardType});
+    },
+
+    created: function() {
+      this.location = {};
+    },
+
+    trackSanta: function() {
+      if (this.trackingInterval_) return;
+
+      this.updateSanta_();
+    },
+
+    trackerZoomIn: function() {
+      if (this.worldView_) {
+        this.worldView_.zoomIn();
+      }
+    },
+
+    trackerZoomOut: function() {
+      if (this.worldView_) {
+        this.worldView_.zoomOut();
+      }
+    },
+
+    updateSanta_: function() {
+      this.santaApp.santaService.getCurrentLocation(function(location) {
+        this.location = location;
+      }.bind(this));
+
+      // if santaApp doesn't notice, remind it that tracking is finished.
+      if (this.santaApp.santaService.now() > this.santaApp.FLIGHT_FINISHED) {
+        this.santaApp.fire('tracker-end');
+      }
+
+      if (!this.trackingInterval_) {
+        this.trackingInterval_ = window.setInterval(this.updateSanta_.bind(this), 250);
+      }
+    },
+
+    mapsAPIReady: function() {
+      this.mapReady_ = true;
+      this.setupTracker();
+    },
+
+    setupTracker: function() {
+      if (!this.mapReady_ || !this.shown || this.worldView_) return;
+
+      this.worldView_ = new WorldView(this, this.componentDir);
+      this.worldView_.setupMap();
+      this.worldView_.show();
+
+      // Santa API returning destinations is async. Upgrading this element is
+      // async. The Maps API being ready is async. If destinations have not
+      // been returned by the API at this point, sync santa and get us some!
+      if (this.santaApp.destinations.length) {
+        this.destinations = this.santaApp.destinations;
+      } else {
+        this.santaApp.santaService.sync(function() {
+          this.destinations = this.santaApp.destinations;
+        }.bind(this));
+      }
+
+      this.$.intro.showTitle();
+
+      google.maps.event.addListener(this.worldView_, 'santa_clicked', function(e) {
+        this.cityFeedActive = !this.cityFeedActive;
+
+        if (this.cityFeedActive) {
+          if (this.location.stopover) {
+            this.$.feed.scrollToDest(this.location.stopover.id);
+          } else {
+            this.$.feed.scrollToIndex(0); // Scroll to top of feed if he's not at a stop.
+          }
+        }
+
+        var action = this.cityFeedActive ? 'show' : 'hide';
+        this.fire('analytics-track-event', {category: 'cityfeed', action: action,
+                                            label: 'from santa'});
+      }.bind(this));
+
+      google.maps.event.addListener(this.worldView_, 'routemarker_clicked', function(destId) {
+        this.cityFeedActive = true;
+        this.$.feed.scrollToDest(destId);
+
+        this.fire('analytics-track-event', {category: 'cityfeed', action: 'show',
+                                            label: 'from route marker'});
+      }.bind(this));
+
+      google.maps.event.addListener(this.worldView_, 'scenemarker_clicked', function(sceneId) {
+        this.loadTrackerScene_(sceneId);
+      }.bind(this));
+
+      navigator.geolocation.getCurrentPosition(this.geoLocationSuccess_.bind(this),
+        this.geoLocationError_.bind(this), {
+          enableHighAccuracy: false,
+          timeout: 4000,
+          maximumAge: Infinity // We really don't care
+        });
+
+      this.santaApp.santaService.addListener('card', this.updateCard_.bind(this));
+
+      this.trackSanta();
+    },
+
+    loadTrackerScene_: function(sceneId) {
+      this.santaApp.route = sceneId;
+    },
+
+    isPhoneSizeChanged: function() {
+      if (this.isPhoneSize) {
+        this.trackerCard = null;
+      }
+    },
+
+    updateCard_: function(card) {
+      if (this.cityFeedActive || this.isPhoneSize) {
+        this.trackerCard = null;
+      } else {
+        this.trackerCard = card;
+      }
+    },
+
+    hideCard_: function() {
+      this.$.cards.classList.remove('show');
+    },
+
+    trackerCardChanged: function() {
+      var visible = this.$.cards.classList.contains('show');
+
+      var t = visible ? 1000 : 0;
+
+      if (this.trackerCard) {
+        this.async(function() {
+          this.$.cards.classList.add('show');
+        }, null, t);
+
+        this.async(function() {
+          this.hideCard_();
+        }, null, t + this.CARD_SHOW_TIME_);
+      }
+    },
+
+    geoLocationSuccess_: function(position) {
+      var latlng = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({'latLng': latlng}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            var types = results[i].types;
+            if (types.indexOf('locality') != -1) {
+              this.userLocation = {
+                location: {
+                  lat: results[i].geometry.location.lat(),
+                  lng: results[i].geometry.location.lng()
+                },
+                name: results[i].formatted_address
+              };
+              return;
+            }
+          }
+        }
+      }.bind(this));
+
+      this.fire('analytics-track-event', {category: 'geolocation', action: 'success'});
+    },
+
+    geoLocationError_: function(error) {
+      this.userLocation = null;
+      this.$.intro.closeIntro();
+      this.fire('analytics-track-event', {category: 'geolocation', action: 'error'});
+    },
+
+    destinationsChanged: function() {
+      if (this.worldView_) {
+        this.worldView_.setDestinations(this.destinations);
+      }
+    },
+
+    locationChanged: function() {
+      var location = this.location;
+
+      this.arrival_ = this.formatCountdown_(location.next.arrival);
+
+      if (location.stopover) {
+        // Make sure the feed doesn't automatically reopen if it was already
+        // open for this city.
+        if (!this.feedWasOpenForCurrentCity) {
+          this.feedWasOpenForCurrentCity = true;
+
+          // Open city feed at the stop location if it's not already open.
+          if (!this.cityFeedActive) {
+            this.worldView_.followSanta();
+            this.cityFeedActive = true;
+            this.$.feed.scrollToDest(location.stopover.id);
+          }
+        }
+        this.departure_ = this.formatCountdown_(location.stopover.departure);
+      } else {
+        this.feedWasOpenForCurrentCity = false; // left the location, reset.
+      }
+
+      if (this.userLocation) {
+        var distance = Spherical.computeDistanceBetween(
+          location.position, this.userLocation.location);
+
+        this.santaDistance = distance;
+      }
+
+      if (!this.initialSantaLocation) {
+        this.initialSantaLocation = this.location;
+      }
+
+      if (!this.initialSantaDistance) {
+        this.initialSantaDistance = this.santaDistance;
+      }
+
+      if (this.worldView_) {
+        this.worldView_.moveSanta(location);
+      }
+    },
+
+    cityFeedActiveChanged: function() {
+      this.worldView_.setMode(this.cityFeedActive ? 'feed' : 'track');
+
+      if (this.cityFeedActive) {
+        this.trackerCard = null;
+
+        // Wait for circle animation to finish before we fade in stats and city feed.
+        this.async(function() {
+          this.$.feed.active = true;
+
+          var cityStats = this.$['module-tracker'].querySelector('#city-stats');
+          cityStats.style.opacity = 1;
+        }, null, 550);
+      } else {
+        this.$.feed.active = false;
+
+        var cityStats = this.$['module-tracker'].querySelector('#city-stats');
+        if (cityStats) {
+          cityStats.style.opacity = 0;
+        }
+      }
+
+      this.fire('tracker-action', {type: 'city-toggle', active: this.cityFeedActive});
+    },
+
+    onShow: function() {
+      this.shown = true;
+      this.setupTracker();
+
+      if (!this.santaApp.hasTrackerIntroShown_) {
+        this.santaApp.hasTrackerIntroShown_ = true;
+        this.$.intro.layoutReady();
+      } else {
+        this.$.intro.destroy();
+      }
+
+      // Always start with cityFeed, tracker nav, and tracker card closed.
+      this.cityFeedActive = false;
+      this.trackerCard = null;
+      this.navOpen = false;
+
+      if (this.mode === 'cast') {
+        this.openStraightToFeed();
+      } else {
+        this.sceneParamsChanged();
+      }
+
+      this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
+    },
+
+    onHide: function() {
+      window.clearInterval(this.trackingInterval_);
+      if (this.worldView_) {
+        this.worldView_.hide();
+      }
+
+      this.shown = false;
+      this.mapReady_ = false;
+
+      this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
+    },
+
+    sceneParamsChanged: function() {
+      if (this.sceneParams.timestamp) {
+        this.openStraightToFeed();
+        this.$.feed.scrollToTime(this.sceneParams.timestamp);
+      }
+    },
+
+    openStraightToFeed: function() {
+      this.$.intro.closeIntro();
+      this.cityFeedActive = true;
+    },
+
+    formatInt_: function(i) {
+      if (!i) return '';
+      return formatInt(i);
+    },
+
+    formatDistance_: function(dist) {
+      return formatDistance(dist);
+    },
+
+    formatCountdown_: function(timestamp) {
+      if (!this.santaApp || !this.santaApp.santaService || isNaN(timestamp)) {
+        return '';
+      }
+
+      timestamp -= this.santaApp.santaService.now();
+
+      return formatCountdown(timestamp);
+    },
+
+    keyHandler: function(e, detail, sender) {
+      switch(e.detail.key) {
+        case 'esc':
+          e.stopPropagation();
+          this.cityFeedActive = false;
+          break;
+      }
+    }
+  });
+})();
+</script>
+</polymer-element>

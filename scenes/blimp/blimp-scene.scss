@@ -1,0 +1,308 @@
+@import "compass/css3/transform";
+@import "compass/css3/border-radius";
+@import "compass/css3/images";
+
+$name: 'module-blimp';
+
+@import "../shared/sass/board";
+
+@import "sass/_animations.scss";
+
+##{$name} {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: #002a5e;
+
+  .scene {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 2;
+    .comet {
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 200%;
+      height: 20px;
+      z-index: 3;
+      background: 200% 0 url('img/comet.png') no-repeat;
+      position: absolute;
+      @include transform(rotate(45deg));
+      @include animations(comet 40s infinite);
+    }
+
+    .blimp {
+      width: 586px;
+      height: 421px;
+      position: absolute;
+      bottom: 327px;
+      left: 50%;
+      margin-left: -178px;
+      background: 0 0 url('img/blimp.png') no-repeat;
+      z-index: 25;
+
+      .eye {
+        position: relative;
+        width: 44px;
+        height: 44px;
+        position: absolute;
+        top: 147px;
+        right: 66px;
+        overflow: hidden;
+        
+        .eyeball {
+          width: 44px;
+          height: 44px;
+          background: #e2e3e4;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          @include animations(blink 20s infinite);
+          .obj {
+            background-color: #58595b;
+            width: 23px;
+            height: 23px;
+            position: absolute;
+            top: 12px;
+            left: 18px;
+            border-radius: 50%;
+            @include animations(eyeball 20s infinite);
+          }
+        }
+      }
+      .nose {
+        position: relative;
+        width: 38px;
+        height: 72px;
+        position: absolute;
+        top: 167px;
+        right: -27px;
+        background-color: #da4537;
+        background-image: url('img/nose-shadow.png');
+        background-repeat: no-repeat;
+        background-position: 1px 41px;
+        border-radius: 0 72px 72px 0;
+        @include animations(flicker 10s step-start infinite);
+      }
+    }
+    
+    .belt {
+      position: absolute;
+      bottom: 290px;
+      left: 50%;
+      margin-left: -355px;
+      width: 464px;
+      height: 14px;
+      padding: 1px;
+      @include transform(rotate(-25deg));
+      border-radius: 12px;
+      .cogs {
+        .obj {
+          width: 464px;
+          margin-top: -26px;
+          height: 22px;
+          background-image: url('img/boxes-belt.png');
+          background-repeat: repeat-x;
+          background-position: 0 0;
+          @include animations(horizSlide 5s linear infinite);
+        }
+      
+        background-image: url('img/cogs.png');
+        background-position: 50% -25px;
+        background-repeat: repeat-x;
+        border: 1px solid transparent;
+        height: 20px;
+        @include animations(cogs 0.25s step-start infinite);
+      }
+    
+      border: 4px solid #b7b9bb;
+      background-color: #717275;
+      @include background-image(linear-gradient(#717275, #515254 40%, #717275 40%));
+      background-repeat: repeat-x;
+      background-position: 0 0;
+    }
+    .sleigh {
+      height: 240px;
+      position: absolute;
+      bottom: 0;
+      width: 1035px;
+      left: 50%;
+      margin-left: -517px;
+      background: 0 0 url('img/sleigh.png') no-repeat;
+      z-index: 25;
+      .boxes {
+        width: 105px;
+        height: 60px;
+        background: 0 0 url('img/boxes-sleigh.png') no-repeat;
+        position: absolute;
+        left: 80px;
+        top: -26px;
+        z-index: 8;
+      }
+      .propellers {
+        background: red;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+          position: absolute;
+          bottom: -27px;
+          width: 35px;
+          height: 103px;
+          background-image: url('img/propeller.png');
+          background-repeat: no-repeat;
+        }
+        li {
+          @include animations(propeller1 0.4s step-start infinite);
+          left: 555px;
+        }
+        li:first-child {
+          left: 280px;
+          @include animations(propeller2 0.4s step-start infinite);
+        }
+        li:last-child {
+          left: 830px;
+          @include animations(propeller3 0.4s step-start infinite);
+        }
+      }
+    }
+    
+    .boxes-singles {
+      z-index: 4;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      left: 50%;
+      margin-left: -437px;
+      bottom: 180px;
+      li {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 26px;
+        height: 24px;
+        opacity: 0;
+        background-image: url('img/boxes-singles.png');
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        &.small {
+          height: 15px;
+          width: 15px;
+        }
+        &.medium {
+          height: 18px;
+          width: 18px;
+        }
+        &:nth-child(1) { background-position: 0 0; } 
+        &:nth-child(2) { background-position: -24px 0; }
+        &:nth-child(3) { background-position: -50px 0; }
+        &:nth-child(4) { background-position: -74px 0; }
+        &:nth-child(5) { background-position: -101px 0; }
+        &:nth-child(6) { background-position: 0 -26px; }
+        &:nth-child(7) { background-position: -26px -26px; }
+        &:nth-child(8) { background-position: -52px -26px; }
+        &:nth-child(9) { background-position: -76px -26px; }
+        &:nth-child(2n+1){ @include animations(5s boxesSingles2 infinite ease-out .3s); }
+        &:nth-child(2n+2){ @include animations(8s boxesSingles3 infinite ease-out .2s); }
+        &:nth-child(2n+3){ @include animations(6s boxesSingles1 infinite ease-out .1s); }
+      }
+    }
+    .snooze {
+      width: 23px;
+      height: 62px;
+      position: absolute;
+      bottom: 200px;
+      left: 50%;
+      margin-left: -220px;
+      z-index: 1;
+      opacity: 0;
+      background-image: url('img/snooze.png');
+      background-repeat: repeat-y;
+      background-position: 0 0;
+      @include animations(snooze 5s linear infinite);
+    }
+  }
+
+  .background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1;
+    .plane {
+      position: absolute;
+      z-index: 5;
+      top: 110px;
+      left: 0;
+      right: 0;
+      width: 100%;
+
+      height: 110px;
+
+      background: 0 0 url('img/plane.png') no-repeat;
+    
+      @include animations(cloud 60s linear infinite);
+    }
+
+    .clouds {
+      pointer-events: none;
+      position: absolute;
+      z-index: 5;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-repeat: repeat-x;
+
+      &.visible {
+        opacity: 1;
+      }
+      &.small {
+        background-image: url('img/cloud-1.png');
+        @include animations(cloud 35s linear infinite);
+      
+        &.alt {
+          background-image: url('img/cloud-2.png');
+          @include animations(cloud 45s linear infinite);
+        }
+      }
+      &.medium {
+        background-image: url('img/cloud-3.png');
+        @include animations(cloud 55s linear infinite);
+      
+        &.alt {
+          background-image: url('img/cloud-4.png');
+          @include animations(cloud 65s linear infinite);
+          z-index: 29;
+        }
+      }
+      &.large {
+        background-image: url('img/cloud-5.png');
+        @include animations(cloud 85s linear infinite);
+        z-index: 29;
+      }
+    }
+
+    .sun,
+    .moon {
+      .obj {
+        background: url('img/sky-objects.png') no-repeat;
+      }
+    }
+  }
+}
+
+@import "../shared/sass/responsive";

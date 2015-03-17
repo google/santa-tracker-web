@@ -1,0 +1,4571 @@
+{
+	"about-content-one": {
+		"message": "Vào Đêm giáng sinh, chúng tôi sẽ tự hào giới thiệu bản xem trước bảng điều khiển của Ông già Noel -- công nghệ này hỗ trợ xe trượt tuyết của ông trong suốt cuộc hành trình vòng quanh thế giới. Chúng tôi đã nhận được bản xem trước đặc biệt này từ một trong nhiều chú lùn là nhà phát triển của ông già Noel. Họ đang làm việc chăm chỉ ở Bắc Cực để giúp ông già Noel chuẩn bị cho ngày trọng đại của mình. Bảng điều khiển của ông già Noel - đề cao điểm mới nhất và tuyệt vời nhất trong công nghệ Google Maps và kỹ thuật xe trượt tuyết - sẽ cho phép bạn theo dõi tiến trình của ông trên khắp thế giới, đồng thời tìm hiểu một chút về một số điểm dừng chân của ông trong cuộc hành trình."
+	},
+	"about-content-three": {
+		"message": "Theo chân ông già Noel trên Google Maps được tạo và phát triển bởi Google, cùng với một chút trợ giúp từ các chú lùn của ông già Noel. Cần trợ giúp hoặc có thêm câu hỏi? Hãy truy cập vào \u003ca href=\"//support.google.com/santatracker\"\u003eTrung tâm trợ giúp\u003c/a\u003e của chúng tôi."
+	},
+	"about-content-two": {
+		"message": "Các chú lùn thân thiện của chúng tôi cũng đã mời bạn khám phá ngôi làng của ông già Noel trong khi ông già Noel sẵn sàng cho hành trình của mình. Vì vậy, hãy tiếp tục và khám phá ngôi làng của ông ấy, bạn chỉ có thể tìm thấy một số hoạt động vui nhộn và gặp gỡ một số chú lùn thú vị."
+	},
+	"about-santa": {
+		"message": "Giới thiệu"
+	},
+	"about_title": {
+		"message": "Chào mừng bạn đến với chương trình Theo chân ông già Noel trên Google Maps!"
+	},
+	"ae_country_name": {
+		"message": "Các tiểu vương quốc Ả Rập thống nhất"
+	},
+	"af_country_name": {
+		"message": "Afghanistan"
+	},
+	"al_country_name": {
+		"message": "Albania"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
+	"ar_country_name": {
+		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Arabic"
+	},
+	"ar_tradition": {
+		"message": "Ở Argentina, Giáng sinh bắt đầu đúng vào lúc nửa đêm. Nhiều gia đình bắt đầu kỳ nghỉ bằng cách tổ chức lễ hội kỷ niệm trong nhà của mình, mở quà tặng với những người thân yêu và đốt pháo hoa trong những giờ đầu của ngày mới."
+	},
+	"at_country_name": {
+		"message": "Áo"
+	},
+	"au_country_name": {
+		"message": "Úc"
+	},
+	"au_tradition": {
+		"message": "Nằm ở Nam bán cầu, mùa hè tại Úc rơi vào tháng 12. Thay cho chuông của xe trượt tuyết và trái dừa, nhiều người Úc đến bãi biển để ăn mừng ngày lễ bằng bữa ăn trưa với tôm và chơi một vài ván crikê."
+	},
+	"ba_country_name": {
+		"message": "Bosnia và Herzegovina"
+	},
+	"back_to_tracker": {
+		"message": "Quay lại Công cụ theo dõi"
+	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Bỉ"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
+	},
+	"bg_country_name": {
+		"message": "Bungari"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
+	},
+	"br_country_name": {
+		"message": "Braxin"
+	},
+	"br_tradition": {
+		"message": "Lễ Giáng sinh bắt đầu lúc nửa đêm, thường với bữa ăn tối của đại gia đình, mở quà tặng và tham dự nghi lễ 'Missa do Galo' (thánh lễ nửa đêm) trong nhà thờ. Mặc dù thời tiết mùa hè nhiệt đới ấm áp, nhưng chủ đề về mùa đông và tuyết là phổ biến."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
+	},
+	"by_country_name": {
+		"message": "Belarus"
+	},
+	"bz_country_name": {
+		"message": "Belize"
+	},
+	"ca_country_name": {
+		"message": "Canada"
+	},
+	"ca_tradition": {
+		"message": "Trẻ em Canada thường ăn mừng Giáng sinh với đầy tuyết trắng. Chúng quấn khăn choàng cổ \u0026 đội mũ len của người Canada để chơi trong tuyết, chơi trượt băng \u0026 đi xe trượt băng! Vào đêm Giáng sinh, trẻ em để sữa và bánh quy bên lò sưởi cho ông già Noel (đôi khi là củ cà rốt cho chú tuần lộc của ông)."
+	},
+	"calendar": {
+		"message": "Lịch"
+	},
+	"category_code": {
+		"message": "Mã"
+	},
+	"category_draw": {
+		"message": "Vẽ"
+	},
+	"category_listen": {
+		"message": "Nghe"
+	},
+	"category_send": {
+		"message": "Gửi"
+	},
+	"cd_country_name": {
+		"message": "Cộng hòa dân chủ Congo"
+	},
+	"cf_country_name": {
+		"message": "Cộng hòa Trung Phi"
+	},
+	"cg_country_name": {
+		"message": "Cộng hòa Congo"
+	},
+	"ch_country_name": {
+		"message": "Thụy Sĩ"
+	},
+	"ci_country_name": {
+		"message": "Bờ Biển Ngà"
+	},
+	"citylights-contribute": {
+		"message": "Thêm ảnh %location% của riêng bạn"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Trung tâm Rockefeller"
+	},
+	"citylights-panorama-01-location": {
+		"message": "Thành phố New York, Hoa Kỳ"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Quảng trường Pushkin"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moscow, Nga"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Vienna, Áo"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Từ Đại lộ Champs-Elysees đến Khải Hoàn Môn"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Paris, Pháp"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, Hoa Kỳ"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Hội chợ Giáng sinh"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nuremberg, Đức"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Sông Medellin"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Colombia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Ngôi làng của ông già Noel"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lapland, Phần Lan"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brussels, Bỉ"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Quảng trường Trafalgar"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Luân Đôn, Anh"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Quảng trường Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Tây Ban Nha"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokyo, Nhật Bản"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Công viên giải trí Tivoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Copenhagen, Đan Mạch"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Đại lộ Orchard"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapore, Singapore"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Lane of Light"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Gothenburg, Thụy Điển"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Lễ hội ánh sáng mùa đông"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Thác Niagara, Canada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "Lễ hội mùa đông"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hồng Kông, Trung Quốc"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Hồ Rodrigo de Freitas"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Braxin"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
+	"close-this": {
+		"message": "Hủy"
+	},
+	"cm_country_name": {
+		"message": "Cameroon"
+	},
+	"co_country_name": {
+		"message": "Colombia"
+	},
+	"codelab-block-moveeast": {
+		"message": "phía đông"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Chuyển tôi đến không gian phía đông."
+	},
+	"codelab-block-movenorth": {
+		"message": "phía bắc"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Chuyển tôi đến không gian phía bắc."
+	},
+	"codelab-block-movesouth": {
+		"message": "phía nam"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Đưa tôi đến không gian phía nam."
+	},
+	"codelab-block-movewest": {
+		"message": "phía tây"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Chuyển tôi đến không gian phía tây."
+	},
+	"codelab-block-repeat": {
+		"message": "lặp lại"
+	},
+	"codelab-block-repeat-times": {
+		"message": "lần"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Lặp lại một số câu lệnh nhiều lần."
+	},
+	"codelab-block-whenrun": {
+		"message": "khi chạy"
+	},
+	"codelab-finish": {
+		"message": "Hoàn tất"
+	},
+	"codelab-great": {
+		"message": "Tuyệt vời"
+	},
+	"codelab-mwc-promo": {
+		"message": "Khám phá thêm các dự án viết mã của Google tại \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Thách thức mới"
+	},
+	"codelab-oops": {
+		"message": "Rất tiếc!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Khối \"Lặp lại\" cần phải có các khối khác bên trong để hoạt động."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Một số khối không được gắn với nhau đúng cách."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Có vẻ như bạn đã thua!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Hãy thử một hoặc nhiều khối bên dưới để giải câu đố này."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Bạn có biết rằng bạn có thể hoàn tất cấp độ này chỉ với {{ideal}} khối không? Hãy thử sử dụng khối bên dưới."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Xin chúc mừng! Bạn đã hoàn tất câu đố một cách hoàn hảo."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Bạn đang sử dụng đúng khối, nhưng hãy thử sử dụng nhiều khối hơn để hoàn thành câu đố này."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Bạn có biết rằng bạn có thể hoàn tất cấp độ này chỉ với {{ideal}} khối không?"
+	},
+	"codelab-try-again": {
+		"message": "Thử lại"
+	},
+	"copy-me": {
+		"message": "Sao chép liên kết này để chia sẻ tin nhắn của bạn"
+	},
+	"countdownlabel": {
+		"message": "Cho đến khi ông già Noel khởi hành"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cs_language_name": {
+		"message": "Tiếng Séc"
+	},
+	"cu_country_name": {
+		"message": "Cuba"
+	},
+	"cz_country_name": {
+		"message": "Cộng hòa Séc"
+	},
+	"da_language_name": {
+		"message": "Tiếng Đan Mạch"
+	},
+	"days": {
+		"message": "Ngày"
+	},
+	"de_country_name": {
+		"message": "Đức"
+	},
+	"de_language_name": {
+		"message": "Tiếng Đức"
+	},
+	"de_tradition": {
+		"message": "Ở hầu như mọi thị trấn tại Đức, chợ Giáng sinh mở cửa tại quảng trường thị trấn. Người dân trong thị trấn tụ tập để nghe các ban nhạc kèn đồng và thưởng thức món ăn truyền thống của vùng. Họ ăn bánh gừng hình trái tim, hạnh nhân ngào đường, tất cả các loại đồ ngọt và uống rượu được pha chế (Glühwein) hoặc rượu táo."
+	},
+	"deck": {
+		"message": "Trang trí"
+	},
+	"deckdescription": {
+		"message": "Trang trí trình duyệt của bạn bằng tiện ích Ông già Noel của Chrome."
+	},
+	"detected": {
+		"message": "được phát hiện"
+	},
+	"difficulty": {
+		"message": "Độ khó"
+	},
+	"dk_country_name": {
+		"message": "Đan Mạch"
+	},
+	"do_country_name": {
+		"message": "Cộng hòa Dominica"
+	},
+	"dz_country_name": {
+		"message": "Algeria"
+	},
+	"easy_difficulty": {
+		"message": "Dễ"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Estonia"
+	},
+	"el_language_name": {
+		"message": "Tiếng Hy Lạp"
+	},
+	"elvish_language_name": {
+		"message": "Elvish"
+	},
+	"en_language_name": {
+		"message": "Tiếng Anh"
+	},
+	"endofjourneymessage": {
+		"message": "Ông già Noel đã hoàn tất cuộc hành trình của mình trong năm nay! Ông già Noel và các chú lùn vẫn đang đùa vui ở Bắc Cực trước kỳ nghỉ hàng năm của họ."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
+	},
+	"error": {
+		"message": "Có vẻ như chúng tôi chỉ mất kết nối với Bắc cực. Các chú lùn của ông già Noel đang làm việc chăm chỉ để khắc phục vấn đề - hãy luôn cập nhật!"
+	},
+	"error-lost-connection": {
+		"message": "Có vẻ như chúng tôi chỉ mất kết nối với Bắc cực. Các chú lùn của ông già Noel đang làm việc chăm chỉ để khắc phục vấn đề - hãy luôn cập nhật!"
+	},
+	"error-try-again": {
+		"message": "Thử lại"
+	},
+	"error_try_again": {
+		"message": "Thử lại"
+	},
+	"es_language_name": {
+		"message": "Tiếng Tây Ban Nha"
+	},
+	"et_country_name": {
+		"message": "Ethiopia"
+	},
+	"fi_country_name": {
+		"message": "Phần Lan"
+	},
+	"finished-text": {
+		"message": "Chúc ngày lễ vui vẻ! Ông già Noel đã hoàn thành cuộc hành trình vòng quanh thế giới của mình và xứng đáng được nghỉ ngơi. Hãy ghé thăm chúng tôi lại vào năm sau!"
+	},
+	"fr_country_name": {
+		"message": "Pháp"
+	},
+	"fr_language_name": {
+		"message": "Tiếng Pháp"
+	},
+	"fr_tradition": {
+		"message": "Ở Pháp, theo truyền thống, trẻ em đặt giày của chúng bên cạnh lò sưởi để mong đợi ông già Noel sẽ đến. Nếu trẻ em làm điều tốt trong suốt cả năm, thì ông già Noel sẽ nhét đầy quà vào những đôi giày của chúng."
+	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
+	"gameover": {
+		"message": "Trò chơi Kết thúc!"
+	},
+	"gameover_level": {
+		"message": "Bạn đã đạt đến cấp:"
+	},
+	"gameover_score": {
+		"message": "Điểm số của bạn:"
+	},
+	"getgooglemaps": {
+		"message": "Tải Google Maps"
+	},
+	"gh_country_name": {
+		"message": "Ghana"
+	},
+	"gh_tradition": {
+		"message": "Giáng sinh ở Ghana bao gồm cả gia đình. Người lớn mặc trang phục, phát kẹo và đồ ngọt cho các nhà hàng xóm. Trẻ em trang trí nhà cửa với đồ trang trí bằng giấy và bản vẽ mà chúng làm ở trường."
+	},
+	"gl_country_name": {
+		"message": "Greenland"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
+	},
+	"gotovillage": {
+		"message": "Đi tới Ngôi làng"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "Hy Lạp"
+	},
+	"gr_tradition": {
+		"message": "Tại Hy Lạp, sinh vật thân thiện nhưng gây rắc rối 'kallikántzari' sống trong lòng đất phần lớn thời gian trong năm. Vào Giáng sinh, chúng thích ẩn mình trong nhà, làm mọi người hoảng sợ, chơi trò tinh nghịch hoặc ăn thức ăn Giáng sinh. Người Hy Lạp thực hiện nghi lễ để xua đuổi các con yêu quái này."
+	},
+	"gt_country_name": {
+		"message": "Guatemala"
+	},
+	"gt_tradition": {
+		"message": "Người Guatemala ăn mừng Giáng sinh bằng vui chơi và khiêu vũ. Họ đội những chiếc mũ được gọi là Puritina, ăn bánh bắp theo kiểu Guatemala, đốt pháo hoa vào lúc nửa đêm và nhảy múa thâu đêm với những điệu nhảy khác nhau."
+	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hard_difficulty": {
+		"message": "Khó"
+	},
+	"hi_language_name": {
+		"message": "Tiếng Hindi"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
+	"hours": {
+		"message": "Giờ"
+	},
+	"hr_country_name": {
+		"message": "Croatia"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Hungary"
+	},
+	"hu_language_name": {
+		"message": "Tiếng Hungary"
+	},
+	"id_country_name": {
+		"message": "Indonesia"
+	},
+	"ie_country_name": {
+		"message": "Ireland"
+	},
+	"improve_google_translate": {
+		"message": "Giúp cải thiện Google Dịch"
+	},
+	"iq_country_name": {
+		"message": "Iraq"
+	},
+	"ir_country_name": {
+		"message": "Iran"
+	},
+	"is_country_name": {
+		"message": "Iceland"
+	},
+	"is_tradition": {
+		"message": "Vào dịp Giáng sinh ở Iceland, các gia đình tặng quần áo ấm cho mỗi thành viên trong gia đình. Theo truyền thuyết, có một Con mèo Giáng sinh đáng sợ sẽ ăn thịt bất kỳ ai không mặc ấm cho thời tiết lạnh giá. Các gia đình cùng nhau chuẩn bị đồ ấm để đảm bảo không một ai bị 'Con mèo Giáng sinh ăn thịt'."
+	},
+	"it_country_name": {
+		"message": "Ý"
+	},
+	"it_language_name": {
+		"message": "Tiếng Ý"
+	},
+	"ja_language_name": {
+		"message": "Tiếng Nhật"
+	},
+	"jm_country_name": {
+		"message": "Jamaica"
+	},
+	"kg_country_name": {
+		"message": "Kyrgyzstan"
+	},
+	"kg_tradition": {
+		"message": "Tại Kyrgyzstan, Ayaz Ata (Ông già tuyết) đến lúc nửa đêm vào Đêm giao thừa và để lại những món quà bên dưới cây Năm mới. Khi đồng hồ điểm nửa đêm, các gia đình trên khắp quốc gia đốt pháo hoa để ăn mừng dịp lễ tươi đẹp này. Các thành phố trở nên sáng rực như ban ngày."
+	},
+	"ko_language_name": {
+		"message": "Tiếng Hàn"
+	},
+	"kz_country_name": {
+		"message": "Kazakhstan"
+	},
+	"la_country_name": {
+		"message": "Cộng hòa Dân chủ Nhân dân Lào"
+	},
+	"language": {
+		"message": "Ngôn ngữ"
+	},
+	"learn": {
+		"message": "Tìm hiểu"
+	},
+	"learnmore": {
+		"message": "Tìm hiểu thêm"
+	},
+	"level": {
+		"message": "Cấp độ"
+	},
+	"light": {
+		"message": "Thắp sáng"
+	},
+	"lightdescription": {
+		"message": "Thắp sáng TV của bạn với ứng dụng Android Theo chân ông già Noel và Chromecast."
+	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
+	"lt_country_name": {
+		"message": "Lithuania"
+	},
+	"lv_country_name": {
+		"message": "Latvia"
+	},
+	"ly_country_name": {
+		"message": "Libya"
+	},
+	"md_country_name": {
+		"message": "Moldova"
+	},
+	"medium_difficulty": {
+		"message": "Trung bình"
+	},
+	"mg_country_name": {
+		"message": "Madagascar"
+	},
+	"minutes": {
+		"message": "Phút"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritania"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
+	},
+	"mx_country_name": {
+		"message": "Mexico"
+	},
+	"mx_tradition": {
+		"message": "Tại Mexico, trẻ em mọi lứa tuổi ăn mừng Giáng sinh bằng cách đập vỡ các pinata. Người lớn và trẻ em vui chơi bằng cách bịt mắt, quay vòng và vung gậy để đập vỡ các lọ treo có hình ngôi sao. Khi pinata bị đập vỡ, các loại hạt, trái cây và kẹo rơi ra cho mọi người thưởng thức."
+	},
+	"my_country_name": {
+		"message": "Malaysia"
+	},
+	"mz_country_name": {
+		"message": "Mozambique"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
+	"newtoday": {
+		"message": "Mới hôm nay"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Hà Lan"
+	},
+	"nl_language_name": {
+		"message": "Tiếng Hà Lan"
+	},
+	"no_country_name": {
+		"message": "Na Uy"
+	},
+	"no_language_name": {
+		"message": "Tiếng Na Uy"
+	},
+	"nonprofit-jane-description": {
+		"message": "Tinh tinh là họ hàng gần nhất với con người trong thế giới động vật! Ngày nay còn lại không quá 300.000 tinh tinh do môi trường sống bị mất, bệnh tật và buôn bán bất hợp pháp. Jane Goodall Institute (JGI) bảo vệ tinh tinh bằng cách quan sát và hiểu hành vi cũng như môi trường sống của chúng. JGI cũng làm việc để xây dựng một cộng đồng những người đang bảo vệ và bảo tồn động vật hoang dã cũng như môi trường chúng ta đang sống. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eKhám phá môi trường sống của Tinh tinh\u003c/a\u003e ở Gombe thuộc Tanzania."
+	},
+	"nonprofit-jane-type": {
+		"message": "Tinh tinh"
+	},
+	"nonprofit-more-information": {
+		"message": "Để biết thêm thông tin, hãy truy cập vào:"
+	},
+	"nonprofit-nature-description": {
+		"message": "Nature Conservancy làm việc để bảo vệ và khôi phục rừng ở Hoa Kỳ cũng như khắp nơi trên thế giới. Những khu rừng mẫu này duy trì sự sống trên khắp hành tinh. Chúng lọc nước, làm sạch không khí, hỗ trợ cộng đồng người và cung cấp môi trường sống cho các loài thực vật và động vật quan trọng. Với tốc độ phá rừng hiện tại, các khu rừng của chúng ta sẽ bị xóa sổ trong vòng 100 năm tới. Chương trình Trồng 1 tỷ cây xanh của Nature Conservancy đang làm việc để trồng 1 tỷ cây xanh trước năm 2025 và khôi phục những khu rừng quan trọng nhất trên thế giới."
+	},
+	"nonprofit-nature-type": {
+		"message": "Rừng"
+	},
+	"nonprofit-wwf-description": {
+		"message": "Việc biến đổi khí hậu tiếp tục phá vỡ sự cân bằng của nhiều hệ sinh thái trên thế giới, cả những nơi ấm và lạnh. Ở Bắc cực, gấu bắc cực đang mất đi môi trường sống băng biển của chúng bởi nhiệt độ tăng và phải đối mặt với các mối đe dọa gia tăng từ các hoạt động của con người, chẳng hạn như sự phát triển và vận chuyển dầu và khí đốt. World Wildlife Fund làm việc để đảm bảo sự sống còn của các loài thông qua nghiên cứu khoa học và hợp tác với các cộng đồng bản địa ở Bắc cực. Google.org tự hào là \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003engười hỗ trợ\u003c/a\u003e với World Wildlife Fund."
+	},
+	"nonprofit-wwf-type": {
+		"message": "Gấu bắc cực"
+	},
+	"np_country_name": {
+		"message": "Nê-pan"
+	},
+	"nz_country_name": {
+		"message": "New Zealand"
+	},
+	"nz_tradition": {
+		"message": "Vì Giáng sinh rơi vào mùa hè tại New Zealand, nên bạn bè và gia đình tụ tập tổ chức tiệc ngoài trời. Bữa ăn Giáng sinh thường bao gồm thịt cừu nướng, đôi khi được nấu trong 'lò' - hố đất/lò đất. Món tráng miệng ưa thích là bánh pavlova: bánh trứng đường được phủ trái cây tươi như dâu tây và kiwi."
+	},
+	"om_country_name": {
+		"message": "Oman"
+	},
+	"onthego": {
+		"message": "Ông già Noel đang di chuyển"
+	},
+	"openingtomorrow": {
+		"message": "Mở chính thức vào ngày mai"
+	},
+	"ornament-print-instructions": {
+		"message": "Gấp lại tại đây và dán các cạnh lại"
+	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
+	"pg_country_name": {
+		"message": "Papua New Guinea"
+	},
+	"ph_country_name": {
+		"message": "Philipin"
+	},
+	"ph_tradition": {
+		"message": "Người Philipin nổi tiếng với mùa Giáng sinh dài nhất thế giới. Bốn tháng được coi là tháng Giáng sinh: tháng 9, tháng 10, tháng 11, tháng 12. Đôi khi, người ta nghe thấy bài hát mừng Giáng sinh vào đầu tháng 9."
+	},
+	"pl_country_name": {
+		"message": "Ba Lan"
+	},
+	"pl_language_name": {
+		"message": "Tiếng Ba Lan"
+	},
+	"play": {
+		"message": "Chơi"
+	},
+	"playagain": {
+		"message": "Chơi lại"
+	},
+	"playdescription": {
+		"message": "Chơi với bạn bè trong Ứng dụng Android Theo chân ông già Noel."
+	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"pt_language_name": {
+		"message": "Tiếng Bồ Đào Nha"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "Rumani"
+	},
+	"ru_country_name": {
+		"message": "Nga"
+	},
+	"ru_language_name": {
+		"message": "Tiếng Nga"
+	},
+	"ru_tradition": {
+		"message": "Trẻ em Nga trang trí cây Năm mới, thay vì cây Giáng sinh. Trẻ em khao khát đợi Ông già tuyết đến cùng với người cháu gái của ông là Snowmaiden, phát quà trên khắp đất nước. Ông già tuyết sống sâu trong rừng ở Veliky Ustyug, miền bắc nước Nga."
+	},
+	"sa_country_name": {
+		"message": "Ả-Rập Xê-út"
+	},
+	"santatracker": {
+		"message": "Theo chân ông già Noel"
+	},
+	"score": {
+		"message": "Điểm số"
+	},
+	"se_country_name": {
+		"message": "Thụy Điển"
+	},
+	"seconds": {
+		"message": "Giây"
+	},
+	"select-language": {
+		"message": "Chọn ngôn ngữ"
+	},
+	"share-button": {
+		"message": "Chia sẻ với bạn bè của bạn trên Google+"
+	},
+	"share-text": {
+		"message": "Tôi đã tạo bưu thiếp này cho bạn trong Google Theo chân ông già Noel. Chúc ngày lễ vui vẻ!"
+	},
+	"share-this": {
+		"message": "Chia sẻ"
+	},
+	"sk_country_name": {
+		"message": "Slovakia"
+	},
+	"sk_language_name": {
+		"message": "Tiếng Slovak"
+	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somali"
+	},
+	"sr_country_name": {
+		"message": "Suriname"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"sv_language_name": {
+		"message": "Tiếng Thụy Điển"
+	},
+	"td_country_name": {
+		"message": "Chad"
+	},
+	"terms-and-privacy": {
+		"message": "Điều khoản \u0026 bảo mật"
+	},
+	"tg_country_name": {
+		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Tiếng Thái"
+	},
+	"tilt": {
+		"message": "Nghiêng thiết bị của bạn!"
+	},
+	"time": {
+		"message": "Thời gian"
+	},
+	"tj_country_name": {
+		"message": "Tajikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunisia"
+	},
+	"today_only": {
+		"message": "Chỉ Hôm nay"
+	},
+	"today_only_1": {
+		"message": "Chỉ hôm nay"
+	},
+	"tr_country_name": {
+		"message": "Thổ Nhĩ Kỳ"
+	},
+	"tr_language_name": {
+		"message": "Tiếng Thổ Nhĩ Kỳ"
+	},
+	"tracker_arrival": {
+		"message": "Điểm đến"
+	},
+	"tracker_arriving_in": {
+		"message": "Đến sau"
+	},
+	"tracker_current_stop": {
+		"message": "Điểm dừng hiện tại"
+	},
+	"tracker_departing_in": {
+		"message": "Khởi hành sau"
+	},
+	"tracker_distance_from_you": {
+		"message": "Khoảng cách từ bạn"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Số lượng quà tặng được phát"
+	},
+	"tracker_intro_skip_intro": {
+		"message": "Bỏ qua giới thiệu"
+	},
+	"tracker_intro_user_location": {
+		"message": "Bạn đang ở"
+	},
+	"tracker_intro_welcome": {
+		"message": "Chào mừng bạn đến với"
+	},
+	"tracker_next_stop": {
+		"message": "Điểm dừng tiếp theo"
+	},
+	"tracker_santa_update": {
+		"message": "NỘI DUNG CẬP NHẬT TỪ ÔNG GIÀ NOEL"
+	},
+	"tracker_see_route": {
+		"message": "Xem tuyến đường"
+	},
+	"tracker_weather": {
+		"message": "Thời tiết"
+	},
+	"tracker_world_facts": {
+		"message": "BẠN CÓ BIẾT"
+	},
+	"tracker_your_location": {
+		"message": "Vị trí của bạn"
+	},
+	"traditions-next": {
+		"message": "Truyền thống tiếp theo"
+	},
+	"traditions-prev": {
+		"message": "Truyền thống trước đây"
+	},
+	"traditions-world": {
+		"message": "Thế giới"
+	},
+	"trivia_beginner_001": {
+		"message": "Dãy núi Andes nằm ở châu lục nào?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_002": {
+		"message": "Tiểu bang nào của Hoa Kỳ được tạo thành từ 8 hòn đảo chính?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkansas"
+	},
+	"trivia_beginner_003": {
+		"message": "Tiểu bang nào của Hoa Kỳ nằm ở Great Plains?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delaware"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Idaho"
+	},
+	"trivia_beginner_004": {
+		"message": "Châu lục nào giáp với Đại Tây Dương, Thái Bình Dương và Bắc Băng Dương?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Úc"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_beginner_005": {
+		"message": "Tiểu bang nào nằm ở múi giờ Thái Bình Dương?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "California"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Georgia"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "Châu lục nào có Dãy núi Atlas và Sa mạc Kalahari?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Châu Phi"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Nam Cực"
+	},
+	"trivia_beginner_007": {
+		"message": "Tiểu bang nào của Hoa Kỳ giáp Đại Hồ?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montana"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "New Mexico"
+	},
+	"trivia_beginner_008": {
+		"message": "Hầu hết mọi người ở châu lục nào nói tiếng Bồ Đào Nha hoặc Tây Ban Nha?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Châu Phi"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_009": {
+		"message": "Tiểu bang nào của Hoa Kỳ có hình dạng như một cán xoong?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_010": {
+		"message": "Vùng nam cực và châu lục khác nào nằm hoàn toàn ở Nam Bán cầu?"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Úc"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_011": {
+		"message": "Ronne Ice Shelf giáp châu lục nào?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Nam Cực"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Châu Phi"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_beginner_012": {
+		"message": "Đảo Vancouver và Đảo Kodiak nằm ở ngoài khơi bờ biển phía tây của châu lục nào?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Úc"
+	},
+	"trivia_beginner_013": {
+		"message": "Niger, quốc gia có số dân tăng nhanh nhất trên thế giới, nằm ở phía tây bắc của châu lục nào?"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "Châu Phi"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_014": {
+		"message": "Châu lục nào có các loài thực vật và cây cối ít nhất?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Nam Cực"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_beginner_015": {
+		"message": "Quỷ Tasmania có nguồn gốc từ một hòn đảo ngoài khơi bờ biển phía nam của châu lục nào?"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Úc"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_016": {
+		"message": "Tháp nghiêng Pisa là một điểm thu hút du khách nổi tiếng ở quốc gia nào của Địa Trung Hải?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Ý"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Canada"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Ghana"
+	},
+	"trivia_beginner_017": {
+		"message": "Casablanca và Tripoli là hai thành phố lịch sử trên bờ biển phía bắc của châu lục nào?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Châu Phi"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Nam Cực"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_018": {
+		"message": "Có thể tìm thấy cây xương rồng Saguaro ở Sa mạc Sonoran của châu lục nào?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_019": {
+		"message": "Veracruz và Acapulco là các khu nghỉ mát nổi tiếng ở quốc gia nào?"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Argentina"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "Ấn Độ"
+	},
+	"trivia_beginner_020": {
+		"message": "Là nhà của 30% số gấu trúc trên thế giới, Khu bảo tồn gấu trúc lớn tại Tứ Xuyên nằm ở quốc gia nào?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "Trung Quốc"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "Iceland"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "Ethiopia"
+	},
+	"trivia_beginner_021": {
+		"message": "Khoảng 90% băng trên thế giới được tìm thấy ở châu lục nào?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Nam Cực"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Châu Phi"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_022": {
+		"message": "Angel Falls, thác nước cao nhất trên thế giới nằm ở châu lục nào?"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Úc"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_023": {
+		"message": "Bạn sẽ đi đến tiểu bang nào của Hoa Kỳ để tham quan Jackson Hole và trèo Tháp Devils?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "Bắc Dakota"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Connecticut"
+	},
+	"trivia_beginner_024": {
+		"message": "Bạn sẽ đi đến tiểu bang nào của Hoa Kỳ để xem thu hoạch nhựa phong và đi trượt tuyết ở Dãy núi Xanh?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermont"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "Bạn sẽ ghé thăm tiểu bang nào của Hoa Kỳ để lái xe trên Cầu vịnh Chesapeake và đi bộ trên cầu tàu tại Thành phố Đại dương?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "Bắc Carolina"
+	},
+	"trivia_beginner_026": {
+		"message": "Bạn sẽ đi đến tiểu bang nào của Hoa Kỳ để thăm quan vườn quốc gia Mammoth Cave và xem đua ngựa tại Churchill Downs?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentucky"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "Tây Virginia"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Utah"
+	},
+	"trivia_beginner_027": {
+		"message": "Bạn sẽ đi đến tiểu bang nào của Hoa Kỳ để xem cây cổ thụ sequoia và Quần đảo Channel?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "California"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "New Jersey"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virginia"
+	},
+	"trivia_beginner_028": {
+		"message": "Bạn sẽ đến những vùng đất ngập nước nào nếu bạn ở tiểu bang Florida của Hoa Kỳ?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Đầm lầy"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Dismal Swamp"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Great Cypress Swamp"
+	},
+	"trivia_beginner_029": {
+		"message": "Bạn sẽ đi đến tiểu bang nào của Hoa Kỳ để tham quan Đường biển St. Lawrence và Hồ Finger."
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "New York"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Michigan"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "Núi Everest, ngọn núi cao nhất thế giới, nằm ở châu lục nào?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Nam Cực"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_031": {
+		"message": "Khu vực Patagonia bao gồm phần nhiều cực nam của châu lục nào?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Châu Phi"
+	},
+	"trivia_beginner_032": {
+		"message": "Chim cánh cụt hoàng đế được tìm thấy trong môi trường sống tự nhiên ở châu lục nào?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Nam Cực"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_033": {
+		"message": "Chuột túi và gấu túi có nguồn gốc từ quốc gia nào?"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Úc"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_beginner_034": {
+		"message": "Động vật hoang dã thu hút du khách đến Vườn quốc gia Serengeti ở châu lục nào?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Châu Phi"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Úc"
+	},
+	"trivia_beginner_035": {
+		"message": "Châu lục nào có diện tích đất lớn nhất?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Úc"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_036": {
+		"message": "Cầu Tháp Luân Đôn bắt qua Sông Thames ở thành phố nào của Châu Âu?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "Luân Đôn"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Havana"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Cape Town"
+	},
+	"trivia_beginner_037": {
+		"message": "Nhà thờ chính tòa thánh Basil nằm ở Quảng trường Đỏ bên cạnh cung điện Kremlin thuộc thành phố nào của Nga?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Moscow"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Brussels"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
+	},
+	"trivia_beginner_038": {
+		"message": "Colosseum, được xây dựng vào thế kỷ đầu tiên sau công nguyên như là một nơi tổ chức những cuộc đấu sĩ, thuộc thành phố nào của Châu Âu?"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "Rome"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Khartoum"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manila"
+	},
+	"trivia_beginner_039": {
+		"message": "Nhà hát và Cầu cảng nằm ở thành phố nào của Úc?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sydney"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Jakarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Prague"
+	},
+	"trivia_beginner_040": {
+		"message": "Dome of the Rock và Western Wall chỉ là hai trong số nhiều nơi linh thiêng được tìm thấy bên trong các bức tường thành cổ thuộc thành phố nào của Trung Đông?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Jerusalem"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tokyo"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Algiers"
+	},
+	"trivia_beginner_041": {
+		"message": "Parthenon trên đỉnh Acropolis thuộc thành phố nào của Hy Lạp?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Athens"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kiev"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "Tháp Eiffel đứng gần Sông Seine và nhìn qua trung tâm thành phố nào của Pháp?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "Paris"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "New Delhi"
+	},
+	"trivia_beginner_043": {
+		"message": "Nhà thờ Hồi Giáo Al-Haram là quê hương của Kaaba, vị trí linh thiêng nhất của Đạo Hồi, nằm ở thành phố nào của Saudi Arabian?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Mecca"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Buenos Aires"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Budapest"
+	},
+	"trivia_beginner_044": {
+		"message": "Tử Cấm thành là hoàng cung nằm ở trung tâm của thành phố nào ở Trung Quốc?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Bắc Kinh"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santiago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbane"
+	},
+	"trivia_beginner_045": {
+		"message": "Space Needle là tháp quan sát nằm ở thành phố nào của Hoa Kỳ ở Puget Sound?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Wichita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "New Orleans"
+	},
+	"trivia_beginner_046": {
+		"message": "Tháp John Hancock là tòa nhà cao nhất thuộc thành phố nào của Hoa Kỳ nằm ở cửa sông Charles?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Boston"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pittsburgh"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memphis"
+	},
+	"trivia_beginner_047": {
+		"message": "Tháp Stratosphere, nằm ngay phía bắc đại lộ nổi tiếng được gọi là The Strip, là tòa nhà cao nhất thuộc thành phố nào của Hoa Kỳ ở Sa mạc Mojave?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Las Vegas"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Minneapolis"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denver"
+	},
+	"trivia_beginner_048": {
+		"message": "Tượng Nữ thần Tự do là một tác phẩm điêu khắc lớn nằm trên Đảo Liberty tại bến cảng thuộc thành phố nào của Hoa Kỳ?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "Thành phố New York"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Los Angeles"
+	},
+	"trivia_beginner_049": {
+		"message": "Cầu cổng vàng kết nối thành phố nào của Hoa Kỳ với Bán đảo Marin?"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "San Francisco"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boise"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimore"
+	},
+	"trivia_beginner_050": {
+		"message": "Cổng vào hình cung, tượng trưng cho việc mở rộng sang phía tây của Mỹ vào năm 1800, nằm dọc theo Sông Mississippi thuộc thành phố nào của Hoa Kỳ?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "St. Louis"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianapolis"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Miami"
+	},
+	"trivia_beginner_051": {
+		"message": "Giza Plateau, quê hương của Kim tự tháp và Tượng nhân sư, nằm ở quốc gia nào của Châu Phi?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Ai Cập"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Braxin"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Đức"
+	},
+	"trivia_beginner_052": {
+		"message": "Hội trường độc lập, một di tích lịch sử quan trọng gắn liền với Cuộc cách mạng Mỹ, nằm gần Sông Delaware ở thành phố nào của Hoa Kỳ?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Philadelphia"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "San Antonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Chicago"
+	},
+	"trivia_beginner_053": {
+		"message": "Dãy núi Rocky kéo dài từ Canada đến quốc gia khác nào?"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "Hoa Kỳ"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Venezuela"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Nga"
+	},
+	"trivia_beginner_054": {
+		"message": "Braxin và Uruguay giáp với đại dương nào?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Đại Tây Dương"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Ấn Độ Dương"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Bắc Băng Dương"
+	},
+	"trivia_beginner_055": {
+		"message": "Đảo Newfoundland nằm ở ngoài khơi bờ biển phía đông Canada ở châu lục nào?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Đại Tây Dương"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Ấn Độ Dương"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Thái Bình Dương"
+	},
+	"trivia_beginner_056": {
+		"message": "Đảo Madagascar nằm ở ngoài khơi bờ biển phía đông Châu Phi thuộc đại dương nào?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Ấn Độ Dương"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Thái Bình Dương"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Bắc Băng Dương"
+	},
+	"trivia_beginner_057": {
+		"message": "Phần lớn đường đổi ngày quốc tế chạy qua giữa đại dương nào?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Thái Bình Dương"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Ấn Độ Dương"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Đại Tây Dương"
+	},
+	"trivia_beginner_058": {
+		"message": "Equator đi qua Lưu vực sông Congo ở châu lục nào?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Châu Phi"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Úc"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_059": {
+		"message": "Châu lục nào giáp với Vịnh Mexico?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_060": {
+		"message": "Con sông nào chảy qua Châu Phi là con sông dài nhất thế giới?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Sông Nile"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Sông Colorado"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Sông Orange"
+	},
+	"trivia_beginner_061": {
+		"message": "Tàn tích Machu Picchu nằm ở châu lục nào?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Nam Cực"
+	},
+	"trivia_beginner_062": {
+		"message": "Sông Amazon, có lượng nước nhiều hơn bất kỳ dòng sông nào khác trên thế giới, chảy qua châu lục nào?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Úc"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_063": {
+		"message": "Mont Blanc, điểm cao nhất trong dãy núi Alps, nằm ở châu lục nào?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_beginner_064": {
+		"message": "Eo đất Panama nối Trung Mỹ với châu lục nào?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_065": {
+		"message": "Cheetahs là động vật có vú nhanh nhất trên Trái đất và có thể được tìm thấy ở Kenya và Tanzania trên châu lục nào?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Châu Phi"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_066": {
+		"message": "Cape of Good Hope nằm ở gần cực nam của châu lục nào?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Châu Phi"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_067": {
+		"message": "Những chú rùa khổng lồ sống ở Quần đảo Galápagos, nằm phía tây Nam Mỹ thuộc đại dương nào?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Thái Bình Dương"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Bắc Băng Dương"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Ấn Độ Dương"
+	},
+	"trivia_beginner_068": {
+		"message": "Sông Danube chảy qua Vienna và các thành phố khác của châu lục nào?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Úc"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "Châu Phi"
+	},
+	"trivia_beginner_069": {
+		"message": "Các quần đảo của Cuba và Hispaniola tiếp giáp với biển nào?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Biển Caribê"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Biển Bering"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Biển Baltic"
+	},
+	"trivia_beginner_070": {
+		"message": "Vịnh Guinea giáp châu lục nào?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Châu Phi"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Úc"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_071": {
+		"message": "Ernest Shackleton là nhà thám hiểm nổi tiếng của châu lục nào?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Nam Cực"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_072": {
+		"message": "Biển Labrador là nhánh của đại dương nào?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Đại Tây Dương"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Ấn Độ Dương"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Thái Bình Dương"
+	},
+	"trivia_beginner_073": {
+		"message": "Sahara, sa mạc lớn nhất thế giới, nằm ở châu lục nào?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Châu Phi"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Nam Cực"
+	},
+	"trivia_beginner_074": {
+		"message": "Cao nguyên Tây Tạng nằm ở châu lục nào?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_beginner_075": {
+		"message": "Drake Passage nằm ở phía nam của châu lục nào?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Úc"
+	},
+	"trivia_beginner_076": {
+		"message": "Rạn san hô Great Barrier (Đại Bảo Tiều) nằm ở Biển Coral ở ngoài khơi của châu lục nào?"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Úc"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_077": {
+		"message": "Bạn sẽ đi đến quốc gia nào để điều hướng Kênh đào Suez và để ghé thăm Thành phố Chết của Cairô?"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "Ai Cập"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Colombia"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Phần Lan"
+	},
+	"trivia_beginner_078": {
+		"message": "Bạn sẽ đi đến quốc gia nào để xem người chăn bò chăm sóc gia súc và để xem các vũ công tango ở thành phố Buenos Aires?"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Argentina"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Niger"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nê-pan"
+	},
+	"trivia_beginner_079": {
+		"message": "Bạn sẽ đi đến quốc gia nào để viếng khu phố cổ trong thành phố Fez và để đi leo núi ở Dãy núi Atlas?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Ma Rốc"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Thái Lan"
+	},
+	"trivia_beginner_080": {
+		"message": "Bạn sẽ đi đến quốc gia nào để ghé thăm tàn tích của người Maya cổ đại và để bơi tại bãi biển Cancún?"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "Hà Lan"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Thổ Nhĩ Kỳ"
+	},
+	"trivia_beginner_081": {
+		"message": "Bạn sẽ đi đến quốc gia nào để ghé thăm Nhà thờ Thánh Patrick ở Dublin và thưởng thức Lễ hội nghệ thuật ở Kilkenny?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Ireland"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Somali"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_beginner_082": {
+		"message": "Bạn sẽ đi đến quốc gia nào để tham quan rừng mưa nhiệt đới và khiêu vũ tại lễ hội hóa trang Carnival của Rio de Janeiro?"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Braxin"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "Vương quốc Anh"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "Việt Nam"
+	},
+	"trivia_beginner_083": {
+		"message": "Bạn sẽ đi đến quốc gia nào để viếng Bảo tàng Hermitage ở Saint Petersburg và để đi Tuyến đường sắt xuyên Siberia?"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Nga"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indonesia"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Belize"
+	},
+	"trivia_beginner_084": {
+		"message": "Bạn sẽ đi đến quốc gia nào để đi xe lửa tốc độ cao và để qua đêm trong một khách sạn Tokyo?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Nhật Bản"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_beginner_085": {
+		"message": "Bạn sẽ đi đến quốc gia nào để ăn pesto ở Genoa và xem nhạc kịch ở Florence?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Ý"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paraguay"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Libya"
+	},
+	"trivia_beginner_086": {
+		"message": "Bạn sẽ đi đến quốc gia nào để đi săn trong Khu bảo tồn thiên nhiên Maasai Mara và để mua sắm ở Nairobi?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Kenya"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "Hàn Quốc"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Chile"
+	},
+	"trivia_beginner_087": {
+		"message": "Bạn sẽ đi đến quốc gia nào để xem Sông Hằng và để khám phá đường phố đông đúc của Kolkata?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "Ấn Độ"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Đức"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "Jordan"
+	},
+	"trivia_beginner_088": {
+		"message": "Bắc Cực, điểm cực bắc trên Trái đất, nằm ở giữa đại dương nào?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Bắc Băng Dương"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Thái Bình Dương"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Ấn Độ Dương"
+	},
+	"trivia_beginner_089": {
+		"message": "Quốc gia nào giáp với Đại Tây Dương?"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "Iceland"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Pakistan"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Nhật Bản"
+	},
+	"trivia_beginner_090": {
+		"message": "Tiểu bang nào của Hoa Kỳ được biết đến như là Tiểu bang Ánh nắng vì khí hậu ấm áp và có các bờ biển nổi tiếng?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Florida"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Maine"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Washington"
+	},
+	"trivia_beginner_091": {
+		"message": "Grand Canyon (Hẻm núi lớn) nằm ở tiểu bang nào của Hoa Kỳ?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "Tây Virginia"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "Nam Dakota"
+	},
+	"trivia_beginner_092": {
+		"message": "Tiểu bang nào của Hoa Kỳ, được biết đến như là Tiểu bang ngôi sao cô đơn, có một ngôi sao trên lá cờ và đã từng là một quốc gia độc lập?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Texas"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Wisconsin"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_093": {
+		"message": "Sông Tigris và Euphrates nằm ở châu lục nào?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Nam Cực"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Châu Âu"
+	},
+	"trivia_beginner_094": {
+		"message": "Hồ Victoria và Dãy núi Virunga nằm ở châu lục nào?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Châu Phi"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Châu Á"
+	},
+	"trivia_beginner_095": {
+		"message": "Quốc gia nào là quốc đảo ở Thái Bình Dương?"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "New Zealand"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "Nam Phi"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "Iceland"
+	},
+	"trivia_beginner_096": {
+		"message": "Quốc gia nào nằm ở Bán đảo Scandinavia?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Thụy Điển"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Rumani"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Peru"
+	},
+	"trivia_beginner_097": {
+		"message": "Quốc gia nào giáp Biển Địa Trung Hải?"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "Pháp"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_001": {
+		"message": "Thành phố nào của Hoa Kỳ ở gần biên giới Canada nhất?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sacramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "Thành phố nào của Hoa Kỳ có khả năng chịu ảnh hưởng của bão nhất?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Miami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Los Angeles"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pittsburgh"
+	},
+	"trivia_hard_003": {
+		"message": "Những hồ nào sau đây có diện tích bề mặt lớn nhất?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Hồ Huron"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Hồ Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Hồ Erie"
+	},
+	"trivia_hard_004": {
+		"message": "Thành phố nào của Hoa Kỳ sau đây đông dân nhất?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Chicago"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "St. Louis"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianapolis"
+	},
+	"trivia_hard_005": {
+		"message": "Quốc gia nào ở gần Vịnh Ba Tư nhất?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Thổ Nhĩ Kỳ"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_hard_006": {
+		"message": "Quốc gia nào sau đây có diện tích đất lớn nhất?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Kazakhstan"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Rumani"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Ba Lan"
+	},
+	"trivia_hard_007": {
+		"message": "Quốc gia nào sau đây đông dân cư nhất?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Singapore"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Lào"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_008": {
+		"message": "Quốc gia nào sau đây có số người nói tiếng Đức nhiều nhất?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Áo"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Slovakia"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Iraq"
+	},
+	"trivia_hard_009": {
+		"message": "Quốc gia nào sau đây giáp với nhiều quốc gia nhất?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Ả-Rập Xê-út"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Ma Rốc"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mông Cổ"
+	},
+	"trivia_hard_010": {
+		"message": "Quốc gia nào không giáp với Hồ Tanganyika?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benin"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Burundi"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_hard_011": {
+		"message": "Quốc gia nào không bị cắt bởi Đường xích đạo?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Mauritania"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indonesia"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_hard_012": {
+		"message": "Quốc gia nào không nằm trên Bán đảo Balkan?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Cộng hòa Séc"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Bungari"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Macedonia"
+	},
+	"trivia_hard_013": {
+		"message": "Quốc gia nào không giáp Biển Bắc?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Phần Lan"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Đan Mạch"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "Vương quốc Anh"
+	},
+	"trivia_hard_014": {
+		"message": "Quốc gia nào không giáp với Biển Đen?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Azerbaijan"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Ukraina"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Thổ Nhĩ Kỳ"
+	},
+	"trivia_hard_015": {
+		"message": "Quốc gia nào không có bờ biển?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Croatia"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Belarus"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Hungary"
+	},
+	"trivia_hard_016": {
+		"message": "Quốc gia nào không nằm ở sa mạc Sahara?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angola"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Libya"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Algeria"
+	},
+	"trivia_hard_017": {
+		"message": "Đảo nào nằm xa nhất về phía đông?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinidad"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Cuba"
+	},
+	"trivia_hard_018": {
+		"message": "Cape Fear giáp với hồ nước nào?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Đại Tây Dương"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Biển Caribê"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Thái Bình Dương"
+	},
+	"trivia_hard_019": {
+		"message": "Thành phố nào là cảng trên Vịnh Mexico?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Veracruz"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tijuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Acapulco"
+	},
+	"trivia_hard_020": {
+		"message": "Hạ chí tuyến đi qua quốc gia nào?"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Canada"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Braxin"
+	},
+	"trivia_hard_021": {
+		"message": "Quần đảo nào sau đây là quần đảo lớn nhất khu vực?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Đảo Baffin"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Hispaniola"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Sardinia"
+	},
+	"trivia_hard_022": {
+		"message": "Kênh Yucatán tách Mexico với đảo nào?"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "Cuba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Puerto Rico"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dominica"
+	},
+	"trivia_hard_023": {
+		"message": "Thành phố nào của Canada nằm xa nhất về phía bắc?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Yellowknife"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Ottawa"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Winnipeg"
+	},
+	"trivia_hard_024": {
+		"message": "Đảo nào là một phần của Tiểu Antilles?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "St. Kitts"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Bermuda"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Nova Scotia"
+	},
+	"trivia_hard_025": {
+		"message": "Port-au-Prince là thành phố đông dân nhất ở quốc gia nào?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haiti"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_hard_026": {
+		"message": "Quốc gia nào nằm trong hệ thống núi Carpathian?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Rumani"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albania"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Turkmenistan"
+	},
+	"trivia_hard_027": {
+		"message": "Tiếng Pháp là ngôn ngữ chính thức ở quốc gia nào?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabon"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tanzania"
+	},
+	"trivia_hard_028": {
+		"message": "Quốc gia nào sau đây có diện tích đất lớn nhất?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Israel"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Bahrain"
+	},
+	"trivia_hard_029": {
+		"message": "Quốc gia nào có kinh độ dài nhất?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Kazakhstan"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afghanistan"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Syria"
+	},
+	"trivia_hard_030": {
+		"message": "Quốc gia nào được tạo thành từ nhiều hòn đảo?"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Philipin"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Campuchia"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Tajikistan"
+	},
+	"trivia_hard_031": {
+		"message": "Quốc gia nào sau đây có nhiều múi giờ nhất?"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Braxin"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "Belize"
+	},
+	"trivia_hard_032": {
+		"message": "Quốc gia nào nằm ở phía bắc xa nhất?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Cameroon"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Mozambique"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Úc"
+	},
+	"trivia_hard_033": {
+		"message": "Quốc gia nào nằm ở giữa Pháp và Tây Ban Nha?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andorra"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Luxembourg"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Tòa thánh Vatican"
+	},
+	"trivia_hard_034": {
+		"message": "Đan Mạch giáp biên giới với quốc gia nào?"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Đức"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "Phần Lan"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Moldova"
+	},
+	"trivia_hard_035": {
+		"message": "Đảo Sardinia thuộc quốc gia nào?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Ý"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Thổ Nhĩ Kỳ"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "Vương quốc Anh"
+	},
+	"trivia_hard_036": {
+		"message": "Sa mạc nào bao phủ phần lớn diện tích giữa Bắc Kinh và Ulaanbaatar?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Sa mạc Great Indian"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Sa mạc Libi"
+	},
+	"trivia_hard_037": {
+		"message": "Kamchatka Current là một phần của đại dương nào?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Thái Bình Dương"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Ấn Độ Dương"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Đại Tây Dương"
+	},
+	"trivia_hard_038": {
+		"message": "Vịnh Sidra nằm ở phần phía nam của biển nào?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Biển Địa Trung Hải"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Biển Ả-rập"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Biển Baltic"
+	},
+	"trivia_hard_039": {
+		"message": "Dãy núi Tatra là vùng cao nhất trong hệ thống núi nào ở Châu Âu?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Dãy núi Carpathian"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Dãy núi Cantabrian"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Pyrenees"
+	},
+	"trivia_hard_040": {
+		"message": "Sông nào chảy qua Hồ Kariba và tạo thành biên giới giữa Zambia và Zimbabwe?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Sông Zambezi"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Sông Nile"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Sông Congo"
+	},
+	"trivia_hard_041": {
+		"message": "Sông Thames, Sông Meuse và Sông Schelde chảy vào biển nào?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Biển Bắc"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Biển Địa Trung Hải"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Biển Đen"
+	},
+	"trivia_hard_042": {
+		"message": "Eo biển Luzon tách Philipin từ đảo lớn nào với phía bắc?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Đài Loan"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Algeria"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_hard_043": {
+		"message": "Quần đảo nào nằm dọc theo Sống núi giữa Đại Tây Dương?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Azores"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Bahamas"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Quần đảo Fiji"
+	},
+	"trivia_hard_044": {
+		"message": "Sông nào chảy vào biển Laptev?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Sông Lena"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Sông Trường Giang"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Sông Indus"
+	},
+	"trivia_hard_045": {
+		"message": "Đỉnh nào đứng gần Xích đạo nhất?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimanjaro"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Mont Blanc"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Đỉnh McKinley"
+	},
+	"trivia_hard_046": {
+		"message": "Thủ đô nào đông dân nhất?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Moscow"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Helsinki"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Algiers"
+	},
+	"trivia_hard_047": {
+		"message": "Thành phố nào, nằm trên Sông Liffey, là thành phố lớn nhất Cộng hòa Ireland?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dublin"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Oslo"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Copenhagen"
+	},
+	"trivia_hard_048": {
+		"message": "Thành phố nào, nằm ở thung lũng Hindu Kush, là thành phố lớn nhất Afghanistan?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Kabul"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Sarajevo"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "Thành phố nào, nằm trên Sông Chao Phraya, là thành phố lớn nhất Thái Lan?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Băng Cốc"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Bắc Kinh"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Amman"
+	},
+	"trivia_hard_050": {
+		"message": "Thành phố nào, nằm ở đầu của một vịnh hẹp trên eo biển Skagerrak, là thành phố lớn nhất Na Uy?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Oslo"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "Luân Đôn"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Brussels"
+	},
+	"trivia_hard_051": {
+		"message": "Thành phố nào, nằm dọc theo phía đông Biển Địa Trung Hải, là thành phố lớn nhất Li Băng?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Beirut"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Riyadh"
+	},
+	"trivia_hard_052": {
+		"message": "Thành phố nào, nằm trên bờ biển Java, là thành phố lớn nhất Indonesia?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Jakarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tokyo"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "Thành phố nào nằm ở vùng Attica là thành phố lớn nhất Hy Lạp?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Athens"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Rome"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barcelona"
+	},
+	"trivia_hard_054": {
+		"message": "Thành phố nào, nằm ở cửa sông Río de la Plata, là thành phố lớn nhất ở Uruguay?"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Quito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Rio de Janeiro"
+	},
+	"trivia_hard_055": {
+		"message": "Thành phố nào, đã từng là một tỉnh cũ của Transvaal, là thành phố lớn nhất Nam Phi?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Johannesburg"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abuja"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputo"
+	},
+	"trivia_hard_056": {
+		"message": "Thành phố nào, trung tâm vận chuyển quan trọng trên Biển Caribê, là thành phố lớn nhất Jamaica?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Kingston"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Caracas"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Buenos Aires"
+	},
+	"trivia_hard_057": {
+		"message": "Thành phố nào, nằm ở Thung lũng tách giãn lớn, là thành phố lớn nhất Eritrea?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Baghdad"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazzaville"
+	},
+	"trivia_hard_058": {
+		"message": "Thành phố nào, nằm trên nhánh Sông Vistula, là thành phố lớn nhất Ba Lan?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Warsaw"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kiev"
+	},
+	"trivia_hard_059": {
+		"message": "Thành phố nào, một điểm dừng quan trọng trên Đường cao tốc Liên Mỹ, là thành phố lớn nhất Costa Rica?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "San José"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sucre"
+	},
+	"trivia_hard_060": {
+		"message": "Thành phố nào, một trung tâm thương mại nông nghiệp quan trọng ở nam Châu Phi, là thành phố lớn nhất Zimbabwe?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Windhoek"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "Thành phố nào, đã từng bị chế độ Khmer Đỏ chiếm đóng, là thành phố lớn nhất Campuchia?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Phnom Penh"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kuala Lumpur"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Dhaka"
+	},
+	"trivia_hard_062": {
+		"message": "Thành phố nào, nằm trên Đại Tây Dương ở Cape Mesurado, là thành phố lớn nhất Liberia?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monrovia"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Accra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaka"
+	},
+	"trivia_hard_063": {
+		"message": "Thành phố nào, nằm trên cao nguyên trong dãy núi Andes, là thành phố lớn nhất Colombia?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogotá"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managua"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterrey"
+	},
+	"trivia_hard_064": {
+		"message": "Thành phố nào nằm dưới chân Dãy núi Elburz là thành phố lớn nhất Iran?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Tehran"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Tashkent"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Istanbul"
+	},
+	"trivia_hard_065": {
+		"message": "Vùng nước nào bắt qua Vòng Bắc cực?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Biển Na Uy"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Hồ Volta"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Biển Caspian"
+	},
+	"trivia_hard_066": {
+		"message": "Hồ nước nào nằm ở Thung lũng tách giãn lớn?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Hồ Malawi"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Biển Tasman"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Hồ Titicaca"
+	},
+	"trivia_hard_067": {
+		"message": "Thành phố cảng Arkhangelsk của Nga nằm trên bờ biển nào?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Biển Trắng"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Eo biển Bass"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Vịnh Biscay"
+	},
+	"trivia_hard_068": {
+		"message": "Đất nước nào có các tỉnh Hồ Nam và Sơn Đông?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "Trung Quốc"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Thái Lan"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Yemen"
+	},
+	"trivia_hard_069": {
+		"message": "Castilian là ngôn ngữ chính thức của quốc gia Địa Trung Hải nào?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Tây Ban Nha"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Hy Lạp"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "Azerbaijan"
+	},
+	"trivia_hard_070": {
+		"message": "Quốc gia Trung Mỹ nào đã từng là một tỉnh thuộc Colombia?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panama"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Guatemala"
+	},
+	"trivia_hard_071": {
+		"message": "Thành phố Basel, bị chia cắt bởi Sông Rhine, là trung tâm vận tải quan trọng ở quốc gia nào?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Thụy Sĩ"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Bỉ"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Nga"
+	},
+	"trivia_hard_072": {
+		"message": "Những họa sĩ như Cézanne được truyền cảm hứng từ phong cảnh của Provence, một khu vực thuộc quốc gia nào?"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "Pháp"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "Hà Lan"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Rumani"
+	},
+	"trivia_hard_073": {
+		"message": "Bahía Blanca là điểm vận chuyển chính cho khu vực Pampas thuộc quốc gia nào?"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Argentina"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_074": {
+		"message": "Quốc gia nào giáp với Biển Mediterranean, Biển đen và Biển Aegean?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Thổ Nhĩ Kỳ"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Bungari"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Libya"
+	},
+	"trivia_hard_075": {
+		"message": "Mỗi năm, linh dương đầu bò di chuyển từ Tanzania qua Sông Mara vào quốc gia láng giềng nào về phí đông bắc."
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Kenya"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Zambia"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Guinea"
+	},
+	"trivia_hard_076": {
+		"message": "Aleppo, nổi tiếng với Thánh đường Hồi giáo, là thành phố lớn nhất thuộc quốc gia nào ở Tây Nam Á?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Syria"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Oman"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_hard_077": {
+		"message": "Quốc gia nào giáp Russia và Georgia?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Azerbaijan"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Uzbekistan"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Bắc Triều Tiên"
+	},
+	"trivia_hard_078": {
+		"message": "Quốc gia nào giáp với Panama và Braxin?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Colombia"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Peru"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_hard_079": {
+		"message": "Quốc gia nào giáp Guatemala và Hoa Kỳ?"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "El Salvador"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Canada"
+	},
+	"trivia_hard_080": {
+		"message": "Quốc gia nào giáp Iraq và Afghanistan?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Ukraina"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mông Cổ"
+	},
+	"trivia_hard_081": {
+		"message": "Quốc gia nào giáp Lesotho và Botswana?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Nam Phi"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Congo"
+	},
+	"trivia_hard_082": {
+		"message": "Antwerp nằm ở cộng đồng nói tiếng Flemish thuộc quốc gia nào?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Bỉ"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Hà Lan"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "Iceland"
+	},
+	"trivia_hard_083": {
+		"message": "Nằm gần cửa Sông Vistula, Gdańsk là hải cảng chính thuộc quốc gia Châu Âu nào?"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "Ba Lan"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Tây Ban Nha"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Croatia"
+	},
+	"trivia_hard_084": {
+		"message": "Sông Madeira và Purus là các nhánh sông chính của con sông lớn nào ở Nam Mỹ?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Sông Amazon"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Sông Orinoco"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Sông Paraná"
+	},
+	"trivia_hard_085": {
+		"message": "Hồ Constance giáp Thụy Sĩ, Đức và quốc gia khác nào?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Áo"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Slovakia"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Phần Lan"
+	},
+	"trivia_hard_086": {
+		"message": "Auckland, một thành phố cảng lớn với nhiều bến cảng, là thành phố lớn nhất ở quốc gia nào?"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "New Zealand"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Úc"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "Indonesia"
+	},
+	"trivia_hard_087": {
+		"message": "Quốc gia nào, nằm ngay phía tây của Togo, là nhà sản xuất cacao chính?"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Ghana"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Sudan"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Tunisia"
+	},
+	"trivia_hard_088": {
+		"message": "Guaraní là tên của một trong số những ngôn ngữ chính thức và cũng là đơn vị tiền tệ của quốc gia Nam Mỹ nào?"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "Paraguay"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Braxin"
+	},
+	"trivia_hard_089": {
+		"message": "Dãy núi nào kéo dài dọc theo biên giới giữa Pháp và Tây Ban Nha?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Pyrenees"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Apennines"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Dãy núi Caucasus"
+	},
+	"trivia_hard_090": {
+		"message": "Sông Torrens đổ vào Vịnh Saint Vincent ở quốc gia nào?"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Úc"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Canada"
+	},
+	"trivia_hard_091": {
+		"message": "Quốc gia nào của Châu Phi giáp Biển Địa trung hải có chế độ quân chủ?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Ma Rốc"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Ai Cập"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Cộng hòa Trung Phi"
+	},
+	"trivia_hard_092": {
+		"message": "Tbilisi, nằm trên bờ Sông Kura, là thủ đô của quốc gia nào?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Georgia"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Syria"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Hungary"
+	},
+	"trivia_hard_093": {
+		"message": "Abruzzo là khu vực miền núi nằm trên Bờ biển Adriatic ở quốc gia nào?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Ý"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "Pháp"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "Luxembourg"
+	},
+	"trivia_hard_094": {
+		"message": "Vịnh Riga giáp Latvia và quốc gia khác nào?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Estonia"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Belarus"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Tây Ban Nha"
+	},
+	"trivia_hard_095": {
+		"message": "Eo biển Jubal nối Vịnh Suez với biển nào?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Biển Đỏ"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Biển Caribê"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Biển Caspian"
+	},
+	"trivia_hard_096": {
+		"message": "Biển hồ Galilee có dòng chảy vào từ nguồn nước của con sông nào?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Sông Jordan"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amu Darya"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Sông Hằng"
+	},
+	"trivia_hard_097": {
+		"message": "Vịnh lớn nào tách New Brunswick với Nova Scotia?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Vịnh Fundy"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Vịnh Hudson"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Vịnh Bengal"
+	},
+	"trivia_hard_098": {
+		"message": "Thánh đường Cologne nằm ở vùng Rhineland của quốc gia nào?"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Đức"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Đan Mạch"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_099": {
+		"message": "Chiapas, nơi có những tàn tích của người Maya cổ đại, là tiểu bang xa nhất về phía nam của quốc gia nào?"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Chile"
+	},
+	"trivia_hard_100": {
+		"message": "Dardanelles là một eo biển hẹp nối Biển Marmara với biển nào?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Biển Aegean"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Biển Barents"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Biển Tasman"
+	},
+	"trivia_hard_101": {
+		"message": "Khmer là ngôn ngữ chính thức của quốc gia nào ở Đông Nam Á?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Campuchia"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nê-pan"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Việt Nam"
+	},
+	"trivia_hard_102": {
+		"message": "Donets Basin là khu công nghiệp chung của Nga và quốc gia nào?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Ukraina"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Slovakia"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Li Băng"
+	},
+	"trivia_hard_103": {
+		"message": "Núi Kosciuszko, thuộc Dãy núi Snowy, là đỉnh núi cao nhất ở châu lục nào?"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Úc"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Châu Âu"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_hard_104": {
+		"message": "Đảo Madura và Bali thuộc quốc gia nào?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indonesia"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Nhật Bản"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_105": {
+		"message": "Sa mạc Taklimakan nằm ở phía bắc của Dãy núi Kunlun thuộc quốc gia nào của Châu Á?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "Trung Quốc"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Ả-Rập Xê-út"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "Hàn Quốc"
+	},
+	"trivia_medium_001": {
+		"message": "Các thành phố nào của Hoa Kỳ sau đây nằm trên vùng đồng bằng sông?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "New Orleans"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Austin"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Thành phố Oklahoma"
+	},
+	"trivia_medium_002": {
+		"message": "Angkor Wat và Cappadocia được trang web Di sản thế giới UNESCO phát hiện ở châu lục nào?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Châu Á"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Châu Âu"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Châu Phi"
+	},
+	"trivia_medium_003": {
+		"message": "Tiếng Kurd và Ba Tư được nói bởi những người ở phía tây nam của châu lục nào?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Châu Á"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Châu Âu"
+	},
+	"trivia_medium_004": {
+		"message": "Teotihuacán là trung tâm lớn nhất của nền văn minh sơ khởi nằm ở châu lục nào?"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Châu Phi"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Châu Á"
+	},
+	"trivia_medium_005": {
+		"message": "Biển Bellingshausen và Biển Ross giáp châu lục nào?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Nam Cực"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Châu Âu"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Châu Á"
+	},
+	"trivia_medium_006": {
+		"message": "Dòng Mozambique và Benguela chảy dọc theo bờ biển của châu lục nào?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Châu Phi"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Châu Âu"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_medium_007": {
+		"message": "Quần đảo Islas Malvinas, còn được gọi là quần đảo Falkland, nằm ngoài rìa đông nam của châu lục nào?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Châu Âu"
+	},
+	"trivia_medium_008": {
+		"message": "Các quốc gia nào của Châu Phi sau đây có diện tích lớn nhất?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Algeria"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gambia"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Burundi"
+	},
+	"trivia_medium_009": {
+		"message": "Đảo lớn nào cách 200 dặm về phía tây của Iceland?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Greenland"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "New Guinea"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Ireland"
+	},
+	"trivia_medium_010": {
+		"message": "Biển Kara và Biển Đông Siberi là một phần của đại dương nào?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Bắc Băng Dương"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Ấn Độ Dương"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Thái Bình Dương"
+	},
+	"trivia_medium_011": {
+		"message": "Quốc gia nào giáp Biển Baltic?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Latvia"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Slovenia"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Ukraina"
+	},
+	"trivia_medium_012": {
+		"message": "Thành phố lớn nào sau đây đông dân nhất?"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "São Paulo, Braxin"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto, Canada"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hà Nội thuộc Việt Nam"
+	},
+	"trivia_medium_013": {
+		"message": "Quốc gia nào không có đường bờ biển trên Đại Tây Dương?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Malaysia"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Uruguay"
+	},
+	"trivia_medium_014": {
+		"message": "Quốc gia nào sau đây có đường bờ biển ngắn nhất?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Peru"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Chile"
+	},
+	"trivia_medium_015": {
+		"message": "Sa mạc nào nằm ở Châu Á?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalahari"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atacama"
+	},
+	"trivia_medium_016": {
+		"message": "Quốc gia nào sau đây chịu nhiều hoạt động núi lửa nhất?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indonesia"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Ai Cập"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Israel"
+	},
+	"trivia_medium_017": {
+		"message": "Quốc gia nào sau đây có dân số đông nhất?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_018": {
+		"message": "Quốc gia nào sau đây có nhiều đảo nhất?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Bahamas"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_019": {
+		"message": "Quốc gia nào nằm gần Xích đạo nhất?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Rwanda"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "Nam Phi"
+	},
+	"trivia_medium_020": {
+		"message": "Quốc gia nào nằm ở phía bắc xa nhất?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Estonia"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Libya"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Campuchia"
+	},
+	"trivia_medium_021": {
+		"message": "Có thể tìm thấy quận Alfama ở Bồ Đào Nha trên bờ Sông Tagus ở thủ đô nào?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lisbon"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Helsinki"
+	},
+	"trivia_medium_022": {
+		"message": "Thủ đô nào, nằm cách 25 dặm về phía đông bắc của Biển Chết, là thành phố đông dân nhất ở Jordan?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Amman"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Islamabad"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Seoul"
+	},
+	"trivia_medium_023": {
+		"message": "Quảng trường Tahrir, tâm điểm của nhiều cuộc biểu tình lớn Ai Cập, nằm ở thủ đô nào?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Cairo"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Muscat"
+	},
+	"trivia_medium_024": {
+		"message": "Thủ đô nào, nằm ở Vịnh Table, là nơi có tòa nhà quốc hội Nam Phi?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Cape Town"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaka"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinshasa"
+	},
+	"trivia_medium_025": {
+		"message": "Nằm trên Sông Vltava, thủ đô nào là thành phố lớn nhất ở Cộng hòa Séc?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Prague"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dublin"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Sofia"
+	},
+	"trivia_medium_026": {
+		"message": "Thủ đô nào, nằm trên Biển Địa Trung Hải, là cảng quan trọng của Libya?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Tripoli"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monrovia"
+	},
+	"trivia_medium_027": {
+		"message": "Thủ đô nào, trung tâm thương mại và vận chuyển quan trọng ở Sudan, nằm ở mối giao nhau của Sông Nile Trắng và Sông Nile Xanh?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Khartoum"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Tunis"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Johannesburg"
+	},
+	"trivia_medium_028": {
+		"message": "Thủ đô nào được đặt ở đảo Zealand và Amager của Đan Mạch?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Copenhagen"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Bern"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Bratislava"
+	},
+	"trivia_medium_029": {
+		"message": "Thủ đô nào, nằm trên đảo New Providence, là thành phố lớn nhất Bahamas?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Nassau"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santo Domingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopan"
+	},
+	"trivia_medium_030": {
+		"message": "Nằm ở phía nam Biển Đen, thủ đô nào là trung tâm hệ thống vận tải của Thổ Nhĩ Kỳ?"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "Ankara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minsk"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Tehran"
+	},
+	"trivia_medium_031": {
+		"message": "Quốc gia nào sau đây thuộc một phần ở Sừng Châu Phi?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Niger"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Swaziland"
+	},
+	"trivia_medium_032": {
+		"message": "Skagerrak là eo biển tách Đan Mạch với quốc gia nào?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Na Uy"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "Vương quốc Anh"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_medium_033": {
+		"message": "Quốc gia nào có phần nhiều diện tích đất bị bao phủ bởi sa mạc?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Chad"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Na Uy"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Việt Nam"
+	},
+	"trivia_medium_034": {
+		"message": "Sông Euphrates chảy qua quốc gia nào?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Syria"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Thụy Sĩ"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Thái Lan"
+	},
+	"trivia_medium_035": {
+		"message": "Thành phố Irkutsk nằm gần Hồ Baikal ở châu lục nào?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Châu Á"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Châu Phi"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_medium_036": {
+		"message": "Dnieper và Rhine là các con sông chính của châu lục nào?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Châu Âu"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Nam Cực"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "Châu Á"
+	},
+	"trivia_medium_037": {
+		"message": "Cao nguyên Guiana và vùng Pantanal nằm ở châu lục nào?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Bắc Mỹ"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Châu Âu"
+	},
+	"trivia_medium_038": {
+		"message": "Sa mạc Great Victoria và Đồng bằng Nullarbor là các đặc điểm tự nhiên trên châu lục nào?"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Úc"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Châu Á"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Châu Âu"
+	},
+	"trivia_medium_039": {
+		"message": "Rio Grande do Sul là tiểu bang ở phía xa cực nam của quốc gia nào?"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Braxin"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "Mexico"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Đức"
+	},
+	"trivia_medium_040": {
+		"message": "Thành phố Novosibirsk nằm trên Sông Ob ở quốc gia nào?"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Nga"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "Nê-pan"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "Trung Quốc"
+	},
+	"trivia_medium_041": {
+		"message": "Quốc gia nào nằm trên Vành đai Thái Bình Dương và có nhiều khả năng chịu động đất?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Chile"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "Pháp"
+	},
+	"trivia_medium_042": {
+		"message": "Hồ Maracaibo nằm dọc theo bờ biển phía bắc của quốc gia nào?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Canada"
+	},
+	"trivia_medium_043": {
+		"message": "Quốc gia nào giáp với Biển Ả Rập?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "Ấn Độ"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Tajikistan"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Hy Lạp"
+	},
+	"trivia_medium_044": {
+		"message": "Quốc gia nào nằm trên Bán đảo Iberia?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Bồ Đào Nha"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Hà Lan"
+	},
+	"trivia_medium_045": {
+		"message": "Quốc gia nào sau đây có đường bờ biển dài nhất?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Thái Lan"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Congo"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Qatar"
+	},
+	"trivia_medium_046": {
+		"message": "Tiểu bang nào của Hoa Kỳ nằm ở phía tây Sông Mississippi?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Colorado"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Maryland"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Michigan"
+	},
+	"trivia_medium_047": {
+		"message": "Rừng bao phủ khoảng 60% tiểu bang nào của Hoa Kỳ?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virginia"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "Núi McKinley, đỉnh cao nhất ở Bắc Mỹ, nằm ở tiểu bang nào của Hoa Kỳ?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Alaska"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_medium_049": {
+		"message": "Những tiểu bang nào của Hoa Kỳ sau đây có diện tích lớn nhất?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montana"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "Nam Carolina"
+	},
+	"trivia_medium_050": {
+		"message": "Núi Rushmore nằm gần Thành phố Rapid ở tiểu bang nào của Hoa Kỳ?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "Nam Dakota"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Florida"
+	},
+	"trivia_medium_051": {
+		"message": "Tiểu bang nào của Hoa Kỳ có chung biên giới với Canada?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebraska"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentucky"
+	},
+	"trivia_medium_052": {
+		"message": "Các rặng san hô được tìm thấy ngoài khơi bờ biển của tiểu bang nào ở Hoa Kỳ?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "Hamburg là cảng quan trọng ở quốc gia nào?"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Đức"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Croatia"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Bỉ"
+	},
+	"trivia_medium_054": {
+		"message": "Quốc gia nào trải qua hoạt động núi lửa nhiều nhất?"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "Iceland"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "Vương quốc Anh"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "Ba Lan"
+	},
+	"trivia_medium_055": {
+		"message": "Quốc gia nào nằm chủ yếu trên bán đảo Tiểu Á?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Thổ Nhĩ Kỳ"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Myanmar"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Estonia"
+	},
+	"trivia_medium_056": {
+		"message": "Biển Chết tạo thành một phần biên giới giữa Israel và quốc gia khác nào?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Jordan"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Nhật Bản"
+	},
+	"trivia_medium_057": {
+		"message": "Công viên quốc gia Serengeti nằm ở phía đông của Hồ Victoria ở quốc gia nào?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tanzania"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Yemen"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_058": {
+		"message": "Quốc gia nào giáp Biển Caribe và là quốc gia chủ yếu xuất khẩu dầu mỏ?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paraguay"
+	},
+	"trivia_medium_059": {
+		"message": "Quốc gia không giáp biển nào nằm ở phía nam Đường xích đạo?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Burundi"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Djibouti"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Tunisia"
+	},
+	"trivia_medium_060": {
+		"message": "Biển Tyrrhenian giáp quốc gia nào của Địa Trung Hải?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Ý"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Israel"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Senegal"
+	},
+	"trivia_medium_061": {
+		"message": "Yekaterinburg nằm trên sườn phía đông của Dãy núi Ural thuộc quốc gia nào?"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Nga"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Lithuania"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Bỉ"
+	},
+	"trivia_medium_062": {
+		"message": "Quốc đảo nào nằm ở đông nam của Úc và là nhà sản xuất len hàng đầu?"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "New Zealand"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Philipin"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Việt Nam"
+	},
+	"trivia_medium_063": {
+		"message": "Mumbai là một thành phố cảng lớn ở quốc gia nào?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "Ấn Độ"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Thụy Sĩ"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_medium_064": {
+		"message": "Thành phố Incheon nằm trên Hoàng Hải ở quốc gia nào?"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "Hàn Quốc"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Thái Lan"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mông Cổ"
+	},
+	"trivia_medium_065": {
+		"message": "Quốc gia nhỏ nào nằm ở biên giới phía tây của Áo?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Liechtenstein"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Syria"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Moldova"
+	},
+	"trivia_medium_066": {
+		"message": "Victoria và New South Wales là hai tiểu bang ở quốc gia nào?"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Úc"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "Hoa Kỳ"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Canada"
+	},
+	"trivia_medium_067": {
+		"message": "Quốc gia nào trên đảo Borneo giáp với quốc gia nhỏ bé Brunei?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Malaysia"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Ukraina"
+	},
+	"trivia_medium_068": {
+		"message": "Julian Alps nằm trên biên giới giữa Ý và quốc gia khác nào?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Slovenia"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nê-pan"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Tajikistan"
+	},
+	"trivia_medium_069": {
+		"message": "Một vùng trước đây gọi là Mãn Châu nằm ở phía đông bắc của quốc gia nào?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "Trung Quốc"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Belarus"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afghanistan"
+	},
+	"trivia_medium_070": {
+		"message": "Quốc gia nào giáp El Salvador?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panama"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Cộng hòa Dominica"
+	},
+	"trivia_medium_071": {
+		"message": "Quốc gia nào nằm ở Dãy núi Caucasus?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Georgia"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Hungary"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andorra"
+	},
+	"trivia_medium_072": {
+		"message": "Eo biển Sunda tách hai đảo ở quốc gia nào của Châu Á?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indonesia"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "New Zealand"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Lào"
+	},
+	"trivia_medium_073": {
+		"message": "Thung lũng Glaciated và các vách đá ngoạn mục có thể thấy gần cửa Sông Shannon ở quốc gia nào?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Ireland"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "Pháp"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "Uzbekistan"
+	},
+	"trivia_medium_074": {
+		"message": "Sông Indus chảy qua quốc gia nào của Nam Á?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Bắc Triều Tiên"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Azerbaijan"
+	},
+	"trivia_medium_075": {
+		"message": "Quốc gia nào giáp với Biển Đỏ?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_medium_076": {
+		"message": "Zacatecas và Tabasco là tiểu bang của quốc gia nào?"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "Belize"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Argentina"
+	},
+	"trivia_medium_077": {
+		"message": "Riyadh, thành phố có hơn 4.000 nhà thờ hồi giáo, nằm ở quốc gia nào?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Ả-Rập Xê-út"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albania"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Syria"
+	},
+	"trivia_medium_078": {
+		"message": "Quốc gia Châu Phi nào nằm hoàn toàn trong đất liền?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Mauritania"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Ai Cập"
+	},
+	"trivia_medium_079": {
+		"message": "Núi Phú Sĩ là một điểm thiêng liêng ở quốc gia nào?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Nhật Bản"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Philipin"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_080": {
+		"message": "Quốc gia nào thuộc Đại Antilles sử dụng tiếng Anh làm ngôn ngữ chính thức?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Cuba"
+	},
+	"trivia_medium_081": {
+		"message": "Ngôn ngữ chính của Syria, Kuwait và Algeria là gì?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "Arabic"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "Armenian"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "Tiếng Đức"
+	},
+	"trivia_medium_082": {
+		"message": "Nhạc kịch Mozart thường được biểu diễn trong Lễ hội Salzburg hàng năm được tổ chức ở quốc gia vùng núi nào của Châu Âu?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Áo"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Hungary"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Rumani"
+	},
+	"trivia_medium_083": {
+		"message": "Thung lũng cá voi, một sa mạc đầy hóa thạch của cá voi thời tiền sử, thuộc quốc gia nào ở bắc Sudan?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Ai Cập"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_medium_084": {
+		"message": "Rotterdam nằm trên vùng đồng bằng gần Biển Bắc ở quốc gia nào của Châu Âu?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Hà Lan"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Thụy Điển"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Hy Lạp"
+	},
+	"trivia_medium_085": {
+		"message": "Sông Brahmaputra, chảy vào vùng châu thổ rộng lớn gần Vịnh Bengal, khởi nguồn từ hệ thống núi lớn nào?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himalaya"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Urals"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Alps"
+	},
+	"trivia_medium_086": {
+		"message": "Tiếng Farsi, còn được gọi là tiếng Ba Tư, là ngôn ngữ chính thức của quốc gia Hồi giáo nào?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Iran"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Libya"
+	},
+	"trivia_medium_087": {
+		"message": "Mọi người xem người đấu bò biểu diễn tại những trận đấu bò ở Seville, một thành phố thuộc quốc gia nào của Châu Âu?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Tây Ban Nha"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Đức"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "Macedonia"
+	},
+	"trivia_medium_088": {
+		"message": "Thành phố Istanbul, được xem là nơi hội tụ các nền văn hóa Phương Đông và Phương Tây, nằm ở quốc gia nào?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Thổ Nhĩ Kỳ"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Slovakia"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Oman"
+	},
+	"trivia_medium_089": {
+		"message": "Thành phố Copán của người Maya là một nơi thu hút du khách nổi tiếng thuộc quốc gia nào giáp biên giới với El Salvador và Nicaragua?"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Canada"
+	},
+	"trivia_medium_090": {
+		"message": "Timbuktu, một trung tâm thương mại cổ trong gần một nghìn năm, nằm ở phía bắc Sông Niger của quốc gia không giáp biển nào?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namibia"
+	},
+	"trivia_medium_091": {
+		"message": "Quốc gia nào của Nam Mỹ không giáp biển giáp với cả Chile và Braxin?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Bolivia"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Colombia"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Guyana"
+	},
+	"trivia_medium_092": {
+		"message": "Thành phố Belém nằm ở cửa nam Sông Amazon thuộc quốc gia nào?"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Braxin"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "Costa Rica"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_medium_093": {
+		"message": "Con sông nào tạo thành phần lớn biên giới phía bắc Bulgaria?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Sông Đa Nuyp"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Sông Ob"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Sông Mê Kông"
+	},
+	"trivia_medium_094": {
+		"message": "Dãy núi Sayan nằm gần Hồ Baikal ở quốc gia nào của Châu Á?"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Nga"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "Ấn Độ"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Kyrgyzstan"
+	},
+	"trivia_medium_095": {
+		"message": "Hồ Nipigon là hồ lớn nhất thuộc tỉnh nào của Canada?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontario"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "Columbia thuộc Anh"
+	},
+	"trivia_medium_096": {
+		"message": "Biển Balearic và Biển Ionian là một phần của biển lớn hơn nào?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Biển Địa Trung Hải"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Biển Baltic"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Biển Caribê"
+	},
+	"trivia_medium_097": {
+		"message": "Hồ Turkana và Hồ Natron là ví dụ về các thung lũng tách giãn nằm ở châu lục nào?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Châu Phi"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Châu Âu"
+	},
+	"trivia_medium_098": {
+		"message": "Puerto Rico Trench là điểm sâu nhất ở đại dương nào?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Đại Tây Dương"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Bắc Băng Dương"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Thái Bình Dương"
+	},
+	"trivia_medium_099": {
+		"message": "Chim bói cá vui vẻ có nguồn gốc từ những khu rừng bạch đàn thuộc vùng phía đông của châu lục nào?"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Úc"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Châu Phi"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Nam Mỹ"
+	},
+	"trivia_medium_100": {
+		"message": "Hague, nơi có Tòa án công lý quốc tế, là thành phố trên bờ biển phía tây thuộc quốc gia nào của Châu Âu?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Hà Lan"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Phần Lan"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Bungari"
+	},
+	"trivia_ngb_promo": {
+		"message": "Nội dung của National Geographic Bee"
+	},
+	"tw_country_name": {
+		"message": "Đài Loan"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
+	},
+	"uk_country_name": {
+		"message": "Vương quốc Anh"
+	},
+	"uk_tradition": {
+		"message": "Ở Vương quốc Anh, người tham dự đủ mọi lứa tuổi thưởng thức pháo Giáng sinh trên bàn trong bữa ăn. Pháo là các ống được bọc bằng giấy đầy màu sắc, với nút kéo ở mỗi đầu. Khi bạn kéo các nút, ống sẽ phát ra tiếng nổ lớn! Bên trong là mũ giấy, đồ chơi và bánh kẹo để thưởng thức trong đêm Giáng sinh."
+	},
+	"upgrade-warning": {
+		"message": "Rất tiếc! Theo chân ông già Noel không được hỗ trợ trong phiên bản trình duyệt này của bạn. Để truy cập Theo chân ông già Noel, hãy tải xuống trình duyệt hiện đại. Để biết thêm thông tin, hãy truy cập vào \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
+	"us_country_name": {
+		"message": "Hoa Kỳ"
+	},
+	"us_tradition": {
+		"message": "Ở Hoa Kỳ, vớ được treo vào đêm Giáng sinh. Truyền thuyết kể rằng Thánh Nicholas biết được một gia đình khốn khó. Để gây bất ngờ, Thánh Nicholas trèo xuống ống khói của nhà họ và đặt túi vàng quý giá vào đôi vớ treo. Từ thời điểm này, Thánh Nicholas được gọi là ông già Noel, người tặng quà."
+	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Việt Nam"
+	},
+	"watch": {
+		"message": "Xem"
+	},
+	"ye_country_name": {
+		"message": "Yemen"
+	},
+	"zh-CN_language_name": {
+		"message": "Tiếng Trung (giản thể)"
+	},
+	"zh-TW_language_name": {
+		"message": "Tiếng Trung (phồn thể)"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
+	}
+}

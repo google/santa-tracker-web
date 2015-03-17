@@ -1,0 +1,119 @@
+<link rel="import" href="../../../elements/i18n-msg.html">
+
+<polymer-element name="difficulty-menu">
+<template>
+  <style>
+    :host {
+      background: #00C45D;
+      padding: 0 15px;
+      z-index: 120;
+    }
+
+    .difficulties {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+
+    .button {
+      background: none;
+      border: 0;
+      cursor: pointer;
+      outline: none;
+      width: 100%;
+    }
+
+    .button-figure {
+      background-color: #005B6C;
+      background-repeat: no-repeat;
+      background-position: 50% bottom;
+      background-size: auto 100px;
+      border-radius: 6px;
+      box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.15);
+      height: 110px;
+      width: 100%;
+    }
+
+    .button-figure--easy {
+      background-image: url(../img/easy.svg);
+    }
+
+    .button-figure--medium {
+      background-image: url(../img/medium.svg);
+    }
+
+    .button-figure--hard {
+      background-image: url(../img/hard.svg);
+    }
+
+    .button-text {
+      color: #fff;
+      font-family: Roboto, sans-serif;
+      font-size: 24px;
+      line-height: 38px;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+    }
+
+    @media (min-width: 661px) {
+      .difficulties {
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+      }
+
+      .button {
+        width: auto;
+      }
+
+      .button-figure {
+        background-size: auto;
+        height: 348px;
+        margin-bottom: 3em;
+        width: 306px;
+      }
+
+      .button-text {
+        font-size: 39px;
+        line-height: 44px;
+      }
+    }
+  </style>
+
+  <div class="difficulties" layout center center-justified fit>
+    <button class="button" data-difficulty="beginner" on-tap="{{onTap}}">
+      <div class="button-figure button-figure--easy"></div>
+      <div class="button-text">
+        <i18n-msg msgid="easy_difficulty">PLACEHOLDER_i18n</i18n-msg>
+      </div>
+    </button>
+    <button class="button" data-difficulty="medium" on-tap="{{onTap}}">
+      <div class="button-figure button-figure--medium"></div>
+      <div class="button-text">
+        <i18n-msg msgid="medium_difficulty">PLACEHOLDER_i18n</i18n-msg>
+      </div>
+    </button>
+    <button class="button" data-difficulty="hard" on-tap="{{onTap}}">
+      <div class="button-figure button-figure--hard"></div>
+      <div class="button-text">
+        <i18n-msg msgid="hard_difficulty">PLACEHOLDER_i18n</i18n-msg>
+      </div>
+    </button>
+  </div>
+</template>
+<script>
+  Polymer({
+    onTap: function(event, detail, sender) {
+      var elem = event.target;
+      if (elem.tagName !== 'button') {
+        elem = elem.parentNode;
+      }
+      var difficulty = elem.getAttribute('data-difficulty');
+      this.fire('difficulty', difficulty);
+    }
+  });
+</script>
+</polymer-element>

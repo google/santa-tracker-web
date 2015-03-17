@@ -1,0 +1,62 @@
+$rotate-bg: $gameover-bg !default;
+
+##{$name} {
+  .force-rotate {
+    background: $rotate-bg;
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2000; // Sorry guys.
+  }
+
+  .force-rotate-graphic {
+    background: url(../shared/img/rotate/rotate.svg) 50% top / contain no-repeat;
+    height: 200px;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: -105px;
+    position: absolute;
+    top: 50%;
+    width: 200px;
+  }
+
+  .force-rotate-explanation {
+    color: white;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: 900;
+    font-weight: 900;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: 105px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 200px;
+  }
+
+  .portrait > .force-rotate-graphic {
+    transform: rotate(90deg) scale(-1, 1);
+  }
+}
+
+// Hopefully this matches mostly phones in portrait mode.
+@media (min-device-width: 1px) and (max-device-width: 668px) and (orientation: portrait) {
+  ##{$name} {
+    .force-rotate.landscape {
+      display: block;
+    }
+  }
+}
+
+// Hopefully this matches mostly phones in landscape mode.
+@media (min-device-height: 1px) and (max-device-height: 668px) and (orientation: landscape) {
+  ##{$name} {
+    .force-rotate.portrait {
+      display: block;
+    }
+  }
+}

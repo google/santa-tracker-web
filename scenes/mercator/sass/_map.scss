@@ -1,0 +1,42 @@
+##{$name} {
+  .map {
+    background: #F6EFE2 url(img/pausescreen.svg) 0 0 / cover no-repeat;
+    left: 50%;
+    padding-bottom: 60.5%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1071px;
+    max-width: 90%;
+
+    @media (min-width: 1200px) {
+      height: 720px;
+      padding-bottom: 0;
+    }
+  }
+
+  .gmap {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .bg {
+    background: url(img/bg.svg) 50% 0 no-repeat;
+    left: 50%;
+    padding-bottom: 91.065%;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(-43.84%, -35.5%);
+    width: 1802px;
+    max-width: 150%;
+
+    @media (min-width: 1200px) {
+      height: 1094px;
+      padding-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,4571 @@
+{
+	"about-content-one": {
+		"message": "Jõululaupäeval näitame uhkusega jõuluvana juhtpaneeli eelvaadet – tehnoloogiat, mille abil saab ta saaniga ümber maailma rännata. Selle erilise eelvaate saatis meile üks jõuluvana paljudest päkapikkudest – just nemad aitavad jõuluvanal põhjapoolusel tema tähtsaks päevaks valmistuda. Jõuluvana juhtpaneel, mis sisaldab Google Mapsi tehnoloogia ja kelguehituse uusimaid ning parimaid omadusi, võimaldab teil jälgida tema teekonda ümber maailma ning saada lisateavet tema mõnede peatuspaikade kohta."
+	},
+	"about-content-three": {
+		"message": "Google Mapsi jõuluvana teekonna jälgimise on päkapikkude abiga välja töötanud Google. Kas vajate abi või on teil veel mõni küsimus? Külastage meie \u003ca href=\"//support.google.com/santatracker\"\u003eabikeskust\u003c/a\u003e."
+	},
+	"about-content-two": {
+		"message": "Meie sõbralikud päkapikud kutsuvad teid jõuluvana küla avastama, samal ajal kui jõuluvana valmistub oma teekonnaks. Tutvuge külaga, kust võite leida vahvat tegevust ja kohtuda huvitavate päkapikkudega."
+	},
+	"about-santa": {
+		"message": "Teave"
+	},
+	"about_title": {
+		"message": "Tere tulemast Google Mapsi jõuluvana teekonda jälgima!"
+	},
+	"ae_country_name": {
+		"message": "Araabia Ühendemiraadid"
+	},
+	"af_country_name": {
+		"message": "Afganistan"
+	},
+	"al_country_name": {
+		"message": "Albaania"
+	},
+	"ao_country_name": {
+		"message": "Angoola"
+	},
+	"ar_country_name": {
+		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Araabia"
+	},
+	"ar_tradition": {
+		"message": "Argentinas algavad jõulud kohe keskööl. Paljudes peredes tähistatakse pühasid koduste pidustustega, avatakse koos kingitusi ja varastel hommikutundidel lastakse ilutulestikku."
+	},
+	"at_country_name": {
+		"message": "Austria"
+	},
+	"au_country_name": {
+		"message": "Austraalia"
+	},
+	"au_tradition": {
+		"message": "Kuna Austraalia asub lõunapoolkeral, on seal detsembris suvi. Aisakellade ja kakao asemel suunduvad paljud austraallased randa, söövad pühade puhul krevette ja mängivad pisut kriketit."
+	},
+	"ba_country_name": {
+		"message": "Bosnia ja Hertsegoviina"
+	},
+	"back_to_tracker": {
+		"message": "Tagasi teekonna jälgimise juurde"
+	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Belgia"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
+	},
+	"bg_country_name": {
+		"message": "Bulgaaria"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Boliivia"
+	},
+	"br_country_name": {
+		"message": "Brasiilia"
+	},
+	"br_tradition": {
+		"message": "Jõulude tähistamine algab kesköö lähenedes. Tavaliselt osaleb kogu pere suurel õhtusöögil, avatakse kingitusi ja kirikus toimub Missa do Galo. Soojast troopilisest suveilmast hoolimata kasutatakse ikkagi sageli talve- ja lumetemaatikat."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
+	},
+	"by_country_name": {
+		"message": "Valgevene"
+	},
+	"bz_country_name": {
+		"message": "Belize"
+	},
+	"ca_country_name": {
+		"message": "Kanada"
+	},
+	"ca_tradition": {
+		"message": "Kanada lapsed tähistavad tavaliselt lumiseid valgeid jõule. Nad panevad kaela sooja salli ja tõmbavad pähe toque – Kanada sooja villamütsi –, et mängida lumes, uisutada ning kelgutada. Jõuluõhtul jätavad nad jõuluvanale kamina äärde klaasi piima ja küpsiseid (ning mõnikord ka porgandeid jõuluvana põhjapõtradele)."
+	},
+	"calendar": {
+		"message": "Kalender"
+	},
+	"category_code": {
+		"message": "Kood"
+	},
+	"category_draw": {
+		"message": "Joonista"
+	},
+	"category_listen": {
+		"message": "Kuulake"
+	},
+	"category_send": {
+		"message": "Saatke"
+	},
+	"cd_country_name": {
+		"message": "Kongo Demokraatlik Vabariik"
+	},
+	"cf_country_name": {
+		"message": "Kesk-Aafrika Vabariik"
+	},
+	"cg_country_name": {
+		"message": "Kongo"
+	},
+	"ch_country_name": {
+		"message": "Šveits"
+	},
+	"ci_country_name": {
+		"message": "Elevandiluurannik"
+	},
+	"citylights-contribute": {
+		"message": "Lisage oma fotod asukohast %location%"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, Ameerika Ühendriigid"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Puškini väljak"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moskva, Venemaa"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Raekoja plats"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Viin, Austria"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Champs-Elysees'st Triumfikaareni"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Pariis, Prantsusmaa"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, Ameerika Ühendriigid"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Jõuluturg"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nürnberg, Saksamaa"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Medellini jõgi"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Colombia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Jõuluvana küla"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lapimaa, Soome"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand-Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brüssel, Belgia"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgari väljak"
+	},
+	"citylights-panorama-10-location": {
+		"message": "London, Inglismaa"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Hispaania"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokyo, Jaapan"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Tivoli lõbustuspark"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Kopenhaagen, Taani"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapuri linn, Singapur"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Tuledeallee"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Göteborg, Rootsi"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Talvine tulede festival"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagara juga, Kanada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hongkong, Hiina"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Rodrigo de Freitase laguun"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brasiilia"
+	},
+	"cl_country_name": {
+		"message": "Tšiili"
+	},
+	"close-this": {
+		"message": "Tühista"
+	},
+	"cm_country_name": {
+		"message": "Kamerun"
+	},
+	"co_country_name": {
+		"message": "Colombia"
+	},
+	"codelab-block-moveeast": {
+		"message": "ida"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Nihuta mind ühe koha võrra ida poole."
+	},
+	"codelab-block-movenorth": {
+		"message": "põhi"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Nihuta mind ühe koha võrra põhja poole."
+	},
+	"codelab-block-movesouth": {
+		"message": "lõuna"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Nihuta mind ühe koha võrra lõuna poole."
+	},
+	"codelab-block-movewest": {
+		"message": "lääs"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Nihuta mind ühe koha võrra lääne poole."
+	},
+	"codelab-block-repeat": {
+		"message": "korda"
+	},
+	"codelab-block-repeat-times": {
+		"message": "korda"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Korrake mõnda lauset mitu korda."
+	},
+	"codelab-block-whenrun": {
+		"message": "kui käitatakse"
+	},
+	"codelab-finish": {
+		"message": "Lõpeta"
+	},
+	"codelab-great": {
+		"message": "Suurepärane"
+	},
+	"codelab-mwc-promo": {
+		"message": "Tutvuge Google’i kodeerimisprojektidega aadressil \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Järgmine väljakutse"
+	},
+	"codelab-oops": {
+		"message": "Oih!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Ploki „Korda” toimimiseks peavad selles olema muud plokid."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Mõned plokid pole üksteisega korralikult ühendatud."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Paistab, et eksisite ära!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Proovige kasutada selle pusle kokkupanekuks vähemalt ühte allpool olevat plokki."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Kas teadsite, et selle taseme saab läbida ainult {{ideal}} plokiga? Proovige kasutada allpool olevat plokki."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Õnnitleme! Panite pusle täiuslikult kokku."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Kasutate õigeid plokke, kuid proovige selle pusle kokkupanekuks kasutada neid suuremal arvul."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Kas teadsite, et selle taseme saab läbida ainult {{ideal}} plokiga?"
+	},
+	"codelab-try-again": {
+		"message": "Proovige uuesti"
+	},
+	"copy-me": {
+		"message": "Sõnumi jagamiseks kopeerige see link"
+	},
+	"countdownlabel": {
+		"message": "Aeg jõuluvana teekonna alguseni"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cs_language_name": {
+		"message": "tšehhi keel"
+	},
+	"cu_country_name": {
+		"message": "Kuuba"
+	},
+	"cz_country_name": {
+		"message": "Tšehhi Vabariik"
+	},
+	"da_language_name": {
+		"message": "taani keel"
+	},
+	"days": {
+		"message": "Päevi"
+	},
+	"de_country_name": {
+		"message": "Saksamaa"
+	},
+	"de_language_name": {
+		"message": "Saksa"
+	},
+	"de_tradition": {
+		"message": "Peaaegu igas Saksamaa linnas avatakse linnaplatsil jõuluturg. Inimesed kogunevad, et kuulata puhkpilliorkestreid ja nautida kohalikke kaupu. Nad söövad piparkoogisüdameid, magusaid mandleid, erinevaid maiustusi ning joovad hõõgveini (Glühwein) või õunasiidrit."
+	},
+	"deck": {
+		"message": "Dekoreerige"
+	},
+	"deckdescription": {
+		"message": "Ehtige oma brauser Chrome'i jõuluvana laiendusega."
+	},
+	"detected": {
+		"message": "tuvastatud"
+	},
+	"difficulty": {
+		"message": "Raskusaste"
+	},
+	"dk_country_name": {
+		"message": "Taani"
+	},
+	"do_country_name": {
+		"message": "Dominikaani Vabariik"
+	},
+	"dz_country_name": {
+		"message": "Alžeeria"
+	},
+	"easy_difficulty": {
+		"message": "Lihtne"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"ee_country_name": {
+		"message": "Eesti"
+	},
+	"el_language_name": {
+		"message": "kreeka keel"
+	},
+	"elvish_language_name": {
+		"message": "päkapiku keel"
+	},
+	"en_language_name": {
+		"message": "inglise keel"
+	},
+	"endofjourneymessage": {
+		"message": "Jõuluvana teekond on selleks aastaks läbi. Enne iga-aastast puhkust lõbutseb jõuluvana koos päkapikkudega pisut aega põhjanabal."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
+	},
+	"error": {
+		"message": "Paistab, et ühendus põhjapoolusega on katkenud. Jõuluvana päkapikud teevad kõvasti tööd, et ühendus taastada – jääge meiega!"
+	},
+	"error-lost-connection": {
+		"message": "Paistab, et ühendus põhjapoolusega on katkenud. Jõuluvana päkapikud teevad kõvasti tööd, et ühendus taastada – jääge meiega!"
+	},
+	"error-try-again": {
+		"message": "Proovige uuesti"
+	},
+	"error_try_again": {
+		"message": "Proovige uuesti"
+	},
+	"es_language_name": {
+		"message": "hispaania keel"
+	},
+	"et_country_name": {
+		"message": "Etioopia"
+	},
+	"fi_country_name": {
+		"message": "Soome"
+	},
+	"finished-text": {
+		"message": "Häid pühi! Jõuluvana ümbermaailmareis on lõppenud ja nüüd jäi ta igati väljateenitud puhkusele. Külastage meid järgmisel aastal uuesti."
+	},
+	"fr_country_name": {
+		"message": "Prantsusmaa"
+	},
+	"fr_language_name": {
+		"message": "prantsuse keel"
+	},
+	"fr_tradition": {
+		"message": "Prantsusmaal panevad lapsed traditsioonide kohaselt Père Noëli oodates kinga kamina kõrvale. Kui laps on terve aasta tubli olnud, täidab Père Noël tema kinga kinkidega."
+	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
+	"gameover": {
+		"message": "Mäng läbi!"
+	},
+	"gameover_level": {
+		"message": "Jõudsite tasemele:"
+	},
+	"gameover_score": {
+		"message": "Teie tulemus:"
+	},
+	"getgooglemaps": {
+		"message": "Hangi Google Maps"
+	},
+	"gh_country_name": {
+		"message": "Ghana"
+	},
+	"gh_tradition": {
+		"message": "Ghana jõulupidustused kaasavad kogu pere. Täiskasvanud riietuvad kostüümidesse ning jagavad naabruskonnas komme ja maiustusi. Lapsed ehivad kodu koolis valmistatud paberkaunistuste ja joonistustega."
+	},
+	"gl_country_name": {
+		"message": "Gröönimaa"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
+	},
+	"gotovillage": {
+		"message": "Minge külla"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "Kreeka"
+	},
+	"gr_tradition": {
+		"message": "Kreekas on levinud uskumus, et sõbralikud aga tülikad olendid kallikántzarid elavad enamiku aastast maa keskpunktis, aga jõulude ajal meeldib neile peituda inimeste kodudesse, neid ehmatada, vingerpusse mängida või jõulutoite ära süüa. Kreeklased kasutavad paharettide tõrjumiseks erinevaid rituaale."
+	},
+	"gt_country_name": {
+		"message": "Guatemala"
+	},
+	"gt_tradition": {
+		"message": "Guatemalalased tähistavad jõule lõbutsedes ja tantsides. Nad kannavad mütse, mida nimetatakse puritinadeks, söövad Guatemala tamalesid, süütavad keskööl ilutulestikurakette ja tantsivad terve õhtu erinevaid tantse."
+	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hard_difficulty": {
+		"message": "Raske"
+	},
+	"hi_language_name": {
+		"message": "hindi keel"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
+	"hours": {
+		"message": "Tunde"
+	},
+	"hr_country_name": {
+		"message": "Horvaatia"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Ungari"
+	},
+	"hu_language_name": {
+		"message": "ungari keel"
+	},
+	"id_country_name": {
+		"message": "Indoneesia"
+	},
+	"ie_country_name": {
+		"message": "Iirimaa"
+	},
+	"improve_google_translate": {
+		"message": "Aidake Google Translate'i paremaks muuta"
+	},
+	"iq_country_name": {
+		"message": "Iraak"
+	},
+	"ir_country_name": {
+		"message": "Iraan"
+	},
+	"is_country_name": {
+		"message": "Island"
+	},
+	"is_tradition": {
+		"message": "Islandil kingivad jõulude ajal pereliikmed üksteisele sooje riietusesemeid. Legendi järgi liigub ringi hirmus jõulukass, kes sööb ära kõik, kellel pole külma talveilma jaoks sobilikke riideid. Pereliikmed abistavad üksteist, et olla kindel, et keegi ei satu jõulukassi kõhtu."
+	},
+	"it_country_name": {
+		"message": "Itaalia"
+	},
+	"it_language_name": {
+		"message": "itaalia keel"
+	},
+	"ja_language_name": {
+		"message": "jaapani keel"
+	},
+	"jm_country_name": {
+		"message": "Jamaika"
+	},
+	"kg_country_name": {
+		"message": "Kõrgõzstan"
+	},
+	"kg_tradition": {
+		"message": "Kõrgõzstanis saabub aastavahetusel keskööl Ayaz Ata (Külmataat) ja jätab puu alla kingitusi. Kesköö saabudes tervitavad pered terves riigis uut aastat ilutulestikuga. Linnad on valgustatud, nagu oleks päev."
+	},
+	"ko_language_name": {
+		"message": "korea keel"
+	},
+	"kz_country_name": {
+		"message": "Kasahstan"
+	},
+	"la_country_name": {
+		"message": "Laose Demokraatlik Rahvavabariik"
+	},
+	"language": {
+		"message": "Keel"
+	},
+	"learn": {
+		"message": "Õppige"
+	},
+	"learnmore": {
+		"message": "Lisateave"
+	},
+	"level": {
+		"message": "Tase"
+	},
+	"light": {
+		"message": "Süüdake jõulutuled"
+	},
+	"lightdescription": {
+		"message": "Pange oma televiisor särama jõuluvana teekonna jälgimise Androidi rakenduse ja Chromecastiga."
+	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lr_country_name": {
+		"message": "Libeeria"
+	},
+	"lt_country_name": {
+		"message": "Leedu"
+	},
+	"lv_country_name": {
+		"message": "Läti"
+	},
+	"ly_country_name": {
+		"message": "Liibüa"
+	},
+	"md_country_name": {
+		"message": "Moldova"
+	},
+	"medium_difficulty": {
+		"message": "Keskmine"
+	},
+	"mg_country_name": {
+		"message": "Madagaskar"
+	},
+	"minutes": {
+		"message": "Minuteid"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Birma"
+	},
+	"mr_country_name": {
+		"message": "Mauritaania"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
+	},
+	"mx_country_name": {
+		"message": "Mehhiko"
+	},
+	"mx_tradition": {
+		"message": "Mehhikos tähistavad igas vanuses lapsed jõulusid piñatade lõhkumisega. Nii lastel kui ka täiskasvanutel on lõbus, kui nad lasevad endal silmad kinni siduda, keerutavad ringi ja püüavad kepiga lõhkuda tähekujulisi rippuvaid potte. Purustatud piñatast kukub välja pähkleid, puuvilju ja komme, millega kõik saavad maiustada."
+	},
+	"my_country_name": {
+		"message": "Malaisia"
+	},
+	"mz_country_name": {
+		"message": "Mosambiik"
+	},
+	"na_country_name": {
+		"message": "Namiibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
+	"newtoday": {
+		"message": "Täna uus"
+	},
+	"ng_country_name": {
+		"message": "Nigeeria"
+	},
+	"nl_country_name": {
+		"message": "Holland"
+	},
+	"nl_language_name": {
+		"message": "hollandi keel"
+	},
+	"no_country_name": {
+		"message": "Norra"
+	},
+	"no_language_name": {
+		"message": "norra keel"
+	},
+	"nonprofit-jane-description": {
+		"message": "Šimpansid on inimese lähimad elusolevad sugulased loomariigis. Tänasel päeval on elupaikade hävimise, haiguste ja ebaseadusliku kaubitsemise tõttu maailmas alles alla 300 000 šimpansi. Organisatsioon Jane Goodall Institute (JGI) tegeleb šimpansite kaitsmisega. Selleks jälgitakse ja üritatakse mõista nende käitumist ning elupaiku. Samuti on JGI eesmärgiks luua kogukond, kes tegeleb loomariigi ja meie ühise keskkonna kaitsmise ning säilitamisega. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eTutvuge šimpansite elupaikadega\u003c/a\u003e Gombes, Tansaanias."
+	},
+	"nonprofit-jane-type": {
+		"message": "Šimpansid"
+	},
+	"nonprofit-more-information": {
+		"message": "Lisateavet leiate veebisaidilt:"
+	},
+	"nonprofit-nature-description": {
+		"message": "Organisatsiooni The Nature Conservancy tegevuse eesmärgiks on kaitsta ja taastada Ameerika Ühendriikide ja maailma metsi. Need märgilise tähendusega metsad võimaldavad kogu maailmas elul jätkuda. Nad filtreerivad vett, puhastavad õhku, annavad eluks vajalikku tuge kogukondadele ja on oluliste taime- ja loomaliikide elupaigaks. Praeguse metsatustumise tempo juures on metsad vähem kui 100 aasta pärast hävinud. Organisatsiooni The Nature Conservancy programmi „Istuta miljard puud” eesmärk on istutada 2025. aastaks miljard puud ja taastada maailma kõige olulisemad metsad."
+	},
+	"nonprofit-nature-type": {
+		"message": "Metsad"
+	},
+	"nonprofit-wwf-description": {
+		"message": "Kliimamuutused häirivad jätkuvalt paljude maailma ökosüsteemide tasakaalu (nii soojades kui ka külmades piirkondades). Temperatuuritõusu tõttu on Arktikas hävimas jääkarude merejääl asuvad elupaigad. Lisaks ohustab jääkarusid ka inimtegevus, nt nafta ja gaasi puurimine ning tarnimine. Organisatsiooni World Wildlife Fund eesmärgiks on tagada liikide ellujäämine ning selleks viiakse läbi teadusuuringuid ja tehakse koostööd Arktika kohalike kogukondadega. Organisatsioonil Google.org on au olla organisatsiooni World Wildlife Fund \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003etoetaja\u003c/a\u003e."
+	},
+	"nonprofit-wwf-type": {
+		"message": "Jääkaru"
+	},
+	"np_country_name": {
+		"message": "Nepaal"
+	},
+	"nz_country_name": {
+		"message": "Uus-Meremaa"
+	},
+	"nz_tradition": {
+		"message": "Kuna jõulude ajal on Uus-Meremaal suvi, kogunevad sõbrad ja pere grillipeole. Tüüpiliste jõuluroogade hulka kuuluvad lambapraad, mõnikord küpsetatakse seda hangis – see on maa-alune auk või ahi. Lemmikmagustoiduks on pavlova – besee, mis on kaetud värskete marjadega, näiteks maasikate ja kiividega."
+	},
+	"om_country_name": {
+		"message": "Omaan"
+	},
+	"onthego": {
+		"message": "Jõuluvana on liikvel"
+	},
+	"openingtomorrow": {
+		"message": "Homme suurejooneline avamine"
+	},
+	"ornament-print-instructions": {
+		"message": "Murdke siit ja liimige kokku"
+	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peruu"
+	},
+	"pg_country_name": {
+		"message": "Paapua Uus-Guinea"
+	},
+	"ph_country_name": {
+		"message": "Filipiinid"
+	},
+	"ph_tradition": {
+		"message": "Filipiinidel on maailma pikim jõuluaeg. Jõulukuudeks peetakse nelja kuud: september, oktoober, november ja detsember. Jõululaule võib sageli kuulda juba isegi septembri alguses."
+	},
+	"pl_country_name": {
+		"message": "Poola"
+	},
+	"pl_language_name": {
+		"message": "poola keel"
+	},
+	"play": {
+		"message": "Mängige"
+	},
+	"playagain": {
+		"message": "Mängige uuesti"
+	},
+	"playdescription": {
+		"message": "Mängige sõpradega jõuluvana teekonna jälgimise Androidi rakenduses."
+	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"pt_language_name": {
+		"message": "portugali keel"
+	},
+	"py_country_name": {
+		"message": "Paraguai"
+	},
+	"ro_country_name": {
+		"message": "Rumeenia"
+	},
+	"ru_country_name": {
+		"message": "Venemaa"
+	},
+	"ru_language_name": {
+		"message": "vene keel"
+	},
+	"ru_tradition": {
+		"message": "Vene lapsed ehivad jõulupuu asemel nääripuud. Lapsed ootavad pikisilmi näärivana, kes koos oma lapselapse Lumehelbekesega kogu maal lastele kingitusi toob. Näärivana elab Venemaa põhjaosas sügaval Veliki Ustjugi metsades."
+	},
+	"sa_country_name": {
+		"message": "Saudi Araabia"
+	},
+	"santatracker": {
+		"message": "Jõuluvana teekonna jälgimine"
+	},
+	"score": {
+		"message": "Tulemus"
+	},
+	"se_country_name": {
+		"message": "Rootsi"
+	},
+	"seconds": {
+		"message": "Sekundeid"
+	},
+	"select-language": {
+		"message": "Valige keel"
+	},
+	"share-button": {
+		"message": "Jagage oma sõpradega teenuses Google+"
+	},
+	"share-text": {
+		"message": "Lõin selle postkaardi teile jõuluvana teekonna jälgimise rakenduses Google'is. Häid pühi!"
+	},
+	"share-this": {
+		"message": "Jaga"
+	},
+	"sk_country_name": {
+		"message": "Slovakkia"
+	},
+	"sk_language_name": {
+		"message": "slovaki keel"
+	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somaalia"
+	},
+	"sr_country_name": {
+		"message": "Suriname"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"sv_language_name": {
+		"message": "rootsi keel"
+	},
+	"td_country_name": {
+		"message": "Tšaad"
+	},
+	"terms-and-privacy": {
+		"message": "Tingimused ja privaatsus"
+	},
+	"tg_country_name": {
+		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "tai keel"
+	},
+	"tilt": {
+		"message": "Kallutage seadet!"
+	},
+	"time": {
+		"message": "Aeg"
+	},
+	"tj_country_name": {
+		"message": "Tadžikistan"
+	},
+	"tm_country_name": {
+		"message": "Türkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tuneesia"
+	},
+	"today_only": {
+		"message": "Ainult tänane päev"
+	},
+	"today_only_1": {
+		"message": "Ainult täna"
+	},
+	"tr_country_name": {
+		"message": "Türgi"
+	},
+	"tr_language_name": {
+		"message": "türgi keel"
+	},
+	"tracker_arrival": {
+		"message": "Saabumine"
+	},
+	"tracker_arriving_in": {
+		"message": "Saabumiseni jäänud aeg"
+	},
+	"tracker_current_stop": {
+		"message": "Praegune peatus"
+	},
+	"tracker_departing_in": {
+		"message": "Teele asumiseni jäänud aeg"
+	},
+	"tracker_distance_from_you": {
+		"message": "Kaugus teist"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Kohale toimetatud kingitusi"
+	},
+	"tracker_intro_skip_intro": {
+		"message": "Jäta intro vahele"
+	},
+	"tracker_intro_user_location": {
+		"message": "Olete asukohas"
+	},
+	"tracker_intro_welcome": {
+		"message": "Tere tulemast:"
+	},
+	"tracker_next_stop": {
+		"message": "Järgmine peatus"
+	},
+	"tracker_santa_update": {
+		"message": "JÕULUVANA UUDISED"
+	},
+	"tracker_see_route": {
+		"message": "Vaadake marsruuti"
+	},
+	"tracker_weather": {
+		"message": "Ilm"
+	},
+	"tracker_world_facts": {
+		"message": "KAS TEADSITE?"
+	},
+	"tracker_your_location": {
+		"message": "Teie asukoht"
+	},
+	"traditions-next": {
+		"message": "Järgmine traditsioon"
+	},
+	"traditions-prev": {
+		"message": "Eelmine traditsioon"
+	},
+	"traditions-world": {
+		"message": "Maailm"
+	},
+	"trivia_beginner_001": {
+		"message": "Mis mandril asuvad Andid?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_002": {
+		"message": "Mis USA osariik koosneb kaheksast põhisaarest?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkansas"
+	},
+	"trivia_beginner_003": {
+		"message": "Mis USA osariik asub Suurel tasandikul?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delaware"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Idaho"
+	},
+	"trivia_beginner_004": {
+		"message": "Mis manner piirneb Atlandi ja Vaikse ookeani ning Põhja-Jäämerega?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Austraalia"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_beginner_005": {
+		"message": "Mis osariik asub Vaikse ookeani ajavööndis?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "California"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Gruusia"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "Mis mandril asuvad Atlase mäed ja Kalahari kõrb?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Aafrika"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_007": {
+		"message": "Mis USA osariik piirneb Suure järvistuga?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montana"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "New Mexico"
+	},
+	"trivia_beginner_008": {
+		"message": "Mis mandril räägib enamik inimesi kas portugali või hispaania keelt?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Aafrika"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_009": {
+		"message": "Mis USA osariigil on osaliselt pannivarre kuju?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_010": {
+		"message": "Mis manner asub lisaks Antarktisele täielikult lõunapoolkeral?"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Austraalia"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_011": {
+		"message": "Mis mandriga piirneb Ronne šelfiliustik?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Aafrika"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_beginner_012": {
+		"message": "Mis mandri lääneranniku lähedal asuvad Vancouveri saar ja Kodiaki saar?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Austraalia"
+	},
+	"trivia_beginner_013": {
+		"message": "Mis mandri loodeosas asub maailma kõige kiiremini suureneva rahvaarvuga riik Nigeeria?"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "Aafrika"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_014": {
+		"message": "Mis mandril on kõige vähem taimi ja puid?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_beginner_015": {
+		"message": "Mis mandri lõunaranniku lähedal asuvalt saarelt on pärit Tasmaania kukkurkuradid?"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Austraalia"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_016": {
+		"message": "Mis Vahemere maa populaarne turismimagnet on viltune Pisa torn?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Itaalia"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Kanada"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Ghana"
+	},
+	"trivia_beginner_017": {
+		"message": "Mis mandri põhjaranniku ajaloolised linnad on Casablanca ja Tripoli?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Aafrika"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_018": {
+		"message": "Mis mandril asub Sonora kõrb, kust võib leida Saguaro kaktusi?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_019": {
+		"message": "Mis riigi populaarsed puhkuse sihtkohad on Veracruz ja Acapulco?"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "Mehhiko"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Argentina"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "India"
+	},
+	"trivia_beginner_020": {
+		"message": "Mis riigis asuvad Sichuani hiidpandade kaitsealad, mis on koduks 30% maailma pandadest?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "Hiina"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "Island"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "Etioopia"
+	},
+	"trivia_beginner_021": {
+		"message": "Mis maailmajaos leidub ligikaudu 90% kogu maailma jääst?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Aafrika"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_022": {
+		"message": "Mis mandril asub maailma kõrgeim juga, Angeli juga?"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Austraalia"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_023": {
+		"message": "Mis USA osariiki tuleb reisida, et külastada Jackson Hole'i ja ronida Kuraditorni otsa?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "Põhja-Dakota"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Connecticut"
+	},
+	"trivia_beginner_024": {
+		"message": "Mis USA osariiki tuleb reisida, et näha vahtrasiirupi saagikoristust ja minna suusatama Rohelistesse mägedesse?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermont"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "Mis USA osariiki tuleb külastada, et sõita üle Chesapeake'i lahe silla ja jalutada Ocean City laudteel?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "Põhja-Carolina"
+	},
+	"trivia_beginner_026": {
+		"message": "Mis USA osariiki tuleb reisida, et külastada Mammoth Cave'i rahvusparki ja vaadata hobuste võiduajamist Churchill Downsis?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentucky"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "Lääne-Virginia"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Utah"
+	},
+	"trivia_beginner_027": {
+		"message": "Mis USA riiki tuleb reisida, et näha tohutuid mammutipuid ja Kanalisaari?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "California"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "New Jersey"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virginia"
+	},
+	"trivia_beginner_028": {
+		"message": "Milliseid märgalasid külastaksite, kui asuksite USA-s Florida osariigis?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Everglades"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Dismali soo"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Suur küpressisoo"
+	},
+	"trivia_beginner_029": {
+		"message": "Mis USA osariiki tuleb reisida, et sõita St. Lawrence'i mereteel ja Fingeri järvedel?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "New York"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Michigan"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "Mis mandril asub maailma kõrgeim mägi Džomolungma?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_031": {
+		"message": "Mis mandri lõunaosas asub Patagoonia piirkond?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Aafrika"
+	},
+	"trivia_beginner_032": {
+		"message": "Mis mandril on keiserpingviinide looduslik elupaik?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_033": {
+		"message": "Mis riigist on pärit kängurud ja koaalad?"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Austraalia"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_beginner_034": {
+		"message": "Mis mandril meelitab ürgne loodus turiste Serengeti rahvusparki?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Aafrika"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Austraalia"
+	},
+	"trivia_beginner_035": {
+		"message": "Mis mandril on suurim maismaa-ala?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Austraalia"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_036": {
+		"message": "Mis Euroopa linnas ületab Thamesi jõge Toweri sild?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "London"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Havanna"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Kaplinn"
+	},
+	"trivia_beginner_037": {
+		"message": "Mis linnas Venemaal Punasel väljakul Kremli kõrval asub Vassili Blažennõi kirik?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Moskva"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Brüssel"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
+	},
+	"trivia_beginner_038": {
+		"message": "Millises Euroopa linnas asub Colosseum, mis ehitati esimesel sajandil pKr gladiaatorite võitluspaigaks?"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "Rooma"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Hartum"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manila"
+	},
+	"trivia_beginner_039": {
+		"message": "Mis Austraalia linnas asuvad ooperimaja ja Harbouri sild?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sydney"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Jakarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Praha"
+	},
+	"trivia_beginner_040": {
+		"message": "Mis Lähis-Ida linna vanadest linnamüüridest on leitud muu hulgas pühad paigad Kaljukuppel ja Läänemüür?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Jeruusalemm"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tokyo"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Alžiir"
+	},
+	"trivia_beginner_041": {
+		"message": "Mis Kreeka linnas kõrgub Akropoli tipus Parthenon?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Ateena"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kiiev"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "Mis Prantsusmaa linna keskuse kohal kõrgub Seine'i jõe ääres paiknev Eiffeli torn?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "Pariis"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "New Delhi"
+	},
+	"trivia_beginner_043": {
+		"message": "Mis Saudi Araabia linnas asub al-Harami mošee, mis on koduks islami kõige pühamale paigale, Kaabale?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Meka"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Buenos Aires"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Budapest"
+	},
+	"trivia_beginner_044": {
+		"message": "Mis Hiina linna keskuses asub endine keiserlik palee Keelatud linn?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Peking"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santiago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbane"
+	},
+	"trivia_beginner_045": {
+		"message": "Mis USA linnas asub Pugeti väinas Space Needle'i vaatetorn?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Wichita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "New Orleans"
+	},
+	"trivia_beginner_046": {
+		"message": "Mis Charlesi jõe suudmes asuva USA linna kõrgeim hoone on John Hancocki torn?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Boston"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pittsburgh"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memphis"
+	},
+	"trivia_beginner_047": {
+		"message": "Mis Mojave kõrbes asuva USA linna kõrgeim ehitis on kuulsast Stripi puiesteest põhja poole jääv Stratosphere'i torn?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Las Vegas"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Minneapolis"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denver"
+	},
+	"trivia_beginner_048": {
+		"message": "Mis USA linna sadamas Liberty Islandil asub suur Vabadussamba skulptuur?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "New York City"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Los Angeles"
+	},
+	"trivia_beginner_049": {
+		"message": "Millist Ameerika Ühendriikide linna ühendab Marini poolsaarega Kuldvärava sild?"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "San Francisco"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boise"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimore"
+	},
+	"trivia_beginner_050": {
+		"message": "Millises Ameerika Ühendriikide linnas asub Gateway Arch, mis sümboliseerib Ameerika läänesuunalist laienemist 1800. aastatel?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "St. Louis"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianapolis"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Miami"
+	},
+	"trivia_beginner_051": {
+		"message": "Mis Aafrika riigis asub Cheopsi püramiidi ja Sfinksi kodukoht Giza platoo?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Egiptus"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Brasiilia"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Saksamaa"
+	},
+	"trivia_beginner_052": {
+		"message": "Mis USA linnas Delaware'i jõe lähedal asub Iseseisvussaal, mis on oluline Ameerika revolutsiooniga seotud ajalooline paik?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Philadelphia"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "San Antonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Chicago"
+	},
+	"trivia_beginner_053": {
+		"message": "Mis riiki lisaks Kanadale Kaljumäestik läbib?"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "Ameerika Ühendriigid"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Venezuela"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Venemaa"
+	},
+	"trivia_beginner_054": {
+		"message": "Mis ookeaniga piirnevad Brasiilia ja Uruguay?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Atlandi ookean"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "India ookean"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Põhja-Jäämeri"
+	},
+	"trivia_beginner_055": {
+		"message": "Mis ookeanis asub Kanada idaranniku lähedal olev Newfoundlandi saar?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Atlandi ookean"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "India ookean"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Vaikne ookean"
+	},
+	"trivia_beginner_056": {
+		"message": "Mis ookeanis asub Aafrika ranniku lähedal Madagaskari saar?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "India ookean"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Vaikne ookean"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Põhja-Jäämeri"
+	},
+	"trivia_beginner_057": {
+		"message": "Mis ookeanist kulgeb läbi enamik kuupäevarajast?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Vaikne ookean"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "India ookean"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Atlandi ookean"
+	},
+	"trivia_beginner_058": {
+		"message": "Mis mandril läbib ekvaator Kongo nõgu?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Aafrika"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Austraalia"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_059": {
+		"message": "Mis manner piirneb Mehhiko lahega?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_060": {
+		"message": "Mis Aafrikas voolav jõgi on maailma pikim?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Niiluse jõgi"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Colorado jõgi"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Oranje jõgi"
+	},
+	"trivia_beginner_061": {
+		"message": "Mis mandril asuvad iidsed Machu Picchu varemed?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_062": {
+		"message": "Mis mandrilt voolab läbi Amazonase jõgi, mis on maailma veerohkeim jõgi?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Austraalia"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_063": {
+		"message": "Mis mandril asub Alpide kõrgeim tipp Mont Blanc?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_beginner_064": {
+		"message": "Mis mandriga ühendab Panama maakitsus Kesk-Ameerikat?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_065": {
+		"message": "Mis mandril asuvad Keenia ja Tansaania, kus elavad gepardid on kiireimad maismaaimetajad planeedil Maa?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Aafrika"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_066": {
+		"message": "Mis mandri lõunatipu lähedal asub Hea Lootuse neem?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Aafrika"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_067": {
+		"message": "Mis ookeanis asuvad Lõuna-Ameerikast läänes paiknevad Galápagose saared, kus elavad hiidkilpkonnad?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Vaikne ookean"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Põhja-Jäämeri"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "India ookean"
+	},
+	"trivia_beginner_068": {
+		"message": "Mis mandril voolab Doonau jõgi läbi Viini ja muude linnade?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Austraalia"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "Aafrika"
+	},
+	"trivia_beginner_069": {
+		"message": "Mis merega piirnevad Kuuba saared ja Haiti saar?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Kariibi meri"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Beringi meri"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Läänemeri"
+	},
+	"trivia_beginner_070": {
+		"message": "Mis mandriga piirneb Guinea laht?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Aafrika"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Austraalia"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_071": {
+		"message": "Mis mandri kuulus maadeavastaja oli Ernest Shackleton?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_072": {
+		"message": "Mis ookeani haru on Labradori meri?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Atlandi ookean"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "India ookean"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Vaikne ookean"
+	},
+	"trivia_beginner_073": {
+		"message": "Mis mandril asub maailma suurim kõrb Sahara?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Aafrika"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_074": {
+		"message": "Mis mandril asub Tiibeti platoo?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_beginner_075": {
+		"message": "Mis mandrist lõunas asub Drake'i väin?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Austraalia"
+	},
+	"trivia_beginner_076": {
+		"message": "Mis mandri ranniku lähedal olevas Korallimeres asub Suur Vallrahu?"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Austraalia"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_077": {
+		"message": "Mis riiki tuleks reisida, et sõita Suessi kanalil ja külastada Kairo surnute linna?"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "Egiptus"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Colombia"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Soome"
+	},
+	"trivia_beginner_078": {
+		"message": "Mis riiki tuleb reisida, et näha veisekarja talitavaid gautšosid ja vaadata Buenos Airese tangotantsijaid?"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Argentina"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Niger"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nepaal"
+	},
+	"trivia_beginner_079": {
+		"message": "Mis riiki tuleb reisida, et külastada Fezi linna vana kvartalit ja matkata Atlase mägedes?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Maroko"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Tai"
+	},
+	"trivia_beginner_080": {
+		"message": "Mis riiki tuleb sõita, et külastada Maia linnade iidseid varemeid ja supelda\nCancúni rannal?"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "Mehhiko"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "Holland"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Türgi"
+	},
+	"trivia_beginner_081": {
+		"message": "Mis riiki tuleb sõita, et külastada Dublinis asuvat Püha Patricku katedraali ja\nKilkenny kunstifestivali?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Iirimaa"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Somaalia"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_beginner_082": {
+		"message": "Mis riiki tuleb sõita, et teha rännak vihmametsades või tantsida Rio de Janeiro karnevalil?"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Brasiilia"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "Ühendkuningriik"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_beginner_083": {
+		"message": "Mis riiki tuleb reisida, kui soovite külastada Peterburi Ermitaaži ja sõita\nTrans-Siberi raudteel?"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Venemaa"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indoneesia"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Belize"
+	},
+	"trivia_beginner_084": {
+		"message": "Mis riiki tuleb reisida, et sõita kiirrongiga ja veeta öö Tokyo hotellis?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Jaapan"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Boliivia"
+	},
+	"trivia_beginner_085": {
+		"message": "Mis riiki tuleb reisida, et süüa Genovas pestot ja minna Firenzes ooperisse?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Itaalia"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paraguai"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Liibüa"
+	},
+	"trivia_beginner_086": {
+		"message": "Mis riiki tuleb reisida, et minna safariretkele Masai Mara looduskaitsealale ja ostelda Nairobis?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Keenia"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "Lõuna-Korea"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Tšiili"
+	},
+	"trivia_beginner_087": {
+		"message": "Mis riiki tuleb reisida, et näha Gangese jõge ja avastada Kolkata rahvarohkeid tänavaid?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "India"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Saksamaa"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "Jordaania"
+	},
+	"trivia_beginner_088": {
+		"message": "Mis ookeani keskel asub planeedi Maa kõige põhjapoolsem punkt, Põhjapoolus?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Põhja-Jäämeri"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Vaikne ookean"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "India ookean"
+	},
+	"trivia_beginner_089": {
+		"message": "Mis riik piirneb Atlandi ookeaniga?"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "Island"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Pakistan"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Jaapan"
+	},
+	"trivia_beginner_090": {
+		"message": "Mis USA osariik on sooja kliima ja populaarsete randade tõttu tuntud kui päikesepaiste osariik?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Florida"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Maine"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Washington"
+	},
+	"trivia_beginner_091": {
+		"message": "Mis USA osariigis asub Suur kanjon?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "Lääne-Virginia"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "Lõuna-Dakota"
+	},
+	"trivia_beginner_092": {
+		"message": "Mis kunagi iseseisva riigina toiminud USA osariigi (tuntud kui ühe tähe osariik) lipul on vaid üks täht?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Texas"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Wisconsin"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_093": {
+		"message": "Mis mandril asuvad Tigrise ja Eufrati jõed?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Euroopa"
+	},
+	"trivia_beginner_094": {
+		"message": "Mis mandril asuvad Victoria järv ja Virunga mäed?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Aafrika"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Aasia"
+	},
+	"trivia_beginner_095": {
+		"message": "Mis riik on Vaikse ookeani saareriik?"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "Uus-Meremaa"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "Lõuna-Aafrika Vabariik"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "Island"
+	},
+	"trivia_beginner_096": {
+		"message": "Mis riigis asub Skandinaavia poolsaar?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Rootsi"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Rumeenia"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Peruu"
+	},
+	"trivia_beginner_097": {
+		"message": "Mis riik piirneb Vahemerega?"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "Prantsusmaa"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_001": {
+		"message": "Mis USA linn asub Kanada piirile kõige lähemal?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sacramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "Mis USA linnas võib kõige tõenäolisemalt toimuda orkaan?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Miami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Los Angeles"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pittsburgh"
+	},
+	"trivia_hard_003": {
+		"message": "Millisel nendest järvedest on suurim pindala?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Huroni järv"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Meadi järv"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Erie järv"
+	},
+	"trivia_hard_004": {
+		"message": "Milline nendest USA linnadest on kõige rahvarohkem?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Chicago"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "St. Louis"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianapolis"
+	},
+	"trivia_hard_005": {
+		"message": "Mis riik on Pärsia lahele kõige lähemal?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Iraan"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Türgi"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_hard_006": {
+		"message": "Millisel nendest riikidest on suurim maismaa-ala?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Kasahstan"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Rumeenia"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Poola"
+	},
+	"trivia_hard_007": {
+		"message": "Milline nendest riikidest on kõige tihedamalt asustatud?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Singapur"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Laos"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Boliivia"
+	},
+	"trivia_hard_008": {
+		"message": "Millises nendest riikidest on kõige rohkem saksa keele rääkijaid?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Austria"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Slovakkia"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Iraak"
+	},
+	"trivia_hard_009": {
+		"message": "Milline nendest riikidest piirneb kõige suurema arvu riikidega?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Saudi Araabia"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Maroko"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mongoolia"
+	},
+	"trivia_hard_010": {
+		"message": "Mis riik ei piirne Tanganjika järvega?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benin"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Burundi"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Sambia"
+	},
+	"trivia_hard_011": {
+		"message": "Mis riik ei läbi ekvaatorit?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Mauritaania"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indoneesia"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Keenia"
+	},
+	"trivia_hard_012": {
+		"message": "Mis riik ei asu Balkani poolsaarel?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Tšehhi Vabariik"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Bulgaaria"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Makedoonia"
+	},
+	"trivia_hard_013": {
+		"message": "Mis riik ei piirne Põhjamerega?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Soome"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Taani"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "Ühendkuningriik"
+	},
+	"trivia_hard_014": {
+		"message": "Mis riik ei piirne Musta merega?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Aserbaidžaan"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Ukraina"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Türgi"
+	},
+	"trivia_hard_015": {
+		"message": "Mis riik ei ole maismaast ümbritsetud?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Horvaatia"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Valgevene"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Ungari"
+	},
+	"trivia_hard_016": {
+		"message": "Mis riik ei asu Saharas?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angoola"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Liibüa"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Alžeeria"
+	},
+	"trivia_hard_017": {
+		"message": "Mis saar asub kõige kaugemal idas?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinidad"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Jamaika"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Kuuba"
+	},
+	"trivia_hard_018": {
+		"message": "Mis veekoguga piirneb Hirmu neem?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Atlandi ookean"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Kariibi meri"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Vaikne ookean"
+	},
+	"trivia_hard_019": {
+		"message": "Mis linnas asub Mehhiko lahe sadam?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Veracruz"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tijuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Acapulco"
+	},
+	"trivia_hard_020": {
+		"message": "Mis riiki läbib Vähi pöörijoon?"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "Mehhiko"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Kanada"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Brasiilia"
+	},
+	"trivia_hard_021": {
+		"message": "Milline nendest saartest on suurima pindalaga?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Baffini saar"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Haiti saar"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Sardiinia"
+	},
+	"trivia_hard_022": {
+		"message": "Mis saarest eraldab Yucatáni väin Mehhikot?"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "Kuuba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Puerto Rico"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dominikaani Vabariik"
+	},
+	"trivia_hard_023": {
+		"message": "Mis on põhjapoolseim Kanada linn?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Yellowknife"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Ottawa"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Winnipeg"
+	},
+	"trivia_hard_024": {
+		"message": "Mis saar on osa Väikestest Antillidest?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "St. Kitts"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Bermuda"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Nova Scotia"
+	},
+	"trivia_hard_025": {
+		"message": "Mis riigi kõige populaarsem linn on Port-au-Prince?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haiti"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_hard_026": {
+		"message": "Mis riik kuulub Karpaatidele?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Rumeenia"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albaania"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Türkmenistan"
+	},
+	"trivia_hard_027": {
+		"message": "Mis riigi riigikeel on prantsuse keel?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabon"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Kuveit"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tansaania"
+	},
+	"trivia_hard_028": {
+		"message": "Milline nendest riikidest on maismaapinnalt suurim?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Iraan"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Iisrael"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Bahrein"
+	},
+	"trivia_hard_029": {
+		"message": "Mis riigil on kõige rohkem pikkuskraade?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Kasahstan"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afganistan"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Süüria"
+	},
+	"trivia_hard_030": {
+		"message": "Mis riik koosneb paljudest saartest?"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Filipiinid"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Kambodža"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Tadžikistan"
+	},
+	"trivia_hard_031": {
+		"message": "Millises nendest riikidest on kõige rohkem ajavööndeid?"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Brasiilia"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "Belize"
+	},
+	"trivia_hard_032": {
+		"message": "Mis riik asub kõige kaugemal põhjas?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Kamerun"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Mosambiik"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Austraalia"
+	},
+	"trivia_hard_033": {
+		"message": "Mis riik asub Prantsusmaa ja Hispaania vahel?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andorra"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Luksemburg"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Vatikan"
+	},
+	"trivia_hard_034": {
+		"message": "Mis riigiga piirneb Taani?"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Saksamaa"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "Soome"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Moldova"
+	},
+	"trivia_hard_035": {
+		"message": "Mis riigile kuulub Sardiinia saar?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Itaalia"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Türgi"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "Ühendkuningriik"
+	},
+	"trivia_hard_036": {
+		"message": "Mis kõrb katab suurt osa Pekingi ja Ulaanbaatari vahelisest alast?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Thari kõrb"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Liibüa kõrb"
+	},
+	"trivia_hard_037": {
+		"message": "Mis ookeani osa on Kamtšatka hoovus?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Vaikne ookean"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "India ookean"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Atlandi ookean"
+	},
+	"trivia_hard_038": {
+		"message": "Mis mere lõunaosas asub Surti laht?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Vahemeri"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Araabia meri"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Läänemeri"
+	},
+	"trivia_hard_039": {
+		"message": "Mis Euroopa mäestiku kõrgeim osa on Tatrad?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Karpaadid"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Kantaabria mäed"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Püreneed"
+	},
+	"trivia_hard_040": {
+		"message": "Mis jõgi voolab läbi Kariba järve ja moodustab Zambia ja Zimbabwe piiri?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Zambezi jõgi"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Niiluse jõgi"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Kongo jõgi"
+	},
+	"trivia_hard_041": {
+		"message": "Mis merre voolavad jõed Thames, Maas ja Schelde?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Põhjameri"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Vahemeri"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Must meri"
+	},
+	"trivia_hard_042": {
+		"message": "Mis suurest põhjapoolsest saarest eraldab Luzoni väin Filipiine?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Taiwan"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Alžeeria"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_hard_043": {
+		"message": "Mis saared laiuvad piki Kesk-Atlandi mäestikku?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Assoorid"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Bahama"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Fidži saared"
+	},
+	"trivia_hard_044": {
+		"message": "Mis jõgi voolab Laptevite merre?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Leena jõgi"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Jangtse jõgi"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Induse jõgi"
+	},
+	"trivia_hard_045": {
+		"message": "Mis mäetipp asub ekvaatorile kõige lähemal?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimanjaro"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Mont Blanc"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Mount McKinley"
+	},
+	"trivia_hard_046": {
+		"message": "Mis pealinn on kõige rahvarohkem?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Moskva"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Helsingi"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Alžiir"
+	},
+	"trivia_hard_047": {
+		"message": "Mis linn Liffey jõe ääres on Iirimaa suurim linn?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dublin"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Oslo"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Kopenhaagen"
+	},
+	"trivia_hard_048": {
+		"message": "Mis linn Hindukuši orus on Afganistani suurim linn?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Kabul"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Sarajevo"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "Mis linn Chao Phraya jõe ääres on Tai suurim linn?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Bangkok"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Peking"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Amman"
+	},
+	"trivia_hard_050": {
+		"message": "Mis on Norra suurim linn, mis asub Skagerraki väina fjordi tipus?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Oslo"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "London"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Brüssel"
+	},
+	"trivia_hard_051": {
+		"message": "Mis linn Vahemere idakaldal on Liibanoni suurim linn?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Beirut"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Muqdisho"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Riyadh"
+	},
+	"trivia_hard_052": {
+		"message": "Mis linn Jaava rannikul on suurim Indoneesia linn?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Jakarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tokyo"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "Mis linn Attica piirkonnas on Kreeka suurim linn?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Ateena"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Rooma"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barcelona"
+	},
+	"trivia_hard_054": {
+		"message": "Mis linn Río de la Plata suudmealas on Uruguay suurim linn?"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Quito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Rio de Janeiro"
+	},
+	"trivia_hard_055": {
+		"message": "Mis Lõuna-Aafrika linn on kunagine endise Transvaali provintsi osa?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Johannesburg"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abuja"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputo"
+	},
+	"trivia_hard_056": {
+		"message": "Mis oluline laevanduskeskus Kariibi meres on Jamaika suurim linn?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Kingston"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Caracas"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Buenos Aires"
+	},
+	"trivia_hard_057": {
+		"message": "Mis Ida-Aafrika riftivööndi linn on Eritrea suurim linn?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Bagdad"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazzaville"
+	},
+	"trivia_hard_058": {
+		"message": "Mis linn Wisła jõe kallastel on Poola suurim linn?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Varssavi"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berliin"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kiiev"
+	},
+	"trivia_hard_059": {
+		"message": "Mis Panameerika kiirtee oluliseks peatuseks olev linn on Costa Rica suurim linn?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "San José"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sucre"
+	},
+	"trivia_hard_060": {
+		"message": "Mis linn on Lõuna-Aafrika oluline põllumajanduslik kaubanduskeskus ja Zimbabwe suurim linn?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Windhoek"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "Mis on Kambodža suurim linn, mille okupeerisid kunagi Punased khmeerid?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Phnom Penh"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kuala Lumpur"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Dhaka"
+	},
+	"trivia_hard_062": {
+		"message": "Mis on Atlandi ookeanis Mesurado neemel asuv suurim Libeeria linn?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monrovia"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Accra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaka"
+	},
+	"trivia_hard_063": {
+		"message": "Mis on Colombia suurim linn, mis asub Andide kõrgplatool?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogotá"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managua"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterrey"
+	},
+	"trivia_hard_064": {
+		"message": "Mis linn Alborzi mäestiku jalamil on Iraani suurim linn?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Teheran"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Taškent"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Istanbul"
+	},
+	"trivia_hard_065": {
+		"message": "Mis veekogu läbib põhjapolaarjoon?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Norra meri"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Volta järv"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Kaspia meri"
+	},
+	"trivia_hard_066": {
+		"message": "Mis veekogu asub Ida-Aafrika riftivööndis?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Njassa järv"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Tasmani meri"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Titicaca järv"
+	},
+	"trivia_hard_067": {
+		"message": "Mis veekogu kallastel asub Venemaa sadamalinn Arhangelsk?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Valge meri"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Bassi väin"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Biskaia laht"
+	},
+	"trivia_hard_068": {
+		"message": "Mis riigis on Hunani ja Shandongi provintsid?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "Hiina"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Tai"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Jeemen"
+	},
+	"trivia_hard_069": {
+		"message": "Mis Vahemere maa riigikeel on kastiilia keel?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Hispaania"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Kreeka"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "Aserbaidžaan"
+	},
+	"trivia_hard_070": {
+		"message": "Mis Kesk-Ameerika riik oli kunagi Colombiale kuuluv provints?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panama"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Guatemala"
+	},
+	"trivia_hard_071": {
+		"message": "Mis riigi oluline transpordikeskus on Baseli linn, mida läbib Reini jõgi?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Šveits"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Belgia"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Venemaa"
+	},
+	"trivia_hard_072": {
+		"message": "Kunstnikke, näiteks Cézanne’i, inspireeris Provence’i maastik. Mis riigis see piirkond asub?"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "Prantsusmaa"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "Holland"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Rumeenia"
+	},
+	"trivia_hard_073": {
+		"message": "Mis riigis asuva Pampa piirkonna peamine laevanduskeskus on Bahía Blanca?"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Argentina"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "Boliivia"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_074": {
+		"message": "Mis riik piirneb Vahemere, Musta mere ja Egeuse merega?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Türgi"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Bulgaaria"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Liibüa"
+	},
+	"trivia_hard_075": {
+		"message": "Millisesse kirdes asuvasse naaberriiki asuvad igal aastal Tansaaniast mööda Mara jõge ümber gnuud?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Keenia"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Sambia"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Guinea"
+	},
+	"trivia_hard_076": {
+		"message": "Mis Edela-Aasia riigi suurim linn on Aleppo, mis on kuulus suure mošee poolest?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Süüria"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Omaan"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_hard_077": {
+		"message": "Mis riik piirneb Venemaa ja Gruusiaga?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Aserbaidžaan"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Usbekistan"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Põhja-Korea"
+	},
+	"trivia_hard_078": {
+		"message": "Mis riik piirneb Panama ja Brasiiliaga?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Colombia"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Peruu"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_hard_079": {
+		"message": "Mis riik piirneb Guatemala ja Ameerika Ühendriikidega?"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "Mehhiko"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "El Salvador"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_hard_080": {
+		"message": "Mis riik piirneb Iraagi ja Afganistaniga?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Iraan"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Ukraina"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mongoolia"
+	},
+	"trivia_hard_081": {
+		"message": "Mis riik piirneb Lesotho ja Botswanaga?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Lõuna-Aafrika Vabariik"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Kongo"
+	},
+	"trivia_hard_082": {
+		"message": "Mis riigi flaamikeelses osas asub Antwerpen?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Belgia"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Holland"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "Island"
+	},
+	"trivia_hard_083": {
+		"message": "Millise Euroopa riigi oluline sadamalinn on Wisła jõe suudme lähedal asuv Gdańsk?"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "Poola"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Hispaania"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Horvaatia"
+	},
+	"trivia_hard_084": {
+		"message": "Mis Lõuna-Ameerika suure jõe lisajõed on Madeira ja Purus?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Amazonas"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Orinoco jõgi"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Paraná jõgi"
+	},
+	"trivia_hard_085": {
+		"message": "Mis riigiga piirneb Bodeni järv lisaks Šveitsile ja Saksamaale?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Austria"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Slovakkia"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Soome"
+	},
+	"trivia_hard_086": {
+		"message": "Mis riigi suurim linn on mitmete sadamatega suur sadamalinn Auckland?"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "Uus-Meremaa"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Austraalia"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "Indoneesia"
+	},
+	"trivia_hard_087": {
+		"message": "Mis Lääne-Togos asuv riik on oluline kakaotootja?"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Ghana"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Sudaan"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Tuneesia"
+	},
+	"trivia_hard_088": {
+		"message": "Millise Lõuna-Ameerika riigi ühe ametliku keele ja ka rahaühiku nimetus on guaranii?"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "Paraguai"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Brasiilia"
+	},
+	"trivia_hard_089": {
+		"message": "Mis mäeahelik kulgeb piki Prantsusmaa ja Hispaania piiri?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Püreneed"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Apenniinid"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Kaukasuse mäestik"
+	},
+	"trivia_hard_090": {
+		"message": "Mis riigis suubub Torrensi jõgi Saint Vincenti lahte?"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Austraalia"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_hard_091": {
+		"message": "Mis Vahemerega piirnev Aafrika riik on kuningavõimuga?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Maroko"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Egiptus"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Kesk-Aafrika Vabariik"
+	},
+	"trivia_hard_092": {
+		"message": "Mis riigi pealinn on Kura jõe kallastel asuv Tbilisi?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Gruusia"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Süüria"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Ungari"
+	},
+	"trivia_hard_093": {
+		"message": "Mis riigis asub Aadria meres olev mägine piirkond Abruzzo?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Itaalia"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "Prantsusmaa"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "Luksemburg"
+	},
+	"trivia_hard_094": {
+		"message": "Mis riik, lisaks Lätile, piirneb Riia lahega?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Eesti"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Valgevene"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Hispaania"
+	},
+	"trivia_hard_095": {
+		"message": "Mis merega ühendab Jubali väin Suessi lahte?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Punane meri"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Kariibi meri"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Kaspia meri"
+	},
+	"trivia_hard_096": {
+		"message": "Mis jõe vetest saab Kinnereti järv suure osa oma juurdevoolust?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Jordani jõgi"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amudarja"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Gangese jõgi"
+	},
+	"trivia_hard_097": {
+		"message": "Mis suur laht eraldab New Brunswicki Nova Scotiast?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Fundy laht"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Hudsoni laht"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Bengali laht"
+	},
+	"trivia_hard_098": {
+		"message": "Mis riigi Reinimaa piirkonnas asub Kölni katedraal?"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Saksamaa"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Taani"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_099": {
+		"message": "Mis riigi kõige lõunapoolsen osariik on paljude iidsete maiade varemete asukoht Chiapas?"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "Mehhiko"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Tšiili"
+	},
+	"trivia_hard_100": {
+		"message": "Mis merega ühendab kitsas Dardanellide väin Marmara mere?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Egeuse meri"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Barentsi meri"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Tasmani meri"
+	},
+	"trivia_hard_101": {
+		"message": "Mis Kagu-Aasia riigi riigikeel on khmeeri keel?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Kambodža"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nepaal"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_hard_102": {
+		"message": "Mis riigiga jagab Venemaa Donetsi söebasseini tööstuspiirkonda?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Ukraina"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Slovakkia"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Liibanon"
+	},
+	"trivia_hard_103": {
+		"message": "Mis mandri kõige kõrgeim tipp on Lumemägedes asuv Kosciuszko mägi?"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Austraalia"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Euroopa"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_hard_104": {
+		"message": "Mis riigile kuuluvad Madura ja Bali saared?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indoneesia"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Jaapan"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_105": {
+		"message": "Mis Aasia riigis asub Kunluni mäestikust põhja jääv Taklimakani kõrb?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "Hiina"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Saudi Araabia"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "Lõuna-Korea"
+	},
+	"trivia_medium_001": {
+		"message": "Milline nendest USA linnadest asub jõe suudmealas?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "New Orleans"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Austin"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Oklahoma City"
+	},
+	"trivia_medium_002": {
+		"message": "Mis mandril asuvad UNESCO maailmapärandi kohad Angkor Wat ja Kapadookia?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Aasia"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Euroopa"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Aafrika"
+	},
+	"trivia_medium_003": {
+		"message": "Mis mandri edelaosas räägitakse kurdi ja pärsia keeli?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Aasia"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Euroopa"
+	},
+	"trivia_medium_004": {
+		"message": "Mis mandril asus ühe varase tsivilisatsiooni suursugune keskus Teotihuacán?"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Aafrika"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Aasia"
+	},
+	"trivia_medium_005": {
+		"message": "Mis mandriga piirnevad Bellingshauseni meri ja Rossi meri?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Euroopa"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Aasia"
+	},
+	"trivia_medium_006": {
+		"message": "Mis mandri rannikuid uhavad Mosambiigi ja Benguela hoovused?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Aafrika"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Euroopa"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_medium_007": {
+		"message": "Mis mandri kaguserva lähedal asub saarestik Malviini saared, mida nimetatakse ka Falkland saarteks?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Euroopa"
+	},
+	"trivia_medium_008": {
+		"message": "Millisel nendest Aafrika riikidest on suurim pindala?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Alžeeria"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gambia"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Burundi"
+	},
+	"trivia_medium_009": {
+		"message": "Mis suur saar asub 200 miili Islandist loodes?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Gröönimaa"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Uus-Guinea"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Iirimaa"
+	},
+	"trivia_medium_010": {
+		"message": "Mis ookeani osad on Kara meri ja Ida-Siberi meri?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Põhja-Jäämeri"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "India ookean"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Vaikne ookean"
+	},
+	"trivia_medium_011": {
+		"message": "Mis riik piirneb Läänemerega?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Läti"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Sloveenia"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Ukraina"
+	},
+	"trivia_medium_012": {
+		"message": "Milline nendest suurtest linnadest on kõige rahvarohkem?"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "São Paulo, Brasiilia"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto, Kanada"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hanoi, Vietnam"
+	},
+	"trivia_medium_013": {
+		"message": "Mis riigil ei ole rannajoont Atlandi ookeanis?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Malaisia"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angoola"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Uruguay"
+	},
+	"trivia_medium_014": {
+		"message": "Millisel nendest riikidest on kõige lühem rannajoon?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Peruu"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Tšiili"
+	},
+	"trivia_medium_015": {
+		"message": "Mis kõrb asub Aasias?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalahari"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atacama"
+	},
+	"trivia_medium_016": {
+		"message": "Millises nendest riikidest on kõige rohkem vulkaanilist tegevust?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indoneesia"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Egiptus"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Iisrael"
+	},
+	"trivia_medium_017": {
+		"message": "Milline järgmistest riikidest on suurima rahvaarvuga?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_018": {
+		"message": "Millisel nendest riikidest on kõige rohkem saari?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Bahama"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Jamaika"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_019": {
+		"message": "Mis riik asub ekvaatorile kõige lähemal?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Ruanda"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "Lõuna-Aafrika Vabariik"
+	},
+	"trivia_medium_020": {
+		"message": "Mis riik asub kõige kaugemal põhjas?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Eesti"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Liibüa"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Kambodža"
+	},
+	"trivia_medium_021": {
+		"message": "Mis pealinnas asub Tejo jõe kallastel olev Alfama linnaosa Portugalis?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lissabon"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berliin"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Helsingi"
+	},
+	"trivia_medium_022": {
+		"message": "Mis Surnumerest 25 miili kaugusel kirdes asuv pealinn on Jordaania rahvarohkeim linn?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Amman"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Islamabad"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Seoul"
+	},
+	"trivia_medium_023": {
+		"message": "Mis pealinnas asub Taḩrīri väljak, mis on paljude oluliste Egiptuse protestide kese?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Kairo"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Masqaţ"
+	},
+	"trivia_medium_024": {
+		"message": "Mis pealinn Table’i lahe kaldal on Lõuna-Aafrika vabariigi parlamendi asukoht?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Kaplinn"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaka"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinshasa"
+	},
+	"trivia_medium_025": {
+		"message": "Mis pealinn Vltava jõe kaldal on suurim linn Tšehhi Vabariigis?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Praha"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dublin"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Sofia"
+	},
+	"trivia_medium_026": {
+		"message": "Mis Vahemeres asuv pealinn on Liibüa oluline sadam?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Tripoli"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Muqdisho"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monrovia"
+	},
+	"trivia_medium_027": {
+		"message": "Mis Sudaani oluliseks kaubandus- ja transpordikeskuseks olev pealinn asub Valge ning Sinise Niiluse ühenduskohas?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Hartum"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Tunis"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Johannesburg"
+	},
+	"trivia_medium_028": {
+		"message": "Mis pealinn asub Taani Sjællandi ja Amageri saartel?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Kopenhaagen"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Bern"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Bratislava"
+	},
+	"trivia_medium_029": {
+		"message": "Mis pealinn New Providence'i saarel on Bahama suurim linn?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Nassau"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santo Domingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopan"
+	},
+	"trivia_medium_030": {
+		"message": "Mis suurlinn Musta mere lõunaosa rannikul on Türgi transpordivõrgu keskus?"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "Ankara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minsk"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Teheran"
+	},
+	"trivia_medium_031": {
+		"message": "Milline nendest riikidest asub osaliselt Aafrika sarvel?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Niger"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Svaasimaa"
+	},
+	"trivia_medium_032": {
+		"message": "Mis riigist eraldab Skagerraki väin Taanit?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Norra"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "Ühendkuningriik"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_medium_033": {
+		"message": "Mis riigis on suurem osa maismaast kõrbega kaetud?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Tšaad"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Norra"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_034": {
+		"message": "Mis riigist voolab läbi Eufrati jõgi?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Süüria"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Šveits"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Tai"
+	},
+	"trivia_medium_035": {
+		"message": "Mis mandril asub Baikali järve lähedal asuv Irkutski linn?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Aasia"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Aafrika"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_medium_036": {
+		"message": "Mis mandril asuvad suured jõed Dnepr ja Rein?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Euroopa"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Antarktika"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "Aasia"
+	},
+	"trivia_medium_037": {
+		"message": "Mis mandril asuvad Guajaana mägismaa ja Pantanali looduskaitseala?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Põhja-Ameerika"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Euroopa"
+	},
+	"trivia_medium_038": {
+		"message": "Mis mandril asuvad Suur Victoria kõrb ja Nullarbori tasandik?"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Austraalia"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Aasia"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Euroopa"
+	},
+	"trivia_medium_039": {
+		"message": "Mis riigi kõige lõunapoolsem osariik on Rio Grande do Sul?"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Brasiilia"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "Mehhiko"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Saksamaa"
+	},
+	"trivia_medium_040": {
+		"message": "Mis riigis Obi jõe kallastel asub Novosibirski linn?"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Venemaa"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "Nepaal"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "Hiina"
+	},
+	"trivia_medium_041": {
+		"message": "Mis Vaikse ookeani rannikul asuvas riigis on suurem tõenäosus maavärinaks?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Tšiili"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angoola"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "Prantsusmaa"
+	},
+	"trivia_medium_042": {
+		"message": "Mis riigi põhjarannikul asub Maracaibo järv?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_043": {
+		"message": "Mis riik piirneb Araabia merega?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Tadžikistan"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Kreeka"
+	},
+	"trivia_medium_044": {
+		"message": "Mis riik asub Pürenee poolsaarel?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Portugal"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Holland"
+	},
+	"trivia_medium_045": {
+		"message": "Millisel nendest riikidest on kõige pikem rannajoon?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Tai"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Kongo"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Katar"
+	},
+	"trivia_medium_046": {
+		"message": "Mis USA osariik asub Mississippi jõest läänes?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Colorado"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Maryland"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Michigan"
+	},
+	"trivia_medium_047": {
+		"message": "Mis USA osariik on umbes 60% ulatuses metsaga kaetud?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virginia"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "Mis USA osariigis asub Põhja-Ameerika kõrgeim tipp Mount McKinley?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Alaska"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_medium_049": {
+		"message": "Milline nendest USA osariikidest on suurima pindalaga?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montana"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "Lõuna-Carolina"
+	},
+	"trivia_medium_050": {
+		"message": "Mis USA osariigis asub Rapid City lähistel Rushmore'i mägi?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "Lõuna-Dakota"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Florida"
+	},
+	"trivia_medium_051": {
+		"message": "Mis USA osariigil on ühine piir Kanadaga?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebraska"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentucky"
+	},
+	"trivia_medium_052": {
+		"message": "Mis USA osariigi ranniku lähistelt on leitud korallrahusid?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "Mis riigi oluline sadam on Hamburg?"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Saksamaa"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Horvaatia"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Belgia"
+	},
+	"trivia_medium_054": {
+		"message": "Mis riigis toimub kõige rohkem vulkaanipurskeid?"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "Island"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "Ühendkuningriik"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "Poola"
+	},
+	"trivia_medium_055": {
+		"message": "Mis riik asub peamiselt Väike-Aasia poolsaarel?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Türgi"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Birma"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Eesti"
+	},
+	"trivia_medium_056": {
+		"message": "Surnumeri moodustab osa Iisraeli piirist. Millise teise riigi piiri osa on Surnumeri?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Jordaania"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Iraan"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Jaapan"
+	},
+	"trivia_medium_057": {
+		"message": "Mis riigis asub Victoria järvest idas paiknev Serengeti rahvuspark?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tansaania"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Jeemen"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nigeeria"
+	},
+	"trivia_medium_058": {
+		"message": "Mis riik piirneb Kariibi merega ja on oluline nafta eksportija?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Tšiili"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paraguai"
+	},
+	"trivia_medium_059": {
+		"message": "Mis maismaast ümbritsetud riik asub ekvaatorist lõunas?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Burundi"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Djibouti"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Tuneesia"
+	},
+	"trivia_medium_060": {
+		"message": "Mis Vahemere maaga piirneb Türreeni meri?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Itaalia"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Iisrael"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Senegal"
+	},
+	"trivia_medium_061": {
+		"message": "Mis riigi Uurali mäestiku idanõlvadel asub Jekaterinburg?"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Venemaa"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Leedu"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Belgia"
+	},
+	"trivia_medium_062": {
+		"message": "Mis saareriik asub Austraaliast kagus ja on juhtiv villatootja?"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "Uus-Meremaa"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Filipiinid"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_063": {
+		"message": "Mis riigi oluline sadamalinn on Mumbai?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Šveits"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_medium_064": {
+		"message": "Mis riigis asub Incheoni linn Kollases meres?"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "Lõuna-Korea"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Tai"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mongoolia"
+	},
+	"trivia_medium_065": {
+		"message": "Mis väikeriik asub Austria läänepiiril?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Liechtenstein"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Süüria"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Moldova"
+	},
+	"trivia_medium_066": {
+		"message": "Mis riigi kaks osariiki on Victoria ja New South Wales?"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Austraalia"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "Ameerika Ühendriigid"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_067": {
+		"message": "Mis Kalimantani saarel asuv riik piirneb väikese Brunei riigiga?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Malaisia"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Iraan"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Ukraina"
+	},
+	"trivia_medium_068": {
+		"message": "Julia Alpid asuvad Itaalia ja millise teise riigi piiril?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Sloveenia"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nepaal"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Tadžikistan"
+	},
+	"trivia_medium_069": {
+		"message": "Mis riigi kirdeosas asub varem Mandžuuriana tuntud piirkond?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "Hiina"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Valgevene"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afganistan"
+	},
+	"trivia_medium_070": {
+		"message": "Mis riik piirneb El Salvadoriga?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panama"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Dominikaani Vabariik"
+	},
+	"trivia_medium_071": {
+		"message": "Mis riik asub Kaukasuse mäestikus?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Gruusia"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Ungari"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andorra"
+	},
+	"trivia_medium_072": {
+		"message": "Mis Aasia riigis eraldab kahte saart Sunda väin?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indoneesia"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "Uus-Meremaa"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Laos"
+	},
+	"trivia_medium_073": {
+		"message": "Mis riigi Shannoni jõe suudme lähedal saab näha liustikega orgusid ja suurejoonelisi kaljusid?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Iirimaa"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "Prantsusmaa"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "Usbekistan"
+	},
+	"trivia_medium_074": {
+		"message": "Mis Lõuna-Aasia riigist voolab läbi Induse jõgi?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Põhja-Korea"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Aserbaidžaan"
+	},
+	"trivia_medium_075": {
+		"message": "Mis riik piirneb Punase merega?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Keenia"
+	},
+	"trivia_medium_076": {
+		"message": "Mis riigi osariigid on Zacatecas ja Tabasco?"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "Mehhiko"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "Belize"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Argentina"
+	},
+	"trivia_medium_077": {
+		"message": "Mis riigis asub enam kui 4000 mošeega linn Ar-Riyāḑ?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Saudi Araabia"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albaania"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Süüria"
+	},
+	"trivia_medium_078": {
+		"message": "Mis Aafrika riik on maismaaga ümbritsetud?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Mauritaania"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Egiptus"
+	},
+	"trivia_medium_079": {
+		"message": "Mis riigi püha paik on Fuji?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Jaapan"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Filipiinid"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_080": {
+		"message": "Milline Suurte Antillide riik kasutab inglise keelt riigikeelena?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Jamaika"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Kuuba"
+	},
+	"trivia_medium_081": {
+		"message": "Mis on Süüria, Kuveidi ja Alžeeria riigikeel?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "Araabia"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "Armeenia"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "Saksa"
+	},
+	"trivia_medium_082": {
+		"message": "Millises mägises Euroopa riigis peetaval iga-aastasel Salzburgi festivalil esitatakse tihti Mozarti oopereid?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Austria"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Ungari"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Rumeenia"
+	},
+	"trivia_medium_083": {
+		"message": "Mis Põhja-Sudaani riigis asub eelajalooliste vaalade jäänustega kaetud Vaalaoru kõrb?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Egiptus"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nigeeria"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Sambia"
+	},
+	"trivia_medium_084": {
+		"message": "Mis Euroopa riigis asub Põhjamere lähedal olevas suudmealas asuv Rotterdam?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Holland"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Rootsi"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Kreeka"
+	},
+	"trivia_medium_085": {
+		"message": "Mis olulises mäestikus asub Bengali lahe lähedal asuvasse suurde suudmealasse voolava Brahmaputra jõe lähe?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himaalaja"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Uuralid"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Alpid"
+	},
+	"trivia_medium_086": {
+		"message": "Mis islami riigi riigikeeleks on farsi ehk pärsia keel?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Iraan"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Kuveit"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Liibüa"
+	},
+	"trivia_medium_087": {
+		"message": "Mis Euroopa riigis asub Sevilla linn, kus inimesed vaatavad härjavõitlust matadooridega?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Hispaania"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Saksamaa"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "Makedoonia"
+	},
+	"trivia_medium_088": {
+		"message": "Mis riigis asub ida ja lääne kultuuri kohtumispaigaks peetav Istanbul?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Türgi"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Slovakkia"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Omaan"
+	},
+	"trivia_medium_089": {
+		"message": "Millises El Salvadori ja Nicaraguaga piirnevas riigis asub maiade linn Copán, mis on populaarne turismisihtkoht?"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Tšiili"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_090": {
+		"message": "Mis maismaast ümbritsetud riigis asub Nigeri jõest põhjas asuv Timbuktu, mis on olnud pea tuhat aastat karavanikaubanduse keskus?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namiibia"
+	},
+	"trivia_medium_091": {
+		"message": "Mis maismaast ümbritsetud Lõuna-Ameerika riik piirneb Tšiili ja Brasiiliaga?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Boliivia"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Colombia"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Guyana"
+	},
+	"trivia_medium_092": {
+		"message": "Mis riigis asub Amazonase lõunasuudmes paiknev Belémi linn?"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Brasiilia"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "Costa Rica"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_medium_093": {
+		"message": "Mis jõgi moodustab suure osa Bulgaaria põhjapiirist?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Doonau jõgi"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Obi jõgi"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Mekongi jõgi"
+	},
+	"trivia_medium_094": {
+		"message": "Mis Aasia riigis asuvad Baikali järve lähedal olevad Sajaanid?"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Venemaa"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "India"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Kõrgõzstan"
+	},
+	"trivia_medium_095": {
+		"message": "Mis Kanada provintsi suurim järv on Nipigoni järv?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontario"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "Briti Kolumbia"
+	},
+	"trivia_medium_096": {
+		"message": "Mis suurema mere osad on Baleaari meri ja Joonia meri?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Vahemeri"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Läänemeri"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Kariibi meri"
+	},
+	"trivia_medium_097": {
+		"message": "Mis mandril asuvate riftorujärvede näited on Turkana järv ja Natroni järv?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Aafrika"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Euroopa"
+	},
+	"trivia_medium_098": {
+		"message": "Mis ookeani sügavaim punkt on Puerto Rico sügavik?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Atlandi ookean"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Põhja-Jäämeri"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Vaikne ookean"
+	},
+	"trivia_medium_099": {
+		"message": "Mis mandri idaosa eukalüptimetsadest on pärit kuukabarra (naeru-safiirlind)?"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Austraalia"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Aafrika"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Lõuna-Ameerika"
+	},
+	"trivia_medium_100": {
+		"message": "Mis Euroopa riigi lääneranniku linn on Rahvusvahelise Kohtu kodulinn Haag?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Holland"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Soome"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Bulgaaria"
+	},
+	"trivia_ngb_promo": {
+		"message": "Sisu autor: National Geographic Bee"
+	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tansaania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
+	},
+	"uk_country_name": {
+		"message": "Ühendkuningriik"
+	},
+	"uk_tradition": {
+		"message": "Ühendkuningriigis tunnevad kõik jõuluõhtusöögil osalejad suurt rõõmu paukkommidest. Need on värvilisse paberisse pakitud torud, mida saab kummastki otsast tõmmata. Otste tõmbamisel puruneb toru kõva plaksuga. Toru sees on pabermütsid, mänguasjad ja kommid, mida saab jõuluõhtul nautida."
+	},
+	"upgrade-warning": {
+		"message": "Vabandust! Teie brauseri versioon ei toeta Jõuluvana teekonna jälgimist. Juurdepääsuks Jõuluvana teekonna jälgimisele laadige alla ajakohane brauser. Lisateavet leiate saidilt \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
+	"us_country_name": {
+		"message": "Ameerika Ühendriigid"
+	},
+	"us_tradition": {
+		"message": "Ühendriikides riputatakse jõuluõhtul välja jõulusokid. Legendi järgi kuulis Püha Nikolaus hädas olevast perest. Nende üllatamiseks ronis ta korstna kaudu nende koju ja jättis rippuvatesse sokkidesse kullakotte. Sellest ajast alates tuntakse Püha Nikolausi jõuluvanana, kes toob kinke."
+	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Usbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
+	"watch": {
+		"message": "Vaadake"
+	},
+	"ye_country_name": {
+		"message": "Jeemen"
+	},
+	"zh-CN_language_name": {
+		"message": "hiina keel (lihtsustatud)"
+	},
+	"zh-TW_language_name": {
+		"message": "hiina keel (traditsiooniline)"
+	},
+	"zm_country_name": {
+		"message": "Sambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
+	}
+}

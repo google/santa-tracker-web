@@ -1,0 +1,62 @@
+
+##{$name} {
+
+  .fg__zzz {
+    position: absolute;
+    left: 50%;
+    margin-left: -375px;
+    top: 20px;
+
+    width: 150px;
+    height: 150px;
+
+    overflow: hidden;
+
+    transform: rotate(15deg);
+    transform-origin: center bottom;
+  }
+
+  .fg__zzz__z {
+    position: absolute;
+    background: url(img/z.svg) center center no-repeat;
+    background-size: 100% 100%;
+
+    &:nth-child(1) {
+      bottom: 30px;
+      left: 45%;
+      width: 20px;
+      height: 20px;
+      animation-duration: 4s;
+      animation-delay: 3.7s;
+      //outline: 1px solid hotpink;
+    }
+    &:nth-child(2) {
+      bottom: 20px;
+      left: 40%;
+      width: 25px;
+      height: 25px;
+      animation-duration: 3.9s;
+      animation-delay: 1.5s;
+      //outline: 1px solid green;
+    }
+    &:nth-child(3) {
+      bottom: 10px;
+      left: 60%;
+      width: 23px;
+      height: 23px;
+      animation-duration: 3.5s;
+      animation-delay: -1s;
+      //outline: 1px solid yellow;
+    }
+
+    opacity: 0;
+    animation-name: #{$name}-zzz;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes #{$name}-zzz {
+  from { transform: translate3d(0, 25%, 0) scale(1); opacity: 1;}
+  to   { transform: translate3d(0, -300%, 0) scale(2.5) rotate(-25deg); opacity: 0; }
+}

@@ -1,0 +1,32 @@
+##{$name} {
+  .level-bg {
+    background: url(img/level-bg.png) repeat-x;
+    height: 490px;
+    position: absolute;
+    right: 0;
+    top: 165px;
+    transform: translateZ(0);
+    width: 4450px;
+  }
+
+  .level-fg {
+    position: absolute;
+    right: 0;
+    top: 189px;
+    transform: translateZ(0);
+    width: 1864px;
+
+    > div {
+      background-image: url(img/level-fg.png);
+      background-repeat: no-repeat;
+      float: right;
+      height: 361px;
+      width: 932px;
+    }
+  }
+
+  .level-fg0 { background-position: 0 0; }
+  .level-fg1 { background-position: -2796px 0; }
+  .level-fg2 { background-position: -1864px 0; }
+  .level-fg3 { background-position: -932px 0; }
+}

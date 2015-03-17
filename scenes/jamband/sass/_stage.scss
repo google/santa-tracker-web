@@ -1,0 +1,74 @@
+##{$name} {
+  .Stage {
+    // background-color: rgba(0, 255, 0, 0.5);
+    height: 270em;
+    position: absolute;
+    width: 216em;
+    user-select: none;
+  }
+
+  .Stage-arrow {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    animation: #{$name}-bounce 1s infinite;
+    background-image: url(img/stage-arrow.svg);
+    background-position: 50% 90%;
+    background-repeat: no-repeat;
+    background-size: 98.1em 203.7em;
+    transform: translateZ(0);
+    opacity: 0;
+  }
+
+  .dropTarget,
+  &.is-allEmpty {
+    .Stage-arrow {
+      opacity: 1;
+    }
+  }
+
+  .Stage--farLeft {
+    left: calc(50% - 542em);
+    top: calc(50% - 260em);
+  }
+
+  .Stage--nearLeft {
+    left: calc(50% - 315em);
+    top: calc(50% - 330em);
+  }
+
+  .Stage--center {
+    left: calc(50% - 91em);
+    top: calc(50% - 410em);
+  }
+
+  .Stage--nearRight {
+    right: calc(50% - 345em);
+    top: calc(50% - 330em);
+  }
+
+  .Stage--farRight {
+    right: calc(50% - 572em);
+    top: calc(50% - 260em);
+  }
+
+  .Stage--special {
+    left: calc(50% - 215em);
+    top: calc(50% - 115em);
+    width: 347em;
+
+    .Instrument {
+      padding-left: 70em;
+    }
+  }
+}
+
+@keyframes #{$name}-bounce {
+  0%, 100% {
+    transform: translateY(-30em);
+  }
+
+  40% {
+    transform: translateY(0);
+  }
+}

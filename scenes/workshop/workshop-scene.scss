@@ -1,0 +1,634 @@
+$name: 'module-workshop';
+
+//@import "../shared/sass/sceneboard";
+
+@import "sass/animations";
+
+##{$name} {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: #B67845;
+
+  .view {
+    position: absolute;
+    z-index:  50;
+
+    top: 50%;
+    left: 50%;
+
+    $width: 775px;
+    $height: 365px;
+
+    width: $width;
+    height: $height;
+
+    margin-top: -($height / 2) + 70;
+    margin-left: -($width / 2);
+
+    &.before-belt {
+      z-index:  15;
+    }
+
+    .elf {
+      position: absolute;
+
+      left: 0;
+      bottom: 0;
+
+      width: 118px;
+      height: 363px - 149px;
+
+      background: 0 bottom url('img/elfs.png');
+
+      .head {
+        position: absolute;
+
+        top: -149px;
+        left: 0;
+
+        width: 118px;
+        height: 149px;
+
+        background: 0 0 url('img/elfs.png');
+
+        transform-origin: 50% 100%;
+      }
+
+      &.e2 {
+        left: 325px;
+
+        background-position: -327px bottom;
+
+        .head {
+          transform-origin: 58% 100%;
+          background-position: -327px 0;
+        }
+      }
+
+      &.e3 {
+        left: 655px;
+
+        background-position: -671px bottom;
+
+        .head {
+          background-position: -671px 0;
+        }
+      }
+
+      &.e4 {
+        left: 175px;
+
+        height: 363px;
+
+        background-position: -168px bottom;
+      }
+
+      &.e5 {
+        left: 500px;
+        width: 156px;
+
+        background-position: -501px bottom;
+
+        .head {
+          top: -148px;
+          width: 156px;
+
+          background-position: -501px 0;
+
+          transform-origin: 40% 100%;
+
+          .mouth {
+            position: absolute;
+
+            top: 120px;
+            left: 25px;
+
+            width: 6px;
+            height: 14px;
+
+            border-radius: 50%;
+
+            background: #EA1C23;
+          }
+        }
+
+        .notes {
+          position: absolute;
+
+          top: -180px;
+          left: -30px;
+
+          width: 56px;
+          height: 160px;
+
+          transform: rotateZ(-15deg);
+
+          .note {
+            position: absolute;
+
+            bottom: 0;
+            left: 0;
+
+            width: 18px;
+            height: 100%;
+
+            .note-inner {
+              width: 18px;
+              height: 21px;
+
+              background: 0 0 url('img/note.png') no-repeat;
+            }
+
+            opacity: 0;
+
+            &:first-child {
+              display: none;
+            }
+
+            &:nth-child(n+2){
+              left: 20%;
+            }
+
+            &:nth-child(n+3){
+              left: 50%;
+
+              .note-inner {
+                transform: scale(.5) rotateY(180deg);
+              }
+            }
+
+            &:nth-child(n+4){
+              left: 80%;
+
+              .note-inner {
+                transform: scale(.9) rotateZ(5deg);
+              }
+            }
+
+            &:nth-child(n+5){
+              left: 60%;
+
+              .note-inner {
+                transform: scale(.6) rotateY(180deg);
+              }
+            }
+
+            &:nth-child(n+6){
+              left: 35%;
+
+              .note-inner {
+                transform: scale(.8) rotateZ(-5deg);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+ #belt {
+    position: absolute;
+    z-index: 20;
+
+    top: 50%;
+    left: 50%;
+
+    $width: 1215px;
+    $height: 135px;
+
+    margin-top: -$height / 2 + 185;
+    margin-left: -$width / 2;
+
+    width: $width;
+    height: $height;
+
+    background: url('img/belt.png') no-repeat;
+
+    .items {
+      position: absolute;
+
+      top: -75px;
+      left: 0;
+      right: 0;
+
+      height: 75px;
+
+      .item {
+        float: left;
+
+        width: 225px;
+        width: 25%;
+        height: 75px;
+
+        overflow: hidden;
+
+        &.i3 {
+          width: 28%;
+        }
+
+        &.i4 {
+          width: 22%;
+        }
+
+        .item-inner {
+          width: 225px;
+          width: 200%;
+          left: -100%;
+          position: relative;
+          transform: translateZ(0);
+          height: 75px;
+
+          background-position: 0 bottom;
+          background-repeat: repeat-x;
+
+          &.i1 {
+            background-image: url('img/items1.png');
+          }
+
+          &.i2 {
+            background-image: url('img/items2.png');
+            background-position: -50px bottom;
+          }
+
+          &.i3 {
+            background-image: url('img/items3.png');
+          }
+
+          &.i4 {
+            background-image: url('img/items4.png');
+          }
+        }
+      }
+    }
+
+    .machine {
+      $width: 5000px;
+
+      position: absolute;
+
+      bottom: 0;
+      left: -$width + 15;
+
+      width: $width;
+      height: 215px;
+
+      background: 0 bottom url('img/machine-block.png') repeat-x;
+
+      &:before {
+        content: "";
+        position: absolute;
+
+        top: 18px;
+        right: 18px;
+
+        width: 156px;
+        height: 41px;
+
+        background: 0 0 url('img/machine-markers.png') no-repeat;
+      }
+
+      &.right {
+        left: auto;
+        right: -$width + 15;
+
+        background-position: -50px bottom;
+
+        &:before {
+          right: auto;
+          left: 18px;
+
+          background-position: 0 -41px;
+        }
+      }
+    }
+
+    #bolts {
+      position: absolute;
+
+      top: 10px;
+      left: 0;
+      right: 0;
+
+      height: 32px;
+
+      .bolt {
+        position: absolute;
+
+        top: 0;
+        left: 14px;
+
+        width: 32px;
+        height: 32px;
+
+        background: url('img/belt-bolt.png');
+
+        &:nth-of-type(n+2) {
+          left: 130px;
+        }
+
+        &:nth-of-type(n+3) {
+          left: 240px;
+        }
+
+        &:nth-of-type(n+4) {
+          left: 360px;
+        }
+
+        &:nth-of-type(n+5) {
+          left: 475px;
+        }
+
+        &:nth-of-type(n+6) {
+          left: 595px;
+        }
+
+        &:nth-of-type(n+7) {
+          left: 705px;
+        }
+
+        &:nth-of-type(n+8) {
+          left: 823px;
+        }
+
+        &:nth-of-type(n+9) {
+          left: 938px;
+        }
+
+        &:nth-of-type(n+10) {
+          left: 1053px;
+        }
+
+        &:nth-of-type(n+11) {
+          left: 1170px;
+        }
+      }
+    }
+  }
+
+  .objects {
+    position: absolute;
+    z-index: 150;
+
+    top: 50%;
+    left: 50%;
+
+    $height: 300px;
+    $width: 1215px;
+
+    height: $height;
+    width: $width;
+
+    margin-top: -$height / 2 + 250;
+    margin-left: -$width / 2;
+
+    .lever {
+      position: absolute;
+
+      left: 0;
+      bottom: 60px;
+
+      cursor: pointer;
+
+      width: 148px;
+      height: 161px;
+
+      background: -147px 0 url('img/object-lever.png') no-repeat;
+    }
+
+    .present {
+      position: absolute;
+
+      left: 88px;
+      bottom: 32px;
+
+      height: 160px;
+      width: 520px;
+
+      background: 0 0 url('img/object-presents.png');
+
+      &.p2 {
+        left: 610px;
+        bottom: 20px;
+
+        height: 160px;
+        width: 520px;
+
+        background-position: 0 -163px;
+      }
+
+      &.p3 {
+        top: 104px;
+        left: auto;
+        right: -200px;
+        bottom: auto;
+
+        height: 92px;
+        width: 317px;
+
+        background-position: 0 -330px;
+      }
+    }
+  }
+
+  .wall {
+    position: absolute;
+    z-index: 1;
+
+    top: 333px;
+    top: 50%;
+    left: 0;
+    right: 0;
+
+    $height: 467px;
+
+    margin-top: -$height / 2;
+
+    height: $height;
+
+    background: center 0 url('img/wall-pattern.png') repeat-x #c5c6c8;
+
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 10;
+
+      bottom: -40px;
+      left: 0;
+      right: 0;
+
+      height: 47px;
+
+      background: rgba(0,0,0,.2);
+    }
+
+    #windows {
+      position: absolute;
+
+      top: 70px;
+      left: 50%;
+
+      $width: 1020px;
+
+      margin-left: -$width / 2;
+
+      width: $width;
+      height: 204px;
+
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+
+        bottom: 0;
+        left: -150px - 50px;
+
+        width: 150px;
+        height: 215px;
+
+        background: url('img/wall-tree.png') no-repeat;
+      }
+
+      &:after {
+        left: auto;
+        right: -150px - 50px;
+      }
+
+      .window {
+        float: left;
+
+        margin-right: 68px;
+
+        width: 149px;
+        height: 204px;
+
+        background: 0 0 url('img/window.png') no-repeat;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .window-wrap {
+          position: static;
+
+          margin-left: 9px;
+
+          width: 123px;
+          height: 168px;
+
+          border-radius: 122px 122px 0 0;
+
+          overflow: hidden;
+
+          background-image: url('img/snow1.png'), url('img/snow2.png');
+        }
+
+        &:nth-of-type(2n) .window-wrap {
+          transform: rotateY(180deg);
+
+          background-image: #000;
+        }
+      }
+    }
+
+    .roof {
+      position: absolute;
+
+      top: -5000px;
+      left: 0;
+      right: 0;
+
+      height: 5000px;
+
+      background: center  no-repeat #d7c5a2;
+      background-position: center bottom, center bottom;
+      background-repeat: no-repeat, repeat-x;
+      background-image: url('img/roof.png'), url('img/roof-back.png');
+
+      &:after {
+        content: "";
+        position: absolute;
+        z-index: 10;
+
+        bottom: -47px;
+        left: 0;
+        right: 0;
+
+        height: 47px;
+
+        background: rgba(0,0,0,.2);
+      }
+
+      .decoration {
+        position: absolute;
+        z-index: 12;
+
+        bottom: -100px;
+        left: 0;
+        right: 0;
+
+        height: 148px;
+
+        background: center 0 url('img/wall-decoration.png') repeat-x;
+      }
+    }
+  }
+
+  &.on {
+    .bolt {
+      animation: 8s #{$name}-bolt infinite linear;
+    }
+
+    .lever {
+      background-position: 0 0 !important;
+    }
+  }
+
+  .elf {
+    .head {
+      animation: 1.1s #{$name}-headBooble infinite alternate ease-in-out;
+    }
+
+  &.e4 {
+      animation: 300ms #{$name}-pogoJump infinite alternate ease-out;
+    }
+  }
+  .mouth {
+    animation: 300ms #{$name}-infinite alternate ease-out;
+  }
+  .note {
+    animation: 2s #{$name}-noteFloat infinite linear;
+
+    &:nth-of-type(n+2){
+      animation: 2.45s 3s #{$name}-noteFloat infinite linear;
+    }
+
+    &:nth-of-type(n+3){
+      animation: 2.25s 2s #{$name}-noteFloat infinite linear;
+    }
+
+    &:nth-of-type(n+4){
+      animation: 1.5s 1s #{$name}-noteFloat infinite linear;
+    }
+
+    &:nth-of-type(n+5){
+      animation: 2.5s 1.5s #{$name}-noteFloat infinite linear;
+    }
+
+    &:nth-of-type(n+6){
+      animation: 3.5s 2.5s #{$name}-noteFloat infinite linear;
+    }
+  }
+
+  @media (min-width: 661px) {
+    .window-wrap {
+      animation: 8s #{$name}-snowFall infinite linear;
+    }
+  }
+}
+
+@import "../shared/sass/responsive";

@@ -1,0 +1,878 @@
+$name: 'module-village';
+
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+
+@import "sass/variables";
+@import "sass/animations";
+@import "sass/keyframe_animations";
+@import "../shared/sass/_mixins.scss";
+
+.touch {
+  ##{$name} {
+    // HACK: hide buttons for touch, since we don't handle the touch events
+    // properly.
+    #hit-area-left, #hit-area-right {
+      display: none;
+    }
+  }
+}
+
+##{$name} {
+  @import "sass/countdown_mini";
+
+  background: #47c6ee;
+  overflow: hidden;
+
+  #village,
+  #ground {
+    position: absolute;
+    width: $villageWidth;
+  }
+
+  #village {
+    //background: url(/scenes/village/img/villagefull.png);
+    //background-position: -1233px -241px;
+  }
+
+  #village-wrapper {
+    overflow: hidden;
+  }
+
+  #village-parallax {
+    z-index: 12;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    @include transform(translateZ(0));
+  }
+
+  #hit-area-left,
+  #hit-area-right {
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    width: 100px;
+    height: 100px;
+    z-index: 1000;
+    cursor: pointer;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  #hit-area-left {
+    left: 50px;
+    background: url(img/arrows_left.svg) no-repeat;
+  }
+
+  #hit-area-right {
+    right: 50px;
+    background: url(img/arrows_right.svg) no-repeat;
+  }
+
+  #countdown {
+    > a  {
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      pointer-events: all;
+    }
+    &:not(.finished) {
+      pointer-events: none;
+    }
+    h1.logo {
+      height: 29px;
+      width: 84px;
+      background: url(img/google_logo.png) no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+
+  #village-wrapper {
+    #trees {
+      position: absolute;
+      width: $treeWidth;
+      left: 0;
+      bottom: 0;
+      z-index: 20;
+      .tree {
+        position: absolute;
+        width: 198px;
+        height: 332px;
+        background: url(img/tree.svg) no-repeat;
+        bottom: 0;
+        pointer-events: none;
+        // TODO(lukem): add something for IE
+        -webkit-filter: blur(2px);
+        filter: blur(2px);
+      }
+    }
+
+    #snow {
+      position: absolute;
+      width: $snowWidth;
+      left: 0;
+      bottom: 0;
+      height: 125px;
+      z-index: 15;
+      background: url(img/snow.svg) repeat-x;
+      pointer-events: none;
+    }
+
+    #ground {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      height: 160px;
+      z-index: 10;
+      pointer-events: none;
+
+      @include media-hdpi(2) {
+        height: 143px;
+      }
+    }
+
+    .snow-flake {
+      position: absolute;
+      z-index: 19;
+      pointer-events: none;
+      @include transform(translateY(-20px));
+      opacity: 0;
+
+      .snow-flake-inner {
+        background: url(img/snow-flake.svg) no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+
+    .snow-flake-large {
+      @include transition(transform 15s ease-in-out, opacity 15s ease-in-out);
+      .snow-flake-inner {
+        width: 8px;
+        height: 8px;
+      }
+      &.snow-flake-animated {
+        .snow-flake-inner {
+          @include animation(snow 15s infinite ease-in-out);
+        }
+      }
+    }
+
+    .snow-flake-medium {
+      @include transition(transform 20s ease-in-out, opacity 20s ease-in-out);
+      .snow-flake-inner {
+        width: 5px;
+        height: 5px;
+      }
+      &.snow-flake-animated {
+        .snow-flake-inner {
+          @include animation(snow 20s infinite ease-in-out);
+        }
+      }
+    }
+
+    .snow-flake-small {
+      @include transition(transform 25s ease-in-out, opacity 20s ease-in-out);
+      .snow-flake-inner {
+        width: 3px;
+        height: 3px;
+      }
+      &.snow-flake-animated {
+        .snow-flake-inner {
+          @include animation(snow 25s infinite ease-in-out);
+        }
+      }
+    }
+  }
+
+  #village {
+    bottom: 92px;
+    left: -730px;
+    top: 0;
+    overflow: hidden;
+    @include transform(translateZ(0));
+
+    #trees-back {
+      z-index: 0;
+      bottom: 35px;
+      left: 0;
+      right: 0;
+      position: absolute;
+      height: 264px;
+
+      .tree {
+        position: absolute;
+        bottom: 15px;
+      }
+
+      $trees:
+        "tree1"  "trees1"   246   197   697,
+        "tree2"  "trees2"   197   215   1327,
+        "tree3"  "trees3"   166   202   1617,
+        "tree4"  "trees4"   181   201   2192,
+        "tree5"  "trees5"   126   127   2942,
+        "tree6"  "trees6"   180   201   3247,
+        "tree7"  "trees7"   177   231   3627,
+        "tree8"  "trees8"   211   224   4307,
+        "tree9"  "trees9"   226   182   4667,
+        "tree10"  "trees1"   246   197   5726,
+        "tree11"  "trees2"   197   215   6091,
+        "tree12"  "trees3"   166   202   6520,
+        "tree13"  "trees4"   181   201   7607,
+        "tree14"  "trees5"   126   127   7960,
+        "tree15"  "trees6"   180   201   8515,
+        "tree16"  "trees7"   177   231   8935,
+        "tree17"  "trees8"   211   224   9505,
+        "tree18"  "trees9"   226   182   9840,
+        "tree19"  "trees1"   246   197   10330,
+        "tree20"  "trees2"   197   215   10700,
+        "tree21"  "trees3"   166   202   11090,
+        "tree22"  "trees4"   181   201   11615,
+        "tree23"  "trees5"   126   127   11920,
+        "tree24"  "trees6"   180   201   12050,
+        "tree25"  "trees7"   180   201   12380,
+        "tree26"  "trees8"   211   224   2520,
+        "tree27"  "trees9"   226   182   5077,
+        "tree28"  "trees1"   246   197   3877,
+        "tree29"  "trees2"   197   215   12750,
+        "tree30"  "trees3"   166   202   5469,
+        "tree31"  "trees4"   181   201   6980,
+        "tree32"  "trees5"   126   127   8095,
+        "tree33"  "trees6"   180   201   8335,
+        "tree34"  "trees7"   177   231   9200;
+
+      $treeId: 1;
+      $treeFile: 2;
+      $treeWidth: 3;
+      $treeHeight: 4;
+      $treeLeft: 5;
+
+      @each $tree in $trees {
+        ##{nth($tree, $treeId)} {
+          background: url(img/#{nth($tree, $treeFile)}.svg) no-repeat;
+          width: #{nth($tree, $treeWidth)}px;
+          height: #{nth($tree, $treeHeight)}px;
+          left: #{nth($tree, $treeLeft)}px;
+        }
+      }
+    }
+
+    @import "sass/houses";
+
+    .interactive {
+      cursor: pointer;
+    }
+
+    .elf {
+      position: absolute;
+      bottom: 0;
+      z-index: 10;
+    }
+
+    $elfColors: "blue", "green", "orange", "purple", "red";
+    $elves:
+      "" 17 54,
+      "-left" 19 52,
+      "-right" 19 52,
+      "-girl-left" 22 52,
+      "-girl-right" 22 52,
+      "-snow" 27 54,
+      "-snow-left" 36 47,
+      "-snow-right" 36 47,
+      "-snow-hide" 25 34,
+      "-girl-snow-left" 36 47,
+      "-girl-snow-right" 36 47;
+    $elfType: 1;
+    $elfWidth: 2;
+    $elfHeight: 3;
+
+    @each $elfColor in $elfColors {
+      @each $elf in $elves {
+        // Class looks like .elf-[elfColor]-[elfType] eg: elf-blue-snow-hide
+        .elf-#{$elfColor}#{nth($elf, $elfType)} {
+          background: url(img/elf-#{$elfColor}#{nth($elf, $elfType)}.svg) no-repeat;
+          width: #{nth($elf, $elfWidth)}px;
+          height: #{nth($elf, $elfHeight)}px;
+        }
+      }
+    }
+
+    .elf-red-sit-right {
+      width: 21px;
+      height: 53px;
+      background: url(img/elf-red-sit-right.svg) no-repeat;
+    }
+
+    .elf-green-sit-right {
+      width: 21px;
+      height: 53px;
+      background: url(img/elf-green-sit-right.svg) no-repeat;
+    }
+
+    .elf-blue-sit-right {
+      width: 21px;
+      height: 53px;
+      background: url(img/elf-blue-sit-right.svg) no-repeat;
+    }
+
+    .elf-green-girl-sit-left {
+      width: 24px;
+      height: 53px;
+      background: url(img/elf-green-girl-sit-left.svg) no-repeat;
+    }
+
+    #unicycle {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      @include animation(train 460s 0s linear infinite);
+      animation-direction: reverse;
+
+      .cycle {
+        background: url(img/elf-unicycle.svg) no-repeat;
+        @include apply-origin(bottom center, false);
+        @include animation(unicycle 2s ease infinite);
+        width: 35px;
+        height: 92px;
+      }
+    }
+
+    #snowman {
+      left: 5480px;
+      bottom: -8px;
+      @include transform(translateZ(0));
+
+      div {
+        background-repeat: no-repeat;
+        background-position: bottom left;
+        width: 109px;
+        height: 73px;
+        position: absolute;
+        bottom: 0;
+        @include transition(opacity 100ms linear);
+        opacity: 0;
+      }
+
+      #snowman1 {
+        background-image: url(img/snowman_01.svg);
+        opacity: 1;
+      }
+
+      #snowman2 {
+        background-image: url(img/snowman_02.svg);
+      }
+
+      #snowman3 {
+        background-image: url(img/snowman_03.svg);
+      }
+
+      #snowman4 {
+        background-image: url(img/snowman_04.svg);
+      }
+
+      &.snowman-fall {
+        #snowman1 {
+          opacity: 0;
+        }
+
+        #snowman2 {
+          @include animation(200ms snowman linear);
+        }
+
+        #snowman3 {
+          @include animation(200ms snowman linear);
+          @include animation-delay(75ms);
+        }
+
+        #snowman4 {
+          opacity: 1;
+          @include transition-delay(150ms);
+        }
+      }
+    }
+
+    .busstop-sign {
+      bottom: 0;
+      position: absolute;
+      width: 38px;
+      height: 89px;
+      background: url(img/busstop.svg) no-repeat;
+    }
+
+    .bus-bench {
+      bottom: 0;
+      left: 45px;
+      position: absolute;
+      width: 49px;
+      height: 26px;
+      background: url(img/bench.svg) no-repeat;
+    }
+
+    .bus-chair {
+      bottom: 0;
+      left: 25px;
+      position: absolute;
+      width: 15px;
+      height: 26px;
+      background: url(img/chair.svg) no-repeat;
+    }
+
+    .busstop {
+      .elf1 {
+        left: 27px;
+      }
+
+      .elf2 {
+        left: 50px;
+      }
+
+      .elf3 {
+        left: 70px;
+      }
+    }
+
+    #garage {
+      position: absolute;
+      width: 219px;
+      height: 146px;
+      background: url(img/garage.svg) no-repeat;
+      left: 3734px;
+      bottom: 0;
+
+      :nth-child(1) {
+        left: 50px;
+      }
+
+      :nth-child(2) {
+        left: 180px;
+      }
+
+      :nth-child(3) {
+        left: 120px;
+      }
+    }
+
+    $busstop1: 2577px;
+    $busstop2: 6965px;
+    $busstop3: 8412px;
+
+    #busstop1 {
+      position: absolute;
+      bottom: 0;
+      left: $busstop1;
+      z-index: 9;
+    }
+
+    #busstop2 {
+      bottom: 0;
+      position: absolute;
+      left: $busstop2;
+      z-index: 9;
+    }
+
+    #busstop3 {
+      bottom: 0;
+      position: absolute;
+      width: 70px;
+      height: 53px;
+      left: $busstop3;
+      z-index: 9;
+    }
+
+    #busstop1, #busstop2, #busstop3 {
+      .elf {
+        opacity: 1;
+        @include transition(opacity 600ms linear);
+      }
+
+      &.stop-empty .elf {
+        opacity: 0;
+      }
+
+      &.stop-waiting {
+        .elf {
+          @include animation(600ms bounce linear infinite);
+        }
+
+        :nth-child(1) {
+          @include animation-delay(25ms);
+        }
+
+        :nth-child(2) {
+          @include animation-delay(50ms);
+        }
+
+        :nth-child(3) {
+          @include animation-delay(75ms);
+        }
+      }
+    }
+
+    #snowmobile1, #snowmobile2, #snowmobile3 {
+      position: absolute;
+      width: 64px;
+      height: 62px;
+      bottom: 0;
+      z-index: 10;
+    }
+
+    #snowmobile1 {
+      left: 1380px;
+      background: url(img/snowmobile1.svg) no-repeat;
+
+      &.gogo-snowmobile {
+        @include apply-origin(bottom center, false);
+        @include animation(burnout 25s linear);
+        @include animation-direction(reverse);
+      }
+    }
+
+    #snowmobile2 {
+      left: 7645px;
+      background: url(img/snowmobile2.svg) no-repeat;
+
+      &.gogo-snowmobile {
+        @include apply-origin(bottom center, false);
+        @include animation(burnout 25s linear);
+      }
+    }
+
+    #snowmobile3 {
+      left: 9600px;
+      background: url(img/snowmobile3.svg) no-repeat;
+
+      &.gogo-snowmobile {
+        @include apply-origin(bottom center, false);
+        @include animation(burnout 25s linear);
+        @include animation-direction(reverse);
+      }
+    }
+
+    #bus {
+      z-index: 10;
+      position: absolute;
+      bottom: 0;
+      width: 215px;
+      height: 123px;
+      background: url(img/bus.svg) no-repeat;
+      @include transform(translateX($villageWidth));
+      @include transform(translateZ(0) translateX($villageWidth));
+
+      &.bus-load {
+        .elf {
+          opacity: 1;
+        }
+      }
+
+      &.bus-unload {
+        .elf {
+          opacity: 0;
+        }
+      }
+
+      .elf {
+        position: absolute;
+        left: 32px;
+        bottom: 44px;
+        background: url(img/bus-elf.svg) no-repeat;
+        background-size: contain;
+        width: 15px;
+        height: 19px;
+      }
+
+      :nth-child(1) {
+        opacity: 1 !important;
+      }
+
+      $elfStart: 64;
+      $elfGap: 24;
+      $elfDelay: 350, 1150, 50, 900, 1500, 2000;
+      @for $i from 2 through 7 {
+        $idx: $i - 2;
+        :nth-child(#{$i}) {
+          left: #{$elfStart + ($idx * $elfGap)}px;
+          opacity: 0;
+          @include transition(opacity .5s ease);
+          @include transition-delay(#{nth($elfDelay, $idx+1)}ms);
+        }
+      }
+
+      $busOffset: 50px;
+
+      // TODO(bckenny): better ease functions
+      &.to-stop1 {
+        @include transition-transform(8s, ease-out);
+        @include transform(translateX($busstop1 - $busOffset));
+        @include transform(translateZ(0) translateX($busstop1 - $busOffset));
+      }
+      &.to-stop2 {
+        @include transition-transform(8s, ease-out);
+        @include transform(translateX($busstop2 - $busOffset));
+        @include transform(translateZ(0) translateX($busstop2 - $busOffset));
+      }
+      &.to-stop3 {
+        @include transition-transform(8s, ease-out);
+        @include transform(translateX($busstop3 - $busOffset));
+        @include transform(translateZ(0) translateX($busstop3 - $busOffset));
+      }
+      &.leave-stop {
+        @include transition-transform(10s, ease-in, 3s);
+        @include transform(translateX(-500px));
+        @include transform(translateZ(0) translateX(-500px));
+      }
+    }
+  }
+
+  #rail {
+    position: absolute;
+    width: $railWidth;
+    z-index: 9;
+    bottom: 140px;
+    height: 196px;
+    background-image: url(img/monorail.svg);
+    background-repeat: repeat-x;
+    background-size: 296px 231px;
+
+    #train {
+      position: absolute;
+      height: 55px;
+      width: 424px;
+      top: -38px;
+      background: url(img/train.svg) no-repeat;
+      @include animation(train 55s 0s linear infinite);
+    }
+  }
+
+  #mountains, .mountains {
+    position: absolute;
+    width: $mountainWidth;
+    z-index: 7;
+    bottom: 90px;
+    top: 0;
+
+    #mountains-day, #mountains-night, .mountains-day {
+      position: absolute;
+      bottom: 0;
+      height: 450px;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      @include transition(opacity .5s ease);
+      background-position: top left;
+      background-repeat: repeat-x;
+      background-size: 2971px 450px;
+
+      &.visible {
+        opacity: 1;
+      }
+    }
+
+    #mountains-day, .mountains-day {
+      background-image: url(img/daymountains.svg);
+    }
+
+    #mountains-night {
+      background-image: url(img/nightmountains.svg);
+    }
+  }
+
+  #clouds {
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 143px;
+
+    .cloud {
+      height: 71px;
+      width: 190px;
+      overflow: hidden;
+      position: absolute;
+    }
+
+    .cloud-fly {
+       @include transition-transform(120s, linear);
+    }
+
+    .cloud div {
+      width: 200px;
+      height: 60px;
+      background: #fff;
+      top: 35px;
+
+      border-radius: 200px;
+      position: absolute;
+    }
+
+    .cloud div:before, .cloud div:after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      width: 100px;
+      height: 80px;
+      position: absolute;
+      top: -15px;
+      left: 10px;
+      border-radius: 100px;
+      @include transform(rotate(30deg));
+    }
+
+    .cloud div:after {
+      width: 120px;
+      height: 120px;
+      top: -55px;
+      left: auto;
+      right: 15px;
+    }
+
+    .cloud1 {
+      div {
+        @include transform(scale(0.6));
+        opacity: 0.4;
+      }
+    }
+
+    .cloud2 {
+      div {
+        @include transform(scale(0.3));
+        opacity: 0.7;
+      }
+    }
+
+    .cloud3 {
+      div {
+        @include transform(scale(0.7));
+        opacity: 0.3;
+      }
+    }
+  }
+
+  #plane {
+    cursor: pointer;
+    z-index: 8;
+    position: absolute;
+    top: 45px;
+    height: 82px;
+    width: 171px;
+    background: url(img/plane.svg) no-repeat;
+    @include animation(plane 60s 0s linear infinite);
+  }
+
+  #spaceship, #pegman-spaceship {
+    cursor: pointer;
+    z-index: 8;
+    position: absolute;
+    height: 84px;
+    width: 130px;
+    background: url(img/spaceship.svg) no-repeat;
+  }
+
+  #spaceship  {
+    top: 45px;
+    @include animation(plane 75s 0s linear infinite);
+    @include animation-direction(reverse);
+    @include transition(transform .5s ease, top 0.5s ease);
+
+    &.to-space {
+      top: -1000px;
+    }
+  }
+
+  #pegman-spaceship {
+    z-index: 11;
+    bottom: 0;
+    left: 2137px;
+    @include transition(transform 15s ease-out);
+    @include transform(rotateZ(0) translateY(-5000px));
+
+    &.land {
+      @include transform(rotateZ(0) translateY(-2px));
+    }
+  }
+
+  #sun, #moon, #fakesun, #fakemoon {
+    z-index: 3;
+    cursor: pointer;
+    top: 10px;
+    left: 250px;
+    position: absolute;
+    width: 180px;
+    height: 180px;
+
+    &.up {
+      @include translateY(0);
+    }
+
+    &.go-up {
+      @include animation(sunrise 1s);
+    }
+
+    &.down {
+      @include translateY(5000px);
+    }
+
+    &.go-down {
+      @include animation(sunset 1s);
+    }
+  }
+
+  #fakesun, #fakemoon {
+    z-index: 50;
+  }
+
+  #sun {
+    background: url(img/sun.svg) no-repeat;
+  }
+
+  #moon {
+    background: url(img/moon.svg) no-repeat;
+  }
+
+  #sky, .sky {
+    z-index: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 143px;
+
+    #sky-day, .sky-day, #sky-night {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      opacity: 0;
+      @include transition(opacity .5s ease);
+
+      &.visible {
+        opacity: 1;
+      }
+    }
+
+    #sky-day, .sky-day {
+      background: #87bad6;
+    }
+
+    #sky-night {
+      background: #4d7e92;
+      // 4d7e92 2e607a
+    }
+  }
+
+  /*@media
+    only screen and (-webkit-min-device-pixel-ratio: 1.25),
+    only screen and ( min--moz-device-pixel-ratio: 1.25),
+    only screen and ( -o-min-device-pixel-ratio: 1.25/1),
+    only screen and ( min-device-pixel-ratio: 1.25),
+    only screen and ( min-resolution: 200dpi),
+    only screen and ( min-resolution: 1.25dppx) {
+    @import "sass/hdpi";
+  }*/
+
+  @import "sass/responsive";
+}

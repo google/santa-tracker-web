@@ -1,0 +1,104 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/core-range/core-range.html">
+
+<!--
+Candy cane progress bar.
+
+@element preload-overlay
+@extends core-range
+-->
+<polymer-element name="preload-overlay" extends="core-range" attributes="active color src" fit
+                 on-transitionend="{{fadeDone}}">
+<template>
+  <link rel="stylesheet" href="preloader.css" no-shim>
+  <style>
+  :host {
+    background: #3ec4f0;
+    z-index: 1200;
+  }
+  img {
+    width: 340px;
+    height: 340px;
+  }
+  :host(.fading) {
+    opacity: 0;
+  }
+  :host(.fadeout) {
+    -webkit-transition: opacity 600ms ease-in-out;
+    transition: opacity 600ms ease-in-out;
+  }
+  </style>
+  <div id="page-progress" layout vertical center-center>
+    <div class="preload">
+      <img _src="{{src}}">
+      <div class="preload-bar">
+        <div class="preload-progress" _style="width:{{value}}%;"></div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+(function() {
+  var DEFAULT_COLOR_ = '#3ec4f0';
+  var DEFAULT_LOADING_SRC_ = 'images/village' +
+      (('devicePixelRatio' in window && devicePixelRatio > 1.5) ? '_2x.gif' : '.gif');
+
+  Polymer({
+    /**
+     * Background color of the loading screen.
+     *
+     * @attribute color
+     * @type string
+     * @default '#3ec4f0'
+     */
+    color: DEFAULT_COLOR_,
+
+    /**
+     * Loading image
+     *
+     * @attribute src
+     * @type string
+     * @default 'images/village.gif'
+     */
+    src: DEFAULT_LOADING_SRC_,
+
+    publish: {
+      /**
+       * If `true`, the preloader displays itself.
+       *
+       * @attribute active
+       * @type bool
+       * @default false
+       */
+      active: {value: false, reflect: true}
+    },
+
+    activeChanged: function() {
+      // Always ensure progress is at 0 when overlay is toggled.
+      this.value = 0;
+      if (this.active) {
+        this.classList.add('fadeout');
+        this.style.visibility = 'visible';
+      } else {
+        this.classList.add('fading');
+      }
+    },
+
+    srcChanged: function() {
+      this.src = this.src || DEFAULT_LOADING_SRC_;
+    },
+
+    colorChanged: function() {
+      this.style.backgroundColor = this.color || DEFAULT_COLOR_;
+    },
+
+    fadeDone: function(e, detail, sender) {
+      e.stopPropagation();
+
+      this.classList.remove('fadeout', 'fading');
+      this.style.visibility = 'hidden';
+    }
+  });
+})();
+</script>
+</polymer-element>

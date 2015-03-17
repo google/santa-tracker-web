@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+  <meta charset="utf-8">
+  <base href="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <title>Google Santa Tracker</title>
+  <meta property="og:image" itemprop="image" name="thumbnail" content="images/apple-touch-icon-144x144-precomposed.png">
+  <meta name="description" content="Use Google Santa Tracker to follow Santa Claus on Google Maps as he makes his journey around the world.">
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
+  <link rel="stylesheet" href="sass/santatracker.css">
+  <link rel="stylesheet" href="sass/upgrade.css">
+
+  <!-- app manifest-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes"> <!-- fallback -->
+
+  <!-- app status bar themes -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#e51c23">
+  <meta name="theme-color" content="#e51c23">
+  <meta name="msapplication-TileColor" content="#e51c23">
+
+  <!-- icons -->
+  <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/apple-touch-icon-57x57-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72x72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114x114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144x144-precomposed.png">
+  <link rel="shortcut icon" href="images/favicon.ico">
+
+</head>
+<body>
+  <div id="upgrade">
+    <div id="upgrade-content">
+      <p><i18n-msg msgid="upgrade-warning">PLACEHOLDER_i18n</i18n-msg></p>
+      <div class="redbutton"><a href="#"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a></div>
+    </div>
+  </div>
+
+  <script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
+  <script>
+  (function() {
+    new gweb.analytics.AutoTrack({'profile': 'UA-37048309-1'});
+
+    var a = document.querySelector('.redbutton a');
+    if (a) {
+      a.href = 'https://santatracker.google.com' +
+          location.pathname.replace(/[^\/]*$/, '') + '?ignore_browser_check=true';
+    }
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+##{$name} {
+  .present-wrap {
+    position: absolute;
+    bottom: $bottom-offset;
+    left: 0;
+    z-index: $presents-z-index;
+  }
+
+  .present {
+    position: absolute;
+    overflow: hidden;
+
+    opacity: 1;
+    transform: scale(1);
+
+    transition: opacity 0.5s, transform 0.5s;
+
+    &.present--collected {
+      opacity: 0;
+      transform: scale(2);
+    }
+  }
+
+  .present--1 {
+    .present {
+      width: $present1-width;
+      height: $present1-height;
+    }
+
+    .present__inner {
+      width: 4 * $present1-width;
+      height: $present1-height;
+
+      background: url(img/present1.svg) no-repeat;
+      animation: 5s #{$name}-present1 infinite step-end;
+    }
+  }
+
+  .present--2 {
+    .present {
+      width: $present2-width;
+      height: $present2-height;
+    }
+
+    .present__inner {
+      width: 4 * $present2-width;
+      height: $present2-height;
+
+      background: url(img/present2.svg) no-repeat;
+      animation: 5s #{$name}-present2 infinite step-end;
+    }
+  }
+
+  .carrot {
+    .present {
+      width: $carrot-width;
+      height: $carrot-height;
+
+      background: url(img/treat-carrot.svg) no-repeat;
+    }
+  }
+
+  .candy {
+    .present {
+      width: $candy-width;
+      height: $candy-height;
+
+      background: url(img/treat-candy.svg) no-repeat;
+    }
+  }
+}

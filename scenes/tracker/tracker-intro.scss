@@ -1,0 +1,189 @@
+$name: 'tracker-intro-module';
+
+$bubble-overlay-z-index: 4;
+$santaSleighHeight: 204px;
+
+##{$name} {
+
+  color: #fff;
+  font-family: Roboto, sans-serif;
+
+  .top, .user-location, .santa-distance, .skip {
+    width: 100%;
+    text-align: center;
+    z-index: $bubble-overlay-z-index + 1;
+  }
+
+  #userMap {
+    width: 300px;
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -150px;
+    position: absolute;
+    z-index: $bubble-overlay-z-index - 2;
+    display: block;
+  }
+
+  #santa-loading {
+    background: url(../village/img/santa-sign.gif) no-repeat 50% 50%;
+    background-size: 144px 96px;
+    background-poisition: 50% 50%;
+    position: absolute;
+    width: 466px;
+    height: 199px;
+    margin-left: -233px;
+    margin-top: -99px;
+    left: 50%;
+    top: 50%;
+    z-index: $bubble-overlay-z-index + 1;
+    transform: translateY(100px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+
+    &.final {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  #userMapInner {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    z-index: $bubble-overlay-z-index - 1;
+    display: block;
+  }
+
+  #santaSleigh {
+    z-index: $bubble-overlay-z-index - 2;
+    height: $santaSleighHeight;
+    width: $santaSleighHeight;
+    position: absolute;
+    margin-top: -$santaSleighHeight/2;
+    margin-left: -$santaSleighHeight/2;
+    background-color: #13AB27;
+
+    img {
+       height: 120px;
+       width: 150px;
+       margin-top: 41px;
+       margin-left: 26px;
+       filter: drop-shadow(5px 4px 0 rgba(0,0,0,0.2));
+    }
+  }
+
+  #santaPath {
+    position: absolute;
+    z-index: $bubble-overlay-z-index + 1;
+    overflow: hidden;
+    width: 0;
+    transition: width 0.8s;
+  }
+
+  bubble-overlay {
+    z-index: $bubble-overlay-z-index;
+    display: block;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .welcome,
+  .skip {
+    text-transform: uppercase;
+  }
+
+  .welcome {
+    margin: 80px 0 10px 0;
+  }
+
+  .title {
+    font-family: 'Lobster', sans-serif;
+    font-weight: normal;
+    font-size: 40px;
+  }
+
+  .pin {
+    width: 100px;
+    height: 200px;
+    transform: rotate(160deg);
+    transition: transform 0.5s;
+  }
+
+  .pin-wrapper {
+    width: 200px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -100px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    z-index: $bubble-overlay-z-index + 1;
+    transition: left 0.5;
+  }
+
+  .top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transform: translateY(100px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+
+    &.final {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  .bottom-wrapper {
+    position: absolute;
+    bottom: 60px;
+    overflow:hidden;
+    height: 60px;
+    width: 100%;
+  }
+
+  .user-location {
+    width: 100%;
+    position: absolute;
+    transform: translateY(60px);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    &.final {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+
+    em {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 600;
+    }
+  }
+
+  .santa-distance {
+    width: 100%;
+    position: absolute;
+    transform: translateY(60px);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    font-size: 18px;
+
+    &.final {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  .skip {
+    margin-bottom: 40px;
+    font-size: 1em;
+    position: absolute;
+    bottom: 0;
+     a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}

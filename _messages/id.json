@@ -1,0 +1,4571 @@
+{
+	"about-content-one": {
+		"message": "Di Malam Natal, kami dengan bangga akan menampilkan pratinjau Dasbor Sinterklas -- teknologi yang mendorong kereta luncur Sinterklas selama perjalanannya keliling dunia. Kami telah menerima pratinjau khusus ini dari salah satu dari banyak kurcaci pengembang Sinterklas, yang bekerja dengan giat di Kutub Utara untuk membantu Sinterklas mempersiapkan hari keberangkatannya. Dasbor Sinterklas - yang menampilkan teknologi Google Maps dan mesin kereta luncur terbaru dan tercanggih - memungkinkan Anda mengikuti kemajuan perjalanan Sinterklas mengelilingi dunia, serta belajar sedikit tentang hal-hal yang berkaitan dengan tempat pemberhentiannya di sepanjang perjalanan."
+	},
+	"about-content-three": {
+		"message": "Pelacak Sinterklas Google Maps dibuat dan dikembangkan oleh Google, dengan sedikit bantuan dari para kurcaci Sinterklas. Butuh bantuan atau ada pertanyaan lain? Kunjungi \u003ca href=\"//support.google.com/santatracker\"\u003ePusat Bantuan\u003c/a\u003e kami."
+	},
+	"about-content-two": {
+		"message": "Para kurcaci yang ramah juga mengundang Anda untuk menjelajahi desa Sinterklas sementara Sinterklas menyiapkan perjalanannya. Jadi, pergilah dan jelajahi desanya. Anda mungkin menemukan beberapa kegiatan yang menyenangkan dan bertemu dengan beberapa kurcaci yang menarik."
+	},
+	"about-santa": {
+		"message": "Tentang"
+	},
+	"about_title": {
+		"message": "Selamat Datang di Pelacak Sinterklas Google Maps!"
+	},
+	"ae_country_name": {
+		"message": "Uni Emirat Arab"
+	},
+	"af_country_name": {
+		"message": "Afganistan"
+	},
+	"al_country_name": {
+		"message": "Albania"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
+	"ar_country_name": {
+		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Arab"
+	},
+	"ar_tradition": {
+		"message": "Di Argentina, Natal dimulai tepat tengah malam. Banyak keluarga memulai liburan dengan mengadakan pesta meriah di rumahnya masing-masing, membuka hadiah bersama orang yang mereka cintai, dan menyalakan kembang api saat tengah malam tiba."
+	},
+	"at_country_name": {
+		"message": "Austria"
+	},
+	"au_country_name": {
+		"message": "Australia"
+	},
+	"au_tradition": {
+		"message": "Di Belahan Selatan Australia, musim panas datang pada bulan Desember. Alih-alih bermain kereta luncur dan minum cokelat hangat, banyak orang Australia pergi ke pantai untuk merayakan liburan dengan makan udang di siang hari dan bermain kriket."
+	},
+	"ba_country_name": {
+		"message": "Bosnia dan Herzegovina"
+	},
+	"back_to_tracker": {
+		"message": "Kembali ke Pelacak Sinterklas"
+	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Belgia"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
+	},
+	"bg_country_name": {
+		"message": "Bulgaria"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
+	},
+	"br_country_name": {
+		"message": "Brasil"
+	},
+	"br_tradition": {
+		"message": "Perayaan Natal dimulai saat hampir tengah malam, biasanya dengan makan malam bersama keluarga besar, pembukaan hadiah, dan perayaan 'Missa do Galo' (Misa Ayam Jantan) di gereja. Walau cuaca musim panas tropis cukup hangat, tema musim dingin dan salju umum digunakan."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
+	},
+	"by_country_name": {
+		"message": "Belarus"
+	},
+	"bz_country_name": {
+		"message": "Belize"
+	},
+	"ca_country_name": {
+		"message": "Kanada"
+	},
+	"ca_tradition": {
+		"message": "Anak-anak di Kanada biasanya merayakan Natal bersalju. Mereka memakai syal dan toque (topi rajut Kanada) saat bermain di salju, bermain sepatu luncur di atas es, dan menaiki kereta luncur! Pada malam Natal, mereka meninggalkan susu dan kue di perapian untuk Sinterklas (dan wortel untuk rusanya)."
+	},
+	"calendar": {
+		"message": "Kalender"
+	},
+	"category_code": {
+		"message": "Buat Kode"
+	},
+	"category_draw": {
+		"message": "Gambar"
+	},
+	"category_listen": {
+		"message": "Dengarkan"
+	},
+	"category_send": {
+		"message": "Kirim"
+	},
+	"cd_country_name": {
+		"message": "Republik Demokratik Kongo"
+	},
+	"cf_country_name": {
+		"message": "Republik Afrika Tengah"
+	},
+	"cg_country_name": {
+		"message": "Republik Kongo"
+	},
+	"ch_country_name": {
+		"message": "Swiss"
+	},
+	"ci_country_name": {
+		"message": "Côte d'Ivoire"
+	},
+	"citylights-contribute": {
+		"message": "Tambahkan foto %location% milik Anda"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, AS"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Pushkin Square"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moskwa, Rusia"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Wina, Austria"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Champs-Elysees sampai Arc de Triomphe"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Paris, Prancis"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, AS"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Pasar Natal"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nuremberg, Jerman"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Sungai Medellin"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Kolombia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Desa Sinterklas"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lapland, Finlandia"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brussel, Belgia"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar Square"
+	},
+	"citylights-panorama-10-location": {
+		"message": "London, Inggris"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Spanyol"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokyo, Jepang"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Taman Tivoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Kopenhagen, Denmark"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapura, Singapura"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Lane of Light"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Gothenburg, Swedia"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Festival Lampu Musim Dingin"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Air Terjun Niagara, Kanada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "Festival Musim Dingin"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hong Kong, China"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Danau Rodrigo de Freitas"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brasil"
+	},
+	"cl_country_name": {
+		"message": "Cile"
+	},
+	"close-this": {
+		"message": "Batal"
+	},
+	"cm_country_name": {
+		"message": "Kamerun"
+	},
+	"co_country_name": {
+		"message": "Kolombia"
+	},
+	"codelab-block-moveeast": {
+		"message": "timur"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Geser ke timur satu kotak."
+	},
+	"codelab-block-movenorth": {
+		"message": "utara"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Geser ke utara satu kotak."
+	},
+	"codelab-block-movesouth": {
+		"message": "selatan"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Geser ke selatan satu kotak."
+	},
+	"codelab-block-movewest": {
+		"message": "barat"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Geser ke barat satu kotak"
+	},
+	"codelab-block-repeat": {
+		"message": "ulangi"
+	},
+	"codelab-block-repeat-times": {
+		"message": "kali"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Ulangi beberapa pernyataan beberapa kali."
+	},
+	"codelab-block-whenrun": {
+		"message": "saat dijalankan"
+	},
+	"codelab-finish": {
+		"message": "Selesai"
+	},
+	"codelab-great": {
+		"message": "Hebat"
+	},
+	"codelab-mwc-promo": {
+		"message": "Jelajahi proyek pengkodean Google lainnya di \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Tantangan Berikutnya"
+	},
+	"codelab-oops": {
+		"message": "Ups!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Kotak \"Ulangi\" memerlukan kotak lain di dalamnya agar bisa berfungsi."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Beberapa kotak tidak terpasang dengan benar."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Sepertinya Anda kalah!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Coba gunakan satu atau beberapa kotak di bawah untuk memecahkan teka-teki ini."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Tahukah Anda bahwa level ini bisa diselesaikan hanya dengan {{ideal}} kotak? Coba gunakan kotak di bawah."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Selamat! Anda telah menyelesaikan teka-teki dengan sempurna."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Anda menggunakan kotak yang tepat, tetapi coba gunakan lebih banyak lagi untuk menyelesaikan teka-teki ini."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Tahukah Anda bahwa level ini bisa diselesaikan hanya dengan {{ideal}} kotak?"
+	},
+	"codelab-try-again": {
+		"message": "Coba Lagi"
+	},
+	"copy-me": {
+		"message": "Salin tautan ini untuk membagikan pesan"
+	},
+	"countdownlabel": {
+		"message": "Sampai Sinterklas Berangkat"
+	},
+	"cr_country_name": {
+		"message": "Kosta Rika"
+	},
+	"cs_language_name": {
+		"message": "Cheska"
+	},
+	"cu_country_name": {
+		"message": "Kuba"
+	},
+	"cz_country_name": {
+		"message": "Republik Cheska"
+	},
+	"da_language_name": {
+		"message": "Dansk"
+	},
+	"days": {
+		"message": "Hari"
+	},
+	"de_country_name": {
+		"message": "Jerman"
+	},
+	"de_language_name": {
+		"message": "Jerman"
+	},
+	"de_tradition": {
+		"message": "Hampir semua kota di Jerman menggelar pasar Natal di alun-alun. Penduduk kota berkumpul untuk mendengarkan orkes musik dan menikmati makanan tradisional daerahnya. Mereka makan kue jahe berbentuk hati, almond panggang karamel, semua jenis permen, dan minum anggur berempah (Glühwein) atau sari apel."
+	},
+	"deck": {
+		"message": "Hias"
+	},
+	"deckdescription": {
+		"message": "Hias browser dengan ekstensi Sinterklas untuk Chrome."
+	},
+	"detected": {
+		"message": "terdeteksi"
+	},
+	"difficulty": {
+		"message": "Kesulitan"
+	},
+	"dk_country_name": {
+		"message": "Denmark"
+	},
+	"do_country_name": {
+		"message": "Republik Dominika"
+	},
+	"dz_country_name": {
+		"message": "Aljazair"
+	},
+	"easy_difficulty": {
+		"message": "Mudah"
+	},
+	"ec_country_name": {
+		"message": "Ekuador"
+	},
+	"ee_country_name": {
+		"message": "Estonia"
+	},
+	"el_language_name": {
+		"message": "Yunani"
+	},
+	"elvish_language_name": {
+		"message": "Elvish"
+	},
+	"en_language_name": {
+		"message": "Inggris"
+	},
+	"endofjourneymessage": {
+		"message": "Sinterklas sudah menyelesaikan perjalanannya tahun ini! Dia dan para kurcaci masih bersenang-senang di Kutub Utara sebelum liburan sepanjang tahun."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
+	},
+	"error": {
+		"message": "Sepertinya sambungan kami dengan Kutub Utara terputus. Para kurcaci Sinterklas sedang bekerja keras untuk memperbaikinya - jangan ke mana-mana!"
+	},
+	"error-lost-connection": {
+		"message": "Sepertinya sambungan kami dengan Kutub Utara terputus. Para kurcaci Sinterklas sedang bekerja keras untuk memperbaikinya - jangan ke mana-mana!"
+	},
+	"error-try-again": {
+		"message": "Coba lagi"
+	},
+	"error_try_again": {
+		"message": "Coba lagi"
+	},
+	"es_language_name": {
+		"message": "Spanyol"
+	},
+	"et_country_name": {
+		"message": "Etiopia"
+	},
+	"fi_country_name": {
+		"message": "Finlandia"
+	},
+	"finished-text": {
+		"message": "Selamat Berlibur! Sinterklas telah menyelesaikan perjalanannya keliling dunia dan saat ini sedang beristirahat penuh. Kunjungi kami lagi tahun depan!"
+	},
+	"fr_country_name": {
+		"message": "Prancis"
+	},
+	"fr_language_name": {
+		"message": "Prancis"
+	},
+	"fr_tradition": {
+		"message": "Menurut tradisi, anak-anak di Prancis meletakkan sepatunya di samping perapian untuk menyambut kedatangan Père Noël. Jika mereka bersikap baik sepanjang tahun, Père Noël akan mengisi sepatu dengan hadiah."
+	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
+	"gameover": {
+		"message": "Game Selesai!"
+	},
+	"gameover_level": {
+		"message": "Anda berhasil mencapai level:"
+	},
+	"gameover_score": {
+		"message": "Total Skornya:"
+	},
+	"getgooglemaps": {
+		"message": "Dapatkan Google Maps"
+	},
+	"gh_country_name": {
+		"message": "Ghana"
+	},
+	"gh_tradition": {
+		"message": "Natal di Ghana diikuti oleh seluruh anggota keluarga. Orang dewasa memakai kostum dan membagikan permen dan manisan di lingkungan sekitar rumah. Anak-anak menghias rumah dengan hiasan kertas dan gambar yang mereka buat di sekolah."
+	},
+	"gl_country_name": {
+		"message": "Greenland"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
+	},
+	"gotovillage": {
+		"message": "Pergi ke Desa"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "Yunani"
+	},
+	"gr_tradition": {
+		"message": "Di Yunani, ada makhluk ramah tetapi nakal yang disebut 'kallikántzari'. Mereka hidup di pusat bumi hampir sepanjang tahun. Saat Natal, mereka bersembunyi di rumah penduduk, menakuti orang-orang, bermain trik, atau melahap makanan Natal. Penduduk Yunani melakukan ritual untuk mengusir mereka."
+	},
+	"gt_country_name": {
+		"message": "Guatemala"
+	},
+	"gt_tradition": {
+		"message": "Masyarakat Guatemala merayakan Natal dengan bersenang-senang dan menari. Mereka mengenakan topi yang disebut Puritina, menyantap Tamale a la Guatemala, menyalakan petasan di tengah malam, dan berdansa sepanjang malam dengan berbagai gaya tarian."
+	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hard_difficulty": {
+		"message": "Sulit"
+	},
+	"hi_language_name": {
+		"message": "Hindi"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
+	"hours": {
+		"message": "Jam"
+	},
+	"hr_country_name": {
+		"message": "Kroasia"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Hungaria"
+	},
+	"hu_language_name": {
+		"message": "Magyar"
+	},
+	"id_country_name": {
+		"message": "Indonesia"
+	},
+	"ie_country_name": {
+		"message": "Irlandia"
+	},
+	"improve_google_translate": {
+		"message": "Bantu tingkatkan Google Terjemahan"
+	},
+	"iq_country_name": {
+		"message": "Irak"
+	},
+	"ir_country_name": {
+		"message": "Iran"
+	},
+	"is_country_name": {
+		"message": "Islandia"
+	},
+	"is_tradition": {
+		"message": "Di Islandia, anggota keluarga saling memberikan hadiah baju hangat saat Natal. Menurut legenda, ada Kucing Natal menakutkan yang akan melahap siapa pun yang tidak memakainya. Mereka saling menjaga agar tidak ada anggota keluarga yang 'dikunjungi Kucing Natal'."
+	},
+	"it_country_name": {
+		"message": "Italia"
+	},
+	"it_language_name": {
+		"message": "Italia"
+	},
+	"ja_language_name": {
+		"message": "Jepang"
+	},
+	"jm_country_name": {
+		"message": "Jamaika"
+	},
+	"kg_country_name": {
+		"message": "Kirgizstan"
+	},
+	"kg_tradition": {
+		"message": "Di Kirgizstan, Ayaz Ata (Kakek Salju) datang pada tengah Malam Tahun Baru dan meninggalkan hadiah di bawah pohon Tahun Baru. Pas di tengah malam, keluarga di seluruh negeri menyalakan kembang api untuk merayakan peristiwa yang indah ini. Kota menjadi cerah seperti di siang hari."
+	},
+	"ko_language_name": {
+		"message": "Korea"
+	},
+	"kz_country_name": {
+		"message": "Kazakstan"
+	},
+	"la_country_name": {
+		"message": "Republik Demokratik Rakyat Laos"
+	},
+	"language": {
+		"message": "Bahasa"
+	},
+	"learn": {
+		"message": "Pelajari"
+	},
+	"learnmore": {
+		"message": "Pelajari Lebih Lanjut"
+	},
+	"level": {
+		"message": "Level"
+	},
+	"light": {
+		"message": "Ceriakan"
+	},
+	"lightdescription": {
+		"message": "Meriahkan TV dengan aplikasi Pelacak Sinterklas untuk Android dan Chromecast."
+	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
+	"lt_country_name": {
+		"message": "Lituania"
+	},
+	"lv_country_name": {
+		"message": "Latvia"
+	},
+	"ly_country_name": {
+		"message": "Libia"
+	},
+	"md_country_name": {
+		"message": "Moldova"
+	},
+	"medium_difficulty": {
+		"message": "Sedang"
+	},
+	"mg_country_name": {
+		"message": "Madagaskar"
+	},
+	"minutes": {
+		"message": "Menit"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritania"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
+	},
+	"mx_country_name": {
+		"message": "Meksiko"
+	},
+	"mx_tradition": {
+		"message": "Di Meksiko, semua orang merayakan Natal dengan menghancurkan pinata. Mereka mengenakan penutup mata, berputar, dan mengayunkan tongkat untuk menghancurkan boneka binatang yang digantung. Saat pinata hancur, kacang-kacangan, buah-buahan, dan permen tumpah-ruah dan dapat dinikmati semua orang."
+	},
+	"my_country_name": {
+		"message": "Malaysia"
+	},
+	"mz_country_name": {
+		"message": "Mozambik"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
+	"newtoday": {
+		"message": "Baru"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Belanda"
+	},
+	"nl_language_name": {
+		"message": "Belanda"
+	},
+	"no_country_name": {
+		"message": "Norwegia"
+	},
+	"no_language_name": {
+		"message": "Norsk"
+	},
+	"nonprofit-jane-description": {
+		"message": "Simpanse adalah kerabat terdekat manusia di kerajaan hewan! Saat ini, ada kurang dari 300.000 simpanse yang tersisa akibat hilangnya habitat, penyakit, dan perdagangan gelap. Jane Goodall Institute (JGI) melindungi simpanse dengan mengamati dan memahami perilaku mereka serta habitat tempat tinggal mereka. JGI juga bekerja untuk membentuk masyarakat yang melindungi dan melestarikan satwa liar dan lingkungan yang kita huni bersama. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eJelajahi habitat Simpanse\u003c/a\u003e di Gombe, Tanzania."
+	},
+	"nonprofit-jane-type": {
+		"message": "Simpanse"
+	},
+	"nonprofit-more-information": {
+		"message": "Untuk informasi selengkapnya, kunjungi:"
+	},
+	"nonprofit-nature-description": {
+		"message": "Nature Conservancy bekerja untuk melindungi dan mengembalikan hutan di Amerika Serikat dan di seluruh dunia. Hutan alami ini menopang kehidupan di planet ini. Hutan tersebut menyaring air, membersihkan udara, membantu masyarakat, dan menyediakan habitat untuk jenis tanaman dan spesies hewan yang penting. Dengan tingkat penggundulan hutan saat ini, hutan kita akan hilang dalam 100 tahun. Program Tanam Satu Miliar Pohon yang diadakan oleh Nature Conservancy bertujuan untuk menanam satu miliar pohon pada tahun 2025 dan mengembalikan hutan yang paling penting di dunia."
+	},
+	"nonprofit-nature-type": {
+		"message": "Hutan"
+	},
+	"nonprofit-wwf-description": {
+		"message": "Perubahan iklim terus mengganggu keseimbangan banyak ekosistem di dunia, baik di tempat yang hangat maupun dingin. Di Kutub Utara, beruang kutub kehilangan habitat es di laut mereka dengan meningkatnya suhu, serta menghadapi ancaman lain dari aktivitas manusia, seperti pengembangan dan pengiriman minyak bumi dan gas. World Wildlife Fund bekerja untuk memastikan kelangsungan hidup spesies tersebut melalui penelitian ilmiah dan bermitra dengan masyarakat asli Kutub Utara. Google.org bangga menjadi \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ependukung\u003c/a\u003e bersama World Wildlife Fund."
+	},
+	"nonprofit-wwf-type": {
+		"message": "Beruang Kutub"
+	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
+	"nz_country_name": {
+		"message": "Selandia Baru"
+	},
+	"nz_tradition": {
+		"message": "Natal di Selandia Baru hadir di musim panas. Keluarga berkumpul untuk pesta barbekyu. Makanan khas Natal adalah daging domba panggang, yang terkadang dimasak dalam 'hangi' - panggangan bawah tanah. Makanan penutup favorit adalah pavlova: kue krim bertabur buah stroberi dan kiwi."
+	},
+	"om_country_name": {
+		"message": "Oman"
+	},
+	"onthego": {
+		"message": "Ayo terus lacak Sinterklas"
+	},
+	"openingtomorrow": {
+		"message": "Akan dibuka besok"
+	},
+	"ornament-print-instructions": {
+		"message": "Lipat di sini dan rekatkan kedua sisinya dengan lem"
+	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
+	"pg_country_name": {
+		"message": "Papua Nugini"
+	},
+	"ph_country_name": {
+		"message": "Filipina"
+	},
+	"ph_tradition": {
+		"message": "Filipina dikenal memiliki musim Natal terpanjang di dunia. Ada empat bulan yang dianggap sebagai bulan Natal: September, Oktober, November, Desember. Lagu-lagu Natal seringkali terdengar sejak awal bulan September."
+	},
+	"pl_country_name": {
+		"message": "Polandia"
+	},
+	"pl_language_name": {
+		"message": "Polski"
+	},
+	"play": {
+		"message": "Main"
+	},
+	"playagain": {
+		"message": "Main lagi"
+	},
+	"playdescription": {
+		"message": "Main bersama teman di Aplikasi Pelacak Sinterklas untuk Android"
+	},
+	"pr_country_name": {
+		"message": "Puerto Riko"
+	},
+	"pt_language_name": {
+		"message": "Portugis"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"ro_country_name": {
+		"message": "Rumania"
+	},
+	"ru_country_name": {
+		"message": "Rusia"
+	},
+	"ru_language_name": {
+		"message": "Rusia"
+	},
+	"ru_tradition": {
+		"message": "Anak-anak di Rusia tidak menghias pohon Natal, tapi menghias pohon Tahun Baru. Mereka menunggu kedatangan Kakek Salju yang bepergian bersama cucunya, si Gadis Salju, untuk mengantarkan hadiah ke seluruh negeri. Kakek Salju tinggal jauh di dalam hutan di Velikii Ustug, Rusia utara."
+	},
+	"sa_country_name": {
+		"message": "Arab Saudi"
+	},
+	"santatracker": {
+		"message": "Pelacak Sinterklas"
+	},
+	"score": {
+		"message": "Skor"
+	},
+	"se_country_name": {
+		"message": "Swedia"
+	},
+	"seconds": {
+		"message": "Detik"
+	},
+	"select-language": {
+		"message": "Pilih Bahasa"
+	},
+	"share-button": {
+		"message": "Bagikan kepada teman-teman di Google+"
+	},
+	"share-text": {
+		"message": "Aku membuat kartu pos ini untukmu dengan Google Pelacak Sinterklas. Selamat liburan!"
+	},
+	"share-this": {
+		"message": "Bagikan"
+	},
+	"sk_country_name": {
+		"message": "Slovakia"
+	},
+	"sk_language_name": {
+		"message": "Slovak"
+	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"so_country_name": {
+		"message": "Somalia"
+	},
+	"sr_country_name": {
+		"message": "Suriname"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"sv_language_name": {
+		"message": "Swensk"
+	},
+	"td_country_name": {
+		"message": "Cad"
+	},
+	"terms-and-privacy": {
+		"message": "Persyaratan \u0026amp; Privasi"
+	},
+	"tg_country_name": {
+		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Thai"
+	},
+	"tilt": {
+		"message": "Miringkan perangkat!"
+	},
+	"time": {
+		"message": "Waktu"
+	},
+	"tj_country_name": {
+		"message": "Tajikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunisia"
+	},
+	"today_only": {
+		"message": "Hanya Hari Ini"
+	},
+	"today_only_1": {
+		"message": "Hanya hari ini"
+	},
+	"tr_country_name": {
+		"message": "Turki"
+	},
+	"tr_language_name": {
+		"message": "Turki"
+	},
+	"tracker_arrival": {
+		"message": "Kedatangan"
+	},
+	"tracker_arriving_in": {
+		"message": "Akan tiba dalam"
+	},
+	"tracker_current_stop": {
+		"message": "Perhentian saat ini"
+	},
+	"tracker_departing_in": {
+		"message": "Akan berangkat dalam"
+	},
+	"tracker_distance_from_you": {
+		"message": "Jarak dari lokasi Anda"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Hadiah terkirim"
+	},
+	"tracker_intro_skip_intro": {
+		"message": "Lompati intro"
+	},
+	"tracker_intro_user_location": {
+		"message": "Anda berada di"
+	},
+	"tracker_intro_welcome": {
+		"message": "Selamat datang di"
+	},
+	"tracker_next_stop": {
+		"message": "Perhentian berikutnya"
+	},
+	"tracker_santa_update": {
+		"message": "PEMBARUAN SINTERKLAS"
+	},
+	"tracker_see_route": {
+		"message": "Lihat rute"
+	},
+	"tracker_weather": {
+		"message": "Cuaca"
+	},
+	"tracker_world_facts": {
+		"message": "TAHUKAH ANDA"
+	},
+	"tracker_your_location": {
+		"message": "Lokasi Anda"
+	},
+	"traditions-next": {
+		"message": "Tradisi Berikutnya"
+	},
+	"traditions-prev": {
+		"message": "Tradisi Sebelumnya"
+	},
+	"traditions-world": {
+		"message": "Dunia"
+	},
+	"trivia_beginner_001": {
+		"message": "Terletak di benua manakah Pegunungan Andes?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_002": {
+		"message": "Negara bagian AS manakah yang terdiri dari delapan pulau utama?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkansas"
+	},
+	"trivia_beginner_003": {
+		"message": "Negara bagian AS manakah yang terletak di Dataran Great Plains?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delaware"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Idaho"
+	},
+	"trivia_beginner_004": {
+		"message": "Benua manakah yang berbatasan dengan Samudra Atlantik, Pasifik, dan Arktik?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_beginner_005": {
+		"message": "Negara bagian manakah yang termasuk dalam zona waktu Pasifik?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "California"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Georgia"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "Terletak di benua manakah Pegunungan Atlas dan Gurun Kalahari?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_007": {
+		"message": "Negara bagian AS manakah yang berbatasan dengan Danau Besar?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montana"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "New Mexico"
+	},
+	"trivia_beginner_008": {
+		"message": "Apa nama benua yang sebagian besar penduduknya berbicara bahasa Portugis atau Spanyol?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_009": {
+		"message": "Negara bagian AS manakah yang sebagian wilayahnya menjorok ke luar menyerupai gagang panci?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_010": {
+		"message": "Apa nama benua selain Antarktika yang seluruh wilayahnya terletak di Belahan Bumi Bagian Selatan?"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_011": {
+		"message": "Apa nama benua yang berbatasan dengan Selat Es Ronne?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_beginner_012": {
+		"message": "Terletak di lepas pantai barat benua manakah Pulau Vancouver dan Pulau Kodiak?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_013": {
+		"message": "Terletak di bagian barat laut benua manakah Niger, salah satu negara dengan pertumbuhan populasi tercepat di dunia?"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_014": {
+		"message": "Benua manakah yang memiliki tumbuhan dan pepohonan paling sedikit?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_beginner_015": {
+		"message": "Setan Tasmania berasal dari sebuah pulau di lepas pantai selatan di benua apa?"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_016": {
+		"message": "Menara Miring Pisa adalah tempat wisata terkenal di negara mana di Mediterania?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Italia"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Kanada"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Ghana"
+	},
+	"trivia_beginner_017": {
+		"message": "Casablanca dan Tripoli merupakan kota bersejarah di pesisir utara di benua mana?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_018": {
+		"message": "Terletak di benua manakah kaktus Saguaro yang ada di Gurun Sonora?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_019": {
+		"message": "Veracruz dan Acapulco adalah tempat wisata terkenal di negara mana?"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "Meksiko"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Argentina"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "India"
+	},
+	"trivia_beginner_020": {
+		"message": "Terletak di negara manakah Suaka Panda Raksasa Sichuan, yang merupakan rumah bagi 30 persen panda di dunia?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "China"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "Islandia"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "Etiopia"
+	},
+	"trivia_beginner_021": {
+		"message": "Di benua manakah sekitar 90 persen es dunia dapat ditemukan?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_022": {
+		"message": "Terletak di benua manakah Angel Falls, yang merupakan air terjun tertinggi di dunia?"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_023": {
+		"message": "Kalau ingin mengunjungi lembah Jackson Hole dan mendaki bukit batu Menara Setan, kita harus pergi ke negara bagian AS mana?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "Dakota Utara"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Connecticut"
+	},
+	"trivia_beginner_024": {
+		"message": "Kalau ingin melihat panen nira mapel dan bermain ski di Pegunungan Green, kita harus pergi ke negara bagian AS mana?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermont"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "Kalau ingin berkendara menyeberangi Jembatan Teluk Chesapeake dan menyusuri jalan setapak kayu di tepi pantai di Ocean City. Kita harus pergi ke negara bagian AS mana?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "Carolina Utara"
+	},
+	"trivia_beginner_026": {
+		"message": "Kalau ingin berkunjung ke Gua Mammoth dan menonton pacuan kuda di Churchill Downs, kita harus pergi ke negara bagian AS mana?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentucky"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "Virginia Barat"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Utah"
+	},
+	"trivia_beginner_027": {
+		"message": "Kalau ingin melihat pohon raksasa sequoia dan Kepulauan Channel, kita harus pergi ke negara bagian AS mana?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "California"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "New Jersey"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virginia"
+	},
+	"trivia_beginner_028": {
+		"message": "Lahan basah apa yang dapat dikunjungi jika Anda berada di Florida, negara bagian AS?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Everglades"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Rawa Dismal"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Rawa Besar Cypress"
+	},
+	"trivia_beginner_029": {
+		"message": "Kalau ingin mengikuti tur ke St. Lawrence Seaway dan Danau Finger, kita harus pergi ke negara bagian AS mana?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "New York"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Michigan"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "Terletak di benua manakah Gunung Everest yang merupakan gunung tertinggi di dunia?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_031": {
+		"message": "Wilayah Patagonia mencakup hampir seluruh bagian selatan benua apa?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_032": {
+		"message": "Terletak di benua manakah habitat asli penguin kaisar?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_033": {
+		"message": "Berasal dari negara manakah kanguru dan koala?"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_beginner_034": {
+		"message": "Terletak di benua manakah Taman Nasional Serengeti, yang menarik wisatawan dengan alam liarnya?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_035": {
+		"message": "Benua manakah yang memiliki daratan terluas?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_036": {
+		"message": "Jembatan Menara yang melintasi Sungai Thames terletak di kota mana di Eropa?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "London"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Havana"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Cape Town"
+	},
+	"trivia_beginner_037": {
+		"message": "Terletak di kota manakah Katedral Saint Basil di Rusia, yang berdiri di Lapangan Merah di sebelah Kremlin?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Moskwa"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Brussel"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
+	},
+	"trivia_beginner_038": {
+		"message": "Colosseum, yang dibangun pada abad pertama Masehi dan berfungsi sebagai tempat pertarungan para gladiator, terletak di salah satu kota di benua Eropa. Apa nama kotanya?"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "Roma"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Khartoum"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manila"
+	},
+	"trivia_beginner_039": {
+		"message": "Terletak di kota manakah Gedung Opera dan Jembatan Harbour yang ada di Australia?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sydney"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Jakarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Praha"
+	},
+	"trivia_beginner_040": {
+		"message": "Kubah Batu dan Tembok Ratapan merupakan dua dari sekian banyak situs suci yang bisa ditemukan di dalam dinding kota tua di Timur Tengah. Apa nama kota itu?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Yerusalem"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tokyo"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Aljir"
+	},
+	"trivia_beginner_041": {
+		"message": "Kuil Parthenon yang berdiri di atas bukit Akropolis terletak di kota mana di Yunani?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Athena"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kiev"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "Menara Eiffel yang berdiri di dekat Sungai Seine terletak di tengah kota apa di Prancis?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "Paris"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "New Delhi"
+	},
+	"trivia_beginner_043": {
+		"message": "Ka'bah, tempat paling suci menurut agama Islam, terletak di Masjidil Haram yang ada di kota mana di Arab Saudi?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Mekkah"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Buenos Aires"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Budapest"
+	},
+	"trivia_beginner_044": {
+		"message": "Kota Terlarang adalah bekas istana kekaisaran yang terletak di pusat kota di China. Apa nama kotanya?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Beijing"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santiago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbane"
+	},
+	"trivia_beginner_045": {
+		"message": "Terletak di kota manakah di AS, menara observasi Jarum Angkasa yang ada di Puget Sound?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Wichita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "New Orleans"
+	},
+	"trivia_beginner_046": {
+		"message": "Menara John Hancock di mulut Sungai Charles merupakan gedung tertinggi di kota mana di AS?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Boston"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pittsburgh"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memphis"
+	},
+	"trivia_beginner_047": {
+		"message": "Menara Stratosphere, terletak tepat di sebelah utara jalan yang terkenal dengan sebutan The Strip, merupakan bangunan tertinggi di Amerika Serikat yang ada di Gurun Mojave. Apa nama kota itu?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Las Vegas"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Minneapolis"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denver"
+	},
+	"trivia_beginner_048": {
+		"message": "Patung Liberty adalah patung besar di Pulau Liberty yang terletak di pelabuhan kota mana di AS?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "Kota New York"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Los Angeles"
+	},
+	"trivia_beginner_049": {
+		"message": "Apa nama kota di AS yang terhubung ke Semenanjung Marin melalui Jembatan Golden Gate?"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "San Francisco"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boise"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimore"
+	},
+	"trivia_beginner_050": {
+		"message": "Monumen Gateway Arch di Amerika Serikat, yang menjadi simbol perluasan wilayah ke sebelah barat Amerika pada tahun 1800-an, terletak di sebuah kota yang berlokasi di tepi Sungai Mississippi. Apa nama kotanya?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "St. Louis"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianapolis"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Miami"
+	},
+	"trivia_beginner_051": {
+		"message": "Terletak di negara Afrika manakah Dataran Tinggi Giza, yang merupakan tempat Piramida Agung dan Sphinx berada?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Mesir"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Brasil"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Jerman"
+	},
+	"trivia_beginner_052": {
+		"message": "Gedung Kemerdekaan merupakan situs sejarah penting yang terkait dengan Revolusi Amerika dan terletak di dekat Sungai Delaware, AS. Di kota manakah itu?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Philadelphia"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "San Antonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Chicago"
+	},
+	"trivia_beginner_053": {
+		"message": "Apa nama negara yang dilintasi Pegunungan Rocky selain Kanada?"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "Amerika Serikat"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Venezuela"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Rusia"
+	},
+	"trivia_beginner_054": {
+		"message": "Apa nama samudra yang berbatasan dengan Brasil dan Uruguay?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Samudra Atlantik"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Samudra Hindia"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Samudra Arktik"
+	},
+	"trivia_beginner_055": {
+		"message": "Terletak di samudra manakah Pulau Newfoundland yang ada di lepas pantai timur Kanada?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Samudra Atlantik"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Samudra Hindia"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Samudra Pasifik"
+	},
+	"trivia_beginner_056": {
+		"message": "Terletak di samudra manakah pulau Madagaskar yang ada di lepas pantai timur Afrika?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Samudra Hindia"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Samudra Pasifik"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Samudra Arktik"
+	},
+	"trivia_beginner_057": {
+		"message": "Sebagian besar batas penanggalan internasional melintas melalui bagian tengah samudra apa?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Samudra Pasifik"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Samudra Hindia"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Samudra Atlantik"
+	},
+	"trivia_beginner_058": {
+		"message": "Terletak di benua manakah Basin Kongo yang dilintasi garis Khatulistiwa?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_059": {
+		"message": "Benua manakah yang berbatasan dengan Teluk Meksiko?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_060": {
+		"message": "Apa nama sungai yang mengalir melintasi Afrika dan merupakan sungai terpanjang di dunia?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Sungai Nil"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Sungai Colorado"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Sungai Orange"
+	},
+	"trivia_beginner_061": {
+		"message": "Terletak di benua manakah reruntuhan kuno Machu Picchu?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_062": {
+		"message": "Apa nama benua yang dialiri oleh Sungai Amazon, yang merupakan sungai dengan volume air terbanyak di dunia?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_063": {
+		"message": "Terletak di benua manakah Mont Blanc, yang merupakan titik tertinggi di Pegunungan Alpen?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_beginner_064": {
+		"message": "Tanah Genting Panama menghubungkan Amerika Tengah dengan benua apa?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_065": {
+		"message": "Cheetah, mamalia darat tercepat di dunia, terdapat di Kenya dan Tanzania yang ada di benua mana?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_066": {
+		"message": "Terletak di dekat ujung selatan benua manakah Tanjung Harapan?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_067": {
+		"message": "Kepulauan Galápagos yang berada di sebelah barat Amerika Selatan dan merupakan habitat kura-kura raksasa terletak di samudera mana?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Samudra Pasifik"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Samudra Arktik"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Samudra Hindia"
+	},
+	"trivia_beginner_068": {
+		"message": "Sungai Donau mengalir melalui Wina dan kota-kota lain di benua apa?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_069": {
+		"message": "Apa nama laut yang berbatasan dengan pulau Kuba dan Hispaniola?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Laut Karibia"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Laut Bering"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Laut Baltik"
+	},
+	"trivia_beginner_070": {
+		"message": "Berbatasan dengan benua manakah Teluk Guinea?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_071": {
+		"message": "Dari benua manakah asal penjelajah terkenal Ernest Shackleton?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_072": {
+		"message": "Laut Labrador adalah bagian dari samudra apa?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Samudra Atlantik"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Samudra Hindia"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Samudra Pasifik"
+	},
+	"trivia_beginner_073": {
+		"message": "Terletak di benua manakah Sahara, yang merupakan gurun pasir terluas di dunia?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_074": {
+		"message": "Terletak di benua manakah Dataran tinggi Tibet?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_beginner_075": {
+		"message": "Terletak di sebelah selatan benua manakah Selat Drake?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_076": {
+		"message": "Terletak di benua manakah Karang Penghalang Besar yang ada di lepas pantai Laut Koral?"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_077": {
+		"message": "Kalau ingin menelusuri Terusan Suez dan mengunjungi Kota Mati di Kairo, kita harus pergi ke negara mana?"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "Mesir"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Kolombia"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Finlandia"
+	},
+	"trivia_beginner_078": {
+		"message": "Kalau ingin melihat gaucho (koboi di Amerika Selatan) menggembala ternak dan menonton penari tango di kota Buenos Aires, kita harus pergi ke negara mana?"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Argentina"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Niger"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nepal"
+	},
+	"trivia_beginner_079": {
+		"message": "Kalau ingin mengunjungi bangunan-bangunan kuno di kota Fez dan mendaki di Pegunungan Atlas, kita harus pergi ke negara mana?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Maroko"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ekuador"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Thailand"
+	},
+	"trivia_beginner_080": {
+		"message": "Kalau ingin berkunjung ke reruntuhan suku Maya kuno dan berenang di pantai Cancún, kita harus pergi ke negara mana?"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "Meksiko"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "Belanda"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Turki"
+	},
+	"trivia_beginner_081": {
+		"message": "Kalau ingin berkunjung ke Katedral St. Patrick di Dublin dan menikmati Festival Seni di Kilkenny, kita harus pergi ke negara mana?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Irlandia"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Somalia"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Kosta Rika"
+	},
+	"trivia_beginner_082": {
+		"message": "Kalau ingin mengikuti tur hutan hujan dan bersenang-senang di perayaan Karnaval Rio de Janeiro, kita harus pergi ke negara mana?"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Brasil"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "Inggris Raya"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_beginner_083": {
+		"message": "Kalau ingin mengunjungi Museum Hermitage di Saint Petersburg dan menaiki kereta di Jalur Kereta Trans-Siberian, kita harus pergi ke negara mana?"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indonesia"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Belize"
+	},
+	"trivia_beginner_084": {
+		"message": "Kalau ingin menaiki kereta berkecepatan tinggi dan menghabiskan malam di hotel di Tokyo, kita harus pergi ke negara mana?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Jepang"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_beginner_085": {
+		"message": "Kalau ingin makan pesto di Genoa dan menonton opera di Florence, kita harus pergi ke negara mana?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Italia"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paraguay"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Libia"
+	},
+	"trivia_beginner_086": {
+		"message": "Kalau ingin melakukan safari di Cagar Alam Maasai Mara dan berbelanja di Nairobi, kita harus pergi ke negara mana?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Kenya"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "Korea Selatan"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Cile"
+	},
+	"trivia_beginner_087": {
+		"message": "Kalau ingin melihat Sungai Gangga dan menjelajahi jalan-jalan yang padat di Kolkata, kita harus pergi ke negara mana?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "India"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Jerman"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "Yordania"
+	},
+	"trivia_beginner_088": {
+		"message": "Kutub Utara, titik paling utara di Bumi, terletak di tengah samudra apa?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Samudra Arktik"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Samudra Pasifik"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Samudra Hindia"
+	},
+	"trivia_beginner_089": {
+		"message": "Negara manakah yang berbatasan dengan Samudra Atlantik?"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "Islandia"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Pakistan"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Jepang"
+	},
+	"trivia_beginner_090": {
+		"message": "Apa nama negara bagian AS yang dikenal sebagai Negara Bagian Sinar Matahari karena iklim hangat dan pantainya yang terkenal?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Florida"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Maine"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Washington"
+	},
+	"trivia_beginner_091": {
+		"message": "Terletak di negara bagian AS manakah Grand Canyon?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "Virginia Barat"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "Dakota Selatan"
+	},
+	"trivia_beginner_092": {
+		"message": "Apa nama negara bagian AS yang dikenal sebagai Lone Star State (Negara Bagian Satu Bintang), yang memiliki satu bintang pada benderanya dan dulunya merupakan negara merdeka?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Texas"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Wisconsin"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_093": {
+		"message": "Terletak di benua manakah Sungai Tigris dan Efrat?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Antarktika"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Eropa"
+	},
+	"trivia_beginner_094": {
+		"message": "Terletak di benua manakah Danau Victoria dan Pegunungan Virunga?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Amerika Utara"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_095": {
+		"message": "Negara manakah yang merupakan negara pulau di Samudra Pasifik?"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "Selandia Baru"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "Afrika Selatan"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "Islandia"
+	},
+	"trivia_beginner_096": {
+		"message": "Negara manakah yang terletak di Semenanjung Skandinavia?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Swedia"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Rumania"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Peru"
+	},
+	"trivia_beginner_097": {
+		"message": "Negara manakah yang berbatasan dengan Laut Mediterania?"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "Prancis"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Nikaragua"
+	},
+	"trivia_hard_001": {
+		"message": "Apa nama kota di AS yang letaknya paling dekat dengan perbatasan Kanada?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sacramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "Kota manakah di AS yang paling mungkin mengalami badai?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Miami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Los Angeles"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pittsburgh"
+	},
+	"trivia_hard_003": {
+		"message": "Manakah dari danau berikut yang memiliki luas permukaan terbesar?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Danau Huron"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Danau Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Danau Erie"
+	},
+	"trivia_hard_004": {
+		"message": "Manakah dari kota di AS berikut yang paling padat penduduknya?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Chicago"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "St. Louis"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianapolis"
+	},
+	"trivia_hard_005": {
+		"message": "Negara manakah yang paling dekat dengan Teluk Persia?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Turki"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_hard_006": {
+		"message": "Manakah dari negara berikut yang memiliki daratan terluas?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Kazakstan"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Rumania"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Polandia"
+	},
+	"trivia_hard_007": {
+		"message": "Manakah dari negara berikut yang paling padat penduduknya?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Singapura"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Laos"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_008": {
+		"message": "Manakah dari negara berikut yang memiliki jumlah penutur bahasa Jerman terbanyak?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Austria"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Slovakia"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Irak"
+	},
+	"trivia_hard_009": {
+		"message": "Manakah dari negara berikut yang paling banyak berbatasan dengan negara lain?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Arab Saudi"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Maroko"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mongolia"
+	},
+	"trivia_hard_010": {
+		"message": "Negara manakah yang tidak berbatasan dengan Danau Tanganyika?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benin"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Burundi"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_hard_011": {
+		"message": "Negara manakah yang tidak dilalui oleh garis Khatulistiwa?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Mauritania"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indonesia"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_hard_012": {
+		"message": "Negara manakah yang tidak terletak di Semenanjung Balkan?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Republik Cheska"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Bulgaria"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Makedonia"
+	},
+	"trivia_hard_013": {
+		"message": "Negara manakah yang tidak berbatasan dengan Laut Utara?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Finlandia"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Denmark"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "Inggris Raya"
+	},
+	"trivia_hard_014": {
+		"message": "Negara manakah yang tidak berbatasan dengan Laut Hitam?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Azerbaijan"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Ukraina"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Turki"
+	},
+	"trivia_hard_015": {
+		"message": "Negara manakah yang tidak terkurung oleh daratan?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Kroasia"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Belarus"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Hungaria"
+	},
+	"trivia_hard_016": {
+		"message": "Negara manakah yang tidak terletak di Sahara?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angola"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Libia"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Aljazair"
+	},
+	"trivia_hard_017": {
+		"message": "Pulau manakah yang terletak di ujung paling timur?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinidad"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Jamaika"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Kuba"
+	},
+	"trivia_hard_018": {
+		"message": "Berbatasan dengan perairan manakah Cape Fear?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Samudra Atlantik"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Laut Karibia"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Samudra Pasifik"
+	},
+	"trivia_hard_019": {
+		"message": "Kota manakah yang merupakan pelabuhan di Teluk Meksiko?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Veracruz"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tijuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Acapulco"
+	},
+	"trivia_hard_020": {
+		"message": "Negara manakah yang dilintasi oleh Garis Balik Utara?"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "Meksiko"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Kanada"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Brasil"
+	},
+	"trivia_hard_021": {
+		"message": "Manakah dari pulau berikut yang memiliki wilayah terluas?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Pulau Baffin"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Hispaniola"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Sardinia"
+	},
+	"trivia_hard_022": {
+		"message": "Selat Yucatán memisahkan Meksiko dan pulau apa?"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "Kuba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Puerto Riko"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dominika"
+	},
+	"trivia_hard_023": {
+		"message": "Apa nama kota di Kanada yang terletak di ujung paling utara?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Yellowknife"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Ottawa"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Winnipeg"
+	},
+	"trivia_hard_024": {
+		"message": "Pulau manakah yang merupakan bagian dari Antilles Kecil?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "St. Kitts"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Bermuda"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Nova Scotia"
+	},
+	"trivia_hard_025": {
+		"message": "Port-au-Prince adalah kota yang paling padat penduduknya di negara apa?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haiti"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Nikaragua"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_hard_026": {
+		"message": "Negara manakah yang berada di dalam rangkaian pegunungan Carpathia?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Rumania"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albania"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Turkmenistan"
+	},
+	"trivia_hard_027": {
+		"message": "Negara manakah yang menggunakan bahasa Prancis sebagai bahasa resminya?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabon"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tanzania"
+	},
+	"trivia_hard_028": {
+		"message": "Manakah dari negara berikut yang memiliki wilayah daratan terluas?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Israel"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Bahrain"
+	},
+	"trivia_hard_029": {
+		"message": "Negara manakah yang memiliki koordinat garis bujur terbanyak?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Kazakstan"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afganistan"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Suriah"
+	},
+	"trivia_hard_030": {
+		"message": "Negara manakah yang terdiri dari banyak pulau?"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Filipina"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Kamboja"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Tajikistan"
+	},
+	"trivia_hard_031": {
+		"message": "Manakah dari negara berikut yang memiliki zona waktu terbanyak?"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Brasil"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "Belize"
+	},
+	"trivia_hard_032": {
+		"message": "Negara manakah yang terletak di ujung paling utara?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Kamerun"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Mozambik"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Australia"
+	},
+	"trivia_hard_033": {
+		"message": "Negara manakah yang terletak di antara Prancis dan Spanyol?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andora"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Luksemburg"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Vatikan"
+	},
+	"trivia_hard_034": {
+		"message": "Negara manakah yang berbatasan dengan Denmark?"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Jerman"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "Finlandia"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Moldova"
+	},
+	"trivia_hard_035": {
+		"message": "Milik negara manakah pulau Sardinia?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Italia"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Turki"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "Inggris Raya"
+	},
+	"trivia_hard_036": {
+		"message": "Apa nama gurun pasir yang menutupi hampir sebagian besar wilayah di antara Beijing dan Ulan Bator?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Gurun Thar"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Gurun Libia"
+	},
+	"trivia_hard_037": {
+		"message": "Arus Kamchatka merupakan bagian dari samudra apa?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Samudra Pasifik"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Samudra Hindia"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Samudra Atlantik"
+	},
+	"trivia_hard_038": {
+		"message": "Terletak di bagian selatan laut manakah Teluk Sidra?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Laut Mediterania"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Laut Arab"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Laut Baltik"
+	},
+	"trivia_hard_039": {
+		"message": "Pegunungan Tatra adalah jajaran tertinggi di rangkaian pegunungan apa di Eropa?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Pegunungan Carpathia"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Pegunungan Cantabria"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Pirenia"
+	},
+	"trivia_hard_040": {
+		"message": "Sungai manakah yang mengalir melalui Danau Kariba dan membentuk perbatasan antara Zambia dan Zimbabwe?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Sungai Zambezi"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Sungai Nil"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Sungai Kongo"
+	},
+	"trivia_hard_041": {
+		"message": "Ke laut manakah Sungai Thames, Meuse, dan Schelde mengalir?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Laut Utara"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Laut Mediterania"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Laut Hitam"
+	},
+	"trivia_hard_042": {
+		"message": "Apa nama pulau besar yang terletak di sebelah utara Filipina dan dipisahkan oleh Selat Luzon?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Taiwan"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Aljazair"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_hard_043": {
+		"message": "Kepulauan manakah yang terletak di sepanjang Punggung Laut Tengah Atlantik?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Azores"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Bahama"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Kepulauan Fiji"
+	},
+	"trivia_hard_044": {
+		"message": "Sungai manakah yang mengalir ke Laut Laptev?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Sungai Lena"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Sungai Yangtze"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Sungai Indus"
+	},
+	"trivia_hard_045": {
+		"message": "Puncak manakah yang letaknya paling dekat dengan garis Khatulistiwa?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimanjaro"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Mont Blanc"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Gunung McKinley"
+	},
+	"trivia_hard_046": {
+		"message": "Ibu kota manakah yang paling padat penduduknya?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Moskwa"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Helsinki"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Aljir"
+	},
+	"trivia_hard_047": {
+		"message": "Apa nama kota yang terletak di Sungai Liffey dan merupakan kota terbesar di Republik Irlandia?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dublin"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Oslo"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Kopenhagen"
+	},
+	"trivia_hard_048": {
+		"message": "Apa nama kota yang terletak di lembah Hindu Kush dan merupakan kota terbesar di Afganistan?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Kabul"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Sarajevo"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "Apa nama kota yang terletak di Sungai Chao Phraya dan merupakan kota terbesar di Thailand?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Bangkok"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Beijing"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Amman"
+	},
+	"trivia_hard_050": {
+		"message": "Apa nama kota yang terletak di hulu fyord (teluk yang berasal dari lelehan gletser) di selat Skagerrak dan merupakan kota terbesar di Norwegia?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Oslo"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "London"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Brussel"
+	},
+	"trivia_hard_051": {
+		"message": "Apa nama kota yang terletak di sepanjang Laut Mediterania Timur dan merupakan kota terbesar di Lebanon?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Beirut"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Riyadh"
+	},
+	"trivia_hard_052": {
+		"message": "Apa nama kota yang terletak di pesisir Jawa yang merupakan kota terbesar di Indonesia?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Jakarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tokyo"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "Apa nama kota yang terletak di wilayah Attika dan merupakan kota terbesar di Yunani?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Athena"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Roma"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barcelona"
+	},
+	"trivia_hard_054": {
+		"message": "Apa nama kota yang terletak di muara Río de la Plata dan merupakan kota terbesar di Uruguay?"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Quito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Rio de Janeiro"
+	},
+	"trivia_hard_055": {
+		"message": "Apa nama kota yang pernah menjadi bagian dari bekas provinsi Transvaal dan merupakan kota terbesar di Afrika Selatan?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Johannesburg"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abuja"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputo"
+	},
+	"trivia_hard_056": {
+		"message": "Apa nama kota yang menjadi pusat pelayaran penting di Laut Karibia dan juga merupakan kota terbesar di Jamaika?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Kingston"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Karakas"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Buenos Aires"
+	},
+	"trivia_hard_057": {
+		"message": "Apa nama kota yang terletak di Lembah Celah Besar dan merupakan kota terbesar di Eritrea?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Bagdad"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazzaville"
+	},
+	"trivia_hard_058": {
+		"message": "Apa nama kota yang terletak di tepi Sungai Vistula dan merupakan kota terbesar di Polandia?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Warsawa"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kiev"
+	},
+	"trivia_hard_059": {
+		"message": "Apa nama kota yang menjadi perhentian penting di Jalan Tol Pan Amerika dan merupakan kota terbesar di Kosta Rika?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "San José"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sucre"
+	},
+	"trivia_hard_060": {
+		"message": "Apa nama kota penting yang menjadi pusat perdagangan hasil pertanian di Afrika bagian selatan dan merupakan kota terbesar di Zimbabwe?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Windhoek"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "Apa nama kota yang pernah ditempati oleh rezim Khmer Merah dan merupakan kota terbesar di Kamboja?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Phnom Penh"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kuala Lumpur"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Dhaka"
+	},
+	"trivia_hard_062": {
+		"message": "Apa nama kota yang terletak di Samudra Atlantik di Tanjung Mesurado dan merupakan kota terbesar di Liberia?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monrovia"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Akra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaka"
+	},
+	"trivia_hard_063": {
+		"message": "Apa nama kota yang terletak di dataran tinggi pegunungan Andes dan merupakan kota terbesar di Kolombia?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogotá"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managua"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterrey"
+	},
+	"trivia_hard_064": {
+		"message": "Apa nama kota yang terletak di kaki Pegunungan Elburz dan merupakan kota terbesar di Iran?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Teheran"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Tashkent"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Istanbul"
+	},
+	"trivia_hard_065": {
+		"message": "Apa nama perairan yang dilintasi oleh Lingkar Arktik?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Laut Norwegia"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Danau Volta"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Laut Kaspia"
+	},
+	"trivia_hard_066": {
+		"message": "Lembah Celah Besar terletak di perairan mana?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Danau Malawi"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Laut Tasman"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Danau Titicaca"
+	},
+	"trivia_hard_067": {
+		"message": "Terletak di perairan manakah kota pelabuhan Arkhangelsk di Rusia?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Laut Putih"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Selat Bass"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Teluk Biscay"
+	},
+	"trivia_hard_068": {
+		"message": "Provinsi Hunan dan Shandong merupakan bagian dari negara apa?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "China"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Thailand"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Yaman"
+	},
+	"trivia_hard_069": {
+		"message": "Negara Mediterania manakah yang menggunakan bahasa Spanyol (Castilian) sebagai bahasa resminya?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Spanyol"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Yunani"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "Azerbaijan"
+	},
+	"trivia_hard_070": {
+		"message": "Apa nama negara di Amerika Tengah yang dulunya merupakan provinsi di Kolombia?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panama"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Guatemala"
+	},
+	"trivia_hard_071": {
+		"message": "Kota Basel yang wilayahnya terbagi dua oleh Sungai Rhine, merupakan pusat transportasi penting di negara mana?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Swiss"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Belgia"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Rusia"
+	},
+	"trivia_hard_072": {
+		"message": "Terletak di negara manakah wilayah Provence, yang pemandangannya menginspirasi banyak pelukis seperti Cézanne?"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "Prancis"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "Belanda"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Rumania"
+	},
+	"trivia_hard_073": {
+		"message": "Bahía Blanca, yang merupakan pusat pelayaran utama untuk wilayah Pampas, terletak di negara mana?"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Argentina"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Nikaragua"
+	},
+	"trivia_hard_074": {
+		"message": "Negara manakah yang berbatasan dengan Laut Mediterania, Laut Hitam, dan Laut Aegea?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Turki"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Bulgaria"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Libia"
+	},
+	"trivia_hard_075": {
+		"message": "Setiap tahun, wildebeest bermigrasi dari Tanzania menyeberangi Sungai Mara ke negara tetangga di sebelah timur laut. Apa nama negara tetangga itu?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Kenya"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Zambia"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Guinea"
+	},
+	"trivia_hard_076": {
+		"message": "Aleppo, yang terkenal dengan Masjid Agungnya, merupakan kota terbesar di sebuah negara di Asia Barat. Apa nama negaranya?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Suriah"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Oman"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_hard_077": {
+		"message": "Negara manakah yang berbatasan dengan Rusia dan Georgia?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Azerbaijan"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Uzbekistan"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Korea Utara"
+	},
+	"trivia_hard_078": {
+		"message": "Negara manakah yang berbatasan dengan Panama dan Brasil?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Kolombia"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Peru"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Kosta Rika"
+	},
+	"trivia_hard_079": {
+		"message": "Negara manakah yang berbatasan dengan Guatemala dan Amerika Serikat?"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "Meksiko"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "El Salvador"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_hard_080": {
+		"message": "Negara manakah yang berbatasan dengan Irak dan Afganistan?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Ukraina"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mongolia"
+	},
+	"trivia_hard_081": {
+		"message": "Negara manakah yang berbatasan dengan Lesotho dan Botswana?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Afrika Selatan"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Kongo"
+	},
+	"trivia_hard_082": {
+		"message": "Antwerpen terletak di bagian wilayah yang penduduknya berbicara bahasa Vlaams (Belanda Belgia) dari negara apa?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Belgia"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Belanda"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "Islandia"
+	},
+	"trivia_hard_083": {
+		"message": "Terletak di negara Eropa manakah pelabuhan utama Gdańsk, yang ada di dekat muara Sungai Vistula?"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "Polandia"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Spanyol"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Kroasia"
+	},
+	"trivia_hard_084": {
+		"message": "Apa nama sungai besar di Amerika Selatan yang dialiri oleh anak sungai utama Madeira dan Purus?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Sungai Amazon"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Sungai Orinoko"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Sungai Paraná"
+	},
+	"trivia_hard_085": {
+		"message": "Berbatasan dengan negara manakah Danau Konstanz, selain Swiss dan Jerman?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Austria"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Slovakia"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Finlandia"
+	},
+	"trivia_hard_086": {
+		"message": "Auckland, kota pelabuhan utama yang memiliki banyak dermaga, merupakan kota terbesar di negara mana?"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "Selandia Baru"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Australia"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "Indonesia"
+	},
+	"trivia_hard_087": {
+		"message": "Apa nama negara yang terletak tepat di sebelah barat Togo dan merupakan produsen utama cokelat?"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Ghana"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Sudan"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Tunisia"
+	},
+	"trivia_hard_088": {
+		"message": "Di Amerika Selatan, ada negara yang salah satu bahasa resmi dan mata uangnya disebut Guarani. Apa nama negara itu?"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "Paraguay"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ekuador"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Brasil"
+	},
+	"trivia_hard_089": {
+		"message": "Jajaran pegunungan apakah yang terbentang di sepanjang perbatasan antara Prancis dan Spanyol?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Pirenia"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Apennini"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Pegunungan Kaukasus"
+	},
+	"trivia_hard_090": {
+		"message": "Sungai Torrens bermuara di Teluk Saint Vincent yang ada di negara mana?"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Australia"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_hard_091": {
+		"message": "Negara manakah di Afrika yang berbatasan dengan Laut Mediterania dan memiliki bentuk pemerintahan monarki?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Maroko"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Mesir"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Republik Afrika Tengah"
+	},
+	"trivia_hard_092": {
+		"message": "Tbilisi yang terletak di tepi Sungai Kura merupakan ibu kota negara apa?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Georgia"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Suriah"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Hungaria"
+	},
+	"trivia_hard_093": {
+		"message": "Terletak di negara manakah wilayah pegunungan Abruzzo yang ada di Laut Adriatik?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Italia"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "Prancis"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "Luksemburg"
+	},
+	"trivia_hard_094": {
+		"message": "Teluk Riga berbatasan dengan negara apa selain Latvia?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Estonia"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Belarus"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Spanyol"
+	},
+	"trivia_hard_095": {
+		"message": "Selat Jubal menghubungkan Teluk Suez dengan laut apa?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Laut Merah"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Laut Karibia"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Laut Kaspia"
+	},
+	"trivia_hard_096": {
+		"message": "Apa nama sungai yang merupakan sumber utama Danau Galilea?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Sungai Yordan"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amu Darya"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Sungai Gangga"
+	},
+	"trivia_hard_097": {
+		"message": "Apa nama teluk besar yang memisahkan New Brunswick dari Nova Scotia?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Teluk Fundy"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Teluk Hudson"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Teluk Benggala"
+	},
+	"trivia_hard_098": {
+		"message": "Terletak di negara manakah Katedral Cologne yang ada di wilayah Rhineland?"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Jerman"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Denmark"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_099": {
+		"message": "Chiapas, tempat beberapa reruntuhan suku Maya kuno, adalah negara bagian paling selatan dari negara mana?"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "Meksiko"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Cile"
+	},
+	"trivia_hard_100": {
+		"message": "Dardanelles adalah selat sempit yang menghubungkan Laut Marmara dengan laut apa?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Laut Aegea"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Laut Barents"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Laut Tasman"
+	},
+	"trivia_hard_101": {
+		"message": "Apa nama negara di Asia Tenggara yang menggunakan Khmer sebagai bahasa resminya?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Kamboja"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_hard_102": {
+		"message": "Donbas, sebuah kawasan industri, terletak di Rusia dan negara apa?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Ukraina"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Slovakia"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Lebanon"
+	},
+	"trivia_hard_103": {
+		"message": "Gunung Kosciuszko yang terletak di Pegunungan Bersalju, merupakan puncak tertinggi di benua apa?"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Australia"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Eropa"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_hard_104": {
+		"message": "Pulau Madura dan Bali merupakan bagian dari negara apa?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indonesia"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Jepang"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_105": {
+		"message": "Terletak di negara Asia manakah Gurun Taklimakan yang ada di sebelah utara Pegunungan Kunlun?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "China"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Arab Saudi"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "Korea Selatan"
+	},
+	"trivia_medium_001": {
+		"message": "Manakah dari kota di AS berikut yang terletak di delta sungai?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "New Orleans"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Austin"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Oklahoma City"
+	},
+	"trivia_medium_002": {
+		"message": "Angkor Wat dan Kapadokia adalah situs Warisan Dunia versi UNESCO yang ada di benua apa?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Asia"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Eropa"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_medium_003": {
+		"message": "Bahasa Kurdi dan bahasa Persia digunakan oleh orang-orang di bagian barat benua apa?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Asia"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Eropa"
+	},
+	"trivia_medium_004": {
+		"message": "Ada di benua manakah situs arkeologi Teotihuacán, yang menjadi pusat awal mula peradaban manusia?"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "Amerika Utara"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Asia"
+	},
+	"trivia_medium_005": {
+		"message": "Apa nama benua yang berbatasan dengan Laut Bellingshausen dan Laut Ross?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Antarktika"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Eropa"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Asia"
+	},
+	"trivia_medium_006": {
+		"message": "Di sepanjang pesisir di benua manakah Arus Mozambik dan Benguela mengalir?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Eropa"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Amerika Utara"
+	},
+	"trivia_medium_007": {
+		"message": "Kepulauan Islas Malvinas, yang juga disebut Kepulauan Falkland, terletak di lepas pantai tenggara di benua mana?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Amerika Utara"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Eropa"
+	},
+	"trivia_medium_008": {
+		"message": "Manakah dari negara Afrika berikut yang memiliki wilayah terluas?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Aljazair"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gambia"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Burundi"
+	},
+	"trivia_medium_009": {
+		"message": "Apa nama pulau besar yang terletak 321,8 km di sebelah barat laut Islandia?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Greenland"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Papua Nugini"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Irlandia"
+	},
+	"trivia_medium_010": {
+		"message": "Laut Kara dan Laut Siberia Timur merupakan bagian dari samudra apa?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Samudra Arktik"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Samudra Hindia"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Samudra Pasifik"
+	},
+	"trivia_medium_011": {
+		"message": "Negara manakah yang berbatasan dengan Laut Baltik?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Latvia"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Slovenia"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Ukraina"
+	},
+	"trivia_medium_012": {
+		"message": "Manakah dari kota besar berikut yang paling padat penduduknya?"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "São Paulo, Brasil"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto, Kanada"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hanoi, Vietnam"
+	},
+	"trivia_medium_013": {
+		"message": "Negara manakah yang tidak memiliki garis pantai di Samudra Atlantik?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Malaysia"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Uruguay"
+	},
+	"trivia_medium_014": {
+		"message": "Manakah dari negara berikut yang memiliki garis pantai terpendek?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Peru"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Cile"
+	},
+	"trivia_medium_015": {
+		"message": "Apa nama gurun pasir yang terletak di Asia?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalahari"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atacama"
+	},
+	"trivia_medium_016": {
+		"message": "Manakah dari negara berikut yang paling sering mengalami aktivitas vulkanik?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indonesia"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Mesir"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Israel"
+	},
+	"trivia_medium_017": {
+		"message": "Manakah dari negara berikut yang memiliki populasi terbesar?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_018": {
+		"message": "Manakah dari negara berikut yang memiliki pulau terbanyak?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Bahama"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Jamaika"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_019": {
+		"message": "Negara manakah yang terletak paling dekat dengan garis Khatulistiwa?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Rwanda"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "Afrika Selatan"
+	},
+	"trivia_medium_020": {
+		"message": "Negara manakah yang terletak di ujung paling utara?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Estonia"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Libia"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Kamboja"
+	},
+	"trivia_medium_021": {
+		"message": "Terletak di ibu kota manakah Distrik Alfama yang ada di tepi Sungai Tagus di Potugal?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lisbon"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Helsinki"
+	},
+	"trivia_medium_022": {
+		"message": "Apa nama ibu kota yang terletak 40,2 km di sebelah timur laut dari Laut Mati dan merupakan kota yang paling padat penduduknya di Yordania?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Amman"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Islamabad"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Seoul"
+	},
+	"trivia_medium_023": {
+		"message": "Terletak di ibu kota manakah Alun-alun Tahrir, yang merupakan titik fokus beberapa unjuk rasa berskala besar rakyat Meksir?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Kairo"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Muskat"
+	},
+	"trivia_medium_024": {
+		"message": "Apa nama ibu kota yang terletak di Teluk Table dan merupakan pusat parlemen nasional Afrika Selatan?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Cape Town"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaka"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinshasa"
+	},
+	"trivia_medium_025": {
+		"message": "Apa nama ibu kota yang terletak di Sungai Vltava dan merupakan kota\nterbesar di Republik Cheska?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Praha"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dublin"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Sofia"
+	},
+	"trivia_medium_026": {
+		"message": "Apa nama ibu kota yang terletak di Laut Mediterania dan merupakan pelabuhan penting bagi Libia?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Tripoli"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monrovia"
+	},
+	"trivia_medium_027": {
+		"message": "Apa nama ibu kota yang merupakan pusat perdagangan dan transportasi penting di Sudan dan terletak di persimpangan Sungai Nil Putih dan and Nil Biru?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Khartoum"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Tunis"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Johannesburg"
+	},
+	"trivia_medium_028": {
+		"message": "Apa nama ibu kota yang terletak di pulau Sjælland dan pulau Amager di Denmark?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Kopenhagen"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Bern"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Bratislava"
+	},
+	"trivia_medium_029": {
+		"message": "Apa nama ibu kota yang terletak di pulau New Providence dan merupakan kota terbesar di Bahama?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Nassau"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santo Domingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopan"
+	},
+	"trivia_medium_030": {
+		"message": "Apa nama ibu kota yang terletak di sebelah selatan Laut Hitam dan merupakan pusat sistem transportasi Turki?"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "Ankara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minsk"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Teheran"
+	},
+	"trivia_medium_031": {
+		"message": "Manakah dari negara berikut yang sebagian wilayahnya terletak di Tanduk Afrika?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Niger"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Swaziland"
+	},
+	"trivia_medium_032": {
+		"message": "Skagerrak adalah selat yang memisahkan Denmark dari negara apa?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Norwegia"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "Inggris Raya"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_medium_033": {
+		"message": "Negara manakah yang sebagian besar wilayahnya terdiri dari gurun pasir?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Cad"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Norwegia"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_034": {
+		"message": "Apa nama negara yang dialiri oleh Sungai Efrat?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Suriah"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Swiss"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Thailand"
+	},
+	"trivia_medium_035": {
+		"message": "Terletak di benua manakah kota Irkutsk yang ada di dekat Danau Baikal?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Asia"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_medium_036": {
+		"message": "Terletak di benua manakah sungai besar Dnieper dan Rhine?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Eropa"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Antarktika"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "Asia"
+	},
+	"trivia_medium_037": {
+		"message": "Terletak di benua manakah Dataran Tinggi Guyana dan wilayah Pantanal?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Amerika Utara"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Eropa"
+	},
+	"trivia_medium_038": {
+		"message": "Gurun Victoria Besar dan Dataran Nullarbor merupakan bentang alam terkenal dari benua apa?"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Asia"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Eropa"
+	},
+	"trivia_medium_039": {
+		"message": "Rio Grande do Sul adalah negara bagian yang paling selatan dari negara mana?"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Brasil"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "Meksiko"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Jerman"
+	},
+	"trivia_medium_040": {
+		"message": "Terletak di negara manakah kota Novosibirsk yang ada di tepian Sungai Ob?"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "China"
+	},
+	"trivia_medium_041": {
+		"message": "Negara manakah yang terletak di Lingkar Pasifik dan lebih mungkin mengalami gempa bumi?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Cile"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "Prancis"
+	},
+	"trivia_medium_042": {
+		"message": "Terletak di sepanjang pesisir utara negara manakah Danau Maracaibo?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_043": {
+		"message": "Negara manakah yang berbatasan dengan Laut Arab?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Tajikistan"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Yunani"
+	},
+	"trivia_medium_044": {
+		"message": "Negara manakah yang terletak di Semenanjung Iberia?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Portugal"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Belanda"
+	},
+	"trivia_medium_045": {
+		"message": "Manakah dari negara berikut yang memiliki garis pantai terpanjang?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Thailand"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Kongo"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Qatar"
+	},
+	"trivia_medium_046": {
+		"message": "Negara bagian AS manakah yang terletak di sebelah barat Sungai Mississippi?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Colorado"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Maryland"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Michigan"
+	},
+	"trivia_medium_047": {
+		"message": "Apa nama negara bagian AS yang 60 persen wilayahnya ditutupi oleh hutan?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virginia"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "Terletak di negara bagian AS manakah Gunung McKinley, yang merupakan puncak tertinggi di Amerika Utara?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Alaska"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_medium_049": {
+		"message": "Manakah dari negara bagian AS berikut yang memiliki wilayah terluas?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montana"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "Carolina Selatan"
+	},
+	"trivia_medium_050": {
+		"message": "Terletak di negara bagian AS manakah Gunung Rushmore yang ada di dekat Rapid City?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "Dakota Selatan"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Florida"
+	},
+	"trivia_medium_051": {
+		"message": "Negara bagian AS manakah yang berbatasan dengan Kanada?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebraska"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentucky"
+	},
+	"trivia_medium_052": {
+		"message": "Terumbu karang bisa ditemukan di lepas pantai negara bagian AS mana?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "Hamburg merupakan pelabuhan penting di negara apa?"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Jerman"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Kroasia"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Belgia"
+	},
+	"trivia_medium_054": {
+		"message": "Negara manakah yang paling sering mengalami aktivitas vulkanik?"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "Islandia"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "Inggris Raya"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "Polandia"
+	},
+	"trivia_medium_055": {
+		"message": "Negara manakah yang sebagian besar wilayahnya terletak di semenanjung Asia Kecil?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Turki"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Myanmar"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Estonia"
+	},
+	"trivia_medium_056": {
+		"message": "Laut Mati merupakan bagian dari perbatasan antara Israel dengan negara apa?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Yordania"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Jepang"
+	},
+	"trivia_medium_057": {
+		"message": "Terletak di negara manakah Taman Nasional Serengeti yang ada di Danau Victoria?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tanzania"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Yaman"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_058": {
+		"message": "Apa nama negara yang berbatasan dengan Laut Karibia dan merupakan pengekspor utama minyak?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Cile"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paraguay"
+	},
+	"trivia_medium_059": {
+		"message": "Negara manakah yang terkurung daratan dan terletak tepat di sebelah selatan garis Khatulistiwa?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Burundi"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Djibouti"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Tunisia"
+	},
+	"trivia_medium_060": {
+		"message": "Laut Tirenia berbatasan dengan negara mana di Mediterania?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Italia"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Israel"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Senegal"
+	},
+	"trivia_medium_061": {
+		"message": "Terletak di negara manakah Yekaterinburg, yang berada di lereng timur Pegunungan Ural?"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Lituania"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Belgia"
+	},
+	"trivia_medium_062": {
+		"message": "Apa nama negara pulau yang terletak di sebelah tenggara Australia dan merupakan produsen wol terkemuka?"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "Selandia Baru"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Filipina"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_063": {
+		"message": "Terletak di negara manakah kota pelabuhan Mumbai?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Swiss"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_medium_064": {
+		"message": "Terletak di negara manakah kota Incheon yang ada di Laut Kuning?"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "Korea Selatan"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Thailand"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mongolia"
+	},
+	"trivia_medium_065": {
+		"message": "Apa nama negara kecil yang terletak di perbatasan barat Austria?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Liechtenstein"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Suriah"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Moldova"
+	},
+	"trivia_medium_066": {
+		"message": "Terletak di negara manakah negara bagian Victoria dan New South Wales?"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "Amerika Serikat"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_067": {
+		"message": "Apa nama negara di pulau Kalimantan yang berbatasan dengan negara kecil Brunei?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Malaysia"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Ukraina"
+	},
+	"trivia_medium_068": {
+		"message": "Julian Alps terletak di perbatasan antara Italia dengan negara apa?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Slovenia"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Tajikistan"
+	},
+	"trivia_medium_069": {
+		"message": "Terletak di bagian timur laut negara manakah wilayah yang sebelumnya dikenal dengan nama Manchuria?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "China"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Belarus"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afganistan"
+	},
+	"trivia_medium_070": {
+		"message": "Negara manakah yang berbatasan dengan El Salvador?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panama"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Republik Dominika"
+	},
+	"trivia_medium_071": {
+		"message": "Negara manakah yang terletak di Pegunungan Kaukasus?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Georgia"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Hungaria"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andora"
+	},
+	"trivia_medium_072": {
+		"message": "Selat Sunda yang memisahkan dua pulau berada di negara Asia mana?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indonesia"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "Selandia Baru"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Laos"
+	},
+	"trivia_medium_073": {
+		"message": "Lembah glasial dan tebing yang spektakuler bisa dilihat di dekat mulut Sungai Shannon yang ada di negara mana?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Irlandia"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "Prancis"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "Uzbekistan"
+	},
+	"trivia_medium_074": {
+		"message": "Sungai Indus mengalir melalui negara apa di Asia Selatan?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Korea Utara"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Azerbaijan"
+	},
+	"trivia_medium_075": {
+		"message": "Negara manakah yang berbatasan dengan Laut Merah?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_medium_076": {
+		"message": "Terletak di negara manakah negara bagian Zacatecas dan Tabasco?"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "Meksiko"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "Belize"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Argentina"
+	},
+	"trivia_medium_077": {
+		"message": "Terletak di negara manakah kota Riyadh, yang memiliki lebih dari 4.000 masjid?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Arab Saudi"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albania"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Suriah"
+	},
+	"trivia_medium_078": {
+		"message": "Negara manakah di Afrika yang terkurung daratan?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Mauritania"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Mesir"
+	},
+	"trivia_medium_079": {
+		"message": "Terletak di negara manakah Gunung Fuji yang dianggap suci?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Jepang"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Filipina"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_080": {
+		"message": "Negara manakah di Kepulauan Antilles Besar yang menggunakan bahasa Inggris sebagai bahasa resminya?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Jamaika"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Kuba"
+	},
+	"trivia_medium_081": {
+		"message": "Apa bahasa resmi dari negara Suriah, Kuwait, dan Aljazair?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "Arab"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "Armenia"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "Jerman"
+	},
+	"trivia_medium_082": {
+		"message": "Opera Mozart sering diselenggarakan selama Festival Salzburg tahunan yang diadakan di negara pegunungan mana di Eropa?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Austria"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Hungaria"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Rumania"
+	},
+	"trivia_medium_083": {
+		"message": "Lembah Paus, gurun pasir yang dipenuhi dengan sisa-sisa fosil paus prasejarah, terletak di negara yang ada di sebelah utara Sudan. Negara manakah itu?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Mesir"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_medium_084": {
+		"message": "Terletak di negara Eropa manakah kota Rotterdam yang ada di delta dekat Laut Utara?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Belanda"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Swedia"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Yunani"
+	},
+	"trivia_medium_085": {
+		"message": "Sungai Brahmaputra, yang mengalir ke sebuah delta besar di dekat Teluk Benggala, bersumber dari rangkaian pegunungan besar apa?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himalaya"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Pegunungan Ural"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Pegunungan Alpen"
+	},
+	"trivia_medium_086": {
+		"message": "Farsi, atau dikenal juga sebagai bahasa Persia, adalah bahasa resmi dari negara Islam mana?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Iran"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Libia"
+	},
+	"trivia_medium_087": {
+		"message": "Bila ingin menonton pertunjukan matador beradu dengan banteng, kita harus pergi ke kota Sevilla di benua Eropa. Terletak di negara manakah kota itu?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Spanyol"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Jerman"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "Makedonia"
+	},
+	"trivia_medium_088": {
+		"message": "Kota Istanbul, yang dianggap sebagai tempat berpadunya budaya Timur dan Barat, terletak negara mana?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Turki"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Slovakia"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Oman"
+	},
+	"trivia_medium_089": {
+		"message": "Reruntuhan Copán, kota suku Maya kuno yang sekarang menjadi tempat wisata terkenal, terletak di negara yang berbatasan dengan El Salvador dan Nikaragua. Negara manakah itu?"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Cile"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_090": {
+		"message": "Timbuktu, yang merupakan pusat perdagangan karavan selama hampir seribu tahun, terletak di sebelah utara Sungai Niger di negara terkurung daratan mana?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namibia"
+	},
+	"trivia_medium_091": {
+		"message": "Apa nama negara di Amerika Selatan yang terkurung oleh daratan dan berbatasan dengan Cile dan Brasil?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Bolivia"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Kolombia"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Guyana"
+	},
+	"trivia_medium_092": {
+		"message": "Terletak di negara manakah kota Belém yang ada di muara selatan Sungai Amazon?"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Brasil"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "Kosta Rika"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_medium_093": {
+		"message": "Sungai apa yang membentuk sebagian besar perbatasan di sebelah utara Bulgaria?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Sungai Donau"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Sungai Ob"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Sungai Mekong"
+	},
+	"trivia_medium_094": {
+		"message": "Terletak di negara Asia manakah Pegunungan Sayan yang ada di dekat Danau Baikal?"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "India"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Kirgizstan"
+	},
+	"trivia_medium_095": {
+		"message": "Danau Nipigon merupakan danau terbesar di provinsi mana di Kanada?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontario"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "British Columbia"
+	},
+	"trivia_medium_096": {
+		"message": "Laut Balearik dan Laut Ionia merupakan bagian dari laut apa?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Laut Mediterania"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Laut Baltik"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Laut Karibia"
+	},
+	"trivia_medium_097": {
+		"message": "Terletak di benua manakah Danau Turkana dan Danau Natron, yang termasuk dalam kumpulan danau lembah celah besar?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Eropa"
+	},
+	"trivia_medium_098": {
+		"message": "Palung Puerto Riko merupakan titik terdalam di samudra apa?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Samudra Atlantik"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Samudra Arktik"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Samudra Pasifik"
+	},
+	"trivia_medium_099": {
+		"message": "Burung kookaburra yang bisa tertawa berasal dari hutan eukaliptus di bagian timur benua apa?"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Amerika Selatan"
+	},
+	"trivia_medium_100": {
+		"message": "Terletak di pesisir barat negara Eropa manakah kota Hague yang merupakan tempat Mahkamah Internasional berada?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Belanda"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Finlandia"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Bulgaria"
+	},
+	"trivia_ngb_promo": {
+		"message": "Konten oleh National Geographic Bee"
+	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
+	},
+	"uk_country_name": {
+		"message": "Inggris Raya"
+	},
+	"uk_tradition": {
+		"message": "Di Inggris, semua orang memainkan \"Christmas Crackers\" saat makan malam. \"Crackers\" adalah tabung kertas warna-warni yang kedua ujungnya bisa ditarik. Begitu ditarik, tabung akan meletup dengan suara keras! Di dalamnya ada topi kertas, mainan, dan permen untuk dinikmati saat malam Natal."
+	},
+	"upgrade-warning": {
+		"message": "Ups! Pelacak Sinterklas tidak didukung dalam versi browser Anda. Untuk mengakses Pelacak Sinterklas, unduh browser modern. Untuk informasi lebih lanjut kunjungi \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
+	"us_country_name": {
+		"message": "Amerika Serikat"
+	},
+	"us_tradition": {
+		"message": "Di Amerika Serikat, kaus kaki digantung pada malam Natal. Menurut legenda, St. Nicholas mendengarkan permintaan keluarga tidak mampu. Untuk mengejutkan mereka, ia menuruni cerobong asap dan menaruh sekantong emas dalam kaos kaki. Sejak itu, St. Nicholas dikenal sebagai Sinterklas, si pemberi hadiah."
+	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
+	"watch": {
+		"message": "Tonton"
+	},
+	"ye_country_name": {
+		"message": "Yaman"
+	},
+	"zh-CN_language_name": {
+		"message": "China (aksara sederhana)"
+	},
+	"zh-TW_language_name": {
+		"message": "China (aksara tradisional)"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
+	}
+}

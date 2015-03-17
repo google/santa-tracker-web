@@ -1,0 +1,51 @@
+#upgrade {
+  background: #7EC6E5;
+  height: 100%;
+  overflow: auto;
+
+  #upgrade-content {
+    margin: 0 auto;
+    padding-bottom: 10em;
+    text-align: center;
+    background: url(../images/snowman.png) no-repeat 50% 50px;
+    padding-top: 490px;
+    color: #fff;
+    font-size: 16px;
+
+    p {
+      max-width: 642px;
+      margin: auto;
+    }
+  }
+}
+
+.redbutton {
+  margin-top: 40px;
+
+  a {
+    background: #e1443c;
+    box-shadow: 0 4px 1px 0 rgba(0,0,0,0.14);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Lobster', sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    padding: 15px 50px;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      background: -webkit-linear-gradient(top, #e1443c 50%, #d43f36 50%);
+      background: -ms-linear-gradient(top, #e1443c 50%, #d43f36 50%);
+      background: linear-gradient(top, #e1443c 50%, #d43f36 50%);
+    }
+
+    &:active {
+      top: 1px !important;
+      left: 1px !important;
+    }
+  }
+}
+

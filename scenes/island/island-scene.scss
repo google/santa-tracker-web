@@ -1,0 +1,542 @@
+@import "compass/css3/transform";
+@import "compass/css3/border-radius";
+@import "compass/css3/images";
+
+$name: 'module-island';
+
+@import "../shared/sass/board";
+
+@import "sass/_animations.scss";
+
+##{$name} {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: #46bdbc;
+
+  .sky {
+    position: absolute;
+    z-index: 5;
+
+    top: 0;
+    left: 0; 
+    right: 0;
+
+    height: 40%;
+
+    background: #00b2ef;
+
+    .sun {
+      position: absolute;
+      z-index: 1;
+
+      top: 20%;
+      right: 30%;
+
+      width: 100px;
+      height: 100px;
+
+      border-radius: 50%;
+
+      background: #facc26;
+    }
+
+    .airplain {
+      position: absolute;
+      z-index: 8;
+
+      top: 48%;
+      left: 30%;
+
+      width: 100px;
+      height: 42px;
+
+      background: -652px -206px url('img/objects.png');
+      @include animations(fly 55s linear infinite);
+    }
+
+    .cloud {
+      position: absolute;
+      z-index: 10;
+
+      top: 5%;
+      left: 50%;
+
+      width: 159px;
+      height: 95px;
+
+      background: -273px -127px url('img/objects.png');
+
+      opacity: .9;
+
+      &.small {
+        z-index: 5;
+        @include transform(scale(.25));
+        @include animations(fly 120s linear infinite);
+      }
+
+      &.medium {
+        z-index: 3;
+        @include transform(scale(.5));
+        @include animations(fly2 135s linear infinite);
+      }
+
+      &.c2 {
+        top: 20%;
+        @include animations(fly3 142s linear infinite);
+      }
+
+      &.c3 {
+        top: 40%;
+        @include animations(fly 118s linear infinite);
+      }
+
+      &.c4 {
+        top: 30%;
+        @include animations(fly2 123s linear infinite);
+      }
+
+      &.c5 {
+        top: 66%;
+        @include animations(fly3 120s linear infinite);
+      }
+
+      &.c6 {
+        top: 72%;
+        @include animations(fly 130s linear infinite);
+      }
+
+      &.c7 {
+        top: 22%;
+        @include animations(fly2 145s linear infinite);
+      }
+
+      &.c8 {
+        top: 30%;
+        @include animations(fly3 175s linear infinite);
+      }
+
+      &.c9 {
+        top: 40%;
+        @include animations(fly 165s linear infinite);
+      }
+    }
+  }
+
+  .island-wrap {
+    position: absolute;
+    z-index: 30;
+
+    top: 50%;
+    left: 50%;
+
+    $width: 1567px;
+    $height: 586px;
+
+    margin-top: -$height / 2;
+    margin-left: -$width / 2 - 150;
+
+    width: $width;
+    height: $height;
+
+    .island {
+      position: absolute;
+      z-index: 2;
+      
+      top: 0;
+      left: 0;
+
+      z-index: 10;
+
+      width: 1567px;
+      height: 586px;
+
+      background: url('img/island-base.png') no-repeat;
+    }
+
+    .coconut {
+      position: absolute;
+      z-index: 1;
+
+      top: 180px;
+      right: 360px;
+
+      width: 23px;
+      height: 28px;
+
+      background: -763px -297px url('img/objects.png');
+
+      &.go {
+        @include animations(.75s coconutFall ease-in);
+      }
+    }
+
+    .slider {
+      position: absolute;
+      z-index: 20;
+
+      top: 200px;
+      left: 720px;
+      width: 350px;
+      height: 363px;
+
+      overflow: hidden;
+
+      .kid {
+        position: absolute;
+
+        top: 15px;
+        left: 25px;
+
+        cursor: pointer;
+
+        width: 48px;
+        height: 63px;
+
+        background: -687px -264px url('img/objects.png');
+
+        opacity: 0;
+      }
+
+      .splash {
+        position: absolute;
+
+        bottom: -2px;
+        right: 45px;
+
+        width: 65px;
+        height: 35px;
+
+        background: -598px -289px url('img/objects.png');
+
+        @include transform(translateY(35px));
+      }
+
+      &.go {
+        .kid {
+          @include animations(3s slider ease-in);
+        }
+        .splash {
+          @include animations(3s sliderSplash linear);
+        }
+      }
+    }
+
+    .object {
+      position: absolute;
+      z-index: 20;
+
+      background: url('img/objects.png');
+    }
+
+    .flask {
+      bottom: -180px;
+      left: 900px;
+
+      width: 44px;
+      height: 50px;
+
+      background-position: -133px -282px;
+
+      @include animations(4s flaskFloat infinite alternate ease-in-out);
+    }
+
+    .lights {
+      position: absolute;
+      z-index: 30;
+
+      top: 7px;
+      left: 774px;
+
+      width: 188px;
+      height: 185px;
+
+      background: url('img/lights.png');
+
+      @include animations(1s lightsSwitch infinite step-start);
+    }
+
+    .lady {
+      right: 350px;
+      bottom: -40px;
+
+      width: 130px;
+      height: 68px;
+
+      background-position: -488px -191px;
+
+      @include animations(3s objFloat infinite alternate ease-in-out);
+    }
+
+    .bird {
+      left: 200px;
+      bottom: -50px;
+
+      width: 79px;
+      height: 32px;
+
+      background-position: -21px -300px;
+
+      @include transform(translateX(0px)  rotateY(180deg));
+      @include animations(15s birdSwim infinite ease-in-out);
+
+      &.b2 {
+        left: 700px;
+        bottom: -80px;
+        @include animations(13s 2s birdSwim infinite ease-in-out);
+      }
+
+      &.b3 {
+        left: auto;
+        right: 120px;
+        bottom: -100px;
+
+        @include animations(11s 1s birdSwim infinite ease-in-out);
+      }
+    }
+
+    .gift-stack {
+      position: absolute;
+      z-index: 20;
+
+      left: 670px;
+      bottom: 60px;
+
+      width: 86px;
+      height: 45px;
+
+      background: url('img/objects.png');
+      background-position: -479px -280px;
+    }
+
+    .boat {
+      position: absolute;
+      z-index: 10;
+
+      left: 220px;
+      bottom: 20px;
+
+      width: 535px;
+      height: 180px;
+
+      background: url('img/objects.png');
+      background-position: -463px 0;
+
+      @include animations(5s boatMovement infinite alternate ease-in-out);
+
+      .helper {
+        position: absolute;
+
+        top: -25px;
+        right: 115px;
+
+        width: 130px;
+        height: 115px;
+
+        .elf {
+          position: absolute;
+
+          left: 50px;
+          bottom: 35px;
+
+          width: 35px;
+          height: 75px;
+
+          .body {
+            position: absolute;
+            z-index: 10;
+
+            top: 0;
+            left: 0;
+
+            width: 35px;
+            height: 75px;
+
+            background: -257px -246px url('img/objects.png');
+          }
+
+          .hand {
+            position: absolute;
+            z-index: 1;
+
+            top: 45px;
+            left: 6px;
+
+            width: 44px;
+            height: 16px;
+
+            background: -198px -306px url('img/objects.png');
+
+            @include apply-origin(0 20%, false);
+            @include animations(3s presentThrow infinite linear);
+          }
+
+          @include animations(3s presentGrab infinite linear);
+        }
+
+        .present {
+          position: absolute;
+          
+          top: 45px;
+          right: -40px;
+
+          width: 80px;
+          height: 22px;
+
+          @include apply-origin(100% 50%, false);
+          @include animations(3s presentFly infinite linear);
+
+          .obj {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 22px;
+            height: 22px;
+
+            background: -800px -300px url('img/objects.png');
+
+            @include apply-origin(50% 50%, false);
+            @include animations(3s presentSpin infinite ease-in);
+          }
+        }
+
+        .cover {
+          position: absolute;
+          z-index: 20;
+          
+          left: 0;
+          bottom: 0;
+
+          width: 130px;
+          height: 50px;
+
+          background: -314px -268px url('img/objects.png');
+        }
+      }
+    }
+
+    .zzz {
+      position: absolute;
+
+      top: 190px;
+      right: 250px;
+
+      width: 30px;
+      height: 80px;
+
+      @include transform(rotateZ(15deg));
+
+      .z {
+        position: absolute;
+
+        bottom: 0;
+        left: 0;
+
+        width: 14px;
+        height: 100%;
+
+        background: -109px -319px url('img/z.png') no-repeat;
+
+        opacity: 0;
+
+        @include animations(2s zzzFloat infinite linear);
+
+        &:nth-child(n+2){
+          left: 20%;
+
+          @include animations(2.45s 3s zzzFloat infinite linear);
+        }
+
+        &:nth-child(n+3){
+          left: 50%;
+
+          @include transform(scale(.5));
+          @include animations(2.25s 2s zzzFloat infinite linear);
+        }
+
+        &:nth-child(n+4){
+          left: 80%;
+
+          @include transform(scale(.9) rotateZ(5deg));
+          @include animations(1.5s 1s zzzFloat infinite linear);
+        }
+
+        &:nth-child(n+5){
+          left: 60%;
+
+          @include transform(scale(.6));
+          @include animations(2.5s 1.5s zzzFloat infinite linear);
+        }
+
+        &:nth-child(n+6){
+          left: 35%;
+
+          @include transform(scale(.8) rotateZ(-5deg));
+          @include animations(3.5s 2.5s zzzFloat infinite linear);
+        }
+      }
+    }
+  }
+
+  .sea {
+    position: absolute;
+    z-index: 10;
+
+    left: 0; 
+    right: 0;
+    bottom: 0;
+
+    height: 100% - 40;
+
+    .object {
+      position: absolute;
+
+      background: url('img/objects.png');
+
+      &.island-1 {
+        top: -80px;
+        left: 50%;
+
+        margin-left: -535px;
+
+        width: 195px;
+        height: 165px;
+
+        background-position: 0 0;
+      }
+
+      &.island-2 {
+        top: -67px;
+        left: 50%;
+
+        margin-left: -780px;
+
+        width: 188px;
+        height: 76px;
+
+        background-position: -223px -5px;
+      }
+
+      &.island-3 {
+        top: -90px;
+        left: 50%;
+
+        margin-left: 400px;
+
+        width: 242px;
+        height: 99px;
+
+        background-position: -0px -174px;
+      }
+    }
+  }
+}
+
+
+@import "../shared/sass/responsive";

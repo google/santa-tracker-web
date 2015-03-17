@@ -1,0 +1,43 @@
+##{$name} .scene {
+  transform-origin: 0 0;
+}
+
+@media (max-width: 1200px), (max-height: 675px) {
+  ##{$name} .scene {
+    transform: scale(0.8);
+    width: 125%;
+    height: 125%;
+  }
+}
+
+@media (max-width: 1000px), (max-height: 562px) {
+  ##{$name} .scene {
+    transform: scale(0.7);
+    width: 143%;
+    height: 143%;
+  }
+}
+
+@media (max-width: 800px), (max-height: 450px) {
+  ##{$name} .scene {
+    transform: scale(0.55);
+    width: 182%;
+    height: 182%;
+  }
+}
+
+@media (max-width: 600px), (max-height: 338px) {
+  ##{$name} .scene {
+    transform: scale(0.4);
+    width: 250%;
+    height: 250%;
+  }
+}
+
+@media (max-width: 400px), (max-height: 225px) {
+  ##{$name} .scene {
+    transform: scale(0.35);
+    width: 286%;
+    height: 286%;
+  }
+}

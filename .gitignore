@@ -1,0 +1,13 @@
+node_modules
+bower_components
+components
+*.DS_Store
+.sass-cache
+dist_prod
+dist_pretty
+dist_static
+sass/*.css
+scenes/**/*.css
+scenes/*/*.min.js
+js/service/*.min.js
+elements/*/*.css

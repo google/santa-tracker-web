@@ -1,0 +1,275 @@
+$name: 'module-citylights';
+
+@import "../shared/sass/board";
+@import "../shared/sass/penner-easing";
+@import "../shared/sass/tutorial";
+
+$anchorFromTop: 50%;
+$anchorFromTopWide: 65%;
+$anchorFromTopSuperWide: 80%;
+
+$screenWidth: 620px;
+$screenHeight: 377px;
+$screenMargin: 20px;
+
+@import "sass/coffee";
+@import "sass/zzz";
+@import "sass/dashboard";
+@import "sass/pagination";
+
+##{$name} {
+  @include tutorial(mouse-citylights, 'img/tutorial/mouse-citylights.svg', 2);
+  @include tutorial(touch-citylights, 'img/tutorial/touch-citylights.svg', 2);
+
+  @mixin if-wide-layout {
+    @media screen and (min-width: 600px) {
+      @content;
+    }
+  }
+
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #01203F;
+
+  svg {
+    display: block;
+  }
+
+  .scene {
+    position: absolute;
+    top: $anchorFromTop;
+    height: 100%; // make it full height of screen
+    @media screen and (min-aspect-ratio: 2/1) {
+      top: $anchorFromTopWide;
+    }
+    @media screen and (min-aspect-ratio: 3/1) {
+      top: $anchorFromTopSuperWide;
+    }
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform-origin: 0 0;
+    background: #001D36;
+  }
+
+  .lights {
+    position: absolute;
+    top: -550px;
+    left: 50%;
+    margin-left: -1px * 3400/2;
+  }
+
+  .fg {
+    position: absolute;
+    top: -104px;
+    left: 50%;
+    margin-left: -650px;
+    pointer-events: none;
+  }
+
+  .fg__lever {
+    position: absolute;
+    top: 175px;
+    left: 50%;
+    margin-left: 230px;
+
+    transform: translate(40px, 55px);
+    transition: transform 1s $easeInOutQuad;
+  }
+  .fg__arm {
+    position: absolute;
+    top: 195px;
+    left: 50%;
+    height: 150px;
+    margin-left: 215px;
+    overflow: hidden;
+
+    svg {
+      transform-origin: 217px 72px;
+      transform: rotate(-23deg) translateX(65px);
+      transition: transform 1s $easeInOutQuad;
+    }
+  }
+
+
+  .index-hit-areas {
+    $width: $screenWidth*3;
+    position: absolute;
+    top: -380px;
+    left: 50%;
+    width: $width;
+    height: $screenHeight;
+    margin-left: -5-($width/2);
+    display: none;
+  }
+  &.animate-scene-loaded .index-hit-areas {
+    display: block;
+  }
+
+  .index-hit-areas__area {
+    position: absolute;
+    top: $screenMargin/2;
+    width: $screenWidth - $screenMargin;
+    bottom: $screenMargin/2;
+    cursor: pointer;
+  }
+  .index-hit-areas__area--left {
+    left: $screenMargin/2;
+  }
+  .index-hit-areas__area--middle {
+    left: $screenWidth + $screenMargin/2;
+  }
+  .index-hit-areas__area--right {
+    right: $screenMargin/2;
+  }
+
+  &.animate-scene-loaded {
+    .fg__lever,
+    .fg__arm svg {
+        transform: none;
+    }
+  }
+
+  .photosphere-overlay {
+    position: absolute;
+    top: -$anchorFromTop;
+    bottom: $anchorFromTop;
+    @media screen and (min-aspect-ratio: 2/1) {
+      top: -$anchorFromTopWide;
+      bottom: $anchorFromTopWide;
+    }
+    @media screen and (min-aspect-ratio: 3/1) {
+      top: -$anchorFromTopSuperWide;
+      bottom: $anchorFromTopSuperWide;
+    }
+    left: 0;
+    right: 0;
+    background: #002854;
+    display: none;
+  }
+  .photosphere-overlay__back-button {
+    position: absolute;
+    bottom: 15px;
+    left: 5%;
+    cursor: pointer;
+    @include if-wide-layout {
+      left: 22%;
+    }
+
+    &:hover #back-button-top {
+      fill: lighten(#FB8C00, 5%);
+    }
+  }
+  .photosphere-overlay__title {
+    position: absolute;
+    background: #029AE4;
+    text-align: center;
+
+    right: 350px;
+    left: 180px;
+    bottom: 25px;
+    height: 72px;
+    border-top: 8px solid #025D8F;
+    border-left: 10px solid #025D8F;
+
+    @include if-wide-layout {
+      max-width: 640px;
+      width: 37%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    h1, h2 {
+      color: #003376;
+      font-family: 'Roboto', Helvetica, sans-serif;
+      font-weight: 600;
+
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    h1 {
+      font-size: 20px;
+      margin-bottom: 7px;
+      margin-top: .5em;
+    }
+    h2 {
+      font-size: 16px;
+      margin-top: 0;
+      margin-top: -.5em;
+    }
+
+  }
+  .photosphere-overlay__title__glass {
+    position: absolute;
+    top: -8px;
+    bottom: 0;
+    left: 30%;
+  }
+
+  a.photosphere-overlay__link {
+    //display: none;
+
+    position: absolute;
+    right: 5%;
+    bottom: 60px;
+    width: 260px;
+
+    color: #035C89;
+    font-family: 'Roboto', Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+
+    @include if-wide-layout {
+      display: block;
+    }
+  }
+
+  .photosphere__container {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    bottom: 60px;
+    margin: 1px;
+    overflow: hidden;
+
+    display: none;
+
+    @include if-wide-layout {
+      bottom: 80px;
+    }
+    @media (min-width: 800px) and (max-width: 1000px) {
+      bottom: 100px;
+    }
+    @media (min-width: 1000px) and (max-width: 1200px) {
+      bottom: 110px;
+    }
+    @media (min-width: 1200px) {
+      bottom: 130px;
+    }
+  }
+  .photosphere__container__content {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &.photosphere-open {
+    .fg {
+      display: none;
+    }
+    .photosphere-overlay {
+      display: block;
+    }
+    .photosphere__container {
+      display: block;
+    }
+  }
+}
+
+@import "../shared/sass/responsive";
