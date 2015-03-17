@@ -62,7 +62,7 @@ Video scene.
      * True if the video is paused.
      *
      * @property paused
-     * @type bool
+     * @type boolean
      * @default true
      */
     paused: true,
@@ -71,8 +71,8 @@ Video scene.
      * True if the poster image should show.
      *
      * @property poster
-     * @type bool
-     * @default false
+     * @type boolean
+     * @default true
      */
     poster: true,
 
@@ -80,8 +80,8 @@ Video scene.
      * True if the start button should show.
      *
      * @property start
-     * @type bool
-     * @default true
+     * @type boolean
+     * @default false
      */
     start: false,
 
@@ -89,7 +89,7 @@ Video scene.
      * True if the scene board play controls should show.
      *
      * @property controls
-     * @type bool
+     * @type boolean
      * @default false
      */
     controls: false,
@@ -99,7 +99,7 @@ Video scene.
      * iframe in the DOM only when the scene is visible.
      *
      * @property showPlayer
-     * @type bool
+     * @type boolean
      * @default false
      */
     showPlayer: false,
@@ -118,7 +118,7 @@ Video scene.
      * should go when they hit the in-scene back button.
      *
      * @property VIDEO_IDS
-     * @type object
+     * @type Object
      */
     VIDEO_IDS: {
       'trailer': {
@@ -172,9 +172,9 @@ Video scene.
      *
      * @event analytics-track-event
      * @param {Object} detail
-     *   @param {string} detail.category
-     *   @param {string} detail.action
-     *   @param {string} detail.label
+     * @param {string} detail.category
+     * @param {string} detail.action
+     * @param {string} detail.label
      */
 
     youtubeReady: function() {
@@ -203,8 +203,8 @@ Video scene.
         case 1: // playing
           this.paused = false;
           this.controls = true;
-          this.fire('analytics-track-event', {category: 'video', action: 'play',
-                                              label: this.route});
+          this.fire('analytics-track-event',
+              {category: 'video', action: 'play', label: this.route});
           break;
         case 2: // paused
           this.paused = true;
@@ -219,13 +219,12 @@ Video scene.
 
     togglePause: function() {
       this.paused = !this.paused;
+      this.poster = false;
+      this.start = false;
+
       if (this.paused) {
-        this.poster = false;
-        this.start = false;
         this.player.pause();
       } else {
-        this.poster = false;
-        this.start = false;
         this.player.play();
       }
     },
