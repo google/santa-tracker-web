@@ -5,7 +5,7 @@ goog.provide('app.MobileSlider');
 /**
  * Mobile slider - not really a slider...
  * @constructor
- * @param {string} el string target for DOM element
+ * @param {!Element} el The DOM element which wraps the slider.
  */
 app.MobileSlider = function(el) {
   this.el = $(el);
@@ -45,7 +45,7 @@ app.MobileSlider.prototype.expand = function() {
 
 /**
  * Collapse animation
- * @param {Number} time time for collapse animation
+ * @param {number=} time for collapse animation
  */
 app.MobileSlider.prototype.collapse = function(time) {
   if (!this.isExpanded) {
@@ -70,7 +70,7 @@ app.MobileSlider.prototype.collapse = function(time) {
  * Init
  */
 app.MobileSlider.prototype.init = function() {
-  var self = this;
+  var self = this; // needed as this becomes the element
   $(this.sizeContainer).children().each(function(id, el) {
     $(this).on('touchstart mousedown', function(event) {
       var customSlider = app.GameManager.sizeSlider;
@@ -99,16 +99,15 @@ app.MobileSlider.prototype.toggle = function() {
 
 /**
  * Click handler for opening stroke sizes
- * @param {Event} event Event
  */
-app.MobileSlider.prototype.handleIndicatorClick = function(event) {
+app.MobileSlider.prototype.handleIndicatorClick = function() {
   this.toggle();
 };
 
 /**
  * Change the active crayon size. Does not change the stroke size.
- * @param  {number} size The new size, from 1-4 (smallest to largest)
- * @param  {number} maxSize The largest possible size
+ * @param {number} size The new size, from 1-4 (smallest to largest)
+ * @param {number} maxSize The largest possible size
  */
 app.MobileSlider.prototype.changeActiveSize = function(size, maxSize) {
   if (this.lastItem) {

@@ -4,7 +4,7 @@ goog.provide('app.OrnamentExporter');
 
 /**
  * Exports colored ornaments to png for printing or download.
- * @param {app.Game} game
+ * @param {!app.Game} game
  * @param {string} componentDir
  * @constructor
  */
@@ -29,7 +29,7 @@ app.OrnamentExporter = function(game, componentDir) {
 
 /**
  * Constants for print layout.
- * @type {object}
+ * @type {!Object}
  */
 app.OrnamentExporter.PRINT_LAYOUT = {
   IMAGE_WIDTH: 3508,
@@ -62,7 +62,7 @@ app.OrnamentExporter.PRINT_LAYOUT = {
 
 /**
  * Constants for download layout.
- * @type {object}
+ * @type {!Object}
  */
 app.OrnamentExporter.DOWNLOAD_LAYOUT = {
   ORNAMENT_WIDTH_RATIO: 1.0735,
@@ -82,8 +82,8 @@ app.OrnamentExporter.DOWNLOAD_LAYOUT = {
 /**
  * Print a colored ornament with cutout guides.
  * Beware: Canvas layout of doom.
- * @type {app.Ornament}
- * @param {CanvasElement} ornament Canvas element
+ * @type {!app.Ornament}
+ * @param {!CanvasElement} ornament Canvas element
  */
 app.OrnamentExporter.prototype.print = function(ornament) {
   var l = app.OrnamentExporter.PRINT_LAYOUT;
@@ -199,8 +199,8 @@ app.OrnamentExporter.prototype.print = function(ornament) {
 /**
  * Make a desktop wallpaper of a colored ornament for download.
  * Beware: Canvas layout of doom.
- * @type {app.Ornament}
- * @param {CanvasElement} ornament Canvas element
+ * @type {!app.Ornament}
+ * @param {!CanvasElement} ornament Canvas element
  */
 app.OrnamentExporter.prototype.download = function(ornament) {
   var l = app.OrnamentExporter.DOWNLOAD_LAYOUT;
@@ -281,9 +281,9 @@ app.OrnamentExporter.prototype.download = function(ornament) {
 
 /**
  * Masks and draws a drawing with guides.
- * @param {CanvasRenderingContext2D} ctx
- * @param {Image} drawingImg
- * @param {Image} guideImg
+ * @param {!CanvasRenderingContext2D} ctx
+ * @param {!Image} drawingImg
+ * @param {!Image} guideImg
  * @param {number} x
  * @param {number} y
  * @param {number} diameter
@@ -311,8 +311,8 @@ app.OrnamentExporter.prototype.drawDrawing_ = function(ctx, drawingImg, guideImg
 
 /**
  * Draws an image, contained and positioned inside a specified rectangle.
- * @param {CanvasRenderingContext2D} context
- * @param {Image} image
+ * @param {!CanvasRenderingContext2D} context
+ * @param {!Image} image
  * @param {number} x
  * @param {number} y
  * @param {number} width
@@ -356,7 +356,7 @@ app.OrnamentExporter.prototype.formatUrl_ = function(url) {
 
 /**
  * Canvas helper to draw wrapped text.
- * @param {CanvasRenderingContext2D} ctx
+ * @param {!CanvasRenderingContext2D} ctx
  * @param {string} text
  * @param {number} x
  * @param {number} y
@@ -380,8 +380,7 @@ app.OrnamentExporter.prototype.wrapText_ =
       lines.push(line);
       startY += reverse ? lineHeight : 0;
       line = words[n] + ' ';
-    }
-    else {
+    } else {
       line = testLine;
     }
   }

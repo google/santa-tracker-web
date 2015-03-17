@@ -11,8 +11,8 @@ goog.require('app.shared.utils');
 
 /**
  * Main game class
- * @param {String} elem An string DOM element which wraps the game.
- * @param {String} componentDir component context
+ * @param {!Element} elem DOM element which wraps the game.
+ * @param {string} componentDir component context
  * @constructor
  * @export
  */
@@ -44,7 +44,7 @@ app.Game = function(elem, componentDir) {
   // find all ornaments and build
   var masterOrnaments = this.elem.find('.canvas[id^="canvas--"]');
   var ornament;
-  var self = this;
+  var self = this; // needed here as this is element
   masterOrnaments.each(function() {
     ornament = new app.Ornament('#' + $(this).attr('id'), self.elem);
     self.ornaments.push(ornament);
@@ -54,7 +54,7 @@ app.Game = function(elem, componentDir) {
 
   this.ornamentGallery = new app.OrnamentGallery('.scene-gallery', this.elem);
   this.ornamentNavigation = new app.OrnamentNavigation(this.elem);
-  this.onFrame = this.onFrame.bind(this);
+  this.onFrame_ = this.onFrame_.bind(this);
 };
 
 /**
@@ -125,14 +125,15 @@ app.Game.prototype.unfreezeGame = function() {
     this.elem.removeClass('frozen');
 
     this.isPlaying = true;
-    this.requestId = app.shared.utils.requestAnimFrame(this.onFrame);
+    this.requestId = app.shared.utils.requestAnimFrame(this.onFrame_);
   }
 };
 
 /**
  * Game loop. Runs every frame using requestAnimationFrame.
+ * @private
  */
-app.Game.prototype.onFrame = function() {
+app.Game.prototype.onFrame_ = function() {
   if (!this.isPlaying) {
     return;
   }
@@ -141,7 +142,7 @@ app.Game.prototype.onFrame = function() {
   this.update();
 
   // Request next frame
-  this.requestId = app.shared.utils.requestAnimFrame(this.onFrame);
+  this.requestId = app.shared.utils.requestAnimFrame(this.onFrame_);
 };
 
 /**
@@ -175,6 +176,8 @@ app.Game.prototype.dispose = function() {
   }
   this.freezeGame();
 
+  // The seasonofgiving game disposes of all .seasonofgiving events on globals,
+  // which gives the components a free pass re: cleanup.
   app.shared.utils.cancelAnimFrame(this.requestId);
   $(window).off('.seasonofgiving');
   $(document).off('.seasonofgiving');

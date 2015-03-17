@@ -5,7 +5,7 @@ goog.provide('app.OrnamentNavigation');
 /**
  * Ornament Navigation
  * @constructor
- * @param {Element} elem The DOM element which wraps the game.
+ * @param {!Element} elem The DOM element which wraps the game.
  */
 app.OrnamentNavigation = function(elem) {
   this.elem = elem;
@@ -58,13 +58,12 @@ app.OrnamentNavigation.prototype.init = function() {
  * Add all listeners for ornament navigation
  */
 app.OrnamentNavigation.prototype.addEventListeners = function() {
-  var self = this;
-  this.buttonNext.on('touchstart mousedown', self.handleNext.bind(self));
-  this.buttonPrev.on('touchstart mousedown', self.handlePrev.bind(self));
-  this.buttonShowAll.on('touchstart mousedown', self.handleShowGallery.bind(self));
-  this.buttonInfo.on('touchstart mousedown', self.handleShowInfo.bind(self));
-  this.buttonClose.on('touchstart mousedown', self.handleHideInfo.bind(self));
-  $(window).on('resize.seasonofgiving', self.handleResize.bind(self));
+  this.buttonNext.on('touchstart mousedown', this.handleNext.bind(this));
+  this.buttonPrev.on('touchstart mousedown', this.handlePrev.bind(this));
+  this.buttonShowAll.on('touchstart mousedown', this.handleShowGallery.bind(this));
+  this.buttonInfo.on('touchstart mousedown', this.handleShowInfo.bind(this));
+  this.buttonClose.on('touchstart mousedown', this.handleHideInfo.bind(this));
+  $(window).on('resize.seasonofgiving', this.handleResize.bind(this));
 };
 
 /**
@@ -151,7 +150,6 @@ app.OrnamentNavigation.prototype.handleShowGallery = function() {
  * Handler for window resize
  */
 app.OrnamentNavigation.prototype.handleResize = function() {
-  var self = this;
   var tempCSS;
   var tempElem;
   var topOffset;

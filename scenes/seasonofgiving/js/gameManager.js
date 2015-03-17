@@ -40,11 +40,11 @@ app.GameManager = {
 
   /**
    * Global bounce animation for all touchstart/mousedown
-   * @param {Element} el Element used for bounce effect
-   * @param {Number} duration Time for effect
+   * @param {!Element} el Element used for bounce effect
+   * @param {number=} duration Time for effect
    */
   bounce: function(el, duration) {
-    var duration_ = duration || 1000;
+    duration = duration || 1000;
 
     el.animate([
       {transform: 'scale3d(.87, .87, .87)', offset: 0},
@@ -54,7 +54,7 @@ app.GameManager = {
       {transform: 'scale3d(.97, .97, .97)', offset: .8},
       {transform: 'scale3d(1, 1, 1)', offset: 1}
     ], {
-      duration: duration_,
+      duration: duration,
       easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
       fill: 'forwards'
     });
