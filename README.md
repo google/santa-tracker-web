@@ -18,7 +18,3 @@ Clone project, then:
 Finally, use `gulp --pretty` to build. Alternatively, you can rebuild just the scenes with `gulp compile-scenes`.
 
 The raw site can be served from the root directory, or the built version can be served out of `./dist_pretty`.
-
-# Design 
-
-TODO
