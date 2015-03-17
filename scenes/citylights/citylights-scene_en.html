@@ -13,6 +13,9 @@ City lights scene.
 <template>
   <link rel="stylesheet" href="citylights-scene.css" no-shim>
 
+  <core-a11y-keys target="{{}}" keys="left right"
+                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+
   <div id="module-citylights">
     <div class="scene">
       <template if="{{santaApp}}">
@@ -188,6 +191,18 @@ City lights scene.
       this.mapsReady = true;
       if (this.showOnMapsReady) {
         this.onShow();
+      }
+    },
+
+    keyHandler: function(e, details, sender) {
+      e.stopPropagation();
+      switch (e.detail.key) {
+        case 'left':
+          this.scene.moveLeft();
+          break;
+        case 'right':
+          this.scene.moveRight();
+          break;
       }
     }
   });

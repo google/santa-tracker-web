@@ -7,8 +7,7 @@ goog.require('app.InputEvent');
 
 /**
  * Utility class for a Google Photo Sphere
- * @author david@14islands.com (David Lindkvist - 14islands.com)
- * @param {Element} div DOM element where to embed the sphere.
+ * @param {!Element} div DOM element where to embed the sphere.
  * @constructor
  */
 app.PhotoSphere = function(div) {
@@ -54,10 +53,8 @@ app.PhotoSphere.prototype = {
   },
 
   /**
-   * @public
-   * @param {String} id Photo sphere unique id to embed
-   * @param {Function} callback Called when Photo Sphere has been created
-   * @return {null}
+   * @param {string} id Photo sphere unique id to embed
+   * @param {function} callback Called when Photo Sphere has been created
    */
   load: function(id, pov, callback) {
     if (id === this.loadedId_) {
@@ -117,11 +114,11 @@ app.PhotoSphere.prototype = {
 
 /**
  * @public
- * @param {String} id Photo sphere unique id to get static image url for
- * @param {String} heading Heading for the image in the panorama (degrees)
- * @param {String} pitch Pitch for the image in the panorama (degrees)
- * @param {String} fov Field of view for image (degrees) OPTIONAL
- * @return {String} URL
+ * @param {string} id Photo sphere unique id to get static image url for
+ * @param {string} heading Heading for the image in the panorama (degrees)
+ * @param {string} pitch Pitch for the image in the panorama (degrees)
+ * @param {string} fov Field of view for image (degrees) OPTIONAL
+ * @return {string} URL
  */
 app.PhotoSphere.staticImageUrl = function(id, heading, pitch, fov) {
   var querystring = app.Constants.STATIC_QS.replace('[ID]', id);
