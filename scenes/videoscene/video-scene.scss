@@ -43,6 +43,13 @@ $name: 'module-video';
     .back {
       background-color: #ce2764;
       height: 45px;
+      visibility: hidden;
+    }
+
+    @media (min-width: 1025px) {
+      .back {
+        visibility: visible;
+      }
     }
 
     .scrubber {
