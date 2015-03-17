@@ -9,6 +9,7 @@ $name: 'module-postcard';
 @import "sass/foreground";
 @import "sass/message";
 @import "sass/share";
+@import "sass/buttons";
 
 ##{$name} {
   transform-origin: 0 0;
@@ -21,17 +22,6 @@ $name: 'module-postcard';
 
   .board.board--scene.board--scene .back {
     border-radius: none;
-  }
-
-  .board .sharebutton {
-    color: #fff;
-    font-family: 'Roboto', sans-serif;
-    font-size: 24px;
-    font-weight: 900;
-    line-height: 48px;
-    text-align: center;
-    width: 96px;
-    border: 0;
   }
 
   .plusInfo {

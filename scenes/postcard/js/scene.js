@@ -46,7 +46,7 @@ app.Scene = function(elem) {
   this.controls = new app.Controls(this);
   this.tutorial.start();
 
-  this.elem.find('.share-this').on('click touchend', this.showShareOverlay_.bind(this));
+  this.elem.find('#sharebutton').on('click touchend', this.showShareOverlay_.bind(this));
 };
 
 /**
