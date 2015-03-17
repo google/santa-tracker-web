@@ -7,7 +7,7 @@ goog.require('app.Viewport');
 
 /**
  * Main scene class.
- * @param {Element} el DOM element containing the scene.
+ * @param {!Element} el DOM element containing the scene.
  * @constructor
  * @export
  */
