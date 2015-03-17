@@ -9,8 +9,7 @@ goog.require('app.shared.Tutorial');
 
 /**
  * Main class for scene
- * @author david@14islands.com (David Lindkvist - 14islands.com)
- * @param {Element} div DOM element containing the scene.
+ * @param {!Element} div DOM element containing the scene.
  * @constructor
  * @export
  */
@@ -40,6 +39,9 @@ app.Scene = function(div) {
   this.onTouchStart_ = this.onTouchStart_.bind(this);
   this.onTouchMove_ = this.onTouchMove_.bind(this);
   this.onTouchEnd_ = this.onTouchEnd_.bind(this);
+
+  this.moveLeft = this.moveLeft.bind(this);
+  this.moveRight = this.moveRight.bind(this);
 
   this.tutorial_ = new app.shared.Tutorial(this.$el, 'touch-citylights', 'mouse-citylights');
   this.swiping = false;
@@ -111,6 +113,7 @@ app.Scene.prototype.onOpenSphere_ = function(e) {
 
 /**
  * @private
+ * @param {Event} e
  */
 app.Scene.prototype.onCloseSphere_ = function(e) {
   this.hideSphere_();
@@ -118,6 +121,7 @@ app.Scene.prototype.onCloseSphere_ = function(e) {
 
 /**
  * @private
+ * @param {Event} e
  */
 app.Scene.prototype.onTouchStart_ = function(e) {
   e = app.InputEvent.normalize(e);
@@ -130,6 +134,7 @@ app.Scene.prototype.onTouchStart_ = function(e) {
 
 /**
  * @private
+ * @param {Event} e
  */
 app.Scene.prototype.onTouchMove_ = function(e) {
   e.preventDefault();
@@ -161,8 +166,8 @@ app.Scene.prototype.onTouchEnd_ = function() {
  */
 app.Scene.prototype.addEventHandlers_ = function() {
   this.$hitAreas.on(app.InputEvent.START, this.onTouchStart_);
-  this.$btnPaginatePrevious.on(app.InputEvent.START, this.dashboard_.previous);
-  this.$btnPaginateNext.on(app.InputEvent.START, this.dashboard_.next);
+  this.$btnPaginatePrevious.on(app.InputEvent.START, this.moveLeft);
+  this.$btnPaginateNext.on(app.InputEvent.START, this.moveRight);
   this.$btnOpenSphere.on(app.InputEvent.END, this.onOpenSphere_);
   this.$btnCloseSphere.on(app.InputEvent.START, this.onCloseSphere_);
 };
@@ -172,8 +177,8 @@ app.Scene.prototype.addEventHandlers_ = function() {
  */
 app.Scene.prototype.removeEventHandlers_ = function() {
   this.$hitAreas.off(app.InputEvent.START, this.onTouchStart_);
-  this.$btnPaginatePrevious.off(app.InputEvent.START, this.dashboard_.previous);
-  this.$btnPaginateNext.off(app.InputEvent.START, this.dashboard_.next);
+  this.$btnPaginatePrevious.off(app.InputEvent.START, this.moveLeft);
+  this.$btnPaginateNext.off(app.InputEvent.START, this.moveRight);
   this.$btnOpenSphere.off(app.InputEvent.END, this.onOpenSphere_);
   this.$btnCloseSphere.off(app.InputEvent.START, this.onCloseSphere_);
 };
@@ -184,6 +189,20 @@ app.Scene.prototype.removeEventHandlers_ = function() {
 app.Scene.prototype.init_ = function() {
   this.dashboard_.load(this.onCarouselLoaded_);
   this.startTutorial_();
+};
+
+/**
+ * Move the carousel to the left.
+ */
+app.Scene.prototype.moveLeft = function() {
+  this.dashboard_.previous();
+};
+
+/**
+ * Move the carousel to the right.
+ */
+app.Scene.prototype.moveRight = function() {
+  this.dashboard_.next();
 };
 
 /**
