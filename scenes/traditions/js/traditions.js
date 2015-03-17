@@ -3,18 +3,18 @@
  */
 function Traditions(el, componentDir) {
   /**
-   * @private {Element}
+   * @private {!Element}
    */
   this.el_ = el;
   this.componentDir = componentDir;
 
   /**
-   * @private {string|null}
+   * @private {String}
    */
   this.currentId_ = null;
 
   /**
-   * @private {Object}
+   * @private {!Object}
    */
   this.markers_ = {};
 
@@ -57,13 +57,16 @@ Traditions.prototype.setup = function() {
   /**
    * @private {google.maps.LatLngBounds}
    */
-  this.markerBounds_ = new google.maps.LatLngBounds();
+  this.markerBounds_ = null;
 
   if (document.documentElement.lang.indexOf('en') == 0) {
     this.el_.querySelector('#lessons-popup').hidden = false;
   }
 };
 
+/**
+ * Show this scene. Must be paired with a later call to onHide.
+ */
 Traditions.prototype.onShow = function() {
   this.map_ = new google.maps.Map(this.el_.querySelector('#traditions-map'), {
     center: new google.maps.LatLng(0, 0),
@@ -78,6 +81,7 @@ Traditions.prototype.onShow = function() {
     styles: mapstyles.styles
   });
 
+  this.markerBounds_ = new google.maps.LatLngBounds()
   this.addCountryMarkers_();
 
   $(window).on('resize.traditions', this.handleResize_.bind(this));
@@ -102,7 +106,7 @@ Traditions.BIG_PIN_OFFSET_ = 107;
 Traditions.NUM_PINS_ = 10;
 
 /**
- * @private
+ * Display the previous country.
  */
 Traditions.prototype.prevCountry = function() {
   var active = $('.tradition-active', this.el_);
@@ -115,12 +119,12 @@ Traditions.prototype.prevCountry = function() {
     id = $('.traditions-tradition', this.el_).last().data('id');
   }
 
-  this.showCountry_(id);
+  this.show(id);
   return false;
 };
 
 /**
- * @private
+ * Display the next country.
  */
 Traditions.prototype.nextCountry = function() {
   var active = $('.tradition-active', this.el_);
@@ -133,28 +137,16 @@ Traditions.prototype.nextCountry = function() {
     id = $('.traditions-tradition', this.el_).first().data('id');
   }
 
-  this.showCountry_(id);
+  this.show(id);
   return false;
 };
 
 /**
- * @private
- */
-Traditions.prototype.showWorld = function() {
-  this.showDefault_();
-
-  //TODO(lukem): Add this back in when @ebidel fixes the routing
-  //window.location.replace('#traditions');
-  return false;
-};
-
-/**
+ * Add each supported country's marker to the map.
  * @private
  */
 Traditions.prototype.addCountryMarkers_ = function() {
-  var icon = this.SMALL_PIN_;
-
-  for (var i = 0; i < Traditions.COUNTRIES_.length; i++) {
+  Traditions.COUNTRIES_.forEach(function(country, i) {
     var offset = (i % Traditions.NUM_PINS_) * Traditions.SMALL_PIN_OFFSET_;
     var smallIcon = {
       anchor: this.SMALL_PIN_.anchor,
@@ -164,7 +156,6 @@ Traditions.prototype.addCountryMarkers_ = function() {
       origin: new google.maps.Point(offset, 0)
     };
 
-    var country = Traditions.COUNTRIES_[i];
     var marker = new google.maps.Marker({
       position: country.geometry.location,
       map: this.map_,
@@ -191,19 +182,9 @@ Traditions.prototype.addCountryMarkers_ = function() {
 
     google.maps.event.addListener(marker, 'click',
       this.showCountry_.bind(this, country.country_key));
-  }
+  }, this);
 
   this.map_.fitBounds(this.markerBounds_);
-};
-
-/**
- * @param {string} country
- * @private
- */
-Traditions.prototype.showCountry_ = function(country) {
-  //TODO(lukem): Add this back in when @ebidel fixes the routing
-  //window.location.replace('#traditions/' + country);
-  this.show(country);
 };
 
 /**
@@ -234,25 +215,28 @@ Traditions.prototype.verticalAlignText_ = function() {
 };
 
 /**
- * Resets the camera.
+ * Show the entire Earth and all countries (the default).
  */
-Traditions.prototype.showDefault_ = function() {
+Traditions.prototype.showWorld = function() {
   $('#tradition-img', this.el_).removeClass();
   if (this.currentId_) {
     var marker = this.markers_[this.currentId_].marker;
     marker.setIcon(this.markers_[this.currentId_].smallIcon);
-    this.getCountryEl(this.currentId_).removeClass('tradition-active');
+    this.getCountryEl_(this.currentId_).removeClass('tradition-active');
   }
 
   this.currentId_ = null;
   this.map_.fitBounds(this.markerBounds_);
 };
 
+/**
+ * Hides this scene.
+ */
 Traditions.prototype.onHide = function() {
   if (this.currentId_) {
     var marker = this.markers_[this.currentId_].marker;
     marker.setIcon(this.markers_[this.currentId_].smallIcon);
-    this.getCountryEl(this.currentId_).removeClass('tradition-active');
+    this.getCountryEl_(this.currentId_).removeClass('tradition-active');
   }
 
   $('#tradition-img', this.el_).removeClass();
@@ -263,30 +247,23 @@ Traditions.prototype.onHide = function() {
 };
 
 /**
- * Alternates between the world view and a country view.
- * @param {!Array.string|null} arguments
- */
-Traditions.prototype.onQueryChanged = function(args) {
-  this.show(args.country || null);
-};
-
-/**
+ * Switch to showing the specified country.
  * @param {string} id country code
  */
 Traditions.prototype.show = function(id) {
   if (id === this.currentId_) {
     return;
   }
-  var countryEl = this.getCountryEl(id);
+  var countryEl = this.getCountryEl_(id);
 
   if (this.currentId_) {
     var marker = this.markers_[this.currentId_].marker;
     marker.setIcon(this.markers_[this.currentId_].smallIcon);
-    this.getCountryEl(this.currentId_).removeClass('tradition-active');
+    this.getCountryEl_(this.currentId_).removeClass('tradition-active');
   }
 
   if (!id || !countryEl.length) {
-    this.showDefault_();
+    this.showWorld();
     return;
   }
 
@@ -305,8 +282,11 @@ Traditions.prototype.show = function(id) {
 };
 
 /**
- * Adds padding to the latlng bounds for each country.
- * @return {!google.maps.LatLng}
+ * Adds padding to a bounds for each country.
+ *
+ * @private
+ * @param {!google.maps.LatLngBounds} bounds to grow
+ * @return {!google.maps.LatLngBounds}
  */
 Traditions.prototype.padBounds_ = function(bounds) {
   var width = bounds.toSpan().lng();
@@ -318,15 +298,17 @@ Traditions.prototype.padBounds_ = function(bounds) {
 };
 
 /**
- * @return {jQuery}
+ * @private
+ * @param {string} id country to find
+ * @return {!jQuery} jQuery object containing country element
  */
-Traditions.prototype.getCountryEl = function(id) {
+Traditions.prototype.getCountryEl_ = function(id) {
   return $(this.el_).find('[data-id=' + id + ']');
 };
 
 /**
  * @private
- * @type {Array}
+ * @type {!Array.<!Object>}
  */
 Traditions.COUNTRIES_ = [{
     'country_key': 'us',
