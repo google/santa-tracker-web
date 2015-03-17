@@ -21,6 +21,22 @@ app.Scene = function(el) {
 
 
 /**
+ * Move the scene and viewport to the left.
+ */
+app.Scene.prototype.moveLeft = function() {
+  this.viewport.handlePaginate(1);
+};
+
+
+/**
+ * Move the scene and viewport to the right.
+ */
+app.Scene.prototype.moveRight = function() {
+  this.viewport.handlePaginate(-1);
+};
+
+
+/**
  * Clean up
  * @export
  */
