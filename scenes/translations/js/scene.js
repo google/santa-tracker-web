@@ -177,7 +177,7 @@ app.Scene.prototype.getButtonAnimation_ = function(topEl, shadowEl, opts) {
  * @param {Number} newIndex Phrase index to transition to
  */
 app.Scene.prototype.transitionToPhrase_ = function(newIndex) {
-  if (this.paginationPlayer_ && this.paginationPlayer_.playState != 'finished') {
+  if (!app.shared.utils.playerFinished(this.paginationPlayer_)) {
     return;
   }
 
@@ -298,7 +298,7 @@ app.Scene.prototype.onSelectToLanguage_ = function() {
  * @private
  */
 app.Scene.prototype.onPrevPhrase_ = function() {
-  if (this.prevAnimPlayer_ && this.prevAnimPlayer_.playState != 'finished') {
+  if (!app.shared.utils.playerFinished(this.prevAnimPlayer_)) {
     this.prevAnimPlayer_.currentTime = 0;
   }
 
@@ -315,7 +315,7 @@ app.Scene.prototype.onPrevPhrase_ = function() {
  * @private
  */
 app.Scene.prototype.onNextPhrase_ = function() {
-  if (this.nextAnimPlayer_ && this.nextAnimPlayer_.playState != 'finished') {
+  if (!app.shared.utils.playerFinished(this.nextAnimPlayer_)) {
     this.nextAnimPlayer_.currentTime = 0;
   }
 
@@ -332,7 +332,7 @@ app.Scene.prototype.onNextPhrase_ = function() {
  * @private
  */
 app.Scene.prototype.onShuffleLanguages_ = function() {
-  if (this.shufflePlayer_ && this.shufflePlayer_.playState != 'finished') {
+  if (!app.shared.utils.playerFinished(this.shufflePlayer_)) {
     this.shufflePlayer_.currentTime = 0;
   }
 
@@ -350,7 +350,7 @@ app.Scene.prototype.onShuffleLanguages_ = function() {
  * @private
  */
 app.Scene.prototype.onPlayPhrase_ = function() {
-  if (this.playAnimPlayer_ && this.playAnimPlayer_.playState != 'finished') {
+  if (!app.shared.utils.playerFinished(this.playAnimPlayer_)) {
     return;
   }
 

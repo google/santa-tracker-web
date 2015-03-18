@@ -176,6 +176,19 @@ var utils = app.shared.utils = (function() {
       } else {
         player.addEventListener('finish', fn, false);
       }
+    },
+
+    /**
+     * Determine whether a Web Animations player is finished. A null player
+     * is considered to be finished.
+     * @param {AnimationPlayer} player
+     * @return {boolean}
+     */
+    playerFinished: function(player) {
+      if (!player) {
+        return true;
+      }
+      return player.playState === 'finished' || player.finished === true;
     }
   };
 
