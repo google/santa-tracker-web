@@ -783,6 +783,12 @@ Polymer(Polymer.mixin({
    * @private
    */
   checkSchedule_: function() {
+    if (window.DEV) {
+      console.info('dev, unlocking all houses');
+      this.unlockAllHouses();
+      return;
+    }
+
     var todayDate = this.santaService.dateNow();
     var tomorrowDate = new Date(todayDate);
     tomorrowDate.setDate(todayDate.getDate() + 1);
