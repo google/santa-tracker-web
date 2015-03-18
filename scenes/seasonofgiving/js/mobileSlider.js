@@ -12,11 +12,13 @@ app.MobileSlider = function(el) {
   this.isExpanded = true;
   this.indicatorContainer = this.el.find('.crayon-size-indicator-container')[0];
   this.sizeContainer = this.el.find('.crayon-size-container')[0];
-  this.init();
-  app.GameManager.mobileSlider = this;
   this.lastItem = null;
   this.lastIndicator = null;
   this.expandOffset = 0;
+  this.animation = null;
+
+  this.init();
+  app.GameManager.mobileSlider = this;
 };
 
 /**
@@ -27,7 +29,8 @@ app.MobileSlider.prototype.expand = function() {
     return;
   }
 
-  this.sizeContainer.animate([
+  this.animation && this.animation.cancel();
+  this.animation = this.sizeContainer.animate([
       {transform: 'translate3d(0, 220px, 0)'},
       {transform: 'translate3d(0, ' + (this.expandOffset - 20) + 'px, 0)'},
       {transform: 'translate3d(0, ' + (this.expandOffset + 10) + 'px, 0)'},
@@ -52,7 +55,8 @@ app.MobileSlider.prototype.collapse = function(time) {
     return;
   }
 
-  this.sizeContainer.animate([
+  this.animation && this.animation.cancel();
+  this.animation = this.sizeContainer.animate([
       {transform: 'translate3d(0, ' + this.expandOffset + 'px, 0)'},
       {transform: 'translate3d(0, ' + (this.expandOffset - 20) + 'px, 0)'},
       {transform: 'translate3d(0, 220px, 0)'}

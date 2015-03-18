@@ -77,7 +77,7 @@ app.Dashboard.prototype = {
    * @param {number} direction Direction integer -1, 0, 1
    */
   transitionInDirection_: function(direction) {
-    if (this.paginationPlayer_ && !this.paginationPlayer_.finished) {
+    if (this.paginationPlayer_ && this.paginationPlayer_.playState != 'finished') {
       return;
     }
 

@@ -114,6 +114,9 @@ app.Ornament.prototype.show = function(delayTime) {
   this.ornament.css('opacity', 0);
   this.ornamentCopy.css('opacity', 0);
 
+  this.ornamentAnim && this.ornamentAnim.cancel();
+  this.ornamentCopyAnim && this.ornamentCopyAnim.cancel();
+
   var tempAnimProps;
   if ($(window).width() > 1024) {
     tempAnimProps = [
@@ -132,20 +135,6 @@ app.Ornament.prototype.show = function(delayTime) {
       {transform: 'translate3d(-50%, -100%, 0)', opacity: 1, offset: 1}
     ];
   }
-
-  this.ornament[0].animate([
-    {opacity: 0}
-  ], {
-    fill: 'forwards',
-    duration: 0
-  });
-
-  this.ornamentCopy[0].animate([
-    {opacity: 0}
-  ], {
-    fill: 'forwards',
-    duration: 0
-  });
 
   this.ornamentAnim = this.ornament[0].animate(tempAnimProps, {
     fill: 'forwards',

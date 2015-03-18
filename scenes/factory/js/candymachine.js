@@ -142,7 +142,7 @@ app.CandyMachine.prototype = {
    * Runs the eating candy animation.
    */
   run: function() {
-    if (this.player && !this.player.finished) {
+    if (this.player && this.player.playState != 'finished') {
       return;
     }
 

@@ -200,7 +200,7 @@ app.House.prototype = {
    * @private
    */
   makeSuprisedMouth_: function(surprisedDuration, surprisedDelay) {
-    if (this.mouthPlayer && !this.mouthPlayer.finished) {
+    if (this.mouthPlayer && this.mouthPlayer.playState != 'finished') {
       // keep surprised face while clicking fast on nose
       this.mouthPlayer.currentTime = surprisedDelay + app.Constants.SUPRISED_ANIMATION_DURATION;
       return;
@@ -236,7 +236,7 @@ app.House.prototype = {
    * @private
    */
   makeSuprisedEyes_: function(surprisedDuration, surprisedDelay) {
-    if (this.eyesPlayer && !this.eyesPlayer.finished) {
+    if (this.eyesPlayer && this.eyesPlayer.playState != 'finished') {
       // keep surprised face while clicking fast on nose
       this.eyesPlayer.currentTime = surprisedDelay + app.Constants.SUPRISED_ANIMATION_DURATION;
       return;
