@@ -381,7 +381,7 @@ gulp.task('copy-assets', ['rm-dist', 'vulcanize', 'i18n_index'], function() {
     'manifest.json',
     'audio/*',
     'images/*.{png,svg,jpg,gif,ico}',
-    'js/third_party/**',
+    'third_party/**',
     'sass/*.css',
     'scenes/**/img/**/*.{png,jpg,svg,gif,cur}',
     'elements/**/img/*.{png,jpg,svg,gif}',
