@@ -1,3 +1,19 @@
+/*
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 goog.provide('app.PhotoSphere');
 
 goog.require('app.Constants');
@@ -7,8 +23,7 @@ goog.require('app.InputEvent');
 
 /**
  * Utility class for a Google Photo Sphere
- * @author david@14islands.com (David Lindkvist - 14islands.com)
- * @param {Element} div DOM element where to embed the sphere.
+ * @param {!Element} div DOM element where to embed the sphere.
  * @constructor
  */
 app.PhotoSphere = function(div) {
@@ -54,10 +69,8 @@ app.PhotoSphere.prototype = {
   },
 
   /**
-   * @public
-   * @param {String} id Photo sphere unique id to embed
-   * @param {Function} callback Called when Photo Sphere has been created
-   * @return {null}
+   * @param {string} id Photo sphere unique id to embed
+   * @param {function} callback Called when Photo Sphere has been created
    */
   load: function(id, pov, callback) {
     if (id === this.loadedId_) {
@@ -117,11 +130,11 @@ app.PhotoSphere.prototype = {
 
 /**
  * @public
- * @param {String} id Photo sphere unique id to get static image url for
- * @param {String} heading Heading for the image in the panorama (degrees)
- * @param {String} pitch Pitch for the image in the panorama (degrees)
- * @param {String} fov Field of view for image (degrees) OPTIONAL
- * @return {String} URL
+ * @param {string} id Photo sphere unique id to get static image url for
+ * @param {string} heading Heading for the image in the panorama (degrees)
+ * @param {string} pitch Pitch for the image in the panorama (degrees)
+ * @param {string} fov Field of view for image (degrees) OPTIONAL
+ * @return {string} URL
  */
 app.PhotoSphere.staticImageUrl = function(id, heading, pitch, fov) {
   var querystring = app.Constants.STATIC_QS.replace('[ID]', id);

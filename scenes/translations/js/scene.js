@@ -1,3 +1,19 @@
+/*
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 goog.provide('app.Scene');
 
 goog.require('app.Constants');
@@ -177,7 +193,7 @@ app.Scene.prototype.getButtonAnimation_ = function(topEl, shadowEl, opts) {
  * @param {Number} newIndex Phrase index to transition to
  */
 app.Scene.prototype.transitionToPhrase_ = function(newIndex) {
-  if (this.paginationPlayer_ && !this.paginationPlayer_.finished) {
+  if (!app.shared.utils.playerFinished(this.paginationPlayer_)) {
     return;
   }
 
@@ -298,7 +314,7 @@ app.Scene.prototype.onSelectToLanguage_ = function() {
  * @private
  */
 app.Scene.prototype.onPrevPhrase_ = function() {
-  if (this.prevAnimPlayer_ && !this.prevAnimPlayer_.finished) {
+  if (!app.shared.utils.playerFinished(this.prevAnimPlayer_)) {
     this.prevAnimPlayer_.currentTime = 0;
   }
 
@@ -315,7 +331,7 @@ app.Scene.prototype.onPrevPhrase_ = function() {
  * @private
  */
 app.Scene.prototype.onNextPhrase_ = function() {
-  if (this.nextAnimPlayer_ && !this.nextAnimPlayer_.finished) {
+  if (!app.shared.utils.playerFinished(this.nextAnimPlayer_)) {
     this.nextAnimPlayer_.currentTime = 0;
   }
 
@@ -332,7 +348,7 @@ app.Scene.prototype.onNextPhrase_ = function() {
  * @private
  */
 app.Scene.prototype.onShuffleLanguages_ = function() {
-  if (this.shufflePlayer_ && !this.shufflePlayer_.finished) {
+  if (!app.shared.utils.playerFinished(this.shufflePlayer_)) {
     this.shufflePlayer_.currentTime = 0;
   }
 
@@ -350,7 +366,7 @@ app.Scene.prototype.onShuffleLanguages_ = function() {
  * @private
  */
 app.Scene.prototype.onPlayPhrase_ = function() {
-  if (this.playAnimPlayer_ && !this.playAnimPlayer_.finished) {
+  if (!app.shared.utils.playerFinished(this.playAnimPlayer_)) {
     return;
   }
 

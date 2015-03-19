@@ -1,3 +1,19 @@
+/*
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 goog.provide('app.House');
 
 goog.require('app.Constants');
@@ -200,7 +216,7 @@ app.House.prototype = {
    * @private
    */
   makeSuprisedMouth_: function(surprisedDuration, surprisedDelay) {
-    if (this.mouthPlayer && !this.mouthPlayer.finished) {
+    if (!app.shared.utils.playerFinished(this.mouthPlayer)) {
       // keep surprised face while clicking fast on nose
       this.mouthPlayer.currentTime = surprisedDelay + app.Constants.SUPRISED_ANIMATION_DURATION;
       return;
@@ -236,7 +252,7 @@ app.House.prototype = {
    * @private
    */
   makeSuprisedEyes_: function(surprisedDuration, surprisedDelay) {
-    if (this.eyesPlayer && !this.eyesPlayer.finished) {
+    if (!app.shared.utils.playerFinished(this.eyesPlayer)) {
       // keep surprised face while clicking fast on nose
       this.eyesPlayer.currentTime = surprisedDelay + app.Constants.SUPRISED_ANIMATION_DURATION;
       return;

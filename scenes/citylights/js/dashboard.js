@@ -1,14 +1,30 @@
+/*
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 goog.provide('app.Dashboard');
 
 goog.require('app.Constants');
 goog.require('app.PhotoSphere');
+goog.require('app.shared.utils');
 
 
 
 /**
  * Main class for the photo sphere dashboard carousel
- * @author david@14islands.com (David Lindkvist - 14islands.com)
- * @param {Element} div DOM element containing the carousel.
+ * @param {!Element} div DOM element containing the carousel.
  * @constructor
  */
 app.Dashboard = function(div) {
@@ -20,9 +36,6 @@ app.Dashboard = function(div) {
   this.loadTimer_ = undefined;
   this.paginationPlayer_ = undefined;
 
-  this.previous = this.previous.bind(this);
-  this.next = this.next.bind(this);
-  this.load = this.load.bind(this);
   this.getSphereAtPosition = this.getSphereAtPosition.bind(this);
 };
 
@@ -55,7 +68,7 @@ app.Dashboard.prototype = {
 
   /**
    * @private
-   * @return {Array}
+   * @return {!Array.<!Object>}
    */
   getKeyframesForOffset_: function(index, direction) {
     var from = 100 * index;
@@ -69,7 +82,7 @@ app.Dashboard.prototype = {
 
   /**
    * @private
-   * @return {HTMLElement}
+   * @return {!HTMLElement}
    */
   getElementAtOffset_: function(offset) {
     return this.$screens_.get(this.getOffsetIndex_(offset));
@@ -78,28 +91,30 @@ app.Dashboard.prototype = {
   /**
    * Used internally to run the carousel animation
    * @private
-   * @param {Number} direction Direction integer -1, 0, 1
+   * @param {number} direction Direction integer -1, 0, 1
    */
   transitionInDirection_: function(direction) {
-    if (this.paginationPlayer_ && !this.paginationPlayer_.finished) {
+    if (!app.shared.utils.playerFinished(this.paginationPlayer_)) {
       return;
     }
 
     var startOffset = direction < 0 ? -1 : 0;
     var animations = [];
+    var timing = {
+      duration: 850,
+      fill: 'both',
+      easing: app.Constants.EASE_IN_OUT_CIRC
+    };
 
     for (var i = 0; i < 4; i++) {
-      animations[i] = new Animation(
+      animations.push(new Animation(
           this.getElementAtOffset_(startOffset + i),
           this.getKeyframesForOffset_(startOffset + i, direction),
-          {
-            duration: 850,
-            fill: 'both',
-            easing: app.Constants.EASE_IN_OUT_CIRC
-          });
+          timing));
     }
 
     var animationGroup = new AnimationGroup(animations);
+    this.destroyPlayer_();
     this.paginationPlayer_ = document.timeline.play(animationGroup);
 
     this.currentIndex_ = this.getOffsetIndex_(direction);
@@ -108,9 +123,9 @@ app.Dashboard.prototype = {
   /**
    * Modulo operation with support for negative numbers
    * @private
-   * @param {Number} n Total available numbers
-   * @param {Number} m Number to wrap around
-   * @return {Number}
+   * @param {number} n Total available numbers
+   * @param {number} m Number to wrap around
+   * @return {number}
    */
   mod_: function(n, m) {
     return ((m % n) + n) % n;
@@ -119,8 +134,8 @@ app.Dashboard.prototype = {
   /**
    * Returns the item index at the specified offset from currentIndex_
    * @private
-   * @param {Number} offset Positive or negative number to offset curret index
-   * @return {Number}
+   * @param {number} offset Positive or negative number to offset curret index
+   * @return {number}
    */
   getOffsetIndex_: function(offset) {
     var newIndex = this.currentIndex_ + offset;
@@ -132,7 +147,7 @@ app.Dashboard.prototype = {
    */
   destroyPlayer_: function(player) {
     if (this.paginationPlayer_) {
-      this.paginationPlayer_.pause();
+      this.paginationPlayer_.cancel();
       this.paginationPlayer_.source = null;
       this.paginationPlayer_ = null;
     }
@@ -141,8 +156,8 @@ app.Dashboard.prototype = {
   /**
    * Return Sphere ID for the specified position
    * @public
-   * @param {String} position left, middle or right
-   * @return {String}
+   * @param {string} position left, middle or right
+   * @return {string}
    */
   getSphereAtPosition: function(position) {
     var positionOffset = app.Constants.POSITION_OFFSET[position];
@@ -180,19 +195,19 @@ app.Dashboard.prototype = {
   /**
    * Load the carousel
    * @public
-   * @param {Function} callback Called when carousel has finished loading
+   * @param {function} callback Called when carousel has finished loading
    */
   load: function(callback) {
     this.createItems_();
     this.transitionInDirection_(0);
-    this.loadTimer_ = setTimeout(callback, app.Constants.START_DELAY_MS);
+    this.loadTimer_ = window.setTimeout(callback, app.Constants.START_DELAY_MS);
   },
 
   /**
    * @public
    */
   destroy: function() {
-    clearTimeout(this.loadTimer_);
+    window.clearTimeout(this.loadTimer_);
     this.destroyPlayer_();
   }
 

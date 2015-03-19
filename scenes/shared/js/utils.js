@@ -1,3 +1,19 @@
+/*
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 goog.provide('app.shared.utils');
 
 var utils = app.shared.utils = (function() {
@@ -126,7 +142,7 @@ var utils = app.shared.utils = (function() {
      * Returns the computed transform values as a raw object containing x, y
      * and rotate values (in degrees).
      * @param {!Element} elem to examine
-     * @return {!Object} containing x, y, rotation
+     * @return {{x: number, y: number, rotate: number}}
      */
     computedTransform: function(elem) {
       var style = window.getComputedStyle(elem);
@@ -165,16 +181,30 @@ var utils = app.shared.utils = (function() {
     },
 
     /**
-     * Register listener for finish event on WebAnimations player
+     * Register listener for finish event on a Web Animation player.
      * @param {!AnimationPlayer} player The animation player object which will finish
      * @param {function} fn A callback function to execute when player finishes
      */
     onWebAnimationFinished: function(player, fn) {
-      if (player.finished) {
+      // don't run if .finished is a boolean; this was dropped after legacy
+      if (player.finished && player.finished !== true) {
         player.finished.then(fn);
       } else {
         player.addEventListener('finish', fn, false);
       }
+    },
+
+    /**
+     * Determine whether a Web Animations player is finished. A null player
+     * is considered to be finished.
+     * @param {AnimationPlayer} player
+     * @return {boolean}
+     */
+    playerFinished: function(player) {
+      if (!player) {
+        return true;
+      }
+      return player.playState === 'finished' || player.finished === true;
     }
   };
 
