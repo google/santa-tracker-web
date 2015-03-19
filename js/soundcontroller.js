@@ -74,7 +74,7 @@ SoundController.SoundDetail;
  * Klang script source URL.
  * @private {string}
  */
-SoundController.klangSrc_ = 'js/third_party/klang/klang.js';
+SoundController.klangSrc_ = 'third_party/lib/klang/klang.js';
 
 /**
  * Klang config file URL.
