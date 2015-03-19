@@ -2,6 +2,7 @@ goog.provide('app.Dashboard');
 
 goog.require('app.Constants');
 goog.require('app.PhotoSphere');
+goog.require('app.shared.utils');
 
 
 
@@ -77,7 +78,7 @@ app.Dashboard.prototype = {
    * @param {number} direction Direction integer -1, 0, 1
    */
   transitionInDirection_: function(direction) {
-    if (this.paginationPlayer_ && !this.paginationPlayer_.finished) {
+    if (!app.shared.utils.playerFinished(this.paginationPlayer_)) {
       return;
     }
 

@@ -30,10 +30,10 @@ app.Scene = function(div) {
   this.tetrisTruck = new app.TetrisTruck($truckEl, $cogEl);
   this.candyMachine = new app.CandyMachine(div);
 
-  this.init_();
-
   this.shootBall = this.shootBall.bind(this);
   this.dumpChocolate = this.dumpChocolate.bind(this);
+
+  this.init_();
 };
 
 /**
