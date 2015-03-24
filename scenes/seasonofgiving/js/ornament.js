@@ -21,8 +21,8 @@ goog.provide('app.Ornament');
 /**
  * Class for Ornament game
  * @constructor
- * @param {String} selector String selector for DOM element
- * @param {Element} elem The DOM element which wraps the game.
+ * @param {string} selector String selector for DOM element
+ * @param {!Element} elem The DOM element which wraps the game.
  */
 app.Ornament = function(selector, elem) {
   this.elem = elem;
@@ -79,7 +79,6 @@ app.Ornament = function(selector, elem) {
  * Init
  */
 app.Ornament.prototype.init = function() {
-  var self = this;
   this.addEventListeners();
   this.resize();
 };
@@ -102,18 +101,17 @@ app.Ornament.prototype.addEventListeners = function() {
 
 /**
  * Show ornament
- * @param {num} delayTime time delay to animate ornament in
+ * @param {number} delayTime time delay to animate ornament in
  */
 app.Ornament.prototype.show = function(delayTime) {
-  var self = this;
   var delayTime_ = delayTime || 0;
 
   this.isActive = true;
-  clearTimeout(self.wrapperDelay);
-  this.wrapperDelay = setTimeout(function() {
-    self.ornamentWrapper.addClass('active');
+  window.clearTimeout(this.wrapperDelay);
+  this.wrapperDelay = window.setTimeout(function() {
+    this.ornamentWrapper.addClass('active');
     app.GameManager.navigation.handleResize();
-  }, delayTime * .5);
+  }.bind(this), delayTime * .5);
 
   if (delayTime_ < 2) {
     this.ornamentWrapper.css('transition-delay', '0s');
@@ -182,23 +180,23 @@ app.Ornament.prototype.hide = function() {
 
 /**
  * Cap numbers in a range
- * @param {Number} num Current value
- * @param {Number} min Minimum value
- * @param {Number} max Maximum value
- * @return {Number} Value between min and max
+ * @param {number} num Current value
+ * @param {number} min Minimum value
+ * @param {number} max Maximum value
+ * @return {number} Value between min and max
  */
 app.Ornament.prototype.clamp = function(num, min, max) {
-    return num < min ? min : (num > max ? max : num);
+  return num < min ? min : (num > max ? max : num);
 };
 
 /**
  * Returns a relative num based on a range
- * @param {Number} value Current value
- * @param {Number} minA Minimum A value
- * @param {Number} maxA Maximum A value
- * @param {Number} minB Minimum B value
- * @param {Number} maxB Maximum B value
- * @return {Number} Relative value
+ * @param {number} value Current value
+ * @param {number} minA Minimum A value
+ * @param {number} maxA Maximum A value
+ * @param {number} minB Minimum B value
+ * @param {number} maxB Maximum B value
+ * @return {number} Relative value
  */
 app.Ornament.prototype.relativeValue = function(value, minA, maxA, minB, maxB) {
   var rangeA = maxA - minA;
@@ -210,10 +208,9 @@ app.Ornament.prototype.relativeValue = function(value, minA, maxA, minB, maxB) {
 
 /**
  * Resize + redraw ornament
- * @param  {Event} event resize event
+ * @param {Event} event resize event
  */
 app.Ornament.prototype.resize = function(event) {
-  var self = this;
   var rv = 0;
 
   if ($(window).width() > 1024) {
@@ -254,7 +251,7 @@ app.Ornament.prototype.resize = function(event) {
 
   var img = new Image();
   img.onload = function() {
-      ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
   };
   img.src = data;
 
@@ -294,13 +291,11 @@ app.Ornament.prototype.globalMouseUp = function() {
   } else {
     Klang.triggerEvent('spirit_crayon_end');
   }
-
-  clearInterval(this.colorInterval);
 };
 
 /**
  * Mouse down handler
- * @param  {MouseEvent} event ...
+ * @param {MouseEvent} event ...
  */
 app.Ornament.prototype.mouseDown = function(event) {
   if (!app.GameManager.tool || !this.isActive) {
@@ -353,7 +348,7 @@ app.Ornament.prototype.mouseDown = function(event) {
 
 /**
  * Mouse move handler
- * @param  {MouseEvent} event ...
+ * @param {MouseEvent} event ...
  */
 app.Ornament.prototype.mouseMove = function(event) {
   if (!this.isDrawing || !this.isActive) {
@@ -430,9 +425,9 @@ app.Ornament.prototype.reset = function() {
 
 /**
  * Distance between 2 points
- * @param {Object} point1 Start point
- * @param {Object} point2 End point
- * @return {Number} Returns distance between 2 points
+ * @param {{x: number, y: number}} point1 Start point
+ * @param {{x: number, y: number}} point2 End point
+ * @return {number} Returns distance between 2 points
  */
 app.Ornament.prototype.distanceBetween = function(point1, point2) {
   return Math.sqrt(Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2));
@@ -440,9 +435,9 @@ app.Ornament.prototype.distanceBetween = function(point1, point2) {
 
 /**
  * Angle between 2 points
- * @param {Object} point1 Start point
- * @param {Object} point2 End point
- * @return {Number} Returns angle of 2 points
+ * @param {{x: number, y: number}} point1 Start point
+ * @param {{x: number, y: number}} point2 End point
+ * @return {number} Returns angle of 2 points
  */
 app.Ornament.prototype.angleBetween = function(point1, point2) {
   return Math.atan2(point2.x - point1.x, point2.y - point1.y);

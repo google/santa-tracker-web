@@ -22,10 +22,10 @@ goog.provide('app.Tools');
 /**
  * Tool wrapper
  * @constructor
- * @param  {Element} name element of wrapper
+ * @param {jQuery} el element of wrapper
  */
-app.ToolWrapper = function(name) {
-  this.el = $(name);
+app.ToolWrapper = function(el) {
+  this.el = el;
 };
 
 /**
@@ -66,9 +66,9 @@ app.ToolWrapper.prototype.expand = function() {
 /**
  * Button
  * @constructor
- * @param {String} name Name of element
- * @param {String} el Context scope
- * @return {Element} Button element
+ * @param {string} name Name of element
+ * @param {string} el Context scope
+ * @return {!Element} Button element
  */
 app.Button = function(name, el) {
   this.el = el.find('.Button-' + name);
@@ -79,9 +79,8 @@ app.Button = function(name, el) {
  * Base tool item
  * @constructor
  * @extends {app.GameObject}
- * @param {app.Game} game The game object.
- * @param {string} name The name of the tool.
- * Element should have class Tool-name.
+ * @param {!app.Game} game The game object.
+ * @param {string} name The name of the tool. Element should have class Tool-name.
  * @param {{x: number, y: number}} mouseOffset Mouse interaction offset
  */
 app.Tool = function(game, name, mouseOffset) {
@@ -133,7 +132,7 @@ app.Tool.prototype.select = function() {
 
 /**
  * Bounce to animation
- * @param  {Number} value 0.1-1.0 scale to bounce to
+ * @param {number} value 0.1-1.0 scale to bounce to
  */
 app.Tool.prototype.bounceTo = function(value) {
   var bounce = [
@@ -176,8 +175,7 @@ app.Tool.prototype.deselect = function() {
 };
 
 /**
- * [move description]
- * @param  {[type]} mouse [description]
+ * @param {!app.Mouse} mouse
  */
 app.Tool.prototype.move = function(mouse) {
   var offsetX = this.mouseOffset.x;
@@ -201,9 +199,9 @@ app.Tool.prototype.resize = function() {
 /**
  * Tool
  * @constructor
- * @param {app.Game} game The game object.
- * @param {Element} elem DOM Element for Tool
- * @param {Object} exporter Exported object for print and download
+ * @param {!app.Game} game The game object.
+ * @param {!Element} elem DOM Element for Tool
+ * @param {!Object} exporter Exported object for print and download
  */
 app.Tools = function(game, elem, exporter) {
   app.Tool.prototype.elem = elem;
@@ -320,7 +318,7 @@ app.Tools.prototype.start = function() {
 
 /**
  * @extends {app.GameObject.mouseChanged}
- * @param {app.Mouse} mouse
+ * @param {!app.Mouse} mouse
  */
 app.Tools.prototype.mouseChanged = function(mouse) {
   if (this.selectedTool) {
