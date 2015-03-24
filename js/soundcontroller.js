@@ -74,13 +74,13 @@ SoundController.SoundDetail;
  * Klang script source URL.
  * @private {string}
  */
-SoundController.klangSrc_ = 'third_party/lib/klang/klang.js';
+SoundController.klangSrc_ = 'third_party/lib/klang/klang.min.js';
 
 /**
  * Klang config file URL.
  * @private {string}
  */
-SoundController.klangConfigSrc_ = 'js/third_party/klang/config.json';
+SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.json';
 
 /**
  * Loads the Klang config file; called onload of the Klang library.

@@ -22,7 +22,7 @@ goog.require('goog.ui.Slider');
 
 /**
  * Custom Slider for stroke size in the tools
- * @param {Element} elem The DOM element which wraps the game.
+ * @param {!Element} elem The DOM element which wraps the slider.
  * @constructor
  */
 app.CustomSlider = function(elem) {
@@ -54,7 +54,7 @@ app.CustomSlider.prototype.addEventListeners = function() {
 
 /**
  * Slider handler
- * @param  {ChangeEvent} event
+ * @param {Event} event
  */
 app.CustomSlider.prototype.sliderChange = function(event) {
   this.updateValueTo(this.sizeSlider.getValue());
@@ -67,7 +67,7 @@ app.CustomSlider.prototype.sliderChange = function(event) {
 
 /**
  * Update slide value
- * @param {Number} value stroke value
+ * @param {number} value stroke value
  */
 app.CustomSlider.prototype.updateValueTo = function(value) {
   var max = this.sizeSlider.getMaximum();

@@ -21,8 +21,8 @@ goog.provide('app.OrnamentGallery');
 /**
  * Ornament Gallery selection menu
  * @constructor
- * @param {Selector} el Base for gallery
- * @param {Element} context The DOM element which wraps the game
+ * @param {!Element} el Base for gallery
+ * @param {!Element} context The DOM element which wraps the game
  */
 app.OrnamentGallery = function(el, context) {
   this.isVisible = true;
@@ -82,18 +82,17 @@ app.OrnamentGallery = function(el, context) {
 };
 
 /**
- * Ornament Gallery
- * @constructor
+ * Initialize Ornament Gallery.
  */
 app.OrnamentGallery.prototype.init = function() {
-  var self = this;
+  var handler = this.handleSelectItem.bind(this);
   this.items.each(function() {
-    $(this).on('touchstart click', self.handleSelectItem.bind(self));
+    $(this).on('touchstart click', handler);
   });
 
   $(window).on('resize.seasonofgiving', this.handleResize.bind(this));
   this.handleResize();
-  setTimeout(this.transitionIn.bind(this), 1000);
+  window.setTimeout(this.transitionIn.bind(this), 1000);
 };
 
 /**
@@ -107,7 +106,7 @@ app.OrnamentGallery.prototype.handleResize = function() {
 
 /**
  * Item selection handler
- * @param {Event} event Event for select handler
+ * @param {!Event} event Event for select handler
  */
 app.OrnamentGallery.prototype.handleSelectItem = function(event) {
   // unwrap for when in the shadowdom polyfill
@@ -167,10 +166,9 @@ app.OrnamentGallery.prototype.show = function() {
 };
 
 /**
- * Transition In selection menu
- * @param  {Event} event ...
+ * Transition in selection menu
  */
-app.OrnamentGallery.prototype.transitionIn = function(event) {
+app.OrnamentGallery.prototype.transitionIn = function() {
   var animations = [];
 
   for (var i = 0; i < this.items.length; i++) {
@@ -191,9 +189,8 @@ app.OrnamentGallery.prototype.transitionIn = function(event) {
 
 /**
  * Transition Out selection menu
- * @param  {Event} event ...
  */
-app.OrnamentGallery.prototype.transitionOut = function(event) {
+app.OrnamentGallery.prototype.transitionOut = function() {
   var animations = [];
 
   for (var i = this.items.length - 1; i >= 0; i--) {
@@ -214,9 +211,9 @@ app.OrnamentGallery.prototype.transitionOut = function(event) {
 
 /**
  * Scale prop
- * @param {Number} to start num
- * @param {Number} end finish num
- * @return {String} returns string for scale animation
+ * @param {number} to start num
+ * @param {number} end finish num
+ * @return {string} returns string for scale animation
  */
 app.OrnamentGallery.prototype.animScale = function(to, end) {
   return 'scale3d(' + (to * end) + ',' + (to * end) + ',' + (to * end) + ')';
