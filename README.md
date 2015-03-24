@@ -9,12 +9,19 @@ You'll need node installed, then bower (`npm install -g bower`) and compass >=1.
 
 # Setup
 
-Clone project, then:
+Clone project, then from within the repo:
 
-`bower install`
+```bash
+$ bower install
+$ npm install
+```
 
-`npm install`
+## Development
 
-Finally, use `gulp --pretty` to build. Alternatively, you can rebuild just the scenes with `gulp compile-scenes`.
+Build with `gulp`. Alternatively, you can rebuild just the scenes with `gulp compile-scenes`, or the CSS with `gulp compass`.
 
-The raw site can be served from the root directory, or the built version can be served out of `./dist_pretty`.
+The raw site can now be served from the root directory.
+
+## Release
+
+Use `gulp --pretty` to build. This performs additional steps such as vulcanizing code and internationalization. Serve from `./dist_pretty`.
