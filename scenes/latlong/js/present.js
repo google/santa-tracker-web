@@ -15,8 +15,9 @@
  */
 
 goog.provide('app.Present');
-goog.require('app.shared.pools');
 
+goog.require('app.shared.pools');
+goog.require('app.shared.utils');
 
 
 app.Present = function(options) {
@@ -48,11 +49,9 @@ app.Present = function(options) {
   this.right = 0;
   this.velocityX = 0;
 
-  // Reused AnimationPlayer for elf animation.
-  this.player = document.timeline.play();
-  // Make sure there is no finish event for this initial state.
-  this.player.pause();
-  this.player.addEventListener('finish', this.onFinishDelivery_.bind(this), false);
+  // Create dummy AnimationPlayer.
+  var dummy = new Animation(document.body, [], 0);
+  this.player = document.timeline.play(dummy);
 };
 
 pools.mixin(app.Present, {fixed: true});
@@ -82,7 +81,7 @@ app.Present.prototype.onDispose = function() {
       find('.Elf').
         remove();
 
-  this.player.source = null;
+  this.player.cancel();
 };
 
 
@@ -147,9 +146,9 @@ app.Present.prototype.deliver = function(marker, deliverCallback) {
   this.el.css('transform-origin', point.x + 'px ' + point.y + 'px');
 
   marker.addClass('Grid-marker--correct');
-  this.player.source = animationSequence;
-  this.player.currentTime = 0;
-  this.player.play();
+  this.player.cancel();
+  this.player = document.timeline.play(animationSequence);
+  app.shared.utils.onWebAnimationFinished(this.player, this.onFinishDelivery_.bind(this));
   this.delivering = true;
   this.deliverMarker = marker;
   this.deliverCallback = deliverCallback;
