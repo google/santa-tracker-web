@@ -145,10 +145,9 @@ app.Dashboard.prototype = {
   /**
    * @private
    */
-  destroyPlayer_: function(player) {
+  destroyPlayer_: function() {
     if (this.paginationPlayer_) {
       this.paginationPlayer_.cancel();
-      this.paginationPlayer_.source = null;
       this.paginationPlayer_ = null;
     }
   },

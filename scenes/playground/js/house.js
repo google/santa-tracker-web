@@ -308,7 +308,7 @@ app.House.prototype = {
 
     this.eyesPlayer = document.timeline.play(anim);
 
-    this.eyesPlayer.addEventListener('finish', function() {
+    app.shared.utils.onWebAnimationFinished(this.eyesPlayer, function() {
       // Unlock the surprised flag so the eyes cal follow the mouse
       this.isBusyBeingSurprised = false;
     }.bind(this));

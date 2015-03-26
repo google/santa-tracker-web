@@ -175,9 +175,7 @@ app.TetrisTruck.prototype = {
    */
   destroyPlayer_: function() {
     if (this.player) {
-      this.player.pause();
-      this.player.removeEventListener('finish', this.run_, false);
-      this.player.source = null;
+      this.player.cancel();
       this.player = null;
     }
   },

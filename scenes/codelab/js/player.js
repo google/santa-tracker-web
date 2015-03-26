@@ -113,7 +113,7 @@ app.Player.prototype = {
       app.PlayerSound.lost(),
       new Animation(this.lostEl, [
         {opacity: 0, transform: 'scale(0.5)'},
-        {offset: 0.3, opacity: 1, transform: 'scale(1)'},
+        {opacity: 1, transform: 'scale(1)', offset: 0.3},
         {opacity: 1, transform: 'scale(1)'}
       ], {duration: 800, fill: 'forwards'})
     ], {fill: 'forwards'});
@@ -167,17 +167,19 @@ app.Player.prototype = {
   pickUp: function(present) {
     return new AnimationGroup([
       app.PlayerSound.stop(),
-      new Animation(present.el, [{opacity: 0}], {fill: 'forwards'}),
-      new Animation(this.victoryEl, [{opacity: 1}], {fill: 'forwards'}),
-      new Animation(this.spriteEl, [{opacity: 1}], {fill: 'forwards'})
+      new Animation(present.el, [{opacity: 1}, {opacity: 0}], {fill: 'forwards'}),
+      new Animation(this.victoryEl, [{opacity: 0}, {opacity: 1}], {fill: 'forwards'}),
+      new Animation(this.spriteEl, [{opacity: 0}, {opacity: 1}], {fill: 'forwards'})
     ], {duration: 800, fill: 'forwards'});
   },
 
   walkAnimation_: function() {
+    // TODO(samthor): This is disabled for now, as the Infinity iterations
+    // caused the animation never to end.
     return new Animation(this.spriteEl, [
       {transform: 'translateZ(0) translate(0, 0em)'},
       {transform: 'translateZ(0) translate(0, -52.8em)'}
-    ], {duration: app.Player.MOVE_DURATION, easing: 'steps(8, end)', iterations: Infinity});
+    ], {duration: app.Player.MOVE_DURATION, easing: 'steps(8, end)', iterations: 0});
   },
 
   getTranslation_: function(x, y) {

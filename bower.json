@@ -39,7 +39,8 @@
     "google-streetview-pano": "GoogleWebComponents/google-streetview-pano#0b05f32ebef99d633c1c5e8d779f1271747ac60e",
     "closure-compiler": "https://dl.google.com/closure-compiler/compiler-latest.zip",
     "closure-library": "google/closure-library#5fbc334ce7f86018da9fb5e673d2518143aa999e",
-    "paper-item": "Polymer/paper-item#^0.5.2"
+    "paper-item": "Polymer/paper-item#^0.5.2",
+    "web-animations-js": "web-animations/web-animations-js#^1.0.7"
   },
   "resolutions": {
     "polymer": "^0.5.2",
