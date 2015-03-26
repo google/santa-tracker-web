@@ -65,7 +65,8 @@ app.Scene = function(el, game, blockly) {
   this.buttonEl_ = el.querySelector('.scene__play');
 
   // Portrait draggability
-  this.dragPlayer_ = document.timeline.play();
+  var dummy = new Animation(document.body, [], 0);
+  this.dragPlayer_ = document.timeline.play(dummy);
   this.dragStartTime_ = null;
   this.dragStartX_ = null;
   this.dragLastX_ = null;
@@ -312,7 +313,7 @@ app.Scene.prototype.animateLevelTransition_ = function(oldProgress) {
     {transform: this.getWorldTransform_(oldProgress)},
     {transform: this.getWorldTransform_(this.tileProgress_)}
   ], {duration: 800, easing: 'ease-in-out'});
-  player.addEventListener('finish', this.cleanWorld_);
+  app.shared.utils.onWebAnimationFinished(player, this.cleanWorld_);
 };
 
 /**
@@ -376,7 +377,7 @@ app.Scene.prototype.calculateViewport_ = function() {
  */
 app.Scene.prototype.configPortraitDraggability_ = function() {
   if (this.portraitMode_) {
-    this.dragPlayer_.source = new AnimationGroup([
+    this.dragPlayer_ = document.timeline.play(new AnimationGroup([
       new Animation(this.el_, [
         {transform: 'translate3d(0, 0, 0)'},
         {transform: 'translate3d(' + (this.width_ - app.Constants.EDGE_MIN_WIDTH) + 'px, 0, 0)'}
@@ -386,10 +387,10 @@ app.Scene.prototype.configPortraitDraggability_ = function() {
         {opacity: 0, visibility: 'visible', offset: 0.95},
         {opacity: 0, visibility: 'hidden'}
       ], {duration: app.Constants.SCENE_TOGGLE_DURATION, fill: 'forwards'})
-    ], {fill: 'forwards'});
+    ], {fill: 'forwards'}));
     this.dragPlayer_.pause();
   } else if (this.dragPlayer_) {
-    this.dragPlayer_.source = null;
+    this.dragPlayer_.cancel();
   }
 };
 
