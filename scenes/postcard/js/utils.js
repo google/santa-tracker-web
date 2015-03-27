@@ -38,13 +38,13 @@ app.utils = {
       context = this;
       args = arguments;
       if (remaining <= 0 || remaining > wait) {
-        clearTimeout(timeout);
+        window.clearTimeout(timeout);
         timeout = null;
         previous = now;
         result = func.apply(context, args);
         if (!timeout) context = args = null;
       } else if (!timeout) {
-        timeout = setTimeout(later, remaining);
+        timeout = window.setTimeout(later, remaining);
       }
       return result;
     };

@@ -1,0 +1,20 @@
+##{$name} {
+  .Buttons {
+    bottom: 20px;
+    right: 0px;
+    display: flex;
+    position: absolute;
+    z-index: 1;
+  }
+
+  @media (min-width: 661px) {
+    .Buttons {
+      right: 42px;
+      bottom: 14px;
+    }
+  }
+
+  .Button {
+    margin-right: 15px;
+  }
+}

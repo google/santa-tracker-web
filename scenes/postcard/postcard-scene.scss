@@ -9,6 +9,7 @@ $name: 'module-postcard';
 @import "sass/foreground";
 @import "sass/message";
 @import "sass/share";
+@import "sass/buttons";
 
 ##{$name} {
   transform-origin: 0 0;
@@ -18,6 +19,10 @@ $name: 'module-postcard';
   position: absolute;
   right: 0;
   top: 0;
+
+  .board.board--scene.board--scene .back {
+    border-radius: none;
+  }
 
   .plusInfo {
     display: none;

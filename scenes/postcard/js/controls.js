@@ -20,8 +20,8 @@ goog.require('app.Constants');
 goog.require('app.utils');
 
 /**
- * Handles user input for controlling the game.
- * @param {Scene} scene The scene object.
+ * Handles user input for controlling the postcard share scene.
+ * @param {!Scene} scene The scene object.
  * @constructor
  */
 app.Controls = function(scene) {
@@ -34,22 +34,24 @@ app.Controls = function(scene) {
   this.keys = {};
   this.start = { x: 0, y: 0 };
 
-  this.onKeydown = app.utils.throttle(this.onKeydown.bind(this), 500);
+  this.onKeyDown_ = app.utils.throttle(this.onKeyDown_.bind(this), 500);
 
   // Let's bind our events.
-  $(window).on('keydown.sendamessage', this.onKeydown);
+  $(window).on('keydown.sendamessage', this.onKeyDown_);
   this.scene.elem.on('touchstart.sendamessage', this.handleTouchStart_.bind(this));
   this.scene.elem.on('touchend.sendamessage', this.handleTouchEnd_.bind(this));
 };
 
 /**
  * Handles the key down event.
+ * @private
  * @param {Event} e The event object.
  */
-app.Controls.prototype.onKeydown = function(e) {
+app.Controls.prototype.onKeyDown_ = function(e) {
   var key;
-  if (e.keyCode in app.Controls.KEY_CODES_)
+  if (e.keyCode in app.Controls.KEY_CODES_) {
     key = app.Controls.KEY_CODES_[e.keyCode];
+  }
 
   switch (key) {
     case 'left':
@@ -92,7 +94,7 @@ app.Controls.KEY_CODES_ = {
 
 /**
  * Hande start of touch, save position for later.
- * @param {Event} event The jQuery touch event.
+ * @param {Event} event The touch event.
  * @private
  */
 app.Controls.prototype.handleTouchStart_ = function(event) {

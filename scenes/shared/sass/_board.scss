@@ -42,11 +42,6 @@ $board-actions-height-md: 54px;
     background: board-color($color, $board-dark-text);
   }
 
-  .board-button {
-    background: board-color($color, $board-dark-bg);
-    outline: none;
-  }
-
   // Tablet UI
   @media (min-width: 661px) {
     .level {
@@ -310,13 +305,6 @@ $board-actions-height-md: 54px;
       padding-right: 3px;
     }
 
-    .board-button {
-      border-radius: 22px 0 0 22px;
-      height: 44px;
-      line-height: 44px;
-      width: 140px;
-    }
-
     // Tablet UI
     @media (min-width: 661px) {
       transform: none;
@@ -364,18 +352,6 @@ $board-actions-height-md: 54px;
         display: inline-block;
         height: 54px;
         width: 100px;
-      }
-
-      .board-button {
-        border: 0;
-        border-radius: 0 0 4px 4px;
-        color: #fff;
-        font-size: 18px;
-        font-weight: 700;
-        height: 52px;
-        line-height: 52px;
-        text-align: center;
-        width: 204px;
       }
     }
 
