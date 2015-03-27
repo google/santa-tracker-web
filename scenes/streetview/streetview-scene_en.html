@@ -27,6 +27,9 @@ Streetview scene.
 <template>
   <link rel="stylesheet" href="streetview-scene.css" no-shim>
 
+  <core-a11y-keys target="{{}}" keys="left right"
+                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+
   <div id="module-streetview">
     <div class="scene">
       <div class="anchor">
@@ -170,6 +173,19 @@ Streetview scene.
       this.scene.destroy();
       this.scene = null;
       this.fire('sound-ambient', 'streetview_end');
+    },
+
+    keyHandler: function(e, details, sender) {
+      e.stopPropagation();
+
+      switch (e.detail.key) {
+        case 'left':
+          this.scene.moveLeft();
+          break;
+        case 'right':
+          this.scene.moveRight();
+          break;
+      }
     }
   });
 </script>
