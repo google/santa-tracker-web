@@ -23,7 +23,7 @@ goog.require('app.shared.Gameover');
 /**
  * IFrame proxy class.
  * Handles all the postMessage communication.
- * @param {Element} el DOM element containing the scene.
+ * @param {!Element} el DOM element containing the scene.
  * @param {string} staticDir where the scene's frame can be found.
  * @constructor
  * @export
@@ -119,7 +119,7 @@ app.wrapper.FrameWrapper.prototype.iframeFocusChange = function(state) {
 
 /**
  * Updates the level in the scoreboard.
- * @param {number} level - which level is it.
+ * @param {number} level which level is it.
  */
 app.wrapper.FrameWrapper.prototype.setLevel = function(level) {
   this.level_ = level;

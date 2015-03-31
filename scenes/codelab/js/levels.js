@@ -23,7 +23,7 @@ goog.require('app.blocks');
 
 /**
  * Array of levels.
- * @type {Array}
+ * @type {!Array.<!app.PuzzleLevel>}
  */
 app.levels = [];
 

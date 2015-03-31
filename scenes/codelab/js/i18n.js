@@ -18,12 +18,10 @@ goog.provide('app.I18n');
 
 /**
  * A simple cache of translations.
- * @type {Object.<string>}
+ * @type {Object<string>}
  * @private
  */
 app.I18n.CACHE_ = {};
-
-app.I18n.COUNT = 0;
 
 /**
  * Gets the message with the given key from the document.
@@ -49,10 +47,8 @@ app.I18n.getMsgOrNull = function(key) {
       var text = element.textContent;
       // Convert newline sequences.
       text = text.replace(/\\n/g, '\n');
+      app.I18n.CACHE_[key] = text;
       return text;
-      //app.I18n.CACHE_[key] = text;
-    } else {
-      app.I18n.CACHE_[key] = null;
     }
   }
   return app.I18n.CACHE_[key];

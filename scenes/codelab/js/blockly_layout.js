@@ -18,8 +18,8 @@ goog.provide('app.BlocklyLayout');
 
 /**
  * Handles smart layouting of blockly elements.
- * @param {app.Blockly} blockly instance.
- * @param {app.Game} game instance.
+ * @param {!app.Blockly} blockly instance.
+ * @param {!app.Game} game instance.
  * @constructor
  */
 app.BlocklyLayout = function(blockly, game) {
@@ -154,7 +154,7 @@ app.BlocklyLayout.prototype.layoutToolbox = function(blocks) {
 
 /**
  * Lays out blocks in a fairly tight row, for mobile and tablet.
- * @param {Array.<Blockly.Block>} blocks contained in the toolbar.
+ * @param {!Array.<!Blockly.Block>} blocks contained in the toolbar.
  * @return {number} the new width of the toolbar.
  * @private
  */

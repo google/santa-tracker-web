@@ -187,8 +187,8 @@ app.MazeLevel.prototype.isOutsideBounds = function(x, y) {
 /**
  * Validates a blockly execution and returns a smart hint to user.
  * @param {boolean} levelComplete if code successfully finished level.
- * @param {app.Blockly} blockly wrapper.
- * @return {app.LevelResult} a user friendly level result.
+ * @param {!app.Blockly} blockly wrapper.
+ * @return {!app.LevelResult} a user friendly level result.
  */
 app.MazeLevel.prototype.processResult = function(levelComplete, blockly) {
   var message;

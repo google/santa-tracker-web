@@ -141,7 +141,7 @@ app.Map.prototype.getTile = function(x, y) {
 
 /**
  * Store the end bound of each level to make it easy to tweak the map.
- * @type {Array}
+ * @type {!Array.<number>}
  */
 app.Map.LEVEL_BOUNDS = [];
 app.Map.LEVEL_BOUNDS.unshift(1);

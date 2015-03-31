@@ -18,7 +18,7 @@ goog.provide('app.SceneTutorial');
 
 /**
  * Manages the display of a tutorial animation for the game.
- * @param {Element} el the .tutorial element.
+ * @param {!Element} el the .tutorial element.
  * @constructor
  */
 app.SceneTutorial = function(el) {
@@ -27,11 +27,26 @@ app.SceneTutorial = function(el) {
   this.visible_ = false;
   this.scheduleTimeout_ = null;
 
-  this.el.addEventListener('click', this.onClick_.bind(this), false);
+  this.boundOnClick_ = this.onClick_.bind(this);
+  this.boundOnBlocklyChange_ = this.onBlocklyChange_.bind(this);
+  this.boundOnBlocklyClickBlock_ = this.onBlocklyClickBlock_.bind(this);
+
+  this.el.addEventListener('click', this.boundOnClick_, false);
   document.body.addEventListener('blocklyDragBlock',
-      this.onBlocklyChange_.bind(this), false);
+      this.boundOnBlocklyChange_, false);
   document.body.addEventListener('blocklyClickFlyoutBlock',
-      this.onBlocklyClickBlock_.bind(this), false);
+      this.boundOnBlocklyClickBlock_, false);
+};
+
+/**
+ * Dispose of this SceneTutorial.
+ */
+app.SceneTutorial.prototype.dispose = function() {
+  this.el.removeEventListener('click', this.boundOnClick_, false);
+  document.body.removeEventListener('blocklyDragBlock',
+      this.boundOnBlocklyChange_, false);
+  document.body.removeEventListener('blocklyClickFlyoutBlock',
+      this.boundOnBlocklyClickBlock_, false);
 };
 
 /**
@@ -41,7 +56,7 @@ app.SceneTutorial = function(el) {
 app.SceneTutorial.prototype.schedule = function() {
   // Blockly does some non-user initiated workspace changes on timeout, so we wait for
   // them to finish.
-  this.scheduleTimeout_ = setTimeout(this.toggle.bind(this, true), 4000);
+  this.scheduleTimeout_ = window.setTimeout(this.toggle.bind(this, true), 4000);
 };
 
 /**
@@ -50,7 +65,7 @@ app.SceneTutorial.prototype.schedule = function() {
  */
 app.SceneTutorial.prototype.toggle = function(visible) {
   if (this.scheduleTimeout_) {
-    clearTimeout(this.scheduleTimeout_);
+    window.clearTimeout(this.scheduleTimeout_);
     this.scheduleTimeout_ = null;
   }
 

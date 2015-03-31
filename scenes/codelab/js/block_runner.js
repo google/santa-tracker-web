@@ -44,8 +44,8 @@ app.BlockRunnerState = {
 
 /**
  * Runs code from blockly blocks.
- * @param {app.Scene} scene instance.
- * @param {app.Blockly} blockly interface to Blockly.
+ * @param {!app.Scene} scene instance.
+ * @param {!app.Blockly} blockly interface to Blockly.
  * @constructor
  */
 app.BlockRunner = function(scene, blockly) {
@@ -304,8 +304,8 @@ app.BlockRunner.prototype = {
 
 /**
  * API for blockly code.
- * @param {app.Scene} scene instance.
- * @param {app.BlockRunner} runner instance.
+ * @param {!app.Scene} scene instance.
+ * @param {!app.BlockRunner} runner instance.
  * @constructor
  */
 app.BlockRunnerApi = function(scene, runner) {
@@ -315,8 +315,8 @@ app.BlockRunnerApi = function(scene, runner) {
 
 /**
  * Creates a method function which verifies which guards that the runner is still executing.
- * @param {Function} fn real api method.
- * @return {Function}
+ * @param {function} fn real api method.
+ * @return {function}
  */
 app.BlockRunnerApi.createApiMethod = function(fn) {
   return function() {

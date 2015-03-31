@@ -24,8 +24,8 @@ goog.require('app.blocks');
 
 /**
  * A interface for the blockly library and UI.
- * @param {Element} el dom element to inject Blockly into.
- * @param {app.Game} game instance.
+ * @param {!Element} el dom element to inject Blockly into.
+ * @param {!app.Game} game instance.
  * @constructor
  */
 app.Blockly = function(el, game) {
@@ -63,7 +63,7 @@ app.Blockly.prototype = {
 
   /**
    * Configure blockly for a new level. Initiates the toolbox and workspace.
-   * @param {app.Level} level to load into blockly.
+   * @param {!app.Level} level to load into blockly.
    */
   setLevel: function(level) {
     // Clean up from last level.
@@ -129,7 +129,7 @@ app.Blockly.prototype = {
 
   /**
    * Inserts a when run block into a level's starting blocks.
-   * @param {Node} root of starting blocks xml
+   * @param {!Node} root of starting blocks xml
    * @private
    */
   insertWhenRunBlock_: function(root) {
@@ -171,7 +171,7 @@ app.Blockly.prototype = {
 
   /**
    * Arranges starting blocks in the workspace.
-   * @param {Node} xml root node of workspace.
+   * @param {!Node} xml root node of workspace.
    * @private
    */
   arrangeBlockPosition_: function(xml) {
@@ -268,7 +268,7 @@ app.Blockly.prototype = {
 
   /**
    * Gets top level blocks from the main workspace.
-   * @return {Array.<Blockly.Block>} All top blocks.
+   * @return {!Array.<!Blockly.Block>} All top blocks.
    */
   getTopBlocks: function(ordered) {
     return Blockly.mainWorkspace.getTopBlocks(ordered);
@@ -278,7 +278,7 @@ app.Blockly.prototype = {
    * Get blocks that the user intends in the program. These are the blocks that
    * are used when checking for required blocks and when determining lines of code
    * written.
-   * @return {Array.<Blockly.Block>} The blocks.
+   * @return {!Array.<!Blockly.Block>} The blocks.
    */
   getUserBlocks: function() {
     var allBlocks = Blockly.mainWorkspace.getAllBlocks();
@@ -292,7 +292,7 @@ app.Blockly.prototype = {
    * Get countable blocks in the program, namely any that are not disabled.
    * These are used when determined the number of blocks relative to the ideal
    * block count.
-   * @return {Array.<Blockly.Block>} The blocks.
+   * @return {!Array.<!Blockly.Block>} The blocks.
    */
   getCountableBlocks: function() {
     var allBlocks = Blockly.mainWorkspace.getAllBlocks();
@@ -342,8 +342,8 @@ app.Blockly.prototype = {
 
   /**
    * Check to see if the user's code contains the required blocks for a level.
-   * @param {Array.<string>} requiredBlocks array of block id's which are required.
-   * @return {Array.<string>} array of strings where each strings is a blocks that should be used.
+   * @param {!Array.<string>} requiredBlocks array of block id's which are required.
+   * @return {!Array.<string>} array of strings where each strings is a blocks that should be used.
    * Each block is represented as it's id.
    */
   getMissingBlocks: function(requiredBlocks) {

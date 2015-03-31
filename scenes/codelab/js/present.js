@@ -20,7 +20,7 @@ goog.require('app.shared.pools');
 
 /**
  * Simple present graphic manager.
- * @param {app.Scene} scene which owns this present.
+ * @param {!app.Scene} scene which owns this present.
  * @constructor
  */
 app.Present = function(scene) {

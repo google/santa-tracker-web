@@ -21,8 +21,8 @@ goog.require('goog.style');
 
 /**
  * Represents the maze player object.
- * @param {Element} el root <g> for the player.
- * @param {app.Map} map where player can move.
+ * @param {!Element} el root <g> for the player.
+ * @param {!app.Map} map where player can move.
  * @constructor
  */
 app.Player = function(el, map) {
