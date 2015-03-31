@@ -83,7 +83,7 @@ app.Clock.prototype.spinPointers_ = function() {
 
   var secondsEl = this.$secondsPointer.get(0);
   var secondsTransform = app.shared.utils.computedTransform(secondsEl);
-  secondsEl.animate([
+  var secondsAnim = secondsEl.animate([
     {transform: 'rotate(' + secondsTransform.rotate + 'deg)'},
     {transform: 'rotate(' + (secondsTransform.rotate + (360 * 2.5)) + 'deg)'}
   ], {duration: 1250, easing: 'ease-out'});
@@ -91,6 +91,13 @@ app.Clock.prototype.spinPointers_ = function() {
   // Offset the background animation by the interactive animation's length: at
   // 1.25 seconds back (animation time) plus 30 seconds (half offset).
   this.secondsPlayer_.currentTime += (-1.25 + 30) * 1000;
+
+  // NOTE: Works around compositor issue in Chrome 41, as two animations are
+  // running over secondsEl. Safe in 42+.
+  app.shared.utils.onWebAnimationFinished(secondsAnim, function() {
+    this.secondsPlayer_.pause();
+    this.secondsPlayer_.play();
+  }.bind(this));
 
   var sharedTiming = {duration: 500, easing: 'ease-out'};
 
