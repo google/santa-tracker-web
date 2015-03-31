@@ -139,14 +139,14 @@ app.Sleepy.prototype.wakeUp_ = function() {
   this.stopSleepingKeyframes_();
 
   if (this.headRotateYPlayer !== null) {
-    this.headRotateYPlayer.reverse();
     this.headRotateYPlayer.playbackRate = -1.5;
+    this.headRotateYPlayer.play();
     this.headRotateYPlayer = null;
   }
 
   if (this.headRotateZPlayer !== null) {
-    this.headRotateZPlayer.reverse();
     this.headRotateZPlayer.playbackRate = -2.5;
+    this.headRotateZPlayer.play();
     this.headRotateZPlayer = null;
   }
 
