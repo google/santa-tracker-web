@@ -1,13 +1,16 @@
-Google Santa Tracker 2014
-============
+Google Santa Tracker for Web
+============================
 
-This repository contains the code to Google Santa Tracker.
+This repository contains the code to Google Santa Tracker, an educational and entertaining tradition for the December holiday period.
+It is a companion to the [Android](https://github.com/google/santa-tracker-android) app.
 
-# Prerequisites
+![Village Screenshot](santa-preview.png)
+
+## Prerequisites
 
 You'll need node installed, then bower (`npm install -g bower`) and compass >=1.0.1 (`gem install compass`).
 
-# Setup
+## Setup
 
 Clone project, then from within the repo:
 
