@@ -196,8 +196,8 @@ Traditions.prototype.addCountryMarkers_ = function() {
       bigIcon: bigIcon
     };
 
-    google.maps.event.addListener(marker, 'click',
-      this.showCountry_.bind(this, country.country_key));
+    var handler = this.show.bind(this, country.country_key);
+    google.maps.event.addListener(marker, 'click', handler);
   }, this);
 
   this.map_.fitBounds(this.markerBounds_);
