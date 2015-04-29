@@ -138,23 +138,16 @@ app.Sleepy.prototype.wakeUp_ = function() {
 
   this.stopSleepingKeyframes_();
 
-  if (this.sleepingVertically && this.headRotateYPlayer !== null) {
+  if (this.headRotateYPlayer !== null) {
+    this.headRotateYPlayer.playbackRate = -1.5;
+    this.headRotateYPlayer.play();
+    this.headRotateYPlayer = null;
+  }
 
-    this.headRotateYPlayer.playbackRate = -0.02;
-
-    app.shared.utils.onWebAnimationFinished(this.headRotateYPlayer, function() {
-      this.headRotateYPlayer.cancel();
-      this.headRotateYPlayer = null;
-    }.bind(this));
-
-  } else if (this.headRotateZPlayer !== null) {
-
-    this.headRotateZPlayer.playbackRate = -5;
-    app.shared.utils.onWebAnimationFinished(this.headRotateZPlayer, function() {
-      this.headRotateZPlayer.cancel();
-      this.headRotateZPlayer = null;
-    }.bind(this));
-
+  if (this.headRotateZPlayer !== null) {
+    this.headRotateZPlayer.playbackRate = -2.5;
+    this.headRotateZPlayer.play();
+    this.headRotateZPlayer = null;
   }
 
   window.santaApp.fire('sound-trigger', 'briefing_wakeup');
@@ -213,34 +206,28 @@ app.Sleepy.prototype.stopSleepingKeyframes_ = function() {
  * @private
  */
 app.Sleepy.prototype.tweenRotateYHead_ = function() {
-
   var duration = 70;
-
-  // TODO: Issues playing in reverse.
 
   var steps = [
     new Animation(this.$head.get(0), [
       {visibility: 'visible'},
       {visibility: 'hidden'}
     ], {duration: duration, fill: 'forwards'}),
-    
     new Animation(this.$headVerticalStep1.get(0), [
       {visibility: 'visible'},
       {visibility: 'hidden'}
-    ], {duration: duration, fill: 'none'}),
-
+    ], {duration: duration}),
     new Animation(this.$headVerticalStep2.get(0), [
       {visibility: 'visible'},
       {visibility: 'hidden'}
-    ], {duration: duration, fill: 'none'}),
-
+    ], {duration: duration}),
     new Animation(this.$headVerticalFinal.get(0), [
-      {visibility: 'visible'},  // forces last element to remain visible
+      {visibility: 'visible'},
       {visibility: 'visible'}
-    ], {duration: duration, easing: 'step-final', fill: 'fowards'})
+    ], {duration: duration, fill: 'forwards'}),
   ];
 
-  this.headRotateYPlayer = document.timeline.play(new AnimationSequence(steps, { fill: 'forwards' }));
+  this.headRotateYPlayer = document.timeline.play(new AnimationSequence(steps, {fill: 'forwards'}));
 };
 
 /**

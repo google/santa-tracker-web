@@ -19,26 +19,53 @@
  * @constructor
  */
 var FauxTimeline = function() {
-  var timing = { duration: 1000, iterations: Infinity };
-  this.anim_ = this.buildPlayer_(null, [], timing);
+  var timing = {duration: 1000, iterations: Infinity};
+  this.hintAtCall_ = this.hintAtCall_.bind(this);
+
+  /**
+   * @type {!AnimationPlayer}
+   * @private
+   */
+  this.anim_ = document.body.animate([], timing);
+
+  /**
+   * @type {number}
+   * @private
+   */
   this.localTime_ = 0;
+
+  /**
+   * @type {!Array.<!AnimationPlayer>}
+   * @private
+   */
   this.players_ = [];
+
+  /**
+   * @type {!Array.<{{when: number, fn: function}}>}
+   * @private
+   */
   this.calls_ = [];
 };
 
 FauxTimeline.prototype = {
 
   /**
-   * Build an AnimationPlayer. Works around legacy vs. next polyfill.
+   * Hints to this FauxTimeline that it should run any pending calls.
    * @private
    */
-  buildPlayer_: function(el, steps, timing) {
-    el = el || document.body;
-    if (el.animate) {
-      return el.animate(steps, timing);
+  hintAtCall_: function() {
+    var now = this.currentTime;
+    var i;
+
+    for (i = 0; i < this.calls_.length; ++i) {
+      var call = this.calls_[i];
+      if (call.when > now) {
+        break;
+      }
+      call.fn();
     }
-    var anim = new Animation(el, steps, timing);
-    return document.timeline.play(anim);
+
+    this.calls_ = this.calls_.slice(i);
   },
 
   set playbackRate(v) {
@@ -75,18 +102,7 @@ FauxTimeline.prototype = {
     }
     this.anim_.currentTime += delta;
     this.players_.forEach(function(p) { p.currentTime += delta; });
-
-    this.calls_ = this.calls_.filter(function(p) {
-      if (p.currentTime < 0) {
-        return true; // not run yet
-      }
-
-      // Invoke known finish handler manually, as this should happen
-      // synchronously with the seek. The finish state causes an async call,
-      // which is fine for the timeline normally, just not here.
-      p.onfinish();
-      return false;
-    });
+    this.hintAtCall_();
   },
 
   /**
@@ -100,7 +116,7 @@ FauxTimeline.prototype = {
    */
   schedule: function(when, el, steps, duration) {
     var now = this.currentTime;
-    var player = this.buildPlayer_(el, steps, duration);
+    var player = el.animate(steps, duration);
 
     player.playbackRate = this.anim_.playbackRate;
     player.currentTime = now - when;
@@ -120,25 +136,26 @@ FauxTimeline.prototype = {
       throw new Error('FauxTimeline doesn\'t support calls in past: ' + (now - when));
     }
 
+    // Insert into the calls list, maintaining sort order.
+    // TODO: binary search would be faster.
+    var i;
+    for (i = 0; i < this.calls_.length; ++i) {
+      var call = this.calls_[i];
+      if (call.when > when) {
+        break;
+      }
+    }
+    this.calls_.splice(i, 0, {when: when, fn: fn});
+
     var player = this.schedule(when, document.body, [], 0);
-    player.onfinish = function() {
-      // Check for racey finish being triggered twice. This handler was already
-      // cleared so just ignore this call.
-      if (player.onfinish === null) { return; }
-
-      // Run and clear this call plus its finish handler.
-      this.remove(player);
-      player.onfinish = null;
-      fn();
-    }.bind(this);
-
-    this.calls_.push(player);
+    player.addEventListener('finish', this.hintAtCall_);
+    return player;
   },
 
   /**
    * Removes a previously registered animation via its AnimationPlayer.
    *
-   * @param {AnimationPlayer=} opt_player to remove, undefined for all
+   * @param {!AnimationPlayer=} opt_player to remove, undefined for all
    */
   remove: function(opt_player) {
     if (opt_player === undefined) {
@@ -158,10 +175,6 @@ FauxTimeline.prototype = {
     var index = this.players_.indexOf(opt_player);
     if (index > -1) {
       this.players_.splice(index, 1);
-    }
-    index = this.calls_.indexOf(opt_player);
-    if (index > -1) {
-      this.calls_.splice(index, 1);
     }
   }
 
