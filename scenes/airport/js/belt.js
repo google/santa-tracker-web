@@ -199,7 +199,7 @@ app.Belt.prototype = {
    * @private
    */
   init_: function() {
-    this.timeline = new FauxTimeline();
+    this.timeline = new AnimationUtilTimeline();
     this.$state.bind('change', this.onStateChange_.bind(this));
 
     //////////////////////////////////////////////
@@ -216,12 +216,12 @@ app.Belt.prototype = {
     }
 
     // start 1 second before to be sure we trigger callbacks for last item
-    this.timeline.seek((seekTime - 1) * 1000);
+    this.timeline.currentTime = (seekTime - 1) * 1000;
     this.setup = false;
   },
 
   destroy: function() {
-    this.timeline.remove();
+    this.timeline.removeAll();
     this.$state.unbind();
 
     this.controls.destroy();

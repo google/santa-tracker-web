@@ -164,7 +164,7 @@ app.PresentsBelt.prototype = {
    * @private
    */
   init_: function() {
-    this.timeline = new FauxTimeline();
+    this.timeline = new AnimationUtilTimeline();
 
     this.setup = true;
     var seekTime = 1;
@@ -174,7 +174,7 @@ app.PresentsBelt.prototype = {
     }
 
     // start 1 second before to be sure we trigger callbacks for last present
-    this.timeline.seek((seekTime - 1 + this.options.timeOffset) * 1000);
+    this.timeline.currentTime = (seekTime - 1 + this.options.timeOffset) * 1000;
     this.setup = false;
   },
 
@@ -182,7 +182,7 @@ app.PresentsBelt.prototype = {
    * Destroy belt and all scheduled animations
    */
   destroy: function() {
-    this.timeline.remove();
+    this.timeline.removeAll();
     this.presentPool = null;
   }
 
