@@ -1,9 +1,8 @@
 {
   "name": "SantaTracker",
-  "version": "0.0.1",
   "private": true,
   "authors": [
-    "Eric Bidelman <ebidel@gmail.com>"
+    "Google, Inc."
   ],
   "description": "Google Santa Tracker",
   "main": "index.html",
@@ -13,10 +12,11 @@
     "polymer",
     "santa"
   ],
-  "license": "Apache-2",
+  "license": "Apache2",
   "ignore": [
     "**/.*",
     "node_modules",
+    "components",
     "bower_components",
     "test",
     "tests"
