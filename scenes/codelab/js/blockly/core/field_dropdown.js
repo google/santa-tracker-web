@@ -72,7 +72,7 @@ goog.inherits(Blockly.FieldDropdown, Blockly.Field);
 Blockly.FieldDropdown.CHECKMARK_OVERHANG = 25;
 
 /**
- * Android can't (in 2014) display "▾", so use "▼" instead.
+ * Android can't display "▾", so use "▼" instead.
  */
 Blockly.FieldDropdown.ARROW_CHAR = goog.userAgent.ANDROID ? '\u25BC' : '\u25BE';
 
