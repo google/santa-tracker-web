@@ -40,7 +40,7 @@ app.shared.PauseOverlay.prototype.show = function() {
 
 /**
  * Hides the pause screen with an animation.
- * @param {function} callback
+ * @param {Function} callback
  */
 app.shared.PauseOverlay.prototype.hide = function(callback) {
   this.overlay.hide(callback);

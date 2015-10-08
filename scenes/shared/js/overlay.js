@@ -36,7 +36,7 @@ app.shared.Overlay.prototype.show = function() {
 
 /**
  * Hides the overlay with an animation.
- * @param {!Function} callback Runs when the animation is finished.
+ * @param {Function} callback Runs when the animation is finished.
  */
 app.shared.Overlay.prototype.hide = function(callback) {
   this.elem.one(app.shared.utils.ANIMATION_END, function() {

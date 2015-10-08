@@ -84,7 +84,7 @@ LevelUp.prototype.numberShown_ = function() {
 /**
  * Show new level number.
  * @param {number} level The number of the new level.
- * @param {function} callback The function to call while the level is hidden.
+ * @param {!Function} callback The function to call while the level is hidden.
  */
 LevelUp.prototype.show = function(level, callback) {
   this.bgElem.addClass('is-visible');
@@ -102,7 +102,7 @@ LevelUp.prototype.show = function(level, callback) {
  * @param {!jQuery} elem
  * @param {string} event
  * @param {number} timeout
- * @param {function} callback
+ * @param {Function} callback
  */
 function timeoutOneEvent(elem, event, timeout, callback) {
   // Only trigger callback once.

@@ -57,8 +57,8 @@ app.shared.ShareOverlay.prototype.attachEvents_ = function() {
 
 /**
  * Shows the share screen with an animation.
- * @param {String} url The url to share.
- * @param {bool} shorten Should the url be shortened?
+ * @param {string} url The url to share.
+ * @param {boolean} shorten Should the url be shortened?
  */
 app.shared.ShareOverlay.prototype.show = function(url, shorten) {
   if (!url) {
@@ -81,7 +81,7 @@ app.shared.ShareOverlay.prototype.show = function(url, shorten) {
 /**
  * Shorten a url with Google shortener.
  * @param {string} url The long url.
- * @param {function} callback Call this function with the shortened url.
+ * @param {!Function} callback Call this function with the shortened url.
  * @private
  */
 app.shared.ShareOverlay.prototype.shorten_ = function(url, callback) {
@@ -107,7 +107,7 @@ app.shared.ShareOverlay.prototype.shorten_ = function(url, callback) {
 
 /**
  * Hides the share screen with an animation.
- * @param {Function} callback Runs when the animation is finished.
+ * @param {!Function} callback Runs when the animation is finished.
  */
 app.shared.ShareOverlay.prototype.hide = function(callback) {
   this.overlay.hide(callback);

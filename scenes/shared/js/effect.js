@@ -26,7 +26,7 @@ app.shared.Effect = Effect;
  * @constructor
  * @param {!Game} game The current game object.
  * @param {!HTMLElement} elem The element for the effect.
- * @param {function} callback Called when animation is over.
+ * @param {Function} callback Called when animation is over.
  */
 function Effect(game, elem, callback) {
   this.game = game;

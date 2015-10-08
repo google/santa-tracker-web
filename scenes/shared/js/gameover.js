@@ -68,7 +68,7 @@ Gameover.prototype.show = function(score, level) {
 
 /**
  * Hides the gameover screen with an animation.
- * @param {function} callback Runs when the animation is finished.
+ * @param {Function} callback Runs when the animation is finished.
  */
 Gameover.prototype.hide = function(callback) {
   this.overlay.hide(callback);

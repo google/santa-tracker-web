@@ -64,7 +64,7 @@ var utils = app.shared.utils = (function() {
      * the animation finishes.
      * @param {!jQuery} el The jQuery element.
      * @param {string} name Class name to add.
-     * @param {function} cb Callback function when animation finishes.
+     * @param {Function} cb Callback function when animation finishes.
      * @param {boolean} nowait Call the callback without waiting.
      * @param {string} child Child element that runs the animation or transition.
      */
@@ -86,7 +86,7 @@ var utils = app.shared.utils = (function() {
      * Runs animation on an element without using a css class.
      * @param {!jQuery} el The jQuery element.
      * @param {string} animation The animation name, duration and more.
-     * @param {function} cb The callback when animation finishes.
+     * @param {Function} cb The callback when animation finishes.
      */
     anim: function(el, animation, cb) {
       var elem = el[0];
@@ -102,9 +102,9 @@ var utils = app.shared.utils = (function() {
      * A state machine for the global pause feature. To make sure the scene isn't
      * resumed when it was already paused.
      * @param {!Object} module Adds onPause/onResume handlers on the module definition
-     * @param {function} isPaused Returns if the game is already paused.
-     * @param {function} pause Function to pause the game
-     * @param {function} resume Function to resume the game
+     * @param {!Function} isPaused Returns if the game is already paused.
+     * @param {!Function} pause Function to pause the game
+     * @param {!Function} resume Function to resume the game
      */
     globalPause: function(module, isPaused, pause, resume) {
       var wasPaused = false;
@@ -123,7 +123,7 @@ var utils = app.shared.utils = (function() {
 
     /**
      * Call the callback in start of next frame.
-     * @param {function} callback The callback function.
+     * @param {!Function} callback The callback function.
      * @returns {number} The request id used for canceling.
      */
     requestAnimFrame: function(callback) {
@@ -183,7 +183,7 @@ var utils = app.shared.utils = (function() {
     /**
      * Register listener for finish event on a Web Animation player.
      * @param {!AnimationPlayer} player The animation player object which will finish
-     * @param {function} fn A callback function to execute when player finishes
+     * @param {!Function} fn A callback function to execute when player finishes
      */
     onWebAnimationFinished: function(player, fn) {
       // don't run if .finished is a boolean; this was dropped after legacy

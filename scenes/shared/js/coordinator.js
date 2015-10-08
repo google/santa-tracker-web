@@ -35,7 +35,7 @@ Coordinator.reset = function() {
 /**
  * Execute a function after time specified.
  * @param {number} sec The time in seconds.
- * @param {function} callback The function to call.
+ * @param {!Function} callback The function to call.
  */
 Coordinator.after = function(sec, callback) {
   this.waiting.push({
@@ -47,8 +47,8 @@ Coordinator.after = function(sec, callback) {
 /**
  * Execute a function after time specified and report progress on each frame.
  * @param {number} sec The time in seconds.
- * @param {function} step The function called to report progress.
- * @param {function} callback The function to call in the end.
+ * @param {!Function} step The function called to report progress.
+ * @param {!Function} callback The function to call in the end.
  */
 Coordinator.step = function(sec, step, callback) {
   this.waiting.push({
@@ -63,8 +63,8 @@ Coordinator.step = function(sec, step, callback) {
  * Execute a function after time specified and report progress on each frame.
  * Reports the progress in reverse. Starts in 1 and ends in 0.
  * @param {number} sec The time in seconds.
- * @param {function} step The function called to report progress.
- * @param {function} callback The function to call in the end.
+ * @param {!Function} step The function called to report progress.
+ * @param {!Function} callback The function to call in the end.
  */
 Coordinator.stepReverse = function(sec, step, callback) {
   this.waiting.push({
