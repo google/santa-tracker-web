@@ -25,34 +25,26 @@ app.shared.Gameover = Gameover;
 
 /**
  * Gameover screen.
- * @param {!Game} game The game object.
- * @param {!HTMLElement} elem The gameover element.
+ * @param {!app.shared.SharedGame} game The game object.
+ * @param {!Element|!jQuery} elem The gameover element.
  * @constructor
  */
 function Gameover(game, elem) {
   this.game = game;
-  this.elem = $(elem);
+  this.elem = app.shared.utils.unwrapElement(elem);
 
   this.overlay = new app.shared.Overlay(this.elem);
-  new app.shared.ShareButtons(this.elem.find('.shareButtons'));
-  this.scoreElem = this.elem.find('.gameover-score .gameover-number');
-  this.levelElem = this.elem.find('.gameover-level .gameover-number');
+  new app.shared.ShareButtons(this.elem.querySelector('.shareButtons'));
+  this.scoreElem = this.elem.querySelector('.gameover-score .gameover-number');
+  this.levelElem = this.elem.querySelector('.gameover-level .gameover-number');
 
-  this.attachEvents_();
-}
-
-/**
- * Attaches events to the gameover screen.
- * @private
- */
-Gameover.prototype.attachEvents_ = function() {
-  this.elem.find('.gameover-play').on('click', function(e) {
+  this.elem.querySelector('.gameover-play').addEventListener('click', function(e) {
     e.preventDefault();
 
-    this.hide();
+    this.hide(null);
     this.game.restart();
   }.bind(this));
-};
+}
 
 /**
  * Shows the gameover screen with an animation. Displays score and time
@@ -61,8 +53,8 @@ Gameover.prototype.attachEvents_ = function() {
  * @param {number} level The final level.
  */
 Gameover.prototype.show = function(score, level) {
-  this.scoreElem.text(score || this.game.scoreboard.score);
-  this.levelElem.text(level || this.game.level);
+  this.scoreElem.textContent = score || this.game.scoreboard.score;
+  this.levelElem.textContent = level || this.game.level;
   this.overlay.show();
 };
 

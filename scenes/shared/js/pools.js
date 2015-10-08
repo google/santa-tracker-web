@@ -16,12 +16,12 @@
 
 goog.provide('app.shared.pools');
 
-var pools = app.shared.pools = {
+var localPools = app.shared.pools = {
   objects: [],
   mixin: function(obj, options) {
     options = options || {};
     obj.pool_ = [];
-    pools.objects.push(obj);
+    localPools.objects.push(obj);
 
     /**
      * Get an object from the pool or create a new one.
@@ -120,8 +120,8 @@ var pools = app.shared.pools = {
     }
   },
   empty: function() {
-    for (var i = 0; i < pools.objects.length; i++) {
-      pools.objects[i].pool_ = [];
+    for (var i = 0; i < localPools.objects.length; i++) {
+      localPools.objects[i].pool_ = [];
     }
   }
 };

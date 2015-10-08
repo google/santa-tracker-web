@@ -16,7 +16,7 @@
 
 goog.provide('app.shared.utils');
 
-var utils = app.shared.utils = (function() {
+app.shared.utils = (function() {
   // Feature detection
   var ANIMATION, ANIMATION_END, TRANSITION_END, name;
   var el = document.createElement('div'),
@@ -62,13 +62,14 @@ var utils = app.shared.utils = (function() {
     /**
      * Assigns an animation class to the selected elements, removing it when
      * the animation finishes.
-     * @param {!jQuery} el The jQuery element.
+     * @param {!Element|!jQuery} el The jQuery element.
      * @param {string} name Class name to add.
      * @param {Function} cb Callback function when animation finishes.
      * @param {boolean} nowait Call the callback without waiting.
      * @param {string} child Child element that runs the animation or transition.
      */
     animWithClass: function(el, name, cb, nowait, child) {
+      el = $(el);
       var elem = child ? el.find(child) : el;
 
       elem.one(ANIMATION_END + ' ' + TRANSITION_END, function(e) {
@@ -84,11 +85,12 @@ var utils = app.shared.utils = (function() {
 
     /**
      * Runs animation on an element without using a css class.
-     * @param {!jQuery} el The jQuery element.
+     * @param {!Element|!jQuery} el The jQuery element.
      * @param {string} animation The animation name, duration and more.
      * @param {Function} cb The callback when animation finishes.
      */
     anim: function(el, animation, cb) {
+      el = $(el);
       var elem = el[0];
       el.one(ANIMATION_END + ' ' + TRANSITION_END, function(e) {
         if (cb) {
@@ -139,6 +141,19 @@ var utils = app.shared.utils = (function() {
     },
 
     /**
+     * Unwraps a jQuery object.
+     * @param {Element|jQuery} element source element or jQuery
+     * @return {Element} result element, or first jQuery object
+     */
+    unwrapElement: function(element) {
+      if (element && 'get' in element) {
+        var jq = /** @type {!jQuery} */ (element);
+        return /** @type {Element} */ (jq.get(0));
+      }
+      return /** @type {Element} */ (element);
+    },
+
+    /**
      * Returns the computed transform values as a raw object containing x, y
      * and rotate values (in degrees).
      * @param {!Element} elem to examine
@@ -165,9 +180,9 @@ var utils = app.shared.utils = (function() {
         values = transform.split('(')[1].split(')')[0].split(',');
         values = values.map(function(x) { return +x; });
       } catch(e) {
-        return {};
+        return {x: NaN, y: NaN, rotate: NaN};
       }
-      var out = {x: values[4], y: values[5], rotate: null};
+      var out = {x: values[4], y: values[5]};
 
       var a = values[0];
       var b = values[1];
@@ -234,15 +249,24 @@ var utils = app.shared.utils = (function() {
    * it. Assumes that the wrapped value is a number.
    * @param {number} target Final value.
    * @param {number} amount Amount to change in this frame.
+   * @return {!utils.SmartValue} the this object
    */
   utils.SmartValue.prototype.moveToTarget = function(target, amount) {
-    if (this.value < target) {
-      this.value = Math.min(target, this.value + amount);
-    } else if (this.value > target) {
-      this.value = Math.max(target, this.value - amount);
+    var n = /** @type {number} */ (this.value);
+    n = +n;
+    if (this.value !== n) {
+      throw new TypeError('SmartValue does not contain a number');
     }
+    if (n < target) {
+      n = Math.min(target, n + amount);
+    } else if (n > target) {
+      n = Math.max(target, n - amount);
+    }
+    this.value = n;
     return this;
   };
 
   return utils;
 })();
+
+var utils = app.shared.utils;

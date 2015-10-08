@@ -25,11 +25,11 @@ app.shared.Scoreboard = Scoreboard;
 /**
  * Manages the scoreboard and game countdown.
  * @constructor
- * @param {!Game} game The game object.
- * @param {!HTMLElement} elem The scoreboard element.
- * @param {number} levels The total number of levels.
+ * @param {!app.shared.SharedGame} game The game object.
+ * @param {!Element|!jQuery} elem The scoreboard element.
+ * @param {number=} opt_levels The total number of levels.
  */
-function Scoreboard(game, elem, levels) {
+function Scoreboard(game, elem, opt_levels) {
   this.game = game;
   this.elem = $(elem);
   this.scoreElem = this.elem.find('.score .value');
@@ -40,7 +40,8 @@ function Scoreboard(game, elem, levels) {
   this.statusElem = this.elem.find('.time .status');
   this.levelItemElems = this.elem.find('.level .level-item');
 
-  if (levels) {
+  if (opt_levels !== undefined) {
+    var levels = +opt_levels;
     this.elem.find('.total-levels').text('/' + levels);
   }
 
@@ -177,7 +178,7 @@ Scoreboard.prototype.addScore = function(score) {
  */
 Scoreboard.prototype.setLevel = function(level) {
   if (this.levelElem.length > 0 && level >= -1) {
-    this.levelElem.text(level + 1);
+    this.levelElem.text('' + (level + 1));
   }
 
   if (this.levelItemElems.length > 0 && level >= -1) {

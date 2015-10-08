@@ -20,18 +20,18 @@ goog.require('app.shared.utils');
 
 /**
  * Overlay.
- * @param {!HTMLElement} elem The overlay element.
+ * @param {!Element|!jQuery} elem The overlay element.
  * @constructor
  */
 app.shared.Overlay = function(elem) {
-  this.elem = $(elem);
+  this.elem = app.shared.utils.unwrapElement(elem);
 }
 
 /**
  * Shows the overlay with an animation from the game.
  */
 app.shared.Overlay.prototype.show = function() {
-  this.elem.addClass('is-visible');
+  this.elem.classList.add('is-visible');
 };
 
 /**
@@ -39,8 +39,12 @@ app.shared.Overlay.prototype.show = function() {
  * @param {Function} callback Runs when the animation is finished.
  */
 app.shared.Overlay.prototype.hide = function(callback) {
-  this.elem.one(app.shared.utils.ANIMATION_END, function() {
-    this.elem.removeClass('is-visible is-closed');
+  var elem = this.elem;
+  var handler = function() {
+    elem.removeEventListener(app.shared.utils.ANIMATION_END, handler);
+    elem.classList.remove('is-visible');
+    elem.classList.remove('is-closed');
     callback && callback();
-  }.bind(this)).addClass('is-closed');
+  };
+  elem.addEventListener(app.shared.utils.ANIMATION_END, handler);
 };

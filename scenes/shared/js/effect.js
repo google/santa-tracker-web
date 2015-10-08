@@ -17,6 +17,8 @@
 
 goog.provide('app.shared.Effect');
 
+goog.require('app.shared.utils');
+
 // We are *leaking* the Effect global for backwards compatibility.
 app.shared.Effect = Effect;
 
@@ -24,15 +26,11 @@ app.shared.Effect = Effect;
  * Creates some effect using css animations.
  * Adds animate class to element to activate animation.
  * @constructor
- * @param {!Game} game The current game object.
- * @param {!HTMLElement} elem The element for the effect.
- * @param {Function} callback Called when animation is over.
+ * @param {!app.shared.SharedGame} game The current game object.
+ * @param {!Element|!jQuery} elem The element for the effect.
  */
 function Effect(game, elem, callback) {
-  this.game = game;
-  this.elem = elem;
-  this.callback = callback;
-
+  this.elem = app.shared.utils.unwrapElement(elem);
   this.animateEnded_ = this.animateEnded_.bind(this);
 };
 
@@ -42,14 +40,14 @@ function Effect(game, elem, callback) {
  * @param {number} y The Y position.
  */
 Effect.prototype.animate = function(x, y) {
-  // Position
-  this.elem.css({
-    left: x,
-    top: y
-  }).removeClass('hidden');
+  // TODO: Use transform
+  var html = /** @type {HTMLElement} */ (this.elem);
+  html.style.left = x + 'px';
+  html.style.top = y + 'px';
+  this.elem.classList.remove('hidden');
 
   // Animate
-  utils.animWithClass(this.elem, 'animate', this.animateEnded_, true);
+  app.shared.utils.animWithClass(this.elem, 'animate', this.animateEnded_, true);
 };
 
 /**
@@ -57,8 +55,5 @@ Effect.prototype.animate = function(x, y) {
  * @private
  */
 Effect.prototype.animateEnded_ = function() {
-  this.elem.addClass('hidden');
-  if (this.callback) {
-    this.callback.call(this);
-  }
+  this.elem.classList.add('hidden');
 };

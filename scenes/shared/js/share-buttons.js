@@ -20,49 +20,51 @@ goog.require('app.shared.utils');
 
 /**
  * Share buttons.
- * @param {!HTMLElement} elem The share buttons element.
- * @param {string} url The url to share.
+ * @param {!HTMLElement|!jQuery} elem The share buttons element.
+ * @param {string=} opt_url The url to share.
  * @constructor
  */
-app.shared.ShareButtons = function(elem, url) {
-  this.elem = $(elem);
-  this.setUrl(url);
+app.shared.ShareButtons = function(elem, opt_url) {
+  this.elem = app.shared.utils.unwrapElement(elem);
+  this.setUrl(opt_url);
 
   // Open in a popup
-  this.elem.find('a').on('click', this.handleClick_);
+  var all = [].slice.call(elem.querySelectorAll('a'));
+  all.forEach(function(link) {
+    link.addEventListener('click', this.handleClick_);
+  }, this);
 };
 
 /**
  * Change the url to share.
- * @param url {string} The url.
+ * @param opt_url {string=} The url. If blank, uses current location..
  */
-app.shared.ShareButtons.prototype.setUrl = function(url) {
-  url = window.encodeURIComponent(url || window.location.href);
-  this.elem.find('.shareButtons-google')
-      .attr('href', 'https://plus.google.com/share?url=' + url);
-  this.elem.find('.shareButtons-facebook')
-      .attr('href', 'https://www.facebook.com/sharer.php?p[url]=' + url + '&u=' + url);
-  this.elem.find('.shareButtons-twitter')
-      .attr('href', 'https://twitter.com/share?hashtags=santatracker&url=' + url);
+app.shared.ShareButtons.prototype.setUrl = function(opt_url) {
+  var url = window.encodeURIComponent(opt_url || window.location.href);
+  this.elem.querySelector('a.shareButtons-google').href =
+      'https://plus.google.com/share?url=' + url;
+  this.elem.querySelector('a.shareButtons-facebook').href =
+      'https://www.facebook.com/sharer.php?p[url]=' + url + '&u=' + url;
+  this.elem.querySelector('a.shareButtons-twitter').href =
+      'https://twitter.com/share?hashtags=santatracker&url=' + url;
 };
 
 /**
  * Open the share dialogs in a popup window.
  * @param event {!Event} The click event.
+ * @this {!HTMLLinkElement}
  * @private
  */
 app.shared.ShareButtons.prototype.handleClick_ = function(event) {
   event.preventDefault();
-  var el = $(this);
-  var width = 600, height = 600;
+  var width = 600;
+  var height = 600;
 
-  if (el.hasClass('shareButtons-twitter')) {
+  if (this.classList.contains('shareButtons-twitter')) {
     height = 253;
-  }
-  else if (el.hasClass('shareButtons-facebook')) {
+  } else if (this.classList.contains('shareButtons-facebook')) {
     height = 229;
-  }
-  else if (el.hasClass('shareButtons-google')) {
+  } else if (this.classList.contains('shareButtons-google')) {
     height = 348;
     width = 512;
   }

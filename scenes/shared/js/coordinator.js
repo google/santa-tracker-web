@@ -29,7 +29,7 @@ var Coordinator = {
  * Resets the coordinator.
  */
 Coordinator.reset = function() {
-  this.waiting = [];
+  Coordinator.waiting = [];
 };
 
 /**
@@ -38,7 +38,7 @@ Coordinator.reset = function() {
  * @param {!Function} callback The function to call.
  */
 Coordinator.after = function(sec, callback) {
-  this.waiting.push({
+  Coordinator.waiting.push({
     remaining: sec,
     callback: callback
   });
@@ -51,7 +51,7 @@ Coordinator.after = function(sec, callback) {
  * @param {!Function} callback The function to call in the end.
  */
 Coordinator.step = function(sec, step, callback) {
-  this.waiting.push({
+  Coordinator.waiting.push({
     total: sec,
     remaining: sec,
     callback: callback,
@@ -67,7 +67,7 @@ Coordinator.step = function(sec, step, callback) {
  * @param {!Function} callback The function to call in the end.
  */
 Coordinator.stepReverse = function(sec, step, callback) {
-  this.waiting.push({
+  Coordinator.waiting.push({
     total: sec,
     remaining: sec,
     callback: callback,
@@ -81,7 +81,7 @@ Coordinator.stepReverse = function(sec, step, callback) {
  * @param {number} delta The time since last frame.
  */
 Coordinator.onFrame = function(delta) {
-  for (var i = 0, wait; wait = this.waiting[i]; i++) {
+  for (var i = 0, wait; wait = Coordinator.waiting[i]; i++) {
     wait.remaining -= delta;
     if (wait.remaining < 0) {
       wait.remaining = 0;
@@ -101,7 +101,7 @@ Coordinator.onFrame = function(delta) {
       wait.callback();
 
       // Remove from list
-      this.waiting.splice(i--, 1);
+      Coordinator.waiting.splice(i--, 1);
     }
   }
 };

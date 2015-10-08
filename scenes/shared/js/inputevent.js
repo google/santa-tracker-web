@@ -21,7 +21,7 @@ goog.scope(function() {
 
   (function() {
     var touchEnabled = ('ontouchstart' in window) ||
-        window.DocumentTouch && document instanceof DocumentTouch;
+        window.DocumentTouch && document instanceof window.DocumentTouch;
 
     if (window.navigator.pointerEnabled) {
       eventStart = 'pointerdown';

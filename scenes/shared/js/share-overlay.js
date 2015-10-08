@@ -22,37 +22,37 @@ goog.require('app.shared.utils');
 
 /**
  * Gameover screen.
- * @param {!HTMLElement} elem The gameover element.
+ * @param {!Element|!jQuery} elem The gameover element.
  * @constructor
  */
 app.shared.ShareOverlay = function(elem) {
-  this.elem = $(elem);
+  this.elem = app.shared.utils.unwrapElement(elem);
 
-  this.overlay = new app.shared.Overlay(this.elem);
-  this.shareButtons = new app.shared.ShareButtons(this.elem.find('.shareButtons'));
+  this.overlay = new app.shared.Overlay(elem);
+  this.shareButtons = new app.shared.ShareButtons(elem.querySelector('.shareButtons'));
 
-  this.closeElem = this.elem.find('.shareOverlay-close');
-  this.urlElem = this.elem.find('.shareOverlay-url');
+  this.closeElem = this.elem.querySelector('.shareOverlay-close');
+  this.urlElem = this.elem.querySelector('.shareOverlay-url');
 
   if (window.gapi && window.gapi.client) {
     this.urlShortener = window.gapi.client.load('urlshortener', 'v1');
   }
 
-  this.attachEvents_();
-};
+  var hideFn = this.hide.bind(this);
+  var selectFn = function() {
+    window.setTimeout(function() {
+      if ('select' in this) {
+        this.select();
+      } else {
+        this.setSelectionRange(0, this.value.length);
+      }
+    }, 0);
+  }.bind(urlElem);
 
-/**
- * Attaches events to the share screen.
- * @private
- */
-app.shared.ShareOverlay.prototype.attachEvents_ = function() {
-  this.closeElem.on('click touchend', function() {
-    this.hide();
-  }.bind(this));
-
-  this.urlElem.on('click touchend', function() {
-    this.urlElem[0].select();
-  }.bind(this));
+  ['click', 'touchend'].forEach(function(name) {
+    this.closeElem.addEventListener(name, hideFn);
+    this.urlElem.addEventListener(name, selectFn);
+  }, this);
 };
 
 /**
