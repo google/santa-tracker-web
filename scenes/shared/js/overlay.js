@@ -47,4 +47,5 @@ app.shared.Overlay.prototype.hide = function(opt_callback) {
     opt_callback && opt_callback();
   };
   elem.addEventListener(app.shared.utils.ANIMATION_END, handler);
+  elem.classList.add('is-closed');
 };

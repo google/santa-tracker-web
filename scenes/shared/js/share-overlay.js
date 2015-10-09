@@ -24,6 +24,7 @@ goog.require('app.shared.utils');
  * Gameover screen.
  * @param {!Element|!jQuery} elem The gameover element.
  * @constructor
+ * @struct
  */
 app.shared.ShareOverlay = function(elem) {
   this.elem = app.shared.utils.unwrapElement(elem);
@@ -49,8 +50,8 @@ app.shared.ShareOverlay = function(elem) {
       } else {
         this.setSelectionRange(0, this.value.length);
       }
-    }, 0);
-  }.bind(urlElem);
+    }.bind(this), 0);
+  }.bind(this.urlElem);
 
   ['click', 'touchend'].forEach(function(name) {
     this.closeElem.addEventListener(name, hideFn);
@@ -76,7 +77,7 @@ app.shared.ShareOverlay.prototype.show = function(url, shorten) {
     return;
   }
 
-  this.urlElem.val(url.replace(/https?:\/\//i, ''));
+  this.urlElem.value = url.replace(/https?:\/\//i, '');
   this.shareButtons.setUrl(url);
   this.overlay.show();
 };
@@ -103,7 +104,12 @@ app.shared.ShareOverlay.prototype.shorten_ = function(url, callback) {
         longUrl: url
       }
     }).execute(function(response) {
-      callback(response.id);
+      if (!response.id) {
+        console.debug('URL shortener service failed, using raw URL');
+        callback(url);
+      } else {
+        callback(response.id);
+      }
     });
   });
 };
