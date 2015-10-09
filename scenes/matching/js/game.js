@@ -466,7 +466,7 @@ Game.prototype.onFrame_ = function() {
  */
 Game.prototype.finishLevel = function() {
   if (this.levelModel.get() === 10) {
-    this.gameover_();
+    this.gameover();
     return;
   }
 
@@ -538,9 +538,8 @@ Game.prototype.updateTime_ = function() {
 
 /**
  * For when the game is over.
- * @private
  */
-Game.prototype.gameover_ = function() {
+Game.prototype.gameover = function() {
   this.freezeGame_();
   this.gameoverDialog.show(0, this.levelModel.get());
   window.santaApp.fire('analytics-track-game-over', {
