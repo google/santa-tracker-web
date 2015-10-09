@@ -35,6 +35,17 @@ var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/**/*.js';
 
+var CLOSURE_WARNINGS = [
+  // https://github.com/google/closure-compiler/wiki/Warnings
+  'accessControls',
+  'const',
+  'visibility'
+];
+var CLOSURE_SAFE_WARNINGS = CLOSURE_WARNINGS.concat([
+  'checkTypes',
+  'checkVars'
+]);
+
 var STATIC_VERSION = 80;
 var VERSION = argv.build || STATIC_VERSION;
 
@@ -54,81 +65,108 @@ var DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + VERSION);
 // scenes are whitelisted into compilation here
 var SCENE_CLOSURE_CONFIG = {
   airport: {
+    typeSafe: false,
     entryPoint: 'app.Belt'
   },
   boatload: {
+    typeSafe: false,
     entryPoint: 'app.Game'
   },
   briefing: {
+    typeSafe: false,
     entryPoint: 'app.Scene'
   },
   callfromsanta: {
+    typeSafe: false,
     entryPoint: 'app.Scene'
   },
   citylights: {
+    typeSafe: false,
     entryPoint: 'app.Scene'
   },
   codelab: {
+    typeSafe: false,
     entryPoint: 'app.wrapper.FrameWrapper'
   },
   commandcentre: {
+    typeSafe: false,
     entryPoint: 'app.Scene'
   },
   factory: {
+    typeSafe: false,
     entryPoint: 'app.Scene'
   },
   glider: {
+    typeSafe: false,
     entryPoint: 'app.Game'
   },
   gumball: {
+    typeSafe: false,
     entryPoint: 'app.Game'
   },
   jamband: {
+    typeSafe: false,
     entryPoint: 'app.Game'
   },
   jetpack: {
+    typeSafe: false,
     entryPoint: 'app.Game'
   },
   latlong: {
+    typeSafe: false,
     entryPoint: 'app.Game'
   },
   matching: {
+    typeSafe: false,
     entryPoint: 'app.Game'
   },
   playground: {
+    typeSafe: false,
     entryPoint: 'app.Scene'
   },
   postcard: {
+    typeSafe: false,
     entryPoint: 'app.Scene'
   },
   presentdrop: {
+    typeSafe: false,
     entryPoint: 'app.Game'
   },
   mercator: {
+    typeSafe: false,
     entryPoint: 'app.Game'
   },
   racer: {
+    typeSafe: false,
     entryPoint: 'app.Game'
   },
   runner: {
+    typeSafe: false,
     entryPoint: 'app.Game'
   },
   santaselfie: {
+    typeSafe: false,
     entryPoint: 'app.Game'
   },
   seasonofgiving: {
-    entryPoint: 'app.Game',
+    typeSafe: false,
+    closureLibrary: true,
+    entryPoint: 'app.Game'
   },
   streetview: {
+    typeSafe: false,
     entryPoint: 'app.Scene'
   },
   translations: {
+    typeSafe: false,
     entryPoint: 'app.Scene'
   },
   trivia: {
+    typeSafe: false,
     entryPoint: 'app.Game'
   },
   windtunnel: {
+    typeSafe: false,
     entryPoint: 'app.Scene'
   }
 };
@@ -193,6 +231,23 @@ gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
     var config = SCENE_CLOSURE_CONFIG[sceneName];
     var fileName = sceneName + '-scene.min.js';
     var dest = 'scenes/' + sceneName;
+    var closureLibraryPath = path.resolve('components/closure-library/closure/goog');
+
+    var warnings = CLOSURE_SAFE_WARNINGS;
+    var warningLevel = 'VERBOSE';
+    if (config.typeSafe === false) {
+      warnings = CLOSURE_WARNINGS;
+      warningLevel = 'DEFAULT';
+    }
+
+    // All scenes need Closure's base.js to get @export support. This is used in
+    // compilerFlags since it's essentially a static library (and to work around
+    // gulp-closure-compiler's love of copying files to /tmp).
+    var compilerSrc = [closureLibraryPath + '/base.js',
+        '!' + closureLibraryPath + '/**_test.js'];
+    if (config.closureLibrary === true) {
+      compilerSrc.push(closureLibraryPath + '/**.js');
+    }
 
     return stream.add(gulp.src([
       'scenes/' + sceneName + '/js/**/*.js',
@@ -202,6 +257,7 @@ gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
 
       // these externs are annotated with @externs, so we can import them as
       // source (so we can use use wildcards in the file name)
+      'third_party/externs/*.js',
       'third_party/externs/jquery/*.js',
     ])
     .pipe(newer(dest + '/' + fileName))
@@ -209,23 +265,14 @@ gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
       compilerPath: COMPILER_PATH,
       fileName: fileName,
       compilerFlags: addCompilerFlagOptions({
-        // all scenes need closure's base.js to get @export support, some need
-        // full closure library (like seasonofgiving)
-        // In compilerFlags since it's essentially a static library (and to work
-        // around gulp-closure-compiler's love of copying files to /tmp).
-        js: path.resolve('components/closure-library/closure/goog/**.js'),
+        js: compilerSrc,
         closure_entry_point: config.entryPoint,
         compilation_level: 'SIMPLE_OPTIMIZATIONS',
-        // warning_level: 'VERBOSE',
+        warning_level: warningLevel,
         language_in: 'ECMASCRIPT5_STRICT',
         process_closure_primitives: null,
         generate_exports: null,
-        jscomp_warning: [
-          // https://github.com/google/closure-compiler/wiki/Warnings
-          'accessControls',
-          'const',
-          'visibility'
-        ],
+        jscomp_warning: warnings,
         only_closure_dependencies: null,
         // scenes namespace themselves to `app.*`. Move this namespace into
         // the global `scenes.sceneName`
