@@ -28,8 +28,8 @@ goog.require('app.shared.utils');
 app.shared.ShareOverlay = function(elem) {
   this.elem = app.shared.utils.unwrapElement(elem);
 
-  this.overlay = new app.shared.Overlay(elem);
-  this.shareButtons = new app.shared.ShareButtons(elem.querySelector('.shareButtons'));
+  this.overlay = new app.shared.Overlay(this.elem);
+  this.shareButtons = new app.shared.ShareButtons(this.elem.querySelector('.shareButtons'));
 
   this.closeElem = this.elem.querySelector('.shareOverlay-close');
   this.urlElem = this.elem.querySelector('.shareOverlay-url');
