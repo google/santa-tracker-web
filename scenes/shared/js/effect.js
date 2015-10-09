@@ -29,7 +29,7 @@ app.shared.Effect = Effect;
  * @param {!app.shared.SharedGame} game The current game object.
  * @param {!Element|!jQuery} elem The element for the effect.
  */
-function Effect(game, elem, callback) {
+function Effect(game, elem) {
   this.elem = app.shared.utils.unwrapElement(elem);
   this.animateEnded_ = this.animateEnded_.bind(this);
 };
@@ -40,7 +40,7 @@ function Effect(game, elem, callback) {
  * @param {number} y The Y position.
  */
 Effect.prototype.animate = function(x, y) {
-  // TODO: Use transform
+  // TODO(samthor): Use transform
   var html = /** @type {HTMLElement} */ (this.elem);
   html.style.left = x + 'px';
   html.style.top = y + 'px';

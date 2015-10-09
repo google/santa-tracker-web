@@ -20,7 +20,7 @@ goog.require('app.shared.utils');
 
 /**
  * Share buttons.
- * @param {!HTMLElement|!jQuery} elem The share buttons element.
+ * @param {!Element|!jQuery} elem The share buttons element.
  * @param {string=} opt_url The url to share.
  * @constructor
  */
@@ -28,7 +28,8 @@ app.shared.ShareButtons = function(elem, opt_url) {
   this.elem = app.shared.utils.unwrapElement(elem);
   this.setUrl(opt_url);
 
-  // Open in a popup
+  // Open in a popup.
+  // TODO(samthor): Use a single listener and check target.
   var all = [].slice.call(elem.querySelectorAll('a'));
   all.forEach(function(link) {
     link.addEventListener('click', this.handleClick_);

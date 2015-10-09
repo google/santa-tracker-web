@@ -41,7 +41,7 @@ function Gameover(game, elem) {
   this.elem.querySelector('.gameover-play').addEventListener('click', function(e) {
     e.preventDefault();
 
-    this.hide(null);
+    this.hide();
     this.game.restart();
   }.bind(this));
 }
@@ -60,8 +60,8 @@ Gameover.prototype.show = function(score, level) {
 
 /**
  * Hides the gameover screen with an animation.
- * @param {Function} callback Runs when the animation is finished.
+ * @param {function()=} opt_callback Runs when the animation is finished.
  */
-Gameover.prototype.hide = function(callback) {
-  this.overlay.hide(callback);
+Gameover.prototype.hide = function(opt_callback) {
+  this.overlay.hide(opt_callback);
 };

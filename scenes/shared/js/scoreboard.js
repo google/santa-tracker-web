@@ -41,8 +41,7 @@ function Scoreboard(game, elem, opt_levels) {
   this.levelItemElems = this.elem.find('.level .level-item');
 
   if (opt_levels !== undefined) {
-    var levels = +opt_levels;
-    this.elem.find('.total-levels').text('/' + levels);
+    this.elem.find('.total-levels').text('/' + opt_levels);
   }
 
   this.attachEvents();

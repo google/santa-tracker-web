@@ -19,7 +19,7 @@
  * when it's clicked. Used to start games and user initiate webaudio.
  * @param {!Element|!jQuery} sceneElem The element with key events.
  * @param {!Element|!jQuery} elem The container for the button.
- * @param {!Function} callback The function to call when button is pressed.
+ * @param {function()} callback The function to call when button is pressed.
  */
 function startButton(sceneElem, elem, callback) {
   sceneElem = $(sceneElem);

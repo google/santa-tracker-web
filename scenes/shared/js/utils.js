@@ -31,21 +31,7 @@ app.shared.utils = (function() {
       'MozAnimation': 'transitionend',
       'OAnimation': 'oTransitionEnd otransitionend',
       'animation': 'transitionend'
-    },
-    requestAnimFrame = window.requestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.mozRequestAnimationFrame ||
-      window.oRequestAnimationFrame ||
-      window.msRequestAnimationFrame ||
-      function(/* function */ callback, /* DOMElement */ element) {
-        return window.setTimeout(callback, 1000 / 60);
-      },
-    cancelAnimFrame = window.cancelAnimationFrame ||
-      window.webkitCancelRequestAnimationFrame ||
-      window.mozCancelRequestAnimationFrame ||
-      window.oCancelRequestAnimationFrame ||
-      window.msCancelRequestAnimationFrame ||
-      window.clearTimeout;
+    };
 
   for (name in animationNames) {
     if (el.style[name] !== undefined) {
@@ -64,17 +50,17 @@ app.shared.utils = (function() {
      * the animation finishes.
      * @param {!Element|!jQuery} el The jQuery element.
      * @param {string} name Class name to add.
-     * @param {Function} cb Callback function when animation finishes.
-     * @param {boolean} nowait Call the callback without waiting.
-     * @param {string} child Child element that runs the animation or transition.
+     * @param {function(this:Element)} cb Callback function when animation finishes.
+     * @param {boolean=} opt_nowait Call the callback without waiting.
+     * @param {string=} opt_child Child element that runs the animation or transition.
      */
-    animWithClass: function(el, name, cb, nowait, child) {
+    animWithClass: function(el, name, cb, opt_nowait, opt_child) {
       el = $(el);
-      var elem = child ? el.find(child) : el;
+      var elem = (opt_child !== undefined) ? el.find(opt_child) : el;
 
       elem.one(ANIMATION_END + ' ' + TRANSITION_END, function(e) {
         el.removeClass(name);
-        if (cb && nowait) {
+        if (cb && opt_nowait) {
           cb.apply(el[0]);
         } else if (cb) {
           window.setTimeout(function() { cb.apply(el[0]); }, 0);
@@ -84,73 +70,38 @@ app.shared.utils = (function() {
     },
 
     /**
-     * Runs animation on an element without using a css class.
-     * @param {!Element|!jQuery} el The jQuery element.
-     * @param {string} animation The animation name, duration and more.
-     * @param {Function} cb The callback when animation finishes.
-     */
-    anim: function(el, animation, cb) {
-      el = $(el);
-      var elem = el[0];
-      el.one(ANIMATION_END + ' ' + TRANSITION_END, function(e) {
-        if (cb) {
-          cb.apply(elem);
-        }
-      });
-      elem.style[ANIMATION] = animation;
-    },
-
-    /**
-     * A state machine for the global pause feature. To make sure the scene isn't
-     * resumed when it was already paused.
-     * @param {!Object} module Adds onPause/onResume handlers on the module definition
-     * @param {!Function} isPaused Returns if the game is already paused.
-     * @param {!Function} pause Function to pause the game
-     * @param {!Function} resume Function to resume the game
-     */
-    globalPause: function(module, isPaused, pause, resume) {
-      var wasPaused = false;
-      module.onPause = function() {
-        wasPaused = isPaused();
-        if (!wasPaused) {
-          pause();
-        }
-      };
-      module.onResume = function() {
-        if (!wasPaused) {
-          resume();
-        }
-      };
-    },
-
-    /**
      * Call the callback in start of next frame.
+     * @deprecated
      * @param {!Function} callback The callback function.
      * @returns {number} The request id used for canceling.
      */
     requestAnimFrame: function(callback) {
-      return requestAnimFrame.call(window, callback);
+      // TODO: Remove this method and use rAF directly.
+      return window.requestAnimationFrame(callback);
     },
 
     /**
      * Cancel a request for animation frame.
+     * @deprecated
      * @param {number} requestId The id of the request.
      */
     cancelAnimFrame: function(requestId) {
-      cancelAnimFrame.call(window, requestId);
+      // TODO: Remove this method and use cAF directly.
+      window.cancelAnimationFrame(requestId);
     },
 
     /**
-     * Unwraps a jQuery object.
-     * @param {Element|jQuery} element source element or jQuery
-     * @return {Element} result element, or first jQuery object
+     * Unwraps a jQuery object. Expects an element to be matched, and will throw
+     * a TypeError otherwise.
+     * @param {!Element|!jQuery} element source element or jQuery
+     * @return {!Element} result element, or first jQuery object
      */
     unwrapElement: function(element) {
-      if (element && 'get' in element) {
-        var jq = /** @type {!jQuery} */ (element);
-        return /** @type {Element} */ (jq.get(0));
+      var out = $(element)[0];
+      if (!out) {
+        throw new TypeError('Couldn\'t unwrap jQuery object, nothing matched');
       }
-      return /** @type {Element} */ (element);
+      return out;
     },
 
     /**
@@ -163,7 +114,7 @@ app.shared.utils = (function() {
       var style = window.getComputedStyle(elem);
       var transform;
 
-      ['-webkit-', '-moz-', '-ms-', '-o-', ''].some(function(prefix) {
+      ['', '-webkit-', '-moz-', '-ms-', '-o-'].some(function(prefix) {
         var t = style.getPropertyValue(prefix + 'transform');
         if (!t) { return false; }
         transform = t;
@@ -180,23 +131,22 @@ app.shared.utils = (function() {
         values = transform.split('(')[1].split(')')[0].split(',');
         values = values.map(function(x) { return +x; });
       } catch(e) {
-        return {x: NaN, y: NaN, rotate: NaN};
+        throw new TypeError('Couldn\'t split transform, expected matrix(...)');
       }
-      var out = {x: values[4], y: values[5]};
-
       var a = values[0];
       var b = values[1];
       var scale = Math.sqrt(a*a + b*b);
 
       // arc sin, convert from radians to degrees, round
       var sin = b / scale;
-      out.rotate = Math.atan2(b, a) * (180 / Math.PI);
+      var rotate = Math.atan2(b, a) * (180 / Math.PI);
 
-      return out;
+      return {x: values[4], y: values[5], rotate: rotate};
     },
 
     /**
      * Register listener for finish event on a Web Animation player.
+     * TODO(samthor): Fix Function type when this code is replaced.
      * @param {!AnimationPlayer} player The animation player object which will finish
      * @param {!Function} fn A callback function to execute when player finishes
      */
@@ -225,11 +175,12 @@ app.shared.utils = (function() {
 
   /**
    * Wraps a value and provides useful utility methods for it.
-   * @param {*} initialValue Any value.
+   * @param {*} opt_initialValue Any value.
    * @constructor
+   * @struct
    */
-  utils.SmartValue = function(initialValue) {
-    this.value = initialValue;
+  utils.SmartValue = function(opt_initialValue) {
+    this.value = opt_initialValue;
   };
 
   /**

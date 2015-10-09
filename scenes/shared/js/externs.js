@@ -23,7 +23,7 @@
  * SantaApp is actually the Polymer <santa-app>. It's used to dispatch global
  * events.
  *
- * @type {!Object}
+ * @const
  */
 window.santaApp;
 
@@ -34,11 +34,35 @@ window.santaApp;
 window.santaApp.fire = function(name, data) {}
 
 /**
- * @type {!Object}
+ * @const
  */
-window.Modernizr;
+var Modernizr;
 
 /**
  * @type {boolean}
  */
 Modernizr.touch;
+
+/**
+ * TODO(thorogood): Migrate to Animation as per-
+ *   https://developers.google.com/web/updates/2015/04/web-animations-naming?hl=en
+ * @constructor
+ */
+var AnimationPlayer = function() {};
+
+/**
+ * @type {!Promise|boolean}
+ */
+AnimationPlayer.prototype.finished;
+
+/**
+ * @param {string} type
+ * @param {!Function} listener
+ * @param {boolean} useCapture
+ */
+AnimationPlayer.prototype.addEventListener = function(type, listener, useCapture) {};
+
+/**
+ * @type {string}
+ */
+AnimationPlayer.prototype.playState;

@@ -36,15 +36,15 @@ app.shared.Overlay.prototype.show = function() {
 
 /**
  * Hides the overlay with an animation.
- * @param {Function} callback Runs when the animation is finished.
+ * @param {function()=} opt_callback Runs when the animation is finished.
  */
-app.shared.Overlay.prototype.hide = function(callback) {
+app.shared.Overlay.prototype.hide = function(opt_callback) {
   var elem = this.elem;
   var handler = function() {
     elem.removeEventListener(app.shared.utils.ANIMATION_END, handler);
     elem.classList.remove('is-visible');
     elem.classList.remove('is-closed');
-    callback && callback();
+    opt_callback && opt_callback();
   };
   elem.addEventListener(app.shared.utils.ANIMATION_END, handler);
 };

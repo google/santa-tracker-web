@@ -40,7 +40,10 @@ app.shared.ShareOverlay = function(elem) {
 
   var hideFn = this.hide.bind(this);
   var selectFn = function() {
+    // Use various approaches to select the text. Delay by a frame to work
+    // around an apparent IE10 bug.
     window.setTimeout(function() {
+      // TODO(thorogood): Factor this out to a helper function.
       if ('select' in this) {
         this.select();
       } else {
@@ -81,7 +84,7 @@ app.shared.ShareOverlay.prototype.show = function(url, shorten) {
 /**
  * Shorten a url with Google shortener.
  * @param {string} url The long url.
- * @param {!Function} callback Call this function with the shortened url.
+ * @param {function(string)} callback Call this function with the shortened url.
  * @private
  */
 app.shared.ShareOverlay.prototype.shorten_ = function(url, callback) {
@@ -107,8 +110,8 @@ app.shared.ShareOverlay.prototype.shorten_ = function(url, callback) {
 
 /**
  * Hides the share screen with an animation.
- * @param {!Function} callback Runs when the animation is finished.
+ * @param {function()=} opt_callback Runs when the animation is finished.
  */
-app.shared.ShareOverlay.prototype.hide = function(callback) {
-  this.overlay.hide(callback);
+app.shared.ShareOverlay.prototype.hide = function(opt_callback) {
+  this.overlay.hide(opt_callback);
 };

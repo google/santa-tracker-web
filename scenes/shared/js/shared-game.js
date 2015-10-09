@@ -16,6 +16,8 @@
 
 goog.provide('app.shared.SharedGame');
 
+app.shared.SharedGame = SharedGame;
+
 /**
  * A game in Santa Tracker.
  * @interface

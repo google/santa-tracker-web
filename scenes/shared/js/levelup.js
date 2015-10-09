@@ -86,7 +86,7 @@ LevelUp.prototype.numberShown_ = function() {
 /**
  * Show new level number.
  * @param {number} level The number of the new level.
- * @param {!Function} callback The function to call while the level is hidden.
+ * @param {function()} callback The function to call while the level is hidden.
  */
 LevelUp.prototype.show = function(level, callback) {
   this.bgElem.addClass('is-visible');
@@ -103,8 +103,8 @@ LevelUp.prototype.show = function(level, callback) {
  * A utility for waiting for an event with a timeout.
  * @param {!Element|!jQuery} elem
  * @param {string} event
- * @param {number} timeout
- * @param {!Function} callback
+ * @param {number} timeout in seconds
+ * @param {function()} callback
  */
 function timeoutOneEvent(elem, event, timeout, callback) {
   elem = app.shared.utils.unwrapElement(elem);
@@ -115,7 +115,7 @@ function timeoutOneEvent(elem, event, timeout, callback) {
     if (!finished) {
       finished = true;
       elem.removeEventListener(event, finish);
-      callback && callback();
+      callback();
     }
   }
 
