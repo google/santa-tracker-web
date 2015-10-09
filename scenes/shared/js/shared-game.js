@@ -14,34 +14,24 @@
  * the License.
  */
 
-goog.provide('app.shared.PauseOverlay');
+goog.provide('app.shared.SharedGame');
 
-goog.require('app.shared.Overlay');
-
-
+app.shared.SharedGame = SharedGame;
 
 /**
- * Pause screen.
- * @param {!Element|!jQuery} elem The game element.
- * @constructor
+ * A game in Santa Tracker.
+ * @interface
  */
-app.shared.PauseOverlay = function(elem) {
-  this.overlay = new app.shared.Overlay(elem);
+function SharedGame() {
+  /** @public {!Scoreboard} */ this.scoreboard;
+  /** @public {number} */ this.level;
 };
-
 
 /**
- * Shows the pause screen with an animation.
  */
-app.shared.PauseOverlay.prototype.show = function() {
-  this.overlay.show();
-};
-
+SharedGame.prototype.restart = function() {};
 
 /**
- * Hides the pause screen with an animation.
- * @param {function()=} opt_callback
  */
-app.shared.PauseOverlay.prototype.hide = function(opt_callback) {
-  this.overlay.hide(opt_callback);
-};
+SharedGame.prototype.gameover = function() {};
+

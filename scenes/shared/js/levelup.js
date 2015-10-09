@@ -17,19 +17,21 @@
 
 goog.provide('app.shared.LevelUp');
 
+goog.require('app.shared.utils');
+
 // We are *leaking* the LevelUp global for backwards compatibility.
 app.shared.LevelUp = LevelUp;
 
 /**
  * Animation for level up.
  * @constructor
- * @param {!Game} game The current game object.
- * @param {!HTMLElement} bgElem The element for the background.
- * @param {!HTMLElement} numberElem The element for the level number.
+ * @param {!app.shared.SharedGame} game The current game object.
+ * @param {!Element|!jQuery} bgElem The element for the background.
+ * @param {!Element|!jQuery} numberElem The element for the level number.
  */
 function LevelUp(game, bgElem, numberElem) {
-  this.bgElem = bgElem;
-  this.numberElem = numberElem;
+  this.bgElem = $(bgElem);
+  this.numberElem = $(numberElem);
 
   this.onResizeBound_ = this.onResize_.bind(this);
   $(window).on('resize', this.onResizeBound_);
@@ -74,7 +76,7 @@ LevelUp.prototype.numberHidden_ = function() {
  * @private
  */
 LevelUp.prototype.numberShown_ = function() {
-  timeoutOneEvent(this.numberElem, utils.TRANSITION_END, 0.5, this.numberHidden_.bind(this));
+  timeoutOneEvent(this.numberElem, app.shared.utils.TRANSITION_END, 0.5, this.numberHidden_.bind(this));
   this.numberElem.addClass('hide');
   this.bgElem.css('border-width', 0);
 
@@ -84,40 +86,40 @@ LevelUp.prototype.numberShown_ = function() {
 /**
  * Show new level number.
  * @param {number} level The number of the new level.
- * @param {function} callback The function to call while the level is hidden.
+ * @param {function()} callback The function to call while the level is hidden.
  */
 LevelUp.prototype.show = function(level, callback) {
   this.bgElem.addClass('is-visible');
-  timeoutOneEvent(this.bgElem, utils.TRANSITION_END, 1.0, callback);
+  timeoutOneEvent(this.bgElem, app.shared.utils.TRANSITION_END, 1.0, callback);
   this.bgElem.css('border-width', this.bgBorderWidth);
 
-  timeoutOneEvent(this.numberElem, utils.ANIMATION_END, 1.5, this.numberShown_.bind(this));
-  this.numberElem.text(level).addClass('show');
+  timeoutOneEvent(this.numberElem, app.shared.utils.ANIMATION_END, 1.5, this.numberShown_.bind(this));
+  this.numberElem.text('' + level).addClass('show');
 
   window.santaApp.fire('sound-trigger', 'level_transition_close');
 };
 
 /**
  * A utility for waiting for an event with a timeout.
- * @param {!jQuery} elem
+ * @param {!Element|!jQuery} elem
  * @param {string} event
- * @param {number} timeout
- * @param {function} callback
+ * @param {number} timeout in seconds
+ * @param {function()} callback
  */
 function timeoutOneEvent(elem, event, timeout, callback) {
+  elem = app.shared.utils.unwrapElement(elem);
+
   // Only trigger callback once.
   var finished = false;
   function finish() {
     if (!finished) {
       finished = true;
-      elem.off(event, finish);
-      if (callback && typeof callback === 'function') {
-        callback();
-      }
+      elem.removeEventListener(event, finish);
+      callback();
     }
   }
 
   // Which comes first, the event or the timeout?
-  elem.on(event, finish);
+  elem.addEventListener(event, finish);
   window.setTimeout(finish, timeout * 1000);
 }

@@ -64,6 +64,7 @@ Game = function(elem) {
   this.tutorial = new Tutorial(this.elem, 'touch-updown', 'keys-space keys-updown');
   this.controls = new Controls(this);
   this.levelUp = new LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
+  this.scoreElem = this.elem.find('.score-sign');
   this.score = new Effect(this, this.elem.find('.score-sign'));
   this.splash = new Effect(this, this.elem.find('.splash'));
   this.gameStartTime = +new Date;
@@ -325,7 +326,7 @@ Game.prototype.dropPresent = function(present) {
  * @param {number} y The Y position.
  */
 Game.prototype.hitBoat = function(score, time, x, y) {
-  this.score.elem.text(score);
+  this.scoreElem.text(score);
   this.score.animate(x, y);
   this.scoreboard.addScore(score);
   this.scoreboard.addTime(time);

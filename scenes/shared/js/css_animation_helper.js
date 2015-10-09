@@ -25,11 +25,10 @@
  * been uploaded to the GPU it doesn't update when window is resized.
  *
  * @constructor
- * @param {!HTMLElement} context The current scene wrapper.
+ * @param {!Element|!jQuery} context The current scene wrapper.
  */
-
 var CSSAnimationHelper = function(context) {
-  this.context = context;
+  this.context = $(context);
   this._attachToWindowResize();
   // trigger a reflow straight away
   this.restartAnimations();
