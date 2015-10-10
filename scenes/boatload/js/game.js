@@ -29,14 +29,16 @@ goog.require('app.shared.Effect');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.LevelUp');
 goog.require('app.shared.Scoreboard');
+goog.require('app.shared.SharedGame');
 goog.require('app.shared.Tutorial');
 goog.require('app.shared.pools');
 goog.require('app.shared.utils');
 
 /**
  * Main game class.
- * @param {Element} elem An DOM element which wraps the game.
+ * @param {!Element} elem The DOM element which wraps the game.
  * @constructor
+ * @implements {SharedGame}
  */
 Game = function(elem) {
   this.elem = $(elem);
@@ -186,7 +188,7 @@ Game.prototype.onFrame = function() {
 
 /**
  * Scale the game down for smaller resolutions.
- * @param {Number} scale A scale between 0 and 1 on how much to scale.
+ * @param {number} scale A scale between 0 and 1 on how much to scale.
  */
 Game.prototype.setScale = function(scale) {
   this.scale = scale;
@@ -326,7 +328,7 @@ Game.prototype.dropPresent = function(present) {
  * @param {number} y The Y position.
  */
 Game.prototype.hitBoat = function(score, time, x, y) {
-  this.scoreElem.text(score);
+  this.scoreElem.text('' + score);
   this.score.animate(x, y);
   this.scoreboard.addScore(score);
   this.scoreboard.addTime(time);
@@ -424,7 +426,7 @@ Game.prototype.watchSceneSize_ = function() {
     var width = window.innerWidth;
     var height = window.innerHeight;
     var scale = width < 980 ? width / 980 : 1;
-    var scale = height < 600 ? Math.min(height / 600, scale) : scale;
+    scale = height < 600 ? Math.min(height / 600, scale) : scale;
 
     size.height = window.innerHeight * (1 / scale);
     size.width = window.innerWidth * (1 / scale);
@@ -447,7 +449,7 @@ Game.prototype.reuseBubbles_ = function() {
 };
 
 /**
- * Cleanup
+ * Cleanup.
  */
 Game.prototype.dispose = function() {
   if (this.isPlaying) {
@@ -473,7 +475,6 @@ Game.prototype.dispose = function() {
 
 /**
  * Export game class.
- * @type {Game}
  * @export
  */
 app.Game = Game;

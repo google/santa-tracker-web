@@ -18,6 +18,7 @@
 goog.provide('app.shared.Effect');
 
 goog.require('app.shared.utils');
+goog.require('app.shared.SharedGame');
 
 // We are *leaking* the Effect global for backwards compatibility.
 app.shared.Effect = Effect;
@@ -26,7 +27,7 @@ app.shared.Effect = Effect;
  * Creates some effect using css animations.
  * Adds animate class to element to activate animation.
  * @constructor
- * @param {!app.shared.SharedGame} game The current game object.
+ * @param {!SharedGame} game The current game object.
  * @param {!Element|!jQuery} elem The element for the effect.
  */
 function Effect(game, elem) {

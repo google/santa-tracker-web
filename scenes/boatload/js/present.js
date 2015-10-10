@@ -21,8 +21,9 @@ goog.require('app.shared.pools');
 
 /**
  * Drops a present.
+ * @param {!Game} game The current game object.
  * @constructor
- * @param {Game} game The current game object.
+ * @struct
  */
 Present = function(game) {
   this.game = game;
@@ -34,6 +35,13 @@ Present = function(game) {
   var type = Math.ceil(Math.random() * 3);
   this.elem.addClass('present--' + type);
   this.game.presentsElem.append(this.elem);
+  
+  this.dead = false;
+  this.x = 0;
+  this.y = 0;
+  this.addX = 0;
+  this.velocity = 0;
+  this.scale = 1;
 }
 
 /**
@@ -46,7 +54,7 @@ Present.PRESENT_CENTER = Constants.PRESENT_WIDTH / 2;
 
 /**
  * Resets the present for reuse.
- * @param {Number} y The Y position.
+ * @param {number} y The Y position.
  */
 Present.prototype.onInit = function(y) {
   this.elem.removeClass('hidden');
@@ -78,7 +86,8 @@ Present.prototype.missed = function() {
     this.addX = progress * 20;
     this.draw();
   }.bind(this), function() {
-    this.remove();
+    var pt = /** @type {app.shared.pools.PoolType} */ (this);
+    pt.remove();
     this.game.lastMissedPresent = null;
   }.bind(this));
   utils.animWithClass(this.elem, 'present--missed');

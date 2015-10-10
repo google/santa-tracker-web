@@ -20,8 +20,9 @@ goog.require('app.shared.pools');
 
 /**
  * Bubbles from the motors of the boats.
- * @param {Game} game The game object.
+ * @param {!Game} game The game object.
  * @constructor
+ * @struct
  */
 Bubble = function(game) {
   this.game = game;

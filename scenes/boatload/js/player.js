@@ -21,8 +21,8 @@ goog.require('Constants');
 /**
  * Movement and present drop for the player.
  * @constructor
- * @param {Game} game The game object.
- * @param {jQuery} elem The player element.
+ * @param {!Game} game The game object.
+ * @param {!jQuery} elem The player element.
  */
 Player = function(game, elem) {
   this.game = game;
@@ -71,7 +71,7 @@ Player.prototype.reset = function() {
 
 /**
  * Moves the player each frame based on keyboard input.
- * @param  {number} delta Time since last frame.
+ * @param {number} delta Time since last frame.
  */
 Player.prototype.onFrame = function(delta) {
   // Update sounds.
@@ -202,7 +202,7 @@ Player.prototype.dropPresent = function() {
 
 /**
  * Animate the player.
- * @param  {Number} status The animation progress (between 0 and 1).
+ * @param {number} status The animation progress (between 0 and 1).
  */
 Player.prototype.animate = function(status) {
   var left = -60 * status;

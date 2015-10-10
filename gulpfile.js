@@ -69,7 +69,6 @@ var SCENE_CLOSURE_CONFIG = {
     entryPoint: 'app.Belt'
   },
   boatload: {
-    typeSafe: false,
     entryPoint: 'app.Game'
   },
   briefing: {

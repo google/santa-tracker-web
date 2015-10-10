@@ -26,7 +26,7 @@ app.shared.Tutorial = Tutorial;
  * touch swipe, rotate the device, tilting, tap the screen,
  * and how to play matching.
  * @constructor
- * @param {!Element} moduleElem The module element.
+ * @param {!Element|!jQuery} moduleElem The module element.
  * @param {string} touchTutorials Tutorials when touch is enabled.
  * @param {string} notouchTutorials Tutorials when touch is disabled.
  */
