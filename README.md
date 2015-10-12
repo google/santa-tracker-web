@@ -23,6 +23,11 @@ $ npm install
 
 Build with `gulp`. Alternatively, you can rebuild just the scenes with `gulp compile-scenes`, or the CSS with `gulp compass`.
 
+```bash
+$ npm install gulp    # Only required if you don't have gulp installed.
+$ gulp
+```
+
 The raw site can now be served from the root directory.
 
 ## Release
