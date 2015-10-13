@@ -62,7 +62,9 @@ var DIST_PROD_DIR = argv.pretty ? PRETTY_DIR : PROD_DIR;
 // path for static resources
 var DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + VERSION);
 
-// scenes are whitelisted into compilation here
+// Broad scene config for Santa Tracker.
+// Note! New scenes must be typeSafe (which is the default, so omit typeSafe:
+// false). This will correctly typecheck Closure annotations.
 var SCENE_CLOSURE_CONFIG = {
   airport: {
     typeSafe: false,
