@@ -21,13 +21,12 @@ goog.require('SB.Object.Renderable');
 /**
  * Represents the red line over which you drive Santa and
  * Rudolf. Triggers a level up and some points.
- * @param {object} position The global position of the object.
- * @param {number} rotation The local rotation of the object.
- * @param {object} scale The local scale of the object.
  * @constructor
+ * @struct
  * @extends SB.Object.Renderable
  */
-SB.Object.MarkerLine = function(position, rotation, scale) {
+SB.Object.MarkerLine = function() {
+  SB.Object.Renderable.call(this);
 
   /**
    * Whether the marker line should include 3, 2, 1 numbers below itself
@@ -36,24 +35,6 @@ SB.Object.MarkerLine = function(position, rotation, scale) {
    * @private
    */
   this.drawNumbers_ = true;
-
-  /**
-   * The position of the object in world space.
-   * @type {object}
-   */
-  this.position = position || {x: 0, y: 0};
-
-  /**
-   * The scale of the object in local space.
-   * @type {object}
-   */
-  this.scale = scale || {x: 1, y: 1};
-
-  /**
-   * The rotation of the object in local space.
-   * @type {number}
-   */
-  this.rotation = rotation || 0;
 
   /**
    * Whether the marker has been triggered. Set to true
@@ -67,7 +48,7 @@ SB.Object.MarkerLine = function(position, rotation, scale) {
   this.reset();
 };
 
-SB.Object.MarkerLine.prototype = new SB.Object.Renderable();
+SB.Object.MarkerLine.prototype = Object.create(SB.Object.Renderable.prototype);
 
 /**
  * Draws the marker line to the canvas.
@@ -90,7 +71,7 @@ SB.Object.MarkerLine.prototype.render = function(ctx) {
     ctx.textAlign = "center";
     ctx.fillStyle = "#E5E5E5";
     ctx.font = "800 268px Lobster";
-    ctx.fillText(this.level, this.center || window.worldWidth * 0.5, 180);
+    ctx.fillText('' + this.level, this.center || window.worldWidth * 0.5, 180);
     ctx.fill();
     ctx.closePath();
     ctx.restore();

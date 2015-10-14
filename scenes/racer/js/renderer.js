@@ -20,11 +20,13 @@ goog.provide('SB.Renderer');
  * Wrapper around the canvas and its rendering context.
  * @param {!HTMLCanvasElement} canvas
  * @namespace
+ * @struct
+ * @constructor
  */
 SB.Renderer = function(canvas) {
   var PADDING = 20;
 
-  var context = canvas.getContext('2d');
+  var context = /** @type {!CanvasRenderingContext2D} */ (canvas.getContext('2d'));
   var width = 576;
   var height = 640;
 
@@ -50,7 +52,7 @@ SB.Renderer = function(canvas) {
 
   /**
    * A reference to the canvas rendering context.
-   * @type {CanvasRenderingContext2D}
+   * @type {!CanvasRenderingContext2D}
    */
   this.context = context;
 

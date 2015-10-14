@@ -18,6 +18,7 @@ goog.provide('Constants');
 
 /**
  * Gameplay constants
+ * @type {!Object<number>}
  * @const
  */
 var Constants = {
@@ -36,3 +37,9 @@ var Constants = {
 
   TOTAL_LEVELS: 10
 };
+
+/**
+ * @typedef {{x: number, y: number}}
+ */
+Constants.PosType;
+

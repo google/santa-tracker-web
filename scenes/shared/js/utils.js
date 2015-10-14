@@ -91,15 +91,15 @@ app.shared.utils = (function() {
     },
 
     /**
-     * Unwraps a jQuery object. Expects an element to be matched, and will throw
-     * a TypeError otherwise.
-     * @param {!Element|!jQuery} element source element or jQuery
+     * Unwraps a jQuery object or confirms that an Element is non-null. Throws a
+     * TypeError if there is no object available.
+     * @param {Element|!jQuery} element source element or jQuery
      * @return {!Element} result element, or first jQuery object
      */
     unwrapElement: function(element) {
       var out = $(element)[0];
       if (!out) {
-        throw new TypeError('Couldn\'t unwrap jQuery object, nothing matched');
+        throw new TypeError('Couldn\'t unwrap element, nothing matched');
       }
       return out;
     },

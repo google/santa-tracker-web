@@ -137,7 +137,6 @@ var SCENE_CLOSURE_CONFIG = {
     entryPoint: 'app.Game'
   },
   racer: {
-    typeSafe: false,
     entryPoint: 'app.Game'
   },
   runner: {

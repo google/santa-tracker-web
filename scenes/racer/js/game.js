@@ -21,16 +21,15 @@ goog.require('Constants');
 goog.require('Controls');
 goog.require('SB.Assets');
 goog.require('SB.Object.MarkerLine');
-goog.require('SB.Object.Present');
 goog.require('SB.Object.Renderable');
 goog.require('SB.Object.Rudolf');
 goog.require('SB.Object.Santa');
 goog.require('SB.Object.Scenery');
 goog.require('SB.Object.Text');
-goog.require('SB.Object.TreeRock');
 goog.require('SB.Renderer');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.Scoreboard');
+goog.require('app.shared.SharedGame');
 goog.require('app.shared.Tutorial');
 goog.require('app.shared.pools');
 goog.require('app.shared.utils');
@@ -41,6 +40,8 @@ goog.require('app.shared.utils');
  * @param {!Element} elem
  * @param {string} componentDir The path to the Racer scene directory.
  * @constructor
+ * @implements SharedGame
+ * @struct
  */
 SB.Game = function(elem, componentDir) {
   this.elem = elem;
@@ -48,15 +49,27 @@ SB.Game = function(elem, componentDir) {
 
   this.MIN_DEADLINE = 10;
 
-  this.controls = null;
-  this.renderer = null;
-  this.scoreboard = null;
-  this.gameoverView = null;
-  this.world = null;
-  this.santa = null;
-  this.rudolf = null;
-  this.scenery = null;
-  this.markerLine = null;
+  this.level = 0;
+
+  this.tutorial = new Tutorial(this.elem, 'touch-updown', 'keys-up keys-leftright');
+  this.controls = new Controls(this, this.tutorial);
+  this.renderer = new SB.Renderer(
+      /** @type {!HTMLCanvasElement} */ (elem.querySelector('canvas.game')));
+  this.scoreboard = new Scoreboard(this, elem.querySelector('.board'));
+  this.scoreboard.reset();
+  this.scoreboard.setLevel(this.level - 1);
+  this.gameoverView = new Gameover(this, elem.querySelector('.gameover'));
+  this.watchSceneSize_();
+
+  this.world = new SB.Object.Renderable();
+  this.markerLine = new SB.Object.MarkerLine();
+  this.santa = new SB.Object.Santa(
+    {x: window.worldWidth * 0.5, y: 400}
+  );
+  this.rudolf = new SB.Object.Rudolf(
+    {x: window.worldWidth * 0.5, y: 300}
+  );
+  this.scenery = new SB.Object.Scenery();
 
   this.paused = false;
   this.inputVector = {
@@ -64,7 +77,6 @@ SB.Game = function(elem, componentDir) {
     y: 0
   };
 
-  this.level = 0;
   this.nextDeadline = 30;
   this.markerDistance = 6000;
   this.markerDistanceIncrease = 1000;
@@ -75,6 +87,8 @@ SB.Game = function(elem, componentDir) {
   this.lastUpdateTime = 0;
   this.updateTime = 0;
 
+  this.requestId = -1;
+
   this.update_ = this.update_.bind(this);
 
   this.setup_();
@@ -82,33 +96,10 @@ SB.Game = function(elem, componentDir) {
 
 
 /**
- * Creates and initializes the main objects in
- * the game and adds them to the world for rendering.
+ * Connects and arranges the world for rendering.
  * @private
  */
 SB.Game.prototype.setup_ = function() {
-  this.tutorial = new Tutorial(this.elem, 'touch-updown', 'keys-up keys-leftright');
-  this.controls = new Controls(this);
-  this.renderer = new SB.Renderer(this.elem.querySelector('.game'));
-  this.scoreboard = new Scoreboard(this, $(this.elem).find('.board'));
-  this.scoreboard.reset();
-  this.scoreboard.setLevel(this.level - 1);
-  this.gameoverView = new Gameover(this, $(this.elem).find('.gameover'));
-  this.watchSceneSize_();
-
-  this.world = new SB.Object.Renderable();
-  this.markerLine = new SB.Object.MarkerLine();
-
-  this.santa = new SB.Object.Santa(
-    {x: window.worldWidth * 0.5, y: 400}
-  );
-
-  this.rudolf = new SB.Object.Rudolf(
-    {x: window.worldWidth * 0.5, y: 300}
-  );
-
-  this.scenery = new SB.Object.Scenery();
-
   this.world.addChild(this.markerLine);
   this.world.addChild(this.scenery);
   this.world.addChild(this.rudolf);
@@ -145,7 +136,7 @@ SB.Game.prototype.unfreezeGame_ = function() {
     this.elem.focus();
     this.playing = true;
     this.lastUpdateTime = +new Date;
-    this.requestId = utils.requestAnimFrame(this.update_);
+    this.requestId = window.requestAnimationFrame(this.update_);
   }
 };
 
@@ -195,7 +186,7 @@ SB.Game.prototype.update_ = function() {
   }
 
   // schedule the next tick
-  this.requestId = utils.requestAnimFrame(this.update_);
+  this.requestId = window.requestAnimationFrame(this.update_);
 };
 
 /**
@@ -390,7 +381,7 @@ SB.Game.prototype.dispose = function() {
   }
   this.playing = false;
 
-  utils.cancelAnimFrame(this.requestId);
+  window.cancelAnimationFrame(this.requestId);
   $(window).off('.racer');
   $(this.elem).off('.racer');
 
@@ -448,7 +439,8 @@ SB.Game.prototype.isPaused = function() {
 
 /**
  * Export Game object.
- * @type {Game}
  * @export
  */
 app.Game = SB.Game;
+
+window.RacerGame = app.Game;
