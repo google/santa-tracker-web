@@ -18,7 +18,7 @@ goog.provide('Controls');
 
 /**
  * Handles user input for controlling the game.
- * @param {SB.Game} game The game object.
+ * @param {!Game} game The game object.
  * @constructor
  */
 Controls = function(game) {
@@ -72,7 +72,7 @@ Controls.prototype.touchStartedInGUI = false;
 
 /**
  * Handle all keyboard and touch events.
- * @param {Event} e The event data.
+ * @param {!jQuery.Event} e The event data.
  */
 Controls.prototype.handle = function(e) {
   // Paused or Gameover
@@ -80,15 +80,18 @@ Controls.prototype.handle = function(e) {
     return;
   }
 
+  // TODO(samthor): Add all events explicitly, rather than calling by string.
+  // Note also that this breaks with ADVANCED_OPTIMIZATIONS since the names are
+  // referenced by string.
   var methodName = 'on' + e.type[0].toUpperCase() + e.type.slice(1);
-  this[methodName](e);
+  this[methodName](e.originalEvent);
 };
 
 /**
  * Handles the key down event. Called dynamically.
- * @param  {Event} e The event object.
+ * @param {!Event} e The event object.
  */
-Controls.prototype['onKeydown'] = function(e) {
+Controls.prototype.onKeydown = function(e) {
   if (e.keyCode === 38) { // Up
     this.isUpDown_ = true;
   } else if (e.keyCode === 40) { // Down
@@ -117,9 +120,9 @@ Controls.prototype['onKeydown'] = function(e) {
 
 /**
  * Handles the key up event. Called dynamically.
- * @param  {Event} e The event object.
+ * @param {!Event} e The event object.
  */
-Controls.prototype['onKeyup'] = function(e) {
+Controls.prototype.onKeyup = function(e) {
   if (e.keyCode === 38) { // Up
     this.isUpDown_ = false;
   } else if (e.keyCode === 40) { // Down
@@ -153,9 +156,9 @@ Controls.prototype.updatePlayerFromKeyboard = function() {
 
 /**
  * Touch started. Ignores gui touches. Called dynamically.
- * @param {Event} e The event object.
+ * @param {!Event} e The event object.
  */
-Controls.prototype['onTouchstart'] = function(e) {
+Controls.prototype.onTouchstart = function(e) {
   // Ignore the touch if it starts in GUI
   this.touchStartedInGUI = !!$(e.target).closest('.gui').length;
   if (this.touchStartedInGUI) return;
@@ -166,7 +169,7 @@ Controls.prototype['onTouchstart'] = function(e) {
   }
 
   // Correct position if game is scaled
-  var touch = e.originalEvent.changedTouches[0];
+  var touch = e.changedTouches[0];
   var touchY = touch.pageY * (1 / this.game.scale);
 
   this.currentTouchId = touch.identifier;
@@ -183,10 +186,10 @@ Controls.prototype['onTouchstart'] = function(e) {
 
 /**
  * Touch moved. Called dynamically.
- * @param {Event} e The event object.
+ * @param {!Event} e The event object.
  */
-Controls.prototype['onTouchmove'] = function(e) {
-  var touch = this.getCurrentTouch(e.originalEvent);
+Controls.prototype.onTouchmove = function(e) {
+  var touch = this.getCurrentTouch(e);
   if (touch) {
     // Correct position if game is scaled
     var touchY = touch.pageY * (1 / this.game.scale);
@@ -198,10 +201,10 @@ Controls.prototype['onTouchmove'] = function(e) {
 
 /**
  * Touch ended. Called dynamically.
- * @param {Event} e The event object.
+ * @param {!Event} e The event object.
  */
-Controls.prototype['onTouchend'] = function(e) {
-  var touch = this.getCurrentTouch(e.originalEvent);
+Controls.prototype.onTouchend = function(e) {
+  var touch = this.getCurrentTouch(e);
   if (!touch) {
     return;
   }
@@ -211,13 +214,13 @@ Controls.prototype['onTouchend'] = function(e) {
 };
 
 /**
- * Returns the active touch from a touch event.
- * @param {Event} e A touch event.
- * @return {Touch}   The active touch.
+ * Returns the active touch from a native touch event.
+ * @param {!Event} e A touch event.
+ * @return {Touch} The active touch.
  */
 Controls.prototype.getCurrentTouch = function(e) {
   if (this.currentTouchId === null) {
-    return;
+    return null;
   }
 
   for (var i = 0, touch; touch = e.changedTouches[i]; i++) {
@@ -225,4 +228,5 @@ Controls.prototype.getCurrentTouch = function(e) {
       return touch;
     }
   }
+  return null;
 };

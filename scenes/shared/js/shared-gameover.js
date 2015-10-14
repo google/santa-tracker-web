@@ -14,30 +14,17 @@
  * the License.
  */
 
-goog.provide('app.shared.SharedGame');
-
-goog.require('app.shared.SharedGameOver');
-goog.require('app.shared.Scoreboard');
-
-app.shared.SharedGame = SharedGame;
+goog.provide('app.shared.SharedGameOver');
 
 /**
- * A game in Santa Tracker.
+ * An interface for a game in Santa Tracker which can be marked as 'game over'.
+ * Used by Scoreboard, which needs a clear type for this.
  * @interface
- * @extends {SharedGameOver}
  */
-function SharedGame() {
-  // TODO(samthor): It's not clear that with the current settings, Closure
-  // enforces that these properties exist.
-  /** @public {!Scoreboard} */ this.scoreboard;
-  /** @public {number} */ this.level;
-};
+function SharedGameOver() {
+}
 
 /**
  */
-SharedGame.prototype.restart = function() {};
-
-/**
- */
-SharedGame.prototype.dispose = function() {};
+SharedGameOver.prototype.gameover = function() {};
 

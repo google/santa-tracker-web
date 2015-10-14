@@ -14,10 +14,11 @@
  * the License.
  */
 
+goog.provide('app.shared.Scoreboard');
+
 // Load the old Constants global for backwards compatibility
 goog.require('Constants');
-
-goog.provide('app.shared.Scoreboard');
+goog.require('app.shared.SharedGameOver');
 
 // We are *leaking* the Scoreboard global for backwards compatibility.
 app.shared.Scoreboard = Scoreboard;
@@ -25,7 +26,7 @@ app.shared.Scoreboard = Scoreboard;
 /**
  * Manages the scoreboard and game countdown.
  * @constructor
- * @param {!app.shared.SharedGame} game The game object.
+ * @param {!SharedGameOver} game The object which can be made gameover.
  * @param {!Element|!jQuery} elem The scoreboard element.
  * @param {number=} opt_levels The total number of levels.
  */

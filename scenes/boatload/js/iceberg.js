@@ -21,7 +21,7 @@ goog.require('app.shared.pools');
 /**
  * Manages an iceberg.
  * @constructor
- * @param {Game} game The current game object.
+ * @param {!Game} game The current game object.
  */
 Iceberg = function(game) {
   this.game = game;
@@ -36,7 +36,7 @@ pools.mixin(Iceberg);
 
 /**
  * Resets the Iceberg for reuse.
- * @param {number} type The type of the iceberg.
+ * @param {Constants.IcebergType} type The type of the iceberg.
  * @param {number} x The X position.
  */
 Iceberg.prototype.onInit = function(type, x) {
@@ -111,7 +111,7 @@ Iceberg.prototype.onFrame = function(delta) {
 
 /**
  * Registers a collision with the Iceberg.
- * @param {Present} present The present.
+ * @param {!Present} present The present.
  * @param {number} x The X position.
  * @param {number} y The Y position.
  */

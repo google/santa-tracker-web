@@ -19,6 +19,7 @@ goog.provide('app.shared.pools');
 app.shared.pools = (function() {
   var objects = [];
   return {
+
     mixin: function(obj, options) {
       options = options || {};
       obj.pool_ = [];
@@ -108,7 +109,7 @@ app.shared.pools = (function() {
       /**
        * Initialises a pooled instance if one exists.
        * @param {Object} instance
-       * @param {!Array.<Object>} popArgs
+       * @param {!Arguments} popArgs
        * @return {Object}
        * @private
        */
@@ -127,6 +128,14 @@ app.shared.pools = (function() {
     }
   };
 }());
+
+/** @interface */
+app.shared.pools.PoolType = function() {};
+
+/** @param {...*} var_args */
+app.shared.pools.PoolType.onInit = function(var_args) {};
+app.shared.pools.PoolType.onDispose = function(var_args) {};
+app.shared.pools.PoolType.remove = function() {};
 
 var pools = app.shared.pools;
 

@@ -18,6 +18,7 @@ goog.provide('app.shared.Gameover');
 
 goog.require('app.shared.Overlay');
 goog.require('app.shared.ShareButtons');
+goog.require('app.shared.SharedGame');
 goog.require('app.shared.utils');
 
 // We are *leaking* the Gameover global for backwards compatibility.
@@ -25,7 +26,7 @@ app.shared.Gameover = Gameover;
 
 /**
  * Gameover screen.
- * @param {!app.shared.SharedGame} game The game object.
+ * @param {!SharedGame} game The game object.
  * @param {!Element|!jQuery} elem The gameover element.
  * @constructor
  */
@@ -49,12 +50,12 @@ function Gameover(game, elem) {
 /**
  * Shows the gameover screen with an animation. Displays score and time
  * from the game.
- * @param {number} score The final score.
- * @param {number} level The final level.
+ * @param {number=} opt_score The final score.
+ * @param {number=} opt_level The final level.
  */
-Gameover.prototype.show = function(score, level) {
-  this.scoreElem.textContent = score || this.game.scoreboard.score;
-  this.levelElem.textContent = level || this.game.level;
+Gameover.prototype.show = function(opt_score, opt_level) {
+  this.scoreElem.textContent = opt_score || this.game.scoreboard.score;
+  this.levelElem.textContent = opt_level || this.game.level;
   this.overlay.show();
 };
 

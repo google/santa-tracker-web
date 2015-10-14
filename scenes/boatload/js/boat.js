@@ -22,7 +22,7 @@ goog.require('app.shared.pools');
 /**
  * Manages a boat.
  * @constructor
- * @param {Game} game The current game object.
+ * @param {!Game} game The current game object.
  */
 var Boat = function(game) {
   this.game = game;
@@ -101,7 +101,7 @@ Boat.prototype.onFrame = function(delta) {
 
 /**
  * Registers a collision with the boat.
- * @param {Present} present The present.
+ * @param {!Present} present The present.
  * @param {number} x The X position.
  * @param {number} y The Y position.
  */
@@ -132,12 +132,12 @@ Boat.calculateScore_ = function(level, hitNumber) {
 
 /**
  * Get the current hitbox of the boat.
- * @return {{x: Number, y: Number, center: Number}} The hitbox.
+ * @return {{x: number, y: number, center: number}} The hitbox.
  */
 Boat.prototype.getHitbox = function() {
   return {
-    center: this.height / 2 - 10,
+    x: Constants.BOAT_X,
     y: this.y,
-    x: Constants.BOAT_X
+    center: this.height / 2 - 10
   };
 };
