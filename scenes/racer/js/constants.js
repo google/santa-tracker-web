@@ -42,4 +42,3 @@ var Constants = {
  * @typedef {{x: number, y: number}}
  */
 Constants.PosType;
-

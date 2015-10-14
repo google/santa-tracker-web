@@ -442,5 +442,3 @@ SB.Game.prototype.isPaused = function() {
  * @export
  */
 app.Game = SB.Game;
-
-window.RacerGame = app.Game;

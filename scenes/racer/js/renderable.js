@@ -51,14 +51,16 @@ SB.Object.Renderable = function() {
   this.children_ = [];
 
   /**
-   * The current object being traversed (within children_).
-   * @type {?number}
+   * The current object being traversed (within children_). This will be -1 if
+   * not being traversed.
+   * @type {number}
    **/
-  this.c_ = null;
+  this.c_ = -1;
 
-  // NOTE: The following properties aren't to do with Renderable, but are
-  // provided for TreeRock/Present used by Scenery (as it just holds Renderable
-  // instances).
+  // NOTE: The following properties are provided for use by subclasses, as
+  // various code interacts with Renderable instances where they are known to be
+  // specific types that share these properties (e.g. Santa/Rudolf share
+  // targetRotation/targetVelocity).
 
   /** @type {number} */
   this.targetRotation = 0;
@@ -123,7 +125,7 @@ SB.Object.Renderable.prototype.traverse = function(ctx) {
     child.traverse(ctx);
     ctx.restore();
   }
-  this.c_ = null;
+  this.c_ = -1;
 };
 
 /**

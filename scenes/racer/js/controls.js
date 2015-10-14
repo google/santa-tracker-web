@@ -249,7 +249,7 @@ Controls.prototype.hideTouchWidget = function() {
 
 /**
  * A map of keycodes to their names.
- * @type {!Object<string>}
+ * @enum {string}
  * @private
  * @const
  */
