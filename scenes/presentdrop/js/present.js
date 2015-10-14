@@ -21,12 +21,18 @@ goog.require('app.shared.pools');
 /**
  * Drops a present.
  * @constructor
+ * @struct
  * @param {!app.Game} game The current game object.
  */
 app.Present = function(game) {
   this.game = game;
   this.elem = $('<div class="present hidden" />');
   game.presentsElem.append(this.elem);
+
+  this.dead = false;
+  this.x = 0;
+  this.y = 0;
+  this.velocity = 0;
 };
 
 app.shared.pools.mixin(app.Present);
@@ -88,7 +94,7 @@ app.Present.prototype.onFrame = function(delta) {
     window.santaApp.fire('sound-trigger', 'pd_item_miss');
   }
 
-  // Collition detection
+  // Collision detection
   this.game.forEachActiveChimney(function(chimney) {
     var hitbox = chimney.getHitbox();
 

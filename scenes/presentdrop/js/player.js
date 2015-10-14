@@ -19,13 +19,22 @@ goog.provide('app.Player');
 /**
  * Movement and present drop for the player.
  * @constructor
+ * @struct
  * @param {!app.Game} game The game object.
  * @param {!jQuery} elem The player element.
  */
 app.Player = function(game, elem) {
   this.game = game;
   this.elem = $(elem);
-  this.ropeElvesElem = $('.elf-rope');
+  this.ropeElvesElem = game.elem.find('.elf-rope');
+
+  this.targetX = 0;
+  this.x = 0;
+  this.lastElfPull = null;
+  this.dropWhenStopped = false;
+  this.hasPresent = true;
+  this.soundFrameCounter = 0;
+  this.isMoving = false;
 };
 
 /**
@@ -43,7 +52,7 @@ app.Player.prototype.reset = function() {
 
 /**
  * Moves the player each frame based on keyboard input.
- * @param {number} delta tim in seconds since last frame.
+ * @param {number} delta time in seconds since last frame.
  */
 app.Player.prototype.onFrame = function(delta) {
   // Update sounds.
@@ -136,7 +145,9 @@ app.Player.prototype.touchEnded = function() {
  * Drop a present.
  */
 app.Player.prototype.dropPresent = function() {
-  if (!this.hasPresent) return;
+  if (!this.hasPresent) {
+    return;
+  }
 
   this.game.createPresent(this.x);
   this.hasPresent = false;

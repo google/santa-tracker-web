@@ -54,8 +54,12 @@ function Gameover(game, elem) {
  * @param {number=} opt_level The final level.
  */
 Gameover.prototype.show = function(opt_score, opt_level) {
-  this.scoreElem.textContent = opt_score || this.game.scoreboard.score;
-  this.levelElem.textContent = opt_level || this.game.level;
+  if (this.scoreElem) {
+    this.scoreElem.textContent = opt_score || this.game.scoreboard.score;
+  }
+  if (this.levelElem) {
+    this.levelElem.textContent = opt_level || this.game.level;
+  }
   this.overlay.show();
 };
 

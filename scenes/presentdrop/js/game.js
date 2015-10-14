@@ -21,6 +21,7 @@ goog.require('app.shared.utils');
 goog.require('app.shared.pools');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.Scoreboard');
+goog.require('app.shared.SharedGame');
 goog.require('app.shared.Tutorial');
 goog.require('app.Chimney');
 goog.require('app.Controls');
@@ -30,8 +31,11 @@ goog.require('app.Present');
 
 /**
  * Main game class.
- * @param {!Element} elem An DOM element which wraps the game.
+ * @param {!Element} elem A DOM element which wraps the game.
+ * @implements {SharedGame}
  * @constructor
+ * @struct
+ * @export
  */
 app.Game = function(elem) {
   this.elem = $(elem);
@@ -49,14 +53,19 @@ app.Game = function(elem) {
   this.scale = 1;
   this.chimneysElem = this.elem.find('.chimneys');
   this.presentsElem = this.elem.find('.presents');
-  this.gameStartTime = +new Date;
+  this.gameStartTime = Date.now();
+  this.chimneySpeed = 0;
+  this.lastFrame = 0;
+  this.level = 0;
+  this.nextChimney = 0;
+  this.requestId = 0;
 
   // Cache a bound onFrame since we need it each frame.
   this.onFrame_ = this.onFrame_.bind(this);
 
   this.watchSceneSize_();
   this.preloadPools_();
-}
+};
 
 /**
  * Create some chimneys and presents at startup so we don't suffer performance penalty
@@ -118,9 +127,9 @@ app.Game.prototype.onFrame_ = function() {
     return;
   }
 
-  // Calculate delta
-  var now = +new Date() / 1000,
-    delta = now - this.lastFrame;
+  // Calculate delta.
+  var now = Date.now() / 1000;
+  var delta = now - this.lastFrame;
   this.lastFrame = now;
 
   // Update static entities
@@ -139,7 +148,7 @@ app.Game.prototype.onFrame_ = function() {
     }
   }
 
-  // Cleanup dead entities
+  // Clean up dead entities
   deadEntities.forEach(function(index, i) {
     this.entities.splice(index - i, 1);
   }, this);
@@ -154,8 +163,8 @@ app.Game.prototype.onFrame_ = function() {
  */
 app.Game.prototype.setScale = function(scale) {
   this.scale = scale;
-  var view = this.elem.find('.view'),
-      bg = this.elem.find('.bg');
+  var view = this.elem.find('.view');
+  var bg = this.elem.find('.bg');
   if (scale < 1) {
     view.css('transform', 'scale(' + scale + ')');
     bg.css('transform', 'scaleY(' + scale + ')');
@@ -180,16 +189,17 @@ app.Game.prototype.updateChimneys_ = function(delta) {
   this.entities.push(chimney);
 
   // Schedule next chimney.
-  var multiply =
-        Math.pow(app.Constants.CHIMNEY_SPAWN_MULTIPLY_EACH_LEVEL, this.level),
-      interval = app.Constants.CHIMNEY_SPAWN_BASE + app.Constants.CHIMNEY_SPAWN_INTERVAL * multiply,
-      variance = app.Constants.CHIMNEY_SPAWN_VARIANCE * multiply;
+  var multiply = Math.pow(app.Constants.CHIMNEY_SPAWN_MULTIPLY_EACH_LEVEL,
+      this.level);
+  var interval = app.Constants.CHIMNEY_SPAWN_BASE +
+      app.Constants.CHIMNEY_SPAWN_INTERVAL * multiply;
+  var variance = app.Constants.CHIMNEY_SPAWN_VARIANCE * multiply;
   this.nextChimney = (interval - variance / 2) + Math.random() * variance;
 };
 
 /**
  * Called by player to create a present at the specified x position.
- * @param {number} x The position which the present should be created at.
+ * @param {number} x
  */
 app.Game.prototype.createPresent = function(x) {
   var present = app.Present.pop(this, x);
@@ -208,13 +218,13 @@ app.Game.prototype.hitChimney = function(score) {
 
 /**
  * Iterates all chimneys that have not been hit. Used for collision detection.
- * @param {!Function(app.Chimney)} fun The function to run for each chimney.
- * @param {object=} opt_this to use
+ * @param {!function(this:app.Present, !app.Chimney)} fn The function to run for each chimney.
+ * @param {!app.Present} thisArg to use
  */
-app.Game.prototype.forEachActiveChimney = function(fun, opt_this) {
+app.Game.prototype.forEachActiveChimney = function(fn, thisArg) {
   for (var i = 0, chimney; chimney = this.entities[i]; i++) {
-    if (chimney instanceof app.Chimney && !chimney.isHit) {
-      fun.call(opt_this || null, chimney);
+    if (chimney instanceof app.Chimney) {
+      fn.call(thisArg, chimney);
     }
   }
 };
@@ -237,7 +247,7 @@ app.Game.prototype.unfreezeGame = function() {
     this.elem.removeClass('frozen').focus();
 
     this.isPlaying = true;
-    this.lastFrame = +new Date() / 1000;
+    this.lastFrame = Date.now() / 1000;
     this.requestId = utils.requestAnimFrame(this.onFrame_);
   }
 };
@@ -268,7 +278,7 @@ app.Game.prototype.gameover = function() {
     gameid: 'presentdrop',
     score: this.scoreboard.score,
     level: this.level,
-    timePlayed: new Date - this.gameStartTime
+    timePlayed: Date.now() - this.gameStartTime
   });
 };
 
@@ -308,9 +318,9 @@ app.Game.prototype.watchSceneSize_ = function() {
   var win = $(window);
 
   var updateSize = function() {
-    var width = win.width(),
-      height = win.height(),
-      scale = width < 890 ? width / 890 : 1;
+    var width = win.width();
+    var height = win.height();
+    var scale = width < 890 ? width / 890 : 1;
     scale = height < 660 ? Math.min(height / 640, scale) : scale;
     this.setScale(scale);
   }.bind(this);
@@ -327,7 +337,7 @@ app.Game.prototype.dispose = function() {
   if (this.isPlaying) {
     window.santaApp.fire('analytics-track-game-quit', {
       gameid: 'presentdrop',
-      timePlayed: new Date - this.gameStartTime,
+      timePlayed: Date.now() - this.gameStartTime,
       level: this.level
     });
   }
@@ -342,10 +352,3 @@ app.Game.prototype.dispose = function() {
   app.Chimney.pool_ = [];
   app.Present.pool_ = [];
 };
-
-/**
- * Export game object.
- * @type {app.Game}
- * @export
- */
-app.Game = app.Game;
