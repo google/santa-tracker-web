@@ -40,3 +40,4 @@ SharedGame.prototype.restart = function() {};
 /**
  */
 SharedGame.prototype.dispose = function() {};
+

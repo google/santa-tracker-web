@@ -80,7 +80,9 @@ Controls.prototype.handle = function(e) {
     return;
   }
 
-  // TODO(samthor): Don't do this, it's ugly.
+  // TODO(samthor): Add all events explicitly, rather than calling by string.
+  // Note also that this breaks with ADVANCED_OPTIMIZATIONS since the names are
+  // referenced by string.
   var methodName = 'on' + e.type[0].toUpperCase() + e.type.slice(1);
   this[methodName](e.originalEvent);
 };
