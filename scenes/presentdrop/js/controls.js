@@ -45,25 +45,25 @@ app.Controls = function(game) {
   this.game.elem.on('touchend.presentdrop', this.onTouchEnd_);
   $(window).on('keydown.presentdrop', this.onKeyDown_);
   $(window).on('keyup.presentdrop', this.onKeyUp_);
-}
+};
 
 /**
  * Keep track of the right key.
- * @type {bool}
+ * @type {boolean}
  * @private
  */
 app.Controls.prototype.isRightDown_ = false;
 
 /**
  * Keep track of the left key.
- * @type {bool}
+ * @type {boolean}
  * @private
  */
 app.Controls.prototype.isLeftDown_ = false;
 
 /**
  * Keep track of the space bar.
- * @type {bool}
+ * @type {boolean}
  * @private
  */
 app.Controls.prototype.isSpaceDown_ = false;
@@ -150,7 +150,7 @@ app.Controls.prototype.onTouchStart_ = function(e) {
   }
 
   var stagePos = this.stage.offset();
-  var touch = e.originalEvent.changedTouches[0];
+  var touch = e.changedTouches[0];
 
   // Correct position if game is scaled
   var touchX = touch.pageX / this.game.scale;
@@ -175,7 +175,7 @@ app.Controls.prototype.onTouchStart_ = function(e) {
 app.Controls.prototype.onTouchMove_ = function(e) {
   if (!this.game.isPlaying) return;
 
-  var touch = this.getCurrentTouch_(e.originalEvent);
+  var touch = this.getCurrentTouch_(e);
   if (touch) {
     var stagePos = this.stage.offset();
 
@@ -194,7 +194,7 @@ app.Controls.prototype.onTouchMove_ = function(e) {
  * @private
  */
 app.Controls.prototype.onTouchEnd_ = function(e) {
-  var touch = this.getCurrentTouch_(e.originalEvent);
+  var touch = this.getCurrentTouch_(e);
   if (!touch) {
     return;
   }

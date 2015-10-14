@@ -20,6 +20,7 @@ goog.provide('app.Levels');
  * Keeps track of current level, the level animation and transitions between
  * them.
  * @constructor
+ * @struct
  * @param {!app.Game} game The game object.
  */
 app.Levels = function(game) {
@@ -29,6 +30,11 @@ app.Levels = function(game) {
   this.fgElem = this.game.elem.find('.level-fg');
   this.lastFgElem = this.fgElem.children().eq(0);
   this.nextFgElem = this.fgElem.children().eq(1);
+
+  this.bgRight = 0;
+  this.bgRightTarget = 0;
+  this.fgRight = 0;
+  this.fgLoopCounter = 0;
 };
 
 /**
@@ -53,8 +59,8 @@ app.Levels.prototype.onFrame = function(delta) {
    * Also to make pause and restart 100% reliable.
    */
 
-  var nextLevel = false,
-      newFgRight = this.fgRight + app.Levels.FG_TRANSITION_SPEED * delta;
+  var nextLevel = false;
+  var newFgRight = this.fgRight + app.Levels.FG_TRANSITION_SPEED * delta;
 
   // If a fg animation loop finished, check if the level is finished.
   if (newFgRight > app.Constants.LEVEL_FG_WIDTH) {

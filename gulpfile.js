@@ -130,7 +130,6 @@ var SCENE_CLOSURE_CONFIG = {
     entryPoint: 'app.Scene'
   },
   presentdrop: {
-    typeSafe: false,
     entryPoint: 'app.Game'
   },
   mercator: {

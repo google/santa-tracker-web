@@ -21,6 +21,7 @@ goog.require('app.shared.pools');
 /**
  * Manages a chimney.
  * @constructor
+ * @struct
  * @param {!app.Game} game The current game object.
  */
 app.Chimney = function(game) {
@@ -33,6 +34,12 @@ app.Chimney = function(game) {
       '<div class="wheel1" />' +
       '<div class="wheel2" /></div>');
   game.chimneysElem.append(this.elem);
+
+  this.dead = false;
+  this.hits = 0;
+  this.x = 0;
+  this.isLarge = false;
+  this.hitTimer = 0;
 };
 
 app.shared.pools.mixin(app.Chimney);
@@ -98,7 +105,7 @@ app.Chimney.prototype.hit = function() {
   this.hits++;
 
   var score = app.Chimney.calculateScore_(this.game.level, this.isLarge, this.hits);
-  this.elem.find('.flag-score').text(score);
+  this.elem.find('.flag-score').text('' + score);
   this.elem.addClass('hit');
   this.game.hitChimney(score);
   this.hitTimer && window.clearTimeout(this.hitTimer);
