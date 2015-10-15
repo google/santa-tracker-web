@@ -27,7 +27,7 @@ app.shared.Scoreboard = Scoreboard;
  * Manages the scoreboard and game countdown.
  * @constructor
  * @param {!SharedGameOver} game The object which can be made gameover.
- * @param {!Element|!jQuery} elem The scoreboard element.
+ * @param {Element|!jQuery} elem The scoreboard element.
  * @param {number=} opt_levels The total number of levels.
  */
 function Scoreboard(game, elem, opt_levels) {

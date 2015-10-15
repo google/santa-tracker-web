@@ -15,16 +15,36 @@
  */
 
 goog.provide('SB.Object.Scenery');
+goog.provide('SB.Object.GridType');
 
 goog.require('SB.Object.Renderable');
+goog.require('SB.Object.Present');
+goog.require('SB.Object.TreeRock');
+
+/**
+ * @typedef {?{
+ *   x: number,
+ *   y: number,
+ *   valid: boolean,
+ *   objectIndex: ?number,
+ *   leftBound: number,
+ *   rightBound: number,
+ *   leftAngle: number,
+ *   rightAngle: number,
+ *   hit: boolean
+ * }}
+ */
+SB.Object.GridType;
 
 /**
  * Grid system representing the scenery through which Santa and Rudolf are
  * racing.
  * @constructor
+ * @struct
  * @extends SB.Object.Renderable
  */
 SB.Object.Scenery = function() {
+  SB.Object.Renderable.call(this);
 
   /**
    * The size of a grid cell.
@@ -85,21 +105,22 @@ SB.Object.Scenery = function() {
   /**
    * The currently inspected cell of the grid system.
    * @private
-   * @type {object}
+   * @type {SB.Object.GridType}
    */
   this.cell_ = null;
 
   /**
    * The currently inspected cell of the grid system.
    * @private
-   * @type {object}
+   * @type {SB.Object.Renderable}
    */
   this.worldEl_ = null;
 
   /**
    * The array of cells.
    * @private
-   * @type {Array.<object>}
+   * @const
+   * @type {!Array<!SB.Object.GridType>}
    */
   this.grid_ = [];
 
@@ -185,23 +206,24 @@ SB.Object.Scenery = function() {
   /**
    * The pool of all scenery objects and presents.
    * @private
-   * @type {Array.<object>}
+   * @const
+   * @type {!Array<!SB.Object.Renderable>}
    */
   this.objectPool_ = [];
 
   /**
    * The currently inspected object.
    * @private
-   * @type {object}
+   * @type {SB.Object.Renderable}
    */
   this.object_ = null;
 
   /**
    * The index of currently inspected object.
    * @private
-   * @type {number}
+   * @type {?number}
    */
-  this.objectIndex_ = 0;
+  this.objectIndex_ = null;
 
   /**
    * The number of attempts the algorithm gets to find a suitable
@@ -227,7 +249,7 @@ SB.Object.Scenery = function() {
 
   /**
    * Store where last present was hit to add the score.
-   * @type {{x: number, y: number}}
+   * @type {Constants.PosType}
    * @private
    */
   this.lastHitPresent_ = {
@@ -269,11 +291,11 @@ SB.Object.Scenery = function() {
 
 };
 
-SB.Object.Scenery.prototype = new SB.Object.Renderable();
+SB.Object.Scenery.prototype = Object.create(SB.Object.Renderable.prototype);
 
 /**
  * Stores a reference to the world instance for convenience.
- * @param {SB.Object.Renderable} newWorld The world instance to store.
+ * @param {!SB.Object.Renderable} newWorld The world instance to store.
  */
 SB.Object.Scenery.prototype.connectTo = function(newWorld) {
   this.worldEl_ = newWorld;
@@ -328,7 +350,7 @@ SB.Object.Scenery.prototype.reset = function() {
  * Tests an object (Santa, Rudolf) against the scenery for collisions. Handles
  * the collision response directly.
  * Scenery collisions are handled internally and not returned.
- * @param {SB.Object.Renderable} target The target to test.
+ * @param {!SB.Object.Renderable} target The target to test.
  * @return {boolean} Whether or not the target hit a present.
  */
 SB.Object.Scenery.prototype.test = function(target) {
@@ -574,7 +596,7 @@ SB.Object.Scenery.prototype.addScore = function(score) {
 
 /**
  * Removes an object from the world and makes it available for use.
- * @param {object} cell The cell containing the recyclable object.
+ * @param {!SB.Object.GridType} cell The cell containing the recyclable object.
  */
 SB.Object.Scenery.prototype.resetObject = function(cell) {
 
@@ -631,6 +653,9 @@ SB.Object.Scenery.prototype.render = function(ctx) {
   ctx.restore();
 };
 
+/**
+ * @return {number}
+ */
 SB.Object.Scenery.prototype.getCenter = function() {
   return this.lastLeftBound_ + ((this.lastRightBound_ - this.lastLeftBound_) / 2);
 };

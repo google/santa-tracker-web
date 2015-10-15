@@ -16,15 +16,19 @@
 
 goog.provide('Controls');
 
+goog.require('app.shared.Tutorial');
+
 /**
  * Handles user input for controlling the game.
- * @param {!Game} game The game object.
+ * @param {!SB.Game} game The game object.
+ * @param {!Tutorial} tutorial The tutorial.
  * @constructor
+ * @struct
  */
-Controls = function(game) {
+Controls = function(game, tutorial) {
   // This is what we're controlling
   this.game = game;
-  this.tutorial = this.game.tutorial;
+  this.tutorial = tutorial;
 
   // Key states
   this.keys = {};
@@ -37,6 +41,10 @@ Controls = function(game) {
   this.touchCurrent = { x: null, y: null };
   this.touchpadElem = $(game.elem).find('.touchpad');
   this.touchpadNubElem = this.touchpadElem.find('.touchpad-nub');
+
+  // Tutorial hiding
+  this.upPressed = false;
+  this.leftRightPressed = false;
 };
 
 /**
@@ -143,7 +151,7 @@ Controls.prototype.touchStartedInGUI = false;
 
 /**
  * Handle touch start event. Displays a widget and remembers start position.
- * @param {Event} e The event object.
+ * @param {!jQuery.Event} e The event object.
  */
 Controls.prototype.onTouchstart = function(e) {
   // Ignore the touch if it starts in GUI or if we are already tracking a touch.
@@ -165,7 +173,7 @@ Controls.prototype.onTouchstart = function(e) {
 
 /**
  * Handles the touch move up event. Registers current direction.
- * @param  {Event} e The event object.
+ * @param {!jQuery.Event} e The event object.
  */
 Controls.prototype.onTouchmove = function(e) {
   var touch = this.getCurrentTouch(e.originalEvent);
@@ -178,7 +186,7 @@ Controls.prototype.onTouchmove = function(e) {
 
 /**
  * Handles the touch up event. Hide widget and stop moving.
- * @param  {Event} e The event object.
+ * @param {!jQuery.Event} e The event object.
  */
 Controls.prototype.onTouchend = function(e) {
   var touch = this.getCurrentTouch(e.originalEvent);
@@ -190,12 +198,12 @@ Controls.prototype.onTouchend = function(e) {
 
 /**
  * Returns the active touch from a touch event.
- * @param  {Event} e A touch event.
- * @return {Touch}   The active touch.
+ * @param {Event} e A touch event.
+ * @return {Touch} The active touch.
  */
 Controls.prototype.getCurrentTouch = function(e) {
   if (this.currentTouchId === null) {
-    return;
+    return null;
   }
 
   // Did it change?
@@ -209,15 +217,16 @@ Controls.prototype.getCurrentTouch = function(e) {
   // iOS sometimes forgets to send a touchend event.
   for (var i = 0, touch; touch = e.targetTouches[i]; i++) {
     if (touch.identifier === this.currentTouchId) {
-      return;
+      return null;
     }
   }
   this.hideTouchWidget();
+  return null;
 };
 
 /**
  * Shows the touch widget for the provided touch event.
- * @param  {TouchEvent} touch A touch event initiating the widget.
+ * @param {Touch} touch A touch event initiating the widget.
  */
 Controls.prototype.showTouchWidget = function(touch) {
   this.currentTouchId = touch.identifier;
@@ -240,7 +249,7 @@ Controls.prototype.hideTouchWidget = function() {
 
 /**
  * A map of keycodes to their names.
- * @type {Object.<string, string>}
+ * @enum {string}
  * @private
  * @const
  */
