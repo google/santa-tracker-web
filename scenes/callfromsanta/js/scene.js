@@ -17,21 +17,24 @@
 goog.provide('app.Scene');
 
 goog.require('app.IframeProxy');
-goog.require('app.shared.Scoreboard');
+goog.require('app.shared.SharedScene');
+goog.require('app.shared.Sceneboard');
 
 /**
  * Main game class.
- * @param {Element} el DOM element containing the scene.
+ * @param {!Element} el DOM element containing the scene.
  * @constructor
+ * @struct
  * @export
+ * @implements {SharedScene}
  */
 app.Scene = function(el) {
   this.$el = $(el);
   this.controlsEl = this.$el.find('.actions')[0];
   this.$pausePlay = this.$el.find('.actions .pause');
   this.$sound = $('#sound');
-  this.iframeProxy = new app.IframeProxy(this, this.$el);
-  this.scoreboard = new app.shared.Scoreboard(this, this.$el.find('.board'));
+  this.iframeProxy = new app.IframeProxy(this, el);
+  this.scoreboard = new app.shared.Sceneboard(this, el.querySelector('.board'));
   this.isPaused = false;
 };
 
@@ -44,7 +47,7 @@ app.Scene.prototype.init = function() {
   this.attachEvents();
   this.$sound.hide();
 
-  // TODO: Make mute state accessible
+  // TODO: Make mute state accessible (issue #402)
   /*if (window.hasOwnProperty('santatracker') &&
     window.santatracker.hasOwnProperty('muteState') &&
     !window.santatracker.muteState.isMuted()) {
