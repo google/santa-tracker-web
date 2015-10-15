@@ -78,7 +78,6 @@ var SCENE_CLOSURE_CONFIG = {
     entryPoint: 'app.Scene'
   },
   callfromsanta: {
-    typeSafe: false,
     entryPoint: 'app.Scene'
   },
   citylights: {

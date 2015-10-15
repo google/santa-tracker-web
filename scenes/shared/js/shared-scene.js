@@ -14,21 +14,16 @@
  * the License.
  */
 
-goog.provide('app.Constants');
-goog.provide('Constants');
+goog.provide('app.shared.SharedScene');
+
+app.shared.SharedScene = SharedScene;
 
 /**
- * These are gameplay and UI related constants used by the code.
- * Please tweak them to improve gameplay and game balance.
+ * A scene in Santa Tracker.
+ * @interface
  */
-app.Constants = {
-  INITIAL_COUNTDOWN: 60, // in seconds
+function SharedScene() {}
 
-  EVENT_ORIGIN: 'localhost',
+SharedScene.prototype.togglePause = function() {};
 
-  CLASS_PAUSED: 'paused',
-
-  VARITALK_URL: 'https://www.sendacallfromsanta.com'
-};
-
-Constants = app.Constants;
+SharedScene.prototype.restart = function() {};
