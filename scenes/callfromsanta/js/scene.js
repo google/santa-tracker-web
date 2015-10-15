@@ -18,7 +18,7 @@ goog.provide('app.Scene');
 
 goog.require('app.IframeProxy');
 goog.require('app.shared.SharedScene');
-goog.require('app.shared.SceneBoard');
+goog.require('app.shared.Sceneboard');
 
 /**
  * Main game class.
@@ -34,7 +34,7 @@ app.Scene = function(el) {
   this.$pausePlay = this.$el.find('.actions .pause');
   this.$sound = $('#sound');
   this.iframeProxy = new app.IframeProxy(this, el);
-  this.scoreboard = new app.shared.SceneBoard(this, el.querySelector('.board'));
+  this.scoreboard = new app.shared.Sceneboard(this, el.querySelector('.board'));
   this.isPaused = false;
 };
 

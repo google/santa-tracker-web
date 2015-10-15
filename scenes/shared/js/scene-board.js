@@ -14,24 +14,25 @@
  * the License.
  */
 
-goog.provide('app.shared.SceneBoard');
+goog.provide('app.shared.Sceneboard');
 
 // Load the old Constants global for backwards compatibility
 goog.require('Constants');
 goog.require('app.shared.SharedScene');
 goog.require('app.shared.utils');
 
-// We are *leaking* the SceneBoard global for backwards compatibility.
-app.shared.SceneBoard = SceneBoard;
+// We are *leaking* the Sceneboard global for backwards compatibility.
+app.shared.Sceneboard = Sceneboard;
 
 /**
- * Manages the simpler "Scoreboard" needed for scenes.
+ * A simpler version of Scoreboard, needed for the simpler functionality of
+ * scenes but stripped of notions like score, timing, levels, etc.
  * @constructor
  * @struct
  * @param {!SharedScene} scene
  * @param {Element|!jQuery} elem The scoreboard element.
  */
-function SceneBoard(scene, elem) {
+function Sceneboard(scene, elem) {
   this.scene = scene;
   this.elem = app.shared.utils.unwrapElement(elem);
 
@@ -44,7 +45,7 @@ function SceneBoard(scene, elem) {
 /**
  * Attaches events for scoreboard interactions.
  */
-SceneBoard.prototype.attachEvents = function() {
+Sceneboard.prototype.attachEvents = function() {
   var self = this;  // intentionally held, so that 'this' is the element
   var el = $(this.elem);
   el.find('.pause').on('click', function(event) {
