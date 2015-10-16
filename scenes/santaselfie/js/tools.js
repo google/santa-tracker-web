@@ -170,7 +170,7 @@ app.Tool.prototype.initAnimation_ = function() {
 
 /**
  * Should be subclassed to create a web Animation instance for the tool effect.
- * @return {Animation}
+ * @return {AnimationEffectReadOnly}
  * @private
  */
 app.Tool.prototype.createAnimation_ = function() {
@@ -206,11 +206,11 @@ goog.inherits(app.Clipper, app.Tool);
 
 /**
  * Creates a web animation for using the clippers.
- * @return {Animation}
+ * @return {AnimationEffectReadOnly}
  * @private
  */
 app.Clipper.prototype.createAnimation_ = function() {
-  return new Animation(this.animationEl[0], [
+  return new KeyframeEffect(this.animationEl[0], [
     {backgroundPosition: '0 0px'},
     {backgroundPosition: '0 -2100px'}
   ], {duration: 460, easing: 'steps(14, end)', iterations: Infinity});
@@ -256,11 +256,11 @@ goog.inherits(app.Hairgrow, app.Tool);
 
 /**
  * Creates a web animation for using the hairgrower.
- * @return {Animation}
+ * @return {AnimationEffectReadOnly}
  * @private
  */
 app.Hairgrow.prototype.createAnimation_ = function() {
-  return new Animation(this.animationEl[0], [
+  return new KeyframeEffect(this.animationEl[0], [
     {backgroundPosition: '0 350px'},
     {backgroundPosition: '0 -2450px'}
   ], {duration: 230, easing: 'steps(8, end)'});
@@ -286,11 +286,11 @@ goog.inherits(app.Hairclean, app.Tool);
 
 /**
  * Creates a web animation for using the haircleaner.
- * @return {Animation}
+ * @return {AnimationEffectReadOnly}
  * @private
  */
 app.Hairclean.prototype.createAnimation_ = function() {
-  return new Animation(this.animationEl[0], [
+  return new KeyframeEffect(this.animationEl[0], [
     {backgroundPosition: '0 0px'},
     {backgroundPosition: '0 -2100px'}
   ], {duration: 460, easing: 'steps(14, end)', iterations: Infinity});

@@ -163,12 +163,12 @@ app.House.prototype = {
       easing: app.Constants.EASE_OUT_QUAD
     };
 
-    var anim = new AnimationGroup([
-      new Animation(newNose, [
+    var anim = new GroupEffect([
+      new KeyframeEffect(newNose, [
         {transform: 'scale(0) rotate(-90deg)', visibility: 'hidden'},
         {transform: 'scale(1) rotate(0deg)', visibility: 'visible'}
       ], animationTiming),
-      new Animation(oldNose, [
+      new KeyframeEffect(oldNose, [
         {transform: 'scale(1) rotate(0deg)', visibility: 'visible'},
         {transform: 'scale(0) rotate(90deg)', visibility: 'hidden'}
       ], animationTiming)
@@ -185,31 +185,37 @@ app.House.prototype = {
   },
 
   /**
+   * @param {number} timeFraction
+   * @param {!KeyframeEffect} effect
+   * @param {!Animation} animation
    * @private
    */
-  animateSmallMouth_: function(timeFraction, currentTarget, animation) {
+  animateSmallMouth_: function(timeFraction, effect, animation) {
     var rx = this.mouthNormal.rx + (this.mouthSurprised.rx - this.mouthNormal.rx) * timeFraction;
     var ry = this.mouthNormal.ry + (this.mouthSurprised.ry - this.mouthNormal.ry) * timeFraction;
     var cx = this.mouthNormal.cx + (this.mouthSurprised.cx - this.mouthNormal.cx) * timeFraction;
     var cy = this.mouthNormal.cy + (this.mouthSurprised.cy - this.mouthNormal.cy) * timeFraction;
-    currentTarget.setAttribute('rx', rx);
-    currentTarget.setAttribute('ry', ry);
-    currentTarget.setAttribute('cx', cx);
-    currentTarget.setAttribute('cy', cy);
+    effect.target.setAttribute('rx', rx);
+    effect.target.setAttribute('ry', ry);
+    effect.target.setAttribute('cx', cx);
+    effect.target.setAttribute('cy', cy);
   },
 
   /**
+   * @param {number} timeFraction
+   * @param {!KeyframeEffect} effect
+   * @param {!Animation} animation
    * @private
    */
-  animateLargeMouth_: function(timeFraction, currentTarget, animation) {
+  animateLargeMouth_: function(timeFraction, effect, animation) {
     var rx = this.mouthSurprised.rx + (this.mouthNormal.rx - this.mouthSurprised.rx) * timeFraction;
     var ry = this.mouthSurprised.ry + (this.mouthNormal.ry - this.mouthSurprised.ry) * timeFraction;
     var cx = this.mouthSurprised.cx + (this.mouthNormal.cx - this.mouthSurprised.cx) * timeFraction;
     var cy = this.mouthSurprised.cy + (this.mouthNormal.cy - this.mouthSurprised.cy) * timeFraction;
-    currentTarget.setAttribute('rx', rx);
-    currentTarget.setAttribute('ry', ry);
-    currentTarget.setAttribute('cx', cx);
-    currentTarget.setAttribute('cy', cy);
+    effect.target.setAttribute('rx', rx);
+    effect.target.setAttribute('ry', ry);
+    effect.target.setAttribute('cx', cx);
+    effect.target.setAttribute('cy', cy);
   },
 
   /**
@@ -222,29 +228,23 @@ app.House.prototype = {
       return;
     }
 
-    this.mouthAnimation = new AnimationSequence([
-      new Animation(
-        this.mouthEllipse,
-        this.animateSmallMouth_.bind(this),
-        {
-          delay: surprisedDelay,
-          duration: app.Constants.SUPRISED_ANIMATION_DURATION,
-          easing: app.Constants.EASE_OUT_QUAD,
-          fill: 'forwards'
-        }
-      ),
-      new Animation(
-        this.mouthEllipse,
-        this.animateLargeMouth_.bind(this),
-        {
-          delay: surprisedDuration,
-          duration: app.Constants.SUPRISED_ANIMATION_DURATION,
-          easing: app.Constants.EASE_OUT_QUAD,
-          fill: 'forwards'
-        }
-      )
-    ], {fill: 'none'});
+    var smallMouthEffect = new KeyframeEffect(this.mouthEllipse, [], {
+      delay: surprisedDelay,
+      duration: app.Constants.SUPRISED_ANIMATION_DURATION,
+      easing: app.Constants.EASE_OUT_QUAD,
+      fill: 'forwards'
+    });
+    smallMouthEffect.onsample = this.animateSmallMouth_.bind(this);
 
+    var largeMouthEffect = new KeyframeEffect(this.mouthEllipse, [], {
+      delay: surprisedDuration,
+      duration: app.Constants.SUPRISED_ANIMATION_DURATION,
+      easing: app.Constants.EASE_OUT_QUAD,
+      fill: 'forwards'
+    });
+    largeMouthEffect.onsample = this.animateLargeMouth_.bind(this);
+
+    this.mouthAnimation = new SequenceEffect([smallMouthEffect, largeMouthEffect]);
     this.mouthPlayer = document.timeline.play(this.mouthAnimation);
   },
 
@@ -283,23 +283,23 @@ app.House.prototype = {
       }
     };
 
-    var anim = new AnimationGroup([
-      new AnimationSequence([
-        new Animation(this.$iris_.eq(0)[0],
+    var anim = new GroupEffect([
+      new SequenceEffect([
+        new KeyframeEffect(this.$iris_.eq(0)[0],
           [animObj.aIn.from, animObj.aIn.to],
           animObj.timingIn
         ),
-        new Animation(this.$iris_.eq(0)[0],
+        new KeyframeEffect(this.$iris_.eq(0)[0],
           [animObj.aOut.from, animObj.aOut.to],
           animObj.timingOut
         )
       ]),
-      new AnimationSequence([
-        new Animation(this.$iris_.eq(1)[0],
+      new SequenceEffect([
+        new KeyframeEffect(this.$iris_.eq(1)[0],
           [animObj.aIn.from, animObj.aIn.to],
           animObj.timingIn
         ),
-        new Animation(this.$iris_.eq(1)[0],
+        new KeyframeEffect(this.$iris_.eq(1)[0],
           [animObj.aOut.from, animObj.aOut.to],
           animObj.timingOut
         )
@@ -330,8 +330,8 @@ app.House.prototype = {
     var el = this.$background_[0];
     var style = window.getComputedStyle(el);
 
-    var anim = new AnimationSequence([
-        new Animation(el,
+    var anim = new SequenceEffect([
+        new KeyframeEffect(el,
           [
             { fill: style.fill },  // transform from current color
             { fill: hexColor }
@@ -341,7 +341,7 @@ app.House.prototype = {
             fill: 'forwards',
             easing: app.Constants.EASE_IN_QUAD
           }),
-        new Animation(el,
+        new KeyframeEffect(el,
           [
             { fill: hexColor },
             { fill: this.color }

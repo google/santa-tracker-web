@@ -44,8 +44,11 @@ app.CandyMachine = function(context) {
   this.reduceBellyTimer_ = undefined;
   this.hasBigBelly_ = false;
 
-  this.player = null;
-  this.bellyPlayer = null;
+  /** @private {Animation} */
+  this.player_ = null;
+
+  /** @private {Animation} */
+  this.bellyPlayer_ = null;
 
   this.init_();
 };
@@ -81,7 +84,7 @@ app.CandyMachine.prototype = {
 
   /**
    * @private
-   * @return {!Animation}
+   * @return {!AnimationEffectReadOnly}
    */
   getPullAnimation_: function() {
     var c = app.Constants;
@@ -100,15 +103,15 @@ app.CandyMachine.prototype = {
       {transform: 'rotateZ(0deg)', offset: 1}
     ];
 
-    var arm = new Animation(this.$elfArmEl[0], armKeyframes, this.timing_);
-    var lever = new Animation(this.$leverEl[0], leverKeyframes, this.timing_);
+    var arm = new KeyframeEffect(this.$elfArmEl[0], armKeyframes, this.timing_);
+    var lever = new KeyframeEffect(this.$leverEl[0], leverKeyframes, this.timing_);
 
-    return new AnimationGroup([arm, lever]);
+    return new GroupEffect([arm, lever]);
   },
 
   /**
    * @private
-   * @return {!Animation}
+   * @return {!AnimationEffectReadOnly}
    */
   getSwallowAnimation_: function() {
     var c = app.Constants;
@@ -131,15 +134,15 @@ app.CandyMachine.prototype = {
       {transform: 'rotateZ(0deg)', offset: 1}
     ];
 
-    var head = new Animation(this.$elfHeadEl[0], headKeyframes, this.timing_);
-    var mouth = new Animation(this.$elfMouthEl[0], mouthKeyframes, this.timing_);
+    var head = new KeyframeEffect(this.$elfHeadEl[0], headKeyframes, this.timing_);
+    var mouth = new KeyframeEffect(this.$elfMouthEl[0], mouthKeyframes, this.timing_);
 
-    return new AnimationGroup([head, mouth]);
+    return new GroupEffect([head, mouth]);
   },
 
   /**
    * @private
-   * @return {!Animation}
+   * @return {!AnimationEffectReadOnly}
    */
   getBellyAnimation_: function() {
     var c = app.Constants;
@@ -151,14 +154,14 @@ app.CandyMachine.prototype = {
       {transform: 'translateX(14px)', offset: 1}
     ];
 
-    return new Animation(this.$elfBellyEl[0], bellyKeyframes, this.timing_);
+    return new KeyframeEffect(this.$elfBellyEl[0], bellyKeyframes, this.timing_);
   },
 
   /**
    * Runs the eating candy animation.
    */
   run: function() {
-    if (!app.shared.utils.playerFinished(this.player)) {
+    if (!app.shared.utils.playerFinished(this.player_)) {
       return;
     }
 
@@ -168,13 +171,13 @@ app.CandyMachine.prototype = {
     var pullAnimation = this.getPullAnimation_();
     var swallowAnimation = this.getSwallowAnimation_();
 
-    var animations = new AnimationGroup([
+    var animations = new GroupEffect([
       pullAnimation,
       swallowAnimation
     ], {iterations: 1}); // needed for finish event
 
-    this.player = document.timeline.play(animations);
-    app.shared.utils.onWebAnimationFinished(this.player, this.onBellyFull_);
+    this.player_ = document.timeline.play(animations);
+    this.player_.addEventListener('finish', this.onBellyFull_);
 
     window.santaApp.fire('sound-trigger', 'factory_candy');
 
@@ -183,7 +186,7 @@ app.CandyMachine.prototype = {
     } else {
       var bellyAnimation = this.getBellyAnimation_();
       this.hasBigBelly_ = true;
-      this.bellyPlayer = document.timeline.play(bellyAnimation);
+      this.bellyPlayer_ = document.timeline.play(bellyAnimation);
     }
   },
 
@@ -192,11 +195,11 @@ app.CandyMachine.prototype = {
    */
   reduceBelly_: function() {
     this.hasBigBelly_ = false;
-    if (this.bellyPlayer.playbackRate > 0) {
+    if (this.bellyPlayer_.playbackRate > 0) {
       // fast forward to where belly got big, slow down and reverse animation
-      this.bellyPlayer.currentTime = this.offsets_.push * this.duration_;
-      this.bellyPlayer.playbackRate = 0.5;
-      this.bellyPlayer.reverse();
+      this.bellyPlayer_.currentTime = this.offsets_.push * this.duration_;
+      this.bellyPlayer_.playbackRate = 0.5;
+      this.bellyPlayer_.reverse();
     }
   },
 
@@ -213,8 +216,8 @@ app.CandyMachine.prototype = {
   destroy: function() {
     this.$btnEl.on(app.InputEvent.START, this.run_);
 
-    this.player && this.player.cancel();
-    this.bellyPlayer && this.bellyPlayer.cancel();
+    this.player_ && this.player_.cancel();
+    this.bellyPlayer_ && this.bellyPlayer_.cancel();
 
     window.clearTimeout(this.reduceBellyTimer_);
   }

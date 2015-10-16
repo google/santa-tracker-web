@@ -39,32 +39,28 @@ app.TetrisTruck = function(truckEl, cogEl) {
 
   this.run_ = this.run_.bind(this);
 
-  this.init_();
+  /** @private {Animation} */
+  this.player_ = null;
+
+  var c = app.Constants;
+  var totalDuration = c.DELAY_MS + (c.DRIVE_MS * 2) + c.LOAD_MS + c.DROP_MS;
+
+  this.offsets_ = {
+    enter: c.DELAY_MS / totalDuration,
+    load: (c.DELAY_MS + c.DRIVE_MS) / totalDuration,
+    drop: (c.DELAY_MS + c.DRIVE_MS + c.LOAD_MS) / totalDuration,
+    exit: (c.DELAY_MS + c.DRIVE_MS + c.LOAD_MS + c.DROP_MS) / totalDuration
+  };
+
+  this.timing_ = {
+    duration: totalDuration
+  };
+
+  this.running = true;
+  this.run_();
 };
 
 app.TetrisTruck.prototype = {
-
-  /**
-   * @private
-   */
-  init_: function() {
-    var c = app.Constants;
-    var totalDuration = c.DELAY_MS + (c.DRIVE_MS * 2) + c.LOAD_MS + c.DROP_MS;
-
-    this.offsets_ = {
-      enter: c.DELAY_MS / totalDuration,
-      load: (c.DELAY_MS + c.DRIVE_MS) / totalDuration,
-      drop: (c.DELAY_MS + c.DRIVE_MS + c.LOAD_MS) / totalDuration,
-      exit: (c.DELAY_MS + c.DRIVE_MS + c.LOAD_MS + c.DROP_MS) / totalDuration
-    };
-
-    this.timing_ = {
-      duration: totalDuration
-    };
-
-    this.running = true;
-    this.run_();
-  },
 
   /**
    * @private
@@ -78,7 +74,7 @@ app.TetrisTruck.prototype = {
 
   /**
    * @private
-   * @return {!Animation}
+   * @return {!AnimationEffectReadOnly}
    */
   getDriveAnimation_: function() {
     var c = app.Constants;
@@ -89,12 +85,12 @@ app.TetrisTruck.prototype = {
       {transform: 'translate3d(0%,0,0)', offset: this.offsets_.exit, easing: c.EASE_IN_OUT_QUAD},
       {transform: 'translate3d(-100%,0,0)', offset: 1}
     ];
-    return new Animation(this.$el[0], driveKeyframes, this.timing_);
+    return new KeyframeEffect(this.$el[0], driveKeyframes, this.timing_);
   },
 
   /**
    * @private
-   * @return {!Animation}
+   * @return {!AnimationEffectReadOnly}
    */
   getWheelAnimation_: function() {
     var c = app.Constants;
@@ -105,15 +101,15 @@ app.TetrisTruck.prototype = {
       {transform: 'rotateZ(-1080deg)', offset: this.offsets_.exit, easing: c.EASE_IN_OUT_QUAD},
       {transform: 'rotateZ(-2160deg)', offset: 1}
     ];
-    return new AnimationGroup([
-      new Animation(this.$wheelOne[0], wheelAnimationKeyframes, this.timing_),
-      new Animation(this.$wheelTwo[0], wheelAnimationKeyframes, this.timing_)
+    return new GroupEffect([
+      new KeyframeEffect(this.$wheelOne[0], wheelAnimationKeyframes, this.timing_),
+      new KeyframeEffect(this.$wheelTwo[0], wheelAnimationKeyframes, this.timing_)
     ]);
   },
 
   /**
    * @private
-   * @return {!Animation}
+   * @return {!AnimationEffectReadOnly}
    */
   getCogAnimation_: function() {
     var cogAnimationKeyframes = [
@@ -122,12 +118,12 @@ app.TetrisTruck.prototype = {
       {transform: 'rotateZ(360deg)', offset: this.offsets_.drop},
       {transform: 'rotateZ(360deg)', offset: 1}
     ];
-    return new Animation(this.$cogEl[0], cogAnimationKeyframes, this.timing_);
+    return new KeyframeEffect(this.$cogEl[0], cogAnimationKeyframes, this.timing_);
   },
 
   /**
    * @private
-   * @return {!Animation}
+   * @return {!AnimationEffectReadOnly}
    */
   getLoadAnimation_: function() {
     var c = app.Constants;
@@ -139,7 +135,7 @@ app.TetrisTruck.prototype = {
       {transform: 'translateY(0)', offset: this.offsets_.exit},
       {transform: 'translateY(0)', offset: 1}
     ];
-    return new Animation(loadEl, loadAnimationKeyframes, this.timing_);
+    return new KeyframeEffect(loadEl, loadAnimationKeyframes, this.timing_);
   },
 
   /**
@@ -157,15 +153,15 @@ app.TetrisTruck.prototype = {
     var loadAnimation = this.getLoadAnimation_();
 
     var animationsTiming = {iterations: 1};
-    var animations = new AnimationGroup([
+    var animations = new GroupEffect([
       driveAnimation,
       loadAnimation,
       cogAnimation,
       wheelAnimation
     ], animationsTiming);
 
-    this.player = document.timeline.play(animations);
-    app.shared.utils.onWebAnimationFinished(this.player, this.run_);
+    this.player_ = document.timeline.play(animations);
+    app.shared.utils.onWebAnimationFinished(this.player_, this.run_);
 
     window.santaApp.fire('sound-trigger', 'factory_car');
   },
@@ -174,10 +170,8 @@ app.TetrisTruck.prototype = {
    * @private
    */
   destroyPlayer_: function() {
-    if (this.player) {
-      this.player.cancel();
-      this.player = null;
-    }
+    this.player_ && this.player_.cancel();
+    this.player_ = null;
   },
 
   /**
