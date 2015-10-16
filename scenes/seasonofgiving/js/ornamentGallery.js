@@ -179,10 +179,10 @@ app.OrnamentGallery.prototype.transitionIn = function() {
       ease: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)'
     };
 
-    animations.push(new Animation(this.items[i], this.bounceIn, timing));
+    animations.push(new KeyframeEffect(this.items[i], this.bounceIn, timing));
   }
 
-  var animationSequence = new AnimationGroup(animations);
+  var animationSequence = new GroupEffect(animations);
 
   document.timeline.play(animationSequence);
 };
@@ -201,10 +201,10 @@ app.OrnamentGallery.prototype.transitionOut = function() {
       ease: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)'
     };
 
-    animations.push(new Animation(this.items[i], this.bounceOut, timing));
+    animations.push(new KeyframeEffect(this.items[i], this.bounceOut, timing));
   }
 
-  var animationSequence = new AnimationGroup(animations);
+  var animationSequence = new GroupEffect(animations);
 
   document.timeline.play(animationSequence);
 };

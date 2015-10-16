@@ -51,7 +51,7 @@ app.BlockRunnerState = {
 app.BlockRunner = function(scene, blockly) {
   this.api = new app.BlockRunnerApi(scene, this);
   this.blockly = blockly;
-  var dummy = new Animation(document.body, [], 0);
+  var dummy = new KeyframeEffect(document.body, [], 0);
   this.player = document.timeline.play(dummy);
   this.scene = scene;
 
@@ -134,24 +134,24 @@ app.BlockRunner.prototype = {
   },
 
   /**
-   * Upgrades the passed Animation to an AnimationGroup.
-   * @param {!Animation} animation to upgrade
-   * @param {!Array<!Animation>=} opt_suffix of animations to add
-   * @return {!AnimationGroup} group
+   * Upgrades the passed AnimationEffectReadOnly to an GroupEffect.
+   * @param {!AnimationEffectReadOnly} animation to upgrade
+   * @param {!Array<!AnimationEffectReadOnly>=} opt_suffix of animations to add
+   * @return {!GroupEffect} group
    */
   upgradeToGroup_: function(animation, opt_suffix) {
     var children, group;
 
-    if (animation instanceof AnimationGroup) {
+    if (animation instanceof GroupEffect) {
       if (opt_suffix) {
         children = animation.children.concat(opt_suffix);
-        animation = new AnimationGroup(children, animation.timing);
+        animation = new GroupEffect(children, animation.timing);
       }
       return animation;
     }
 
     children = [animation].concat(opt_suffix || []);
-    return new AnimationGroup(children);
+    return new GroupEffect(children);
   },
 
   injectHighlight: function(blockId) {
@@ -160,7 +160,7 @@ app.BlockRunner.prototype = {
 
     // Just append the animation if this isn't a proper step (e.g., losing
     // or competion isn't highlightable).
-    if (!(animation instanceof AnimationGroup)) {
+    if (!(animation instanceof GroupEffect)) {
       var highlight = this.highlightAnimation_(blockId, duration);
       this.animationQueue_.push(highlight);
       return;
@@ -173,7 +173,7 @@ app.BlockRunner.prototype = {
     // happens in the repeat block).
     var lastHighlight = animation.children[animation.children.length - 1];
     if (lastHighlight[app.BlockRunner.HIGHLIGHT_SYMBOL]) {
-      lastHighlight = new AnimationGroup([lastHighlight], {
+      lastHighlight = new GroupEffect([lastHighlight], {
         duration: lastHighlight.activeDuration - duration,
         fill: 'none'
       });
@@ -188,13 +188,13 @@ app.BlockRunner.prototype = {
     });
     children.push(highlight);
 
-    animation = new AnimationGroup(children);
+    animation = new GroupEffect(children);
     this.animationQueue_[this.animationQueue_.length - 1] = animation;
   },
 
   highlightAnimation_: function(blockId, timing) {
-    var effect = this.highlightEffect_.bind(this, blockId);
-    var animation = new Animation(document.body, effect, timing);
+    var animation = new KeyframeEffect(null, [], timing);
+    animation.onsample = this.highlightEffect_.bind(this, blockId);
 
     // Mark it with a es6-style symbol
     animation[app.BlockRunner.HIGHLIGHT_SYMBOL] = true;
@@ -238,7 +238,7 @@ app.BlockRunner.prototype = {
   runAnimations_: function() {
     this.beforeAnimations_();
 
-    var fullAnimation = new AnimationSequence(this.animationQueue_);
+    var fullAnimation = new SequenceEffect(this.animationQueue_);
     this.player = document.timeline.play(fullAnimation);
     app.shared.utils.onWebAnimationFinished(this.player, this.onFinishAnimations_.bind(this));
     this.player.currentTime = 0;

@@ -47,7 +47,7 @@ app.Animations = function() {
  * @param {!Element} element  The animation target element.
  * @param {number} fanState The fan state.
  * @param {number} duration The animation duration in milliseconds.
- * @return {!AnimationSequence} The animation for the given element and fan state.
+ * @return {!SequenceEffect} The animation for the given element and fan state.
  */
 app.Animations.prototype.getParachuteAnimation = function(element, fanState,
     duration) {
@@ -56,7 +56,7 @@ app.Animations.prototype.getParachuteAnimation = function(element, fanState,
   var beginAngle = this.fanStateMap_[fanState].beginAngle;
   var endAngle = this.fanStateMap_[fanState].endAngle;
 
-  var initialTransition = new Animation(element, [
+  var initialTransition = new KeyframeEffect(element, [
       {transform: 'rotateZ(' + currentAngle + 'deg)'},
       {transform: 'rotateZ(' + beginAngle + 'deg)'}
   ], 500 * Math.abs(beginAngle - currentAngle) / 20.0);
@@ -68,18 +68,18 @@ app.Animations.prototype.getParachuteAnimation = function(element, fanState,
     iterations: Infinity
   };
 
-  var animation = new Animation(element, [
+  var animation = new KeyframeEffect(element, [
       {transform: 'rotateZ(' + beginAngle + 'deg)'},
       {transform: 'rotateZ(' + endAngle + 'deg)'}
     ], timing);
 
-  return new AnimationSequence([initialTransition, animation]);
+  return new SequenceEffect([initialTransition, animation]);
 };
 
 /**
  * @param {!Element} element  The animation target element.
  * @param {number} fanState The fan state.
- * @return {!AnimationSequence} The animation for the given element and fan state.
+ * @return {!SequenceEffect} The animation for the given element and fan state.
  */
 app.Animations.prototype.getBackgroundAnimation = function(element, fanState) {
   var transform = app.shared.utils.computedTransform(element);
@@ -87,12 +87,12 @@ app.Animations.prototype.getBackgroundAnimation = function(element, fanState) {
   var endOffset = -app.Constants.SCREEN_BACKGROUND_WIDTH;
   var duration = this.fanStateMap_[fanState].backgroundDuration;
 
-  var initialTransition = new Animation(element, [
+  var initialTransition = new KeyframeEffect(element, [
       {transform: 'translateX(' + currentOffset + 'px)'},
       {transform: 'translateX(' + endOffset + 'px)'}
   ], (duration * 1000) * ((endOffset - currentOffset) / endOffset));
 
-  var animation = new Animation(element, [
+  var animation = new KeyframeEffect(element, [
       {transform: 'translateX(0)'},
       {transform: 'translateX(' + endOffset + 'px)'}
   ], {
@@ -100,5 +100,5 @@ app.Animations.prototype.getBackgroundAnimation = function(element, fanState) {
       iterations: Infinity
   });
 
-  return new AnimationSequence([initialTransition, animation]);
+  return new SequenceEffect([initialTransition, animation]);
 };
