@@ -20,48 +20,32 @@ goog.require('SB.Object.Renderable');
 
 /**
  * Represents Santa in the game.
- * @param {object} position The global position of the object.
- * @param {number} rotation The local rotation of the object.
- * @param {object} scale The local scale of the object.
+ * @param {Constants.PosType} position The global position of santa.
  * @constructor
+ * @struct
  * @extends SB.Object.Renderable
  */
-SB.Object.Santa = function(position, rotation, scale) {
+SB.Object.Santa = function(position) {
+  SB.Object.Renderable.call(this);
+  this.position = position;
+  this.radius = 25;
 
   /**
    * The sprite for rendering Rudolf.
-   * @type {HTMLImageElement}
+   * @type {!HTMLImageElement}
    * @const
    */
   this.IMAGE = SB.Assets.get("santa");
 
   /**
-   * The position of the object in world space.
-   * @type {object}
-   */
-  this.position = position || {x: 0, y: 0};
-
-  /**
-   * The scale of the object in local space.
-   * @type {object}
-   */
-  this.scale = scale || {x: 1, y: 1};
-
-  /**
-   * The rotation of the object in local space.
-   * @type {number}
-   */
-  this.rotation = rotation || 0;
-
-  /**
    * Santa's acceleration.
-   * @type {object}
+   * @type {Constants.PosType}
    */
   this.acceleration = {x: 0, y: 0};
 
   /**
    * Santa's velocity.
-   * @type {object}
+   * @type {Constants.PosType}
    */
   this.velocity = {x: 0, y: 0};
 
@@ -80,23 +64,13 @@ SB.Object.Santa = function(position, rotation, scale) {
   this.extension = 0;
 
   /**
-   * The hit radius used in collision detection.
-   * @type {number}
+   * Our Rudolf.
+   * @type {SB.Object.Rudolf}
    */
-  this.radius = 25;
-
-  /**
-   * The hit radius used in collision detection.
-   * @type {number}
-   */
-  this.targetRotation = 0;
-  this.targetVelocity = 0;
-  this.rebound = false;
-
   this.rudolf_ = null;
 };
 
-SB.Object.Santa.prototype = new SB.Object.Renderable();
+SB.Object.Santa.prototype = Object.create(SB.Object.Renderable.prototype);
 
 /**
  * The sound to play when Rudolf has a collision.

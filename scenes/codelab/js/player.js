@@ -97,10 +97,10 @@ app.Player.prototype = {
     this.x = newX;
     this.y = newY;
 
-    var animation = new AnimationGroup([
+    var animation = new GroupEffect([
       app.PlayerSound.walk(),
       this.walkAnimation_(),
-      new Animation(this.el, [
+      new KeyframeEffect(this.el, [
         {transform: this.getTranslation_(oldX, oldY)},
         {transform: this.getTranslation_(this.x, this.y)}
       ], {duration: app.Player.MOVE_DURATION, fill: 'forwards'})
@@ -109,9 +109,9 @@ app.Player.prototype = {
   },
 
   lose: function(direction) {
-    var animation = new AnimationGroup([
+    var animation = new GroupEffect([
       app.PlayerSound.lost(),
-      new Animation(this.lostEl, [
+      new KeyframeEffect(this.lostEl, [
         {opacity: 0, transform: 'scale(0.5)'},
         {opacity: 1, transform: 'scale(1)', offset: 0.3},
         {opacity: 1, transform: 'scale(1)'}
@@ -126,8 +126,8 @@ app.Player.prototype = {
       var newX = this.x + Math.round(Math.sin(radDirection)) * 0.2;
       var newY = this.y - Math.round(Math.cos(radDirection)) * 0.2;
 
-      animation = new AnimationSequence([
-        new Animation(this.el, [
+      animation = new SequenceEffect([
+        new KeyframeEffect(this.el, [
           {transform: this.getTranslation_(this.x, this.y)},
           {transform: this.getTranslation_(newX, newY)},
           {transform: this.getTranslation_(this.x, this.y)}
@@ -152,10 +152,10 @@ app.Player.prototype = {
       oldDirection -= 360;
     }
 
-    return new AnimationSequence([
-      new AnimationGroup([
+    return new SequenceEffect([
+      new GroupEffect([
         app.PlayerSound.stop(),
-        new Animation(this.rotationEl, [
+        new KeyframeEffect(this.rotationEl, [
           {transform: 'translateZ(0) rotate(' + oldDirection + 'deg)'},
           {transform: 'translateZ(0) rotate(' + this.direction + 'deg)'}
         ], {duration: app.Player.ROTATE_DURATION, fill: 'forwards'})
@@ -165,18 +165,18 @@ app.Player.prototype = {
   },
 
   pickUp: function(present) {
-    return new AnimationGroup([
+    return new GroupEffect([
       app.PlayerSound.stop(),
-      new Animation(present.el, [{opacity: 1}, {opacity: 0}], {fill: 'forwards'}),
-      new Animation(this.victoryEl, [{opacity: 0}, {opacity: 1}], {fill: 'forwards'}),
-      new Animation(this.spriteEl, [{opacity: 0}, {opacity: 1}], {fill: 'forwards'})
+      new KeyframeEffect(present.el, [{opacity: 1}, {opacity: 0}], {fill: 'forwards'}),
+      new KeyframeEffect(this.victoryEl, [{opacity: 0}, {opacity: 1}], {fill: 'forwards'}),
+      new KeyframeEffect(this.spriteEl, [{opacity: 0}, {opacity: 1}], {fill: 'forwards'})
     ], {duration: 800, fill: 'forwards'});
   },
 
   walkAnimation_: function() {
     // TODO(samthor): This is disabled for now, as the Infinity iterations
     // caused the animation never to end.
-    return new Animation(this.spriteEl, [
+    return new KeyframeEffect(this.spriteEl, [
       {transform: 'translateZ(0) translate(0, 0em)'},
       {transform: 'translateZ(0) translate(0, -52.8em)'}
     ], {duration: app.Player.MOVE_DURATION, easing: 'steps(8, end)', iterations: 0});

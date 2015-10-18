@@ -19,7 +19,10 @@ goog.provide('app.Present');
 goog.require('app.shared.pools');
 goog.require('app.shared.utils');
 
-
+/**
+ * @constructor
+ * @param {!Object} options
+ */
 app.Present = function(options) {
   // Unique color/number combination.
   this.color = options.color;
@@ -50,7 +53,7 @@ app.Present = function(options) {
   this.velocityX = 0;
 
   // Create dummy AnimationPlayer.
-  var dummy = new Animation(document.body, [], 0);
+  var dummy = new KeyframeEffect(document.body, [], 0);
   this.player = document.timeline.play(dummy);
 };
 
@@ -113,7 +116,7 @@ app.Present.prototype.deliver = function(marker, deliverCallback) {
   var elfElement = elf[0];
   var presentElement = this.el[0];
 
-  var pickUpPresentAnimation = new Animation(elfElement,
+  var pickUpPresentEffect = new KeyframeEffect(elfElement,
     [
       { 'transform': 'translate3d(0, 144px, 0) scale(2)' },
       { 'transform': 'translate3d(0, 0px, 0) scale(2)' }
@@ -123,7 +126,7 @@ app.Present.prototype.deliver = function(marker, deliverCallback) {
     }
   );
 
-  var deliverPresentAnimation = new Animation(presentElement,
+  var deliverPresentEffect = new KeyframeEffect(presentElement,
     [
       {
         'transform': 'translateZ(0) scale(1) rotate(0deg)'
@@ -138,9 +141,9 @@ app.Present.prototype.deliver = function(marker, deliverCallback) {
     }
   );
 
-  var animationSequence = new AnimationSequence([
-    pickUpPresentAnimation,
-    deliverPresentAnimation
+  var animationSequence = new SequenceEffect([
+    pickUpPresentEffect,
+    deliverPresentEffect
   ]);
 
   this.el.css('transform-origin', point.x + 'px ' + point.y + 'px');

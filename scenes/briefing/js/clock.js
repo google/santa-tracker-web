@@ -22,32 +22,38 @@ goog.require('app.shared.utils');
 /**
  * Clock class for handling an individual clock animation.
  *
- * @param {!Element} context Module context in a HTML element
+ * @param {!Element|!jQuery} context Module context in a HTML element
  * @constructor
+ * @struct
  */
 app.Clock = function(context) {
-  this.$context_ = $(context);
-  this.context_ = this.$context_[0];
-  this.$secondsPointer = this.$context_.find('.js-clock-pointer-seconds');
-  this.$minutesPointer = this.$context_.find('.js-clock-pointer-minutes');
-  this.$hourPointer = this.$context_.find('.js-clock-pointer-hour');
-
+  this.context_ = app.shared.utils.unwrapElement(context);
   this.onClockClick_ = this.onClockClick_.bind(this);
 
+  /** @const @private {!Element} */
+  this.secondsPointer_ = this.context_.querySelector('.js-clock-pointer-seconds');
+
+  /** @const @private {!Element} */
+  this.minutesPointer_ = this.context_.querySelector('.js-clock-pointer-minutes');
+
+  /** @const @private {!Element} */
+  this.hourPointer_ = this.context_.querySelector('.js-clock-pointer-hour');
+
+  /** @const @private {!Animation} */
   this.secondsPlayer_ = (function(el) {
     var steps = [
       {transform: 'rotate(0deg)'},
       {transform: 'rotate(360deg)'}
     ];
     return el.animate(steps, {duration: 60 * 1000, iterations: Infinity});
-  }(this.$secondsPointer.get(0)));
+  }(this.secondsPointer_));
 };
 
 /**
  * Initializes the class.
  */
 app.Clock.prototype.init = function() {
-  this.addEventListeners_();
+  this.context_.addEventListener('click', this.onClockClick_);
 };
 
 /**
@@ -55,24 +61,8 @@ app.Clock.prototype.init = function() {
  * any event listeners and doing additional cleaning up.
  */
 app.Clock.prototype.destroy = function() {
-  this.removeEventListeners_();
+  this.context_.removeEventListener('click', this.onClockClick_);
   this.secondsPlayer_.cancel();
-};
-
-/**
- * Binds event listeners to some elements.
- * @private
- */
-app.Clock.prototype.addEventListeners_ = function() {
-  this.$context_.on('click', this.onClockClick_);
-};
-
-/**
- * Un-binds event listeners to some elements.
- * @private
- */
-app.Clock.prototype.removeEventListeners_ = function() {
-  this.$context_.off('click', this.onClockClick_);
 };
 
 /**
@@ -80,10 +70,8 @@ app.Clock.prototype.removeEventListeners_ = function() {
  * @private
  */
 app.Clock.prototype.spinPointers_ = function() {
-
-  var secondsEl = this.$secondsPointer.get(0);
-  var secondsTransform = app.shared.utils.computedTransform(secondsEl);
-  var secondsAnim = secondsEl.animate([
+  var secondsTransform = app.shared.utils.computedTransform(this.secondsPointer_);
+  var secondsAnim = this.secondsPointer_.animate([
     {transform: 'rotate(' + secondsTransform.rotate + 'deg)'},
     {transform: 'rotate(' + (secondsTransform.rotate + (360 * 2.5)) + 'deg)'}
   ], {duration: 1250, easing: 'ease-out'});
@@ -92,39 +80,23 @@ app.Clock.prototype.spinPointers_ = function() {
   // 1.25 seconds back (animation time) plus 30 seconds (half offset).
   this.secondsPlayer_.currentTime += (-1.25 + 30) * 1000;
 
-  // NOTE: Works around compositor issue in Chrome 41, as two animations are
-  // running over secondsEl. Safe in 42+.
-  app.shared.utils.onWebAnimationFinished(secondsAnim, function() {
-    this.secondsPlayer_.pause();
-    this.secondsPlayer_.play();
-  }.bind(this));
-
   var sharedTiming = {duration: 500, easing: 'ease-out'};
 
-  var hourEl = this.$hourPointer.get(0);
-  var hourTransform = app.shared.utils.computedTransform(hourEl);
+  var hourTransform = app.shared.utils.computedTransform(this.hourPointer_);
   var hourFinal = 'rotate(' + (hourTransform.rotate + 30) + 'deg)';
-  var hourAnim = hourEl.animate([
+  var hourAnim = this.hourPointer_.animate([
     {transform: 'rotate(' + hourTransform.rotate + 'deg)'},
     {transform: hourFinal}
   ], sharedTiming);
-  app.shared.utils.onWebAnimationFinished(hourAnim, function() {
-    hourEl.style.webkitTransform = hourFinal;
-    hourEl.style.transform = hourFinal;
-  });
+  AnimationUtilApply(hourAnim.effect);
 
-  var minutesEl = this.$minutesPointer.get(0);
-  var minutesTransform = app.shared.utils.computedTransform(minutesEl);
+  var minutesTransform = app.shared.utils.computedTransform(this.minutesPointer_);
   var minutesFinal = 'rotate(' + (minutesTransform.rotate + 390) + 'deg)';
-  var minutesAnim = minutesEl.animate([
+  var minutesAnim = this.minutesPointer_.animate([
     {transform: 'rotate(' + minutesTransform.rotate + 'deg)'},
     {transform: minutesFinal}
   ], sharedTiming);
-  app.shared.utils.onWebAnimationFinished(minutesAnim, function() {
-    minutesEl.style.webkitTransform = minutesFinal;
-    minutesEl.style.transform = minutesFinal;
-  });
-
+  AnimationUtilApply(minutesAnim.effect);
 };
 
 /**

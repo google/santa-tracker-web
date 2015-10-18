@@ -31,22 +31,33 @@ app.PlayerSound = {
   },
 
   walk: function() {
-    return new Animation(document.body, app.PlayerSound.walk_, {duration: 100});
+    var e = new KeyframeEffect(null, [], 100);
+    e.onsample = app.PlayerSound.walk_;
+    return e;
   },
 
   stop: function() {
-    return new Animation(document.body, app.PlayerSound.stop_, {duration: 100});
+    var e = new KeyframeEffect(null, [], 100);
+    e.onsample = app.PlayerSound.stop_;
+    return e;
   },
 
   lost: function() {
-    return new Animation(document.body, app.PlayerSound.lost_, {duration: 100});
+    var e = new KeyframeEffect(null, [], 100);
+    e.onsample = app.PlayerSound.lost_;
+    return e;
   },
 
   disable: function() {
     app.PlayerSound.disabled_ = true;
   },
 
-  walk_: function(huh) {
+  /**
+   * @param {number} timeFraction
+   * @param {!KeyframeEffect} effect
+   * @param {!Animation} animation
+   */
+  walk_: function(timeFraction, effect, animation) {
     if (app.PlayerSound.disabled_ || app.PlayerSound.isWalking_) {
       return;
     }
@@ -54,7 +65,12 @@ app.PlayerSound = {
     Klang.triggerEvent('computer_walk_start');
   },
 
-  stop_: function(huh) {
+  /**
+   * @param {number} timeFraction
+   * @param {!KeyframeEffect} effect
+   * @param {!Animation} animation
+   */
+  stop_: function(timeFraction, effect, animation) {
     if (app.PlayerSound.disabled_ || !app.PlayerSound.isWalking_) {
       return;
     }
@@ -62,7 +78,12 @@ app.PlayerSound = {
     Klang.triggerEvent('computer_walk_stop');
   },
 
-  lost_: function(huh) {
+  /**
+   * @param {number} timeFraction
+   * @param {!KeyframeEffect} effect
+   * @param {!Animation} animation
+   */
+  lost_: function(timeFraction, effect, animation) {
     if (app.PlayerSound.disabled_ || app.PlayerSound.isLost_) {
       return;
     }

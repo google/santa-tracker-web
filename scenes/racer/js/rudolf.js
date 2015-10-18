@@ -20,13 +20,14 @@ goog.require('SB.Object.Renderable');
 
 /**
  * Represents Rudolf in the game.
- * @param {object} position The global position of the object.
- * @param {number} rotation The local rotation of the object.
- * @param {object} scale The local scale of the object.
+ * @param {Constants.PosType} position The global position of the object.
  * @constructor
+ * @struct
  * @extends SB.Object.Renderable
  */
-SB.Object.Rudolf = function(position, rotation, scale) {
+SB.Object.Rudolf = function(position) {
+  SB.Object.Renderable.call(this);
+  this.position = position;
 
   /**
    * Rudolf's maximum velocity.
@@ -44,28 +45,10 @@ SB.Object.Rudolf = function(position, rotation, scale) {
 
   /**
    * The sprite for rendering Rudolf
-   * @type {HTMLImageElement}
+   * @type {!HTMLImageElement}
    * @const
    */
   this.IMAGE = SB.Assets.get("rudolf");
-
-  /**
-   * The position of the object in world space.
-   * @type {object}
-   */
-  this.position = position || {x: 0, y: 0};
-
-  /**
-   * The scale of the object in local space.
-   * @type {object}
-   */
-  this.scale = scale || {x: 1, y: 1};
-
-  /**
-   * The rotation of the object in local space.
-   * @type {number}
-   */
-  this.rotation = rotation || 0;
 
   /**
    * Rudolf's velocity.
@@ -73,34 +56,9 @@ SB.Object.Rudolf = function(position, rotation, scale) {
    */
   this.velocity = 0;
 
-  /**
-   * The target velocity used for easing purposes.
-   * @type {number}
-   */
-  this.targetVelocity = 0;
-
-  /**
-   * The target rotation used for easing purposes.
-   * @type {number}
-   */
-  this.targetRotation = 0;
-
-  /**
-   * Whether Rudolf has rebounded from a collision and
-   * is still immune to further collisions.
-   * @type {boolean}
-   */
-  this.rebound = false;
-
-  /**
-   * The hit area used for collisions.
-   * @type {number}
-   */
-  this.radius = 25;
-
 };
 
-SB.Object.Rudolf.prototype = new SB.Object.Renderable();
+SB.Object.Rudolf.prototype = Object.create(SB.Object.Renderable.prototype);
 
 /**
  * Lower speed on hit.

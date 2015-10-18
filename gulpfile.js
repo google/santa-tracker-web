@@ -35,6 +35,12 @@ var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/**/*.js';
 
+var SHARED_EXTERNS = [
+  'third_party/externs/jquery/*.js',
+  'third_party/externs/*.js',
+  'components/web-animations-utils/externs*.js'
+];
+
 var CLOSURE_WARNINGS = [
   // https://github.com/google/closure-compiler/wiki/Warnings
   'accessControls',
@@ -78,7 +84,6 @@ var SCENE_CLOSURE_CONFIG = {
     entryPoint: 'app.Scene'
   },
   callfromsanta: {
-    typeSafe: false,
     entryPoint: 'app.Scene'
   },
   citylights: {
@@ -137,7 +142,6 @@ var SCENE_CLOSURE_CONFIG = {
     entryPoint: 'app.Game'
   },
   racer: {
-    typeSafe: false,
     entryPoint: 'app.Game'
   },
   runner: {
@@ -211,7 +215,7 @@ gulp.task('compile-santa-api-service', function() {
         compilation_level: 'ADVANCED_OPTIMIZATIONS',
         // warning_level: 'VERBOSE',
         language_in: 'ECMASCRIPT5_STRICT',
-        externs: ['js/service/externs.js', 'third_party/externs/jquery/jquery-1.8.js'],
+        externs: SHARED_EXTERNS,
         define: ['crossDomainAjax.BASE="' + (argv.api_base || 'https://santa-api.appspot.com/') + '"'],
         jscomp_warning: [
           // https://github.com/google/closure-compiler/wiki/Warnings
@@ -251,14 +255,7 @@ gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
 
     return stream.add(gulp.src([
       'scenes/' + sceneName + '/js/**/*.js',
-
-      // add shared scene code
       'scenes/shared/js/*.js',
-
-      // these externs are annotated with @externs, so we can import them as
-      // source (so we can use use wildcards in the file name)
-      'third_party/externs/*.js',
-      'third_party/externs/jquery/*.js',
     ])
     .pipe(newer(dest + '/' + fileName))
     .pipe(closureCompiler({
@@ -266,6 +263,7 @@ gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
       fileName: fileName,
       compilerFlags: addCompilerFlagOptions({
         js: compilerSrc,
+        externs: SHARED_EXTERNS,
         closure_entry_point: config.entryPoint,
         compilation_level: 'SIMPLE_OPTIMIZATIONS',
         warning_level: warningLevel,

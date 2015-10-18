@@ -65,7 +65,7 @@ app.Scene = function(el, game, blockly) {
   this.buttonEl_ = el.querySelector('.scene__play');
 
   // Portrait draggability
-  var dummy = new Animation(document.body, [], 0);
+  var dummy = new KeyframeEffect(document.body, [], 0);
   this.dragPlayer_ = document.timeline.play(dummy);
   this.dragStartTime_ = null;
   this.dragStartX_ = null;
@@ -375,12 +375,12 @@ app.Scene.prototype.calculateViewport_ = function() {
  */
 app.Scene.prototype.configPortraitDraggability_ = function() {
   if (this.portraitMode_) {
-    this.dragPlayer_ = document.timeline.play(new AnimationGroup([
-      new Animation(this.el_, [
+    this.dragPlayer_ = document.timeline.play(new GroupEffect([
+      new KeyframeEffect(this.el_, [
         {transform: 'translate3d(0, 0, 0)'},
         {transform: 'translate3d(' + (this.width_ - app.Constants.EDGE_MIN_WIDTH) + 'px, 0, 0)'}
       ], {duration: app.Constants.SCENE_TOGGLE_DURATION, fill: 'forwards'}),
-      new Animation(this.underlayEl_, [
+      new KeyframeEffect(this.underlayEl_, [
         {opacity: 1, visibility: 'visible'},
         {opacity: 0, visibility: 'visible', offset: 0.95},
         {opacity: 0, visibility: 'hidden'}

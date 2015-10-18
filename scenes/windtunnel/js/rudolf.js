@@ -37,8 +37,14 @@ app.Rudolf = function(context) {
   this.fanState_ = app.Constants.FAN_STATE_LOW;
 
   this.animations_ = new app.Animations();
+
+  /** @private {AnimationEffectReadOnly} */
   this.parachuteAnimation_ = null;
+
+  /** @private {AnimationEffectReadOnly} */
   this.parachuteShadowAnimation_ = null;
+
+  /** @private {Animation} */
   this.animationPlayer_ = null;
 
   this.onRudolfClicked_ = this.onRudolfClicked_.bind(this);
@@ -130,7 +136,7 @@ app.Rudolf.prototype.updateAnimations_ = function() {
  * @private
  */
 app.Rudolf.prototype.startParachuteAnimation_ = function() {
-  this.animationPlayer_ = document.timeline.play(new AnimationGroup([
+  this.animationPlayer_ = document.timeline.play(new GroupEffect([
       this.parachuteAnimation_,
       this.parachuteShadowAnimation_
   ]));

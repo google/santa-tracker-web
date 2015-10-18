@@ -43,26 +43,3 @@ var Modernizr;
  */
 Modernizr.touch;
 
-/**
- * TODO(thorogood): Migrate to Animation as per-
- *   https://developers.google.com/web/updates/2015/04/web-animations-naming?hl=en
- * @constructor
- */
-var AnimationPlayer = function() {};
-
-/**
- * @type {!Promise|boolean}
- */
-AnimationPlayer.prototype.finished;
-
-/**
- * @param {string} type
- * @param {!Function} listener
- * @param {boolean} useCapture
- */
-AnimationPlayer.prototype.addEventListener = function(type, listener, useCapture) {};
-
-/**
- * @type {string}
- */
-AnimationPlayer.prototype.playState;

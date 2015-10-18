@@ -146,18 +146,18 @@ app.Scene.prototype.playAudio_ = function(string, lang, klangEvent) {
  * @param {SVGElement} topEl
  * @param {SVGElement} shadowEl
  * @param {Object} otps Animation options
- * @return {AnimationSequence}
+ * @return {!SequenceEffect}
  */
 app.Scene.prototype.getButtonAnimation_ = function(topEl, shadowEl, opts) {
-  var animateDown = new AnimationGroup([
-                                         new Animation(topEl, [
+  var animateDown = new GroupEffect([
+                                         new KeyframeEffect(topEl, [
                                            {transform: 'translateY(0px)'},
                                            {transform: 'translateY(' + opts.distancePx + 'px)'}
                                          ], {
                                                          duration: opts.durationDown,
                                                          easing: app.Constants[opts.easingDown]
                                                        }),
-                                         new Animation(shadowEl, [
+                                         new KeyframeEffect(shadowEl, [
                                            {transform: 'scale(1)'},
                                            {transform: 'scaleY(0.9) scaleX(0.8)'}
                                          ], {
@@ -166,8 +166,8 @@ app.Scene.prototype.getButtonAnimation_ = function(topEl, shadowEl, opts) {
                                                        })
                                        ]);
 
-  var animateUp = new AnimationGroup([
-                                       new Animation(topEl, [
+  var animateUp = new GroupEffect([
+                                       new KeyframeEffect(topEl, [
                                          {transform: 'translateY(' + opts.distancePx + 'px)'},
                                          {transform: 'translateY(0px)'}
                                        ], {
@@ -175,7 +175,7 @@ app.Scene.prototype.getButtonAnimation_ = function(topEl, shadowEl, opts) {
                                                        duration: opts.durationUp,
                                                        easing: app.Constants[opts.easingUp]
                                                      }),
-                                       new Animation(shadowEl, [
+                                       new KeyframeEffect(shadowEl, [
                                          {transform: 'scaleY(0.9) scaleX(0.8)'},
                                          {transform: 'scale(1)'}
                                        ], {
@@ -185,7 +185,7 @@ app.Scene.prototype.getButtonAnimation_ = function(topEl, shadowEl, opts) {
                                                      })
                                      ]);
 
-  return new AnimationSequence([animateDown, animateUp]);
+  return new SequenceEffect([animateDown, animateUp]);
 };
 
 /**
@@ -207,8 +207,8 @@ app.Scene.prototype.transitionToPhrase_ = function(newIndex) {
   var $currentPhraseTo = this.$phrasesTo.eq(this.phraseIndex);
   var $newPhraseTo = this.$phrasesTo.eq(newIndex);
 
-  var animation = new AnimationGroup([
-                                       new Animation($currentPhraseFrom[0], [
+  var animation = new GroupEffect([
+                                       new KeyframeEffect($currentPhraseFrom[0], [
                                          {transform: 'translateX(0)', opacity: 1},
                                          {transform: 'translateX(' + (direction * -100) + '%)', opacity: 0}
                                        ], {
@@ -216,7 +216,7 @@ app.Scene.prototype.transitionToPhrase_ = function(newIndex) {
                                                        fill: 'both',
                                                        easing: app.Constants.EASE_IN_OUT_CIRC
                                                      }),
-                                       new Animation($currentPhraseTo[0], [
+                                       new KeyframeEffect($currentPhraseTo[0], [
                                          {transform: 'translateX(0)', opacity: 1},
                                          {transform: 'translateX(' + (direction * -100) + '%)', opacity: 0}
                                        ], {
@@ -224,7 +224,7 @@ app.Scene.prototype.transitionToPhrase_ = function(newIndex) {
                                                        fill: 'both',
                                                        easing: app.Constants.EASE_IN_OUT_CIRC
                                                      }),
-                                       new Animation($newPhraseFrom[0], [
+                                       new KeyframeEffect($newPhraseFrom[0], [
                                          {transform: 'translateX(' + (direction * 100) + '%)', opacity: 0},
                                          {transform: 'translateX(0)', opacity: 1}
                                        ], {
@@ -232,7 +232,7 @@ app.Scene.prototype.transitionToPhrase_ = function(newIndex) {
                                                        fill: 'both',
                                                        easing: app.Constants.EASE_IN_OUT_CIRC
                                                      }),
-                                       new Animation($newPhraseTo[0], [
+                                       new KeyframeEffect($newPhraseTo[0], [
                                          {transform: 'translateX(' + (direction * 100) + '%)', opacity: 0},
                                          {transform: 'translateX(0)', opacity: 1}
                                        ], {

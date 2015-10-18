@@ -34,7 +34,9 @@ app.Dashboard = function(div) {
   this.currentIndex_ = 0;
   this.numberOfItems_ = undefined;
   this.loadTimer_ = undefined;
-  this.paginationPlayer_ = undefined;
+
+  /** @private {Animation} */
+  this.paginationPlayer_ = null;
 
   this.getSphereAtPosition = this.getSphereAtPosition.bind(this);
 };
@@ -107,13 +109,13 @@ app.Dashboard.prototype = {
     };
 
     for (var i = 0; i < 4; i++) {
-      animations.push(new Animation(
+      animations.push(new KeyframeEffect(
           this.getElementAtOffset_(startOffset + i),
           this.getKeyframesForOffset_(startOffset + i, direction),
           timing));
     }
 
-    var animationGroup = new AnimationGroup(animations);
+    var animationGroup = new GroupEffect(animations);
     this.destroyPlayer_();
     this.paginationPlayer_ = document.timeline.play(animationGroup);
 
@@ -156,7 +158,7 @@ app.Dashboard.prototype = {
    * Return Sphere ID for the specified position
    * @public
    * @param {string} position left, middle or right
-   * @return {string}
+   * @return {{id: string, location: string, description: string, pov: {heading: number, pitch: number}}}
    */
   getSphereAtPosition: function(position) {
     var positionOffset = app.Constants.POSITION_OFFSET[position];
@@ -167,8 +169,8 @@ app.Dashboard.prototype = {
       location: $screen.data('location'),
       description: $screen.data('description'),
       pov: {
-        heading: $screen.data('heading'),
-        pitch: $screen.data('pitch')
+        heading: +$screen.data('heading'),
+        pitch: +$screen.data('pitch')
       }
     };
   },

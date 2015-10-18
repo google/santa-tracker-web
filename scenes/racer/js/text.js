@@ -21,31 +21,12 @@ goog.require('app.shared.pools');
 
 /**
  * Represents a text to show score or time gained.
- * @param {object} position The global position of the object.
- * @param {number} rotation The local rotation of the object.
- * @param {object} scale The local scale of the object.
  * @constructor
+ * @struct
  * @extends SB.Object.Renderable
  */
-SB.Object.Text = function(position, rotation, scale) {
-
-  /**
-   * The position of the object in world space.
-   * @type {object}
-   */
-  this.position = position || {x: 0, y: 0};
-
-  /**
-   * The scale of the object in local space.
-   * @type {object}
-   */
-  this.scale = scale || {x: 1, y: 1};
-
-  /**
-   * The rotation of the object in local space.
-   * @type {number}
-   */
-  this.rotation = rotation || 0;
+SB.Object.Text = function() {
+  SB.Object.Renderable.call(this);
 
   /**
    * Alpha channel of the text color.
@@ -54,19 +35,19 @@ SB.Object.Text = function(position, rotation, scale) {
   this.alpha = 0;
 
   /**
-   * Whether this object is available for use.
-   * @type {boolean}
-   */
-  this.active = false;
-
-  /**
    * Is this text a child of the world.
    * @type {boolean}
    */
   this.inWorld = false;
+
+  /** @type {string} */
+  this.text = '';
+
+  /** @type {number} */
+  this.lastUpdateTime = 0;
 };
 
-SB.Object.Text.prototype = new SB.Object.Renderable();
+SB.Object.Text.prototype = Object.create(SB.Object.Renderable.prototype);
 
 SB.Object.Text.prototype.onInit = function(position, text, worldEl) {
   this.position = position;
@@ -85,6 +66,12 @@ SB.Object.Text.prototype.onDispose = function() {
   this.alpha = 0;
 };
 
+/**
+ * TODO(samthor): Stub method that is replaced by pools. Remove when the pools
+ * code is made typesafe.
+ */
+SB.Object.Text.prototype.remove = function() {};
+
 app.shared.pools.mixin(SB.Object.Text);
 
 /**
@@ -100,7 +87,6 @@ SB.Object.Text.prototype.render = function(ctx) {
   this.lastUpdateTime = updateTime;
 
   this.alpha -= 2 * deltaSec;
-
   if (this.alpha < 0.01) {
     this.remove();
   }

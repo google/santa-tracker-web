@@ -209,25 +209,25 @@ app.Sleepy.prototype.tweenRotateYHead_ = function() {
   var duration = 70;
 
   var steps = [
-    new Animation(this.$head.get(0), [
+    new KeyframeEffect(this.$head.get(0), [
       {visibility: 'visible'},
       {visibility: 'hidden'}
     ], {duration: duration, fill: 'forwards'}),
-    new Animation(this.$headVerticalStep1.get(0), [
+    new KeyframeEffect(this.$headVerticalStep1.get(0), [
       {visibility: 'visible'},
       {visibility: 'hidden'}
     ], {duration: duration}),
-    new Animation(this.$headVerticalStep2.get(0), [
+    new KeyframeEffect(this.$headVerticalStep2.get(0), [
       {visibility: 'visible'},
       {visibility: 'hidden'}
     ], {duration: duration}),
-    new Animation(this.$headVerticalFinal.get(0), [
+    new KeyframeEffect(this.$headVerticalFinal.get(0), [
       {visibility: 'visible'},
       {visibility: 'visible'}
     ], {duration: duration, fill: 'forwards'}),
   ];
 
-  this.headRotateYPlayer = document.timeline.play(new AnimationSequence(steps, {fill: 'forwards'}));
+  this.headRotateYPlayer = document.timeline.play(new SequenceEffect(steps, {fill: 'forwards'}));
 };
 
 /**

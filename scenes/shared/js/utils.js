@@ -91,15 +91,15 @@ app.shared.utils = (function() {
     },
 
     /**
-     * Unwraps a jQuery object. Expects an element to be matched, and will throw
-     * a TypeError otherwise.
-     * @param {!Element|!jQuery} element source element or jQuery
+     * Unwraps a jQuery object or confirms that an Element is non-null. Throws a
+     * TypeError if there is no object available.
+     * @param {Element|!jQuery} element source element or jQuery
      * @return {!Element} result element, or first jQuery object
      */
     unwrapElement: function(element) {
       var out = $(element)[0];
       if (!out) {
-        throw new TypeError('Couldn\'t unwrap jQuery object, nothing matched');
+        throw new TypeError('Couldn\'t unwrap element, nothing matched');
       }
       return out;
     },
@@ -147,29 +147,26 @@ app.shared.utils = (function() {
     /**
      * Register listener for finish event on a Web Animation player.
      * TODO(samthor): Fix Function type when this code is replaced.
-     * @param {!AnimationPlayer} player The animation player object which will finish
+     * @param {!Animation} player The animation player object which will finish
      * @param {!Function} fn A callback function to execute when player finishes
      */
     onWebAnimationFinished: function(player, fn) {
-      // don't run if .finished is a boolean; this was dropped after legacy
-      if (player.finished && player.finished !== true) {
-        player.finished.then(fn);
-      } else {
-        player.addEventListener('finish', fn, false);
-      }
+      // TODO(samthor): player also exposes {!Promise<*>} under finished, not
+      // defined in externs yet
+      player.addEventListener('finish', fn, false);
     },
 
     /**
      * Determine whether a Web Animations player is finished. A null player
      * is considered to be finished.
-     * @param {AnimationPlayer} player
+     * @param {Animation} player
      * @return {boolean}
      */
     playerFinished: function(player) {
       if (!player) {
         return true;
       }
-      return player.playState === 'finished' || player.finished === true;
+      return player.playState === 'finished';
     }
   };
 

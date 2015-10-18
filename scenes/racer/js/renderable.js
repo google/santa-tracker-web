@@ -19,56 +19,96 @@ goog.provide('SB.Object.Renderable');
 /**
  * The base object for all renderable items in the game: santa,
  * rudolf, present, trees and rocks.
- * @param {object} position The global position of the object.
- * @param {number} rotation The local rotation of the object.
- * @param {object} scale The local scale of the object.
  * @constructor
+ * @struct
  */
-SB.Object.Renderable = function(position, rotation, scale) {
+SB.Object.Renderable = function() {
 
   /**
    * The position of the object in world space.
-   * @type {object}
+   * @type {Constants.PosType}
    */
-  this.position = position || {x: 0, y: 0};
+  this.position = {x: 0, y: 0};
 
   /**
    * The scale of the object in local space.
-   * @type {object}
+   * @type {Constants.PosType}
    */
-  this.scale = scale || {x: 1, y: 1};
+  this.scale = {x: 1, y: 1};
 
   /**
    * The rotation of the object in local space.
    * @type {number}
    */
-  this.rotation = rotation || 0;
+  this.rotation = 0;
 
   /**
    * The child objects of this renderable.
-   * @type {Array.<SB.Object.Renderable>}
+   * @const
+   * @private
+   * @type {!Array<!SB.Object.Renderable>}
    */
-  this.children = [];
+  this.children_ = [];
 
   /**
-   * A cached count of the children.
+   * The current object being traversed (within children_). This will be -1 if
+   * not being traversed.
    * @type {number}
-   * @private
-   */
-  this.childCount_ = 0;
+   **/
+  this.c_ = -1;
 
-  /**
-   * A cached index for a children iterator.
-   * @type {number}
-   * @private
-   */
-  this.c_ = 0;
+  // NOTE: The following properties are provided for use by subclasses, as
+  // various code interacts with Renderable instances where they are known to be
+  // specific types that share these properties (e.g. Santa/Rudolf share
+  // targetRotation/targetVelocity).
+
+  /** @type {number} */
+  this.targetRotation = 0;
+
+  /** @type {boolean} */
+  this.rebound = false;
+
+  /** @type {number} */
+  this.targetVelocity = 0;
+
+  /** @type {number} */
+  this.radius = 0;
+
+  /** @type {boolean} */
+  this.active = false;
+};
+
+/**
+ * Update this Renderable before rendering.
+ */
+SB.Object.Renderable.prototype.update = function() {
+};
+
+/**
+ * Render this Renderable.
+ * @param {!CanvasRenderingContext2D} ctx
+ */
+SB.Object.Renderable.prototype.render = function(ctx) {
+};
+
+/**
+ * This Renderable was hit.
+ */
+SB.Object.Renderable.prototype.hit = function() {
+};
+
+/**
+ * Choose a random version of this Renderable to draw, if possible (e.g., for
+ * scenery).
+ */
+SB.Object.Renderable.prototype.chooseRender = function() {
 };
 
 /**
  * Recursive function working depth first down
  * the renderable object's children.
  * @param {!CanvasRenderingContext2D} ctx
+ * @final
  */
 SB.Object.Renderable.prototype.traverse = function(ctx) {
   // update the canvas
@@ -76,45 +116,38 @@ SB.Object.Renderable.prototype.traverse = function(ctx) {
   ctx.scale(this.scale.x, this.scale.y);
   ctx.rotate(this.rotation);
 
-  // run the renderable's update if
-  // it has one
-  if (typeof this.update !== "undefined") {
-    this.update();
-  }
+  this.update();
+  this.render(ctx);
 
-  // same for the render
-  if (typeof this.render !== "undefined") {
-    this.render(ctx);
-  }
-
-  // reset the child counter
-  this.c_ = 0;
-
-  // now recursively traverse the children objects
-  while (this.c_ < this.childCount_) {
+  for (this.c_ = 0; this.c_ < this.children_.length; ++this.c_) {
+    var child = this.children_[this.c_];
     ctx.save();
-    this.children[this.c_++].traverse(ctx);
+    child.traverse(ctx);
     ctx.restore();
   }
+  this.c_ = -1;
 };
 
 /**
  * Adds a child object to this renderable.
- * @param {SB.Object.Renderable} child The child to add.
+ * @param {!SB.Object.Renderable} child The child to add.
+ * @final
  */
 SB.Object.Renderable.prototype.addChild = function(child) {
-  this.children.push(child);
-  this.childCount_++;
+  this.children_.push(child);
 };
 
 /**
  * Removes a child object from this renderable's children.
- * @param {SB.Object.Renderable} child The child to remove.
+ * @param {!SB.Object.Renderable} child The child to remove.
+ * @final
  */
 SB.Object.Renderable.prototype.removeChild = function(child) {
-  var index = this.children.indexOf(child);
+  var index = this.children_.indexOf(child);
   if (index > -1) {
-    this.children.splice(index, 1);
-    this.childCount_--;
+    this.children_.splice(index, 1);
+    if (index <= this.c_) {
+      --this.c_;
+    }
   }
 };
