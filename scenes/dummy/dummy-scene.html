@@ -1,0 +1,43 @@
+
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<script>
+/** @polymerBehavior */
+window.SantaSceneBehavior = {
+
+  properties: {
+
+    /**
+     * URL route for this scene.
+     *
+     * @attribute route
+     * @type string
+     * @default null
+     */
+    route: {
+      type: String,
+      value: null,
+      notify: true,
+      observer: 'activeChanged',
+      reflectToAttribute: true
+    },
+
+    /**
+     * A `<santa-app>` controller element.
+     *
+     * @attribute santaApp
+     * @type HTMLElement
+     * @default null
+     */
+    santaApp: {
+      value: null,
+      notify: true
+    },
+
+  }
+
+};
+</script>
+
+<dom-module id="dummy-scene">
+</dom-module>
