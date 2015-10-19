@@ -13,24 +13,21 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
-<link rel="import" href="../../components/core-range/core-range.html">
+<link rel="import" href="../../components/iron-range-behavior/iron-range-behavior.html">
 
 <!--
 Candy cane progress bar.
 
 @element preload-overlay
-@extends core-range
 -->
-<polymer-element name="preload-overlay" extends="core-range" attributes="active color src" fit
-                 on-transitionend="{{fadeDone}}">
-<template>
-  <link rel="stylesheet" href="preloader.css" no-shim>
+<dom-module id="preload-overlay">
+  <link rel="stylesheet" href="preloader.css" no-shim />
   <style>
   :host {
     background: #3ec4f0;
     z-index: 1200;
   }
-  img {
+  :host img {
     width: 340px;
     height: 340px;
   }
@@ -42,41 +39,27 @@ Candy cane progress bar.
     transition: opacity 600ms ease-in-out;
   }
   </style>
-  <div id="page-progress" layout vertical center-center>
-    <div class="preload">
-      <img _src="{{src}}">
-      <div class="preload-bar">
-        <div class="preload-progress" _style="width:{{value}}%;"></div>
+  <template>
+    <div id="page-progress" layout vertical center-center>
+      <div class="preload">
+        <img src$="{{src}}" />
+        <div class="preload-bar">
+          <div class="preload-progress" style$="{{_compute_style(value)}}"></div>
+        </div>
       </div>
     </div>
-  </div>
-</template>
-<script>
+  </template>
+  <script>
 (function() {
   var DEFAULT_COLOR_ = '#3ec4f0';
   var DEFAULT_LOADING_SRC_ = 'images/village' +
       (('devicePixelRatio' in window && devicePixelRatio > 1.5) ? '_2x.gif' : '.gif');
 
   Polymer({
-    /**
-     * Background color of the loading screen.
-     *
-     * @attribute color
-     * @type string
-     * @default '#3ec4f0'
-     */
-    color: DEFAULT_COLOR_,
+    is: 'preload-overlay',
 
-    /**
-     * Loading image
-     *
-     * @attribute src
-     * @type string
-     * @default 'images/village.gif'
-     */
-    src: DEFAULT_LOADING_SRC_,
+    properties: {
 
-    publish: {
       /**
        * If `true`, the preloader displays itself.
        *
@@ -84,17 +67,54 @@ Candy cane progress bar.
        * @type bool
        * @default false
        */
-      active: {value: false, reflect: true}
+      active: {
+        type: Boolean,
+        value: false,
+        notify: true,
+        observer: 'activeChanged',
+        reflectToAttribute: true
+      },
+
+      /**
+       * Background color of the loading screen.
+       *
+       * @attribute color
+       * @type string
+       * @default '#3ec4f0'
+       */
+      color: {
+        value: function() {
+          return DEFAULT_COLOR_;
+        },
+        notify: true,
+        observer: 'colorChanged'
+      },
+
+      /**
+       * Loading image
+       *
+       * @attribute src
+       * @type string
+       * @default 'images/village.gif'
+       */
+      src: {
+        value: function() {
+          return DEFAULT_LOADING_SRC_;
+        },
+        notify: true,
+        observer: 'srcChanged'
+      }
     },
 
     activeChanged: function() {
+      var dom = Polymer.dom(this);
       // Always ensure progress is at 0 when overlay is toggled.
       this.value = 0;
       if (this.active) {
-        this.classList.add('fadeout');
-        this.style.visibility = 'visible';
+        dom.classList.add('fadeout');
+        this.set('style.visibility', 'visible');  // FIXME: does this work?
       } else {
-        this.classList.add('fading');
+        dom.classList.add('fading');
       }
     },
 
@@ -103,16 +123,27 @@ Candy cane progress bar.
     },
 
     colorChanged: function() {
-      this.style.backgroundColor = this.color || DEFAULT_COLOR_;
+      this.set('style.backgroundColor', this.color || DEFAULT_COLOR_);  // FIXME: does this work?
     },
 
     fadeDone: function(e, detail, sender) {
       e.stopPropagation();
+      Polymer.dom(this).classList.remove('fadeout', 'fading');
+      this.set('style.visibility', 'hidden');
+      console.warn('fade done', new Error());
+    },
 
-      this.classList.remove('fadeout', 'fading');
-      this.style.visibility = 'hidden';
+    listeners: { transitionend: 'fadeDone' },
+
+    hostAttributes: {'fit': ''},
+
+    behaviors: [Polymer.IronRangeBehavior],
+
+    _compute_style: function(value) {
+      return 'width:' + value + '%;';
     }
   });
+
 })();
 </script>
 </polymer-element>
