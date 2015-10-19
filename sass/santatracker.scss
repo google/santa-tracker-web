@@ -44,6 +44,16 @@ body {
   margin-top: -104px;
 }
 
+// NOTE: The following could be replaced with iron-flex-layout.
+
+/**
+ * CSS Polyfills
+ */
+
+[hidden] {
+  display: none !important;  // just for IE10
+}
+
 /**
  * Polymer 0.5 hangups
  */
