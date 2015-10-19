@@ -13,60 +13,77 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../components/polymer/polymer.html">
-<link rel="import" href="../components/iron-pages/iron-pages.html">
+<link rel="import" href="../components/iron-selector/iron-selectable.html">
 
 <!--
 Lazy loads children "pages".
 
 @element lazy-pages
-@extends core-pages
 -->
-<polymer-element name="lazy-pages" extends="core-pages" attributes="santaApp preloader">
-<template>
+<dom-module id="lazy-pages">
   <style>
     :host {
       position: static;
+      display: block;
+    }
+    :host > ::content > :not(.iron-selected) {
+      display: none !important;
     }
   </style>
-  <shadow></shadow>
-</template>
-<script>
+  <template>
+    <content></content>
+  </template>
+  <script>
   Polymer({
+    is: 'lazy-pages',
 
-    /**
-     * A `<santa-app>` controller element.
-     *
-     * @attribute santaApp
-     * @type HTMLElement
-     * @default null
-     */
-    santaApp: null,
+    behaviors: [ Polymer.IronSelectableBehavior ],
 
-    /**
-     * A `<preload-overlay>` element.
-     *
-     * @attribute preloader
-     * @type HTMLElement
-     * @default null
-     */
-    preloader: null,
+    properties: {
+
+      /**
+       * A `<preload-overlay>` element.
+       *
+       * @attribute preloader
+       * @type HTMLElement
+       * @default null
+       */
+      preloader: {
+        value: null,
+        notify: true
+      },
+
+      /**
+       * A `<santa-app>` controller element.
+       *
+       * @attribute santaApp
+       * @type HTMLElement
+       * @default null
+       */
+      santaApp: {
+        value: null,
+        notify: true
+      },
+    },
+
+    listeners: { 'iron-select': 'selectedItemChanged' },
 
     selectedItemChanged: function() {
-
-      this.super();
-
+      console.warn('selectedItemChanged', this, new Error());
       var scene = this.selectedItem;
 
       // Can't use scene.path because element definition may not be loaded yet
       // and .path property won't exist.
       var path = scene.getAttribute('path');
 
+      // TODO(samthor): Confirm we ever pass this point
       if (!path || !scene || !this.selected || scene.loaded) {
         return;
       }
 
       // Since this is the first time the scene is being loaded, send loading
       // start time to analytics (timing is ended in base-scene.html)
+      // TODO(samthor): end in Behavior
       var route = scene.getAttribute('route');
       this.fire('analytics-time-start', {category: 'Scene Load Time',
           variable: route, time: Date.now()});
@@ -76,9 +93,10 @@ Lazy loads children "pages".
       this.preloader.src = scene.getAttribute('loadingSrc');
 
       Polymer.import([path], function(e) {
+        // TODO(samthor): Confirm this property is set properly
         scene.santaApp = this.santaApp;
       }.bind(this));
     }
   });
-</script>
-</polymer-element>
+  </script>
+</dom-module>
