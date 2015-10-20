@@ -50,7 +50,8 @@ Lazy loads children "pages".
        */
       preloader: {
         value: null,
-        notify: true
+        notify: true,
+        observer: 'preloaderUpdate'
       },
 
       /**
@@ -69,14 +70,12 @@ Lazy loads children "pages".
     listeners: { 'iron-select': 'selectedItemChanged' },
 
     selectedItemChanged: function() {
-      console.warn('selectedItemChanged', this, new Error());
       var scene = this.selectedItem;
 
       // Can't use scene.path because element definition may not be loaded yet
       // and .path property won't exist.
       var path = scene.getAttribute('path');
 
-      // TODO(samthor): Confirm we ever pass this point
       if (!path || !scene || !this.selected || scene.loaded) {
         return;
       }
@@ -89,13 +88,22 @@ Lazy loads children "pages".
           variable: route, time: Date.now()});
 
       // (Re)set the preload bg color and loading image before scene is loaded.
-      this.preloader.color = scene.getAttribute('loadingBgColor');
-      this.preloader.src = scene.getAttribute('loadingSrc');
+      this.preloaderUpdate();
 
-      Polymer.import([path], function(e) {
-        // TODO(samthor): Confirm this property is set properly
+      Polymer.Base.importHref([path], function(e) {
+        if (!this.santaApp) {
+          throw new Error('Couldn\'t set santaApp on scene, not available');
+        }
         scene.santaApp = this.santaApp;
       }.bind(this));
+    },
+
+    preloaderUpdate: function() {
+      var scene = this.selectedItem;
+      if (this.preloader && scene) {
+        this.preloader.color = scene.getAttribute('loadingBgColor');
+        this.preloader.src = scene.getAttribute('loadingSrc');
+      }
     }
   });
   </script>
