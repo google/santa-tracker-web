@@ -40,7 +40,6 @@ Lazy loads children "pages".
     behaviors: [ Polymer.IronSelectableBehavior ],
 
     properties: {
-
       /**
        * A `<preload-overlay>` element.
        *
@@ -65,6 +64,7 @@ Lazy loads children "pages".
         value: null,
         notify: true
       },
+
     },
 
     listeners: { 'iron-select': 'selectedItemChanged' },
@@ -81,26 +81,30 @@ Lazy loads children "pages".
       }
 
       // Since this is the first time the scene is being loaded, send loading
-      // start time to analytics (timing is ended in base-scene.html)
-      // TODO(samthor): end in Behavior
+      // start time to analytics (timing is ended in SantaSceneBehavior).
       var route = scene.getAttribute('route');
       this.fire('analytics-time-start', {category: 'Scene Load Time',
           variable: route, time: Date.now()});
 
       // (Re)set the preload bg color and loading image before scene is loaded.
       this.preloaderUpdate();
+      this.fire('scene-progress');
 
       Polymer.Base.importHref([path], function(e) {
         if (!this.santaApp) {
           throw new Error('Couldn\'t set santaApp on scene, not available');
         }
         scene.santaApp = this.santaApp;
-      }.bind(this));
+      }.bind(this), function(e) {
+        throw new Error('Couldn\'t load: ' + path);
+      });
     },
 
     preloaderUpdate: function() {
+      if (!this.preloader) { return; }
+
       var scene = this.selectedItem;
-      if (this.preloader && scene) {
+      if (scene) {
         this.preloader.color = scene.getAttribute('loadingBgColor');
         this.preloader.src = scene.getAttribute('loadingSrc');
       }
