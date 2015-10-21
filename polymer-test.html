@@ -28,7 +28,9 @@
 
     <preload-overlay id="preloader"></preload-overlay>
 
-    <lazy-pages id="lazypages" selected="{{route}}" attr-for-selected="route" preloader="{{preloader}}">
+    <lazy-pages id="lazypages" delay-load selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">
+      <dummy-scene route="dummy" path="scenes/dummy/dummy-scene.html"></dummy-scene>
+
       <div route="first">First</div>
       <div route="second">Second</div>
       <div route="third">Third</div>
@@ -36,18 +38,104 @@
 
   </template>
   <script>
-    Polymer({
-      is: 'santa-app',
+Polymer({
+  is: 'santa-app',
 
-      ready: function() {
-//        this.$.lazypages.preloader = this.$.preloader;
-window.setInterval(function() {
-console.info(this.$.lazypages.preloader);  
-}.bind(this), 1000);
+  properties: {
+    selectedScene: {
+      type: Element,
+      value: null
+    },
+    route: {
+      type: String,
+      observer: 'routeChanged'
+    }
+  },
 
-      },
+  listeners: {
+    'scene-progress': 'onSceneProgress',
+  },
 
+  /**
+   * Handles a loading progress hint, hiding or displaying the preloader.
+   */
+  onSceneProgress: function() {
+    var scene = this.selectedScene;
+    if (scene) {
+      this.$.preloader.active = !scene.loaded;
+      this.$.preloader.value = scene.preloadProgress;
+    } else {
+      this.$.preloader.active = false;
+    }
+  },
+
+  ready: function() {
+    this.$.lazypages.preloader = this.$.preloader;
+    this.$.lazypages.santaApp = this;
+
+    if (!this.route) {
+      this.route = this.defaultRoute;
+    }
+  },
+
+  get defaultRoute() {
+    // TODO(samthor): Village or tracker based on time
+    return 'dummy';
+  },
+
+  routeChanged: function() {
+    // Check if the new route needs a special-case redirect or if it is valid.
+    // If this changes the route, routeChanged() will be called again, repeating
+    // until this.route passes through validateRoute() successfully.
+    var requestedRoute = this.route;
+    switch (requestedRoute) {
+      case 'tourist':
+        // tourist and trailer are synonymous
+        this.route = 'trailer';
+        break;
+      case 'gumballs':
+        this.route = 'gumball';
+        break;
+    }
+    this.validateRoute();
+
+    if (requestedRoute === this.route) {
+      // Route is valid. Send to analytics and load the scene.
+      // TODO(samthor): Restore this call
+//          this.trackPageview('/' + this.route);
+    } else if (requestedRoute !== '') {
+      // The requested route was changed.
+      var currentRoute = null;
+      var pageUrl = location.href.substr(0, location.href.length - location.hash.length);
+      if (pageUrl) {
+        currentRoute = pageUrl + '#' + this.selectedScene.route;
+      }
+      this.fire('analytics-track-event', { category: 'Routing',
+          action: 'Invalid Route Source', label: currentRoute});
+      this.fire('analytics-track-event', { category: 'Routing',
+          action: 'Invalid Route', label: '/' + requestedRoute});
+    }
+  },
+
+  validateRoute: function() {
+    var validRoutes = this.$.lazypages.items.map(function(el) {
+      // Note: can't use .route b/c some scene elements won't be upgraded yet.
+      return el.getAttribute('route');
     });
+    var valid = (validRoutes.indexOf(this.route) != -1);
+
+    // TODO(samthor): Restore this logic
+    // if (this.scheduleChecked) {
+    //   var valid = (VALID_ROUTES_.indexOf(this.route) != -1 &&
+    //                this.sceneIsUnlocked(this.route)) ||
+    //                (this.postCountdown && this.route == TRACKER_ROUTE_);
+      if (!valid) {
+        this.route = this.defaultRoute;
+      }
+    // }
+  }
+
+});
   </script>
 </dom-module>
 
