@@ -22,7 +22,7 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
 -->
 <dom-module id="santa-tracker-router">
 <script>
-  (function () {
+  (function() {
     /**
      * Example: /#village?param1=value1&param2=value2,value3 ->
      *          {route: "village", param: {param1: "value1", param2: "value2,value3"}
@@ -69,7 +69,6 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
     var private_router;
 
     Polymer({
-
       is: 'santa-tracker-router',
 
       properties: {
@@ -94,6 +93,7 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
          * @default null
          */
         route: {
+          type: String,
           value: null,
           notify: true,
           observer: 'routeChanged'
@@ -111,7 +111,7 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
          */
         sceneParams: {
           type: Object,
-          value: function () {
+          value: function() {
             return {};
           },
           notify: true
@@ -148,14 +148,13 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
       },
 
       routeChanged: function() {
-        if (this.autoHash) {
+        if (this.autoHash && this.route != null) {
           var params = serializeParams(this.sceneParams);
           location.hash = this.route + (params ? '?' + params : '');
         }
+        // TODO(samthor): seems disused
         this.fire('director-route', this.route);
-      },
-
-      hostAttributes: { 'hidden': '' }
+      }
 
     });
   }());
