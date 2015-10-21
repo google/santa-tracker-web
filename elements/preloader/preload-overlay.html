@@ -31,12 +31,17 @@ Candy cane progress bar.
     width: 340px;
     height: 340px;
   }
-  :host(.fading) {
-    opacity: 0;
+  :host {
+    visibility: hidden;
   }
-  :host(.fadeout) {
+  :host(.fading) {
     -webkit-transition: opacity 600ms ease-in-out;
     transition: opacity 600ms ease-in-out;
+    opacity: 0;
+    visibility: visible; /* hold visible during animation */
+  }
+  :host[active] {
+    visibility: visible;
   }
   </style>
   <template>
@@ -44,7 +49,7 @@ Candy cane progress bar.
       <div class="preload">
         <img src$="{{src}}" />
         <div class="preload-bar">
-          <div class="preload-progress" style$="{{_compute_style(value)}}"></div>
+          <div class="preload-progress" style$="{{_computeStyle(value)}}"></div>
         </div>
       </div>
     </div>
@@ -106,15 +111,18 @@ Candy cane progress bar.
       }
     },
 
-    activeChanged: function() {
-      var dom = Polymer.dom(this);
+    activeChanged: function(newValue, oldValue) {
+      if (!!newValue == !!oldValue) {
+        return;
+      }
+
       // Always ensure progress is at 0 when overlay is toggled.
       this.value = 0;
       if (this.active) {
-        dom.classList.add('fadeout');
-        this.set('style.visibility', 'visible');  // FIXME: does this work?
+        Polymer.dom(this).classList.remove('fading');
       } else {
-        dom.classList.add('fading');
+        // This will later invoke fadeDone via the transitionend event.
+        Polymer.dom(this).classList.add('fading');
       }
     },
 
@@ -123,14 +131,12 @@ Candy cane progress bar.
     },
 
     colorChanged: function() {
-      this.set('style.backgroundColor', this.color || DEFAULT_COLOR_);  // FIXME: does this work?
+      this.set('style.backgroundColor', this.color || DEFAULT_COLOR_);
     },
 
     fadeDone: function(e, detail, sender) {
       e.stopPropagation();
-      Polymer.dom(this).classList.remove('fadeout', 'fading');
-      this.set('style.visibility', 'hidden');
-      console.warn('fade done', new Error());
+      Polymer.dom(this).classList.remove('fading');
     },
 
     listeners: { transitionend: 'fadeDone' },
@@ -139,7 +145,7 @@ Candy cane progress bar.
 
     behaviors: [Polymer.IronRangeBehavior],
 
-    _compute_style: function(value) {
+    _computeStyle: function(value) {
       return 'width:' + value + '%;';
     }
   });
