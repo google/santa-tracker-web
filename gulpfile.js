@@ -215,7 +215,7 @@ gulp.task('compile-santa-api-service', function() {
         compilation_level: 'ADVANCED_OPTIMIZATIONS',
         // warning_level: 'VERBOSE',
         language_in: 'ECMASCRIPT5_STRICT',
-        externs: SHARED_EXTERNS,
+        externs: SHARED_EXTERNS.concat('js/service/externs.js'),
         define: ['crossDomainAjax.BASE="' + (argv.api_base || 'https://santa-api.appspot.com/') + '"'],
         jscomp_warning: [
           // https://github.com/google/closure-compiler/wiki/Warnings
