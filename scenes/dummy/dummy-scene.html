@@ -20,45 +20,32 @@
         type: String,
         value: null,
         notify: true,
-        observer: 'activeChanged',
-        reflectToAttribute: true
+        observer: '_activeChanged'
       },
 
       /**
-       * A `<santa-app>` controller element.
-       *
-       * @attribute santaApp
-       * @type HTMLElement
-       * @default null
+       * The `<santa-app>` controller element.
        */
       santaApp: {
-        value: null,
-        notify: true
+        type: Object,
+        value: null
       },
 
       /**
        * If `true`, the scene is active. In Santa Tracker, this is set by the
        * specific configuration of the lazy-scenes element (aka,
        * selected-attribute="active").
-       *
-       * @attribute active
-       * @type bool
-       * @default false
        */
       active: {
         type: Boolean,
         value: false,
         reflectToAttribute: true,
-        observer: 'activeChanged'
+        observer: '_activeChanged'
       },
 
       /**
        * If `true`, the scene is always visible and `hidden` won't be applied
        * when the page's `onHide()` is called.
-       *
-       * @attribute alwaysActive
-       * @type bool
-       * @default false
        */
       alwaysActive: {
         type: Boolean,
@@ -68,10 +55,6 @@
 
       /**
        * True if the scene has previously been loaded.
-       *
-       * @property loaded
-       * @type bool
-       * @default false
        */
       loaded: {
         type: Boolean,
@@ -81,49 +64,34 @@
 
       /**
        * Assets loaded so far (out of `totalAssets`).
-       *
-       * @property assetsLoaded_
-       * @type number
-       * @default 0
        */
-      assetsLoaded_: {
+      _assetsLoaded: {
         type: Number,
-        notify: true,
         value: 0
       },
 
       /**
        * Total number of assets that will need to be preloaded. Assets must be
        * preloaded in onPreload or this will be ignored.
-       *
-       * @property totalAssets_
-       * @type number
-       * @default 0
        */
-      totalAssets_: {
+      _totalAssets: {
         type: Number,
-        notify: true,
         value: 0
       },
 
       /**
        * Preloading progress (percentage) of the loaded scene.
-       *
-       * @property preloadProgress
-       * @type number
-       * @default 0
        */
       preloadProgress: {
         type: Number,
         value: 0,
-        readOnly: true,
-        observer: 'preloadProgressChanged',
-        computed: '_computePreloadProgress(assetsLoaded_, loaded, totalAssets_)'
+        observer: '_preloadProgressChanged',
+        computed: '_computePreloadProgress(_assetsLoaded, loaded, _totalAssets)'
       },
 
     },
 
-    activeChanged: function() {
+    _activeChanged: function() {
       if (!this.active) {
         this.onHide && this.onHide();
         if (!this.alwaysActive) {
@@ -140,7 +108,7 @@
 
         // If assets are queued to preload, schedule showScene on timeout in
         // case preloading fails.
-        if (this.totalAssets_ > 0) {
+        if (this._totalAssets > 0) {
           this.maxPreloadAsync_ = this.async(this.showScene, MAX_PRELOAD_TIME);
           return;
         }
@@ -149,7 +117,7 @@
       this.showScene();
     },
 
-    preloadProgressChanged: function() {
+    _preloadProgressChanged: function() {
       // Only show scene if the preload reaches 100% and we haven't loaded the
       // scene before.
       if (this.preloadProgress === 100 && !this.loaded) {
@@ -164,6 +132,7 @@
       this.fire('scene-progress');
 
       // Cancel the max preload async
+      console.info(this);
       this.cancelAsync(this.maxPreloadAsync_);
 
       if (this.active) {
@@ -207,14 +176,14 @@
       onPreload: function() {
         // TODO(samthor): This is just a random loading demo. Don't access
         // private stuff here.
-        this.totalAssets_ = Math.round(Math.random() * 1000);
-        this.assetsLoaded_ = Math.round(Math.random() * this.totalAssets_);
+        this._totalAssets = Math.round(Math.random() * 1000);
+        this._assetsLoaded = Math.round(Math.random() * this._totalAssets);
 
         var delay = Math.random() * 10 * 1000;
         console.debug('dummy-scene delaying for', delay / 1000, 'sec');
 
         window.setTimeout(function() {
-          this.assetsLoaded_ = this.totalAssets_;
+          this._assetsLoaded = this._totalAssets;
         }.bind(this), delay);
       },
 

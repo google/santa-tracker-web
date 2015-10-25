@@ -58,40 +58,7 @@ body {
  * Polymer 0.5 hangups
  */
 
-[fit] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
 [fullbleed] {
   margin: 0;
   height: 100vh;
-}
-
-[layout] {
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-
-  &[vertical] {
-    -ms-flex-direction: column;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
-  &[center] {
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-  }
-  &[center-center] {
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-  }
 }

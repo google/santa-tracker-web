@@ -22,7 +22,7 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.0",
+    "polymer": "Polymer/polymer#^1.1.5",
     "neon-animation": "PolymerElements/neon-animation#^1.0",
     "iron-image": "PolymerElements/iron-image#^1.0",
     "iron-list": "PolymerElements/iron-list#^1.0",
@@ -32,7 +32,7 @@
     "paper-tabs": "PolymerElements/paper-tabs#^1.0",
     "paper-fab": "PolymerElements/paper-fab#^1.0",
     "paper-item": "PolymerElements/paper-item#^1.0",
-    "iron-a11y-keys-behavior": "PolymerElements/iron-a11y-keys-behavior#^1.0",
+    "iron-a11y-keys": "PolymerElements/iron-a11y-keys#^1.0",
     "flatiron-director": "PolymerLabs/flatiron-director#^1.0",
     "jquery": "2.1.1",
     "google-apis": "GoogleWebComponents/google-apis#^1.0",

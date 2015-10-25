@@ -17,20 +17,18 @@ specific language governing permissions and limitations under the License.
 
 <!--
 Lazy loads children "pages".
-
-@element lazy-pages
 -->
 <dom-module id="lazy-pages">
-  <style>
-    :host {
-      position: static;
-      display: block;
-    }
-    :host > ::content > :not(.iron-selected) {
-      display: none !important;
-    }
-  </style>
   <template>
+    <style>
+:host {
+  position: static;
+  display: block;
+}
+:host > ::content > :not(.iron-selected) {
+  display: none !important;
+}
+    </style>
     <content></content>
   </template>
   <script>
@@ -42,34 +40,26 @@ Lazy loads children "pages".
     properties: {
       /**
        * A `<preload-overlay>` element.
-       *
-       * @attribute preloader
-       * @type HTMLElement
-       * @default null
        */
       preloader: {
         value: null,
-        notify: true,
-        observer: 'preloaderUpdate'
+        type: Object,
+        observer: '_preloaderUpdate'
       },
 
       /**
        * A `<santa-app>` controller element.
-       *
-       * @attribute santaApp
-       * @type HTMLElement
-       * @default null
        */
       santaApp: {
         value: null,
-        notify: true
+        type: Object
       },
 
     },
 
-    listeners: { 'iron-select': 'selectedItemChanged' },
+    listeners: { 'iron-select': '_selectedItemChanged' },
 
-    selectedItemChanged: function() {
+    _selectedItemChanged: function() {
       var scene = this.selectedItem;
 
       // Can't use scene.path because element definition may not be loaded yet
@@ -87,7 +77,7 @@ Lazy loads children "pages".
           variable: route, time: Date.now()});
 
       // (Re)set the preload bg color and loading image before scene is loaded.
-      this.preloaderUpdate();
+      this._preloaderUpdate();
       this.fire('scene-progress');
 
       Polymer.Base.importHref([path], function(e) {
@@ -100,13 +90,13 @@ Lazy loads children "pages".
       });
     },
 
-    preloaderUpdate: function() {
+    _preloaderUpdate: function() {
       if (!this.preloader) { return; }
 
       var scene = this.selectedItem;
       if (scene) {
-        this.preloader.color = scene.getAttribute('loadingBgColor');
-        this.preloader.src = scene.getAttribute('loadingSrc');
+        this.preloader.color = scene.getAttribute('loading-bg-color');
+        this.preloader.src = scene.getAttribute('loading-src');
       }
     }
   });

@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
-  <link rel="stylesheet" href="sass/santatracker.css">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster" />
+  <link rel="stylesheet" href="sass/santatracker.css" />
 
   <link rel="import" href="elements/preloader/preload-overlay.html" />
   <link rel="import" href="elements/lazy-pages.html" />
   <link rel="import" href="elements/santa-tracker-router.html" />
+  <link rel="import" href="components/iron-flex-layout/iron-flex-layout.html" />
+
+  <style is="custom-style">
+body {
+  @apply(--layout-fullbleed);
+}
+  </style>
 </head>
 <body>
 
-  <!-- Route controller -->
-  <!-- <santa-tracker-router route="{{route}}" sceneParams="{{sceneParams}}" autoHash></santa-tracker-router> -->
-
-  <!-- Preloading scene overlay -->
-  <!-- <preload-overlay id="preloader" value="{{selectedScene.preloadProgress || 0}}"
-                   active?="{{selectedScene && !selectedScene.loaded}}"></preload-overlay> -->
-
 <dom-module id="santa-app">
-  <style>
-  </style>
   <template>
+    <style>
+    </style>
 
     <!-- Route controller -->
     <santa-tracker-router route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
 
+    <!-- Preloading scene overlay -->
     <preload-overlay id="preloader"></preload-overlay>
 
     <lazy-pages id="lazypages" delay-load selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">

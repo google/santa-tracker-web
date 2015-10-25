@@ -14,38 +14,43 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
 <link rel="import" href="../../components/iron-range-behavior/iron-range-behavior.html">
+<link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
 
 <!--
 Candy cane progress bar.
-
-@element preload-overlay
 -->
 <dom-module id="preload-overlay">
-  <link rel="stylesheet" href="preloader.css" no-shim />
-  <style>
-  :host {
-    background: #3ec4f0;
-    z-index: 1200;
-  }
-  :host img {
-    width: 340px;
-    height: 340px;
-  }
-  :host {
-    visibility: hidden;
-  }
-  :host(.fading) {
-    -webkit-transition: opacity 600ms ease-in-out;
-    transition: opacity 600ms ease-in-out;
-    opacity: 0;
-    visibility: visible; /* hold visible during animation */
-  }
-  :host[active] {
-    visibility: visible;
-  }
-  </style>
+  <!-- TODO(samthor): Deprecated in 1.1 -->
+  <link rel="import" type="css" href="preloader.css" />
   <template>
-    <div id="page-progress" layout vertical center-center>
+    <style>
+:host {
+  background: #3ec4f0;
+  z-index: 1200;
+  @apply(--layout-fit);
+}
+#page-progress {
+  @apply(--layout-vertical);
+  @apply(--layout-center-center);
+}
+img {
+  width: 340px;
+  height: 340px;
+}
+:host {
+  visibility: hidden;
+}
+:host(.fading) {
+  -webkit-transition: opacity 600ms ease-in-out;
+  transition: opacity 600ms ease-in-out;
+  opacity: 0;
+  visibility: visible; /* hold visible during animation */
+}
+:host([active]) {
+  visibility: visible;
+}
+    </style>
+    <div id="page-progress">
       <div class="preload">
         <img src$="{{src}}" />
         <div class="preload-bar">
@@ -63,55 +68,43 @@ Candy cane progress bar.
   Polymer({
     is: 'preload-overlay',
 
+    listeners: {transitionend: 'fadeDone'},
+
+    behaviors: [Polymer.IronRangeBehavior],
+
     properties: {
 
       /**
        * If `true`, the preloader displays itself.
-       *
-       * @attribute active
-       * @type bool
-       * @default false
        */
       active: {
         type: Boolean,
         value: false,
         notify: true,
-        observer: 'activeChanged',
+        observer: '_activeChanged',
         reflectToAttribute: true
       },
 
       /**
        * Background color of the loading screen.
-       *
-       * @attribute color
-       * @type string
-       * @default '#3ec4f0'
        */
       color: {
-        value: function() {
-          return DEFAULT_COLOR_;
-        },
+        value: DEFAULT_COLOR_,
         notify: true,
-        observer: 'colorChanged'
+        observer: '_colorChanged'
       },
 
       /**
-       * Loading image
-       *
-       * @attribute src
-       * @type string
-       * @default 'images/village.gif'
+       * Loading image.
        */
       src: {
-        value: function() {
-          return DEFAULT_LOADING_SRC_;
-        },
+        value: DEFAULT_LOADING_SRC_,
         notify: true,
-        observer: 'srcChanged'
+        observer: '_srcChanged'
       }
     },
 
-    activeChanged: function(newValue, oldValue) {
+    _activeChanged: function(newValue, oldValue) {
       if (!!newValue == !!oldValue) {
         return;
       }
@@ -126,24 +119,19 @@ Candy cane progress bar.
       }
     },
 
-    srcChanged: function() {
+    _srcChanged: function() {
       this.src = this.src || DEFAULT_LOADING_SRC_;
     },
 
-    colorChanged: function() {
-      this.set('style.backgroundColor', this.color || DEFAULT_COLOR_);
+    _colorChanged: function() {
+      var node = Polymer.dom(this).node;
+      node.style.backgroundColor = this.color || DEFAULT_COLOR_;
     },
 
     fadeDone: function(e, detail, sender) {
       e.stopPropagation();
       Polymer.dom(this).classList.remove('fading');
     },
-
-    listeners: { transitionend: 'fadeDone' },
-
-    hostAttributes: {'fit': ''},
-
-    behaviors: [Polymer.IronRangeBehavior],
 
     _computeStyle: function(value) {
       return 'width:' + value + '%;';

@@ -17,8 +17,6 @@ specific language governing permissions and limitations under the License.
 
 <!--
 Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director.
-
-@element santa-tracker-router
 -->
 <dom-module id="santa-tracker-router">
 <script>
@@ -71,26 +69,19 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
   Polymer({
     is: 'santa-tracker-router',
 
+    hostAttributes: {hidden: true},
+
     properties: {
       /**
        * True to automatically update window.location.hash when the route property changes.
-       *
-       * @property autoHash
-       * @type bool
-       * @default false
        */
       autoHash: {
         type: Boolean,
-        value: false,
-        notify: true
+        value: false
       },
 
       /**
        * URL route.
-       *
-       * @attribute route
-       * @type string
-       * @default null
        */
       route: {
         type: String,
