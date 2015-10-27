@@ -5,42 +5,45 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster" />
   <link rel="stylesheet" href="sass/santatracker.css" />
 
+  <link rel="import" href="elements/elements_en.html" />
+
   <link rel="import" href="elements/preloader/preload-overlay.html" />
   <link rel="import" href="elements/lazy-pages.html" />
   <link rel="import" href="elements/santa-tracker-router.html" />
-  <link rel="import" href="components/iron-flex-layout/iron-flex-layout.html" />
 
-  <style is="custom-style">
-body {
-  @apply(--layout-fullbleed);
-}
-  </style>
+  <script>
+    window.DEV = true; // NOTE: replaced by string - do not change formatting.
+  </script>
+
 </head>
 <body>
 
 <dom-module id="santa-app">
-  <template>
-    <style>
-    </style>
+<template>
+  <!-- Keyboard handler -->
+  <iron-a11y-keys id="keys" keys="esc left" on-keys-pressed="_escHandler"></iron-a11y-keys>
 
-    <!-- Route controller -->
-    <santa-tracker-router route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
+  <!-- Route controller -->
+  <santa-tracker-router route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
 
-    <!-- Preloading scene overlay -->
-    <preload-overlay id="preloader"></preload-overlay>
+  <!-- Preloading scene overlay -->
+  <preload-overlay id="preloader"></preload-overlay>
 
-    <lazy-pages id="lazypages" delay-load selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">
-      <dummy-scene route="dummy" path="scenes/dummy/dummy-scene.html"></dummy-scene>
+  <!-- Scenes -->
+  <lazy-pages id="lazypages" delay-load selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">
+    <dummy-scene route="dummy" path="scenes/dummy/dummy-scene.html"></dummy-scene>
 
-      <div route="first">First</div>
-      <div route="second">Second</div>
-      <div route="third">Third</div>
-    </lazy-pages>
+    <div route="first">First</div>
+    <div route="second">Second</div>
+    <div route="third">Third</div>
+  </lazy-pages>
 
-  </template>
-  <script>
+</template>
+<script>
 Polymer({
   is: 'santa-app',
+
+  htmlAttributes: {'tabindex': '0'},
 
   properties: {
     selectedScene: {
@@ -77,6 +80,8 @@ Polymer({
     if (!this.route) {
       this.route = this.defaultRoute;
     }
+
+    console.info(this, this.$);
   },
 
   get defaultRoute() {
@@ -134,13 +139,22 @@ Polymer({
         this.route = this.defaultRoute;
       }
     // }
-  }
+  },
+
+  _escHandler: function(e, detail, sender) {
+    console.info('got key', e);
+    switch (e.detail.key) {
+      case 'esc':
+        this.route = this.defaultRoute;
+        break;
+    }
+  },
 
 });
-  </script>
+</script>
 </dom-module>
 
-<santa-app></santa-app>
+<santa-app tabindex="0"></santa-app>
 
 </body>
 </html>

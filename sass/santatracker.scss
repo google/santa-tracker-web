@@ -53,12 +53,3 @@ body {
 [hidden] {
   display: none !important;  // just for IE10
 }
-
-/**
- * Polymer 0.5 hangups
- */
-
-[fullbleed] {
-  margin: 0;
-  height: 100vh;
-}

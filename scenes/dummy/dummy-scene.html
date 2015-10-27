@@ -1,5 +1,6 @@
 
 <link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../elements/i18n-msg.html">
 
 <script>
 (function() {
@@ -11,15 +12,10 @@
 
       /**
        * URL route for this scene.
-       *
-       * @attribute route
-       * @type string
-       * @default null
        */
       route: {
         type: String,
         value: null,
-        notify: true,
         observer: '_activeChanged'
       },
 
@@ -164,6 +160,9 @@
 <dom-module id="dummy-scene">
   <template>
     <div>I bring joy and happiness!</div>
+    <div>
+      <i18n-msg msgid="gameover_score">PLACEHOLDER_i18n</i18n-msg>
+    </div>
   </template>
   <script>
     Polymer({

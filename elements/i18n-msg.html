@@ -15,14 +15,15 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../components/polymer/polymer.html">
 
 <!--
-Custom element to do localization (i18n) messages.
+Custom element to do localization (i18n) messages. Only used for dev, and is
+compiled out to raw strings in production.
 -->
 <dom-module id="i18n-msg">
 <script>
 (function() {
 
   window.I18nMsg = window.I18nMsg || {
-    lang: null,
+    lang: 'en',
     locales: {},
     messagesPath: '_messages/'
   };
@@ -53,15 +54,22 @@ Custom element to do localization (i18n) messages.
     },
 
     ready: function() {
+      if (!window.DEV) {
+        throw new Error('i18n-msg not used outside dev');
+      }
+
       this.language = I18nMsg.lang;
 
       // First time an instance is created, observe window.I18nMsg.lang changes
       // and go fetch the localized messages.json file.
       if (!instances.length) {
-        var observer = new PathObserver(window.I18nMsg, 'lang');
-        observer.open(function(newValue, oldValue) {
-          this.language = newValue;
-        }.bind(this));
+        // TODO(samthor): Restore DEV functionality that allows listening to
+        // language changes. Don't default to 'en'.
+        // var observer = new PathObserver(window.I18nMsg, 'lang');
+        // observer.open(function(newValue, oldValue) {
+        //   this.language = newValue;
+        // }.bind(this));
+        this._languageChanged();
       }
 
       instances.push(this);
