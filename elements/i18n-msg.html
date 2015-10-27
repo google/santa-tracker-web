@@ -16,10 +16,8 @@ specific language governing permissions and limitations under the License.
 
 <!--
 Custom element to do localization (i18n) messages.
-
-@element i18n-msg
 -->
-<polymer-element name="i18n-msg" attributes="msgid">
+<dom-module id="i18n-msg">
 <script>
 (function() {
 
@@ -32,24 +30,27 @@ Custom element to do localization (i18n) messages.
   var instances = [];
 
   Polymer({
+    is: 'i18n-msg',
 
-    /**
-     * The message id (key) for this message.
-     *
-     * @attribute msgid
-     * @type string
-     * @default null
-     */
-    msgid: null,
+    properties: {
 
-    /**
-     * An object contains the language locales with translated messages.
-     *
-     * @property locales
-     * @type object
-     * @default {}
-     */
-    locales: I18nMsg.locales, // static
+      language: { observer: '_languageChanged' },
+
+      /**
+       * An object contains the language locales with translated messages.
+       */
+      locales: {
+        value: I18nMsg.locales,  // static
+      },
+
+      /**
+       * The message id (key) for this message.
+       */
+      msgid: {
+        value: null,
+        notify: true
+      }
+    },
 
     ready: function() {
       this.language = I18nMsg.lang;
@@ -69,11 +70,11 @@ Custom element to do localization (i18n) messages.
     attached: function() {
       var msg = this.locales[this.language] && this.locales[this.language][this.msgid];
       if (msg && msg.message) {
-        this.innerHTML = msg.message;
+        Polymer.dom(this).innerHTML = msg.message;
       }
     },
 
-    languageChanged: function() {
+    _languageChanged: function() {
       if (!this.language || this.locales[this.language]) {
         return;
       }
@@ -93,8 +94,9 @@ Custom element to do localization (i18n) messages.
           return;
         }
 
-        this.locales[this.language] = resp; // cache this locale.
+        this.locales[this.language] = resp;
 
+        // cache this locale.
         this.notifyInstances();
       }.bind(this);
       xhr.send();
@@ -109,12 +111,12 @@ Custom element to do localization (i18n) messages.
           continue;
         }
 
-        instance.innerHTML = instance.locales[instance.language][instance.msgid].message;
+        Polymer.dom(instance).innerHTML = instance.locales[instance.language][instance.msgid].message;
       }
     }
 
   });
 
-})();
+}());
 </script>
-</polymer-element>
+</dom-module>
