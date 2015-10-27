@@ -39,7 +39,7 @@ Custom element to do localization (i18n) messages.
       /**
        * An object contains the language locales with translated messages.
        */
-      locales: {
+      _locales: {
         value: I18nMsg.locales,  // static
       },
 
@@ -48,7 +48,7 @@ Custom element to do localization (i18n) messages.
        */
       msgid: {
         value: null,
-        notify: true
+        reflectToAttribute: true
       }
     },
 
@@ -68,14 +68,14 @@ Custom element to do localization (i18n) messages.
     },
 
     attached: function() {
-      var msg = this.locales[this.language] && this.locales[this.language][this.msgid];
+      var msg = this._locales[this.language] && this._locales[this.language][this.msgid];
       if (msg && msg.message) {
         Polymer.dom(this).innerHTML = msg.message;
       }
     },
 
     _languageChanged: function() {
-      if (!this.language || this.locales[this.language]) {
+      if (!this.language || this._locales[this.language]) {
         return;
       }
 
@@ -94,7 +94,7 @@ Custom element to do localization (i18n) messages.
           return;
         }
 
-        this.locales[this.language] = resp;
+        this._locales[this.language] = resp;
 
         // cache this locale.
         this.notifyInstances();
@@ -106,12 +106,12 @@ Custom element to do localization (i18n) messages.
       for (var i = 0, instance; instance = instances[i]; ++i) {
         instance.language = I18nMsg.lang;
 
-        if (!instance.locales[instance.language][instance.msgid]) {
+        if (!instance._locales[instance.language][instance.msgid]) {
           throw Error('"' + instance.msgid + '" message id was not found');
           continue;
         }
 
-        Polymer.dom(instance).innerHTML = instance.locales[instance.language][instance.msgid].message;
+        Polymer.dom(instance).innerHTML = instance._locales[instance.language][instance.msgid].message;
       }
     }
 
