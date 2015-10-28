@@ -1,0 +1,289 @@
+<!--
+Copyright 2015 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../components/polymer/polymer.html" />
+<link rel="import" href="../../elements/i18n-msg.html" />
+<script>
+(function() {
+
+  /**
+   * Max number of milliseconds to wait before timing out and abandoning
+   * preload.
+   */
+  var MAX_PRELOAD_TIME = 30 * 1000;
+
+  /**
+   * Number of frames to spread image preload over.
+   */
+  var NUM_FRAMES_TO_SPREAD_PRELOAD = 10;
+
+  /**
+   * Expected format for 'path' attribute. Used for the componentDir. e.g., if
+   * path is 'scenes/test/test-scene_en.html', the componentDir will be
+   * 'scenes/test/'.
+   */
+  var PATH_MATCH = new RegExp('^scenes\/.+?\/');
+
+  /** @polymerBehavior */
+  window.SantaSceneBehavior = {
+
+    htmlAttributes: {
+      'loading-bg-color': '',
+      'loading-src': '',
+      'path': '',
+    },
+
+    properties: {
+
+      /**
+       * URL route for this scene.
+       */
+      route: {
+        type: String,
+        value: null,
+        observer: '_activeChanged'
+      },
+
+      /**
+       * The `<santa-app>` controller element.
+       */
+      santaApp: {
+        type: Object,
+        value: null
+      },
+
+      /**
+       * If `true`, the scene is active. In Santa Tracker, this is set by the
+       * specific configuration of the lazy-scenes element (aka,
+       * selected-attribute="active").
+       */
+      active: {
+        type: Boolean,
+        value: false,
+        reflectToAttribute: true,
+        observer: '_activeChanged'
+      },
+
+      /**
+       * If `true`, the scene is always visible and `hidden` won't be applied
+       * when the page's `onHide()` is called.
+       */
+      alwaysActive: {
+        type: Boolean,
+        value: false,
+        reflectToAttribute: true
+      },
+
+      /**
+       * True if the scene has previously been loaded.
+       */
+      loaded: {
+        type: Boolean,
+        notify: true,
+        value: false
+      },
+
+      /**
+       * Assets loaded so far (out of `totalAssets`).
+       */
+      _assetsLoaded: {
+        type: Number,
+        value: 0
+      },
+
+      /**
+       * Max preload async handler.
+       */
+      _maxPreloadAsync: {
+        type: Object,
+        value: null
+      },
+
+      /**
+       * Total number of assets that will need to be preloaded. Assets must be
+       * preloaded in onPreload or this will be ignored.
+       */
+      _totalAssets: {
+        type: Number,
+        value: 0
+      },
+
+      /**
+       * Preloading progress (percentage) of the loaded scene.
+       */
+      preloadProgress: {
+        type: Number,
+        value: 0,
+        observer: '_preloadProgressChanged',
+        computed: '_computePreloadProgress(_assetsLoaded, loaded, _totalAssets)'
+      },
+
+      /**
+       * The relative path of the scene folder from the main app root folder.
+       * (e.g 'scenes/village/'). Configured automagically via behavior ready.
+       */
+      _componentDir: {
+        type: String,
+        readOnly: true
+      },
+
+      /**
+       * URL params specific to the scene. Scenes can use this property to
+       * deeplink into sections of their app.
+       *
+       * Example: /#jamband?band=2,8,-1,1,7,-1 -> {"band": "2,8,-1,1,7,-1"}.
+       */
+      sceneParams: {
+        type: Object,
+        notify: true,
+        value: function() {
+          return {};
+        }
+      },
+
+    },
+
+    listeners: {'scene-pause': '_handlePause'},
+
+    get componentDir() {
+      if (!this.componentDir_) {
+        // TODO(samthor): This finds the whole domain, can probably just be relative URL
+        this.componentDir_ = this.resolveUrl('.');
+      }
+      return this.componentDir_;
+    },
+
+    _activeChanged: function(newValue, oldValue) {
+      if (!!newValue === !!oldValue) {
+        return;
+      }
+
+      if (!this.active) {
+        this.onHide && this.onHide();
+        return;
+      }
+
+      // If subclass defines preloading, call it. If not, or nothing needs to
+      // be preloaded, signal ready.
+      if (!this.loaded && this.onPreload) {
+        // Note that this is called before _totalAssets/_assetsLoaded are given
+        // sensible defaults.
+        // TODO(samthor): Find out why. Is this to do with Behavior?
+        this._totalAssets = 0;
+        this._assetsLoaded = 0;
+
+        this.onPreload();
+
+        // If assets are queued to preload, schedule showScene on timeout in
+        // case preloading fails.
+        if (this._totalAssets > 0) {
+          this._maxPreloadAsync = this.async(this.showScene, MAX_PRELOAD_TIME);
+          return;
+        }
+      }
+
+      this.showScene();
+    },
+
+    _preloadProgressChanged: function() {
+      // Only show scene if the preload reaches 100% and we haven't loaded the
+      // scene before.
+      if (this.preloadProgress === 100 && !this.loaded) {
+        this.showScene();
+      } else {
+        this.fire('scene-progress');
+      }
+    },
+
+    /**
+     * A helper method for preloading an array of image URLs.
+     * @param {!Array<string>} imageUrls
+     */
+    preloadImages: function(imageUrls) {
+      this._totalAssets += imageUrls.length;
+
+      var onload = function() {
+        this._assetsLoaded++;
+      }.bind(this);
+
+      var imagesPerRaf = Math.ceil(imageUrls.length / NUM_FRAMES_TO_SPREAD_PRELOAD);
+      imagesPerRaf = Math.max(1, imagesPerRaf);
+      var imageIndex = 0;
+      var rafCallback = function() {
+        for (var i = 0; i < imagesPerRaf && imageIndex < imageUrls.length; i++) {
+          var img = new Image();
+          img.onerror = img.onload = onload;
+          img.src = this.resolveUrl(imageUrls[imageIndex++]);
+        }
+
+        if (imageIndex < imageUrls.length) {
+          this.async(rafCallback);
+        }
+      };
+
+      rafCallback.call(this);
+    },
+
+    /**
+     * Preload a set of sounds for this scene via Klang.
+     * @param {string} soundSetName
+     */
+    preloadSounds: function(soundSetName) {
+      this.fire('sound-preload', soundSetName);
+    },
+
+    showScene: function() {
+      console.warn('showScene', new Error());
+      this.loaded = true;
+      this.fire('scene-progress');
+
+      // Cancel the max preload async
+      this.cancelAsync(this._maxPreloadAsync);
+
+      if (this.active) {
+        this.onShow && this.onShow();
+
+        // log that the scene has finished preloading. If this wasn't a preloaded
+        // load, the event will be discarded harmlessly
+        // Set the max analytics time at 2x MAX_PRELOAD_TIME to account for
+        // HTMLElement import and *then* assets for the scene (only the asset
+        // loading timesout after MAX_PRELOAD_TIME)
+        this.fire('analytics-time-end', {category: 'Scene Load Time',
+            variable: this.route, time: Date.now(),
+            maxTime: 2 * MAX_PRELOAD_TIME});
+
+        // focus in case element needs keyboard events
+        this.focus();
+      }
+    },
+
+    _computePreloadProgress: function(assetsLoaded, loaded, totalAssets) {
+      return loaded ? 100 : (totalAssets ? assetsLoaded / totalAssets * 100 : 0);
+    },
+
+    _handlePause: function(e, paused) {
+      if (paused && this.onPause) {
+        this.onPause();
+      } else if (!paused && this.onResume) {
+        this.onResume();
+      }
+    },
+
+    _computeCollapsed: function(arg) {
+      return arg ? 'butt' : 'is-collapsed';
+    },
+
+  };
+})();
+</script>
