@@ -42,7 +42,7 @@ Lazy loads children "pages".
   Polymer({
     is: 'lazy-pages',
 
-    behaviors: [ Polymer.IronSelectableBehavior ],
+    behaviors: [Polymer.IronSelectableBehavior],
 
     properties: {
       /**
@@ -64,7 +64,7 @@ Lazy loads children "pages".
 
     },
 
-    listeners: { 'iron-select': '_selectedItemChanged' },
+    listeners: {'iron-select': '_selectedItemChanged'},
 
     _selectedItemChanged: function() {
       var scene = this.selectedItem;

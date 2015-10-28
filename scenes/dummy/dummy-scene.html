@@ -1,161 +1,18 @@
+<!--
+Copyright 2015 Google Inc. All rights reserved.
 
-<link rel="import" href="../../components/polymer/polymer.html">
-<link rel="import" href="../../elements/i18n-msg.html">
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
 
-<script>
-(function() {
-  var MAX_PRELOAD_TIME = 30 * 1000;
+      http://www.apache.org/licenses/LICENSE-2.0
 
-  /** @polymerBehavior */
-  window.SantaSceneBehavior = {
-    properties: {
-
-      /**
-       * URL route for this scene.
-       */
-      route: {
-        type: String,
-        value: null,
-        observer: '_activeChanged'
-      },
-
-      /**
-       * The `<santa-app>` controller element.
-       */
-      santaApp: {
-        type: Object,
-        value: null
-      },
-
-      /**
-       * If `true`, the scene is active. In Santa Tracker, this is set by the
-       * specific configuration of the lazy-scenes element (aka,
-       * selected-attribute="active").
-       */
-      active: {
-        type: Boolean,
-        value: false,
-        reflectToAttribute: true,
-        observer: '_activeChanged'
-      },
-
-      /**
-       * If `true`, the scene is always visible and `hidden` won't be applied
-       * when the page's `onHide()` is called.
-       */
-      alwaysActive: {
-        type: Boolean,
-        value: false,
-        reflectToAttribute: true
-      },
-
-      /**
-       * True if the scene has previously been loaded.
-       */
-      loaded: {
-        type: Boolean,
-        notify: true,
-        value: false
-      },
-
-      /**
-       * Assets loaded so far (out of `totalAssets`).
-       */
-      _assetsLoaded: {
-        type: Number,
-        value: 0
-      },
-
-      /**
-       * Total number of assets that will need to be preloaded. Assets must be
-       * preloaded in onPreload or this will be ignored.
-       */
-      _totalAssets: {
-        type: Number,
-        value: 0
-      },
-
-      /**
-       * Preloading progress (percentage) of the loaded scene.
-       */
-      preloadProgress: {
-        type: Number,
-        value: 0,
-        observer: '_preloadProgressChanged',
-        computed: '_computePreloadProgress(_assetsLoaded, loaded, _totalAssets)'
-      },
-
-    },
-
-    _activeChanged: function() {
-      if (!this.active) {
-        this.onHide && this.onHide();
-        if (!this.alwaysActive) {
-          // TODO(samthor): lazy-pages might actually hide this anyway?
-          this.hidden = true;
-        }
-        return;
-      }
-
-      // If subclass defines preloading, call it. If not, or nothing needs to
-      // be preloaded, signal ready.
-      if (!this.loaded && this.onPreload) {
-        this.onPreload();
-
-        // If assets are queued to preload, schedule showScene on timeout in
-        // case preloading fails.
-        if (this._totalAssets > 0) {
-          this.maxPreloadAsync_ = this.async(this.showScene, MAX_PRELOAD_TIME);
-          return;
-        }
-      }
-
-      this.showScene();
-    },
-
-    _preloadProgressChanged: function() {
-      // Only show scene if the preload reaches 100% and we haven't loaded the
-      // scene before.
-      if (this.preloadProgress === 100 && !this.loaded) {
-        this.showScene();
-      } else {
-        this.fire('scene-progress');
-      }
-    },
-
-    showScene: function() {
-      this.loaded = true;
-      this.fire('scene-progress');
-
-      // Cancel the max preload async
-      console.info(this);
-      this.cancelAsync(this.maxPreloadAsync_);
-
-      if (this.active) {
-        this.hidden = false; // Scene needs to do layout before onShow().
-        this.onShow && this.onShow();
-
-        // log that the scene has finished preloading. If this wasn't a preloaded
-        // load, the event will be discarded harmlessly
-        // Set the max analytics time at 2x MAX_PRELOAD_TIME to account for
-        // HTMLElement import and *then* assets for the scene (only the asset
-        // loading timesout after MAX_PRELOAD_TIME)
-        this.fire('analytics-time-end', {category: 'Scene Load Time',
-            variable: this.route, time: Date.now(),
-            maxTime: 2 * MAX_PRELOAD_TIME});
-
-        // focus in case element needs keyboard events
-        this.focus();
-      }
-    },
-
-    _computePreloadProgress: function(assetsLoaded, loaded, totalAssets) {
-      return loaded ? 100 : (totalAssets ? assetsLoaded / totalAssets * 100 : 0);
-    }
-
-  };
-})();
-</script>
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../scene-behavior.html">
 
 <dom-module id="dummy-scene">
   <template>
@@ -167,7 +24,11 @@
   <script>
     Polymer({
       is: 'dummy-scene',
-      behaviors: [ window.SantaSceneBehavior ],
+
+      behaviors: [window.SantaSceneBehavior],
+
+      listeners: {'sceneparams-changed': '_handleSceneParams'},
+
       created: function() {
         console.info('dummy-scene created');
       },
@@ -178,7 +39,7 @@
         this._totalAssets = Math.round(Math.random() * 1000);
         this._assetsLoaded = Math.round(Math.random() * this._totalAssets);
 
-        var delay = Math.random() * 10 * 1000;
+        var delay = Math.round(Math.random() * 4) * 1000;
         console.debug('dummy-scene delaying for', delay / 1000, 'sec');
 
         window.setTimeout(function() {
@@ -187,7 +48,11 @@
       },
 
       ready: function() {
-        console.info('dummy-scene ready');
+        console.info('dummy-scene ready', this.alwaysActive);
+      },
+
+      _handleSceneParams: function() {
+        console.info('new sceneParams', this.sceneParams);
       },
     });
   </script>

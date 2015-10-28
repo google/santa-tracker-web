@@ -130,6 +130,7 @@ img {
 
     fadeDone: function(e, detail, sender) {
       e.stopPropagation();
+      console.warn('DONE FADING', this);
       Polymer.dom(this).classList.remove('fading');
     },
 

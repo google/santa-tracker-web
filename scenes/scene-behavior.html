@@ -52,6 +52,7 @@ specific language governing permissions and limitations under the License.
       route: {
         type: String,
         value: null,
+        reflectToAttribute: true,
         observer: '_activeChanged'
       },
 
@@ -244,7 +245,6 @@ specific language governing permissions and limitations under the License.
     },
 
     showScene: function() {
-      console.warn('showScene', new Error());
       this.loaded = true;
       this.fire('scene-progress');
 
@@ -280,8 +280,11 @@ specific language governing permissions and limitations under the License.
       }
     },
 
-    _computeCollapsed: function(arg) {
-      return arg ? 'butt' : 'is-collapsed';
+    /**
+     * Helper method. Computes the ternary operation on arg.
+     */
+    _computeTernary: function(arg, pve, nve) {
+      return arg ? pve : nve;
     },
 
   };

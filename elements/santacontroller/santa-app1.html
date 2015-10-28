@@ -1,27 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster" />
-  <link rel="stylesheet" href="sass/santatracker.css" />
+<!--
+Copyright 2015 Google Inc. All rights reserved.
 
-  <link rel="import" href="elements/elements_en.html" />
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
 
-  <link rel="import" href="elements/preloader/preload-overlay.html" />
-  <link rel="import" href="elements/lazy-pages.html" />
-  <link rel="import" href="elements/santa-tracker-router.html" />
+      http://www.apache.org/licenses/LICENSE-2.0
 
-  <script>
-    window.DEV = true; // NOTE: replaced by string - do not change formatting.
-  </script>
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../components/polymer/polymer.html">
 
-</head>
-<body>
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
+<link rel="import" href="../santa-tracker-router.html">
+<link rel="import" href="../preloader/preload-overlay.html">
+<!-- <link rel="import" href="../calendar/calendar-nav.html"> -->
+<link rel="import" href="../lazy-pages.html">
+
+<link rel="import" href="dependencies.html">
 
 <dom-module id="santa-app">
 <template>
   <!-- Keyboard handler -->
-  <iron-a11y-keys id="keys" keys="esc left" on-keys-pressed="_escHandler"></iron-a11y-keys>
+  <iron-a11y-keys id="keys" keys="esc" on-keys-pressed="_escHandler"></iron-a11y-keys>
 
   <!-- Route controller -->
   <santa-tracker-router route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
@@ -31,7 +35,12 @@
 
   <!-- Scenes -->
   <lazy-pages id="lazypages" delay-load selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">
-    <dummy-scene route="dummy" path="scenes/dummy/dummy-scene.html"></dummy-scene>
+    <dummy-scene route="dummy" always-active path="scenes/dummy/dummy-scene.html"></dummy-scene>
+
+    <boatload-scene route="boatload"
+        path="scenes/boatload/boatload-scene_en.html"
+        loading-bg-color="#8fd7f7"
+        loading-src="scenes/boatload/img/loading.svg"></boatload-scene>
 
     <div route="first">First</div>
     <div route="second">Second</div>
@@ -40,6 +49,23 @@
 
 </template>
 <script>
+(function() {
+
+var VALID_ROUTES = [];
+
+// Routes/scenes which should always be accessible, no matter what the day.
+// These scenes are also not removed from the lazy-page switching.
+var PERMANENT_ROUTES = ['village', 'calendar', 'about'];
+
+var VIDEO_ROUTES = [
+  'trailer', 'carpool', 'liftoff', 'jingle', 'satellite', 'temptation',
+  'office', 'tired', 'com-room', 'reload', 'slacking-off'
+];
+
+// Routes/scenes unlocked with the tracker (including all video routes)
+var TRACKER_ROUTES = ['blimp', 'island', 'undersea', 'icecave', 'runner',
+    'latlong', 'glider', 'trivia'].concat(VIDEO_ROUTES);
+
 Polymer({
   is: 'santa-app',
 
@@ -48,12 +74,18 @@ Polymer({
   properties: {
     selectedScene: {
       type: Element,
+      observer: '_selectedSceneChanged',
       value: null
     },
     route: {
       type: String,
-      observer: 'routeChanged'
-    }
+      observer: '_routeChanged'
+    },
+    prevSelectedRoute: {
+      type: String,
+      observer: '_prevSelectedRouteChanged',
+      value: null
+    },
   },
 
   listeners: {
@@ -80,8 +112,6 @@ Polymer({
     if (!this.route) {
       this.route = this.defaultRoute;
     }
-
-    console.info(this, this.$);
   },
 
   get defaultRoute() {
@@ -89,7 +119,57 @@ Polymer({
     return 'dummy';
   },
 
-  routeChanged: function() {
+
+  _selectedSceneChanged: function(newValue, oldValue) {
+    if (oldValue === newValue) {
+      return;
+    }
+    if (oldValue && oldValue.route) {
+      this.prevSelectedRoute = oldValue.route;
+    }
+    // Let the selected scene know about params.
+    // TODO(samthor): How does this interact with two-way binding?
+    if (this.selectedScene) {
+      this.selectedScene.sceneParams = this.sceneParams;
+    }
+  },
+
+  _prevSelectedRouteChanged: function() {
+    if (!this.prevSelectedRoute) {
+      return;
+    }
+
+    // Only remove certain elements from the DOM.
+    var dontRemoveEl = PERMANENT_ROUTES.indexOf(this.prevSelectedRoute) != -1;
+    if (dontRemoveEl) {
+      return;
+    }
+
+    var prevSelectedScene = null;
+    for (var i = 0, scene; scene = this.$.lazypages.items[i]; ++i) {
+      if (scene.route == this.prevSelectedRoute) {
+        prevSelectedScene = scene;
+        break;
+      }
+    }
+
+    // // Remove previous scene if it shouldn't always be active.
+    if (prevSelectedScene && !prevSelectedScene.alwaysActive) {
+      var dom = Polymer.dom(this.$.lazypages);
+      dom.removeChild(prevSelectedScene);
+
+      // Re-construct removed scene and add it back to lazy-pages. Note that
+      // loading-* isn't copied, since the element is already loaded.
+      var el = document.createElement(prevSelectedScene.localName);
+      el.route = prevSelectedScene.route;
+      el.santaApp = this;
+      el.loaded = true;
+
+      dom.appendChild(el);
+    }
+  },
+
+  _routeChanged: function() {
     // Check if the new route needs a special-case redirect or if it is valid.
     // If this changes the route, routeChanged() will be called again, repeating
     // until this.route passes through validateRoute() successfully.
@@ -142,7 +222,6 @@ Polymer({
   },
 
   _escHandler: function(e, detail, sender) {
-    console.info('got key', e);
     switch (e.detail.key) {
       case 'esc':
         this.route = this.defaultRoute;
@@ -151,10 +230,7 @@ Polymer({
   },
 
 });
+
+})();
 </script>
 </dom-module>
-
-<santa-app tabindex="0"></santa-app>
-
-</body>
-</html>

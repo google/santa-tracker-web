@@ -95,10 +95,6 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
        * to deeplink into sections of their app.
        *
        * Example: /#jamband?band=2,8,-1,1,7,-1
-       *
-       * @attribute sceneParams
-       * @type object
-       * @default {}
        */
       sceneParams: {
         type: Object,
@@ -112,10 +108,6 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
 
     /**
      * The Flatiron Route object.
-     *
-     * @property router
-     * @type Router
-     * @readonly
      */
     get router() {
       if (!private_router) {
