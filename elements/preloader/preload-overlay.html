@@ -24,31 +24,30 @@ Candy cane progress bar.
   <link rel="import" type="css" href="preloader.css" />
   <template>
     <style>
-:host {
-  background: #3ec4f0;
-  z-index: 1200;
-  @apply(--layout-fit);
-}
-#page-progress {
-  @apply(--layout-vertical);
-  @apply(--layout-center-center);
-}
-img {
-  width: 340px;
-  height: 340px;
-}
-:host {
-  visibility: hidden;
-}
-:host(.fading) {
-  -webkit-transition: opacity 600ms ease-in-out;
-  transition: opacity 600ms ease-in-out;
-  opacity: 0;
-  visibility: visible; /* hold visible during animation */
-}
-:host([active]) {
-  visibility: visible;
-}
+      :host {
+        background: #3ec4f0;
+        z-index: 1200;
+        @apply(--layout-fit);
+      }
+      #page-progress {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+      }
+      img {
+        width: 340px;
+        height: 340px;
+      }
+      :host {
+        visibility: hidden;
+      }
+      :host(.fading) {
+        transition: opacity 600ms ease-in-out;
+        opacity: 0;
+        visibility: visible; /* hold visible during animation */
+      }
+      :host([active]) {
+        visibility: visible;
+      }
     </style>
     <div id="page-progress">
       <div class="preload">
@@ -128,9 +127,8 @@ img {
       node.style.backgroundColor = this.color || DEFAULT_COLOR_;
     },
 
-    fadeDone: function(e, detail, sender) {
+    fadeDone: function(e, detail) {
       e.stopPropagation();
-      console.warn('DONE FADING', this);
       Polymer.dom(this).classList.remove('fading');
     },
 

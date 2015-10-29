@@ -35,7 +35,7 @@ specific language governing permissions and limitations under the License.
 
   <!-- Scenes -->
   <lazy-pages id="lazypages" delay-load selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">
-    <dummy-scene route="dummy" always-active path="scenes/dummy/dummy-scene.html"></dummy-scene>
+    <dummy-scene route="dummy" always-active path="scenes/dummy/dummy-scene_en.html"></dummy-scene>
 
     <boatload-scene route="boatload"
         path="scenes/boatload/boatload-scene_en.html"
@@ -182,7 +182,7 @@ Polymer({
       }
     }
 
-    // // Remove previous scene if it shouldn't always be active.
+    // Remove previous scene if it shouldn't always be active.
     if (prevSelectedScene && !prevSelectedScene.alwaysActive) {
       var dom = Polymer.dom(this.$.lazypages);
       dom.removeChild(prevSelectedScene);
@@ -258,7 +258,7 @@ Polymer({
     }
   },
 
-  _escHandler: function(e, detail, sender) {
+  _escHandler: function(e, detail) {
     switch (e.detail.key) {
       case 'esc':
         this.route = this.defaultRoute;

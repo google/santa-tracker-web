@@ -21,20 +21,20 @@ Lazy loads children "pages".
 <dom-module id="lazy-pages">
   <template>
     <style>
-:host {
-  position: static;
-  display: block;
-}
-:host > ::content > * {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-:host > ::content > :not(.iron-selected) {
-  display: none !important;
-}
+      :host {
+        position: static;
+        display: block;
+      }
+      :host > ::content > * {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+      :host > ::content > :not(.iron-selected) {
+        display: none !important;
+      }
     </style>
     <content></content>
   </template>
