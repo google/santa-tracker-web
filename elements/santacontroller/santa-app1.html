@@ -28,7 +28,7 @@ Santa Tracker app.
 <dom-module id="santa-app">
 <template>
   <!-- Keyboard handler -->
-  <iron-a11y-keys id="keys" keys="esc" on-keys-pressed="_escHandler"></iron-a11y-keys>
+  <iron-a11y-keys keys="esc" on-keys-pressed="_escHandler"></iron-a11y-keys>
 
   <!-- Preloading scene overlay -->
   <preload-overlay id="preloader"></preload-overlay>
@@ -546,47 +546,47 @@ Polymer({
     this.analyticsService.trackPageView(path);
   },
 
-  trackEvent: function(e, detail, sender) {
+  trackEvent: function(e, detail) {
     this.analyticsService.trackEvent(
         detail.category, detail.action, detail.label, detail.value);
   },
 
-  trackPerf: function(e, detail, sender) {
+  trackPerf: function(e, detail) {
     this.analyticsService.trackPerf(
         detail.category, detail.variable, detail.time, detail.label, detail.maxTime);
   },
 
-  timeStart: function(e, detail, sender) {
+  timeStart: function(e, detail) {
     this.analyticsService.timeStart(
         detail.category, detail.variable, detail.time);
   },
 
-  timeEnd: function(e, detail, sender) {
+  timeEnd: function(e, detail) {
     this.analyticsService.timeEnd(
         detail.category, detail.variable, detail.time, detail.label, detail.maxTime);
   },
 
-  trackSocial: function(e, detail, sender) {
+  trackSocial: function(e, detail) {
     this.analyticsService.trackSocial(
         detail.network, detail.action, detail.target);
   },
 
-  trackGameStart: function(e, detail, sender) {
+  trackGameStart: function(e, detail) {
     this.analyticsService.trackGameStart(detail.gameId || detail.gameid);
   },
 
-  trackGameQuit: function(e, detail, sender) {
+  trackGameQuit: function(e, detail) {
     this.analyticsService.trackGameQuit(detail.gameId || detail.gameid,
         detail.level, detail.timePlayed);
   },
 
-  trackGameOver: function(e, detail, sender) {
+  trackGameOver: function(e, detail) {
     this.analyticsService.trackGameOver(
         detail.gameId || detail.gameid, detail.score, detail.level,
         detail.timePlayed);
   },
 
-  onIframeFocusChange: function(e, detail, sender) {
+  onIframeFocusChange: function(e, detail) {
     if (detail === 'blur') {
       this.visibilityService.pauseIframe();
     } else if (detail === 'focus') {
