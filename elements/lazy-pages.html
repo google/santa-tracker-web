@@ -41,7 +41,6 @@ Lazy loads children "pages".
   <script>
   Polymer({
     is: 'lazy-pages',
-
     behaviors: [Polymer.IronSelectableBehavior],
 
     properties: {
@@ -94,7 +93,7 @@ Lazy loads children "pages".
       Polymer.Base.importHref([path], function() {
         // Great! Nothing else to do.
       }, function(e) {
-        throw new Error('Couldn\'t load: ' + path);
+        throw new Error('unable to load path: ' + path);
       });
     },
 
