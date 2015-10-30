@@ -120,7 +120,10 @@ Polymer({
      * The house metadata, including unlock information.
      */
     houses: {
-      type: Array
+      type: Array,
+      value: function() {
+        return [];
+      }
     },
 
     /**
@@ -193,14 +196,15 @@ Polymer({
      * True when Santa's schedule has been checked for the first time.
      */
     scheduleChecked: {
-      type: Boolean
+      type: Boolean,
       value: false
     },
 
     /**
      * True when the tracker intro scene has been shown.
+     * TODO(samthor): Doesn't seem to be used
      */
-    hasTrackerIntroShown_: {
+    _hasTrackerIntroShown: {
       type: Boolean,
       value: false
     },
@@ -373,7 +377,7 @@ Polymer({
   /**
    * Catch-all place to do some kind of initialization of houses.
    */
-  prepareHouses_: function() {
+  _prepareHouses: function() {
     var castMode = this.mode === 'cast';
     var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
     var spanglish = /^e(n|s)/.test(this.language);
