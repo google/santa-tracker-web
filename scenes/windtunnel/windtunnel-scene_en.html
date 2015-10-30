@@ -12,24 +12,21 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
-<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../../js/webanimations.html">
 
 <script src="windtunnel-scene.min.js"></script>
 
 <!--
 Wind tunnel scene.
-
-@element windtunnel-scene
-@extends base-scene
 -->
-<polymer-element name="windtunnel-scene" extends="base-scene">
+<dom-module id="windtunnel-scene">
 <template>
-  <link rel="stylesheet" href="windtunnel-scene.css" no-shim>
+  <link rel="stylesheet" href="windtunnel-scene.css" />
 
-  <core-a11y-keys target="{{}}" keys="enter space left right down up"
-                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+  <iron-a11y-keys keys="enter space left right down up"
+                  on-keys-pressed="keyHandler"></iron-a11y-keys>
 
   <div id="module-windtunnel">
     <div class="scene">
@@ -147,7 +144,8 @@ Wind tunnel scene.
 </template>
 <script>
   Polymer({
-    componentDir: 'scenes/windtunnel/',
+    is: 'windtunnel-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     onPreload: function() {
       this.preloadSounds('windtunnel_load_sounds', 10);
@@ -204,12 +202,14 @@ Wind tunnel scene.
     },
 
     onHide: function() {
-      this.scene.destroy();
-      this.scene = null;
+      if (this.scene) {
+        this.scene.destroy();
+        this.scene = null;
+      }
       this.fire('sound-ambient', 'windtunnel_end');
     },
 
-    keyHandler: function(e, details, sender) {
+    keyHandler: function(e, details) {
       e.stopPropagation();
 
       switch (e.detail.key) {

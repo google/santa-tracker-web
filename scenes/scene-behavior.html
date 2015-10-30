@@ -37,6 +37,8 @@ specific language governing permissions and limitations under the License.
 
   /** @polymerBehavior */
   window.SantaSceneBehavior = {
+    hostAttributes: {'tabindex': '0'},
+
     properties: {
 
       /**
@@ -123,15 +125,6 @@ specific language governing permissions and limitations under the License.
         computed: '_computePreloadProgress(_assetsLoaded, loaded, _totalAssets)'
       },
 
-      // /**
-      //  * The relative path of the scene folder from the main app root folder.
-      //  * (e.g 'scenes/village/'). Access via componentDir getter.
-      //  */
-      // _componentDir: {
-      //   type: String,
-      //   readOnly: true
-      // },
-      //
       /**
        * URL params specific to the scene. Scenes can use this property to
        * deeplink into sections of their app.

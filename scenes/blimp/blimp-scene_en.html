@@ -12,20 +12,14 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
-<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../scene-behavior.html">
 
 <!--
 Blimp scene.
-
-@element blimp-scene
-@extends base-scene
 -->
-<polymer-element name="blimp-scene" extends="base-scene">
+<dom-module id="blimp-scene">
   <template>
-    <link rel="stylesheet" href="blimp-scene.css" no-shim>
-    <core-a11y-keys target="{{}}" keys="enter space left right down up"
-                    on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+    <link rel="stylesheet" href="blimp-scene.css" />
     <div id="module-blimp">
       <div class="scene">
         <div class="blimp">
@@ -86,7 +80,8 @@ Blimp scene.
   <script>
   (function() {
     Polymer({
-      componentDir: 'scenes/blimp/',
+      is: 'blimp-scene',
+      behaviors: [window.SantaSceneBehavior],
 
       onPreload: function() {
         this.preloadImages([
