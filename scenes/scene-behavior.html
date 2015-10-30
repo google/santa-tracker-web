@@ -123,15 +123,15 @@ specific language governing permissions and limitations under the License.
         computed: '_computePreloadProgress(_assetsLoaded, loaded, _totalAssets)'
       },
 
-      /**
-       * The relative path of the scene folder from the main app root folder.
-       * (e.g 'scenes/village/'). Access via componentDir getter.
-       */
-      _componentDir: {
-        type: String,
-        readOnly: true
-      },
-
+      // /**
+      //  * The relative path of the scene folder from the main app root folder.
+      //  * (e.g 'scenes/village/'). Access via componentDir getter.
+      //  */
+      // _componentDir: {
+      //   type: String,
+      //   readOnly: true
+      // },
+      //
       /**
        * URL params specific to the scene. Scenes can use this property to
        * deeplink into sections of their app.
@@ -150,12 +150,36 @@ specific language governing permissions and limitations under the License.
 
     listeners: {'scene-pause': '_handlePause'},
 
+    componentDir_: null,
+    santaApp_: null,
+
     get componentDir() {
-      if (!this.componentDir_) {
-        // TODO(samthor): This finds the whole domain, can probably just be relative URL
-        this.componentDir_ = this.resolveUrl('.');
-      }
       return this.componentDir_;
+    },
+
+    get santaApp() {
+      return this.santaApp_;
+    },
+
+    created: function() {
+      // TODO(samthor): This finds the whole domain, can probably just be relative URL
+      this.componentDir_ = this.resolveUrl('.');
+    },
+
+    attached: function() {
+      // Find the nearest santa-app.
+      var curr = this;
+      while (curr && curr.localName != 'santa-app') {
+        curr = curr.parentNode;
+      }
+      if (!curr) {
+        console.warn('unable to find santaApp for scene', this.localName);
+      }
+      this.santaApp_ = curr;
+    },
+
+    detached: function() {
+      this.santaApp_ = null
     },
 
     _activeChanged: function(newValue, oldValue) {

@@ -22,40 +22,44 @@ specific language governing permissions and limitations under the License.
 
 <link rel="import" href="dependencies.html">
 
+<!--
+Santa Tracker app.
+-->
 <dom-module id="santa-app">
 <template>
   <!-- Keyboard handler -->
   <iron-a11y-keys id="keys" keys="esc" on-keys-pressed="_escHandler"></iron-a11y-keys>
 
-  <!-- Route controller -->
-  <santa-tracker-router route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
-
   <!-- Preloading scene overlay -->
   <preload-overlay id="preloader"></preload-overlay>
 
+  <!-- Route controller -->
+  <santa-tracker-router route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
+
   <!-- Scenes -->
-  <lazy-pages id="lazypages" delay-load selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">
+  <lazy-pages id="lazypages" preloader="[[preloader]]" selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">
     <dummy-scene route="dummy" always-active path="scenes/dummy/dummy-scene_en.html"></dummy-scene>
 
     <boatload-scene route="boatload"
-        path="scenes/boatload/boatload-scene_en.html"
+        path$="scenes/boatload/boatload-scene_[[language]].html"
         loading-bg-color="#8fd7f7"
         loading-src="scenes/boatload/img/loading.svg"></boatload-scene>
 
-    <div route="first">First</div>
-    <div route="second">Second</div>
-    <div route="third">Third</div>
+    <about-scene route="about"
+        path$="scenes/about/about-scene_[[language]].html"></about-scene>
   </lazy-pages>
 
 </template>
 <script>
 (function() {
 
+var DEFAULT_ROUTE = 'village';
+var TRACKER_ROUTE = 'tracker';
 var VALID_ROUTES = [];
 
 // Routes/scenes which should always be accessible, no matter what the day.
 // These scenes are also not removed from the lazy-page switching.
-var PERMANENT_ROUTES = ['village', 'calendar', 'about'];
+var PERMANENT_ROUTES = ['village', 'calendar', 'about', 'dummy'];
 
 var VIDEO_ROUTES = [
   'trailer', 'carpool', 'liftoff', 'jingle', 'satellite', 'temptation',
@@ -66,30 +70,212 @@ var VIDEO_ROUTES = [
 var TRACKER_ROUTES = ['blimp', 'island', 'undersea', 'icecave', 'runner',
     'latlong', 'glider', 'trivia'].concat(VIDEO_ROUTES);
 
+/**
+  * Checks whether the passed dates are the same calendar day.
+  * @param {!Date} date1
+  * @param {!Date} date2
+  * @return {boolean} whether the dates are the same calendar day
+  */
+function isSameDay(date1, date2) {
+  return date1.getMonth() == date2.getMonth() &&
+         date1.getDate() == date2.getDate() &&
+         date1.getYear() == date2.getYear();
+}
+
+// TODO(bckenny): Restore Cast mixin
 Polymer({
   is: 'santa-app',
-
-  htmlAttributes: {'tabindex': '0'},
+  hostAttributes: {'tabindex': '0'},
 
   properties: {
+
+    /**
+     * The preloader used inside this element. This is provided as a binding
+     * helper.
+     */
+    preloader: {
+      type: Element,
+      readOnly: true,
+      value: function() {
+        return this.$.preloader;
+      }
+    },
+
+    /**
+     * When Santa's flight is finished, in ms.
+     */
+    countDownEndDate: {
+      type: Number
+    },
+
+    /**
+     * When Santa's flight is finished.
+     * TODO(samthor): Why is this a 'const'-style var and the above not?
+     */
+    FLIGHT_FINISHED: {
+      type: Number
+    },
+
+    /**
+     * The house metadata, including unlock information.
+     */
+    houses: {
+      type: Array
+    },
+
+    /**
+     * If the browser is hdpi.
+     */
+    hdpi: {
+      type: Boolean,
+      value: function() {
+        return 'devicePixelRatio' in window && devicePixelRatio > 1.5 || false;
+      }
+    },
+
+    /**
+     * The current language locale.
+     */
+    language: {
+      type: String,
+      observer: '_languageChanged',
+      value: document.documentElement.lang || 'en'
+    },
+
+    /**
+     * The currently open scene.
+     */
     selectedScene: {
       type: Element,
       observer: '_selectedSceneChanged',
       value: null
     },
-    route: {
-      type: String,
-      observer: '_routeChanged'
-    },
+
+    /**
+     * The previously selected scene route.
+     */
     prevSelectedRoute: {
       type: String,
       observer: '_prevSelectedRouteChanged',
       value: null
     },
+
+    /**
+     * Current URL route.
+     */
+    route: {
+      type: String,
+      observer: '_routeChanged'
+    },
+
+    /**
+     * Analytics service.
+     */
+    analyticsService: {
+      type: Object
+    },
+
+    /**
+     * Page/Scene visibility manager.
+     */
+    visibilityService: {
+      type: Object
+    },
+
+    /**
+     * The mode of the scene. Possible values are: 'cast' or 'embed'.
+     */
+    mode: {
+      type: String
+    },
+
+    /**
+     * True when Santa's schedule has been checked for the first time.
+     */
+    scheduleChecked: {
+      type: Boolean
+      value: false
+    },
+
+    /**
+     * True when the tracker intro scene has been shown.
+     */
+    hasTrackerIntroShown_: {
+      type: Boolean,
+      value: false
+    },
+
+    /**
+     * Full list of tracker destinations as they've come in.
+     */
+    destinations: {
+      type: Array
+    },
+
+    /**
+     * Full list of timeline feed items.
+     */
+    timeline: {
+      type: Array,
+      value: function() {
+        return [];
+      }
+    },
+
+    /**
+     * List of video routes. Used for template binding.
+     */
+    VIDEO_ROUTES: {
+      type: Array,
+      readOnly: true,
+      value: VIDEO_ROUTES
+    },
+
+    /**
+     * A reference to the streetview house in houses.js, for restoration after
+     * postFlight.
+     */
+    streetviewHouse: {
+      type: Object,
+      value: null
+    },
+
+    /**
+     * True when the countdown is complete.
+     */
+    postCountdown: {
+      type: Boolean,
+      value: false,
+      reflectToAttribute: true,
+      observer: '_postCountdownChanged'
+    },
+
+    /**
+     * True when Santa's flight is complete.
+     */
+    postFlight: {
+      type: Boolean,
+      value: false,
+      reflectToAttribute: true,
+      observer: '_postFlightChanged'
+    },
+
   },
 
   listeners: {
     'scene-progress': 'onSceneProgress',
+    'iframe-focus-change': 'onIframeFocusChange',
+    'analytics-track-event': 'trackEvent',
+    'analytics-track-perf': 'trackPerf',
+    'analytics-time-start': 'timeStart',
+    'analytics-time-end': 'timeEnd',
+    'analytics-track-social': 'trackSocial',
+    'analytics-track-game-start': 'trackGameStart',
+    'analytics-track-game-quit': 'trackGameQuit',
+    'analytics-track-game-over': 'trackGameOver',
+    'tracker-action': 'onTrackerAction',
+    'countdown-timer-finish': 'onCountdownFinish',
+    'tracker-end': 'onTrackerEnd'
   },
 
   /**
@@ -105,13 +291,26 @@ Polymer({
     }
   },
 
-  ready: function() {
-    this.$.lazypages.preloader = this.$.preloader;
-    this.$.lazypages.santaApp = this;
-
-    if (!this.route) {
-      this.route = this.defaultRoute;
+  created: function() {
+    // silence the noisy things
+    if (!window.DEV) {
+      console.log = function(){};
     }
+
+    this.analyticsService = new Analytics();
+    this.visibilityService = new VisibilityManager(this);
+    this.visibilityService.addOnPauseListener(this.onPause.bind(this));
+    this.visibilityService.addOnResumeListener(this.onResume.bind(this));
+  },
+
+  ready: function() {
+    this.houses = window.HOUSES;
+    this.config = window.SANTA_CONFIG;
+    delete window.HOUSES; // cleanup
+    delete window.SANTA_CONFIG; // cleanup
+
+    this.countDownEndDate = this.config.COUNTDOWN_END_DATE;
+    this.FLIGHT_FINISHED = this.config.FLIGHT_FINISHED;
 
     var apiClient = getUrlParameter('api_client') || 'web';
     if (!apiClient.match(/^[a-zA-Z_]*$/)) {
@@ -142,11 +341,80 @@ Polymer({
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
     }
 
+    // TODO(samthor): santaService seems to be obsfucated
+    // this.santaService = new SantaService(apiClient, this.language);
+    // this.santaService.sync(this._checkSchedule.bind(this));
+    //
+    // this.santaService.addListener('destinations_changed', function(destinations) {
+    //   this.destinations = destinations || [];
+    // }.bind(this));
+    //
+    // this.santaService.addListener('timeline_changed', function(timeline) {
+    //   this.timeline = timeline || [];
+    // }.bind(this));
+    //
+    // this.santaService.addListener('kill', function justKillMe() {
+    //   this.analyticsService.trackEvent('API', 'killed');
+    //   // redirect after analytics has been processed
+    //   this.analyticsService.executeFunction(function errorRedirect() {
+    //     window.location = 'https://santatracker.google.com' +
+    //         location.pathname.replace(/[^\/]*$/, '') + 'error.html';
+    //   });
+    // }.bind(this));
+
+    this._prepareHouses();
+
+    this._checkSchedule();
+    if (!this.route) {
+      this.route = this.defaultRoute;
+    }
+  },
+
+  /**
+   * Catch-all place to do some kind of initialization of houses.
+   */
+  prepareHouses_: function() {
+    var castMode = this.mode === 'cast';
+    var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
+    var spanglish = /^e(n|s)/.test(this.language);
+
+    for (var i = this.houses.length - 1; i >= 0; i--) {
+      var house = this.houses[i];
+
+      // if on chromecast, disable any houses not suitable for cast
+      house.disabled = (castMode && !house.cast) || house.disabled;
+
+      switch (house.module) {
+        case 'app':
+          // Disable Google Play house on iOS devices
+          house.disabled = ios || house.disabled;
+          break;
+        case 'streetview':
+          // remove streetview where callfromsanta supported (en|en-GB|es|es-419)
+          // Save the object for postFlight (when callfromsanta will be disabled)
+          if (spanglish && !this.postFlight) {
+            this.streetviewHouse = this.houses.splice(i, 1)[0];
+          }
+          break;
+        case 'callfromsanta':
+          // remove callfromsanta where not supported (leaving streetview) or
+          // after Santa's flight has concluded.
+          if (!spanglish || this.postFlight) {
+            this.houses.splice(i, 1);
+          }
+          break;
+      }
+    }
   },
 
   get defaultRoute() {
     // TODO(samthor): Village or tracker based on time
     return 'dummy';
+  },
+
+  _languageChanged: function() {
+    // TODO(samthor): santaService seems to be obsfucated
+    // this.santaService.lang_ = this.language;
   },
 
   _selectedSceneChanged: function(newValue, oldValue) {
@@ -216,14 +484,17 @@ Polymer({
 
     if (requestedRoute === this.route) {
       // Route is valid. Send to analytics and load the scene.
-      // TODO(samthor): Restore this call
-//          this.trackPageview('/' + this.route);
+      this.trackPageview('/' + this.route);
     } else if (requestedRoute !== '') {
       // The requested route was changed.
       var currentRoute = null;
       var pageUrl = location.href.substr(0, location.href.length - location.hash.length);
       if (pageUrl) {
-        currentRoute = pageUrl + '#' + this.selectedScene.route;
+        if (this.selectedScene == null) {
+          console.warn('routeChanged but scene is null, route', requestedRoute, new Error());
+        } else {
+          currentRoute = pageUrl + '#' + this.selectedScene.route;
+        }
       }
       this.fire('analytics-track-event', { category: 'Routing',
           action: 'Invalid Route Source', label: currentRoute});
@@ -233,21 +504,30 @@ Polymer({
   },
 
   validateRoute: function() {
-    var validRoutes = this.$.lazypages.items.map(function(el) {
-      // Note: can't use .route b/c some scene elements won't be upgraded yet.
-      return el.getAttribute('route');
-    });
-    var valid = (validRoutes.indexOf(this.route) != -1);
-
-    // TODO(samthor): Restore this logic
-    // if (this.scheduleChecked) {
-    //   var valid = (VALID_ROUTES_.indexOf(this.route) != -1 &&
-    //                this.sceneIsUnlocked(this.route)) ||
-    //                (this.postCountdown && this.route == TRACKER_ROUTE_);
+    if (this.scheduleChecked) {
+      var valid = (VALID_ROUTES.indexOf(this.route) != -1 &&
+                   this.sceneIsUnlocked(this.route)) ||
+                   (this.postCountdown && this.route == TRACKER_ROUTE);
       if (!valid) {
         this.route = this.defaultRoute;
       }
-    // }
+    }
+  },
+
+  onPause: function() {
+    this.fire('sound-ambient', 'global_blur');
+    this.fire('sound-ambient', 'global_pause');
+    if (this.selectedScene && this.selectedScene.fire) {
+      this.selectedScene.fire('scene-pause', true);
+    }
+  },
+
+  onResume: function() {
+    this.fire('sound-ambient', 'global_focus');
+    this.fire('sound-ambient', 'global_unpause');
+    if (this.selectedScene && this.selectedScene.fire) {
+      this.selectedScene.fire('scene-pause', false);
+    }
   },
 
   soundsLoaded: function(soundsName) {
@@ -258,6 +538,191 @@ Polymer({
     }
   },
 
+  trackPageview: function(path) {
+    this.analyticsService.trackPageView(path);
+  },
+
+  trackEvent: function(e, detail, sender) {
+    this.analyticsService.trackEvent(
+        detail.category, detail.action, detail.label, detail.value);
+  },
+
+  trackPerf: function(e, detail, sender) {
+    this.analyticsService.trackPerf(
+        detail.category, detail.variable, detail.time, detail.label, detail.maxTime);
+  },
+
+  timeStart: function(e, detail, sender) {
+    this.analyticsService.timeStart(
+        detail.category, detail.variable, detail.time);
+  },
+
+  timeEnd: function(e, detail, sender) {
+    this.analyticsService.timeEnd(
+        detail.category, detail.variable, detail.time, detail.label, detail.maxTime);
+  },
+
+  trackSocial: function(e, detail, sender) {
+    this.analyticsService.trackSocial(
+        detail.network, detail.action, detail.target);
+  },
+
+  trackGameStart: function(e, detail, sender) {
+    this.analyticsService.trackGameStart(detail.gameId || detail.gameid);
+  },
+
+  trackGameQuit: function(e, detail, sender) {
+    this.analyticsService.trackGameQuit(detail.gameId || detail.gameid,
+        detail.level, detail.timePlayed);
+  },
+
+  trackGameOver: function(e, detail, sender) {
+    this.analyticsService.trackGameOver(
+        detail.gameId || detail.gameid, detail.score, detail.level,
+        detail.timePlayed);
+  },
+
+  onIframeFocusChange: function(e, detail, sender) {
+    if (detail === 'blur') {
+      this.visibilityService.pauseIframe();
+    } else if (detail === 'focus') {
+      this.visibilityService.resumeIframe();
+    }
+  },
+
+  /**
+   * When the flight finishes, check if any houses in the village need to be
+   * shutoff, kicking out of invalid routes if necessary.
+   */
+  _postFlightChanged: function() {
+    for (var i = 0; i < this.houses.length; i++) {
+      // In regions where callfromsanta was supported, replace it with the
+      // streetviewHouse used in other regions
+      if (this.houses[i].module === 'callfromsanta') {
+        if (this.streetviewHouse) {
+          this.houses[i] = this.streetviewHouse;
+        } else {
+          this.houses[i].disabled = true;
+        }
+      }
+
+      // lock more houses here, if needed
+    }
+
+    // allowed routes may have changed, so check again
+    this._checkSchedule();
+  },
+
+  _postCountdownChanged: function() {
+    document.body.classList.add('posttakeoff');
+  },
+
+  /**
+   * @param number index
+   */
+  unlockHouse: function(idx) {
+    var house = this.houses[idx];
+    if (!house) {
+      return;
+    }
+
+    // house is melted unless it's disabled
+    house.iced = house.disabled;
+  },
+
+  unlockAllHouses: function() {
+    for (var i = 0, house; house = this.houses[i]; ++i) {
+      this.unlockHouse(i);
+      house.today = false;
+      house.tomorrow = false;
+    }
+  },
+
+  lockAllHouses: function() {
+    for (var i = 0, house; house = this.houses[i]; ++i) {
+      house.iced = true;
+      house.today = false;
+      house.tomorrow = false;
+    }
+  },
+
+  sceneIsUnlocked: function(moduleName) {
+    for (var i = 0, house; house = this.houses[i]; ++i) {
+      if (house.module === moduleName) {
+        return !house.disabled && (this.santaService.now() > house.launchDate);
+      }
+    }
+
+    // Certain scenes don't have associated houses. Whitelist them.
+    if (PERMANENT_ROUTES.indexOf(moduleName) != -1) {
+      return true;
+    }
+
+    if (this.postCountdown && TRACKER_ROUTES.indexOf(moduleName) != -1) {
+      return true;
+    }
+
+    return false;
+  },
+
+  /**
+   * Timeout for _checkSchedule.
+   */
+  _scheduleTimeout: null,
+
+  /**
+   * Unlocks the correct houses based on the day (index).
+   * @private
+   */
+  _checkSchedule: function() {
+    if (window.DEV) {
+      console.info('dev, unlocking all houses');
+      this.unlockAllHouses();
+      return;
+    }
+
+    var todayDate = this.santaService.dateNow();
+    var tomorrowDate = new Date(todayDate);
+    tomorrowDate.setDate(todayDate.getDate() + 1);
+
+    // Set post countdown/post flight flags based on current time.
+    this.postFlight = todayDate >= this.FLIGHT_FINISHED;
+    this.postCountdown = todayDate > this.countDownEndDate && !this.postFlight;
+
+    switch(todayDate.getMonth()) {
+      case 11: // DECEMBER
+        // Update house status based on today's date.
+        for (var i = 0; i < this.houses.length; i++) {
+          var house = this.houses[i];
+
+          if (house.launchDate <= todayDate) {
+            this.unlockHouse(i);
+            house.today = isSameDay(house.launchDate, todayDate);
+            house.tomorrow = false;
+          } else {
+            house.iced = true;
+            house.today = false;
+            house.tomorrow = isSameDay(house.launchDate, tomorrowDate);
+          }
+        }
+        break;
+      case 0: // JAN
+        // All houses in Jan are unlocked. Full experience baby!
+        this.unlockAllHouses();
+        break;
+      default:
+        // noop
+        this.lockAllHouses();
+    }
+
+    this.scheduleChecked = true;
+    this.validateRoute();
+
+    // Check again at the next hour tick.
+    var timeTillHour = (60 - todayDate.getMinutes()) * 60 * 1000;
+    this._scheduleTimeout = this.async(this._checkSchedule, null, timeTillHour);
+  },
+
   _escHandler: function(e, detail) {
     switch (e.detail.key) {
       case 'esc':
@@ -265,6 +730,34 @@ Polymer({
         break;
     }
   },
+
+  onTrackerAction: function(e, detail) {
+    // Note: needs to go qS() because DOM is not guaranteed to exist if on cast.
+    var calendar = this.$.lazypages.querySelector('calendar-nav');
+    if (!calendar) {
+      return; // cast mode
+    }
+    if (detail.type == 'tracker-toggle') {
+      calendar.trackerActive = detail.active;
+    } else if (detail.type == 'city-toggle') {
+      calendar.cityFeedActive = detail.active;
+    }
+  },
+
+  onCountdownFinish: function(e, detail) {
+    // Redirect village -> tracker when the countdown finishes. This allows
+    // users to go back to the village.
+    if (!this.postCountdown) {
+      this._checkSchedule();
+      if (this.postCountdown && this.route === DEFAULT_ROUTE) {
+        this.route = TRACKER_ROUTE;
+      }
+    }
+  },
+
+  onTrackerEnd: function(e, detail) {
+    this._checkSchedule();
+  }
 
 });
 

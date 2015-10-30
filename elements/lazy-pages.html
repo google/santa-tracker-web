@@ -55,11 +55,14 @@ Lazy loads children "pages".
       },
 
       /**
-       * A `<santa-app>` controller element.
+       * An array of valid route names (e.g., 'village' and 'boatload'). This
+       * is calculated in a subtly different way to that of the selectable
+       * items, and is available earlier in our life cycle.
        */
-      santaApp: {
-        value: null,
-        type: Object
+      validRoutes: {
+        type: Array,
+        notify: true,
+        computed: '_computeValidRoutes(items, attrForSelected)'
       },
 
     },
@@ -69,8 +72,9 @@ Lazy loads children "pages".
     _selectedItemChanged: function() {
       var scene = this.selectedItem;
 
-      // Can't use scene.path because element definition may not be loaded yet
-      // and .path property won't exist.
+      // Check both path attribute and path property: property contains the
+      // computed version (including language) for dev, whereas the attribute
+      // will contain the actual value.
       var path = scene.getAttribute('path');
 
       if (!path || !scene || !this.selected || scene.loaded) {
@@ -79,7 +83,7 @@ Lazy loads children "pages".
 
       // Since this is the first time the scene is being loaded, send loading
       // start time to analytics (timing is ended in SantaSceneBehavior).
-      var route = scene.getAttribute('route');
+      var route = scene.getAttribute('route') || scene.route;
       this.fire('analytics-time-start', {category: 'Scene Load Time',
           variable: route, time: Date.now()});
 
@@ -87,12 +91,9 @@ Lazy loads children "pages".
       this._preloaderUpdate();
       this.fire('scene-progress');
 
-      Polymer.Base.importHref([path], function(e) {
-        if (!this.santaApp) {
-          throw new Error('Couldn\'t set santaApp on scene, not available');
-        }
-        scene.santaApp = this.santaApp;
-      }.bind(this), function(e) {
+      Polymer.Base.importHref([path], function() {
+        // Great! Nothing else to do.
+      }, function(e) {
         throw new Error('Couldn\'t load: ' + path);
       });
     },
@@ -105,7 +106,17 @@ Lazy loads children "pages".
         this.preloader.color = scene.getAttribute('loading-bg-color');
         this.preloader.src = scene.getAttribute('loading-src');
       }
+    },
+
+    _computeValidRoutes: function(items, attrForSelected) {
+      // Items is intentionally unused as it may be empty before this element
+      // is fully attached. Query directly for valid, selectable routes.
+      var els = Polymer.dom(this).queryDistributedElements('[' + attrForSelected + ']');
+      return els.map(function(el) {
+        return el.getAttribute(attrForSelected) || el[attrForSelected];
+      });
     }
+
   });
   </script>
 </dom-module>
