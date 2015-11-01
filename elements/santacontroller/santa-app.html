@@ -38,7 +38,10 @@ Santa Tracker app.
 
   <!-- Scenes -->
   <lazy-pages id="lazypages" preloader="[[preloader]]" selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">
-    <dummy-scene route="dummy" always-active path="scenes/dummy/dummy-scene_en.html"></dummy-scene>
+
+    <!-- TODO: replace with real village when done migration -->
+    <dummy-scene route="village" always-active
+        path$="scenes/dummy/dummy-scene_[[language]].html"></dummy-scene>
 
     <boatload-scene route="boatload"
         path$="scenes/boatload/boatload-scene_[[language]].html"
@@ -422,8 +425,7 @@ Polymer({
   },
 
   get defaultRoute() {
-    // TODO(samthor): Village or tracker based on time
-    return 'dummy';
+    return this.postCountdown ? TRACKER_ROUTE : DEFAULT_ROUTE;
   },
 
   _languageChanged: function() {

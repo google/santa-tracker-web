@@ -206,11 +206,8 @@ Boatload scene.
       },
 
       onHide: function() {
-        // TODO(samthor): onHide is being called before onShow
-        if (this.game) {
-          this.game.dispose();
-          this.game = null;
-        }
+        this.game.dispose();
+        this.game = null;
         this.fire('sound-ambient', 'bl_end_game');
       },
 
