@@ -67,7 +67,7 @@ Candy cane progress bar.
   Polymer({
     is: 'preload-overlay',
 
-    listeners: {transitionend: 'fadeDone'},
+    listeners: {transitionend: '_fadeDone'},
 
     behaviors: [Polymer.IronRangeBehavior],
 
@@ -127,7 +127,7 @@ Candy cane progress bar.
       node.style.backgroundColor = this.color || DEFAULT_COLOR_;
     },
 
-    fadeDone: function(e, detail) {
+    _fadeDone: function(e, detail) {
       e.stopPropagation();
       Polymer.dom(this).classList.remove('fading');
     },
