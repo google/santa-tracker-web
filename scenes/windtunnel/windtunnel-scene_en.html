@@ -202,10 +202,8 @@ Wind tunnel scene.
     },
 
     onHide: function() {
-      if (this.scene) {
-        this.scene.destroy();
-        this.scene = null;
-      }
+      this.scene.destroy();
+      this.scene = null;
       this.fire('sound-ambient', 'windtunnel_end');
     },
 

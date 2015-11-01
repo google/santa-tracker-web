@@ -46,16 +46,6 @@ specific language governing permissions and limitations under the License.
        */
       route: {
         type: String,
-        value: null,
-        reflectToAttribute: true,
-        observer: '_activeChanged'
-      },
-
-      /**
-       * The `<santa-app>` controller element.
-       */
-      santaApp: {
-        type: Object,
         value: null
       },
 
@@ -82,7 +72,8 @@ specific language governing permissions and limitations under the License.
       },
 
       /**
-       * True if the scene has previously been loaded.
+       * If `true`, the scene was previously loaded. This includes if a preload
+       * took too long.
        */
       loaded: {
         type: Boolean,
@@ -175,13 +166,11 @@ specific language governing permissions and limitations under the License.
       this.santaApp_ = null
     },
 
-    _activeChanged: function(newValue, oldValue) {
-      if (!!newValue === !!oldValue) {
-        return;
-      }
-
+    _activeChanged: function() {
       if (!this.active) {
-        this.onHide && this.onHide();
+        if (this.loaded) {  // don't call onHide if not yet loaded
+          this.onHide && this.onHide();
+        }
         return;
       }
 
@@ -260,6 +249,7 @@ specific language governing permissions and limitations under the License.
 
       // Cancel the max preload async
       this.cancelAsync(this._maxPreloadAsync);
+      this._maxPreloadAsync = null;
 
       if (this.active) {
         this.onShow && this.onShow();
