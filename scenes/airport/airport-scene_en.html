@@ -12,21 +12,17 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
-<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
 
 <script src="airport-scene.min.js"></script>
 
 <!--
 Airport scene.
-
-@element airport-scene
-@extends base-scene
 -->
-<polymer-element name="airport-scene" extends="base-scene">
+<dom-module id="airport-scene">
 <template>
-  <link rel="stylesheet" href="airport-scene.css" no-shim>
+  <link rel="stylesheet" href="airport-scene.css" />
   <style>
   :host([mode="cast"]) .clouds,
   :host([mode="cast"]) .big-plane,
@@ -34,15 +30,13 @@ Airport scene.
   :host([mode="cast"]) .plane--flying {
     display: none !important;
   }
-  ,
   :host([mode="cast"]) .crazy {
-    -webkit-animation: none !important;
     animation: none !important;
   }
   </style>
 
-  <core-a11y-keys target="{{}}" keys="enter space up down left right"
-                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+  <iron-a11y-keys keys="enter space up down left right"
+                  on-keys-pressed="keyHandler"></core-a11y-keys>
 
   <div id="module-airport">
     <div class="scene">
@@ -338,7 +332,9 @@ Airport scene.
 </template>
 <script>
   Polymer({
-    componentDir: 'scenes/airport/',
+    is: 'airport-scene',
+    behaviors: [window.SantaSceneBehavior],
+    belt: null,
 
     onPreload: function() {
       this.preloadSounds('airport_load_sounds');
@@ -367,7 +363,7 @@ Airport scene.
       this.fire('sound-ambient', 'airport_end');
     },
 
-    keyHandler: function(e, details, sender) {
+    keyHandler: function(e, details) {
       e.stopPropagation();
 
       switch (e.detail.key) {
@@ -387,4 +383,4 @@ Airport scene.
     }
   });
 </script>
-</polymer-element>
+</dom-module>
