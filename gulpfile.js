@@ -364,6 +364,7 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'compass', 'compile-scenes'], function
         stripExcludes: elementsImports,
         inlineScripts: true,
         inlineCss: true,
+        stripComments: true,
         dest: dest
       }))
       .pipe(i18n_replace({
@@ -379,9 +380,11 @@ gulp.task('vulcanize-codelab-frame', ['rm-dist', 'compass', 'compile-scenes'], f
     .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
     .pipe(vulcanize({
       // TODO(samthor): strip and csp were deprecated in gulp-vulcanize 1+
-      // TODO(samthor): why is codelab-frame done separetely?
+      // Note that this is a separate build as the codelab frame is its own
+      // world: it requires all imports as part of its vulcanized output.
       inlineScripts: true,
       inlineCss: true,
+      stripComments: true,
       dest: 'scenes/codelab'
     }))
     .pipe(i18n_replace({
@@ -399,6 +402,7 @@ gulp.task('vulcanize-elements', ['rm-dist', 'compass', 'compile-santa-api-servic
       // TODO(samthor): strip and csp were deprecated in gulp-vulcanize 1+
       inlineScripts: true,
       inlineCss: true,
+      stripComments: true,
       dest: 'elements'
     }))
     .pipe(i18n_replace({
@@ -432,8 +436,7 @@ gulp.task('copy-assets', ['rm-dist', 'vulcanize', 'i18n_index'], function() {
     'sass/*.css',
     'scenes/**/img/**/*.{png,jpg,svg,gif,cur}',
     'elements/**/img/*.{png,jpg,svg,gif}',
-    'components/webcomponentsjs/webcomponents.min.js',
-    'components/webcomponentsjs/webcomponents-lite.min.js',  // Polymer 1+
+    'components/webcomponentsjs/webcomponents-lite.min.js',
   ], {base: './'})
   .pipe(gulp.dest(DIST_STATIC_DIR));
 
