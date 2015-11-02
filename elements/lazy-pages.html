@@ -74,7 +74,15 @@ Lazy loads children "pages".
       // Check both path attribute and path property: property contains the
       // computed version (including language) for dev, whereas the attribute
       // will contain the actual value.
-      var path = scene.getAttribute('path');
+      var path = scene.getAttribute('path') || scene.path;
+      if (!path) {
+        // ... check path$ to work around a Polymer issue, where a $= attribute
+        // without [[]] or {{}} is not computed.
+        path = scene.getAttribute('path$');
+        if (!path) {
+          console.warn('unable to find path for scene', scene.localName);
+        }
+      }
 
       if (!path || !scene || !this.selected || scene.loaded) {
         return;
