@@ -337,7 +337,13 @@ Airport scene.
   Polymer({
     is: 'airport-scene',
     behaviors: [window.SantaSceneBehavior],
-    belt: null,
+
+    properties: {
+      _belt: {
+        type: Object,
+        value: null
+      }
+    },
 
     onPreload: function() {
       this.preloadSounds('airport_load_sounds');
@@ -357,12 +363,12 @@ Airport scene.
     onShow: function() {
       this.fire('sound-ambient', 'airport_start');
       var div = this.$['module-airport'];
-      this.belt = new scenes.airport.Belt(div);
+      this._belt = new scenes.airport.Belt(div);
     },
 
     onHide: function() {
-      this.belt.destroy();
-      this.belt = null;
+      this._belt.destroy();
+      this._belt = null;
       this.fire('sound-ambient', 'airport_end');
     },
 
@@ -372,15 +378,15 @@ Airport scene.
       switch (e.detail.key) {
         case 'right':
         case 'up':
-          this.belt.controls.updateState_(1);
+          this._belt.controls.updateState_(1);
           break;
         case 'enter':
         case 'space':
-          this.belt.controls.updateState_(0);
+          this._belt.controls.updateState_(0);
           break;
         case 'left':
         case 'down':
-          this.belt.controls.updateState_(-1);
+          this._belt.controls.updateState_(-1);
           break;
       }
     }
