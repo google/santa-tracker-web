@@ -18,16 +18,14 @@ specific language governing permissions and limitations under the License.
 <script src="../shared/js/startbutton.js"></script>
 <script src="latlong-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="latlong-scene.css" />
+
 <!--
 Lat long scene.
-
-@element latlong-scene
-@extends base-scene
 -->
 <dom-module id="latlong-scene">
 <template>
-  <link rel="stylesheet" href="latlong-scene.css" no-shim>
-
   <div id="module-latlong">
     <div class="latlong">
       <div class="scene">
@@ -340,7 +338,6 @@ Lat long scene.
   Polymer({
     is: 'latlong-scene',
     behaviors: [window.SantaSceneBehavior],
-
     game: null,
 
     onPreload: function() {

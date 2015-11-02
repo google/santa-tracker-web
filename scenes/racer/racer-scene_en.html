@@ -17,18 +17,15 @@ specific language governing permissions and limitations under the License.
 <script src="../shared/js/startbutton.js"></script>
 <script src="racer-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="racer-scene.css" />
+
 <!--
 Racer scene.
-
-@element racer-scene
-@extends base-scene
 -->
 <dom-module id="racer-scene">
 <template>
-  <link rel="stylesheet" href="racer-scene.css" no-shim>
-
   <div id="module-racer">
-
     <div class="view">
       <canvas width="576" height="640" class="game"></canvas>
     </div>
@@ -114,7 +111,7 @@ Racer scene.
             <!---->
           </div>
         </div>
-        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
+        <div class$="actions {{_computeTernary(hasClickedStart, '', 'is-collapsed')}}">
           <button type="button" class="restart"></button>
           <button type="button" class="pause"></button>
         </div>
@@ -146,10 +143,14 @@ Racer scene.
   Polymer({
     is: 'racer-scene',
     behaviors: [window.SantaSceneBehavior],
-
     game: null,
 
-    hasClickedStart: false,
+    properties: {
+      hasClickedStart: {
+        type: Boolean,
+        value: false
+      },
+    },
 
     onPreload: function() {
       this.preloadSounds('rc_load_sounds', 30);

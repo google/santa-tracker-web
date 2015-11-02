@@ -13,22 +13,21 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../../js/webanimations.html">
 
 <script src="factory-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="factory-scene.css" />
+
 <!--
 Factory scene.
-
-@element factory-scene
-@extends base-scene
 -->
 <dom-module id="factory-scene">
 <template>
-  <link rel="stylesheet" href="factory-scene.css" no-shim>
-
-  <iron-a11y-keys target="{{}}" keys="enter space up down left right"
-                  on-keys-pressed="{{keyHandler}}"></iron-a11y-keys>
+  <iron-a11y-keys keys="enter space up down left right"
+                  on-keys-pressed="keyHandler"></iron-a11y-keys>
 
   <div id="module-factory">
     <div class="scene">
@@ -180,6 +179,7 @@ Factory scene.
   Polymer({
     is: 'factory-scene',
     behaviors: [window.SantaSceneBehavior],
+    scene: null,
 
     onPreload: function() {
       this.preloadSounds('factory_load_sounds', 30);
@@ -209,7 +209,7 @@ Factory scene.
       this.fire('sound-ambient', 'factory_end');
     },
 
-    keyHandler: function(e, details, sender) {
+    keyHandler: function(e, details) {
       e.stopPropagation();
 
       switch (e.detail.key) {

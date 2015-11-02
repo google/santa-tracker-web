@@ -17,18 +17,16 @@ specific language governing permissions and limitations under the License.
 <script src="streetview-scene.min.js"></script>
 <script src="../shared/js/css_animation_helper.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="streetview-scene.css" no-shim>
+
 <!--
 Streetview scene.
-
-@element streetview-scene
-@extends base-scene
 -->
 <dom-module id="streetview-scene">
 <template>
-  <link rel="stylesheet" href="streetview-scene.css" no-shim>
-
-  <iron-a11y-keys target="{{}}" keys="left right"
-                  on-keys-pressed="{{keyHandler}}"></iron-a11y-keys>
+  <iron-a11y-keys keys="left right"
+                  on-keys-pressed="keyHandler"></iron-a11y-keys>
 
   <div id="module-streetview">
     <div class="scene">
@@ -149,6 +147,8 @@ Streetview scene.
   Polymer({
     is: 'streetview-scene',
     behaviors: [window.SantaSceneBehavior],
+    animationHelper: null,
+    scene: null,
 
     onPreload: function() {
       this.preloadSounds('streetview_load_sounds', 30);

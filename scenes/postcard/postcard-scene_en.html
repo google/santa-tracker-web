@@ -17,16 +17,15 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/google-apis/google-legacy-loader.html">
 <script src="postcard-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="postcard-scene.css" />
+
 <!--
 Postcard scene.
-
-@element postcard-scene
-@extends base-scene
 -->
 <dom-module id="postcard-scene">
 <template>
-  <link rel="stylesheet" href="postcard-scene.css" no-shim>
-  <google-legacy-loader on-api-load="{{googleAPIReady}}"></google-legacy-loader>
+  <google-legacy-loader on-api-load="googleAPIReady"></google-legacy-loader>
 
   <div id="module-postcard">
     <div class="scene">
@@ -133,18 +132,17 @@ Postcard scene.
   Polymer({
     is: 'postcard-scene',
     behaviors: [window.SantaSceneBehavior],
-
     game: null,
 
     onPreload: function() {
       this.preloadSounds('sm_load_sounds', 15);
       this.preloadImages([
-      'img/bgs-small.png',
-      'img/bgs.png',
-      'img/fgs-small.png',
-      'img/fgs.png',
-      'img/logo.svg',
-      'img/sprite.png'
+        'img/bgs-small.png',
+        'img/bgs.png',
+        'img/fgs-small.png',
+        'img/fgs.png',
+        'img/logo.svg',
+        'img/sprite.png'
       ]);
     },
     googleAPIReady: function() {

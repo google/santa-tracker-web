@@ -17,16 +17,14 @@ specific language governing permissions and limitations under the License.
 
 <script src="playground-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="playground-scene.css" />
+
 <!--
 Playground scene.
-
-@element playground-scene
-@extends base-scene
 -->
 <dom-module id="playground-scene">
 <template>
-  <link rel="stylesheet" href="playground-scene.css" no-shim>
-
   <div id="module-playground">
     <div class="scene">
       <div class="anchor">
@@ -202,6 +200,7 @@ Playground scene.
   Polymer({
     is: 'playground-scene',
     behaviors: [window.SantaSceneBehavior],
+    scene: null,
 
     onPreload: function() {
       this.preloadSounds('playground_load_sounds', 40);

@@ -17,16 +17,14 @@ specific language governing permissions and limitations under the License.
 
 <script src="commandcentre-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="commandcentre-scene.css" no-shim>
+
 <!--
 Command center scene.
-
-@element commandcentre-scene
-@extends base-scene
 -->
 <dom-module id="commandcentre-scene">
 <template>
-  <link rel="stylesheet" href="commandcentre-scene.css" no-shim>
-
   <div id="module-commandcentre">
     <div class="scene">
       <div class="anchor">
@@ -446,6 +444,7 @@ Command center scene.
   Polymer({
     is: 'commandcentre-scene',
     behaviors: [window.SantaSceneBehavior],
+    scene: null,
 
     onPreload: function() {
       this.preloadSounds('command_load_sounds', 30);

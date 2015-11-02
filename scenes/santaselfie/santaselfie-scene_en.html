@@ -18,16 +18,15 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/google-apis/google-legacy-loader.html">
 <script src="santaselfie-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="santaselfie-scene.css" />
+
 <!--
 Santaselfie scene.
-
-@element santaselfie-scene
-@extends base-scene
 -->
 <dom-module id="santaselfie-scene">
 <template>
-  <link rel="stylesheet" href="santaselfie-scene.css" no-shim>
-  <google-legacy-loader on-api-load="{{googleAPIReady}}"></google-legacy-loader>
+  <google-legacy-loader on-api-load="googleAPIReady"></google-legacy-loader>
 
   <div id="module-santaselfie">
     <div class="santaselfie">
@@ -175,7 +174,6 @@ Santaselfie scene.
   Polymer({
     is: 'santaselfie-scene',
     behaviors: [window.SantaSceneBehavior],
-
     game: null,
 
     onPreload: function() {
@@ -241,7 +239,7 @@ Santaselfie scene.
     },
 
     googleAPIReady: function() {
-
+      // TODO(samthor): Does santaselfie use Google APIs?
     },
 
     onShow: function() {
