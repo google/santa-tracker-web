@@ -13,20 +13,19 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
-<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../../js/webanimations.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
 <script src="airport-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="airport-scene.css" />
+
 <!--
 Airport scene.
-
-@element airport-scene
-@extends base-scene
 -->
 <dom-module id="airport-scene">
 <template>
-  <link rel="stylesheet" href="airport-scene.css" no-shim>
   <style>
   :host([mode="cast"]) .clouds,
   :host([mode="cast"]) .big-plane,
@@ -34,15 +33,13 @@ Airport scene.
   :host([mode="cast"]) .plane--flying {
     display: none !important;
   }
-  ,
   :host([mode="cast"]) .crazy {
-    -webkit-animation: none !important;
     animation: none !important;
   }
   </style>
 
-  <iron-a11y-keys target="{{}}" keys="enter space up down left right"
-                  on-keys-pressed="{{keyHandler}}"></iron-a11y-keys>
+  <iron-a11y-keys keys="enter space up down left right"
+                  on-keys-pressed="keyHandler"></core-a11y-keys>
 
   <div id="module-airport">
     <div class="scene">
@@ -341,6 +338,13 @@ Airport scene.
     is: 'airport-scene',
     behaviors: [window.SantaSceneBehavior],
 
+    properties: {
+      _belt: {
+        type: Object,
+        value: null
+      }
+    },
+
     onPreload: function() {
       this.preloadSounds('airport_load_sounds');
       this.preloadImages([
@@ -359,30 +363,30 @@ Airport scene.
     onShow: function() {
       this.fire('sound-ambient', 'airport_start');
       var div = this.$['module-airport'];
-      this.belt = new scenes.airport.Belt(div);
+      this._belt = new scenes.airport.Belt(div);
     },
 
     onHide: function() {
-      this.belt.destroy();
-      this.belt = null;
+      this._belt.destroy();
+      this._belt = null;
       this.fire('sound-ambient', 'airport_end');
     },
 
-    keyHandler: function(e, details, sender) {
+    keyHandler: function(e, details) {
       e.stopPropagation();
 
       switch (e.detail.key) {
         case 'right':
         case 'up':
-          this.belt.controls.updateState_(1);
+          this._belt.controls.updateState_(1);
           break;
         case 'enter':
         case 'space':
-          this.belt.controls.updateState_(0);
+          this._belt.controls.updateState_(0);
           break;
         case 'left':
         case 'down':
-          this.belt.controls.updateState_(-1);
+          this._belt.controls.updateState_(-1);
           break;
       }
     }
