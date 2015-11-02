@@ -30,8 +30,7 @@ specific language governing permissions and limitations under the License.
 <!--
 Village scene.
 
-@element village-scene
-@extends base-scene
+TODO: Not yet fully migrated to Polymer 1.0+
 -->
 <dom-module id="village-scene">
 <template>
@@ -51,7 +50,7 @@ Village scene.
   }
   </style>
 
-  <iron-a11y-keys target="{{}}" keys="left right enter esc" on-keys-pressed="{{arrowHandler}}"></iron-a11y-keys>
+  <iron-a11y-keys keys="left right enter esc" on-keys-pressed="arrowHandler"></iron-a11y-keys>
   <div id="module-village" fit>
     <div id="village-wrapper" fit>
 

@@ -20,15 +20,14 @@ specific language governing permissions and limitations under the License.
 <!--
 Video scene.
 
-@element video-scene
-@extends base-scene
+TODO: Not yet fully migrated to Polymer 1.0+
 -->
 <dom-module id="video-scene">
 <template>
   <link rel="stylesheet" href="video-scene.css" no-shim>
 
-  <iron-a11y-keys target="{{}}" keys="enter space"
-                  on-keys-pressed="{{keyHandler}}"></iron-a11y-keys>
+  <iron-a11y-keys keys="enter space"
+                  on-keys-pressed="keyHandler"></iron-a11y-keys>
 
   <div id="module-video" fit>
     <div class="scene" fit>

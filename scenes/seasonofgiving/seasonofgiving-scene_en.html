@@ -17,16 +17,14 @@ specific language governing permissions and limitations under the License.
 
 <script src="seasonofgiving-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="seasonofgiving-scene.css" />
+
 <!--
 Season of giving scene.
-
-@element seasonofgiving-scene
-@extends base-scene
 -->
 <dom-module id="seasonofgiving-scene">
 <template>
-  <link rel="stylesheet" href="seasonofgiving-scene.css" no-shim>
-
   <div id="module-seasonofgiving">
     <div class="seasonofgiving">
       <div class="scene">
@@ -391,7 +389,6 @@ Season of giving scene.
   Polymer({
     is: 'seasonofgiving-scene',
     behaviors: [window.SantaSceneBehavior],
-
     game: null,
 
     onPreload: function() {

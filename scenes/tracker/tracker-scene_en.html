@@ -29,8 +29,7 @@ specific language governing permissions and limitations under the License.
 <!--
 Tracker scene.
 
-@element tracker-scene
-@extends base-scene
+TODO: Not yet fully migrated to Polymer 1.0+
 -->
 <dom-module id="tracker-scene">
 <template>
@@ -43,7 +42,7 @@ Tracker scene.
       }
     </style>
 
-  <iron-a11y-keys target="{{}}" keys="esc" on-keys-pressed="{{keyHandler}}"></iron-a11y-keys>
+  <iron-a11y-keys keys="esc" on-keys-pressed="keyHandler"></iron-a11y-keys>
 
   <div id="module-tracker">
     <div class="scene">

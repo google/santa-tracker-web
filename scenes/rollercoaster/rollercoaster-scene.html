@@ -14,16 +14,14 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="rollercoaster-scene.css" />
+
 <!--
 Rollercoaster scene.
-
-@element rollercoaster-scene
-@extends base-scene
 -->
 <dom-module id="rollercoaster-scene">
 <template>
-  <link rel="stylesheet" href="rollercoaster-scene.css" no-shim>
-
   <div id="module-rollercoaster">
     <div class="scene">
       <div class="anchor">
@@ -209,8 +207,8 @@ Rollercoaster scene.
     };
 
     Polymer({
-    is: 'rollercoaster-scene',
-    behaviors: [window.SantaSceneBehavior],
+      is: 'rollercoaster-scene',
+      behaviors: [window.SantaSceneBehavior],
 
       /**
        * @private {CSSAnimationInterval}
