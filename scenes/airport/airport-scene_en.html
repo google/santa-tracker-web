@@ -14,15 +14,18 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
 <script src="airport-scene.min.js"></script>
+
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="airport-scene.css" />
 
 <!--
 Airport scene.
 -->
 <dom-module id="airport-scene">
 <template>
-  <link rel="stylesheet" href="airport-scene.css" />
   <style>
   :host([mode="cast"]) .clouds,
   :host([mode="cast"]) .big-plane,
