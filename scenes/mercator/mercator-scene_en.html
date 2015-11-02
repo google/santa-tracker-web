@@ -12,7 +12,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 
@@ -25,7 +25,7 @@ Mercator scene.
 @element mercator-scene
 @extends base-scene
 -->
-<polymer-element name="mercator-scene" extends="base-scene">
+<dom-module id="mercator-scene">
 <template>
   <link rel="stylesheet" href="mercator-scene.css" no-shim>
 
@@ -291,7 +291,8 @@ Mercator scene.
 <script>
 (function() {
   Polymer({
-    componentDir: 'scenes/mercator/',
+    is: 'mercator-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     game: null,
 
@@ -342,4 +343,4 @@ Mercator scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

@@ -12,7 +12,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 
 <script src="../shared/js/startbutton.js"></script>
 <script src="gumball-scene.min.js"></script>
@@ -23,7 +23,7 @@ Gumball scene.
 @element gumball-scene
 @extends base-scene
 -->
-<polymer-element name="gumball-scene" extends="base-scene">
+<dom-module id="gumball-scene">
 <template>
   <link rel="stylesheet" href="gumball-scene.css" no-shim>
 
@@ -223,7 +223,8 @@ Gumball scene.
 <script>
 (function() {
   Polymer({
-    componentDir: 'scenes/gumball/',
+    is: 'gumball-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     game: null,
 
@@ -269,4 +270,4 @@ Gumball scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

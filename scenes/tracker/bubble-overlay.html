@@ -21,7 +21,7 @@ Canvas overlay to draw animated cut-out bubbles over the content.
 
 @element bubble-overlay
 -->
-<polymer-element name="bubble-overlay" attributes="color">
+<dom-module id="bubble-overlay" attributes="color">
 <template>
   <style>
     :host {
@@ -40,6 +40,7 @@ Canvas overlay to draw animated cut-out bubbles over the content.
 </template>
 <script>
   Polymer({
+    is: 'bubble-overlay',
 
     /**
      * Color of the overlay.
@@ -100,7 +101,7 @@ Canvas overlay to draw animated cut-out bubbles over the content.
     }
   });
 </script>
-</polymer-element>
+</dom-module>
 
 
 <!--
@@ -109,7 +110,7 @@ Must be a child of bubble-overlay.
 
 @element canvas-bubble
 -->
-<polymer-element name="canvas-bubble" attributes="x y">
+<dom-module id="canvas-bubble" attributes="x y">
 <template>
   <style>
     :host {
@@ -215,4 +216,4 @@ Must be a child of bubble-overlay.
     }
   });
 </script>
-</polymer-element>
+</dom-module>

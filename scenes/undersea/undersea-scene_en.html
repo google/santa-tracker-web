@@ -12,7 +12,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 
 <!--
 Undersea scene.
@@ -20,7 +20,7 @@ Undersea scene.
 @element undersea-scene
 @extends base-scene
 -->
-<polymer-element name="undersea-scene" extends="base-scene">
+<dom-module id="undersea-scene">
 <template>
   <link rel="stylesheet" href="undersea-scene.css" no-shim>
 
@@ -127,7 +127,8 @@ Undersea scene.
 </template>
 <script>
   Polymer({
-    componentDir: 'scenes/undersea/',
+    is: 'undersea-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     onPreload: function(preloader) {
       this.preloadSounds('undersea_load_sounds', 20);
@@ -161,4 +162,4 @@ Undersea scene.
     }
   });
 </script>
-</polymer-element>
+</dom-module>

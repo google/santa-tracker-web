@@ -14,7 +14,7 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
 <link rel="import" href="../../components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="tracker-intro.html">
 <link rel="import" href="city-feed/city-feed.html">
@@ -32,7 +32,7 @@ Tracker scene.
 @element tracker-scene
 @extends base-scene
 -->
-<polymer-element name="tracker-scene" extends="base-scene">
+<dom-module id="tracker-scene">
 <template>
   <link rel="stylesheet" href="tracker-scene.css" no-shim>
   <style>
@@ -43,7 +43,7 @@ Tracker scene.
       }
     </style>
 
-  <core-a11y-keys target="{{}}" keys="esc" on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+  <iron-a11y-keys target="{{}}" keys="esc" on-keys-pressed="{{keyHandler}}"></iron-a11y-keys>
 
   <div id="module-tracker">
     <div class="scene">
@@ -266,7 +266,8 @@ Tracker scene.
 (function() {
 
   Polymer({
-    componentDir: 'scenes/tracker/',
+    is: 'tracker-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     /**
      * Fired when the tracker
@@ -761,4 +762,4 @@ Tracker scene.
   });
 })();
 </script>
-</polymer-element>
+</dom-module>

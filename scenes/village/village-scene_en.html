@@ -12,8 +12,8 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
-<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
 <link rel="import" href="../../elements/i18n-msg.html">
@@ -33,7 +33,7 @@ Village scene.
 @element village-scene
 @extends base-scene
 -->
-<polymer-element name="village-scene" extends="base-scene">
+<dom-module id="village-scene">
 <template>
   <link rel="stylesheet" href="village-scene.css" no-shim>
   <style>
@@ -51,7 +51,7 @@ Village scene.
   }
   </style>
 
-  <core-a11y-keys target="{{}}" keys="left right enter esc" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
+  <iron-a11y-keys target="{{}}" keys="left right enter esc" on-keys-pressed="{{arrowHandler}}"></iron-a11y-keys>
   <div id="module-village" fit>
     <div id="village-wrapper" fit>
 
@@ -233,7 +233,8 @@ Village scene.
   }
 
   Polymer({
-    componentDir: 'scenes/village/',
+    is: 'village-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     updateScheduled_: false,
     villageWidth_: 12740, // Defined in _variables.scss, but also recalculated below.
@@ -814,4 +815,4 @@ Village scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

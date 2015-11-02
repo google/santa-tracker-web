@@ -12,8 +12,8 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
-<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../../js/webanimations.html">
 
 <script src="briefing-scene.min.js"></script>
@@ -24,12 +24,12 @@ Briefing scene.
 @element briefing-scene
 @extends base-scene
 -->
-<polymer-element name="briefing-scene" extends="base-scene">
+<dom-module id="briefing-scene">
 <template>
   <link rel="stylesheet" href="briefing-scene.css" no-shim>
 
-  <core-a11y-keys target="{{}}" keys="enter space left right down up"
-                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+  <iron-a11y-keys target="{{}}" keys="enter space left right down up"
+                  on-keys-pressed="{{keyHandler}}"></iron-a11y-keys>
 
   <div id="module-briefing">
     <div class="scene">
@@ -315,7 +315,8 @@ Briefing scene.
 <script>
 (function() {
   Polymer({
-    componentDir: 'scenes/briefing/',
+    is: 'briefing-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     game: null,
 
@@ -379,4 +380,4 @@ Briefing scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

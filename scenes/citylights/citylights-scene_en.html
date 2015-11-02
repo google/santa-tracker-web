@@ -12,7 +12,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
 
 <script src="citylights-scene.min.js"></script>
@@ -23,12 +23,12 @@ City lights scene.
 @element citylights-scene
 @extends base-scene
 -->
-<polymer-element name="citylights-scene" extends="base-scene">
+<dom-module id="citylights-scene">
 <template>
   <link rel="stylesheet" href="citylights-scene.css" no-shim>
 
-  <core-a11y-keys target="{{}}" keys="left right"
-                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+  <iron-a11y-keys target="{{}}" keys="left right"
+                  on-keys-pressed="{{keyHandler}}"></iron-a11y-keys>
 
   <div id="module-citylights">
     <div class="scene">
@@ -167,7 +167,8 @@ City lights scene.
 </template>
 <script>
   Polymer({
-    componentDir: 'scenes/citylights/',
+    is: 'citylights-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     scene: null,
 
@@ -221,4 +222,4 @@ City lights scene.
     }
   });
 </script>
-</polymer-element>
+</dom-module>

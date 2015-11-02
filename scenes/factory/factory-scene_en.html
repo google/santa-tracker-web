@@ -12,7 +12,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
 
 <script src="factory-scene.min.js"></script>
@@ -23,12 +23,12 @@ Factory scene.
 @element factory-scene
 @extends base-scene
 -->
-<polymer-element name="factory-scene" extends="base-scene">
+<dom-module id="factory-scene">
 <template>
   <link rel="stylesheet" href="factory-scene.css" no-shim>
 
-  <core-a11y-keys target="{{}}" keys="enter space up down left right"
-                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+  <iron-a11y-keys target="{{}}" keys="enter space up down left right"
+                  on-keys-pressed="{{keyHandler}}"></iron-a11y-keys>
 
   <div id="module-factory">
     <div class="scene">
@@ -178,7 +178,8 @@ Factory scene.
 </template>
 <script>
   Polymer({
-    componentDir: 'scenes/factory/',
+    is: 'factory-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     onPreload: function() {
       this.preloadSounds('factory_load_sounds', 30);
@@ -228,4 +229,4 @@ Factory scene.
     }
   });
 </script>
-</polymer-element>
+</dom-module>

@@ -330,6 +330,28 @@ function addCompilerFlagOptions(opts) {
 }
 
 gulp.task('vulcanize-scenes', ['rm-dist', 'compass', 'compile-scenes'], function() {
+  // These are the 'common' elements inlined in elements_en.html. They can be
+  // safely stripped (i.e., not inlined) from all scenes.
+  // TODO(samthor): Automatically list inlined files from elements_en.html.
+  var elementsImports = [
+    'js/jquery.html',
+    'js/modernizr.html',
+    'js/webanimations.html',
+    'components/polymer/polymer.html',
+    'scenes/scene-behavior.html',
+    'elements/i18n-msg.html',
+    'components/iron-jsonp-library/iron-jsonp-library.html',
+    'components/iron-a11y-keys/iron-a11y-keys.html',
+    'components/google-apis/google-client-loader.html',
+    'components/google-apis/google-maps-api.html',
+    'components/google-apis/google-js-api.html', // tracker
+    'components/google-apis/google-legacy-loader.html',
+    'components/google-apis/google-plusone-api.html', // tracker
+    'components/google-apis/google-youtube-api.html', // tracker
+    'components/iron-selector/iron-selector.html',
+    'components/iron-pages/iron-pages.html',
+    'components/paper-item/paper-item.html'
+  ];
   return gulp.src([
       'scenes/*/*-scene*.html'
     ], {base: './'})
@@ -338,38 +360,17 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'compass', 'compile-scenes'], function
     .pipe(foreach(function(stream, file) {
       var dest = path.dirname(path.relative(__dirname, file.path));
       return stream.pipe(vulcanize({
-        excludes: {
-          // these are inlined in elements.html
-          imports: [
-            'jquery.html$',
-            'modernizr.html$',
-            'polymer.html$',
-            'base-scene.html$',
-            'i18n-msg.html$',
-            'core-a11y-keys.html$',
-            'core-shared-lib.html$',
-            'google-maps-api.html$',
-            'google-client-api.html',
-            'google-plusone-api.html', // tracker
-            'google-youtube-api.html',// tracker
-            'google-jsapi.html', // tracker
-            'core-selection.html',
-            'core-selector.html',
-            'core-pages.html',
-            'paper-fab.html',
-            'paper-item.html'
-          ]
-        },
-        strip: !argv.pretty,
-        csp: true,
-        inline: true,
+        // TODO(samthor): strip and csp were deprecated in gulp-vulcanize 1+
+        stripExcludes: elementsImports,
+        inlineScripts: true,
+        inlineCss: true,
         dest: dest
       }))
       .pipe(i18n_replace({
         strict: !!argv.strict,
         path: '_messages',
       }))
-      .pipe(gulp.dest(path.join(DIST_STATIC_DIR, dest)));
+      .pipe(gulp.dest(DIST_STATIC_DIR));
     }));
 });
 
@@ -377,33 +378,34 @@ gulp.task('vulcanize-codelab-frame', ['rm-dist', 'compass', 'compile-scenes'], f
   return gulp.src('scenes/codelab/codelab-frame_en.html', {base: './'})
     .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
     .pipe(vulcanize({
-      strip: !argv.pretty,
-      csp: true,
-      inline: true,
+      // TODO(samthor): strip and csp were deprecated in gulp-vulcanize 1+
+      // TODO(samthor): why is codelab-frame done separetely?
+      inlineScripts: true,
+      inlineCss: true,
       dest: 'scenes/codelab'
     }))
     .pipe(i18n_replace({
       strict: !!argv.strict,
       path: '_messages'
     }))
-    .pipe(gulp.dest(DIST_STATIC_DIR + '/scenes/codelab/'));
+    .pipe(gulp.dest(DIST_STATIC_DIR));
 });
 
-// vulcanize elements separately as we want to inline polymer.html and
-// base-scene.html here
+// Vulcanize elements separately, as we want to inline the majority common code
+// here.
 gulp.task('vulcanize-elements', ['rm-dist', 'compass', 'compile-santa-api-service'], function() {
   return gulp.src('elements/elements_en.html', {base: './'})
     .pipe(vulcanize({
-      strip: !argv.pretty,
-      csp: true,
-      inline: true,
-      dest: 'elements/'
+      // TODO(samthor): strip and csp were deprecated in gulp-vulcanize 1+
+      inlineScripts: true,
+      inlineCss: true,
+      dest: 'elements'
     }))
     .pipe(i18n_replace({
       strict: !!argv.strict,
       path: '_messages',
     }))
-    .pipe(gulp.dest(DIST_STATIC_DIR + '/elements/'));
+    .pipe(gulp.dest(DIST_STATIC_DIR));
 });
 
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements', 'vulcanize-codelab-frame']);
@@ -430,7 +432,8 @@ gulp.task('copy-assets', ['rm-dist', 'vulcanize', 'i18n_index'], function() {
     'sass/*.css',
     'scenes/**/img/**/*.{png,jpg,svg,gif,cur}',
     'elements/**/img/*.{png,jpg,svg,gif}',
-    'components/webcomponentsjs/webcomponents.min.js'
+    'components/webcomponentsjs/webcomponents.min.js',
+    'components/webcomponentsjs/webcomponents-lite.min.js',  // Polymer 1+
   ], {base: './'})
   .pipe(gulp.dest(DIST_STATIC_DIR));
 

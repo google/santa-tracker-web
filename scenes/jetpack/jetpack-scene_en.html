@@ -12,7 +12,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 
 <script src="../shared/js/startbutton.js"></script>
 <script src="jetpack-scene.min.js"></script>
@@ -23,7 +23,7 @@ Jetpack scene.
 @element jetpack-scene
 @extends base-scene
 -->
-<polymer-element name="jetpack-scene" extends="base-scene">
+<dom-module id="jetpack-scene">
 <template>
   <link rel="stylesheet" href="jetpack-scene.css" no-shim>
 
@@ -130,7 +130,8 @@ Jetpack scene.
 <script>
 (function() {
   Polymer({
-    componentDir: 'scenes/jetpack/',
+    is: 'jetpack-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     game: null,
 
@@ -174,4 +175,4 @@ Jetpack scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

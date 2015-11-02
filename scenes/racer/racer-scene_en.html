@@ -12,7 +12,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 
 <script src="../shared/js/startbutton.js"></script>
 <script src="racer-scene.min.js"></script>
@@ -23,7 +23,7 @@ Racer scene.
 @element racer-scene
 @extends base-scene
 -->
-<polymer-element name="racer-scene" extends="base-scene">
+<dom-module id="racer-scene">
 <template>
   <link rel="stylesheet" href="racer-scene.css" no-shim>
 
@@ -144,7 +144,8 @@ Racer scene.
 <script>
 (function() {
   Polymer({
-    componentDir: 'scenes/racer/',
+    is: 'racer-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     game: null,
 
@@ -187,4 +188,4 @@ Racer scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

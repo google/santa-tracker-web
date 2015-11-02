@@ -12,7 +12,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 
 <!--
 Workshop scene.
@@ -20,7 +20,7 @@ Workshop scene.
 @element workshop-scene
 @extends base-scene
 -->
-<polymer-element name="workshop-scene" extends="base-scene">
+<dom-module id="workshop-scene">
 <template>
   <link rel="stylesheet" href="workshop-scene.css" no-shim>
 
@@ -96,6 +96,9 @@ Workshop scene.
 </template>
 <script>
   Polymer({
+    is: 'workshop-scene',
+    behaviors: [window.SantaSceneBehavior],
+
     /**
      * @private {boolean}
      */
@@ -246,4 +249,4 @@ Workshop scene.
     }
   });
 </script>
-</polymer-element>
+</dom-module>

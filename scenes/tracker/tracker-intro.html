@@ -24,7 +24,7 @@ Intro for the tracker scene.
 
 @element tracker-intro
 -->
-<polymer-element name="tracker-intro" attributes="userLocation santaLocation santaDistance"
+<dom-module id="tracker-intro" attributes="userLocation santaLocation santaDistance"
                  on-transitionend="{{goesOffScreen}}">
 <template>
   <style>
@@ -100,6 +100,8 @@ Intro for the tracker scene.
   var BUBBLE_RADIUS_SMALL = 60;
 
   Polymer({
+    is: 'tracker-intro',
+
     /**
      * Name and coords of the user's location.
      *
@@ -423,4 +425,4 @@ Intro for the tracker scene.
   });
 })();
 </script>
-</polymer-element>
+</dom-module>

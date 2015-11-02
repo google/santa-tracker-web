@@ -12,7 +12,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
 
 <script src="../shared/js/startbutton.js"></script>
@@ -24,7 +24,7 @@ Lat long scene.
 @element latlong-scene
 @extends base-scene
 -->
-<polymer-element name="latlong-scene" extends="base-scene">
+<dom-module id="latlong-scene">
 <template>
   <link rel="stylesheet" href="latlong-scene.css" no-shim>
 
@@ -338,7 +338,8 @@ Lat long scene.
 <script>
 (function() {
   Polymer({
-    componentDir: 'scenes/latlong/',
+    is: 'latlong-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     game: null,
 
@@ -377,4 +378,4 @@ Lat long scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

@@ -19,7 +19,7 @@ Countdown timer.
 
 @element countdown-timer
 -->
-<polymer-element name="countdown-timer" attributes="santaService countDownEndDate finished">
+<dom-module id="countdown-timer" attributes="santaService countDownEndDate finished">
   <template>
     <link rel="stylesheet" href="countdown-timer.css" no-shim>
     <style>
@@ -57,6 +57,7 @@ Countdown timer.
     var TRANSITION_TIME_ = 300;
 
     Polymer({
+      is: 'countdown-timer',
 
       /**
        * Optional container element to render the countdown into. If `render`
@@ -321,4 +322,4 @@ Countdown timer.
 
   })();
   </script>
-</polymer-element>
+</dom-module>

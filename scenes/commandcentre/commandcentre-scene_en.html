@@ -12,7 +12,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
 
 <script src="commandcentre-scene.min.js"></script>
@@ -23,7 +23,7 @@ Command center scene.
 @element commandcentre-scene
 @extends base-scene
 -->
-<polymer-element name="commandcentre-scene" extends="base-scene">
+<dom-module id="commandcentre-scene">
 <template>
   <link rel="stylesheet" href="commandcentre-scene.css" no-shim>
 
@@ -444,7 +444,8 @@ Command center scene.
 </template>
 <script>
   Polymer({
-    componentDir: 'scenes/commandcentre/',
+    is: 'commandcentre-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     onPreload: function() {
       this.preloadSounds('command_load_sounds', 30);
@@ -569,4 +570,4 @@ Command center scene.
     }
   });
 </script>
-</polymer-element>
+</dom-module>
