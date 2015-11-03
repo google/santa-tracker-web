@@ -193,19 +193,19 @@ Video scene.
       /**
        * The currentTime of the video. Bound to the `google-youtube` element.
        */
-      currentTime: { type: Number },
+      currentTime: {type: Number},
 
       /**
        * The formtted currentTime of the video. Bound to `google-youtube`,
        * where the property is readOnly.
        */
-      _currentTimeFormatted: { type: String },
+      _currentTimeFormatted: {type: String},
 
       /**
        * The duration of the video. Bound to `google-youtube`, where the
        * property is readOnly.
        */
-      _duration: { type: Number },
+      _duration: {type: Number},
     },
 
     /**
@@ -229,7 +229,6 @@ Video scene.
     },
 
     hidePoster: function(e, detail) {
-      console.info('hiding poster');
       this.$.poster.hidden = true;
     },
 
@@ -313,8 +312,8 @@ Video scene.
       }
     },
 
-    keyHandler: function(e, details) {
-      switch (e.detail.key) {
+    keyHandler: function(e, detail) {
+      switch (detail.key) {
         case 'enter':
         case 'space':
           e.stopPropagation();
