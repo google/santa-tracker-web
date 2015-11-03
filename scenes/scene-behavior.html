@@ -130,24 +130,33 @@ specific language governing permissions and limitations under the License.
         }
       },
 
+      /**
+       * The relative path of the scene folder from the main app root folder.
+       * (e.g 'scenes/village/').
+       */
+      componentDir: {
+        type: String,
+        readOnly: true,
+        value: function() {
+          // Set inside created: callback.
+          return this._componentDir;
+        }
+      },
+
     },
 
     listeners: {'scene-pause': '_handlePause'},
 
-    componentDir_: null,
-    santaApp_: null,
-
-    get componentDir() {
-      return this.componentDir_;
-    },
+    _santaApp: null,
+    _componentDir: null,
 
     get santaApp() {
-      return this.santaApp_;
+      return this._santaApp;
     },
 
     created: function() {
       // TODO(samthor): This finds the whole domain, can probably just be relative URL
-      this.componentDir_ = this.resolveUrl('.');
+      this._componentDir = this.resolveUrl('.');
     },
 
     attached: function() {
