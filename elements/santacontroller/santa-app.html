@@ -147,6 +147,15 @@ Santa Tracker app.
     <undersea-scene route="undersea"
         path$="scenes/undersea/undersea-scene_[[language]].html"></undersea-scene>
 
+    <!-- NOTE: when these scenes are visited and then left, they are removed and
+         appended to the end of lazy-pages. This is fine as long as VIDEO_ROUTES
+         isn't modified (if it is, prevSelectedRouteChanged will need to be
+         modified). -->
+    <template is="dom-repeat" items="{{VIDEO_ROUTES}}">
+      <video-scene route$="{{item}}"
+          path$="scenes/videoscene/video-scene_[[language]].html"></video-scene>
+    </template>
+
     <!-- TODO: rest of scenes to Polymer 1.0 -->
 
   </lazy-pages>
