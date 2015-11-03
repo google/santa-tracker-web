@@ -17,15 +17,15 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/google-apis/google-legacy-loader.html">
 <script src="jamband-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="jamband-scene.css" />
+
 <!--
 Jamband scene.
-
-TODO: Not yet fully migrated to Polymer 1.0+
 -->
-<dom-module id="jamband-scene" on-sounds-loaded="{{onSoundsLoaded}}">
+<dom-module id="jamband-scene">
 <template>
-  <link rel="stylesheet" href="jamband-scene.css" no-shim>
-  <google-legacy-loader on-api-load="{{googleAPIReady}}"></google-legacy-loader>
+  <google-legacy-loader on-api-load="googleAPIReady"></google-legacy-loader>
 
   <div id="module-jamband">
     <div class="jamband">
@@ -196,7 +196,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
             </div>
             <div id="drawer-arrow--right" class="Drawer-arrow Drawer-arrow--right"></div>
             <div id="drawer-button--random" class="Button Button--noText Button--round Button-random"></div>
-            <div id="drawer-button--share" class="Button Button-share" hidden?="{{!shareReady}}">
+            <div id="drawer-button--share" class="Button Button-share" hidden$="{{!shareReady}}">
               <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
             </div>
           </div>
@@ -207,7 +207,9 @@ TODO: Not yet fully migrated to Polymer 1.0+
               <div class="shareOverlay-image"></div>
             </div>
             <div class="shareOverlay-buttons">
-              <p class="shareOverlay-label">Copy this link to share</p>
+              <p class="shareOverlay-label">
+                <i18n-msg msgid="copy-me">PLACEHOLDER_i18n</i18n-msg>
+              </p>
               <input type="url" readonly="readonly" class="shareOverlay-url"/>
               <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
             </div>
@@ -223,7 +225,9 @@ TODO: Not yet fully migrated to Polymer 1.0+
       </div>
       <div class="force-rotate landscape">
         <div class="force-rotate-graphic"></div>
-        <div class="force-rotate-explanation">Tilt your device!</div>
+        <div class="force-rotate-explanation">
+          <i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg>
+        </div>
       </div>
     </div>
   </div>
@@ -238,27 +242,30 @@ TODO: Not yet fully migrated to Polymer 1.0+
   Polymer({
     is: 'jamband-scene',
     behaviors: [window.SantaSceneBehavior],
-
     game: null,
 
-    /**
-     * Whether the `<google-legacy-loader>` is loaded and ready to create the share
-     * overlay.
-     *
-     * @property shareReady
-     * @type boolean
-     * @default false
-     */
-    shareReady: false,
+    properties: {
+      /**
+       * Whether the `<google-legacy-loader>` is loaded and ready to create the share
+       * overlay.
+       */
+      shareReady: {
+        type: Boolean,
+        value: false
+      },
 
-    /**
-     * Whether the band has already started.
-     *
-     * @property bandStarted
-     * @type boolean
-     * @default false
-     */
-    bandStarted: false,
+      /**
+       * Whether the band has already started.
+       */
+      bandStarted: {
+        type: Boolean,
+        value: false
+      }
+    },
+
+    listeners: {
+      'sounds-loaded': 'onSoundsLoaded'
+    },
 
     onPreload: function() {
       this.preloadSounds('jamband_load_sounds', 60);
@@ -293,7 +300,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
       }
     },
 
-    onSoundsLoaded: function(e, soundsName, sender) {
+    onSoundsLoaded: function(e, soundsName) {
       if (soundsName === 'jamband_load_sounds') {
         soundsLoaded = true;
         this.gatedStartBand();
