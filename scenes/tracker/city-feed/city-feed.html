@@ -25,24 +25,34 @@ Utility element to use response HTML returned by the Santa Tracker API.
 
 @element html-echo
 -->
-<polymer-element name="html-echo" attributes="html">
+<dom-module id="html-echo">
 <script>
 Polymer({
+  is: 'html-echo',
+
+  properties: {
+    html: {
+      type: String,
+      value: null,
+      observers: 'htmlChanged'
+    }
+  },
+
   htmlChanged: function() {
     if (this.html) {
-      this.innerHTML = this.html;
+      Polymer.dom(this).innerHTML = this.html;
     }
   }
 });
 </script>
-</polymer-element>
+</dom-module>
 
 <!--
 City feed view in Tracker
 
 @element city-feed
 -->
-<polymer-element name="city-feed" attributes="active location timeline santaApp videoMap">
+<dom-module id="city-feed" attributes="active location timeline santaApp videoMap">
 <template>
 <link rel="stylesheet" href="city-feed.css" no-shim>
 <style>
@@ -128,12 +138,12 @@ City feed view in Tracker
                   <h4 class="white">{{model.stop.region}}</h4>
                   <h1>{{model.stop.city}}</h1>
                 </div>
-                <core-selector id="cardselector" class="card-icons" selected="{{model.selectedCard}}" on-core-activate="{{onCardSelected}}">
+                <iron-selector id="cardselector" class="card-icons" selected="{{model.selectedCard}}" on-core-activate="{{onCardSelected}}">
                   <img src="img/tracker-and-city-SVGs_feed-city-icon.svg" data-name="photo" hidden?="{{!model.stop.details.photos[0]}}">
                   <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg" data-name="photo" hidden?="{{!model.stop.details.photos[1]}}">
                   <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg" data-name="streetview" hidden?="{{!model.stop.details.streetView}}">
                   <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg" on-tap="{{onWikipedia}}" data-name="wikipedia" hidden?="{{!model.stop.details.hasWiki}}">
-                </core-selector>
+                </iron-selector>
                 <div class="stats">
                   <div layout horizontal>
                     <div>
@@ -234,7 +244,7 @@ var destLookup_ = {};
 CARD_CENTERED_THRESHOLD_ = 100; // Top/bottom margin of a stream card to declare it as centered on screen.
 
 Polymer({
-  componentDir: 'scenes/tracker/',
+  is: 'city-feed',
 
   publish: {
     /**
@@ -540,4 +550,4 @@ Polymer({
 
 })();
 </script>
-</polymer-element>
+</dom-module>

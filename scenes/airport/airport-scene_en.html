@@ -338,12 +338,7 @@ Airport scene.
     is: 'airport-scene',
     behaviors: [window.SantaSceneBehavior],
 
-    properties: {
-      _belt: {
-        type: Object,
-        value: null
-      }
-    },
+    _belt: null,
 
     onPreload: function() {
       this.preloadSounds('airport_load_sounds');

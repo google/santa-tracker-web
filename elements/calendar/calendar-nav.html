@@ -12,7 +12,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../../scenes/base-scene.html">
+<link rel="import" href="../../scenes/scene-behavior.html">
 <link rel="import" href="../../components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../../components/neon-animation/neon-animated-pages.html">
 <link rel="import" href="../../components/paper-fab/paper-fab.html">
@@ -36,7 +36,7 @@ Village calendar navigation.
 @element calendar-nav
 @extends base-scene
 -->
-<polymer-element name="calendar-nav" extends="base-scene" attributes="houses mute">
+<dom-module id="calendar-nav" attributes="houses mute">
   <template>
     <link rel="stylesheet" href="calendar-nav.css" no-shim>
     <style>
@@ -284,6 +284,9 @@ Village calendar navigation.
   <script>
   (function() {
     Polymer({
+      is: 'calendar-nav',
+      behaviors: [window.SantaSceneBehavior],
+
       opened: false,
       opening: false,
       closed: true,
@@ -561,4 +564,4 @@ Village calendar navigation.
 
   })();
   </script>
-</polymer-element>
+</dom-module>

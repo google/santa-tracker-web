@@ -18,13 +18,14 @@ specific language governing permissions and limitations under the License.
 
 <script src="windtunnel-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="windtunnel-scene.css" />
+
 <!--
 Wind tunnel scene.
 -->
 <dom-module id="windtunnel-scene">
 <template>
-  <link rel="stylesheet" href="windtunnel-scene.css" />
-
   <iron-a11y-keys keys="enter space left right down up"
                   on-keys-pressed="keyHandler"></iron-a11y-keys>
 
@@ -227,5 +228,5 @@ Wind tunnel scene.
     }
   });
 </script>
-</polymer-element>
+</dom-module>
 

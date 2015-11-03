@@ -12,7 +12,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 
 <script src="codelab-scene.min.js"></script>
 <link rel="import" href="../../js/webanimations.html">
@@ -23,7 +23,7 @@ Codelab scene.
 @element codelab-scene
 @extends base-scene
 -->
-<polymer-element name="codelab-scene" extends="base-scene">
+<dom-module id="codelab-scene">
 <template>
   <link rel="stylesheet" href="codelab-scene.css" no-shim>
 
@@ -155,7 +155,8 @@ Codelab scene.
 <script>
 (function() {
   Polymer({
-    componentDir: 'scenes/codelab/',
+    is: 'codelab-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     frame: null,
 
@@ -189,4 +190,4 @@ Codelab scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

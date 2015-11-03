@@ -14,7 +14,7 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../../components/google-apis/google-maps-api.html">
 
-<polymer-element name="map-hint" attributes="place santaApp">
+<dom-module id="map-hint" attributes="place santaApp">
 <template>
   <link rel="stylesheet" href="map-hint.css" no-shim>
   <div id="map" fit></div>
@@ -31,6 +31,8 @@ specific language governing permissions and limitations under the License.
 </template>
 <script>
   Polymer({
+    is: 'map-hint',
+
     observe: {
       'place': 'onSearch'
     },
@@ -114,4 +116,4 @@ specific language governing permissions and limitations under the License.
     }
   });
 </script>
-</polymer-element>
+</dom-module>

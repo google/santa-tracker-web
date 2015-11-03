@@ -12,23 +12,22 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../components/google-youtube/google-youtube.html">
 <link rel="import" href="../../elements/i18n-msg.html">
-<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
 <!--
 Video scene.
 
-@element video-scene
-@extends base-scene
+TODO: Not yet fully migrated to Polymer 1.0+
 -->
-<polymer-element name="video-scene" extends="base-scene">
+<dom-module id="video-scene">
 <template>
   <link rel="stylesheet" href="video-scene.css" no-shim>
 
-  <core-a11y-keys target="{{}}" keys="enter space"
-                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+  <iron-a11y-keys keys="enter space"
+                  on-keys-pressed="keyHandler"></iron-a11y-keys>
 
   <div id="module-video" fit>
     <div class="scene" fit>
@@ -70,7 +69,8 @@ Video scene.
 </template>
 <script>
   Polymer({
-    componentDir: 'scenes/videoscene/',
+    is: 'video-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     /**
      * True if the video is paused.
@@ -296,4 +296,4 @@ Video scene.
     }
   });
 </script>
-</polymer-element>
+</dom-module>

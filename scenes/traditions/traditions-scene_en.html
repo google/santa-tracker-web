@@ -12,10 +12,10 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
-<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
 <link rel="import" href="dependencies.html">
 <script src="../shared/js/mapstyles.js"></script>
@@ -23,10 +23,9 @@ specific language governing permissions and limitations under the License.
 <!--
 Traditions scene.
 
-@element traditions-scene
-@extends base-scene
+TODO: Not yet fully migrated to Polymer 1.0+
 -->
-<polymer-element name="traditions-scene" extends="base-scene">
+<dom-module id="traditions-scene">
 <template>
   <link rel="stylesheet" href="traditions-scene.css" no-shim>
   <style>
@@ -43,7 +42,7 @@ Traditions scene.
   }
   </style>
 
-  <core-a11y-keys target="{{}}" keys="up down left right space enter" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
+  <iron-a11y-keys target="{{}}" keys="up down left right space enter" on-keys-pressed="{{arrowHandler}}"></iron-a11y-keys>
 
   <div id="module-traditions">
 
@@ -155,7 +154,8 @@ Traditions scene.
 <script>
 (function() {
   Polymer({
-    componentDir: 'scenes/traditions/',
+    is: 'traditions-scene',
+    behaviors: [window.SantaSceneBehavior],
     traditions: null,
     shown: false,
 
@@ -266,4 +266,4 @@ Traditions scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

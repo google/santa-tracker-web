@@ -36,19 +36,11 @@ goog.provide('Box2D');
 
 Box2D = {};
 
-(function (a2j, undefined) {
+(function(a2j) {
 
-  if(!(Object.prototype.defineProperty instanceof Function)
-    && Object.prototype.__defineGetter__ instanceof Function
-    && Object.prototype.__defineSetter__ instanceof Function)
-  {
-    Object.defineProperty = function(obj, p, cfg) {
-      if(cfg.get instanceof Function)
-        obj.__defineGetter__(p, cfg.get);
-      if(cfg.set instanceof Function)
-        obj.__defineSetter__(p, cfg.set);
-    }
-  }
+  // NOTE: Box2D specified a custom defineProperty method which causes issues
+  // with Polymer 1+, and is unnessecary for the browsers we support anyway.
+  // It's been removed from the original version of this port.
 
   function emptyFn() {};
   a2j.inherit = function(cls, base) {
