@@ -17,17 +17,17 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
-<link rel="import" href="dependencies.html">
+<script src="js/traditions.js"></script>
 <script src="../shared/js/mapstyles.js"></script>
+
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="traditions-scene.css" />
 
 <!--
 Traditions scene.
-
-TODO: Not yet fully migrated to Polymer 1.0+
 -->
 <dom-module id="traditions-scene">
 <template>
-  <link rel="stylesheet" href="traditions-scene.css" no-shim>
   <style>
   :host([mode="cast"]) .sceneboard,
   :host([mode="cast"]) #lessons-popup {
@@ -42,16 +42,14 @@ TODO: Not yet fully migrated to Polymer 1.0+
   }
   </style>
 
-  <iron-a11y-keys target="{{}}" keys="up down left right space enter" on-keys-pressed="{{arrowHandler}}"></iron-a11y-keys>
+  <iron-a11y-keys keys="up down left right space enter"
+                  on-keys-pressed="arrowHandler"></iron-a11y-keys>
 
   <div id="module-traditions">
-
     <div class="scene">
-      <template if="{{santaApp}}">
-        <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
-                         libraries="places,geometry" language="{{santaApp.language}}"
-                         on-api-load="{{mapsAPIReady}}"></google-maps-api>
-      </template>
+      <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
+                       libraries="places,geometry" language="{{santaApp.language}}"
+                       on-api-load="mapsAPIReady"></google-maps-api>
       <div id="traditions-map"></div>
       <div id="tradition-img"></div>
       <div class="traditions-all">
@@ -125,16 +123,16 @@ TODO: Not yet fully migrated to Polymer 1.0+
         </div>
       </div>
       <div id="lessons-popup" hidden>
-        <p>K-12 teachers: <span id="teacher-elf"></span> Download lesson plans aligned with the Common Core <a href="{{pageUrl}}#" on-click="{{toggleLessons}}">here</a></p>
+        <p>K-12 teachers: <span id="teacher-elf"></span> Download lesson plans aligned with the Common Core <a href="{{pageUrl}}#" on-click="toggleLessons">here</a></p>
       </div>
       <div id="lessons" hidden>
         <div id="lessons-inner">
-          <a href="#" id="close-lessons" on-click="{{toggleLessons}}"></a>
+          <a href="#" id="close-lessons" on-click="toggleLessons"></a>
           <ul>
-            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_K-2.pdf" target="_blank" on-click="{{trackLessonPlan}}" data-grades="grades-k-2"><span class="crayon crayon-k-2"></span> Grades K-2</a></li>
-            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_3-5.pdf" target="_blank" on-click="{{trackLessonPlan}}" data-grades="grades-3-5"><span class="crayon crayon-3-5"></span> Grades 3-5</a></li>
-            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_6-8.pdf" target="_blank" on-click="{{trackLessonPlan}}" data-grades="grades-6-8"><span class="crayon crayon-6-8"></span> Grades 6-8</a></li>
-            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_9-10.pdf" target="_blank" on-click="{{trackLessonPlan}}" data-grades="grades-9-10"><span class="crayon crayon-9-10"></span> Grades 9-10</a></li>
+            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_K-2.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-k-2"><span class="crayon crayon-k-2"></span> Grades K-2</a></li>
+            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_3-5.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-3-5"><span class="crayon crayon-3-5"></span> Grades 3-5</a></li>
+            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_6-8.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-6-8"><span class="crayon crayon-6-8"></span> Grades 6-8</a></li>
+            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_9-10.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-9-10"><span class="crayon crayon-9-10"></span> Grades 9-10</a></li>
         </div>
       </div>
       <div class="sceneboard">
@@ -142,9 +140,9 @@ TODO: Not yet fully migrated to Polymer 1.0+
         <div class="sceneboard-back"></div>
         <div class="controls">
           <ul>
-            <li><a href="#" id="traditions-world" on-click="{{showWorld}}"><i18n-msg msgid="traditions-world">PLACEHOLDER_i18n</i18n-msg></a></li>
-            <li><a href="#" id="traditions-prev" on-click="{{prevCountry}}"><i18n-msg msgid="traditions-prev">PLACEHOLDER_i18n</i18n-msg></a></li>
-            <li><a href="#" id="traditions-next" on-click="{{nextCountry}}"><i18n-msg msgid="traditions-next">PLACEHOLDER_i18n</i18n-msg></a></li>
+            <li><a href="#" id="traditions-world" on-click="showWorld"><i18n-msg msgid="traditions-world">PLACEHOLDER_i18n</i18n-msg></a></li>
+            <li><a href="#" id="traditions-prev" on-click="prevCountry"><i18n-msg msgid="traditions-prev">PLACEHOLDER_i18n</i18n-msg></a></li>
+            <li><a href="#" id="traditions-next" on-click="nextCountry"><i18n-msg msgid="traditions-next">PLACEHOLDER_i18n</i18n-msg></a></li>
           </ul>
         </div>
       </div>
@@ -174,7 +172,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
       this.traditions.showWorld();
     },
 
-    trackLessonPlan: function(e, detail, sender) {
+    trackLessonPlan: function(e, detail) {
      this.fire('analytics-track-event', {category: 'lessonPlanDownload', action: 'click',
          label: sender.getAttribute('data-grades')});
     },
@@ -243,10 +241,10 @@ TODO: Not yet fully migrated to Polymer 1.0+
       }
     },
 
-    arrowHandler: function(e, detail, sender) {
+    arrowHandler: function(e, detail) {
       e.stopPropagation();
 
-      switch (e.detail.key) {
+      switch (detail.key) {
         case 'up':
         case 'left':
           this.prevCountry(e);
