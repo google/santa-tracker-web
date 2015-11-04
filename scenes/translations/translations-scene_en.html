@@ -18,7 +18,7 @@ specific language governing permissions and limitations under the License.
 <script src="translations-scene.min.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="translations-scene.css" no-shim>
+<link rel="stylesheet" href="translations-scene.css">
 
 <!--
 Translations scene.
@@ -175,6 +175,9 @@ Translations scene.
     },
 
     _populateLanguageOptions: function(options) {
+      // NOTE(bckenny): in DEV, if the i18n-msg element hasn't loaded its
+      // languages yet, these will all contain 'PLACEHOLDER_i18n'. Could respond
+      // to i18n-msg notification when lang is loaded and refresh.
       [].forEach.call(options, function(el) {
           el.textContent = this.$[el.value + '_language_name'].textContent;
       }, this);
