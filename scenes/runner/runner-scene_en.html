@@ -17,16 +17,14 @@ specific language governing permissions and limitations under the License.
 <script src="../shared/js/startbutton.js"></script>
 <script src="runner-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="runner-scene.css" />
+
 <!--
 Runner scene.
-
-@element runner-scene
-@extends base-scene
 -->
 <dom-module id="runner-scene">
 <template>
-  <link rel="stylesheet" href="runner-scene.css" no-shim>
-
   <div id="module-runner">
     <div class="game frozen">
       <div class="layers-wrap">
@@ -86,7 +84,7 @@ Runner scene.
           </div>
           <div class="status"></div>
         </div>
-        <div class="actions">
+        <div class$="actions {{_computeTernary(hasClickedStart, '', 'is-collapsed')}}">
           <button type="button" class="restart"></button>
           <button type="button" class="pause"></button>
         </div>
@@ -133,8 +131,14 @@ Runner scene.
   Polymer({
     is: 'runner-scene',
     behaviors: [window.SantaSceneBehavior],
-
     game: null,
+
+    properties: {
+      hasClickedStart: {
+        type: Boolean,
+        value: false
+      },
+    },
 
     onPreload: function() {
       this.preloadSounds('runner_load_sounds', 20);
@@ -186,15 +190,18 @@ Runner scene.
       var module = this.$['module-runner'];
 
       var game = this.game = new scenes.runner.Game(module);
-      startButton(this, module, function() {
-        game.start();
-      });
+      startButton(this, module, this.onClickStart.bind(this));
     },
 
     onHide: function() {
       this.game.dispose();
       this.game = null;
       this.fire('sound-ambient', 'runner_end');
+    },
+
+    onClickStart: function() {
+      this.hasClickedStart = true;
+      this.game.start();
     }
   });
 
