@@ -14,27 +14,42 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../../components/google-apis/google-maps-api.html">
 
-<dom-module id="map-hint" attributes="place santaApp">
+<dom-module id="map-hint">
 <template>
-  <link rel="stylesheet" href="map-hint.css" no-shim>
-  <div id="map" fit></div>
-  <template if="{{santaApp}}">
-    <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
-                     libraries="places,geometry" language="{{santaApp.language}}"
-                     on-api-load="{{onMapsAPIReady}}"></google-maps-api>
-  </template>
-  <div id="globe" class="globe" fit>
-    <template repeat="{{part in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}}">
-      <div class="globe-part globe-part--{{part}}"></div>
-    </template>
+  <!-- TODO(samthor): Non-standard import, but works in Polymer 1+ -->
+  <link rel="import" type="css" href="map-hint.css" />
+  <div id="map" class="fit"></div>
+  <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
+                   libraries="places,geometry" language="{{santaApp.language}}"
+                   on-api-load="onMapsAPIReady"></google-maps-api>
+  <div id="globe" class="globe fit">
+    <div class="globe-part globe-part--1"></div>
+    <div class="globe-part globe-part--2"></div>
+    <div class="globe-part globe-part--3"></div>
+    <div class="globe-part globe-part--4"></div>
+    <div class="globe-part globe-part--5"></div>
+    <div class="globe-part globe-part--6"></div>
+    <div class="globe-part globe-part--7"></div>
+    <div class="globe-part globe-part--8"></div>
+    <div class="globe-part globe-part--9"></div>
+    <div class="globe-part globe-part--10"></div>
   </div>
 </template>
 <script>
   Polymer({
     is: 'map-hint',
 
-    observe: {
-      'place': 'onSearch'
+    properties: {
+      place: {
+        type: String,
+        value: null,
+        observer: 'onSearch'
+      },
+
+      santaApp: {
+        type: Object,
+        value: null
+      }
     },
 
     // Provide better bounds than the geocoder gives us

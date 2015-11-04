@@ -13,6 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../components/polymer/polymer.html">
+<script src="../components/promise-polyfill/Promise.min.js"></script>
 
 <!--
 Custom element to do localization (i18n) messages. Only used for dev, and is
@@ -22,32 +23,70 @@ compiled out to raw strings in production.
 <script>
 (function() {
 
+  // TODO(samthor): Restore listener-style behavior for I18nMsg, so that e.g.,
+  // lang can be quickly changed for testing.
   window.I18nMsg = window.I18nMsg || {
     lang: 'en',
-    locales: {},
     messagesPath: '_messages/'
   };
 
-  var instances = [];
+  /**
+   * Maps from lang to Promise objects for message JSON.
+   * @type {!Object<!Promise<!Object<{message: string}>>>}
+   */
+  var locales = {};
+
+
+  /**
+   * @param {string} language to fetch, typcially 'en', 'de' etc
+   * @return {!Promise<!Object<{message: string}>>} containing mesasge data
+   */
+  function fetchLanguage(language) {
+    if (!language) {
+      return Promise.reject('invalid language');
+    }
+    var p = locales[language];
+    if (!p) {
+      p = locales[language] = new Promise(function(resolve, reject) {
+        var url = I18nMsg.messagesPath + language + '.json';
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url);
+        xhr.onload = function(e) {
+          if (e.target.status != 200) {
+            reject('message JSON not found: ' + e.target.status);
+            return;
+          }
+          var resp = JSON.parse(e.target.response);
+          if (resp) {
+            resolve(resp);
+          } else {
+            reject('empty message JSON for: ' + language);
+          }
+        };
+        xhr.send();
+      });
+    }
+    return p;
+  }
+
 
   Polymer({
     is: 'i18n-msg',
 
     properties: {
-
-      language: { observer: '_languageChanged' },
-
-      /**
-       * An object contains the language locales with translated messages.
-       */
-      _locales: {
-        value: I18nMsg.locales,  // static
+      language: {
+        observer: '_change',
+        value: function() {
+          return I18nMsg.lang;
+        }
       },
 
       /**
        * The message id (key) for this message.
        */
       msgid: {
+        observer: '_change',
         value: null,
         reflectToAttribute: true
       }
@@ -57,70 +96,23 @@ compiled out to raw strings in production.
       if (!window.DEV) {
         throw new Error('i18n-msg not used outside dev');
       }
-
-      this.language = I18nMsg.lang;
-
-      // First time an instance is created, observe window.I18nMsg.lang changes
-      // and go fetch the localized messages.json file.
-      if (!instances.length) {
-        // TODO(samthor): Restore DEV functionality that allows listening to
-        // language changes. Don't default to 'en'.
-        // var observer = new PathObserver(window.I18nMsg, 'lang');
-        // observer.open(function(newValue, oldValue) {
-        //   this.language = newValue;
-        // }.bind(this));
-        this._languageChanged();
-      }
-
-      instances.push(this);
     },
 
-    attached: function() {
-      var msg = this._locales[this.language] && this._locales[this.language][this.msgid];
-      if (msg && msg.message) {
-        Polymer.dom(this).innerHTML = msg.message;
-      }
-    },
-
-    _languageChanged: function() {
-      if (!this.language || this._locales[this.language]) {
-        return;
-      }
-
-      var url = I18nMsg.messagesPath + this.language + '.json';
-
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', url);
-      xhr.onload = function(e) {
-        if (e.target.status != 200) {
-          return;
+    _change: function() {
+      // TODO(samthor): language and msgid change simultaneously on start, so
+      // we get two pending Promise objects. This is probably fine.
+      var language = this.language;
+      fetchLanguage(this.language).then(function(resp) {
+        if (this.language != language) {
+          return;  // language changed while resolving
         }
-
-        var resp = JSON.parse(e.target.response);
-        if (!this.msgid in resp) {
-          throw Error('"' + this.msgid + '" message id was not found in ' + url);
-          return;
+        var msg = resp[this.msgid];
+        if (msg && msg.message) {
+          Polymer.dom(this).innerHTML = msg.message;
+        } else {
+          console.warn('"' + this.msgid + '" message id was not found');
         }
-
-        this._locales[this.language] = resp;
-
-        // cache this locale.
-        this.notifyInstances();
-      }.bind(this);
-      xhr.send();
-    },
-
-    notifyInstances: function() {
-      for (var i = 0, instance; instance = instances[i]; ++i) {
-        instance.language = I18nMsg.lang;
-
-        if (!instance._locales[instance.language][instance.msgid]) {
-          throw Error('"' + instance.msgid + '" message id was not found');
-          continue;
-        }
-
-        Polymer.dom(instance).innerHTML = instance._locales[instance.language][instance.msgid].message;
-      }
+      }.bind(this));
     }
 
   });

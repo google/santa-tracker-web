@@ -20,17 +20,16 @@ specific language governing permissions and limitations under the License.
 
 <script src="trivia-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="trivia-scene.css" />
+
 <!--
 Trivia scene.
-
-TODO: Not yet fully migrated to Polymer 1.0+
 -->
 <dom-module id="trivia-scene">
 <template>
-  <link rel="stylesheet" href="trivia-scene.css" no-shim>
-
-  <div id="module-trivia" fit>
-    <div class="scene" fit vertical layout>
+  <div id="module-trivia" class="fit">
+    <div class="scene fit vertical layout">
       <div class="map-hint">
         <map-hint id="hint" santaApp="{{santaApp}}"></map-hint>
       </div>
@@ -38,13 +37,13 @@ TODO: Not yet fully migrated to Polymer 1.0+
         <a href="http://www.nationalgeographic.com/geobee/" target="_blank" class="ngb-logo">
           <i18n-msg msgid="trivia_ngb_promo">PLACEHOLDER_i18n</i18n-msg>
         </a>
-        <div class="question {{ { 'is-visible': questionVisible } | tokenList }}">
-          <div class="question-number">{{game.current.number}}</div>
-          <div class="question-text">{{game.current.question}}</div>
+        <div class$="question {{_computeTernary(questionVisible, 'is-visible', '')}}">
+          <div class="question-number"></div>
+          <div class="question-text"></div>
         </div>
-        <select-answer id="answer" choices="{{game.current.choices}}" on-answered="{{onAnswered}}" />
+        <select-answer id="answer" on-answered="onAnswered"></select-answer>
       </div>
-      <difficulty-menu id="menu" class="menu" fit on-difficulty="{{onDifficulty}}"></difficulty-menu>
+      <difficulty-menu id="menu" class="menu fit" on-difficulty="onDifficulty"></difficulty-menu>
     </div>
     <div class="gui">
       <div class="board board--tracker">
@@ -2536,11 +2535,18 @@ TODO: Not yet fully migrated to Polymer 1.0+
     is: 'trivia-scene',
     behaviors: [window.SantaSceneBehavior],
 
-    game: null,
+    properties: {
+      game: {
+        type: Object,
+        value: null
+      },
+      questionVisible: {
+        type: Boolean,
+        value: false
+      },
+    },
 
-    questionVisible: false,
-
-    eventDelegates: {
+    listeners: {
       'new-question': 'onNewQuestion',
       'show-choices': 'onShowChoices',
       'time-up': 'onAnswered',
@@ -2551,13 +2557,13 @@ TODO: Not yet fully migrated to Polymer 1.0+
 
     onPreload: function() {
       this.preloadImages([
-          'img/correct.svg',
-          'img/easy.svg',
-          'img/globe.svg',
-          'img/hard.svg',
-          'img/incorrect.svg',
-          'img/medium.svg',
-          'img/ngb-logo.svg'
+        'img/correct.svg',
+        'img/easy.svg',
+        'img/globe.svg',
+        'img/hard.svg',
+        'img/incorrect.svg',
+        'img/medium.svg',
+        'img/ngb-logo.svg'
       ]);
     },
 
@@ -2582,6 +2588,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
     },
 
     onHideQuestion: function() {
+      console.info('onHideQuestion');
       this.questionVisible = false;
       this.$.answer.hide();
       this.$.hint.reset();
@@ -2591,7 +2598,11 @@ TODO: Not yet fully migrated to Polymer 1.0+
       this.$.menu.hidden = true;
       this.$.answer.reset();
       this.questionVisible = true;
+      console.info('onNewQuestion');
       this.$.hint.place = this.game.current.answer;
+      this.$$('.question-number').textContent = this.game.current.number;
+      this.$$('.question-text').textContent = this.game.current.question;
+      this.$.answer.choices = this.game.current.choices;  // TODO: slice?
     },
 
     onShowChoices: function() {
@@ -2601,11 +2612,15 @@ TODO: Not yet fully migrated to Polymer 1.0+
     },
 
     onPause: function() {
-      this.game.pause();
+      if (this.game) {
+        this.game.pause();
+      }
     },
 
     onResume: function() {
-      this.game.resume();
+      if (this.game) {
+        this.game.resume();
+      }
     },
 
     onGameOver: function() {
