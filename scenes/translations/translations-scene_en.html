@@ -17,16 +17,14 @@ specific language governing permissions and limitations under the License.
 
 <script src="translations-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="translations-scene.css">
+
 <!--
 Translations scene.
-
-@element translations-scene
-@extends base-scene
 -->
 <dom-module id="translations-scene">
 <template>
-  <link rel="stylesheet" href="translations-scene.css" no-shim>
-
   <div id="module-translations">
     <div class="i18n-language-list">
       <div id="ar_language_name"><i18n-msg msgid="ar_language_name">PLACEHOLDER_i18n</i18n-msg></div>
@@ -78,32 +76,32 @@ Translations scene.
             <div class="desk-content__selector desk-content__selector--from">
               <div class="desk-content__selector__phrase js-phrase-container-from"></div>
               <div class="desk-content__selector__dropdown">
-                <select class="js-language-dropdown-from">
-                  <option value="ar">{{$.ar_language_name.textContent}}</option>
-                  <option value="zh-CN">{{$['zh-CN_language_name'].textContent}}</option>
-                  <option value="zh-TW">{{$['zh-TW_language_name'].textContent}}</option>
-                  <option value="cs">{{$.cs_language_name.textContent}}</option>
-                  <option value="da">{{$.da_language_name.textContent}}</option>
-                  <option value="nl">{{$.nl_language_name.textContent}}</option>
-                  <option value="elvish">{{$.elvish_language_name.textContent}}</option>
-                  <option value="en">{{$.en_language_name.textContent}}</option>
-                  <option value="fr">{{$.fr_language_name.textContent}}</option>
-                  <option value="de">{{$.de_language_name.textContent}}</option>
-                  <option value="el">{{$.el_language_name.textContent}}</option>
-                  <option value="hi">{{$.hi_language_name.textContent}}</option>
-                  <option value="hu">{{$.hu_language_name.textContent}}</option>
-                  <option value="it">{{$.it_language_name.textContent}}</option>
-                  <option value="ja">{{$.ja_language_name.textContent}}</option>
-                  <option value="ko">{{$.ko_language_name.textContent}}</option>
-                  <option value="no">{{$.no_language_name.textContent}}</option>
-                  <option value="pl">{{$.pl_language_name.textContent}}</option>
-                  <option value="pt">{{$.pt_language_name.textContent}}</option>
-                  <option value="ru">{{$.ru_language_name.textContent}}</option>
-                  <option value="sk">{{$.sk_language_name.textContent}}</option>
-                  <option value="es">{{$.es_language_name.textContent}}</option>
-                  <option value="sv">{{$.sv_language_name.textContent}}</option>
-                  <option value="th">{{$.th_language_name.textContent}}</option>
-                  <option value="tr">{{$.tr_language_name.textContent}}</option>
+                <select id="js-language-dropdown-from">
+                  <option value="ar"></option>
+                  <option value="zh-CN"></option>
+                  <option value="zh-TW"></option>
+                  <option value="cs"></option>
+                  <option value="da"></option>
+                  <option value="nl"></option>
+                  <option value="elvish"></option>
+                  <option value="en"></option>
+                  <option value="fr"></option>
+                  <option value="de"></option>
+                  <option value="el"></option>
+                  <option value="hi"></option>
+                  <option value="hu"></option>
+                  <option value="it"></option>
+                  <option value="ja"></option>
+                  <option value="ko"></option>
+                  <option value="no"></option>
+                  <option value="pl"></option>
+                  <option value="pt"></option>
+                  <option value="ru"></option>
+                  <option value="sk"></option>
+                  <option value="es"></option>
+                  <option value="sv"></option>
+                  <option value="th"></option>
+                  <option value="tr"></option>
                 </select>
               </div>
             </div>
@@ -112,32 +110,32 @@ Translations scene.
             <div class="desk-content__selector desk-content__selector--to">
               <div class="desk-content__selector__phrase js-phrase-container-to"></div>
               <div class="desk-content__selector__dropdown">
-                <select class="js-language-dropdown-to">
-                  <option value="ar">{{$.ar_language_name.textContent}}</option>
-                  <option value="zh-CN">{{$['zh-CN_language_name'].textContent}}</option>
-                  <option value="zh-TW">{{$['zh-TW_language_name'].textContent}}</option>
-                  <option value="cs">{{$.cs_language_name.textContent}}</option>
-                  <option value="da">{{$.da_language_name.textContent}}</option>
-                  <option value="nl">{{$.nl_language_name.textContent}}</option>
-                  <option value="elvish">{{$.elvish_language_name.textContent}}</option>
-                  <option value="en">{{$.en_language_name.textContent}}</option>
-                  <option value="fr">{{$.fr_language_name.textContent}}</option>
-                  <option value="de">{{$.de_language_name.textContent}}</option>
-                  <option value="el">{{$.el_language_name.textContent}}</option>
-                  <option value="hi">{{$.hi_language_name.textContent}}</option>
-                  <option value="hu">{{$.hu_language_name.textContent}}</option>
-                  <option value="it">{{$.it_language_name.textContent}}</option>
-                  <option value="ja">{{$.ja_language_name.textContent}}</option>
-                  <option value="ko">{{$.ko_language_name.textContent}}</option>
-                  <option value="no">{{$.no_language_name.textContent}}</option>
-                  <option value="pl">{{$.pl_language_name.textContent}}</option>
-                  <option value="pt">{{$.pt_language_name.textContent}}</option>
-                  <option value="ru">{{$.ru_language_name.textContent}}</option>
-                  <option value="sk">{{$.sk_language_name.textContent}}</option>
-                  <option value="es">{{$.es_language_name.textContent}}</option>
-                  <option value="sv">{{$.sv_language_name.textContent}}</option>
-                  <option value="th">{{$.th_language_name.textContent}}</option>
-                  <option value="tr">{{$.tr_language_name.textContent}}</option>
+                <select id="js-language-dropdown-to">
+                  <option value="ar"></option>
+                  <option value="zh-CN"></option>
+                  <option value="zh-TW"></option>
+                  <option value="cs"></option>
+                  <option value="da"></option>
+                  <option value="nl"></option>
+                  <option value="elvish"></option>
+                  <option value="en"></option>
+                  <option value="fr"></option>
+                  <option value="de"></option>
+                  <option value="el"></option>
+                  <option value="hi"></option>
+                  <option value="hu"></option>
+                  <option value="it"></option>
+                  <option value="ja"></option>
+                  <option value="ko"></option>
+                  <option value="no"></option>
+                  <option value="pl"></option>
+                  <option value="pt"></option>
+                  <option value="ru"></option>
+                  <option value="sk"></option>
+                  <option value="es"></option>
+                  <option value="sv"></option>
+                  <option value="th"></option>
+                  <option value="tr"></option>
                 </select>
               </div>
               <div class="desk-content__button desk-content__selector__shuffle js-btn-shuffle"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="66.3" height="66.1" viewBox="0 0 66.3 66.1"><symbol id="New_Symbol_11" viewBox="-23.2 -20.5 45.1 44.4"><g opacity=".1"><path stroke="#000" stroke-width="4" stroke-linejoin="round" d="M-20.2-.9c12.9 0 10.4.1 16.6 6.3 6 6 5.2 8.6 13.6 8.6" fill="none"/><path d="M8.4 7.2l10.9 6.4-11.1 6.2z"/></g><path stroke="#fff" stroke-width="4" stroke-linejoin="round" d="M-23.2 3.1c12.9 0 10.4.1 16.6 6.3 6 6 5.2 8.6 13.6 8.6" fill="none"/><path fill="#fff" d="M5.4 11.2l10.9 6.4-11.1 6.2z"/><g opacity=".1"><path stroke="#000" stroke-width="4" stroke-linejoin="round" d="M-20.2 13.6c12.9 0 10.4 0 16.6-6.2C2.4 1.5 1.6-1 10-1" fill="none"/><path d="M8.2-7.3l11.1 6.2L8.4 5.3z"/></g><path stroke="#fff" stroke-width="4" stroke-linejoin="round" d="M-23.2 17.6c12.9 0 10.4 0 16.6-6.2C-.6 5.5-1.4 3 7 3" fill="none"/><path fill="#fff" d="M5.2-3.3l11.1 6.2L5.4 9.3z"/></symbol><ellipse id="btn-shuffle-shadow" opacity=".35" fill="#6B450E" cx="33.1" cy="36.9" rx="33.1" ry="29.2"/><circle id="btn-shuffle-bottom" fill="#EF6C00" cx="30" cy="33.4" r="27.4"/><g id="btn-shuffle-top"><circle fill="#FB8C00" cx="30" cy="27.4" r="27.4"/><use xlink:href="#New_Symbol_11" width="45.1" height="44.4" id="XMLID_16_" x="-23.2" y="-20.5" transform="matrix(.812 0 0 -.812 33.199 35.739)" overflow="visible"/></g></svg>
@@ -176,9 +174,24 @@ Translations scene.
       ]);
     },
 
+    _populateLanguageOptions: function(options) {
+      // NOTE(bckenny): in DEV, if the i18n-msg element hasn't loaded its
+      // languages yet, these will all contain 'PLACEHOLDER_i18n'. Could respond
+      // to i18n-msg notification when lang is loaded and refresh.
+      [].forEach.call(options, function(el) {
+          el.textContent = this.$[el.value + '_language_name'].textContent;
+      }, this);
+    },
+
     onShow: function() {
       this.fire('sound-ambient', 'translations_start');
       var div = this.$['module-translations'];
+
+      // Fill language selector dropdowns with translated language names.
+      this._populateLanguageOptions(this.$['js-language-dropdown-from']
+          .querySelectorAll('option'));
+      this._populateLanguageOptions(this.$['js-language-dropdown-to']
+          .querySelectorAll('option'));
 
       this.scene = new scenes.translations.Scene(div);
     },
