@@ -140,6 +140,11 @@ Santa Tracker app.
         path$="scenes/streetview/streetview-scene_[[language]].html"
         loading-bg-color="rgb(129,208,0)"></streetview-scene>
 
+    <traditions-scene route="traditions"
+        path="scenes/traditions/traditions-scene_[[language]].html"
+        loading-bg-color="rgb(255,224,0)"
+        loading-src="scenes/traditions/img/loading.gif"></traditions-scene>
+
     <windtunnel-scene route="windtunnel"
         path$="scenes/windtunnel/windtunnel-scene_[[language]].html"
         loading-bg-color="rgb(129,208,0)"></windtunnel-scene>
@@ -871,6 +876,13 @@ Polymer({
 
   onTrackerEnd: function(e, detail) {
     this._checkSchedule();
+  },
+
+  _compute2x: function(hdpi) {
+    if (this.hdpi) {
+      return '_2x';
+    }
+    return '';
   }
 
 });
