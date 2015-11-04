@@ -143,16 +143,19 @@ specific language governing permissions and limitations under the License.
         }
       },
 
+      /**
+       * The master santaApp. Set and cleared in attached/detached.
+       */
+      santaApp: {
+        type: Object,
+        readOnly: true
+      }
+
     },
 
     listeners: {'scene-pause': '_handlePause'},
 
-    _santaApp: null,
     _componentDir: null,
-
-    get santaApp() {
-      return this._santaApp;
-    },
 
     created: function() {
       // TODO(samthor): This finds the whole domain, can probably just be relative URL
@@ -168,11 +171,11 @@ specific language governing permissions and limitations under the License.
       if (!curr) {
         console.warn('unable to find santaApp for scene', this.localName);
       }
-      this.santaApp_ = curr;
+      this._setSantaApp(curr);
     },
 
     detached: function() {
-      this.santaApp_ = null
+      this._setSantaApp(null);
     },
 
     _activeChanged: function() {
