@@ -20,20 +20,6 @@ specific language governing permissions and limitations under the License.
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
     <link href="codelab-frame.css" rel="stylesheet">
 
-    <script>
-      window.DEV = true; // NOTE: replaced by string - do not change formatting.
-
-      if (window.DEV) {
-        var script = document.createElement('script');
-        script.src = '../../components/webcomponentsjs/webcomponents-lite.min.js';
-        document.write(script.outerHTML);
-
-        var link = document.createElement('link');
-        link.rel = 'import';
-        link.href = '../../elements/i18n-msg.html';
-        document.write(link.outerHTML);
-      }
-    </script>
     <!-- In production, this is inlined, so don't worry about lack of support for HTML imports -->
     <link rel="import" href="../../js/webanimations.html">
   </head>
@@ -172,20 +158,38 @@ specific language governing permissions and limitations under the License.
 
     <script src="codelab-frame.min.js"></script>
     <script>
-    if (window.DEV) {
-      // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
-      document.addEventListener('HTMLImportsLoaded', function() {
-        I18nMsg.lang = document.documentElement.lang || 'en'; // Set locale for entire site (e.g. i18n-msg elements).
-        I18nMsg.messagesPath = '../../_messages/';
+      window.DEV = true; // NOTE: replaced by string - do not change formatting.
 
-        // Wait for i18n initialisation. Bad race-condition, should we add an event?
-        window.setTimeout(function() {
-          window.game = new app.Game(document.getElementById('module-codelab'));
-        }, 100);
-      });
-    } else {
-      window.game = new app.Game(document.getElementById('module-codelab'));
-    }
+      function createGame() {
+        window.game = new app.Game(document.getElementById('module-codelab'));
+      }
+
+      function initComponents() {
+        var script = document.createElement('script');
+        script.src = '../../components/webcomponentsjs/webcomponents-lite.min.js';
+        document.write(script.outerHTML);
+
+        var link = document.createElement('link');
+        link.rel = 'import';
+        link.href = '../../elements/i18n-msg.html';
+        document.write(link.outerHTML);
+
+        // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
+        document.addEventListener('HTMLImportsLoaded', function() {
+          I18nMsg.lang = document.documentElement.lang || 'en'; // Set locale for entire site (e.g. i18n-msg elements).
+          I18nMsg.messagesPath = '../../_messages/';
+
+          // Wait for i18n initialisation. Bad race-condition, should we add an event?
+          window.setTimeout(createGame, 100);
+        });
+      }
+
+      var compiled = !document.querySelector('link[rel="import"]');
+      if (compiled) {
+        createGame();
+      } else {
+        initComponents();
+      }
     </script>
 
   </body>
