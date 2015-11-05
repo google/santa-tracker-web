@@ -79,7 +79,7 @@ Lazy loads children "pages".
         // ... check path$ to work around a Polymer issue, where a $= attribute
         // without [[]] or {{}} is not computed.
         path = scene.getAttribute('path$');
-        if (!path) {
+        if (!path && !scene.loaded) {
           console.warn('unable to find path for scene', scene.localName);
         }
       }
