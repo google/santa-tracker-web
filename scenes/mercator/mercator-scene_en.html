@@ -19,24 +19,20 @@ specific language governing permissions and limitations under the License.
 <script src="../shared/js/startbutton.js"></script>
 <script src="mercator-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="mercator-scene.css" />
+
 <!--
 Mercator scene.
-
-TODO: Not yet fully migrated to Polymer 1.0+
 -->
 <dom-module id="mercator-scene">
 <template>
-  <link rel="stylesheet" href="mercator-scene.css" no-shim>
-
   <div id="module-mercator">
     <div class="scene">
-      <template if="{{santaApp}}">
-        <google-maps-api version="3.exp"
-                         clientId="{{santaApp.config.CLIENT_ID}}"
-                         libraries="places,geometry"
-                         language="{{santaApp.language}}"
-                         on-api-load="{{mapsAPIReady}}"></google-maps-api>
-      </template>
+      <google-maps-api version="3.exp"
+                       client-id="{{santaApp.config.CLIENT_ID}}"
+                       language="{{santaApp.language}}"
+                       on-api-load="mapsAPIReady"></google-maps-api>
       <div class="map">
         <div class="gmap"></div>
       </div>
@@ -121,7 +117,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
           </div>
           <div class="status"></div>
         </div>
-        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
+        <div class$="actions {{_computeTernary(hasClickedStart, '', 'is-collapsed')}}">
           <button type="button" class="restart"></button>
           <button type="button" class="pause"></button>
         </div>
@@ -299,7 +295,12 @@ TODO: Not yet fully migrated to Polymer 1.0+
 
     mapsReady: false,
 
-    hasClickedStart: false,
+    properties: {
+      hasClickedStart: {
+        type: Boolean,
+        value: false
+      },
+    },
 
     onPreload: function() {
       this.preloadSounds('mercator_load_sounds', 40);
