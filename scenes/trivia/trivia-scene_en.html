@@ -2588,7 +2588,6 @@ Trivia scene.
     },
 
     onHideQuestion: function() {
-      console.info('onHideQuestion');
       this.questionVisible = false;
       this.$.answer.hide();
       this.$.hint.reset();
@@ -2598,7 +2597,6 @@ Trivia scene.
       this.$.menu.hidden = true;
       this.$.answer.reset();
       this.questionVisible = true;
-      console.info('onNewQuestion');
       this.$.hint.place = this.game.current.answer;
       this.$$('.question-number').textContent = this.game.current.number;
       this.$$('.question-text').textContent = this.game.current.question;

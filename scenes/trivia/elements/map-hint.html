@@ -19,8 +19,9 @@ specific language governing permissions and limitations under the License.
   <!-- TODO(samthor): Non-standard import, but works in Polymer 1+ -->
   <link rel="import" type="css" href="map-hint.css" />
   <div id="map" class="fit"></div>
-  <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
-                   libraries="places,geometry" language="{{santaApp.language}}"
+  <google-maps-api version="3.exp"
+                   client-id="{{santaApp.config.CLIENT_ID}}"
+                   language="{{santaApp.language}}"
                    on-api-load="onMapsAPIReady"></google-maps-api>
   <div id="globe" class="globe fit">
     <div class="globe-part globe-part--1"></div>
