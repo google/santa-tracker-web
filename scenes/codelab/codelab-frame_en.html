@@ -13,19 +13,29 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <!DOCTYPE html>
-<html lang="en" xmlns:xlink="http://www.w3.org/1999/xlink">
+<html lang="en">
   <head>
-    <script>
-      window.DEV = true;
-    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
     <link href="codelab-frame.css" rel="stylesheet">
 
-    <script src="../../components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <script>
+      window.DEV = true; // NOTE: replaced by string - do not change formatting.
+
+      if (window.DEV) {
+        var script = document.createElement('script');
+        script.src = '../../components/webcomponentsjs/webcomponents-lite.min.js';
+        document.write(script.outerHTML);
+
+        var link = document.createElement('link');
+        link.rel = 'import';
+        link.href = '../../elements/i18n-msg.html';
+        document.write(link.outerHTML);
+      }
+    </script>
+    <!-- In production, this is inlined, so don't worry about lack of support for HTML imports -->
     <link rel="import" href="../../js/webanimations.html">
-    <link rel="import" href="../../elements/i18n-msg.html">
   </head>
   <body>
     <div id="module-codelab">
