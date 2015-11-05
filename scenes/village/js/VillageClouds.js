@@ -123,7 +123,7 @@ VillageClouds.prototype.addClouds_ = function() {
   // start off screen.
   var numClouds = Math.max(VillageClouds.MIN_NUMBER_OF_CLOUDS_,
       Math.ceil(Math.random() * VillageClouds.MAX_NUMBER_OF_CLOUDS_));
-  var width = windowWidth();
+  var width = window.innerWidth;
   for (var i = 0; i < numClouds; i++) {
     this.addCloud_(Math.random() * width);
   }
@@ -160,7 +160,7 @@ VillageClouds.prototype.addCloud_ = function(opt_offset) {
   var top = Math.random() *
       (VillageClouds.MAX_CLOUD_TOP_ - VillageClouds.MIN_CLOUD_TOP_);
   var type = Math.ceil(Math.random() * VillageClouds.NUM_TYPES_OF_CLOUDS_);
-  var width = windowWidth();
+  var width = window.innerWidth;
   var offset = opt_offset || width;
   var cloud = $('<div>').addClass('cloud cloud' + type).css({
     'top': top,

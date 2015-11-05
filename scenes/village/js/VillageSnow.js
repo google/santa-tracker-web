@@ -180,7 +180,7 @@ VillageSnow.prototype.addSnowFlake_ = function() {
     this.freeFlakeList_[this.freeFlakeIndex_ - 1] = null;
     this.freeFlakeIndex_--;
 
-    var randLeft = Math.random() * windowWidth();
+    var randLeft = Math.random() * window.innerWidth;
     flake.startAnimation(randLeft, this.reclaimCallback_);
 
     // Add more snow flakes if more free ones remain
