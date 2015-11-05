@@ -61,7 +61,7 @@ Santa Tracker app.
         path$="scenes/briefing/briefing-scene_[[language]].html"></briefing-scene>
 
     <citylights-scene route="citylights"
-        path="scenes/citylights/citylights-scene_[[language]].html"
+        path$="scenes/citylights/citylights-scene_[[language]].html"
         loading-bg-color="#8fd7f7"
         loading-src="scenes/citylights/img/loading.svg"></citylights-scene>
 
@@ -90,7 +90,7 @@ Santa Tracker app.
         path$="scenes/island/island-scene_[[language]].html"></island-scene>
 
     <jamband-scene route="jamband"
-        path="scenes/jamband/jamband-scene_[[language]].html"
+        path$="scenes/jamband/jamband-scene_[[language]].html"
         loading-bg-color="#fdbe27"
         loading-src="scenes/jamband/img/loading.svg"></jamband-scene>
 
@@ -134,9 +134,8 @@ Santa Tracker app.
         loading-src="scenes/racer/img/loading.svg"></racer-scene>
 
     <runner-scene route="runner"
-        path="scenes/runner/runner-scene_[[language]].html"></runner-scene>
+        path$="scenes/runner/runner-scene_[[language]].html"></runner-scene>
 
-    <!-- TODO: check loads -->
     <rollercoaster-scene route="rollercoaster"
         path$="scenes/rollercoaster/rollercoaster-scene.html"></rollercoaster-scene>
 
@@ -160,12 +159,8 @@ Santa Tracker app.
 
     <translations-scene route="translations"
         path$="scenes/translations/translations-scene_[[language]].html"
-        loading-bg-color="#8FD7F7"
-        loadingSrc="scenes/translations/img/loading.png"></translations-scene>
-
-    <windtunnel-scene route="windtunnel"
-        path$="scenes/windtunnel/windtunnel-scene_[[language]].html"
-        loading-bg-color="rgb(129,208,0)"></windtunnel-scene>
+        loading-bg-color="#8fd7f7"
+        loading-src="scenes/translations/img/loading.png"></translations-scene>
 
     <undersea-scene route="undersea"
         path$="scenes/undersea/undersea-scene_[[language]].html"></undersea-scene>
@@ -178,6 +173,10 @@ Santa Tracker app.
       <video-scene route$="{{item}}"
           path$="scenes/videoscene/video-scene_[[language]].html"></video-scene>
     </template>
+
+    <windtunnel-scene route="windtunnel"
+        path$="scenes/windtunnel/windtunnel-scene_[[language]].html"
+        loading-bg-color="rgb(129,208,0)"></windtunnel-scene>
 
     <!-- TODO: rest of scenes to Polymer 1.0 -->
 
