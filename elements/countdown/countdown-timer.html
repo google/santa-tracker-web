@@ -171,19 +171,6 @@ Countdown timer.
       },
 
       /**
-       * Pads a number with leading zeros.
-       *
-       * TODO: This is also in util.js
-       *
-       * @param {number} digit
-       * @return {string|number}
-       * @private
-       */
-      pad: function(digit) {
-        return digit < 10 ? '0' + digit : digit;
-      },
-
-      /**
        * @private
        * @return {Object.<string>}
        */
@@ -219,8 +206,8 @@ Countdown timer.
         var seconds = this.currentTime.seconds;
 
         if (this.render) {
-          var newDigits = [this.pad(days), this.pad(hours), this.pad(mins),
-              this.pad(seconds)].join('').split('');
+          var newDigits = [padDigits(days), padDigits(hours), padDigits(mins),
+              padDigits(seconds)].join('').split('');
           this.displayDigits = (days == 0) ? 6 : 8
 
           for (var i = 0, digit; digit = this.digits[i]; ++i) {
