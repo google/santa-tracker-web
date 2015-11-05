@@ -17,26 +17,23 @@ specific language governing permissions and limitations under the License.
 
 <script src="citylights-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="citylights-scene.css" />
+
 <!--
 City lights scene.
-
-@element citylights-scene
-@extends base-scene
 -->
 <dom-module id="citylights-scene">
 <template>
-  <link rel="stylesheet" href="citylights-scene.css" no-shim>
-
-  <iron-a11y-keys target="{{}}" keys="left right"
-                  on-keys-pressed="{{keyHandler}}"></iron-a11y-keys>
+  <iron-a11y-keys keys="left right"
+                  on-keys-pressed="keyHandler"></iron-a11y-keys>
 
   <div id="module-citylights">
     <div class="scene">
-      <template if="{{santaApp}}">
-        <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
-                         libraries="places,geometry" language="{{santaApp.language}}"
-                         on-api-load="{{mapsAPIReady}}"></google-maps-api>
-      </template>
+      <google-maps-api version="3.exp"
+                       client-id="{{santaApp.config.CLIENT_ID}}"
+                       language="{{santaApp.language}}"
+                       on-api-load="mapsAPIReady"></google-maps-api>
       <div class="dashboard">
         <div class="dashboard__screens js-index-container">
           <figure data-panoid="RTKw3G42DE0AAAQZExAuvQ" data-heading="218" data-pitch="14" class="js-screen"><img/>
@@ -209,9 +206,9 @@ City lights scene.
       }
     },
 
-    keyHandler: function(e, details, sender) {
+    keyHandler: function(e, detail) {
       e.stopPropagation();
-      switch (e.detail.key) {
+      switch (detail.key) {
         case 'left':
           this.scene.moveLeft();
           break;
