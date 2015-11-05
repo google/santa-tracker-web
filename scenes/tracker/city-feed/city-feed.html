@@ -465,16 +465,9 @@ Polymer({
     var seconds = dateStamp.getSeconds();
     var mins = dateStamp.getMinutes();
     var hours = dateStamp.getHours();
-    var parts = [this.pad(hours), this.pad(mins), this.pad(seconds)];
+    var parts = [padDigits(hours), padDigits(mins), padDigits(seconds)];
 
     return parts.join(':');
-  },
-
-  pad: function (n) {
-    if (n > 9) {
-      return n;
-    }
-    return '0' + n;
   },
 
   onWikipedia: function(e, detail, sender) {

@@ -76,7 +76,7 @@ SnowFlake.prototype.startAnimation = function(newLeft, reclaimCallback) {
     // Wait a frame so layout is set and can be transitioned.
     window.requestAnimationFrame(function() {
       flake.style[VillageUtils.CSS_TRANSFORM] = 'translateX(' + newLeft +
-         'px) translateY(' + windowHeight() + 'px)';
+         'px) translateY(' + window.innerHeight + 'px)';
       flake.style[SnowFlake.TRANSITION_DURATION_] = '';
       flake.style.opacity = '.25';
 

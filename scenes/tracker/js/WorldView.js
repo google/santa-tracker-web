@@ -90,9 +90,7 @@ WorldView.prototype.hide = function() {
 };
 
 WorldView.prototype.onResize_ = function() {
-  var width = windowWidth();
-  var height = windowHeight();
-  this.mapSize_ = new google.maps.Size(width, height);
+  this.mapSize_ = new google.maps.Size(window.innerWidth, window.innerHeight);
 };
 
 WorldView.prototype.cycleStatus_ = function() {

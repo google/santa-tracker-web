@@ -264,7 +264,6 @@ Tracker scene.
 </template>
 <script>
 (function() {
-
   Polymer({
     componentDir: 'scenes/tracker/',
 
@@ -731,13 +730,10 @@ Tracker scene.
       this.cityFeedActive = true;
     },
 
-    formatInt_: function(i) {
-      if (!i) return '';
-      return formatInt(i);
-    },
-
     formatDistance_: function(dist) {
-      return formatDistance(dist);
+      // TODO: localise? (miles)
+      // 0xA0 non-breaking space
+      return new Number(Math.floor(dist / 1000)).toLocaleString() + '\xA0km';
     },
 
     formatCountdown_: function(timestamp) {
@@ -747,11 +743,27 @@ Tracker scene.
 
       timestamp -= this.santaApp.santaService.now();
 
-      return formatCountdown(timestamp);
+      if (isNaN(timestamp)) {
+        return '';
+      }
+      timestamp /= 1000;
+
+      // TODO: localise?
+      var seconds = Math.floor(timestamp) % 60;
+      timestamp /= 60;
+      var mins = Math.floor(timestamp) % 60;
+      timestamp /= 60;
+      var hours = Math.floor(timestamp) % 24;
+      var parts = [padDigits(hours), padDigits(mins), padDigits(seconds)];
+      if (!hours) {
+        parts.shift();
+      }
+
+      return parts.join(':');
     },
 
-    keyHandler: function(e, detail, sender) {
-      switch(e.detail.key) {
+    keyHandler: function(e, detail) {
+      switch(detail) {
         case 'esc':
           e.stopPropagation();
           this.cityFeedActive = false;
