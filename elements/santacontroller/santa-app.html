@@ -17,7 +17,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../santa-tracker-router.html">
 <link rel="import" href="../preloader/preload-overlay.html">
-<!-- <link rel="import" href="../calendar/calendar-nav.html"> -->
 <link rel="import" href="../lazy-pages.html">
 
 <link rel="import" href="dependencies.html">
@@ -39,9 +38,11 @@ Santa Tracker app.
   <!-- Scenes -->
   <lazy-pages id="lazypages" preloader="[[preloader]]" selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">
 
-    <!-- TODO: replace with real village when done migration -->
-    <dummy-scene route="village" always-active
-        path$="scenes/dummy/dummy-scene_[[language]].html"></dummy-scene>
+    <!-- TODO(samthor): Rename to village-scene when done -->
+    <dorf-scene route="village" always-active
+        houses$="{{houses}}"
+        mode$="{{mode}}"
+        path$="scenes/dorf/dorf-scene_[[language]].html"></dorf-scene>
 
     <about-scene route="about"
         path$="scenes/about/about-scene_[[language]].html"></about-scene>
@@ -256,7 +257,8 @@ Polymer({
       type: Array,
       value: function() {
         return [];
-      }
+      },
+      notify: true
     },
 
     /**
