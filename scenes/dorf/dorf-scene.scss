@@ -1,0 +1,141 @@
+$name: 'module-dorf';
+
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+
+@import "../shared/sass/_mixins.scss";
+
+@import "sass/variables";
+@import "sass/animations";
+
+##{$name} {
+  background: #47c6ee;
+
+  .scroll {
+    overflow-y: auto;
+  }
+
+  header {
+    height: 300px;
+    background: #8ae0f9;
+
+    .mid {
+      margin: 0 auto;
+      text-align: center;
+      padding-top: 48px;
+      width: 340px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: 'Lobster', sans-serif;
+      will-change: transform;
+      font-size: 50px;
+      line-height: 50px;
+      color: white;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+    }
+    p {
+      margin: 18px 0;
+      color: #1d9dbc;
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 26px;
+      text-shadow: 0 1px 0 rgba(29, 157, 188, 0.125);
+    }
+    .logo {
+      display: inline-block;
+      line-height: 0;
+      font-size: 0;
+      height: 28px;
+      width: 84px;
+      margin-bottom: 12px;
+      /** TODO: hdpi only */
+      background: url(img/google_logo_2x.png) no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+
+  /** Village flexbox */
+  #village {
+    background: #efeff0;
+
+    #houses {
+      display: flex;
+      flex-flow: wrap;
+      align-items: flex-start;
+      position: relative;
+      border-sizing: border-box;
+      margin: 0 auto;
+      max-width: $width-mobile;
+    }
+  }
+  .house {
+    position: relative;
+
+    img.icon {
+      position: absolute;
+      bottom: 0;
+      left: 25%;
+      width: 50%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      will-change: transform;
+    }
+
+    a:hover {
+      img.icon {
+        animation: bounce infinite 600ms;
+      }
+    }
+
+    .color {
+      position: absolute;
+      display: none;
+    }
+  }
+
+  /** Desktop village */
+  @media (min-width: $width-mobile) {
+    .house {
+      width: 25%;
+      position: relative;
+
+      &::before {
+        /** forces .item to have same height as width */
+        content: '';
+        padding-top: 100%;
+        width: 100%;
+        float: left;
+      }
+    }
+  }
+
+  /** All mobile villages (two cols) */
+  @media (max-width: $width-mobile) {
+    .house {
+      width: 50%;
+      height: 200px;
+
+      img.icon {
+        width: 200px;
+      }
+
+      .color {
+        display: block;
+      }
+    }
+  }
+
+  /** Mobile village (one col) */
+  @media (max-width: $width-twocol) {
+    .house {
+      width: 100%;
+    }
+  }
+}
