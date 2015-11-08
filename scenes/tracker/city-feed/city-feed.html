@@ -22,8 +22,6 @@ specific language governing permissions and limitations under the License.
 
 <!--
 Utility element to use response HTML returned by the Santa Tracker API.
-
-@element html-echo
 -->
 <dom-module id="html-echo">
 <script>
@@ -34,11 +32,11 @@ Polymer({
     html: {
       type: String,
       value: null,
-      observers: 'htmlChanged'
+      observers: '_htmlChanged'
     }
   },
 
-  htmlChanged: function() {
+  _htmlChanged: function() {
     if (this.html) {
       Polymer.dom(this).innerHTML = this.html;
     }
@@ -47,14 +45,13 @@ Polymer({
 </script>
 </dom-module>
 
+<link rel="stylesheet" href="city-feed.css" />
+
 <!--
 City feed view in Tracker
-
-@element city-feed
 -->
 <dom-module id="city-feed" attributes="active location timeline santaApp videoMap">
 <template>
-<link rel="stylesheet" href="city-feed.css" no-shim>
 <style>
   :host {
     display: none;

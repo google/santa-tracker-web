@@ -153,6 +153,11 @@ Santa Tracker app.
         path$="scenes/streetview/streetview-scene_[[language]].html"
         loading-bg-color="rgb(129,208,0)"></streetview-scene>
 
+    <!-- TODO: binding doesn't work -->
+    <tracker-scene id="tracker" route="tracker"
+        destinations="{{destinations}}"
+        path$="scenes/tracker/tracker-scene_[[language]].html"></tracker-scene>
+
     <traditions-scene route="traditions"
         path$="scenes/traditions/traditions-scene_[[language]].html"
         loading-bg-color="rgb(255,224,0)"
@@ -480,26 +485,25 @@ Polymer({
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
     }
 
-    // TODO(samthor): santaService seems to be obsfucated
-    // this.santaService = new SantaService(apiClient, this.language);
-    // this.santaService.sync(this._checkSchedule.bind(this));
-    //
-    // this.santaService.addListener('destinations_changed', function(destinations) {
-    //   this.destinations = destinations || [];
-    // }.bind(this));
-    //
-    // this.santaService.addListener('timeline_changed', function(timeline) {
-    //   this.timeline = timeline || [];
-    // }.bind(this));
-    //
-    // this.santaService.addListener('kill', function justKillMe() {
-    //   this.analyticsService.trackEvent('API', 'killed');
-    //   // redirect after analytics has been processed
-    //   this.analyticsService.executeFunction(function errorRedirect() {
-    //     window.location = 'https://santatracker.google.com' +
-    //         location.pathname.replace(/[^\/]*$/, '') + 'error.html';
-    //   });
-    // }.bind(this));
+    this.santaService = new SantaService(apiClient, this.language);
+    this.santaService.sync(this._checkSchedule.bind(this));
+
+    this.santaService.addListener('destinations_changed', function(destinations) {
+      this.destinations = destinations || [];
+    }.bind(this));
+
+    this.santaService.addListener('timeline_changed', function(timeline) {
+      this.timeline = timeline || [];
+    }.bind(this));
+
+    this.santaService.addListener('kill', function justKillMe() {
+      this.analyticsService.trackEvent('API', 'killed');
+      // redirect after analytics has been processed
+      this.analyticsService.executeFunction(function errorRedirect() {
+        window.location = 'https://santatracker.google.com' +
+            location.pathname.replace(/[^\/]*$/, '') + 'error.html';
+      });
+    }.bind(this));
 
     this._prepareHouses();
 
