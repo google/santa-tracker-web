@@ -53,9 +53,19 @@ var CLOSURE_SAFE_WARNINGS = CLOSURE_WARNINGS.concat([
 ]);
 
 var STATIC_VERSION = 80;
-var VERSION = argv.build || STATIC_VERSION;
+var VERSION = '' + (argv.build || STATIC_VERSION);
 
-var STATIC_BASE_URL = argv.baseurl ? argv.baseurl : '';
+// find the base URL, but ensure it ends with '/'.
+var STATIC_BASE_URL = (function() {
+  if (!argv.baseurl) {
+    return '';
+  }
+  var url = argv.baseurl;
+  if (!url.endsWith('/')) {
+    url += '/';
+  }
+  return url;
+}());
 var STATIC_URL = argv.pretty ? '' : (STATIC_BASE_URL + VERSION + '/');
 
 var PROD_DIR = 'dist_prod';
