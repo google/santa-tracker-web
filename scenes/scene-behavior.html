@@ -53,10 +53,12 @@ specific language governing permissions and limitations under the License.
        * If `true`, the scene is active. In Santa Tracker, this is set by the
        * specific configuration of the lazy-scenes element (aka,
        * selected-attribute="active").
+       *
+       * Note that this intentionally starts undefined so that its observer is
+       * only called after the object is ready.
        */
       active: {
         type: Boolean,
-        value: false,
         reflectToAttribute: true,
         observer: '_activeChanged'
       },
@@ -191,9 +193,9 @@ specific language governing permissions and limitations under the License.
       if (!this.loaded && this.onPreload) {
         // Note that this is called before _totalAssets/_assetsLoaded are given
         // sensible defaults.
-        // TODO(samthor): Find out why. Is this to do with Behavior?
-        this._totalAssets = 0;
-        this._assetsLoaded = 0;
+        if (isNaN(this._totalAssets)) {
+          throw new Error('active set on ' + this.localName + ' before ready');
+        }
 
         this.onPreload();
 
