@@ -47,10 +47,12 @@ TODO: Not yet fully migrated to Polymer 1.0+
   <div id="module-tracker">
     <div class="scene">
 
-      <template if="{{santaApp}}">
-        <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
-                         libraries="places,geometry" language="{{santaApp.language}}"
-                         on-api-load="{{mapsAPIReady}}"></google-maps-api>
+      <template is="dom-if" if="{{santaApp}}">
+        <!-- Conditional required to prevent double loading -->
+        <google-maps-api version="3.exp"
+                         client-id="{{santaApp.config.CLIENT_ID}}"
+                         language="{{santaApp.language}}"
+                         on-api-load="mapsAPIReady"></google-maps-api>
       </template>
 
       <city-feed id="feed" fit timeline="{{santaApp.timeline}}"

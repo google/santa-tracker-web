@@ -29,10 +29,13 @@ Mercator scene.
 <template>
   <div id="module-mercator">
     <div class="scene">
-      <google-maps-api version="3.exp"
-                       client-id="{{santaApp.config.CLIENT_ID}}"
-                       language="{{santaApp.language}}"
-                       on-api-load="mapsAPIReady"></google-maps-api>
+      <template is="dom-if" if="{{santaApp}}">
+        <!-- Conditional required to prevent double loading -->
+        <google-maps-api version="3.exp"
+                         client-id="{{santaApp.config.CLIENT_ID}}"
+                         language="{{santaApp.language}}"
+                         on-api-load="mapsAPIReady"></google-maps-api>
+      </template>
       <div class="map">
         <div class="gmap"></div>
       </div>
