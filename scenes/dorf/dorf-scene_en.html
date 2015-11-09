@@ -74,7 +74,7 @@ Polymer({
   },
   
   _calculateHref: function(house) {
-    return house.link || '#' + house.module;
+    return house.link || this.pageUrl + '#' + house.module;
   },
 
   /**
