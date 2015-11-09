@@ -568,11 +568,11 @@ TODO: Not yet fully migrated to Polymer 1.0+
       if (this.trackerCard) {
         this.async(function() {
           this.$.cards.classList.add('show');
-        }, null, t);
+        }, t);
 
         this.async(function() {
           this.hideCard_();
-        }, null, t + this.CARD_SHOW_TIME_);
+        }, t + this.CARD_SHOW_TIME_);
       }
     },
 
@@ -670,7 +670,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
 
           var cityStats = this.$['module-tracker'].querySelector('#city-stats');
           cityStats.style.opacity = 1;
-        }, null, 550);
+        }, 550);
       } else {
         this.$.feed.active = false;
 
