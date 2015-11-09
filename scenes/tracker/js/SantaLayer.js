@@ -236,7 +236,6 @@ function createSantaLayerConstructor() {
     }
 
     // Update flight trail from Santa to the last location
-    console.info('activeTrail path to', this.activeTrail_, this.lastStop_, this.get('position'));
     this.activeTrail_.setPath([
       mapsLatLng(this.lastStop_.location),
       this.get('position')

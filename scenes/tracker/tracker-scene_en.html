@@ -22,6 +22,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/paper-fab/paper-fab.html">
 <link rel="import" href="../../components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../../components/iron-image/iron-image.html">
+<link rel="import" href="../../components/iron-icons/iron-icons.html">
 
 <link rel="import" href="dependencies.html">
 
@@ -56,8 +57,8 @@ Tracker scene.
                          on-api-load="mapsAPIReady"></google-maps-api>
       </template>
 
-      <!-- <city-feed id="feed" class="fit" timeline="{{santaApp.timeline}}"
-                 santa-app="{{santaApp}}" video-map="{{ytMapping}}"></city-feed> -->
+      <city-feed id="feed" class="fit" timeline="{{santaApp.timeline}}"
+                 santa-app="{{santaApp}}" video-map="{{ytMapping}}"></city-feed>
 
       <tracker-intro id="intro"
           user-location="{{userLocation}}"
@@ -481,14 +482,6 @@ Tracker scene.
                                           label: 'type: ' + cardType});
     },
 
-    created: function() {
-      console.warn('#tracker created');
-    },
-
-    attached: function() {
-      console.warn('#tracker attached');
-    },
-
     trackSanta: function() {
       if (this.trackingInterval_) return;
 
@@ -534,16 +527,16 @@ Tracker scene.
       this.worldView_.setupMap();
       this.worldView_.show();
 
-      // // Santa API returning destinations is async. Upgrading this element is
-      // // async. The Maps API being ready is async. If destinations have not
-      // // been returned by the API at this point, sync santa and get us some!
-      // if (this.santaApp.destinations.length) {
-      //   this.destinations = this.santaApp.destinations;
-      // } else {
-      //   this.santaApp.santaService.sync(function() {
-      //     this.destinations = this.santaApp.destinations;
-      //   }.bind(this));
-      // }
+      // Santa API returning destinations is async. Upgrading this element is
+      // async. The Maps API being ready is async. If destinations have not
+      // been returned by the API at this point, sync santa and get us some!
+      if (this.santaApp.destinations && this.santaApp.destinations.length) {
+        this.destinations = this.santaApp.destinations;
+      } else {
+        this.santaApp.santaService.sync(function() {
+          this.destinations = this.santaApp.destinations;
+        }.bind(this));
+      }
 
       this.$.intro.showTitle();
 
@@ -666,7 +659,6 @@ Tracker scene.
 
     locationChanged: function() {
       var location = this.location;
-      console.info(location, 'change');
 
       this.arrival_ = this.formatCountdown_(location.next.arrival);
 
@@ -710,7 +702,7 @@ Tracker scene.
 
     cityFeedActiveChanged: function() {
       if (!this.worldView_) {
-        console.warn('cityFeedActiveChagned, but worldView doesn\'t exist', new Error());
+        console.warn('cityFeedActiveChanged, but worldView doesn\'t exist', new Error());
         return;
       }
 

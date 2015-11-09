@@ -86,7 +86,7 @@ Intro for the tracker scene.
     </div>
 
     <div class="skip">
-      <a href="{{pageUrl}}#" on-click="{{closeIntro}}"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
+      <a href="{{pageUrl}}#" on-click="closeIntro"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
     </div>
   </div>
 
@@ -144,15 +144,9 @@ Intro for the tracker scene.
     /**
      * A basename for links within Santa Tracker. The hash is removed for nicer
      * display URLs in the status bar.
-     * @property pageUrl
-     * @type string
-     * @default
      */
     get pageUrl() {
       return location.href.substr(0, location.href.length - location.hash.length);
-    },
-
-    created: function() {
     },
 
     attached: function() {
@@ -162,7 +156,6 @@ Intro for the tracker scene.
 
       this.async(function() {
         // `domReady` from Polymer 0.5.
-        console.info('domReady... what is this?', this);
         this.updateLayout_();
       }.bind(this));
     },
@@ -359,10 +352,8 @@ Intro for the tracker scene.
 
     /**
      * Hides the intro from view.
-     *
-     * @method closeIntro
      */
-    closeIntro: function(e, detail, sender) {
+    closeIntro: function(e, detail) {
       e && e.preventDefault();
       this.style.transform = this.style.webkitTransform = 'translateY(-' + 2 * this.winCenterY_ + 'px)';
       this.classList.add('offscreen');
@@ -380,6 +371,7 @@ Intro for the tracker scene.
     },
 
     goesOffScreen: function(e, detail, sender) {
+      // TODO: we no longer have 'sender'
       if (sender.classList.contains('offscreen')) {
         this.destroy();
       }
