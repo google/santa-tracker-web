@@ -336,7 +336,7 @@ Intro for the tracker scene.
       this.async(function() {
         this.$.top.classList.add('final');
         this.$['santa-loading'].classList.add('final');
-      }, null, 300);
+      }, 300);
     },
 
     /**
@@ -358,10 +358,10 @@ Intro for the tracker scene.
             pin.style.transform = 'rotate(0deg)';
             this.async(function() {
               this.showSanta();
-            }, null, 1500);
+            }, 1500);
           }.bind(this));
         }.bind(this));
-      }, null, 300);
+      }, 300);
     },
 
     /**
@@ -387,8 +387,8 @@ Intro for the tracker scene.
           santaBubble.open(100);
           this.async(function() {
            this.closeIntro(); // Remove intro screen after 4s.
-          }, null, 4000);
-        }, null, 800);
+          }, 4000);
+        }, 800);
 
       }.bind(this));
       this.$.userLocation.classList.remove('final');
