@@ -756,7 +756,11 @@ Polymer({
   },
 
   _postCountdownChanged: function() {
-    document.body.classList.add('posttakeoff');
+    if (this.postCountdown) {
+      document.body.classList.add('posttakeoff');
+    } else {
+      document.body.classList.remove('posttakeoff');
+    }
   },
 
   /**
@@ -822,6 +826,9 @@ Polymer({
       this.unlockAllHouses();
       return;
     }
+    if (!this.santaService) {
+      return;  // ignore, will be called via ready:
+    }
 
     var todayDate = this.santaService.dateNow();
     var tomorrowDate = new Date(todayDate);
@@ -862,7 +869,7 @@ Polymer({
 
     // Check again at the next hour tick.
     var timeTillHour = (60 - todayDate.getMinutes()) * 60 * 1000;
-    this._scheduleTimeout = this.async(this._checkSchedule, null, timeTillHour);
+    this._scheduleTimeout = this.async(this._checkSchedule, timeTillHour);
   },
 
   _escHandler: function(e, detail) {
