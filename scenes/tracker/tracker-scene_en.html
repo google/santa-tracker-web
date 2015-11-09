@@ -577,6 +577,8 @@ Tracker scene.
 
       this.santaApp.santaService.addListener('card', this.updateCard_.bind(this));
 
+      this.cityFeedActiveChanged();  // trigger listener for cityFeedActive now that worldView_ exists
+
       this.trackSanta();
     },
 
@@ -702,8 +704,7 @@ Tracker scene.
 
     cityFeedActiveChanged: function() {
       if (!this.worldView_) {
-        console.warn('cityFeedActiveChanged, but worldView doesn\'t exist', new Error());
-        return;
+        return;  // ignore, called when worldView_ is created
       }
 
       this.worldView_.setMode(this.cityFeedActive ? 'feed' : 'track');

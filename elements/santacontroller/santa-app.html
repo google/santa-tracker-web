@@ -153,7 +153,8 @@ Santa Tracker app.
         path$="scenes/streetview/streetview-scene_[[language]].html"
         loading-bg-color="rgb(129,208,0)"></streetview-scene>
 
-    <!-- TODO: binding doesn't work -->
+    <!-- TODO(samthor): The Polymer upgrade path mucks with binding this value
+      and it may not be updated after the first time -->
     <tracker-scene id="tracker" route="tracker"
         destinations="{{destinations}}"
         path$="scenes/tracker/tracker-scene_[[language]].html"></tracker-scene>
