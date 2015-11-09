@@ -489,7 +489,8 @@ SantaService.prototype.kill_ = function() {
  * @return {number}
  */
 SantaService.prototype.now = function() {
-  return +new Date() + this.debugOffset_;
+  var offset = this.debugOffset_ || 0;
+  return +new Date() + offset;
 };
 
 /**
