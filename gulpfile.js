@@ -64,6 +64,11 @@ var argv = require('yargs')
       default: '',
       describe: 'production base href'
     })
+    .option('scene', {
+      type: 'string',
+      default: null,
+      describe: 'only build assets for this scene'
+    })
     .argv;
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
@@ -223,7 +228,8 @@ gulp.task('rm-dist', function(rmCallback) {
 });
 
 gulp.task('sass', function() {
-  return gulp.src(SASS_FILES)
+  var files = argv.scene ? 'scenes/' + argv.scene + '/**/*.scss' : SASS_FILES;
+  return gulp.src(files)
     .pipe(sass({
       outputStyle: 'compressed'
     }).on('error', sass.logError))
@@ -262,6 +268,10 @@ gulp.task('compile-santa-api-service', function() {
 
 gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
   var sceneNames = Object.keys(SCENE_CLOSURE_CONFIG);
+  if (argv.scene) {
+    sceneNames = [argv.scene];
+  }
+
   // compile each scene, merging them into a single gulp stream as we go
   return sceneNames.reduce(function(stream, sceneName) {
     var config = SCENE_CLOSURE_CONFIG[sceneName];
@@ -492,7 +502,8 @@ gulp.task('watch', function() {
 
 gulp.task('serve', ['sass', 'compile-scenes', 'watch'], function() {
   browserSync.init({
-    server: '.'
+    server: '.',
+    startPath: argv.scene && '/#' + argv.scene
   });
 
   gulp.watch('{scenes,elements,sass}/**/*.css').on('change', browserSync.reload);
