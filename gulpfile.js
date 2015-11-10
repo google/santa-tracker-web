@@ -476,5 +476,5 @@ gulp.task('serve', ['compass', 'compile-scenes'], function() {
   gulp.watch('sass/*.scss', ['compass']).on('change', browserSync.reload);
   gulp.watch(COMPASS_FILES, ['compass']).on('change', browserSync.reload);
   gulp.watch(CLOSURE_FILES, ['compile-scenes']).on('change', browserSync.reload);
-	gulp.watch('scenes/**/*.html').on('change', browserSync.reload);	
+  gulp.watch('scenes/**/*.html').on('change', browserSync.reload);	
 });
