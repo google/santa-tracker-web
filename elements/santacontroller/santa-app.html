@@ -66,6 +66,11 @@ Santa Tracker app.
         loading-bg-color="#8fd7f7"
         loading-src="scenes/citylights/img/loading.svg"></citylights-scene>
 
+    <codelab-scene route="codelab"
+        path$="scenes/codelab/codelab-scene_[[language]].html"
+        loading-bg-color="#3f4ea1"
+        loading-src="scenes/codelab/img/loading.svg"></codelab-scene>
+
     <commandcentre-scene route="commandcentre"
         path$="scenes/commandcentre/commandcentre-scene_[[language]].html"
         loading-bg-color="rgb(129,208,0)"></commandcentre-scene>
@@ -152,6 +157,12 @@ Santa Tracker app.
     <streetview-scene route="streetview"
         path$="scenes/streetview/streetview-scene_[[language]].html"
         loading-bg-color="rgb(129,208,0)"></streetview-scene>
+
+    <!-- TODO(samthor): The Polymer upgrade path mucks with binding this value
+      and it may not be updated after the first time -->
+    <tracker-scene id="tracker" route="tracker"
+        destinations="{{destinations}}"
+        path$="scenes/tracker/tracker-scene_[[language]].html"></tracker-scene>
 
     <traditions-scene route="traditions"
         path$="scenes/traditions/traditions-scene_[[language]].html"
@@ -480,26 +491,25 @@ Polymer({
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
     }
 
-    // TODO(samthor): santaService seems to be obsfucated
-    // this.santaService = new SantaService(apiClient, this.language);
-    // this.santaService.sync(this._checkSchedule.bind(this));
-    //
-    // this.santaService.addListener('destinations_changed', function(destinations) {
-    //   this.destinations = destinations || [];
-    // }.bind(this));
-    //
-    // this.santaService.addListener('timeline_changed', function(timeline) {
-    //   this.timeline = timeline || [];
-    // }.bind(this));
-    //
-    // this.santaService.addListener('kill', function justKillMe() {
-    //   this.analyticsService.trackEvent('API', 'killed');
-    //   // redirect after analytics has been processed
-    //   this.analyticsService.executeFunction(function errorRedirect() {
-    //     window.location = 'https://santatracker.google.com' +
-    //         location.pathname.replace(/[^\/]*$/, '') + 'error.html';
-    //   });
-    // }.bind(this));
+    this.santaService = new SantaService(apiClient, this.language);
+    this.santaService.sync(this._checkSchedule.bind(this));
+
+    this.santaService.addListener('destinations_changed', function(destinations) {
+      this.destinations = destinations || [];
+    }.bind(this));
+
+    this.santaService.addListener('timeline_changed', function(timeline) {
+      this.timeline = timeline || [];
+    }.bind(this));
+
+    this.santaService.addListener('kill', function justKillMe() {
+      this.analyticsService.trackEvent('API', 'killed');
+      // redirect after analytics has been processed
+      this.analyticsService.executeFunction(function errorRedirect() {
+        window.location = 'https://santatracker.google.com' +
+            location.pathname.replace(/[^\/]*$/, '') + 'error.html';
+      });
+    }.bind(this));
 
     this._prepareHouses();
 
@@ -752,7 +762,11 @@ Polymer({
   },
 
   _postCountdownChanged: function() {
-    document.body.classList.add('posttakeoff');
+    if (this.postCountdown) {
+      document.body.classList.add('posttakeoff');
+    } else {
+      document.body.classList.remove('posttakeoff');
+    }
   },
 
   /**
@@ -818,6 +832,9 @@ Polymer({
       this.unlockAllHouses();
       return;
     }
+    if (!this.santaService) {
+      return;  // ignore, will be called via ready:
+    }
 
     var todayDate = this.santaService.dateNow();
     var tomorrowDate = new Date(todayDate);
@@ -858,7 +875,7 @@ Polymer({
 
     // Check again at the next hour tick.
     var timeTillHour = (60 - todayDate.getMinutes()) * 60 * 1000;
-    this._scheduleTimeout = this.async(this._checkSchedule, null, timeTillHour);
+    this._scheduleTimeout = this.async(this._checkSchedule, timeTillHour);
   },
 
   _escHandler: function(e, detail) {

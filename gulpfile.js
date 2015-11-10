@@ -224,7 +224,7 @@ gulp.task('compile-santa-api-service', function() {
       compilerPath: COMPILER_PATH,
       fileName: 'service.min.js',
       compilerFlags: addCompilerFlagOptions({
-        compilation_level: 'ADVANCED_OPTIMIZATIONS',
+        compilation_level: 'SIMPLE_OPTIMIZATIONS',
         // warning_level: 'VERBOSE',
         language_in: 'ECMASCRIPT5_STRICT',
         externs: SHARED_EXTERNS.concat('js/service/externs.js'),
