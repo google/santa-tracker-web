@@ -470,7 +470,7 @@ gulp.task('default', ['copy-assets']);
 
 gulp.task('serve', ['compass', 'compile-scenes'], function() {
   browserSync.init({
-	  server: '.'
+    server: '.'
   });
 
   gulp.watch('sass/*.scss', ['compass']).on('change', browserSync.reload);
