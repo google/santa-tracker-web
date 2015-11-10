@@ -131,7 +131,14 @@ var SCENE_CLOSURE_CONFIG = {
   },
   codelab: {
     typeSafe: false,
-    entryPoint: 'app.wrapper.FrameWrapper'
+    entryPoint: 'app.FrameWrapper',
+    dependencies: ['codelabframe']
+  },
+  codelabframe: {
+    closureLibrary: true,
+    typeSafe: false,
+    entryPoint: 'app.Game',
+    wrapClosure: false
   },
   commandcentre: {
     typeSafe: false,
@@ -265,17 +272,21 @@ gulp.task('compile-santa-api-service', function() {
     .pipe(gulp.dest('js/service'));
 });
 
-gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
+gulp.task('compile-scenes', function() {
   var sceneNames = Object.keys(SCENE_CLOSURE_CONFIG);
   if (argv.scene) {
     sceneNames = [argv.scene];
+    var dependencies = SCENE_CLOSURE_CONFIG[argv.scene].dependencies;
+    if (dependencies) {
+      sceneNames = sceneNames.concat(dependencies);
+    }
   }
 
   // compile each scene, merging them into a single gulp stream as we go
   return sceneNames.reduce(function(stream, sceneName) {
     var config = SCENE_CLOSURE_CONFIG[sceneName];
-    var fileName = sceneName + '-scene.min.js';
-    var dest = 'scenes/' + sceneName;
+    var fileName = config.fileName || (sceneName + '-scene.min.js');
+    var folder = config.folder || ('scenes/' + sceneName);
     var closureLibraryPath = path.resolve('components/closure-library/closure/goog');
 
     var warnings = CLOSURE_SAFE_WARNINGS;
@@ -295,10 +306,10 @@ gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
     }
 
     return stream.add(gulp.src([
-      'scenes/' + sceneName + '/js/**/*.js',
+      folder + '/js/**/*.js',
       'scenes/shared/js/*.js',
     ])
-    .pipe(newer(dest + '/' + fileName))
+    .pipe(newer(folder + '/' + fileName))
     .pipe(closureCompiler({
       compilerPath: COMPILER_PATH,
       continueWithWarnings: true,
@@ -316,51 +327,14 @@ gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
         only_closure_dependencies: null,
         // scenes namespace themselves to `app.*`. Move this namespace into
         // the global `scenes.sceneName`
-        output_wrapper:
+        output_wrapper: config.wrapClosure === false ? '%output%' :
             'var scenes = scenes || {};\n' +
             'scenes.' + sceneName + ' = scenes.' + sceneName + ' || {};\n' +
             '(function(){%output%}).call({ app: scenes.' + sceneName + ' });'
       })
     }))
-    .pipe(gulp.dest(dest)));
+    .pipe(gulp.dest(folder)));
   }, mergeStream());
-});
-
-gulp.task('compile-codelab-frame', function() {
-  var dest = 'scenes/codelab';
-  var fileName = 'codelab-frame.min.js';
-
-  return gulp.src([
-      'scenes/codelab/js/**/*.js',
-
-      // add shared scene code
-      'scenes/shared/js/*.js',
-
-      // add closure library
-      'components/closure-library/closure/goog/**/*.js'
-    ])
-    .pipe(newer(dest + '/' + fileName))
-    .pipe(closureCompiler({
-      compilerPath: COMPILER_PATH,
-      fileName: fileName,
-      compilerFlags: addCompilerFlagOptions({
-        closure_entry_point: 'app.Game',
-        compilation_level: 'SIMPLE_OPTIMIZATIONS',
-        // warning_level: 'VERBOSE',
-        language_in: 'ECMASCRIPT5_STRICT',
-        process_closure_primitives: null,
-        generate_exports: null,
-        jscomp_warning: [
-          // https://github.com/google/closure-compiler/wiki/Warnings
-          'accessControls',
-          'const',
-          'visibility'
-        ],
-        only_closure_dependencies: null,
-        output_wrapper: '(function(){%output%}).call(this);'
-      })
-    }))
-    .pipe(gulp.dest(dest));
 });
 
 function addCompilerFlagOptions(opts) {
