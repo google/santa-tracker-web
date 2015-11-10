@@ -32,7 +32,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       padding: 0 15px;
     }
 
-    paper-item.core-selected {
+    paper-item.iron-selected {
       background-color: #00C55D;
     }
 
@@ -95,7 +95,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     .is-answered .is-correct .check::after,
-    .core-selected .check::after {
+    .iron-selected .check::after {
       display: block;
     }
 
@@ -163,7 +163,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     is: 'select-answer',
 
     eventDelegates: {
-      'core-activate': 'onAnswered'
+      'icon-activate': 'onAnswered'
     },
 
     shuffled: [],
