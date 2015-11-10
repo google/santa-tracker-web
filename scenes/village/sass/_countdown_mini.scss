@@ -22,8 +22,8 @@
     margin-left: #{-536/2}px;
     top: -200px;
     position: absolute;
-    @include transform(translate3d(0, -1000px, 0));
-    @include transition(all 1.5s cubic-bezier(0.4, 1.6, 0.2, 1));
+    transform: translate3d(0, -1000px, 0);
+    transition: all 1.5s cubic-bezier(0.4, 1.6, 0.2, 1);
 
     #sign-back {
       background: url(img/sign-back.svg) no-repeat;

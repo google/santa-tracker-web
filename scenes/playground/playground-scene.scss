@@ -63,7 +63,7 @@ $name: 'module-playground';
     left: 0;
     right: 0;
     background-color: #0a0049;
-    background-image: linear-gradient(top, #0a0049, #003f7c);
+    background-image: linear-gradient(to bottom, #0a0049, #003f7c);
     // fill up the gap because the gradient
     // can't be longer than 1190px high
     &:before {

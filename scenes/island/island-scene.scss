@@ -1,7 +1,3 @@
-@import "compass/css3/transform";
-@import "compass/css3/border-radius";
-@import "compass/css3/images";
-
 $name: 'module-island';
 
 @import "../shared/sass/board";
@@ -56,7 +52,7 @@ $name: 'module-island';
       height: 42px;
 
       background: -652px -206px url('img/objects.png');
-      @include animations(fly 55s linear infinite);
+      animation: fly 55s linear infinite;
     }
 
     .cloud {
@@ -75,54 +71,54 @@ $name: 'module-island';
 
       &.small {
         z-index: 5;
-        @include transform(scale(.25));
-        @include animations(fly 120s linear infinite);
+        transform: scale(.25);
+        animation: fly 120s linear infinite;
       }
 
       &.medium {
         z-index: 3;
-        @include transform(scale(.5));
-        @include animations(fly2 135s linear infinite);
+        transform: scale(.5);
+        animation: fly2 135s linear infinite;
       }
 
       &.c2 {
         top: 20%;
-        @include animations(fly3 142s linear infinite);
+        animation: fly3 142s linear infinite;
       }
 
       &.c3 {
         top: 40%;
-        @include animations(fly 118s linear infinite);
+        animation: fly 118s linear infinite;
       }
 
       &.c4 {
         top: 30%;
-        @include animations(fly2 123s linear infinite);
+        animation: fly2 123s linear infinite;
       }
 
       &.c5 {
         top: 66%;
-        @include animations(fly3 120s linear infinite);
+        animation: fly3 120s linear infinite;
       }
 
       &.c6 {
         top: 72%;
-        @include animations(fly 130s linear infinite);
+        animation: fly 130s linear infinite;
       }
 
       &.c7 {
         top: 22%;
-        @include animations(fly2 145s linear infinite);
+        animation: fly2 145s linear infinite;
       }
 
       &.c8 {
         top: 30%;
-        @include animations(fly3 175s linear infinite);
+        animation: fly3 175s linear infinite;
       }
 
       &.c9 {
         top: 40%;
-        @include animations(fly 165s linear infinite);
+        animation: fly 165s linear infinite;
       }
     }
   }
@@ -171,7 +167,7 @@ $name: 'module-island';
       background: -763px -297px url('img/objects.png');
 
       &.go {
-        @include animations(.75s coconutFall ease-in);
+        animation: .75s coconutFall ease-in;
       }
     }
 
@@ -213,15 +209,15 @@ $name: 'module-island';
 
         background: -598px -289px url('img/objects.png');
 
-        @include transform(translateY(35px));
+        transform: translateY(35px);
       }
 
       &.go {
         .kid {
-          @include animations(3s slider ease-in);
+          animation: 3s slider ease-in;
         }
         .splash {
-          @include animations(3s sliderSplash linear);
+          animation: 3s sliderSplash linear;
         }
       }
     }
@@ -242,7 +238,7 @@ $name: 'module-island';
 
       background-position: -133px -282px;
 
-      @include animations(4s flaskFloat infinite alternate ease-in-out);
+      animation: 4s flaskFloat infinite alternate ease-in-out;
     }
 
     .lights {
@@ -257,7 +253,7 @@ $name: 'module-island';
 
       background: url('img/lights.png');
 
-      @include animations(1s lightsSwitch infinite step-start);
+      animation: 1s lightsSwitch infinite step-start;
     }
 
     .lady {
@@ -269,7 +265,7 @@ $name: 'module-island';
 
       background-position: -488px -191px;
 
-      @include animations(3s objFloat infinite alternate ease-in-out);
+      animation: 3s objFloat infinite alternate ease-in-out;
     }
 
     .bird {
@@ -281,13 +277,13 @@ $name: 'module-island';
 
       background-position: -21px -300px;
 
-      @include transform(translateX(0px)  rotateY(180deg));
-      @include animations(15s birdSwim infinite ease-in-out);
+      transform: translateX(0px)  rotateY(180deg);
+      animation: 15s birdSwim infinite ease-in-out;
 
       &.b2 {
         left: 700px;
         bottom: -80px;
-        @include animations(13s 2s birdSwim infinite ease-in-out);
+        animation: 13s 2s birdSwim infinite ease-in-out;
       }
 
       &.b3 {
@@ -295,7 +291,7 @@ $name: 'module-island';
         right: 120px;
         bottom: -100px;
 
-        @include animations(11s 1s birdSwim infinite ease-in-out);
+        animation: 11s 1s birdSwim infinite ease-in-out;
       }
     }
 
@@ -326,7 +322,7 @@ $name: 'module-island';
       background: url('img/objects.png');
       background-position: -463px 0;
 
-      @include animations(5s boatMovement infinite alternate ease-in-out);
+      animation: 5s boatMovement infinite alternate ease-in-out;
 
       .helper {
         position: absolute;
@@ -371,11 +367,11 @@ $name: 'module-island';
 
             background: -198px -306px url('img/objects.png');
 
-            @include apply-origin(0 20%, false);
-            @include animations(3s presentThrow infinite linear);
+            transform-origin: 0 20%;
+            animation: 3s presentThrow infinite linear;
           }
 
-          @include animations(3s presentGrab infinite linear);
+          animation: 3s presentGrab infinite linear;
         }
 
         .present {
@@ -387,8 +383,8 @@ $name: 'module-island';
           width: 80px;
           height: 22px;
 
-          @include apply-origin(100% 50%, false);
-          @include animations(3s presentFly infinite linear);
+          transform-origin: 100% 50%;
+          animation: 3s presentFly infinite linear;
 
           .obj {
             position: absolute;
@@ -401,8 +397,8 @@ $name: 'module-island';
 
             background: -800px -300px url('img/objects.png');
 
-            @include apply-origin(50% 50%, false);
-            @include animations(3s presentSpin infinite ease-in);
+            transform-origin: 50% 50%;
+            animation: 3s presentSpin infinite ease-in;
           }
         }
 
@@ -430,7 +426,7 @@ $name: 'module-island';
       width: 30px;
       height: 80px;
 
-      @include transform(rotateZ(15deg));
+      transform: rotateZ(15deg);
 
       .z {
         position: absolute;
@@ -445,40 +441,40 @@ $name: 'module-island';
 
         opacity: 0;
 
-        @include animations(2s zzzFloat infinite linear);
+        animation: 2s zzzFloat infinite linear;
 
         &:nth-child(n+2){
           left: 20%;
 
-          @include animations(2.45s 3s zzzFloat infinite linear);
+          animation: 2.45s 3s zzzFloat infinite linear;
         }
 
         &:nth-child(n+3){
           left: 50%;
 
-          @include transform(scale(.5));
-          @include animations(2.25s 2s zzzFloat infinite linear);
+          transform: scale(.5);
+          animation: 2.25s 2s zzzFloat infinite linear;
         }
 
         &:nth-child(n+4){
           left: 80%;
 
-          @include transform(scale(.9) rotateZ(5deg));
-          @include animations(1.5s 1s zzzFloat infinite linear);
+          transform: scale(.9) rotateZ(5deg);
+          animation: 1.5s 1s zzzFloat infinite linear;
         }
 
         &:nth-child(n+5){
           left: 60%;
 
-          @include transform(scale(.6));
-          @include animations(2.5s 1.5s zzzFloat infinite linear);
+          transform: scale(.6);
+          animation: 2.5s 1.5s zzzFloat infinite linear;
         }
 
         &:nth-child(n+6){
           left: 35%;
 
-          @include transform(scale(.8) rotateZ(-5deg));
-          @include animations(3.5s 2.5s zzzFloat infinite linear);
+          transform: scale(.8) rotateZ(-5deg);
+          animation: 3.5s 2.5s zzzFloat infinite linear;
         }
       }
     }

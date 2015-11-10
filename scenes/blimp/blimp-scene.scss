@@ -1,7 +1,3 @@
-@import "compass/css3/transform";
-@import "compass/css3/border-radius";
-@import "compass/css3/images";
-
 $name: 'module-blimp';
 
 @import "../shared/sass/board";
@@ -35,8 +31,8 @@ $name: 'module-blimp';
       z-index: 3;
       background: 200% 0 url('img/comet.png') no-repeat;
       position: absolute;
-      @include transform(rotate(45deg));
-      @include animations(comet 40s infinite);
+      transform: rotate(45deg);
+      animation: comet 40s infinite;
     }
 
     .blimp {
@@ -65,7 +61,7 @@ $name: 'module-blimp';
           position: relative;
           overflow: hidden;
           border-radius: 50%;
-          @include animations(blink 20s infinite);
+          animation: blink 20s infinite;
           .obj {
             background-color: #58595b;
             width: 23px;
@@ -74,7 +70,7 @@ $name: 'module-blimp';
             top: 12px;
             left: 18px;
             border-radius: 50%;
-            @include animations(eyeball 20s infinite);
+            animation: eyeball 20s infinite;
           }
         }
       }
@@ -90,7 +86,7 @@ $name: 'module-blimp';
         background-repeat: no-repeat;
         background-position: 1px 41px;
         border-radius: 0 72px 72px 0;
-        @include animations(flicker 10s step-start infinite);
+        animation: flicker 10s step-start infinite;
       }
     }
     
@@ -102,7 +98,7 @@ $name: 'module-blimp';
       width: 464px;
       height: 14px;
       padding: 1px;
-      @include transform(rotate(-25deg));
+      transform: rotate(-25deg);
       border-radius: 12px;
       .cogs {
         .obj {
@@ -112,20 +108,20 @@ $name: 'module-blimp';
           background-image: url('img/boxes-belt.png');
           background-repeat: repeat-x;
           background-position: 0 0;
-          @include animations(horizSlide 5s linear infinite);
+          animation: horizSlide 5s linear infinite;
         }
-      
+
         background-image: url('img/cogs.png');
         background-position: 50% -25px;
         background-repeat: repeat-x;
         border: 1px solid transparent;
         height: 20px;
-        @include animations(cogs 0.25s step-start infinite);
+        animation: cogs 0.25s step-start infinite;
       }
-    
+
       border: 4px solid #b7b9bb;
       background-color: #717275;
-      @include background-image(linear-gradient(#717275, #515254 40%, #717275 40%));
+      background-image: linear-gradient(#717275, #515254 40%, #717275 40%);
       background-repeat: repeat-x;
       background-position: 0 0;
     }
@@ -161,16 +157,16 @@ $name: 'module-blimp';
           background-repeat: no-repeat;
         }
         li {
-          @include animations(propeller1 0.4s step-start infinite);
+          animation: propeller1 0.4s step-start infinite;
           left: 555px;
         }
         li:first-child {
           left: 280px;
-          @include animations(propeller2 0.4s step-start infinite);
+          animation: propeller2 0.4s step-start infinite;
         }
         li:last-child {
           left: 830px;
-          @include animations(propeller3 0.4s step-start infinite);
+          animation: propeller3 0.4s step-start infinite;
         }
       }
     }
@@ -213,9 +209,9 @@ $name: 'module-blimp';
         &:nth-child(7) { background-position: -26px -26px; }
         &:nth-child(8) { background-position: -52px -26px; }
         &:nth-child(9) { background-position: -76px -26px; }
-        &:nth-child(2n+1){ @include animations(5s boxesSingles2 infinite ease-out .3s); }
-        &:nth-child(2n+2){ @include animations(8s boxesSingles3 infinite ease-out .2s); }
-        &:nth-child(2n+3){ @include animations(6s boxesSingles1 infinite ease-out .1s); }
+        &:nth-child(2n+1){ animation: 5s boxesSingles2 infinite ease-out .3s; }
+        &:nth-child(2n+2){ animation: 8s boxesSingles3 infinite ease-out .2s; }
+        &:nth-child(2n+3){ animation: 6s boxesSingles1 infinite ease-out .1s; }
       }
     }
     .snooze {
@@ -230,7 +226,7 @@ $name: 'module-blimp';
       background-image: url('img/snooze.png');
       background-repeat: repeat-y;
       background-position: 0 0;
-      @include animations(snooze 5s linear infinite);
+      animation: snooze 5s linear infinite;
     }
   }
 
@@ -254,7 +250,7 @@ $name: 'module-blimp';
 
       background: 0 0 url('img/plane.png') no-repeat;
     
-      @include animations(cloud 60s linear infinite);
+      animation: cloud 60s linear infinite;
     }
 
     .clouds {
@@ -272,26 +268,26 @@ $name: 'module-blimp';
       }
       &.small {
         background-image: url('img/cloud-1.png');
-        @include animations(cloud 35s linear infinite);
+        animation: cloud 35s linear infinite;
       
         &.alt {
           background-image: url('img/cloud-2.png');
-          @include animations(cloud 45s linear infinite);
+          animation: cloud 45s linear infinite;
         }
       }
       &.medium {
         background-image: url('img/cloud-3.png');
-        @include animations(cloud 55s linear infinite);
+        animation: cloud 55s linear infinite;
       
         &.alt {
           background-image: url('img/cloud-4.png');
-          @include animations(cloud 65s linear infinite);
+          animation: cloud 65s linear infinite;
           z-index: 29;
         }
       }
       &.large {
         background-image: url('img/cloud-5.png');
-        @include animations(cloud 85s linear infinite);
+        animation: cloud 85s linear infinite;
         z-index: 29;
       }
     }

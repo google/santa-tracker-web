@@ -1,10 +1,6 @@
 $name: 'module-village';
 
-@import "compass/css3/transform";
-@import "compass/css3/transition";
-
 @import "sass/variables";
-@import "sass/animations";
 @import "sass/keyframe_animations";
 @import "../shared/sass/_mixins.scss";
 
@@ -44,7 +40,7 @@ $name: 'module-village';
     -webkit-overflow-scrolling: touch;
     overflow-x: scroll;
     overflow-y: hidden;
-    @include transform(translateZ(0));
+    transform: translateZ(0);
   }
 
   #hit-area-left,
@@ -141,7 +137,7 @@ $name: 'module-village';
       position: absolute;
       z-index: 19;
       pointer-events: none;
-      @include transform(translateY(-20px));
+      transform: translateY(-20px);
       opacity: 0;
 
       .snow-flake-inner {
@@ -151,40 +147,40 @@ $name: 'module-village';
     }
 
     .snow-flake-large {
-      @include transition(transform 15s ease-in-out, opacity 15s ease-in-out);
+      transition: transform 15s ease-in-out, opacity 15s ease-in-out;
       .snow-flake-inner {
         width: 8px;
         height: 8px;
       }
       &.snow-flake-animated {
         .snow-flake-inner {
-          @include animation(snow 15s infinite ease-in-out);
+          animation: snow 15s infinite ease-in-out;
         }
       }
     }
 
     .snow-flake-medium {
-      @include transition(transform 20s ease-in-out, opacity 20s ease-in-out);
+      transition: transform 20s ease-in-out, opacity 20s ease-in-out;
       .snow-flake-inner {
         width: 5px;
         height: 5px;
       }
       &.snow-flake-animated {
         .snow-flake-inner {
-          @include animation(snow 20s infinite ease-in-out);
+          animation: snow 20s infinite ease-in-out;
         }
       }
     }
 
     .snow-flake-small {
-      @include transition(transform 25s ease-in-out, opacity 20s ease-in-out);
+      transition: transform 25s ease-in-out, opacity 20s ease-in-out;
       .snow-flake-inner {
         width: 3px;
         height: 3px;
       }
       &.snow-flake-animated {
         .snow-flake-inner {
-          @include animation(snow 25s infinite ease-in-out);
+          animation: snow 25s infinite ease-in-out;
         }
       }
     }
@@ -195,7 +191,7 @@ $name: 'module-village';
     left: -730px;
     top: 0;
     overflow: hidden;
-    @include transform(translateZ(0));
+    transform: translateZ(0);
 
     #trees-back {
       z-index: 0;
@@ -330,13 +326,13 @@ $name: 'module-village';
       position: absolute;
       left: 0;
       bottom: 0;
-      @include animation(train 460s 0s linear infinite);
+      animation: train 460s 0s linear infinite;
       animation-direction: reverse;
 
       .cycle {
         background: url(img/elf-unicycle.svg) no-repeat;
-        @include apply-origin(bottom center, false);
-        @include animation(unicycle 2s ease infinite);
+        transform-origin: bottom center;
+        animation: unicycle 2s ease infinite;
         width: 35px;
         height: 92px;
       }
@@ -345,7 +341,7 @@ $name: 'module-village';
     #snowman {
       left: 5480px;
       bottom: -8px;
-      @include transform(translateZ(0));
+      transform: translateZ(0);
 
       div {
         background-repeat: no-repeat;
@@ -354,7 +350,7 @@ $name: 'module-village';
         height: 73px;
         position: absolute;
         bottom: 0;
-        @include transition(opacity 100ms linear);
+        transition: opacity 100ms linear;
         opacity: 0;
       }
 
@@ -381,17 +377,17 @@ $name: 'module-village';
         }
 
         #snowman2 {
-          @include animation(200ms snowman linear);
+          animation: 200ms snowman linear;
         }
 
         #snowman3 {
-          @include animation(200ms snowman linear);
-          @include animation-delay(75ms);
+          animation: 200ms snowman linear;
+          animation-delay: 75ms;
         }
 
         #snowman4 {
           opacity: 1;
-          @include transition-delay(150ms);
+          transition-delay: 150ms;
         }
       }
     }
@@ -487,7 +483,7 @@ $name: 'module-village';
     #busstop1, #busstop2, #busstop3 {
       .elf {
         opacity: 1;
-        @include transition(opacity 600ms linear);
+        transition: opacity 600ms linear;
       }
 
       &.stop-empty .elf {
@@ -496,19 +492,19 @@ $name: 'module-village';
 
       &.stop-waiting {
         .elf {
-          @include animation(600ms bounce linear infinite);
+          animation: 600ms bounce linear infinite;
         }
 
         :nth-child(1) {
-          @include animation-delay(25ms);
+          animation-delay: 25ms;
         }
 
         :nth-child(2) {
-          @include animation-delay(50ms);
+          animation-delay: 50ms;
         }
 
         :nth-child(3) {
-          @include animation-delay(75ms);
+          animation-delay: 75ms;
         }
       }
     }
@@ -526,9 +522,9 @@ $name: 'module-village';
       background: url(img/snowmobile1.svg) no-repeat;
 
       &.gogo-snowmobile {
-        @include apply-origin(bottom center, false);
-        @include animation(burnout 25s linear);
-        @include animation-direction(reverse);
+        transform-origin: bottom center;
+        animation: burnout 25s linear;
+        animation-direction: reverse;
       }
     }
 
@@ -537,8 +533,8 @@ $name: 'module-village';
       background: url(img/snowmobile2.svg) no-repeat;
 
       &.gogo-snowmobile {
-        @include apply-origin(bottom center, false);
-        @include animation(burnout 25s linear);
+        transform-origin: bottom center;
+        animation: burnout 25s linear;
       }
     }
 
@@ -547,9 +543,9 @@ $name: 'module-village';
       background: url(img/snowmobile3.svg) no-repeat;
 
       &.gogo-snowmobile {
-        @include apply-origin(bottom center, false);
-        @include animation(burnout 25s linear);
-        @include animation-direction(reverse);
+        transform-origin: bottom center;
+        animation: burnout 25s linear;
+        animation-direction: reverse;
       }
     }
 
@@ -560,8 +556,8 @@ $name: 'module-village';
       width: 215px;
       height: 123px;
       background: url(img/bus.svg) no-repeat;
-      @include transform(translateX($villageWidth));
-      @include transform(translateZ(0) translateX($villageWidth));
+      transform: translateX($villageWidth);
+      transform: translateZ(0) translateX($villageWidth);
 
       &.bus-load {
         .elf {
@@ -597,8 +593,8 @@ $name: 'module-village';
         :nth-child(#{$i}) {
           left: #{$elfStart + ($idx * $elfGap)}px;
           opacity: 0;
-          @include transition(opacity .5s ease);
-          @include transition-delay(#{nth($elfDelay, $idx+1)}ms);
+          transition: opacity .5s ease;
+          transition-delay: #{nth($elfDelay, $idx+1)}ms;
         }
       }
 
@@ -606,24 +602,24 @@ $name: 'module-village';
 
       // TODO(bckenny): better ease functions
       &.to-stop1 {
-        @include transition-transform(8s, ease-out);
-        @include transform(translateX($busstop1 - $busOffset));
-        @include transform(translateZ(0) translateX($busstop1 - $busOffset));
+        transition-transform: 8s, ease-out;
+        transform: translateX($busstop1 - $busOffset);
+        transform: translateZ(0) translateX($busstop1 - $busOffset);
       }
       &.to-stop2 {
-        @include transition-transform(8s, ease-out);
-        @include transform(translateX($busstop2 - $busOffset));
-        @include transform(translateZ(0) translateX($busstop2 - $busOffset));
+        transition-transform: 8s, ease-out;
+        transform: translateX($busstop2 - $busOffset);
+        transform: translateZ(0) translateX($busstop2 - $busOffset);
       }
       &.to-stop3 {
-        @include transition-transform(8s, ease-out);
-        @include transform(translateX($busstop3 - $busOffset));
-        @include transform(translateZ(0) translateX($busstop3 - $busOffset));
+        transition-transform: 8s, ease-out;
+        transform: translateX($busstop3 - $busOffset);
+        transform: translateZ(0) translateX($busstop3 - $busOffset);
       }
       &.leave-stop {
-        @include transition-transform(10s, ease-in, 3s);
-        @include transform(translateX(-500px));
-        @include transform(translateZ(0) translateX(-500px));
+        transition-transform: 10s, ease-in, 3s;
+        transform: translateX(-500px);
+        transform: translateZ(0) translateX(-500px);
       }
     }
   }
@@ -644,7 +640,7 @@ $name: 'module-village';
       width: 424px;
       top: -38px;
       background: url(img/train.svg) no-repeat;
-      @include animation(train 55s 0s linear infinite);
+      animation: train 55s 0s linear infinite;
     }
   }
 
@@ -662,7 +658,7 @@ $name: 'module-village';
       left: 0;
       right: 0;
       opacity: 0;
-      @include transition(opacity .5s ease);
+      transition: opacity .5s ease;
       background-position: top left;
       background-repeat: repeat-x;
       background-size: 2971px 450px;
@@ -697,7 +693,7 @@ $name: 'module-village';
     }
 
     .cloud-fly {
-       @include transition-transform(120s, linear);
+       transition-transform: 120s, linear;
     }
 
     .cloud div {
@@ -720,7 +716,7 @@ $name: 'module-village';
       top: -15px;
       left: 10px;
       border-radius: 100px;
-      @include transform(rotate(30deg));
+      transform: rotate(30deg);
     }
 
     .cloud div:after {
@@ -733,21 +729,21 @@ $name: 'module-village';
 
     .cloud1 {
       div {
-        @include transform(scale(0.6));
+        transform: scale(0.6);
         opacity: 0.4;
       }
     }
 
     .cloud2 {
       div {
-        @include transform(scale(0.3));
+        transform: scale(0.3);
         opacity: 0.7;
       }
     }
 
     .cloud3 {
       div {
-        @include transform(scale(0.7));
+        transform: scale(0.7);
         opacity: 0.3;
       }
     }
@@ -761,7 +757,7 @@ $name: 'module-village';
     height: 82px;
     width: 171px;
     background: url(img/plane.svg) no-repeat;
-    @include animation(plane 60s 0s linear infinite);
+    animation: plane 60s 0s linear infinite;
   }
 
   #spaceship, #pegman-spaceship {
@@ -775,9 +771,9 @@ $name: 'module-village';
 
   #spaceship  {
     top: 45px;
-    @include animation(plane 75s 0s linear infinite);
-    @include animation-direction(reverse);
-    @include transition(transform .5s ease, top 0.5s ease);
+    animation: plane 75s 0s linear infinite;
+    animation-direction: reverse;
+    transition: transform .5s ease, top 0.5s ease;
 
     &.to-space {
       top: -1000px;
@@ -788,11 +784,11 @@ $name: 'module-village';
     z-index: 11;
     bottom: 0;
     left: 2137px;
-    @include transition(transform 15s ease-out);
-    @include transform(rotateZ(0) translateY(-5000px));
+    transition: transform 15s ease-out;
+    transform: rotateZ(0) translateY(-5000px);
 
     &.land {
-      @include transform(rotateZ(0) translateY(-2px));
+      transform: rotateZ(0) translateY(-2px);
     }
   }
 
@@ -806,19 +802,19 @@ $name: 'module-village';
     height: 180px;
 
     &.up {
-      @include translateY(0);
+      transform: translateY(0);
     }
 
     &.go-up {
-      @include animation(sunrise 1s);
+      animation: sunrise 1s;
     }
 
     &.down {
-      @include translateY(5000px);
+      trasnsform: translateY(5000px);
     }
 
     &.go-down {
-      @include animation(sunset 1s);
+      animation: sunset 1s;
     }
   }
 
@@ -847,7 +843,7 @@ $name: 'module-village';
       bottom: 0;
       width: 100%;
       opacity: 0;
-      @include transition(opacity .5s ease);
+      transition: opacity .5s ease;
 
       &.visible {
         opacity: 1;

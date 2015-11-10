@@ -1,7 +1,5 @@
 $name: 'module-nav';
 
-@import "compass/css3/transform";
-@import "compass/css3/transition";
 @import "../../scenes/shared/sass/_mixins.scss";
 
 $navMarkerSpriteGap: 120px;
@@ -26,8 +24,8 @@ $cardColor: #6541a4;
     background: #6541a2;
     overflow: visible;
     z-index: 2000;
-    @include transition(transform 500ms ease);
-    @include transform(translate3d(0, -500px, 0));
+    transition: transform 500ms ease;
+    transform: translate3d(0, -500px, 0);
 
     $padding: 20px;
 
@@ -207,7 +205,7 @@ $cardColor: #6541a4;
       right: 20px;
       transform: translateZ(0); // promote layer
       cursor: pointer;
-      @include transition(transform 500ms ease);
+      transition: transform 500ms ease;
     }
 
     #back-to-tracker-text {
@@ -236,8 +234,8 @@ $cardColor: #6541a4;
       text-align: center;
       height: 84px;
       border-bottom: 1px solid rgba(255,255,255,0.2);
-      @include transition(transform $animationDuration);
-      @include transform(translateY(-84px));
+      transition: transform $animationDuration;
+      transform: translateY(-84px);
 
       .back {
         position: absolute;
@@ -281,8 +279,8 @@ $cardColor: #6541a4;
       background: $headerFooterColor;
       text-align: center;
       color: #fff;
-      @include transition(transform $animationDuration);
-      @include transform(translateY(41px));
+      transition: transform $animationDuration;
+      transform: translateY(41px);
 
       a {
         text-decoration: none;
@@ -492,7 +490,7 @@ $cardColor: #6541a4;
         opacity: 0;
         display: block;
         background: #7847b2;
-        @include transition(opacity $animationDuration);
+        transition: opacity $animationDuration;
       }
     }
 
@@ -511,7 +509,7 @@ $cardColor: #6541a4;
       }
 
       #tracker-nav-open-btn {
-        @include transform(translate3d(0, -100px, 0));
+        transform: translate3d(0, -100px, 0);
       }
     }
 
@@ -522,7 +520,7 @@ $cardColor: #6541a4;
 
       #global-nav-header,
       #global-nav-footer {
-        @include transform(translateY(0));
+        transform: translateY(0);
       }
 
       .menu-marker {
@@ -533,12 +531,12 @@ $cardColor: #6541a4;
       }
 
       #tracker-nav {
-        @include transform(translate3d(0, 0, 0));
+        transform: translate3d(0, 0, 0);
       }
 
       @for $i from 1 through 24 {
         .marker#{$i} {
-          @include transition-delay(42ms * $i);
+          transition-delay: 42ms * $i;
         }
       }
     }
@@ -546,7 +544,7 @@ $cardColor: #6541a4;
     &.closing {
       #global-nav-header,
       #global-nav-body {
-        @include transition-delay(0ms + (24 * 42));
+        transition-delay: 0ms + (24 * 42);
       }
 
       .menu-marker {
@@ -558,7 +556,7 @@ $cardColor: #6541a4;
 
       @for $i from 1 through 24 {
         .marker#{$i} {
-          @include transition-delay(42ms * (24 - $i));
+          transition-delay: 42ms * (24 - $i);
         }
       }
     }
