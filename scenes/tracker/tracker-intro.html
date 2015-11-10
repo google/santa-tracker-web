@@ -19,13 +19,13 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../js/utils.html">
 <script src="../shared/js/mapstyles.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="tracker-intro.css" />
+
 <!--
 Intro for the tracker scene.
-
-@element tracker-intro
 -->
-<dom-module id="tracker-intro" attributes="userLocation santaLocation santaDistance"
-                 on-transitionend="{{goesOffScreen}}">
+<dom-module id="tracker-intro" on-transitionend="goesOffScreen">
 <template>
   <style>
   /* Outside of tracker-intro.scss because it requires shimming. */
@@ -39,8 +39,6 @@ Intro for the tracker scene.
     z-index: 3; /* higher than rest of tracker */
   }
   </style>
-  <link rel="stylesheet" href="tracker-intro.css" no-shim>
-
   <div id="tracker-intro-module">
     <bubble-overlay id="overlay" opacity="1" color="#13AB27">
       <canvas-bubble id="userBubble" x="{{userBubbleCenterX_}}" y="{{winCenterY_}}"></canvas-bubble>
@@ -58,15 +56,15 @@ Intro for the tracker scene.
     <div id="santa-loading"></div>
 
     <div class="pin-wrapper" id="pinWrapper">
-      <img class="pin" id="pin" src="img/pin.svg">
+      <img class="pin" id="pin" src="img/pin.svg" />
     </div>
 
     <div id="santaPath">
-      <img src="img/tracker_intro_path.svg">
+      <img src="img/tracker_intro_path.svg" />
     </div>
 
     <div id="santaSleigh">
-      <img src="img/santa_sw.svg">
+      <img src="img/santa_sw.svg" />
     </div>
 
     <div id="userMap">
@@ -77,134 +75,89 @@ Intro for the tracker scene.
       <div class="user-location" id="userLocation">
         <p class="info">
           <i18n-msg msgid="tracker_intro_user_location">PLACEHOLDER_i18n</i18n-msg>
-          <br>
+          <br />
           <em>{{userLocation.name}}</em>
         </p>
       </div>
 
       <div class="santa-distance" id="santaDistance">
-        <p>Santa is {{santaDistance | formatDistance_}} away</p>
+        <p>Santa is {{formatDistance_(santaDistance)}} away</p>
       </div>
     </div>
 
     <div class="skip">
-      <a href="{{pageUrl}}#" on-click="{{closeIntro}}"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
+      <a href="{{pageUrl}}#" on-click="closeIntro"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
     </div>
   </div>
 
 </template>
 <script>
 (function() {
-
   var BUBBLE_RADIUS_BIG = 100;
   var BUBBLE_RADIUS_SMALL = 60;
+  var GEO_WAIT_TIME = 10000;
 
   Polymer({
     is: 'tracker-intro',
 
-    /**
-     * Name and coords of the user's location.
-     *
-     * @attribute userLocation
-     * @type Object
-     * @default null
-     */
-    userLocation: null,
+    properties: {
 
-    /**
-     * Santa's location.
-     *
-     * @attribute santaLocation
-     * @type Object
-     * @default null
-     */
-    santaLocation: null,
+      /**
+       * Name and coords of the user's location.
+       */
+      userLocation: {
+        type: Object,
+        value: null
+      },
 
-    /**
-     * Santa's distance from the user when the page loads.
-     *
-     * @attribute santaDistance
-     * @type number
-     * @default null
-     */
-    santaDistance: null,
+      /**
+       * Santa's location.
+       */
+      santaLocation: {
+        type: Object,
+        value: null
+      },
 
-    /**
-     * window center point.
-     *
-     * @private
-     * @type number
-     * @default 0
-     */
-    winCenterX_: 0,
+      /**
+       * Santa's distance from the user when the page loads.
+       */
+      santaDistance: {
+        type: Number,
+        value: null
+      },
 
-    /**
-     * window center point.
-     *
-     * @private
-     * @type number
-     * @default 0
-     */
-    winCenterY_: 0,
+      // window center point.
+      winCenterX_: 0,
+      winCenterY_: 0,
 
-    /**
-     * The space between two opened bubbles in pixels.
-     *
-     * @type number
-     * @default 0
-     */
-    bubbleOffset: 0,
+      // The space between two opened bubbles in pixels.
+      bubbleOffset: 0,
 
-    /**
-     * Santa's bubble center point.
-     *
-     * @private
-     * @type number
-     * @default 0
-     */
-    santaBubbleCenterX_: 0,
+      // Santa's bubble center point.
+      santaBubbleCenterX_: 0,
 
-    /**
-     * User's bubble center point.
-     *
-     * @private
-     * @type number
-     * @default 0
-     */
-    userBubbleCenterX_: 0,
+      // User's bubble center point.
+      userBubbleCenterX_: 0,
 
-    /**
-     * How long to wait for user to click the geo location browser buttons
-     *
-     * @private
-     * @const
-     * @type number
-     * @default 10000
-     */
-    GEO_WAIT_TIME_: 10000,
+    },
 
     /**
      * A basename for links within Santa Tracker. The hash is removed for nicer
      * display URLs in the status bar.
-     * @property pageUrl
-     * @type string
-     * @default
      */
     get pageUrl() {
       return location.href.substr(0, location.href.length - location.hash.length);
     },
 
-    created: function() {
-      this.calculateLayoutValues_();
-    },
-
-    domReady: function() {
-      this.updateLayout_();
-    },
-
     attached: function() {
+      this.calculateLayoutValues_();  // TODO: was in created:
       this.resizeHandler_ =  this.resize_.bind(this);
       window.addEventListener('resize', this.resizeHandler_);
+
+      this.async(function() {
+        // `domReady` from Polymer 0.5.
+        this.updateLayout_();
+      }.bind(this));
     },
 
     detached: function() {
@@ -265,7 +218,9 @@ Intro for the tracker scene.
     },
 
     formatDistance_: function(dist) {
-      return formatDistance(dist);
+      // TODO: localise? (miles)
+      // 0xA0 non-breaking space
+      return new Number(Math.floor(dist / 1000)).toLocaleString() + '\xA0km';
     },
 
     bindMapToBubble_: function(el, bubble, icon) {
@@ -285,7 +240,7 @@ Intro for the tracker scene.
 
     userLocationChanged: function() {
       this.$['santa-loading'].classList.remove('final');
-      if (this.layoutReady_ && ! this.map_) {
+      if (this.layoutReady_ && !this.map_) {
         window.clearTimeout(this.continueTimeout_);
         this.setupUserMap_();
       }
@@ -294,7 +249,7 @@ Intro for the tracker scene.
     layoutReady: function() {
       this.layoutReady_ = true;
 
-      this.continueTimeout_ = window.setTimeout(this.bypass.bind(this), this.GEO_WAIT_TIME_);
+      this.continueTimeout_ = window.setTimeout(this.bypass.bind(this), GEO_WAIT_TIME);
 
       if (this.userLocation) {
         this.setupUserMap_();
@@ -397,10 +352,8 @@ Intro for the tracker scene.
 
     /**
      * Hides the intro from view.
-     *
-     * @method closeIntro
      */
-    closeIntro: function(e, detail, sender) {
+    closeIntro: function(e, detail) {
       e && e.preventDefault();
       this.style.transform = this.style.webkitTransform = 'translateY(-' + 2 * this.winCenterY_ + 'px)';
       this.classList.add('offscreen');
@@ -418,6 +371,7 @@ Intro for the tracker scene.
     },
 
     goesOffScreen: function(e, detail, sender) {
+      // TODO: we no longer have 'sender'
       if (sender.classList.contains('offscreen')) {
         this.destroy();
       }
