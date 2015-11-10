@@ -34,7 +34,7 @@ app.Scene = function(el) {
   this.$pausePlay = this.$el.find('.actions .pause');
   this.$sound = $('#sound');
   this.iframeProxy = new app.IframeProxy(this, el);
-  this.scoreboard = new app.shared.Sceneboard(this, el.querySelector('.board'));
+  this.sceneboard = new app.shared.Sceneboard(this, el.querySelector('.board'));
   this.isPaused = false;
 };
 
