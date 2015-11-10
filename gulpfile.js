@@ -511,7 +511,7 @@ gulp.task('watch', function() {
 gulp.task('serve', ['sass', 'compile-scenes', 'watch'], function() {
   browserSync.init({
     server: '.',
-    startPath: '/#' + (argv.scene || 'village')
+    startPath: argv.scene && '/#' + argv.scene
   });
 
   gulp.watch('{scenes,elements,sass}/**/*.css').on('change', browserSync.reload);
