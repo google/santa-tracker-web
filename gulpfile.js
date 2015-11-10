@@ -476,13 +476,12 @@ gulp.task('watch', function() {
 
 gulp.task('default', ['copy-assets']);
 
-gulp.task('serve', ['compass', 'compile-scenes'], function() {
+gulp.task('serve', ['sass', 'compile-scenes'], function() {
   browserSync.init({
     server: '.'
   });
 
-  gulp.watch('sass/*.scss', ['compass']).on('change', browserSync.reload);
-  gulp.watch(COMPASS_FILES, ['compass']).on('change', browserSync.reload);
+  gulp.watch(SASS_FILES, ['sass']).on('change', browserSync.reload);
   gulp.watch(CLOSURE_FILES, ['compile-scenes']).on('change', browserSync.reload);
-  gulp.watch('scenes/**/*.html').on('change', browserSync.reload);	
+  gulp.watch('scenes/**/*.html').on('change', browserSync.reload);
 });
