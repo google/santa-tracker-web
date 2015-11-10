@@ -502,9 +502,7 @@ $cardColor: #6541a4;
 
     &.opening {
       .menu-marker {
-        -webkit-transform: translateY($markerTranslateDistance);
         transform: translateY($markerTranslateDistance);
-        -webkit-transition: -webkit-transform $markerAnimationDuration ease;
         transition: transform $markerAnimationDuration ease;
       }
 
@@ -524,9 +522,7 @@ $cardColor: #6541a4;
       }
 
       .menu-marker {
-        -webkit-transform: translateY(0);
         transform: translateY(0);
-        -webkit-transition: -webkit-transform $markerAnimationDuration ease;
         transition: transform $markerAnimationDuration ease;
       }
 
@@ -548,9 +544,7 @@ $cardColor: #6541a4;
       }
 
       .menu-marker {
-        -webkit-transform: translateY($markerTranslateDistance);
         transform: translateY($markerTranslateDistance);
-        -webkit-transition: -webkit-transform 883ms ease;
         transition: transform 883ms ease;
       }
 

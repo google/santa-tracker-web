@@ -7,7 +7,7 @@ $peeking-rotation: 45;
   top: -490px;
   margin-left: 635px;
   transform: rotate(#{$peeking-rotation * -1}deg);
-  -webkit-transform-origin: 0 83px;
+  transform-origin: 0 83px;
   @media (min-width: 1200px) {
     animation-name: #{$name}-elves-peeking;
     animation-timing-function: ease-out;

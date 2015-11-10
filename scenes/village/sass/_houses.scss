@@ -167,7 +167,6 @@
       .house-marker:focus {
         outline: none;
         // TODO(lukem): add something for IE
-        -webkit-filter: drop-shadow(0 0 15px #fff);
         filter: drop-shadow(0 0 15px #fff);
         animation: bounce 600ms linear infinite;
       }
@@ -186,7 +185,6 @@
 
       &.cast-focus {
         // explicit focus class for use on chromecast
-        -webkit-filter: drop-shadow(0 0 15px #fff);
         filter: drop-shadow(0 0 15px #fff);
         animation: bounce 600ms linear infinite;
       }

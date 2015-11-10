@@ -1,28 +1,3 @@
-@mixin animations($content) {
-  -webkit-animation: $content;
-  -moz-animation: $content;
-  -ms-animation: $content;
-  -khtml-animation: $content;
-  animation: $content;
-}
-
-@mixin keyframes($name) {
-  @-webkit-keyframes #{$name} {
-    @content;
-  }
-  @-moz-keyframes #{$name} {
-    @content;
-  }
-  @-ms-keyframes #{$name} {
-    @content;
-  }
-  @-o-keyframes #{$name} {
-    @content;
-  }
-  @keyframes #{$name} {
-    @content;
-  }
-}
 
 // Modifed from https://github.com/pierreburel/media-hdpi
 // Default pixel ratio
@@ -36,6 +11,7 @@ $pixel-ratio-hdpi: 1.5 !default;
   }
 
   // Default media query
+  // TODO(samthor): Is the -webkit- prefix still needed?
   // http://www.brettjankord.com/2012/11/28/cross-browser-retinahigh-resolution-media-queries/
   $media-hdpi: "(-webkit-min-device-pixel-ratio: #{$pixel-ratio}), (min-resolution: #{$pixel-ratio*96}dpi)" !default;
 
