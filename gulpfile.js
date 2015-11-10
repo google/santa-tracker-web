@@ -223,22 +223,14 @@ gulp.task('rm-dist', function(rmCallback) {
 });
 
 gulp.task('sass', function() {
-  // compile each sass target, merging them into a single gulp stream as we go
-  var files = glob.sync(SASS_FILES, {ignore: '**/_*'});
-  return files.reduce(function(stream, sassFile) {
-    var outputFile = sassFile.replace(/\.scss$/, '.css');
-    var outputPath = path.dirname(outputFile);
-
-    return stream.add(gulp.src([sassFile])
-      .pipe(newer(outputFile))
-      .pipe(sass({
-        outputStyle: 'compressed'
-      }).on('error', sass.logError))
-      .pipe(autoprefixer({
-        browsers: AUTOPREFIXER_BROWSERS,
-      }))
-      .pipe(gulp.dest(outputPath)));
-  }, mergeStream());
+  return gulp.src(SASS_FILES)
+    .pipe(sass({
+      outputStyle: 'compressed'
+    }).on('error', sass.logError))
+    .pipe(autoprefixer({
+      browsers: AUTOPREFIXER_BROWSERS
+    }))
+    .pipe(gulp.dest('.'));
 });
 
 gulp.task('compile-santa-api-service', function() {
@@ -300,6 +292,7 @@ gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
     .pipe(newer(dest + '/' + fileName))
     .pipe(closureCompiler({
       compilerPath: COMPILER_PATH,
+      continueWithWarnings: true,
       fileName: fileName,
       compilerFlags: addCompilerFlagOptions({
         js: compilerSrc,
@@ -493,17 +486,18 @@ gulp.task('copy-assets', ['rm-dist', 'vulcanize', 'i18n_index'], function() {
 gulp.task('dist', ['copy-assets']);
 
 gulp.task('watch', function() {
-  gulp.watch(COMPASS_FILES, ['sass']);
+  gulp.watch(SASS_FILES, ['sass']);
   gulp.watch(CLOSURE_FILES, ['compile-scenes']);
 });
 
-gulp.task('serve', ['sass', 'compile-scenes'], function() {
+gulp.task('serve', ['sass', 'compile-scenes', 'watch'], function() {
   browserSync.init({
     server: '.'
   });
 
-  gulp.watch(SASS_FILES, ['sass']).on('change', browserSync.reload);
-  gulp.watch(CLOSURE_FILES, ['compile-scenes']).on('change', browserSync.reload);
+  gulp.watch('{scenes,elements,sass}/**/*.css').on('change', browserSync.reload);
+  gulp.watch('scenes/**/*.min.js').on('change', browserSync.reload);
+  gulp.watch('js/**/*.js').on('change', browserSync.reload);
   gulp.watch('scenes/**/*.html').on('change', browserSync.reload);
 });
 
