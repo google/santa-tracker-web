@@ -20,7 +20,6 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var vulcanize = require('gulp-vulcanize');
 var sass = require('gulp-sass');
-var glob = require('glob');
 var path = require('path');
 var autoprefixer = require('gulp-autoprefixer');
 var foreach = require('gulp-foreach');
