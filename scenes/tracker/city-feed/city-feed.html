@@ -264,7 +264,7 @@ Polymer({
     timeline: {
       type: Array,
       value: function() {
-        return []
+        return [];
       },
       observer: 'timelineChanged'
     },
@@ -275,7 +275,7 @@ Polymer({
     stream: {
       type: Array,
       value: function() {
-        return []
+        return [];
       }
     },
 
@@ -423,7 +423,7 @@ Polymer({
     var idx = destLookup_[destId] || 0;
     this.scrollToIndex(idx);
 
-    if (this.setupDone_) {
+    if (this.setupDone_ && this.stream.length) {
       // Add deep link to opened destination.
       var newHref = location.href.substr(0,
                     location.href.length - location.hash.length) +
