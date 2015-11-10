@@ -223,21 +223,14 @@ gulp.task('rm-dist', function(rmCallback) {
 });
 
 gulp.task('sass', function() {
-  // compile each sass target, merging them into a single gulp stream as we go
-  var files = glob.sync(SASS_FILES, {ignore: '**/_*'});
-  return files.reduce(function(stream, sassFile) {
-    var outputFile = sassFile.replace(/\.scss$/, '.css');
-    var outputPath = path.dirname(outputFile);
-
-    return stream.add(gulp.src([sassFile])
-      .pipe(sass({
-        outputStyle: 'compressed'
-      }).on('error', sass.logError))
-      .pipe(autoprefixer({
-        browsers: AUTOPREFIXER_BROWSERS,
-      }))
-      .pipe(gulp.dest(outputPath)));
-  }, mergeStream());
+  return gulp.src(SASS_FILES)
+    .pipe(sass({
+      outputStyle: 'compressed'
+    }).on('error', sass.logError))
+    .pipe(autoprefixer({
+      browsers: AUTOPREFIXER_BROWSERS
+    }))
+    .pipe(gulp.dest('.'));
 });
 
 gulp.task('compile-santa-api-service', function() {
