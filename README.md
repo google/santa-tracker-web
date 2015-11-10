@@ -8,7 +8,7 @@ It is a companion to the [Android](https://github.com/google/santa-tracker-andro
 
 ## Prerequisites
 
-You'll need node installed, then bower (`npm install -g bower`) and compass >=1.0.1 (`gem install compass`).
+You'll need `npm` and `bower` (use `npm install -g bower` if it's missing) available on your system.
 
 ## Setup
 
@@ -21,15 +21,18 @@ $ npm install
 
 ## Development
 
-Build with `gulp`. Alternatively, you can rebuild just the scenes with `gulp compile-scenes`, or the CSS with `gulp compass`.
+Build and run with `gulp`.
+This will serve from the root directory and recompile JavaScript or CSS on watched changes.
+
+If you'd like to serve another way, then be sure to build the dependencies yourself:
 
 ```bash
-$ npm install gulp    # Only required if you don't have gulp installed.
-$ gulp
+$ gulp sass
+$ gulp compile-scenes
 ```
-
-The raw site can now be served from the root directory.
 
 ## Release
 
-Use `gulp --pretty` to build. This performs additional steps such as vulcanizing code and internationalization. Serve from `./dist_pretty`.
+Use `gulp dist --pretty` to build.
+This performs additional steps, such as vulcanizing code and internationalization.
+Serve from `./dist_pretty`.

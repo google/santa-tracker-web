@@ -28,11 +28,43 @@ var del = require('del');
 var i18n_replace = require('./gulp_scripts/i18n_replace');
 var closureCompiler = require('gulp-closure-compiler');
 var mergeStream = require('merge-stream');
-var argv = require('yargs').argv;
 var replace = require('gulp-replace');
 var newer = require('gulp-newer');
 var browserSync = require('browser-sync').create();
 
+var STATIC_VERSION = 80;
+
+var argv = require('yargs')
+    .help('help')
+    .epilogue('https://github.com/google/santa-tracker-web')
+    .command('serve', 'serves development version')
+    .command('dist', 'build production version')
+    .option('pretty', {
+      type: 'boolean',
+      default: false,
+      describe: 'production output to dist_pretty'
+    })
+    .option('strict', {
+      type: 'boolean',
+      default: false,
+      describe: 'perform strict i18n checks'
+    })
+    .option('api_base', {
+      type: 'string',
+      default: 'https://santa-api.appspot.com/',
+      describe: 'base URL for Santa\'s API'
+    })
+    .option('build', {
+      type: 'string',
+      default: '' + STATIC_VERSION,
+      describe: 'production build tag'
+    })
+    .option('baseurl', {
+      type: 'string',
+      default: '',
+      describe: 'production base href'
+    })
+    .argv;
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var SASS_FILES = '{scenes,sass,elements}/**/*.scss';
@@ -57,21 +89,9 @@ var CLOSURE_SAFE_WARNINGS = CLOSURE_WARNINGS.concat([
   'checkVars'
 ]);
 
-var STATIC_VERSION = 80;
-var VERSION = '' + (argv.build || STATIC_VERSION);
-
-// find the base URL, but ensure it ends with '/'.
-var STATIC_BASE_URL = (function() {
-  if (!argv.baseurl) {
-    return '';
-  }
-  var url = argv.baseurl;
-  if (!url.endsWith('/')) {
-    url += '/';
-  }
-  return url;
-}());
-var STATIC_URL = argv.pretty ? '' : (STATIC_BASE_URL + VERSION + '/');
+var API_BASE_URL = argv.api_base.replace(/\/*$/, '/');
+var STATIC_BASE_URL = argv.baseurl.replace(/\/*$/, '/');
+var STATIC_URL = argv.pretty ? '' : (STATIC_BASE_URL + argv.build + '/');
 
 var PROD_DIR = 'dist_prod';
 var STATIC_DIR = 'dist_static';
@@ -81,7 +101,7 @@ var PRETTY_DIR = 'dist_pretty';
 var DIST_PROD_DIR = argv.pretty ? PRETTY_DIR : PROD_DIR;
 
 // path for static resources
-var DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + VERSION);
+var DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + argv.build);
 
 // Broad scene config for Santa Tracker.
 // Note! New scenes must be typeSafe (which is the default, so omit typeSafe:
@@ -236,7 +256,7 @@ gulp.task('compile-santa-api-service', function() {
         // warning_level: 'VERBOSE',
         language_in: 'ECMASCRIPT5_STRICT',
         externs: SHARED_EXTERNS.concat('js/service/externs.js'),
-        define: ['crossDomainAjax.BASE="' + (argv.api_base || 'https://santa-api.appspot.com/') + '"'],
+        define: ['crossDomainAjax.BASE="' + API_BASE_URL + '"'],
         jscomp_warning: [
           // https://github.com/google/closure-compiler/wiki/Warnings
           'accessControls',
@@ -469,12 +489,13 @@ gulp.task('copy-assets', ['rm-dist', 'vulcanize', 'i18n_index'], function() {
   return mergeStream(staticStream, prodStream);
 });
 
+// alias to build a distribution version
+gulp.task('dist', ['copy-assets']);
+
 gulp.task('watch', function() {
   gulp.watch(COMPASS_FILES, ['sass']);
   gulp.watch(CLOSURE_FILES, ['compile-scenes']);
 });
-
-gulp.task('default', ['copy-assets']);
 
 gulp.task('serve', ['sass', 'compile-scenes'], function() {
   browserSync.init({
@@ -485,3 +506,5 @@ gulp.task('serve', ['sass', 'compile-scenes'], function() {
   gulp.watch(CLOSURE_FILES, ['compile-scenes']).on('change', browserSync.reload);
   gulp.watch('scenes/**/*.html').on('change', browserSync.reload);
 });
+
+gulp.task('default', ['serve']);
