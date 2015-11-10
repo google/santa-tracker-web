@@ -25,9 +25,6 @@ $scoreboard-bg: #ac4dba;
   // Fix background animation bug when resizing.
   .resizing {
     animation: none !important;
-    -webkit-animation: none !important;
-    -moz-animation: none !important;
-    -ms-animation: none !important;
   }
 
   // Pausing the game pauses all important animations.

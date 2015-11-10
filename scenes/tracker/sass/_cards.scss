@@ -1,6 +1,3 @@
-@import "compass/css3/transform";
-@import "compass/css3/transition";
-
 .card {
   width: 306px;
   $padding: 20px;
@@ -65,7 +62,7 @@
         position: absolute;
         z-index: 2;
         border-radius: 5px;
-        @include background-image(linear-gradient(-200deg, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 65%,rgba(0,0,0,0) 100%));
+        background-image: linear-gradient(-200deg, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 65%,rgba(0,0,0,0) 100%);
       }
     }
   }

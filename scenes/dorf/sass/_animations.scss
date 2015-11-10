@@ -1,14 +1,11 @@
-@import "compass/css3/transform";
-@import "compass/css3/transition";
-
 @import "variables";
 
 @keyframes bounce {
-  0%    { @include transform(translateY(0)); }
-  25%   { @include transform(translateY(-40px * .9)); }
-  35%   { @include transform(translateY(-40px * .95)); }
-  50%   { @include transform(translateY(-40px * 1)); }
-  65%   { @include transform(translateY(-40px * .95)); }
-  75%   { @include transform(translateY(-40px * .9)); }
-  100%  { @include transform(translateY(0)); }
+  0%    { transform: translateY(0); }
+  25%   { transform: translateY(-40px * .9); }
+  35%   { transform: translateY(-40px * .95); }
+  50%   { transform: translateY(-40px * 1); }
+  65%   { transform: translateY(-40px * .95); }
+  75%   { transform: translateY(-40px * .9); }
+  100%  { transform: translateY(0); }
 }

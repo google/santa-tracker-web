@@ -37,9 +37,7 @@
     text-decoration: none;
 
     &:hover {
-      background: -webkit-linear-gradient(top, #e1443c 50%, #d43f36 50%);
-      background: -ms-linear-gradient(top, #e1443c 50%, #d43f36 50%);
-      background: linear-gradient(top, #e1443c 50%, #d43f36 50%);
+      background: linear-gradient(to bottom, #e1443c 50%, #d43f36 50%);
     }
 
     &:active {

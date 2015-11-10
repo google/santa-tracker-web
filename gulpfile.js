@@ -19,7 +19,8 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var vulcanize = require('gulp-vulcanize');
-var compass = require('gulp-compass');
+var sass = require('gulp-sass');
+var glob = require('glob');
 var path = require('path');
 var autoprefixer = require('gulp-autoprefixer');
 var foreach = require('gulp-foreach');
@@ -66,7 +67,7 @@ var argv = require('yargs')
     .argv;
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
-var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
+var SASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/**/*.js';
 
 var SHARED_EXTERNS = [
@@ -74,6 +75,8 @@ var SHARED_EXTERNS = [
   'third_party/externs/*.js',
   'components/web-animations-utils/externs*.js'
 ];
+
+var AUTOPREFIXER_BROWSERS = ['> 2%', 'IE >= 10'];
 
 var CLOSURE_WARNINGS = [
   // https://github.com/google/closure-compiler/wiki/Warnings
@@ -219,18 +222,23 @@ gulp.task('rm-dist', function(rmCallback) {
   del([PROD_DIR, STATIC_DIR, PRETTY_DIR], rmCallback);
 });
 
-gulp.task('compass', function() {
-  return gulp.src(COMPASS_FILES)
-    .pipe(compass({
-      project: path.join(__dirname, '/'),
-      css: '',
-      sass: '',
-      environment: 'production',
-    }))
+gulp.task('sass', function() {
+  // compile each sass target, merging them into a single gulp stream as we go
+  var files = glob.sync(SASS_FILES, {ignore: '**/_*'});
+  return files.reduce(function(stream, sassFile) {
+    var outputFile = sassFile.replace(/\.scss$/, '.css');
+    var outputPath = path.dirname(outputFile);
 
-    // NOTE: autoprefixes css properties that need it
-    .pipe(autoprefixer({}))
-    .pipe(gulp.dest('.'));
+    return stream.add(gulp.src([sassFile])
+      .pipe(newer(outputFile))
+      .pipe(sass({
+        outputStyle: 'compressed'
+      }).on('error', sass.logError))
+      .pipe(autoprefixer({
+        browsers: AUTOPREFIXER_BROWSERS,
+      }))
+      .pipe(gulp.dest(outputPath)));
+  }, mergeStream());
 });
 
 gulp.task('compile-santa-api-service', function() {
@@ -361,7 +369,7 @@ function addCompilerFlagOptions(opts) {
   return opts;
 }
 
-gulp.task('vulcanize-scenes', ['rm-dist', 'compass', 'compile-scenes'], function() {
+gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() {
   // These are the 'common' elements inlined in elements_en.html. They can be
   // safely stripped (i.e., not inlined) from all scenes.
   // TODO(samthor): Automatically list inlined files from elements_en.html.
@@ -407,7 +415,7 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'compass', 'compile-scenes'], function
     }));
 });
 
-gulp.task('vulcanize-codelab-frame', ['rm-dist', 'compass', 'compile-scenes'], function() {
+gulp.task('vulcanize-codelab-frame', ['rm-dist', 'sass', 'compile-scenes'], function() {
   return gulp.src('scenes/codelab/codelab-frame_en.html', {base: './'})
     .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
     .pipe(vulcanize({
@@ -428,7 +436,7 @@ gulp.task('vulcanize-codelab-frame', ['rm-dist', 'compass', 'compile-scenes'], f
 
 // Vulcanize elements separately, as we want to inline the majority common code
 // here.
-gulp.task('vulcanize-elements', ['rm-dist', 'compass', 'compile-santa-api-service'], function() {
+gulp.task('vulcanize-elements', ['rm-dist', 'sass', 'compile-santa-api-service'], function() {
   return gulp.src('elements/elements_en.html', {base: './'})
     .pipe(vulcanize({
       // TODO(samthor): strip and csp were deprecated in gulp-vulcanize 1+
@@ -485,17 +493,16 @@ gulp.task('copy-assets', ['rm-dist', 'vulcanize', 'i18n_index'], function() {
 gulp.task('dist', ['copy-assets']);
 
 gulp.task('watch', function() {
-  gulp.watch(COMPASS_FILES, ['compass']);
+  gulp.watch(COMPASS_FILES, ['sass']);
   gulp.watch(CLOSURE_FILES, ['compile-scenes']);
 });
 
-gulp.task('serve', ['compass', 'compile-scenes'], function() {
+gulp.task('serve', ['sass', 'compile-scenes'], function() {
   browserSync.init({
     server: '.'
   });
 
-  gulp.watch('sass/*.scss', ['compass']).on('change', browserSync.reload);
-  gulp.watch(COMPASS_FILES, ['compass']).on('change', browserSync.reload);
+  gulp.watch(SASS_FILES, ['sass']).on('change', browserSync.reload);
   gulp.watch(CLOSURE_FILES, ['compile-scenes']).on('change', browserSync.reload);
   gulp.watch('scenes/**/*.html').on('change', browserSync.reload);
 });
