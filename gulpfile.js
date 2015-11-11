@@ -221,6 +221,13 @@ var SCENE_CLOSURE_CONFIG = {
   }
 };
 
+// List of scene names to compile.
+var SCENE_NAMES = argv.scene ?
+    [argv.scene].concat(SCENE_CLOSURE_CONFIG[argv.scene].dependencies || [] ) :
+    Object.keys(SCENE_CLOSURE_CONFIG);
+// A glob pattern matching scenes to compile.
+var SCENE_GLOB = argv.scene ? '{' + SCENE_NAMES.join(',') + '}' : '*';
+
 gulp.task('clean', function(cleanCallback) {
   del([
     '{scenes,sass,elements}/**/*.css',
@@ -234,7 +241,7 @@ gulp.task('rm-dist', function(rmCallback) {
 });
 
 gulp.task('sass', function() {
-  var files = argv.scene ? 'scenes/' + argv.scene + '/**/*.scss' : SASS_FILES;
+  var files = argv.scene ? 'scenes/' + SCENE_GLOB + '/**/*.scss' : SASS_FILES;
   return gulp.src(files, {base: '.'})
     .pipe(sass({
       outputStyle: 'compressed'
@@ -273,17 +280,8 @@ gulp.task('compile-santa-api-service', function() {
 });
 
 gulp.task('compile-scenes', function() {
-  var sceneNames = Object.keys(SCENE_CLOSURE_CONFIG);
-  if (argv.scene) {
-    sceneNames = [argv.scene];
-    var dependencies = SCENE_CLOSURE_CONFIG[argv.scene].dependencies;
-    if (dependencies) {
-      sceneNames = sceneNames.concat(dependencies);
-    }
-  }
-
   // compile each scene, merging them into a single gulp stream as we go
-  return sceneNames.reduce(function(stream, sceneName) {
+  return SCENE_NAMES.reduce(function(stream, sceneName) {
     var config = SCENE_CLOSURE_CONFIG[sceneName];
     var fileName = config.fileName || (sceneName + '-scene.min.js');
     var folder = config.folder || ('scenes/' + sceneName);
