@@ -24,7 +24,7 @@ $ npm install
 Build and run with `gulp serve`.
 This will serve from the root directory and recompile JavaScript or CSS on watched changes.
 
-If you'd like to serve another way, then you can build all dependencies with `gulp`.
+If you'd like to serve another way, then you can build all development dependencies with `gulp`.
 
 ## Release
 
