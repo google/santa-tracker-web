@@ -416,7 +416,7 @@ WorldView.prototype.getBoundsZoomLevel_ = function(projection, latLngBounds, vie
   // Wrap to ensure that west <= east.  This is necessary when the latLngBounds
   // crosses the longitudinal meridian.
   if (west > east) {
-    sw = new google.maps.LatLng(sw.lat(), west - 360, true);
+    sw = new LatLng(sw.lat(), west - 360, true);
   }
 
   // Compute the bounds in projected coordinates (pixels at zoom 0).
