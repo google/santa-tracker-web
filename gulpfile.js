@@ -36,6 +36,7 @@ var STATIC_VERSION = 80;
 var argv = require('yargs')
     .help('help')
     .epilogue('https://github.com/google/santa-tracker-web')
+    .command('default', 'build CSS and JavaScript for development version')
     .command('serve', 'serves development version')
     .command('dist', 'build production version')
     .option('pretty', {
@@ -511,4 +512,4 @@ gulp.task('serve', ['sass', 'compile-scenes', 'watch'], function() {
   gulp.watch('scenes/**/*.html').on('change', browserSync.reload);
 });
 
-gulp.task('default', ['serve']);
+gulp.task('default', ['sass', 'compile-scenes']);
