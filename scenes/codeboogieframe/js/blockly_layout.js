@@ -188,20 +188,19 @@ app.BlocklyLayout.prototype.layoutToolboxCardinal_ = function(blocks) {
   var toolboxWidth = (blockSize.width + gap) * 2 - gap + margin * 2;
 
   // Three columns.
-  var leftX = toolboxWidth / 2 - blockSize.width * 1.5 - gap + 5;
+  var leftX = toolboxWidth / 2 - (blockSize.width + gap / 2);
   var centerX = toolboxWidth / 2 - blockSize.width / 2;
-  var rightX = toolboxWidth / 2 + blockSize.width / 2 + gap - 5;
+  var rightX = toolboxWidth / 2 + gap / 2;
 
   // Dance moves
   for (var i = 0, block; block = blocks[i]; i++) {
     if (i > 0 && i % 2 === 0) {
-      cursorY += blockSize.height;
+      cursorY += blockSize.height + gap;
     }
-    block.moveTo(leftX, cursorY);
+    block.moveTo(i % 2 === 0 ? leftX : rightX, cursorY);
   }
 
   cursorY += blockSize.height;
-  console.log(blocks[blocks.length - 1]);
   // Repeat
   //if (blocks.length > 4) {
   //  blocks[4].moveTo(centerX, cursorY);

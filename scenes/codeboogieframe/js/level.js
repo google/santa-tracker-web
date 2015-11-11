@@ -16,8 +16,7 @@
 
 goog.provide('app.Level');
 goog.provide('app.LevelResult');
-goog.provide('app.MazeLevel');
-goog.provide('app.PuzzleLevel');
+goog.provide('app.DanceLevel');
 
 /**
  * @typedef {{

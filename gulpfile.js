@@ -147,7 +147,7 @@ var SCENE_CLOSURE_CONFIG = {
     closureLibrary: true,
     typeSafe: false,
     entryPoint: 'app.Game',
-    wrapClosure: false
+    isFrame: true
   },
   codelab: {
     typeSafe: false,

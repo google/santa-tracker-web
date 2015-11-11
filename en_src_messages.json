@@ -645,6 +645,70 @@
         "description": "CTA link to a community where people can upload panoramas of their own. Includes a placeholder with current localised city/country name.",
         "raw": "Add your own photos of <ph name=\"LOCATION\"><ex>Trafalgar Square, London</ex>{{location}}</ph>"
     },
+    "codeboogie-block-leftarm": {
+        "description": "Code block label for dancing with left arm. Preferably just two short words.",
+        "message": "left arm"
+    },
+    "codeboogie-block-leftarm-tooltip": {
+        "description": "Tooltip for a code block which dances with left arm. Written as a command in first person.",
+        "message": "Shake the left arm."
+    },
+    "codeboogie-block-rightarm": {
+        "description": "Code block label for dancing with right arm. Preferably just two short words.",
+        "message": "right arm"
+    },
+    "codeboogie-block-rightarm-tooltip": {
+        "description": "Tooltip for a code block which dances with right arm. Written as a command in first person.",
+        "message": "Shake the right arm."
+    },
+    "codeboogie-block-leftfoot": {
+        "description": "Code block label for dancing with left foot. Preferably just two short words.",
+        "message": "left foot"
+    },
+    "codeboogie-block-leftfoot-tooltip": {
+        "description": "Tooltip for a code block which dances with left foot. Written as a command in first person.",
+        "message": "Shake the left foot."
+    },
+    "codeboogie-block-rightfoot": {
+        "description": "Code block label for dancing with right foot. Preferably just two short words.",
+        "message": "right foot"
+    },
+    "codeboogie-block-rightfoot-tooltip": {
+        "description": "Tooltip for a code block which dances with right foot. Written as a command in first person.",
+        "message": "Shake the right foot."
+    },
+    "codeboogie-block-jump": {
+        "description": "Code block label for dancing jump. Preferably just two short words.",
+        "message": "jump"
+    },
+    "codeboogie-block-jump-tooltip": {
+        "description": "Tooltip for a code block which dances with a jump. Written as a command in first person.",
+        "message": "Do a jump."
+    },
+    "codeboogie-block-spin": {
+        "description": "Code block label for dancing spin. Preferably just two short words.",
+        "message": "spin"
+    },
+    "codeboogie-block-spin-tooltip": {
+        "description": "Tooltip for a code block which dances with a spin. Written as a command in first person.",
+        "message": "Do a spin."
+    },
+    "codeboogie-block-split": {
+        "description": "Code block label for dancing split. Preferably just two short words.",
+        "message": "split"
+    },
+    "codeboogie-block-split-tooltip": {
+        "description": "Tooltip for a code block which dances with a split. Written as a command in first person.",
+        "message": "Do a split."
+    },
+    "codeboogie-block-clap": {
+        "description": "Code block label for dance clap. Preferably just two short words.",
+        "message": "clap"
+    },
+    "codeboogie-block-clap-tooltip": {
+        "description": "Tooltip for a code block which dances with a clap. Written as a command in first person.",
+        "message": "Do a clap."
+    },
     "codelab-block-whenrun": {
         "description": "Code block label. 15char limit. Start of the code, reads to indicate that blocks below it will execute in order",
         "message": "when run"

@@ -245,6 +245,54 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-leftarm": {
+		"message": "left arm"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Shake the left arm."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "right arm"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Shake the right arm."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "left foot"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Shake the left foot."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "right foot"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Shake the right foot."
+	},
+	"codeboogie-block-jump": {
+		"message": "jump"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Do a jump."
+	},
+	"codeboogie-block-spin": {
+		"message": "spin"
+	},
+	"codeboogie-block-spin-tooltip": {
+		"message": "Do a spin."
+	},
+	"codeboogie-block-split": {
+		"message": "split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Do a split."
+	},
+	"codeboogie-block-clap": {
+		"message": "clap"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Do a clap."
+	},
 	"codelab-block-moveeast": {
 		"message": "east"
 	},

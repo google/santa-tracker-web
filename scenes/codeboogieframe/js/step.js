@@ -12,6 +12,6 @@ app.Step = {
   RIGHT_FOOT: 'rightFoot',
   JUMP: 'jump',
   SPIN: 'spin',
-  SPLITS: 'splits',
-  SPLITS2: 'splits2'
+  SPLIT: 'split',
+  CLAP: 'clap'
 };

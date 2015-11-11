@@ -16,9 +16,7 @@
 
 goog.provide('app.levels');
 
-goog.require('app.Map');
-goog.require('app.MazeLevel');
-goog.require('app.PuzzleLevel');
+goog.require('app.DanceLevel');
 goog.require('app.blocks');
 
 /**
@@ -31,17 +29,15 @@ app.levels = [];
  * Create levels.
  */
 app.levels.push(new app.DanceLevel({
-  bounds: app.Map.LEVEL_BOUNDS[0],
   idealBlockCount: 2,
-  playerX: 1,
-  playerY: 3,
-  presents: [
-    {x: 1, y: 1}
-  ],
-  requiredBlocks: ['maze_moveNorth'],
-  startBlocks: app.blocks.blockXml('maze_moveNorth', {deletable: false}),
-  toolbox: app.blocks.miniBlockXml('maze_moveNorth') +
-      app.blocks.miniBlockXml('maze_moveSouth') +
-      app.blocks.miniBlockXml('maze_moveWest') +
-      app.blocks.miniBlockXml('maze_moveEast')
+  requiredBlocks: ['dance_leftArm'],
+  startBlocks: app.blocks.blockXml('dance_leftArm', {deletable: false}),
+  toolbox: app.blocks.miniBlockXml('dance_leftArm') +
+      app.blocks.miniBlockXml('dance_rightArm') +
+      app.blocks.miniBlockXml('dance_leftFoot') +
+      app.blocks.miniBlockXml('dance_rightFoot') +
+      app.blocks.miniBlockXml('dance_jump') +
+      app.blocks.miniBlockXml('dance_spin') +
+      app.blocks.miniBlockXml('dance_split') +
+      app.blocks.miniBlockXml('dance_clap')
 }));

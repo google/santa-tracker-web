@@ -88,46 +88,46 @@ app.blocks.install = function() {
         tooltip: app.I18n.getMsg('CB_leftArmTooltip')
       },
       rightArm: {
-        letter: app.I18n.getMsg('CR_rightArm'),
+        letter: app.I18n.getMsg('CB_rightArm'),
         image: 'img/block-east.svg',
-        tooltip: app.I18n.getMsg('CR_rightArmTooltip')
+        tooltip: app.I18n.getMsg('CB_rightArmTooltip')
       },
       leftFoot: {
-        letter: app.I18n.getMsg('CR_leftFoot'),
+        letter: app.I18n.getMsg('CB_leftFoot'),
         image: 'img/block-west.svg',
-        tooltip: app.I18n.getMsg('CR_leftFootTooltip')
+        tooltip: app.I18n.getMsg('CB_leftFootTooltip')
       },
       rightFoot: {
-        letter: app.I18n.getMsg('CR_rightFoot'),
+        letter: app.I18n.getMsg('CB_rightFoot'),
         image: 'img/block-east.svg',
-        tooltip: app.I18n.getMsg('CR_rightFootTooltip')
+        tooltip: app.I18n.getMsg('CB_rightFootTooltip')
       },
       jump: {
-        letter: app.I18n.getMsg('CR_jump'),
+        letter: app.I18n.getMsg('CB_jump'),
         image: 'img/block-west.svg',
-        tooltip: app.I18n.getMsg('CR_jumpTooltip')
+        tooltip: app.I18n.getMsg('CB_jumpTooltip')
       },
       spin: {
-        letter: app.I18n.getMsg('CR_spin'),
+        letter: app.I18n.getMsg('CB_spin'),
         image: 'img/block-east.svg',
-        tooltip: app.I18n.getMsg('CR_spinTooltip')
+        tooltip: app.I18n.getMsg('CB_spinTooltip')
       },
-      splits: {
-        letter: app.I18n.getMsg('CR_splits'),
+      split: {
+        letter: app.I18n.getMsg('CB_split'),
         image: 'img/block-west.svg',
-        tooltip: app.I18n.getMsg('CR_splitsTooltip')
+        tooltip: app.I18n.getMsg('CB_splitTooltip')
       },
-      splits2: {
-        letter: app.I18n.getMsg('CR_splits'),
+      clap: {
+        letter: app.I18n.getMsg('CB_clap'),
         image: 'img/block-east.svg',
-        tooltip: app.I18n.getMsg('CR_splitsTooltip')
+        tooltip: app.I18n.getMsg('CB_clapTooltip')
       }
     };
 
     var generateBlocksForStep = function(step) {
-      Blockly.Blocks['dance_' + step] = generateStepBlock(direction);
-      Blockly.Blocks['dance_' + step + '_mini'] = generateMiniBlock(direction);
-      Blockly.JavaScript['dance_' + step] = generateCodeGenerator(direction);
+      Blockly.Blocks['dance_' + step] = generateStepBlock(step);
+      Blockly.Blocks['dance_' + step + '_mini'] = generateMiniBlock(step);
+      Blockly.JavaScript['dance_' + step] = generateCodeGenerator(step);
     };
 
     var generateStepBlock = function(step) {
@@ -180,8 +180,8 @@ app.blocks.install = function() {
     generateBlocksForStep('rightFoot');
     generateBlocksForStep('jump');
     generateBlocksForStep('spin');
-    generateBlocksForStep('splits');
-    generateBlocksForStep('splits2');
+    generateBlocksForStep('split');
+    generateBlocksForStep('clap');
   })();
 
   function optionNumberRange(min, max) {

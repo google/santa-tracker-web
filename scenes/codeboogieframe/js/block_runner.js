@@ -108,7 +108,7 @@ app.BlockRunner.prototype = {
 
     if (this.executeResult === app.ResultType.UNSET) {
       this.executeResult = app.ResultType.ERROR;
-      this.queueAnimation(this.scene.player.lose());
+      //this.queueAnimation(this.scene.player.lose());
     }
 
     var levelComplete = this.executeResult === app.ResultType.SUCCESS;
@@ -121,89 +121,6 @@ app.BlockRunner.prototype = {
     }
 
     Klang.triggerEvent('computer_play');
-  },
-
-  queueAnimation: function(animation, blockId) {
-    if (blockId) {
-      var highlight = this.highlightAnimation_(blockId, animation.activeDuration);
-      animation = this.upgradeToGroup_(animation, highlight);
-    }
-    this.animationQueue_.push(animation);
-  },
-
-  /**
-   * Upgrades the passed AnimationEffectReadOnly to an GroupEffect.
-   * @param {!AnimationEffectReadOnly} animation to upgrade
-   * @param {!Array<!AnimationEffectReadOnly>=} opt_suffix of animations to add
-   * @return {!GroupEffect} group
-   */
-  upgradeToGroup_: function(animation, opt_suffix) {
-    var children, group;
-
-    if (animation instanceof GroupEffect) {
-      if (opt_suffix) {
-        children = animation.children.concat(opt_suffix);
-        animation = new GroupEffect(children, animation.timing);
-      }
-      return animation;
-    }
-
-    children = [animation].concat(opt_suffix || []);
-    return new GroupEffect(children);
-  },
-
-  injectHighlight: function(blockId) {
-    var duration = app.BlockRunner.INJECTED_HIGHLIGHT_DURATION;
-    var animation = this.animationQueue_[this.animationQueue_.length - 1];
-
-    // Just append the animation if this isn't a proper step (e.g., losing
-    // or competion isn't highlightable).
-    if (!(animation instanceof GroupEffect)) {
-      var highlight = this.highlightAnimation_(blockId, duration);
-      this.animationQueue_.push(highlight);
-      return;
-    }
-
-    // Otherwise, create a new group based on the previous group.
-    var children = animation.children;
-
-    // If there was a previous highlight, clamp it so it doesn't clash (this
-    // happens in the repeat block).
-    var lastHighlight = animation.children[animation.children.length - 1];
-    if (lastHighlight[app.BlockRunner.HIGHLIGHT_SYMBOL]) {
-      lastHighlight = new GroupEffect([lastHighlight], {
-        duration: lastHighlight.activeDuration - duration,
-        fill: 'none'
-      });
-      children[children.length - 1] = lastHighlight;
-    }
-
-    // Highlight for the expected duration, at the end of the group (over
-    // the period of time just clamped above).
-    var highlight = this.highlightAnimation_(blockId, {
-      duration: duration,
-      delay: animation.activeDuration - duration,
-    });
-    children.push(highlight);
-
-    animation = new GroupEffect(children);
-    this.animationQueue_[this.animationQueue_.length - 1] = animation;
-  },
-
-  highlightAnimation_: function(blockId, timing) {
-    var animation = new KeyframeEffect(null, [], timing);
-    animation.onsample = this.highlightEffect_.bind(this, blockId);
-
-    // Mark it with a es6-style symbol
-    animation[app.BlockRunner.HIGHLIGHT_SYMBOL] = true;
-    return animation;
-  },
-
-  highlightEffect_: function(blockId, timing) {
-    if (timing != null && blockId !== this.lastBlockId_) {
-      this.lastBlockId_ = blockId;
-      this.blockly.highlightBlock(blockId);
-    }
   },
 
   beforeAnimations_: function() {
@@ -350,12 +267,12 @@ app.BlockRunnerApi.prototype = {
     this.dance_(app.Step.SPIN, id);
   }),
 
-  splits: app.BlockRunnerApi.createApiMethod(function(id) {
-    this.dance_(app.Step.SPLITS, id);
+  split: app.BlockRunnerApi.createApiMethod(function(id) {
+    this.dance_(app.Step.SPLIT, id);
   }),
 
-  splits2: app.BlockRunnerApi.createApiMethod(function(id) {
-    this.dance_(app.Step.SPLITS2, id);
+  clap: app.BlockRunnerApi.createApiMethod(function(id) {
+    this.dance_(app.Step.CLAP, id);
   }),
 
   highlightLoop: app.BlockRunnerApi.createApiMethod(function(id) {

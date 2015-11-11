@@ -34,7 +34,7 @@ app.FrameWrapper = function(el, staticDir) {
   this.gameoverView = new app.shared.Gameover(this, this.el.find('.gameover'));
   this.scoreboardView = new app.Scoreboard(this.el.find('.board'), 10);
   this.gameStartTime = +new Date;
-  this.iframeEl = this.el.find('iframe[data-computer-love]');
+  this.iframeEl = this.el.find('iframe[data-codeboogie-frame]');
   this.isPlaying = false;
 
   // Create a communication channel to the game frame.
@@ -62,7 +62,7 @@ app.FrameWrapper.prototype.restart = function() {
   this.isPlaying = true;
 
   this.iframeChannel.call('restart');
-  window.santaApp.fire('analytics-track-game-start', {gameid: 'codelab'});
+  window.santaApp.fire('analytics-track-game-start', {gameid: 'codeboogie'});
 };
 
 /**
@@ -70,7 +70,7 @@ app.FrameWrapper.prototype.restart = function() {
  */
 app.FrameWrapper.prototype.dispose = function() {
   if (this.isPlaying) {
-    window.santaApp.fire('analytics-track-game-quit', {gameid: 'codelab',
+    window.santaApp.fire('analytics-track-game-quit', {gameid: 'codeboogie',
         timePlayed: new Date - this.gameStartTime,
         level: this.level_});
   }
@@ -83,7 +83,7 @@ app.FrameWrapper.prototype.dispose = function() {
  * Loads the gameplay frame into the iframe.
  */
 app.FrameWrapper.prototype.setIframeSrc = function() {
-  var filename = '../codelabframe/codelabframe-scene_' + document.documentElement.lang + '.html';
+  var filename = '../codeboogieframe/codeboogieframe-scene_' + document.documentElement.lang + '.html';
   this.iframeEl.attr('src', this.staticDir + filename + location.search);
 };
 
@@ -100,7 +100,7 @@ app.FrameWrapper.prototype.gameover = function() {
   this.gameoverView.show(1000, 10);
 
   window.santaApp.fire('analytics-track-game-over', {
-    gameid: 'codelab',
+    gameid: 'codeboogie',
     score: 0,
     level: 10,
     timePlayed: new Date - this.gameStartTime
