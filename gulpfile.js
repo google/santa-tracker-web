@@ -235,7 +235,7 @@ gulp.task('rm-dist', function(rmCallback) {
 
 gulp.task('sass', function() {
   var files = argv.scene ? 'scenes/' + argv.scene + '/**/*.scss' : SASS_FILES;
-  return gulp.src(files)
+  return gulp.src(files, {base: '.'})
     .pipe(sass({
       outputStyle: 'compressed'
     }).on('error', sass.logError))
