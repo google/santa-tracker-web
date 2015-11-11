@@ -30,20 +30,28 @@ Village scene (2015).
   <div id="module-dorf">
     <div class="fit scroll">
       <header>
-        <div class="mid">
-          <h1 class="logo">Google</h1>
-          <h1>
-            <!-- TODO(samthor): translate -->
-            Santa's Village
-          </h1>
-          <p>
-            <!-- TODO(samthor): translate -->
-            Explore, play and learn with Santa's Elves all December long
-          </p>
-        </div><!-- .mid -->
+				<div id="header-background"></div>
+
+				<div id="header-content">
+					<div id="count-down">
+						<h2>Santa Takes Off In</h2>
+						<div id="count-down-numbers">
+							TIME
+						</div>
+					</div>
+		      <h1>
+		        <!-- TODO(samthor): translate -->
+		        Santa Tracker
+		      </h1>
+		      <p>
+		        <!-- TODO(samthor): translate -->
+		        Explore, play and learn with Santa's Elves all December long.
+		      </p>
+				</div>
       </header>
       <div id="village">
         <div id="houses">
+					<div class="house"></div>
           <template is="dom-repeat" items="{{houses}}">
             <div class="house">
               <div class="color fit" style$="background: {{_calculateColor(item)}}"></div>
@@ -54,6 +62,9 @@ Village scene (2015).
           </template>
         </div>
       </div>
+			<div id="village-footer">
+				
+			</div>
     </div><!-- .scroll -->
   </div><!-- #module-dorf -->
 </template>
