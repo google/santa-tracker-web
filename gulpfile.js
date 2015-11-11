@@ -283,8 +283,8 @@ gulp.task('compile-scenes', function() {
   // compile each scene, merging them into a single gulp stream as we go
   return SCENE_NAMES.reduce(function(stream, sceneName) {
     var config = SCENE_CLOSURE_CONFIG[sceneName];
-    var fileName = config.fileName || (sceneName + '-scene.min.js');
-    var folder = config.folder || ('scenes/' + sceneName);
+    var fileName = sceneName + '-scene.min.js';
+    var dest = 'scenes/' + sceneName;
     var closureLibraryPath = path.resolve('components/closure-library/closure/goog');
 
     var warnings = CLOSURE_SAFE_WARNINGS;
@@ -304,10 +304,10 @@ gulp.task('compile-scenes', function() {
     }
 
     return stream.add(gulp.src([
-      folder + '/js/**/*.js',
+      'scenes/' + sceneName + '/js/**/*.js',
       'scenes/shared/js/*.js',
     ])
-    .pipe(newer(folder + '/' + fileName))
+    .pipe(newer(dest + '/' + fileName))
     .pipe(closureCompiler({
       compilerPath: COMPILER_PATH,
       continueWithWarnings: true,
@@ -331,7 +331,7 @@ gulp.task('compile-scenes', function() {
             '(function(){%output%}).call({ app: scenes.' + sceneName + ' });'
       })
     }))
-    .pipe(gulp.dest(folder)));
+    .pipe(gulp.dest(dest)));
   }, mergeStream());
 });
 
