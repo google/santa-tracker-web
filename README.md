@@ -21,15 +21,10 @@ $ npm install
 
 ## Development
 
-Build and run with `gulp`.
+Build and run with `gulp serve`.
 This will serve from the root directory and recompile JavaScript or CSS on watched changes.
 
-If you'd like to serve another way, then be sure to build the dependencies yourself:
-
-```bash
-$ gulp sass
-$ gulp compile-scenes
-```
+If you'd like to serve another way, then you can build all development dependencies with `gulp`.
 
 ## Release
 
