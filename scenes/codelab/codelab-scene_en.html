@@ -161,23 +161,23 @@ Codelab scene.
     onPreload: function() {
       this.preloadSounds('computer_load_sounds', 40);
       this.preloadImages([
-        'img/block-east.svg',
-        'img/block-north.svg',
-        'img/block-repeat.svg',
-        'img/block-south.svg',
-        'img/block-west.svg',
-        'img/jigsaw.png',
         'img/logo.svg',
-        'img/puzzle-1.png',
-        'img/puzzle-2.png',
-        'img/tutorial/maze.gif',
-        'img/tutorial/puzzle.gif',
-        'img/tutorial/shadow.svg'
+        '../codelabframe/img/block-east.svg',
+        '../codelabframe/img/block-north.svg',
+        '../codelabframe/img/block-repeat.svg',
+        '../codelabframe/img/block-south.svg',
+        '../codelabframe/img/block-west.svg',
+        '../codelabframe/img/jigsaw.png',
+        '../codelabframe/img/puzzle-1.png',
+        '../codelabframe/img/puzzle-2.png',
+        '../codelabframe/img/tutorial/maze.gif',
+        '../codelabframe/img/tutorial/puzzle.gif',
+        '../codelabframe/img/tutorial/shadow.svg'
       ]);
     },
     onShow: function() {
       var module = this.$['module-codelab'];
-      this.frame = new scenes.codelab.wrapper.FrameWrapper(module, this.componentDir);
+      this.frame = new scenes.codelab.FrameWrapper(module, this.componentDir);
     },
     onHide: function() {
       this.frame.dispose();
