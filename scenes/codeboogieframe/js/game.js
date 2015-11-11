@@ -37,7 +37,6 @@ goog.require('app.shared.utils');
 app.Game = function(elem) {
   this.blockly = new app.Blockly(elem.querySelector('.blockly'), this);
   this.elem = elem;
-  this.frameId = null;
   this.levelNumber = null;
   this.level = null;
   this.isPlaying = false;
@@ -63,7 +62,6 @@ app.Game = function(elem) {
  * @private
  */
 app.Game.prototype.dispose_ = function() {
-  app.shared.utils.cancelAnimFrame(this.frameId);
   this.tutorial_.dispose();
   this.scene.dispose();
 };
@@ -86,12 +84,8 @@ app.Game.prototype.bumpLevel = function() {
   this.elem.className = 'level--' + this.level.type + ' level--' + this.level.id;
 
   this.blockly.setLevel(this.level);
-
-  var isMaze = this.level.type === 'maze';
-  if (isMaze) {
-    this.scene.setLevel(this.level);
-  }
-  this.scene.toggleVisibility(isMaze);
+  this.scene.setLevel(this.level);
+  this.scene.toggleVisibility(true);
 
   // Show tutorial
   if (this.levelNumber === 0 || this.levelNumber === 2) {
@@ -111,9 +105,7 @@ app.Game.prototype.onFocus = function() {
  * Resets state of the current level. Only applies to maze levels currently.
  */
 app.Game.prototype.restartLevel = function() {
-  if (this.level.type === 'maze') {
-    this.scene.restartLevel(true);
-  }
+  this.scene.restartLevel(true);
 };
 
 /**

@@ -56,82 +56,6 @@ app.Level = function(options) {
  */
 app.Level.idCounter = 0;
 
-
-/**
- * @typedef {{
- *   startBlocks: string,
- *   toolbox: string,
- *   notchedEnds: boolean,
- *   numPieces: number,
- *   puzzleColor: Array.<number>,
- *   puzzleHeight: number,
- *   puzzleImage: string,
- *   puzzleWidth: number
- * }}
- */
-app.PuzzleLevelOptions;
-
-/**
- * A jigsaw style level where the goal is to solve a simple puzzle using blocks.
- * @param {app.PuzzleLevelOptions} options for this level.
- * @constructor
- */
-app.PuzzleLevel = function(options) {
-  app.Level.call(this, options);
-  this.insertWhenRun = false;
-  this.type = 'puzzle';
-
-  this.notchedEnds = options.notchedEnds;
-  this.numPieces = options.numPieces;
-  this.puzzleColor = options.puzzleColor;
-  this.puzzleHeight = options.puzzleHeight;
-  this.puzzleImage = options.puzzleImage;
-  this.puzzleWidth = options.puzzleWidth;
-};
-goog.inherits(app.PuzzleLevel, app.Level);
-
-/**
- * Validates whether the puzzle has been successfully put together.
- * @return {boolean} true if the puzzle is correctly assembled.
- */
-app.PuzzleLevel.prototype.checkSuccess = function() {
-  var letters = '-ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  var id = this.id;
-  var numBlocks = this.numPieces;
-
-  var types = [];
-  for (var i = 1; i <= numBlocks; i++) {
-    types.push('puzzle_' + id + letters[i]);
-  }
-
-  var roots = Blockly.mainWorkspace.getTopBlocks();
-  if (roots.length !== 1) {
-    return false;
-  }
-
-  var depth = 0;
-  var block = roots[0];
-  while (depth < numBlocks) {
-    if (!block || block.type !== types[depth]) {
-      return false;
-    }
-    var children = block.getChildren();
-    if (children.length > 1) {
-      return false;
-    }
-    block = children[0];
-    depth++;
-  }
-
-  // last block shouldnt have children
-  if (block !== undefined) {
-    return false;
-  }
-
-  return true;
-};
-
-
 /**
  * @typedef {{
  *   startBlocks: string,
@@ -144,45 +68,24 @@ app.PuzzleLevel.prototype.checkSuccess = function() {
  *   requiredBlocks: Array.<string>
  * }}
  */
-app.MazeLevelOptions;
+app.DanceLevelOptions;
 
 /**
  * A maze level where the goal is to navigate a player through a maze.
- * @param {app.MazeLevelOptions} options for this level.
+ * @param {app.DanceLevelOptions} options for this level.
  * @constructor
  */
-app.MazeLevel = function(options) {
+app.DanceLevel = function(options) {
   app.Level.call(this, options);
 
   this.insertWhenRun = true;
 
-  this.type = 'maze';
+  this.type = 'dance';
 
   this.idealBlockCount = options.idealBlockCount || Infinity;
-  this.minY = options.bounds;
-  this.maxY = this.minY + app.Constants.LEVEL_USABLE_ROWS;
-  this.playerX = options.playerX;
-  this.playerY = this.minY + options.playerY;
-  this.presents = (options.presents || []).map(function(p) {
-    return {
-      x: p.x,
-      y: options.bounds + p.y
-    };
-  });
   this.requiredBlocks = options.requiredBlocks || [];
 };
-goog.inherits(app.MazeLevel, app.Level);
-
-/**
- * Checks if a specific tile is outside the bounds of the map.
- * @param {number} x position.
- * @param {number} y position.
- * @return {boolean} true if x and y denote an illegal tile.
- */
-app.MazeLevel.prototype.isOutsideBounds = function(x, y) {
-  return x < 0 || x >= app.Constants.LEVEL_USABLE_MAX_COLS ||
-    y < this.minY || y >= this.maxY;
-};
+goog.inherits(app.DanceLevel, app.Level);
 
 /**
  * Validates a blockly execution and returns a smart hint to user.
@@ -190,7 +93,7 @@ app.MazeLevel.prototype.isOutsideBounds = function(x, y) {
  * @param {!app.Blockly} blockly wrapper.
  * @return {!app.LevelResult} a user friendly level result.
  */
-app.MazeLevel.prototype.processResult = function(levelComplete, blockly) {
+app.DanceLevel.prototype.processResult = function(levelComplete, blockly) {
   var message;
   if (blockly.hasEmptyContainerBlocks()) {
     // Block is assumed to be "if" or "repeat" if we reach here.

@@ -29,7 +29,6 @@ goog.require('app.blocks');
  * @constructor
  */
 app.Blockly = function(el, game) {
-  this.cachedBlockStates_ = [];
   this.changeListener_ = null;
   this.currentLevel = null;
   this.el = el;

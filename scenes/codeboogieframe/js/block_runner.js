@@ -18,7 +18,7 @@ goog.provide('app.BlockRunner');
 goog.provide('app.BlockRunnerApi');
 goog.provide('app.ResultType');
 
-goog.require('app.Direction');
+goog.require('app.Step');
 goog.require('app.shared.utils');
 
 /**
@@ -51,8 +51,7 @@ app.BlockRunnerState = {
 app.BlockRunner = function(scene, blockly) {
   this.api = new app.BlockRunnerApi(scene, this);
   this.blockly = blockly;
-  var dummy = new KeyframeEffect(document.body, [], 0);
-  this.player = document.timeline.play(dummy);
+  //this.player = document.timeline.play();
   this.scene = scene;
 
   // Configure Blockly loops to highlight during iteration.
@@ -83,8 +82,7 @@ app.BlockRunner.prototype = {
     this.lastBlockId_ = null;
     /* @type {app.LevelResult} */
     this.levelResult = null;
-    this.player.cancel();
-    this.ticks = 100;
+    //this.player.cancel();
   },
 
   /**
@@ -238,12 +236,14 @@ app.BlockRunner.prototype = {
   runAnimations_: function() {
     this.beforeAnimations_();
 
-    var fullAnimation = new SequenceEffect(this.animationQueue_);
-    this.player = document.timeline.play(fullAnimation);
-    app.shared.utils.onWebAnimationFinished(this.player, this.onFinishAnimations_.bind(this));
-    this.player.currentTime = 0;
-    this.player.playbackRate = this.levelResult.levelComplete ? 1 : 1 / 1.5;
-    this.player.play();
+    //var fullAnimation = new SequenceEffect(this.animationQueue_);
+    //this.player = document.timeline.play(fullAnimation);
+    //app.shared.utils.onWebAnimationFinished(this.player, this.onFinishAnimations_.bind(this));
+    //this.player.currentTime = 0;
+    //this.player.playbackRate = this.levelResult.levelComplete ? 1 : 1 / 1.5;
+    //this.player.play();
+
+    this.onFinishAnimations_();
 
     this.state_ = app.BlockRunnerState.ANIMATING;
   },
@@ -255,17 +255,16 @@ app.BlockRunner.prototype = {
 
     this.beforeAnimations_();
 
-    this.player.playbackRate = -4;
-    this.player.play();
+    //this.player.playbackRate = -4;
+    //this.player.play();
 
     this.state_ = app.BlockRunnerState.REWINDING;
 
-    app.PlayerSound.disable();
     Klang.triggerEvent('computer_rewind_start');
   },
 
   resetAnimation: function() {
-    this.player.cancel();
+    //this.player.cancel();
   },
 
   reportExecution_: function() {
@@ -327,51 +326,50 @@ app.BlockRunnerApi.createApiMethod = function(fn) {
 };
 
 app.BlockRunnerApi.prototype = {
-  moveNorth: app.BlockRunnerApi.createApiMethod(function(id) {
-    this.move_(app.Direction.NORTH, id);
+  leftArm: app.BlockRunnerApi.createApiMethod(function(id) {
+    this.dance_(app.Step.LEFT_ARM, id);
   }),
 
-  moveWest: app.BlockRunnerApi.createApiMethod(function(id) {
-    this.move_(app.Direction.WEST, id);
+  rightArm: app.BlockRunnerApi.createApiMethod(function(id) {
+    this.dance_(app.Step.RIGHT_ARM, id);
   }),
 
-  moveSouth: app.BlockRunnerApi.createApiMethod(function(id) {
-    this.move_(app.Direction.SOUTH, id);
+  leftFoot: app.BlockRunnerApi.createApiMethod(function(id) {
+    this.dance_(app.Step.LEFT_FOOT, id);
   }),
 
-  moveEast: app.BlockRunnerApi.createApiMethod(function(id) {
-    this.move_(app.Direction.EAST, id);
+  rightFoot: app.BlockRunnerApi.createApiMethod(function(id) {
+    this.dance_(app.Step.RIGHT_FOOT, id);
+  }),
+
+  jump: app.BlockRunnerApi.createApiMethod(function(id) {
+    this.dance_(app.Step.JUMP, id);
+  }),
+
+  spin: app.BlockRunnerApi.createApiMethod(function(id) {
+    this.dance_(app.Step.SPIN, id);
+  }),
+
+  splits: app.BlockRunnerApi.createApiMethod(function(id) {
+    this.dance_(app.Step.SPLITS, id);
+  }),
+
+  splits2: app.BlockRunnerApi.createApiMethod(function(id) {
+    this.dance_(app.Step.SPLITS2, id);
   }),
 
   highlightLoop: app.BlockRunnerApi.createApiMethod(function(id) {
     this.runner.injectHighlight(id);
   }),
 
-  move_: function(direction, id) {
-    var player = this.scene.player;
-    var animation = player.move(direction);
-    var success = !!animation;
-
-    // Terminate if we hit a tree or map boundary.
-    if (!success) {
-      this.runner.queueAnimation(player.lose(direction), id);
-      this.runner.terminateWithResult(app.ResultType.ERROR);
-    } else {
-      this.runner.queueAnimation(animation, id);
-    }
-
-    var pickedCount = 0;
-    for (var present, i = 0; present = this.scene.presents[i]; i++) {
-      // Check if we can pick up a new present
-      if (present.x === player.x && present.y === player.y) {
-        this.runner.queueAnimation(player.pickUp(present));
-        pickedCount++;
-      }
-    }
-
-    // Terminate if we have picked up all presents.
-    if (pickedCount === this.scene.presents.length) {
-      this.runner.terminateWithResult(app.ResultType.SUCCESS);
-    }
+  dance_: function(step, id) {
+    //var player = this.scene.player;
+    //var success = player.queueStep(step);
+    //var success = !!animation;
+    //
+    //// Terminate if we perform a wrong move.
+    //if (!success) {
+    //  this.runner.terminateWithResult(app.ResultType.ERROR);
+    //}
   }
 };

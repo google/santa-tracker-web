@@ -81,37 +81,57 @@ app.blocks.install = function() {
    * Create simple move blocks
    */
   (function() {
-    var DIRECTION_CONFIGS = {
-      West: {
-        letter: app.I18n.getMsg('CL_moveWest'),
+    var STEP_CONFIGS = {
+      leftArm: {
+        letter: app.I18n.getMsg('CB_leftArm'),
         image: 'img/block-west.svg',
-        tooltip: app.I18n.getMsg('CL_moveWestTooltip')
+        tooltip: app.I18n.getMsg('CB_leftArmTooltip')
       },
-      East: {
-        letter: app.I18n.getMsg('CL_moveEast'),
+      rightArm: {
+        letter: app.I18n.getMsg('CR_rightArm'),
         image: 'img/block-east.svg',
-        tooltip: app.I18n.getMsg('CL_moveEastTooltip')
+        tooltip: app.I18n.getMsg('CR_rightArmTooltip')
       },
-      North: {
-        letter: app.I18n.getMsg('CL_moveNorth'),
-        image: 'img/block-north.svg',
-        tooltip: app.I18n.getMsg('CL_moveNorthTooltip')
+      leftFoot: {
+        letter: app.I18n.getMsg('CR_leftFoot'),
+        image: 'img/block-west.svg',
+        tooltip: app.I18n.getMsg('CR_leftFootTooltip')
       },
-      South: {
-        letter: app.I18n.getMsg('CL_moveSouth'),
-        image: 'img/block-south.svg',
-        tooltip: app.I18n.getMsg('CL_moveSouthTooltip')
+      rightFoot: {
+        letter: app.I18n.getMsg('CR_rightFoot'),
+        image: 'img/block-east.svg',
+        tooltip: app.I18n.getMsg('CR_rightFootTooltip')
+      },
+      jump: {
+        letter: app.I18n.getMsg('CR_jump'),
+        image: 'img/block-west.svg',
+        tooltip: app.I18n.getMsg('CR_jumpTooltip')
+      },
+      spin: {
+        letter: app.I18n.getMsg('CR_spin'),
+        image: 'img/block-east.svg',
+        tooltip: app.I18n.getMsg('CR_spinTooltip')
+      },
+      splits: {
+        letter: app.I18n.getMsg('CR_splits'),
+        image: 'img/block-west.svg',
+        tooltip: app.I18n.getMsg('CR_splitsTooltip')
+      },
+      splits2: {
+        letter: app.I18n.getMsg('CR_splits'),
+        image: 'img/block-east.svg',
+        tooltip: app.I18n.getMsg('CR_splitsTooltip')
       }
     };
 
-    var generateBlocksForDirection = function(direction) {
-      Blockly.Blocks['maze_move' + direction] = generateMoveBlock(direction);
-      Blockly.Blocks['maze_move' + direction + '_mini'] = generateMiniBlock(direction);
-      Blockly.JavaScript['maze_move' + direction] = generateCodeGenerator(direction);
+    var generateBlocksForStep = function(step) {
+      Blockly.Blocks['dance_' + step] = generateStepBlock(direction);
+      Blockly.Blocks['dance_' + step + '_mini'] = generateMiniBlock(direction);
+      Blockly.JavaScript['dance_' + step] = generateCodeGenerator(direction);
     };
 
-    var generateMoveBlock = function(direction) {
-      var directionConfig = DIRECTION_CONFIGS[direction];
+    var generateStepBlock = function(step) {
+      var stepConfig = STEP_CONFIGS[step];
       return {
         helpUrl: '',
 
@@ -121,17 +141,17 @@ app.blocks.install = function() {
         init: function() {
           this.setHSV(296, 0.491, 0.624);
           this.appendDummyInput()
-              .appendField(new Blockly.FieldImage(directionConfig.image, 23, 32))
-              .appendField(new Blockly.FieldLabel(directionConfig.letter));
+              .appendField(new Blockly.FieldImage(stepConfig.image, 23, 32))
+              .appendField(new Blockly.FieldLabel(stepConfig.letter));
           this.setPreviousStatement(true);
           this.setNextStatement(true);
-          this.setTooltip(directionConfig.tooltip);
+          this.setTooltip(stepConfig.tooltip);
         }
       };
     };
 
-    var generateMiniBlock = function(direction) {
-      var directionConfig = DIRECTION_CONFIGS[direction];
+    var generateMiniBlock = function(step) {
+      var stepConfig = STEP_CONFIGS[step];
       return {
         helpUrl: '',
 
@@ -141,23 +161,27 @@ app.blocks.install = function() {
         init: function() {
           this.setHSV(296, 0.491, 0.624);
           this.appendDummyInput()
-              .appendField(new Blockly.FieldImage(directionConfig.image, 23, 32));
+              .appendField(new Blockly.FieldImage(stepConfig.image, 23, 32));
           this.setMini(true);
-          this.setTooltip(directionConfig.tooltip);
+          this.setTooltip(stepConfig.tooltip);
         }
       };
     };
 
-    var generateCodeGenerator = function(direction) {
+    var generateCodeGenerator = function(step) {
       return function() {
-        return 'api.move' + direction + '(\'block_id_' + this.id + '\');\n';
+        return 'api.' + step + '(\'block_id_' + this.id + '\');\n';
       };
     };
 
-    generateBlocksForDirection('North');
-    generateBlocksForDirection('South');
-    generateBlocksForDirection('West');
-    generateBlocksForDirection('East');
+    generateBlocksForStep('leftArm');
+    generateBlocksForStep('rightArm');
+    generateBlocksForStep('leftFoot');
+    generateBlocksForStep('rightFoot');
+    generateBlocksForStep('jump');
+    generateBlocksForStep('spin');
+    generateBlocksForStep('splits');
+    generateBlocksForStep('splits2');
   })();
 
   function optionNumberRange(min, max) {
@@ -233,62 +257,4 @@ app.blocks.install = function() {
         branch + '}\n';
     return code;
   };
-
-  app.levels.forEach(function(level) {
-    if (level.type !== 'puzzle') {
-      return;
-    }
-    generateJigsawBlocksForLevel({
-      image: level.puzzleImage,
-      HSV: level.puzzleColor,
-      width: level.puzzleWidth,
-      height: level.puzzleHeight,
-      numBlocks: level.numPieces,
-      notchedEnds: level.notchedEnds,
-      level: level.id
-    });
-  });
-
-  function generateJigsawBlocksForLevel(options) {
-    var image = options.image;
-    var width = options.width;
-    var height = options.height;
-    var numBlocks = options.numBlocks;
-    var level = options.level;
-    var HSV = options.HSV;
-    // if true, first/last block will still have previous/next notches
-    var notchedEnds = options.notchedEnds;
-
-    var blockHeight = height / numBlocks;
-    var titleWidth = width - 54;
-    var titleHeight = blockHeight - 10;
-
-    var letters = '-ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-    function generateBlock(blockNum) {
-      var blockName = 'puzzle_' + level + letters[blockNum];
-      var patternName = 'pat_' + level + letters[blockNum];
-      Blockly.Blocks[blockName] = {
-        helpUrl: '',
-
-        /**
-         * @this {Blockly.Block}
-         */
-        init: function() {
-          this.setHSV.apply(this, HSV);
-          this.appendDummyInput()
-            .appendField(new Blockly.FieldImage('img/blank.png', titleWidth, titleHeight));
-          this.setPreviousStatement(blockNum !== 1 || notchedEnds);
-          this.setNextStatement(blockNum !== numBlocks || notchedEnds);
-          this.setFillPattern(
-            app.Patterns.addPattern(patternName, image, width, height, 0,
-              blockHeight * (blockNum - 1)));
-        }
-      };
-    }
-
-    for (var i = 1; i <= numBlocks; i++) {
-      generateBlock(i);
-    }
-  }
 };

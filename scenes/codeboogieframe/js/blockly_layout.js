@@ -192,26 +192,20 @@ app.BlocklyLayout.prototype.layoutToolboxCardinal_ = function(blocks) {
   var centerX = toolboxWidth / 2 - blockSize.width / 2;
   var rightX = toolboxWidth / 2 + blockSize.width / 2 + gap - 5;
 
-  // Hard code desktop layout for now.
-
-  // North
-  blocks[0].moveTo(centerX, cursorY);
-  cursorY += blockSize.height + gap;
-
-  // West
-  blocks[2].moveTo(leftX, cursorY);
-
-  // East
-  blocks[3].moveTo(rightX, cursorY);
-
-  // South
-  blocks[1].moveTo(centerX, cursorY);
-  cursorY += blockSize.height + gap;
-
-  // Repeat
-  if (blocks.length > 4) {
-    blocks[4].moveTo(centerX, cursorY);
+  // Dance moves
+  for (var i = 0, block; block = blocks[i]; i++) {
+    if (i > 0 && i % 2 === 0) {
+      cursorY += blockSize.height;
+    }
+    block.moveTo(leftX, cursorY);
   }
+
+  cursorY += blockSize.height;
+  console.log(blocks[blocks.length - 1]);
+  // Repeat
+  //if (blocks.length > 4) {
+  //  blocks[4].moveTo(centerX, cursorY);
+  //}
 
   return toolboxWidth;
 };
