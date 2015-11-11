@@ -138,6 +138,17 @@ var SCENE_CLOSURE_CONFIG = {
     typeSafe: false,
     entryPoint: 'app.Scene'
   },
+  codeboogie: {
+    typeSafe: false,
+    entryPoint: 'app.FrameWrapper',
+    dependencies: ['codeboogieframe']
+  },
+  codeboogieframe: {
+    closureLibrary: true,
+    typeSafe: false,
+    entryPoint: 'app.Game',
+    wrapClosure: false
+  },
   codelab: {
     typeSafe: false,
     entryPoint: 'app.FrameWrapper',

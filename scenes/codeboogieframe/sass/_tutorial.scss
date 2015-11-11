@@ -1,0 +1,46 @@
+##{$name} {
+  .tutorial {
+    display: none;
+    height: 290px;
+    left: 50%;
+    margin-left: -137px;
+    margin-top: -130px;
+    position: fixed;
+    overflow: hidden;
+    top: 50%;
+    width: 275px;
+    z-index: 100;
+  }
+
+  .tutorial__image {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 270px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 275px;
+    z-index: 2;
+  }
+
+  &.level--puzzle .tutorial__image {
+    background-image: url(img/tutorial/puzzle.gif);
+  }
+
+  &.level--maze .tutorial__image {
+    background-image: url(img/tutorial/maze.gif);
+  }
+
+  .tutorial::before {
+    background: url(img/tutorial/shadow.svg) no-repeat;
+    content: "";
+    height: 270px;
+    left: 0;
+    opacity: 0.15;
+    position: absolute;
+    top: 20px;
+    width: 275px;
+    z-index: 1;
+  }
+}

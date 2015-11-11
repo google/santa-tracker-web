@@ -1,0 +1,191 @@
+<!--
+Copyright 2015 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../scene-behavior.html">
+
+<script src="codeboogie-scene.min.js"></script>
+<link rel="import" href="../../js/webanimations.html">
+
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="codeboogie-scene.css" />
+
+<!--
+Codeboogie scene.
+-->
+<dom-module id="codeboogie-scene">
+<template>
+  <div id="module-codeboogie">
+    <iframe src="about:blank" scrolling="no" width="100%" height="100%" frameBorder="0" data-computer-love></iframe>
+    <div class="gui">
+      <div class="board board--game board--levelOnly">
+        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <div class="logo"></div>
+        <div class="score">
+          <div class="label">
+            <i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value">0</div>
+        </div>
+        <div class="level has-count">
+          <div class="label">
+            <i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value"><span class="current-level">1</span><span class="dark-text">/10</span>
+          </div>
+          <div class="level-dots">
+            <div class="level-item is-active">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">1</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">2</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">3</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">4</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">5</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">6</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">7</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">8</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">9</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">10</div>
+            </div>
+          </div>
+        </div>
+        <div class="time">
+          <div class="label">
+            <i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value"><span class="minutes dark-text">00</span><span class="dark-text"> : </span><span class="seconds">00</span></div>
+          <div class="tracker">
+            <div class="remaining">
+              <!---->
+            </div>
+          </div>
+          <div class="status">
+            <!---->
+          </div>
+        </div>
+        <div class="actions">
+          <button type="button" class="restart"></button>
+          <button type="button" class="pause"></button>
+        </div>
+      </div>
+      <div class="gameover overlay is-levelOnly">
+        <div class="gameover-dialog overlay-dialog">
+          <h2 class="gameover-title">
+            <i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg>
+          </h2>
+          <div class="gameover-winner">
+            <div class="gameover-level">
+              <p class="gameover-label">
+                <i18n-msg msgid="gameover_level">PLACEHOLDER_i18n</i18n-msg>
+              </p>
+              <p class="gameover-number">0</p>
+            </div>
+          </div>
+          <div class="gameover-buttons">
+            <button type="button" class="Button Button--large gameover-play">
+              <i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg>
+            </button>
+            <a href="{{pageUrl}}#village" class="Button Button--large"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+          </div>
+          <div class="footer-promo">
+            <i18n-msg msgid="codelab-mwc-promo">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+        </div>
+      </div>
+      <div class="force-rotate portrait">
+        <div class="force-rotate-graphic"></div>
+        <div class="force-rotate-explanation">
+          <i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+  Polymer({
+    is: 'codeboogie-scene',
+    behaviors: [window.SantaSceneBehavior],
+
+    frame: null,
+
+    onPreload: function() {
+      this.preloadSounds('computer_load_sounds', 40);
+      this.preloadImages([
+        '../codeboogieframe/img/block-east.svg',
+        '../codeboogieframe/img/block-north.svg',
+        '../codeboogieframe/img/block-repeat.svg',
+        '../codeboogieframe/img/block-south.svg',
+        '../codeboogieframe/img/block-west.svg',
+        '../codeboogieframe/img/jigsaw.png',
+        '../codeboogieframe/img/logo.svg',
+        '../codeboogieframe/img/puzzle-1.png',
+        '../codeboogieframe/img/puzzle-2.png',
+        '../codeboogieframe/img/tutorial/maze.gif',
+        '../codeboogieframe/img/tutorial/puzzle.gif',
+        '../codeboogieframe/img/tutorial/shadow.svg'
+      ]);
+    },
+    onShow: function() {
+      var module = this.$['module-codeboogie'];
+      this.frame = new scenes.codeboogie.FrameWrapper(module, this.componentDir);
+    },
+    onHide: function() {
+      this.frame.dispose();
+      this.frame = null;
+      this.fire('sound-ambient', 'computer_end');
+    }
+  });
+
+})();
+</script>
+</dom-module>
