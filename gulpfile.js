@@ -138,7 +138,7 @@ var SCENE_CLOSURE_CONFIG = {
     closureLibrary: true,
     typeSafe: false,
     entryPoint: 'app.Game',
-    wrapClosure: false
+    isFrame: true
   },
   commandcentre: {
     typeSafe: false,
@@ -324,8 +324,8 @@ gulp.task('compile-scenes', function() {
         jscomp_warning: warnings,
         only_closure_dependencies: null,
         // scenes namespace themselves to `app.*`. Move this namespace into
-        // the global `scenes.sceneName`
-        output_wrapper: config.wrapClosure === false ? '%output%' :
+        // the global `scenes.sceneName`. Unless it's building for a frame.
+        output_wrapper: config.isFrame ? '%output%' :
             'var scenes = scenes || {};\n' +
             'scenes.' + sceneName + ' = scenes.' + sceneName + ' || {};\n' +
             '(function(){%output%}).call({ app: scenes.' + sceneName + ' });'
@@ -373,39 +373,24 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
     // directories well right now, so vulcanize them one at a time
     .pipe(foreach(function(stream, file) {
       var dest = path.dirname(path.relative(__dirname, file.path));
+      var sceneName = path.basename(dest);
+      var closureConfig = SCENE_CLOSURE_CONFIG[sceneName] || {};
+
       return stream.pipe(vulcanize({
         // TODO(samthor): strip and csp were deprecated in gulp-vulcanize 1+
-        stripExcludes: elementsImports,
+        stripExcludes: closureConfig.isFrame ? [] : elementsImports,
         inlineScripts: true,
         inlineCss: true,
         stripComments: true,
         dest: dest
       }))
+      .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
       .pipe(i18n_replace({
         strict: !!argv.strict,
         path: '_messages',
       }))
       .pipe(gulp.dest(DIST_STATIC_DIR));
     }));
-});
-
-gulp.task('vulcanize-codelab-frame', ['rm-dist', 'sass', 'compile-scenes'], function() {
-  return gulp.src('scenes/codelab/codelab-frame_en.html', {base: './'})
-    .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
-    .pipe(vulcanize({
-      // TODO(samthor): strip and csp were deprecated in gulp-vulcanize 1+
-      // Note that this is a separate build as the codelab frame is its own
-      // world: it requires all imports as part of its vulcanized output.
-      inlineScripts: true,
-      inlineCss: true,
-      stripComments: true,
-      dest: 'scenes/codelab'
-    }))
-    .pipe(i18n_replace({
-      strict: !!argv.strict,
-      path: '_messages'
-    }))
-    .pipe(gulp.dest(DIST_STATIC_DIR));
 });
 
 // Vulcanize elements separately, as we want to inline the majority common code
@@ -426,7 +411,7 @@ gulp.task('vulcanize-elements', ['rm-dist', 'sass', 'compile-santa-api-service']
     .pipe(gulp.dest(DIST_STATIC_DIR));
 });
 
-gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements', 'vulcanize-codelab-frame']);
+gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
 gulp.task('i18n_index', function() {
   return gulp.src(['index.html', 'error.html', 'upgrade.html'])
