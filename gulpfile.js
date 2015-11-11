@@ -214,16 +214,16 @@ var SCENE_CLOSURE_CONFIG = {
   }
 };
 
-gulp.task('clean', function(cleanCallback) {
-  del([
+gulp.task('clean', function() {
+  return del([
     '{scenes,sass,elements}/**/*.css',
     'scenes/*/*.min.js',
-    'js/service/*.min.js',
-  ], cleanCallback);
+    'js/service/*.min.js'
+  ]);
 });
 
-gulp.task('rm-dist', function(rmCallback) {
-  del([PROD_DIR, STATIC_DIR, PRETTY_DIR], rmCallback);
+gulp.task('rm-dist', function() {
+  return del([PROD_DIR, STATIC_DIR, PRETTY_DIR]);
 });
 
 gulp.task('sass', function() {
