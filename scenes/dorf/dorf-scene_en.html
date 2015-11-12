@@ -96,8 +96,12 @@ Village scene (2015).
   function snowflakeFactory(opt_prev) {
     var x = opt_prev;
     if (!x) {
+      // Three transforms are applied, so three elements are needed-
+      //   1. outermost positions l/r on page, and rotates for a directed fall
+      //   2. .shimmy shakes snowflake left and right
+      //   3. .fall.snow draws the snowflake and transforms it down
       x = document.createElement('span');
-      x.innerHTML = '<span class="thing"><span class="shimmy"><span class="fall snow"></span></span></span>';
+      x.innerHTML = '<span><span class="shimmy"><span class="fall snow"></span></span></span>';
       x = x.firstChild;
     }
 
@@ -112,7 +116,7 @@ Village scene (2015).
 
     var shimmy = x.querySelector('.shimmy');
     shimmy.style.animationDuration = shimmySpeed + 's'
-    shimmy.style.fontSize = fallSpeed + 'px';  // shimmy with is inverse to speed
+    shimmy.style.fontSize = fallSpeed + 'px';  // shimmy width is inverse to speed
 
     var fall = x.querySelector('.fall');
     fall.style.animationDuration = fallSpeed + 's';
@@ -162,9 +166,11 @@ Village scene (2015).
     },
 
     _changeEffectCount: function() {
-      var snowflakeTarget = Math.round(window.innerWidth * SNOWFLAKE_RATIO);
-      // TODO(samthor): Drift the number of snowflakes towards the right amount
-      // for the width of the village.
+      this.debounce('_changeEffecCount', function() {
+        var snowflakeTarget = Math.round(window.innerWidth * SNOWFLAKE_RATIO);
+        // TODO(samthor): Drift the number of snowflakes towards the right amount
+        // for the width of the village.
+      });
     },
 
     _calculateHref: function(house) {

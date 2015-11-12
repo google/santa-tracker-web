@@ -41,8 +41,8 @@ $name: 'module-dorf';
       height: 630px;
       overflow: hidden;
 
-      .thing {
-        display: block;
+      > * {
+        display: inline-block;
         position: absolute;
       }
 
