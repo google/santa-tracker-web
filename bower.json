@@ -42,6 +42,7 @@
     "closure-compiler": "https://dl.google.com/closure-compiler/compiler-latest.zip",
     "closure-library": "google/closure-library",
     "web-animations-js": "web-animations/web-animations-js#^2.0",
-    "web-animations-utils": "GoogleChrome/web-animations-utils#master"
+    "web-animations-utils": "GoogleChrome/web-animations-utils#master",
+    "i18n-msg": "ebidel/i18n-msg#^1.0.2"
   }
 }

@@ -14,7 +14,7 @@
  * the License.
  */
 
-goog.provide('app.wrapper.FrameWrapper');
+goog.provide('app.FrameWrapper');
 
 goog.require('app.Scoreboard');
 goog.require('app.shared.FrameRPC');
@@ -28,7 +28,7 @@ goog.require('app.shared.Gameover');
  * @constructor
  * @export
  */
-app.wrapper.FrameWrapper = function(el, staticDir) {
+app.FrameWrapper = function(el, staticDir) {
   this.staticDir = staticDir;
   this.el = $(el);
   this.gameoverView = new app.shared.Gameover(this, this.el.find('.gameover'));
@@ -58,7 +58,7 @@ app.wrapper.FrameWrapper = function(el, staticDir) {
 /**
  * Restarts the game
  */
-app.wrapper.FrameWrapper.prototype.restart = function() {
+app.FrameWrapper.prototype.restart = function() {
   this.isPlaying = true;
 
   this.iframeChannel.call('restart');
@@ -68,7 +68,7 @@ app.wrapper.FrameWrapper.prototype.restart = function() {
 /**
  * Destructor.
  */
-app.wrapper.FrameWrapper.prototype.dispose = function() {
+app.FrameWrapper.prototype.dispose = function() {
   if (this.isPlaying) {
     window.santaApp.fire('analytics-track-game-quit', {gameid: 'codelab',
         timePlayed: new Date - this.gameStartTime,
@@ -82,19 +82,19 @@ app.wrapper.FrameWrapper.prototype.dispose = function() {
 /**
  * Loads the gameplay frame into the iframe.
  */
-app.wrapper.FrameWrapper.prototype.setIframeSrc = function() {
-  var filename = 'codelab-frame_' + document.documentElement.lang + '.html';
+app.FrameWrapper.prototype.setIframeSrc = function() {
+  var filename = '../codelabframe/codelabframe-scene_' + document.documentElement.lang + '.html';
   this.iframeEl.attr('src', this.staticDir + filename + location.search);
 };
 
-app.wrapper.FrameWrapper.prototype.triggerSound = function(event) {
+app.FrameWrapper.prototype.triggerSound = function(event) {
   window.santaApp.fire('sound-trigger', {name: event, args: []})
 };
 
 /**
  * Triggers the shared game over view.
  */
-app.wrapper.FrameWrapper.prototype.gameover = function() {
+app.FrameWrapper.prototype.gameover = function() {
   this.isPlaying = false;
 
   this.gameoverView.show(1000, 10);
@@ -111,7 +111,7 @@ app.wrapper.FrameWrapper.prototype.gameover = function() {
  * Takes any iframe focus state changes and passes them on to santaApp.
  * @param {string} state Focus state. Either 'focus' or 'blur'.
  */
-app.wrapper.FrameWrapper.prototype.iframeFocusChange = function(state) {
+app.FrameWrapper.prototype.iframeFocusChange = function(state) {
   if (state === 'focus' || state === 'blur') {
     window.santaApp.fire('iframe-focus-change', state);
   }
@@ -121,7 +121,7 @@ app.wrapper.FrameWrapper.prototype.iframeFocusChange = function(state) {
  * Updates the level in the scoreboard.
  * @param {number} level which level is it.
  */
-app.wrapper.FrameWrapper.prototype.setLevel = function(level) {
+app.FrameWrapper.prototype.setLevel = function(level) {
   this.level_ = level;
   this.scoreboardView.setLevel(level);
 };

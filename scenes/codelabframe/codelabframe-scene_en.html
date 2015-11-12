@@ -18,7 +18,7 @@ specific language governing permissions and limitations under the License.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
-    <link href="codelab-frame.css" rel="stylesheet">
+    <link href="codelabframe-scene.css" rel="stylesheet">
 
     <!-- In production, this is inlined, so don't worry about lack of support for HTML imports -->
     <link rel="import" href="../../js/webanimations.html">
@@ -156,7 +156,7 @@ specific language governing permissions and limitations under the License.
       </div>
     </div>
 
-    <script src="codelab-frame.min.js"></script>
+    <script src="codelabframe-scene.min.js"></script>
     <script>
       window.DEV = true; // NOTE: replaced by string - do not change formatting.
 
@@ -174,11 +174,15 @@ specific language governing permissions and limitations under the License.
         link.href = '../../elements/i18n-msg.html';
         document.write(link.outerHTML);
 
-        // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
-        document.addEventListener('HTMLImportsLoaded', function() {
-          I18nMsg.lang = document.documentElement.lang || 'en'; // Set locale for entire site (e.g. i18n-msg elements).
-          I18nMsg.messagesPath = '../../_messages/';
+        // Change I18nMsg path.
+        window.I18nMsg = {
+          lang: document.documentElement.lang || 'en',
+          locales: {},
+          messagesPath: '../../_messages/'
+        };
 
+        // Wait for HTMLImports before starting the game.
+        document.addEventListener('HTMLImportsLoaded', function() {
           // Wait for i18n initialisation. Bad race-condition, should we add an event?
           window.setTimeout(createGame, 100);
         });
