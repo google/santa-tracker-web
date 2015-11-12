@@ -4,35 +4,31 @@
   "start_url": "https://santatracker.google.com/?utm_source=web_app_manifest&utm_medium=web_app_manifest",
   "display": "fullscreen",
   "orientation": "landscape",
+  "theme_color": "#30B443",
+  "background_color": "#30B443",
   "icons": [{
     "src": "images/apple-touch-icon-57x57-precomposed.png",
     "sizes": "36x36",
-    "type": "image/png",
-    "density": "0.75"
+    "type": "image/png"
   }, {
     "src": "images/apple-touch-icon-57x57-precomposed.png",
     "sizes": "48x48",
-    "type": "image/png",
-    "density": "1.0"
+    "type": "image/png"
   }, {
     "src": "images/apple-touch-icon-72x72-precomposed.png",
     "sizes": "72x72",
-    "type": "image/png",
-    "density": "1.5"
+    "type": "image/png"
   }, {
     "src": "images/apple-touch-icon-114x114-precomposed.png",
     "sizes": "96x96",
-    "type": "image/png",
-    "density": "2.0"
+    "type": "image/png"
   }, {
     "src": "images/apple-touch-icon-144x144-precomposed.png",
     "sizes": "144x144",
-    "type": "image/png",
-    "density": "3.0"
+    "type": "image/png"
   }, {
     "src": "images/apple-touch-icon-144x144-precomposed.png",
     "sizes": "192x192",
-    "type": "image/png",
-    "density": "4.0"
+    "type": "image/png"
   }]
 }
