@@ -2,6 +2,9 @@
   "name": "SantaTracker",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "postinstall": "bower install; gulp"
+  },
   "devDependencies": {
     "browser-sync": "^2.9.12",
     "del": "^2.0.2",
