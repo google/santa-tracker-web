@@ -17,7 +17,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
-<link rel="import" href="../../elements/i18n-msg.html">
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="dorf-scene.css" />
@@ -35,9 +34,15 @@ Village scene (2015).
         <div id="header-content">
           <div id="count-down">
             <h2>Santa Takes Off In</h2>
-            <div id="count-down-numbers">
-              TIME
-            </div>
+              <countdown-timer id="count"
+                               count-down-end-date="[[countDownEndDate]]"
+                               finished="{{countdownFinished}}"
+                               on-i18n-language-ready="_onTranslationsReady">
+                <h3><i18n-msg msgid="days">PLACEHOLDER_i18n</i18n-msg></h3>
+                <h3><i18n-msg msgid="hours">PLACEHOLDER_i18n</i18n-msg></h3>
+                <h3><i18n-msg msgid="minutes">PLACEHOLDER_i18n</i18n-msg></h3>
+                <h3><i18n-msg msgid="seconds">PLACEHOLDER_i18n</i18n-msg></h3>
+              </countdown-timer>
           </div>
           <h1>
             <!-- TODO(samthor): translate -->
@@ -63,14 +68,14 @@ Village scene (2015).
         </div>
       </div>
       <div id="village-footer">
-				
+
       </div>
     </div><!-- .scroll -->
   </div><!-- #module-dorf -->
 </template>
 <script>
 (function() {
-  
+
   Polymer({
     is: 'dorf-scene',
     behaviors: [window.SantaSceneBehavior],
@@ -83,7 +88,7 @@ Village scene (2015).
         type: String
       },
     },
-  
+
     _calculateHref: function(house) {
       return house.link || this.pageUrl + '#' + house.module;
     },
@@ -100,6 +105,23 @@ Village scene (2015).
       var shade = Math.round(hash % 360);
       return 'hsl(' + shade + ', 82%, 55%)';
     },
+
+    // For prod, <i18n-msg> is removed and textContent will already be correct.
+    _onTranslationsReady: function(e, detail) {
+      this.$.count.updateLabels();
+    },
+
+    _setAppChanged: function() {
+      this.$.count.santaService = this.santaApp.santaService;
+      this.countDownEndDate = this.santaApp.countDownEndDate;
+    },
+
+    onShow: function() {
+      // Start timer one tick after scene is showed.
+      this.async(function() {
+        this.$.count.start();
+      });
+    }
 
   });
 
