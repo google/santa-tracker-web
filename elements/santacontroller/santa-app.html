@@ -33,7 +33,7 @@ Santa Tracker app.
   <preload-overlay id="preloader"></preload-overlay>
 
   <!-- Route controller -->
-  <santa-tracker-router route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
+  <santa-tracker-router id="router" route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
 
   <!-- Scenes -->
   <lazy-pages id="lazypages" preloader="[[preloader]]" selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">
@@ -204,11 +204,10 @@ Santa Tracker app.
 
 var DEFAULT_ROUTE = 'village';
 var TRACKER_ROUTE = 'tracker';
-var VALID_ROUTES = [];
 
 // Routes/scenes which should always be accessible, no matter what the day.
 // These scenes are also not removed from the lazy-page switching.
-var PERMANENT_ROUTES = ['village', 'calendar', 'about', 'dummy'];
+var PERMANENT_ROUTES = ['village', 'about'];
 
 var VIDEO_ROUTES = [
   'trailer', 'carpool', 'liftoff', 'jingle', 'satellite', 'temptation',
@@ -558,6 +557,8 @@ Polymer({
           break;
       }
     }
+
+    this._notifyHouses();
   },
 
   get defaultRoute() {
@@ -640,7 +641,7 @@ Polymer({
     } else if (requestedRoute !== '') {
       // The requested route was changed.
       var currentRoute = null;
-      var pageUrl = location.href.substr(0, location.href.length - location.hash.length);
+      var pageUrl = window.location.href.substr(0, location.href.length - location.hash.length);
       if (pageUrl) {
         if (this.selectedScene == null) {
           console.warn('routeChanged but scene is null, route', requestedRoute, new Error());
@@ -657,7 +658,7 @@ Polymer({
 
   validateRoute: function() {
     if (this.scheduleChecked) {
-      var valid = (VALID_ROUTES.indexOf(this.route) != -1 &&
+      var valid = (this.$.lazypages.isValidRoute(this.route) &&
                    this.sceneIsUnlocked(this.route)) ||
                    (this.postCountdown && this.route == TRACKER_ROUTE);
       if (!valid) {
@@ -784,6 +785,7 @@ Polymer({
 
     // house is melted unless it's disabled
     house.iced = house.disabled;
+    this._notifyHouses();
   },
 
   unlockAllHouses: function() {
@@ -800,6 +802,7 @@ Polymer({
       house.today = false;
       house.tomorrow = false;
     }
+    this._notifyHouses();
   },
 
   sceneIsUnlocked: function(moduleName) {
@@ -873,6 +876,7 @@ Polymer({
         // noop
         this.lockAllHouses();
     }
+    this._notifyHouses();
 
     this.scheduleChecked = true;
     this.validateRoute();
@@ -909,9 +913,21 @@ Polymer({
     if (!this.postCountdown) {
       this._checkSchedule();
       if (this.postCountdown && this.route === DEFAULT_ROUTE) {
-        this.route = TRACKER_ROUTE;
+        // Act as if the user has clicked a link, and update the hash manually.
+        this.$.router.go(TRACKER_ROUTER);
       }
     }
+  },
+
+  /**
+   * Notifies bound properties that the houses have changed (useful for the 
+   * village). Dedups with a microtask.
+   * @private
+   */
+  _notifyHouses: function() {
+    this.debounce('_notifyHouses', function() {
+      this.houses = this.houses.slice();
+    });
   },
 
   onTrackerEnd: function(e, detail) {

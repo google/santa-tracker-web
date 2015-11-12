@@ -71,6 +71,18 @@ Lazy loads children "pages".
 
     listeners: {'iron-select': '_selectedItemChanged'},
 
+    isValidRoute: function(route) {
+      if (this.attrForSelected === undefined) {
+        // This should never happen (attrForSelected is part of
+        // IronSelectableBehavior), but for sanity, return true if this element
+        // can't yet determine which route is valid.
+        return true;
+      }
+      var q = '[' + this.attrForSelected + '="' + route + '"]';
+      var el = Polymer.dom(this).queryDistributedElements(q);
+      return el.length > 0;
+    },
+
     _selectedItemChanged: function() {
       var scene = this.selectedItem;
 
