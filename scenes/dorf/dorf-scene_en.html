@@ -140,6 +140,10 @@ Village scene (2015).
       },
     },
 
+    observers: [
+      '_setupEffectHandlers(active)'
+    ],
+
     ready: function() {
       this._changeEffectCount = this._changeEffectCount.bind(this);
     },
@@ -155,8 +159,8 @@ Village scene (2015).
       }
     },
 
-    activeChanged: function() {
-      if (!this.active) {
+    _setupEffectHandlers: function(active) {
+      if (!active) {
         window.removeEventListener('resize', this._changeEffectCount);
         return;  // TODO(samthor): Remove all current snowflakes
       }
@@ -167,9 +171,8 @@ Village scene (2015).
 
     _changeEffectCount: function() {
       this.debounce('_changeEffecCount', function() {
-        var snowflakeTarget = Math.round(window.innerWidth * SNOWFLAKE_RATIO);
-        // TODO(samthor): Drift the number of snowflakes towards the right amount
-        // for the width of the village.
+        // TODO(samthor): Choose a number of snowflakes based on
+        // `window.innerWidth`. Drift the current number towards that amount.
       });
     },
 
