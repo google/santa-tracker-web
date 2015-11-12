@@ -6,58 +6,113 @@ $name: 'module-dorf';
 @import "sass/animations";
 
 ##{$name} {
-  background: #47c6ee;
-
+  background: #F5F2E2;
+  height: 100%;
+	
   .scroll {
     overflow-y: auto;
   }
 
   header {
-    height: 300px;
-    background: #8ae0f9;
+    height: 505px;
+    background: #47c6ee;		
+    background: linear-gradient(to bottom, rgba(61,218,242,1) 0%, rgba(140,232,248,1) 86%, rgba(153,234,249,1) 100%);
+    position: relative;
+    z-index: 1;
+		
+    #header-background {
+      height: 630px;
+      background-image: url(img/header-bg.svg);
+      background-repeat: repeat-x;
+      background-position: 50% 100%;
+      background-size: 3445px 286px;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+		
+    #header-content {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
+			
+      #count-down {
+        padding: 60px 0 30px 0;
+				
+        #count-down-numbers {
+          height: 92px;
+          width: 280px;
+          background: rgba(0,0, 0, 0.1);
+        }
+      }
+			
+      h2 {
+        font-size: 11px;
+        font-weight: normal;
+        color: #fff;
+        margin: 0 0 6px 0;
+        line-height: 11px;
+        text-transform: uppercase;
+      }
+			
+      h1 {
+        margin: 0;
+        font-family: 'Lobster', sans-serif;
+        will-change: transform;
+        font-size: 105px;
+        line-height: 105px;
+        color: white;
+        text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+        transform: rotateZ(-5deg);
+      }
+			
+      p {
+        margin: 18px 0;
+        color: #fff;
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 26px;
+        max-width: 300px;
+      }
+    }
+		
+    /*
 
     .mid {
-      margin: 0 auto;
-      text-align: center;
-      padding-top: 48px;
-      width: 340px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 48px;
+    width: 340px;
     }
 
-    h1 {
-      margin: 0;
-      font-family: 'Lobster', sans-serif;
-      will-change: transform;
-      font-size: 50px;
-      line-height: 50px;
-      color: white;
-      text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
-    }
-    p {
-      margin: 18px 0;
-      color: #1d9dbc;
-      text-align: center;
-      font-family: 'Roboto', sans-serif;
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 26px;
-      text-shadow: 0 1px 0 rgba(29, 157, 188, 0.125);
-    }
+
+    
     .logo {
-      display: inline-block;
-      line-height: 0;
-      font-size: 0;
-      height: 28px;
-      width: 84px;
-      margin-bottom: 12px;
-      /** TODO: hdpi only */
-      background: url(img/google_logo_2x.png) no-repeat;
-      background-size: 100% 100%;
-    }
+    display: inline-block;
+    line-height: 0;
+    font-size: 0;
+    height: 28px;
+    width: 84px;
+    margin-bottom: 12px;
+    // TODO: hdpi only
+    background: url(img/google_logo_2x.png) no-repeat;
+    background-size: 100% 100%;
+    }*/
   }
 
   /** Village flexbox */
   #village {
-    background: #efeff0;
+    position: relative;
+    z-index: 2;
+    top: -30px;
 
     #houses {
       display: flex;
@@ -69,8 +124,14 @@ $name: 'module-dorf';
       max-width: $width-mobile;
     }
   }
+	
   .house {
     position: relative;
+    box-sizing: border-box;
+    width: ($width-mobile / 4) - 8;
+    margin: 4px;
+    height: 200px;
+    background: rgba(0,0,0,.1);
 
     img.icon {
       position: absolute;
@@ -96,21 +157,25 @@ $name: 'module-dorf';
       display: none;
     }
   }
+	
+  #village-footer {
+    height: 900px;
+    background: green;
+  }
 
   /** Desktop village */
   @media (min-width: $width-mobile) {
-    .house {
-      width: 25%;
-      position: relative;
+    /*.house {
+    width: 25%;
+    position: relative;
 
-      &::before {
-        /** forces .item to have same height as width */
-        content: '';
-        padding-top: 100%;
-        width: 100%;
-        float: left;
-      }
+    &::before {
+    content: '';
+    padding-top: 100%;
+    width: 100%;
+    float: left;
     }
+    }*/
   }
 
   /** All mobile villages (two cols) */
