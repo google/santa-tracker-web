@@ -69,6 +69,12 @@ var argv = require('yargs')
       default: null,
       describe: 'only build assets for this scene'
     })
+    .option('port', {
+      alias: 'p',
+      type: 'number',
+      default: 3000,
+      describe: 'port to serve on'
+    })
     .argv;
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
@@ -459,6 +465,8 @@ gulp.task('watch', function() {
 gulp.task('serve', ['sass', 'compile-scenes', 'watch'], function() {
   browserSync.init({
     server: '.',
+    port: argv.port,
+    ui: {port: argv.port + 1},
     startPath: argv.scene && '/#' + argv.scene
   });
 
