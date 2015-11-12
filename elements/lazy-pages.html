@@ -68,6 +68,15 @@ Lazy loads children "pages".
 
     listeners: {'iron-select': '_selectedItemChanged'},
 
+    isValidRoute: function(route) {
+      if (this.attrForSelected === undefined) {
+        return true;  // for some reason, this element isn't ready yet
+      }
+      var q = '[' + this.attrForSelected + '="' + route + '"]';
+      var el = Polymer.dom(this).queryDistributedElements(q);
+      return el.length > 0;
+    },
+
     _selectedItemChanged: function() {
       var scene = this.selectedItem;
 

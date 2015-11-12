@@ -56,7 +56,7 @@ $name: 'module-dorf';
   }
 
   /** Village flexbox */
-  #village {
+  #village-all {
     background: #efeff0;
 
     #houses {
@@ -71,6 +71,11 @@ $name: 'module-dorf';
   }
   .house {
     position: relative;
+
+    &.iced {
+      // TODO(samthor): proper .iced styling for each house
+      opacity: 0.25;
+    }
 
     img.icon {
       position: absolute;
