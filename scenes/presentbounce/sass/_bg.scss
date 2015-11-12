@@ -1,0 +1,78 @@
+##{$name} {
+  .bg {
+    background-color: #29b6f6;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  /**
+   * Pipes
+   */
+  // .pipe {
+  //   position: absolute;
+  //   width: 45px;
+  //   top: 0;
+  //   bottom: 0;
+  //   right: 50%;
+  //   margin-right: 613px;
+  //   background: #bcbec0;
+  //   z-index: 20;
+  // }
+
+  // .pipe--right {
+  //   right: auto;
+  //   margin-right: 0;
+  //   left: 50%;
+  //   margin-left: 613px;
+  // }
+
+  // .gearBig {
+  //   position: absolute;
+  //   width: 238px;
+  //   height: 238px;
+  //   background: url('img/wheelbig.svg');
+  // }
+
+  // .gearBig--left {
+  //   top: 50%;
+  //   margin-top: -258px;
+  //   right: 50%;
+  //   margin-right: 490px;
+  //   transform: translateZ(0) rotate(-6deg);
+  // }
+
+  // .gearBig--right {
+  //   top: 50%;
+  //   margin-top: -156px;
+  //   left: 50%;
+  //   margin-left: 490px;
+  //   transform: translateZ(0) rotate(5deg);
+  // }
+
+  // .gearSmall {
+  //   position: absolute;
+  //   width: 154px;
+  //   height: 154px;
+  //   background: url('img/wheelsmall.svg');
+
+  // }
+
+  // .gearSmall--left {
+  //   top: 50%;
+  //   margin-top: -120px;
+  //   right: 50%;
+  //   margin-right: 370px;
+  //   transform: translateZ(0) rotate(21deg);
+  // }
+
+  // .gearSmall--right {
+  //   top: 50%;
+  //   margin-top: -210px;
+  //   left: 50%;
+  //   margin-left: 370px;
+  //   transform: translateZ(0) rotate(20deg);
+  // }
+}

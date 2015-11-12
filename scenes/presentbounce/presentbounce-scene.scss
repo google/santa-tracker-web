@@ -1,0 +1,61 @@
+$name: 'module-presentbounce';
+$gameover-bg: #29b6f6;
+$rotate-bg: $gameover-bg;
+
+@import "../shared/sass/levelup";
+@import "../shared/sass/gameover";
+@import "../shared/sass/board";
+@import "../shared/sass/startbutton";
+@import "../shared/sass/rotate";
+@import "../shared/sass/tutorial";
+
+@import "sass/bg";
+// @import "sass/ceiling";
+// @import "sass/floor";
+// @import "sass/level";
+// @import "sass/sphere";
+
+##{$name} {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .scene {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform-origin: 0 0;
+  }
+
+  .view {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -600px;
+    margin-top: -450px;
+    width: 1200px;
+    height: 900px;
+  }
+
+  // Pausing the game pauses all important animations.
+  // &.frozen {
+  //   .ceiling-pipe-lever,
+  //   .ceiling-pipe-hand {
+  //     animation-play-state: paused;
+  //   }
+  // }
+
+  /**
+   * Hides the element but still keeps it composed on the GPU by translating it off-screen.
+   * By keeping things composed we get respectable performance on android browsers since
+   * the biggest overhead is in moving things to the GPU there.
+   * http://code.google.com/p/android/issues/detail?id=25147
+   */
+  .hidden {
+    transform: translate3d(0, 9999px, 0) !important;
+  }
+}
