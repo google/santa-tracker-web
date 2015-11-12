@@ -69,6 +69,12 @@ var argv = require('yargs')
       default: null,
       describe: 'only build assets for this scene'
     })
+    .option('port', {
+      alias: 'p',
+      type: 'number',
+      default: 3000,
+      describe: 'port to serve on'
+    })
     .argv;
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
@@ -229,7 +235,10 @@ var SCENE_NAMES = argv.scene ?
     [argv.scene].concat(SCENE_CLOSURE_CONFIG[argv.scene].dependencies || [] ) :
     Object.keys(SCENE_CLOSURE_CONFIG);
 // A glob pattern matching scenes to compile.
-var SCENE_GLOB = argv.scene ? '{' + SCENE_NAMES.join(',') + '}' : '*';
+var SCENE_GLOB = '*';
+if (argv.scene) {
+  SCENE_GLOB = SCENE_NAMES.length > 1 ? '{' + SCENE_NAMES.join(',') + '}' : argv.scene;
+}
 
 gulp.task('clean', function() {
   return del([
@@ -459,6 +468,8 @@ gulp.task('watch', function() {
 gulp.task('serve', ['sass', 'compile-scenes', 'watch'], function() {
   browserSync.init({
     server: '.',
+    port: argv.port,
+    ui: {port: argv.port + 1},
     startPath: argv.scene && '/#' + argv.scene
   });
 

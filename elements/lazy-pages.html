@@ -32,6 +32,9 @@ Lazy loads children "pages".
         bottom: 0;
         left: 0;
       }
+      :host > ::content > :focus {
+        outline: none;
+      }
       :host > ::content > :not(.iron-selected) {
         display: none !important;
       }
