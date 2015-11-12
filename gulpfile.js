@@ -235,7 +235,10 @@ var SCENE_NAMES = argv.scene ?
     [argv.scene].concat(SCENE_CLOSURE_CONFIG[argv.scene].dependencies || [] ) :
     Object.keys(SCENE_CLOSURE_CONFIG);
 // A glob pattern matching scenes to compile.
-var SCENE_GLOB = argv.scene ? '{' + SCENE_NAMES.join(',') + '}' : '*';
+var SCENE_GLOB = '*';
+if (argv.scene) {
+  SCENE_GLOB = SCENE_NAMES.length > 1 ? '{' + SCENE_NAMES.join(',') + '}' : argv.scene;
+}
 
 gulp.task('clean', function() {
   return del([
