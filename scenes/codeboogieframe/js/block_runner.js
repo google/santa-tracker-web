@@ -38,8 +38,7 @@ app.ResultType = {
  */
 app.BlockRunnerState = {
   NOT_ANIMATING: 'NOT_ANIMATING',
-  ANIMATING: 'ANIMATING',
-  REWINDING: 'REWINDING'
+  ANIMATING: 'ANIMATING'
 };
 
 /**
@@ -56,6 +55,10 @@ app.BlockRunner = function(scene, blockly) {
 
   // Configure Blockly loops to highlight during iteration.
   Blockly.JavaScript.INFINITE_LOOP_TRAP = '  api.highlightLoop(%1);\n';
+
+  // Register animation events.
+  scene.player.addEventListener('step', this.onStep_.bind(this));
+  scene.player.addEventListener('finish', this.onFinishAnimations_.bind(this));
 
   this.reset_();
 };
@@ -108,7 +111,6 @@ app.BlockRunner.prototype = {
 
     if (this.executeResult === app.ResultType.UNSET) {
       this.executeResult = app.ResultType.ERROR;
-      //this.queueAnimation(this.scene.player.lose());
     }
 
     var levelComplete = this.executeResult === app.ResultType.SUCCESS;
@@ -136,15 +138,9 @@ app.BlockRunner.prototype = {
       case app.BlockRunnerState.ANIMATING:
         this.reportExecution_();
         break;
-
-      case app.BlockRunnerState.REWINDING:
-        this.scene.portraitToggleScene(false);
-        Klang.triggerEvent('computer_rewind_stop');
-        break;
     }
 
     // Reset state.
-    app.PlayerSound.reset();
     this.blockly.toggleExecution(false);
     this.state_ = app.BlockRunnerState.NOT_ANIMATING;
     this.lastBlockId_ = null;
@@ -153,31 +149,14 @@ app.BlockRunner.prototype = {
   runAnimations_: function() {
     this.beforeAnimations_();
 
-    //var fullAnimation = new SequenceEffect(this.animationQueue_);
-    //this.player = document.timeline.play(fullAnimation);
-    //app.shared.utils.onWebAnimationFinished(this.player, this.onFinishAnimations_.bind(this));
-    //this.player.currentTime = 0;
-    //this.player.playbackRate = this.levelResult.levelComplete ? 1 : 1 / 1.5;
-    //this.player.play();
-
-    this.onFinishAnimations_();
-
+    this.scene.player.start(this.stepQueue);
     this.state_ = app.BlockRunnerState.ANIMATING;
   },
 
   restartLevel: function() {
-    if (!this.player.source) {
-      return;
-    }
-
     this.beforeAnimations_();
 
-    //this.player.playbackRate = -4;
-    //this.player.play();
-
-    this.state_ = app.BlockRunnerState.REWINDING;
-
-    Klang.triggerEvent('computer_rewind_start');
+    this.state_ = app.BlockRunnerState.NOT_ANIMATING;
   },
 
   resetAnimation: function() {
