@@ -15,7 +15,6 @@ You'll need `npm` and `bower` (use `npm install -g bower` if it's missing) avail
 Clone project, then from within the repo:
 
 ```bash
-$ bower install
 $ npm install
 ```
 
