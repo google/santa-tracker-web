@@ -662,7 +662,6 @@ Polymer({
                    this.sceneIsUnlocked(this.route)) ||
                    (this.postCountdown && this.route == TRACKER_ROUTE);
       if (!valid) {
-        console.warn('RESETTING ROUTE', this.route, this.defaultRoute);
         this.route = this.defaultRoute;
       }
     }
@@ -921,21 +920,13 @@ Polymer({
   },
 
   /**
-   * Timeout for _notifyHouses.
-   */
-  _willNotifyHouses: null,
-
-  /**
    * Notifies bound properties that the houses have changed (useful for the 
    * village). Dedups with a microtask.
    * @private
    */
   _notifyHouses: function() {
-    if (this._willNotifyHouses) { return; }
-
-    this._willNotifyHouses = this.async(function() {
+    this.debounce('_notifyHouses', function() {
       this.houses = this.houses.slice();
-      this._willNotifyHouses = null;
     });
   },
 

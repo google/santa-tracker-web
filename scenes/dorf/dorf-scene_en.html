@@ -84,13 +84,6 @@ Village scene (2015).
       },
     },
   
-    _calculateHref: function(house, iced) {
-      if (iced) {
-        return null;
-      }
-      return house.link || this.pageUrl + '#' + house.module;
-    },
-
     _calculateClass: function(house, iced) {
       if (iced) {
         return 'iced';
@@ -98,7 +91,10 @@ Village scene (2015).
       return '';
     },
 
-    _calculateHref: function(house) {
+    _calculateHref: function(house, iced) {
+      if (iced) {
+        return null;
+      }
       return house.link || this.pageUrl + '#' + house.module;
     },
 

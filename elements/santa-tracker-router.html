@@ -138,7 +138,11 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
 
     _routeChanged: function() {
       if (this.autoHash && this.route != null) {
-        // Don't create a history entry when the route changes.
+        // Don't create a history entry when the route changes. This ensures
+        // that when the route is changed programatically (usually because
+        // a user is at the wrong route) they don't get a history event (that,
+        // if they load, will just move them back to a valid route - making the
+        // back button useless).
         var params = serializeParams(this.sceneParams);
         window.location.replace('#' + this.route + (params ? '?' + params : ''));
       }
