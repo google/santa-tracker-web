@@ -146,6 +146,18 @@ specific language governing permissions and limitations under the License.
       },
 
       /**
+       * Basename for links in Santa Tracker. Needed for production version so
+       * internal links use the production site.
+       */
+      pageUrl: {
+        type: String,
+        readOnly: true,
+        value: function() {
+          return location.href.substr(0, location.href.length - location.hash.length);
+        }
+      },
+
+      /**
        * The master santaApp. Set and cleared in attached/detached.
        */
       santaApp: {

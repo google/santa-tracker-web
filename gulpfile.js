@@ -19,7 +19,7 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var vulcanize = require('gulp-vulcanize');
-var compass = require('gulp-compass');
+var sass = require('gulp-sass');
 var path = require('path');
 var autoprefixer = require('gulp-autoprefixer');
 var foreach = require('gulp-foreach');
@@ -27,14 +27,51 @@ var del = require('del');
 var i18n_replace = require('./gulp_scripts/i18n_replace');
 var closureCompiler = require('gulp-closure-compiler');
 var mergeStream = require('merge-stream');
-var argv = require('yargs').argv;
 var replace = require('gulp-replace');
 var newer = require('gulp-newer');
 var browserSync = require('browser-sync').create();
 
+var STATIC_VERSION = 80;
+
+var argv = require('yargs')
+    .help('help')
+    .epilogue('https://github.com/google/santa-tracker-web')
+    .command('serve', 'serves development version')
+    .command('dist', 'build production version')
+    .option('pretty', {
+      type: 'boolean',
+      default: false,
+      describe: 'production output to dist_pretty'
+    })
+    .option('strict', {
+      type: 'boolean',
+      default: false,
+      describe: 'perform strict i18n checks'
+    })
+    .option('api_base', {
+      type: 'string',
+      default: 'https://santa-api.appspot.com/',
+      describe: 'base URL for Santa\'s API'
+    })
+    .option('build', {
+      type: 'string',
+      default: '' + STATIC_VERSION,
+      describe: 'production build tag'
+    })
+    .option('baseurl', {
+      type: 'string',
+      default: '',
+      describe: 'production base href'
+    })
+    .option('scene', {
+      type: 'string',
+      default: null,
+      describe: 'only build assets for this scene'
+    })
+    .argv;
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
-var COMPASS_FILES = '{scenes,sass,elements}/**/*.scss';
+var SASS_FILES = '{scenes,sass,elements}/**/*.scss';
 var CLOSURE_FILES = 'scenes/*/js/**/*.js';
 
 var SHARED_EXTERNS = [
@@ -42,6 +79,8 @@ var SHARED_EXTERNS = [
   'third_party/externs/*.js',
   'components/web-animations-utils/externs*.js'
 ];
+
+var AUTOPREFIXER_BROWSERS = ['> 2%', 'IE >= 10'];
 
 var CLOSURE_WARNINGS = [
   // https://github.com/google/closure-compiler/wiki/Warnings
@@ -54,21 +93,9 @@ var CLOSURE_SAFE_WARNINGS = CLOSURE_WARNINGS.concat([
   'checkVars'
 ]);
 
-var STATIC_VERSION = 80;
-var VERSION = '' + (argv.build || STATIC_VERSION);
-
-// find the base URL, but ensure it ends with '/'.
-var STATIC_BASE_URL = (function() {
-  if (!argv.baseurl) {
-    return '';
-  }
-  var url = argv.baseurl;
-  if (!url.endsWith('/')) {
-    url += '/';
-  }
-  return url;
-}());
-var STATIC_URL = argv.pretty ? '' : (STATIC_BASE_URL + VERSION + '/');
+var API_BASE_URL = argv.api_base.replace(/\/*$/, '/');
+var STATIC_BASE_URL = argv.baseurl.replace(/\/*$/, '/');
+var STATIC_URL = argv.pretty ? '' : (STATIC_BASE_URL + argv.build + '/');
 
 var PROD_DIR = 'dist_prod';
 var STATIC_DIR = 'dist_static';
@@ -78,7 +105,7 @@ var PRETTY_DIR = 'dist_pretty';
 var DIST_PROD_DIR = argv.pretty ? PRETTY_DIR : PROD_DIR;
 
 // path for static resources
-var DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + VERSION);
+var DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + argv.build);
 
 // Broad scene config for Santa Tracker.
 // Note! New scenes must be typeSafe (which is the default, so omit typeSafe:
@@ -187,29 +214,27 @@ var SCENE_CLOSURE_CONFIG = {
   }
 };
 
-gulp.task('clean', function(cleanCallback) {
-  del([
+gulp.task('clean', function() {
+  return del([
     '{scenes,sass,elements}/**/*.css',
     'scenes/*/*.min.js',
-    'js/service/*.min.js',
-  ], cleanCallback);
+    'js/service/*.min.js'
+  ]);
 });
 
-gulp.task('rm-dist', function(rmCallback) {
-  del([PROD_DIR, STATIC_DIR, PRETTY_DIR], rmCallback);
+gulp.task('rm-dist', function() {
+  return del([PROD_DIR, STATIC_DIR, PRETTY_DIR]);
 });
 
-gulp.task('compass', function() {
-  return gulp.src(COMPASS_FILES)
-    .pipe(compass({
-      project: path.join(__dirname, '/'),
-      css: '',
-      sass: '',
-      environment: 'production',
+gulp.task('sass', function() {
+  var files = argv.scene ? 'scenes/' + argv.scene + '/**/*.scss' : SASS_FILES;
+  return gulp.src(files)
+    .pipe(sass({
+      outputStyle: 'compressed'
+    }).on('error', sass.logError))
+    .pipe(autoprefixer({
+      browsers: AUTOPREFIXER_BROWSERS
     }))
-
-    // NOTE: autoprefixes css properties that need it
-    .pipe(autoprefixer({}))
     .pipe(gulp.dest('.'));
 });
 
@@ -224,11 +249,11 @@ gulp.task('compile-santa-api-service', function() {
       compilerPath: COMPILER_PATH,
       fileName: 'service.min.js',
       compilerFlags: addCompilerFlagOptions({
-        compilation_level: 'ADVANCED_OPTIMIZATIONS',
+        compilation_level: 'SIMPLE_OPTIMIZATIONS',
         // warning_level: 'VERBOSE',
         language_in: 'ECMASCRIPT5_STRICT',
         externs: SHARED_EXTERNS.concat('js/service/externs.js'),
-        define: ['crossDomainAjax.BASE="' + (argv.api_base || 'https://santa-api.appspot.com/') + '"'],
+        define: ['crossDomainAjax.BASE="' + API_BASE_URL + '"'],
         jscomp_warning: [
           // https://github.com/google/closure-compiler/wiki/Warnings
           'accessControls',
@@ -242,6 +267,10 @@ gulp.task('compile-santa-api-service', function() {
 
 gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
   var sceneNames = Object.keys(SCENE_CLOSURE_CONFIG);
+  if (argv.scene) {
+    sceneNames = [argv.scene];
+  }
+
   // compile each scene, merging them into a single gulp stream as we go
   return sceneNames.reduce(function(stream, sceneName) {
     var config = SCENE_CLOSURE_CONFIG[sceneName];
@@ -272,6 +301,7 @@ gulp.task('compile-scenes', ['compile-codelab-frame'], function() {
     .pipe(newer(dest + '/' + fileName))
     .pipe(closureCompiler({
       compilerPath: COMPILER_PATH,
+      continueWithWarnings: true,
       fileName: fileName,
       compilerFlags: addCompilerFlagOptions({
         js: compilerSrc,
@@ -341,7 +371,7 @@ function addCompilerFlagOptions(opts) {
   return opts;
 }
 
-gulp.task('vulcanize-scenes', ['rm-dist', 'compass', 'compile-scenes'], function() {
+gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() {
   // These are the 'common' elements inlined in elements_en.html. They can be
   // safely stripped (i.e., not inlined) from all scenes.
   // TODO(samthor): Automatically list inlined files from elements_en.html.
@@ -387,7 +417,7 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'compass', 'compile-scenes'], function
     }));
 });
 
-gulp.task('vulcanize-codelab-frame', ['rm-dist', 'compass', 'compile-scenes'], function() {
+gulp.task('vulcanize-codelab-frame', ['rm-dist', 'sass', 'compile-scenes'], function() {
   return gulp.src('scenes/codelab/codelab-frame_en.html', {base: './'})
     .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
     .pipe(vulcanize({
@@ -408,7 +438,7 @@ gulp.task('vulcanize-codelab-frame', ['rm-dist', 'compass', 'compile-scenes'], f
 
 // Vulcanize elements separately, as we want to inline the majority common code
 // here.
-gulp.task('vulcanize-elements', ['rm-dist', 'compass', 'compile-santa-api-service'], function() {
+gulp.task('vulcanize-elements', ['rm-dist', 'sass', 'compile-santa-api-service'], function() {
   return gulp.src('elements/elements_en.html', {base: './'})
     .pipe(vulcanize({
       // TODO(samthor): strip and csp were deprecated in gulp-vulcanize 1+
@@ -461,20 +491,24 @@ gulp.task('copy-assets', ['rm-dist', 'vulcanize', 'i18n_index'], function() {
   return mergeStream(staticStream, prodStream);
 });
 
+// alias to build a distribution version
+gulp.task('dist', ['copy-assets']);
+
 gulp.task('watch', function() {
-  gulp.watch(COMPASS_FILES, ['compass']);
+  gulp.watch(SASS_FILES, ['sass']);
   gulp.watch(CLOSURE_FILES, ['compile-scenes']);
 });
 
-gulp.task('default', ['copy-assets']);
+gulp.task('serve', ['sass', 'compile-scenes', 'watch'], function() {
+  browserSync.init({
+    server: '.',
+    startPath: argv.scene && '/#' + argv.scene
+  });
 
-gulp.task('serve', ['compass', 'compile-scenes'], function() {
-    browserSync.init({
-        server: "."
-    });
-
-    gulp.watch("sass/*.scss", ['compass']).on("change", browserSync.reload);
-	  gulp.watch(COMPASS_FILES, ['compass']).on("change", browserSync.reload);
-	  gulp.watch(CLOSURE_FILES, ['compile-scenes']).on("change", browserSync.reload);
-		gulp.watch("scenes/**/*.html").on("change", browserSync.reload);	
+  gulp.watch('{scenes,elements,sass}/**/*.css').on('change', browserSync.reload);
+  gulp.watch('scenes/**/*.min.js').on('change', browserSync.reload);
+  gulp.watch('js/**/*.js').on('change', browserSync.reload);
+  gulp.watch('scenes/**/*.html').on('change', browserSync.reload);
 });
+
+gulp.task('default', ['serve']);

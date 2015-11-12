@@ -22,8 +22,8 @@
     margin-left: #{-536/2}px;
     top: -200px;
     position: absolute;
-    @include transform(translate3d(0, -1000px, 0));
-    @include transition(all 1.5s cubic-bezier(0.4, 1.6, 0.2, 1));
+    transform: translate3d(0, -1000px, 0);
+    transition: all 1.5s cubic-bezier(0.4, 1.6, 0.2, 1);
 
     #sign-back {
       background: url(img/sign-back.svg) no-repeat;
@@ -96,7 +96,6 @@
     }
 
     #finished-tracker {
-      -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
     }
 
@@ -148,7 +147,6 @@
 // .no-3d-transforms #village {
 //   countdown-timer {
 //     .digit-ani .digit-flip {
-//       -webkit-transition-property: none;
 //       transition-property: none;
 //     }
 //     .digit-bottom, .digit-top-behind {
@@ -156,13 +154,11 @@
 //     }
 //     .digit .digit-top-front {
 //       height: 53px;
-//       -webkit-transform: rotateX(0);
 //       transform: rotateX(0);
 //       border-top: 1px solid transparent;
 //       border-radius: 4px;
 //     }
 //     .digit-top-front.digit-flip {
-//       -webkit-transform: rotateX(0);
 //       transform: rotateX(0);
 //       border-top: 1px solid transparent;
 //     }

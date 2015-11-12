@@ -37,7 +37,7 @@ $name: 'module-city-feed';
     background-image: url(../img/weatherchannel.png);
   }
 
-  core-list {
+  iron-list {
     width: 306px;
     left: 300px;
     height: 100%;
@@ -130,7 +130,7 @@ $name: 'module-city-feed';
         transition: transform 200ms ease-in-out;
         cursor: pointer;
 
-        &.core-selected {
+        &.iron-selected {
           transform: scale(0.75);
         }
 
@@ -238,7 +238,7 @@ $name: 'module-city-feed';
       color: #97d8ff;
       font-weight: 900;
     }
-    core-image {
+    iron-image {
       height: 100%;
       width: 100%;
     }
@@ -254,7 +254,7 @@ $name: 'module-city-feed';
       margin-left: 20%;
     }
 
-    core-list {
+    iron-list {
       width: 642px;
       left: auto;
       margin: 0 auto;
@@ -293,7 +293,7 @@ $name: 'module-city-feed';
       }
 
       &.card-photos {
-        core-image {
+        iron-image {
           border-radius: $borderRadius;
         }
       }
@@ -353,7 +353,7 @@ $name: 'module-city-feed';
 
 @media (min-width: 1px) and (max-width: $mobileBreakpoint) {
   ##{$name} {
-    core-list {
+    iron-list {
       left: 20px;
       width: auto;
     }

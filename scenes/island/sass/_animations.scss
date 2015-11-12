@@ -1,8 +1,6 @@
 @import "../../shared/sass/_mixins.scss";
 
-@import "compass/css3/transform";
-
-@include keyframes(fly) {
+@keyframes fly {
   0% {
     left: -10%;
   }
@@ -11,7 +9,7 @@
   }
 }
 
-@include keyframes(fly2) {
+@keyframes fly2 {
   0% {
     left: -5%;
   }
@@ -20,7 +18,7 @@
   }
 }
 
-@include keyframes(fly3) {
+@keyframes fly3 {
   0% {
     left: -20%;
     margin-top: -20px;
@@ -31,65 +29,65 @@
   }
 }
 
-@include keyframes(boatMovement) {
+@keyframes boatMovement {
   0% {
-    @include transform(translateX(-5px));
+    transform: translateX(-5px);
   }
 
   100% {
-    @include transform(translateX(5px));
+    transform: translateX(5px);
   }
 }
 
-@include keyframes(objFloat) {
+@keyframes objFloat {
   0% {
-    @include transform(translateX(-5px));
+    transform: translateX(-5px);
   }
 
   100% {
-    @include transform(translateX(5px));
+    transform: translateX(5px);
   }
 }
 
-@include keyframes(birdSwim) {
+@keyframes birdSwim {
   0% {
-    @include transform(translateX(0px)  rotateY(180deg));
+    transform: translateX(0px)  rotateY(180deg);
   }
 
   49% {
-    @include transform(translateX(120px) rotateY(180deg));
+    transform: translateX(120px) rotateY(180deg);
   }
 
   50% {
-    @include transform(translateX(120px) rotateY(0deg));
+    transform: translateX(120px) rotateY(0deg);
   }
 
   99% {
-    @include transform(translateX(0px) rotateY(0deg));
+    transform: translateX(0px) rotateY(0deg);
   }
 
   100% {
-    @include transform(translateX(0px)  rotateY(180deg));
+    transform: translateX(0px)  rotateY(180deg);
   }
 }
 
-@include keyframes(presentFly) {
+@keyframes presentFly {
   0% {
-    @include transform(translateY(35px) translateX(-15px) rotateZ(0deg));
+    transform: translateY(35px) translateX(-15px) rotateZ(0deg);
     opacity: 0;
   }
 
   25% {
-    @include transform(translateY(35px) translateX(-15px) rotateZ(0deg));
+    transform: translateY(35px) translateX(-15px) rotateZ(0deg);
     opacity: 1;
   }
 
   50% {
-    @include transform(translateY(0) translateX(0) rotateZ(0deg));
+    transform: translateY(0) translateX(0) rotateZ(0deg);
   }
 
   75% {
-    @include transform(translateY(20px) translateX(-20px) rotateZ(90deg));
+    transform: translateY(20px) translateX(-20px) rotateZ(90deg);
   }
 
   95% {
@@ -97,58 +95,58 @@
   }
 
   100% {
-    @include transform(translateY(90px) translateX(-50px) rotateZ(180deg));
+    transform: translateY(90px) translateX(-50px) rotateZ(180deg);
     opacity: 0;
   }
 }
 
-@include keyframes(presentSpin) {
+@keyframes presentSpin {
   0% {
-    @include transform(rotateZ(0deg));
+    transform: rotateZ(0deg);
   }
 
   50% {
-    @include transform(rotateZ(0deg));
+    transform: rotateZ(0deg);
   }
 
   100% {
-    @include transform(rotateZ(720deg));
+    transform: rotateZ(720deg);
   }
 }
 
-@include keyframes(presentGrab) {
+@keyframes presentGrab {
   0% {
-    @include transform(translateY(0px));
+    transform: translateY(0px);
   }
 
   25% {
-    @include transform(translateY(30px) translateX(-10px) rotateZ(15deg));
+    transform: translateY(30px) translateX(-10px) rotateZ(15deg);
   }
 
   50% {
-    @include transform(translateY(0px));
+    transform: translateY(0px);
   }
 }
 
-@include keyframes(presentThrow) {
+@keyframes presentThrow {
   50% {
-    @include transform(rotateZ(0deg));
+    transform: rotateZ(0deg);
   }
 
   25% {
-    @include transform(rotateZ(15deg));
+    transform: rotateZ(15deg);
   }
 
   50% {
-    @include transform(rotateZ(0deg));
+    transform: rotateZ(0deg);
   }
 
   55% {
-    @include transform(rotateZ(-25deg));
+    transform: rotateZ(-25deg);
   }
 }
 
-@include keyframes(lightsSwitch) {
+@keyframes lightsSwitch {
   0% {
     background-position: 0 0;
   }
@@ -162,9 +160,9 @@
   }
 }
 
-@include keyframes(slider) {
+@keyframes slider {
   0% {
-    @include transform(translateX(12px) translateY(-15px));
+    transform: translateX(12px) translateY(-15px);
     opacity: 0;
   }
 
@@ -173,56 +171,56 @@
   }
 
   60% {
-    @include transform(translateX(280px) translateY(400px));
+    transform: translateX(280px) translateY(400px);
   }
 
   90% {
-    @include transform(translateX(280px) translateY(400px));
+    transform: translateX(280px) translateY(400px);
     opacity: 0;
   }
 
   95% {
-    @include transform(translateX(0px) translateX(0px));
+    transform: translateX(0px) translateX(0px);
     opacity: 0;
   }
 
   100% {
-    @include transform(translateX(0px) translateX(0px));
+    transform: translateX(0px) translateX(0px);
   }
 }
 
-@include keyframes(sliderSplash) {
+@keyframes sliderSplash {
   0% {
-    @include transform(translateY(35px));
+    transform: translateY(35px);
     opacity: 1;
   }
 
   50% {
-    @include transform(translateY(35px)); 
+    transform: translateY(35px); 
   }
 
   55% {
-    @include transform(translateY(0px));
+    transform: translateY(0px);
     opacity: 1;
   }
 
   100% {
-    @include transform(translateY(2px));
+    transform: translateY(2px);
     opacity: 0;
   }
 }
 
-@include keyframes(coconutFall) {
+@keyframes coconutFall {
   0% {
-    @include transform(translateY(0px) rotateZ(0deg));
+    transform: translateY(0px) rotateZ(0deg);
   }
 
   100% {
-    @include transform(translateY(250px) rotateZ(75deg));
+    transform: translateY(250px) rotateZ(75deg);
   }
 }
 
-@include keyframes(zzzFloat) {
+@keyframes zzzFloat {
   0% {
     background-position: 0 100%;
     opacity: 0;
@@ -242,7 +240,7 @@
   }
 }
 
-@include keyframes(flaskFloat) {
+@keyframes flaskFloat {
   0% {
     background-position: -133px -282px;
   }

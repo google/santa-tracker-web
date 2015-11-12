@@ -84,9 +84,15 @@ Village scene (2015).
       },
     },
   
+<<<<<<< HEAD
     _calculateHref: function(house) {
       return house.link || '#' + house.module;
     },
+=======
+  _calculateHref: function(house) {
+    return house.link || this.pageUrl + '#' + house.module;
+  },
+>>>>>>> polymer-1
 
     /**
     * Generates a random but consistent background color for a house based on

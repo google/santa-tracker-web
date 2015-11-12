@@ -13,7 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
-<link rel="import" href="../../components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="tracker-intro.html">
@@ -21,22 +21,24 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 <link rel="import" href="../../components/paper-fab/paper-fab.html">
 <link rel="import" href="../../components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../../components/iron-image/iron-image.html">
+<link rel="import" href="../../components/iron-icons/iron-icons.html">
 
 <link rel="import" href="dependencies.html">
 
 <script src="../shared/js/mapstyles.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="tracker-scene.css" />
+
 <!--
 Tracker scene.
-
-TODO: Not yet fully migrated to Polymer 1.0+
 -->
 <dom-module id="tracker-scene">
 <template>
-  <link rel="stylesheet" href="tracker-scene.css" no-shim>
   <style>
-      #tracker-zoom-controls-zoomin::shadow core-icon,
-      #tracker-zoom-controls-zoomout::shadow core-icon {
+      #tracker-zoom-controls-zoomin::shadow iron-icon,
+      #tracker-zoom-controls-zoomout::shadow iron-icon {
         -webkit-filter: drop-shadow(0px 2px 0 rgba(0,0,0,0.2));
         filter: drop-shadow(0 2px 0 rgba(0,0,0,0.2));
       }
@@ -55,32 +57,33 @@ TODO: Not yet fully migrated to Polymer 1.0+
                          on-api-load="mapsAPIReady"></google-maps-api>
       </template>
 
-      <city-feed id="feed" fit timeline="{{santaApp.timeline}}"
-                 santaApp="{{santaApp}}" videoMap="{{ytMapping}}"></city-feed>
+      <city-feed id="feed" class="fit" timeline="{{santaApp.timeline}}"
+                 santa-app="{{santaApp}}" video-map="{{ytMapping}}"></city-feed>
 
       <tracker-intro id="intro"
-          userLocation="{{userLocation}}"
-          santaDistance="{{initialSantaDistance}}"
-          santaLocation="{{initialSantaLocation}}"></tracker-intro>
+          user-location="{{userLocation}}"
+          santa-distance="{{initialSantaDistance}}"
+          santa-location="{{initialSantaLocation}}"></tracker-intro>
 
       <div id="cards">
         <template id="mini-cards-template">
-          <div hidden?="{{model.type != 'city'}}" class="card-city">
-            <a href="{{pageUrl}}#tracker" on-tap="{{onTrackerCardClicked}}">
+          <div hidden$="{{!modelTypeIs_('city')}}" class="card-city">
+            <a href="{{pageUrl}}#tracker" on-tap="onTrackerCardClicked">
               <div class="card-header">
                 <div class="corner-image"></div>
                 <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                 <h3>{{model.stop.city}}</h3>
-                <h5><span class="icon-clock"></span>{{model.stop.arrival | formatCountdown_}}</h4>
+                <h5><span class="icon-clock"></span>{{formatCountdown_(model.stop.arrival)}}</h4>
               </div>
               <div class="card-body">
-                <div fit class="cover"></div>
-                <core-image sizing="cover" fit preload fade src="{{model.stop.details.photos[0].url}}" load?="{{model.stop.details.photos[0]}}"></core-image>
+                <div class="cover fit"></div>
+                <iron-image sizing="cover" class="fit" preload fade
+                    src="{{model.stop.details.photos[0].url}}"></iron-image>
               </div>
             </a>
           </div>
-          <div hidden?="{{model.type != 'facts'}}">
-            <a href="{{pageUrl}}#tracker" on-tap="{{onTrackerCardClicked}}">
+          <div hidden$="{{!modelTypeIs_('facts')}}">
+            <a href="{{pageUrl}}#tracker" on-tap="onTrackerCardClicked">
               <div class="card-header">
                 <div class="corner-image"></div>
                 <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -94,16 +97,16 @@ TODO: Not yet fully migrated to Polymer 1.0+
             </a>
           </div>
 
-          <div hidden?="{{model.type != 'photos'}}" style="height:100%">
+          <div hidden$="{{!modelTypeIs_('photos')}}" style="height:100%">
             <div class="card-header">
               <div class="corner-image"></div>
             </div>
             <div class="card-body">
-              <core-image sizing="cover" preload fade src="{{model.imageUrl}}" fit></core-image>
+              <iron-image sizing="cover" preload fade src="{{model.imageUrl}}" fit></iron-image>
             </div>
           </div>
 
-          <div hidden?="{{model.type != 'update'}}">
+          <div hidden$="{{!modelTypeIs_('update')}}">
             <div class="card-header">
               <div class="corner-image"></div>
               <h4><i18n-msg msgid="tracker_santa_update">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -113,7 +116,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
             </div>
           </div>
 
-          <div hidden?="{{model.type != 'video'}}">
+          <div hidden$="{{!modelTypeIs_('video')}}">
             <a href="{{pageUrl}}#{{ytMapping[model.youtubeId]}}">
               <div class="card-header">
                 <div class="corner-image"></div>
@@ -124,135 +127,135 @@ TODO: Not yet fully migrated to Polymer 1.0+
             </a>
           </div>
         </template>
-        <template if="{{trackerCard}}" bind="{{trackerCard as model}}">
-          <div class="card card-{{model.type}}">
+        <template is="dom-if" bind="{{trackerCard}}">
+          <div class="card card-{{trackerCard.type}}">
             <template bind ref="mini-cards-template"></template>
           </div>
         </template>
       </div>
 
-      <div id="tracker-zoom-controls" hidden="true">
-        <paper-fab id="tracker-zoom-controls-zoomin" icon="add" alt="Zoom in" mini on-tap="{{trackerZoomIn}}"></paper-fab>
-        <paper-fab id="tracker-zoom-controls-zoomout"icon="remove" alt="Zoom out" mini on-tap="{{trackerZoomOut}}"></paper-fab>
+      <div id="tracker-zoom-controls" hidden>
+        <paper-fab id="tracker-zoom-controls-zoomin" icon="add" alt="Zoom in" mini on-tap="trackerZoomIn"></paper-fab>
+        <paper-fab id="tracker-zoom-controls-zoomout"icon="remove" alt="Zoom out" mini on-tap="trackerZoomOut"></paper-fab>
       </div>
 
-      <div id="trackermap" fit></div>
+      <div id="trackermap" class="fit"></div>
 
-      <core-media-query query="max-width:660px" queryMatches="{{isPhoneSize}}"></core-media-query>
+      <iron-media-query query="max-width:660px" query-matches="{{isPhoneSize}}"></iron-media-query>
 
-      <template if="{{cityFeedActive}}">
+      <template is="dom-if" if="{{cityFeedActive}}">
         <div id="city-stats">
           <ul>
-            <li hidden?="{{!location.stopover}}">
-              <a href="{{pageUrl}}#tracker" on-tap="{{onCurrentLocationClicked}}">
+            <li hidden$="{{!location.stopover}}">
+              <a href="{{pageUrl}}#tracker" on-tap="onCurrentLocationClicked">
                 <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="ico ico-marker"></div>
-                <div class="stat">{{ location.stopover.city }}</div>
+                <div class="stat">{{location.stopover.city}}</div>
               </a>
             </li>
             <li>
               <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
               <div class="ico ico-reindeer"></div>
-              <div class="stat">{{ location.next.city }}</div>
+              <div class="stat">{{location.next.city}}</div>
             </li>
-            <template if="{{!location.stopover}}">
+            <template is="dom-if" if="{{!location.stopover}}">
               <li>
                 <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="ico ico-clock"></div>
-                <div class="stat">{{ arrival_ }}</div>
+                <div class="stat">{{arrival_}}</div>
               </li>
             </template>
-            <template if="{{location.stopover}}">
+            <template is="dom-if" if="{{location.stopover}}">
               <li>
                 <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="ico ico-clock"></div>
-                <div class="stat">{{ departure_ }}</div>
+                <div class="stat">{{departure_}}</div>
               </li>
             </template>
           </ul>
         </div>
       </template>
 
-      <template if="{{!cityFeedActive}}">
-        <div id="status-bar" class="{{ {'slide-up': navOpen, 'show': location} | tokenList }}">
+      <template is="dom-if" if="{{!cityFeedActive}}">
+        <div id="status-bar" class="[[_computeTernary(navOpen, 'slide-up', '')]] [[_computeTernary(location, 'show', '')]]">
           <div id="back-to-village">
             <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
               <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
             </a>
           </div>
 
-          <template if="{{userLocation}}">
+          <template is="dom-if" if="{{userLocation}}">
             <ul>
               <li>
                 <h4><i18n-msg msgid="tracker_your_location">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="ico ico-marker"></div>
-                <div class="stat">{{ userLocation.name }}</div>
+                <div class="stat">{{userLocation.name}}</div>
               </li>
               <li>
                 <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="stat-large"> {{ santaDistance | formatDistance_ }}</div>
+                <div class="stat-large"> {{formatDistance_(santaDistance)}}</div>
               </li>
               <li >
                 <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
+                <div class="stat-large">{{formatInt_(location.presentsDelivered)}}</div>
               </li>
-              <template if="{{!location.stopover}}">
+              <template is="dom-if" if="{{!location.stopover}}">
                 <li>
                   <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div class="ico ico-clock"></div>
-                  <div class="stat">{{ arrival_ }}</div>
+                  <div class="stat">{{arrival_}}</div>
                 </li>
                 <li>
                   <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div class="ico ico-arrow"></div>
-                  <div class="stat">{{ location.next.city }}</div>
+                  <div class="stat">{{location.next.city}}</div>
                 </li>
               </template>
-              <template if="{{location.stopover}}">
+              <template is="dom-if" if="{{location.stopover}}">
                 <li>
                   <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div class="ico ico-clock"></div>
-                  <div class="stat">{{ departure_ }}</div>
+                  <div class="stat">{{departure_}}</div>
                 </li>
                 <li>
-                  <a href="{{pageUrl}}#tracker" on-tap="{{onCurrentLocationClicked}}"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <a href="{{pageUrl}}#tracker" on-tap="onCurrentLocationClicked"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div class="ico ico-marker"></div>
-                  <div class="stat">{{ location.stopover.city }}</div></a>
+                  <div class="stat">{{location.stopover.city}}</div></a>
                 </li>
               </template>
             </ul>
           </template>
 
-          <template if="{{!userLocation}}">
+          <template is="dom-if" if="{{!userLocation}}">
             <ul>
-              <template if="{{location.stopover}}">
+              <template is="dom-if" if="{{location.stopover}}">
                 <li>
-                  <a href="{{pageUrl}}#tracker" on-tap="{{onCurrentLocationClicked}}"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <a href="{{pageUrl}}#tracker" on-tap="onCurrentLocationClicked"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div class="ico ico-marker"></div>
-                  <div class="stat">{{ location.stopover.city }}</div></a>
+                  <div class="stat">{{location.stopover.city}}</div></a>
                 </li>
                 <li>
                   <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div class="ico ico-clock"></div>
-                  <div class="stat">{{ departure_ }}</div>
+                  <div class="stat">{{departure_}}</div>
                 </li>
 
               </template>
-              <template if="{{!location.stopover}}">
+              <template is="dom-if" if="{{!location.stopover}}">
                 <li>
                   <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div class="ico ico-arrow"></div>
-                  <div class="stat">{{ location.next.city }}</div>
+                  <div class="stat">{{location.next.city}}</div>
                 </li>
                  <li>
                   <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div class="ico ico-clock"></div>
-                  <div class="stat">{{ arrival_ }}</div>
+                  <div class="stat">{{arrival_}}</div>
                 </li>
               </template>
               <li>
                 <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="stat-large">{{ location.presentsDelivered | formatInt_ }}</div>
+                <div class="stat-large">{{formatInt_(location.presentsDelivered)}}</div>
               </li>
             </ul>
           </template>
@@ -286,104 +289,147 @@ TODO: Not yet fully migrated to Polymer 1.0+
      * @param {object} detail
      */
 
-    /**
-     * Initial Santa's location. Does not get updated.
-     * @type {SantaState}
-     * @private
-     */
-    initialSantaLocation: null,
+    properties: {
 
-    /**
-     * Initial Santa's distance from user. Does not get updated.
-     * @type {SantaState}
-     * @private
-     */
-    initialSantaDistance: null,
+      /**
+       * Initial Santa's location. Does not get updated.
+       */
+      initialSantaLocation: {
+        type: Object,
+        value: null
+      },
 
-    /**
-     * Current Santa's location.
-     * @type {SantaState}
-     * @private
-     */
-    location: null,
+      /**
+       * Initial Santa's distance from user. Does not get updated.
+       */
+      initialSantaDistance: {
+        type: Number,
+        value: null
+      },
 
-    /**
-     * Santas time of arrival.
-     * @type {string}
-     * @private
-     */
-    arrival_: null,
+      /**
+       * Current Santa's location.
+       */
+      location: {
+        type: Object,
+        observer: 'locationChanged'
+      },
 
-    /**
-     * Santas time of arrival.
-     * @type {string}
-     * @private
-     */
-    departure_: null,
+      /**
+       * Santa's destinations. Should be bound into this element.
+       */
+      destinations: {
+        type: Array,
+        value: null,
+        observer: 'destinationsChanged'
+      },
 
-    /**
-     * User's location.
-     * @type {Position}
-     * @private
-     */
-    userLocation: null,
+      /**
+       * Santa's time of arrival.
+       */
+      arrival_: {
+        type: String,
+        value: null
+      },
 
-    worldView_: false,
+      /**
+       * Santa's time of arrival.
+       */
+      departure_: {
+        type: String,
+        value: null
+      },
 
-    /**
-     * True if the city feed is open.
-     * @property cityFeedActive
-     * @type {boolean}
-     * @default false
-     */
-    cityFeedActive: false,
+      /**
+       * User's location.
+       * @type {Position}
+       */
+      userLocation:  {
+        type: Object,
+        value: null
+      },
 
-    /**
-     * True if the tracker nav is open.
-     * @property navOpen
-     * @type {boolean}
-     * @default false
-     */
-    navOpen: false,
+      /**
+       * Is this page a phone size? Bound to `iron-media-query`.
+       */
+      isPhoneSize: {
+        type: Boolean,
+        value: false
+      },
 
-    /**
-     * True if the maps api is ready to use
-     * @type {booelan}
-     * default false
-     */
-    mapReady_: false,
+      /**
+       * True if the city feed is open.
+       */
+      cityFeedActive:  {
+        type: Boolean,
+        value: false,
+        observer: 'cityFeedActiveChanged'
+      },
 
-    /**
-     * True if the scene has been displayed and is ready to render
-     * @type {boolean}
-     * defaul false
-     */
-    shown: false,
+      /**
+       * True if the tracker nav is open.
+       */
+      navOpen: {
+        type: Boolean,
+        value: false
+      },
 
-    /**
-     * True if the city feed was opened from arriving at a city.
-     * @type {boolean}
-     * defaul false
-     */
-    feedWasOpenForCurrentCity: false,
+      /**
+       * True if the maps api is ready to use
+       */
+      mapReady_:  {
+        type: Boolean,
+        value: false
+      },
 
-    /**
-     * Mapping of YouTube video ids to URL routes.
-     * @property ytMapping
-     * @type {object}
-     */
-    ytMapping: {
-      'h83b1lWPuvQ': 'carpool',
-      'oCAKV4Ikhec': 'liftoff',
-      'sQnKCU_A0Yc': 'jingle',
-      'ZJPL56IPTjw': 'satellite',
-      '2FtcJJ9vzVQ': 'temptation',
-      'IXmDOu-eSx4': 'office',
-      '2UGX3bT9u20': 'tired',
-      '_WdYujHlmHA': 'com-room',
-      'vHMeXs36NTE': 'reload',
-      'uEl2WIZOVdQ': 'slacking-off'
+      /**
+       * True if the scene has been displayed and is ready to render
+       */
+      shown: {
+        type: Boolean,
+        value: false
+      },
+
+      /**
+       * True if the city feed was opened from arriving at a city.
+       */
+      feedWasOpenForCurrentCity: {
+        type: Boolean,
+        value: false
+      },
+
+      /**
+       * The currently displayed SantaCard from SantaService.
+       */
+      trackerCard: {
+        type: Object,
+        value: null
+      },
+
+      /**
+       * Mapping of YouTube video ids to URL routes.
+       */
+      ytMapping: {
+        type: Object,
+        value: function() {
+          return Object.freeze({
+            'h83b1lWPuvQ': 'carpool',
+            'oCAKV4Ikhec': 'liftoff',
+            'sQnKCU_A0Yc': 'jingle',
+            'ZJPL56IPTjw': 'satellite',
+            '2FtcJJ9vzVQ': 'temptation',
+            'IXmDOu-eSx4': 'office',
+            '2UGX3bT9u20': 'tired',
+            '_WdYujHlmHA': 'com-room',
+            'vHMeXs36NTE': 'reload',
+            'uEl2WIZOVdQ': 'slacking-off',
+          });
+        }
+      },
+
     },
+
+    worldView_: null,
 
     CARD_SHOW_TIME_: 7000, // 7 seconds
 
@@ -436,10 +482,6 @@ TODO: Not yet fully migrated to Polymer 1.0+
                                           label: 'type: ' + cardType});
     },
 
-    created: function() {
-      this.location = {};
-    },
-
     trackSanta: function() {
       if (this.trackingInterval_) return;
 
@@ -488,7 +530,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
       // Santa API returning destinations is async. Upgrading this element is
       // async. The Maps API being ready is async. If destinations have not
       // been returned by the API at this point, sync santa and get us some!
-      if (this.santaApp.destinations.length) {
+      if (this.santaApp.destinations && this.santaApp.destinations.length) {
         this.destinations = this.santaApp.destinations;
       } else {
         this.santaApp.santaService.sync(function() {
@@ -535,6 +577,8 @@ TODO: Not yet fully migrated to Polymer 1.0+
 
       this.santaApp.santaService.addListener('card', this.updateCard_.bind(this));
 
+      this.cityFeedActiveChanged();  // trigger listener for cityFeedActive now that worldView_ exists
+
       this.trackSanta();
     },
 
@@ -568,11 +612,11 @@ TODO: Not yet fully migrated to Polymer 1.0+
       if (this.trackerCard) {
         this.async(function() {
           this.$.cards.classList.add('show');
-        }, null, t);
+        }, t);
 
         this.async(function() {
           this.hideCard_();
-        }, null, t + this.CARD_SHOW_TIME_);
+        }, t + this.CARD_SHOW_TIME_);
       }
     },
 
@@ -611,7 +655,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
 
     destinationsChanged: function() {
       if (this.worldView_) {
-        this.worldView_.setDestinations(this.destinations);
+        this.worldView_.setDestinations(this.destinations || []);
       }
     },
 
@@ -659,6 +703,10 @@ TODO: Not yet fully migrated to Polymer 1.0+
     },
 
     cityFeedActiveChanged: function() {
+      if (!this.worldView_) {
+        return;  // ignore, called when worldView_ is created
+      }
+
       this.worldView_.setMode(this.cityFeedActive ? 'feed' : 'track');
 
       if (this.cityFeedActive) {
@@ -670,7 +718,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
 
           var cityStats = this.$['module-tracker'].querySelector('#city-stats');
           cityStats.style.opacity = 1;
-        }, null, 550);
+        }, 550);
       } else {
         this.$.feed.active = false;
 
@@ -735,7 +783,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
     formatDistance_: function(dist) {
       // TODO: localise? (miles)
       // 0xA0 non-breaking space
-      return new Number(Math.floor(dist / 1000)).toLocaleString() + '\xA0km';
+      return this.formatInt_(dist / 1000) + '\xA0km';
     },
 
     formatCountdown_: function(timestamp) {
@@ -764,6 +812,10 @@ TODO: Not yet fully migrated to Polymer 1.0+
       return parts.join(':');
     },
 
+    formatInt_: function(value) {
+      return new Number(Math.floor(value)).toLocaleString();
+    },
+
     keyHandler: function(e, detail) {
       switch(detail) {
         case 'esc':
@@ -771,7 +823,12 @@ TODO: Not yet fully migrated to Polymer 1.0+
           this.cityFeedActive = false;
           break;
       }
+    },
+
+    modelTypeIs_: function(type) {
+      return type == this.model.type;
     }
+
   });
 })();
 </script>
