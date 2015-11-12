@@ -73,7 +73,9 @@ var argv = require('yargs')
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
 var SASS_FILES = '{scenes,sass,elements}/**/*.scss';
-var CLOSURE_FILES = 'scenes/*/js/**/*.js';
+var IGNORE_COMPILED_JS = '!**/*.min.js';
+var CLOSURE_FILES = ['scenes/*/js/**/*.js', IGNORE_COMPILED_JS];
+var SERVICE_FILES = ['js/service/*.js', IGNORE_COMPILED_JS];
 
 var SHARED_EXTERNS = [
   'third_party/externs/jquery/*.js',
@@ -254,11 +256,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('compile-santa-api-service', function() {
-  return gulp.src([
-    'js/service/*.js',
-    '!js/service/externs.js',
-    '!js/service/*.min.js',
-  ])
+  return gulp.src(SERVICE_FILES)
     .pipe(newer('js/service/service.min.js'))
     .pipe(closureCompiler({
       compilerPath: COMPILER_PATH,
@@ -280,7 +278,7 @@ gulp.task('compile-santa-api-service', function() {
     .pipe(gulp.dest('js/service'));
 });
 
-gulp.task('compile-scenes', function() {
+gulp.task('compile-scenes', ['compile-santa-api-service'], function() {
   // compile each scene, merging them into a single gulp stream as we go
   return SCENE_NAMES.reduce(function(stream, sceneName) {
     var config = SCENE_CLOSURE_CONFIG[sceneName];
@@ -455,6 +453,7 @@ gulp.task('dist', ['copy-assets']);
 gulp.task('watch', function() {
   gulp.watch(SASS_FILES, ['sass']);
   gulp.watch(CLOSURE_FILES, ['compile-scenes']);
+  gulp.watch(SERVICE_FILES, ['compile-santa-api-service']);
 });
 
 gulp.task('serve', ['sass', 'compile-scenes', 'watch'], function() {
@@ -464,9 +463,8 @@ gulp.task('serve', ['sass', 'compile-scenes', 'watch'], function() {
   });
 
   gulp.watch('{scenes,elements,sass}/**/*.css').on('change', browserSync.reload);
-  gulp.watch('scenes/**/*.min.js').on('change', browserSync.reload);
-  gulp.watch('js/**/*.js').on('change', browserSync.reload);
-  gulp.watch('scenes/**/*.html').on('change', browserSync.reload);
+  gulp.watch('**/*.min.js').on('change', browserSync.reload);
+  gulp.watch(['scenes/**/*.html', 'elements/**/*.html']).on('change', browserSync.reload);
 });
 
 gulp.task('default', ['sass', 'compile-scenes']);
