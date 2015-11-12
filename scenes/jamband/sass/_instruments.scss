@@ -90,7 +90,7 @@
       $animationName: '#{$animationName}-#{$state}';
       $selector: append($selector, unquote("##{$name} .#{$instrument}.#{$state} .#{$instrument}-#{$part}"), comma);
     }
-    $animation: join($animationName, $animation);
+    $animation: join(unquote($animationName), $animation);
 
     #{$selector} {
       animation: $animation;

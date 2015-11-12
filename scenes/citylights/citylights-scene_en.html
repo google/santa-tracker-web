@@ -12,30 +12,30 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
 
 <script src="citylights-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="citylights-scene.css" />
+
 <!--
 City lights scene.
-
-@element citylights-scene
-@extends base-scene
 -->
-<polymer-element name="citylights-scene" extends="base-scene">
+<dom-module id="citylights-scene">
 <template>
-  <link rel="stylesheet" href="citylights-scene.css" no-shim>
-
-  <core-a11y-keys target="{{}}" keys="left right"
-                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+  <iron-a11y-keys keys="left right"
+                  on-keys-pressed="keyHandler"></iron-a11y-keys>
 
   <div id="module-citylights">
     <div class="scene">
-      <template if="{{santaApp}}">
-        <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
-                         libraries="places,geometry" language="{{santaApp.language}}"
-                         on-api-load="{{mapsAPIReady}}"></google-maps-api>
+      <template is="dom-if" if="{{santaApp}}">
+        <!-- Conditional required to prevent double loading -->
+        <google-maps-api version="3.exp"
+                         client-id="{{santaApp.config.CLIENT_ID}}"
+                         language="{{santaApp.language}}"
+                         on-api-load="mapsAPIReady"></google-maps-api>
       </template>
       <div class="dashboard">
         <div class="dashboard__screens js-index-container">
@@ -167,7 +167,8 @@ City lights scene.
 </template>
 <script>
   Polymer({
-    componentDir: 'scenes/citylights/',
+    is: 'citylights-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     scene: null,
 
@@ -208,9 +209,9 @@ City lights scene.
       }
     },
 
-    keyHandler: function(e, details, sender) {
+    keyHandler: function(e, detail) {
       e.stopPropagation();
-      switch (e.detail.key) {
+      switch (detail.key) {
         case 'left':
           this.scene.moveLeft();
           break;
@@ -221,4 +222,4 @@ City lights scene.
     }
   });
 </script>
-</polymer-element>
+</dom-module>

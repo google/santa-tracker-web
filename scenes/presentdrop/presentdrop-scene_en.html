@@ -12,21 +12,19 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 
 <script src="../shared/js/startbutton.js"></script>
 <script src="presentdrop-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="presentdrop-scene.css" />
+
 <!--
 Presentdrop scene.
-
-@element presentdrop-scene
-@extends base-scene
 -->
-<polymer-element name="presentdrop-scene" extends="base-scene">
+<dom-module id="presentdrop-scene">
 <template>
-  <link rel="stylesheet" href="presentdrop-scene.css" no-shim>
-
   <div id="module-presentdrop">
     <div class="gui">
       <div class="board board--game">
@@ -105,7 +103,7 @@ Presentdrop scene.
             <!---->
           </div>
         </div>
-        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
+        <div class$="actions {{_computeTernary(hasClickedStart, '', 'is-collapsed')}}">
           <button type="button" class="restart"></button>
           <button type="button" class="pause"></button>
         </div>
@@ -204,11 +202,16 @@ Presentdrop scene.
 <script>
 (function() {
   Polymer({
-    componentDir: 'scenes/presentdrop/',
-
+    is: 'presentdrop-scene',
+    behaviors: [window.SantaSceneBehavior],
     game: null,
 
-    hasClickedStart: false,
+    properties: {
+      hasClickedStart: {
+        type: Boolean,
+        value: false
+      },
+    },
 
     onPreload: function() {
       this.preloadSounds('pd_load_sounds', 30);
@@ -245,4 +248,4 @@ Presentdrop scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

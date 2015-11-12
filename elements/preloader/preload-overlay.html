@@ -13,106 +13,130 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
-<link rel="import" href="../../components/core-range/core-range.html">
+<link rel="import" href="../../components/iron-range-behavior/iron-range-behavior.html">
+<link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
 
 <!--
 Candy cane progress bar.
-
-@element preload-overlay
-@extends core-range
 -->
-<polymer-element name="preload-overlay" extends="core-range" attributes="active color src" fit
-                 on-transitionend="{{fadeDone}}">
-<template>
-  <link rel="stylesheet" href="preloader.css" no-shim>
-  <style>
-  :host {
-    background: #3ec4f0;
-    z-index: 1200;
-  }
-  img {
-    width: 340px;
-    height: 340px;
-  }
-  :host(.fading) {
-    opacity: 0;
-  }
-  :host(.fadeout) {
-    -webkit-transition: opacity 600ms ease-in-out;
-    transition: opacity 600ms ease-in-out;
-  }
-  </style>
-  <div id="page-progress" layout vertical center-center>
-    <div class="preload">
-      <img _src="{{src}}">
-      <div class="preload-bar">
-        <div class="preload-progress" _style="width:{{value}}%;"></div>
+<dom-module id="preload-overlay">
+  <!-- TODO(samthor): Non-standard import, but works in Polymer 1+ -->
+  <link rel="import" type="css" href="preloader.css" />
+  <template>
+    <style>
+      :host {
+        background: #3ec4f0;
+        z-index: 1200;
+        @apply(--layout-fit);
+      }
+      #page-progress {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+      }
+      img {
+        width: 340px;
+        height: 340px;
+      }
+      :host {
+        visibility: hidden;
+      }
+      :host(.fading) {
+        transition: opacity 600ms ease-in-out;
+        opacity: 0;
+        visibility: visible; /* hold visible during animation */
+      }
+      :host([active]) {
+        visibility: visible;
+      }
+    </style>
+    <div id="page-progress">
+      <div class="preload">
+        <img src$="{{src}}" />
+        <div class="preload-bar">
+          <div class="preload-progress" style$="{{_computeStyle(value)}}"></div>
+        </div>
       </div>
     </div>
-  </div>
-</template>
-<script>
+  </template>
+  <script>
 (function() {
   var DEFAULT_COLOR_ = '#3ec4f0';
   var DEFAULT_LOADING_SRC_ = 'images/village' +
       (('devicePixelRatio' in window && devicePixelRatio > 1.5) ? '_2x.gif' : '.gif');
 
   Polymer({
-    /**
-     * Background color of the loading screen.
-     *
-     * @attribute color
-     * @type string
-     * @default '#3ec4f0'
-     */
-    color: DEFAULT_COLOR_,
+    is: 'preload-overlay',
 
-    /**
-     * Loading image
-     *
-     * @attribute src
-     * @type string
-     * @default 'images/village.gif'
-     */
-    src: DEFAULT_LOADING_SRC_,
+    listeners: {transitionend: '_fadeDone'},
 
-    publish: {
+    behaviors: [Polymer.IronRangeBehavior],
+
+    properties: {
+
       /**
        * If `true`, the preloader displays itself.
-       *
-       * @attribute active
-       * @type bool
-       * @default false
        */
-      active: {value: false, reflect: true}
-    },
+      active: {
+        type: Boolean,
+        value: false,
+        notify: true,
+        observer: '_activeChanged',
+        reflectToAttribute: true
+      },
 
-    activeChanged: function() {
-      // Always ensure progress is at 0 when overlay is toggled.
-      this.value = 0;
-      if (this.active) {
-        this.classList.add('fadeout');
-        this.style.visibility = 'visible';
-      } else {
-        this.classList.add('fading');
+      /**
+       * Background color of the loading screen.
+       */
+      color: {
+        value: DEFAULT_COLOR_,
+        notify: true,
+        observer: '_colorChanged'
+      },
+
+      /**
+       * Loading image.
+       */
+      src: {
+        value: DEFAULT_LOADING_SRC_,
+        notify: true,
+        observer: '_srcChanged'
       }
     },
 
-    srcChanged: function() {
+    _activeChanged: function(newValue, oldValue) {
+      if (!!newValue == !!oldValue) {
+        return;
+      }
+
+      // Always ensure progress is at 0 when overlay is toggled.
+      this.value = 0;
+      if (this.active) {
+        Polymer.dom(this).classList.remove('fading');
+      } else {
+        // This will later invoke fadeDone via the transitionend event.
+        Polymer.dom(this).classList.add('fading');
+      }
+    },
+
+    _srcChanged: function() {
       this.src = this.src || DEFAULT_LOADING_SRC_;
     },
 
-    colorChanged: function() {
-      this.style.backgroundColor = this.color || DEFAULT_COLOR_;
+    _colorChanged: function() {
+      var node = Polymer.dom(this).node;
+      node.style.backgroundColor = this.color || DEFAULT_COLOR_;
     },
 
-    fadeDone: function(e, detail, sender) {
+    _fadeDone: function(e, detail) {
       e.stopPropagation();
+      Polymer.dom(this).classList.remove('fading');
+    },
 
-      this.classList.remove('fadeout', 'fading');
-      this.style.visibility = 'hidden';
+    _computeStyle: function(value) {
+      return 'width:' + value + '%;';
     }
   });
+
 })();
-</script>
-</polymer-element>
+  </script>
+</dom-module>

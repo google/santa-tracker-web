@@ -14,409 +14,410 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
 
-<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../santa-tracker-router.html">
 <link rel="import" href="../preloader/preload-overlay.html">
-<link rel="import" href="../calendar/calendar-nav.html">
 <link rel="import" href="../lazy-pages.html">
 
 <link rel="import" href="dependencies.html">
 
 <!--
-Santa Track app.
-
-@element santa-app
+Santa Tracker app.
 -->
-<polymer-element name="santa-app" tabindex="0">
+<dom-module id="santa-app">
 <template>
-  <!-- keyboard handler -->
-  <core-a11y-keys target="{{}}" keys="esc" on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
-
-  <!-- Route controller -->
-  <santa-tracker-router route="{{route}}" sceneParams="{{sceneParams}}" autoHash></santa-tracker-router>
+  <!-- Keyboard handler -->
+  <iron-a11y-keys keys="esc" on-keys-pressed="_escHandler"></iron-a11y-keys>
 
   <!-- Preloading scene overlay -->
-  <preload-overlay id="preloader" value="{{selectedScene.preloadProgress || 0}}"
-                   active?="{{selectedScene && !selectedScene.loaded}}"></preload-overlay>
+  <preload-overlay id="preloader"></preload-overlay>
 
-  <lazy-pages id="lazypages" selected="{{route}}" selectedItem="{{selectedScene}}" valueattr="route"
-              santaApp="{{}}" preloader="{{$.preloader}}">
+  <!-- Route controller -->
+  <santa-tracker-router route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
 
-    <template if="{{mode != 'cast'}}">
-      <calendar-nav route="calendar" alwaysActive
-                    houses="{{houses}}" santaApp="{{}}" mode="{{mode}}"></calendar-nav>
-    </template>
+  <!-- Scenes -->
+  <lazy-pages id="lazypages" preloader="[[preloader]]" selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">
 
-    <village-scene route="village"
-        path="scenes/village/village-scene_[[language]].html"
-        mode="{{mode}}" hidden></village-scene>
+    <!-- TODO(samthor): Rename to village-scene when done -->
+    <dorf-scene route="village" always-active
+        houses$="{{houses}}"
+        mode$="{{mode}}"
+        path$="scenes/dorf/dorf-scene_[[language]].html"></dorf-scene>
+
+    <about-scene route="about"
+        path$="scenes/about/about-scene_[[language]].html"></about-scene>
 
     <airport-scene route="airport"
-        path="scenes/airport/airport-scene_[[language]].html"
-        hidden></airport-scene>
-
-    <boatload-scene route="boatload"
-        path="scenes/boatload/boatload-scene_[[language]].html"
-        loadingBgColor="#8fd7f7"
-        loadingSrc="scenes/boatload/img/loading.svg" hidden></boatload-scene>
-
-    <briefing-scene route="briefing"
-        path="scenes/briefing/briefing-scene_[[language]].html"
-        hidden></briefing-scene>
-
-    <callfromsanta-scene route="callfromsanta"
-        path="scenes/callfromsanta/callfromsanta-scene_en.html"
-        loadingBgColor="'rgb(129,208,0)" hidden></callfromsanta-scene>
-
-    <citylights-scene route="citylights"
-        path="scenes/citylights/citylights-scene_[[language]].html"
-        loadingBgColor="#8FD7F7"
-        loadingSrc="scenes/citylights/img/loading.svg" hidden></citylights-scene>
-
-    <codelab-scene route="codelab"
-        path="scenes/codelab/codelab-scene_[[language]].html"
-        loadingBgColor="#3F4EA1"
-        loadingSrc="scenes/codelab/img/loading.svg" hidden></codelab-scene>
-
-    <commandcentre-scene route="commandcentre"
-        path="scenes/commandcentre/commandcentre-scene_en.html"
-        loadingBgColor="rgb(129,208,0)" hidden></commandcentre-scene>
-
-    <factory-scene route="factory"
-        path="scenes/factory/factory-scene_[[language]].html"
-        loadingBgColor="rgb(129,208,0)" hidden></factory-scene>
-
-    <glider-scene route="glider"
-        path="scenes/glider/glider-scene_[[language]].html"
-        loadingBgColor="#8d23a9"
-        loadingSrc="scenes/glider/img/loading.svg" hidden></glider-scene>
-
-    <gumball-scene route="gumball"
-        path="scenes/gumball/gumball-scene_[[language]].html"
-        loadingBgColor="#8d23a9"
-        loadingSrc="scenes/gumball/img/loading.svg" hidden></gumball-scene>
-
-    <jamband-scene route="jamband"
-        path="scenes/jamband/jamband-scene_[[language]].html"
-        loadingBgColor="#fdbe27"
-        loadingSrc="scenes/jamband/img/loading.svg" hidden></jamband-scene>
-
-    <jetpack-scene route="jetpack"
-        path="scenes/jetpack/jetpack-scene_[[language]].html"
-        loadingBgColor="#8fd7f7"
-        loadingSrc="scenes/jetpack/img/loading.svg" hidden></jetpack-scene>
-
-    <latlong-scene route="latlong"
-        path="scenes/latlong/latlong-scene_[[language]].html"
-        loadingBgColor="#ffcc00"
-        loadingSrc="scenes/latlong/img/loading.svg" hidden></latlong-scene>
-
-    <matching-scene route="matching"
-        path="scenes/matching/matching-scene_[[language]].html"
-        loadingBgColor="#b27644"
-        loadingSrc="scenes/matching/img/loading.svg" hidden></matching-scene>
-
-    <mercator-scene route="mercator"
-        path="scenes/mercator/mercator-scene_[[language]].html"
-        loadingBgColor="#fbbf2c"
-        loadingSrc="scenes/mercator/img/loading.svg" hidden></mercator-scene>
-
-    <playground-scene route="playground"
-        path="scenes/playground/playground-scene_[[language]].html"
-        loadingBgColor="rgb(251, 191, 44)" hidden></playground-scene>
-
-    <postcard-scene route="postcard"
-        path="scenes/postcard/postcard-scene_en.html"
-        loadingBgColor="rgb(244, 123, 32)"
-        loadingSrc="scenes/postcard/img/loading.gif" hidden></postcard-scene>
-
-    <presentdrop-scene route="presentdrop"
-        path="scenes/presentdrop/presentdrop-scene_[[language]].html"
-        loadingBgColor="#8fd7f7"
-        loadingSrc="scenes/presentdrop/img/loading.svg" hidden></presentdrop-scene>
-
-    <racer-scene route="racer"
-        path="scenes/racer/racer-scene_[[language]].html"
-        loadingBgColor="#8fd7f7"
-        loadingSrc="scenes/racer/img/loading.svg" hidden></racer-scene>
-
-    <runner-scene route="runner"
-        path="scenes/runner/runner-scene_[[language]].html" hidden></runner-scene>
-
-    <santaselfie-scene route="santaselfie"
-        path="scenes/santaselfie/santaselfie-scene_[[language]].html"
-        loadingBgColor="#83D7F5"
-        loadingSrc="scenes/santaselfie/img/loading.svg" hidden></santaselfie-scene>
-
-    <seasonofgiving-scene route="seasonofgiving"
-        path="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
-        loadingSrc="scenes/seasonofgiving/img/loading.svg" hidden></seasonofgiving-scene>
-
-    <streetview-scene route="streetview"
-        path="scenes/streetview/streetview-scene_[[language]].html"
-        loadingBgColor="rgb(129,208,0)" hidden></streetview-scene>
-
-    <trivia-scene route="trivia"
-        path="scenes/trivia/trivia-scene_[[language]].html" hidden></trivia-scene>
-
-    <workshop-scene route="workshop"
-        path="scenes/workshop/workshop-scene.html"
-        hidden></workshop-scene>
-
-    <windtunnel-scene route="windtunnel"
-        path="scenes/windtunnel/windtunnel-scene_[[language]].html" hidden
-        loadingBgColor="rgb(129,208,0)"></windtunnel-scene>
-
-    <rollercoaster-scene route="rollercoaster"
-        path="scenes/rollercoaster/rollercoaster-scene.html" hidden></rollercoaster-scene>
-
-    <undersea-scene route="undersea"
-        path="scenes/undersea/undersea-scene_[[language]].html" hidden></undersea-scene>
+        path$="scenes/airport/airport-scene_[[language]].html"></airport-scene>
 
     <blimp-scene route="blimp"
-        path="scenes/blimp/blimp-scene_[[language]].html" hidden></blimp-scene>
+        path$="scenes/blimp/blimp-scene_[[language]].html"></blimp-scene>
 
-    <island-scene route="island"
-        path="scenes/island/island-scene_[[language]].html" hidden></island-scene>
+    <boatload-scene route="boatload"
+        path$="scenes/boatload/boatload-scene_[[language]].html"
+        loading-bg-color="#8fd7f7"
+        loading-src="scenes/boatload/img/loading.svg"></boatload-scene>
+
+    <briefing-scene route="briefing"
+        path$="scenes/briefing/briefing-scene_[[language]].html"></briefing-scene>
+
+    <callfromsanta-scene route="callfromsanta"
+        path$="scenes/callfromsanta/callfromsanta-scene_[[language]].html"
+        loading-bg-color="rgb(129,208,0)"></callfromsanta-scene>
+
+    <citylights-scene route="citylights"
+        path$="scenes/citylights/citylights-scene_[[language]].html"
+        loading-bg-color="#8fd7f7"
+        loading-src="scenes/citylights/img/loading.svg"></citylights-scene>
+
+    <codelab-scene route="codelab"
+        path$="scenes/codelab/codelab-scene_[[language]].html"
+        loading-bg-color="#3f4ea1"
+        loading-src="scenes/codelab/img/loading.svg"></codelab-scene>
+
+    <commandcentre-scene route="commandcentre"
+        path$="scenes/commandcentre/commandcentre-scene_[[language]].html"
+        loading-bg-color="rgb(129,208,0)"></commandcentre-scene>
+
+    <factory-scene route="factory"
+        path$="scenes/factory/factory-scene_[[language]].html"
+        loading-bg-color="rgb(129,208,0)"></factory-scene>
+
+    <glider-scene route="glider"
+        path$="scenes/glider/glider-scene_[[language]].html"
+        loading-bg-color="#8d23a9"
+        loading-src="scenes/glider/img/loading.svg"></glider-scene>
+
+    <gumball-scene route="gumball"
+        path$="scenes/gumball/gumball-scene_[[language]].html"
+        loading-bg-color="#8d23a9"
+        loading-src="scenes/gumball/img/loading.svg"></gumball-scene>
 
     <icecave-scene route="icecave"
-        path="scenes/icecave/icecave-scene_[[language]].html" hidden></icecave-scene>
+        path$="scenes/icecave/icecave-scene_[[language]].html"></icecave-scene>
+
+    <island-scene route="island"
+        path$="scenes/island/island-scene_[[language]].html"></island-scene>
+
+    <jamband-scene route="jamband"
+        path$="scenes/jamband/jamband-scene_[[language]].html"
+        loading-bg-color="#fdbe27"
+        loading-src="scenes/jamband/img/loading.svg"></jamband-scene>
+
+    <jetpack-scene route="jetpack"
+        path$="scenes/jetpack/jetpack-scene_[[language]].html"
+        loading-bg-color="#8fd7f7"
+        loading-src="scenes/jetpack/img/loading.svg"></jetpack-scene>
+
+    <latlong-scene route="latlong"
+        path$="scenes/latlong/latlong-scene_[[language]].html"
+        loading-bg-color="#ffcc00"
+        loading-src="scenes/latlong/img/loading.svg"></latlong-scene>
+
+    <matching-scene route="matching"
+        path$="scenes/matching/matching-scene_[[language]].html"
+        loading-bg-color="#b27644"
+        loading-src="scenes/matching/img/loading.svg"></matching-scene>
+
+    <mercator-scene route="mercator"
+        path$="scenes/mercator/mercator-scene_[[language]].html"
+        loading-bg-color="#fbbf2c"
+        loading-src="scenes/mercator/img/loading.svg"></mercator-scene>
+
+    <playground-scene route="playground"
+        path$="scenes/playground/playground-scene_[[language]].html"
+        loading-bg-color="rgb(251, 191, 44)"></playground-scene>
+
+    <postcard-scene route="postcard"
+        path$="scenes/postcard/postcard-scene_[[language]].html"
+        loading-bg-color="rgb(244, 123, 32)"
+        loading-src="scenes/postcard/img/loading.gif"></postcard-scene>
+
+    <presentdrop-scene route="presentdrop"
+        path$="scenes/presentdrop/presentdrop-scene_[[language]].html"
+        loading-bg-color="#8fd7f7"
+        loading-src="scenes/presentdrop/img/loading.svg"></presentdrop-scene>
+
+    <racer-scene route="racer"
+        path$="scenes/racer/racer-scene_[[language]].html"
+        loading-bg-color="#8fd7f7"
+        loading-src="scenes/racer/img/loading.svg"></racer-scene>
+
+    <runner-scene route="runner"
+        path$="scenes/runner/runner-scene_[[language]].html"></runner-scene>
+
+    <rollercoaster-scene route="rollercoaster"
+        path$="scenes/rollercoaster/rollercoaster-scene.html"></rollercoaster-scene>
+
+    <santaselfie-scene route="santaselfie"
+        path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
+        loading-bg-color="#83D7F5"
+        loading-src="scenes/santaselfie/img/loading.svg"></santaselfie-scene>
+
+    <seasonofgiving-scene route="seasonofgiving"
+        path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
+        loading-src="scenes/seasonofgiving/img/loading.svg"></seasonofgiving-scene>
+
+    <streetview-scene route="streetview"
+        path$="scenes/streetview/streetview-scene_[[language]].html"
+        loading-bg-color="rgb(129,208,0)"></streetview-scene>
+
+    <!-- TODO(samthor): The Polymer upgrade path mucks with binding this value
+      and it may not be updated after the first time -->
+    <tracker-scene id="tracker" route="tracker"
+        destinations="{{destinations}}"
+        path$="scenes/tracker/tracker-scene_[[language]].html"></tracker-scene>
 
     <traditions-scene route="traditions"
-        path="scenes/traditions/traditions-scene_[[language]].html"
-        loadingBgColor="rgb(255,224,0)"
-        loadingSrc="scenes/traditions/img/loading{{hdpi ? '_2x' : ''}}.gif"
-        mode="{{mode}}" hidden></traditions-scene>
+        path$="scenes/traditions/traditions-scene_[[language]].html"
+        loading-bg-color="rgb(255,224,0)"
+        loading-src="scenes/traditions/img/loading.gif"></traditions-scene>
 
     <translations-scene route="translations"
-        path="scenes/translations/translations-scene_[[language]].html"
-        loadingBgColor="#8FD7F7"
-        loadingSrc="scenes/translations/img/loading.png" hidden></translations-scene>
+        path$="scenes/translations/translations-scene_[[language]].html"
+        loading-bg-color="#8fd7f7"
+        loading-src="scenes/translations/img/loading.png"></translations-scene>
 
-    <tracker-scene id="tracker" route="tracker"
-        path="scenes/tracker/tracker-scene_[[language]].html" mode="{{mode}}"
-        hidden></tracker-scene>
+    <undersea-scene route="undersea"
+        path$="scenes/undersea/undersea-scene_[[language]].html"></undersea-scene>
 
     <!-- NOTE: when these scenes are visited and then left, they are removed and
          appended to the end of lazy-pages. This is fine as long as VIDEO_ROUTES
          isn't modified (if it is, prevSelectedRouteChanged will need to be
          modified). -->
-    <template repeat="{{ videoRoute in VIDEO_ROUTES }}">
-      <video-scene route="{{videoRoute}}"
-        path="scenes/videoscene/video-scene_[[language]].html"
-        hidden></video-scene>
+    <template is="dom-repeat" items="{{VIDEO_ROUTES}}">
+      <video-scene route$="{{item}}"
+          path$="scenes/videoscene/video-scene_[[language]].html"></video-scene>
     </template>
 
-    <about-scene route="about"
-        path="scenes/about/about-scene_[[language]].html"
-        hidden></about-scene>
+    <windtunnel-scene route="windtunnel"
+        path$="scenes/windtunnel/windtunnel-scene_[[language]].html"
+        loading-bg-color="rgb(129,208,0)"></windtunnel-scene>
+
+    <!-- TODO: rest of scenes to Polymer 1.0 -->
 
   </lazy-pages>
+
 </template>
 <script>
 (function() {
 
-var DEFAULT_ROUTE_ = 'village';
-var TRACKER_ROUTE_ = 'tracker';
-var VALID_ROUTES_ = [];
+var DEFAULT_ROUTE = 'village';
+var TRACKER_ROUTE = 'tracker';
+var VALID_ROUTES = [];
 
 // Routes/scenes which should always be accessible, no matter what the day.
 // These scenes are also not removed from the lazy-page switching.
-var PERMANENT_ROUTES_ = ['village', 'calendar', 'about'];
+var PERMANENT_ROUTES = ['village', 'calendar', 'about', 'dummy'];
 
-var VIDEO_ROUTES_ = [
+var VIDEO_ROUTES = [
   'trailer', 'carpool', 'liftoff', 'jingle', 'satellite', 'temptation',
   'office', 'tired', 'com-room', 'reload', 'slacking-off'
 ];
 
 // Routes/scenes unlocked with the tracker (including all video routes)
-var TRACKER_ROUTES_ = ['blimp', 'island', 'undersea', 'icecave', 'runner',
-    'latlong', 'glider', 'trivia'].concat(VIDEO_ROUTES_);
+var TRACKER_ROUTES = ['blimp', 'island', 'undersea', 'icecave', 'runner',
+    'latlong', 'glider', 'trivia'].concat(VIDEO_ROUTES);
 
-// Check if date1 is the same date as date2.
-function isSameDay_(date1, date2) {
+/**
+  * Checks whether the passed dates are the same calendar day.
+  * @param {!Date} date1
+  * @param {!Date} date2
+  * @return {boolean} whether the dates are the same calendar day
+  */
+function isSameDay(date1, date2) {
   return date1.getMonth() == date2.getMonth() &&
          date1.getDate() == date2.getDate() &&
          date1.getYear() == date2.getYear();
 }
 
-Polymer(Polymer.mixin({
+// TODO(bckenny): Restore Cast mixin
+Polymer({
+  is: 'santa-app',
+  hostAttributes: {'tabindex': '0'},
 
-  /**
-   * When Santa's flight is finished.
-   *
-   * @property countDownEndDate
-   * @type number
-   * @default null
-   */
-  countDownEndDate: null,
+  properties: {
 
-  /**
-   * When Santa's flight is finished.
-   *
-   * @property FLIGHT_FINISHED
-   * @type number
-   * @default null
-   * @const
-   */
-  FLIGHT_FINISHED: null,
+    /**
+     * The preloader used inside this element. This is provided as a binding
+     * helper.
+     */
+    preloader: {
+      type: Element,
+      readOnly: true,
+      value: function() {
+        return this.$.preloader;
+      }
+    },
 
-  /**
-   * The house meta data shared across scenes.
-   *
-   * @property houses
-   * @type array
-   * @default []
-   */
-  houses: [],
+    /**
+     * When Santa's flight is finished, in ms.
+     */
+    countDownEndDate: {
+      type: Number
+    },
 
-  /**
-   * If the browser is hdpi.
-   * @property
-   * @type boolean
-   * @default false
-   */
-  hdpi: 'devicePixelRatio' in window && devicePixelRatio > 1.5 || false,
+    /**
+     * When Santa's flight is finished.
+     * TODO(samthor): Why is this a 'const'-style var and the above not?
+     */
+    FLIGHT_FINISHED: {
+      type: Number
+    },
 
-  /**
-   * The current language locale.
-   *
-   * @property language
-   * @type string
-   * @default 'en'
-   */
-  language: document.documentElement.lang || 'en',
+    /**
+     * The house metadata, including unlock information.
+     */
+    houses: {
+      type: Array,
+      value: function() {
+        return [];
+      },
+      notify: true
+    },
 
-  /**
-   * The currently open scene.
-   *
-   * @property selectedScene
-   * @type Element
-   * @default null
-   */
-  selectedScene: null,
+    /**
+     * If the browser is hdpi.
+     */
+    hdpi: {
+      type: Boolean,
+      value: function() {
+        return 'devicePixelRatio' in window && devicePixelRatio > 1.5 || false;
+      }
+    },
 
-  /**
-   * The previously selected scene route.
-   *
-   * @attribute prevSelectedRoute
-   * @type string
-   * @default null
-   */
-  prevSelectedRoute: null,
+    /**
+     * The current language locale.
+     */
+    language: {
+      type: String,
+      observer: '_languageChanged',
+      value: document.documentElement.lang || 'en'
+    },
 
-  /**
-   * Current URL route.
-   *
-   * @attribute route
-   * @type string
-   * @default null
-   */
-  route: null,
+    /**
+     * The currently open scene.
+     */
+    selectedScene: {
+      type: Element,
+      observer: '_selectedSceneChanged',
+      value: null
+    },
 
-  /**
-   * Analytics service.
-   *
-   * @property analyticsService
-   * @type Analytics
-   * @default null
-   */
-  analyticsService: null,
+    /**
+     * The previously selected scene route.
+     */
+    prevSelectedRoute: {
+      type: String,
+      observer: '_prevSelectedRouteChanged',
+      value: null
+    },
 
-  /**
-   * Page/Scene visibility manager.
-   *
-   * @property visibilityService
-   * @type VisiblityManager
-   * @default null
-   */
-  visibilityService: null,
+    /**
+     * Current URL route.
+     */
+    route: {
+      type: String,
+      observer: '_routeChanged'
+    },
 
-  /**
-   * The mode of the scene. Possible values are: 'cast' or 'embed'.
-   *
-   * @property mode
-   * @type string
-   * @default ''
-   */
-  mode: '',
+    /**
+     * Analytics service.
+     */
+    analyticsService: {
+      type: Object
+    },
 
-  /**
-   * True when Santa's schedule has been checked for the first time.
-   *
-   * @property scheduleChecked
-   * @type bool
-   * @default false
-   */
-  scheduleChecked: false,
+    /**
+     * Page/Scene visibility manager.
+     */
+    visibilityService: {
+      type: Object
+    },
 
-  /**
-   * True when the tracker intro scene has been shown.
-   *
-   * @property hasTrackerIntroShown_
-   * @type bool
-   * @default false
-   */
-  hasTrackerIntroShown_: false,
+    /**
+     * The mode of the scene. Possible values are: 'cast' or 'embed'.
+     */
+    mode: {
+      type: String
+    },
 
-  /**
-   * Full list of tracker destinations as they've come in.
-   *
-   * @property destinations
-   * @type array
-   * @default []
-   */
-  destinations: [],
+    /**
+     * True when Santa's schedule has been checked for the first time.
+     */
+    scheduleChecked: {
+      type: Boolean,
+      value: false
+    },
 
-  /**
-   * Full list of timeline feed items.
-   *
-   * @property timeline
-   * @type array
-   * @default []
-   */
-  timeline: [],
+    /**
+     * True when the tracker intro scene has been shown.
+     * TODO(samthor): Doesn't seem to be used
+     */
+    _hasTrackerIntroShown: {
+      type: Boolean,
+      value: false
+    },
 
-  /**
-   * List of video routes.
-   *
-   * @property VIDEO_ROUTES
-   * @type array
-   * @default []
-   */
-  VIDEO_ROUTES: VIDEO_ROUTES_,
+    /**
+     * Full list of tracker destinations as they've come in.
+     */
+    destinations: {
+      type: Array
+    },
 
-  /**
-   * A reference to the streetview house in houses.js, for restoration after
-   * postFlight.
-   *
-   * @property streetviewHouse
-   * @type object
-   * @default null
-   */
-  streetviewHouse: null,
+    /**
+     * Full list of timeline feed items.
+     */
+    timeline: {
+      type: Array,
+      value: function() {
+        return [];
+      }
+    },
 
-  publish: {
+    /**
+     * List of video routes. Used for template binding.
+     */
+    VIDEO_ROUTES: {
+      type: Array,
+      readOnly: true,
+      value: VIDEO_ROUTES
+    },
+
+    /**
+     * A reference to the streetview house in houses.js, for restoration after
+     * postFlight.
+     */
+    streetviewHouse: {
+      type: Object,
+      value: null
+    },
+
     /**
      * True when the countdown is complete.
-     *
-     * @attribute postCountdown
-     * @type bool
-     * @default false
      */
-    postCountdown: {value: false, reflect: true},
+    postCountdown: {
+      type: Boolean,
+      value: false,
+      reflectToAttribute: true,
+      observer: '_postCountdownChanged'
+    },
 
     /**
      * True when Santa's flight is complete.
-     *
-     * @attribute postFlight
-     * @type bool
-     * @default false
      */
-    postFlight: {value: false, reflect: true},
+    postFlight: {
+      type: Boolean,
+      value: false,
+      reflectToAttribute: true,
+      observer: '_postFlightChanged'
+    },
+
   },
 
-  eventDelegates: {
+  listeners: {
+    'scene-progress': 'onSceneProgress',
     'iframe-focus-change': 'onIframeFocusChange',
     'analytics-track-event': 'trackEvent',
     'analytics-track-perf': 'trackPerf',
@@ -431,7 +432,20 @@ Polymer(Polymer.mixin({
     'tracker-end': 'onTrackerEnd'
   },
 
-  ready: function() {
+  /**
+   * Handles a loading progress hint, hiding or displaying the preloader.
+   */
+  onSceneProgress: function() {
+    var scene = this.selectedScene;
+    if (scene) {
+      this.$.preloader.active = !scene.loaded;
+      this.$.preloader.value = scene.preloadProgress;
+    } else {
+      this.$.preloader.active = false;
+    }
+  },
+
+  created: function() {
     // silence the noisy things
     if (!window.DEV) {
       console.log = function(){};
@@ -441,7 +455,9 @@ Polymer(Polymer.mixin({
     this.visibilityService = new VisibilityManager(this);
     this.visibilityService.addOnPauseListener(this.onPause.bind(this));
     this.visibilityService.addOnResumeListener(this.onResume.bind(this));
+  },
 
+  ready: function() {
     this.houses = window.HOUSES;
     this.config = window.SANTA_CONFIG;
     delete window.HOUSES; // cleanup
@@ -479,14 +495,8 @@ Polymer(Polymer.mixin({
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
     }
 
-    // Initialize routes.
-    VALID_ROUTES_ = this.$.lazypages.items.map(function(el) {
-      // Note: can't use .route b/c some scene elements won't be upgraded yet.
-      return el.getAttribute('route');
-    });
-
     this.santaService = new SantaService(apiClient, this.language);
-    this.santaService.sync(this.checkSchedule_.bind(this));
+    this.santaService.sync(this._checkSchedule.bind(this));
 
     this.santaService.addListener('destinations_changed', function(destinations) {
       this.destinations = destinations || [];
@@ -505,18 +515,18 @@ Polymer(Polymer.mixin({
       });
     }.bind(this));
 
-    this.prepareHouses_();
+    this._prepareHouses();
 
-    this.checkSchedule_();
+    this._checkSchedule();
     if (!this.route) {
-      this.route = this.postCountdown ? TRACKER_ROUTE_ : DEFAULT_ROUTE_;
+      this.route = this.defaultRoute;
     }
   },
 
   /**
    * Catch-all place to do some kind of initialization of houses.
    */
-  prepareHouses_: function() {
+  _prepareHouses: function() {
     var castMode = this.mode === 'cast';
     var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
     var spanglish = /^e(n|s)/.test(this.language);
@@ -550,23 +560,36 @@ Polymer(Polymer.mixin({
     }
   },
 
-  languageChanged: function() {
-    this.santaService.lang_ = this.language;
+  get defaultRoute() {
+    return this.postCountdown ? TRACKER_ROUTE : DEFAULT_ROUTE;
   },
 
-  selectedSceneChanged: function(oldVal, newVal) {
-    if (oldVal) {
-      this.prevSelectedRoute = oldVal.route;
+  _languageChanged: function() {
+    // TODO(samthor): santaService seems to be obsfucated
+    // this.santaService.lang_ = this.language;
+  },
+
+  _selectedSceneChanged: function(newValue, oldValue) {
+    if (oldValue === newValue) {
+      return;
     }
-    // If there are scene params in the URL, let the selected scene know.
-    if (Object.keys(this.sceneParams).length) {
+    if (oldValue && oldValue.route) {
+      this.prevSelectedRoute = oldValue.route;
+    }
+    // Let the selected scene know about params.
+    // TODO(samthor): How does this interact with two-way binding?
+    if (this.selectedScene) {
       this.selectedScene.sceneParams = this.sceneParams;
     }
   },
 
-  prevSelectedRouteChanged: function() {
+  _prevSelectedRouteChanged: function() {
+    if (!this.prevSelectedRoute) {
+      return;
+    }
+
     // Only remove certain elements from the DOM.
-    var dontRemoveEl = PERMANENT_ROUTES_.indexOf(this.prevSelectedRoute) != -1;
+    var dontRemoveEl = PERMANENT_ROUTES.indexOf(this.prevSelectedRoute) != -1;
     if (dontRemoveEl) {
       return;
     }
@@ -580,23 +603,22 @@ Polymer(Polymer.mixin({
     }
 
     // Remove previous scene if it shouldn't always be active.
-    if (!prevSelectedScene.alwaysActive) {
-      prevSelectedScene.parentNode.removeChild(prevSelectedScene);
+    if (prevSelectedScene && !prevSelectedScene.alwaysActive) {
+      var dom = Polymer.dom(this.$.lazypages);
+      dom.removeChild(prevSelectedScene);
 
-      // Re-construct removed scene and add it back to lazy-pages.
+      // Re-construct removed scene and add it back to lazy-pages. Note that
+      // loading-* isn't copied, since the element is already loaded.
       var el = document.createElement(prevSelectedScene.localName);
       el.route = prevSelectedScene.route;
-      el.path = prevSelectedScene.path;
-      el.mode = this.mode;
-      el.hidden = true;
       el.santaApp = this;
       el.loaded = true;
 
-      this.$.lazypages.appendChild(el);
+      dom.appendChild(el);
     }
   },
 
-  routeChanged: function() {
+  _routeChanged: function() {
     // Check if the new route needs a special-case redirect or if it is valid.
     // If this changes the route, routeChanged() will be called again, repeating
     // until this.route passes through validateRoute() successfully.
@@ -609,9 +631,8 @@ Polymer(Polymer.mixin({
       case 'gumballs':
         this.route = 'gumball';
         break;
-      default:
-        this.validateRoute();
     }
+    this.validateRoute();
 
     if (requestedRoute === this.route) {
       // Route is valid. Send to analytics and load the scene.
@@ -619,9 +640,13 @@ Polymer(Polymer.mixin({
     } else if (requestedRoute !== '') {
       // The requested route was changed.
       var currentRoute = null;
-      if (this.selectedScene.pageUrl) {
-        currentRoute = this.selectedScene.pageUrl + '#' +
-            this.selectedScene.route;
+      var pageUrl = location.href.substr(0, location.href.length - location.hash.length);
+      if (pageUrl) {
+        if (this.selectedScene == null) {
+          console.warn('routeChanged but scene is null, route', requestedRoute, new Error());
+        } else {
+          currentRoute = pageUrl + '#' + this.selectedScene.route;
+        }
       }
       this.fire('analytics-track-event', { category: 'Routing',
           action: 'Invalid Route Source', label: currentRoute});
@@ -632,11 +657,11 @@ Polymer(Polymer.mixin({
 
   validateRoute: function() {
     if (this.scheduleChecked) {
-      var valid = (VALID_ROUTES_.indexOf(this.route) != -1 &&
+      var valid = (VALID_ROUTES.indexOf(this.route) != -1 &&
                    this.sceneIsUnlocked(this.route)) ||
-                   (this.postCountdown && this.route == TRACKER_ROUTE_);
+                   (this.postCountdown && this.route == TRACKER_ROUTE);
       if (!valid) {
-        this.route = this.postCountdown ? TRACKER_ROUTE_ : DEFAULT_ROUTE_;
+        this.route = this.defaultRoute;
       }
     }
   },
@@ -669,47 +694,47 @@ Polymer(Polymer.mixin({
     this.analyticsService.trackPageView(path);
   },
 
-  trackEvent: function(e, detail, sender) {
+  trackEvent: function(e, detail) {
     this.analyticsService.trackEvent(
         detail.category, detail.action, detail.label, detail.value);
   },
 
-  trackPerf: function(e, detail, sender) {
+  trackPerf: function(e, detail) {
     this.analyticsService.trackPerf(
         detail.category, detail.variable, detail.time, detail.label, detail.maxTime);
   },
 
-  timeStart: function(e, detail, sender) {
+  timeStart: function(e, detail) {
     this.analyticsService.timeStart(
         detail.category, detail.variable, detail.time);
   },
 
-  timeEnd: function(e, detail, sender) {
+  timeEnd: function(e, detail) {
     this.analyticsService.timeEnd(
         detail.category, detail.variable, detail.time, detail.label, detail.maxTime);
   },
 
-  trackSocial: function(e, detail, sender) {
+  trackSocial: function(e, detail) {
     this.analyticsService.trackSocial(
         detail.network, detail.action, detail.target);
   },
 
-  trackGameStart: function(e, detail, sender) {
+  trackGameStart: function(e, detail) {
     this.analyticsService.trackGameStart(detail.gameId || detail.gameid);
   },
 
-  trackGameQuit: function(e, detail, sender) {
+  trackGameQuit: function(e, detail) {
     this.analyticsService.trackGameQuit(detail.gameId || detail.gameid,
         detail.level, detail.timePlayed);
   },
 
-  trackGameOver: function(e, detail, sender) {
+  trackGameOver: function(e, detail) {
     this.analyticsService.trackGameOver(
         detail.gameId || detail.gameid, detail.score, detail.level,
         detail.timePlayed);
   },
 
-  onIframeFocusChange: function(e, detail, sender) {
+  onIframeFocusChange: function(e, detail) {
     if (detail === 'blur') {
       this.visibilityService.pauseIframe();
     } else if (detail === 'focus') {
@@ -721,7 +746,7 @@ Polymer(Polymer.mixin({
    * When the flight finishes, check if any houses in the village need to be
    * shutoff, kicking out of invalid routes if necessary.
    */
-  postFlightChanged: function() {
+  _postFlightChanged: function() {
     for (var i = 0; i < this.houses.length; i++) {
       // In regions where callfromsanta was supported, replace it with the
       // streetviewHouse used in other regions
@@ -737,11 +762,15 @@ Polymer(Polymer.mixin({
     }
 
     // allowed routes may have changed, so check again
-    this.checkSchedule_();
+    this._checkSchedule();
   },
 
-  postCountdownChanged: function() {
-    document.body.classList.add('posttakeoff');
+  _postCountdownChanged: function() {
+    if (this.postCountdown) {
+      document.body.classList.add('posttakeoff');
+    } else {
+      document.body.classList.remove('posttakeoff');
+    }
   },
 
   /**
@@ -781,11 +810,11 @@ Polymer(Polymer.mixin({
     }
 
     // Certain scenes don't have associated houses. Whitelist them.
-    if (PERMANENT_ROUTES_.indexOf(moduleName) != -1) {
+    if (PERMANENT_ROUTES.indexOf(moduleName) != -1) {
       return true;
     }
 
-    if (this.postCountdown && TRACKER_ROUTES_.indexOf(moduleName) != -1) {
+    if (this.postCountdown && TRACKER_ROUTES.indexOf(moduleName) != -1) {
       return true;
     }
 
@@ -793,14 +822,22 @@ Polymer(Polymer.mixin({
   },
 
   /**
+   * Timeout for _checkSchedule.
+   */
+  _scheduleTimeout: null,
+
+  /**
    * Unlocks the correct houses based on the day (index).
    * @private
    */
-  checkSchedule_: function() {
+  _checkSchedule: function() {
     if (window.DEV) {
       console.info('dev, unlocking all houses');
       this.unlockAllHouses();
       return;
+    }
+    if (!this.santaService) {
+      return;  // ignore, will be called via ready:
     }
 
     var todayDate = this.santaService.dateNow();
@@ -819,12 +856,12 @@ Polymer(Polymer.mixin({
 
           if (house.launchDate <= todayDate) {
             this.unlockHouse(i);
-            house.today = isSameDay_(house.launchDate, todayDate);
+            house.today = isSameDay(house.launchDate, todayDate);
             house.tomorrow = false;
           } else {
             house.iced = true;
             house.today = false;
-            house.tomorrow = isSameDay_(house.launchDate, tomorrowDate);
+            house.tomorrow = isSameDay(house.launchDate, tomorrowDate);
           }
         }
         break;
@@ -842,18 +879,18 @@ Polymer(Polymer.mixin({
 
     // Check again at the next hour tick.
     var timeTillHour = (60 - todayDate.getMinutes()) * 60 * 1000;
-    this.scheduleTimeout_ = this.async(this.checkSchedule_, null, timeTillHour);
+    this._scheduleTimeout = this.async(this._checkSchedule, timeTillHour);
   },
 
-  keyHandler: function(e, detail, sender) {
-    switch(e.detail.key) {
+  _escHandler: function(e, detail) {
+    switch (e.detail.key) {
       case 'esc':
-        this.route = this.postCountdown ? TRACKER_ROUTE_ : DEFAULT_ROUTE_;
+        this.route = this.defaultRoute;
         break;
     }
   },
 
-  onTrackerAction: function(e, detail, sender) {
+  onTrackerAction: function(e, detail) {
     // Note: needs to go qS() because DOM is not guaranteed to exist if on cast.
     var calendar = this.$.lazypages.querySelector('calendar-nav');
     if (!calendar) {
@@ -866,23 +903,23 @@ Polymer(Polymer.mixin({
     }
   },
 
-  onCountdownFinish: function(e, detail, sender) {
+  onCountdownFinish: function(e, detail) {
     // Redirect village -> tracker when the countdown finishes. This allows
     // users to go back to the village.
     if (!this.postCountdown) {
-      this.checkSchedule_();
-      if (this.postCountdown && this.route === DEFAULT_ROUTE_) {
-        this.route = TRACKER_ROUTE_;
+      this._checkSchedule();
+      if (this.postCountdown && this.route === DEFAULT_ROUTE) {
+        this.route = TRACKER_ROUTE;
       }
     }
   },
 
-  onTrackerEnd: function(e, detail, sender) {
-    this.checkSchedule_();
+  onTrackerEnd: function(e, detail) {
+    this._checkSchedule();
   }
 
-}, chromecastMixin));
+});
 
 })();
 </script>
-</polymer-element>
+</dom-module>

@@ -12,21 +12,19 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
 
 <script src="seasonofgiving-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="seasonofgiving-scene.css" />
+
 <!--
 Season of giving scene.
-
-@element seasonofgiving-scene
-@extends base-scene
 -->
-<polymer-element name="seasonofgiving-scene" extends="base-scene">
+<dom-module id="seasonofgiving-scene">
 <template>
-  <link rel="stylesheet" href="seasonofgiving-scene.css" no-shim>
-
   <div id="module-seasonofgiving">
     <div class="seasonofgiving">
       <div class="scene">
@@ -389,8 +387,8 @@ Season of giving scene.
 <script>
 (function() {
   Polymer({
-    componentDir: 'scenes/seasonofgiving/',
-
+    is: 'seasonofgiving-scene',
+    behaviors: [window.SantaSceneBehavior],
     game: null,
 
     onPreload: function() {
@@ -455,4 +453,4 @@ Season of giving scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

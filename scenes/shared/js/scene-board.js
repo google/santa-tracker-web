@@ -34,7 +34,7 @@ app.shared.Sceneboard = Sceneboard;
  */
 function Sceneboard(scene, elem) {
   this.scene = scene;
-  this.elem = app.shared.utils.unwrapElement(elem);
+  this.elem = $(app.shared.utils.unwrapElement(elem));
 
   this.attachEvents();
 
@@ -47,8 +47,7 @@ function Sceneboard(scene, elem) {
  */
 Sceneboard.prototype.attachEvents = function() {
   var self = this;  // intentionally held, so that 'this' is the element
-  var el = $(this.elem);
-  el.find('.pause').on('click', function(event) {
+  this.elem.find('.pause').on('click', function(event) {
     $(event.target).blur();
 
     $(this).toggleClass('paused');
@@ -61,7 +60,7 @@ Sceneboard.prototype.attachEvents = function() {
       window.santaApp.fire('sound-ambient', 'global_unpause');
     }
   });
-  el.find('.restart').on('click', function(event) {
+  this.elem.find('.restart').on('click', function(event) {
     $(event.target).blur();
     self.scene.restart();
   });

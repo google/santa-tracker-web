@@ -18,10 +18,8 @@ specific language governing permissions and limitations under the License.
 
 <!--
 Canvas overlay to draw animated cut-out bubbles over the content.
-
-@element bubble-overlay
 -->
-<polymer-element name="bubble-overlay" attributes="color">
+<dom-module id="bubble-overlay" attributes="color">
 <template>
   <style>
     :host {
@@ -40,15 +38,21 @@ Canvas overlay to draw animated cut-out bubbles over the content.
 </template>
 <script>
   Polymer({
+    is: 'bubble-overlay',
 
-    /**
-     * Color of the overlay.
-     *
-     * @property color
-     * @type string
-     * @default '#ff0000'
-     */
-    color: '#ff0000',
+    properties: {
+
+      /**
+       * Color of the overlay.
+       */
+      color: {
+        type: String,
+        value: '#ff0000'
+      }
+
+    },
+
+    bubbles: null,
 
     ready: function() {
       this.ctx = this.$.canvas.getContext('2d');
@@ -57,8 +61,6 @@ Canvas overlay to draw animated cut-out bubbles over the content.
 
     /**
      * Draws the overlay and the bubbles;
-     *
-     * @method draw
      */
     draw: function() {
       this.$.canvas.width = window.innerWidth;
@@ -70,11 +72,9 @@ Canvas overlay to draw animated cut-out bubbles over the content.
 
     /**
      * Cuts out all bubbles on the overlay;
-     *
-     * @method refresh
      */
     refresh: function() {
-      if (this.bubbles.length) {
+      if (this.bubbles && this.bubbles.length) {
         this.ctx.save();
         for (var i = 0; i < this.bubbles.length; i++) {
           this.bubbles[i].cutout();
@@ -86,7 +86,6 @@ Canvas overlay to draw animated cut-out bubbles over the content.
     /**
      * Registers a new bubble with the overlay.
      *
-     * @method registerBubble
      * @param {Element} bubble An canvas-bubble element.
      */
     registerBubble: function(bubble) {
@@ -100,7 +99,7 @@ Canvas overlay to draw animated cut-out bubbles over the content.
     }
   });
 </script>
-</polymer-element>
+</dom-module>
 
 
 <!--
@@ -109,7 +108,7 @@ Must be a child of bubble-overlay.
 
 @element canvas-bubble
 -->
-<polymer-element name="canvas-bubble" attributes="x y">
+<dom-module id="canvas-bubble" attributes="x y">
 <template>
   <style>
     :host {
@@ -215,4 +214,4 @@ Must be a child of bubble-overlay.
     }
   });
 </script>
-</polymer-element>
+</dom-module>

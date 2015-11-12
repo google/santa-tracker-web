@@ -12,21 +12,19 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 
 <script src="callfromsanta-scene.min.js"></script>
 <script src="../shared/js/css_animation_helper.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="callfromsanta-scene.css" />
+
 <!--
 Call from santa scene.
-
-@element callfromsanta-scene
-@extends base-scene
 -->
-<polymer-element name="callfromsanta-scene" extends="base-scene">
+<dom-module id="callfromsanta-scene">
 <template>
-  <link rel="stylesheet" href="callfromsanta-scene.css" no-shim>
-
   <div id="module-callfromsanta">
     <div class="scene">
       <div class="snow"></div>
@@ -87,7 +85,8 @@ Call from santa scene.
 </template>
 <script>
   Polymer({
-    componentDir: 'scenes/callfromsanta/',
+    is: 'callfromsanta-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     onPreload: function() {
       this.preloadSounds('callfromsanta_load_sounds', 30);
@@ -115,4 +114,4 @@ Call from santa scene.
     }
   });
 </script>
-</polymer-element>
+</dom-module>

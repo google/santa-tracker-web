@@ -13,16 +13,15 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <!DOCTYPE html>
-<html lang="en" xmlns:xlink="http://www.w3.org/1999/xlink">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
-    <link href="codelab-frame.css" rel="stylesheet">
+    <link href="codelabframe-scene.css" rel="stylesheet">
 
-    <script src="../../components/webcomponentsjs/webcomponents.min.js"></script>
+    <!-- In production, this is inlined, so don't worry about lack of support for HTML imports -->
     <link rel="import" href="../../js/webanimations.html">
-    <link rel="import" href="../../elements/i18n-msg.html">
   </head>
   <body>
     <div id="module-codelab">
@@ -157,24 +156,44 @@ specific language governing permissions and limitations under the License.
       </div>
     </div>
 
-    <script src="codelab-frame.min.js"></script>
+    <script src="codelabframe-scene.min.js"></script>
     <script>
-    window.DEV = true;
+      window.DEV = true; // NOTE: replaced by string - do not change formatting.
 
-    if (window.DEV) {
-      // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
-      document.addEventListener('HTMLImportsLoaded', function() {
-        I18nMsg.lang = document.documentElement.lang || 'en'; // Set locale for entire site (e.g. i18n-msg elements).
-        I18nMsg.messagesPath = '../../_messages/';
+      function createGame() {
+        window.game = new app.Game(document.getElementById('module-codelab'));
+      }
 
-        // Wait for i18n initialisation. Bad race-condition, should we add an event?
-        window.setTimeout(function() {
-          window.game = new app.Game(document.getElementById('module-codelab'));
-        }, 100);
-      });
-    } else {
-      window.game = new app.Game(document.getElementById('module-codelab'));
-    }
+      function initComponents() {
+        var script = document.createElement('script');
+        script.src = '../../components/webcomponentsjs/webcomponents-lite.min.js';
+        document.write(script.outerHTML);
+
+        var link = document.createElement('link');
+        link.rel = 'import';
+        link.href = '../../elements/i18n-msg.html';
+        document.write(link.outerHTML);
+
+        // Change I18nMsg path.
+        window.I18nMsg = {
+          lang: document.documentElement.lang || 'en',
+          locales: {},
+          messagesPath: '../../_messages/'
+        };
+
+        // Wait for HTMLImports before starting the game.
+        document.addEventListener('HTMLImportsLoaded', function() {
+          // Wait for i18n initialisation. Bad race-condition, should we add an event?
+          window.setTimeout(createGame, 100);
+        });
+      }
+
+      var compiled = !document.querySelector('link[rel="import"]');
+      if (compiled) {
+        createGame();
+      } else {
+        initComponents();
+      }
     </script>
 
   </body>

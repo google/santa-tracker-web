@@ -1,0 +1,109 @@
+<!--
+Copyright 2015 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+
+<link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
+
+<link rel="import" href="../../elements/countdown/countdown-timer.html">
+<link rel="import" href="../../elements/i18n-msg.html">
+
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="dorf-scene.css" />
+
+<!--
+Village scene (2015).
+-->
+<dom-module id="dorf-scene">
+<template>
+  <div id="module-dorf">
+    <div class="fit scroll">
+      <header>
+        <div id="header-background"></div>
+
+        <div id="header-content">
+          <div id="count-down">
+            <h2>Santa Takes Off In</h2>
+            <div id="count-down-numbers">
+              TIME
+            </div>
+          </div>
+          <h1>
+            <!-- TODO(samthor): translate -->
+            Santa Tracker
+          </h1>
+          <p>
+            <!-- TODO(samthor): translate -->
+            Explore, play and learn with Santa's Elves all December long.
+          </p>
+        </div>
+      </header>
+      <div id="village">
+        <div id="houses">
+          <div class="house"></div>
+          <template is="dom-repeat" items="{{houses}}">
+            <div class="house">
+              <div class="color fit" style$="background: {{_calculateColor(item)}}"></div>
+              <a class="fit" href="{{_calculateHref(item)}}">
+                <img class="icon" src="scenes/village/img/house-{{item.module}}.svg" />
+              </a>
+            </div>
+          </template>
+        </div>
+      </div>
+      <div id="village-footer">
+				
+      </div>
+    </div><!-- .scroll -->
+  </div><!-- #module-dorf -->
+</template>
+<script>
+(function() {
+  
+  Polymer({
+    is: 'dorf-scene',
+    behaviors: [window.SantaSceneBehavior],
+
+    properties: {
+      houses: {
+        type: Array
+      },
+      mode: {
+        type: String
+      },
+    },
+  
+    _calculateHref: function(house) {
+      return house.link || this.pageUrl + '#' + house.module;
+    },
+
+    /**
+    * Generates a random but consistent background color for a house based on
+    * its hash.
+    */
+    _calculateColor: function(house) {
+      var hash = 0;
+      for (var i = 0; i < house.module.length; ++i) {
+        hash = (hash * 13) + house.module.charCodeAt(i);
+      }
+      var shade = Math.round(hash % 360);
+      return 'hsl(' + shade + ', 82%, 55%)';
+    },
+
+  });
+
+})();
+
+</script>
+</template>

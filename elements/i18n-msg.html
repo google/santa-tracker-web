@@ -15,16 +15,15 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../components/polymer/polymer.html">
 
 <!--
-Custom element to do localization (i18n) messages.
-
-@element i18n-msg
+Custom element to do localization (i18n) messages. Only used for dev, and is
+compiled out to raw strings in production.
 -->
-<polymer-element name="i18n-msg" attributes="msgid">
+<dom-module id="i18n-msg">
 <script>
 (function() {
 
   window.I18nMsg = window.I18nMsg || {
-    lang: null,
+    lang: 'en',
     locales: {},
     messagesPath: '_messages/'
   };
@@ -32,49 +31,59 @@ Custom element to do localization (i18n) messages.
   var instances = [];
 
   Polymer({
+    is: 'i18n-msg',
 
-    /**
-     * The message id (key) for this message.
-     *
-     * @attribute msgid
-     * @type string
-     * @default null
-     */
-    msgid: null,
+    properties: {
 
-    /**
-     * An object contains the language locales with translated messages.
-     *
-     * @property locales
-     * @type object
-     * @default {}
-     */
-    locales: I18nMsg.locales, // static
+      language: { observer: '_languageChanged' },
+
+      /**
+       * An object contains the language locales with translated messages.
+       */
+      _locales: {
+        value: I18nMsg.locales,  // static
+      },
+
+      /**
+       * The message id (key) for this message.
+       */
+      msgid: {
+        value: null,
+        reflectToAttribute: true
+      }
+    },
 
     ready: function() {
+      if (!window.DEV) {
+        throw new Error('i18n-msg not used outside dev');
+      }
+
       this.language = I18nMsg.lang;
 
       // First time an instance is created, observe window.I18nMsg.lang changes
       // and go fetch the localized messages.json file.
       if (!instances.length) {
-        var observer = new PathObserver(window.I18nMsg, 'lang');
-        observer.open(function(newValue, oldValue) {
-          this.language = newValue;
-        }.bind(this));
+        // TODO(samthor): Restore DEV functionality that allows listening to
+        // language changes. Don't default to 'en'.
+        // var observer = new PathObserver(window.I18nMsg, 'lang');
+        // observer.open(function(newValue, oldValue) {
+        //   this.language = newValue;
+        // }.bind(this));
+        this._languageChanged();
       }
 
       instances.push(this);
     },
 
     attached: function() {
-      var msg = this.locales[this.language] && this.locales[this.language][this.msgid];
+      var msg = this._locales[this.language] && this._locales[this.language][this.msgid];
       if (msg && msg.message) {
-        this.innerHTML = msg.message;
+        Polymer.dom(this).innerHTML = msg.message;
       }
     },
 
-    languageChanged: function() {
-      if (!this.language || this.locales[this.language]) {
+    _languageChanged: function() {
+      if (!this.language || this._locales[this.language]) {
         return;
       }
 
@@ -93,8 +102,9 @@ Custom element to do localization (i18n) messages.
           return;
         }
 
-        this.locales[this.language] = resp; // cache this locale.
+        this._locales[this.language] = resp;
 
+        // cache this locale.
         this.notifyInstances();
       }.bind(this);
       xhr.send();
@@ -104,17 +114,17 @@ Custom element to do localization (i18n) messages.
       for (var i = 0, instance; instance = instances[i]; ++i) {
         instance.language = I18nMsg.lang;
 
-        if (!instance.locales[instance.language][instance.msgid]) {
+        if (!instance._locales[instance.language][instance.msgid]) {
           throw Error('"' + instance.msgid + '" message id was not found');
           continue;
         }
 
-        instance.innerHTML = instance.locales[instance.language][instance.msgid].message;
+        Polymer.dom(instance).innerHTML = instance._locales[instance.language][instance.msgid].message;
       }
     }
 
   });
 
-})();
+}());
 </script>
-</polymer-element>
+</dom-module>
