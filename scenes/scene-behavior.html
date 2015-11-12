@@ -164,7 +164,7 @@ specific language governing permissions and limitations under the License.
         type: Object,
         readOnly: true,
         // Noop. Subclass scenes can define this to know when santaApp changes.
-        observer: '_setAppChanged'
+        observer: '_santaAppChanged'
       }
 
     },
@@ -194,7 +194,7 @@ specific language governing permissions and limitations under the License.
       this._setSantaApp(null);
     },
 
-    _setAppChanged: function() {
+    _santaAppChanged: function() {
       // Noop. Subclasses can define this observer to know about changes.
     },
 

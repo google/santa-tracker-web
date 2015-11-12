@@ -16,12 +16,21 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-flex-layout/classes/iron-flex-layout.html">
 <link rel="import" href="../../js/utils.html">
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="countdown-timer.css">
 
 <!--
-Countdown timer.
+Displays a countdown timer.
 
-TODO: Not yet fully migrated to Polymer 1.0+
+Example
+
+    <countdown-timer count-down-end-date="1450951200000"
+                     finished="{{isFinished}}">
+      <h3>Days</h3>
+      <h3>Hours</h3>
+      <h3>Minutues</h3>
+      <h3>Seconds</h3>
+    </countdown-timer>
 -->
 <dom-module id="countdown-timer">
   <template>
@@ -125,7 +134,8 @@ TODO: Not yet fully migrated to Polymer 1.0+
         finished: {
           value: false,
           reflectToAttribute: true,
-          notify: true
+          notify: true,
+          readOnly: true
         },
 
         /**
@@ -133,24 +143,34 @@ TODO: Not yet fully migrated to Polymer 1.0+
          */
         currentTime: {
           type: Number,
-          value: null
+          value: null,
+          readOnly: true
         },
 
         titles: {
           type: Array,
-          value: function() { return []; }
+          value: function() { return []; },
+          readOnly: true
         },
 
         digits: {
           type: Array,
-          value: function() { return []; }
+          value: function() { return []; },
+          readOnly: true
         }
       },
 
       _oldDigits: [],
 
+      listeners: {
+         // For prod, <i18n-msg> is removed and textContent will already be
+         // correct. For dev, listen for i18n updates and update the labels.
+        'i18n-language-ready': 'updateLabels'
+      },
+
       ready: function() {
-        this.currentTime = this._getCurrentTime();
+        this._setCurrentTime(this._getCurrentTime());
+        // this.currentTime = this._getCurrentTime();
         if (this.render) {
           this.container = this.container || this;
         }
@@ -164,8 +184,10 @@ TODO: Not yet fully migrated to Polymer 1.0+
         this.async(function() {
           // Needs to wait one rAF so titles has populated the template repeat.
           if (this.render) {
-            this.digits = Array.prototype.slice.call(
-                this.$.counter.querySelectorAll('.digit'));
+            // this.digits = Array.prototype.slice.call(
+                // this.$.counter.querySelectorAll('.digit'));
+            this._setDigits(Array.prototype.slice.call(
+                            this.$.counter.querySelectorAll('.digit')));
           }
 
           this.fire('countdown-timer-ready', this);
@@ -175,10 +197,11 @@ TODO: Not yet fully migrated to Polymer 1.0+
         });
       },
 
-      updateLabels() {
-        this.titles = this.getContentChildNodes().map(function(node) {
+      updateLabels: function() {
+        var titles = this.getContentChildNodes().map(function(node) {
           return node.textContent;
         });
+        this._setTitles(titles);
       },
 
       _countDownEndDateChanged: function() {
@@ -212,7 +235,8 @@ TODO: Not yet fully migrated to Polymer 1.0+
       },
 
       tickTock: function() {
-        this.currentTime = this._getCurrentTime();
+        // this.currentTime = this._getCurrentTime();
+        this._setCurrentTime(this._getCurrentTime());
 
         var days = this.currentTime.days;
         var hours = this.currentTime.hours;
@@ -250,7 +274,8 @@ TODO: Not yet fully migrated to Polymer 1.0+
 
         if (this.currentTime.diff == 0) {
           this.fire('countdown-timer-finish', this);
-          this.finished = true;
+          // this.finished = true;
+          this._setFinished(true);
           this.stop();
         }
       },

@@ -34,15 +34,15 @@ Village scene (2015).
         <div id="header-content">
           <div id="count-down">
             <h2>Santa Takes Off In</h2>
-              <countdown-timer id="count"
-                               count-down-end-date="[[countDownEndDate]]"
-                               finished="{{countdownFinished}}"
-                               on-i18n-language-ready="_onTranslationsReady">
-                <h3><i18n-msg msgid="days">PLACEHOLDER_i18n</i18n-msg></h3>
-                <h3><i18n-msg msgid="hours">PLACEHOLDER_i18n</i18n-msg></h3>
-                <h3><i18n-msg msgid="minutes">PLACEHOLDER_i18n</i18n-msg></h3>
-                <h3><i18n-msg msgid="seconds">PLACEHOLDER_i18n</i18n-msg></h3>
-              </countdown-timer>
+            <countdown-timer id="count"
+                             santa-service="[[santaService]]"
+                             count-down-end-date="[[countDownEndDate]]"
+                             finished="{{countdownFinished}}">
+              <h3><i18n-msg msgid="days">PLACEHOLDER_i18n</i18n-msg></h3>
+              <h3><i18n-msg msgid="hours">PLACEHOLDER_i18n</i18n-msg></h3>
+              <h3><i18n-msg msgid="minutes">PLACEHOLDER_i18n</i18n-msg></h3>
+              <h3><i18n-msg msgid="seconds">PLACEHOLDER_i18n</i18n-msg></h3>
+            </countdown-timer>
           </div>
           <h1>
             <!-- TODO(samthor): translate -->
@@ -106,18 +106,13 @@ Village scene (2015).
       return 'hsl(' + shade + ', 82%, 55%)';
     },
 
-    // For prod, <i18n-msg> is removed and textContent will already be correct.
-    _onTranslationsReady: function(e, detail) {
-      this.$.count.updateLabels();
-    },
-
-    _setAppChanged: function() {
-      this.$.count.santaService = this.santaApp.santaService;
+    _santaAppChanged: function() {
+      this.santaService = this.santaApp.santaService;
       this.countDownEndDate = this.santaApp.countDownEndDate;
     },
 
     onShow: function() {
-      // Start timer one tick after scene is showed.
+      // Start timer one tick after scene is shown.
       this.async(function() {
         this.$.count.start();
       });
