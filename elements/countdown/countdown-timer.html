@@ -170,7 +170,6 @@ Example
 
       ready: function() {
         this._setCurrentTime(this._getCurrentTime());
-        // this.currentTime = this._getCurrentTime();
         if (this.render) {
           this.container = this.container || this;
         }
@@ -184,8 +183,6 @@ Example
         this.async(function() {
           // Needs to wait one rAF so titles has populated the template repeat.
           if (this.render) {
-            // this.digits = Array.prototype.slice.call(
-                // this.$.counter.querySelectorAll('.digit'));
             this._setDigits(Array.prototype.slice.call(
                             this.$.counter.querySelectorAll('.digit')));
           }
@@ -235,7 +232,6 @@ Example
       },
 
       tickTock: function() {
-        // this.currentTime = this._getCurrentTime();
         this._setCurrentTime(this._getCurrentTime());
 
         var days = this.currentTime.days;
@@ -274,7 +270,6 @@ Example
 
         if (this.currentTime.diff == 0) {
           this.fire('countdown-timer-finish', this);
-          // this.finished = true;
           this._setFinished(true);
           this.stop();
         }
