@@ -12,21 +12,20 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 
-<link rel="import" href="../../components/google-apis/google-client-api.html">
+<link rel="import" href="../../components/google-apis/google-legacy-loader.html">
 <script src="postcard-scene.min.js"></script>
+
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="postcard-scene.css" />
 
 <!--
 Postcard scene.
-
-@element postcard-scene
-@extends base-scene
 -->
-<polymer-element name="postcard-scene" extends="base-scene">
+<dom-module id="postcard-scene">
 <template>
-  <link rel="stylesheet" href="postcard-scene.css" no-shim>
-  <google-client-api on-api-load="{{googleAPIReady}}"></google-client-api>
+  <google-legacy-loader on-api-load="googleAPIReady"></google-legacy-loader>
 
   <div id="module-postcard">
     <div class="scene">
@@ -131,19 +130,19 @@ Postcard scene.
 <script>
 (function() {
   Polymer({
-    componentDir: 'scenes/postcard/',
-
+    is: 'postcard-scene',
+    behaviors: [window.SantaSceneBehavior],
     game: null,
 
     onPreload: function() {
       this.preloadSounds('sm_load_sounds', 15);
       this.preloadImages([
-      'img/bgs-small.png',
-      'img/bgs.png',
-      'img/fgs-small.png',
-      'img/fgs.png',
-      'img/logo.svg',
-      'img/sprite.png'
+        'img/bgs-small.png',
+        'img/bgs.png',
+        'img/fgs-small.png',
+        'img/fgs.png',
+        'img/logo.svg',
+        'img/sprite.png'
       ]);
     },
     googleAPIReady: function() {
@@ -170,4 +169,4 @@ Postcard scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

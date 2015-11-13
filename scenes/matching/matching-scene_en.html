@@ -12,24 +12,21 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 
 <script src="../shared/js/css_animation_helper.js"></script>
 <script src="../shared/js/startbutton.js"></script>
 <script src="matching-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="matching-scene.css" />
+
 <!--
 Matching scene.
-
-@element matching-scene
-@extends base-scene
 -->
-<polymer-element name="matching-scene" extends="base-scene">
+<dom-module id="matching-scene">
 <template>
-  <link rel="stylesheet" href="matching-scene.css" no-shim>
-
   <div id="module-matching">
-
     <div class="scene">
       <div class="sky">
         <div class="cloud cloud1 js-resize-animation">
@@ -357,13 +354,17 @@ Matching scene.
 <script>
 (function() {
   Polymer({
-    componentDir: 'scenes/matching/',
-
+    is: 'matching-scene',
+    behaviors: [window.SantaSceneBehavior],
     animationHelper: null,
-
     game: null,
 
-    hasClickedStart: false,
+    properties: {
+      hasClickedStart: {
+        type: Boolean,
+        value: false
+      },
+    },
 
     onPreload: function() {
       this.preloadSounds('m_load_sounds', 20);
@@ -403,4 +404,4 @@ Matching scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

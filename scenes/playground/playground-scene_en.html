@@ -12,21 +12,19 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
 
 <script src="playground-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="playground-scene.css" />
+
 <!--
 Playground scene.
-
-@element playground-scene
-@extends base-scene
 -->
-<polymer-element name="playground-scene" extends="base-scene">
+<dom-module id="playground-scene">
 <template>
-  <link rel="stylesheet" href="playground-scene.css" no-shim>
-
   <div id="module-playground">
     <div class="scene">
       <div class="anchor">
@@ -200,7 +198,9 @@ Playground scene.
 </template>
 <script>
   Polymer({
-    componentDir: 'scenes/playground/',
+    is: 'playground-scene',
+    behaviors: [window.SantaSceneBehavior],
+    scene: null,
 
     onPreload: function() {
       this.preloadSounds('playground_load_sounds', 40);
@@ -226,4 +226,4 @@ Playground scene.
     }
   });
 </script>
-</polymer-element>
+</dom-module>

@@ -1,7 +1,3 @@
-@import "compass/css3/transform";
-@import "compass/css3/border-radius";
-@import "compass/css3/images";
-
 $name: 'module-icecave';
 
 @import "../shared/sass/board";
@@ -68,7 +64,7 @@ $name: 'module-icecave';
 
           background: url('img/snowman-mouth.png');
 
-          @include animations(4s snowmanTalk infinite step-start);
+          animation: 4s snowmanTalk infinite step-start;
         }
 
         .steam {
@@ -82,7 +78,7 @@ $name: 'module-icecave';
 
           background: url('img/steam.png') repeat-y;
 
-          @include animations(2s coffieSteam infinite linear);
+          animation: 2s coffieSteam infinite linear;
 
           &:after {
             content: "";
@@ -166,7 +162,7 @@ $name: 'module-icecave';
 
             background: #d3392c;
 
-            @include animations(6s meterGrowth infinite ease-in-out);
+            animation: 6s meterGrowth infinite ease-in-out;
           }
         }
       }
@@ -198,7 +194,7 @@ $name: 'module-icecave';
           background: #10367c;
           background-image: url('img/snow.png'), url('img/snow.png');
 
-          @include animations(8s windowSnow infinite linear);
+          animation: 8s windowSnow infinite linear;
         }
 
         &.w2 {
@@ -269,10 +265,10 @@ $name: 'module-icecave';
 
         background: url('img/objects.png') no-repeat;
 
-        @include animations(5s seaObject infinite alternate ease-in-out);
+        animation: 5s seaObject infinite alternate ease-in-out;
 
         &:nth-child(2n) {
-          @include animations(4s seaObject infinite alternate-reverse ease-in-out);
+          animation: 4s seaObject infinite alternate-reverse ease-in-out;
         }
 
         &.o1 {
@@ -334,8 +330,8 @@ $name: 'module-icecave';
 
           background-position: -381px -235px;
 
-          @include apply-origin(25% 100%, false);
-          @include animations(4s santaObject infinite alternate-reverse ease-in-out);
+          transform-origin: 25% 100%;
+          animation: 4s santaObject infinite alternate-reverse ease-in-out;
 
           .steam {
             position: absolute;
@@ -348,7 +344,7 @@ $name: 'module-icecave';
 
             background: url('img/steam.png') repeat-y;
 
-            @include animations(2.1s coffieSteam infinite linear);
+            animation: 2.1s coffieSteam infinite linear;
 
             &:after {
               content: "";
@@ -382,7 +378,7 @@ $name: 'module-icecave';
 
           background-image: url('img/sea-layer-1.png');
 
-          @include animations(40s seaWaves infinite linear);
+          animation: 40s seaWaves infinite linear;
         }
 
         &.s2 {
@@ -391,7 +387,7 @@ $name: 'module-icecave';
 
           background-image: url('img/sea-layer-2.png');
 
-          @include animations(35s seaWaves infinite reverse linear);
+          animation: 35s seaWaves infinite reverse linear;
         }
 
         &.s3 {
@@ -400,7 +396,7 @@ $name: 'module-icecave';
 
           background-image: url('img/sea-layer-3.png');
 
-          @include animations(30s seaWaves infinite linear);
+          animation: 30s seaWaves infinite linear;
         }
       }
     }

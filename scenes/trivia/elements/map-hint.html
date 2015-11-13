@@ -14,14 +14,16 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../../components/google-apis/google-maps-api.html">
 
-<polymer-element name="map-hint" attributes="place santaApp">
+<dom-module id="map-hint" attributes="place santaApp">
 <template>
   <link rel="stylesheet" href="map-hint.css" no-shim>
   <div id="map" fit></div>
-  <template if="{{santaApp}}">
-    <google-maps-api version="3.exp" clientId="{{santaApp.config.CLIENT_ID}}"
-                     libraries="places,geometry" language="{{santaApp.language}}"
-                     on-api-load="{{onMapsAPIReady}}"></google-maps-api>
+  <template is="dom-if" if="{{santaApp}}">
+    <!-- Conditional required to prevent double loading -->
+    <google-maps-api version="3.exp"
+                     client-id="{{santaApp.config.CLIENT_ID}}"
+                     language="{{santaApp.language}}"
+                     on-api-load="onMapsAPIReady"></google-maps-api>
   </template>
   <div id="globe" class="globe" fit>
     <template repeat="{{part in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}}">
@@ -31,6 +33,8 @@ specific language governing permissions and limitations under the License.
 </template>
 <script>
   Polymer({
+    is: 'map-hint',
+
     observe: {
       'place': 'onSearch'
     },
@@ -114,4 +118,4 @@ specific language governing permissions and limitations under the License.
     }
   });
 </script>
-</polymer-element>
+</dom-module>

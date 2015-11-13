@@ -12,56 +12,61 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../components/google-youtube/google-youtube.html">
 <link rel="import" href="../../elements/i18n-msg.html">
-<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
+
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="video-scene.css" />
 
 <!--
 Video scene.
-
-@element video-scene
-@extends base-scene
 -->
-<polymer-element name="video-scene" extends="base-scene">
+<dom-module id="video-scene">
 <template>
-  <link rel="stylesheet" href="video-scene.css" no-shim>
+  <iron-a11y-keys keys="enter space"
+                  on-keys-pressed="keyHandler"></iron-a11y-keys>
 
-  <core-a11y-keys target="{{}}" keys="enter space"
-                  on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
+  <div id="module-video" class="fit">
+    <div class="scene" class="fit">
 
-  <div id="module-video" fit>
-    <div class="scene" fit>
-      <div id="poster" class="{{ {faded: !poster} | tokenList }}"
-          on-transitionend="{{hidePoster}}"
-          style="background-image: url({{componentDir}}img/{{route}}-poster.jpg)">
-        <div id="start" hidden?="{{!start}}">
-          <div class="start-button" on-tap="{{playVideo}}"></div>
+      <div id="poster" class$="{{_computeTernary(poster, '', 'faded')}}"
+          on-transitionend="hidePoster"
+          style$="background-image: url({{componentDir}}img/{{route}}-poster.jpg)">
+        <div id="start" hidden$="{{!start}}">
+          <div class="start-button" on-tap="playVideo"></div>
         </div>
       </div>
 
-      <template if="{{showPlayer}}">
-        <google-youtube id="player" videoid="{{VIDEO_IDS[route].id}}" chromeless playsupported="false"
-                        on-google-youtube-ready="{{youtubeReady}}"
-                        on-google-youtube-state-change="{{youtubeStateChange}}"
-                        height="100%" width="100%" fit></google-youtube>
+      <template is="dom-if" if="{{showPlayer}}">
+        <google-youtube id="player"
+            video-id="[[videoId]]"
+            currenttime="{{currentTime}}"
+            currenttimeformatted="{{_currentTimeFormatted}}"
+            duration="{{_duration}}"
+            playsupported="false"
+            on-google-youtube-ready="youtubeReady"
+            on-google-youtube-state-change="youtubeStateChange"
+            chromeless width="100%" height="100%" class="fit">
+        </google-youtube>
       </template>
 
       <div id="videoboard" class="sceneboard">
-        <a href="{{pageUrl}}#village" class="back" hidden?="{{VIDEO_IDS[route].source !== 'village'}}">
+        <a href="{{pageUrl}}#village" class="back" hidden$="{{sourceIsTracker}}">
           <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
         </a>
-        <a href="{{pageUrl}}#tracker" class="back" hidden?="{{VIDEO_IDS[route].source !== 'tracker'}}">
+        <a href="{{pageUrl}}#tracker" class="back" hidden$="{{!sourceIsTracker}}">
           <i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg>
         </a>
         <div class="sceneboard-back"></div>
-        <div id="controls" hidden?="{{!controls}}">
+        <div id="controls" hidden$="{{!controls}}">
           <div class="scrubber">
-            <div class="tracker" style="transform: translateX({{(player.currenttime / player.duration) * 150}}px)">{{player.currenttimeformatted}}</div>
+            <div class="tracker" style$="transform: translateX({{_computeScrubPixels(currentTime, _duration)}}px)">{{_currentTimeFormatted}}</div>
           </div>
           <ul class="actions">
-            <li id="restart" class="restart" on-tap="{{restartVideo}}"></li>
-            <li id="pause" class="pause {{ {paused: paused} | tokenList }}" on-tap="{{togglePause}}"></li>
+            <li id="restart" class="restart" on-tap="restartVideo"></li>
+            <li id="pause" class$="pause {{_computeTernary(paused, 'paused', '')}}" on-tap="togglePause"></li>
           </ul>
         </div>
       </div>
@@ -69,116 +74,138 @@ Video scene.
   </div>
 </template>
 <script>
+(function() {
+  var VIDEO_IDS = {
+    'trailer': {
+      id: 'IdpQSy4IB_I',
+    },
+    'carpool': {
+      id: 'h83b1lWPuvQ'
+    },
+    'liftoff': {
+      id: 'oCAKV4Ikhec'
+    },
+    'jingle': {
+      id: 'sQnKCU_A0Yc',
+      sourceIsTracker: true
+    },
+    'satellite': {
+      id: 'ZJPL56IPTjw',
+      sourceIsTracker: true
+    },
+    'temptation': {
+      id: '2FtcJJ9vzVQ',
+      sourceIsTracker: true
+    },
+    'office': {
+      id: 'IXmDOu-eSx4',
+      sourceIsTracker: true
+    },
+    'tired': {
+      id: '2UGX3bT9u20',
+      sourceIsTracker: true
+    },
+    'com-room': {
+      id: '_WdYujHlmHA',
+      sourceIsTracker: true
+    },
+    'reload': {
+      id: 'vHMeXs36NTE',
+      sourceIsTracker: true
+    },
+    'slacking-off': {
+      id: 'uEl2WIZOVdQ',
+      sourceIsTracker: true
+    }
+  };
+
   Polymer({
-    componentDir: 'scenes/videoscene/',
+    is: 'video-scene',
+    behaviors: [window.SantaSceneBehavior],
 
-    /**
-     * True if the video is paused.
-     *
-     * @property paused
-     * @type boolean
-     * @default true
-     */
-    paused: true,
+    properties: {
 
-    /**
-     * True if the poster image should show.
-     *
-     * @property poster
-     * @type boolean
-     * @default true
-     */
-    poster: true,
+      /**
+       * True if the video is paused.
+       */
+      paused: {
+        type: Boolean,
+        value: true
+      },
 
-    /**
-     * True if the start button should show.
-     *
-     * @property start
-     * @type boolean
-     * @default false
-     */
-    start: false,
+      /**
+       * True if the poster image should show.
+       */
+      poster: {
+        type: Boolean,
+        value: true
+      },
 
-    /**
-     * True if the scene board play controls should show.
-     *
-     * @property controls
-     * @type boolean
-     * @default false
-     */
-    controls: false,
+      /**
+       * True if the start button should show.
+       */
+      start: {
+        type: Boolean,
+        value: false
+      },
 
-    /**
-     * True if the `google-youtube` element should be created. Used to keep the
-     * iframe in the DOM only when the scene is visible.
-     *
-     * @property showPlayer
-     * @type boolean
-     * @default false
-     */
-    showPlayer: false,
+      /**
+       * True if the scene board play controls should show.
+       */
+      controls: {
+        type: Boolean,
+        value: false
+      },
 
-    /**
-     * A reference to the current `google-youtube` element, if there is one.
-     *
-     * @property player
-     * @type Element
-     * @default null
-     */
-    player: null,
+      /**
+       * True if the `google-youtube` element should be created. Used to keep the
+       * iframe in the DOM only when the scene is visible.
+       */
+      showPlayer: {
+        type: Boolean,
+        value: false
+      },
 
-    /**
-     * Mapping of routes to YouTube video IDs. `source` gives where the user
-     * should go when they hit the in-scene back button.
-     *
-     * @property VIDEO_IDS
-     * @type Object
-     */
-    VIDEO_IDS: {
-      'trailer': {
-        id: 'IdpQSy4IB_I',
-        source: 'village'
+      /**
+       * A reference to the current `google-youtube` element, if there is one.
+       */
+      player: {
+        type: Object,
+        value: null
       },
-      'carpool': {
-        id: 'h83b1lWPuvQ',
-        source: 'village'
+
+      /**
+       * The video ID that should be displayed.
+       */
+      videoId: {
+        type: String,
+        computed: '_computeVideoId(route)'
       },
-      'liftoff': {
-        id: 'oCAKV4Ikhec',
-        source: 'village'
+
+      /**
+       * Whether this video's source is the tracker (true) or village (false).
+       */
+      sourceIsTracker: {
+        type: Boolean,
+        computed: '_computeSourceIsTracker(route)'
       },
-      'jingle': {
-        id: 'sQnKCU_A0Yc',
-        source: 'tracker'
-      },
-      'satellite': {
-        id: 'ZJPL56IPTjw',
-        source: 'tracker'
-      },
-      'temptation': {
-        id: '2FtcJJ9vzVQ',
-        source: 'tracker'
-      },
-      'office': {
-        id: 'IXmDOu-eSx4',
-        source: 'tracker'
-      },
-      'tired': {
-        id: '2UGX3bT9u20',
-        source: 'tracker'
-      },
-      'com-room': {
-        id: '_WdYujHlmHA',
-        source: 'tracker'
-      },
-      'reload': {
-        id: 'vHMeXs36NTE',
-        source: 'tracker'
-      },
-      'slacking-off': {
-        id: 'uEl2WIZOVdQ',
-        source: 'tracker'
-      }
+
+      /**
+       * The currentTime of the video. Bound to the `google-youtube` element.
+       */
+      currentTime: {type: Number},
+
+      /**
+       * The formtted currentTime of the video. Bound to `google-youtube`,
+       * where the property is readOnly.
+       */
+      _currentTimeFormatted: {type: String},
+
+      /**
+       * The duration of the video. Bound to `google-youtube`, where the
+       * property is readOnly.
+       */
+      _duration: {type: Number},
     },
 
     /**
@@ -194,18 +221,18 @@ Video scene.
     youtubeReady: function() {
       this.start = true;
 
-      this.player = this.$['module-video'].querySelector('#player');
+      this.player = this.$$('#player');
 
       this.player.seekTo(0);
       this.player.pause();
       this.controls = false;
     },
 
-    hidePoster: function(e, detail, sender) {
+    hidePoster: function(e, detail) {
       this.$.poster.hidden = true;
     },
 
-    youtubeStateChange: function(e, detail, sender) {
+    youtubeStateChange: function(e, detail) {
       var state = e.detail.data;
 
       switch (state) {
@@ -285,15 +312,30 @@ Video scene.
       }
     },
 
-    keyHandler: function(e, details, sender) {
-      switch (e.detail.key) {
+    keyHandler: function(e, detail) {
+      switch (detail.key) {
         case 'enter':
         case 'space':
           e.stopPropagation();
           this.togglePause();
           break;
       }
+    },
+
+    _computeVideoId: function(route) {
+      var o = VIDEO_IDS[route];
+      return o ? o.id : null;
+    },
+
+    _computeSourceIsTracker: function(route) {
+      var o = VIDEO_IDS[route];
+      return !!(o && o.sourceIsTracker);  // default false
+    },
+
+    _computeScrubPixels: function(currenttime, duration) {
+      return (currenttime / duration) * 150;  // 150px is a magic constant
     }
   });
+})();
 </script>
-</polymer-element>
+</dom-module>

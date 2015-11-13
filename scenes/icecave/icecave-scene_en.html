@@ -12,18 +12,16 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
+
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="icecave-scene.css" />
 
 <!--
 Icecave scene.
-
-@element icecave-scene
-@extends base-scene
 -->
-<polymer-element name="icecave-scene" extends="base-scene">
+<dom-module id="icecave-scene">
 <template>
-  <link rel="stylesheet" href="icecave-scene.css" no-shim>
-
   <div id="module-icecave">
     <div class="scene">
       <div class="view">
@@ -69,7 +67,8 @@ Icecave scene.
 <script>
 (function() {
   Polymer({
-    componentDir: 'scenes/island/',
+    is: 'icecave-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     onPreload: function() {
       this.preloadImages([
@@ -90,4 +89,4 @@ Icecave scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

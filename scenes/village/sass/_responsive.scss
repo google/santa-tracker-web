@@ -4,7 +4,7 @@ $mobilePortraitBreakpoint: 400px;
 
 @media (min-width: 1px) and (max-width: $tabletBreakpoint) {
   #sun, #moon, #fakesun, #fakemoon {
-    @include transform(scale(0.8));
+    transform: scale(0.8);
   }
 
   #hit-area-left, #hit-area-right {
@@ -21,7 +21,7 @@ $mobilePortraitBreakpoint: 400px;
   }
 
   #countdown {
-    @include scale(.8);
+    transform: scale(.8);
     h2 {
       display: none;
     }
@@ -35,11 +35,11 @@ $mobilePortraitBreakpoint: 400px;
   }
 
   #sun, #moon, #fakesun, #fakemoon {
-    @include transform(scale(0.5));
+    transform: scale(0.5);
   }
 
   #countdown.finished #finished-tracker {
-    @include transform(scale(0.7) translate3d(0,-20px,0) !important);
+    transform: scale(0.7) translate3d(0,-20px,0) !important;
   }
 }
 

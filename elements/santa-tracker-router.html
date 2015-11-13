@@ -17,10 +17,8 @@ specific language governing permissions and limitations under the License.
 
 <!--
 Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director.
-
-@element santa-tracker-router
 -->
-<polymer-element name="santa-tracker-router" attributes="route sceneParams autoHash" hidden>
+<dom-module id="santa-tracker-router">
 <script>
 (function() {
   /**
@@ -32,9 +30,11 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
    */
   function routeToParts(route) {
     if (!route) {
-      return {route: route, params: {}};
+      return {
+        route: route,
+        params: {}
+      };
     }
-
     var params = {};
     var extraParams = route.split('?');
     if (extraParams) {
@@ -44,8 +44,10 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
         params[parts[0]] = parts[1];
       }
     }
-
-    return {route: extraParams[0], params: params};
+    return {
+      route: extraParams[0],
+      params: params
+    };
   }
 
   /**
@@ -65,42 +67,47 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
   var private_router;
 
   Polymer({
-    /**
-     * URL route.
-     *
-     * @attribute route
-     * @type string
-     * @default null
-     */
-     route: null,
+    is: 'santa-tracker-router',
 
-    /**
-     * True to automatically update window.location.hash when the route property changes.
-     *
-     * @property autoHash
-     * @type bool
-     * @default false
-     */
-    autoHash: false,
+    hostAttributes: {hidden: true},
 
-    /**
-     * URL params specific to the scene. Subclass scenes can use this property
-     * to deeplink into sections of their app.
-     *
-     * Example: /#jamband?band=2,8,-1,1,7,-1
-     *
-     * @attribute sceneParams
-     * @type object
-     * @default {}
-     */
-    sceneParams: {},
+    properties: {
+      /**
+       * True to automatically update window.location.hash when the route property changes.
+       */
+      autoHash: {
+        type: Boolean,
+        value: false
+      },
+
+      /**
+       * URL route.
+       */
+      route: {
+        type: String,
+        value: null,
+        notify: true,
+        observer: 'routeChanged'
+      },
+
+      /**
+       * URL params specific to the scene. Subclass scenes can use this property
+       * to deeplink into sections of their app.
+       *
+       * Example: /#jamband?band=2,8,-1,1,7,-1
+       */
+      sceneParams: {
+        type: Object,
+        value: function() {
+          return {};
+        },
+        notify: true
+      }
+
+    },
 
     /**
      * The Flatiron Route object.
-     *
-     * @property router
-     * @type Router
-     * @readonly
      */
     get router() {
       if (!private_router) {
@@ -115,26 +122,24 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
       this.router.on(/(.*)/, function(route) {
         this.route = route;
         // TODO: preserve params when calendar comes up.
-        this.sceneParams = {}; // Route updates after page load wipe scene params.
+        this.sceneParams = {};
       }.bind(this));
-
-      var route = this.router.getRoute() ?
-                  this.router.getRoute().join(this.router.delimiter) : '';
-
+      var route = this.router.getRoute() ? this.router.getRoute().join(this.router.delimiter) : '';
       var pieces = routeToParts(route);
-
       this.route = pieces.route;
       this.sceneParams = pieces.params;
     },
 
     routeChanged: function() {
-      if (this.autoHash) {
+      if (this.autoHash && this.route != null) {
         var params = serializeParams(this.sceneParams);
         location.hash = this.route + (params ? '?' + params : '');
       }
+      // TODO(samthor): seems disused
       this.fire('director-route', this.route);
     }
+
   });
-})();
+}());
 </script>
-</polymer-element>
+</dom-module>

@@ -29,6 +29,7 @@ function WorldView(base, componentDir) {
    * @type {!Array.<!SantaLocation>}
    * @private
    */
+  // TODO(samthor): This is disused after being set in setDestinations.
   this.destinations_ = [];
 
   /**

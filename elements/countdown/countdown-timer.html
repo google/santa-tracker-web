@@ -13,15 +13,27 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/iron-flex-layout/classes/iron-flex-layout.html">
+<link rel="import" href="../../js/utils.html">
+
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="countdown-timer.css">
 
 <!--
-Countdown timer.
+Displays a countdown timer.
 
-@element countdown-timer
+Example
+
+    <countdown-timer count-down-end-date="1450951200000"
+                     finished="{{isFinished}}">
+      <h3>Days</h3>
+      <h3>Hours</h3>
+      <h3>Minutues</h3>
+      <h3>Seconds</h3>
+    </countdown-timer>
 -->
-<polymer-element name="countdown-timer" attributes="santaService countDownEndDate finished">
+<dom-module id="countdown-timer">
   <template>
-    <link rel="stylesheet" href="countdown-timer.css" no-shim>
     <style>
       :host {
         display: block;
@@ -32,19 +44,24 @@ Countdown timer.
       <content id="content" select="*"></content>
     </div>
 
-    <div id="counter" layout horizontal>
-      <template repeat="{{title, i in titles}}">
-        <div class="counter-box" layout vertical center hidden?="{{i == 0 && displayDigits < 8}}">
-          <h2>{{title.textContent}}</h2>
-          <div class="digits" layout horizontal>
-            <template repeat="{{digits in [0, 1]}}">
-              <div class="digit">
-                <div class="digit-top digit-front"><span></span></div>
-                <div class="digit-top digit-behind"><span></span></div>
-                <div class="digit-bottom digit-front"><span></span></div>
-                <div class="digit-bottom digit-behind"><span></span></div>
+    <div id="counter" class="layout horizontal">
+      <template is="dom-repeat" items="{{titles}}">
+        <div class="counter-box layout vertical center"
+             hidden$="{{_computeHide(index, displayDigits)}}">
+          <h2>{{item}}</h2>
+          <div class="digits layout horizontal">
+            <div class="digit">
+              <div class="digit-top digit-front"><span></span></div>
+              <div class="digit-top digit-behind"><span></span></div>
+              <div class="digit-bottom digit-front"><span></span></div>
+              <div class="digit-bottom digit-behind"><span></span></div>
+            </div>
+            <div class="digit">
+              <div class="digit-top digit-front"><span></span></div>
+              <div class="digit-top digit-behind"><span></span></div>
+              <div class="digit-bottom digit-front"><span></span></div>
+              <div class="digit-bottom digit-behind"><span></span></div>
               </div>
-            </template>
           </div>
         </div>
       </template>
@@ -54,91 +71,105 @@ Countdown timer.
   <script>
   (function() {
 
-    var TRANSITION_TIME_ = 300;
+    var _TRANSITION_TIME = 300;
 
     Polymer({
+      is: 'countdown-timer',
 
-      /**
-       * Optional container element to render the countdown into. If `render`
-       * is `true`, the container defaults to this element's light dom.
-       *
-       * @attribute container
-       * @type Element
-       * @default HTMLElement|null
-       */
-      container: null,
+      properties: {
+        /**
+         * Optional container element to render the countdown into. If `render`
+         * is `true`, the container defaults to this element's light dom.
+         */
+        container: {
+          type: Object,
+          value: null
+        },
 
-      /**
-       * True if the countdown should be active.
-       *
-       * @property active
-       * @type bool
-       * @default false
-       */
-      active: false,
+        /**
+         * True if the countdown should be active.
+         */
+        active: {
+          type: Boolean,
+          value: false,
+          notify: true
+        },
 
-      /**
-       * True if the countdown should render a UI.
-       *
-       * @property render
-       * @type bool
-       * @default true
-       */
-      render: true,
+        /**
+         * True if the countdown should render a UI.
+         */
+        render: {
+          type: Boolean,
+          value: true
+        },
 
-      /**
-       * The end time for this countdown, in milliseconds.
-       *
-       * @attribute countDownEndDate
-       * @type number
-       * @default 1450951200000
-       */
-      countDownEndDate: 1450951200000, // Dec 24, 2015
+        /**
+         * The end time for this countdown, in milliseconds.
+         */
+        countDownEndDate: {
+          type: Number,
+          value: 1450951200000, // Dec 24, 2015,
+          observer: '_countDownEndDateChanged'
+        },
 
-      /**
-       * Santa service.
-       *
-       * @attribute santaService
-       * @type SantaService
-       * @default null
-       */
-       santaService: null,
+        /**
+         * Santa service.
+         */
+         santaService: {
+          type: Object,
+          value: null
+        },
 
-      /**
-       * The number of digits to display.
-       *
-       * @property displayDigits
-       * @type number
-       * @default 8
-       */
-       displayDigits: 8,
+        /**
+         * The number of digits to display.
+         */
+        displayDigits: {
+          type: Number,
+          value: 8
+        },
 
-       publish: {
         /**
          * True when the countdown has reached `countDownEndDate`.
-         *
-         * @attribute finished
-         * @type bool
-         * @default false
          */
-        finished: {value: false, reflect: true}
-       },
+        finished: {
+          value: false,
+          reflectToAttribute: true,
+          notify: true,
+          readOnly: true
+        },
 
-      /**
-       * The current time as dictated by the `santaService`.
-       *
-       * @property currentTime
-       * @type number
-       */
+        /**
+         * The current time as dictated by the `santaService`.
+         */
+        currentTime: {
+          type: Number,
+          value: null,
+          readOnly: true
+        },
 
-      created: function() {
-        this.titles = [];
-        this.digits = [];
+        titles: {
+          type: Array,
+          value: function() { return []; },
+          readOnly: true
+        },
+
+        digits: {
+          type: Array,
+          value: function() { return []; },
+          readOnly: true
+        }
+      },
+
+      _oldDigits: [],
+
+      listeners: {
+         // For prod, <i18n-msg> is removed and textContent will already be
+         // correct. For dev, listen for i18n updates and update the labels.
+        'i18n-language-ready': 'updateLabels'
       },
 
       ready: function() {
-        this.currentTime = this.getCurrentTime_();
-
+        this._setCurrentTime(this._getCurrentTime());
         if (this.render) {
           this.container = this.container || this;
         }
@@ -146,35 +177,40 @@ Countdown timer.
 
       attached: function() {
         if (this.render) {
-          this.titles = Array.prototype.slice.call(
-              this.$.content.getDistributedNodes());
-        }
-      },
-
-      domReady: function() {
-        // Needs to wait one rAF so titles has populated the template repeat.
-        if (this.render) {
-          this.digits = Array.prototype.slice.call(
-              this.$.counter.querySelectorAll('.digit'));
+          this.updateLabels();
         }
 
-        this.fire('countdown-timer-ready', this);
+        this.async(function() {
+          // Needs to wait one rAF so titles has populated the template repeat.
+          if (this.render) {
+            this._setDigits(Array.prototype.slice.call(
+                            this.$.counter.querySelectorAll('.digit')));
+          }
 
-        // Set the initial time but don't start
-        this.tickTock();
+          this.fire('countdown-timer-ready', this);
+
+          // Set the initial time but don't start
+          this.tickTock();
+        });
       },
 
-      countDownEndDateChanged: function() {
+      updateLabels: function() {
+        var titles = this.getContentChildNodes().map(function(node) {
+          return node.textContent;
+        });
+        this._setTitles(titles);
+      },
+
+      _countDownEndDateChanged: function() {
         // string - number type cohesion works, but let's be explicit when
         // we get a new countDownEndDate.
         this.countDownEndDate = parseInt(this.countDownEndDate);
       },
 
       /**
-       * @private
        * @return {Object.<string>}
        */
-      getCurrentTime_: function() {
+      _getCurrentTime: function() {
         var now = this.santaService ? this.santaService.now() : Date.now();
 
         var diff = Math.max(0, this.countDownEndDate - now);
@@ -195,10 +231,8 @@ Countdown timer.
         return {diff: diff, days: days, hours: hours, mins: mins, seconds: seconds};
       },
 
-      oldDigits: [],
-
       tickTock: function() {
-        this.currentTime = this.getCurrentTime_();
+        this._setCurrentTime(this._getCurrentTime());
 
         var days = this.currentTime.days;
         var hours = this.currentTime.hours;
@@ -211,9 +245,9 @@ Countdown timer.
           this.displayDigits = (days == 0) ? 6 : 8
 
           for (var i = 0, digit; digit = this.digits[i]; ++i) {
-            this.setDigit(digit, this.oldDigits[i], newDigits[i]);
+            this.setDigit(digit, this._oldDigits[i], newDigits[i]);
           }
-          this.oldDigits = newDigits;
+          this._oldDigits = newDigits;
         }
 
         // TODO: this is not i18n'd.
@@ -236,7 +270,7 @@ Countdown timer.
 
         if (this.currentTime.diff == 0) {
           this.fire('countdown-timer-finish', this);
-          this.finished = true;
+          this._setFinished(true);
           this.stop();
         }
       },
@@ -244,7 +278,6 @@ Countdown timer.
       /**
        * Sets a value for the digit node.
        *
-       * @method setDigit
        * @param {Element} el
        * @param {string|undefined} oldVal
        * @param {string} val
@@ -273,7 +306,7 @@ Countdown timer.
           digit.classList.remove('digit-anim');
           digitTopFront.firstElementChild.textContent = val;
           digitBottomBehind.firstElementChild.textContent = val;
-        }, null, TRANSITION_TIME_ * 2);
+        }, _TRANSITION_TIME * 2);
       },
 
       /**
@@ -302,10 +335,14 @@ Countdown timer.
        */
       isFinished: function() {
         return this.currentTime.diff <= 0;
+      },
+
+      _computeHide: function(i, displayDigits) {
+        return i == 0 && displayDigits < 8;
       }
 
     });
 
   })();
   </script>
-</polymer-element>
+</dom-module>

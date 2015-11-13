@@ -13,72 +13,120 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../components/polymer/polymer.html">
-<link rel="import" href="../components/core-pages/core-pages.html">
+<link rel="import" href="../components/iron-selector/iron-selectable.html">
 
 <!--
 Lazy loads children "pages".
-
-@element lazy-pages
-@extends core-pages
 -->
-<polymer-element name="lazy-pages" extends="core-pages" attributes="santaApp preloader">
-<template>
-  <style>
-    :host {
-      position: static;
-    }
-  </style>
-  <shadow></shadow>
-</template>
-<script>
+<dom-module id="lazy-pages">
+  <template>
+    <style>
+      :host {
+        position: static;
+        display: block;
+      }
+      :host > ::content > * {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+      :host > ::content > :focus {
+        outline: none;
+      }
+      :host > ::content > :not(.iron-selected) {
+        display: none !important;
+      }
+    </style>
+    <content></content>
+  </template>
+  <script>
   Polymer({
+    is: 'lazy-pages',
+    behaviors: [Polymer.IronSelectableBehavior],
 
-    /**
-     * A `<santa-app>` controller element.
-     *
-     * @attribute santaApp
-     * @type HTMLElement
-     * @default null
-     */
-    santaApp: null,
+    properties: {
+      /**
+       * A `<preload-overlay>` element.
+       */
+      preloader: {
+        value: null,
+        type: Object,
+        observer: '_preloaderUpdate'
+      },
 
-    /**
-     * A `<preload-overlay>` element.
-     *
-     * @attribute preloader
-     * @type HTMLElement
-     * @default null
-     */
-    preloader: null,
+      /**
+       * An array of valid route names (e.g., 'village' and 'boatload'). This
+       * is calculated in a subtly different way to that of the selectable
+       * items, and is available earlier in our life cycle.
+       */
+      validRoutes: {
+        type: Array,
+        notify: true,
+        computed: '_computeValidRoutes(items, attrForSelected)'
+      },
 
-    selectedItemChanged: function() {
+    },
 
-      this.super();
+    listeners: {'iron-select': '_selectedItemChanged'},
 
+    _selectedItemChanged: function() {
       var scene = this.selectedItem;
 
-      // Can't use scene.path because element definition may not be loaded yet
-      // and .path property won't exist.
-      var path = scene.getAttribute('path');
+      // Check both path attribute and path property: property contains the
+      // computed version (including language) for dev, whereas the attribute
+      // will contain the actual value.
+      var path = scene.getAttribute('path') || scene.path;
+      if (!path) {
+        // ... check path$ to work around a Polymer issue, where a $= attribute
+        // without [[]] or {{}} is not computed.
+        path = scene.getAttribute('path$');
+        if (!path && !scene.loaded) {
+          console.warn('unable to find path for scene', scene.localName);
+        }
+      }
 
       if (!path || !scene || !this.selected || scene.loaded) {
         return;
       }
 
       // Since this is the first time the scene is being loaded, send loading
-      // start time to analytics (timing is ended in base-scene.html)
-      var route = scene.getAttribute('route');
+      // start time to analytics (timing is ended in SantaSceneBehavior).
+      var route = scene.getAttribute('route') || scene.route;
       this.fire('analytics-time-start', {category: 'Scene Load Time',
           variable: route, time: Date.now()});
 
       // (Re)set the preload bg color and loading image before scene is loaded.
-      this.preloader.color = scene.getAttribute('loadingBgColor');
-      this.preloader.src = scene.getAttribute('loadingSrc');
+      this._preloaderUpdate();
+      this.fire('scene-progress');
 
-      Polymer.import([path], function(e) {
-        scene.santaApp = this.santaApp;
-      }.bind(this));
+      Polymer.Base.importHref([path], function() {
+        // Great! Nothing else to do.
+      }, function(e) {
+        throw new Error('unable to load path: ' + path);
+      });
+    },
+
+    _preloaderUpdate: function() {
+      if (!this.preloader) { return; }
+
+      var scene = this.selectedItem;
+      if (scene) {
+        this.preloader.color = scene.getAttribute('loading-bg-color');
+        this.preloader.src = scene.getAttribute('loading-src');
+      }
+    },
+
+    _computeValidRoutes: function(items, attrForSelected) {
+      // Items is intentionally unused as it may be empty before this element
+      // is fully attached. Query directly for valid, selectable routes.
+      var els = Polymer.dom(this).queryDistributedElements('[' + attrForSelected + ']');
+      return els.map(function(el) {
+        return el.getAttribute(attrForSelected) || el[attrForSelected];
+      });
     }
+
   });
-</script>
-</polymer-element>
+  </script>
+</dom-module>
