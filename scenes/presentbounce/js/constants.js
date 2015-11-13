@@ -22,9 +22,13 @@ goog.provide('Constants');
  * @const
  */
 app.Constants = {
-  // INITIAL_COUNTDOWN: 40, // in seconds
-  // TIME_PER_LEVEL: 20,
-  
+  TOTAL_LEVELS: 10,
+
+
+  INITIAL_COUNTDOWN: 40, // in seconds
+  COUNTDOWN_TRACK_LENGTH: 60, // in seconds
+  COUNTDOWN_FLASH: 10, // seconds left when countdown starts flashing
+
   // GRAVITY: 300,
   // PHYSICS_SCALE: 1 / 100,
   // MIN_PHYSICS_FPS: 1 / 50,
@@ -36,7 +40,7 @@ app.Constants = {
   //  * The level specifies a board by name and an array of
   //  * ball spawn x positions, relative to the board center.
   //  */
-  // LEVELS: [
+  LEVELS: [
   //   {
   //     board: 'easy',
   //     balls: [{x: -200}]
@@ -57,7 +61,7 @@ app.Constants = {
   //     board: 'board2',
   //     balls: [{x: 250}, {x: -250}, {x: 250}]
   //   }
-  // ]
+  ]
 
 };
 

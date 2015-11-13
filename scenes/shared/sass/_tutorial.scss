@@ -53,6 +53,7 @@
 
   // Mouse
   @include tutorial(mouse-leftright, '../shared/img/tutorial/mouse-leftright.svg', 2);
+  @include tutorial(mouse, '../shared/img/tutorial/mouse.svg', 2);
 
   // Touch
   @include tutorial(touch-updown, '../shared/img/tutorial/touch-updown-landscape.svg', 4);

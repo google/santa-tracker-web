@@ -16,14 +16,13 @@
 
 goog.provide('app.Game');
 
-goog.require('b2');
 goog.require('app.shared.Coordinator');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.LevelUp');
 goog.require('app.shared.pools');
 goog.require('app.shared.Scoreboard');
 goog.require('app.shared.Tutorial');
-
+goog.require('app.Level');
 
 
 /**
@@ -34,23 +33,53 @@ goog.require('app.shared.Tutorial');
  */
 app.Game = function(elem) {
   this.elem = $(elem);
+  this.viewElem = this.elem.find('.scene');
 
-  //this.scoreboard = new app.shared.Scoreboard(this, this.elem.find('.board'));
-  //this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
-  //this.levelUp = new app.shared.LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
+  this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
+  this.levelUp = new app.shared.LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
+  this.scoreboard = new app.shared.Scoreboard(this, this.elem.find('.board'), Constants.TOTAL_LEVELS);
+  this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt', 'mouse');
 
-  //this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt', 'keys-leftright');
+  this.isPlaying = false;
+  this.paused = false;
+  this.scale = 1;
+  this.debug = !!location.search.match(/[?&]debug=true/);
+  this.gameStartTime = +new Date;
+
+  // bind context
+  this.onFrame_ = this.onFrame_.bind(this);
+  this.loadNextLevel_ = this.loadNextLevel_.bind(this);
   
-  //this.debug = !!location.search.match(/[?&]debug=true/);
-  //this.gameStartTime = +new Date;
-
-  // Cache a bound onFrame since we need it each frame.
-  //this.onFrame_ = this.onFrame_.bind(this);
-  
-  //this.watchSceneSize_();
+  // Bind listener to scale scene when window resizes
+  this.watchSceneSize_();
 };
 
+/**
+ * Starts the game.
+ * @export
+ */
+app.Game.prototype.start = function() {
+  this.restart();
+  this.tutorial.start();
+};
 
+/**
+ * Resets all game entities and restarts the game. Can be called at any time.
+ */
+app.Game.prototype.restart = function() {
+  var match = location.search.match(/[?&]level=(\d+)/) || [];
+  this.level = (+match[1] || 1) - 2;
+  this.paused = false;
+
+  // Clear score board and load first (or chosen debug) level
+  this.scoreboard.reset();
+  this.loadNextLevel_();
+
+  // Start game
+  window.santaApp.fire('sound-trigger', 'gb_game_start');
+  window.santaApp.fire('analytics-track-game-start', {gameid: 'presentbounce'});
+  this.unfreezeGame();
+};
 
 /**
  * Game loop. Runs every frame using requestAnimationFrame.
@@ -67,10 +96,9 @@ app.Game.prototype.onFrame_ = function() {
   this.lastFrame = now;
 
   // Update game state with physics simulations.
-  this.update(delta);
+  this.currentLevel_.update(delta);
 
   // Render game state.
-
   this.scoreboard.onFrame(delta);
 
   // Box2D can draw it's world using canvas.
@@ -83,121 +111,59 @@ app.Game.prototype.onFrame_ = function() {
 };
 
 /**
- * Updates game state since last frame.
- * @param {number} totalDelta
- */
-app.Game.prototype.update = function(totalDelta) {
-  while (totalDelta > 0.0001) {
-    var delta = Math.min(totalDelta, app.Constants.MIN_PHYSICS_FPS);
-
-    Coordinator.onFrame(delta);
-    this.board.update(delta);
-    this.boxWorld.Step(delta, 10);
-
-    // Update spheres
-    for (var i = 0, sphere; sphere = this.spheres[i]; i++) {
-      sphere.update(delta);
-
-      if (sphere.dead) {
-        this.spheres.splice(i--, 1);
-      }
-    }
-
-    totalDelta -= delta;
-  }
-};
-
-/**
  * Transition to the next level.
  * @private
  */
-app.Game.prototype.bumpLevel_ = function() {
+app.Game.prototype.loadNextLevel_ = function() {
   // Next level
   this.level++;
   var levelNumber = this.level % app.Constants.LEVELS.length;
-  var cycle = Math.floor(this.level / app.Constants.LEVELS.length);
-  var levelInfo = app.Constants.LEVELS[levelNumber];
+  var levelData = app.Constants.LEVELS[levelNumber];
 
   // Send Klang event
   if (this.level > 0) {
     window.santaApp.fire('sound-trigger', 'gb_level_up');
   }
 
-  // Update time!
-  var time = app.Constants.TIME_PER_LEVEL;
-  time -= Math.min(20, cycle * app.Constants.LESS_TIME_PER_CYCLE);
+  // Update scoreboard
   this.scoreboard.setLevel(this.level);
-  this.scoreboard.addTime(time);
+  //this.scoreboard.resetTimer();
 
-  // Load level layout
-  this.board.switchToLevel(levelInfo);
-
-  // Spawn balls
-  this.availableBalls = levelInfo.balls.length;
-  this.remainingBalls = levelInfo.balls.length;
-  this.ballsAvailable.css('transform', 'translateZ(0) scaleX(' + 0 + ')');
-  this.ballsRemaining.css('transform', 'translateZ(0) scaleX(' + (this.remainingBalls / 10) + ')');
-
-  Coordinator.after(1, function() {
-    levelInfo.balls.forEach(function(ball) {
-      var sphere = app.Sphere.pop(this, 600 + ball.x);
-      this.spawner.spawnSphere(sphere);
-      this.spheres.push(sphere);
-    }, this);
-  }.bind(this));
+  // TODO Load new level
+  if (this.currentLevel_) {
+    this.currentLevel_.destroy();
+  }
+  this.currentLevel_ = new app.Level({data: levelData, onComplete: this.loadNextLevel_});
 };
 
 /**
- * Update gameplay when a sphere has hit the target.
- * @param {!app.Sphere} sphere The ball.
- * @param {number} x X position of the ball that hit.
- * @param {number} y Y position of the ball that hit.
+ * Freezes the game. Stops the onFrame loop and stops any CSS3 animations.
+ * Used both for game over and pausing.
  */
-app.Game.prototype.hitTarget = function(sphere, x, y) {
-  this.remainingBalls--;
-  this.ballsAvailable.css('transform', 'translateZ(0) scaleX(' + ((this.availableBalls - this.remainingBalls) / 10) + ')');
-  var score = 50 * Math.max(1, this.level + 1 - sphere.respawns);
-  this.scoreboard.addScore(score);
-  if (this.remainingBalls === 0) {
-    // Check for game end
-    if (this.level === Constants.LEVELS.length - 1) {
-      this.gameover();
-    } else {
-      this.levelUp.show(this.level + 2, this.bumpLevel_);
-    }
+app.Game.prototype.freezeGame = function() {
+  this.isPlaying = false;
+  this.elem.addClass('frozen');
+};
+
+/**
+ * Unfreezes the game, starting the game loop as well.
+ */
+app.Game.prototype.unfreezeGame = function() {
+  if (!this.isPlaying) {
+    this.elem.removeClass('frozen').focus();
+
+    this.isPlaying = true;
+    this.lastFrame = +new Date() / 1000;
+    this.requestId = utils.requestAnimFrame(this.onFrame_);
   }
 };
 
-/**
- * Starts the game.
- * @export
- */
-app.Game.prototype.start = function() {
-  this.restart();
-  this.tutorial.start();
-};
-
-/**
- * Resets all game entities and restarts the game. Can be called at any time.
- */
-app.Game.prototype.restart = function() {
-  // Cleanup last game
-  
-  var match = location.search.match(/[?&]level=(\d+)/) || [];
-  this.level = (+match[1] || 1) - 2;
-  
-  //Coordinator.reset();
-  //this.scoreboard.reset();
-
-  // Start game
-  window.santaApp.fire('sound-trigger', 'gb_game_start');
-  window.santaApp.fire('analytics-track-game-start', {gameid: 'presentbounce'});
-};
 
 /**
  * Stops the game as game over. Displays the game over screen as well.
  */
 app.Game.prototype.gameover = function() {
+  this.freezeGame();
   this.gameoverView.show();
   window.santaApp.fire('sound-trigger', 'gb_game_over');
   window.santaApp.fire('analytics-track-game-over', {
@@ -208,6 +174,33 @@ app.Game.prototype.gameover = function() {
   });
 };
 
+/**
+ * Pauses/unpauses the game.
+ */
+app.Game.prototype.togglePause = function() {
+  if (this.paused) {
+    this.resume();
+  // Only allow pausing if the game is playing (not game over).
+  } else if (this.isPlaying) {
+    this.pause();
+  }
+};
+
+/**
+ * Pause the game.
+ */
+app.Game.prototype.pause = function() {
+  this.paused = true;
+  this.freezeGame();
+};
+
+/**
+ * Resume the game.
+ */
+app.Game.prototype.resume = function() {
+  this.paused = false;
+  this.unfreezeGame();
+};
 
 /**
  * Scale the game down for smaller resolutions.
@@ -244,7 +237,7 @@ app.Game.prototype.watchSceneSize_ = function() {
   };
 
   updateSize();
-  $(window).on('resize.presentbounce', updateSize);
+  $(window).on('resize.presentbouncex', updateSize);
 };
 
 /**
@@ -262,5 +255,4 @@ app.Game.prototype.dispose = function() {
 
   this.levelUp.dispose();
   this.tutorial.dispose();
-  app.shared.pools.empty();
 };
