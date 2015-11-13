@@ -83,8 +83,8 @@ app.FrameWrapper.prototype.dispose = function() {
  * Loads the gameplay frame into the iframe.
  */
 app.FrameWrapper.prototype.setIframeSrc = function() {
-  var filename = '../codeboogieframe/codeboogieframe-scene_' + document.documentElement.lang + '.html';
-  this.iframeEl.attr('src', this.staticDir + filename + location.search);
+  var filename = window.DEV_SCENE ? 'index.html' : 'codeboogieframe-scene_' + document.documentElement.lang + '.html';
+  this.iframeEl.attr('src', this.staticDir + '../codeboogieframe/' + filename + location.search);
 };
 
 app.FrameWrapper.prototype.triggerSound = function(event) {
