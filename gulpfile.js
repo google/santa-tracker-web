@@ -273,7 +273,8 @@ gulp.task('compile-santa-api-service', function() {
       compilerFlags: addCompilerFlagOptions({
         compilation_level: 'SIMPLE_OPTIMIZATIONS',
         // warning_level: 'VERBOSE',
-        language_in: 'ECMASCRIPT5_STRICT',
+        language_in: 'ECMASCRIPT6_STRICT',
+        language_out: 'ECMASCRIPT5_STRICT',
         externs: SHARED_EXTERNS.concat('js/service/externs.js'),
         define: ['crossDomainAjax.BASE="' + API_BASE_URL + '"'],
         jscomp_warning: [
@@ -326,7 +327,8 @@ gulp.task('compile-scenes', ['compile-santa-api-service'], function() {
         closure_entry_point: config.entryPoint,
         compilation_level: 'SIMPLE_OPTIMIZATIONS',
         warning_level: warningLevel,
-        language_in: 'ECMASCRIPT5_STRICT',
+        language_in: 'ECMASCRIPT6_STRICT',
+        language_out: 'ECMASCRIPT5_STRICT',
         process_closure_primitives: null,
         generate_exports: null,
         jscomp_warning: warnings,
