@@ -30,7 +30,8 @@ Village scene (2015).
     <div class="fit scroll">
       <header>
         <div id="header-background"></div>
-
+        <div id="header-skyeffect">
+        </div>
         <div id="header-content">
           <div id="count-down">
             <h2>Santa Takes Off In</h2>
@@ -76,6 +77,56 @@ Village scene (2015).
 <script>
 (function() {
 
+  var SNOWFLAKE_ROTATION = 60;
+  var SNOWFLAKE_SPEED_MIN = 2.5;
+  var SNOWFLAKE_SPEED_MAX = 10;
+  var SNOWFLAKE_SHIMMY_MIN = 5;
+  var SNOWFLAKE_SHIMMY_MAX = 10;
+  var SNOWFLAKE_SIZE_MIN = 8;
+  var SNOWFLAKE_SIZE_MAX = 16;
+
+  function randomRange(min, max) {
+    return min + Math.random() * (max - min);
+  }
+
+  /**
+   * Builds and returns a random snowflake. If a previous snowflake was passed,
+   * just update it instead of rebuilding it.
+   */
+  function snowflakeFactory(opt_prev) {
+    var x = opt_prev;
+    if (!x) {
+      // Three transforms are applied, so three elements are needed-
+      //   1. outermost positions l/r on page, and rotates for a directed fall
+      //   2. .shimmy shakes snowflake left and right
+      //   3. .fall.snow draws the snowflake and transforms it down
+      x = document.createElement('span');
+      x.innerHTML = '<span><span class="shimmy"><span class="fall snow"></span></span></span>';
+      x = x.firstChild;
+    }
+
+    var pos = Math.round(Math.random() * 100);
+    var rotate = Math.round(Math.random() * SNOWFLAKE_ROTATION) - (SNOWFLAKE_ROTATION / 2);
+    var fallSpeed = randomRange(SNOWFLAKE_SPEED_MIN, SNOWFLAKE_SPEED_MAX);
+    var shimmySpeed = randomRange(SNOWFLAKE_SHIMMY_MIN, SNOWFLAKE_SHIMMY_MAX);
+    var size = Math.round(randomRange(SNOWFLAKE_SIZE_MIN, SNOWFLAKE_SIZE_MAX));
+
+    // nb: we assume 'x' has a className of 'thing'.
+    x.style.transform = 'translate(' + pos + 'vw) rotate(' + rotate + 'deg)';
+
+    var shimmy = x.querySelector('.shimmy');
+    shimmy.style.animationDuration = shimmySpeed + 's'
+    shimmy.style.fontSize = fallSpeed + 'px';  // shimmy width is inverse to speed
+
+    var fall = x.querySelector('.fall');
+    fall.style.animationDuration = fallSpeed + 's';
+
+    var snow = x.querySelector('.snow');
+    snow.style.width = size + 'px';
+
+    return x;
+  }
+
   Polymer({
     is: 'dorf-scene',
     behaviors: [window.SantaSceneBehavior],
@@ -88,12 +139,41 @@ Village scene (2015).
         type: String
       },
     },
-  
-    _calculateClass: function(house, iced) {
-      if (iced) {
-        return 'iced';
+
+    observers: [
+      '_setupEffectHandlers(active)'
+    ],
+
+    ready: function() {
+      this._changeEffectCount = this._changeEffectCount.bind(this);
+    },
+
+    attached: function() {
+      var skyeffect = this.$['header-skyeffect'];
+
+      for (var i = 0; i < 25; ++i) {
+        this.async(function() {
+          var x = snowflakeFactory();
+          skyeffect.appendChild(x);
+        }, i * 1000);
       }
-      return '';
+    },
+
+    _setupEffectHandlers: function(active) {
+      if (!active) {
+        window.removeEventListener('resize', this._changeEffectCount);
+        return;  // TODO(samthor): Remove all current snowflakes
+      }
+
+      this._changeEffectCount();
+      window.addEventListener('resize', this._changeEffectCount);
+    },
+
+    _changeEffectCount: function() {
+      this.debounce('_changeEffecCount', function() {
+        // TODO(samthor): Choose a number of snowflakes based on
+        // `window.innerWidth`. Drift the current number towards that amount.
+      });
     },
 
     _calculateHref: function(house, iced) {
@@ -101,6 +181,13 @@ Village scene (2015).
         return null;
       }
       return house.link || this.pageUrl + '#' + house.module;
+    },
+
+    _calculateClass: function(house, iced) {
+      if (iced) {
+        return 'iced';
+      }
+      return '';
     },
 
     /**

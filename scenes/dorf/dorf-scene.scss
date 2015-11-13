@@ -11,6 +11,10 @@ $name: 'module-dorf';
 
   .scroll {
     overflow-y: auto;
+
+    // Force a layer on this scroll element.
+    transform: translateZ(0);
+    will-change: transform;
   }
 
   header {
@@ -28,12 +32,48 @@ $name: 'module-dorf';
       background-size: 3445px 286px;
       position: absolute;
       width: 100%;
-      z-index: 1;
+    }
+
+    /** Contains all effects, like snow, the airplane etc. */
+    #header-skyeffect {
+      position: absolute;
+      width: 100%;
+      height: 630px;
+      overflow: hidden;
+
+      > * {
+        display: inline-block;
+        position: absolute;
+      }
+
+      .shimmy {
+        animation: #{$name}-shimmy 15s infinite ease-in-out;
+      }
+      .fall {
+        animation: #{$name}-fall 35s infinite linear;
+      }
+      .snow {
+        position: absolute;
+        width: 16px;
+      }
+      .snow::before {
+        content: "";
+        float: left;
+        width: 100%;
+        padding-top: 100%;
+        margin-left: -50%;
+        background: white;
+        border-radius: 10000px;
+      }
+
     }
 
     #header-content {
-      height: 100%;
+      position: absolute;
       width: 100%;
+      height: 630px;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -138,12 +178,12 @@ $name: 'module-dorf';
       bottom: 0;
       left: 25%;
       width: 50%;
+      will-change: transform;
     }
 
     a {
       text-decoration: none;
       color: inherit;
-      will-change: transform;
     }
 
     a:hover {
