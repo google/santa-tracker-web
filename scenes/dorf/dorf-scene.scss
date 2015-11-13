@@ -36,7 +36,7 @@ $name: 'module-dorf';
       background-image: url(img/header-bg.svg);
       background-repeat: repeat-x;
       background-position: 50% 100%;
-      background-size: 1620px 791px;
+      background-size: 1618px 791px;
       position: absolute;
       width: 100%;
       z-index: 1;
@@ -141,7 +141,7 @@ $name: 'module-dorf';
       position: absolute;
       background-image: url(img/ground.svg);
       background-repeat: repeat-x;
-      background-size: cover;
+      background-size: 1760px 3441px;
       background-position: 50% 0;
       width: 100%;
       height: 100%;
@@ -153,12 +153,10 @@ $name: 'module-dorf';
       background-image: url(img/road.svg);
       background-repeat: no-repeat;
       background-position: 50% 0;
-      background-size: cover;
-      width: 4002px;
-      height: 2932px;
+      background-size: 4002px 2932px;
+      width: 100%;
+      height: 100%;
       top: 96px;
-      left: 50%;
-      margin-left: -2001px;
     }
   }
 
