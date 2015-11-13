@@ -144,7 +144,11 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
         // if they load, will just move them back to a valid route - making the
         // back button useless).
         var params = serializeParams(this.sceneParams);
-        window.location.replace('#' + this.route + (params ? '?' + params : ''));
+
+        location.hash = this.route + (params ? '?' + params : '');
+
+        // TODO(thorogood): We shouldn't create a history event when the route
+        // is being set programatically: aka if the wrong #sceneName was loaded.
       }
     }
 
