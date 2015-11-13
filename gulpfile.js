@@ -305,12 +305,13 @@ gulp.task('compile-scenes', ['compile-santa-api-service'], function() {
 
     // All scenes need Closure's base.js to get @export support. This is used in
     // compilerFlags since it's essentially a static library (and to work around
-    // gulp-closure-compiler's love of copying files to /tmp).
-    var compilerSrc = [closureLibraryPath + '/base.js',
-        '!' + closureLibraryPath + '/**_test.js'];
+    // gulp-closure-compiler's love of copying files to /tmp). Remove tests
+    // last, as the rules seem to be evaluated left-to-right.
+    var compilerSrc = [closureLibraryPath + '/base.js'];
     if (config.closureLibrary === true) {
       compilerSrc.push(closureLibraryPath + '/**.js');
     }
+    compilerSrc.push('!' + closureLibraryPath + '/**_test.js');
 
     return stream.add(gulp.src([
       'scenes/' + sceneName + '/js/**/*.js',
