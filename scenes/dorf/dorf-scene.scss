@@ -14,13 +14,13 @@ $name: 'module-dorf';
   }
 
   #posser {
-    background: url(img/village-grid.png) no-repeat 50% 0;
+    /*background: url(img/village-grid.png) no-repeat 50% 0;
     background-size: 1293px auto;
     height: 10000px;
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
+    right: 0;*/
   }
 
   header {
@@ -141,11 +141,13 @@ $name: 'module-dorf';
       z-index: 1;
       background-image: url(img/road.svg);
       background-repeat: no-repeat;
-      background-position: -650px 0;
-      background-size: 3229px 2920px;
-      width: 100%;
-      height: 100%;
-      top: 0px;
+      background-position: 50% 0;
+      background-size: cover;
+      width: 4002px;
+      height: 2932px;
+      top: 96px;
+      left: 50%;
+      margin-left: -2001px;
     }
   }
 
