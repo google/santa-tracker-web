@@ -273,7 +273,8 @@ gulp.task('compile-santa-api-service', function() {
       compilerFlags: addCompilerFlagOptions({
         compilation_level: 'SIMPLE_OPTIMIZATIONS',
         // warning_level: 'VERBOSE',
-        language_in: 'ECMASCRIPT5_STRICT',
+        language_in: 'ECMASCRIPT6_STRICT',
+        language_out: 'ECMASCRIPT5_STRICT',
         externs: SHARED_EXTERNS.concat('js/service/externs.js'),
         define: ['crossDomainAjax.BASE="' + API_BASE_URL + '"'],
         jscomp_warning: [
@@ -304,12 +305,13 @@ gulp.task('compile-scenes', ['compile-santa-api-service'], function() {
 
     // All scenes need Closure's base.js to get @export support. This is used in
     // compilerFlags since it's essentially a static library (and to work around
-    // gulp-closure-compiler's love of copying files to /tmp).
-    var compilerSrc = [closureLibraryPath + '/base.js',
-        '!' + closureLibraryPath + '/**_test.js'];
+    // gulp-closure-compiler's love of copying files to /tmp). Remove tests
+    // last, as the rules seem to be evaluated left-to-right.
+    var compilerSrc = [closureLibraryPath + '/base.js'];
     if (config.closureLibrary === true) {
       compilerSrc.push(closureLibraryPath + '/**.js');
     }
+    compilerSrc.push('!' + closureLibraryPath + '/**_test.js');
 
     return stream.add(gulp.src([
       'scenes/' + sceneName + '/js/**/*.js',
@@ -326,7 +328,8 @@ gulp.task('compile-scenes', ['compile-santa-api-service'], function() {
         closure_entry_point: config.entryPoint,
         compilation_level: 'SIMPLE_OPTIMIZATIONS',
         warning_level: warningLevel,
-        language_in: 'ECMASCRIPT5_STRICT',
+        language_in: 'ECMASCRIPT6_STRICT',
+        language_out: 'ECMASCRIPT5_STRICT',
         process_closure_primitives: null,
         generate_exports: null,
         jscomp_warning: warnings,
