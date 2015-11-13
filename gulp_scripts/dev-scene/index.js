@@ -24,13 +24,13 @@ var format = require('sprintf-js').sprintf;
 var REGEX = /<script src="[^-"]*-scene.min.js"><\/script>/gm;
 
 var TEMPLATES = {
-  frameScripts: fs.readFileSync(path.join(__dirname, 'frame-scripts.tpl'), 'utf-8'),
-  frameWrap: fs.readFileSync(path.join(__dirname, 'frame-wrap.tpl'), 'utf-8'),
-  sceneScripts: fs.readFileSync(path.join(__dirname, 'scene-scripts.tpl'), 'utf-8'),
+  closureScripts: fs.readFileSync(path.join(__dirname, 'closure-scripts.tpl'), 'utf-8'),
   sceneWrap: fs.readFileSync(path.join(__dirname, 'scene-wrap.tpl'), 'utf-8')
 };
 
 module.exports = function devScene(sceneName, config) {
+  config = config || {};
+
   return through.obj(function(file, enc, cb) {
     if (file.isNull()) return this.push(file);
     if (file.isStream()) error('No support for streams');
@@ -40,22 +40,25 @@ module.exports = function devScene(sceneName, config) {
       return this.push(file);
     }
 
-    var src = file.contents.toString();
-    var wrapTemplate = config.isFrame ? TEMPLATES.frameWrap : TEMPLATES.sceneWrap;
-    var scriptsTemplate = config.isFrame ? TEMPLATES.frameScripts : TEMPLATES.sceneScripts;
+    var wrapTemplate = config.isFrame ? '%(content)s' : TEMPLATES.sceneWrap;
+    var scriptsTemplate = TEMPLATES.closureScripts;
     var data = {
       sceneName: sceneName,
-      entryPoint: config.entryPoint
+      content: file.contents.toString()
     };
 
-    // Create dev scene markup.
-    var scripts = format(scriptsTemplate, data);
-    data.content = src.replace(REGEX, scripts);
-    src = format(wrapTemplate, data);
+    // Replace minified js reference with actual source files.
+    if (config.entryPoint) {
+      data.entryPoint = config.entryPoint;
+      var scripts = format(TEMPLATES.closureScripts, data);
+      data.content = data.content.replace(REGEX, scripts);
+    }
 
+    // Create the output file.
+    var output = format(wrapTemplate, data);
     var devfile = file.clone();
     devfile.path = path.join(path.dirname(file.path), 'index.html');
-    devfile.contents = new Buffer(src);
+    devfile.contents = new Buffer(output);
 
     this.push(devfile);
     cb();
