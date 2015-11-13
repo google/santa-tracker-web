@@ -200,7 +200,7 @@ $name: 'module-dorf';
     box-sizing: border-box;
     width: ($width-desktop / 4) - 4;
     margin: 2px;
-    height: 365px;
+    height: $height-house;
     background: rgba(0,0,0,.1);
 
     &.iced {
@@ -239,32 +239,44 @@ $name: 'module-dorf';
   }
 
   /** Desktop village */
-  @media (min-width: $width-mobile) {
-    /*.house {
-    width: 25%;
-    position: relative;
+  @media (max-width: $width-desktop) and (min-width: $width-tablet) {
+    #village-all {
+      #houses {
+        max-width: $width-tablet;
+        .house {
+          width: ($width-tablet / 4) - 4;
+          height: 225px;
+        }
+      }
 
-    &::before {
-    content: '';
-    padding-top: 100%;
-    width: 100%;
-    float: left;
+      // $width-tablet / $width-desktop is ~= 60%.
+      #ground {
+        background-size: 1056px 2065px;
+      }
+      #road {
+        background-size: 2400px 1759px;
+      }
     }
-    }*/
   }
 
   /** All mobile villages (two cols) */
-  @media (max-width: $width-mobile) {
-    .house {
-      width: 50%;
-      height: 200px;
+  @media (max-width: $width-tablet - 1) {
+    #village-all {
+      .house {
+        width: 50%;
+        height: 200px;
 
-      img.icon {
-        width: 200px;
+        img.icon {
+          width: 200px;
+        }
+
+        .color {
+          display: block;
+        }
       }
 
-      .color {
-        display: block;
+      #ground, #road {
+        display: none;
       }
     }
   }
