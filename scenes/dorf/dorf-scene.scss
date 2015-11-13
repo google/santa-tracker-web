@@ -50,6 +50,7 @@ $name: 'module-dorf';
         animation: #{$name}-shimmy 15s infinite ease-in-out;
       }
       .fall {
+        opacity: 0;  // this will be overwritten by animation
         animation: #{$name}-fall 35s infinite linear;
       }
       .snow {
@@ -65,7 +66,62 @@ $name: 'module-dorf';
         background: white;
         border-radius: 10000px;
       }
+      .plane {
+        position: absolute;
+        top: 32px;
+        width: 171px;
+        height: 82px;
+        margin-left: -(171px/2);
+        background: url(img/plane.svg) center no-repeat;
+        // this only animates across the screen for <10% of the time
+        animation: #{$name}-plane 75s infinite linear;
+      }
+      .cloud {
+        opacity: 0;  // this will be overwritten by animation
+        position: absolute;
+        width: 113px;
+        height: 68px;
+        margin-left: -(113px/2);
+        background: url(img/cloud-big_2x.png) center no-repeat;
+        background-size: contain;
+        // this only animates across the screen for <10% of the time
+        animation: #{$name}-cloud 25s infinite linear;
+      }
+      .skydive {
+        animation: #{$name}-skydive 40s infinite ease-in;
+        margin-left: calc(50% + 150px);
 
+        > span {
+          position: absolute;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          transform: translate(-50%, -50%);  // center span
+          animation-duration: inherit;
+          animation-iteration-count: infinite;
+        }
+        .pegman-1 {
+          width: 60px;
+          height: 60px;
+          background-image: url(img/pegman-dive.svg);
+          animation-name: #{$name}-skydive-pegman-1;
+        }
+        .pegman-2 {
+          margin-top: -7px;
+          width: 112px;
+          height: 112px;
+          background-image: url(img/pegman-chute.svg);
+          animation-name: #{$name}-skydive-pegman-2;
+        }
+        .pegman-3 {
+          margin-left: 61px;
+          margin-top: 24px;
+          width: 140px;
+          height: 140px;
+          background-image: url(img/pegman-land.svg);
+          animation-name: #{$name}-skydive-pegman-3;
+        }
+      }
     }
 
     #header-content {

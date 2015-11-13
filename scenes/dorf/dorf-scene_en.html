@@ -31,6 +31,12 @@ Village scene (2015).
       <header>
         <div id="header-background"></div>
         <div id="header-skyeffect">
+          <span class="plane"></span>
+          <span class="skydive">
+            <span class="pegman-1"></span>
+            <span class="pegman-2"></span>
+            <span class="pegman-3"></span>
+          </span>
         </div>
         <div id="header-content">
           <div id="count-down">
@@ -93,16 +99,14 @@ Village scene (2015).
    * Builds and returns a random snowflake. If a previous snowflake was passed,
    * just update it instead of rebuilding it.
    */
-  function snowflakeFactory(opt_prev) {
-    var x = opt_prev;
+  function snowflakeFactory(x, delay) {
     if (!x) {
       // Three transforms are applied, so three elements are needed-
       //   1. outermost positions l/r on page, and rotates for a directed fall
       //   2. .shimmy shakes snowflake left and right
       //   3. .fall.snow draws the snowflake and transforms it down
       x = document.createElement('span');
-      x.innerHTML = '<span><span class="shimmy"><span class="fall snow"></span></span></span>';
-      x = x.firstChild;
+      x.innerHTML = '<span class="shimmy"><span class="fall snow"></span></span>';
     }
 
     var pos = Math.round(Math.random() * 100);
@@ -120,9 +124,32 @@ Village scene (2015).
 
     var fall = x.querySelector('.fall');
     fall.style.animationDuration = fallSpeed + 's';
+    fall.style.animationDelay = (+delay) + 's';
 
     var snow = x.querySelector('.snow');
     snow.style.width = size + 'px';
+
+    return x;
+  }
+
+  function cloudFactory(x, delay, reverse) {
+    if (!x) {
+      // Two transforms are applied-
+      //   1. outermost position from top of page
+      //   2. animation from l/r, configured
+      x = document.createElement('span');
+      x.innerHTML = '<span class="cloud"></span>';
+    }
+
+    var pos = randomRange(64, 300);
+    x.style.transform = 'translate(0, ' + pos + 'px)';
+
+    var cloud = x.firstChild;
+    cloud.style.animationDuration = randomRange(60, 160) + 's';
+    if (reverse) {
+      cloud.style.animationDirection = 'reverse';
+    }
+    cloud.style.animationDelay = (+delay) + 's';
 
     return x;
   }
@@ -152,10 +179,13 @@ Village scene (2015).
       var skyeffect = this.$['header-skyeffect'];
 
       for (var i = 0; i < 25; ++i) {
-        this.async(function() {
-          var x = snowflakeFactory();
-          skyeffect.appendChild(x);
-        }, i * 1000);
+        var x = snowflakeFactory(null, (i+5));
+        skyeffect.appendChild(x);
+      }
+
+      for (var i = 0; i < 4; ++i) {
+        var x = cloudFactory(null, i+1, i % 2);
+        skyeffect.appendChild(x);
       }
     },
 

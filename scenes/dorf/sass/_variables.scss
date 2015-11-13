@@ -1,2 +1,12 @@
 $width-mobile: 800px;
 $width-twocol: 600px;
+
+// nb: none of these %'s should be 0 or 100, and they should be in-order
+// TODO(samthor): Express these in timeframes and calc % based on that.
+$skydive-start: 40%;
+$skydive-start-pos: -120px;
+$skydive-fallto: 50%;
+$skydive-fallto-pos: 240px;
+$skydive-land: 75%;
+$skydive-land-pos: 540px;
+$skydive-disappear: 95%;
