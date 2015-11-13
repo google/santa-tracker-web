@@ -171,14 +171,14 @@ specific language governing permissions and limitations under the License.
 
         var link = document.createElement('link');
         link.rel = 'import';
-        link.href = '../../elements/i18n-msg.html';
+        link.href = '../../components/i18n-msg/i18n-msg.html';
         document.write(link.outerHTML);
 
         // Change I18nMsg path.
         window.I18nMsg = {
           lang: document.documentElement.lang || 'en',
           locales: {},
-          messagesPath: '../../_messages/'
+          url: '../../_messages'
         };
 
         // Wait for HTMLImports before starting the game.
