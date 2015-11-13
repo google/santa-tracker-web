@@ -33,157 +33,157 @@ Santa Tracker app.
   <preload-overlay id="preloader"></preload-overlay>
 
   <!-- Route controller -->
-  <santa-tracker-router route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
+  <santa-tracker-router id="router" route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
 
   <!-- Scenes -->
   <lazy-pages id="lazypages" preloader="[[preloader]]" selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">
 
     <!-- TODO(samthor): Rename to village-scene when done -->
-    <dorf-scene route="village" always-active
+    <dorf-scene route="village" always-active icon="1f384"
         houses$="{{houses}}"
         mode$="{{mode}}"
         path$="scenes/dorf/dorf-scene_[[language]].html"></dorf-scene>
 
-    <about-scene route="about"
+    <about-scene route="about" icon="2753"
         path$="scenes/about/about-scene_[[language]].html"></about-scene>
 
-    <airport-scene route="airport"
+    <airport-scene route="airport" icon="1f6c4"
         path$="scenes/airport/airport-scene_[[language]].html"></airport-scene>
 
-    <blimp-scene route="blimp"
+    <blimp-scene route="blimp" icon="1f6a1"
         path$="scenes/blimp/blimp-scene_[[language]].html"></blimp-scene>
 
-    <boatload-scene route="boatload"
+    <boatload-scene route="boatload" icon="26f5"
         path$="scenes/boatload/boatload-scene_[[language]].html"
         loading-bg-color="#8fd7f7"
         loading-src="scenes/boatload/img/loading.svg"></boatload-scene>
 
-    <briefing-scene route="briefing"
+    <briefing-scene route="briefing" icon="1f3eb"
         path$="scenes/briefing/briefing-scene_[[language]].html"></briefing-scene>
 
-    <callfromsanta-scene route="callfromsanta"
+    <callfromsanta-scene route="callfromsanta" icon="1f4de"
         path$="scenes/callfromsanta/callfromsanta-scene_[[language]].html"
         loading-bg-color="rgb(129,208,0)"></callfromsanta-scene>
 
-    <citylights-scene route="citylights"
+    <citylights-scene route="citylights" icon="1f306"
         path$="scenes/citylights/citylights-scene_[[language]].html"
         loading-bg-color="#8fd7f7"
         loading-src="scenes/citylights/img/loading.svg"></citylights-scene>
 
-    <codelab-scene route="codelab"
+    <codelab-scene route="codelab" icon="1f4dd"
         path$="scenes/codelab/codelab-scene_[[language]].html"
         loading-bg-color="#3f4ea1"
         loading-src="scenes/codelab/img/loading.svg"></codelab-scene>
 
-    <commandcentre-scene route="commandcentre"
+    <commandcentre-scene route="commandcentre" icon="1f5fc"
         path$="scenes/commandcentre/commandcentre-scene_[[language]].html"
         loading-bg-color="rgb(129,208,0)"></commandcentre-scene>
 
-    <factory-scene route="factory"
+    <factory-scene route="factory" icon="1f3ed"
         path$="scenes/factory/factory-scene_[[language]].html"
         loading-bg-color="rgb(129,208,0)"></factory-scene>
 
-    <glider-scene route="glider"
+    <glider-scene route="glider" icon="1f343"
         path$="scenes/glider/glider-scene_[[language]].html"
         loading-bg-color="#8d23a9"
         loading-src="scenes/glider/img/loading.svg"></glider-scene>
 
-    <gumball-scene route="gumball"
+    <gumball-scene route="gumball" icon="1f36d"
         path$="scenes/gumball/gumball-scene_[[language]].html"
         loading-bg-color="#8d23a9"
         loading-src="scenes/gumball/img/loading.svg"></gumball-scene>
 
-    <icecave-scene route="icecave"
+    <icecave-scene route="icecave" icon="2744"
         path$="scenes/icecave/icecave-scene_[[language]].html"></icecave-scene>
 
-    <island-scene route="island"
+    <island-scene route="island" icon="1f334"
         path$="scenes/island/island-scene_[[language]].html"></island-scene>
 
-    <jamband-scene route="jamband"
+    <jamband-scene route="jamband" icon="1f3b6"
         path$="scenes/jamband/jamband-scene_[[language]].html"
         loading-bg-color="#fdbe27"
         loading-src="scenes/jamband/img/loading.svg"></jamband-scene>
 
-    <jetpack-scene route="jetpack"
+    <jetpack-scene route="jetpack" icon="1f680"
         path$="scenes/jetpack/jetpack-scene_[[language]].html"
         loading-bg-color="#8fd7f7"
         loading-src="scenes/jetpack/img/loading.svg"></jetpack-scene>
 
-    <latlong-scene route="latlong"
+    <latlong-scene route="latlong" icon="1f3af"
         path$="scenes/latlong/latlong-scene_[[language]].html"
         loading-bg-color="#ffcc00"
         loading-src="scenes/latlong/img/loading.svg"></latlong-scene>
 
-    <matching-scene route="matching"
+    <matching-scene route="matching" icon="1f6aa"
         path$="scenes/matching/matching-scene_[[language]].html"
         loading-bg-color="#b27644"
         loading-src="scenes/matching/img/loading.svg"></matching-scene>
 
-    <mercator-scene route="mercator"
+    <mercator-scene route="mercator" icon="1f30e"
         path$="scenes/mercator/mercator-scene_[[language]].html"
         loading-bg-color="#fbbf2c"
         loading-src="scenes/mercator/img/loading.svg"></mercator-scene>
 
-    <playground-scene route="playground"
+    <playground-scene route="playground" icon="1f3aa"
         path$="scenes/playground/playground-scene_[[language]].html"
         loading-bg-color="rgb(251, 191, 44)"></playground-scene>
 
-    <postcard-scene route="postcard"
+    <postcard-scene route="postcard" icon="1f4ec"
         path$="scenes/postcard/postcard-scene_[[language]].html"
         loading-bg-color="rgb(244, 123, 32)"
         loading-src="scenes/postcard/img/loading.gif"></postcard-scene>
 
-    <presentbounce-scene route="presentbounce"
+    <presentbounce-scene route="presentbounce" icon="1f381"
         path$="scenes/presentbounce/presentbounce-scene_[[language]].html"
         loading-bg-color="#8d23a9"
         loading-src="scenes/presentbounce/img/loading.svg"></presentbounce-scene>
 
-    <presentdrop-scene route="presentdrop"
+    <presentdrop-scene route="presentdrop" icon="1f381"
         path$="scenes/presentdrop/presentdrop-scene_[[language]].html"
         loading-bg-color="#8fd7f7"
         loading-src="scenes/presentdrop/img/loading.svg"></presentdrop-scene>
 
-    <racer-scene route="racer"
+    <racer-scene route="racer" icon="1f3c1"
         path$="scenes/racer/racer-scene_[[language]].html"
         loading-bg-color="#8fd7f7"
         loading-src="scenes/racer/img/loading.svg"></racer-scene>
 
-    <runner-scene route="runner"
+    <runner-scene route="runner" icon="1f3c7"
         path$="scenes/runner/runner-scene_[[language]].html"></runner-scene>
 
-    <rollercoaster-scene route="rollercoaster"
+    <rollercoaster-scene route="rollercoaster" icon="1f3a2"
         path$="scenes/rollercoaster/rollercoaster-scene.html"></rollercoaster-scene>
 
-    <santaselfie-scene route="santaselfie"
+    <santaselfie-scene route="santaselfie" icon="1f488"
         path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
         loading-bg-color="#83D7F5"
         loading-src="scenes/santaselfie/img/loading.svg"></santaselfie-scene>
 
-    <seasonofgiving-scene route="seasonofgiving"
+    <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
         path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
         loading-src="scenes/seasonofgiving/img/loading.svg"></seasonofgiving-scene>
 
-    <streetview-scene route="streetview"
+    <streetview-scene route="streetview" icon="1f3a5"
         path$="scenes/streetview/streetview-scene_[[language]].html"
         loading-bg-color="rgb(129,208,0)"></streetview-scene>
 
     <!-- TODO(samthor): The Polymer upgrade path mucks with binding this value
       and it may not be updated after the first time -->
-    <tracker-scene id="tracker" route="tracker"
+    <tracker-scene id="tracker" route="tracker" icon="1f385"
         destinations="{{destinations}}"
         path$="scenes/tracker/tracker-scene_[[language]].html"></tracker-scene>
 
-    <traditions-scene route="traditions"
+    <traditions-scene route="traditions" icon="1f4cc"
         path$="scenes/traditions/traditions-scene_[[language]].html"
         loading-bg-color="rgb(255,224,0)"
         loading-src="scenes/traditions/img/loading.gif"></traditions-scene>
 
-    <translations-scene route="translations"
+    <translations-scene route="translations" icon="1f4e2"
         path$="scenes/translations/translations-scene_[[language]].html"
         loading-bg-color="#8fd7f7"
         loading-src="scenes/translations/img/loading.png"></translations-scene>
 
-    <undersea-scene route="undersea"
+    <undersea-scene route="undersea" icon="1f30a"
         path$="scenes/undersea/undersea-scene_[[language]].html"></undersea-scene>
 
     <!-- NOTE: when these scenes are visited and then left, they are removed and
@@ -195,11 +195,9 @@ Santa Tracker app.
           path$="scenes/videoscene/video-scene_[[language]].html"></video-scene>
     </template>
 
-    <windtunnel-scene route="windtunnel"
+    <windtunnel-scene route="windtunnel" icon="1f38f"
         path$="scenes/windtunnel/windtunnel-scene_[[language]].html"
         loading-bg-color="rgb(129,208,0)"></windtunnel-scene>
-
-    <!-- TODO: rest of scenes to Polymer 1.0 -->
 
   </lazy-pages>
 
@@ -207,13 +205,15 @@ Santa Tracker app.
 <script>
 (function() {
 
+// Default title of Santa Tracker. Note that this is currently not localized.
+var WINDOW_TITLE = 'Google Santa Tracker';
+
 var DEFAULT_ROUTE = 'village';
 var TRACKER_ROUTE = 'tracker';
-var VALID_ROUTES = [];
 
 // Routes/scenes which should always be accessible, no matter what the day.
 // These scenes are also not removed from the lazy-page switching.
-var PERMANENT_ROUTES = ['village', 'calendar', 'about', 'dummy'];
+var PERMANENT_ROUTES = ['village', 'about'];
 
 var VIDEO_ROUTES = [
   'trailer', 'carpool', 'liftoff', 'jingle', 'satellite', 'temptation',
@@ -563,6 +563,8 @@ Polymer({
           break;
       }
     }
+
+    this._notifyHouses();
   },
 
   get defaultRoute() {
@@ -586,6 +588,7 @@ Polymer({
     if (this.selectedScene) {
       this.selectedScene.sceneParams = this.sceneParams;
     }
+    this._updateWindowTitle();
   },
 
   _prevSelectedRouteChanged: function() {
@@ -645,7 +648,7 @@ Polymer({
     } else if (requestedRoute !== '') {
       // The requested route was changed.
       var currentRoute = null;
-      var pageUrl = location.href.substr(0, location.href.length - location.hash.length);
+      var pageUrl = window.location.href.substr(0, location.href.length - location.hash.length);
       if (pageUrl) {
         if (this.selectedScene == null) {
           console.warn('routeChanged but scene is null, route', requestedRoute, new Error());
@@ -660,9 +663,16 @@ Polymer({
     }
   },
 
+  _updateWindowTitle: function() {
+    var scene = this.selectedScene;
+    var raw = scene && scene.getAttribute('icon');
+    var icon = raw ? String.fromCodePoint(parseInt(raw, 16)) : '';
+    document.title = icon + WINDOW_TITLE;
+  },
+
   validateRoute: function() {
     if (this.scheduleChecked) {
-      var valid = (VALID_ROUTES.indexOf(this.route) != -1 &&
+      var valid = (this.$.lazypages.isValidRoute(this.route) &&
                    this.sceneIsUnlocked(this.route)) ||
                    (this.postCountdown && this.route == TRACKER_ROUTE);
       if (!valid) {
@@ -789,6 +799,7 @@ Polymer({
 
     // house is melted unless it's disabled
     house.iced = house.disabled;
+    this._notifyHouses();
   },
 
   unlockAllHouses: function() {
@@ -805,6 +816,7 @@ Polymer({
       house.today = false;
       house.tomorrow = false;
     }
+    this._notifyHouses();
   },
 
   sceneIsUnlocked: function(moduleName) {
@@ -878,6 +890,7 @@ Polymer({
         // noop
         this.lockAllHouses();
     }
+    this._notifyHouses();
 
     this.scheduleChecked = true;
     this.validateRoute();
@@ -914,9 +927,21 @@ Polymer({
     if (!this.postCountdown) {
       this._checkSchedule();
       if (this.postCountdown && this.route === DEFAULT_ROUTE) {
-        this.route = TRACKER_ROUTE;
+        // Act as if the user has clicked a link, and update the hash manually.
+        this.$.router.go(TRACKER_ROUTER);
       }
     }
+  },
+
+  /**
+   * Notifies bound properties that the houses have changed (useful for the 
+   * village). Dedups with a microtask.
+   * @private
+   */
+  _notifyHouses: function() {
+    this.debounce('_notifyHouses', function() {
+      this.houses = this.houses.slice();
+    });
   },
 
   onTrackerEnd: function(e, detail) {

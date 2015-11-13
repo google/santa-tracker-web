@@ -17,7 +17,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
-<link rel="import" href="../../elements/i18n-msg.html">
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="dorf-scene.css" />
@@ -29,15 +28,24 @@ Village scene (2015).
 <template>
   <div id="module-dorf">
     <div class="fit scroll">
+      <div id="posser"></div>
+      
       <header>
         <div id="header-background"></div>
-
+        <div id="header-skyeffect">
+        </div>
         <div id="header-content">
           <div id="count-down">
             <h2>Santa Takes Off In</h2>
-            <div id="count-down-numbers">
-              TIME
-            </div>
+            <countdown-timer id="count"
+                             santa-service="[[santaService]]"
+                             count-down-end-date="[[countDownEndDate]]"
+                             finished="{{countdownFinished}}">
+              <h3><i18n-msg msgid="days">PLACEHOLDER_i18n</i18n-msg></h3>
+              <h3><i18n-msg msgid="hours">PLACEHOLDER_i18n</i18n-msg></h3>
+              <h3><i18n-msg msgid="minutes">PLACEHOLDER_i18n</i18n-msg></h3>
+              <h3><i18n-msg msgid="seconds">PLACEHOLDER_i18n</i18n-msg></h3>
+            </countdown-timer>
           </div>
           <h1>
             <!-- TODO(samthor): translate -->
@@ -49,9 +57,11 @@ Village scene (2015).
           </p>
         </div>
       </header>
-      <div id="village">
+      <div id="village-all">
+        <div id="ground"></div>
+        <div id="road"></div>
         <div id="houses">
-          <div class="house"></div>
+          <div class="house house-new-today"></div>
           <template is="dom-repeat" items="{{houses}}">
             <div class="house">
               <div class="color fit" style$="background: {{_calculateColor(item)}}"></div>
@@ -63,14 +73,64 @@ Village scene (2015).
         </div>
       </div>
       <div id="village-footer">
-				
+
       </div>
     </div><!-- .scroll -->
   </div><!-- #module-dorf -->
 </template>
 <script>
 (function() {
-  
+
+  var SNOWFLAKE_ROTATION = 60;
+  var SNOWFLAKE_SPEED_MIN = 2.5;
+  var SNOWFLAKE_SPEED_MAX = 10;
+  var SNOWFLAKE_SHIMMY_MIN = 5;
+  var SNOWFLAKE_SHIMMY_MAX = 10;
+  var SNOWFLAKE_SIZE_MIN = 8;
+  var SNOWFLAKE_SIZE_MAX = 16;
+
+  function randomRange(min, max) {
+    return min + Math.random() * (max - min);
+  }
+
+  /**
+   * Builds and returns a random snowflake. If a previous snowflake was passed,
+   * just update it instead of rebuilding it.
+   */
+  function snowflakeFactory(opt_prev) {
+    var x = opt_prev;
+    if (!x) {
+      // Three transforms are applied, so three elements are needed-
+      //   1. outermost positions l/r on page, and rotates for a directed fall
+      //   2. .shimmy shakes snowflake left and right
+      //   3. .fall.snow draws the snowflake and transforms it down
+      x = document.createElement('span');
+      x.innerHTML = '<span><span class="shimmy"><span class="fall snow"></span></span></span>';
+      x = x.firstChild;
+    }
+
+    var pos = Math.round(Math.random() * 100);
+    var rotate = Math.round(Math.random() * SNOWFLAKE_ROTATION) - (SNOWFLAKE_ROTATION / 2);
+    var fallSpeed = randomRange(SNOWFLAKE_SPEED_MIN, SNOWFLAKE_SPEED_MAX);
+    var shimmySpeed = randomRange(SNOWFLAKE_SHIMMY_MIN, SNOWFLAKE_SHIMMY_MAX);
+    var size = Math.round(randomRange(SNOWFLAKE_SIZE_MIN, SNOWFLAKE_SIZE_MAX));
+
+    // nb: we assume 'x' has a className of 'thing'.
+    x.style.transform = 'translate(' + pos + 'vw) rotate(' + rotate + 'deg)';
+
+    var shimmy = x.querySelector('.shimmy');
+    shimmy.style.animationDuration = shimmySpeed + 's'
+    shimmy.style.fontSize = fallSpeed + 'px';  // shimmy width is inverse to speed
+
+    var fall = x.querySelector('.fall');
+    fall.style.animationDuration = fallSpeed + 's';
+
+    var snow = x.querySelector('.snow');
+    snow.style.width = size + 'px';
+
+    return x;
+  }
+
   Polymer({
     is: 'dorf-scene',
     behaviors: [window.SantaSceneBehavior],
@@ -83,9 +143,55 @@ Village scene (2015).
         type: String
       },
     },
-  
-    _calculateHref: function(house) {
+
+    observers: [
+      '_setupEffectHandlers(active)'
+    ],
+
+    ready: function() {
+      this._changeEffectCount = this._changeEffectCount.bind(this);
+    },
+
+    attached: function() {
+      var skyeffect = this.$['header-skyeffect'];
+
+      for (var i = 0; i < 25; ++i) {
+        this.async(function() {
+          var x = snowflakeFactory();
+          skyeffect.appendChild(x);
+        }, i * 1000);
+      }
+    },
+
+    _setupEffectHandlers: function(active) {
+      if (!active) {
+        window.removeEventListener('resize', this._changeEffectCount);
+        return;  // TODO(samthor): Remove all current snowflakes
+      }
+
+      this._changeEffectCount();
+      window.addEventListener('resize', this._changeEffectCount);
+    },
+
+    _changeEffectCount: function() {
+      this.debounce('_changeEffecCount', function() {
+        // TODO(samthor): Choose a number of snowflakes based on
+        // `window.innerWidth`. Drift the current number towards that amount.
+      });
+    },
+
+    _calculateHref: function(house, iced) {
+      if (iced) {
+        return null;
+      }
       return house.link || this.pageUrl + '#' + house.module;
+    },
+
+    _calculateClass: function(house, iced) {
+      if (iced) {
+        return 'iced';
+      }
+      return '';
     },
 
     /**
@@ -100,6 +206,18 @@ Village scene (2015).
       var shade = Math.round(hash % 360);
       return 'hsl(' + shade + ', 82%, 55%)';
     },
+
+    _santaAppChanged: function() {
+      this.santaService = this.santaApp.santaService;
+      this.countDownEndDate = this.santaApp.countDownEndDate;
+    },
+
+    onShow: function() {
+      // Start timer one tick after scene is shown.
+      this.async(function() {
+        this.$.count.start();
+      });
+    }
 
   });
 

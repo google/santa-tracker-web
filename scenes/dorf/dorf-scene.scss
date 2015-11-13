@@ -8,32 +8,83 @@ $name: 'module-dorf';
 ##{$name} {
   background: #F5F2E2;
   height: 100%;
-	
+
   .scroll {
     overflow-y: auto;
+
+    // Force a layer on this scroll element.
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  #posser {
+    /*background: url(img/village-grid.png) no-repeat 50% 0;
+    background-size: 1293px auto;
+    height: 10000px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;*/
   }
 
   header {
-    height: 505px;
-    background: #47c6ee;		
+    height: 385px;
+    background: #47c6ee;
     background: linear-gradient(to bottom, rgba(61,218,242,1) 0%, rgba(140,232,248,1) 86%, rgba(153,234,249,1) 100%);
     position: relative;
     z-index: 1;
-		
+    overflow: visible;
+
     #header-background {
-      height: 630px;
+      height: 665px;
       background-image: url(img/header-bg.svg);
       background-repeat: repeat-x;
       background-position: 50% 100%;
-      background-size: 3445px 286px;
+      background-size: 1618px 791px;
       position: absolute;
       width: 100%;
-      z-index: 1;
     }
-		
-    #header-content {
-      height: 100%;
+
+    /** Contains all effects, like snow, the airplane etc. */
+    #header-skyeffect {
+      position: absolute;
       width: 100%;
+      height: 630px;
+      overflow: hidden;
+
+      > * {
+        display: inline-block;
+        position: absolute;
+      }
+
+      .shimmy {
+        animation: #{$name}-shimmy 15s infinite ease-in-out;
+      }
+      .fall {
+        animation: #{$name}-fall 35s infinite linear;
+      }
+      .snow {
+        position: absolute;
+        width: 16px;
+      }
+      .snow::before {
+        content: "";
+        float: left;
+        width: 100%;
+        padding-top: 100%;
+        margin-left: -50%;
+        background: white;
+        border-radius: 10000px;
+      }
+
+    }
+
+    #header-content {
+      position: absolute;
+      width: 100%;
+      height: 630px;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -41,17 +92,11 @@ $name: 'module-dorf';
       flex-direction: column;
       position: relative;
       z-index: 2;
-			
+
       #count-down {
         padding: 60px 0 30px 0;
-				
-        #count-down-numbers {
-          height: 92px;
-          width: 280px;
-          background: rgba(0,0, 0, 0.1);
-        }
       }
-			
+
       h2 {
         font-size: 11px;
         font-weight: normal;
@@ -60,30 +105,29 @@ $name: 'module-dorf';
         line-height: 11px;
         text-transform: uppercase;
       }
-			
+
       h1 {
         margin: 0;
         font-family: 'Lobster', sans-serif;
         will-change: transform;
-        font-size: 105px;
-        line-height: 105px;
+        font-size: 62px;
+        line-height: 50px;
         color: white;
         text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
-        transform: rotateZ(-5deg);
+        transform: rotateZ(-3deg);
       }
-			
+
       p {
-        margin: 18px 0;
+        margin: 50px 0 0 0;
         color: #fff;
         text-align: center;
-        font-family: 'Roboto', sans-serif;
         font-weight: 400;
-        font-size: 18px;
+        font-size: 22px;
         line-height: 26px;
-        max-width: 300px;
+        max-width: 360px;
       }
     }
-		
+
     /*
 
     .mid {
@@ -94,7 +138,7 @@ $name: 'module-dorf';
     }
 
 
-    
+
     .logo {
     display: inline-block;
     line-height: 0;
@@ -109,41 +153,72 @@ $name: 'module-dorf';
   }
 
   /** Village flexbox */
-  #village {
+  #village-all {
     position: relative;
     z-index: 2;
     top: -30px;
+    padding-bottom: 100px;
 
     #houses {
+      position: relative;
       display: flex;
       flex-flow: wrap;
       align-items: flex-start;
       position: relative;
       border-sizing: border-box;
       margin: 0 auto;
-      max-width: $width-mobile;
+      max-width: $width-desktop;
+      z-index: 10;
+    }
+    
+    #ground {
+      z-index: 1;
+      position: absolute;
+      background-image: url(img/ground.svg);
+      background-repeat: repeat-x;
+      background-size: 1760px 3441px;
+      background-position: 50% 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    #road {
+      position: absolute;
+      z-index: 2;
+      background-image: url(img/road.svg);
+      background-repeat: no-repeat;
+      background-position: 50% 0;
+      background-size: 4002px 2932px;
+      width: 100%;
+      height: 100%;
+      top: 96px;
     }
   }
-	
+
   .house {
     position: relative;
     box-sizing: border-box;
-    width: ($width-mobile / 4) - 8;
-    margin: 4px;
-    height: 200px;
+    width: ($width-desktop / 4) - 4;
+    margin: 2px;
+    height: 365px;
     background: rgba(0,0,0,.1);
+
+    &.iced {
+      // TODO(samthor): proper .iced styling for each house
+      opacity: 0.25;
+    }
 
     img.icon {
       position: absolute;
       bottom: 0;
       left: 25%;
       width: 50%;
+      will-change: transform;
     }
 
     a {
       text-decoration: none;
       color: inherit;
-      will-change: transform;
     }
 
     a:hover {
@@ -157,7 +232,7 @@ $name: 'module-dorf';
       display: none;
     }
   }
-	
+
   #village-footer {
     height: 900px;
     background: green;
