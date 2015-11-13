@@ -245,7 +245,7 @@ var SCENE_CLOSURE_CONFIG = {
 
 // List of scene names to compile.
 var SCENE_NAMES = argv.scene ?
-    [argv.scene].concat(SCENE_CLOSURE_CONFIG[argv.scene].dependencies || [] ) :
+    [argv.scene].concat((SCENE_CLOSURE_CONFIG[argv.scene] || {}).dependencies || []) :
     Object.keys(SCENE_CLOSURE_CONFIG);
 // A glob pattern matching scenes to compile.
 var SCENE_GLOB = '*';
