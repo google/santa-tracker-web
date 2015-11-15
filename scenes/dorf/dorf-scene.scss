@@ -299,7 +299,7 @@ $name: 'module-dorf';
       position: absolute;
       background-image: url(img/ground.svg);
       background-repeat: repeat-x;
-      background-size: 1760px 3441px;
+      background-size: $ground-size-w $ground-size-h;
       background-position: 50% 0;
       width: 100%;
       height: 100%;
@@ -311,10 +311,10 @@ $name: 'module-dorf';
       background-image: url(img/road.svg);
       background-repeat: no-repeat;
       background-position: 50% 0;
-      background-size: 4002px 2932px;
+      background-size: $road-size-w $road-size-h;
       width: 100%;
       height: 100%;
-      top: 96px;
+      top: $road-top;
     }
   }
 
@@ -365,6 +365,7 @@ $name: 'module-dorf';
       width: 100%;
       height: 100%;
 
+      // TODO(samthor): Demo :hover effect, remove later
       &::after {
         content: "";
         position: absolute;
@@ -410,11 +411,11 @@ $name: 'module-dorf';
 
       // $width-tablet / $width-desktop is = 0.6.
       #ground {
-        background-size: 1056px 2065px;
+        background-size: ($ground-size-w * $tablet-desktop-ratio) ($ground-size-h * $tablet-desktop-ratio);
       }
       #road {
-        background-size: 2400px 1759px;
-        top: (96px * $tablet-desktop-ratio);
+        background-size: ($road-size-w * $tablet-desktop-ratio) ($road-size-h * $tablet-desktop-ratio);
+        top: ($road-top * $tablet-desktop-ratio);
       }
     }
   }
