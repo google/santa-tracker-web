@@ -71,8 +71,12 @@ Village scene (2015).
           <template is="dom-repeat" items="{{houses}}">
             <div class="house">
               <div class="color fit" style$="background: {{_calculateColor(item)}}"></div>
+              <div class="position">
+                <img class$="icon icon-{{item.module}}"
+                     src$="{{_calculateIcon(item.module, item)}}" />
+                <h3>{{item.category}}</h3>
+              </div>
               <a class="fit" href="{{_calculateHref(item)}}">
-                <img class="icon" src="scenes/village/img/house-{{item.module}}.svg" />
               </a>
             </div>
           </template>
@@ -244,6 +248,10 @@ Village scene (2015).
       }
       var shade = Math.round(hash % 360);
       return 'hsl(' + shade + ', 82%, 55%)';
+    },
+
+    _calculateIcon: function(id, item) {
+      return this.componentDir + 'img/building-' + id + (item.iced ? '-ice' : '') + '.svg';
     },
 
     _santaAppChanged: function() {
