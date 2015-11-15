@@ -90,6 +90,10 @@ Village scene (2015).
   var SNOWFLAKE_SHIMMY_MAX = 10;
   var SNOWFLAKE_SIZE_MIN = 8;
   var SNOWFLAKE_SIZE_MAX = 16;
+  var CLOUD_TOP_MIN = 160;
+  var CLOUD_TOP_MAX = 300;
+  var CLOUD_SPEED_MIN = 60;
+  var CLOUD_SPEED_MAX = 160;
 
   function randomRange(min, max) {
     return min + Math.random() * (max - min);
@@ -99,14 +103,14 @@ Village scene (2015).
    * Builds and returns a random snowflake. If a previous snowflake was passed,
    * just update it instead of rebuilding it.
    */
-  function snowflakeFactory(x, delay) {
-    if (!x) {
+  function snowflakeFactory(elem, delay) {
+    if (!elem) {
       // Three transforms are applied, so three elements are needed-
       //   1. outermost positions l/r on page, and rotates for a directed fall
       //   2. .shimmy shakes snowflake left and right
       //   3. .fall.snow draws the snowflake and transforms it down
-      x = document.createElement('span');
-      x.innerHTML = '<span class="shimmy"><span class="fall snow"></span></span>';
+      elem = document.createElement('span');
+      elem.innerHTML = '<span class="shimmy"><span class="fall snow"></span></span>';
     }
 
     var pos = Math.round(Math.random() * 100);
@@ -115,43 +119,46 @@ Village scene (2015).
     var shimmySpeed = randomRange(SNOWFLAKE_SHIMMY_MIN, SNOWFLAKE_SHIMMY_MAX);
     var size = Math.round(randomRange(SNOWFLAKE_SIZE_MIN, SNOWFLAKE_SIZE_MAX));
 
-    // nb: we assume 'x' has a className of 'thing'.
-    x.style.transform = 'translate(' + pos + 'vw) rotate(' + rotate + 'deg)';
+    elem.style.transform = 'translate(' + pos + 'vw) rotate(' + rotate + 'deg)';
 
-    var shimmy = x.querySelector('.shimmy');
+    var shimmy = elem.querySelector('.shimmy');
     shimmy.style.animationDuration = shimmySpeed + 's'
     shimmy.style.fontSize = fallSpeed + 'px';  // shimmy width is inverse to speed
 
-    var fall = x.querySelector('.fall');
+    var fall = elem.querySelector('.fall');
     fall.style.animationDuration = fallSpeed + 's';
     fall.style.animationDelay = (+delay) + 's';
 
-    var snow = x.querySelector('.snow');
+    var snow = elem.querySelector('.snow');
     snow.style.width = size + 'px';
 
-    return x;
+    return elem;
   }
 
-  function cloudFactory(x, delay, reverse) {
-    if (!x) {
+  /**
+   * Builds and returns a random cloud. If a previous cloud was passed, just
+   * update it instead of rebuilding it.
+   */
+  function cloudFactory(elem, delay, reverse) {
+    if (!elem) {
       // Two transforms are applied-
       //   1. outermost position from top of page
       //   2. animation from l/r, configured
-      x = document.createElement('span');
-      x.innerHTML = '<span class="cloud"></span>';
+      elem = document.createElement('span');
+      elem.innerHTML = '<span class="cloud"></span>';
     }
 
-    var pos = randomRange(64, 300);
-    x.style.transform = 'translate(0, ' + pos + 'px)';
+    var pos = randomRange(CLOUD_TOP_MIN, CLOUD_TOP_MAX);
+    elem.style.transform = 'translate(0, ' + pos + 'px)';
 
-    var cloud = x.firstChild;
-    cloud.style.animationDuration = randomRange(60, 160) + 's';
+    var cloud = elem.firstChild;
+    cloud.style.animationDuration = randomRange(CLOUD_SPEED_MIN, CLOUD_SPEED_MAX) + 's';
     if (reverse) {
       cloud.style.animationDirection = 'reverse';
     }
     cloud.style.animationDelay = (+delay) + 's';
 
-    return x;
+    return elem;
   }
 
   Polymer({
@@ -171,7 +178,7 @@ Village scene (2015).
       '_setupEffectHandlers(active)'
     ],
 
-    ready: function() {
+    created: function() {
       this._changeEffectCount = this._changeEffectCount.bind(this);
     },
 
@@ -179,12 +186,14 @@ Village scene (2015).
       var skyeffect = this.$['header-skyeffect'];
 
       for (var i = 0; i < 25; ++i) {
-        var x = snowflakeFactory(null, (i+5));
+        // Delay snowflakes by their count+5 sec.
+        var x = snowflakeFactory(null, i+5);
         skyeffect.appendChild(x);
       }
 
       for (var i = 0; i < 4; ++i) {
-        var x = cloudFactory(null, i+1, i % 2);
+        // Delay clouds by their count+1 sec, and every second is reverse.
+        var x = cloudFactory(null, i + 1, i % 2);
         skyeffect.appendChild(x);
       }
     },
@@ -203,7 +212,7 @@ Village scene (2015).
       this.debounce('_changeEffecCount', function() {
         // TODO(samthor): Choose a number of snowflakes based on
         // `window.innerWidth`. Drift the current number towards that amount.
-      });
+      }, 500);
     },
 
     _calculateHref: function(house, iced) {
