@@ -170,7 +170,7 @@ $name: 'module-dorf';
       max-width: $width-desktop;
       z-index: 10;
     }
-    
+
     #ground {
       z-index: 1;
       position: absolute;
@@ -181,7 +181,7 @@ $name: 'module-dorf';
       width: 100%;
       height: 100%;
     }
-    
+
     #road {
       position: absolute;
       z-index: 2;
@@ -198,10 +198,9 @@ $name: 'module-dorf';
   .house {
     position: relative;
     box-sizing: border-box;
-    width: ($width-desktop / 4) - 4;
-    margin: 2px;
+    width: ($width-desktop / 4);
     height: $height-house;
-    background: rgba(0,0,0,.1);
+    border: 2px solid rgba(0,0,0,0.25);
 
     &.iced {
       // TODO(samthor): proper .iced styling for each house
@@ -244,17 +243,18 @@ $name: 'module-dorf';
       #houses {
         max-width: $width-tablet;
         .house {
-          width: ($width-tablet / 4) - 4;
-          height: 225px;
+          width: ($width-tablet / 4);
+          height: ($height-house * $tablet-desktop-ratio);
         }
       }
 
-      // $width-tablet / $width-desktop is ~= 60%.
+      // $width-tablet / $width-desktop is = 0.6.
       #ground {
         background-size: 1056px 2065px;
       }
       #road {
         background-size: 2400px 1759px;
+        top: (96px * $tablet-desktop-ratio);
       }
     }
   }
