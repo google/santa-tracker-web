@@ -17,7 +17,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../js/utils.html">
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="countdown-timer.css">
+<link rel="stylesheet" href="countdown-timer.css" />
 
 <!--
 Displays a countdown timer.
@@ -37,6 +37,8 @@ Example
     <style>
       :host {
         display: block;
+        will-change: transform;
+        transform: translateZ(0);
       }
     </style>
 
@@ -48,21 +50,9 @@ Example
       <template is="dom-repeat" items="{{titles}}">
         <div class="counter-box layout vertical center"
              hidden$="{{_computeHide(index, displayDigits)}}">
+          <div class="holder active"></div>
+          <div class="holder prev"></div>
           <h2>{{item}}</h2>
-          <div class="digits layout horizontal">
-            <div class="digit">
-              <div class="digit-top digit-front"><span></span></div>
-              <div class="digit-top digit-behind"><span></span></div>
-              <div class="digit-bottom digit-front"><span></span></div>
-              <div class="digit-bottom digit-behind"><span></span></div>
-            </div>
-            <div class="digit">
-              <div class="digit-top digit-front"><span></span></div>
-              <div class="digit-top digit-behind"><span></span></div>
-              <div class="digit-bottom digit-front"><span></span></div>
-              <div class="digit-bottom digit-behind"><span></span></div>
-              </div>
-          </div>
         </div>
       </template>
     </div>
@@ -71,21 +61,12 @@ Example
   <script>
   (function() {
 
-    var _TRANSITION_TIME = 300;
+    var _TRANSITION_TIME = 400;
 
     Polymer({
       is: 'countdown-timer',
 
       properties: {
-        /**
-         * Optional container element to render the countdown into. If `render`
-         * is `true`, the container defaults to this element's light dom.
-         */
-        container: {
-          type: Object,
-          value: null
-        },
-
         /**
          * True if the countdown should be active.
          */
@@ -147,20 +128,27 @@ Example
           readOnly: true
         },
 
+        /**
+         * The DOM nodes containing countdown titles, such as Days, Hours,
+         * Minutes, Seconds etc.
+         */
         titles: {
           type: Array,
           value: function() { return []; },
           readOnly: true
         },
 
-        digits: {
+        /**
+         * The `.counter-box` elements containing countdown nodes.
+         */
+        holders: {
           type: Array,
           value: function() { return []; },
           readOnly: true
         }
       },
 
-      _oldDigits: [],
+      _oldNumbers: [],
 
       listeners: {
          // For prod, <i18n-msg> is removed and textContent will already be
@@ -170,9 +158,6 @@ Example
 
       ready: function() {
         this._setCurrentTime(this._getCurrentTime());
-        if (this.render) {
-          this.container = this.container || this;
-        }
       },
 
       attached: function() {
@@ -183,8 +168,8 @@ Example
         this.async(function() {
           // Needs to wait one rAF so titles has populated the template repeat.
           if (this.render) {
-            this._setDigits(Array.prototype.slice.call(
-                            this.$.counter.querySelectorAll('.digit')));
+            this._setHolders(Array.prototype.slice.call(
+                            this.$.counter.querySelectorAll('.counter-box')));
           }
 
           this.fire('countdown-timer-ready', this);
@@ -240,14 +225,13 @@ Example
         var seconds = this.currentTime.seconds;
 
         if (this.render) {
-          var newDigits = [padDigits(days), padDigits(hours), padDigits(mins),
-              padDigits(seconds)].join('').split('');
+          var numbers = [padDigits(days), padDigits(hours), padDigits(mins),
+              padDigits(seconds)];
           this.displayDigits = (days == 0) ? 6 : 8
-
-          for (var i = 0, digit; digit = this.digits[i]; ++i) {
-            this.setDigit(digit, this._oldDigits[i], newDigits[i]);
+          for (var i = 0, holder; holder = this.holders[i]; ++i) {
+            this.setValue(holder, this._oldNumbers[i], numbers[i]);
           }
-          this._oldDigits = newDigits;
+          this._oldNumbers = numbers;
         }
 
         // TODO: this is not i18n'd.
@@ -273,6 +257,24 @@ Example
           this._setFinished(true);
           this.stop();
         }
+      },
+
+      /**
+       * Sets a value for the passed `.counter-box` node.
+       */
+      setValue: function(node, oldVal, val) {
+        if (oldVal == val) {
+          return;
+        }
+
+        // NOTE: Assumes child layout.
+        node.children[0].textContent = val;
+        node.children[1].textContent = oldVal;
+
+        node.classList.add('anim');
+        this.async(function() {
+          node.classList.remove('anim');
+        }, _TRANSITION_TIME * 2);
       },
 
       /**

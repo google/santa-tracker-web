@@ -61,6 +61,7 @@ $name: 'module-dorf';
         animation: #{$name}-shimmy 15s infinite ease-in-out;
       }
       .fall {
+        opacity: 0;  // this will be overwritten by animation
         animation: #{$name}-fall 35s infinite linear;
       }
       .snow {
@@ -76,14 +77,69 @@ $name: 'module-dorf';
         background: white;
         border-radius: 10000px;
       }
+      .plane {
+        position: absolute;
+        top: 32px;
+        width: 171px;
+        height: 82px;
+        margin-left: -(171px/2);
+        background: url(img/plane.svg) center no-repeat;
+        // this only animates across the screen for <10% of the time
+        animation: #{$name}-plane 75s infinite linear;
+      }
+      .cloud {
+        opacity: 0;  // this will be overwritten by animation
+        position: absolute;
+        width: 113px;
+        height: 68px;
+        margin-left: -(113px/2);
+        background: url(img/cloud-big_2x.png) center no-repeat;
+        background-size: contain;
+        // this only animates across the screen for <10% of the time
+        animation: #{$name}-cloud 25s infinite linear;
+      }
+      .skydive {
+        animation: #{$name}-skydive 40s infinite ease-in;
+        margin-left: calc(50% + 150px);
 
+        > span {
+          position: absolute;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          transform: translate(-50%, -50%);  // center span
+          animation-duration: inherit;
+          animation-iteration-count: infinite;
+        }
+        .pegman-1 {
+          width: 60px;
+          height: 60px;
+          background-image: url(img/pegman-dive.svg);
+          animation-name: #{$name}-skydive-pegman-1;
+        }
+        .pegman-2 {
+          margin-top: -7px;
+          width: 112px;
+          height: 112px;
+          background-image: url(img/pegman-chute.svg);
+          animation-name: #{$name}-skydive-pegman-2;
+        }
+        .pegman-3 {
+          margin-left: 61px;
+          margin-top: 24px;
+          width: 140px;
+          height: 140px;
+          background-image: url(img/pegman-land.svg);
+          animation-name: #{$name}-skydive-pegman-3;
+        }
+      }
     }
 
     #header-content {
       position: absolute;
       width: 100%;
       height: 630px;
-      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+      text-shadow: 0 1px 0 #47c6ee;
 
       display: flex;
       justify-content: flex-start;
@@ -94,15 +150,17 @@ $name: 'module-dorf';
       z-index: 2;
 
       #count-down {
-        padding: 60px 0 30px 0;
+        padding: 45px 0 30px 0;
       }
 
+      // NOTE: This is used for the countdown timer.
       h2 {
-        font-size: 11px;
-        font-weight: normal;
+        font-size: 12px;
+        letter-spacing: 1px;
+        font-weight: 500;
         color: #fff;
-        margin: 0 0 6px 0;
-        line-height: 11px;
+        margin: 6px 0;
+        line-height: 12px;
         text-transform: uppercase;
       }
 
@@ -155,9 +213,11 @@ $name: 'module-dorf';
   /** Village flexbox */
   #village-all {
     position: relative;
-    z-index: 2;
+    overflow: hidden;
     top: -30px;
-    padding-bottom: 100px;
+    z-index: 2;
+    padding-bottom: 240px;
+    margin-bottom: -240px;
 
     #houses {
       position: relative;
@@ -167,63 +227,175 @@ $name: 'module-dorf';
       position: relative;
       border-sizing: border-box;
       margin: 0 auto;
-      max-width: $width-desktop;
+      width: $width-desktop;
       z-index: 10;
+
+      @media (min-width: $width-tablet) {
+        /** Position data for cell-driven village. Specify this in left/bottom %. */
+
+        // 1st row, under sky
+        .house:nth-child(30n+1) .position {}
+        .house:nth-child(30n+2) .position { bottom: 38%; }
+        .house:nth-child(30n+3) .position { bottom: 36%; }
+        .house:nth-child(30n+4) .position { bottom: 20%; left: 55%; }
+        // 2nd row, around giant snowman & tree
+        .house:nth-child(30n+5) .position { bottom: 10%; left: 40%; }
+        .house:nth-child(30n+6) .position { bottom: 45%; left: 32%; }
+        .house:nth-child(30n+7) .position { bottom: 50%; left: 75%; }
+        .house:nth-child(30n+8) .position { bottom: 22%; left: 60%; }
+        // 3rd row, below giant snowman
+        .house:nth-child(30n+9) .position { bottom: 25% ;}
+        .house:nth-child(30n+10) .position { bottom: 15%; }
+        .house:nth-child(30n+11) .position { bottom: 40%; left: 60%; }
+        .house:nth-child(30n+12) .position { bottom: 15%; }
+        // 4th row
+        .house:nth-child(30n+13) .position { bottom: 25%; left: 40%;}
+        .house:nth-child(30n+14) .position { bottom: 15%; left: 45%; }
+        .house:nth-child(30n+15) .position { bottom: 22%; }
+        .house:nth-child(30n+16) .position { bottom: 20%;  left: 60%; }
+        // 5th row, with lake
+        .house:nth-child(30n+17) .position { bottom: 10%; left: 60%; }
+        .house:nth-child(30n+18) .position { bottom: 15%; }
+        .house:nth-child(30n+19) .position { bottom: 35%; left: 42%; }
+        .house:nth-child(30n+20) .position { bottom: 28%; left: 70%; }
+        // 6th row
+        .house:nth-child(30n+21) .position { bottom: 40%; left: 30%; }
+        .house:nth-child(30n+22) .position { bottom: 28%; }
+        .house:nth-child(30n+23) .position { bottom: 33%; }
+        .house:nth-child(30n+24) .position { bottom: 20%; left: 65%; }
+        // 7th/last row
+        .house:nth-child(30n+25) .position { bottom: 42%; left: 30%; }
+        .house:nth-child(30n+26) .position { bottom: 30%; }
+        .house:nth-child(30n+27) .position { bottom: 18%; }
+        .house:nth-child(30n+28) .position { bottom: 20%; left: 60%; }
+      }
+
+      /** Sizing data for different houses */
+      img.icon.icon-airport { width: 200%; transform: translate(-65%, 15%); }
+      img.icon.icon-traditions { transform: translate(-57%, 4%); }
+      img.icon.icon-codelab { transform: translate(-55%, 18%); }
+      img.icon.icon-app { width: 120%; }
+      img.icon.icon-santasback { transform: translate(-53%, 9%); }
+      img.icon.icon-santaselfie { width: 120%; transform: translate(-55%, 10%); }
+      img.icon.icon-translations { width: 150%; transform: translate(-46%, 9%); }
+      img.icon.icon-callfromsanta { width: 120%; transform: translate(-49%, 3%); }
+      img.icon.icon-presentdrop { width: 90%; transform: translate(-49%, 5%); }
+      img.icon.icon-santasearch { width: 115%; transform: translate(-36%, 10%); }
+      img.icon.icon-windtunnel { width: 130%; transform: translate(-53%, 8%); }
+      img.icon.icon-racer { width: 120%; transform: translate(-55%, 10%); }
+      img.icon.icon-jamband { width: 140%; }
+      img.icon.icon-gumball { transform: translate(-44.5%, 10%); }
+      img.icon.icon-postcard { transform: translate(-56%, 2%); }
+      img.icon.icon-jetpack { transform: translate(-54.5%, 5%); }
+      img.icon.icon-boatload { width: 130%; transform: translate(-42%, 14%); }
+      img.icon.icon-mercator { width: 110%; transform: translate(-55%, 10%); }
+      img.icon.icon-presentbounce { width: 120%; transform: translate(-52%, 8%); }
+      img.icon.icon-codeboogie { transform: translate(-46%, 9%); }
+      img.icon.icon-citylights { transform: translate(-48%, 2%); }
+      img.icon.icon-commandcentre { width: 105%; transform: translate(-46%, 10%); }
+      img.icon.icon-seasonofgiving { width: 95%; transform: translate(-58%); }
+      img.icon.icon-matching { width: 125%; transform: translate(-48%, 20%); }
     }
-    
+
     #ground {
       z-index: 1;
       position: absolute;
       background-image: url(img/ground.svg);
       background-repeat: repeat-x;
-      background-size: 1760px 3441px;
+      background-size: $ground-size-w $ground-size-h;
       background-position: 50% 0;
       width: 100%;
       height: 100%;
     }
-    
+
     #road {
       position: absolute;
       z-index: 2;
       background-image: url(img/road.svg);
       background-repeat: no-repeat;
       background-position: 50% 0;
-      background-size: 4002px 2932px;
+      background-size: $road-size-w $road-size-h;
       width: 100%;
       height: 100%;
-      top: 96px;
+      top: $road-top;
     }
   }
 
   .house {
     position: relative;
     box-sizing: border-box;
-    width: ($width-desktop / 4) - 4;
-    margin: 2px;
-    height: 365px;
-    background: rgba(0,0,0,.1);
+    width: ($width-desktop / 4);
+    height: $height-house;
+    border: 2px solid transparent;
 
-    &.iced {
-      // TODO(samthor): proper .iced styling for each house
-      opacity: 0.25;
-    }
-
-    img.icon {
+    .position {
+      // Every icon is placed (initially) in the center bottom of a cell. The
+      // inner image should position itself relative to that.
       position: absolute;
-      bottom: 0;
-      left: 25%;
-      width: 50%;
-      will-change: transform;
-    }
+      bottom: 20%;
+      width: 100%;
+      left: 50%;
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+      h3 {
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-shadow: 0 1px 0 #f6f3e3;
+        margin: 0;
+        line-height: 18px;
+        text-transform: uppercase;
+        color: #4e81a9;
+        font-weight: 500;
+        position: absolute;
+        margin-left: -100px; // nb: to align center
+        width: 200px;
+        text-align: center;
+      }
 
-    a:hover {
       img.icon {
-        animation: bounce infinite 600ms;
+        // By default, icons are 100% the width of a cell, and scaled from
+        // their (i.e., using translate(), not left/top) center.
+        width: 100%;
+        transform: translate(-50%);
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        z-index: 1000;
+        display: block;
+        position: absolute;
+        width: $height-link-size;
+        height: $height-link-size;
+        left: -($height-link-size/2);
+        bottom: -20px;
+
+        // TODO(samthor): This shouldn't need a layer, it doesn't draw anything
+        // however touching cards without this, causes a repaint... of nothing.
+        transform: translateZ(0);
+        will-change: transform;
+
+        img.card {
+          will-change: transform;
+          transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+          transform: scale(0);
+          opacity: 0.25;
+          border-radius: 10000px;
+          width: 90%;
+          position: absolute;
+          left: 5%;
+          bottom: 0;
+          box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
+        }
+      }
+    }
+
+    a:hover, a:active {
+      &::after {
+        opacity: 1;
+      }
+      img.card {
+        transform: scale(1);
+        opacity: 1;
       }
     }
 
@@ -234,37 +406,71 @@ $name: 'module-dorf';
   }
 
   #village-footer {
-    height: 900px;
-    background: green;
+    height: 700px;
+    background-image: url(img/footer-bg.svg);
+    background-repeat: repeat-x;
+    background-position: 50% 0;
+    background-size: 1882px 1116px;
+    position: relative;
+    
+    #village-footer-elves {
+      background-image: url(img/footer-elves.svg);
+      background-repeat: no-repeat;
+      background-position: 50% 0;
+      background-size: 1790px 700px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
   }
 
-  /** Desktop village */
-  @media (min-width: $width-mobile) {
-    /*.house {
-    width: 25%;
-    position: relative;
+  /** Tablet village. Shrunk version of desktop. */
+  @media (max-width: $width-desktop) and (min-width: $width-tablet) {
+    #village-all {
+      #houses {
+        width: $width-tablet;
+        .house {
+          width: ($width-tablet / 4);
+          height: ($height-house * $tablet-desktop-ratio);
+          .position {
+            a {
+              width: ($height-link-size * $tablet-desktop-ratio);
+              height: ($height-link-size * $tablet-desktop-ratio);
+              left: -($height-link-size * $tablet-desktop-ratio) / 2;
+            }
+          }
+        }
+      }
 
-    &::before {
-    content: '';
-    padding-top: 100%;
-    width: 100%;
-    float: left;
+      // $width-tablet / $width-desktop is = 0.6.
+      #ground {
+        background-size: ($ground-size-w * $tablet-desktop-ratio) ($ground-size-h * $tablet-desktop-ratio);
+      }
+      #road {
+        background-size: ($road-size-w * $tablet-desktop-ratio) ($road-size-h * $tablet-desktop-ratio);
+        top: ($road-top * $tablet-desktop-ratio);
+      }
     }
-    }*/
   }
 
   /** All mobile villages (two cols) */
-  @media (max-width: $width-mobile) {
-    .house {
-      width: 50%;
-      height: 200px;
+  @media (max-width: $width-tablet - 1) {
+    #village-all {
+      .house {
+        width: 50%;
+        height: 200px;
 
-      img.icon {
-        width: 200px;
+        img.icon {
+          width: 200px;
+        }
+
+        .color {
+          display: block;
+        }
       }
 
-      .color {
-        display: block;
+      #ground, #road {
+        display: none;
       }
     }
   }
