@@ -5,100 +5,60 @@ $digitHeight: 27px;
 $digitLineHeight: 53px;
 
 #counter {
-  background: rgba(255, 255, 255, 0.24);
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  border-radius: 6px;
-  padding: 19px;
+  user-select: none;
 
   .counter-box {
-    margin: 0 $counterMargin;
+    background: url(img/countdown_back.png);
+    background-size: 77px 77px;
+    width: 77px;
+    height: 77px;
+    position: relative;
+
+    .holder {
+      font-size: 34px;
+      color: white;
+      font-weight: 700;
+      padding-left: 2px;
+      padding-top: 2px;
+      line-height: 75px;
+      height: 77px;
+      width: 77px;
+      position: absolute;
+      box-sizing: border-box;
+      transform: translateZ(0);
+      will-change: transform;
+      text-shadow: none;
+    }
+    .holder.prev {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    &.anim {
+      .holder.active {
+        animation: counter-step-active 0.25s;
+      }
+      .holder.prev {
+        animation: counter-step-prev 0.25s;
+      }
+    }
   }
 
   h2 {
-    font-size: 9pt;
-    font-weight: 700;
-    margin: 0 0 13px 0;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.14);
-  }
-
-  .digit {
-    color: #454545;
-    font-weight: 200;
-    border-radius: 4px;
-    background: #fff;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .26);
+    position: absolute;
+    bottom: 0;
+    left: 2px;
+    right: 0;
     text-align: center;
-    perspective: 500px;
-    line-height: $digitLineHeight;
-    font-size: 39px;
-    margin-right: 3px;
-    position: relative;
-    width: $digitWidth;
-    height: $digitLineHeight;
+    margin: 0 !important;
   }
+}
 
-  .digit-top {
-    position: absolute;
-    border-radius: 4px 4px 0 0;
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid #e3e3e3;
-    overflow: hidden;
-    background-color: #fafafa;
-    background-image: linear-gradient(to bottom, #fafafa, #f2f2f2);
-    z-index: 5;
-    height: $digitHeight;
-    width: $digitWidth;
-  }
-
-  .digit-top.digit-behind {
-    z-index: 4;
-  }
-
-  .digit-bottom {
-    background: #fff;
-    position: absolute;
-    border-radius: 0 0 4px 4px;
-    overflow: hidden;
-    z-index: 2;
-    box-shadow :0 1px 1px rgba(0, 0, 0, .2);
-    height: $digitHeight - 3;
-    width: $digitWidth;
-    top: $digitHeight;
-
-    span {
-      display: block;
-      position: absolute;
-      top: -($digitHeight - 1);
-      width: $digitWidth;
-    }
-  }
-
-  .digit-bottom.digit-front {
-    z-index: 3;
-    transform: rotateX(90deg);
-    transform-origin: 50% 0%;
-  }
-
-  .digit-top.digit-front {
-    transform: rotateX(0deg);
-    transform-origin: 50% 100%;
-  }
-
-  // Only the front ones animate.
-  .digit-anim .digit-front {
-    transition: transform 300ms linear;
-
-    &.digit-top {
-      transform: rotateX(-90deg);
-      border-top: 1px solid #e3e3e3;
-    }
-
-    &.digit-bottom {
-      transform: rotateX(0deg);
-      box-shadow: 0 0 5px 0 rgba(0, 0, 0, .4);
-      border-bottom: 1px solid #e3e3e3;
-
-      transition-delay: 300ms;
-    }
-  }
+@keyframes counter-step-active {
+  0% { transform: translateY(-50%); opacity: 0; }
+  100% { transform: translateY(0%); opacity: 1; }
+}
+@keyframes counter-step-prev {
+  0% { transform: translateY(0%); opacity: 1; }
+  100% { transform: translateY(50%); opacity: 0; }
 }

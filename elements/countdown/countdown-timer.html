@@ -17,7 +17,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../js/utils.html">
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="countdown-timer.css">
+<link rel="stylesheet" href="countdown-timer.css" />
 
 <!--
 Displays a countdown timer.
@@ -50,21 +50,9 @@ Example
       <template is="dom-repeat" items="{{titles}}">
         <div class="counter-box layout vertical center"
              hidden$="{{_computeHide(index, displayDigits)}}">
+          <div class="holder active"></div>
+          <div class="holder prev"></div>
           <h2>{{item}}</h2>
-          <div class="digits layout horizontal">
-            <div class="digit">
-              <div class="digit-top digit-front"><span></span></div>
-              <div class="digit-top digit-behind"><span></span></div>
-              <div class="digit-bottom digit-front"><span></span></div>
-              <div class="digit-bottom digit-behind"><span></span></div>
-            </div>
-            <div class="digit">
-              <div class="digit-top digit-front"><span></span></div>
-              <div class="digit-top digit-behind"><span></span></div>
-              <div class="digit-bottom digit-front"><span></span></div>
-              <div class="digit-bottom digit-behind"><span></span></div>
-              </div>
-          </div>
         </div>
       </template>
     </div>
@@ -155,14 +143,14 @@ Example
           readOnly: true
         },
 
-        digits: {
+        holders: {
           type: Array,
           value: function() { return []; },
           readOnly: true
         }
       },
 
-      _oldDigits: [],
+      _oldNumbers: [],
 
       listeners: {
          // For prod, <i18n-msg> is removed and textContent will already be
@@ -185,8 +173,8 @@ Example
         this.async(function() {
           // Needs to wait one rAF so titles has populated the template repeat.
           if (this.render) {
-            this._setDigits(Array.prototype.slice.call(
-                            this.$.counter.querySelectorAll('.digit')));
+            this._setHolders(Array.prototype.slice.call(
+                            this.$.counter.querySelectorAll('.holder.active')));
           }
 
           this.fire('countdown-timer-ready', this);
@@ -242,14 +230,29 @@ Example
         var seconds = this.currentTime.seconds;
 
         if (this.render) {
-          var newDigits = [padDigits(days), padDigits(hours), padDigits(mins),
-              padDigits(seconds)].join('').split('');
+          var numbers = [padDigits(days), padDigits(hours), padDigits(mins),
+              padDigits(seconds)];
           this.displayDigits = (days == 0) ? 6 : 8
 
-          for (var i = 0, digit; digit = this.digits[i]; ++i) {
-            this.setDigit(digit, this._oldDigits[i], newDigits[i]);
+          for (var i = 0, holder; holder = this.holders[i]; ++i) {
+
+            if (this._oldNumbers[i] != numbers[i]) {
+              holder.nextElementSibling.textContent = this._oldNumbers[i];
+              holder.textContent = numbers[i];
+
+              holder.parentNode.classList.add('anim');
+              (function(holder) {
+                this.async(function() {
+                  holder.parentNode.classList.remove('anim');
+                }, 500);
+              }.bind(this))(holder);
+            }
           }
-          this._oldDigits = newDigits;
+
+          // for (var i = 0, digit; digit = this.digits[i]; ++i) {
+          //   this.setDigit(digit, this._oldDigits[i], newDigits[i]);
+          // }
+          this._oldNumbers = numbers;
         }
 
         // TODO: this is not i18n'd.
