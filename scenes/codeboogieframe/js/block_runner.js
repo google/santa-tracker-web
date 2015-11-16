@@ -129,6 +129,9 @@ app.BlockRunner.prototype = {
     this.blockly.toggleExecution(true);
   },
 
+  onStep_: function() {
+  },
+
   onFinishAnimations_: function() {
     // Animation polyfill runs finish handler once before the first run. Let's ignore that.
     switch (this.state_) {

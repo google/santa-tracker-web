@@ -24,11 +24,7 @@
     z-index: 2;
   }
 
-  &.level--puzzle .tutorial__image {
-    background-image: url(img/tutorial/puzzle.gif);
-  }
-
-  &.level--maze .tutorial__image {
+  &.level--dance .tutorial__image {
     background-image: url(img/tutorial/maze.gif);
   }
 

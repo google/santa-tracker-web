@@ -83,7 +83,7 @@ app.FrameWrapper.prototype.dispose = function() {
  * Loads the gameplay frame into the iframe.
  */
 app.FrameWrapper.prototype.setIframeSrc = function() {
-  var filename = window.DEV_SCENE ? 'index.html' : 'codeboogieframe-scene_' + document.documentElement.lang + '.html';
+  var filename = window.DEVMODE ? 'index.html' : 'codeboogieframe-scene_' + document.documentElement.lang + '.html';
   this.iframeEl.attr('src', this.staticDir + '../codeboogieframe/' + filename + location.search);
 };
 
