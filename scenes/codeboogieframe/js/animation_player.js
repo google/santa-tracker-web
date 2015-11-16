@@ -19,6 +19,7 @@ goog.require('goog.events.EventTarget');
 
 /**
  * Manages queueing up dance animations.
+ *
  * @param {app.Scene} scene where animations happens.
  * @constructor
  */
@@ -30,8 +31,16 @@ goog.inherits(app.AnimationPlayer, goog.events.EventTarget);
 
 /**
  * Starts a dance routine with the specified player steps.
+ *
  * @param {app.Step[]} steps to have main player perform.
  */
 app.AnimationPlayer.prototype.start = function(steps) {
-
+  steps.forEach((step, i) => {
+    setTimeout(() => {
+      this.dispatchEvent({type: 'step', data: step.id});
+    }, i * 1000);
+  });
+  setTimeout(() => {
+    this.dispatchEvent('finish');
+  }, steps.length * 1000);
 };

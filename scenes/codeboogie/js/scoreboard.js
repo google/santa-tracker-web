@@ -21,7 +21,7 @@ goog.provide('app.Scoreboard');
  * A minimalistic fork of the shared class. Don't need buttons, countdown
  * or points.
  * @constructor
- * @param {!Element} elem The scoreboard element.
+ * @param {jQuery} elem The scoreboard element.
  * @param {number} levels The total number of levels.
  */
 app.Scoreboard = function(elem, levels) {
@@ -40,7 +40,7 @@ app.Scoreboard = function(elem, levels) {
  */
 app.Scoreboard.prototype.setLevel = function(level) {
   if (this.levelElem.length > 0 && level >= 0) {
-    this.levelElem.text(level + 1);
+    this.levelElem.text((level + 1).toString());
   }
 
   if (this.levelItemElems.length > 0 && level < 10) {

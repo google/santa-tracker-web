@@ -18,10 +18,11 @@ goog.provide('app.levels');
 
 goog.require('app.DanceLevel');
 goog.require('app.blocks');
+goog.require('app.Step');
 
 /**
  * Array of levels.
- * @type {!Array.<!app.PuzzleLevel>}
+ * @type {!Array.<!app.Level>}
  */
 app.levels = [];
 
@@ -30,6 +31,12 @@ app.levels = [];
  */
 app.levels.push(new app.DanceLevel({
   idealBlockCount: 2,
+  steps: [
+    app.Step.LEFT_ARM,
+    app.Step.RIGHT_ARM,
+    app.Step.LEFT_ARM,
+    app.Step.RIGHT_ARM
+  ],
   requiredBlocks: ['dance_leftArm'],
   startBlocks: app.blocks.blockXml('dance_leftArm', {deletable: false}),
   toolbox: app.blocks.miniBlockXml('dance_leftArm') +

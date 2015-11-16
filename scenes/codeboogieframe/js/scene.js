@@ -125,8 +125,6 @@ app.Scene.prototype.reset = function() {
 app.Scene.prototype.setLevel = function(level) {
   this.level = level;
 
-  this.blockRunner_.resetAnimation();
-
   // Show the scene in portrait, then hide it after 3 seconds.
   this.portraitToggleScene(true);
   window.setTimeout(this.portraitToggleScene.bind(this, false), 3000);

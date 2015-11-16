@@ -19,7 +19,6 @@ goog.provide('app.Blockly');
 goog.require('Blockly');
 goog.require('Blockly.inject');
 goog.require('app.BlocklyLayout');
-goog.require('app.LevelResult');
 goog.require('app.blocks');
 
 /**
@@ -34,9 +33,6 @@ app.Blockly = function(el, game) {
   this.el = el;
   this.game = game;
   this.layout = new app.BlocklyLayout(this, game);
-
-  // Bind handlers.
-  this.checkGoalCondition_ = this.checkGoalCondition_.bind(this);
 
   this.initBlockly_();
 };
@@ -81,11 +77,6 @@ app.Blockly.prototype = {
     this.loadBlocks_();
 
     this.layout.scheduleLayout();
-
-    // Maybe check for changes and success.
-    if (this.currentLevel.checkSuccess) {
-      this.changeListener_ = Blockly.addChangeListener(this.checkGoalCondition_);
-    }
   },
 
   /**
@@ -192,23 +183,6 @@ app.Blockly.prototype = {
           cursorY += app.Constants.BLOCK_Y_COORDINATE_INTERVAL;
         }
       }
-    }
-  },
-
-  /**
-   * Checks if goal condition has been reached, bumping the level.
-   * @private
-   */
-  checkGoalCondition_: function() {
-    var isDone = this.currentLevel.checkSuccess();
-    if (isDone) {
-      Blockly.removeChangeListener(this.changeListener_);
-      this.changeListener_ = null;
-
-      this.game.successResult.show(new app.LevelResult(true, null, {
-        allowRetry: false,
-        graphic: '#result-puzzle'
-      }));
     }
   },
 

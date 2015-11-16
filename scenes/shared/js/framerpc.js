@@ -16,11 +16,18 @@
 
 goog.provide('app.shared.FrameRPC');
 
-app.shared.FrameRPC = function(options, api) {
-  this.targetWindow = options;
+/**
+ * Simple RPC channel for communicating between frames using postMessage.
+ *
+ * @param {Element} target frame to send messages to.
+ * @param {object} api of methods available to other frame.
+ * @constructor
+ */
+app.shared.FrameRPC = function(target, api) {
+  this.targetWindow = target;
   this.api = api;
 
-  if(!!window.postMessage) {
+  if (!!window.postMessage) {
     window.addEventListener('message', this.onReceiveMessage.bind(this), false);
   }
 };
@@ -29,7 +36,7 @@ app.shared.FrameRPC = function(options, api) {
  * Removes the event listeners from this module.
  */
 app.shared.FrameRPC.prototype.dispose = function() {
-  if(!!window.postMessage) {
+  if (!!window.postMessage) {
     window.removeEventListener('message', this.onReceiveMessage, false);
   }
 };
