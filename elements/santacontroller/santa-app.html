@@ -170,6 +170,7 @@ Santa Tracker app.
 
     <traditions-scene route="traditions" icon="1f4cc"
         path$="scenes/traditions/traditions-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-bg-color="rgb(255,224,0)"
         loading-src="scenes/traditions/img/loading.gif"></traditions-scene>
 
@@ -336,7 +337,7 @@ Polymer({
     },
 
     /**
-     * The mode of the scene. Possible values are: 'cast' or 'embed'.
+     * The mode of the scene. Possible values are: 'cast', 'portal', or 'embed'.
      */
     mode: {
       type: String
@@ -484,6 +485,9 @@ Polymer({
         this.mode = 'embed';
         loadSound = false;
         break;
+      case 'web_portal':
+        this.mode = 'portal';
+        break;
       default:
         break;
     }
@@ -510,8 +514,10 @@ Polymer({
       this.analyticsService.trackEvent('API', 'killed');
       // redirect after analytics has been processed
       this.analyticsService.executeFunction(function errorRedirect() {
-        window.location = 'https://santatracker.google.com' +
-            location.pathname.replace(/[^\/]*$/, '') + 'error.html';
+
+// RP: temporarily disabled, this fires due to 'portal' being passed, unsure of where to whitelist this mode
+/*        window.location = 'https://santatracker.google.com' +
+            location.pathname.replace(/[^\/]*$/, '') + 'error.html';*/
       });
     }.bind(this));
 
@@ -528,6 +534,7 @@ Polymer({
    */
   _prepareHouses: function() {
     var castMode = this.mode === 'cast';
+    var portalMode = this.mode === 'portal';
     var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
     var spanglish = /^e(n|s)/.test(this.language);
 
@@ -540,7 +547,7 @@ Polymer({
       switch (house.module) {
         case 'app':
           // Disable Google Play house on iOS devices
-          house.disabled = ios || house.disabled;
+          house.disabled = ios || portalMode || house.disabled;
           break;
         case 'streetview':
           // remove streetview where callfromsanta supported (en|en-GB|es|es-419)
