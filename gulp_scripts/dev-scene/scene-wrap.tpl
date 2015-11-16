@@ -20,6 +20,7 @@
     <script>
         // Stub Polymer function in case HTMLImports lag.
         window.__polymerComponents = [];
+        window.__sceneBehaviorStub = window.SantaSceneBehavior = 'STUB';
         window.Polymer = function() {
             __polymerComponents.push(arguments);
         }
@@ -69,6 +70,12 @@
 
             // Create any pending Polymer components.
             __polymerComponents.forEach(function(component) {
+                // Replace stubbed SantaSceneBehavior if needed.
+                if (component[0].behaviors) {
+                    component[0].behaviors = component[0].behaviors.map(function(b) {
+                        return b === __sceneBehaviorStub ? SantaSceneBehavior : b;
+                    });
+                }
                 Polymer.apply(null, component);
             });
         });
