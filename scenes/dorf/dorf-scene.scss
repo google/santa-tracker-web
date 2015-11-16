@@ -216,7 +216,8 @@ $name: 'module-dorf';
     overflow: hidden;
     top: -30px;
     z-index: 2;
-    padding-bottom: 100px;
+    padding-bottom: 240px;
+    margin-bottom: -240px;
 
     #houses {
       position: relative;
@@ -396,8 +397,22 @@ $name: 'module-dorf';
   }
 
   #village-footer {
-    height: 900px;
-    background: green;
+    height: 700px;
+    background-image: url(img/footer-bg.svg);
+    background-repeat: repeat-x;
+    background-position: 50% 0;
+    background-size: 1882px 1116px;
+    position: relative;
+    
+    #village-footer-elves {
+      background-image: url(img/footer-elves.svg);
+      background-repeat: no-repeat;
+      background-position: 50% 0;
+      background-size: 1790px 700px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   /** Tablet village. Shrunk version of desktop. */
