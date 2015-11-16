@@ -8,11 +8,19 @@ $digitLineHeight: 53px;
   user-select: none;
 
   .counter-box {
-    background: url(img/countdown_back.png);
-    background-size: 77px 77px;
     width: 77px;
     height: 77px;
     position: relative;
+
+    &::before {
+      content: "";
+      background: url(img/countdown_back.png);
+      background-size: 77px 77px;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      opacity: 0.8;
+    }
 
     .holder {
       font-size: 34px;
@@ -36,10 +44,10 @@ $digitLineHeight: 53px;
 
     &.anim {
       .holder.active {
-        animation: counter-step-active 0.25s;
+        animation: counter-step-active 0.4s;
       }
       .holder.prev {
-        animation: counter-step-prev 0.25s;
+        animation: counter-step-prev 0.4s;
       }
     }
   }
@@ -55,10 +63,10 @@ $digitLineHeight: 53px;
 }
 
 @keyframes counter-step-active {
-  0% { transform: translateY(-50%); opacity: 0; }
+  0% { transform: translateY(50%); opacity: 0; }
   100% { transform: translateY(0%); opacity: 1; }
 }
 @keyframes counter-step-prev {
   0% { transform: translateY(0%); opacity: 1; }
-  100% { transform: translateY(50%); opacity: 0; }
+  100% { transform: translateY(-50%); opacity: 0; }
 }

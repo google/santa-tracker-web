@@ -61,21 +61,12 @@ Example
   <script>
   (function() {
 
-    var _TRANSITION_TIME = 300;
+    var _TRANSITION_TIME = 400;
 
     Polymer({
       is: 'countdown-timer',
 
       properties: {
-        /**
-         * Optional container element to render the countdown into. If `render`
-         * is `true`, the container defaults to this element's light dom.
-         */
-        container: {
-          type: Object,
-          value: null
-        },
-
         /**
          * True if the countdown should be active.
          */
@@ -137,12 +128,19 @@ Example
           readOnly: true
         },
 
+        /**
+         * The DOM nodes containing countdown titles, such as Days, Hours,
+         * Minutes, Seconds etc.
+         */
         titles: {
           type: Array,
           value: function() { return []; },
           readOnly: true
         },
 
+        /**
+         * The `.counter-box` elements containing countdown nodes.
+         */
         holders: {
           type: Array,
           value: function() { return []; },
@@ -160,9 +158,6 @@ Example
 
       ready: function() {
         this._setCurrentTime(this._getCurrentTime());
-        if (this.render) {
-          this.container = this.container || this;
-        }
       },
 
       attached: function() {
@@ -174,7 +169,7 @@ Example
           // Needs to wait one rAF so titles has populated the template repeat.
           if (this.render) {
             this._setHolders(Array.prototype.slice.call(
-                            this.$.counter.querySelectorAll('.holder.active')));
+                            this.$.counter.querySelectorAll('.counter-box')));
           }
 
           this.fire('countdown-timer-ready', this);
@@ -233,25 +228,9 @@ Example
           var numbers = [padDigits(days), padDigits(hours), padDigits(mins),
               padDigits(seconds)];
           this.displayDigits = (days == 0) ? 6 : 8
-
           for (var i = 0, holder; holder = this.holders[i]; ++i) {
-
-            if (this._oldNumbers[i] != numbers[i]) {
-              holder.nextElementSibling.textContent = this._oldNumbers[i];
-              holder.textContent = numbers[i];
-
-              holder.parentNode.classList.add('anim');
-              (function(holder) {
-                this.async(function() {
-                  holder.parentNode.classList.remove('anim');
-                }, 500);
-              }.bind(this))(holder);
-            }
+            this.setValue(holder, this._oldNumbers[i], numbers[i]);
           }
-
-          // for (var i = 0, digit; digit = this.digits[i]; ++i) {
-          //   this.setDigit(digit, this._oldDigits[i], newDigits[i]);
-          // }
           this._oldNumbers = numbers;
         }
 
@@ -278,6 +257,24 @@ Example
           this._setFinished(true);
           this.stop();
         }
+      },
+
+      /**
+       * Sets a value for the passed `.counter-box` node.
+       */
+      setValue: function(node, oldVal, val) {
+        if (oldVal == val) {
+          return;
+        }
+
+        // NOTE: Assumes child layout.
+        node.children[0].textContent = val;
+        node.children[1].textContent = oldVal;
+
+        node.classList.add('anim');
+        this.async(function() {
+          node.classList.remove('anim');
+        }, _TRANSITION_TIME * 2);
       },
 
       /**
