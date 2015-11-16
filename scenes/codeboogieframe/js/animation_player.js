@@ -184,7 +184,6 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
 
       this.playing = false;
     } else {
-      console.log(blockId)
       this.dispatchEvent({type: 'step', data: blockId});
     }
   }
@@ -194,6 +193,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
    * @param {app.Step[]} steps to have main player perform.
    */
   start(steps) {
+    this.playing = true;
     this.queue.add(steps);
   }
 };
