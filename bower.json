@@ -44,5 +44,13 @@
     "web-animations-js": "web-animations/web-animations-js#^2.0",
     "web-animations-utils": "GoogleChrome/web-animations-utils#master",
     "i18n-msg": "ebidel/i18n-msg#^1.0.2"
+  },
+  "resolutions": {
+    "webcomponentsjs": "0.7.17",
+    "font-roboto": "^1.0.1",
+    "paper-icon-button": "^1.0.0",
+    "paper-ripple": "^1.0.0",
+    "polymer": "^1.2.0",
+    "google-apis": "^1.0"
   }
 }
