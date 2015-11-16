@@ -1,12 +1,22 @@
 ##{$name} {
+  $worldBackground: #404AA3;
+
   .scene {
-    background: #FFC05B;
+    background: $worldBackground;
     bottom: 0;
     font-size: 10px; // For relative em sizing and scaling.
     position: absolute;
     right: 0;
     top: 0;
     width: 200px;
+
+    canvas {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 8em;
+      margin: 0 auto;
+    }
   }
 
   .scene-underlay {
@@ -21,11 +31,19 @@
   }
 
   .scene__world {
-    margin-left: ((8em + 0.4em) * 0.3);
+
+  }
+
+  .scene__word-title {
+    color: white;
+    font-family: 'Lobster';
+    font-size: 5em;
+    margin-top: 50px;
+    text-align: center;
+    width: 100%;
   }
 
   .scene__play-tab {
-    background: white;
     border-radius: 50%;
     bottom: 60px;
     height: 16em;
@@ -46,6 +64,8 @@
   // Some browsers also round down the pixel size of the GPU layer which trims the box-shadow,
   // which is why we force this bigger parent on the GPU.
   .scene__play-layer {
+    background-color: $worldBackground;
+    border-radius: 50%;
     height: 16em;
     position: relative;
     -webkit-transform: translateZ(0);
