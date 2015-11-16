@@ -8,7 +8,9 @@ $name: 'module-dorf';
 ##{$name} {
   background: #F5F2E2;
   height: 100%;
+  position: relative;
   min-width: 320px;  // force 320px min width, i.e., iPhone 4/5+
+  overflow: hidden;
 
   .scroll {
     overflow-y: auto;
