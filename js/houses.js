@@ -21,27 +21,32 @@
 window.HOUSES = [{
   module: "airport",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 1, 2014'),
   category: "play"
 }, {
   module: "traditions",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 1, 2014'),
   category: "learn"
 }, {
   module: "codelab",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 1, 2014'),
   category: "learn"
 }, {
   module: "app",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 1, 2014'),
   category: "play",
   link: 'https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker'
 }, {
   module: "seasonofcaring",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 1, 2014'),
   category: "learn"
 }, {
@@ -52,36 +57,43 @@ window.HOUSES = [{
 }, {
   module: "santaselfie",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 3, 2014'),
   category: "play"
 }, {
   module: "translations",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 4, 2014'),
   category: "learn"
 }, {
   module: "callfromsanta",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 5, 2014'),
   category: "play"
 }, {
   module: "presentdrop",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 6, 2014'),
   category: "play"
 }, {
   module: "santasearch",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 7, 2014'),
   category: "play"
 }, {
   module: "windtunnel",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 8, 2014'),
   category: "play"
 }, {
   module: "racer",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 9, 2014'),
   category: "play"
 }, {
@@ -97,6 +109,7 @@ window.HOUSES = [{
 }, {
   module: "postcard",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 12, 2014'),
   category: "play"
 }, {
@@ -107,21 +120,25 @@ window.HOUSES = [{
 }, {
   module: "boatload",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 14, 2014'),
   category: "play"
 }, {
   module: "mercator",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 15, 2014'),
   category: "play"
 }, {
   module: "presentbounce",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 16, 2014'),
   category: "play"
 }, {
   module: "codeboogie",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 17, 2014'),
   category: "play"
 }, {
@@ -132,16 +149,19 @@ window.HOUSES = [{
 }, {
   module: "citylights",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 19, 2014'),
   category: "learn"
 }, {
   module: "commandcentre",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 20, 2014'),
   category: "watch"
 }, {
   module: "seasonofgiving",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 21, 2014'),
   category: "learn"
 }, {
@@ -152,6 +172,7 @@ window.HOUSES = [{
 }, {
   module: "liftoff",
   iced: true,
+  fakeCard: true,
   launchDate: new Date('Dec 23, 2014'),
   category: "watch"
 }];

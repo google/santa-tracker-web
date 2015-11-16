@@ -79,9 +79,10 @@ Village scene (2015).
                 <img class$="icon icon-{{item.module}}"
                      src$="{{_calculateIcon(item.module, item)}}" />
                 <h3>{{item.category}}</h3>
+                <a href="{{_calculateHref(item)}}">
+                  <img class="card" src="{{_calculateCard(item.module, item)}}" />
+                </a>
               </div>
-              <a class="fit" href="{{_calculateHref(item)}}">
-              </a>
             </div>
           </template>
         </div>
@@ -254,8 +255,13 @@ Village scene (2015).
       return 'hsl(' + shade + ', 82%, 55%)';
     },
 
-    _calculateIcon: function(id, item) {
-      return this.componentDir + 'img/building-' + id + (item.iced ? '-ice' : '') + '.svg';
+    _calculateIcon: function(id, house) {
+      return this.componentDir + 'img/building-' + id + (house.iced ? '-ice' : '') + '.svg';
+    },
+
+    _calculateCard: function(id, house) {
+      id = house.fakeCard ? 'fake' : id;
+      return this.componentDir + 'img/card-' + id + '.png';
     },
 
     _santaAppChanged: function() {
