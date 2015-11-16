@@ -11,10 +11,11 @@ $digitLineHeight: 53px;
     width: 77px;
     height: 77px;
     position: relative;
+    margin: 0 2px;
 
     &::before {
       content: "";
-      background: url(img/countdown_back.png);
+      background: url(img/number-bg.svg);
       background-size: 77px 77px;
       width: 100%;
       height: 100%;
@@ -26,9 +27,7 @@ $digitLineHeight: 53px;
       font-size: 34px;
       color: white;
       font-weight: 700;
-      padding-left: 2px;
-      padding-top: 2px;
-      line-height: 75px;
+      line-height: 77px;
       height: 77px;
       width: 77px;
       position: absolute;
