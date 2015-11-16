@@ -96,9 +96,9 @@ app.Controls.prototype.onDeviceOrientation_ = function(e) {
  */
 app.Controls.prototype.onKeyDown_ = function(e) {
   if (e.keyCode === 37) { // Left
-    this.isLeftDown_ = true;
+    this.isLeftDown = true;
   } else if (e.keyCode === 39) { // Right
-    this.isRightDown_ = true;
+    this.isRightDown = true;
   }
 
   if (!this.arrowPressed && (e.keyCode === 37 || e.keyCode === 39)) {
@@ -116,8 +116,8 @@ app.Controls.prototype.onKeyDown_ = function(e) {
  */
 app.Controls.prototype.onKeyUp_ = function(e) {
   if (e.keyCode === 37) { // Left
-    this.isLeftDown_ = false;
+    this.isLeftDown = false;
   } else if (e.keyCode === 39) { // Right
-    this.isRightDown_ = false;
+    this.isRightDown = false;
   }
 };
