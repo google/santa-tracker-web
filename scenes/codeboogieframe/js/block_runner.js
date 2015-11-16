@@ -71,7 +71,7 @@ app.BlockRunner = class {
   }
 
   /**
-   * Execute the user's code.  Heaven help us...
+   * Execute the user's code. Heaven help us...
    */
   execute() {
     if (this.state_ !== app.BlockRunnerState.NOT_ANIMATING) {
@@ -151,7 +151,8 @@ app.BlockRunner = class {
   }
 
   createExecuteContext() {
-    const stepFn = step => id => this.stepQueue_.push({step, id});
+    const stepFn = step => blockId => this.stepQueue_.push({step, blockId});
+
     return {
       api: {
         leftArm: stepFn(app.Step.LEFT_ARM),
@@ -162,7 +163,7 @@ app.BlockRunner = class {
         spin: stepFn(app.Step.SPIN),
         split: stepFn(app.Step.SPLIT),
         clap: stepFn(app.Step.CLAP),
-        highlightLoop: id => this.stepQueue_.push({step: null, id: id})
+        highlightLoop: id => this.stepQueue_.push({step: null, blockId: id})
       }
     };
   }

@@ -13,5 +13,9 @@ app.Step = {
   JUMP: 'jump',
   SPIN: 'spin',
   SPLIT: 'split',
-  CLAP: 'clap'
+  CLAP: 'clap',
+
+  // Non blockly moves
+  IDLE: 'idle'
 };
+
