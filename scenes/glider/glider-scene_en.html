@@ -12,21 +12,19 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 
 <script src="../shared/js/startbutton.js"></script>
 <script src="glider-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="glider-scene.css" />
+
 <!--
 Glider scene.
-
-@element glider-scene
-@extends base-scene
 -->
-<polymer-element name="glider-scene" extends="base-scene">
+<dom-module id="glider-scene">
 <template>
-  <link rel="stylesheet" href="glider-scene.css" no-shim>
-
   <div id="module-glider">
     <div class="bg">
       <div class="sky"></div>
@@ -59,15 +57,6 @@ Glider scene.
             <i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg>
           </div>
           <div class="value"><span class="current-level">1</span><span class="dark-text">/10</span>
-          </div>
-          <div class="level-dots">
-            <template repeat="{{i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}}">
-              <div class="level-item{{i === 1 ? ' is-active' : ''}}">
-                <div class="level-dot"></div>
-                <div class="level-shadow"></div>
-                <div class="level-number">{{i}}</div>
-              </div>
-            </template>
           </div>
         </div>
         <div class="time">
@@ -128,8 +117,8 @@ Glider scene.
 <script>
 (function() {
   Polymer({
-    componentDir: 'scenes/glider/',
-
+    is: 'glider-scene',
+    behaviors: [window.SantaSceneBehavior],
     game: null,
 
     onPreload: function() {
@@ -209,4 +198,4 @@ Glider scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

@@ -21,10 +21,10 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../../../components/core-selector/core-selector.html">
+<link rel="import" href="../../../components/iron-selector/iron-selector.html">
 <link rel="import" href="../../../components/paper-item/paper-item.html">
 
-<polymer-element name="select-answer" attributes="choices">
+<dom-module id="select-answer" attributes="choices">
 <template>
 
   <style>
@@ -32,7 +32,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       padding: 0 15px;
     }
 
-    paper-item.core-selected {
+    paper-item.iron-selected {
       background-color: #00C55D;
     }
 
@@ -95,7 +95,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     .is-answered .is-correct .check::after,
-    .core-selected .check::after {
+    .iron-selected .check::after {
       display: block;
     }
 
@@ -155,13 +155,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </template>
   </div>
 
-  <core-selector id="selector" target="{{$.choices}}" selected="{{value}}"></core-selector>
+  <iron-selector id="selector" target="{{$.choices}}" selected="{{value}}"></iron-selector>
 
 </template>
 <script>
   Polymer({
+    is: 'select-answer',
+
     eventDelegates: {
-      'core-activate': 'onAnswered'
+      'icon-activate': 'onAnswered'
     },
 
     shuffled: [],
@@ -203,4 +205,4 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
   });
 </script>
-</polymer-element>
+</dom-module>

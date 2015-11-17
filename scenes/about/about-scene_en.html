@@ -12,21 +12,18 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
-<link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="../scene-behavior.html">
+
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="about-scene.css" />
 
 <!--
 About scene.
-
-@element about-scene
-@extends base-scene
 -->
-<polymer-element name="about-scene" extends="base-scene">
+<dom-module id="about-scene">
 <template>
-  <link rel="stylesheet" href="about-scene.css" no-shim>
-
-  <div id="module-about" fit>
-    <div class="scene" fit>
+  <div id="module-about" class="fit">
+    <div class="scene fit">
       <a href="{{pageUrl}}#village" id="about-banner"></a>
       <div id="about-content">
         <h1><i18n-msg msgid="about_title">PLACEHOLDER_i18n</i18n-msg></h1>
@@ -43,6 +40,8 @@ About scene.
 </template>
 <script>
   Polymer({
+    is: 'about-scene',
+    behaviors: [window.SantaSceneBehavior],
     onPreload: function() {
       this.preloadImages([
         'img/about.png',
@@ -50,4 +49,4 @@ About scene.
     },
   });
 </script>
-</polymer-element>
+</dom-module>

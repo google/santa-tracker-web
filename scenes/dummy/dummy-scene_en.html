@@ -1,0 +1,62 @@
+<!--
+Copyright 2015 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../scene-behavior.html">
+
+<dom-module id="dummy-scene">
+  <template>
+    <div>I bring joy and happiness!</div>
+    <a href="#about">About</a>
+    <a href="#boatload">Boatload</a>
+    <a href="#windtunnel">Windtunnel</a>
+    <div>
+      <i18n-msg msgid="gameover_score">PLACEHOLDER_i18n</i18n-msg>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'dummy-scene',
+
+      behaviors: [window.SantaSceneBehavior],
+
+      listeners: {'sceneparams-changed': '_handleSceneParams'},
+
+      created: function() {
+        console.info('dummy-scene created');
+      },
+
+      onPreload: function() {
+        // TODO(samthor): This is just a random loading demo. Don't access
+        // private stuff here.
+        this._totalAssets = Math.round(Math.random() * 1000);
+        this._assetsLoaded = Math.round(Math.random() * this._totalAssets);
+
+        var delay = Math.round(Math.random() * 4) * 1000;
+        console.debug('dummy-scene delaying for', delay / 1000, 'sec');
+
+        window.setTimeout(function() {
+          this._assetsLoaded = this._totalAssets;
+        }.bind(this), delay);
+      },
+
+      ready: function() {
+        console.info('dummy-scene ready', this.alwaysActive);
+      },
+
+      _handleSceneParams: function() {
+        console.info('new sceneParams', this.sceneParams);
+      },
+    });
+  </script>
+</dom-module>

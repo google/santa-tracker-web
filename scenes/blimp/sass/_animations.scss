@@ -1,7 +1,6 @@
 @import "../../shared/sass/_mixins.scss";
-@import "compass/css3/transform";
 
-@include keyframes(cloud) {
+@keyframes cloud {
   0% {
     left: 110%;
   }
@@ -10,7 +9,7 @@
   }
 }
 
-@include keyframes(propeller1) {
+@keyframes propeller1 {
   0% {
     background-position: 0 0;
   }
@@ -37,7 +36,7 @@
   }
 }
 
-@include keyframes(propeller2) {
+@keyframes propeller2 {
   0% {
     background-position: -40px 0;
   }
@@ -64,7 +63,7 @@
   }
 }
 
-@include keyframes(propeller3) {
+@keyframes propeller3 {
   0% {
     background-position: -160px 0;
   }
@@ -91,7 +90,7 @@
   }
 }
 
-@include keyframes(horizSlide) {
+@keyframes horizSlide {
   0% {
     background-position: 0 0;
   }
@@ -100,7 +99,7 @@
   }
 }
 
-@include keyframes(cogs) {
+@keyframes cogs {
   0% {
     background-position: 0 0;
   }
@@ -116,7 +115,7 @@
 }
 
 
-@include keyframes(blink) {
+@keyframes blink {
   0% {
     top: 0;
     height: 44px;
@@ -151,7 +150,7 @@
   }
 }
 
-@include keyframes(eyeball) {
+@keyframes eyeball {
   0% {
     top: 13px;
     left: 19px;
@@ -186,7 +185,7 @@
   }
 }
 
-@include keyframes(flicker) {
+@keyframes flicker {
   0% {
     background-color: #da4537;
   }
@@ -237,7 +236,7 @@
   }
 }
 
-@include keyframes(snooze) {
+@keyframes snooze {
   0% {
     background-position: 0 0;
     opacity: 0;
@@ -260,7 +259,7 @@
   }
 }
 
-@include keyframes(boxesSingles1) {
+@keyframes boxesSingles1 {
   0% {
     opacity: 1;
   }
@@ -271,7 +270,7 @@
     opacity: 0;
   }
   60% {
-    @include transform(rotate(-100deg) translate(-300px, -200px));
+    transform: rotate(-100deg) translate(-300px, -200px);
     left: -400px;
   }
   100% {
@@ -279,7 +278,7 @@
   }
 }
 
-@include keyframes(boxesSingles2) {
+@keyframes boxesSingles2 {
   0% {
     opacity: 1;
   }
@@ -290,14 +289,14 @@
     opacity: 0;
   }
   50% {
-    @include transform(translate(-500px, -175px) rotate(-540deg));
+    transform: translate(-500px, -175px) rotate(-540deg);
   }
   100% {
     opacity: 0;
   }
 }
 
-@include keyframes(boxesSingles3) {
+@keyframes boxesSingles3 {
   0% {
     opacity: 1;
   }
@@ -308,7 +307,7 @@
     opacity:0;
   }
   30% {
-    @include transform(rotate(-540deg));
+    transform: rotate(-540deg);
     left: -400px;
     top: -100px;
   }
@@ -317,7 +316,7 @@
   }
 }
 
-@include keyframes(comet) {
+@keyframes comet {
   0% {
     background-position: -100% 0;
   }

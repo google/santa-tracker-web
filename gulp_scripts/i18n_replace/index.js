@@ -29,9 +29,13 @@ module.exports = function replaceMessages(opts) {
   var msgPromise = getMsgs(opts.path);
 
   var stream = through.obj(function(file, enc, cb) {
-    // TODO(cbro): only read HTML files.
     if (file.isNull()) return stream.push(file);
     if (file.isStream()) error('No support for streams');
+    if (!file.path.match(/\.html$/)) {
+      // Don't do work if the file isn't HTML.
+      warn('skipping non-html: %s', file.path);
+      return stream.push(file);
+    }
 
     msgPromise.then(function(messagesByLang) {
       var src = file.contents.toString();
@@ -50,6 +54,8 @@ module.exports = function replaceMessages(opts) {
 
         var ext = '_' + lang + '.html';
         var replaced = src
+        // TODO(samthor): The following two replaces are probably too
+        // aggressive and could match e.g., specific HTML elements.
           .replace(/lang="en"/, 'lang="' + lang + '"')
           .replace(/_en\.html/mg, ext)
           .replace(REGEX, function replacer(match, msgid, tagBody) {
@@ -65,16 +71,20 @@ module.exports = function replaceMessages(opts) {
             if (lang == 'en' && 'PLACEHOLDER_i18n' != tagBody) {
               error('i18n-msg body must be "PLACEHOLDER_i18n" for %s in %s', msgid, file.relative);
             }
-            return msg.message
+            return msg.message;
           });
 
-        if (replaced == src) {
-          // Don't create a new file if the source didn't change.
-          stream.push(file);
-          break;
-        }
+        // Note that this always writes a new HTML file, even if the content
+        // is the same (perhaps a scene uses no i18n-msg elements).
+
         if (!file.path.match(/(index|error|upgrade|_en)\.html$/)) {
-          error('[%s] Files with i18n-msg should end in _en.html', file.relative);
+          if (replaced == src) {
+            // ... unless the filename doesn't end with _en.html, in which case
+            // someone has accepted that it won't be translated anyway.
+            stream.push(file);
+            break;
+          }
+          error('[%s] Translatable files should end in _en.html', file.relative);
         }
 
         var dir = '/';

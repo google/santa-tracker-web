@@ -27,18 +27,18 @@
 
     &.today:not(.iced) {
       .house-marker {
-        @include transform(scale(1.5, 1.5));
+        transform: scale(1.5, 1.5);
         transform-origin: 50% 100%;
 
         &:focus,
         &.cast-focus {
-          @include animation(bigbounce 600ms linear infinite !important);
+          animation: bigbounce 600ms linear infinite !important;
         }
       }
 
       &:hover {
         .house-marker {
-          @include animation(bigbounce 600ms linear infinite !important);
+          animation: bigbounce 600ms linear infinite !important;
         }
       }
 
@@ -124,8 +124,8 @@
     .house-marker {
       position: absolute;
       bottom: 0;
-      @include transition(transform 500ms ease-out);
-      @include transition-timing-function(cubic-bezier(0.4, 1.6, 0.2, 1));
+      transition: transform 500ms ease-out;
+      transition-timing-function: cubic-bezier(0.4, 1.6, 0.2, 1);
     }
 
     .building {
@@ -142,8 +142,8 @@
 
     .house-snow, .snow-elves, .melt-elves {
       opacity: 1;
-      @include transition(opacity 500ms ease-out);
-      @include transition-timing-function(cubic-bezier(0.4, 1.6, 0.2, 1));
+      transition: opacity 500ms ease-out;
+      transition-timing-function: cubic-bezier(0.4, 1.6, 0.2, 1);
     }
 
     .melt-elves {
@@ -167,14 +167,13 @@
       .house-marker:focus {
         outline: none;
         // TODO(lukem): add something for IE
-        -webkit-filter: drop-shadow(0 0 15px #fff);
         filter: drop-shadow(0 0 15px #fff);
-        @include animation(bounce 600ms linear infinite);
+        animation: bounce 600ms linear infinite;
       }
 
       &:hover {
         .house-marker {
-          @include animation(bounce 600ms linear infinite);
+          animation: bounce 600ms linear infinite;
         }
       }
     }
@@ -186,9 +185,8 @@
 
       &.cast-focus {
         // explicit focus class for use on chromecast
-        -webkit-filter: drop-shadow(0 0 15px #fff);
         filter: drop-shadow(0 0 15px #fff);
-        @include animation(bounce 600ms linear infinite);
+        animation: bounce 600ms linear infinite;
       }
     }
   }
@@ -290,7 +288,7 @@
     bottom: -2px;
     left: 4469px;
     z-index: 2;
-    @include transform(translateZ(0) translateY(0) translateX(0));
+    transform: translateZ(0) translateY(0) translateX(0);
 
     div {
       width: 235px;
@@ -303,32 +301,32 @@
       z-index: 1;
       opacity: 1;
       background: url(img/balloon.svg) no-repeat;
-      @include transition(opacity 150ms ease-in);
+      transition: opacity 150ms ease-in;
     }
 
     #balloon2 {
       opacity: 0;
       z-index: 2;
       background: url(img/balloon-flight.svg) no-repeat;
-      @include transition(opacity 200ms ease-in);
+      transition: opacity 200ms ease-in;
     }
 
     &.takeoff {
       #balloon1 {
         opacity: 0;
-        @include transition(opacity 200ms ease-out);
+        transition: opacity 200ms ease-out;
       }
 
       #balloon2 {
         opacity: 1;
-        @include transition(opacity 150ms ease-in);
+        transition: opacity 150ms ease-in;
       }
     }
 
     &.flying {
       z-index: 10;
-      @include apply-origin(top center, false);
-      @include animation(fly 55s 1 linear);
+      transform-origin: top center;
+      animation: fly 55s 1 linear;
     }
   }
 
@@ -344,10 +342,10 @@
     opacity: 1;
     background-size: 180px 60px;
     background-image: url(img/pegman-land.svg);
-    @include transform(translateZ(0) translateY(0) translateX(0));
+    transform: translateZ(0) translateY(0) translateX(0);
 
     &.diving {
-      @include animation(skydive 25s 0 linear);
+      animation: skydive 25s 0 linear;
     }
 
     &.dive {
@@ -368,8 +366,8 @@
 
     &.takeoff {
       opacity: 0;
-      @include transition(opacity 500ms ease-out);
-      @include transition-timing-function(cubic-bezier(0.4, 1.6, 0.2, 1));
+      transition: opacity 500ms ease-out;
+      transition-timing-function: cubic-bezier(0.4, 1.6, 0.2, 1);
     }
   }
 

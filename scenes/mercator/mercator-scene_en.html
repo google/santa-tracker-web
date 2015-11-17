@@ -12,31 +12,29 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../elements/i18n-msg.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 
 <script src="../shared/js/startbutton.js"></script>
 <script src="mercator-scene.min.js"></script>
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="mercator-scene.css" />
+
 <!--
 Mercator scene.
-
-@element mercator-scene
-@extends base-scene
 -->
-<polymer-element name="mercator-scene" extends="base-scene">
+<dom-module id="mercator-scene">
 <template>
-  <link rel="stylesheet" href="mercator-scene.css" no-shim>
-
   <div id="module-mercator">
     <div class="scene">
-      <template if="{{santaApp}}">
+      <template is="dom-if" if="{{santaApp}}">
+        <!-- Conditional required to prevent double loading -->
         <google-maps-api version="3.exp"
-                         clientId="{{santaApp.config.CLIENT_ID}}"
-                         libraries="places,geometry"
+                         client-id="{{santaApp.config.CLIENT_ID}}"
                          language="{{santaApp.language}}"
-                         on-api-load="{{mapsAPIReady}}"></google-maps-api>
+                         on-api-load="mapsAPIReady"></google-maps-api>
       </template>
       <div class="map">
         <div class="gmap"></div>
@@ -122,7 +120,7 @@ Mercator scene.
           </div>
           <div class="status"></div>
         </div>
-        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
+        <div class$="actions {{_computeTernary(hasClickedStart, '', 'is-collapsed')}}">
           <button type="button" class="restart"></button>
           <button type="button" class="pause"></button>
         </div>
@@ -291,7 +289,8 @@ Mercator scene.
 <script>
 (function() {
   Polymer({
-    componentDir: 'scenes/mercator/',
+    is: 'mercator-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     game: null,
 
@@ -299,7 +298,12 @@ Mercator scene.
 
     mapsReady: false,
 
-    hasClickedStart: false,
+    properties: {
+      hasClickedStart: {
+        type: Boolean,
+        value: false
+      },
+    },
 
     onPreload: function() {
       this.preloadSounds('mercator_load_sounds', 40);
@@ -342,4 +346,4 @@ Mercator scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

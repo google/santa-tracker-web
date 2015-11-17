@@ -18,8 +18,8 @@ function createSantaLayerConstructor() {
 
   /**
    * @constructor
-   * @param {PolymerElement} base
-   * @param {Object.<string,*>} opt_opts
+   * @param {PolymerElement} base used for async calls
+   * @param {Object<string>} opt_opts
    */
   function SantaLayer(base, opt_opts) {
     this.base_ = base;
@@ -237,7 +237,7 @@ function createSantaLayerConstructor() {
 
     // Update flight trail from Santa to the last location
     this.activeTrail_.setPath([
-      this.lastStop_.location,
+      mapsLatLng(this.lastStop_.location),
       this.get('position')
     ]);
     this.bounds_.extend(this.get('position'));

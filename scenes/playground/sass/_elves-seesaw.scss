@@ -8,7 +8,7 @@ $duration-elves-seesaw-rope: 2.8;
   top: -510px;
   margin-left: 148px;
   transform: rotate(#{$seesaw-bench-rotation}deg);
-  -webkit-transform-origin: 167px 136px; // where the dot is
+  transform-origin: 167px 136px; // where the dot is
   animation: #{$name}-elves-seesaw-bench $easeInOutCirc #{$duration-elves-seesaw}s infinite;
 }
 

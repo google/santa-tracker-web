@@ -14,7 +14,7 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../../elements/i18n-msg.html">
 
-<polymer-element name="difficulty-menu">
+<dom-module id="difficulty-menu">
 <template>
   <style>
     :host {
@@ -120,6 +120,8 @@ specific language governing permissions and limitations under the License.
 </template>
 <script>
   Polymer({
+    is: 'difficulty-menu',
+
     onTap: function(event, detail, sender) {
       var elem = event.target;
       if (elem.tagName !== 'button') {
@@ -130,4 +132,4 @@ specific language governing permissions and limitations under the License.
     }
   });
 </script>
-</polymer-element>
+</dom-module>

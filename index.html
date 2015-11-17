@@ -36,9 +36,9 @@ specific language governing permissions and limitations under the License.
   <meta name="mobile-web-app-capable" content="yes"> <!-- fallback -->
 
   <!-- app status bar themes -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="#e51c23">
-  <meta name="theme-color" content="#e51c23">
-  <meta name="msapplication-TileColor" content="#e51c23">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#30B443">
+  <meta name="theme-color" content="#30B443">
+  <meta name="msapplication-TileColor" content="#30B443">
 
   <meta name="msapplication-tap-highlight" content="no">
 
@@ -137,14 +137,14 @@ specific language governing permissions and limitations under the License.
     };
   </script>
 
-  <script src="components/webcomponentsjs/webcomponents.min.js"></script>
-  <link rel="import" href="elements/elements_en.html">
+  <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="elements/elements_en.html" />
 </head>
-<body unresolved fullbleed>
+<body class="fullbleed" unresolved>
 
 <santa-app id="santaApp"></santa-app>
 
-<div id="timer" role="timer" aria-live="assertive" aria-atomic="false" aria-relevant="additions"></div>
+<div id="timer" role="timer" aria-live="assertive" aria-atomic="false" aria-relevant="additions" hidden></div>
 
 <div id="preload_placeholder"></div>
 
@@ -178,13 +178,14 @@ function perfAnalyticsEvent(eventName, categoryName) {
   }
 }
 perfAnalyticsEvent('HTMLImportsLoaded', 'Polymer');
-perfAnalyticsEvent('polymer-ready', 'Polymer');
+perfAnalyticsEvent('WebComponentsReady', 'Polymer');
 
 if (window.DEV) {
   // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
   // Set locale for entire site (e.g. i18n-msg elements).
   document.addEventListener('HTMLImportsLoaded', function() {
     I18nMsg.lang = document.documentElement.lang || 'en';
+    I18nMsg.url = '_messages';
   });
 }
 

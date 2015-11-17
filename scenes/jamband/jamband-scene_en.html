@@ -12,21 +12,20 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
+<link rel="import" href="../scene-behavior.html">
 
-<link rel="import" href="../../components/google-apis/google-client-api.html">
+<link rel="import" href="../../components/google-apis/google-legacy-loader.html">
 <script src="jamband-scene.min.js"></script>
+
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="jamband-scene.css" />
 
 <!--
 Jamband scene.
-
-@element jamband-scene
-@extends base-scene
 -->
-<polymer-element name="jamband-scene" extends="base-scene" on-sounds-loaded="{{onSoundsLoaded}}">
+<dom-module id="jamband-scene">
 <template>
-  <link rel="stylesheet" href="jamband-scene.css" no-shim>
-  <google-client-api on-api-load="{{googleAPIReady}}"></google-client-api>
+  <google-legacy-loader on-api-load="googleAPIReady"></google-legacy-loader>
 
   <div id="module-jamband">
     <div class="jamband">
@@ -197,7 +196,7 @@ Jamband scene.
             </div>
             <div id="drawer-arrow--right" class="Drawer-arrow Drawer-arrow--right"></div>
             <div id="drawer-button--random" class="Button Button--noText Button--round Button-random"></div>
-            <div id="drawer-button--share" class="Button Button-share" hidden?="{{!shareReady}}">
+            <div id="drawer-button--share" class="Button Button-share" hidden$="{{!shareReady}}">
               <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
             </div>
           </div>
@@ -208,7 +207,9 @@ Jamband scene.
               <div class="shareOverlay-image"></div>
             </div>
             <div class="shareOverlay-buttons">
-              <p class="shareOverlay-label">Copy this link to share</p>
+              <p class="shareOverlay-label">
+                <i18n-msg msgid="copy-me">PLACEHOLDER_i18n</i18n-msg>
+              </p>
               <input type="url" readonly="readonly" class="shareOverlay-url"/>
               <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
             </div>
@@ -224,7 +225,9 @@ Jamband scene.
       </div>
       <div class="force-rotate landscape">
         <div class="force-rotate-graphic"></div>
-        <div class="force-rotate-explanation">Tilt your device!</div>
+        <div class="force-rotate-explanation">
+          <i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg>
+        </div>
       </div>
     </div>
   </div>
@@ -237,28 +240,32 @@ Jamband scene.
   var soundsLoaded = false;
 
   Polymer({
-    componentDir: 'scenes/jamband/',
-
+    is: 'jamband-scene',
+    behaviors: [window.SantaSceneBehavior],
     game: null,
 
-    /**
-     * Whether the `<google-client-api>` is loaded and ready to create the share
-     * overlay.
-     *
-     * @property shareReady
-     * @type boolean
-     * @default false
-     */
-    shareReady: false,
+    properties: {
+      /**
+       * Whether the `<google-legacy-loader>` is loaded and ready to create the share
+       * overlay.
+       */
+      shareReady: {
+        type: Boolean,
+        value: false
+      },
 
-    /**
-     * Whether the band has already started.
-     *
-     * @property bandStarted
-     * @type boolean
-     * @default false
-     */
-    bandStarted: false,
+      /**
+       * Whether the band has already started.
+       */
+      bandStarted: {
+        type: Boolean,
+        value: false
+      }
+    },
+
+    listeners: {
+      'sounds-loaded': 'onSoundsLoaded'
+    },
 
     onPreload: function() {
       this.preloadSounds('jamband_load_sounds', 60);
@@ -293,7 +300,7 @@ Jamband scene.
       }
     },
 
-    onSoundsLoaded: function(e, soundsName, sender) {
+    onSoundsLoaded: function(e, soundsName) {
       if (soundsName === 'jamband_load_sounds') {
         soundsLoaded = true;
         this.gatedStartBand();
@@ -339,4 +346,4 @@ Jamband scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

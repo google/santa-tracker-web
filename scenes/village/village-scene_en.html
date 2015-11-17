@@ -12,11 +12,11 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../base-scene.html">
-<link rel="import" href="../../components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
-<link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="../../components/i18n-msg/i18n-msg.html">
 
 <link rel="import" href="dependencies.html">
 
@@ -30,10 +30,9 @@ specific language governing permissions and limitations under the License.
 <!--
 Village scene.
 
-@element village-scene
-@extends base-scene
+TODO: Not yet fully migrated to Polymer 1.0+
 -->
-<polymer-element name="village-scene" extends="base-scene">
+<dom-module id="village-scene">
 <template>
   <link rel="stylesheet" href="village-scene.css" no-shim>
   <style>
@@ -51,7 +50,7 @@ Village scene.
   }
   </style>
 
-  <core-a11y-keys target="{{}}" keys="left right enter esc" on-keys-pressed="{{arrowHandler}}"></core-a11y-keys>
+  <iron-a11y-keys keys="left right enter esc" on-keys-pressed="arrowHandler"></iron-a11y-keys>
   <div id="module-village" fit>
     <div id="village-wrapper" fit>
 
@@ -233,7 +232,8 @@ Village scene.
   }
 
   Polymer({
-    componentDir: 'scenes/village/',
+    is: 'village-scene',
+    behaviors: [window.SantaSceneBehavior],
 
     updateScheduled_: false,
     villageWidth_: 12740, // Defined in _variables.scss, but also recalculated below.
@@ -383,7 +383,7 @@ Village scene.
 
         this.async(function() {
           document.location.href = sender.href;
-        }, null, 100);
+        }, 100);
       }
     },
 
@@ -396,7 +396,7 @@ Village scene.
       // Lets be nice and bring the snowman back.
       this.async(function() {
         this.$.snowman.classList.remove('snowman-fall');
-      }, null, 20000);
+      }, 20000);
     },
 
     onBalloonClick: function(e, detail, sender) {
@@ -420,7 +420,7 @@ Village scene.
 
       this.async(function() {
         sender.classList.add('fly', 'flying', 'float');
-      }, null, timeout);
+      }, timeout);
 
       // The same amount of time we set in the CSS animation.
       var ANIMATION_TIME = 55000;
@@ -429,7 +429,7 @@ Village scene.
 
       this.async(function() {
         sender.classList.remove('flying', 'float');
-      }, null, timeout);
+      }, timeout);
 
       timeout += WAIT;
 
@@ -440,7 +440,7 @@ Village scene.
         this.$['balloon-elf2'].hidden = false;
 
         this.fire('sound-trigger', 'village_balloon_landing');
-      }, null, timeout);
+      }, timeout);
     },
 
     onSendBusToStop: function(e, detail, sender) {
@@ -814,4 +814,4 @@ Village scene.
 
 })();
 </script>
-</polymer-element>
+</dom-module>

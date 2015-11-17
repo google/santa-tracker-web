@@ -1,0 +1,101 @@
+@import "variables";
+
+@keyframes bounce {
+  0%    { transform: translateY(0); }
+  25%   { transform: translateY(-40px * .9); }
+  35%   { transform: translateY(-40px * .95); }
+  50%   { transform: translateY(-40px * 1); }
+  65%   { transform: translateY(-40px * .95); }
+  75%   { transform: translateY(-40px * .9); }
+  100%  { transform: translateY(0); }
+}
+
+@keyframes #{$name}-shimmy {
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-2em);
+  }
+  0%, 20%, 40%, 60%, 80%, 100% {
+    transform: translateX(+2em);
+  }
+}
+
+@keyframes #{$name}-fall {
+  0% {
+    transform: translateY((560px * 0.00 - 32px));
+    opacity: 0;
+  }
+  5% {
+    transform: translateY((560px * 0.05 - 32px));
+    opacity: 1;
+  }
+  95% {
+    transform: translateY((560px * 0.95 - 32px));
+    opacity: 1;
+  }
+  100% {
+    transform: translateY((560px * 1.00 - 32px));
+    opacity: 0;
+  }
+}
+
+@keyframes #{$name}-skydive {
+  0%, #{$skydive-start} {
+    transform: translateY($skydive-start-pos);
+    opacity: 1;
+  }
+  #{$skydive-fallto} {
+    transform: translateY($skydive-fallto-pos);
+    opacity: 1;
+  }
+  #{$skydive-land}, #{$skydive-disappear} {
+    transform: translateY($skydive-land-pos);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY($skydive-land-pos);
+    opacity: 0;
+  }
+}
+@keyframes #{$name}-skydive-pegman-1 {
+  /* Visible from 0-fallto */
+  0% {
+    visibility: visible;
+  }
+  #{$skydive-fallto}, 100% {
+    visibility: hidden;
+  }
+}
+@keyframes #{$name}-skydive-pegman-2 {
+  /* Visible from fallto-land */
+  0%, #{$skydive-fallto}, #{$skydive-land}, 100% {
+    visibility: hidden;
+  }
+  #{(($skydive-fallto + $skydive-land) / 2)} {
+    visibility: visible;
+  }
+}
+@keyframes #{$name}-skydive-pegman-3 {
+  /* Visible from land-100% */
+  0%, #{$skydive-land} {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+// TODO(samthor): We may not be able to animate in terms of 'vw'.
+
+@keyframes #{$name}-plane {
+  /**
+   * Delay the plane on either side of the screen. The speed is only 20% of the
+   * total speed, so most of the time the plane is just chillin'.
+   */
+  0%, 80% { transform: translate(-100vw); }
+  100%    { transform: translate(+200vw); }
+}
+
+@keyframes #{$name}-cloud {
+  0%   { opacity: 1; transform: translate(-20vw); }
+  100% { opacity: 1; transform: translate(+120vw); }
+}
