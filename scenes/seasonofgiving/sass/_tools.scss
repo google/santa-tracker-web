@@ -414,13 +414,13 @@
       padding-top: 15px;
 
       &:last-child {
-        margin-bottom: 40px;
+        margin-bottom: 35px;
       }
     }
 
     .crayon-size-container {
       background-color: #7bb241;
-      bottom: 38px;
+      bottom: -126px;
       position: absolute;
       width: 100%;
       z-index: -1;
@@ -506,10 +506,6 @@
 // Stack tools on small devices
 @media (max-width: 520px) {
   ##{$name} {
-    .crayon-size-container {
-      bottom: 55px;
-    }
-
     .Tool-container {
       border-bottom: 1px solid #7db249 !important;
     }
