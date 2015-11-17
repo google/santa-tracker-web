@@ -26,11 +26,14 @@ class Level {
   /**
    * @constructor
    * @param {!Element} elem An DOM element which wraps the game.
+   * @param {!Object} data Level configuration
+   * @param {!Function} onCompleteCallback Callback function when level is completed
    * @export
    */
-  constructor(elem) {
+  constructor(elem, data, onCompleteCallback) {
     this.elem = $(elem);
     this.debug = !!location.search.match(/[?&]debug=true/);
+    
     console.log('New LEVEL');
   }
 

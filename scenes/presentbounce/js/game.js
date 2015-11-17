@@ -20,8 +20,9 @@ goog.require('app.shared.Coordinator');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.LevelUp');
 goog.require('app.shared.pools');
-goog.require('app.shared.Scoreboard');
 goog.require('app.shared.Tutorial');
+
+goog.require('app.Scoreboard');
 goog.require('app.Level');
 
 
@@ -35,9 +36,9 @@ app.Game = function(elem) {
   this.elem = $(elem);
   this.viewElem = this.elem.find('.scene');
 
+  this.scoreboard = new app.Scoreboard(this, this.elem.find('.board'), Constants.TOTAL_LEVELS);
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.levelUp = new app.shared.LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
-  this.scoreboard = new app.shared.Scoreboard(this, this.elem.find('.board'), Constants.TOTAL_LEVELS);
   this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt', 'mouse');
 
   this.isPlaying = false;
@@ -127,14 +128,32 @@ app.Game.prototype.loadNextLevel_ = function() {
 
   // Update scoreboard
   this.scoreboard.setLevel(this.level);
-  //this.scoreboard.resetTimer();
+  this.scoreboard.restart();
 
   // TODO Load new level
   if (this.currentLevel_) {
     this.currentLevel_.destroy();
   }
-  this.currentLevel_ = new app.Level({data: levelData, onComplete: this.loadNextLevel_});
+  this.currentLevel_ = new app.Level(levelData, this.onLevelCompleted);
 };
+
+
+/**
+ * Callback when current level is successfully completed
+ * @param {!Number} score Final score of the completed level
+ */
+app.Game.prototype.onLevelCompleted = function(score) {
+
+  this.scoreboard.addScore(score);
+  
+  // Check for game end
+  if (this.level === Constants.LEVELS.length - 1) {
+    this.gameover();
+  } else {
+    this.levelUp.show(this.level + 2, this.loadNextLevel_);
+  }
+};
+
 
 /**
  * Freezes the game. Stops the onFrame loop and stops any CSS3 animations.
