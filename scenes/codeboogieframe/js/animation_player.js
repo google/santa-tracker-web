@@ -105,16 +105,12 @@ class Animation {
     this.elapsedTime += dt;
 
     if (this.elapsedTime > this.duration) {
-      this.frame += 1;
-      this.frame = this.frame % this.frameCount;
-
-      this.elapsedTime = this.elapsedTime - this.duration;
-
       let framesElapsed = Math.floor(this.elapsedTime / this.duration);
 
-      if (framesElapsed > 1) {
-        console.log(`${framesElapsed - 1} frames behind`);
-      }
+      this.frame += framesElapsed;
+      this.frame = this.frame % this.frameCount;
+
+      this.elapsedTime -= framesElapsed * this.duration;
     }
 
     return this.getFrame(this.frame);
