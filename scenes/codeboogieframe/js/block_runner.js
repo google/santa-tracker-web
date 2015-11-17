@@ -41,13 +41,13 @@ app.BlockRunnerState = {
   ANIMATING: 'ANIMATING'
 };
 
+/**
+ * Runs code from blockly blocks.
+ * @param {!app.Scene} scene instance.
+ * @param {!app.Blockly} blockly interface to Blockly.
+ * @constructor
+ */
 app.BlockRunner = class {
-  /**
-   * Runs code from blockly blocks.
-   * @param {!app.Scene} scene instance.
-   * @param {!app.Blockly} blockly interface to Blockly.
-   * @constructor
-   */
   constructor(scene, blockly) {
     this.api = this.createExecuteContext();
     this.blockly = blockly;
@@ -152,6 +152,7 @@ app.BlockRunner = class {
 
   createExecuteContext() {
     const stepFn = step => blockId => this.stepQueue_.push({step, blockId});
+    const highlightFn = blockId => this.stepQueue_.push({blockId});
 
     return {
       api: {
@@ -162,7 +163,7 @@ app.BlockRunner = class {
         jump: stepFn(app.Step.JUMP),
         split: stepFn(app.Step.SPLIT),
         shake: stepFn(app.Step.SHAKE),
-        highlightLoop: id => this.stepQueue_.push({step: null, blockId: id})
+        highlightLoop: id => highlightFn(id)
       }
     };
   }

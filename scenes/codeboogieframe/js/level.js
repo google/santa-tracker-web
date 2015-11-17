@@ -25,13 +25,13 @@ goog.provide('app.Level');
  */
 app.LevelOptions;
 
+/**
+ * Base class for levels.
+ *
+ * @param {app.LevelOptions} options for this level.
+ * @constructor
+ */
 app.Level = class {
-  /**
-   * Base class for levels.
-   *
-   * @param {app.LevelOptions} options for this level.
-   * @constructor
-   */
   constructor(options) {
     this.startBlocks = options.startBlocks || '';
     if (!this.startBlocks.match(/^<xml/)) {
