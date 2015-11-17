@@ -21,55 +21,55 @@ goog.require('app.MoveQueue');
 goog.require('goog.events.EventTarget');
 goog.require('app.Step');
 
-const size = 410;
+const size = 492;
 const fps = 24;
 const bpm = 120;
 const beatDuration = 1000 / bpm * 60;
 
 let sources = {
   [app.Step.IDLE]: {
-    'src': 'https://dl.dropboxusercontent.com/u/257321/idle.png',
+    'src': 'img/steps/idle.png',
     'count': 24,
     'duration': 2
   },
   [app.Step.LEFT_ARM]: {
-    'src': 'https://dl.dropboxusercontent.com/u/257321/step-left.png',
-    'count': 96,
+    'src': 'img/steps/point-left.png',
+    'count': 48,
     'duration': 4
   },
   [app.Step.RIGHT_ARM]: {
-    'src': 'https://dl.dropboxusercontent.com/u/257321/step-right.png',
+    'src': 'img/steps/point-right.png',
     'count': 96,
-    'duration': 4
+    'duration': 8
   },
   [app.Step.LEFT_FOOT]: {
-    'src': 'https://dl.dropboxusercontent.com/u/257321/step-left.png',
+    'src': 'img/steps/step-left.png',
     'count': 96,
-    'duration': 4
+    'duration': 8
   },
   [app.Step.RIGHT_FOOT]: {
-    'src': 'https://dl.dropboxusercontent.com/u/257321/step-right.png',
+    'src': 'img/steps/step-right.png',
     'count': 96,
-    'duration': 4
+    'duration': 8
   },
   [app.Step.JUMP]: {
-    'src': 'https://dl.dropboxusercontent.com/u/257321/jump.png',
+    'src': 'img/steps/jump.png',
     'count': 48,
     'duration': 4
   },
   [app.Step.SPIN]: {
-    'src': 'https://dl.dropboxusercontent.com/u/257321/splits.png',
-    'count': 96,
+    'src': 'img/steps/clap.png', // MISSING
+    'count': 48,
     'duration': 4
   },
   [app.Step.SPLIT]: {
-    'src': 'https://dl.dropboxusercontent.com/u/257321/splits.png',
+    'src': 'img/steps/split.png',
     'count': 96,
-    'duration': 4
+    'duration': 8
   },
   [app.Step.CLAP]: {
-    'src': 'https://dl.dropboxusercontent.com/u/257321/splits.png',
-    'count': 96,
+    'src': 'img/steps/clap.png',
+    'count': 48,
     'duration': 4
   },
 }
@@ -141,8 +141,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.sprite.img.addEventListener('load', () => this.update());
 
     let canvas = document.createElement('canvas');
-    canvas.width = size * 1.2;
-    canvas.height = size * 1.2;
+    canvas.width = canvas.height = size;
 
     let world = el.querySelector('.scene__world');
     world.appendChild(canvas);
