@@ -623,6 +623,7 @@ Polymer({
       el.route = prevSelectedScene.route;
       el.santaApp = this;
       el.loaded = true;
+      el.setAttribute('mode', this.mode);
 
       dom.appendChild(el);
     }
