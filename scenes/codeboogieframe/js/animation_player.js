@@ -145,8 +145,8 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.sprite.img.addEventListener('load', () => this.update());
 
     let canvas = document.createElement('canvas');
-    canvas.width = size * 1.3;
-    canvas.height = size * 1.3;
+    canvas.width = size * 1.2;
+    canvas.height = size * 1.2;
 
     let world = el.querySelector('.scene__world');
     world.appendChild(canvas);
