@@ -27,6 +27,12 @@ Mercator scene.
 -->
 <dom-module id="mercator-scene">
 <template>
+  <style>
+    :host([mode="portal"]) .shareButtons {
+      display: none !important;
+    }
+  </style>
+
   <div id="module-mercator">
     <div class="scene">
       <template is="dom-if" if="{{santaApp}}">
