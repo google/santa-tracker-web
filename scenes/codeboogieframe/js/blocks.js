@@ -84,43 +84,38 @@ app.blocks.install = function() {
     var STEP_CONFIGS = {
       leftArm: {
         letter: app.I18n.getMsg('CB_leftArm'),
-        image: 'img/block-west.svg',
+        image: 'img/block-point-left.svg',
         tooltip: app.I18n.getMsg('CB_leftArmTooltip')
       },
       rightArm: {
         letter: app.I18n.getMsg('CB_rightArm'),
-        image: 'img/block-east.svg',
+        image: 'img/block-point-right.svg',
         tooltip: app.I18n.getMsg('CB_rightArmTooltip')
       },
       leftFoot: {
         letter: app.I18n.getMsg('CB_leftFoot'),
-        image: 'img/block-west.svg',
+        image: 'img/block-step-left.svg',
         tooltip: app.I18n.getMsg('CB_leftFootTooltip')
       },
       rightFoot: {
         letter: app.I18n.getMsg('CB_rightFoot'),
-        image: 'img/block-east.svg',
+        image: 'img/block-step-right.svg',
         tooltip: app.I18n.getMsg('CB_rightFootTooltip')
       },
       jump: {
         letter: app.I18n.getMsg('CB_jump'),
-        image: 'img/block-west.svg',
+        image: 'img/block-jump.svg',
         tooltip: app.I18n.getMsg('CB_jumpTooltip')
-      },
-      spin: {
-        letter: app.I18n.getMsg('CB_spin'),
-        image: 'img/block-east.svg',
-        tooltip: app.I18n.getMsg('CB_spinTooltip')
       },
       split: {
         letter: app.I18n.getMsg('CB_split'),
-        image: 'img/block-west.svg',
+        image: 'img/block-splits.svg',
         tooltip: app.I18n.getMsg('CB_splitTooltip')
       },
-      clap: {
-        letter: app.I18n.getMsg('CB_clap'),
-        image: 'img/block-east.svg',
-        tooltip: app.I18n.getMsg('CB_clapTooltip')
+      shake: {
+        letter: app.I18n.getMsg('CB_shake'),
+        image: 'img/block-hip-shake.svg',
+        tooltip: app.I18n.getMsg('CB_shakeTooltip')
       }
     };
 
@@ -132,6 +127,7 @@ app.blocks.install = function() {
 
     var generateStepBlock = function(step) {
       var stepConfig = STEP_CONFIGS[step];
+      var image = stepConfig.image;
       return {
         helpUrl: '',
 
@@ -141,8 +137,10 @@ app.blocks.install = function() {
         init: function() {
           this.setHSV(296, 0.491, 0.624);
           this.appendDummyInput()
-              .appendField(new Blockly.FieldImage(stepConfig.image, 23, 32))
+              .appendField(new Blockly.FieldImage(null, 23, 32))
               .appendField(new Blockly.FieldLabel(stepConfig.letter));
+          this.setFillPattern(
+              app.Patterns.addPattern('pat_' + step, image, 48, 48, -30, 0));
           this.setPreviousStatement(true);
           this.setNextStatement(true);
           this.setTooltip(stepConfig.tooltip);
@@ -152,6 +150,7 @@ app.blocks.install = function() {
 
     var generateMiniBlock = function(step) {
       var stepConfig = STEP_CONFIGS[step];
+      var image = stepConfig.image;
       return {
         helpUrl: '',
 
@@ -161,7 +160,9 @@ app.blocks.install = function() {
         init: function() {
           this.setHSV(296, 0.491, 0.624);
           this.appendDummyInput()
-              .appendField(new Blockly.FieldImage(stepConfig.image, 23, 32));
+              .appendField(new Blockly.FieldImage(null, 48 - 24, 43 - 10));
+          this.setFillPattern(
+              app.Patterns.addPattern('minipat_' + step, image, 48, 48, 0, 0));
           this.setMini(true);
           this.setTooltip(stepConfig.tooltip);
         }
@@ -179,9 +180,8 @@ app.blocks.install = function() {
     generateBlocksForStep('leftFoot');
     generateBlocksForStep('rightFoot');
     generateBlocksForStep('jump');
-    generateBlocksForStep('spin');
     generateBlocksForStep('split');
-    generateBlocksForStep('clap');
+    generateBlocksForStep('shake');
   })();
 
   function optionNumberRange(min, max) {

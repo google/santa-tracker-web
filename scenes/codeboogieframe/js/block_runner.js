@@ -160,9 +160,8 @@ app.BlockRunner = class {
         leftFoot: stepFn(app.Step.LEFT_FOOT),
         rightFoot: stepFn(app.Step.RIGHT_FOOT),
         jump: stepFn(app.Step.JUMP),
-        spin: stepFn(app.Step.SPIN),
         split: stepFn(app.Step.SPLIT),
-        clap: stepFn(app.Step.CLAP),
+        shake: stepFn(app.Step.SHAKE),
         highlightLoop: id => this.stepQueue_.push({step: null, blockId: id})
       }
     };

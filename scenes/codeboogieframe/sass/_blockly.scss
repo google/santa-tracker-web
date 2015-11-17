@@ -96,6 +96,12 @@
     vertical-align: top;
   }
 
+  .svgPatterns {
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+
   .blocklyFlyoutBackground {
     fill: #3f4da1;
     fill-opacity: 1;

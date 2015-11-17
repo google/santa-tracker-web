@@ -44,7 +44,7 @@ app.levels.push(new app.DanceLevel({
       app.blocks.miniBlockXml('dance_leftFoot') +
       app.blocks.miniBlockXml('dance_rightFoot') +
       app.blocks.miniBlockXml('dance_jump') +
-      app.blocks.miniBlockXml('dance_spin') +
       app.blocks.miniBlockXml('dance_split') +
-      app.blocks.miniBlockXml('dance_clap')
+      app.blocks.miniBlockXml('dance_shake') +
+      app.blocks.miniBlockXml('controls_repeat')
 }));

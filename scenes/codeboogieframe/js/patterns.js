@@ -20,39 +20,15 @@ goog.provide('app.Patterns');
  * A singleton utility to inject patterns into Blockly's svg.
  */
 app.Patterns = (function() {
-  var queued_ = [];
   var created_ = {};
-  var timeoutId_ = null;
-
-  /**
-   * Stick an item in our queue
-   */
-  var addToQueue_ = function(patternInfo) {
-    queued_.push(patternInfo);
-    if (!timeoutId_) {
-      addQueuedPatternsWhenReady_();
-    }
-  };
-
-  /**
-   * Add all the svg patterns we've queued up.
-   */
-  var addQueuedPatterns_ = function() {
-    queued_.forEach(function(pattern) {
-      app.Patterns(pattern.id, pattern.imagePath, pattern.width, pattern.height,
-                      pattern.offsetX, pattern.offsetY);
-    });
-    queued_ = [];
-  };
-
-  var addQueuedPatternsWhenReady_ = function() {
-    if (!isReady_()) {
-      timeoutId_ = setTimeout(addQueuedPatternsWhenReady_, 100);
-      return;
-    }
-    timeoutId_ = null;
-    addQueuedPatterns_();
-  };
+  var svgEl = Blockly.createSvgElement('svg', {
+    'xmlns': 'http://www.w3.org/2000/svg',
+    'xmlns:html': 'http://www.w3.org/1999/xhtml',
+    'xmlns:xlink': 'http://www.w3.org/1999/xlink',
+    'version': '1.1',
+    'class': 'svgPatterns'
+  }, document.body);
+  var defsEl = Blockly.createSvgElement('defs', {'id': 'blocklySvgDefs'}, svgEl);
 
   /**
    * Have we already created an svg element for this patternInfo?  Throws if
@@ -78,21 +54,9 @@ app.Patterns = (function() {
   };
 
   /**
-   * Checks if blockly is ready to receive patterns.
-   * @return {boolean}
-   * @private
-   */
-  var isReady_ = function() {
-    return !!document.getElementById('blocklySvgDefs');
-  };
-
-  /**
    * Mark that we've created an svg pattern
    */
   var markCreated_ = function(patternInfo) {
-    if (created_[patternInfo.id]) {
-      throw new Error('Already have cached item with id: ' + patternInfo.id);
-    }
     created_[patternInfo.id] = patternInfo;
   };
 
@@ -110,8 +74,8 @@ app.Patterns = (function() {
      * @return {string} id of the pattern
      */
     addPattern: function(id, imagePath, width, height, offsetX, offsetY) {
-      var x, y, pattern, patternImage;
-      var patternInfo = {
+      var x, y, pattern, patternImage,
+          patternInfo = {
         id: id,
         imagePath: imagePath,
         width: width,
@@ -120,9 +84,7 @@ app.Patterns = (function() {
         offsetY: offsetY
       };
 
-      if (!isReady_()) {
-        addToQueue_(patternInfo);
-      } else if (!wasCreated_(patternInfo)) {
+      if (!wasCreated_(patternInfo)) {
         // add the pattern
         x = typeof(offsetX) === 'function' ? -offsetX() : -offsetX;
         y = typeof(offsetY) === 'function' ? -offsetY() : -offsetY;
@@ -130,10 +92,10 @@ app.Patterns = (function() {
           id: id,
           patternUnits: 'userSpaceOnUse',
           width: '100%',
-          height: height,
+          height: '100%',
           x: x,
           y: y
-        }, document.getElementById('blocklySvgDefs'));
+        }, svgEl);
         patternImage = Blockly.createSvgElement('image', {
           width: width,
           height: height

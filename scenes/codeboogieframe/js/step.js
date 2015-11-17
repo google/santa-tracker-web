@@ -11,11 +11,9 @@ app.Step = {
   LEFT_FOOT: 'leftFoot',
   RIGHT_FOOT: 'rightFoot',
   JUMP: 'jump',
-  SPIN: 'spin',
   SPLIT: 'split',
-  CLAP: 'clap',
+  SHAKE: 'shake',
 
   // Non blockly moves
   IDLE: 'idle'
 };
-
