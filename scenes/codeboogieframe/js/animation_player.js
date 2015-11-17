@@ -180,6 +180,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
 
       this.playing = false;
     } else {
+      this.playing = true;
       this.dispatchEvent({type: 'step', data: blockId});
     }
   }
