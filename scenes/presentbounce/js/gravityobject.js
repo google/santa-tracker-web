@@ -6,36 +6,34 @@
  * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+'use strict'
 
-goog.provide('app.Constants');
-goog.provide('Constants');
+goog.provide('app.GravityObject');
 
-/**
- * Gameplay constants
- * @const
- */
-app.Constants = {
-  TOTAL_LEVELS: 10,
-
-  CANVAS_WIDTH: 1200, //1100;
-  CANVAS_HEIGHT: 900, //620;
-  GRAVITY: 75,
-  SHADOW_OFFSET_PX: 10,
-  CONVEYOR_BELT_SPEED: 3, // affects CSS animation
-  CORNER_RESOLUTION: 10,
-  SCREEN_Y_LIMIT: window.innerHeight,
+goog.require('b2');
+goog.require('app.Constants');
+goog.require('app.LevelObject');
   
-  PHYSICS_SCALE: 30,
-  // MIN_PHYSICS_FPS: 1 / 50,
-};
+/**
+ * Abtract Base Class - GravityObject class
+ * Creats both a Box2D body and renders it as a DOM element.
+ */
+class GravityObject extends LevelObject {
 
+  /**
+   * Add custom gravity force before Box2D World step
+   * @override
+   */
+  update() {
+    this.body_.ApplyForce( new b2.Vec2(0, app.Constants.GRAVITY), this.body_.GetPosition() );
+  }
+}
 
-// Hack to support shared scoreboard with other apps.
-Constants = app.Constants;
+app.GravityObject = GravityObject;

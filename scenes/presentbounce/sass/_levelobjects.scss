@@ -1,0 +1,80 @@
+##{$name} {
+  
+  user-select: none;
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .js-debug-canvas {
+    outline: 2px dashed #eee;
+    user-select: none;
+  }
+    
+  .js-debug-console {
+    color: #666;
+    font-family: monaco, Consolas, Lucida Console, monospace;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    text-align: center;
+  }
+    
+  .btns {
+    position: absolute;
+    top: 4%;
+    left: 2%;
+  }
+    
+  .object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    //outline: 1px dashed rgba(255,0,0,.5);
+  }
+    
+  .object--shadow,
+  .object--shadow.object--present-cricle,
+  .object--shadow.object--present-rect {
+    outline: none;
+    background: rgba(66,66,66,.25);
+  }
+
+  .object--present-rect {
+    background: red;
+    opacity: 0.5;
+  }
+    
+  .object--present-cricle {
+    border-radius: 100%;
+    background: red;
+    opacity: 0.5;
+  }
+
+  .object--snowglobe {
+    border-radius: 100%;
+  }
+
+  .object--spring {
+    cursor: move;
+    background: hotpink;
+  }
+      
+  @keyframes belt-animation {
+    to {
+      stroke-dashoffset: -473.78558349609375;
+    }
+  }
+
+  .object--conveyorBelt {
+    cursor: move;
+    .belt {
+      animation: belt-animation 6s linear infinite;
+    }
+    &.js-animation-reverse .belt {
+      animation-direction: reverse;
+    }
+  }
+  
+}

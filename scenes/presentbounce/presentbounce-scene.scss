@@ -10,10 +10,8 @@ $rotate-bg: $gameover-bg;
 @import "../shared/sass/tutorial";
 
 @import "sass/bg";
-// @import "sass/ceiling";
-// @import "sass/floor";
-// @import "sass/level";
-// @import "sass/sphere";
+@import "sass/levelobjects";
+
 
 ##{$name} {
   position: absolute;

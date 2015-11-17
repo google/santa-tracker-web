@@ -22,8 +22,12 @@ goog.require('app.shared.LevelUp');
 goog.require('app.shared.pools');
 goog.require('app.shared.Tutorial');
 
+goog.require('app.Constants');
+goog.require('app.config.Levels');
 goog.require('app.Scoreboard');
 goog.require('app.Level');
+
+
 
 
 /**
@@ -36,7 +40,7 @@ app.Game = function(elem) {
   this.elem = $(elem);
   this.viewElem = this.elem.find('.scene');
 
-  this.scoreboard = new app.Scoreboard(this, this.elem.find('.board'), Constants.TOTAL_LEVELS);
+  this.scoreboard = new app.Scoreboard(this, this.elem.find('.board'), app.Constants.TOTAL_LEVELS);
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.levelUp = new app.shared.LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
   this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt', 'mouse');
@@ -44,7 +48,6 @@ app.Game = function(elem) {
   this.isPlaying = false;
   this.paused = false;
   this.scale = 1;
-  this.debug = !!location.search.match(/[?&]debug=true/);
   this.gameStartTime = +new Date;
 
   // bind context
@@ -102,11 +105,6 @@ app.Game.prototype.onFrame_ = function() {
   // Render game state.
   this.scoreboard.onFrame(delta);
 
-  // Box2D can draw it's world using canvas.
-  if (this.debug) {
-    this.boxWorld.DrawDebugData();
-  }
-
   // Request next frame
   this.requestId = utils.requestAnimFrame(this.onFrame_);
 };
@@ -118,8 +116,8 @@ app.Game.prototype.onFrame_ = function() {
 app.Game.prototype.loadNextLevel_ = function() {
   // Next level
   this.level++;
-  var levelNumber = this.level % app.Constants.LEVELS.length;
-  var levelData = app.Constants.LEVELS[levelNumber];
+  var levelNumber = this.level % pp.config.Levels.length;
+  var levelData = pp.config.Levels[levelNumber];
 
   // Send Klang event
   if (this.level > 0) {
@@ -147,7 +145,7 @@ app.Game.prototype.onLevelCompleted = function(score) {
   this.scoreboard.addScore(score);
   
   // Check for game end
-  if (this.level === Constants.LEVELS.length - 1) {
+  if (this.level === pp.config.Levels.length - 1) {
     this.gameover();
   } else {
     this.levelUp.show(this.level + 2, this.loadNextLevel_);

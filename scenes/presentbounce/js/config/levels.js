@@ -1,0 +1,142 @@
+/*
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+
+goog.provide('app.config.Levels');
+
+goog.require('app.config.Materials');
+goog.require('app.config.Styles');
+
+/**
+ * Level configuration - specifies type of textures and positions only
+ * @const
+ */
+app.config.Levels = [
+  // level 1
+  {
+    ball1: {
+      //objectType: PresentCircle,
+      material: app.config.Materials.present ,
+      style: app.config.Styles.presentCircle,
+      relX: 0.24,
+      relY: 0
+    },
+    ball2: {
+      //objectType: PresentSquare,
+      material: app.config.Materials.present ,
+      style: app.config.Styles.presentSquare,
+      relX: 0.24,
+      relY: 0
+    },
+    ballRect: {
+      //objectType: PresentSquare,
+      material: app.config.Materials.present ,
+      style: app.config.Styles.presentRectangle,
+      relX: 0.24,
+      relY: 0
+    },
+    ball3: {
+      //objectType: SnowGlobe,
+      material: app.config.Materials.snowGlobe,
+      style: app.config.Styles.snowGlobe,
+      relX: 0.24,
+      relY: 0
+    },
+    target: {
+      material: app.config.Materials.target,
+      style: app.config.Styles.target,
+      relX: 0.75,
+      relY: 0.9
+    },
+    fixedObjects: [
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.5,
+        relY: 0.25,
+        rotation: -40
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .8,
+        relY: .2,
+        rotation: 180
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.75,
+        relY: 0.6,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.6,
+        relY: 0.76,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.35,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .15,
+        relY: .75,
+        rotation: 0
+      }
+    ],
+    conveyorBelts: [
+      {
+        material: app.config.Materials.conveyorBelt,
+        style: app.config.Styles.conveyorBelt,
+        relX: 0.27,
+        relY: 0.5,
+        rotation: 10,
+        beltDirection: 1
+      },{
+        material: app.config.Materials.conveyorBelt,
+        style: app.config.Styles.conveyorBelt,
+        relX: 0.72,
+        relY: 0.5,
+        rotation: 0,
+        beltDirection: 1
+      }
+    ],
+    springs: [
+      {
+        material: app.config.Materials.spring,
+        style: app.config.Styles.spring,
+        relX: 0.49,
+        relY: 0.9,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.spring,
+        style: app.config.Styles.spring,
+        relX: 0.93,
+        relY: 0.8,
+        rotation: -40
+      }
+    ]
+  }
+];
