@@ -25,6 +25,12 @@ Runner scene.
 -->
 <dom-module id="runner-scene">
 <template>
+  <style>
+    :host([mode="portal"]) .shareButtons {
+      display: none !important;
+    }
+  </style>
+
   <div id="module-runner">
     <div class="game frozen">
       <div class="layers-wrap">

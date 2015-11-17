@@ -25,6 +25,13 @@ Boatload scene.
 -->
 <dom-module id="boatload-scene">
   <template>
+
+    <style>
+      :host([mode="portal"]) .shareButtons {
+        display: none !important;
+      }
+    </style>
+
     <div id="module-boatload">
       <div class="bg">
         <div class="river"></div>
