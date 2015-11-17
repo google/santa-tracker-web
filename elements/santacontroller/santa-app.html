@@ -486,6 +486,7 @@ Polymer({
         loadSound = false;
         break;
       case 'web_portal':
+        apiClient = 'web';
         this.mode = 'portal';
         break;
       default:
@@ -514,10 +515,8 @@ Polymer({
       this.analyticsService.trackEvent('API', 'killed');
       // redirect after analytics has been processed
       this.analyticsService.executeFunction(function errorRedirect() {
-
-// RP: temporarily disabled, this fires due to 'portal' being passed, unsure of where to whitelist this mode
-/*        window.location = 'https://santatracker.google.com' +
-            location.pathname.replace(/[^\/]*$/, '') + 'error.html';*/
+        window.location = 'https://santatracker.google.com' +
+            location.pathname.replace(/[^\/]*$/, '') + 'error.html';
       });
     }.bind(this));
 
