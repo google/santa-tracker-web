@@ -19,6 +19,7 @@ goog.provide('app.FrameWrapper');
 goog.require('app.Scoreboard');
 goog.require('app.shared.FrameRPC');
 goog.require('app.shared.Gameover');
+goog.require('app.Sequencer');
 
 /**
  * IFrame proxy class.
@@ -36,6 +37,7 @@ app.FrameWrapper = function(el, staticDir) {
   this.gameStartTime = +new Date;
   this.iframeEl = this.el.find('iframe[data-codeboogie-frame]');
   this.isPlaying = false;
+  this.sequencer = new app.Sequencer(120);
 
   // Create a communication channel to the game frame.
   this.iframeChannel = new app.shared.FrameRPC(this.iframeEl[0].contentWindow, {
@@ -63,6 +65,9 @@ app.FrameWrapper.prototype.restart = function() {
 
   this.iframeChannel.call('restart');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'codeboogie'});
+
+  this.sequencer.onBeat = (beat) => this.iframeChannel.call('beat', beat);
+  this.sequencer.onBar = (bar) => this.iframeChannel.call('bar', bar);
 };
 
 /**

@@ -193,4 +193,8 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.playing = true;
     this.queue.add(steps);
   }
+
+  onBar(bar) {
+    this.queue.next();
+  }
 };

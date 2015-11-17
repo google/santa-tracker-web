@@ -16,30 +16,51 @@
 
 'use strict'
 
-goog.provide('app.MoveQueue');
+goog.provide('app.Sequencer');
 
 /*
- * Represents a dance routine
+ * Temporary mock for Klang sequencer.
  */
-app.MoveQueue = class {
-  constructor(player) {
-    this.player = player;
+app.Sequencer = class {
+  constructor(bpm) {
+    this.lastUpdateTime = 0;
+    this.bar = 0;
+    this.beat = 0;
     this.queue = [];
+    this.beatDuration = 1000 / bpm * 60
+
+    this.update();
+  }
+
+  update(timestamp) {
+    let dt = timestamp - this.lastUpdateTime;
+
+    if (dt > this.beatDuration) {
+      this.lastUpdateTime = timestamp;
+
+      this.beat += 1;
+      this.beat = this.beat % 4;
+
+      if (this.beat === 0) {
+        this.bar += 1;
+        this.onBar(this.bar);
+      }
+
+      this.onBeat(this.beat);
+    }
+
+    window.requestAnimationFrame(t => this.update(t));
   }
 
   add(moves) {
     moves.forEach(move => this.queue.unshift(move));
   }
 
-  next() {
-    if (this.queue.length > 0) {
-      let nextMove = this.queue.pop();
-      this.player.play(nextMove);
-    } else {
-      this.player.play({step: 'idle'});
-    }
+  onBeat(beat) {
+
+  }
+
+  onBar(bar) {
+
   }
 }
-
-
-
