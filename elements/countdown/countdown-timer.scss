@@ -16,7 +16,7 @@ $digitLineHeight: 53px;
     &::before {
       content: "";
       background: url(img/number-bg.svg);
-      background-size: 77px 77px;
+      background-size: contain;
       width: 100%;
       height: 100%;
       position: absolute;
@@ -28,8 +28,8 @@ $digitLineHeight: 53px;
       color: white;
       font-weight: 700;
       line-height: 77px;
-      height: 77px;
-      width: 77px;
+      height: 100%;
+      width: 100%;
       position: absolute;
       box-sizing: border-box;
       transform: translateZ(0);
@@ -51,10 +51,22 @@ $digitLineHeight: 53px;
     }
   }
 
+  // NOTE: This is $width-twocol from village
+  @media (max-width: 600px) {
+    .counter-box {
+      width: 50px;
+      height: 50px;
+      .holder {
+        line-height: 50px;
+        font-size: 22px;
+      }
+    }
+  }
+
   h2 {
     position: absolute;
     bottom: 0;
-    left: 2px;
+    left: 0;
     right: 0;
     text-align: center;
     margin: 0 !important;
