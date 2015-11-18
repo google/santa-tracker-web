@@ -16,6 +16,8 @@
 'use strict';
 
 goog.provide('app.Level');
+goog.provide('app.LevelResult');
+goog.provide('app.LevelResultOptions');
 
 /**
  * @typedef {{
@@ -49,6 +51,14 @@ app.Level = class {
 
     this.type = null;
   }
+
+  /**
+   * Validates a blockly execution and returns a smart hint to user.
+   *
+   * @return {app.LevelResult} a user friendly level result.
+   */
+  processResult() {
+  }
 };
 
 /**
@@ -56,3 +66,40 @@ app.Level = class {
  * @type {number}
  */
 app.Level.idCounter = 0;
+
+/**
+ * @typedef {{
+ *   allowRetry: boolean,
+ *   code: string,
+ *   skipAnimation: boolean,
+ *   overlayGraphic: string,
+ *   idealBlockCount: number,
+ *   isFinalLevel: boolean,
+ *   missingBlocks: Array.<string>
+ * }}
+ */
+app.LevelResultOptions;
+
+/**
+ * Results form level run which can be displayed to the user.
+ *
+ * @param {boolean} levelComplete is true if the level was completed.
+ * @param {string=} message which can be shown to the user.
+ * @param {app.LevelResultOptions=} options for these results.
+ * @constructor
+ */
+app.LevelResult = function(levelComplete, message, options) {
+  options = options || {};
+  this.allowRetry = options.allowRetry == null ? true : options.allowRetry;
+  this.code = options.code || null;
+  this.skipAnimation = options.skipAnimation || false;
+  this.overlayGraphic = options.overlayGraphic || null;
+  this.levelComplete = levelComplete;
+  this.isFinalLevel = options.isFinalLevel || false;
+  this.message = message || '';
+  this.missingBlocks = options.missingBlocks || [];
+
+  if (options.idealBlockCount) {
+    this.message = this.message.replace('{{ideal}}', options.idealBlockCount);
+  }
+};

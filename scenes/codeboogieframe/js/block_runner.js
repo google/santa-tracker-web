@@ -52,6 +52,8 @@ app.BlockRunner = class {
     this.api = this.createExecuteContext();
     this.blockly = blockly;
     this.scene = scene;
+    /* @type {app.LevelResult} */
+    this.levelResult = null;
 
     // Configure Blockly loops to highlight during iteration.
     Blockly.JavaScript.INFINITE_LOOP_TRAP = '  api.highlightLoop(%1);\n';
@@ -89,9 +91,10 @@ app.BlockRunner = class {
       console.warn(e);
     }
 
-    this.levelResult = this.scene.level.processResult(this.stepQueue_, this.blockly);
+    this.levelResult = this.scene.level.processResult(this.stepQueue_,
+                                                      this.blockly);
 
-    if (this.levelResult.doNotAnimate) {
+    if (this.levelResult.skipAnimation) {
       this.reportExecution_();
     } else {
       this.runAnimations_();
@@ -125,7 +128,7 @@ app.BlockRunner = class {
   runAnimations_() {
     this.beforeAnimations_();
 
-    this.scene.player.start(this.stepQueue_);
+    this.scene.player.start(this.levelResult);
     this.state_ = app.BlockRunnerState.ANIMATING;
   }
 

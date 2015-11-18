@@ -78,7 +78,7 @@ app.Result.prototype = {
     }
 
     this.graphicEl.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href',
-        result.graphic || this.defaultGraphic);
+        result.overlayGraphic || this.defaultGraphic);
 
     if (this.continueButtonEl) {
        this.continueButtonEl.textContent =
