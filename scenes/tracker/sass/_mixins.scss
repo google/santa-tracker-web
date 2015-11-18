@@ -1,7 +1,0 @@
-@mixin animations($content) {
-  -webkit-animation: $content;
-  -moz-animation: $content;
-  -ms-animation: $content;
-  -khtml-animation: $content;
-  animation: $content;
-}

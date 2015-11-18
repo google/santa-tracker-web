@@ -13,7 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
-<link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="../../components/i18n-msg/i18n-msg.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
@@ -40,6 +40,9 @@ Traditions scene.
   :host([mode="cast"]) .traditions-tradition p {
     font-size: 3vh !important;
   }
+  :host([mode="portal"]) #lessons-popup {
+    display: none;
+  }
   </style>
 
   <iron-a11y-keys keys="up down left right space enter"
@@ -47,10 +50,13 @@ Traditions scene.
 
   <div id="module-traditions">
     <div class="scene">
-      <google-maps-api version="3.exp"
-                       client-id="{{santaApp.config.CLIENT_ID}}"
-                       language="{{santaApp.language}}"
-                       on-api-load="mapsAPIReady"></google-maps-api>
+      <template is="dom-if" if="{{santaApp}}">
+        <!-- Conditional required to prevent double loading -->
+        <google-maps-api version="3.exp"
+                         client-id="{{santaApp.config.CLIENT_ID}}"
+                         language="{{santaApp.language}}"
+                         on-api-load="mapsAPIReady"></google-maps-api>
+      </template>
       <div id="traditions-map"></div>
       <div id="tradition-img"></div>
       <div class="traditions-all">

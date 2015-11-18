@@ -13,18 +13,32 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/iron-flex-layout/classes/iron-flex-layout.html">
+<link rel="import" href="../../js/utils.html">
+
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="countdown-timer.css" />
 
 <!--
-Countdown timer.
+Displays a countdown timer.
 
-TODO: Not yet fully migrated to Polymer 1.0+
+Example
+
+    <countdown-timer count-down-end-date="1450951200000"
+                     finished="{{isFinished}}">
+      <h3>Days</h3>
+      <h3>Hours</h3>
+      <h3>Minutues</h3>
+      <h3>Seconds</h3>
+    </countdown-timer>
 -->
-<dom-module id="countdown-timer" attributes="santaService countDownEndDate finished">
+<dom-module id="countdown-timer">
   <template>
-    <link rel="stylesheet" href="countdown-timer.css" no-shim>
     <style>
       :host {
         display: block;
+        will-change: transform;
+        transform: translateZ(0);
       }
     </style>
 
@@ -32,20 +46,13 @@ TODO: Not yet fully migrated to Polymer 1.0+
       <content id="content" select="*"></content>
     </div>
 
-    <div id="counter" layout horizontal>
-      <template repeat="{{title, i in titles}}">
-        <div class="counter-box" layout vertical center hidden?="{{i == 0 && displayDigits < 8}}">
-          <h2>{{title.textContent}}</h2>
-          <div class="digits" layout horizontal>
-            <template repeat="{{digits in [0, 1]}}">
-              <div class="digit">
-                <div class="digit-top digit-front"><span></span></div>
-                <div class="digit-top digit-behind"><span></span></div>
-                <div class="digit-bottom digit-front"><span></span></div>
-                <div class="digit-bottom digit-behind"><span></span></div>
-              </div>
-            </template>
-          </div>
+    <div id="counter" class="layout horizontal">
+      <template is="dom-repeat" items="{{titles}}">
+        <div class="counter-box layout vertical center"
+             hidden$="{{_computeHide(index, displayDigits)}}">
+          <div class="holder active"></div>
+          <div class="holder prev"></div>
+          <h2>{{item}}</h2>
         </div>
       </template>
     </div>
@@ -54,128 +61,141 @@ TODO: Not yet fully migrated to Polymer 1.0+
   <script>
   (function() {
 
-    var TRANSITION_TIME_ = 300;
+    var _TRANSITION_TIME = 400;
 
     Polymer({
       is: 'countdown-timer',
 
-      /**
-       * Optional container element to render the countdown into. If `render`
-       * is `true`, the container defaults to this element's light dom.
-       *
-       * @attribute container
-       * @type Element
-       * @default HTMLElement|null
-       */
-      container: null,
+      properties: {
+        /**
+         * True if the countdown should be active.
+         */
+        active: {
+          type: Boolean,
+          value: false,
+          notify: true
+        },
 
-      /**
-       * True if the countdown should be active.
-       *
-       * @property active
-       * @type bool
-       * @default false
-       */
-      active: false,
+        /**
+         * True if the countdown should render a UI.
+         */
+        render: {
+          type: Boolean,
+          value: true
+        },
 
-      /**
-       * True if the countdown should render a UI.
-       *
-       * @property render
-       * @type bool
-       * @default true
-       */
-      render: true,
+        /**
+         * The end time for this countdown, in milliseconds.
+         */
+        countDownEndDate: {
+          type: Number,
+          value: 1450951200000, // Dec 24, 2015,
+          observer: '_countDownEndDateChanged'
+        },
 
-      /**
-       * The end time for this countdown, in milliseconds.
-       *
-       * @attribute countDownEndDate
-       * @type number
-       * @default 1450951200000
-       */
-      countDownEndDate: 1450951200000, // Dec 24, 2015
+        /**
+         * Santa service.
+         */
+         santaService: {
+          type: Object,
+          value: null
+        },
 
-      /**
-       * Santa service.
-       *
-       * @attribute santaService
-       * @type SantaService
-       * @default null
-       */
-       santaService: null,
+        /**
+         * The number of digits to display.
+         */
+        displayDigits: {
+          type: Number,
+          value: 8
+        },
 
-      /**
-       * The number of digits to display.
-       *
-       * @property displayDigits
-       * @type number
-       * @default 8
-       */
-       displayDigits: 8,
-
-       publish: {
         /**
          * True when the countdown has reached `countDownEndDate`.
-         *
-         * @attribute finished
-         * @type bool
-         * @default false
          */
-        finished: {value: false, reflect: true}
-       },
+        finished: {
+          value: false,
+          reflectToAttribute: true,
+          notify: true,
+          readOnly: true
+        },
 
-      /**
-       * The current time as dictated by the `santaService`.
-       *
-       * @property currentTime
-       * @type number
-       */
+        /**
+         * The current time as dictated by the `santaService`.
+         */
+        currentTime: {
+          type: Number,
+          value: null,
+          readOnly: true
+        },
 
-      created: function() {
-        this.titles = [];
-        this.digits = [];
+        /**
+         * The DOM nodes containing countdown titles, such as Days, Hours,
+         * Minutes, Seconds etc.
+         */
+        titles: {
+          type: Array,
+          value: function() { return []; },
+          readOnly: true
+        },
+
+        /**
+         * The `.counter-box` elements containing countdown nodes.
+         */
+        holders: {
+          type: Array,
+          value: function() { return []; },
+          readOnly: true
+        }
+      },
+
+      _oldNumbers: [],
+
+      listeners: {
+         // For prod, <i18n-msg> is removed and textContent will already be
+         // correct. For dev, listen for i18n updates and update the labels.
+        'i18n-language-ready': 'updateLabels'
       },
 
       ready: function() {
-        this.currentTime = this.getCurrentTime_();
-
-        if (this.render) {
-          this.container = this.container || this;
-        }
+        this._setCurrentTime(this._getCurrentTime());
       },
 
       attached: function() {
         if (this.render) {
-          this.titles = Array.prototype.slice.call(
-              this.$.content.getDistributedNodes());
-        }
-      },
-
-      domReady: function() {
-        // Needs to wait one rAF so titles has populated the template repeat.
-        if (this.render) {
-          this.digits = Array.prototype.slice.call(
-              this.$.counter.querySelectorAll('.digit'));
+          this.updateLabels();
         }
 
-        this.fire('countdown-timer-ready', this);
+        this.async(function() {
+          // Needs to wait one rAF so titles has populated the template repeat.
+          if (this.render) {
+            this._setHolders(Array.prototype.slice.call(
+                            this.$.counter.querySelectorAll('.counter-box')));
+          }
 
-        // Set the initial time but don't start
-        this.tickTock();
+          this.fire('countdown-timer-ready', this);
+
+          // Set the initial time but don't start
+          this.tickTock();
+        });
       },
 
-      countDownEndDateChanged: function() {
+      updateLabels: function() {
+        var titles = this.getContentChildNodes().map(function(node) {
+          return node.textContent;
+        });
+        this._setTitles(titles);
+      },
+
+      _countDownEndDateChanged: function() {
         // string - number type cohesion works, but let's be explicit when
         // we get a new countDownEndDate.
         this.countDownEndDate = parseInt(this.countDownEndDate);
       },
 
       /**
-       * @private
        * @return {Object.<string>}
        */
-      getCurrentTime_: function() {
+      _getCurrentTime: function() {
         var now = this.santaService ? this.santaService.now() : Date.now();
 
         var diff = Math.max(0, this.countDownEndDate - now);
@@ -196,10 +216,8 @@ TODO: Not yet fully migrated to Polymer 1.0+
         return {diff: diff, days: days, hours: hours, mins: mins, seconds: seconds};
       },
 
-      oldDigits: [],
-
       tickTock: function() {
-        this.currentTime = this.getCurrentTime_();
+        this._setCurrentTime(this._getCurrentTime());
 
         var days = this.currentTime.days;
         var hours = this.currentTime.hours;
@@ -207,14 +225,13 @@ TODO: Not yet fully migrated to Polymer 1.0+
         var seconds = this.currentTime.seconds;
 
         if (this.render) {
-          var newDigits = [padDigits(days), padDigits(hours), padDigits(mins),
-              padDigits(seconds)].join('').split('');
+          var numbers = [padDigits(days), padDigits(hours), padDigits(mins),
+              padDigits(seconds)];
           this.displayDigits = (days == 0) ? 6 : 8
-
-          for (var i = 0, digit; digit = this.digits[i]; ++i) {
-            this.setDigit(digit, this.oldDigits[i], newDigits[i]);
+          for (var i = 0, holder; holder = this.holders[i]; ++i) {
+            this.setValue(holder, this._oldNumbers[i], numbers[i]);
           }
-          this.oldDigits = newDigits;
+          this._oldNumbers = numbers;
         }
 
         // TODO: this is not i18n'd.
@@ -237,15 +254,32 @@ TODO: Not yet fully migrated to Polymer 1.0+
 
         if (this.currentTime.diff == 0) {
           this.fire('countdown-timer-finish', this);
-          this.finished = true;
+          this._setFinished(true);
           this.stop();
         }
       },
 
       /**
+       * Sets a value for the passed `.counter-box` node.
+       */
+      setValue: function(node, oldVal, val) {
+        if (oldVal == val) {
+          return;
+        }
+
+        // NOTE: Assumes child layout.
+        node.children[0].textContent = val;
+        node.children[1].textContent = oldVal;
+
+        node.classList.add('anim');
+        this.async(function() {
+          node.classList.remove('anim');
+        }, _TRANSITION_TIME * 2);
+      },
+
+      /**
        * Sets a value for the digit node.
        *
-       * @method setDigit
        * @param {Element} el
        * @param {string|undefined} oldVal
        * @param {string} val
@@ -274,7 +308,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
           digit.classList.remove('digit-anim');
           digitTopFront.firstElementChild.textContent = val;
           digitBottomBehind.firstElementChild.textContent = val;
-        }, null, TRANSITION_TIME_ * 2);
+        }, _TRANSITION_TIME * 2);
       },
 
       /**
@@ -303,6 +337,10 @@ TODO: Not yet fully migrated to Polymer 1.0+
        */
       isFinished: function() {
         return this.currentTime.diff <= 0;
+      },
+
+      _computeHide: function(i, displayDigits) {
+        return i == 0 && displayDigits < 8;
       }
 
     });

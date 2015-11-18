@@ -17,16 +17,23 @@ specific language governing permissions and limitations under the License.
 <script src="codelab-scene.min.js"></script>
 <link rel="import" href="../../js/webanimations.html">
 
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="codelab-scene.css" />
+
 <!--
 Codelab scene.
-
-@element codelab-scene
-@extends base-scene
 -->
 <dom-module id="codelab-scene">
 <template>
-  <link rel="stylesheet" href="codelab-scene.css" no-shim>
+  <style>
+    :host([mode="portal"]) .blockly__promo {
+      display: none !important;
+    }
 
+    :host([mode="portal"]) .shareButtons {
+      display: none !important;
+    }
+  </style>
   <div id="module-codelab">
     <iframe src="about:blank" scrolling="no" width="100%" height="100%" frameBorder="0" data-computer-love></iframe>
     <div class="gui">
@@ -163,23 +170,23 @@ Codelab scene.
     onPreload: function() {
       this.preloadSounds('computer_load_sounds', 40);
       this.preloadImages([
-        'img/block-east.svg',
-        'img/block-north.svg',
-        'img/block-repeat.svg',
-        'img/block-south.svg',
-        'img/block-west.svg',
-        'img/jigsaw.png',
         'img/logo.svg',
-        'img/puzzle-1.png',
-        'img/puzzle-2.png',
-        'img/tutorial/maze.gif',
-        'img/tutorial/puzzle.gif',
-        'img/tutorial/shadow.svg'
+        '../codelabframe/img/block-east.svg',
+        '../codelabframe/img/block-north.svg',
+        '../codelabframe/img/block-repeat.svg',
+        '../codelabframe/img/block-south.svg',
+        '../codelabframe/img/block-west.svg',
+        '../codelabframe/img/jigsaw.png',
+        '../codelabframe/img/puzzle-1.png',
+        '../codelabframe/img/puzzle-2.png',
+        '../codelabframe/img/tutorial/maze.gif',
+        '../codelabframe/img/tutorial/puzzle.gif',
+        '../codelabframe/img/tutorial/shadow.svg'
       ]);
     },
     onShow: function() {
       var module = this.$['module-codelab'];
-      this.frame = new scenes.codelab.wrapper.FrameWrapper(module, this.componentDir);
+      this.frame = new scenes.codelab.FrameWrapper(module, this.componentDir);
     },
     onHide: function() {
       this.frame.dispose();

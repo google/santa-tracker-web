@@ -13,7 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../components/polymer/polymer.html" />
-<link rel="import" href="../elements/i18n-msg.html" />
+<link rel="import" href="../components/i18n-msg/i18n-msg.html">
 <script>
 (function() {
 
@@ -146,11 +146,25 @@ specific language governing permissions and limitations under the License.
       },
 
       /**
+       * Basename for links in Santa Tracker. Needed for production version so
+       * internal links use the production site.
+       */
+      pageUrl: {
+        type: String,
+        readOnly: true,
+        value: function() {
+          return location.href.substr(0, location.href.length - location.hash.length);
+        }
+      },
+
+      /**
        * The master santaApp. Set and cleared in attached/detached.
        */
       santaApp: {
         type: Object,
-        readOnly: true
+        readOnly: true,
+        // Noop. Subclass scenes can define this to know when santaApp changes.
+        observer: '_santaAppChanged'
       }
 
     },
@@ -178,6 +192,10 @@ specific language governing permissions and limitations under the License.
 
     detached: function() {
       this._setSantaApp(null);
+    },
+
+    _santaAppChanged: function() {
+      // Noop. Subclasses can define this observer to know about changes.
     },
 
     _activeChanged: function() {

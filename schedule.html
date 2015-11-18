@@ -44,16 +44,21 @@ specific language governing permissions and limitations under the License.
       $('#schedule').append(dom);
     }
 
-    var t = new Date('2014/12/24 20:59:39').getTime();
+    var t = new Date('2015/12/24 20:59:39').getTime();
     var url = pageUrl + '/?timestamp_override=' + t;
-    var dom = $('<li">30 seconds before take off: <a href="' + url + '#village">Village</a></li>');
+    var dom = $('<li">30 seconds before take off: <a href="' + url + '#village">Village</a> <a href="' + url + '#tracker">Tracker</a></li></li>');
     $('#schedule').append(dom);
 
-    var t = new Date('2014/12/24 21:00:39').getTime();
+    var t = new Date('2015/12/24 21:00:39').getTime();
     var url = pageUrl + '/?timestamp_override=' + t;
-    var dom = $('<li>30 seconds after take off: <a href="' + url + '#village">Village</a></li>');
+    var dom = $('<li>30 seconds after take off: <a href="' + url + '#village">Village</a> <a href="' + url + '#tracker">Tracker</a></li></li>');
     $('#schedule').append(dom);
-    
+
+    var t = new Date('2015/12/24 23:30:39').getTime();
+    var url = pageUrl + '/?timestamp_override=' + t;
+    var dom = $('<li>2:30 hrs after take off: <a href="' + url + '#village">Village</a> <a href="' + url + '#tracker">Tracker</a></li>');
+    $('#schedule').append(dom);
+
   </script>
 </body>
 </html>

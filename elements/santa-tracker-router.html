@@ -73,7 +73,9 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
 
     properties: {
       /**
-       * True to automatically update window.location.hash when the route property changes.
+       * True to automatically replace `window.location.hash` when the route
+       * property changes. This won't add anything to history. To actually
+       * navigate to a new scene, call `.go` or set location directly.
        */
       autoHash: {
         type: Boolean,
@@ -87,7 +89,7 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
         type: String,
         value: null,
         notify: true,
-        observer: 'routeChanged'
+        observer: '_routeChanged'
       },
 
       /**
@@ -130,13 +132,24 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
       this.sceneParams = pieces.params;
     },
 
-    routeChanged: function() {
+    go: function(route) {
+      window.location.hash = '#' + route;
+    },
+
+    _routeChanged: function() {
       if (this.autoHash && this.route != null) {
+        // Don't create a history entry when the route changes. This ensures
+        // that when the route is changed programatically (usually because
+        // a user is at the wrong route) they don't get a history event (that,
+        // if they load, will just move them back to a valid route - making the
+        // back button useless).
         var params = serializeParams(this.sceneParams);
+
         location.hash = this.route + (params ? '?' + params : '');
+
+        // TODO(thorogood): We shouldn't create a history event when the route
+        // is being set programatically: aka if the wrong #sceneName was loaded.
       }
-      // TODO(samthor): seems disused
-      this.fire('director-route', this.route);
     }
 
   });

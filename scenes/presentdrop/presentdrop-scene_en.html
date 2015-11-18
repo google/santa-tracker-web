@@ -25,6 +25,12 @@ Presentdrop scene.
 -->
 <dom-module id="presentdrop-scene">
 <template>
+  <style>
+    :host([mode="portal"]) .shareButtons {
+      display: none !important;
+    }
+  </style>
+
   <div id="module-presentdrop">
     <div class="gui">
       <div class="board board--game">

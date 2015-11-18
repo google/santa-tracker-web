@@ -16,7 +16,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
-<link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="../../components/i18n-msg/i18n-msg.html">
 
 <link rel="import" href="dependencies.html">
 
@@ -383,7 +383,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
 
         this.async(function() {
           document.location.href = sender.href;
-        }, null, 100);
+        }, 100);
       }
     },
 
@@ -396,7 +396,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
       // Lets be nice and bring the snowman back.
       this.async(function() {
         this.$.snowman.classList.remove('snowman-fall');
-      }, null, 20000);
+      }, 20000);
     },
 
     onBalloonClick: function(e, detail, sender) {
@@ -420,7 +420,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
 
       this.async(function() {
         sender.classList.add('fly', 'flying', 'float');
-      }, null, timeout);
+      }, timeout);
 
       // The same amount of time we set in the CSS animation.
       var ANIMATION_TIME = 55000;
@@ -429,7 +429,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
 
       this.async(function() {
         sender.classList.remove('flying', 'float');
-      }, null, timeout);
+      }, timeout);
 
       timeout += WAIT;
 
@@ -440,7 +440,7 @@ TODO: Not yet fully migrated to Polymer 1.0+
         this.$['balloon-elf2'].hidden = false;
 
         this.fire('sound-trigger', 'village_balloon_landing');
-      }, null, timeout);
+      }, timeout);
     },
 
     onSendBusToStop: function(e, detail, sender) {

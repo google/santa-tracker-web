@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this file except in compliance with the License. You may obtain a copy of the
 License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
@@ -17,7 +17,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
-<link rel="import" href="../../elements/i18n-msg.html">
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="dorf-scene.css" />
@@ -29,68 +28,255 @@ Village scene (2015).
 <template>
   <div id="module-dorf">
     <div class="fit scroll">
+      <div id="posser"></div>
+      
       <header>
-        <div class="mid">
-          <h1 class="logo">Google</h1>
+        <div id="header-background"></div>
+        <div id="header-skyeffect">
+          <span class="plane"></span>
+          <span class="skydive">
+            <span class="pegman-1"></span>
+            <span class="pegman-2"></span>
+            <span class="pegman-3"></span>
+          </span>
+        </div>
+        <div id="header-content">
+          <div id="count-down">
+            <h2>Santa Takes Off In</h2>
+            <countdown-timer id="count"
+                             santa-service="[[santaService]]"
+                             count-down-end-date="[[countDownEndDate]]"
+                             finished="{{countdownFinished}}">
+              <h3><i18n-msg msgid="days">PLACEHOLDER_i18n</i18n-msg></h3>
+              <h3>Hrs</h3>
+              <h3>Min</h3>
+              <h3>Sec</h3>
+              <!-- TODO(samthor): Restore translations -->
+              <!-- <h3><i18n-msg msgid="hours">PLACEHOLDER_i18n</i18n-msg></h3>
+              <h3><i18n-msg msgid="minutes">PLACEHOLDER_i18n</i18n-msg></h3>
+              <h3><i18n-msg msgid="seconds">PLACEHOLDER_i18n</i18n-msg></h3> -->
+            </countdown-timer>
+          </div>
           <h1>
             <!-- TODO(samthor): translate -->
-            Santa's Village
+            Santa Tracker
           </h1>
           <p>
             <!-- TODO(samthor): translate -->
-            Explore, play and learn with Santa's Elves all December long
+            Explore, play and learn with Santa's Elves all December long.
           </p>
-        </div><!-- .mid -->
+        </div>
       </header>
-      <div id="village">
+      <div id="village-all">
+        <div id="ground"></div>
+        <div id="road"></div>
         <div id="houses">
+          <div class="house house-new-today"></div>
           <template is="dom-repeat" items="{{houses}}">
             <div class="house">
               <div class="color fit" style$="background: {{_calculateColor(item)}}"></div>
-              <a class="fit" href="{{_calculateHref(item)}}">
-                <img class="icon" src="scenes/village/img/house-{{item.module}}.svg" />
-              </a>
+              <div class="position">
+                <img class$="icon icon-{{item.module}}"
+                     src$="{{_calculateIcon(item.module, item)}}" />
+                <h3>{{item.category}}</h3>
+                <a href="{{_calculateHref(item)}}">
+                  <img class="card" src="{{_calculateCard(item.module, item)}}" />
+                </a>
+              </div>
             </div>
           </template>
         </div>
+      </div>
+      <div id="village-footer">
+        <div id="village-footer-elves"></div>
       </div>
     </div><!-- .scroll -->
   </div><!-- #module-dorf -->
 </template>
 <script>
 (function() {
-  
-Polymer({
-  is: 'dorf-scene',
-  behaviors: [window.SantaSceneBehavior],
 
-  properties: {
-    houses: {
-      type: Array
-    },
-    mode: {
-      type: String
-    },
-  },
-  
-  _calculateHref: function(house) {
-    return house.link || '#' + house.module;
-  },
+  var SNOWFLAKE_ROTATION = 60;
+  var SNOWFLAKE_SPEED_MIN = 2.5;
+  var SNOWFLAKE_SPEED_MAX = 10;
+  var SNOWFLAKE_SHIMMY_MIN = 5;
+  var SNOWFLAKE_SHIMMY_MAX = 10;
+  var SNOWFLAKE_SIZE_MIN = 8;
+  var SNOWFLAKE_SIZE_MAX = 16;
+  var CLOUD_TOP_MIN = 160;
+  var CLOUD_TOP_MAX = 300;
+  var CLOUD_SPEED_MIN = 60;
+  var CLOUD_SPEED_MAX = 160;
+
+  function randomRange(min, max) {
+    return min + Math.random() * (max - min);
+  }
 
   /**
-   * Generates a random but consistent background color for a house based on
-   * its hash.
+   * Builds and returns a random snowflake. If a previous snowflake was passed,
+   * just update it instead of rebuilding it.
    */
-  _calculateColor: function(house) {
-    var hash = 0;
-    for (var i = 0; i < house.module.length; ++i) {
-      hash = (hash * 13) + house.module.charCodeAt(i);
+  function snowflakeFactory(elem, delay) {
+    if (!elem) {
+      // Three transforms are applied, so three elements are needed-
+      //   1. outermost positions l/r on page, and rotates for a directed fall
+      //   2. .shimmy shakes snowflake left and right
+      //   3. .fall.snow draws the snowflake and transforms it down
+      elem = document.createElement('span');
+      elem.innerHTML = '<span class="shimmy"><span class="fall snow"></span></span>';
     }
-    var shade = Math.round(hash % 360);
-    return 'hsl(' + shade + ', 82%, 55%)';
-  },
 
-});
+    var pos = Math.round(Math.random() * 100);
+    var rotate = Math.round(Math.random() * SNOWFLAKE_ROTATION) - (SNOWFLAKE_ROTATION / 2);
+    var fallSpeed = randomRange(SNOWFLAKE_SPEED_MIN, SNOWFLAKE_SPEED_MAX);
+    var shimmySpeed = randomRange(SNOWFLAKE_SHIMMY_MIN, SNOWFLAKE_SHIMMY_MAX);
+    var size = Math.round(randomRange(SNOWFLAKE_SIZE_MIN, SNOWFLAKE_SIZE_MAX));
+
+    elem.style.transform = 'translate(' + pos + 'vw) rotate(' + rotate + 'deg)';
+
+    var shimmy = elem.querySelector('.shimmy');
+    shimmy.style.animationDuration = shimmySpeed + 's'
+    shimmy.style.fontSize = fallSpeed + 'px';  // shimmy width is inverse to speed
+
+    var fall = elem.querySelector('.fall');
+    fall.style.animationDuration = fallSpeed + 's';
+    fall.style.animationDelay = (+delay) + 's';
+
+    var snow = elem.querySelector('.snow');
+    snow.style.width = size + 'px';
+
+    return elem;
+  }
+
+  /**
+   * Builds and returns a random cloud. If a previous cloud was passed, just
+   * update it instead of rebuilding it.
+   */
+  function cloudFactory(elem, delay, reverse) {
+    if (!elem) {
+      // Two transforms are applied-
+      //   1. outermost position from top of page
+      //   2. animation from l/r, configured
+      elem = document.createElement('span');
+      elem.innerHTML = '<span class="cloud"></span>';
+    }
+
+    var pos = randomRange(CLOUD_TOP_MIN, CLOUD_TOP_MAX);
+    elem.style.transform = 'translate(0, ' + pos + 'px)';
+
+    var cloud = elem.firstChild;
+    cloud.style.animationDuration = randomRange(CLOUD_SPEED_MIN, CLOUD_SPEED_MAX) + 's';
+    if (reverse) {
+      cloud.style.animationDirection = 'reverse';
+    }
+    cloud.style.animationDelay = (+delay) + 's';
+
+    return elem;
+  }
+
+  Polymer({
+    is: 'dorf-scene',
+    behaviors: [window.SantaSceneBehavior],
+
+    properties: {
+      houses: {
+        type: Array
+      },
+      mode: {
+        type: String
+      },
+    },
+
+    observers: [
+      '_setupEffectHandlers(active)'
+    ],
+
+    created: function() {
+      this._changeEffectCount = this._changeEffectCount.bind(this);
+    },
+
+    attached: function() {
+      var skyeffect = this.$['header-skyeffect'];
+
+      for (var i = 0; i < 25; ++i) {
+        // Delay snowflakes by their count+5 sec.
+        var x = snowflakeFactory(null, i+5);
+        skyeffect.appendChild(x);
+      }
+
+      for (var i = 0; i < 4; ++i) {
+        // Delay clouds by their count+1 sec, and every second is reverse.
+        var x = cloudFactory(null, i + 1, i % 2);
+        skyeffect.appendChild(x);
+      }
+    },
+
+    _setupEffectHandlers: function(active) {
+      if (!active) {
+        window.removeEventListener('resize', this._changeEffectCount);
+        return;  // TODO(samthor): Remove all current snowflakes
+      }
+
+      this._changeEffectCount();
+      window.addEventListener('resize', this._changeEffectCount);
+    },
+
+    _changeEffectCount: function() {
+      this.debounce('_changeEffecCount', function() {
+        // TODO(samthor): Choose a number of snowflakes based on
+        // `window.innerWidth`. Drift the current number towards that amount.
+      }, 500);
+    },
+
+    _calculateHref: function(house, iced) {
+      if (iced) {
+        return null;
+      }
+      return house.link || this.pageUrl + '#' + house.module;
+    },
+
+    _calculateClass: function(house, iced) {
+      if (iced) {
+        return 'iced';
+      }
+      return '';
+    },
+
+    /**
+    * Generates a random but consistent background color for a house based on
+    * its hash.
+    */
+    _calculateColor: function(house) {
+      var hash = 0;
+      for (var i = 0; i < house.module.length; ++i) {
+        hash = (hash * 13) + house.module.charCodeAt(i);
+      }
+      var shade = Math.round(hash % 360);
+      return 'hsl(' + shade + ', 82%, 55%)';
+    },
+
+    _calculateIcon: function(id, house) {
+      return this.componentDir + 'img/building-' + id + (house.iced ? '-ice' : '') + '.svg';
+    },
+
+    _calculateCard: function(id, house) {
+      id = house.fakeCard ? 'fake' : id;
+      return this.componentDir + 'img/card-' + id + '.png';
+    },
+
+    _santaAppChanged: function() {
+      this.santaService = this.santaApp.santaService;
+      this.countDownEndDate = this.santaApp.countDownEndDate;
+    },
+
+    onShow: function() {
+      // Start timer one tick after scene is shown.
+      this.async(function() {
+        this.$.count.start();
+      });
+    }
+
+  });
 
 })();
 
