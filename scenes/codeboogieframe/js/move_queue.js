@@ -29,7 +29,7 @@ app.MoveQueue = class extends goog.events.EventTarget {
 
     this.player = player;
     this.queue = [];
-    this.setTitle = setTitle || () => {};
+    this.setTitle = setTitle || (() => {});
   }
 
   add(moves) {
