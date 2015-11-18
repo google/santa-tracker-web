@@ -18,11 +18,15 @@
 
 goog.provide('app.MoveQueue');
 
+goog.require('goog.events.EventTarget');
+
 /*
  * Represents a dance routine
  */
-app.MoveQueue = class {
+app.MoveQueue = class extends goog.events.EventTarget {
   constructor(player) {
+    super();
+
     this.player = player;
     this.queue = [];
   }
@@ -33,10 +37,19 @@ app.MoveQueue = class {
 
   next() {
     if (this.queue.length > 0) {
-      let nextMove = this.queue.pop();
-      this.player.play(nextMove);
+      let move = this.queue.pop();
+
+      if (move.step) {
+        this.player.play(move);
+        this.dispatchEvent({type: 'step', data: move.blockId});
+      } else {
+        // Highlight loop?
+        // this.dispatchEvent({type: 'step', data: move.blockId});
+        this.next();
+      }
     } else {
       this.player.play({step: 'idle'});
+      this.dispatchEvent('finish');
     }
   }
 }

@@ -39,11 +39,10 @@ app.Sequencer = class {
       this.lastUpdateTime = timestamp;
 
       this.beat += 1;
-      this.beat = this.beat % 4;
 
-      if (this.beat === 0) {
+      if (this.beat % 4 === 0) {
         this.bar += 1;
-        this.onBar(this.bar);
+        this.onBar(this.bar, this.beat);
       }
 
       this.onBeat(this.beat);

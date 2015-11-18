@@ -19,7 +19,6 @@
 goog.require('app.DanceStatus');
 goog.require('app.MoveQueue');
 goog.require('app.Step');
-goog.require('goog.events.EventTarget');
 
 goog.provide('app.AnimationPlayer');
 
@@ -114,9 +113,8 @@ class Animation {
   }
 }
 
-class Character extends goog.events.EventTarget {
+class Character {
   constructor(el, color) {
-    super()
     // Create move queue
     this.queue = new app.MoveQueue(this);
 
@@ -137,6 +135,8 @@ class Character extends goog.events.EventTarget {
 
     this.sprite = this.sprites[app.Step.IDLE];
     this.animation = new Animation(this.sprite);
+
+    this.lastBeatUpdate = 0;
   }
 
   update(dt) {
@@ -151,19 +151,12 @@ class Character extends goog.events.EventTarget {
 
     this.animation = new Animation(this.sprite);
     this.animation.play();
+  }
 
-    if (move.step === app.Step.IDLE) {
-      if (this.playing) {
-        this.dispatchEvent('finish');
-      }
-
-      this.playing = false;
-    } else {
-      this.playing = true;
-
-      if (move.blockId) {
-        this.dispatchEvent({type: 'step', data: move.blockId});
-      }
+  onBar(bar, beat) {
+    if (beat >= this.lastBeatUpdate + this.sprite.duration) {
+      this.queue.next();
+      this.lastBeatUpdate = beat;
     }
   }
 }
@@ -233,7 +226,7 @@ app.AnimationPlayer = class {
         break;
 
       case app.DanceStatus.SUCCESS:
-        this.teacher.queue.add(result.teacherSteps);
+        this.teacher.queue.add(teacherSteps);
 
         // push special move
         this.player.queue.add(result.playerSteps);
@@ -241,8 +234,8 @@ app.AnimationPlayer = class {
     }
   }
 
-  onBar(bar) {
-    this.player.queue.next();
-    this.teacher.queue.next();
+  onBar(bar, beat) {
+    this.player.onBar(bar, beat);
+    this.teacher.onBar(bar, beat);
   }
 };

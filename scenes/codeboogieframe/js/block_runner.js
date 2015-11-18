@@ -59,8 +59,8 @@ app.BlockRunner = class {
     Blockly.JavaScript.INFINITE_LOOP_TRAP = '  api.highlightLoop(%1);\n';
 
     // Register animation events.
-    scene.player.player.addEventListener('step', this.onStep_.bind(this));
-    scene.player.player.addEventListener('finish', this.onFinishAnimations_.bind(this));
+    scene.player.player.queue.addEventListener('step', this.onStep_.bind(this));
+    scene.player.player.queue.addEventListener('finish', this.onFinishAnimations_.bind(this));
 
     this.reset_();
   }

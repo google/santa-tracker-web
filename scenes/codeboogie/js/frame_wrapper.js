@@ -67,7 +67,7 @@ app.FrameWrapper.prototype.restart = function() {
   window.santaApp.fire('analytics-track-game-start', {gameid: 'codeboogie'});
 
   this.sequencer.onBeat = (beat) => this.iframeChannel.call('beat', beat);
-  this.sequencer.onBar = (bar) => this.iframeChannel.call('bar', bar);
+  this.sequencer.onBar = (bar, beat) => this.iframeChannel.call('bar', bar, beat);
 };
 
 /**
