@@ -123,7 +123,7 @@ app.DanceLevel = class extends app.Level {
 
   compareSteps(playerSteps) {
     let stepCount = 0;
-    for (let i = 0, block; block = playerSteps[i]; i++) {
+    for (let i = 0, block = null; block = playerSteps[i]; i++) {
       // Ignore highlight only blocks
       if (!block.step) { continue; }
 
