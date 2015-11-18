@@ -1,5 +1,7 @@
 $name: 'module-santasearch';
 
+@import 'scss/map';
+
 ##{$name} {
   position: absolute;
   top: 0;
@@ -8,7 +10,7 @@ $name: 'module-santasearch';
   left: 0;
 
   .scene {
-    background-color: #00ADEB;
+    background-color: #44B3E6;
     bottom: 0;
     left: 0;
     position: absolute;
