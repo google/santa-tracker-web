@@ -59,6 +59,6 @@ goog.scope(function () {
   }
 
 
-  app.world.Spring = PresentBall;
+  app.world.PresentBall = PresentBall;
 
 });
