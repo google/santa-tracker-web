@@ -16,10 +16,12 @@
 
 'use strict'
 
-goog.provide('app.AnimationPlayer');
+goog.require('app.DanceStatus');
 goog.require('app.MoveQueue');
-goog.require('goog.events.EventTarget');
 goog.require('app.Step');
+goog.require('goog.events.EventTarget');
+
+goog.provide('app.AnimationPlayer');
 
 const size = 492;
 const fps = 24;
@@ -29,42 +31,42 @@ const beatDuration = 1000 / bpm * 60;
 let sources = (color) => ({
   [app.Step.IDLE]: {
     'src': `img/steps/${color}/idle.png`,
-    'count': 24,
-    'duration': 2
+    'duration': 1
+  },
+  [app.Step.FAIL]: {
+    'src': `img/steps/${color}/fail.png`,
+    'duration': 8
+  },
+  [app.Step.WATCH]: {
+    'src': `img/steps/${color}/watch.png`,
+    'duration': 8
   },
   [app.Step.LEFT_ARM]: {
     'src': `img/steps/${color}/point-left.png`,
-    'count': 48,
     'duration': 4
   },
   [app.Step.RIGHT_ARM]: {
     'src': `img/steps/${color}/point-right.png`,
-    'count': 96,
     'duration': 8
   },
   [app.Step.LEFT_FOOT]: {
     'src': `img/steps/${color}/step-left.png`,
-    'count': 96,
     'duration': 8
   },
   [app.Step.RIGHT_FOOT]: {
     'src': `img/steps/${color}/step-right.png`,
-    'count': 96,
     'duration': 8
   },
   [app.Step.JUMP]: {
     'src': `img/steps/${color}/jump.png`,
-    'count': 48,
     'duration': 4
   },
   [app.Step.SPIN]: {
     'src': `img/steps/${color}/hip-spin.png`,
-    'count': 48,
     'duration': 4
   },
   [app.Step.SPLIT]: {
     'src': `img/steps/${color}/split.png`,
-    'count': 96,
     'duration': 8
   }
 })
@@ -72,8 +74,8 @@ let sources = (color) => ({
 class Animation {
   constructor(sprite) {
     this.frame = 0;
-    this.frameCount = sprite.count;
-    this.duration = (sprite.duration * beatDuration) / sprite.count;
+    this.frameCount = sprite.duration * fps;
+    this.frameDuration = 1000 / fps;
     this.elapsedTime = 0;
     this.paused = true;
   }
@@ -99,21 +101,22 @@ class Animation {
 
     this.elapsedTime += dt;
 
-    if (this.elapsedTime > this.duration) {
-      let framesElapsed = Math.floor(this.elapsedTime / this.duration);
+    if (this.elapsedTime > this.frameDuration) {
+      let framesElapsed = Math.floor(this.elapsedTime / this.frameDuration);
 
       this.frame += framesElapsed;
       this.frame = this.frame % this.frameCount;
 
-      this.elapsedTime -= framesElapsed * this.duration;
+      this.elapsedTime -= framesElapsed * this.frameDuration;
     }
 
     return this.getFrame(this.frame);
   }
 }
 
-class Character {
+class Character extends goog.events.EventTarget {
   constructor(el, color) {
+    super()
     // Create move queue
     this.queue = new app.MoveQueue(this);
 
@@ -148,6 +151,20 @@ class Character {
 
     this.animation = new Animation(this.sprite);
     this.animation.play();
+
+    if (move.step === app.Step.IDLE) {
+      if (this.playing) {
+        this.dispatchEvent('finish');
+      }
+
+      this.playing = false;
+    } else {
+      this.playing = true;
+
+      if (move.blockId) {
+        this.dispatchEvent({type: 'step', data: move.blockId});
+      }
+    }
   }
 }
 
@@ -157,13 +174,10 @@ class Character {
  * @param {el} container for characters
  * @constructor
  */
-app.AnimationPlayer = class extends goog.events.EventTarget {
-  constructor(el, scene) {
-    super();
-    this.scene = scene;
-
-    this.student = new Character(el.querySelector('.scene__characters-student'), 'green');
+app.AnimationPlayer = class {
+  constructor(el) {
     this.teacher = new Character(el.querySelector('.scene__characters-teacher'), 'purple');
+    this.player = new Character(el.querySelector('.scene__characters-player'), 'green');
 
     this.lastUpdateTime = 0;
 
@@ -173,31 +187,12 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
   update(timestamp) {
     let dt = timestamp - this.lastUpdateTime;
 
-    this.student.update(dt);
+    this.player.update(dt);
     this.teacher.update(dt);
 
     this.lastUpdateTime = timestamp;
 
     window.requestAnimationFrame((t) => this.update(t));
-  }
-
-  play(move) {
-    let step = move.step;
-    let blockId = move.blockId;
-
-    this.student.play(step);
-    this.teacher.play(step);
-
-    if (step === app.Step.IDLE) {
-      if (this.playing) {
-        this.dispatchEvent('finish');
-      }
-
-      this.playing = false;
-    } else {
-      this.playing = true;
-      this.dispatchEvent({type: 'step', data: blockId});
-    }
   }
 
   /**
@@ -206,14 +201,48 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
    * @param {app.DanceLevelResult} result from player to animate.
    */
   start(result) {
-    this.playing = true;
+    console.log(result)
 
-    this.student.queue.add(result.playerSteps);
-    this.teacher.queue.add(this.scene.level.steps);
+    let teacherSteps = result.teacherSteps.map(step => ({step}));
+
+    switch (result.danceStatus) {
+      case app.DanceStatus.NO_STEPS:
+        this.teacher.queue.add(teacherSteps);
+        this.player.queue.add(Array.from(result.teacherSteps, () => ({step: app.Step.WATCH})))
+        break;
+
+      case app.DanceStatus.NOT_ENOUGH_STEPS:
+        this.teacher.queue.add(teacherSteps);
+
+        result.playerSteps.push({step: app.Step.FAIL});
+        this.player.queue.add(result.playerSteps);
+        break;
+
+      case app.DanceStatus.WRONG_STEPS:
+        // push as many steps as are correct to player + FAIL
+        //
+        break;
+      case app.DanceStatus.TOO_MANY_STEPS:
+        this.teacher.queue.add(teacherSteps);
+
+        let playerSteps = result.playerSteps.slice(0, teacherSteps.length);
+        playerSteps.push({step: app.Step.FAIL});
+
+        this.player.queue.add(playerSteps);
+
+        break;
+
+      case app.DanceStatus.SUCCESS:
+        this.teacher.queue.add(result.teacherSteps);
+
+        // push special move
+        this.player.queue.add(result.playerSteps);
+        break;
+    }
   }
 
   onBar(bar) {
-    this.student.queue.next();
+    this.player.queue.next();
     this.teacher.queue.next();
   }
 };

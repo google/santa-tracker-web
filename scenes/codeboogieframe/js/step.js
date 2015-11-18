@@ -15,5 +15,7 @@ app.Step = {
   SHAKE: 'shake',
 
   // Non blockly moves
-  IDLE: 'idle'
+  IDLE: 'idle',
+  FAIL: 'fail',
+  WATCH: 'watch'
 };

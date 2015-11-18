@@ -38,7 +38,7 @@ app.levels.push(new app.DanceLevel({
     app.Step.RIGHT_ARM
   ],
   requiredBlocks: ['dance_leftArm'],
-  startBlocks: app.blocks.blockXml('dance_leftArm', {deletable: false}),
+  //startBlocks: app.blocks.blockXml('dance_leftArm', {deletable: false}),
   toolbox: app.blocks.miniBlockXml('dance_leftArm') +
       app.blocks.miniBlockXml('dance_rightArm') +
       app.blocks.miniBlockXml('dance_leftFoot') +

@@ -91,7 +91,7 @@ app.Game.prototype.bumpLevel = function() {
 
   // Show tutorial
   if (this.levelNumber === 0 || this.levelNumber === 2) {
-    this.tutorial_.schedule();
+    // this.tutorial_.schedule();
   }
 };
 
