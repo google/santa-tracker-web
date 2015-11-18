@@ -16,11 +16,12 @@
 
 'use strict'
 
+goog.provide('app.AnimationPlayer');
+
 goog.require('app.DanceStatus');
 goog.require('app.MoveQueue');
 goog.require('app.Step');
-
-goog.provide('app.AnimationPlayer');
+goog.require('app.I18n')
 
 const size = 492;
 const fps = 24;
@@ -120,9 +121,9 @@ class Animation {
 }
 
 class Character {
-  constructor(el, color) {
+  constructor(el, color, setTitle) {
     // Create move queue
-    this.queue = new app.MoveQueue(this);
+    this.queue = new app.MoveQueue(this, setTitle);
 
     // Create canvas
     let canvas = document.createElement('canvas');
@@ -176,7 +177,12 @@ class Character {
 app.AnimationPlayer = class {
   constructor(el) {
     this.teacher = new Character(el.querySelector('.scene__characters-teacher'), 'purple');
-    this.player = new Character(el.querySelector('.scene__characters-player'), 'green');
+
+    let setTitle = (title) => {
+      let translation = app.I18n.getMsg('CB_' + title)
+      el.querySelector('.scene__word-title').textContent = translation
+    }
+    this.player = new Character(el.querySelector('.scene__characters-player'), 'green', setTitle);
 
     this.lastUpdateTime = 0;
 
@@ -200,7 +206,7 @@ app.AnimationPlayer = class {
    * @param {app.DanceLevelResult} result from player to animate.
    */
   start(result) {
-    console.log(result)
+    console.log(result.danceStatus)
 
     let teacherSteps = result.teacherSteps.map(step => ({step}));
 

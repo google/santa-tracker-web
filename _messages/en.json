@@ -246,43 +246,52 @@
 		"message": "Colombia"
 	},
 	"codeboogie-block-leftarm": {
-		"message": "point left"
+		"message": "Point left"
 	},
 	"codeboogie-block-leftarm-tooltip": {
 		"message": "Point to the left."
 	},
 	"codeboogie-block-rightarm": {
-		"message": "point right"
+		"message": "Point right"
 	},
 	"codeboogie-block-rightarm-tooltip": {
 		"message": "Point to the right."
 	},
 	"codeboogie-block-leftfoot": {
-		"message": "step left"
+		"message": "Step left"
 	},
 	"codeboogie-block-leftfoot-tooltip": {
 		"message": "Take a step to the left."
 	},
 	"codeboogie-block-rightfoot": {
-		"message": "step right"
+		"message": "Step right"
 	},
 	"codeboogie-block-rightfoot-tooltip": {
 		"message": "Take a step to the right."
 	},
 	"codeboogie-block-jump": {
-		"message": "jump"
+		"message": "Jump"
 	},
 	"codeboogie-block-jump-tooltip": {
 		"message": "Do a jump."
 	},
 	"codeboogie-block-split": {
-		"message": "split"
+		"message": "Split"
 	},
 	"codeboogie-block-split-tooltip": {
 		"message": "Do a split."
 	},
+  "codeboogie-get-dancing": {
+    "message": "Get dancing!"
+	},
+	"codeboogie-watch-closely": {
+    "message": "Watch closely!"
+	},
+	"codeboogie-success": {
+    "message": "Success!"
+	},
 	"codeboogie-block-shake": {
-		"message": "hip shake"
+		"message": "Hip shake"
 	},
 	"codeboogie-block-shake-tooltip": {
 		"message": "Do a hip shake."

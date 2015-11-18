@@ -24,15 +24,17 @@ goog.require('goog.events.EventTarget');
  * Represents a dance routine
  */
 app.MoveQueue = class extends goog.events.EventTarget {
-  constructor(player) {
+  constructor(player, setTitle) {
     super();
 
     this.player = player;
     this.queue = [];
+    this.setTitle = setTitle || () => {};
   }
 
   add(moves) {
     moves.forEach(move => this.queue.unshift(move));
+    this.setTitle('watchClosely')
   }
 
   next() {
@@ -42,6 +44,8 @@ app.MoveQueue = class extends goog.events.EventTarget {
       if (move.step) {
         this.player.play(move);
         this.dispatchEvent({type: 'step', data: move.blockId});
+
+        this.setTitle(move.step);
       } else {
         // Highlight loop?
         // this.dispatchEvent({type: 'step', data: move.blockId});
