@@ -30,53 +30,59 @@ const beatDuration = 1000 / bpm * 60;
 let sources = (color) => ({
   [app.Step.IDLE]: {
     'src': `img/steps/${color}/idle.png`,
-    'duration': 1
+    'frames': 24
   },
   [app.Step.FAIL]: {
     'src': `img/steps/${color}/fail.png`,
-    'duration': 8
+    'frames': 96
   },
   [app.Step.WATCH]: {
     'src': `img/steps/${color}/watch.png`,
-    'duration': 8
+    'frames': 96
+  },
+  [app.Step.CARLTON]: {
+    'src': `img/steps/${color}/carlton.png`,
+    'frames': 192
   },
   [app.Step.LEFT_ARM]: {
     'src': `img/steps/${color}/point-left.png`,
-    'duration': 4
+    'frames': 48
   },
   [app.Step.RIGHT_ARM]: {
     'src': `img/steps/${color}/point-right.png`,
-    'duration': 8
+    'frames': 96
   },
   [app.Step.LEFT_FOOT]: {
     'src': `img/steps/${color}/step-left.png`,
-    'duration': 8
+    'frames': 96
   },
   [app.Step.RIGHT_FOOT]: {
     'src': `img/steps/${color}/step-right.png`,
-    'duration': 8
+    'frames': 96
   },
   [app.Step.JUMP]: {
     'src': `img/steps/${color}/jump.png`,
-    'duration': 4
+    'frames': 48
   },
   [app.Step.SPIN]: {
     'src': `img/steps/${color}/hip-spin.png`,
-    'duration': 4
+    'frames': 96
   },
   [app.Step.SPLIT]: {
     'src': `img/steps/${color}/split.png`,
-    'duration': 8
+    'frames': 96
   }
 })
 
 class Animation {
   constructor(sprite) {
     this.frame = 0;
-    this.frameCount = sprite.duration * fps;
+    this.frameCount = sprite.frames;
     this.frameDuration = 1000 / fps;
     this.elapsedTime = 0;
     this.paused = true;
+
+    sprite.duration = sprite.frames / fps;
   }
 
   play() {
@@ -205,30 +211,18 @@ app.AnimationPlayer = class {
         break;
 
       case app.DanceStatus.NOT_ENOUGH_STEPS:
+      case app.DanceStatus.WRONG_STEPS:
+      case app.DanceStatus.TOO_MANY_STEPS:
         this.teacher.queue.add(teacherSteps);
 
         result.playerSteps.push({step: app.Step.FAIL});
         this.player.queue.add(result.playerSteps);
         break;
 
-      case app.DanceStatus.WRONG_STEPS:
-        // push as many steps as are correct to player + FAIL
-        //
-        break;
-      case app.DanceStatus.TOO_MANY_STEPS:
-        this.teacher.queue.add(teacherSteps);
-
-        let playerSteps = result.playerSteps.slice(0, teacherSteps.length);
-        playerSteps.push({step: app.Step.FAIL});
-
-        this.player.queue.add(playerSteps);
-
-        break;
-
       case app.DanceStatus.SUCCESS:
         this.teacher.queue.add(teacherSteps);
 
-        // push special move
+        result.playerSteps.push({step: app.Step.CARLTON});
         this.player.queue.add(result.playerSteps);
         break;
     }
