@@ -140,7 +140,7 @@ app.blocks.install = function() {
               .appendField(new Blockly.FieldImage(null, 23, 32))
               .appendField(new Blockly.FieldLabel(stepConfig.letter));
           this.setFillPattern(
-              app.Patterns.addPattern('pat_' + step, image, 48, 48, -30, 0));
+              app.Patterns.addPattern('pat_' + step, image, 48, 48, -28, 0));
           this.setPreviousStatement(true);
           this.setNextStatement(true);
           this.setTooltip(stepConfig.tooltip);
