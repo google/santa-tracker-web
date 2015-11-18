@@ -119,6 +119,19 @@ goog.scope(function () {
     /**
      * @public
      */
+    position() {
+      let x, y;
+      if (this.body_) {
+        const p = this.body_.GetPosition();
+        x = Unit.fromWorld(p.x);
+        y = Unit.fromWorld(p.x);
+      }
+      return {x, y};
+    }
+
+    /**
+     * @public
+     */
     draw() {
       if (!this.body_) {
         return;

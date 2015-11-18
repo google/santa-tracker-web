@@ -153,9 +153,7 @@ goog.scope(function () {
      */
     dropBall() {
       //debugEl.innerHTML = 'Debug: ball dropped';
-      if (this.ball_) {
-        this.ball_.destroy();
-      }
+      this.destroyBall();
       const ballData = this.levelData_.ball;
       this.ball_ = new ballData.objectType(this, this.world_, ballData);
     }
@@ -163,8 +161,9 @@ goog.scope(function () {
     /**
      * @public
      */
-    resetBall() {
+    destroyBall() {
       if (this.ball_) {
+        console.log('DESTROY BALL', this.ball_, this.ball_.el_);
         this.ball_.destroy();
         this.ball_ = null;
       }
@@ -199,8 +198,7 @@ goog.scope(function () {
       if (this.ball_) {
         this.ball_.draw();
         if (this.hasBallExitedScreen_()) {
-          this.ball_.destroy();
-          this.ball_ = null;
+          this.destroyBall();
         }
       }
 
@@ -218,7 +216,7 @@ goog.scope(function () {
      * @private
      */
     hasBallExitedScreen_() {
-      if (this.ball_ && this.ball_.y > Constants.SCREEN_Y_LIMIT) {
+      if (this.ball_ && this.ball_.position().y > Constants.SCREEN_Y_LIMIT) {
         //debugEl.innerHTML = 'Debug: ball has exited';
         return true;
       }
@@ -274,6 +272,7 @@ goog.scope(function () {
      */
     destroy() {
       this.isLevelLoaded_ = false;
+      this.destroyBall();
 
       for (let object of this.levelObjects_) {
         object.destroy();
@@ -282,9 +281,11 @@ goog.scope(function () {
       for (let object of this.userObjects_) {
         object.destroy();
       }
+
       this.userObjects_ = [];
       this.levelObjects_ = [];
       this.world_ = null;
+
       if (this.$debugCanvas_) {
         this.$debugCanvas_.remove();
       }
