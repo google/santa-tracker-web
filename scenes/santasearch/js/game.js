@@ -16,6 +16,7 @@
 
 goog.provide('app.Game');
 
+goog.require('app.Controls');
 goog.require('app.shared.utils');
 
 
@@ -30,6 +31,8 @@ app.Game = function(elem) {
   this.elem = $(elem);
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
+  this.controls = new app.Controls(elem);
+  this.mapElem = this.elem.find('.map');
 
   this.onFrame_ = this.onFrame_.bind(this);
 };
@@ -41,6 +44,7 @@ app.Game = function(elem) {
  */
 app.Game.prototype.start = function() {
   this.restart();
+  this.controls.start();
 };
 
 
@@ -64,6 +68,11 @@ app.Game.prototype.update = function(delta) {
   if (!this.isPlaying) {
     return;
   }
+
+  let panX = this.controls.pan.x;
+  let panY = this.controls.pan.y;
+
+  this.mapElem.css('transform', `translate3d(${panX}px, ${panY}px, 0)`);
 
   this.accumulator += delta;
 };
@@ -151,4 +160,5 @@ app.Game.prototype.dispose = function() {
   app.shared.utils.cancelAnimFrame(this.requestId);
   $(window).off('.santasearch');
   $(document).off('.santasearch');
+  this.elem.off('.santasearch');
 };
