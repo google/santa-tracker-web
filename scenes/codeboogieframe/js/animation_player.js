@@ -66,12 +66,7 @@ let sources = {
     'src': 'img/steps/split.png',
     'count': 96,
     'duration': 8
-  },
-  [app.Step.CLAP]: {
-    'src': 'img/steps/clap.png',
-    'count': 48,
-    'duration': 4
-  },
+  }
 }
 
 class Animation {
@@ -117,6 +112,44 @@ class Animation {
   }
 }
 
+class Character {
+  constructor(el, sprites) {
+    this.sprites = sprites;
+    this.queue = new app.MoveQueue(this);
+
+    Object.keys(this.sprites).forEach(key => {
+      this.sprites[key].img = new Image();
+      this.sprites[key].img.src = this.sprites[key].src;
+    });
+
+    this.sprite = this.sprites[app.Step.IDLE];
+
+    let canvas = document.createElement('canvas');
+    canvas.width = canvas.height = size;
+
+    let world = el.querySelector('.scene__world');
+    world.appendChild(canvas);
+
+    this.context = canvas.getContext('2d');
+
+    this.animation = new Animation(this.sprite);
+  }
+
+  update(dt) {
+    let frame = this.animation.update(dt);
+
+    this.context.canvas.width = this.context.canvas.width;
+    this.context.drawImage(this.sprite.img, frame.x, frame.y, frame.width, frame.height, 0, 0, this.context.canvas.width, this.context.canvas.height);
+  }
+
+  play(move) {
+    this.sprite = this.sprites[move.step];
+
+    this.animation = new Animation(this.sprite);
+    this.animation.play();
+  }
+}
+
 /**
  * Manages queueing up dance animations.
  *
@@ -128,37 +161,19 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     super();
     this.el = el;
 
-    this.queue = new app.MoveQueue(this);
+    this.student = new Character(el, sources);
 
-    this.sprites = sources;
-
-    Object.keys(this.sprites).forEach(key => {
-      this.sprites[key].img = new Image();
-      this.sprites[key].img.src = sources[key].src;
-    });
-
-    this.sprite = this.sprites[app.Step.IDLE];
-    this.sprite.img.addEventListener('load', () => this.update());
-
-    let canvas = document.createElement('canvas');
-    canvas.width = canvas.height = size;
-
-    let world = el.querySelector('.scene__world');
-    world.appendChild(canvas);
-
-    this.context = canvas.getContext('2d');
-
-    this.animation = new Animation(this.sprite);
     this.lastUpdateTime = 0;
+
+    this.update();
   }
 
   update(timestamp) {
     let dt = timestamp - this.lastUpdateTime;
-    let frame = this.animation.update(dt);
-    this.lastUpdateTime = timestamp;
 
-    this.context.canvas.width = this.context.canvas.width;
-    this.context.drawImage(this.sprite.img, frame.x, frame.y, frame.width, frame.height, 0, 0, this.context.canvas.width, this.context.canvas.height);
+    this.student.update(dt);
+
+    this.lastUpdateTime = timestamp;
 
     window.requestAnimationFrame((t) => this.update(t));
   }
@@ -167,10 +182,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     let step = move.step;
     let blockId = move.blockId;
 
-    this.sprite = this.sprites[step];
-
-    this.animation = new Animation(this.sprite);
-    this.animation.play();
+    this.student.play(step);
 
     if (step === app.Step.IDLE) {
       if (this.playing) {
@@ -190,10 +202,10 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
    */
   start(steps) {
     this.playing = true;
-    this.queue.add(steps);
+    this.student.queue.add(steps);
   }
 
   onBar(bar) {
-    this.queue.next();
+    this.student.queue.next();
   }
 };
