@@ -126,9 +126,7 @@ class Character {
 
     let canvas = document.createElement('canvas');
     canvas.width = canvas.height = size;
-
-    let world = el.querySelector('.scene__world');
-    world.appendChild(canvas);
+    el.appendChild(canvas);
 
     this.context = canvas.getContext('2d');
 
@@ -151,17 +149,17 @@ class Character {
 }
 
 /**
- * Manages queueing up dance animations.
+ * Plays character animations
  *
- * @param {app.Scene} scene where animations happens.
+ * @param {el} container for characters
  * @constructor
  */
 app.AnimationPlayer = class extends goog.events.EventTarget {
   constructor(el) {
     super();
-    this.el = el;
 
-    this.student = new Character(el, sources);
+    this.student = new Character(el.querySelector('.scene__characters-student'), sources);
+    this.teacher = new Character(el.querySelector('.scene__characters-teacher'), sources);
 
     this.lastUpdateTime = 0;
 
@@ -172,6 +170,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     let dt = timestamp - this.lastUpdateTime;
 
     this.student.update(dt);
+    this.teacher.update(dt);
 
     this.lastUpdateTime = timestamp;
 
@@ -183,6 +182,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     let blockId = move.blockId;
 
     this.student.play(step);
+    this.teacher.play(step);
 
     if (step === app.Step.IDLE) {
       if (this.playing) {
@@ -203,9 +203,11 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
   start(steps) {
     this.playing = true;
     this.student.queue.add(steps);
+    // this.teacher.queue.add(steps);
   }
 
   onBar(bar) {
     this.student.queue.next();
+    this.teacher.queue.next();
   }
 };

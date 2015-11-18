@@ -9,14 +9,6 @@
     right: 0;
     top: 0;
     width: 200px;
-
-    canvas {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 8em;
-      margin: 0 auto;
-    }
   }
 
   .scene-underlay {
@@ -32,6 +24,15 @@
 
   .scene__world {
 
+  }
+
+  .scene__characters {
+    display: flex;
+    margin-left: 100px;
+  }
+
+  .scene__characters-student, .scene__characters-teacher {
+    margin: 0 -100px;
   }
 
   .scene__word-title {
