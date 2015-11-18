@@ -1,8 +1,10 @@
 console.log('Spacenav extension loading');
 
+var initiateSpacenavHandlers = function(gutters) {
 
-var initiateSpacenavHandlers = function() {
-
+  if (typeof(gutters) == 'undefined') {
+    gutters = {};
+  }
   var GUTTER = 180;
 
   var keyBindings = {
@@ -11,6 +13,11 @@ var initiateSpacenavHandlers = function() {
     'RIGHT': 39,
     'DOWN': 40
   };
+  this.gutters = gutters;
+  this.gutters['LEFT'] = this.gutters['LEFT'] || GUTTER;
+  this.gutters['UP'] = this.gutters['UP'] || GUTTER;
+  this.gutters['RIGHT'] = this.gutters['RIGHT'] || GUTTER;
+  this.gutters['DOWN'] = this.gutters['DOWN'] || GUTTER;
 
   var portalRos = new ROSLIB.Ros({
     url: 'wss://42-b:9090'
@@ -61,17 +68,15 @@ var initiateSpacenavHandlers = function() {
     var spacenavX = -twist.linear.y + twist.angular.x;
     var spacenavY = twist.linear.x + twist.angular.y;
 
-    if (spacenavY > GUTTER) move('UP');
+    if (spacenavY > this.gutters['UP']) move('UP');
     else stop('UP');
-    if (spacenavY < -GUTTER) move('DOWN');
+    if (spacenavY < -this.gutters['DOWN']) move('DOWN');
     else stop('DOWN');
-    if (spacenavX > GUTTER) move('RIGHT');
+    if (spacenavX > this.gutters['RIGHT']) move('RIGHT');
     else stop('RIGHT');
-    if (spacenavX < -GUTTER) move('LEFT');
+    if (spacenavX < -this.gutters['LEFT']) move('LEFT');
     else stop('LEFT');
-  });
+  }.bind(this));
 
   console.log('Spacenav handler loaded');
 };
-
-initiateSpacenavHandlers();
