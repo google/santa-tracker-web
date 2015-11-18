@@ -176,13 +176,13 @@ class Character {
  */
 app.AnimationPlayer = class {
   constructor(el) {
-    this.teacher = new Character(el.querySelector('.scene__characters-teacher'), 'purple');
-
     let setTitle = (title) => {
       let translation = app.I18n.getMsg('CB_' + title)
       el.querySelector('.scene__word-title').textContent = translation
     }
-    this.player = new Character(el.querySelector('.scene__characters-player'), 'green', setTitle);
+
+    this.player = new Character(el.querySelector('.scene__characters-player'), 'green');
+    this.teacher = new Character(el.querySelector('.scene__characters-teacher'), 'purple', setTitle);
 
     this.lastUpdateTime = 0;
 
