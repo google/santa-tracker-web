@@ -34,7 +34,6 @@ goog.scope(function () {
   class LevelObject {
 
     /**
-     * @constructor
      * @param {!app.Level} level The level this object belongs to
      * @param {!b2.World} world The Box2D world instance
      * @param {!Object} levelData Object configuration

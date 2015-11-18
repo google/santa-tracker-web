@@ -33,7 +33,6 @@ goog.scope(function () {
   class Spring extends app.world.UserObject {  
     
     /**
-     * @constructor
      * @override
      */
     constructor(...args) {

@@ -35,7 +35,6 @@ goog.scope(function () {
   class CandyCane extends app.world.LevelObject {  
     
     /**
-     * @constructor
      * @override
      */
     constructor(...args) {

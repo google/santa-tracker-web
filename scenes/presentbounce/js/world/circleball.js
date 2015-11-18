@@ -32,7 +32,6 @@ goog.scope(function () {
   class CircleBall extends app.world.GravityObject {
     
     /**
-     * @constructor
      * @override
      */
     constructor(...args) {

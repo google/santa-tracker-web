@@ -34,7 +34,6 @@ goog.scope(function () {
   class ConveyorBelt extends app.world.UserObject {
     
     /**
-     * @constructor
      * @override
      */
     constructor(...args) {

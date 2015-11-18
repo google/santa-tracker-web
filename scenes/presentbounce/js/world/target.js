@@ -33,7 +33,6 @@ goog.scope(function () {
   class Target extends app.world.LevelObject {
     
     /**
-     * @constructor
      * @override
      */
     constructor(...args) {

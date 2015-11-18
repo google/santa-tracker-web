@@ -40,7 +40,6 @@ goog.scope(function () {
   class Level {
 
     /**
-     * @constructor
      * @param {!Element} elem A DOM element which wraps the game.
      * @param {!Object} levelData Level configuration
      * @param {!Function} onCompleteCallback Callback function when level is completed

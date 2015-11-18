@@ -54,7 +54,7 @@ app.Game = function(elem) {
   // bind context
   this.onFrame_ = this.onFrame_.bind(this);
   this.loadNextLevel_ = this.loadNextLevel_.bind(this);
-  
+
   // Bind listener to scale scene when window resizes
   this.watchSceneSize_();
 };
@@ -147,7 +147,7 @@ app.Game.prototype.loadNextLevel_ = function() {
 app.Game.prototype.onLevelCompleted = function(score) {
 
   this.scoreboard.addScore(score);
-  
+
   // Check for game end
   if (this.level === app.config.Levels.length - 1) {
     this.gameover();
