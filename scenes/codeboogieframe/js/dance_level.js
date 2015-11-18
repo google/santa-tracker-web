@@ -85,7 +85,7 @@ app.DanceLevel = class extends app.Level {
           {skipAnimation: true});
     }
 
-    var danceStatus = this.compareSteps(playerSteps);
+    var danceStatus = this.processSteps(playerSteps);
     var levelComplete = danceStatus === app.DanceStatus.SUCCESS;
     var code = blockly.getUserCode();
     var missingBlocks = blockly.getMissingBlocks(this.requiredBlocks);
@@ -121,7 +121,15 @@ app.DanceLevel = class extends app.Level {
     });
   }
 
-  compareSteps(playerSteps) {
+  /**
+   * Processes the steps chosen by the player, deciding how the animation
+   * should play. Will edit the step array for animation purposes in some
+   * cases.
+   *
+   * @param {app.Step[]} playerSteps steps taken.
+   * @return {app.DanceStatus}
+   */
+  processSteps(playerSteps) {
     let stepCount = 0;
     for (let i = 0, block = null; block = playerSteps[i]; i++) {
       // Ignore highlight only blocks
@@ -131,6 +139,7 @@ app.DanceLevel = class extends app.Level {
         return app.DanceStatus.TOO_MANY_STEPS;
       }
       if (block.step !== this.steps[stepCount]) {
+        playerSteps.splice(stepCount, playerSteps.length);
         return app.DanceStatus.WRONG_STEPS;
       }
       stepCount++;
