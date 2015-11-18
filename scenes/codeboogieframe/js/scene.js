@@ -35,7 +35,7 @@ goog.require('goog.style');
 app.Scene = function(el, game, blockly) {
   this.active_ = true;
   this.blockly_ = blockly;
-  this.player = new app.AnimationPlayer(el);
+  this.player = new app.AnimationPlayer(el, this);
   this.blockRunner_ = new app.BlockRunner(this, blockly);
   this.cachedWindowHeight_ = null;
   this.cachedWindowWidth_ = null;

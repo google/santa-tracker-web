@@ -26,48 +26,48 @@ const fps = 24;
 const bpm = 120;
 const beatDuration = 1000 / bpm * 60;
 
-let sources = {
+let sources = (color) => ({
   [app.Step.IDLE]: {
-    'src': 'img/steps/idle.png',
+    'src': `img/steps/${color}/idle.png`,
     'count': 24,
     'duration': 2
   },
   [app.Step.LEFT_ARM]: {
-    'src': 'img/steps/point-left.png',
+    'src': `img/steps/${color}/point-left.png`,
     'count': 48,
     'duration': 4
   },
   [app.Step.RIGHT_ARM]: {
-    'src': 'img/steps/point-right.png',
+    'src': `img/steps/${color}/point-right.png`,
     'count': 96,
     'duration': 8
   },
   [app.Step.LEFT_FOOT]: {
-    'src': 'img/steps/step-left.png',
+    'src': `img/steps/${color}/step-left.png`,
     'count': 96,
     'duration': 8
   },
   [app.Step.RIGHT_FOOT]: {
-    'src': 'img/steps/step-right.png',
+    'src': `img/steps/${color}/step-right.png`,
     'count': 96,
     'duration': 8
   },
   [app.Step.JUMP]: {
-    'src': 'img/steps/jump.png',
+    'src': `img/steps/${color}/jump.png`,
     'count': 48,
     'duration': 4
   },
   [app.Step.SPIN]: {
-    'src': 'img/steps/clap.png', // MISSING
+    'src': `img/steps/${color}/hip-spin.png`,
     'count': 48,
     'duration': 4
   },
   [app.Step.SPLIT]: {
-    'src': 'img/steps/split.png',
+    'src': `img/steps/${color}/split.png`,
     'count': 96,
     'duration': 8
   }
-}
+})
 
 class Animation {
   constructor(sprite) {
@@ -113,9 +113,19 @@ class Animation {
 }
 
 class Character {
-  constructor(el, sprites) {
-    this.sprites = sprites;
+  constructor(el, color) {
+    // Create move queue
     this.queue = new app.MoveQueue(this);
+
+    // Create canvas
+    let canvas = document.createElement('canvas');
+    canvas.width = canvas.height = size;
+    el.appendChild(canvas);
+
+    this.context = canvas.getContext('2d');
+
+    // Load sprite images
+    this.sprites = sources(color);
 
     Object.keys(this.sprites).forEach(key => {
       this.sprites[key].img = new Image();
@@ -123,13 +133,6 @@ class Character {
     });
 
     this.sprite = this.sprites[app.Step.IDLE];
-
-    let canvas = document.createElement('canvas');
-    canvas.width = canvas.height = size;
-    el.appendChild(canvas);
-
-    this.context = canvas.getContext('2d');
-
     this.animation = new Animation(this.sprite);
   }
 
@@ -155,11 +158,12 @@ class Character {
  * @constructor
  */
 app.AnimationPlayer = class extends goog.events.EventTarget {
-  constructor(el) {
+  constructor(el, scene) {
     super();
+    this.scene = scene;
 
-    this.student = new Character(el.querySelector('.scene__characters-student'), sources);
-    this.teacher = new Character(el.querySelector('.scene__characters-teacher'), sources);
+    this.student = new Character(el.querySelector('.scene__characters-student'), 'green');
+    this.teacher = new Character(el.querySelector('.scene__characters-teacher'), 'purple');
 
     this.lastUpdateTime = 0;
 
@@ -202,8 +206,9 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
    */
   start(steps) {
     this.playing = true;
+
     this.student.queue.add(steps);
-    // this.teacher.queue.add(steps);
+    this.teacher.queue.add(this.scene.level.steps);
   }
 
   onBar(bar) {
