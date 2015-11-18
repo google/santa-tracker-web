@@ -347,7 +347,7 @@ app.Scene.prototype.onFinishExecution = function(result) {
   if (result.levelComplete) {
     this.game.successResult.show(result);
   } else {
-    this.game.failureResult.show(result);
+    // this.game.failureResult.show(result);
   }
 };
 
