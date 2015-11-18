@@ -18,13 +18,15 @@ SUCCESS
 - perfect
 - could use loop
 
-TOO_MANY_MOVES
+TOO_MANY_STEPS
+- student does one more step, teacher gives him a look, then student is confused.
 
-NOT_ENOUGH_MOVES
-NO_MOVES
+NOT_ENOUGH_STEPS
+NO_STEPS
 - teacher does the dance
 
-WRONG_MOVES
+WRONG_STEPS
+- student is confused
 
 NO_ANIMATION
 - blocks not attached

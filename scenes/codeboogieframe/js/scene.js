@@ -41,6 +41,7 @@ app.Scene = function(el, game, blockly) {
   this.cachedWindowWidth_ = null;
   this.el_ = el;
   this.game = game;
+  /* @type {app.Level} */
   this.level = null;
   this.portraitMode_ = false;
   this.scaleRatio_ = 1;
@@ -339,7 +340,7 @@ app.Scene.prototype.onClickRun_ = function() {
  */
 app.Scene.prototype.onFinishExecution = function(result) {
   if (this.level === app.levels[app.levels.length - 1]) {
-    result.graphic = result.levelComplete ? '#result-final' : null;
+    result.overlayGraphic = result.levelComplete ? '#result-final' : null;
     result.isFinalLevel = true;
   }
 

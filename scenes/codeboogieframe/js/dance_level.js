@@ -16,8 +16,23 @@
 'use strict';
 
 goog.provide('app.DanceLevel');
+goog.provide('app.DanceLevelOptions');
 goog.provide('app.DanceLevelResult');
+goog.provide('app.DanceStatus');
 goog.require('app.Level');
+goog.require('app.LevelResult');
+
+/**
+ * Dance result constants.
+ * @enum {string}
+ */
+app.DanceStatus = {
+  NO_STEPS: 'NO_STEPS',
+  NOT_ENOUGH_STEPS: 'NOT_ENOUGH_STEPS',
+  WRONG_STEPS: 'WRONG_STEPS',
+  TOO_MANY_STEPS: 'TOO_MANY_STEPS',
+  SUCCESS: 'SUCCESS'
+};
 
 /**
  * @typedef {{
@@ -57,52 +72,75 @@ app.DanceLevel = class extends app.Level {
    * @return {!app.DanceLevelResult} a user friendly level result.
    */
   processResult(playerSteps, blockly) {
-    var levelComplete = goog.array.equals(playerSteps, this.steps);
-    var message;
+    // Guard for invalid results.
     if (blockly.hasEmptyContainerBlocks()) {
       // Block is assumed to be "if" or "repeat" if we reach here.
       return new app.DanceLevelResult(false,
           app.I18n.getMsg('CL_resultEmptyBlockFail'),
-          {doNotAnimate: true});
+          {skipAnimation: true});
     }
     if (blockly.hasExtraTopBlocks()) {
       return new app.DanceLevelResult(false,
           app.I18n.getMsg('CL_resultExtraTopBlockFail'),
-          {doNotAnimate: true});
+          {skipAnimation: true});
     }
 
+    var danceStatus = this.compareSteps(playerSteps);
+    var levelComplete = danceStatus === app.DanceStatus.SUCCESS;
     var code = blockly.getUserCode();
     var missingBlocks = blockly.getMissingBlocks(this.requiredBlocks);
+    var numEnabledBlocks = blockly.getCountableBlocks().length;
+    var allowRetry = true;
+    var message = null;
+
     if (missingBlocks.length) {
       message = levelComplete ?
           app.I18n.getMsg('CL_resultMissingBlockSuccess') :
           app.I18n.getMsg('CL_resultMissingBlockFail');
-      return new app.DanceLevelResult(levelComplete, message, {
-        code: code,
-        idealBlockCount: this.idealBlockCount,
-        missingBlocks: missingBlocks
-      });
-    }
-    var numEnabledBlocks = blockly.getCountableBlocks().length;
-    if (!levelComplete) {
+    } else if (!levelComplete) {
       if (this.idealBlockCount !== Infinity &&
           numEnabledBlocks < this.idealBlockCount) {
-        return new app.DanceLevelResult(levelComplete,
-            app.I18n.getMsg('CL_resultTooFewBlocksFail'),
-            {code: code, idealBlockCount: this.idealBlockCount});
+        message = app.I18n.getMsg('CL_resultTooFewBlocksFail');
+      } else {
+        message = app.I18n.getMsg('CL_resultGenericFail');
       }
-      return new app.DanceLevelResult(levelComplete,
-          app.I18n.getMsg('CL_resultGenericFail', {code: code}));
-    }
-    if (numEnabledBlocks > this.idealBlockCount) {
-      return new app.DanceLevelResult(levelComplete,
-          app.I18n.getMsg('CL_resultTooManyBlocksSuccess'),
-          {code: code, idealBlockCount: this.idealBlockCount});
+    } else if (numEnabledBlocks > this.idealBlockCount) {
+      message = app.I18n.getMsg('CL_resultTooManyBlocksSuccess');
     } else {
-      return new app.DanceLevelResult(levelComplete, null, {
-        allowRetry: false,
-        code: code
-      });
+      allowRetry = false;
+    }
+
+    return new app.DanceLevelResult(levelComplete, message, {
+      allowRetry: allowRetry,
+      code: code,
+      danceStatus: danceStatus,
+      idealBlockCount: this.idealBlockCount,
+      missingBlocks: missingBlocks,
+      playerSteps: playerSteps,
+      teacherSteps: this.steps
+    });
+  }
+
+  compareSteps(playerSteps) {
+    let stepCount = 0;
+    for (let i = 0, block; block = playerSteps[i]; i++) {
+      // Ignore highlight only blocks
+      if (!block.step) { continue; }
+
+      if (stepCount >= this.steps.length) {
+        return app.DanceStatus.TOO_MANY_STEPS;
+      }
+      if (block.step !== this.steps[stepCount]) {
+        return app.DanceStatus.WRONG_STEPS;
+      }
+      stepCount++;
+    }
+    if (stepCount === 0) {
+      return app.DanceStatus.NO_STEPS;
+    } else if (stepCount < this.steps.length) {
+      return app.DanceStatus.NOT_ENOUGH_STEPS;
+    } else {
+      return app.DanceStatus.SUCCESS;
     }
   }
 };
@@ -111,11 +149,13 @@ app.DanceLevel = class extends app.Level {
  * @typedef {{
  *   allowRetry: boolean,
  *   code: string,
- *   doNotAnimate: boolean,
- *   graphic: string,
+ *   skipAnimation: boolean,
+ *   overlayGraphic: string,
  *   idealBlockCount: number,
  *   isFinalLevel: boolean,
- *   missingBlocks: Array.<string>
+ *   missingBlocks: Array.<string>,
+ *   playerSteps: Array.<app.Step>,
+ *   teacherSteps: Array.<app.Step>
  * }}
  */
 app.DanceLevelResultOptions;
@@ -128,20 +168,12 @@ app.DanceLevelResultOptions;
  * @param {app.DanceLevelResultOptions=} options for these results.
  * @constructor
  */
-app.DanceLevelResult = class {
+app.DanceLevelResult = class extends app.LevelResult {
   constructor(levelComplete, message, options) {
     options = options || {};
-    this.allowRetry = options.allowRetry == null ? true : options.allowRetry;
-    this.code = options.code || null;
-    this.doNotAnimate = options.doNotAnimate || false;
-    this.graphic = options.graphic || null;
-    this.levelComplete = levelComplete;
-    this.isFinalLevel = options.isFinalLevel || false;
-    this.message = message || '';
-    this.missingBlocks = options.missingBlocks || [];
-
-    if (options.idealBlockCount) {
-      this.message = this.message.replace('{{ideal}}', options.idealBlockCount);
-    }
+    super(levelComplete, message, options);
+    this.danceStatus = options.danceStatus || app.DanceStatus.NO_STEPS;
+    this.playerSteps = options.playerSteps || [];
+    this.teacherSteps = options.teacherSteps || [];
   }
 };

@@ -202,12 +202,13 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
 
   /**
    * Starts a dance routine with the specified player steps.
-   * @param {app.Step[]} steps to have main player perform.
+   *
+   * @param {app.DanceLevelResult} result from player to animate.
    */
-  start(steps) {
+  start(result) {
     this.playing = true;
 
-    this.student.queue.add(steps);
+    this.student.queue.add(result.playerSteps);
     this.teacher.queue.add(this.scene.level.steps);
   }
 
