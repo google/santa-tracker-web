@@ -25,6 +25,13 @@ Jetpack scene.
 -->
 <dom-module id="jetpack-scene">
 <template>
+
+  <style>
+    :host([mode="portal"]) .shareButtons {
+      display: none !important;
+    }
+  </style>
+
   <div id="module-jetpack">
     <div class="background background--0"></div>
     <div class="background background--1"></div>
