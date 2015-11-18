@@ -19,6 +19,10 @@ goog.provide('app.Unit');
 
 goog.require('app.Constants');
 
+
+/**
+ * Static helper functions for converting between pixels and Box2D SI units
+ */
 class Unit {
   /**
    * Convert Box2D world SI unit to pixels

@@ -24,11 +24,17 @@ goog.provide('Constants');
 app.Constants = {
   TOTAL_LEVELS: 10,
 
-  CANVAS_WIDTH: 1200, //1100;
+  // initial size of levelboard wrapper
+  CANVAS_WIDTH: 1600, //1100;
   CANVAS_HEIGHT: 900, //620;
-  GRAVITY: 75,
+
+  // When do we start scaling down?
+  VIEWPORT_MIN_WIDTH: 1440,
+  VIEWPORT_MIN_HEIGHT: 810,
+
+  GRAVITY: 150,
   SHADOW_OFFSET_PX: 10,
-  CONVEYOR_BELT_SPEED: 3, // affects CSS animation
+  CONVEYOR_BELT_SPEED: 4, // affects CSS animation
   CORNER_RESOLUTION: 10,
   SCREEN_Y_LIMIT: window.innerHeight,
   

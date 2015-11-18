@@ -33,3 +33,5 @@ b2.MassData = Box2D.Collision.Shapes.b2MassData;
 b2.PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
 b2.CircleShape = Box2D.Collision.Shapes.b2CircleShape;
 b2.DebugDraw = Box2D.Dynamics.b2DebugDraw;
+b2.MouseJointDef = Box2D.Dynamics.Joints.b2MouseJointDef;
+

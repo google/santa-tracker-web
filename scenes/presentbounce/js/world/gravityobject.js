@@ -15,25 +15,31 @@
  */
 'use strict'
 
-goog.provide('app.GravityObject');
+goog.provide('app.world.GravityObject');
 
 goog.require('b2');
 goog.require('app.Constants');
-goog.require('app.LevelObject');
-  
-/**
- * Abtract Base Class - GravityObject class
- * Creats both a Box2D body and renders it as a DOM element.
- */
-class GravityObject extends LevelObject {
+goog.require('app.world.LevelObject');
+
+
+goog.scope(function () {
 
   /**
-   * Add custom gravity force before Box2D World step
-   * @override
+   * Abtract Base Class - GravityObject class
+   * Creats both a Box2D body and renders it as a DOM element.
    */
-  update() {
-    this.body_.ApplyForce( new b2.Vec2(0, app.Constants.GRAVITY), this.body_.GetPosition() );
-  }
-}
+  class GravityObject extends app.world.LevelObject {
 
-app.GravityObject = GravityObject;
+    /**
+     * Add custom gravity force before Box2D World step
+     * @override
+     */
+    update() {
+      this.body_.ApplyForce( new b2.Vec2(0, app.Constants.GRAVITY), this.body_.GetPosition() );
+    }
+  }
+
+
+  app.world.GravityObject = GravityObject;
+  
+});

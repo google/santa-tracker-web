@@ -10,6 +10,9 @@
   .js-debug-canvas {
     outline: 2px dashed #eee;
     user-select: none;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
   }
     
   .js-debug-console {
@@ -61,19 +64,38 @@
     background: hotpink;
   }
       
-  @keyframes belt-animation {
+  @keyframes #{$name}-belt-animation {
     to {
-      stroke-dashoffset: -473.78558349609375;
+      // document.querySelector('.belt').getTotalLength()
+      stroke-dashoffset: -813.1859130859375;
+    }
+  }
+  @keyframes #{$name}-wheel-animation {
+    to {
+      transform: rotate(360deg);
     }
   }
 
   .object--conveyorBelt {
     cursor: move;
+    $belt-speed: 6s;
     .belt {
-      animation: belt-animation 6s linear infinite;
+      animation: #{$name}-belt-animation $belt-speed linear infinite;
     }
-    &.js-animation-reverse .belt {
+    .wheel {
+      transform-origin: center center;
+      animation: #{$name}-wheel-animation $belt-speed/4 linear infinite;
+    }
+    &.js-animation-reverse .belt,
+    &.js-animation-reverse .wheel {
       animation-direction: reverse;
+    }
+  }
+
+  &.frozen {
+    .belt,
+    .wheel {
+      animation-play-state: paused;
     }
   }
   

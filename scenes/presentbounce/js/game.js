@@ -23,9 +23,9 @@ goog.require('app.shared.pools');
 goog.require('app.shared.Tutorial');
 
 goog.require('app.Constants');
-goog.require('app.config.Levels');
 goog.require('app.Scoreboard');
-goog.require('app.Level');
+goog.require('app.config.Levels');
+goog.require('app.world.Level');
 
 
 
@@ -39,6 +39,7 @@ goog.require('app.Level');
 app.Game = function(elem) {
   this.elem = $(elem);
   this.viewElem = this.elem.find('.scene');
+  this.levelElem = this.elem.find('.levelboard');
 
   this.scoreboard = new app.Scoreboard(this, this.elem.find('.board'), app.Constants.TOTAL_LEVELS);
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
@@ -64,7 +65,7 @@ app.Game = function(elem) {
  */
 app.Game.prototype.start = function() {
   this.restart();
-  this.tutorial.start();
+  //this.tutorial.start();
 };
 
 /**
@@ -100,7 +101,7 @@ app.Game.prototype.onFrame_ = function() {
   this.lastFrame = now;
 
   // Update game state with physics simulations.
-  this.currentLevel_.update(delta);
+  this.currentLevel_.onFrame(delta);
 
   // Render game state.
   this.scoreboard.onFrame(delta);
@@ -116,8 +117,11 @@ app.Game.prototype.onFrame_ = function() {
 app.Game.prototype.loadNextLevel_ = function() {
   // Next level
   this.level++;
-  var levelNumber = this.level % pp.config.Levels.length;
-  var levelData = pp.config.Levels[levelNumber];
+  var levelNumber = this.level % app.config.Levels.length;
+
+  var levelData = app.config.Levels[levelNumber];
+
+  console.log('Game, level data', levelNumber , app.config.Levels);
 
   // Send Klang event
   if (this.level > 0) {
@@ -132,7 +136,7 @@ app.Game.prototype.loadNextLevel_ = function() {
   if (this.currentLevel_) {
     this.currentLevel_.destroy();
   }
-  this.currentLevel_ = new app.Level(levelData, this.onLevelCompleted);
+  this.currentLevel_ = new app.world.Level(this.levelElem, levelData, this.onLevelCompleted);
 };
 
 
@@ -145,7 +149,7 @@ app.Game.prototype.onLevelCompleted = function(score) {
   this.scoreboard.addScore(score);
   
   // Check for game end
-  if (this.level === pp.config.Levels.length - 1) {
+  if (this.level === app.config.Levels.length - 1) {
     this.gameover();
   } else {
     this.levelUp.show(this.level + 2, this.loadNextLevel_);
@@ -232,6 +236,7 @@ app.Game.prototype.setScale = function(scale, width, height) {
     width: width / scale + 'px',
     height: height / scale + 'px'
   });
+  this.levelElem.data('scale', scale);
 };
 
 /**
@@ -245,9 +250,12 @@ app.Game.prototype.watchSceneSize_ = function() {
   var updateSize = function() {
     var width = window.innerWidth,
       height = window.innerHeight,
-      scale = width < 900 ? width / 900 : 1;
-    scale = height < 640 ?
-        Math.min(height / 640, scale) :
+      scale = width < app.Constants.VIEWPORT_MIN_WIDTH ? 
+          width / app.Constants.VIEWPORT_MIN_WIDTH : 
+          1;
+    
+    scale = height < app.Constants.VIEWPORT_MIN_HEIGHT ?
+        Math.min(height / app.Constants.VIEWPORT_MIN_HEIGHT, scale) :
         scale;
 
     game.setScale(scale, width, height);
@@ -263,7 +271,9 @@ app.Game.prototype.watchSceneSize_ = function() {
  */
 app.Game.prototype.dispose = function() {
   if (this.isPlaying) {
-    window.santaApp.fire('analytics-track-game-quit', {gameid: 'presentbounce', timePlayed: new Date - this.gameStartTime, level: this.level});
+    window.santaApp.fire('analytics-track-game-quit', {
+      gameid: 'presentbounce', timePlayed: new Date - this.gameStartTime, level: this.level
+    });
   }
   
   utils.cancelAnimFrame(this.requestId);

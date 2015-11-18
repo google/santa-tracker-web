@@ -19,6 +19,9 @@ goog.provide('app.config.Levels');
 
 goog.require('app.config.Materials');
 goog.require('app.config.Styles');
+goog.require('app.world.SnowGlobe');
+goog.require('app.world.CircleBall');
+goog.require('app.world.PresentBall');
 
 /**
  * Level configuration - specifies type of textures and positions only
@@ -27,31 +30,10 @@ goog.require('app.config.Styles');
 app.config.Levels = [
   // level 1
   {
-    ball1: {
-      //objectType: PresentCircle,
-      material: app.config.Materials.present ,
-      style: app.config.Styles.presentCircle,
-      relX: 0.24,
-      relY: 0
-    },
-    ball2: {
-      //objectType: PresentSquare,
-      material: app.config.Materials.present ,
-      style: app.config.Styles.presentSquare,
-      relX: 0.24,
-      relY: 0
-    },
-    ballRect: {
-      //objectType: PresentSquare,
-      material: app.config.Materials.present ,
-      style: app.config.Styles.presentRectangle,
-      relX: 0.24,
-      relY: 0
-    },
-    ball3: {
-      //objectType: SnowGlobe,
+    ball: {
       material: app.config.Materials.snowGlobe,
       style: app.config.Styles.snowGlobe,
+      objectType: app.world.SnowGlobe,
       relX: 0.24,
       relY: 0
     },
@@ -87,7 +69,7 @@ app.config.Levels = [
         material: app.config.Materials.fixedObject,
         style: app.config.Styles.straightBeam,
         relX: 0.6,
-        relY: 0.76,
+        relY: 0.75,
         rotation: 90
       },
       {
@@ -126,7 +108,7 @@ app.config.Levels = [
       {
         material: app.config.Materials.spring,
         style: app.config.Styles.spring,
-        relX: 0.49,
+        relX: 0.50,
         relY: 0.9,
         rotation: 0
       },
@@ -138,5 +120,62 @@ app.config.Levels = [
         rotation: -40
       }
     ]
+  },
+  // level 2
+  {
+    ball: {
+      material: app.config.Materials.present,
+      style: app.config.Styles.presentCircle,
+      objectType: app.world.CircleBall,
+      relX: 0.24,
+      relY: 0
+    },
+    target: {
+      material: app.config.Materials.target,
+      style: app.config.Styles.target,
+      relX: 0.75,
+      relY: 0.9
+    },
+    fixedObjects: [],
+    conveyorBelts: [],
+    springs: []
+  },
+  // level 3
+  {
+    ball: {
+      material: app.config.Materials.present,
+      style: app.config.Styles.presentCircle,
+      objectType: app.world.PresentBall,
+      relX: 0.24,
+      relY: 0
+    },
+    target: {
+      material: app.config.Materials.target,
+      style: app.config.Styles.target,
+      relX: 0.75,
+      relY: 0.9
+    },
+    fixedObjects: [],
+    conveyorBelts: [],
+    springs: []
+  },
+  // level 4
+  {
+    ball: {
+      material: app.config.Materials.present,
+      style: app.config.Styles.presentRectangle,
+      objectType: app.world.PresentBall,
+      relX: 0.24,
+      relY: 0
+    },
+    target: {
+      material: app.config.Materials.target,
+      style: app.config.Styles.target,
+      relX: 0.75,
+      relY: 0.9
+    },
+    fixedObjects: [],
+    conveyorBelts: [],
+    springs: []
   }
 ];
