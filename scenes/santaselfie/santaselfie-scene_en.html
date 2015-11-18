@@ -26,6 +26,15 @@ Santaselfie scene.
 -->
 <dom-module id="santaselfie-scene">
 <template>
+  <style>
+    :host([mode="portal"]) #share-button {
+      display: none !important;
+    }
+    :host([mode="portal"]) .shareButtons {
+      display: none !important;
+    }
+  </style>
+
   <google-legacy-loader on-api-load="googleAPIReady"></google-legacy-loader>
 
   <div id="module-santaselfie">

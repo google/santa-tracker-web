@@ -54,6 +54,7 @@ app.Blockly.prototype = {
       toolboxLayout: this.layout.layoutToolbox.bind(this.layout),
       touch: true
     });
+    app.Patterns.inject();
   },
 
   /**
