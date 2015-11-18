@@ -58,6 +58,6 @@ goog.scope(function () {
   }
 
 
-  app.world.Spring = CircleBall;
+  app.world.CircleBall = CircleBall;
 
 });
