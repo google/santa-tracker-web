@@ -1,0 +1,101 @@
+#houses {
+  // ID houseWidth houseHeight iceWidth iceHeight houseLeft houseTop iceLeft iceTop labelX labelY
+  $houses:
+      "airport"         812   179   627   240   -340   44    -175   0     0   0,
+      "traditions"      235   222   424   236   35     21    -100   10    0   0,
+      "codelab"         277   209   364   284   29     80    -40    35    0   0,
+      "app"             280   366   443   351   -29    -41   -81    -33   0   0,
+      "seasonofcaring"  333   233   373   282   8      0     -56    -31   0   0,
+      "santasback"      231   180   499   284   98     23    -53    -30   0   0,
+      "santaselfie"     209   262   497   348   81     41    -80    10    0   0,
+      "translations"    311   174   712   286   5      101   -180   45    0   0,
+      "callfromsanta"   271   298   537   321   11     0     -120   0     0   0,
+      "briefing"        315   246   355   287   0      0     0      0     0   0,
+      "presentdrop"     198   278   300   333   85     18    18     -9    0   0,
+      "santasearch"     287   174   484   246   30     75    -50    30    0   0,
+      "windtunnel"      336   203   537   222   -16    47    -99    58    0   0,
+      "racer"           345   259   424   266   -10    57    -104   40    0   0,
+      "jamband"         379   250   606   267   -33    -19   -140   36    0   0,
+      "gumball"         257   308   374   359   59     -68    -5    -70   0   0,
+      "postcard"        286   224   364   248   -17    32    -82    10    0   0,
+      "jetpack"         287   258   367   333   20     53    -45    0     0   0,
+      "boatload"        240   169   472   250   -7     82    -105   41    0   0,
+      "mercator"        328   275   462   348   -15    8     -109   -21   0   0,
+      "presentbounce"   341   256   521   348   9      47    -110   10    0   0,
+      "codeboogie"      294   224   403   280   24     30    -31    -5    0   0,
+      "elf-car"         307   337   437   354   25     -56   -70    -57   0   0,
+      "citylights"      360   311   467   332   -10    0     -34    -10   0   0,
+      "commandcentre"   197   215   380   271   104    28    10     20    0   0,
+      "seasonofgiving"  390   241   373   282   -59    52    -45    32    0   0,
+      "matching"        303   192   457   270   49     36    -58    10    0   0,
+      "liftoff"         276   294   355   336   55     37    22     11    0   0;
+  $houseId: 1;
+  $houseWidth: 2;
+  $houseHeight: 3;
+  $iceWidth: 4;
+  $iceHeight: 5;
+  $houseLeft: 6;
+  $houseTop: 7;
+  $iceLeft: 8;
+  $iceTop: 9;
+  $labelLeft: 10;
+  $labelTop: 11;
+  
+  @for $i from 1 through length($houses) {
+    $house: nth($houses, $i);
+    
+    .house-#{nth($house, $houseId)} {
+      z-index: $i;
+      
+      .building {
+        $w: nth($house, $houseWidth);
+        $h: nth($house, $houseHeight);
+        width: #{$w}px;
+        height: #{$h}px;
+        background-image: url(img/building-#{nth($house, $houseId)}.svg);
+        background-size: #{$w}px #{$h}px;
+        top: #{nth($house, $houseTop)}px;
+        left: #{nth($house, $houseLeft)}px;
+      }
+    
+      .ice {
+        $w: nth($house, $iceWidth);
+        $h: nth($house, $iceHeight);
+        width: #{$w}px;
+        height: #{$h}px;
+        background-image: url(img/building-#{nth($house, $houseId)}-ice.svg);
+        background-size: #{$w}px #{$h}px;
+        top: #{nth($house, $iceTop)}px;
+        left: #{nth($house, $iceLeft)}px;
+      }
+    }
+  }
+  
+  @media (max-width: $width-desktop) and (min-width: $width-tablet) {
+    @for $i from 1 through length($houses) {
+      $house:  nth($houses, $i);
+      
+      .house-#{nth($house, $houseId)} {
+        .building {
+          $w: nth($house, $houseWidth) * $tablet-desktop-ratio;
+          $h: nth($house, $houseHeight) * $tablet-desktop-ratio;
+          width: #{$w}px;
+          height: #{$h}px;
+          background-size: #{$w}px #{$h}px;
+          top: #{nth($house, $houseTop) * $tablet-desktop-ratio}px;
+          left: #{nth($house, $houseLeft) * $tablet-desktop-ratio}px;
+        }
+
+        .ice {
+          $w: nth($house, $iceWidth) * $tablet-desktop-ratio;
+          $h: nth($house, $iceHeight) * $tablet-desktop-ratio;
+          width: #{$w}px;
+          height: #{$h}px;
+          background-size: #{$w}px #{$h}px;
+          top: #{nth($house, $iceTop) * $tablet-desktop-ratio}px;
+          left: #{nth($house, $iceLeft) * $tablet-desktop-ratio}px;
+        }
+      }
+    }
+  }
+}
