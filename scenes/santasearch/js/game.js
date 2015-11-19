@@ -32,9 +32,13 @@ app.Game = function(elem) {
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
   this.controls = new app.Controls(elem);
+
   this.mapElem = this.elem.find('.map');
+  this.mapElementDimensions = {};
 
   this.onFrame_ = this.onFrame_.bind(this);
+
+  this.gameAspectRatio = 1600 / 900;
 };
 
 
@@ -44,9 +48,61 @@ app.Game = function(elem) {
  */
 app.Game.prototype.start = function() {
   this.restart();
+
+  this._scale(1);
+  $(window).on('resize.santasearch', this._onResize.bind(this));
+
   this.controls.start();
 };
 
+/**
+ * Scales the map when the user wants to zoom in our out
+ * @param {number} value Scale factor.
+ * @private
+ */
+app.Game.prototype._scale = function(value) {
+  let windowAspectRatio = window.innerWidth / window.innerHeight;
+
+  if (windowAspectRatio < this.gameAspectRatio) {
+    this.mapElementDimensions.width = window.innerHeight * this.gameAspectRatio;
+    this.mapElementDimensions.height = window.innerHeight;
+  } else {
+    this.mapElementDimensions.width = window.innerWidth;
+    this.mapElementDimensions.height = window.innerWidth / this.gameAspectRatio;
+  }
+
+  this.mapElementDimensions.width *= value;
+  this.mapElementDimensions.height *= value;
+
+  this.mapElem.css('width', this.mapElementDimensions.width);
+  this.mapElem.css('height', this.mapElementDimensions.height);
+
+  this.mapElem.css('margin-left', -(this.mapElementDimensions.width / 2));
+  this.mapElem.css('margin-top', -(this.mapElementDimensions.height / 2));
+}
+
+/**
+ * Makes sure that the player can not pan out of the map
+ * @private
+ */
+app.Game.prototype._updatePan = function() {
+  let panX = this.controls.pan.x;
+  let panY = this.controls.pan.y;
+
+  let panXMax = (this.mapElementDimensions.width - window.innerWidth) / 2;
+  let panYMax = (this.mapElementDimensions.height - window.innerHeight) / 2;
+
+  let panXDiff = panXMax - Math.abs(panX);
+  let panYDiff = panYMax - Math.abs(panY);
+
+  if (panXDiff < 0) {
+    this.controls.pan.x = (panX < 0) ? -panXMax : panXMax;
+  }
+
+  if (panYDiff < 0) {
+    this.controls.pan.y = (panY < 0) ? -panYMax : panYMax;
+  }
+}
 
 /**
  * Resets all game entities and restarts the game. Can be called at any time.
@@ -68,6 +124,13 @@ app.Game.prototype.update = function(delta) {
   if (!this.isPlaying) {
     return;
   }
+
+  if (this.controls.needsScaleUpdate) {
+    this._scale(this.controls.scale);
+    this.controls.needsScaleUpdate = false;
+  }
+
+  this._updatePan();
 
   let panX = this.controls.pan.x;
   let panY = this.controls.pan.y;
@@ -139,6 +202,22 @@ app.Game.prototype.pause = function() {
 app.Game.prototype.resume = function() {
   this.paused = false;
   this.unfreezeGame();
+};
+
+
+/**
+ * Makes sure the map will never be smaller than the window.
+ * @private
+ */
+app.Game.prototype._onResize = function() {
+  let windowWidthLargerThanMap = window.innerWidth > this.mapElementDimensions.width;
+  let windowHeightLargerThanMap = window.innerHeight > this.mapElementDimensions.height;
+
+  let mapNeedsResizing = windowWidthLargerThanMap || windowHeightLargerThanMap;
+
+  if (mapNeedsResizing) {
+    this._scale(this.controls.scale);
+  }
 };
 
 

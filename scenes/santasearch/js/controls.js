@@ -16,6 +16,7 @@
 
 goog.provide('app.Controls');
 
+goog.require('app.Constants');
 
 /**
  * Handles user input for controlling the game.
@@ -36,8 +37,14 @@ app.Controls = function(elem) {
     x: 0,
     y: 0
   };
+
+  this.scale = 1;
+  this.needsScaleUpdate = false;
 }
 
+/**
+ * Sets up event handlers for the controls.
+ */
 app.Controls.prototype.start = function() {
   let gameElement = $(this.elem);
 
@@ -49,8 +56,17 @@ app.Controls.prototype.start = function() {
   gameElement.on('mousemove.santasearch', this._onMousemove.bind(this));
   gameElement.on('mouseup.santasearch', this._onMouseup.bind(this));
   gameElement.on('mouseleave.santasearch', this._onMouseup.bind(this));
+
+  gameElement.find('.zoom__in').on('click', this._zoomIn.bind(this));
+  gameElement.find('.zoom__out').on('click', this._zoomOut.bind(this));
 };
 
+/**
+ * Updates pan based on location of user interaction
+ * @param {number} x X coordinate of where the user is touching the screen.
+ * @param {number} y Y coordinate of where the user is touching the screen.
+ * @private
+ */
 app.Controls.prototype._updateLocation = function(x, y) {
   if (this.lastLocation.x !== undefined) {
     this.pan.x += x - this.lastLocation.x;
@@ -61,6 +77,11 @@ app.Controls.prototype._updateLocation = function(x, y) {
   this.lastLocation.y = y;
 };
 
+/**
+ * Handles the touchstart event.
+ * @param {Event} e The event object.
+ * @private
+ */
 app.Controls.prototype._onTouchstart = function(e) {
   this.selecting = true;
 
@@ -70,6 +91,11 @@ app.Controls.prototype._onTouchstart = function(e) {
   this._updateLocation(touchX, touchY);
 };
 
+/**
+ * Handles the touchmove event.
+ * @param {Event} e The event object.
+ * @private
+ */
 app.Controls.prototype._onTouchmove = function(e) {
   if (this.selecting) {
     var touchX = e.originalEvent.changedTouches[0].clientX;
@@ -79,6 +105,11 @@ app.Controls.prototype._onTouchmove = function(e) {
   }
 };
 
+/**
+ * Handles the touchend event.
+ * @param {Event} e The event object.
+ * @private
+ */
 app.Controls.prototype._onTouchend = function(e) {
   var touchX = e.originalEvent.changedTouches[0].clientX;
   var touchY = e.originalEvent.changedTouches[0].clientY;
@@ -90,18 +121,33 @@ app.Controls.prototype._onTouchend = function(e) {
   this.selecting = false;
 };
 
+/**
+ * Handles the mousedown event.
+ * @param {Event} e The event object.
+ * @private
+ */
 app.Controls.prototype._onMousedown = function(e) {
   this._updateLocation(e.clientX, e.clientY);
 
   this.selecting = true;
 };
 
+/**
+ * Handles the mousemove event.
+ * @param {Event} e The event object.
+ * @private
+ */
 app.Controls.prototype._onMousemove = function(e) {
   if (this.selecting) {
     this._updateLocation(e.clientX, e.clientY);
   }
 };
 
+/**
+ * Handles the mouseup event.
+ * @param {Event} e The event object.
+ * @private
+ */
 app.Controls.prototype._onMouseup = function(e) {
   this._updateLocation(e.clientX, e.clientY);
 
@@ -109,4 +155,37 @@ app.Controls.prototype._onMouseup = function(e) {
   this.lastLocation.y = undefined;
 
   this.selecting = false;
+};
+
+/**
+ * Handles zooming in when the user clicks the zoom-in element.
+ * @private
+ */
+app.Controls.prototype._zoomIn = function() {
+  if (this.scale < app.Constants.ZOOM_MAX) {
+    this.scale += 1;
+    this.needsScaleUpdate = true;
+
+    this.pan.x *= (this.scale / (this.scale-1));
+    this.pan.y *= (this.scale / (this.scale-1));
+  }
+};
+
+/**
+ * Handles zooming out when the user clicks the zoom-out element.
+ * @private
+ */
+app.Controls.prototype._zoomOut = function() {
+  if (this.scale > 1) {
+    this.scale -= 1;
+    this.needsScaleUpdate = true;
+
+    this.pan.x /= ((this.scale + 1) / this.scale);
+    this.pan.y /= ((this.scale + 1) / this.scale);
+
+    if (this.scale === 1) {
+      this.pan.x = 0;
+      this.pan.y = 0;
+    }
+  }
 };
