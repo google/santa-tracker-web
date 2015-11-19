@@ -134,8 +134,8 @@ goog.scope(function () {
         def.target = this.getMouseVector_(e)
 
         def.collideConnected = false; // no need to collide with fake ground object
-        def.maxForce = 10000 * this.body_.GetMass();
-        def.dampingRatio = 0.3;
+        def.maxForce = 1000 * this.body_.GetMass();
+        def.dampingRatio = 0.6;
         
         this.mouseJoint_ = this.world_.CreateJoint(def);
         this.body_.SetAwake(true);

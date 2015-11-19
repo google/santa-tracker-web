@@ -244,7 +244,7 @@ goog.scope(function () {
       this.world_.Step(
         1 / 60, // frame rate
         8, // velocity iteration
-        3 // position iteration
+        8  // position iteration
       );
 
       // let Box2D draw it's world using canvas.
