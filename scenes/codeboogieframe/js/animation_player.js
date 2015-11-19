@@ -21,7 +21,8 @@ goog.provide('app.AnimationPlayer');
 goog.require('app.DanceStatus');
 goog.require('app.MoveQueue');
 goog.require('app.Step');
-goog.require('app.I18n')
+goog.require('app.I18n');
+goog.require('app.Title');
 
 const size = 492;
 const fps = 24;
@@ -176,13 +177,10 @@ class Character {
  */
 app.AnimationPlayer = class {
   constructor(el) {
-    let setTitle = (title) => {
-      let translation = app.I18n.getMsg('CB_' + title)
-      el.querySelector('.scene__word-title').textContent = translation
-    }
+    let title = new app.Title(el);
 
-    this.player = new Character(el.querySelector('.scene__characters-player'), 'green');
-    this.teacher = new Character(el.querySelector('.scene__characters-teacher'), 'purple', setTitle);
+    this.player = new Character(el.querySelector('.scene__characters-player'), 'green', title.setTitle.bind(title));
+    this.teacher = new Character(el.querySelector('.scene__characters-teacher'), 'purple');
 
     this.lastUpdateTime = 0;
 

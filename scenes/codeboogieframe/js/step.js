@@ -15,10 +15,10 @@ app.Step = {
   SHAKE: 'shake',
 
   // Special moves
-  CARLTON: 'success',
+  CARLTON: 'carlton',
 
   // Non blockly moves
   IDLE: 'idle',
-  FAIL: 'oops',
+  FAIL: 'fail',
   WATCH: 'watch',
 };
