@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "postinstall": "bower install; gulp"
+    "postinstall": "bower install; gulp",
+    "deploy": "gulp dist --pretty && cp santa-aranja.yaml dist_pretty/app.yaml; appcfg.py update dist_pretty --version codeboogie"
   },
   "devDependencies": {
     "browser-sync": "^2.9.12",
