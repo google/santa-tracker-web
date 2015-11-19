@@ -25,8 +25,8 @@ const moveMap = {
 }
 
 app.Title = class {
-  constructor(el) {
-    this.title = el.querySelector('.scene__word-title');
+  constructor() {
+    this.title = document.querySelector('.scene__word-title');
   }
 
   setTitle (text) {

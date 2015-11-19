@@ -29,6 +29,8 @@
   .scene__characters {
     display: flex;
     margin-left: 100px;
+    position: absolute;
+    top: 8em;
   }
 
   .scene__characters-player, .scene__characters-teacher {

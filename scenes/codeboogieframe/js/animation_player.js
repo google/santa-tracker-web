@@ -18,10 +18,11 @@
 
 goog.provide('app.AnimationPlayer');
 
+goog.require('app.Character');
 goog.require('app.DanceStatus');
+goog.require('app.I18n');
 goog.require('app.MoveQueue');
 goog.require('app.Step');
-goog.require('app.I18n');
 goog.require('app.Title');
 
 const size = 492;
@@ -74,7 +75,7 @@ let sources = (color) => ({
     'src': `img/steps/${color}/split.png`,
     'frames': 96
   }
-})
+});
 
 class Animation {
   constructor(sprite) {
@@ -121,54 +122,6 @@ class Animation {
   }
 }
 
-class Character {
-  constructor(el, color, setTitle) {
-    // Create move queue
-    this.queue = new app.MoveQueue(this, setTitle);
-
-    // Create canvas
-    let canvas = document.createElement('canvas');
-    canvas.width = canvas.height = size;
-    el.appendChild(canvas);
-
-    this.context = canvas.getContext('2d');
-
-    // Load sprite images
-    this.sprites = sources(color);
-
-    Object.keys(this.sprites).forEach(key => {
-      this.sprites[key].img = new Image();
-      this.sprites[key].img.src = this.sprites[key].src;
-    });
-
-    this.sprite = this.sprites[app.Step.IDLE];
-    this.animation = new Animation(this.sprite);
-
-    this.lastBeatUpdate = 0;
-  }
-
-  update(dt) {
-    let frame = this.animation.update(dt);
-
-    this.context.canvas.width = this.context.canvas.width;
-    this.context.drawImage(this.sprite.img, frame.x, frame.y, frame.width, frame.height, 0, 0, this.context.canvas.width, this.context.canvas.height);
-  }
-
-  play(move) {
-    this.sprite = this.sprites[move.step];
-
-    this.animation = new Animation(this.sprite);
-    this.animation.play();
-  }
-
-  onBar(bar, beat) {
-    if (beat > this.lastBeatUpdate + this.sprite.duration) {
-      this.queue.next();
-      this.lastBeatUpdate = beat;
-    }
-  }
-}
-
 /**
  * Plays character animations
  *
@@ -177,10 +130,8 @@ class Character {
  */
 app.AnimationPlayer = class {
   constructor(el) {
-    let title = new app.Title(el);
-
-    this.player = new Character(el.querySelector('.scene__characters-player'), 'green', title.setTitle.bind(title));
-    this.teacher = new Character(el.querySelector('.scene__characters-teacher'), 'purple');
+    this.player = new app.Character(el.querySelector('.scene__characters-player'), 'green');
+    this.teacher = new app.Character(el.querySelector('.scene__characters-teacher'), 'purple');
 
     this.lastUpdateTime = 0;
 
@@ -208,8 +159,8 @@ app.AnimationPlayer = class {
 
     switch (result.danceStatus) {
       case app.DanceStatus.NO_STEPS:
-        this.teacher.queue.add(teacherSteps);
-        this.player.queue.add(Array.from(result.teacherSteps, () => ({step: app.Step.WATCH})))
+        this.teacher.add(teacherSteps);
+        this.player.add(Array.from(result.teacherSteps, () => ({step: app.Step.WATCH})))
         break;
 
       case app.DanceStatus.NOT_ENOUGH_STEPS:
@@ -218,14 +169,14 @@ app.AnimationPlayer = class {
         this.teacher.queue.add(teacherSteps);
 
         result.playerSteps.push({step: app.Step.FAIL});
-        this.player.queue.add(result.playerSteps);
+        this.player.add(result.playerSteps);
         break;
 
       case app.DanceStatus.SUCCESS:
-        this.teacher.queue.add(teacherSteps);
+        this.teacher.add(teacherSteps);
 
         result.playerSteps.push({step: app.Step.CARLTON});
-        this.player.queue.add(result.playerSteps);
+        this.player.add(result.playerSteps);
         break;
     }
   }

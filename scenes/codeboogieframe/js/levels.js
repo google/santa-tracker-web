@@ -30,7 +30,7 @@ app.levels = [];
  * Create levels.
  */
 app.levels.push(new app.DanceLevel({
-  idealBlockCount: 2,
+  idealBlockCount: 3,
   steps: [
     app.Step.LEFT_ARM,
     app.Step.RIGHT_ARM,
