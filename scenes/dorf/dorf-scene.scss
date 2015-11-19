@@ -37,14 +37,23 @@ $gridBorderWidth: 2px;
   }
 
   header {
+    // NOTE: This is intentionally not position: relative (or absolute, ...)
+    // so that we don't create a new z-index heirarchy. Conveniently, the
+    // <header> element is always shown at 0,0, so positioning is still easy.
     height: 385px;
     background: #47c6ee;
     background: linear-gradient(to bottom, rgba(61,218,242,1) 0%, rgba(140,232,248,1) 86%, rgba(153,234,249,1) 100%);
-    position: relative;
     z-index: 1;
     overflow: visible;
 
+    // By default, there's nothing user-interactable here.
+    // TODO(samthor): This is unsupported on IE10. So, the effect/text layer
+    // that overlaps the village will cause that overlapping area to be
+    // unreachable.
+    pointer-events: none;
+
     #header-background {
+      z-index: $base-background-z-index;
       height: 665px;
       background-image: url(img/header-bg.svg);
       background-repeat: repeat-x;
@@ -56,6 +65,7 @@ $gridBorderWidth: 2px;
 
     /** Contains all effects, like snow, the airplane etc. */
     #header-skyeffect {
+      z-index: $base-raised-z-index;
       position: absolute;
       width: 100%;
       height: 630px;
@@ -109,7 +119,7 @@ $gridBorderWidth: 2px;
       }
       .skydive {
         animation: #{$name}-skydive 40s infinite ease-in;
-        margin-left: calc(50% + 150px);
+        margin-left: calc(50% + 120px);
 
         > span {
           position: absolute;
@@ -120,6 +130,7 @@ $gridBorderWidth: 2px;
           animation-duration: inherit;
           animation-iteration-count: infinite;
         }
+
         .pegman-1 {
           width: 60px;
           height: 60px;
@@ -145,6 +156,7 @@ $gridBorderWidth: 2px;
     }
 
     #header-content {
+      z-index: $base-raised-z-index;
       position: absolute;
       width: 100%;
       height: 630px;
@@ -156,7 +168,6 @@ $gridBorderWidth: 2px;
       text-align: center;
       flex-direction: column;
       position: relative;
-      z-index: 2;
 
       #count-down {
         padding: 45px 0 30px 0;
@@ -239,18 +250,17 @@ $gridBorderWidth: 2px;
 
   /** Village flexbox */
   #village-all {
-    position: relative;
+    z-index: $base-background-z-index;;
+    position: relative;  // nb. creates a z-index layer for children
     overflow: hidden;
     top: -30px;
-    z-index: 2;
     padding-bottom: 300px;
-    
+
     #houses {
       position: relative;
       display: flex;
       flex-flow: wrap;
       align-items: flex-start;
-      position: relative;
       border-sizing: border-box;
       margin: 0 auto;
       width: $width-desktop;
@@ -375,7 +385,7 @@ $gridBorderWidth: 2px;
       }
     }
   }
-  
+
   #village-footer {
     height: 700px;
     background-image: url(img/footer-bg.svg);
@@ -397,7 +407,7 @@ $gridBorderWidth: 2px;
       height: 100%;
     }
   }
-  
+
   /** Tablet village. Shrunk version of desktop. */
   @media (max-width: ($width-desktop - 1)) and (min-width: $width-tablet) {
     #village-all {
