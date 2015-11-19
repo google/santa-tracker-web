@@ -289,9 +289,8 @@ $gridBorderWidth: 2px;
         position: absolute;
         background-repeat: no-repeat;
         background-position: 50% 50%;
-        transform: scale($desktop-ratio);
         z-index: 2;
-      
+        background-size: contain;
         
         a {
           width: 100%;
@@ -342,9 +341,8 @@ $gridBorderWidth: 2px;
         position: absolute;
         background-repeat: no-repeat;
         background-position: 50% 50%;
-        transform: scale($desktop-ratio);
+        background-size: contain;
         z-index: 3;
-        display: none;
       }
     }
   }
@@ -382,12 +380,15 @@ $gridBorderWidth: 2px;
           
           // Remove
           border: $gridBorderWidth solid green;
+          
           .building {
-            transform: scale($desktop-ratio * $tablet-desktop-ratio);
-          }
-      
-          .ice {
-            transform: scale($desktop-ratio * $tablet-desktop-ratio);
+            a {
+              img {
+                width: 282px * $tablet-desktop-ratio;
+                height: 282px * $tablet-desktop-ratio;
+                margin: #{-141 * $tablet-desktop-ratio}px 0 0 #{-141* $tablet-desktop-ratio}px;
+              }
+            }
           }
         }
       }

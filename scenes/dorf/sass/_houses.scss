@@ -41,12 +41,17 @@
   $labelLeft: 10;
   $labelTop: 11;
   
-  @each $house in $houses {
+  @for $i from 1 through length($houses) {
+    $house: nth($houses, $i);
+    
     .house-#{nth($house, $houseId)} {
+      z-index: $i;
+      
       .building {
         width: #{nth($house, $houseWidth)}px;
         height: #{nth($house, $houseHeight)}px;
         background-image: url(img/building-#{nth($house, $houseId)}.svg);
+        background-size: #{nth($house, $houseWidth)}px #{nth($house, $houseHeight)}px;
         top: #{nth($house, $houseTop)}px;
         left: #{nth($house, $houseLeft)}px;
       }
@@ -55,59 +60,30 @@
         width: #{nth($house, $iceWidth)}px;
         height: #{nth($house, $iceHeight)}px;
         background-image: url(img/building-#{nth($house, $houseId)}-ice.svg);
+        background-size: #{nth($house, $iceWidth)}px #{nth($house, $iceHeight)}px;
         top: #{nth($house, $iceTop)}px;
         left: #{nth($house, $iceLeft)}px;
       }
     }
   }
   
-  // ID houseWidth houseHeight iceWidth iceHeight houseLeft houseTop iceLeft iceTop labelX labelY
-  $housesTablet:
-      "airport"         -410   4     -245   -40,
-      "traditions"      -15    -14   -140   -14,
-      "codelab"         -51    15    -111   -23,
-      "app"             -59    -115  -122   -103,
-      "seasonofcaring"  -57    -67   -110   -101,
-      "santasback"      8      -46   -133   -110,
-      "santaselfie"     -19    -40   -170   -89,
-      "translations"    -61    -19   -270   -55,
-      "callfromsanta"   -41    -79   -180   -81,
-      "briefing"        0      0     0      0,
-      "presentdrop"     25     -57   -35    -86,
-      "santasearch"     -57    5     -140   -29,
-      "windtunnel"      -75    12    -170   10,
-      "racer"           -86    0     -157   -10,
-      "jamband"         -90    -35   -200   -25,
-      "gumball"         -19    -81   -75    -101,
-      "postcard"        -55    -12   -113   -29,
-      "jetpack"         -50    -37   -110   -85,
-      "boatload"        -20    43    -128   -2,
-      "mercator"        -63    -50   -149   -91,
-      "presentbounce"   -69    -30   -180   -80,
-      "codeboogie"      -50    -20   -111   -45,
-      "elf-car"         -45    -69   -126   -72,
-      "citylights"      -75    -70   -102   -68,
-      "commandcentre"   4      -43   -90    -60,
-      "seasonofgiving"  -119   -18   -105   -38,
-      "matching"        -59    16    -158   -10,
-      "liftoff"         -15    -63   -58    -76;
-  $houseId: 1;
-  $houseLeft: 2;
-  $houseTop: 3;
-  $iceLeft: 4;
-  $iceTop: 5;
-  
   @media (max-width: $width-desktop) and (min-width: $width-tablet) {
-    @each $house in $housesTablet {
+    @for $i from 1 through length($houses) {
+      $house:  nth($houses, $i);
+      
       .house-#{nth($house, $houseId)} {
         .building {
-          top: #{nth($house, $houseTop)}px;
-          left: #{nth($house, $houseLeft)}px;
+          top: #{nth($house, $houseTop) * $tablet-desktop-ratio}px;
+          left: #{nth($house, $houseLeft) * $tablet-desktop-ratio}px;
+          width: #{nth($house, $houseWidth) * $tablet-desktop-ratio}px;
+          height: #{nth($house, $houseHeight) * $tablet-desktop-ratio}px;
         }
 
         .ice {
-          top: #{nth($house, $iceTop)}px;
-          left: #{nth($house, $iceLeft)}px;
+          width: #{nth($house, $iceWidth) * $tablet-desktop-ratio}px;
+          height: #{nth($house, $iceHeight) * $tablet-desktop-ratio}px;
+          top: #{nth($house, $iceTop) * $tablet-desktop-ratio}px;
+          left: #{nth($house, $iceLeft) * $tablet-desktop-ratio}px;
         }
       }
     }
