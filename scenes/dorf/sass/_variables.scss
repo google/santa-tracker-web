@@ -1,4 +1,5 @@
-$toolbar-size: 52px;
+$base-raised-z-index: 100;     // z-index for raised text, effects (snow etc)
+$base-background-z-index: 90;  // z-index for anything behind that
 
 $width-desktop: 1280px;
 $width-tablet: 768px;  // iPad in portrait
@@ -26,7 +27,7 @@ $skydive-start-pos: -120px;
 $skydive-fallto: 50%;
 $skydive-fallto-pos: 240px;
 $skydive-land: 75%;
-$skydive-land-pos: 540px;
+$skydive-land-pos: 480px;
 $skydive-disappear: 95%;
 
 $hover-card-size: 282px;
