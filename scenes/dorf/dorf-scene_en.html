@@ -89,7 +89,9 @@ Village scene (2015).
                      src$="{{_calculateIcon(item.module, item)}}" />
                 <h3>{{item.category}}</h3>
                 <a href="{{_calculateHref(item)}}">
-                  <img class="card" src="{{_calculateCard(item.module, item)}}" />
+                  <!-- TODO(samthor): The source card is no longer 1x1 so this looks like an oval,
+                       switch to having this be a centered background -->
+                  <img class="card" src="{{_calculateCard(item.module, santaApp.hdpi)}}" />
                 </a>
               </div>
             </div>
@@ -286,9 +288,9 @@ Village scene (2015).
       return this.componentDir + 'img/building-' + id + (house.iced ? '-ice' : '') + '.svg';
     },
 
-    _calculateCard: function(id, house) {
-      id = house.fakeCard ? 'fake' : id;
-      return this.componentDir + 'img/card-' + id + '.png';
+    _calculateCard: function(id, hdpi) {
+      // TODO(samthor): non-2x versions if they can be made smaller
+      return this.componentDir + 'img/card-' + id + '_2x.png';
     },
 
     _santaAppChanged: function() {
