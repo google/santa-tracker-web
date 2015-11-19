@@ -161,7 +161,7 @@ class Character {
   }
 
   onBar(bar, beat) {
-    if (beat >= this.lastBeatUpdate + this.sprite.duration) {
+    if (beat > this.lastBeatUpdate + this.sprite.duration) {
       this.queue.next();
       this.lastBeatUpdate = beat;
     }
@@ -206,8 +206,6 @@ app.AnimationPlayer = class {
    * @param {app.DanceLevelResult} result from player to animate.
    */
   start(result) {
-    console.log(result.danceStatus)
-
     let teacherSteps = result.teacherSteps.map(step => ({step}));
 
     switch (result.danceStatus) {
