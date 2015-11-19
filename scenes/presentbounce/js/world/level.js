@@ -40,12 +40,13 @@ goog.scope(function () {
   class Level {
 
     /**
-     * @param {!Element} elem A DOM element which wraps the game.
+     * @param {!Element} elem A DOM element which wraps the level.
      * @param {!Object} levelData Level configuration
      * @param {!Function} onCompleteCallback Callback function when level is completed
      * @export
      */
-    constructor(elem, levelData, onCompleteCallback) {
+    constructor(game, elem, levelData, onCompleteCallback) {
+      this.game_ = game;
       this.elem = $(elem);
       this.levelData_ = levelData;
       this.onCompleteCallback = onCompleteCallback;
@@ -173,9 +174,9 @@ goog.scope(function () {
      * Returns the overall Game scene transform scale
      * @public
      */
-    getSceneScale() {
+    getViewport() {
       // scaled is stored on DOM element in Game class
-      return this.elem.data('scale');
+      return this.game_.getViewport();
     }
 
     /**
@@ -219,9 +220,8 @@ goog.scope(function () {
      * @private
      */
     hasBallExitedScreen_() {
-      if (this.ball_ && this.ball_.position().y > Constants.SCREEN_Y_LIMIT) {
-        //debugEl.innerHTML = 'Debug: ball has exited';
-        return true;
+      if (this.ball_) {
+        return this.ball_.position().y > this.game_.getViewport().height;
       }
       return false;
     }

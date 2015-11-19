@@ -132,11 +132,11 @@ app.Game.prototype.loadNextLevel_ = function() {
   this.scoreboard.setLevel(this.level);
   this.scoreboard.restart();
 
-  // TODO Load new level
+  // Load new level
   if (this.currentLevel_) {
     this.currentLevel_.destroy();
   }
-  this.currentLevel_ = new app.world.Level(this.levelElem, levelData, this.onLevelCompleted);
+  this.currentLevel_ = new app.world.Level(this, this.levelElem, levelData, this.onLevelCompleted);
 };
 
 
@@ -231,12 +231,23 @@ app.Game.prototype.resume = function() {
  */
 app.Game.prototype.setScale = function(scale, width, height) {
   this.scale = scale;
+  this.windowWidth = width;
+  this.windowHeight = height;
   this.viewElem.css({
     transform: 'scale(' + scale + ')',
     width: width / scale + 'px',
     height: height / scale + 'px'
   });
-  this.levelElem.data('scale', scale);
+};
+
+app.Game.prototype.getViewport = function () {
+  return {
+    scale: this.scale,
+    width: this.windowWidth / this.scale,
+    height: this.windowHeight / this.scale,
+    windowWidth: this.windowWidth,
+    windowHeight: this.windowHeight
+  };
 };
 
 /**
@@ -262,7 +273,7 @@ app.Game.prototype.watchSceneSize_ = function() {
   };
 
   updateSize();
-  $(window).on('resize.presentbouncex', updateSize);
+  $(window).on('resize.presentbounce', updateSize);
 };
 
 /**

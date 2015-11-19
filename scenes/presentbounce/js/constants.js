@@ -32,12 +32,11 @@ app.Constants = {
   VIEWPORT_MIN_WIDTH: 1440,
   VIEWPORT_MIN_HEIGHT: 810,
 
-  GRAVITY: 150,
-  SHADOW_OFFSET_PX: 10,
-  CONVEYOR_BELT_SPEED: 4, // affects CSS animation
-  CORNER_RESOLUTION: 10,
-  SCREEN_Y_LIMIT: window.innerHeight,
+  SHADOW_OFFSET_PX: 10, // distance to ball shadow
+  CONVEYOR_BELT_SPEED: 4, // make sure belt animation is matching
+  CORNER_RESOLUTION: 10, // for candy cane polygons
   
+  GRAVITY: 150,
   PHYSICS_SCALE: 30,
   MIN_PHYSICS_FPS: 1 / 50,
 };

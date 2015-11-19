@@ -17,6 +17,7 @@
 
 goog.provide('app.world.UserObject');
 
+goog.require('app.InputEvent');
 goog.require('b2');
 goog.require('app.Constants');
 goog.require('app.Unit');
@@ -39,8 +40,13 @@ goog.scope(function () {
      */
     constructor(...args) {
       super(...args); // super(...arguments) doesn't work in Closure Compiler
+
+      this.$document = $(document);
       this.wasDragged = false;
       this.mouseJoint_ = null;
+
+      this.startAngle_ = null;
+      this.moveAngle_ = null;
       
       this.onDragStart_ = this.onDragStart_.bind(this);
       this.onDragMove_ = this.onDragMove_.bind(this);
@@ -68,16 +74,16 @@ goog.scope(function () {
      * @private
      */
     addEventListeners_() {
-      this.el_.addEventListener('mousedown', this.onDragStart_);
+      this.$el_.on(app.InputEvent.START, this.onDragStart_);
     }
 
     /**
      * @private
      */
     removeEventListeners_() {
-      this.el_.removeEventListener('mousedown', this.onDragStart_);
-      document.removeEventListener('mouseup', this.onDragEnd_);
-      document.removeEventListener('mousemove', this.onDragMove_);
+      this.$el_.off(app.InputEvent.START, this.onDragStart_);
+      this.$document.off(app.InputEvent.END, this.onDragEnd_);
+      this.$document.off(app.InputEvent.MOVE, this.onDragMove_);
     }
 
     /**
@@ -98,30 +104,77 @@ goog.scope(function () {
      *  - Scales x value based on overall scene scale
      * @private
      */
-    getMouseVector_(e) {
+    getMouseVector_(mouseX, mouseY) {
 
-      const windowWidth = window.innerWidth;
-      const windowHeight = window.innerHeight;
-      const scale = this.level_.getSceneScale();
+      const viewport = this.level_.getViewport();
+      const windowWidth = viewport.windowWidth;
+      const windowHeight = viewport.windowHeight;
+      const scale = viewport.scale;
 
       const offsetX = (windowWidth - Constants.CANVAS_WIDTH*scale) / 2;
+      console.log('test', (windowWidth - Constants.CANVAS_WIDTH*scale), (viewport.width - Constants.CANVAS_WIDTH));
       const offsetY = (windowHeight - Constants.CANVAS_HEIGHT*scale) / 2;
       
-      const x = (e.clientX - offsetX) / scale;
-      const y = (e.clientY - offsetY) / scale;
+      const x = (mouseX - offsetX) / scale;
+      const y = (mouseY - offsetY) / scale;
 
       return new b2.Vec2(Unit.toWorld(x), Unit.toWorld(y));
     }
 
+
     /**
+     * Calculate angle of two finger touch
+     * @private
+     */
+    getTouchRadianAngle_(e) {
+      e = e.originalEvent ? e.originalEvent : e;
+      if (e.touches && e.touches.length > 1) {
+
+        const p1 = {x: e.touches[0].clientX, y: e.touches[0].clientY};
+        const p2 = {x: e.touches[1].clientX, y: e.touches[1].clientY};
+        return Math.atan2(p2.y - p1.y, p2.x - p1.x);
+      }
+      return null;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    onUserInteractionStart() {
+      super.onUserInteractionStart();
+      if (!this.mouseJoint_) {
+        // user started interacting with other user object - disable my listeners
+        this.removeEventListeners_();
+      }
+    }
+
+    /**
+     * @inheritDoc
+     */
+    onUserInteractionEnd() {
+      super.onUserInteractionEnd();
+      if (!this.mouseJoint_) {
+        // Restore interaction listeners
+        this.addEventListeners_();
+      }
+    }
+
+
+    /**
+     * Main handler for user interaction 
+     *  - creates a mouseJoint for moving the object
+     *  - bind listeners for move/end
      * @private
      */
     onDragStart_(e) {
+      e = app.InputEvent.normalize(e);
+      this.startAngle_ = null;
+      this.moveAngle_ = null;
+      this.bodyStartAngle_ = this.body_.GetAngle();
+
       if (!this.mouseJoint_) {
-        document.addEventListener('mouseup', this.onDragEnd_);
-        document.addEventListener('mousemove', this.onDragMove_);
-        
-        //this.body_.SetAwake(false);
+        this.$document.on(app.InputEvent.END, this.onDragEnd_);
+        this.$document.on(app.InputEvent.MOVE, this.onDragMove_);
         
         // change type to dynamic so it can be moved
         this.body_.SetType( b2.BodyDef.b2_dynamicBody );
@@ -135,14 +188,11 @@ goog.scope(function () {
         // don't allow rotation while dragging
         this.body_.SetFixedRotation(true);
 
-        // turn off bounceiness on all objects while dragging
-        this.level_.onUserInteractionStart();
-        
         // create mouse joint
         const def = new b2.MouseJointDef();
         def.bodyA = this.ground_;
         def.bodyB = this.body_;
-        def.target = this.getMouseVector_(e)
+        def.target = this.getMouseVector_(e.clientX, e.clientY)
 
         def.collideConnected = false; // no need to collide with fake ground object
         def.maxForce = 10000 * this.body_.GetMass();
@@ -150,7 +200,10 @@ goog.scope(function () {
         def.frequencyHz = 5;
 
         this.mouseJoint_ = this.world_.CreateJoint(def);
-        //this.body_.SetAwake(true);
+        
+        // notify all other objects that user is interacting with an object
+        // (e.g. will turn off restitution on all fixtures while dragging)
+        this.level_.onUserInteractionStart();
       }
     }
 
@@ -158,28 +211,42 @@ goog.scope(function () {
      * @private
      */
     onDragMove_(e) {
+      this.moveAngle_ = this.getTouchRadianAngle_(e);
+      e = app.InputEvent.normalize(e);
+      // make sure this object is the one with the mouseJoint
       if (this.mouseJoint_) {
+        // check if we should rotate
+        if (this.moveAngle_ !== null) {
+          if (this.startAngle_ === null) {
+            this.startAngle_ = this.moveAngle_;
+          }
+          else {
+            const deltaAngle = this.startAngle_ - this.moveAngle_;
+            this.body_.SetAngle( this.bodyStartAngle_ - deltaAngle );
+          }
+        }
+        // drag to location
         this.wasDragged = true;
-        this.mouseJoint_.SetTarget( this.getMouseVector_(e) );
+        this.mouseJoint_.SetTarget( this.getMouseVector_(e.clientX, e.clientY) );
       }
     }
 
     /**
      * @private
      */
-    onDragEnd_(e) {
-      document.removeEventListener('mouseup', this.onDragEnd_);
-      document.removeEventListener('mousemove', this.onDragMove_);
+    onDragEnd_() {
+      this.$document.off(app.InputEvent.END, this.onDragEnd_);
+      this.$document.off(app.InputEvent.MOVE, this.onDragMove_);
+      
+      this.body_.SetFixedRotation(false);
+      this.body_.SetType( b2.BodyDef.b2_staticBody );
+      this.level_.onUserInteractionEnd();
       
       if (this.mouseJoint_) {
         this.world_.DestroyJoint(this.mouseJoint_);
         this.mouseJoint_ = null;
       }
 
-      this.body_.SetFixedRotation(false);
-      this.body_.SetType( b2.BodyDef.b2_staticBody );
-      this.level_.onUserInteractionEnd();
-      
       if (this.wasDragged) {
         this.wasDragged = false
         this.onDragEnd();
