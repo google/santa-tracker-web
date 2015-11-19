@@ -112,7 +112,6 @@ goog.scope(function () {
       const scale = viewport.scale;
 
       const offsetX = (windowWidth - Constants.CANVAS_WIDTH*scale) / 2;
-      console.log('test', (windowWidth - Constants.CANVAS_WIDTH*scale), (viewport.width - Constants.CANVAS_WIDTH));
       const offsetY = (windowHeight - Constants.CANVAS_HEIGHT*scale) / 2;
       
       const x = (mouseX - offsetX) / scale;
