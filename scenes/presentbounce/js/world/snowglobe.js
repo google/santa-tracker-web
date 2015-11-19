@@ -45,7 +45,7 @@ goog.scope(function () {
       const plateHeight = this.config_.style.height - this.config_.style.width;
       
       const bodyDef = new b2.BodyDef();
-      bodyDef.type = b2.Body.b2_dynamicBody;
+      bodyDef.type = b2.BodyDef.b2_dynamicBody;
       bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y);
       
       // create snow globe
@@ -62,7 +62,7 @@ goog.scope(function () {
       plateFixDef.friction = this.config_.material.friction;
       plateFixDef.restitution = this.config_.material.restitution;
       plateFixDef.shape = new b2.PolygonShape();
-      plateFixDef.shape.SetAsOrientedBox( Unit.toWorld(plateWidth), Unit.toWorld(plateHeight), new b2.Vec2(0, Unit.toWorld(radius - plateHeight/2)) );
+      plateFixDef.shape.SetAsOrientedBox( Unit.toWorld(plateWidth), Unit.toWorld(plateHeight), new b2.Vec2(0, Unit.toWorld(radius - plateHeight/2)), 0 );
 
       const body = this.world_.CreateBody( bodyDef );
       body.CreateFixture( globeFixDef );

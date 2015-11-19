@@ -87,7 +87,7 @@ goog.scope(function () {
     buildReferenceBody_() {
       // POTENTIAL OPTIMIZATION this body could be shared between all user objects
       const bodyDef = new b2.BodyDef();
-      bodyDef.type = b2.Body.b2_staticBody;
+      bodyDef.type = b2.BodyDef.b2_staticBody;
       bodyDef.position.Set(0, 0); // place outside of canvas
       this.ground_ = this.world_.CreateBody( bodyDef );
     }
@@ -123,7 +123,7 @@ goog.scope(function () {
         
         this.body_.SetAwake(false);
         // change type to dynamic so it can be moved
-        this.body_.SetType( b2.Body.b2_dynamicBody );
+        this.body_.SetType( b2.BodyDef.b2_dynamicBody );
         // lock rotation so it's not affected by gravity
         this.body_.SetFixedRotation(true);
         
@@ -159,7 +159,7 @@ goog.scope(function () {
       document.removeEventListener('mouseup', this.onDragEnd_);
       document.removeEventListener('mousemove', this.onDragMove_);
       
-      this.body_.SetType( b2.Body.b2_staticBody );
+      this.body_.SetType( b2.BodyDef.b2_staticBody );
       this.body_.SetFixedRotation(false);
       if (this.mouseJoint_) {
         this.world_.DestroyJoint(this.mouseJoint_);

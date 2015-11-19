@@ -51,7 +51,7 @@ goog.scope(function () {
      */
     buildBody_() {
       const bodyDef = new b2.BodyDef();
-      bodyDef.type = b2.Body.b2_staticBody;
+      bodyDef.type = b2.BodyDef.b2_staticBody;
       bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y);
       bodyDef.angle = this.config_.rotation * Math.PI / 180;
       
