@@ -25,6 +25,13 @@ Command center scene.
 -->
 <dom-module id="commandcentre-scene">
 <template>
+  <style>
+  :host([mode="portal"]) #module-commandcentre .small-screens__playstore, 
+  :host([mode="portal"]) #module-commandcentre .screen-overlays__tablet { {
+    pointer-events: none !important;
+    cursor: default !important;
+  }
+  </style>
   <div id="module-commandcentre">
     <div class="scene">
       <div class="anchor">
