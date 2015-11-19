@@ -476,7 +476,25 @@ $gridBorderWidth: 2px;
         position: absolute;
         background-repeat: no-repeat;
         background-position: 50% 50%;
+        pointer-events: none;
         z-index: 3;
+        opacity: 0;
+        will-change: opacity;
+        transition: opacity 0.2s ease-out;
+      }
+    }
+    
+    &.iced {
+      .position {
+        .building {
+          a, h3 {
+            display: none;
+          }
+        }
+      
+        .ice {
+          opacity: 1;
+        }
       }
     }
   }
