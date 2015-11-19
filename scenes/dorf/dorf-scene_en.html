@@ -16,6 +16,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
+<link rel="import" href="../../elements/toolbar/santa-toolbar.html">
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -27,15 +28,7 @@ Village scene (2015).
 <dom-module id="dorf-scene">
 <template>
   <div id="module-dorf">
-    <div id="toolbar">
-      <div id="logo">Google</div>
-      <h1>Santa Tracker</h1>
-      <div class="shareicons">
-        <button id="gplus">Google Plus</button>
-        <button id="twitter">Twitter</button>
-        <button id="facebook">Facebook</button>
-      </div>
-    </div>
+    <santa-toolbar id="toolbar"></santa-toolbar>
     <div id="scroll" class="fit scroll">
       <div id="posser"></div>
 
@@ -248,11 +241,7 @@ Village scene (2015).
 
     _updateScrollClass: function() {
       this.debounce('_updateScrollClass', function() {
-        if (this.$.scroll.scrollTop > 0) {
-          this.$.toolbar.classList.add('down');
-        } else {
-          this.$.toolbar.classList.remove('down');
-        }
+        this.$.toolbar.background = (this.$.scroll.scrollTop > 0);
       });
     },
 
