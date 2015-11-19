@@ -128,7 +128,7 @@ goog.scope(function () {
       if (this.body_) {
         const p = this.body_.GetPosition();
         x = Unit.fromWorld(p.x);
-        y = Unit.fromWorld(p.x);
+        y = Unit.fromWorld(p.y);
       }
       return {x, y};
     }
