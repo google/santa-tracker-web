@@ -81,7 +81,7 @@ class Animation {
   constructor(sprite) {
     this.frame = 0;
     this.frameCount = sprite.frames;
-    this.frameDuration = 1000 / fps;
+    this.frameDuration = 1000 / fps * (60 / bpm * 2);
     this.elapsedTime = 0;
     this.paused = true;
 
