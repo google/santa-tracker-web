@@ -49,6 +49,7 @@ goog.scope(function () {
       // Create DOM elements
       this.shadowEl_ = this.createShadowDOMNode_();
       this.el_ = this.createTextureDOMNode_();
+      this.$el_ = $(this.el_);
 
       // Box2d body - implemented by subclass
       this.body_ = null;
@@ -174,16 +175,19 @@ goog.scope(function () {
     }
 
     /**
+     * Called when user is interacting any object in the word
      * @public
      */
-    disableRestitution() {
+    onUserInteractionStart() {
+      // disable bouncy surfaces while dragging
       this.setRestitution_(0);
     }
 
     /**
+     * Called when user stops interacting with the word
      * @public
      */
-    enableRestitution() {
+    onUserInteractionEnd() {
       this.setRestitution_(this.config_.material.restitution); 
     }
 

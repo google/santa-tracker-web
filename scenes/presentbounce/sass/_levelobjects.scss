@@ -90,9 +90,11 @@
     &.js-animation-reverse .wheel {
       animation-direction: reverse;
     }
+
   }
 
-  &.frozen {
+  &.frozen,
+  .js-animation-paused {
     .belt,
     .wheel {
       animation-play-state: paused;

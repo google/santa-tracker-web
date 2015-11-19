@@ -39,7 +39,7 @@ app.Constants = {
   SCREEN_Y_LIMIT: window.innerHeight,
   
   PHYSICS_SCALE: 30,
-  // MIN_PHYSICS_FPS: 1 / 50,
+  MIN_PHYSICS_FPS: 1 / 50,
 };
 
 

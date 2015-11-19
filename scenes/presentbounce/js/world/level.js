@@ -236,30 +236,38 @@ goog.scope(function () {
 
     /**
      * Game loop. Should be called every frame using requestAnimationFrame.
-    * @param {number} delta Time since last frame.
+     * Updates Box2D state since last frame.
+     * @param {number} totalDelta Time since last frame.
      * @public
      */
-    onFrame(delta) {
-      // Let objects add custom Box2D forces
-      this.updateFrame_();
+    onFrame(totalDelta) {
+      while (totalDelta > 0.0001) {
+        var delta = Math.min(totalDelta, Constants.MIN_PHYSICS_FPS);
 
-      // update Box2D physics simulation
-      this.world_.Step(
-        1 / 60, // frame rate
-        8, // velocity iteration
-        8  // position iteration
-      );
+        // Let objects add custom Box2D forces
+        this.updateFrame_();
 
+        // update Box2D physics simulation
+        this.world_.Step(
+          1 / 60, // frame rate
+          8, // velocity iteration
+          8  // position iteration
+        );
+
+        
+        // Draw all objects in the DOM
+        this.drawFrame_();
+        
+        // Clear Box2D forces for next iteration
+        this.world_.ClearForces();
+
+        totalDelta -= delta;
+      }
+      
       // let Box2D draw it's world using canvas.
       if (this.debug_) {
         this.world_.DrawDebugData();
       }
-      
-      // Draw all objects in the DOM
-      this.drawFrame_();
-      
-      // Clear Box2D forces for next iteration
-      this.world_.ClearForces();
     }
 
     /**
@@ -273,26 +281,26 @@ goog.scope(function () {
     /**
      * @public
      */
-    disableRestitution() {
+    onUserInteractionStart() {
       for (let object of this.levelObjects_) {
-        object.disableRestitution();
+        object.onUserInteractionStart();
       }
       // loop through user placed objects
       for (let object of this.userObjects_) {
-        object.disableRestitution();
+        object.onUserInteractionStart();
       } 
     }
 
     /**
      * @public
      */
-    enableRestitution() {
+    onUserInteractionEnd() {
       for (let object of this.levelObjects_) {
-        object.enableRestitution();
+        object.onUserInteractionEnd();
       }
       // loop through user placed objects
       for (let object of this.userObjects_) {
-        object.enableRestitution();
+        object.onUserInteractionEnd();
       } 
     }
     

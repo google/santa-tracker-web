@@ -45,10 +45,10 @@ goog.scope(function () {
     /** 
      *  Box2D Hack to add surface velocity on static body on active body
      */
-    updateBeltDirection_() {
+    updateBeltDirection_(vector) {
       // setting private member since this.body_.SetLinearVelocity() doesn't work
       // probably checks the body type internally
-      this.body_.m_linearVelocity = this.getBeltDirectionVector_();
+      this.body_.m_linearVelocity = vector;
     }
     
     getBeltDirectionVector_(direction = this.currentDirection_) {
@@ -57,10 +57,20 @@ goog.scope(function () {
     
     toggleBeltDirection_() {
       this.currentDirection_ *= -1;
-      this.el_.classList.toggle('js-animation-reverse', this.currentDirection_ === -1);
-      this.body_.m_linearVelocity = this.getBeltDirectionVector_();
+      this.$el_.toggleClass('js-animation-reverse', this.currentDirection_ === -1);
+      this.updateBeltDirection_(this.getBeltDirectionVector_());
+    }
+
+    pauseBelt_() {
+      this.$el_.addClass('js-animation-paused');
+      this.updateBeltDirection_(this.getBeltDirectionVector_(0));
     }
     
+    resumeBelt_() {
+      this.$el_.removeClass('js-animation-paused');
+      this.updateBeltDirection_(this.getBeltDirectionVector_());
+    }
+
     // create horizontal plate fixture def
     getPlateFixtureDef_() {
       const fixDef = new b2.FixtureDef();
@@ -116,11 +126,25 @@ goog.scope(function () {
     onTapEnd() {
       this.toggleBeltDirection_();
     }
-    
-    onDragEnd() {
-      // Need to restore surface velocity after dragging
-      this.updateBeltDirection_();
+
+    /**
+     * @inheritDoc
+     */
+    onUserInteractionStart() {
+      super.onUserInteractionStart();
+      // stop belt while dragging
+      this.pauseBelt_();
     }
+
+    /**
+     * @inheritDoc
+     */
+    onUserInteractionEnd() {
+      super.onUserInteractionEnd();
+      // Restore surface velocity after dragging
+      this.resumeBelt_();
+    }
+
   }
 
 

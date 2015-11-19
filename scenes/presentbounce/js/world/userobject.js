@@ -121,13 +121,22 @@ goog.scope(function () {
         document.addEventListener('mouseup', this.onDragEnd_);
         document.addEventListener('mousemove', this.onDragMove_);
         
-        this.body_.SetAwake(false);
+        //this.body_.SetAwake(false);
         
         // change type to dynamic so it can be moved
         this.body_.SetType( b2.BodyDef.b2_dynamicBody );
 
+        // hack to prevent tunneling - breaks any contacts and wakes the other bodies
+        const x = this.body_.GetPosition().x;
+        const y = this.body_.GetPosition().y;
+        this.body_.SetPosition( new b2.Vec2(0, 0));
+        this.body_.SetPosition( new b2.Vec2(x, y));
+
+        // don't allow rotation while dragging
+        this.body_.SetFixedRotation(true);
+
         // turn off bounceiness on all objects while dragging
-        this.level_.disableRestitution();
+        this.level_.onUserInteractionStart();
         
         // create mouse joint
         const def = new b2.MouseJointDef();
@@ -136,11 +145,12 @@ goog.scope(function () {
         def.target = this.getMouseVector_(e)
 
         def.collideConnected = false; // no need to collide with fake ground object
-        def.maxForce = 500 * this.body_.GetMass();
-        def.dampingRatio = 0.6;
-        
+        def.maxForce = 10000 * this.body_.GetMass();
+        def.dampingRatio = 0.5;
+        def.frequencyHz = 5;
+
         this.mouseJoint_ = this.world_.CreateJoint(def);
-        this.body_.SetAwake(true);
+        //this.body_.SetAwake(true);
       }
     }
 
@@ -161,14 +171,14 @@ goog.scope(function () {
       document.removeEventListener('mouseup', this.onDragEnd_);
       document.removeEventListener('mousemove', this.onDragMove_);
       
-      this.body_.SetType( b2.BodyDef.b2_staticBody );
-
       if (this.mouseJoint_) {
         this.world_.DestroyJoint(this.mouseJoint_);
         this.mouseJoint_ = null;
       }
 
-      this.level_.enableRestitution();
+      this.body_.SetFixedRotation(false);
+      this.body_.SetType( b2.BodyDef.b2_staticBody );
+      this.level_.onUserInteractionEnd();
       
       if (this.wasDragged) {
         this.wasDragged = false
