@@ -122,10 +122,12 @@ goog.scope(function () {
         document.addEventListener('mousemove', this.onDragMove_);
         
         this.body_.SetAwake(false);
+        
         // change type to dynamic so it can be moved
         this.body_.SetType( b2.BodyDef.b2_dynamicBody );
-        // lock rotation so it's not affected by gravity
-        this.body_.SetFixedRotation(true);
+
+        // turn off bounceiness on all objects while dragging
+        this.level_.disableRestitution();
         
         // create mouse joint
         const def = new b2.MouseJointDef();
@@ -160,11 +162,13 @@ goog.scope(function () {
       document.removeEventListener('mousemove', this.onDragMove_);
       
       this.body_.SetType( b2.BodyDef.b2_staticBody );
-      this.body_.SetFixedRotation(false);
+
       if (this.mouseJoint_) {
         this.world_.DestroyJoint(this.mouseJoint_);
         this.mouseJoint_ = null;
       }
+
+      this.level_.enableRestitution();
       
       if (this.wasDragged) {
         this.wasDragged = false

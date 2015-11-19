@@ -185,6 +185,10 @@ goog.scope(function () {
       if (this.ball_) {
         this.ball_.update();
       }
+      // loop through fixed level objects
+      for (let object of this.levelObjects_) {
+        object.update();
+      }
       // loop through user placed objects
       for (let object of this.userObjects_) {
         object.update();
@@ -201,7 +205,6 @@ goog.scope(function () {
           this.destroyBall();
         }
       }
-
       // loop through fixed level objects
       for (let object of this.levelObjects_) {
         object.draw();
@@ -266,6 +269,33 @@ goog.scope(function () {
       return this.hasBallHitTarget_();
     }
 
+
+    /**
+     * @public
+     */
+    disableRestitution() {
+      for (let object of this.levelObjects_) {
+        object.disableRestitution();
+      }
+      // loop through user placed objects
+      for (let object of this.userObjects_) {
+        object.disableRestitution();
+      } 
+    }
+
+    /**
+     * @public
+     */
+    enableRestitution() {
+      for (let object of this.levelObjects_) {
+        object.enableRestitution();
+      }
+      // loop through user placed objects
+      for (let object of this.userObjects_) {
+        object.enableRestitution();
+      } 
+    }
+    
     /**
      * Destroy level and all Box2D/DOM resources
      * @public

@@ -159,6 +159,34 @@ goog.scope(function () {
       }
     }
 
+
+    /**
+     * @public
+     */
+    setRestitution_(restitution) {
+      if (this.body_) {
+        let node = this.body_.GetFixtureList().GetFirstNode();
+        while (node) {
+          node.fixture.SetRestitution(restitution);
+          node = node.GetNextNode();
+        }
+      }
+    }
+
+    /**
+     * @public
+     */
+    disableRestitution() {
+      this.setRestitution_(0);
+    }
+
+    /**
+     * @public
+     */
+    enableRestitution() {
+      this.setRestitution_(this.config_.material.restitution); 
+    }
+
     /**
      * @public
      */
