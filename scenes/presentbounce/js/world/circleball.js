@@ -41,7 +41,7 @@ goog.scope(function () {
     
     buildBody_() {
       const bodyDef = new b2.BodyDef();
-      bodyDef.type = b2.Body.b2_dynamicBody;
+      bodyDef.type = b2.BodyDef.b2_dynamicBody;
       bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y);
       
       const fixDef = new b2.FixtureDef();

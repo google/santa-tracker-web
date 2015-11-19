@@ -70,7 +70,7 @@ goog.scope(function () {
       fixDef.friction = this.config_.material.friction;
       fixDef.restitution = this.config_.material.restitution;
       fixDef.shape = new b2.PolygonShape();
-      fixDef.shape.SetAsOrientedBox( Unit.toWorld(width/2 - height/2), Unit.toWorld(height/2), new b2.Vec2(0, 0));
+      fixDef.shape.SetAsOrientedBox( Unit.toWorld(width/2 - height/2), Unit.toWorld(height/2), new b2.Vec2(0, 0), 0);
       return fixDef;
     }
     
@@ -93,7 +93,7 @@ goog.scope(function () {
       const width = this.config_.style.width;
       const height = this.config_.style.height;
       
-      bodyDef.type = b2.Body.b2_staticBody;
+      bodyDef.type = b2.BodyDef.b2_staticBody;
       bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y);
 
       // Box2D hack to simulate surface velocity on static body
