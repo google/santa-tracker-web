@@ -27,9 +27,18 @@ Village scene (2015).
 <dom-module id="dorf-scene">
 <template>
   <div id="module-dorf">
-    <div class="fit scroll">
+    <div id="toolbar">
+      <div id="logo">Google</div>
+      <h1>Santa Tracker</h1>
+      <div class="shareicons">
+        <button id="gplus">Google Plus</button>
+        <button id="twitter">Twitter</button>
+        <button id="facebook">Facebook</button>
+      </div>
+    </div>
+    <div id="scroll" class="fit scroll">
       <div id="posser"></div>
-      
+
       <header>
         <div id="header-background"></div>
         <div id="header-skyeffect">
@@ -77,14 +86,14 @@ Village scene (2015).
               <div class="position">
                 <div class="building">
                   <a href="{{_calculateHref(item)}}">
-                    <img src="{{_calculateCard(item.module, item)}}" />
+                    <img class="card" src="{{_calculateCard(item.module, santaApp.hdpi)}}" />
                   </a>
                   <h3>{{item.category}}</h3>
                 </div>
                 <div class="ice"></div>
               </div>
               <a class="card" href="{{_calculateHref(item)}}">
-                <img src="{{_calculateCard(item.module, item)}}" />
+                <img class="card" src="{{_calculateCard(item.module, santaApp.hdpi)}}" />
               </a>
             </div>
           </template>
@@ -196,6 +205,7 @@ Village scene (2015).
 
     created: function() {
       this._changeEffectCount = this._changeEffectCount.bind(this);
+      this._updateScrollClass = this._updateScrollClass.bind(this);
     },
 
     attached: function() {
@@ -212,6 +222,13 @@ Village scene (2015).
         var x = cloudFactory(null, i + 1, i % 2);
         skyeffect.appendChild(x);
       }
+
+      this.$.scroll.addEventListener('scroll', this._updateScrollClass);
+      this._updateScrollClass();
+    },
+
+    detached: function() {
+      this.$.scroll.removeEventListener('scroll', this._updateScrollClass);
     },
 
     _setupEffectHandlers: function(active) {
@@ -229,6 +246,16 @@ Village scene (2015).
         // TODO(samthor): Choose a number of snowflakes based on
         // `window.innerWidth`. Drift the current number towards that amount.
       }, 500);
+    },
+
+    _updateScrollClass: function() {
+      this.debounce('_updateScrollClass', function() {
+        if (this.$.scroll.scrollTop > 0) {
+          this.$.toolbar.classList.add('down');
+        } else {
+          this.$.toolbar.classList.remove('down');
+        }
+      });
     },
 
     _calculateHref: function(house, iced) {
@@ -266,9 +293,9 @@ Village scene (2015).
       return this.componentDir + 'img/building-' + id + '-ice.svg';
     },    
 
-    _calculateCard: function(id, house) {
-      id = house.fakeCard ? 'fake' : id;
-      return this.componentDir + 'img/card-' + id + '.png';
+    _calculateCard: function(id, hdpi) {
+      // TODO(samthor): non-2x versions if they can be made smaller
+      return this.componentDir + 'img/card-' + id + '_2x.png';
     },
 
     _santaAppChanged: function() {

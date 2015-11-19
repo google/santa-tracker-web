@@ -12,3 +12,5 @@ scenes/*/*.min.js
 js/service/*.min.js
 elements/*/*.css
 *.min.js
+bin/
+nginx/

@@ -55,6 +55,7 @@ Santa Tracker app.
 
     <boatload-scene route="boatload" icon="26f5"
         path$="scenes/boatload/boatload-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-bg-color="#8fd7f7"
         loading-src="scenes/boatload/img/loading.svg"></boatload-scene>
 
@@ -72,6 +73,7 @@ Santa Tracker app.
 
     <codelab-scene route="codelab" icon="1f4dd"
         path$="scenes/codelab/codelab-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-bg-color="#3f4ea1"
         loading-src="scenes/codelab/img/loading.svg"></codelab-scene>
 
@@ -85,11 +87,13 @@ Santa Tracker app.
 
     <glider-scene route="glider" icon="1f343"
         path$="scenes/glider/glider-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-bg-color="#8d23a9"
         loading-src="scenes/glider/img/loading.svg"></glider-scene>
 
     <gumball-scene route="gumball" icon="1f36d"
         path$="scenes/gumball/gumball-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-bg-color="#8d23a9"
         loading-src="scenes/gumball/img/loading.svg"></gumball-scene>
 
@@ -101,26 +105,31 @@ Santa Tracker app.
 
     <jamband-scene route="jamband" icon="1f3b6"
         path$="scenes/jamband/jamband-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-bg-color="#fdbe27"
         loading-src="scenes/jamband/img/loading.svg"></jamband-scene>
 
     <jetpack-scene route="jetpack" icon="1f680"
         path$="scenes/jetpack/jetpack-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-bg-color="#8fd7f7"
         loading-src="scenes/jetpack/img/loading.svg"></jetpack-scene>
 
     <latlong-scene route="latlong" icon="1f3af"
         path$="scenes/latlong/latlong-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-bg-color="#ffcc00"
         loading-src="scenes/latlong/img/loading.svg"></latlong-scene>
 
     <matching-scene route="matching" icon="1f6aa"
         path$="scenes/matching/matching-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-bg-color="#b27644"
         loading-src="scenes/matching/img/loading.svg"></matching-scene>
 
     <mercator-scene route="mercator" icon="1f30e"
         path$="scenes/mercator/mercator-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-bg-color="#fbbf2c"
         loading-src="scenes/mercator/img/loading.svg"></mercator-scene>
 
@@ -130,20 +139,24 @@ Santa Tracker app.
 
     <postcard-scene route="postcard" icon="1f4ec"
         path$="scenes/postcard/postcard-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-bg-color="rgb(244, 123, 32)"
         loading-src="scenes/postcard/img/loading.gif"></postcard-scene>
 
     <presentdrop-scene route="presentdrop" icon="1f381"
         path$="scenes/presentdrop/presentdrop-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-bg-color="#8fd7f7"
         loading-src="scenes/presentdrop/img/loading.svg"></presentdrop-scene>
 
     <racer-scene route="racer" icon="1f3c1"
         path$="scenes/racer/racer-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-bg-color="#8fd7f7"
         loading-src="scenes/racer/img/loading.svg"></racer-scene>
 
     <runner-scene route="runner" icon="1f3c7"
+        mode$="{{mode}}"
         path$="scenes/runner/runner-scene_[[language]].html"></runner-scene>
 
     <rollercoaster-scene route="rollercoaster" icon="1f3a2"
@@ -151,11 +164,13 @@ Santa Tracker app.
 
     <santaselfie-scene route="santaselfie" icon="1f488"
         path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-bg-color="#83D7F5"
         loading-src="scenes/santaselfie/img/loading.svg"></santaselfie-scene>
 
     <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
         path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-src="scenes/seasonofgiving/img/loading.svg"></seasonofgiving-scene>
 
     <streetview-scene route="streetview" icon="1f3a5"
@@ -170,6 +185,7 @@ Santa Tracker app.
 
     <traditions-scene route="traditions" icon="1f4cc"
         path$="scenes/traditions/traditions-scene_[[language]].html"
+        mode$="{{mode}}"
         loading-bg-color="rgb(255,224,0)"
         loading-src="scenes/traditions/img/loading.gif"></traditions-scene>
 
@@ -336,7 +352,7 @@ Polymer({
     },
 
     /**
-     * The mode of the scene. Possible values are: 'cast' or 'embed'.
+     * The mode of the scene. Possible values are: 'cast', 'portal', or 'embed'.
      */
     mode: {
       type: String
@@ -484,6 +500,10 @@ Polymer({
         this.mode = 'embed';
         loadSound = false;
         break;
+      case 'web_portal':
+        apiClient = 'web';
+        this.mode = 'portal';
+        break;
       default:
         break;
     }
@@ -528,6 +548,7 @@ Polymer({
    */
   _prepareHouses: function() {
     var castMode = this.mode === 'cast';
+    var portalMode = this.mode === 'portal';
     var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
     var spanglish = /^e(n|s)/.test(this.language);
 
@@ -540,7 +561,7 @@ Polymer({
       switch (house.module) {
         case 'app':
           // Disable Google Play house on iOS devices
-          house.disabled = ios || house.disabled;
+          house.disabled = ios || portalMode || house.disabled;
           break;
         case 'streetview':
           // remove streetview where callfromsanta supported (en|en-GB|es|es-419)
@@ -616,6 +637,7 @@ Polymer({
       el.route = prevSelectedScene.route;
       el.santaApp = this;
       el.loaded = true;
+      el.setAttribute('mode', this.mode);
 
       dom.appendChild(el);
     }
