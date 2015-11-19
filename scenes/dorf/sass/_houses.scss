@@ -48,19 +48,23 @@
       z-index: $i;
       
       .building {
-        width: #{nth($house, $houseWidth)}px;
-        height: #{nth($house, $houseHeight)}px;
+        $w: nth($house, $houseWidth);
+        $h: nth($house, $houseHeight);
+        width: #{$w}px;
+        height: #{$h}px;
         background-image: url(img/building-#{nth($house, $houseId)}.svg);
-        background-size: #{nth($house, $houseWidth)}px #{nth($house, $houseHeight)}px;
+        background-size: #{$w}px #{$h}px;
         top: #{nth($house, $houseTop)}px;
         left: #{nth($house, $houseLeft)}px;
       }
     
       .ice {
-        width: #{nth($house, $iceWidth)}px;
-        height: #{nth($house, $iceHeight)}px;
+        $w: nth($house, $iceWidth);
+        $h: nth($house, $iceHeight);
+        width: #{$w}px;
+        height: #{$h}px;
         background-image: url(img/building-#{nth($house, $houseId)}-ice.svg);
-        background-size: #{nth($house, $iceWidth)}px #{nth($house, $iceHeight)}px;
+        background-size: #{$w}px #{$h}px;
         top: #{nth($house, $iceTop)}px;
         left: #{nth($house, $iceLeft)}px;
       }
@@ -73,15 +77,21 @@
       
       .house-#{nth($house, $houseId)} {
         .building {
+          $w: nth($house, $houseWidth) * $tablet-desktop-ratio;
+          $h: nth($house, $houseHeight) * $tablet-desktop-ratio;
+          width: #{$w}px;
+          height: #{$h}px;
+          background-size: #{$w}px #{$h}px;
           top: #{nth($house, $houseTop) * $tablet-desktop-ratio}px;
           left: #{nth($house, $houseLeft) * $tablet-desktop-ratio}px;
-          width: #{nth($house, $houseWidth) * $tablet-desktop-ratio}px;
-          height: #{nth($house, $houseHeight) * $tablet-desktop-ratio}px;
         }
 
         .ice {
-          width: #{nth($house, $iceWidth) * $tablet-desktop-ratio}px;
-          height: #{nth($house, $iceHeight) * $tablet-desktop-ratio}px;
+          $w: nth($house, $iceWidth) * $tablet-desktop-ratio;
+          $h: nth($house, $iceHeight) * $tablet-desktop-ratio;
+          width: #{$w}px;
+          height: #{$h}px;
+          background-size: #{$w}px #{$h}px;
           top: #{nth($house, $iceTop) * $tablet-desktop-ratio}px;
           left: #{nth($house, $iceLeft) * $tablet-desktop-ratio}px;
         }

@@ -297,6 +297,7 @@ $gridBorderWidth: 2px;
           z-index: 5;
           
           img {
+            will-change: transform;
             border-radius: 50%;
             transition: transform 0.2s ease-out, opacity 0.2s ease-out;
             transform: scale(0);
