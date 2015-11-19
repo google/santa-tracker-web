@@ -36,7 +36,7 @@ goog.scope(function () {
      * @override
      */
     constructor(...args) {
-      super(...args);
+      super(...args); // super(...arguments) doesn't work in Closure Compiler
       this.body_ = this.buildBody_();
 
       //this.registerForCollision(this.onCollision);
@@ -56,7 +56,8 @@ goog.scope(function () {
       bodyDef.angle = this.config_.rotation * Math.PI / 180;
       
       const fixDef = new b2.FixtureDef();
-      const {width, height} = this.config_.style;
+      const width = this.config_.style.width;
+      const height = this.config_.style.height;
       fixDef.density = this.config_.material.density;
       fixDef.friction = this.config_.material.friction;
       fixDef.restitution = this.config_.material.restitution;

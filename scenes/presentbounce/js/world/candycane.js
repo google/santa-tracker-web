@@ -38,7 +38,7 @@ goog.scope(function () {
      * @override
      */
     constructor(...args) {
-      super(...args);
+      super(...args); // super(...arguments) doesn't work in Closure Compiler
       this.body_ = this.buildBody_();
     }
 
@@ -76,7 +76,10 @@ goog.scope(function () {
      */
     buildVertices_() {
       const vertices = [];
-      const {hasAngle, width, height, stroke} = this.config_.style;
+      const width = this.config_.style.width;
+      const height = this.config_.style.height;
+      const stroke = this.config_.style.stroke;
+      const hasAngle = this.config_.style.hasAngle;
      
       if (hasAngle) {
         // start half

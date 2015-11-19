@@ -38,7 +38,7 @@ goog.scope(function () {
      * @override
      */
     constructor(...args) {
-      super(...args);
+      super(...args); // super(...arguments) doesn't work in Closure Compiler
       this.wasDragged = false;
       this.mouseJoint_ = null;
       

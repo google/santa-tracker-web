@@ -37,7 +37,7 @@ goog.scope(function () {
      * @override
      */
     constructor(...args) {
-      super(...args);
+      super(...args); // super(...arguments) doesn't work in Closure Compiler
       this.currentDirection_ = this.config_.beltDirection;
       this.body_ = this.buildBody_();
     }
@@ -64,7 +64,8 @@ goog.scope(function () {
     // create horizontal plate fixture def
     getPlateFixtureDef_() {
       const fixDef = new b2.FixtureDef();
-      const {width, height} = this.config_.style;
+      const width = this.config_.style.width;
+      const height = this.config_.style.height;
       fixDef.density = this.config_.material.density;
       fixDef.friction = this.config_.material.friction;
       fixDef.restitution = this.config_.material.restitution;
@@ -89,7 +90,8 @@ goog.scope(function () {
      */
     buildBody_() {
       const bodyDef = new b2.BodyDef();
-      const {width, height} = this.config_.style;
+      const width = this.config_.style.width;
+      const height = this.config_.style.height;
       
       bodyDef.type = b2.Body.b2_staticBody;
       bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y);

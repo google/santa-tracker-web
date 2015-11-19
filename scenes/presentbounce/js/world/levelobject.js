@@ -91,10 +91,14 @@ goog.scope(function () {
      * @private
      */
     setElementStyle_(el) {
-      let {width, height, padding} = this.config_.style;
+      let width = this.config_.style.width;
+      let height = this.config_.style.height
+      const padding = this.config_.style.padding;
+
       // DOM element can have optional padding around Box2d body
       width = padding ? width + padding*2 : width;
       height = padding ? height + padding*2 : height;
+      
       // Set to Box2D body dimension and offset center of gravity
       el.style.width = width + 'px';
       el.style.height = height + 'px';

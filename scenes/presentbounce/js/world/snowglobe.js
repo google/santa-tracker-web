@@ -35,7 +35,7 @@ goog.scope(function () {
      * @override
      */
     constructor(...args) {
-      super(...args);
+      super(...args); // super(...arguments) doesn't work in Closure Compiler
       this.body_ = this.buildBody_();
     }
     

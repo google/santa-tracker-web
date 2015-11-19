@@ -36,7 +36,7 @@ goog.scope(function () {
      * @override
      */
     constructor(...args) {
-      super(...args);
+      super(...args); // super(...arguments) doesn't work in Closure Compiler
       this.body_ = this.buildBody_();
     }
 
@@ -49,7 +49,10 @@ goog.scope(function () {
       bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y);
 
       // create the target fixture definition
-      const {style: {width, height}, material} = this.config_;
+      const width = this.config_.style.width;
+      const height = this.config_.style.height;
+      const material = this.config_.material;
+
       const worldWidth = Unit.toWorld(width);
       const worldHeigt = Unit.toWorld(height);
       
