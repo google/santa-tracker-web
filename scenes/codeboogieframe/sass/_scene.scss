@@ -42,6 +42,11 @@
     margin-top: 50px;
     text-align: center;
     width: 100%;
+
+    span {
+      animation: 2s cb_title_fade;
+      animation-fill-mode: forwards;
+    }
   }
 
   .scene__play-tab {
@@ -99,5 +104,22 @@
     position: absolute;
     top: calc(50% - 2.8em);
     width: 0;
+  }
+}
+
+@keyframes cb_title_fade {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  20%, 75% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
   }
 }

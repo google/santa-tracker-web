@@ -35,6 +35,12 @@ app.Title = class {
     }
 
     let translation = app.I18n.getMsg('CB_' + text);
-    this.title.textContent = translation;
+
+    this.title.innerHTML = '';
+
+    let span = document.createElement('span');
+    span.textContent = translation;
+
+    this.title.appendChild(span);
   }
 }
