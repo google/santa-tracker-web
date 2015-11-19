@@ -123,7 +123,7 @@ specific language governing permissions and limitations under the License.
     is: 'difficulty-menu',
 
     onTap: function(event, detail) {
-      var elem = event.target;
+      var elem = Polymer.dom(event).localTarget;
       if (elem.tagName !== 'button') {
         elem = elem.parentNode;
       }

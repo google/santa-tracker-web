@@ -19,10 +19,13 @@ specific language governing permissions and limitations under the License.
   <!-- TODO(samthor): Non-standard import, but works in Polymer 1+ -->
   <link rel="import" type="css" href="map-hint.css" />
   <div id="map" class="fit"></div>
-  <google-maps-api version="3.exp"
-                   client-id="{{santaApp.config.CLIENT_ID}}"
-                   language="{{santaApp.language}}"
-                   on-api-load="onMapsAPIReady"></google-maps-api>
+  <template is="dom-if" if="{{santaApp}}">
+    <!-- Conditional required to prevent double loading -->
+    <google-maps-api version="3.exp"
+                     client-id="{{santaApp.config.CLIENT_ID}}"
+                     language="{{santaApp.language}}"
+                     on-api-load="mapsAPIReady"></google-maps-api>
+  </template>
   <div id="globe" class="globe fit">
     <div class="globe-part globe-part--1"></div>
     <div class="globe-part globe-part--2"></div>
@@ -63,7 +66,7 @@ specific language governing permissions and limitations under the License.
 
     found: false,
 
-    onMapsAPIReady: function() {
+    mapsAPIReady: function() {
       this.apiReady = true;
 
       this.map = new google.maps.Map(this.$.map, {
@@ -96,6 +99,7 @@ specific language governing permissions and limitations under the License.
     },
 
     onSearch: function() {
+      console.info('wants to search for', this.place, 'api ready?', this.apiReady);
       if (!this.apiReady || !this.place) return;
       this.found = true;
 

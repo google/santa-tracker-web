@@ -135,10 +135,10 @@ specific language governing permissions and limitations under the License.
       }
     }
   </style>
-  <iron-selector id="choices" selected="{{value}}">
+  <iron-selector id="choices" selected="{{_value}}">
     <template is="dom-repeat" items="{{shuffled}}">
       <div class$="{{_computeIsCorrectClass(item)}}">
-        <paper-item><!-- disabled$="{{$.selector.notap}}" -->
+        <paper-item>
           <span class="check"></span>
           <span class="text">{{item}}</span>
         </paper-item>
@@ -151,19 +151,44 @@ specific language governing permissions and limitations under the License.
     is: 'select-answer',
 
     properties: {
+
+      /**
+       * An array of strings, the choices displayed in this `select-answer`.
+       * The first answer is always correct.
+       */
       choices: {
         type: Array,
         value: function() {
           return [];
         }
       },
+
+      /**
+       * The user's selection, if any. This is the index inside the
+       * `iron-selector`.
+       */
+      _value: {
+        type: Number,
+        value: null
+      },
+
+      /**
+       * Whether the user is currently correct.
+       */
+      correct: {
+        type: Boolean,
+        value: false,
+        readOnly: true
+      }
+
     },
 
     listeners: {
-      'iron-activate': 'onAnswered'
+      'iron-activate': 'onBeforeAnswer',
+      'iron-select': 'onAnswer'
     },
 
-    shuffled: [],
+    shuffled: [],  // replaced in showChoices
 
     showChoices: function() {
       this.shuffled = this.choices.slice(0);
@@ -174,10 +199,10 @@ specific language governing permissions and limitations under the License.
     },
 
     isCorrect: function(choice) {
-      if (!choice && this.value != null) {
-        choice = this.shuffled[this.value];
+      if (!choice && this._value != null) {
+        choice = this.shuffled[this._value];
       }
-      return choice && choice === this.choices[0];
+      return choice && choice === this.choices[0];  // first answer is right
     },
 
     _computeIsCorrectClass: function(choice) {
@@ -187,13 +212,17 @@ specific language governing permissions and limitations under the License.
       return '';
     },
 
-    onAnswered: function () {
-      this.$.choices.classList.add('is-answered');
-//      this.$.selector.notap = true;
-
-      if (this.isCorrect()) {
-        this.correct = true;
+    onBeforeAnswer: function(event) {
+      if (this._value != null) {
+        // The user has already given an answer, they can't answer again!
+        event.preventDefault();
       }
+    },
+
+    onAnswer: function () {
+      this.$.choices.classList.add('is-answered');
+      this._setCorrect(this.isCorrect());
+
       this.fire('answered');
     },
 
@@ -203,9 +232,8 @@ specific language governing permissions and limitations under the License.
 
     reset: function () {
       this.$.choices.classList.remove('is-answered');
-      this.value = null;
-//      this.$.selector.notap = false;
-      this.correct = false;
+      this._value = null;
+      this._setCorrect(false);
     }
   });
 </script>
