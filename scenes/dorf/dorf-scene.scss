@@ -250,7 +250,7 @@ $gridBorderWidth: 2px;
 
   /** Village flexbox */
   #village-all {
-    z-index: $base-background-z-index;;
+    z-index: $base-background-z-index;
     position: relative;  // nb. creates a z-index layer for children
     overflow: hidden;
     top: -30px;
@@ -387,6 +387,7 @@ $gridBorderWidth: 2px;
   }
 
   #village-footer {
+    z-index: $base-background-z-index;
     height: 700px;
     background-image: url(img/footer-bg.svg);
     background-repeat: repeat-x;
@@ -395,7 +396,6 @@ $gridBorderWidth: 2px;
     position: relative;
     top: -290px;
     margin-bottom: -290px;
-    z-index: 3;
     
     #village-footer-elves {
       background-image: url(img/footer-elves.svg);
