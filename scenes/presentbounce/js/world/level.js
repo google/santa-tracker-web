@@ -249,12 +249,11 @@ goog.scope(function () {
 
         // update Box2D physics simulation
         this.world_.Step(
-          1 / 60, // frame rate
+          delta, // frame duration
           8, // velocity iteration
           8  // position iteration
         );
 
-        
         // Draw all objects in the DOM
         this.drawFrame_();
         
@@ -263,7 +262,7 @@ goog.scope(function () {
 
         totalDelta -= delta;
       }
-      
+
       // let Box2D draw it's world using canvas.
       if (this.debug_) {
         this.world_.DrawDebugData();
