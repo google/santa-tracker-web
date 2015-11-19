@@ -269,7 +269,6 @@ $gridBorderWidth: 2px;
     border: $gridBorderWidth solid red;
   
     display: flex;
-    overflow: visible;
     
     .card {
       display: none;
@@ -290,7 +289,6 @@ $gridBorderWidth: 2px;
         background-repeat: no-repeat;
         background-position: 50% 50%;
         z-index: 2;
-        background-size: contain;
         
         a {
           width: 100%;
@@ -341,7 +339,6 @@ $gridBorderWidth: 2px;
         position: absolute;
         background-repeat: no-repeat;
         background-position: 50% 50%;
-        background-size: contain;
         z-index: 3;
       }
     }
