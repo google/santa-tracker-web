@@ -27,6 +27,15 @@ Postcard scene.
 <template>
   <google-legacy-loader on-api-load="googleAPIReady"></google-legacy-loader>
 
+  <style>
+    :host([mode="portal"]) #sharebutton {
+        display: none !important;
+    }
+    :host([mode="portal"]) .shareButtons {
+      display: none !important;
+    }
+  </style>
+
   <div id="module-postcard">
     <div class="scene">
       <div class="environment">

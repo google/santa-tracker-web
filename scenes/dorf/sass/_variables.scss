@@ -1,18 +1,23 @@
+$toolbar-size: 52px;
+
 $width-desktop: 1280px;
 $width-tablet: 768px;  // iPad in portrait
 $width-twocol: 600px;
+$width-bigheader: $width-twocol;
+$desktop-ratio: 0.8;
 
 // standard size of house at $width-desktop
-$height-house: 400px;
+$height-house: 320px;
 $height-link-size: 250px;
 $tablet-desktop-ratio: .6;
 
 // background sizes
-$ground-size-w: 1760px;
-$ground-size-h: 3440px;
-$road-size-w: 4000px;
-$road-size-h: 2930px;
-$road-top: 96px;
+$ground-size-w: 3519px * $desktop-ratio;
+$ground-size-h: 3441px * $desktop-ratio;
+$ground-top: 185px;
+$road-size-w: 4002px * $desktop-ratio;
+$road-size-h: 3057px * $desktop-ratio;
+$road-top: 106px;
 
 // nb: none of these %'s should be 0 or 100, and they should be in-order
 // TODO(samthor): Express these in timeframes and calc % based on that.
@@ -23,3 +28,7 @@ $skydive-fallto-pos: 240px;
 $skydive-land: 75%;
 $skydive-land-pos: 540px;
 $skydive-disappear: 95%;
+
+$hover-card-size: 282px;
+
+
