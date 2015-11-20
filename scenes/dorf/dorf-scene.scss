@@ -24,142 +24,36 @@ $gridBorderWidth: 0px;
     will-change: transform;
   }
 
-  #toolbar {
-    height: $toolbar-size;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    padding-left: 97px;
-    pointer-events: none;  // make sure scroll events pass through toolbar
+  #posser {
+    /*background: url(img/village-grid.png) no-repeat 50% 0;
+    background-size: 1293px auto;
+    height: 10000px;
 
-    #logo {
-      position: absolute;
-      left: 16px;
-      top: 16px;
-      width: 74px;
-      height: 24px;
-      background: url(img/google_logo.svg) center no-repeat;
-      background-size: contain;
-      background-size: 74px 24px;
-      font-size: 0;
-      line-height: 0;
-    }
-
-    h1 {
-      display: inline-block;
-      margin: 0;
-      font-family: 'Lobster', sans-serif;
-      font-size: 23px;
-      line-height: $toolbar-size;
-      font-weight: 300;
-      color: white;
-    }
-
-    div.shareicons {
-      padding: 8px;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      position: absolute;
-      font-size: 0;  // hide spacing between divs
-      pointer-events: auto;  // set these icons to be accessible again
-
-      > button {
-        border: 0;
-        margin: 0;
-        width: 68px;
-        height: 100%;
-        box-sizing: border-box;
-        padding: 4px;
-        position: relative;
-        display: inline-block;
-        border-left: 1px solid rgba(0,0,0,0.125);
-        background: transparent no-repeat center;
-        font-size: 0;
-        cursor: pointer;
-
-        &:first-child {
-          border-left: none;
-        }
-
-        &#gplus {
-          background-image: url(../shared/img/share-buttons/google.svg);
-        }
-        &#twitter {
-          background-image: url(../shared/img/share-buttons/twitter.svg);
-        }
-        &#facebook {
-          background-image: url(../shared/img/share-buttons/facebook.svg);
-        }
-
-        &::before {
-          z-index: -1;
-          content: "";
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 4px;
-          right: 4px;
-          bottom: 0;
-          border-radius: 2px;
-          background: rgba(0,0,0,.25);
-          opacity: 0;
-          transform: translateZ(0);
-          will-change: opacity;
-        }
-        &:hover::before {
-          opacity: 1;
-        }
-      }
-    }
-    @media (max-width: $width-bigheader) {
-      .shareicons {
-        display: none;
-      }
-    }
-
-    // Optional green background to header.
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: #87d493;  // or #30b443 to match theme-color
-      box-shadow: 0 2px 2px rgba(0,0,0,.25);
-      opacity: 0;
-      transition: opacity 0.125s;
-      z-index: -100;
-      transform: translateZ(0);
-      will-change: opacity;
-    }
-    &.down::before {
-      opacity: 1;
-    }
-  }
-
-  /*#posser {
-    background: url(img/village.png) no-repeat 50% 0;
-    background-size: 1600px * 0.8 4122px * 0.8;
-    height: 4122px;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-  }*/
+    */
+  }
 
   header {
+    // NOTE: This is intentionally not position: relative (or absolute, ...)
+    // so that we don't create a new z-index heirarchy. Conveniently, the
+    // <header> element is always shown at 0,0, so positioning is still easy.
     height: 385px;
     background: #47c6ee;
     background: linear-gradient(to bottom, rgba(61,218,242,1) 0%, rgba(140,232,248,1) 86%, rgba(153,234,249,1) 100%);
-    position: relative;
     z-index: 1;
     overflow: visible;
 
+    // By default, there's nothing user-interactable here.
+    // TODO(samthor): This is unsupported on IE10. So, the effect/text layer
+    // that overlaps the village will cause that overlapping area to be
+    // unreachable.
+    pointer-events: none;
+
     #header-background {
+      z-index: $base-background-z-index;
       height: 665px;
       background-image: url(img/header-bg.svg);
       background-repeat: repeat-x;
@@ -171,6 +65,7 @@ $gridBorderWidth: 0px;
 
     /** Contains all effects, like snow, the airplane etc. */
     #header-skyeffect {
+      z-index: $base-raised-z-index;
       position: absolute;
       width: 100%;
       height: 630px;
@@ -224,7 +119,7 @@ $gridBorderWidth: 0px;
       }
       .skydive {
         animation: #{$name}-skydive 40s infinite ease-in;
-        margin-left: calc(50% + 150px);
+        margin-left: calc(50% + 120px);
 
         > span {
           position: absolute;
@@ -235,6 +130,7 @@ $gridBorderWidth: 0px;
           animation-duration: inherit;
           animation-iteration-count: infinite;
         }
+
         .pegman-1 {
           width: 60px;
           height: 60px;
@@ -260,6 +156,7 @@ $gridBorderWidth: 0px;
     }
 
     #header-content {
+      z-index: $base-raised-z-index;
       position: absolute;
       width: 100%;
       height: 630px;
@@ -271,7 +168,6 @@ $gridBorderWidth: 0px;
       text-align: center;
       flex-direction: column;
       position: relative;
-      z-index: 2;
 
       #count-down {
         padding: 45px 0 30px 0;
@@ -354,10 +250,10 @@ $gridBorderWidth: 0px;
 
   /** Village flexbox */
   #village-all {
-    position: relative;
+    z-index: $base-background-z-index;
+    position: relative;  // nb. creates a z-index layer for children
     overflow: hidden;
     top: -30px;
-    z-index: 2;
     padding-bottom: 300px;
 
     #houses {
@@ -365,7 +261,6 @@ $gridBorderWidth: 0px;
       display: flex;
       flex-flow: wrap;
       align-items: flex-start;
-      position: relative;
       border-sizing: border-box;
       margin: 0 auto;
       width: $width-desktop;
@@ -611,6 +506,7 @@ $gridBorderWidth: 0px;
   }
 
   #village-footer {
+    z-index: $base-background-z-index;
     height: 700px;
     background-image: url(img/footer-bg.svg);
     background-repeat: repeat-x;
