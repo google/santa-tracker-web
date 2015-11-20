@@ -27,8 +27,8 @@ goog.require('app.world.LevelObject');
 goog.scope(function () {
   const Constants = app.Constants;
   const Unit = app.Unit;
-      
-    
+
+
   /**
    * Abtract Base Class - UserObject class
    * Add user controls such as drag / rotation to object
@@ -42,15 +42,22 @@ goog.scope(function () {
       super(...args); // super(...arguments) doesn't work in Closure Compiler
 
       this.$document = $(document);
-      this.wasDragged = false;
-      this.mouseJoint_ = null;
+      this.$rotateHandle = this.$el_.find('.js-rotate-handle');
 
+      this.isInteractive_ = false;
+      this.wasDragged = false;
+      this.wasRotated = false;
+
+      this.mouseJoint_ = null;
       this.startAngle_ = null;
       this.moveAngle_ = null;
       
       this.onDragStart_ = this.onDragStart_.bind(this);
       this.onDragMove_ = this.onDragMove_.bind(this);
       this.onDragEnd_ = this.onDragEnd_.bind(this);
+      this.onRotateHandleStart_ = this.onRotateHandleStart_.bind(this);
+      this.onRotateHandleMove_ = this.onRotateHandleMove_.bind(this);
+      this.onRotateHandleEnd_ = this.onRotateHandleEnd_.bind(this);
       
       this.addEventListeners_();
       this.buildReferenceBody_();
@@ -71,19 +78,10 @@ goog.scope(function () {
     }
 
     /**
-     * @private
+     * @protected
      */
-    addEventListeners_() {
-      this.$el_.on(app.InputEvent.START, this.onDragStart_);
-    }
-
-    /**
-     * @private
-     */
-    removeEventListeners_() {
-      this.$el_.off(app.InputEvent.START, this.onDragStart_);
-      this.$document.off(app.InputEvent.END, this.onDragEnd_);
-      this.$document.off(app.InputEvent.MOVE, this.onDragMove_);
+    onRotateEnd() {
+      // override in subclass
     }
 
     /**
@@ -102,10 +100,9 @@ goog.scope(function () {
      * Converts current mouse position to position inside Level element.
      *  - Offsets difference between Level container and window width
      *  - Scales x value based on overall scene scale
-     * @private
+     * @protected
      */
-    getMouseVector_(mouseX, mouseY) {
-
+    getMouseWorldVector(mouseX, mouseY) {
       const viewport = this.level_.getViewport();
       const windowWidth = viewport.windowWidth;
       const windowHeight = viewport.windowHeight;
@@ -120,7 +117,6 @@ goog.scope(function () {
       return new b2.Vec2(Unit.toWorld(x), Unit.toWorld(y));
     }
 
-
     /**
      * Calculate angle of two finger touch
      * @private
@@ -128,7 +124,6 @@ goog.scope(function () {
     getTouchRadianAngle_(e) {
       e = e.originalEvent ? e.originalEvent : e;
       if (e.touches && e.touches.length > 1) {
-
         const p1 = {x: e.touches[0].clientX, y: e.touches[0].clientY};
         const p2 = {x: e.touches[1].clientX, y: e.touches[1].clientY};
         return Math.atan2(p2.y - p1.y, p2.x - p1.x);
@@ -137,25 +132,172 @@ goog.scope(function () {
     }
 
     /**
+     * Calculate angle between mouse and body center
+     * @private
+     */
+    getHandleRadianAngle_(e) {
+      e = app.InputEvent.normalize(e);
+      const p1 = this.getMouseWorldVector(e.clientX, e.clientY);
+      const p2 = this.body_.GetPosition();
+      return Math.atan2(p2.y - p1.y, p2.x - p1.x);
+    }
+
+     /**
      * @inheritDoc
      */
-    onUserInteractionStart() {
-      super.onUserInteractionStart();
-      if (!this.mouseJoint_) {
-        // user started interacting with other user object - disable my listeners
-        this.removeEventListeners_();
+    update() {
+      // rotate using forces so we collide with other objects
+      if (this.isInteractive_) {
+
+        // magic taken from http://www.iforce2d.net/b2dtut/rotate-to-angle
+        const deltaAngle = this.startAngle_ - this.moveAngle_;
+        const desiredAngle = this.bodyStartAngle_ - deltaAngle;
+
+        const bodyAngle = this.body_.GetAngle();
+        const nextAngle = bodyAngle + this.body_.GetAngularVelocity() / 60.0;
+        
+        let totalRotation = desiredAngle - nextAngle;
+
+        const DEGTORAD = Math.PI / 180;
+        while ( totalRotation < -180 * DEGTORAD ) totalRotation += 360 * DEGTORAD;
+        while ( totalRotation >  180 * DEGTORAD ) totalRotation -= 360 * DEGTORAD;
+        const desiredAngularVelocity = totalRotation * 60;
+        const torque = this.body_.GetInertia() * desiredAngularVelocity / (1/60.0);
+        
+        this.body_.ApplyTorque( torque );
+        
+        // reset motion in case it collides somewhere
+        this.body_.SetLinearVelocity(new b2.Vec2(0, 0))
       }
     }
 
     /**
-     * @inheritDoc
+     * Applies current user rotation to body
+     * @private
      */
-    onUserInteractionEnd() {
-      super.onUserInteractionEnd();
-      if (!this.mouseJoint_) {
-        // Restore interaction listeners
-        this.addEventListeners_();
+    setRotation_() {
+      if (this.startAngle_ === null) {
+        this.startAngle_ = this.moveAngle_;
+        this.wasRotated = true;
       }
+      else {
+        // Rotation happens in update() using forces so we collide with other objects
+      }
+    }
+    
+
+    /**
+     * Creates a MouseJoint which moves the object to the mouse pointer
+     * @private
+     */
+    createMouseJoint_(e) {
+      // hack to prevent tunneling - breaks any contacts and wakes the other bodies
+      const x = this.body_.GetPosition().x;
+      const y = this.body_.GetPosition().y;
+      this.body_.SetPosition( new b2.Vec2(0, 0));
+      this.body_.SetPosition( new b2.Vec2(x, y));
+
+      // don't allow rotation while dragging
+      this.body_.SetFixedRotation(false);
+
+      // create mouse joint
+      const def = new b2.MouseJointDef();
+      def.bodyA = this.ground_;
+      def.bodyB = this.body_;
+      def.target = this.getMouseWorldVector(e.clientX, e.clientY)
+
+      def.collideConnected = false; // no need to collide with fake ground object
+      def.maxForce = 10000 * this.body_.GetMass();
+      def.dampingRatio = 0.5;
+      def.frequencyHz = 5;
+
+      this.mouseJoint_ = this.world_.CreateJoint(def);
+    }
+
+    /**
+     * Shared logic to set object in interactive mode 
+     * (i.e user is interacting with this object)
+     * @private
+     */
+    enterInteractiveMode_() {
+      this.isInteractive_ = true;
+      this.startAngle_ = null;
+      this.moveAngle_ = null;
+      this.bodyStartAngle_ = this.body_.GetAngle();
+
+      // notify all other objects that user is interacting with an object
+      // (e.g. will turn off restitution on all fixtures while dragging)
+      this.level_.onUserInteractionStart();
+
+      // change type to dynamic so it can be moved
+      this.body_.SetType( b2.BodyDef.b2_dynamicBody );
+    }
+
+    /**
+     * Shared logic to cancel object interactive mode 
+     * (i.e user stops interacting with this object)
+     * @private
+     */
+    exitInteractiveMode_() {
+      // notify all other objects that user stopped interacting with an object
+      this.body_.SetType( b2.BodyDef.b2_staticBody );
+      this.level_.onUserInteractionEnd();
+      this.isInteractive_ = false;
+
+      // call protected methods based on what happened
+      if (this.wasDragged) {
+        this.onDragEnd();
+      }
+      if (this.wasRotated) {
+        this.onRotateEnd();
+      }
+      // trigger tap if nothing else happened
+      if (!this.wasDragged && !this.wasRotated) {
+        this.onTapEnd();
+      }
+
+      this.wasDragged = false
+      this.wasRotated = false
+    }
+
+    /**
+     * Callend when user starts dragging Rotation handle (red icon)
+     *  - bind listeners for move/end
+     * @private
+     */
+    onRotateHandleStart_(e) {
+      e.stopPropagation();
+      e = app.InputEvent.normalize(e);
+
+      // change type to dynamic so it can be moved
+      this.body_.SetType( b2.BodyDef.b2_dynamicBody );
+
+      this.enterInteractiveMode_();
+
+      this.$document.on(app.InputEvent.MOVE, this.onRotateHandleMove_);
+      this.$document.on(app.InputEvent.END, this.onRotateHandleEnd_);
+    }
+
+
+    /**
+     * Called for each move event of the Rotation handle
+     * @private
+     */
+    onRotateHandleMove_(e) {
+      this.moveAngle_ = this.getHandleRadianAngle_(e);
+      if (this.moveAngle_ !== null) {
+        this.setRotation_();
+      }
+    }
+
+    /**
+     * Called when user releases the Rotation handle
+     * @private
+     */
+    onRotateHandleEnd_(e) {
+      this.$document.off(app.InputEvent.MOVE, this.onRotateHandleMove_);
+      this.$document.off(app.InputEvent.END, this.onRotateHandleEnd_);
+      this.exitInteractiveMode_();
     }
 
 
@@ -167,66 +309,34 @@ goog.scope(function () {
      */
     onDragStart_(e) {
       e = app.InputEvent.normalize(e);
-      this.startAngle_ = null;
-      this.moveAngle_ = null;
-      this.bodyStartAngle_ = this.body_.GetAngle();
+      this.enterInteractiveMode_();
 
       if (!this.mouseJoint_) {
-        this.$document.on(app.InputEvent.END, this.onDragEnd_);
         this.$document.on(app.InputEvent.MOVE, this.onDragMove_);
+        this.$document.on(app.InputEvent.END, this.onDragEnd_);
         
-        // change type to dynamic so it can be moved
-        this.body_.SetType( b2.BodyDef.b2_dynamicBody );
-
-        // hack to prevent tunneling - breaks any contacts and wakes the other bodies
-        const x = this.body_.GetPosition().x;
-        const y = this.body_.GetPosition().y;
-        this.body_.SetPosition( new b2.Vec2(0, 0));
-        this.body_.SetPosition( new b2.Vec2(x, y));
-
-        // don't allow rotation while dragging
-        this.body_.SetFixedRotation(true);
-
-        // create mouse joint
-        const def = new b2.MouseJointDef();
-        def.bodyA = this.ground_;
-        def.bodyB = this.body_;
-        def.target = this.getMouseVector_(e.clientX, e.clientY)
-
-        def.collideConnected = false; // no need to collide with fake ground object
-        def.maxForce = 10000 * this.body_.GetMass();
-        def.dampingRatio = 0.5;
-        def.frequencyHz = 5;
-
-        this.mouseJoint_ = this.world_.CreateJoint(def);
-        
-        // notify all other objects that user is interacting with an object
-        // (e.g. will turn off restitution on all fixtures while dragging)
-        this.level_.onUserInteractionStart();
+        // create mouseJoint which will drag the object using physics
+        this.createMouseJoint_(e);
       }
     }
 
     /**
+     * Handles draggin move events + touch rotation
      * @private
      */
     onDragMove_(e) {
       this.moveAngle_ = this.getTouchRadianAngle_(e);
       e = app.InputEvent.normalize(e);
-      // make sure this object is the one with the mouseJoint
-      if (this.mouseJoint_) {
-        // check if we should rotate
-        if (this.moveAngle_ !== null) {
-          if (this.startAngle_ === null) {
-            this.startAngle_ = this.moveAngle_;
-          }
-          else {
-            const deltaAngle = this.startAngle_ - this.moveAngle_;
-            this.body_.SetAngle( this.bodyStartAngle_ - deltaAngle );
-          }
+      // check if we should rotate
+      if (this.moveAngle_ !== null) {
+        this.setRotation_();
+      }
+      // else drag to location
+      else {
+        if (this.mouseJoint_) {
+          this.wasDragged = true;
+          this.mouseJoint_.SetTarget( this.getMouseWorldVector(e.clientX, e.clientY) );
         }
-        // drag to location
-        this.wasDragged = true;
-        this.mouseJoint_.SetTarget( this.getMouseVector_(e.clientX, e.clientY) );
       }
     }
 
@@ -234,26 +344,60 @@ goog.scope(function () {
      * @private
      */
     onDragEnd_() {
-      this.$document.off(app.InputEvent.END, this.onDragEnd_);
       this.$document.off(app.InputEvent.MOVE, this.onDragMove_);
+      this.$document.off(app.InputEvent.END, this.onDragEnd_);
       
       this.body_.SetFixedRotation(false);
-      this.body_.SetType( b2.BodyDef.b2_staticBody );
-      this.level_.onUserInteractionEnd();
+      this.exitInteractiveMode_();
       
       if (this.mouseJoint_) {
         this.world_.DestroyJoint(this.mouseJoint_);
         this.mouseJoint_ = null;
       }
-
-      if (this.wasDragged) {
-        this.wasDragged = false
-        this.onDragEnd();
-      }
-      else {
-        this.onTapEnd();
-      }  
     }
+
+    /**
+     * @inheritDoc
+     */
+    onUserInteractionStart() {
+      super.onUserInteractionStart();
+      if (!this.isInteractive_) {
+        // user started interacting with other user object - disable my listeners
+        this.removeEventListeners_();
+      }
+    }
+
+    /**
+     * @inheritDoc
+     */
+    onUserInteractionEnd() {
+      super.onUserInteractionEnd();
+      if (!this.isInteractive_) {
+        // Restore interaction listeners
+        this.addEventListeners_();
+      }
+    }
+    /**
+     * @private
+     */
+    addEventListeners_() {
+      this.$el_.on(app.InputEvent.START, this.onDragStart_);
+      this.$rotateHandle.on(app.InputEvent.START, this.onRotateHandleStart_);
+    }
+
+    /**
+     * @private
+     */
+    removeEventListeners_() {
+      this.$el_.off(app.InputEvent.START, this.onDragStart_);
+      this.$document.off(app.InputEvent.MOVE, this.onDragMove_);
+      this.$document.off(app.InputEvent.END, this.onDragEnd_);
+      
+      this.$rotateHandle.off(app.InputEvent.START, this.onRotateHandleStart_);
+      this.$document.off(app.InputEvent.MOVE, this.onRotateHandleMove_);
+      this.$document.off(app.InputEvent.END, this.onRotateHandleEnd_);
+    }
+
 
     /**
      * public

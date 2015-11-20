@@ -123,6 +123,7 @@ goog.scope(function () {
     }
 
     /**
+     * Add custom forces before World step
      * @public
      */
     update() {

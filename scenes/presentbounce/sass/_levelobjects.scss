@@ -94,19 +94,31 @@
     &.js-animation-reverse .wheel {
       animation-direction: reverse;
     }
-
-    // &:hover {
-    //   &:after {
-    //     position: absolute;
-    //     content: "";
-    //     width: 100px;
-    //     height: 100px;
-    //     outline: 1px solid red;
-    //     top: -50px;
-    //     right: -50px;
-    //   }
-    // }
   }
+
+  // ROTATION
+  .object__rotate-handle {
+    position: absolute;
+    content: "";
+    bottom: 100%;
+    padding: 2% 2% 0% 10%;
+    right: -5%;
+    text-align: right;
+    cursor: nwse-resize;
+    svg {
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+    }
+    opacity: 0;
+    transition: opacity 150ms;
+  }
+  .object:hover {
+    .object__rotate-handle {
+      opacity: 1;
+    }
+  }
+
 
   &.frozen,
   .js-animation-paused {
