@@ -1,0 +1,494 @@
+$name: 'module-press';
+
+@import "../shared/sass/sceneboard";
+
+##{$name} {
+  background: #F7FCFB;
+  height: 100vh;
+  overflow: auto;
+  
+  .clearfix {
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+  .square {
+    &:before {
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
+  }
+   
+  .rect {
+    &:before {
+      content: "";
+      display: block;
+      padding-top: 20%;
+    }
+  }    
+  
+  #press-banner {
+    display: block;
+    height: 315px;
+  }
+
+  .sceneboard {
+    height: 45px;
+    background: #9ece2b;
+  }
+
+  .sceneboard-back {
+    border-radius: 0 0 4px 4px;
+  }
+
+  #press-header, #press-description  {
+    width: 980px;
+    margin: 0 auto;
+  }
+
+  #press-content {
+    a {
+      color: #263238;
+    }
+    
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-family: 'Lobster', sans-serif;
+  		font-size: 115px;
+  		font-weight: normal;
+      margin: 10px;  		
+  		float: left;
+  		color: #fff;
+  		&::first-letter {
+  		  font-size: 161px;
+        vertical-align: middle;
+  		}	
+    }
+    
+    h2 {
+      margin: 0;
+      padding: 0;
+      font-family: 'Lobster', sans-serif;
+      font-weight: normal;
+      font-size: 48px;
+      color: #9575CD;      
+    }
+
+    h3 {
+      margin: 0;
+      padding: 0;
+      font-weight: 600;
+      font-size: 26px;
+      color: #fff;
+    }
+    
+    h4 {
+      margin: 0;
+      padding: 0; 
+      font-size: 22px;
+    }
+      
+    p {
+      font-size: 20px;
+      font-wight: normal;
+      line-height: 32px;
+      color: #263238;
+    }
+    
+    button {
+      outline: none;
+    }
+    
+    .press-card {
+      width: 50%;
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: 0 3px 5px #ddd;
+      text-align: left;
+      .press-card-img {
+        height: 265px;
+        background: url(img/tmb-santas-village.jpg) 50% 50% no-repeat;
+        background-size: cover;    
+        border-radius: 5px 5px 0 0;  
+        color: #fff;   
+        .press-card-img-txt {
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          background: rgba(0, 172, 193, .5);
+          .press-card-lock {
+            width: 100%;
+            height: 100%; 
+            background: url(img/ic-lock-32px_2x.png) 50% 50% no-repeat; 
+            background-size: 10% auto;
+            padding-top: 25px;            
+            .press-card-unlock {
+              text-transform: uppercase;
+              font-size: 16px;
+              font-weight: 600;
+            }
+            .press-card-unlock-day {
+              font-family: 'Lobster', sans-serif;
+              font-weight: normal;
+              font-size: 40px;
+              vertical-align: bottom;              
+              span {
+                font-size: 30px;
+                vertical-align: bottom;
+              }
+            }  
+          }      
+        }
+      }
+      .press-card-info {
+        color: #546E7A;
+        padding: 25px;
+        h2 {
+          margin-bottom: 50px;
+        }
+        span {
+          color: #90A4AE;
+        }
+        p, span {
+          font-size: 14px;
+          line-height: 25px;
+        }
+        .press-card-links {
+          @extend .clearfix;
+          a {
+            width: 100%;
+            display: block;
+            padding: 10px 0 10px 35px;
+            font-size: 14px;
+            text-decoration: none;
+            box-sizing: border-box;
+            color: #00ACC1;            
+            span {
+              font-size: 10px;
+            }
+          } 
+          .press-card-dl {
+            background: url(img/ic-download-18px_2x.png) 0 50% no-repeat;  
+            background-size: auto 50%;                       
+          } 
+          .press-card-play {
+            background: url(img/ic-video-18px_2x.png) 0 50% no-repeat;  
+            background-size: auto 50%;  
+          }        
+          .press-card-title {
+            color: #546E7A;
+            font-weight: 600;
+            display: block;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #90A4AE;
+          }  
+          .press-card-links-half {
+            width: 50%;
+            float: left;
+          }
+          .press-card-links-full {
+            width: 100%;
+            float: left;
+          }          
+        }
+      }
+    }     
+    
+    #press-hero {
+      background: url(img/bg-press-page-hero.png) 50% 50% no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 900px;
+      padding: 20px 0 0 0;
+      #press-header {
+        background: url(img/title-bg-swirl_2x.png) 50% 50% no-repeat;
+        background-size: contain;
+        padding: 30px 0 50px 0;
+        width: 100%;
+        text-align: center;
+        #press-title {
+          display: inline-block;        
+      	  transform: rotate(-5deg);  
+          @extend .clearfix;
+        }
+      }
+      h3 {
+        margin-top: -10px;        
+        color: #fff;
+      }
+      #press-description {
+        @extend .clearfix;        
+        #press-description-left {
+          width: 25%;
+          float: left;
+          padding: 30px 0 0 0;
+          .square {
+            width: 100%;
+            background: url(img/illust-reporter_2x.png) 50% 50% no-repeat;
+            background-size: contain;
+          }          
+        }
+        #press-description-right {
+          width: 75%;
+          float: left;
+        }
+      }      
+    }
+    
+    #press-sec-2 {
+      height: 500px;
+      width: 100%;
+      @extend .clearfix;
+      h2, p {
+        color: #fff;
+      }
+      .press-sec-2-inner {
+        width: 75%;
+        margin: 0 auto;
+        text-align: center;
+        p {
+          font-size: 16px;
+        }
+      }                   
+      #press-sec-2-left {
+        width: 50%;  
+        height: 100%;
+        background: #17CC82;
+        float: left;  
+        padding: 25px 0;
+        .rect {
+          width: 100%;
+          background: url(img/illust-educational_2x.png) 50% 50% no-repeat;
+          background-size: contain; 
+          margin: 5% 0;                         
+        }
+      }
+      #press-sec-2-right {
+        width: 50%;  
+        height: 100%;
+        background: #9575CD;
+        float: left;
+        padding: 25px 0;
+        .rect {
+          width: 100%;
+          background: url(img/illust-new-in2015_2x.png) 50% 50% no-repeat;
+          background-size: contain;
+          margin: 5% 0;
+        }                  
+      }      
+    } 
+
+    #press-sec-3 {
+      text-align: center;
+      padding: 100px 0 0 0;
+      h2 {
+        margin-bottom: 50px;
+      }
+      #press-sec-3-inner {
+        width: 980px;
+        margin: 0 auto;
+      }       
+    } 
+    
+    #press-sec-4 {
+      text-align: center;
+      padding: 100px 0 100px 0; 
+      h2 {
+        margin-bottom: 25px;
+      }
+      .press-card {
+        width: 33%; 
+        .press-card-img {
+          height: 175px;
+        }
+      }       
+      #press-sec-4-inner {
+        width: 980px;
+        margin: 0 auto;
+        #press-card-tabs {
+          padding-bottom: 50px;
+          button {
+            background: none;
+            border: none;
+            font-size: 14px;
+            color: #9575CD;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 20px;
+          }
+          #press-card-button-1:hover, #press-card-button-1.active  {
+            background: url(img/tab-bg_view-all_2x.png) 50% 50% no-repeat;
+            background-size: contain;
+          } 
+          #press-card-button-2:hover, #press-card-button-2.active  {
+            background: url(img/tab-bg_education_2x.png) 50% 50% no-repeat;
+            background-size: contain; 
+          } 
+          #press-card-button-3:hover, #press-card-button-3.active {
+            background: url(img/tab-bg_new-in-2015_2x.png) 50% 50% no-repeat;
+            background-size: contain;
+          }                              
+        }        
+      }            
+    } 
+    
+    #press-sec-5 {
+      background: #9575CD;
+      text-align: center;
+      padding: 100px 0;
+      #press-sec-5-inner {
+        width: 640px;
+        margin: 0 auto;
+      }  
+      a {
+        color: #80DEEA;
+        text-decoration: none;
+      }
+      p {
+        font-size: 16px;
+        color: #fff;
+      }
+      .rect {
+        background: url(img/illust-embed_2x.png) 50% 50% no-repeat;
+        background-size: contain;
+      }
+    } 
+    
+    #press-sec-6 {
+      text-align: center; 
+      padding: 50px 0;           
+      h3, h4, p {
+        color: #607D8B;
+      }
+      h3 {
+        font-weight: 600;
+      }
+      p {
+        font-size: 16px;
+        line-height: 24px;
+      }
+      a {
+        font-size: 16px;
+        color: #00ACC1;
+        text-decoration: none;
+      }
+      .press-device {
+        width: 980px; 
+        margin: 0 auto;
+        @extend .clearfix;
+        #press-device-1 {
+          background: url(img/illust-chromecast_2x.png) 50% 50% no-repeat;
+          background-size: contain;          
+        } 
+        #press-device-2 {
+          background: url(img/illust-mobile-app_2x.png) 50% 50% no-repeat;
+          background-size: contain;                            
+        } 
+        #press-device-3 {
+          background: url(img/illust-wear_2x.png) 50% 50% no-repeat;
+          background-size: contain;                    
+        }
+        #press-device-4 {
+          background: url(img/illust-web-optimized_2x.png) 50% 50% no-repeat;
+          background-size: contain;                    
+        } 
+        #press-device-5 {
+          background: url(img/illust-web-cardboard_2x.png) 50% 50% no-repeat;
+          background-size: contain;                         
+        }
+        .press-device-square {
+          width: 20%;
+          float: left;
+          text-align: center;
+          padding: 0 20px;
+          box-sizing: border-box;
+          .square {
+            width: 100%;
+            margin: 25px 0;
+          }           
+        }        
+      }       
+    } 
+    
+    #press-sec-7 { 
+      background: #17CC82;
+      text-align: center;
+      padding: 100px;
+      p {
+        color: #fff;
+        padding-bottom: 25px;
+        font-size: 16px;
+      } 
+      button {
+        background: #FFBE26;        
+        height: 50px;
+        color: #fff;
+        width: 250px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+      }        
+    }
+    
+    footer {
+      height: 70px;
+      color: #fff;      
+      background: #27ba83;
+      @extend .clearfix;
+      #footer-inner {
+        width: 980px;
+        margin: 0 auto;
+        a {
+          color: #fff;
+          text-decoration: none;
+        }
+        #footer-left, #footer-right {
+          width: 50%;
+          float: left;
+          line-height: 75px;
+        }  
+        #footer-left {
+          text-align: left; 
+          span {
+            margin-left: 15px;
+          }           
+        } 
+        #footer-right {     
+          text-align: right;
+          span {
+            margin-right: 15px;
+          }
+          button {
+            float: right; 
+            height: 45px;
+            width: 45px;
+            border: none;
+            border-radius: 5px;
+            margin: 15px 15px 15px 0         
+          }
+          .footer-g-plus {
+            background: #17CC82 url(img/ic-g-plus_32px_2x.png) 50% 50% no-repeat;
+            background-size: auto 80%;  
+          }
+          .footer-twitter {
+            background: #17CC82 url(img/ic-twitter_32px_2x.png) 50% 50% no-repeat;
+            background-size: auto 80%;
+          }    
+          .footer-facebook {
+            background: #17CC82 url(img/ic-facebook_32px_2x.png) 50% 50% no-repeat;
+            background-size: auto 80%;
+          } 
+          .footer-email {
+            background: #17CC82 url(img/ic-email_32px_2x.png) 50% 50% no-repeat;
+            background-size: auto 80%;
+          }                    
+        }
+      }
+    }
+  }  
+}
