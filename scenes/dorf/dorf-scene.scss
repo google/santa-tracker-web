@@ -414,7 +414,6 @@ $name: 'module-dorf';
 
   .house {
     position: relative;
-    box-sizing: border-box;
     width: $width-desktop / 4;
     height: $height-house;
 
@@ -498,8 +497,18 @@ $name: 'module-dorf';
 
   /** Tablet/desktop specific styles. */
   @media (min-width: $width-tablet) {
+    .assets {
+      // This is the same size as its parent, but ties in with _houses setting
+      // z-index here. This ensures that building/ice is layered correctly with
+      // other village things like easter eggs.
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
     .card {
       // TODO(samthor): Use sizing from _houses; just a quick hack for now.
+      // Restore layerX/layerY position.
       width: 50%;
       height: 50%;
       left: 25%;
