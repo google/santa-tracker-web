@@ -194,6 +194,9 @@ Santa Tracker app.
         path$="scenes/windtunnel/windtunnel-scene_[[language]].html"
         loading-bg-color="rgb(129,208,0)"></windtunnel-scene>
 
+    <press-scene route="press"
+        path$="scenes/press/press-scene_[[language]].html"></press-scene>
+
   </lazy-pages>
 
 </template>
@@ -208,7 +211,7 @@ var TRACKER_ROUTE = 'tracker';
 
 // Routes/scenes which should always be accessible, no matter what the day.
 // These scenes are also not removed from the lazy-page switching.
-var PERMANENT_ROUTES = ['village', 'about'];
+var PERMANENT_ROUTES = ['village', 'about', 'press'];
 
 var VIDEO_ROUTES = [
   'trailer', 'carpool', 'liftoff', 'jingle', 'satellite', 'temptation',
