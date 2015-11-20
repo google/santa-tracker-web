@@ -34,7 +34,7 @@ goog.scope(function () {
    * Add user controls such as drag / rotation to object
    */
   class UserObject extends app.world.LevelObject {
-    
+
     /**
      * @override
      */
@@ -51,14 +51,11 @@ goog.scope(function () {
       this.mouseJoint_ = null;
       this.startAngle_ = null;
       this.moveAngle_ = null;
-      
+
       this.onDragStart_ = this.onDragStart_.bind(this);
       this.onDragMove_ = this.onDragMove_.bind(this);
       this.onDragEnd_ = this.onDragEnd_.bind(this);
-      this.onRotateHandleStart_ = this.onRotateHandleStart_.bind(this);
-      this.onRotateHandleMove_ = this.onRotateHandleMove_.bind(this);
-      this.onRotateHandleEnd_ = this.onRotateHandleEnd_.bind(this);
-      
+
       this.addEventListeners_();
       this.buildReferenceBody_();
     }
@@ -110,7 +107,7 @@ goog.scope(function () {
 
       const offsetX = (windowWidth - Constants.CANVAS_WIDTH*scale) / 2;
       const offsetY = (windowHeight - Constants.CANVAS_HEIGHT*scale) / 2;
-      
+
       const x = (mouseX - offsetX) / scale;
       const y = (mouseY - offsetY) / scale;
 
@@ -215,8 +212,9 @@ goog.scope(function () {
     }
 
     /**
-     * Shared logic to set object in interactive mode 
-     * (i.e user is interacting with this object)
+     * Main handler for user interaction
+     *  - creates a mouseJoint for moving the object
+     *  - bind listeners for move/end
      * @private
      */
     enterInteractiveMode_() {
@@ -225,9 +223,12 @@ goog.scope(function () {
       this.moveAngle_ = null;
       this.bodyStartAngle_ = this.body_.GetAngle();
 
-      // notify all other objects that user is interacting with an object
-      // (e.g. will turn off restitution on all fixtures while dragging)
-      this.level_.onUserInteractionStart();
+      if (!this.mouseJoint_) {
+        this.$document.on(app.InputEvent.END, this.onDragEnd_);
+        this.$document.on(app.InputEvent.MOVE, this.onDragMove_);
+
+        // change type to dynamic so it can be moved
+        this.body_.SetType( b2.BodyDef.b2_dynamicBody );
 
       // change type to dynamic so it can be moved
       this.body_.SetType( b2.BodyDef.b2_dynamicBody );
@@ -260,63 +261,11 @@ goog.scope(function () {
       this.wasRotated = false
     }
 
-    /**
-     * Callend when user starts dragging Rotation handle (red icon)
-     *  - bind listeners for move/end
-     * @private
-     */
-    onRotateHandleStart_(e) {
-      e.stopPropagation();
-      e = app.InputEvent.normalize(e);
+        this.mouseJoint_ = this.world_.CreateJoint(def);
 
-      // change type to dynamic so it can be moved
-      this.body_.SetType( b2.BodyDef.b2_dynamicBody );
-
-      this.enterInteractiveMode_();
-
-      this.$document.on(app.InputEvent.MOVE, this.onRotateHandleMove_);
-      this.$document.on(app.InputEvent.END, this.onRotateHandleEnd_);
-    }
-
-
-    /**
-     * Called for each move event of the Rotation handle
-     * @private
-     */
-    onRotateHandleMove_(e) {
-      this.moveAngle_ = this.getHandleRadianAngle_(e);
-      if (this.moveAngle_ !== null) {
-        this.setRotation_();
-      }
-    }
-
-    /**
-     * Called when user releases the Rotation handle
-     * @private
-     */
-    onRotateHandleEnd_(e) {
-      this.$document.off(app.InputEvent.MOVE, this.onRotateHandleMove_);
-      this.$document.off(app.InputEvent.END, this.onRotateHandleEnd_);
-      this.exitInteractiveMode_();
-    }
-
-
-    /**
-     * Main handler for user interaction 
-     *  - creates a mouseJoint for moving the object
-     *  - bind listeners for move/end
-     * @private
-     */
-    onDragStart_(e) {
-      e = app.InputEvent.normalize(e);
-      this.enterInteractiveMode_();
-
-      if (!this.mouseJoint_) {
-        this.$document.on(app.InputEvent.MOVE, this.onDragMove_);
-        this.$document.on(app.InputEvent.END, this.onDragEnd_);
-        
-        // create mouseJoint which will drag the object using physics
-        this.createMouseJoint_(e);
+        // notify all other objects that user is interacting with an object
+        // (e.g. will turn off restitution on all fixtures while dragging)
+        this.level_.onUserInteractionStart();
       }
     }
 
@@ -346,10 +295,12 @@ goog.scope(function () {
     onDragEnd_() {
       this.$document.off(app.InputEvent.MOVE, this.onDragMove_);
       this.$document.off(app.InputEvent.END, this.onDragEnd_);
-      
+      this.$document.off(app.InputEvent.MOVE, this.onDragMove_);
+
       this.body_.SetFixedRotation(false);
-      this.exitInteractiveMode_();
-      
+      this.body_.SetType( b2.BodyDef.b2_staticBody );
+      this.level_.onUserInteractionEnd();
+
       if (this.mouseJoint_) {
         this.world_.DestroyJoint(this.mouseJoint_);
         this.mouseJoint_ = null;
@@ -364,6 +315,9 @@ goog.scope(function () {
       if (!this.isInteractive_) {
         // user started interacting with other user object - disable my listeners
         this.removeEventListeners_();
+      }
+      else {
+        this.onTapEnd();
       }
     }
 

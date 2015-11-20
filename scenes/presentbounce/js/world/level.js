@@ -63,7 +63,39 @@ goog.scope(function () {
       this.debug_ = !!location.search.match(/[?&]debug=true/);
 
       this.buildWorld_();
+
+      // collision detection
+      const listener = new b2.ContactListener;
+      listener.BeginContact = this.onBeginContact_;
+      listener.EndContact = this.onEndContact_;
+      listener.PostSolve = this.onPostSolve_;
+      listener.PreSolve = this.onPreSolve_;
+
+      this.world_.SetContactListener( listener );
+
       this.init_();
+    }
+
+    onBeginContact_(contact) {
+      const bodyA = contact.GetFixtureA().GetBody();
+      const bodyB = contact.GetFixtureB().GetBody();
+
+      if (bodyA && typeof bodyA.collisionCallback === 'function') {
+        bodyA.collisionCallback();
+      }
+
+      if (bodyB && typeof bodyB.collisionCallback === 'function') {
+        bodyB.collisionCallback();
+      }
+    }
+
+    onEndContact_(contact) {
+    }
+
+    onPostSolve_(contact, impulse) {
+    }
+
+    onPreSolve_(contact, oldManifold) {
     }
 
     positionWrapperElement_(el) {

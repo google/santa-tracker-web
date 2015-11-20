@@ -20,7 +20,7 @@ goog.provide('app.world.LevelObject');
 goog.require('b2');
 goog.require('app.Constants');
 goog.require('app.Unit');
-  
+
 
 goog.scope(function () {
   const Constants = app.Constants;
@@ -45,7 +45,7 @@ goog.scope(function () {
 
       this.hasRendered_ = false;
       this.initialWorldPos_ = Unit.relativeWorld(this.config_.relX, this.config_.relY);
-      
+
       // Create DOM elements
       this.shadowEl_ = this.createShadowDOMNode_();
       this.el_ = this.createTextureDOMNode_();
@@ -59,8 +59,7 @@ goog.scope(function () {
      * @protected
      */
     registerForCollisions(callback) {
-      // TODO set callback on Box2D body user data
-      //this.body_.UserData.callback = callback;
+      this.body_.collisionCallback = callback;
     }
 
     /**
