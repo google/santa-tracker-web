@@ -17,8 +17,8 @@
 
 goog.provide('app.world.UserObject');
 
-goog.require('app.InputEvent');
 goog.require('b2');
+goog.require('app.InputEvent');
 goog.require('app.Constants');
 goog.require('app.Unit');
 goog.require('app.world.LevelObject');

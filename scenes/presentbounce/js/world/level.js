@@ -19,6 +19,7 @@ goog.provide('app.world.Level');
 
 goog.require('b2');
 goog.require('app.Constants');
+goog.require('app.world.Dropper');
 goog.require('app.world.Target');
 goog.require('app.world.CandyCane');
 goog.require('app.world.ConveyorBelt');
@@ -27,6 +28,7 @@ goog.require('app.world.Spring');
 
 goog.scope(function () {
   const Constants = app.Constants;
+  const Dropper = app.world.Dropper;
   const Target = app.world.Target;
   const CandyCane = app.world.CandyCane;
   const ConveyorBelt = app.world.ConveyorBelt;
@@ -55,6 +57,7 @@ goog.scope(function () {
       this.levelObjects_ = [];
       this.world_ = null
       this.ball_ = null;
+      this.dropper_ = null;
       this.target_ = null;
       this.isLevelLoaded_ = false;
       this.debug_ = !!location.search.match(/[?&]debug=true/);
@@ -113,20 +116,15 @@ goog.scope(function () {
       this.isLevelLoaded_ = true;
       this.buildLevelObjects_();
       this.buildUserObjects_();
-
-
-      // TEMP FOR TESTING
-      setTimeout( () => {
-        console.log('DROP');
-        this.dropBall();
-      }, 500)
     }
 
     /**
      * @private
      */
     buildLevelObjects_() {
+      this.dropper_ = new Dropper(this, this.world_, this.levelData_.dropper);
       this.target_ = new Target(this, this.world_, this.levelData_.target);
+      this.levelObjects_.push(this.dropper_);
       this.levelObjects_.push(this.target_);
 
       for (let itemData of this.levelData_.fixedObjects) {
@@ -155,6 +153,8 @@ goog.scope(function () {
     dropBall() {
       //debugEl.innerHTML = 'Debug: ball dropped';
       this.destroyBall();
+
+      // create ball - use position from dropper
       const ballData = this.levelData_.ball;
       this.ball_ = new ballData.objectType(this, this.world_, ballData);
     }
@@ -164,7 +164,7 @@ goog.scope(function () {
      */
     destroyBall() {
       if (this.ball_) {
-        console.log('DESTROY BALL', this.ball_, this.ball_.el_);
+        console.log('DESTROY BALL');
         this.ball_.destroy();
         this.ball_ = null;
       }
@@ -279,6 +279,10 @@ goog.scope(function () {
      * @public
      */
     onUserInteractionStart() {
+      
+      // user not allowed to play while moving stuff
+      this.destroyBall();
+
       for (let object of this.levelObjects_) {
         object.onUserInteractionStart();
       }

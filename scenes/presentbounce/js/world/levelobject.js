@@ -96,14 +96,22 @@ goog.scope(function () {
       let height = this.config_.style.height
       const padding = this.config_.style.padding;
 
+
       // DOM element can have optional padding around Box2d body
       width = padding ? width + padding*2 : width;
       height = padding ? height + padding*2 : height;
+
+      // margin top is -50% of height by default - can be overriden
+      let marginTop = height * -0.5;
+      if (typeof this.config_.style.marginTop !== 'undefined') {
+        marginTop = this.config_.style.marginTop;
+      }
       
       // Set to Box2D body dimension and offset center of gravity
       el.style.width = width + 'px';
       el.style.height = height + 'px';
-      el.style.marginTop = (height * -0.5) + 'px';
+
+      el.style.marginTop = marginTop + 'px';
       el.style.marginLeft = (width * -0.5) + 'px';
     }
 

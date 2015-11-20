@@ -31,11 +31,17 @@ app.config.Levels = [
   // level 1
   {
     ball: {
-      material: app.config.Materials.snowGlobe,
-      style: app.config.Styles.snowGlobe,
-      objectType: app.world.SnowGlobe,
-      relX: 0.24,
-      relY: 0
+      material: app.config.Materials.present,
+      style: app.config.Styles.presentCircle,
+      objectType: app.world.CircleBall,
+      relX: 0.2,
+      relY: 0.0
+    },
+    dropper: {
+      material: app.config.Materials.fixedObject,
+      style: app.config.Styles.dropper,
+      relX: 0.2,
+      relY: 0.1
     },
     target: {
       material: app.config.Materials.target,
@@ -121,14 +127,21 @@ app.config.Levels = [
       }
     ]
   },
+
   // level 2
   {
     ball: {
       material: app.config.Materials.present,
       style: app.config.Styles.presentCircle,
       objectType: app.world.CircleBall,
-      relX: 0.24,
-      relY: 0
+      relX: 0.2,
+      relY: 0.0
+    },
+    dropper: {
+      material: app.config.Materials.fixedObject,
+      style: app.config.Styles.dropper,
+      relX: 0.2,
+      relY: 0.1
     },
     target: {
       material: app.config.Materials.target,
@@ -140,6 +153,7 @@ app.config.Levels = [
     conveyorBelts: [],
     springs: []
   },
+
   // level 3
   {
     ball: {
@@ -159,14 +173,47 @@ app.config.Levels = [
     conveyorBelts: [],
     springs: []
   },
+
   // level 4
   {
     ball: {
       material: app.config.Materials.present,
       style: app.config.Styles.presentRectangle,
       objectType: app.world.PresentBall,
-      relX: 0.24,
-      relY: 0
+      relX: 0.2,
+      relY: 0.0
+    },
+    dropper: {
+      material: app.config.Materials.fixedObject,
+      style: app.config.Styles.dropper,
+      relX: 0.2,
+      relY: 0.1
+    },
+    target: {
+      material: app.config.Materials.target,
+      style: app.config.Styles.target,
+      relX: 0.75,
+      relY: 0.9
+    },
+    fixedObjects: [],
+    conveyorBelts: [],
+    springs: []
+  },
+
+  // level 5
+  {
+    ball: {
+      material: app.config.Materials.snowGlobe,
+      style: app.config.Styles.snowGlobe,
+      objectType: app.world.SnowGlobe,
+      relX: 0.2,
+      relY: 0.0
+    },
+    dropper: {
+      material: app.config.Materials.fixedObject,
+      style: app.config.Styles.dropper,
+      relX: 0.2,
+      relY: 0.1
     },
     target: {
       material: app.config.Materials.target,
@@ -178,4 +225,6 @@ app.config.Levels = [
     conveyorBelts: [],
     springs: []
   }
+
+  
 ];
