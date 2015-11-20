@@ -4,8 +4,6 @@ $name: 'module-dorf';
 
 @import "sass/variables";
 @import "sass/animations";
-@import "sass/houses";
-@import "sass/eastereggs";
 
 ##{$name} {
   background: #F5F2E2;
@@ -20,18 +18,6 @@ $name: 'module-dorf';
     // Force a layer on this scroll element.
     transform: translateZ(0);
     will-change: transform;
-  }
-
-  #posser {
-    /*background: url(img/village-grid.png) no-repeat 50% 0;
-    background-size: 1293px auto;
-    height: 10000px;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    */
   }
 
   header {
@@ -221,29 +207,6 @@ $name: 'module-dorf';
         }
       }
     }
-
-    /*
-
-    .mid {
-    margin: 0 auto;
-    text-align: center;
-    padding-top: 48px;
-    width: 340px;
-    }
-
-
-
-    .logo {
-    display: inline-block;
-    line-height: 0;
-    font-size: 0;
-    height: 28px;
-    width: 84px;
-    margin-bottom: 12px;
-    // TODO: hdpi only
-    background: url(img/google_logo_2x.png) no-repeat;
-    background-size: 100% 100%;
-    }*/
   }
 
   /** Village flexbox */
@@ -254,6 +217,9 @@ $name: 'module-dorf';
     top: -30px;
     padding-bottom: 300px;
 
+    @import "sass/houses";
+    @import "sass/eastereggs";
+
     #houses {
       position: relative;
       display: flex;
@@ -262,14 +228,32 @@ $name: 'module-dorf';
       border-sizing: border-box;
       margin: 0 auto;
       width: $width-desktop;
+      height: $height-desktop;
       z-index: 10;
     }
 
-    .easter-egg {
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
+    #ground {
+      z-index: 1;
       position: absolute;
-      pointer-events: none;
+      background-image: url(img/ground.svg);
+      background-repeat: repeat-x;
+      background-size: $ground-size-w $ground-size-h;
+      background-position: 50% 0;
+      width: 100%;
+      height: 100%;
+      top: $ground-top;
+    }
+
+    #road {
+      position: absolute;
+      z-index: 2;
+      background-image: url(img/road.svg);
+      background-repeat: no-repeat;
+      background-position: 50% 0;
+      background-size: $road-size-w $road-size-h;
+      width: 100%;
+      height: 100%;
+      top: $road-top;
     }
   }
 
@@ -289,10 +273,6 @@ $name: 'module-dorf';
     }
 
     .building {
-      position: absolute;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: 50% 50%;
       z-index: 2;
 
       a {
@@ -341,10 +321,6 @@ $name: 'module-dorf';
     }
 
     .ice {
-      position: absolute;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: 50% 50%;
       pointer-events: none;
       z-index: 3;
       opacity: 0;
@@ -392,6 +368,7 @@ $name: 'module-dorf';
     #village-all {
       #houses {
         width: $width-tablet;
+        height: $height-tablet;
         .house {
           width: $width-tablet / 4;
           height: $height-house * $tablet-desktop-ratio;

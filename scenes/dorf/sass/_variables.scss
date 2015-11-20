@@ -4,13 +4,14 @@ $base-background-z-index: 90;  // z-index for anything behind that
 $width-desktop: 1280px;
 $height-desktop: 2240px;
 $width-tablet: 768px;  // iPad in portrait
+$height-tablet: 2240px * .6;
 $width-twocol: 600px;
 $width-bigheader: $width-twocol;
 $svg-ratio: 0.8;  // svgs to desktop size
 
 // standard size of house at $width-desktop
 $width-house: $width-desktop / 4;
-$height-house: 320px;
+$height-house: 320px;  // TODO(samthor): replace with $dim-house for both
 $height-link-size: 250px;
 $tablet-desktop-ratio: .6;
 
@@ -41,58 +42,4 @@ $house-row-4-z-index: 400;
 $house-row-5-z-index: 500;
 $house-row-6-z-index: 600;
 $house-row-7-z-index: 700;
-
-// Easter eggs asset sizes
-$easter-eggs: "christmas-tree", "blocks", "statue", "penguin-revolt", "snowman-reading", "rosetta-stone",
-    "white-board", "schoolyard", "tic-tac-toe", "book-club";
-
-$christmas-tree-w: 831px * $svg-ratio;
-$christmas-tree-h: 616px * $svg-ratio;
-$christmas-tree-top: 342px;
-$christmas-tree-left: 291px;
-
-$blocks-w: 360px * $svg-ratio;
-$blocks-h: 150px * $svg-ratio;
-$blocks-top: 646px;
-$blocks-left: 904px;
-
-$statue-w: 287px * $svg-ratio;
-$statue-h: 171px * $svg-ratio;
-$statue-top: 821px;
-$statue-left: 858px;
-
-$penguin-revolt-w: 174px * $svg-ratio;
-$penguin-revolt-h: 55px * $svg-ratio;
-$penguin-revolt-top: 1571px;
-$penguin-revolt-left: 865px;
-
-$snowman-reading-w: 571px * $svg-ratio;
-$snowman-reading-h: 237px * $svg-ratio;
-$snowman-reading-top: 1500px;
-$snowman-reading-left: -207px;
-
-$rosetta-stone-w: 117px * $svg-ratio;
-$rosetta-stone-h: 96px * $svg-ratio;
-$rosetta-stone-top: 904px;
-$rosetta-stone-left: 39px;
-
-$white-board-w: 121px * $svg-ratio;
-$white-board-h: 62px * $svg-ratio;
-$white-board-top: 866px;
-$white-board-left: 546px;
-
-$schoolyard-w: 434px * $svg-ratio;
-$schoolyard-h: 160px * $svg-ratio;
-$schoolyard-top: 255px;
-$schoolyard-left: 121px;
-
-$tic-tac-toe-w: 447px * $svg-ratio;
-$tic-tac-toe-h: 130px * $svg-ratio;
-$tic-tac-toe-top: 282px;
-$tic-tac-toe-left: 853px;
-
-$book-club-w: 90px * $svg-ratio;
-$book-club-h: 97px * $svg-ratio;
-$book-club-top: 558px;
-$book-club-left: 360px;
 

@@ -19,19 +19,28 @@
       "tic-tac-toe"     447   130   853   282   ($house-row-2-z-index - 1),
       "book-club"       90    97    360   558   ($house-row-2-z-index + 30);
 
+  div {
+    background: center no-repeat;
+    background-size: contain;
+    position: absolute;
+    pointer-events: none;
+  }
+
   @for $i from 1 through length($all) {
     $row: nth($all, $i);
 
     #easteregg-#{nth($row, $idx-id)} {
       z-index: nth($row, $idx-z-index) - 1;
-
-      $w: (nth($row, $idx-width) / strip-unit($width-desktop)) * 100;
-      $h: (nth($row, $idx-height) / strip-unit($height-desktop)) * 100;
-      width: #{$w}%;
-      height: #{$h}%;
       background-image: url(img/easteregg-#{nth($row, $idx-id)}.svg);
-      left: #{(nth($row, $idx-left) / strip-unit($width-desktop)) * 100}%;
-      top: #{(nth($row, $idx-top) / strip-unit($height-desktop)) * 100}%;
+
+      // TODO(skarEE): The width/height of each image is expressed in the
+      // original SVG size, so it needs to be multiplied by svg-ratio. This is
+      // NOT the case for left/top positions.
+
+      width: percent(nth($row, $idx-width) * $svg-ratio, $width-desktop);
+      height: percent(nth($row, $idx-height) * $svg-ratio, $height-desktop);
+      left: percent(nth($row, $idx-left), $width-desktop);
+      top: percent(nth($row, $idx-top), $height-desktop);
     }
 
   }
