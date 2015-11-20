@@ -36,9 +36,12 @@ app.Constants = {
   CONVEYOR_BELT_SPEED: 4, // make sure belt animation is matching
   CORNER_RESOLUTION: 10, // for candy cane polygons
   
-  GRAVITY: 150,
+  PHYSICS_GRAVITY: 150,
   PHYSICS_SCALE: 30,
-  MIN_PHYSICS_FPS: 1 / 50,
+  PHYSICS_TIME_STEP: 1 / 60,
+  PHYSICS_VELOCITY_ITERATIONS: 8,
+  PHYSICS_POSITION_ITERATIONS: 8
+
 };
 
 

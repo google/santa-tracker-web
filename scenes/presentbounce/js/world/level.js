@@ -241,27 +241,26 @@ goog.scope(function () {
      * @public
      */
     onFrame(totalDelta) {
-      while (totalDelta > 0.0001) {
-        var delta = Math.min(totalDelta, Constants.MIN_PHYSICS_FPS);
+      // Let objects add custom Box2D forces
+      this.updateFrame_();
 
-        // Let objects add custom Box2D forces
-        this.updateFrame_();
+      // update Box2D physics simulation
+      // Box2D manual recommends a "fixed time step":
+      // "We also don't like the time step to change much. A variable time step
+      //  produces variable results, which makes it difficult to debug. 
+      //  So don't tie the time step to your frame rate (unless you really, 
+      //  really have to). " (http://www.box2d.org/manual.html)
+      this.world_.Step(
+        Constants.PHYSICS_TIME_STEP,
+        Constants.PHYSICS_VELOCITY_ITERATIONS,
+        Constants.PHYSICS_POSITION_ITERATIONS
+      );
 
-        // update Box2D physics simulation
-        this.world_.Step(
-          delta, // frame duration
-          8, // velocity iteration
-          8  // position iteration
-        );
-
-        // Draw all objects in the DOM
-        this.drawFrame_();
-        
-        // Clear Box2D forces for next iteration
-        this.world_.ClearForces();
-
-        totalDelta -= delta;
-      }
+      // Draw all objects in the DOM
+      this.drawFrame_();
+      
+      // Clear Box2D forces for next iteration
+      this.world_.ClearForces();
 
       // let Box2D draw it's world using canvas.
       if (this.debug_) {
@@ -275,7 +274,6 @@ goog.scope(function () {
     isGameFinished() {
       return this.hasBallHitTarget_();
     }
-
 
     /**
      * @public

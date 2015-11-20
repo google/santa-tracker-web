@@ -35,7 +35,7 @@ goog.scope(function () {
      * @override
      */
     update() {
-      this.body_.ApplyForce( new b2.Vec2(0, app.Constants.GRAVITY), this.body_.GetPosition() );
+      this.body_.ApplyForce( new b2.Vec2(0, app.Constants.PHYSICS_GRAVITY), this.body_.GetPosition() );
     }
   }
 
