@@ -372,9 +372,6 @@ $gridBorderWidth: 0px;
       z-index: 10;
     }
 
-    $easter-eggs: "christmas-tree", "blocks", "statue", "penguin-revolt", "snowman-reading", "rosetta-stone",
-        "white-board", "schoolyard", "tic-tac-toe", "book-club";
-
     @each $egg in $easter-eggs {
       ##{$egg} {
         background-repeat: no-repeat;
@@ -657,6 +654,106 @@ $gridBorderWidth: 0px;
             }
           }
         }
+
+        #christmas-tree {
+          $w: $christmas-tree-w * $tablet-desktop-ratio;
+          $h: $christmas-tree-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $christmas-tree-top * $tablet-desktop-ratio;
+          left: $christmas-tree-left * $tablet-desktop-ratio;
+        }
+
+        #blocks {
+          $w: $blocks-w * $tablet-desktop-ratio;
+          $h: $blocks-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $blocks-top * $tablet-desktop-ratio;
+          left: $blocks-left * $tablet-desktop-ratio;
+        }
+
+        #statue {
+          $w: $statue-w * $tablet-desktop-ratio;
+          $h: $statue-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $statue-top * $tablet-desktop-ratio;
+          left: $statue-left * $tablet-desktop-ratio;
+        }
+
+        #penguin-revolt {
+          $w: $penguin-revolt-w * $tablet-desktop-ratio;
+          $h: $penguin-revolt-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $penguin-revolt-top * $tablet-desktop-ratio;
+          left: $penguin-revolt-left * $tablet-desktop-ratio;
+        }
+
+        #snowman-reading {
+          $w: $snowman-reading-w * $tablet-desktop-ratio;
+          $h: $snowman-reading-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $snowman-reading-top * $tablet-desktop-ratio;
+          left: $snowman-reading-left * $tablet-desktop-ratio;
+        }
+
+        #rosetta-stone {
+          $w: $rosetta-stone-w * $tablet-desktop-ratio;
+          $h: $rosetta-stone-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $rosetta-stone-top * $tablet-desktop-ratio;
+          left: $rosetta-stone-left * $tablet-desktop-ratio;
+        }
+
+        #white-board {
+          $w: $white-board-w * $tablet-desktop-ratio;
+          $h: $white-board-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $white-board-top * $tablet-desktop-ratio;
+          left: $white-board-left * $tablet-desktop-ratio;
+        }
+
+        #schoolyard {
+          $w: $schoolyard-w * $tablet-desktop-ratio;
+          $h: $schoolyard-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $schoolyard-top * $tablet-desktop-ratio;
+          left: $schoolyard-left * $tablet-desktop-ratio;
+        }
+
+        #tic-tac-toe {
+          $w: $tic-tac-toe-w * $tablet-desktop-ratio;
+          $h: $tic-tac-toe-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $tic-tac-toe-top * $tablet-desktop-ratio;
+          left: $tic-tac-toe-left * $tablet-desktop-ratio;
+        }
+
+        #book-club {
+          $w: $book-club-w * $tablet-desktop-ratio;
+          $h: $book-club-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $book-club-top * $tablet-desktop-ratio;
+          left: $book-club-left * $tablet-desktop-ratio;
+        }
       }
 
       // $width-tablet / $width-desktop is = 0.6.
@@ -697,7 +794,7 @@ $gridBorderWidth: 0px;
         }
       }
 
-      #ground, #road {
+      #ground, #road, .easter-egg {
         display: none;
       }
     }
