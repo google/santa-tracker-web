@@ -1,7 +1,7 @@
 $name: 'module-dorf';
 
 // Remove after dev
-$gridBorderWidth: 2px;
+$gridBorderWidth: 0px;
 
 @import "../shared/sass/_mixins.scss";
 
@@ -359,7 +359,7 @@ $gridBorderWidth: 2px;
     top: -30px;
     z-index: 2;
     padding-bottom: 300px;
-    
+
     #houses {
       position: relative;
       display: flex;
@@ -370,6 +370,129 @@ $gridBorderWidth: 2px;
       margin: 0 auto;
       width: $width-desktop;
       z-index: 10;
+    }
+
+    $easter-eggs: "christmas-tree", "blocks", "statue", "penguin-revolt", "snowman-reading", "rosetta-stone",
+        "white-board", "schoolyard", "tic-tac-toe", "book-club";
+
+    @each $egg in $easter-eggs {
+      ##{$egg} {
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        position: absolute;
+        pointer-events: none;
+        background-image: url(img/#{$egg}.svg);
+      }
+    }
+
+    #christmas-tree {
+      $w: $christmas-tree-w * $desktop-ratio;
+      $h: $christmas-tree-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $christmas-tree-top;
+      left: $christmas-tree-left;
+      z-index: $house-row-3-z-index - 1;
+    }
+
+    #blocks {
+      $w: $blocks-w * $desktop-ratio;
+      $h: $blocks-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $blocks-top;
+      left: $blocks-left;
+      z-index: $house-row-3-z-index - 1;
+    }
+
+    #statue {
+      $w: $statue-w * $desktop-ratio;
+      $h: $statue-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $statue-top;
+      left: $statue-left;
+      z-index: $house-row-4-z-index - 1;
+    }
+
+    #penguin-revolt {
+      $w: $penguin-revolt-w * $desktop-ratio;
+      $h: $penguin-revolt-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $penguin-revolt-top;
+      left: $penguin-revolt-left;
+      z-index: $house-row-6-z-index - 1;
+    }
+
+    #snowman-reading {
+      $w: $snowman-reading-w * $desktop-ratio;
+      $h: $snowman-reading-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $snowman-reading-top;
+      left: $snowman-reading-left;
+      z-index: $house-row-6-z-index - 1;
+    }
+
+    #rosetta-stone {
+      $w: $rosetta-stone-w * $desktop-ratio;
+      $h: $rosetta-stone-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $rosetta-stone-top;
+      left: $rosetta-stone-left;
+      z-index: $house-row-4-z-index - 1;
+    }
+
+    #white-board {
+      $w: $white-board-w * $desktop-ratio;
+      $h: $white-board-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $white-board-top;
+      left: $white-board-left;
+      z-index: $house-row-3-z-index;
+    }
+
+    #schoolyard {
+      $w: $schoolyard-w * $desktop-ratio;
+      $h: $schoolyard-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $schoolyard-top;
+      left: $schoolyard-left;
+      z-index: $house-row-1-z-index;
+    }
+
+    #tic-tac-toe {
+      $w: $tic-tac-toe-w * $desktop-ratio;
+      $h: $tic-tac-toe-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $tic-tac-toe-top;
+      left: $tic-tac-toe-left;
+      z-index: $house-row-2-z-index - 1;
+    }
+
+    #book-club {
+      $w: $book-club-w * $desktop-ratio;
+      $h: $book-club-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $book-club-top;
+      left: $book-club-left;
+      z-index: $house-row-2-z-index + 30;
     }
 
     #ground {
@@ -402,33 +525,32 @@ $gridBorderWidth: 2px;
     box-sizing: border-box;
     width: ($width-desktop / 4) - $gridBorderWidth;
     height: $height-house - $gridBorderWidth;
-    
+
     // Remove
     border: $gridBorderWidth solid red;
-      
+
     .card {
       display: none;
-      
+
       img {
         width: 100%;
         height: 100%;
       }
     }
-      
+
     .building {
       position: absolute;
       background-repeat: no-repeat;
       background-position: 50% 50%;
       z-index: 2;
-      
+
       a {
         width: 100%;
         height: 100%;
         position: absolute;
         z-index: 5;
-        
+
         img {
-          will-change: transform;
           border-radius: 50%;
           transition: transform 0.2s ease-out, opacity 0.2s ease-out;
           transform: scale(0);
@@ -441,16 +563,16 @@ $gridBorderWidth: 2px;
           margin: (-$hover-card-size / 2) 0 0 (-$hover-card-size / 2);
           box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
         }
-        
+
         &:hover, &:active {
           img {
             transform: scale(1);
             opacity: 1;
           }
-          
+
         }
       }
-      
+
       h3 {
         font-size: 12px;
         letter-spacing: 1px;
@@ -466,7 +588,7 @@ $gridBorderWidth: 2px;
         text-align: center;
       }
     }
-    
+
     .ice {
       position: absolute;
       background-repeat: no-repeat;
@@ -477,20 +599,20 @@ $gridBorderWidth: 2px;
       will-change: opacity;
       transition: opacity 0.2s ease-out;
     }
-    
+
     &.iced {
       .building {
         a, h3 {
           display: none;
         }
       }
-    
+
       .ice {
         opacity: 1;
       }
     }
   }
-  
+
   #village-footer {
     height: 700px;
     background-image: url(img/footer-bg.svg);
@@ -501,7 +623,7 @@ $gridBorderWidth: 2px;
     top: -290px;
     margin-bottom: -290px;
     z-index: 3;
-    
+
     #village-footer-elves {
       background-image: url(img/footer-elves.svg);
       background-repeat: no-repeat;
@@ -512,7 +634,7 @@ $gridBorderWidth: 2px;
       height: 100%;
     }
   }
-  
+
   /** Tablet village. Shrunk version of desktop. */
   @media (max-width: ($width-desktop - 1)) and (min-width: $width-tablet) {
     #village-all {
@@ -521,10 +643,10 @@ $gridBorderWidth: 2px;
         .house {
           width: ($width-tablet / 4) - $gridBorderWidth;
           height: ($height-house * $tablet-desktop-ratio) - $gridBorderWidth;
-          
+
           // Remove
           border: $gridBorderWidth solid green;
-          
+
           .building {
             a {
               img {
@@ -547,7 +669,7 @@ $gridBorderWidth: 2px;
       }
     }
   }
-  
+
   /** All mobile villages (two cols) */
   @media (max-width: $width-tablet - 1) {
     #village-all {
@@ -556,11 +678,11 @@ $gridBorderWidth: 2px;
         .house {
           width: 50%;
           height: 200px;
-          
-          .position {
+
+          .building, .ice {
             display: none;
           }
-        
+
           img.icon {
             width: 200px;
           }
@@ -568,7 +690,7 @@ $gridBorderWidth: 2px;
           .color {
             display: block;
           }
-          
+
           .card {
             display: block;
           }
