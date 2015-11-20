@@ -36,7 +36,7 @@ app.BlocklyLayout = function(blockly, game) {
  * Whitespace between blocks on mobile.
  * @type {number}
  */
-app.BlocklyLayout.TOOLBOX_GAP = 24;
+app.BlocklyLayout.TOOLBOX_GAP = 10;
 /**
  * Whitespace between blocks on desktop.
  * @type {number}
