@@ -430,6 +430,7 @@ $name: 'module-dorf';
     .building {
       position: absolute;
       background-repeat: no-repeat;
+      background-size: contain;
       background-position: 50% 50%;
       z-index: 2;
 
@@ -481,6 +482,7 @@ $name: 'module-dorf';
     .ice {
       position: absolute;
       background-repeat: no-repeat;
+      background-size: contain;
       background-position: 50% 50%;
       pointer-events: none;
       z-index: 3;
