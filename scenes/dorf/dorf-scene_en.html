@@ -75,14 +75,11 @@ Village scene (2015).
         <div id="houses">
           <div class="house house-new-today"></div>
           <template is="dom-repeat" items="{{houses}}">
-            <div class$="house house-{{item.module}} iced">
-              <div class="building">
-                <a href="{{_calculateHref(item)}}">
-                  <img src="{{_calculateCard(item.module, santaApp.hdpi)}}" />
-                </a>
-                <h3>{{item.category}}</h3>
+            <div class$="house house-{{item.module}} {{_calculateClass(item, item.iced)}}">
+              <div class="assets">
+                <div class="building"></div>
+                <div class="ice"></div>
               </div>
-              <div class="ice"></div>
               <a class="card" href="{{_calculateHref(item)}}">
                 <img src="{{_calculateCard(item.module, santaApp.hdpi)}}" />
               </a>

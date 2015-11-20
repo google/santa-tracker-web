@@ -64,22 +64,27 @@
     $house: nth($houses, $i);
 
     .house-#{nth($house, $houseId)} {
-      z-index: nth($house, $zIndex) + (1+($i % 4) * 10);
+      // z-index set on child .assets, not top-level .house (don't create
+      // heirarchy here)
 
-      .building {
-        background-image: url(img/building-#{nth($house, $houseId)}.svg);
-        width: percent(nth($house, $houseWidth), $dim-house);
-        height: percent(nth($house, $houseHeight), $dim-house);
-        left: percent(nth($house, $houseLeft), $dim-house);
-        top: percent(nth($house, $houseTop), $dim-house);
-      }
+      .assets {
+        z-index: nth($house, $zIndex) + (1+($i % 4) * 10);
 
-      .ice {
-        background-image: url(img/building-#{nth($house, $houseId)}-ice.svg);
-        width: percent(nth($house, $iceWidth), $dim-house);
-        height: percent(nth($house, $iceHeight), $dim-house);
-        left: percent(nth($house, $iceLeft), $dim-house);
-        top: percent(nth($house, $iceTop), $dim-house);
+        .building {
+          background-image: url(img/building-#{nth($house, $houseId)}.svg);
+          width: percent(nth($house, $houseWidth), $dim-house);
+          height: percent(nth($house, $houseHeight), $dim-house);
+          left: percent(nth($house, $houseLeft), $dim-house);
+          top: percent(nth($house, $houseTop), $dim-house);
+        }
+
+        .ice {
+          background-image: url(img/building-#{nth($house, $houseId)}-ice.svg);
+          width: percent(nth($house, $iceWidth), $dim-house);
+          height: percent(nth($house, $iceHeight), $dim-house);
+          left: percent(nth($house, $iceLeft), $dim-house);
+          top: percent(nth($house, $iceTop), $dim-house);
+        }
       }
     }
   }
