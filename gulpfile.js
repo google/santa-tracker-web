@@ -364,7 +364,7 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
     'js/webanimations.html',
     'components/polymer/polymer.html',
     'scenes/scene-behavior.html',
-    'elements/i18n-msg.html',
+    'components/i18n-msg/i18n-msg.html',
     'components/iron-jsonp-library/iron-jsonp-library.html',
     'components/iron-a11y-keys/iron-a11y-keys.html',
     'components/google-apis/google-client-loader.html',

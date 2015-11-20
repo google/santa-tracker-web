@@ -1,0 +1,77 @@
+// Removes units like px from a number
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+#houses {
+  // ID houseWidth houseHeight iceWidth iceHeight houseLeft houseTop iceLeft iceTop labelX labelY zIndex
+  $houses:
+      "airport"         812   179   627   240   -340   44    -175   0     0   0   $house-row-1-z-index,
+      "traditions"      235   222   424   236   35     21    -100   10    0   0   $house-row-1-z-index,
+      "codelab"         277   209   364   284   29     100   -40    55    0   0   $house-row-1-z-index,
+      "app"             280   366   443   351   -29    -41   -81    -33   0   0   $house-row-2-z-index,
+      "seasonofcaring"  333   233   373   282   8      0     -56    -31   0   0   $house-row-2-z-index,
+      "santasback"      231   180   499   284   98     23    -53    -30   0   0   $house-row-2-z-index,
+      "santaselfie"     209   262   497   348   81     41    -80    10    0   0   $house-row-2-z-index,
+      "translations"    311   174   712   286   5      101   -180   45    0   0   $house-row-3-z-index+20,
+      "callfromsanta"   271   298   537   321   11     0     -120   0     0   0   $house-row-3-z-index,
+      "briefing"        315   246   355   287   0      0     0      0     0   0   $house-row-3-z-index,
+      "presentdrop"     198   278   300   333   85     18    18     -9    0   0   $house-row-3-z-index,
+      "santasearch"     287   174   484   246   30     75    -50    10    0   0   $house-row-3-z-index,
+      "windtunnel"      336   203   537   222   -16    47    -99    58    0   0   $house-row-4-z-index,
+      "racer"           345   259   424   266   -10    57    -104   40    0   0   $house-row-4-z-index,
+      "jamband"         379   250   606   267   -33    -19   -140   36    0   0   $house-row-4-z-index,
+      "gumball"         257   308   374   359   59     -68    -5    -70   0   0   $house-row-4-z-index,
+      "postcard"        286   224   364   248   -17    32    -82    10    0   0   $house-row-5-z-index,
+      "jetpack"         287   258   367   333   20     53    -45    0     0   0   $house-row-5-z-index+40,
+      "boatload"        240   169   472   250   -7     102   -105   61    0   0   $house-row-5-z-index,
+      "mercator"        328   275   462   348   -15    8     -109   -21   0   0   $house-row-5-z-index,
+      "presentbounce"   341   256   521   348   9      47    -110   10    0   0   $house-row-6-z-index+20,
+      "codeboogie"      294   224   403   280   24     30    -31    -5    0   0   $house-row-6-z-index,
+      "elf-car"         307   337   437   354   25     -56   -70    -57   0   0   $house-row-6-z-index,
+      "citylights"      360   311   467   332   -10    0     -34    -10   0   0   $house-row-6-z-index,
+      "commandcentre"   197   215   380   271   104    28    10     20    0   0   $house-row-7-z-index,
+      "seasonofgiving"  390   241   373   282   -59    52    -45    32    0   0   $house-row-7-z-index,
+      "matching"        303   192   457   270   49     36    -58    10    0   0   $house-row-7-z-index,
+      "liftoff"         276   294   355   336   55     37    22     11    0   0   $house-row-7-z-index;
+  $houseId: 1;
+  $houseWidth: 2;
+  $houseHeight: 3;
+  $iceWidth: 4;
+  $iceHeight: 5;
+  $houseLeft: 6;
+  $houseTop: 7;
+  $iceLeft: 8;
+  $iceTop: 9;
+  $labelLeft: 10;
+  $labelTop: 11;
+  $zIndex: 12;
+
+  @for $i from 1 through length($houses) {
+    $house: nth($houses, $i);
+
+    .house-#{nth($house, $houseId)} {
+      z-index: nth($house, $zIndex) + (1+($i % 4) * 10);
+
+      .building {
+        $w: (nth($house, $houseWidth) / strip-unit($width-house)) * 100;
+        $h: (nth($house, $houseHeight) / strip-unit($width-house)) * 100;
+        width: #{$w}%;
+        height: #{$h}%;
+        background-image: url(img/building-#{nth($house, $houseId)}.svg);
+        top: #{(nth($house, $houseTop) / strip-unit($width-house)) * 100}%;
+        left: #{(nth($house, $houseLeft) / strip-unit($height-house)) * 100}%;
+      }
+
+      .ice {
+        $w: (nth($house, $iceWidth) / strip-unit($width-house)) * 100;
+        $h: (nth($house, $iceHeight) / strip-unit($width-house)) * 100;
+        width: #{$w}%;
+        height: #{$h}%;
+        background-image: url(img/building-#{nth($house, $houseId)}-ice.svg);
+        top: #{(nth($house, $iceTop) / strip-unit($width-house)) * 100}%;
+        left: #{(nth($house, $iceLeft) / strip-unit($height-house)) * 100}%;
+      }
+    }
+  }
+}
