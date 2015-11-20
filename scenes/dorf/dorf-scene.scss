@@ -264,12 +264,15 @@ $name: 'module-dorf';
       z-index: 10;
     }
 
+    .easter-egg {
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      position: absolute;
+      pointer-events: none;
+    }
+
     @each $egg in $easter-eggs {
       ##{$egg} {
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        position: absolute;
-        pointer-events: none;
         background-image: url(img/#{$egg}.svg);
       }
     }
@@ -509,7 +512,6 @@ $name: 'module-dorf';
     position: relative;
     top: -290px;
     margin-bottom: -290px;
-    z-index: 100; // We want the footer to be above the village.
 
     #village-footer-elves {
       background-image: url(img/footer-elves.svg);
