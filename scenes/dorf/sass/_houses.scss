@@ -1,6 +1,11 @@
-// Removes units like px from a number
+// TODO(samthor): Move helper methods somewhere common
 @function strip-unit($num) {
   @return $num / ($num * 0 + 1);
+}
+
+// Returns the % of $value in $inside. Assumes both are px values.
+@function percent($value, $inside) {
+  @return #{(strip-unit($value) / strip-unit($inside)) * 100}%;
 }
 
 #houses {
@@ -47,6 +52,14 @@
   $labelTop: 11;
   $zIndex: 12;
 
+  .house {
+    .building, .ice {
+      background: center no-repeat;
+      background-size: contain;
+      position: absolute;
+    }
+  }
+
   @for $i from 1 through length($houses) {
     $house: nth($houses, $i);
 
@@ -58,23 +71,19 @@
         z-index: nth($house, $zIndex) + (1+($i % 4) * 10);
 
         .building {
-          $w: (nth($house, $houseWidth) / strip-unit($width-house)) * 100;
-          $h: (nth($house, $houseHeight) / strip-unit($width-house)) * 100;
-          width: #{$w}%;
-          height: #{$h}%;
           background-image: url(img/building-#{nth($house, $houseId)}.svg);
-          top: #{(nth($house, $houseTop) / strip-unit($width-house)) * 100}%;
-          left: #{(nth($house, $houseLeft) / strip-unit($height-house)) * 100}%;
+          width: percent(nth($house, $houseWidth), $dim-house);
+          height: percent(nth($house, $houseHeight), $dim-house);
+          left: percent(nth($house, $houseLeft), $dim-house);
+          top: percent(nth($house, $houseTop), $dim-house);
         }
 
         .ice {
-          $w: (nth($house, $iceWidth) / strip-unit($width-house)) * 100;
-          $h: (nth($house, $iceHeight) / strip-unit($width-house)) * 100;
-          width: #{$w}%;
-          height: #{$h}%;
           background-image: url(img/building-#{nth($house, $houseId)}-ice.svg);
-          top: #{(nth($house, $iceTop) / strip-unit($width-house)) * 100}%;
-          left: #{(nth($house, $iceLeft) / strip-unit($height-house)) * 100}%;
+          width: percent(nth($house, $iceWidth), $dim-house);
+          height: percent(nth($house, $iceHeight), $dim-house);
+          left: percent(nth($house, $iceLeft), $dim-house);
+          top: percent(nth($house, $iceTop), $dim-house);
         }
       }
     }

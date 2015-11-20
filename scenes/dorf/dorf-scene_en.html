@@ -86,16 +86,13 @@ Village scene (2015).
             </div>
           </template>
 
-          <div id="christmas-tree" class="easter-egg"></div>
-          <div id="blocks" class="easter-egg"></div>
-          <div id="statue" class="easter-egg"></div>
-          <div id="penguin-revolt" class="easter-egg"></div>
-          <div id="snowman-reading" class="easter-egg"></div>
-          <div id="rosetta-stone" class="easter-egg"></div>
-          <div id="white-board" class="easter-egg"></div>
-          <div id="schoolyard" class="easter-egg"></div>
-          <div id="tic-tac-toe" class="easter-egg"></div>
-          <div id="book-club" class="easter-egg"></div>
+          <!-- TODO(samthor): This isn't part of the flex layout, but ensures
+               that easter eggs have a shared z-index with houses -->
+          <div id="eastereggs">
+            <template is="dom-repeat" items="{{easterEggs}}">
+              <div id$="easteregg-{{item}}" class="easter-egg"></div>
+            </template>
+          </div>
         </div>
       </div>
       <div id="village-footer">
@@ -118,6 +115,10 @@ Village scene (2015).
   var CLOUD_TOP_MAX = 300;
   var CLOUD_SPEED_MIN = 60;
   var CLOUD_SPEED_MAX = 160;
+
+  var EASTER_EGGS = ['tree', 'blocks', 'statue', 'penguin-revolt',
+      'snowman-reading', 'rosetta-stone', 'white-board', 'schoolyard',
+      'tic-tac-toe', 'book-club'];
 
   function randomRange(min, max) {
     return min + Math.random() * (max - min);
@@ -196,6 +197,11 @@ Village scene (2015).
       mode: {
         type: String
       },
+      easterEggs: {
+        type: Array,
+        readOnly: true,
+        value: Object.freeze(EASTER_EGGS)
+      }
     },
 
     observers: [
