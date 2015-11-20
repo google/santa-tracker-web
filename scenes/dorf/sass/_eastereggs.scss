@@ -1,0 +1,38 @@
+#eastereggs {
+  $idx-id: 1;
+  $idx-width: 2;
+  $idx-height: 3;
+  $idx-left: 4;
+  $idx-top: 5;
+  $idx-z-index: 6;
+
+  // id width height left top z-index
+  $all:
+      "tree"            831   616   291   342   ($house-row-3-z-index - 1),
+      "blocks"          360   150   904   646   ($house-row-3-z-index - 1),
+      "statue"          287   171   858   821   ($house-row-4-z-index - 1),
+      "penguin-revolt"  174   55    865   1571   ($house-row-6-z-index - 1),
+      "snowman-reading" 571   237   -207  1500  ($house-row-6-z-index - 1),
+      "rosetta-stone"   117   96    39    904   ($house-row-4-z-index - 1),
+      "white-board"     121   62    546   886   ($house-row-3-z-index - 0),
+      "schoolyard"      434   160   121   255   ($house-row-1-z-index - 0),
+      "tic-tac-toe"     447   130   853   282   ($house-row-2-z-index - 1),
+      "book-club"       90    97    360   558   ($house-row-2-z-index + 30);
+
+  @for $i from 1 through length($all) {
+    $row: nth($all, $i);
+
+    #easteregg-#{nth($row, $idx-id)} {
+      z-index: nth($row, $idx-z-index) - 1;
+
+      $w: (nth($row, $idx-width) / strip-unit($width-desktop)) * 100;
+      $h: (nth($row, $idx-height) / strip-unit($height-desktop)) * 100;
+      width: #{$w}%;
+      height: #{$h}%;
+      background-image: url(img/easteregg-#{nth($row, $idx-id)}.svg);
+      left: #{(nth($row, $idx-left) / strip-unit($width-desktop)) * 100}%;
+      top: #{(nth($row, $idx-top) / strip-unit($height-desktop)) * 100}%;
+    }
+
+  }
+}

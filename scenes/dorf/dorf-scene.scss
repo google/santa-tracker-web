@@ -5,6 +5,7 @@ $name: 'module-dorf';
 @import "sass/variables";
 @import "sass/animations";
 @import "sass/houses";
+@import "sass/eastereggs";
 
 ##{$name} {
   background: #F5F2E2;
@@ -270,146 +271,6 @@ $name: 'module-dorf';
       position: absolute;
       pointer-events: none;
     }
-
-    @each $egg in $easter-eggs {
-      ##{$egg} {
-        background-image: url(img/#{$egg}.svg);
-      }
-    }
-
-    #christmas-tree {
-      $w: $christmas-tree-w * $desktop-ratio;
-      $h: $christmas-tree-h * $desktop-ratio;
-      width: $w;
-      height: $h;
-      background-size: #{$w} #{$h};
-      top: $christmas-tree-top;
-      left: $christmas-tree-left;
-      z-index: $house-row-3-z-index - 1;
-    }
-
-    #blocks {
-      $w: $blocks-w * $desktop-ratio;
-      $h: $blocks-h * $desktop-ratio;
-      width: $w;
-      height: $h;
-      background-size: #{$w} #{$h};
-      top: $blocks-top;
-      left: $blocks-left;
-      z-index: $house-row-3-z-index - 1;
-    }
-
-    #statue {
-      $w: $statue-w * $desktop-ratio;
-      $h: $statue-h * $desktop-ratio;
-      width: $w;
-      height: $h;
-      background-size: #{$w} #{$h};
-      top: $statue-top;
-      left: $statue-left;
-      z-index: $house-row-4-z-index - 1;
-    }
-
-    #penguin-revolt {
-      $w: $penguin-revolt-w * $desktop-ratio;
-      $h: $penguin-revolt-h * $desktop-ratio;
-      width: $w;
-      height: $h;
-      background-size: #{$w} #{$h};
-      top: $penguin-revolt-top;
-      left: $penguin-revolt-left;
-      z-index: $house-row-6-z-index - 1;
-    }
-
-    #snowman-reading {
-      $w: $snowman-reading-w * $desktop-ratio;
-      $h: $snowman-reading-h * $desktop-ratio;
-      width: $w;
-      height: $h;
-      background-size: #{$w} #{$h};
-      top: $snowman-reading-top;
-      left: $snowman-reading-left;
-      z-index: $house-row-6-z-index - 1;
-    }
-
-    #rosetta-stone {
-      $w: $rosetta-stone-w * $desktop-ratio;
-      $h: $rosetta-stone-h * $desktop-ratio;
-      width: $w;
-      height: $h;
-      background-size: #{$w} #{$h};
-      top: $rosetta-stone-top;
-      left: $rosetta-stone-left;
-      z-index: $house-row-4-z-index - 1;
-    }
-
-    #white-board {
-      $w: $white-board-w * $desktop-ratio;
-      $h: $white-board-h * $desktop-ratio;
-      width: $w;
-      height: $h;
-      background-size: #{$w} #{$h};
-      top: $white-board-top;
-      left: $white-board-left;
-      z-index: $house-row-3-z-index;
-    }
-
-    #schoolyard {
-      $w: $schoolyard-w * $desktop-ratio;
-      $h: $schoolyard-h * $desktop-ratio;
-      width: $w;
-      height: $h;
-      background-size: #{$w} #{$h};
-      top: $schoolyard-top;
-      left: $schoolyard-left;
-      z-index: $house-row-1-z-index;
-    }
-
-    #tic-tac-toe {
-      $w: $tic-tac-toe-w * $desktop-ratio;
-      $h: $tic-tac-toe-h * $desktop-ratio;
-      width: $w;
-      height: $h;
-      background-size: #{$w} #{$h};
-      top: $tic-tac-toe-top;
-      left: $tic-tac-toe-left;
-      z-index: $house-row-2-z-index - 1;
-    }
-
-    #book-club {
-      $w: $book-club-w * $desktop-ratio;
-      $h: $book-club-h * $desktop-ratio;
-      width: $w;
-      height: $h;
-      background-size: #{$w} #{$h};
-      top: $book-club-top;
-      left: $book-club-left;
-      z-index: $house-row-2-z-index + 30;
-    }
-
-    #ground {
-      z-index: 1;
-      position: absolute;
-      background-image: url(img/ground.svg);
-      background-repeat: repeat-x;
-      background-size: $ground-size-w $ground-size-h;
-      background-position: 50% 0;
-      width: 100%;
-      height: 100%;
-      top: $ground-top;
-    }
-
-    #road {
-      position: absolute;
-      z-index: 2;
-      background-image: url(img/road.svg);
-      background-repeat: no-repeat;
-      background-position: 50% 0;
-      background-size: $road-size-w $road-size-h;
-      width: 100%;
-      height: 100%;
-      top: $road-top;
-    }
   }
 
   .house {
@@ -545,115 +406,14 @@ $name: 'module-dorf';
             }
           }
         }
-
-        #christmas-tree {
-          $w: $christmas-tree-w * $tablet-desktop-ratio;
-          $h: $christmas-tree-h * $tablet-desktop-ratio;
-          width: $w;
-          height: $h;
-          background-size: #{$w} #{$h};
-          top: $christmas-tree-top * $tablet-desktop-ratio;
-          left: $christmas-tree-left * $tablet-desktop-ratio;
-        }
-
-        #blocks {
-          $w: $blocks-w * $tablet-desktop-ratio;
-          $h: $blocks-h * $tablet-desktop-ratio;
-          width: $w;
-          height: $h;
-          background-size: #{$w} #{$h};
-          top: $blocks-top * $tablet-desktop-ratio;
-          left: $blocks-left * $tablet-desktop-ratio;
-        }
-
-        #statue {
-          $w: $statue-w * $tablet-desktop-ratio;
-          $h: $statue-h * $tablet-desktop-ratio;
-          width: $w;
-          height: $h;
-          background-size: #{$w} #{$h};
-          top: $statue-top * $tablet-desktop-ratio;
-          left: $statue-left * $tablet-desktop-ratio;
-        }
-
-        #penguin-revolt {
-          $w: $penguin-revolt-w * $tablet-desktop-ratio;
-          $h: $penguin-revolt-h * $tablet-desktop-ratio;
-          width: $w;
-          height: $h;
-          background-size: #{$w} #{$h};
-          top: $penguin-revolt-top * $tablet-desktop-ratio;
-          left: $penguin-revolt-left * $tablet-desktop-ratio;
-        }
-
-        #snowman-reading {
-          $w: $snowman-reading-w * $tablet-desktop-ratio;
-          $h: $snowman-reading-h * $tablet-desktop-ratio;
-          width: $w;
-          height: $h;
-          background-size: #{$w} #{$h};
-          top: $snowman-reading-top * $tablet-desktop-ratio;
-          left: $snowman-reading-left * $tablet-desktop-ratio;
-        }
-
-        #rosetta-stone {
-          $w: $rosetta-stone-w * $tablet-desktop-ratio;
-          $h: $rosetta-stone-h * $tablet-desktop-ratio;
-          width: $w;
-          height: $h;
-          background-size: #{$w} #{$h};
-          top: $rosetta-stone-top * $tablet-desktop-ratio;
-          left: $rosetta-stone-left * $tablet-desktop-ratio;
-        }
-
-        #white-board {
-          $w: $white-board-w * $tablet-desktop-ratio;
-          $h: $white-board-h * $tablet-desktop-ratio;
-          width: $w;
-          height: $h;
-          background-size: #{$w} #{$h};
-          top: $white-board-top * $tablet-desktop-ratio;
-          left: $white-board-left * $tablet-desktop-ratio;
-        }
-
-        #schoolyard {
-          $w: $schoolyard-w * $tablet-desktop-ratio;
-          $h: $schoolyard-h * $tablet-desktop-ratio;
-          width: $w;
-          height: $h;
-          background-size: #{$w} #{$h};
-          top: $schoolyard-top * $tablet-desktop-ratio;
-          left: $schoolyard-left * $tablet-desktop-ratio;
-        }
-
-        #tic-tac-toe {
-          $w: $tic-tac-toe-w * $tablet-desktop-ratio;
-          $h: $tic-tac-toe-h * $tablet-desktop-ratio;
-          width: $w;
-          height: $h;
-          background-size: #{$w} #{$h};
-          top: $tic-tac-toe-top * $tablet-desktop-ratio;
-          left: $tic-tac-toe-left * $tablet-desktop-ratio;
-        }
-
-        #book-club {
-          $w: $book-club-w * $tablet-desktop-ratio;
-          $h: $book-club-h * $tablet-desktop-ratio;
-          width: $w;
-          height: $h;
-          background-size: #{$w} #{$h};
-          top: $book-club-top * $tablet-desktop-ratio;
-          left: $book-club-left * $tablet-desktop-ratio;
-        }
       }
 
-      // $width-tablet / $width-desktop is = 0.6.
       #ground {
         background-size: ($ground-size-w * $tablet-desktop-ratio) ($ground-size-h * $tablet-desktop-ratio);
       }
       #road {
         background-size: ($road-size-w * $tablet-desktop-ratio) ($road-size-h * $tablet-desktop-ratio);
-        top: $road-top * $desktop-ratio;
+        top: $road-top * $svg-ratio;
       }
     }
   }
