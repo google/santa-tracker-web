@@ -1,5 +1,5 @@
+// Removes units like px from a number
 @function strip-unit($num) {
-  // Blah blah blah
   @return $num / ($num * 0 + 1);
 }
 
