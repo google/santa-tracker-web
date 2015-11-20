@@ -1,8 +1,5 @@
 $name: 'module-dorf';
 
-// Remove after dev
-$gridBorderWidth: 0px;
-
 @import "../shared/sass/_mixins.scss";
 
 @import "sass/variables";
@@ -415,11 +412,8 @@ $gridBorderWidth: 0px;
   .house {
     position: relative;
     box-sizing: border-box;
-    width: ($width-desktop / 4) - $gridBorderWidth;
-    height: $height-house - $gridBorderWidth;
-
-    // Remove
-    border: $gridBorderWidth solid red;
+    width: $width-desktop / 4;
+    height: $height-house;
 
     .card {
       display: none;
@@ -515,7 +509,7 @@ $gridBorderWidth: 0px;
     position: relative;
     top: -290px;
     margin-bottom: -290px;
-    z-index: 3;
+    z-index: 100; // We want the footer to be above the village.
 
     #village-footer-elves {
       background-image: url(img/footer-elves.svg);
@@ -534,11 +528,8 @@ $gridBorderWidth: 0px;
       #houses {
         width: $width-tablet;
         .house {
-          width: ($width-tablet / 4) - $gridBorderWidth;
-          height: ($height-house * $tablet-desktop-ratio) - $gridBorderWidth;
-
-          // Remove
-          border: $gridBorderWidth solid green;
+          width: $width-tablet / 4;
+          height: $height-house * $tablet-desktop-ratio;
 
           .building {
             a {
