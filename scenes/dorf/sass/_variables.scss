@@ -8,6 +8,7 @@ $width-bigheader: $width-twocol;
 $desktop-ratio: 0.8;
 
 // standard size of house at $width-desktop
+$width-house: $width-desktop / 4;
 $height-house: 320px;
 $height-link-size: 250px;
 $tablet-desktop-ratio: .6;
@@ -46,28 +47,28 @@ $easter-eggs: "christmas-tree", "blocks", "statue", "penguin-revolt", "snowman-r
 
 $christmas-tree-w: 831px;
 $christmas-tree-h: 616px;
-$christmas-tree-top: 285px;
-$christmas-tree-left: 208px;
+$christmas-tree-top: 342px;
+$christmas-tree-left: 291px;
 
 $blocks-w: 360px;
 $blocks-h: 150px;
-$blocks-top: 569px;
-$blocks-left: 897px;
+$blocks-top: 646px;
+$blocks-left: 904px;
 
 $statue-w: 287px;
 $statue-h: 171px;
-$statue-top: 776px;
+$statue-top: 821px;
 $statue-left: 858px;
 
 $penguin-revolt-w: 174px;
 $penguin-revolt-h: 55px;
-$penguin-revolt-top: 1536px;
+$penguin-revolt-top: 1571px;
 $penguin-revolt-left: 865px;
 
 $snowman-reading-w: 571px;
 $snowman-reading-h: 237px;
 $snowman-reading-top: 1500px;
-$snowman-reading-left: -127px;
+$snowman-reading-left: -207px;
 
 $rosetta-stone-w: 117px;
 $rosetta-stone-h: 96px;
