@@ -25,6 +25,12 @@ Racer scene.
 -->
 <dom-module id="racer-scene">
 <template>
+  <style>
+    :host([mode="portal"]) .shareButtons {
+      display: none !important;
+    }
+  </style>
+
   <div id="module-racer">
     <div class="view">
       <canvas width="576" height="640" class="game"></canvas>

@@ -13,7 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
-<link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="../../components/i18n-msg/i18n-msg.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 
 <script src="../shared/js/startbutton.js"></script>
@@ -27,6 +27,12 @@ Mercator scene.
 -->
 <dom-module id="mercator-scene">
 <template>
+  <style>
+    :host([mode="portal"]) .shareButtons {
+      display: none !important;
+    }
+  </style>
+
   <div id="module-mercator">
     <div class="scene">
       <template is="dom-if" if="{{santaApp}}">

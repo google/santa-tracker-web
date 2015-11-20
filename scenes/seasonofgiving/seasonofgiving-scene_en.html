@@ -25,6 +25,21 @@ Season of giving scene.
 -->
 <dom-module id="seasonofgiving-scene">
 <template>
+  <style>
+    :host([mode="portal"]) .Button--copy {
+      display: none !important;
+    }
+    :host([mode="portal"]) .Button-download {
+      display: none !important;
+    }
+    :host([mode="portal"]) .Button-print {
+      display: none !important;
+    }
+    :host([mode="portal"]) .shareButtons {
+      display: none !important;
+    }
+  </style>
+
   <div id="module-seasonofgiving">
     <div class="seasonofgiving">
       <div class="scene">

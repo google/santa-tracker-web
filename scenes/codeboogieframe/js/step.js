@@ -14,6 +14,11 @@ app.Step = {
   SPLIT: 'split',
   SHAKE: 'shake',
 
+  // Special moves
+  CARLTON: 'carlton',
+
   // Non blockly moves
-  IDLE: 'idle'
+  IDLE: 'idle',
+  FAIL: 'fail',
+  WATCH: 'watch',
 };

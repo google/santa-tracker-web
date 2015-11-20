@@ -15,20 +15,15 @@
  */
 
 goog.provide('app.Patterns');
+goog.require('Blockly.utils');
 
 /**
  * A singleton utility to inject patterns into Blockly's svg.
  */
 app.Patterns = (function() {
   var created_ = {};
-  var svgEl = Blockly.createSvgElement('svg', {
-    'xmlns': 'http://www.w3.org/2000/svg',
-    'xmlns:html': 'http://www.w3.org/1999/xhtml',
-    'xmlns:xlink': 'http://www.w3.org/1999/xlink',
-    'version': '1.1',
-    'class': 'svgPatterns'
-  }, document.body);
-  var defsEl = Blockly.createSvgElement('defs', {'id': 'blocklySvgDefs'}, svgEl);
+  var defsEl = null;
+  var pendingPatterns = [];
 
   /**
    * Have we already created an svg element for this patternInfo?  Throws if
@@ -95,7 +90,7 @@ app.Patterns = (function() {
           height: '100%',
           x: x,
           y: y
-        }, svgEl);
+        });
         patternImage = Blockly.createSvgElement('image', {
           width: width,
           height: height
@@ -104,8 +99,21 @@ app.Patterns = (function() {
                                     imagePath);
 
         markCreated_(patternInfo);
+
+        if (defsEl) {
+          defsEl.appendChild(pattern);
+        } else {
+          pendingPatterns.push(pattern);
+        }
       }
       return id;
+    },
+
+    inject: function() {
+      defsEl = document.getElementById('blocklySvgDefs');
+      pendingPatterns.forEach(function(pattern) {
+        defsEl.appendChild(pattern);
+      });
     }
   };
 })();
