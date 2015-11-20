@@ -1,4 +1,5 @@
-$toolbar-size: 52px;
+$base-raised-z-index: 100;     // z-index for raised text, effects (snow etc)
+$base-background-z-index: 90;  // z-index for anything behind that
 
 $width-desktop: 1280px;
 $width-tablet: 768px;  // iPad in portrait
@@ -7,6 +8,7 @@ $width-bigheader: $width-twocol;
 $desktop-ratio: 0.8;
 
 // standard size of house at $width-desktop
+$width-house: $width-desktop / 4;
 $height-house: 320px;
 $height-link-size: 250px;
 $tablet-desktop-ratio: .6;
@@ -26,9 +28,70 @@ $skydive-start-pos: -120px;
 $skydive-fallto: 50%;
 $skydive-fallto-pos: 240px;
 $skydive-land: 75%;
-$skydive-land-pos: 540px;
+$skydive-land-pos: 480px;
 $skydive-disappear: 95%;
 
 $hover-card-size: 282px;
 
+$house-row-1-z-index: 100;
+$house-row-2-z-index: 200;
+$house-row-3-z-index: 300;
+$house-row-4-z-index: 400;
+$house-row-5-z-index: 500;
+$house-row-6-z-index: 600;
+$house-row-7-z-index: 700;
+
+// Easter eggs asset sizes
+$easter-eggs: "christmas-tree", "blocks", "statue", "penguin-revolt", "snowman-reading", "rosetta-stone",
+    "white-board", "schoolyard", "tic-tac-toe", "book-club";
+
+$christmas-tree-w: 831px;
+$christmas-tree-h: 616px;
+$christmas-tree-top: 342px;
+$christmas-tree-left: 291px;
+
+$blocks-w: 360px;
+$blocks-h: 150px;
+$blocks-top: 646px;
+$blocks-left: 904px;
+
+$statue-w: 287px;
+$statue-h: 171px;
+$statue-top: 821px;
+$statue-left: 858px;
+
+$penguin-revolt-w: 174px;
+$penguin-revolt-h: 55px;
+$penguin-revolt-top: 1571px;
+$penguin-revolt-left: 865px;
+
+$snowman-reading-w: 571px;
+$snowman-reading-h: 237px;
+$snowman-reading-top: 1500px;
+$snowman-reading-left: -207px;
+
+$rosetta-stone-w: 117px;
+$rosetta-stone-h: 96px;
+$rosetta-stone-top: 904px;
+$rosetta-stone-left: 39px;
+
+$white-board-w: 121px;
+$white-board-h: 62px;
+$white-board-top: 866px;
+$white-board-left: 546px;
+
+$schoolyard-w: 434px;
+$schoolyard-h: 160px;
+$schoolyard-top: 255px;
+$schoolyard-left: 121px;
+
+$tic-tac-toe-w: 447px;
+$tic-tac-toe-h: 130px;
+$tic-tac-toe-top: 282px;
+$tic-tac-toe-left: 853px;
+
+$book-club-w: 90px;
+$book-club-h: 97px;
+$book-club-top: 558px;
+$book-club-left: 360px;
 

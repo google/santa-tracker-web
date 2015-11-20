@@ -199,6 +199,9 @@ Santa Tracker app.
         loading-bg-color="#8fd7f7"
         loading-src="scenes/translations/img/loading.png"></translations-scene>
 
+    <trivia-scene route="trivia"
+        path$="scenes/trivia/trivia-scene_[[language]].html"></trivia-scene>
+
     <undersea-scene route="undersea" icon="1f30a"
         path$="scenes/undersea/undersea-scene_[[language]].html"></undersea-scene>
 
@@ -820,7 +823,7 @@ Polymer({
     }
 
     // house is melted unless it's disabled
-    house.iced = house.disabled;
+    house.iced = !!house.disabled;
     this._notifyHouses();
   },
 
