@@ -10,8 +10,7 @@ $width-bigheader: $width-twocol;
 $svg-ratio: 0.8;  // svgs to desktop size
 
 // standard size of house at $width-desktop
-$width-house: $width-desktop / 4;
-$height-house: 320px;  // TODO(samthor): replace with $dim-house for both
+$dim-house: $width-desktop / 4;
 $height-link-size: 250px;
 $tablet-desktop-ratio: .6;
 

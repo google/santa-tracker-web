@@ -260,8 +260,8 @@ $name: 'module-dorf';
   .house {
     position: relative;
     box-sizing: border-box;
-    width: $width-desktop / 4;
-    height: $height-house;
+    width: $dim-house;
+    height: $dim-house;
 
     .card {
       display: none;
@@ -370,8 +370,8 @@ $name: 'module-dorf';
         width: $width-tablet;
         height: $height-tablet;
         .house {
-          width: $width-tablet / 4;
-          height: $height-house * $tablet-desktop-ratio;
+          width: $dim-house * $tablet-desktop-ratio;
+          height: $dim-house * $tablet-desktop-ratio;
 
           .building {
             a {
