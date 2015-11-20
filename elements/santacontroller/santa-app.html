@@ -818,7 +818,7 @@ Polymer({
     }
 
     // house is melted unless it's disabled
-    house.iced = house.disabled;
+    house.iced = !!house.disabled;
     this._notifyHouses();
   },
 
