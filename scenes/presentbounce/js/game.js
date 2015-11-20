@@ -121,7 +121,7 @@ app.Game.prototype.loadNextLevel_ = function() {
 
   var levelData = app.config.Levels[levelNumber];
 
-  console.log('Game: new level,' levelNumber , app.config.Levels[levelNumber]);
+  console.log('Game: new level', levelNumber , app.config.Levels[levelNumber]);
 
   // Send Klang event
   if (this.level > 0) {
