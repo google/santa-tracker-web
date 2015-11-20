@@ -80,7 +80,9 @@ SoundController.klangSrc_ = 'third_party/lib/klang/klang.min.js';
  * Klang config file URL.
  * @private {string}
  */
-SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.json';
+//SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.json';
+SoundController.klangConfigSrc_ = 'http://klangfiles.s3.amazonaws.com/uploads/projects/fa2bm/config.json';
+
 
 /**
  * Loads the Klang config file; called onload of the Klang library.
