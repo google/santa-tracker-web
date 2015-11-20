@@ -51,26 +51,31 @@
     $house: nth($houses, $i);
 
     .house-#{nth($house, $houseId)} {
-      z-index: nth($house, $zIndex) + (1+($i % 4) * 10);
+      // z-index set on child .assets, not top-level .house (don't create
+      // heirarchy here)
 
-      .building {
-        $w: (nth($house, $houseWidth) / strip-unit($width-house)) * 100;
-        $h: (nth($house, $houseHeight) / strip-unit($width-house)) * 100;
-        width: #{$w}%;
-        height: #{$h}%;
-        background-image: url(img/building-#{nth($house, $houseId)}.svg);
-        top: #{(nth($house, $houseTop) / strip-unit($width-house)) * 100}%;
-        left: #{(nth($house, $houseLeft) / strip-unit($height-house)) * 100}%;
-      }
+      .assets {
+        z-index: nth($house, $zIndex) + (1+($i % 4) * 10);
 
-      .ice {
-        $w: (nth($house, $iceWidth) / strip-unit($width-house)) * 100;
-        $h: (nth($house, $iceHeight) / strip-unit($width-house)) * 100;
-        width: #{$w}%;
-        height: #{$h}%;
-        background-image: url(img/building-#{nth($house, $houseId)}-ice.svg);
-        top: #{(nth($house, $iceTop) / strip-unit($width-house)) * 100}%;
-        left: #{(nth($house, $iceLeft) / strip-unit($height-house)) * 100}%;
+        .building {
+          $w: (nth($house, $houseWidth) / strip-unit($width-house)) * 100;
+          $h: (nth($house, $houseHeight) / strip-unit($width-house)) * 100;
+          width: #{$w}%;
+          height: #{$h}%;
+          background-image: url(img/building-#{nth($house, $houseId)}.svg);
+          top: #{(nth($house, $houseTop) / strip-unit($width-house)) * 100}%;
+          left: #{(nth($house, $houseLeft) / strip-unit($height-house)) * 100}%;
+        }
+
+        .ice {
+          $w: (nth($house, $iceWidth) / strip-unit($width-house)) * 100;
+          $h: (nth($house, $iceHeight) / strip-unit($width-house)) * 100;
+          width: #{$w}%;
+          height: #{$h}%;
+          background-image: url(img/building-#{nth($house, $houseId)}-ice.svg);
+          top: #{(nth($house, $iceTop) / strip-unit($width-house)) * 100}%;
+          left: #{(nth($house, $iceLeft) / strip-unit($height-house)) * 100}%;
+        }
       }
     }
   }

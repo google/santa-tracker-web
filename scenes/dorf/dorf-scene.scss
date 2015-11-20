@@ -414,13 +414,11 @@ $name: 'module-dorf';
 
   .house {
     position: relative;
-    box-sizing: border-box;
     width: $width-desktop / 4;
     height: $height-house;
 
+    /** Common card styling */
     .card {
-      display: none;
-
       img {
         width: 100%;
         height: 100%;
@@ -433,35 +431,6 @@ $name: 'module-dorf';
       background-size: contain;
       background-position: 50% 50%;
       z-index: 2;
-
-      a {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        z-index: 5;
-
-        img {
-          border-radius: 50%;
-          transition: transform 0.2s ease-out, opacity 0.2s ease-out;
-          transform: scale(0);
-          opacity: 0.25;
-          width: $hover-card-size;
-          height: $hover-card-size;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          margin: (-$hover-card-size / 2) 0 0 (-$hover-card-size / 2);
-          box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
-        }
-
-        &:hover, &:active {
-          img {
-            transform: scale(1);
-            opacity: 1;
-          }
-
-        }
-      }
 
       h3 {
         font-size: 12px;
@@ -487,8 +456,8 @@ $name: 'module-dorf';
       pointer-events: none;
       z-index: 3;
       opacity: 0;
-      will-change: opacity;
       transition: opacity 0.2s ease-out;
+      will-change: none;  // don't create a layer; this only transitions once
     }
 
     &.iced {
@@ -526,8 +495,69 @@ $name: 'module-dorf';
     }
   }
 
+  /** Tablet/desktop specific styles. */
+  @media (min-width: $width-tablet) {
+    .assets {
+      // This is the same size as its parent, but ties in with _houses setting
+      // z-index here. This ensures that building/ice is layered correctly with
+      // other village things like easter eggs.
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .card {
+      // TODO(samthor): Use sizing from _houses; just a quick hack for now.
+      // Restore layerX/layerY position.
+      width: 50%;
+      height: 50%;
+      left: 25%;
+      bottom: 25%;
+      position: absolute;
+      z-index: 30000;
+
+      // Create a layer: this hints to browsers that yes, this card _REALLY IS_
+      // above everything else. Since there's no background/color etc, it's
+      // ignored anyway.
+      transform: translateZ(0);
+      will-change: transform;
+
+      img {
+        $hs: $hover-card-size / 2;
+        width: $hover-card-size !important;
+        height: $hover-card-size !important;
+        margin: (-$hs) 0 0 (-$hs);
+        will-change: transform, opacity;
+        border-radius: 10000px;
+        transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+        transform: scale(0);
+        opacity: 0.25;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
+      }
+
+      &:hover, &:active {
+        img {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
   /** Tablet village. Shrunk version of desktop. */
   @media (max-width: ($width-desktop - 1)) and (min-width: $width-tablet) {
+    .card {
+      img {
+        $hs: $hover-card-size * $tablet-desktop-ratio / 2;
+        width: $hover-card-size * $tablet-desktop-ratio !important;
+        height: $hover-card-size * $tablet-desktop-ratio !important;
+        margin: (-$hs) 0 0 (-$hs);
+      }
+    }
+
     #village-all {
       #houses {
         width: $width-tablet;
