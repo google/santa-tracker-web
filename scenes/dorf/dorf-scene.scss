@@ -1,8 +1,5 @@
 $name: 'module-dorf';
 
-// Remove after dev
-$gridBorderWidth: 2px;
-
 @import "../shared/sass/_mixins.scss";
 
 @import "sass/variables";
@@ -267,6 +264,129 @@ $gridBorderWidth: 2px;
       z-index: 10;
     }
 
+    .easter-egg {
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    @each $egg in $easter-eggs {
+      ##{$egg} {
+        background-image: url(img/#{$egg}.svg);
+      }
+    }
+
+    #christmas-tree {
+      $w: $christmas-tree-w * $desktop-ratio;
+      $h: $christmas-tree-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $christmas-tree-top;
+      left: $christmas-tree-left;
+      z-index: $house-row-3-z-index - 1;
+    }
+
+    #blocks {
+      $w: $blocks-w * $desktop-ratio;
+      $h: $blocks-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $blocks-top;
+      left: $blocks-left;
+      z-index: $house-row-3-z-index - 1;
+    }
+
+    #statue {
+      $w: $statue-w * $desktop-ratio;
+      $h: $statue-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $statue-top;
+      left: $statue-left;
+      z-index: $house-row-4-z-index - 1;
+    }
+
+    #penguin-revolt {
+      $w: $penguin-revolt-w * $desktop-ratio;
+      $h: $penguin-revolt-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $penguin-revolt-top;
+      left: $penguin-revolt-left;
+      z-index: $house-row-6-z-index - 1;
+    }
+
+    #snowman-reading {
+      $w: $snowman-reading-w * $desktop-ratio;
+      $h: $snowman-reading-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $snowman-reading-top;
+      left: $snowman-reading-left;
+      z-index: $house-row-6-z-index - 1;
+    }
+
+    #rosetta-stone {
+      $w: $rosetta-stone-w * $desktop-ratio;
+      $h: $rosetta-stone-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $rosetta-stone-top;
+      left: $rosetta-stone-left;
+      z-index: $house-row-4-z-index - 1;
+    }
+
+    #white-board {
+      $w: $white-board-w * $desktop-ratio;
+      $h: $white-board-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $white-board-top;
+      left: $white-board-left;
+      z-index: $house-row-3-z-index;
+    }
+
+    #schoolyard {
+      $w: $schoolyard-w * $desktop-ratio;
+      $h: $schoolyard-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $schoolyard-top;
+      left: $schoolyard-left;
+      z-index: $house-row-1-z-index;
+    }
+
+    #tic-tac-toe {
+      $w: $tic-tac-toe-w * $desktop-ratio;
+      $h: $tic-tac-toe-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $tic-tac-toe-top;
+      left: $tic-tac-toe-left;
+      z-index: $house-row-2-z-index - 1;
+    }
+
+    #book-club {
+      $w: $book-club-w * $desktop-ratio;
+      $h: $book-club-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $book-club-top;
+      left: $book-club-left;
+      z-index: $house-row-2-z-index + 30;
+    }
+
     #ground {
       z-index: 1;
       position: absolute;
@@ -295,35 +415,31 @@ $gridBorderWidth: 2px;
   .house {
     position: relative;
     box-sizing: border-box;
-    width: ($width-desktop / 4) - $gridBorderWidth;
-    height: $height-house - $gridBorderWidth;
-    
-    // Remove
-    border: $gridBorderWidth solid red;
-      
+    width: $width-desktop / 4;
+    height: $height-house;
+
     .card {
       display: none;
-      
+
       img {
         width: 100%;
         height: 100%;
       }
     }
-      
+
     .building {
       position: absolute;
       background-repeat: no-repeat;
       background-position: 50% 50%;
       z-index: 2;
-      
+
       a {
         width: 100%;
         height: 100%;
         position: absolute;
         z-index: 5;
-        
+
         img {
-          will-change: transform;
           border-radius: 50%;
           transition: transform 0.2s ease-out, opacity 0.2s ease-out;
           transform: scale(0);
@@ -336,16 +452,16 @@ $gridBorderWidth: 2px;
           margin: (-$hover-card-size / 2) 0 0 (-$hover-card-size / 2);
           box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
         }
-        
+
         &:hover, &:active {
           img {
             transform: scale(1);
             opacity: 1;
           }
-          
+
         }
       }
-      
+
       h3 {
         font-size: 12px;
         letter-spacing: 1px;
@@ -361,7 +477,7 @@ $gridBorderWidth: 2px;
         text-align: center;
       }
     }
-    
+
     .ice {
       position: absolute;
       background-repeat: no-repeat;
@@ -372,14 +488,14 @@ $gridBorderWidth: 2px;
       will-change: opacity;
       transition: opacity 0.2s ease-out;
     }
-    
+
     &.iced {
       .building {
         a, h3 {
           display: none;
         }
       }
-    
+
       .ice {
         opacity: 1;
       }
@@ -396,7 +512,7 @@ $gridBorderWidth: 2px;
     position: relative;
     top: -290px;
     margin-bottom: -290px;
-    
+
     #village-footer-elves {
       background-image: url(img/footer-elves.svg);
       background-repeat: no-repeat;
@@ -414,12 +530,9 @@ $gridBorderWidth: 2px;
       #houses {
         width: $width-tablet;
         .house {
-          width: ($width-tablet / 4) - $gridBorderWidth;
-          height: ($height-house * $tablet-desktop-ratio) - $gridBorderWidth;
-          
-          // Remove
-          border: $gridBorderWidth solid green;
-          
+          width: $width-tablet / 4;
+          height: $height-house * $tablet-desktop-ratio;
+
           .building {
             a {
               img {
@@ -429,6 +542,106 @@ $gridBorderWidth: 2px;
               }
             }
           }
+        }
+
+        #christmas-tree {
+          $w: $christmas-tree-w * $tablet-desktop-ratio;
+          $h: $christmas-tree-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $christmas-tree-top * $tablet-desktop-ratio;
+          left: $christmas-tree-left * $tablet-desktop-ratio;
+        }
+
+        #blocks {
+          $w: $blocks-w * $tablet-desktop-ratio;
+          $h: $blocks-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $blocks-top * $tablet-desktop-ratio;
+          left: $blocks-left * $tablet-desktop-ratio;
+        }
+
+        #statue {
+          $w: $statue-w * $tablet-desktop-ratio;
+          $h: $statue-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $statue-top * $tablet-desktop-ratio;
+          left: $statue-left * $tablet-desktop-ratio;
+        }
+
+        #penguin-revolt {
+          $w: $penguin-revolt-w * $tablet-desktop-ratio;
+          $h: $penguin-revolt-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $penguin-revolt-top * $tablet-desktop-ratio;
+          left: $penguin-revolt-left * $tablet-desktop-ratio;
+        }
+
+        #snowman-reading {
+          $w: $snowman-reading-w * $tablet-desktop-ratio;
+          $h: $snowman-reading-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $snowman-reading-top * $tablet-desktop-ratio;
+          left: $snowman-reading-left * $tablet-desktop-ratio;
+        }
+
+        #rosetta-stone {
+          $w: $rosetta-stone-w * $tablet-desktop-ratio;
+          $h: $rosetta-stone-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $rosetta-stone-top * $tablet-desktop-ratio;
+          left: $rosetta-stone-left * $tablet-desktop-ratio;
+        }
+
+        #white-board {
+          $w: $white-board-w * $tablet-desktop-ratio;
+          $h: $white-board-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $white-board-top * $tablet-desktop-ratio;
+          left: $white-board-left * $tablet-desktop-ratio;
+        }
+
+        #schoolyard {
+          $w: $schoolyard-w * $tablet-desktop-ratio;
+          $h: $schoolyard-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $schoolyard-top * $tablet-desktop-ratio;
+          left: $schoolyard-left * $tablet-desktop-ratio;
+        }
+
+        #tic-tac-toe {
+          $w: $tic-tac-toe-w * $tablet-desktop-ratio;
+          $h: $tic-tac-toe-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $tic-tac-toe-top * $tablet-desktop-ratio;
+          left: $tic-tac-toe-left * $tablet-desktop-ratio;
+        }
+
+        #book-club {
+          $w: $book-club-w * $tablet-desktop-ratio;
+          $h: $book-club-h * $tablet-desktop-ratio;
+          width: $w;
+          height: $h;
+          background-size: #{$w} #{$h};
+          top: $book-club-top * $tablet-desktop-ratio;
+          left: $book-club-left * $tablet-desktop-ratio;
         }
       }
 
@@ -442,7 +655,7 @@ $gridBorderWidth: 2px;
       }
     }
   }
-  
+
   /** All mobile villages (two cols) */
   @media (max-width: $width-tablet - 1) {
     #village-all {
@@ -451,11 +664,11 @@ $gridBorderWidth: 2px;
         .house {
           width: 50%;
           height: 200px;
-          
-          .position {
+
+          .building, .ice {
             display: none;
           }
-        
+
           img.icon {
             width: 200px;
           }
@@ -463,14 +676,14 @@ $gridBorderWidth: 2px;
           .color {
             display: block;
           }
-          
+
           .card {
             display: block;
           }
         }
       }
 
-      #ground, #road {
+      #ground, #road, .easter-egg {
         display: none;
       }
     }
