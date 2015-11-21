@@ -14,6 +14,8 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 
+<script src="press-scene.min.js"></script>
+
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="press-scene.css" />
 
@@ -24,33 +26,34 @@ specific language governing permissions and limitations under the License.
       <div id="press-content">
         
         <div id="press-hero">
-          <div id="press-header">
-            <div id="press-title">
+          <div class="press-header">
+            <div class="press-title">
               <h1>Press</h1>
               <h1>Info</h1>
             </div>  
             <h3>About Google Santa Tracker</h3> 
           </div> 
-          <div id="press-description">   
-            <div id="press-description-left">
+          <div class="press-description">   
+            <div class="press-description-left">
               <div class="square"></div>
             </div>
-            <div id="press-description-right">       
+            <div class="press-description-right">       
               <p>While millions of people eagerly await Christmas Day, Santa and his elves are keeping busy at the North Pole. They’re preparing presents, tuning up the sleigh, feeding the reindeer and, of course, checking the list (twice!) before they take flight on their trip around the world.</p>
               <p>On his sleigh, arguably the fastest airborne vehicle in the world, Santa whips from city to city delivering presents to millions of homes. You’ll be able to follow him on Google Maps and Google Earth, and get his stats starting at 2:00 a.m. PST Christmas Eve at google.com/santatracker.</p>
             </div>
           </div>  
         </div>
-        <div id="press-sec-2">
-          <div id="press-sec-2-left">
-            <div class="press-sec-2-inner">
+
+        <div id="press-intro">
+          <div class="press-intro-col press-intro-left">
+            <div class="press-intro-inner">
               <div class="rect"></div>
               <h2>Educational adventures</h2>
               <p>Learning can be fun. From games that introduce basic concepts of programing to geography quizzes, to providing lesson plans to elementary school teachers, Santa Tracker is sneaking in learning experiences between all the fun and games. See our educational games down this page to lear more.</p>      
             </div>      
           </div>
-          <div id="press-sec-2-right">
-            <div class="press-sec-2-inner">
+          <div class="press-intro-col press-intro-right">
+            <div class="press-intro-inner">
               <div class="rect"></div>
               <h2>What’s new in 2015</h2>
               <p>Since 2004 Google has been reinventing Santa Tracker every year. This year we have redesigned the actual tracking experience users will enjoy on December 24th and 25th. But we are also introducing new games, videos and more. More fun, more learning and more holiday joy. See descriptions, images and videos of the new experiences below.</p>
@@ -58,9 +61,38 @@ specific language governing permissions and limitations under the License.
           </div>
         </div> 
         
-        <div id="press-sec-3">
-          <div id="press-sec-3-inner">
+        <div id="press-primary">
+          <div class="press-primary-inner">
             <h2>Santa’s Village and The Tracker</h2>
+            <div class="press-card">
+              <div class="press-card-img">
+                <div class="press-card-img-txt">
+                  <div class="press-card-lock">
+                    <span class="press-card-unlock">Unlocks December</span>&nbsp;
+                    <span class="press-card-unlock-day">17<span>th</span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="press-card-info">
+                <h4>Season of Giving</h4>
+                <span>Opens December 1• Game</span>
+                <p>I am a brief description of this game, video or experience. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.</p>
+                <div class="press-card-links">
+                  <span class="press-card-title">Press resources:</span>                
+                  <div class="press-card-links-half">
+                    <a href="" class="press-card-dl">Still screenshot <span>(PNG file)</span></a>
+                    <a href="" class="press-card-dl">Animation <span>(GIF file)</span></a>
+                    <a href="" class="press-card-play">Video <span>(YouTube Link)</span></a>            
+                  </div>
+                  <div class="press-card-links-half">
+                    <a href="" class="press-card-dl">Still screenshot <span>(PNG file)</span></a>
+                    <a href="" class="press-card-dl">Animation <span>(GIF file)</span></a>
+                    <a href="" class="press-card-dl">Video <span>(YouTube Link)</span></a>  
+                  </div> 
+                </div>               
+              </div>
+            </div>
+
             <div class="press-card">
               <div class="press-card-img">
                 <div class="press-card-img-txt">
@@ -92,14 +124,44 @@ specific language governing permissions and limitations under the License.
           </div>
         </div> 
         
-        <div id="press-sec-4">
-          <div id="press-sec-4-inner">          
+        <div id="press-secondary">
+          <div id="press-secondary-inner">          
             <h2>All the fun and games</h2>
             <div id="press-card-tabs">
-              <button id="press-card-button-1">view all</button>
-              <button id="press-card-button-2">Education focused</button>
-              <button id="press-card-button-3" class="active">New in 2015</button>            
+              <button id="press-card-button-1" data-filter="">view all</button>
+              <button id="press-card-button-2" data-filter="education">Education focused</button>
+              <button id="press-card-button-3" class="active" data-filter="new">New in 2015</button>      
             </div>
+
+            <template is="dom-repeat" items="{{cards}}" as="card" 
+              filter="filterCards" observe="active">
+              <div class="press-card">
+                <div class="press-card-img">
+                  <div class="press-card-img-txt">
+                    <div class="press-card-lock">
+                      <span class="press-card-unlock">Unlocks December</span>&nbsp;
+                      <span class="press-card-unlock-day">{{ card.opens }}<span>{{ card.ordinal }}</span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="press-card-info">
+                  <h4>{{ card.title }}</h4>
+                  <span>Opens December {{ card.opens }} • {{ card.type }}</span>
+                  <p>{{ card.description }}</p>
+                  <div class="press-card-links">
+                    <span class="press-card-title">Press resources:</span>                
+                    <div class="press-card-links-full">
+                      <template is="dom-repeat" items="{{ card.resources }}">
+                      <a href="[[ item.url ]]" class$="{{ item.class }}">
+                        {{ item.title }} <span>({{ item.type }})</span>
+                      </a>
+                      </template>
+                    </div> 
+                  </div>               
+                </div>
+              </div>
+            </template>
+
             <div class="press-card">
               <div class="press-card-img">
                 <div class="press-card-img-txt">
@@ -122,23 +184,71 @@ specific language governing permissions and limitations under the License.
                   </div> 
                 </div>               
               </div>
-            </div>            
+            </div>
+
+            <div class="press-card">
+              <div class="press-card-img">
+                <div class="press-card-img-txt">
+                  <div class="press-card-lock">
+                    <span class="press-card-unlock">Unlocks December</span>&nbsp;
+                    <span class="press-card-unlock-day">17<span>th</span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="press-card-info">
+                <h4>Season of Giving</h4>
+                <span>Opens December 1• Game</span>
+                <p>I am a brief description of this game, video or experience. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.</p>
+                <div class="press-card-links">
+                  <span class="press-card-title">Press resources:</span>                
+                  <div class="press-card-links-full">
+                    <a href="" class="press-card-dl">Still screenshot <span>(PNG file)</span></a>
+                    <a href="" class="press-card-dl">Animation <span>(GIF file)</span></a>
+                    <a href="" class="press-card-play">Video <span>(YouTube Link)</span></a>            
+                  </div> 
+                </div>               
+              </div>
+            </div>
+
+            <div class="press-card">
+              <div class="press-card-img">
+                <div class="press-card-img-txt">
+                  <div class="press-card-lock">
+                    <span class="press-card-unlock">Unlocks December</span>&nbsp;
+                    <span class="press-card-unlock-day">17<span>th</span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="press-card-info">
+                <h4>Season of Giving</h4>
+                <span>Opens December 1• Game</span>
+                <p>I am a brief description of this game, video or experience. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.</p>
+                <div class="press-card-links">
+                  <span class="press-card-title">Press resources:</span>                
+                  <div class="press-card-links-full">
+                    <a href="" class="press-card-dl">Still screenshot <span>(PNG file)</span></a>
+                    <a href="" class="press-card-dl">Animation <span>(GIF file)</span></a>
+                    <a href="" class="press-card-play">Video <span>(YouTube Link)</span></a>            
+                  </div> 
+                </div>               
+              </div>
+            </div>  
           </div>  
         </div> 
         
-        <div id="press-sec-5">
-          <div id="press-sec-5-inner">
+        <div id="press-embed">
+          <div id="press-embed-inner">
             <h3>Embed Santa Tracker on your site!</h3>
             <p>Want to embed Santa on your site? Our developers elves have created a way for outlets to do just that — reach out to <a href="">press.google.com</a> for opportunities to livestream updates of Santa's location or the game of the day directly in online or broadcast stories.</p>
           </div>  
           <div class="rect"></div>
         </div>  
         
-        <div id="press-sec-6">
+        <div id="press-device">
           <h3>Santa Tracker on your device</h3>
           <p>The spirit of the holidays is everywhere, including all your devices!</p>
           
-          <div class="press-device">
+          <div class="press-device-grid">
             <div class="press-device-square">
               <div class="square" id="press-device-1"></div>
               <h4>Chromecast</h4>
@@ -173,7 +283,7 @@ specific language governing permissions and limitations under the License.
           
         </div>
         
-        <div id="press-sec-7">
+        <div id="press-footer">
           <h3>Need something?</h3>
           <p>Elves and Googlers are here to help.</p>
           <button>press@google.com</button>
@@ -193,10 +303,6 @@ specific language governing permissions and limitations under the License.
         </footer>
         
       </div>
-    </div>
-    <div class="sceneboard">
-      <!--<a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>-->
-      <div class="sceneboard-back"></div>
     </div>
   </div>
 </template>
@@ -235,6 +341,22 @@ specific language governing permissions and limitations under the License.
     		'img/tmb-season-of-giving.png',
       ]);
     },
+
+    onShow: function() {
+      var module = this.$['module-press'];
+
+      this.scene = new scenes.press.Scene(module);
+      this.cards = this.scene.getCards();
+    },
+
+    filterCards: function(item) {
+      if (this.active) {
+        return item[this.scene.active];
+      }
+      else {
+        return true;
+      }
+    }
   });
 </script>
 </dom-module>
