@@ -6098,5 +6098,43 @@
     },
     "tracker_world_facts_1": {
         "message": "World Facts"
+    },
+    "santasearch_search_for_santa": {
+      "description": "A heading for the level selection screen.",
+      "message": "Search for Santa!"
+    },
+    "santasearch_level_select": {
+      "description": "Appears when a level has been hovered in the level selection screen. Please keep this short.",
+      "message": "Go!"
+    },
+    "santasearch_level_museum": {
+      "description": "Name of the museum level, appears below the level art. Please keep this short.",
+      "message": "At the museum"
+    },
+    "santasearch_level_lab": {
+      "description": "Name of the lab level, appears below the level art. Please keep this short.",
+      "message": "In the lab"
+    },
+    "santasearch_hint": {
+      "description": "Button to click when searching for a character to get a hint of his location. Please keep this short.",
+      "message": "Hint"
+    },
+    "santasearch_character_santa": {
+      "message": "Santa Claus"
+    },
+    "santasearch_character_mrs_santa": {
+      "message": "Mrs. Claus"
+    },
+    "santasearch_character_rudolph": {
+      "message": "Rudolph"
+    },
+    "santasearch_character_penguin": {
+      "message": "Penguin"
+    },
+    "santasearch_character_gingerbread_man": {
+      "message": "Gingerbread Man"
+    },
+    "santasearch_character_pegman": {
+      "message": "Pegman"
     }
 }
