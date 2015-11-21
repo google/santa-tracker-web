@@ -271,6 +271,10 @@ $name: 'module-dorf';
       pointer-events: none;
     }
 
+    .easter-egg-interactive {
+      pointer-events: auto;
+    }
+
     @each $egg in $easter-eggs {
       ##{$egg} {
         background-image: url(img/#{$egg}.svg);
@@ -385,6 +389,17 @@ $name: 'module-dorf';
       top: $book-club-top;
       left: $book-club-left;
       z-index: $house-row-2-z-index + 30;
+    }
+
+    #balloon {
+      $w: $balloon-w * $desktop-ratio;
+      $h: $balloon-h * $desktop-ratio;
+      width: $w;
+      height: $h;
+      background-size: #{$w} #{$h};
+      top: $balloon-top;
+      left: $balloon-left;
+      z-index: $house-row-4-z-index - 1;
     }
 
     #ground {
