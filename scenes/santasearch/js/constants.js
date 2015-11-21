@@ -21,5 +21,37 @@ goog.provide('app.Constants');
  * Please tweak them to improve gameplay and game balance.
  */
 app.Constants = {
-  ZOOM_MAX: 5
+  ZOOM_MAX: 5,
+  SANTA_SPAWNS: [
+    {
+      locationScale: {
+        left: 0.16,
+        top: 0.725
+      },
+      sizeScale: {
+        width: 0.03603603604,
+        height: 0.09770421783
+      }
+    },
+    {
+      locationScale: {
+        left: 0.47,
+        top: 0.615
+      },
+      sizeScale: {
+        width: 0.03603603604,
+        height: 0.09770421783
+      }
+    },
+    {
+      locationScale: {
+        left: 0.87,
+        top: 0.23
+      },
+      sizeScale: {
+        width: 0.03603603604,
+        height: 0.09770421783
+      }
+    }
+  ]
 };

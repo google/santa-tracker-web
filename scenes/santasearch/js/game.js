@@ -17,6 +17,7 @@
 goog.provide('app.Game');
 
 goog.require('app.Controls');
+goog.require('app.Constants');
 goog.require('app.shared.utils');
 
 
@@ -29,6 +30,17 @@ goog.require('app.shared.utils');
  */
 app.Game = function(elem) {
   this.elem = $(elem);
+
+  this.santaElem = this.elem.find('.santa');
+  this.santaLocation = {
+    left: undefined,
+    top: undefined
+  };
+  this.santaScale = {
+    width: undefined,
+    height: undefined
+  };
+
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
   this.controls = new app.Controls(elem);
@@ -49,10 +61,67 @@ app.Game = function(elem) {
 app.Game.prototype.start = function() {
   this.restart();
 
+  this._initializeSanta();
   this._scale(1);
-  $(window).on('resize.santasearch', this._onResize.bind(this));
+
+  this._setupEventHandlers();
 
   this.controls.start();
+};
+
+/**
+ * Sets up event handlers for the game
+ * @private
+ */
+app.Game.prototype._setupEventHandlers = function() {
+  this.santaElem.on('click.santasearch', this._onCharacterSelected.bind(this, 'santa'));
+  $(window).on('resize.santasearch', this._onResize.bind(this));
+};
+
+/**
+ * Handles the event when a character is selected
+ * @param {string} character Name of selected character.
+ * @private
+ */
+app.Game.prototype._onCharacterSelected = function(character) {
+  console.log(`${character} was selected!`);
+};
+
+/**
+ * Initialize Santa Claus with location and scale
+ * @private
+ */
+app.Game.prototype._initializeSanta = function() {
+  let spawns = app.Constants.SANTA_SPAWNS;
+
+  let randomSpawn = Math.floor(Math.random() * spawns.length);
+
+  let santaSpawnPoint = spawns[randomSpawn];
+  this.santaLocation = santaSpawnPoint.locationScale;
+  this.santaScale = santaSpawnPoint.sizeScale;
+};
+
+/**
+ * Positions a character based on mapElementDimensions
+ * @param {Element} elem The element of the character to position.
+ * @param {Object} location Width/Height scale attributes.
+ * @private
+ */
+app.Game.prototype._positionCharacter = function(elem, locationScale) {
+  let left = this.mapElementDimensions.width * locationScale.left;
+  let top = this.mapElementDimensions.height * locationScale.top;
+
+  elem.css('transform', `translate(${left}px, ${top}px)`);
+}
+
+app.Game.prototype._scaleCharacter = function(elem, scale) {
+  let santaWidth = this.mapElementDimensions.width * scale.width;
+  let santaHeight = this.mapElementDimensions.height * scale.height;
+
+  elem.css('width', santaWidth);
+  elem.css('height', santaHeight);
+  elem.css('margin-left', `-${santaWidth/2}px`);
+  elem.css('margin-top', `-${santaHeight/2}px`);
 };
 
 /**
@@ -79,7 +148,18 @@ app.Game.prototype._scale = function(value) {
 
   this.mapElem.css('margin-left', -(this.mapElementDimensions.width / 2));
   this.mapElem.css('margin-top', -(this.mapElementDimensions.height / 2));
+
+  this._updateCharacters();
 }
+
+/**
+ * Updates scale and location of characters, called after map is scaled
+ * @private
+ */
+app.Game.prototype._updateCharacters = function() {
+  this._scaleCharacter(this.santaElem, this.santaScale);
+  this._positionCharacter(this.santaElem, this.santaLocation);
+};
 
 /**
  * Makes sure that the player can not pan out of the map
@@ -240,4 +320,5 @@ app.Game.prototype.dispose = function() {
   $(window).off('.santasearch');
   $(document).off('.santasearch');
   this.elem.off('.santasearch');
+  this.santaElem.off('.santasearch');
 };
