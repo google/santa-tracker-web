@@ -3,6 +3,7 @@ $width-big: 600px;
 
 #santa-toolbar {
   height: $toolbar-size;
+  min-width: 320px;  // force 320px min width, i.e., iPhone 4/5+
   position: fixed;
   top: 0;
   left: 0;
