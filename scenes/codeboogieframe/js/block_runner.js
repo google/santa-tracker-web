@@ -173,12 +173,6 @@ app.BlockRunner = class {
 }
 
 /**
- * An es6-style symbol for decorating Animation instances that represent highlights.
- * @type {string}
- */
-app.BlockRunner.HIGHLIGHT_SYMBOL = 'CL_highlight';
-
-/**
  * How long should loop highlights last. Note that they attempt to borrow this time from
  * the last block highlight.
  * @type {number}

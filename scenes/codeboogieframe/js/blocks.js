@@ -202,7 +202,7 @@ app.blocks.install = function() {
     init: function() {
       this.setHSV(26, 0.77, 0.96);
       this.appendDummyInput()
-          .appendField(app.I18n.getMsg('CL_whenRun'));
+          .appendField(app.I18n.getMsg('CB_whenRun'));
       this.setNextStatement(true);
     }
   };
@@ -220,11 +220,11 @@ app.blocks.install = function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldImage('img/block-repeat.svg', 28, 32))
           .appendField(new Blockly.FieldDropdown(optionNumberRange(2, 6)), 'TIMES')
-          .appendField(app.I18n.getMsg('CL_repeatTitleTimes'));
+          .appendField(app.I18n.getMsg('CB_repeatTitleTimes'));
       this.appendStatementInput('DO');
       this.setPreviousStatement(true);
       this.setNextStatement(true);
-      this.setTooltip(app.I18n.getMsg('CL_repeatTooltip'));
+      this.setTooltip(app.I18n.getMsg('CB_repeatTooltip'));
     }
   };
 
@@ -237,7 +237,7 @@ app.blocks.install = function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldImage('img/block-repeat.svg', 23, 32));
       this.setMini(true);
-      this.setTooltip(app.I18n.getMsg('CL_repeatTooltip'));
+      this.setTooltip(app.I18n.getMsg('CB_repeatTooltip'));
     }
   };
 

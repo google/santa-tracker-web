@@ -76,12 +76,12 @@ app.DanceLevel = class extends app.Level {
     if (blockly.hasEmptyContainerBlocks()) {
       // Block is assumed to be "if" or "repeat" if we reach here.
       return new app.DanceLevelResult(false,
-          app.I18n.getMsg('CL_resultEmptyBlockFail'),
+          app.I18n.getMsg('CB_resultEmptyBlockFail'),
           {skipAnimation: true});
     }
     if (blockly.hasExtraTopBlocks()) {
       return new app.DanceLevelResult(false,
-          app.I18n.getMsg('CL_resultExtraTopBlockFail'),
+          app.I18n.getMsg('CB_resultExtraTopBlockFail'),
           {skipAnimation: true});
     }
 
@@ -95,17 +95,17 @@ app.DanceLevel = class extends app.Level {
 
     if (missingBlocks.length) {
       message = levelComplete ?
-          app.I18n.getMsg('CL_resultMissingBlockSuccess') :
-          app.I18n.getMsg('CL_resultMissingBlockFail');
+          app.I18n.getMsg('CB_resultMissingBlockSuccess') :
+          app.I18n.getMsg('CB_resultMissingBlockFail');
     } else if (!levelComplete) {
       if (this.idealBlockCount !== Infinity &&
           numEnabledBlocks < this.idealBlockCount) {
-        message = app.I18n.getMsg('CL_resultTooFewBlocksFail');
+        message = app.I18n.getMsg('CB_resultTooFewBlocksFail');
       } else {
-        message = app.I18n.getMsg('CL_resultGenericFail');
+        message = app.I18n.getMsg('CB_resultGenericFail');
       }
     } else if (numEnabledBlocks > this.idealBlockCount) {
-      message = app.I18n.getMsg('CL_resultTooManyBlocksSuccess');
+      message = app.I18n.getMsg('CB_resultTooManyBlocksSuccess');
     } else {
       allowRetry = false;
     }

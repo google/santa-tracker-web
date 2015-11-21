@@ -22,7 +22,7 @@ goog.require('app.MoveQueue');
 goog.require('app.Step');
 goog.require('app.Title');
 
-app.Character = class Character {
+app.Character = class {
   constructor(el, color, setTitle) {
     // Create move queue
     this.queue = new app.MoveQueue(this, setTitle);
