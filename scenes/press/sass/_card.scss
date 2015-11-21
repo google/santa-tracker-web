@@ -1,0 +1,116 @@
+.press-card {
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 3px 5px #ddd;
+  float: left;
+  margin: 0 15px 30px;
+  overflow: hidden;
+  text-align: left;
+  width: calc(50% - 30px);
+
+  .press-card-img {
+    height: 265px;
+    background: url(img/tmb-santas-village.jpg) 50% 50% no-repeat;
+    background-size: cover;    
+    border-radius: 5px 5px 0 0;  
+    color: #fff;
+
+    .press-card-img-txt {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      background: rgba(0, 172, 193, .5);
+
+      .press-card-lock {
+        width: 100%;
+        height: 100%; 
+        background: url(img/ic-lock-32px_2x.png) 50% 50% no-repeat; 
+        background-size: 10% auto;
+        padding-top: 25px; 
+
+        .press-card-unlock {
+          text-transform: uppercase;
+          font-size: 16px;
+          font-weight: 600;
+        }
+
+        .press-card-unlock-day {
+          font-family: 'Lobster', sans-serif;
+          font-weight: normal;
+          font-size: 40px;
+          vertical-align: bottom;
+
+          span {
+            font-size: 30px;
+            vertical-align: bottom;
+          }
+        }  
+      }      
+    }
+  }
+
+  .press-card-info {
+    color: #546E7A;
+    padding: 25px;
+
+    h2 {
+      margin-bottom: 50px;
+    }
+
+    span {
+      color: #90A4AE;
+    }
+
+    p, span {
+      font-size: 14px;
+      line-height: 25px;
+    }
+
+    .press-card-links {
+      @extend .clearfix;
+
+      a {
+        width: 100%;
+        display: block;
+        padding: 10px 0 10px 35px;
+        font-size: 14px;
+        text-decoration: none;
+        box-sizing: border-box;
+        color: #00ACC1;   
+
+        span {
+          font-size: 10px;
+        }
+      }
+
+      .press-card-dl {
+        background: url(img/ic-download-18px_2x.png) 0 50% no-repeat;  
+        background-size: auto 50%;                       
+      }
+
+      .press-card-play {
+        background: url(img/ic-video-18px_2x.png) 0 50% no-repeat;  
+        background-size: auto 50%;  
+      }
+
+      .press-card-title {
+        color: #546E7A;
+        font-weight: 600;
+        display: block;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #90A4AE;
+      }
+
+      .press-card-links-half {
+        width: 50%;
+        float: left;
+      }
+
+      .press-card-links-full {
+        width: 100%;
+        float: left;
+      }          
+    }
+  }
+}  
