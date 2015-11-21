@@ -46,6 +46,11 @@ app.Game = function(elem) {
       elem: this.elem.find('.rudolph'),
       location: {},
       scale: {}
+    },
+    'gingerbread-man': {
+      elem: this.elem.find('.gingerbread-man'),
+      location: {},
+      scale: {}
     }
   }
 
@@ -72,6 +77,8 @@ app.Game.prototype.start = function() {
   this._initializeCharacter('santa');
   this._initializeCharacter('mrs-claus');
   this._initializeCharacter('rudolph');
+  this._initializeCharacter('gingerbread-man');
+
   this._scale(1);
 
   this._setupEventHandlers();

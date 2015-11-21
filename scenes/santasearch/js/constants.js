@@ -78,6 +78,18 @@ app.Constants = {
           height: 0.07816337426
         }
       }
+    ],
+    'gingerbread-man': [
+      {
+        locationScale: {
+          left: 0.24,
+          top: 0.8
+        },
+        sizeScale: {
+          width: 0.02290689006,
+          height: 0.07816337426
+        }
+      }
     ]
   }
 };
