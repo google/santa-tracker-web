@@ -84,9 +84,6 @@ app.Game.prototype.start = function() {
  * @private
  */
 app.Game.prototype._setupEventHandlers = function() {
-  this.characters['santa'].elem.on('click.santasearch', this._onCharacterSelected.bind(this, 'santa'));
-  this.characters['mrs-claus'].elem.on('click.santasearch', this._onCharacterSelected.bind(this, 'mrs-claus'));
-  this.characters['rudolph'].elem.on('click.santasearch', this._onCharacterSelected.bind(this, 'rudolph'));
   $(window).on('resize.santasearch', this._onResize.bind(this));
 };
 
@@ -95,22 +92,26 @@ app.Game.prototype._setupEventHandlers = function() {
  * @param {string} character Name of selected character.
  * @private
  */
-app.Game.prototype._onCharacterSelected = function(character) {
-  console.log(`${character} was selected!`);
+app.Game.prototype._onCharacterSelected = function(characterName) {
+  console.log(`${characterName} was selected!`);
 };
 
 /**
- * Initialize a character with location and scale
+ * Initialize a character with location, scale and a click event
  * @param {string} character Name of the character.
  * @private
  */
-app.Game.prototype._initializeCharacter = function(character) {
-  let spawns = app.Constants.SPAWNS[character];
+app.Game.prototype._initializeCharacter = function(characterName) {
+  let spawns = app.Constants.SPAWNS[characterName];
   let randomSpawn = Math.floor(Math.random() * spawns.length);
   let characterSpawnPoint = spawns[randomSpawn];
 
-  this.characters[character].location = characterSpawnPoint.locationScale;
-  this.characters[character].scale = characterSpawnPoint.sizeScale;
+  let character = this.characters[characterName];
+
+  character.location = characterSpawnPoint.locationScale;
+  character.scale = characterSpawnPoint.sizeScale;
+
+  character.elem.on('click.santasearch', this._onCharacterSelected.bind(this, characterName));
 };
 
 /**
