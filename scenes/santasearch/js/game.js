@@ -137,7 +137,7 @@ app.Game.prototype._positionCharacter = function(elem, locationScale) {
   let left = this.mapElementDimensions.width * locationScale.left;
   let top = this.mapElementDimensions.height * locationScale.top;
 
-  elem.css('transform', `translate(${left}px, ${top}px)`);
+  elem.css('transform', `translate3d(${left}px, ${top}px, 0)`);
 }
 
 app.Game.prototype._scaleCharacter = function(elem, scale) {
