@@ -1,0 +1,15 @@
+$tabletBreakpoint: 1024px;
+$mobileBreakpoint: 668px;
+$mobilePortraitBreakpoint: 400px;
+
+@media (min-width: 1px) and (max-width: $tabletBreakpoint) {
+  #press-intro {
+    .press-intro-col {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 1px) and (max-width: $mobileBreakpoint) {
+
+}
