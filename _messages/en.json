@@ -326,6 +326,21 @@
 	"copy-me": {
 		"message": "Copy this link to share your message"
 	},
+	"countdown_days": {
+		"message": "Days"
+	},
+	"countdown_hours": {
+		"message": "Hrs"
+	},
+	"countdown_minutes": {
+		"message": "Min"
+	},
+	"countdown_seconds": {
+		"message": "Sec"
+	},
+	"countdown_until": {
+		"message": "Santa Takes Off In"
+	},
 	"countdownlabel": {
 		"message": "Until Santa Departs"
 	},
@@ -668,6 +683,12 @@
 	"nonprofit-wwf-type": {
 		"message": "Polar Bear"
 	},
+	"notification": {
+		"message": "Notifications"
+	},
+	"notification_notice": {
+		"message": "Santa's Elves will keep you up-to-date with Santa's schedule"
+	},
 	"np_country_name": {
 		"message": "Nepal"
 	},
@@ -743,8 +764,92 @@
 	"sa_country_name": {
 		"message": "Saudi Arabia"
 	},
+	"santasvillage": {
+		"message": "Santa's Village"
+	},
 	"santatracker": {
 		"message": "Santa Tracker"
+	},
+	"scene_airport": {
+		"message": "North Pole Airport"
+	},
+	"scene_app": {
+		"message": "Android App"
+	},
+	"scene_boatload": {
+		"message": "Gift Slingshot"
+	},
+	"scene_briefing": {
+		"message": "Mrs. Claus' Briefing"
+	},
+	"scene_callfromsanta": {
+		"message": "Call from Santa"
+	},
+	"scene_citylights": {
+		"message": "City Lights"
+	},
+	"scene_codeboogie": {
+		"message": "Code Boogie"
+	},
+	"scene_codelab": {
+		"message": "Code Lab"
+	},
+	"scene_commandcentre": {
+		"message": "Mission Control"
+	},
+	"scene_giftmatch": {
+		"message": "Gift Matcher"
+	},
+	"scene_gumball": {
+		"message": "Gumball Tilt"
+	},
+	"scene_jamband": {
+		"message": "Elf Jamband"
+	},
+	"scene_jetpack": {
+		"message": "Elf Jetpack"
+	},
+	"scene_matching": {
+		"message": "Memory Match"
+	},
+	"scene_mercator": {
+		"message": "Map Quiz"
+	},
+	"scene_postcard": {
+		"message": "Santa Cards"
+	},
+	"scene_presentbounce": {
+		"message": "Present Bounce"
+	},
+	"scene_presentdrop": {
+		"message": "Present Drop"
+	},
+	"scene_racer": {
+		"message": "Rudolph Racer"
+	},
+	"scene_santasearch": {
+		"message": "Santa Search"
+	},
+	"scene_santaselfie": {
+		"message": "Santa Selfie"
+	},
+	"scene_seasonofgiving": {
+		"message": "Season of Giving"
+	},
+	"scene_traditions": {
+		"message": "Holiday Traditions"
+	},
+	"scene_translations": {
+		"message": "Translations"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Elf Car"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Santa's Takeoff"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Santa's Back"
 	},
 	"score": {
 		"message": "Score"
@@ -844,6 +949,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Distance from you"
+	},
+	"tracker_flight_nearby": {
+		"message": "Santa is nearby, find out where"
+	},
+	"tracker_flight_start": {
+		"message": "Santa has departed from the North Pole, and you can now follow his route"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Gifts delivered"
@@ -4552,6 +4663,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Come back on the 24th and help us track Santa all night!"
+	},
+	"village_explore": {
+		"message": "Explore, play and learn with Santa's Elves all December long"
+	},
+	"village_takesoff": {
+		"message": "Santa takes off in"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

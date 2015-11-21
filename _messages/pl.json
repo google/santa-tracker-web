@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "W Wigilię udostępnimy podgląd panelu Świętego Mikołaja, który steruje jego saniami podczas podróży dookoła świata. Otrzymaliśmy ten podgląd od jednego z elfów-programistów, którzy pomagają Mikołajowi w przygotowaniach do tego wielkiego dnia. Panel Świętego Mikołaja działa w oparciu o najnowszą innowacyjną technologię Map Google i budowę sań najnowszej generacji. Dzięki temu możesz śledzić podróż Mikołaja po świecie i bliżej poznać miejsca, które odwiedza."
+		"message": "W Wigilię pokażemy specjalny grafik Świętego Mikołaja i powiemy więcej o technologii, której używa do podróżowania po świecie. Materiały do tej szczególnej prezentacji otrzymaliśmy od jednego z wielu elfów, które na biegunie północnym pracowicie pomagają Świętemu Mikołajowi przygotować się do tego ważnego dnia. Grafik Świętego Mikołaja wykorzystuje najnowsze i najlepsze funkcje Map Google oraz inne technologie używane w saniach. Dzięki niemu możesz śledzić trasę podróży Świętego Mikołaja po całym świecie i dowiedzieć się czegoś o miejscach, w których się zatrzymuje."
 	},
 	"about-content-three": {
 		"message": "Trasa Świętego Mikołaja w Mapach Google została utworzona i jest rozwijana przez Google (przy niewielkim wsparciu elfów). Jeśli potrzebujesz pomocy lub chcesz zadać pytanie, odwiedź nasze \u003ca href=\"//support.google.com/santatracker\"\u003eCentrum pomocy\u003c/a\u003e."
@@ -326,6 +326,21 @@
 	"copy-me": {
 		"message": "Skopiuj ten link, aby udostępnić wiadomość"
 	},
+	"countdown_days": {
+		"message": "Dni"
+	},
+	"countdown_hours": {
+		"message": "godz."
+	},
+	"countdown_minutes": {
+		"message": "min"
+	},
+	"countdown_seconds": {
+		"message": "s"
+	},
+	"countdown_until": {
+		"message": "Święty Mikołaj wyrusza za"
+	},
 	"countdownlabel": {
 		"message": "Do wyjazdu Mikołaja"
 	},
@@ -354,7 +369,7 @@
 		"message": "Niemiecki"
 	},
 	"de_tradition": {
-		"message": "Na rynku niemal każdego niemieckiego miasta otwierane są stragany. Mieszkańcy gromadzą się, by posłuchać orkiestry dętej oraz raczyć się regionalnymi potrawami. Zajadają się cynamonowymi sercami, prażonymi migdałami w cukrze, różnymi słodkościami oraz piją grzane wino (Glühwein) lub cydr."
+		"message": "Tradycją niemal każdego niemieckiego miasteczka są jarmarki bożonarodzeniowe. Mieszkańcy gromadzą się na rynku, by posłuchać orkiestry dętej oraz spróbować regionalnych wyrobów. Zajadają się cynamonowymi sercami, prażonymi migdałami w cukrze, różnymi innymi słodkościami oraz piją grzane wino (Glühwein) lub cydr."
 	},
 	"deck": {
 		"message": "Dekoracje"
@@ -432,7 +447,7 @@
 		"message": "francuski"
 	},
 	"fr_tradition": {
-		"message": "Zgodnie z tradycją, we Francji dzieci układają buty obok kominka, oczekując na przybycie Père Noël, czyli Świętego Mikołaja. Jeśli były grzeczne przez cały rok, Père Noël napełni ich obuwie prezentami."
+		"message": "We Francji dzieci ustawiają swoje buty przy kominku, oczekując na przybycie Père Noël, czyli Świętego Mikołaja. Jeśli były grzeczne przez cały rok, Père Noël napełni ich buty prezentami."
 	},
 	"ga_country_name": {
 		"message": "Gabon"
@@ -743,8 +758,92 @@
 	"sa_country_name": {
 		"message": "Arabia Saudyjska"
 	},
+	"santasvillage": {
+		"message": "Wioska Świętego Mikołaja"
+	},
 	"santatracker": {
 		"message": "Trasa Świętego Mikołaja"
+	},
+	"scene_airport": {
+		"message": "Lotnisko na Biegunie Północnym"
+	},
+	"scene_app": {
+		"message": "Aplikacja na Androida"
+	},
+	"scene_boatload": {
+		"message": "Proca z prezentami"
+	},
+	"scene_briefing": {
+		"message": "Instruktaż od Pani Mikołajowej"
+	},
+	"scene_callfromsanta": {
+		"message": "Telefon od Świętego Mikołaja"
+	},
+	"scene_citylights": {
+		"message": "Światła miasta"
+	},
+	"scene_codeboogie": {
+		"message": "Kodowanie w rytmie boogie"
+	},
+	"scene_codelab": {
+		"message": "Programowanie trasy"
+	},
+	"scene_commandcentre": {
+		"message": "Centrum dowodzenia"
+	},
+	"scene_giftmatch": {
+		"message": "Dobieracz prezentów"
+	},
+	"scene_gumball": {
+		"message": "Spadające kulki"
+	},
+	"scene_jamband": {
+		"message": "Muzyczny zespół elfów"
+	},
+	"scene_jetpack": {
+		"message": "Odrzutowy plecak elfów"
+	},
+	"scene_matching": {
+		"message": "Gra Memory"
+	},
+	"scene_mercator": {
+		"message": "Quiz z mapami"
+	},
+	"scene_postcard": {
+		"message": "Kartki z Mikołajem"
+	},
+	"scene_presentbounce": {
+		"message": "Podskakujące prezenty"
+	},
+	"scene_presentdrop": {
+		"message": "Wrzucanie prezentów"
+	},
+	"scene_racer": {
+		"message": "Wyścigi z Rudolfem"
+	},
+	"scene_santasearch": {
+		"message": "Poszukiwanie Mikołaja"
+	},
+	"scene_santaselfie": {
+		"message": "Selfie Świętego Mikołaja"
+	},
+	"scene_seasonofgiving": {
+		"message": "Czas prezentów"
+	},
+	"scene_traditions": {
+		"message": "Świąteczne tradycje"
+	},
+	"scene_translations": {
+		"message": "Tłumaczenia"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Samochód elfów"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Święty Mikołaj odlatuje"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Powrót Mikołaja"
 	},
 	"score": {
 		"message": "Wynik"
@@ -855,13 +954,16 @@
 		"message": "Jesteś tutaj:"
 	},
 	"tracker_intro_welcome": {
-		"message": "Witamy:"
+		"message": "Witamy"
 	},
 	"tracker_next_stop": {
 		"message": "Następny przystanek"
 	},
 	"tracker_santa_update": {
 		"message": "CO SŁYCHAĆ U MIKOŁAJA"
+	},
+	"tracker_santa_update_1": {
+		"message": "Informacje od Świętego Mikołaja"
 	},
 	"tracker_see_route": {
 		"message": "Zobacz trasę"
@@ -871,6 +973,9 @@
 	},
 	"tracker_world_facts": {
 		"message": "CZY WIESZ, ŻE..."
+	},
+	"tracker_world_facts_1": {
+		"message": "Informacje o świecie"
 	},
 	"tracker_your_location": {
 		"message": "Twoja lokalizacja"
@@ -4546,6 +4651,15 @@
 	},
 	"ve_country_name": {
 		"message": "Wenezuela"
+	},
+	"village_comeback": {
+		"message": "Wróć 24 grudnia i razem z nami wypatruj Świętego Mikołaja przez całą noc!"
+	},
+	"village_explore": {
+		"message": "Odkrywaj, baw się i ucz razem z elfami przez cały grudzień"
+	},
+	"village_takesoff": {
+		"message": "Święty Mikołaj wyrusza za"
 	},
 	"vn_country_name": {
 		"message": "Wietnam"

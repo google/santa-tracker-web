@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "Ziemassvētku vakarā ar lepnumu ļausim ieskatīties Ziemassvētku vecīša informācijas panelī — tā ir tehnoloģija, kas darbina ragavas viņa ceļojumā apkārt pasaulei. Šo īpašo priekšskatījuma iespēju mums dāvāja viens no Ziemassvētku vecīša rūķīšiem, kas kopā ar citiem rūķīšiem cītīgi strādā, lai palīdzētu Ziemassvētku vecītim sagatavoties lielajiem svētkiem. Ziemassvētku vecīša informācijas panelī ir iebūvēts jaunākais un lieliskākais pakalpojums Google Maps un ragavu tehnoloģija, ar ko varēs sekot Ziemassvētku vecīša ceļojumam apkārt pasaulei un uzzināt par pieturvietām viņa ceļojumā."
+		"message": "Ziemassvētku vakarā ar lepnumu tiks atklāts Ziemassvētku vecīša informācijas panelis — tehnoloģija, kas darbinās ragavas viņa ceļojumā apkārt pasaulei. Šo īpašo priekšskatījuma iespēju mums dāvāja viens no Ziemassvētku vecīša rūķīšiem, kas kopā ar citiem rūķīšiem Ziemeļpolā cītīgi strādā, lai palīdzētu Ziemassvētku vecītim sagatavoties lielajiem svētkiem. Ziemassvētku vecīša informācijas panelī būs pieejama jaunākā un lieliskākā pakalpojuma Google Maps tehnoloģija, kā arī ragavu tehnoloģija, ar ko varēs sekot līdzi Ziemassvētku vecīša ceļojumam apkārt pasaulei un uzzināt par pieturvietām tajā."
 	},
 	"about-content-three": {
 		"message": "Google Maps Ziemassvētku vecīša ceļojumu izstrādāja un ieviesa uzņēmums Google. Tomēr nelielu palīdzību sniedza arī Ziemassvētku vecīša rūķīši. Vai ir nepieciešama palīdzība vai radās jautājums? Apmeklējiet mūsu \u003ca href=\"//support.google.com/santatracker\"\u003epalīdzības centru\u003c/a\u003e."
 	},
 	"about-content-two": {
-		"message": "Kamēr Ziemassvētku vecītis gatavojas savam ceļojumam, viesmīlīgie rūķīši aicina tevi aplūkot Ziemassvētku vecīša mājvietu. Dodies ciemos un izpēti viņa ciematu! Pa ceļam atradīsi interesantus uzdevumus un satiksi jaukos rūķīšus."
+		"message": "Kamēr Ziemassvētku vecītis gatavojas savam ceļojumam, viesmīlīgie rūķīši tevi aicina aplūkot Ziemassvētku vecīša mājvietu. Dodies ciemos un izpēti viņa ciematu! Pa ceļam atradīsi interesantus uzdevumus un satiksi jaukos rūķīšus."
 	},
 	"about-santa": {
 		"message": "Par"
@@ -325,6 +325,21 @@
 	},
 	"copy-me": {
 		"message": "Kopējiet šo saiti, lai kopīgotu savu ziņojumu"
+	},
+	"countdown_days": {
+		"message": "Dienas"
+	},
+	"countdown_hours": {
+		"message": "h"
+	},
+	"countdown_minutes": {
+		"message": "min"
+	},
+	"countdown_seconds": {
+		"message": "s"
+	},
+	"countdown_until": {
+		"message": "Ziemassvētku vecītis dosies ceļā pēc"
 	},
 	"countdownlabel": {
 		"message": "Laiks līdz Ziemassvētku vecītis dosies ceļā"
@@ -743,8 +758,92 @@
 	"sa_country_name": {
 		"message": "Saūda Arābija"
 	},
+	"santasvillage": {
+		"message": "Ziemassvētku vecīša ciemats"
+	},
 	"santatracker": {
 		"message": "Ziemassvētku vecīša ceļojums"
+	},
+	"scene_airport": {
+		"message": "Ziemeļpola lidosta"
+	},
+	"scene_app": {
+		"message": "Android lietotne"
+	},
+	"scene_boatload": {
+		"message": "Dāvanu katapulta"
+	},
+	"scene_briefing": {
+		"message": "Ziemassvētku vecīša kundzes instruktāža"
+	},
+	"scene_callfromsanta": {
+		"message": "Zvans no Ziemassvētku vecīša"
+	},
+	"scene_citylights": {
+		"message": "Pilsētas gaismas"
+	},
+	"scene_codeboogie": {
+		"message": "Kods: bugi"
+	},
+	"scene_codelab": {
+		"message": "Kodu laboratorija"
+	},
+	"scene_commandcentre": {
+		"message": "Misijas vadība"
+	},
+	"scene_giftmatch": {
+		"message": "Dāvanu atbilstību meklētājs"
+	},
+	"scene_gumball": {
+		"message": "Spēle Gumball Tilt"
+	},
+	"scene_jamband": {
+		"message": "Elfu muzikālā apvienība"
+	},
+	"scene_jetpack": {
+		"message": "Spēle Elf Jetpack"
+	},
+	"scene_matching": {
+		"message": "Atbilstības pēc atmiņas"
+	},
+	"scene_mercator": {
+		"message": "Kartes viktorīna"
+	},
+	"scene_postcard": {
+		"message": "Ziemassvētku vecīša kartiņas"
+	},
+	"scene_presentbounce": {
+		"message": "Dāvanu mētāšana"
+	},
+	"scene_presentdrop": {
+		"message": "Dāvanu piegāde"
+	},
+	"scene_racer": {
+		"message": "Ziemeļbrieža Rūdolfa brauciens"
+	},
+	"scene_santasearch": {
+		"message": "Ziemassvētku vecīša meklēšana"
+	},
+	"scene_santaselfie": {
+		"message": "Ziemassvētku vecīša pašbilde"
+	},
+	"scene_seasonofgiving": {
+		"message": "Dāvināšanas sezona"
+	},
+	"scene_traditions": {
+		"message": "Svētku tradīcijas"
+	},
+	"scene_translations": {
+		"message": "Tulkojumi"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Elfu vagoniņš"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Ziemassvētku vecīša pacelšanās"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Ziemassvētku vecītis ir atgriezies"
 	},
 	"score": {
 		"message": "Rezultāts"
@@ -795,7 +894,7 @@
 		"message": "Čada"
 	},
 	"terms-and-privacy": {
-		"message": "Noteikumi"
+		"message": "Noteikumi un konfidencialitāte"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -819,7 +918,7 @@
 		"message": "Tunisija"
 	},
 	"today_only": {
-		"message": "Tikai šodienu"
+		"message": "Tikai šodien"
 	},
 	"today_only_1": {
 		"message": "Tikai šodien"
@@ -863,6 +962,9 @@
 	"tracker_santa_update": {
 		"message": "JAUNUMI NO ZIEMASSVĒTKU VECĪŠA"
 	},
+	"tracker_santa_update_1": {
+		"message": "Lietotnes Santa atjauninājums"
+	},
 	"tracker_see_route": {
 		"message": "Skatīt maršrutu"
 	},
@@ -871,6 +973,9 @@
 	},
 	"tracker_world_facts": {
 		"message": "INTERESANTA INFORMĀCIJA"
+	},
+	"tracker_world_facts_1": {
+		"message": "Pasaules fakti"
 	},
 	"tracker_your_location": {
 		"message": "Jūsu atrašanās vieta"
@@ -4546,6 +4651,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venecuēla"
+	},
+	"village_comeback": {
+		"message": "Atgriezieties 24. datumā un palīdziet mums sekot Ziemassvētku vecītim visu nakti!"
+	},
+	"village_explore": {
+		"message": "Visu decembri pētiet, spēlējieties un mācieties kopā ar Ziemassvētku vecīša elfiem"
+	},
+	"village_takesoff": {
+		"message": "Ziemassvētku vecītis dosies ceļā pēc"
 	},
 	"vn_country_name": {
 		"message": "Vjetnama"
