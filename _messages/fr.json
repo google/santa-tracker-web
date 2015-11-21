@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "La veille de Noël, nous aurons le plaisir de vous présenter le tableau de bord du père Noël, un outil technologique permettant de propulser son traîneau lors de sa tournée internationale. En avant-première, nous avons reçu cet aperçu de la part de l'un des nombreux lutins développeurs du père Noël. Visiblement, ils travaillent d'arrache-pied au pôle Nord pour préparer la grande tournée des cadeaux. Le tableau de bord du père Noël utilise le meilleur de la technologie de Google Maps et de la conception de traîneaux. Il vous permet de suivre le père Noël dans sa tournée internationale tout en découvrant des informations intéressantes sur certaines étapes de son périple."
+		"message": "La veille de Noël, vous pourrez découvrir le tableau de bord du père Noël. Mais dès aujourd'hui, l'un des nombreux lutins qui, au pôle Nord, sont déjà très occupés à préparer la distribution des cadeaux, nous offre ici un aperçu de cette merveille de technologie. Grâce à Google Maps et ce qui se fait de mieux en matière de traîneaux, vous pourrez suivre le père Noël dans sa tournée mondiale tout en découvrant des informations intéressantes sur certaines étapes de son périple."
 	},
 	"about-content-three": {
 		"message": "Sur la piste du père Noël avec Google Maps est un site créé et développé par Google, avec l'aide des lutins du père Noël. Vous avez besoin d'aide ou vous avez des questions ? N'hésitez pas à consulter notre \u003ca href=\"//support.google.com/santatracker\"\u003eCentre d'aide\u003c/a\u003e."
 	},
 	"about-content-two": {
-		"message": "Pendant que le père Noël se prépare pour sa tournée, nos joyeux lutins vous ont également invité à découvrir son village. N'hésitez pas à vous y promener : qui sait, vous y trouverez peut-être des activités amusantes et des lutins intéressants."
+		"message": "Pendant que le père Noël se prépare pour sa tournée, nos joyeux lutins vous invitent à découvrir son village. Promenez-vous et amusez-vous !"
 	},
 	"about-santa": {
 		"message": "À propos"
@@ -326,6 +326,21 @@
 	"copy-me": {
 		"message": "Copiez ce lien pour partager votre message."
 	},
+	"countdown_days": {
+		"message": "Jours"
+	},
+	"countdown_hours": {
+		"message": "h"
+	},
+	"countdown_minutes": {
+		"message": "min"
+	},
+	"countdown_seconds": {
+		"message": "s"
+	},
+	"countdown_until": {
+		"message": "Le père Noël s'envolera dans"
+	},
 	"countdownlabel": {
 		"message": "Avant le départ du père Noël"
 	},
@@ -471,7 +486,7 @@
 		"message": "Grèce"
 	},
 	"gr_tradition": {
-		"message": "Selon une légende en Grèce, des gobelins malicieux appelés \"kallikántzari\" vivent la plupart de l'année au centre de la Terre. Mais à Noël, ils adorent se cacher chez les habitants pour les effrayer, leur jouer des tours ou dévorer leurs gâteaux de Noël. Seuls des rituels permettent de les éloigner."
+		"message": "Selon une légende grecque, des gobelins malicieux appelés \"kallikántzari\" vivent la plupart de l'année au centre de la Terre. Mais à Noël, ils adorent se cacher chez les habitants pour les effrayer, leur jouer des tours ou dévorer leurs gâteaux de Noël. Les Grecs se livrent alors à des rituels pour les éloigner."
 	},
 	"gt_country_name": {
 		"message": "Guatemala"
@@ -743,8 +758,92 @@
 	"sa_country_name": {
 		"message": "Arabie saoudite"
 	},
+	"santasvillage": {
+		"message": "Le village du père Noël"
+	},
 	"santatracker": {
 		"message": "Sur la piste du père Noël"
+	},
+	"scene_airport": {
+		"message": "L'aéroport du pôle Nord"
+	},
+	"scene_app": {
+		"message": "Application Android"
+	},
+	"scene_boatload": {
+		"message": "Le lance-cadeaux"
+	},
+	"scene_briefing": {
+		"message": "Le briefing de la mère Noël"
+	},
+	"scene_callfromsanta": {
+		"message": "L'appel du père Noël"
+	},
+	"scene_citylights": {
+		"message": "Les lumières de la ville"
+	},
+	"scene_codeboogie": {
+		"message": "La danse du code"
+	},
+	"scene_codelab": {
+		"message": "L'atelier de programmation"
+	},
+	"scene_commandcentre": {
+		"message": "Le centre de contrôle"
+	},
+	"scene_giftmatch": {
+		"message": "L'association de cadeaux"
+	},
+	"scene_gumball": {
+		"message": "Boules de chewing-gum en balade"
+	},
+	"scene_jamband": {
+		"message": "Le groupe des lutins"
+	},
+	"scene_jetpack": {
+		"message": "La fusée du lutin"
+	},
+	"scene_matching": {
+		"message": "Jeu de mémoire"
+	},
+	"scene_mercator": {
+		"message": "Quiz géographique"
+	},
+	"scene_postcard": {
+		"message": "Les cartes du père Noël"
+	},
+	"scene_presentbounce": {
+		"message": "Le cadeau rebondissant"
+	},
+	"scene_presentdrop": {
+		"message": "Le lâcher de cadeaux"
+	},
+	"scene_racer": {
+		"message": "La course de Rudolphe"
+	},
+	"scene_santasearch": {
+		"message": "Où est le père Noël"
+	},
+	"scene_santaselfie": {
+		"message": "Le selfie du père Noël"
+	},
+	"scene_seasonofgiving": {
+		"message": "La saison des fêtes"
+	},
+	"scene_traditions": {
+		"message": "Les traditions de Noël"
+	},
+	"scene_translations": {
+		"message": "Traductions"
+	},
+	"scene_videoscene_carpool": {
+		"message": "La voiture des lutins"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Le décollage du père Noël"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Le père Noël est de retour"
 	},
 	"score": {
 		"message": "Score"
@@ -795,7 +894,7 @@
 		"message": "Tchad"
 	},
 	"terms-and-privacy": {
-		"message": "Condit. et confidentialité"
+		"message": "Conditions d'utilisation et confidentialité"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -863,6 +962,9 @@
 	"tracker_santa_update": {
 		"message": "MESSAGE DU PÈRE NOËL"
 	},
+	"tracker_santa_update_1": {
+		"message": "Message du père Noël"
+	},
 	"tracker_see_route": {
 		"message": "Voir itinéraire"
 	},
@@ -871,6 +973,9 @@
 	},
 	"tracker_world_facts": {
 		"message": "Le saviez-vous ?"
+	},
+	"tracker_world_facts_1": {
+		"message": "Anecdotes sur le monde"
 	},
 	"tracker_your_location": {
 		"message": "Votre position"
@@ -4546,6 +4651,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Revenez le 24 pour nous aider à suivre le père Noël toute la nuit."
+	},
+	"village_explore": {
+		"message": "Découvrez, jouez et apprenez avec les lutins du père Noël tout au long du mois de décembre"
+	},
+	"village_takesoff": {
+		"message": "Le père Noël s'envolera dans"
 	},
 	"vn_country_name": {
 		"message": "Viêt Nam"
