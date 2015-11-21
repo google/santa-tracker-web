@@ -88,6 +88,8 @@ app.Controls.prototype._onTouchstart = function(e) {
   var touchX = e.originalEvent.changedTouches[0].clientX;
   var touchY = e.originalEvent.changedTouches[0].clientY;
 
+  e.preventDefault();
+
   this._updateLocation(touchX, touchY);
 };
 
@@ -101,6 +103,8 @@ app.Controls.prototype._onTouchmove = function(e) {
     var touchX = e.originalEvent.changedTouches[0].clientX;
     var touchY = e.originalEvent.changedTouches[0].clientY;
 
+    e.preventDefault();
+
     this._updateLocation(touchX, touchY);
   }
 };
@@ -113,6 +117,8 @@ app.Controls.prototype._onTouchmove = function(e) {
 app.Controls.prototype._onTouchend = function(e) {
   var touchX = e.originalEvent.changedTouches[0].clientX;
   var touchY = e.originalEvent.changedTouches[0].clientY;
+
+  e.preventDefault();
 
   this._updateLocation(touchX, touchY);
 
