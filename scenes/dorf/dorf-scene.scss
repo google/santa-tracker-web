@@ -224,88 +224,39 @@ $name: 'module-dorf';
       position: relative;
       display: flex;
       flex-flow: wrap;
-      align-items: flex-start;
-      border-sizing: border-box;
-      margin: 0 auto;
-      width: $width-desktop;
-      height: $height-desktop;
-      z-index: 10;
-    }
-
-    #ground {
-      z-index: 1;
-      position: absolute;
-      background-image: url(img/ground.svg);
-      background-repeat: repeat-x;
-      background-size: $ground-size-w $ground-size-h;
-      background-position: 50% 0;
-      width: 100%;
-      height: 100%;
-      top: $ground-top;
-    }
-
-    #road {
-      position: absolute;
-      z-index: 2;
-      background-image: url(img/road.svg);
-      background-repeat: no-repeat;
-      background-position: 50% 0;
-      background-size: $road-size-w $road-size-h;
-      width: 100%;
-      height: 100%;
-      top: $road-top;
     }
   }
 
   .house {
     position: relative;
-    width: $dim-house;
-    height: $dim-house;
 
     /** Common card styling */
-    .card {
-      img {
+    .link {
+      color: white;
+      text-decoration: none;
+      text-align: center;
+
+      .card {
         width: 100%;
         height: 100%;
-      }
-    }
-
-    .building {
-      z-index: 2;
-
-      h3 {
-        font-size: 12px;
-        letter-spacing: 1px;
-        text-shadow: 0 1px 0 #f6f3e3;
-        margin: 0;
-        line-height: 18px;
-        text-transform: uppercase;
-        color: #21a8db;
-        font-weight: 500;
         position: absolute;
-        bottom: -20px;
-        width: 100%;
-        text-align: center;
-      }
-    }
 
-    .ice {
-      pointer-events: none;
-      z-index: 3;
-      opacity: 0;
-      transition: opacity 0.2s ease-out;
-      will-change: none;  // don't create a layer; this only transitions once
-    }
-
-    &.iced {
-      .building {
-        a, h3 {
-          display: none;
+        h4 {
+          margin: 0;
+          padding-top: 0.25em;
+          font-family: 'Lobster', sans-serif;
+          font-size: 2.875em;
+          line-height: 1.5em;
+          color: white;
+          text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+          transform: rotateZ(-3deg);
         }
-      }
-
-      .ice {
-        opacity: 1;
+        h3 {
+          margin: 0;
+          font-size: 1em;
+          line-height: 1.5em;
+          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+        }
       }
     }
   }
@@ -334,6 +285,90 @@ $name: 'module-dorf';
 
   /** Tablet/desktop specific styles. */
   @media (min-width: $width-tablet) {
+    font-size: 16px;
+
+    #village-all {
+      #houses {
+        align-items: flex-start;
+        margin: 0 auto;
+        width: $width-desktop;
+        height: $height-desktop;
+        z-index: 10;
+      }
+
+      #ground {
+        z-index: 1;
+        position: absolute;
+        background-image: url(img/ground.svg);
+        background-repeat: repeat-x;
+        background-size: $ground-size-w $ground-size-h;
+        background-position: 50% 0;
+        width: 100%;
+        height: 100%;
+        top: $ground-top;
+      }
+
+      #road {
+        position: absolute;
+        z-index: 2;
+        background-image: url(img/road.svg);
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        background-size: $road-size-w $road-size-h;
+        width: 100%;
+        height: 100%;
+        top: $road-top;
+      }
+
+      .house {
+        position: relative;
+        width: $dim-house;
+        height: $dim-house;
+
+        .assets {
+          .building {
+            z-index: 2;
+
+            h3 {
+              font-size: 12px;
+              letter-spacing: 1px;
+              text-shadow: 0 1px 0 #f6f3e3;
+              margin: 0;
+              line-height: 18px;
+              text-transform: uppercase;
+              color: #21a8db;
+              font-weight: 500;
+              position: absolute;
+              bottom: -20px;
+              width: 100%;
+              text-align: center;
+            }
+          }
+
+          .ice {
+            pointer-events: none;
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 0.2s ease-out;
+            will-change: none;  // don't create a layer; this only transitions once
+          }
+        }
+
+        &.iced {
+          .assets {
+            .building {
+              a, h3 {
+                display: none;
+              }
+            }
+            .ice {
+              opacity: 1;
+            }
+          }
+        }
+      }  // .house
+    }
+
     .assets {
       // This is the same size as its parent, but ties in with _houses setting
       // z-index here. This ensures that building/ice is layered correctly with
@@ -343,7 +378,7 @@ $name: 'module-dorf';
       height: 100%;
     }
 
-    .card {
+    .link {
       // TODO(samthor): Use sizing from _houses; just a quick hack for now.
       // Restore layerX/layerY position.
       width: 50%;
@@ -359,7 +394,7 @@ $name: 'module-dorf';
       transform: translateZ(0);
       will-change: transform;
 
-      img {
+      .card {
         $hs: $hover-card-size / 2;
         width: $hover-card-size !important;
         height: $hover-card-size !important;
@@ -369,14 +404,13 @@ $name: 'module-dorf';
         transition: transform 0.2s ease-out, opacity 0.2s ease-out;
         transform: scale(0);
         opacity: 0.25;
-        position: absolute;
         left: 50%;
         top: 50%;
         box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
       }
 
       &:hover, &:active {
-        img {
+        .card {
           transform: scale(1);
           opacity: 1;
         }
@@ -386,8 +420,10 @@ $name: 'module-dorf';
 
   /** Tablet village. Shrunk version of desktop. */
   @media (max-width: ($width-desktop - 1)) and (min-width: $width-tablet) {
-    .card {
-      img {
+    font-size: 12px;
+
+    .link {
+      .card {
         $hs: $hover-card-size * $tablet-desktop-ratio / 2;
         width: $hover-card-size * $tablet-desktop-ratio !important;
         height: $hover-card-size * $tablet-desktop-ratio !important;
@@ -427,27 +463,36 @@ $name: 'module-dorf';
 
   /** All mobile villages (two cols) */
   @media (max-width: $width-tablet - 1) {
+    font-size: 14px;
+
     #village-all {
       #houses {
-        width: auto;
+        align-items: stretch;
+
         .house {
           width: 50%;
-          height: 200px;
+          height: $height-card-mobile;
 
-          .building, .ice {
+          .assets {
             display: none;
           }
 
-          img.icon {
-            width: 200px;
-          }
+          &.iced {
+            height: auto;
+            min-height: $height-icedcard-mobile;
 
-          .color {
-            display: block;
-          }
-
-          .card {
-            display: block;
+            // fade out iced cards
+            &::after {
+              z-index: 100;
+              position: absolute;
+              content: "";
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0, 0, 0, 0.5);
+              pointer-events: none;
+            }
           }
         }
       }
