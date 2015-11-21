@@ -31,15 +31,18 @@ goog.require('app.shared.utils');
 app.Game = function(elem) {
   this.elem = $(elem);
 
-  this.santaElem = this.elem.find('.santa');
-  this.santaLocation = {
-    left: undefined,
-    top: undefined
-  };
-  this.santaScale = {
-    width: undefined,
-    height: undefined
-  };
+  this.characters = {
+    'santa': {
+      elem: this.elem.find('.santa'),
+      location: {},
+      scale: {}
+    },
+    'mrs-claus': {
+      elem: this.elem.find('.mrs-claus'),
+      location: {},
+      scale: {}
+    }
+  }
 
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
@@ -61,7 +64,8 @@ app.Game = function(elem) {
 app.Game.prototype.start = function() {
   this.restart();
 
-  this._initializeSanta();
+  this._initializeCharacter('santa');
+  this._initializeCharacter('mrs-claus');
   this._scale(1);
 
   this._setupEventHandlers();
@@ -74,7 +78,8 @@ app.Game.prototype.start = function() {
  * @private
  */
 app.Game.prototype._setupEventHandlers = function() {
-  this.santaElem.on('click.santasearch', this._onCharacterSelected.bind(this, 'santa'));
+  this.characters['santa'].elem.on('click.santasearch', this._onCharacterSelected.bind(this, 'santa'));
+  this.characters['mrs-claus'].elem.on('click.santasearch', this._onCharacterSelected.bind(this, 'mrs-claus'));
   $(window).on('resize.santasearch', this._onResize.bind(this));
 };
 
@@ -88,17 +93,17 @@ app.Game.prototype._onCharacterSelected = function(character) {
 };
 
 /**
- * Initialize Santa Claus with location and scale
+ * Initialize a character with location and scale
+ * @param {string} character Name of the character.
  * @private
  */
-app.Game.prototype._initializeSanta = function() {
-  let spawns = app.Constants.SANTA_SPAWNS;
-
+app.Game.prototype._initializeCharacter = function(character) {
+  let spawns = app.Constants.SPAWNS[character];
   let randomSpawn = Math.floor(Math.random() * spawns.length);
+  let characterSpawnPoint = spawns[randomSpawn];
 
-  let santaSpawnPoint = spawns[randomSpawn];
-  this.santaLocation = santaSpawnPoint.locationScale;
-  this.santaScale = santaSpawnPoint.sizeScale;
+  this.characters[character].location = characterSpawnPoint.locationScale;
+  this.characters[character].scale = characterSpawnPoint.sizeScale;
 };
 
 /**
@@ -115,13 +120,13 @@ app.Game.prototype._positionCharacter = function(elem, locationScale) {
 }
 
 app.Game.prototype._scaleCharacter = function(elem, scale) {
-  let santaWidth = this.mapElementDimensions.width * scale.width;
-  let santaHeight = this.mapElementDimensions.height * scale.height;
+  let characterWidth = this.mapElementDimensions.width * scale.width;
+  let characterHeight = this.mapElementDimensions.height * scale.height;
 
-  elem.css('width', santaWidth);
-  elem.css('height', santaHeight);
-  elem.css('margin-left', `-${santaWidth/2}px`);
-  elem.css('margin-top', `-${santaHeight/2}px`);
+  elem.css('width', characterWidth);
+  elem.css('height', characterHeight);
+  elem.css('margin-left', `-${characterWidth/2}px`);
+  elem.css('margin-top', `-${characterHeight/2}px`);
 };
 
 /**
@@ -157,8 +162,14 @@ app.Game.prototype._scale = function(value) {
  * @private
  */
 app.Game.prototype._updateCharacters = function() {
-  this._scaleCharacter(this.santaElem, this.santaScale);
-  this._positionCharacter(this.santaElem, this.santaLocation);
+  let characterNames = Object.keys(this.characters);
+
+  characterNames.forEach((characterName) => {
+    let character = this.characters[characterName];
+
+    this._scaleCharacter(character.elem, character.scale);
+    this._positionCharacter(character.elem, character.location);
+  });
 };
 
 /**
@@ -320,5 +331,4 @@ app.Game.prototype.dispose = function() {
   $(window).off('.santasearch');
   $(document).off('.santasearch');
   this.elem.off('.santasearch');
-  this.santaElem.off('.santasearch');
 };

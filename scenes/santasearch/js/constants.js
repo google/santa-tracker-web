@@ -22,36 +22,50 @@ goog.provide('app.Constants');
  */
 app.Constants = {
   ZOOM_MAX: 5,
-  SANTA_SPAWNS: [
-    {
-      locationScale: {
-        left: 0.16,
-        top: 0.725
+  SPAWNS: {
+    'santa': [
+      {
+        locationScale: {
+          left: 0.16,
+          top: 0.725
+        },
+        sizeScale: {
+          width: 0.03603603604,
+          height: 0.09770421783
+        }
       },
-      sizeScale: {
-        width: 0.03603603604,
-        height: 0.09770421783
-      }
-    },
-    {
-      locationScale: {
-        left: 0.47,
-        top: 0.615
+      {
+        locationScale: {
+          left: 0.47,
+          top: 0.615
+        },
+        sizeScale: {
+          width: 0.03603603604,
+          height: 0.09770421783
+        }
       },
-      sizeScale: {
-        width: 0.03603603604,
-        height: 0.09770421783
+      {
+        locationScale: {
+          left: 0.87,
+          top: 0.23
+        },
+        sizeScale: {
+          width: 0.03603603604,
+          height: 0.09770421783
+        }
       }
-    },
-    {
-      locationScale: {
-        left: 0.87,
-        top: 0.23
-      },
-      sizeScale: {
-        width: 0.03603603604,
-        height: 0.09770421783
+    ],
+    'mrs-claus': [
+      {
+        locationScale: {
+          left: 0.19,
+          top: 0.7
+        },
+        sizeScale: {
+          width: 0.02290689006,
+          height: 0.07816337426
+        }
       }
-    }
-  ]
+    ]
+  }
 };
