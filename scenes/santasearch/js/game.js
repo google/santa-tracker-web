@@ -41,6 +41,11 @@ app.Game = function(elem) {
       elem: this.elem.find('.mrs-claus'),
       location: {},
       scale: {}
+    },
+    'rudolph': {
+      elem: this.elem.find('.rudolph'),
+      location: {},
+      scale: {}
     }
   }
 
@@ -66,6 +71,7 @@ app.Game.prototype.start = function() {
 
   this._initializeCharacter('santa');
   this._initializeCharacter('mrs-claus');
+  this._initializeCharacter('rudolph');
   this._scale(1);
 
   this._setupEventHandlers();
@@ -80,6 +86,7 @@ app.Game.prototype.start = function() {
 app.Game.prototype._setupEventHandlers = function() {
   this.characters['santa'].elem.on('click.santasearch', this._onCharacterSelected.bind(this, 'santa'));
   this.characters['mrs-claus'].elem.on('click.santasearch', this._onCharacterSelected.bind(this, 'mrs-claus'));
+  this.characters['rudolph'].elem.on('click.santasearch', this._onCharacterSelected.bind(this, 'rudolph'));
   $(window).on('resize.santasearch', this._onResize.bind(this));
 };
 

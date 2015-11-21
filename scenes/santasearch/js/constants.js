@@ -66,6 +66,18 @@ app.Constants = {
           height: 0.07816337426
         }
       }
+    ],
+    'rudolph': [
+      {
+        locationScale: {
+          left: 0.23,
+          top: 0.7
+        },
+        sizeScale: {
+          width: 0.02290689006,
+          height: 0.07816337426
+        }
+      }
     ]
   }
 };
