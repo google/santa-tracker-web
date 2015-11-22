@@ -76,17 +76,20 @@ Village scene (2015).
           <div class="house house-new-today"></div>
           <template is="dom-repeat" items="{{houses}}">
             <div id$="house-{{item.module}}"
-                 class$="house house-{{item.module}} {{_calculateClass(item, item.iced)}}">
+                 class$="house house-{{item.module}} {{_calculateClass(item, item.iced)}}"
+                 disabled$="{{item.disabled}}">
               <div class="assets">
                 <div class="building"></div>
                 <div class="ice"></div>
               </div>
-              <a class="link" href="{{_calculateHref(item)}}">
-                <div class$="card card-{{item.module}}">
-                  <h4>{{_stringCategory(_strings, item.category)}}</h4>
-                  <h3>{{_stringScene(_strings, item.module)}}</h3>
-                </div>
-              </a>
+              <template is="dom-if" if="{{!item.disabled}}">
+                <a class="link" href="{{_calculateHref(item)}}">
+                  <div class$="card card-{{item.module}}">
+                    <h4>{{_stringCategory(_strings, item.category)}}</h4>
+                    <h3>{{_stringScene(_strings, item.module)}}</h3>
+                  </div>
+                </a>
+              </template>
             </div>
           </template>
 

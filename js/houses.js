@@ -60,7 +60,14 @@ window.HOUSES = [{
   launchDate: new Date('Dec 4, 2014'),
   category: "learn"
 }, {
+  // optionally used instead of "streetview" in some regions
   module: "callfromsanta",
+  iced: true,
+  launchDate: new Date('Dec 5, 2014'),
+  category: "play"
+}, {
+  // optionally used instead of "callfromsanta" in some regions
+  module: "streetview",
   iced: true,
   launchDate: new Date('Dec 5, 2014'),
   category: "play"
