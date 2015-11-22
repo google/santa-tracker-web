@@ -473,6 +473,10 @@ $name: 'module-dorf';
           width: 50%;
           height: $height-card-mobile;
 
+          &[disabled] {
+            display: none;  // don't display in flexbox at all
+          }
+
           .assets {
             display: none;
           }
