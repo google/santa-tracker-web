@@ -5,26 +5,50 @@
 
     &--santa {
       background: url(img/santa.svg) 0 0 / cover no-repeat;
+      width: 160px;
+      height: 252px;
+      margin-left: -80px;
+      margin-top: -126px;
     }
 
     &--penguin {
       background: url(img/penguin.svg) 0 0 / cover no-repeat;
+      width: 56px;
+      height: 112px;
+      margin-left: -23px;
+      margin-top: -51px;
     }
 
     &--gingerbread-man {
       background: url(img/gingerbread-man.svg) 0 0 / cover no-repeat;
+      width: 108px;
+      height: 166px;
+      margin-left: -54px;
+      margin-top: -83px;
     }
 
     &--rudolph {
       background: url(img/rudolph.svg) 0 0 / cover no-repeat;
+      width: 110px;
+      height: 204px;
+      margin-left: -55px;
+      margin-top: -102px;
     }
 
     &--pegman {
       background: url(img/pegman.svg) 0 0 / cover no-repeat;
+      width: 64px;
+      height: 136px;
+      margin-left: -32px;
+      margin-top: -68px;
     }
 
     &--mrs-claus {
       background: url(img/mrs-claus.svg) 0 0 / cover no-repeat;
+      width: 94px;
+      height: 180px;
+      margin-left: -47px;
+      margin-top: -90px;
     }
   }
 }
