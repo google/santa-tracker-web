@@ -1,0 +1,35 @@
+##{$name} {
+  .santa,
+  .penguin,
+  .gingerbread-man,
+  .rudolph,
+  .pegman,
+  .mrs-claus {
+    position: absolute;
+    transform: translateZ(0);
+  }
+
+  .santa {
+    background: url(img/santa.svg) 0 0 / cover no-repeat;
+  }
+
+  .penguin {
+    background: url(img/penguin.svg) 0 0 / cover no-repeat;
+  }
+
+  .gingerbread-man {
+    background: url(img/gingerbread-man.svg) 0 0 / cover no-repeat;
+  }
+
+  .rudolph {
+    background: url(img/rudolph.svg) 0 0 / cover no-repeat;
+  }
+
+  .pegman {
+    background: url(img/pegman.svg) 0 0 / cover no-repeat;
+  }
+
+  .mrs-claus {
+    background: url(img/mrs-claus.svg) 0 0 / cover no-repeat;
+  }
+}

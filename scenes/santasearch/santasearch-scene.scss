@@ -2,13 +2,8 @@ $name: 'module-santasearch';
 
 @import 'scss/map';
 @import 'scss/zoom';
-@import 'scss/santa';
-@import 'scss/mrs-claus';
-@import 'scss/rudolph';
-@import 'scss/gingerbread-man';
-@import 'scss/pegman';
-@import 'scss/penguin';
-@import 'scss/game-ui';
+@import 'scss/characters';
+@import 'scss/character-ui';
 
 ##{$name} {
   position: absolute;

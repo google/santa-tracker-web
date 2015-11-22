@@ -1,9 +1,11 @@
 $grid-background-color: #00904a;
+
 $character-grid-border-color: $grid-background-color;
 $character-grid-background-color: #2baf4c;
+$character-focus-background-color: #fdd03f;
 
 ##{$name} {
-  .game-ui {
+  .character-ui {
     box-shadow: 0px 1px 5px 6px rgba(0,0,0,0.15);
     position: absolute;
     bottom: 0;
@@ -11,13 +13,8 @@ $character-grid-background-color: #2baf4c;
     right: 0;
     height: 75px;
     background-color: $grid-background-color;
-
-    &__characters {
-      margin: 0 auto;
-      padding: 0;
-      height: 75px;
-      width: 1100px;
-    }
+    padding-left: calc((100% - 1100px) / 2);
+    padding-right: calc((100% - 1100px) / 2);
 
     &__character-block {
       position: relative;
@@ -36,6 +33,11 @@ $character-grid-background-color: #2baf4c;
       height: 150px;
       margin-left: -45px;
       margin-top: -75px;
+
+      &--focused {
+        background-color: $character-focus-background-color;
+        border-radius: 50%;
+      }
     }
   }
 }
