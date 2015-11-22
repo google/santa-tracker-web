@@ -3,7 +3,8 @@
     position: absolute;
     transform: translateZ(0);
 
-    &--santa {
+    &--santa,
+    &--santa-shadow {
       background: url(img/santa.svg) 0 0 / cover no-repeat;
       width: 96px;
       height: 152px;
@@ -11,7 +12,13 @@
       margin-top: -76px;
     }
 
-    &--penguin {
+    &--santa-shadow {
+      background: url(img/santa-shadow.svg) 0 0 / cover no-repeat;
+      opacity: 0;
+    }
+
+    &--penguin,
+    &--penguin-shadow {
       background: url(img/penguin.svg) 0 0 / cover no-repeat;
       width: 56px;
       height: 112px;
@@ -19,15 +26,27 @@
       margin-top: -51px;
     }
 
-    &--gingerbread-man {
+    &--penguin-shadow {
+      background: url(img/penguin-shadow.svg) 0 0 / cover no-repeat;
+      opacity: 0;
+    }
+
+    &--gingerbread-man,
+    &--gingerbread-man-shadow {
       background: url(img/gingerbread-man.svg) 0 0 / cover no-repeat;
       width: 108px;
       height: 166px;
       margin-left: -54px;
       margin-top: -83px;
     }
+    
+    &--gingerbread-man-shadow {
+      background: url(img/gingerbread-man-shadow.svg) 0 0 / cover no-repeat;
+      opacity: 0;
+    }
 
-    &--rudolph {
+    &--rudolph,
+    &--rudolph-shadow {
       background: url(img/rudolph.svg) 0 0 / cover no-repeat;
       width: 110px;
       height: 204px;
@@ -35,7 +54,13 @@
       margin-top: -102px;
     }
 
-    &--pegman {
+    &--rudolph-shadow {
+      background: url(img/rudolph-shadow.svg) 0 0 / cover no-repeat;
+      opacity: 0;
+    }
+
+    &--pegman,
+    &--pegman-shadow {
       background: url(img/pegman.svg) 0 0 / cover no-repeat;
       width: 64px;
       height: 136px;
@@ -43,12 +68,23 @@
       margin-top: -68px;
     }
 
-    &--mrs-claus {
+    &--pegman-shadow {
+      background: url(img/pegman-shadow.svg) 0 0 / cover no-repeat;
+      opacity: 0;
+    }
+
+    &--mrs-claus,
+    &--mrs-claus-shadow {
       background: url(img/mrs-claus.svg) 0 0 / cover no-repeat;
       width: 80px;
       height: 152px;
       margin-left: -40px;
       margin-top: -76px;
+    }
+
+    &--mrs-claus-shadow {
+      background: url(img/mrs-claus-shadow.svg) 0 0 / cover no-repeat;
+      opacity: 0;
     }
   }
 }

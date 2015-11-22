@@ -50,7 +50,11 @@ $character-ui-padding-desktop: calc(50% - 550px);
         }
       }
 
-      &--found {
+      &--found > .character {
+        opacity: 1;
+      }
+
+      &--found > .character-ui__character {
         opacity: 0.5;
       }
 
