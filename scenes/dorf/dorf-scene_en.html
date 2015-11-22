@@ -18,6 +18,7 @@ specific language governing permissions and limitations under the License.
 
 <link rel="import" href="../../elements/toolbar/santa-toolbar.html">
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
+<link rel="import" href="../../elements/santa-state.html">
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="dorf-scene.css" />
@@ -71,12 +72,18 @@ Village scene (2015).
               <div class="assets">
                 <div class="building"></div>
                 <div class="ice"></div>
+                <template is="dom-if" if="{{!item.hideDate}}">
+                  <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
+                </template>
               </div>
               <template is="dom-if" if="{{!item.disabled}}">
                 <a class="link" href="{{_calculateHref(item)}}">
                   <div class$="card card-{{item.module}}">
                     <h4>{{_stringCategory(_strings, item.category)}}</h4>
                     <h3>{{_stringScene(_strings, item.module)}}</h3>
+                    <template is="dom-if" if="{{!item.hideDate}}">
+                      <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
+                    </template>
                   </div>
                 </a>
               </template>
@@ -329,17 +336,15 @@ Village scene (2015).
       return '';
     },
 
-    /**
-    * Generates a random but consistent background color for a house based on
-    * its hash.
-    */
-    _calculateColor: function(house) {
-      var hash = 0;
-      for (var i = 0; i < house.module.length; ++i) {
-        hash = (hash * 13) + house.module.charCodeAt(i);
+    _calculateDateNo: function(date) {
+      // TODO(samthor): Remove when resolving #1286 (can't late bind properties).
+      if (date.substr) {
+        date = new Date(date);
       }
-      var shade = Math.round(hash % 360);
-      return 'hsl(' + shade + ', 82%, 55%)';
+      if (date && date.getDate) {
+        return date.getDate();
+      }
+      return '';
     },
 
     _calculateIcon: function(id, house) {
