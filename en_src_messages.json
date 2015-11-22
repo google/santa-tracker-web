@@ -67,9 +67,9 @@
         "description": "A link to a calendar view of the site navigation. Refers to an advent calendar of the month of December.",
         "message": "The Calendar"
     },
-    "close-this": {
+    "close": {
         "description": "Button text. 15char limit. Closes a menu.",
-        "message": "Cancel"
+        "message": "Close"
     },
     "copy-me": {
         "description": "Label. Users will see a URL that they can copy to email to a friend, or share on Facebook/G+",
@@ -295,6 +295,10 @@
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "In Mexico, kids of all ages celebrate Christmas by breaking pinatas. Adults and children have fun by wearing a blindfold, spinning around, and swinging a stick to break open the star-shaped hanging pots. When the pinata is smashed open, nuts, fruit and candy spill out for everyone to enjoy."
     },
+    "new": {
+      "description": "This is a short label (4-5 characters max) indicating that something is new, now available.",
+      "message": "New"
+    },
     "newtoday": {
       "description": "Each scene in Santa's village is available by clicking on a building. Buildings are frozen in ice until a specific date. This label indicates a building that is newly available",
       "message": "New Today"
@@ -486,6 +490,10 @@
     "us_tradition": {
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "In the United States, stockings are hung on Christmas Eve. The legend goes that St Nicholas heard of a family in need. To surprise them, he climbed down their chimney and placed precious bags of gold in hanging stockings. From this point, St Nicholas was known as Santa Claus, giver of gifts."
+    },
+    "press": {
+        "description": "Menu item for press, aka journalism/media, information.",
+        "message": "Press"
     },
     "play": {
         "description": "Button text. 15char limit. A label on an activity that will let the user play a game.",
@@ -6155,6 +6163,10 @@
       "description": "Title of a video scene. Alternative meaning is 'Santa has returned'.",
       "message": "Santa's Back"
     },
+    "scene_windtunnel": {
+      "description": "Title of a scene/game. Watch Rudolph's flying skills be tested in a wind tunnel.",
+      "message": "Wind Tunnel"
+    },
     "tracker_your_location": {
       "description": "Heading where the location of the user is displayed below",
       "message": "Your location"
@@ -6209,6 +6221,10 @@
       "description": "A heading above menu items that are only available today. Please keep this short.",
       "message": "Today Only"
     },
+    "tracker_track": {
+      "description": "Menu item, an imperative action for a user to use the Tracker part of Santa Tracker.",
+      "message": "Track Santa"
+    },
     "tracker_santa_update": {
         "message": "SANTA UPDATE"
     },
@@ -6249,9 +6265,25 @@
       "description": "Callout to ask users to come back later",
       "message": "Come back on the 24th and help us track Santa all night!"
     },
+    "village_get_the_app": {
+      "description": "Menu item indicating that a user should get the Santa Android app from the Google Play Store.",
+      "message": "Get the App"
+    },
+    "village_santa_cast": {
+      "description": "Menu item for finding Santa on the Google Cast platform. Don't translate 'Google Cast'.",
+      "message": "Santa on Google Cast"
+    },
+    "village_santa_cardboard": {
+      "description": "Menu item for finding Santa as part of an app which supports Google Cardboard (Google's Virtual Reality experience). Don't translate 'Cardboard'.",
+      "message": "Santa on Cardboard"
+    },
     "village_takesoff": {
       "description": "Message describing when Santa Takes off, will be followed by a countdown",
       "message": "Santa takes off in"
+    },
+    "village_more": {
+      "description": "Menu item to find more ways to learn, play, explore etc about Santa.",
+      "messages": "More Ways to Explore"
     },
     "santasearch_search_for_santa": {
       "description": "A heading for the level selection screen.",
