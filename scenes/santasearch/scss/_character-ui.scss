@@ -18,6 +18,7 @@ $character-ui-padding-desktop: calc(50% - 550px);
     height: 75px;
     background-color: $grid-background-color;
     padding-left: $character-ui-padding-desktop;
+    pointer-events: none;
 
     &__item {
       position: relative;
