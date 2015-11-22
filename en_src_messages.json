@@ -6104,19 +6104,19 @@
       "message": "Search for Santa!"
     },
     "santasearch_level_select": {
-      "description": "Appears when a level has been hovered in the level selection screen. Please keep this short.",
+      "description": "Appears when a level in the Santa Search game has been hovered in the level selection screen. Please keep this below 10 characters.",
       "message": "Go!"
     },
     "santasearch_level_museum": {
-      "description": "Name of the museum level, appears below the level art. Please keep this short.",
+      "description": "Name of the Santa Search's game museum level, appears below the level art. Please try to keep this below 20 characters.",
       "message": "At the museum"
     },
     "santasearch_level_lab": {
-      "description": "Name of the lab level, appears below the level art. Please keep this short.",
+      "description": "Name of the Santa Search's game lab level, appears below the level art. Please try to keep this below 20 characters.",
       "message": "In the lab"
     },
     "santasearch_hint": {
-      "description": "Button to click when searching for a character to get a hint of his location. Please keep this short.",
+      "description": "Label for the button to click when searching for a character in the Santa Search game to get a hint of his location. This should preferably be one word.",
       "message": "Hint"
     },
     "santasearch_character_santa": {
