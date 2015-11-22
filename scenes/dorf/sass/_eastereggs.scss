@@ -10,7 +10,7 @@
   $all:
       "tree"            831   616   291   342   ($house-row-3-z-index - 1),
       "blocks"          360   150   904   646   ($house-row-3-z-index - 1),
-      "statue"          287   171   858   841   ($house-row-4-z-index - 1),
+      "statue"          287   171   858   836   ($house-row-4-z-index - 1),
       "penguin-revolt"  174   55    865   1571  ($house-row-6-z-index - 1),
       "snowman-reading" 571   237   -207  1500  ($house-row-6-z-index - 1),
       "rosetta-stone"   117   96    39    904   ($house-row-4-z-index - 1),
@@ -18,7 +18,9 @@
       "schoolyard"      434   160   121   255   ($house-row-1-z-index - 0),
       "tic-tac-toe"     447   130   853   282   ($house-row-2-z-index - 1),
       "book-club"       90    97    360   558   ($house-row-2-z-index + 30),
-      "balloon"         112   140   0     0     ($house-row-4-z-index - 1);
+      "balloon"         112   140   220   880   ($house-row-4-z-index - 1),
+      "balloon-ropes"   112   140   220   880   ($house-row-4-z-index - 1),
+      "balloon-fly"     112   140   220   880   ($house-row-4-z-index - 1),
 
   div {
     background: center no-repeat;
