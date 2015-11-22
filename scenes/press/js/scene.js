@@ -28,17 +28,18 @@ goog.require('app.Models');
  * @export
  */
 app.Scene = function(context) {
-  this.context = $(context);
+  this.context = $('#press-secondary', context);
 
   this.active = '';
-  this.$filters = this.context.find('#press-card-tabs button');
+  this.$filters = this.context.find('[press-filter]');
+  this.$cards = this.context.find('[press-card]');
 
   this.init_();
 };
 
 /**
  * Return cards models.
- * @return {!Array.<object>} array of model objects to fill cards
+ * @return {!Array.<Object>} array of model objects to fill cards
  */
 
 app.Scene.prototype.getCards = function() {
@@ -61,7 +62,24 @@ app.Scene.prototype.init_ = function() {
  * @private
  */
 
-app.Scene.prototype.onFilterSelect_ = function() {
-  console.log('selected filter');
-  this.active = 'new';
+app.Scene.prototype.onFilterSelect_ = function(e) {
+  e.preventDefault();
+
+  this.active = $(e.target).attr('press-filter');
+  this.$filters.removeClass('active');
+  $(e.target).addClass('active');
+
+  this.$cards = this.context.find('[press-card]');
+  this.$cards.addClass('fading-out');
+
+  setTimeout(function() {
+    this.$cards.attr('hidden', '');
+
+    var $cards = this.active ? this.$cards.filter('[press-' + this.active + ']') : this.$cards;
+    $cards.removeAttr('hidden').each(function(index, element) {
+      setTimeout(function() {
+        $(element).removeClass('fading-out');
+      }.bind(this), (index * 50 + 50));    
+    }.bind(this));
+  }.bind(this), 500);
 };

@@ -7,8 +7,11 @@ $name: 'module-press';
   @import "sass/footer";
 
   background: #F7FCFB;
-  height: 100vh;
-  overflow: auto;
+
+  .fit.scroll {
+    height: 100vh;
+    overflow: auto;
+  }
   
   .clearfix {
     &:after {
@@ -237,17 +240,21 @@ $name: 'module-press';
     .press-card {
       width: calc(33% - 30px);
 
+      &:nth-child(3n + 1) {
+        clear: left;
+      }
+
       .press-card-img {
         height: 175px;
       }
     }
 
-    #press-secondary-inner {
+    .press-secondary-inner {
       width: 1010px;
       margin: 0 auto;
       overflow: auto;
 
-      #press-card-tabs {
+      .press-card-tabs {
         padding-bottom: 50px;
 
         button {
