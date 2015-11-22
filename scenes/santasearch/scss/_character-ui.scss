@@ -2,7 +2,11 @@ $grid-background-color: #00904a;
 
 $character-grid-border-color: $grid-background-color;
 $character-grid-background-color: #2baf4c;
+
+$character-focus-size: 240px;
 $character-focus-background-color: #fdd03f;
+
+$character-ui-padding-desktop: calc(50% - 550px);
 
 ##{$name} {
   .character-ui {
@@ -13,30 +17,41 @@ $character-focus-background-color: #fdd03f;
     right: 0;
     height: 75px;
     background-color: $grid-background-color;
-    padding-left: calc((100% - 1100px) / 2);
-    padding-right: calc((100% - 1100px) / 2);
+    padding-left: $character-ui-padding-desktop;
 
-    &__character-block {
+    &__item {
       position: relative;
       margin: 0;
       padding: 0;
-      display: inline-block;
+      float: left;
       background-color: $character-grid-background-color;
       width: 180px;
       height: 75px;
+      border-right: 1px solid $character-grid-border-color;
     }
 
-    &__character {
+    &__character-wrapper {
+      position: absolute;
+      width: $character-focus-size;
+      height: $character-focus-size;
       left: 50%;
-      top: 50%;
-      width: 90px;
-      height: 150px;
-      margin-left: -45px;
-      margin-top: -75px;
+      margin-left: -($character-focus-size / 2);
+      margin-top: -($character-focus-size / 2);
+      top: 35%;
 
       &--focused {
+        z-index: 1;
         background-color: $character-focus-background-color;
         border-radius: 50%;
+      }
+
+      & > .character {
+        left: 50%;
+        top: 50%;
+        width: 90px;
+        height: 150px;
+        margin-left: -45px;
+        margin-top: -75px;
       }
     }
   }

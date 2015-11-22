@@ -34,34 +34,39 @@ app.Game = function(elem) {
 
   this.characters = {
     'santa': {
-      elem: this.mapElem.find('.santa'),
+      elem: this.mapElem.find('.character--santa'),
       location: {},
-      scale: {}
+      scale: {},
+      isFound: false
     },
     'mrs-claus': {
-      elem: this.mapElem.find('.mrs-claus'),
+      elem: this.mapElem.find('.character--mrs-claus'),
       location: {},
       scale: {}
     },
     'rudolph': {
-      elem: this.mapElem.find('.rudolph'),
+      elem: this.mapElem.find('.character--rudolph'),
       location: {},
-      scale: {}
+      scale: {},
+      isFound: false
     },
     'gingerbread-man': {
-      elem: this.mapElem.find('.gingerbread-man'),
+      elem: this.mapElem.find('.character--gingerbread-man'),
       location: {},
-      scale: {}
+      scale: {},
+      isFound: false
     },
     'pegman': {
-      elem: this.mapElem.find('.pegman'),
+      elem: this.mapElem.find('.character--pegman'),
       location: {},
-      scale: {}
+      scale: {},
+      isFound: false
     },
     'penguin': {
-      elem: this.mapElem.find('.penguin'),
+      elem: this.mapElem.find('.character--penguin'),
       location: {},
-      scale: {}
+      scale: {},
+      isFound: false
     }
   }
 
