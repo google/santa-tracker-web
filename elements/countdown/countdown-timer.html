@@ -150,12 +150,6 @@ Example
       _oldNumbers: [],  // replaced in tickTock
       _tickInterval: null,
 
-      listeners: {
-         // For prod, <i18n-msg> is removed and textContent will already be
-         // correct. For dev, listen for i18n updates and update the labels.
-        'i18n-language-ready': 'updateLabels'
-      },
-
       ready: function() {
         this._setCurrentTime(this._getCurrentTime());
       },
