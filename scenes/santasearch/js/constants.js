@@ -102,6 +102,18 @@ app.Constants = {
           height: 0.07816337426
         }
       }
+    ],
+    'penguin': [
+      {
+        locationScale: {
+          left: 0.285,
+          top: 0.685
+        },
+        sizeScale: {
+          width: 0.02290689006,
+          height: 0.07816337426
+        }
+      }
     ]
   }
 };
