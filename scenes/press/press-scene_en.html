@@ -22,7 +22,7 @@ specific language governing permissions and limitations under the License.
 <dom-module id="press-scene">
 <template>
   <div id="module-press" class="fit">
-    <div class="scene fit">
+    <div class="scene scroll fit">
       <div id="press-content">
         
         <div id="press-hero">
@@ -125,114 +125,44 @@ specific language governing permissions and limitations under the License.
         </div> 
         
         <div id="press-secondary">
-          <div id="press-secondary-inner">          
+          <div class="press-secondary-inner">          
             <h2>All the fun and games</h2>
-            <div id="press-card-tabs">
-              <button id="press-card-button-1" data-filter="">view all</button>
-              <button id="press-card-button-2" data-filter="education">Education focused</button>
-              <button id="press-card-button-3" class="active" data-filter="new">New in 2015</button>      
+            <div class="press-card-tabs">
+              <button id="press-card-button-1" press-filter="">view all</button>
+              <button id="press-card-button-2" press-filter="education">Education focused</button>
+              <button id="press-card-button-3" press-filter="new" class="active">New in 2015</button>      
             </div>
 
-            <template is="dom-repeat" items="{{cards}}" as="card" 
-              filter="filterCards" observe="active">
-              <div class="press-card">
-                <div class="press-card-img">
-                  <div class="press-card-img-txt">
-                    <div class="press-card-lock">
-                      <span class="press-card-unlock">Unlocks December</span>&nbsp;
-                      <span class="press-card-unlock-day">{{ card.opens }}<span>{{ card.ordinal }}</span></span>
+            <div class="press-card-container">
+              <template is="dom-repeat" items="{{cards}}" as="card">
+                <div class="press-card" press-card press-new$="{{ card.new }}" press-education$="{{ card.education }}">
+                  <div class="press-card-img">
+                    <div class="press-card-img-txt">
+                      <div class="press-card-lock">
+                        <span class="press-card-unlock">Unlocks December</span>&nbsp;
+                        <span class="press-card-unlock-day">{{ card.opens }}<span>{{ card.ordinal }}</span></span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="press-card-info">
-                  <h4>{{ card.title }}</h4>
-                  <span>Opens December {{ card.opens }} • {{ card.type }}</span>
-                  <p>{{ card.description }}</p>
-                  <div class="press-card-links">
-                    <span class="press-card-title">Press resources:</span>                
-                    <div class="press-card-links-full">
-                      <template is="dom-repeat" items="{{ card.resources }}">
-                      <a href="[[ item.url ]]" class$="{{ item.class }}">
-                        {{ item.title }} <span>({{ item.type }})</span>
-                      </a>
-                      </template>
-                    </div> 
-                  </div>               
-                </div>
-              </div>
-            </template>
-
-            <div class="press-card">
-              <div class="press-card-img">
-                <div class="press-card-img-txt">
-                  <div class="press-card-lock">
-                    <span class="press-card-unlock">Unlocks December</span>&nbsp;
-                    <span class="press-card-unlock-day">17<span>th</span></span>
+                  <div class="press-card-info">
+                    <h4>{{ card.title }}</h4>
+                    <span>Opens December {{ card.opens }} • {{ card.type }}</span>
+                    <p>{{ card.description }}</p>
+                    <div class="press-card-links">
+                      <span class="press-card-title">Press resources:</span>                
+                      <div class="press-card-links-full">
+                        <template is="dom-repeat" items="{{ card.resources }}">
+                        <a href="[[ item.url ]]" class$="{{ item.class }}">
+                          {{ item.title }} <span>({{ item.type }})</span>
+                        </a>
+                        </template>
+                      </div> 
+                    </div>               
                   </div>
                 </div>
-              </div>
-              <div class="press-card-info">
-                <h4>Season of Giving</h4>
-                <span>Opens December 1• Game</span>
-                <p>I am a brief description of this game, video or experience. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.</p>
-                <div class="press-card-links">
-                  <span class="press-card-title">Press resources:</span>                
-                  <div class="press-card-links-full">
-                    <a href="" class="press-card-dl">Still screenshot <span>(PNG file)</span></a>
-                    <a href="" class="press-card-dl">Animation <span>(GIF file)</span></a>
-                    <a href="" class="press-card-play">Video <span>(YouTube Link)</span></a>            
-                  </div> 
-                </div>               
-              </div>
+              </template>
             </div>
 
-            <div class="press-card">
-              <div class="press-card-img">
-                <div class="press-card-img-txt">
-                  <div class="press-card-lock">
-                    <span class="press-card-unlock">Unlocks December</span>&nbsp;
-                    <span class="press-card-unlock-day">17<span>th</span></span>
-                  </div>
-                </div>
-              </div>
-              <div class="press-card-info">
-                <h4>Season of Giving</h4>
-                <span>Opens December 1• Game</span>
-                <p>I am a brief description of this game, video or experience. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.</p>
-                <div class="press-card-links">
-                  <span class="press-card-title">Press resources:</span>                
-                  <div class="press-card-links-full">
-                    <a href="" class="press-card-dl">Still screenshot <span>(PNG file)</span></a>
-                    <a href="" class="press-card-dl">Animation <span>(GIF file)</span></a>
-                    <a href="" class="press-card-play">Video <span>(YouTube Link)</span></a>            
-                  </div> 
-                </div>               
-              </div>
-            </div>
-
-            <div class="press-card">
-              <div class="press-card-img">
-                <div class="press-card-img-txt">
-                  <div class="press-card-lock">
-                    <span class="press-card-unlock">Unlocks December</span>&nbsp;
-                    <span class="press-card-unlock-day">17<span>th</span></span>
-                  </div>
-                </div>
-              </div>
-              <div class="press-card-info">
-                <h4>Season of Giving</h4>
-                <span>Opens December 1• Game</span>
-                <p>I am a brief description of this game, video or experience. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.</p>
-                <div class="press-card-links">
-                  <span class="press-card-title">Press resources:</span>                
-                  <div class="press-card-links-full">
-                    <a href="" class="press-card-dl">Still screenshot <span>(PNG file)</span></a>
-                    <a href="" class="press-card-dl">Animation <span>(GIF file)</span></a>
-                    <a href="" class="press-card-play">Video <span>(YouTube Link)</span></a>            
-                  </div> 
-                </div>               
-              </div>
-            </div>  
           </div>  
         </div> 
         
@@ -310,6 +240,9 @@ specific language governing permissions and limitations under the License.
   Polymer({
     is: 'press-scene',
     behaviors: [window.SantaSceneBehavior],
+    animationHelper: null,
+    game: null,
+
     onPreload: function() {
       this.preloadImages([
         'img/tmb_santa-tracker-2015.jpg',
@@ -347,15 +280,6 @@ specific language governing permissions and limitations under the License.
 
       this.scene = new scenes.press.Scene(module);
       this.cards = this.scene.getCards();
-    },
-
-    filterCards: function(item) {
-      if (this.active) {
-        return item[this.scene.active];
-      }
-      else {
-        return true;
-      }
     }
   });
 </script>

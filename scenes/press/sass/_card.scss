@@ -4,9 +4,16 @@
   box-shadow: 0 3px 5px #ddd;
   float: left;
   margin: 0 15px 30px;
+  opacity: 1;
   overflow: hidden;
   text-align: left;
+  transform: translate3d(0, 0, 0);
+  transition: opacity .3s;
   width: calc(50% - 30px);
+
+  &.fading-out {
+    opacity: 0;
+  }
 
   .press-card-img {
     height: 265px;
