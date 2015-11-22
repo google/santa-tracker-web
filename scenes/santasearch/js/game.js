@@ -30,30 +30,31 @@ goog.require('app.shared.utils');
  */
 app.Game = function(elem) {
   this.elem = $(elem);
+  this.mapElem = this.elem.find('.map');
 
   this.characters = {
     'santa': {
-      elem: this.elem.find('.santa'),
+      elem: this.mapElem.find('.santa'),
       location: {},
       scale: {}
     },
     'mrs-claus': {
-      elem: this.elem.find('.mrs-claus'),
+      elem: this.mapElem.find('.mrs-claus'),
       location: {},
       scale: {}
     },
     'rudolph': {
-      elem: this.elem.find('.rudolph'),
+      elem: this.mapElem.find('.rudolph'),
       location: {},
       scale: {}
     },
     'gingerbread-man': {
-      elem: this.elem.find('.gingerbread-man'),
+      elem: this.mapElem.find('.gingerbread-man'),
       location: {},
       scale: {}
     },
     'pegman': {
-      elem: this.elem.find('.pegman'),
+      elem: this.mapElem.find('.pegman'),
       location: {},
       scale: {}
     }
@@ -63,7 +64,6 @@ app.Game = function(elem) {
   this.sceneElem = this.elem.find('.scene');
   this.controls = new app.Controls(elem);
 
-  this.mapElem = this.elem.find('.map');
   this.mapElementDimensions = {};
 
   this.onFrame_ = this.onFrame_.bind(this);
