@@ -35,35 +35,41 @@ app.Game = function(elem) {
   this.characters = {
     'santa': {
       elem: this.mapElem.find('.character--santa'),
+      uiElem: this.elem.find('.character-ui .character--santa').parent(),
       location: {},
       scale: {},
       isFound: false
     },
     'mrs-claus': {
       elem: this.mapElem.find('.character--mrs-claus'),
+      uiElem: this.elem.find('.character-ui .character--mrs-claus').parent(),
       location: {},
       scale: {}
     },
     'rudolph': {
       elem: this.mapElem.find('.character--rudolph'),
+      uiElem: this.elem.find('.character-ui .character--rudolph').parent(),
       location: {},
       scale: {},
       isFound: false
     },
     'gingerbread-man': {
       elem: this.mapElem.find('.character--gingerbread-man'),
+      uiElem: this.elem.find('.character-ui .character--gingerbread-man').parent(),
       location: {},
       scale: {},
       isFound: false
     },
     'pegman': {
       elem: this.mapElem.find('.character--pegman'),
+      uiElem: this.elem.find('.character-ui .character--pegman').parent(),
       location: {},
       scale: {},
       isFound: false
     },
     'penguin': {
       elem: this.mapElem.find('.character--penguin'),
+      uiElem: this.elem.find('.character-ui .character--penguin').parent(),
       location: {},
       scale: {},
       isFound: false
@@ -100,6 +106,8 @@ app.Game.prototype.start = function() {
 
   this._setupEventHandlers();
 
+  this._focusNextUnfoundCharacter();
+
   this.controls.start();
 };
 
@@ -118,6 +126,59 @@ app.Game.prototype._setupEventHandlers = function() {
  */
 app.Game.prototype._onCharacterSelected = function(characterName) {
   console.log(`${characterName} was selected!`);
+
+  let character = this.characters[characterName];
+
+  if (!character.isFound) {
+    character.uiElem.removeClass('character-ui__character-wrapper--focused');
+    character.uiElem.addClass('character-ui__character-wrapper--found');
+    character.isFound = true;
+
+    this._focusNextUnfoundCharacter();
+  }
+};
+
+/**
+ * Finds the next character in the UI that has not already been found
+ * @param {string} character Name of selected character.
+ * @private
+ */
+app.Game.prototype._focusNextUnfoundCharacter = function() {
+  console.log(`Focusing next unfound character`);
+
+  let nextToFind = '';
+
+  if (!this.characters['santa'].isFound) {
+    nextToFind = 'santa';
+  } else if (!this.characters['penguin'].isFound) {
+    nextToFind = 'penguin';
+  } else if (!this.characters['gingerbread-man'].isFound) {
+    nextToFind = 'gingerbread-man';
+  } else if (!this.characters['rudolph'].isFound) {
+    nextToFind = 'rudolph';
+  } else if (!this.characters['pegman'].isFound) {
+    nextToFind = 'pegman';
+  } else if (!this.characters['mrs-claus'].isFound) {
+    nextToFind = 'mrs-claus';
+  }
+
+  if (nextToFind !== '') {
+    this._focusUICharacter(nextToFind);
+  } else {
+    // Level cleared
+    alert('Level cleared.');
+  }
+};
+
+/**
+ * Focuses a character in the UI that the user should try to find
+ * @param {string} character Name of selected character.
+ * @private
+ */
+app.Game.prototype._focusUICharacter = function(characterName) {
+  console.log(`Focusing ${characterName}`);
+
+  this.characters[characterName].uiElem.addClass('character-ui__character-wrapper--focused');
 };
 
 /**
