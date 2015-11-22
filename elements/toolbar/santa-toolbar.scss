@@ -12,8 +12,28 @@ $width-big: 600px;
   pointer-events: none;  // make sure scroll events pass through toolbar
   display: flex;
 
+  // Common button reset.
+  button {
+    pointer-events: auto;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  #options {
+    box-sizing: border-box;
+    width: $toolbar-size;
+    height: $toolbar-size;
+    line-height: $toolbar-size;
+    font-size: 21px;
+    color: white;
+  }
+
   #logo {
-    margin-left: 16px;
+    margin-left: 2px;
     margin-top: 16px;
     margin-right: 8px;
     width: 74px;
@@ -49,8 +69,6 @@ $width-big: 600px;
     pointer-events: auto;  // set these icons to be accessible again
 
     > button {
-      border: 0;
-      margin: 0;
       width: 68px;
       height: 100%;
       box-sizing: border-box;
@@ -60,7 +78,6 @@ $width-big: 600px;
       border-left: 1px solid rgba(0,0,0,0.125);
       background: transparent no-repeat center;
       font-size: 0;
-      cursor: pointer;
 
       &:first-child {
         border-left: none;
@@ -110,7 +127,7 @@ $width-big: 600px;
     left: 0;
     right: 0;
     bottom: 0;
-    background: #87d493;  // or #30b443 to match theme-color
+    background: #87d493;
     box-shadow: 0 2px 2px rgba(0,0,0,.25);
     opacity: 0;
     transition: opacity 0.125s;

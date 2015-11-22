@@ -25,6 +25,9 @@ Displays the Santa toolbar with text and share buttons.
 <dom-module id="santa-toolbar">
   <template>
     <div id="santa-toolbar" class$="{{_computeDownClass(background)}}">
+      <button id="options">
+        &#9776;
+      </button>
       <div id="logo">Google</div>
       <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
       <div id="center">
@@ -61,6 +64,10 @@ Displays the Santa toolbar with text and share buttons.
 
       },
 
+      listeners: {
+        'options.click': '_handleOptionsClick'
+      },
+
       attached: function() {
         this._attach('gplus', 348, 512, function(u) {
           return 'https://plus.google.com/share?url=' + u;
@@ -83,6 +90,10 @@ Displays the Santa toolbar with text and share buttons.
           var options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=' + h + ',width=' + w;
           window.open(urlToOpen, '', options);
         }.bind(this));
+      },
+
+      _handleOptionsClick: function() {
+        this.fire('options-tap');
       },
 
       _computeDownClass: function(background) {
