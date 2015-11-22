@@ -6,7 +6,7 @@
 		"message": "Aplicația Google Maps de urmărire a Moșului este creată și dezvoltată de Google, cu puțin ajutor din partea elfilor Moșului. Ai nevoie de ajutor sau mai ai întrebări? Accesează \u003ca href=\"//support.google.com/santatracker\"\u003eCentrul de ajutor\u003c/a\u003e."
 	},
 	"about-content-two": {
-		"message": "Elfii noștri prietenoși v-au vizitat să explorați și satul Moșului în timp ce el se pregătește de călătorie. Așadar porniți în explorarea satului. S-ar putea să descoperiți câteva activități distractive și să întâlniți niște elfi deosebiți."
+		"message": "Elfii noștri prietenoși te-au invitat să explorezi și satul Moșului în timp ce el se pregătește de călătorie. Așadar pornește în explorarea satului. S-ar putea să descoperi câteva activități distractive și să întâlnești niște elfi deosebiți."
 	},
 	"about-santa": {
 		"message": "Despre"
@@ -326,6 +326,21 @@
 	"copy-me": {
 		"message": "Copiază acest link pentru a trimite mesajul"
 	},
+	"countdown_days": {
+		"message": "zile"
+	},
+	"countdown_hours": {
+		"message": "Ore"
+	},
+	"countdown_minutes": {
+		"message": "Min."
+	},
+	"countdown_seconds": {
+		"message": "Sec."
+	},
+	"countdown_until": {
+		"message": "Moș Crăciun pornește în"
+	},
 	"countdownlabel": {
 		"message": "Până pleacă Moș Crăciun la drum"
 	},
@@ -471,7 +486,7 @@
 		"message": "Grecia"
 	},
 	"gr_tradition": {
-		"message": "În Grecia, se spune că niște creaturi prietenoase, dar buclucașe, numite „kallikántzari” locuiesc tot anul în centrul Pământului. Însă de Crăciun, se ascund în casele oamenilor, îi sperie, îi păcălesc și devorează bunătățile pentru Crăciun. Grecii îndepărtează spiridușii buclucași prin ritualuri."
+		"message": "În Grecia, se spune că niște creaturi prietenoase, dar buclucașe, numite „kallikántzari” locuiesc tot anul în centrul Pământului. Însă, de Crăciun, se ascund în casele oamenilor, îi sperie, îi păcălesc și devorează bunătățile pentru Crăciun. Grecii îndepărtează spiridușii buclucași prin ritualuri."
 	},
 	"gt_country_name": {
 		"message": "Guatemala"
@@ -639,7 +654,7 @@
 		"message": "Țările de Jos"
 	},
 	"nl_language_name": {
-		"message": "Olandeză"
+		"message": "Neerlandeză"
 	},
 	"no_country_name": {
 		"message": "Norvegia"
@@ -743,8 +758,92 @@
 	"sa_country_name": {
 		"message": "Arabia Saudită"
 	},
+	"santasvillage": {
+		"message": "Satul lui Moș Crăciun"
+	},
 	"santatracker": {
 		"message": "Pe urmele lui Moș Crăciun"
+	},
+	"scene_airport": {
+		"message": "Aeroportul de la Polul Nord"
+	},
+	"scene_app": {
+		"message": "Aplicație Android"
+	},
+	"scene_boatload": {
+		"message": "Praștia pentru cadouri"
+	},
+	"scene_briefing": {
+		"message": "Lecția dnei Crăciun"
+	},
+	"scene_callfromsanta": {
+		"message": "Apel de la Moș Crăciun"
+	},
+	"scene_citylights": {
+		"message": "Luminile orașului"
+	},
+	"scene_codeboogie": {
+		"message": "Dans codificat"
+	},
+	"scene_codelab": {
+		"message": "Laborator de programare"
+	},
+	"scene_commandcentre": {
+		"message": "Centrul de control"
+	},
+	"scene_giftmatch": {
+		"message": "Cadourile perfecte"
+	},
+	"scene_gumball": {
+		"message": "Direct la țintă"
+	},
+	"scene_jamband": {
+		"message": "Orchestra elfilor"
+	},
+	"scene_jetpack": {
+		"message": "Elf Jetpack"
+	},
+	"scene_matching": {
+		"message": "Potrivire din memorie"
+	},
+	"scene_mercator": {
+		"message": "Test despre hartă"
+	},
+	"scene_postcard": {
+		"message": "Vederi de la Moș Crăciun"
+	},
+	"scene_presentbounce": {
+		"message": "Cadouri săltărețe"
+	},
+	"scene_presentdrop": {
+		"message": "Împărțirea cadourilor"
+	},
+	"scene_racer": {
+		"message": "Cursa lui Rudolph"
+	},
+	"scene_santasearch": {
+		"message": "Unde este Moș Crăciun?"
+	},
+	"scene_santaselfie": {
+		"message": "Moș Crăciun la frizer"
+	},
+	"scene_seasonofgiving": {
+		"message": "Anotimpul cadourilor"
+	},
+	"scene_traditions": {
+		"message": "Tradiții de sărbători"
+	},
+	"scene_translations": {
+		"message": "Traduceri"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Câți elfi încap într-o mașină?"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Plecarea lui Moș Crăciun"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Moș Crăciun s-a întors"
 	},
 	"score": {
 		"message": "Scor"
@@ -795,7 +894,7 @@
 		"message": "Ciad"
 	},
 	"terms-and-privacy": {
-		"message": "Confidențialitate"
+		"message": "Termeni și confidențialitate"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -855,13 +954,16 @@
 		"message": "Sunteți la"
 	},
 	"tracker_intro_welcome": {
-		"message": "Bun venit"
+		"message": "Bun venit la"
 	},
 	"tracker_next_stop": {
 		"message": "Următoarea oprire"
 	},
 	"tracker_santa_update": {
 		"message": "NOUTĂȚI DE LA MOȘ CRĂCIUN"
+	},
+	"tracker_santa_update_1": {
+		"message": "Noutăți de la Moș Crăciun"
 	},
 	"tracker_see_route": {
 		"message": "Vezi traseul"
@@ -871,6 +973,9 @@
 	},
 	"tracker_world_facts": {
 		"message": "ȘTIAȚI CĂ"
+	},
+	"tracker_world_facts_1": {
+		"message": "Informații despre lume"
 	},
 	"tracker_your_location": {
 		"message": "Locația ta"
@@ -4546,6 +4651,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Întoarce-te pe 24 decembrie și ajută-ne să-l urmărim pe Moș Crăciun toată noaptea!"
+	},
+	"village_explore": {
+		"message": "Explorați, jucați-vă și învățați cu elfii lui Moș Crăciun pe tot parcursul lunii decembrie"
+	},
+	"village_takesoff": {
+		"message": "Moș Crăciun pornește în"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

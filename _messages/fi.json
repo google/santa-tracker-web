@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "Jouluaattona päästään kurkistamaan Joulupukin hallintapaneeliin eli tekniikkaan, josta pukin reki saa virtaa hänen matkatessaan ympäri maailmaa. Olemme saaneet tämän erityisen esikatselumahdollisuuden yhdeltä Joulupukin kehittäjätontuista, jotka tekevät kovasti töitä Korvatunturilla auttaessaan pukkia valmistautumaan vuoden tärkeimpään päivään. Joulupukin hallintapaneeli, joka pohjautuu Google Mapsin uusimpaan ja hienoimpaan tekniikkaan ja rekisuunnitteluun, mahdollistaa Joulupukin matkan seuraamisen, sekä kertoo myös tietoja hänen pysähdyspaikoistaan."
+		"message": "Jouluaattona esittelemme sinulle ylpeinä Joulupukin hallintapaneelin, tekniikan ihmeen, joka ohjaa Pukin rekeä matkalla ympäri maailman. Eräs ahkerasti Joulupukin matkaa valmistelevista Korvatunturin kehittäjätontuista on päästänyt meidät tutustumaan tähän mahtavaan vekottimeen. Joulupukin hallintapaneelissa hyödynnetään Google Mapsin ja rekisuunnittelun uusimpia tekniikoita, ja sen avulla voit seurata Joulupukin matkaa ympäri maailman."
 	},
 	"about-content-three": {
 		"message": "Google on luonut ja kehittänyt Google Mapsin Joulupukin jäljittimen joulupukin tonttujen avustamana. Tarvitsetko apua tai onko sinulla muuta kysyttävää? Käy \u003ca href=\"//support.google.com/santatracker\"\u003eohjekeskuksessamme\u003c/a\u003e."
@@ -325,6 +325,21 @@
 	},
 	"copy-me": {
 		"message": "Jaa viesti kopioimalla tämä linkki"
+	},
+	"countdown_days": {
+		"message": "päivää"
+	},
+	"countdown_hours": {
+		"message": "t"
+	},
+	"countdown_minutes": {
+		"message": "min"
+	},
+	"countdown_seconds": {
+		"message": "s"
+	},
+	"countdown_until": {
+		"message": "Aikaa joulupukin lähtöön:"
 	},
 	"countdownlabel": {
 		"message": "joulupukin lähtöön"
@@ -668,6 +683,12 @@
 	"nonprofit-wwf-type": {
 		"message": "Jääkarhu"
 	},
+	"notification": {
+		"message": "Ilmoitukset"
+	},
+	"notification_notice": {
+		"message": "Tontut pitävät sinut ajan tasalla pukin aikataulusta."
+	},
 	"np_country_name": {
 		"message": "Nepal"
 	},
@@ -743,8 +764,92 @@
 	"sa_country_name": {
 		"message": "Saudi-Arabia"
 	},
+	"santasvillage": {
+		"message": "Pukin kylä"
+	},
 	"santatracker": {
 		"message": "Joulupukin jäljitin"
+	},
+	"scene_airport": {
+		"message": "Korvatunturin lentokenttä"
+	},
+	"scene_app": {
+		"message": "Android-sovellus"
+	},
+	"scene_boatload": {
+		"message": "Lahjalinko"
+	},
+	"scene_briefing": {
+		"message": "Pukin muorin ohjeet"
+	},
+	"scene_callfromsanta": {
+		"message": "Puhelu pukilta"
+	},
+	"scene_citylights": {
+		"message": "Kaupungin valot"
+	},
+	"scene_codeboogie": {
+		"message": "Kooditanssi"
+	},
+	"scene_codelab": {
+		"message": "Koodauslabra"
+	},
+	"scene_commandcentre": {
+		"message": "Komentokeskus"
+	},
+	"scene_giftmatch": {
+		"message": "Lahjaleikki"
+	},
+	"scene_gumball": {
+		"message": "Purkkapallo"
+	},
+	"scene_jamband": {
+		"message": "Tonttujen bilebändi"
+	},
+	"scene_jetpack": {
+		"message": "Tontturakettireppu"
+	},
+	"scene_matching": {
+		"message": "Muistipeli"
+	},
+	"scene_mercator": {
+		"message": "Karttavisa"
+	},
+	"scene_postcard": {
+		"message": "Pukin kortit"
+	},
+	"scene_presentbounce": {
+		"message": "Pomppivat paketit"
+	},
+	"scene_presentdrop": {
+		"message": "Lahjapudotus"
+	},
+	"scene_racer": {
+		"message": "Petterin kilpa-ajo"
+	},
+	"scene_santasearch": {
+		"message": "Pukkihaku"
+	},
+	"scene_santaselfie": {
+		"message": "Pukin selfie"
+	},
+	"scene_seasonofgiving": {
+		"message": "Antamisen aika"
+	},
+	"scene_traditions": {
+		"message": "Lomaperinteet"
+	},
+	"scene_translations": {
+		"message": "Käännökset"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Tonttuvaunu"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Pukin lähtö"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Pukki on palannut"
 	},
 	"score": {
 		"message": "Tulos"
@@ -855,13 +960,16 @@
 		"message": "Sijaintisi on"
 	},
 	"tracker_intro_welcome": {
-		"message": "Tervetuloa"
+		"message": "Tervetuloa:"
 	},
 	"tracker_next_stop": {
 		"message": "Seuraava pysähdyspaikka"
 	},
 	"tracker_santa_update": {
 		"message": "JOULUPUKIN PÄIVITYS"
+	},
+	"tracker_santa_update_1": {
+		"message": "Joulupukin päivitys"
 	},
 	"tracker_see_route": {
 		"message": "Katso reitti"
@@ -871,6 +979,9 @@
 	},
 	"tracker_world_facts": {
 		"message": "TIESITKÖ?"
+	},
+	"tracker_world_facts_1": {
+		"message": "Faktatietoa maailmalta"
 	},
 	"tracker_your_location": {
 		"message": "Sijaintisi"
@@ -4546,6 +4657,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Tule takaisin 24.12. ja seuraa pukin matkaa kanssamme!"
+	},
+	"village_explore": {
+		"message": "Tutki, pelaa ja opi tonttujen kanssa koko joulukuun ajan."
+	},
+	"village_takesoff": {
+		"message": "Aikaa joulupukin lähtöön:"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

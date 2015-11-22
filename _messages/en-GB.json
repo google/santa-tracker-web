@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "On Christmas Eve we’ll be proudly showcasing a preview of Santa’s dashboard –- the technology that powers his sleigh during his around-the-world journey. We’ve received this special preview from one of Santa’s many developer elves, who are hard at work in the North Pole helping Santa prepare for his big day. Santa’s dashboard – featuring the latest and greatest in Google Maps technology and sleigh engineering – will allow you to follow his progress around the world, and also learn a little about some of his stops along the way."
+		"message": "On Christmas Eve we’ll be proudly showcasing a preview of Santa’s dashboard – the technology that powers his sleigh during his around-the-world journey. We’ve received this special preview from one of Santa’s many developer elves, who are hard at work in the North Pole helping Santa prepare for his big day. Santa’s dashboard – featuring the latest and greatest in Google Maps technology and sleigh engineering – will allow you to follow his progress around the world, and also learn a little about some of his stops along the way."
 	},
 	"about-content-three": {
 		"message": "The Google Maps Santa Tracker is created and developed by Google, with a little help from Santa’s elves. Need help or have another question? Visit our \u003ca href=\"//support.google.com/santatracker\"\u003eHelp Centre\u003c/a\u003e."
@@ -326,6 +326,21 @@
 	"copy-me": {
 		"message": "Copy this link to share your message"
 	},
+	"countdown_days": {
+		"message": "Days"
+	},
+	"countdown_hours": {
+		"message": "Hrs"
+	},
+	"countdown_minutes": {
+		"message": "Min"
+	},
+	"countdown_seconds": {
+		"message": "Sec"
+	},
+	"countdown_until": {
+		"message": "Santa Takes Off In"
+	},
 	"countdownlabel": {
 		"message": "Until Santa Departs"
 	},
@@ -354,7 +369,7 @@
 		"message": "German"
 	},
 	"de_tradition": {
-		"message": "In nearly every German town Christmas markets open in town squares. Townspeople gather to hear brass bands, and enjoy traditional fare of the region. They eat gingerbread hearts, sugar-roasted almonds, sweets of all kinds and drink mulled wine (Glühwein) or apple cider."
+		"message": "In nearly every German town, Christmas markets open in the town square. Townspeople gather to hear brass bands, and enjoy traditional fare of the region. They eat gingerbread hearts, sugar-roasted almonds, sweets of all kinds and drink mulled wine (Glühwein) or apple cider."
 	},
 	"deck": {
 		"message": "Deck Out"
@@ -743,8 +758,92 @@
 	"sa_country_name": {
 		"message": "Saudi Arabia"
 	},
+	"santasvillage": {
+		"message": "Santa's Village"
+	},
 	"santatracker": {
 		"message": "Santa Tracker"
+	},
+	"scene_airport": {
+		"message": "North Pole Airport"
+	},
+	"scene_app": {
+		"message": "Android App"
+	},
+	"scene_boatload": {
+		"message": "Gift Slingshot"
+	},
+	"scene_briefing": {
+		"message": "Mrs. Claus' Briefing"
+	},
+	"scene_callfromsanta": {
+		"message": "Call from Santa"
+	},
+	"scene_citylights": {
+		"message": "City Lights"
+	},
+	"scene_codeboogie": {
+		"message": "Code Boogie"
+	},
+	"scene_codelab": {
+		"message": "Code Lab"
+	},
+	"scene_commandcentre": {
+		"message": "Mission Control"
+	},
+	"scene_giftmatch": {
+		"message": "Gift Matcher"
+	},
+	"scene_gumball": {
+		"message": "Gumball Tilt"
+	},
+	"scene_jamband": {
+		"message": "Elf Jamband"
+	},
+	"scene_jetpack": {
+		"message": "Elf Jetpack"
+	},
+	"scene_matching": {
+		"message": "Memory Match"
+	},
+	"scene_mercator": {
+		"message": "Map Quiz"
+	},
+	"scene_postcard": {
+		"message": "Santa Cards"
+	},
+	"scene_presentbounce": {
+		"message": "Present Bounce"
+	},
+	"scene_presentdrop": {
+		"message": "Present Drop"
+	},
+	"scene_racer": {
+		"message": "Rudolph Racer"
+	},
+	"scene_santasearch": {
+		"message": "Santa Search"
+	},
+	"scene_santaselfie": {
+		"message": "Santa Selfie"
+	},
+	"scene_seasonofgiving": {
+		"message": "Season of Giving"
+	},
+	"scene_traditions": {
+		"message": "Christmas Traditions"
+	},
+	"scene_translations": {
+		"message": "Translations"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Elf Car"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Santa's Takeoff"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Santa's Back"
 	},
 	"score": {
 		"message": "Score"
@@ -863,6 +962,9 @@
 	"tracker_santa_update": {
 		"message": "SANTA UPDATE"
 	},
+	"tracker_santa_update_1": {
+		"message": "Santa Update"
+	},
 	"tracker_see_route": {
 		"message": "See the route"
 	},
@@ -871,6 +973,9 @@
 	},
 	"tracker_world_facts": {
 		"message": "DID YOU KNOW"
+	},
+	"tracker_world_facts_1": {
+		"message": "World Facts"
 	},
 	"tracker_your_location": {
 		"message": "Your location"
@@ -4546,6 +4651,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Come back on the 24th and help us track Santa all night!"
+	},
+	"village_explore": {
+		"message": "Explore, play and learn with Santa's Elves throughout December"
+	},
+	"village_takesoff": {
+		"message": "Santa takes off in"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

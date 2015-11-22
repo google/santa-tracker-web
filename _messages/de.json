@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "An Heiligabend kannst du einen Blick auf das Dashboard des Weihnachtsmanns werfen, über das er auf seiner Reise um die Welt seinen Schlitten steuert. Einer der vielen Entwicklerelfen des Weihnachtsmanns hat uns diese Vorschau exklusiv vom Nordpol geschickt, wo die Vorbereitungen auf den großen Tag auf Hochtouren laufen. Mit dem Dashboard des Weihnachtsmanns, das das aktuelle Google Maps mit modernster Schlittenbaukunst vereint, kannst du den Weihnachtsmann um die ganze Welt begleiten und lernst unterwegs noch einiges über die Stationen auf dem Weg."
+		"message": "An Heiligabend präsentieren wir das Weihnachtsmann-Dashboard. Mit dieser Technologie wird der Schlitten des Weihnachtsmanns auf seiner Weltreise angetrieben. Wir haben diese spezielle Vorschau von einem der vielen Entwicklerwichtel des Weihnachtsmanns erhalten, die am Nordpol emsig dabei sind, den Weihnachtsmann bei der Vorbereitung auf seinen großen Tag zu unterstützen. Das Weihnachtsmanns-Dashboard stellt die neuesten und besten Errungenschaften bei Google Maps-Technologie und Schlittenkunst vor. Du kannst damit seine Weltreise verfolgen und einiges über seine Zwischenstopps erfahren."
 	},
 	"about-content-three": {
 		"message": "Google hat gemeinsam mit den Wichteln des Weihnachtsmanns \"Auf den Spuren des Weihnachtsmanns\" auf Google Maps gestaltet und entwickelt. Brauchst du Hilfe oder hast du weitere Fragen? \u003ca href=\"//support.google.com/santatracker\"\u003eWeitere Informationen findest du in der Google Maps-Hilfe.\u003c/a\u003e"
@@ -326,6 +326,21 @@
 	"copy-me": {
 		"message": "Kopiere diesen Link, um deine Nachricht zu teilen."
 	},
+	"countdown_days": {
+		"message": "Tage"
+	},
+	"countdown_hours": {
+		"message": "Std."
+	},
+	"countdown_minutes": {
+		"message": "Min."
+	},
+	"countdown_seconds": {
+		"message": "Sek."
+	},
+	"countdown_until": {
+		"message": "Der Weihnachtsmann startet in"
+	},
 	"countdownlabel": {
 		"message": "Bis zur Abreise des Weihnachtsmanns"
 	},
@@ -396,7 +411,7 @@
 		"message": "Englisch"
 	},
 	"endofjourneymessage": {
-		"message": "Der Weihnachtsmann hat seine diesjährige Reise beendet. Er und seine Elfen feiern jetzt am Nordpol und machen dann erst einmal Urlaub."
+		"message": "Der Weihnachtsmann hat seine diesjährige Reise beendet. Er und seine Wichtel feiern jetzt am Nordpol und machen dann erst einmal Urlaub."
 	},
 	"er_country_name": {
 		"message": "Eritrea"
@@ -743,8 +758,92 @@
 	"sa_country_name": {
 		"message": "Saudi-Arabien"
 	},
+	"santasvillage": {
+		"message": "Dorf des Weihnachtsmanns"
+	},
 	"santatracker": {
 		"message": "Auf den Spuren des Weihnachtsmanns"
+	},
+	"scene_airport": {
+		"message": "Flughafen Nordpol"
+	},
+	"scene_app": {
+		"message": "Android-App"
+	},
+	"scene_boatload": {
+		"message": "Geschenkeschleuder"
+	},
+	"scene_briefing": {
+		"message": "Frau Weihnachtsmann sagt, wie's geht"
+	},
+	"scene_callfromsanta": {
+		"message": "Anruf vom Weihnachtsmann"
+	},
+	"scene_citylights": {
+		"message": "Lichter der Stadt"
+	},
+	"scene_codeboogie": {
+		"message": "Code-Boogie"
+	},
+	"scene_codelab": {
+		"message": "Code-Lab"
+	},
+	"scene_commandcentre": {
+		"message": "Kontrollzentrum"
+	},
+	"scene_giftmatch": {
+		"message": "Geschenkpaare"
+	},
+	"scene_gumball": {
+		"message": "Lolli-Flipper"
+	},
+	"scene_jamband": {
+		"message": "Wichtel-Wunschkonzert"
+	},
+	"scene_jetpack": {
+		"message": "Wichtel-Jetpack"
+	},
+	"scene_matching": {
+		"message": "Memory"
+	},
+	"scene_mercator": {
+		"message": "Kartenquiz"
+	},
+	"scene_postcard": {
+		"message": "Weihnachtskarten"
+	},
+	"scene_presentbounce": {
+		"message": "Geschenkeautomat"
+	},
+	"scene_presentdrop": {
+		"message": "Bescherung"
+	},
+	"scene_racer": {
+		"message": "Rudolfs Rennen"
+	},
+	"scene_santasearch": {
+		"message": "Such den Weihnachtsmann"
+	},
+	"scene_santaselfie": {
+		"message": "Weihnachtsmann-Selfie"
+	},
+	"scene_seasonofgiving": {
+		"message": "Zeit des Gebens"
+	},
+	"scene_traditions": {
+		"message": "Weihnachtstraditionen aus der ganzen Welt"
+	},
+	"scene_translations": {
+		"message": "Übersetzungen"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Der Wichtelwagen"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Abflug des Weihnachtsmanns"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Der Weihnachtsmann ist wieder da"
 	},
 	"score": {
 		"message": "Bewertung"
@@ -795,7 +894,7 @@
 		"message": "Tschad"
 	},
 	"terms-and-privacy": {
-		"message": "Nutzungsbedingungen/Datenschutz"
+		"message": "Nutzungsbed./Datenschutz"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -855,13 +954,16 @@
 		"message": "Sie befinden sich in"
 	},
 	"tracker_intro_welcome": {
-		"message": "Willkommen bei"
+		"message": "Willkommen in"
 	},
 	"tracker_next_stop": {
 		"message": "Nächster Halt"
 	},
 	"tracker_santa_update": {
 		"message": "NEUIGKEITEN ZUM WEIHNACHTSMANN"
+	},
+	"tracker_santa_update_1": {
+		"message": "Neuigkeiten zum Weihnachtsmann"
 	},
 	"tracker_see_route": {
 		"message": "Route anzeigen"
@@ -871,6 +973,9 @@
 	},
 	"tracker_world_facts": {
 		"message": "Schon gewusst?"
+	},
+	"tracker_world_facts_1": {
+		"message": "Nachrichten aus aller Welt"
 	},
 	"tracker_your_location": {
 		"message": "Ihr Standort"
@@ -4546,6 +4651,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Komm am 24. wieder und hefte dich gemeinsam mit uns die ganze Nacht an die Fersen des Weihnachtsmanns!"
+	},
+	"village_explore": {
+		"message": "Entdecke, spiele und lerne den ganzen Dezember lang gemeinsam mit den Wichteln des Weihnachtsmanns."
+	},
+	"village_takesoff": {
+		"message": "Der Weihnachtsmann startet in"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

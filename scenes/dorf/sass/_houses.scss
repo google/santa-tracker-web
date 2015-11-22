@@ -53,6 +53,10 @@
   $zIndex: 12;
 
   .house {
+    .card {
+      background: center no-repeat;
+      background-size: cover;
+    }
     .building, .ice {
       background: center no-repeat;
       background-size: contain;
@@ -62,6 +66,7 @@
 
   @for $i from 1 through length($houses) {
     $house: nth($houses, $i);
+    $id: nth($house, $houseId);
 
     .house-#{nth($house, $houseId)} {
       // z-index set on child .assets, not top-level .house (don't create
@@ -71,7 +76,7 @@
         z-index: nth($house, $zIndex) + (1+($i % 4) * 10);
 
         .building {
-          background-image: url(img/building-#{nth($house, $houseId)}.svg);
+          background-image: url(img/building-#{$id}.svg);
           width: percent(nth($house, $houseWidth), $dim-house);
           height: percent(nth($house, $houseHeight), $dim-house);
           left: percent(nth($house, $houseLeft), $dim-house);
@@ -79,11 +84,17 @@
         }
 
         .ice {
-          background-image: url(img/building-#{nth($house, $houseId)}-ice.svg);
+          background-image: url(img/building-#{$id}-ice.svg);
           width: percent(nth($house, $iceWidth), $dim-house);
           height: percent(nth($house, $iceHeight), $dim-house);
           left: percent(nth($house, $iceLeft), $dim-house);
           top: percent(nth($house, $iceTop), $dim-house);
+        }
+      }
+
+      .link {
+        .card {
+          background-image: url(img/card-#{$id}_2x.png);
         }
       }
     }

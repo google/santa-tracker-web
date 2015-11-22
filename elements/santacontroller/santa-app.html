@@ -558,13 +558,12 @@ Polymer({
     for (var i = this.houses.length - 1; i >= 0; i--) {
       var house = this.houses[i];
 
-      // if on chromecast, disable any houses not suitable for cast
-      house.disabled = (castMode && !house.cast) || house.disabled;
+      house.disabled = house.disabled || castMode;  // by default, all houses are disabled on cast
 
       switch (house.module) {
         case 'app':
           // Disable Google Play house on iOS devices
-          house.disabled = ios || portalMode || house.disabled;
+          house.disabled = (ios || portalMode || house.disabled);
           break;
         case 'streetview':
           // remove streetview where callfromsanta supported (en|en-GB|es|es-419)
