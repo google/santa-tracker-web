@@ -22,21 +22,25 @@ window.HOUSES = [{
   module: "airport",
   iced: true,
   launchDate: new Date('Dec 1, 2014'),
+  hideDate: true,
   category: "play"
 }, {
   module: "traditions",
   iced: true,
   launchDate: new Date('Dec 1, 2014'),
+  hideDate: true,
   category: "learn"
 }, {
   module: "codelab",
   iced: true,
   launchDate: new Date('Dec 1, 2014'),
+  hideDate: true,
   category: "learn"
 }, {
   module: "app",
   iced: true,
   launchDate: new Date('Dec 1, 2014'),
+  hideDate: true,
   category: "play",
   link: 'https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker'
 }, {
