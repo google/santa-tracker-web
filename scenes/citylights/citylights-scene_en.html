@@ -19,6 +19,27 @@ specific language governing permissions and limitations under the License.
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="citylights-scene.css" />
+<style>
+  citylights-scene[mode="portal"] a[href*="google.com"] {
+    pointer-events: none;
+    cursor: default !important;
+  }
+
+  citylights-scene[mode="portal"] a[href*="googleapis.com"] {
+    pointer-events: none;
+    cursor: default !important;
+  }
+
+  citylights-scene[mode="portal"] #module-citylights img[src*="sv4.png"] {
+    display:none;
+  }
+
+  citylights-scene[mode="portal"] #module-citylights a.photosphere-overlay__link {
+    display:none;
+  }
+
+</style>
+
 
 <!--
 City lights scene.
@@ -193,6 +214,10 @@ City lights scene.
         var div = this.$['module-citylights'];
 
         this.scene = new scenes.citylights.Scene(div);
+      }
+
+      if (this.getAttribute('mode') == 'portal') {
+        document.getElementById("module-citylights").addEventListener('click', clickFilter, false);
       }
     },
 

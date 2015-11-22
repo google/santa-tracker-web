@@ -21,6 +21,13 @@ specific language governing permissions and limitations under the License.
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="mercator-scene.css" />
+<style>
+  mercator-scene[mode="portal"] a[href*="google.com"] {
+    pointer-events: none;
+    cursor: default !important;
+  }
+</style>
+
 
 <!--
 Mercator scene.
@@ -328,6 +335,10 @@ Mercator scene.
 
         this.game = new scenes.mercator.Game(module);
         startButton(this, module, this.onClickStart_.bind(this));
+      }
+
+      if (this.getAttribute('mode') == 'portal') {
+         document.getElementById("module-mercator").addEventListener('click', clickFilter, false);
       }
     },
 
