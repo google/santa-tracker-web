@@ -313,6 +313,11 @@ app.Game.prototype._updatePan = function() {
   let panYMax = (this.mapElementDimensions.height - window.innerHeight) / 2;
 
   let panXDiff = panXMax - Math.abs(panX);
+
+  if (panY < 0) {
+    panYMax += 75;
+  }
+
   let panYDiff = panYMax - Math.abs(panY);
 
   if (panXDiff < 0) {
