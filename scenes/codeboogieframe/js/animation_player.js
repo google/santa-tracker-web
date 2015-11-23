@@ -23,6 +23,7 @@ goog.require('app.Constants');
 goog.require('app.Character');
 goog.require('app.DanceStatus');
 goog.require('app.I18n');
+goog.require('app.MoveTiles');
 goog.require('app.Step');
 goog.require('app.Title');
 goog.require('goog.events.EventTarget');
@@ -150,6 +151,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.teacher = new app.Character(
         el.querySelector('.scene__characters-teacher'), 'purple');
     this.title = new app.Title(el.querySelector('.scene__word-title'));
+    this.moveTiles = new app.MoveTiles(el.querySelector('.scene__moves'));
     /* @type {app.AnimationItem[]} */
     this.animationQueue = [];
 
@@ -196,6 +198,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.teacher.play(animation.teacherStep);
     this.player.play(animation.playerStep);
     this.title.setTitle(animation.title);
+    this.moveTiles.add(animation.teacherStep);
     this.dispatchEvent({type: 'step', data: animation.blockId});
   }
 };

@@ -31,6 +31,7 @@
 
   .scene__characters {
     position: relative;
+    height: 480px;
   }
 
   .scene__characters-player {
@@ -58,6 +59,41 @@
       animation: 4s cb_title_fade;
       animation-fill-mode: forwards;
     }
+  }
+
+  .scene__moves {
+    height: 85px;
+    margin: 0 auto;
+    transition: transform 200ms ease-in;
+    display: flex;
+    left: 50%;
+    position: absolute;
+    box-sizing: border-box;
+  }
+
+  .scene__moves-move {
+    height: 85px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    margin-right: 8px;
+    flex: 0 0 110px;
+
+    /* demo styles */
+    font-family: 'Lobster';
+    font-size: 120%;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    line-height: 85px;
+  }
+
+  .fade-in {
+    animation: 500ms cb_fade_in;
+    animation-fill-mode: forwards;
+  }
+
+  .fade-out {
+    animation: 500ms cb_fade_out;
+    animation-fill-mode: forwards;
   }
 
   .scene__play-tab {
@@ -130,6 +166,30 @@
   }
 
   100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes cb_fade_in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cb_fade_out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
     opacity: 0;
     transform: scale(1.5);
   }
