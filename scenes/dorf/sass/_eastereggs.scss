@@ -58,35 +58,38 @@
     cursor: pointer;
   }
 
-  #easteregg-snowmobile1.drive {
-    z-index: $house-row-2-z-index - 1;
+  #easteregg-snowmobile1.drive,
+  #easteregg-snowmobile2.drive,
+  #easteregg-snowmobile3.drive,
+  #easteregg-snowmobile4.drive {
     transform-origin: bottom center;
     animation: burnout 10s linear;
     animation-direction: reverse;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  #easteregg-snowmobile1.drive {
+    z-index: $house-row-2-z-index - 1;
   }
 
   #easteregg-snowmobile2.drive {
     z-index: $house-row-3-z-index - 50;
-    transform-origin: bottom center;
-    animation: burnout 10s linear;
-    animation-direction: reverse;
   }
 
   #easteregg-snowmobile3.drive {
     z-index: $house-row-3-z-index - 1;
-    transform-origin: bottom center;
-    animation: burnout 10s linear;
+    animation-direction: normal;
   }
 
   #easteregg-snowmobile4.drive {
     z-index: $house-row-7-z-index - 1;
-    transform-origin: bottom center;
-    animation: burnout 10s linear;
-    animation-direction: reverse;
   }
 
   #easteregg-balloon, #easteregg-balloon-flight, #easteregg-balloon-ropes {
     transition: opacity 0.2s ease-out;
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   #easteregg-balloon {
@@ -102,6 +105,16 @@
     &.flying {
       opacity: 1;
     }
+  }
+
+  #easteregg-balloon, #easteregg-balloon-ropes {
+    will-change: opacity;
+    transform: translateZ(0);
+  }
+
+  #easeregg-balloon-flight {
+    will-change: transform, opacity;
+    transform: translateZ(0);
   }
 }
 
