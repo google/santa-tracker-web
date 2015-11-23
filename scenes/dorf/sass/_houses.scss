@@ -59,8 +59,10 @@
 
   .house {
     .card {
-      background: center no-repeat;
-      background-size: cover;
+      .image {
+        background: center no-repeat;
+        background-size: cover;
+      }
     }
     .building, .ice {
       background: center no-repeat;
@@ -104,7 +106,9 @@
 
       .link {
         .card {
-          background-image: url(img/card-#{$id}_2x.png);
+          .image {
+            background-image: url(img/card-#{$id}_2x.png);
+          }
         }
       }
     }
