@@ -12,6 +12,37 @@ $name: 'module-dorf';
   min-width: 320px;  // force 320px min width, i.e., iPhone 4/5+
   overflow: hidden;
 
+  #drawer {
+    .cards {
+      border-bottom: 4px solid #eee;
+    }
+
+    button#close-sidebar {
+      pointer-events: auto;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: transparent;
+      cursor: pointer;
+      display: block;
+      height: 75px;
+      line-height: 75px;
+      text-align: left;
+      font-family: 'Lobster';
+      font-size: 30px;
+      padding-left: 68px;
+      width: 100%;
+      color: #ccc;
+    }
+
+    .card {
+      height: 150px;
+      background: transparent center right no-repeat;
+      background-size: cover;
+    }
+  }
+
   .scroll {
     overflow-y: auto;
 

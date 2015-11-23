@@ -15,6 +15,7 @@ specific language governing permissions and limitations under the License.
 
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
+<link rel="import" href="../../components/paper-drawer-panel/paper-drawer-panel.html">
 
 <link rel="import" href="../../elements/toolbar/santa-toolbar.html">
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
@@ -27,115 +28,141 @@ Village scene (2015).
 -->
 <dom-module id="dorf-scene">
 <template>
-  <div id="module-dorf">
-    <santa-toolbar id="toolbar"></santa-toolbar>
-    <div id="scroll" class="fit scroll">
-      <div id="posser"></div>
+  <style>
+  paper-drawer-panel {
+    --paper-drawer-panel-scrim: {
+      background: rgba(135, 212, 147, 0.33);
+    };
+  }
+  /* TODO(samthor): The drawer be 100% when screen <= 600px */
+  </style>
 
-      <header>
-        <div id="header-background"></div>
-        <div id="header-skyeffect">
-          <span class="plane"></span>
-          <span class="skydive">
-            <span class="pegman-1"></span>
-            <span class="pegman-2"></span>
-            <span class="pegman-3"></span>
-          </span>
-        </div>
-        <div id="header-content">
-          <div id="count-down">
-            <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
-            <countdown-timer id="count"
-                             santa-service="[[santaService]]"
-                             count-down-end-date="[[countDownEndDate]]"
-                             finished="{{countdownFinished}}">
-              <h3><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h3>
-              <h3><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h3>
-              <h3><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h3>
-              <h3><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h3>
-            </countdown-timer>
+<div id="module-dorf">
+  <paper-drawer-panel id="sidebar" drawer-width="400px" force-narrow transition drawer-toggle-attribute="closer">
+    <div drawer id="drawer">
+      <div class="cards">
+        <button closer id="close-sidebar">
+          Close
+        </button>
+        <a href="#village">
+          <div class="card" style="background-image: url(img/menu-village.png)"></div>
+        </a>
+        <a href="#tracker">
+          <div class="card" style="background-image: url(img/menu-tracker.png)"></div>
+        </a>
+      </div>
+    </div>
+    <div main style="position: relative; z-index: 0;">
+      <santa-toolbar id="toolbar" on-options-tap="_handleOptionsTap"></santa-toolbar>
+      <div id="scroll" class="fit scroll">
+        <div id="posser"></div>
+
+        <header>
+          <div id="header-background"></div>
+          <div id="header-skyeffect">
+            <span class="plane"></span>
+            <span class="skydive">
+              <span class="pegman-1"></span>
+              <span class="pegman-2"></span>
+              <span class="pegman-3"></span>
+            </span>
           </div>
-          <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
-          <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-      </header>
-      <div id="village-all">
-        <div id="ground"></div>
-        <div id="road"></div>
-        <div id="houses">
-          <div class="house house-new-today"></div>
-          <template is="dom-repeat" items="{{houses}}">
-            <div id$="house-{{item.module}}"
-                 class$="house house-{{item.module}} {{_calculateClass(item, item.iced)}}"
-                 disabled$="{{item.disabled}}">
-              <div class="assets">
-                <div class="building"></div>
-                <div class="ice"></div>
-                <template is="dom-if" if="{{!item.hideDate}}">
-                  <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
+          <div id="header-content">
+            <div id="count-down">
+              <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
+              <countdown-timer id="count"
+                               santa-service="[[santaService]]"
+                               count-down-end-date="[[countDownEndDate]]"
+                               finished="{{countdownFinished}}">
+                <h3><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h3>
+                <h3><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h3>
+                <h3><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h3>
+                <h3><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h3>
+              </countdown-timer>
+            </div>
+            <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
+            <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
+          </div>
+        </header>
+        <div id="village-all">
+          <div id="ground"></div>
+          <div id="road"></div>
+          <div id="houses">
+            <div class="house house-new-today"></div>
+            <template is="dom-repeat" items="{{houses}}">
+              <div id$="house-{{item.module}}"
+                   class$="house house-{{item.module}} {{_calculateClass(item, item.iced)}}"
+                   disabled$="{{item.disabled}}">
+                <div class="assets">
+                  <div class="building"></div>
+                  <div class="ice"></div>
+                  <template is="dom-if" if="{{!item.hideDate}}">
+                    <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
+                  </template>
+                </div>
+                <template is="dom-if" if="{{!item.disabled}}">
+                  <a class="link" href="{{_calculateHref(item)}}">
+                    <div class$="card card-{{item.module}}">
+                      <h4>{{_stringCategory(_strings, item.category)}}</h4>
+                      <h3>{{_stringScene(_strings, item.module)}}</h3>
+                      <template is="dom-if" if="{{!item.hideDate}}">
+                        <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
+                      </template>
+                    </div>
+                  </a>
                 </template>
               </div>
-              <template is="dom-if" if="{{!item.disabled}}">
-                <a class="link" href="{{_calculateHref(item)}}">
-                  <div class$="card card-{{item.module}}">
-                    <h4>{{_stringCategory(_strings, item.category)}}</h4>
-                    <h3>{{_stringScene(_strings, item.module)}}</h3>
-                    <template is="dom-if" if="{{!item.hideDate}}">
-                      <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
-                    </template>
-                  </div>
-                </a>
+            </template>
+
+            <!-- TODO(samthor): This isn't part of the flex layout, but ensures
+                 that easter eggs have a shared z-index with houses -->
+            <div id="eastereggs">
+              <template is="dom-repeat" items="{{easterEggs}}">
+                <div id$="easteregg-{{item}}" class="easter-egg"></div>
               </template>
             </div>
-          </template>
-
-          <!-- TODO(samthor): This isn't part of the flex layout, but ensures
-               that easter eggs have a shared z-index with houses -->
-          <div id="eastereggs">
-            <template is="dom-repeat" items="{{easterEggs}}">
-              <div id$="easteregg-{{item}}" class="easter-egg"></div>
-            </template>
           </div>
         </div>
-      </div>
-      <div id="village-footer">
-        <div id="village-footer-elves"></div>
-      </div>
-    </div><!-- .scroll -->
-  </div><!-- #module-dorf -->
+        <div id="village-footer">
+          <div id="village-footer-elves"></div>
+        </div>
+      </div><!-- .scroll -->
+    </div><!-- div main-->
+  </paper-drawer-toolbar>
+</div><!-- #module-dorf -->
 
-  <div id="msg" hidden>
-    <div id="msg_category-learn"><i18n-msg msgid="learn">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_category-play"><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_category-watch"><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-airport"><i18n-msg msgid="scene_airport">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-traditions"><i18n-msg msgid="scene_traditions">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-codelab"><i18n-msg msgid="scene_codelab">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-app"><i18n-msg msgid="scene_app">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-seasonofcaring"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-santasback"><i18n-msg msgid="scene_videoscene_santasback">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-santaselfie"><i18n-msg msgid="scene_santaselfie">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-translations"><i18n-msg msgid="scene_translations">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-callfromsanta"><i18n-msg msgid="scene_callfromsanta">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-presentdrop"><i18n-msg msgid="scene_presentdrop">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-santasearch"><i18n-msg msgid="scene_santasearch">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-windtunnel"><i18n-msg msgid="scene_windtunnel">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-racer"><i18n-msg msgid="scene_racer">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-jamband"><i18n-msg msgid="scene_jamband">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-gumball"><i18n-msg msgid="scene_gumball">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-postcard"><i18n-msg msgid="scene_postcard">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-jetpack"><i18n-msg msgid="scene_jetpack">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-boatload"><i18n-msg msgid="scene_boatload">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-mercator"><i18n-msg msgid="scene_mercator">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-presentbounce"><i18n-msg msgid="scene_presentbounce">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-codeboogie"><i18n-msg msgid="scene_codeboogie">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-elf-car"><i18n-msg msgid="scene_videoscene_carpool">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-citylights"><i18n-msg msgid="scene_citylights">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-commandcentre"><i18n-msg msgid="scene_commandcentre">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-seasonofgiving"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-matching"><i18n-msg msgid="scene_matching">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="msg_house-liftoff"><i18n-msg msgid="scene_videoscene_liftoff">PLACEHOLDER_i18n</i18n-msg></div>
-  </div>
+<div id="msg" hidden>
+  <div id="msg_category-learn"><i18n-msg msgid="learn">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_category-play"><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_category-watch"><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-airport"><i18n-msg msgid="scene_airport">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-traditions"><i18n-msg msgid="scene_traditions">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-codelab"><i18n-msg msgid="scene_codelab">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-app"><i18n-msg msgid="scene_app">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-seasonofcaring"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-santasback"><i18n-msg msgid="scene_videoscene_santasback">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-santaselfie"><i18n-msg msgid="scene_santaselfie">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-translations"><i18n-msg msgid="scene_translations">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-callfromsanta"><i18n-msg msgid="scene_callfromsanta">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-presentdrop"><i18n-msg msgid="scene_presentdrop">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-santasearch"><i18n-msg msgid="scene_santasearch">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-windtunnel"><i18n-msg msgid="scene_windtunnel">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-racer"><i18n-msg msgid="scene_racer">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-jamband"><i18n-msg msgid="scene_jamband">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-gumball"><i18n-msg msgid="scene_gumball">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-postcard"><i18n-msg msgid="scene_postcard">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-jetpack"><i18n-msg msgid="scene_jetpack">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-boatload"><i18n-msg msgid="scene_boatload">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-mercator"><i18n-msg msgid="scene_mercator">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-presentbounce"><i18n-msg msgid="scene_presentbounce">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-codeboogie"><i18n-msg msgid="scene_codeboogie">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-elf-car"><i18n-msg msgid="scene_videoscene_carpool">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-citylights"><i18n-msg msgid="scene_citylights">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-commandcentre"><i18n-msg msgid="scene_commandcentre">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-seasonofgiving"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-matching"><i18n-msg msgid="scene_matching">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-liftoff"><i18n-msg msgid="scene_videoscene_liftoff">PLACEHOLDER_i18n</i18n-msg></div>
+</div>
 
 </template>
 <script>
@@ -320,6 +347,10 @@ Village scene (2015).
       this.debounce('_updateScrollClass', function() {
         this.$.toolbar.background = (this.$.scroll.scrollTop > 0);
       });
+    },
+
+    _handleOptionsTap: function() {
+      this.$.sidebar.openDrawer();
     },
 
     _calculateHref: function(house, iced) {
