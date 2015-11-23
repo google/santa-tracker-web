@@ -273,6 +273,12 @@ Village scene (2015).
       }
     },
 
+    listeners: {
+      // For prod, <i18n-msg> is removed and textContent will already be
+      // correct. For dev, listen for i18n updates and update the labels.
+      'i18n-language-ready': '_updateCountdownLabels'
+    },
+
     observers: [
       '_setupEffectHandlers(active)'
     ],
@@ -351,6 +357,10 @@ Village scene (2015).
 
     _handleOptionsTap: function() {
       this.$.sidebar.openDrawer();
+    },
+
+    _updateCountdownLabels: function() {
+      this.$.count.updateLabels();
     },
 
     _calculateHref: function(house, iced) {
