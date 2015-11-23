@@ -36,10 +36,34 @@ $name: 'module-dorf';
       color: #ccc;
     }
 
-    .card {
+    .menucard {
+      box-sizing: border-box;
       height: 150px;
       background: transparent center right no-repeat;
       background-size: cover;
+      padding: 12px 12px 12px 68px;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    h2 {
+      font-size: 1em;
+      letter-spacing: 1px;
+      font-weight: 500;
+      color: #fff;
+      margin: 6px 0;
+      line-height: 12px;
+      text-transform: uppercase;
+    }
+    h4 {
+      margin: 0;
+      padding-top: 0.25em;
+      font-size: 2.875em;
+      line-height: 1.5em;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
     }
   }
 
@@ -240,6 +264,9 @@ $name: 'module-dorf';
     }
   }
 
+  /** House data */
+  @import "sass/houses";
+
   /** Village flexbox */
   #village-all {
     z-index: $base-background-z-index;
@@ -248,7 +275,6 @@ $name: 'module-dorf';
     top: -30px;
     padding-bottom: 300px;
 
-    @import "sass/houses";
     @import "sass/eastereggs";
 
     #houses {

@@ -40,7 +40,7 @@ Santa Tracker app.
 
     <!-- TODO(samthor): Rename to village-scene when done -->
     <dorf-scene route="village" always-active icon="1f384"
-        houses$="{{houses}}"
+        id="village"
         mode$="{{mode}}"
         path$="scenes/dorf/dorf-scene_[[language]].html"></dorf-scene>
 
@@ -287,12 +287,11 @@ Polymer({
     /**
      * The house metadata, including unlock information.
      */
-    houses: {
+    _houses: {
       type: Array,
       value: function() {
         return [];
-      },
-      notify: true
+      }
     },
 
     /**
@@ -408,7 +407,7 @@ Polymer({
      * A reference to the streetview house in houses.js, for restoration after
      * postFlight.
      */
-    streetviewHouse: {
+    _streetviewHouse: {
       type: Object,
       value: null
     },
@@ -437,6 +436,7 @@ Polymer({
 
   listeners: {
     'scene-progress': 'onSceneProgress',
+    'scene-loaded': 'onSceneLoaded',
     'iframe-focus-change': 'onIframeFocusChange',
     'analytics-track-event': 'trackEvent',
     'analytics-track-perf': 'trackPerf',
@@ -464,6 +464,12 @@ Polymer({
     }
   },
 
+  onSceneLoaded: function(event, scene) {
+    if (scene == this.$.village) {
+      this._notifyHouses();
+    }
+  },
+
   created: function() {
     // silence the noisy things
     if (!window.DEV) {
@@ -477,7 +483,7 @@ Polymer({
   },
 
   ready: function() {
-    this.houses = window.HOUSES;
+    this._houses = window.HOUSES;
     this.config = window.SANTA_CONFIG;
     delete window.HOUSES; // cleanup
     delete window.SANTA_CONFIG; // cleanup
@@ -555,8 +561,8 @@ Polymer({
     var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
     var spanglish = /^e(n|s)/.test(this.language);
 
-    for (var i = this.houses.length - 1; i >= 0; i--) {
-      var house = this.houses[i];
+    for (var i = this._houses.length - 1; i >= 0; i--) {
+      var house = this._houses[i];
 
       house.disabled = house.disabled || castMode;  // by default, all houses are disabled on cast
 
@@ -569,14 +575,14 @@ Polymer({
           // remove streetview where callfromsanta supported (en|en-GB|es|es-419)
           // Save the object for postFlight (when callfromsanta will be disabled)
           if (spanglish && !this.postFlight) {
-            this.streetviewHouse = this.houses.splice(i, 1)[0];
+            this._streetviewHouse = this._houses.splice(i, 1)[0];
           }
           break;
         case 'callfromsanta':
           // remove callfromsanta where not supported (leaving streetview) or
           // after Santa's flight has concluded.
           if (!spanglish || this.postFlight) {
-            this.houses.splice(i, 1);
+            this._houses.splice(i, 1);
           }
           break;
       }
@@ -781,14 +787,14 @@ Polymer({
    * shutoff, kicking out of invalid routes if necessary.
    */
   _postFlightChanged: function() {
-    for (var i = 0; i < this.houses.length; i++) {
+    for (var i = 0; i < this._houses.length; i++) {
       // In regions where callfromsanta was supported, replace it with the
       // streetviewHouse used in other regions
-      if (this.houses[i].module === 'callfromsanta') {
-        if (this.streetviewHouse) {
-          this.houses[i] = this.streetviewHouse;
+      if (this._houses[i].module === 'callfromsanta') {
+        if (this._streetviewHouse) {
+          this._houses[i] = this._streetviewHouse;
         } else {
-          this.houses[i].disabled = true;
+          this._houses[i].disabled = true;
         }
       }
 
@@ -811,7 +817,7 @@ Polymer({
    * @param number index
    */
   unlockHouse: function(idx) {
-    var house = this.houses[idx];
+    var house = this._houses[idx];
     if (!house) {
       return;
     }
@@ -822,7 +828,7 @@ Polymer({
   },
 
   unlockAllHouses: function() {
-    for (var i = 0, house; house = this.houses[i]; ++i) {
+    for (var i = 0, house; house = this._houses[i]; ++i) {
       this.unlockHouse(i);
       house.today = false;
       house.tomorrow = false;
@@ -830,7 +836,8 @@ Polymer({
   },
 
   lockAllHouses: function() {
-    for (var i = 0, house; house = this.houses[i]; ++i) {
+    for (var i = 0, house; house = this._houses[i]; ++i) {
+      this.set('_houses.i.')
       house.iced = true;
       house.today = false;
       house.tomorrow = false;
@@ -839,7 +846,7 @@ Polymer({
   },
 
   sceneIsUnlocked: function(moduleName) {
-    for (var i = 0, house; house = this.houses[i]; ++i) {
+    for (var i = 0, house; house = this._houses[i]; ++i) {
       if (house.module === moduleName) {
         return !house.disabled && (this.santaService.now() > house.launchDate);
       }
@@ -868,8 +875,17 @@ Polymer({
    */
   _checkSchedule: function() {
     if (window.DEV) {
-      console.info('dev, unlocking all houses');
+      console.info('dev, unlocking all houses, random today house');
       this.unlockAllHouses();
+
+      var todayIndex = Math.floor(Math.random() * this._houses.length);
+      if (todayIndex < this._houses.length) {
+        this._houses[todayIndex].today = true;
+      }
+      if (todayIndex + 1 < this._houses.length) {
+        this._houses[todayIndex + 1].tomorrow = true;
+      }
+
       return;
     }
     if (!this.santaService) {
@@ -887,8 +903,8 @@ Polymer({
     switch(todayDate.getMonth()) {
       case 11: // DECEMBER
         // Update house status based on today's date.
-        for (var i = 0; i < this.houses.length; i++) {
-          var house = this.houses[i];
+        for (var i = 0; i < this._houses.length; i++) {
+          var house = this._houses[i];
 
           if (house.launchDate <= todayDate) {
             this.unlockHouse(i);
@@ -959,7 +975,24 @@ Polymer({
    */
   _notifyHouses: function() {
     this.debounce('_notifyHouses', function() {
-      this.houses = this.houses.slice();
+      if (!this.$.village.fire) {
+        // We're not a Polymer element yet, ignore. This will be later called
+        // by onSceneLoaded.
+        return;
+      }
+
+      var houses = this._houses.slice();
+      this.$.village.houses = houses;
+
+      // TODO(samthor): This works around Polymer aggressively comparing the
+      // inner objects of the array. It decides that since the inner objects
+      // are the same (and they are by equality) that the template should not
+      // re-run. We don't use .set on _this_ element, because there's no
+      // rendering here and this isn't actually bound to village, since late-
+      // binding isn't supported in Polymer 1+.
+      for (var i = 0; i < houses.length; ++i) {
+        this.$.village.set('houses.' + i + '.iced', houses[i].iced);
+      }
     });
   },
 

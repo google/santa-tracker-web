@@ -39,16 +39,31 @@ Village scene (2015).
 
 <div id="module-dorf">
   <paper-drawer-panel id="sidebar" drawer-width="400px" force-narrow transition drawer-toggle-attribute="closer">
-    <div drawer id="drawer">
+    <div drawer id="drawer" class="scroll">
       <div class="cards">
         <button closer id="close-sidebar">
           Close
         </button>
-        <a href="#village">
-          <div class="card" style="background-image: url(img/menu-village.png)"></div>
+        <a href$="{{pageUrl}}#village">
+          <div class="menucard menucard-village">
+            <h2><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></h2>
+            <h3><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></h3>
+          </div>
         </a>
-        <a href="#tracker">
-          <div class="card" style="background-image: url(img/menu-tracker.png)"></div>
+        <template is="dom-if" if="{{todayHouse}}">
+          <a href$="{{pageUrl}}#{{todayHouse.module}}">
+            <div class$="menucard menucard-{{todayHouse.module}}">
+              <h2><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h2>
+              <h3>{{_stringScene(_strings, todayHouse.module)}}</h3>
+            </div>
+          </a>
+        </template>
+        <a href$="{{pageUrl}}#tracker">
+          <div class="menucard menucard-tracker">
+            <!-- TODO(samthor): i18n -->
+            <h2>December 24th</h2>
+            <h3>Track Santa</h3>
+          </div>
         </a>
       </div>
     </div>
@@ -89,7 +104,7 @@ Village scene (2015).
           <div id="road"></div>
           <div id="houses">
             <div class="house house-new-today"></div>
-            <template is="dom-repeat" items="{{houses}}">
+            <template id="housesloop" is="dom-repeat" items="{{houses}}" observe="iced disabled">
               <div id$="house-{{item.module}}"
                    class$="house house-{{item.module}} {{_calculateClass(item, item.iced)}}"
                    disabled$="{{item.disabled}}">
@@ -271,6 +286,10 @@ Village scene (2015).
       _strings: {
         type: Object,
         readOnly: true
+      },
+      todayHouse: {
+        type: Object,
+        computed: '_computeTodayHouse(houses)'
       }
     },
 
@@ -364,6 +383,15 @@ Village scene (2015).
       this.$.count.updateLabels();
     },
 
+    _computeTodayHouse: function(houses) {
+      for (var i = 0, house; house = houses[i]; ++i) {
+        if (house.today) {
+          return house;
+        }
+      }
+      return null;
+    },
+
     _calculateHref: function(house, iced) {
       if (iced) {
         return null;
@@ -379,10 +407,6 @@ Village scene (2015).
     },
 
     _calculateDateNo: function(date) {
-      // TODO(samthor): Remove when resolving #1286 (can't late bind properties).
-      if (date.substr) {
-        date = new Date(date);
-      }
       if (date && date.getDate) {
         return date.getDate();
       }
