@@ -269,7 +269,11 @@ gulp.task('sass', function() {
 
 gulp.task('compile-santa-api-service', function() {
   changedFlag(API_BASE_URL, 'js/service/service.flag', function() {
-    fs.unlinkSync('js/service/service.min.js');
+    try {
+      fs.unlinkSync('js/service/service.min.js');
+    } catch (e) {
+      // ignored
+    }
   });
 
   return gulp.src(SERVICE_FILES)
