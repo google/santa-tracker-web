@@ -64,6 +64,7 @@ $name: 'module-press';
       margin: 10px;  		
   		float: left;
   		color: #fff;
+
   		&::first-letter {
   		  font-size: 161px;
         vertical-align: middle;
@@ -139,25 +140,25 @@ $name: 'module-press';
     }
 
     .press-description {
-      @extend .clearfix;  
+      @extend .clearfix;
+    }  
 
-      .press-description-left {
-        width: 26%;
-        float: left;
-        padding: 30px 0 0 0;
+    .press-description-left {
+      width: 26%;
+      float: left;
+      padding: 30px 0 0 0;
 
-        .square {
-          width: 100%;
-          background: url(img/illust-reporter_2x.png) 50% 50% no-repeat;
-          background-size: contain;
-        }          
-      }
+      .square {
+        width: 100%;
+        background: url(img/illust-reporter_2x.png) 50% 50% no-repeat;
+        background-size: contain;
+      }          
+    }
 
-      .press-description-right {
-        width: 74%;
-        float: left;
-      }
-    }      
+    .press-description-right {
+      width: 74%;
+      float: left;
+    }
   }
   
   #press-intro {
@@ -226,7 +227,30 @@ $name: 'module-press';
       overflow: auto;
       padding: 0 0 10px;
       width: 1010px;
-    }       
+    }
+
+    .press-card {
+      &:nth-child(2) {
+        .press-card-img {
+          background: url(img/tmb-santas-village.jpg) 50% 50% no-repeat;
+          background-size: cover;
+        }
+      }
+
+      &:nth-child(3) {
+        .press-card-img {
+          background: url(img/tmb_santa-tracker-2015.jpg) 50% 50% no-repeat;
+          background-size: cover;
+        }
+      }
+    }
+
+    .press-card-links {
+      a {
+        float: left;
+        width: 50%;
+      }
+    }   
   } 
   
   #press-secondary {
@@ -290,7 +314,7 @@ $name: 'module-press';
     text-align: center;
     padding: 100px 0;
 
-    #press-embed-inner {
+    .press-embed-inner {
       width: 640px;
       margin: 0 auto;
     }
