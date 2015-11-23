@@ -30,6 +30,7 @@ goog.require('app.Models');
 app.Scene = function(context) {
   this.context = $('#press-secondary', context);
 
+  this.cards = Cards;
   this.active = '';
   this.$filters = this.context.find('[press-filter]');
   this.$cards = this.context.find('[press-card]');
@@ -43,7 +44,20 @@ app.Scene = function(context) {
  */
 
 app.Scene.prototype.getCards = function() {
-  return Cards;
+  return this.cards;
+}
+
+/**
+ * Unlock cards based on date.
+ */
+
+app.Scene.prototype.unlockCards = function() {
+  this.cards.forEach(function(element, index) {
+    var moduleName = element.key;
+    if (!window.santaApp.sceneIsUnlocked(moduleName)) {
+      element.locked = true;
+    }
+  });
 }
 
 /**
@@ -54,6 +68,7 @@ app.Scene.prototype.getCards = function() {
 
 app.Scene.prototype.init_ = function() {
   this.$filters.on('click', this.onFilterSelect_.bind(this));
+  this.unlockCards();
 }
 
 /**
