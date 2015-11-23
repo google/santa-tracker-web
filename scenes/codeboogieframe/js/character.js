@@ -23,9 +23,9 @@ goog.require('app.Step');
 goog.require('app.Title');
 
 app.Character = class {
-  constructor(el, color, setTitle) {
+  constructor(el, color) {
     // Create move queue
-    this.queue = new app.MoveQueue(this, setTitle);
+    this.queue = new app.MoveQueue(this);
 
     let title = new app.Title(el);
     this.setTitle = title.setTitle.bind(title);
