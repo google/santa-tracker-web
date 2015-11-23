@@ -8,16 +8,24 @@
 
   // id width height left top z-index
   $all:
-      "tree"            831   616   291   342   ($house-row-3-z-index - 1),
-      "blocks"          360   150   904   646   ($house-row-3-z-index - 1),
-      "statue"          287   171   858   821   ($house-row-4-z-index - 1),
+      "tree"            831   616   291   342    ($house-row-3-z-index - 1),
+      "blocks"          360   150   904   646    ($house-row-3-z-index - 1),
+      "statue"          287   171   858   836    ($house-row-4-z-index - 1),
       "penguin-revolt"  174   55    865   1571   ($house-row-6-z-index - 1),
-      "snowman-reading" 571   237   -207  1500  ($house-row-6-z-index - 1),
-      "rosetta-stone"   117   96    39    904   ($house-row-4-z-index - 1),
-      "white-board"     121   62    546   886   ($house-row-3-z-index - 0),
-      "schoolyard"      434   160   121   255   ($house-row-1-z-index - 0),
-      "tic-tac-toe"     447   130   853   282   ($house-row-2-z-index - 1),
-      "book-club"       90    97    360   558   ($house-row-2-z-index + 30);
+      "snowman-reading" 571   237   -207  1500   ($house-row-6-z-index - 1),
+      "rosetta-stone"   117   96    39    904    ($house-row-4-z-index - 1),
+      "white-board"     121   62    546   886    ($house-row-3-z-index - 0),
+      "schoolyard"      434   160   121   255    ($house-row-1-z-index - 0),
+      "tic-tac-toe"     447   130   853   282    ($house-row-2-z-index - 1),
+      "book-club"       90    97    360   558    ($house-row-2-z-index + 30),
+      "balloon"         183   209   200   804    ($house-z-index-front),
+      "balloon-ropes"   234   40    180   963    ($house-row-4-z-index - 1),
+      "balloon-flight"  155   209   200   804    ($house-row-4-z-index - 1),
+      "snowmobile1"     40    39    290   420    ($house-z-index-front),
+      "snowmobile2"     40    39    995   620    ($house-z-index-front),
+      "snowmobile3"     40    39    647   860    ($house-z-index-front),
+      "snowmobile4"     40    39    112   1950   ($house-z-index-front),
+  ;
 
   div {
     background: center no-repeat;
@@ -42,6 +50,97 @@
       left: percent(nth($row, $idx-left), $width-desktop);
       top: percent(nth($row, $idx-top), $height-desktop);
     }
+  }
 
+  #easteregg-balloon, #easteregg-snowmobile1, #easteregg-snowmobile2,
+  #easteregg-snowmobile3, #easteregg-snowmobile4 {
+    pointer-events: all;
+    cursor: pointer;
+  }
+
+  #easteregg-snowmobile1.drive,
+  #easteregg-snowmobile2.drive,
+  #easteregg-snowmobile3.drive,
+  #easteregg-snowmobile4.drive {
+    transform-origin: bottom center;
+    animation: burnout 10s linear;
+    animation-direction: reverse;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  #easteregg-snowmobile1.drive {
+    z-index: $house-row-2-z-index - 1;
+  }
+
+  #easteregg-snowmobile2.drive {
+    z-index: $house-row-3-z-index - 50;
+  }
+
+  #easteregg-snowmobile3.drive {
+    z-index: $house-row-3-z-index - 1;
+    animation-direction: normal;
+  }
+
+  #easteregg-snowmobile4.drive {
+    z-index: $house-row-7-z-index - 1;
+  }
+
+  #easteregg-balloon, #easteregg-balloon-flight, #easteregg-balloon-ropes {
+    transition: opacity 0.2s ease-out;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  #easteregg-balloon {
+    opacity: 1;
+    &.flying {
+      opacity: 0;
+    }
+  }
+
+  #easteregg-balloon-flight, #easteregg-balloon-ropes {
+    opacity: 0;
+
+    &.flying {
+      opacity: 1;
+    }
+  }
+
+  #easteregg-balloon, #easteregg-balloon-ropes {
+    will-change: opacity;
+    transform: translateZ(0);
+  }
+
+  #easeregg-balloon-flight {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+  }
+}
+
+@keyframes burnout {
+  0% {
+    transform: rotateZ(0) translateY(0) translateX(0);
+  }
+  0.5% {
+    transform: rotateZ(-20deg) translateY(-4px) translateX(.5vw);
+  }
+  1% {
+    transform: rotateZ(0) translateY(0) translateX(1vw);
+  }
+  50% {
+    transform: rotateZ(0) translateY(0) translateX(100vw);
+  }
+  50.00001% {
+    transform: rotateZ(0) translateY(0) translateX(-100vw);
+  }
+  99% {
+    transform: rotateZ(0) translateY(0) translateX(-1vw);
+  }
+  99.5% {
+    transform: rotateZ(20deg) translateY(-4px) translateX(-.5vw);
+  }
+  100% {
+    transform: rotateZ(0) translateY(0) translateX(0);
   }
 }
