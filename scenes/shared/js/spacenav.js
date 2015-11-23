@@ -1,6 +1,16 @@
 console.log('Spacenav extension loading');
 
+var spacenavInitiatedAlready = false;
+
 var initiateSpacenavHandlers = function(gutters) {
+  if (spacenavInitiatedAlready) {
+    return;
+  }
+  spacenavInitiatedAlready = true;
+  if (santaApp.mode != "portal") {
+    console.log('Ignoring Spacenav extension.');
+    return;
+  }
 
   if (typeof(gutters) == 'undefined') {
     gutters = {};
@@ -8,6 +18,7 @@ var initiateSpacenavHandlers = function(gutters) {
   var GUTTER = 180;
 
   var keyBindings = {
+    'SPACE': 32,
     'LEFT': 37,
     'UP': 38,
     'RIGHT': 39,
@@ -18,6 +29,7 @@ var initiateSpacenavHandlers = function(gutters) {
   this.gutters['UP'] = this.gutters['UP'] || GUTTER;
   this.gutters['RIGHT'] = this.gutters['RIGHT'] || GUTTER;
   this.gutters['DOWN'] = this.gutters['DOWN'] || GUTTER;
+  this.gutters['SPACE'] = this.gutters['SPACE'] || GUTTER;
 
   var portalRos = new ROSLIB.Ros({
     url: 'wss://42-b:9090'
@@ -44,7 +56,7 @@ var initiateSpacenavHandlers = function(gutters) {
     return e;
   }
 
-  var buttonsDown = {'LEFT': false, 'UP': false, 'RIGHT': false, 'DOWN': false};
+  var buttonsDown = {'LEFT': false, 'UP': false, 'RIGHT': false, 'DOWN': false, 'SPACE': false};
 
   function move(direction) {
     if (buttonsDown[direction]) return;
@@ -76,6 +88,12 @@ var initiateSpacenavHandlers = function(gutters) {
     else stop('RIGHT');
     if (spacenavX < -this.gutters['LEFT']) move('LEFT');
     else stop('LEFT');
+    if (twist.linear.z <= -this.gutters['SPACE']) {
+	  move('SPACE');
+      setTimeout(function() {
+        stop('SPACE');
+      }, 10);
+	}
   }.bind(this));
 
   console.log('Spacenav handler loaded');
