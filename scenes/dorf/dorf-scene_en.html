@@ -15,6 +15,7 @@ specific language governing permissions and limitations under the License.
 
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
+<link rel="import" href="../../components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../../components/paper-drawer-panel/paper-drawer-panel.html">
 
 <link rel="import" href="../../elements/toolbar/santa-toolbar.html">
@@ -34,14 +35,18 @@ Village scene (2015).
       background: rgba(135, 212, 147, 0.33);
     };
   }
-  /* TODO(samthor): The drawer be 100% when screen <= 600px */
   </style>
 
+  <iron-media-query query="(max-width: 600px)"
+                    query-matches="{{smallScreen}}"></iron-media-query>
+
 <div id="module-dorf">
-  <paper-drawer-panel id="sidebar" drawer-width="400px" force-narrow transition drawer-toggle-attribute="closer">
+  <paper-drawer-panel id="sidebar" force-narrow
+                      drawer-width="[[_computeDrawerWidth(smallScreen)]]">
     <div drawer id="drawer" class="scroll">
+
       <div class="cards">
-        <button closer id="close-sidebar">
+        <button paper-drawer-toggle id="close-sidebar">
           Close
         </button>
         <a href$="{{pageUrl}}#village">
@@ -272,6 +277,7 @@ Village scene (2015).
 
   Polymer({
     is: 'dorf-scene',
+
     behaviors: [window.SantaSceneBehavior],
 
     properties: {
@@ -440,6 +446,10 @@ Village scene (2015).
 
     _stringCategory: function(strings, category) {
       return strings['msg_category-' + category];
+    },
+
+    _computeDrawerWidth: function(smallScreen) {
+      return smallScreen ? '100%' : '400px';
     },
 
     onShow: function() {
