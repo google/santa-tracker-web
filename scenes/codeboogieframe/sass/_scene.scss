@@ -54,10 +54,10 @@
   .scene__play-tab {
     border-radius: 50%;
     bottom: 60px;
-    height: 16em;
-    left: (-16em / 2);
+    height: 10em;
+    left: (-10em / 2);
     position: absolute;
-    width: 16em;
+    width: 10em;
 
     @media (min-width: 661px) {
       bottom: 80px;
@@ -74,10 +74,10 @@
   .scene__play-layer {
     background-color: $worldBackground;
     border-radius: 50%;
-    height: 16em;
+    height: 10em;
     position: relative;
     -webkit-transform: translateZ(0);
-    width: 16em;
+    width: 10em;
     z-index: 1;
   }
 
@@ -85,26 +85,26 @@
     background: #F68C38;
     border: none;
     border-radius: 50%;
-    box-shadow: 0.5em 0.5em #F26739;
+    box-shadow: 0.3em 0.3em #F26739;
     cursor: pointer;
     font-size: inherit;
-    height: 13em;
+    height: 8em;
     position: relative;
-    margin: 1.5em;
+    margin: 1em;
     padding: 0;
-    width: 13em;
+    width: 8em;
   }
 
   .scene__play:before {
-    border-bottom: 2.8em solid transparent;
-    border-top: 2.8em solid transparent;
-    border-left: 5em solid white;
+    border-bottom: 1.8em solid transparent;
+    border-top: 1.8em solid transparent;
+    border-left: 3em solid white;
     content: '';
     display: block;
     height: 0;
-    left: calc(50% - 2.2em);
+    left: calc(50% - 1.2em);
     position: absolute;
-    top: calc(50% - 2.8em);
+    top: calc(50% - 1.8em);
     width: 0;
   }
 }
