@@ -18,6 +18,8 @@
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var fs = require('fs');
+var changedFlag = require('./gulp_scripts/changed_flag')
 var vulcanize = require('gulp-vulcanize');
 var sass = require('gulp-sass');
 var path = require('path');
@@ -35,6 +37,7 @@ var STATIC_VERSION = 80;
 
 var argv = require('yargs')
     .help('help')
+    .strict()
     .epilogue('https://github.com/google/santa-tracker-web')
     .command('default', 'build CSS and JavaScript for development version')
     .command('serve', 'serves development version')
@@ -265,6 +268,10 @@ gulp.task('sass', function() {
 });
 
 gulp.task('compile-santa-api-service', function() {
+  changedFlag(API_BASE_URL, 'js/service/service.flag', function() {
+    fs.unlinkSync('js/service/service.min.js');
+  });
+
   return gulp.src(SERVICE_FILES)
     .pipe(newer('js/service/service.min.js'))
     .pipe(closureCompiler({
