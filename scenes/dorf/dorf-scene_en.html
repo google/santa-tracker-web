@@ -103,6 +103,7 @@ Village scene (2015).
                 <template is="dom-if" if="{{!item.disabled}}">
                   <a class="link" href="{{_calculateHref(item)}}">
                     <div class$="card card-{{item.module}}">
+                      <div class="image"></div>
                       <h4>{{_stringCategory(_strings, item.category)}}</h4>
                       <h3>{{_stringScene(_strings, item.module)}}</h3>
                       <template is="dom-if" if="{{!item.hideDate}}">
