@@ -14,21 +14,34 @@
  * the License.
  */
 
-'use strict'
+'use strict';
 
 goog.provide('app.AnimationPlayer');
+goog.provide('app.AnimationItem');
 
+goog.require('app.Constants');
 goog.require('app.Character');
 goog.require('app.DanceStatus');
 goog.require('app.I18n');
-goog.require('app.MoveQueue');
 goog.require('app.Step');
 goog.require('app.Title');
+goog.require('goog.events.EventTarget');
 
 const size = 492;
 const fps = 24;
 const bpm = 120;
 const beatDuration = 1000 / bpm * 60;
+
+/**
+ * @typedef {{
+ *   teacherStep: app.Step,
+ *   playerStep: app.Step,
+ *   title: string,
+ *   blockId: string,
+ *   showCount: boolean
+ * }}
+ */
+app.AnimationItem;
 
 let sources = (color) => ({
   [app.Step.IDLE]: {
@@ -99,7 +112,7 @@ class Animation {
       y: 0,
       width: size,
       height: size
-    }
+    };
   }
 
   update(dt) {
@@ -128,12 +141,20 @@ class Animation {
  * @param {el} container for characters
  * @constructor
  */
-app.AnimationPlayer = class {
+app.AnimationPlayer = class extends goog.events.EventTarget {
   constructor(el) {
-    this.player = new app.Character(el.querySelector('.scene__characters-player'), 'green');
-    this.teacher = new app.Character(el.querySelector('.scene__characters-teacher'), 'purple');
+    super();
+
+    this.player = new app.Character(
+        el.querySelector('.scene__characters-player'), 'green');
+    this.teacher = new app.Character(
+        el.querySelector('.scene__characters-teacher'), 'purple');
+    this.title = new app.Title(el.querySelector('.scene__word-title'));
+    /* @type {app.AnimationItem[]} */
+    this.animationQueue = [];
 
     this.lastUpdateTime = 0;
+    this.lastBeat = 0;
 
     this.update();
   }
@@ -155,34 +176,26 @@ app.AnimationPlayer = class {
    * @param {app.DanceLevelResult} result from player to animate.
    */
   start(result) {
-    let teacherSteps = result.teacherSteps.map(step => ({step}));
-
-    switch (result.danceStatus) {
-      case app.DanceStatus.NO_STEPS:
-        this.teacher.add(teacherSteps);
-        this.player.add(Array.from(result.teacherSteps, () => ({step: app.Step.WATCH})))
-        break;
-
-      case app.DanceStatus.NOT_ENOUGH_STEPS:
-      case app.DanceStatus.WRONG_STEPS:
-      case app.DanceStatus.TOO_MANY_STEPS:
-        this.teacher.queue.add(teacherSteps);
-
-        result.playerSteps.push({step: app.Step.FAIL});
-        this.player.add(result.playerSteps);
-        break;
-
-      case app.DanceStatus.SUCCESS:
-        this.teacher.add(teacherSteps);
-
-        result.playerSteps.push({step: app.Step.CARLTON});
-        this.player.add(result.playerSteps);
-        break;
-    }
+    this.animationQueue = result.animationQueue;
   }
 
   onBar(bar, beat) {
-    this.player.onBar(bar, beat);
-    this.teacher.onBar(bar, beat);
+    if (beat < this.lastBeat + app.Constants.BEATS_PER_ANIMATION) {
+      return;
+    }
+
+    this.lastBeat = beat;
+    let animation = this.animationQueue.shift();
+    if (!animation) {
+      this.teacher.play(app.Step.IDLE);
+      this.player.play(app.Step.IDLE);
+      this.dispatchEvent({type: 'finish'});
+      return;
+    }
+
+    this.teacher.play(animation.teacherStep);
+    this.player.play(animation.playerStep);
+    this.title.setTitle(animation.title);
+    this.dispatchEvent({type: 'step', data: animation.blockId});
   }
 };

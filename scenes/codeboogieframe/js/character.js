@@ -14,22 +14,14 @@
  * the License.
  */
 
-'use strict'
+'use strict';
 
 goog.provide('app.Character');
 
-goog.require('app.MoveQueue');
 goog.require('app.Step');
-goog.require('app.Title');
 
-app.Character = class {
+app.Character = class Character {
   constructor(el, color) {
-    // Create move queue
-    this.queue = new app.MoveQueue(this);
-
-    let title = new app.Title(el);
-    this.setTitle = title.setTitle.bind(title);
-
     // Create canvas
     let canvas = document.createElement('canvas');
     canvas.width = canvas.height = size;
@@ -47,35 +39,21 @@ app.Character = class {
 
     this.sprite = this.sprites[app.Step.IDLE];
     this.animation = new Animation(this.sprite);
-
-    this.lastBeatUpdate = 0;
   }
 
   update(dt) {
     let frame = this.animation.update(dt);
 
     this.context.canvas.width = this.context.canvas.width;
-    this.context.drawImage(this.sprite.img, frame.x, frame.y, frame.width, frame.height, 0, 0, this.context.canvas.width, this.context.canvas.height);
+    this.context.drawImage(this.sprite.img, frame.x, frame.y,
+        frame.width, frame.height, 0, 0,
+        this.context.canvas.width, this.context.canvas.height);
   }
 
-  add(moves) {
-    this.queue.add(moves);
-    this.setTitle('watchClosely');
-  }
-
-  play(move) {
-    this.sprite = this.sprites[move.step];
+  play(step) {
+    this.sprite = this.sprites[step];
 
     this.animation = new Animation(this.sprite);
     this.animation.play();
-
-    this.setTitle(move.step);
   }
-
-  onBar(bar, beat) {
-    if (beat > this.lastBeatUpdate + this.sprite.duration) {
-      this.queue.next();
-      this.lastBeatUpdate = beat;
-    }
-  }
-}
+};

@@ -55,7 +55,7 @@
     height: 1em;
 
     span {
-      animation: 2s cb_title_fade;
+      animation: 4s cb_title_fade;
       animation-fill-mode: forwards;
     }
   }
@@ -124,7 +124,7 @@
     transform: scale(0.8);
   }
 
-  20%, 75% {
+  10%, 90% {
     opacity: 1;
     transform: scale(1);
   }

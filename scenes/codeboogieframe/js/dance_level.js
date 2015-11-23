@@ -85,7 +85,8 @@ app.DanceLevel = class extends app.Level {
           {skipAnimation: true});
     }
 
-    var danceStatus = this.processSteps(playerSteps);
+    var danceStatus = this.evaluateStatus(playerSteps);
+    var animationQueue = this.createAnimationQueue(playerSteps, danceStatus);
     var levelComplete = danceStatus === app.DanceStatus.SUCCESS;
     var code = blockly.getUserCode();
     var missingBlocks = blockly.getMissingBlocks(this.requiredBlocks);
@@ -112,6 +113,7 @@ app.DanceLevel = class extends app.Level {
 
     return new app.DanceLevelResult(levelComplete, message, {
       allowRetry: allowRetry,
+      animationQueue: animationQueue,
       code: code,
       danceStatus: danceStatus,
       idealBlockCount: this.idealBlockCount,
@@ -129,11 +131,13 @@ app.DanceLevel = class extends app.Level {
    * @param {app.Step[]} playerSteps steps taken.
    * @return {app.DanceStatus}
    */
-  processSteps(playerSteps) {
+  evaluateStatus(playerSteps) {
     let stepCount = 0;
     for (let i = 0, block = null; block = playerSteps[i]; i++) {
       // Ignore highlight only blocks
-      if (!block.step) { continue; }
+      if (!block.step) {
+        continue;
+      }
 
       if (stepCount >= this.steps.length) {
         return app.DanceStatus.TOO_MANY_STEPS;
@@ -152,6 +156,64 @@ app.DanceLevel = class extends app.Level {
       return app.DanceStatus.SUCCESS;
     }
   }
+
+  createAnimationQueue(playerSteps, result) {
+    let queue = [];
+
+    playerSteps = playerSteps.filter(b => b.step);
+    for (let i = 0, step = null; step = this.steps[i]; i++) {
+      let playerStep = playerSteps[i];
+      let animation = {
+        teacherStep: step,
+        playerStep: playerStep ? playerStep.step : 'watch',
+        blockId: playerStep && playerStep.blockId,
+        title: app.I18n.getMsg('CB_' + step)
+      };
+
+      queue.push(animation);
+    }
+
+    if (result === app.DanceStatus.WRONG_STEPS) {
+      if (playerSteps.length === this.steps.length) {
+        queue.push({
+          teacherStep: app.Step.WATCH,
+          playerStep: app.Step.FAIL,
+          blockId: null,
+          title: app.I18n.getMsg('CB_oops')
+        });
+      } else {
+        queue[playerSteps.length].playerStep = app.Step.FAIL;
+        queue[playerSteps.length].title = app.I18n.getMsg('CB_oops');
+      }
+    }
+
+    if (result === app.DanceStatus.TOO_MANY_STEPS) {
+      let extraBlock = playerSteps[this.steps.length];
+      queue.push({
+        teacherStep: app.Step.WATCH,
+        playerStep: extraBlock.step,
+        blockId: extraBlock.blockId,
+        title: app.I18n.getMsg('CB_oops')
+      });
+      queue.push({
+        teacherStep: app.Step.WATCH,
+        playerStep: app.Step.FAIL,
+        blockId: null,
+        title: app.I18n.getMsg('CB_oops')
+      });
+    }
+
+    if (result === app.DanceStatus.SUCCESS) {
+      queue.push({
+        teacherStep: app.Step.CARLTON,
+        playerStep: app.Step.CARLTON,
+        blockId: null,
+        title: app.I18n.getMsg('CB_success')
+      });
+    }
+
+    return queue;
+  }
 };
 
 /**
@@ -159,6 +221,7 @@ app.DanceLevel = class extends app.Level {
  *   allowRetry: boolean,
  *   code: string,
  *   skipAnimation: boolean,
+ *   animationQueue: Array.<app.AnimationItem>,
  *   overlayGraphic: string,
  *   idealBlockCount: number,
  *   isFinalLevel: boolean,
@@ -181,6 +244,7 @@ app.DanceLevelResult = class extends app.LevelResult {
   constructor(levelComplete, message, options) {
     options = options || {};
     super(levelComplete, message, options);
+    this.animationQueue = options.animationQueue || [];
     this.danceStatus = options.danceStatus || app.DanceStatus.NO_STEPS;
     this.playerSteps = options.playerSteps || [];
     this.teacherSteps = options.teacherSteps || [];
