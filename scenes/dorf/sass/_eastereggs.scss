@@ -23,8 +23,9 @@
       "balloon-flight"  155   209   200   804    ($house-row-4-z-index - 1),
       "snowmobile1"     40    39    290   420    ($house-z-index-front),
       "snowmobile2"     40    39    995   620    ($house-z-index-front),
-      "snowmobile3"     40    39    647   860    ($house-z-index-front),
+      "snowmobile3"     40    39    675   855    ($house-z-index-front),
       "snowmobile4"     40    39    112   1950   ($house-z-index-front),
+      "unicycle"        21    57    310   495    ($house-row-2-z-index)+40,
   ;
 
   div {
@@ -112,9 +113,27 @@
     transform: translateZ(0);
   }
 
-  #easeregg-balloon-flight {
+  #easteregg-balloon-flight {
     will-change: transform, opacity;
     transform: translateZ(0);
+  }
+
+  #easteregg-unicycle {
+    animation: travel 120s infinite;
+    will-change: transform;
+    transform: translateZ(0);
+    background: none;
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: url(img/easteregg-unicycle.svg);
+      animation: unicycle 1s ease infinite;
+      will-change: transform;
+      transform: translateZ(0);
+    };
   }
 }
 
@@ -142,5 +161,29 @@
   }
   100% {
     transform: rotateZ(0) translateY(0) translateX(0);
+  }
+}
+
+@keyframes unicycle {
+  33% {
+    transform: rotateZ(10deg);
+  }
+  66% {
+    transform: rotateZ(-10deg);
+  }
+}
+
+@keyframes travel {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100vw);
+  }
+  50.00001% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
