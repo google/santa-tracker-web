@@ -28,11 +28,6 @@ Racer scene.
 -->
 <dom-module id="racer-scene">
 <template>
-<template is="dom-if" if="{{santaApp.mode}}">
-  <script type="text/javascript">
-    initiateSpacenavHandlers({'UP': 140});
-  </script>
-</template>
   <style>
     :host([mode="portal"]) .shareButtons {
       display: none !important;

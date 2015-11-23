@@ -98,3 +98,5 @@ var initiateSpacenavHandlers = function(gutters) {
 
   console.log('Spacenav handler loaded');
 };
+
+initiateSpacenavHandlers();
