@@ -28,13 +28,87 @@ goog.provide('app.Models');
 
 var Cards = [
   {
-    'key': 'trailer',
-    'title': 'Trailer',
+    'key': 'traditions',
+    'title': 'Holiday Traditions',
     'opens': '1',
     'ordinal': 'st',
-    'type': 'Game',
+    'type': 'Learn',
+    'education': true,
+    'description': 'I am a brief description of this game. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.',
+    'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': 'http://google.com',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Video',
+        'url': 'http://google.com',
+        'type': 'YouTube Link',
+        'class': 'press-card-play'
+      }
+    ]
+  },
+  {
+    'key': 'codelab',
+    'title': 'Code Lab',
+    'opens': '1',
+    'ordinal': 'st',
+    'type': 'Learn',
+    'education': true,
+    'description': 'I am a brief description of this game, video or experience. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': 'http://google.com',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'http://google.com',
+        'type': 'GIF file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Video',
+        'url': 'http://google.com',
+        'type': 'YouTube Link',
+        'class': 'press-card-play'
+      }
+    ]
+  },
+  {
+    'key': 'airport',
+    'title': 'North Pole Airport',
+    'opens': '1',
+    'ordinal': 'st',
+    'type': 'Play',
+    'description': 'I am a brief description of this game. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': 'http://google.com',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'http://google.com',
+        'type': 'GIF file',
+        'class': 'press-card-dl'
+      }
+    ]
+  },
+  {
+    'key': 'santasback',
+    'title': 'Santa\'s Back',
+    'opens': '2',
+    'ordinal': 'nd',
+    'type': 'Watch',
     'new': true,
-    'description': 'I am a brief description of this game, video or experience. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'description': 'I am a brief description of this video.  This is hopefully up to five lines tops.',
     'resources': [
       {
         'title': 'Still Screenshot',
@@ -57,13 +131,47 @@ var Cards = [
     ]
   },
   {
-    'key': 'app',
-    'title': 'App',
-    'opens': '1',
-    'ordinal': 'st',
-    'type': 'Game',
+    'key': 'santaselfie',
+    'title': 'Santa Selfie',
+    'opens': '3',
+    'ordinal': 'rd',
+    'type': 'Play',
+    'description': 'I am a brief description of this game. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': 'http://google.com',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'http://google.com',
+        'type': 'GIF file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation 2',
+        'url': 'http://google.com',
+        'type': 'GIF file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Video',
+        'url': 'http://google.com',
+        'type': 'YouTube Link',
+        'class': 'press-card-play'
+      }
+    ]
+  },
+  {
+    'key': 'translations',
+    'title': 'Translations',
+    'opens': '4',
+    'ordinal': 'th',
+    'type': 'Learn',
     'education': true,
-    'description': 'I am a brief description of this game, video or experience. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
     'resources': [
       {
         'title': 'Still Screenshot',
@@ -85,90 +193,4 @@ var Cards = [
       }
     ]
   },
-  {
-    'key': 'app',
-    'title': 'App',
-    'opens': '1',
-    'ordinal': 'st',
-    'type': 'Game',
-    'education': true,
-    'description': 'I am a brief description of this game, video or experience. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
-    'resources': [
-      {
-        'title': 'Still Screenshot',
-        'url': 'http://google.com',
-        'type': 'PNG file',
-        'class': 'press-card-dl'
-      },
-      {
-        'title': 'Animation',
-        'url': 'http://google.com',
-        'type': 'GIF file',
-        'class': 'press-card-dl'
-      },
-      {
-        'title': 'Video',
-        'url': 'http://google.com',
-        'type': 'YouTube Link',
-        'class': 'press-card-play'
-      }
-    ]
-  },
-  {
-    'key': 'app',
-    'title': 'App',
-    'opens': '1',
-    'ordinal': 'st',
-    'type': 'Game',
-    'description': 'I am a brief description of this game, video or experience. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
-    'resources': [
-      {
-        'title': 'Still Screenshot',
-        'url': 'http://google.com',
-        'type': 'PNG file',
-        'class': 'press-card-dl'
-      },
-      {
-        'title': 'Animation',
-        'url': 'http://google.com',
-        'type': 'GIF file',
-        'class': 'press-card-dl'
-      },
-      {
-        'title': 'Video',
-        'url': 'http://google.com',
-        'type': 'YouTube Link',
-        'class': 'press-card-play'
-      }
-    ]
-  },
-  {
-    'key': 'app',
-    'title': 'App',
-    'opens': '1',
-    'ordinal': 'st',
-    'type': 'Game',
-    'description': 'I am a brief description of this game, video or experience. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
-    'resources': [
-      {
-        'title': 'Still Screenshot',
-        'url': 'http://google.com',
-        'type': 'PNG file',
-        'class': 'press-card-dl'
-      },
-      {
-        'title': 'Animation',
-        'url': 'http://google.com',
-        'type': 'GIF file',
-        'class': 'press-card-dl'
-      },
-      {
-        'title': 'Video',
-        'url': 'http://google.com',
-        'type': 'YouTube Link',
-        'class': 'press-card-play'
-      }
-    ]
-  },
-
 ];
