@@ -15,45 +15,59 @@
     opacity: 0;
   }
 
+  &[press-locked] {
+    .press-card-img .press-card-lock {
+      display: block;
+    }
+  }
+
   .press-card-img {
-    height: 265px;
     background: url(img/tmb-santas-village.jpg) 50% 50% no-repeat;
     background-size: cover;    
     border-radius: 5px 5px 0 0;  
     color: #fff;
+    height: 265px;
+    overflow: hidden;
+    position: relative;
 
-    .press-card-img-txt {
+    img {
+      left: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate3d(0, -50%, 0);
       width: 100%;
-      height: 100%;
-      text-align: center;
-      background: rgba(0, 172, 193, .5);
-
-      .press-card-lock {
-        width: 100%;
-        height: 100%; 
-        background: url(img/ic-lock-32px_2x.png) 50% 50% no-repeat; 
-        background-size: 10% auto;
-        padding-top: 25px; 
-
-        .press-card-unlock {
-          text-transform: uppercase;
-          font-size: 16px;
-          font-weight: 600;
-        }
-
-        .press-card-unlock-day {
-          font-family: 'Lobster', sans-serif;
-          font-weight: normal;
-          font-size: 40px;
-          vertical-align: bottom;
-
-          span {
-            font-size: 30px;
-            vertical-align: bottom;
-          }
-        }  
-      }      
+      z-index: 0;
     }
+
+    .press-card-lock {
+      background: rgba(0, 172, 193, .8) url(img/ic-lock-32px_2x.png) 50% 60% no-repeat; 
+      background-size: 10% auto;
+      box-sizing: border-box;
+      display: none;
+      height: 100%; 
+      padding-top: 25px;
+      position: relative;
+      text-align: center;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .press-card-unlock {
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .press-card-unlock-day {
+      font-family: 'Lobster', sans-serif;
+      font-weight: normal;
+      font-size: 40px;
+
+      span {
+        font-size: 30px;
+        margin-left: 2px;
+      }
+    }  
   }
 
   .press-card-info {

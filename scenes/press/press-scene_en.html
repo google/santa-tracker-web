@@ -66,29 +66,19 @@ specific language governing permissions and limitations under the License.
             <h2>Santa’s Village and The Tracker</h2>
             <div class="press-card">
               <div class="press-card-img">
-                <div class="press-card-img-txt">
-                  <div class="press-card-lock">
-                    <span class="press-card-unlock">Unlocks December</span>&nbsp;
-                    <span class="press-card-unlock-day">17<span>th</span></span>
-                  </div>
-                </div>
               </div>
               <div class="press-card-info">
-                <h4>Season of Giving</h4>
-                <span>Opens December 1• Game</span>
+                <h4>Santa's Village</h4>
+                <span>Open all December • Website</span>
                 <p>I am a brief description of this game, video or experience. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.</p>
                 <div class="press-card-links">
                   <span class="press-card-title">Press resources:</span>                
-                  <div class="press-card-links-half">
                     <a href="" class="press-card-dl">Still screenshot <span>(PNG file)</span></a>
                     <a href="" class="press-card-dl">Animation <span>(GIF file)</span></a>
                     <a href="" class="press-card-play">Video <span>(YouTube Link)</span></a>            
-                  </div>
-                  <div class="press-card-links-half">
                     <a href="" class="press-card-dl">Still screenshot <span>(PNG file)</span></a>
                     <a href="" class="press-card-dl">Animation <span>(GIF file)</span></a>
                     <a href="" class="press-card-dl">Video <span>(YouTube Link)</span></a>  
-                  </div> 
                 </div>               
               </div>
             </div>
@@ -103,21 +93,17 @@ specific language governing permissions and limitations under the License.
                 </div>
               </div>
               <div class="press-card-info">
-                <h4>Season of Giving</h4>
-                <span>Opens December 1• Game</span>
+                <h4>The Tracker</h4>
+                <span>Opens December 24 • Experience</span>
                 <p>I am a brief description of this game, video or experience. Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.</p>
                 <div class="press-card-links">
                   <span class="press-card-title">Press resources:</span>                
-                  <div class="press-card-links-half">
                     <a href="" class="press-card-dl">Still screenshot <span>(PNG file)</span></a>
                     <a href="" class="press-card-dl">Animation <span>(GIF file)</span></a>
                     <a href="" class="press-card-play">Video <span>(YouTube Link)</span></a>            
-                  </div>
-                  <div class="press-card-links-half">
                     <a href="" class="press-card-dl">Still screenshot <span>(PNG file)</span></a>
                     <a href="" class="press-card-dl">Animation <span>(GIF file)</span></a>
                     <a href="" class="press-card-dl">Video <span>(YouTube Link)</span></a>  
-                  </div> 
                 </div>               
               </div>
             </div>
@@ -135,13 +121,14 @@ specific language governing permissions and limitations under the License.
 
             <div class="press-card-container">
               <template is="dom-repeat" items="{{cards}}" as="card">
-                <div class="press-card" press-card press-new$="{{ card.new }}" press-education$="{{ card.education }}">
+                <div class="press-card" press-card$="{{ card.key }}" press-new$="{{ card.new }}" press-education$="{{ card.education }}" press-locked$="{{ card.locked }}">
                   <div class="press-card-img">
-                    <div class="press-card-img-txt">
-                      <div class="press-card-lock">
-                        <span class="press-card-unlock">Unlocks December</span>&nbsp;
-                        <span class="press-card-unlock-day">{{ card.opens }}<span>{{ card.ordinal }}</span></span>
-                      </div>
+                    <img src="/scenes/press/img/cards/{{ card.key }}.png" />
+                    <div class="press-card-lock">
+                      <span class="press-card-unlock">Unlocks December</span>&nbsp;
+                      <span class="press-card-unlock-day">
+                        {{ card.opens }}<span>{{ card.ordinal }}</span>
+                      </span>
                     </div>
                   </div>
                   <div class="press-card-info">
@@ -167,7 +154,7 @@ specific language governing permissions and limitations under the License.
         </div> 
         
         <div id="press-embed">
-          <div id="press-embed-inner">
+          <div class="press-embed-inner">
             <h3>Embed Santa Tracker on your site!</h3>
             <p>Want to embed Santa on your site? Our developers elves have created a way for outlets to do just that — reach out to <a href="">press.google.com</a> for opportunities to livestream updates of Santa's location or the game of the day directly in online or broadcast stories.</p>
           </div>  
@@ -281,6 +268,7 @@ specific language governing permissions and limitations under the License.
       this.scene = new scenes.press.Scene(module);
       this.cards = this.scene.getCards();
     }
+
   });
 </script>
 </dom-module>
