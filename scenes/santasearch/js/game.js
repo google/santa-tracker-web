@@ -74,7 +74,7 @@ app.Game = function(elem) {
       scale: {},
       isFound: false
     }
-  }
+  };
 
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
@@ -140,7 +140,6 @@ app.Game.prototype._onCharacterSelected = function(characterName) {
 
 /**
  * Finds the next character in the UI that has not already been found
- * @param {string} character Name of selected character.
  * @private
  */
 app.Game.prototype._focusNextUnfoundCharacter = function() {
@@ -172,7 +171,7 @@ app.Game.prototype._focusNextUnfoundCharacter = function() {
 
 /**
  * Focuses a character in the UI that the user should try to find
- * @param {string} character Name of selected character.
+ * @param {string} characterName Name of selected character.
  * @private
  */
 app.Game.prototype._focusUICharacter = function(characterName) {
@@ -183,7 +182,7 @@ app.Game.prototype._focusUICharacter = function(characterName) {
 
 /**
  * Initialize a character with location, scale and a click event
- * @param {string} character Name of the character.
+ * @param {string} characterName Name of the character.
  * @private
  */
 app.Game.prototype._initializeCharacter = function(characterName) {
@@ -197,6 +196,43 @@ app.Game.prototype._initializeCharacter = function(characterName) {
   character.scale = characterSpawnPoint.sizeScale;
 
   character.elem.on('click.santasearch', this._onCharacterSelected.bind(this, characterName));
+
+  let hintElem = character.uiElem.find('.hint');
+  hintElem.on('click.santasearch', this._hintLocation.bind(this, characterName));
+};
+
+/**
+ * Sets the zoom to 2 and pans the camera to where the character can be found
+ * @param {string} characterName Name of the character.
+ * @private
+ */
+app.Game.prototype._hintLocation = function(characterName) {
+  let character = this.characters[characterName];
+
+  if (this.controls.scale !== 2) {
+    this.controls.scale = 2;
+    this._scale(this.controls.scale);
+  }
+
+  // The location of the character is a top/left percentage of the map
+  let characterLocation = character.location;
+
+  let leftScale = 0.5 - characterLocation.left;
+  let topScale = 0.5 - characterLocation.top;
+
+  let targetX = this.mapElementDimensions.width * leftScale;
+  let targetY = this.mapElementDimensions.height * topScale;
+
+  this.controls.enabled = false;
+
+  this.mapElem.css('transition', `transform ${app.Constants.HINT_BUTTON_PAN_TIME}s ease-in-out`);
+  this.controls.pan.x = targetX;
+  this.controls.pan.y = targetY;
+
+  setTimeout(function() {
+    this.mapElem.css('transition', '');
+    this.controls.enabled = true;
+  }.bind(this), app.Constants.HINT_BUTTON_PAN_TIME * 1000);
 };
 
 /**
@@ -299,12 +335,11 @@ app.Game.prototype.restart = function() {
   this.gameStartTime = +new Date;
 };
 
-
 /**
  * Updates game state since last frame.
  * @param {number} delta Time elapsed since last update in milliseconds
  */
-app.Game.prototype.update = function(delta) {
+app.Game.prototype.update = function(deltaInMilliseconds) {
   if (!this.isPlaying) {
     return;
   }
@@ -314,14 +349,17 @@ app.Game.prototype.update = function(delta) {
     this.controls.needsScaleUpdate = false;
   }
 
-  this._updatePan();
+  if (this.controls.needsPanUpdate) {
+    this._updatePan();
 
-  let panX = this.controls.pan.x;
-  let panY = this.controls.pan.y;
+    let panX = this.controls.pan.x;
+    let panY = this.controls.pan.y;
 
-  this.mapElem.css('transform', `translate3d(${panX}px, ${panY}px, 0)`);
+    this.mapElem.css('transform', `translate3d(${panX}px, ${panY}px, 0)`);
+    this.controls.needsPanUpdate = false;
+  }
 
-  this.accumulator += delta;
+  this.accumulator += deltaInMilliseconds;
 };
 
 

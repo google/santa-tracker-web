@@ -40,13 +40,24 @@ $character-ui-padding-desktop: calc(50% - 550px);
       margin-top: -($character-focus-size / 2);
       top: 35%;
 
+      & > .hint {
+        display: none;
+        left: 32px;
+        position: absolute;
+        top: 125px;
+      }
+
       &--focused {
         z-index: 1;
         background-color: $character-focus-background-color;
         border-radius: 50%;
 
         & > .character {
-          transform: scale(1.4);
+          transform: scale(1.4) translateY(-10px);
+        }
+
+        & > .hint {
+          display: inline-block;
         }
       }
 

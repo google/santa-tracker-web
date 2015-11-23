@@ -1,0 +1,25 @@
+$hint-background-color: #cd6a17;
+$hint-foreground-color: #f6871e;
+
+##{$name} {
+  .hint {
+    background-color: $hint-background-color;
+    border-radius: 5px;
+    box-shadow: 7px 6px 4px -4px rgba(0,0,0,0.1);
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    padding-bottom: 5px;
+    pointer-events: auto;
+    width: auto;
+
+    &__foreground {
+      background-color: $hint-foreground-color;
+      border-radius: 5px;
+      letter-spacing: 0.05em;
+      padding: 9px 10px;
+      pointer-events: auto;
+    }
+  }
+}

@@ -26,6 +26,8 @@ goog.require('app.Constants');
 app.Controls = function(elem) {
   this.elem = elem;
 
+  this.enabled = false;
+
   this.selecting = false;
 
   this.lastLocation = {
@@ -37,6 +39,7 @@ app.Controls = function(elem) {
     x: 0,
     y: 0
   };
+  this.needsPanUpdate = false;
 
   this.scale = 1;
   this.needsScaleUpdate = false;
@@ -59,6 +62,8 @@ app.Controls.prototype.start = function() {
 
   gameElement.find('.zoom__in').on('click', this._zoomIn.bind(this));
   gameElement.find('.zoom__out').on('click', this._zoomOut.bind(this));
+
+  this.enabled = true;
 };
 
 /**
@@ -68,9 +73,15 @@ app.Controls.prototype.start = function() {
  * @private
  */
 app.Controls.prototype._updateLocation = function(x, y) {
+  if (!this.enabled) {
+    return;
+  }
+
   if (this.lastLocation.x !== undefined) {
     this.pan.x += x - this.lastLocation.x;
     this.pan.y += y - this.lastLocation.y;
+
+    this.needsPanUpdate = true;
   }
 
   this.lastLocation.x = x;
@@ -168,6 +179,10 @@ app.Controls.prototype._onMouseup = function(e) {
  * @private
  */
 app.Controls.prototype._zoomIn = function() {
+  if (!this.enabled) {
+    return;
+  }
+  
   if (this.scale < app.Constants.ZOOM_MAX) {
     this.scale += 1;
     this.needsScaleUpdate = true;
@@ -182,6 +197,10 @@ app.Controls.prototype._zoomIn = function() {
  * @private
  */
 app.Controls.prototype._zoomOut = function() {
+  if (!this.enabled) {
+    return;
+  }
+
   if (this.scale > 1) {
     this.scale -= 1;
     this.needsScaleUpdate = true;
