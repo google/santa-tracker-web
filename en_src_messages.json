@@ -671,6 +671,114 @@
         "description": "CTA link to a community where people can upload panoramas of their own. Includes a placeholder with current localised city/country name.",
         "raw": "Add your own photos of <ph name=\"LOCATION\"><ex>Trafalgar Square, London</ex>{{location}}</ph>"
     },
+    "codeboogie-block-leftarm": {
+        "description": "Code block label for dancing with left arm. 15char limit.",
+        "message": "Point left"
+    },
+    "codeboogie-block-leftarm-tooltip": {
+        "description": "Code block tooltip for dancing with left arm. Written as a command in first person.",
+        "message": "Point to the left."
+    },
+    "codeboogie-block-rightarm": {
+        "description": "Code block label for dancing with right arm. 15char limit.",
+        "message": "Point right"
+    },
+    "codeboogie-block-rightarm-tooltip": {
+        "description": "Code block tooltip for dancing with right arm. Written as a command in first person.",
+        "message": "Point to the right."
+    },
+    "codeboogie-block-leftfoot": {
+        "description": "Code block label for dancing with left foot. 15char limit.",
+        "message": "Step left"
+    },
+    "codeboogie-block-leftfoot-tooltip": {
+        "description": "Code block tooltip for dancing with left foot. Written as a command in first person.",
+        "message": "Take a step to the left."
+    },
+    "codeboogie-block-rightfoot": {
+        "description": "Code block label for dancing with right foot. 15char limit.",
+        "message": "Step right"
+    },
+    "codeboogie-block-rightfoot-tooltip": {
+        "description": "Code block tooltip for dancing with right foot. Written as a command in first person.",
+        "message": "Take a step to the right."
+    },
+    "codeboogie-block-jump": {
+        "description": "Code block label for the dancing move 'jump'. 15char limit.",
+        "message": "Jump"
+    },
+    "codeboogie-block-jump-tooltip": {
+        "description": "Code block tooltip for the dancing move 'jump'. Written as a command in first person.",
+        "message": "Do a jump."
+    },
+    "codeboogie-block-split": {
+        "description": "Code block label for the dancing move 'split'. 15char limit.",
+        "message": "Split"
+    },
+    "codeboogie-block-split-tooltip": {
+        "description": "Code block tooltip for the dancing move 'split'. Written as a command in first person.",
+        "message": "Do a split."
+    },
+    "codeboogie-block-shake": {
+        "description": "Code block label for a dancing move where the character shakes the hip. 15char limit.",
+        "message": "Hip shake"
+    },
+    "codeboogie-block-shake-tooltip": {
+        "description": "Code block tooltip for a dancing move where the character shakes the hip. Written as a command in first person.",
+        "message": "Do a hip shake."
+    },
+    "codeboogie-get-dancing": {
+        "description": "Large title to encourage the player to try out the dancing code blocks. 15char limit.",
+        "message": "Get dancing!"
+    },
+    "codeboogie-watch-closely": {
+        "description": "Title to indicate the teacher is going to do the dance moves that they should copy",
+        "message": "Watch closely!"
+    },
+    "codeboogie-lets-dance": {
+        "description": "Large title before player starts dancing his routine. 15char limit.",
+        "messages": "Let's dance"
+    },
+    "codeboogie-nice-moves": {
+        "description": "Huge success title after finishing a level. 15char limit.",
+        "messages": "Nice moves!"
+    },
+    "codeboogie-success": {
+        "description": "Large title when the player gets all the dance moves correct. 15char limit.",
+        "message": "Success!"
+    },
+    "codeboogie-next-dance": {
+        "description": "Button label to start next level. 15char limit.",
+        "message": "Next Dance"
+    },
+    "codeboogie-result-too-many-steps": {
+        "description": "Short hint indicating that the coded dance was too long.",
+        "messages": "You did too many steps."
+    },
+    "codeboogie-result-wrong-move": {
+        "description": "Short hint when the user performs a wrong step, showing the right step to use instead. The right step appears below.",
+        "messages": "Seems like you did the wrong move there. Try this one instead:"
+    },
+    "codeboogie-result-too-many-blocks-success": {
+        "description": "Short hint on how the puzzle can be improved even if level is complete. One or two sentences max. Has a token for a dynamic number between 2-6, the token can be skipped and translation worded that fewer blocks are needed.",
+        "messages": "Did you know you can finish this dance with just {{ideal}} blocks?"
+    },
+    "codeboogie-result-missing-block-fail": {
+        "description": "Short hint after failing a level. One or two sentences max. Refers to blocks visually displayed below.",
+        "message": "Try the block below to match the dance."
+    },
+    "codeboogie-result-missing-block-success": {
+        "description": "Short hint on how the puzzle can be improved even if level is complete. One or two sentences max. Refers to blocks visually displayed below. Has a token for a dynamic number between 2-6, the token can be skipped and translation worded that fewer blocks are needed.",
+        "message": "Did you know you can finish this dance with just {{ideal}} blocks? Try using the block below."
+    },
+    "codeboogie-result-perfect-success": {
+        "description": "Short message after completing a level. One or two sentences max.",
+        "message": "Nice moves! You finished the dance perfectly."
+    },
+    "codeboogie-result-too-few-blocks-fail": {
+        "description": "Short hint after failing a level. One or two sentences max.",
+        "message": "You are using the right blocks, but try using more of them to complete the dance."
+    },
     "codelab-block-whenrun": {
         "description": "Code block label. 15char limit. Start of the code, reads to indicate that blocks below it will execute in order",
         "message": "when run"
