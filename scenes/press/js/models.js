@@ -102,6 +102,37 @@ var Cards = [
     ]
   },
   {
+    'key': 'seasonofgiving',
+    'title': 'Season of Giving',
+    'opens': '1',
+    'ordinal': 'st',
+    'type': 'Learn',
+    'education': true,
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'santamapdive',
+    'title': 'Santa Map Dive',
+    'opens': '1',
+    'ordinal': 'st',
+    'type': 'Play',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'app',
+    'title': 'Android App',
+    'opens': '1',
+    'ordinal': 'st',
+    'type': 'Play',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
     'key': 'santasback',
     'title': 'Santa\'s Back',
     'opens': '2',
@@ -193,4 +224,211 @@ var Cards = [
       }
     ]
   },
+  {
+    'key': 'callfromsanta',
+    'title': 'Call from Santa',
+    'opens': '5',
+    'ordinal': 'th',
+    'type': 'Play',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'briefing',
+    'title': 'Mrs. Claus\' Briefing',
+    'opens': '5',
+    'ordinal': 'th',
+    'type': 'Play',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'presentdrop',
+    'title': 'Present Drop',
+    'opens': '6',
+    'ordinal': 'th',
+    'type': 'Play',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'santasearch',
+    'title': 'Santa Search',
+    'opens': '7',
+    'ordinal': 'th',
+    'type': 'Play',
+    'new': true,
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'windtunnel',
+    'title': 'Windtunnel',
+    'opens': '8',
+    'ordinal': 'th',
+    'type': 'Play',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'racer',
+    'title': 'Rudolph Racer',
+    'opens': '9',
+    'ordinal': 'th',
+    'type': 'Play',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'jamband',
+    'title': 'Elf Jamband',
+    'opens': '10',
+    'ordinal': 'th',
+    'type': 'Play',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'gumball',
+    'title': 'Gumball Tilt',
+    'opens': '11',
+    'ordinal': 'th',
+    'type': 'Play',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'postcard',
+    'title': 'Santa Cards',
+    'opens': '12',
+    'ordinal': 'th',
+    'type': 'Play',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'jetpack',
+    'title': 'Elf Jetpack',
+    'opens': '13',
+    'ordinal': 'th',
+    'type': 'PLay',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'boatload',
+    'title': 'Gift Slingshot',
+    'opens': '14',
+    'ordinal': 'th',
+    'type': 'Play',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'mapquiz',
+    'title': 'Map Quiz',
+    'opens': '15',
+    'ordinal': 'th',
+    'type': 'Learn',
+    'education': true,
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'presentbounce',
+    'title': 'Present Bounce',
+    'opens': '16',
+    'ordinal': 'th',
+    'type': 'Play',
+    'new': true,
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'codeboogie',
+    'title': 'Code Boogie',
+    'opens': '17',
+    'ordinal': 'th',
+    'type': 'Play',
+    'new': true,
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'elf-car',
+    'title': 'Elf Car',
+    'opens': '18',
+    'ordinal': 'th',
+    'type': 'Watch',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'citylights',
+    'title': 'City Lights',
+    'opens': '19',
+    'ordinal': 'th',
+    'type': 'Learn',
+    'education': true,
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'commandcentre',
+    'title': 'Mission Control',
+    'opens': '20',
+    'ordinal': 'th',
+    'type': 'Play',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'seasonofcaring',
+    'title': 'Season of Caring',
+    'opens': '21',
+    'ordinal': 'st',
+    'type': 'Play',
+    'new': true,
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'matching',
+    'title': 'Memory Match',
+    'opens': '22',
+    'ordinal': 'nd',
+    'type': 'Play',
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  },
+  {
+    'key': 'liftoff',
+    'title': 'Santa\'s Takeoff',
+    'opens': '23',
+    'ordinal': 'rd',
+    'type': 'Watch',
+    'new': true,
+    'description': 'Lorem ipsum dolor sit amet, co nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. This is hopefully up to five lines tops.',
+    'resources': [
+    ]
+  }
 ];

@@ -114,9 +114,9 @@ specific language governing permissions and limitations under the License.
           <div class="press-secondary-inner">          
             <h2>All the fun and games</h2>
             <div class="press-card-tabs">
-              <button id="press-card-button-1" press-filter="">view all</button>
-              <button id="press-card-button-2" press-filter="education">Education focused</button>
-              <button id="press-card-button-3" press-filter="new" class="active">New in 2015</button>      
+              <button class="press-card-button-1" press-filter="">view all</button>
+              <button class="press-card-button-2" press-filter="education">Education focused</button>
+              <button class="press-card-button-3 active" press-filter="new">New in 2015</button>      
             </div>
 
             <div class="press-card-container">
@@ -138,10 +138,17 @@ specific language governing permissions and limitations under the License.
                     <div class="press-card-links">
                       <span class="press-card-title">Press resources:</span>                
                       <div class="press-card-links-full">
-                        <template is="dom-repeat" items="{{ card.resources }}">
-                        <a href="[[ item.url ]]" class$="{{ item.class }}">
-                          {{ item.title }} <span>({{ item.type }})</span>
-                        </a>
+                        <template is="dom-if" if="{{ !card.locked }}">
+                          <template is="dom-repeat" items="{{ card.resources }}">
+                          <a href="[[ item.url ]]" class$="{{ item.class }}">
+                            {{ item.title }} <span>({{ item.type }})</span>
+                          </a>
+                          </template>
+                        </template>
+                        <template is="dom-if" if="{{ card.locked }}">
+                          <a href="" class="press-card-dl press-card-locked">
+                            <span>Assets available soon</span>
+                          </a>
                         </template>
                       </div> 
                     </div>               
@@ -163,7 +170,7 @@ specific language governing permissions and limitations under the License.
         
         <div id="press-device">
           <h3>Santa Tracker on your device</h3>
-          <p>The spirit of the holidays is everywhere, including all your devices!</p>
+          <p class="press-device-intro">The spirit of the holidays is everywhere, including all your devices!</p>
           
           <div class="press-device-grid">
             <div class="press-device-square">
@@ -203,7 +210,7 @@ specific language governing permissions and limitations under the License.
         <div id="press-footer">
           <h3>Need something?</h3>
           <p>Elves and Googlers are here to help.</p>
-          <button>press@google.com</button>
+          <a href="#">press@google.com</a>
         </div>
         
         <footer>
@@ -211,10 +218,10 @@ specific language governing permissions and limitations under the License.
             <div id="footer-left"><span>&copy; Google</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="">About Google</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="">Privacy & Terms</a></div>
             <div id="footer-right">
               <span>Share:</span>
-              <button class="footer-email"></button>  
-              <button class="footer-facebook"></button>     
-              <button class="footer-twitter"></button>                         
-              <button class="footer-g-plus"></button>                                        
+              <a href="#" class="footer-email"></a>  
+              <a href="#" class="footer-facebook"></a>     
+              <a href="#" class="footer-twitter"></a>                         
+              <a href="#" class="footer-g-plus"></a>                                        
             </div>
           </div>
         </footer>
@@ -241,7 +248,7 @@ specific language governing permissions and limitations under the License.
         'img/ic-facebook_32px_2x.png',
         'img/ic-g-plus_32px_2x.png',
         'img/ic-menu-18px_2x.png',
-        //'img/ic-twitter_32px.png',
+        'img/ic-twitter_32px_2x.png',
         'img/ic-video-18px_2x.png',
     		'img/illust-chromecast_2x.png',
     		'img/illust-educational_2x.png',

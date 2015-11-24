@@ -97,13 +97,20 @@
       @extend .clearfix;
 
       a {
-        width: 100%;
-        display: block;
-        padding: 10px 0 10px 35px;
-        font-size: 14px;
-        text-decoration: none;
         box-sizing: border-box;
-        color: #00ACC1;   
+        color: #00acc1;
+        display: block;
+        font-size: 14px;
+        opacity: 1;
+        padding: 10px 0 8px 35px;
+        position: relative;
+        text-decoration: none;
+        transition: opacity .3s;
+        width: 100%;
+
+        &:hover {
+          opacity: .7;
+        }
 
         span {
           font-size: 10px;
@@ -111,13 +118,44 @@
       }
 
       .press-card-dl {
-        background: url(img/ic-download-18px_2x.png) 0 50% no-repeat;  
-        background-size: auto 50%;                       
+        &:before {
+          background: url(img/ic-download-18px_2x.png) 50% 50% no-repeat;  
+          background-size: contain;
+          content: '';
+          height: 20px;
+          left: 0;
+          position: absolute;
+          top: 50%;
+          transform: translate3d(0, -50%, 0);
+          width: 20px;
+        }                   
       }
 
       .press-card-play {
-        background: url(img/ic-video-18px_2x.png) 0 50% no-repeat;  
-        background-size: auto 50%;  
+        &:before {
+          background: url(img/ic-video-18px_2x.png) 50% 50% no-repeat;
+          background-size: contain;
+          content: '';
+          height: 20px;
+          left: 0;
+          position: absolute;
+          top: 50%;
+          transform: translate3d(0, -55%, 0);
+          width: 20px;
+        }  
+      }
+
+      .press-card-locked {
+        cursor: default;
+        opacity: 1;
+
+        &:before {
+          opacity: .25;
+        }
+
+        &:hover {
+          opacity: 1;
+        }
       }
 
       .press-card-title {
