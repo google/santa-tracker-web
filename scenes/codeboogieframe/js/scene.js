@@ -33,7 +33,6 @@ goog.require('goog.style');
  * @constructor
  */
 app.Scene = function(el, game, blockly) {
-  this.active_ = true;
   this.blockly_ = blockly;
   this.player = new app.AnimationPlayer(el);
   this.blockRunner_ = new app.BlockRunner(this, blockly);
@@ -45,12 +44,11 @@ app.Scene = function(el, game, blockly) {
   this.level = null;
   this.portraitMode_ = false;
   this.scaleRatio_ = 1;
-  this.squares_ = [];
   this.visible_ = false;
 
   // The world stage
   this.underlayEl_ = el.parentNode.querySelector('.scene-underlay');
-  this.worldEl_ = el.querySelector('.scene__world');
+  this.charactersEl_ = el.querySelector('.scene__characters');
   this.buttonEl_ = el.querySelector('.scene__play');
 
   // Portrait draggability
@@ -81,16 +79,22 @@ app.Scene = function(el, game, blockly) {
 };
 
 /**
- * Base width of scene contents.
+ * Base height of scene contents. Characters will be scaled when smaller.
  * @type {number}
  */
-app.Scene.CONTENT_WIDTH = 400;
+app.Scene.CONTENT_HEIGHT = 800;
 
 /**
- * Base height of scene contents.
+ * Maximum aspect ratio for scene.
  * @type {number}
  */
-app.Scene.CONTENT_HEIGHT = 400;
+app.Scene.CONTENT_ASPECT_RATIO_MAX = 1;
+
+/**
+ * Minimum aspect ratio for scene before going into portrait mode.
+ * @type {number}
+ */
+app.Scene.CONTENT_ASPECT_RATIO_MIN = 1 / 2;
 
 /**
  * Minimum margin from scene contents to edge.
@@ -156,8 +160,11 @@ app.Scene.prototype.calculateViewport_ = function() {
   // Calculate width and scaling for the scene, with special handling for portrait-like
   // windows.
   var sceneHeight = window.innerHeight;
-  var contentAspectRatio = app.Scene.CONTENT_WIDTH / app.Scene.CONTENT_HEIGHT;
-  var sceneAspectRatio = Math.min(window.innerWidth / 2 / sceneHeight, contentAspectRatio);
+  var sceneAspectRatio = Math.max(
+      Math.min(window.innerWidth / 2 / sceneHeight,
+          app.Scene.CONTENT_ASPECT_RATIO_MAX),
+      app.Scene.CONTENT_ASPECT_RATIO_MIN
+  );
   var sceneWidth = sceneHeight * sceneAspectRatio;
 
   var portraitMode = false;
@@ -169,15 +176,12 @@ app.Scene.prototype.calculateViewport_ = function() {
 
   this.portraitMode_ = portraitMode;
   this.width_ = sceneWidth;
-  if (sceneWidth / sceneHeight > contentAspectRatio) {
-    this.scaleRatio_ = (sceneHeight - app.Scene.SCENE_PADDING * 2) / app.Scene.CONTENT_HEIGHT;
-  } else {
-    this.scaleRatio_ = (sceneWidth - app.Scene.SCENE_PADDING * 2) / app.Scene.CONTENT_WIDTH;
-  }
+  this.scaleRatio_ = sceneHeight / app.Scene.CONTENT_HEIGHT;
 
   // Apply width and scaling in DOM.
   this.el_.style.fontSize = this.scaleRatio_ * 10 + 'px';
   this.el_.style.width = sceneWidth + 'px';
+  this.charactersEl_.style.transform = 'scale(' + Math.min(1, this.scaleRatio_) + ')';
 
   this.configPortraitDraggability_();
 };

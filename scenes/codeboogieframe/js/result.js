@@ -35,7 +35,7 @@ app.Result = function(el, game) {
   this.codeLinkEl = el.querySelector('.result__code-link');
   this.continueButtonEl = el.querySelector('.result__button--continue');
   this.continueText = this.continueButtonEl && this.continueButtonEl.textContent;
-  this.finishText = app.I18n.getMsg('CL_finish');
+  this.finishText = app.I18n.getMsg('CB_finish');
   this.shouldShowCode = document.documentElement.lang.indexOf('en') === 0;
 
   // Strangely, Safari doesn't like getAttributeNS. Hopefully this un-namespaced get

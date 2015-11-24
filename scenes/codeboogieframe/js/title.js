@@ -14,33 +14,21 @@
  * the License.
  */
 
-'use strict'
+'use strict';
 
 goog.provide('app.Title');
-goog.require('app.Step');
-
-const moveMap = {
-  [app.Step.FAIL]: 'oops',
-  [app.Step.CARLTON]: 'success'
-}
 
 app.Title = class {
-  constructor() {
-    this.title = document.querySelector('.scene__word-title');
+  constructor(el) {
+    this.titleEl = el;
   }
 
-  setTitle (text) {
-    if (moveMap[text]) {
-      text = moveMap[text];
-    }
-
-    let translation = app.I18n.getMsg('CB_' + text);
-
-    this.title.innerHTML = '';
+  setTitle(text) {
+    this.titleEl.innerHTML = '';
 
     let span = document.createElement('span');
-    span.textContent = translation;
+    span.textContent = text;
 
-    this.title.appendChild(span);
+    this.titleEl.appendChild(span);
   }
-}
+};

@@ -19,7 +19,7 @@
   // Overlay trash over the toolbar responsively.
   .blockly__trash {
     bottom: 8px;
-    display: none;
+    display: block;
     left: (64px - 32px) / 2;
     position: absolute;
     width: 32px;
@@ -34,11 +34,6 @@
       left: (244px - 48px) / 2;
       width: 48px;
     }
-  }
-
-  // Only show maze levels.
-  &.level--maze .blockly__trash {
-    display: block;
   }
 
   // Promote madewithcode.com on top of the blockly workspace responsively.

@@ -14,21 +14,62 @@
  * the License.
  */
 
-'use strict'
+'use strict';
 
 goog.provide('app.Character');
 
-goog.require('app.MoveQueue');
 goog.require('app.Step');
-goog.require('app.Title');
+
+let sources = {
+  [app.Step.IDLE]: {
+    'name': 'idle',
+    'frames': 24
+  },
+  [app.Step.FAIL]: {
+    'name': 'fail',
+    'frames': 96
+  },
+  [app.Step.WATCH]: {
+    'name': 'watch',
+    'frames': 96
+  },
+  [app.Step.CARLTON]: {
+    'name': 'carlton',
+    'frames': 192
+  },
+  [app.Step.LEFT_ARM]: {
+    'name': 'pointLeft',
+    'frames': 96
+  },
+  [app.Step.RIGHT_ARM]: {
+    'name': 'pointRight',
+    'frames': 96
+  },
+  [app.Step.LEFT_FOOT]: {
+    'name': 'stepLeft',
+    'frames': 96
+  },
+  [app.Step.RIGHT_FOOT]: {
+    'name': 'stepRight',
+    'frames': 96
+  },
+  [app.Step.JUMP]: {
+    'name': 'jump',
+    'frames': 96
+  },
+  [app.Step.SHAKE]: {
+    'name': 'hip',
+    'frames': 96
+  },
+  [app.Step.SPLIT]: {
+    'name': 'splits',
+    'frames': 96
+  }
+};
 
 app.Character = class Character {
-  constructor(el, color, setTitle) {
-    // Create move queue
-    this.queue = new app.MoveQueue(this, setTitle);
-
-    let title = new app.Title(el);
-    this.setTitle = title.setTitle.bind(title);
+  constructor(el, color) {
+    this.color = color
 
     // Create canvas
     let canvas = document.createElement('canvas');
@@ -37,45 +78,27 @@ app.Character = class Character {
 
     this.context = canvas.getContext('2d');
 
-    // Load sprite images
-    this.sprites = sources(color);
-
-    Object.keys(this.sprites).forEach(key => {
-      this.sprites[key].img = new Image();
-      this.sprites[key].img.src = this.sprites[key].src;
-    });
-
-    this.sprite = this.sprites[app.Step.IDLE];
-    this.animation = new Animation(this.sprite);
-
-    this.lastBeatUpdate = 0;
+    this.sprite = sources[app.Step.IDLE];
+    this.animation = new Animation(this.sprite, this.color);
   }
 
   update(dt) {
     let frame = this.animation.update(dt);
 
     this.context.canvas.width = this.context.canvas.width;
-    this.context.drawImage(this.sprite.img, frame.x, frame.y, frame.width, frame.height, 0, 0, this.context.canvas.width, this.context.canvas.height);
+    this.context.drawImage(frame.img, frame.x, frame.y,
+        frame.width, frame.height, frame.offsetX, frame.offsetY,
+        frame.width, frame.height);
   }
 
-  add(moves) {
-    this.queue.add(moves);
-    this.setTitle('watchClosely');
-  }
+  play(step) {
+    this.sprite = sources[step];
 
-  play(move) {
-    this.sprite = this.sprites[move.step];
-
-    this.animation = new Animation(this.sprite);
-    this.animation.play();
-
-    this.setTitle(move.step);
-  }
-
-  onBar(bar, beat) {
-    if (beat > this.lastBeatUpdate + this.sprite.duration) {
-      this.queue.next();
-      this.lastBeatUpdate = beat;
+    if (!this.sprite) {
+      throw new Error(`No sprite found for move ${step}`);
     }
+
+    this.animation = new Animation(this.sprite, this.color);
+    this.animation.play();
   }
-}
+};

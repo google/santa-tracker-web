@@ -1,14 +1,26 @@
 ##{$name} {
-  $worldBackground: #f0b53e;
+  $worldBackground: #3f4da1;
 
   .scene {
-    background: $worldBackground;
+    background: $worldBackground center center / cover;
     bottom: 0;
     font-size: 10px; // For relative em sizing and scaling.
     position: absolute;
     right: 0;
     top: 0;
     width: 200px;
+  }
+
+  &.level--stage1 .scene {
+    background-image: url(img/stages/stage1.svg);
+  }
+
+  &.level--stage2 .scene {
+    background-image: url(img/stages/stage2.svg);
+  }
+
+  &.level--stage3 .scene {
+    background-image: url(img/stages/stage3.svg);
   }
 
   .scene-underlay {
@@ -23,41 +35,125 @@
   }
 
   .scene__world {
-
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
   }
 
   .scene__characters {
-    display: flex;
-    margin-left: 100px;
+    bottom: 22%;
+    height: 480px;
+    left: 50%;
+    margin-bottom: -72px;
     position: absolute;
-    top: 8em;
+    transform: scale(.9);
+    transform-origin: 50% 85%;
   }
 
-  .scene__characters-player, .scene__characters-teacher {
-    margin: 0 -100px;
+  .scene__character {
+    bottom: 0;
+    position: absolute;
+    transition: transform 1s linear;
+  }
+
+  .scene__character.is-showing {
+    transform: translate(-50%, 0);
+    z-index: 1;
+  }
+
+  .scene__character--player {
+    transform: translateX((-50% - 20%));
+  }
+
+  .scene__character--player.is-watching {
+    transform: translate((-50% - 20%), -10%) scale(.86);
+  }
+
+  .scene__character--teacher {
+    transform: translateX((-50% + 20%));
+  }
+
+  &.level--freestyle .scene__character--player {
+    transform: translate(-50%, 0);
+  }
+
+  &.level--freestyle .scene__character--teacher {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .scene__character--player {
+      transform: translateX((-50% - 25%));
+    }
+
+    .scene__character--player.is-watching {
+      transform: translate((-50% - 25%), -10%) scale(.86);
+    }
+
+    .scene__character--teacher {
+      transform: translateX((-50% + 25%));
+    }
   }
 
   .scene__word-title {
     color: white;
     font-family: 'Lobster';
-    font-size: 5em;
-    margin-top: 50px;
+    font-size: 8em;
+    margin-top: 3rem;
     text-align: center;
     width: 100%;
+    height: 1em;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 
     span {
-      animation: 2s cb_title_fade;
+      animation: 4s cb_title_fade;
       animation-fill-mode: forwards;
     }
+  }
+
+  .scene__moves {
+    height: 85px;
+    margin: 0 auto;
+    transition: transform 200ms ease-in;
+    display: flex;
+    left: 50%;
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 5%;
+  }
+
+  .scene__moves-move {
+    height: 85px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    margin-right: 8px;
+    flex: 0 0 110px;
+
+    /* demo styles */
+    font-family: 'Lobster';
+    font-size: 120%;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    line-height: 85px;
+  }
+
+  .fade-in {
+    animation: 500ms cb_fade_in;
+    animation-fill-mode: forwards;
+  }
+
+  .fade-out {
+    animation: 500ms cb_fade_out;
+    animation-fill-mode: forwards;
   }
 
   .scene__play-tab {
     border-radius: 50%;
     bottom: 60px;
-    height: 16em;
-    left: (-16em / 2);
+    height: 100px;
+    left: (-100px / 2);
     position: absolute;
-    width: 16em;
+    width: 100px;
 
     @media (min-width: 661px) {
       bottom: 80px;
@@ -74,10 +170,10 @@
   .scene__play-layer {
     background-color: $worldBackground;
     border-radius: 50%;
-    height: 16em;
+    height: 100px;
     position: relative;
     -webkit-transform: translateZ(0);
-    width: 16em;
+    width: 100px;
     z-index: 1;
   }
 
@@ -85,26 +181,26 @@
     background: #F68C38;
     border: none;
     border-radius: 50%;
-    box-shadow: 0.5em 0.5em #F26739;
+    box-shadow: 3px 3px #F26739;
     cursor: pointer;
     font-size: inherit;
-    height: 13em;
+    height: 80px;
     position: relative;
-    margin: 1.5em;
+    margin: 10px;
     padding: 0;
-    width: 13em;
+    width: 80px;
   }
 
   .scene__play:before {
-    border-bottom: 2.8em solid transparent;
-    border-top: 2.8em solid transparent;
-    border-left: 5em solid white;
+    border-bottom: 18px solid transparent;
+    border-top: 18px solid transparent;
+    border-left: 30px solid white;
     content: '';
     display: block;
     height: 0;
-    left: calc(50% - 2.2em);
+    left: calc(50% - 12px);
     position: absolute;
-    top: calc(50% - 2.8em);
+    top: calc(50% - 18px);
     width: 0;
   }
 }
@@ -115,12 +211,36 @@
     transform: scale(0.8);
   }
 
-  20%, 75% {
+  10%, 90% {
     opacity: 1;
     transform: scale(1);
   }
 
   100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes cb_fade_in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cb_fade_out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
     opacity: 0;
     transform: scale(1.5);
   }

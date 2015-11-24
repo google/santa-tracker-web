@@ -14,71 +14,44 @@
  * the License.
  */
 
-'use strict'
+'use strict';
 
 goog.provide('app.AnimationPlayer');
+goog.provide('app.AnimationItem');
 
+goog.require('app.AnimationData');
+goog.require('app.Constants');
 goog.require('app.Character');
 goog.require('app.DanceStatus');
 goog.require('app.I18n');
-goog.require('app.MoveQueue');
+goog.require('app.MoveTiles');
 goog.require('app.Step');
 goog.require('app.Title');
+goog.require('goog.events.EventTarget');
 
 const size = 492;
 const fps = 24;
 const bpm = 120;
 const beatDuration = 1000 / bpm * 60;
+const framesPerSprite = 24;
+const originalWidth = 1920 * 0.6;
+const originalHeight = 1080 * 0.6;
 
-let sources = (color) => ({
-  [app.Step.IDLE]: {
-    'src': `img/steps/${color}/idle.png`,
-    'frames': 24
-  },
-  [app.Step.FAIL]: {
-    'src': `img/steps/${color}/fail.png`,
-    'frames': 96
-  },
-  [app.Step.WATCH]: {
-    'src': `img/steps/${color}/watch.png`,
-    'frames': 96
-  },
-  [app.Step.CARLTON]: {
-    'src': `img/steps/${color}/carlton.png`,
-    'frames': 192
-  },
-  [app.Step.LEFT_ARM]: {
-    'src': `img/steps/${color}/point-left.png`,
-    'frames': 48
-  },
-  [app.Step.RIGHT_ARM]: {
-    'src': `img/steps/${color}/point-right.png`,
-    'frames': 96
-  },
-  [app.Step.LEFT_FOOT]: {
-    'src': `img/steps/${color}/step-left.png`,
-    'frames': 96
-  },
-  [app.Step.RIGHT_FOOT]: {
-    'src': `img/steps/${color}/step-right.png`,
-    'frames': 96
-  },
-  [app.Step.JUMP]: {
-    'src': `img/steps/${color}/jump.png`,
-    'frames': 48
-  },
-  [app.Step.SPIN]: {
-    'src': `img/steps/${color}/hip-spin.png`,
-    'frames': 96
-  },
-  [app.Step.SPLIT]: {
-    'src': `img/steps/${color}/split.png`,
-    'frames': 96
-  }
-});
+/**
+ * @typedef {{
+ *   teacherStep: app.Step,
+ *   playerStep: app.Step,
+ *   title: string,
+ *   blockId: string,
+ *   showCount: boolean
+ * }}
+ */
+app.AnimationItem;
 
 class Animation {
-  constructor(sprite) {
+  constructor(sprite, color) {
+    this.name = sprite.name;
+
     this.frame = 0;
     this.frameCount = sprite.frames;
     this.frameDuration = 1000 / fps * (60 / bpm * 2);
@@ -86,6 +59,17 @@ class Animation {
     this.paused = true;
 
     sprite.duration = sprite.frames / fps;
+
+    this.images = app.AnimationData();
+
+    Object.keys(this.images).forEach(key => {
+      let value = this.images[key];
+
+      let image = new Image();
+      image.src = `img/steps/${color}/${key}.png`
+
+      this.images[key].img = image
+    });
   }
 
   play() {
@@ -93,18 +77,24 @@ class Animation {
     this.paused = false;
   }
 
-  getFrame(number) {
+  getFrame(name, number) {
+    let index = Math.floor(number / framesPerSprite);
+    let data = this.images[`${name}_${index}`];
+
     return {
-      x: number * size,
+      x: (number % framesPerSprite) * data.width,
       y: 0,
-      width: size,
-      height: size
-    }
+      width: data.width,
+      height: data.height,
+      offsetX: data.offsetX - (originalWidth / 2 - size / 2),
+      offsetY: data.offsetY - (originalHeight / 2 - size / 2),
+      img: data.img
+    };
   }
 
   update(dt) {
     if (this.paused) {
-      return this.getFrame(this.frame);
+      return this.getFrame(this.name, this.frame);
     }
 
     this.elapsedTime += dt;
@@ -118,7 +108,7 @@ class Animation {
       this.elapsedTime -= framesElapsed * this.frameDuration;
     }
 
-    return this.getFrame(this.frame);
+    return this.getFrame(this.name, this.frame);
   }
 }
 
@@ -128,14 +118,23 @@ class Animation {
  * @param {el} container for characters
  * @constructor
  */
-app.AnimationPlayer = class {
+app.AnimationPlayer = class extends goog.events.EventTarget {
   constructor(el) {
-    this.player = new app.Character(el.querySelector('.scene__characters-player'), 'green');
-    this.teacher = new app.Character(el.querySelector('.scene__characters-teacher'), 'purple');
+    super();
+
+    this.player = new app.Character(
+        el.querySelector('.scene__character--player'), 'purple');
+    this.teacher = new app.Character(
+        el.querySelector('.scene__character--teacher'), 'green');
+    this.title = new app.Title(el.querySelector('.scene__word-title'));
+    this.moveTiles = new app.MoveTiles(el.querySelector('.scene__moves'));
+    /* @type {app.AnimationItem[]} */
+    this.animationQueue = [];
 
     this.lastUpdateTime = 0;
+    this.lastBeat = null;
 
-    this.update();
+    this.update(0);
   }
 
   update(timestamp) {
@@ -155,34 +154,29 @@ app.AnimationPlayer = class {
    * @param {app.DanceLevelResult} result from player to animate.
    */
   start(result) {
-    let teacherSteps = result.teacherSteps.map(step => ({step}));
-
-    switch (result.danceStatus) {
-      case app.DanceStatus.NO_STEPS:
-        this.teacher.add(teacherSteps);
-        this.player.add(Array.from(result.teacherSteps, () => ({step: app.Step.WATCH})))
-        break;
-
-      case app.DanceStatus.NOT_ENOUGH_STEPS:
-      case app.DanceStatus.WRONG_STEPS:
-      case app.DanceStatus.TOO_MANY_STEPS:
-        this.teacher.queue.add(teacherSteps);
-
-        result.playerSteps.push({step: app.Step.FAIL});
-        this.player.add(result.playerSteps);
-        break;
-
-      case app.DanceStatus.SUCCESS:
-        this.teacher.add(teacherSteps);
-
-        result.playerSteps.push({step: app.Step.CARLTON});
-        this.player.add(result.playerSteps);
-        break;
-    }
+    this.animationQueue = result.animationQueue;
+    this.moveTiles.clear();
   }
 
   onBar(bar, beat) {
-    this.player.onBar(bar, beat);
-    this.teacher.onBar(bar, beat);
+    if (this.lastBeat && beat < this.lastBeat + app.Constants.BEATS_PER_ANIMATION) {
+      return;
+    }
+
+    this.lastBeat = beat;
+    let animation = this.animationQueue.shift();
+    if (!animation) {
+      this.teacher.play(app.Step.IDLE);
+      this.player.play(app.Step.IDLE);
+      this.dispatchEvent({type: 'finish'});
+      this.moveTiles.clear();
+      return;
+    }
+
+    this.teacher.play(animation.teacherStep);
+    this.player.play(animation.playerStep);
+    this.title.setTitle(animation.title);
+    this.moveTiles.add(animation.teacherStep);
+    this.dispatchEvent({type: 'step', data: animation.blockId});
   }
 };

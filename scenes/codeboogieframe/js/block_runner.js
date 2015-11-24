@@ -59,8 +59,8 @@ app.BlockRunner = class {
     Blockly.JavaScript.INFINITE_LOOP_TRAP = '  api.highlightLoop(%1);\n';
 
     // Register animation events.
-    scene.player.player.queue.addEventListener('step', this.onStep_.bind(this));
-    scene.player.player.queue.addEventListener('finish', this.onFinishAnimations_.bind(this));
+    scene.player.addEventListener('step', this.onStep_.bind(this));
+    scene.player.addEventListener('finish', this.onFinishAnimations_.bind(this));
 
     this.reset_();
   }
@@ -171,12 +171,6 @@ app.BlockRunner = class {
     };
   }
 }
-
-/**
- * An es6-style symbol for decorating Animation instances that represent highlights.
- * @type {string}
- */
-app.BlockRunner.HIGHLIGHT_SYMBOL = 'CL_highlight';
 
 /**
  * How long should loop highlights last. Note that they attempt to borrow this time from
