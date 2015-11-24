@@ -1,7 +1,9 @@
 $name: 'module-santasearch';
 $scene-bg: #44B3E6;
 $gameover-bg: $scene-bg;
+$board-game-color: #2aaf4b;
 
+@import "../shared/sass/board";
 @import "../shared/sass/gameover";
 
 @import 'scss/map';
