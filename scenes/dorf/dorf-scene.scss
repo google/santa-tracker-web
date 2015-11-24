@@ -73,8 +73,26 @@ $toolbar-size: 64px;
     will-change: background-color;
     transition: background-color 125ms;
 
-    &.scrolling {
-      background-color: #50DEF5;
+    paper-icon-button[icon="menu"] {
+      margin-right: 8px !important;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      box-shadow: 0 2px 2px rgba(0,0,0,.25);
+      background-color: #50def5;
+      opacity: 0;
+      will-change: opacity;
+      transform: translateZ(0);
+      transition: opacity 0.125s;
+    }
+    &.scrolling::before {
+      opacity: 1;
     }
 
     // Common button reset.
@@ -302,7 +320,7 @@ $toolbar-size: 64px;
       will-change: transform;
 
       #count-down {
-        padding: 45px 0 30px 0;
+        padding: 60px 0 30px 0;
       }
 
       // NOTE: This is used for the countdown timer.
@@ -328,7 +346,7 @@ $toolbar-size: 64px;
       }
 
       p {
-        margin: 50px 0 0 0;
+        margin: 35px 0 0 0;
         color: #fff;
         text-align: center;
         font-weight: 400;
