@@ -26,8 +26,8 @@ const maxTiles = 4;
 app.MoveTiles = class {
   constructor(el) {
     this.el = el;
-    this.el.style.width = `${maxTiles * tilewidth}px`;
-    this.el.style.left = `calc(50% + ${maxTiles / 2 * tilewidth}px)`
+    this.el.style.width = `${maxTiles * tilewidth / 10}em`;
+    this.el.style.left = `calc(50% + ${maxTiles / 2 * tilewidth / 10}em)`
   }
 
   add(move) {
@@ -41,7 +41,7 @@ app.MoveTiles = class {
 
     // move the tiles into the correct places.
     setTimeout(() => {
-      this.el.style.transform = `translate3d(-${numTiles * tilewidth}px, 0, 0)`; }, 100);
+      this.el.style.transform = `translate3d(-${(numTiles * tilewidth) / 10}em, 0, 0)`; }, 100);
 
       if (numTiles > maxTiles) {
         moveTiles.slice(0, numTiles - maxTiles).forEach(tile => {

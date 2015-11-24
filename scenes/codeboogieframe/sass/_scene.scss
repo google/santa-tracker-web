@@ -112,7 +112,7 @@
   }
 
   .scene__moves {
-    height: 85px;
+    height: 8.5em;
     margin: 0 auto;
     transition: transform 200ms ease-in;
     display: flex;
@@ -124,13 +124,13 @@
 
   .scene__moves-move {
     counter-increment: tile;
-    height: 85px;
+    height: 8.5em;
     border: 3px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    margin-right: 8px;
-    flex: 0 0 110px;
+    border-radius: .8em;
+    margin-right: .8em;
+    flex: 0 0 11em;
 
-    background-size: 100px 85px;
+    background-size: 10em 8.5em;
     background-repeat: no-repeat;
 
     &.move__leftArm {
@@ -144,7 +144,7 @@
 
   .scene__moves-move:after {
     font-family: 'Lobster';
-    font-size: 14px;
+    font-size: 140%;
     content: counter(tile);
     color: white;
     position: absolute;
