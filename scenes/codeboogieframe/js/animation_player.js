@@ -19,6 +19,7 @@
 goog.provide('app.AnimationPlayer');
 goog.provide('app.AnimationItem');
 
+goog.require('app.AnimationData');
 goog.require('app.Constants');
 goog.require('app.Character');
 goog.require('app.DanceStatus');
@@ -32,6 +33,9 @@ const size = 492;
 const fps = 24;
 const bpm = 120;
 const beatDuration = 1000 / bpm * 60;
+const framesPerSprite = 24;
+const originalWidth = 1920 * 0.6;
+const originalHeight = 1080 * 0.6;
 
 /**
  * @typedef {{
@@ -44,55 +48,10 @@ const beatDuration = 1000 / bpm * 60;
  */
 app.AnimationItem;
 
-let sources = (color) => ({
-  [app.Step.IDLE]: {
-    'src': `img/steps/${color}/idle.png`,
-    'frames': 24
-  },
-  [app.Step.FAIL]: {
-    'src': `img/steps/${color}/fail.png`,
-    'frames': 96
-  },
-  [app.Step.WATCH]: {
-    'src': `img/steps/${color}/watch.png`,
-    'frames': 96
-  },
-  [app.Step.CARLTON]: {
-    'src': `img/steps/${color}/carlton.png`,
-    'frames': 192
-  },
-  [app.Step.LEFT_ARM]: {
-    'src': `img/steps/${color}/point-left.png`,
-    'frames': 48
-  },
-  [app.Step.RIGHT_ARM]: {
-    'src': `img/steps/${color}/point-right.png`,
-    'frames': 96
-  },
-  [app.Step.LEFT_FOOT]: {
-    'src': `img/steps/${color}/step-left.png`,
-    'frames': 96
-  },
-  [app.Step.RIGHT_FOOT]: {
-    'src': `img/steps/${color}/step-right.png`,
-    'frames': 96
-  },
-  [app.Step.JUMP]: {
-    'src': `img/steps/${color}/jump.png`,
-    'frames': 48
-  },
-  [app.Step.SPIN]: {
-    'src': `img/steps/${color}/hip-spin.png`,
-    'frames': 96
-  },
-  [app.Step.SPLIT]: {
-    'src': `img/steps/${color}/split.png`,
-    'frames': 96
-  }
-});
-
 class Animation {
-  constructor(sprite) {
+  constructor(sprite, color) {
+    this.name = sprite.name;
+
     this.frame = 0;
     this.frameCount = sprite.frames;
     this.frameDuration = 1000 / fps * (60 / bpm * 2);
@@ -100,6 +59,17 @@ class Animation {
     this.paused = true;
 
     sprite.duration = sprite.frames / fps;
+
+    this.images = JSON.parse(JSON.stringify(app.AnimationData));
+
+    Object.keys(this.images).forEach(key => {
+      let value = this.images[key];
+
+      let image = new Image();
+      image.src = `img/steps/${color}/${key}.png`
+
+      this.images[key].img = image
+    });
   }
 
   play() {
@@ -107,18 +77,24 @@ class Animation {
     this.paused = false;
   }
 
-  getFrame(number) {
+  getFrame(name, number) {
+    let index = Math.floor(number / framesPerSprite);
+    let data = this.images[`${name}_${index}`];
+
     return {
-      x: number * size,
+      x: (number % framesPerSprite) * data.width,
       y: 0,
-      width: size,
-      height: size
+      width: data.width,
+      height: data.height,
+      offsetX: data.offsetX - (originalWidth / 2 - size / 2),
+      offsetY: data.offsetY - (originalHeight / 2 - size / 2),
+      img: data.img
     };
   }
 
   update(dt) {
     if (this.paused) {
-      return this.getFrame(this.frame);
+      return this.getFrame(this.name, this.frame);
     }
 
     this.elapsedTime += dt;
@@ -132,7 +108,7 @@ class Animation {
       this.elapsedTime -= framesElapsed * this.frameDuration;
     }
 
-    return this.getFrame(this.frame);
+    return this.getFrame(this.name, this.frame);
   }
 }
 
@@ -158,7 +134,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.lastUpdateTime = 0;
     this.lastBeat = null;
 
-    this.update();
+    this.update(0);
   }
 
   update(timestamp) {
