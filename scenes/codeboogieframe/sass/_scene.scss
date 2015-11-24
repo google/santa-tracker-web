@@ -73,6 +73,14 @@
     transform: translateX((-50% + 20%));
   }
 
+  &.level--freestyle .scene__character--player {
+    transform: translate(-50%, 0);
+  }
+
+  &.level--freestyle .scene__character--teacher {
+    display: none;
+  }
+
   @media (min-width: 1024px) {
     .scene__character--player {
       transform: translateX((-50% - 25%));

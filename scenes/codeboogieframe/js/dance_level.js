@@ -42,6 +42,7 @@ app.DanceStatus = {
  *   steps: app.Step[],
  *   stage: string,
  *   bpm: number,
+ *   freestyle: boolean,
  *   requiredBlocks: string[]
  * }}
  */
@@ -61,6 +62,7 @@ app.DanceLevel = class extends app.Level {
 
     this.type = 'dance';
 
+    this.freestyle = options.freestyle || false;
     this.steps = options.steps;
     this.bpm = options.bpm;
     this.stage = options.stage || 'stage0';
@@ -220,7 +222,8 @@ app.DanceLevel = class extends app.Level {
   }
 
   get className() {
-    return super.className + ' level--' + this.stage;
+    return super.className + ' level--' + this.stage +
+        (this.freestyle ? ' level--freestyle' : '');
   }
 };
 
@@ -256,5 +259,9 @@ app.DanceLevelResult = class extends app.LevelResult {
     this.danceStatus = options.danceStatus || app.DanceStatus.NO_STEPS;
     this.playerSteps = options.playerSteps || [];
     this.teacherSteps = options.teacherSteps || [];
+  }
+
+  get watching() {
+    return !this.freestyle && this.playerSteps.length === 0;
   }
 };
