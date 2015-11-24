@@ -94,6 +94,7 @@
   }
 
   #easteregg-balloon {
+    z-index: $house-z-index-front;
     opacity: 1;
     &.flying {
       opacity: 0;
@@ -105,6 +106,13 @@
 
     &.flying {
       opacity: 1;
+    }
+  }
+
+  #easteregg-balloon-flight {
+    z-index: $house-z-index-front;
+    &.flying {
+      animation: fly 30s linear;
     }
   }
 
@@ -317,6 +325,40 @@
 
   .biz-snowman {
     background-image: url(img/biz-snowman.svg);
+  }
+}
+
+@keyframes fly {
+  0% {
+    transform: translateZ(0) translateY(0) translateX(0);
+  }
+
+  10% {
+    transform: translateZ(0) translateY(-220px) translateX(50px);
+  }
+
+  50% {
+    transform: translateZ(0) translateY(-220px) translateX(100vw);
+  }
+
+  50.1% {
+    transform: translateZ(0) translateY(-100vw) translateX(100vw);
+  }
+
+  50.2% {
+    transform: translateZ(0) translateY(-100vw) translateX(-100vw);
+  }
+
+  50.3% {
+    transform: translateZ(0) translateY(-220px) translateX(-100vw);
+  }
+
+  90% {
+    transform: translateZ(0) translateY(-220px) translateX(-280px);
+  }
+
+  100% {
+    transform: translateZ(0) translateY(0) translateX(0);
   }
 }
 
