@@ -123,9 +123,9 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     super();
 
     this.player = new app.Character(
-        el.querySelector('.scene__character--player'), 'green');
+        el.querySelector('.scene__character--player'), 'purple');
     this.teacher = new app.Character(
-        el.querySelector('.scene__character--teacher'), 'purple');
+        el.querySelector('.scene__character--teacher'), 'green');
     this.title = new app.Title(el.querySelector('.scene__word-title'));
     this.moveTiles = new app.MoveTiles(el.querySelector('.scene__moves'));
     /* @type {app.AnimationItem[]} */
