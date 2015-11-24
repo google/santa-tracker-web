@@ -59,6 +59,10 @@ app.Level = class {
    */
   processResult() {
   }
+
+  get className() {
+    return 'level--' + this.type + ' level--' + this.id;
+  }
 };
 
 /**

@@ -1,14 +1,26 @@
 ##{$name} {
-  $worldBackground: #f0b53e;
+  $worldBackground: #3f4da1;
 
   .scene {
-    background: $worldBackground;
+    background: $worldBackground center center / cover;
     bottom: 0;
     font-size: 10px; // For relative em sizing and scaling.
     position: absolute;
     right: 0;
     top: 0;
     width: 200px;
+  }
+
+  &.level--stage1 .scene {
+    background-image: url(img/stages/stage1.svg);
+  }
+
+  &.level--stage2 .scene {
+    background-image: url(img/stages/stage2.svg);
+  }
+
+  &.level--stage3 .scene {
+    background-image: url(img/stages/stage3.svg);
   }
 
   .scene-underlay {
@@ -23,27 +35,56 @@
   }
 
   .scene__world {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     height: 100vh;
+    position: relative;
+    overflow: hidden;
   }
 
   .scene__characters {
-    position: relative;
+    bottom: 22%;
     height: 480px;
+    left: 50%;
+    margin-bottom: -72px;
+    position: absolute;
+    transform: scale(.9);
+    transform-origin: 50% 85%;
   }
 
-  .scene__characters-player {
+  .scene__character {
+    bottom: 0;
     position: absolute;
-    left: calc(50% - 120px);
-    top: 0;
+    transition: transform 1s linear;
   }
 
-  .scene__characters-teacher {
-    position: absolute;
-    top: 0;
-    right: calc(50% - 120px);
+  .scene__character.is-showing {
+    transform: translate(-50%, 0);
+    z-index: 1;
+  }
+
+  .scene__character--player {
+    transform: translateX((-50% - 20%));
+  }
+
+  .scene__character--player.is-watching {
+    transform: translate((-50% - 20%), -10%) scale(.86);
+  }
+
+  .scene__character--teacher {
+    transform: translateX((-50% + 20%));
+  }
+
+  @media (min-width: 1024px) {
+    .scene__character--player {
+      transform: translateX((-50% - 25%));
+    }
+
+    .scene__character--player.is-watching {
+      transform: translate((-50% - 25%), -10%) scale(.86);
+    }
+
+    .scene__character--teacher {
+      transform: translateX((-50% + 25%));
+    }
   }
 
   .scene__word-title {
@@ -99,10 +140,10 @@
   .scene__play-tab {
     border-radius: 50%;
     bottom: 60px;
-    height: 10em;
-    left: (-10em / 2);
+    height: 100px;
+    left: (-100px / 2);
     position: absolute;
-    width: 10em;
+    width: 100px;
 
     @media (min-width: 661px) {
       bottom: 80px;
@@ -119,10 +160,10 @@
   .scene__play-layer {
     background-color: $worldBackground;
     border-radius: 50%;
-    height: 10em;
+    height: 100px;
     position: relative;
     -webkit-transform: translateZ(0);
-    width: 10em;
+    width: 100px;
     z-index: 1;
   }
 
@@ -130,26 +171,26 @@
     background: #F68C38;
     border: none;
     border-radius: 50%;
-    box-shadow: 0.3em 0.3em #F26739;
+    box-shadow: 3px 3px #F26739;
     cursor: pointer;
     font-size: inherit;
-    height: 8em;
+    height: 80px;
     position: relative;
-    margin: 1em;
+    margin: 10px;
     padding: 0;
-    width: 8em;
+    width: 80px;
   }
 
   .scene__play:before {
-    border-bottom: 1.8em solid transparent;
-    border-top: 1.8em solid transparent;
-    border-left: 3em solid white;
+    border-bottom: 18px solid transparent;
+    border-top: 18px solid transparent;
+    border-left: 30px solid white;
     content: '';
     display: block;
     height: 0;
-    left: calc(50% - 1.2em);
+    left: calc(50% - 12px);
     position: absolute;
-    top: calc(50% - 1.8em);
+    top: calc(50% - 18px);
     width: 0;
   }
 }

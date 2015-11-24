@@ -147,16 +147,16 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     super();
 
     this.player = new app.Character(
-        el.querySelector('.scene__characters-player'), 'green');
+        el.querySelector('.scene__character--player'), 'green');
     this.teacher = new app.Character(
-        el.querySelector('.scene__characters-teacher'), 'purple');
+        el.querySelector('.scene__character--teacher'), 'purple');
     this.title = new app.Title(el.querySelector('.scene__word-title'));
     this.moveTiles = new app.MoveTiles(el.querySelector('.scene__moves'));
     /* @type {app.AnimationItem[]} */
     this.animationQueue = [];
 
     this.lastUpdateTime = 0;
-    this.lastBeat = 0;
+    this.lastBeat = null;
 
     this.update();
   }
@@ -182,7 +182,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
   }
 
   onBar(bar, beat) {
-    if (beat < this.lastBeat + app.Constants.BEATS_PER_ANIMATION) {
+    if (this.lastBeat && beat < this.lastBeat + app.Constants.BEATS_PER_ANIMATION) {
       return;
     }
 

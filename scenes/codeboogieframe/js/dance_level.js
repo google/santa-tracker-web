@@ -40,6 +40,8 @@ app.DanceStatus = {
  *   toolbox: string,
  *   idealBlockCount: number,
  *   steps: app.Step[],
+ *   stage: string,
+ *   bpm: number,
  *   requiredBlocks: string[]
  * }}
  */
@@ -60,6 +62,8 @@ app.DanceLevel = class extends app.Level {
     this.type = 'dance';
 
     this.steps = options.steps;
+    this.bpm = options.bpm;
+    this.stage = options.stage || 'stage0';
     this.idealBlockCount = options.idealBlockCount || Infinity;
     this.requiredBlocks = options.requiredBlocks || [];
   }
@@ -213,6 +217,10 @@ app.DanceLevel = class extends app.Level {
     }
 
     return queue;
+  }
+
+  get className() {
+    return super.className + ' level--' + this.stage;
   }
 };
 
