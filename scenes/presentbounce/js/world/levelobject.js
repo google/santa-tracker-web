@@ -105,7 +105,7 @@ goog.scope(function () {
       if (typeof this.config_.style.marginTop !== 'undefined') {
         marginTop = this.config_.style.marginTop;
       }
-      
+
       // Set to Box2D body dimension and offset center of gravity
       el.style.width = width + 'px';
       el.style.height = height + 'px';
@@ -154,16 +154,16 @@ goog.scope(function () {
         // draw in DOM using transform
         var pos = this.body_.GetPosition();
         var angle = this.body_.GetAngle();
-        
+
         const x = Unit.fromWorld(pos.x),
               y = Unit.fromWorld(pos.y),
               a = angle.toFixed(6);
-        
+
         this.transformEl_(this.el_, x, y, a);
         if (this.shadowEl_) {
           this.transformEl_(this.shadowEl_, x + Constants.SHADOW_OFFSET_PX, y + Constants.SHADOW_OFFSET_PX, a);
         }
-        
+
         this.hasRendered_ = true;
       }
     }
@@ -196,7 +196,7 @@ goog.scope(function () {
      * @public
      */
     onUserInteractionEnd() {
-      this.setRestitution_(this.config_.material.restitution); 
+      this.setRestitution_(this.config_.material.restitution);
     }
 
     /**

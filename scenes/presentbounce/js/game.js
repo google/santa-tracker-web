@@ -261,10 +261,10 @@ app.Game.prototype.watchSceneSize_ = function() {
   var updateSize = function() {
     var width = window.innerWidth,
       height = window.innerHeight,
-      scale = width < app.Constants.VIEWPORT_MIN_WIDTH ? 
-          width / app.Constants.VIEWPORT_MIN_WIDTH : 
+      scale = width < app.Constants.VIEWPORT_MIN_WIDTH ?
+          width / app.Constants.VIEWPORT_MIN_WIDTH :
           1;
-    
+
     scale = height < app.Constants.VIEWPORT_MIN_HEIGHT ?
         Math.min(height / app.Constants.VIEWPORT_MIN_HEIGHT, scale) :
         scale;
@@ -286,7 +286,7 @@ app.Game.prototype.dispose = function() {
       gameid: 'presentbounce', timePlayed: new Date - this.gameStartTime, level: this.level
     });
   }
-  
+
   utils.cancelAnimFrame(this.requestId);
   $(window).off('.presentbounce');
   $(document).off('.presentbounce');
