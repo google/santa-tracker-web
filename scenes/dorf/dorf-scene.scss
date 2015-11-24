@@ -387,8 +387,8 @@ $toolbar-size: 64px;
 
     // Move the village up by 30px, but give the layer an extra 30px to work
     // with: this gives space for the hover cards.
-    margin-top: -60px;
-    padding-top: 30px;
+    margin-top: -30px - $village-extra-padding;
+    padding-top: $village-extra-padding;
 
     @import "sass/eastereggs";
 
@@ -496,7 +496,7 @@ $toolbar-size: 64px;
         background-position: 50% 0;
         width: 100%;
         height: 100%;
-        top: $ground-top + 30px;
+        top: $ground-top + $village-extra-padding;
       }
 
       #road {
@@ -508,7 +508,7 @@ $toolbar-size: 64px;
         background-size: $road-size-w $road-size-h;
         width: 100%;
         height: 100%;
-        top: $road-top + 30px;;
+        top: $road-top + $village-extra-padding;
       }
 
       .house {
@@ -575,11 +575,14 @@ $toolbar-size: 64px;
      * just under this point. It provides the base for a touch area.
      */
     .action {
+      $size: percent($link-target-size, $dim-house);
+      $size-half: percent($link-target-size / 2, $dim-house);
+
       position: absolute;
-      width: 50%;
-      height: 50%;  // this extends below the label, .link is this size but above
-      margin-bottom: -50%;
-      margin-left: -25%;
+      width: $size;
+      height: $size;
+      margin-bottom: -$size;
+      margin-left: -$size-half;
 
       h5 {
         margin: 0;
@@ -596,14 +599,14 @@ $toolbar-size: 64px;
       }
 
       .link {
-        // TODO(samthor): Use sizing from _houses; just a quick hack for now.
-        // Restore layerX/layerY position.
+        // These 100%'s refer to the size of our parent .action.
         width: 100%;
         height: 100%;
         left: 0%;
         bottom: 100%;
         position: absolute;
         z-index: 30000;
+        margin-bottom: percent($action-offset-top, $dim-house);
 
         // Create a layer: this hints to browsers that yes, this card _REALLY IS_
         // above everything else. Since there's no background/color etc, it's
@@ -651,12 +654,14 @@ $toolbar-size: 64px;
   @media (max-width: ($width-desktop - 1)) and (min-width: $width-tablet) {
     font-size: 12px;
 
-    .link {
-      .card {
-        $hs: $hover-card-size * $tablet-desktop-ratio / 2;
-        width: $hover-card-size * $tablet-desktop-ratio !important;
-        height: $hover-card-size * $tablet-desktop-ratio !important;
-        margin: (-$hs) 0 0 (-$hs);
+    .action {
+      .link {
+        .card {
+          $hs: $hover-card-size * $tablet-desktop-ratio / 2;
+          width: $hover-card-size * $tablet-desktop-ratio !important;
+          height: $hover-card-size * $tablet-desktop-ratio !important;
+          margin: (-$hs) 0 0 (-$hs);
+        }
       }
     }
 
