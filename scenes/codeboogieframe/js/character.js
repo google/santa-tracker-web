@@ -26,43 +26,43 @@ let sources = {
     'frames': 24
   },
   [app.Step.FAIL]: {
-    'name': `fail`,
+    'name': 'fail',
     'frames': 96
   },
   [app.Step.WATCH]: {
-    'name': `watch`,
+    'name': 'watch',
     'frames': 96
   },
   [app.Step.CARLTON]: {
-    'name': `carlton`,
+    'name': 'carlton',
     'frames': 192
   },
   [app.Step.LEFT_ARM]: {
-    'name': `pointLeft`,
+    'name': 'pointLeft',
     'frames': 96
   },
   [app.Step.RIGHT_ARM]: {
-    'name': `pointRight`,
+    'name': 'pointRight',
     'frames': 96
   },
   [app.Step.LEFT_FOOT]: {
-    'name': `stepLeft`,
+    'name': 'stepLeft',
     'frames': 96
   },
   [app.Step.RIGHT_FOOT]: {
-    'name': `stepRight`,
+    'name': 'stepRight',
     'frames': 96
   },
   [app.Step.JUMP]: {
-    'name': `jump`,
+    'name': 'jump',
     'frames': 96
   },
-  [app.Step.SPIN]: {
-    'name': `spin`,
+  [app.Step.SHAKE]: {
+    'name': 'hip',
     'frames': 96
   },
   [app.Step.SPLIT]: {
-    'src': `split`,
+    'name': 'splits',
     'frames': 96
   }
 };
@@ -93,6 +93,10 @@ app.Character = class Character {
 
   play(step) {
     this.sprite = sources[step];
+
+    if (!this.sprite) {
+      throw new Error(`No sprite found for move ${step}`);
+    }
 
     this.animation = new Animation(this.sprite, this.color);
     this.animation.play();
