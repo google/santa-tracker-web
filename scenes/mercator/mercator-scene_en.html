@@ -336,10 +336,6 @@ Mercator scene.
         this.game = new scenes.mercator.Game(module);
         startButton(this, module, this.onClickStart_.bind(this));
       }
-
-      if (this.getAttribute('mode') == 'portal') {
-         document.getElementById("module-mercator").addEventListener('click', clickFilter, false);
-      }
     },
 
     onHide: function() {

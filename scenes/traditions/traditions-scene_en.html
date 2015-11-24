@@ -245,10 +245,6 @@ Traditions scene.
       if (this.traditions) {
         this.traditions.onShow();
       }
-
-      if (this.getAttribute('mode') == 'portal') {
-        document.getElementById("traditions-map").addEventListener('click', clickFilter, false);
-      }
     },
 
     onHide: function() {

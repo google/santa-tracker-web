@@ -38,6 +38,10 @@ specific language governing permissions and limitations under the License.
     display:none;
   }
 
+  citylights-scene[mode="portal"] #module-citylights div[style*="width: 25px"] {
+    display:none !important;
+  }
+
 </style>
 
 
@@ -214,10 +218,6 @@ City lights scene.
         var div = this.$['module-citylights'];
 
         this.scene = new scenes.citylights.Scene(div);
-      }
-
-      if (this.getAttribute('mode') == 'portal') {
-        document.getElementById("module-citylights").addEventListener('click', clickFilter, false);
       }
     },
 
