@@ -59,7 +59,6 @@ app.MoveTiles = class {
 
     setTimeout(() => {
       while (this.el.hasChildNodes()) {
-        tile.classList.add('fade-out');
         this.el.removeChild(this.el.lastChild);
       }
     }, 100);
