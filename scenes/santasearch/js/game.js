@@ -78,7 +78,7 @@ app.Game = function(elem) {
 
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
-  this.controls = new app.Controls(elem);
+  this.controls = new app.Controls(this.elem, this.mapElem);
 
   this.mapElementDimensions = {};
 

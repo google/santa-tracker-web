@@ -23,8 +23,9 @@ goog.require('app.Constants');
  * @param {!Element} elem The game element.
  * @constructor
  */
-app.Controls = function(elem) {
+app.Controls = function(elem, mapElem) {
   this.elem = elem;
+  this.mapElem = mapElem;
 
   this.enabled = false;
 
@@ -99,7 +100,9 @@ app.Controls.prototype._onTouchstart = function(e) {
   var touchX = e.originalEvent.changedTouches[0].clientX;
   var touchY = e.originalEvent.changedTouches[0].clientY;
 
-  e.preventDefault();
+  if (e.target === this.mapElem) {
+    e.preventDefault();
+  }
 
   this._updateLocation(touchX, touchY);
 };
@@ -114,7 +117,9 @@ app.Controls.prototype._onTouchmove = function(e) {
     var touchX = e.originalEvent.changedTouches[0].clientX;
     var touchY = e.originalEvent.changedTouches[0].clientY;
 
-    e.preventDefault();
+    if (e.target === this.mapElem) {
+      e.preventDefault();
+    }
 
     this._updateLocation(touchX, touchY);
   }
@@ -129,7 +134,9 @@ app.Controls.prototype._onTouchend = function(e) {
   var touchX = e.originalEvent.changedTouches[0].clientX;
   var touchY = e.originalEvent.changedTouches[0].clientY;
 
-  e.preventDefault();
+  if (e.target === this.mapElem) {
+    e.preventDefault();
+  }
 
   this._updateLocation(touchX, touchY);
 
@@ -182,7 +189,7 @@ app.Controls.prototype._zoomIn = function() {
   if (!this.enabled) {
     return;
   }
-  
+
   if (this.scale < app.Constants.ZOOM_MAX) {
     this.scale += 1;
     this.needsScaleUpdate = true;
