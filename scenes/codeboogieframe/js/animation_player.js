@@ -60,7 +60,7 @@ class Animation {
 
     sprite.duration = sprite.frames / fps;
 
-    this.images = JSON.parse(JSON.stringify(app.AnimationData));
+    this.images = app.AnimationData();
 
     Object.keys(this.images).forEach(key => {
       let value = this.images[key];

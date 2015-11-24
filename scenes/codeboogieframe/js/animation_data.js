@@ -18,7 +18,7 @@
 
 goog.provide('app.AnimationData');
 
-app.AnimationData = {
+app.AnimationData = () => ({
   "carlton_0": {
     "width": 236,
     "height": 366,
@@ -397,4 +397,4 @@ app.AnimationData = {
     "offsetX": 479,
     "offsetY": 152
   }
-};
+});
