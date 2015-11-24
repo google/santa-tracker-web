@@ -97,21 +97,6 @@ app.Game = function(elem) {
  */
 app.Game.prototype.start = function() {
   this.restart();
-
-  this._initializeCharacter('santa');
-  this._initializeCharacter('mrs-claus');
-  this._initializeCharacter('rudolph');
-  this._initializeCharacter('gingerbread-man');
-  this._initializeCharacter('pegman');
-  this._initializeCharacter('penguin');
-
-  this._scale(1);
-
-  this._setupEventHandlers();
-
-  this._focusNextUnfoundCharacter();
-
-  this.controls.start();
 };
 
 /**
@@ -195,6 +180,9 @@ app.Game.prototype._initializeCharacter = function(characterName) {
 
   let character = this.characters[characterName];
 
+  character.isFound = false;
+  character.uiElem.removeClass('character-ui__character-wrapper--found');
+  
   character.location = characterSpawnPoint.locationScale;
   character.scale = characterSpawnPoint.sizeScale;
 
@@ -341,6 +329,21 @@ app.Game.prototype.restart = function() {
 
   window.santaApp.fire('analytics-track-game-start', {gameid: 'santasearch'});
   this.gameStartTime = +new Date;
+
+  this._initializeCharacter('santa');
+  this._initializeCharacter('mrs-claus');
+  this._initializeCharacter('rudolph');
+  this._initializeCharacter('gingerbread-man');
+  this._initializeCharacter('pegman');
+  this._initializeCharacter('penguin');
+
+  this._scale(1);
+
+  this._setupEventHandlers();
+
+  this._focusNextUnfoundCharacter();
+
+  this.controls.start();
 };
 
 /**
