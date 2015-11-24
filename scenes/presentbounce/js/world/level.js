@@ -283,8 +283,7 @@ goog.scope(function () {
      * @private
      */
     hasBallHitTarget_() {
-      // TODO detect collision with target and call this.onCompleteCallback(score);
-      return false;
+      return (this.target_ && this.target_.hasHitBottom);
     }
 
     /**
@@ -319,12 +318,16 @@ goog.scope(function () {
       if (this.debug_) {
         this.world_.DrawDebugData();
       }
+
+      if (this.isLevelFinished()) {
+        this.onCompleteCallback();
+      }
     }
 
     /**
      * @public
      */
-    isGameFinished() {
+    isLevelFinished() {
       return this.hasBallHitTarget_();
     }
 

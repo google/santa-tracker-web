@@ -38,6 +38,7 @@ goog.scope(function () {
     constructor(...args) {
       super(...args); // super(...arguments) doesn't work in Closure Compiler
       this.body_ = this.buildBody_();
+      this.hasHitBottom = false;
       this.onCollision_ = this.onCollision_.bind(this);
       this.registerForCollisions( this.onCollision_ );
     }
@@ -48,6 +49,7 @@ goog.scope(function () {
       if (contact.GetFixtureA().ID === this.collisionFixture.ID ||
         contact.GetFixtureB().ID === this.collisionFixture.ID) {
           console.log("hit the bottom target!");
+          this.hasHitBottom = true;
         }
     }
 
@@ -107,7 +109,6 @@ goog.scope(function () {
       body.CreateFixture( rightFixDef );
       body.CreateFixture( rightEdgeFixDef );
       this.setCollisionFixture( body.CreateFixture( bottomFixDef ) );
-      // body.CreateFixture( bottomFixDef );
       return body;
     }
   }
