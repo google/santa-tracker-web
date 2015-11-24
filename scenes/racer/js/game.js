@@ -119,6 +119,7 @@ SB.Game.prototype.setup_ = function() {
 SB.Game.prototype.startGame_ = function() {
   // declare them as playing
   window.santaApp.fire('sound-trigger', 'rc_start_game');
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'racer'});
   this.gameStartTime = +new Date;
   this.controls.start();
@@ -331,6 +332,7 @@ SB.Game.prototype.initialize = function() {
  */
 SB.Game.prototype.restart = function() {
   window.santaApp.fire('sound-trigger', 'rc_start_game');
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'racer'});
   this.gameStartTime = +new Date;
 
@@ -395,6 +397,7 @@ SB.Game.prototype.gameover = function() {
   if (this.playing) {
     this.playing = false;
     window.santaApp.fire('sound-trigger', 'rc_game_over');
+    window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
     window.santaApp.fire('sound-trigger', {name: 'rc_sled_speed', args: [0]});
 
     window.santaApp.fire('analytics-track-game-over', {

@@ -141,6 +141,7 @@ Game.prototype.restart = function() {
   // Start game
   this.unfreezeGame();
   window.santaApp.fire('sound-trigger', 'bl_game_start');
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'boatload'});
   this.gameStartTime = +new Date;
 };
@@ -377,6 +378,7 @@ Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverDialog.show();
   window.santaApp.fire('sound-trigger', 'bl_game_stop');
+  window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'boatload',
     score: this.scoreboard.score,

@@ -303,6 +303,10 @@ Village scene (2015).
 
     onShow: function() {
       // Start timer one tick after scene is shown.
+      this.preloadSounds('village_load_sounds');
+      this.preloadSounds('load_music');
+      this.fire('sound-ambient', 'music_start_village');
+      this.fire('sound-ambient', 'village_start');
       this.async(function() {
         this.$.count.start();
       });

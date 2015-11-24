@@ -130,6 +130,7 @@ app.Game.prototype.restart = function() {
 
   window.santaApp.fire('analytics-track-game-start', {gameid: 'mercator'});
   window.santaApp.fire('sound-trigger', 'mercator_start');
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
 };
 
 
@@ -222,6 +223,7 @@ app.Game.prototype.bumpLevel_ = function(won) {
   if (won) {
     this.gameover();
     window.santaApp.fire('sound-trigger', 'mercator_game_over');
+    window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
   } else {
     this.startLevel_();
     window.santaApp.fire('sound-trigger', 'mercator_nextLevel');

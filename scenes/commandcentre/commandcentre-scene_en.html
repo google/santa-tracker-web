@@ -557,6 +557,7 @@ Command center scene.
 
     onShow: function() {
       this.fire('sound-ambient', 'command_start');
+      this.fire('sound-ambient', 'music_start_scene');
       var div = this.$['module-commandcentre'];
 
       this.scene = new scenes.commandcentre.Scene(div);
