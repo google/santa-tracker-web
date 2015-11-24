@@ -454,6 +454,7 @@ Season of giving scene.
     },
     onShow: function() {
       this.fire('sound-ambient', 'spirit_start');
+      this.fire('sound-ambient', 'music_start_scene');
       var module = this.$['module-seasonofgiving'];
 
       this.game = new scenes.seasonofgiving.Game(module, this.componentDir);

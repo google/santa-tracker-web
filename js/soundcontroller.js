@@ -81,8 +81,8 @@ SoundController.klangSrc_ = 'third_party/lib/klang/klang.js';
  * Klang config file URL.
  * @private {string}
  */
-SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.json'; // old
-//SoundController.klangConfigSrc_ = 'http://klangfiles.s3.amazonaws.com/uploads/projects/1kZNh/config.json'
+//SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.json'; // old
+SoundController.klangConfigSrc_ = 'http://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/config.json'
 
 /**
  * Loads the Klang config file; called onload of the Klang library.
@@ -92,6 +92,7 @@ SoundController.prototype.loadKlangConfig_ = function() {
   // load config script
   Klang.init(SoundController.klangConfigSrc_, function(success) {
     if (success) {
+      Klang.loggingEnabled=true;
       console.log('Klang loaded');
       this.klangLoaded_ = true;
 
@@ -205,12 +206,11 @@ SoundController.prototype.playSound = function(loadEvent) {
  * @private
  */
 SoundController.prototype.triggerSound_ = function(sound) {
+
   var soundName = typeof sound === 'string' ? sound : sound.name;
   var args = [soundName];
-
   if (sound.args && Array.isArray(sound.args)) {
     [].push.apply(args, sound.args);
   }
-
   Klang.triggerEvent.apply(Klang, args);
 };
