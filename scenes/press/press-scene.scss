@@ -7,6 +7,7 @@ $name: 'module-press';
   @import "sass/footer";
 
   background: #F7FCFB;
+  -webkit-font-smoothing: antialiased;
 
   .fit.scroll {
     height: 100vh;
@@ -98,7 +99,6 @@ $name: 'module-press';
       font-size: 20px;
       font-wight: normal;
       line-height: 32px;
-      color: #263238;
     }
     
     button {
@@ -141,6 +141,10 @@ $name: 'module-press';
 
     .press-description {
       @extend .clearfix;
+
+      p {
+        color: rgba(38, 50, 56, 0.8);;
+      }
     }  
 
     .press-description-left {
@@ -264,7 +268,7 @@ $name: 'module-press';
     .press-card {
       width: calc(33% - 30px);
 
-      &:nth-child(3n + 1) {
+      &.clear-desktop-row {
         clear: left;
       }
 

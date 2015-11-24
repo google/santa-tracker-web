@@ -21,6 +21,12 @@
     }
   }
 
+  p {
+    color: #607d8b;
+    font-size: 14px !important;
+    line-height: 24px !important;
+  }
+
   .press-card-img {
     background: url(img/tmb-santas-village.jpg) 50% 50% no-repeat;
     background-size: cover;    
@@ -40,12 +46,12 @@
     }
 
     .press-card-lock {
-      background: rgba(0, 172, 193, .8) url(img/ic-lock-32px_2x.png) 50% 60% no-repeat; 
+      background: rgba(0, 172, 193, .8) url(img/ic-lock-32px_2x.png) 50% 55% no-repeat; 
       background-size: 10% auto;
       box-sizing: border-box;
       display: none;
       height: 100%; 
-      padding-top: 25px;
+      padding-top: 20px;
       position: relative;
       text-align: center;
       width: 100%;
