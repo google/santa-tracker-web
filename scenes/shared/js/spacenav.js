@@ -1,12 +1,5 @@
-console.log('Spacenav extension loading');
-
-var spacenavInitiatedAlready = false;
-
-var initiateSpacenavHandlers = function(gutters) {
-  if (spacenavInitiatedAlready) {
-    return;
-  }
-  spacenavInitiatedAlready = true;
+(function(gutters) {
+  console.log('Spacenav extension loading');
   if (santaApp.mode != "portal") {
     console.log('Ignoring Spacenav extension.');
     return;
@@ -93,10 +86,8 @@ var initiateSpacenavHandlers = function(gutters) {
       setTimeout(function() {
         stop('SPACE');
       }, 10);
-	}
+    }
   }.bind(this));
 
   console.log('Spacenav handler loaded');
-};
-
-initiateSpacenavHandlers();
+}());
