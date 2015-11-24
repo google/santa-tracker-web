@@ -115,6 +115,7 @@ app.Scene.prototype.setActiveFilter_ = function() {
 
     var $cards = this.active ? this.$cards.filter('[press-' + this.active + ']') : this.$cards;
     $cards.removeAttr('hidden').each(function(index, element) {
+      $(element).removeClass('clear-desktop-row clear-tablet-row')
       if (index % 3 == 0) {
         $(element).addClass('clear-desktop-row');
       }

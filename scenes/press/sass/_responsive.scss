@@ -19,6 +19,7 @@ $mobilePortraitBreakpoint: 400px;
     .press-card {
       float: none;
       margin: 0 auto 30px;
+      width: calc(70% - 30px);
     }
   }
 
@@ -59,7 +60,7 @@ $mobilePortraitBreakpoint: 400px;
   #press-hero {
     background-position: 78% 50%;
     height: 100%;
-    padding: 20px 0 225px;
+    padding: 20px 0 275px;
 
     .press-header {
       padding: 30px 0;
@@ -91,6 +92,10 @@ $mobilePortraitBreakpoint: 400px;
   }
 
   #press-primary {
+    h2 {
+      padding: 0 10px;
+    }
+
     .press-card {
       width: calc(100% - 30px);
     }
@@ -112,7 +117,23 @@ $mobilePortraitBreakpoint: 400px;
 
   #press-embed {
     .press-embed-inner {
-      width: 100%;
+      width: 90%;
     }
+
+    .rect:before {
+      padding-top: 40%;
+    }
+  }
+
+  #press-device {
+    .press-device-intro {
+      margin: 1em auto;
+      width: 90%;
+    }
+  }
+
+  #press-footer {
+    padding: 100px 0;
+    width: 100%;
   }
 }
