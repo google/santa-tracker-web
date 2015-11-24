@@ -12,34 +12,34 @@
 
 // ID houseWidth houseHeight iceWidth iceHeight houseLeft houseTop iceLeft iceTop dateLeft dateTop labelX labelY zIndex
 $houses:
-    "airport"         812   179   627   240   -340   44    -175   0     0   0   0   0   $house-row-1-z-index,
-    "traditions"      235   222   424   236   35     21    -100   10    0   0   0   0   $house-row-1-z-index,
-    "codelab"         277   209   364   284   29     100   -40    55    0   0   0   0   $house-row-1-z-index,
-    "app"             280   366   443   351   -29    -11   -81    -3    0   0   0   0   $house-row-2-z-index+50,
-    "seasonofcaring"  333   233   373   282   8      0     -56    -31   200 32  0   0   $house-row-2-z-index,
-    "santasback"      231   180   499   284   98     23    -53    -30   110 64  0   0   $house-row-2-z-index,
-    "santaselfie"     209   262   497   348   81     41    -80    10    0   0   0   0   $house-row-2-z-index+50,
-    "translations"    311   174   712   286   5      101   -180   45    0   0   0   0   $house-row-3-z-index+20,
-    "callfromsanta"   271   298   537   321   11     0     -120   0     0   0   0   0   $house-row-3-z-index,
-    "briefing"        315   246   355   287   0      0     0      0     0   0   0   0   $house-row-3-z-index,
-    "presentdrop"     198   278   300   333   85     8     18     -19   0   0   0   0   $house-row-3-z-index,
-    "santasearch"     287   174   484   246   30     105   -50    40    0   0   0   0   $house-row-3-z-index,
-    "windtunnel"      336   203   537   222   -16    47    -99    58    0   0   0   0   $house-row-4-z-index,
-    "racer"           345   259   424   266   -10    57    -104   40    0   0   0   0   $house-row-4-z-index,
-    "jamband"         379   250   606   267   -33    -19   -140   36    0   0   0   0   $house-row-4-z-index,
-    "gumball"         257   308   374   359   59     -68    -5    -70   0   0   0   0   $house-row-4-z-index,
-    "postcard"        286   224   364   248   -17    32    -82    10    0   0   0   0   $house-row-5-z-index,
-    "jetpack"         287   258   367   333   20     53    -45    0     0   0   0   0   $house-row-5-z-index+40,
-    "boatload"        240   169   472   250   -7     102   -105   61    0   0   0   0   $house-row-5-z-index,
-    "mercator"        328   275   462   348   -15    8     -109   -21   0   0   0   0   $house-row-5-z-index,
-    "presentbounce"   341   256   521   348   9      47    -110   10    0   0   0   0   $house-row-6-z-index+20,
-    "codeboogie"      294   224   403   280   24     30    -31    -5    0   0   0   0   $house-row-6-z-index,
-    "elf-car"         307   337   437   354   25     -56   -70    -57   0   0   0   0   $house-row-6-z-index,
-    "citylights"      360   311   467   332   -10    0     -34    -10   0   0   0   0   $house-row-6-z-index,
-    "commandcentre"   197   215   380   271   104    48    10     40    0   0   0   0   $house-row-7-z-index,
-    "seasonofgiving"  390   241   373   282   -59    52    -45    32    0   0   0   0   $house-row-7-z-index,
-    "matching"        303   192   457   270   49     36    -58    10    0   0   0   0   $house-row-7-z-index,
-    "liftoff"         276   294   355   336   55     37    22     11    0   0   0   0   $house-row-7-z-index;
+    "airport"         812   179   627   240   -340   44    -175   0     0   0   65  -15 $house-row-1-z-index,
+    "traditions"      235   222   424   236   35     21    -100   10    0   0   -12 -8  $house-row-1-z-index,
+    "codelab"         277   209   364   284   29     100   -40    55    0   0   -21 -3  $house-row-1-z-index,
+    "app"             280   366   443   351   -29    -11   -81    -3    0   0   24  -18 $house-row-2-z-index+50,
+    "seasonofcaring"  333   233   373   282   8      0     -56    -31   200 32  -40 -8  $house-row-2-z-index,
+    "santasback"      231   180   499   284   98     23    -53    -30   110 64  -2  6   $house-row-2-z-index,
+    "santaselfie"     209   262   497   348   81     41    -80    10    0   0   8   4   $house-row-2-z-index+50,
+    "translations"    311   174   712   286   5      101   -180   45    0   0   -18 6   $house-row-3-z-index+20,
+    "callfromsanta"   271   298   537   321   11     0     -120   0     0   0   -22 7   $house-row-3-z-index,
+    "briefing"        315   246   355   287   0      0     0      0     0   0   -14 4   $house-row-3-z-index,
+    "presentdrop"     198   278   300   333   85     8     18     -19   0   0   -15 4   $house-row-3-z-index,
+    "santasearch"     287   174   484   246   30     105   -50    40    0   0   -24 -13 $house-row-3-z-index,
+    "windtunnel"      336   203   537   222   -16    47    -99    58    0   0   0   -8  $house-row-4-z-index,
+    "racer"           345   259   424   266   -10    57    -104   40    0   0   -25 -25 $house-row-4-z-index,
+    "jamband"         379   250   606   267   -33    -19   -140   36    0   0   10  10  $house-row-4-z-index,
+    "gumball"         257   308   374   359   59     -18    0    -50   0   0   -25 -2  $house-row-4-z-index,
+    "postcard"        286   224   364   248   -37    12    -62    -10   0   0   -6  -10 $house-row-5-z-index,
+    "jetpack"         287   258   367   333   20     53    -45    0     0   0   -23 -5  $house-row-5-z-index+40,
+    "boatload"        240   169   472   250   -7     82   -105    41    0   0   -13 7   $house-row-5-z-index,
+    "mercator"        328   275   462   348   0    8     -109     -6    0   0   0   -20 $house-row-5-z-index,
+    "presentbounce"   341   256   521   348   9      47    -110   10    0   0   -27 -12 $house-row-6-z-index+20,
+    "codeboogie"      294   224   403   280   24     30    -31    -5    0   0   -37 -12 $house-row-6-z-index,
+    "elf-car"         307   337   437   354   25     -56   -70    -57   0   0   -30 4   $house-row-6-z-index,
+    "citylights"      360   311   467   332   -10    0     -34    -10   0   0   19  -19 $house-row-6-z-index,
+    "commandcentre"   197   215   380   271   104    48    10     40    0   0   -2  4   $house-row-7-z-index,
+    "seasonofgiving"  390   241   373   282   -59    52    -45    32    0   0   49  -6  $house-row-7-z-index,
+    "matching"        303   192   457   270   49     36    -58    10    0   0   0   4   $house-row-7-z-index,
+    "liftoff"         276   294   355   336   55     37    22     11    0   0   -14 -11 $house-row-7-z-index;
 
 $idx-id: 1;
 $idx-width: 2;
@@ -52,8 +52,8 @@ $idx-iceLeft: 8;
 $idx-iceTop: 9;
 $idx-dateLeft: 10;
 $idx-dateTop: 11;
-$idx-labelLeft: 12;
-$idx-labelTop: 13;
+$idx-labelX: 12;
+$idx-labelY: 13;
 $idx-zIndex: 14;
 
 #drawer {
@@ -97,9 +97,11 @@ $idx-zIndex: 14;
       // z-index set on child .assets, not top-level .house (don't create
       // heirarchy here)
 
-      .assets {
+      .housez {
         z-index: nth($house, $idx-zIndex) + (1+($i % 4) * 10);
+      }
 
+      .assets {
         .building {
           background-image: url(img/building-#{$id}.svg);
           width: percent(nth($house, $idx-width), $dim-house);
@@ -120,6 +122,13 @@ $idx-zIndex: 14;
           left: percent(nth($house, $idx-dateLeft), $dim-house);
           top: percent(nth($house, $idx-dateTop), $dim-house);
         }
+      }
+
+      .action {
+        $l: nth($house, $idx-left) + nth($house, $idx-width) / 2 + nth($house, $idx-labelX);
+        $t: nth($house, $idx-top) + nth($house, $idx-height) + nth($house, $idx-labelY);
+        left: percent($l, $dim-house);
+        top: percent($t, $dim-house);
       }
 
       .link {

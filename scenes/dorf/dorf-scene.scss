@@ -208,6 +208,11 @@ $name: 'module-dorf';
       flex-direction: column;
       position: relative;
 
+      // TODO(samthor): Give this a layer, as it extends over its neighbour
+      // to the south, and Chrome is confused when painting.
+      transform: translateZ(0);
+      will-change: transform;
+
       #count-down {
         padding: 45px 0 30px 0;
       }
@@ -272,8 +277,12 @@ $name: 'module-dorf';
     z-index: $base-background-z-index;
     position: relative;  // nb. creates a z-index layer for children
     overflow: hidden;
-    top: -30px;
     padding-bottom: 300px;
+
+    // Move the village up by 30px, but give the layer an extra 30px to work
+    // with: this gives space for the hover cards.
+    margin-top: -60px;
+    padding-top: 30px;
 
     @import "sass/eastereggs";
 
@@ -343,6 +352,11 @@ $name: 'module-dorf';
     top: -290px;
     margin-bottom: -290px;
 
+    // TODO(samthor): Give this a layer, as it extends over its neighbour
+    // to the north, and Chrome is confused when painting.
+    transform: translateZ(0);
+    will-change: transform;
+
     #village-footer-elves {
       background-image: url(img/footer-elves.svg);
       background-repeat: no-repeat;
@@ -376,7 +390,7 @@ $name: 'module-dorf';
         background-position: 50% 0;
         width: 100%;
         height: 100%;
-        top: $ground-top;
+        top: $ground-top + 30px;
       }
 
       #road {
@@ -388,7 +402,7 @@ $name: 'module-dorf';
         background-size: $road-size-w $road-size-h;
         width: 100%;
         height: 100%;
-        top: $road-top;
+        top: $road-top + 30px;;
       }
 
       .house {
@@ -433,6 +447,9 @@ $name: 'module-dorf';
               opacity: 1;
             }
           }
+          h5 {
+            display: none;
+          }
         }
       }  // .house
     }
@@ -446,55 +463,82 @@ $name: 'module-dorf';
       height: 100%;
     }
 
-    .link {
-      // TODO(samthor): Use sizing from _houses; just a quick hack for now.
-      // Restore layerX/layerY position.
-      width: 50%;
-      height: 50%;
-      left: 25%;
-      bottom: 25%;
+    /**
+     * Each house's action is basically positioned at its center bottom point,
+     * something like its door. The label, e.g. "Play", "Learn" etc is shown
+     * just under this point. It provides the base for a touch area.
+     */
+    .action {
       position: absolute;
-      z-index: 30000;
+      width: 50%;
+      height: 50%;  // this extends below the label, .link is this size but above
+      margin-bottom: -50%;
+      margin-left: -25%;
 
-      // Create a layer: this hints to browsers that yes, this card _REALLY IS_
-      // above everything else. Since there's no background/color etc, it's
-      // ignored anyway.
-      transform: translateZ(0);
-      will-change: transform;
-
-      $duration-in: 0.4s;
-      $easing-in: cubic-bezier(0.380, 0.800, 0.475, 1.285);
-      $duration-out: 0.2s;
-      $easing-out: ease-in;
-
-      .card {
-        $hs: $hover-card-size / 2;
-        width: $hover-card-size !important;
-        height: $hover-card-size !important;
-        margin: (-$hs) 0 0 (-$hs);
-        will-change: transform, opacity;
-        border-radius: 10000px;
-        overflow: hidden;
-        transition: transform $duration-out $easing-out, opacity $duration-out $easing-out;
-        transform: scale(0);
-        opacity: 0.25;
-        left: 50%;
-        top: 50%;
-        box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
-
-        .launchdate {
-          display: none;
-        }
+      h5 {
+        margin: 0;
+        font-size: 12px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        color: #fff;
+        line-height: 12px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #37afdb;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.125);
+        position: relative;  // so .housez class can take effect
       }
 
-      &:hover, &:active {
+      .link {
+        // TODO(samthor): Use sizing from _houses; just a quick hack for now.
+        // Restore layerX/layerY position.
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        bottom: 100%;
+        position: absolute;
+        z-index: 30000;
+
+        // Create a layer: this hints to browsers that yes, this card _REALLY IS_
+        // above everything else. Since there's no background/color etc, it's
+        // ignored anyway.
+        transform: translateZ(0);
+        will-change: transform;
+
+        $duration-in: 0.4s;
+        $easing-in: cubic-bezier(0.380, 0.800, 0.475, 1.285);
+        $duration-out: 0.2s;
+        $easing-out: ease-in;
+
         .card {
-          transition: transform $duration-in $easing-in, opacity $duration-in $easing-in;
-          transform: scale(1);
-          opacity: 1;
+          $hs: $hover-card-size / 2;
+          width: $hover-card-size !important;
+          height: $hover-card-size !important;
+          margin: (-$hs) 0 0 (-$hs);
+          will-change: transform, opacity;
+          border-radius: 10000px;
+          overflow: hidden;
+          transition: transform $duration-out $easing-out, opacity $duration-out $easing-out;
+          transform: scale(0);
+          opacity: 0.25;
+          left: 50%;
+          top: 50%;
+          box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
+
+          .launchdate {
+            display: none;
+          }
         }
-      }
-    }
+
+        &:hover, &:active {
+          .card {
+            transition: transform $duration-in $easing-in, opacity $duration-in $easing-in;
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+      }  // .link
+    } // .action
   }
 
   /** Tablet village. Shrunk version of desktop. */

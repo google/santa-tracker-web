@@ -108,7 +108,7 @@ Village scene (2015).
               <div id$="house-{{item.module}}"
                    class$="house house-{{item.module}} {{_calculateClass(item, item.iced)}}"
                    disabled$="{{item.disabled}}">
-                <div class="assets">
+                <div class="assets housez">
                   <div class="building"></div>
                   <div class="ice"></div>
                   <template is="dom-if" if="{{!item.hideDate}}">
@@ -116,15 +116,18 @@ Village scene (2015).
                   </template>
                 </div>
                 <template is="dom-if" if="{{!item.disabled}}">
-                  <a class="link" href="{{_calculateHref(item)}}">
-                    <div class$="card card-{{item.module}}">
-                      <div class="image"></div>
-                      <h4>{{_stringCategory(_strings, item.category)}}</h4>
-                      <h3>{{_stringScene(_strings, item.module)}}</h3>
-                      <template is="dom-if" if="{{!item.hideDate}}">
-                        <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
-                      </template>
-                    </div>
+                  <div class="action">
+                    <a class="link" href="{{_calculateHref(item)}}">
+                      <div class$="card card-{{item.module}}">
+                        <div class="image"></div>
+                        <h4>{{_stringCategory(_strings, item.category)}}</h4>
+                        <h3>{{_stringScene(_strings, item.module)}}</h3>
+                        <template is="dom-if" if="{{!item.hideDate}}">
+                          <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
+                        </template>
+                      </div>
+                    </a>
+                    <h5 class="housez">{{_stringCategory(_strings, item.category)}}</h5>
                   </a>
                 </template>
               </div>
