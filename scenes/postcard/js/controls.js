@@ -70,11 +70,13 @@ app.Controls.prototype.onKeyDown_ = function(e) {
 
   if (!this.leftRightPressed && (key === 'left' || key === 'right')) {
     this.tutorial.off('keys-leftright');
+    this.tutorial.off('spacenav-leftright');
     this.leftRightPressed = true;
   }
 
   if (!this.upDownPressed && (key === 'up' || key === 'down')) {
     this.tutorial.off('keys-updown');
+    this.tutorial.off('spacenav-updown');
     this.upDownPressed = true;
   }
 };

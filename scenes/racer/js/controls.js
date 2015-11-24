@@ -125,11 +125,13 @@ Controls.prototype.onKeydown = function(e) {
   // Let tutorial know when user presses a button
   if (!this.upPressed && this.keys['up']) {
     this.tutorial.off('keys-up');
+    this.tutorial.off('spacenav-up');
     this.upPressed = true;
   }
 
   if (!this.leftRightPressed && (this.keys['left'] || this.keys['right'])) {
     this.tutorial.off('keys-leftright');
+    this.tutorial.off('spacenav-leftright');
     this.leftRightPressed = true;
   }
 };
