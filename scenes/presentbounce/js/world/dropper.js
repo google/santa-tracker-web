@@ -25,14 +25,14 @@ goog.require('app.world.LevelObject');
 
 goog.scope(function () {
   const Unit = app.Unit;
-  
+
 
   /**
    * Dropper class
    * Where the ball comes out
    */
-  class Dropper extends app.world.LevelObject {  
-    
+  class Dropper extends app.world.LevelObject {
+
     /**
      * @override
      */
@@ -57,7 +57,7 @@ goog.scope(function () {
     }
 
     /**
-     * @inheritDoc 
+     * @inheritDoc
      */
     buildBody_() {
       const bodyDef = new b2.BodyDef();
@@ -68,13 +68,13 @@ goog.scope(function () {
       const material = this.config_.material;
       const worldWidth = Unit.toWorld(this.config_.style.width);
       const worldHeigt = Unit.toWorld(this.config_.style.height);
-      
+
       const leftFixDef = new b2.FixtureDef();
       leftFixDef.density = material.globeDensity;
       leftFixDef.friction = material.friction;
       leftFixDef.restitution = material.restitution;
-      leftFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth/2, -worldHeigt), new b2.Vec2(-worldWidth/2, 0));  
-      
+      leftFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth/2, -worldHeigt), new b2.Vec2(-worldWidth/2, 0));
+
       const rightFixDef = new b2.FixtureDef();
       rightFixDef.density = material.globeDensity;
       rightFixDef.friction = material.friction;
