@@ -38,12 +38,22 @@ goog.scope(function () {
     constructor(...args) {
       super(...args); // super(...arguments) doesn't work in Closure Compiler
       this.body_ = this.buildBody_();
-      // this.registerForCollisions( this.onCollision_ );
+      this.onCollision_ = this.onCollision_.bind(this);
+      this.registerForCollisions( this.onCollision_ );
     }
 
-    // onCollision_() {
-    //   console.log("Target :: onCollision_", Math.random());
-    // }
+    onCollision_(contact) {
+      if (!this.collisionFixture) return;
+
+      if (contact.GetFixtureA().ID === this.collisionFixture.ID ||
+        contact.GetFixtureB().ID === this.collisionFixture.ID) {
+          console.log("hit the bottom target!");
+        }
+    }
+
+    setCollisionFixture(obj) {
+      this.collisionFixture = obj;
+    }
 
     /**
      * @inheritDoc
@@ -94,9 +104,10 @@ goog.scope(function () {
       const body = this.world_.CreateBody( bodyDef );
       body.CreateFixture( leftEdgeFixDef );
       body.CreateFixture( leftFixDef );
-      body.CreateFixture( bottomFixDef );
       body.CreateFixture( rightFixDef );
       body.CreateFixture( rightEdgeFixDef );
+      this.setCollisionFixture( body.CreateFixture( bottomFixDef ) );
+      // body.CreateFixture( bottomFixDef );
       return body;
     }
   }

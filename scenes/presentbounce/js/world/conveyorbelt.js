@@ -40,11 +40,6 @@ goog.scope(function () {
       super(...args); // super(...arguments) doesn't work in Closure Compiler
       this.currentDirection_ = this.config_.beltDirection;
       this.body_ = this.buildBody_();
-      this.registerForCollisions( this.onCollision_ );
-    }
-
-    onCollision_() {
-      console.log("ConveyorBelt :: onCollision_", Math.random());
     }
 
     /**

@@ -64,7 +64,7 @@ goog.scope(function () {
 
       this.buildWorld_();
 
-      // collision detection
+      // Adding collision detection
       const listener = new b2.ContactListener;
       listener.BeginContact = this.onBeginContact_;
       listener.EndContact = this.onEndContact_;
@@ -76,26 +76,47 @@ goog.scope(function () {
       this.init_();
     }
 
+    /**
+     * Fired when two fixtures start contacting (aka touching) each other.
+     * @param  {[type]} contact [description]
+     * @return {[type]}         [description]
+     */
     onBeginContact_(contact) {
       const bodyA = contact.GetFixtureA().GetBody();
       const bodyB = contact.GetFixtureB().GetBody();
 
       if (bodyA && typeof bodyA.collisionCallback === 'function') {
-        bodyA.collisionCallback();
+        bodyA.collisionCallback(contact);
       }
 
       if (bodyB && typeof bodyB.collisionCallback === 'function') {
-        bodyB.collisionCallback();
+        bodyB.collisionCallback(contact);
       }
     }
 
+    /**
+     * Fired when two fixtures cease contact.
+     * @param  {[type]} contact [description]
+     * @return {[type]}         [description]
+     */
     onEndContact_(contact) {
     }
 
-    onPostSolve_(contact, impulse) {
+    /**
+     * Fired before contact is resolved. We have the opportunity to override the contact here.
+     * @param  {[type]} contact     [description]
+     * @param  {[type]} oldManifold [description]
+     * @return {[type]}             [description]
+     */
+    onPreSolve_(contact, oldManifold) {
     }
 
-    onPreSolve_(contact, oldManifold) {
+    /**
+     * Fired once the contact is resolved. The event also includes the impulse from the contact.
+     * @param  {[type]} contact [description]
+     * @param  {Array} impulse An array of impulse values for the collision
+     */
+    onPostSolve_(contact, impulse) {
     }
 
     positionWrapperElement_(el) {
@@ -279,8 +300,8 @@ goog.scope(function () {
       // update Box2D physics simulation
       // Box2D manual recommends a "fixed time step":
       // "We also don't like the time step to change much. A variable time step
-      //  produces variable results, which makes it difficult to debug. 
-      //  So don't tie the time step to your frame rate (unless you really, 
+      //  produces variable results, which makes it difficult to debug.
+      //  So don't tie the time step to your frame rate (unless you really,
       //  really have to). " (http://www.box2d.org/manual.html)
       this.world_.Step(
         Constants.PHYSICS_TIME_STEP,
@@ -290,7 +311,7 @@ goog.scope(function () {
 
       // Draw all objects in the DOM
       this.drawFrame_();
-      
+
       // Clear Box2D forces for next iteration
       this.world_.ClearForces();
 
@@ -311,7 +332,7 @@ goog.scope(function () {
      * @public
      */
     onUserInteractionStart() {
-      
+
       // user not allowed to play while moving stuff
       this.destroyBall();
 
@@ -321,7 +342,7 @@ goog.scope(function () {
       // loop through user placed objects
       for (let object of this.userObjects_) {
         object.onUserInteractionStart();
-      } 
+      }
     }
 
     /**
@@ -334,9 +355,9 @@ goog.scope(function () {
       // loop through user placed objects
       for (let object of this.userObjects_) {
         object.onUserInteractionEnd();
-      } 
+      }
     }
-    
+
     /**
      * Destroy level and all Box2D/DOM resources
      * @public
