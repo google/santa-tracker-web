@@ -30,11 +30,11 @@ $mobilePortraitBreakpoint: 400px;
     .press-card {
       width: calc(50% - 30px);
 
-      &:nth-child(3n + 1) {
+      &.clear-desktop-row {
         clear: none;
       }
       
-      &:nth-child(2n + 1) {
+      &.clear-tablet-row {
         clear: left;
       }
     }

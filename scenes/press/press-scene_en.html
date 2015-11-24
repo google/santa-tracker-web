@@ -263,9 +263,11 @@ specific language governing permissions and limitations under the License.
     },
 
     onShow: function() {
-      var module = this.$['module-press'];
+      this.scene.show('new');
+    },
 
-      this.scene = new scenes.press.Scene(module);
+    ready: function() {
+      this.scene = new scenes.press.Scene(this);
       this.cards = this.scene.getCards();
     }
 

@@ -48,16 +48,14 @@ app.Scene.prototype.getCards = function() {
 }
 
 /**
- * Unlock cards based on date.
+ * Functionality needed to fire on show.
  */
 
-app.Scene.prototype.unlockCards = function() {
-  this.cards.forEach(function(element, index) {
-    var moduleName = element.key;
-    if (!window.santaApp.sceneIsUnlocked(moduleName)) {
-      element.locked = true;
-    }
-  });
+app.Scene.prototype.show = function(active) {
+  this.$cards = this.context.find('[press-card]');
+
+  this.active = active;
+  this.setActiveFilter_();
 }
 
 /**
@@ -68,7 +66,22 @@ app.Scene.prototype.unlockCards = function() {
 
 app.Scene.prototype.init_ = function() {
   this.$filters.on('click', this.onFilterSelect_.bind(this));
-  this.unlockCards();
+  this.unlockCards_();
+}
+
+/**
+ * Unlock cards based on date.
+ *
+ * @private
+ */
+
+app.Scene.prototype.unlockCards_ = function() {
+  this.cards.forEach(function(element, index) {
+    var moduleName = element.key;
+    if (!window.santaApp.sceneIsUnlocked(moduleName)) {
+      element.locked = true;
+    }
+  });
 }
 
 /**
@@ -84,6 +97,16 @@ app.Scene.prototype.onFilterSelect_ = function(e) {
   this.$filters.removeClass('active');
   $(e.target).addClass('active');
 
+  this.setActiveFilter_();
+};
+
+/**
+ * Set active filter for list view.
+ *
+ * @private
+ */
+
+app.Scene.prototype.setActiveFilter_ = function() {
   this.$cards = this.context.find('[press-card]');
   this.$cards.addClass('fading-out');
 
@@ -92,6 +115,13 @@ app.Scene.prototype.onFilterSelect_ = function(e) {
 
     var $cards = this.active ? this.$cards.filter('[press-' + this.active + ']') : this.$cards;
     $cards.removeAttr('hidden').each(function(index, element) {
+      if (index % 3 == 0) {
+        $(element).addClass('clear-desktop-row');
+      }
+      if (index % 2 == 0) {
+        $(element).addClass('clear-tablet-row');
+      }
+
       setTimeout(function() {
         $(element).removeClass('fading-out');
       }.bind(this), (index * 50 + 50));    
