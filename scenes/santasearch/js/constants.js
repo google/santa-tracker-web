@@ -14,6 +14,7 @@
  * the License.
  */
 
+goog.provide('Constants');
 goog.provide('app.Constants');
 
 /**
@@ -118,3 +119,6 @@ app.Constants = {
     ]
   }
 };
+
+// Hack to support shared scoreboard with other apps.
+Constants = app.Constants;

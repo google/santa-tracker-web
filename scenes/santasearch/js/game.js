@@ -19,6 +19,7 @@ goog.provide('app.Game');
 goog.require('app.Controls');
 goog.require('app.Constants');
 goog.require('app.shared.utils');
+goog.require('app.shared.Gameover');
 
 
 
@@ -31,6 +32,8 @@ goog.require('app.shared.utils');
 app.Game = function(elem) {
   this.elem = $(elem);
   this.mapElem = this.elem.find('.map');
+
+  this.gameoverModal = new app.shared.Gameover(this, this.elem.find('.gameover'));
 
   this.characters = {
     'santa': {
@@ -165,7 +168,7 @@ app.Game.prototype._focusNextUnfoundCharacter = function() {
     this._focusUICharacter(nextToFind);
   } else {
     // Level cleared
-    alert('Level cleared.');
+    this.gameoverModal.show();
   }
 };
 

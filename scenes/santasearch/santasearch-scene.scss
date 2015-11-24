@@ -1,4 +1,8 @@
 $name: 'module-santasearch';
+$scene-bg: #44B3E6;
+$gameover-bg: $scene-bg;
+
+@import "../shared/sass/gameover";
 
 @import 'scss/map';
 @import 'scss/zoom';
@@ -14,7 +18,7 @@ $name: 'module-santasearch';
   left: 0;
 
   .scene {
-    background-color: #44B3E6;
+    background-color: $scene-bg;
     bottom: 0;
     left: 0;
     position: absolute;
