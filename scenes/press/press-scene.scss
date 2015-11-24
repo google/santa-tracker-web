@@ -274,6 +274,7 @@ $name: 'module-press';
 
       &.clear-desktop-row {
         clear: left;
+        width: calc(34% - 30px);
       }
 
       .press-card-img {

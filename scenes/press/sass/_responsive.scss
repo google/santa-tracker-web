@@ -29,7 +29,7 @@ $mobilePortraitBreakpoint: 400px;
     }
 
     .press-card {
-      width: calc(50% - 30px);
+      width: calc(50% - 30px) !important;
 
       &.clear-desktop-row {
         clear: none;
@@ -111,7 +111,7 @@ $mobilePortraitBreakpoint: 400px;
   #press-secondary {
     .press-card {
       clear: both;
-      width: calc(100% - 30px);
+      width: calc(100% - 30px) !important;
     }
   }
 
