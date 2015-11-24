@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "På julafton kommer vi stolt att kunna förhandsvisa jultomtens instrumentbräda – tekniken som driver släden på resan runt jorden. Vi har fått förhandsvisningen av en av tomtens många utvecklarnissar, som jobbar hårt på Nordpolen för att förbereda den stora dagen. Jultomtens instrumentbräda, med den senaste tekniken från Google Maps och innovativ slädingenjörskonst, låter dig följa honom på hans färd runt jorden. Du får även lära dig lite om platserna han stannar på längs vägen."
+		"message": "På julafton tänker vi stolt visa upp jultomtens instrumentpanel, den teknik som ligger bakom hans släde under hans färd runt världen. Vi har fått denna förhandsglimt från en av jultomtens många utvecklarnissar, som arbetar dag och natt på Nordpolen för att hjälpa jultomten att förbereda sig för sin stora dag. Med jultomtens instrumentpanel – som visar upp det senaste och bästa av tekniken bakom Google Maps och slädar – kan du följa var han är i världen och även läsa lite mer om de platser han besöker längs vägen."
 	},
 	"about-content-three": {
 		"message": "Google Maps funktion Följ jultomten skapas och utvecklas av Google, med lite hjälp från tomtenissarna. Behöver du hjälp, eller har du fler frågor? Besök vårt \u003ca href=\"//support.google.com/santatracker\"\u003ehjälpcenter\u003c/a\u003e."
@@ -326,6 +326,21 @@
 	"copy-me": {
 		"message": "Kopiera den här länken om du vill dela ditt meddelande"
 	},
+	"countdown_days": {
+		"message": "Dagar"
+	},
+	"countdown_hours": {
+		"message": "Tim"
+	},
+	"countdown_minutes": {
+		"message": "Min"
+	},
+	"countdown_seconds": {
+		"message": "Sek"
+	},
+	"countdown_until": {
+		"message": "Tomten lyfter om"
+	},
 	"countdownlabel": {
 		"message": "Tills jultomten reser iväg"
 	},
@@ -354,7 +369,7 @@
 		"message": "Tyska"
 	},
 	"de_tradition": {
-		"message": "I nästan varje tysk stad hålls julmarknad på torgen. Stadsborna samlas för att höra mässingsorkestrar och äta regionens traditionella rätter. De äter pepparkakshjärtan, sockerrostade mandlar, godis av alla de slag, och de dricker glögg (Glühwein) eller äppelcider."
+		"message": "I nästan varje tysk stad hålls julmarknad på torgen. Stadsborna samlas för att höra mässingsorkestrar och äta regionens traditionella rätter. De äter pepparkakshjärtan, brända mandlar och godis av alla de slag, och de dricker glögg (Glühwein) eller äppelcider."
 	},
 	"deck": {
 		"message": "Dekorera"
@@ -743,8 +758,92 @@
 	"sa_country_name": {
 		"message": "Saudiarabien"
 	},
+	"santasvillage": {
+		"message": "Jultomtens by"
+	},
 	"santatracker": {
 		"message": "Följ jultomten"
+	},
+	"scene_airport": {
+		"message": "Nordpolens flygplats"
+	},
+	"scene_app": {
+		"message": "Android-app"
+	},
+	"scene_boatload": {
+		"message": "Julklappskastning"
+	},
+	"scene_briefing": {
+		"message": "Tomtemors genomgång"
+	},
+	"scene_callfromsanta": {
+		"message": "Samtal från jultomten"
+	},
+	"scene_citylights": {
+		"message": "Stadsljus"
+	},
+	"scene_codeboogie": {
+		"message": "Koddans"
+	},
+	"scene_codelab": {
+		"message": "Kodlabb"
+	},
+	"scene_commandcentre": {
+		"message": "Uppdraget"
+	},
+	"scene_giftmatch": {
+		"message": "Matcha presenter"
+	},
+	"scene_gumball": {
+		"message": "Godisspel"
+	},
+	"scene_jamband": {
+		"message": "Tomtenissarna jammar"
+	},
+	"scene_jetpack": {
+		"message": "Tomtenisse-jetpack"
+	},
+	"scene_matching": {
+		"message": "Memory"
+	},
+	"scene_mercator": {
+		"message": "Karttest"
+	},
+	"scene_postcard": {
+		"message": "Tomtekort"
+	},
+	"scene_presentbounce": {
+		"message": "Julklappsstuds"
+	},
+	"scene_presentdrop": {
+		"message": "Julklappsutdelning"
+	},
+	"scene_racer": {
+		"message": "Rudolfloppet"
+	},
+	"scene_santasearch": {
+		"message": "Tomtesökning"
+	},
+	"scene_santaselfie": {
+		"message": "Tomteselfie"
+	},
+	"scene_seasonofgiving": {
+		"message": "Gåvornas säsong"
+	},
+	"scene_traditions": {
+		"message": "Jultraditioner"
+	},
+	"scene_translations": {
+		"message": "Översättningar"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Tomtenissens bil"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Jultomten lyfter"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Jultomten är tillbaka"
 	},
 	"score": {
 		"message": "Poäng"
@@ -795,7 +894,7 @@
 		"message": "Tchad"
 	},
 	"terms-and-privacy": {
-		"message": "Villkor och sekretess"
+		"message": "Användarvillkor"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -863,6 +962,9 @@
 	"tracker_santa_update": {
 		"message": "UPPDATERING FRÅN TOMTEN"
 	},
+	"tracker_santa_update_1": {
+		"message": "Uppdatering från tomten"
+	},
 	"tracker_see_route": {
 		"message": "Visa rutten"
 	},
@@ -871,6 +973,9 @@
 	},
 	"tracker_world_facts": {
 		"message": "VISSTE DU"
+	},
+	"tracker_world_facts_1": {
+		"message": "Fakta om världen"
 	},
 	"tracker_your_location": {
 		"message": "Din position"
@@ -4546,6 +4651,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Kom tillbaka den 24 december och hjälp oss spåra tomten hela natten."
+	},
+	"village_explore": {
+		"message": "Utforska, lek och lär med jultomtens nissar hela december"
+	},
+	"village_takesoff": {
+		"message": "Tomten lyfter om"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

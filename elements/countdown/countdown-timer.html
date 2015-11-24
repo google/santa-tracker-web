@@ -48,8 +48,7 @@ Example
 
     <div id="counter" class="layout horizontal">
       <template is="dom-repeat" items="{{titles}}">
-        <div class="counter-box layout vertical center"
-             hidden$="{{_computeHide(index, displayDigits)}}">
+        <div class="counter-box" hidden$="{{_computeHide(index, displayDigits)}}">
           <div class="holder active"></div>
           <div class="holder prev"></div>
           <h2>{{item}}</h2>
@@ -148,13 +147,8 @@ Example
         }
       },
 
-      _oldNumbers: [],
-
-      listeners: {
-         // For prod, <i18n-msg> is removed and textContent will already be
-         // correct. For dev, listen for i18n updates and update the labels.
-        'i18n-language-ready': 'updateLabels'
-      },
+      _oldNumbers: [],  // replaced in tickTock
+      _tickInterval: null,
 
       ready: function() {
         this._setCurrentTime(this._getCurrentTime());
@@ -228,10 +222,14 @@ Example
           var numbers = [padDigits(days), padDigits(hours), padDigits(mins),
               padDigits(seconds)];
           this.displayDigits = (days == 0) ? 6 : 8
-          for (var i = 0, holder; holder = this.holders[i]; ++i) {
-            this.setValue(holder, this._oldNumbers[i], numbers[i]);
+
+          // Ensure holders exist. Solves inconsistent asyncs.
+          if (this.holders.length) {
+            for (var i = 0, holder; holder = this.holders[i]; ++i) {
+              this.setValue(holder, this._oldNumbers[i], numbers[i]);
+            }
+            this._oldNumbers = numbers;
           }
-          this._oldNumbers = numbers;
         }
 
         // TODO: this is not i18n'd.
@@ -263,7 +261,7 @@ Example
        * Sets a value for the passed `.counter-box` node.
        */
       setValue: function(node, oldVal, val) {
-        if (oldVal == val) {
+        if (oldVal === val) {
           return;
         }
 
@@ -315,7 +313,7 @@ Example
        * Stop the countdown
        */
       stop: function() {
-        window.clearInterval(this.tickInterval_);
+        window.clearInterval(this._tickInterval);
         this.active = false;
       },
 
@@ -329,7 +327,7 @@ Example
         this.active = true;
         this.tickTock();
 
-        this.tickInterval_ = window.setInterval(this.tickTock.bind(this), 1000);
+        this._tickInterval = window.setInterval(this.tickTock.bind(this), 1000);
       },
 
       /**

@@ -1,0 +1,441 @@
+#eastereggs {
+  $idx-id: 1;
+  $idx-width: 2;
+  $idx-height: 3;
+  $idx-left: 4;
+  $idx-top: 5;
+  $idx-z-index: 6;
+
+  // id width height left top z-index
+  $all:
+      "tree"            831   616   291   342    ($house-row-3-z-index - 1),
+      "blocks"          360   150   904   646    ($house-row-3-z-index - 1),
+      "statue"          287   171   858   836    ($house-row-4-z-index - 1),
+      "penguin-revolt"  174   55    865   1571   ($house-row-6-z-index - 1),
+      "snowman-reading" 571   237   -227  1550   ($house-row-6-z-index - 1),
+      "rosetta-stone"   117   96    39    904    ($house-row-4-z-index - 1),
+      "white-board"     121   62    546   886    ($house-row-3-z-index - 0),
+      "schoolyard"      434   160   121   255    ($house-row-1-z-index - 0),
+      "tic-tac-toe"     447   130   853   282    ($house-row-2-z-index - 1),
+      "book-club"       90    97    360   558    ($house-row-2-z-index + 30),
+      "balloon"         183   209   200   804    ($house-z-index-front),
+      "balloon-ropes"   234   40    180   963    ($house-row-4-z-index - 1),
+      "balloon-flight"  155   209   200   804    ($house-row-4-z-index - 1),
+      "snowmobile1"     40    39    290   420    ($house-z-index-front),
+      "snowmobile2"     40    39    995   620    ($house-z-index-front),
+      "snowmobile3"     40    39    675   855    ($house-z-index-front),
+      "snowmobile4"     40    39    112   1950   ($house-z-index-front),
+      "unicycle"        21    57    310   500    ($house-row-2-z-index)+40,
+  ;
+
+  div {
+    background: center no-repeat;
+    background-size: contain;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  @for $i from 1 through length($all) {
+    $row: nth($all, $i);
+
+    #easteregg-#{nth($row, $idx-id)} {
+      z-index: nth($row, $idx-z-index) - 1;
+      background-image: url(img/easteregg-#{nth($row, $idx-id)}.svg);
+
+      // TODO(skarEE): The width/height of each image is expressed in the
+      // original SVG size, so it needs to be multiplied by svg-ratio. This is
+      // NOT the case for left/top positions.
+
+      width: percent(nth($row, $idx-width) * $svg-ratio, $width-desktop);
+      height: percent(nth($row, $idx-height) * $svg-ratio, $height-desktop);
+      left: percent(nth($row, $idx-left), $width-desktop);
+      top: percent(nth($row, $idx-top), $height-desktop);
+    }
+  }
+
+  #easteregg-balloon, #easteregg-snowmobile1, #easteregg-snowmobile2,
+  #easteregg-snowmobile3, #easteregg-snowmobile4, #easteregg-busstop1 {
+    pointer-events: all;
+    cursor: pointer;
+  }
+
+  #easteregg-snowmobile1.drive,
+  #easteregg-snowmobile2.drive,
+  #easteregg-snowmobile3.drive,
+  #easteregg-snowmobile4.drive {
+    transform-origin: bottom center;
+    animation: burnout 10s linear;
+    animation-direction: reverse;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  #easteregg-snowmobile1.drive {
+    z-index: $house-row-2-z-index - 1;
+  }
+
+  #easteregg-snowmobile2.drive {
+    z-index: $house-row-3-z-index - 50;
+  }
+
+  #easteregg-snowmobile3.drive {
+    z-index: $house-row-3-z-index - 1;
+    animation-direction: normal;
+  }
+
+  #easteregg-snowmobile4.drive {
+    z-index: $house-row-7-z-index - 1;
+  }
+
+  #easteregg-balloon, #easteregg-balloon-flight, #easteregg-balloon-ropes {
+    transition: opacity 0.2s ease-out;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  #easteregg-balloon {
+    z-index: $house-z-index-front;
+    opacity: 1;
+    &.flying {
+      opacity: 0;
+    }
+  }
+
+  #easteregg-balloon-flight, #easteregg-balloon-ropes {
+    opacity: 0;
+
+    &.flying {
+      opacity: 1;
+    }
+  }
+
+  #easteregg-balloon-flight {
+    z-index: $house-z-index-front;
+    &.flying {
+      animation: fly 30s linear;
+    }
+  }
+
+  #easteregg-balloon, #easteregg-balloon-ropes {
+    will-change: opacity;
+    transform: translateZ(0);
+  }
+
+  #easteregg-balloon-flight {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+  }
+
+  #easteregg-unicycle {
+    animation: travel 120s infinite;
+    will-change: transform;
+    transform: translateZ(0);
+    background: none;
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: url(img/easteregg-unicycle.svg);
+      animation: unicycle 1s ease infinite;
+      will-change: transform;
+      transform: translateZ(0);
+    };
+  }
+
+  #easteregg-busstop1 {
+    $w: 85px;
+    $h: 73px;
+    z-index: $house-z-index-front;
+
+    background-image: url(img/easteregg-busstop1.svg);
+
+    width: percent($w * $svg-ratio, $width-desktop);
+    height: percent($h * $svg-ratio, $height-desktop);
+
+    &.bus-load {
+      .elf-stop {
+        opacity: 0;
+      }
+
+      .bus {
+        > div {
+          opacity: 1;
+        }
+      }
+    }
+
+    &.bus-unload {
+      .elf-stop {
+        opacity: 1;
+      }
+
+      .bus {
+        > div {
+          opacity: 0;
+        }
+      }
+    }
+
+    &.to-stop {
+      z-index: $house-row-1-z-index + 30;
+
+      .bus {
+        animation-fill-mode: forwards;
+        animation: to-bus-stop-1 10s linear;
+        transform: translateZ(0) translateX(0vw) translateY(0vw);
+      }
+    }
+
+    &.from-stop {
+      z-index: $house-row-1-z-index - 50;
+
+      .bus {
+        animation-fill-mode: forwards;
+        animation: from-bus-stop-1 10s linear;
+        transform: translateZ(0) translateX(-100vw) translateY(0vw);
+      }
+    }
+
+    // Not using pct for busstop because we want it exactly on the road
+    left: 410px;
+    top: 217px;
+
+    @media (max-width: ($width-desktop - 1)) {
+      left: 264px;
+      top: 152px;
+    }
+
+    .elf-stop {
+      position: absolute;
+    }
+
+    .elf-stop:nth-child(1) {
+      left: percent(50, $w);
+      top: percent(19, $h);
+    }
+
+    .elf-stop:nth-child(2) {
+      left: percent(70, $w);
+      top: percent(19, $h);
+    }
+
+    .elf-stop:nth-child(3) {
+      left: percent(90, $w);
+      top: percent(22, $h);
+    }
+
+    .elf-stop:nth-child(4) {
+      left: percent(105, $w);
+      top: percent(22, $h);
+    }
+
+    .elf-stop:nth-child(5) {
+      left: percent(120, $w);
+      top: percent(22, $h);
+    }
+
+    .elf-green, .elf-orange, .elf-blue {
+      width: percent(14 * $svg-ratio, $w);
+      height: percent(62 * $svg-ratio, $h);
+    }
+
+    .biz-snowman {
+      width: percent(38 * $svg-ratio, $w);
+      height: percent(56 * $svg-ratio, $h);
+    }
+
+    .bus {
+      width: percent(220 * $svg-ratio, $w);
+      height: percent(72 * $svg-ratio, $h);
+      background-image: url(img/bus.svg);
+      top: percent(25, $h);
+      transform: translateZ(0) translateX(100vw) translateY(-3vw);
+
+      div {
+        position: absolute;
+        opacity: 0;
+        transition: opacity .5s ease;
+      }
+
+      .elf-bus {
+        width: percent(13 * $svg-ratio, $w);
+        height: percent(18 * $svg-ratio, $h);
+        background-image: url(img/elf-bus.svg);
+      }
+
+      .snowman-bus {
+        width: percent(13 * $svg-ratio, $w);
+        height: percent(14 * $svg-ratio, $h);
+        background-image: url(img/snowman-bus.svg);
+      }
+
+      > div:nth-child(1) {
+        left: percent(24.5, $w);
+        top: percent(19, $h);
+      }
+
+      $elfStart: 32;
+      $elfGap: 7.5;
+      $elfDelay: 350, 1150, 50, 900, 1500, 2000;
+      @for $i from 2 through 6 {
+        $idx: $i - 2;
+
+        > div:nth-child(#{$i}) {
+          top: percent(15, $h);
+          $l: $elfStart + ($idx * $elfGap);
+          left: percent($l, $w);
+          transition-delay: #{nth($elfDelay, $idx+1)}ms;
+        }
+      }
+
+      @media (max-width: ($width-desktop - 1)) {
+        > div:nth-child(1) {
+          left: percent(25, $w);
+          top: percent(19, $h);
+        }
+
+        $elfStart: 33;
+        $elfGap: 7.5;
+        @for $i from 2 through 6 {
+          $idx: $i - 2;
+
+          > div:nth-child(#{$i}) {
+            top: percent(17, $h);
+            $l: $elfStart + ($idx * $elfGap);
+            left: percent($l, $w);
+          }
+        }
+      }
+    }
+  }
+
+  .elf-green {
+    background-image: url(img/elf-green.svg);
+  }
+
+  .elf-orange {
+    background-image: url(img/elf-orange.svg);
+  }
+
+  .elf-blue {
+    background-image: url(img/elf-blue.svg);
+  }
+
+  .biz-snowman {
+    background-image: url(img/biz-snowman.svg);
+  }
+}
+
+@keyframes fly {
+  0% {
+    transform: translateZ(0) translateY(0) translateX(0);
+  }
+
+  10% {
+    transform: translateZ(0) translateY(-220px) translateX(50px);
+  }
+
+  50% {
+    transform: translateZ(0) translateY(-220px) translateX(100vw);
+  }
+
+  50.1% {
+    transform: translateZ(0) translateY(-100vw) translateX(100vw);
+  }
+
+  50.2% {
+    transform: translateZ(0) translateY(-100vw) translateX(-100vw);
+  }
+
+  50.3% {
+    transform: translateZ(0) translateY(-220px) translateX(-100vw);
+  }
+
+  90% {
+    transform: translateZ(0) translateY(-220px) translateX(-280px);
+  }
+
+  100% {
+    transform: translateZ(0) translateY(0) translateX(0);
+  }
+}
+
+@keyframes burnout {
+  0% {
+    transform: rotateZ(0) translateY(0) translateX(0);
+  }
+  0.5% {
+    transform: rotateZ(-20deg) translateY(-4px) translateX(.5vw);
+  }
+  1% {
+    transform: rotateZ(0) translateY(0) translateX(1vw);
+  }
+  50% {
+    transform: rotateZ(0) translateY(0) translateX(100vw);
+  }
+  50.00001% {
+    transform: rotateZ(0) translateY(0) translateX(-100vw);
+  }
+  99% {
+    transform: rotateZ(0) translateY(0) translateX(-1vw);
+  }
+  99.5% {
+    transform: rotateZ(20deg) translateY(-4px) translateX(-.5vw);
+  }
+  100% {
+    transform: rotateZ(0) translateY(0) translateX(0);
+  }
+}
+
+@keyframes unicycle {
+  33% {
+    transform: rotateZ(10deg);
+  }
+  66% {
+    transform: rotateZ(-10deg);
+  }
+}
+
+@keyframes travel {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100vw);
+  }
+  50.00001% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes to-bus-stop-1 {
+  0% {
+    transform: translateZ(0) translateX(100vw) translateY(-100%) rotateZ(0deg);
+  }
+  75% {
+    transform: translateZ(0) translateX(355px) translateY(-100%) rotateZ(0deg);
+  }
+  77% {
+    transform: translateZ(0) translateX(320px) translateY(-50%) rotateZ(-15deg);
+  }
+  80% {
+    transform: translateZ(0) translateX(300px) translateY(0%) rotateZ(0deg);
+  }
+  100% {
+    transform: translateZ(0) translateX(0vw) translateY(0%) rotateZ(0deg);
+  }
+}
+
+@keyframes from-bus-stop-1 {
+  0% {
+    transform: translateZ(0) translateX(0vw) translateY(0%) rotateZ(0deg);
+  }
+  100% {
+    transform: translateZ(0) translateX(-100vw) translateY(100%) rotateZ(0deg);
+  }
+}

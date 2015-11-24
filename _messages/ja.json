@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "クリスマスイブには、サンタさんがソリに乗って世界中を飛び回る様子を伝えるダッシュボードのプレビューを公開します。大切な日に向けて北極でせっせとサンタさんのお手伝いをする働き者の妖精たちから、その様子を伝える画像が送られてきています。サンタのダッシュボードでは、Googleマップの最新技術やソリの特殊テクノロジーにより、サンタさんが世界中にプレゼントを届ける様子や立ち寄る場所についてのちょっとした情報をご紹介します。"
+		"message": "クリスマスイブには、サンタさんがソリに乗って世界中を飛び回る様子を伝えるダッシュボードを公開します。大切な日に向けて北極でせっせとサンタさんのお手伝いをする働き者の妖精たちから、その様子を伝える画像が送られてきています。サンタさんのダッシュボードでは、Googleマップの最新技術やソリの特殊テクノロジーにより、サンタさんが世界中にプレゼントを届ける様子や立ち寄る場所についてのちょっとした情報をご紹介します。"
 	},
 	"about-content-three": {
 		"message": "Google マップの「サンタを追いかけよう」は Google がサンタさんの妖精たちの助けを借りて制作・開発したものです。サポートが必要な場合やその他の疑問点については\u003ca href=\"//support.google.com/santatracker\"\u003eヘルプセンター\u003c/a\u003eをご覧ください。"
@@ -325,6 +325,21 @@
 	},
 	"copy-me": {
 		"message": "メッセージを共有するにはこのリンクをコピーしてください"
+	},
+	"countdown_days": {
+		"message": "日"
+	},
+	"countdown_hours": {
+		"message": "時間"
+	},
+	"countdown_minutes": {
+		"message": "分"
+	},
+	"countdown_seconds": {
+		"message": "秒"
+	},
+	"countdown_until": {
+		"message": "サンタさんの出発まであと"
 	},
 	"countdownlabel": {
 		"message": "サンタさんが出発するまで"
@@ -743,8 +758,92 @@
 	"sa_country_name": {
 		"message": "サウジアラビア"
 	},
+	"santasvillage": {
+		"message": "サンタ村"
+	},
 	"santatracker": {
 		"message": "サンタを追いかけよう"
+	},
+	"scene_airport": {
+		"message": "北極空港"
+	},
+	"scene_app": {
+		"message": "Android アプリ"
+	},
+	"scene_boatload": {
+		"message": "Gift Slingshot"
+	},
+	"scene_briefing": {
+		"message": "サンタさんの奥さんから一言"
+	},
+	"scene_callfromsanta": {
+		"message": "サンタさんからの電話"
+	},
+	"scene_citylights": {
+		"message": "街の灯り"
+	},
+	"scene_codeboogie": {
+		"message": "Code Boogie"
+	},
+	"scene_codelab": {
+		"message": "Code Lab"
+	},
+	"scene_commandcentre": {
+		"message": "管制センター"
+	},
+	"scene_giftmatch": {
+		"message": "Gift Matcher"
+	},
+	"scene_gumball": {
+		"message": "Gumball Tilt"
+	},
+	"scene_jamband": {
+		"message": "Elf Jamband"
+	},
+	"scene_jetpack": {
+		"message": "Elf Jetpack"
+	},
+	"scene_matching": {
+		"message": "Memory Match"
+	},
+	"scene_mercator": {
+		"message": "地図クイズ"
+	},
+	"scene_postcard": {
+		"message": "サンタさんのカード"
+	},
+	"scene_presentbounce": {
+		"message": "Present Bounce"
+	},
+	"scene_presentdrop": {
+		"message": "Present Drop"
+	},
+	"scene_racer": {
+		"message": "Rudolph Racer"
+	},
+	"scene_santasearch": {
+		"message": "サンタさんを探す"
+	},
+	"scene_santaselfie": {
+		"message": "サンタさんの自分撮り写真"
+	},
+	"scene_seasonofgiving": {
+		"message": "プレゼントの季節"
+	},
+	"scene_traditions": {
+		"message": "クリスマスの伝統"
+	},
+	"scene_translations": {
+		"message": "翻訳"
+	},
+	"scene_videoscene_carpool": {
+		"message": "妖精の乗り物"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "サンタさんの出発"
+	},
+	"scene_videoscene_santasback": {
+		"message": "サンタさんが帰ってきた"
 	},
 	"score": {
 		"message": "スコア"
@@ -819,7 +918,7 @@
 		"message": "チュニジア"
 	},
 	"today_only": {
-		"message": "本日のみ"
+		"message": "本日限り"
 	},
 	"today_only_1": {
 		"message": "本日限り"
@@ -863,6 +962,9 @@
 	"tracker_santa_update": {
 		"message": "サンタさんの最新情報"
 	},
+	"tracker_santa_update_1": {
+		"message": "サンタさんの最新情報"
+	},
 	"tracker_see_route": {
 		"message": "ルートを表示"
 	},
@@ -871,6 +973,9 @@
 	},
 	"tracker_world_facts": {
 		"message": "トリビア"
+	},
+	"tracker_world_facts_1": {
+		"message": "世界の真実"
 	},
 	"tracker_your_location": {
 		"message": "現在地"
@@ -4546,6 +4651,15 @@
 	},
 	"ve_country_name": {
 		"message": "ベネズエラ"
+	},
+	"village_comeback": {
+		"message": "24 日になったら、一晩中サンタさんを追いかけるのを手伝ってください！"
+	},
+	"village_explore": {
+		"message": "12 月はサンタさんの妖精たちと一緒に、サンタ村を探検したり、ゲームをしたり、クリスマスについて学んだりしよう"
+	},
+	"village_takesoff": {
+		"message": "サンタさんの出発まであと"
 	},
 	"vn_country_name": {
 		"message": "ベトナム"

@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "Jõululaupäeval näitame uhkusega jõuluvana juhtpaneeli eelvaadet – tehnoloogiat, mille abil saab ta saaniga ümber maailma rännata. Selle erilise eelvaate saatis meile üks jõuluvana paljudest päkapikkudest – just nemad aitavad jõuluvanal põhjapoolusel tema tähtsaks päevaks valmistuda. Jõuluvana juhtpaneel, mis sisaldab Google Mapsi tehnoloogia ja kelguehituse uusimaid ning parimaid omadusi, võimaldab teil jälgida tema teekonda ümber maailma ning saada lisateavet tema mõnede peatuspaikade kohta."
+		"message": "Jõuluõhtul tutvustame teile jõuluvana juhtpaneeli – tehnoloogiat, mis annab tema saanile energia reisiks ümber maailma. Saime selle spetsiaalse eelvaate jõuluvana ühe arenduspäkapiku käest, kes on põhjapoolusel jõuluvana tähtsa päeva ettevalmistamise nimel kõvasti vaeva näinud. Jõuluvana juhtpaneel, mis sisaldab Google Mapsi ning saaniehituse uusimaid ja suurepärasemaid tehnoloogiaid, võimaldab teil jälgida jõuluvana teekonda ümber maailma ning saada veidi teadmisi tema teekonna mõne peatuspaiga kohta."
 	},
 	"about-content-three": {
 		"message": "Google Mapsi jõuluvana teekonna jälgimise on päkapikkude abiga välja töötanud Google. Kas vajate abi või on teil veel mõni küsimus? Külastage meie \u003ca href=\"//support.google.com/santatracker\"\u003eabikeskust\u003c/a\u003e."
@@ -326,6 +326,21 @@
 	"copy-me": {
 		"message": "Sõnumi jagamiseks kopeerige see link"
 	},
+	"countdown_days": {
+		"message": "Päevi"
+	},
+	"countdown_hours": {
+		"message": "h"
+	},
+	"countdown_minutes": {
+		"message": "min"
+	},
+	"countdown_seconds": {
+		"message": "s"
+	},
+	"countdown_until": {
+		"message": "Jõuluvana teeleasumiseni on jäänud"
+	},
 	"countdownlabel": {
 		"message": "Aeg jõuluvana teekonna alguseni"
 	},
@@ -354,7 +369,7 @@
 		"message": "Saksa"
 	},
 	"de_tradition": {
-		"message": "Peaaegu igas Saksamaa linnas avatakse linnaplatsil jõuluturg. Inimesed kogunevad, et kuulata puhkpilliorkestreid ja nautida kohalikke kaupu. Nad söövad piparkoogisüdameid, magusaid mandleid, erinevaid maiustusi ning joovad hõõgveini (Glühwein) või õunasiidrit."
+		"message": "Peaaegu igas Saksamaa linnas avatakse linnaväljakul jõuluturg. Inimesed kogunevad, et kuulata puhkpilliorkestreid ja nautida kohalikke kaupu. Süüakse piparkoogisüdameid, magusaid mandleid, igasuguseid maiustusi ning juuakse hõõgveini (Glühwein) või õunasiidrit."
 	},
 	"deck": {
 		"message": "Dekoreerige"
@@ -432,7 +447,7 @@
 		"message": "prantsuse keel"
 	},
 	"fr_tradition": {
-		"message": "Prantsusmaal panevad lapsed traditsioonide kohaselt Père Noëli oodates kinga kamina kõrvale. Kui laps on terve aasta tubli olnud, täidab Père Noël tema kinga kinkidega."
+		"message": "Prantsusmaal panevad lapsed traditsioonikohaselt Père Noëli oodates kinga kamina kõrvale. Kui laps on terve aasta tubli olnud, täidab Père Noël tema kinga kinkidega."
 	},
 	"ga_country_name": {
 		"message": "Gabon"
@@ -471,7 +486,7 @@
 		"message": "Kreeka"
 	},
 	"gr_tradition": {
-		"message": "Kreekas on levinud uskumus, et sõbralikud aga tülikad olendid kallikántzarid elavad enamiku aastast maa keskpunktis, aga jõulude ajal meeldib neile peituda inimeste kodudesse, neid ehmatada, vingerpusse mängida või jõulutoite ära süüa. Kreeklased kasutavad paharettide tõrjumiseks erinevaid rituaale."
+		"message": "Kreekas on levinud uskumus, et sõbralikud aga tülikad olendid kallikántzarid elavad enamiku aastast Maa keskpunktis, aga jõulude ajal meeldib neile peituda inimeste kodudesse, neid ehmatada, vingerpusse mängida või jõulutoite ära süüa. Kreeklased kasutavad paharettide tõrjumiseks erinevaid rituaale."
 	},
 	"gt_country_name": {
 		"message": "Guatemala"
@@ -743,8 +758,92 @@
 	"sa_country_name": {
 		"message": "Saudi Araabia"
 	},
+	"santasvillage": {
+		"message": "Jõuluküla"
+	},
 	"santatracker": {
 		"message": "Jõuluvana teekonna jälgimine"
+	},
+	"scene_airport": {
+		"message": "Põhjapooluse lennujaam"
+	},
+	"scene_app": {
+		"message": "Androidi rakendus"
+	},
+	"scene_boatload": {
+		"message": "Kingikatapult"
+	},
+	"scene_briefing": {
+		"message": "Jõulumemme tutvustus"
+	},
+	"scene_callfromsanta": {
+		"message": "Jõuluvana kõne"
+	},
+	"scene_citylights": {
+		"message": "Linnatuled"
+	},
+	"scene_codeboogie": {
+		"message": "Tants ja trall"
+	},
+	"scene_codelab": {
+		"message": "Koodilabor"
+	},
+	"scene_commandcentre": {
+		"message": "Juhtimiskeskus"
+	},
+	"scene_giftmatch": {
+		"message": "Kingiloos"
+	},
+	"scene_gumball": {
+		"message": "Nätsukommid"
+	},
+	"scene_jamband": {
+		"message": "Päkapikubänd"
+	},
+	"scene_jetpack": {
+		"message": "Päkapiku rakettranits"
+	},
+	"scene_matching": {
+		"message": "Mälumäng"
+	},
+	"scene_mercator": {
+		"message": "Kaardiviktoriin"
+	},
+	"scene_postcard": {
+		"message": "Jõuluvana kaardid"
+	},
+	"scene_presentbounce": {
+		"message": "Põrkavad kingid"
+	},
+	"scene_presentdrop": {
+		"message": "Kingitustesadu"
+	},
+	"scene_racer": {
+		"message": "Rudolfi võidusõit"
+	},
+	"scene_santasearch": {
+		"message": "Jõuluvana otsing"
+	},
+	"scene_santaselfie": {
+		"message": "Jõuluvana selfie"
+	},
+	"scene_seasonofgiving": {
+		"message": "Pühadelahkus"
+	},
+	"scene_traditions": {
+		"message": "Pühadekombed"
+	},
+	"scene_translations": {
+		"message": "Tõlked"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Päkapikuauto"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Jõuluvana asub teele"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Jõuluvana on tagasi"
 	},
 	"score": {
 		"message": "Tulemus"
@@ -819,7 +918,7 @@
 		"message": "Tuneesia"
 	},
 	"today_only": {
-		"message": "Ainult tänane päev"
+		"message": "Ainult täna"
 	},
 	"today_only_1": {
 		"message": "Ainult täna"
@@ -855,13 +954,16 @@
 		"message": "Olete asukohas"
 	},
 	"tracker_intro_welcome": {
-		"message": "Tere tulemast:"
+		"message": "Tere tulemast rakendusse"
 	},
 	"tracker_next_stop": {
 		"message": "Järgmine peatus"
 	},
 	"tracker_santa_update": {
 		"message": "JÕULUVANA UUDISED"
+	},
+	"tracker_santa_update_1": {
+		"message": "Jõuluvana uudis"
 	},
 	"tracker_see_route": {
 		"message": "Vaadake marsruuti"
@@ -871,6 +973,9 @@
 	},
 	"tracker_world_facts": {
 		"message": "KAS TEADSITE?"
+	},
+	"tracker_world_facts_1": {
+		"message": "Huvitavat maailmast"
 	},
 	"tracker_your_location": {
 		"message": "Teie asukoht"
@@ -4546,6 +4651,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Tulge 24ndal tagasi ja aidake meil öö läbi jõuluvana teekonda jälgida!"
+	},
+	"village_explore": {
+		"message": "Avastage, mängige ja õppige detsembris koos päkapikkudega"
+	},
+	"village_takesoff": {
+		"message": "Jõuluvana asub teele"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

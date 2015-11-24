@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "På julaften viser vi stolt frem en forhåndsvisning av julenissens instrumentpanel, som er teknologien som driver sleden hans på reisen verden rundt. Vi har mottatt denne forhåndsvisningen fra en av julenissens mange utvikleralver, som jobber hardt på Nordpolen med forberedelsene til den store dagen. Med julenissens instrumentpanel – som representerer det nyeste og beste innen Google Maps-teknologi og sledebyggekunst – kan du følge julenissens fremdrift verden rundt og finne ut litt om stoppestedene hans på veien."
+		"message": "På julaften viser vi frem nissens kontrollpanel, teknologien som driver sleden hans på reisen verden rundt. Vi har fått denne spesialversjonen fra en av nissens mange utvikler-alver på Nordpolen, der de hjelper nissen med forberedelsene til den store dagen. I nissens kontrollpanel – som inneholder det nyeste og beste innen Google Maps-teknologi og sledeutstyr – kan du følge med på reisen hans gjennom hele verden, og du kan også lære litt om noen av stoppestedene langs ruten."
 	},
 	"about-content-three": {
 		"message": "«Følg julenissen» fra Google Maps er skapt og utviklet av Google med litt hjelp fra julenissens alver. Trenger du hjelp, eller har du flere spørsmål? Gå til \u003ca href=\"//support.google.com/santatracker\"\u003ebrukerstøtten\u003c/a\u003e vår."
 	},
 	"about-content-two": {
-		"message": "De vennlige alvene har også invitert deg til å utforske nissens landsby mens nissen gjør seg klar for reisen sin. Du er velkommen til å se nærmere på landsbyen hans. Kanskje du finner noen morsomme aktiviteter og møter interessante alver."
+		"message": "De vennlige alvene har også invitert deg til å utforske nissens landsby mens nissen gjør seg klar for reisen sin. Du er velkommen til å se nærmere på landsbyen hans. Kanskje du finner noen morsomme aktiviteter og møter noen interessante alver?"
 	},
 	"about-santa": {
 		"message": "Info"
@@ -326,6 +326,21 @@
 	"copy-me": {
 		"message": "Kopiér denne linken for å dele meldingen din"
 	},
+	"countdown_days": {
+		"message": "dager"
+	},
+	"countdown_hours": {
+		"message": "timer"
+	},
+	"countdown_minutes": {
+		"message": "min"
+	},
+	"countdown_seconds": {
+		"message": "sek"
+	},
+	"countdown_until": {
+		"message": "Julenissen tar av om"
+	},
 	"countdownlabel": {
 		"message": "til nissen reiser"
 	},
@@ -354,7 +369,7 @@
 		"message": "Tysk"
 	},
 	"de_tradition": {
-		"message": "Nesten alle tyske byer har et julemarked på torget. Innbyggerne samler seg for å høre på hornmusikk og spise lokal tradisjonsmat. De spiser pepperkakehjerter, sukkerstekte mandler og søtsaker av alle slag, og drikker gløgg (Glühwein) eller eplesider."
+		"message": "Nesten alle tyske byer har et julemarked på torget. Innbyggerne samler seg for å høre på hornmusikk og spise lokal tradisjonsmat. De spiser pepperkakehjerter, brente mandler og søtsaker av alle slag, og drikker gløgg (Glühwein) eller eplesider."
 	},
 	"deck": {
 		"message": "Pynt"
@@ -743,8 +758,92 @@
 	"sa_country_name": {
 		"message": "Saudi-Arabia"
 	},
+	"santasvillage": {
+		"message": "Julenissens landsby"
+	},
 	"santatracker": {
 		"message": "Følg julenissen"
+	},
+	"scene_airport": {
+		"message": "Nordpolen flyplass"
+	},
+	"scene_app": {
+		"message": "Android-app"
+	},
+	"scene_boatload": {
+		"message": "Gavesprettert"
+	},
+	"scene_briefing": {
+		"message": "Oppdrag fra julenissens kone"
+	},
+	"scene_callfromsanta": {
+		"message": "Telefon fra julenissen"
+	},
+	"scene_citylights": {
+		"message": "Bylys"
+	},
+	"scene_codeboogie": {
+		"message": "Kodeboogie"
+	},
+	"scene_codelab": {
+		"message": "Kodingslab"
+	},
+	"scene_commandcentre": {
+		"message": "Kontrollsenteret"
+	},
+	"scene_giftmatch": {
+		"message": "Gave-matcher"
+	},
+	"scene_gumball": {
+		"message": "Gumball-vipp"
+	},
+	"scene_jamband": {
+		"message": "Alvemusikkband"
+	},
+	"scene_jetpack": {
+		"message": "Alvejetpack"
+	},
+	"scene_matching": {
+		"message": "Bildelotto"
+	},
+	"scene_mercator": {
+		"message": "Kartquiz"
+	},
+	"scene_postcard": {
+		"message": "Julenissekort"
+	},
+	"scene_presentbounce": {
+		"message": "Gavesprett"
+	},
+	"scene_presentdrop": {
+		"message": "Gaveslipp"
+	},
+	"scene_racer": {
+		"message": "Rudolf-løpet"
+	},
+	"scene_santasearch": {
+		"message": "Julenissesøk"
+	},
+	"scene_santaselfie": {
+		"message": "Julenissens selfie"
+	},
+	"scene_seasonofgiving": {
+		"message": "En tid for å gi"
+	},
+	"scene_traditions": {
+		"message": "Juletradisjoner"
+	},
+	"scene_translations": {
+		"message": "Oversettelser"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Alvebil"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Julenissens avgang"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Julenissen er tilbake"
 	},
 	"score": {
 		"message": "Poeng"
@@ -863,6 +962,9 @@
 	"tracker_santa_update": {
 		"message": "OPPDATERING FRA JULENISSEN"
 	},
+	"tracker_santa_update_1": {
+		"message": "Oppdatering fra julenissen"
+	},
 	"tracker_see_route": {
 		"message": "Se ruten"
 	},
@@ -871,6 +973,9 @@
 	},
 	"tracker_world_facts": {
 		"message": "VISSTE DU DETTE?"
+	},
+	"tracker_world_facts_1": {
+		"message": "Fakta om verden"
 	},
 	"tracker_your_location": {
 		"message": "Din posisjon"
@@ -4546,6 +4651,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Kom innom på julaften, og hjelp oss med å følge julenissen hele natten!"
+	},
+	"village_explore": {
+		"message": "Utforsk, lek og lær med julenissens alver i hele desember"
+	},
+	"village_takesoff": {
+		"message": "Julenissen tar av om"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"
