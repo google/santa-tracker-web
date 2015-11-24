@@ -5,6 +5,9 @@ $name: 'module-dorf';
 @import "sass/variables";
 @import "sass/animations";
 
+$width-big: 600px;
+$toolbar-size: 64px;
+
 ##{$name} {
   background: #F5F2E2;
   height: 100%;
@@ -17,23 +20,18 @@ $name: 'module-dorf';
       border-bottom: 4px solid #eee;
     }
 
-    button#close-sidebar {
-      pointer-events: auto;
-      border: 0;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      background: transparent;
+    paper-toolbar {
+      background-color: transparent;
+    }
+
+    .close-sidebar {
       cursor: pointer;
       display: block;
-      height: 75px;
       line-height: 75px;
-      text-align: left;
       font-family: 'Lobster';
       font-size: 30px;
-      padding-left: 68px;
-      width: 100%;
       color: #ccc;
+      margin-left: 48px
     }
 
     .menucard {
@@ -67,12 +65,103 @@ $name: 'module-dorf';
     }
   }
 
-  .scroll {
-    overflow-y: auto;
+  #toolbar {
+    min-width: 320px;  // force 320px min width, i.e., iPhone 4/5+
+    z-index: 1000;
+    pointer-events: none;  // make sure scroll events pass through toolbar.
+    background-color: transparent;
+    will-change: background-color;
+    transition: background-color 125ms;
 
-    // Force a layer on this scroll element.
-    transform: translateZ(0);
-    will-change: transform;
+    &.scrolling {
+      background-color: #50DEF5;
+    }
+
+    // Common button reset.
+    button {
+      pointer-events: auto;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    #logo {
+      margin: 4px 8px 0 0;
+      width: 74px;
+      height: 100%;
+      background: url(/elements/toolbar/img/google_logo.svg) center no-repeat;
+      background-size: contain;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: 'Lobster', sans-serif;
+      font-size: 23px;
+      line-height: $toolbar-size;
+      font-weight: 300;
+      color: white;
+    }
+
+    .shareicons {
+      padding: 8px 0;
+      height: 100%;
+      box-sizing: border-box;
+      font-size: 0;  // hide spacing between divs
+      pointer-events: auto;  // set these icons to be accessible again
+
+      button {
+        width: 68px;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 4px;
+        position: relative;
+        display: inline-block;
+        border-left: 1px solid rgba(0,0,0,0.125);
+        background: transparent no-repeat center;
+        font-size: 0;
+
+        &:first-child {
+          border-left: none;
+        }
+
+        &#gplus {
+          background-image: url(/elements/toolbar/img/share-gplus.svg);
+        }
+        &#twitter {
+          background-image: url(/elements/toolbar/img/share-twitter.svg);
+        }
+        &#facebook {
+          background-image: url(/elements/toolbar/img/share-facebook.svg);
+        }
+
+        &::before {
+          z-index: -1;
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 4px;
+          right: 4px;
+          bottom: 0;
+          border-radius: 2px;
+          background: rgba(0,0,0,.25);
+          opacity: 0;
+          transform: translateZ(0);
+          will-change: opacity;
+        }
+        &:hover::before {
+          opacity: 1;
+        }
+      }
+    }
+    @media (max-width: $width-big) {
+      .shareicons {
+        display: none;
+      }
+    }
   }
 
   header {
@@ -82,7 +171,6 @@ $name: 'module-dorf';
     height: 385px;
     background: #47c6ee;
     background: linear-gradient(to bottom, rgba(61,218,242,1) 0%, rgba(140,232,248,1) 86%, rgba(153,234,249,1) 100%);
-    z-index: 1;
     overflow: visible;
 
     // By default, there's nothing user-interactable here.
