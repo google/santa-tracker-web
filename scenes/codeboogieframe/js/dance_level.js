@@ -222,7 +222,7 @@ app.DanceLevel = class extends app.Level {
   }
 
   get className() {
-    return super.className + ' level--' + this.stage +
+    return 'level--' + this.stage +
         (this.freestyle ? ' level--freestyle' : '');
   }
 };
