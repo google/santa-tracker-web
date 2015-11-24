@@ -50,4 +50,18 @@ app.MoveTiles = class {
         });
       }
   }
+
+  clear() {
+    let moveTiles = Array.from(this.el.querySelectorAll('.scene__moves-move'));
+    moveTiles.forEach(tile => {
+      tile.classList.add('fade-out');
+    });
+
+    setTimeout(() => {
+      while (this.el.hasChildNodes()) {
+        tile.classList.add('fade-out');
+        this.el.removeChild(this.el.lastChild);
+      }
+    }, 100);
+  }
 }

@@ -155,6 +155,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
    */
   start(result) {
     this.animationQueue = result.animationQueue;
+    this.moveTiles.clear();
   }
 
   onBar(bar, beat) {
@@ -168,6 +169,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
       this.teacher.play(app.Step.IDLE);
       this.player.play(app.Step.IDLE);
       this.dispatchEvent({type: 'finish'});
+      this.moveTiles.clear();
       return;
     }
 
