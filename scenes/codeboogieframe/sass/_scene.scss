@@ -123,18 +123,34 @@
   }
 
   .scene__moves-move {
+    counter-increment: tile;
     height: 85px;
     border: 3px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
     margin-right: 8px;
     flex: 0 0 110px;
 
-    /* demo styles */
+    background-size: 100px 85px;
+    background-repeat: no-repeat;
+
+    &.move__leftArm {
+      background-image: url(img/icons_point-left-white.svg);
+    }
+
+    &.move__rightArm {
+      background-image: url(img/icons_point-right-white.svg);
+    }
+  }
+
+  .scene__moves-move:after {
     font-family: 'Lobster';
-    font-size: 120%;
-    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    content: counter(tile);
+    color: white;
+    position: absolute;
+    bottom: -2em;
+    width: 100%;
     text-align: center;
-    line-height: 85px;
   }
 
   .fade-in {

@@ -32,8 +32,7 @@ app.MoveTiles = class {
 
   add(move) {
     let tile = document.createElement('div');
-    tile.classList.add('scene__moves-move', 'fade-in');
-    tile.textContent = move;
+    tile.classList.add('scene__moves-move', 'fade-in', `move__${move}`);
 
     this.el.appendChild(tile);
 
@@ -61,6 +60,6 @@ app.MoveTiles = class {
       while (this.el.hasChildNodes()) {
         this.el.removeChild(this.el.lastChild);
       }
-    }, 100);
+    }, 200);
   }
 }
