@@ -98,11 +98,12 @@
   .scene__word-title {
     color: white;
     font-family: 'Lobster';
-    font-size: 5em;
-    margin-top: 1em;
+    font-size: 8em;
+    margin-top: 3rem;
     text-align: center;
     width: 100%;
     height: 1em;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 
     span {
       animation: 4s cb_title_fade;
