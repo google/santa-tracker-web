@@ -184,6 +184,11 @@ $name: 'module-dorf';
       flex-direction: column;
       position: relative;
 
+      // TODO(samthor): Give this a layer, as it extends over its neighbour
+      // to the south, and Chrome is confused when painting.
+      transform: translateZ(0);
+      will-change: transform;
+
       #count-down {
         padding: 45px 0 30px 0;
       }
@@ -316,6 +321,11 @@ $name: 'module-dorf';
     position: relative;
     top: -290px;
     margin-bottom: -290px;
+
+    // TODO(samthor): Give this a layer, as it extends over its neighbour
+    // to the north, and Chrome is confused when painting.
+    transform: translateZ(0);
+    will-change: transform;
 
     #village-footer-elves {
       background-image: url(img/footer-elves.svg);
