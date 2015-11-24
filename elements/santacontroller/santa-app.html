@@ -991,7 +991,7 @@ Polymer({
       // rendering here and this isn't actually bound to village, since late-
       // binding isn't supported in Polymer 1+.
       for (var i = 0; i < houses.length; ++i) {
-        this.$.village.set('houses.' + i + '.iced', houses[i].iced);
+        this.$.village.set(['houses', i, 'iced'], houses[i].iced);
       }
     });
   },
