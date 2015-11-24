@@ -15,6 +15,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/polymer/polymer.html">
 
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
+<link rel="import" href="../santa-chrome/santa-chrome.html">
 <link rel="import" href="../santa-tracker-router.html">
 <link rel="import" href="../preloader/preload-overlay.html">
 <link rel="import" href="../lazy-pages.html">
@@ -35,186 +36,225 @@ Santa Tracker app.
   <!-- Route controller -->
   <santa-tracker-router id="router" route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
 
-  <!-- Scenes -->
-  <lazy-pages id="lazypages" preloader="[[preloader]]" selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">
+  <!-- Chrome, including toolbar and sidebar -->
+  <santa-chrome id="chrome">
 
-    <!-- TODO(samthor): Rename to village-scene when done -->
-    <dorf-scene route="village" always-active icon="1f384"
-        id="village"
-        mode$="{{mode}}"
-        path$="scenes/dorf/dorf-scene_[[language]].html"></dorf-scene>
+    <!-- Scenes -->
+    <lazy-pages id="lazypages" preloader="[[preloader]]" selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">
 
-    <about-scene route="about" icon="2753"
-        path$="scenes/about/about-scene_[[language]].html"></about-scene>
+      <!-- TODO(samthor): Rename to village-scene when done -->
+      <dorf-scene route="village" always-active icon="1f384"
+          id="village"
+          mode$="{{mode}}"
+          path$="scenes/dorf/dorf-scene_[[language]].html"></dorf-scene>
 
-    <airport-scene route="airport" icon="1f6c4"
-        path$="scenes/airport/airport-scene_[[language]].html"></airport-scene>
+      <about-scene route="about" icon="2753"
+          path$="scenes/about/about-scene_[[language]].html"></about-scene>
 
-    <blimp-scene route="blimp" icon="1f6a1"
-        path$="scenes/blimp/blimp-scene_[[language]].html"></blimp-scene>
+      <airport-scene route="airport" icon="1f6c4"
+          path$="scenes/airport/airport-scene_[[language]].html"></airport-scene>
 
-    <boatload-scene route="boatload" icon="26f5"
-        path$="scenes/boatload/boatload-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-bg-color="#8fd7f7"
-        loading-src="scenes/boatload/img/loading.svg"></boatload-scene>
+      <blimp-scene route="blimp" icon="1f6a1"
+          path$="scenes/blimp/blimp-scene_[[language]].html"></blimp-scene>
 
-    <briefing-scene route="briefing" icon="1f3eb"
-        path$="scenes/briefing/briefing-scene_[[language]].html"></briefing-scene>
+      <boatload-scene route="boatload" icon="26f5"
+          path$="scenes/boatload/boatload-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#8fd7f7"
+          loading-src="scenes/boatload/img/loading.svg"></boatload-scene>
 
-    <callfromsanta-scene route="callfromsanta" icon="1f4de"
-        path$="scenes/callfromsanta/callfromsanta-scene_[[language]].html"
-        loading-bg-color="rgb(129,208,0)"></callfromsanta-scene>
+      <briefing-scene route="briefing" icon="1f3eb"
+          path$="scenes/briefing/briefing-scene_[[language]].html"></briefing-scene>
 
-    <citylights-scene route="citylights" icon="1f306"
-        path$="scenes/citylights/citylights-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-bg-color="#8fd7f7"
-        loading-src="scenes/citylights/img/loading.svg"></citylights-scene>
+      <callfromsanta-scene route="callfromsanta" icon="1f4de"
+          path$="scenes/callfromsanta/callfromsanta-scene_[[language]].html"
+          loading-bg-color="rgb(129,208,0)"></callfromsanta-scene>
 
-    <codelab-scene route="codelab" icon="1f4dd"
-        path$="scenes/codelab/codelab-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-bg-color="#3f4ea1"
-        loading-src="scenes/codelab/img/loading.svg"></codelab-scene>
+      <citylights-scene route="citylights" icon="1f306"
+          path$="scenes/citylights/citylights-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#8fd7f7"
+          loading-src="scenes/citylights/img/loading.svg"></citylights-scene>
 
-    <commandcentre-scene route="commandcentre" icon="1f5fc"
-        path$="scenes/commandcentre/commandcentre-scene_[[language]].html"
-        loading-bg-color="rgb(129,208,0)"></commandcentre-scene>
+      <codelab-scene route="codelab" icon="1f4dd"
+          path$="scenes/codelab/codelab-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#3f4ea1"
+          loading-src="scenes/codelab/img/loading.svg"></codelab-scene>
 
-    <factory-scene route="factory" icon="1f3ed"
-        path$="scenes/factory/factory-scene_[[language]].html"
-        loading-bg-color="rgb(129,208,0)"></factory-scene>
+      <commandcentre-scene route="commandcentre" icon="1f5fc"
+          path$="scenes/commandcentre/commandcentre-scene_[[language]].html"
+          loading-bg-color="rgb(129,208,0)"></commandcentre-scene>
 
-    <glider-scene route="glider" icon="1f343"
-        path$="scenes/glider/glider-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-bg-color="#8d23a9"
-        loading-src="scenes/glider/img/loading.svg"></glider-scene>
+      <factory-scene route="factory" icon="1f3ed"
+          path$="scenes/factory/factory-scene_[[language]].html"
+          loading-bg-color="rgb(129,208,0)"></factory-scene>
 
-    <gumball-scene route="gumball" icon="1f36d"
-        path$="scenes/gumball/gumball-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-bg-color="#8d23a9"
-        loading-src="scenes/gumball/img/loading.svg"></gumball-scene>
+      <glider-scene route="glider" icon="1f343"
+          path$="scenes/glider/glider-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#8d23a9"
+          loading-src="scenes/glider/img/loading.svg"></glider-scene>
 
-    <icecave-scene route="icecave" icon="2744"
-        path$="scenes/icecave/icecave-scene_[[language]].html"></icecave-scene>
+      <gumball-scene route="gumball" icon="1f36d"
+          path$="scenes/gumball/gumball-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#8d23a9"
+          loading-src="scenes/gumball/img/loading.svg"></gumball-scene>
 
-    <island-scene route="island" icon="1f334"
-        path$="scenes/island/island-scene_[[language]].html"></island-scene>
+      <icecave-scene route="icecave" icon="2744"
+          path$="scenes/icecave/icecave-scene_[[language]].html"></icecave-scene>
 
-    <jamband-scene route="jamband" icon="1f3b6"
-        path$="scenes/jamband/jamband-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-bg-color="#fdbe27"
-        loading-src="scenes/jamband/img/loading.svg"></jamband-scene>
+      <island-scene route="island" icon="1f334"
+          path$="scenes/island/island-scene_[[language]].html"></island-scene>
 
-    <jetpack-scene route="jetpack" icon="1f680"
-        path$="scenes/jetpack/jetpack-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-bg-color="#8fd7f7"
-        loading-src="scenes/jetpack/img/loading.svg"></jetpack-scene>
+      <jamband-scene route="jamband" icon="1f3b6"
+          path$="scenes/jamband/jamband-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#fdbe27"
+          loading-src="scenes/jamband/img/loading.svg"></jamband-scene>
 
-    <latlong-scene route="latlong" icon="1f3af"
-        path$="scenes/latlong/latlong-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-bg-color="#ffcc00"
-        loading-src="scenes/latlong/img/loading.svg"></latlong-scene>
+      <jetpack-scene route="jetpack" icon="1f680"
+          path$="scenes/jetpack/jetpack-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#8fd7f7"
+          loading-src="scenes/jetpack/img/loading.svg"></jetpack-scene>
 
-    <matching-scene route="matching" icon="1f6aa"
-        path$="scenes/matching/matching-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-bg-color="#b27644"
-        loading-src="scenes/matching/img/loading.svg"></matching-scene>
+      <latlong-scene route="latlong" icon="1f3af"
+          path$="scenes/latlong/latlong-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#ffcc00"
+          loading-src="scenes/latlong/img/loading.svg"></latlong-scene>
 
-    <mercator-scene route="mercator" icon="1f30e"
-        path$="scenes/mercator/mercator-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-bg-color="#fbbf2c"
-        loading-src="scenes/mercator/img/loading.svg"></mercator-scene>
+      <matching-scene route="matching" icon="1f6aa"
+          path$="scenes/matching/matching-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#b27644"
+          loading-src="scenes/matching/img/loading.svg"></matching-scene>
 
-    <playground-scene route="playground" icon="1f3aa"
-        path$="scenes/playground/playground-scene_[[language]].html"
-        loading-bg-color="rgb(251, 191, 44)"></playground-scene>
+      <mercator-scene route="mercator" icon="1f30e"
+          path$="scenes/mercator/mercator-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#fbbf2c"
+          loading-src="scenes/mercator/img/loading.svg"></mercator-scene>
 
-    <postcard-scene route="postcard" icon="1f4ec"
-        path$="scenes/postcard/postcard-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-bg-color="rgb(244, 123, 32)"
-        loading-src="scenes/postcard/img/loading.gif"></postcard-scene>
+      <playground-scene route="playground" icon="1f3aa"
+          path$="scenes/playground/playground-scene_[[language]].html"
+          loading-bg-color="rgb(251, 191, 44)"></playground-scene>
 
-    <presentdrop-scene route="presentdrop" icon="1f381"
-        path$="scenes/presentdrop/presentdrop-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-bg-color="#8fd7f7"
-        loading-src="scenes/presentdrop/img/loading.svg"></presentdrop-scene>
+      <postcard-scene route="postcard" icon="1f4ec"
+          path$="scenes/postcard/postcard-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="rgb(244, 123, 32)"
+          loading-src="scenes/postcard/img/loading.gif"></postcard-scene>
 
-    <racer-scene route="racer" icon="1f3c1"
-        path$="scenes/racer/racer-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-bg-color="#8fd7f7"
-        loading-src="scenes/racer/img/loading.svg"></racer-scene>
+      <presentdrop-scene route="presentdrop" icon="1f381"
+          path$="scenes/presentdrop/presentdrop-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#8fd7f7"
+          loading-src="scenes/presentdrop/img/loading.svg"></presentdrop-scene>
 
-    <runner-scene route="runner" icon="1f3c7"
-        mode$="{{mode}}"
-        path$="scenes/runner/runner-scene_[[language]].html"></runner-scene>
+      <racer-scene route="racer" icon="1f3c1"
+          path$="scenes/racer/racer-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#8fd7f7"
+          loading-src="scenes/racer/img/loading.svg"></racer-scene>
 
-    <rollercoaster-scene route="rollercoaster" icon="1f3a2"
-        path$="scenes/rollercoaster/rollercoaster-scene.html"></rollercoaster-scene>
+      <runner-scene route="runner" icon="1f3c7"
+          mode$="{{mode}}"
+          path$="scenes/runner/runner-scene_[[language]].html"></runner-scene>
 
-    <santaselfie-scene route="santaselfie" icon="1f488"
-        path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-bg-color="#83D7F5"
-        loading-src="scenes/santaselfie/img/loading.svg"></santaselfie-scene>
+      <rollercoaster-scene route="rollercoaster" icon="1f3a2"
+          path$="scenes/rollercoaster/rollercoaster-scene.html"></rollercoaster-scene>
 
-    <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
-        path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-src="scenes/seasonofgiving/img/loading.svg"></seasonofgiving-scene>
+      <santaselfie-scene route="santaselfie" icon="1f488"
+          path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#83D7F5"
+          loading-src="scenes/santaselfie/img/loading.svg"></santaselfie-scene>
 
-    <streetview-scene route="streetview" icon="1f3a5"
-        path$="scenes/streetview/streetview-scene_[[language]].html"
-        loading-bg-color="rgb(129,208,0)"></streetview-scene>
+      <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
+          path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-src="scenes/seasonofgiving/img/loading.svg"></seasonofgiving-scene>
 
-    <!-- TODO(samthor): The Polymer upgrade path mucks with binding this value
-      and it may not be updated after the first time -->
-    <tracker-scene id="tracker" route="tracker" icon="1f385"
-        destinations="{{destinations}}"
-        path$="scenes/tracker/tracker-scene_[[language]].html"></tracker-scene>
+      <streetview-scene route="streetview" icon="1f3a5"
+          path$="scenes/streetview/streetview-scene_[[language]].html"
+          loading-bg-color="rgb(129,208,0)"></streetview-scene>
 
-    <traditions-scene route="traditions" icon="1f4cc"
-        path$="scenes/traditions/traditions-scene_[[language]].html"
-        mode$="{{mode}}"
-        loading-bg-color="rgb(255,224,0)"
-        loading-src="scenes/traditions/img/loading.gif"></traditions-scene>
+      <!-- TODO(samthor): The Polymer upgrade path mucks with binding this value
+        and it may not be updated after the first time -->
+      <tracker-scene id="tracker" route="tracker" icon="1f385"
+          destinations="{{destinations}}"
+          path$="scenes/tracker/tracker-scene_[[language]].html"></tracker-scene>
 
-    <translations-scene route="translations" icon="1f4e2"
-        path$="scenes/translations/translations-scene_[[language]].html"
-        loading-bg-color="#8fd7f7"
-        loading-src="scenes/translations/img/loading.png"></translations-scene>
+      <traditions-scene route="traditions" icon="1f4cc"
+          path$="scenes/traditions/traditions-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="rgb(255,224,0)"
+          loading-src="scenes/traditions/img/loading.gif"></traditions-scene>
 
-    <trivia-scene route="trivia"
-        path$="scenes/trivia/trivia-scene_[[language]].html"></trivia-scene>
+      <translations-scene route="translations" icon="1f4e2"
+          path$="scenes/translations/translations-scene_[[language]].html"
+          loading-bg-color="#8fd7f7"
+          loading-src="scenes/translations/img/loading.png"></translations-scene>
 
-    <undersea-scene route="undersea" icon="1f30a"
-        path$="scenes/undersea/undersea-scene_[[language]].html"></undersea-scene>
+      <trivia-scene route="trivia"
+          path$="scenes/trivia/trivia-scene_[[language]].html"></trivia-scene>
 
-    <!-- NOTE: when these scenes are visited and then left, they are removed and
-         appended to the end of lazy-pages. This is fine as long as VIDEO_ROUTES
-         isn't modified (if it is, prevSelectedRouteChanged will need to be
-         modified). -->
-    <template is="dom-repeat" items="{{VIDEO_ROUTES}}">
-      <video-scene route$="{{item}}"
-          path$="scenes/videoscene/video-scene_[[language]].html"></video-scene>
-    </template>
+      <undersea-scene route="undersea" icon="1f30a"
+          path$="scenes/undersea/undersea-scene_[[language]].html"></undersea-scene>
 
-    <windtunnel-scene route="windtunnel" icon="1f38f"
-        path$="scenes/windtunnel/windtunnel-scene_[[language]].html"
-        loading-bg-color="rgb(129,208,0)"></windtunnel-scene>
+      <!-- NOTE: when these scenes are visited and then left, they are removed and
+           appended to the end of lazy-pages. This is fine as long as VIDEO_ROUTES
+           isn't modified (if it is, prevSelectedRouteChanged will need to be
+           modified). -->
+      <template is="dom-repeat" items="{{VIDEO_ROUTES}}">
+        <video-scene route$="{{item}}"
+            path$="scenes/videoscene/video-scene_[[language]].html"></video-scene>
+      </template>
 
-  </lazy-pages>
+      <windtunnel-scene route="windtunnel" icon="1f38f"
+          path$="scenes/windtunnel/windtunnel-scene_[[language]].html"
+          loading-bg-color="rgb(129,208,0)"></windtunnel-scene>
+
+    </lazy-pages>
+
+  </santa-chrome>
+
+  <!-- Messages that must be selected dynamically -->
+  <div id="msg" hidden>
+    <div msgid="category-learn"><i18n-msg msgid="learn">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="category-play"><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="category-watch"><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-airport"><i18n-msg msgid="scene_airport">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-traditions"><i18n-msg msgid="scene_traditions">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-codelab"><i18n-msg msgid="scene_codelab">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-app"><i18n-msg msgid="scene_app">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-seasonofcaring"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-santasback"><i18n-msg msgid="scene_videoscene_santasback">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-santaselfie"><i18n-msg msgid="scene_santaselfie">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-translations"><i18n-msg msgid="scene_translations">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-callfromsanta"><i18n-msg msgid="scene_callfromsanta">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-presentdrop"><i18n-msg msgid="scene_presentdrop">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-santasearch"><i18n-msg msgid="scene_santasearch">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-windtunnel"><i18n-msg msgid="scene_windtunnel">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-racer"><i18n-msg msgid="scene_racer">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-jamband"><i18n-msg msgid="scene_jamband">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-gumball"><i18n-msg msgid="scene_gumball">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-postcard"><i18n-msg msgid="scene_postcard">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-jetpack"><i18n-msg msgid="scene_jetpack">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-boatload"><i18n-msg msgid="scene_boatload">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-mercator"><i18n-msg msgid="scene_mercator">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-presentbounce"><i18n-msg msgid="scene_presentbounce">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-codeboogie"><i18n-msg msgid="scene_codeboogie">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-elf-car"><i18n-msg msgid="scene_videoscene_carpool">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-citylights"><i18n-msg msgid="scene_citylights">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-commandcentre"><i18n-msg msgid="scene_commandcentre">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-seasonofgiving"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-matching"><i18n-msg msgid="scene_matching">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-liftoff"><i18n-msg msgid="scene_videoscene_liftoff">PLACEHOLDER_i18n</i18n-msg></div>
+  </div>
 
 </template>
 <script>
@@ -433,6 +473,16 @@ Polymer({
       observer: '_postFlightChanged'
     },
 
+    /**
+     * Fixed string map stored on `santa-app`. Used for elements that can't
+     * have fixed strings, e.g. the vilage and the sidebar.
+     */
+    strings: {
+      type: Object,
+      readOnly: true,
+      notify: true
+    },
+
   },
 
   listeners: {
@@ -449,7 +499,11 @@ Polymer({
     'analytics-track-game-over': 'trackGameOver',
     'tracker-action': 'onTrackerAction',
     'countdown-timer-finish': 'onCountdownFinish',
-    'tracker-end': 'onTrackerEnd'
+    'tracker-end': 'onTrackerEnd',
+
+    // For prod, <i18n-msg> is removed and textContent will already be
+    // correct. For dev, listen for i18n updates and update the string map.
+    'i18n-language-ready': '_updateStrings',
   },
 
   /**
@@ -481,6 +535,26 @@ Polymer({
     this.visibilityService = new VisibilityManager(this);
     this.visibilityService.addOnPauseListener(this.onPause.bind(this));
     this.visibilityService.addOnResumeListener(this.onResume.bind(this));
+  },
+
+  attached: function() {
+    // if in production mode (no i18n-msg), update the dynamic strings now
+    if (!this.$.msg.querySelector('i18n-msg')) {
+      this._updateStrings();
+    }
+  },
+
+  _updateStrings: function() {
+    if (this.strings) {
+      return;  // don't try again
+    }
+    var strings = {};
+    var all = this.$.msg.children;
+    for (var x, i = 0; x = all[i]; ++i) {
+      var msgid = x.getAttribute('msgid');
+      strings[msgid] = x.textContent;
+    }
+    this._setStrings(Object.freeze(strings));
   },
 
   ready: function() {
@@ -602,9 +676,9 @@ Polymer({
   },
 
   _selectedSceneChanged: function(newValue, oldValue) {
-    if (oldValue === newValue) {
-      return;
-    }
+    this.$.chrome.isFixedToolbar = (newValue != this.$.village);
+    this.$.chrome.closeDrawer();
+
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;
     }

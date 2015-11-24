@@ -13,7 +13,13 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../components/polymer/polymer.html" />
-<link rel="import" href="../components/i18n-msg/i18n-msg.html">
+
+<link rel="import" href="../elements/santa-app-behavior.html" />
+
+<!-- Elements used by scenes -->
+<link rel="import" href="../components/i18n-msg/i18n-msg.html" />
+<link rel="import" href="../components/iron-flex-layout/classes/iron-flex-layout.html" />
+
 <script>
 (function() {
 
@@ -36,7 +42,7 @@ specific language governing permissions and limitations under the License.
   var PATH_MATCH = new RegExp('^scenes\/.+?\/');
 
   /** @polymerBehavior */
-  window.SantaSceneBehavior = {
+  window.SantaSceneBehaviorImpl = {
     hostAttributes: {tabindex: 0},
 
     properties: {
@@ -145,28 +151,6 @@ specific language governing permissions and limitations under the License.
         }
       },
 
-      /**
-       * Basename for links in Santa Tracker. Needed for production version so
-       * internal links use the production site.
-       */
-      pageUrl: {
-        type: String,
-        readOnly: true,
-        value: function() {
-          return location.href.substr(0, location.href.length - location.hash.length);
-        }
-      },
-
-      /**
-       * The master santaApp. Set and cleared in attached/detached.
-       */
-      santaApp: {
-        type: Object,
-        readOnly: true,
-        // Noop. Subclass scenes can define this to know when santaApp changes.
-        observer: '_santaAppChanged'
-      }
-
     },
 
     listeners: {'scene-pause': '_handlePause'},
@@ -176,26 +160,6 @@ specific language governing permissions and limitations under the License.
     created: function() {
       // TODO(samthor): This finds the whole domain, can probably just be relative URL
       this._componentDir = this.resolveUrl('.');
-    },
-
-    attached: function() {
-      // Find the nearest santa-app.
-      var curr = this;
-      while (curr && curr.localName != 'santa-app') {
-        curr = curr.parentNode;
-      }
-      if (!curr) {
-        console.warn('unable to find santaApp for scene', this.localName);
-      }
-      this._setSantaApp(curr);
-    },
-
-    detached: function() {
-      this._setSantaApp(null);
-    },
-
-    _santaAppChanged: function() {
-      // Noop. Subclasses can define this observer to know about changes.
     },
 
     _activeChanged: function() {
@@ -320,5 +284,9 @@ specific language governing permissions and limitations under the License.
     },
 
   };
+
+  /** @polymerBehavior */
+  window.SantaSceneBehavior = [window.SantaAppBehavior, SantaSceneBehaviorImpl];
+
 })();
 </script>
