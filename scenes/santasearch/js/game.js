@@ -329,6 +329,7 @@ app.Game.prototype._updatePan = function() {
 app.Game.prototype.restart = function() {
   this.paused = false;
   this.unfreezeGame();
+  this._onResize();
 
   window.santaApp.fire('analytics-track-game-start', {gameid: 'santasearch'});
   this.gameStartTime = +new Date;
@@ -452,6 +453,10 @@ app.Game.prototype._onResize = function() {
   if (mapNeedsResizing) {
     this._scale(this.controls.scale);
   }
+
+  // Scale GUI
+  var scale = Math.min(1, window.innerWidth / 1200);
+  this.guiElem.css('font-size', scale + 'px');
 };
 
 

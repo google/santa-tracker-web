@@ -2,10 +2,15 @@
   .zoom {
     background: url(img/zoom.svg) 0 0 / cover no-repeat;
     bottom: 10px;
+    display: none;
     height: 122px;
     position: absolute;
     right: -22px;
     width: 110px;
+
+    @media (min-width: 1200px) {
+      display: block;
+    }
 
     &__in,
     &__out {

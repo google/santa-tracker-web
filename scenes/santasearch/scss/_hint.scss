@@ -1,25 +1,38 @@
-$hint-background-color: #cd6a17;
-$hint-foreground-color: #f6871e;
+$hint-bg-color: #f6871e;
+$hint-shadow-color: #cd6a17;
 
 ##{$name} {
   .hint {
-    background-color: $hint-background-color;
-    border-radius: 5px;
-    box-shadow: 7px 6px 4px -4px rgba(0,0,0,0.1);
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: bold;
-    padding-bottom: 5px;
-    pointer-events: auto;
-    width: auto;
+    @extend .Button;
 
-    &__foreground {
-      background-color: $hint-foreground-color;
-      border-radius: 5px;
-      letter-spacing: 0.05em;
-      padding: 9px 10px;
-      pointer-events: auto;
+    background-color: $hint-bg-color;
+    bottom: 6em;
+    box-shadow: 0 1.5px 0 $hint-shadow-color, 1px 3px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+    display: none;
+    left: 2em;
+    font-size: 12px;
+    min-height: auto;
+    padding: 4px 8px;
+    pointer-events: auto;
+    position: absolute;
+
+    @media (min-width: $button-bp) {
+      box-shadow: 0 3px 0 $hint-shadow-color, 2px 5px rgba(0, 0, 0, 0.16);
+    }
+
+    &:active {
+      transform: translateY(1.5px) translateZ(0);
+
+      @media (min-width: $button-bp) {
+        transform: translateY(3px) translateZ(0);
+      }
+    }
+  }
+
+  @media (min-width: 960px) {
+    .drawer__character-wrapper--focused .hint {
+      display: block;
     }
   }
 }
