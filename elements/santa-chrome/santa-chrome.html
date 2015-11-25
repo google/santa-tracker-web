@@ -127,6 +127,9 @@ specific language governing permissions and limitations under the License.
           <li><a href="{{pageUrl}}#about">
             <i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg>
           </a></li>
+          <li><a href="https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb">
+            <i18n-msg msgid="deckdescription">PLACEHOLDER_i18n</i18n-msg>
+          </a></li>
           <li><a target="_blank" href="https://www.google.com/policies/">
             <i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg>
           </a></li>
@@ -240,6 +243,22 @@ specific language governing permissions and limitations under the License.
 
     },
 
+    attached: function() {
+      // TODO(samthor): Use `listeners` to register these instead.
+      this._attach('gplus', 348, 512, function(u) {
+        return 'https://plus.google.com/share?url=' + u;
+      });
+      this._attach('twitter', 600, 253, function(u) {
+        return 'https://twitter.com/share?hashtags=santatracker&url=' + u;
+      });
+      this._attach('facebook', 600, 229, function(u) {
+        return 'https://www.facebook.com/sharer.php?p[url]=' + u + '&u=' + u;
+      });
+
+      // Set the initial value for _atTop before on-content-scroll fired.
+      this._atTop = this.$.main.atTop;
+    },
+
     /**
      * Close the `santa-chrome` drawer.
      */
@@ -293,21 +312,6 @@ specific language governing permissions and limitations under the License.
 
     _computeDrawerWidth: function(smallScreen) {
       return smallScreen ? '100%' : '400px';
-    },
-
-    attached: function() {
-      this._attach('gplus', 348, 512, function(u) {
-        return 'https://plus.google.com/share?url=' + u;
-      });
-      this._attach('twitter', 600, 253, function(u) {
-        return 'https://twitter.com/share?hashtags=santatracker&url=' + u;
-      });
-      this._attach('facebook', 600, 229, function(u) {
-        return 'https://www.facebook.com/sharer.php?p[url]=' + u + '&u=' + u;
-      });
-
-      // Set the initial value for _atTop before on-content-scroll fired.
-      this._atTop = this.$.main.atTop;
     },
 
     _attach: function(name, w, h, converter) {

@@ -474,8 +474,9 @@ Polymer({
     },
 
     /**
-     * Fixed string map stored on `santa-app`. Used for elements that can't
-     * have fixed strings, e.g. the vilage and the sidebar.
+     * Fixed string map stored on `santa-app`. Used for elements with strings
+     * that cannot be inferred at compile-time (e.g., i18n-msg with custom
+     * msgids, used in village and sidebar).
      */
     strings: {
       type: Object,
