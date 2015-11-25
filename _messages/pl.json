@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Anuluj"
+	"close": {
+		"message": "Zamknij"
 	},
 	"cm_country_name": {
 		"message": "Kamerun"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Nowość"
+	},
 	"newtoday": {
 		"message": "Nowość"
 	},
@@ -682,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Niedźwiedź polarny"
+	},
+	"notification": {
+		"message": "Powiadomienia"
+	},
+	"notification_notice": {
+		"message": "Elfy będą informować Cię na bieżąco o harmonogramie podróży Mikołaja"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -737,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Portoryko"
 	},
+	"press": {
+		"message": "Prasa"
+	},
 	"pt_language_name": {
 		"message": "portugalski"
 	},
@@ -757,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Arabia Saudyjska"
+	},
+	"santasearch_hint": {
+		"message": "Podpowiedź"
+	},
+	"santasearch_level_lab": {
+		"message": "W laboratorium"
+	},
+	"santasearch_level_museum": {
+		"message": "W muzeum"
+	},
+	"santasearch_level_select": {
+		"message": "OK"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Szukaj Świętego Mikołaja"
 	},
 	"santasvillage": {
 		"message": "Wioska Świętego Mikołaja"
@@ -844,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Powrót Mikołaja"
+	},
+	"scene_windtunnel": {
+		"message": "Tunel powietrzny"
 	},
 	"score": {
 		"message": "Wynik"
@@ -967,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Zobacz trasę"
+	},
+	"tracker_track": {
+		"message": "Gdzie jest Święty Mikołaj"
 	},
 	"tracker_weather": {
 		"message": "Pogoda"
@@ -4657,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Odkrywaj, baw się i ucz razem z elfami przez cały grudzień"
+	},
+	"village_get_the_app": {
+		"message": "Pobierz aplikację"
+	},
+	"village_santa_cardboard": {
+		"message": "Święty Mikołaj w Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Święty Mikołaj w Google Cast"
 	},
 	"village_takesoff": {
 		"message": "Święty Mikołaj wyrusza za"

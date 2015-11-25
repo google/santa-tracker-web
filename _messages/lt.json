@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Čilė"
 	},
-	"close-this": {
-		"message": "Atšaukti"
+	"close": {
+		"message": "Uždaryti"
 	},
 	"cm_country_name": {
 		"message": "Kamerūnas"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Nigeris"
 	},
+	"new": {
+		"message": "Nauja"
+	},
 	"newtoday": {
 		"message": "Šiandien nauja"
 	},
@@ -682,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Baltasis lokys"
+	},
+	"notification": {
+		"message": "Pranešimai"
+	},
+	"notification_notice": {
+		"message": "Kalėdų Senelio elfai padės neatsilikti nuo Kalėdų Senelio tvarkaraščio"
 	},
 	"np_country_name": {
 		"message": "Nepalas"
@@ -737,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rikas"
 	},
+	"press": {
+		"message": "Žiniasklaida"
+	},
 	"pt_language_name": {
 		"message": "Portugalų"
 	},
@@ -757,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Saudo Arabija"
+	},
+	"santasearch_hint": {
+		"message": "Užuomina"
+	},
+	"santasearch_level_lab": {
+		"message": "Laboratorijoje"
+	},
+	"santasearch_level_museum": {
+		"message": "Muziejuje"
+	},
+	"santasearch_level_select": {
+		"message": "Pradėti"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Ieškoti Kalėdų Senelio!"
 	},
 	"santasvillage": {
 		"message": "Kalėdų Senelio kaimas"
@@ -844,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Kalėdų Senelis grįžo"
+	},
+	"scene_windtunnel": {
+		"message": "Vėjo tunelis"
 	},
 	"score": {
 		"message": "Rezultatas"
@@ -967,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Žiūrėkite maršrutą"
+	},
+	"tracker_track": {
+		"message": "Sekti Kalėdų Senelį"
 	},
 	"tracker_weather": {
 		"message": "Oras"
@@ -4657,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Visą gruodį tyrinėkite, žaiskite ir mokykitės su Kalėdų Senelio elfais"
+	},
+	"village_get_the_app": {
+		"message": "Gauti programą"
+	},
+	"village_santa_cardboard": {
+		"message": "Kalėdų Senelis platformoje „Cardboard“"
+	},
+	"village_santa_cast": {
+		"message": "Kalėdų Senelis platformoje „Google Cast“"
 	},
 	"village_takesoff": {
 		"message": "Kalėdų Senelis išvyksta už"

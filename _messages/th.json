@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "ชิลี"
 	},
-	"close-this": {
-		"message": "ยกเลิก"
+	"close": {
+		"message": "ปิด"
 	},
 	"cm_country_name": {
 		"message": "แคเมอรูน"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "ไนเจอร์"
 	},
+	"new": {
+		"message": "ใหม่"
+	},
 	"newtoday": {
 		"message": "ใหม่สำหรับวันนี้"
 	},
@@ -743,6 +746,9 @@
 	"pr_country_name": {
 		"message": "เปอร์โตริโก"
 	},
+	"press": {
+		"message": "กด"
+	},
 	"pt_language_name": {
 		"message": "ภาษาโปรตุเกส"
 	},
@@ -763,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "ซาอุดีอาระเบีย"
+	},
+	"santasearch_hint": {
+		"message": "คำใบ้"
+	},
+	"santasearch_level_lab": {
+		"message": "ในห้องทดลอง"
+	},
+	"santasearch_level_museum": {
+		"message": "ในพิพิธภัณฑ์"
+	},
+	"santasearch_level_select": {
+		"message": "ไป!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "ค้นหาซานต้า!"
 	},
 	"santasvillage": {
 		"message": "หมู่บ้านซานต้า"
@@ -850,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "ซานต้ากลับมาแล้ว"
+	},
+	"scene_windtunnel": {
+		"message": "อุโมงค์ลม"
 	},
 	"score": {
 		"message": "คะแนน"
@@ -973,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "ดูเส้นทาง"
+	},
+	"tracker_track": {
+		"message": "ตามติดซานต้า"
 	},
 	"tracker_weather": {
 		"message": "สภาพอากาศ"
@@ -4663,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "สำรวจ เล่น และเรียนรู้ไปกับเอลฟ์ของซานต้าตลอดธันวาคมนี้"
+	},
+	"village_get_the_app": {
+		"message": "รับแอป"
+	},
+	"village_santa_cardboard": {
+		"message": "ค้นหาซานต้าบน Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "ค้นหาซานต้าบน Google Cast"
 	},
 	"village_takesoff": {
 		"message": "ซานต้าจะออกเดินทางใน"

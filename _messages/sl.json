@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Čile"
 	},
-	"close-this": {
-		"message": "Prekliči"
+	"close": {
+		"message": "Zapri"
 	},
 	"cm_country_name": {
 		"message": "Kamerun"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Novo"
+	},
 	"newtoday": {
 		"message": "Novo danes"
 	},
@@ -682,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Severni medved"
+	},
+	"notification": {
+		"message": "Obvestila"
+	},
+	"notification_notice": {
+		"message": "Božičkovi palčki vas bodo obveščali o njegovem urniku"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -737,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Portoriko"
 	},
+	"press": {
+		"message": "Mediji"
+	},
 	"pt_language_name": {
 		"message": "portugalščina"
 	},
@@ -757,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Savdska Arabija"
+	},
+	"santasearch_hint": {
+		"message": "Namig"
+	},
+	"santasearch_level_lab": {
+		"message": "V laboratoriju"
+	},
+	"santasearch_level_museum": {
+		"message": "V muzeju"
+	},
+	"santasearch_level_select": {
+		"message": "Pojdi!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Poiščite Božička!"
 	},
 	"santasvillage": {
 		"message": "Božičkova vas"
@@ -844,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Božiček se je vrnil"
+	},
+	"scene_windtunnel": {
+		"message": "Vetrovnik"
 	},
 	"score": {
 		"message": "Rezultat"
@@ -967,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Ogled poti"
+	},
+	"tracker_track": {
+		"message": "Spremljaj Božička"
 	},
 	"tracker_weather": {
 		"message": "Vreme"
@@ -4657,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Ves december lahko raziskujete, se igrate in učite z Božičkovimi palčki"
+	},
+	"village_get_the_app": {
+		"message": "Prenesite program"
+	},
+	"village_santa_cardboard": {
+		"message": "Božiček v napravi Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Božiček na platformi Google Cast"
 	},
 	"village_takesoff": {
 		"message": "Božiček odleti čez:"

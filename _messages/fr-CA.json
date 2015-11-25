@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Chili"
 	},
-	"close-this": {
-		"message": "Annuler"
+	"close": {
+		"message": "Fermer"
 	},
 	"cm_country_name": {
 		"message": "Cameroun"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Nouveau"
+	},
 	"newtoday": {
 		"message": "Nouveauté du jour"
 	},
@@ -684,7 +687,7 @@
 		"message": "Ours polaire"
 	},
 	"notification": {
-		"message": "Notifications"
+		"message": "Avis"
 	},
 	"notification_notice": {
 		"message": "Les lutins du père Noël te tiendront au courant de son horaire"
@@ -743,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Porto Rico"
 	},
+	"press": {
+		"message": "Appuyer"
+	},
 	"pt_language_name": {
 		"message": "Portugais"
 	},
@@ -763,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Arabie saoudite"
+	},
+	"santasearch_hint": {
+		"message": "Indice"
+	},
+	"santasearch_level_lab": {
+		"message": "Dans le labo"
+	},
+	"santasearch_level_museum": {
+		"message": "Au musée"
+	},
+	"santasearch_level_select": {
+		"message": "C'est parti!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "À la recherche du père Noël!"
 	},
 	"santasvillage": {
 		"message": "Le village du père Noël"
@@ -850,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Le père Noël est de retour"
+	},
+	"scene_windtunnel": {
+		"message": "Soufflerie"
 	},
 	"score": {
 		"message": "Pointage"
@@ -973,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Afficher l'itinéraire"
+	},
+	"tracker_track": {
+		"message": "Suivez le père Noël"
 	},
 	"tracker_weather": {
 		"message": "Météo"
@@ -4663,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Découvre, joue et apprends avec les lutins du père Noël durant tout le mois de décembre"
+	},
+	"village_get_the_app": {
+		"message": "Télécharger l'application"
+	},
+	"village_santa_cardboard": {
+		"message": "Le père Noël sur Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Le père Noël sur Google Cast"
 	},
 	"village_takesoff": {
 		"message": "Le père Noël commence sa tournée dans"

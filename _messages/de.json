@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Abbrechen"
+	"close": {
+		"message": "Schließen"
 	},
 	"cm_country_name": {
 		"message": "Kamerun"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Neu"
+	},
 	"newtoday": {
 		"message": "Heute neu"
 	},
@@ -682,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polarbär"
+	},
+	"notification": {
+		"message": "Benachrichtigungen"
+	},
+	"notification_notice": {
+		"message": "Lass dir von den Wichteln verraten, was der Weihnachtsmann gerade tut."
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -737,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Presseinhalte"
+	},
 	"pt_language_name": {
 		"message": "Portugiesisch"
 	},
@@ -757,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Saudi-Arabien"
+	},
+	"santasearch_hint": {
+		"message": "Hinweis"
+	},
+	"santasearch_level_lab": {
+		"message": "Im Labor"
+	},
+	"santasearch_level_museum": {
+		"message": "Im Museum"
+	},
+	"santasearch_level_select": {
+		"message": "Los"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Finde den Weihnachtsmann!"
 	},
 	"santasvillage": {
 		"message": "Dorf des Weihnachtsmanns"
@@ -844,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Der Weihnachtsmann ist wieder da"
+	},
+	"scene_windtunnel": {
+		"message": "Im Windkanal"
 	},
 	"score": {
 		"message": "Bewertung"
@@ -967,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Route anzeigen"
+	},
+	"tracker_track": {
+		"message": "Weihnachtsmann orten"
 	},
 	"tracker_weather": {
 		"message": "Wetter"
@@ -4657,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Entdecke, spiele und lerne den ganzen Dezember lang gemeinsam mit den Wichteln des Weihnachtsmanns."
+	},
+	"village_get_the_app": {
+		"message": "App herunterladen"
+	},
+	"village_santa_cardboard": {
+		"message": "Den Weihnachtsmann finden mit Google Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Den Weihnachtsmann finden mit Google Cast"
 	},
 	"village_takesoff": {
 		"message": "Der Weihnachtsmann startet in"

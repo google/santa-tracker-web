@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Anulează"
+	"close": {
+		"message": "Închideți"
 	},
 	"cm_country_name": {
 		"message": "Camerun"
@@ -333,10 +333,10 @@
 		"message": "Ore"
 	},
 	"countdown_minutes": {
-		"message": "Min."
+		"message": "min."
 	},
 	"countdown_seconds": {
-		"message": "Sec."
+		"message": "sec."
 	},
 	"countdown_until": {
 		"message": "Moș Crăciun pornește în"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Nou"
+	},
 	"newtoday": {
 		"message": "Nou azi"
 	},
@@ -682,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Urși polari"
+	},
+	"notification": {
+		"message": "Notificări"
+	},
+	"notification_notice": {
+		"message": "Elfii lui Moș Crăciun vă vor ține la curent cu programul acestuia."
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -737,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Apăsați"
+	},
 	"pt_language_name": {
 		"message": "Portugheză"
 	},
@@ -757,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Arabia Saudită"
+	},
+	"santasearch_hint": {
+		"message": "Indiciu"
+	},
+	"santasearch_level_lab": {
+		"message": "În laborator"
+	},
+	"santasearch_level_museum": {
+		"message": "La muzeu"
+	},
+	"santasearch_level_select": {
+		"message": "Accesați!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Căutați-l pe Moș Crăciun!"
 	},
 	"santasvillage": {
 		"message": "Satul lui Moș Crăciun"
@@ -844,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Moș Crăciun s-a întors"
+	},
+	"scene_windtunnel": {
+		"message": "Tunel aerodinamic"
 	},
 	"score": {
 		"message": "Scor"
@@ -967,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Vezi traseul"
+	},
+	"tracker_track": {
+		"message": "Urmăriți-l pe Moș Crăciun"
 	},
 	"tracker_weather": {
 		"message": "Condiţiile meteo"
@@ -4657,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Explorați, jucați-vă și învățați cu elfii lui Moș Crăciun pe tot parcursul lunii decembrie"
+	},
+	"village_get_the_app": {
+		"message": "Descărcați aplicația"
+	},
+	"village_santa_cardboard": {
+		"message": "Moș Crăciun pe Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Moș Crăciun pe Google Cast"
 	},
 	"village_takesoff": {
 		"message": "Moș Crăciun pornește în"

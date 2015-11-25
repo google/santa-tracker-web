@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "ചിലി"
 	},
-	"close-this": {
-		"message": "റദ്ദാക്കുക"
+	"close": {
+		"message": "അടയ്ക്കുക"
 	},
 	"cm_country_name": {
 		"message": "കാമറൂൺ"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "നൈജർ"
 	},
+	"new": {
+		"message": "പുതിയത്"
+	},
 	"newtoday": {
 		"message": "ഇന്നത്തെ പുതിയത്"
 	},
@@ -682,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "ധ്രുവക്കരടി"
+	},
+	"notification": {
+		"message": "അറിയിപ്പുകൾ"
+	},
+	"notification_notice": {
+		"message": "സാന്തയുടെ കുട്ടിച്ചാത്തന്മാർ സാന്തയുടെ ഷെഡ്യൂൾ നിങ്ങളെ അറിയിച്ചുകൊണ്ടിരിക്കും"
 	},
 	"np_country_name": {
 		"message": "നേപ്പാൾ"
@@ -737,6 +746,9 @@
 	"pr_country_name": {
 		"message": "പ്യൂര്‍ട്ടോ റിക്കോ"
 	},
+	"press": {
+		"message": "അമര്‍ത്തുക"
+	},
 	"pt_language_name": {
 		"message": "പോര്‍ച്ചുഗീസ്"
 	},
@@ -757,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "സൗദി അറേബ്യ"
+	},
+	"santasearch_hint": {
+		"message": "സൂചന"
+	},
+	"santasearch_level_lab": {
+		"message": "ലാബിൽ"
+	},
+	"santasearch_level_museum": {
+		"message": "മ്യൂസിയത്തിൽ"
+	},
+	"santasearch_level_select": {
+		"message": "പോകുക!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "സാന്തയെ തിരയുക!"
 	},
 	"santasvillage": {
 		"message": "സാന്തയുടെ ഗ്രാമം"
@@ -844,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "സാന്ത തിരിച്ചെത്തിയിരിക്കുന്നു"
+	},
+	"scene_windtunnel": {
+		"message": "വിൻഡ് ടണൽ"
 	},
 	"score": {
 		"message": "സ്‌കോർ"
@@ -967,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "റൂട്ട് കാണുക"
+	},
+	"tracker_track": {
+		"message": "സാന്തയെ ട്രാക്കുചെയ്യുക"
 	},
 	"tracker_weather": {
 		"message": "കാലാവസ്ഥ"
@@ -4657,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "ഡിസംബർ മുഴുവനും സാന്തയുടെ കുട്ടിച്ചാത്തന്മാരെ അടുത്തറിയുക, അവരോടൊപ്പം കളിക്കുക, പല കാര്യങ്ങളും പഠിക്കുക"
+	},
+	"village_get_the_app": {
+		"message": "ആപ്പ് സ്വന്തമാക്കുക"
+	},
+	"village_santa_cardboard": {
+		"message": "കാർഡ്‌ബോർഡിലെ സാന്ത"
+	},
+	"village_santa_cast": {
+		"message": "Google കാസ്റ്റിലെ സാന്ത"
 	},
 	"village_takesoff": {
 		"message": "സാന്ത യാത്ര തുടങ്ങുന്നത്"

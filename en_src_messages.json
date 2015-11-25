@@ -761,7 +761,7 @@
     },
     "codeboogie-result-too-many-blocks-success": {
         "description": "Short hint on how the puzzle can be improved even if level is complete. One or two sentences max. Has a token for a dynamic number between 2-6, the token can be skipped and translation worded that fewer blocks are needed.",
-        "messages": "Did you know you can finish this dance with just {{ideal}} blocks?"
+        "message": "Did you know you can finish this dance with just {{ideal}} blocks?"
     },
     "codeboogie-result-missing-block-fail": {
         "description": "Short hint after failing a level. One or two sentences max. Refers to blocks visually displayed below.",
@@ -6358,11 +6358,11 @@
       "message": "Santa's Elves will keep you up-to-date with Santa's schedule"
     },
     "tracker_flight_start": {
-      "decription": "Notice message that Santa has taken off and that he's able to be followed",
+      "description": "Notice message that Santa has taken off and that he's able to be followed",
       "message": "Santa has departed from the North Pole, and you can now follow his route"
     },
     "tracker_flight_nearby": {
-      "decription": "Notice that Santa is nearby and that he's able to be tracked",
+      "description": "Notice that Santa is nearby and that he's able to be tracked",
       "message": "Santa is nearby, find out where"
     },
     "village_explore": {
@@ -6391,7 +6391,7 @@
     },
     "village_more": {
       "description": "Menu item to find more ways to learn, play, explore etc about Santa.",
-      "messages": "More Ways to Explore"
+      "message": "More Ways to Explore"
     },
     "santasearch_search_for_santa": {
       "description": "A heading for the level selection screen.",
@@ -6414,21 +6414,27 @@
       "message": "Hint"
     },
     "santasearch_character_santa": {
+      "description": "The name of a character that can be found in a Search game, Santa.",
       "message": "Santa Claus"
     },
     "santasearch_character_mrs_claus": {
+      "description": "The name of a character that can be found in a Search game, the wife of Santa Claus.",
       "message": "Mrs. Claus"
     },
     "santasearch_character_rudolph": {
+      "description": "The name of a character that can be found in a Search game, Rudolph the Reindeer.",
       "message": "Rudolph"
     },
     "santasearch_character_penguin": {
+      "description": "The name of a character that can be found in a Search game, a penguin who lives at the North Pole.",
       "message": "Penguin"
     },
     "santasearch_character_gingerbread_man": {
+      "description": "The name of a character that can be found in a Search game, a gingerbread man.",
       "message": "Gingerbread Man"
     },
     "santasearch_character_pegman": {
+      "description": "The name of a character that can be found in a Search game, the Google Maps pegman.",
       "message": "Pegman"
     }
 }
