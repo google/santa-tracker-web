@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Peruuta"
+	"close": {
+		"message": "Sulje"
 	},
 	"cm_country_name": {
 		"message": "Kamerun"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Uusi"
+	},
 	"newtoday": {
 		"message": "Avattu tänään"
 	},
@@ -743,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Paina"
+	},
 	"pt_language_name": {
 		"message": "portugali"
 	},
@@ -763,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Saudi-Arabia"
+	},
+	"santasearch_hint": {
+		"message": "Vinkki"
+	},
+	"santasearch_level_lab": {
+		"message": "Pelipajassa"
+	},
+	"santasearch_level_museum": {
+		"message": "Museossa"
+	},
+	"santasearch_level_select": {
+		"message": "Aloita!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Etsi pukkia!"
 	},
 	"santasvillage": {
 		"message": "Pukin kylä"
@@ -850,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Pukki on palannut"
+	},
+	"scene_windtunnel": {
+		"message": "Tuulitunneli"
 	},
 	"score": {
 		"message": "Tulos"
@@ -973,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Katso reitti"
+	},
+	"tracker_track": {
+		"message": "Seuraa pukkia"
 	},
 	"tracker_weather": {
 		"message": "Sää"
@@ -4663,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Tutki, pelaa ja opi tonttujen kanssa koko joulukuun ajan."
+	},
+	"village_get_the_app": {
+		"message": "Hanki sovellus"
+	},
+	"village_santa_cardboard": {
+		"message": "Pukki Cardboardissa"
+	},
+	"village_santa_cast": {
+		"message": "Pukki Google Castissa"
 	},
 	"village_takesoff": {
 		"message": "Aikaa joulupukin lähtöön:"

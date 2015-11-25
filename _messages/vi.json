@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Hủy"
+	"close": {
+		"message": "Đóng"
 	},
 	"cm_country_name": {
 		"message": "Cameroon"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Mới"
+	},
 	"newtoday": {
 		"message": "Mới hôm nay"
 	},
@@ -682,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Gấu bắc cực"
+	},
+	"notification": {
+		"message": "Thông báo"
+	},
+	"notification_notice": {
+		"message": "Các chú lùn của ông già Noel sẽ cập nhật cho bạn về lịch trình của ông già Noel"
 	},
 	"np_country_name": {
 		"message": "Nê-pan"
@@ -737,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Báo chí"
+	},
 	"pt_language_name": {
 		"message": "Tiếng Bồ Đào Nha"
 	},
@@ -757,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Ả-Rập Xê-út"
+	},
+	"santasearch_hint": {
+		"message": "Gợi ý"
+	},
+	"santasearch_level_lab": {
+		"message": "Ở phòng thí nghiệm"
+	},
+	"santasearch_level_museum": {
+		"message": "Tại bảo tàng"
+	},
+	"santasearch_level_select": {
+		"message": "Đi tiếp!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Tìm kiếm ông già Noel!"
 	},
 	"santasvillage": {
 		"message": "Ngôi làng của Ông già Noel"
@@ -844,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Ông già Noel đã trở lại"
+	},
+	"scene_windtunnel": {
+		"message": "Hầm gió"
 	},
 	"score": {
 		"message": "Điểm số"
@@ -967,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Xem tuyến đường"
+	},
+	"tracker_track": {
+		"message": "Theo chân ông già Noel"
 	},
 	"tracker_weather": {
 		"message": "Thời tiết"
@@ -4657,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Khám phá, chơi và học với các Chú lùn của Ông già Noel suốt cả Tháng 12"
+	},
+	"village_get_the_app": {
+		"message": "Tải ứng dụng"
+	},
+	"village_santa_cardboard": {
+		"message": "Ông già Noel trên Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Ông già Noel trên Google Cast"
 	},
 	"village_takesoff": {
 		"message": "Ông già Noel sẽ khởi hành sau"

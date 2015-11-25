@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "チリ"
 	},
-	"close-this": {
-		"message": "キャンセル"
+	"close": {
+		"message": "閉じる"
 	},
 	"cm_country_name": {
 		"message": "カメルーン"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "ニジェール"
 	},
+	"new": {
+		"message": "New"
+	},
 	"newtoday": {
 		"message": "本日公開"
 	},
@@ -682,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "ホッキョクグマ"
+	},
+	"notification": {
+		"message": "お知らせ"
+	},
+	"notification_notice": {
+		"message": "妖精がサンタさんの最新スケジュールをお届けします"
 	},
 	"np_country_name": {
 		"message": "ネパール"
@@ -737,6 +746,9 @@
 	"pr_country_name": {
 		"message": "プエルトリコ"
 	},
+	"press": {
+		"message": "ニュース"
+	},
 	"pt_language_name": {
 		"message": "ポルトガル語"
 	},
@@ -757,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "サウジアラビア"
+	},
+	"santasearch_hint": {
+		"message": "ヒント"
+	},
+	"santasearch_level_lab": {
+		"message": "実験室"
+	},
+	"santasearch_level_museum": {
+		"message": "美術館"
+	},
+	"santasearch_level_select": {
+		"message": "Go！"
+	},
+	"santasearch_search_for_santa": {
+		"message": "サンタさんを探そう！"
 	},
 	"santasvillage": {
 		"message": "サンタ村"
@@ -844,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "サンタさんが帰ってきた"
+	},
+	"scene_windtunnel": {
+		"message": "風のトンネル"
 	},
 	"score": {
 		"message": "スコア"
@@ -967,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "ルートを表示"
+	},
+	"tracker_track": {
+		"message": "サンタさんを追いかける"
 	},
 	"tracker_weather": {
 		"message": "天気情報"
@@ -4657,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "12 月はサンタさんの妖精たちと一緒に、サンタ村を探検したり、ゲームをしたり、クリスマスについて学んだりしよう"
+	},
+	"village_get_the_app": {
+		"message": "アプリをダウンロード"
+	},
+	"village_santa_cardboard": {
+		"message": "Cardboard でサンタさんを探す"
+	},
+	"village_santa_cast": {
+		"message": "Google Cast でサンタさんを探す"
 	},
 	"village_takesoff": {
 		"message": "サンタさんの出発まであと"

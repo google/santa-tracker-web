@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Cile"
 	},
-	"close-this": {
-		"message": "Annulla"
+	"close": {
+		"message": "Chiudi"
 	},
 	"cm_country_name": {
 		"message": "Camerun"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Nuovo"
+	},
 	"newtoday": {
 		"message": "Novità di oggi"
 	},
@@ -682,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Orso polare"
+	},
+	"notification": {
+		"message": "Notifiche"
+	},
+	"notification_notice": {
+		"message": "I folletti di Babbo Natale ti terranno aggiornato sui suoi programmi"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -737,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Portorico"
 	},
+	"press": {
+		"message": "Stampa"
+	},
 	"pt_language_name": {
 		"message": "Portoghese"
 	},
@@ -757,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Arabia Saudita"
+	},
+	"santasearch_hint": {
+		"message": "Suggerimento"
+	},
+	"santasearch_level_lab": {
+		"message": "Nel laboratorio"
+	},
+	"santasearch_level_museum": {
+		"message": "Al museo"
+	},
+	"santasearch_level_select": {
+		"message": "Vai!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Cerca Babbo Natale!"
 	},
 	"santasvillage": {
 		"message": "Il villaggio di Babbo Natale"
@@ -844,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Babbo Natale è tornato"
+	},
+	"scene_windtunnel": {
+		"message": "Galleria del vento"
 	},
 	"score": {
 		"message": "Punti"
@@ -967,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Guarda il percorso"
+	},
+	"tracker_track": {
+		"message": "Segui Babbo Natale"
 	},
 	"tracker_weather": {
 		"message": "Meteo"
@@ -4657,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Esplora, gioca e impara con i folletti di Babbo Natale per tutto il mese di dicembre"
+	},
+	"village_get_the_app": {
+		"message": "Scarica l'applicazione"
+	},
+	"village_santa_cardboard": {
+		"message": "Babbo Natale su Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Babbo Natale su Google Cast"
 	},
 	"village_takesoff": {
 		"message": "Babbo Natale decolla tra"

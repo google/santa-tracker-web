@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Чили"
 	},
-	"close-this": {
-		"message": "Отказ"
+	"close": {
+		"message": "Затваряне"
 	},
 	"cm_country_name": {
 		"message": "Камерун"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Нигер"
 	},
+	"new": {
+		"message": "Ново"
+	},
 	"newtoday": {
 		"message": "Ново днес"
 	},
@@ -743,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Пуерто Рико"
 	},
+	"press": {
+		"message": "Преса"
+	},
 	"pt_language_name": {
 		"message": "португалски"
 	},
@@ -763,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Саудитска Арабия"
+	},
+	"santasearch_hint": {
+		"message": "Подсказка"
+	},
+	"santasearch_level_lab": {
+		"message": "В лабораторията"
+	},
+	"santasearch_level_museum": {
+		"message": "В музея"
+	},
+	"santasearch_level_select": {
+		"message": "Старт!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Търсете Дядо Коледа!"
 	},
 	"santasvillage": {
 		"message": "Селцето на Дядо Коледа"
@@ -850,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Дядо Коледа се върна"
+	},
+	"scene_windtunnel": {
+		"message": "Аеродинамичен тунел"
 	},
 	"score": {
 		"message": "Резултат"
@@ -973,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Вижте маршрута"
+	},
+	"tracker_track": {
+		"message": "Следене на Дядо Коледа"
 	},
 	"tracker_weather": {
 		"message": "Времето"
@@ -4663,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Изследвайте, играйте и учете с джуджетата на Дядо Коледа през целия декември"
+	},
+	"village_get_the_app": {
+		"message": "Изтегляне на приложението"
+	},
+	"village_santa_cardboard": {
+		"message": "Дядо Коледа в Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Дядо Коледа в Google Cast"
 	},
 	"village_takesoff": {
 		"message": "Дядо Коледа потегля след"

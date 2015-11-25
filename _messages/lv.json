@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Čīle"
 	},
-	"close-this": {
-		"message": "Atcelt"
+	"close": {
+		"message": "Aizvērt"
 	},
 	"cm_country_name": {
 		"message": "Kamerūna"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Nigēra"
 	},
+	"new": {
+		"message": "Jauns"
+	},
 	"newtoday": {
 		"message": "Šodienas jaunums"
 	},
@@ -682,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polārlācis"
+	},
+	"notification": {
+		"message": "Paziņojumi"
+	},
+	"notification_notice": {
+		"message": "Ziemassvētku vecīša elfi informēs jūs par Ziemassvētku vecīša darba grafiku"
 	},
 	"np_country_name": {
 		"message": "Nepāla"
@@ -737,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Puertoriko"
 	},
+	"press": {
+		"message": "Prese"
+	},
 	"pt_language_name": {
 		"message": "Portugāļu"
 	},
@@ -757,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Saūda Arābija"
+	},
+	"santasearch_hint": {
+		"message": "Padoms"
+	},
+	"santasearch_level_lab": {
+		"message": "Laboratorijā"
+	},
+	"santasearch_level_museum": {
+		"message": "Muzejā"
+	},
+	"santasearch_level_select": {
+		"message": "Aiziet!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Meklējiet Ziemassvētku vecīti!"
 	},
 	"santasvillage": {
 		"message": "Ziemassvētku vecīša ciemats"
@@ -844,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Ziemassvētku vecītis ir atgriezies"
+	},
+	"scene_windtunnel": {
+		"message": "Vēja tunelis"
 	},
 	"score": {
 		"message": "Rezultāts"
@@ -967,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Skatīt maršrutu"
+	},
+	"tracker_track": {
+		"message": "Sekojiet Ziemassvētku vecītim"
 	},
 	"tracker_weather": {
 		"message": "Laikapstākļi"
@@ -4657,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Visu decembri pētiet, spēlējieties un mācieties kopā ar Ziemassvētku vecīša elfiem"
+	},
+	"village_get_the_app": {
+		"message": "Iegūt lietotni"
+	},
+	"village_santa_cardboard": {
+		"message": "Ziemassvētku vecītis pakalpojumā Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Ziemassvētku vecītis platformā Google Cast"
 	},
 	"village_takesoff": {
 		"message": "Ziemassvētku vecītis dosies ceļā pēc"

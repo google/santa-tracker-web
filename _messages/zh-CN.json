@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "智利"
 	},
-	"close-this": {
-		"message": "取消"
+	"close": {
+		"message": "关闭"
 	},
 	"cm_country_name": {
 		"message": "喀麦隆"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "尼日尔"
 	},
+	"new": {
+		"message": "新发布"
+	},
 	"newtoday": {
 		"message": "今日更新"
 	},
@@ -682,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "北极熊"
+	},
+	"notification": {
+		"message": "通知"
+	},
+	"notification_notice": {
+		"message": "圣诞老人的小精灵们会及时汇报圣诞老人的行程"
 	},
 	"np_country_name": {
 		"message": "尼泊尔"
@@ -737,6 +746,9 @@
 	"pr_country_name": {
 		"message": "波多黎各"
 	},
+	"press": {
+		"message": "新闻"
+	},
 	"pt_language_name": {
 		"message": "葡萄牙语"
 	},
@@ -757,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "沙特阿拉伯"
+	},
+	"santasearch_hint": {
+		"message": "提示"
+	},
+	"santasearch_level_lab": {
+		"message": "实验室"
+	},
+	"santasearch_level_museum": {
+		"message": "博物馆"
+	},
+	"santasearch_level_select": {
+		"message": "开始！"
+	},
+	"santasearch_search_for_santa": {
+		"message": "寻找圣诞老人！"
 	},
 	"santasvillage": {
 		"message": "圣诞老人小镇"
@@ -844,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "圣诞老人回归"
+	},
+	"scene_windtunnel": {
+		"message": "风洞"
 	},
 	"score": {
 		"message": "得分"
@@ -967,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "查看路线"
+	},
+	"tracker_track": {
+		"message": "追踪圣诞老人"
 	},
 	"tracker_weather": {
 		"message": "天气"
@@ -4657,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "在弥漫着节日气氛的 12 月，与圣诞老人的小精灵们一起探索、玩耍、学习"
+	},
+	"village_get_the_app": {
+		"message": "下载应用"
+	},
+	"village_santa_cardboard": {
+		"message": "使用 Cardboard 寻找圣诞老人"
+	},
+	"village_santa_cast": {
+		"message": "在 Google Cast 上寻找圣诞老人"
 	},
 	"village_takesoff": {
 		"message": "圣诞老人出发倒计时"
