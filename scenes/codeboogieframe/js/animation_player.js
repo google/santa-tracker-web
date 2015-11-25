@@ -134,6 +134,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
 
     this.lastUpdateTime = 0;
     this.lastBeat = null;
+    this.isPlaying = false;
 
     this.update(0);
   }
@@ -158,11 +159,10 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.animationQueue = result.animationQueue;
     this.moveTiles.clear();
     this.title.setTitle(this.animationQueue[0].title);
-    this.dispatchEvent({type: 'start'});
   }
 
   onBar(bar, beat) {
-    if (this.lastBeat && beat < this.lastBeat + app.Constants.BEATS_PER_ANIMATION) {
+    if (this.isPlaying && this.lastBeat && beat < this.lastBeat + app.Constants.BEATS_PER_ANIMATION) {
       return;
     }
 
@@ -171,9 +171,20 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     if (!animation) {
       this.teacher.play(app.Step.IDLE);
       this.player.play(app.Step.IDLE);
-      this.dispatchEvent({type: 'finish'});
-      this.moveTiles.clear();
+
+      if (this.isPlaying) {
+        this.dispatchEvent({type: 'finish'});
+        this.moveTiles.clear();
+        this.isPlaying = false;
+      }
+
       return;
+    }
+
+    if (animation.isCountdown) {
+      this.dispatchEvent({type: 'start'});
+    } else {
+      this.isPlaying = true;
     }
 
     this.teacher.play(animation.teacherStep);

@@ -242,7 +242,8 @@ app.DanceLevel = class extends app.Level {
       playerStep: app.Step.IDLE,
       title: app.I18n.getMsg(result === app.DanceStatus.NO_STEPS ?
           'CB_watchClosely' :
-          'CB_letsDance')
+          'CB_letsDance'),
+      isCountdown: true
     });
 
     return queue;
