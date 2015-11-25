@@ -3,61 +3,50 @@ $grid-background-color: #00904a;
 $character-grid-border-color: $grid-background-color;
 $character-grid-background-color: #2baf4c;
 
-$character-focus-size: 240px;
+$character-focus-size: 240em;
 $character-focus-background-color: #93D629;
 
-$character-ui-padding-desktop: calc(50% - 550px);
+$character-ui-padding-desktop: calc(50% - 550em);
 
 ##{$name} {
   .drawer {
-    box-shadow: 0px 1px 5px 6px rgba(0,0,0,0.15);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 75px;
     background-color: $grid-background-color;
+    bottom: 0;
+    box-shadow: 0px 1px 5px 6px rgba(0, 0, 0, 0.15);
+    height: 75em;
+    left: 0;
     padding-left: $character-ui-padding-desktop;
     pointer-events: none;
+    position: absolute;
+    right: 0;
 
     &__item {
-      position: relative;
+      background-color: $character-grid-background-color;
+      border-right: 1px solid $character-grid-border-color;
+      float: left;
+      height: 75em;
       margin: 0;
       padding: 0;
-      float: left;
-      background-color: $character-grid-background-color;
-      width: 180px;
-      height: 75px;
-      border-right: 1px solid $character-grid-border-color;
+      position: relative;
+      width: 180em;
     }
 
     &__character-wrapper {
-      position: absolute;
-      width: $character-focus-size;
       height: $character-focus-size;
       left: 50%;
       margin-left: -($character-focus-size / 2);
-      margin-top: -($character-focus-size / 2);
-      top: 35%;
-
-      & .hint {
-        display: none;
-        left: 32px;
-        position: absolute;
-        top: 125px;
-      }
+      margin-top: -($character-focus-size / 2) - 25em;
+      position: absolute;
+      top: 50%;
+      width: $character-focus-size;
 
       &--focused {
-        z-index: 1;
         background-color: $character-focus-background-color;
         border-radius: 50%;
+        z-index: 1;
 
-        .character {
-          transform: scale(1.4) translateY(-10px);
-        }
-
-        .hint {
-          display: inline-block;
+        .drawer__foreground {
+          transform: scale(1.4) translateY(-10em);
         }
       }
 
@@ -66,9 +55,9 @@ $character-ui-padding-desktop: calc(50% - 550px);
       }
 
       .character {
+        bottom: 25em;
+        left: 120em;
         transition: transform .2s ease-in-out;
-        left: 50%;
-        top: 58%;
       }
     }
   }
