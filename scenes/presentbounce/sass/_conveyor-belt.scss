@@ -1,16 +1,3 @@
-@keyframes #{$name}-belt-animation {
-  to {
-    // document.querySelector('.belt').getTotalLength()
-    stroke-dashoffset: -813.1859130859375;
-  }
-}
-
-@keyframes #{$name}-wheel-animation {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 ##{$name} {
 
   .object--conveyorBelt {
@@ -34,4 +21,17 @@
 
   }
 
+}
+
+@keyframes #{$name}-belt-animation {
+  to {
+    // document.querySelector('.belt').getTotalLength()
+    stroke-dashoffset: -813.1859130859375;
+  }
+}
+
+@keyframes #{$name}-wheel-animation {
+  to {
+    transform: rotate(360deg);
+  }
 }

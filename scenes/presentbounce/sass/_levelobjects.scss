@@ -1,25 +1,5 @@
 ##{$name} {
 
-  user-select: none;
-  svg {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .btns {
-    position: absolute;
-    top: 4%;
-    left: 2%;
-  }
-
-  .object {
-    position: absolute;
-    top: 0;
-    left: 0;
-    //outline: 1px dashed rgba(255,0,0,.5);
-  }
-
   .object--dropper {
     background: grey;
   }
@@ -44,11 +24,6 @@
 
   .object--snowglobe {
     border-radius: 100%;
-  }
-
-  .object--spring {
-    cursor: move;
-    background: hotpink;
   }
 
   &.frozen,
