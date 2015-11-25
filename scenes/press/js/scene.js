@@ -20,20 +20,19 @@ goog.require('app.Models');
 
 /**
  * Press Scene class
- * Main class responsible for kicking off the scene's additional classes and
- * elements.
+ * Main class responsible for kicking off the scene's additional functionality
  *
  * @param {!Element} context An DOM element which wraps the scene.
  * @constructor
  * @export
  */
 app.Scene = function(context) {
-  this.context = $('#press-secondary', context);
+  this.gallery = $('#press-secondary', context);
 
   this.cards = Cards;
   this.active = '';
-  this.$filters = this.context.find('[press-filter]');
-  this.$cards = this.context.find('[press-card]');
+  this.$filters = this.gallery.find('[press-filter]');
+  this.$cards = this.gallery.find('[press-card]');
 
   this.init_();
 };
@@ -52,7 +51,7 @@ app.Scene.prototype.getCards = function() {
  */
 
 app.Scene.prototype.show = function(active) {
-  this.$cards = this.context.find('[press-card]');
+  this.$cards = this.gallery.find('[press-card]');
 
   this.active = active;
   this.setActiveFilter_();
@@ -107,7 +106,7 @@ app.Scene.prototype.onFilterSelect_ = function(e) {
  */
 
 app.Scene.prototype.setActiveFilter_ = function() {
-  this.$cards = this.context.find('[press-card]');
+  this.$cards = this.gallery.find('[press-card]');
   this.$cards.addClass('fading-out');
 
   setTimeout(function() {

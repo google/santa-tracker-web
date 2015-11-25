@@ -21,6 +21,7 @@ $name: 'module-press';
       clear: both;
     }
   }
+
   .square {
     &:before {
       content: "";
@@ -113,9 +114,9 @@ $name: 'module-press';
   #press-hero {
     background: url(img/bg-press-page-hero.png) 50% 50% no-repeat;
     background-size: cover;
-    width: 100%;
     height: 900px;
     padding: 20px 0 0 0;
+    width: 100%;
 
     .press-header, .press-description  {
       box-sizing: border-box;
@@ -128,13 +129,13 @@ $name: 'module-press';
       background: url(img/title-bg-swirl_2x.png) 50% 50% no-repeat;
       background-size: contain;
       padding: 30px 0 50px 0;
-      width: 100%;
       text-align: center;
+      width: 100%;
 
       .press-title {
+        @extend .clearfix;
         display: inline-block;        
     	  transform: rotate(-5deg);  
-        @extend .clearfix;
       }
     }
 
@@ -153,35 +154,35 @@ $name: 'module-press';
     }  
 
     .press-description-left {
-      width: 26%;
       float: left;
       padding: 30px 0 0 0;
+      width: 26%;
 
       .square {
-        width: 100%;
         background: url(img/illust-reporter_2x.png) 50% 50% no-repeat;
         background-size: contain;
+        width: 100%;
       }          
     }
 
     .press-description-right {
-      width: 74%;
       float: left;
+      width: 74%;
     }
   }
   
   #press-intro {
+    @extend .clearfix;
     height: 500px;
     width: 100%;
-    @extend .clearfix;
 
     h2, p {
       color: #fff;
     }
 
     .press-intro-inner {
-      width: 75%;
       text-align: center;
+      width: 75%;
 
       p {
         font-size: 16px;
@@ -198,8 +199,8 @@ $name: 'module-press';
       width: 50%;
 
       .rect {
-        width: 100%;
-        margin: 5% 0;                         
+        margin: 5% 0;   
+        width: 100%;                      
       }
     }
 
@@ -262,8 +263,8 @@ $name: 'module-press';
   } 
   
   #press-secondary {
+    padding: 100px 0 100px 0;
     text-align: center;
-    padding: 100px 0 100px 0; 
 
     h2 {
       margin-bottom: 25px;
@@ -283,25 +284,28 @@ $name: 'module-press';
     }
 
     .press-secondary-inner {
-      width: 1010px;
       margin: 0 auto;
       overflow: auto;
+      width: 1010px;
 
       .press-card-tabs {
         padding-bottom: 50px;
 
-        button {
+        a {
           background: none;
           border: none;
-          font-size: 14px;
           color: #9575CD;
-          text-transform: uppercase;
+          cursor: pointer;
+          font-size: 14px;
           font-weight: 600;
           padding: 20px;
           position: relative;
+          text-transform: uppercase;
           z-index: 1;
 
           &:hover, &.active {
+            opacity: 1;
+
             &:before {
               opacity: 1;
             }
@@ -340,33 +344,18 @@ $name: 'module-press';
             background-size: contain;
           }
         }
-
-        /*.press-card-button-1:hover, .press-card-button-1.active  {
-          background: url(img/tab-bg_view-all_2x.png) 50% 50% no-repeat;
-          background-size: contain;
-        }
-
-        .press-card-button-2:hover, .press-card-button-2.active  {
-          background: url(img/tab-bg_education_2x.png) 50% 50% no-repeat;
-          background-size: contain; 
-        }
-
-        .press-card-button-3:hover, .press-card-button-3.active {
-          background: url(img/tab-bg_new-in-2015_2x.png) 50% 50% no-repeat;
-          background-size: contain;
-        }*/
       }        
     }            
   } 
   
   #press-embed {
     background: #9575CD;
-    text-align: center;
     padding: 100px 0;
+    text-align: center;
 
     .press-embed-inner {
-      width: 640px;
       margin: 0 auto;
+      width: 640px;
     }
 
     a {
@@ -375,8 +364,8 @@ $name: 'module-press';
     }
 
     p {
-      font-size: 16px;
       color: #fff;
+      font-size: 16px;
     }
 
     .rect {
@@ -386,8 +375,8 @@ $name: 'module-press';
   } 
   
   #press-device {
+    padding: 50px 0; 
     text-align: center; 
-    padding: 50px 0;  
 
     h3, h4, p {
       color: #607D8B;
@@ -409,9 +398,10 @@ $name: 'module-press';
     }
 
     .press-device-grid {
-      width: 980px; 
-      margin: 0 auto;
       @extend .clearfix;
+      font-size: 0;
+      margin: 0 auto;
+      width: 1010px;
 
       #press-device-1 {
         background: url(img/illust-chromecast_2x.png) 50% 50% no-repeat;
@@ -434,16 +424,27 @@ $name: 'module-press';
       } 
 
       #press-device-5 {
+        background: url(img/illust-google-search_2x.png) 50% 50% no-repeat;
+        background-size: contain;                         
+      }
+
+      #press-device-6 {
+        background: url(img/illust-google-maps_2x.png) 50% 50% no-repeat;
+        background-size: contain;                         
+      }
+
+      #press-device-7 {
         background: url(img/illust-web-cardboard_2x.png) 50% 50% no-repeat;
         background-size: contain;                         
       }
 
       .press-device-square {
-        width: 20%;
-        float: left;
-        text-align: center;
-        padding: 0 20px;
         box-sizing: border-box;
+        display: inline-block;
+        padding: 0 15px 30px;
+        text-align: center;
+        width: 25%;
+        vertical-align: top;
 
         .square {
           width: 100%;

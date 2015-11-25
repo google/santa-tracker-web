@@ -17,14 +17,8 @@
 goog.provide('app.Models');
 
 /**
- * These are gameplay and UI related constants used by the code.
- * Please tweak them to improve gameplay and game balance.
+ * List of scenes and the associated data the press might need.
  */
-/*var Cards = ['airport', 'racer', 'trailer', 'app', 'santaselfie', 'boatload',
-          'briefing', 'matching', 'presentdrop', 'streetview', 'jamband',
-          'codelab', 'translations', 'carpool', 'mercator', 'commandcentre',
-          'playground', 'seasonofgiving', 'jetpack', 'factory', 'postcard', 'traditions',
-          'windtunnel', 'gumball', 'citylights', 'liftoff'];*/
 
 var Cards = [
   {
@@ -38,15 +32,9 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'http://google.com',
+        'url': '#',
         'type': 'PNG file',
         'class': 'press-card-dl'
-      },
-      {
-        'title': 'Video',
-        'url': 'http://google.com',
-        'type': 'YouTube Link',
-        'class': 'press-card-play'
       }
     ]
   },
@@ -61,21 +49,9 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'http://google.com',
+        'url': '#',
         'type': 'PNG file',
         'class': 'press-card-dl'
-      },
-      {
-        'title': 'Animation',
-        'url': 'http://google.com',
-        'type': 'GIF file',
-        'class': 'press-card-dl'
-      },
-      {
-        'title': 'Video',
-        'url': 'http://google.com',
-        'type': 'YouTube Link',
-        'class': 'press-card-play'
       }
     ]
   },
@@ -89,14 +65,8 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'http://google.com',
+        'url': '#',
         'type': 'PNG file',
-        'class': 'press-card-dl'
-      },
-      {
-        'title': 'Animation',
-        'url': 'http://google.com',
-        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -110,26 +80,12 @@ var Cards = [
     'education': true,
     'description': 'Google\'s Santa Tracker partnered with Google.org to connect kids of all ages with charities around the world. Decorate an ornament to print out and hang on your tree to show your support for SolarAid, the Jane Goodall Foundation, WWF, and many more.',
     'resources': [
-    ]
-  },
-  {
-    'key': 'santamapdive',
-    'title': 'Santa Map Dive',
-    'opens': '1',
-    'ordinal': 'st',
-    'type': 'Play',
-    'description': 'Skydive with Santa as he navigates his way to drop off presents.',
-    'resources': [
-    ]
-  },
-  {
-    'key': 'app',
-    'title': 'Android App',
-    'opens': '1',
-    'ordinal': 'st',
-    'type': 'Play',
-    'description': 'Need Santa on the go?  Download the Santa Tracker App for Android.',
-    'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -148,14 +104,8 @@ var Cards = [
         'class': 'press-card-dl'
       },
       {
-        'title': 'Animation',
-        'url': 'http://google.com',
-        'type': 'GIF file',
-        'class': 'press-card-dl'
-      },
-      {
         'title': 'Video',
-        'url': 'http://google.com',
+        'url': '#',
         'type': 'YouTube Link',
         'class': 'press-card-play'
       }
@@ -171,27 +121,9 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'http://google.com',
+        'url': '#',
         'type': 'PNG file',
         'class': 'press-card-dl'
-      },
-      {
-        'title': 'Animation',
-        'url': 'http://google.com',
-        'type': 'GIF file',
-        'class': 'press-card-dl'
-      },
-      {
-        'title': 'Animation 2',
-        'url': 'http://google.com',
-        'type': 'GIF file',
-        'class': 'press-card-dl'
-      },
-      {
-        'title': 'Video',
-        'url': 'http://google.com',
-        'type': 'YouTube Link',
-        'class': 'press-card-play'
       }
     ]
   },
@@ -206,21 +138,9 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'http://google.com',
+        'url': '#',
         'type': 'PNG file',
         'class': 'press-card-dl'
-      },
-      {
-        'title': 'Animation',
-        'url': 'http://google.com',
-        'type': 'GIF file',
-        'class': 'press-card-dl'
-      },
-      {
-        'title': 'Video',
-        'url': 'http://google.com',
-        'type': 'YouTube Link',
-        'class': 'press-card-play'
       }
     ]
   },
@@ -232,6 +152,12 @@ var Cards = [
     'type': 'Play',
     'description': 'Santa\'s spreading the holiday cheer - pick from a variety of options to send a call to a friend from Santa.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -242,6 +168,12 @@ var Cards = [
     'type': 'Play',
     'description': 'Mrs. Claus briefs Santa and the team as they prepare for the big day.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -252,6 +184,12 @@ var Cards = [
     'type': 'Play',
     'description': 'It\'s target practice time! Position the elf to hit presents so they make it down the chimney.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -263,6 +201,12 @@ var Cards = [
     'new': true,
     'description': 'Santa\'s wandering about, but the elves need him back in the North Pole. Can you help find him?',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -273,6 +217,12 @@ var Cards = [
     'type': 'Play',
     'description': 'You never know what the weather conditions will be. Rudolph and the elves simulate what the team will face on the big day.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -283,6 +233,12 @@ var Cards = [
     'type': 'Play',
     'description': 'On your marks, get set, go! Race with Rudolph through the forest to collect presents the elves have dropped.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -293,6 +249,12 @@ var Cards = [
     'type': 'Play',
     'description': 'Drag and drop musical elfs on stage to create your own unique holiday jam.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -303,6 +265,12 @@ var Cards = [
     'type': 'Play',
     'description': 'Need your holidays to be a bit sweeter? Tilt the candycanes to make the gumballs fall into the machine.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -313,6 +281,12 @@ var Cards = [
     'type': 'Play',
     'description': 'Nothing says "Happy Holidays" like Rudolph on the beach. Create your own holiday card by selecting one of many backgrounds and characters to send to friends.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -323,6 +297,12 @@ var Cards = [
     'type': 'PLay',
     'description': 'Fly the elf through the air to collect fallling presents - who knows, it might be yours.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -333,10 +313,16 @@ var Cards = [
     'type': 'Play',
     'description': 'Slingshot presents into boats as the elves transport the gifts through the North Pole.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
-    'key': 'mapquiz',
+    'key': 'mercator',
     'title': 'Map Quiz',
     'opens': '15',
     'ordinal': 'th',
@@ -344,6 +330,12 @@ var Cards = [
     'education': true,
     'description': 'Santa\'s got a lot of places to go. Match the outline of a country to the map in this geography game.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -355,6 +347,12 @@ var Cards = [
     'new': true,
     'description': 'Get presents from A to B using springs, conveyer belts, and the laws of motion and energy.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -366,6 +364,12 @@ var Cards = [
     'new': true,
     'description': 'The elves are back to coding practice, but mixing in their dancing skills. Use code to choreograph the elves dances - but watch out, as you get better, the dances get harder!',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -376,6 +380,12 @@ var Cards = [
     'type': 'Watch',
     'description': 'A small car zooms through the village, arriving at the factory. One elf gets out, then another, then another...',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -387,6 +397,12 @@ var Cards = [
     'education': true,
     'description': 'Cycle through Street View from around the world to witness how other cities celebrate the holidays.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -397,6 +413,12 @@ var Cards = [
     'type': 'Play',
     'description': 'It\'s almost go time. The elves are hard at work preparing the every team is ready for the big day.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -408,6 +430,12 @@ var Cards = [
     'new': true,
     'description': 'This holiday season, we partnered with Google.org to showcase how certain organizations are helping kids with special needs.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -418,6 +446,12 @@ var Cards = [
     'type': 'Play',
     'description': 'Where\'d that tree go? Test your memory skills in this holiday game.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -429,6 +463,12 @@ var Cards = [
     'new': true,
     'description': 'It\'s almost C-day! Santa and team make the final preparations for the big night - but something always goes wrong at the last minute.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': '#',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      }
     ]
   }
 ];
