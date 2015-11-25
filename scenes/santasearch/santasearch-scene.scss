@@ -8,8 +8,8 @@ $board-game-color: #2aaf4b;
 
 @import 'scss/map';
 @import 'scss/zoom';
-@import 'scss/characters';
-@import 'scss/character-ui';
+@import 'scss/character';
+@import 'scss/drawer';
 @import 'scss/hint';
 
 ##{$name} {

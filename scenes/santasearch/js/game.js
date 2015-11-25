@@ -32,47 +32,49 @@ goog.require('app.shared.Gameover');
 app.Game = function(elem) {
   this.elem = $(elem);
   this.mapElem = this.elem.find('.map');
+  this.guiElem = this.elem.find('.gui');
+  this.drawerElem = this.elem.find('.drawer');
 
   this.gameoverModal = new app.shared.Gameover(this, this.elem.find('.gameover'));
 
   this.characters = {
     'santa': {
       elem: this.mapElem.find('.character--santa'),
-      uiElem: this.elem.find('.character-ui .character--santa').parent(),
+      uiElem: this.drawerElem.find('.character--santa').parent(),
       location: {},
       scale: {},
       isFound: false
     },
     'mrs-claus': {
       elem: this.mapElem.find('.character--mrs-claus'),
-      uiElem: this.elem.find('.character-ui .character--mrs-claus').parent(),
+      uiElem: this.drawerElem.find('.character--mrs-claus').parent(),
       location: {},
       scale: {}
     },
     'rudolph': {
       elem: this.mapElem.find('.character--rudolph'),
-      uiElem: this.elem.find('.character-ui .character--rudolph').parent(),
+      uiElem: this.drawerElem.find('.character--rudolph').parent(),
       location: {},
       scale: {},
       isFound: false
     },
     'gingerbread-man': {
       elem: this.mapElem.find('.character--gingerbread-man'),
-      uiElem: this.elem.find('.character-ui .character--gingerbread-man').parent(),
+      uiElem: this.drawerElem.find('.character--gingerbread-man').parent(),
       location: {},
       scale: {},
       isFound: false
     },
     'pegman': {
       elem: this.mapElem.find('.character--pegman'),
-      uiElem: this.elem.find('.character-ui .character--pegman').parent(),
+      uiElem: this.drawerElem.find('.character--pegman').parent(),
       location: {},
       scale: {},
       isFound: false
     },
     'penguin': {
       elem: this.mapElem.find('.character--penguin'),
-      uiElem: this.elem.find('.character-ui .character--penguin').parent(),
+      uiElem: this.drawerElem.find('.character--penguin').parent(),
       location: {},
       scale: {},
       isFound: false
@@ -96,6 +98,7 @@ app.Game = function(elem) {
  * @export
  */
 app.Game.prototype.start = function() {
+  this._setupEventHandlers();
   this.restart();
 };
 
@@ -104,7 +107,7 @@ app.Game.prototype.start = function() {
  * @private
  */
 app.Game.prototype._setupEventHandlers = function() {
-  $(window).on('resize.santasearch', this._onResize.bind(this));
+  $(window).on('resize.santasearch orientationchange.santasearch', this._onResize.bind(this));
 };
 
 /**
@@ -118,8 +121,8 @@ app.Game.prototype._onCharacterSelected = function(characterName) {
   let character = this.characters[characterName];
 
   if (!character.isFound) {
-    character.uiElem.removeClass('character-ui__character-wrapper--focused');
-    character.uiElem.addClass('character-ui__character-wrapper--found');
+    character.uiElem.removeClass('drawer__character-wrapper--focused');
+    character.uiElem.addClass('drawer__character-wrapper--found');
     character.isFound = true;
 
     this._focusNextUnfoundCharacter();
@@ -165,7 +168,7 @@ app.Game.prototype._focusNextUnfoundCharacter = function() {
 app.Game.prototype._focusUICharacter = function(characterName) {
   console.log(`Focusing ${characterName}`);
 
-  this.characters[characterName].uiElem.addClass('character-ui__character-wrapper--focused');
+  this.characters[characterName].uiElem.addClass('drawer__character-wrapper--focused');
 };
 
 /**
@@ -181,8 +184,8 @@ app.Game.prototype._initializeCharacter = function(characterName) {
   let character = this.characters[characterName];
 
   character.isFound = false;
-  character.uiElem.removeClass('character-ui__character-wrapper--found');
-  
+  character.uiElem.removeClass('drawer__character-wrapper--found');
+
   character.location = characterSpawnPoint.locationScale;
   character.scale = characterSpawnPoint.sizeScale;
 
@@ -338,8 +341,6 @@ app.Game.prototype.restart = function() {
   this._initializeCharacter('penguin');
 
   this._scale(1);
-
-  this._setupEventHandlers();
 
   this._focusNextUnfoundCharacter();
 

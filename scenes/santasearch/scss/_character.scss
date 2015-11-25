@@ -14,7 +14,6 @@
 
     &--santa-shadow {
       background: url(img/santa-shadow.svg) 0 0 / cover no-repeat;
-      opacity: 0;
     }
 
     &--penguin,
@@ -28,7 +27,6 @@
 
     &--penguin-shadow {
       background: url(img/penguin-shadow.svg) 0 0 / cover no-repeat;
-      opacity: 0;
     }
 
     &--gingerbread-man,
@@ -39,10 +37,9 @@
       margin-left: -54px;
       margin-top: -83px;
     }
-    
+
     &--gingerbread-man-shadow {
       background: url(img/gingerbread-man-shadow.svg) 0 0 / cover no-repeat;
-      opacity: 0;
     }
 
     &--rudolph,
@@ -56,7 +53,6 @@
 
     &--rudolph-shadow {
       background: url(img/rudolph-shadow.svg) 0 0 / cover no-repeat;
-      opacity: 0;
     }
 
     &--pegman,
@@ -70,7 +66,6 @@
 
     &--pegman-shadow {
       background: url(img/pegman-shadow.svg) 0 0 / cover no-repeat;
-      opacity: 0;
     }
 
     &--mrs-claus,
@@ -84,7 +79,6 @@
 
     &--mrs-claus-shadow {
       background: url(img/mrs-claus-shadow.svg) 0 0 / cover no-repeat;
-      opacity: 0;
     }
   }
 }
