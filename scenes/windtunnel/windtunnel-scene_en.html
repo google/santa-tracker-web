@@ -198,7 +198,7 @@ Wind tunnel scene.
     onShow: function() {
       this.fire('sound-ambient', 'windtunnel_start');
       var div = this.$['module-windtunnel'];
-
+      this.fire('sound-ambient', 'music_start_scene');
       this.scene = new scenes.windtunnel.Scene(div);
     },
 

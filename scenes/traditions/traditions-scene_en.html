@@ -245,6 +245,7 @@ Traditions scene.
       if (this.traditions) {
         this.traditions.onShow();
       }
+      this.fire('sound-ambient', 'music_start_scene');
     },
 
     onHide: function() {

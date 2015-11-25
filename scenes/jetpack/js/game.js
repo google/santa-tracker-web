@@ -129,7 +129,7 @@ app.Game.prototype.restart = function() {
   this.scoreboard.setLevel(this.level);
   this.player.reset();
   this.controls.reset();
-
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
   window.santaApp.fire('sound-trigger', 'jp_start_game');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'jetpack'});
 
@@ -357,6 +357,7 @@ app.Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverView.show();
   window.santaApp.fire('sound-trigger', 'jp_game_over');
+  window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'jetpack',
     score: this.scoreboard.score,
