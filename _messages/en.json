@@ -311,11 +311,11 @@
 	},
 	"codeboogie-lets-dance": {
 		"description": "Large title before player starts dancing his routine. 15char limit.",
-		"messages": "Let's dance"
+		"message": "Let's dance"
 	},
 	"codeboogie-nice-moves": {
 		"description": "Huge success title after finishing a level. 15char limit.",
-		"messages": "Nice moves!"
+		"message": "Nice moves!"
 	},
 	"codeboogie-success": {
 		"description": "Large title when the player gets all the dance moves correct",
@@ -327,15 +327,15 @@
 	},
 	"codeboogie-result-too-many-steps": {
 		"description": "Short hint indicating that the coded dance was too long.",
-		"messages": "You did too many steps."
+		"message": "You did too many steps."
 	},
 	"codeboogie-result-wrong-move": {
 		"description": "Short hint when the user performs a wrong step, showing the right step to use instead. The right step appears below.",
-		"messages": "Seems like you did the wrong move there. Try this one instead:"
+		"message": "Seems like you did the wrong move there. Try this one instead:"
 	},
 	"codeboogie-result-too-many-blocks-success": {
 		"description": "Short hint on how the puzzle can be improved even if level is complete. One or two sentences max. Has a token for a dynamic number between 2-6, the token can be skipped and translation worded that fewer blocks are needed.",
-		"messages": "Did you know you can finish this dance with just {{ideal}} blocks?"
+		"message": "Did you know you can finish this dance with just {{ideal}} blocks?"
 	},
 	"codeboogie-result-missing-block-fail": {
 		"description": "Short hint after failing a level. One or two sentences max. Refers to blocks visually displayed below.",

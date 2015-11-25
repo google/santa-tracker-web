@@ -20,5 +20,5 @@ app.Step = {
   // Non blockly moves
   IDLE: 'idle',
   FAIL: 'fail',
-  WATCH: 'watch',
+  WATCH: 'watch'
 };

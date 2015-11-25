@@ -67,7 +67,7 @@ let sources = {
   }
 };
 
-app.Character = class Character {
+app.Character = class {
   constructor(el, color) {
     this.color = color
 

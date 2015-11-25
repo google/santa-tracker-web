@@ -42,6 +42,14 @@ app.BlockRunnerState = {
 };
 
 /**
+ * @typedef {{
+ *   step: app.Step,
+ *   blockId: string
+ * }}
+ */
+app.BlockEvaluation;
+
+/**
  * Runs code from blockly blocks.
  * @param {!app.Scene} scene instance.
  * @param {!app.Blockly} blockly interface to Blockly.
@@ -60,12 +68,14 @@ app.BlockRunner = class {
 
     // Register animation events.
     scene.player.addEventListener('step', this.onStep_.bind(this));
-    scene.player.addEventListener('finish', this.onFinishAnimations_.bind(this));
+    scene.player.addEventListener('finish',
+                                  this.onFinishAnimations_.bind(this));
 
     this.reset_();
   }
 
   reset_() {
+    /* @type {app.BlockEvaluation[]} */
     this.stepQueue_ = [];
     this.state_ = app.BlockRunnerState.NOT_ANIMATING;
     /* @type {app.LevelResult} */
@@ -91,8 +101,12 @@ app.BlockRunner = class {
       console.warn(e);
     }
 
-    this.levelResult = this.scene.level.processResult(this.stepQueue_,
-                                                      this.blockly);
+    this.runAnimation(this.scene.level.processResult(this.stepQueue_,
+                                                     this.blockly));
+  }
+
+  runAnimation(result) {
+    this.levelResult = result;
 
     if (this.levelResult.skipAnimation) {
       this.reportExecution_();
@@ -170,7 +184,7 @@ app.BlockRunner = class {
       }
     };
   }
-}
+};
 
 /**
  * How long should loop highlights last. Note that they attempt to borrow this time from

@@ -203,7 +203,6 @@ app.Blockly.prototype = {
     }
 
     Blockly.mainWorkspace.traceOn(isRunning);
-    Blockly.mainWorkspace.setEnableToolbox(!isRunning);
   },
 
   /**

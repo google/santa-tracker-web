@@ -157,6 +157,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
   start(result) {
     this.animationQueue = result.animationQueue;
     this.moveTiles.clear();
+    this.title.setTitle(this.animationQueue[0].title);
   }
 
   onBar(bar, beat) {
@@ -177,7 +178,9 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.teacher.play(animation.teacherStep);
     this.player.play(animation.playerStep);
     this.title.setTitle(animation.title);
-    this.moveTiles.add(animation.teacherStep);
+    if (animation.tile) {
+      this.moveTiles.add(animation.tile);
+    }
     this.dispatchEvent({type: 'step', data: animation.blockId});
   }
 };

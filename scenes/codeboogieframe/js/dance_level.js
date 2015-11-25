@@ -71,9 +71,23 @@ app.DanceLevel = class extends app.Level {
   }
 
   /**
+   * Optionally creates an intro animation for when this level starts.
+   *
+   * @return {!app.DanceLevelResult}
+   */
+  introAnimation() {
+    let danceStatus = app.DanceStatus.NO_STEPS;
+    let animation = this.createAnimationQueue([], danceStatus);
+    return new app.DanceLevelResult(false, null, {
+      animationQueue: animation,
+      danceStatus: danceStatus
+    });
+  }
+
+  /**
    * Validates a blockly execution and returns a smart hint to user.
    *
-   * @param {app.Step[]} playerSteps
+   * @param {app.BlockEvaluation[]} playerSteps
    * @param {!app.Blockly} blockly wrapper.
    * @return {!app.DanceLevelResult} a user friendly level result.
    */
@@ -123,9 +137,7 @@ app.DanceLevel = class extends app.Level {
       code: code,
       danceStatus: danceStatus,
       idealBlockCount: this.idealBlockCount,
-      missingBlocks: missingBlocks,
-      playerSteps: playerSteps,
-      teacherSteps: this.steps
+      missingBlocks: missingBlocks
     });
   }
 
@@ -134,7 +146,7 @@ app.DanceLevel = class extends app.Level {
    * should play. Will edit the step array for animation purposes in some
    * cases.
    *
-   * @param {app.Step[]} playerSteps steps taken.
+   * @param {app.BlockEvaluation[]} playerSteps steps taken.
    * @return {app.DanceStatus}
    */
   evaluateStatus(playerSteps) {
@@ -163,8 +175,17 @@ app.DanceLevel = class extends app.Level {
     }
   }
 
+  /**
+   * Creates an animation timeline for a provided player steps.
+   *
+   * @param {app.BlockEvaluation[]} playerSteps
+   * @param {app.DanceStatus} result
+   * @returns {app.AnimationItem[]}
+   */
   createAnimationQueue(playerSteps, result) {
     let queue = [];
+
+
 
     playerSteps = playerSteps.filter(b => b.step);
     for (let i = 0, step = null; step = this.steps[i]; i++) {
@@ -172,6 +193,7 @@ app.DanceLevel = class extends app.Level {
       let animation = {
         teacherStep: step,
         playerStep: playerStep ? playerStep.step : 'watch',
+        tile: step,
         blockId: playerStep && playerStep.blockId,
         title: app.I18n.getMsg('CB_' + step)
       };
@@ -184,7 +206,6 @@ app.DanceLevel = class extends app.Level {
         queue.push({
           teacherStep: app.Step.WATCH,
           playerStep: app.Step.FAIL,
-          blockId: null,
           title: app.I18n.getMsg('CB_oops')
         });
       } else {
@@ -204,7 +225,6 @@ app.DanceLevel = class extends app.Level {
       queue.push({
         teacherStep: app.Step.WATCH,
         playerStep: app.Step.FAIL,
-        blockId: null,
         title: app.I18n.getMsg('CB_oops')
       });
     }
@@ -213,16 +233,28 @@ app.DanceLevel = class extends app.Level {
       queue.push({
         teacherStep: app.Step.CARLTON,
         playerStep: app.Step.CARLTON,
-        blockId: null,
         title: app.I18n.getMsg('CB_success')
       });
     }
 
+    queue.unshift({
+      teacherStep: app.Step.IDLE,
+      playerStep: app.Step.IDLE,
+      title: app.I18n.getMsg(result === app.DanceStatus.NO_STEPS ?
+          'CB_watchClosely' :
+          'CB_letsDance')
+    });
+
     return queue;
   }
 
-  get className() {
-    return 'level--' + this.stage +
+  /**
+   * Specifies css class names to apply when running this level.
+   *
+   * @returns {string}
+   */
+  className() {
+    return super.className() + ' level--' + this.stage +
         (this.freestyle ? ' level--freestyle' : '');
   }
 };
@@ -236,9 +268,7 @@ app.DanceLevel = class extends app.Level {
  *   overlayGraphic: string,
  *   idealBlockCount: number,
  *   isFinalLevel: boolean,
- *   missingBlocks: Array.<string>,
- *   playerSteps: Array.<app.Step>,
- *   teacherSteps: Array.<app.Step>
+ *   missingBlocks: Array.<string>
  * }}
  */
 app.DanceLevelResultOptions;
@@ -257,11 +287,9 @@ app.DanceLevelResult = class extends app.LevelResult {
     super(levelComplete, message, options);
     this.animationQueue = options.animationQueue || [];
     this.danceStatus = options.danceStatus || app.DanceStatus.NO_STEPS;
-    this.playerSteps = options.playerSteps || [];
-    this.teacherSteps = options.teacherSteps || [];
   }
 
-  get watching() {
-    return !this.freestyle && this.playerSteps.length === 0;
+  watching() {
+    return !this.freestyle && this.danceStatus === app.DanceStatus.NO_STEPS;
   }
 };

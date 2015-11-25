@@ -60,7 +60,12 @@ app.Level = class {
   processResult() {
   }
 
-  get className() {
+  /**
+   * Specifies css class names to apply when running this level.
+   *
+   * @returns {string}
+   */
+  className() {
     return 'level--' + this.type + ' level--' + this.id;
   }
 };
