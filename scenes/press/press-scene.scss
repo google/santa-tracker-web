@@ -53,8 +53,9 @@ $name: 'module-press';
   }
 
   a {
-    color: #263238;
+    color: #00ACC1;
     opacity: 1;
+    text-decoration: none;
     transition: opacity .3s;
 
     &:hover {
@@ -102,9 +103,15 @@ $name: 'module-press';
   }
     
   p {
-    font-size: 20px;
+    font-size: 16px;
     font-wight: normal;
-    line-height: 32px;
+    line-height: 28px;
+  }
+
+  ul {
+    font-size: 16px;
+    font-wight: normal;
+    line-height: 24px;
   }
   
   button {
@@ -112,9 +119,9 @@ $name: 'module-press';
   }
   
   #press-hero {
-    background: url(img/bg-press-page-hero.png) 50% 50% no-repeat;
+    background: url(img/bg-press-page-hero.png) 50% 100% no-repeat;
     background-size: cover;
-    height: 900px;
+    height: 1000px;
     padding: 20px 0 0 0;
     width: 100%;
 
@@ -176,17 +183,25 @@ $name: 'module-press';
     height: 500px;
     width: 100%;
 
-    h2, p {
+    h2, {
       color: #fff;
+    }
+
+    p, ul {
+      color: #fff;
+    }
+
+    ul {
+      text-align: left;
+
+      li {
+        margin-bottom: 10px;
+      }
     }
 
     .press-intro-inner {
       text-align: center;
       width: 75%;
-
-      p {
-        font-size: 16px;
-      }
     }
 
     .press-intro-col {
@@ -393,8 +408,6 @@ $name: 'module-press';
 
     a {
       font-size: 16px;
-      color: #00ACC1;
-      text-decoration: none;
     }
 
     .press-device-grid {
@@ -424,12 +437,12 @@ $name: 'module-press';
       } 
 
       #press-device-5 {
-        background: url(img/illust-google-search_2x.png) 50% 50% no-repeat;
+        background: url(img/illust-google-maps_2x.png) 50% 50% no-repeat;
         background-size: contain;                         
       }
 
       #press-device-6 {
-        background: url(img/illust-google-maps_2x.png) 50% 50% no-repeat;
+        background: url(img/illust-google-search_2x.png) 50% 50% no-repeat;
         background-size: contain;                         
       }
 
