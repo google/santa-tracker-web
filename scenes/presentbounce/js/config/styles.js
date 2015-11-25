@@ -36,7 +36,7 @@ app.config.Styles = {
     dynamicShadow: true
   },
   presentCircle: {
-    className: 'object--present-cricle',
+    className: 'object--present-circle',
     innerHTML: '',
     width: 50,
     height: 50,
@@ -58,6 +58,7 @@ app.config.Styles = {
   },
   target: {
     className: '',
+    innerHTML: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136.2 110.2"><path fill="#E53A35" d="M109.3 19.4L121.9 0H14.2l12.6 19.4C10.9 27.2 0 43.5 0 62.4c0 26.4 21.4 47.8 47.8 47.8h40.5c26.4 0 47.8-21.4 47.8-47.8.1-18.9-10.9-35.2-26.8-43z"/><path fill="#D4D4D6" d="M109.3 19.4L121.9 0H95.8L83.2 19.4C99 27.2 110 43.5 110 62.4c0 24.9-19 45.3-43.3 47.6 1.5.1 20.1.2 21.6.2 26.4 0 47.8-21.4 47.8-47.8.1-18.9-10.9-35.2-26.8-43z"/><path fill="none" stroke="#FED600" stroke-width="4.434" stroke-linecap="round" stroke-miterlimit="10" d="M26.8 19.4h82.5M93.3 19.4c2.7 0 5.2 1.1 6.2 3.4s.4 5.3-1.6 7c-.8.7-1.8 1.2-2.5 1.9-1.6 1.8-1.5 4.7-.1 6.6 1.4 1.9 3.7 3 6.1 3.5"/><path fill="none" stroke="#FED600" stroke-width="4.434" stroke-linecap="round" stroke-miterlimit="10" d="M95.6 19.4c5.2 0 10.5 2.8 11.7 6.3.4 1.2.1 2.5-.7 3.5-.5.6-1.3 1-1.7 1.7-.9 1.2-.5 3 .6 4 1 1.1 2.5 1.5 4 1.7"/></svg>',
     width: 50 * 2,
     height: 50 * 1.5
   },
@@ -89,11 +90,21 @@ app.config.Styles = {
   spring: {
     className: 'object--spring',
     innerHTML: `
+      <div class="spring">
+        <div class="spring__top">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76.1 11.8"><path fill="#D32E2E" d="M64.3 11.8H11.8C5.3 11.8 0 6.5 0 0h76.1c0 6.5-5.3 11.8-11.8 11.8z"/></svg>
+        </div>
+        <div class="spring__bottom">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76.1 87.7">
+            <g opacity=".1"><path fill="none" stroke="#010101" stroke-width="7" stroke-linecap="round" stroke-miterlimit="10" d="M68.7 33l-51.5-6.6M68.7 19.8l-51.5-6.6M68.7 46.2l-51.5-6.6M68.7 59.4l-51.5-6.6M68.7 72.6L17.2 66M68.7 85.8l-51.5-6.6M17.2 26.4l51.5-6.6M17.2 39.6L68.7 33M17.2 52.8l51.5-6.6M17.2 66l51.5-6.6M17.2 79.2l51.5-6.6M42.9 89.1l25.8-3.3"/><path fill="#010101" d="M69.2 16.7H16.7c-6.5 0-11.8-5.3-11.8-11.8H81c0 6.5-5.3 11.8-11.8 11.8z"/></g><g fill="none" stroke="#CDCCCC" stroke-width="7" stroke-linecap="round" stroke-miterlimit="10"><path d="M63.8 28.1l-51.5-6.6M63.8 14.9L12.3 8.3M63.8 41.3l-51.5-6.6M63.8 54.5l-51.5-6.6M63.8 67.7l-51.5-6.6M63.8 80.9l-51.5-6.6"/></g><g fill="none" stroke="#FFF" stroke-width="7" stroke-linecap="round" stroke-miterlimit="10"><path d="M12.3 21.5l51.5-6.6M12.3 34.7l51.5-6.6M12.3 47.9l51.5-6.6M12.3 61.1l51.5-6.6M12.3 74.3l51.5-6.6M38 84.2l25.8-3.3"/></g>
+          </svg>
+        </div>
+      </div>
       <div class="object__rotate-handle js-rotate-handle">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.7 34.7"><circle opacity=".25" fill="#424242" cx="20.9" cy="20.9" r="13.9"/><circle fill="#E91C24" cx="13.9" cy="13.9" r="13.9"/><g fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10"><path d="M17.5 8.4c1.9 1.3 2.9 3.3 2.9 5.5 0 3.6-2.9 6.6-6.6 6.6s-6.6-2.9-6.6-6.6 2.9-6.6 6.6-6.6"/><path d="M10.7 5.3l3.2 2-2 3.1"/></g></svg>
       </div>`,
     height: 85,
-    width: 75,  
+    width: 75,
     jointAngle: false
   }
 };

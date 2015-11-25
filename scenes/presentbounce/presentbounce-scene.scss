@@ -12,6 +12,7 @@ $rotate-bg: $gameover-bg;
 @import "sass/debug";
 @import "sass/bg";
 @import "sass/levelobjects";
+@import "sass/object-spring";
 @import "sass/rotation";
 @import "sass/conveyor-belt";
 
@@ -30,6 +31,26 @@ $rotate-bg: $gameover-bg;
     bottom: 0;
     left: 0;
     transform-origin: 0 0;
+  }
+
+  user-select: none;
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .btns {
+    position: absolute;
+    top: 4%;
+    left: 2%;
+  }
+
+  .object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    //outline: 1px dashed rgba(255,0,0,.5);
   }
 
   .view {
