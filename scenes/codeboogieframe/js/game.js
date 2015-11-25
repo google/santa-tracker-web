@@ -83,7 +83,7 @@ app.Game.prototype.bumpLevel = function() {
 
   this.iframeChannel.call('setLevel', this.levelNumber);
 
-  this.elem.className = this.level.className;
+  this.elem.className = this.level.className();
 
   this.blockly.setLevel(this.level);
   this.scene.setLevel(this.level);
