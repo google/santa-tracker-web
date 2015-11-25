@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "சிலி"
 	},
-	"close-this": {
-		"message": "ரத்துசெய்"
+	"close": {
+		"message": "மூடு"
 	},
 	"cm_country_name": {
 		"message": "கேமரூன்"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "நைஜர்"
 	},
+	"new": {
+		"message": "புதியது"
+	},
 	"newtoday": {
 		"message": "இன்றைய காட்சி"
 	},
@@ -682,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "பனிக்கரடி"
+	},
+	"notification": {
+		"message": "அறிவிப்புகள்"
+	},
+	"notification_notice": {
+		"message": "சான்டாவின் குட்டித் தேவதைகள், சான்டாவின் பயணத் திட்டத்தை சரியாக உங்களுக்குத் தெரிவிப்பார்கள்"
 	},
 	"np_country_name": {
 		"message": "நேபாளம்"
@@ -737,6 +746,9 @@
 	"pr_country_name": {
 		"message": "போர்டோ ரிக்கோ"
 	},
+	"press": {
+		"message": "பத்திரிகை"
+	},
 	"pt_language_name": {
 		"message": "போர்ச்சுகீஸ்"
 	},
@@ -757,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "சவுதி அரேபியா"
+	},
+	"santasearch_hint": {
+		"message": "குறிப்பு"
+	},
+	"santasearch_level_lab": {
+		"message": "லேப்பில்"
+	},
+	"santasearch_level_museum": {
+		"message": "அருங்காட்சியகத்தில்"
+	},
+	"santasearch_level_select": {
+		"message": "கோ!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "சான்டாவை தேடவும்!"
 	},
 	"santasvillage": {
 		"message": "சான்டாவின் கிராமம்"
@@ -844,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "சான்டா திரும்பி வந்துள்ளார்"
+	},
+	"scene_windtunnel": {
+		"message": "வின்ட் டனல்"
 	},
 	"score": {
 		"message": "ஸ்கோர்"
@@ -967,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "வழியைக் காட்டு"
+	},
+	"tracker_track": {
+		"message": "சேன்டாவைக் கண்கானி"
 	},
 	"tracker_weather": {
 		"message": "வானிலை"
@@ -4657,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "டிசம்பர் முழுவதும் சான்டாவின் குட்டித் தேவதைகளுடன் உலாவுங்கள், விளையாடுங்கள், கற்றிடுங்கள்"
+	},
+	"village_get_the_app": {
+		"message": "பயன்பாட்டைப் பெறுக"
+	},
+	"village_santa_cardboard": {
+		"message": "கார்ட்போர்டில் சான்டா"
+	},
+	"village_santa_cast": {
+		"message": "Google Cast இல் சான்டா"
 	},
 	"village_takesoff": {
 		"message": "சான்டா புறப்பட ஆகும் நேரம்"

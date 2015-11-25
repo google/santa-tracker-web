@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Chili"
 	},
-	"close-this": {
-		"message": "Kanselleer"
+	"close": {
+		"message": "Maak toe"
 	},
 	"cm_country_name": {
 		"message": "Kameroen"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Nuut"
+	},
 	"newtoday": {
 		"message": "Nuut vandag"
 	},
@@ -743,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Pers"
+	},
 	"pt_language_name": {
 		"message": "Portugees"
 	},
@@ -763,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Saoedi-Arabië"
+	},
+	"santasearch_hint": {
+		"message": "Wenk"
+	},
+	"santasearch_level_lab": {
+		"message": "In die laboratorium"
+	},
+	"santasearch_level_museum": {
+		"message": "By die museum"
+	},
+	"santasearch_level_select": {
+		"message": "Gaan!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Soek vir Kersvader!"
 	},
 	"santasvillage": {
 		"message": "Kersvader se dorpie"
@@ -850,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Kersvader is terug"
+	},
+	"scene_windtunnel": {
+		"message": "Windtonnel"
 	},
 	"score": {
 		"message": "Telling"
@@ -973,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Sien die roete"
+	},
+	"tracker_track": {
+		"message": "Volg Kersvader se spoor"
 	},
 	"tracker_weather": {
 		"message": "Weer"
@@ -4663,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Verken, speel en leer die hele Desember saam met Kersvader se elwe"
+	},
+	"village_get_the_app": {
+		"message": "Kry die program"
+	},
+	"village_santa_cardboard": {
+		"message": "Kersvader op Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Kersvader op Google Cast"
 	},
 	"village_takesoff": {
 		"message": "Kersvader vertrek oor"

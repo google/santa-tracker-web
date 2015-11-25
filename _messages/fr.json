@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Chili"
 	},
-	"close-this": {
-		"message": "Annuler"
+	"close": {
+		"message": "Fermer"
 	},
 	"cm_country_name": {
 		"message": "Cameroun"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Nouveau"
+	},
 	"newtoday": {
 		"message": "Nouveau !"
 	},
@@ -682,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Ours polaire"
+	},
+	"notification": {
+		"message": "Notifications"
+	},
+	"notification_notice": {
+		"message": "Les lutins vous permettront de suivre le père Noël."
 	},
 	"np_country_name": {
 		"message": "Népal"
@@ -737,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Porto Rico"
 	},
+	"press": {
+		"message": "Presse"
+	},
 	"pt_language_name": {
 		"message": "Portugais"
 	},
@@ -757,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Arabie saoudite"
+	},
+	"santasearch_hint": {
+		"message": "Indice"
+	},
+	"santasearch_level_lab": {
+		"message": "Au laboratoire"
+	},
+	"santasearch_level_museum": {
+		"message": "Au musée"
+	},
+	"santasearch_level_select": {
+		"message": "On y va !"
+	},
+	"santasearch_search_for_santa": {
+		"message": "À la recherche du père Noël !"
 	},
 	"santasvillage": {
 		"message": "Le village du père Noël"
@@ -844,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Le père Noël est de retour"
+	},
+	"scene_windtunnel": {
+		"message": "La soufflerie"
 	},
 	"score": {
 		"message": "Score"
@@ -967,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Voir itinéraire"
+	},
+	"tracker_track": {
+		"message": "Suivre le père Noël"
 	},
 	"tracker_weather": {
 		"message": "Météo"
@@ -4657,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Découvrez, jouez et apprenez avec les lutins du père Noël tout au long du mois de décembre"
+	},
+	"village_get_the_app": {
+		"message": "Télécharger l'application"
+	},
+	"village_santa_cardboard": {
+		"message": "Le père Noël sur Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Le père Noël sur Google Cast"
 	},
 	"village_takesoff": {
 		"message": "Le père Noël s'envolera dans"

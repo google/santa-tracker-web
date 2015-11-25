@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Cancelar"
+	"close": {
+		"message": "Fechar"
 	},
 	"cm_country_name": {
 		"message": "Camarões"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Níger"
 	},
+	"new": {
+		"message": "Novo"
+	},
 	"newtoday": {
 		"message": "Novo"
 	},
@@ -682,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Urso polar"
+	},
+	"notification": {
+		"message": "Notificações"
+	},
+	"notification_notice": {
+		"message": "Os duendes do Papai Noel manterão você atualizado sobre a programação dele"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -737,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Porto Rico"
 	},
+	"press": {
+		"message": "Pressionar"
+	},
 	"pt_language_name": {
 		"message": "Português"
 	},
@@ -757,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Arábia Saudita"
+	},
+	"santasearch_hint": {
+		"message": "Dica"
+	},
+	"santasearch_level_lab": {
+		"message": "No laboratório"
+	},
+	"santasearch_level_museum": {
+		"message": "No museu"
+	},
+	"santasearch_level_select": {
+		"message": "Ir"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Procure o Papai Noel!"
 	},
 	"santasvillage": {
 		"message": "Vila do Papai Noel"
@@ -844,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Papai Noel voltou"
+	},
+	"scene_windtunnel": {
+		"message": "Túnel de vento"
 	},
 	"score": {
 		"message": "Pontuação"
@@ -967,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Ver trajeto"
+	},
+	"tracker_track": {
+		"message": "Seguir o Papai Noel"
 	},
 	"tracker_weather": {
 		"message": "Clima"
@@ -4657,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Explore, brinque e aprenda com os Duendes do Papai Noel durante todo o mês de dezembro"
+	},
+	"village_get_the_app": {
+		"message": "Fazer o download do app"
+	},
+	"village_santa_cardboard": {
+		"message": "Papai Noel no Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Papai Noel no Google Cast"
 	},
 	"village_takesoff": {
 		"message": "O Papai Noel decola em"

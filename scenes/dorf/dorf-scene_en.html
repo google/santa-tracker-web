@@ -15,9 +15,15 @@ specific language governing permissions and limitations under the License.
 
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
+<link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../components/iron-flex-layout/classes/iron-flex-layout.html">
+<link rel="import" href="../../components/iron-icons/iron-icons.html">
+<link rel="import" href="../../components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../../components/paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="../../components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../../components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../components/paper-toolbar/paper-toolbar.html">
 
-<link rel="import" href="../../elements/toolbar/santa-toolbar.html">
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -28,33 +34,88 @@ Village scene (2015).
 -->
 <dom-module id="dorf-scene">
 <template>
-  <style>
+<style>
   paper-drawer-panel {
     --paper-drawer-panel-scrim: {
       background: rgba(135, 212, 147, 0.33);
+      z-index: 1001;
+    };
+    --paper-drawer-panel-drawer-container: {
+      z-index: 1001;
+    }
+  }
+  paper-icon-button {
+    --paper-icon-button-ink-color: white;
+  }
+  paper-header-panel::shadow #mainPanel {
+    @apply(--layout-fit);
+  }
+
+  paper-header-panel {
+    --paper-header-panel-shadow: {
+      display: none;
+    };
+    --paper-header-panel-waterfall-container: {
+      will-change: transform;
     };
   }
-  /* TODO(samthor): The drawer be 100% when screen <= 600px */
-  </style>
+  :host([mode="portal"]) .shareicons {
+    display: none !important;
+  }
+</style>
+
+<iron-media-query query="(max-width: 600px)"
+                  query-matches="{{smallScreen}}"></iron-media-query>
 
 <div id="module-dorf">
-  <paper-drawer-panel id="sidebar" drawer-width="400px" force-narrow transition drawer-toggle-attribute="closer">
-    <div drawer id="drawer">
+  <paper-drawer-panel id="sidebar" force-narrow
+                      drawer-width="[[_computeDrawerWidth(smallScreen)]]">
+    <div id="drawer" drawer class="scroll">
+      <paper-toolbar>
+        <a class="close-sidebar" paper-drawer-toggle>Close</a>
+      </paper-toolbar>
       <div class="cards">
-        <button closer id="close-sidebar">
-          Close
-        </button>
-        <a href="#village">
-          <div class="card" style="background-image: url(img/menu-village.png)"></div>
+        <a href$="{{pageUrl}}#village">
+          <div class="menucard menucard-village">
+            <h2><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></h2>
+            <h3><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></h3>
+          </div>
         </a>
-        <a href="#tracker">
-          <div class="card" style="background-image: url(img/menu-tracker.png)"></div>
+        <template is="dom-if" if="{{todayHouse}}">
+          <a href$="{{pageUrl}}#{{todayHouse.module}}">
+            <div class$="menucard menucard-{{todayHouse.module}}">
+              <h2><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h2>
+              <h3>{{_stringScene(_strings, todayHouse.module)}}</h3>
+            </div>
+          </a>
+        </template>
+        <a href$="{{pageUrl}}#tracker">
+          <div class="menucard menucard-tracker">
+            <!-- TODO(samthor): i18n -->
+            <h2>December 24th</h2>
+            <h3>Track Santa</h3>
+          </div>
         </a>
       </div>
     </div>
-    <div main style="position: relative; z-index: 0;">
-      <santa-toolbar id="toolbar" on-options-tap="_handleOptionsTap"></santa-toolbar>
-      <div id="scroll" class="fit scroll">
+    <paper-header-panel mode="waterfall" main on-content-scroll="_scrollHandler">
+      <paper-toolbar id="toolbar">
+        <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+        <div id="logo" title="Google logo"></div>
+        <h1 class="title flex">
+          <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
+        </h1>
+        <div class="shareicons">
+          <button id="gplus">Google Plus</button>
+          <button id="twitter"><i18n-msg msgid="twitter">PLACEHOLDER_i18n</i18n-msg></button>
+          <button id="facebook">Facebook</button>
+          <!-- <paper-icon-button id="gplus" src="/elements/toolbar/img/share-gplus.svg"></paper-icon-button>
+          <paper-icon-button id="twitter" src="/elements/toolbar/img/share-twitter.svg"></paper-icon-button>
+          <paper-icon-button id="facebook" src="/elements/toolbar/img/share-facebook.svg"></paper-icon-button> -->
+        </div>
+      </paper-toolbar>
+
+      <div id="scroll">
         <div id="posser"></div>
 
         <header>
@@ -89,11 +150,11 @@ Village scene (2015).
           <div id="road"></div>
           <div id="houses">
             <div class="house house-new-today"></div>
-            <template is="dom-repeat" items="{{houses}}">
+            <template id="housesloop" is="dom-repeat" items="{{houses}}" observe="iced disabled">
               <div id$="house-{{item.module}}"
                    class$="house house-{{item.module}} {{_calculateClass(item, item.iced)}}"
                    disabled$="{{item.disabled}}">
-                <div class="assets">
+                <div class="assets housez">
                   <div class="building"></div>
                   <div class="ice"></div>
                   <template is="dom-if" if="{{!item.hideDate}}">
@@ -101,14 +162,18 @@ Village scene (2015).
                   </template>
                 </div>
                 <template is="dom-if" if="{{!item.disabled}}">
-                  <a class="link" href="{{_calculateHref(item)}}">
-                    <div class$="card card-{{item.module}}">
-                      <h4>{{_stringCategory(_strings, item.category)}}</h4>
-                      <h3>{{_stringScene(_strings, item.module)}}</h3>
-                      <template is="dom-if" if="{{!item.hideDate}}">
-                        <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
-                      </template>
-                    </div>
+                  <div class="action">
+                    <a class="link" href="{{_calculateHref(item)}}">
+                      <div class$="card card-{{item.module}}">
+                        <div class="image"></div>
+                        <h4>{{_stringCategory(_strings, item.category)}}</h4>
+                        <h3>{{_stringScene(_strings, item.module)}}</h3>
+                        <template is="dom-if" if="{{!item.hideDate}}">
+                          <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
+                        </template>
+                      </div>
+                    </a>
+                    <h5 class="housez">{{_stringCategory(_strings, item.category)}}</h5>
                   </a>
                 </template>
               </div>
@@ -167,10 +232,11 @@ Village scene (2015).
           </div>
         </div>
         <div id="village-footer">
+          <p><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
           <div id="village-footer-elves"></div>
         </div>
-      </div><!-- .scroll -->
-    </div><!-- div main-->
+      </div><!-- #scroll -->
+    </paper-header-panel> <!-- paper-header-panel[main] -->
   </paper-drawer-toolbar>
 </div><!-- #module-dorf -->
 
@@ -296,6 +362,7 @@ Village scene (2015).
 
   Polymer({
     is: 'dorf-scene',
+
     behaviors: [window.SantaSceneBehavior],
 
     properties: {
@@ -310,10 +377,27 @@ Village scene (2015).
         readOnly: true,
         value: Object.freeze(EASTER_EGGS)
       },
+      /**
+       * URL to share. If null, shares the current href.
+       */
+      shareURL: {
+        type: String,
+        value: null
+      },
       _strings: {
         type: Object,
         readOnly: true
+      },
+      todayHouse: {
+        type: Object,
+        computed: '_computeTodayHouse(houses)'
       }
+    },
+
+    listeners: {
+      // For prod, <i18n-msg> is removed and textContent will already be
+      // correct. For dev, listen for i18n updates and update the labels.
+      'i18n-language-ready': '_updateCountdownLabels'
     },
 
     observers: [
@@ -322,7 +406,6 @@ Village scene (2015).
 
     created: function() {
       this._changeEffectCount = this._changeEffectCount.bind(this);
-      this._updateScrollClass = this._updateScrollClass.bind(this);
     },
 
     attached: function() {
@@ -330,18 +413,24 @@ Village scene (2015).
 
       for (var i = 0; i < 25; ++i) {
         // Delay snowflakes by their count+5 sec.
-        var x = snowflakeFactory(null, i+5);
+        var x = snowflakeFactory(null, i + 5);
         skyeffect.appendChild(x);
       }
-
       for (var i = 0; i < 4; ++i) {
         // Delay clouds by their count+1 sec, and every second is reverse.
         var x = cloudFactory(null, i + 1, i % 2);
         skyeffect.appendChild(x);
       }
 
-      this.$.scroll.addEventListener('scroll', this._updateScrollClass);
-      this._updateScrollClass();
+      this._attach('gplus', 348, 512, function(u) {
+        return 'https://plus.google.com/share?url=' + u;
+      });
+      this._attach('twitter', 600, 253, function(u) {
+        return 'https://twitter.com/share?hashtags=santatracker&url=' + u;
+      });
+      this._attach('facebook', 600, 229, function(u) {
+        return 'https://www.facebook.com/sharer.php?p[url]=' + u + '&u=' + u;
+      });
 
       // Grab strings from this.$.msg.
       this.async(function populateStrings() {
@@ -365,8 +454,16 @@ Village scene (2015).
       });
     },
 
-    detached: function() {
-      this.$.scroll.removeEventListener('scroll', this._updateScrollClass);
+    _attach: function(name, w, h, converter) {
+      this.$[name].addEventListener('click', function(event) {
+        event.preventDefault();
+
+        var urlToShare = window.encodeURIComponent(
+            this.shareURL || ('' + window.location.href));
+        var urlToOpen = converter(urlToShare);
+        var options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=' + h + ',width=' + w;
+        window.open(urlToOpen, '', options);
+      }.bind(this));
     },
 
     _setupEffectHandlers: function(active) {
@@ -386,14 +483,17 @@ Village scene (2015).
       }, 500);
     },
 
-    _updateScrollClass: function() {
-      this.debounce('_updateScrollClass', function() {
-        this.$.toolbar.background = (this.$.scroll.scrollTop > 0);
-      });
+    _updateCountdownLabels: function() {
+      this.$.count.updateLabels();
     },
 
-    _handleOptionsTap: function() {
-      this.$.sidebar.openDrawer();
+    _computeTodayHouse: function(houses) {
+      for (var i = 0, house; house = houses[i]; ++i) {
+        if (house.today) {
+          return house;
+        }
+      }
+      return null;
     },
 
     _calculateHref: function(house, iced) {
@@ -411,10 +511,6 @@ Village scene (2015).
     },
 
     _calculateDateNo: function(date) {
-      // TODO(samthor): Remove when resolving #1286 (can't late bind properties).
-      if (date.substr) {
-        date = new Date(date);
-      }
       if (date && date.getDate) {
         return date.getDate();
       }
@@ -447,6 +543,15 @@ Village scene (2015).
       return strings['msg_category-' + category];
     },
 
+    _computeDrawerWidth: function(smallScreen) {
+      return smallScreen ? '100%' : '400px';
+    },
+
+    _scrollHandler: function(e) {
+      var scroller = e.detail.target;
+      this.toggleClass('scrolling', scroller.scrollTop > 0, this.$.toolbar);
+    },
+
     onShow: function() {
       // Start timer one tick after scene is shown.
       this.async(function() {
@@ -457,6 +562,5 @@ Village scene (2015).
   });
 
 })();
-
 </script>
 </template>

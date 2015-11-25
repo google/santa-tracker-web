@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "智利"
 	},
-	"close-this": {
-		"message": "取消"
+	"close": {
+		"message": "關閉"
 	},
 	"cm_country_name": {
 		"message": "喀麥隆"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "尼日"
 	},
+	"new": {
+		"message": "全新"
+	},
 	"newtoday": {
 		"message": "今日新登場"
 	},
@@ -743,6 +746,9 @@
 	"pr_country_name": {
 		"message": "波多黎各"
 	},
+	"press": {
+		"message": "媒體報導"
+	},
 	"pt_language_name": {
 		"message": "葡萄牙文"
 	},
@@ -763,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "沙烏地阿拉伯"
+	},
+	"santasearch_hint": {
+		"message": "提示"
+	},
+	"santasearch_level_lab": {
+		"message": "實驗室"
+	},
+	"santasearch_level_museum": {
+		"message": "博物館"
+	},
+	"santasearch_level_select": {
+		"message": "出發！"
+	},
+	"santasearch_search_for_santa": {
+		"message": "聖誕老人在哪裡？"
 	},
 	"santasvillage": {
 		"message": "聖誕老人村"
@@ -850,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "聖誕老人回來了"
+	},
+	"scene_windtunnel": {
+		"message": "風洞"
 	},
 	"score": {
 		"message": "分數"
@@ -973,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "查看路線"
+	},
+	"tracker_track": {
+		"message": "追蹤聖誕老人"
 	},
 	"tracker_weather": {
 		"message": "天氣"
@@ -4663,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "在溫馨的 12 月，和聖誕老人的助手小精靈一同探索、玩遊戲和學習新知"
+	},
+	"village_get_the_app": {
+		"message": "取得應用程式"
+	},
+	"village_santa_cardboard": {
+		"message": "使用 Cardboard 尋找聖誕老人"
+	},
+	"village_santa_cast": {
+		"message": "在 Google Cast 上尋找聖誕老人"
 	},
 	"village_takesoff": {
 		"message": "距離聖誕老人出發時間還有"

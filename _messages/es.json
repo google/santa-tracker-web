@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Cancelar"
+	"close": {
+		"message": "Cerrar"
 	},
 	"cm_country_name": {
 		"message": "Camerún"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Níger"
 	},
+	"new": {
+		"message": "Nuevo"
+	},
 	"newtoday": {
 		"message": "Nuevo hoy"
 	},
@@ -682,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Oso polar"
+	},
+	"notification": {
+		"message": "Notificaciones"
+	},
+	"notification_notice": {
+		"message": "Los elfos te irán contando qué planes tiene Papá Noel"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -737,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Prensa"
+	},
 	"pt_language_name": {
 		"message": "Portugués"
 	},
@@ -757,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Arabia Saudí"
+	},
+	"santasearch_hint": {
+		"message": "Pista"
+	},
+	"santasearch_level_lab": {
+		"message": "En el laboratorio"
+	},
+	"santasearch_level_museum": {
+		"message": "En el museo"
+	},
+	"santasearch_level_select": {
+		"message": "¡Adelante!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "¡Busca a Papá Noel!"
 	},
 	"santasvillage": {
 		"message": "Aldea de Papá Noel"
@@ -844,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Papá Noel ha vuelto"
+	},
+	"scene_windtunnel": {
+		"message": "Túnel de viento"
 	},
 	"score": {
 		"message": "Puntuación"
@@ -967,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Ver la ruta"
+	},
+	"tracker_track": {
+		"message": "Sigue a Papá Noel"
 	},
 	"tracker_weather": {
 		"message": "Tiempo"
@@ -4657,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Explora, juega y aprende con los elfos de Papá Noel durante todo diciembre"
+	},
+	"village_get_the_app": {
+		"message": "Descargar aplicación"
+	},
+	"village_santa_cardboard": {
+		"message": "Papá Noel en Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Papá Noel en Google Cast"
 	},
 	"village_takesoff": {
 		"message": "Papá Noel despegará en"

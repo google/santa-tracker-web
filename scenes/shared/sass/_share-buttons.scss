@@ -15,10 +15,10 @@ $shareButtons-shadow: #FF873E !default;
 
   .shareButtons-google {
     background-image: url(../shared/img/share-buttons/google.svg);
-    background-size: 10px 11.5px;
+    background-size: 16px 16px;
 
     @media (min-width: $button-bp) {
-      background-size: 20px 21px;
+      background-size: 32px 32px;
     }
   }
 

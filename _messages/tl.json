@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Kanselahin"
+	"close": {
+		"message": "Isara"
 	},
 	"cm_country_name": {
 		"message": "Cameroon"
@@ -644,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Bago"
+	},
 	"newtoday": {
 		"message": "Bago Ngayon"
 	},
@@ -743,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Press"
+	},
 	"pt_language_name": {
 		"message": "Portuguese"
 	},
@@ -763,6 +769,21 @@
 	},
 	"sa_country_name": {
 		"message": "Saudi Arabia"
+	},
+	"santasearch_hint": {
+		"message": "Pahiwatig"
+	},
+	"santasearch_level_lab": {
+		"message": "Sa lab"
+	},
+	"santasearch_level_museum": {
+		"message": "Sa museo"
+	},
+	"santasearch_level_select": {
+		"message": "Sige!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Hanapin si Santa!"
 	},
 	"santasvillage": {
 		"message": "Village ni Santa"
@@ -850,6 +871,9 @@
 	},
 	"scene_videoscene_santasback": {
 		"message": "Bumalik na si Santa"
+	},
+	"scene_windtunnel": {
+		"message": "Wind Tunnel"
 	},
 	"score": {
 		"message": "Score"
@@ -973,6 +997,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Tingnan ang ruta"
+	},
+	"tracker_track": {
+		"message": "Sundan si Santa"
 	},
 	"tracker_weather": {
 		"message": "Panahon"
@@ -4663,6 +4690,15 @@
 	},
 	"village_explore": {
 		"message": "Mag-explore, maglaro at matuto sa mga Elf ni Santa buong Disyembre"
+	},
+	"village_get_the_app": {
+		"message": "Kunin ang App"
+	},
+	"village_santa_cardboard": {
+		"message": "Santa sa Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Santa sa Google Cast"
 	},
 	"village_takesoff": {
 		"message": "Lilipad na si Santa sa loob ng"

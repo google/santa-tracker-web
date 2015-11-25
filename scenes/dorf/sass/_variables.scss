@@ -1,3 +1,13 @@
+// Strips a px/%/etc from a value.
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// Returns the % of $value in $inside. Assumes both are px values.
+@function percent($value, $inside) {
+  @return #{(strip-unit($value) / strip-unit($inside)) * 100}%;
+}
+
 $base-raised-z-index: 100;     // z-index for raised text, effects (snow etc)
 $base-background-z-index: 90;  // z-index for anything behind that
 
@@ -24,6 +34,16 @@ $road-size-w: 4002px * $svg-ratio;
 $road-size-h: 3057px * $svg-ratio;
 $road-top: 106px;
 
+// offset from the text label (play/learn/etc) that the touch area/card hover
+// appears on desktop
+$action-offset-top: 24px;
+
+$hover-card-size: 282px;
+$link-target-size: ($dim-house / 2)+32px;
+
+$village-extra-padding: 80px;  // shift village div virtually up by this amt
+$village-offset-up: 30px;  // how much we start the actual village higher
+
 // nb: none of these %'s should be 0 or 100, and they should be in-order
 // TODO(samthor): Express these in timeframes and calc % based on that.
 $skydive-start: 40%;
@@ -33,8 +53,6 @@ $skydive-fallto-pos: 240px;
 $skydive-land: 75%;
 $skydive-land-pos: 480px;
 $skydive-disappear: 95%;
-
-$hover-card-size: 282px;
 
 $house-row-1-z-index: 100;
 $house-row-2-z-index: 200;

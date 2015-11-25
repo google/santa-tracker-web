@@ -58,8 +58,8 @@ function crossDomainAjax(settings) {
   }
 }
 
-/** @define {boolean} */
-crossDomainAjax.BASE = ''; // Set by gulpfile
+/** @define {string} */
+crossDomainAjax.BASE = '';
 
 /**
  * @type {boolean}

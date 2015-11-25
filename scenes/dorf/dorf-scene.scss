@@ -5,6 +5,9 @@ $name: 'module-dorf';
 @import "sass/variables";
 @import "sass/animations";
 
+$width-big: 600px;
+$toolbar-size: 64px;
+
 ##{$name} {
   background: #F5F2E2;
   height: 100%;
@@ -17,7 +20,83 @@ $name: 'module-dorf';
       border-bottom: 4px solid #eee;
     }
 
-    button#close-sidebar {
+    paper-toolbar {
+      background-color: transparent;
+    }
+
+    .close-sidebar {
+      cursor: pointer;
+      display: block;
+      line-height: 75px;
+      font-family: 'Lobster';
+      font-size: 30px;
+      color: #ccc;
+      margin-left: 48px
+    }
+
+    .menucard {
+      box-sizing: border-box;
+      height: 150px;
+      background: transparent center right no-repeat;
+      background-size: cover;
+      padding: 12px 12px 12px 68px;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    h2 {
+      font-size: 1em;
+      letter-spacing: 1px;
+      font-weight: 500;
+      color: #fff;
+      margin: 6px 0;
+      line-height: 12px;
+      text-transform: uppercase;
+    }
+    h4 {
+      margin: 0;
+      padding-top: 0.25em;
+      font-size: 2.875em;
+      line-height: 1.5em;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  #toolbar {
+    min-width: 320px;  // force 320px min width, i.e., iPhone 4/5+
+    z-index: 1000;
+    pointer-events: none;  // make sure scroll events pass through toolbar.
+    background-color: transparent;
+    will-change: background-color;
+    transition: background-color 125ms;
+
+    paper-icon-button[icon="menu"] {
+      margin-right: 8px !important;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      box-shadow: 0 2px 2px rgba(0,0,0,.25);
+      background-color: #50def5;
+      opacity: 0;
+      will-change: opacity;
+      transform: translateZ(0);
+      transition: opacity 0.125s;
+    }
+    &.scrolling::before {
+      opacity: 1;
+    }
+
+    // Common button reset.
+    button {
       pointer-events: auto;
       border: 0;
       margin: 0;
@@ -25,30 +104,82 @@ $name: 'module-dorf';
       text-align: center;
       background: transparent;
       cursor: pointer;
-      display: block;
-      height: 75px;
-      line-height: 75px;
-      text-align: left;
-      font-family: 'Lobster';
-      font-size: 30px;
-      padding-left: 68px;
-      width: 100%;
-      color: #ccc;
     }
 
-    .card {
-      height: 150px;
-      background: transparent center right no-repeat;
-      background-size: cover;
+    #logo {
+      margin: 4px 8px 0 0;
+      width: 74px;
+      height: 100%;
+      background: url(/elements/toolbar/img/google_logo.svg) center no-repeat;
+      background-size: contain;
     }
-  }
 
-  .scroll {
-    overflow-y: auto;
+    h1 {
+      margin: 0;
+      font-family: 'Lobster', sans-serif;
+      font-size: 23px;
+      line-height: $toolbar-size;
+      font-weight: 300;
+      color: white;
+    }
 
-    // Force a layer on this scroll element.
-    transform: translateZ(0);
-    will-change: transform;
+    .shareicons {
+      padding: 8px 0;
+      height: 100%;
+      box-sizing: border-box;
+      font-size: 0;  // hide spacing between divs
+      pointer-events: auto;  // set these icons to be accessible again
+
+      button {
+        width: 68px;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 4px;
+        position: relative;
+        display: inline-block;
+        border-left: 1px solid rgba(0,0,0,0.125);
+        background: transparent no-repeat center;
+        font-size: 0;
+
+        &:first-child {
+          border-left: none;
+        }
+
+        &#gplus {
+          background-image: url(/elements/toolbar/img/share-gplus.svg);
+        }
+        &#twitter {
+          background-image: url(/elements/toolbar/img/share-twitter.svg);
+        }
+        &#facebook {
+          background-image: url(/elements/toolbar/img/share-facebook.svg);
+        }
+
+        &::before {
+          z-index: -1;
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 4px;
+          right: 4px;
+          bottom: 0;
+          border-radius: 2px;
+          background: rgba(0,0,0,.25);
+          opacity: 0;
+          transform: translateZ(0);
+          will-change: opacity;
+        }
+        &:hover::before {
+          opacity: 1;
+        }
+      }
+    }
+    @media (max-width: $width-big) {
+      .shareicons {
+        display: none;
+      }
+    }
   }
 
   header {
@@ -58,7 +189,6 @@ $name: 'module-dorf';
     height: 385px;
     background: #47c6ee;
     background: linear-gradient(to bottom, rgba(61,218,242,1) 0%, rgba(140,232,248,1) 86%, rgba(153,234,249,1) 100%);
-    z-index: 1;
     overflow: visible;
 
     // By default, there's nothing user-interactable here.
@@ -184,8 +314,13 @@ $name: 'module-dorf';
       flex-direction: column;
       position: relative;
 
+      // TODO(samthor): Give this a layer, as it extends over its neighbour
+      // to the south, and Chrome is confused when painting.
+      transform: translateZ(0);
+      will-change: transform;
+
       #count-down {
-        padding: 45px 0 30px 0;
+        padding: 60px 0 30px 0;
       }
 
       // NOTE: This is used for the countdown timer.
@@ -211,7 +346,7 @@ $name: 'module-dorf';
       }
 
       p {
-        margin: 50px 0 0 0;
+        margin: 35px 0 0 0;
         color: #fff;
         text-align: center;
         font-weight: 400;
@@ -240,16 +375,14 @@ $name: 'module-dorf';
     }
   }
 
+  /** House data */
+  @import "sass/houses";
+
   /** Village flexbox */
   #village-all {
     z-index: $base-background-z-index;
     position: relative;  // nb. creates a z-index layer for children
     overflow: hidden;
-    top: -30px;
-    padding-bottom: 300px;
-
-    @import "sass/houses";
-    @import "sass/eastereggs";
 
     #houses {
       position: relative;
@@ -272,6 +405,13 @@ $name: 'module-dorf';
         height: 100%;
         position: absolute;
         color: white;
+
+        .image {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          z-index: -1;  // behind text
+        }
 
         .launchdate {
           font-family: 'Lobster', sans-serif;
@@ -300,6 +440,8 @@ $name: 'module-dorf';
   }
 
   #village-footer {
+    // TODO(samthor): Footer needs to be scaled for both tablet and mobile.
+
     z-index: $base-background-z-index;
     height: 700px;
     background-image: url(img/footer-bg.svg);
@@ -307,8 +449,25 @@ $name: 'module-dorf';
     background-position: 50% 0;
     background-size: 1882px 1116px;
     position: relative;
-    top: -290px;
-    margin-bottom: -290px;
+    margin-top: -200px;  // nb. removed on mobile
+
+    // TODO(samthor): Give this a layer, as it extends over its neighbour
+    // to the north, and Chrome is confused when painting.
+    transform: translateZ(0);
+    will-change: transform;
+
+    p {
+      margin: 35px 0 0 0;
+      max-width: 600px;
+      margin: 0 auto;
+      margin-top: 20px;
+      color: #005CD6;
+      text-align: center;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 26px;
+      max-width: 400px;
+    }
 
     #village-footer-elves {
       background-image: url(img/footer-elves.svg);
@@ -318,6 +477,7 @@ $name: 'module-dorf';
       position: absolute;
       width: 100%;
       height: 100%;
+      bottom: 0;
     }
   }
 
@@ -326,6 +486,15 @@ $name: 'module-dorf';
     font-size: 16px;
 
     #village-all {
+      padding-bottom: 300px;
+
+      // Move the village up by 30px, but give the layer an extra 30px to work
+      // with: this gives space for the hover cards.
+      margin-top: 0 - $village-offset-up - $village-extra-padding;
+      padding-top: $village-extra-padding;
+
+      @import "sass/eastereggs";
+
       #houses {
         align-items: flex-start;
         margin: 0 auto;
@@ -343,7 +512,7 @@ $name: 'module-dorf';
         background-position: 50% 0;
         width: 100%;
         height: 100%;
-        top: $ground-top;
+        top: $ground-top + $village-extra-padding;
       }
 
       #road {
@@ -355,7 +524,7 @@ $name: 'module-dorf';
         background-size: $road-size-w $road-size-h;
         width: 100%;
         height: 100%;
-        top: $road-top;
+        top: $road-top + $village-extra-padding;
       }
 
       .house {
@@ -375,7 +544,7 @@ $name: 'module-dorf';
             pointer-events: none;
             user-select: none;
             position: absolute;
-            background: url(img/number-bg.svg) center no-repeat;
+            background: url(img/number-bg-dark.svg) center no-repeat;
             background-size: contain;
             transform: translate(-50%, -50%);
             width: 1.6em;
@@ -400,6 +569,9 @@ $name: 'module-dorf';
               opacity: 1;
             }
           }
+          h5 {
+            display: none;
+          }
         }
       }  // .house
     }
@@ -413,64 +585,106 @@ $name: 'module-dorf';
       height: 100%;
     }
 
-    .link {
-      // TODO(samthor): Use sizing from _houses; just a quick hack for now.
-      // Restore layerX/layerY position.
-      width: 50%;
-      height: 50%;
-      left: 25%;
-      bottom: 25%;
+    /**
+     * Each house's action is basically positioned at its center bottom point,
+     * something like its door. The label, e.g. "Play", "Learn" etc is shown
+     * just under this point. It provides the base for a touch area.
+     */
+    .action {
+      $size: percent($link-target-size, $dim-house);
+      $size-half: percent($link-target-size / 2, $dim-house);
+
       position: absolute;
-      z-index: 30000;
+      width: $size;
+      height: $size;
+      margin-bottom: -$size;
+      margin-left: -$size-half;
 
-      // Create a layer: this hints to browsers that yes, this card _REALLY IS_
-      // above everything else. Since there's no background/color etc, it's
-      // ignored anyway.
-      transform: translateZ(0);
-      will-change: transform;
-
-      .card {
-        $hs: $hover-card-size / 2;
-        width: $hover-card-size !important;
-        height: $hover-card-size !important;
-        margin: (-$hs) 0 0 (-$hs);
-        will-change: transform, opacity;
-        border-radius: 10000px;
-        transition: transform 0.2s ease-out, opacity 0.2s ease-out;
-        transform: scale(0);
-        opacity: 0.25;
-        left: 50%;
-        top: 50%;
-        box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
-
-        .launchdate {
-          display: none;
-        }
+      h5 {
+        margin: 0;
+        font-size: 12px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        color: #fff;
+        line-height: 12px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #37afdb;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.125);
+        position: relative;  // so .housez class can take effect
       }
 
-      &:hover, &:active {
+      .link {
+        // These 100%'s refer to the size of our parent .action.
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        bottom: 100%;
+        position: absolute;
+        z-index: 30000;
+        margin-bottom: percent($action-offset-top, $dim-house);
+
+        // Create a layer: this hints to browsers that yes, this card _REALLY IS_
+        // above everything else. Since there's no background/color etc, it's
+        // ignored anyway.
+        transform: translateZ(0);
+        will-change: transform;
+
+        $duration-in: 0.4s;
+        $easing-in: cubic-bezier(0.380, 0.800, 0.475, 1.285);
+        $duration-out: 0.2s;
+        $easing-out: ease-in;
+
         .card {
-          transform: scale(1);
-          opacity: 1;
+          $hs: $hover-card-size / 2;
+          width: $hover-card-size !important;
+          height: $hover-card-size !important;
+          margin: (-$hs) 0 0 (-$hs);
+          will-change: transform, opacity;
+          border-radius: 10000px;
+          overflow: hidden;
+          transition: transform $duration-out $easing-out, opacity $duration-out $easing-out;
+          transform: scale(0);
+          opacity: 0.25;
+          left: 50%;
+          top: 50%;
+          box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
+
+          .launchdate {
+            display: none;
+          }
         }
-      }
-    }
+
+        &:hover, &:active {
+          .card {
+            transition: transform $duration-in $easing-in, opacity $duration-in $easing-in;
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+      }  // .link
+    } // .action
   }
 
   /** Tablet village. Shrunk version of desktop. */
   @media (max-width: ($width-desktop - 1)) and (min-width: $width-tablet) {
     font-size: 12px;
 
-    .link {
-      .card {
-        $hs: $hover-card-size * $tablet-desktop-ratio / 2;
-        width: $hover-card-size * $tablet-desktop-ratio !important;
-        height: $hover-card-size * $tablet-desktop-ratio !important;
-        margin: (-$hs) 0 0 (-$hs);
+    .action {
+      .link {
+        .card {
+          $hs: $hover-card-size * $tablet-desktop-ratio / 2;
+          width: $hover-card-size * $tablet-desktop-ratio !important;
+          height: $hover-card-size * $tablet-desktop-ratio !important;
+          margin: (-$hs) 0 0 (-$hs);
+        }
       }
     }
 
     #village-all {
+      margin-top: (0 - $village-offset-up - $village-extra-padding) * $tablet-desktop-ratio;
+      padding-top: $village-extra-padding * $tablet-desktop-ratio;
+
       #houses {
         width: $width-tablet;
         height: $height-tablet;
@@ -492,10 +706,11 @@ $name: 'module-dorf';
 
       #ground {
         background-size: ($ground-size-w * $tablet-desktop-ratio) ($ground-size-h * $tablet-desktop-ratio);
+        top: ($ground-top + $village-extra-padding) * $tablet-desktop-ratio;
       }
       #road {
         background-size: ($road-size-w * $tablet-desktop-ratio) ($road-size-h * $tablet-desktop-ratio);
-        top: $road-top * $svg-ratio;
+        top: ($road-top + $village-extra-padding) * $tablet-desktop-ratio;
       }
     }
   }
@@ -549,6 +764,10 @@ $name: 'module-dorf';
       #ground, #road, .easter-egg {
         display: none;
       }
+    }
+
+    #village-footer {
+      margin-top: 32px;
     }
   }
 

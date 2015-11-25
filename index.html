@@ -65,6 +65,28 @@ specific language governing permissions and limitations under the License.
     });
 
     /**
+     * Filters out clicks on links that do not match current domain
+     */
+    function clickFilter(event) {
+      if (event.target === undefined) {
+        return;
+      }
+
+      if (event.target.localName !== 'a') {
+        return;
+      }
+
+      var url_check = location.protocol + "//" + document.domain;
+
+      if (event.target.href.search(url_check)) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
+
+      return;
+    }
+
+    /**
      * @param {string} param URL parameter to look for.
      * @return {string|undefined} undefined if the URL parameter does not exist.
      */
@@ -163,6 +185,11 @@ if (inEmbed) {
 }
 
 window.santaApp = document.querySelector('santa-app');
+
+if (window.santaApp.mode == 'portal') {
+  document.body.addEventListener('click', clickFilter);
+}
+
 var POLYMER_ANALYTICS_TIMEOUT_ = 60 * 1000;
 
 // log some polymer startup performance numbers
