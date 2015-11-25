@@ -81,7 +81,7 @@ SoundController.klangSrc_ = 'third_party/lib/klang/klang.js';
  * @private {string}
  */
 //SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.json';
-SoundController.klangConfigSrc_ = 'http://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/config.json';
+SoundController.klangConfigSrc_ = 'https://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/config.json';
 
 
 /**
@@ -90,7 +90,7 @@ SoundController.klangConfigSrc_ = 'http://klangfiles.s3.amazonaws.com/uploads/pr
  */
 SoundController.prototype.loadKlangConfig_ = function() {
   // load config script
-  Klang.init('http://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/config.json', function(success) {
+  Klang.init('https://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/config.json', function(success) {
     if (success) {
       console.log('Klang loaded');
       this.klangLoaded_ = true;
@@ -123,7 +123,7 @@ SoundController.prototype.loadSounds = function(loadEvent) {
     this.loadQueue_.push(this.loadingSounds_);
     return;
   }
-  
+
   this.triggerSoundsLoad_(this.loadingSounds_);
 };
 
