@@ -73,7 +73,8 @@ app.Character = class Character {
 
     // Create canvas
     let canvas = document.createElement('canvas');
-    canvas.width = canvas.height = size;
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
     el.appendChild(canvas);
 
     this.context = canvas.getContext('2d');

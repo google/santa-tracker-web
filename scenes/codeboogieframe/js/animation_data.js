@@ -158,28 +158,28 @@ app.AnimationData = () => ({
     "offsetY": 149
   },
   "jump_0": {
-    "width": 218,
-    "height": 427,
-    "offsetX": 478,
-    "offsetY": 83
+    "width": 235,
+    "height": 359,
+    "offsetX": 454,
+    "offsetY": 151
   },
   "jump_1": {
-    "width": 204,
-    "height": 424,
-    "offsetX": 479,
-    "offsetY": 86
+    "width": 229,
+    "height": 433,
+    "offsetX": 453,
+    "offsetY": 77
   },
   "jump_2": {
-    "width": 192,
-    "height": 430,
+    "width": 212,
+    "height": 433,
     "offsetX": 470,
-    "offsetY": 80
+    "offsetY": 77
   },
   "jump_3": {
-    "width": 206,
-    "height": 413,
-    "offsetX": 467,
-    "offsetY": 97
+    "width": 200,
+    "height": 359,
+    "offsetX": 473,
+    "offsetY": 151
   },
   "pointLeft_0": {
     "width": 219,
@@ -278,28 +278,28 @@ app.AnimationData = () => ({
     "offsetY": 140
   },
   "stepLeft_0": {
-    "width": 195,
-    "height": 364,
-    "offsetX": 470,
-    "offsetY": 146
-  },
-  "stepLeft_1": {
-    "width": 217,
+    "width": 194,
     "height": 359,
-    "offsetX": 443,
+    "offsetX": 480,
     "offsetY": 151
   },
+  "stepLeft_1": {
+    "width": 375,
+    "height": 436,
+    "offsetX": 298,
+    "offsetY": 74
+  },
   "stepLeft_2": {
-    "width": 200,
-    "height": 355,
-    "offsetX": 437,
-    "offsetY": 155
+    "width": 268,
+    "height": 361,
+    "offsetX": 265,
+    "offsetY": 149
   },
   "stepLeft_3": {
-    "width": 218,
-    "height": 398,
-    "offsetX": 443,
-    "offsetY": 112
+    "width": 399,
+    "height": 359,
+    "offsetX": 262,
+    "offsetY": 151
   },
   "stepRight_0": {
     "width": 212,

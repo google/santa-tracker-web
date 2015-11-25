@@ -29,7 +29,8 @@ goog.require('app.Step');
 goog.require('app.Title');
 goog.require('goog.events.EventTarget');
 
-const size = 492;
+const canvasWidth = 622;
+const canvasHeight = 494;
 const fps = 24;
 const bpm = 120;
 const beatDuration = 1000 / bpm * 60;
@@ -86,8 +87,8 @@ class Animation {
       y: 0,
       width: data.width,
       height: data.height,
-      offsetX: data.offsetX - (originalWidth / 2 - size / 2),
-      offsetY: data.offsetY - (originalHeight / 2 - size / 2),
+      offsetX: data.offsetX - (originalWidth / 2 - canvasWidth / 2),
+      offsetY: data.offsetY - (originalHeight / 2 - canvasHeight / 2),
       img: data.img
     };
   }
