@@ -596,6 +596,47 @@ Polymer({
     return this.postCountdown ? TRACKER_ROUTE : DEFAULT_ROUTE;
   },
 
+  initChromecast: function() {
+    // TODO(bckenny): remove noisy chromecast debugging logging
+    // dynamically import the Cast Reciever SDK if in chromecast mode
+    var sdkImportPath = '../../js/chromecastsdk.html';
+    Polymer.Base.importHref([sdkImportPath], function(e) {
+      // `cast` is added to global scope by SDK
+      var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
+      var messageBus = castReceiverManager
+          .getCastMessageBus('urn:x-cast:com.google.cast.santatracker');
+
+      console.log('Starting Cast Receiver Manager');
+      castReceiverManager.onReady = function(event) {
+        console.log('Received Cast Ready event: ' + JSON.stringify(event.data));
+        castReceiverManager.setApplicationState('Santa Tracker');
+      };
+      castReceiverManager.onSenderConnected = function(event) {
+        console.log('Received Cast Sender Connected event: ' + event.data);
+        console.log(castReceiverManager.getSender(event.data).userAgent);
+      };
+      castReceiverManager.onSenderDisconnected = function(event) {
+        console.log('Received Cast Sender Disconnected event: ' + event.data);
+        if (castReceiverManager.getSenders().length === 0 &&
+          event.reason ===
+              cast.receiver.system.DisconnectReason.REQUESTED_BY_SENDER) {
+            window.close();
+        }
+      };
+      castReceiverManager.onSystemVolumeChanged = function(event) {
+        console.log('Received Cast System Volume Changed event: ' +
+            event.data.level + ' ' + event.data.muted);
+      };
+
+      messageBus.onMessage = function(event) {
+        console.log('Message [' + event.senderId + ']: ' + event.data);
+      }.bind(this);
+
+      castReceiverManager.start({statusText: 'Santa Tracker is starting'});
+      console.log('Cast Receiver Manager started');
+    }.bind(this));
+  },
+
   _languageChanged: function() {
     // TODO(samthor): santaService seems to be obsfucated
     // this.santaService.lang_ = this.language;
