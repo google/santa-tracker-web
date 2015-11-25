@@ -334,6 +334,7 @@ app.Scene.prototype.onClickRun_ = function() {
         app.Constants.SCENE_TOGGLE_DURATION);
   } else {
     this.blockRunner_.execute();
+    console.log('click',app,this)
   }
 };
 
