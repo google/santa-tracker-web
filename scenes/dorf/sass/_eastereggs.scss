@@ -166,6 +166,7 @@
 
     .elf-stop {
       position: absolute;
+      will-change: opacity;
     }
 
     .elf-green, .elf-blue {
@@ -244,11 +245,13 @@
       top: percent(-50, $h);
       left: percent(-70, $w);
       transform: translateZ(0) translateX(100vw);
+      will-change: transform;
 
       div {
         position: absolute;
         opacity: 0;
         transition: opacity .5s ease;
+        will-change: opacity;
       }
 
       .elf-bus {
@@ -294,6 +297,7 @@
 
     .elf-stop {
       position: absolute;
+      will-change: opacity;
     }
 
     .elf-green, .elf-blue {
@@ -362,11 +366,13 @@
       top: percent(-50, $h);
       left: percent(-70, $w);
       transform: translateZ(0) translateX(100vw);
+      will-change: transform;
 
       div {
         position: absolute;
         opacity: 0;
         transition: opacity .5s ease;
+        will-change: opacity;
       }
 
       .elf-bus {
@@ -457,6 +463,7 @@
 
     .elf-stop {
       position: absolute;
+      will-change: opacity;
     }
 
     .elf-stop:nth-child(1) {
@@ -500,11 +507,13 @@
       background-image: url(img/bus.svg);
       top: percent(25, $h);
       transform: translateZ(0) translateX(100vw) translateY(-3vw);
+      will-change: transform;
 
       div {
         position: absolute;
         opacity: 0;
         transition: opacity .5s ease;
+        will-change: opacity;
       }
 
       .elf-bus {
