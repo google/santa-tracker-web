@@ -15,6 +15,8 @@ $rotate-bg: $gameover-bg;
 @import "sass/object-spring";
 @import "sass/rotation";
 @import "sass/conveyor-belt";
+@import "sass/wall-pipes";
+@import "sass/dropper";
 
 
 ##{$name} {

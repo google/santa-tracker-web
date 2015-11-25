@@ -1,0 +1,31 @@
+##{$name} {
+
+  .wall-decoration {
+
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    &--horizontal {
+      top: 100%;
+      margin-top: -40%;
+    }
+
+    &--panel {
+      top: 0%;
+      left: 100%;
+      margin-top: 0;
+      margin-left: -362px;
+      width: 362px;
+    }
+
+    // &--button-pipes {
+    //   height: 322px:
+    //   top: 0%;
+    //   left: 50%;
+    //   width: 722px;
+    // }
+
+  }
+
+}

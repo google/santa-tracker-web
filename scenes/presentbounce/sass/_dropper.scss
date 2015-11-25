@@ -1,0 +1,26 @@
+##{$name} {
+
+  $pipe-width: 196px;
+  $button-width: 131px;
+
+  .dropper {
+    position: relative;
+    left: 50%;
+    margin-left: $pipe-width/-2;
+
+    &__pipe {
+      width: $pipe-width;
+      position: absolute;
+    }
+
+    &__button {
+      width: $button-width;
+      position: absolute;
+      left: 230px;
+      top: 55px;
+    }
+
+  }
+
+
+}

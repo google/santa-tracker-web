@@ -24,9 +24,19 @@ goog.provide('app.config.Styles');
 app.config.Styles = {
   dropper: {
     className: 'object--dropper',
-    width: 100,
-    height: 200,
-    marginTop: -200 // align dom element to bottom
+    width: 361,
+    height: 220,
+    innerHTML: `
+      <div class="dropper">
+        <div class="dropper__button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131.2 131.2"><path fill="#D4D4D6" d="M0 0h131.2v131.2H0z"/><circle fill="#77787C" cx="12.2" cy="12.2" r="6.2"/><circle fill="#77787C" cx="119" cy="12.2" r="6.2"/><circle fill="#77787C" cx="12.2" cy="119" r="6.2"/><circle fill="#77787C" cx="119" cy="119" r="6.2"/><circle opacity=".25" fill="#434343" cx="72.6" cy="72.6" r="48.6"/><circle fill="#378F43" cx="65.6" cy="65.6" r="48.6"/><circle fill="#3BB34A" cx="60.9" cy="60.9" r="48.6"/><g fill="#378F43"><path d="M29 64.9h63.8L60.9 96.8zM44.9 33h31.9v31.9H44.9z"/></g></svg>
+        </div>
+        <div class="dropper__pipe">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 203.2 226.1"><path opacity=".25" fill="#434343" d="M203.2 67.5V51.2h-8.6V0h-179v51.2H7v16.3h8.6v142.3H7v16.3h196.2v-16.3h-8.6V67.5z"/><path fill="#D4D4D6" d="M8.6 0h179v203.3H8.6z"/><path fill="#FFF" d="M8.6 0h161v203.3H8.6z"/><path fill="#E53A35" d="M0 44.2h196.2v16.3H0zM0 202.8h196.2v16.3H0z"/></svg>
+        </div>
+      </div>
+    `,
+    marginTop: -90 // align dom element to bottom
   },
   snowGlobe: {
     className: 'object--snowglobe snowglobe',
@@ -58,9 +68,9 @@ app.config.Styles = {
   },
   target: {
     className: '',
-    innerHTML: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136.2 110.2"><path fill="#E53A35" d="M109.3 19.4L121.9 0H14.2l12.6 19.4C10.9 27.2 0 43.5 0 62.4c0 26.4 21.4 47.8 47.8 47.8h40.5c26.4 0 47.8-21.4 47.8-47.8.1-18.9-10.9-35.2-26.8-43z"/><path fill="#D4D4D6" d="M109.3 19.4L121.9 0H95.8L83.2 19.4C99 27.2 110 43.5 110 62.4c0 24.9-19 45.3-43.3 47.6 1.5.1 20.1.2 21.6.2 26.4 0 47.8-21.4 47.8-47.8.1-18.9-10.9-35.2-26.8-43z"/><path fill="none" stroke="#FED600" stroke-width="4.434" stroke-linecap="round" stroke-miterlimit="10" d="M26.8 19.4h82.5M93.3 19.4c2.7 0 5.2 1.1 6.2 3.4s.4 5.3-1.6 7c-.8.7-1.8 1.2-2.5 1.9-1.6 1.8-1.5 4.7-.1 6.6 1.4 1.9 3.7 3 6.1 3.5"/><path fill="none" stroke="#FED600" stroke-width="4.434" stroke-linecap="round" stroke-miterlimit="10" d="M95.6 19.4c5.2 0 10.5 2.8 11.7 6.3.4 1.2.1 2.5-.7 3.5-.5.6-1.3 1-1.7 1.7-.9 1.2-.5 3 .6 4 1 1.1 2.5 1.5 4 1.7"/></svg>',
-    width: 50 * 2,
-    height: 50 * 1.5
+    innerHTML: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 177.5"><g opacity=".1"><path fill="#010101" d="M133.8 26.9l12.6-19.4H38.6l12.6 19.4c-15.9 7.8-26.8 24.1-26.8 43 0 26.4 21.4 47.8 47.8 47.8h40.5c26.4 0 47.8-21.4 47.8-47.8.1-18.9-10.9-35.2-26.7-43z"/><path fill="#010101" d="M133.8 26.9l12.6-19.4h-26.2l-12.6 19.4c15.9 7.8 26.8 24.1 26.8 43 0 24.9-19 45.3-43.3 47.6 1.5.1 20.1.2 21.6.2 26.4 0 47.8-21.4 47.8-47.8.1-18.9-10.9-35.2-26.7-43z"/><path fill="none" stroke="#010101" stroke-width="4.434" stroke-linecap="round" stroke-miterlimit="10" d="M51.2 26.9h82.6M117.7 26.9c2.7 0 5.2 1.1 6.2 3.4s.4 5.3-1.6 7c-.8.7-1.8 1.2-2.5 1.9-1.6 1.8-1.5 4.7-.1 6.6 1.4 1.9 3.7 3 6.1 3.5"/><path fill="none" stroke="#010101" stroke-width="4.434" stroke-linecap="round" stroke-miterlimit="10" d="M120 26.9c5.2 0 10.5 2.8 11.7 6.3.4 1.2.1 2.5-.7 3.5-.5.6-1.3 1-1.7 1.7-.9 1.2-.5 3 .6 4 1 1.1 2.5 1.5 4 1.7"/></g><path fill="#E53A35" d="M126.3 19.4L138.9 0H31.1l12.6 19.4c-15.9 7.8-26.8 24.1-26.8 43 0 26.4 21.4 47.8 47.8 47.8h40.5c26.4 0 47.8-21.4 47.8-47.8.1-18.9-10.9-35.2-26.7-43z"/><path fill="#bb3131" d="M126.3 19.4L138.9 0h-26.2l-12.6 19.4c15.9 7.8 26.8 24.1 26.8 43 0 24.9-19 45.3-43.3 47.6 1.5.1 20.1.2 21.6.2 26.4 0 47.8-21.4 47.8-47.8.1-18.9-10.9-35.2-26.7-43z"/><path fill="none" stroke="#FED600" stroke-width="4.434" stroke-linecap="round" stroke-miterlimit="10" d="M43.7 19.4h82.6M110.2 19.4c2.7 0 5.2 1.1 6.2 3.4s.4 5.3-1.6 7c-.8.7-1.8 1.2-2.5 1.9-1.6 1.8-1.5 4.7-.1 6.6 1.4 1.9 3.7 3 6.1 3.5"/><path fill="none" stroke="#FED600" stroke-width="4.434" stroke-linecap="round" stroke-miterlimit="10" d="M112.5 19.4c5.2 0 10.5 2.8 11.7 6.3.4 1.2.1 2.5-.7 3.5-.5.6-1.3 1-1.7 1.7-.9 1.2-.5 3 .6 4 1 1.1 2.5 1.5 4 1.7"/><g><g opacity=".1" fill="#010101"><path d="M157.5 137.7h-130c-11 0-20-9-20-20h170c0 11-9 20-20 20zM58.4 137.7h68.1V185H58.4z"/><path d="M116.6 137.7h10V185h-10z"/></g><path fill="#333" d="M150 130.2H20c-11 0-20-9-20-20h170c0 11-9 20-20 20z"/><path fill="#D4D4D6" d="M50.9 130.2H119v47.3H50.9z"/><path fill="#989898" d="M109.1 130.2h10v47.3h-10z"/></g></svg>',
+    width: 136,
+    height: 90
   },
   angledBeam: {
     className: '',
