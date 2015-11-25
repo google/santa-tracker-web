@@ -63,11 +63,11 @@ goog.scope(function () {
     buildBody_() {
       const bodyDef = new b2.BodyDef();
       bodyDef.type = b2.BodyDef.b2_staticBody;
-      bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y);
+      bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y - Unit.toWorld(30));
 
       // create the target fixture definition
-      const width = this.config_.style.width;
-      const height = this.config_.style.height;
+      const width = this.config_.style.objectWidth;
+      const height = this.config_.style.objectHeight;
       const material = this.config_.material;
 
       const worldWidth = Unit.toWorld(width);
@@ -77,7 +77,7 @@ goog.scope(function () {
       leftEdgeFixDef.density = material.globeDensity;
       leftEdgeFixDef.friction = material.friction;
       leftEdgeFixDef.restitution = material.restitution;
-      leftEdgeFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth/2, -worldHeight/2), new b2.Vec2(-worldWidth*0.4, -worldHeight*0.4));
+      leftEdgeFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth/2.2, -worldHeight/2), new b2.Vec2(-worldWidth*0.4, -worldHeight*0.4));
 
       const leftFixDef = new b2.FixtureDef();
       leftFixDef.density = material.globeDensity;
@@ -107,7 +107,7 @@ goog.scope(function () {
       rightEdgeFixDef.density = material.globeDensity;
       rightEdgeFixDef.friction = material.friction;
       rightEdgeFixDef.restitution = material.restitution;
-      rightEdgeFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(worldWidth*0.4, -worldHeight*0.4), new b2.Vec2(worldWidth/2, -worldHeight/2));
+      rightEdgeFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(worldWidth*0.4, -worldHeight*0.4), new b2.Vec2(worldWidth/2.2, -worldHeight/2));
 
       const body = this.world_.CreateBody( bodyDef );
       body.CreateFixture( leftEdgeFixDef );
