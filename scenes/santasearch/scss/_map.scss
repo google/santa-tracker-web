@@ -8,6 +8,7 @@
     position: absolute;
     top: 50%;
     transform: translateZ(0);
+    transition: transform 0s ease-in-out;
     width: 1600px;
   }
 }

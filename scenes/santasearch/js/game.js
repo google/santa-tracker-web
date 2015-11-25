@@ -219,12 +219,12 @@ app.Game.prototype._hintLocation = function(characterName) {
 
   this.controls.enabled = false;
 
-  this.mapElem.css('transition', `transform ${app.Constants.HINT_BUTTON_PAN_TIME}s ease-in-out`);
+  this.mapElem.css('transition-duration', `${app.Constants.HINT_BUTTON_PAN_TIME}s`);
   this.controls.pan.x = targetX;
   this.controls.pan.y = targetY;
 
   setTimeout(function() {
-    this.mapElem.css('transition', '');
+    this.mapElem.css('transition-duration', '0s');
     this.controls.enabled = true;
   }.bind(this), app.Constants.HINT_BUTTON_PAN_TIME * 1000);
 };
