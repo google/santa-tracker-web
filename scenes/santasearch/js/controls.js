@@ -181,6 +181,33 @@ app.Controls.prototype._onMouseup = function(e) {
   this.selecting = false;
 };
 
+app.Controls.prototype._scalePan = function(from, to) {
+  let direction = to - from;
+  let times = Math.abs(direction);
+
+  let scale = from;
+
+  if (direction > 0) {
+    while (times--) {
+      scale += 1;
+
+      this.pan.x *= (scale / (scale-1));
+      this.pan.y *= (scale / (scale-1));
+    }
+  } else {
+    while (times--) {
+      scale -= 1;
+
+      this.pan.x /= ((scale + 1) / scale);
+      this.pan.y /= ((scale + 1) / scale);
+    }
+  }
+
+  this.needsPanUpdate = true;
+  this.needsScaleUpdate = true;
+  this.scale = scale;
+}
+
 /**
  * Handles zooming in when the user clicks the zoom-in element.
  * @private
@@ -191,11 +218,7 @@ app.Controls.prototype._zoomIn = function() {
   }
 
   if (this.scale < app.Constants.ZOOM_MAX) {
-    this.scale += 1;
-    this.needsScaleUpdate = true;
-
-    this.pan.x *= (this.scale / (this.scale-1));
-    this.pan.y *= (this.scale / (this.scale-1));
+    this._scalePan(this.scale, this.scale + 1);
   }
 };
 
@@ -209,11 +232,7 @@ app.Controls.prototype._zoomOut = function() {
   }
 
   if (this.scale > 1) {
-    this.scale -= 1;
-    this.needsScaleUpdate = true;
-
-    this.pan.x /= ((this.scale + 1) / this.scale);
-    this.pan.y /= ((this.scale + 1) / this.scale);
+    this._scalePan(this.scale, this.scale - 1);
 
     if (this.scale === 1) {
       this.pan.x = 0;
