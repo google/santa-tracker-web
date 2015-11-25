@@ -201,6 +201,33 @@ Village scene (2015).
                   <div class="elf-bus"></div>
                 </div>
               </div>
+
+              <div id="easteregg-busstop2" class="easter-egg stop-full">
+                <div class="elf-stop elf-blue"></div>
+                <div class="elf-stop elf-green"></div>
+                <div class="bus">
+                  <div class="elf-bus"></div>
+                  <div class="elf-bus"></div>
+                  <div class="elf-bus"></div>
+                  <div class="elf-bus"></div>
+                  <div class="elf-bus"></div>
+                  <div class="elf-bus"></div>
+                </div>
+              </div>
+
+              <div id="easteregg-busstop3" class="easter-egg stop-full">
+                <div class="elf-stop elf-sit-red"></div>
+                <div class="elf-stop elf-blue"></div>
+                <div class="elf-stop elf-green"></div>
+                <div class="bus">
+                  <div class="elf-bus"></div>
+                  <div class="elf-bus"></div>
+                  <div class="elf-bus"></div>
+                  <div class="elf-bus"></div>
+                  <div class="elf-bus"></div>
+                  <div class="elf-bus"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -370,7 +397,10 @@ Village scene (2015).
     listeners: {
       // For prod, <i18n-msg> is removed and textContent will already be
       // correct. For dev, listen for i18n updates and update the labels.
-      'i18n-language-ready': '_updateCountdownLabels'
+      'i18n-language-ready': '_updateCountdownLabels',
+      'easteregg-busstop1.click': '_triggerBus',
+      'easteregg-busstop2.click': '_triggerBus',
+      'easteregg-busstop3.click': '_triggerBus'
     },
 
     observers: [
@@ -454,6 +484,32 @@ Village scene (2015).
         // TODO(samthor): Choose a number of snowflakes based on
         // `window.innerWidth`. Drift the current number towards that amount.
       }, 500);
+    },
+
+    _triggerBus: function(e) {
+      var BUS_DRIVE_ANIMATION = 10000;
+      var BUS_LOAD_ANIMATION = 3000;
+      var busStop = e.currentTarget;
+      if (busStop.classList.contains('to-stop') || busStop.classList.contains('from-stop')) {
+        return;
+      }
+
+      busStop.classList.add('to-stop');
+      window.setTimeout(function() {
+        if (busStop.classList.contains('bus-load')) {
+          busStop.classList.remove('bus-load');
+        } else {
+          busStop.classList.add('bus-load');
+        }
+        window.setTimeout(function() {
+          busStop.classList.remove('to-stop');
+          busStop.classList.add('from-stop');
+
+          window.setTimeout(function() {
+            busStop.classList.remove('from-stop');
+          }, BUS_DRIVE_ANIMATION + 1);
+        }, BUS_LOAD_ANIMATION + 1);
+      }, BUS_DRIVE_ANIMATION + 1);
     },
 
     _updateCountdownLabels: function() {
