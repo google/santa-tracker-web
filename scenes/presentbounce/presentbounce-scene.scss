@@ -9,8 +9,11 @@ $rotate-bg: $gameover-bg;
 @import "../shared/sass/rotate";
 @import "../shared/sass/tutorial";
 
+@import "sass/debug";
 @import "sass/bg";
 @import "sass/levelobjects";
+@import "sass/rotation";
+@import "sass/conveyor-belt";
 
 
 ##{$name} {

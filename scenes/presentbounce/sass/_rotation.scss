@@ -1,0 +1,26 @@
+##{$name} {
+
+  .object__rotate-handle {
+    position: absolute;
+    content: "";
+    bottom: 100%;
+    padding: 2% 2% 0% 10%;
+    right: -5%;
+    text-align: right;
+    cursor: nwse-resize;
+    svg {
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+    }
+    opacity: 0;
+    transition: opacity 150ms;
+  }
+
+  .object:hover {
+    .object__rotate-handle {
+      opacity: 1;
+    }
+  }
+
+}

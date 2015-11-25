@@ -1,5 +1,5 @@
 ##{$name} {
-  
+
   user-select: none;
   svg {
     display: block;
@@ -7,29 +7,12 @@
     height: auto;
   }
 
-  .js-debug-canvas {
-    outline: 2px dashed #eee;
-    user-select: none;
-    position: relative;
-    z-index: 2;
-    pointer-events: none;
-  }
-    
-  .js-debug-console {
-    color: #666;
-    font-family: monaco, Consolas, Lucida Console, monospace;
-    position: absolute;
-    top: 2%;
-    left: 2%;
-    text-align: center;
-  }
-    
   .btns {
     position: absolute;
     top: 4%;
     left: 2%;
   }
-    
+
   .object {
     position: absolute;
     top: 0;
@@ -40,9 +23,9 @@
   .object--dropper {
     background: grey;
   }
-    
+
   .object--shadow,
-  .object--shadow.object--present-cricle,
+  .object--shadow.object--present-circle,
   .object--shadow.object--present-rect {
     outline: none;
     background: rgba(66,66,66,.25);
@@ -52,8 +35,8 @@
     background: red;
     opacity: 0.5;
   }
-    
-  .object--present-cricle {
+
+  .object--present-circle {
     border-radius: 100%;
     background: red;
     opacity: 0.5;
@@ -67,58 +50,6 @@
     cursor: move;
     background: hotpink;
   }
-      
-  @keyframes #{$name}-belt-animation {
-    to {
-      // document.querySelector('.belt').getTotalLength()
-      stroke-dashoffset: -813.1859130859375;
-    }
-  }
-  @keyframes #{$name}-wheel-animation {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  .object--conveyorBelt {
-    cursor: move;
-    $belt-speed: 6s;
-    .belt {
-      animation: #{$name}-belt-animation $belt-speed linear infinite;
-    }
-    .wheel {
-      transform-origin: center center;
-      animation: #{$name}-wheel-animation $belt-speed/4 linear infinite;
-    }
-    &.js-animation-reverse .belt,
-    &.js-animation-reverse .wheel {
-      animation-direction: reverse;
-    }
-  }
-
-  // ROTATION
-  .object__rotate-handle {
-    position: absolute;
-    content: "";
-    bottom: 100%;
-    padding: 2% 2% 0% 10%;
-    right: -5%;
-    text-align: right;
-    cursor: nwse-resize;
-    svg {
-      display: inline-block;
-      width: 35px;
-      height: 35px;
-    }
-    opacity: 0;
-    transition: opacity 150ms;
-  }
-  .object:hover {
-    .object__rotate-handle {
-      opacity: 1;
-    }
-  }
-
 
   &.frozen,
   .js-animation-paused {
@@ -127,5 +58,5 @@
       animation-play-state: paused;
     }
   }
-  
+
 }
