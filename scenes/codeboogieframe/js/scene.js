@@ -344,7 +344,7 @@ app.Scene.prototype.onClickRun_ = function() {
  */
 app.Scene.prototype.onFinishExecution = function(result) {
   if (this.level === app.levels[app.levels.length - 1]) {
-    result.overlayGraphic = result.levelComplete ? '#result-final' : null;
+    result.overlayGraphic = result.levelComplete ? '#result-success' : null;
     result.isFinalLevel = true;
   }
 
