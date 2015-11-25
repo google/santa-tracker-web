@@ -186,6 +186,10 @@ Village scene (2015).
                 <div id$="easteregg-{{item}}" class="easter-egg"></div>
               </template>
 
+              <div id="easteregg-balloon" class="easter-egg"></div>
+              <div id="easteregg-balloon-ropes" class="easter-egg"></div>
+              <div id="easteregg-balloon-flight" class="easter-egg"></div>
+
               <div id="easteregg-busstop1" class="easter-egg stop-full">
                 <div class="elf-stop elf-green"></div>
                 <div class="elf-stop elf-orange"></div>
@@ -291,7 +295,7 @@ Village scene (2015).
 
   var EASTER_EGGS = ['tree', 'blocks', 'statue', 'penguin-revolt',
       'snowman-reading', 'rosetta-stone', 'white-board', 'schoolyard',
-      'tic-tac-toe', 'book-club', 'balloon', 'balloon-ropes', 'balloon-flight',
+      'tic-tac-toe', 'book-club',
       'snowmobile1', 'snowmobile2', 'snowmobile3', 'snowmobile4', 'unicycle'];
 
   function randomRange(min, max) {
@@ -400,7 +404,8 @@ Village scene (2015).
       'i18n-language-ready': '_updateCountdownLabels',
       'easteregg-busstop1.click': '_triggerBus',
       'easteregg-busstop2.click': '_triggerBus',
-      'easteregg-busstop3.click': '_triggerBus'
+      'easteregg-busstop3.click': '_triggerBus',
+      'easteregg-balloon.click': '_flyBalloon'
     },
 
     observers: [
@@ -484,6 +489,21 @@ Village scene (2015).
         // TODO(samthor): Choose a number of snowflakes based on
         // `window.innerWidth`. Drift the current number towards that amount.
       }, 500);
+    },
+
+    _flyBalloon: function(e) {
+      var FLIGHT_TIME = 30000;
+      var balloon = this.$['easteregg-balloon'];
+      var balloonRopes = this.$['easteregg-balloon-ropes'];
+      var balloonFlight = this.$['easteregg-balloon-flight'];
+      balloon.classList.add('flying');
+      balloonRopes.classList.add('flying');
+      balloonFlight.classList.add('flying');
+      window.setTimeout(function() {
+        balloon.classList.remove('flying');
+        balloonRopes.classList.remove('flying');
+        balloonFlight.classList.remove('flying');
+      }, FLIGHT_TIME + 1);
     },
 
     _triggerBus: function(e) {
