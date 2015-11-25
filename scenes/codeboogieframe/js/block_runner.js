@@ -114,7 +114,7 @@ app.BlockRunner = class {
       this.runAnimations_();
     }
 
-    Klang.triggerEvent('computer_play');
+    //Klang.triggerEvent('computer_play');
   }
 
   beforeAnimations_() {

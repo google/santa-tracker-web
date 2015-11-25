@@ -37,6 +37,11 @@ app.FrameWrapper = function(el, staticDir) {
   this.gameStartTime = +new Date;
   this.iframeEl = this.el.find('iframe[data-codeboogie-frame]');
   this.isPlaying = false;
+
+  setTimeout(function  () {
+    this.sequencer.start();
+  }.bind(this),2000)
+
   this.sequencer = new app.Sequencer(120);
 
   // Create a communication channel to the game frame.
@@ -126,7 +131,8 @@ app.FrameWrapper.prototype.iframeFocusChange = function(state) {
  * Updates the level in the scoreboard.
  * @param {number} level which level is it.
  */
-app.FrameWrapper.prototype.setLevel = function(level) {
+app.FrameWrapper.prototype.setLevel = function(level) { 
+  
   this.level_ = level;
   this.scoreboardView.setLevel(level);
 };
