@@ -215,6 +215,7 @@ City lights scene.
         this.showOnMapsReady = true;
       } else {
         this.fire('sound-ambient', 'citylights_start');
+        this.fire('sound-ambient', 'music_start_scene');
         var div = this.$['module-citylights'];
 
         this.scene = new scenes.citylights.Scene(div);

@@ -242,7 +242,6 @@ specific language governing permissions and limitations under the License.
     showScene: function() {
       this.loaded = true;
       this.fire('scene-progress');
-
       // Cancel the max preload async
       this.cancelAsync(this._maxPreloadAsync);
       this._maxPreloadAsync = null;

@@ -112,13 +112,83 @@ Village scene (2015).
               <div class="elf-bus"></div>
             </div>
           </div>
-        </div>
+
+          <div id="easteregg-busstop2" class="easter-egg stop-full">
+            <div class="elf-stop elf-blue"></div>
+            <div class="elf-stop elf-green"></div>
+            <div class="bus">
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+            </div>
+          </div>
+
+          <div id="easteregg-busstop3" class="easter-egg stop-full">
+            <div class="elf-stop elf-sit-red"></div>
+            <div class="elf-stop elf-blue"></div>
+            <div class="elf-stop elf-green"></div>
+            <div class="bus">
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+            </div>
+          </div>
+        </div><!-- #eastereggs-- >
+
       </div>
     </div>
     <div id="village-footer">
       <div id="village-footer-elves"></div>
     </div>
-  </div><!-- #module-dorf -->
+  </div>
+</div>
+<div id="village-footer">
+  <p><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
+  <div id="village-footer-elves"></div>
+</div>
+</div><!-- #scroll -->
+</div><!-- #module-dorf -->
+
+<div id="msg" hidden>
+  <div id="msg_category-learn"><i18n-msg msgid="learn">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_category-play"><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_category-watch"><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-airport"><i18n-msg msgid="scene_airport">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-traditions"><i18n-msg msgid="scene_traditions">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-codelab"><i18n-msg msgid="scene_codelab">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-app"><i18n-msg msgid="scene_app">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-seasonofcaring"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-santasback"><i18n-msg msgid="scene_videoscene_santasback">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-santaselfie"><i18n-msg msgid="scene_santaselfie">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-translations"><i18n-msg msgid="scene_translations">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-callfromsanta"><i18n-msg msgid="scene_callfromsanta">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-presentdrop"><i18n-msg msgid="scene_presentdrop">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-santasearch"><i18n-msg msgid="scene_santasearch">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-windtunnel"><i18n-msg msgid="scene_windtunnel">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-racer"><i18n-msg msgid="scene_racer">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-jamband"><i18n-msg msgid="scene_jamband">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-gumball"><i18n-msg msgid="scene_gumball">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-postcard"><i18n-msg msgid="scene_postcard">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-jetpack"><i18n-msg msgid="scene_jetpack">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-boatload"><i18n-msg msgid="scene_boatload">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-mercator"><i18n-msg msgid="scene_mercator">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-presentbounce"><i18n-msg msgid="scene_presentbounce">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-codeboogie"><i18n-msg msgid="scene_codeboogie">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-elf-car"><i18n-msg msgid="scene_videoscene_carpool">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-citylights"><i18n-msg msgid="scene_citylights">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-commandcentre"><i18n-msg msgid="scene_commandcentre">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-seasonofgiving"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-matching"><i18n-msg msgid="scene_matching">PLACEHOLDER_i18n</i18n-msg></div>
+  <div id="msg_house-liftoff"><i18n-msg msgid="scene_videoscene_liftoff">PLACEHOLDER_i18n</i18n-msg></div>
+</div>
+
+>>>>>>> master
 </template>
 <script>
 (function() {
@@ -235,7 +305,10 @@ Village scene (2015).
     listeners: {
       // For prod, <i18n-msg> is removed and textContent will already be
       // correct. For dev, listen for i18n updates and update the labels.
-      'i18n-language-ready': '_updateCountdownLabels'
+      'i18n-language-ready': '_updateCountdownLabels',
+      'easteregg-busstop1.click': '_triggerBus',
+      'easteregg-busstop2.click': '_triggerBus',
+      'easteregg-busstop3.click': '_triggerBus'
     },
 
     observers: [
@@ -276,6 +349,32 @@ Village scene (2015).
         // TODO(samthor): Choose a number of snowflakes based on
         // `window.innerWidth`. Drift the current number towards that amount.
       }, 500);
+    },
+
+    _triggerBus: function(e) {
+      var BUS_DRIVE_ANIMATION = 10000;
+      var BUS_LOAD_ANIMATION = 3000;
+      var busStop = e.currentTarget;
+      if (busStop.classList.contains('to-stop') || busStop.classList.contains('from-stop')) {
+        return;
+      }
+
+      busStop.classList.add('to-stop');
+      window.setTimeout(function() {
+        if (busStop.classList.contains('bus-load')) {
+          busStop.classList.remove('bus-load');
+        } else {
+          busStop.classList.add('bus-load');
+        }
+        window.setTimeout(function() {
+          busStop.classList.remove('to-stop');
+          busStop.classList.add('from-stop');
+
+          window.setTimeout(function() {
+            busStop.classList.remove('from-stop');
+          }, BUS_DRIVE_ANIMATION + 1);
+        }, BUS_LOAD_ANIMATION + 1);
+      }, BUS_DRIVE_ANIMATION + 1);
     },
 
     _updateCountdownLabels: function() {
@@ -344,6 +443,10 @@ Village scene (2015).
 
     onShow: function() {
       // Start timer one tick after scene is shown.
+      this.preloadSounds('village_load_sounds');
+      this.preloadSounds('load_music');
+      this.fire('sound-ambient', 'music_start_village');
+      this.fire('sound-ambient', 'village_start');
       this.async(function() {
         this.$.count.start();
       });

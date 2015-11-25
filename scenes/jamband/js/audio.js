@@ -47,10 +47,11 @@ app.Audio.prototype.play = function(pattern, volume, callback) {
     pattern = 0;
   }
 
-  this.audiosources.output.gain.value = volume;
+  //this.audiosources.output.gain.value = volume;
 
   var audiosource = this.audiosources.content[pattern];
   audiosource.loop = true;
+  audiosource.output.gain.value = volume;
 
   if (this.currentAudiosource !== audiosource) {
     this.playNext(audiosource, callback);
