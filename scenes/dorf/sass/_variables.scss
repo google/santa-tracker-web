@@ -42,6 +42,7 @@ $hover-card-size: 282px;
 $link-target-size: ($dim-house / 2)+32px;
 
 $village-extra-padding: 80px;  // shift village div virtually up by this amt
+$village-offset-up: 30px;  // how much we start the actual village higher
 
 // nb: none of these %'s should be 0 or 100, and they should be in-order
 // TODO(samthor): Express these in timeframes and calc % based on that.

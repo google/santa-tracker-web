@@ -383,14 +383,6 @@ $toolbar-size: 64px;
     z-index: $base-background-z-index;
     position: relative;  // nb. creates a z-index layer for children
     overflow: hidden;
-    padding-bottom: 300px;
-
-    // Move the village up by 30px, but give the layer an extra 30px to work
-    // with: this gives space for the hover cards.
-    margin-top: -30px - $village-extra-padding;
-    padding-top: $village-extra-padding;
-
-    @import "sass/eastereggs";
 
     #houses {
       position: relative;
@@ -448,6 +440,8 @@ $toolbar-size: 64px;
   }
 
   #village-footer {
+    // TODO(samthor): Footer needs to be scaled for both tablet and mobile.
+
     z-index: $base-background-z-index;
     height: 700px;
     background-image: url(img/footer-bg.svg);
@@ -455,13 +449,25 @@ $toolbar-size: 64px;
     background-position: 50% 0;
     background-size: 1882px 1116px;
     position: relative;
-    top: -290px;
-    margin-bottom: -290px;
+    margin-top: -200px;  // nb. removed on mobile
 
     // TODO(samthor): Give this a layer, as it extends over its neighbour
     // to the north, and Chrome is confused when painting.
     transform: translateZ(0);
     will-change: transform;
+
+    p {
+      margin: 35px 0 0 0;
+      max-width: 600px;
+      margin: 0 auto;
+      margin-top: 20px;
+      color: #005CD6;
+      text-align: center;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 26px;
+      max-width: 400px;
+    }
 
     #village-footer-elves {
       background-image: url(img/footer-elves.svg);
@@ -471,6 +477,7 @@ $toolbar-size: 64px;
       position: absolute;
       width: 100%;
       height: 100%;
+      bottom: 0;
     }
   }
 
@@ -479,6 +486,15 @@ $toolbar-size: 64px;
     font-size: 16px;
 
     #village-all {
+      padding-bottom: 300px;
+
+      // Move the village up by 30px, but give the layer an extra 30px to work
+      // with: this gives space for the hover cards.
+      margin-top: 0 - $village-offset-up - $village-extra-padding;
+      padding-top: $village-extra-padding;
+
+      @import "sass/eastereggs";
+
       #houses {
         align-items: flex-start;
         margin: 0 auto;
@@ -666,6 +682,9 @@ $toolbar-size: 64px;
     }
 
     #village-all {
+      margin-top: (0 - $village-offset-up - $village-extra-padding) * $tablet-desktop-ratio;
+      padding-top: $village-extra-padding * $tablet-desktop-ratio;
+
       #houses {
         width: $width-tablet;
         height: $height-tablet;
@@ -687,10 +706,11 @@ $toolbar-size: 64px;
 
       #ground {
         background-size: ($ground-size-w * $tablet-desktop-ratio) ($ground-size-h * $tablet-desktop-ratio);
+        top: ($ground-top + $village-extra-padding) * $tablet-desktop-ratio;
       }
       #road {
         background-size: ($road-size-w * $tablet-desktop-ratio) ($road-size-h * $tablet-desktop-ratio);
-        top: $road-top * $svg-ratio;
+        top: ($road-top + $village-extra-padding) * $tablet-desktop-ratio;
       }
     }
   }
@@ -744,6 +764,10 @@ $toolbar-size: 64px;
       #ground, #road, .easter-egg {
         display: none;
       }
+    }
+
+    #village-footer {
+      margin-top: 32px;
     }
   }
 
