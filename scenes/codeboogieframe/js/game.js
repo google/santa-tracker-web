@@ -53,6 +53,9 @@ app.Game = function(elem) {
 
   Klang.setEventListener(this.iframeChannel.call.bind(this.iframeChannel, 'triggerSound'));
 
+  this.scene.player.addEventListener('start', () => this.iframeChannel.call('setTrack', 1));
+  this.scene.player.addEventListener('finish', () => this.iframeChannel.call('setTrack', 0));
+
   window.addEventListener('blur', this.onBlur.bind(this));
   window.addEventListener('focus', this.onFocus.bind(this));
 
@@ -81,7 +84,7 @@ app.Game.prototype.bumpLevel = function() {
     return;
   }
 
-  this.iframeChannel.call('setLevel', this.levelNumber);
+  this.iframeChannel.call('setLevel', this.levelNumber, this.level.bpm);
 
   this.elem.className = this.level.className();
 
@@ -91,7 +94,6 @@ app.Game.prototype.bumpLevel = function() {
 
   // Show tutorial
   if (this.levelNumber === 0 || this.levelNumber === 2) {
-    app.sequencer.setLevel(2)
     // this.tutorial_.schedule();
   }
 };
@@ -117,7 +119,7 @@ app.Game.prototype.restartLevel = function() {
 app.Game.prototype.start = function() {
   this.restart();
 
-  
+
 };
 
 /**

@@ -37,19 +37,20 @@ app.FrameWrapper = function(el, staticDir) {
   this.gameStartTime = +new Date;
   this.iframeEl = this.el.find('iframe[data-codeboogie-frame]');
   this.isPlaying = false;
+  this.sequencer = new app.Sequencer();
 
+  // On klang loaded.
   setTimeout(function  () {
     this.sequencer.start();
   }.bind(this),2000)
-
-  this.sequencer = new app.Sequencer(120);
 
   // Create a communication channel to the game frame.
   this.iframeChannel = new app.shared.FrameRPC(this.iframeEl[0].contentWindow, {
     gameover: this.gameover.bind(this),
     iframeFocusChange: this.iframeFocusChange.bind(this),
     setLevel: this.setLevel.bind(this),
-    triggerSound: this.triggerSound.bind(this)
+    triggerSound: this.triggerSound.bind(this),
+    setTrack: this.setTrack.bind(this)
   });
 
   // internal level number for analytics
@@ -130,9 +131,18 @@ app.FrameWrapper.prototype.iframeFocusChange = function(state) {
 /**
  * Updates the level in the scoreboard.
  * @param {number} level which level is it.
+ * @param {number} bpm of level.
  */
-app.FrameWrapper.prototype.setLevel = function(level) { 
-  
+app.FrameWrapper.prototype.setLevel = function(level, bpm) {
   this.level_ = level;
   this.scoreboardView.setLevel(level);
+  this.sequencer.setLevel(level, bpm);
+};
+
+/**
+ * Select idle or dancing track.
+ * @param {number} idle = 0, dancing = 1.
+ */
+app.FrameWrapper.prototype.setTrack = function(track) {
+  this.sequencer.setTrack(track);
 };

@@ -158,6 +158,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.animationQueue = result.animationQueue;
     this.moveTiles.clear();
     this.title.setTitle(this.animationQueue[0].title);
+    this.dispatchEvent({type: 'start'});
   }
 
   onBar(bar, beat) {
