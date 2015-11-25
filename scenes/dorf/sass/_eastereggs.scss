@@ -146,8 +146,8 @@
   }
 
   #easteregg-busstop3 {
-    $w: 42px*1.5;
-    $h: 16px*1.5;
+    $w: 63px;
+    $h: 24px;
     z-index: $house-z-index-front;
 
     background-image: url(img/easteregg-busstop3.svg);
@@ -174,8 +174,8 @@
     }
 
     .elf-sit-red {
-      width: percent(13*1.5 * $svg-ratio, $w);
-      height: percent(32*1.5 * $svg-ratio, $h);
+      width: percent(19.5 * $svg-ratio, $w);
+      height: percent(48 * $svg-ratio, $h);
     }
 
     .elf-stop:nth-child(1) {
@@ -238,8 +238,8 @@
     }
 
     .bus {
-      width: percent(220*1.5 * $svg-ratio, $w);
-      height: percent(72*1.5 * $svg-ratio, $h);
+      width: percent(330 * $svg-ratio, $w);
+      height: percent(108 * $svg-ratio, $h);
       background-image: url(img/bus2.svg);
       top: percent(-50, $h);
       left: percent(-70, $w);
@@ -252,8 +252,8 @@
       }
 
       .elf-bus {
-        width: percent(13*.25 * $svg-ratio, $w);
-        height: percent(18*.25 * $svg-ratio, $h);
+        width: percent(3.25 * $svg-ratio, $w);
+        height: percent(4.5 * $svg-ratio, $h);
         background-image: url(img/elf-bus.svg);
       }
 
@@ -274,8 +274,8 @@
   }
 
   #easteregg-busstop2 {
-    $w: 30px*1.5;
-    $h: 16px*1.5;
+    $w: 45px;
+    $h: 24px;
     z-index: $house-z-index-front;
 
     background-image: url(img/easteregg-busstop2.svg);
@@ -356,8 +356,8 @@
     }
 
     .bus {
-      width: percent(220*1.5 * $svg-ratio, $w);
-      height: percent(72*1.5 * $svg-ratio, $h);
+      width: percent(330 * $svg-ratio, $w);
+      height: percent(108 * $svg-ratio, $h);
       background-image: url(img/bus2.svg);
       top: percent(-50, $h);
       left: percent(-70, $w);
@@ -370,8 +370,8 @@
       }
 
       .elf-bus {
-        width: percent(13*.25 * $svg-ratio, $w);
-        height: percent(18*.25 * $svg-ratio, $h);
+        width: percent(3.25 * $svg-ratio, $w);
+        height: percent(4.5 * $svg-ratio, $h);
         background-image: url(img/elf-bus.svg);
       }
 
