@@ -38,7 +38,6 @@ goog.scope(function () {
     constructor(...args) {
       super(...args); // super(...arguments) doesn't work in Closure Compiler
       this.body_ = this.buildBody_();
-      this.hasHitBottom = false;
       this.onCollision_ = this.onCollision_.bind(this);
       this.registerForCollisions( this.onCollision_ );
     }
@@ -46,11 +45,13 @@ goog.scope(function () {
     onCollision_(contact) {
       if (!this.collisionFixture) return;
 
-      if (contact.GetFixtureA().ID === this.collisionFixture.ID ||
-        contact.GetFixtureB().ID === this.collisionFixture.ID) {
-          console.log("hit the bottom target!");
-          this.hasHitBottom = true;
-        }
+      const hasHitCollisionFixture = (contact.GetFixtureA().ID === this.collisionFixture.ID || contact.GetFixtureB().ID === this.collisionFixture.ID);
+      const hasCallback = (this.level_ && typeof this.level_.onCompleteCallback === 'function');
+
+      if ( hasHitCollisionFixture && hasCallback) {
+        this.level_.onCompleteCallback();
+        this.unregisterForCollisions( this.onCollision_ );
+      }
     }
 
     setCollisionFixture(obj) {

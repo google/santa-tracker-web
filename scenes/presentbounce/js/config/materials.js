@@ -23,14 +23,14 @@ goog.provide('app.config.Materials');
  */
 app.config.Materials = {
   snowGlobe: {
-    globeDensity: 1.0,
+    globeDensity: 1,
     plateDensity: 1.5,
     friction: 0.2,
     restitution: 0 // let other surfaces define bounce
   },
   present: {
     density: 1,
-    friction: 0.2,
+    friction: 0,
     restitution: 0 // let other surfaces define bounce
   },
   target: {
@@ -39,7 +39,7 @@ app.config.Materials = {
     restitution: 0
   },
   fixedObject: {
-    density: 1.0,
+    density: 1,
     friction: 0.4,
     restitution: 0.2
   },
@@ -49,7 +49,7 @@ app.config.Materials = {
     restitution: 0.2
   },
   spring: {
-    density: 1.0,
+    density: 1,
     friction: 1, // dont slide on spring
     restitution: 1.2
   }

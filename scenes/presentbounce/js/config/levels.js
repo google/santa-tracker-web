@@ -22,6 +22,7 @@ goog.require('app.config.Styles');
 goog.require('app.world.SnowGlobe');
 goog.require('app.world.CircleBall');
 goog.require('app.world.PresentBall');
+goog.require('app.world.PresentSquare');
 
 /**
  * Level configuration - specifies type of textures and positions only
@@ -32,8 +33,8 @@ app.config.Levels = [
   {
     ball: {
       material: app.config.Materials.present,
-      style: app.config.Styles.presentCircle,
-      objectType: app.world.CircleBall,
+      style: app.config.Styles.presentSquare,
+      objectType: app.world.PresentSquare,
       relX: 0.2,
       relY: 0.0
     },
@@ -101,7 +102,8 @@ app.config.Levels = [
         relY: 0.5,
         rotation: 10,
         beltDirection: 1
-      },{
+      },
+      {
         material: app.config.Materials.conveyorBelt,
         style: app.config.Styles.conveyorBelt,
         relX: 0.72,

@@ -63,6 +63,15 @@ goog.scope(function () {
     }
 
     /**
+     * @protected
+     */
+    unregisterForCollisions() {
+      if (this.body_.collisionCallback) {
+        delete this.body_.collisionCallback;
+      }
+    }
+
+    /**
      * @private
      */
     createTextureDOMNode_() {
@@ -206,6 +215,7 @@ goog.scope(function () {
       if (this.world_ && this.body_) {
         this.world_.DestroyBody(this.body_);
       }
+      this.unregisterForCollisions();
       $(this.el_).remove();
       $(this.shadowEl_).remove();
     }

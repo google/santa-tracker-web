@@ -26,7 +26,7 @@ goog.require('app.world.ConveyorBelt');
 goog.require('app.world.Spring');
 
 
-goog.scope(function () {
+goog.scope(function() {
   const Constants = app.Constants;
   const Dropper = app.world.Dropper;
   const Target = app.world.Target;
@@ -71,7 +71,7 @@ goog.scope(function () {
       listener.PostSolve = this.onPostSolve_;
       listener.PreSolve = this.onPreSolve_;
 
-      this.world_.SetContactListener( listener );
+      this.world_.SetContactListener(listener);
 
       this.init_();
     }
@@ -99,8 +99,7 @@ goog.scope(function () {
      * @param  {[type]} contact [description]
      * @return {[type]}         [description]
      */
-    onEndContact_(contact) {
-    }
+    onEndContact_(contact) {}
 
     /**
      * Fired before contact is resolved. We have the opportunity to override the contact here.
@@ -108,16 +107,14 @@ goog.scope(function () {
      * @param  {[type]} oldManifold [description]
      * @return {[type]}             [description]
      */
-    onPreSolve_(contact, oldManifold) {
-    }
+    onPreSolve_(contact, oldManifold) {}
 
     /**
      * Fired once the contact is resolved. The event also includes the impulse from the contact.
      * @param  {[type]} contact [description]
      * @param  {Array} impulse An array of impulse values for the collision
      */
-    onPostSolve_(contact, impulse) {
-    }
+    onPostSolve_(contact, impulse) {}
 
     positionWrapperElement_(el) {
       el.css({
@@ -125,7 +122,7 @@ goog.scope(function () {
         zIndex: 100,
         left: '50%',
         top: '50%',
-        margin: '-' + (Constants.CANVAS_HEIGHT/2) + 'px 0 0 -' + (Constants.CANVAS_WIDTH/2) + 'px',
+        margin: '-' + (Constants.CANVAS_HEIGHT / 2) + 'px 0 0 -' + (Constants.CANVAS_WIDTH / 2) + 'px',
         width: Constants.CANVAS_WIDTH + 'px',
         height: Constants.CANVAS_HEIGHT + 'px'
       });
@@ -145,19 +142,19 @@ goog.scope(function () {
 
       if (this.debug_) {
         this.$debugCanvas_ = $('<canvas>')
-          .addClass('js-debug-canvas')
-          .attr({
-            width: Constants.CANVAS_WIDTH,
-            height: Constants.CANVAS_HEIGHT
-          })
-          .appendTo(this.elem);
+            .addClass('js-debug-canvas')
+            .attr({
+                width: Constants.CANVAS_WIDTH,
+                height: Constants.CANVAS_HEIGHT
+            })
+            .appendTo(this.elem);
 
         const debugDraw = new b2.DebugDraw();
-        debugDraw.SetSprite( this.$debugCanvas_[0].getContext("2d") );
-        debugDraw.SetDrawScale( Constants.PHYSICS_SCALE );
-        debugDraw.SetFillAlpha( 0.3 );
-        debugDraw.SetLineThickness( 1 );
-        debugDraw.SetFlags( b2.DebugDraw.e_shapeBit | b2.DebugDraw.e_jointBit );
+        debugDraw.SetSprite(this.$debugCanvas_[0].getContext("2d"));
+        debugDraw.SetDrawScale(Constants.PHYSICS_SCALE);
+        debugDraw.SetFillAlpha(0.3);
+        debugDraw.SetLineThickness(1);
+        debugDraw.SetFlags(b2.DebugDraw.e_shapeBit | b2.DebugDraw.e_jointBit);
         this.world_.SetDebugDraw(debugDraw);
       }
     }
@@ -217,7 +214,6 @@ goog.scope(function () {
      */
     destroyBall() {
       if (this.ball_) {
-        console.log('DESTROY BALL');
         this.ball_.destroy();
         this.ball_ = null;
       }
@@ -280,13 +276,6 @@ goog.scope(function () {
     }
 
     /**
-     * @private
-     */
-    hasBallHitTarget_() {
-      return (this.target_ && this.target_.hasHitBottom);
-    }
-
-    /**
      * Game loop. Should be called every frame using requestAnimationFrame.
      * Updates Box2D state since last frame.
      * @param {number} totalDelta Time since last frame.
@@ -318,17 +307,6 @@ goog.scope(function () {
       if (this.debug_) {
         this.world_.DrawDebugData();
       }
-
-      if (this.isLevelFinished()) {
-        this.onCompleteCallback();
-      }
-    }
-
-    /**
-     * @public
-     */
-    isLevelFinished() {
-      return this.hasBallHitTarget_();
     }
 
     /**
@@ -376,9 +354,8 @@ goog.scope(function () {
       for (let object of this.userObjects_) {
         object.destroy();
       }
-
-      this.userObjects_ = [];
-      this.levelObjects_ = [];
+      this.userObjects_.length = 0;
+      this.levelObjects_.length = 0;
       this.world_ = null;
 
       if (this.$debugCanvas_) {

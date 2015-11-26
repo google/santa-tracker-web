@@ -55,6 +55,7 @@ app.Game = function(elem) {
   // bind context
   this.onFrame_ = this.onFrame_.bind(this);
   this.loadNextLevel_ = this.loadNextLevel_.bind(this);
+  this.onLevelCompleted = this.onLevelCompleted.bind(this);
 
   // Bind listener to scale scene when window resizes
   this.watchSceneSize_();
@@ -122,8 +123,6 @@ app.Game.prototype.loadNextLevel_ = function() {
 
   var levelData = app.config.Levels[levelNumber];
 
-  console.log('Game: new level', levelNumber , app.config.Levels[levelNumber]);
-
   // Send Klang event
   if (this.level > 0) {
     window.santaApp.fire('sound-trigger', 'gb_level_up');
@@ -147,7 +146,9 @@ app.Game.prototype.loadNextLevel_ = function() {
  */
 app.Game.prototype.onLevelCompleted = function(score) {
 
-  this.scoreboard.addScore(score);
+  if (score) {
+    this.scoreboard.addScore(score);
+  }
 
   // Check for game end
   if (this.level === app.config.Levels.length - 1) {
