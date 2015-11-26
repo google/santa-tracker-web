@@ -37,6 +37,7 @@ goog.require('app.world.Level');
  * @export
  */
 app.Game = function(elem) {
+  console.log('Hi from Plan8!');
   this.elem = $(elem);
   this.viewElem = this.elem.find('.scene');
   this.levelElem = this.elem.find('.levelboard');
