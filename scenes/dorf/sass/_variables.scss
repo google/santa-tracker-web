@@ -1,13 +1,3 @@
-// Strips a px/%/etc from a value.
-@function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
-}
-
-// Returns the % of $value in $inside. Assumes both are px values.
-@function percent($value, $inside) {
-  @return #{(strip-unit($value) / strip-unit($inside)) * 100}%;
-}
-
 $base-raised-z-index: 100;     // z-index for raised text, effects (snow etc)
 $base-background-z-index: 90;  // z-index for anything behind that
 
