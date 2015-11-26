@@ -47,6 +47,10 @@
     transform: translateY($skydive-fallto-pos);
     opacity: 1;
   }
+  #{$skydive-fallto + .1} {
+    transform: translateY($skydive-fallto-pos - 5);
+    opacity: 1;
+  }
   #{$skydive-land}, #{$skydive-disappear} {
     transform: translateY($skydive-land-pos);
     opacity: 1;

@@ -95,7 +95,9 @@ $toolbar-size: 64px;
       }
       .skydive {
         animation: #{$name}-skydive 40s infinite ease-in;
-        margin-left: calc(50% + 120px);
+        margin-left: calc(50% + 460px);
+        z-index: $house-z-index-front;
+        will-change: transform, opacity;
 
         > span {
           position: absolute;
@@ -113,6 +115,16 @@ $toolbar-size: 64px;
           background-image: url(img/pegman-dive.svg);
           animation-name: #{$name}-skydive-pegman-1;
         }
+        .pegman-2, .pegman-3 {
+          a {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: auto;
+            text-indent: -3000em;
+            outline: 0;
+          }
+        }
         .pegman-2 {
           margin-top: -7px;
           width: 112px;
@@ -127,6 +139,11 @@ $toolbar-size: 64px;
           height: 140px;
           background-image: url(img/pegman-land.svg);
           animation-name: #{$name}-skydive-pegman-3;
+
+          a {
+            height: 60px;
+            top: 40px;
+          }
         }
       }
     }
