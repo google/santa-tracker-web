@@ -376,6 +376,7 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
     'js/jquery.html',
     'js/modernizr.html',
     'js/webanimations.html',
+    'js/ccsender.html',
     'components/polymer/polymer.html',
     'scenes/scene-behavior.html',
     'components/i18n-msg/i18n-msg.html',

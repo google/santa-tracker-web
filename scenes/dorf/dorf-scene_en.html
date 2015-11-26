@@ -28,6 +28,20 @@ Village scene (2015).
 -->
 <dom-module id="dorf-scene">
 <template>
+  <style>
+  :host[mode="cast"] #header-content p {
+    display: none;
+  }
+  :host[mode="cast"] .launchdate {
+    display: none !important;
+  }
+  :host[mode="cast"] .ice {
+    display: none !important;
+  }
+  :host[mode="cast"] #module-dorf {
+    margin-top: -32px;
+  }
+  </style>
   <div id="module-dorf">
     <header>
       <div id="header-background"></div>
@@ -190,6 +204,8 @@ Village scene (2015).
 <script>
 (function() {
 
+  var SNOWFLAKE_COUNT = 20;
+
   var SNOWFLAKE_ROTATION = 60;
   var SNOWFLAKE_SPEED_MIN = 2.5;
   var SNOWFLAKE_SPEED_MAX = 10;
@@ -323,7 +339,11 @@ Village scene (2015).
     attached: function() {
       var skyeffect = this.$['header-skyeffect'];
 
-      for (var i = 0; i < 25; ++i) {
+      var snowflakes = SNOWFLAKE_COUNT;
+      if (this.getAttribute('mode') == 'cast') {
+        snowflakes /= 2;
+      }
+      for (var i = 0; i < snowflakes; ++i) {
         // Delay snowflakes by their count+5 sec.
         var x = snowflakeFactory(null, i + 5);
         skyeffect.appendChild(x);
