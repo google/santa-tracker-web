@@ -23,9 +23,6 @@ $toolbar-size: 64px;
     overflow: visible;
 
     // By default, there's nothing user-interactable here.
-    // TODO(samthor): This is unsupported on IE10. So, the effect/text layer
-    // that overlaps the village will cause that overlapping area to be
-    // unreachable.
     pointer-events: none;
 
     #header-background {

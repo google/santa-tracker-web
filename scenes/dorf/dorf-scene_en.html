@@ -28,6 +28,20 @@ Village scene (2015).
 -->
 <dom-module id="dorf-scene">
 <template>
+  <style>
+  :host[mode="cast"] #header-content p {
+    display: none;
+  }
+  :host[mode="cast"] .launchdate {
+    display: none !important;
+  }
+  :host[mode="cast"] .ice {
+    display: none !important;
+  }
+  :host[mode="cast"] #module-dorf {
+    margin-top: -32px;
+  }
+  </style>
   <div id="module-dorf">
     <header>
       <div id="header-background"></div>
@@ -85,9 +99,9 @@ Village scene (2015).
                   </div>
                 </a>
                 <h5 class="housez">{{_string('category', item.category, santaApp.strings)}}</h5>
-              </a>
+              </div><!-- .action -->
             </template>
-          </div>
+          </div><!-- .house -->
         </template>
 
         <!-- TODO(samthor): This isn't part of the flex layout, but ensures
@@ -177,58 +191,20 @@ Village scene (2015).
               <div class="elf-bus"></div>
             </div>
           </div>
-        </div><!-- #eastereggs-- >
+        </div><!-- #eastereggs -->
 
       </div>
     </div>
     <div id="village-footer">
+      <p><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
       <div id="village-footer-elves"></div>
     </div>
-  </div>
-</div>
-<div id="village-footer">
-  <p><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-  <div id="village-footer-elves"></div>
-</div>
-</div><!-- #scroll -->
-</div><!-- #module-dorf -->
-
-<div id="msg" hidden>
-  <div id="msg_category-learn"><i18n-msg msgid="learn">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_category-play"><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_category-watch"><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-airport"><i18n-msg msgid="scene_airport">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-traditions"><i18n-msg msgid="scene_traditions">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-codelab"><i18n-msg msgid="scene_codelab">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-app"><i18n-msg msgid="scene_app">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-seasonofcaring"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-santasback"><i18n-msg msgid="scene_videoscene_santasback">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-santaselfie"><i18n-msg msgid="scene_santaselfie">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-translations"><i18n-msg msgid="scene_translations">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-callfromsanta"><i18n-msg msgid="scene_callfromsanta">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-presentdrop"><i18n-msg msgid="scene_presentdrop">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-santasearch"><i18n-msg msgid="scene_santasearch">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-windtunnel"><i18n-msg msgid="scene_windtunnel">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-racer"><i18n-msg msgid="scene_racer">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-jamband"><i18n-msg msgid="scene_jamband">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-gumball"><i18n-msg msgid="scene_gumball">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-postcard"><i18n-msg msgid="scene_postcard">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-jetpack"><i18n-msg msgid="scene_jetpack">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-boatload"><i18n-msg msgid="scene_boatload">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-mercator"><i18n-msg msgid="scene_mercator">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-presentbounce"><i18n-msg msgid="scene_presentbounce">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-codeboogie"><i18n-msg msgid="scene_codeboogie">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-elf-car"><i18n-msg msgid="scene_videoscene_carpool">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-citylights"><i18n-msg msgid="scene_citylights">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-commandcentre"><i18n-msg msgid="scene_commandcentre">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-seasonofgiving"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-matching"><i18n-msg msgid="scene_matching">PLACEHOLDER_i18n</i18n-msg></div>
-  <div id="msg_house-liftoff"><i18n-msg msgid="scene_videoscene_liftoff">PLACEHOLDER_i18n</i18n-msg></div>
-</div>
-
+  </div><!-- #module-dorf -->
 </template>
 <script>
 (function() {
+
+  var SNOWFLAKE_COUNT = 20;
 
   var SNOWFLAKE_ROTATION = 60;
   var SNOWFLAKE_SPEED_MIN = 2.5;
@@ -363,7 +339,11 @@ Village scene (2015).
     attached: function() {
       var skyeffect = this.$['header-skyeffect'];
 
-      for (var i = 0; i < 25; ++i) {
+      var snowflakes = SNOWFLAKE_COUNT;
+      if (this.getAttribute('mode') == 'cast') {
+        snowflakes /= 2;
+      }
+      for (var i = 0; i < snowflakes; ++i) {
         // Delay snowflakes by their count+5 sec.
         var x = snowflakeFactory(null, i + 5);
         skyeffect.appendChild(x);
@@ -557,6 +537,19 @@ Village scene (2015).
       this.async(function() {
         this.$.count.start();
       });
+    },
+
+    onHide: function() {
+      this.fire('sound-ambient', 'village_end');
+      this.$.count.stop();
+    },
+
+    onPause: function() {
+      this.fire('sound-ambient', 'village_end');
+    },
+
+    onResume: function() {
+      this.fire('sound-ambient', 'village_start');
     }
 
   });
@@ -564,3 +557,4 @@ Village scene (2015).
 })();
 </script>
 </template>
+</dom-module>

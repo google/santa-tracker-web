@@ -87,12 +87,13 @@ santa-chrome {
       margin: 0;
       padding: 0;
       padding-top: 6px;
-      line-height: 2em;
+      line-height: 1.2em;
       font-size: 1.2em;
       font-weight: 500;
 
       li {
         margin: 0;
+        padding: 0.4em 0;
 
         a {
           display: block;

@@ -82,7 +82,7 @@ SoundController.klangSrc_ = 'third_party/lib/klang/klang.js';
  * @private {string}
  */
 //SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.json'; // old
-SoundController.klangConfigSrc_ = 'http://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/config.json'
+SoundController.klangConfigSrc_ = 'https://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/config.json'
 
 /**
  * Loads the Klang config file; called onload of the Klang library.
