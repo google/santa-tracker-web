@@ -328,6 +328,9 @@ app.Scene = class {
    * @param {app.LevelResult} result of execution.
    */
   onFinishExecution(result) {
+    if (!result.showResult()) {
+      return;
+    }
     if (this.level === app.levels[app.levels.length - 1]) {
       result.isFinalLevel = true;
     }

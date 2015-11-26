@@ -186,8 +186,6 @@ app.DanceLevel = class extends app.Level {
   createAnimationQueue(playerSteps, result) {
     let queue = [];
 
-
-
     playerSteps = playerSteps.filter(b => b.step);
     for (let i = 0, step = null; step = this.steps[i]; i++) {
       let playerStep = playerSteps[i];
@@ -305,5 +303,9 @@ app.DanceLevelResult = class extends app.LevelResult {
 
   watching() {
     return !this.freestyle && this.danceStatus === app.DanceStatus.NO_STEPS;
+  }
+
+  showResult() {
+    return !this.watching();
   }
 };

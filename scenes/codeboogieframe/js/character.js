@@ -81,7 +81,9 @@ let sources = {
 
 app.Character = class {
   constructor(el, color) {
-    this.color = color
+    this.color = color;
+    this.currentState = null;
+    this.el = el;
 
     // Create canvas
     let canvas = document.createElement('canvas');
@@ -101,6 +103,17 @@ app.Character = class {
     this.context.drawImage(frame.img, frame.x, frame.y,
         frame.width, frame.height, frame.offsetX, frame.offsetY,
         frame.width, frame.height);
+  }
+
+  setState(state) {
+    if (state === this.currentState) {
+      return;
+    }
+    if (this.currentState) {
+      this.el.classList.remove(this.currentState);
+    }
+    this.currentState = state;
+    this.el.classList.add(this.currentState);
   }
 
   play(step, bpm) {

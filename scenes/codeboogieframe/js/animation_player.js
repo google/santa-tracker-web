@@ -158,6 +158,24 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.animationQueue = result.animationQueue;
     this.moveTiles.clear();
     this.title.setTitle(this.animationQueue[0].title);
+
+    if (result.watching()) {
+      this.player.setState('is-watching');
+      this.teacher.setState('is-showing');
+    }
+  }
+
+  /**
+   * Finishes an animation
+   * @private
+   */
+  onFinish_() {
+    this.dispatchEvent({type: 'finish'});
+    this.moveTiles.clear();
+    this.isPlaying = false;
+
+    this.player.setState(null);
+    this.teacher.setState(null);
   }
 
   onMusicBar() {
@@ -165,9 +183,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
 
     if (!animation) {
       if (this.isPlaying) {
-        this.dispatchEvent({type: 'finish'});
-        this.moveTiles.clear();
-        this.isPlaying = false;
+        this.onFinish_();
       }
 
       return;
