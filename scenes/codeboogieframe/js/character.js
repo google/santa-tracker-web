@@ -100,6 +100,12 @@ app.Character = class {
     }
 
     this.animation = new Animation(this.sprite, this.color);
+
+    // Hack bpm for demo
+    if (step !== app.Step.IDLE) {
+      this.animation.frameDuration = 1000 / fps * (60 / bpm);
+    }
+
     this.animation.play();
   }
 };

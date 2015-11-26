@@ -31,7 +31,7 @@ app.Constants = {
 	SCENE_TOGGLE_DURATION: 300,
 	SCENE_TOGGLE_MIN_DRAG: 20,
 
-	BEATS_PER_ANIMATION: 8
+	BEATS_PER_ANIMATION: 4
 };
 
 // Hack to support shared scoreboard with other apps.

@@ -181,9 +181,8 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
       return;
     }
 
-    if (animation.isCountdown) {
+    if (!animation.isCountdown) {
       this.dispatchEvent({type: 'start'});
-    } else {
       this.isPlaying = true;
     }
 

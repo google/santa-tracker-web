@@ -62,11 +62,11 @@ app.Sequencer = class {
   }
 
   _onBeat(currentBeat, timeToNextBeat, currentTime) {
-    if (currentBeat % 4 === 0) {
-      this._onBar(Math.floor(currentBeat / 4, timeToNextBeat), currentBeat, timeToNextBeat)
+    if (currentBeat % 4 === 3) {
+      this._onBar(Math.floor(currentBeat / 4, timeToNextBeat), currentBeat, timeToNextBeat);
     }
 
-    if (this._levelScheduled && currentBeat % 4 === 1) {
+    if (this._levelScheduled) {
       this._changeLevel();
     }
 
