@@ -33,6 +33,11 @@ $board-game-color: #2aaf4b;
     font-size: 1px;
   }
 
+  // No logo in board
+  .board .logo {
+    display: none;
+  }
+
   // Change game over image
   .gameover-winner {
     background: url('img/gameover.svg') 50% 100% no-repeat;
