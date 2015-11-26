@@ -152,14 +152,31 @@ Codeboogie scene.
 </template>
 <script>
 (function() {
+  // Whether the sounds for the scene are loaded and the band can commence
+  // jamming. Static so that it's permanent across multiple visits to the scene.
+  var soundsLoaded = false;
+
   Polymer({
     is: 'codeboogie-scene',
     behaviors: [window.SantaSceneBehavior],
-
     frame: null,
 
+    properties: {
+      /**
+       * Whether the scene has already started.
+       */
+      started: {
+        type: Boolean,
+        value: false
+      }
+    },
+
+    listeners: {
+      'sounds-loaded': 'onSoundsLoaded'
+    },
+
     onPreload: function() {
-      this.preloadSounds('codeboogie_load_sounds', 40);
+      this.preloadSounds('codeboogie_load_sounds', 60);
       this.preloadImages([
         '../codeboogieframe/img/block-point-left.svg',
         '../codeboogieframe/img/block-point-right.svg',
@@ -174,14 +191,32 @@ Codeboogie scene.
         '../codeboogieframe/img/tutorial/shadow.svg'
       ]);
     },
+
     onShow: function() {
       var module = this.$['module-codeboogie'];
       this.frame = new scenes.codeboogie.FrameWrapper(module, this.componentDir);
+
+      this.gatedStart();
     },
+
     onHide: function() {
       this.frame.dispose();
       this.frame = null;
       this.fire('sound-ambient', 'computer_end');
+    },
+
+    onSoundsLoaded: function(e, soundsName) {
+      if (soundsName === 'codeboogie_load_sounds') {
+        soundsLoaded = true;
+        this.gatedStart();
+      }
+    },
+
+    gatedStart: function() {
+      if (this.frame && soundsLoaded && !this.started) {
+        this.frame.start();
+        this.bandStarted = true;
+      }
     }
   });
 

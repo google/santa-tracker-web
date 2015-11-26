@@ -39,11 +39,6 @@ app.FrameWrapper = function(el, staticDir) {
   this.isPlaying = false;
   this.sequencer = new app.Sequencer();
 
-  // On klang loaded.
-  setTimeout(function  () {
-    this.sequencer.start();
-  }.bind(this),2000)
-
   // Create a communication channel to the game frame.
   this.iframeChannel = new app.shared.FrameRPC(this.iframeEl[0].contentWindow, {
     gameover: this.gameover.bind(this),
@@ -58,6 +53,13 @@ app.FrameWrapper = function(el, staticDir) {
 
   // Load the iframe.
   this.setIframeSrc();
+};
+
+/**
+ * Starts the scene.
+ */
+app.FrameWrapper.prototype.start = function() {
+  this.sequencer.start();
 
   // Too soon for postMessage.
   this.restart();
