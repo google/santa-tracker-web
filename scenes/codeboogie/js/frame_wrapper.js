@@ -136,7 +136,6 @@ app.FrameWrapper.prototype.iframeFocusChange = function(state) {
 app.FrameWrapper.prototype.setLevel = function(level, bpm) {
   this.level_ = level;
   this.scoreboardView.setLevel(level);
-  this.sequencer.setLevel(level, bpm);
 };
 
 /**

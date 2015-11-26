@@ -18,81 +18,83 @@
 
 goog.provide('app.Sequencer');
 
-/*ß
- * Temporary mock for Klang sequencer.
+/**
+ * Plays dance loops and calculates beat and bar
  */
 app.Sequencer = class {
-  constructor() {
-    this.lastUpdateTime = 0;
+  constructor(bpm) {
     this.bar = 0;
-    this.beat = 0;
+    this.beat = -1;
     this.queue = [];
-    this._onBeat = this._onBeat.bind(this);
-    this._levelScheduled = false;
-    this._track = 0;
+    this.bpmForTrack = [120,120,130,130,140,140];
+    this.playingLoopId;
+    this.trackToPlay;
+    this.inited = false;
   }
-
-  setLevel(level, bpm) {
-    this._level = level;
-    this._bpm = bpm;
-    this._levelScheduled = true;
-  }
-
   setTrack(track) {
-    if (this._track !== track) {
-      this._track = track;
-      this._changeLevel();
+    this.trackToPlay = track;
+    if (this.inited) {
+      this.setLevel(this.trackToPlay);
     }
+  }
+  setLevel(lvl) {
+
+    // lvl = 0-5
+    var bpm = 120;
+    if (lvl <= 1) {
+      bpm = 120;
+    } else if (lvl <= 3) {
+      bpm = 130;
+    }else if (lvl <= 5) {
+      bpm = 140;
+    }
+    this.klangUtil.transition(this.getPlayingLoop(), this.tracks[lvl], this._tempo, 0, 0.2);
+    this._tempo = bpm;
+  }
+
+  getPlayingLoop() {
+    var playingLoop;
+    for (var i = 0; i < this.tracks.length; i++) {
+      if (this.tracks[i].playing && this.tracks[i].position >= 0) {
+        if (!playingLoop || this.tracks[i].position < playingLoop.position) {
+          playingLoop = this.tracks[i];
+          this.playingLoopId = i;
+        }
+      }
+    }
+    return playingLoop;
   }
 
   start() {
-    this.klangSeq = this.klangSeq || Klang.$('codeboogie_sequencer');
-
     this.klangUtil = Klang.getUtil();
-
     this.tracks = Klang.$('codeboogie_tracks')._content;
-    this.klangSeq.off('beforeNextBeat', this._onBeat );
-    this.klangSeq.on('beforeNextBeat', this._onBeat );
-    this.klangSeq.start();
+    this.inited = true;
+    this.setLevel(this.trackToPlay);
+    this.update();
+    window.testo = this;
   }
+
 
   stop(){
-    this.klangSeq.off('beforeNextBeat', this._onBeat );
-    this.klangSeq.stop();
+    this.getPlayingLoop().fadeOutAndStop(1);
   }
 
-  _onBeat(currentBeat, timeToNextBeat, currentTime) {
-    if (currentBeat % 4 === 0) {
-      this._onBar(Math.floor(currentBeat / 4, timeToNextBeat), currentBeat, timeToNextBeat)
-    }
-
-    if (this._levelScheduled && currentBeat % 4 === 1) {
-      this._changeLevel();
-    }
-
-    this.onBeat && setTimeout(this.onBeat.bind(this, currentBeat), timeToNextBeat * 1000);
-  }
-
-  _onBar(bar, beat, timeToNextBar) {
-    this.onBar && setTimeout(this.onBar.bind(this, bar, beat), timeToNextBar * 1000);
-  }
-
-  _changeLevel() {
-    this.klangSeq._bpm = this._bpm;
-
-    var playingLoop;
-
-    for (var i = 0; i< this.tracks.length; i++) {
-      if (this.tracks[i].playing) {
-        playingLoop = this.tracks[i];
-        break;
+  update(timestamp) {
+    var loop = this.getPlayingLoop();
+    var currPos = loop ? this.getPlayingLoop().position : 0;
+    var beat = Math.floor( currPos / (60/this.bpmForTrack[this.playingLoopId]) ) % 4;
+    if ( this.beat !== beat ){
+      this.beat = beat;
+      this.onBeat(this.beat);
+      if (this.beat  === 0) {
+        this.bar += 1;
+        this.onBar(this.bar, this.beat);
       }
     }
+    window.requestAnimationFrame(t => this.update(t));
+  }
 
-    // Each level has two tracks
-    let track = this._level * 2;
-
-    this.klangUtil.transition(playingLoop, this.tracks[track + this._track], this._bpm, 0, 2);
-    this._levelScheduled = false;
+  add(moves) {
+    moves.forEach(move => this.queue.unshift(move));
   }
 }
