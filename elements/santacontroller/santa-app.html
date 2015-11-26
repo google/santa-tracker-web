@@ -723,6 +723,7 @@ Polymer({
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;
     }
+
     // Let the selected scene know about params.
     // TODO(samthor): How does this interact with two-way binding?
     if (this.selectedScene) {
@@ -1113,7 +1114,6 @@ Polymer({
   },
 
   _colorForRoute: function(route, houses) {
-    console.info('calling _colorForRoute', route, houses);
     if (!route || route == 'village') {
       return '';
     }
