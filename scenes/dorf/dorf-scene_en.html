@@ -539,6 +539,19 @@ Village scene (2015).
       this.async(function() {
         this.$.count.start();
       });
+    },
+
+    onHide: function() {
+      this.fire('sound-ambient', 'village_end');
+      this.$.count.stop();
+    },
+
+    onPause: function() {
+      this.fire('sound-ambient', 'village_end');
+    },
+
+    onResume: function() {
+      this.fire('sound-ambient', 'village_start');
     }
 
   });
