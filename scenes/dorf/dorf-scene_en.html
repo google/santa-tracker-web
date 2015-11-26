@@ -359,7 +359,7 @@ Village scene (2015).
 
       var eggTime = randomRange(RANDOM_EGG_WAIT_MIN, RANDOM_EGG_WAIT_MAX);
       this._eggTimer = this.async(function() {
-        if (this.active) {
+        if (!this.active) {
           return;  // give up, not active
         }
         var easterEgg = this.$['easteregg-' + easterEggs[
