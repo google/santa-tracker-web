@@ -69,6 +69,15 @@ app.Game.prototype._setupEventHandlers = function() {
   $(window).on('resize.santasearch orientationchange.santasearch', this._onResize.bind(this));
 };
 
+app.Game.prototype._getRandomHintDistanceOffset = function() {
+  let hintDistance = app.Constants.HINT_RANDOM_DISTANCE;
+  let random = Math.floor(Math.random() * hintDistance);
+
+  // Will make it go either positive or negative
+  let value = (hintDistance / 2) - random;
+
+  return value / 100;
+};
 
 /**
  * Sets the zoom to 2 and pans the camera to where the character can be found
@@ -84,8 +93,11 @@ app.Game.prototype._hintLocation = function(characterName) {
   // The location of the character is a top/left percentage of the map
   let characterLocation = this.characters.getCharacterLocation(characterName);
 
-  let leftScale = 0.5 - characterLocation.left;
-  let topScale = 0.5 - characterLocation.top;
+  let randomLeftOffset = this._getRandomHintDistanceOffset();
+  let randomTopOffset = this._getRandomHintDistanceOffset();
+
+  let leftScale = (0.5 - characterLocation.left) + randomLeftOffset;
+  let topScale = (0.5 - characterLocation.top) + randomTopOffset;
 
   let targetX = this.mapElementDimensions.width * leftScale;
   let targetY = this.mapElementDimensions.height * topScale;
