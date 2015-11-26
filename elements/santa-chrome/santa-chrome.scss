@@ -103,6 +103,8 @@ santa-chrome {
   }
 
   #toolbar {
+    $duration: 0.33s;
+
     min-width: 320px;  // force 320px min width, i.e., iPhone 4/5+
     z-index: 1000;
     pointer-events: none;  // make sure scroll events pass through toolbar.
@@ -112,21 +114,41 @@ santa-chrome {
       margin-right: 8px !important;
     }
 
-    &::before {
-      content: "";
+    .middle {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      box-shadow: 0 2px 2px rgba(0,0,0,.25);
-      background-color: #50def5;
-      opacity: 0;
+      z-index: -1;
+
       will-change: opacity;
       transform: translateZ(0);
-      transition: opacity 0.125s;
+      opacity: 0;
+      transition: opacity $duration;
+      box-shadow: 0 2px 2px rgba(0,0,0,.25);
+
+      > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #50def5;
+      }
+      div#prev {
+        will-change: opacity;
+        transform: translateZ(0);
+        visibility: hidden;
+
+        &.anim {
+          visibility: visible;
+          transition: opacity $duration ease-out;
+          opacity: 0;
+        }
+      }
     }
-    &.scrolling::before {
+    &.scrolling .middle {
       opacity: 1;
     }
 

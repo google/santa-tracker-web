@@ -199,6 +199,12 @@ specific language governing permissions and limitations under the License.
           <paper-icon-button id="twitter" src="/elements/toolbar/img/share-twitter.svg"></paper-icon-button>
           <paper-icon-button id="facebook" src="/elements/toolbar/img/share-facebook.svg"></paper-icon-button> -->
         </div>
+
+        <!-- Used for background and transition effect -->
+        <div class="middle">
+          <div style$="background-color: {{color}}"></div>
+          <div id="prev" style$="background-color: {{_previousColor}}"></div>
+        </div>
       </paper-toolbar>
       <content>
       </content>
@@ -222,6 +228,20 @@ specific language governing permissions and limitations under the License.
       },
 
       todayHouse: String,
+
+      /**
+       * The color to use for the background, if set.
+       */
+      color: {
+        type: String,
+        observer: '_onColorChanged'
+      },
+
+      /**
+       * The previous color used for the background. Used for transition
+       * effects.
+       */
+      _previousColor: String,
 
       /**
        * Whether this toolbar should be fixed: always solid, with content below.
@@ -309,6 +329,21 @@ specific language governing permissions and limitations under the License.
     _onContentScroll: function() {
       this.debounce('_onContentScroll', function() {
         this._atTop = this.$.main.atTop;
+      });
+    },
+
+    /**
+     * Configure `_previousColor` and trigger an animation away from that color
+     * to the new one.
+     */
+    _onColorChanged: function(newValue, oldValue) {
+      this._previousColor = oldValue;
+
+      // Toggle the '.anim' class to force a transition.
+      var target = this.$.prev;
+      target.classList.remove('anim');
+      window.setTimeout(function() {
+        target.classList.add('anim');
       });
     },
 

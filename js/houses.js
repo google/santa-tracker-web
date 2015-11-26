@@ -56,11 +56,13 @@ window.HOUSES = [{
 }, {
   module: "santaselfie",
   iced: true,
+  color: '#5d75d0',
   launchDate: new Date('Dec 3, 2014'),
   category: "play"
 }, {
   module: "translations",
   iced: true,
+  color: '#688934',
   launchDate: new Date('Dec 4, 2014'),
   category: "learn"
 }, {
@@ -93,11 +95,13 @@ window.HOUSES = [{
 }, {
   module: "racer",
   iced: true,
+  color: '#7ac86a',
   launchDate: new Date('Dec 9, 2014'),
   category: "play"
 }, {
   module: "jamband",
   iced: true,
+  color: '#fdbe27',
   launchDate: new Date('Dec 10, 2014'),
   category: "play"
 }, {
@@ -123,6 +127,7 @@ window.HOUSES = [{
 }, {
   module: "mercator",
   iced: true,
+  color: '#7ac86a',
   launchDate: new Date('Dec 15, 2014'),
   category: "play"
 }, {
@@ -143,6 +148,7 @@ window.HOUSES = [{
 }, {
   module: "citylights",
   iced: true,
+  color: '#283344',
   launchDate: new Date('Dec 19, 2014'),
   category: "learn"
 }, {
