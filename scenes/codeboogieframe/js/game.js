@@ -47,7 +47,7 @@ app.Game = function(elem) {
 
   this.iframeChannel = new app.shared.FrameRPC(window.parent, {
     restart: this.restart.bind(this),
-    beat: beat => this.scene.player.onBeat(beat)
+    beat: (beat, bpm) => this.scene.player.onBeat(beat, bpm)
   });
 
   Klang.setEventListener(this.iframeChannel.call.bind(this.iframeChannel, 'triggerSound'));
@@ -101,7 +101,7 @@ app.Game.prototype.onFocus = function() {
 };
 
 /**
- * Resets state of the current level. Only applies to maze levels currently.
+ * Resets state of the current level.
  */
 app.Game.prototype.restartLevel = function() {
   this.scene.restartLevel(true);

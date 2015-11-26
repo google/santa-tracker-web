@@ -32,11 +32,10 @@ goog.require('goog.events.EventTarget');
 const canvasWidth = 622;
 const canvasHeight = 494;
 const fps = 24;
-const bpm = 120;
-const beatDuration = 1000 / bpm * 60;
 const framesPerSprite = 24;
-const originalWidth = 1920 * 0.6;
-const originalHeight = 1080 * 0.6;
+const spriteScaleFactor = 0.6;
+const originalWidth = 1920 * spriteScaleFactor;
+const originalHeight = 1080 * spriteScaleFactor;
 
 /**
  * @typedef {{
@@ -50,7 +49,7 @@ const originalHeight = 1080 * 0.6;
 app.AnimationItem;
 
 class Animation {
-  constructor(sprite, color) {
+  constructor(sprite, color, bpm) {
     this.name = sprite.name;
 
     this.frame = 0;
@@ -134,6 +133,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
 
     this.lastUpdateTime = 0;
     this.isPlaying = false;
+    this.bpm = 0;
 
     this.update(0);
   }
@@ -185,23 +185,24 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.dispatchEvent({type: 'step', data: animation.blockId});
   }
 
-  onAnimationBar() {
+  onAnimationBar(bpm) {
     let animation = this.animationQueue[0];
     if (!animation) {
-      this.teacher.play(app.Step.IDLE);
-      this.player.play(app.Step.IDLE);
+      this.teacher.play(app.Step.IDLE, bpm);
+      this.player.play(app.Step.IDLE, bpm);
     } else {
-      this.teacher.play(animation.teacherStep);
-      this.player.play(animation.playerStep);
+      this.teacher.play(animation.teacherStep, bpm);
+      this.player.play(animation.playerStep, bpm);
     }
   }
 
-  onBeat(beat) {
+  onBeat(beat, bpm) {
     let normalized = beat % 4 + 1;
+
     if (normalized === 1) {
       this.onMusicBar();
     } else if (normalized === 4) {
-      this.onAnimationBar();
+      this.onAnimationBar(bpm);
     }
   }
 };

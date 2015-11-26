@@ -78,12 +78,11 @@ app.Character = class {
     el.appendChild(canvas);
 
     this.context = canvas.getContext('2d');
-
-    this.sprite = sources[app.Step.IDLE];
-    this.animation = new Animation(this.sprite, this.color);
   }
 
   update(dt) {
+    if (!this.animation) return;
+
     let frame = this.animation.update(dt);
 
     this.context.canvas.width = this.context.canvas.width;
@@ -92,14 +91,14 @@ app.Character = class {
         frame.width, frame.height);
   }
 
-  play(step) {
+  play(step, bpm) {
     this.sprite = sources[step];
 
     if (!this.sprite) {
       throw new Error(`No sprite found for move ${step}`);
     }
 
-    this.animation = new Animation(this.sprite, this.color);
+    this.animation = new Animation(this.sprite, this.color, bpm);
 
     // Hack bpm for demo
     if (step !== app.Step.IDLE) {

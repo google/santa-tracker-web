@@ -54,6 +54,8 @@ app.Sequencer = class {
     this.klangSeq.off('beforeNextBeat', this._onBeat);
     this.klangSeq.on('beforeNextBeat', this._onBeat);
     this.klangSeq.start();
+
+    this._onBeat(0, 0, 0);
   }
 
   stop() {
@@ -67,7 +69,7 @@ app.Sequencer = class {
     }
 
     if (this.onBeat) {
-      setTimeout(this.onBeat.bind(this, currentBeat), timeToNextBeat * 1000);
+      setTimeout(this.onBeat.bind(this, currentBeat, this._bpm), timeToNextBeat * 1000);
     }
   }
 
