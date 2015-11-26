@@ -51,11 +51,6 @@ app.Game = function(elem) {
   this.mapReady = false;
   this.startOnReady = false;
 
-  // For IE10, which does not support pointer-event: none.
-  if (Modernizr.pointerevents !== true && Modernizr.pointerevents != null) {
-    this.bgElem.prependTo(this.sceneElem);
-  }
-
   // Remove success messages on hide
   this.elem.on(utils.ANIMATION_END, '.country-match', function(event) {
     $(event.target).remove();

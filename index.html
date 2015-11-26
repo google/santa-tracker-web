@@ -114,18 +114,18 @@ specific language governing permissions and limitations under the License.
     var ignoreCheck = getUrlParameter('ignore_browser_check') == 'true';
     var supported =  ignoreCheck || (function sniff() {
       var uaString = navigator.userAgent;
-      // no IE < 10
+      // no IE < 11
       var msie = /MSIE +([\d\.]+)/.exec(uaString);
       if (msie && msie[1]) {
         if (msie[1] === '7.0') {
           var tridentVersion = /Trident\/(\d.\d)/.exec(uaString);
           if (tridentVersion && tridentVersion[1]) {
-            return parseInt(tridentVersion[1], 10) >= 6;
+            return parseInt(tridentVersion[1], 10) >= 7;
           } else {
             return false;
           }
         } else {
-          return parseInt(msie[1], 10) >= 10;
+          return parseInt(msie[1], 10) >= 11;
         }
       }
       // no older Android browser
