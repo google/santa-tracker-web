@@ -40,7 +40,13 @@ Santa Tracker app.
   <santa-chrome id="chrome" mode$="{{mode}}">
 
     <!-- Scenes -->
-    <lazy-pages id="lazypages" preloader="[[preloader]]" selected="{{route}}" selected-item="{{selectedScene}}" attr-for-selected="route" selected-attribute="active">
+    <lazy-pages id="lazypages"
+        preloader="[[preloader]]"
+        selected="{{route}}"
+        selected-item="{{selectedScene}}"
+        selectable=":not([disabled])"
+        attr-for-selected="route"
+        selected-attribute="active">
 
       <!-- TODO(samthor): Rename to village-scene when done -->
       <dorf-scene route="village" always-active icon="1f384"
@@ -398,10 +404,12 @@ Polymer({
     },
 
     /**
-     * The mode of the scene. Possible values are: 'cast', 'portal', or 'embed'.
+     * The mode of Santa Tracker. Possible values are blank, 'cast', 'portal',
+     * or 'embed'.
      */
     mode: {
-      type: String
+      type: String,
+      value: ""
     },
 
     /**
@@ -763,6 +771,7 @@ Polymer({
       el.route = prevSelectedScene.route;
       el.santaApp = this;
       el.loaded = true;
+      el.setAttribute('route', el.route);
       el.setAttribute('mode', this.mode);
 
       dom.appendChild(el);

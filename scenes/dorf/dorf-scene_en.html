@@ -177,6 +177,9 @@ Village scene (2015).
 
   var SNOWFLAKE_COUNT = 20;
 
+  var RANDOM_EGG_WAIT_MIN = 5000;
+  var RANDOM_EGG_WAIT_MAX = 30000;
+
   var SNOWFLAKE_ROTATION = 60;
   var SNOWFLAKE_SPEED_MIN = 2.5;
   var SNOWFLAKE_SPEED_MAX = 10;
@@ -324,8 +327,6 @@ Village scene (2015).
         var x = cloudFactory(null, i + 1, i % 2);
         skyeffect.appendChild(x);
       }
-
-      this._randomEasterEggs();
     },
 
     _setupEffectHandlers: function(active) {
@@ -345,21 +346,27 @@ Village scene (2015).
       }, 500);
     },
 
+    /**
+     * Async task for _randomEasterEggs.
+     */
+    _eggTimer: null,
+
     _randomEasterEggs: function() {
-      var MIN_WAIT = 5000;
-      var MAX_WAIT = 30000;
+      this.cancelAsync(this._eggTimer);
+
       var easterEggs = ['balloon', 'snowmobile1', 'snowmobile2', 'snowmobile3',
           'snowmobile4', 'busstop1', 'busstop2', 'busstop3'];
 
-      var randomEggTime = MIN_WAIT + Math.random() * (MAX_WAIT - MIN_WAIT);
-      var that = this;
-
-      window.setTimeout(function() {
-        var easterEgg = that.$['easteregg-' + easterEggs[
-          Math.floor(Math.random() * easterEggs.length)]];
+      var eggTime = randomRange(RANDOM_EGG_WAIT_MIN, RANDOM_EGG_WAIT_MAX);
+      this._eggTimer = this.async(function() {
+        if (!this.active) {
+          return;  // give up, not active
+        }
+        var easterEgg = this.$['easteregg-' + easterEggs[
+            Math.floor(Math.random() * easterEggs.length)]];
         easterEgg.click();
-        that._randomEasterEggs();
-      }, randomEggTime);
+        this._randomEasterEggs();
+      }, eggTime);
     },
 
     _driveSnowmobile: function(e) {
@@ -508,6 +515,8 @@ Village scene (2015).
       this.async(function() {
         this.$.count.start();
       });
+
+      this._randomEasterEggs();  // stops self if no longer active
     },
 
     onHide: function() {
