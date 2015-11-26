@@ -705,7 +705,7 @@ Polymer({
       };
 
       var appConfig = new cast.receiver.CastReceiverManager.Config();
-      appConfig.maxInactivity = 60 * 3;  // 3 hours default
+      appConfig.maxInactivity = 60 * 60 * 3;  // in seconds, 3 hours default
       appConfig.statusText = WINDOW_TITLE + '...';  // subtle loading hint
       castReceiverManager.start(appConfig);
     });
