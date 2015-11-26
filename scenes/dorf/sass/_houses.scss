@@ -59,24 +59,6 @@ $idx-labelX: 12;
 $idx-labelY: 13;
 $idx-zIndex: 14;
 
-#drawer {
-  .menucard-village {
-    background-image: url(img/menu-village.png);
-  }
-  .menucard-tracker {
-    background-image: url(img/menu-tracker.png);
-  }
-
-  @for $i from 1 through length($houses) {
-    $house: nth($houses, $i);
-    $id: nth($house, $idx-id);
-
-    .menucard-#{$id} {
-      background-image: url(img/menu-#{$id}.png);
-    }
-  }
-}
-
 #houses {
   .house {
     .card {
