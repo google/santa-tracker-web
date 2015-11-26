@@ -234,6 +234,11 @@ specific language governing permissions and limitations under the License.
         computed: '_computeScrolledToolbar(isFixedToolbar, _atTop)'
       },
 
+      /**
+       * Whether, in non-fixed mode, the scroll viewport is at the top. This
+       * mirrors the `atTop` property `paper-header-toolbar`, which doesn't
+       * notify, so it needs to be updated here.
+       */
       _atTop: {
         type: Boolean,
         value: true  // overwritten in attached:
@@ -255,7 +260,9 @@ specific language governing permissions and limitations under the License.
         return 'https://www.facebook.com/sharer.php?p[url]=' + u + '&u=' + u;
       });
 
-      // Set the initial value for _atTop before on-content-scroll fired.
+      // Set the initial value for _atTop before on-content-scroll fired. This
+      // is done here and in _onContentScroll becaues paper-header-toolbar
+      // doesn't notify `atTop` so it needs to be managed manually.
       this._atTop = this.$.main.atTop;
     },
 

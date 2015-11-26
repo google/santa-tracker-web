@@ -542,8 +542,9 @@ Polymer({
   },
 
   attached: function() {
-    // if in production mode (no i18n-msg), update the dynamic strings now
-    if (!this.$.msg.querySelector('i18n-msg')) {
+    // If we're in production mode, then update the string map immediately, as
+    // the translations have been included in source directly.
+    if (!window.DEV) {
       this._updateStrings();
     }
   },
