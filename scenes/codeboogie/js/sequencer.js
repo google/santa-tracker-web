@@ -32,7 +32,7 @@ app.Sequencer = class {
   }
 
   setLevel(level, bpm) {
-    this._level = level;
+    this._level = level * 2;
     this._bpm = bpm;
     this._playScheduled = true;
   }
