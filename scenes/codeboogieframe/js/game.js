@@ -90,11 +90,6 @@ app.Game.prototype.bumpLevel = function() {
   this.blockly.setLevel(this.level);
   this.scene.setLevel(this.level);
   this.scene.toggleVisibility(true);
-
-  // Show tutorial
-  if (this.levelNumber === 0 || this.levelNumber === 2) {
-    // this.tutorial_.schedule();
-  }
 };
 
 app.Game.prototype.onBlur = function() {
