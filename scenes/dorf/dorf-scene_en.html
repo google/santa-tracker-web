@@ -190,6 +190,11 @@ Village scene (2015).
               <div id="easteregg-balloon-ropes" class="easter-egg"></div>
               <div id="easteregg-balloon-flight" class="easter-egg"></div>
 
+              <div id="easteregg-snowmobile1" class="easter-egg"></div>
+              <div id="easteregg-snowmobile2" class="easter-egg"></div>
+              <div id="easteregg-snowmobile3" class="easter-egg"></div>
+              <div id="easteregg-snowmobile4" class="easter-egg"></div>
+
               <div id="easteregg-busstop1" class="easter-egg stop-full">
                 <div class="elf-stop elf-green"></div>
                 <div class="elf-stop elf-orange"></div>
@@ -295,8 +300,7 @@ Village scene (2015).
 
   var EASTER_EGGS = ['tree', 'blocks', 'statue', 'penguin-revolt',
       'snowman-reading', 'rosetta-stone', 'white-board', 'schoolyard',
-      'tic-tac-toe', 'book-club',
-      'snowmobile1', 'snowmobile2', 'snowmobile3', 'snowmobile4', 'unicycle'];
+      'tic-tac-toe', 'book-club', 'unicycle'];
 
   function randomRange(min, max) {
     return min + Math.random() * (max - min);
@@ -405,7 +409,11 @@ Village scene (2015).
       'easteregg-busstop1.click': '_triggerBus',
       'easteregg-busstop2.click': '_triggerBus',
       'easteregg-busstop3.click': '_triggerBus',
-      'easteregg-balloon.click': '_flyBalloon'
+      'easteregg-balloon.click': '_flyBalloon',
+      'easteregg-snowmobile1.click': '_driveSnowmobile',
+      'easteregg-snowmobile2.click': '_driveSnowmobile',
+      'easteregg-snowmobile3.click': '_driveSnowmobile',
+      'easteregg-snowmobile4.click': '_driveSnowmobile'
     },
 
     observers: [
@@ -460,6 +468,8 @@ Village scene (2015).
         }
         this._set_strings(Object.freeze(strings));
       });
+
+      this._randomEasterEggs();
     },
 
     _attach: function(name, w, h, converter) {
@@ -491,11 +501,41 @@ Village scene (2015).
       }, 500);
     },
 
+    _randomEasterEggs: function() {
+      var MIN_WAIT = 5000;
+      var MAX_WAIT = 30000;
+      var easterEggs = ['balloon', 'snowmobile1', 'snowmobile2', 'snowmobile3',
+          'snowmobile4', 'busstop1', 'busstop2', 'busstop3'];
+
+      var randomEggTime = MIN_WAIT + Math.random() * (MAX_WAIT - MIN_WAIT);
+      var that = this;
+
+      window.setTimeout(function() {
+        var easterEgg = that.$['easteregg-' + easterEggs[
+          Math.floor(Math.random() * easterEggs.length)]];
+        easterEgg.click();
+        that._randomEasterEggs();
+      }, randomEggTime);
+    },
+
+    _driveSnowmobile: function(e) {
+      var DRIVE_TIME = 10000;
+      var snowmobile = e.currentTarget;
+      if (snowmobile.classList.contains('drive')) return;
+
+      snowmobile.classList.add('drive');
+      window.setTimeout(function() {
+        snowmobile.classList.remove('drive');
+      }, DRIVE_TIME + 1);
+    },
+
     _flyBalloon: function(e) {
       var FLIGHT_TIME = 30000;
       var balloon = this.$['easteregg-balloon'];
       var balloonRopes = this.$['easteregg-balloon-ropes'];
       var balloonFlight = this.$['easteregg-balloon-flight'];
+      if (balloon.classList.contains('flying')) return;
+
       balloon.classList.add('flying');
       balloonRopes.classList.add('flying');
       balloonFlight.classList.add('flying');
@@ -510,7 +550,8 @@ Village scene (2015).
       var BUS_DRIVE_ANIMATION = 10000;
       var BUS_LOAD_ANIMATION = 3000;
       var busStop = e.currentTarget;
-      if (busStop.classList.contains('to-stop') || busStop.classList.contains('from-stop')) {
+      if (busStop.classList.contains('to-stop') ||
+          busStop.classList.contains('from-stop')) {
         return;
       }
 
