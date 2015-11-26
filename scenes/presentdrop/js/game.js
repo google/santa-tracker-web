@@ -114,6 +114,7 @@ app.Game.prototype.restart = function() {
   this.paused = false;
 
   // Start game
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
   window.santaApp.fire('sound-trigger', 'pd_start_game');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'presentdrop'});
   this.unfreezeGame();
@@ -274,6 +275,7 @@ app.Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverDialog.show();
   window.santaApp.fire('sound-trigger', 'pd_game_over');
+  window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'presentdrop',
     score: this.scoreboard.score,

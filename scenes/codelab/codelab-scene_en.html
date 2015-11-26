@@ -186,6 +186,7 @@ Codelab scene.
     },
     onShow: function() {
       var module = this.$['module-codelab'];
+      this.fire('sound-ambient', 'music_start_scene');
       this.frame = new scenes.codelab.FrameWrapper(module, this.componentDir);
     },
     onHide: function() {
