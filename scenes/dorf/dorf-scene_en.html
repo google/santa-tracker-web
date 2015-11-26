@@ -126,59 +126,44 @@ Village scene (2015).
             </div>
           </div>
 
-<<<<<<< HEAD
-              <div id="easteregg-balloon" class="easter-egg"></div>
-              <div id="easteregg-balloon-ropes" class="easter-egg"></div>
-              <div id="easteregg-balloon-flight" class="easter-egg"></div>
+          <div id="easteregg-balloon" class="easter-egg"></div>
+          <div id="easteregg-balloon-ropes" class="easter-egg"></div>
+          <div id="easteregg-balloon-flight" class="easter-egg"></div>
 
-              <div id="easteregg-snowmobile1" class="easter-egg"></div>
-              <div id="easteregg-snowmobile2" class="easter-egg"></div>
-              <div id="easteregg-snowmobile3" class="easter-egg"></div>
-              <div id="easteregg-snowmobile4" class="easter-egg"></div>
+          <div id="easteregg-snowmobile1" class="easter-egg"></div>
+          <div id="easteregg-snowmobile2" class="easter-egg"></div>
+          <div id="easteregg-snowmobile3" class="easter-egg"></div>
+          <div id="easteregg-snowmobile4" class="easter-egg"></div>
 
-              <div id="easteregg-busstop1" class="easter-egg stop-full">
-                <div class="elf-stop elf-green"></div>
-                <div class="elf-stop elf-orange"></div>
-                <div class="elf-stop elf-orange"></div>
-                <div class="elf-stop elf-blue"></div>
-                <div class="elf-stop biz-snowman"></div>
-                <div class="bus">
-                  <div class="snowman-bus"></div>
-                  <div class="elf-bus"></div>
-                  <div class="elf-bus"></div>
-                  <div class="elf-bus"></div>
-                  <div class="elf-bus"></div>
-                  <div class="elf-bus"></div>
-                </div>
-              </div>
+          <div id="easteregg-busstop1" class="easter-egg stop-full">
+            <div class="elf-stop elf-green"></div>
+            <div class="elf-stop elf-orange"></div>
+            <div class="elf-stop elf-orange"></div>
+            <div class="elf-stop elf-blue"></div>
+            <div class="elf-stop biz-snowman"></div>
+            <div class="bus">
+              <div class="snowman-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+            </div>
+          </div>
 
-              <div id="easteregg-busstop2" class="easter-egg stop-full">
-                <div class="elf-stop elf-blue"></div>
-                <div class="elf-stop elf-green"></div>
-                <div class="bus">
-                  <div class="elf-bus"></div>
-                  <div class="elf-bus"></div>
-                  <div class="elf-bus"></div>
-                  <div class="elf-bus"></div>
-                  <div class="elf-bus"></div>
-                  <div class="elf-bus"></div>
-                </div>
-              </div>
+          <div id="easteregg-busstop2" class="easter-egg stop-full">
+            <div class="elf-stop elf-blue"></div>
+            <div class="elf-stop elf-green"></div>
+            <div class="bus">
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+              <div class="elf-bus"></div>
+            </div>
+          </div>
 
-              <div id="easteregg-busstop3" class="easter-egg stop-full">
-                <div class="elf-stop elf-sit-red"></div>
-                <div class="elf-stop elf-blue"></div>
-                <div class="elf-stop elf-green"></div>
-                <div class="bus">
-                  <div class="elf-bus"></div>
-                  <div class="elf-bus"></div>
-                  <div class="elf-bus"></div>
-                  <div class="elf-bus"></div>
-                  <div class="elf-bus"></div>
-                  <div class="elf-bus"></div>
-                </div>
-              </div>
-=======
           <div id="easteregg-busstop3" class="easter-egg stop-full">
             <div class="elf-stop elf-sit-red"></div>
             <div class="elf-stop elf-blue"></div>
@@ -190,7 +175,6 @@ Village scene (2015).
               <div class="elf-bus"></div>
               <div class="elf-bus"></div>
               <div class="elf-bus"></div>
->>>>>>> master
             </div>
           </div>
         </div><!-- #eastereggs-- >
@@ -389,54 +373,8 @@ Village scene (2015).
         var x = cloudFactory(null, i + 1, i % 2);
         skyeffect.appendChild(x);
       }
-<<<<<<< HEAD
-
-      this._attach('gplus', 348, 512, function(u) {
-        return 'https://plus.google.com/share?url=' + u;
-      });
-      this._attach('twitter', 600, 253, function(u) {
-        return 'https://twitter.com/share?hashtags=santatracker&url=' + u;
-      });
-      this._attach('facebook', 600, 229, function(u) {
-        return 'https://www.facebook.com/sharer.php?p[url]=' + u + '&u=' + u;
-      });
-
-      // Grab strings from this.$.msg.
-      this.async(function populateStrings() {
-        var strings = {};
-        var all = this.$.msg.children;
-        var good = false;
-        for (var x, i = 0; x = all[i]; ++i) {
-          var content = x.textContent;
-          if (content !== 'PLACEHOLDER_i18n') {
-            good = true;  // as long as at least one string isn't a placeholder, all good
-          }
-          strings[x.id] = x.textContent;
-        }
-        if (!good) {
-          // NOTE(bckenny): In dev, if strings aren't loaded yet, these will just contain
-          // placeholders.
-          this.async(populateStrings, 500);
-          return;
-        }
-        this._set_strings(Object.freeze(strings));
-      });
 
       this._randomEasterEggs();
-    },
-
-    _attach: function(name, w, h, converter) {
-      this.$[name].addEventListener('click', function(event) {
-        event.preventDefault();
-
-        var urlToShare = window.encodeURIComponent(
-            this.shareURL || ('' + window.location.href));
-        var urlToOpen = converter(urlToShare);
-        var options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=' + h + ',width=' + w;
-        window.open(urlToOpen, '', options);
-      }.bind(this));
-=======
->>>>>>> master
     },
 
     _setupEffectHandlers: function(active) {
