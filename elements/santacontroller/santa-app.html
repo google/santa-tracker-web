@@ -677,7 +677,7 @@ Polymer({
 
   initChromecast: function() {
     // dynamically import the Cast Reciever SDK if in chromecast mode
-    var sdkImportPath = '../../js/chromecastsdk.html';
+    var sdkImportPath = 'js/chromecastsdk.html';
     Polymer.Base.importHref([sdkImportPath], function(e) {
       // `cast` is added to global scope by SDK
       var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
@@ -708,6 +708,8 @@ Polymer({
       appConfig.maxInactivity = 60 * 60 * 3;  // in seconds, 3 hours default
       appConfig.statusText = WINDOW_TITLE + '...';  // subtle loading hint
       castReceiverManager.start(appConfig);
+    }, function(e) {
+      throw new Error('unable to load chromecastsdk: ' + sdkImportPath);
     });
   },
 
