@@ -74,7 +74,6 @@ SoundController.SoundDetail;
  * Klang script source URL.
  * @private {string}
  */
-//SoundController.klangSrc_ = 'third_party/lib/klang/klang.min.js'; // Old
 SoundController.klangSrc_ = 'third_party/lib/klang/klang.js';
 
 /**
@@ -90,7 +89,7 @@ SoundController.klangConfigSrc_ = 'https://klangfiles.s3.amazonaws.com/uploads/p
  */
 SoundController.prototype.loadKlangConfig_ = function() {
   // load config script
-  Klang.init(SoundController.klangConfigSrc_, function(success) {
+  Klang.init('http://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/config.json', function(success) {
     if (success) {
       Klang.loggingEnabled=true;
       console.log('Klang loaded');
@@ -179,7 +178,7 @@ SoundController.prototype.playAmbientSounds = function(loadEvent) {
   if (!this.klangLoaded_ || this.loadingSounds_) {
     this.soundQueue_.push(loadEvent.detail);
   } else {
-    console.log('Klang: playing sound ' + loadEvent.detail);
+    //console.log('Klang: playing sound ' + loadEvent.detail);
     this.triggerSound_(loadEvent.detail);
   }
 };
