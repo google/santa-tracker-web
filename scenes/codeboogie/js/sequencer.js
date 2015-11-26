@@ -32,7 +32,7 @@ app.Sequencer = class {
   }
 
   setLevel(level, bpm) {
-    this._level = level * 2;
+    this._level = level;
     this._bpm = bpm;
     this._playScheduled = true;
   }
@@ -66,7 +66,7 @@ app.Sequencer = class {
   play() {
     if (!this._playScheduled) return;
 
-    this.klangUtil.transition(this.getPlayingLoop(), this.tracks[this._level + this._track], this._bpm, 0, 0.2);
+    this.klangUtil.transition(this.getPlayingLoop(), this.tracks[this._level * 2 + this._track], this._bpm, 0, 0.2);
     this._playScheduled = false;
   }
 
