@@ -34,6 +34,7 @@ app.Game = function(elem) {
   this.mapElem = this.elem.find('.map');
   this.guiElem = this.elem.find('.gui');
   this.drawerElem = this.elem.find('.drawer');
+  this.drawerHeight = this.drawerElem.height();
 
   this.gameoverModal = new app.shared.Gameover(this, this.elem.find('.gameover'));
 
@@ -309,7 +310,7 @@ app.Game.prototype._updatePan = function() {
   let panXDiff = panXMax - Math.abs(panX);
 
   if (panY < 0) {
-    panYMax += 75;
+    panYMax += this.drawerHeight;
   }
 
   let panYDiff = panYMax - Math.abs(panY);
@@ -457,6 +458,7 @@ app.Game.prototype._onResize = function() {
   // Scale GUI
   var scale = Math.min(1, window.innerWidth / 1200);
   this.guiElem.css('font-size', scale + 'px');
+  this.drawerHeight = this.drawerElem.height();
 };
 
 
