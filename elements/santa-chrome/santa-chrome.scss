@@ -2,6 +2,7 @@ $scenes: "village" "tracker"
     "airport" "traditions" "codelab" "app" "seasonofcaring" "santasback" "santaselfie" "translations" "callfromsanta" "briefing" "presentdrop" "santasearch" "windtunnel" "racer" "jamband" "gumball" "postcard" "jetpack" "boatload" "mercator" "presentbounce" "codeboogie" "elf-car" "citylights" "commandcentre" "seasonofgiving" "matching" "liftoff";
 
 $indent-left: 24px;
+$toolbar-default-color: #50def5;
 
 santa-chrome {
   #drawer {
@@ -112,21 +113,23 @@ santa-chrome {
       margin-right: 8px !important;
     }
 
-    &::before {
-      content: "";
+    .middle {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      box-shadow: 0 2px 2px rgba(0,0,0,.25);
-      background-color: #50def5;
-      opacity: 0;
+      z-index: -1;
+
       will-change: opacity;
       transform: translateZ(0);
+      opacity: 0;
       transition: opacity 0.125s;
+      box-shadow: 0 2px 2px rgba(0,0,0,.25);
+
+      background-color: $toolbar-default-color;
     }
-    &.scrolling::before {
+    &.scrolling .middle {
       opacity: 1;
     }
 

@@ -199,6 +199,9 @@ specific language governing permissions and limitations under the License.
           <paper-icon-button id="twitter" src="/elements/toolbar/img/share-twitter.svg"></paper-icon-button>
           <paper-icon-button id="facebook" src="/elements/toolbar/img/share-facebook.svg"></paper-icon-button> -->
         </div>
+
+        <!-- Used for background and transition effect -->
+        <div class="middle" style$="background-color: {{color}}"></div>
       </paper-toolbar>
       <content>
       </content>
@@ -222,6 +225,11 @@ specific language governing permissions and limitations under the License.
       },
 
       todayHouse: String,
+
+      /**
+       * The color to use for the background, if set.
+       */
+      color: String,
 
       /**
        * Whether this toolbar should be fixed: always solid, with content below.
