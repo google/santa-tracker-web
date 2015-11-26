@@ -38,9 +38,6 @@ Village scene (2015).
   :host[mode="cast"] .ice {
     display: none !important;
   }
-  :host[mode="cast"] #module-dorf {
-    margin-top: -32px;
-  }
   </style>
   <div id="module-dorf">
     <header>
@@ -54,9 +51,10 @@ Village scene (2015).
         </span>
       </div>
       <div id="header-content">
-        <div id="count-down">
+        <div id="count-down" class$="{{_calculateModeClass(santaApp.mode)}}">
           <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
           <countdown-timer id="count"
+                           animate="{{!_equal(santaApp.mode, 'cast')}}"
                            santa-service="[[santaService]]"
                            count-down-end-date="[[countDownEndDate]]"
                            finished="{{countdownFinished}}">
@@ -496,6 +494,20 @@ Village scene (2015).
     _scrollHandler: function(e) {
       var scroller = e.detail.target;
       this.toggleClass('scrolling', scroller.scrollTop > 0, this.$.toolbar);
+    },
+
+    _calculateModeClass: function(mode) {
+      if (mode == 'cast') {
+        return 'large';
+      }
+      return '';
+    },
+
+    /**
+     * Basic helper for Polymer elements.
+     */
+    _equal: function(a, b) {
+      return a == b;
     },
 
     onShow: function() {

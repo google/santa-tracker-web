@@ -168,6 +168,11 @@ $toolbar-size: 64px;
 
       #count-down {
         padding: 60px 0 30px 0;
+
+        &.large {
+          padding-bottom: 60px;
+          transform: scale(1.6);
+        }
       }
 
       // NOTE: This is used for the countdown timer.
