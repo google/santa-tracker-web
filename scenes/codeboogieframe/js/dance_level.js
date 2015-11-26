@@ -64,6 +64,7 @@ app.DanceLevel = class extends app.Level {
 
     this.freestyle = options.freestyle || false;
     this.steps = options.steps;
+    this.track = options.track;
     this.bpm = options.bpm;
     this.stage = options.stage || 'stage0';
     this.idealBlockCount = options.idealBlockCount || Infinity;

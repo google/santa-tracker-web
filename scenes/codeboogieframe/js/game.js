@@ -83,7 +83,7 @@ app.Game.prototype.bumpLevel = function() {
     return;
   }
 
-  this.iframeChannel.call('setLevel', this.levelNumber, this.level.bpm);
+  this.iframeChannel.call('setLevel', this.level.track, this.level.bpm);
 
   this.elem.className = this.level.className();
 
@@ -117,8 +117,6 @@ app.Game.prototype.restartLevel = function() {
  */
 app.Game.prototype.start = function() {
   this.restart();
-
-
 };
 
 /**
@@ -130,6 +128,5 @@ app.Game.prototype.restart = function() {
   this.levelNumber = levelNumber;
 
   this.scene.reset();
-
   this.bumpLevel();
 };

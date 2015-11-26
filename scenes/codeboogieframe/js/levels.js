@@ -31,6 +31,7 @@ app.levels = [];
  */
 app.levels.push(new app.DanceLevel({
   bpm: 120,
+  track: 0,
   idealBlockCount: 3,
   stage: 'stage1',
   steps: [
