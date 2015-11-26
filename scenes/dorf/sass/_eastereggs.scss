@@ -10,7 +10,7 @@
   $all:
       "tree"            831   616   291   342    ($house-row-3-z-index - 1),
       "blocks"          360   150   904   646    ($house-row-3-z-index - 1),
-      "statue"          287   171   858   836    ($house-row-4-z-index - 1),
+      "statue"          287   171   858   816    ($house-row-4-z-index - 1),
       "penguin-revolt"  174   55    865   1571   ($house-row-6-z-index - 1),
       "snowman-reading" 571   237   -227  1550   ($house-row-6-z-index - 1),
       "rosetta-stone"   117   96    39    904    ($house-row-4-z-index - 1),
@@ -161,7 +161,7 @@
 
     @media (max-width: ($width-desktop - 1)) {
       left: 205px;
-      top: 1383px;
+      top: 1353px;
     }
 
     .elf-stop {
@@ -291,8 +291,8 @@
     top: 1234px;
 
     @media (max-width: ($width-desktop - 1)) {
-      left: 680px;
-      top: 732px;
+      left: 440px;
+      top: 747px;
     }
 
     .elf-stop {
@@ -413,8 +413,8 @@
     top: 217px;
 
     @media (max-width: ($width-desktop - 1)) {
-      left: 264px;
-      top: 152px;
+      left: 234px;
+      top: 132px;
     }
 
     &.bus-load {
