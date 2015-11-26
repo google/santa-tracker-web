@@ -395,8 +395,8 @@ Village scene (2015).
     },
 
     _randomEasterEggs: function() {
-      var MIN_WAIT = 5000;
-      var MAX_WAIT = 30000;
+      var MIN_WAIT = 2000;
+      var MAX_WAIT = 3000;
       var easterEggs = ['balloon', 'snowmobile1', 'snowmobile2', 'snowmobile3',
           'snowmobile4', 'busstop1', 'busstop2', 'busstop3'];
 
@@ -412,6 +412,9 @@ Village scene (2015).
     },
 
     _driveSnowmobile: function(e) {
+      if (this._wasUserClick(e)) {
+        this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'snowmobile'});
+      }
       var DRIVE_TIME = 10000;
       var snowmobile = e.currentTarget;
       if (snowmobile.classList.contains('drive')) return;
@@ -422,12 +425,23 @@ Village scene (2015).
       }, DRIVE_TIME + 1);
     },
 
+    _wasUserClick: function(e) {
+      if (e.x == 0 && e.y == 0) return false;
+      return true;
+    },
+
     _flyBalloon: function(e) {
+      if (this._wasUserClick(e)) {
+        this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'balloon'});
+      }
+
       var FLIGHT_TIME = 30000;
       var balloon = this.$['easteregg-balloon'];
       var balloonRopes = this.$['easteregg-balloon-ropes'];
       var balloonFlight = this.$['easteregg-balloon-flight'];
       if (balloon.classList.contains('flying')) return;
+
+      this.fire('sound-trigger', 'village_balloon_click');
 
       balloon.classList.add('flying');
       balloonRopes.classList.add('flying');
@@ -440,6 +454,10 @@ Village scene (2015).
     },
 
     _triggerBus: function(e) {
+      if (this._wasUserClick(e)) {
+        this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'bus'});
+      }
+
       var BUS_DRIVE_ANIMATION = 10000;
       var BUS_LOAD_ANIMATION = 3000;
       var busStop = e.currentTarget;
