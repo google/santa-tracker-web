@@ -50,7 +50,7 @@ goog.scope(function () {
 
       if ( hasHitCollisionFixture && hasCallback) {
         this.level_.onCompleteCallback();
-        this.unregisterForCollisions( this.onCollision_ );
+        this.unregisterForCollisions();
       }
     }
 
