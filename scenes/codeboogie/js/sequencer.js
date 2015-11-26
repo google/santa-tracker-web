@@ -14,11 +14,11 @@
  * the License.
  */
 
-'use strict'
+'use strict';
 
 goog.provide('app.Sequencer');
 
-/*ß
+/**
  * Temporary mock for Klang sequencer.
  */
 app.Sequencer = class {
@@ -51,13 +51,13 @@ app.Sequencer = class {
     this.klangUtil = Klang.getUtil();
 
     this.tracks = Klang.$('codeboogie_tracks')._content;
-    this.klangSeq.off('beforeNextBeat', this._onBeat );
-    this.klangSeq.on('beforeNextBeat', this._onBeat );
+    this.klangSeq.off('beforeNextBeat', this._onBeat);
+    this.klangSeq.on('beforeNextBeat', this._onBeat);
     this.klangSeq.start();
   }
 
-  stop(){
-    this.klangSeq.off('beforeNextBeat', this._onBeat );
+  stop() {
+    this.klangSeq.off('beforeNextBeat', this._onBeat);
     this.klangSeq.stop();
   }
 
@@ -66,7 +66,9 @@ app.Sequencer = class {
       this._changeLevel();
     }
 
-    this.onBeat && setTimeout(this.onBeat.bind(this, currentBeat), timeToNextBeat * 1000);
+    if (this.onBeat) {
+      setTimeout(this.onBeat.bind(this, currentBeat), timeToNextBeat * 1000);
+    }
   }
 
   _changeLevel() {
@@ -74,7 +76,7 @@ app.Sequencer = class {
 
     var playingLoop;
 
-    for (var i = 0; i< this.tracks.length; i++) {
+    for (var i = 0; i < this.tracks.length; i++) {
       if (this.tracks[i].playing) {
         playingLoop = this.tracks[i];
         break;
@@ -87,4 +89,4 @@ app.Sequencer = class {
     this.klangUtil.transition(playingLoop, this.tracks[track + this._track], this._bpm, 0, 2);
     this._levelScheduled = false;
   }
-}
+};
