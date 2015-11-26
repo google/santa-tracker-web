@@ -217,7 +217,9 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
 
     if (normalized === 1) {
       this.onMusicBar();
-    } else if (normalized === 4) {
+    }
+
+    if (normalized === 4) {
       this.onAnimationBar(bpm);
     }
   }

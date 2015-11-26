@@ -37,7 +37,6 @@ app.FrameWrapper = function(el, staticDir) {
   this.gameStartTime = +new Date;
   this.iframeEl = this.el.find('iframe[data-codeboogie-frame]');
   this.isPlaying = false;
-  this.sequencer = new app.Sequencer();
 
   // Create a communication channel to the game frame.
   this.iframeChannel = new app.shared.FrameRPC(this.iframeEl[0].contentWindow, {
@@ -47,6 +46,9 @@ app.FrameWrapper = function(el, staticDir) {
     triggerSound: this.triggerSound.bind(this),
     setTrack: this.setTrack.bind(this)
   });
+
+  this.sequencer = new app.Sequencer();
+  this.sequencer.onBeat = (beat, bpm) => this.iframeChannel.call('beat', beat, bpm);
 
   // internal level number for analytics
   this.level_ = 1;
@@ -73,8 +75,6 @@ app.FrameWrapper.prototype.restart = function() {
 
   this.iframeChannel.call('restart');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'codeboogie'});
-
-  this.sequencer.onBeat = (beat, bpm) => this.iframeChannel.call('beat', beat, bpm);
 };
 
 /**

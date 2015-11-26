@@ -23,72 +23,69 @@ goog.provide('app.Sequencer');
  */
 app.Sequencer = class {
   constructor() {
-    this.lastUpdateTime = 0;
     this.bar = 0;
-    this.beat = 0;
-    this.queue = [];
-    this._onBeat = this._onBeat.bind(this);
-    this._levelScheduled = false;
+    this.beat = -1;
     this._track = 0;
+    this._level;
+    this.playingLoopId;
+    this._playScheduled = false;
   }
 
   setLevel(level, bpm) {
     this._level = level;
     this._bpm = bpm;
-    this._levelScheduled = true;
+    this._playScheduled = true;
   }
 
   setTrack(track) {
-    if (this._track !== track) {
-      this._track = track;
-      this._changeLevel();
+    this._track = track;
+    this._playScheduled = true;
+  }
+
+  getPlayingLoop() {
+    var playingLoop;
+    for (var i = 0; i < this.tracks.length; i++) {
+      if (this.tracks[i].playing && this.tracks[i].position >= 0) {
+        if (!playingLoop || this.tracks[i].position < playingLoop.position) {
+          playingLoop = this.tracks[i];
+          this.playingLoopId = i;
+        }
+      }
     }
+    return playingLoop;
   }
 
   start() {
-    this.klangSeq = this.klangSeq || Klang.$('codeboogie_sequencer');
-
     this.klangUtil = Klang.getUtil();
-
     this.tracks = Klang.$('codeboogie_tracks')._content;
-    this.klangSeq.off('beforeNextBeat', this._onBeat);
-    this.klangSeq.on('beforeNextBeat', this._onBeat);
-    this.klangSeq.start();
 
-    this._onBeat(0, 0, 0);
+    this.update(0);
+    this.play();
   }
 
-  stop() {
-    this.klangSeq.off('beforeNextBeat', this._onBeat);
-    this.klangSeq.stop();
+  play() {
+    if (!this._playScheduled) return;
+
+    this.klangUtil.transition(this.getPlayingLoop(), this.tracks[this._level + this._track], this._bpm, 0, 0.2);
+    this._playScheduled = false;
   }
 
-  _onBeat(currentBeat, timeToNextBeat, currentTime) {
-    if (this._levelScheduled) {
-      this._changeLevel();
-    }
-
-    if (this.onBeat) {
-      setTimeout(this.onBeat.bind(this, currentBeat, this._bpm), timeToNextBeat * 1000);
-    }
+  stop(){
+    this.getPlayingLoop().fadeOutAndStop(1);
   }
 
-  _changeLevel() {
-    this.klangSeq._bpm = this._bpm;
+  update(timestamp) {
+    let loop = this.getPlayingLoop();
+    let currPos = loop ? this.getPlayingLoop().position : 0;
+    let beat = Math.floor(currPos / (60 / this._bpm));
 
-    var playingLoop;
+    if (this.beat !== beat) {
+      this.beat = beat;
+      this.onBeat(this.beat, this._bpm);
 
-    for (var i = 0; i < this.tracks.length; i++) {
-      if (this.tracks[i].playing) {
-        playingLoop = this.tracks[i];
-        break;
-      }
+      this.play();
     }
 
-    // Each level has two tracks
-    let track = this._level * 2;
-
-    this.klangUtil.transition(playingLoop, this.tracks[track + this._track], this._bpm, 0, 2);
-    this._levelScheduled = false;
+    window.requestAnimationFrame(t => this.update(t));
   }
 };
