@@ -93,6 +93,11 @@ $toolbar-size: 64px;
       .skydive {
         animation: #{$name}-skydive 40s infinite ease-in;
         margin-left: calc(50% + 460px);
+        @media (max-width: ($width-desktop - 1)) {
+          margin-left: calc(50% - 300px);
+          animation: #{$name}-skydive-tablet 40s infinite ease-in;
+        }
+
         z-index: $house-z-index-front;
         will-change: transform, opacity;
 

@@ -81,10 +81,10 @@ Village scene (2015).
                disabled$="{{item.disabled}}">
             <div class="assets housez">
               <div class="building"></div>
-              <div class="ice"></div>
               <template is="dom-if" if="{{!item.hideDate}}">
                 <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
               </template>
+              <div class="ice"></div>
             </div>
             <template is="dom-if" if="{{!item.disabled}}">
               <div class="action">

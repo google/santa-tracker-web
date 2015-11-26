@@ -60,6 +60,30 @@
     opacity: 0;
   }
 }
+
+@keyframes #{$name}-skydive-tablet {
+  0%, #{$skydive-start} {
+    transform: translateY($skydive-start-pos);
+    opacity: 1;
+  }
+  #{$skydive-fallto} {
+    transform: translateY($skydive-fallto-pos);
+    opacity: 1;
+  }
+  #{$skydive-fallto + .1} {
+    transform: translateY($skydive-fallto-pos - 5);
+    opacity: 1;
+  }
+  #{$skydive-land}, #{$skydive-disappear} {
+    transform: translateY($skydive-land-tablet-pos);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY($skydive-land-tablet-pos);
+    opacity: 0;
+  }
+}
+
 @keyframes #{$name}-skydive-pegman-1 {
   /* Visible from 0-fallto */
   0% {
