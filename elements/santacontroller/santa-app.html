@@ -531,7 +531,7 @@ Polymer({
 
   created: function() {
     // silence the noisy things
-    if (!window.DEV) {
+    if (getUrlParameter('api_client') != 'web_chromecast' && !window.DEV) {
       console.log = function(){};
     }
 
