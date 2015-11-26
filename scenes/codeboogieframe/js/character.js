@@ -22,48 +22,60 @@ goog.require('app.Step');
 
 let sources = {
   [app.Step.IDLE]: {
-    'name': 'idle',
-    'frames': 24
+    name: 'idle',
+    frames: 24
   },
   [app.Step.FAIL]: {
-    'name': 'fail',
-    'frames': 96
+    name: 'fail',
+    frames: 96
   },
   [app.Step.WATCH]: {
-    'name': 'watch',
-    'frames': 96
-  },
-  [app.Step.CARLTON]: {
-    'name': 'carlton',
-    'frames': 192
+    name: 'watch',
+    frames: 96
   },
   [app.Step.LEFT_ARM]: {
-    'name': 'pointLeft',
-    'frames': 96
+    name: 'pointLeft',
+    frames: 96
   },
   [app.Step.RIGHT_ARM]: {
-    'name': 'pointRight',
-    'frames': 96
+    name: 'pointRight',
+    frames: 96
   },
   [app.Step.LEFT_FOOT]: {
-    'name': 'stepLeft',
-    'frames': 96
+    name: 'stepLeft',
+    frames: 96
   },
   [app.Step.RIGHT_FOOT]: {
-    'name': 'stepRight',
-    'frames': 96
+    name: 'stepRight',
+    frames: 96
   },
   [app.Step.JUMP]: {
-    'name': 'jump',
-    'frames': 96
+    name: 'jump',
+    frames: 96
   },
   [app.Step.SHAKE]: {
-    'name': 'hip',
-    'frames': 96
+    name: 'hip',
+    frames: 96
   },
   [app.Step.SPLIT]: {
-    'name': 'splits',
-    'frames': 96
+    name: 'splits',
+    frames: 96
+  },
+  [app.Step.CARLTON]: {
+    name: 'carlton',
+    frames: 192
+  },
+  [app.Step.SPONGEBOB]: {
+    name: 'spongebob',
+    frames: 96,
+  },
+  [app.Step.ELVIS]: {
+    name: 'elvis',
+    frames: 96
+  },
+  [app.Step.THRILLER]: {
+    name: 'thriller',
+    frames: 96
   }
 };
 

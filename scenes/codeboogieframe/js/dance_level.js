@@ -231,9 +231,11 @@ app.DanceLevel = class extends app.Level {
     }
 
     if (result === app.DanceStatus.SUCCESS) {
+      let specialMove = this.getRandomSpecialMove();
+
       queue.push({
-        teacherStep: app.Step.CARLTON,
-        playerStep: app.Step.CARLTON,
+        teacherStep: specialMove,
+        playerStep: specialMove,
         title: app.I18n.getMsg('CB_success')
       });
     }
@@ -248,6 +250,16 @@ app.DanceLevel = class extends app.Level {
     });
 
     return queue;
+  }
+
+  /*
+   * Get a random special move.
+   *
+   * @returns {app.Step}
+   */
+  getRandomSpecialMove() {
+    var specialMoves = [app.Step.CARLTON, app.Step.ELVIS, app.Step.SPONGEBOB, app.Step.THRILLER];
+    return specialMoves[Math.floor(Math.random() * specialMoves.length)];
   }
 
   /**

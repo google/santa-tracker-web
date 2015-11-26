@@ -16,6 +16,9 @@ app.Step = {
 
   // Special moves
   CARLTON: 'carlton',
+  SPONGEBOB: 'spongebob',
+  ELVIS: 'elvis',
+  THRILLER: 'thiller',
 
   // Non blockly moves
   IDLE: 'idle',
