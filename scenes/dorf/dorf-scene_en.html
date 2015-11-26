@@ -49,8 +49,8 @@ Village scene (2015).
         <span class="plane"></span>
         <span class="skydive">
           <span class="pegman-1"></span>
-          <span class="pegman-2"><a href="https://santadive.withgoogle.com/">Santa Dive</a></span>
-          <span class="pegman-3"><a href="https://santadive.withgoogle.com/">Santa Dive</a></span>
+          <span class="pegman-2"><a target="_blank" href="https://santadive.withgoogle.com/">Santa Dive</a></span>
+          <span class="pegman-3"><a target="_blank" href="https://santadive.withgoogle.com/">Santa Dive</a></span>
         </span>
       </div>
       <div id="header-content">
@@ -196,10 +196,6 @@ Village scene (2015).
       'snowman-reading', 'rosetta-stone', 'white-board', 'schoolyard',
       'tic-tac-toe', 'book-club', 'unicycle'];
 
-  function randomRange(min, max) {
-    return min + Math.random() * (max - min);
-  }
-
   /**
    * Builds and returns a random snowflake. If a previous snowflake was passed,
    * just update it instead of rebuilding it.
@@ -340,7 +336,7 @@ Village scene (2015).
     },
 
     _changeEffectCount: function() {
-      this.debounce('_changeEffecCount', function() {
+      this.debounce('_changeEffectCount', function() {
         // TODO(samthor): Choose a number of snowflakes based on
         // `window.innerWidth`. Drift the current number towards that amount.
       }, 500);
@@ -446,25 +442,25 @@ Village scene (2015).
       this.$.count.updateLabels();
     },
 
-    _calculateHref: function(house, iced) {
-      if (iced) {
-        return null;
-      }
+    /**
+     * Calculates the href to load for this house.
+     */
+    _calculateHref: function(house) {
       return house.link || this.pageUrl + '#' + house.module;
     },
 
+    /**
+     * Calculates any optional classes to apply on the `.house` div.
+     */
     _calculateClass: function(house, iced) {
-      if (iced) {
-        return 'iced';
-      }
-      return '';
+      return iced ? 'iced' : '';
     },
 
+    /**
+     * Calculates the numeric (i.e., day of month) date for this Date.
+     */
     _calculateDateNo: function(date) {
-      if (date && date.getDate) {
-        return date.getDate();
-      }
-      return '';
+      return date && date.getDate ? date.getDate() : '';
     },
 
     _calculateIcon: function(id, house) {
@@ -485,16 +481,12 @@ Village scene (2015).
       this.countDownEndDate = this.santaApp.countDownEndDate;
     },
 
+    /**
+     * Returns the string from the passed Object in the form `type-id`. Used
+     * to look up dynamic strings.
+     */
     _string: function(type, id, strings) {
       return strings[type + '-' + id];
-    },
-
-    _stringScene: function(id, strings) {
-      return strings['scene-' + id];
-    },
-
-    _stringCategory: function(id, strings) {
-      return strings['category-' + id];
     },
 
     _computeDrawerWidth: function(smallScreen) {

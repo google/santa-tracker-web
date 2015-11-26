@@ -64,11 +64,10 @@
   #easteregg-snowmobile2.drive,
   #easteregg-snowmobile3.drive,
   #easteregg-snowmobile4.drive {
+    @include will-change(transform);
     transform-origin: bottom center;
     animation: burnout 10s linear;
     animation-direction: reverse;
-    will-change: transform;
-    transform: translateZ(0);
   }
 
   #easteregg-snowmobile1.drive {
@@ -90,8 +89,7 @@
 
   #easteregg-balloon, #easteregg-balloon-flight, #easteregg-balloon-ropes {
     transition: opacity 0.2s ease-out;
-    will-change: transform;
-    transform: translateZ(0);
+    @include will-change(transform);
   }
 
   #easteregg-balloon {
@@ -118,19 +116,16 @@
   }
 
   #easteregg-balloon, #easteregg-balloon-ropes {
-    will-change: opacity;
-    transform: translateZ(0);
+    @include will-change(opacity);
   }
 
   #easteregg-balloon-flight {
-    will-change: transform, opacity;
-    transform: translateZ(0);
+    @include will-change(transform, opacity);
   }
 
   #easteregg-unicycle {
     animation: travel 120s infinite;
-    will-change: transform;
-    transform: translateZ(0);
+    @include will-change(transform);
     background: none;
 
     &:after {
@@ -140,8 +135,7 @@
       height: 100%;
       background: url(img/easteregg-unicycle.svg);
       animation: unicycle 1s ease infinite;
-      will-change: transform;
-      transform: translateZ(0);
+      @include will-change(transform);
     };
   }
 
@@ -166,7 +160,7 @@
 
     .elf-stop {
       position: absolute;
-      will-change: opacity;
+      @include will-change(opacity);
     }
 
     .elf-green, .elf-blue {
@@ -223,7 +217,7 @@
 
       .bus {
         transition: transform 10s ease-out;
-        will-change: transform;
+        @include will-change(transform);
         transform: translateZ(0) translateX(0vw);
       }
     }
@@ -233,7 +227,7 @@
 
       .bus {
         transition: transform 10s ease-out;
-        will-change: transform;
+        @include will-change(transform);
         transform: translateZ(0) translateX(-100vw);
       }
     }
@@ -244,8 +238,8 @@
       background-image: url(img/bus2.svg);
       top: percent(-50, $h);
       left: percent(-70, $w);
+      @include will-change(transform);
       transform: translateZ(0) translateX(100vw);
-      will-change: transform;
 
       div {
         position: absolute;

@@ -60,8 +60,8 @@ Candy cane progress bar.
   </template>
   <script>
 (function() {
-  var DEFAULT_COLOR_ = '#3ec4f0';
-  var DEFAULT_LOADING_SRC_ = 'images/village' +
+  var DEFAULT_COLOR = '#3ec4f0';
+  var DEFAULT_LOADING_SRC = 'images/village' +
       (('devicePixelRatio' in window && devicePixelRatio > 1.5) ? '_2x.gif' : '.gif');
 
   Polymer({
@@ -88,7 +88,7 @@ Candy cane progress bar.
        * Background color of the loading screen.
        */
       color: {
-        value: DEFAULT_COLOR_,
+        value: DEFAULT_COLOR,
         notify: true,
         observer: '_colorChanged'
       },
@@ -97,17 +97,13 @@ Candy cane progress bar.
        * Loading image.
        */
       src: {
-        value: DEFAULT_LOADING_SRC_,
+        value: DEFAULT_LOADING_SRC,
         notify: true,
         observer: '_srcChanged'
       }
     },
 
     _activeChanged: function(newValue, oldValue) {
-      if (!!newValue == !!oldValue) {
-        return;
-      }
-
       // Always ensure progress is at 0 when overlay is toggled.
       this.value = 0;
       if (this.active) {
@@ -119,12 +115,12 @@ Candy cane progress bar.
     },
 
     _srcChanged: function() {
-      this.src = this.src || DEFAULT_LOADING_SRC_;
+      this.src = this.src || DEFAULT_LOADING_SRC;
     },
 
     _colorChanged: function() {
       var node = Polymer.dom(this).node;
-      node.style.backgroundColor = this.color || DEFAULT_COLOR_;
+      node.style.backgroundColor = this.color || DEFAULT_COLOR;
     },
 
     _fadeDone: function(e, detail) {

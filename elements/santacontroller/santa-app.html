@@ -48,11 +48,12 @@ Santa Tracker app.
         attr-for-selected="route"
         selected-attribute="active">
 
-      <!-- TODO(samthor): Rename to village-scene when done -->
       <dorf-scene route="village" always-active icon="1f384"
           id="village"
           mode$="{{mode}}"
           path$="scenes/dorf/dorf-scene_[[language]].html"></dorf-scene>
+
+      <!-- Keep scenes (non-village) ordered alphabetically -->
 
       <about-scene route="about" icon="2753"
           path$="scenes/about/about-scene_[[language]].html"></about-scene>
@@ -211,11 +212,7 @@ Santa Tracker app.
       <undersea-scene route="undersea" icon="1f30a"
           path$="scenes/undersea/undersea-scene_[[language]].html"></undersea-scene>
 
-      <!-- NOTE: when these scenes are visited and then left, they are removed and
-           appended to the end of lazy-pages. This is fine as long as VIDEO_ROUTES
-           isn't modified (if it is, prevSelectedRouteChanged will need to be
-           modified). -->
-      <template is="dom-repeat" items="{{VIDEO_ROUTES}}">
+      <template is="dom-repeat" items="{{videoRoutes}}">
         <video-scene route$="{{item}}"
             path$="scenes/videoscene/video-scene_[[language]].html"></video-scene>
       </template>
@@ -224,7 +221,7 @@ Santa Tracker app.
           path$="scenes/windtunnel/windtunnel-scene_[[language]].html"
           loading-bg-color="rgb(129,208,0)"></windtunnel-scene>
 
-      <press-scene route="press"
+      <press-scene route="press" icon="1f4f0"
           path$="scenes/press/press-scene.html"></press-scene>
 
     </lazy-pages>
@@ -288,18 +285,6 @@ var VIDEO_ROUTES = [
 var TRACKER_ROUTES = ['blimp', 'island', 'undersea', 'icecave', 'runner',
     'latlong', 'glider', 'trivia'].concat(VIDEO_ROUTES);
 
-/**
-  * Checks whether the passed dates are the same calendar day.
-  * @param {!Date} date1
-  * @param {!Date} date2
-  * @return {boolean} whether the dates are the same calendar day
-  */
-function isSameDay(date1, date2) {
-  return date1.getMonth() == date2.getMonth() &&
-         date1.getDate() == date2.getDate() &&
-         date1.getYear() == date2.getYear();
-}
-
 // TODO(bckenny): Restore Cast mixin
 Polymer({
   is: 'santa-app',
@@ -328,9 +313,8 @@ Polymer({
 
     /**
      * When Santa's flight is finished.
-     * TODO(samthor): Why is this a 'const'-style var and the above not?
      */
-    FLIGHT_FINISHED: {
+    flightFinishedAt: {
       type: Number
     },
 
@@ -421,10 +405,9 @@ Polymer({
     },
 
     /**
-     * True when the tracker intro scene has been shown.
-     * TODO(samthor): Doesn't seem to be used
+     * True when the tracker intro scene was shown. Used by `tracker-scene`.
      */
-    _hasTrackerIntroShown: {
+    hasTrackerIntroShown: {
       type: Boolean,
       value: false
     },
@@ -449,10 +432,10 @@ Polymer({
     /**
      * List of video routes. Used for template binding.
      */
-    VIDEO_ROUTES: {
+    videoRoutes: {
       type: Array,
       readOnly: true,
-      value: VIDEO_ROUTES
+      value: Object.freeze(VIDEO_ROUTES)
     },
 
     /**
@@ -577,7 +560,7 @@ Polymer({
     delete window.SANTA_CONFIG; // cleanup
 
     this.countDownEndDate = this.config.COUNTDOWN_END_DATE;
-    this.FLIGHT_FINISHED = this.config.FLIGHT_FINISHED;
+    this.flightFinishedAt = this.config.flightFinishedAt;
 
     var apiClient = getUrlParameter('api_client') || 'web';
     if (!apiClient.match(/^[a-zA-Z_]*$/)) {
@@ -722,8 +705,7 @@ Polymer({
   },
 
   _languageChanged: function() {
-    // TODO(samthor): santaService seems to be obsfucated
-    // this.santaService.lang_ = this.language;
+    this.santaService && this.santaService.setLang(this.language);
   },
 
   _selectedSceneChanged: function(newValue, oldValue) {
@@ -1024,7 +1006,7 @@ Polymer({
     tomorrowDate.setDate(todayDate.getDate() + 1);
 
     // Set post countdown/post flight flags based on current time.
-    this.postFlight = todayDate >= this.FLIGHT_FINISHED;
+    this.postFlight = todayDate >= this.flightFinishedAt;
     this.postCountdown = todayDate > this.countDownEndDate && !this.postFlight;
 
     switch(todayDate.getMonth()) {

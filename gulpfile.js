@@ -403,7 +403,6 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
       var closureConfig = SCENE_CLOSURE_CONFIG[sceneName] || {};
 
       return stream.pipe(vulcanize({
-        // TODO(samthor): strip and csp were deprecated in gulp-vulcanize 1+
         stripExcludes: closureConfig.isFrame ? [] : elementsImports,
         inlineScripts: true,
         inlineCss: true,
@@ -424,7 +423,6 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
 gulp.task('vulcanize-elements', ['rm-dist', 'sass', 'compile-santa-api-service'], function() {
   return gulp.src('elements/elements_en.html', {base: './'})
     .pipe(vulcanize({
-      // TODO(samthor): strip and csp were deprecated in gulp-vulcanize 1+
       inlineScripts: true,
       inlineCss: true,
       stripComments: true,

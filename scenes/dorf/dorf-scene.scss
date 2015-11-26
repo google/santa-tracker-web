@@ -97,9 +97,7 @@ $toolbar-size: 64px;
           margin-left: calc(50% - 300px);
           animation: #{$name}-skydive-tablet 40s infinite ease-in;
         }
-
-        z-index: $house-z-index-front;
-        will-change: transform, opacity;
+        @include will-change(transform, opacity);
 
         > span {
           position: absolute;
@@ -164,10 +162,9 @@ $toolbar-size: 64px;
       flex-direction: column;
       position: relative;
 
-      // TODO(samthor): Give this a layer, as it extends over its neighbour
-      // to the south, and Chrome is confused when painting.
-      transform: translateZ(0);
-      will-change: transform;
+      // NOTE: Give this a layer, as it extends over its neighbour to the
+      // south, and Chrome is confused when painting.
+      @include will-change();
 
       #count-down {
         padding: 60px 0 30px 0;
@@ -185,9 +182,9 @@ $toolbar-size: 64px;
       }
 
       h1 {
+        @include will-change();
         margin: 0;
         font-family: 'Lobster', sans-serif;
-        will-change: transform;
         font-size: 62px;
         line-height: 50px;
         color: white;
@@ -301,10 +298,9 @@ $toolbar-size: 64px;
     position: relative;
     margin-top: -200px;  // nb. removed on mobile
 
-    // TODO(samthor): Give this a layer, as it extends over its neighbour
-    // to the north, and Chrome is confused when painting.
-    transform: translateZ(0);
-    will-change: transform;
+    // NOTE: Give this a layer, as it extends over its neighbour to the north,
+    // and Chrome is confused when painting.
+    @include will-change();
 
     p {
       margin: 35px 0 0 0;
@@ -477,8 +473,7 @@ $toolbar-size: 64px;
         // Create a layer: this hints to browsers that yes, this card _REALLY IS_
         // above everything else. Since there's no background/color etc, it's
         // ignored anyway.
-        transform: translateZ(0);
-        will-change: transform;
+        @include will-change();
 
         $duration-in: 0.4s;
         $easing-in: cubic-bezier(0.380, 0.800, 0.475, 1.285);
@@ -490,7 +485,7 @@ $toolbar-size: 64px;
           width: $hover-card-size !important;
           height: $hover-card-size !important;
           margin: (-$hs) 0 0 (-$hs);
-          will-change: transform, opacity;
+          @include will-change(transform, opacity);
           border-radius: 10000px;
           overflow: hidden;
           transition: transform $duration-out $easing-out, opacity $duration-out $easing-out;
