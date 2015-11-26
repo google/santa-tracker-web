@@ -30,6 +30,9 @@ app.Controls = function(elem, mapElem) {
   this.enabled = false;
 
   this.selecting = false;
+  this.pinching = false;
+  this.originalPinchDistance = undefined;
+  this.originalPinchScale = undefined;
 
   this.lastLocation = {
     x: undefined,
@@ -95,16 +98,21 @@ app.Controls.prototype._updateLocation = function(x, y) {
  * @private
  */
 app.Controls.prototype._onTouchstart = function(e) {
-  this.selecting = true;
-
-  var touchX = e.originalEvent.changedTouches[0].clientX;
-  var touchY = e.originalEvent.changedTouches[0].clientY;
+  let touchCount = e.originalEvent.touches.length;
 
   if (e.target === this.mapElem[0]) {
     e.preventDefault();
   }
 
-  this._updateLocation(touchX, touchY);
+  if (touchCount === 1) {
+    this.selecting = true;
+    var touchX = e.originalEvent.changedTouches[0].clientX;
+    var touchY = e.originalEvent.changedTouches[0].clientY;
+
+    this._updateLocation(touchX, touchY);
+  } else {
+    this._pinchStart(e);
+  }
 };
 
 /**
@@ -113,15 +121,19 @@ app.Controls.prototype._onTouchstart = function(e) {
  * @private
  */
 app.Controls.prototype._onTouchmove = function(e) {
-  if (this.selecting) {
+  let touchCount = e.originalEvent.touches.length;
+
+  if (e.target === this.mapElem[0]) {
+    e.preventDefault();
+  }
+
+  if (this.selecting && touchCount === 1) {
     var touchX = e.originalEvent.changedTouches[0].clientX;
     var touchY = e.originalEvent.changedTouches[0].clientY;
 
-    if (e.target === this.mapElem[0]) {
-      e.preventDefault();
-    }
-
     this._updateLocation(touchX, touchY);
+  } else if (this.pinching) {
+    this._pinchMove(e);
   }
 };
 
@@ -131,6 +143,8 @@ app.Controls.prototype._onTouchmove = function(e) {
  * @private
  */
 app.Controls.prototype._onTouchend = function(e) {
+  let touchCount = e.originalEvent.changedTouches.length;
+
   var touchX = e.originalEvent.changedTouches[0].clientX;
   var touchY = e.originalEvent.changedTouches[0].clientY;
 
@@ -138,12 +152,53 @@ app.Controls.prototype._onTouchend = function(e) {
     e.preventDefault();
   }
 
-  this._updateLocation(touchX, touchY);
+  if (touchCount === 1) {
+    this._updateLocation(touchX, touchY);
+    this.selecting = false;
+  } else {
+    this._pinchEnd(e);
+  }
 
   this.lastLocation.x = undefined;
   this.lastLocation.y = undefined;
-  this.selecting = false;
 };
+
+app.Controls.prototype._calculatePinchDistance = function(e) {
+  let firstTouch = {
+    x: e.originalEvent.touches[0].clientX,
+    y: e.originalEvent.touches[0].clientY
+  };
+
+  let secondTouch = {
+    x: e.originalEvent.touches[1].clientX,
+    y: e.originalEvent.touches[1].clientY
+  };
+
+  return Math.sqrt(Math.pow(secondTouch.x - firstTouch.x, 2) + Math.pow(secondTouch.y - firstTouch.y, 2));
+};
+
+app.Controls.prototype._pinchStart = function(e) {
+  console.log('Pinch start');
+
+  let distance = this._calculatePinchDistance(e);
+  this.originalPinchDistance = distance;
+  this.originalPinchScale = this.scale;
+
+  this.pinching = true;
+}
+
+app.Controls.prototype._pinchMove = function(e) {
+  console.log('Pinch move');
+
+  let distance = this._calculatePinchDistance(e);
+  this._scalePan(this.scale, this.originalPinchScale * (distance / this.originalPinchDistance));
+}
+
+app.Controls.prototype._pinchEnd = function(e) {
+  console.log('Pinch end');
+
+  this.pinching = false;
+}
 
 /**
  * Handles the mousedown event.
@@ -185,10 +240,18 @@ app.Controls.prototype._scalePan = function(from, to) {
   let direction = to - from;
   let difference = Math.abs(direction);
 
+  if (to < 1) {
+    to = 1;
+  }
+
+  if (to > app.Constants.ZOOM_MAX) {
+    to = app.Constants.ZOOM_MAX;
+  }
+
   this.pan.x *= (to / from);
   this.pan.y *= (to / from);
   this.scale = to;
-  
+
   this.needsPanUpdate = true;
   this.needsScaleUpdate = true;
 }

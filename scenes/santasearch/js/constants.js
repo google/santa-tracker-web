@@ -22,7 +22,7 @@ goog.provide('app.Constants');
  * Please tweak them to improve gameplay and game balance.
  */
 app.Constants = {
-  ZOOM_MAX: 5,
+  ZOOM_MAX: 4,
   HINT_BUTTON_PAN_TIME: 0.6, // seconds
   SPAWNS: {
     'santa': [
