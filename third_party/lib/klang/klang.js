@@ -3700,7 +3700,7 @@ var __extends = this.__extends || function (d, b) {
                     var timePlayed = Util.now() - this._startTime;
                     var loopTimePlayed = Util.now() + this._startOffset - this._loopStartTime;
                     if(this._startOffset + timePlayed > this._duration) {
-                        return this._loopStart + loopTimePlayed % duration;
+                        return (this._loopStart || 0) + loopTimePlayed % duration;
                     } else {
                         return this._startOffset + timePlayed;
                     }
@@ -11783,7 +11783,7 @@ var __extends = this.__extends || function (d, b) {
             }
             var scheduleTime = Util.now() + toNextBarSec;
             to.play(scheduleTime, 0, false);
-            from && from.fadeOutAndStop(fadeOutTime, scheduleTime - 1);
+            from && from.fadeOutAndStop(fadeOutTime, scheduleTime );
         }
         Util.transition = transition;
         function getTimeToBeat(from, bpm, sync, offset) {
