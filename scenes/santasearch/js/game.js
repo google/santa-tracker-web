@@ -18,6 +18,7 @@ goog.provide('app.Game');
 
 goog.require('app.Controls');
 goog.require('app.Constants');
+goog.require('app.Characters');
 goog.require('app.shared.utils');
 goog.require('app.shared.Gameover');
 
@@ -38,55 +39,12 @@ app.Game = function(elem) {
 
   this.gameoverModal = new app.shared.Gameover(this, this.elem.find('.gameover'));
 
-  this.characters = {
-    'santa': {
-      elem: this.mapElem.find('.character--santa'),
-      uiElem: this.drawerElem.find('.character--santa').parent(),
-      location: {},
-      scale: {},
-      isFound: false
-    },
-    'mrs-claus': {
-      elem: this.mapElem.find('.character--mrs-claus'),
-      uiElem: this.drawerElem.find('.character--mrs-claus').parent(),
-      location: {},
-      scale: {}
-    },
-    'rudolph': {
-      elem: this.mapElem.find('.character--rudolph'),
-      uiElem: this.drawerElem.find('.character--rudolph').parent(),
-      location: {},
-      scale: {},
-      isFound: false
-    },
-    'gingerbread-man': {
-      elem: this.mapElem.find('.character--gingerbread-man'),
-      uiElem: this.drawerElem.find('.character--gingerbread-man').parent(),
-      location: {},
-      scale: {},
-      isFound: false
-    },
-    'pegman': {
-      elem: this.mapElem.find('.character--pegman'),
-      uiElem: this.drawerElem.find('.character--pegman').parent(),
-      location: {},
-      scale: {},
-      isFound: false
-    },
-    'penguin': {
-      elem: this.mapElem.find('.character--penguin'),
-      uiElem: this.drawerElem.find('.character--penguin').parent(),
-      location: {},
-      scale: {},
-      isFound: false
-    }
-  };
-
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
   this.controls = new app.Controls(this.elem, this.mapElem);
 
   this.mapElementDimensions = {};
+  this.characters = new app.Characters(this.mapElem, this.drawerElem, this.mapElementDimensions);
 
   this.onFrame_ = this.onFrame_.bind(this);
 
@@ -111,90 +69,6 @@ app.Game.prototype._setupEventHandlers = function() {
   $(window).on('resize.santasearch orientationchange.santasearch', this._onResize.bind(this));
 };
 
-/**
- * Handles the event when a character is selected
- * @param {string} character Name of selected character.
- * @private
- */
-app.Game.prototype._onCharacterSelected = function(characterName) {
-  console.log(`${characterName} was selected!`);
-
-  let character = this.characters[characterName];
-
-  if (!character.isFound) {
-    character.uiElem.removeClass('drawer__character-wrapper--focused');
-    character.uiElem.addClass('drawer__character-wrapper--found');
-    character.isFound = true;
-
-    this._focusNextUnfoundCharacter();
-  }
-};
-
-/**
- * Finds the next character in the UI that has not already been found
- * @private
- */
-app.Game.prototype._focusNextUnfoundCharacter = function() {
-  console.log(`Focusing next unfound character`);
-
-  let nextToFind = '';
-
-  if (!this.characters['santa'].isFound) {
-    nextToFind = 'santa';
-  } else if (!this.characters['penguin'].isFound) {
-    nextToFind = 'penguin';
-  } else if (!this.characters['gingerbread-man'].isFound) {
-    nextToFind = 'gingerbread-man';
-  } else if (!this.characters['rudolph'].isFound) {
-    nextToFind = 'rudolph';
-  } else if (!this.characters['pegman'].isFound) {
-    nextToFind = 'pegman';
-  } else if (!this.characters['mrs-claus'].isFound) {
-    nextToFind = 'mrs-claus';
-  }
-
-  if (nextToFind !== '') {
-    this._focusUICharacter(nextToFind);
-  } else {
-    // Level cleared
-    this.gameoverModal.show();
-  }
-};
-
-/**
- * Focuses a character in the UI that the user should try to find
- * @param {string} characterName Name of selected character.
- * @private
- */
-app.Game.prototype._focusUICharacter = function(characterName) {
-  console.log(`Focusing ${characterName}`);
-
-  this.characters[characterName].uiElem.addClass('drawer__character-wrapper--focused');
-};
-
-/**
- * Initialize a character with location, scale and a click event
- * @param {string} characterName Name of the character.
- * @private
- */
-app.Game.prototype._initializeCharacter = function(characterName) {
-  let spawns = app.Constants.SPAWNS[characterName];
-  let randomSpawn = Math.floor(Math.random() * spawns.length);
-  let characterSpawnPoint = spawns[randomSpawn];
-
-  let character = this.characters[characterName];
-
-  character.isFound = false;
-  character.uiElem.removeClass('drawer__character-wrapper--found');
-
-  character.location = characterSpawnPoint.locationScale;
-  character.scale = characterSpawnPoint.sizeScale;
-
-  character.elem.on('click.santasearch', this._onCharacterSelected.bind(this, characterName));
-
-  let hintElem = character.uiElem.find('.hint');
-  hintElem.on('click.santasearch', this._hintLocation.bind(this, characterName));
-};
 
 /**
  * Sets the zoom to 2 and pans the camera to where the character can be found
@@ -202,15 +76,13 @@ app.Game.prototype._initializeCharacter = function(characterName) {
  * @private
  */
 app.Game.prototype._hintLocation = function(characterName) {
-  let character = this.characters[characterName];
-
   if (this.controls.scale !== 2) {
     this.controls.scale = 2;
     this._scale(this.controls.scale);
   }
 
   // The location of the character is a top/left percentage of the map
-  let characterLocation = character.location;
+  let characterLocation = this.characters.getCharacterLocation(characterName);
 
   let leftScale = 0.5 - characterLocation.left;
   let topScale = 0.5 - characterLocation.top;
@@ -228,29 +100,6 @@ app.Game.prototype._hintLocation = function(characterName) {
     this.mapElem.css('transition-duration', '0s');
     this.controls.enabled = true;
   }.bind(this), app.Constants.HINT_BUTTON_PAN_TIME * 1000);
-};
-
-/**
- * Positions a character based on mapElementDimensions
- * @param {Element} elem The element of the character to position.
- * @param {Object} location Width/Height scale attributes.
- * @private
- */
-app.Game.prototype._positionCharacter = function(elem, locationScale) {
-  let left = this.mapElementDimensions.width * locationScale.left;
-  let top = this.mapElementDimensions.height * locationScale.top;
-
-  elem.css('transform', `translate3d(${left}px, ${top}px, 0)`);
-}
-
-app.Game.prototype._scaleCharacter = function(elem, scale) {
-  let characterWidth = this.mapElementDimensions.width * scale.width;
-  let characterHeight = this.mapElementDimensions.height * scale.height;
-
-  elem.css('width', characterWidth);
-  elem.css('height', characterHeight);
-  elem.css('margin-left', `-${characterWidth/2}px`);
-  elem.css('margin-top', `-${characterHeight/2}px`);
 };
 
 /**
@@ -278,23 +127,8 @@ app.Game.prototype._scale = function(value) {
   this.mapElem.css('margin-left', -(this.mapElementDimensions.width / 2));
   this.mapElem.css('margin-top', -(this.mapElementDimensions.height / 2));
 
-  this._updateCharacters();
+  this.characters.updateCharacters();
 }
-
-/**
- * Updates scale and location of characters, called after map is scaled
- * @private
- */
-app.Game.prototype._updateCharacters = function() {
-  let characterNames = Object.keys(this.characters);
-
-  characterNames.forEach((characterName) => {
-    let character = this.characters[characterName];
-
-    this._scaleCharacter(character.elem, character.scale);
-    this._positionCharacter(character.elem, character.location);
-  });
-};
 
 /**
  * Makes sure that the player can not pan out of the map
@@ -335,16 +169,11 @@ app.Game.prototype.restart = function() {
   window.santaApp.fire('analytics-track-game-start', {gameid: 'santasearch'});
   this.gameStartTime = +new Date;
 
-  this._initializeCharacter('santa');
-  this._initializeCharacter('mrs-claus');
-  this._initializeCharacter('rudolph');
-  this._initializeCharacter('gingerbread-man');
-  this._initializeCharacter('pegman');
-  this._initializeCharacter('penguin');
+  this.characters.initialize();
 
   this._scale(1);
 
-  this._focusNextUnfoundCharacter();
+  this.characters.focusNextUnfoundCharacter();
 
   this.controls.start();
 };
@@ -356,6 +185,16 @@ app.Game.prototype.restart = function() {
 app.Game.prototype.update = function(deltaInMilliseconds) {
   if (!this.isPlaying) {
     return;
+  }
+
+  if (this.characters.allFound) {
+    this.gameoverModal.show();
+    return;
+  }
+
+  if (this.characters.hintTarget) {
+    this._hintLocation(this.characters.hintTarget);
+    this.characters.hintTarget = undefined;
   }
 
   if (this.controls.needsScaleUpdate) {
