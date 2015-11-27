@@ -26,6 +26,10 @@
     border-radius: 100%;
   }
 
+  .object--target {
+    z-index: $z-index-above-present;
+  }
+
   &.frozen,
   .js-animation-paused {
     .belt,
