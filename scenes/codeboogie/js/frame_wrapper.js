@@ -44,7 +44,7 @@ app.FrameWrapper = function(el, staticDir) {
     iframeFocusChange: this.iframeFocusChange.bind(this),
     setLevel: this.setLevel.bind(this),
     triggerSound: this.triggerSound.bind(this),
-    setTrack: this.setTrack.bind(this)
+    setVariant: this.setVariant.bind(this)
   });
 
   this.sequencer = new app.Sequencer();
@@ -132,18 +132,19 @@ app.FrameWrapper.prototype.iframeFocusChange = function(state) {
 /**
  * Updates the level in the scoreboard.
  * @param {number} level which level is it.
+ * @param {number} track which music track to play.
  * @param {number} bpm of level.
  */
-app.FrameWrapper.prototype.setLevel = function(level, bpm) {
+app.FrameWrapper.prototype.setLevel = function(level, track, bpm) {
   this.level_ = level;
   this.scoreboardView.setLevel(level);
-  this.sequencer.setLevel(level, bpm);
+  this.sequencer.setTrack(track, bpm);
 };
 
 /**
- * Select idle or dancing track.
- * @param {number} idle = 0, dancing = 1.
+ * Select idle or dancing track variant.
+ * @param {number} variant idle = 0, dancing = 1.
  */
-app.FrameWrapper.prototype.setTrack = function(track) {
-  this.sequencer.setTrack(track);
+app.FrameWrapper.prototype.setVariant = function(variant) {
+  this.sequencer.setVariant(variant);
 };

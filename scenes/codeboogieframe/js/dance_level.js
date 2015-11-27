@@ -79,6 +79,16 @@ app.DanceLevel = class extends app.Level {
   introAnimation() {
     let danceStatus = app.DanceStatus.NO_STEPS;
     let animation = this.createAnimationQueue([], danceStatus);
+
+    // Demo 4 bars of the idle music first. Final bar is countdown.
+    for (var i = 0; i < 3; i++) {
+      animation.unshift({
+        teacherStep: app.Step.IDLE,
+        playerStep: app.Step.IDLE,
+        title: app.I18n.getMsg('CB_watchClosely')
+      });
+    }
+
     return new app.DanceLevelResult(false, null, {
       animationQueue: animation,
       danceStatus: danceStatus
