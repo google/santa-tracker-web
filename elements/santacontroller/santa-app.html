@@ -293,6 +293,15 @@ Polymer({
   properties: {
 
     /**
+     * The size of the header, if any. Used by games to adjust their size.
+     */
+    headerSize: {
+      type: Number,
+      readOnly: true,
+      value: 56
+    },
+
+    /**
      * The preloader used inside this element. This is provided as a binding
      * helper.
      */

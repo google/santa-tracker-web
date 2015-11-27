@@ -212,7 +212,7 @@ SB.Game.prototype.watchSceneSize_ = function() {
   var viewElem = moduleElem.find('.view');
   var updateSize = function() {
     var width = window.innerWidth,
-      height = window.innerHeight,
+      height = window.innerHeight - window.santaApp.headerSize,
       scale = width < 900 ? width / 900 : 1;
     scale = height < 640 ?
       Math.min(height / 640, scale) :

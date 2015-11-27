@@ -84,7 +84,7 @@ app.Mouse.prototype.calculateScale_ = function() {
   var widthReductionFactor = 1420;
 
   var width = $(window).width();
-  var height = $(window).height();
+  var height = $(window).height() - window.santaApp.headerSize;
 
   var scaleWidth = (width + widthReductionFactor) / (originalWidth + widthReductionFactor);
   var scaleHeight = height / originalHeight;

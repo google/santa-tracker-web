@@ -408,11 +408,12 @@ app.Game.prototype.watchSceneSize_ = function() {
 
   var updateSize = function() {
     var width = window.innerWidth,
+        height = window.innerHeight - window.santaApp.headerSize,
         scale = width < 980 ? width / 980 : 1;
     game.setScale(scale);
 
-    size.height = window.innerHeight * (1 / game.scale);
-    size.width = window.innerWidth * (1 / game.scale);
+    size.height = height * (1 / game.scale);
+    size.width = width * (1 / game.scale);
   };
 
   updateSize();
