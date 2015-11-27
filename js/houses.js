@@ -44,7 +44,7 @@ window.HOUSES = [{
   category: "play",
   link: 'https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker'
 }, {
-  module: "seasonofcaring",
+  module: "seasonofgiving",
   iced: true,
   launchDate: new Date('Dec 1, 2014'),
   category: "learn"
@@ -157,7 +157,7 @@ window.HOUSES = [{
   launchDate: new Date('Dec 20, 2014'),
   category: "watch"
 }, {
-  module: "seasonofgiving",
+  module: "seasonofcaring",
   iced: true,
   launchDate: new Date('Dec 21, 2014'),
   category: "learn"
