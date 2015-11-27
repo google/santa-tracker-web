@@ -244,7 +244,7 @@ presentbounce scene.
     },
 
     onPreload: function() {
-      this.preloadSounds('pd_load_sounds', 40);
+      this.preloadSounds('pb_load_sounds', 40);
       this.preloadImages([
         //'img/board.svg'
       ]);
@@ -259,7 +259,7 @@ presentbounce scene.
     onHide: function() {
       this.game.dispose();
       this.game = null;
-      this.fire('sound-ambient', 'pd_end_game');
+      this.fire('sound-ambient', 'pb_end_game');
     },
 
     onClickStart_: function() {
