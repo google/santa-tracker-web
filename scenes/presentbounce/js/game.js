@@ -37,7 +37,6 @@ goog.require('app.world.Level');
  * @export
  */
 app.Game = function(elem) {
-  console.log('Hi from Plan8!');
   this.elem = $(elem);
   this.viewElem = this.elem.find('.scene');
   this.levelElem = this.elem.find('.levelboard');
@@ -56,9 +55,6 @@ app.Game = function(elem) {
   this.onFrame_ = this.onFrame_.bind(this);
   this.loadNextLevel_ = this.loadNextLevel_.bind(this);
   this.onLevelCompleted = this.onLevelCompleted.bind(this);
-
-  // Bind listener to scale scene when window resizes
-  this.watchSceneSize_();
 };
 
 /**
@@ -66,6 +62,8 @@ app.Game = function(elem) {
  * @export
  */
 app.Game.prototype.start = function() {
+  // Bind listener to scale scene when window resizes
+  this.watchSceneSize_();
   this.restart();
   //this.tutorial.start();
 };
@@ -247,6 +245,7 @@ app.Game.prototype.setScale = function(scale, width, height) {
 
 app.Game.prototype.getViewport = function () {
   return {
+    sceneOffset: this.sceneOffset,
     scale: this.scale,
     width: this.windowWidth / this.scale,
     height: this.windowHeight / this.scale,
@@ -275,6 +274,7 @@ app.Game.prototype.watchSceneSize_ = function() {
         scale;
 
     game.setScale(scale, width, height);
+    game.sceneOffset = game.elem.offset();
   };
 
   updateSize();

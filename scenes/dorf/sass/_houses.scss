@@ -1,76 +1,133 @@
-// Removes units like px from a number
+// TODO(samthor): Move helper methods somewhere common
 @function strip-unit($num) {
   @return $num / ($num * 0 + 1);
 }
 
+// Returns the % of $value in $inside. Assumes both are px values.
+@function percent($value, $inside) {
+  @return #{(strip-unit($value) / strip-unit($inside)) * 100}%;
+}
+
+// All dimensions below assume cell size of 320x320 (i.e., $dim-house).
+
+// ID houseWidth houseHeight iceWidth iceHeight houseLeft houseTop iceLeft iceTop dateLeft dateTop labelX labelY zIndex
+$houses:
+    "airport"         812   179   627   240   -340   44    -175   0     0   0   65  -15 $house-row-1-z-index,
+    "traditions"      235   222   424   236   35     21    -100   10    0   0   -12 -8  $house-row-1-z-index,
+    "codelab"         277   209   364   284   29     100   -40    55    0   0   -21 -3  $house-row-1-z-index,
+    "app"             280   366   443   351   -29    -11   -81    -3    0   0   24  -18 $house-row-2-z-index+50,
+    "seasonofgiving"  333   233   373   282   29     0     -55    -15   90  90  -40  -10  $house-row-2-z-index,
+    "santasback"      231   180   499   284   98     23    -53    -30   120 54  -2  6   $house-row-2-z-index,
+    "santaselfie"     209   262   497   348   81     41    -80    10    86  122 8   4   $house-row-2-z-index+50,
+    "translations"    311   174   712   286   5      101   -180   45    80  129 -18 6   $house-row-3-z-index+20,
+
+    // nb: these two scenes are interchangable
+    "callfromsanta"   271   298   537   321   11     0     -120   0     27  90  -22 7   $house-row-3-z-index,
+    "briefing"        315   246   355   287   0      0     0      0     0   0   -14 4   $house-row-3-z-index,
+
+    "presentdrop"     198   278   300   333   85     8     18     -19   232 170 -15 4   $house-row-3-z-index,
+    "santasearch"     287   174   484   246   30     75    -50    20    70  155 -24 -13 $house-row-3-z-index,
+    "windtunnel"      336   203   537   222   -16    47    -99    58    301 124 0   -8  $house-row-4-z-index,
+    "racer"           345   259   424   266   -10    57    -104   40    213 74  -25 -25 $house-row-4-z-index,
+    "jamband"         379   250   606   267   -33    -19   -140   36    253 70  10  10  $house-row-4-z-index,
+    "gumball"         257   308   374   359   59     -18    0    -50    220 135 -25 -2  $house-row-4-z-index,
+    "postcard"        286   224   364   248   -37    12    -82    -10   32  47  -6  -10 $house-row-5-z-index,
+    "jetpack"         287   258   367   333   20     53    -45    0     93  53  -23 -5  $house-row-5-z-index+40,
+    "boatload"        240   169   472   250   -7     82   -105    41    28  137 -13 7   $house-row-5-z-index,
+    "mercator"        328   275   462   348   0      8     -109   -6    263 62  0   -20 $house-row-5-z-index,
+    "presentbounce"   341   256   521   348   9      47    -110   10    47  157 -27 -12 $house-row-6-z-index+20,
+    "codeboogie"      294   224   403   280   24     30    -31    -5    102 56  -37 -12 $house-row-6-z-index,
+    "elf-car"         307   337   437   354   25     -56   -70    -57   74  91  -30 4   $house-row-6-z-index,
+    "citylights"      360   311   467   332   -10    0     -34    -10   74  180 19  -19 $house-row-6-z-index,
+    "commandcentre"   197   215   380   271   104    48    10     40    273 159 -2  4   $house-row-7-z-index,
+    "seasonofcaring"  390   241   373   282   -59    0     -36    -31   212 24  50 -8  $house-row-7-z-index,
+    "matching"        303   192   457   270   49     36    -58    10    97  92  0   4   $house-row-7-z-index,
+    "liftoff"         276   294   355   336   55     37    22     11    237 108  -14 -11 $house-row-7-z-index;
+
+$idx-id: 1;
+$idx-width: 2;
+$idx-height: 3;
+$idx-iceWidth: 4;
+$idx-iceHeight: 5;
+$idx-left: 6;
+$idx-top: 7;
+$idx-iceLeft: 8;
+$idx-iceTop: 9;
+$idx-dateLeft: 10;
+$idx-dateTop: 11;
+$idx-labelX: 12;
+$idx-labelY: 13;
+$idx-zIndex: 14;
+
 #houses {
-  // ID houseWidth houseHeight iceWidth iceHeight houseLeft houseTop iceLeft iceTop labelX labelY zIndex
-  $houses:
-      "airport"         812   179   627   240   -340   44    -175   0     0   0   $house-row-1-z-index,
-      "traditions"      235   222   424   236   35     21    -100   10    0   0   $house-row-1-z-index,
-      "codelab"         277   209   364   284   29     100   -40    55    0   0   $house-row-1-z-index,
-      "app"             280   366   443   351   -29    -41   -81    -33   0   0   $house-row-2-z-index,
-      "seasonofcaring"  333   233   373   282   8      0     -56    -31   0   0   $house-row-2-z-index,
-      "santasback"      231   180   499   284   98     23    -53    -30   0   0   $house-row-2-z-index,
-      "santaselfie"     209   262   497   348   81     41    -80    10    0   0   $house-row-2-z-index,
-      "translations"    311   174   712   286   5      101   -180   45    0   0   $house-row-3-z-index+20,
-      "callfromsanta"   271   298   537   321   11     0     -120   0     0   0   $house-row-3-z-index,
-      "briefing"        315   246   355   287   0      0     0      0     0   0   $house-row-3-z-index,
-      "presentdrop"     198   278   300   333   85     18    18     -9    0   0   $house-row-3-z-index,
-      "santasearch"     287   174   484   246   30     75    -50    10    0   0   $house-row-3-z-index,
-      "windtunnel"      336   203   537   222   -16    47    -99    58    0   0   $house-row-4-z-index,
-      "racer"           345   259   424   266   -10    57    -104   40    0   0   $house-row-4-z-index,
-      "jamband"         379   250   606   267   -33    -19   -140   36    0   0   $house-row-4-z-index,
-      "gumball"         257   308   374   359   59     -68    -5    -70   0   0   $house-row-4-z-index,
-      "postcard"        286   224   364   248   -17    32    -82    10    0   0   $house-row-5-z-index,
-      "jetpack"         287   258   367   333   20     53    -45    0     0   0   $house-row-5-z-index+40,
-      "boatload"        240   169   472   250   -7     102   -105   61    0   0   $house-row-5-z-index,
-      "mercator"        328   275   462   348   -15    8     -109   -21   0   0   $house-row-5-z-index,
-      "presentbounce"   341   256   521   348   9      47    -110   10    0   0   $house-row-6-z-index+20,
-      "codeboogie"      294   224   403   280   24     30    -31    -5    0   0   $house-row-6-z-index,
-      "elf-car"         307   337   437   354   25     -56   -70    -57   0   0   $house-row-6-z-index,
-      "citylights"      360   311   467   332   -10    0     -34    -10   0   0   $house-row-6-z-index,
-      "commandcentre"   197   215   380   271   104    28    10     20    0   0   $house-row-7-z-index,
-      "seasonofgiving"  390   241   373   282   -59    52    -45    32    0   0   $house-row-7-z-index,
-      "matching"        303   192   457   270   49     36    -58    10    0   0   $house-row-7-z-index,
-      "liftoff"         276   294   355   336   55     37    22     11    0   0   $house-row-7-z-index;
-  $houseId: 1;
-  $houseWidth: 2;
-  $houseHeight: 3;
-  $iceWidth: 4;
-  $iceHeight: 5;
-  $houseLeft: 6;
-  $houseTop: 7;
-  $iceLeft: 8;
-  $iceTop: 9;
-  $labelLeft: 10;
-  $labelTop: 11;
-  $zIndex: 12;
+  .house {
+    .card {
+      .image {
+        background: center no-repeat;
+        background-size: cover;
+      }
+    }
+    .building, .ice {
+      background: center no-repeat;
+      background-size: contain;
+      position: absolute;
+    }
+  }
 
   @for $i from 1 through length($houses) {
     $house: nth($houses, $i);
+    $id: nth($house, $idx-id);
 
-    .house-#{nth($house, $houseId)} {
-      z-index: nth($house, $zIndex) + (1+($i % 4) * 10);
+    .new-today-#{$id} {
+      div {
+        background-image: url(img/card-new-today-#{$id}_2x.png);
+      }
+    }
 
-      .building {
-        $w: (nth($house, $houseWidth) / strip-unit($width-house)) * 100;
-        $h: (nth($house, $houseHeight) / strip-unit($width-house)) * 100;
-        width: #{$w}%;
-        height: #{$h}%;
-        background-image: url(img/building-#{nth($house, $houseId)}.svg);
-        top: #{(nth($house, $houseTop) / strip-unit($width-house)) * 100}%;
-        left: #{(nth($house, $houseLeft) / strip-unit($height-house)) * 100}%;
+    .house-#{$id} {
+      // z-index set on child .assets, not top-level .house (don't create
+      // heirarchy here)
+
+      .housez {
+        z-index: nth($house, $idx-zIndex) + (1+($i % 4) * 10);
       }
 
-      .ice {
-        $w: (nth($house, $iceWidth) / strip-unit($width-house)) * 100;
-        $h: (nth($house, $iceHeight) / strip-unit($width-house)) * 100;
-        width: #{$w}%;
-        height: #{$h}%;
-        background-image: url(img/building-#{nth($house, $houseId)}-ice.svg);
-        top: #{(nth($house, $iceTop) / strip-unit($width-house)) * 100}%;
-        left: #{(nth($house, $iceLeft) / strip-unit($height-house)) * 100}%;
+      .assets {
+        .building {
+          background-image: url(img/building-#{$id}.svg);
+          width: percent(nth($house, $idx-width), $dim-house);
+          height: percent(nth($house, $idx-height), $dim-house);
+          left: percent(nth($house, $idx-left), $dim-house);
+          top: percent(nth($house, $idx-top), $dim-house);
+        }
+
+        .ice {
+          background-image: url(img/building-#{$id}-ice.svg);
+          width: percent(nth($house, $idx-iceWidth), $dim-house);
+          height: percent(nth($house, $idx-iceHeight), $dim-house);
+          left: percent(nth($house, $idx-iceLeft), $dim-house);
+          top: percent(nth($house, $idx-iceTop), $dim-house);
+        }
+
+        .launchdate {
+          left: percent(nth($house, $idx-dateLeft), $dim-house);
+          top: percent(nth($house, $idx-dateTop), $dim-house);
+        }
+      }
+
+      .action {
+        $l: nth($house, $idx-left) + nth($house, $idx-width) / 2 + nth($house, $idx-labelX);
+        $t: nth($house, $idx-top) + nth($house, $idx-height) + nth($house, $idx-labelY);
+        left: percent($l, $dim-house);
+        top: percent($t, $dim-house);
+      }
+
+      .link {
+        .card {
+          .image {
+            background-image: url(img/card-#{$id}_2x.png);
+          }
+        }
       }
     }
   }

@@ -49,8 +49,8 @@ goog.scope(function () {
       const hasCallback = (this.level_ && typeof this.level_.onCompleteCallback === 'function');
 
       if ( hasHitCollisionFixture && hasCallback) {
-        this.level_.onCompleteCallback();
         this.unregisterForCollisions();
+        this.level_.onCompleteCallback();
       }
     }
 

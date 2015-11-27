@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "智利"
 	},
-	"close-this": {
-		"message": "取消"
+	"close": {
+		"message": "關閉"
 	},
 	"cm_country_name": {
 		"message": "喀麥隆"
@@ -326,6 +326,21 @@
 	"copy-me": {
 		"message": "複製這個連結即可分享您的訊息"
 	},
+	"countdown_days": {
+		"message": "天"
+	},
+	"countdown_hours": {
+		"message": "小時"
+	},
+	"countdown_minutes": {
+		"message": "分"
+	},
+	"countdown_seconds": {
+		"message": "秒"
+	},
+	"countdown_until": {
+		"message": "距離聖誕老人出發時間還有"
+	},
 	"countdownlabel": {
 		"message": "聖誕老人出發倒數計時"
 	},
@@ -354,7 +369,7 @@
 		"message": "德語"
 	},
 	"de_tradition": {
-		"message": "幾乎每個德國小鎮都會在鎮廣場舉辦聖誕市集。鎮民聚在一起聆聽銅管樂隊演奏，享受當地的傳統美食。他們會吃心型薑餅、糖烤杏仁和各種甜點，並喝香料酒 (Glühwein) 或蘋果酒。"
+		"message": "幾乎每個德國小鎮都會在鎮廣場舉辦聖誕市集。鎮民聚在一起聆聽銅管樂隊演奏，享用當地的傳統美食。他們會吃心型薑餅、糖烤杏仁和各種甜點，還會喝香料酒 (Glühwein) 或蘋果酒。"
 	},
 	"deck": {
 		"message": "換上新裝"
@@ -432,7 +447,7 @@
 		"message": "法文"
 	},
 	"fr_tradition": {
-		"message": "根據傳統，法國兒童會把自己的鞋子拿到壁爐旁，盼望聖誕老人到來。如果孩子們一整年都很乖，聖誕老人就會將禮物裝進鞋子裡。"
+		"message": "在法國的傳統中，小孩子會把自己的鞋子拿到壁爐旁，盼望聖誕老人到來。如果孩子們一整年都很乖，聖誕老人就會將禮物裝進鞋子裡。"
 	},
 	"ga_country_name": {
 		"message": "加彭"
@@ -629,6 +644,9 @@
 	"ne_country_name": {
 		"message": "尼日"
 	},
+	"new": {
+		"message": "全新"
+	},
 	"newtoday": {
 		"message": "今日新登場"
 	},
@@ -667,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "北極熊"
+	},
+	"notification": {
+		"message": "通知"
+	},
+	"notification_notice": {
+		"message": "聖誕老人身旁的小精靈會偷偷向你通報聖誕老人的一舉一動"
 	},
 	"np_country_name": {
 		"message": "尼泊爾"
@@ -722,6 +746,9 @@
 	"pr_country_name": {
 		"message": "波多黎各"
 	},
+	"press": {
+		"message": "媒體報導"
+	},
 	"pt_language_name": {
 		"message": "葡萄牙文"
 	},
@@ -743,8 +770,110 @@
 	"sa_country_name": {
 		"message": "沙烏地阿拉伯"
 	},
+	"santasearch_hint": {
+		"message": "提示"
+	},
+	"santasearch_level_lab": {
+		"message": "實驗室"
+	},
+	"santasearch_level_museum": {
+		"message": "博物館"
+	},
+	"santasearch_level_select": {
+		"message": "出發！"
+	},
+	"santasearch_search_for_santa": {
+		"message": "聖誕老人在哪裡？"
+	},
+	"santasvillage": {
+		"message": "聖誕老人村"
+	},
 	"santatracker": {
 		"message": "聖誕老人追蹤器"
+	},
+	"scene_airport": {
+		"message": "北極機場"
+	},
+	"scene_app": {
+		"message": "Android 應用程式"
+	},
+	"scene_boatload": {
+		"message": "禮物彈弓"
+	},
+	"scene_briefing": {
+		"message": "聖誕老婆婆的行前叮嚀"
+	},
+	"scene_callfromsanta": {
+		"message": "聖誕老人來電"
+	},
+	"scene_citylights": {
+		"message": "城市之光"
+	},
+	"scene_codeboogie": {
+		"message": "程式碼之舞力全開"
+	},
+	"scene_codelab": {
+		"message": "程式碼實驗室"
+	},
+	"scene_commandcentre": {
+		"message": "任務控管中心"
+	},
+	"scene_giftmatch": {
+		"message": "禮物快遞"
+	},
+	"scene_gumball": {
+		"message": "彩球掉下來"
+	},
+	"scene_jamband": {
+		"message": "搖滾精靈樂"
+	},
+	"scene_jetpack": {
+		"message": "精靈飛俠"
+	},
+	"scene_matching": {
+		"message": "翻牌配對"
+	},
+	"scene_mercator": {
+		"message": "地圖小測驗"
+	},
+	"scene_postcard": {
+		"message": "聖誕老人的卡片"
+	},
+	"scene_presentbounce": {
+		"message": "彈跳小禮物"
+	},
+	"scene_presentdrop": {
+		"message": "禮物直直落"
+	},
+	"scene_racer": {
+		"message": "飆風馴鹿"
+	},
+	"scene_santasearch": {
+		"message": "聖誕老人在哪裡？"
+	},
+	"scene_santaselfie": {
+		"message": "聖誕老人自拍照"
+	},
+	"scene_seasonofgiving": {
+		"message": "溫馨分享季"
+	},
+	"scene_traditions": {
+		"message": "各地節日習俗"
+	},
+	"scene_translations": {
+		"message": "翻譯"
+	},
+	"scene_videoscene_carpool": {
+		"message": "精靈尬車"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "聖誕老人出發了"
+	},
+	"scene_videoscene_santasback": {
+		"message": "聖誕老人回來了"
+	},
+	"scene_windtunnel": {
+		"message": "風洞"
 	},
 	"score": {
 		"message": "分數"
@@ -822,7 +951,7 @@
 		"message": "僅限今天"
 	},
 	"today_only_1": {
-		"message": "僅今天"
+		"message": "僅限今天"
 	},
 	"tr_country_name": {
 		"message": "土耳其"
@@ -863,14 +992,23 @@
 	"tracker_santa_update": {
 		"message": "聖誕老人的最新狀態"
 	},
+	"tracker_santa_update_1": {
+		"message": "聖誕老人的最新動態"
+	},
 	"tracker_see_route": {
 		"message": "查看路線"
+	},
+	"tracker_track": {
+		"message": "追蹤聖誕老人"
 	},
 	"tracker_weather": {
 		"message": "天氣"
 	},
 	"tracker_world_facts": {
 		"message": "您知道嗎？"
+	},
+	"tracker_world_facts_1": {
+		"message": "世界小知識"
 	},
 	"tracker_your_location": {
 		"message": "您的位置"
@@ -2838,7 +2976,7 @@
 		"message": "塔斯曼海"
 	},
 	"trivia_hard_066_answer2": {
-		"message": "的的喀喀湖"
+		"message": "的喀喀湖"
 	},
 	"trivia_hard_067": {
 		"message": "俄羅斯港口城市阿爾漢格爾斯克位於哪片水域沿岸？"
@@ -4546,6 +4684,24 @@
 	},
 	"ve_country_name": {
 		"message": "委內瑞拉"
+	},
+	"village_comeback": {
+		"message": "24 號平安夜，別忘了和我們一起追蹤聖誕老人的行蹤！"
+	},
+	"village_explore": {
+		"message": "在溫馨的 12 月，和聖誕老人的助手小精靈一同探索、玩遊戲和學習新知"
+	},
+	"village_get_the_app": {
+		"message": "取得應用程式"
+	},
+	"village_santa_cardboard": {
+		"message": "使用 Cardboard 尋找聖誕老人"
+	},
+	"village_santa_cast": {
+		"message": "在 Google Cast 上尋找聖誕老人"
+	},
+	"village_takesoff": {
+		"message": "距離聖誕老人出發時間還有"
 	},
 	"vn_country_name": {
 		"message": "越南"

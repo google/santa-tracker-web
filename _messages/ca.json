@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "La Nit de Nadal ens farà molta il·lusió presentar una visualització prèvia del tauler del Pare Noel: la tecnologia que impulsa el trineu del Pare Noel mentre fa la volta al món. Aquesta visualització prèvia tan especial ens arribat de mans d’un dels nombrosos elfs desenvolupadors del Pare Noel, que ara treballen de valent al pol Nord ajudant-lo a preparar-ho tot per al gran dia. Gràcies al tauler del Pare Noel, que incorpora l'enginyeria de trineus i la tecnologia de Google Maps més recents i avançades, podreu seguir el viatge del Pare Noel per tot el món i conèixer una mica més alguns dels indrets on fa parada al llarg del seu itinerari."
+		"message": "Durant la Nit de Nadal tindrem l'orgull de presentar el tauler de control del Pare Noel, la tecnologia que propulsa el seu trineu durant el seu viatge per tot el món. Hem rebut aquest avançament especial d'un dels seus follets desenvolupadors, que estan treballant de valent al pol nord per ajudar-lo a preparar el gran dia. El tauler de control del Pare Noel, que inclou la tecnologia més puntera i innovadora de Google Maps i en enginyeria de trineus, us permetrà seguir el seu trajecte per tot el món i conèixer una mica les parades que farà pel camí."
 	},
 	"about-content-three": {
 		"message": "Google ha creat i desenvolupat Segueix el Pare Noel de Google Maps amb una mica d'ajuda dels follets del Pare Noel. Necessiteu ajuda o teniu cap altra pregunta? Visiteu el nostre \u003ca href=\"//support.google.com/santatracker\"\u003eCentre d'ajuda\u003c/a\u003e."
 	},
 	"about-content-two": {
-		"message": "A més, els nostres amics follets us han convidat a descobrir el poble del Pare Noel mentre ell es prepara pel viatge. Animeu-vos i exploreu-lo, que segur que trobeu activitats divertides i coneixeu follets interessants."
+		"message": "A més, els nostres amics follets us han convidat a descobrir l'aldea del Pare Noel mentre ell es prepara per al seu viatge. Visiteu i exploreu l'aldea; segur que trobeu activitats divertides i coneixeu follets interessants."
 	},
 	"about-santa": {
 		"message": "Quant a"
@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Xile"
 	},
-	"close-this": {
-		"message": "Cancel·la"
+	"close": {
+		"message": "Tanca"
 	},
 	"cm_country_name": {
 		"message": "Camerun"
@@ -326,6 +326,21 @@
 	"copy-me": {
 		"message": "Copieu aquest enllaç per compartir el missatge"
 	},
+	"countdown_days": {
+		"message": "Dies"
+	},
+	"countdown_hours": {
+		"message": "h"
+	},
+	"countdown_minutes": {
+		"message": "min"
+	},
+	"countdown_seconds": {
+		"message": "s"
+	},
+	"countdown_until": {
+		"message": "El Pare Noel surt d'aquí a"
+	},
 	"countdownlabel": {
 		"message": "Perquè el Pare Noel comenci el seu viatge"
 	},
@@ -354,7 +369,7 @@
 		"message": "Alemany"
 	},
 	"de_tradition": {
-		"message": "A gairebé tots els pobles d'Alemanya, s'obren mercats de Nadal a les places. Els ciutadans surten als carrers per sentir les xarangues i gaudeixen de la beguda i del menjar típics de la regió: cors de gingebre, ametlles garapinyades, llaminadures de tot tipus, Glühwein (vi calent) i sidra de poma."
+		"message": "A gairebé tots els pobles d'Alemanya, es munten mercats de Nadal a les places. Els ciutadans surten als carrers per sentir les xarangues i gaudeixen de la beguda i del menjar típics de la regió: cors de gingebre, ametlles garapinyades, llaminadures de tot tipus, Glühwein (vi calent) i sidra de poma."
 	},
 	"deck": {
 		"message": "Decora"
@@ -432,7 +447,7 @@
 		"message": "Francès"
 	},
 	"fr_tradition": {
-		"message": "A França, és tradició que els nens deixin les sabates al costat de la llar de foc abans que arribi el Père Noël. Si s'han portat durant tot l'any, el Père Noël els omple les sabates de regals."
+		"message": "A França, és tradició que els nens deixin les sabates al costat de la llar de foc abans que arribi el Père Noël. Si s'han portat bé durant tot l'any, el Père Noël els omple les sabates de regals."
 	},
 	"ga_country_name": {
 		"message": "Gabon"
@@ -471,7 +486,7 @@
 		"message": "Grècia"
 	},
 	"gr_tradition": {
-		"message": "A Grècia, unes criatures simpàtiques però molestes anomenades kallikántzari viuen durant l'any al centre de la Terra. Quan arriba Nadal, però, els encanta amagar-se a les cases, espantar la gent, prendre el pèl i devorar el menjar de les festes. Els grecs celebren ritus per allunyar aquests follets."
+		"message": "A Grècia, unes criatures simpàtiques però molestes anomenades kallikántzari viuen durant la major part de l'any al centre de la Terra. Quan arriba el Nadal, però, els encanta amagar-se a les cases, espantar la gent, prendre el pèl i devorar el menjar de les festes. Els grecs celebren ritus per allunyar aquests follets."
 	},
 	"gt_country_name": {
 		"message": "Guatemala"
@@ -513,7 +528,7 @@
 		"message": "Irlanda"
 	},
 	"improve_google_translate": {
-		"message": "Ajudeu a millorar Google Traductor"
+		"message": "Ajudeu a millorar el Traductor de Google"
 	},
 	"iq_country_name": {
 		"message": "Iraq"
@@ -629,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Níger"
 	},
+	"new": {
+		"message": "Nou"
+	},
 	"newtoday": {
 		"message": "Nou avui!"
 	},
@@ -667,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Ós polar"
+	},
+	"notification": {
+		"message": "Notificacions"
+	},
+	"notification_notice": {
+		"message": "Els elfs us aniran informant del que fa el Pare Noel"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -722,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Prem"
+	},
 	"pt_language_name": {
 		"message": "Portuguès"
 	},
@@ -743,8 +770,110 @@
 	"sa_country_name": {
 		"message": "Aràbia Saudita"
 	},
+	"santasearch_hint": {
+		"message": "Pista"
+	},
+	"santasearch_level_lab": {
+		"message": "Al laboratori"
+	},
+	"santasearch_level_museum": {
+		"message": "Al museu"
+	},
+	"santasearch_level_select": {
+		"message": "Vés"
+	},
+	"santasearch_search_for_santa": {
+		"message": "On és el Pare Noel?"
+	},
+	"santasvillage": {
+		"message": "L'aldea del Pare Noel"
+	},
 	"santatracker": {
 		"message": "Segueix el Pare Noel"
+	},
+	"scene_airport": {
+		"message": "Aeroport del Pol Nord"
+	},
+	"scene_app": {
+		"message": "Aplicació per a Android"
+	},
+	"scene_boatload": {
+		"message": "Joc de tirar regals"
+	},
+	"scene_briefing": {
+		"message": "Xerrada de la Mare Noel"
+	},
+	"scene_callfromsanta": {
+		"message": "Trucades del Pare Noel"
+	},
+	"scene_citylights": {
+		"message": "Llums de la ciutat"
+	},
+	"scene_codeboogie": {
+		"message": "El ball del codi"
+	},
+	"scene_codelab": {
+		"message": "Laboratori de programació"
+	},
+	"scene_commandcentre": {
+		"message": "Control de la missió"
+	},
+	"scene_giftmatch": {
+		"message": "Joc d'emparellar regals"
+	},
+	"scene_gumball": {
+		"message": "Joc de guiar els caramels"
+	},
+	"scene_jamband": {
+		"message": "La banda dels elfs"
+	},
+	"scene_jetpack": {
+		"message": "Elf Jetpack"
+	},
+	"scene_matching": {
+		"message": "El joc de les parelles"
+	},
+	"scene_mercator": {
+		"message": "Joc de geografia"
+	},
+	"scene_postcard": {
+		"message": "Les targetes del Pare Noel"
+	},
+	"scene_presentbounce": {
+		"message": "Joc de rebotar regals"
+	},
+	"scene_presentdrop": {
+		"message": "Joc de repartir regals"
+	},
+	"scene_racer": {
+		"message": "La cursa de trineus de Rudolph"
+	},
+	"scene_santasearch": {
+		"message": "On és el Pare Noel?"
+	},
+	"scene_santaselfie": {
+		"message": "La selfie del Pare Noel"
+	},
+	"scene_seasonofgiving": {
+		"message": "Temps de regals"
+	},
+	"scene_traditions": {
+		"message": "Tradicions nadalenques"
+	},
+	"scene_translations": {
+		"message": "Traduccions"
+	},
+	"scene_videoscene_carpool": {
+		"message": "El cotxe dels elfs"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "L'enlairament del Pare Noel"
+	},
+	"scene_videoscene_santasback": {
+		"message": "El Pare Noel ha tornat"
+	},
+	"scene_windtunnel": {
+		"message": "Túnel de vent"
 	},
 	"score": {
 		"message": "Puntuació"
@@ -795,7 +924,7 @@
 		"message": "Txad"
 	},
 	"terms-and-privacy": {
-		"message": "Ús i privadesa"
+		"message": "Condicions i privadesa"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -855,7 +984,7 @@
 		"message": "Us trobeu a"
 	},
 	"tracker_intro_welcome": {
-		"message": "Benvingut a"
+		"message": "Us donem la benvinguda a"
 	},
 	"tracker_next_stop": {
 		"message": "Propera parada"
@@ -863,14 +992,23 @@
 	"tracker_santa_update": {
 		"message": "NOTIFICACIÓ DEL PARE NOEL"
 	},
+	"tracker_santa_update_1": {
+		"message": "Notificació del Pare Noel"
+	},
 	"tracker_see_route": {
 		"message": "Mostra la ruta"
+	},
+	"tracker_track": {
+		"message": "Seguiu el Pare Noel"
 	},
 	"tracker_weather": {
 		"message": "Temps"
 	},
 	"tracker_world_facts": {
 		"message": "SABÍEU QUE"
+	},
+	"tracker_world_facts_1": {
+		"message": "Dades mundials"
 	},
 	"tracker_your_location": {
 		"message": "La vostra ubicació"
@@ -4546,6 +4684,24 @@
 	},
 	"ve_country_name": {
 		"message": "Veneçuela"
+	},
+	"village_comeback": {
+		"message": "Torneu la nit de Nadal i ajudeu-nos a seguir el Pare Noel tota la nit!"
+	},
+	"village_explore": {
+		"message": "Exploreu, jugueu i apreneu amb els elfs del Pare Noel durant tot el mes de desembre"
+	},
+	"village_get_the_app": {
+		"message": "Obtén l'aplicació"
+	},
+	"village_santa_cardboard": {
+		"message": "El Pare Noel a Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "El Pare Noel a Google Cast"
+	},
+	"village_takesoff": {
+		"message": "El Pare Noel surt d'aquí a"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

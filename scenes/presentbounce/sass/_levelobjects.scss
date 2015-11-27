@@ -1,5 +1,9 @@
 ##{$name} {
 
+  // .object {
+  //   outline: 1px solid hotpink;
+  // }
+
   .object--shadow,
   .object--shadow.object--present-circle,
   .object--shadow.object--present-rect {
@@ -20,6 +24,10 @@
 
   .object--snowglobe {
     border-radius: 100%;
+  }
+
+  .object--target {
+    z-index: $z-index-above-present;
   }
 
   &.frozen,

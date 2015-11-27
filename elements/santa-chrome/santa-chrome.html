@@ -1,0 +1,353 @@
+<!--
+Copyright 2015 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<link rel="import" href="../santa-app-behavior.html">
+<link rel="import" href="../../components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../../components/paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="../../components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../../components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../components/iron-icons/iron-icons.html">
+<link rel="import" href="../../components/iron-icon/iron-icon.html">
+
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="santa-chrome.css" />
+
+<dom-module id="santa-chrome">
+<template>
+  <style>
+  paper-toolbar {
+    z-index: 1001;
+    --paper-toolbar-height: 56px;
+    --paper-toolbar-sm-height: 56px;
+  }
+
+  paper-drawer-panel {
+    --paper-drawer-panel-scrim: {
+      background: rgba(135, 212, 147, 0.33);
+      z-index: 1001;
+    };
+    --paper-drawer-panel-drawer-container: {
+      z-index: 1001;
+    }
+  }
+  paper-icon-button {
+    --paper-icon-button-ink-color: white;
+  }
+  paper-header-panel::shadow #mainPanel {
+    @apply(--layout-fit);
+  }
+
+  paper-header-panel {
+    --paper-header-panel-shadow: {
+      display: none;
+    };
+    --paper-header-panel-waterfall-container: {
+      will-change: transform;
+    };
+  }
+
+  paper-header-panel /deep/ #mainContainer {
+    will-transform: opacity;
+    transform: translateZ(0);
+  }
+
+  paper-header-panel.fixed /deep/ #mainContainer {
+    overflow: hidden !important;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  :host([mode="portal"]) .shareicons {
+    display: none !important;
+  }
+  :host([mode="cast"]) .shareicons {
+    display: none !important;
+  }
+  :host([mode="cast"]) paper-icon-button {
+    display: none;
+  }
+
+  </style>
+
+  <iron-media-query query="(max-width: 600px)"
+                    query-matches="{{_smallScreen}}"></iron-media-query>
+
+  <paper-drawer-panel id="sidebar" force-narrow
+                      drawer-width="[[_computeDrawerWidth(_smallScreen)]]">
+    <div id="drawer" drawer class="scroll">
+      <paper-toolbar class="close-sidebar" on-click="closeDrawer" tabindex="0">
+        <iron-icon icon="close"></iron-icon>
+        <i18n-msg msgid="close">PLACEHOLDER_i18n</i18n-msg>
+      </paper-toolbar>
+      <div class="cards">
+        <a href$="{{pageUrl}}#village">
+          <div class="menucard menucard-village">
+            <h2><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></h2>
+            <h3><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></h3>
+          </div>
+        </a>
+        <template is="dom-if" if="{{todayHouse}}">
+          <a href$="{{pageUrl}}#{{todayHouse}}">
+            <div class$="menucard menucard-{{todayHouse}}">
+              <h2><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h2>
+              <h3>{{_stringScene(todayHouse, santaApp.strings)}}</h3>
+            </div>
+          </a>
+        </template>
+        <a href$="{{pageUrl}}#tracker">
+          <div class="menucard menucard-tracker">
+            <h2>{{_dec24th}}</h2>
+            <h3><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></h3>
+          </div>
+        </a>
+      </div>
+
+      <div class="links">
+        <h2>
+          <i18n-msg msgid="village_more">PLACEHOLDER_i18n</i18n-msg>
+        </h2>
+        <ul>
+          <li><a target="_blank" href="https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker">
+            <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
+          </a></li>
+          <li><a href="{{pageUrl}}#press">
+            <i18n-msg msgid="press">PLACEHOLDER_i18n</i18n-msg>
+          </a></li>
+          <li><a href="{{pageUrl}}#about">
+            <i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg>
+          </a></li>
+          <li><a target="_blank" href="https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb">
+            <i18n-msg msgid="deckdescription">PLACEHOLDER_i18n</i18n-msg>
+          </a></li>
+          <li><a target="_blank" href="https://www.google.com/policies/">
+            <i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg>
+          </a></li>
+          <li><a target="_blank" href="https://maps.google.com/help/maps/helloworld/index.html">
+            <i18n-msg msgid="getgooglemaps">PLACEHOLDER_i18n</i18n-msg>
+          </a></li>
+        </ul>
+      </div>
+
+      <div class="lang">
+        <iron-icon icon="language"></iron-icon>
+        <select id="language" value="[[santaApp.language]]" on-change="_onLanguageChanged">
+          <option value="af">Afrikaans</option>
+          <option value="ca">Català</option>
+          <option value="zh-CN">中文（香港）</option>
+          <option value="zh-TW">中文</option>
+          <option value="da">Dansk</option>
+          <option value="de">Deutsch</option>
+          <option value="et">Eesti</option>
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="fr-CA">Français (Canada)</option>
+          <option value="hr">Hrvatski</option>
+          <option value="id">Indonesia</option>
+          <option value="it">Italiano</option>
+          <option value="ja">日本語</option>
+          <option value="lv">Latvijas</option>
+          <option value="lt">Lietuvos</option>
+          <option value="no">Norsk</option>
+          <option value="pl">Polski</option>
+          <option value="pt-BR">Português (Brasil)</option>
+          <option value="pt-PR">Português (Portugal)</option>
+          <option value="ro">Român</option>
+          <option value="sl">Slovenija</option>
+          <option value="sv">Svenska</option>
+          <option value="tl">Tagalog</option>
+          <option value="fi">Viimeistely</option>
+          <option value="bg">Български</option>
+          <option value="uk">Український</option>
+          <option value="ta-IN">தமிழ்</option>
+          <option value="ms">മലയാളം </option>
+          <option value="th">ภาษาไทย</option>
+        </select>
+      </div>
+
+    </div>
+    <paper-header-panel main id="main" mode="seamed"
+        on-content-scroll="_onContentScroll"
+        class$="{{_calculateFixedClass(isFixedToolbar)}}">
+      <paper-toolbar id="toolbar" class$="{{_calculateScrollingClass(scrolledToolbar)}}">
+        <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+        <div id="logo" title="Google logo"></div>
+        <h1 class="title flex">
+          <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
+        </h1>
+        <div class="shareicons">
+          <button id="gplus">Google Plus</button>
+          <button id="twitter"><i18n-msg msgid="twitter">PLACEHOLDER_i18n</i18n-msg></button>
+          <button id="facebook">Facebook</button>
+          <!-- <paper-icon-button id="gplus" src="/elements/toolbar/img/share-gplus.svg"></paper-icon-button>
+          <paper-icon-button id="twitter" src="/elements/toolbar/img/share-twitter.svg"></paper-icon-button>
+          <paper-icon-button id="facebook" src="/elements/toolbar/img/share-facebook.svg"></paper-icon-button> -->
+        </div>
+
+        <!-- Used for background and transition effect -->
+        <div class="middle" style$="background-color: {{color}}"></div>
+      </paper-toolbar>
+      <content>
+      </content>
+    </paper-header-panel>
+  </paper-drawer-panel>
+
+</template>
+<script>
+  Polymer({
+    is: 'santa-chrome',
+
+    behaviors: [
+      window.SantaAppBehavior,
+    ],
+
+    properties: {
+
+      _dec24th: {
+        type: String,
+        computed: '_computeDec24thString(santaApp.language)'
+      },
+
+      todayHouse: String,
+
+      /**
+       * The color to use for the background, if set.
+       */
+      color: String,
+
+      /**
+       * Whether this toolbar should be fixed: always solid, with content below.
+       */
+      isFixedToolbar: {
+        type: Boolean,
+        value: false
+      },
+
+      /**
+       * Whether the toolbar is being shown in scrolled mode, 
+       */
+      scrolledToolbar: {
+        type: Boolean,
+        computed: '_computeScrolledToolbar(isFixedToolbar, _atTop)'
+      },
+
+      /**
+       * Whether, in non-fixed mode, the scroll viewport is at the top. This
+       * mirrors the `atTop` property `paper-header-toolbar`, which doesn't
+       * notify, so it needs to be updated here.
+       *
+       * See: https://github.com/PolymerElements/paper-header-panel/issues/64
+       */
+      _atTop: {
+        type: Boolean,
+        value: true  // overwritten in attached:
+      },
+
+      _smallScreen: Boolean,
+
+    },
+
+    attached: function() {
+      // TODO(samthor): Use `listeners` to register these instead.
+      this._attach('gplus', 348, 512, function(u) {
+        return 'https://plus.google.com/share?url=' + u;
+      });
+      this._attach('twitter', 600, 253, function(u) {
+        return 'https://twitter.com/share?hashtags=santatracker&url=' + u;
+      });
+      this._attach('facebook', 600, 229, function(u) {
+        return 'https://www.facebook.com/sharer.php?p[url]=' + u + '&u=' + u;
+      });
+
+      // Set the initial value for _atTop before on-content-scroll fired. This
+      // is done here and in _onContentScroll becaues paper-header-toolbar
+      // doesn't notify `atTop` so it needs to be managed manually.
+      this._atTop = this.$.main.atTop;
+    },
+
+    /**
+     * Close the `santa-chrome` drawer.
+     */
+    closeDrawer: function() {
+      this.$.sidebar.closeDrawer();
+    },
+
+    _computeDec24thString: function(lang) {
+      var thisYear = new Date();
+      var d = new Date("December 24, " + thisYear.getUTCFullYear());
+      return d.toLocaleDateString(lang, {
+        month: 'long', day: 'numeric'
+      });
+    },
+
+    _stringScene: function(id, strings) {
+      return strings['scene-' + id];
+    },
+
+    _onLanguageChanged: function() {
+      var lang = this.$.language.value;
+
+      this.fire('analytics-track-event', {category: 'language', action: 'click',
+                                          label: 'change', value: lang});
+
+      // This is done as a RAF because we want to make sure the analytics
+      // event is triggered.
+      this.async(function() {
+        var suffix = (window.location.href.indexOf('appspot') != -1 ? '_ALL/index.html' : '/');
+        window.location = '/intl/' + lang + suffix + location.search + location.hash;
+      }, null, 100);
+    },
+
+    _onContentScroll: function() {
+      this.debounce('_onContentScroll', function() {
+        this._atTop = this.$.main.atTop;
+      });
+    },
+
+    _computeScrolledToolbar: function(isFixedToolbar, atTop) {
+      return isFixedToolbar || !atTop;
+    },
+
+    _calculateScrollingClass: function(scrolledToolbar) {
+      return scrolledToolbar ? 'scrolling' : '';
+    },
+
+    _calculateFixedClass: function(isFixedToolbar) {
+      return isFixedToolbar ? 'fixed' : '';
+    },
+
+    _computeDrawerWidth: function(smallScreen) {
+      return smallScreen ? '100%' : '400px';
+    },
+
+    _attach: function(name, w, h, converter) {
+      this.$[name].addEventListener('click', function(event) {
+        event.preventDefault();
+
+        var urlToShare = window.encodeURIComponent(
+            this.shareURL || ('' + window.location.href));
+        var urlToOpen = converter(urlToShare);
+        var options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=' + h + ',width=' + w;
+        window.open(urlToOpen, '', options);
+      }.bind(this));
+    },
+
+  });
+</script>
+</template>

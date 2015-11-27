@@ -67,7 +67,19 @@ goog.scope(function () {
         vertices.push( new b2.Vec2( Unit.toWorld(p.x), Unit.toWorld(p.y)) );
       }
     }
-    
+
+    /**
+     * @private
+     */
+    addCornerVertices_(vertices, x, y, radius, startAngle) {
+      const angleSteps = 180 / (Constants.CORNER_RESOLUTION-1);
+      const xOffset = x - radius;
+      const yOffset = y + radius;
+      for (let i = Constants.CORNER_RESOLUTION-1; i >= 0; i--) { 
+        const p = this.pointOnCircle_(radius, startAngle + angleSteps*i*-1, {x: xOffset, y: yOffset});
+        vertices.push( new b2.Vec2( Unit.toWorld(p.x), Unit.toWorld(p.y)) );
+      }
+    }
     
     /**
      * Add and return all vertices of the shape as an array
@@ -82,29 +94,26 @@ goog.scope(function () {
       const hasAngle = this.config_.style.hasAngle;
      
       if (hasAngle) {
-        // start half
-        vertices.push( new b2.Vec2(Unit.toWorld(-width/2), Unit.toWorld(-height/2 + stroke)) );
-        vertices.push( new b2.Vec2(Unit.toWorld(-width/2), Unit.toWorld(-height/2)) );
-        
+        // start corner
+        this.addCornerVertices_(vertices, -width/2 + stroke, -height/2, stroke/2, -90);
+
         // outer radius
-        const outerRadius = stroke*3;
+        const outerRadius = stroke*2.5;
         this.addOuterRadiusVertices_(vertices, width/2, -height/2, outerRadius);
 
-        // end half
-        vertices.push( new b2.Vec2(Unit.toWorld(width/2), Unit.toWorld(height/2)) );
-        vertices.push( new b2.Vec2(Unit.toWorld(width/2 - stroke), Unit.toWorld(height/2)) );
+        // end corner
+        this.addCornerVertices_(vertices, width/2, height/2 - stroke, stroke/2, 180);
 
         // inner radius
-        const innerRadius = stroke*2.5;
+        const innerRadius = stroke*2;
         this.addInnerRadiusVertices_(vertices, width/2, -height/2, innerRadius, stroke);
       }
       else {
-        // start half
-        vertices.push( new b2.Vec2(Unit.toWorld(-width/2), Unit.toWorld(height/2)) );
-        vertices.push( new b2.Vec2(Unit.toWorld(-width/2), Unit.toWorld(-height/2)) );
-        // end halfstyle.
-        vertices.push( new b2.Vec2(Unit.toWorld(width/2), Unit.toWorld(-height/2)) );
-        vertices.push( new b2.Vec2(Unit.toWorld(width/2), Unit.toWorld(height/2)) );
+        // start corner
+        this.addCornerVertices_(vertices, -width/2 + height, -height/2, height/2, -90);
+
+        // end corner
+        this.addCornerVertices_(vertices, width/2, -height/2, height/2, 90);
       }
       
       return vertices;

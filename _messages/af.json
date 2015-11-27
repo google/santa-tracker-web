@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "Op Oukersaand sal ons met trots 'n voorskou van Kersvader se kontroleskerm wys. Die kontroleskerm is die tegnologie wat krag verskaf aan sy slee gedurende sy reis rondom die wêreld. Ons het hierdie spesiale voorskou by een van Kersvader se vele ontwikkelaarelfies gekry. Hulle is hard by die Noordpool aan die werk om vir Kersvader te help voorberei vir sy groot dag. Kersvader se kontroleskerm bied die allernuutste Google Maps-tegnologie en slee-ontwikkeling. Dit sal jou in staat stel om sy reis rondom die wêreld te volg en ook so 'n bietjie iets te leer oor sommige van die plekke waar hy langs die pad stop."
+		"message": "Op Oukersaand gaan ons trots Kersvader se kontroleskerm bekendstel; die tegnologie wat sy slee op sy reis om die wêreld aandryf. Ons het hierdie spesiale voorskou van een van Kersvader se baie ontwikkelaarelfies ontvang, wat tans baie hard in die Noordpool werk om vir sy groot dag voor te berei. Kersvader se kontroleskerm – wat die nuutste en beste op die gebied van Google Maps-tegnologie en slee-ingenieurswerk bevat – sal jou in staat stel om sy vordering om die wêreld te volg en ook om langs die pad iets oor sy stilhouplekke te leer."
 	},
 	"about-content-three": {
 		"message": "Google Maps se Waar is Kersvader is deur Google geskep en ontwikkel, met 'n bietjie hulp van Santa se elfies af. Het jy hulp nodig of het jy nog 'n vraag? Besoek ons \u003ca href=\"//support.google.com/santatracker\"\u003eHulpsentrum\u003c/a\u003e."
@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Chili"
 	},
-	"close-this": {
-		"message": "Kanselleer"
+	"close": {
+		"message": "Maak toe"
 	},
 	"cm_country_name": {
 		"message": "Kameroen"
@@ -325,6 +325,21 @@
 	},
 	"copy-me": {
 		"message": "Kopieer hierdie skakel om jou boodskap te deel"
+	},
+	"countdown_days": {
+		"message": "Dae"
+	},
+	"countdown_hours": {
+		"message": "Uur"
+	},
+	"countdown_minutes": {
+		"message": "Min."
+	},
+	"countdown_seconds": {
+		"message": "Sek."
+	},
+	"countdown_until": {
+		"message": "Kersvader vertrek oor"
 	},
 	"countdownlabel": {
 		"message": "Totdat Kersvader vertrek"
@@ -629,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Nuut"
+	},
 	"newtoday": {
 		"message": "Nuut vandag"
 	},
@@ -667,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Ysbeer"
+	},
+	"notification": {
+		"message": "Kennisgewings"
+	},
+	"notification_notice": {
+		"message": "Kersvader se elwe sal jou op hoogte hou van Kersvader se skedule"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -722,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Pers"
+	},
 	"pt_language_name": {
 		"message": "Portugees"
 	},
@@ -743,8 +770,110 @@
 	"sa_country_name": {
 		"message": "Saoedi-Arabië"
 	},
+	"santasearch_hint": {
+		"message": "Wenk"
+	},
+	"santasearch_level_lab": {
+		"message": "In die laboratorium"
+	},
+	"santasearch_level_museum": {
+		"message": "By die museum"
+	},
+	"santasearch_level_select": {
+		"message": "Gaan!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Soek vir Kersvader!"
+	},
+	"santasvillage": {
+		"message": "Kersvader se dorpie"
+	},
 	"santatracker": {
 		"message": "Waar is Kersvader"
+	},
+	"scene_airport": {
+		"message": "Noordpool-lughawe"
+	},
+	"scene_app": {
+		"message": "Android-program"
+	},
+	"scene_boatload": {
+		"message": "Geskenkkettie"
+	},
+	"scene_briefing": {
+		"message": "Mev. Kersvader se instruksies"
+	},
+	"scene_callfromsanta": {
+		"message": "Oproep van Kersvader"
+	},
+	"scene_citylights": {
+		"message": "Stadsligte"
+	},
+	"scene_codeboogie": {
+		"message": "Kode-Boogie"
+	},
+	"scene_codelab": {
+		"message": "Kodelaboratorium"
+	},
+	"scene_commandcentre": {
+		"message": "Sendingbeheer"
+	},
+	"scene_giftmatch": {
+		"message": "Geskenkpasser"
+	},
+	"scene_gumball": {
+		"message": "Gumball-kantel"
+	},
+	"scene_jamband": {
+		"message": "Elf-jamgroep"
+	},
+	"scene_jetpack": {
+		"message": "Elf-stralerpak"
+	},
+	"scene_matching": {
+		"message": "Geheuepassing"
+	},
+	"scene_mercator": {
+		"message": "Kaartvasvra"
+	},
+	"scene_postcard": {
+		"message": "Kersvaderkaarte"
+	},
+	"scene_presentbounce": {
+		"message": "Geskenkhop"
+	},
+	"scene_presentdrop": {
+		"message": "Aflaai van geskenke"
+	},
+	"scene_racer": {
+		"message": "Rudolph se jaer"
+	},
+	"scene_santasearch": {
+		"message": "Kersvader-soektog"
+	},
+	"scene_santaselfie": {
+		"message": "Kersvader-selfie"
+	},
+	"scene_seasonofgiving": {
+		"message": "Seisoen van geskenke"
+	},
+	"scene_traditions": {
+		"message": "Vakansietradisies"
+	},
+	"scene_translations": {
+		"message": "Vertalings"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Elfkar"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Kersvader se opstyg"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Kersvader is terug"
+	},
+	"scene_windtunnel": {
+		"message": "Windtonnel"
 	},
 	"score": {
 		"message": "Telling"
@@ -818,6 +947,9 @@
 	"tn_country_name": {
 		"message": "Tunisië"
 	},
+	"today_only": {
+		"message": "Net vandag"
+	},
 	"today_only_1": {
 		"message": "Net vandag"
 	},
@@ -860,14 +992,23 @@
 	"tracker_santa_update": {
 		"message": "KERSVADER SE NUUS"
 	},
+	"tracker_santa_update_1": {
+		"message": "Santa-opdatering"
+	},
 	"tracker_see_route": {
 		"message": "Sien die roete"
+	},
+	"tracker_track": {
+		"message": "Volg Kersvader se spoor"
 	},
 	"tracker_weather": {
 		"message": "Weer"
 	},
 	"tracker_world_facts": {
 		"message": "HET JY GEWEET"
+	},
+	"tracker_world_facts_1": {
+		"message": "Wêreldfeite"
 	},
 	"tracker_your_location": {
 		"message": "Jou ligging"
@@ -4543,6 +4684,24 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Kom terug op die 24ste en help ons die hele nag om Kersvader te volg!"
+	},
+	"village_explore": {
+		"message": "Verken, speel en leer die hele Desember saam met Kersvader se elwe"
+	},
+	"village_get_the_app": {
+		"message": "Kry die program"
+	},
+	"village_santa_cardboard": {
+		"message": "Kersvader op Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Kersvader op Google Cast"
+	},
+	"village_takesoff": {
+		"message": "Kersvader vertrek oor"
 	},
 	"vn_country_name": {
 		"message": "Viëtnam"

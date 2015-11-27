@@ -22,6 +22,12 @@ specific language governing permissions and limitations under the License.
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="traditions-scene.css" />
+<style>
+  traditions-scene[mode="portal"] a[href*="google.com"] {
+    pointer-events: none;
+    cursor: default !important;
+  }
+</style>
 
 <!--
 Traditions scene.
@@ -239,6 +245,7 @@ Traditions scene.
       if (this.traditions) {
         this.traditions.onShow();
       }
+      this.fire('sound-ambient', 'music_start_scene');
     },
 
     onHide: function() {
