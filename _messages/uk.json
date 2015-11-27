@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Колумбія"
 	},
+	"codeboogie-block-jump": {
+		"message": "Стрибок"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Підстрибнімо."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Руку вліво"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Відведімо ліву руку вбік."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Крок уліво"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Зробімо крок уліво."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Руку вправо"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Відведімо праву руку вбік."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Крок управо"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Зробімо крок управо."
+	},
+	"codeboogie-block-shake": {
+		"message": "Рухи стегнами"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Похитаймо стегнами."
+	},
+	"codeboogie-block-split": {
+		"message": "Шпагат"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Виконаймо шпагат."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Потанцюймо!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Наступний танець"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Відтворіть послідовність рухів танцю."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "А ви знали, що для цього танцю достатньо {{ideal}} правильних послідовностей рухів? Спробуйте."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Чудово! Ви гарно танцюєте."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Спробуйте виконати більше правильних рухів танцю."
+	},
+	"codeboogie-success": {
+		"message": "Чудово!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Дивіться уважно!"
+	},
 	"codelab-block-moveeast": {
 		"message": "схід"
 	},
@@ -873,7 +939,7 @@
 		"message": "Дід Мороз повертається"
 	},
 	"scene_windtunnel": {
-		"message": "Аеродинамічна труба"
+		"message": "Потік вітру"
 	},
 	"score": {
 		"message": "Результат"
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Завантажити додаток"
+	},
+	"village_more": {
+		"message": "Більше цікавого"
 	},
 	"village_santa_cardboard": {
 		"message": "Дід Мороз у Cardboard"

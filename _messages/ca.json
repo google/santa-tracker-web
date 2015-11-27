@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Colòmbia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Salteu"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Salteu."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Braç a l'esquerra"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Alceu el braç cap a l'esquerra."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Pas a l'esquerra"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Feu un pas a l'esquerra."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Braç a la dreta"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Alceu el braç cap a la dreta."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Pas a la dreta"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Feu un pas a la dreta."
+	},
+	"codeboogie-block-shake": {
+		"message": "Moveu els malucs"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Moveu els malucs."
+	},
+	"codeboogie-block-split": {
+		"message": "Espagat"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Feu un espagat."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Posa't a ballar!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Següent ball"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Proveu el bloc següent perquè coincideixi amb el ball."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Sabíeu que podeu completar el ball amb només {{ideal}} blocs? Proveu de fer servir el bloc següent."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Sou el rei de la pista! Heu completat el ball a la perfecció."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Esteu fent servir els blocs correctes, però proveu de fer-ne servir més per completar el ball."
+	},
+	"codeboogie-success": {
+		"message": "Ho heu fet!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Pareu atenció!"
+	},
 	"codelab-block-moveeast": {
 		"message": "est"
 	},
@@ -747,7 +813,7 @@
 		"message": "Puerto Rico"
 	},
 	"press": {
-		"message": "Prem"
+		"message": "Premsa"
 	},
 	"pt_language_name": {
 		"message": "Portuguès"
@@ -780,7 +846,7 @@
 		"message": "Al museu"
 	},
 	"santasearch_level_select": {
-		"message": "Vés"
+		"message": "Fantàstic!"
 	},
 	"santasearch_search_for_santa": {
 		"message": "On és el Pare Noel?"
@@ -4692,7 +4758,10 @@
 		"message": "Exploreu, jugueu i apreneu amb els elfs del Pare Noel durant tot el mes de desembre"
 	},
 	"village_get_the_app": {
-		"message": "Obtén l'aplicació"
+		"message": "Baixa l'aplicació"
+	},
+	"village_more": {
+		"message": "Més maneres d'explorar"
 	},
 	"village_santa_cardboard": {
 		"message": "El Pare Noel a Cardboard"

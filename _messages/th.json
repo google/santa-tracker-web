@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "โคลอมเบีย"
 	},
+	"codeboogie-block-jump": {
+		"message": "กระโดด"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "กระโดด"
+	},
+	"codeboogie-block-leftarm": {
+		"message": "ขยับแขนซ้าย"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "ชี้ไปทางซ้าย"
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "ก้าวไปทางซ้าย"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "ก้าวเท้าไปทางซ้าย"
+	},
+	"codeboogie-block-rightarm": {
+		"message": "ขยับแขนขวา"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "ชี้ไปทางขวา"
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "ก้าวไปทางขวา"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "ก้าวเท้าไปทางขวา"
+	},
+	"codeboogie-block-shake": {
+		"message": "ส่ายสะโพก"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "ส่ายสะโพก"
+	},
+	"codeboogie-block-split": {
+		"message": "แยกขา"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "แยกขาออกจากกัน"
+	},
+	"codeboogie-get-dancing": {
+		"message": "ไปเต้นกันเถอะ!"
+	},
+	"codeboogie-next-dance": {
+		"message": "เต้นกันต่อเลย"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "ลองใช้บล็อกด้านล่างเพื่อจับคู่กับการเต้น"
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "ทราบหรือไม่ว่าคุณสามารถจบการเต้นนี้ได้ใน {{ideal}} บล็อกเท่านั้น ลองใช้บล็อกด้านล่าง"
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "สุดยอดเท้าไฟ! คุณเต้นเสร็จแล้วอย่างสมบูรณ์แบบ"
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "คุณกำลังใช้บล็อกที่ถูกต้อง แต่ลองใช้ให้มากขึ้นเพื่อเต้นจนครบทุกท่า"
+	},
+	"codeboogie-success": {
+		"message": "สำเร็จแล้ว"
+	},
+	"codeboogie-watch-closely": {
+		"message": "ดูดีๆ อย่ากะพริบตา!"
+	},
 	"codelab-block-moveeast": {
 		"message": "ตะวันออก"
 	},
@@ -747,7 +813,7 @@
 		"message": "เปอร์โตริโก"
 	},
 	"press": {
-		"message": "กด"
+		"message": "สื่อ"
 	},
 	"pt_language_name": {
 		"message": "ภาษาโปรตุเกส"
@@ -4694,11 +4760,14 @@
 	"village_get_the_app": {
 		"message": "รับแอป"
 	},
+	"village_more": {
+		"message": "วิธีอื่นๆ ในการสำรวจ"
+	},
 	"village_santa_cardboard": {
-		"message": "ค้นหาซานต้าบน Cardboard"
+		"message": "ซานต้าบน Cardboard"
 	},
 	"village_santa_cast": {
-		"message": "ค้นหาซานต้าบน Google Cast"
+		"message": "ซานต้าบน Google Cast"
 	},
 	"village_takesoff": {
 		"message": "ซานต้าจะออกเดินทางใน"

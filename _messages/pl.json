@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Kolumbia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Podskocz"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Podskocz."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Wskaż w lewo"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Wskaż w lewo."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Krok w lewo"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Zrób krok w lewo."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Wskaż w prawo"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Wskaż w prawo."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Krok w prawo"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Zrób krok w prawo."
+	},
+	"codeboogie-block-shake": {
+		"message": "Kręć biodrami"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Kręć biodrami."
+	},
+	"codeboogie-block-split": {
+		"message": "Zrób szpagat"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Zrób szpagat."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Zatańcz!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Następny taniec"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Wypróbuj kwadrat poniżej, żeby naśladować taniec."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Możesz dokończyć taniec, używając mniejszej liczby kwadratów. Spróbuj wybrać ten poniżej."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Świetne ruchy! Twój taniec był doskonały."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Wybierasz właściwe kwadraty, ale musisz używać ich więcej, żeby dokończyć taniec."
+	},
+	"codeboogie-success": {
+		"message": "Udało się!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Patrz uważnie!"
+	},
 	"codelab-block-moveeast": {
 		"message": "wschód"
 	},
@@ -747,7 +813,7 @@
 		"message": "Portoryko"
 	},
 	"press": {
-		"message": "Prasa"
+		"message": "Dla prasy"
 	},
 	"pt_language_name": {
 		"message": "portugalski"
@@ -999,7 +1065,7 @@
 		"message": "Zobacz trasę"
 	},
 	"tracker_track": {
-		"message": "Gdzie jest Święty Mikołaj"
+		"message": "Śledź trasę Mikołaja"
 	},
 	"tracker_weather": {
 		"message": "Pogoda"
@@ -4694,11 +4760,14 @@
 	"village_get_the_app": {
 		"message": "Pobierz aplikację"
 	},
+	"village_more": {
+		"message": "Więcej sposobów na zabawę z Mikołajem"
+	},
 	"village_santa_cardboard": {
-		"message": "Święty Mikołaj w Cardboard"
+		"message": "Wypatruj Świętego Mikołaja przez gogle Cardboard"
 	},
 	"village_santa_cast": {
-		"message": "Święty Mikołaj w Google Cast"
+		"message": "Szukaj Świętego Mikołaja przez Google Cast"
 	},
 	"village_takesoff": {
 		"message": "Święty Mikołaj wyrusza za"

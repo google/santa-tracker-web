@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "കൊളംബിയ"
 	},
+	"codeboogie-block-jump": {
+		"message": "ജമ്പ്"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "ജമ്പ് ചെയ്യുക."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "ഇടത് പോയിന്റ് ചെയ്യുക"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "ഇടത്തേക്ക് പോയിന്റ് ചെയ്യുക."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "ഇടത് സ്റ്റെപ്പ്"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "ഇടത്തേക്ക് ഒരു സ്റ്റെപ്പ് വയ്ക്കുക"
+	},
+	"codeboogie-block-rightarm": {
+		"message": "വലത് പോയിന്റ് ചെയ്യുക"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "വലത്തേക്ക് പോയിന്റ് ചെയ്യുക."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "വലത് സ്റ്റെപ്പ്"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "വലത്തേക്ക് ഒരു സ്റ്റെപ്പ് വയ്ക്കുക."
+	},
+	"codeboogie-block-shake": {
+		"message": "ഹിപ് ഷേക്ക്"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "ഒരു ഹിപ് ഷേക്ക് ചെയ്യുക."
+	},
+	"codeboogie-block-split": {
+		"message": "സ്പ്ലിറ്റ്"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "ഒരു സ്പ്ലിറ്റ് ചെയ്യുക."
+	},
+	"codeboogie-get-dancing": {
+		"message": "ഡാൻസിംഗ് സ്വന്തമാക്കുക!"
+	},
+	"codeboogie-next-dance": {
+		"message": "അടുത്ത ഡാൻസ്"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "ഡാൻസ് പൊരുത്തപ്പെടുത്താൻ താഴെയുള്ള ബ്ലോക്ക് പരീക്ഷിക്കുക."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "വെറും {{ideal}} ബ്ലോക്കുകൾ ഉപയോഗിച്ച് ഈ ഡാൻസ് പൂർത്തിയാക്കാൻ നിങ്ങൾക്കാകുമെന്നത് അറിയാമോ? താഴെയുള്ള ബ്ലോക്ക് ഉപയോഗിച്ച് പരീക്ഷിക്കുക."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "നല്ല നീക്കങ്ങൾ! നിങ്ങൾ മികച്ചനിലയിൽ ഡാൻസ് പൂർത്തിയാക്കി."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "നിങ്ങൾ ശരിയായ ബ്ലോക്കുകൾ ഉപയോഗിക്കുന്നു, എന്നാൽ ഡാൻസ് പൂർത്തിയാക്കാൻ അവയിൽ കൂടുതൽ ഉപയോഗിച്ച് പരീക്ഷിക്കുക."
+	},
+	"codeboogie-success": {
+		"message": "വിജയകരം!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "നന്നായി കാണുക!"
+	},
 	"codelab-block-moveeast": {
 		"message": "കിഴക്ക്"
 	},
@@ -4694,11 +4760,14 @@
 	"village_get_the_app": {
 		"message": "ആപ്പ് സ്വന്തമാക്കുക"
 	},
+	"village_more": {
+		"message": "അടുത്തറിയാനുള്ള കൂടുതൽ മാർഗങ്ങൾ"
+	},
 	"village_santa_cardboard": {
 		"message": "കാർഡ്‌ബോർഡിലെ സാന്ത"
 	},
 	"village_santa_cast": {
-		"message": "Google കാസ്റ്റിലെ സാന്ത"
+		"message": "Google Cast-ലെ സാന്ത"
 	},
 	"village_takesoff": {
 		"message": "സാന്ത യാത്ര തുടങ്ങുന്നത്"

@@ -131,6 +131,14 @@
         "description": "Marks a detected language in a dropdown of languages.",
         "message": "detected"
     },
+    "donate_button": {
+        "description": "Label for a button that allows users to donate.",
+        "message": "Donate"
+    },
+    "donate_text": {
+        "description": "Information about donations and that Google will match 50% of all user donations. Don't translate '#ForEveryKid', or the DonorsChoose.org domain link.",
+        "message": "Help fund a special needs project on DonorsChoose.org. This December, we're helping to double the impact by matching donations by 50%, until we reach our goal of donating US$1m. Together, we can help to make classrooms more inclusive #ForEveryKid"
+    },
     "difficulty": {
         "description": "15 char limit. Label describing the game difficulty you are on.",
         "message": "Difficulty"
@@ -727,14 +735,6 @@
         "description": "Code block tooltip for a dancing move where the character shakes the hip. Written as a command in first person.",
         "message": "Do a hip shake."
     },
-    "codeboogie-block-clap": {
-        "description": "Code block label for a dancing move where the character claps. 15char limit.",
-        "message": "Clap"
-    },
-    "codeboogie-block-clap-tooltip": {
-        "description": "Code block tooltip for a dancing move where the character claps. Written as a command in first person.",
-        "message": "Do a clap."
-    },
     "codeboogie-get-dancing": {
         "description": "Large title to encourage the player to try out the dancing code blocks. 15char limit.",
         "message": "Get dancing!"
@@ -742,10 +742,6 @@
     "codeboogie-watch-closely": {
         "description": "Title to indicate the teacher is going to do the dance moves that they should copy",
         "message": "Watch closely!"
-    },
-    "codeboogie-your-turn": {
-        "description": "Large title to prompt player to assemble his dance routine. 15char limit.",
-        "message": "Your turn"
     },
     "codeboogie-lets-dance": {
         "description": "Large title before player starts dancing his routine. 15char limit.",
@@ -6259,6 +6255,10 @@
       "description": "Title of a scene/game. Give Santa a new hairstyle.",
       "message": "Santa Selfie"
     },
+    "scene_seasonofcaring": {
+      "description": "Title of a scene/game. Learn about different charities with a disability focus, and paint baubles.",
+      "message": "Season of Caring"
+    },
     "scene_seasonofgiving": {
       "description": "Title of a scene/game. Learn about different charities, and paint baubles.",
       "message": "Season of Giving"
@@ -6392,6 +6392,10 @@
     "village_santa_cast": {
       "description": "Menu item for finding Santa on the Google Cast platform. Don't translate 'Google Cast'.",
       "message": "Santa on Google Cast"
+    },
+    "village_santa_crx": {
+      "description": "Menu item for finding Santa as a Google Chrome extension. Don't translate \"Google Chrome\".",
+      "message": "Google Chrome Extension"
     },
     "village_santa_cardboard": {
       "description": "Menu item for finding Santa as part of an app which supports Google Cardboard (Google's Virtual Reality experience). Don't translate 'Cardboard'.",

@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Columbia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Săritură"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Săriți."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Arătați spre stânga"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Arătați spre stânga."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Pas spre stânga"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Faceți un pas spre stânga."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Arătați spre dreapta"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Arătați spre dreapta."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Pas spre dreapta"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Faceți un pas spre dreapta."
+	},
+	"codeboogie-block-shake": {
+		"message": "Dat din șolduri"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Dați din șolduri."
+	},
+	"codeboogie-block-split": {
+		"message": "Șpagat"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Faceți șpagatul."
+	},
+	"codeboogie-get-dancing": {
+		"message": "La dans!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Dansul următor"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Încercați pătratul de mai jos pentru a dansa corect."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Știați că puteți încheia acest dans cu numai {{ideal}} pătrate? Încercați să folosiți pătratul de mai jos."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Frumoase mișcări! Ați încheiat perfect dansul."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Folosiți pătratele corecte. Încercați însă mai multe pentru a finaliza dansul."
+	},
+	"codeboogie-success": {
+		"message": "Ați reușit!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Fiți atent(ă)!"
+	},
 	"codelab-block-moveeast": {
 		"message": "est"
 	},
@@ -747,7 +813,7 @@
 		"message": "Puerto Rico"
 	},
 	"press": {
-		"message": "Apăsați"
+		"message": "Presă"
 	},
 	"pt_language_name": {
 		"message": "Portugheză"
@@ -873,7 +939,7 @@
 		"message": "Moș Crăciun s-a întors"
 	},
 	"scene_windtunnel": {
-		"message": "Tunel aerodinamic"
+		"message": "Tunel de vânt"
 	},
 	"score": {
 		"message": "Scor"
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Descărcați aplicația"
+	},
+	"village_more": {
+		"message": "Alte metode de explorat"
 	},
 	"village_santa_cardboard": {
 		"message": "Moș Crăciun pe Cardboard"

@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Salto"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "¡Da un salto!"
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Señala a la izquierda"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Señala a la izquierda."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Paso a la izquierda"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Da un paso a la izquierda."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Señala a la derecha"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Señala a la derecha."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Paso a la derecha"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Da un paso a la derecha."
+	},
+	"codeboogie-block-shake": {
+		"message": "Meneíto"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "¡Mueve las caderas!"
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "¡Ábrete de piernas!"
+	},
+	"codeboogie-get-dancing": {
+		"message": "¡A bailar!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Siguiente baile"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Prueba con el bloque de abajo e imita el baile."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "¿Sabías que puedes completar el baile con {{ideal}} bloques? Prueba a usar el de abajo."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "¡Llevas el ritmo en las venas! Has bailado a la perfección."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Estás usando los bloques correctos, ¿por qué no pruebas a utilizar más para completar el baile?"
+	},
+	"codeboogie-success": {
+		"message": "¡Bien hecho!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "¡Fíjate bien!"
+	},
 	"codelab-block-moveeast": {
 		"message": "este"
 	},
@@ -780,7 +846,7 @@
 		"message": "En el museo"
 	},
 	"santasearch_level_select": {
-		"message": "¡Adelante!"
+		"message": "¡Ya!"
 	},
 	"santasearch_search_for_santa": {
 		"message": "¡Busca a Papá Noel!"
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Descargar aplicación"
+	},
+	"village_more": {
+		"message": "¿Qué más puedes hacer?"
 	},
 	"village_santa_cardboard": {
 		"message": "Papá Noel en Cardboard"

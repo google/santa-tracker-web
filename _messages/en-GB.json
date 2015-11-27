@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Jump"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Do a jump."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Point left"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Point to the left."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Step left"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Take a step to the left."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Point right"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Point to the right."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Step right"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Take a step to the right."
+	},
+	"codeboogie-block-shake": {
+		"message": "Hip shake"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Do a hip shake."
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Do a split."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Get dancing!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Next Dance"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Try the block below to match the dance."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Did you know that you can finish this dance with just {{ideal}} blocks? Try using the block below."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Nice moves! You finished the dance perfectly."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "You are using the right blocks, but try using more of them to complete the dance."
+	},
+	"codeboogie-success": {
+		"message": "Success!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Watch closely!"
+	},
 	"codelab-block-moveeast": {
 		"message": "east"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Get the App"
+	},
+	"village_more": {
+		"message": "More Ways to Explore"
 	},
 	"village_santa_cardboard": {
 		"message": "Santa on Cardboard"

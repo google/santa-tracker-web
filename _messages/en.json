@@ -470,6 +470,12 @@
 	"do_country_name": {
 		"message": "Dominican Republic"
 	},
+	"donate_button": {
+		"message": "Donate"
+	},
+	"donate_text": {
+		"message": "Help fund a special needs project on DonorsChoose.org. This December, we're helping to double the impact by matching donations by 50%, until we reach our goal of donating US$1m. Together, we can help to make classrooms more inclusive #ForEveryKid"
+	},
 	"dz_country_name": {
 		"message": "Algeria"
 	},
@@ -952,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Santa Selfie"
+	},
+	"scene_seasonofcaring": {
+		"message": "Season of Caring"
 	},
 	"scene_seasonofgiving": {
 		"message": "Season of Giving"
@@ -4807,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "Santa on Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Google Chrome Extension"
 	},
 	"village_takesoff": {
 		"message": "Santa takes off in"

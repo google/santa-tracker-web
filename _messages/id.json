@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Kolombia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Lompat"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Lakukan lompatan."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Arah kiri"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Arahkan ke kiri."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Langkah kiri"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Ambil langkah ke kiri."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Arah kanan"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Arahkan ke kanan."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Langkah kanan"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Ambil langkah ke kanan."
+	},
+	"codeboogie-block-shake": {
+		"message": "Goyang pinggul"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Lakukan goyang pinggul."
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Lakukan split."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Menarilah!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Tarian Berikutnya"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Cobalah blok di bawah untuk menyesuaikan tarian."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Tahukah Anda bahwa Anda dapat menyelesaikan tarian ini hanya dengan {{ideal}} blok? Cobalah menggunakan blok di bawah."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Gerakan yang bagus! Anda telah menyelesaikan tarian dengan sempurna."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Anda menggunakan blok yang benar, tapi coba gunakan yang lain untuk menyelesaikan tarian."
+	},
+	"codeboogie-success": {
+		"message": "Berhasil!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Perhatikan baik-baik!"
+	},
 	"codelab-block-moveeast": {
 		"message": "timur"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Dapatkan Aplikasi"
+	},
+	"village_more": {
+		"message": "Cara Lain untuk Menjelajahi"
 	},
 	"village_santa_cardboard": {
 		"message": "Sinterklas di Cardboard"
