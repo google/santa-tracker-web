@@ -299,7 +299,7 @@ app.Game.prototype.watchSceneSize_ = function() {
       game = this;
 
   var updateSize = function() {
-    var height = gameElem.height() - window.santaApp.headerSize;
+    var height = gameElem.height();
     var scale = Math.min(Constants.GAME_MAX_SCALE, height / size.height);
     game.setScale(scale, gameElem.width());
   };
