@@ -2,6 +2,12 @@
   .character {
     position: absolute;
 
+    &-collider {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
     &--santa,
     &--santa-shadow {
       background: url(img/santa.svg) 0 0 / cover no-repeat;

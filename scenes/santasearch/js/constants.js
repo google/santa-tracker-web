@@ -36,6 +36,23 @@ app.Constants = {
         'SANTA-6',
         'SANTA-7',
         'SANTA-8',
+      ],
+      'gingerbread-man': [
+        'GINGERBREADMAN-1',
+        'GINGERBREADMAN-2',
+        'GINGERBREADMAN-3',
+        'GINGERBREADMAN-4',
+        'GINGERBREADMAN-5',
+        'GINGERBREADMAN-6'
+      ],
+      'penguin': [
+        'PENGUIN-1',
+        'PENGUIN-2',
+        'PENGUIN-3',
+        'PENGUIN-4',
+        'PENGUIN-5',
+        'PENGUIN-6',
+        'PENGUIN-7'
       ]
       /*
       'santa': [

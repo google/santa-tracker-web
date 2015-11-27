@@ -48,7 +48,7 @@ app.Characters = function(mapElem, drawerElem, mapDimensions) {
       isFound: false
     },
     'gingerbread-man': {
-      elem: this.mapElem.find('.character--gingerbread-man'),
+      elem: this.mapElem.find('.character-collider--gingerbread-man'),
       uiElem: this.drawerElem.find('.character--gingerbread-man').parent(),
       location: {},
       scale: {},
@@ -62,7 +62,7 @@ app.Characters = function(mapElem, drawerElem, mapDimensions) {
       isFound: false
     },
     'penguin': {
-      elem: this.mapElem.find('.character--penguin'),
+      elem: this.mapElem.find('.character-collider--penguin'),
       uiElem: this.drawerElem.find('.character--penguin').parent(),
       location: {},
       scale: {},
@@ -82,9 +82,9 @@ app.Characters.prototype.initialize = function() {
   this._initializeCharacter('santa');
   // this._initializeCharacter('mrs-claus');
   // this._initializeCharacter('rudolph');
-  // this._initializeCharacter('gingerbread-man');
+  this._initializeCharacter('gingerbread-man');
   // this._initializeCharacter('pegman');
-  // this._initializeCharacter('penguin');
+  this._initializeCharacter('penguin');
 
   this.updateCharacters();
 };
@@ -185,12 +185,20 @@ app.Characters.prototype._initializeCharacter = function(characterName) {
     }
   });
 
+  //console.log('Calculating boundaries for ' + characterName);
+
   let characterBoundaries = characterSVG.getBoundingClientRect();
 
+  let leftOffset = (this.mapDimensions.width - window.innerWidth) / 2;
+  let topOffset = (this.mapDimensions.height - window.innerHeight) / 2;
+
   character.location = {
-    left: characterBoundaries.left / this.mapDimensions.width,
-    top: characterBoundaries.top / this.mapDimensions.height
+    left: (characterBoundaries.left + leftOffset) / this.mapDimensions.width,
+    top: (characterBoundaries.top + topOffset) / this.mapDimensions.height
   };
+
+  console.log(character.location);
+  console.log('---');
 
   character.scale = {
     width: characterBoundaries.width / this.mapDimensions.width,
@@ -202,8 +210,8 @@ app.Characters.prototype._initializeCharacter = function(characterName) {
   let hintElem = character.uiElem.find('.hint');
   hintElem.on('click.santasearch', this._setHintTarget.bind(this, characterName));
 
-  console.log(characterName + ' is ready');
-  console.log(character);
+  //console.log(characterName + ' is ready');
+  //console.log(character);
 };
 
 app.Characters.prototype._setHintTarget = function(characterName) {
