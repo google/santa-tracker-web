@@ -1,13 +1,3 @@
-// TODO(samthor): Move helper methods somewhere common
-@function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
-}
-
-// Returns the % of $value in $inside. Assumes both are px values.
-@function percent($value, $inside) {
-  @return #{(strip-unit($value) / strip-unit($inside)) * 100}%;
-}
-
 // All dimensions below assume cell size of 320x320 (i.e., $dim-house).
 
 // ID houseWidth houseHeight iceWidth iceHeight houseLeft houseTop iceLeft iceTop dateLeft dateTop labelX labelY zIndex
@@ -16,7 +6,7 @@ $houses:
     "traditions"      235   222   424   236   35     21    -100   10    0   0   -12 -8  $house-row-1-z-index,
     "codelab"         277   209   364   284   29     100   -40    55    0   0   -21 -3  $house-row-1-z-index,
     "app"             280   366   443   351   -29    -11   -81    -3    0   0   24  -18 $house-row-2-z-index+50,
-    "seasonofgiving"  333   233   373   282   29     0     -55    -15   90  90  -40  -10  $house-row-2-z-index,
+    "seasonofgiving"  333   233   373   282   29     0     -55    -15   90  90  -40 -10 $house-row-2-z-index,
     "santasback"      231   180   499   284   98     23    -53    -30   120 54  -2  6   $house-row-2-z-index,
     "santaselfie"     209   262   497   348   81     41    -80    10    86  122 8   4   $house-row-2-z-index+50,
     "translations"    311   174   712   286   5      101   -180   45    80  129 -18 6   $house-row-3-z-index+20,
@@ -36,13 +26,13 @@ $houses:
 
     // nb: these two scenes are interchangable
     "callfromsanta"   271   298   537   321   11     -20   -120   -20   27  90  -22 7   $house-row-6-z-index,
-    "briefing"        315   246   355   287   -10    20    -20      0     0   0  35 -7   $house-row-6-z-index,
+    "briefing"        315   246   355   287   -10    20    -20      0   92  90  35 -7   $house-row-6-z-index,
 
     "citylights"      360   311   467   332   -10    0     -34    -10   74  180 19  -19 $house-row-6-z-index,
     "commandcentre"   197   215   380   271   104    48    10     40    273 159 -2  4   $house-row-7-z-index,
-    "seasonofcaring"  390   241   373   282   -59    0     -36    -31   212 24  50 -8  $house-row-7-z-index,
+    "seasonofcaring"  390   241   373   282   -59    0     -36    -31   212 24  50 -8   $house-row-7-z-index,
     "matching"        303   192   457   270   49     36    -58    10    97  92  0   4   $house-row-7-z-index,
-    "liftoff"         276   294   355   336   55     37    22     11    237 108  -14 -11 $house-row-7-z-index;
+    "liftoff"         276   294   355   336   55     37    22     11    237 108 -14 -11 $house-row-7-z-index;
 
 $idx-id: 1;
 $idx-width: 2;
