@@ -33,8 +33,8 @@ app.config.Levels = [
   {
     ball: {
       material: app.config.Materials.present,
-      style: app.config.Styles.presentSquare,
-      objectType: app.world.PresentSquare,
+      style: app.config.Styles.presentCircle,
+      objectType: app.world.CircleBall,
       relX: 0.15,
       relY: 0.15
     },
@@ -54,45 +54,10 @@ app.config.Levels = [
       {
         material: app.config.Materials.fixedObject,
         style: app.config.Styles.straightBeam,
-        relX: 0.5,
-        relY: 0.25,
-        rotation: 0
-      },
-      // {
-      //   material: app.config.Materials.fixedObject,
-      //   style: app.config.Styles.angledBeam,
-      //   relX: .8,
-      //   relY: .2,
-      //   rotation: 180
-      // },
-      // {
-      //   material: app.config.Materials.fixedObject,
-      //   style: app.config.Styles.straightBeam,
-      //   relX: 0.75,
-      //   relY: 0.6,
-      //   rotation: 0
-      // },
-      // {
-      //   material: app.config.Materials.fixedObject,
-      //   style: app.config.Styles.straightBeam,
-      //   relX: 0.6,
-      //   relY: 0.75,
-      //   rotation: 90
-      // },
-      // {
-      //   material: app.config.Materials.fixedObject,
-      //   style: app.config.Styles.straightBeam,
-      //   relX: 0.35,
-      //   relY: 0.75,
-      //   rotation: 90
-      // },
-      // {
-      //   material: app.config.Materials.fixedObject,
-      //   style: app.config.Styles.angledBeam,
-      //   relX: .15,
-      //   relY: .75,
-      //   rotation: 0
-      // }
+        relX: 0.6,
+        relY: 0.75,
+        rotation: 90
+      }
     ],
     conveyorBelts: [
       {
@@ -136,8 +101,8 @@ app.config.Levels = [
       material: app.config.Materials.present,
       style: app.config.Styles.presentCircle,
       objectType: app.world.CircleBall,
-      relX: 0.2,
-      relY: 0.0
+      relX: 0.15,
+      relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
@@ -151,7 +116,36 @@ app.config.Levels = [
       relX: 0.75,
       relY: 0.9
     },
-    fixedObjects: [],
+    fixedObjects: [
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.5,
+        relY: 0.25,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.6,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.35,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .15,
+        relY: .75,
+        rotation: 0
+      }
+    ],
     conveyorBelts: [],
     springs: []
   },
@@ -161,9 +155,15 @@ app.config.Levels = [
     ball: {
       material: app.config.Materials.present,
       style: app.config.Styles.presentCircle,
-      objectType: app.world.PresentBall,
-      relX: 0.24,
-      relY: 0
+      objectType: app.world.CircleBall,
+      relX: 0.15,
+      relY: 0.15
+    },
+    dropper: {
+      material: app.config.Materials.fixedObject,
+      style: app.config.Styles.dropper,
+      relX: 0.2,
+      relY: 0.1
     },
     target: {
       material: app.config.Materials.target,
@@ -171,7 +171,50 @@ app.config.Levels = [
       relX: 0.75,
       relY: 0.9
     },
-    fixedObjects: [],
+    fixedObjects: [
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.5,
+        relY: 0.25,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .8,
+        relY: .2,
+        rotation: 180
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.75,
+        relY: 0.6,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.6,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.35,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .15,
+        relY: .75,
+        rotation: 0
+      }
+    ],
     conveyorBelts: [],
     springs: []
   },
@@ -180,10 +223,10 @@ app.config.Levels = [
   {
     ball: {
       material: app.config.Materials.present,
-      style: app.config.Styles.presentRectangle,
-      objectType: app.world.PresentBall,
-      relX: 0.2,
-      relY: 0.0
+      style: app.config.Styles.presentCircle,
+      objectType: app.world.CircleBall,
+      relX: 0.15,
+      relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
@@ -197,7 +240,50 @@ app.config.Levels = [
       relX: 0.75,
       relY: 0.9
     },
-    fixedObjects: [],
+    fixedObjects: [
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.5,
+        relY: 0.25,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .8,
+        relY: .2,
+        rotation: 180
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.75,
+        relY: 0.6,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.6,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.35,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .15,
+        relY: .75,
+        rotation: 0
+      }
+    ],
     conveyorBelts: [],
     springs: []
   },
@@ -206,10 +292,10 @@ app.config.Levels = [
   {
     ball: {
       material: app.config.Materials.snowGlobe,
-      style: app.config.Styles.snowGlobe,
-      objectType: app.world.SnowGlobe,
-      relX: 0.2,
-      relY: 0.0
+      style: app.config.Styles.presentSquare,
+      objectType: app.world.PresentSquare,
+      relX: 0.15,
+      relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
@@ -223,7 +309,395 @@ app.config.Levels = [
       relX: 0.75,
       relY: 0.9
     },
-    fixedObjects: [],
+    fixedObjects: [
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.5,
+        relY: 0.25,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .8,
+        relY: .2,
+        rotation: 180
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.75,
+        relY: 0.6,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.6,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.35,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .15,
+        relY: .75,
+        rotation: 0
+      }
+    ],
+    conveyorBelts: [],
+    springs: []
+  },
+
+  // level 6
+  {
+    ball: {
+      material: app.config.Materials.snowGlobe,
+      style: app.config.Styles.presentSquare,
+      objectType: app.world.PresentSquare,
+      relX: 0.15,
+      relY: 0.15
+    },
+    dropper: {
+      material: app.config.Materials.fixedObject,
+      style: app.config.Styles.dropper,
+      relX: 0.2,
+      relY: 0.1
+    },
+    target: {
+      material: app.config.Materials.target,
+      style: app.config.Styles.target,
+      relX: 0.75,
+      relY: 0.9
+    },
+    fixedObjects: [
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.5,
+        relY: 0.25,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .8,
+        relY: .2,
+        rotation: 180
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.75,
+        relY: 0.6,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.6,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.35,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .15,
+        relY: .75,
+        rotation: 0
+      }
+    ],
+    conveyorBelts: [],
+    springs: []
+  },
+
+  // level 7
+  {
+    ball: {
+      material: app.config.Materials.snowGlobe,
+      style: app.config.Styles.presentSquare,
+      objectType: app.world.PresentSquare,
+      relX: 0.15,
+      relY: 0.15
+    },
+    dropper: {
+      material: app.config.Materials.fixedObject,
+      style: app.config.Styles.dropper,
+      relX: 0.2,
+      relY: 0.1
+    },
+    target: {
+      material: app.config.Materials.target,
+      style: app.config.Styles.target,
+      relX: 0.75,
+      relY: 0.9
+    },
+    fixedObjects: [
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.5,
+        relY: 0.25,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .8,
+        relY: .2,
+        rotation: 180
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.75,
+        relY: 0.6,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.6,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.35,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .15,
+        relY: .75,
+        rotation: 0
+      }
+    ],
+    conveyorBelts: [],
+    springs: []
+  },
+
+  // level 8
+  {
+    ball: {
+      material: app.config.Materials.snowGlobe,
+      style: app.config.Styles.presentSquare,
+      objectType: app.world.PresentSquare,
+      relX: 0.15,
+      relY: 0.15
+    },
+    dropper: {
+      material: app.config.Materials.fixedObject,
+      style: app.config.Styles.dropper,
+      relX: 0.2,
+      relY: 0.1
+    },
+    target: {
+      material: app.config.Materials.target,
+      style: app.config.Styles.target,
+      relX: 0.75,
+      relY: 0.9
+    },
+    fixedObjects: [
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.5,
+        relY: 0.25,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .8,
+        relY: .2,
+        rotation: 180
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.75,
+        relY: 0.6,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.6,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.35,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .15,
+        relY: .75,
+        rotation: 0
+      }
+    ],
+    conveyorBelts: [],
+    springs: []
+  },
+
+  // level 9
+  {
+    ball: {
+      material: app.config.Materials.snowGlobe,
+      style: app.config.Styles.presentSquare,
+      objectType: app.world.PresentSquare,
+      relX: 0.15,
+      relY: 0.15
+    },
+    dropper: {
+      material: app.config.Materials.fixedObject,
+      style: app.config.Styles.dropper,
+      relX: 0.2,
+      relY: 0.1
+    },
+    target: {
+      material: app.config.Materials.target,
+      style: app.config.Styles.target,
+      relX: 0.75,
+      relY: 0.9
+    },
+    fixedObjects: [
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.5,
+        relY: 0.25,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .8,
+        relY: .2,
+        rotation: 180
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.75,
+        relY: 0.6,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.6,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.35,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .15,
+        relY: .75,
+        rotation: 0
+      }
+    ],
+    conveyorBelts: [],
+    springs: []
+  },
+
+  // level 10
+  {
+    ball: {
+      material: app.config.Materials.snowGlobe,
+      style: app.config.Styles.presentSquare,
+      objectType: app.world.PresentSquare,
+      relX: 0.15,
+      relY: 0.15
+    },
+    dropper: {
+      material: app.config.Materials.fixedObject,
+      style: app.config.Styles.dropper,
+      relX: 0.2,
+      relY: 0.1
+    },
+    target: {
+      material: app.config.Materials.target,
+      style: app.config.Styles.target,
+      relX: 0.75,
+      relY: 0.9
+    },
+    fixedObjects: [
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.5,
+        relY: 0.25,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .8,
+        relY: .2,
+        rotation: 180
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.75,
+        relY: 0.6,
+        rotation: 0
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.6,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.35,
+        relY: 0.75,
+        rotation: 90
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.angledBeam,
+        relX: .15,
+        relY: .75,
+        rotation: 0
+      }
+    ],
     conveyorBelts: [],
     springs: []
   }
