@@ -10,6 +10,16 @@
   100%  { transform: translateY(0); }
 }
 
+
+@keyframes #{$name}-walrus {
+  0%, 100% {
+    transform: translateY(100%);
+  }
+  40%, 50% {
+    transform: translateY(0%);
+  }
+}
+
 @keyframes #{$name}-shimmy {
   10%, 30%, 50%, 70%, 90% {
     transform: translateX(-2em);

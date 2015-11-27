@@ -11,6 +11,7 @@
       "tree"            831   616   291   342    ($house-row-3-z-index - 1),
       "blocks"          360   150   904   646    ($house-row-3-z-index - 1),
       "statue"          287   171   858   816    ($house-row-4-z-index - 1),
+      "walrus"          22    19    897   1473   ($house-row-6-z-index - 1),
       "penguin-revolt"  174   55    865   1571   ($house-row-6-z-index - 1),
       "snowman-reading" 571   237   -227  1550   ($house-row-6-z-index - 1),
       "rosetta-stone"   117   96    39    904    ($house-row-4-z-index - 1),
@@ -50,6 +51,21 @@
       height: percent(nth($row, $idx-height) * $svg-ratio, $height-desktop);
       left: percent(nth($row, $idx-left), $width-desktop);
       top: percent(nth($row, $idx-top), $height-desktop);
+    }
+  }
+
+  #easteregg-walrus {
+    overflow: hidden;
+    background: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url(img/easteregg-walrus.svg);
+      @include will-change();
+      animation: #{$name}-walrus 3s ease infinite;
     }
   }
 
