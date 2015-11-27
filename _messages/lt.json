@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Kolumbija"
 	},
+	"codeboogie-block-jump": {
+		"message": "Pašokti"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Šoktelėkite."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Rodyti kairėn"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Parodykite į kairę."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Žengti kairėn"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Ženkite žingsnį kairėn."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Rodyti dešinėn"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Parodykite dešinėn."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Žengti dešinėn"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Ženkite žingsnį dešinėn."
+	},
+	"codeboogie-block-shake": {
+		"message": "Judinami klubai"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Pajudinkite klubus."
+	},
+	"codeboogie-block-split": {
+		"message": "Špagatas"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Padarykite špagatą."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Pradėkite šokį!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Kitas šokis"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Išbandykite apačioje esantį bloką, kuris gali būti tinkamas šokiui."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Ar žinote, kad šį šokį galite baigti naudodami tik {{idealius}} blokus? Išbandykite apačioje esantį bloką."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Gražūs judesiai! Šokote puikiai."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Naudojate tinkamus blokus, bet pabandykite naudoti daugiau blokų, kad baigtumėte šokį."
+	},
+	"codeboogie-success": {
+		"message": "Pavyko!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Atidžiai stebėkite!"
+	},
 	"codelab-block-moveeast": {
 		"message": "rytai"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Gauti programą"
+	},
+	"village_more": {
+		"message": "Dar daugiau būdų tyrinėti"
 	},
 	"village_santa_cardboard": {
 		"message": "Kalėdų Senelis platformoje „Cardboard“"

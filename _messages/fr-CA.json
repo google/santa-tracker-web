@@ -245,6 +245,75 @@
 	"co_country_name": {
 		"message": "Colombie"
 	},
+	"codeboogie-block-jump": {
+		"message": "Sauter"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Faites un saut."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Pointer à gauche"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Pointez vers la gauche."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Pas à gauche"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Faites un pas vers la gauche."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Pointer à droite"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Pointez vers la droite."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Pas à droite"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Faites un pas vers la droite."
+	},
+	"codeboogie-block-shake": {
+		"message": "Hanches"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Bougez les hanches."
+	},
+	"codeboogie-block-split": {
+		"message": "Grand écart"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Faites un grand écart."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Dansez!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Danse suivante"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Essayez le bloc ci-dessous pour reproduire la danse."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Saviez-vous que vous pouviez compléter cette danse avec seulement {{ideal}} blocs? Essayez d'utiliser le bloc ci-dessous."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Beaux mouvements! Vous avez complété la danse à la perfection."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Vous utilisez les bons blocs, mais essayez d'en utiliser davantage pour compléter la danse."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Saviez-vous que vous pouviez compléter cette danse avec seulement {{ideal}} blocs?"
+	},
+	"codeboogie-success": {
+		"message": "Réussite!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Regardez attentivement!"
+	},
 	"codelab-block-moveeast": {
 		"message": "est"
 	},
@@ -770,6 +839,24 @@
 	"sa_country_name": {
 		"message": "Arabie saoudite"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Bonhomme en pain d'épice"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Mère Noël"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Manchot"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolphe"
+	},
+	"santasearch_character_santa": {
+		"message": "Père Noël"
+	},
 	"santasearch_hint": {
 		"message": "Indice"
 	},
@@ -973,6 +1060,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Distance depuis votre emplacement"
+	},
+	"tracker_flight_nearby": {
+		"message": "Le père Noël est à proximité, trouvez-le"
+	},
+	"tracker_flight_start": {
+		"message": "Le père Noël a quitté le pôle Nord et vous pouvez maintenant suivre son itinéraire"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Cadeaux distribués"
@@ -4693,6 +4786,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Télécharger l'application"
+	},
+	"village_more": {
+		"message": "Autres façons d'explorer"
 	},
 	"village_santa_cardboard": {
 		"message": "Le père Noël sur Cardboard"

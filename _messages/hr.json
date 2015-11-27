@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Kolumbija"
 	},
+	"codeboogie-block-jump": {
+		"message": "Skok"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Skočite."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Rukom ulijevo"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Usmjerite ruku ulijevo."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Korak ulijevo"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Zakoračite ulijevo."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Rukom udesno"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Usmjerite ruku udesno."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Korak udesno"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Zakoračite udesno."
+	},
+	"codeboogie-block-shake": {
+		"message": "Njihanje bokova"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Zanjišite bokove."
+	},
+	"codeboogie-block-split": {
+		"message": "Špaga"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Napravite špagu."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Zaplešite!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Sljedeći ples"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Pokušajte upotrijebiti blok ispod da biste pravilno otplesali."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Jeste li znali da broj blokova za dovršenje ovog plesa ne treba biti veći od {{ideal}}? Pokušajte s blokom ispod."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Odlični pokreti! Savršeno ste otplesali."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Upotrebljavate prave blokove, ali pokušajte ih upotrijebiti više da biste dovršili ples."
+	},
+	"codeboogie-success": {
+		"message": "Uspjeli ste!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Dobro gledajte!"
+	},
 	"codelab-block-moveeast": {
 		"message": "istočno"
 	},
@@ -771,7 +837,7 @@
 		"message": "Saudijska Arabija"
 	},
 	"santasearch_hint": {
-		"message": "Natuknica"
+		"message": "Savjet"
 	},
 	"santasearch_level_lab": {
 		"message": "U laboratoriju"
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Nabavite aplikaciju"
+	},
+	"village_more": {
+		"message": "Više načina istraživanja"
 	},
 	"village_santa_cardboard": {
 		"message": "Djed Božićnjak na Cardboardu"

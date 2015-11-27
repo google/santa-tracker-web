@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Colombië"
 	},
+	"codeboogie-block-jump": {
+		"message": "Spring"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Doen 'n sprong."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Wys na links"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Wys na links."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Tree na links"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Neem 'n tree na links."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Wys na regs"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Wys na regs."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Tree na regs"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Neem 'n tree na regs."
+	},
+	"codeboogie-block-shake": {
+		"message": "Heupskud"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Doen 'n heupskud."
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Doen 'n split."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Aan die dans!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Volgende dans"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Probeer die blok hier onder om by die dans te pas."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Het jy geweet jy kan hierdie dans met net {{ideal}} blokke voltooi? Probeer die blok hier onder gebruik."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Goed gedoen! Jy het die dans perfek voltooi."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Jy gebruik die regte blokke, maar probeer meer gebruik om die dans te voltooi."
+	},
+	"codeboogie-success": {
+		"message": "Sukses!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Kyk mooi!"
+	},
 	"codelab-block-moveeast": {
 		"message": "oos"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Kry die program"
+	},
+	"village_more": {
+		"message": "Meer maniere om te verken"
 	},
 	"village_santa_cardboard": {
 		"message": "Kersvader op Cardboard"

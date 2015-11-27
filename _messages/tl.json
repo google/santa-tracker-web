@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Lumundag"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Lumundag."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Tumuro sa kaliwa"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Tumuro pakaliwa."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Humakbang sa kaliwa"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Isang hakbang pakaliwa."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Tumuro sa kanan"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Tumuro pakanan."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Humakbang sa kanan"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Isang hakbang pakanan."
+	},
+	"codeboogie-block-shake": {
+		"message": "Kumembot nang mabilis"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Kumembot nang mabilis."
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Mag-split."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Sayaw na!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Susunod na Sayaw"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Subukan ang bloke sa ibaba upang tumugma sa sayaw."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Alam mo bang kaya mong tapusin ang sayaw na ito sa {{ideal}} (na) bloke lang? Subukang gamitin ang bloke sa ibaba."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Ang galing ng galaw mo! Walang sablay mong natapos ang sayaw."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Tama ang mga blokeng ginagamit mo, ngunit subukang gamitin ang mas marami pa nito upang makumpleto ang sayaw."
+	},
+	"codeboogie-success": {
+		"message": "Tagumpay!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Tingnang mabuti!"
+	},
 	"codelab-block-moveeast": {
 		"message": "silangan"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Kunin ang App"
+	},
+	"village_more": {
+		"message": "Mas Marami Pang Paraan para Mag-explore"
 	},
 	"village_santa_cardboard": {
 		"message": "Santa sa Cardboard"

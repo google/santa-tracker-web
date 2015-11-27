@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "コロンビア"
 	},
+	"codeboogie-block-jump": {
+		"message": "ジャンプ"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "ジャンプする。"
+	},
+	"codeboogie-block-leftarm": {
+		"message": "左を指す"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "左を指す。"
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "左足でステップ"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "左足で一歩ステップを踏む。"
+	},
+	"codeboogie-block-rightarm": {
+		"message": "右を指す"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "右を指す。"
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "右足でステップ"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "右足で一歩ステップを踏む。"
+	},
+	"codeboogie-block-shake": {
+		"message": "おしりをふる"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "おしりをふる。"
+	},
+	"codeboogie-block-split": {
+		"message": "開脚"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "開脚する。"
+	},
+	"codeboogie-get-dancing": {
+		"message": "ダンスしてみましょう！"
+	},
+	"codeboogie-next-dance": {
+		"message": "次のダンス"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "ダンスに合わせて、下のブロックを試してみてください。"
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "{{ideal}} 個のブロックだけでこのダンスをクリアできることを知っていましたか？下のブロックを使ってみてください。"
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "よくできました！見事にダンスをクリアしました。"
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "正しいブロックを使っていましたが、ダンスをクリアするには、もっとブロックを使ってみましょう。"
+	},
+	"codeboogie-success": {
+		"message": "成功！"
+	},
+	"codeboogie-watch-closely": {
+		"message": "よく見て！"
+	},
 	"codelab-block-moveeast": {
 		"message": "東"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "アプリをダウンロード"
+	},
+	"village_more": {
+		"message": "もっと詳しく知る"
 	},
 	"village_santa_cardboard": {
 		"message": "Cardboard でサンタさんを探す"

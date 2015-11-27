@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Hopp"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Hoppa."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Peka åt vänster"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Peka åt vänster."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Gå åt vänster"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Ta ett steg åt vänster."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Peka åt höger"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Peka åt höger."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Gå åt höger"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Ta ett steg åt höger."
+	},
+	"codeboogie-block-shake": {
+		"message": "Höftskak"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Skaka på höfterna."
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Gör en split."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Börja dansa!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Nästa dans"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Prova med blocket nedan för att matcha dansen."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Visste du att du kan dansa hela dansen med bara {{ideal}} block? Försök använda blocket nedan."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Snyggt! Du dansade perfekt."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Du använder rätt block, men försök använda fler för att dansa hela dansen."
+	},
+	"codeboogie-success": {
+		"message": "Succé!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Titta noga!"
+	},
 	"codelab-block-moveeast": {
 		"message": "österut"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Hämta appen"
+	},
+	"village_more": {
+		"message": "Fler sätt att utforska"
 	},
 	"village_santa_cardboard": {
 		"message": "Jultomten på Cardboard"

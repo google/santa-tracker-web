@@ -328,26 +328,42 @@ $toolbar-size: 64px;
     }
   }  // .house
   .house-new-today {
-    div {
+    a {
       position: absolute;
-      height: percent(280px * $svg-ratio, $dim-house);
-      width:  percent(315px * $svg-ratio, $dim-house);
-      background: center no-repeat;
-      background-size: cover;
-      z-index: $house-row-2-z-index;
       top: percent(-20px, $dim-house);
       left: percent(-5px, $dim-house);
+      height: percent(280px * $svg-ratio, $dim-house);
+      width:  percent(315px * $svg-ratio, $dim-house);
+      z-index: $house-z-index-front;
 
-      a {
-        width: 95%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        top: -1.8em;
+      div.card {
+        @include will-change(transform);
+        transform: translateY(0);
+        transition: transform 0.5s cubic-bezier(0.47, 2.02, 0.31, -0.36);
       }
+      &:hover {
+        div.card {
+          transform: translateY(-16px);
+          transition: transform 0.2s;
+        }
+      }
+    }
+
+    div.card {
+      background: center no-repeat;
+      background-size: cover;
+
+      width: 100%;
+      height: 100%;
+      padding-right: 5%;
+      box-sizing: border-box;
+
+      display: flex;
+      flex-direction: column;
+      position: relative;
 
       h4 {
+        margin-top: -0.8em;
         text-align: center;
         font-size: 2.275em;
         transform: rotateZ(-6deg);

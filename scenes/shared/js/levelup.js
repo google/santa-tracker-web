@@ -88,11 +88,11 @@ LevelUp.prototype.numberShown_ = function() {
 /**
  * Show new level number.
  * @param {number} level The number of the new level.
- * @param {function()} callback The function to call while the level is hidden.
+ * @param {function()=} opt_callback The function to call while the level is hidden.
  */
-LevelUp.prototype.show = function(level, callback) {
+LevelUp.prototype.show = function(level, opt_callback) {
   this.bgElem.addClass('is-visible');
-  timeoutOneEvent(this.bgElem, app.shared.utils.TRANSITION_END, 1.0, callback);
+  timeoutOneEvent(this.bgElem, app.shared.utils.TRANSITION_END, 1.0, opt_callback);
   this.bgElem.css('border-width', this.bgBorderWidth);
 
   timeoutOneEvent(this.numberElem, app.shared.utils.ANIMATION_END, 1.5, this.numberShown_.bind(this));
@@ -106,9 +106,9 @@ LevelUp.prototype.show = function(level, callback) {
  * @param {!Element|!jQuery} elem
  * @param {string} event
  * @param {number} timeout in seconds
- * @param {function()} callback
+ * @param {function()=} opt_callback
  */
-function timeoutOneEvent(elem, event, timeout, callback) {
+function timeoutOneEvent(elem, event, timeout, opt_callback) {
   elem = app.shared.utils.unwrapElement(elem);
 
   // Only trigger callback once.
@@ -117,7 +117,7 @@ function timeoutOneEvent(elem, event, timeout, callback) {
     if (!finished) {
       finished = true;
       elem.removeEventListener(event, finish);
-      callback();
+      opt_callback && opt_callback();
     }
   }
 

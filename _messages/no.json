@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Hopp"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Gjør et hopp."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Pek mot venstre"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Pek mot venstre."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Venstre fot"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Ta et steg til venstre."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Pek mot høyre"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Pek mot høyre."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Høyre fot"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Ta et steg til høyre."
+	},
+	"codeboogie-block-shake": {
+		"message": "Vrikk på hoftene"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Vrikk på hoftene."
+	},
+	"codeboogie-block-split": {
+		"message": "Spagaten"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Gå ned i spagaten."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Dans i vei!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Neste dans"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Bruk blokken nedenfor for å kopiere dansen."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Visste du at det er mulig å fullføre denne dansen med bare {{ideal}} blokker? Prøv ved å bruke blokkene nedenfor."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Dette kan du! Dansen din var perfekt."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Du bruker de riktige blokkene, men prøv å bruke flere for å fullføre dansen."
+	},
+	"codeboogie-success": {
+		"message": "Alt riktig!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Følg nøye med!"
+	},
 	"codelab-block-moveeast": {
 		"message": "østover"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Skaff deg appen"
+	},
+	"village_more": {
+		"message": "Mer moro med julenissen"
 	},
 	"village_santa_cardboard": {
 		"message": "Finn julenissen med Cardboard"
