@@ -71,18 +71,11 @@ window.HOUSES = [{
   launchDate: new Date('Dec 4, 2015'),
   category: "learn"
 }, {
-  // optionally used instead of "streetview" in some regions
-  module: "callfromsanta",
+  module: "elf-car",
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 5, 2015'),
-  category: "play"
-}, {
-  // optionally used instead of "callfromsanta" in some regions
-  module: "streetview",
-  iced: true,
-  launchDate: new Date('Dec 5, 2015'),
-  category: "play"
+  category: "watch"
 }, {
   module: "presentdrop",
   iced: true,
@@ -155,11 +148,18 @@ window.HOUSES = [{
   launchDate: new Date('Dec 17, 2015'),
   category: "play"
 }, {
-  module: "elf-car",
+  // optionally used instead of "briefing" in some regions
+  module: "callfromsanta",
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 18, 2015'),
-  category: "watch"
+  category: "play"
+}, {
+  // optionally used instead of "callfromsanta" in some regions
+  module: "briefing",
+  iced: true,
+  launchDate: new Date('Dec 18, 2015'),
+  category: "play"
 }, {
   module: "citylights",
   iced: true,
