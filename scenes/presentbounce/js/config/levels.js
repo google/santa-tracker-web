@@ -56,44 +56,43 @@ app.config.Levels = [
         style: app.config.Styles.straightBeam,
         relX: 0.5,
         relY: 0.25,
-        // rotation: -40
         rotation: 0
       },
-      {
-        material: app.config.Materials.fixedObject,
-        style: app.config.Styles.angledBeam,
-        relX: .8,
-        relY: .2,
-        rotation: 180
-      },
-      {
-        material: app.config.Materials.fixedObject,
-        style: app.config.Styles.straightBeam,
-        relX: 0.75,
-        relY: 0.6,
-        rotation: 0
-      },
-      {
-        material: app.config.Materials.fixedObject,
-        style: app.config.Styles.straightBeam,
-        relX: 0.6,
-        relY: 0.75,
-        rotation: 90
-      },
-      {
-        material: app.config.Materials.fixedObject,
-        style: app.config.Styles.straightBeam,
-        relX: 0.35,
-        relY: 0.75,
-        rotation: 90
-      },
-      {
-        material: app.config.Materials.fixedObject,
-        style: app.config.Styles.angledBeam,
-        relX: .15,
-        relY: .75,
-        rotation: 0
-      }
+      // {
+      //   material: app.config.Materials.fixedObject,
+      //   style: app.config.Styles.angledBeam,
+      //   relX: .8,
+      //   relY: .2,
+      //   rotation: 180
+      // },
+      // {
+      //   material: app.config.Materials.fixedObject,
+      //   style: app.config.Styles.straightBeam,
+      //   relX: 0.75,
+      //   relY: 0.6,
+      //   rotation: 0
+      // },
+      // {
+      //   material: app.config.Materials.fixedObject,
+      //   style: app.config.Styles.straightBeam,
+      //   relX: 0.6,
+      //   relY: 0.75,
+      //   rotation: 90
+      // },
+      // {
+      //   material: app.config.Materials.fixedObject,
+      //   style: app.config.Styles.straightBeam,
+      //   relX: 0.35,
+      //   relY: 0.75,
+      //   rotation: 90
+      // },
+      // {
+      //   material: app.config.Materials.fixedObject,
+      //   style: app.config.Styles.angledBeam,
+      //   relX: .15,
+      //   relY: .75,
+      //   rotation: 0
+      // }
     ],
     conveyorBelts: [
       {
