@@ -43,3 +43,12 @@ body {
   }
   margin-top: -104px;
 }
+
+/**
+ * For 2015, hide this text. This is used in scenes to show a back button, but
+ * in 2015+, we have a toolbar always visible.
+ * TODO(samthor): Remove from scenes.
+ */
+#global-back-to-village {
+  display: none !important;
+}

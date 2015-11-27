@@ -52,7 +52,8 @@ LevelUp.prototype.dispose = function() {
  * @private
  */
 LevelUp.prototype.onResize_ = function() {
-  var width = window.innerWidth, height = window.innerHeight;
+  var width = window.innerWidth,
+      height = window.innerHeight - window.santaApp.headerSize;
 
   this.bgBorderWidth = width;
   this.bgElem.css({

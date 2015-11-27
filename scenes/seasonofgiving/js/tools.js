@@ -271,7 +271,7 @@ app.Tools = function(game, elem, exporter) {
  * Resize
  */
 app.Tools.prototype.handleResize = function() {
-  var wh = $(window).height();
+  var wh = $(window).height() - window.santaApp.headerSize;
   var maxToolHeight = this.elem.height();
   var cols;
 
