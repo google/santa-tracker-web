@@ -342,8 +342,8 @@ Polymer({
      */
     todayHouse: {
       type: String,
-      readOnly: true,
-      value: "santaselfie"  // TODO(samthor): Make this work
+      notify: true,
+      observer: '_notifyHouses'
     },
 
     /**
@@ -357,11 +357,11 @@ Polymer({
     },
 
     /**
-     * The current language locale.
+     * The current language locale. This is not modifable after launch; reload the site.
      */
     language: {
       type: String,
-      observer: '_languageChanged',
+      readOnly: true,
       value: document.documentElement.lang || 'en'
     },
 
@@ -492,7 +492,6 @@ Polymer({
      */
     strings: {
       type: Object,
-      readOnly: true,
       notify: true
     },
 
@@ -568,7 +567,10 @@ Polymer({
       var msgid = x.getAttribute('msgid');
       strings[msgid] = x.textContent;
     }
-    this._setStrings(Object.freeze(strings));
+
+    // NOTE: Since santaApp isn't actually bound onto this.$.chrome (just )
+    this.$.chrome.set('santaApp.strings', strings);
+    this.strings = Object.freeze(strings);
   },
 
   ready: function() {
@@ -719,10 +721,6 @@ Polymer({
     castReceiverManager.start(appConfig);
   },
 
-  _languageChanged: function() {
-    this.santaService && this.santaService.setLang(this.language);
-  },
-
   _selectedSceneChanged: function(newValue, oldValue) {
     this.$.chrome.isFixedToolbar = (newValue != this.$.village);
     this.$.chrome.closeDrawer();
@@ -826,7 +824,11 @@ Polymer({
                    this.sceneIsUnlocked(this.route)) ||
                    (this.postCountdown && this.route == TRACKER_ROUTE);
       if (!valid) {
-        this.route = this.defaultRoute;
+        if (window.DEV) {
+          console.warn('prod would redirect from', this.route, 'to', this.defaultRoute);
+        } else {
+          this.route = this.defaultRoute;
+        }
       }
     }
   },
@@ -918,8 +920,6 @@ Polymer({
       if (this._houses[i].module === 'callfromsanta') {
         if (this._streetviewHouse) {
           this._houses[i] = this._streetviewHouse;
-        } else {
-          this._houses[i].disabled = true;
         }
       }
 
@@ -955,8 +955,6 @@ Polymer({
   unlockAllHouses: function() {
     for (var i = 0, house; house = this._houses[i]; ++i) {
       this.unlockHouse(i);
-      house.today = false;
-      house.tomorrow = false;
     }
   },
 
@@ -964,8 +962,6 @@ Polymer({
     for (var i = 0, house; house = this._houses[i]; ++i) {
       this.set('_houses.i.')
       house.iced = true;
-      house.today = false;
-      house.tomorrow = false;
     }
     this._notifyHouses();
   },
@@ -999,20 +995,6 @@ Polymer({
    * @private
    */
   _checkSchedule: function() {
-    if (window.DEV) {
-      console.info('dev, unlocking all houses, random today house');
-      this.unlockAllHouses();
-
-      var todayIndex = Math.floor(Math.random() * this._houses.length);
-      if (todayIndex < this._houses.length) {
-        this._houses[todayIndex].today = true;
-      }
-      if (todayIndex + 1 < this._houses.length) {
-        this._houses[todayIndex + 1].tomorrow = true;
-      }
-
-      return;
-    }
     if (!this.santaService) {
       return;  // ignore, will be called via ready:
     }
@@ -1027,28 +1009,34 @@ Polymer({
 
     switch(todayDate.getMonth()) {
       case 11: // DECEMBER
+        var todayHouse = '';
+
         // Update house status based on today's date.
         for (var i = 0; i < this._houses.length; i++) {
           var house = this._houses[i];
 
-          if (house.launchDate <= todayDate) {
-            this.unlockHouse(i);
-            house.today = isSameDay(house.launchDate, todayDate);
-            house.tomorrow = false;
-          } else {
+          if (house.launchDate > todayDate) {
             house.iced = true;
-            house.today = false;
-            house.tomorrow = isSameDay(house.launchDate, tomorrowDate);
+            continue;
+          }
+          this.unlockHouse(i);
+          if (isSameDay(house.launchDate, todayDate)) {
+            todayHouse = house.module;
           }
         }
+
+        this.todayHouse = todayHouse;
         break;
       case 0: // JAN
         // All houses in Jan are unlocked. Full experience baby!
         this.unlockAllHouses();
         break;
       default:
-        // noop
-        this.lockAllHouses();
+        if (window.DEV) {
+          this.unlockAllHouses();
+        } else {
+          this.lockAllHouses();
+        }
     }
     this._notifyHouses();
 
@@ -1108,6 +1096,7 @@ Polymer({
 
       var houses = this._houses.slice();
       this.$.village.houses = houses;
+      this.$.village.todayHouse = this.todayHouse;
 
       // TODO(samthor): This works around Polymer aggressively comparing the
       // inner objects of the array. It decides that since the inner objects

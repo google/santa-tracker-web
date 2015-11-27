@@ -272,51 +272,31 @@ $toolbar-size: 64px;
     }
   }
 
-  .house-new-today {
-    div {
-      position: absolute;
-      height: percent(280px * $svg-ratio, $dim-house);
-      width:  percent(315px * $svg-ratio, $dim-house);
-      background: center no-repeat;
-      background-size: cover;
-      z-index: $house-row-2-z-index;
-      top: percent(-20px, $dim-house);
-      left: percent(-5px, $dim-house);
-
-      a {
-        text-decoration: none;
-        width: 95%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        top: -20px;
-      }
-
-      h4 {
-        margin: 0 auto;
-        text-align: center;
-        font-family: 'Lobster', sans-serif;
-        font-weight: 200;
-        font-size: 2.275em;
-        line-height: 1.5em;
-        text-shadow: 0 2px 0 rgba(0,0,0,0.25);
-        transform: rotateZ(-6deg);
-        color: #fff;
-      }
-
-      h5 {
-        color: #fff;
-        text-align: center;
-        margin: 0;
-        font-weight: normal;
-        font-size: 16px;
-      }
-    }
-  }
-
   .house {
     position: relative;
+    color: #fff;
+    text-align: center;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h4 {
+      margin: 0;
+      padding-top: 0.25em;
+      font-family: 'Lobster', sans-serif;
+      font-size: 2.875em;
+      line-height: 1.5em;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+      transform: rotateZ(-3deg);
+    }
+    h3 {
+      margin: 0;
+      font-size: 1em;
+      line-height: 1.5em;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    }
 
     /** Common card styling */
     .link {
@@ -344,24 +324,37 @@ $toolbar-size: 64px;
           padding-top: 0.25em;
           text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
         }
-        h4 {
-          margin: 0;
-          padding-top: 0.25em;
-          font-family: 'Lobster', sans-serif;
-          font-size: 2.875em;
-          line-height: 1.5em;
-          text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
-          transform: rotateZ(-3deg);
-        }
-        h3 {
-          margin: 0;
-          font-size: 1em;
-          line-height: 1.5em;
-          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
-        }
       }
     }
-  }
+  }  // .house
+  .house-new-today {
+    div {
+      position: absolute;
+      height: percent(280px * $svg-ratio, $dim-house);
+      width:  percent(315px * $svg-ratio, $dim-house);
+      background: center no-repeat;
+      background-size: cover;
+      z-index: $house-row-2-z-index;
+      top: percent(-20px, $dim-house);
+      left: percent(-5px, $dim-house);
+
+      a {
+        width: 95%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: -1.8em;
+      }
+
+      h4 {
+        text-align: center;
+        font-size: 2.275em;
+        transform: rotateZ(-6deg);
+        font-weight: 400;
+      }
+    }
+  }  // .house-new-today
 
   #village-footer {
     // TODO(samthor): Footer needs to be scaled for both tablet and mobile.
@@ -460,7 +453,7 @@ $toolbar-size: 64px;
           .ice {
             pointer-events: none;
             opacity: 0;
-            transition: opacity 0.2s ease-out;
+            transition: opacity 2s ease-out;
             will-change: none;  // don't create a layer; this only transitions once
           }
 
