@@ -23,14 +23,27 @@ app.Title = class {
     this.titleEl = el;
     this.textEl = null;
     this.subTextEl = null;
+    this.currentText = null;
+    this.currentSmallness = false;
+    this.currentCount = 0;
     this.toRemove = [];
   }
 
-  setTitle(text, smaller, subText) {
-    this.textEl = this.switchText_(this.textEl, text,
-                                   smaller ? 'title title--small' : 'title');
+  setTitle(text, smaller, startCount) {
+    if (startCount > 0) {
+      this.currentCount = startCount;
+    }
+    this.currentText = text;
+    this.currentSmallness = smaller;
+    this.updateTitle_();
+  }
+
+  updateTitle_() {
+    let subText = this.currentCount > 0 ? this.currentCount : null;
+    this.textEl = this.switchText_(this.textEl, this.currentText,
+        this.currentSmallness ? 'title title--small' : 'title');
     this.subTextEl = this.switchText_(this.subTextEl, subText,
-                                      'title title--small title--sub');
+        'title title--small title--sub');
   }
 
   switchText_(el, newText, classes) {
@@ -41,7 +54,7 @@ app.Title = class {
       el = null;
     }
 
-    if (changed) {
+    if (newText && changed) {
       el = document.createElement('span');
       el.textContent = newText;
       el.className = classes;
@@ -55,6 +68,14 @@ app.Title = class {
     let el;
     while (el = this.toRemove.pop()) {
       el.remove();
+    }
+
+    if (this.currentCount > 0) {
+      this.currentCount++;
+      this.updateTitle_();
+
+      // Eventually reset back to 0 to stop count.
+      this.currentCount %= 4;
     }
   }
 };

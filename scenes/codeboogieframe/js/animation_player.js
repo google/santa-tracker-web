@@ -43,6 +43,7 @@ const originalHeight = 1080 * spriteScaleFactor;
  *   playerStep: app.Step,
  *   title: string,
  *   blockId: string,
+ *   isIntro: boolean,
  *   isCountdown: boolean
  * }}
  */
@@ -130,6 +131,8 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.moveTiles = new app.MoveTiles(el.querySelector('.scene__moves'));
     /* @type {app.AnimationItem[]} */
     this.animationQueue = [];
+    /* @type {app.AnimationItem} */
+    this.currentAnimation = null;
 
     this.lastUpdateTime = 0;
     this.isPlaying = false;
@@ -157,7 +160,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
   start(result) {
     this.animationQueue = result.animationQueue;
     this.moveTiles.clear();
-    this.title.setTitle(this.animationQueue[0].title);
+    this.title.setTitle(this.animationQueue[0].title, true);
 
     if (result.watching()) {
       this.player.setState('is-watching');
@@ -179,7 +182,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
   }
 
   onMusicBar() {
-    let animation = this.animationQueue.shift();
+    let animation = this.currentAnimation;
 
     if (!animation) {
       if (this.isPlaying) {
@@ -206,6 +209,11 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
       }
     }
 
+    // Make sure to start counting even if we missed the previous beat.
+    if (animation.isCountdown && !this.title.currentCount) {
+      this.title.setTitle(animation.title, true, 2);
+    }
+
     this.dispatchEvent({type: 'step', data: animation.blockId});
   }
 
@@ -218,7 +226,8 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     } else {
       this.teacher.play(animation.teacherStep, bpm);
       this.player.play(animation.playerStep, bpm);
-      this.title.setTitle(animation.title);
+      this.title.setTitle(animation.title, animation.isIntro,
+                          animation.isCountdown && 1);
     }
   }
 
@@ -227,6 +236,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.title.onBeat();
 
     if (normalized === 1) {
+      this.currentAnimation = this.animationQueue.shift();
       this.onMusicBar();
     }
 

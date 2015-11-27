@@ -85,7 +85,8 @@ app.DanceLevel = class extends app.Level {
       animation.unshift({
         teacherStep: app.Step.IDLE,
         playerStep: app.Step.IDLE,
-        title: app.I18n.getMsg('CB_watchClosely')
+        title: app.I18n.getMsg('CB_watchClosely'),
+        isIntro: true
       });
     }
 
@@ -254,7 +255,8 @@ app.DanceLevel = class extends app.Level {
       title: app.I18n.getMsg(result === app.DanceStatus.NO_STEPS ?
           'CB_watchClosely' :
           'CB_letsDance'),
-      isCountdown: true
+      isCountdown: true,
+      isIntro: true
     });
 
     return queue;
@@ -277,6 +279,7 @@ app.DanceLevel = class extends app.Level {
    */
   className() {
     return super.className() + ' level--' + this.stage +
+        ' level--bpm' + this.bpm +
         (this.freestyle ? ' level--freestyle' : '');
   }
 };

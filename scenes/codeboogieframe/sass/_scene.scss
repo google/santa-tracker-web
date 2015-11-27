@@ -121,6 +121,30 @@
     animation: .15s .25s cb_title_disappear forwards;
   }
 
+  &.level--bpm120 .title {
+    animation-delay: 60s / 120 - .15s;
+  }
+
+  &.level--bpm120 .title--destroy {
+    animation-delay: 60s / 120 - .25s;
+  }
+
+  &.level--bpm130 .title {
+    animation-delay: 60s / 130 - .15s;
+  }
+
+  &.level--bpm130 .title--destroy {
+    animation-delay: 60s / 130 - .25s;
+  }
+
+  &.level--bpm140 .title {
+    animation-delay: 60s / 140 - .15s;
+  }
+
+  &.level--bpm140 .title--destroy {
+    animation-delay: 60s / 140 - .25s;
+  }
+
   .scene__moves {
     height: 8.5em;
     margin: 0 auto;
