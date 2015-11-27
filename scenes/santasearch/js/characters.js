@@ -22,10 +22,13 @@ app.Characters = function(mapElem, drawerElem, mapDimensions) {
   this.mapElem = mapElem;
   this.drawerElem = drawerElem;
   this.mapDimensions = mapDimensions;
+  this.mapName = 'museum';
+
+  this.hidingCharacters = document.getElementById('santasearch-characters-svg');
 
   this.characters = {
     'santa': {
-      elem: this.mapElem.find('.character--santa'),
+      elem: this.mapElem.find('.character-collider--santa'),
       uiElem: this.drawerElem.find('.character--santa').parent(),
       location: {},
       scale: {},
@@ -75,12 +78,15 @@ app.Characters.prototype.initialize = function() {
   this.allFound = false;
   this.hintTarget = undefined;
 
+
   this._initializeCharacter('santa');
-  this._initializeCharacter('mrs-claus');
-  this._initializeCharacter('rudolph');
-  this._initializeCharacter('gingerbread-man');
-  this._initializeCharacter('pegman');
-  this._initializeCharacter('penguin');
+  // this._initializeCharacter('mrs-claus');
+  // this._initializeCharacter('rudolph');
+  // this._initializeCharacter('gingerbread-man');
+  // this._initializeCharacter('pegman');
+  // this._initializeCharacter('penguin');
+
+  this.updateCharacters();
 };
 
 app.Characters.prototype.getCharacterLocation = function(name) {
@@ -142,22 +148,62 @@ app.Characters.prototype.focusNextUnfoundCharacter = function() {
  * @private
  */
 app.Characters.prototype._initializeCharacter = function(characterName) {
-  let spawns = app.Constants.SPAWNS[characterName];
-  let randomSpawn = Math.floor(Math.random() * spawns.length);
-  let characterSpawnPoint = spawns[randomSpawn];
+  let characterKeys = app.Constants.SPAWNS[this.mapName][characterName];
+
+  if (!characterKeys) {
+    return;
+  }
+
+  let randomKey = Math.floor(Math.random() * characterKeys.length);
+  let characterToSpawn = characterKeys[randomKey];
+
+  // key: 'SANTA-1',
+  // clickableArea: {
+  //   size: {},
+  //   location: {}
+  // }
 
   let character = this.characters[characterName];
 
   character.isFound = false;
   character.uiElem.removeClass('drawer__character-wrapper--found');
 
-  character.location = characterSpawnPoint.locationScale;
-  character.scale = characterSpawnPoint.sizeScale;
+
+  // let santas = spawns.map((spawn) => {
+  //   return spawn.key
+  // });
+
+  let characterSVG = this.hidingCharacters.getElementById(characterToSpawn);
+
+  characterKeys.forEach((characterKey) => {
+    let characterToHideSVG = this.hidingCharacters.getElementById(characterKey);
+
+    if (characterToHideSVG !== null && characterKey !== characterToSpawn) {
+      characterToHideSVG.style.display = 'none';
+
+      console.log('Hiding ' + characterKey);
+    }
+  });
+
+  let characterBoundaries = characterSVG.getBoundingClientRect();
+
+  character.location = {
+    left: characterBoundaries.left / this.mapDimensions.width,
+    top: characterBoundaries.top / this.mapDimensions.height
+  };
+
+  character.scale = {
+    width: characterBoundaries.width / this.mapDimensions.width,
+    height: characterBoundaries.height / this.mapDimensions.height
+  };
 
   character.elem.on('click.santasearch', this._onCharacterSelected.bind(this, characterName));
 
   let hintElem = character.uiElem.find('.hint');
   hintElem.on('click.santasearch', this._setHintTarget.bind(this, characterName));
+
+  console.log(characterName + ' is ready');
+  console.log(character);
 };
 
 app.Characters.prototype._setHintTarget = function(characterName) {
@@ -171,6 +217,7 @@ app.Characters.prototype._setHintTarget = function(characterName) {
  * @private
  */
 app.Characters.prototype._positionCharacter = function(elem, locationScale) {
+
   let left = this.mapDimensions.width * locationScale.left;
   let top = this.mapDimensions.height * locationScale.top;
 
@@ -178,13 +225,12 @@ app.Characters.prototype._positionCharacter = function(elem, locationScale) {
 }
 
 app.Characters.prototype._scaleCharacter = function(elem, scale) {
+
   let characterWidth = this.mapDimensions.width * scale.width;
   let characterHeight = this.mapDimensions.height * scale.height;
 
   elem.css('width', characterWidth);
   elem.css('height', characterHeight);
-  elem.css('margin-left', `-${characterWidth/2}px`);
-  elem.css('margin-top', `-${characterHeight/2}px`);
 };
 
 /**

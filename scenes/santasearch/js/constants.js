@@ -26,98 +26,30 @@ app.Constants = {
   HINT_BUTTON_PAN_TIME: 0.6, // seconds
   HINT_RANDOM_DISTANCE: 25, // percentage of map (0 - 100)
   SPAWNS: {
-    'santa': [
-      {
-        locationScale: {
-          left: 0.16,
-          top: 0.725
-        },
-        sizeScale: {
-          width: 0.03603603604,
-          height: 0.09770421783
+    'museum': {
+      'santa': [
+        'SANTA-1',
+        'SANTA-2',
+        'SANTA-3',
+        'SANTA-4',
+        'SANTA-5',
+        'SANTA-6',
+        'SANTA-7',
+        'SANTA-8',
+      ]
+      /*
+      'santa': [
+        {
+          className: 'character-hiding--museum-santa-1',
+          aspectRatio: 76 / 100,
+          heightScale: 101 / 1080, // if map height was 1080px
+          locationScale: {
+            left: 0.039,
+            top: 0.6934
+          }
         }
-      },
-      {
-        locationScale: {
-          left: 0.47,
-          top: 0.615
-        },
-        sizeScale: {
-          width: 0.03603603604,
-          height: 0.09770421783
-        }
-      },
-      {
-        locationScale: {
-          left: 0.87,
-          top: 0.23
-        },
-        sizeScale: {
-          width: 0.03603603604,
-          height: 0.09770421783
-        }
-      }
-    ],
-    'mrs-claus': [
-      {
-        locationScale: {
-          left: 0.19,
-          top: 0.7
-        },
-        sizeScale: {
-          width: 0.02290689006,
-          height: 0.07816337426
-        }
-      }
-    ],
-    'rudolph': [
-      {
-        locationScale: {
-          left: 0.23,
-          top: 0.7
-        },
-        sizeScale: {
-          width: 0.02290689006,
-          height: 0.07816337426
-        }
-      }
-    ],
-    'gingerbread-man': [
-      {
-        locationScale: {
-          left: 0.24,
-          top: 0.8
-        },
-        sizeScale: {
-          width: 0.02290689006,
-          height: 0.07816337426
-        }
-      }
-    ],
-    'pegman': [
-      {
-        locationScale: {
-          left: 0.2,
-          top: 0.78
-        },
-        sizeScale: {
-          width: 0.02290689006,
-          height: 0.07816337426
-        }
-      }
-    ],
-    'penguin': [
-      {
-        locationScale: {
-          left: 0.285,
-          top: 0.685
-        },
-        sizeScale: {
-          width: 0.02290689006,
-          height: 0.07816337426
-        }
-      }
-    ]
+      ]*/
+    }
   }
 };
 

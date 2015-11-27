@@ -43,12 +43,12 @@ app.Game = function(elem) {
   this.sceneElem = this.elem.find('.scene');
   this.controls = new app.Controls(this.elem, this.mapElem);
 
+  this.gameAspectRatio = 1600 / 900;
+
   this.mapElementDimensions = {};
-  this.characters = new app.Characters(this.mapElem, this.drawerElem, this.mapElementDimensions);
+  this.characters = new app.Characters(this.mapElem, this.drawerElem, this.mapElementDimensions, this.gameAspectRatio);
 
   this.onFrame_ = this.onFrame_.bind(this);
-
-  this.gameAspectRatio = 1600 / 900;
 };
 
 
@@ -181,9 +181,8 @@ app.Game.prototype.restart = function() {
   window.santaApp.fire('analytics-track-game-start', {gameid: 'santasearch'});
   this.gameStartTime = +new Date;
 
-  this.characters.initialize();
-
   this._scale(1);
+  this.characters.initialize();
 
   this.characters.focusNextUnfoundCharacter();
 
