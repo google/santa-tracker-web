@@ -72,7 +72,14 @@ Village scene (2015).
       <div id="ground"></div>
       <div id="road"></div>
       <div id="houses">
-        <div class="house house-new-today"></div>
+        <div class$="house house-new-today new-today-{{santaApp.todayHouse}}">
+          <div>
+            <a href="{{_calculateNewTodayHref(santaApp.todayHouse)}}">
+              <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
+              <h5>{{_string('scene', santaApp.todayHouse, santaApp.strings)}}</h5>
+            </a>
+          </div>
+        </div>
         <template id="housesloop" is="dom-repeat" items="{{houses}}" observe="iced disabled">
           <div id$="house-{{item.module}}"
                class$="house house-{{item.module}} {{_calculateClass(item, item.iced)}}"
@@ -438,6 +445,13 @@ Village scene (2015).
 
     _updateCountdownLabels: function() {
       this.$.count.updateLabels();
+    },
+
+    /**
+     * Calculates the href to load for this house.
+     */
+    _calculateNewTodayHref: function(moduleId) {
+      return this.pageUrl + '#' + moduleId;
     },
 
     /**

@@ -93,10 +93,7 @@ $toolbar-size: 64px;
       .skydive {
         animation: #{$name}-skydive 40s infinite ease-in;
         margin-left: calc(50% + 460px);
-        @media (max-width: ($width-desktop - 1)) {
-          margin-left: calc(50% - 300px);
-          animation: #{$name}-skydive-tablet 40s infinite ease-in;
-        }
+
         @include will-change(transform, opacity);
 
         > span {
@@ -143,6 +140,28 @@ $toolbar-size: 64px;
           a {
             height: 60px;
             top: 40px;
+          }
+        }
+
+        @media (max-width: ($width-desktop - 1)) {
+          margin-left: calc(50% + 360px);
+          animation: #{$name}-skydive-tablet 40s infinite ease-in;
+
+          .pegman-1 {
+            width: 60px * $tablet-desktop-ratio;
+            height: 60px * $tablet-desktop-ratio;
+          }
+
+          .pegman-2 {
+            margin-top: -7px * $tablet-desktop-ratio;
+            width: 112px * $tablet-desktop-ratio;
+            height: 112px * $tablet-desktop-ratio;
+          }
+          .pegman-3 {
+            margin-left: 61px * $tablet-desktop-ratio;
+            margin-top: 24px * $tablet-desktop-ratio;
+            width: 140px * $tablet-desktop-ratio;
+            height: 140px * $tablet-desktop-ratio;
           }
         }
       }
@@ -243,6 +262,49 @@ $toolbar-size: 64px;
     }
   }
 
+  .house-new-today {
+    div {
+      position: absolute;
+      height: percent(280px * $svg-ratio, $dim-house);
+      width:  percent(315px * $svg-ratio, $dim-house);
+      background: center no-repeat;
+      background-size: cover;
+      z-index: $house-row-2-z-index;
+      top: percent(-20px, $dim-house);
+      left: percent(-5px, $dim-house);
+
+      a {
+        text-decoration: none;
+        width: 95%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: -20px;
+      }
+
+      h4 {
+        margin: 0 auto;
+        text-align: center;
+        font-family: 'Lobster', sans-serif;
+        font-weight: 200;
+        font-size: 2.275em;
+        line-height: 1.5em;
+        text-shadow: 0 2px 0 rgba(0,0,0,0.25);
+        transform: rotateZ(-6deg);
+        color: #fff;
+      }
+
+      h5 {
+        color: #fff;
+        text-align: center;
+        margin: 0;
+        font-weight: normal;
+        font-size: 16px;
+      }
+    }
+  }
+
   .house {
     position: relative;
 
@@ -295,11 +357,12 @@ $toolbar-size: 64px;
     // TODO(samthor): Footer needs to be scaled for both tablet and mobile.
 
     z-index: $base-background-z-index;
-    height: 700px;
-    background-image: url(img/footer-bg.svg);
-    background-repeat: repeat-x;
-    background-position: 50% 0;
-    background-size: 1882px 1116px;
+    height: 560px;
+
+    @media (max-width: ($width-desktop - 1)) {
+      height: 400px;
+    }
+
     position: relative;
     margin-top: -200px;  // nb. removed on mobile
 
@@ -312,7 +375,7 @@ $toolbar-size: 64px;
       max-width: 600px;
       margin: 0 auto;
       margin-top: 20px;
-      color: #005CD6;
+      color: #3474ba;
       text-align: center;
       font-weight: 500;
       font-size: 22px;
@@ -323,8 +386,8 @@ $toolbar-size: 64px;
     #village-footer-elves {
       background-image: url(img/footer-elves.svg);
       background-repeat: no-repeat;
-      background-position: 50% 0;
-      background-size: 1790px 700px;
+      background-position: 50% 90%;
+      background-size: contain;
       position: absolute;
       width: 100%;
       height: 100%;
