@@ -178,7 +178,7 @@ SoundController.prototype.playAmbientSounds = function(loadEvent) {
   if (!this.klangLoaded_ || this.loadingSounds_) {
     this.soundQueue_.push(loadEvent.detail);
   } else {
-    console.log('Klang: playing sound ' + loadEvent.detail);
+    //console.log('Klang: playing sound ' + loadEvent.detail);
     this.triggerSound_(loadEvent.detail);
   }
 };

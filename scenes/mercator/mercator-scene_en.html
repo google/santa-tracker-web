@@ -21,6 +21,13 @@ specific language governing permissions and limitations under the License.
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="mercator-scene.css" />
+<style>
+  mercator-scene[mode="portal"] a[href*="google.com"] {
+    pointer-events: none;
+    cursor: default !important;
+  }
+</style>
+
 
 <!--
 Mercator scene.
@@ -49,7 +56,6 @@ Mercator scene.
     </div>
     <div class="gui">
       <div class="board board--game">
-        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
         <div class="logo"></div>
         <div class="score">
           <div class="label">

@@ -34,6 +34,11 @@ window.santaApp;
 window.santaApp.fire = function(name, data) {}
 
 /**
+ * @type {number} size of header
+ */
+window.santaApp.headerSize;
+
+/**
  * @const
  */
 var Modernizr;

@@ -187,7 +187,7 @@ CircleView.prototype.render_ = function() {
   if (!center) return;
 
   var pageWidth = /** @type {number} */($(window).width());
-  var pageHeight = /** @type {number} */($(window).height());
+  var pageHeight = /** @type {number} */($(window).height() - window.santaApp.headerSize);
   var radius = Math.max(this.distTo_(0, 0),
                         this.distTo_(0, pageHeight),
                         this.distTo_(pageWidth, 0),
