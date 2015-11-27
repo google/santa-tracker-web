@@ -157,7 +157,9 @@ window.HOUSES = [{
 }, {
   // optionally used instead of "callfromsanta" in some regions
   module: "briefing",
+  fallback: true,
   iced: true,
+  color: '#00c6ed',
   launchDate: new Date('Dec 18, 2015'),
   category: "play"
 }, {

@@ -237,6 +237,7 @@ Santa Tracker app.
     <div msgid="scene-traditions"><i18n-msg msgid="scene_traditions">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-codelab"><i18n-msg msgid="scene_codelab">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-app"><i18n-msg msgid="scene_app">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-briefing"><i18n-msg msgid="scene_briefing">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-seasonofcaring"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-santasback"><i18n-msg msgid="scene_videoscene_santasback">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-santaselfie"><i18n-msg msgid="scene_santaselfie">PLACEHOLDER_i18n</i18n-msg></div>
@@ -457,10 +458,9 @@ Polymer({
     },
 
     /**
-     * A reference to the streetview house in houses.js, for restoration after
-     * postFlight.
+     * A reference to the fallback house used instead of 'callfromsanta'.
      */
-    _streetviewHouse: {
+    _fallbackHouse: {
       type: Object,
       value: null
     },
@@ -651,6 +651,7 @@ Polymer({
     var portalMode = this.mode === 'portal';
     var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
     var spanglish = /^e(n|s)/.test(this.language);
+    spanglish = false;
 
     if (castMode) {
       this._houses = this._houses.slice(0, 3);  // just show the first three
@@ -666,18 +667,20 @@ Polymer({
           // Disable Google Play house on iOS devices
           house.disabled = (ios || portalMode || house.disabled);
           break;
-        case 'streetview':
-          // remove streetview where callfromsanta supported (en|en-GB|es|es-419)
-          // Save the object for postFlight (when callfromsanta will be disabled)
-          if (spanglish && !this.postFlight) {
-            this._streetviewHouse = this._houses.splice(i, 1)[0];
-          }
-          break;
         case 'callfromsanta':
-          // remove callfromsanta where not supported (leaving streetview) or
+          // remove callfromsanta where not supported (leaving fallback house) or
           // after Santa's flight has concluded.
           if (!spanglish || this.postFlight) {
             this._houses.splice(i, 1);
+          }
+          break;
+        default:
+          if (house.fallback) {
+            // remove fallback where callfromsanta supported (en|en-GB|es|es-419)
+            // Save the object for postFlight (when callfromsanta will be disabled)
+            if (spanglish && !this.postFlight) {
+              this._fallbackHouse = this._houses.splice(i, 1)[0];
+            }
           }
           break;
       }
@@ -916,10 +919,10 @@ Polymer({
   _postFlightChanged: function() {
     for (var i = 0; i < this._houses.length; i++) {
       // In regions where callfromsanta was supported, replace it with the
-      // streetviewHouse used in other regions
+      // fallbackHouse used in other regions
       if (this._houses[i].module === 'callfromsanta') {
-        if (this._streetviewHouse) {
-          this._houses[i] = this._streetviewHouse;
+        if (this._fallbackHouse) {
+          this._houses[i] = this._fallbackHouse;
         }
       }
 
