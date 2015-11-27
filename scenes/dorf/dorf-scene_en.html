@@ -78,12 +78,12 @@ Village scene (2015).
       <div id="houses">
         <div class$="house house-new-today new-today-{{todayHouse}}">
           <template is="dom-if" if="{{todayHouse}}">
-            <div>
-              <a href="{{_calculateNewTodayHref(todayHouse)}}">
+            <a href="{{_calculateNewTodayHref(todayHouse)}}">
+              <div class="card">
                 <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
                 <h3>{{_string('scene', todayHouse, santaApp.strings)}}</h3>
-              </a>
-            </div>
+              </div>
+            </a>
           </template>
         </div>
         <template id="housesloop" is="dom-repeat" items="{{houses}}" observe="iced disabled">

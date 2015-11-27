@@ -1,16 +1,5 @@
 @import "variables";
 
-@keyframes bounce {
-  0%    { transform: translateY(0); }
-  25%   { transform: translateY(-40px * .9); }
-  35%   { transform: translateY(-40px * .95); }
-  50%   { transform: translateY(-40px * 1); }
-  65%   { transform: translateY(-40px * .95); }
-  75%   { transform: translateY(-40px * .9); }
-  100%  { transform: translateY(0); }
-}
-
-
 @keyframes #{$name}-walrus {
   0%, 100% {
     transform: translateY(100%);
