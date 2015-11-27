@@ -338,11 +338,12 @@ $toolbar-size: 64px;
     // TODO(samthor): Footer needs to be scaled for both tablet and mobile.
 
     z-index: $base-background-z-index;
-    height: 700px;
-    background-image: url(img/footer-bg.svg);
-    background-repeat: repeat-x;
-    background-position: 50% 0;
-    background-size: 1882px 1116px;
+    height: 560px;
+
+    @media (max-width: ($width-desktop - 1)) {
+      height: 400px;
+    }
+
     position: relative;
     margin-top: -200px;  // nb. removed on mobile
 
@@ -355,7 +356,7 @@ $toolbar-size: 64px;
       max-width: 600px;
       margin: 0 auto;
       margin-top: 20px;
-      color: #005CD6;
+      color: #3474ba;
       text-align: center;
       font-weight: 500;
       font-size: 22px;
@@ -366,8 +367,8 @@ $toolbar-size: 64px;
     #village-footer-elves {
       background-image: url(img/footer-elves.svg);
       background-repeat: no-repeat;
-      background-position: 50% 0;
-      background-size: 1790px 700px;
+      background-position: 50% 90%;
+      background-size: contain;
       position: absolute;
       width: 100%;
       height: 100%;
