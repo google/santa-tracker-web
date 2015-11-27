@@ -32,11 +32,10 @@ goog.require('goog.events.EventTarget');
 const canvasWidth = 622;
 const canvasHeight = 494;
 const fps = 24;
-const bpm = 120;
-const beatDuration = 1000 / bpm * 60;
 const framesPerSprite = 24;
-const originalWidth = 1920 * 0.6;
-const originalHeight = 1080 * 0.6;
+const spriteScaleFactor = 0.6;
+const originalWidth = 1920 * spriteScaleFactor;
+const originalHeight = 1080 * spriteScaleFactor;
 
 /**
  * @typedef {{
@@ -50,7 +49,7 @@ const originalHeight = 1080 * 0.6;
 app.AnimationItem;
 
 class Animation {
-  constructor(sprite, color) {
+  constructor(sprite, color, bpm) {
     this.name = sprite.name;
 
     this.frame = 0;
@@ -133,7 +132,8 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.animationQueue = [];
 
     this.lastUpdateTime = 0;
-    this.lastBeat = null;
+    this.isPlaying = false;
+    this.bpm = 0;
 
     this.update(0);
   }
@@ -158,30 +158,69 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.animationQueue = result.animationQueue;
     this.moveTiles.clear();
     this.title.setTitle(this.animationQueue[0].title);
-    this.dispatchEvent({type: 'start'});
+
+    if (result.watching()) {
+      this.player.setState('is-watching');
+      this.teacher.setState('is-showing');
+    }
   }
 
-  onBar(bar, beat) {
-    if (this.lastBeat && beat < this.lastBeat + app.Constants.BEATS_PER_ANIMATION) {
-      return;
-    }
+  /**
+   * Finishes an animation
+   * @private
+   */
+  onFinish_() {
+    this.dispatchEvent({type: 'finish'});
+    this.moveTiles.clear();
+    this.isPlaying = false;
 
-    this.lastBeat = beat;
+    this.player.setState(null);
+    this.teacher.setState(null);
+  }
+
+  onMusicBar() {
     let animation = this.animationQueue.shift();
+
     if (!animation) {
-      this.teacher.play(app.Step.IDLE);
-      this.player.play(app.Step.IDLE);
-      this.dispatchEvent({type: 'finish'});
-      this.moveTiles.clear();
+      if (this.isPlaying) {
+        this.onFinish_();
+      }
+
       return;
     }
 
-    this.teacher.play(animation.teacherStep);
-    this.player.play(animation.playerStep);
+    if (animation.isCountdown) {
+      this.dispatchEvent({type: 'start'});
+      this.isPlaying = true;
+    }
+
     this.title.setTitle(animation.title);
     if (animation.tile) {
       this.moveTiles.add(animation.tile);
     }
     this.dispatchEvent({type: 'step', data: animation.blockId});
+  }
+
+  onAnimationBar(bpm) {
+    let animation = this.animationQueue[0];
+    if (!animation) {
+      this.teacher.play(app.Step.IDLE, bpm);
+      this.player.play(app.Step.IDLE, bpm);
+    } else {
+      this.teacher.play(animation.teacherStep, bpm);
+      this.player.play(animation.playerStep, bpm);
+    }
+  }
+
+  onBeat(beat, bpm) {
+    let normalized = beat % 4 + 1;
+
+    if (normalized === 1) {
+      this.onMusicBar();
+    }
+
+    if (normalized === 4) {
+      this.onAnimationBar(bpm);
+    }
   }
 };

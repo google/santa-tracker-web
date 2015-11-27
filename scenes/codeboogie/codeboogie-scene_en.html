@@ -152,36 +152,219 @@ Codeboogie scene.
 </template>
 <script>
 (function() {
+  // Whether the sounds for the scene are loaded and the band can commence
+  // jamming. Static so that it's permanent across multiple visits to the scene.
+  var soundsLoaded = false;
+
   Polymer({
     is: 'codeboogie-scene',
     behaviors: [window.SantaSceneBehavior],
-
     frame: null,
 
+    properties: {
+      /**
+       * Whether the scene has already started.
+       */
+      started: {
+        type: Boolean,
+        value: false
+      }
+    },
+
+    listeners: {
+      'sounds-loaded': 'onSoundsLoaded'
+    },
+
     onPreload: function() {
-      this.preloadSounds('codeboogie_load_sounds', 40);
+      this.preloadSounds('codeboogie_load_sounds', 60);
       this.preloadImages([
+        '../codeboogieframe/img/blank.png',
+        '../codeboogieframe/img/block-hip-shake.svg',
+        '../codeboogieframe/img/block-jump.svg',
         '../codeboogieframe/img/block-point-left.svg',
         '../codeboogieframe/img/block-point-right.svg',
+        '../codeboogieframe/img/block-repeat.svg',
+        '../codeboogieframe/img/block-splits.svg',
         '../codeboogieframe/img/block-step-left.svg',
         '../codeboogieframe/img/block-step-right.svg',
-        '../codeboogieframe/img/block-jump.svg',
-        '../codeboogieframe/img/block-splits.svg',
-        '../codeboogieframe/img/block-hip-shake.svg',
-        '../codeboogieframe/img/block-repeat.svg',
+        '../codeboogieframe/img/icons_hip-shake-white.svg',
+        '../codeboogieframe/img/icons_jump-white.svg',
+        '../codeboogieframe/img/icons_point-left-white.svg',
+        '../codeboogieframe/img/icons_point-right-white.svg',
+        '../codeboogieframe/img/icons_splits-white.svg',
+        '../codeboogieframe/img/icons_step-left-white.svg',
+        '../codeboogieframe/img/icons_step-right-white.svg',
+        '../codeboogieframe/img/loading.png',
         '../codeboogieframe/img/logo.svg',
+        '../codeboogieframe/img/madewithcode.svg',
+        '../codeboogieframe/img/media/handclosed.cur',
+        '../codeboogieframe/img/media/handopen.cur',
+        '../codeboogieframe/img/queue-hip-shake.svg',
+        '../codeboogieframe/img/queue-jump.svg',
+        '../codeboogieframe/img/queue-point-left.svg',
+        '../codeboogieframe/img/queue-point-right.svg',
+        '../codeboogieframe/img/queue-splits.svg',
+        '../codeboogieframe/img/queue-step-left.svg',
+        '../codeboogieframe/img/queue-step-right.svg',
+        '../codeboogieframe/img/stages/stage1.svg',
+        '../codeboogieframe/img/stages/stage2.svg',
+        '../codeboogieframe/img/stages/stage3.svg',
+        '../codeboogieframe/img/steps/green/carlton_0.png',
+        '../codeboogieframe/img/steps/green/carlton_1.png',
+        '../codeboogieframe/img/steps/green/carlton_2.png',
+        '../codeboogieframe/img/steps/green/carlton_3.png',
+        '../codeboogieframe/img/steps/green/carlton_4.png',
+        '../codeboogieframe/img/steps/green/carlton_5.png',
+        '../codeboogieframe/img/steps/green/carlton_6.png',
+        '../codeboogieframe/img/steps/green/carlton_7.png',
+        '../codeboogieframe/img/steps/green/clap_0.png',
+        '../codeboogieframe/img/steps/green/clap_1.png',
+        '../codeboogieframe/img/steps/green/elvis_0.png',
+        '../codeboogieframe/img/steps/green/elvis_1.png',
+        '../codeboogieframe/img/steps/green/elvis_2.png',
+        '../codeboogieframe/img/steps/green/elvis_3.png',
+        '../codeboogieframe/img/steps/green/fail_0.png',
+        '../codeboogieframe/img/steps/green/fail_1.png',
+        '../codeboogieframe/img/steps/green/fail_2.png',
+        '../codeboogieframe/img/steps/green/fail_3.png',
+        '../codeboogieframe/img/steps/green/hip_0.png',
+        '../codeboogieframe/img/steps/green/hip_1.png',
+        '../codeboogieframe/img/steps/green/hip_2.png',
+        '../codeboogieframe/img/steps/green/hip_3.png',
+        '../codeboogieframe/img/steps/green/idle_0.png',
+        '../codeboogieframe/img/steps/green/jump_0.png',
+        '../codeboogieframe/img/steps/green/jump_1.png',
+        '../codeboogieframe/img/steps/green/jump_2.png',
+        '../codeboogieframe/img/steps/green/jump_3.png',
+        '../codeboogieframe/img/steps/green/pointLeft_0.png',
+        '../codeboogieframe/img/steps/green/pointLeft_1.png',
+        '../codeboogieframe/img/steps/green/pointLeft_2.png',
+        '../codeboogieframe/img/steps/green/pointLeft_3.png',
+        '../codeboogieframe/img/steps/green/pointRight_0.png',
+        '../codeboogieframe/img/steps/green/pointRight_1.png',
+        '../codeboogieframe/img/steps/green/pointRight_2.png',
+        '../codeboogieframe/img/steps/green/pointRight_3.png',
+        '../codeboogieframe/img/steps/green/splits_0.png',
+        '../codeboogieframe/img/steps/green/splits_1.png',
+        '../codeboogieframe/img/steps/green/splits_2.png',
+        '../codeboogieframe/img/steps/green/splits_3.png',
+        '../codeboogieframe/img/steps/green/spongebob_0.png',
+        '../codeboogieframe/img/steps/green/spongebob_1.png',
+        '../codeboogieframe/img/steps/green/spongebob_2.png',
+        '../codeboogieframe/img/steps/green/spongebob_3.png',
+        '../codeboogieframe/img/steps/green/stepLeft_0.png',
+        '../codeboogieframe/img/steps/green/stepLeft_1.png',
+        '../codeboogieframe/img/steps/green/stepLeft_2.png',
+        '../codeboogieframe/img/steps/green/stepLeft_3.png',
+        '../codeboogieframe/img/steps/green/stepRight_0.png',
+        '../codeboogieframe/img/steps/green/stepRight_1.png',
+        '../codeboogieframe/img/steps/green/stepRight_2.png',
+        '../codeboogieframe/img/steps/green/stepRight_3.png',
+        '../codeboogieframe/img/steps/green/thriller_0.png',
+        '../codeboogieframe/img/steps/green/thriller_1.png',
+        '../codeboogieframe/img/steps/green/thriller_2.png',
+        '../codeboogieframe/img/steps/green/thriller_3.png',
+        '../codeboogieframe/img/steps/green/thriller_4.png',
+        '../codeboogieframe/img/steps/green/thriller_5.png',
+        '../codeboogieframe/img/steps/green/thriller_6.png',
+        '../codeboogieframe/img/steps/green/thriller_7.png',
+        '../codeboogieframe/img/steps/green/watch_0.png',
+        '../codeboogieframe/img/steps/green/watch_1.png',
+        '../codeboogieframe/img/steps/green/watch_2.png',
+        '../codeboogieframe/img/steps/green/watch_3.png',
+        '../codeboogieframe/img/steps/purple/carlton_0.png',
+        '../codeboogieframe/img/steps/purple/carlton_1.png',
+        '../codeboogieframe/img/steps/purple/carlton_2.png',
+        '../codeboogieframe/img/steps/purple/carlton_3.png',
+        '../codeboogieframe/img/steps/purple/carlton_4.png',
+        '../codeboogieframe/img/steps/purple/carlton_5.png',
+        '../codeboogieframe/img/steps/purple/carlton_6.png',
+        '../codeboogieframe/img/steps/purple/carlton_7.png',
+        '../codeboogieframe/img/steps/purple/clap_0.png',
+        '../codeboogieframe/img/steps/purple/clap_1.png',
+        '../codeboogieframe/img/steps/purple/elvis_0.png',
+        '../codeboogieframe/img/steps/purple/elvis_1.png',
+        '../codeboogieframe/img/steps/purple/elvis_2.png',
+        '../codeboogieframe/img/steps/purple/elvis_3.png',
+        '../codeboogieframe/img/steps/purple/fail_0.png',
+        '../codeboogieframe/img/steps/purple/fail_1.png',
+        '../codeboogieframe/img/steps/purple/fail_2.png',
+        '../codeboogieframe/img/steps/purple/fail_3.png',
+        '../codeboogieframe/img/steps/purple/hip_0.png',
+        '../codeboogieframe/img/steps/purple/hip_1.png',
+        '../codeboogieframe/img/steps/purple/hip_2.png',
+        '../codeboogieframe/img/steps/purple/hip_3.png',
+        '../codeboogieframe/img/steps/purple/idle_0.png',
+        '../codeboogieframe/img/steps/purple/jump_0.png',
+        '../codeboogieframe/img/steps/purple/jump_1.png',
+        '../codeboogieframe/img/steps/purple/jump_2.png',
+        '../codeboogieframe/img/steps/purple/jump_3.png',
+        '../codeboogieframe/img/steps/purple/pointLeft_0.png',
+        '../codeboogieframe/img/steps/purple/pointLeft_1.png',
+        '../codeboogieframe/img/steps/purple/pointLeft_2.png',
+        '../codeboogieframe/img/steps/purple/pointLeft_3.png',
+        '../codeboogieframe/img/steps/purple/pointRight_0.png',
+        '../codeboogieframe/img/steps/purple/pointRight_1.png',
+        '../codeboogieframe/img/steps/purple/pointRight_2.png',
+        '../codeboogieframe/img/steps/purple/pointRight_3.png',
+        '../codeboogieframe/img/steps/purple/splits_0.png',
+        '../codeboogieframe/img/steps/purple/splits_1.png',
+        '../codeboogieframe/img/steps/purple/splits_2.png',
+        '../codeboogieframe/img/steps/purple/splits_3.png',
+        '../codeboogieframe/img/steps/purple/spongebob_0.png',
+        '../codeboogieframe/img/steps/purple/spongebob_1.png',
+        '../codeboogieframe/img/steps/purple/spongebob_2.png',
+        '../codeboogieframe/img/steps/purple/spongebob_3.png',
+        '../codeboogieframe/img/steps/purple/stepLeft_0.png',
+        '../codeboogieframe/img/steps/purple/stepLeft_1.png',
+        '../codeboogieframe/img/steps/purple/stepLeft_2.png',
+        '../codeboogieframe/img/steps/purple/stepLeft_3.png',
+        '../codeboogieframe/img/steps/purple/stepRight_0.png',
+        '../codeboogieframe/img/steps/purple/stepRight_1.png',
+        '../codeboogieframe/img/steps/purple/stepRight_2.png',
+        '../codeboogieframe/img/steps/purple/stepRight_3.png',
+        '../codeboogieframe/img/steps/purple/thriller_0.png',
+        '../codeboogieframe/img/steps/purple/thriller_1.png',
+        '../codeboogieframe/img/steps/purple/thriller_2.png',
+        '../codeboogieframe/img/steps/purple/thriller_3.png',
+        '../codeboogieframe/img/steps/purple/thriller_4.png',
+        '../codeboogieframe/img/steps/purple/thriller_5.png',
+        '../codeboogieframe/img/steps/purple/thriller_6.png',
+        '../codeboogieframe/img/steps/purple/thriller_7.png',
+        '../codeboogieframe/img/steps/purple/watch_0.png',
+        '../codeboogieframe/img/steps/purple/watch_1.png',
+        '../codeboogieframe/img/steps/purple/watch_2.png',
+        '../codeboogieframe/img/steps/purple/watch_3.png',
         '../codeboogieframe/img/tutorial/maze.gif',
-        '../codeboogieframe/img/tutorial/shadow.svg'
+        '../codeboogieframe/img/tutorial/shadow.svg',
       ]);
     },
+
     onShow: function() {
       var module = this.$['module-codeboogie'];
       this.frame = new scenes.codeboogie.FrameWrapper(module, this.componentDir);
+
+      this.gatedStart();
     },
+
     onHide: function() {
       this.frame.dispose();
       this.frame = null;
       this.fire('sound-ambient', 'computer_end');
+    },
+
+    onSoundsLoaded: function(e, soundsName) {
+      if (soundsName === 'codeboogie_load_sounds') {
+        soundsLoaded = true;
+        this.gatedStart();
+      }
+    },
+
+    gatedStart: function() {
+      if (this.frame && soundsLoaded && !this.started) {
+        this.frame.start();
+        this.bandStarted = true;
+      }
     }
   });
 
