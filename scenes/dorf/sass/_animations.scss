@@ -13,10 +13,10 @@
 
 @keyframes #{$name}-walrus {
   0%, 100% {
-    background-position: 0 20px;
+    transform: translateY(100%);
   }
   40%, 50% {
-    background-position: 0 0;
+    transform: translateY(0%);
   }
 }
 

@@ -56,7 +56,17 @@
 
   #easteregg-walrus {
     overflow: hidden;
-    animation: #{$name}-walrus 3s ease infinite;
+    background: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url(img/easteregg-walrus.svg);
+      @include will-change();
+      animation: #{$name}-walrus 3s ease infinite;
+    }
   }
 
   #easteregg-balloon, #easteregg-snowmobile1, #easteregg-snowmobile2,
