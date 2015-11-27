@@ -35,8 +35,8 @@ app.config.Levels = [
       material: app.config.Materials.present,
       style: app.config.Styles.presentSquare,
       objectType: app.world.PresentSquare,
-      relX: 0.2,
-      relY: 0.0
+      relX: 0.15,
+      relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
