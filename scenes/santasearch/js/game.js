@@ -181,6 +181,7 @@ app.Game.prototype.restart = function() {
   window.santaApp.fire('analytics-track-game-start', {gameid: 'santasearch'});
   this.gameStartTime = +new Date;
 
+  this.controls.reset();
   this._scale(1);
   this.characters.initialize();
 

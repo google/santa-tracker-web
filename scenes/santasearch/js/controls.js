@@ -70,6 +70,14 @@ app.Controls.prototype.start = function() {
   this.enabled = true;
 };
 
+app.Controls.prototype.reset = function() {
+  this.scale = 1;
+  this.pan.x = 0;
+  this.pan.y = 0;
+  this.pinching = false;
+  this.selecting = false;
+}
+
 /**
  * Updates pan based on location of user interaction
  * @param {number} x X coordinate of where the user is touching the screen.

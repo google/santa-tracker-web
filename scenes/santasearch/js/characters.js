@@ -35,13 +35,13 @@ app.Characters = function(mapElem, drawerElem, mapDimensions) {
       isFound: false
     },
     'mrs-claus': {
-      elem: this.mapElem.find('.character--mrs-claus'),
+      elem: this.mapElem.find('.character-collider--mrs-claus'),
       uiElem: this.drawerElem.find('.character--mrs-claus').parent(),
       location: {},
       scale: {}
     },
     'rudolph': {
-      elem: this.mapElem.find('.character--rudolph'),
+      elem: this.mapElem.find('.character-collider--rudolph'),
       uiElem: this.drawerElem.find('.character--rudolph').parent(),
       location: {},
       scale: {},
@@ -55,7 +55,7 @@ app.Characters = function(mapElem, drawerElem, mapDimensions) {
       isFound: false
     },
     'pegman': {
-      elem: this.mapElem.find('.character--pegman'),
+      elem: this.mapElem.find('.character-collider--pegman'),
       uiElem: this.drawerElem.find('.character--pegman').parent(),
       location: {},
       scale: {},
@@ -78,12 +78,11 @@ app.Characters.prototype.initialize = function() {
   this.allFound = false;
   this.hintTarget = undefined;
 
-
   this._initializeCharacter('santa');
-  // this._initializeCharacter('mrs-claus');
-  // this._initializeCharacter('rudolph');
+  this._initializeCharacter('mrs-claus');
+  this._initializeCharacter('rudolph');
   this._initializeCharacter('gingerbread-man');
-  // this._initializeCharacter('pegman');
+  this._initializeCharacter('pegman');
   this._initializeCharacter('penguin');
 
   this.updateCharacters();
@@ -157,35 +156,22 @@ app.Characters.prototype._initializeCharacter = function(characterName) {
   let randomKey = Math.floor(Math.random() * characterKeys.length);
   let characterToSpawn = characterKeys[randomKey];
 
-  // key: 'SANTA-1',
-  // clickableArea: {
-  //   size: {},
-  //   location: {}
-  // }
-
   let character = this.characters[characterName];
 
   character.isFound = false;
   character.uiElem.removeClass('drawer__character-wrapper--found');
-
-
-  // let santas = spawns.map((spawn) => {
-  //   return spawn.key
-  // });
 
   let characterSVG = this.hidingCharacters.getElementById(characterToSpawn);
 
   characterKeys.forEach((characterKey) => {
     let characterToHideSVG = this.hidingCharacters.getElementById(characterKey);
 
-    if (characterToHideSVG !== null && characterKey !== characterToSpawn) {
+    if (characterToHideSVG !== null) {
       characterToHideSVG.style.display = 'none';
-
-      console.log('Hiding ' + characterKey);
     }
   });
 
-  //console.log('Calculating boundaries for ' + characterName);
+  characterSVG.style.display = 'block';
 
   let characterBoundaries = characterSVG.getBoundingClientRect();
 
@@ -197,9 +183,6 @@ app.Characters.prototype._initializeCharacter = function(characterName) {
     top: (characterBoundaries.top + topOffset) / this.mapDimensions.height
   };
 
-  console.log(character.location);
-  console.log('---');
-
   character.scale = {
     width: characterBoundaries.width / this.mapDimensions.width,
     height: characterBoundaries.height / this.mapDimensions.height
@@ -209,9 +192,6 @@ app.Characters.prototype._initializeCharacter = function(characterName) {
 
   let hintElem = character.uiElem.find('.hint');
   hintElem.on('click.santasearch', this._setHintTarget.bind(this, characterName));
-
-  //console.log(characterName + ' is ready');
-  //console.log(character);
 };
 
 app.Characters.prototype._setHintTarget = function(characterName) {

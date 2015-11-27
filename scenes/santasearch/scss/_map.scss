@@ -1,6 +1,5 @@
 ##{$name} {
   .map {
-    background: url(img/map.svg) 0 0 / cover no-repeat;
     height: 900px;
     left: 50%;
     margin-left: -800px;
@@ -19,5 +18,6 @@
     bottom: 0;
     right: 0;
     pointer-events: none;
+    transform: translateZ(0);
   }
 }

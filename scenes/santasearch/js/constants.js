@@ -33,9 +33,7 @@ app.Constants = {
         'SANTA-3',
         'SANTA-4',
         'SANTA-5',
-        'SANTA-6',
-        'SANTA-7',
-        'SANTA-8',
+        'SANTA-6'
       ],
       'gingerbread-man': [
         'GINGERBREADMAN-1',
@@ -53,19 +51,33 @@ app.Constants = {
         'PENGUIN-5',
         'PENGUIN-6',
         'PENGUIN-7'
+      ],
+      'rudolph': [
+        'RUDOLPH-1',
+        // 'RUDOLPH-2',
+        // 'RUDOLPH-3',
+        // 'RUDOLPH-4',
+        // 'RUDOLPH-5',
+        // 'RUDOLPH-6',
+        'RUDOLPH-7',
+      ],
+      'mrs-claus': [
+        'MRSCLAUS-1',
+        'MRSCLAUS-2',
+        'MRSCLAUS-3',
+        'MRSCLAUS-4',
+        'MRSCLAUS-5',
+        'MRSCLAUS-6'
+      ],
+      'pegman': [
+        'PEGMAN-1',
+        'PEGMAN-2',
+        'PEGMAN-3',
+        'PEGMAN-4',
+        'PEGMAN-5',
+        'PEGMAN-6',
+        'PEGMAN-7'
       ]
-      /*
-      'santa': [
-        {
-          className: 'character-hiding--museum-santa-1',
-          aspectRatio: 76 / 100,
-          heightScale: 101 / 1080, // if map height was 1080px
-          locationScale: {
-            left: 0.039,
-            top: 0.6934
-          }
-        }
-      ]*/
     }
   }
 };
