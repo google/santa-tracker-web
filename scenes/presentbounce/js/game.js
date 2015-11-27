@@ -191,7 +191,7 @@ app.Game.prototype.gameover = function() {
   this.gameoverView.show();
   window.santaApp.fire('sound-trigger', 'pb_game_over');
   window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
-  
+
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'presentbounce',
     score: this.scoreboard.score,
