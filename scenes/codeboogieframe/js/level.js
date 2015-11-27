@@ -97,18 +97,24 @@ app.LevelResultOptions;
  * @param {app.LevelResultOptions=} options for these results.
  * @constructor
  */
-app.LevelResult = function(levelComplete, message, options) {
-  options = options || {};
-  this.allowRetry = options.allowRetry == null ? true : options.allowRetry;
-  this.code = options.code || null;
-  this.skipAnimation = options.skipAnimation || false;
-  this.overlayGraphic = options.overlayGraphic || null;
-  this.levelComplete = levelComplete;
-  this.isFinalLevel = options.isFinalLevel || false;
-  this.message = message || '';
-  this.missingBlocks = options.missingBlocks || [];
+app.LevelResult = class {
+  constructor(levelComplete, message, options) {
+    options = options || {};
+    this.allowRetry = options.allowRetry == null ? true : options.allowRetry;
+    this.code = options.code || null;
+    this.skipAnimation = options.skipAnimation || false;
+    this.overlayGraphic = options.overlayGraphic || null;
+    this.levelComplete = levelComplete;
+    this.isFinalLevel = options.isFinalLevel || false;
+    this.message = message || '';
+    this.missingBlocks = options.missingBlocks || [];
 
-  if (options.idealBlockCount) {
-    this.message = this.message.replace('{{ideal}}', options.idealBlockCount);
+    if (options.idealBlockCount) {
+      this.message = this.message.replace('{{ideal}}', options.idealBlockCount);
+    }
+  }
+
+  showResult() {
+    return true;
   }
 };

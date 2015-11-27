@@ -22,54 +22,68 @@ goog.require('app.Step');
 
 let sources = {
   [app.Step.IDLE]: {
-    'name': 'idle',
-    'frames': 24
+    name: 'idle',
+    frames: 24
   },
   [app.Step.FAIL]: {
-    'name': 'fail',
-    'frames': 96
+    name: 'fail',
+    frames: 96
   },
   [app.Step.WATCH]: {
-    'name': 'watch',
-    'frames': 96
-  },
-  [app.Step.CARLTON]: {
-    'name': 'carlton',
-    'frames': 192
+    name: 'watch',
+    frames: 96
   },
   [app.Step.LEFT_ARM]: {
-    'name': 'pointLeft',
-    'frames': 96
+    name: 'pointLeft',
+    frames: 96
   },
   [app.Step.RIGHT_ARM]: {
-    'name': 'pointRight',
-    'frames': 96
+    name: 'pointRight',
+    frames: 96
   },
   [app.Step.LEFT_FOOT]: {
-    'name': 'stepLeft',
-    'frames': 96
+    name: 'stepLeft',
+    frames: 96
   },
   [app.Step.RIGHT_FOOT]: {
-    'name': 'stepRight',
-    'frames': 96
+    name: 'stepRight',
+    frames: 96
   },
   [app.Step.JUMP]: {
-    'name': 'jump',
-    'frames': 96
+    name: 'jump',
+    frames: 96
   },
   [app.Step.SHAKE]: {
-    'name': 'hip',
-    'frames': 96
+    name: 'hip',
+    frames: 96
   },
   [app.Step.SPLIT]: {
-    'name': 'splits',
-    'frames': 96
+    name: 'splits',
+    frames: 96
+  },
+  [app.Step.CARLTON]: {
+    name: 'carlton',
+    frames: 192
+  },
+  [app.Step.SPONGEBOB]: {
+    name: 'spongebob',
+    frames: 96,
+  },
+  [app.Step.ELVIS]: {
+    name: 'elvis',
+    frames: 96
+  },
+  [app.Step.THRILLER]: {
+    name: 'thriller',
+    frames: 96
   }
 };
 
 app.Character = class {
   constructor(el, color) {
-    this.color = color
+    this.color = color;
+    this.currentState = null;
+    this.el = el;
 
     // Create canvas
     let canvas = document.createElement('canvas');
@@ -78,12 +92,11 @@ app.Character = class {
     el.appendChild(canvas);
 
     this.context = canvas.getContext('2d');
-
-    this.sprite = sources[app.Step.IDLE];
-    this.animation = new Animation(this.sprite, this.color);
   }
 
   update(dt) {
+    if (!this.animation) return;
+
     let frame = this.animation.update(dt);
 
     this.context.canvas.width = this.context.canvas.width;
@@ -92,14 +105,31 @@ app.Character = class {
         frame.width, frame.height);
   }
 
-  play(step) {
+  setState(state) {
+    if (state === this.currentState) {
+      return;
+    }
+    if (this.currentState) {
+      this.el.classList.remove(this.currentState);
+    }
+    this.currentState = state;
+    this.el.classList.add(this.currentState);
+  }
+
+  play(step, bpm) {
     this.sprite = sources[step];
 
     if (!this.sprite) {
       throw new Error(`No sprite found for move ${step}`);
     }
 
-    this.animation = new Animation(this.sprite, this.color);
+    this.animation = new Animation(this.sprite, this.color, bpm);
+
+    // Hack bpm for demo
+    if (step !== app.Step.IDLE) {
+      this.animation.frameDuration = 1000 / fps * (60 / bpm);
+    }
+
     this.animation.play();
   }
 };

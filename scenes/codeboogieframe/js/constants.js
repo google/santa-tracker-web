@@ -29,9 +29,7 @@ app.Constants = {
 	BLOCKLY_MIN_WIDTH: 220,
 	EDGE_MIN_WIDTH: 48,
 	SCENE_TOGGLE_DURATION: 300,
-	SCENE_TOGGLE_MIN_DRAG: 20,
-
-	BEATS_PER_ANIMATION: 8
+	SCENE_TOGGLE_MIN_DRAG: 20
 };
 
 // Hack to support shared scoreboard with other apps.

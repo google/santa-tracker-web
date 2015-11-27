@@ -47,8 +47,7 @@ app.Game = function(elem) {
 
   this.iframeChannel = new app.shared.FrameRPC(window.parent, {
     restart: this.restart.bind(this),
-    beat: () => {},
-    bar: this.scene.player.onBar.bind(this.scene.player)
+    beat: (beat, bpm) => this.scene.player.onBeat(beat, bpm)
   });
 
   Klang.setEventListener(this.iframeChannel.call.bind(this.iframeChannel, 'triggerSound'));
@@ -84,18 +83,13 @@ app.Game.prototype.bumpLevel = function() {
     return;
   }
 
-  this.iframeChannel.call('setLevel', this.levelNumber, this.level.bpm);
+  this.iframeChannel.call('setLevel', this.level.track, this.level.bpm);
 
   this.elem.className = this.level.className();
 
   this.blockly.setLevel(this.level);
   this.scene.setLevel(this.level);
   this.scene.toggleVisibility(true);
-
-  // Show tutorial
-  if (this.levelNumber === 0 || this.levelNumber === 2) {
-    // this.tutorial_.schedule();
-  }
 };
 
 app.Game.prototype.onBlur = function() {
@@ -107,7 +101,7 @@ app.Game.prototype.onFocus = function() {
 };
 
 /**
- * Resets state of the current level. Only applies to maze levels currently.
+ * Resets state of the current level.
  */
 app.Game.prototype.restartLevel = function() {
   this.scene.restartLevel(true);
@@ -118,8 +112,6 @@ app.Game.prototype.restartLevel = function() {
  */
 app.Game.prototype.start = function() {
   this.restart();
-
-
 };
 
 /**
@@ -131,6 +123,5 @@ app.Game.prototype.restart = function() {
   this.levelNumber = levelNumber;
 
   this.scene.reset();
-
   this.bumpLevel();
 };

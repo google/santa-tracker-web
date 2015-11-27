@@ -14,42 +14,32 @@
  * the License.
  */
 
-'use strict'
+'use strict';
 
 goog.provide('app.Sequencer');
 
 /**
- * Plays dance loops and calculates beat and bar
+ * Temporary mock for Klang sequencer.
  */
 app.Sequencer = class {
-  constructor(bpm) {
+  constructor() {
     this.bar = 0;
     this.beat = -1;
-    this.queue = [];
-    this.bpmForTrack = [120,120,130,130,140,140];
+    this._track = 0;
+    this._level;
     this.playingLoopId;
-    this.trackToPlay;
-    this.inited = false;
+    this._playScheduled = false;
   }
-  setTrack(track) {
-    this.trackToPlay = track;
-    if (this.inited) {
-      this.setLevel(this.trackToPlay);
-    }
-  }
-  setLevel(lvl) {
 
-    // lvl = 0-5
-    var bpm = 120;
-    if (lvl <= 1) {
-      bpm = 120;
-    } else if (lvl <= 3) {
-      bpm = 130;
-    }else if (lvl <= 5) {
-      bpm = 140;
-    }
-    this.klangUtil.transition(this.getPlayingLoop(), this.tracks[lvl], this._tempo, 0, 0.2);
-    this._tempo = bpm;
+  setLevel(level, bpm) {
+    this._level = level;
+    this._bpm = bpm;
+    this._playScheduled = true;
+  }
+
+  setTrack(track) {
+    this._track = track;
+    this._playScheduled = true;
   }
 
   getPlayingLoop() {
@@ -68,33 +58,34 @@ app.Sequencer = class {
   start() {
     this.klangUtil = Klang.getUtil();
     this.tracks = Klang.$('codeboogie_tracks')._content;
-    this.inited = true;
-    this.setLevel(this.trackToPlay);
-    this.update();
-    window.testo = this;
+
+    this.update(0);
+    this.play();
   }
 
+  play() {
+    if (!this._playScheduled) return;
+
+    this.klangUtil.transition(this.getPlayingLoop(), this.tracks[this._level * 2 + this._track], this._bpm, 0, 0.2);
+    this._playScheduled = false;
+  }
 
   stop(){
     this.getPlayingLoop().fadeOutAndStop(1);
   }
 
   update(timestamp) {
-    var loop = this.getPlayingLoop();
-    var currPos = loop ? this.getPlayingLoop().position : 0;
-    var beat = Math.floor( currPos / (60/this.bpmForTrack[this.playingLoopId]) ) % 4;
-    if ( this.beat !== beat ){
+    let loop = this.getPlayingLoop();
+    let currPos = loop ? this.getPlayingLoop().position : 0;
+    let beat = Math.floor(currPos / (60 / this._bpm));
+
+    if (this.beat !== beat) {
       this.beat = beat;
-      this.onBeat(this.beat);
-      if (this.beat  === 0) {
-        this.bar += 1;
-        this.onBar(this.bar, this.beat);
-      }
+      this.onBeat(this.beat, this._bpm);
+
+      this.play();
     }
+
     window.requestAnimationFrame(t => this.update(t));
   }
-
-  add(moves) {
-    moves.forEach(move => this.queue.unshift(move));
-  }
-}
+};

@@ -64,6 +64,7 @@ app.DanceLevel = class extends app.Level {
 
     this.freestyle = options.freestyle || false;
     this.steps = options.steps;
+    this.track = options.track;
     this.bpm = options.bpm;
     this.stage = options.stage || 'stage0';
     this.idealBlockCount = options.idealBlockCount || Infinity;
@@ -185,8 +186,6 @@ app.DanceLevel = class extends app.Level {
   createAnimationQueue(playerSteps, result) {
     let queue = [];
 
-
-
     playerSteps = playerSteps.filter(b => b.step);
     for (let i = 0, step = null; step = this.steps[i]; i++) {
       let playerStep = playerSteps[i];
@@ -230,9 +229,11 @@ app.DanceLevel = class extends app.Level {
     }
 
     if (result === app.DanceStatus.SUCCESS) {
+      let specialMove = this.getRandomSpecialMove();
+
       queue.push({
-        teacherStep: app.Step.CARLTON,
-        playerStep: app.Step.CARLTON,
+        teacherStep: specialMove,
+        playerStep: specialMove,
         title: app.I18n.getMsg('CB_success')
       });
     }
@@ -242,10 +243,21 @@ app.DanceLevel = class extends app.Level {
       playerStep: app.Step.IDLE,
       title: app.I18n.getMsg(result === app.DanceStatus.NO_STEPS ?
           'CB_watchClosely' :
-          'CB_letsDance')
+          'CB_letsDance'),
+      isCountdown: true
     });
 
     return queue;
+  }
+
+  /*
+   * Get a random special move.
+   *
+   * @returns {app.Step}
+   */
+  getRandomSpecialMove() {
+    var specialMoves = [app.Step.CARLTON, app.Step.ELVIS, app.Step.SPONGEBOB, app.Step.THRILLER];
+    return specialMoves[Math.floor(Math.random() * specialMoves.length)];
   }
 
   /**
@@ -291,5 +303,9 @@ app.DanceLevelResult = class extends app.LevelResult {
 
   watching() {
     return !this.freestyle && this.danceStatus === app.DanceStatus.NO_STEPS;
+  }
+
+  showResult() {
+    return !this.watching();
   }
 };

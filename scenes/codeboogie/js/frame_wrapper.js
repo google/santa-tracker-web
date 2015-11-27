@@ -37,12 +37,6 @@ app.FrameWrapper = function(el, staticDir) {
   this.gameStartTime = +new Date;
   this.iframeEl = this.el.find('iframe[data-codeboogie-frame]');
   this.isPlaying = false;
-  this.sequencer = new app.Sequencer();
-
-  // On klang loaded.
-  setTimeout(function  () {
-    this.sequencer.start();
-  }.bind(this),2000)
 
   // Create a communication channel to the game frame.
   this.iframeChannel = new app.shared.FrameRPC(this.iframeEl[0].contentWindow, {
@@ -53,11 +47,21 @@ app.FrameWrapper = function(el, staticDir) {
     setTrack: this.setTrack.bind(this)
   });
 
+  this.sequencer = new app.Sequencer();
+  this.sequencer.onBeat = (beat, bpm) => this.iframeChannel.call('beat', beat, bpm);
+
   // internal level number for analytics
   this.level_ = 1;
 
   // Load the iframe.
   this.setIframeSrc();
+};
+
+/**
+ * Starts the scene.
+ */
+app.FrameWrapper.prototype.start = function() {
+  this.sequencer.start();
 
   // Too soon for postMessage.
   this.restart();
@@ -71,9 +75,6 @@ app.FrameWrapper.prototype.restart = function() {
 
   this.iframeChannel.call('restart');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'codeboogie'});
-
-  this.sequencer.onBeat = (beat) => this.iframeChannel.call('beat', beat);
-  this.sequencer.onBar = (bar, beat) => this.iframeChannel.call('bar', bar, beat);
 };
 
 /**
