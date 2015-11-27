@@ -336,8 +336,10 @@ app.Scene = class {
     }
 
     if (result.levelComplete) {
+      Klang.triggerEvent('cb_win');
       this.game.successResult.show(result);
     } else {
+      Klang.triggerEvent('cb_fail');
       this.game.failureResult.show(result);
     }
   }
