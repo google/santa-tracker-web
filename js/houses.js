@@ -21,18 +21,21 @@
 window.HOUSES = [{
   module: "airport",
   iced: true,
+  color: '#fdbe27',
   launchDate: new Date('Dec 1, 2014'),
   hideDate: true,
   category: "play"
 }, {
   module: "traditions",
   iced: true,
+  color: '#fdbe27',
   launchDate: new Date('Dec 1, 2014'),
   hideDate: true,
   category: "learn"
 }, {
   module: "codelab",
   iced: true,
+  color: '#9a519f',
   launchDate: new Date('Dec 1, 2014'),
   hideDate: true,
   category: "learn"
@@ -46,33 +49,37 @@ window.HOUSES = [{
 }, {
   module: "seasonofgiving",
   iced: true,
+  color: '#9dca3b',
   launchDate: new Date('Dec 1, 2014'),
   category: "learn"
 }, {
   module: "santasback",
   iced: true,
+  color: '#00c6ed',
   launchDate: new Date('Dec 2, 2014'),
   category: "watch"
 }, {
   module: "santaselfie",
   iced: true,
-  color: '#5d75d0',
+  color: '#4172e8',
   launchDate: new Date('Dec 3, 2014'),
   category: "play"
 }, {
   module: "translations",
   iced: true,
-  color: '#688934',
+  color: '#558b2f',
   launchDate: new Date('Dec 4, 2014'),
   category: "learn"
 }, {
   module: "elf-car",
   iced: true,
+  color: '#00c6ed',
   launchDate: new Date('Dec 5, 2014'),
   category: "watch"
 }, {
   module: "presentdrop",
   iced: true,
+  color: '#00c6ed',
   launchDate: new Date('Dec 6, 2014'),
   category: "play"
 }, {
@@ -83,12 +90,13 @@ window.HOUSES = [{
 }, {
   module: "windtunnel",
   iced: true,
+  color: '#00c6ed',
   launchDate: new Date('Dec 8, 2014'),
   category: "play"
 }, {
   module: "racer",
   iced: true,
-  color: '#7ac86a',
+  color: '#00c6ed',
   launchDate: new Date('Dec 9, 2014'),
   category: "play"
 }, {
@@ -100,48 +108,55 @@ window.HOUSES = [{
 }, {
   module: "gumball",
   iced: true,
+  color: '#fdbe27',
   launchDate: new Date('Dec 11, 2014'),
   category: "play"
 }, {
   module: "postcard",
   iced: true,
+  color: '#00c6ed',
   launchDate: new Date('Dec 12, 2014'),
   category: "play"
 }, {
   module: "jetpack",
   iced: true,
+  color: '#9a519f',
   launchDate: new Date('Dec 13, 2014'),
   category: "play"
 }, {
   module: "boatload",
   iced: true,
+  color: '#00c6ed',
   launchDate: new Date('Dec 14, 2014'),
   category: "play"
 }, {
   module: "mercator",
   iced: true,
-  color: '#7ac86a',
+  color: '#00c6ed',
   launchDate: new Date('Dec 15, 2014'),
   category: "play"
 }, {
   module: "presentbounce",
   iced: true,
+  color: '#4172e8',
   launchDate: new Date('Dec 16, 2014'),
   category: "play"
 }, {
   module: "codeboogie",
   iced: true,
+  color: '#9a519f',
   launchDate: new Date('Dec 17, 2014'),
   category: "play"
 }, {
-  // optionally used instead of "streetview" in some regions
+  // optionally used instead of "briefing" in some regions
   module: "callfromsanta",
   iced: true,
+  color: '#00c6ed',
   launchDate: new Date('Dec 18, 2014'),
   category: "play"
 }, {
   // optionally used instead of "callfromsanta" in some regions
-  module: "streetview",
+  module: "briefing",
   iced: true,
   launchDate: new Date('Dec 18, 2014'),
   category: "play"
@@ -154,21 +169,25 @@ window.HOUSES = [{
 }, {
   module: "commandcentre",
   iced: true,
+  color: '#00c6ed',
   launchDate: new Date('Dec 20, 2014'),
   category: "watch"
 }, {
   module: "seasonofcaring",
   iced: true,
+  color: '#9dca3b',
   launchDate: new Date('Dec 21, 2014'),
   category: "learn"
 }, {
   module: "matching",
   iced: true,
+  color: '#00c6ed',
   launchDate: new Date('Dec 22, 2014'),
   category: "play"
 }, {
   module: "liftoff",
   iced: true,
+  color: '#00c6ed',
   launchDate: new Date('Dec 23, 2014'),
   category: "watch"
 }];

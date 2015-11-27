@@ -91,7 +91,8 @@ WorldView.prototype.hide = function() {
 };
 
 WorldView.prototype.onResize_ = function() {
-  this.mapSize_ = new google.maps.Size(window.innerWidth, window.innerHeight);
+  var height = window.innerHeight - window.santaApp.headerSize;
+  this.mapSize_ = new google.maps.Size(window.innerWidth, height);
 };
 
 WorldView.prototype.cycleStatus_ = function() {

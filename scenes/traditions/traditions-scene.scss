@@ -240,8 +240,8 @@ $name: 'module-traditions';
   }
 
   .sceneboard {
-    background: #fed83c url(img/traditions_icon.svg) no-repeat 50% 30px;
-    height: 220px;
+    background: #fed83c url(img/traditions_icon.svg) no-repeat center top;
+    height: 200px;
 
     .controls {
       background: #22b129;
@@ -310,10 +310,6 @@ $name: 'module-traditions';
       bottom: 14px;
       width: 204px;
       left: auto;
-
-      .back, .sceneboard-back {
-        display: none;
-      }
 
       .controls {
         border-radius: 20px 0 0 20px;
