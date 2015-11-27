@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Hüpe"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Hüppa."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Käsi vasakule"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Siruta käsi vasakule."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Samm vasakule"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Astu vasakule."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Käsi paremale"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Siruta käsi paremale."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Samm paremale"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Astu paremale."
+	},
+	"codeboogie-block-shake": {
+		"message": "Puusanõks"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Tee puusanõks."
+	},
+	"codeboogie-block-split": {
+		"message": "Spagaat"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Tee spagaat."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Tantsige!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Järgmine tants"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Proovige alloleva plokiga tantsutaktis püsida."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Kas teadsite, et võite tantsu lõpetada vaid {{ideal}} plokiga? Proovige kasutada allolevat plokki."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Tantsulõvi! Saite tantsuga täiuslikult hakkama."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Kasutate õigeid plokke, kuid proovige neid tantsu lõpetamiseks õigel ajal kasutada."
+	},
+	"codeboogie-success": {
+		"message": "Õnnestus!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Vaadake tähelepanelikult!"
+	},
 	"codelab-block-moveeast": {
 		"message": "ida"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Hankige rakendus"
+	},
+	"village_more": {
+		"message": "Veel avastamisvõimalusi"
 	},
 	"village_santa_cardboard": {
 		"message": "Jõuluvana Cardboardis"

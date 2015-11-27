@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Kolumbien"
 	},
+	"codeboogie-block-jump": {
+		"message": "Sprung"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Spring hoch!"
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Linker Arm"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Zeig nach links!"
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Linker Fuß"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Mach einen Schritt nach links!"
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Rechter Arm"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Zeig nach rechts!"
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Rechter Fuß"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Mach einen Schritt nach rechts!"
+	},
+	"codeboogie-block-shake": {
+		"message": "Hüftschwung"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Schwing die Hüften!"
+	},
+	"codeboogie-block-split": {
+		"message": "Spagat"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Mach einen Spagat!"
+	},
+	"codeboogie-get-dancing": {
+		"message": "Du bist dran!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Nächster Tanz"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Versuch mal den Block unten, um den Tanz hinzubekommen."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Wusstest du, dass der Tanz mit nur {{ideal}} Blöcken beendet werden kann? Versuche es mal mit dem unteren Block."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Hut ab! Du tanzt wie ein Profi!"
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Du benutzt zwar die richtigen Blöcke, sie reichen aber nicht für den kompletten Tanz aus."
+	},
+	"codeboogie-success": {
+		"message": "Geschafft!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Pass genau auf!"
+	},
 	"codelab-block-moveeast": {
 		"message": "Osten"
 	},
@@ -783,7 +849,7 @@
 		"message": "Los"
 	},
 	"santasearch_search_for_santa": {
-		"message": "Finde den Weihnachtsmann!"
+		"message": "Such den Weihnachtsmann!"
 	},
 	"santasvillage": {
 		"message": "Dorf des Weihnachtsmanns"
@@ -4694,11 +4760,14 @@
 	"village_get_the_app": {
 		"message": "App herunterladen"
 	},
+	"village_more": {
+		"message": "Mehr entdecken"
+	},
 	"village_santa_cardboard": {
-		"message": "Den Weihnachtsmann finden mit Google Cardboard"
+		"message": "Mit Google Cardboard den Weihnachtsmann suchen"
 	},
 	"village_santa_cast": {
-		"message": "Den Weihnachtsmann finden mit Google Cast"
+		"message": "Mit Google Cast den Weihnachtsmann suchen"
 	},
 	"village_takesoff": {
 		"message": "Der Weihnachtsmann startet in"

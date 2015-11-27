@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Kolumbia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Hyppää"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Hyppää ilmaan."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Osoita: vasen"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Osoita vasemmalle."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Vasen askel"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Ota askel vasemmalle."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Osoita: oikea"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Osoita oikealle."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Oikea askel"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Ota askel oikealle."
+	},
+	"codeboogie-block-shake": {
+		"message": "Lantioheilutus"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Heiluta lantiota."
+	},
+	"codeboogie-block-split": {
+		"message": "Spagaatti"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Tee spagaatti."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Aloita tanssi!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Seuraava tanssi"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Kokeile käyttää tanssiin sopivia paloja."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Tiesitkö, että voit läpäistä tanssin vain {{ideal}} palalla? Kokeile alla olevaa palaa."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Sinulla on rytmi veressä! Suoriuduit tanssista virheettömästi."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Käytät oikeita paloja, mutta tanssissa tarvitset niitä enemmän."
+	},
+	"codeboogie-success": {
+		"message": "Onnistui!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Katso tarkkaan!"
+	},
 	"codelab-block-moveeast": {
 		"message": "itään"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Hanki sovellus"
+	},
+	"village_more": {
+		"message": "Lisää hauskoja pelejä"
 	},
 	"village_santa_cardboard": {
 		"message": "Pukki Cardboardissa"

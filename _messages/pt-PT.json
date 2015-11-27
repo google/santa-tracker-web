@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Colômbia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Salte"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Dê um salto."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Braço esquerdo"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Aponte para a esquerda."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Passo à esquerda"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Dê um passo para a esquerda."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Braço direito"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Aponte para a direita."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Passo à direita"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Dê um passo para a direita."
+	},
+	"codeboogie-block-shake": {
+		"message": "Abane as ancas"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Abane as ancas."
+	},
+	"codeboogie-block-split": {
+		"message": "Espargata"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Faça uma espargata."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Toca a dançar!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Dança seguinte"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Experimente sincronizar a dança com o bloco abaixo."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Sabia que pode terminar esta dança com apenas {{ideal}} blocos? Experimente utilizar os blocos abaixo."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Mexe-se muito bem! Terminou a dança na perfeição."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Está a utilizar os blocos certos, mas tente utilizar mais para concluir a dança."
+	},
+	"codeboogie-success": {
+		"message": "Muito bem!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Preste atenção!"
+	},
 	"codelab-block-moveeast": {
 		"message": "este"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Obter a aplicação"
+	},
+	"village_more": {
+		"message": "Mais formas de explorar"
 	},
 	"village_santa_cardboard": {
 		"message": "O Pai Natal no Cardboard"

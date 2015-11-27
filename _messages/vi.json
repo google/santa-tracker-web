@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Nhảy"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Nhảy."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Chỉ sang trái"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Chỉ sang trái."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Bước sang trái"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Bước một bước sang trái."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Chỉ sang phải"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Chỉ sang phải."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Bước sang phải"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Bước một bước sang phải."
+	},
+	"codeboogie-block-shake": {
+		"message": "Lắc hông"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Lắc hông."
+	},
+	"codeboogie-block-split": {
+		"message": "Tách ra"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Tách ra."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Thử điệu nhảy!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Điệu nhảy tiếp theo"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Hãy thử khối bên dưới để khớp với điệu nhảy."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Bạn có biết rằng mình có thể kết thúc điệu nhảy này chỉ bằng các khối {{ideal}} không? Hãy thử sử dụng khối bên dưới."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Động tác đẹp! Bạn đã kết thúc điệu nhảy hoàn hảo."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Bạn đang sử dụng các khối bên phải nhưng hãy thử dùng nhiều khối hơn để hoàn thành điệu nhảy."
+	},
+	"codeboogie-success": {
+		"message": "Thành công!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Xem kỹ!"
+	},
 	"codelab-block-moveeast": {
 		"message": "phía đông"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Tải ứng dụng"
+	},
+	"village_more": {
+		"message": "Có nhiều cách hơn để khám phá"
 	},
 	"village_santa_cardboard": {
 		"message": "Ông già Noel trên Cardboard"

@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Colômbia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Pular"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Pule."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Apontar p/ esquerda"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Aponte para a esquerda."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Passo à esquerda"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Dê um passo à esquerda."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Apontar p/ direita"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Aponte para a direita."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Passo à direita"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Dê um passo à direita."
+	},
+	"codeboogie-block-shake": {
+		"message": "Balanço quadril"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Balance o quadril."
+	},
+	"codeboogie-block-split": {
+		"message": "Espacate"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Faça um espacate."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Comece a dançar"
+	},
+	"codeboogie-next-dance": {
+		"message": "Próxima dança"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Tente usar o bloco abaixo para combinar com a dança."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Você sabia que pode terminar esta dança com apenas {{ideal}} blocos? Tente usar o bloco abaixo."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Muito bem! Você terminou a dança com perfeição."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Você está usando os blocos certos, mas tente usar mais deles para terminar a dança."
+	},
+	"codeboogie-success": {
+		"message": "Sucesso!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Preste atenção."
+	},
 	"codelab-block-moveeast": {
 		"message": "leste"
 	},
@@ -747,7 +813,7 @@
 		"message": "Porto Rico"
 	},
 	"press": {
-		"message": "Pressionar"
+		"message": "Imprensa"
 	},
 	"pt_language_name": {
 		"message": "Português"
@@ -999,7 +1065,7 @@
 		"message": "Ver trajeto"
 	},
 	"tracker_track": {
-		"message": "Seguir o Papai Noel"
+		"message": "Siga o Papai Noel"
 	},
 	"tracker_weather": {
 		"message": "Clima"
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Fazer o download do app"
+	},
+	"village_more": {
+		"message": "Encontre mais formas de explorar"
 	},
 	"village_santa_cardboard": {
 		"message": "Papai Noel no Cardboard"

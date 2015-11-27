@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Salto"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Fai un salto."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "A sinistra"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Indica a sinistra."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Vai a sinistra"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Fai un passo a sinistra."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "A destra"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Indica a destra."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Vai a destra"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Fai un passo a destra."
+	},
+	"codeboogie-block-shake": {
+		"message": "Muovi i fianchi"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Scuoti i fianchi."
+	},
+	"codeboogie-block-split": {
+		"message": "Spaccata"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Fai una spaccata."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Balla!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Prossimo ballo"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Prova il blocco qui sotto per indovinare i passi di danza."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Sai che avresti potuto completare questo ballo con solo {{ideal}} blocchi? Prova a usare il blocco qui sotto."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Complimenti! Hai completato il ballo perfettamente."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Stai usando i blocchi giusti, ma prova a usarne altri per completare il ballo."
+	},
+	"codeboogie-success": {
+		"message": "Ce l'hai fatta!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Guarda bene!"
+	},
 	"codelab-block-moveeast": {
 		"message": "est"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Scarica l'applicazione"
+	},
+	"village_more": {
+		"message": "Altri modi per esplorare"
 	},
 	"village_santa_cardboard": {
 		"message": "Babbo Natale su Cardboard"
