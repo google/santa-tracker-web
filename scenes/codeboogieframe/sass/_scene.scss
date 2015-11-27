@@ -95,20 +95,30 @@
     }
   }
 
-  .scene__word-title {
+  .title {
     color: white;
     font-family: 'Lobster';
     font-size: 8em;
-    margin-top: 3rem;
-    text-align: center;
-    width: 100%;
     height: 1em;
+    position: absolute;
+    text-align: center;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    top: 3rem;
+    width: 100%;
 
-    span {
-      animation: 4s cb_title_fade;
-      animation-fill-mode: forwards;
-    }
+    animation: .15s .35s cb_title_appear backwards;
+  }
+
+  .title--small {
+    font-size: 5em;
+  }
+
+  .title--sub {
+    margin-top: 1.3em;
+  }
+
+  .title--destroy {
+    animation: .15s .25s cb_title_disappear forwards;
   }
 
   .scene__moves {
@@ -221,24 +231,7 @@
   }
 }
 
-@keyframes cb_title_fade {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-
-  10%, 90% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(1.5);
-  }
-}
-
-@keyframes cb_fade_in {
+@keyframes cb_title_appear{
   from {
     opacity: 0;
     transform: scale(0.8);
@@ -250,7 +243,7 @@
   }
 }
 
-@keyframes cb_fade_out {
+@keyframes cb_title_disappear {
   from {
     opacity: 1;
     transform: scale(1);

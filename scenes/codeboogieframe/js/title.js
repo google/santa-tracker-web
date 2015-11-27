@@ -21,14 +21,40 @@ goog.provide('app.Title');
 app.Title = class {
   constructor(el) {
     this.titleEl = el;
+    this.textEl = null;
+    this.subTextEl = null;
+    this.toRemove = [];
   }
 
-  setTitle(text) {
-    this.titleEl.innerHTML = '';
+  setTitle(text, smaller, subText) {
+    this.textEl = this.switchText_(this.textEl, text,
+                                   smaller ? 'title title--small' : 'title');
+    this.subTextEl = this.switchText_(this.subTextEl, subText,
+                                      'title title--small title--sub');
+  }
 
-    let span = document.createElement('span');
-    span.textContent = text;
+  switchText_(el, newText, classes) {
+    let changed = el ? newText !== el.textContent : newText;
+    if (el && changed) {
+      el.className += ' title--destroy';
+      this.toRemove.push(el);
+      el = null;
+    }
 
-    this.titleEl.appendChild(span);
+    if (changed) {
+      el = document.createElement('span');
+      el.textContent = newText;
+      el.className = classes;
+      this.titleEl.appendChild(el);
+    }
+
+    return el;
+  }
+
+  onBeat() {
+    let el;
+    while (el = this.toRemove.pop()) {
+      el.remove();
+    }
   }
 };

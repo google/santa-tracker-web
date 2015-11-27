@@ -43,7 +43,7 @@ const originalHeight = 1080 * spriteScaleFactor;
  *   playerStep: app.Step,
  *   title: string,
  *   blockId: string,
- *   showCount: boolean
+ *   isCountdown: boolean
  * }}
  */
 app.AnimationItem;
@@ -194,7 +194,6 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
       this.isPlaying = true;
     }
 
-    this.title.setTitle(animation.title);
     if (animation.tile) {
       this.moveTiles.add(animation.tile);
     }
@@ -206,14 +205,17 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     if (!animation) {
       this.teacher.play(app.Step.IDLE, bpm);
       this.player.play(app.Step.IDLE, bpm);
+      this.title.setTitle();
     } else {
       this.teacher.play(animation.teacherStep, bpm);
       this.player.play(animation.playerStep, bpm);
+      this.title.setTitle(animation.title);
     }
   }
 
   onBeat(beat, bpm) {
     let normalized = beat % 4 + 1;
+    this.title.onBeat();
 
     if (normalized === 1) {
       this.onMusicBar();
