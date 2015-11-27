@@ -133,12 +133,13 @@
   }
 
   .scene__moves-move {
-    counter-increment: tile;
-    height: 8.5em;
-    border: 3px solid rgba(255, 255, 255, 0.3);
     border-radius: .8em;
-    margin-right: .8em;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    counter-increment: tile;
     flex: 0 0 11em;
+    height: 8.5em;
+    margin-right: .8em;
+    position: relative;
 
     background-size: 10em 8.5em;
     background-repeat: no-repeat;
@@ -171,13 +172,14 @@
   }
 
   .scene__moves-move:after {
+    bottom: -2em;
+    color: white;
+    content: counter(tile);
     font-family: 'Lobster';
     font-size: 140%;
-    content: counter(tile);
-    color: white;
+    left: 0;
     position: absolute;
-    bottom: -2em;
-    width: 100%;
+    right: 0;
     text-align: center;
   }
 
