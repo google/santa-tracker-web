@@ -98,4 +98,26 @@ app.levels.push(
         app.blocks.miniBlockXml('dance_split') +
         app.blocks.miniBlockXml('dance_shake') +
         app.blocks.miniBlockXml('controls_repeat')
-  );
+  }),
+  new app.DanceLevel({
+    bpm: 140,
+    track: 2,
+    idealBlockCount: 3,
+    stage: 'stage1',
+    steps: [
+      app.Step.LEFT_ARM,
+      app.Step.RIGHT_ARM,
+      app.Step.LEFT_ARM,
+      app.Step.RIGHT_ARM
+    ],
+    requiredBlocks: ['dance_leftArm'],
+    toolbox: app.blocks.miniBlockXml('dance_leftArm') +
+        app.blocks.miniBlockXml('dance_rightArm') +
+        app.blocks.miniBlockXml('dance_leftFoot') +
+        app.blocks.miniBlockXml('dance_rightFoot') +
+        app.blocks.miniBlockXml('dance_jump') +
+        app.blocks.miniBlockXml('dance_split') +
+        app.blocks.miniBlockXml('dance_shake') +
+        app.blocks.miniBlockXml('controls_repeat')
+  })
+);
