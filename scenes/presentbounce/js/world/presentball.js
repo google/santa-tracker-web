@@ -50,15 +50,14 @@ goog.scope(function () {
       fixDef.density = this.config_.material.density;
       fixDef.friction = this.config_.material.friction;
       fixDef.restitution = this.config_.material.restitution;
-      fixDef.shape = new b2.PolygonShape();
-      fixDef.shape.SetAsBox( Unit.toWorld(width/2), Unit.toWorld(height/2) );
+      fixDef.shape = new b2.CircleShape( Unit.toWorld(this.config_.style.width/2) );
    
       const body = this.world_.CreateBody(bodyDef);
       body.CreateFixture(fixDef);
 
-      // trying to dampend rotation on belt
-      body.SetAngularDamping(1.0);
-      
+      // dampend rotation on belt
+      body.SetAngularDamping(1);
+
       return body;
     }
   }

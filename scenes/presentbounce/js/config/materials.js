@@ -30,7 +30,7 @@ app.config.Materials = {
   },
   present: {
     density: 1,
-    friction: 0,
+    friction: 0.3,
     restitution: 0 // let other surfaces define bounce
   },
   target: {

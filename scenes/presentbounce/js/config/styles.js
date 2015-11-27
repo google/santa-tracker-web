@@ -43,7 +43,7 @@ app.config.Styles = {
     height: 50 * 1.15,
     dynamicShadow: true
   },
-  presentCircle: {
+  presentBall: {
     className: 'object--present-circle',
     innerHTML: '',
     width: 50,
