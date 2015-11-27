@@ -25,20 +25,20 @@ app.Sequencer = class {
   constructor() {
     this.bar = 0;
     this.beat = -1;
-    this._track = 0;
-    this._level;
-    this.playingLoopId;
+    this._track = null;
+    this._variant = 0;
+    this.playingLoopId = null;
     this._playScheduled = false;
   }
 
-  setLevel(level, bpm) {
-    this._level = level;
+  setTrack(track, bpm) {
+    this._track = track;
     this._bpm = bpm;
     this._playScheduled = true;
   }
 
-  setTrack(track) {
-    this._track = track;
+  setVariant(variant) {
+    this._variant = variant;
     this._playScheduled = true;
   }
 
@@ -66,7 +66,7 @@ app.Sequencer = class {
   play() {
     if (!this._playScheduled) return;
 
-    this.klangUtil.transition(this.getPlayingLoop(), this.tracks[this._level * 2 + this._track], this._bpm, 0, 0.2);
+    this.klangUtil.transition(this.getPlayingLoop(), this.tracks[this._track * 2 + this._variant], this._bpm, 0, 0.2);
     this._playScheduled = false;
   }
 

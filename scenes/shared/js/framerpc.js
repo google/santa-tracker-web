@@ -24,11 +24,18 @@ goog.provide('app.shared.FrameRPC');
  * @constructor
  */
 app.shared.FrameRPC = function(target, api) {
+  var isChild = target === window.parent;
   this.targetWindow = target;
   this.api = api;
+  this.buffered = [];
+  this.isReady = isChild;
 
   if (!!window.postMessage) {
     window.addEventListener('message', this.onReceiveMessage.bind(this), false);
+
+    if (isChild) {
+      this.call('__ready');
+    }
   }
 };
 
@@ -49,7 +56,12 @@ app.shared.FrameRPC.prototype.call = function(methodName/*, ...args */) {
     method: methodName,
     args: Array.prototype.slice.call(arguments, 1)
   };
-  this.targetWindow.postMessage(message, '*');
+
+  if (this.isReady) {
+    this.targetWindow.postMessage(message, '*');
+  } else {
+    this.buffered.push(message);
+  }
 };
 
 /**
@@ -65,8 +77,26 @@ app.shared.FrameRPC.prototype.onReceiveMessage = function(event) {
     return;
   }
 
+  if (method === '__ready') {
+    this.ready_();
+    return;
+  }
+
   var isPrivate = method[method.length - 1] === '_';
   if (this.api.hasOwnProperty(method) && !isPrivate) {
     this.api[method].apply(this.api, event.data.args);
+  }
+};
+
+/**
+ * Mark the channel as ready and send any buffered messages.
+ *
+ * @private
+ */
+app.shared.FrameRPC.prototype.ready_ = function() {
+  this.isReady = true;
+  var message;
+  while (message = this.buffered.shift()) {
+    this.targetWindow.postMessage(message, '*');
   }
 };
