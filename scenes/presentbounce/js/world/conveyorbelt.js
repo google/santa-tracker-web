@@ -64,11 +64,13 @@ goog.scope(function () {
     pauseBelt_() {
       this.$el_.addClass('js-animation-paused');
       this.updateBeltDirection_(this.getBeltDirectionVector_(0));
+      window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
     }
 
     resumeBelt_() {
       this.$el_.removeClass('js-animation-paused');
       this.updateBeltDirection_(this.getBeltDirectionVector_());
+      window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_start');
     }
 
     // create horizontal plate fixture def

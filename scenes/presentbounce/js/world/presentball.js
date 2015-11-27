@@ -24,13 +24,13 @@ goog.require('app.world.GravityObject');
 
 goog.scope(function () {
   const Unit = app.Unit;
-  
+
 
   /**
    * PresentBall class
    */
   class PresentBall extends app.world.GravityObject {
-    
+
     /**
      * @override
      */
@@ -38,7 +38,7 @@ goog.scope(function () {
       super(...args); // super(...arguments) doesn't work in Closure Compiler
       this.body_ = this.buildBody_();
     }
-    
+
     buildBody_() {
       const bodyDef = new b2.BodyDef();
       bodyDef.type = b2.BodyDef.b2_dynamicBody;
