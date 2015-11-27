@@ -55,9 +55,7 @@ goog.scope(function () {
     onDropClick() {
       this.level_.dropBall();
       window.santaApp.fire('sound-trigger', 'pb_button');
-      window.setTimeout(function() {
-        window.santaApp.fire('sound-trigger', 'pb_button');
-      }, 500);
+      window.santaApp.fire('sound-trigger', 'pb_present_fall');
     }
 
     /**
