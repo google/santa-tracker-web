@@ -140,6 +140,24 @@
     &.move__rightArm {
       background-image: url(img/icons_point-right-white.svg);
     }
+
+    &.move__leftFoot {
+      background-image: url(img/icons_step-left-white.svg);
+    }
+
+    &.move__rightFoot {
+      background-image: url(img/icons_step-right-white.svg);
+    }
+
+    &.move__jump {
+      background-image: url(img/icons_jump-white.svg);
+    }
+    &.move__split {
+      background-image: url(img/icons_splits-white.svg);
+    }
+    &.move__shake {
+      background-image: url(img/icons_shake-white.svg);
+    }
   }
 
   .scene__moves-move:after {
