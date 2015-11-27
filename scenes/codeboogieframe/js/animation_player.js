@@ -197,6 +197,13 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     if (animation.tile) {
       this.moveTiles.add(animation.tile);
     }
+    if (animation.teacherStep !== "idle") {
+      if (animation.playerStep === animation.teacherStep) {
+        Klang.triggerEvent('cb_ingame_win');
+      }else if (animation.playerStep === app.Step.FAIL) {
+        Klang.triggerEvent('cb_ingame_fail');
+      }
+    }
     this.dispatchEvent({type: 'step', data: animation.blockId});
   }
 
