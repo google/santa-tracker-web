@@ -178,12 +178,6 @@ Tracker scene.
 
       <template is="dom-if" if="{{!cityFeedActive}}">
         <div id="status-bar" class="[[_computeTernary(navOpen, 'slide-up', '')]] [[_computeTernary(location, 'show', '')]]">
-          <div id="back-to-village">
-            <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
-              <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
-            </a>
-          </div>
-
           <template is="dom-if" if="{{userLocation}}">
             <ul>
               <li>
@@ -735,8 +729,8 @@ Tracker scene.
       this.shown = true;
       this.setupTracker();
 
-      if (!this.santaApp.hasTrackerIntroShown_) {
-        this.santaApp.hasTrackerIntroShown_ = true;
+      if (!this.santaApp.hasTrackerIntroShown) {
+        this.santaApp.hasTrackerIntroShown = true;
         this.$.intro.layoutReady();
       } else {
         this.$.intro.destroy();

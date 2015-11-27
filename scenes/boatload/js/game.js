@@ -141,6 +141,7 @@ Game.prototype.restart = function() {
   // Start game
   this.unfreezeGame();
   window.santaApp.fire('sound-trigger', 'bl_game_start');
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'boatload'});
   this.gameStartTime = +new Date;
 };
@@ -377,6 +378,7 @@ Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverDialog.show();
   window.santaApp.fire('sound-trigger', 'bl_game_stop');
+  window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'boatload',
     score: this.scoreboard.score,
@@ -424,12 +426,12 @@ Game.prototype.watchSceneSize_ = function() {
 
   var updateSize = function() {
     var width = window.innerWidth;
-    var height = window.innerHeight;
+    var height = window.innerHeight - window.santaApp.headerSize;
     var scale = width < 980 ? width / 980 : 1;
     scale = height < 600 ? Math.min(height / 600, scale) : scale;
 
-    size.height = window.innerHeight * (1 / scale);
-    size.width = window.innerWidth * (1 / scale);
+    size.height = height * (1 / scale);
+    size.width = width * (1 / scale);
     game.setScale(scale);
   };
 

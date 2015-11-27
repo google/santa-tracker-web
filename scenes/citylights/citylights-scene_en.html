@@ -19,6 +19,31 @@ specific language governing permissions and limitations under the License.
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="citylights-scene.css" />
+<style>
+  citylights-scene[mode="portal"] a[href*="google.com"] {
+    pointer-events: none;
+    cursor: default !important;
+  }
+
+  citylights-scene[mode="portal"] a[href*="googleapis.com"] {
+    pointer-events: none;
+    cursor: default !important;
+  }
+
+  citylights-scene[mode="portal"] #module-citylights img[src*="sv4.png"] {
+    display:none;
+  }
+
+  citylights-scene[mode="portal"] #module-citylights a.photosphere-overlay__link {
+    display:none;
+  }
+
+  citylights-scene[mode="portal"] #module-citylights div[style*="width: 25px"] {
+    display:none !important;
+  }
+
+</style>
+
 
 <!--
 City lights scene.
@@ -159,7 +184,6 @@ City lights scene.
     </div>
     <div class="gui">
       <div class="board board--scene">
-        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
         <div class="logo"></div>
       </div>
     </div>
@@ -190,6 +214,7 @@ City lights scene.
         this.showOnMapsReady = true;
       } else {
         this.fire('sound-ambient', 'citylights_start');
+        this.fire('sound-ambient', 'music_start_scene');
         var div = this.$['module-citylights'];
 
         this.scene = new scenes.citylights.Scene(div);

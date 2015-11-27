@@ -10,6 +10,16 @@
   100%  { transform: translateY(0); }
 }
 
+
+@keyframes #{$name}-walrus {
+  0%, 100% {
+    transform: translateY(100%);
+  }
+  40%, 50% {
+    transform: translateY(0%);
+  }
+}
+
 @keyframes #{$name}-shimmy {
   10%, 30%, 50%, 70%, 90% {
     transform: translateX(-2em);
@@ -47,6 +57,10 @@
     transform: translateY($skydive-fallto-pos);
     opacity: 1;
   }
+  #{$skydive-fallto + .1} {
+    transform: translateY($skydive-fallto-pos - 5);
+    opacity: 1;
+  }
   #{$skydive-land}, #{$skydive-disappear} {
     transform: translateY($skydive-land-pos);
     opacity: 1;
@@ -56,6 +70,30 @@
     opacity: 0;
   }
 }
+
+@keyframes #{$name}-skydive-tablet {
+  0%, #{$skydive-start} {
+    transform: translateY($skydive-start-pos);
+    opacity: 1;
+  }
+  #{$skydive-fallto} {
+    transform: translateY($skydive-fallto-pos);
+    opacity: 1;
+  }
+  #{$skydive-fallto + .1} {
+    transform: translateY($skydive-fallto-pos - 5);
+    opacity: 1;
+  }
+  #{$skydive-land}, #{$skydive-disappear} {
+    transform: translateY($skydive-land-tablet-pos);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY($skydive-land-tablet-pos);
+    opacity: 0;
+  }
+}
+
 @keyframes #{$name}-skydive-pegman-1 {
   /* Visible from 0-fallto */
   0% {

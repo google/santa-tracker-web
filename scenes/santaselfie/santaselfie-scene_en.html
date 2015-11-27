@@ -72,9 +72,6 @@ Santaselfie scene.
           </div>
         </div>
         <div class="Tools board">
-          <a class="Tool-backContainer" id="global-back-to-village" href="{{pageUrl}}#village">
-            <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
-          </a>
           <div class="Tool-poleContainer">
             <div class="Tool-pole"></div>
           </div>
@@ -257,7 +254,7 @@ Santaselfie scene.
       this.game = new scenes.santaselfie.Game(module);
       this.game.start();
       this.fire('sound-ambient', 'selfie_start');
-
+      this.fire('sound-ambient', 'music_start_ingame');
       this.sceneParamsChanged();
     },
 

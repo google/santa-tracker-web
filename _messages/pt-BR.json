@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "Na véspera de Natal, exibiremos orgulhosamente o Painel do Papai Noel, a tecnologia que alimenta seu trenó durante sua viagem ao redor do mundo. Recebemos esta prévia de um dos duendes desenvolvedores do Papai Noel, que estão trabalhando duro no Polo Norte para ajudar o bom velhinho a se preparar para seu grande dia. Com o Painel do Papai Noel (que conta com o que há de melhor e mais recente em tecnologia do Google Maps e engenharia de trenós), você poderá acompanhar o progresso do bom velhinho por todo o mundo e aprender um pouco sobre algumas das suas paradas ao longo do caminho."
+		"message": "Na véspera de Natal, exibiremos orgulhosamente o Painel do Papai Noel, a tecnologia que alimenta seu trenó durante sua viagem ao redor do mundo. Recebemos esta prévia especial de um dos duendes desenvolvedores do Papai Noel, que estão trabalhando duro no Polo Norte para ajudar o bom velhinho a se preparar para seu grande dia. Com o Painel do Papai Noel (que conta com o que há de melhor e mais recente em tecnologia do Google Maps e engenharia de trenós), você pode acompanhar o progresso do bom velhinho por todo o mundo e aprender um pouco sobre algumas das suas paradas ao longo do caminho."
 	},
 	"about-content-three": {
 		"message": "Siga o Papai Noel do Google Maps foi criado e desenvolvido pelo Google, com uma ajudinha dos duendes do Papai Noel. Precisa de ajuda ou tem uma pergunta? Acesse nossa \u003ca href=\"//support.google.com/santatracker\"\u003eCentral de Ajuda\u003c/a\u003e."
@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Cancelar"
+	"close": {
+		"message": "Fechar"
 	},
 	"cm_country_name": {
 		"message": "Camarões"
@@ -325,6 +325,21 @@
 	},
 	"copy-me": {
 		"message": "Copie este link para compartilhar sua mensagem"
+	},
+	"countdown_days": {
+		"message": "Dias"
+	},
+	"countdown_hours": {
+		"message": "H"
+	},
+	"countdown_minutes": {
+		"message": "Min"
+	},
+	"countdown_seconds": {
+		"message": "S"
+	},
+	"countdown_until": {
+		"message": "O Papai Noel decola em"
 	},
 	"countdownlabel": {
 		"message": "Para a saída do Papai Noel"
@@ -471,7 +486,7 @@
 		"message": "Grécia"
 	},
 	"gr_tradition": {
-		"message": "Na Grécia, os \"kallikántzari\" são criaturas amigáveis, porém problemáticas, que vivem a maior parte do ano no centro da terra. Mas no Natal, gostam de se esconder nas casas das pessoas, assustá-las, pregar peças ou devorar as guloseimas do Natal. Os gregos têm rituais para afastar esses duendes."
+		"message": "Na Grécia, os \"kallikántzari\" são criaturas amigáveis, porém problemáticas, que vivem a maior parte do ano no centro da terra. Porém, no Natal, gostam de se esconder nas casas das pessoas, assustá-las, pregar peças ou devorar as guloseimas do Natal. Os gregos têm rituais para afastar esses duendes."
 	},
 	"gt_country_name": {
 		"message": "Guatemala"
@@ -629,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Níger"
 	},
+	"new": {
+		"message": "Novo"
+	},
 	"newtoday": {
 		"message": "Novo"
 	},
@@ -667,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Urso polar"
+	},
+	"notification": {
+		"message": "Notificações"
+	},
+	"notification_notice": {
+		"message": "Os duendes do Papai Noel manterão você atualizado sobre a programação dele"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -722,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Porto Rico"
 	},
+	"press": {
+		"message": "Pressionar"
+	},
 	"pt_language_name": {
 		"message": "Português"
 	},
@@ -743,8 +770,110 @@
 	"sa_country_name": {
 		"message": "Arábia Saudita"
 	},
+	"santasearch_hint": {
+		"message": "Dica"
+	},
+	"santasearch_level_lab": {
+		"message": "No laboratório"
+	},
+	"santasearch_level_museum": {
+		"message": "No museu"
+	},
+	"santasearch_level_select": {
+		"message": "Ir"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Procure o Papai Noel!"
+	},
+	"santasvillage": {
+		"message": "Vila do Papai Noel"
+	},
 	"santatracker": {
 		"message": "Siga o Papai Noel"
+	},
+	"scene_airport": {
+		"message": "Aeroporto do Polo Norte"
+	},
+	"scene_app": {
+		"message": "App para Android"
+	},
+	"scene_boatload": {
+		"message": "Estilingue de presentes"
+	},
+	"scene_briefing": {
+		"message": "Instruções da Mamãe Noel"
+	},
+	"scene_callfromsanta": {
+		"message": "Ligação do Papai Noel"
+	},
+	"scene_citylights": {
+		"message": "Luzes da cidade"
+	},
+	"scene_codeboogie": {
+		"message": "Dança de códigos"
+	},
+	"scene_codelab": {
+		"message": "Laboratório de códigos"
+	},
+	"scene_commandcentre": {
+		"message": "Central de controle"
+	},
+	"scene_giftmatch": {
+		"message": "Combine presentes"
+	},
+	"scene_gumball": {
+		"message": "Ladeira de bola de chiclete"
+	},
+	"scene_jamband": {
+		"message": "Banda dos duendes"
+	},
+	"scene_jetpack": {
+		"message": "Jetpack dos duendes"
+	},
+	"scene_matching": {
+		"message": "Jogo de memória"
+	},
+	"scene_mercator": {
+		"message": "Teste do mapa"
+	},
+	"scene_postcard": {
+		"message": "Cartões do Papai Noel"
+	},
+	"scene_presentbounce": {
+		"message": "Pula-pula de presentes"
+	},
+	"scene_presentdrop": {
+		"message": "Entrega de presentes"
+	},
+	"scene_racer": {
+		"message": "Corrida do Rudolph"
+	},
+	"scene_santasearch": {
+		"message": "Onde está o Papai Noel?"
+	},
+	"scene_santaselfie": {
+		"message": "Selfie do Papai Noel"
+	},
+	"scene_seasonofgiving": {
+		"message": "Tempo de generosidade"
+	},
+	"scene_traditions": {
+		"message": "Tradições de fim de ano"
+	},
+	"scene_translations": {
+		"message": "Traduções"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Carro de duendes"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Decolagem do Papai Noel"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Papai Noel voltou"
+	},
+	"scene_windtunnel": {
+		"message": "Túnel de vento"
 	},
 	"score": {
 		"message": "Pontuação"
@@ -795,7 +924,7 @@
 		"message": "Chade"
 	},
 	"terms-and-privacy": {
-		"message": "Termos e Privacidade"
+		"message": "Termos e privacidade"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -855,7 +984,7 @@
 		"message": "Você está em"
 	},
 	"tracker_intro_welcome": {
-		"message": "Bem-vindo ao"
+		"message": "Bem-vindo(a) a"
 	},
 	"tracker_next_stop": {
 		"message": "Próxima parada"
@@ -863,14 +992,23 @@
 	"tracker_santa_update": {
 		"message": "ATUALIZAÇÃO SOBRE O PAPAI NOEL"
 	},
+	"tracker_santa_update_1": {
+		"message": "Notícias do Papai Noel"
+	},
 	"tracker_see_route": {
 		"message": "Ver trajeto"
+	},
+	"tracker_track": {
+		"message": "Seguir o Papai Noel"
 	},
 	"tracker_weather": {
 		"message": "Clima"
 	},
 	"tracker_world_facts": {
 		"message": "VOCÊ SABIA"
+	},
+	"tracker_world_facts_1": {
+		"message": "Fatos sobre o mundo"
 	},
 	"tracker_your_location": {
 		"message": "Seu local"
@@ -4546,6 +4684,24 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Volte no dia 24 e ajude a acompanhar o Papai Noel a noite toda."
+	},
+	"village_explore": {
+		"message": "Explore, brinque e aprenda com os Duendes do Papai Noel durante todo o mês de dezembro"
+	},
+	"village_get_the_app": {
+		"message": "Fazer o download do app"
+	},
+	"village_santa_cardboard": {
+		"message": "Papai Noel no Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Papai Noel no Google Cast"
+	},
+	"village_takesoff": {
+		"message": "O Papai Noel decola em"
 	},
 	"vn_country_name": {
 		"message": "Vietnã"

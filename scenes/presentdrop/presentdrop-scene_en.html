@@ -34,7 +34,6 @@ Presentdrop scene.
   <div id="module-presentdrop">
     <div class="gui">
       <div class="board board--game">
-        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
         <div class="logo"></div>
         <div class="score">
           <div class="label"><i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg></div>
@@ -235,7 +234,6 @@ Presentdrop scene.
 
     onShow: function() {
       var module = this.$['module-presentdrop'];
-
       this.game = new scenes.presentdrop.Game(module);
       startButton(this, module, this.onClickStart_.bind(this));
     },

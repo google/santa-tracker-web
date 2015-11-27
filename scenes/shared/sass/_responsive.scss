@@ -2,6 +2,14 @@
   transform-origin: 0 0;
 }
 
+@media (max-width: 1400px), (max-height: 788px) {
+  ##{$name} .scene {
+    transform: scale(0.9);
+    width: 111%;
+    height: 111%;
+  }
+}
+
 @media (max-width: 1200px), (max-height: 675px) {
   ##{$name} .scene {
     transform: scale(0.8);

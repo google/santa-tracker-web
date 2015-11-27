@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "La vigilia di Natale saremo lieti di mostrare un'anteprima della consolle di Babbo Natale, la tecnologia che aziona la sua slitta durante il suo viaggio intorno al mondo. Abbiamo ricevuto questa speciale anteprima da uno dei tanti elfi sviluppatori di Babbo Natale che lavorano incessantemente al Polo Nord per aiutarlo a preparare il suo grande giorno. La consolle di Babbo Natale, dotata dell'ingegneria delle slitte e della tecnologia Google Maps più recenti e potenti, non solo ti permetterà di seguire i suoi spostamenti sulla Terra, ma anche di fare piccole scoperte su alcune delle tappe del suo percorso."
+		"message": "La vigilia di Natale saremo lieti di presentarti la plancia di comando di Babbo Natale, super tecnologica, che gli consentirà di guidare la slitta durante il suo viaggio intorno al mondo. Abbiamo ricevuto questa speciale anteprima da uno dei tanti elfi sviluppatori di Babbo Natale, che stanno lavorando sodo al Polo Nord per aiutare Babbo Natale nei preparativi per il grande giorno. La plancia di comando di Babbo Natale, che presenta le soluzioni più recenti e sofisticate della tecnologia di Google Maps e delle tecniche di costruzione di slitte, ti permetterà di seguire Babbo Natale nel suo viaggio intorno al mondo e scoprire qualche dettaglio su alcune delle tappe lungo il percorso."
 	},
 	"about-content-three": {
 		"message": "Segui Babbo Natale di Google Maps è stato creato e sviluppato da Google, con un po' di aiuto da parte degli elfi di Babbo Natale. Hai bisogno di aiuto o hai un'altra domanda? Visita il nostro \u003ca href=\"//support.google.com/santatracker\"\u003eCentro assistenza\u003c/a\u003e."
 	},
 	"about-content-two": {
-		"message": "I nostri amici elfi ti hanno anche invitato a esplorare il villaggio mentre Babbo Natale si dedica ai preparativi per la partenza. Non perdere tempo, quindi e vai alla scoperta del villaggio di Babbo Natale: qui potrai partecipare ad attività divertenti e incontrare qualche simpatico elfo."
+		"message": "I nostri amici elfi ti hanno anche invitato a esplorare il villaggio mentre Babbo Natale si dedica ai preparativi per la partenza. Non perdere tempo e scopri il villaggio di Babbo Natale dove potrai partecipare ad attività divertenti e incontrare qualche simpatico elfo."
 	},
 	"about-santa": {
 		"message": "Informazioni"
@@ -90,7 +90,7 @@
 		"message": "Canada"
 	},
 	"ca_tradition": {
-		"message": "I bambini canadesi sono soliti festeggiare un bianco Natale. Infagottati in sciarpe e berretti, si divertono a giocare sulla neve, pattinare sul ghiaccio e andare sui toboga. Per la Vigilia lasciano latte e biscotti accanto al camino per Babbo Natale (e a volte anche una carota per la sua renna)."
+		"message": "In Canada, i bambini festeggiano un Natale bianco e innevato. Avvolti in sciarpe e berretti toque (tradizionali canadesi) giocano sulla neve, pattinano sul ghiaccio e si divertono sulle tipiche slitte canadesi, chiamate toboga. La notte della Vigilia lasciano latte e biscotti accanto al camino per Babbo Natale, e a volte anche una carota per la sua renna."
 	},
 	"calendar": {
 		"message": "Il calendario"
@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Cile"
 	},
-	"close-this": {
-		"message": "Annulla"
+	"close": {
+		"message": "Chiudi"
 	},
 	"cm_country_name": {
 		"message": "Camerun"
@@ -326,6 +326,21 @@
 	"copy-me": {
 		"message": "Copia questo link per condividere il messaggio"
 	},
+	"countdown_days": {
+		"message": "Giorni"
+	},
+	"countdown_hours": {
+		"message": "ore"
+	},
+	"countdown_minutes": {
+		"message": "min"
+	},
+	"countdown_seconds": {
+		"message": "sec"
+	},
+	"countdown_until": {
+		"message": "Babbo Natale decolla tra"
+	},
 	"countdownlabel": {
 		"message": "Alla partenza di Babbo Natale"
 	},
@@ -396,7 +411,7 @@
 		"message": "Inglese"
 	},
 	"endofjourneymessage": {
-		"message": "Babbo Natale ha terminato il suo viaggio per quest'anno. Si trova ancora al Polo Nord, dove si sta divertendo ancora un po' in compagnia dei folletti prima della vacanza annuale."
+		"message": "Babbo Natale ha terminato il suo viaggio per quest'anno. È tornato al Polo Nord, dove si sta divertendo in compagnia dei folletti, prima di andare in vacanza."
 	},
 	"er_country_name": {
 		"message": "Eritrea"
@@ -629,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Nuovo"
+	},
 	"newtoday": {
 		"message": "Novità di oggi"
 	},
@@ -667,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Orso polare"
+	},
+	"notification": {
+		"message": "Notifiche"
+	},
+	"notification_notice": {
+		"message": "I folletti di Babbo Natale ti terranno aggiornato sui suoi programmi"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -722,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Portorico"
 	},
+	"press": {
+		"message": "Stampa"
+	},
 	"pt_language_name": {
 		"message": "Portoghese"
 	},
@@ -743,8 +770,110 @@
 	"sa_country_name": {
 		"message": "Arabia Saudita"
 	},
+	"santasearch_hint": {
+		"message": "Suggerimento"
+	},
+	"santasearch_level_lab": {
+		"message": "Nel laboratorio"
+	},
+	"santasearch_level_museum": {
+		"message": "Al museo"
+	},
+	"santasearch_level_select": {
+		"message": "Vai!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Cerca Babbo Natale!"
+	},
+	"santasvillage": {
+		"message": "Il villaggio di Babbo Natale"
+	},
 	"santatracker": {
 		"message": "Segui Babbo Natale"
+	},
+	"scene_airport": {
+		"message": "Aeroporto del Polo Nord"
+	},
+	"scene_app": {
+		"message": "App Android"
+	},
+	"scene_boatload": {
+		"message": "Fionda dei regali"
+	},
+	"scene_briefing": {
+		"message": "Le istruzioni della moglie di Babbo Natale"
+	},
+	"scene_callfromsanta": {
+		"message": "Chiamata da Babbo Natale"
+	},
+	"scene_citylights": {
+		"message": "Le luci della città"
+	},
+	"scene_codeboogie": {
+		"message": "La danza del codice"
+	},
+	"scene_codelab": {
+		"message": "Laboratorio di codici"
+	},
+	"scene_commandcentre": {
+		"message": "Centro di comando"
+	},
+	"scene_giftmatch": {
+		"message": "Abbina i regali"
+	},
+	"scene_gumball": {
+		"message": "Gumball Tilt"
+	},
+	"scene_jamband": {
+		"message": "La band dei folletti"
+	},
+	"scene_jetpack": {
+		"message": "Elf Jetpack"
+	},
+	"scene_matching": {
+		"message": "Gioco di memoria"
+	},
+	"scene_mercator": {
+		"message": "Quiz sulla mappa"
+	},
+	"scene_postcard": {
+		"message": "Le cartoline di Babbo Natale"
+	},
+	"scene_presentbounce": {
+		"message": "Palleggia con il regalo"
+	},
+	"scene_presentdrop": {
+		"message": "Sgancia regalo"
+	},
+	"scene_racer": {
+		"message": "La corsa di Rudolph"
+	},
+	"scene_santasearch": {
+		"message": "La ricerca di Babbo Natale"
+	},
+	"scene_santaselfie": {
+		"message": "Selfie con Babbo Natale"
+	},
+	"scene_seasonofgiving": {
+		"message": "La stagione dei regali"
+	},
+	"scene_traditions": {
+		"message": "Tradizioni natalizie"
+	},
+	"scene_translations": {
+		"message": "Traduzioni"
+	},
+	"scene_videoscene_carpool": {
+		"message": "L'auto del folletto"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Il decollo di Babbo Natale"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Babbo Natale è tornato"
+	},
+	"scene_windtunnel": {
+		"message": "Galleria del vento"
 	},
 	"score": {
 		"message": "Punti"
@@ -855,7 +984,7 @@
 		"message": "Ti trovi in"
 	},
 	"tracker_intro_welcome": {
-		"message": "Benvenuto su"
+		"message": "Benvenuto in"
 	},
 	"tracker_next_stop": {
 		"message": "Prossima fermata"
@@ -863,14 +992,23 @@
 	"tracker_santa_update": {
 		"message": "AGGIORNAMENTO DA BABBO NATALE"
 	},
+	"tracker_santa_update_1": {
+		"message": "Aggiornamento da Babbo Natale"
+	},
 	"tracker_see_route": {
 		"message": "Guarda il percorso"
+	},
+	"tracker_track": {
+		"message": "Segui Babbo Natale"
 	},
 	"tracker_weather": {
 		"message": "Meteo"
 	},
 	"tracker_world_facts": {
 		"message": "LO SAPEVI CHE"
+	},
+	"tracker_world_facts_1": {
+		"message": "Notizie estere"
 	},
 	"tracker_your_location": {
 		"message": "La tua posizione"
@@ -4536,7 +4674,7 @@
 		"message": "Stati Uniti"
 	},
 	"us_tradition": {
-		"message": "Negli Stati Uniti per la Vigilia di Natale si appendono le calze. La legenda narra che San Nicola venuto a conoscenza di una famiglia bisognosa, si calò nel loro camino lasciando borse colme d'oro nelle calze appese. Da quel momento, San Nicola è noto come Santa Claus, il portatore di doni."
+		"message": "Negli Stati Uniti alla Vigilia di Natale è tradizione appendere le calze. La leggenda narra che San Nicola, venuto a conoscenza di una famiglia bisognosa, gli fece una sorpresa calandosi nel loro camino e lasciando borse piene d’oro nelle calze che avevano appeso. Da quel momento, San Nicola è noto come Santa Claus, il portatore di doni."
 	},
 	"uy_country_name": {
 		"message": "Uruguay"
@@ -4546,6 +4684,24 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Torna il 24 e aiutaci a seguire Babbo Natale tutta la notte!"
+	},
+	"village_explore": {
+		"message": "Esplora, gioca e impara con i folletti di Babbo Natale per tutto il mese di dicembre"
+	},
+	"village_get_the_app": {
+		"message": "Scarica l'applicazione"
+	},
+	"village_santa_cardboard": {
+		"message": "Babbo Natale su Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Babbo Natale su Google Cast"
+	},
+	"village_takesoff": {
+		"message": "Babbo Natale decolla tra"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"
