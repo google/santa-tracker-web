@@ -93,10 +93,7 @@ $toolbar-size: 64px;
       .skydive {
         animation: #{$name}-skydive 40s infinite ease-in;
         margin-left: calc(50% + 460px);
-        @media (max-width: ($width-desktop - 1)) {
-          margin-left: calc(50% - 300px);
-          animation: #{$name}-skydive-tablet 40s infinite ease-in;
-        }
+
         @include will-change(transform, opacity);
 
         > span {
@@ -143,6 +140,28 @@ $toolbar-size: 64px;
           a {
             height: 60px;
             top: 40px;
+          }
+        }
+
+        @media (max-width: ($width-desktop - 1)) {
+          margin-left: calc(50% + 360px);
+          animation: #{$name}-skydive-tablet 40s infinite ease-in;
+
+          .pegman-1 {
+            width: 60px * $tablet-desktop-ratio;
+            height: 60px * $tablet-desktop-ratio;
+          }
+
+          .pegman-2 {
+            margin-top: -7px * $tablet-desktop-ratio;
+            width: 112px * $tablet-desktop-ratio;
+            height: 112px * $tablet-desktop-ratio;
+          }
+          .pegman-3 {
+            margin-left: 61px * $tablet-desktop-ratio;
+            margin-top: 24px * $tablet-desktop-ratio;
+            width: 140px * $tablet-desktop-ratio;
+            height: 140px * $tablet-desktop-ratio;
           }
         }
       }
