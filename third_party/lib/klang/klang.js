@@ -1347,7 +1347,7 @@ var __extends = this.__extends || function (d, b) {
         * @param {Function} readyCallback Function to call when auto-load sounds have loaded.
         * @param {Function} progressCallback Function to call as loading of sounds progresses.
         */
-        function (options, readyCallback, progressCallback) {
+        function (options, readyCallback, progressCallback, url) {
             this._readyCallback = readyCallback;
             this._progressCallback = progressCallback || function () {
             };
@@ -1355,7 +1355,7 @@ var __extends = this.__extends || function (d, b) {
                 Klang.log("Loading config (editor)");
                 var data = this.createConfigNode(options);
                 Core.settings = data.settings;
-                Core.instance.initContent(data);
+                Core.instance.initContent(data, null, url);
                 // Parsa JSON-filen
                 //var data = this.parseConfigJSON(options.config);
                 // Initiera klang
@@ -2105,7 +2105,7 @@ var __extends = this.__extends || function (d, b) {
                     Klang.readyState = Klang.READY_STATE_LOADED;
                     readyCallback && readyCallback(success);
                     processEventQue();
-                }, progressCallback);
+                }, progressCallback, json);
             }, function () {
                 //error
                             });
@@ -2114,7 +2114,7 @@ var __extends = this.__extends || function (d, b) {
                 Klang.readyState = Klang.READY_STATE_LOADED;
                 readyCallback && readyCallback(success);
                 processEventQue();
-            }, progressCallback);
+            }, progressCallback, json);
         }
         return true;
         //   }
@@ -3746,7 +3746,7 @@ var __extends = this.__extends || function (d, b) {
                     var timePlayed = Util.now() - this._startTime;
                     var loopTimePlayed = Util.now() + this._startOffset - this._loopStartTime;
                     if(this._startOffset + timePlayed > this._duration) {
-                        return this._loopStart + loopTimePlayed % duration;
+                        return (this._loopStart || 0) + loopTimePlayed % duration;
                     } else {
                         return this._startOffset + timePlayed;
                     }
@@ -11844,7 +11844,7 @@ var __extends = this.__extends || function (d, b) {
             }
             var scheduleTime = Util.now() + toNextBarSec;
             to.play(scheduleTime, 0, false);
-            from && from.fadeOutAndStop(fadeOutTime, scheduleTime - 1);
+            from && from.fadeOutAndStop(fadeOutTime, scheduleTime);
             return scheduleTime;
         }
         Util.transition = transition;
