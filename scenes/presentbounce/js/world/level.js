@@ -204,8 +204,10 @@ goog.scope(function() {
       //debugEl.innerHTML = 'Debug: ball dropped';
       this.destroyBall();
 
+
       // create ball - use position from dropper
       const ballData = this.levelData_.ball;
+      console.log('balldata', ballData);
       this.ball_ = new ballData.objectType(this, this.world_, ballData);
     }
 
