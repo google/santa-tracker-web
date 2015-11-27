@@ -69,6 +69,16 @@ $toolbar-size: 64px;
         background: white;
         border-radius: 10000px;
       }
+
+      .sun {
+        position: absolute;
+        top: 32px;
+        left: 70%;
+        width: 107px;
+        height: 109px;
+        background: url(img/sun.svg) no-repeat;
+      }
+
       .plane {
         position: absolute;
         top: 32px;
