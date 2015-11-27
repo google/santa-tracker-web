@@ -56,7 +56,8 @@ app.config.Levels = [
         style: app.config.Styles.straightBeam,
         relX: 0.5,
         relY: 0.25,
-        rotation: -40
+        // rotation: -40
+        rotation: 0
       },
       {
         material: app.config.Materials.fixedObject,

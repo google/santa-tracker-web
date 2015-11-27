@@ -19,6 +19,8 @@ $rotate-bg: $gameover-bg;
 @import "sass/dropper";
 @import "sass/target";
 
+$z-index-present: 10;
+$z-index-above-present: $z-index-present + 10;
 
 ##{$name} {
   position: absolute;
@@ -53,7 +55,7 @@ $rotate-bg: $gameover-bg;
     position: absolute;
     top: 0;
     left: 0;
-    //outline: 1px dashed rgba(255,0,0,.5);
+    // outline: 1px dashed rgba(255,0,0,.5);
   }
 
   .view {

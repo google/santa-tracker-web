@@ -7,6 +7,7 @@
     position: relative;
     left: 50%;
     margin-left: $pipe-width/-2;
+    z-index: $z-index-above-present;
 
     &__pipe {
       width: $pipe-width;
@@ -19,7 +20,6 @@
       left: 230px;
       top: 55px;
     }
-
   }
 
 

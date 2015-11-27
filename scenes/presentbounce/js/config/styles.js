@@ -23,18 +23,16 @@ goog.provide('app.config.Styles');
  */
 app.config.Styles = {
   dropper: {
-    className: 'object--dropper',
+    className: 'dropper',
     width: 361,
     height: 220,
     innerHTML: `
-      <div class="dropper">
         <div class="dropper__button">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131.2 131.2"><path fill="#D4D4D6" d="M0 0h131.2v131.2H0z"/><circle fill="#77787C" cx="12.2" cy="12.2" r="6.2"/><circle fill="#77787C" cx="119" cy="12.2" r="6.2"/><circle fill="#77787C" cx="12.2" cy="119" r="6.2"/><circle fill="#77787C" cx="119" cy="119" r="6.2"/><circle opacity=".25" fill="#434343" cx="72.6" cy="72.6" r="48.6"/><circle fill="#378F43" cx="65.6" cy="65.6" r="48.6"/><circle fill="#3BB34A" cx="60.9" cy="60.9" r="48.6"/><g fill="#378F43"><path d="M29 64.9h63.8L60.9 96.8zM44.9 33h31.9v31.9H44.9z"/></g></svg>
         </div>
         <div class="dropper__pipe">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 203.2 226.1"><path opacity=".25" fill="#434343" d="M203.2 67.5V51.2h-8.6V0h-179v51.2H7v16.3h8.6v142.3H7v16.3h196.2v-16.3h-8.6V67.5z"/><path fill="#D4D4D6" d="M8.6 0h179v203.3H8.6z"/><path fill="#FFF" d="M8.6 0h161v203.3H8.6z"/><path fill="#E53A35" d="M0 44.2h196.2v16.3H0zM0 202.8h196.2v16.3H0z"/></svg>
         </div>
-      </div>
     `,
     marginTop: -90 // align dom element to bottom
   },
@@ -89,8 +87,9 @@ app.config.Styles = {
   },
   straightBeam: {
     className: '',
-    innerHTML: '',
+    innerHTML: '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 321.8 65.8"><circle fill="#B4B4B4" cx="32.9" cy="32.9" r="32.9"/><g fill="#77787C"><circle cx="10.4" cy="23.6" r="3.1"/><circle cx="55.4" cy="42.2" r="3.1"/></g><g fill="#77787C"><circle cx="23.6" cy="55.4" r="3.1"/><circle cx="42.2" cy="10.4" r="3.1"/></g><g fill="#77787C"><circle cx="23.6" cy="10.4" r="3.1"/><circle cx="42.2" cy="55.4" r="3.1"/></g><g fill="#77787C"><circle cx="10.4" cy="42.2" r="3.1"/><circle cx="55.4" cy="23.6" r="3.1"/></g><circle fill="#B4B4B4" cx="288.9" cy="32.9" r="32.9"/><g fill="#77787C"><circle cx="266.4" cy="23.6" r="3.1"/><circle cx="311.4" cy="42.2" r="3.1"/></g><g fill="#77787C"><circle cx="279.6" cy="55.4" r="3.1"/><circle cx="298.2" cy="10.4" r="3.1"/></g><g fill="#77787C"><circle cx="279.6" cy="10.4" r="3.1"/><circle cx="298.2" cy="55.4" r="3.1"/></g><g fill="#77787C"><circle cx="266.4" cy="42.2" r="3.1"/><circle cx="311.4" cy="23.6" r="3.1"/></g><path opacity=".25" fill="#434343" d="M313.5 40.8c0-9.7-7.9-17.6-17.6-17.6h-256c-9.7 0-17.6 7.9-17.6 17.6 0 9.7 7.9 17.6 17.6 17.6h256c9.7 0 17.6-7.9 17.6-17.6z"/><path fill="#FFF" d="M306.5 32.9c0-9.7-7.9-17.6-17.6-17.6h-256c-9.7 0-17.6 7.9-17.6 17.6 0 9.7 7.9 17.6 17.6 17.6h256c9.7 0 17.6-7.9 17.6-17.6z"/><g><defs><path id="a" d="M306.5 32.9c0-9.7-7.9-17.6-17.6-17.6h-256c-9.7 0-17.6 7.9-17.6 17.6 0 9.7 7.9 17.6 17.6 17.6h256c9.7 0 17.6-7.9 17.6-17.6z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><g clip-path="url(#b)"><path fill="#DA4737" d="M105.4 51.2h-59L12.9 14.7h59zM207.2 51.2h-59l-33.5-36.5h59zM308.9 51.2h-59l-33.5-36.5h59z"/></g></g><path opacity=".25" fill="#434343" d="M15.3 32.9c0-1.2.1-2.4.4-3.6 1.7 8 8.7 14 17.2 14h256c8.5 0 15.6-6 17.2-14 .2 1.2.4 2.4.4 3.6 0 9.7-7.9 17.6-17.6 17.6h-256c-9.7 0-17.6-7.9-17.6-17.6z"/></svg>',
     width: 290,
+    padding: 15,
     height: 35, // thickness of bar
     hasAngle: false
   },

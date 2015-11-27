@@ -1,5 +1,7 @@
 ##{$name} {
 
+	z-index: $z-index-above-present;
+
   .target{
     margin-top: 32px;
   }
