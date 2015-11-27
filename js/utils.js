@@ -40,6 +40,28 @@ function padDigits(n) {
   return '0' + n;
 }
 
+/**
+ * Returns a random number in the range [min,max).
+ * @param {number} min
+ * @param {number=} opt_max
+ * @return {number}
+ */
+function randomRange(min, opt_max) {
+  var max = opt_max || 0;
+  return min + Math.random() * (max - min);
+}
+
+/**
+  * Checks whether the passed dates are the same calendar day.
+  * @param {!Date} date1
+  * @param {!Date} date2
+  * @return {boolean} whether the dates are the same calendar day
+  */
+function isSameDay(date1, date2) {
+  return date1.getMonth() == date2.getMonth() &&
+         date1.getDate() == date2.getDate() &&
+         date1.getYear() == date2.getYear();
+}
 
 /**
  * Checks if the condition evaluates to true if window.DEV is true. If

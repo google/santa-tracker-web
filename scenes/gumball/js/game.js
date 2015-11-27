@@ -332,6 +332,8 @@ app.Game.prototype.hitTarget = function(sphere, x, y) {
 app.Game.prototype.start = function() {
   this.restart();
   this.tutorial.start();
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
+  window.santaApp.fire('sound-trigger', 'gb_game_start');
 };
 
 /**
@@ -388,6 +390,7 @@ app.Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverView.show();
   window.santaApp.fire('sound-trigger', 'gb_game_over');
+  window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'gumball',
     score: this.scoreboard.score,

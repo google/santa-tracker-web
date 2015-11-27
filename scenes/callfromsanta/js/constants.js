@@ -28,9 +28,7 @@ app.Constants = {
 
   CLASS_PAUSED: 'paused',
 
-  // TODO(samthor): Restore Call from Santa when it's available again
-  VARITALK_URL: 'about:blank'
-  // VARITALK_URL: 'https://www.sendacallfromsanta.com'
+  VARITALK_URL: 'https://www.sendacallfromsanta.com'
 };
 
 Constants = app.Constants;

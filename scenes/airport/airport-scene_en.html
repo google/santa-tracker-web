@@ -357,6 +357,7 @@ Airport scene.
 
     onShow: function() {
       this.fire('sound-ambient', 'airport_start');
+      this.fire('sound-ambient', 'music_start_scene');
       var div = this.$['module-airport'];
       this._belt = new scenes.airport.Belt(div);
     },

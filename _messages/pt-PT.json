@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "Na véspera de Natal, teremos o orgulho de apresentar uma pré-visualização do painel de controlo do Pai Natal: a tecnologia que aciona o trenó durante a sua viagem à volta do mundo. Recebemos esta pré-visualização especial de um dos muitos duendes do Pai Natal, que estão a trabalhar arduamente no Polo Norte e ajudam o Pai Natal a preparar-se para o seu grande dia. O painel de controlo do Pai Natal, com a melhor e mais recente tecnologia do Google Maps e de engenharia de trenós, permite-lhe seguir a viagem à volta do mundo e também aprender um pouco sobre alguns dos locais de paragem ao longo do caminho."
+		"message": "Na véspera de Natal, vamos ter o prazer de apresentar um site do Pai Natal, a tecnologia que impulsiona o trenó na sua viagem à volta do mundo. Recebemos esta pré-visualização especial de um dos muitos duendes programadores do Pai Natal, que estão a trabalhar arduamente no Polo Norte para o ajudar a preparar-se para o grande dia. Com o site do Pai Natal, que inclui as mais recentes funcionalidades da tecnologia do Google Maps e da engenharia de trenós, poderá acompanhar a sua viagem pelo mundo e, também, aprender algo sobre os locais de paragem ao longo do caminho."
 	},
 	"about-content-three": {
 		"message": "A viagem do Pai Natal do Google Maps foi criada e desenvolvida pela Google, com uma pequena ajuda dos elfos do Pai Natal. Precisa de ajuda ou tem outra questão? Visite o nosso \u003ca href=\"//support.google.com/santatracker\"\u003eCentro de Ajuda\u003c/a\u003e."
 	},
 	"about-content-two": {
-		"message": "Os nossos amigos duendes também o convidaram para conhecer a aldeia do Pai Natal enquanto ele se prepara para a viagem. Visite a aldeia do Pai Natal e pode ser que descubra atividades divertidas e conheça duendes simpáticos."
+		"message": "Os nossos amigos duendes também o(a) convidaram para conhecer a aldeia do Pai Natal enquanto ele se prepara para a viagem. Visite a aldeia do Pai Natal e pode ser que descubra atividades divertidas e conheça duendes simpáticos."
 	},
 	"about-santa": {
 		"message": "Acerca de"
@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Cancelar"
+	"close": {
+		"message": "Fechar"
 	},
 	"cm_country_name": {
 		"message": "Camarões"
@@ -325,6 +325,21 @@
 	},
 	"copy-me": {
 		"message": "Copie este link para partilhar a sua mensagem"
+	},
+	"countdown_days": {
+		"message": "Dias"
+	},
+	"countdown_hours": {
+		"message": "Hrs."
+	},
+	"countdown_minutes": {
+		"message": "Min."
+	},
+	"countdown_seconds": {
+		"message": "Seg."
+	},
+	"countdown_until": {
+		"message": "O Pai Natal levanta voo daqui a"
 	},
 	"countdownlabel": {
 		"message": "Para a partida do Pai Natal"
@@ -471,7 +486,7 @@
 		"message": "Grécia"
 	},
 	"gr_tradition": {
-		"message": "Na Grécia, amistosas mas atrevidas criaturas chamadas 'kallikántzari' vivem na maior parte do ano no centro da terra. No entanto, quando chega o Natal, adoram esconder-se em casas alheias, assustar pessoas, pregar partidas ou devorar os doces da época. Os gregos têm rituais para manter estes duendes afastados."
+		"message": "Na Grécia, amistosas mas atrevidas criaturas chamadas \"kallikántzari\" vivem na maior parte do ano no centro da terra. No entanto, quando chega o Natal, adoram esconder-se em casas alheias, assustar pessoas, pregar partidas ou devorar os doces da época. Os gregos têm rituais para manter estes duendes afastados."
 	},
 	"gt_country_name": {
 		"message": "Guatemala"
@@ -629,6 +644,9 @@
 	"ne_country_name": {
 		"message": "Níger"
 	},
+	"new": {
+		"message": "Novo"
+	},
 	"newtoday": {
 		"message": "Novo"
 	},
@@ -667,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Urso polar"
+	},
+	"notification": {
+		"message": "Notificações"
+	},
+	"notification_notice": {
+		"message": "Os elfos dão-lhe as informações mais recentes acerca da agenda do Pai Natal"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -722,6 +746,9 @@
 	"pr_country_name": {
 		"message": "Porto Rico"
 	},
+	"press": {
+		"message": "Comunicação social"
+	},
 	"pt_language_name": {
 		"message": "Português"
 	},
@@ -743,8 +770,110 @@
 	"sa_country_name": {
 		"message": "Arábia Saudita"
 	},
+	"santasearch_hint": {
+		"message": "Sugestão"
+	},
+	"santasearch_level_lab": {
+		"message": "No laboratório"
+	},
+	"santasearch_level_museum": {
+		"message": "No museu"
+	},
+	"santasearch_level_select": {
+		"message": "Vamos!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Encontre o Pai Natal!"
+	},
+	"santasvillage": {
+		"message": "Aldeia do Pai Natal"
+	},
 	"santatracker": {
 		"message": "Santa Tracker"
+	},
+	"scene_airport": {
+		"message": "Aeroporto do Pólo Norte"
+	},
+	"scene_app": {
+		"message": "Aplicação para Android"
+	},
+	"scene_boatload": {
+		"message": "Fisga de Presentes"
+	},
+	"scene_briefing": {
+		"message": "Instruções da Mãe Natal"
+	},
+	"scene_callfromsanta": {
+		"message": "Chamada do Pai Natal"
+	},
+	"scene_citylights": {
+		"message": "Luzes Noturnas"
+	},
+	"scene_codeboogie": {
+		"message": "Baile de Código"
+	},
+	"scene_codelab": {
+		"message": "Laboratório de Códigos"
+	},
+	"scene_commandcentre": {
+		"message": "Supervisão"
+	},
+	"scene_giftmatch": {
+		"message": "Correspondência de Presentes"
+	},
+	"scene_gumball": {
+		"message": "Flipper dos Rebuçados"
+	},
+	"scene_jamband": {
+		"message": "Banda de Gnomos"
+	},
+	"scene_jetpack": {
+		"message": "Jetpack dos Gnomos"
+	},
+	"scene_matching": {
+		"message": "Memória"
+	},
+	"scene_mercator": {
+		"message": "Questionário do Mapa"
+	},
+	"scene_postcard": {
+		"message": "Cartões do Pai Natal"
+	},
+	"scene_presentbounce": {
+		"message": "Salto dos Presentes"
+	},
+	"scene_presentdrop": {
+		"message": "Lançamento de Presentes"
+	},
+	"scene_racer": {
+		"message": "Piloto Rodolfo"
+	},
+	"scene_santasearch": {
+		"message": "Procura do Pai Natal"
+	},
+	"scene_santaselfie": {
+		"message": "Selfie do Pai Natal"
+	},
+	"scene_seasonofgiving": {
+		"message": "Tempo de Dar"
+	},
+	"scene_traditions": {
+		"message": "Tradições Festivas"
+	},
+	"scene_translations": {
+		"message": "Traduções"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Carro do Gnomo"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Descolagem do Pai Natal"
+	},
+	"scene_videoscene_santasback": {
+		"message": "O Pai Natal voltou"
+	},
+	"scene_windtunnel": {
+		"message": "Túnel de vento"
 	},
 	"score": {
 		"message": "Pontuação"
@@ -855,7 +984,7 @@
 		"message": "Está em"
 	},
 	"tracker_intro_welcome": {
-		"message": "Bem-vindo a"
+		"message": "Bem-vindo ao"
 	},
 	"tracker_next_stop": {
 		"message": "Próxima paragem"
@@ -863,14 +992,23 @@
 	"tracker_santa_update": {
 		"message": "INFORMAÇÃO ATUALIZADA SOBRE O PAI NATAL"
 	},
+	"tracker_santa_update_1": {
+		"message": "Atualização da aplicação Pai Natal"
+	},
 	"tracker_see_route": {
 		"message": "Ver o trajeto"
+	},
+	"tracker_track": {
+		"message": "Localizar o Pai Natal"
 	},
 	"tracker_weather": {
 		"message": "Meteorologia"
 	},
 	"tracker_world_facts": {
 		"message": "Sabia que"
+	},
+	"tracker_world_facts_1": {
+		"message": "Factos mundiais"
 	},
 	"tracker_your_location": {
 		"message": "Local onde se encontra"
@@ -4546,6 +4684,24 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Volte no dia 24 e ajude-nos a seguir o Pai Natal durante toda a noite!"
+	},
+	"village_explore": {
+		"message": "Explore, jogue e aprenda com os gnomos do Pai Natal durante todo o mês de dezembro"
+	},
+	"village_get_the_app": {
+		"message": "Obter a aplicação"
+	},
+	"village_santa_cardboard": {
+		"message": "O Pai Natal no Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "O Pai Natal no Google Cast"
+	},
+	"village_takesoff": {
+		"message": "O Pai Natal levanta voo daqui a"
 	},
 	"vn_country_name": {
 		"message": "Vietname"

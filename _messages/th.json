@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "ในวันคริสต์มาสอีฟ เราจะนำเสนอตัวอย่างแผงควบคุมของซานตาซึ่งเป็นเทคโนโลยีที่ใช้ขับเคลื่อนเลื่อนหิมะในระหว่างการเดินทางรอบโลกของซานตา เราได้รับตัวอย่างสุดพิเศษนี้มาจากเอลฟ์นักพัฒนาที่กำลังง่วนอยู่กับการช่วยซานตาเตรียมพร้อมสำหรับวันสำคัญ แผงควบคุมของซานตาซึ่งประกอบด้วยเทคโนโลยี Google Maps ล้ำหน้าใหม่ล่าสุดและระบบวิศกรรมรถเลื่อนจะทำให้คุณสามารถติดตามความคืบหน้าของซานตาไปได้ทั่วโลก และยังได้เรียนรู้เกร็ดเล็กเกร็ดน้อยเกี่ยวกับจุดแวะพักระหว่างทางของซานตาอีกด้วย"
+		"message": "เราภูมิใจเป็นอย่างยิ่งจะเปิดตัวแผงควบคุมของซานต้าในวันคริสต์มาสอีฟ แผงนี้เป็นเทคโนโลยีที่ให้พลังงานแก่รถเลื่อนของซานต้าระหว่างการเดินทางรอบโลก เราได้รับตัวอย่างพิเศษนี้จากเอลฟ์นักพัฒนาของซานต้า พวกเขาทำงานกันอย่างหนักที่ขั้วโลกเหนือเพื่อช่วยซานต้าเตรียมตัวสำหรับวันสำคัญ แผงควบคุมของซานต้าซึ่งใช้เทคโนโลยีใหม่ล่าสุดและดีที่สุดของ Google Maps และวิศวกรรมรถเลื่อนจะทำให้คุณสามารถติดตามความเคลื่อนไหวของซานต้าไปรอบโลก และยังได้รับความรู้เล็กๆ น้อยๆ เกี่ยวกับจุดแวะพักของซานต้าระหว่างทางอีกด้วย"
 	},
 	"about-content-three": {
 		"message": "Google Maps ตามติดซานต้าสร้างขึ้นและพัฒนาโดย Google ด้วยความช่วยเหลือเล็กน้อยจากภูติจิ๋วของซานต้า หากมีคำถามหรือข้อสงสัย โปรดไปที่\u003ca href=\"//support.google.com/santatracker\"\u003eศูนย์ช่วยเหลือ\u003c/a\u003eของเรา"
@@ -236,8 +236,8 @@
 	"cl_country_name": {
 		"message": "ชิลี"
 	},
-	"close-this": {
-		"message": "ยกเลิก"
+	"close": {
+		"message": "ปิด"
 	},
 	"cm_country_name": {
 		"message": "แคเมอรูน"
@@ -325,6 +325,21 @@
 	},
 	"copy-me": {
 		"message": "คัดลอกลิงก์นี้เพื่อแชร์ข้อความของคุณ"
+	},
+	"countdown_days": {
+		"message": "วัน"
+	},
+	"countdown_hours": {
+		"message": "ชั่วโมง"
+	},
+	"countdown_minutes": {
+		"message": "นาที"
+	},
+	"countdown_seconds": {
+		"message": "วินาที"
+	},
+	"countdown_until": {
+		"message": "ซานต้าจะออกเดินทางใน"
 	},
 	"countdownlabel": {
 		"message": "ก่อนที่ซานต้าจะออกเดินทาง"
@@ -629,6 +644,9 @@
 	"ne_country_name": {
 		"message": "ไนเจอร์"
 	},
+	"new": {
+		"message": "ใหม่"
+	},
 	"newtoday": {
 		"message": "ใหม่สำหรับวันนี้"
 	},
@@ -667,6 +685,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "หมีขั้วโลก"
+	},
+	"notification": {
+		"message": "การแจ้งเตือน"
+	},
+	"notification_notice": {
+		"message": "เหล่าเอลฟ์ของซานต้าจะอัปเดตกำหนดการของซานต้าให้กับคุณ"
 	},
 	"np_country_name": {
 		"message": "เนปาล"
@@ -722,6 +746,9 @@
 	"pr_country_name": {
 		"message": "เปอร์โตริโก"
 	},
+	"press": {
+		"message": "กด"
+	},
 	"pt_language_name": {
 		"message": "ภาษาโปรตุเกส"
 	},
@@ -743,8 +770,110 @@
 	"sa_country_name": {
 		"message": "ซาอุดีอาระเบีย"
 	},
+	"santasearch_hint": {
+		"message": "คำใบ้"
+	},
+	"santasearch_level_lab": {
+		"message": "ในห้องทดลอง"
+	},
+	"santasearch_level_museum": {
+		"message": "ในพิพิธภัณฑ์"
+	},
+	"santasearch_level_select": {
+		"message": "ไป!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "ค้นหาซานต้า!"
+	},
+	"santasvillage": {
+		"message": "หมู่บ้านซานต้า"
+	},
 	"santatracker": {
 		"message": "ตามติดซานต้า"
+	},
+	"scene_airport": {
+		"message": "สนามบินขั้วโลกเหนือ"
+	},
+	"scene_app": {
+		"message": "แอป Android"
+	},
+	"scene_boatload": {
+		"message": "โยนของขวัญด้วยหนังสติ๊ก"
+	},
+	"scene_briefing": {
+		"message": "สรุปข้อมูลจากนางซานตาคลอส"
+	},
+	"scene_callfromsanta": {
+		"message": "ซานต้าโทรมา"
+	},
+	"scene_citylights": {
+		"message": "เมืองแห่งแสงสี"
+	},
+	"scene_codeboogie": {
+		"message": "โค้ดเต้นรำ"
+	},
+	"scene_codelab": {
+		"message": "ห้องทดลองโค้ด"
+	},
+	"scene_commandcentre": {
+		"message": "ควบคุมภารกิจ"
+	},
+	"scene_giftmatch": {
+		"message": "จับคู่ของขวัญ"
+	},
+	"scene_gumball": {
+		"message": "เอียง Gumball"
+	},
+	"scene_jamband": {
+		"message": "วงแจมแบนด์ของชาวเอลฟ์"
+	},
+	"scene_jetpack": {
+		"message": "Elf Jetpack"
+	},
+	"scene_matching": {
+		"message": "การจับคู่ภาพ"
+	},
+	"scene_mercator": {
+		"message": "คำถามเกี่ยวกับแผนที่"
+	},
+	"scene_postcard": {
+		"message": "การ์ดของซานต้า"
+	},
+	"scene_presentbounce": {
+		"message": "โยนของขวัญ"
+	},
+	"scene_presentdrop": {
+		"message": "หย่อนของขวัญ"
+	},
+	"scene_racer": {
+		"message": "รูดอล์ฟนักวิ่งแข่ง"
+	},
+	"scene_santasearch": {
+		"message": "ค้นหาซานต้า"
+	},
+	"scene_santaselfie": {
+		"message": "ซานต้าเซลฟี"
+	},
+	"scene_seasonofgiving": {
+		"message": "เทศกาลแห่งการให้"
+	},
+	"scene_traditions": {
+		"message": "ประเพณีวันหยุด"
+	},
+	"scene_translations": {
+		"message": "การแปล"
+	},
+	"scene_videoscene_carpool": {
+		"message": "รถของเอลฟ์"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "ซานต้าจะออกเดินทางแล้ว"
+	},
+	"scene_videoscene_santasback": {
+		"message": "ซานต้ากลับมาแล้ว"
+	},
+	"scene_windtunnel": {
+		"message": "อุโมงค์ลม"
 	},
 	"score": {
 		"message": "คะแนน"
@@ -795,7 +924,7 @@
 		"message": "ชาด"
 	},
 	"terms-and-privacy": {
-		"message": "ข้อกำหนดและข้อมูลส่วนบุคคล"
+		"message": "ข้อกำหนด \u0026amp; ข้อมูลส่วนบุคคล"
 	},
 	"tg_country_name": {
 		"message": "โตโก"
@@ -863,14 +992,23 @@
 	"tracker_santa_update": {
 		"message": "อัปเดตจากซานต้า"
 	},
+	"tracker_santa_update_1": {
+		"message": "อัปเดตจากซานต้า"
+	},
 	"tracker_see_route": {
 		"message": "ดูเส้นทาง"
+	},
+	"tracker_track": {
+		"message": "ตามติดซานต้า"
 	},
 	"tracker_weather": {
 		"message": "สภาพอากาศ"
 	},
 	"tracker_world_facts": {
 		"message": "คุณรู้ไหม"
+	},
+	"tracker_world_facts_1": {
+		"message": "ข้อเท็จจริงของโลก"
 	},
 	"tracker_your_location": {
 		"message": "ตำแหน่งของคุณ"
@@ -4546,6 +4684,24 @@
 	},
 	"ve_country_name": {
 		"message": "เวเนซุเอลา"
+	},
+	"village_comeback": {
+		"message": "กลับมาดูใหม่ในวันที่ 24 และช่วยเราตามติดซานต้าตลอดทั้งคืน!"
+	},
+	"village_explore": {
+		"message": "สำรวจ เล่น และเรียนรู้ไปกับเอลฟ์ของซานต้าตลอดธันวาคมนี้"
+	},
+	"village_get_the_app": {
+		"message": "รับแอป"
+	},
+	"village_santa_cardboard": {
+		"message": "ค้นหาซานต้าบน Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "ค้นหาซานต้าบน Google Cast"
+	},
+	"village_takesoff": {
+		"message": "ซานต้าจะออกเดินทางใน"
 	},
 	"vn_country_name": {
 		"message": "เวียดนาม"

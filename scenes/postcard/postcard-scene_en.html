@@ -160,7 +160,7 @@ Postcard scene.
     onShow: function() {
       var module = this.$['module-postcard'];
       this.fire('sound-ambient', 'sm_start');
-
+      this.fire('sound-ambient', 'music_start_scene');
       this.scene = new scenes.postcard.Scene(module);
       this.sceneParamsChanged();
     },

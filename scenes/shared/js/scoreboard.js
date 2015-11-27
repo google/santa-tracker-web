@@ -155,8 +155,10 @@ Scoreboard.prototype.onFrame = function(delta) {
     if (this.remainingElem.length > 0) {
       this.remainingElem.toggleClass('losing', losing);
     }
-    window.santaApp.fire('sound-trigger',
-        losing ? 'game_hurry_up' : 'game_hurry_up_end');
+    if (seconds > 0) {
+      window.santaApp.fire('sound-trigger',
+          losing ? 'game_hurry_up' : 'game_hurry_up_end');
+    }
   }
 };
 
