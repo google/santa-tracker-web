@@ -243,6 +243,49 @@ $toolbar-size: 64px;
     }
   }
 
+  .house-new-today {
+    div {
+      position: absolute;
+      height: percent(280px * $svg-ratio, $dim-house);
+      width:  percent(315px * $svg-ratio, $dim-house);
+      background: center no-repeat;
+      background-size: cover;
+      z-index: $house-row-2-z-index;
+      top: percent(-20px, $dim-house);
+      left: percent(-5px, $dim-house);
+
+      a {
+        text-decoration: none;
+        width: 95%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: -20px;
+      }
+
+      h4 {
+        margin: 0 auto;
+        text-align: center;
+        font-family: 'Lobster', sans-serif;
+        font-weight: 200;
+        font-size: 2.275em;
+        line-height: 1.5em;
+        text-shadow: 0 2px 0 rgba(0,0,0,0.25);
+        transform: rotateZ(-6deg);
+        color: #fff;
+      }
+
+      h5 {
+        color: #fff;
+        text-align: center;
+        margin: 0;
+        font-weight: normal;
+        font-size: 16px;
+      }
+    }
+  }
+
   .house {
     position: relative;
 

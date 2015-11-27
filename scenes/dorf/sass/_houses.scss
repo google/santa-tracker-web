@@ -78,6 +78,12 @@ $idx-zIndex: 14;
     $house: nth($houses, $i);
     $id: nth($house, $idx-id);
 
+    .new-today-#{$id} {
+      div {
+        background-image: url(img/card-new-today-#{$id}_2x.png);
+      }
+    }
+
     .house-#{$id} {
       // z-index set on child .assets, not top-level .house (don't create
       // heirarchy here)
