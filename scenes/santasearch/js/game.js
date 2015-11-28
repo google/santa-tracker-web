@@ -49,8 +49,6 @@ app.Game = function(elem) {
   this.characters = new app.Characters(this.mapElem, this.drawerElem, this.mapElementDimensions, this.gameAspectRatio);
 
   this.onFrame_ = this.onFrame_.bind(this);
-
-  this.hintActive = false;
 };
 
 
@@ -120,8 +118,39 @@ app.Game.prototype._hintLocation = function(characterName) {
     this.controls.pan.y = targetY;
     this.controls.needsScaleUpdate = true;
     this.controls.needsPanUpdate = true;
-    this.hintActive = false;
   }.bind(this), app.Constants.HINT_BUTTON_PAN_TIME * 1000);
+};
+
+app.Game.prototype._preScale = function(targetScale) {
+  this.controls.enabled = false;
+
+  let scaleBefore = this.controls.scale;
+
+  let scale = targetScale / scaleBefore;
+
+  let scaledMapWidth = this.mapElementDimensions.width * scale;
+  let scaledMapHeight = this.mapElementDimensions.height * scale;
+
+  this.controls._scalePan(scaleBefore, targetScale);
+
+  let targetX = this._clampXPanForWidth(this.controls.pan.x, scaledMapWidth);
+  let targetY = this._clampYPanForHeight(this.controls.pan.y, scaledMapHeight);
+
+  this.mapElem.css('transition-duration', `${app.Constants.PRESCALE_TIME}s`);
+  this.mapElem.css('transform', `translate3d(${targetX}px, ${targetY}px, 0) scale(${scale}, ${scale})`);
+
+  console.log('preScale called');
+  console.log('prescaling from ' + scaleBefore + ' to ' + targetScale);
+
+  setTimeout(function() {
+    this.mapElem.css('transition-duration', '0s');
+    this.controls.enabled = true;
+    // this.controls.scale = targetScale;
+    // this.controls.pan.x = targetX;
+    // this.controls.pan.y = targetY;
+    // this.controls.needsScaleUpdate = true;
+    // this.controls.needsPanUpdate = true;
+  }.bind(this), app.Constants.PRESCALE_TIME * 1000);
 };
 
 /**
@@ -234,12 +263,17 @@ app.Game.prototype.update = function(deltaInMilliseconds) {
     this.characters.hintTarget = undefined;
   }
 
-  if (this.controls.needsScaleUpdate && this.hintActive === false) {
+  if (this.controls.scaleTarget) {
+    this._preScale(this.controls.scaleTarget);
+    this.controls.scaleTarget = undefined;
+  }
+
+  if (this.controls.needsScaleUpdate && this.controls.enabled) {
     this._scale(this.controls.scale);
     this.controls.needsScaleUpdate = false;
   }
 
-  if (this.controls.needsPanUpdate && this.hintActive === false) {
+  if (this.controls.needsPanUpdate && this.controls.enabled) {
     this._updatePan();
 
     let panX = this.controls.pan.x;

@@ -76,6 +76,8 @@ app.Controls.prototype.reset = function() {
   this.pan.y = 0;
   this.pinching = false;
   this.selecting = false;
+
+  this.scaleTarget = undefined;
 }
 
 /**
@@ -260,6 +262,11 @@ app.Controls.prototype._scalePan = function(from, to) {
   this.pan.y *= (to / from);
   this.scale = to;
 
+  if (this.scale === 1) {
+    this.pan.x = 0;
+    this.pan.y = 0;
+  }
+
   this.needsPanUpdate = true;
   this.needsScaleUpdate = true;
 }
@@ -269,12 +276,16 @@ app.Controls.prototype._scalePan = function(from, to) {
  * @private
  */
 app.Controls.prototype._zoomIn = function() {
-  if (!this.enabled) {
+  if (!this.enabled || this.scale === app.Constants.ZOOM_MAX) {
     return;
   }
 
-  if (this.scale <= app.Constants.ZOOM_MAX) {
-    this._scalePan(this.scale, this.scale + 0.5);
+  let scaleTarget = this.scale + app.Constants.ZOOM_STEP_SIZE;
+
+  if (scaleTarget <= app.Constants.ZOOM_MAX) {
+    this.scaleTarget = scaleTarget;
+  } else {
+    this.scaleTarget = app.Constants.ZOOM_MAX;
   }
 };
 
@@ -283,16 +294,15 @@ app.Controls.prototype._zoomIn = function() {
  * @private
  */
 app.Controls.prototype._zoomOut = function() {
-  if (!this.enabled) {
+  if (!this.enabled || this.scale === 1) {
     return;
   }
 
-  if (this.scale > 1) {
-    this._scalePan(this.scale, this.scale - 0.5);
+  let scaleTarget = this.scale - app.Constants.ZOOM_STEP_SIZE;
 
-    if (this.scale === 1) {
-      this.pan.x = 0;
-      this.pan.y = 0;
-    }
+  if (scaleTarget >= 1) {
+    this.scaleTarget = scaleTarget;
+  } else {
+    this.scaleTarget = 1;
   }
 };
