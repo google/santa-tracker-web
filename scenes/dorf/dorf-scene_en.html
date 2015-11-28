@@ -38,9 +38,6 @@ Village scene (2015).
   :host[mode="cast"] .ice {
     display: none !important;
   }
-  :host[mode="cast"] .house-new-today {
-    display: none !important;
-  }
   </style>
   <div id="module-dorf">
     <header>
@@ -55,7 +52,7 @@ Village scene (2015).
         </span>
       </div>
       <div id="header-content">
-        <div id="count-down" class$="{{_calculateModeClass(santaApp.mode)}}">
+        <div id="count-down" class$="mode-{{santaApp.mode}}">
           <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
           <countdown-timer id="count"
                            animate="{{!_equal(santaApp.mode, 'cast')}}"
@@ -77,7 +74,7 @@ Village scene (2015).
       <div id="road"></div>
       <div id="houses">
         <div class$="house house-new-today new-today-{{todayHouse}}">
-          <template is="dom-if" if="{{todayHouse}}">
+          <template is="dom-if" if="{{_calculateShowTodayHouse(todayHouse, santaApp.mode)}}">
             <a href="{{_calculateNewTodayHref(todayHouse)}}">
               <div class="card">
                 <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -117,7 +114,7 @@ Village scene (2015).
 
         <!-- TODO(samthor): This isn't part of the flex layout, but ensures
              that easter eggs have a shared z-index with houses -->
-        <div id="eastereggs">
+        <div id="eastereggs" class$="mode-{{santaApp.mode}}">
           <template is="dom-repeat" items="{{easterEggs}}">
             <div id$="easteregg-{{item}}" class="easter-egg"></div>
           </template>
@@ -519,11 +516,11 @@ Village scene (2015).
       this.toggleClass('scrolling', scroller.scrollTop > 0, this.$.toolbar);
     },
 
-    _calculateModeClass: function(mode) {
+    _calculateShowTodayHouse: function(todayHouse, mode) {
       if (mode == 'cast') {
-        return 'large';
+        return false;
       }
-      return '';
+      return todayHouse != '';
     },
 
     /**
