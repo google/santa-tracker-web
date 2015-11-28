@@ -180,6 +180,12 @@ Video scene.
      * @param {string} detail.label
      */
 
+    attached: function() {
+      if (this.getAttribute('mode') == 'cast') {
+        this.hidePoster();
+      }
+    },
+
     youtubeReady: function() {
       this.start = true;
 

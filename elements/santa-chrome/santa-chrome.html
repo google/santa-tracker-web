@@ -76,9 +76,6 @@ specific language governing permissions and limitations under the License.
   :host([mode="portal"]) .shareicons {
     display: none !important;
   }
-  :host([mode="cast"]) .shareicons {
-    display: none !important;
-  }
   :host([mode="cast"]) paper-header-panel /deep/ #mainContainer {
     overflow: hidden !important;
   }
@@ -188,14 +185,14 @@ specific language governing permissions and limitations under the License.
     </div><!-- #drawer -->
     <paper-header-panel main id="main" mode="seamed"
         on-content-scroll="_onContentScroll"
-        class$="{{_calculateFixedClass(isFixedToolbar)}}">
-      <paper-toolbar id="toolbar" class$="{{_calculateScrollingClass(scrolledToolbar)}}">
+        class$="{{_calculateFixedClass(isFixedToolbar, hideToolbar)}}">
+      <paper-toolbar id="toolbar" class$="{{_calculateScrollingClass(scrolledToolbar)}}" hidden$="{{hideToolbar}}">
         <paper-icon-button icon="menu" hidden$="{{disabled}}" paper-drawer-toggle></paper-icon-button>
         <div id="logo" title="Google logo"></div>
         <h1 class="title flex">
           <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
         </h1>
-        <div class="shareicons">
+        <div class="shareicons" hidden$="{{disabled}}">
           <button id="gplus">Google Plus</button>
           <button id="twitter"><i18n-msg msgid="twitter">PLACEHOLDER_i18n</i18n-msg></button>
           <button id="facebook">Facebook</button>
@@ -231,7 +228,7 @@ specific language governing permissions and limitations under the License.
       todayHouse: String,
 
       /**
-       * The color to use for the background, if set.
+       * The color to use for the toolbar background, if set.
        */
       color: String,
 
@@ -245,6 +242,14 @@ specific language governing permissions and limitations under the License.
        * Whether this toolbar should be fixed: always solid, with content below.
        */
       isFixedToolbar: {
+        type: Boolean,
+        value: false
+      },
+
+      /**
+       * Whether to hide the toolbar completely.
+       */
+      hideToolbar: {
         type: Boolean,
         value: false
       },
@@ -352,8 +357,8 @@ specific language governing permissions and limitations under the License.
       return scrolledToolbar ? 'scrolling' : '';
     },
 
-    _calculateFixedClass: function(isFixedToolbar) {
-      return isFixedToolbar ? 'fixed' : '';
+    _calculateFixedClass: function(isFixedToolbar, hideToolbar) {
+      return (isFixedToolbar && !hideToolbar) ? 'fixed' : '';
     },
 
     _computeDrawerWidth: function(smallScreen) {
