@@ -29,41 +29,41 @@ app.Characters = function(mapElem, drawerElem, mapDimensions) {
   this.characters = {
     'santa': {
       elem: this.mapElem.find('.character-collider--santa'),
-      uiElem: this.drawerElem.find('.character--santa').parent(),
+      uiElem: this.drawerElem.find('.drawer__item--santa'),
       location: {},
       scale: {},
       isFound: false
     },
     'mrs-claus': {
       elem: this.mapElem.find('.character-collider--mrs-claus'),
-      uiElem: this.drawerElem.find('.character--mrs-claus').parent(),
+      uiElem: this.drawerElem.find('.drawer__item--mrs-claus'),
       location: {},
       scale: {}
     },
     'rudolph': {
       elem: this.mapElem.find('.character-collider--rudolph'),
-      uiElem: this.drawerElem.find('.character--rudolph').parent(),
+      uiElem: this.drawerElem.find('.drawer__item--rudolph'),
       location: {},
       scale: {},
       isFound: false
     },
     'gingerbread-man': {
       elem: this.mapElem.find('.character-collider--gingerbread-man'),
-      uiElem: this.drawerElem.find('.character--gingerbread-man').parent(),
+      uiElem: this.drawerElem.find('.drawer__item--gingerbread-man'),
       location: {},
       scale: {},
       isFound: false
     },
     'pegman': {
       elem: this.mapElem.find('.character-collider--pegman'),
-      uiElem: this.drawerElem.find('.character--pegman').parent(),
+      uiElem: this.drawerElem.find('.drawer__item--pegman'),
       location: {},
       scale: {},
       isFound: false
     },
     'penguin': {
       elem: this.mapElem.find('.character-collider--penguin'),
-      uiElem: this.drawerElem.find('.character--penguin').parent(),
+      uiElem: this.drawerElem.find('.drawer__item--penguin'),
       location: {},
       scale: {},
       isFound: false
@@ -159,7 +159,7 @@ app.Characters.prototype._initializeCharacter = function(characterName) {
   let character = this.characters[characterName];
 
   character.isFound = false;
-  character.uiElem.removeClass('drawer__character-wrapper--found');
+  character.uiElem.removeClass('drawer__item--found');
 
   let characterSVG = this.hidingCharacters.getElementById(characterToSpawn);
 
@@ -232,8 +232,8 @@ app.Characters.prototype._onCharacterSelected = function(characterName) {
   let character = this.characters[characterName];
 
   if (!character.isFound) {
-    character.uiElem.removeClass('drawer__character-wrapper--focused');
-    character.uiElem.addClass('drawer__character-wrapper--found');
+    character.uiElem.removeClass('drawer__item--focused');
+    character.uiElem.addClass('drawer__item--found');
     character.isFound = true;
 
     this.focusNextUnfoundCharacter();
@@ -248,5 +248,5 @@ app.Characters.prototype._onCharacterSelected = function(characterName) {
 app.Characters.prototype._focusUICharacter = function(characterName) {
   console.log(`Focusing ${characterName}`);
 
-  this.characters[characterName].uiElem.addClass('drawer__character-wrapper--focused');
+  this.characters[characterName].uiElem.addClass('drawer__item--focused');
 };
