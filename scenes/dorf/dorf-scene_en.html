@@ -560,7 +560,7 @@ Village scene (2015).
       if (santaApp.mode == 'portal') {
         var pegmanClasses = [ 'pegman-1', 'pegman-2', 'pegman-3' ];
         for (var i = 0; i < pegmanClasses.length; i++) {
-          $("span." + pegmanClasses[i] + ">a").attr('href', '/dive');
+          $("span." + pegmanClasses[i] + ">a").attr('href', '/dive').attr('target', '');
         }
       }
     },
