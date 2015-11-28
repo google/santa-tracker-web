@@ -93,97 +93,99 @@ specific language governing permissions and limitations under the License.
                       disable-swipe="{{disabled}}"
                       drawer-width="[[_computeDrawerWidth(_smallScreen)]]">
     <div id="drawer" drawer class="scroll" on-click="_closeDrawerLink">
-      <paper-toolbar class="close-sidebar" on-click="closeDrawer" tabindex="0">
-        <iron-icon icon="close"></iron-icon>
-        <span><i18n-msg msgid="close">PLACEHOLDER_i18n</i18n-msg></span>
-      </paper-toolbar>
-      <div class="cards">
-        <a href$="{{pageUrl}}#village">
-          <div class="menucard menucard-village">
-            <h2><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></h2>
-            <h3><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></h3>
-          </div>
-        </a>
-        <template is="dom-if" if="{{todayHouse}}">
-          <a href$="{{pageUrl}}#{{todayHouse}}">
-            <div class$="menucard menucard-{{todayHouse}}">
-              <h2><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h2>
-              <h3>{{_stringScene(todayHouse, santaApp.strings)}}</h3>
+      <div hidden$="{{disabled}}">
+        <paper-toolbar class="close-sidebar" on-click="closeDrawer" tabindex="0">
+          <iron-icon icon="close"></iron-icon>
+          <span><i18n-msg msgid="close">PLACEHOLDER_i18n</i18n-msg></span>
+        </paper-toolbar>
+        <div class="cards">
+          <a href$="{{pageUrl}}#village">
+            <div class="menucard menucard-village">
+              <h2><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></h2>
+              <h3><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></h3>
             </div>
           </a>
-        </template>
-        <a href$="{{pageUrl}}#tracker">
-          <div class="menucard menucard-tracker">
-            <h2>{{_dec24th}}</h2>
-            <h3><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></h3>
-          </div>
-        </a>
-      </div>
+          <template is="dom-if" if="{{todayHouse}}">
+            <a href$="{{pageUrl}}#{{todayHouse}}">
+              <div class$="menucard menucard-{{todayHouse}}">
+                <h2><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h2>
+                <h3>{{_stringScene(todayHouse, santaApp.strings)}}</h3>
+              </div>
+            </a>
+          </template>
+          <a href$="{{pageUrl}}#tracker">
+            <div class="menucard menucard-tracker">
+              <h2>{{_dec24th}}</h2>
+              <h3><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></h3>
+            </div>
+          </a>
+        </div>
 
-      <div class="links">
-        <h2>
-          <i18n-msg msgid="village_more">PLACEHOLDER_i18n</i18n-msg>
-        </h2>
-        <ul>
-          <li><a target="_blank" href="https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker">
-            <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
-          </a></li>
-          <li><a href="{{pageUrl}}#press">
-            <i18n-msg msgid="press">PLACEHOLDER_i18n</i18n-msg>
-          </a></li>
-          <li><a href="{{pageUrl}}#about">
-            <i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg>
-          </a></li>
-          <li><a target="_blank" href="https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb">
-            <i18n-msg msgid="deckdescription">PLACEHOLDER_i18n</i18n-msg>
-          </a></li>
-          <li><a target="_blank" href="https://www.google.com/policies/">
-            <i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg>
-          </a></li>
-          <li><a target="_blank" href="https://maps.google.com/help/maps/helloworld/index.html">
-            <i18n-msg msgid="getgooglemaps">PLACEHOLDER_i18n</i18n-msg>
-          </a></li>
-        </ul>
-      </div>
+        <div class="links">
+          <h2>
+            <i18n-msg msgid="village_more">PLACEHOLDER_i18n</i18n-msg>
+          </h2>
+          <ul>
+            <li><a target="_blank" href="https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker">
+              <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
+            </a></li>
+            <li><a href="{{pageUrl}}#press">
+              <i18n-msg msgid="press">PLACEHOLDER_i18n</i18n-msg>
+            </a></li>
+            <li><a href="{{pageUrl}}#about">
+              <i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg>
+            </a></li>
+            <li><a target="_blank" href="https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb">
+              <i18n-msg msgid="deckdescription">PLACEHOLDER_i18n</i18n-msg>
+            </a></li>
+            <li><a target="_blank" href="https://www.google.com/policies/">
+              <i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg>
+            </a></li>
+            <li><a target="_blank" href="https://maps.google.com/help/maps/helloworld/index.html">
+              <i18n-msg msgid="getgooglemaps">PLACEHOLDER_i18n</i18n-msg>
+            </a></li>
+          </ul>
+        </div>
 
-      <div class="lang">
-        <iron-icon icon="language"></iron-icon>
-        <select id="language" value="[[santaApp.language]]" on-change="_onLanguageChanged">
-          <option value="af">Afrikaans</option>
-          <option value="ca">Català</option>
-          <option value="zh-CN">中文（香港）</option>
-          <option value="zh-TW">中文</option>
-          <option value="da">Dansk</option>
-          <option value="de">Deutsch</option>
-          <option value="et">Eesti</option>
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="fr-CA">Français (Canada)</option>
-          <option value="hr">Hrvatski</option>
-          <option value="id">Indonesia</option>
-          <option value="it">Italiano</option>
-          <option value="ja">日本語</option>
-          <option value="lv">Latvijas</option>
-          <option value="lt">Lietuvos</option>
-          <option value="no">Norsk</option>
-          <option value="pl">Polski</option>
-          <option value="pt-BR">Português (Brasil)</option>
-          <option value="pt-PR">Português (Portugal)</option>
-          <option value="ro">Român</option>
-          <option value="sl">Slovenija</option>
-          <option value="sv">Svenska</option>
-          <option value="tl">Tagalog</option>
-          <option value="fi">Viimeistely</option>
-          <option value="bg">Български</option>
-          <option value="uk">Український</option>
-          <option value="ta-IN">தமிழ்</option>
-          <option value="ms">മലയാളം </option>
-          <option value="th">ภาษาไทย</option>
-        </select>
-      </div>
+        <div class="lang">
+          <iron-icon icon="language"></iron-icon>
+          <select id="language" value="[[santaApp.language]]" on-change="_onLanguageChanged">
+            <option value="af">Afrikaans</option>
+            <option value="ca">Català</option>
+            <option value="zh-CN">中文（香港）</option>
+            <option value="zh-TW">中文</option>
+            <option value="da">Dansk</option>
+            <option value="de">Deutsch</option>
+            <option value="et">Eesti</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="fr-CA">Français (Canada)</option>
+            <option value="hr">Hrvatski</option>
+            <option value="id">Indonesia</option>
+            <option value="it">Italiano</option>
+            <option value="ja">日本語</option>
+            <option value="lv">Latvijas</option>
+            <option value="lt">Lietuvos</option>
+            <option value="no">Norsk</option>
+            <option value="pl">Polski</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="pt-PR">Português (Portugal)</option>
+            <option value="ro">Român</option>
+            <option value="sl">Slovenija</option>
+            <option value="sv">Svenska</option>
+            <option value="tl">Tagalog</option>
+            <option value="fi">Viimeistely</option>
+            <option value="bg">Български</option>
+            <option value="uk">Український</option>
+            <option value="ta-IN">தமிழ்</option>
+            <option value="ms">മലയാളം </option>
+            <option value="th">ภาษาไทย</option>
+          </select>
+        </div>
 
-    </div>
+      </div>
+    </div><!-- #drawer -->
     <paper-header-panel main id="main" mode="seamed"
         on-content-scroll="_onContentScroll"
         class$="{{_calculateFixedClass(isFixedToolbar)}}">
@@ -234,7 +236,8 @@ specific language governing permissions and limitations under the License.
       color: String,
 
       /**
-       * Whether to disable interactions with `santa-chrome`. Used by cast.
+       * Whether to disable interactions with `santa-chrome`, and the drawer completely.
+       * Used by cast.
        */
       disabled: Boolean,
 
