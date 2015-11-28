@@ -20,7 +20,7 @@ $toolbar-size: 64px;
     font-weight: 400;
     font-size: 22px;
     line-height: 26px;
-    max-width: 360px;
+    max-width: 480px;
   }
 
   header {
@@ -232,7 +232,7 @@ $toolbar-size: 64px;
 
       h1 {
         @include will-change();
-        margin: 0;
+        margin: 0 8px;
         font-family: 'Lobster', sans-serif;
         font-size: 62px;
         line-height: 50px;
@@ -241,8 +241,8 @@ $toolbar-size: 64px;
         transform: rotateZ(-3deg);
       }
 
-      /** Make header elements small on mobile */
-      @media (max-width: $width-twocol) {
+      /** Make header smaller on tablet */
+      @media (max-width: ($width-tablet - 1)) {
         h1 {
           font-size: 44px;
           line-height: 36px;
@@ -253,8 +253,21 @@ $toolbar-size: 64px;
         }
         p {
           font-size: 16px;
+          margin-top: 24px;
+          padding-bottom: 4px;
+        }
+      }
+
+      /** Make header elements small on mobile */
+      @media (max-width: $width-twocol) {
+        h1 {
+          font-size: 36px;
+          line-height: 30px;
+        }
+        p {
+          font-size: 12px;
           max-width: 260px;
-          margin-top: 36px;
+          margin-top: 12px;
           padding-bottom: 4px;
         }
       }
@@ -319,6 +332,30 @@ $toolbar-size: 64px;
         position: absolute;
         color: white;
 
+        // disabled cards only
+        .color {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          display: none;
+        }
+
+        .text {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          display: flex;
+          flex-flow: column;
+          align-items: center;
+
+          .img-lock {
+            width: 42px;
+            height: 42px;
+            background: url(img/lock.svg) no-repeat center;
+            background-size: contain;
+          }
+        }
+
         .image {
           width: 100%;
           height: 100%;
@@ -332,6 +369,24 @@ $toolbar-size: 64px;
           line-height: 1.4em;
           padding-top: 0.25em;
           text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .label {
+          position: absolute;
+          bottom: 4%;
+          right: 50%;
+          transform: translate(($height-newcard-mobile * 0.5) + 14px) rotate(12deg);
+          background: url(img/new-today-tag.svg) center no-repeat;
+          background-size: cover;
+          box-sizing: border-box;
+          width: 85px;
+          height: 53px;
+          padding: 0 4px 9px 16px;
+          line-height: 44px;
+          font-size: 14px;
+          font-family: 'Lobster', sans-serif;
+          font-weight: 400;
+          text-align: center;
         }
       }
     }
@@ -578,14 +633,20 @@ $toolbar-size: 64px;
           height: $hover-card-size !important;
           margin: (-$hs) 0 0 (-$hs);
           @include will-change(transform, opacity);
-          border-radius: 10000px;
-          overflow: hidden;
           transition: transform $duration-out $easing-out, opacity $duration-out $easing-out;
           transform: scale(0);
           opacity: 0.25;
           left: 50%;
           top: 50%;
-          box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
+
+          .label {
+            display: none;  // hide the 'new' label
+          }
+
+          .image {
+            border-radius: 10000px;
+            box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
+          }
 
           .launchdate {
             display: none;
@@ -679,8 +740,11 @@ $toolbar-size: 64px;
         border-bottom: 2px solid rgba(0, 0, 0, 0.125);
 
         p {
-          font-size: 16px;
-          font-weight: 400;
+          font-size: 1em;
+          line-height: 1.5em;
+          letter-spacing: 1px;
+          font-weight: 500;
+
           text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125);
           margin: 0 auto;
         }
@@ -696,14 +760,9 @@ $toolbar-size: 64px;
           display: none;  // this is Play/Learn etc below houses
         }
 
-        .card.new-today {
-          background: url(img/new-today-path.svg) center no-repeat;
-          background-size: contain;
-        }
-
         .house {
           width: 50%;
-          height: $height-card-mobile;
+          min-height: $height-card-mobile;
           flex-grow: 1;
 
           &[disabled] {
@@ -714,30 +773,68 @@ $toolbar-size: 64px;
             display: none;
           }
 
-          &.iced {
-            height: auto;
-            min-height: $height-icedcard-mobile;
+          .text {
+            margin-top: 8px;
 
-            .card {
+            .launchdate {
+              margin: 0;
+              margin-top: -8px;
+              line-height: 1.4em;
+              text-shadow: none;
+            }
+            h4 {
+              order: 10;
+              opacity: 0.75;
+            }
+            h4, h3 {
+              letter-spacing: 1px;
+              font-size: 1em;
+              line-height: 1em;
+              font-weight: 500;
+              color: #fff;
+              margin-top: 2px;
+              text-transform: uppercase;
+              font-family: inherit;
+              transform: none;
+              text-shadow: none;
+            }
+          }
+
+          &.iced {
+            .text {
               h3, h4 {
                 display: none;
               }
             }
 
+            .text {
+              margin: 0;
+              justify-content: center;
+              .launchdate {
+                font-size: 5em;
+              }
+            }
+
             // fade out iced cards
-            &::after {
-              z-index: 100;
-              position: absolute;
-              content: "";
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              background: rgba(0, 0, 0, 0.5);
-              pointer-events: none;
+            .color {
+              display: block;
+              opacity: 0.75;
             }
           }
-        }
+
+          &.new-today {
+            height: $height-newcard-mobile;
+
+            .text {
+              margin-top: 24px;
+            }
+
+            .card {
+              // use natural size
+              background: url(img/new-today-path.svg) center no-repeat;
+            }
+          }
+        }  // .house
       }
 
       #ground, #road, .easter-egg {
@@ -747,6 +844,10 @@ $toolbar-size: 64px;
 
     #village-footer {
       margin-top: 32px;
+
+      p {
+        padding: 0 16px;
+      }
     }
   }
 
