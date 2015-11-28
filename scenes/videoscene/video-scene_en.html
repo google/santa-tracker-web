@@ -25,6 +25,12 @@ Video scene.
 -->
 <dom-module id="video-scene">
 <template>
+  <style>
+  :host[mode="cast"] .actions {
+    display: none;
+  }
+  </style>
+
   <iron-a11y-keys keys="enter space"
                   on-keys-pressed="keyHandler"></iron-a11y-keys>
 
@@ -69,9 +75,10 @@ Video scene.
 <script>
 (function() {
   var VIDEO_IDS = {
+    'wheressanta': '0qrFL0mn3Uk',
     'trailer': 'IdpQSy4IB_I',
     'carpool': 'h83b1lWPuvQ',
-    'liftoff': 'oCAKV4Ikhec',
+    'liftoff': 'oCAKV4Ikhec',  // 2013: BfF7vfw6Zjw
     'jingle': 'sQnKCU_A0Yc',
     'satellite': 'ZJPL56IPTjw',
     'temptation': '2FtcJJ9vzVQ',
@@ -181,6 +188,11 @@ Video scene.
       this.player.seekTo(0);
       this.player.pause();
       this.controls = false;
+
+      // Autoplay on Cast mode.
+      if (this.getAttribute('mode') == 'cast') {
+        this.playVideo();
+      }
     },
 
     hidePoster: function(e, detail) {
@@ -195,6 +207,7 @@ Video scene.
           break;
         case 0: // ended
           this.controls = false;
+          this.fire('video-scene-done');
           break;
         case 1: // playing
           this.paused = false;

@@ -9,8 +9,8 @@ $width-twocol: 600px;
 $width-bigheader: $width-twocol;
 $svg-ratio: 0.8;  // svgs to desktop size
 
-$height-card-mobile: 286px;
-$height-icedcard-mobile: 204px;
+$height-card-mobile: 204px;
+$height-newcard-mobile: 286px;
 
 // standard size of house at $width-desktop
 $dim-house: $width-desktop / 4;
@@ -54,3 +54,7 @@ $house-row-6-z-index: 600;
 $house-row-7-z-index: 700;
 
 $house-z-index-front: 1000;
+
+// cutoff easterggs on cast from this pixel - higher than we need for a HDTV, but static chromecast
+// view can also just be loaded on PCs.
+$easteregg-cast-cutoff: 350px;

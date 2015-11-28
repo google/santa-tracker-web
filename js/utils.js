@@ -52,6 +52,19 @@ function randomRange(min, opt_max) {
 }
 
 /**
+ * Returns a random choice from the given array or array-like.
+ * @param {!IArrayLike} array
+ * @return {*}
+ */
+function randomChoice(array) {
+  if (array.length) {
+    var idx = Math.floor(Math.random() * array.length);
+    return array[idx];
+  }
+  return null;
+}
+
+/**
   * Checks whether the passed dates are the same calendar day.
   * @param {!Date} date1
   * @param {!Date} date2

@@ -38,8 +38,9 @@
 
   @for $i from 1 through length($all) {
     $row: nth($all, $i);
+    $id: nth($row, $idx-id);
 
-    #easteregg-#{nth($row, $idx-id)} {
+    #easteregg-#{$id)} {
       z-index: nth($row, $idx-z-index) - 1;
       background-image: url(img/easteregg-#{nth($row, $idx-id)}.svg);
 
@@ -51,6 +52,21 @@
       height: percent(nth($row, $idx-height) * $svg-ratio, $height-desktop);
       left: percent(nth($row, $idx-left), $width-desktop);
       top: percent(nth($row, $idx-top), $height-desktop);
+    }
+  }
+
+  // cast disables
+  &.mode-cast {
+    @for $i from 1 through length($all) {
+      $row: nth($all, $i);
+      $id: nth($row, $idx-id);
+
+      $top: nth($row, $idx-top);
+      @if $top > $easteregg-cast-cutoff {
+        #easteregg-#{$id)} {
+          display: none;
+        }
+      }
     }
   }
 
