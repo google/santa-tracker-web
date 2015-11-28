@@ -35,7 +35,6 @@ app.Game = function(elem) {
   this.mapElem = this.elem.find('.map');
   this.guiElem = this.elem.find('.gui');
   this.drawerElem = this.elem.find('.drawer');
-  this.drawerHeight = this.drawerElem.height();
 
   this.gameoverModal = new app.shared.Gameover(this, this.elem.find('.gameover'));
 
@@ -81,12 +80,12 @@ app.Game.prototype._getRandomHintDistanceOffset = function() {
 
 /**
  * Sets the zoom to 2 and pans the camera to where the character can be found
- * @param {string} characterName Name of the character.
+ * @param {string} character The character.
  * @private
  */
-app.Game.prototype._hintLocation = function(characterName) {
+app.Game.prototype._hintLocation = function(character) {
   // The location of the character is a top/left percentage of the map
-  let characterLocation = this.characters.getCharacterLocation(characterName);
+  let characterLocation = character.location;
 
   let randomLeftOffset = this._getRandomHintDistanceOffset();
   let randomTopOffset = this._getRandomHintDistanceOffset();
@@ -143,14 +142,14 @@ app.Game.prototype._panAndScaleToTarget = function(scaleBefore, scaleTarget, pan
  * @private
  */
 app.Game.prototype._scale = function(value) {
-  let windowAspectRatio = window.innerWidth / window.innerHeight;
+  let windowAspectRatio = this.elem.width() / this.elem.height();
 
   if (windowAspectRatio < this.gameAspectRatio) {
-    this.mapElementDimensions.width = window.innerHeight * this.gameAspectRatio;
-    this.mapElementDimensions.height = window.innerHeight;
+    this.mapElementDimensions.width = this.elem.height() * this.gameAspectRatio;
+    this.mapElementDimensions.height = this.elem.height();
   } else {
-    this.mapElementDimensions.width = window.innerWidth;
-    this.mapElementDimensions.height = window.innerWidth / this.gameAspectRatio;
+    this.mapElementDimensions.width = this.elem.width();
+    this.mapElementDimensions.height = this.elem.width() / this.gameAspectRatio;
   }
 
   this.mapElementDimensions.width *= value;
@@ -166,7 +165,7 @@ app.Game.prototype._scale = function(value) {
 }
 
 app.Game.prototype._clampXPanForWidth = function(panX, width) {
-  let max = (width - window.innerWidth) / 2;
+  let max = (width - this.elem.width()) / 2;
 
   let diff = max - Math.abs(panX);
 
@@ -178,7 +177,7 @@ app.Game.prototype._clampXPanForWidth = function(panX, width) {
 };
 
 app.Game.prototype._clampYPanForHeight = function(panY, height) {
-  let max = (height - window.innerHeight) / 2;
+  let max = (height - this.elem.height()) / 2;
 
   if (panY < 0) {
     max += this.drawerHeight;
@@ -222,8 +221,6 @@ app.Game.prototype.restart = function() {
   this.controls.reset();
   this._scale(1);
   this.characters.initialize();
-
-  this.characters.focusNextUnfoundCharacter();
 
   this.controls.start();
 };
@@ -340,8 +337,8 @@ app.Game.prototype.resume = function() {
  * @private
  */
 app.Game.prototype._onResize = function() {
-  let windowWidthLargerThanMap = window.innerWidth > this.mapElementDimensions.width;
-  let windowHeightLargerThanMap = window.innerHeight > this.mapElementDimensions.height;
+  let windowWidthLargerThanMap = this.elem.width() > this.mapElementDimensions.width;
+  let windowHeightLargerThanMap = this.elem.height() > this.mapElementDimensions.height;
 
   let mapNeedsResizing = windowWidthLargerThanMap || windowHeightLargerThanMap;
 
@@ -350,9 +347,10 @@ app.Game.prototype._onResize = function() {
   }
 
   // Scale GUI
-  var scale = Math.min(1, window.innerWidth / 1200);
+  var scale = Math.min(1, this.elem.width() / 1200);
   this.guiElem.css('font-size', scale + 'px');
   this.drawerHeight = this.drawerElem.height();
+  this.mapOffset = this.elem.offset().top;
 };
 
 

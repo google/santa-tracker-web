@@ -188,8 +188,6 @@ app.Controls.prototype._calculatePinchDistance = function(e) {
 };
 
 app.Controls.prototype._pinchStart = function(e) {
-  console.log('Pinch start');
-
   let distance = this._calculatePinchDistance(e);
   this.originalPinchDistance = distance;
   this.originalPinchScale = this.scale;
@@ -198,15 +196,11 @@ app.Controls.prototype._pinchStart = function(e) {
 }
 
 app.Controls.prototype._pinchMove = function(e) {
-  console.log('Pinch move');
-
   let distance = this._calculatePinchDistance(e);
   this._scalePan(this.scale, this.originalPinchScale * (distance / this.originalPinchDistance));
 }
 
 app.Controls.prototype._pinchEnd = function(e) {
-  console.log('Pinch end');
-
   this.pinching = false;
 }
 
