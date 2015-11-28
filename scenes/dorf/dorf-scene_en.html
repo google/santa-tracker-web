@@ -73,6 +73,9 @@ Village scene (2015).
       </div>
     </header>
     <div id="village-all">
+      <div id="mobiletext">
+        <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
       <div id="ground"></div>
       <div id="road"></div>
       <div id="houses">
@@ -100,8 +103,9 @@ Village scene (2015).
             <template is="dom-if" if="{{!item.disabled}}">
               <div class="action">
                 <a class="link" href="{{_calculateHref(item)}}">
-                  <div class$="card card-{{item.module}}">
-                    <div class="image"></div>
+                  <div class$="card card-{{item.module}} {{_calculateNewTodayClass(todayHouse, item.module)}}">
+                    <div class="image">
+                    </div>
                     <h4>{{_string('category', item.category, santaApp.strings)}}</h4>
                     <h3>{{_string('scene', item.module, santaApp.strings)}}</h3>
                     <template is="dom-if" if="{{!item.hideDate}}">
@@ -524,6 +528,10 @@ Village scene (2015).
         return 'large';
       }
       return '';
+    },
+
+    _calculateNewTodayClass: function(todayHouse, moduleId) {
+      return todayHouse == moduleId ? 'new-today' : '';
     },
 
     /**
