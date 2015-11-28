@@ -281,12 +281,12 @@ var PERMANENT_ROUTES = ['village', 'about', 'press'];
 
 var VIDEO_ROUTES = [
   'trailer', 'carpool', 'liftoff', 'jingle', 'satellite', 'temptation',
-  'office', 'tired', 'com-room', 'reload', 'slacking-off'
+  'office', 'tired', 'com-room', 'reload', 'slacking-off', 'wheressanta'
 ];
 
 // Timing for playing random videos in Cast mode, in ms.
-var VIDEO_RANDOM_MIN = 8 * (60 * 1000);
-var VIDEO_RANDOM_MAX = 20 * (60 * 1000);
+var VIDEO_RANDOM_MIN = 5 * (60 * 1000);
+var VIDEO_RANDOM_MAX = 12 * (60 * 1000);
 var VIDEO_RANDOM_SAFE = 60 * (60 * 1000);  // don't show videos before countdown ends
 
 // Routes/scenes unlocked with the tracker (including all video routes)
@@ -590,7 +590,6 @@ Polymer({
 
     switch (apiClient) {
       case 'web_chromecast':
-        this._initChromecast();
         this.mode = 'cast';
         this.triggerRandom = true;
         break;
@@ -710,37 +709,6 @@ Polymer({
 
   get defaultRoute() {
     return this.postCountdown ? TRACKER_ROUTE : DEFAULT_ROUTE;
-  },
-
-  _initChromecast: function() {
-    // `cast` is added to global scope by chromecast SDK
-    var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
-    var messageBus = castReceiverManager
-        .getCastMessageBus('urn:x-cast:com.google.cast.santatracker');
-
-    castReceiverManager.onReady = function(event) {
-      console.debug('cast_receiver ready', event.data);
-      castReceiverManager.setApplicationState(WINDOW_TITLE);
-    };
-    castReceiverManager.onSenderConnected = function(event) {
-      console.debug('cast_receiver connected', event.data, castReceiverManager.getSender(event.data).userAgent);
-    };
-    castReceiverManager.onSenderDisconnected = function(event) {
-      console.debug('cast_receiver disconnected', event.data);
-      if (!castReceiverManager.getSenders().length &&
-          event.reason === cast.receiver.system.DisconnectReason.REQUESTED_BY_SENDER) {
-        window.close();
-      }
-    };
-
-    messageBus.onMessage = function(event) {
-      console.debug('cast_receiver message', event.senderId, event.data);
-    };
-
-    var appConfig = new cast.receiver.CastReceiverManager.Config();
-    appConfig.maxInactivity = 60 * 60 * 3;  // in seconds, 3 hours default
-    appConfig.statusText = WINDOW_TITLE + '...';  // subtle loading hint
-    castReceiverManager.start(appConfig);
   },
 
   /**
