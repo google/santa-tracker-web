@@ -37,7 +37,7 @@ Santa Tracker app.
   <santa-tracker-router id="router" route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
 
   <!-- Chrome, including toolbar and sidebar -->
-  <santa-chrome id="chrome" mode$="{{mode}}" color="{{_colorForRoute(route, _houses)}}" today-house="{{todayHouse}}">
+  <santa-chrome id="chrome" mode$="{{mode}}" disabled="{{isCastMode(mode)}}" color="{{_colorForRoute(route, _houses)}}" today-house="{{todayHouse}}">
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
@@ -283,9 +283,9 @@ var VIDEO_ROUTES = [
   'office', 'tired', 'com-room', 'reload', 'slacking-off'
 ];
 
-// Timing for playing random videos in Cast mode.
-var VIDEO_RANDOM_MIN = 0 * (60 * 1000);
-var VIDEO_RANDOM_MAX = 0.1 * (60 * 1000);
+// Timing for playing random videos in Cast mode, in ms.
+var VIDEO_RANDOM_MIN = 8 * (60 * 1000);
+var VIDEO_RANDOM_MAX = 20 * (60 * 1000);
 var VIDEO_RANDOM_SAFE = 60 * (60 * 1000);  // don't show videos before countdown ends
 
 // Routes/scenes unlocked with the tracker (including all video routes)
@@ -586,14 +586,12 @@ Polymer({
     }
 
     var loadSound = true;
-    var triggerRandom = false;
 
     switch (apiClient) {
       case 'web_chromecast':
-        this.mode = 'cast';
         this._initChromecast();
-        triggerRandom = true;
-
+        this.mode = 'cast';
+        this.triggerRandom = true;
         break;
       case 'web_embed':
         this.mode = 'embed';
@@ -640,8 +638,6 @@ Polymer({
     if (!this.route) {
       this.route = this.defaultRoute;
     }
-
-    this.triggerRandom = triggerRandom;
   },
 
   /**
@@ -766,19 +762,18 @@ Polymer({
     var when = randomRange(VIDEO_RANDOM_MIN, VIDEO_RANDOM_MAX);
     var remaining = this.countdownEndAt - this.santaService.now();
     if (remaining < VIDEO_RANDOM_SAFE) {
-      return;  // give up, no more videos
+      return;  // give up, no more videos this close to launch
     }
+    console.debug('triggering random video in', when);
 
-    function chooseRandom() {
+    this.cancelAsync(this._triggerRandomAsync);
+    this._triggerRandomAsync = this.async(function() {
       var opts = VIDEO_ROUTES.filter(function(scene) {
         return this.sceneIsUnlocked(scene);
       }, this);
-      console.debug('choosing from', opts);
-      return randomChoice(opts);
-    }
-
-    this._triggerRandomAsync = this.async(function() {
-      this.route = chooseRandom.call(this);
+      var choice = randomChoice(opts);
+      console.debug('chose random video', choice, 'from', opts);
+      this.route = choice;
     }, when);
   },
 
@@ -1196,6 +1191,10 @@ Polymer({
     }
 
     return '';
+  },
+
+  isCastMode: function(mode) {
+    return mode == 'cast';
   },
 
   onTrackerEnd: function(e, detail) {

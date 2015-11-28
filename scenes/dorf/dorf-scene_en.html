@@ -371,7 +371,12 @@ Village scene (2015).
         }
         var easterEgg = this.$['easteregg-' + easterEggs[
             Math.floor(Math.random() * easterEggs.length)]];
-        easterEgg.click();
+
+        var bounds = easterEgg.getBoundingClientRect();
+        if (bounds.width && bounds.height) {
+          easterEgg.click();  // click on the easter egg only if it's not display: none
+        }
+
         this._randomEasterEggs();
       }, eggTime);
     },
