@@ -134,9 +134,6 @@ app.Game.prototype._panAndScaleToTarget = function(scaleBefore, scaleTarget, pan
     this.controls.pan.y = targetY;
     this.controls.needsScaleUpdate = true;
     this.controls.needsPanUpdate = true;
-    
-    this.characters.hintTarget = undefined;
-    this.controls.scaleTarget = undefined;
   }.bind(this), transitionTime * 1000);
 };
 
@@ -247,10 +244,12 @@ app.Game.prototype.update = function(deltaInMilliseconds) {
 
   if (this.characters.hintTarget) {
     this._hintLocation(this.characters.hintTarget);
+    this.characters.hintTarget = undefined;
   }
 
   if (this.controls.scaleTarget) {
     this._preScale(this.controls.scaleTarget);
+    this.controls.scaleTarget = undefined;
   }
 
   if (this.controls.needsScaleUpdate && this.controls.enabled) {
