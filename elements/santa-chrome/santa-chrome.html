@@ -82,6 +82,9 @@ specific language governing permissions and limitations under the License.
   :host([mode="cast"]) paper-icon-button {
     display: none;
   }
+  :host([mode="cast"]) #sound {
+    display: none;
+  }
 
   </style>
 
@@ -200,6 +203,10 @@ specific language governing permissions and limitations under the License.
           <paper-icon-button id="facebook" src="/elements/toolbar/img/share-facebook.svg"></paper-icon-button> -->
         </div>
 
+        <div id="sound" style$="background-color: {{color}}" hidden?="{{mode == 'embed'}}" class$="{{mute ? 'off' : 'on'}}">
+          <button on-click="_toggleSounds"><i></i></button>
+        </div>
+
         <!-- Used for background and transition effect -->
         <div class="middle" style$="background-color: {{color}}"></div>
       </paper-toolbar>
@@ -207,7 +214,6 @@ specific language governing permissions and limitations under the License.
       </content>
     </paper-header-panel>
   </paper-drawer-panel>
-
 </template>
 <script>
   Polymer({
@@ -232,6 +238,16 @@ specific language governing permissions and limitations under the License.
       color: String,
 
       /**
+-      * True if sounds should be muted.
+       */
+      mute: {
+        type: Boolean,
+        value: false,
+        notify: true,
+        observer: '_muteChanged'
+      },
+
+      /**
        * Whether this toolbar should be fixed: always solid, with content below.
        */
       isFixedToolbar: {
@@ -240,7 +256,7 @@ specific language governing permissions and limitations under the License.
       },
 
       /**
-       * Whether the toolbar is being shown in scrolled mode, 
+       * Whether the toolbar is being shown in scrolled mode,
        */
       scrolledToolbar: {
         type: Boolean,
@@ -279,6 +295,18 @@ specific language governing permissions and limitations under the License.
       // is done here and in _onContentScroll becaues paper-header-toolbar
       // doesn't notify `atTop` so it needs to be managed manually.
       this._atTop = this.$.main.atTop;
+    },
+
+    _toggleSounds: function() {
+      this.mute = !this.mute;
+    },
+
+    _muteChanged: function() {
+      if (this.mute) {
+        this.fire('sound-ambient', 'global_sound_off');
+      } else {
+        this.fire('sound-ambient', 'global_sound_on');
+      }
     },
 
     /**

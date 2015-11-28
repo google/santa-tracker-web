@@ -218,5 +218,37 @@ santa-chrome {
         display: none;
       }
     }
+
+    #sound {
+      position: absolute;
+      right: 0;
+      top: 60px;
+      background: #00c6ed;
+      height: 45px;
+      width: 40px;
+      border-radius: 50% 0 0 50%;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+
+      button {
+        height: 45px;
+        text-align: center;
+        box-sizing: border-box;
+        padding-left: 7px;
+        outline: 0;
+      }
+
+      i {
+        float: left;
+        width: 31px;
+        height: 30px;
+        background: url(img/sound-on.svg) 50% 50% no-repeat;
+      }
+
+      &.off {
+        i {
+          background: url(img/sound-off.svg) 50% 50% no-repeat;
+        }
+      }
+    }
   }
 }
