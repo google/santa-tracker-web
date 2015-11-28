@@ -196,7 +196,6 @@ $toolbar-size: 64px;
       z-index: $base-raised-z-index;
       position: absolute;
       width: 100%;
-      height: 630px;
       text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 
       display: flex;
@@ -736,7 +735,7 @@ $toolbar-size: 64px;
         display: block;
         background: #57d693;
         color: white;
-        padding: 18px 24px;
+        padding: 18px 24px 16px;
         border-bottom: 2px solid rgba(0, 0, 0, 0.125);
 
         p {
