@@ -37,7 +37,7 @@ Santa Tracker app.
   <santa-tracker-router id="router" route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
 
   <!-- Chrome, including toolbar and sidebar -->
-  <santa-chrome id="chrome" mode$="{{mode}}" color="{{_colorForRoute(route, _houses)}}" today-house="{{todayHouse}}">
+  <santa-chrome id="chrome" mode$="{{mode}}" disabled="{{isCastMode(mode)}}" color="{{_colorForRoute(route, _houses)}}" today-house="{{todayHouse}}">
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
@@ -215,6 +215,7 @@ Santa Tracker app.
 
       <template is="dom-repeat" items="{{videoRoutes}}">
         <video-scene route$="{{item}}"
+            mode$="{{mode}}"
             path$="scenes/videoscene/video-scene_[[language]].html"></video-scene>
       </template>
 
@@ -256,7 +257,7 @@ Santa Tracker app.
     <div msgid="scene-mercator"><i18n-msg msgid="scene_mercator">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-presentbounce"><i18n-msg msgid="scene_presentbounce">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-codeboogie"><i18n-msg msgid="scene_codeboogie">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-elf-car"><i18n-msg msgid="scene_videoscene_carpool">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-carpool"><i18n-msg msgid="scene_videoscene_carpool">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-citylights"><i18n-msg msgid="scene_citylights">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-commandcentre"><i18n-msg msgid="scene_commandcentre">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-seasonofgiving"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
@@ -282,6 +283,11 @@ var VIDEO_ROUTES = [
   'trailer', 'carpool', 'liftoff', 'jingle', 'satellite', 'temptation',
   'office', 'tired', 'com-room', 'reload', 'slacking-off'
 ];
+
+// Timing for playing random videos in Cast mode, in ms.
+var VIDEO_RANDOM_MIN = 8 * (60 * 1000);
+var VIDEO_RANDOM_MAX = 20 * (60 * 1000);
+var VIDEO_RANDOM_SAFE = 60 * (60 * 1000);  // don't show videos before countdown ends
 
 // Routes/scenes unlocked with the tracker (including all video routes)
 var TRACKER_ROUTES = ['blimp', 'island', 'undersea', 'icecave', 'runner',
@@ -316,17 +322,19 @@ Polymer({
     },
 
     /**
-     * When Santa's flight is finished, in ms.
+     * The time at which Santa takes off, in ms.
      */
-    countDownEndDate: {
-      type: Number
+    countdownEndAt: {
+      type: Number,
+      readOnly: true
     },
 
     /**
-     * When Santa's flight is finished.
+     * When Santa's flight is finished, in ms.
      */
     flightFinishedAt: {
-      type: Number
+      type: Number,
+      readOnly: true
     },
 
     /**
@@ -417,6 +425,14 @@ Polymer({
     },
 
     /**
+     * If true, whenever the village is loaded, load some random visual experience after a time.
+     */
+    triggerRandom: {
+      type: Boolean,
+      value: false
+    },
+
+    /**
      * True when Santa's schedule has been checked for the first time.
      */
     scheduleChecked: {
@@ -501,6 +517,7 @@ Polymer({
   listeners: {
     'scene-progress': 'onSceneProgress',
     'scene-loaded': 'onSceneLoaded',
+    'video-scene-done': 'onVideoSceneDone',
     'iframe-focus-change': 'onIframeFocusChange',
     'analytics-track-event': 'trackEvent',
     'analytics-track-perf': 'trackPerf',
@@ -517,25 +534,6 @@ Polymer({
     // For prod, <i18n-msg> is removed and textContent will already be
     // correct. For dev, listen for i18n updates and update the string map.
     'i18n-language-ready': '_updateStrings',
-  },
-
-  /**
-   * Handles a loading progress hint, hiding or displaying the preloader.
-   */
-  onSceneProgress: function() {
-    var scene = this.selectedScene;
-    if (scene) {
-      this.$.preloader.active = !scene.loaded;
-      this.$.preloader.value = scene.preloadProgress;
-    } else {
-      this.$.preloader.active = false;
-    }
-  },
-
-  onSceneLoaded: function(event, scene) {
-    if (scene == this.$.village) {
-      this._notifyHouses();
-    }
   },
 
   created: function() {
@@ -580,8 +578,8 @@ Polymer({
     delete window.HOUSES; // cleanup
     delete window.SANTA_CONFIG; // cleanup
 
-    this.countDownEndDate = this.config.COUNTDOWN_END_DATE;
-    this.flightFinishedAt = this.config.flightFinishedAt;
+    this._setCountdownEndAt(this.config.COUNTDOWN_END_DATE);
+    this._setFlightFinishedAt(this.config.FLIGHT_FINISHED);
 
     var apiClient = getUrlParameter('api_client') || 'web';
     if (!apiClient.match(/^[a-zA-Z_]*$/)) {
@@ -592,10 +590,9 @@ Polymer({
 
     switch (apiClient) {
       case 'web_chromecast':
+        this._initChromecast();
         this.mode = 'cast';
-        this.initChromecast();
-        loadSound = false;
-
+        this.triggerRandom = true;
         break;
       case 'web_embed':
         this.mode = 'embed';
@@ -645,6 +642,31 @@ Polymer({
   },
 
   /**
+   * Handles a loading progress hint, hiding or displaying the preloader.
+   */
+  onSceneProgress: function() {
+    var scene = this.selectedScene;
+    if (scene) {
+      this.$.preloader.active = !scene.loaded;
+      this.$.preloader.value = scene.preloadProgress;
+    } else {
+      this.$.preloader.active = false;
+    }
+  },
+
+  onSceneLoaded: function(event, scene) {
+    if (scene == this.$.village) {
+      this._notifyHouses();
+    }
+  },
+
+  onVideoSceneDone: function(event) {
+    if (this.mode == 'cast') {
+      this.route = this.defaultRoute;
+    }
+  },
+
+  /**
    * Catch-all place to do some kind of initialization of houses.
    */
   _prepareHouses: function() {
@@ -653,10 +675,6 @@ Polymer({
     var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
     var spanglish = /^e(n|s)/.test(this.language);
     spanglish = false;
-
-    if (castMode) {
-      this._houses = this._houses.slice(0, 3);  // just show the first three
-    }
 
     for (var i = this._houses.length - 1; i >= 0; i--) {
       var house = this._houses[i];
@@ -694,7 +712,7 @@ Polymer({
     return this.postCountdown ? TRACKER_ROUTE : DEFAULT_ROUTE;
   },
 
-  initChromecast: function() {
+  _initChromecast: function() {
     // `cast` is added to global scope by chromecast SDK
     var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
     var messageBus = castReceiverManager
@@ -725,11 +743,45 @@ Polymer({
     castReceiverManager.start(appConfig);
   },
 
+  /**
+   * Async holder for _triggerRandom.
+   */
+  _triggerRandomAsync: null,
+
+  /**
+   * Requests that a random visual scene be loaded. Only runs if `triggerRandom` is true.
+   */
+  _triggerRandom: function() {
+    if (!this.triggerRandom) {
+      return;
+    }
+
+    var when = randomRange(VIDEO_RANDOM_MIN, VIDEO_RANDOM_MAX);
+    var remaining = this.countdownEndAt - this.santaService.now();
+    if (remaining < VIDEO_RANDOM_SAFE) {
+      return;  // give up, no more videos this close to launch
+    }
+    console.debug('triggering random video in', when);
+
+    this.cancelAsync(this._triggerRandomAsync);
+    this._triggerRandomAsync = this.async(function() {
+      var opts = VIDEO_ROUTES.filter(function(scene) {
+        return this.sceneIsUnlocked(scene);
+      }, this);
+      var choice = randomChoice(opts);
+      console.debug('chose random video', choice, 'from', opts);
+      this.route = choice;
+    }, when);
+  },
+
   _selectedSceneChanged: function(newValue, oldValue) {
     this.$.chrome.isFixedToolbar = (newValue != this.$.village);
 
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;
+    }
+    if (newValue == this.$.village) {
+      this._triggerRandom();
     }
 
     // Let the selected scene know about params.
@@ -825,7 +877,8 @@ Polymer({
     if (this.scheduleChecked) {
       var valid = (this.$.lazypages.isValidRoute(this.route) &&
                    this.sceneIsUnlocked(this.route)) ||
-                   (this.postCountdown && this.route == TRACKER_ROUTE);
+                   (this.postCountdown && this.route == TRACKER_ROUTE) ||
+                   (this.mode == 'cast' && VIDEO_ROUTES.indexOf(this.route) != -1);
       if (!valid) {
         if (window.DEV) {
           console.warn('prod would redirect from', this.route, 'to', this.defaultRoute);
@@ -939,6 +992,11 @@ Polymer({
     } else {
       document.body.classList.remove('posttakeoff');
     }
+
+    // On Cast mode, naturally transition to tracker.
+    if (this.mode == 'cast') {
+      this.route = this.defaultRoute;
+    }
   },
 
   /**
@@ -985,6 +1043,10 @@ Polymer({
       return true;
     }
 
+    if (this.mode == 'cast' && VIDEO_ROUTES.indexOf(moduleName) != -1) {
+      return true;  // allows non-house (i.e., not part of the scchedule) video scenes on cast
+    }
+
     return false;
   },
 
@@ -1008,7 +1070,7 @@ Polymer({
 
     // Set post countdown/post flight flags based on current time.
     this.postFlight = todayDate >= this.flightFinishedAt;
-    this.postCountdown = todayDate > this.countDownEndDate && !this.postFlight;
+    this.postCountdown = todayDate > this.countdownEndAt && !this.postFlight;
 
     switch(todayDate.getMonth()) {
       case 11: // DECEMBER
@@ -1125,6 +1187,10 @@ Polymer({
     }
 
     return '';
+  },
+
+  isCastMode: function(mode) {
+    return mode == 'cast';
   },
 
   onTrackerEnd: function(e, detail) {

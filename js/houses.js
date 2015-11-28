@@ -71,7 +71,7 @@ window.HOUSES = [{
   launchDate: new Date('Dec 4, 2015'),
   category: "learn"
 }, {
-  module: "elf-car",
+  module: "carpool",
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 5, 2015'),

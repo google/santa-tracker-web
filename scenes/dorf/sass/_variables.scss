@@ -54,3 +54,7 @@ $house-row-6-z-index: 600;
 $house-row-7-z-index: 700;
 
 $house-z-index-front: 1000;
+
+// cutoff easterggs on cast from this pixel - higher than we need for a HDTV, but static chromecast
+// view can also just be loaded on PCs.
+$easteregg-cast-cutoff: 350px;

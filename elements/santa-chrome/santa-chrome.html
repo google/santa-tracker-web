@@ -79,8 +79,8 @@ specific language governing permissions and limitations under the License.
   :host([mode="cast"]) .shareicons {
     display: none !important;
   }
-  :host([mode="cast"]) paper-icon-button {
-    display: none;
+  :host([mode="cast"]) paper-header-panel /deep/ #mainContainer {
+    overflow: hidden !important;
   }
 
   </style>
@@ -89,6 +89,8 @@ specific language governing permissions and limitations under the License.
                     query-matches="{{_smallScreen}}"></iron-media-query>
 
   <paper-drawer-panel id="sidebar" force-narrow
+                      disable-edge-swipe="{{disabled}}"
+                      disable-swipe="{{disabled}}"
                       drawer-width="[[_computeDrawerWidth(_smallScreen)]]">
     <div id="drawer" drawer class="scroll" on-click="_closeDrawerLink">
       <paper-toolbar class="close-sidebar" on-click="closeDrawer" tabindex="0">
@@ -186,7 +188,7 @@ specific language governing permissions and limitations under the License.
         on-content-scroll="_onContentScroll"
         class$="{{_calculateFixedClass(isFixedToolbar)}}">
       <paper-toolbar id="toolbar" class$="{{_calculateScrollingClass(scrolledToolbar)}}">
-        <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+        <paper-icon-button icon="menu" hidden$="{{disabled}}" paper-drawer-toggle></paper-icon-button>
         <div id="logo" title="Google logo"></div>
         <h1 class="title flex">
           <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
@@ -230,6 +232,11 @@ specific language governing permissions and limitations under the License.
        * The color to use for the background, if set.
        */
       color: String,
+
+      /**
+       * Whether to disable interactions with `santa-chrome`. Used by cast.
+       */
+      disabled: Boolean,
 
       /**
        * Whether this toolbar should be fixed: always solid, with content below.
