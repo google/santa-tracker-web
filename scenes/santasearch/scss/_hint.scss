@@ -13,6 +13,7 @@ $hint-shadow-color: #cd6a17;
     min-height: auto;
     padding: 5px 10px;
     pointer-events: auto;
+    transform: none;
 
     @media (min-width: $button-bp) {
       box-shadow: 0 3px 0 $hint-shadow-color, 2px 5px rgba(0, 0, 0, 0.16);
@@ -24,6 +25,14 @@ $hint-shadow-color: #cd6a17;
       @media (min-width: $button-bp) {
         transform: translateY(3px) translateZ(0);
       }
+    }
+
+    &--mobile {
+      border-radius: 50%;
+      display: block;
+      font-size: 52em;
+      height: 100%;
+      width: 100%;
     }
   }
 }

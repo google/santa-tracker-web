@@ -86,6 +86,12 @@ app.Characters.prototype.initialize = function() {
   this._initializeCharacter('penguin');
 
   this.updateCharacters();
+
+  this.drawerElem.on('click.santasearch', '.hint', this._setHintTarget.bind(this));
+};
+
+app.Characters.prototype._setHintTarget = function() {
+    this.hintTarget = this.focusedCharacter;
 };
 
 app.Characters.prototype.getCharacterLocation = function(name) {
@@ -189,13 +195,6 @@ app.Characters.prototype._initializeCharacter = function(characterName) {
   };
 
   character.elem.on('click.santasearch', this._onCharacterSelected.bind(this, characterName));
-
-  let hintElem = character.uiElem.find('.hint');
-  hintElem.on('click.santasearch', this._setHintTarget.bind(this, characterName));
-};
-
-app.Characters.prototype._setHintTarget = function(characterName) {
-  this.hintTarget = characterName;
 };
 
 /**
@@ -232,6 +231,7 @@ app.Characters.prototype._onCharacterSelected = function(characterName) {
   let character = this.characters[characterName];
 
   if (!character.isFound) {
+    this.focusedCharacter = undefined;
     character.uiElem.removeClass('drawer__item--focused');
     character.uiElem.addClass('drawer__item--found');
     character.isFound = true;
@@ -248,5 +248,6 @@ app.Characters.prototype._onCharacterSelected = function(characterName) {
 app.Characters.prototype._focusUICharacter = function(characterName) {
   console.log(`Focusing ${characterName}`);
 
+  this.focusedCharacter = characterName;
   this.characters[characterName].uiElem.addClass('drawer__item--focused');
 };
