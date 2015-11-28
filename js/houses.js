@@ -42,6 +42,7 @@ window.HOUSES = [{
 }, {
   module: "app",
   iced: true,
+  color: '#fdbe27',
   launchDate: new Date('Dec 1, 2015'),
   hideDate: true,
   category: "play",
