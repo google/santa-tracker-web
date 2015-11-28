@@ -49,6 +49,8 @@ app.Game = function(elem) {
   this.characters = new app.Characters(this.mapElem, this.drawerElem, this.mapElementDimensions, this.gameAspectRatio);
 
   this.onFrame_ = this.onFrame_.bind(this);
+
+  this.hintActive = false;
 };
 
 
@@ -85,10 +87,12 @@ app.Game.prototype._getRandomHintDistanceOffset = function() {
  * @private
  */
 app.Game.prototype._hintLocation = function(characterName) {
-  if (this.controls.scale !== 2) {
-    this.controls.scale = 2;
-    this._scale(this.controls.scale);
-  }
+  // if (this.controls.scale !== 2) {
+  //   this.controls.scale = 2;
+  //   this._scale(this.controls.scale);
+  // }
+
+  let scale = 3 / this.controls.scale;
 
   // The location of the character is a top/left percentage of the map
   let characterLocation = this.characters.getCharacterLocation(characterName);
@@ -105,12 +109,28 @@ app.Game.prototype._hintLocation = function(characterName) {
   this.controls.enabled = false;
 
   this.mapElem.css('transition-duration', `${app.Constants.HINT_BUTTON_PAN_TIME}s`);
-  this.controls.pan.x = targetX;
-  this.controls.pan.y = targetY;
 
+  let tr = `translate3d(${targetX}px, ${targetY}px, 0) scale(${scale}, ${scale})`
+  this.mapElem.css('transform', tr);
+  console.log('Hint fired');
+  console.log(targetX, targetY);
+  console.log(scale);
+  console.log(tr);
+
+  this.hintActive = true;
+
+  // this.controls.pan.x = targetX;
+  // this.controls.pan.y = targetY;
+  //
   setTimeout(function() {
     this.mapElem.css('transition-duration', '0s');
     this.controls.enabled = true;
+    this.controls.scale = 3;
+    this.controls.pan.x = targetX;
+    this.controls.pan.y = targetY;
+    this.controls.needsScaleUpdate = true;
+    this.controls.needsPanUpdate = true;
+    this.hintActive = false;
   }.bind(this), app.Constants.HINT_BUTTON_PAN_TIME * 1000);
 };
 
@@ -209,12 +229,12 @@ app.Game.prototype.update = function(deltaInMilliseconds) {
     this.characters.hintTarget = undefined;
   }
 
-  if (this.controls.needsScaleUpdate) {
+  if (this.controls.needsScaleUpdate && this.hintActive === false) {
     this._scale(this.controls.scale);
     this.controls.needsScaleUpdate = false;
   }
 
-  if (this.controls.needsPanUpdate) {
+  if (this.controls.needsPanUpdate && this.hintActive === false) {
     this._updatePan();
 
     let panX = this.controls.pan.x;
