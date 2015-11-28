@@ -285,8 +285,8 @@ var VIDEO_ROUTES = [
 ];
 
 // Timing for playing random videos in Cast mode, in ms.
-var VIDEO_RANDOM_MIN = 0 * (60 * 1000);
-var VIDEO_RANDOM_MAX = 1 * (60 * 1000);
+var VIDEO_RANDOM_MIN = 5 * (60 * 1000);
+var VIDEO_RANDOM_MAX = 12 * (60 * 1000);
 var VIDEO_RANDOM_SAFE = 60 * (60 * 1000);  // don't show videos before countdown ends
 
 // Routes/scenes unlocked with the tracker (including all video routes)
@@ -744,7 +744,7 @@ Polymer({
 
   _selectedSceneChanged: function(newValue, oldValue) {
     this.$.chrome.isFixedToolbar = (newValue != this.$.village);
-    this.$.chrome.hideToolbar = (this.mode == 'cast' && newValue != this.$.village)
+    this.$.chrome.hideToolbar = (this.mode == 'cast' && newValue != this.$.village);
 
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;
