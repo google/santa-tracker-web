@@ -18,6 +18,8 @@
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var fs = require('fs');
+var changedFlag = require('./gulp_scripts/changed_flag')
 var vulcanize = require('gulp-vulcanize');
 var sass = require('gulp-sass');
 var path = require('path');
@@ -38,6 +40,7 @@ var STATIC_VERSION = 80;
 
 var argv = require('yargs')
     .help('help')
+    .strict()
     .epilogue('https://github.com/google/santa-tracker-web')
     .command('default', 'build CSS and JavaScript for development version')
     .command('serve', 'serves development version')
@@ -205,6 +208,9 @@ var SCENE_CLOSURE_CONFIG = {
   presentdrop: {
     entryPoint: 'app.Game'
   },
+  press: {
+    entryPoint: 'app.Scene'
+  },
   mercator: {
     typeSafe: false,
     entryPoint: 'app.Game'
@@ -283,6 +289,14 @@ gulp.task('sass', function() {
 });
 
 gulp.task('compile-santa-api-service', function() {
+  changedFlag(API_BASE_URL, 'js/service/service.flag', function() {
+    try {
+      fs.unlinkSync('js/service/service.min.js');
+    } catch (e) {
+      // ignored
+    }
+  });
+
   return gulp.src(SERVICE_FILES)
     .pipe(newer('js/service/service.min.js'))
     .pipe(closureCompiler({
@@ -415,9 +429,10 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
     'js/jquery.html',
     'js/modernizr.html',
     'js/webanimations.html',
+    'js/ccsender.html',
     'components/polymer/polymer.html',
     'scenes/scene-behavior.html',
-    'elements/i18n-msg.html',
+    'components/i18n-msg/i18n-msg.html',
     'components/iron-jsonp-library/iron-jsonp-library.html',
     'components/iron-a11y-keys/iron-a11y-keys.html',
     'components/google-apis/google-client-loader.html',
@@ -441,7 +456,6 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
       var closureConfig = SCENE_CLOSURE_CONFIG[sceneName] || {};
 
       return stream.pipe(vulcanize({
-        // TODO(samthor): strip and csp were deprecated in gulp-vulcanize 1+
         stripExcludes: closureConfig.isFrame ? [] : elementsImports,
         inlineScripts: true,
         inlineCss: true,
@@ -462,7 +476,6 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
 gulp.task('vulcanize-elements', ['rm-dist', 'sass', 'compile-santa-api-service'], function() {
   return gulp.src('elements/elements_en.html', {base: './'})
     .pipe(vulcanize({
-      // TODO(samthor): strip and csp were deprecated in gulp-vulcanize 1+
       inlineScripts: true,
       inlineCss: true,
       stripComments: true,

@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "En Nochebuena, tendremos el agrado de presentar el panel de Santa, la tecnología que impulsa el trineo en su viaje alrededor del mundo. Hemos recibido esta especial vista previa de uno de los tantos duendes programadores de Santa, que trabajan arduamente en el Polo Norte para ayudar a Santa a prepararse para el gran día. El panel de Santa, que presenta la última y mejor tecnología de Google Maps y de diseño de trineos, te permitirá hacer un seguimiento de su viaje por todo el mundo, y podrás aprender más acerca de los diferentes destinos de su recorrido."
+		"message": "En Nochebuena, tendremos el agrado de presentar el panel de Santa, la tecnología que impulsa el trineo en su viaje alrededor del mundo. Hemos recibido esta especial vista previa de uno de los tantos duendes programadores de Santa, que trabajan arduamente en el Polo Norte para ayudar a Santa a prepararse para el gran día. El panel de Santa, que presenta la última y mejor tecnología de Google Maps y de diseño de trineos, te permitirá hacer un seguimiento de su viaje por todo el mundo, y podrás aprender más acerca de los diferentes destinos de su recorrido."
 	},
 	"about-content-three": {
 		"message": "Sigue a Santa de Google Maps ha sido creada y diseñada por Google, con ayuda de los duendes de Santa. ¿Necesitas ayuda o tienes más preguntas? Visita nuestro \u003ca href=\"//support.google.com/santatracker\"\u003eCentro de ayuda\u003c/a\u003e."
@@ -236,14 +236,80 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Cancelar"
+	"close": {
+		"message": "Cerrar"
 	},
 	"cm_country_name": {
 		"message": "Camerún"
 	},
 	"co_country_name": {
 		"message": "Colombia"
+	},
+	"codeboogie-block-jump": {
+		"message": "Salta"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Salta."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Mano izquierda"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Apunta a la izquierda."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "A la izquierda"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Da un paso a la izquierda."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Mano derecha"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Apunta a la derecha."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "A la derecha"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Da un paso a la derecha."
+	},
+	"codeboogie-block-shake": {
+		"message": "Mueve caderas"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Mueve las caderas."
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Haz un split."
+	},
+	"codeboogie-get-dancing": {
+		"message": "¡A bailar!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Siguiente baile"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Intenta usar los bloques para seguir el baile."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "¿Sabías que puedes terminar el baile con solo {{ideal}} bloques? Prueba usar el bloque de abajo."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "¡Muy bien! Tu baile fue perfecto."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Estás usando los bloques correctos, pero intenta usar más para terminar el baile."
+	},
+	"codeboogie-success": {
+		"message": "¡Éxito!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Presta atención."
 	},
 	"codelab-block-moveeast": {
 		"message": "este"
@@ -326,6 +392,21 @@
 	"copy-me": {
 		"message": "Copiar este vínculo para compartir tu mensaje"
 	},
+	"countdown_days": {
+		"message": "Días"
+	},
+	"countdown_hours": {
+		"message": "h"
+	},
+	"countdown_minutes": {
+		"message": "min"
+	},
+	"countdown_seconds": {
+		"message": "s"
+	},
+	"countdown_until": {
+		"message": "Santa despegará en"
+	},
 	"countdownlabel": {
 		"message": "Para que Santa inicie su viaje"
 	},
@@ -354,7 +435,7 @@
 		"message": "Alemán"
 	},
 	"de_tradition": {
-		"message": "En casi todas las ciudades alemanas, se instalan mercados de Navidad en las plazas principales. Los vecinos se reúnen para escuchar orquestas y probar comidas y bebidas típicas: corazones de jengibre, almendras garrapiñadas, dulces, \"glühwein\" (vino caliente con especias) o sidra de manzana."
+		"message": "En casi todas las ciudades alemanas, se instalan mercados de Navidad en las plazas principales. Los vecinos se reúnen para escuchar orquestas y probar comidas y bebidas típicas: corazones de jengibre, almendras garrapiñadas, dulces, “glühwein” (vino caliente con especias) o sidra de manzana."
 	},
 	"deck": {
 		"message": "Decorar"
@@ -471,7 +552,7 @@
 		"message": "Grecia"
 	},
 	"gr_tradition": {
-		"message": "En Grecia, hay unas criaturas conocidas como \"kallikántzari\", que viven la mayor parte del año en el centro de la Tierra. Pero en Navidad, se ocultan en las casas, asustan a las personas y les hacen bromas, o se comen la comida de las mesas navideñas. Los griegos practican rituales para alejarlos."
+		"message": "En Grecia, los kallikántzari, unas criaturas amigables pero revoltosas, viven la mayor parte del año en el centro de la Tierra. En Navidad, se ocultan en las casas, asustan a las personas y se comen la comida de las mesas navideñas. Los griegos practican rituales para alejar a estos duendes."
 	},
 	"gt_country_name": {
 		"message": "Guatemala"
@@ -629,6 +710,9 @@
 	"ne_country_name": {
 		"message": "Níger"
 	},
+	"new": {
+		"message": "Nuevo"
+	},
 	"newtoday": {
 		"message": "Recientemente disponible"
 	},
@@ -667,6 +751,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Oso polar"
+	},
+	"notification": {
+		"message": "Notificaciones"
+	},
+	"notification_notice": {
+		"message": "Los duendes te mantendrán al día sobre el programa de Santa"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -722,6 +812,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Prensa"
+	},
 	"pt_language_name": {
 		"message": "Portugués"
 	},
@@ -743,8 +836,110 @@
 	"sa_country_name": {
 		"message": "Arabia Saudí"
 	},
+	"santasearch_hint": {
+		"message": "Pista"
+	},
+	"santasearch_level_lab": {
+		"message": "En el laboratorio"
+	},
+	"santasearch_level_museum": {
+		"message": "En el museo"
+	},
+	"santasearch_level_select": {
+		"message": "¡Vamos!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "¡Busca a Santa!"
+	},
+	"santasvillage": {
+		"message": "Aldea de Santa"
+	},
 	"santatracker": {
 		"message": "Sigue a Santa"
+	},
+	"scene_airport": {
+		"message": "Aeropuerto del Polo Norte"
+	},
+	"scene_app": {
+		"message": "App para Android"
+	},
+	"scene_boatload": {
+		"message": "Honda de regalos"
+	},
+	"scene_briefing": {
+		"message": "Instrucciones de la señora Claus"
+	},
+	"scene_callfromsanta": {
+		"message": "Llamada de Santa"
+	},
+	"scene_citylights": {
+		"message": "Luces de la ciudad"
+	},
+	"scene_codeboogie": {
+		"message": "Baile del código"
+	},
+	"scene_codelab": {
+		"message": "Experimento de códigos"
+	},
+	"scene_commandcentre": {
+		"message": "Control de la misión"
+	},
+	"scene_giftmatch": {
+		"message": "Coincidencias de regalos"
+	},
+	"scene_gumball": {
+		"message": "Inclinación de Gumball"
+	},
+	"scene_jamband": {
+		"message": "Banda de duendes"
+	},
+	"scene_jetpack": {
+		"message": "Elf Jetpack"
+	},
+	"scene_matching": {
+		"message": "Juego de memoria"
+	},
+	"scene_mercator": {
+		"message": "Cuestionario sobre el mapa"
+	},
+	"scene_postcard": {
+		"message": "Tarjetas de Santa"
+	},
+	"scene_presentbounce": {
+		"message": "Rebotes de regalos"
+	},
+	"scene_presentdrop": {
+		"message": "Entrega de regalos"
+	},
+	"scene_racer": {
+		"message": "Trineo de carrera de Rudolph"
+	},
+	"scene_santasearch": {
+		"message": "Búsqueda de Santa"
+	},
+	"scene_santaselfie": {
+		"message": "Autofoto con Santa"
+	},
+	"scene_seasonofgiving": {
+		"message": "Época de dar"
+	},
+	"scene_traditions": {
+		"message": "Tradiciones navideñas"
+	},
+	"scene_translations": {
+		"message": "Traducciones"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Automóvil de duendes"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Despegue de Santa"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Santa está de vuelta"
+	},
+	"scene_windtunnel": {
+		"message": "Túnel de viento"
 	},
 	"score": {
 		"message": "Puntuación"
@@ -819,7 +1014,7 @@
 		"message": "Túnez"
 	},
 	"today_only": {
-		"message": "Solo hoy"
+		"message": "Solo por hoy"
 	},
 	"today_only_1": {
 		"message": "Solo por hoy"
@@ -863,14 +1058,23 @@
 	"tracker_santa_update": {
 		"message": "ACTUALIZACIÓN DE SANTA"
 	},
+	"tracker_santa_update_1": {
+		"message": "Actualización de Santa"
+	},
 	"tracker_see_route": {
 		"message": "Ve la ruta."
+	},
+	"tracker_track": {
+		"message": "Sigue a Santa"
 	},
 	"tracker_weather": {
 		"message": "Clima"
 	},
 	"tracker_world_facts": {
 		"message": "SABÍAS QUE"
+	},
+	"tracker_world_facts_1": {
+		"message": "Datos sobre el mundo"
 	},
 	"tracker_your_location": {
 		"message": "Tu ubicación"
@@ -4546,6 +4750,27 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "¡Vuelve el día 24 y ayúdanos a seguir a Santa toda la noche!"
+	},
+	"village_explore": {
+		"message": "Explora, juega y aprende con los duendes de Santa durante todo diciembre"
+	},
+	"village_get_the_app": {
+		"message": "Obtén la app"
+	},
+	"village_more": {
+		"message": "Más formas de explorar"
+	},
+	"village_santa_cardboard": {
+		"message": "Santa en Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Santa en Google Cast"
+	},
+	"village_takesoff": {
+		"message": "Santa despegará en"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

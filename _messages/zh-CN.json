@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "圣诞节前夕，我们将万分荣幸地提前展示圣诞老人行踪面板，这项技术将在圣诞老人的环游之旅期间为他的雪橇助力。圣诞老人的开发精灵们正在北极辛勤忙碌，帮助圣诞老人为这一盛大时刻做好准备，而其中一个开发小精灵向我们派送了这一特殊前情预报。圣诞老人行踪面板采用 Google 地图和雪橇工程中最前沿最出色的技术，这样您就可以随时追踪圣诞老人在世界各地的足迹，还可以了解圣诞老人沿途停留的一些站点。"
+		"message": "我们将于平安夜隆重推出圣诞老人行踪面板，也就是圣诞老人环游世界时为他的雪橇提供动力的高科技产品。圣诞老人有许多负责开发工作的小精灵正在北极辛勤工作，帮他为圣诞节做准备。其中一位热情的圣诞精灵还特别邀请我们抢先看看圣诞老人行踪面板，它拥有最新最棒的 Google 地图技术和雪橇工程科技。在圣诞老人行踪面板中，您能够追踪圣诞老人在全世界的足迹，还能对他到访的一些地方有所了解。"
 	},
 	"about-content-three": {
 		"message": "Google 地图“追踪圣诞老人”由 Google 创作开发，在此过程中得到了圣诞精灵的一些帮助。需要帮助或是有其他问题？请访问我们的\u003ca href=\"//support.google.com/santatracker\"\u003e帮助中心\u003c/a\u003e。"
@@ -236,14 +236,80 @@
 	"cl_country_name": {
 		"message": "智利"
 	},
-	"close-this": {
-		"message": "取消"
+	"close": {
+		"message": "关闭"
 	},
 	"cm_country_name": {
 		"message": "喀麦隆"
 	},
 	"co_country_name": {
 		"message": "哥伦比亚"
+	},
+	"codeboogie-block-jump": {
+		"message": "跳跃"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "跳跃。"
+	},
+	"codeboogie-block-leftarm": {
+		"message": "伸展左臂"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "向左伸展左臂。"
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "迈左脚"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "向左跨出一步。"
+	},
+	"codeboogie-block-rightarm": {
+		"message": "伸展右臂"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "向右伸展右臂。"
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "迈右脚"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "向右跨出一步。"
+	},
+	"codeboogie-block-shake": {
+		"message": "摆臀"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "甩臀。"
+	},
+	"codeboogie-block-split": {
+		"message": "两脚分开"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "两腿分开。"
+	},
+	"codeboogie-get-dancing": {
+		"message": "开始跳舞吧！"
+	},
+	"codeboogie-next-dance": {
+		"message": "下一支舞"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "请按照方块提示跳舞。"
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "知道吗？您只需 {{ideal}} 个方块即能完成这支舞蹈。请尝试使用以下方块。"
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "跳得不错！您已出色完成了这支舞蹈。"
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "您用的方块没错，不过请用更多方块来完成这支舞蹈。"
+	},
+	"codeboogie-success": {
+		"message": "成功！"
+	},
+	"codeboogie-watch-closely": {
+		"message": "请认真观看老师的示范！"
 	},
 	"codelab-block-moveeast": {
 		"message": "东"
@@ -325,6 +391,21 @@
 	},
 	"copy-me": {
 		"message": "复制该链接即可分享您的消息"
+	},
+	"countdown_days": {
+		"message": "天"
+	},
+	"countdown_hours": {
+		"message": "小时"
+	},
+	"countdown_minutes": {
+		"message": "分钟"
+	},
+	"countdown_seconds": {
+		"message": "秒"
+	},
+	"countdown_until": {
+		"message": "圣诞老人出发倒计时"
 	},
 	"countdownlabel": {
 		"message": "圣诞老人启程倒计时"
@@ -629,6 +710,9 @@
 	"ne_country_name": {
 		"message": "尼日尔"
 	},
+	"new": {
+		"message": "新"
+	},
 	"newtoday": {
 		"message": "今日更新"
 	},
@@ -667,6 +751,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "北极熊"
+	},
+	"notification": {
+		"message": "通知"
+	},
+	"notification_notice": {
+		"message": "圣诞老人的小精灵们会及时汇报圣诞老人的行程"
 	},
 	"np_country_name": {
 		"message": "尼泊尔"
@@ -722,6 +812,9 @@
 	"pr_country_name": {
 		"message": "波多黎各"
 	},
+	"press": {
+		"message": "新闻"
+	},
 	"pt_language_name": {
 		"message": "葡萄牙语"
 	},
@@ -743,8 +836,110 @@
 	"sa_country_name": {
 		"message": "沙特阿拉伯"
 	},
+	"santasearch_hint": {
+		"message": "提示"
+	},
+	"santasearch_level_lab": {
+		"message": "实验室"
+	},
+	"santasearch_level_museum": {
+		"message": "博物馆"
+	},
+	"santasearch_level_select": {
+		"message": "开始！"
+	},
+	"santasearch_search_for_santa": {
+		"message": "寻找圣诞老人！"
+	},
+	"santasvillage": {
+		"message": "圣诞老人小镇"
+	},
 	"santatracker": {
 		"message": "追踪圣诞老人"
+	},
+	"scene_airport": {
+		"message": "北极机场"
+	},
+	"scene_app": {
+		"message": "Android 应用"
+	},
+	"scene_boatload": {
+		"message": "礼物弹珠"
+	},
+	"scene_briefing": {
+		"message": "克劳斯太太的致辞"
+	},
+	"scene_callfromsanta": {
+		"message": "圣诞老人来电"
+	},
+	"scene_citylights": {
+		"message": "城市之光"
+	},
+	"scene_codeboogie": {
+		"message": "代码之舞"
+	},
+	"scene_codelab": {
+		"message": "代码实验室"
+	},
+	"scene_commandcentre": {
+		"message": "任务控制中心"
+	},
+	"scene_giftmatch": {
+		"message": "礼物对对碰"
+	},
+	"scene_gumball": {
+		"message": "彩球滑落"
+	},
+	"scene_jamband": {
+		"message": "摇滚精灵乐"
+	},
+	"scene_jetpack": {
+		"message": "精灵飞侠"
+	},
+	"scene_matching": {
+		"message": "翻牌配对"
+	},
+	"scene_mercator": {
+		"message": "地图测验"
+	},
+	"scene_postcard": {
+		"message": "圣诞老人贺卡"
+	},
+	"scene_presentbounce": {
+		"message": "礼物弹球"
+	},
+	"scene_presentdrop": {
+		"message": "礼从天降"
+	},
+	"scene_racer": {
+		"message": "驯鹿狂飙"
+	},
+	"scene_santasearch": {
+		"message": "圣诞老人搜索"
+	},
+	"scene_santaselfie": {
+		"message": "圣诞老人自拍"
+	},
+	"scene_seasonofgiving": {
+		"message": "礼物漫天飞"
+	},
+	"scene_traditions": {
+		"message": "节日传统"
+	},
+	"scene_translations": {
+		"message": "翻译"
+	},
+	"scene_videoscene_carpool": {
+		"message": "精灵车"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "圣诞老人出发"
+	},
+	"scene_videoscene_santasback": {
+		"message": "圣诞老人回归"
+	},
+	"scene_windtunnel": {
+		"message": "风洞"
 	},
 	"score": {
 		"message": "得分"
@@ -795,7 +990,7 @@
 		"message": "乍得"
 	},
 	"terms-and-privacy": {
-		"message": "条款与隐私权"
+		"message": "条款和隐私权信息"
 	},
 	"tg_country_name": {
 		"message": "多哥"
@@ -852,7 +1047,7 @@
 		"message": "跳过介绍页面"
 	},
 	"tracker_intro_user_location": {
-		"message": "您的位置是"
+		"message": "您目前位于"
 	},
 	"tracker_intro_welcome": {
 		"message": "欢迎使用"
@@ -863,14 +1058,23 @@
 	"tracker_santa_update": {
 		"message": "圣诞老人最新行踪"
 	},
+	"tracker_santa_update_1": {
+		"message": "圣诞老人最新动态"
+	},
 	"tracker_see_route": {
 		"message": "查看路线"
+	},
+	"tracker_track": {
+		"message": "追踪圣诞老人"
 	},
 	"tracker_weather": {
 		"message": "天气"
 	},
 	"tracker_world_facts": {
 		"message": "您知道吗"
+	},
+	"tracker_world_facts_1": {
+		"message": "全球实况"
 	},
 	"tracker_your_location": {
 		"message": "您所在的位置"
@@ -4546,6 +4750,27 @@
 	},
 	"ve_country_name": {
 		"message": "委内瑞拉"
+	},
+	"village_comeback": {
+		"message": "24 日平安夜，来跟我们一起追踪圣诞老人的行踪！"
+	},
+	"village_explore": {
+		"message": "在弥漫着节日气氛的 12 月，与圣诞老人的小精灵们一起探索、玩耍、学习"
+	},
+	"village_get_the_app": {
+		"message": "下载应用"
+	},
+	"village_more": {
+		"message": "更多探索方式"
+	},
+	"village_santa_cardboard": {
+		"message": "使用 Cardboard 寻找圣诞老人"
+	},
+	"village_santa_cast": {
+		"message": "在 Google Cast 上寻找圣诞老人"
+	},
+	"village_takesoff": {
+		"message": "圣诞老人出发倒计时"
 	},
 	"vn_country_name": {
 		"message": "越南"

@@ -51,11 +51,6 @@ app.Game = function(elem) {
   this.mapReady = false;
   this.startOnReady = false;
 
-  // For IE10, which does not support pointer-event: none.
-  if (Modernizr.pointerevents !== true && Modernizr.pointerevents != null) {
-    this.bgElem.prependTo(this.sceneElem);
-  }
-
   // Remove success messages on hide
   this.elem.on(utils.ANIMATION_END, '.country-match', function(event) {
     $(event.target).remove();
@@ -130,6 +125,7 @@ app.Game.prototype.restart = function() {
 
   window.santaApp.fire('analytics-track-game-start', {gameid: 'mercator'});
   window.santaApp.fire('sound-trigger', 'mercator_start');
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
 };
 
 
@@ -222,6 +218,7 @@ app.Game.prototype.bumpLevel_ = function(won) {
   if (won) {
     this.gameover();
     window.santaApp.fire('sound-trigger', 'mercator_game_over');
+    window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
   } else {
     this.startLevel_();
     window.santaApp.fire('sound-trigger', 'mercator_nextLevel');

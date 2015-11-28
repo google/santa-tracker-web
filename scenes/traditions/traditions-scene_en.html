@@ -13,7 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
-<link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="../../components/i18n-msg/i18n-msg.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
@@ -22,6 +22,12 @@ specific language governing permissions and limitations under the License.
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="traditions-scene.css" />
+<style>
+  traditions-scene[mode="portal"] a[href*="google.com"] {
+    pointer-events: none;
+    cursor: default !important;
+  }
+</style>
 
 <!--
 Traditions scene.
@@ -39,6 +45,9 @@ Traditions scene.
   }
   :host([mode="cast"]) .traditions-tradition p {
     font-size: 3vh !important;
+  }
+  :host([mode="portal"]) #lessons-popup {
+    display: none;
   }
   </style>
 
@@ -140,8 +149,6 @@ Traditions scene.
         </div>
       </div>
       <div class="sceneboard">
-        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
-        <div class="sceneboard-back"></div>
         <div class="controls">
           <ul>
             <li><a href="#" id="traditions-world" on-click="showWorld"><i18n-msg msgid="traditions-world">PLACEHOLDER_i18n</i18n-msg></a></li>
@@ -236,6 +243,7 @@ Traditions scene.
       if (this.traditions) {
         this.traditions.onShow();
       }
+      this.fire('sound-ambient', 'music_start_scene');
     },
 
     onHide: function() {

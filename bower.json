@@ -22,8 +22,9 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.2.0",
+    "polymer": "Polymer/polymer#^1.2.3",
     "neon-animation": "PolymerElements/neon-animation#^1.0",
+    "iron-icons": "PolymerElements/iron-icons#^1.0.5",
     "iron-image": "PolymerElements/iron-image#^1.0",
     "iron-list": "PolymerElements/iron-list#^1.0",
     "iron-media-query": "PolymerElements/iron-media-query#^1.0",
@@ -32,6 +33,10 @@
     "paper-tabs": "PolymerElements/paper-tabs#^1.0",
     "paper-fab": "PolymerElements/paper-fab#^1.0",
     "paper-item": "PolymerElements/paper-item#^1.0",
+    "paper-drawer-panel": "PolymerElements/paper-drawer-panel#^1.0",
+    "paper-header-panel": "PolymerElements/paper-header-panel#^1.0.5",
+    "paper-icon-button": "PolymerElements/paper-icon-button#^1.0.5",
+    "paper-toolbar": "PolymerElements/paper-toolbar#^1.1.1",
     "iron-a11y-keys": "PolymerElements/iron-a11y-keys#^1.0",
     "flatiron-director": "PolymerLabs/flatiron-director#^1.0",
     "jquery": "2.1.1",
@@ -41,6 +46,7 @@
     "google-streetview-pano": "GoogleWebComponents/google-streetview-pano#^1.0",
     "closure-compiler": "https://dl.google.com/closure-compiler/compiler-latest.zip",
     "closure-library": "google/closure-library",
+    "promise-polyfill": "taylorhakes/promise-polyfill",
     "web-animations-js": "web-animations/web-animations-js#^2.0",
     "web-animations-utils": "GoogleChrome/web-animations-utils#master",
     "i18n-msg": "ebidel/i18n-msg#^1.0.2"

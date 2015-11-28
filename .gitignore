@@ -10,6 +10,9 @@ sass/*.css
 scenes/**/*.css
 scenes/*/*.min.js
 js/service/*.min.js
+js/**/*.flag
 elements/*/*.css
 *.min.js
-.devmode
+bin/
+nginx/
+dive/

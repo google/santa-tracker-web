@@ -167,7 +167,7 @@ app.Ornament.prototype.show = function(delayTime) {
     fill: 'forwards',
     duration: 1000,
     easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
-    delay: delayTime * 1.2
+    delay: delayTime_ * 1.2
   });
 };
 

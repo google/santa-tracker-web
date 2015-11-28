@@ -25,6 +25,12 @@ Glider scene.
 -->
 <dom-module id="glider-scene">
 <template>
+  <style>
+    :host([mode="portal"]) .shareButtons {
+      display: none !important;
+    }
+  </style>
+
   <div id="module-glider">
     <div class="bg">
       <div class="sky"></div>

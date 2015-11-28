@@ -95,13 +95,16 @@ app.Game.prototype.start = function() {
  * Handle window resize.
  */
 app.Game.prototype.handleResize = function() {
+  var width = window.innerWidth;
+  var height = window.innerHeight - window.santaApp.headerSize;
+
   this.elem.find('.scene-ornament').css({
-    'width': $(window).width(),
-    'height': $(window).width() <= 1024 ? $(window).height() : 'auto'
+    'width': width,
+    'height': width <= 1024 ? height : 'auto'
   });
 
   this.elem.find('.scene-ornament-wrapper').css({
-    'transform': 'translate(' + $(window).width() + 'px, 0)'
+    'transform': 'translate(' + width + 'px, 0)'
   });
 };
 

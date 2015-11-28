@@ -74,13 +74,15 @@ SoundController.SoundDetail;
  * Klang script source URL.
  * @private {string}
  */
-SoundController.klangSrc_ = 'third_party/lib/klang/klang.min.js';
+SoundController.klangSrc_ = 'third_party/lib/klang/klang.js';
 
 /**
  * Klang config file URL.
  * @private {string}
  */
-SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.json';
+//SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.json';
+SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.js';
+
 
 /**
  * Loads the Klang config file; called onload of the Klang library.
@@ -176,7 +178,7 @@ SoundController.prototype.playAmbientSounds = function(loadEvent) {
   if (!this.klangLoaded_ || this.loadingSounds_) {
     this.soundQueue_.push(loadEvent.detail);
   } else {
-    console.log('Klang: playing sound ' + loadEvent.detail);
+    //console.log('Klang: playing sound ' + loadEvent.detail);
     this.triggerSound_(loadEvent.detail);
   }
 };

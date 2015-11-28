@@ -4,12 +4,10 @@
         "message": "Welcome to the Google Maps Santa Tracker!"
     },
     "about-content-one": {
-        "backup_message_id": 4247099665778718610,
         "description": "One of three paragraphs describing the Santa Tracker website. Tone should be whimsical. The Dashboard will be a google map with information displayed on top, like the name of the city he's in, the number of presents delivered, the current temperature, etc.",
         "message": "On Christmas Eve we\u2019ll be proudly showcasing a Santa\u2019s dashboard, the technology that powers his sleigh during his around-the-world journey. We\u2019ve received this special preview from one of Santa\u2019s many developer elves, who are hard at work in the North Pole helping Santa prepare for his big day. Santa\u2019s dashboard - featuring the latest and greatest in Google Maps technology and sleigh engineering - will allow you to follow his progress around the world, and also learn a little about some of his stops along the way."
     },
     "about-content-two": {
-        "backup_message_id": 5272387082683858920,
         "description": "One of three paragraphs describing the Santa Tracker website. Tone should be whimsical. The Village is the main navigation for Santa Tracker.",
         "message": "Our friendly elves have also invited you to explore Santa\u2019s village while Santa gets ready for his journey. So go ahead and explore his village, you might just find some fun activities and meet some interesting elves."
     },
@@ -69,9 +67,9 @@
         "description": "A link to a calendar view of the site navigation. Refers to an advent calendar of the month of December.",
         "message": "The Calendar"
     },
-    "close-this": {
+    "close": {
         "description": "Button text. 15char limit. Closes a menu.",
-        "message": "Cancel"
+        "message": "Close"
     },
     "copy-me": {
         "description": "Label. Users will see a URL that they can copy to email to a friend, or share on Facebook/G+",
@@ -80,6 +78,26 @@
     "countdownlabel": {
         "description": "Labels the countdown clock. Appears under a timer.",
         "message": "Until Santa Departs"
+    },
+    "countdown_until": {
+        "description": "Labels a countdown clock. Count until Santa takes off.",
+        "message": "Santa Takes Off In"
+    },
+    "countdown_days": {
+        "description": "Label to be placed under days on a countdown clock. Shorten to 3-5 chars, fewer better. Plural preferred.",
+        "message": "Days"
+    },
+    "countdown_hours": {
+        "description": "Label to be placed under hours on a countdown clock. Shorten to 3-5 chars, fewer better. Non-plural OK.",
+        "message": "Hrs"
+    },
+    "countdown_minutes": {
+        "description": "Label to be placed under minutes on a countdown clock. Shorten to 3-5 chars, fewer better. Non-plural OK.",
+        "message": "Min"
+    },
+    "countdown_seconds": {
+        "description": "Label to be placed under seconds on a countdown clock. Shorten to 3-5 chars, fewer better. Non-plural OK.",
+        "message": "Sec"
     },
     "days": {
         "description": "Label for a counter showing the days left until Dec 24. Keep short/one word.",
@@ -98,7 +116,6 @@
         "message": "German"
     },
     "de_tradition": {
-        "backup_message_id": 2341301741130959217,
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "In nearly Every German town Christmas markets open in town squares. Townspeople gather to hear brass bands, and enjoy traditional fare of the region. They eat gingerbread hearts, sugar-roasted almonds, sweets of all kinds, and drink mulled wine (Gl\u00fchwein) or apple cider."
     },
@@ -113,6 +130,14 @@
     "detected": {
         "description": "Marks a detected language in a dropdown of languages.",
         "message": "detected"
+    },
+    "donate_button": {
+        "description": "Label for a button that allows users to donate.",
+        "message": "Donate"
+    },
+    "donate_text": {
+        "description": "Information about donations and that Google will match 50% of all user donations. Don't translate '#ForEveryKid', or the DonorsChoose.org domain link.",
+        "message": "Help fund a special needs project on DonorsChoose.org. This December, we're helping to double the impact by matching donations by 50%, until we reach our goal of donating US$1m. Together, we can help to make classrooms more inclusive #ForEveryKid"
     },
     "difficulty": {
         "description": "15 char limit. Label describing the game difficulty you are on.",
@@ -159,7 +184,6 @@
         "message": "French"
     },
     "fr_tradition": {
-        "backup_message_id": 1199145570729815843,
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "In France, children traditionally put their shoes out next to the fireplace in anticipation of P\u00e8re No\u00ebl's arrival. If children have been good throughout the year, P\u00e8re No\u00ebl will fill the shoes with gifts."
     },
@@ -188,7 +212,6 @@
         "message": "Greece"
     },
     "gr_tradition": {
-        "backup_message_id": 7800867695196112161,
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "In Greece, friendly but troublesome creatures called 'kallik\u00e1ntzari' live most of the year in the center of the earth. But at Christmas, they love to hide in people's houses, frightening people, playing tricks, or devouring Christmas foods. Greeks perform rituals to keep these hobgoblins away."
     },
@@ -279,6 +302,10 @@
     "mx_tradition": {
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "In Mexico, kids of all ages celebrate Christmas by breaking pinatas. Adults and children have fun by wearing a blindfold, spinning around, and swinging a stick to break open the star-shaped hanging pots. When the pinata is smashed open, nuts, fruit and candy spill out for everyone to enjoy."
+    },
+    "new": {
+      "description": "This is a short label (4-5 characters max) indicating that something is new, now available.",
+      "message": "New"
     },
     "newtoday": {
       "description": "Each scene in Santa's village is available by clicking on a building. Buildings are frozen in ice until a specific date. This label indicates a building that is newly available",
@@ -376,6 +403,10 @@
         "description": "Product name. The name of the website. Please keep relatively short.",
         "message": "Santa Tracker"
     },
+    "santasvillage": {
+        "description": "Where Santa lives.",
+        "message": "Santa's Village"
+    },
     "score": {
         "description": "15 char limit. Label for a numeric score.",
         "message": "Score"
@@ -421,7 +452,6 @@
         "message": "Swedish"
     },
     "terms-and-privacy": {
-        "backup_message_id": 3076236066203606172,
         "description": "Link text. Please keep this short. Links to Google's terms of service.",
         "message": "Terms &amp; Privacy"
     },
@@ -468,6 +498,10 @@
     "us_tradition": {
         "description": "Describes a local holiday tradition. Restrict to 300 characters.",
         "message": "In the United States, stockings are hung on Christmas Eve. The legend goes that St Nicholas heard of a family in need. To surprise them, he climbed down their chimney and placed precious bags of gold in hanging stockings. From this point, St Nicholas was known as Santa Claus, giver of gifts."
+    },
+    "press": {
+        "description": "Menu item for press, aka journalism/media, information.",
+        "message": "Press"
     },
     "play": {
         "description": "Button text. 15char limit. A label on an activity that will let the user play a game.",
@@ -644,6 +678,114 @@
     "citylights-contribute": {
         "description": "CTA link to a community where people can upload panoramas of their own. Includes a placeholder with current localised city/country name.",
         "raw": "Add your own photos of <ph name=\"LOCATION\"><ex>Trafalgar Square, London</ex>{{location}}</ph>"
+    },
+    "codeboogie-block-leftarm": {
+        "description": "Code block label for dancing with left arm. 15char limit.",
+        "message": "Point left"
+    },
+    "codeboogie-block-leftarm-tooltip": {
+        "description": "Code block tooltip for dancing with left arm. Written as a command in first person.",
+        "message": "Point to the left."
+    },
+    "codeboogie-block-rightarm": {
+        "description": "Code block label for dancing with right arm. 15char limit.",
+        "message": "Point right"
+    },
+    "codeboogie-block-rightarm-tooltip": {
+        "description": "Code block tooltip for dancing with right arm. Written as a command in first person.",
+        "message": "Point to the right."
+    },
+    "codeboogie-block-leftfoot": {
+        "description": "Code block label for dancing with left foot. 15char limit.",
+        "message": "Step left"
+    },
+    "codeboogie-block-leftfoot-tooltip": {
+        "description": "Code block tooltip for dancing with left foot. Written as a command in first person.",
+        "message": "Take a step to the left."
+    },
+    "codeboogie-block-rightfoot": {
+        "description": "Code block label for dancing with right foot. 15char limit.",
+        "message": "Step right"
+    },
+    "codeboogie-block-rightfoot-tooltip": {
+        "description": "Code block tooltip for dancing with right foot. Written as a command in first person.",
+        "message": "Take a step to the right."
+    },
+    "codeboogie-block-jump": {
+        "description": "Code block label for the dancing move 'jump'. 15char limit.",
+        "message": "Jump"
+    },
+    "codeboogie-block-jump-tooltip": {
+        "description": "Code block tooltip for the dancing move 'jump'. Written as a command in first person.",
+        "message": "Do a jump."
+    },
+    "codeboogie-block-split": {
+        "description": "Code block label for the dancing move 'split'. 15char limit.",
+        "message": "Split"
+    },
+    "codeboogie-block-split-tooltip": {
+        "description": "Code block tooltip for the dancing move 'split'. Written as a command in first person.",
+        "message": "Do a split."
+    },
+    "codeboogie-block-shake": {
+        "description": "Code block label for a dancing move where the character shakes the hip. 15char limit.",
+        "message": "Hip shake"
+    },
+    "codeboogie-block-shake-tooltip": {
+        "description": "Code block tooltip for a dancing move where the character shakes the hip. Written as a command in first person.",
+        "message": "Do a hip shake."
+    },
+    "codeboogie-get-dancing": {
+        "description": "Large title to encourage the player to try out the dancing code blocks. 15char limit.",
+        "message": "Get dancing!"
+    },
+    "codeboogie-watch-closely": {
+        "description": "Title to indicate the teacher is going to do the dance moves that they should copy",
+        "message": "Watch closely!"
+    },
+    "codeboogie-lets-dance": {
+        "description": "Large title before player starts dancing his routine. 15char limit.",
+        "message": "Let's dance"
+    },
+    "codeboogie-nice-moves": {
+        "description": "Huge success title after finishing a level. 15char limit.",
+        "message": "Nice moves!"
+    },
+    "codeboogie-success": {
+        "description": "Large title when the player gets all the dance moves correct. 15char limit.",
+        "message": "Success!"
+    },
+    "codeboogie-next-dance": {
+        "description": "Button label to start next level. 15char limit.",
+        "message": "Next Dance"
+    },
+    "codeboogie-result-too-many-steps": {
+        "description": "Short hint indicating that the coded dance was too long.",
+        "message": "You did too many steps."
+    },
+    "codeboogie-result-wrong-move": {
+        "description": "Short hint when the user performs a wrong step, showing the right step to use instead. The right step appears below.",
+        "message": "Seems like you did the wrong move there. Try this one instead:"
+    },
+    "codeboogie-result-too-many-blocks-success": {
+        "description": "Short hint on how the puzzle can be improved even if level is complete. One or two sentences max. Has a token for a dynamic number between 2-6, the token can be skipped and translation worded that fewer blocks are needed.",
+        "message": "Did you know you can finish this dance with just {{ideal}} blocks?"
+    },
+    "codeboogie-result-missing-block-fail": {
+        "description": "Short hint after failing a level. One or two sentences max. Refers to blocks visually displayed below.",
+        "message": "Try the block below to match the dance."
+    },
+    "codeboogie-result-missing-block-success": {
+        "description": "Short hint on how the puzzle can be improved even if level is complete. One or two sentences max. Refers to blocks visually displayed below. Has a token for a dynamic number between 2-6, the token can be skipped and translation worded that fewer blocks are needed.",
+        "message": "Did you know you can finish this dance with just {{ideal}} blocks? Try using the block below."
+    },
+    "codeboogie-result-perfect-success": {
+        "description": "Short message after completing a level. One or two sentences max.",
+        "message": "Nice moves! You finished the dance perfectly."
+    },
+    "codeboogie-result-too-few-blocks-fail": {
+        "description": "Short hint after failing a level. One or two sentences max.",
+        "message": "You are using the right blocks, but try using more of them to complete the dance."
     },
     "codelab-block-whenrun": {
         "description": "Code block label. 15char limit. Start of the code, reads to indicate that blocks below it will execute in order",
@@ -6029,6 +6171,122 @@
       "description": "Name of a country. This appears as a label in a geography game.",
       "message": "Greenland"
     },
+    "scene_airport": {
+      "description": "Title of a scene/game. Elves are arriving at the \"North Pole Airport\".",
+      "message": "North Pole Airport"
+    },
+    "scene_app": {
+      "description": "Title of a scene/game. This takes the user to the Santa Android App available on Google Play..",
+      "message": "Android App"
+    },
+    "scene_boatload": {
+      "description": "Title of a scene/game. Game to launch presents at targets.",
+      "message": "Gift Slingshot"
+    },
+    "scene_briefing": {
+      "description": "Title of a scene/game. Mrs. Claus' is giving a briefing on how to deliver presents.",
+      "message": "Mrs. Claus' Briefing"
+    },
+    "scene_codeboogie": {
+      "description": "Title of a scene/game. You can teach Santa's Elves how to dance ('boogie') through code.",
+      "message": "Code Boogie"
+    },
+    "scene_codelab": {
+      "description": "Title of a scene/game. Instruct an elf to deliver a present through code.",
+      "message": "Code Lab"
+    },
+    "scene_commandcentre": {
+      "description": "Title of a scene/game. Provides insights into the present delivery process: Elves looking at monitors, adjusting knobs, loading presents into bags etc.",
+      "message": "Mission Control"
+    },
+    "scene_callfromsanta": {
+      "description": "Title of a scene/game. This lets Santa call your phone number and give a greeting.",
+      "message": "Call from Santa"
+    },
+    "scene_citylights": {
+      "description": "Title of a scene/game. Showcases different Street View scenes, containing holiday lights and decorations, from around the world.",
+      "message": "City Lights"
+    },
+    "scene_giftmatch": {
+      "description": "Title of a scene/game. Match presents in a gem-matcher style game.",
+      "message": "Gift Matcher"
+    },
+    "scene_gumball": {
+      "description": "Title of a scene/game. Drop gumballs (round lollies) through a scene, tilting to ensure they reach their destination.",
+      "message": "Gumball Tilt"
+    },
+    "scene_jamband": {
+      "description": "Title of a scene/game. Create your own custom band arrangement with Santa's Elves.",
+      "message": "Elf Jamband"
+    },
+    "scene_jetpack": {
+      "description": "Title of a scene/game. Fly through the air and collect presents while avoiding obstacles.",
+      "message": "Elf Jetpack"
+    },
+    "scene_matching": {
+      "description": "Title of a scene/game. Traditional matching game, click doors to see items and try to pair them off.",
+      "message": "Memory Match"
+    },
+    "scene_mercator": {
+      "description": "Title of a scene/game. Learn about different countries and find their place on the map.",
+      "message": "Map Quiz"
+    },
+    "scene_postcard": {
+      "description": "Title of a scene/game. Generate postcards and share them with your friends.",
+      "message": "Santa Cards"
+    },
+    "scene_presentbounce": {
+      "description": "Title of a scene/game. Create a \"Rube Goldberg\"-style machine to bounce presents into a bag.",
+      "message": "Present Bounce"
+    },
+    "scene_presentdrop": {
+      "description": "Title of a scene/game. Practice dropping presents into practice chimneys.",
+      "message": "Present Drop"
+    },
+    "scene_racer": {
+      "description": "Title of a scene/game. Race Rudolph through the snow, collecting the most presents along the way.",
+      "message": "Rudolph Racer"
+    },
+    "scene_santasearch": {
+      "description": "Title of a scene/game. A \"Where's Wally/Waldo\"-style (not affiliated) experience to find Santa in tricky scenes.",
+      "message": "Santa Search"
+    },
+    "scene_santaselfie": {
+      "description": "Title of a scene/game. Give Santa a new hairstyle.",
+      "message": "Santa Selfie"
+    },
+    "scene_seasonofcaring": {
+      "description": "Title of a scene/game. Learn about different charities with a disability focus, and paint baubles.",
+      "message": "Season of Caring"
+    },
+    "scene_seasonofgiving": {
+      "description": "Title of a scene/game. Learn about different charities, and paint baubles.",
+      "message": "Season of Giving"
+    },
+    "scene_traditions": {
+      "description": "Title of a scene/game. Learn about different holiday traditions from around the world.",
+      "message": "Holiday Traditions"
+    },
+    "scene_translations": {
+      "description": "Title of a scene/game. Translate common holiday phrases to and from different languages.",
+      "message": "Translations"
+    },
+    "scene_videoscene_carpool": {
+      "description": "Title of a video scene. Plays a video with elves getting out of a tiny car.",
+      "message": "Elf Car"
+    },
+    "scene_videoscene_liftoff": {
+      "description": "Title of a video scene. Santa is taking off, launching etc.",
+      "message": "Santa's Takeoff"
+    },
+    "scene_videoscene_santasback": {
+      "description": "Title of a video scene. Alternative meaning is 'Santa has returned'.",
+      "message": "Santa's Back"
+    },
+    "scene_windtunnel": {
+      "description": "Title of a scene/game. Watch Rudolph's flying skills be tested in a wind tunnel.",
+      "message": "Wind Tunnel"
+    },
     "tracker_your_location": {
       "description": "Heading where the location of the user is displayed below",
       "message": "Your location"
@@ -6083,11 +6341,15 @@
       "description": "A heading above menu items that are only available today. Please keep this short.",
       "message": "Today Only"
     },
+    "tracker_track": {
+      "description": "Menu item, an imperative action for a user to use the Tracker part of Santa Tracker.",
+      "message": "Track Santa"
+    },
     "tracker_santa_update": {
         "message": "SANTA UPDATE"
     },
     "tracker_world_facts": {
-        "message": "WORLD FACTS"
+        "message": "DID YOU KNOW"
     },
     "today_only_1": {
       "description": "A heading above menu items that are only available today. Please keep this short.",
@@ -6098,5 +6360,97 @@
     },
     "tracker_world_facts_1": {
         "message": "World Facts"
+    },
+    "notification": {
+      "description": "Label for a toggle button enabling and disabling notifications",
+      "message": "Notifications"
+    },
+    "notification_notice": {
+      "description": "Describing what will happen if notifications are enabled",
+      "message": "Santa's Elves will keep you up-to-date with Santa's schedule"
+    },
+    "tracker_flight_start": {
+      "description": "Notice message that Santa has taken off and that he's able to be followed",
+      "message": "Santa has departed from the North Pole, and you can now follow his route"
+    },
+    "tracker_flight_nearby": {
+      "description": "Notice that Santa is nearby and that he's able to be tracked",
+      "message": "Santa is nearby, find out where"
+    },
+    "village_explore": {
+      "description": "The intro blurb for Santa's Village, can be medium-sized",
+      "message": "Explore, play and learn with Santa's Elves all December long"
+    },
+    "village_comeback": {
+      "description": "Callout to ask users to come back later",
+      "message": "Come back on the 24th and help us track Santa all night!"
+    },
+    "village_get_the_app": {
+      "description": "Menu item indicating that a user should get the Santa Android app from the Google Play Store.",
+      "message": "Get the App"
+    },
+    "village_santa_cast": {
+      "description": "Menu item for finding Santa on the Google Cast platform. Don't translate 'Google Cast'.",
+      "message": "Santa on Google Cast"
+    },
+    "village_santa_crx": {
+      "description": "Menu item for finding Santa as a Google Chrome extension. Don't translate \"Google Chrome\".",
+      "message": "Google Chrome Extension"
+    },
+    "village_santa_cardboard": {
+      "description": "Menu item for finding Santa as part of an app which supports Google Cardboard (Google's Virtual Reality experience). Don't translate 'Cardboard'.",
+      "message": "Santa on Cardboard"
+    },
+    "village_takesoff": {
+      "description": "Message describing when Santa Takes off, will be followed by a countdown",
+      "message": "Santa takes off in"
+    },
+    "village_more": {
+      "description": "Menu item to find more ways to learn, play, explore etc about Santa.",
+      "message": "More Ways to Explore"
+    },
+    "santasearch_search_for_santa": {
+      "description": "A heading for the level selection screen.",
+      "message": "Search for Santa!"
+    },
+    "santasearch_level_select": {
+      "description": "Appears when a level in the Santa Search game has been hovered in the level selection screen. Please keep this below 10 characters.",
+      "message": "Go!"
+    },
+    "santasearch_level_museum": {
+      "description": "Name of the Santa Search's game museum level, appears below the level art. Please try to keep this below 20 characters.",
+      "message": "At the museum"
+    },
+    "santasearch_level_lab": {
+      "description": "Name of the Santa Search's game lab level, appears below the level art. Please try to keep this below 20 characters.",
+      "message": "In the lab"
+    },
+    "santasearch_hint": {
+      "description": "Label for the button to click when searching for a character in the Santa Search game to get a hint of his location. This should preferably be one word.",
+      "message": "Hint"
+    },
+    "santasearch_character_santa": {
+      "description": "The name of a character that can be found in a Search game, Santa.",
+      "message": "Santa Claus"
+    },
+    "santasearch_character_mrs_claus": {
+      "description": "The name of a character that can be found in a Search game, the wife of Santa Claus.",
+      "message": "Mrs. Claus"
+    },
+    "santasearch_character_rudolph": {
+      "description": "The name of a character that can be found in a Search game, Rudolph the Reindeer.",
+      "message": "Rudolph"
+    },
+    "santasearch_character_penguin": {
+      "description": "The name of a character that can be found in a Search game, a penguin who lives at the North Pole.",
+      "message": "Penguin"
+    },
+    "santasearch_character_gingerbread_man": {
+      "description": "The name of a character that can be found in a Search game, a gingerbread man.",
+      "message": "Gingerbread Man"
+    },
+    "santasearch_character_pegman": {
+      "description": "The name of a character that can be found in a Search game, the Google Maps pegman.",
+      "message": "Pegman"
     }
 }

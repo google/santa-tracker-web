@@ -8,7 +8,7 @@ $elf-width: 104px;
     position: absolute;
     top: 0;
     width: $elf-width;
-    pointer-events: none; // Stop elfs interfering with gameplay (unless you have IE10)
+    pointer-events: none; // Stop elfs interfering with gameplay
     transform-origin: 50% 50%;
     transform: scale(2);
   }

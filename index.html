@@ -18,7 +18,7 @@ specific language governing permissions and limitations under the License.
   <meta charset="utf-8">
   <base href="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
 
   <title>Google Santa Tracker</title>
   <meta property="og:title" itemprop="name" content="Google Santa Tracker">
@@ -39,16 +39,19 @@ specific language governing permissions and limitations under the License.
   <meta name="apple-mobile-web-app-status-bar-style" content="#30B443">
   <meta name="theme-color" content="#30B443">
   <meta name="msapplication-TileColor" content="#30B443">
-
   <meta name="msapplication-tap-highlight" content="no">
 
   <!-- icons -->
-  <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/apple-touch-icon-57x57-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72x72-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114x114-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144x144-precomposed.png">
-  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/icon-60.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="images/icon-76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="images/icon-120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="images/icon-152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="images/icon-167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/icon-180.png">
+  <link id="favicon" rel="shortcut icon" href="images/favicon-16.png" sizes="16x16">
+  <link id="favicon" rel="shortcut icon" href="images/favicon-32.png" sizes="32x32">
+  <link id="favicon" rel="shortcut icon" href="images/favicon-64.png" sizes="64x64">
+  <link id="favicon" rel="shortcut icon" href="images/favicon-96.png" sizes="96x96">
 
   <!-- Analytics -->
   <script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
@@ -60,6 +63,28 @@ specific language governing permissions and limitations under the License.
       'trackClicks': false,
       'disableTrackPageview': true
     });
+
+    /**
+     * Filters out clicks on links that do not match current domain
+     */
+    function clickFilter(event) {
+      if (event.target === undefined) {
+        return;
+      }
+
+      if (event.target.localName !== 'a') {
+        return;
+      }
+
+      var url_check = location.protocol + "//" + document.domain;
+
+      if (event.target.href.search(url_check)) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
+
+      return;
+    }
 
     /**
      * @param {string} param URL parameter to look for.
@@ -89,18 +114,18 @@ specific language governing permissions and limitations under the License.
     var ignoreCheck = getUrlParameter('ignore_browser_check') == 'true';
     var supported =  ignoreCheck || (function sniff() {
       var uaString = navigator.userAgent;
-      // no IE < 10
+      // no IE < 11
       var msie = /MSIE +([\d\.]+)/.exec(uaString);
       if (msie && msie[1]) {
         if (msie[1] === '7.0') {
           var tridentVersion = /Trident\/(\d.\d)/.exec(uaString);
           if (tridentVersion && tridentVersion[1]) {
-            return parseInt(tridentVersion[1], 10) >= 6;
+            return parseInt(tridentVersion[1], 10) >= 7;
           } else {
             return false;
           }
         } else {
-          return parseInt(msie[1], 10) >= 10;
+          return parseInt(msie[1], 10) >= 11;
         }
       }
       // no older Android browser
@@ -160,6 +185,11 @@ if (inEmbed) {
 }
 
 window.santaApp = document.querySelector('santa-app');
+
+if (window.santaApp.mode == 'portal') {
+  document.body.addEventListener('click', clickFilter);
+}
+
 var POLYMER_ANALYTICS_TIMEOUT_ = 60 * 1000;
 
 // log some polymer startup performance numbers

@@ -327,7 +327,6 @@ Airport scene.
     </div>
     <div class="gui">
       <div class="board board--scene">
-        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
         <div class="logo"></div>
       </div>
     </div>
@@ -357,6 +356,7 @@ Airport scene.
 
     onShow: function() {
       this.fire('sound-ambient', 'airport_start');
+      this.fire('sound-ambient', 'music_start_scene');
       var div = this.$['module-airport'];
       this._belt = new scenes.airport.Belt(div);
     },

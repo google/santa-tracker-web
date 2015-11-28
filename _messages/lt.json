@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "Kalėdų išvakarėse didžiuosimės galėdami pateikti Kalėdų Senelio informacijos suvestinės peržiūrą – technologiją, kuri suteikia energijos, jam rogėms keliaujant aplink pasaulį. Šią specialią peržiūrą mums pateikė vienas iš daugelio Kalėdų Senelio elfų, sunkiai dirbančių Šiaurės Ašigalyje ir padedančių Kalėdų Seneliui pasirengti šiai didžiai dienai. Kalėdų Senelio informacijos suvestinė, pasižyminti naujausia ir geriausia „Google“ žemėlapių technologija bei rogių inžinerija, leis jums stebėti kelionę aplink pasaulį ir daugiau sužinoti apie sustojimus pakeliui."
+		"message": "Kalėdų išvakarėse pristatysime Kalėdų Senelio informacijos suvestinę – technologiją, kurios pagrindu veikia rogės, Kalėdų Seneliui keliaujant aplink pasaulį. Šią specialią peržiūrą mums pateikė vienas iš Kalėdų Senelio elfų-kūrėjų, kurie sunkiai dirba Šiaurės ašigalyje, padėdami Kalėdų Seneliui ruoštis savo svarbiausiai dienai. Naudodami Kalėdų Senelio informacijos suvestinę, pasižyminčią naujausia ir geriausia „Google“ žemėlapių technologija ir rogučių inžinerija, galėsite stebėti Senelio kelionę aplink pasaulį ir šiek tiek sužinoti apie kelis jo kelionės sustojimus."
 	},
 	"about-content-three": {
 		"message": "„Google“, pasitelkusi Kalėdų Senelio elfus, sukūrė „Google“ žemėlapių svetainę „Kalėdų Senelio kelionė“. Reikia pagalbos? O gal norite ko nors paklausti? Apsilankykite mūsų \u003ca href=\"//support.google.com/santatracker\"\u003epagalbos centre\u003c/a\u003e."
 	},
 	"about-content-two": {
-		"message": "Mūsų draugiškieji elfai taip pat pakvietė jus apsilankyti Kalėdų Senelio miestelyje, kol Kalėdų Senelis ruošiasi kelionei. Taigi pirmyn į miestelį, kuriame rasite smagių užsiėmimų ir susitiksite su įdomiais elfais."
+		"message": "Mūsų draugiškieji elfai taip pat pakvietė jus apsilankyti Kalėdų Senelio kaimelyje, kol Kalėdų Senelis rengiasi kelionei. Taigi vykite į kaimelį, kuriame rasite smagių užsiėmimų ir susitiksite su įdomiais elfais."
 	},
 	"about-santa": {
 		"message": "Apie"
@@ -236,14 +236,80 @@
 	"cl_country_name": {
 		"message": "Čilė"
 	},
-	"close-this": {
-		"message": "Atšaukti"
+	"close": {
+		"message": "Uždaryti"
 	},
 	"cm_country_name": {
 		"message": "Kamerūnas"
 	},
 	"co_country_name": {
 		"message": "Kolumbija"
+	},
+	"codeboogie-block-jump": {
+		"message": "Pašokti"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Šoktelėkite."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Rodyti kairėn"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Parodykite į kairę."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Žengti kairėn"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Ženkite žingsnį kairėn."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Rodyti dešinėn"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Parodykite dešinėn."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Žengti dešinėn"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Ženkite žingsnį dešinėn."
+	},
+	"codeboogie-block-shake": {
+		"message": "Judinami klubai"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Pajudinkite klubus."
+	},
+	"codeboogie-block-split": {
+		"message": "Špagatas"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Padarykite špagatą."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Pradėkite šokį!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Kitas šokis"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Išbandykite apačioje esantį bloką, kuris gali būti tinkamas šokiui."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Ar žinote, kad šį šokį galite baigti naudodami tik {{idealius}} blokus? Išbandykite apačioje esantį bloką."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Gražūs judesiai! Šokote puikiai."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Naudojate tinkamus blokus, bet pabandykite naudoti daugiau blokų, kad baigtumėte šokį."
+	},
+	"codeboogie-success": {
+		"message": "Pavyko!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Atidžiai stebėkite!"
 	},
 	"codelab-block-moveeast": {
 		"message": "rytai"
@@ -326,6 +392,21 @@
 	"copy-me": {
 		"message": "Kopijuokite šią nuorodą, jei norite bendrinti savo pranešimą"
 	},
+	"countdown_days": {
+		"message": "d."
+	},
+	"countdown_hours": {
+		"message": "val."
+	},
+	"countdown_minutes": {
+		"message": "min."
+	},
+	"countdown_seconds": {
+		"message": "sek."
+	},
+	"countdown_until": {
+		"message": "Kalėdų Senelis išvyksta po"
+	},
 	"countdownlabel": {
 		"message": "Iki Kalėdų Senelio išvykimo"
 	},
@@ -354,7 +435,7 @@
 		"message": "Vokiečių"
 	},
 	"de_tradition": {
-		"message": "Beveik kiekvieno Vokietijos miesto aikštėje atidaroma kalėdinė mugė. Miestelėnai susirenka pasiklausyti pučiamųjų instrumentų muzikos ir mėgaujasi tradiciniu regiono maistu. Jie valgo imbierines širdeles, cukruje skrudintus migdolus, visokiausius saldainius, geria su prieskoniai kaitintą vyną (Glühwein) arba obuolių sidrą."
+		"message": "Beveik kiekvieno Vokietijos miesto aikštėje atidaroma kalėdinė mugė. Žmonės susirenka pasiklausyti pučiamųjų instrumentų muzikos, mėgaujasi tradiciniu maistu: valgo imbierines širdeles, cukruje skrudintus migdolus, įvairius saldainius, geria su prieskoniais kaitintą vyną (Glühwein) ar obuolių sidrą."
 	},
 	"deck": {
 		"message": "Dekoracijos"
@@ -629,6 +710,9 @@
 	"ne_country_name": {
 		"message": "Nigeris"
 	},
+	"new": {
+		"message": "Nauja"
+	},
 	"newtoday": {
 		"message": "Šiandien nauja"
 	},
@@ -667,6 +751,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Baltasis lokys"
+	},
+	"notification": {
+		"message": "Pranešimai"
+	},
+	"notification_notice": {
+		"message": "Kalėdų Senelio elfai padės neatsilikti nuo Kalėdų Senelio tvarkaraščio"
 	},
 	"np_country_name": {
 		"message": "Nepalas"
@@ -722,6 +812,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rikas"
 	},
+	"press": {
+		"message": "Žiniasklaida"
+	},
 	"pt_language_name": {
 		"message": "Portugalų"
 	},
@@ -743,8 +836,110 @@
 	"sa_country_name": {
 		"message": "Saudo Arabija"
 	},
+	"santasearch_hint": {
+		"message": "Užuomina"
+	},
+	"santasearch_level_lab": {
+		"message": "Laboratorijoje"
+	},
+	"santasearch_level_museum": {
+		"message": "Muziejuje"
+	},
+	"santasearch_level_select": {
+		"message": "Pradėti"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Ieškoti Kalėdų Senelio!"
+	},
+	"santasvillage": {
+		"message": "Kalėdų Senelio kaimas"
+	},
 	"santatracker": {
 		"message": "Kalėdų Senelio kelionė"
+	},
+	"scene_airport": {
+		"message": "Šiaurės ašigalio oro uostas"
+	},
+	"scene_app": {
+		"message": "„Android“ programa"
+	},
+	"scene_boatload": {
+		"message": "Dovanų laidynė"
+	},
+	"scene_briefing": {
+		"message": "Kalėdų Senelės pranešimas"
+	},
+	"scene_callfromsanta": {
+		"message": "Kalėdų Senelio skambutis"
+	},
+	"scene_citylights": {
+		"message": "Miesto šviesos"
+	},
+	"scene_codeboogie": {
+		"message": "Bugivugio kodai"
+	},
+	"scene_codelab": {
+		"message": "Kodų laboratorija"
+	},
+	"scene_commandcentre": {
+		"message": "Misijos valdymas"
+	},
+	"scene_giftmatch": {
+		"message": "Dovanų atitikimas"
+	},
+	"scene_gumball": {
+		"message": "Gumos kamuoliukų svyriai"
+	},
+	"scene_jamband": {
+		"message": "Elfų muzikinė grupė"
+	},
+	"scene_jetpack": {
+		"message": "Elfų skraidyklė"
+	},
+	"scene_matching": {
+		"message": "Atitikmenys iš atminties"
+	},
+	"scene_mercator": {
+		"message": "Žemėlapių viktorina"
+	},
+	"scene_postcard": {
+		"message": "Kalėdų Senelio kortos"
+	},
+	"scene_presentbounce": {
+		"message": "Dovanų atmušinėjimas"
+	},
+	"scene_presentdrop": {
+		"message": "Dovanų mėtymas"
+	},
+	"scene_racer": {
+		"message": "Rudolfas lenktynininkas"
+	},
+	"scene_santasearch": {
+		"message": "Kalėdų Senelio paieška"
+	},
+	"scene_santaselfie": {
+		"message": "Kalėdų Senelio asmenukė"
+	},
+	"scene_seasonofgiving": {
+		"message": "Dovanų laikas"
+	},
+	"scene_traditions": {
+		"message": "Švenčių tradicijos"
+	},
+	"scene_translations": {
+		"message": "Vertimai"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Elfų automobilis"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Kalėdų Senelio išvykimas"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Kalėdų Senelis grįžo"
+	},
+	"scene_windtunnel": {
+		"message": "Vėjo tunelis"
 	},
 	"score": {
 		"message": "Rezultatas"
@@ -855,7 +1050,7 @@
 		"message": "Jūs esate"
 	},
 	"tracker_intro_welcome": {
-		"message": "Sveiki! Tai -"
+		"message": "Sveiki! Tai –"
 	},
 	"tracker_next_stop": {
 		"message": "Kitas sustojimas"
@@ -863,14 +1058,23 @@
 	"tracker_santa_update": {
 		"message": "KALĖDŲ SENELIO BŪSENOS ATNAUJINIMAS"
 	},
+	"tracker_santa_update_1": {
+		"message": "Kalėdų Senelio būsenos atnaujinimas"
+	},
 	"tracker_see_route": {
 		"message": "Žiūrėkite maršrutą"
+	},
+	"tracker_track": {
+		"message": "Sekti Kalėdų Senelį"
 	},
 	"tracker_weather": {
 		"message": "Oras"
 	},
 	"tracker_world_facts": {
 		"message": "Ar žinojote"
+	},
+	"tracker_world_facts_1": {
+		"message": "Pasaulio faktai"
 	},
 	"tracker_your_location": {
 		"message": "Jūsų vieta"
@@ -4546,6 +4750,27 @@
 	},
 	"ve_country_name": {
 		"message": "Venesuela"
+	},
+	"village_comeback": {
+		"message": "Grįžk 24-ąją ir padėk mums visą naktį sekti Kalėdų Senelį!"
+	},
+	"village_explore": {
+		"message": "Visą gruodį tyrinėkite, žaiskite ir mokykitės su Kalėdų Senelio elfais"
+	},
+	"village_get_the_app": {
+		"message": "Gauti programą"
+	},
+	"village_more": {
+		"message": "Dar daugiau būdų tyrinėti"
+	},
+	"village_santa_cardboard": {
+		"message": "Kalėdų Senelis platformoje „Cardboard“"
+	},
+	"village_santa_cast": {
+		"message": "Kalėdų Senelis platformoje „Google Cast“"
+	},
+	"village_takesoff": {
+		"message": "Kalėdų Senelis išvyksta už"
 	},
 	"vn_country_name": {
 		"message": "Vietnamas"

@@ -137,6 +137,13 @@ SantaService.prototype.addListener = function(eventName, handler) {
 };
 
 /**
+ * @param {string} lang to set
+ */
+SantaService.prototype.setLang = function(lang) {
+  this.lang_ = lang;
+};
+
+/**
  * @const
  * @private
  */

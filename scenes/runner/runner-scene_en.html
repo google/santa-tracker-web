@@ -25,6 +25,12 @@ Runner scene.
 -->
 <dom-module id="runner-scene">
 <template>
+  <style>
+    :host([mode="portal"]) .shareButtons {
+      display: none !important;
+    }
+  </style>
+
   <div id="module-runner">
     <div class="game frozen">
       <div class="layers-wrap">
@@ -58,8 +64,7 @@ Runner scene.
       </div>
     </div>
     <div class="gui">
-      <div class="board board--game"><a id="global-back-to-village" href="{{pageUrl}}#tracker" class="back">
-          <i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
+      <div class="board board--game">
         <div class="logo"></div>
         <div class="score">
           <div class="label">

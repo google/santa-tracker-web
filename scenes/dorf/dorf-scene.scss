@@ -5,37 +5,38 @@ $name: 'module-dorf';
 @import "sass/variables";
 @import "sass/animations";
 
+$width-big: 600px;
+$toolbar-size: 64px;
+
 ##{$name} {
-  background: #F5F2E2;
-  height: 100%;
+  background: #f5f2e2;
+  position: relative;
+  min-width: 320px;  // force 320px min width, i.e., iPhone 4/5+
 
-  .scroll {
-    overflow-y: auto;
-
-    // Force a layer on this scroll element.
-    transform: translateZ(0);
-    will-change: transform;
-  }
-
-  #posser {
-    /*background: url(img/village-grid.png) no-repeat 50% 0;
-    background-size: 1293px auto;
-    height: 10000px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;*/
+  p {
+    margin: 35px auto 0;
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    max-width: 360px;
   }
 
   header {
+    // NOTE: This is intentionally not position: relative (or absolute, ...)
+    // so that we don't create a new z-index heirarchy. Conveniently, the
+    // <header> element is always shown at 0,0, so positioning is still easy.
     height: 385px;
     background: #47c6ee;
     background: linear-gradient(to bottom, rgba(61,218,242,1) 0%, rgba(140,232,248,1) 86%, rgba(153,234,249,1) 100%);
-    position: relative;
-    z-index: 1;
     overflow: visible;
 
+    // By default, there's nothing user-interactable here.
+    pointer-events: none;
+
     #header-background {
+      z-index: $base-background-z-index;
       height: 665px;
       background-image: url(img/header-bg.svg);
       background-repeat: repeat-x;
@@ -47,6 +48,7 @@ $name: 'module-dorf';
 
     /** Contains all effects, like snow, the airplane etc. */
     #header-skyeffect {
+      z-index: $base-raised-z-index;
       position: absolute;
       width: 100%;
       height: 630px;
@@ -77,6 +79,16 @@ $name: 'module-dorf';
         background: white;
         border-radius: 10000px;
       }
+
+      .sun {
+        position: absolute;
+        top: 32px;
+        left: 70%;
+        width: 107px;
+        height: 109px;
+        background: url(img/sun.svg) no-repeat;
+      }
+
       .plane {
         position: absolute;
         top: 32px;
@@ -100,7 +112,9 @@ $name: 'module-dorf';
       }
       .skydive {
         animation: #{$name}-skydive 40s infinite ease-in;
-        margin-left: calc(50% + 150px);
+        margin-left: calc(50% + 460px);
+
+        @include will-change(transform, opacity);
 
         > span {
           position: absolute;
@@ -111,11 +125,22 @@ $name: 'module-dorf';
           animation-duration: inherit;
           animation-iteration-count: infinite;
         }
+
         .pegman-1 {
           width: 60px;
           height: 60px;
           background-image: url(img/pegman-dive.svg);
           animation-name: #{$name}-skydive-pegman-1;
+        }
+        .pegman-2, .pegman-3 {
+          a {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: auto;
+            text-indent: -3000em;
+            outline: 0;
+          }
         }
         .pegman-2 {
           margin-top: -7px;
@@ -131,15 +156,48 @@ $name: 'module-dorf';
           height: 140px;
           background-image: url(img/pegman-land.svg);
           animation-name: #{$name}-skydive-pegman-3;
+
+          a {
+            height: 60px;
+            top: 40px;
+          }
+        }
+
+        @media (max-width: ($width-desktop - 1)) {
+          margin-left: calc(50% + 360px);
+          animation: #{$name}-skydive-tablet 40s infinite ease-in;
+
+          .pegman-1 {
+            width: 60px * $tablet-desktop-ratio;
+            height: 60px * $tablet-desktop-ratio;
+          }
+
+          .pegman-2 {
+            margin-top: -7px * $tablet-desktop-ratio;
+            width: 112px * $tablet-desktop-ratio;
+            height: 112px * $tablet-desktop-ratio;
+          }
+          .pegman-3 {
+            margin-left: 61px * $tablet-desktop-ratio;
+            margin-top: 24px * $tablet-desktop-ratio;
+            width: 140px * $tablet-desktop-ratio;
+            height: 140px * $tablet-desktop-ratio;
+          }
+        }
+        @media (max-width: ($width-tablet - 1)) {
+          // On mobile, just pin pegman to the left side of the screen.
+          margin-top: 50px;
+          margin-left: 50px;
         }
       }
     }
 
     #header-content {
+      z-index: $base-raised-z-index;
       position: absolute;
       width: 100%;
       height: 630px;
-      text-shadow: 0 1px 0 #47c6ee;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 
       display: flex;
       justify-content: flex-start;
@@ -147,10 +205,18 @@ $name: 'module-dorf';
       text-align: center;
       flex-direction: column;
       position: relative;
-      z-index: 2;
+
+      // NOTE: Give this a layer, as it extends over its neighbour to the
+      // south, and Chrome is confused when painting.
+      @include will-change();
 
       #count-down {
-        padding: 45px 0 30px 0;
+        padding: 60px 0 30px 0;
+
+        &.mode-cast {
+          padding-bottom: 60px;
+          transform: scale(1.6);
+        }
       }
 
       // NOTE: This is used for the countdown timer.
@@ -165,9 +231,9 @@ $name: 'module-dorf';
       }
 
       h1 {
+        @include will-change();
         margin: 0;
         font-family: 'Lobster', sans-serif;
-        will-change: transform;
         font-size: 62px;
         line-height: 50px;
         color: white;
@@ -175,310 +241,523 @@ $name: 'module-dorf';
         transform: rotateZ(-3deg);
       }
 
-      p {
-        margin: 50px 0 0 0;
-        color: #fff;
-        text-align: center;
-        font-weight: 400;
-        font-size: 22px;
-        line-height: 26px;
-        max-width: 360px;
+      /** Make header elements small on mobile */
+      @media (max-width: $width-twocol) {
+        h1 {
+          font-size: 44px;
+          line-height: 36px;
+        }
+        h2 {
+          font-size: 10px;
+          line-height: 10px;
+        }
+        p {
+          font-size: 16px;
+          max-width: 260px;
+          margin-top: 36px;
+          padding-bottom: 4px;
+        }
       }
     }
-
-    /*
-
-    .mid {
-    margin: 0 auto;
-    text-align: center;
-    padding-top: 48px;
-    width: 340px;
-    }
-
-
-
-    .logo {
-    display: inline-block;
-    line-height: 0;
-    font-size: 0;
-    height: 28px;
-    width: 84px;
-    margin-bottom: 12px;
-    // TODO: hdpi only
-    background: url(img/google_logo_2x.png) no-repeat;
-    background-size: 100% 100%;
-    }*/
   }
+
+  /** House data */
+  @import "sass/houses";
 
   /** Village flexbox */
   #village-all {
-    position: relative;
+    z-index: $base-background-z-index;
+    position: relative;  // nb. creates a z-index layer for children
     overflow: hidden;
-    top: -30px;
-    z-index: 2;
-    padding-bottom: 240px;
-    margin-bottom: -240px;
+
+    #mobiletext {
+      display: none;
+    }
 
     #houses {
       position: relative;
       display: flex;
       flex-flow: wrap;
-      align-items: flex-start;
-      position: relative;
-      border-sizing: border-box;
-      margin: 0 auto;
-      width: $width-desktop;
-      z-index: 10;
-
-      @media (min-width: $width-tablet) {
-        /** Position data for cell-driven village. Specify this in left/bottom %. */
-
-        // 1st row, under sky
-        .house:nth-child(30n+1) .position {}
-        .house:nth-child(30n+2) .position { bottom: 38%; }
-        .house:nth-child(30n+3) .position { bottom: 36%; }
-        .house:nth-child(30n+4) .position { bottom: 20%; left: 55%; }
-        // 2nd row, around giant snowman & tree
-        .house:nth-child(30n+5) .position { bottom: 10%; left: 40%; }
-        .house:nth-child(30n+6) .position { bottom: 45%; left: 32%; }
-        .house:nth-child(30n+7) .position { bottom: 50%; left: 75%; }
-        .house:nth-child(30n+8) .position { bottom: 22%; left: 60%; }
-        // 3rd row, below giant snowman
-        .house:nth-child(30n+9) .position { bottom: 25% ;}
-        .house:nth-child(30n+10) .position { bottom: 15%; }
-        .house:nth-child(30n+11) .position { bottom: 40%; left: 60%; }
-        .house:nth-child(30n+12) .position { bottom: 15%; }
-        // 4th row
-        .house:nth-child(30n+13) .position { bottom: 25%; left: 40%;}
-        .house:nth-child(30n+14) .position { bottom: 15%; left: 45%; }
-        .house:nth-child(30n+15) .position { bottom: 22%; }
-        .house:nth-child(30n+16) .position { bottom: 20%;  left: 60%; }
-        // 5th row, with lake
-        .house:nth-child(30n+17) .position { bottom: 10%; left: 60%; }
-        .house:nth-child(30n+18) .position { bottom: 15%; }
-        .house:nth-child(30n+19) .position { bottom: 35%; left: 42%; }
-        .house:nth-child(30n+20) .position { bottom: 28%; left: 70%; }
-        // 6th row
-        .house:nth-child(30n+21) .position { bottom: 40%; left: 30%; }
-        .house:nth-child(30n+22) .position { bottom: 28%; }
-        .house:nth-child(30n+23) .position { bottom: 33%; }
-        .house:nth-child(30n+24) .position { bottom: 20%; left: 65%; }
-        // 7th/last row
-        .house:nth-child(30n+25) .position { bottom: 42%; left: 30%; }
-        .house:nth-child(30n+26) .position { bottom: 30%; }
-        .house:nth-child(30n+27) .position { bottom: 18%; }
-        .house:nth-child(30n+28) .position { bottom: 20%; left: 60%; }
-      }
-
-      /** Sizing data for different houses */
-      img.icon.icon-airport { width: 200%; transform: translate(-65%, 15%); }
-      img.icon.icon-traditions { transform: translate(-57%, 4%); }
-      img.icon.icon-codelab { transform: translate(-55%, 18%); }
-      img.icon.icon-app { width: 120%; }
-      img.icon.icon-santasback { transform: translate(-53%, 9%); }
-      img.icon.icon-santaselfie { width: 120%; transform: translate(-55%, 10%); }
-      img.icon.icon-translations { width: 150%; transform: translate(-46%, 9%); }
-      img.icon.icon-callfromsanta { width: 120%; transform: translate(-49%, 3%); }
-      img.icon.icon-presentdrop { width: 90%; transform: translate(-49%, 5%); }
-      img.icon.icon-santasearch { width: 115%; transform: translate(-36%, 10%); }
-      img.icon.icon-windtunnel { width: 130%; transform: translate(-53%, 8%); }
-      img.icon.icon-racer { width: 120%; transform: translate(-55%, 10%); }
-      img.icon.icon-jamband { width: 140%; }
-      img.icon.icon-gumball { transform: translate(-44.5%, 10%); }
-      img.icon.icon-postcard { transform: translate(-56%, 2%); }
-      img.icon.icon-jetpack { transform: translate(-54.5%, 5%); }
-      img.icon.icon-boatload { width: 130%; transform: translate(-42%, 14%); }
-      img.icon.icon-mercator { width: 110%; transform: translate(-55%, 10%); }
-      img.icon.icon-presentbounce { width: 120%; transform: translate(-52%, 8%); }
-      img.icon.icon-codeboogie { transform: translate(-46%, 9%); }
-      img.icon.icon-citylights { transform: translate(-48%, 2%); }
-      img.icon.icon-commandcentre { width: 105%; transform: translate(-46%, 10%); }
-      img.icon.icon-seasonofgiving { width: 95%; transform: translate(-58%); }
-      img.icon.icon-matching { width: 125%; transform: translate(-48%, 20%); }
-    }
-
-    #ground {
-      z-index: 1;
-      position: absolute;
-      background-image: url(img/ground.svg);
-      background-repeat: repeat-x;
-      background-size: $ground-size-w $ground-size-h;
-      background-position: 50% 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    #road {
-      position: absolute;
-      z-index: 2;
-      background-image: url(img/road.svg);
-      background-repeat: no-repeat;
-      background-position: 50% 0;
-      background-size: $road-size-w $road-size-h;
-      width: 100%;
-      height: 100%;
-      top: $road-top;
     }
   }
 
   .house {
     position: relative;
-    box-sizing: border-box;
-    width: ($width-desktop / 4);
-    height: $height-house;
-    border: 2px solid transparent;
+    color: #fff;
+    text-align: center;
 
-    .position {
-      // Every icon is placed (initially) in the center bottom of a cell. The
-      // inner image should position itself relative to that.
-      position: absolute;
-      bottom: 20%;
-      width: 100%;
-      left: 50%;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-      h3 {
-        font-size: 12px;
-        letter-spacing: 1px;
-        text-shadow: 0 1px 0 #f6f3e3;
-        margin: 0;
-        line-height: 18px;
-        text-transform: uppercase;
-        color: #4e81a9;
-        font-weight: 500;
-        position: absolute;
-        margin-left: -100px; // nb: to align center
-        width: 200px;
-        text-align: center;
-      }
+    h4 {
+      margin: 0;
+      padding-top: 0.25em;
+      font-family: 'Lobster', sans-serif;
+      font-size: 2.875em;
+      line-height: 1.5em;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+      transform: rotateZ(-3deg);
+    }
+    h3 {
+      margin: 0;
+      font-size: 1em;
+      line-height: 1.5em;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    }
 
-      img.icon {
-        // By default, icons are 100% the width of a cell, and scaled from
-        // their (i.e., using translate(), not left/top) center.
+    /** Common card styling */
+    .link {
+      color: white;
+      text-decoration: none;
+      text-align: center;
+
+      .card {
         width: 100%;
-        transform: translate(-50%);
-      }
-
-      a {
-        text-decoration: none;
-        color: inherit;
-        z-index: 1000;
-        display: block;
+        height: 100%;
         position: absolute;
-        width: $height-link-size;
-        height: $height-link-size;
-        left: -($height-link-size/2);
-        bottom: -20px;
+        color: white;
 
-        // TODO(samthor): This shouldn't need a layer, it doesn't draw anything
-        // however touching cards without this, causes a repaint... of nothing.
-        transform: translateZ(0);
-        will-change: transform;
-
-        img.card {
-          will-change: transform;
-          transition: transform 0.2s ease-out, opacity 0.2s ease-out;
-          transform: scale(0);
-          opacity: 0.25;
-          border-radius: 10000px;
-          width: 90%;
+        .image {
+          width: 100%;
+          height: 100%;
           position: absolute;
-          left: 5%;
-          bottom: 0;
-          box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
+          z-index: -1;  // behind text
+        }
+
+        .launchdate {
+          font-family: 'Lobster', sans-serif;
+          font-size: 1.5em;
+          line-height: 1.4em;
+          padding-top: 0.25em;
+          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+  }  // .house
+  .house-new-today {
+    a {
+      position: absolute;
+      top: percent(-20px, $dim-house);
+      left: percent(-5px, $dim-house);
+      height: percent(280px * $svg-ratio, $dim-house);
+      width:  percent(315px * $svg-ratio, $dim-house);
+      z-index: $house-z-index-front;
+
+      div.card {
+        @include will-change(transform);
+        transform: translateY(0);
+        transition: transform 0.5s cubic-bezier(0.47, 2.02, 0.31, -0.36);
+      }
+      &:hover {
+        div.card {
+          transform: translateY(-16px);
+          transition: transform 0.2s;
         }
       }
     }
 
-    a:hover, a:active {
-      &::after {
-        opacity: 1;
-      }
-      img.card {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
+    div.card {
+      background: center no-repeat;
+      background-size: cover;
 
-    .color {
-      position: absolute;
-      display: none;
+      width: 100%;
+      height: 100%;
+      padding-right: 5%;
+      box-sizing: border-box;
+
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      h4 {
+        margin-top: -0.8em;
+        text-align: center;
+        font-size: 2.275em;
+        transform: rotateZ(-6deg);
+        font-weight: 400;
+      }
     }
-  }
+  }  // .house-new-today
 
   #village-footer {
-    height: 700px;
-    background-image: url(img/footer-bg.svg);
-    background-repeat: repeat-x;
-    background-position: 50% 0;
-    background-size: 1882px 1116px;
+    // TODO(samthor): Footer needs to be scaled for both tablet and mobile.
+
+    z-index: $base-background-z-index;
+    height: 560px;
+
+    @media (max-width: ($width-desktop - 1)) {
+      height: 400px;
+    }
+
     position: relative;
-    
+    margin-top: -200px;  // nb. removed on mobile
+
+    // NOTE: Give this a layer, as it extends over its neighbour to the north,
+    // and Chrome is confused when painting.
+    @include will-change();
+
+    p {
+      margin: 20px auto 0;
+      color: #3474ba;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 26px;
+      max-width: 400px;
+    }
+
     #village-footer-elves {
       background-image: url(img/footer-elves.svg);
       background-repeat: no-repeat;
-      background-position: 50% 0;
-      background-size: 1790px 700px;
+      background-position: 50% 90%;
+      background-size: contain;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+    }
+  }
+
+  /** Tablet/desktop specific styles. */
+  @media (min-width: $width-tablet) {
+    font-size: 16px;
+
+    #village-all {
+      padding-bottom: 300px;
+
+      // Move the village up by 30px, but give the layer an extra 30px to work
+      // with: this gives space for the hover cards.
+      margin-top: 0 - $village-offset-up - $village-extra-padding;
+      padding-top: $village-extra-padding;
+
+      @import "sass/eastereggs";
+
+      #houses {
+        align-items: flex-start;
+        margin: 0 auto;
+        width: $width-desktop;
+        height: $height-desktop;
+        z-index: 10;
+      }
+
+      #ground {
+        z-index: 1;
+        position: absolute;
+        background-image: url(img/ground.svg);
+        background-repeat: repeat-x;
+        background-size: $ground-size-w $ground-size-h;
+        background-position: 50% 0;
+        width: 100%;
+        height: 100%;
+        top: $ground-top + $village-extra-padding;
+      }
+
+      #road {
+        position: absolute;
+        z-index: 2;
+        background-image: url(img/road.svg);
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        background-size: $road-size-w $road-size-h;
+        width: 100%;
+        height: 100%;
+        top: $road-top + $village-extra-padding;
+      }
+
+      .house {
+        position: relative;
+        width: $dim-house;
+        height: $dim-house;
+
+        .assets {
+          .ice {
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 2s ease-out;
+            will-change: none;  // don't create a layer; this only transitions once
+          }
+
+          .launchdate {
+            pointer-events: none;
+            user-select: none;
+            position: absolute;
+            background: url(img/number-bg-dark.svg) center no-repeat;
+            background-size: contain;
+            transform: translate(-50%, -50%);
+            width: 1.6em;
+            height: 1.6em;
+            font-family: "Lobster";
+            font-size: 2.5em;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
+        &.iced {
+          .assets {
+            .building {
+              a, h3 {
+                display: none;
+              }
+            }
+            .ice {
+              opacity: 1;
+            }
+          }
+          h5 {
+            display: none;
+          }
+        }
+      }  // .house
+    }
+
+    .assets {
+      // This is the same size as its parent, but ties in with _houses setting
+      // z-index here. This ensures that building/ice is layered correctly with
+      // other village things like easter eggs.
       position: absolute;
       width: 100%;
       height: 100%;
     }
+
+    /**
+     * Each house's action is basically positioned at its center bottom point,
+     * something like its door. The label, e.g. "Play", "Learn" etc is shown
+     * just under this point. It provides the base for a touch area.
+     */
+    .action {
+      $size: percent($link-target-size, $dim-house);
+      $size-half: percent($link-target-size / 2, $dim-house);
+
+      position: absolute;
+      width: $size;
+      height: $size;
+      margin-bottom: -$size;
+      margin-left: -$size-half;
+
+      h5 {
+        margin: 0;
+        font-size: 12px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        color: #fff;
+        line-height: 12px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #37afdb;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.125);
+        position: relative;  // so .housez class can take effect
+      }
+
+      .link {
+        // These 100%'s refer to the size of our parent .action.
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        bottom: 100%;
+        position: absolute;
+        z-index: 30000;
+        margin-bottom: percent($action-offset-top, $dim-house);
+
+        // Create a layer: this hints to browsers that yes, this card _REALLY IS_
+        // above everything else. Since there's no background/color etc, it's
+        // ignored anyway.
+        @include will-change();
+
+        $duration-in: 0.4s;
+        $easing-in: cubic-bezier(0.380, 0.800, 0.475, 1.285);
+        $duration-out: 0.2s;
+        $easing-out: ease-in;
+
+        .card {
+          $hs: $hover-card-size / 2;
+          width: $hover-card-size !important;
+          height: $hover-card-size !important;
+          margin: (-$hs) 0 0 (-$hs);
+          @include will-change(transform, opacity);
+          border-radius: 10000px;
+          overflow: hidden;
+          transition: transform $duration-out $easing-out, opacity $duration-out $easing-out;
+          transform: scale(0);
+          opacity: 0.25;
+          left: 50%;
+          top: 50%;
+          box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
+
+          .launchdate {
+            display: none;
+          }
+        }
+
+        &:hover, &:active {
+          .card {
+            transition: transform $duration-in $easing-in, opacity $duration-in $easing-in;
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+      }  // .link
+    } // .action
   }
 
   /** Tablet village. Shrunk version of desktop. */
-  @media (max-width: $width-desktop) and (min-width: $width-tablet) {
+  @media (max-width: ($width-desktop - 1)) and (min-width: $width-tablet) {
+    font-size: 12px;
+
+    .action {
+      .link {
+        .card {
+          $hs: $hover-card-size * $tablet-desktop-ratio / 2;
+          width: $hover-card-size * $tablet-desktop-ratio !important;
+          height: $hover-card-size * $tablet-desktop-ratio !important;
+          margin: (-$hs) 0 0 (-$hs);
+        }
+      }
+    }
+
     #village-all {
+      margin-top: (0 - $village-offset-up - $village-extra-padding) * $tablet-desktop-ratio;
+      padding-top: $village-extra-padding * $tablet-desktop-ratio;
+
       #houses {
         width: $width-tablet;
+        height: $height-tablet;
         .house {
-          width: ($width-tablet / 4);
-          height: ($height-house * $tablet-desktop-ratio);
-          .position {
+          width: $dim-house * $tablet-desktop-ratio;
+          height: $dim-house * $tablet-desktop-ratio;
+
+          .building {
             a {
-              width: ($height-link-size * $tablet-desktop-ratio);
-              height: ($height-link-size * $tablet-desktop-ratio);
-              left: -($height-link-size * $tablet-desktop-ratio) / 2;
+              img {
+                width: $hover-card-size * $tablet-desktop-ratio;
+                height: $hover-card-size * $tablet-desktop-ratio;
+                margin: #{-$hover-card-size * $tablet-desktop-ratio}px 0 0 #{-$hover-card-size * $tablet-desktop-ratio}px;
+              }
             }
           }
         }
       }
 
-      // $width-tablet / $width-desktop is = 0.6.
       #ground {
         background-size: ($ground-size-w * $tablet-desktop-ratio) ($ground-size-h * $tablet-desktop-ratio);
+        top: ($ground-top + $village-extra-padding) * $tablet-desktop-ratio;
       }
       #road {
         background-size: ($road-size-w * $tablet-desktop-ratio) ($road-size-h * $tablet-desktop-ratio);
-        top: ($road-top * $tablet-desktop-ratio);
+        top: ($road-top + $village-extra-padding) * $tablet-desktop-ratio;
       }
     }
   }
 
   /** All mobile villages (two cols) */
   @media (max-width: $width-tablet - 1) {
+    font-size: 14px;
+
+    header {
+      margin-bottom: -80px;
+
+      p {
+        display: none;  // remove first "Explore, play" etc text
+      }
+
+      #header-skyeffect,
+      #header-background {
+        margin-top: -180px;
+      }
+    }
+
     #village-all {
-      .house {
-        width: 50%;
-        height: 200px;
+      #mobiletext {
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.33);
+        display: block;
+        background: #57d693;
+        color: white;
+        padding: 18px 24px;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.125);
 
-        img.icon {
-          width: 200px;
-        }
-
-        .color {
-          display: block;
+        p {
+          font-size: 16px;
+          font-weight: 400;
+          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125);
+          margin: 0 auto;
         }
       }
 
-      #ground, #road {
+      #houses {
+        align-items: stretch;
+
+        .house-new-today {
+          display: none;
+        }
+        h5 {
+          display: none;  // this is Play/Learn etc below houses
+        }
+
+        .card.new-today {
+          background: url(img/new-today-path.svg) center no-repeat;
+          background-size: contain;
+        }
+
+        .house {
+          width: 50%;
+          height: $height-card-mobile;
+          flex-grow: 1;
+
+          &[disabled] {
+            display: none;  // don't display in flexbox at all
+          }
+
+          .assets {
+            display: none;
+          }
+
+          &.iced {
+            height: auto;
+            min-height: $height-icedcard-mobile;
+
+            .card {
+              h3, h4 {
+                display: none;
+              }
+            }
+
+            // fade out iced cards
+            &::after {
+              z-index: 100;
+              position: absolute;
+              content: "";
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0, 0, 0, 0.5);
+              pointer-events: none;
+            }
+          }
+        }
+      }
+
+      #ground, #road, .easter-egg {
         display: none;
       }
+    }
+
+    #village-footer {
+      margin-top: 32px;
     }
   }
 
   /** Mobile village (one col) */
   @media (max-width: $width-twocol) {
-    .house {
-      width: 100%;
+    #village-all {
+      #houses {
+        .house {
+          width: 100%;
+        }
+      }
     }
   }
 }

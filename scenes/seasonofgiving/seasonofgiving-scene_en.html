@@ -25,6 +25,21 @@ Season of giving scene.
 -->
 <dom-module id="seasonofgiving-scene">
 <template>
+  <style>
+    :host([mode="portal"]) .Button--copy {
+      display: none !important;
+    }
+    :host([mode="portal"]) .Button-download {
+      display: none !important;
+    }
+    :host([mode="portal"]) .Button-print {
+      display: none !important;
+    }
+    :host([mode="portal"]) .shareButtons {
+      display: none !important;
+    }
+  </style>
+
   <div id="module-seasonofgiving">
     <div class="seasonofgiving">
       <div class="scene">
@@ -222,9 +237,6 @@ Season of giving scene.
         </div>
         <div class="Tool-panel">
           <div class="Tool-wrapper">
-            <a class="Tool-backContainer" id="global-back-to-village" href="{{pageUrl}}#village">
-              <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
-            </a>
             <div class="Tool-header-container">
               <div class="Tool-header"></div>
             </div>
@@ -317,8 +329,7 @@ Season of giving scene.
       </div>
     </div>
     <div class="gui">
-      <div class="board board--game"><a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
-          <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+      <div class="board board--game">
         <div class="logo"></div>
         <div class="score">
           <div class="label">
@@ -439,6 +450,7 @@ Season of giving scene.
     },
     onShow: function() {
       this.fire('sound-ambient', 'spirit_start');
+      this.fire('sound-ambient', 'music_start_scene');
       var module = this.$['module-seasonofgiving'];
 
       this.game = new scenes.seasonofgiving.Game(module, this.componentDir);

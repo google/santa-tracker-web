@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "Vào Đêm giáng sinh, chúng tôi sẽ tự hào giới thiệu bản xem trước bảng điều khiển của Ông già Noel -- công nghệ này hỗ trợ xe trượt tuyết của ông trong suốt cuộc hành trình vòng quanh thế giới. Chúng tôi đã nhận được bản xem trước đặc biệt này từ một trong nhiều chú lùn là nhà phát triển của ông già Noel. Họ đang làm việc chăm chỉ ở Bắc Cực để giúp ông già Noel chuẩn bị cho ngày trọng đại của mình. Bảng điều khiển của ông già Noel - đề cao điểm mới nhất và tuyệt vời nhất trong công nghệ Google Maps và kỹ thuật xe trượt tuyết - sẽ cho phép bạn theo dõi tiến trình của ông trên khắp thế giới, đồng thời tìm hiểu một chút về một số điểm dừng chân của ông trong cuộc hành trình."
+		"message": "Vào đêm Giáng sinh, chúng tôi sẽ tự hào hiển thị trang tổng quan của ông già Noel, công nghệ hỗ trợ xe trượt tuyết trong cuộc hành trình vòng quanh thế giới của ông. Chúng tôi đã nhận được bản xem trước đặc biệt này từ một trong nhiều chú lùn nhà phát triển của ông già Noel, những người làm việc chăm chỉ ở Bắc cực để giúp ông già Noel chuẩn bị cho ngày trọng đại của ông. Trang tổng quan của ông già Noel - mô tả điều mới nhất và hay nhất về công nghệ Google Maps và cấu tạo xe trượt tuyết - sẽ cho phép bạn theo dõi tiến trình của ông già Noel trên thế giới và cũng tìm hiểu một chút về một số điểm dừng của ông trong suốt cuộc hành trình."
 	},
 	"about-content-three": {
 		"message": "Theo chân ông già Noel trên Google Maps được tạo và phát triển bởi Google, cùng với một chút trợ giúp từ các chú lùn của ông già Noel. Cần trợ giúp hoặc có thêm câu hỏi? Hãy truy cập vào \u003ca href=\"//support.google.com/santatracker\"\u003eTrung tâm trợ giúp\u003c/a\u003e của chúng tôi."
 	},
 	"about-content-two": {
-		"message": "Các chú lùn thân thiện của chúng tôi cũng đã mời bạn khám phá ngôi làng của ông già Noel trong khi ông già Noel sẵn sàng cho hành trình của mình. Vì vậy, hãy tiếp tục và khám phá ngôi làng của ông ấy, bạn chỉ có thể tìm thấy một số hoạt động vui nhộn và gặp gỡ một số chú lùn thú vị."
+		"message": "Các chú lùn thân thiện của chúng tôi cũng đã mời bạn khám phá ngôi làng của ông già Noel trong khi ông già Noel sẵn sàng cho cuộc hành trình của mình. Vì vậy, hãy tiếp tục và khám phá ngôi làng của ông, bạn có thể tìm thấy một số hoạt động vui nhộn và gặp gỡ một số chú lùn thú vị."
 	},
 	"about-santa": {
 		"message": "Giới thiệu"
@@ -236,14 +236,80 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Hủy"
+	"close": {
+		"message": "Đóng"
 	},
 	"cm_country_name": {
 		"message": "Cameroon"
 	},
 	"co_country_name": {
 		"message": "Colombia"
+	},
+	"codeboogie-block-jump": {
+		"message": "Nhảy"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Nhảy."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Chỉ sang trái"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Chỉ sang trái."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Bước sang trái"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Bước một bước sang trái."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Chỉ sang phải"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Chỉ sang phải."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Bước sang phải"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Bước một bước sang phải."
+	},
+	"codeboogie-block-shake": {
+		"message": "Lắc hông"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Lắc hông."
+	},
+	"codeboogie-block-split": {
+		"message": "Tách ra"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Tách ra."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Thử điệu nhảy!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Điệu nhảy tiếp theo"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Hãy thử khối bên dưới để khớp với điệu nhảy."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Bạn có biết rằng mình có thể kết thúc điệu nhảy này chỉ bằng các khối {{ideal}} không? Hãy thử sử dụng khối bên dưới."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Động tác đẹp! Bạn đã kết thúc điệu nhảy hoàn hảo."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Bạn đang sử dụng các khối bên phải nhưng hãy thử dùng nhiều khối hơn để hoàn thành điệu nhảy."
+	},
+	"codeboogie-success": {
+		"message": "Thành công!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Xem kỹ!"
 	},
 	"codelab-block-moveeast": {
 		"message": "phía đông"
@@ -326,6 +392,21 @@
 	"copy-me": {
 		"message": "Sao chép liên kết này để chia sẻ tin nhắn của bạn"
 	},
+	"countdown_days": {
+		"message": "Ngày"
+	},
+	"countdown_hours": {
+		"message": "Giờ"
+	},
+	"countdown_minutes": {
+		"message": "Phút"
+	},
+	"countdown_seconds": {
+		"message": "Giây"
+	},
+	"countdown_until": {
+		"message": "Ông già Noel sẽ khởi hành sau"
+	},
 	"countdownlabel": {
 		"message": "Cho đến khi ông già Noel khởi hành"
 	},
@@ -354,7 +435,7 @@
 		"message": "Tiếng Đức"
 	},
 	"de_tradition": {
-		"message": "Ở hầu như mọi thị trấn tại Đức, chợ Giáng sinh mở cửa tại quảng trường thị trấn. Người dân trong thị trấn tụ tập để nghe các ban nhạc kèn đồng và thưởng thức món ăn truyền thống của vùng. Họ ăn bánh gừng hình trái tim, hạnh nhân ngào đường, tất cả các loại đồ ngọt và uống rượu được pha chế (Glühwein) hoặc rượu táo."
+		"message": "Hầu như ở mọi German town, chợ Giáng sinh được mở tại quảng trường thị trấn. Người dân sẽ tụ tập để nghe các ban nhạc kèn đồng \u0026 thưởng thức món ăn truyền thống của vùng. Họ ăn bánh gừng hình trái tim, hạnh nhân ngào đường, các loại đồ ngọt và uống rượu được pha chế (Glühwein) hoặc rượu táo."
 	},
 	"deck": {
 		"message": "Trang trí"
@@ -629,6 +710,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Mới"
+	},
 	"newtoday": {
 		"message": "Mới hôm nay"
 	},
@@ -667,6 +751,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Gấu bắc cực"
+	},
+	"notification": {
+		"message": "Thông báo"
+	},
+	"notification_notice": {
+		"message": "Các chú lùn của ông già Noel sẽ cập nhật cho bạn về lịch trình của ông già Noel"
 	},
 	"np_country_name": {
 		"message": "Nê-pan"
@@ -722,6 +812,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Báo chí"
+	},
 	"pt_language_name": {
 		"message": "Tiếng Bồ Đào Nha"
 	},
@@ -743,8 +836,110 @@
 	"sa_country_name": {
 		"message": "Ả-Rập Xê-út"
 	},
+	"santasearch_hint": {
+		"message": "Gợi ý"
+	},
+	"santasearch_level_lab": {
+		"message": "Ở phòng thí nghiệm"
+	},
+	"santasearch_level_museum": {
+		"message": "Tại bảo tàng"
+	},
+	"santasearch_level_select": {
+		"message": "Đi tiếp!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Tìm kiếm ông già Noel!"
+	},
+	"santasvillage": {
+		"message": "Ngôi làng của Ông già Noel"
+	},
 	"santatracker": {
 		"message": "Theo chân ông già Noel"
+	},
+	"scene_airport": {
+		"message": "Sân bay Bắc Cực"
+	},
+	"scene_app": {
+		"message": "Ứng dụng Android"
+	},
+	"scene_boatload": {
+		"message": "Súng bắn quà"
+	},
+	"scene_briefing": {
+		"message": "Chỉ dẫn của Bà già Noel"
+	},
+	"scene_callfromsanta": {
+		"message": "Cuộc gọi từ Ông già Noel"
+	},
+	"scene_citylights": {
+		"message": "Ánh đèn thành phố"
+	},
+	"scene_codeboogie": {
+		"message": "Vũ điệu của mã"
+	},
+	"scene_codelab": {
+		"message": "Phòng thí nghiệm mã"
+	},
+	"scene_commandcentre": {
+		"message": "Điều khiển nhiệm vụ"
+	},
+	"scene_giftmatch": {
+		"message": "Trò chơi khớp quà"
+	},
+	"scene_gumball": {
+		"message": "Độ nghiêng Gumball"
+	},
+	"scene_jamband": {
+		"message": "Ban nhạc của chú lùn"
+	},
+	"scene_jetpack": {
+		"message": "Động cơ phản lực của chú lùn"
+	},
+	"scene_matching": {
+		"message": "Thử tài trí nhớ"
+	},
+	"scene_mercator": {
+		"message": "Câu đố trên bản đồ"
+	},
+	"scene_postcard": {
+		"message": "Thiệp Ông già Noel"
+	},
+	"scene_presentbounce": {
+		"message": "Trò chơi nảy quà"
+	},
+	"scene_presentdrop": {
+		"message": "Thả quà"
+	},
+	"scene_racer": {
+		"message": "Cuộc đua của Rudolph mũi đỏ"
+	},
+	"scene_santasearch": {
+		"message": "Tìm kiếm Ông già Noel"
+	},
+	"scene_santaselfie": {
+		"message": "Ảnh tự sướng của Ông già Noel"
+	},
+	"scene_seasonofgiving": {
+		"message": "Mùa trao tặng"
+	},
+	"scene_traditions": {
+		"message": "Truyền thống trong ngày lễ"
+	},
+	"scene_translations": {
+		"message": "Chuyển đổi"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Xe của chú lùn"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Ông già Noel đang khởi hành"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Ông già Noel đã trở lại"
+	},
+	"scene_windtunnel": {
+		"message": "Hầm gió"
 	},
 	"score": {
 		"message": "Điểm số"
@@ -795,7 +990,7 @@
 		"message": "Chad"
 	},
 	"terms-and-privacy": {
-		"message": "Điều khoản \u0026 bảo mật"
+		"message": "Điều khoản \u0026amp; Bảo mật"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -819,7 +1014,7 @@
 		"message": "Tunisia"
 	},
 	"today_only": {
-		"message": "Chỉ Hôm nay"
+		"message": "Chỉ hôm nay"
 	},
 	"today_only_1": {
 		"message": "Chỉ hôm nay"
@@ -863,14 +1058,23 @@
 	"tracker_santa_update": {
 		"message": "NỘI DUNG CẬP NHẬT TỪ ÔNG GIÀ NOEL"
 	},
+	"tracker_santa_update_1": {
+		"message": "Nội dung cập nhật về ông già Noel"
+	},
 	"tracker_see_route": {
 		"message": "Xem tuyến đường"
+	},
+	"tracker_track": {
+		"message": "Theo chân ông già Noel"
 	},
 	"tracker_weather": {
 		"message": "Thời tiết"
 	},
 	"tracker_world_facts": {
 		"message": "BẠN CÓ BIẾT"
+	},
+	"tracker_world_facts_1": {
+		"message": "Dữ liệu trên thế giới"
 	},
 	"tracker_your_location": {
 		"message": "Vị trí của bạn"
@@ -4546,6 +4750,27 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Hãy trở lại vào ngày 24 và giúp chúng tôi theo chân Ông già Noel suốt cả đêm!"
+	},
+	"village_explore": {
+		"message": "Khám phá, chơi và học với các Chú lùn của Ông già Noel suốt cả Tháng 12"
+	},
+	"village_get_the_app": {
+		"message": "Tải ứng dụng"
+	},
+	"village_more": {
+		"message": "Có nhiều cách hơn để khám phá"
+	},
+	"village_santa_cardboard": {
+		"message": "Ông già Noel trên Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Ông già Noel trên Google Cast"
+	},
+	"village_takesoff": {
+		"message": "Ông già Noel sẽ khởi hành sau"
 	},
 	"vn_country_name": {
 		"message": "Việt Nam"

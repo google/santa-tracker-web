@@ -73,7 +73,7 @@ app.Quiz.prototype.nextQuestion = function() {
   this.current.choices = Array.prototype.map.call(questionElem.querySelectorAll('.question-choices > div'), function(el) {
     return el.textContent;
   });
-  this.current.answer = questionElem.getAttribute('data-answer');
+  this.current.hint = questionElem.getAttribute('data-hint');
 
   app.shared.Coordinator.after(app.Constants.QUESTION_READ_TIME, this.showChoices_.bind(this));
 };
