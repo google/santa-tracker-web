@@ -37,7 +37,12 @@ Santa Tracker app.
   <santa-tracker-router id="router" route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
 
   <!-- Chrome, including toolbar and sidebar -->
-  <santa-chrome id="chrome" mode$="{{mode}}" disabled="{{isCastMode(mode)}}" color="{{_colorForRoute(route, _houses)}}" today-house="{{todayHouse}}">
+  <santa-chrome id="chrome"
+      mode$="{{mode}}"
+      disabled="{{isCastMode(mode)}}"
+      color="{{_colorForRoute(route, _houses)}}"
+      today-house="{{todayHouse}}"
+      mute="{{userMute}}">
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
@@ -358,6 +363,25 @@ Polymer({
     },
 
     /**
+     * Whether the sounds are globally muted by the user.
+     */
+    userMute: Boolean,
+
+    /**
+     * Whether the page is in the background.
+     */
+    pageInBackground: Boolean,
+
+    /**
+     * Computes the global mute state.
+     */
+    _globalMute: {
+      type: Boolean,
+      observer: '_globalMuteChanged',
+      computed: '_computeGlobalMute(userMute, pageInBackground)'
+    },
+
+    /**
      * If the browser is hdpi.
      */
     hdpi: {
@@ -545,8 +569,12 @@ Polymer({
 
     this.analyticsService = new Analytics();
     this.visibilityService = new VisibilityManager(this);
-    this.visibilityService.addOnPauseListener(this.onPause.bind(this));
-    this.visibilityService.addOnResumeListener(this.onResume.bind(this));
+    this.visibilityService.addOnPauseListener(function() {
+      this.pageInBackground = true;
+    }.bind(this));
+    this.visibilityService.addOnResumeListener(function() {
+      this.pageInBackground = false;
+    }.bind(this));
   },
 
   attached: function() {
@@ -858,19 +886,23 @@ Polymer({
     }
   },
 
-  onPause: function() {
-    this.fire('sound-ambient', 'global_blur');
-    this.fire('sound-ambient', 'global_pause');
-    if (this.selectedScene && this.selectedScene.fire) {
-      this.selectedScene.fire('scene-pause', true);
-    }
+  _computeGlobalMute: function(userMute, pageInBackground) {
+    return userMute || pageInBackground;
   },
 
-  onResume: function() {
-    this.fire('sound-ambient', 'global_focus');
-    this.fire('sound-ambient', 'global_unpause');
-    if (this.selectedScene && this.selectedScene.fire) {
-      this.selectedScene.fire('scene-pause', false);
+  _globalMuteChanged: function(newValue) {
+    if (newValue)  {
+      this.fire('sound-ambient', 'global_blur');
+      this.fire('sound-ambient', 'global_pause');
+      if (this.selectedScene && this.selectedScene.fire) {
+        this.selectedScene.fire('scene-pause', true);
+      }
+    } else {
+      this.fire('sound-ambient', 'global_focus');
+      this.fire('sound-ambient', 'global_unpause');
+      if (this.selectedScene && this.selectedScene.fire) {
+        this.selectedScene.fire('scene-pause', false);
+      }
     }
   },
 

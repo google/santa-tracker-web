@@ -247,8 +247,7 @@ specific language governing permissions and limitations under the License.
       mute: {
         type: Boolean,
         value: false,
-        notify: true,
-        observer: '_muteChanged'
+        notify: true
       },
 
       /**
@@ -309,14 +308,6 @@ specific language governing permissions and limitations under the License.
 
     _toggleSounds: function() {
       this.mute = !this.mute;
-    },
-
-    _muteChanged: function() {
-      if (this.mute) {
-        this.fire('sound-ambient', 'global_sound_off');
-      } else {
-        this.fire('sound-ambient', 'global_sound_on');
-      }
     },
 
     _calculateMuteClass: function(mute) {
