@@ -576,13 +576,14 @@ Village scene (2015).
       // Preload the first ~7 houses.
       var houses = this.houses || (this.santaApp && this.santaApp._houses) || [];
       for (var i = 0; i < 7 && i < houses.length; ++i) {
-        var house = this.houses[i];
+        var house = houses[i];
+        var id = house.module;
         var preload = [
-          'img/building-' + house + '.svg',
-          'img/card-' + house + '_2x.png'
+          'img/building-' + id + '.svg',
+          'img/card-' + id + '_2x.png'
         ];
         if (house.iced) {
-          preload.push('img/building-' + house + '-ice.svg')
+          preload.push('img/building-' + id + '-ice.svg')
         }
         this.preloadImages(preload);
       }
