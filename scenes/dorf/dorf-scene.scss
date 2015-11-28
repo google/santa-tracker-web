@@ -13,6 +13,16 @@ $toolbar-size: 64px;
   position: relative;
   min-width: 320px;  // force 320px min width, i.e., iPhone 4/5+
 
+  p {
+    margin: 35px auto 0;
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    max-width: 360px;
+  }
+
   header {
     // NOTE: This is intentionally not position: relative (or absolute, ...)
     // so that we don't create a new z-index heirarchy. Conveniently, the
@@ -174,6 +184,11 @@ $toolbar-size: 64px;
             height: 140px * $tablet-desktop-ratio;
           }
         }
+        @media (max-width: ($width-tablet - 1)) {
+          // On mobile, just pin pegman to the left side of the screen.
+          margin-top: 50px;
+          margin-left: 50px;
+        }
       }
     }
 
@@ -226,16 +241,6 @@ $toolbar-size: 64px;
         transform: rotateZ(-3deg);
       }
 
-      p {
-        margin: 35px 0 0 0;
-        color: #fff;
-        text-align: center;
-        font-weight: 400;
-        font-size: 22px;
-        line-height: 26px;
-        max-width: 360px;
-      }
-
       /** Make header elements small on mobile */
       @media (max-width: $width-twocol) {
         h1 {
@@ -264,6 +269,10 @@ $toolbar-size: 64px;
     z-index: $base-background-z-index;
     position: relative;  // nb. creates a z-index layer for children
     overflow: hidden;
+
+    #mobiletext {
+      display: none;
+    }
 
     #houses {
       position: relative;
@@ -390,12 +399,8 @@ $toolbar-size: 64px;
     @include will-change();
 
     p {
-      margin: 35px 0 0 0;
-      max-width: 600px;
-      margin: 0 auto;
-      margin-top: 20px;
+      margin: 20px auto 0;
       color: #3474ba;
-      text-align: center;
       font-weight: 500;
       font-size: 22px;
       line-height: 26px;
@@ -651,13 +656,55 @@ $toolbar-size: 64px;
   @media (max-width: $width-tablet - 1) {
     font-size: 14px;
 
+    header {
+      margin-bottom: -80px;
+
+      p {
+        display: none;  // remove first "Explore, play" etc text
+      }
+
+      #header-skyeffect,
+      #header-background {
+        margin-top: -180px;
+      }
+    }
+
     #village-all {
+      #mobiletext {
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.33);
+        display: block;
+        background: #57d693;
+        color: white;
+        padding: 18px 24px;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+
+        p {
+          font-size: 16px;
+          font-weight: 400;
+          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125);
+          margin: 0 auto;
+        }
+      }
+
       #houses {
         align-items: stretch;
+
+        .house-new-today {
+          display: none;
+        }
+        h5 {
+          display: none;  // this is Play/Learn etc below houses
+        }
+
+        .card.new-today {
+          background: url(img/new-today-path.svg) center no-repeat;
+          background-size: contain;
+        }
 
         .house {
           width: 50%;
           height: $height-card-mobile;
+          flex-grow: 1;
 
           &[disabled] {
             display: none;  // don't display in flexbox at all

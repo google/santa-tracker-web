@@ -90,7 +90,7 @@ specific language governing permissions and limitations under the License.
 
   <paper-drawer-panel id="sidebar" force-narrow
                       drawer-width="[[_computeDrawerWidth(_smallScreen)]]">
-    <div id="drawer" drawer class="scroll">
+    <div id="drawer" drawer class="scroll" on-click="_closeDrawerLink">
       <paper-toolbar class="close-sidebar" on-click="closeDrawer" tabindex="0">
         <iron-icon icon="close"></iron-icon>
         <span><i18n-msg msgid="close">PLACEHOLDER_i18n</i18n-msg></span>
@@ -286,6 +286,20 @@ specific language governing permissions and limitations under the License.
      */
     closeDrawer: function() {
       this.$.sidebar.closeDrawer();
+    },
+
+    /**
+     * Close the drawer, if the generating event has a link in its heirarchy.
+     */
+    _closeDrawerLink: function(e) {
+      var t = e.target;
+      while (t && t != this) {
+        if (t.localName == 'a') {
+          this.closeDrawer();
+          return;
+        }
+        t = t.parentNode;
+      }
     },
 
     _computeDec24thString: function(lang) {

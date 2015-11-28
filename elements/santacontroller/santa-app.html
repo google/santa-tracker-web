@@ -727,7 +727,6 @@ Polymer({
 
   _selectedSceneChanged: function(newValue, oldValue) {
     this.$.chrome.isFixedToolbar = (newValue != this.$.village);
-    this.$.chrome.closeDrawer();
 
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;
