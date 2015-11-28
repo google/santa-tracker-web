@@ -88,7 +88,7 @@ Village scene (2015).
         </div>
         <template id="housesloop" is="dom-repeat" items="{{houses}}" observe="iced disabled">
           <div id$="house-{{item.module}}"
-               class$="house house-{{item.module}} {{_calculateClass(item, item.iced)}}"
+               class$="house house-{{item.module}} {{_calculateClass(item, item.iced, todayHouse)}}"
                disabled$="{{item.disabled}}">
             <div class="assets housez">
               <div class="building"></div>
@@ -100,13 +100,19 @@ Village scene (2015).
             <template is="dom-if" if="{{!item.disabled}}">
               <div class="action">
                 <a class="link" href="{{_calculateHref(item)}}">
-                  <div class$="card card-{{item.module}} {{_calculateNewTodayClass(todayHouse, item.module)}}">
-                    <div class="image">
+                  <div class$="card card-{{item.module}}">
+                    <div class="image"></div>
+                    <div class="color" style$="background: {{item.color}}"></div>
+                    <div class="text">
+                      <div class="launchdate" hidden$="{{item.hideDate}}">{{_calculateDateNo(item.launchDate)}}</div>
+                      <h4>{{_string('category', item.category, santaApp.strings)}}</h4>
+                      <h3>{{_string('scene', item.module, santaApp.strings)}}</h3>
+                      <div class="img-lock" hidden$="{{!item.iced}}"></div>
                     </div>
-                    <h4>{{_string('category', item.category, santaApp.strings)}}</h4>
-                    <h3>{{_string('scene', item.module, santaApp.strings)}}</h3>
-                    <template is="dom-if" if="{{!item.hideDate}}">
-                      <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
+                    <template is="dom-if" if="{{_equals(todayHouse, item.module)}}">
+                      <div class="label">
+                        <i18n-msg msgid="new">PLACEHOLDER_i18n</i18n-msg>
+                      </div>
                     </template>
                   </div>
                 </a>
@@ -479,8 +485,11 @@ Village scene (2015).
     /**
      * Calculates any optional classes to apply on the `.house` div.
      */
-    _calculateClass: function(house, iced) {
-      return iced ? 'iced' : '';
+    _calculateClass: function(house, iced, todayHouse) {
+      var out = '';
+      if (iced) { out += ' iced'; }
+      if (todayHouse == house.module) { out += ' new-today'; }
+      return out;
     },
 
     /**
