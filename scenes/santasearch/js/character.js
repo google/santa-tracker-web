@@ -60,8 +60,9 @@ app.Character.prototype.initialize = function(characterKeys, mapDimensions) {
 
   let characterBoundaries = characterElem[0].getBoundingClientRect();
 
+  let startOffset = this.mapElem.offset().top;
   let leftOffset = (mapDimensions.width - this.mapElem.width()) / 2;
-  let topOffset = (mapDimensions.height - this.mapElem.height()) / 2;
+  let topOffset = ((mapDimensions.height - this.mapElem.height()) / 2) - startOffset;
 
   this.location = {
     left: (characterBoundaries.left + leftOffset) / mapDimensions.width,
@@ -76,7 +77,6 @@ app.Character.prototype.initialize = function(characterKeys, mapDimensions) {
 
 /**
  * Positions a character based on mapElementDimensions
- * @param {Object} location Width/Height scale attributes.
  */
 app.Character.prototype.updatePosition = function(mapDimensions) {
   if (!this.elem) {
