@@ -165,7 +165,7 @@ window.HOUSES = [{
 }, {
   module: "citylights",
   iced: true,
-  color: '#283344',
+  color: '#182a4a',
   launchDate: new Date('Dec 19, 2015'),
   category: "learn"
 }, {
