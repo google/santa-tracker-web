@@ -207,7 +207,7 @@ specific language governing permissions and limitations under the License.
           <paper-icon-button id="facebook" src="/elements/toolbar/img/share-facebook.svg"></paper-icon-button> -->
         </div>
 
-        <div id="sound" style$="background-color: {{color}}" hidden?="{{_isModeEmbed(mode)}}" class$="{{_calculateMuteClass(mute)}}">
+        <div id="sound" style$="background-color: {{color}}" class$="{{_calculateMuteClass(mute)}}">
           <button on-click="_toggleSounds"><i></i></button>
         </div>
 
@@ -321,10 +321,6 @@ specific language governing permissions and limitations under the License.
 
     _calculateMuteClass: function(mute) {
       return mute ? 'off' : 'on';
-    },
-
-    _isModeEmbed: function(mode) {
-      return mode == 'web_embed';
     },
 
     /**
