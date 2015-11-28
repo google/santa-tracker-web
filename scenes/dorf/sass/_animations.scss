@@ -123,6 +123,7 @@
 }
 
 @keyframes #{$name}-cloud {
-  0%   { opacity: 1; transform: translate(-20vw); }
-  100% { opacity: 1; transform: translate(+120vw); }
+  0%   { transform: translate(-20vw) scale(0.5); }
+  50%  { transform: translate(50vw) scale(1); }
+  100% { transform: translate(+120vw) scale(0.5); }
 }
