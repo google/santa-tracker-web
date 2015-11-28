@@ -3,7 +3,7 @@ $grid-background-color: #00904a;
 $character-grid-border-color: $grid-background-color;
 $character-grid-background-color: #2baf4c;
 
-$character-focus-size: 240em;
+$character-focus-size: 210em;
 $character-focus-background-color: #93D629;
 
 $character-ui-padding-desktop: calc(50% - 550em);
@@ -52,7 +52,7 @@ $character-ui-padding-desktop: calc(50% - 550em);
     height: $character-focus-size;
     left: 50%;
     margin-left: -($character-focus-size / 2);
-    margin-top: -($character-focus-size / 2) - 25em;
+    margin-top: -($character-focus-size / 2) - 10em;
     position: absolute;
     top: 50%;
     width: $character-focus-size;
@@ -60,6 +60,13 @@ $character-ui-padding-desktop: calc(50% - 550em);
 
   &__foreground {
     transition: transform .2s ease-in-out;
+  }
+
+  &__hint {
+    bottom: 70em;
+    display: none;
+    left: 20em;
+    position: absolute;
   }
 
   &__item--focused {
@@ -71,6 +78,12 @@ $character-ui-padding-desktop: calc(50% - 550em);
 
     .drawer__foreground {
       transform: scale(1.4) translateY(-10em);
+    }
+
+    @media (min-width: 960px) {
+      .drawer__hint {
+        display: block;
+      }
     }
   }
 
