@@ -87,12 +87,7 @@ app.Game.prototype._getRandomHintDistanceOffset = function() {
  * @private
  */
 app.Game.prototype._hintLocation = function(characterName) {
-  // if (this.controls.scale !== 2) {
-  //   this.controls.scale = 2;
-  //   this._scale(this.controls.scale);
-  // }
-
-  let scale = 3 / this.controls.scale;
+  let scale = app.Constants.HINT_ZOOM / this.controls.scale;
 
   // The location of the character is a top/left percentage of the map
   let characterLocation = this.characters.getCharacterLocation(characterName);
@@ -106,26 +101,21 @@ app.Game.prototype._hintLocation = function(characterName) {
   let targetX = this.mapElementDimensions.width * leftScale;
   let targetY = this.mapElementDimensions.height * topScale;
 
+  let scaledMapWidth = this.mapElementDimensions.width * scale;
+  let scaledMapHeight = this.mapElementDimensions.height * scale;
+
+  targetX = this._clampXPanForWidth(targetX, scaledMapWidth);
+  targetY = this._clampYPanForHeight(targetY, scaledMapHeight);
+
   this.controls.enabled = false;
-
+  this.mapElem.css('transform', `translate3d(${targetX}px, ${targetY}px, 0) scale(${scale}, ${scale})`);
   this.mapElem.css('transition-duration', `${app.Constants.HINT_BUTTON_PAN_TIME}s`);
-
-  let tr = `translate3d(${targetX}px, ${targetY}px, 0) scale(${scale}, ${scale})`
-  this.mapElem.css('transform', tr);
-  console.log('Hint fired');
-  console.log(targetX, targetY);
-  console.log(scale);
-  console.log(tr);
-
   this.hintActive = true;
 
-  // this.controls.pan.x = targetX;
-  // this.controls.pan.y = targetY;
-  //
   setTimeout(function() {
     this.mapElem.css('transition-duration', '0s');
     this.controls.enabled = true;
-    this.controls.scale = 3;
+    this.controls.scale = app.Constants.HINT_ZOOM;
     this.controls.pan.x = targetX;
     this.controls.pan.y = targetY;
     this.controls.needsScaleUpdate = true;
@@ -162,32 +152,47 @@ app.Game.prototype._scale = function(value) {
   this.characters.updateCharacters();
 }
 
+app.Game.prototype._clampXPanForWidth = function(panX, width) {
+  let max = (width - window.innerWidth) / 2;
+
+  let diff = max - Math.abs(panX);
+
+  if (diff < 0) {
+    panX = (panX < 0) ? -max : max;
+  }
+
+  return panX;
+};
+
+app.Game.prototype._clampYPanForHeight = function(panY, height) {
+  let max = (height - window.innerHeight) / 2;
+
+  if (panY < 0) {
+    max += this.drawerHeight;
+  }
+
+  let diff = max - Math.abs(panY);
+
+  if (diff < 0) {
+    panY = (panY < 0) ? -max : max;
+  }
+
+  return panY;
+}
+
 /**
  * Makes sure that the player can not pan out of the map
  * @private
  */
 app.Game.prototype._updatePan = function() {
   let panX = this.controls.pan.x;
+  let mapWidth = this.mapElementDimensions.width;
+
   let panY = this.controls.pan.y;
+  let mapHeight = this.mapElementDimensions.height;
 
-  let panXMax = (this.mapElementDimensions.width - window.innerWidth) / 2;
-  let panYMax = (this.mapElementDimensions.height - window.innerHeight) / 2;
-
-  let panXDiff = panXMax - Math.abs(panX);
-
-  if (panY < 0) {
-    panYMax += this.drawerHeight;
-  }
-
-  let panYDiff = panYMax - Math.abs(panY);
-
-  if (panXDiff < 0) {
-    this.controls.pan.x = (panX < 0) ? -panXMax : panXMax;
-  }
-
-  if (panYDiff < 0) {
-    this.controls.pan.y = (panY < 0) ? -panYMax : panYMax;
-  }
+  this.controls.pan.x = this._clampXPanForWidth(panX, mapWidth);
+  this.controls.pan.y = this._clampYPanForHeight(panY, mapHeight);
 }
 
 /**

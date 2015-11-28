@@ -23,8 +23,9 @@ goog.provide('app.Constants');
  */
 app.Constants = {
   ZOOM_MAX: 4,
+  HINT_ZOOM: 2,
   HINT_BUTTON_PAN_TIME: 0.6, // seconds
-  HINT_RANDOM_DISTANCE: 25, // percentage of map (0 - 100)
+  HINT_RANDOM_DISTANCE: 15, // percentage of map (0 - 100)
   SPAWNS: {
     'museum': {
       'santa': [
