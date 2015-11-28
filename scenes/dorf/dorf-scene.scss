@@ -100,15 +100,25 @@ $toolbar-size: 64px;
         animation: #{$name}-plane 75s infinite linear;
       }
       .cloud {
-        opacity: 0;  // this will be overwritten by animation
+        opacity: 0.5;
+        transform: translate(-20vw);  // rest off-screen
         position: absolute;
         width: 113px;
         height: 68px;
         margin-left: -(113px/2);
-        background: url(img/cloud-big_2x.png) center no-repeat;
+        background: transparent center no-repeat;
         background-size: contain;
         // this only animates across the screen for <10% of the time
         animation: #{$name}-cloud 25s infinite linear;
+      }
+      .cloud0 {
+        background-image: url(img/cloud1.svg);
+      }
+      .cloud1 {
+        background-image: url(img/cloud2.svg);
+      }
+      .cloud2 {
+        background-image: url(img/cloud3.svg);
       }
       .skydive {
         animation: #{$name}-skydive 40s infinite ease-in;
