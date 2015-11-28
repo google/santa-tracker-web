@@ -1,12 +1,8 @@
 ##{$name} {
   .character {
+    left: 50%;
     position: absolute;
-
-    &-collider {
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
+    top: 50%;
 
     &--santa,
     &--santa-shadow {

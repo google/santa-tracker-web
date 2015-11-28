@@ -31,7 +31,7 @@ $hint-shadow-color: #cd6a17;
   }
 
   @media (min-width: 960px) {
-    .drawer__character-wrapper--focused .hint {
+    .drawer__item--focused .hint {
       display: block;
     }
   }
