@@ -196,7 +196,7 @@ $toolbar-size: 64px;
         }
         @media (max-width: ($width-tablet - 1)) {
           // On mobile, just pin pegman to the left side of the screen.
-          margin-left: calc(50%-100px);
+          margin-left: calc(50% - 100px);
           margin-top: 50px;
         }
       }
