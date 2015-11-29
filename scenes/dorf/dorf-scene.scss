@@ -195,7 +195,7 @@ $toolbar-size: 64px;
           }
         }
         @media (max-width: ($width-tablet - 1)) {
-          // On mobile, just pin pegman to the left side of the screen.
+          // Land pegman right in the middle of the village, where there's just snow.
           margin-left: calc(50% - 100px);
           margin-top: 50px;
         }
