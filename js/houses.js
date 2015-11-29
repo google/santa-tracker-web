@@ -86,6 +86,7 @@ window.HOUSES = [{
 }, {
   module: "santasearch",
   iced: true,
+  color: '#00904a',
   launchDate: new Date('Dec 7, 2015'),
   category: "play"
 }, {
