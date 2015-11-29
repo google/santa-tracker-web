@@ -125,7 +125,7 @@ santa-chrome {
     pointer-events: none;  // make sure scroll events pass through toolbar.
     background-color: transparent;
 
-    paper-icon-button[icon="menu"] {
+    paper-icon-button[icon="santa:menu"] {
       margin-right: 8px !important;
     }
 
