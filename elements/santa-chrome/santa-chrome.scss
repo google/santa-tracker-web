@@ -23,6 +23,9 @@ santa-chrome {
       }
       a {
         color: #64ae69;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
 
@@ -61,6 +64,18 @@ santa-chrome {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
+
+      .lock {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url(img/lock.svg) 90% 50% no-repeat;
+        background-color: rgba(87, 214, 147, 0.5);
+        background-size: 42px 42px;
+      }
     }
     @each $scene in $scenes {
       .menucard-#{$scene} {
