@@ -65,7 +65,7 @@ Village scene (2015).
           <countdown-timer id="count"
                            animate="{{!_equal(santaApp.mode, 'cast')}}"
                            santa-service="[[santaService]]"
-                           count-down-end-date="[[countDownEndDate]]"
+                           countdown-end-at="[[countdownEndAt]]"
                            finished="{{countdownFinished}}">
             <h3><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h3>
             <h3><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h3>
@@ -193,7 +193,7 @@ Village scene (2015).
       </div>
     </div>
     <div id="village-footer">
-      <p><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
+      <p hidden$="{{countdownFinished}}"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
       <div id="village-footer-elves"></div>
     </div>
   </div><!-- #module-dorf -->
@@ -308,6 +308,8 @@ Village scene (2015).
         readOnly: true,
         value: Object.freeze(EASTER_EGGS)
       },
+      countdownFinished: Boolean,
+
       /**
        * URL to share. If null, shares the current href.
        */
@@ -482,7 +484,7 @@ Village scene (2015).
 
     _santaAppChanged: function() {
       this.santaService = this.santaApp.santaService;
-      this.countDownEndDate = this.santaApp.countDownEndDate;
+      this.countdownEndAt = this.santaApp.countdownEndAt;
     },
 
     /**
