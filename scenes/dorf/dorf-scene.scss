@@ -54,7 +54,7 @@ $toolbar-size: 64px;
       height: 630px;
       overflow: hidden;
 
-      > * {
+      span {
         display: inline-block;
         position: absolute;
       }
@@ -101,7 +101,7 @@ $toolbar-size: 64px;
       }
       .cloud {
         opacity: 0.5;
-        transform: translate(-20vw);  // rest off-screen
+        transform: translate(-400px);  // rest off-screen
         position: absolute;
         width: 113px;
         height: 68px;
