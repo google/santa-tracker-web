@@ -43,7 +43,7 @@ function VisibilityManager() {
   this.iframeLocks_ = 0;
 
   /**
-   * Whether this page has focus.
+   * Whether this page has focus. Used to prevent holding a double lock.
    * @private {boolean}
    */
   this.focus_ = document.hasFocus && document.hasFocus();
@@ -65,7 +65,6 @@ function VisibilityManager() {
   }.bind(this));
 
   document.addEventListener('visibilitychange', function onVisibilityChange(e) {
-    console.info('visibilitychange', document.hidden);
     document.hidden ? this.pause() : this.resume();
   }.bind(this));
 }
