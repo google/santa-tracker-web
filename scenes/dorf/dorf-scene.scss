@@ -197,7 +197,7 @@ $toolbar-size: 64px;
         @media (max-width: ($width-tablet - 1)) {
           // Land pegman right in the middle of the village, where there's just snow.
           margin-left: calc(50% - 100px);
-          margin-top: 50px;
+          margin-top: 20px;
         }
       }
     }
@@ -270,11 +270,10 @@ $toolbar-size: 64px;
     #header-mobileelves {
       background: url(img/mobile-header-elves.svg) center left no-repeat;
       position: absolute;
-      top: 210px;
+      top: 210px + 180px;
       width: 320px;
       left: 20px;
       height: 120px;
-      z-index: $base-raised-z-index;
       display: none;
     }
   }
