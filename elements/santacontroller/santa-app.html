@@ -370,7 +370,10 @@ Polymer({
     /**
      * Whether the page is in the background.
      */
-    pageInBackground: Boolean,
+    pageInBackground: {
+      type: Boolean,
+      readOnly: true
+    },
 
     /**
      * Computes the global mute state.
@@ -568,13 +571,7 @@ Polymer({
     }
 
     this.analyticsService = new Analytics();
-    this.visibilityService = new VisibilityManager(this);
-    this.visibilityService.addOnPauseListener(function() {
-      this.pageInBackground = true;
-    }.bind(this));
-    this.visibilityService.addOnResumeListener(function() {
-      this.pageInBackground = false;
-    }.bind(this));
+    this.visibilityService = new VisibilityManager();
   },
 
   attached: function() {
@@ -640,6 +637,13 @@ Polymer({
       this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
     }
+
+    // NOTE: There's a race here: 'sound-ambient' is registered above, but setting the initial
+    // background state here still causes audio to start on unfocused tabs. This is probably fine,
+    // and Santa will just make noise before its tab is first focused.
+    this.visibilityService.addOnPauseListener(this._setPageInBackground.bind(this, true));
+    this.visibilityService.addOnResumeListener(this._setPageInBackground.bind(this, false));
+    this._setPageInBackground(this.visibilityService.isPaused());
 
     this.santaService = new SantaService(apiClient, this.language);
     this.santaService.sync(this._checkSchedule.bind(this));

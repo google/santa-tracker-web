@@ -15,7 +15,8 @@
  */
 
 // TODO(bckenny): this should really be called "PauseManager" and use native
-// CustomEvents
+// CustomEvents. It's also generally overcomplicated; rather than numbers, this
+// should just hold paused/resumed based on ||'ing conditionals.
 
 /**
  * @constructor
@@ -41,9 +42,30 @@ function VisibilityManager() {
    */
   this.iframeLocks_ = 0;
 
-  window.addEventListener('blur', this.pause.bind(this));
-  window.addEventListener('focus', this.resume.bind(this));
+  /**
+   * Whether this page has focus.
+   * @private {boolean}
+   */
+  this.focus_ = document.hasFocus && document.hasFocus();
+  if (!this.focus_) {
+    this.pause();
+  }
+
+  window.addEventListener('blur', function() {
+    if (this.focus_) {
+      this.focus_ = false;
+      this.pause();
+    }
+  }.bind(this));
+  window.addEventListener('focus', function() {
+    if (!this.focus_) {
+      this.focus_ = true;
+      this.resume();
+    }
+  }.bind(this));
+
   document.addEventListener('visibilitychange', function onVisibilityChange(e) {
+    console.info('visibilitychange', document.hidden);
     document.hidden ? this.pause() : this.resume();
   }.bind(this));
 }
