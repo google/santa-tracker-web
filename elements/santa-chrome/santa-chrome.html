@@ -20,8 +20,8 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../../components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../components/paper-toolbar/paper-toolbar.html">
-<link rel="import" href="../../components/iron-icons/iron-icons.html">
 <link rel="import" href="../../components/iron-icon/iron-icon.html">
+<link rel="import" href="../santa-icons.html">
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="santa-chrome.css" />
@@ -95,7 +95,7 @@ specific language governing permissions and limitations under the License.
     <div id="drawer" drawer class="scroll" on-click="_closeDrawerLink">
       <div hidden$="{{disabled}}">
         <paper-toolbar class="close-sidebar" on-click="closeDrawer" tabindex="0">
-          <iron-icon icon="close"></iron-icon>
+          <iron-icon icon="santa:close"></iron-icon>
           <span><i18n-msg msgid="close">PLACEHOLDER_i18n</i18n-msg></span>
         </paper-toolbar>
         <div class="cards">
@@ -148,7 +148,7 @@ specific language governing permissions and limitations under the License.
         </div>
 
         <div class="lang">
-          <iron-icon icon="language"></iron-icon>
+          <iron-icon icon="santa:language"></iron-icon>
           <select id="language" value="[[santaApp.language]]" on-change="_onLanguageChanged">
             <option value="af">Afrikaans</option>
             <option value="ca">Català</option>
@@ -190,7 +190,7 @@ specific language governing permissions and limitations under the License.
         on-content-scroll="_onContentScroll"
         class$="{{_calculateFixedClass(isFixedToolbar, hideToolbar)}}">
       <paper-toolbar id="toolbar" class$="{{_calculateScrollingClass(scrolledToolbar)}}" hidden$="{{hideToolbar}}">
-        <paper-icon-button icon="menu" hidden$="{{disabled}}" paper-drawer-toggle></paper-icon-button>
+        <paper-icon-button icon="santa:menu" hidden$="{{disabled}}" paper-drawer-toggle></paper-icon-button>
         <div id="logo" title="Google logo"></div>
         <h1 class="title flex">
           <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
