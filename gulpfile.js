@@ -18,19 +18,14 @@
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var $ = require('gulp-load-plugins')();
 var fs = require('fs');
-var changedFlag = require('./gulp_scripts/changed_flag')
-var vulcanize = require('gulp-vulcanize');
-var sass = require('gulp-sass');
+var changedFlag = require('./gulp_scripts/changed_flag');
 var path = require('path');
-var autoprefixer = require('gulp-autoprefixer');
-var foreach = require('gulp-foreach');
 var del = require('del');
 var i18n_replace = require('./gulp_scripts/i18n_replace');
 var closureCompiler = require('gulp-closure-compiler');
 var mergeStream = require('merge-stream');
-var replace = require('gulp-replace');
-var newer = require('gulp-newer');
 var browserSync = require('browser-sync').create();
 
 var STATIC_VERSION = 80;
@@ -261,12 +256,8 @@ gulp.task('rm-dist', function() {
 gulp.task('sass', function() {
   var files = argv.scene ? 'scenes/' + SCENE_GLOB + '/**/*.scss' : SASS_FILES;
   return gulp.src(files, {base: '.'})
-    .pipe(sass({
-      outputStyle: 'compressed'
-    }).on('error', sass.logError))
-    .pipe(autoprefixer({
-      browsers: AUTOPREFIXER_BROWSERS
-    }))
+    .pipe($.sass({outputStyle: 'compressed'}).on('error', $.sass.logError))
+    .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe(gulp.dest('.'));
 });
 
@@ -280,7 +271,7 @@ gulp.task('compile-santa-api-service', function() {
   });
 
   return gulp.src(SERVICE_FILES)
-    .pipe(newer('js/service/service.min.js'))
+    .pipe($.newer('js/service/service.min.js'))
     .pipe(closureCompiler({
       compilerPath: COMPILER_PATH,
       fileName: 'service.min.js',
@@ -331,7 +322,7 @@ gulp.task('compile-scenes', ['compile-santa-api-service'], function() {
       'scenes/' + sceneName + '/js/**/*.js',
       'scenes/shared/js/*.js',
     ])
-    .pipe(newer(dest + '/' + fileName))
+    .pipe($.newer(dest + '/' + fileName))
     .pipe(closureCompiler({
       compilerPath: COMPILER_PATH,
       continueWithWarnings: true,
@@ -397,23 +388,24 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
     ], {base: './'})
     // gulp-vulcanize doesn't currently handle multiple files in multiple
     // directories well right now, so vulcanize them one at a time
-    .pipe(foreach(function(stream, file) {
+    .pipe($.foreach(function(stream, file) {
       var dest = path.dirname(path.relative(__dirname, file.path));
       var sceneName = path.basename(dest);
       var closureConfig = SCENE_CLOSURE_CONFIG[sceneName] || {};
 
-      return stream.pipe(vulcanize({
+      return stream.pipe($.vulcanize({
         stripExcludes: closureConfig.isFrame ? [] : elementsImports,
         inlineScripts: true,
         inlineCss: true,
         stripComments: true,
         dest: dest
       }))
-      .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
-      .pipe(i18n_replace({
+      .pipe($.crisper({scriptInHead: true})) // Separate HTML/JS into separate files.
+      .pipe(argv.pretty ? gutil.noop() : $.replace(/window\.DEV ?= ?true.*/, ''))
+      .pipe($.if('*.html', i18n_replace({
         strict: !!argv.strict,
         path: '_messages',
-      }))
+      })))
       .pipe(gulp.dest(DIST_STATIC_DIR));
     }));
 });
@@ -422,16 +414,17 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
 // here.
 gulp.task('vulcanize-elements', ['rm-dist', 'sass', 'compile-santa-api-service'], function() {
   return gulp.src('elements/elements_en.html', {base: './'})
-    .pipe(vulcanize({
+    .pipe($.vulcanize({
       inlineScripts: true,
       inlineCss: true,
       stripComments: true,
       dest: 'elements'
     }))
-    .pipe(i18n_replace({
+    .pipe($.crisper({scriptInHead: true})) // Separate HTML/JS into separate files.
+    .pipe($.if('*.html', i18n_replace({
       strict: !!argv.strict,
       path: '_messages',
-    }))
+    })))
     .pipe(gulp.dest(DIST_STATIC_DIR));
 });
 
@@ -439,8 +432,8 @@ gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
 gulp.task('i18n_index', function() {
   return gulp.src(['index.html', 'error.html', 'upgrade.html'])
-    .pipe(argv.pretty ? gutil.noop() : replace(/window\.DEV ?= ?true.*/, ''))
-    .pipe(replace('<base href="">',
+    .pipe(argv.pretty ? gutil.noop() : $.replace(/window\.DEV ?= ?true.*/, ''))
+    .pipe($.replace('<base href="">',
         '<base href="' + STATIC_URL + '">'))
     .pipe(i18n_replace({
       strict: !!argv.strict,
