@@ -44,7 +44,9 @@ Village scene (2015).
   </style>
   <div id="module-dorf">
     <header>
-      <div id="header-background"></div>
+      <div id="header-background">
+        <div id="header-mobilevillage"></div>
+      </div>
       <div id="header-skyeffect">
         <span class="sun"></span>
         <span class="plane"></span>
@@ -574,6 +576,12 @@ Village scene (2015).
         'img/header-bg.svg',
         '../../elements/countdown/img/number-bg.svg',
       ]);
+
+      if (window.innerWidth < 768) {
+        this.preloadImages([
+          'img/mobile-header.svg',
+        ]);
+      }
 
       // Preload the first ~7 houses.
       var houses = this.houses || (this.santaApp && this.santaApp._houses) || [];

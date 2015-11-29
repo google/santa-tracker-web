@@ -196,8 +196,8 @@ $toolbar-size: 64px;
         }
         @media (max-width: ($width-tablet - 1)) {
           // On mobile, just pin pegman to the left side of the screen.
+          margin-left: calc(50%-100px);
           margin-top: 50px;
-          margin-left: 50px;
         }
       }
     }
@@ -250,36 +250,22 @@ $toolbar-size: 64px;
         transform: rotateZ(-3deg);
       }
 
-      /** Make header smaller on tablet */
-      @media (max-width: ($width-tablet - 1)) {
-        h1 {
-          font-size: 44px;
-          line-height: 36px;
-        }
+      /** Make countdown text smaller on phones */
+      @media (max-width: $width-twocol) {
         h2 {
           font-size: 10px;
           line-height: 10px;
         }
-        p {
-          font-size: 16px;
-          margin-top: 24px;
-          padding-bottom: 4px;
-        }
       }
+    }
 
-      /** Make header elements small on mobile */
-      @media (max-width: $width-twocol) {
-        h1 {
-          font-size: 36px;
-          line-height: 30px;
-        }
-        p {
-          font-size: 12px;
-          max-width: 260px;
-          margin-top: 12px;
-          padding-bottom: 4px;
-        }
-      }
+    #header-mobilevillage {
+      background: url(img/mobile-header.svg) center bottom no-repeat;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 80px;
+      display: none;
     }
   }
 
@@ -729,13 +715,23 @@ $toolbar-size: 64px;
     header {
       margin-bottom: -80px;
 
-      p {
-        display: none;  // remove first "Explore, play" etc text
+      #header-content {
+        p, h1 {
+          display: none;
+        }
       }
 
-      #header-skyeffect,
+      #header-skyeffect {
+        margin-top: -180px;
+      }
       #header-background {
         margin-top: -180px;
+        height: 305px + 180px;
+        background-position: center;
+      }
+
+      #header-mobilevillage {
+        display: block;
       }
     }
 
