@@ -89,6 +89,8 @@ Video scene.
     'slacking-off': 'uEl2WIZOVdQ',
   };
 
+  var CAST_VOLUME = 30;  // of 100
+
   Polymer({
     is: 'video-scene',
     behaviors: [window.SantaSceneBehavior],
@@ -180,6 +182,12 @@ Video scene.
      * @param {string} detail.label
      */
 
+    attached: function() {
+      if (this.getAttribute('mode') == 'cast') {
+        this.hidePoster();
+      }
+    },
+
     youtubeReady: function() {
       this.start = true;
 
@@ -192,6 +200,7 @@ Video scene.
       // Autoplay on Cast mode.
       if (this.getAttribute('mode') == 'cast') {
         this.playVideo();
+        this.player.setVolume(CAST_VOLUME);
       }
     },
 
