@@ -54,7 +54,7 @@ $toolbar-size: 64px;
       height: 630px;
       overflow: hidden;
 
-      > * {
+      span {
         display: inline-block;
         position: absolute;
       }
@@ -101,7 +101,7 @@ $toolbar-size: 64px;
       }
       .cloud {
         opacity: 0.5;
-        transform: translate(-20vw);  // rest off-screen
+        transform: translate(-400px);  // rest off-screen
         position: absolute;
         width: 113px;
         height: 68px;
@@ -197,7 +197,7 @@ $toolbar-size: 64px;
         @media (max-width: ($width-tablet - 1)) {
           // Land pegman right in the middle of the village, where there's just snow.
           margin-left: calc(50% - 100px);
-          margin-top: 50px;
+          margin-top: 20px;
         }
       }
     }
@@ -265,6 +265,15 @@ $toolbar-size: 64px;
       bottom: 0;
       width: 100%;
       height: 80px;
+      display: none;
+    }
+    #header-mobileelves {
+      background: url(img/mobile-header-elves.svg) center left no-repeat;
+      position: absolute;
+      top: 210px + 180px;
+      width: 320px;
+      left: 20px;
+      height: 120px;
       display: none;
     }
   }
@@ -730,7 +739,8 @@ $toolbar-size: 64px;
         background-position: center;
       }
 
-      #header-mobilevillage {
+      #header-mobilevillage,
+      #header-mobileelves {
         display: block;
       }
     }

@@ -41,6 +41,7 @@ Santa Tracker app.
       mode$="{{mode}}"
       disabled="{{isCastMode(mode)}}"
       color="{{_colorForRoute(route, _houses)}}"
+      tracker-unlocked="{{postCountdown}}"
       today-house="{{todayHouse}}"
       mute="{{userMute}}">
 
@@ -998,11 +999,6 @@ Polymer({
     } else {
       document.body.classList.remove('posttakeoff');
     }
-
-    // On Cast mode, naturally transition to tracker.
-    if (this.mode == 'cast') {
-      this.route = this.defaultRoute;
-    }
   },
 
   /**
@@ -1147,7 +1143,7 @@ Polymer({
       this._checkSchedule();
       if (this.postCountdown && this.route === DEFAULT_ROUTE) {
         // Act as if the user has clicked a link, and update the hash manually.
-        this.$.router.go(TRACKER_ROUTER);
+        this.$.router.go(TRACKER_ROUTE);
       }
     }
   },
