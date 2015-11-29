@@ -223,8 +223,11 @@ $toolbar-size: 64px;
         padding: 60px 0 30px 0;
 
         &.mode-cast {
-          padding-bottom: 60px;
-          transform: scale(1.6);
+          padding-top: 70px;
+          padding-bottom: 55px;
+          transform: scale(1.55);
+
+          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125) !important;
         }
       }
 
@@ -248,6 +251,14 @@ $toolbar-size: 64px;
         color: white;
         text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
         transform: rotateZ(-3deg);
+      }
+
+      .castlogo {
+        width: 120px;
+        height: 30px;
+        background: url(img/google_logo.svg) no-repeat center;
+        background-size: contain;
+        margin-bottom: 14px;
       }
 
       /** Make countdown text smaller on phones */
