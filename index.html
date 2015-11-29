@@ -146,19 +146,6 @@ specific language governing permissions and limitations under the License.
     // Configure api_client specifics.
     (function() {
       switch (apiClient) {
-      case 'web_portal':
-        // For Portal mode, filter out clicks that don't match the current domain.
-        document.body.addEventListener('click', function clickFilter(event) {
-          if (!event.target || event.target.localName != 'a') {
-            return;
-          }
-          var url_check = location.protocol + '//' + document.domain;
-          if (event.target.href.search(url_check)) {
-            event.stopPropagation();
-            event.preventDefault();
-          }
-        });
-        break;
       case 'web_chromecast':
         // Start the Cast Reciever. This needs to happen early, otherwise an error may be reported
         // to clients.
@@ -202,6 +189,21 @@ if (inEmbed) {
 }
 
 window.santaApp = document.querySelector('santa-app');
+
+// For Portal mode, filter out clicks that don't match the current domain.
+if (window.santaApp.mode == 'portal') {
+  document.body.addEventListener('click', function clickFilter(event) {
+    if (!event.target || event.target.localName != 'a') {
+      return;
+    }
+
+    var url_check = location.protocol + '//' + document.domain;
+    if (event.target.href.search(url_check)) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+  });
+}
 
 var POLYMER_ANALYTICS_TIMEOUT_ = 60 * 1000;
 

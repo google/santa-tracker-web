@@ -196,7 +196,8 @@ Village scene (2015).
 <script>
 (function() {
 
-  var SNOWFLAKE_COUNT = 20;
+  var SNOWFLAKE_COUNT = 25;
+  var CLOUD_COUNT = 6;
 
   var RANDOM_EGG_WAIT_MIN = 5000;
   var RANDOM_EGG_WAIT_MAX = 30000;
@@ -208,10 +209,11 @@ Village scene (2015).
   var SNOWFLAKE_SHIMMY_MAX = 10;
   var SNOWFLAKE_SIZE_MIN = 8;
   var SNOWFLAKE_SIZE_MAX = 16;
-  var CLOUD_TOP_MIN = 160;
-  var CLOUD_TOP_MAX = 300;
-  var CLOUD_SPEED_MIN = 60;
-  var CLOUD_SPEED_MAX = 160;
+  var CLOUD_TOP_MIN = 140;
+  var CLOUD_TOP_MAX = 280;
+  var CLOUD_SPEED_MIN = 50;
+  var CLOUD_SPEED_MAX = 200;
+  var CLOUD_TYPES = 3;
 
   var EASTER_EGGS = ['tree', 'blocks', 'statue', 'penguin-revolt',
       'snowman-reading', 'rosetta-stone', 'white-board', 'schoolyard',
@@ -275,6 +277,7 @@ Village scene (2015).
       cloud.style.animationDirection = 'reverse';
     }
     cloud.style.animationDelay = (+delay) + 's';
+    cloud.className = 'cloud cloud' + Math.floor(Math.random() * CLOUD_TYPES);
 
     return elem;
   }
@@ -333,16 +336,12 @@ Village scene (2015).
     attached: function() {
       var skyeffect = this.$['header-skyeffect'];
 
-      var snowflakes = SNOWFLAKE_COUNT;
-      if (this.getAttribute('mode') == 'cast') {
-        snowflakes /= 2;
-      }
-      for (var i = 0; i < snowflakes; ++i) {
+      for (var i = 0; i < SNOWFLAKE_COUNT; ++i) {
         // Delay snowflakes by their count+5 sec.
         var x = snowflakeFactory(null, i + 5);
         skyeffect.appendChild(x);
       }
-      for (var i = 0; i < 4; ++i) {
+      for (var i = 0; i < CLOUD_COUNT; ++i) {
         // Delay clouds by their count+1 sec, and every second is reverse.
         var x = cloudFactory(null, i + 1, i % 2);
         skyeffect.appendChild(x);
@@ -569,6 +568,9 @@ Village scene (2015).
         'img/road.svg',
         'img/ground.svg',
         'img/sun.svg',
+        'img/cloud1.svg',
+        'img/cloud2.svg',
+        'img/cloud3.svg',
         'img/header-bg.svg',
         '../../elements/countdown/img/number-bg.svg',
       ]);
@@ -577,12 +579,13 @@ Village scene (2015).
       var houses = this.houses || (this.santaApp && this.santaApp._houses) || [];
       for (var i = 0; i < 7 && i < houses.length; ++i) {
         var house = houses[i];
+        var id = house.module;
         var preload = [
-          'img/building-' + house + '.svg',
-          'img/card-' + house + '_2x.png'
+          'img/building-' + id + '.svg',
+          'img/card-' + id + '_2x.png'
         ];
         if (house.iced) {
-          preload.push('img/building-' + house + '-ice.svg')
+          preload.push('img/building-' + id + '-ice.svg')
         }
         this.preloadImages(preload);
       }
