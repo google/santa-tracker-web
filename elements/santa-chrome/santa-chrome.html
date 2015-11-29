@@ -34,6 +34,10 @@ specific language governing permissions and limitations under the License.
     --paper-toolbar-height: 56px;
     --paper-toolbar-sm-height: 56px;
   }
+  paper-toolbar /deep/ .toolbar-tools {
+    padding-left: 8px;
+    padding-right: 16px;
+  }
 
   paper-drawer-panel {
     --paper-drawer-panel-scrim: {
@@ -196,12 +200,9 @@ specific language governing permissions and limitations under the License.
           <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
         </h1>
         <div class="shareicons" hidden$="{{disabled}}">
-          <button id="gplus">Google Plus</button>
-          <button id="twitter"><i18n-msg msgid="twitter">PLACEHOLDER_i18n</i18n-msg></button>
-          <button id="facebook">Facebook</button>
-          <!-- <paper-icon-button id="gplus" src="/elements/toolbar/img/share-gplus.svg"></paper-icon-button>
-          <paper-icon-button id="twitter" src="/elements/toolbar/img/share-twitter.svg"></paper-icon-button>
-          <paper-icon-button id="facebook" src="/elements/toolbar/img/share-facebook.svg"></paper-icon-button> -->
+          <paper-icon-button class="box" id="gplus" style="padding: 4px" src="img/share-gplus.svg"></paper-icon-button>
+          <paper-icon-button class="box" id="twitter" style="padding: 9px" src="img/share-twitter.svg"></paper-icon-button>
+          <paper-icon-button class="box" id="facebook" style="padding: 10px" src="img/share-facebook.svg"></paper-icon-button>
         </div>
 
         <div id="sound" style$="background-color: {{color}}" class$="{{_calculateMuteClass(mute)}}">

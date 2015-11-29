@@ -33,6 +33,7 @@ santa-chrome {
 
     paper-toolbar.close-sidebar {
       background-color: transparent;
+      padding-left: 8px;
 
       iron-icon {
         color: inherit;
@@ -168,48 +169,22 @@ santa-chrome {
       font-size: 0;  // hide spacing between divs
       pointer-events: auto;  // set these icons to be accessible again
 
-      button {
-        width: 68px;
-        height: 100%;
-        box-sizing: border-box;
-        padding: 4px;
+      .box {
         position: relative;
-        display: inline-block;
-        border-left: 1px solid rgba(0,0,0,0.125);
-        background: transparent no-repeat center;
-        font-size: 0;
+        margin-left: 19px;
 
-        &:first-child {
-          border-left: none;
-        }
-
-        &#gplus {
-          background-image: url(img/share-gplus.svg);
-        }
-        &#twitter {
-          background-image: url(img/share-twitter.svg);
-        }
-        &#facebook {
-          background-image: url(img/share-facebook.svg);
-        }
-
-        &::before {
-          z-index: -1;
+        &:before {
           content: "";
-          display: block;
           position: absolute;
-          top: 0;
-          left: 4px;
-          right: 4px;
-          bottom: 0;
-          border-radius: 2px;
-          background: rgba(0,0,0,.25);
-          opacity: 0;
-          transform: translateZ(0);
-          will-change: opacity;
+          top: 6px;
+          left: -10px;
+          bottom: 6px;
+          border-left: 1px solid rgba(0,0,0,0.125);
         }
-        &:hover::before {
-          opacity: 1;
+        &:first-child {
+          &:before {
+            border-left: none;
+          }
         }
       }
     }
