@@ -374,12 +374,13 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
     'components/i18n-msg/i18n-msg.html',
     'components/iron-jsonp-library/iron-jsonp-library.html',
     'components/iron-a11y-keys/iron-a11y-keys.html',
+    'components/iron-media-query/iron-media-query.html',
     'components/google-apis/google-client-loader.html',
     'components/google-apis/google-maps-api.html',
-    'components/google-apis/google-js-api.html', // tracker
+    'components/google-apis/google-js-api.html',
     'components/google-apis/google-legacy-loader.html',
-    'components/google-apis/google-plusone-api.html', // tracker
-    'components/google-apis/google-youtube-api.html', // tracker
+    'components/google-apis/google-plusone-api.html',
+    'components/google-apis/google-youtube-api.html',
     'components/iron-selector/iron-selector.html',
     'components/iron-pages/iron-pages.html',
     'components/paper-item/paper-item.html'
