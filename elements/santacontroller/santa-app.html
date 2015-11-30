@@ -623,9 +623,10 @@ Polymer({
     this._setCountdownEndAt(this.config.COUNTDOWN_END_DATE);
     this._setFlightFinishedAt(this.config.FLIGHT_FINISHED);
 
-    var apiClient = getUrlParameter('api_client') || 'web';
+    var defaultApiClient = 'cast' in window ? 'web_chromecast' : 'web';
+    var apiClient = getUrlParameter('api_client') || defaultApiClient;
     if (!apiClient.match(/^[a-zA-Z_]*$/)) {
-      apiClient = 'web';
+      apiClient = defaultApiClient;
     }
 
     var loadSound = true;
