@@ -106,69 +106,69 @@ app.Controls.prototype.updateLocation_ = function(x, y) {
 
 /**
  * Handles the touchstart event.
- * @param {Event} e The event object.
+ * @param {Event} event The event object.
  * @private
  */
-app.Controls.prototype.onTouchstart_ = function(e) {
-  let touchCount = e.originalEvent.touches.length;
+app.Controls.prototype.onTouchstart_ = function(event) {
+  let touchCount = event.originalEvent.touches.length;
 
-  if (e.target === this.mapElem[0]) {
-    e.preventDefault();
+  if (event.target === this.mapElem[0]) {
+    event.preventDefault();
   }
 
   if (touchCount === 1) {
     this.selecting = true;
-    var touchX = e.originalEvent.changedTouches[0].clientX;
-    var touchY = e.originalEvent.changedTouches[0].clientY;
+    var touchX = event.originalEvent.changedTouches[0].clientX;
+    var touchY = event.originalEvent.changedTouches[0].clientY;
 
     this.updateLocation_(touchX, touchY);
   } else {
-    this.pinchStart_(e);
+    this.pinchStart_(event);
   }
 };
 
 /**
  * Handles the touchmove event.
- * @param {Event} e The event object.
+ * @param {Event} event The event object.
  * @private
  */
-app.Controls.prototype.onTouchmove_ = function(e) {
-  let touchCount = e.originalEvent.touches.length;
+app.Controls.prototype.onTouchmove_ = function(event) {
+  let touchCount = event.originalEvent.touches.length;
 
-  if (e.target === this.mapElem[0]) {
-    e.preventDefault();
+  if (event.target === this.mapElem[0]) {
+    event.preventDefault();
   }
 
   if (this.selecting && touchCount === 1) {
-    var touchX = e.originalEvent.changedTouches[0].clientX;
-    var touchY = e.originalEvent.changedTouches[0].clientY;
+    var touchX = event.originalEvent.changedTouches[0].clientX;
+    var touchY = event.originalEvent.changedTouches[0].clientY;
 
     this.updateLocation_(touchX, touchY);
   } else if (this.pinching) {
-    this.pinchMove_(e);
+    this.pinchMove_(event);
   }
 };
 
 /**
  * Handles the touchend event.
- * @param {Event} e The event object.
+ * @param {Event} event The event object.
  * @private
  */
-app.Controls.prototype.onTouchend_ = function(e) {
-  let touchCount = e.originalEvent.changedTouches.length;
+app.Controls.prototype.onTouchend_ = function(event) {
+  let touchCount = event.originalEvent.changedTouches.length;
 
-  var touchX = e.originalEvent.changedTouches[0].clientX;
-  var touchY = e.originalEvent.changedTouches[0].clientY;
+  var touchX = event.originalEvent.changedTouches[0].clientX;
+  var touchY = event.originalEvent.changedTouches[0].clientY;
 
-  if (e.target === this.mapElem[0]) {
-    e.preventDefault();
+  if (event.target === this.mapElem[0]) {
+    event.preventDefault();
   }
 
   if (touchCount === 1) {
     this.updateLocation_(touchX, touchY);
     this.selecting = false;
   } else {
-    this.pinchEnd_(e);
+    this.pinchEnd_(event);
   }
 
   this.lastLocation.x = undefined;
