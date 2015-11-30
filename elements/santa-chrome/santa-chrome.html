@@ -136,7 +136,7 @@ specific language governing permissions and limitations under the License.
             <li><a target="_blank" href="https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker">
               <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
-            <li><a href="{{pageUrl}}#press">
+            <li hidden$="{{!pressReady}}"><a href="{{pageUrl}}#press">
               <i18n-msg msgid="press">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
             <li><a href="{{pageUrl}}#about">
@@ -239,6 +239,14 @@ specific language governing permissions and limitations under the License.
        * The ID of today's released house. Used for the New Today card in the sidebar.
        */
       todayHouse: String,
+
+      /**
+       * Whether the press page is unlocked.
+       */
+      pressReady: {
+        type: Boolean,
+        value: false
+      },
 
       /**
        * Whether the tracker is unlocked.
@@ -369,7 +377,7 @@ specific language governing permissions and limitations under the License.
       // event is triggered.
       this.async(function() {
         var suffix = (window.location.href.indexOf('appspot') != -1 ? '_ALL/index.html' : '/');
-        window.location = '/intl/' + lang + suffix + location.search + location.hash;
+        window.location = window.location.origin + '/intl/' + lang + suffix + location.search + location.hash;
       }, null, 100);
     },
 
