@@ -46,11 +46,11 @@ goog.scope(function () {
       if (!this.collisionFixture) return;
 
       const hasHitCollisionFixture = (contact.GetFixtureA().ID === this.collisionFixture.ID || contact.GetFixtureB().ID === this.collisionFixture.ID);
-      const hasCallback = (this.level_ && typeof this.level_.onCompleteCallback === 'function');
+      const hasCallback = (this.level_ && typeof this.level_.onLevelCompleted === 'function');
 
       if ( hasHitCollisionFixture && hasCallback) {
         this.unregisterForCollisions();
-        this.level_.onCompleteCallback();
+        this.level_.onLevelCompleted();
       }
     }
 

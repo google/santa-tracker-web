@@ -65,7 +65,7 @@ app.Game.prototype.start = function() {
   // Bind listener to scale scene when window resizes
   this.watchSceneSize_();
   this.restart();
-  this.tutorial.start();
+  // this.tutorial.start();
 };
 
 /**
@@ -135,7 +135,7 @@ app.Game.prototype.loadNextLevel_ = function() {
   if (this.currentLevel_) {
     this.currentLevel_.destroy();
   }
-  this.currentLevel_ = new app.world.Level(this, this.levelElem, levelData, this.onLevelCompleted, this.tutorial);
+  this.currentLevel_ = new app.world.Level(this, this.levelElem, levelData, this.onLevelCompleted, this.tutorial, this.scoreboard);
 };
 
 
