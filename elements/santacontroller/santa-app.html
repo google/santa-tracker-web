@@ -777,7 +777,6 @@ Polymer({
 
   _selectedSceneChanged: function(newValue, oldValue) {
     this.$.chrome.isFixedToolbar = (newValue != this.$.village);
-    this.$.chrome.hideToolbar = (this.mode == 'cast' && newValue != this.$.village);
 
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;
