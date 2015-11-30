@@ -32,9 +32,7 @@ app.Map = function(mapElem, drawerElem, mapDimensions) {
   this.mapDimensions = mapDimensions;
   this.mapName = 'museum';
 
-  /** @type {{ santa: app.Character, penguin: app.Character,
-      'gingerbread-man': app.Character, rudolph: app.Character,
-      pegman: app.Character, 'mrs-claus': app.Character}} */
+  /** @type {!Object<app.Character>} */
   this.characters = {
     santa: null,
     penguin: null,
@@ -71,7 +69,7 @@ app.Map.prototype.initialize = function() {
     let character = this.characters[name];
     character.initialize(characterKeys[name], this.mapDimensions);
     character.onLostFocus = this.focusNextUnfoundCharacter_;
-    character.onSelected = this.changeFocus_;
+    character.onSelected = this.changeFocus_.bind(this, character);
   });
 
   this.updateCharacters();
