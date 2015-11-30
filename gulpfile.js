@@ -28,7 +28,18 @@ var closureCompiler = require('gulp-closure-compiler');
 var mergeStream = require('merge-stream');
 var browserSync = require('browser-sync').create();
 
-var DEFAULT_STATIC_VERSION = 80;
+var DEFAULT_STATIC_VERSION = (function() {
+  var pad = function(x) { return x < 10 ? '0' + x : '' + x };
+  var d = new Date();
+  var parts = ['v',
+      d.getUTCFullYear(),
+      pad(d.getUTCMonth() + 1),
+      pad(d.getUTCDate()),
+      pad(d.getUTCHours()),
+      pad(d.getUTCMinutes()),
+  ];
+  return parts.join('');
+}());
 
 var argv = require('yargs')
     .help('help')
@@ -471,7 +482,9 @@ gulp.task('copy-assets', ['rm-dist', 'vulcanize', 'i18n_index'], function() {
 });
 
 // alias to build a distribution version
-gulp.task('dist', ['copy-assets']);
+gulp.task('dist', ['copy-assets'], function() {
+  console.log('dist version:', STATIC_VERSION);
+});
 
 gulp.task('watch', function() {
   gulp.watch(SASS_FILES, ['sass']);
