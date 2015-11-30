@@ -198,7 +198,7 @@ app.OrnamentNavigation.prototype.handleResize = function() {
     }
     tempCSS = {
       'left': currentCopy[0].getBoundingClientRect().left,
-      'top': currentCopy[0].getBoundingClientRect().top - 98,
+      'top': currentCopy[0].getBoundingClientRect().top - 128,
       'transform': 'none',
       'width': '200px'
     };
