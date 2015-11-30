@@ -48,7 +48,7 @@ app.Character.prototype.initialize = function(characterKeys, mapDimensions) {
   // Find elements
   this.elem = this.mapElem.find(`.character-collider--${this.name}`);
   this.uiElem = this.drawerElem.find(`.drawer__item--${this.name}`);
-  this.svgMapElem = this.mapElem.find('#santasearch-characters-svg');
+  this.svgMapElem = this.mapElem.find('.map__svg');
 
   // Handle found event
   this.elem.on('click touchstart', this.onFound_.bind(this));

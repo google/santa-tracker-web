@@ -31,7 +31,6 @@ app.Map = function(mapElem, drawerElem, mapDimensions) {
   this.mapElem = mapElem;
   this.drawerElem = drawerElem;
   this.mapDimensions = mapDimensions;
-  this.mapName = 'museum';
 
   /** @type {!Object<app.Character>} */
   this.characters = {
@@ -55,15 +54,26 @@ app.Map = function(mapElem, drawerElem, mapDimensions) {
   this.focusNextUnfoundCharacter_ = this.focusNextUnfoundCharacter_.bind(this);
   this.changeFocus_ = this.changeFocus_.bind(this);
   this.setHintTarget_ = this.setHintTarget_.bind(this);
+  this.initializeCharacters_ = this.initializeCharacters_.bind(this);
 };
 
 /**
  * Initialize the map.
  */
-app.Map.prototype.initialize = function() {
+app.Map.prototype.setMap = function(mapName) {
+  this.mapName = mapName;
   this.allFound = false;
   this.hintTarget = undefined;
 
+  this.loadMap_().then(this.initializeCharacters_);
+
+  this.drawerElem.on('click.santasearch', '.hint', this.setHintTarget_);
+};
+
+/**
+ * Initialize characters.
+ */
+app.Map.prototype.initializeCharacters_ = function() {
   let characterKeys = app.Constants.SPAWNS[this.mapName];
 
   app.Constants.CHARACTERS.forEach((name) => {
@@ -76,8 +86,20 @@ app.Map.prototype.initialize = function() {
   this.updateCharacters();
   this.focusedCharacter = this.characters.santa;
   this.focusedCharacter.focus();
+};
 
-  this.drawerElem.on('click.santasearch', '.hint', this.setHintTarget_);
+/**
+ * Load the map and add it to the dom.
+ * @returns {jQuery.jqXHR}
+ */
+app.Map.prototype.loadMap_ = function() {
+  return $.ajax('img/maps/museum.svg').then((svgMap) => {
+    // Remove existing maps
+    this.mapElem.find('.map__svg').remove();
+
+    // Add the new map into the dom
+    this.mapElem.prepend(svgMap.children[0]);
+  });
 };
 
 /**

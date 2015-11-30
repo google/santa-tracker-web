@@ -253,15 +253,15 @@ app.Game.prototype.updatePan_ = function() {
  */
 app.Game.prototype.restart = function() {
   this.paused = false;
-  this.unfreezeGame();
   this.onResize_();
 
   window.santaApp.fire('analytics-track-game-start', {gameid: 'santasearch'});
   this.gameStartTime = +new Date;
+  this.unfreezeGame();
 
   this.controls.reset();
   this.scale_(1);
-  this.map.initialize();
+  this.map.setMap('museum');
 
   this.controls.start();
 };
