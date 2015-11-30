@@ -669,7 +669,8 @@ $toolbar-size: 64px;
           }
         }
 
-        &:hover, &:active {
+        // only change state on links with hrefs
+        &[href]:hover, &[href]:active {
           .card {
             transition: transform $duration-in $easing-in, opacity $duration-in $easing-in;
             transform: scale(1);
