@@ -9,7 +9,7 @@
   // id width height left top z-index
   $all:
       "tree"            831   616   291   342    ($house-row-3-z-index - 1),
-      "blocks"          360   150   904   646    ($house-row-3-z-index - 1),
+      "blocks"          360   150   904   646    ($house-row-3-z-index - 60),
       "statue"          287   171   858   816    ($house-row-4-z-index - 1),
       "walrus"          22    19    897   1473   ($house-row-6-z-index - 1),
       "penguin-revolt"  174   55    865   1571   ($house-row-6-z-index - 1),
@@ -107,11 +107,11 @@
   }
 
   #easteregg-snowmobile2.drive {
-    z-index: $house-row-3-z-index - 50;
+    z-index: $house-row-3-z-index - 10;
   }
 
   #easteregg-snowmobile3.drive {
-    z-index: $house-row-3-z-index - 1;
+    z-index: $house-row-3-z-index;
     animation-direction: normal;
   }
 

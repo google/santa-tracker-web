@@ -8,6 +8,12 @@ $name: 'module-dorf';
 $width-big: 600px;
 $toolbar-size: 64px;
 
+[lang='de'] ##{$name} {
+  h1 {
+    font-size: 62px !important;
+  }
+}
+
 ##{$name} {
   background: #f5f2e2;
   position: relative;
@@ -120,11 +126,24 @@ $toolbar-size: 64px;
       .cloud2 {
         background-image: url(img/cloud3.svg);
       }
-      .skydive {
-        animation: #{$name}-skydive 40s infinite ease-in;
-        margin-left: calc(50% + 460px);
 
+      #village-pegman {
+        transform: translateY($skydive-start-pos);
         @include will-change(transform, opacity);
+        opacity: 0;
+        transition: opacity 2s ease;
+
+        &.skydive {
+          opacity: 1;
+          animation: #{$name}-skydive 10s 1 ease-in;
+          animation-fill-mode: forwards;
+        }
+
+        &.hide {
+          opacity: 0;
+        }
+
+        margin-left: calc(50% + 360px);
 
         > span {
           position: absolute;
@@ -132,16 +151,22 @@ $toolbar-size: 64px;
           background-repeat: no-repeat;
           background-size: contain;
           transform: translate(-50%, -50%);  // center span
-          animation-duration: inherit;
-          animation-iteration-count: infinite;
+          @include will-change(opacity);
+          visibility: hidden;
         }
 
         .pegman-1 {
+          background-image: url(img/pegman-dive.svg);
           width: 60px;
           height: 60px;
-          background-image: url(img/pegman-dive.svg);
-          animation-name: #{$name}-skydive-pegman-1;
         }
+
+        &.stage1 {
+          .pegman-1 {
+            visibility: visible;
+          }
+        }
+
         .pegman-2, .pegman-3 {
           a {
             position: absolute;
@@ -153,19 +178,25 @@ $toolbar-size: 64px;
           }
         }
         .pegman-2 {
-          margin-top: -7px;
+          margin-top: -34px;
+          margin-left: -26px;
           width: 112px;
           height: 112px;
           background-image: url(img/pegman-chute.svg);
-          animation-name: #{$name}-skydive-pegman-2;
         }
+
+        &.stage2 {
+          .pegman-2 {
+            visibility: visible;
+          }
+        }
+
         .pegman-3 {
-          margin-left: 61px;
-          margin-top: 24px;
+          margin-left: 21px;
+          margin-top: -16px;
+          background-image: url(img/pegman-land.svg);
           width: 140px;
           height: 140px;
-          background-image: url(img/pegman-land.svg);
-          animation-name: #{$name}-skydive-pegman-3;
 
           a {
             height: 60px;
@@ -173,9 +204,18 @@ $toolbar-size: 64px;
           }
         }
 
+        &.stage3 {
+          .pegman-3 {
+            visibility: visible;
+          }
+        }
+
         @media (max-width: ($width-desktop - 1)) {
           margin-left: calc(50% + 360px);
-          animation: #{$name}-skydive-tablet 40s infinite ease-in;
+          &.skydive {
+            animation: #{$name}-skydive-tablet 10s 1 ease-in;
+            animation-fill-mode: forwards;
+          }
 
           .pegman-1 {
             width: 60px * $tablet-desktop-ratio;
@@ -183,13 +223,14 @@ $toolbar-size: 64px;
           }
 
           .pegman-2 {
-            margin-top: -7px * $tablet-desktop-ratio;
+            margin-top: -34px * $tablet-desktop-ratio;
+            margin-left: -26px * $tablet-desktop-ratio;
             width: 112px * $tablet-desktop-ratio;
             height: 112px * $tablet-desktop-ratio;
           }
           .pegman-3 {
-            margin-left: 61px * $tablet-desktop-ratio;
-            margin-top: 24px * $tablet-desktop-ratio;
+            margin-left: 21px * $tablet-desktop-ratio;
+            margin-top: -16px * $tablet-desktop-ratio;
             width: 140px * $tablet-desktop-ratio;
             height: 140px * $tablet-desktop-ratio;
           }
@@ -219,6 +260,23 @@ $toolbar-size: 64px;
       // south, and Chrome is confused when painting.
       @include will-change();
 
+      #ornament {
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translate(-50%);
+        background: url(img/ornament.svg) 50% 20% no-repeat;
+        background-size: contain;
+        width: 450px;
+        height: 250px;
+        z-index: -10;  // hide in background
+
+        @media (max-width: ($width-tablet - 1)) {
+          top: 20px;
+          width: 300px;
+        }
+      }
+
       #count-down {
         padding: 60px 0 30px 0;
 
@@ -235,7 +293,7 @@ $toolbar-size: 64px;
       h2 {
         font-size: 12px;
         letter-spacing: 1px;
-        font-weight: 500;
+        font-weight: 600;
         color: #fff;
         margin: 6px 0;
         line-height: 12px;
@@ -246,11 +304,17 @@ $toolbar-size: 64px;
         @include will-change();
         margin: 0 8px;
         font-family: 'Lobster', sans-serif;
-        font-size: 62px;
-        line-height: 50px;
+        font-size: 72px;
+        line-height: 54px;
         color: white;
         text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
-        transform: rotateZ(-3deg);
+        transform: rotateZ(-3deg) skew(-4deg);
+      }
+
+      p {
+        font-weight: 500;
+        margin-top: 35px;
+        letter-spacing: -1px;
       }
 
       .castlogo {
@@ -259,14 +323,6 @@ $toolbar-size: 64px;
         background: url(img/google_logo.svg) no-repeat center;
         background-size: contain;
         margin-bottom: 14px;
-      }
-
-      /** Make countdown text smaller on phones */
-      @media (max-width: $width-twocol) {
-        h2 {
-          font-size: 10px;
-          line-height: 10px;
-        }
       }
     }
 
@@ -453,26 +509,31 @@ $toolbar-size: 64px;
 
   #village-footer {
     z-index: $base-background-z-index;
-    height: 400px;
-
-    @media (max-width: ($width-desktop - 1)) {
-      height: 340px;
-    }
-
     position: relative;
-    margin-top: -200px;  // nb. removed on mobile
+    padding-bottom: 8px;
+    background: url(img/footer-snow-tile.svg) center 110% repeat-x;
+    background-size: 1000px;
+    min-height: 200px;
+    margin-top: -200px;  // nb: removed on mobile
 
     // NOTE: Give this a layer, as it extends over its neighbour to the north,
     // and Chrome is confused when painting.
     @include will-change();
 
     p {
-      margin: 20px auto 0;
+      margin: 20px auto;
+      padding: 0 12px;
       color: #3474ba;
       font-weight: 500;
       font-size: 22px;
       line-height: 26px;
       max-width: 400px;
+    }
+
+    img {
+      max-width: $width-desktop + 240px;
+      margin: 0 auto;
+      display: block;
     }
 
     #village-footer-elves {
@@ -738,6 +799,9 @@ $toolbar-size: 64px;
       margin-bottom: -80px;
 
       #header-content {
+        #count-down {
+          padding-top: 90px;
+        }
         p, h1 {
           display: none;
         }
@@ -762,15 +826,15 @@ $toolbar-size: 64px;
       #mobiletext {
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.33);
         display: block;
-        background: #57d693;
+        background: #00c6ed;
         color: white;
-        padding: 18px 24px 16px;
+        padding: 17px 24px 16px;
         border-bottom: 2px solid rgba(0, 0, 0, 0.125);
 
         p {
-          font-size: 1em;
-          line-height: 1.5em;
-          letter-spacing: 1px;
+          font-size: 1.4em;
+          line-height: 1.45em;
+          letter-spacing: -1px;
           font-weight: 500;
 
           text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125);
@@ -802,19 +866,19 @@ $toolbar-size: 64px;
           }
 
           .text {
-            margin-top: 8px;
+            margin-top: 12px;
 
             .launchdate {
               margin: 0;
               margin-top: -8px;
+              font-size: 2em;
               line-height: 1.4em;
               text-shadow: none;
             }
             h4 {
-              order: 10;
-              opacity: 0.75;
+              display: none;
             }
-            h4, h3 {
+            h3 {
               letter-spacing: 1px;
               font-size: 1em;
               line-height: 1em;
@@ -871,11 +935,8 @@ $toolbar-size: 64px;
     }
 
     #village-footer {
-      margin-top: 32px;
-
-      p {
-        padding: 0 16px;
-      }
+      margin-top: 0;
+      background-size: 500px;
     }
   }
 

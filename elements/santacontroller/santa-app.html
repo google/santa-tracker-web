@@ -42,6 +42,7 @@ Santa Tracker app.
       disabled="{{isCastMode(mode)}}"
       color="{{_colorForRoute(route, _houses)}}"
       tracker-unlocked="{{postCountdown}}"
+      press-ready="{{pressReady}}"
       today-house="{{todayHouse}}"
       mute="{{userMute}}">
 
@@ -180,6 +181,12 @@ Santa Tracker app.
 
       <rollercoaster-scene route="rollercoaster" icon="1f3a2"
           path$="scenes/rollercoaster/rollercoaster-scene.html"></rollercoaster-scene>
+
+      <santasearch-scene route="santasearch" icon=""
+          path$="scenes/santasearch/santasearch-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#29B6F6"
+          loading-src="scenes/santasearch/img/loading.svg"></santasearch-scene>
 
       <santaselfie-scene route="santaselfie" icon="1f488"
           path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
@@ -532,6 +539,14 @@ Polymer({
     },
 
     /**
+     * True if the Press page is unlocked.
+     */
+    pressReady: {
+      type: Boolean,
+      notify: true
+    },
+
+    /**
      * Fixed string map stored on `santa-app`. Used for elements with strings
      * that cannot be inferred at compile-time (e.g., i18n-msg with custom
      * msgids, used in village and sidebar).
@@ -608,9 +623,10 @@ Polymer({
     this._setCountdownEndAt(this.config.COUNTDOWN_END_DATE);
     this._setFlightFinishedAt(this.config.FLIGHT_FINISHED);
 
-    var apiClient = getUrlParameter('api_client') || 'web';
+    var defaultApiClient = 'cast' in window ? 'web_chromecast' : 'web';
+    var apiClient = getUrlParameter('api_client') || defaultApiClient;
     if (!apiClient.match(/^[a-zA-Z_]*$/)) {
-      apiClient = 'web';
+      apiClient = defaultApiClient;
     }
 
     var loadSound = true;
@@ -1100,6 +1116,9 @@ Polymer({
     // Set post countdown/post flight flags based on current time.
     this.postFlight = todayDate >= this.flightFinishedAt;
     this.postCountdown = todayDate > this.countdownEndAt && !this.postFlight;
+
+    // TODO(samthor): Remove after press approval.
+    this.pressReady = (+new Date('Dec 3, 2015') <= +todayDate);
 
     switch(todayDate.getMonth()) {
       case 11: // DECEMBER

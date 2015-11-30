@@ -50,7 +50,7 @@ Village scene (2015).
       <div id="header-skyeffect">
         <span class="sun"></span>
         <span class="plane"></span>
-        <span class="skydive">
+        <span id="village-pegman">
           <span class="pegman-1"></span>
           <span class="pegman-2"><a href="{{_calculateDiveURL(santaApp.mode)}}">Santa Dive</a></span>
           <span class="pegman-3"><a href="{{_calculateDiveURL(santaApp.mode)}}">Santa Dive</a></span>
@@ -60,6 +60,7 @@ Village scene (2015).
         <div id="header-mobileelves"></div>
       </div>
       <div id="header-content">
+        <div id="ornament"></div>
         <div id="count-down" class$="mode-{{santaApp.mode}}">
           <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
           <countdown-timer id="count"
@@ -195,7 +196,7 @@ Village scene (2015).
     </div>
     <div id="village-footer">
       <p hidden$="{{countdownFinished}}"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-      <div id="village-footer-elves"></div>
+      <img src="{{componentDir}}/img/footer-elves.svg" />
     </div>
   </div><!-- #module-dorf -->
 </template>
@@ -360,6 +361,60 @@ Village scene (2015).
 
         this._randomEasterEggs();
       }, eggTime);
+    },
+
+    _pegmanDive: function() {
+      var SKY_DIVE_TIME = 10000;
+      var SKY_DIVE_FALL = .75 * SKY_DIVE_TIME;
+      var SKY_DIVE_LAND = SKY_DIVE_TIME - SKY_DIVE_FALL + 200;
+      var SKY_DIVE_RESTART = SKY_DIVE_LAND + 10000;
+      var PEGMAN_WAIT = 2000;
+
+      this.cancelAsync(this._pegmanTimer);
+
+      if (!this.active) {
+        return; // not active, no point jumping
+      }
+
+      var pegman = this.$['village-pegman'];
+
+      // Make sure we are all good before jumping
+      pegman.classList.remove('skydive', 'stage1', 'stage2', 'stage3', 'hide');
+
+      // Jump!
+      pegman.classList.add('skydive', 'stage1');
+      this._pegmanTimer = this.async(function() {
+        if (!this.active) {
+          return;
+        }
+
+        pegman.classList.remove('stage1');
+        pegman.classList.add('stage2');
+
+        this._pegmanTimer = this.async(function() {
+          if (!this.active) {
+            return;
+          }
+
+          pegman.classList.remove('stage2');
+          pegman.classList.add('stage3');
+
+          this._pegmanTimer = this.async(function() {
+            if (!this.active) {
+              return;
+            }
+
+            pegman.classList.add('hide');
+
+            this._pegmanTimer = this.async(function() {
+              pegman.classList.remove('skydive');
+              this._pegmanTimer = this.async(function() {
+                this._pegmanDive();
+              }, PEGMAN_WAIT);
+            }, PEGMAN_WAIT);
+          }, SKY_DIVE_RESTART);
+        }, SKY_DIVE_LAND);
+      }, SKY_DIVE_FALL);
     },
 
     _driveSnowmobile: function(e) {
@@ -575,7 +630,10 @@ Village scene (2015).
         this.$.count.start();
       });
 
-      this._randomEasterEggs();  // stops self if no longer active
+      if (this.santaApp.mode != 'cast') {
+        this._randomEasterEggs();  // stops self if no longer active
+        this._pegmanDive();
+      }
 
       var eh = this.$.effectholder;
       eh.textContent = '';  // clear

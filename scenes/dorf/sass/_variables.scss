@@ -34,16 +34,12 @@ $link-target-size: ($dim-house / 2)+32px;
 $village-extra-padding: 80px;  // shift village div virtually up by this amt
 $village-offset-up: 30px;  // how much we start the actual village higher
 
-// nb: none of these %'s should be 0 or 100, and they should be in-order
-// TODO(samthor): Express these in timeframes and calc % based on that.
-$skydive-start: 40%;
 $skydive-start-pos: -120px;
-$skydive-fallto: 50%;
-$skydive-fallto-pos: 240px;
-$skydive-land: 75%;
-$skydive-land-pos: 370px;
-$skydive-land-tablet-pos: 383px;
-$skydive-disappear: 95%;
+$skydive-fallto: 75%;
+$skydive-fallto-pos: 270px;
+$skydive-land: 100%;
+$skydive-land-pos: 330px;
+$skydive-land-tablet-pos: 365px;
 
 $house-row-1-z-index: 100;
 $house-row-2-z-index: 200;
