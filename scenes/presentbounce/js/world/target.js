@@ -54,10 +54,6 @@ goog.scope(function () {
       }
     }
 
-    setCollisionFixture(obj) {
-      this.collisionFixture = obj;
-    }
-
     /**
      * @inheritDoc
      */
@@ -96,7 +92,7 @@ goog.scope(function () {
       innerBottomFixDef.density = material.globeDensity;
       innerBottomFixDef.friction = material.friction;
       innerBottomFixDef.restitution = material.restitution;
-      innerBottomFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth*0.4, worldHeight/2.5), new b2.Vec2(worldWidth*0.4, worldHeight/2.5));
+      innerBottomFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth*0.3, worldHeight/2.5), new b2.Vec2(worldWidth*0.3, worldHeight/2.5));
 
       const rightFixDef = new b2.FixtureDef();
       rightFixDef.density = material.globeDensity;
