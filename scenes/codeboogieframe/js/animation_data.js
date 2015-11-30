@@ -204,7 +204,7 @@ app.AnimationData = (color) => {
 
   let purpleMoves = {
     "watch_0": {
-      "width": 182,
+      "width": 183,
       "height": 358,
       "offsetX": 480,
       "offsetY": 152
@@ -212,7 +212,7 @@ app.AnimationData = (color) => {
     "watch_1": {
       "width": 183,
       "height": 358,
-      "offsetX": 479,
+      "offsetX": 480,
       "offsetY": 152
     }
   };
