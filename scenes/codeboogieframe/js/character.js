@@ -27,43 +27,43 @@ let sources = {
   },
   [app.Step.FAIL]: {
     name: 'fail',
-    frames: 96
+    frames: 48
   },
   [app.Step.WATCH]: {
     name: 'watch',
-    frames: 96
+    frames: 48
   },
   [app.Step.LEFT_ARM]: {
     name: 'pointLeft',
-    frames: 96
+    frames: 48
   },
   [app.Step.RIGHT_ARM]: {
     name: 'pointRight',
-    frames: 96
+    frames: 48
   },
   [app.Step.LEFT_FOOT]: {
     name: 'stepLeft',
-    frames: 96
+    frames: 48
   },
   [app.Step.RIGHT_FOOT]: {
     name: 'stepRight',
-    frames: 96
+    frames: 48
   },
   [app.Step.JUMP]: {
     name: 'jump',
-    frames: 96
+    frames: 48
   },
   [app.Step.SHAKE]: {
     name: 'hip',
-    frames: 96
+    frames: 48
   },
   [app.Step.SPLIT]: {
     name: 'splits',
-    frames: 96
+    frames: 48
   },
   [app.Step.CARLTON]: {
     name: 'carlton',
-    frames: 192
+    frames: 96
   },
   [app.Step.SPONGEBOB]: {
     name: 'spongebob',
@@ -124,12 +124,6 @@ app.Character = class {
     }
 
     this.animation = new Animation(this.sprite, this.color, bpm);
-
-    // Hack bpm for demo
-    if (step !== app.Step.IDLE) {
-      this.animation.frameDuration = 1000 / fps * (60 / bpm);
-    }
-
     this.animation.play();
   }
 };
