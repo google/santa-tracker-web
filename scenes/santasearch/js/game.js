@@ -89,6 +89,7 @@ app.Game.prototype.getRandomHintDistanceOffset_ = function() {
  * @private
  */
 app.Game.prototype.hintLocation_ = function(character) {
+  window.santaApp.fire('sound-trigger', 'ss_button_hint');
   // The location of the character is a top/left percentage of the map
   let characterLocation = character.location;
 
