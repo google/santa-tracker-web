@@ -485,7 +485,7 @@ gulp.task('vulcanize-elements', ['rm-dist', 'sass', 'compile-santa-api-service']
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
 gulp.task('i18n_index', function() {
-  return gulp.src(['index.html', 'error.html', 'upgrade.html'])
+  return gulp.src(['index.html', 'error.html', 'upgrade.html', 'cast.html'])
     .pipe(argv.pretty ? gutil.noop() : $.replace(/window\.DEV ?= ?true.*/, ''))
     .pipe($.replace('<base href="">',
         '<base href="' + STATIC_URL + '">'))

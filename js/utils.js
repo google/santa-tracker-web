@@ -109,6 +109,21 @@ function assert(condition, opt_message) {
 }
 
 /**
+ * @param {string} param URL parameter to look for.
+ * @return {string|undefined} undefined if the URL parameter does not exist.
+ */
+function getUrlParameter(param) {
+  if (!window.location.search) {
+    return;
+  }
+  var m = new RegExp(param + '=([^&]*)').exec(window.location.search.substring(1));
+  if (!m) {
+    return;
+  }
+  return decodeURIComponent(m[1]);
+}
+
+/**
  * Throttle calls to a function
  * @param {function()} func
  * @param {number} ms at most one per this many ms
