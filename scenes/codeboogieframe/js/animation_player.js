@@ -61,7 +61,7 @@ class Animation {
 
     sprite.duration = sprite.frames / fps;
 
-    this.images = app.AnimationData();
+    this.images = app.AnimationData(color);
 
     Object.keys(this.images).forEach(key => {
       let value = this.images[key];
@@ -81,6 +81,10 @@ class Animation {
   getFrame(name, number) {
     let index = Math.floor(number / framesPerSprite);
     let data = this.images[`${name}_${index}`];
+
+    if(!data) {
+      throw new Error(`Missing data for ${name} index ${index}`)
+    }
 
     return {
       x: (number % framesPerSprite) * data.width,
