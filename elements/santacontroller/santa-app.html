@@ -671,7 +671,11 @@ Polymer({
     this.santaService.addListener('reload', function() {
       this.analyticsService.trackEvent('API', 'reload');
 
-      if (reloadTimeout || window.DEV) {
+      if (window.DEV) {
+        console.warn('prod would trigger reload, out of date', document.body.getAttribute('data-version'));
+        return;
+      }
+      if (reloadTimeout) {
         return;  // already trying to reload
       }
 
