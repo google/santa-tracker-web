@@ -53,11 +53,22 @@ app.Level = class {
   }
 
   /**
+   * Override this method to create optional intro results that run when the level
+   * starts.
+   *
+   * @return {!app.LevelResult} intro animation.
+   */
+  introAnimation() {
+  }
+
+  /**
    * Validates a blockly execution and returns a smart hint to user.
    *
+   * @param {!Array.<app.BlockEvaluation>} playerSteps
+   * @param {!app.Blockly} blockly wrapper.
    * @return {app.LevelResult} a user friendly level result.
    */
-  processResult() {
+  processResult(playerSteps, blockly) {
   }
 
   /**

@@ -22,7 +22,7 @@ goog.require('app.Step');
 
 /**
  * Array of levels.
- * @type {!Array.<!app.Level>}
+ * @type {!Array.<app.DanceLevel>}
  */
 app.levels = [];
 

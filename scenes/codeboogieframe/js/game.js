@@ -52,8 +52,8 @@ app.Game = function(elem) {
 
   Klang.setEventListener(this.iframeChannel.call.bind(this.iframeChannel, 'triggerSound'));
 
-  this.scene.player.addEventListener('start', () => this.iframeChannel.call('setVariant', 1));
-  this.scene.player.addEventListener('finish', () => this.iframeChannel.call('setVariant', 0));
+  this.scene.player.listen('start', () => this.iframeChannel.call('setVariant', 1));
+  this.scene.player.listen('finish', () => this.iframeChannel.call('setVariant', 0));
 
   window.addEventListener('blur', this.onBlur.bind(this));
   window.addEventListener('focus', this.onFocus.bind(this));
@@ -102,7 +102,7 @@ app.Game.prototype.onFocus = function() {
  * Resets state of the current level.
  */
 app.Game.prototype.restartLevel = function() {
-  this.scene.restartLevel(true);
+  this.scene.restartLevel();
 };
 
 /**

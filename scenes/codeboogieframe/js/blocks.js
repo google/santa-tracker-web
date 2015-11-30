@@ -39,17 +39,12 @@ app.blocks.miniBlockXml = function(type) {
 /**
  * Utility function to define a block.
  * @param {string} type of block to create
- * @param {Object.<string>} attrs map of block attributes
- * @param {Object.<string>} fields map of field keys to values
- * @param {string} children blocks to run as DO statement.
+ * @param {Object.<string>=} attrs map of block attributes
+ * @param {Object.<string>=} fields map of field keys to values
+ * @param {string=} children blocks to run as DO statement.
  * @return {string} XML of block definition
  */
 app.blocks.blockXml = function(type, attrs, fields, children) {
-  if ('string' === typeof values) {
-    children = values;
-    values = null;
-  }
-
   var xml = '<block type="' + type + '"';
   if (attrs) {
     for (var key in attrs) {
@@ -241,6 +236,10 @@ app.blocks.install = function() {
     }
   };
 
+  /**
+   * @this {Blockly.Block}
+   * @returns {string}
+   */
   Blockly.JavaScript['controls_repeat'] = function() {
     // Repeat n times (internal number).
     var repeats = Number(this.getFieldValue('TIMES'));

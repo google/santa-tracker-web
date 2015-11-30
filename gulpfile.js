@@ -156,7 +156,7 @@ var SCENE_CLOSURE_CONFIG = {
   },
   codeboogieframe: {
     closureLibrary: true,
-    typeSafe: false,
+    typeSafe: true,
     entryPoint: 'app.Game',
     isFrame: true
   },

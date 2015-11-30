@@ -60,7 +60,7 @@ app.BlockRunner = class {
     this.api = this.createExecuteContext();
     this.blockly = blockly;
     this.scene = scene;
-    /* @type {app.LevelResult} */
+    /** @type {app.LevelResult} */
     this.levelResult = null;
 
     // Configure Blockly loops to highlight during iteration.
@@ -75,10 +75,10 @@ app.BlockRunner = class {
   }
 
   reset_() {
-    /* @type {app.BlockEvaluation[]} */
+    /** @type {app.BlockEvaluation[]} */
     this.stepQueue_ = [];
     this.state_ = app.BlockRunnerState.NOT_ANIMATING;
-    /* @type {app.LevelResult} */
+    /** @type {app.LevelResult} */
     this.levelResult = null;
   }
 

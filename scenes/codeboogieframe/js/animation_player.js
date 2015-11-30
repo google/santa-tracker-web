@@ -19,6 +19,7 @@
 goog.provide('app.AnimationPlayer');
 goog.provide('app.AnimationItem');
 
+goog.require('app.Animation');
 goog.require('app.AnimationData');
 goog.require('app.Constants');
 goog.require('app.Character');
@@ -49,70 +50,6 @@ const originalHeight = 1080 * spriteScaleFactor;
  */
 app.AnimationItem;
 
-class Animation {
-  constructor(sprite, color, bpm) {
-    this.name = sprite.name;
-
-    this.frame = 0;
-    this.frameCount = sprite.frames;
-    this.frameDuration = 1000 / fps * (60 / bpm * 2);
-    this.elapsedTime = 0;
-    this.paused = true;
-
-    sprite.duration = sprite.frames / fps;
-
-    this.images = app.AnimationData();
-
-    Object.keys(this.images).forEach(key => {
-      let value = this.images[key];
-
-      let image = new Image();
-      image.src = `img/steps/${color}/${key}.png`
-
-      this.images[key].img = image
-    });
-  }
-
-  play() {
-    this.frame = 0;
-    this.paused = false;
-  }
-
-  getFrame(name, number) {
-    let index = Math.floor(number / framesPerSprite);
-    let data = this.images[`${name}_${index}`];
-
-    return {
-      x: (number % framesPerSprite) * data.width,
-      y: 0,
-      width: data.width,
-      height: data.height,
-      offsetX: data.offsetX - (originalWidth / 2 - canvasWidth / 2),
-      offsetY: data.offsetY - (originalHeight / 2 - canvasHeight / 2),
-      img: data.img
-    };
-  }
-
-  update(dt) {
-    if (this.paused) {
-      return this.getFrame(this.name, this.frame);
-    }
-
-    this.elapsedTime += dt;
-
-    if (this.elapsedTime > this.frameDuration) {
-      let framesElapsed = Math.floor(this.elapsedTime / this.frameDuration);
-
-      this.frame += framesElapsed;
-      this.frame = this.frame % this.frameCount;
-
-      this.elapsedTime -= framesElapsed * this.frameDuration;
-    }
-
-    return this.getFrame(this.name, this.frame);
-  }
-}
-
 /**
  * Plays character animations
  *
@@ -129,9 +66,9 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
         el.querySelector('.scene__character--teacher'), 'green');
     this.title = new app.Title(el.querySelector('.scene__word-title'));
     this.moveTiles = new app.MoveTiles(el.querySelector('.scene__moves'));
-    /* @type {app.AnimationItem[]} */
+    /** @type {app.AnimationItem[]} */
     this.animationQueue = [];
-    /* @type {app.AnimationItem} */
+    /** @type {app.AnimationItem} */
     this.currentAnimation = null;
 
     this.lastUpdateTime = 0;
