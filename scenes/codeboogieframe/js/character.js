@@ -67,11 +67,11 @@ let sources = {
   },
   [app.Step.SPONGEBOB]: {
     name: 'spongebob',
-    frames: 96,
+    frames: 48,
   },
   [app.Step.ELVIS]: {
     name: 'elvis',
-    frames: 96
+    frames: 48
   },
   [app.Step.THRILLER]: {
     name: 'thriller',
