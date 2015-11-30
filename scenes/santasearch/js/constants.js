@@ -13,6 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+ 'use strict';
 
 goog.provide('Constants');
 goog.provide('app.Constants');
