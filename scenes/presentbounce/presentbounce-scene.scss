@@ -38,6 +38,10 @@ $z-index-above-present: $z-index-present + 10;
     transform-origin: 0 0;
   }
 
+  .start {
+    background-color: #3ec4f0;
+  }
+
   user-select: none;
   svg {
     display: block;
