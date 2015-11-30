@@ -20,7 +20,8 @@ goog.require('app.Constants');
 
 /**
  * Handles user input for controlling the game.
- * @param {!Element} elem The game element.
+ * @param {!jQuery} elem The game element.
+ * @param {!jQuery} mapElem The map element.
  * @constructor
  */
 app.Controls = function(elem, mapElem) {
@@ -36,40 +37,41 @@ app.Controls = function(elem, mapElem) {
 
   this.lastLocation = {
     x: undefined,
-    y: undefined
+    y: undefined,
   };
 
   this.pan = {
     x: 0,
-    y: 0
+    y: 0,
   };
   this.needsPanUpdate = false;
 
   this.scale = 1;
   this.needsScaleUpdate = false;
-}
+};
 
 /**
  * Sets up event handlers for the controls.
  */
 app.Controls.prototype.start = function() {
-  let gameElement = $(this.elem);
+  this.elem.on('touchstart.santasearch', this.onTouchstart_.bind(this));
+  this.elem.on('touchmove.santasearch', this.onTouchmove_.bind(this));
+  this.elem.on('touchend.santasearch', this.onTouchend_.bind(this));
 
-  gameElement.on('touchstart.santasearch', this._onTouchstart.bind(this));
-  gameElement.on('touchmove.santasearch', this._onTouchmove.bind(this));
-  gameElement.on('touchend.santasearch', this._onTouchend.bind(this));
+  this.elem.on('mousedown.santasearch', this.onMousedown_.bind(this));
+  this.elem.on('mousemove.santasearch', this.onMousemove_.bind(this));
+  this.elem.on('mouseup.santasearch', this.onMouseup_.bind(this));
+  this.elem.on('mouseleave.santasearch', this.onMouseup_.bind(this));
 
-  gameElement.on('mousedown.santasearch', this._onMousedown.bind(this));
-  gameElement.on('mousemove.santasearch', this._onMousemove.bind(this));
-  gameElement.on('mouseup.santasearch', this._onMouseup.bind(this));
-  gameElement.on('mouseleave.santasearch', this._onMouseup.bind(this));
-
-  gameElement.find('.zoom__in').on('click', this._zoomIn.bind(this));
-  gameElement.find('.zoom__out').on('click', this._zoomOut.bind(this));
+  this.elem.find('.zoom__in').on('click', this.zoomIn_.bind(this));
+  this.elem.find('.zoom__out').on('click', this.zoomOut_.bind(this));
 
   this.enabled = true;
 };
 
+/**
+ * Reset state.
+ */
 app.Controls.prototype.reset = function() {
   this.scale = 1;
   this.pan.x = 0;
@@ -78,7 +80,7 @@ app.Controls.prototype.reset = function() {
   this.selecting = false;
 
   this.scaleTarget = undefined;
-}
+};
 
 /**
  * Updates pan based on location of user interaction
@@ -86,7 +88,7 @@ app.Controls.prototype.reset = function() {
  * @param {number} y Y coordinate of where the user is touching the screen.
  * @private
  */
-app.Controls.prototype._updateLocation = function(x, y) {
+app.Controls.prototype.updateLocation_ = function(x, y) {
   if (!this.enabled) {
     return;
   }
@@ -107,7 +109,7 @@ app.Controls.prototype._updateLocation = function(x, y) {
  * @param {Event} e The event object.
  * @private
  */
-app.Controls.prototype._onTouchstart = function(e) {
+app.Controls.prototype.onTouchstart_ = function(e) {
   let touchCount = e.originalEvent.touches.length;
 
   if (e.target === this.mapElem[0]) {
@@ -119,9 +121,9 @@ app.Controls.prototype._onTouchstart = function(e) {
     var touchX = e.originalEvent.changedTouches[0].clientX;
     var touchY = e.originalEvent.changedTouches[0].clientY;
 
-    this._updateLocation(touchX, touchY);
+    this.updateLocation_(touchX, touchY);
   } else {
-    this._pinchStart(e);
+    this.pinchStart_(e);
   }
 };
 
@@ -130,7 +132,7 @@ app.Controls.prototype._onTouchstart = function(e) {
  * @param {Event} e The event object.
  * @private
  */
-app.Controls.prototype._onTouchmove = function(e) {
+app.Controls.prototype.onTouchmove_ = function(e) {
   let touchCount = e.originalEvent.touches.length;
 
   if (e.target === this.mapElem[0]) {
@@ -141,9 +143,9 @@ app.Controls.prototype._onTouchmove = function(e) {
     var touchX = e.originalEvent.changedTouches[0].clientX;
     var touchY = e.originalEvent.changedTouches[0].clientY;
 
-    this._updateLocation(touchX, touchY);
+    this.updateLocation_(touchX, touchY);
   } else if (this.pinching) {
-    this._pinchMove(e);
+    this.pinchMove_(e);
   }
 };
 
@@ -152,7 +154,7 @@ app.Controls.prototype._onTouchmove = function(e) {
  * @param {Event} e The event object.
  * @private
  */
-app.Controls.prototype._onTouchend = function(e) {
+app.Controls.prototype.onTouchend_ = function(e) {
   let touchCount = e.originalEvent.changedTouches.length;
 
   var touchX = e.originalEvent.changedTouches[0].clientX;
@@ -163,76 +165,99 @@ app.Controls.prototype._onTouchend = function(e) {
   }
 
   if (touchCount === 1) {
-    this._updateLocation(touchX, touchY);
+    this.updateLocation_(touchX, touchY);
     this.selecting = false;
   } else {
-    this._pinchEnd(e);
+    this.pinchEnd_(e);
   }
 
   this.lastLocation.x = undefined;
   this.lastLocation.y = undefined;
 };
 
-app.Controls.prototype._calculatePinchDistance = function(e) {
+/**
+ * Calculate pinch distance.
+ * @param {Event} event The jQuery wrapped touch event.
+ * @return {number} The pinch distance.
+ * @private
+ */
+app.Controls.prototype.calculatePinchDistance_ = function(event) {
   let firstTouch = {
-    x: e.originalEvent.touches[0].clientX,
-    y: e.originalEvent.touches[0].clientY
+    x: event.originalEvent.touches[0].clientX,
+    y: event.originalEvent.touches[0].clientY,
   };
 
   let secondTouch = {
-    x: e.originalEvent.touches[1].clientX,
-    y: e.originalEvent.touches[1].clientY
+    x: event.originalEvent.touches[1].clientX,
+    y: event.originalEvent.touches[1].clientY,
   };
 
-  return Math.sqrt(Math.pow(secondTouch.x - firstTouch.x, 2) + Math.pow(secondTouch.y - firstTouch.y, 2));
+  let xDiff = secondTouch.x - firstTouch.x;
+  let yDiff = secondTouch.y - firstTouch.y;
+  return Math.sqrt(Math.pow(xDiff, 2) + Math.pow(yDiff, 2));
 };
 
-app.Controls.prototype._pinchStart = function(e) {
-  let distance = this._calculatePinchDistance(e);
+/**
+ * Handle pinch start.
+ * @param {Event} event The touch event.
+ * @private
+ */
+app.Controls.prototype.pinchStart_ = function(event) {
+  let distance = this.calculatePinchDistance_(event);
   this.originalPinchDistance = distance;
   this.originalPinchScale = this.scale;
 
   this.pinching = true;
-}
+};
 
-app.Controls.prototype._pinchMove = function(e) {
-  let distance = this._calculatePinchDistance(e);
-  this._scalePan(this.scale, this.originalPinchScale * (distance / this.originalPinchDistance));
-}
+/**
+ * Handle pinch move.
+ * @param {Event} event The touch event.
+ * @private
+ */
+app.Controls.prototype.pinchMove_ = function(event) {
+  let distance = this._calculatePinchDistance(event) /
+      this.originalPinchDistance;
+  this.scalePan_(this.scale, this.originalPinchScale * distance);
+};
 
-app.Controls.prototype._pinchEnd = function(e) {
+/**
+ * Handle pinch end.
+ * @private
+ */
+app.Controls.prototype.pinchEnd_ = function() {
   this.pinching = false;
-}
+};
 
 /**
  * Handles the mousedown event.
- * @param {Event} e The event object.
+ * @param {Event} event The mouse event.
  * @private
  */
-app.Controls.prototype._onMousedown = function(e) {
-  this._updateLocation(e.clientX, e.clientY);
+app.Controls.prototype.onMousedown_ = function(event) {
+  this.updateLocation_(event.clientX, event.clientY);
 
   this.selecting = true;
 };
 
 /**
  * Handles the mousemove event.
- * @param {Event} e The event object.
+ * @param {Event} event The mouse event.
  * @private
  */
-app.Controls.prototype._onMousemove = function(e) {
+app.Controls.prototype.onMousemove_ = function(event) {
   if (this.selecting) {
-    this._updateLocation(e.clientX, e.clientY);
+    this.updateLocation_(event.clientX, event.clientY);
   }
 };
 
 /**
  * Handles the mouseup event.
- * @param {Event} e The event object.
+ * @param {Event} event The mouse event.
  * @private
  */
-app.Controls.prototype._onMouseup = function(e) {
-  this._updateLocation(e.clientX, e.clientY);
+app.Controls.prototype.onMouseup_ = function(event) {
+  this.updateLocation_(event.clientX, event.clientY);
 
   this.lastLocation.x = undefined;
   this.lastLocation.y = undefined;
@@ -240,7 +265,13 @@ app.Controls.prototype._onMouseup = function(e) {
   this.selecting = false;
 };
 
-app.Controls.prototype._scalePan = function(from, to) {
+/**
+ * Scale and pan.
+ * @param {number} from The current zoom level.
+ * @param {number} to The new zoom level.
+ * @private
+ */
+app.Controls.prototype.scalePan_ = function(from, to) {
   let direction = to - from;
   let difference = Math.abs(direction);
 
@@ -263,13 +294,13 @@ app.Controls.prototype._scalePan = function(from, to) {
 
   this.needsPanUpdate = true;
   this.needsScaleUpdate = true;
-}
+};
 
 /**
  * Handles zooming in when the user clicks the zoom-in element.
  * @private
  */
-app.Controls.prototype._zoomIn = function() {
+app.Controls.prototype.zoomIn_ = function() {
   if (!this.enabled || this.scale === app.Constants.ZOOM_MAX) {
     return;
   }
@@ -287,7 +318,7 @@ app.Controls.prototype._zoomIn = function() {
  * Handles zooming out when the user clicks the zoom-out element.
  * @private
  */
-app.Controls.prototype._zoomOut = function() {
+app.Controls.prototype.zoomOut_ = function() {
   if (!this.enabled || this.scale === 1) {
     return;
   }

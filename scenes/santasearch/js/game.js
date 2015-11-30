@@ -16,13 +16,11 @@
 
 goog.provide('app.Game');
 
-goog.require('app.Controls');
 goog.require('app.Constants');
-goog.require('app.Characters');
-goog.require('app.shared.utils');
+goog.require('app.Controls');
+goog.require('app.Map');
 goog.require('app.shared.Gameover');
-
-
+goog.require('app.shared.utils');
 
 /**
  * Main game class
@@ -36,7 +34,8 @@ app.Game = function(elem) {
   this.guiElem = this.elem.find('.gui');
   this.drawerElem = this.elem.find('.drawer');
 
-  this.gameoverModal = new app.shared.Gameover(this, this.elem.find('.gameover'));
+  this.gameoverModal = new app.shared.Gameover(this,
+      this.elem.find('.gameover'));
 
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
@@ -45,18 +44,18 @@ app.Game = function(elem) {
   this.gameAspectRatio = 1600 / 900;
 
   this.mapElementDimensions = {};
-  this.characters = new app.Characters(this.mapElem, this.drawerElem, this.mapElementDimensions, this.gameAspectRatio);
+  this.map = new app.Map(this.mapElem, this.drawerElem,
+      this.mapElementDimensions, this.gameAspectRatio);
 
   this.onFrame_ = this.onFrame_.bind(this);
 };
-
 
 /**
  * Start the game
  * @export
  */
 app.Game.prototype.start = function() {
-  this._setupEventHandlers();
+  this.setupEventHandlers_();
   this.restart();
 };
 
@@ -64,11 +63,17 @@ app.Game.prototype.start = function() {
  * Sets up event handlers for the game
  * @private
  */
-app.Game.prototype._setupEventHandlers = function() {
-  $(window).on('resize.santasearch orientationchange.santasearch', this._onResize.bind(this));
+app.Game.prototype.setupEventHandlers_ = function() {
+  $(window).on('resize.santasearch orientationchange.santasearch',
+      this.onResize_.bind(this));
 };
 
-app.Game.prototype._getRandomHintDistanceOffset = function() {
+/**
+ * Get random distance offset for hints.
+ * @return {number} The offset.
+ * @private
+ */
+app.Game.prototype.getRandomHintDistanceOffset_ = function() {
   let hintDistance = app.Constants.HINT_RANDOM_DISTANCE;
   let random = Math.floor(Math.random() * hintDistance);
 
@@ -83,12 +88,12 @@ app.Game.prototype._getRandomHintDistanceOffset = function() {
  * @param {string} character The character.
  * @private
  */
-app.Game.prototype._hintLocation = function(character) {
+app.Game.prototype.hintLocation_ = function(character) {
   // The location of the character is a top/left percentage of the map
   let characterLocation = character.location;
 
-  let randomLeftOffset = this._getRandomHintDistanceOffset();
-  let randomTopOffset = this._getRandomHintDistanceOffset();
+  let randomLeftOffset = this.getRandomHintDistanceOffset_();
+  let randomTopOffset = this.getRandomHintDistanceOffset_();
 
   let leftScale = (0.5 - characterLocation.left) + randomLeftOffset;
   let topScale = (0.5 - characterLocation.top) + randomTopOffset;
@@ -96,22 +101,37 @@ app.Game.prototype._hintLocation = function(character) {
   let targetX = this.mapElementDimensions.width * leftScale;
   let targetY = this.mapElementDimensions.height * topScale;
 
-  this._panAndScaleToTarget(this.controls.scale, app.Constants.HINT_ZOOM, targetX, targetY, app.Constants.HINT_BUTTON_PAN_TIME);
+  this.panAndScaleToTarget_(this.controls.scale, app.Constants.HINT_ZOOM,
+      targetX, targetY, app.Constants.HINT_BUTTON_PAN_TIME);
 };
 
-app.Game.prototype._preScale = function(scaleTarget) {
+/**
+ * @param {number} scaleTarget
+ * @private
+ */
+app.Game.prototype.preScale_ = function(scaleTarget) {
   this.controls.enabled = false;
 
   let scaleBefore = this.controls.scale;
-  this.controls._scalePan(scaleBefore, scaleTarget);
+  this.controls.scalePan_(scaleBefore, scaleTarget);
 
   let panX = this.controls.pan.x;
   let panY = this.controls.pan.y;
 
-  this._panAndScaleToTarget(scaleBefore, scaleTarget, panX, panY, app.Constants.PRESCALE_TIME);
+  this.panAndScaleToTarget_(scaleBefore, scaleTarget, panX, panY,
+      app.Constants.PRESCALE_TIME);
 };
 
-app.Game.prototype._panAndScaleToTarget = function(scaleBefore, scaleTarget, panX, panY, transitionTime) {
+/**
+ * @param {number} scaleBefore
+ * @param {number} scaleTarget
+ * @param {number} panX
+ * @param {number} panY
+ * @param {number} transitionTime
+ * @private
+ */
+app.Game.prototype.panAndScaleToTarget_ = function(scaleBefore, scaleTarget,
+    panX, panY, transitionTime) {
   this.controls.enabled = false;
 
   let scale = scaleTarget / scaleBefore;
@@ -119,13 +139,14 @@ app.Game.prototype._panAndScaleToTarget = function(scaleBefore, scaleTarget, pan
   let width = this.mapElementDimensions.width * scale;
   let height = this.mapElementDimensions.height * scale;
 
-  let targetX = this._clampXPanForWidth(panX, width);
-  let targetY = this._clampYPanForHeight(panY, height);
+  let targetX = this.clampXPanForWidth_(panX, width);
+  let targetY = this.clampYPanForHeight_(panY, height);
 
   this.mapElem.css('transition-duration', `${transitionTime}s`);
-  this.mapElem.css('transform', `translate3d(${targetX}px, ${targetY}px, 0) scale(${scale}, ${scale})`);
+  this.mapElem.css('transform',
+      `translate3d(${targetX}px, ${targetY}px, 0) scale(${scale}, ${scale})`);
 
-  setTimeout(function() {
+  setTimeout(() => {
     this.mapElem.css('transition-duration', '0s');
     this.controls.enabled = true;
     this.controls.scale = scaleTarget;
@@ -133,7 +154,7 @@ app.Game.prototype._panAndScaleToTarget = function(scaleBefore, scaleTarget, pan
     this.controls.pan.y = targetY;
     this.controls.needsScaleUpdate = true;
     this.controls.needsPanUpdate = true;
-  }.bind(this), transitionTime * 1000);
+  }, transitionTime * 1000);
 };
 
 /**
@@ -141,7 +162,7 @@ app.Game.prototype._panAndScaleToTarget = function(scaleBefore, scaleTarget, pan
  * @param {number} value Scale factor.
  * @private
  */
-app.Game.prototype._scale = function(value) {
+app.Game.prototype.scale_ = function(value) {
   let windowAspectRatio = this.elem.width() / this.elem.height();
 
   if (windowAspectRatio < this.gameAspectRatio) {
@@ -161,10 +182,16 @@ app.Game.prototype._scale = function(value) {
   this.mapElem.css('margin-left', -(this.mapElementDimensions.width / 2));
   this.mapElem.css('margin-top', -(this.mapElementDimensions.height / 2));
 
-  this.characters.updateCharacters();
-}
+  this.map.updateCharacters();
+};
 
-app.Game.prototype._clampXPanForWidth = function(panX, width) {
+/**
+ * @param {number} panX
+ * @param {number} width
+ * @return {number}
+ * @private
+ */
+app.Game.prototype.clampXPanForWidth_ = function(panX, width) {
   let max = (width - this.elem.width()) / 2;
 
   let diff = max - Math.abs(panX);
@@ -176,7 +203,13 @@ app.Game.prototype._clampXPanForWidth = function(panX, width) {
   return panX;
 };
 
-app.Game.prototype._clampYPanForHeight = function(panY, height) {
+/**
+ * @param {number} panY
+ * @param {number} height
+ * @return {number}
+ * @private
+ */
+app.Game.prototype.clampYPanForHeight_ = function(panY, height) {
   let max = (height - this.elem.height()) / 2;
 
   if (panY < 0) {
@@ -190,22 +223,22 @@ app.Game.prototype._clampYPanForHeight = function(panY, height) {
   }
 
   return panY;
-}
+};
 
 /**
  * Makes sure that the player can not pan out of the map
  * @private
  */
-app.Game.prototype._updatePan = function() {
+app.Game.prototype.updatePan_ = function() {
   let panX = this.controls.pan.x;
   let mapWidth = this.mapElementDimensions.width;
 
   let panY = this.controls.pan.y;
   let mapHeight = this.mapElementDimensions.height;
 
-  this.controls.pan.x = this._clampXPanForWidth(panX, mapWidth);
-  this.controls.pan.y = this._clampYPanForHeight(panY, mapHeight);
-}
+  this.controls.pan.x = this.clampXPanForWidth_(panX, mapWidth);
+  this.controls.pan.y = this.clampYPanForHeight_(panY, mapHeight);
+};
 
 /**
  * Resets all game entities and restarts the game. Can be called at any time.
@@ -213,14 +246,14 @@ app.Game.prototype._updatePan = function() {
 app.Game.prototype.restart = function() {
   this.paused = false;
   this.unfreezeGame();
-  this._onResize();
+  this.onResize_();
 
   window.santaApp.fire('analytics-track-game-start', {gameid: 'santasearch'});
   this.gameStartTime = +new Date;
 
   this.controls.reset();
-  this._scale(1);
-  this.characters.initialize();
+  this.scale_(1);
+  this.map.initialize();
 
   this.controls.start();
 };
@@ -229,33 +262,33 @@ app.Game.prototype.restart = function() {
  * Updates game state since last frame.
  * @param {number} delta Time elapsed since last update in milliseconds
  */
-app.Game.prototype.update = function(deltaInMilliseconds) {
+app.Game.prototype.update = function(delta) {
   if (!this.isPlaying) {
     return;
   }
 
-  if (this.characters.allFound) {
+  if (this.map.allFound) {
     this.gameoverModal.show();
     return;
   }
 
-  if (this.characters.hintTarget) {
-    this._hintLocation(this.characters.hintTarget);
-    this.characters.hintTarget = undefined;
+  if (this.map.hintTarget) {
+    this.hintLocation_(this.map.hintTarget);
+    this.map.hintTarget = undefined;
   }
 
   if (this.controls.scaleTarget) {
-    this._preScale(this.controls.scaleTarget);
+    this.preScale_(this.controls.scaleTarget);
     this.controls.scaleTarget = undefined;
   }
 
   if (this.controls.needsScaleUpdate && this.controls.enabled) {
-    this._scale(this.controls.scale);
+    this.scale_(this.controls.scale);
     this.controls.needsScaleUpdate = false;
   }
 
   if (this.controls.needsPanUpdate && this.controls.enabled) {
-    this._updatePan();
+    this.updatePan_();
 
     let panX = this.controls.pan.x;
     let panY = this.controls.pan.y;
@@ -264,9 +297,8 @@ app.Game.prototype.update = function(deltaInMilliseconds) {
     this.controls.needsPanUpdate = false;
   }
 
-  this.accumulator += deltaInMilliseconds;
+  this.accumulator += delta;
 };
-
 
 /**
  * Freezes the game. Stops the onFrame loop and stops any CSS3 animations.
@@ -276,7 +308,6 @@ app.Game.prototype.freezeGame = function() {
   this.isPlaying = false;
   this.elem.addClass('frozen');
 };
-
 
 /**
  * Unfreezes the game, starting the game loop as well.
@@ -290,7 +321,6 @@ app.Game.prototype.unfreezeGame = function() {
     this.requestId = app.shared.utils.requestAnimFrame(this.onFrame_);
   }
 };
-
 
 /**
  * Game loop. Runs every frame using requestAnimationFrame.
@@ -313,7 +343,6 @@ app.Game.prototype.onFrame_ = function() {
   this.requestId = app.shared.utils.requestAnimFrame(this.onFrame_);
 };
 
-
 /**
  * Pause the game.
  */
@@ -321,7 +350,6 @@ app.Game.prototype.pause = function() {
   this.paused = true;
   this.freezeGame();
 };
-
 
 /**
  * Resume the game.
@@ -331,19 +359,20 @@ app.Game.prototype.resume = function() {
   this.unfreezeGame();
 };
 
-
 /**
  * Makes sure the map will never be smaller than the window.
  * @private
  */
-app.Game.prototype._onResize = function() {
-  let windowWidthLargerThanMap = this.elem.width() > this.mapElementDimensions.width;
-  let windowHeightLargerThanMap = this.elem.height() > this.mapElementDimensions.height;
+app.Game.prototype.onResize_ = function() {
+  let width = this.elem.width();
+  let height = this.elem.height();
+  let windowWidthLargerThanMap = width > this.mapElementDimensions.width;
+  let windowHeightLargerThanMap = height > this.mapElementDimensions.height;
 
   let mapNeedsResizing = windowWidthLargerThanMap || windowHeightLargerThanMap;
 
   if (mapNeedsResizing) {
-    this._scale(this.controls.scale);
+    this.scale_(this.controls.scale);
   }
 
   // Scale GUI
@@ -352,7 +381,6 @@ app.Game.prototype._onResize = function() {
   this.drawerHeight = this.drawerElem.height();
   this.mapOffset = this.elem.offset().top;
 };
-
 
 /**
  * Dispose the game.
@@ -363,10 +391,11 @@ app.Game.prototype.dispose = function() {
     var opts = {
       gameid: 'santasearch',
       timePlayed: new Date - this.gameStartTime,
-      level: 1
+      level: 1,
     };
     window.santaApp.fire('analytics-track-game-quit', opts);
   }
+
   this.freezeGame();
 
   app.shared.utils.cancelAnimFrame(this.requestId);

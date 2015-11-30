@@ -28,15 +28,16 @@ app.Constants = {
   HINT_ZOOM: 2,
   HINT_BUTTON_PAN_TIME: 0.6, // seconds
   HINT_RANDOM_DISTANCE: 15, // percentage of map (0 - 100)
+  CHARACTERS: ['santa', 'penguin', 'gingerbread-man', 'rudolph', 'pegman', 'mrs-claus'],
   SPAWNS: {
-    'museum': {
-      'santa': [
+    museum: {
+      santa: [
         'SANTA-1',
         'SANTA-2',
         'SANTA-3',
         'SANTA-4',
         'SANTA-5',
-        'SANTA-6'
+        'SANTA-6',
       ],
       'gingerbread-man': [
         'GINGERBREADMAN-1',
@@ -44,24 +45,19 @@ app.Constants = {
         'GINGERBREADMAN-3',
         'GINGERBREADMAN-4',
         'GINGERBREADMAN-5',
-        'GINGERBREADMAN-6'
+        'GINGERBREADMAN-6',
       ],
-      'penguin': [
+      penguin: [
         'PENGUIN-1',
         'PENGUIN-2',
         'PENGUIN-3',
         'PENGUIN-4',
         'PENGUIN-5',
         'PENGUIN-6',
-        'PENGUIN-7'
+        'PENGUIN-7',
       ],
-      'rudolph': [
+      rudolph: [
         'RUDOLPH-1',
-        // 'RUDOLPH-2',
-        // 'RUDOLPH-3',
-        // 'RUDOLPH-4',
-        // 'RUDOLPH-5',
-        // 'RUDOLPH-6',
         'RUDOLPH-7',
       ],
       'mrs-claus': [
@@ -70,19 +66,19 @@ app.Constants = {
         'MRSCLAUS-3',
         'MRSCLAUS-4',
         'MRSCLAUS-5',
-        'MRSCLAUS-6'
+        'MRSCLAUS-6',
       ],
-      'pegman': [
+      pegman: [
         'PEGMAN-1',
         'PEGMAN-2',
         'PEGMAN-3',
         'PEGMAN-4',
         'PEGMAN-5',
         'PEGMAN-6',
-        'PEGMAN-7'
-      ]
-    }
-  }
+        'PEGMAN-7',
+      ],
+    },
+  },
 };
 
 // Hack to support shared scoreboard with other apps.

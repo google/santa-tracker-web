@@ -18,6 +18,12 @@ goog.provide('app.Character');
 
 goog.require('app.Constants');
 
+/**
+ * @param {String} name The name of the character.
+ * @param {!jQuery} mapElem The element for the map.
+ * @param {!jQuery} drawerElem The element for the drawer.
+ * @constructor
+ */
 app.Character = function(name, mapElem, drawerElem) {
   this.name = name;
   this.location = {};
@@ -26,11 +32,12 @@ app.Character = function(name, mapElem, drawerElem) {
 
   this.mapElem = mapElem;
   this.drawerElem = drawerElem;
-}
+};
 
 /**
  * Initialize a character with location, scale and a click event
- * @private
+ * @param {Array<string>} characterKeys The list of layer names in the svg.
+ * @param {{height: number, width: number}} mapDimensions The map dimensions.
  */
 app.Character.prototype.initialize = function(characterKeys, mapDimensions) {
   if (!characterKeys) {
@@ -43,8 +50,8 @@ app.Character.prototype.initialize = function(characterKeys, mapDimensions) {
   this.svgMapElem = this.mapElem.find('#santasearch-characters-svg');
 
   // Handle found event
-  this.elem.on('click', this._onFound.bind(this));
-  this.uiElem.on('click', this._onSelected.bind(this));
+  this.elem.on('click touchstart', this.onFound_.bind(this));
+  this.uiElem.on('click', this.onSelected_.bind(this));
 
   let randomKey = Math.floor(Math.random() * characterKeys.length);
   let characterToSpawn = characterKeys[randomKey];
@@ -54,29 +61,32 @@ app.Character.prototype.initialize = function(characterKeys, mapDimensions) {
 
   // Show only one location for each character
   characterKeys.forEach((characterKey) => {
-    this.svgMapElem.find('#' + characterKey).hide();
+    this.svgMapElem.find(`#${characterKey}`).hide();
   });
-  let characterElem = this.svgMapElem.find('#' + characterToSpawn).show();
+  let characterElem = this.svgMapElem.find(`#${characterToSpawn}`).show();
 
   let characterBoundaries = characterElem[0].getBoundingClientRect();
 
-  let startOffset = this.mapElem.offset().top;
   let leftOffset = (mapDimensions.width - this.mapElem.width()) / 2;
-  let topOffset = ((mapDimensions.height - this.mapElem.height()) / 2) - startOffset;
+  let topOffset = (mapDimensions.height - this.mapElem.height()) / 2;
+
+  // Start offset
+  topOffset -= this.mapElem.offset().top;
 
   this.location = {
     left: (characterBoundaries.left + leftOffset) / mapDimensions.width,
-    top: (characterBoundaries.top + topOffset) / mapDimensions.height
+    top: (characterBoundaries.top + topOffset) / mapDimensions.height,
   };
 
   this.scale = {
     width: characterBoundaries.width / mapDimensions.width,
-    height: characterBoundaries.height / mapDimensions.height
+    height: characterBoundaries.height / mapDimensions.height,
   };
 };
 
 /**
- * Positions a character based on mapElementDimensions
+ * Positions a character based on map dimensions.
+ * @param {{height: number, width: number}} mapDimensions The map dimensions.
  */
 app.Character.prototype.updatePosition = function(mapDimensions) {
   if (!this.elem) {
@@ -87,8 +97,12 @@ app.Character.prototype.updatePosition = function(mapDimensions) {
   let top = mapDimensions.height * this.location.top;
 
   this.elem.css('transform', `translate3d(${left}px, ${top}px, 0)`);
-}
+};
 
+/**
+ * Change the scale of the character.
+ * @param {{height: number, width: number}} mapDimensions The map dimensions.
+ */
 app.Character.prototype.updateScale = function(mapDimensions) {
   if (!this.elem) {
     return;
@@ -101,12 +115,16 @@ app.Character.prototype.updateScale = function(mapDimensions) {
   this.elem.css('height', characterHeight);
 };
 
+/**
+ * Called when the character has lost focus.
+ */
 app.Character.prototype.onLostFocus = function() {};
 
 /**
  * Handles the event when a character is found
+ * @private
  */
-app.Character.prototype._onFound = function() {
+app.Character.prototype.onFound_ = function() {
   if (this.isFound) {
     return;
   }
@@ -121,19 +139,29 @@ app.Character.prototype._onFound = function() {
   }
 };
 
+/**
+ * Called when the character is selected.
+ */
 app.Character.prototype.onSelected = function() {};
 
-app.Character.prototype._onSelected = function() {
+/**
+ * Handles the event when a character is selected.
+ * @private
+ */
+app.Character.prototype.onSelected_ = function() {
   this.onSelected(this);
 };
 
 /**
- * Focuses a character in the UI that the user should try to find
+ * Focuses a character in the UI that the user should try to find.
  */
 app.Character.prototype.focus = function() {
   this.uiElem.addClass('drawer__item--focused');
 };
 
+/**
+ * Removes focus from the character.
+ */
 app.Character.prototype.blur = function() {
   this.uiElem.removeClass('drawer__item--focused');
 };
