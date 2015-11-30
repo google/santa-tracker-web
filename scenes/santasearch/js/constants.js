@@ -79,6 +79,11 @@ app.Constants = {
       ],
     },
   },
+
+  // Used by the shared scoreboard but not this game
+  INITIAL_COUNTDOWN: 0,
+  COUNTDOWN_TRACK_LENGTH: 0,
+  COUNTDOWN_FLASH: 0,
 };
 
 // Hack to support shared scoreboard with other apps.

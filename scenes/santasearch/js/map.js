@@ -31,11 +31,20 @@ app.Map = function(mapElem, drawerElem, mapDimensions) {
   this.drawerElem = drawerElem;
   this.mapDimensions = mapDimensions;
   this.mapName = 'museum';
-  this.characters = {};
+
+  /** @type {!Object<app.Character>} */
+  this.characters = {
+    santa: null,
+    penguin: null,
+    'gingerbread-man': null,
+    rudolph: null,
+    pegman: null,
+    'mrs-claus': null,
+  };
 
   app.Constants.CHARACTERS.forEach((name) => {
     this.characters[name] = new app.Character(name, this.mapElem,
-        this.drawerElem, mapDimensions);
+        this.drawerElem);
   });
 
   this.allFound = false;
@@ -60,7 +69,7 @@ app.Map.prototype.initialize = function() {
     let character = this.characters[name];
     character.initialize(characterKeys[name], this.mapDimensions);
     character.onLostFocus = this.focusNextUnfoundCharacter_;
-    character.onSelected = this.changeFocus_;
+    character.onSelected = this.changeFocus_.bind(this, character);
   });
 
   this.updateCharacters();

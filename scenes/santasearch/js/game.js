@@ -25,7 +25,9 @@ goog.require('app.shared.utils');
 /**
  * Main game class
  * @param {!Element} elem An DOM element which wraps the game.
+ * @implements {SharedGame}
  * @constructor
+ * @struct
  * @export
  */
 app.Game = function(elem) {
@@ -42,10 +44,15 @@ app.Game = function(elem) {
   this.controls = new app.Controls(this.elem, this.mapElem);
 
   this.gameAspectRatio = 1600 / 900;
+  this.drawerHeight = 0;
+  this.paused = false;
+  this.isPlaying = false;
+  this.lastFrame = 0;
+  this.requestId = 0;
 
-  this.mapElementDimensions = {};
-  this.map = new app.Map(this.mapElem, this.drawerElem,
-      this.mapElementDimensions, this.gameAspectRatio);
+  /** @type {{height: number, width: number}} */
+  this.mapDimensions = { height: 0, width: 0 };
+  this.map = new app.Map(this.mapElem, this.drawerElem, this.mapDimensions);
 
   this.onFrame_ = this.onFrame_.bind(this);
 };
@@ -85,7 +92,7 @@ app.Game.prototype.getRandomHintDistanceOffset_ = function() {
 
 /**
  * Sets the zoom to 2 and pans the camera to where the character can be found
- * @param {string} character The character.
+ * @param {app.Character} character The character.
  * @private
  */
 app.Game.prototype.hintLocation_ = function(character) {
@@ -98,8 +105,8 @@ app.Game.prototype.hintLocation_ = function(character) {
   let leftScale = (0.5 - characterLocation.left) + randomLeftOffset;
   let topScale = (0.5 - characterLocation.top) + randomTopOffset;
 
-  let targetX = this.mapElementDimensions.width * leftScale;
-  let targetY = this.mapElementDimensions.height * topScale;
+  let targetX = this.mapDimensions.width * leftScale;
+  let targetY = this.mapDimensions.height * topScale;
 
   this.panAndScaleToTarget_(this.controls.scale, app.Constants.HINT_ZOOM,
       targetX, targetY, app.Constants.HINT_BUTTON_PAN_TIME);
@@ -113,7 +120,7 @@ app.Game.prototype.preScale_ = function(scaleTarget) {
   this.controls.enabled = false;
 
   let scaleBefore = this.controls.scale;
-  this.controls.scalePan_(scaleBefore, scaleTarget);
+  this.controls.scalePan(scaleBefore, scaleTarget);
 
   let panX = this.controls.pan.x;
   let panY = this.controls.pan.y;
@@ -136,8 +143,8 @@ app.Game.prototype.panAndScaleToTarget_ = function(scaleBefore, scaleTarget,
 
   let scale = scaleTarget / scaleBefore;
 
-  let width = this.mapElementDimensions.width * scale;
-  let height = this.mapElementDimensions.height * scale;
+  let width = this.mapDimensions.width * scale;
+  let height = this.mapDimensions.height * scale;
 
   let targetX = this.clampXPanForWidth_(panX, width);
   let targetY = this.clampYPanForHeight_(panY, height);
@@ -166,21 +173,21 @@ app.Game.prototype.scale_ = function(value) {
   let windowAspectRatio = this.elem.width() / this.elem.height();
 
   if (windowAspectRatio < this.gameAspectRatio) {
-    this.mapElementDimensions.width = this.elem.height() * this.gameAspectRatio;
-    this.mapElementDimensions.height = this.elem.height();
+    this.mapDimensions.width = this.elem.height() * this.gameAspectRatio;
+    this.mapDimensions.height = +this.elem.height();
   } else {
-    this.mapElementDimensions.width = this.elem.width();
-    this.mapElementDimensions.height = this.elem.width() / this.gameAspectRatio;
+    this.mapDimensions.width = +this.elem.width();
+    this.mapDimensions.height = this.elem.width() / this.gameAspectRatio;
   }
 
-  this.mapElementDimensions.width *= value;
-  this.mapElementDimensions.height *= value;
+  this.mapDimensions.width *= value;
+  this.mapDimensions.height *= value;
 
-  this.mapElem.css('width', this.mapElementDimensions.width);
-  this.mapElem.css('height', this.mapElementDimensions.height);
+  this.mapElem.css('width', this.mapDimensions.width);
+  this.mapElem.css('height', this.mapDimensions.height);
 
-  this.mapElem.css('margin-left', -(this.mapElementDimensions.width / 2));
-  this.mapElem.css('margin-top', -(this.mapElementDimensions.height / 2));
+  this.mapElem.css('margin-left', -(this.mapDimensions.width / 2));
+  this.mapElem.css('margin-top', -(this.mapDimensions.height / 2));
 
   this.map.updateCharacters();
 };
@@ -231,10 +238,10 @@ app.Game.prototype.clampYPanForHeight_ = function(panY, height) {
  */
 app.Game.prototype.updatePan_ = function() {
   let panX = this.controls.pan.x;
-  let mapWidth = this.mapElementDimensions.width;
+  let mapWidth = this.mapDimensions.width;
 
   let panY = this.controls.pan.y;
-  let mapHeight = this.mapElementDimensions.height;
+  let mapHeight = this.mapDimensions.height;
 
   this.controls.pan.x = this.clampXPanForWidth_(panX, mapWidth);
   this.controls.pan.y = this.clampYPanForHeight_(panY, mapHeight);
@@ -268,7 +275,7 @@ app.Game.prototype.update = function(delta) {
   }
 
   if (this.map.allFound) {
-    this.gameoverModal.show();
+    this.gameover();
     return;
   }
 
@@ -296,8 +303,6 @@ app.Game.prototype.update = function(delta) {
     this.mapElem.css('transform', `translate3d(${panX}px, ${panY}px, 0)`);
     this.controls.needsPanUpdate = false;
   }
-
-  this.accumulator += delta;
 };
 
 /**
@@ -360,14 +365,26 @@ app.Game.prototype.resume = function() {
 };
 
 /**
+ * Pauses/unpauses the game.
+ */
+app.Game.prototype.togglePause = function() {
+  if (this.paused) {
+    this.resume();
+  } else if (this.isPlaying) {
+    // Only allow pausing if the game is playing (not game over).
+    this.pause();
+  }
+};
+
+/**
  * Makes sure the map will never be smaller than the window.
  * @private
  */
 app.Game.prototype.onResize_ = function() {
   let width = this.elem.width();
   let height = this.elem.height();
-  let windowWidthLargerThanMap = width > this.mapElementDimensions.width;
-  let windowHeightLargerThanMap = height > this.mapElementDimensions.height;
+  let windowWidthLargerThanMap = width > this.mapDimensions.width;
+  let windowHeightLargerThanMap = height > this.mapDimensions.height;
 
   let mapNeedsResizing = windowWidthLargerThanMap || windowHeightLargerThanMap;
 
@@ -378,8 +395,14 @@ app.Game.prototype.onResize_ = function() {
   // Scale GUI
   var scale = Math.min(1, this.elem.width() / 1200);
   this.guiElem.css('font-size', scale + 'px');
-  this.drawerHeight = this.drawerElem.height();
-  this.mapOffset = this.elem.offset().top;
+  this.drawerHeight = +this.drawerElem.height();
+};
+
+/**
+ * The game is over.
+ */
+app.Game.prototype.gameover = function() {
+  this.gameoverModal.show();
 };
 
 /**

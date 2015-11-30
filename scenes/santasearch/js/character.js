@@ -119,7 +119,7 @@ app.Character.prototype.updateScale = function(mapDimensions) {
 /**
  * Called when the character has lost focus.
  */
-app.Character.prototype.onLostFocus = function() {};
+app.Character.prototype.onLostFocus = null;
 
 /**
  * Handles the event when a character is found
@@ -135,7 +135,7 @@ app.Character.prototype.onFound_ = function() {
   this.uiElem.removeClass('drawer__item--focused');
   this.uiElem.addClass('drawer__item--found');
 
-  if (wasFocused) {
+  if (wasFocused && this.onLostFocus) {
     this.onLostFocus();
   }
 };
@@ -143,15 +143,15 @@ app.Character.prototype.onFound_ = function() {
 /**
  * Called when the character is selected.
  */
-app.Character.prototype.onSelected = function() {};
+app.Character.prototype.onSelected = null;
 
 /**
  * Handles the event when a character is selected.
  * @private
  */
 app.Character.prototype.onSelected_ = function() {
-  if (!this.isFound) {
-    this.onSelected(this);
+  if (!this.isFound && this.onSelected) {
+    this.onSelected();
   }
 };
 
