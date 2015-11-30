@@ -575,7 +575,9 @@ Village scene (2015).
         this.$.count.start();
       });
 
-      this._randomEasterEggs();  // stops self if no longer active
+      if (this.santaApp.mode != 'cast') {
+        this._randomEasterEggs();  // stops self if no longer active
+      }
 
       var eh = this.$.effectholder;
       eh.textContent = '';  // clear
