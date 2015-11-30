@@ -99,9 +99,7 @@ goog.scope(function() {
 
       // Points based on speed:
       // the smaller the currentTime, the bigger the score should be
-      if (currentTime < TIME_MODIFIDER) {
-        score += Math.max(TIME_MODIFIDER - currentTime, 0);
-      }
+      score += Math.max(TIME_MODIFIDER - currentTime, 0);
 
       // More points if using less tools
       score += (this.numObjectsAvailable * BASE_POINTS);
