@@ -27,7 +27,7 @@ app.config.Styles = {
     width: 361,
     height: 220,
     innerHTML: `
-        <div class="dropper__button">
+        <div class="js-dropper__button dropper__button">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131.2 131.2"><path fill="#D4D4D6" d="M0 0h131.2v131.2H0z"/><circle fill="#77787C" cx="12.2" cy="12.2" r="6.2"/><circle fill="#77787C" cx="119" cy="12.2" r="6.2"/><circle fill="#77787C" cx="12.2" cy="119" r="6.2"/><circle fill="#77787C" cx="119" cy="119" r="6.2"/><circle opacity=".25" fill="#434343" cx="72.6" cy="72.6" r="48.6"/><circle fill="#378F43" cx="65.6" cy="65.6" r="48.6"/><circle fill="#3BB34A" cx="60.9" cy="60.9" r="48.6"/><g fill="#378F43"><path d="M29 64.9h63.8L60.9 96.8zM44.9 33h31.9v31.9H44.9z"/></g></svg>
         </div>
         <div class="dropper__pipe">
