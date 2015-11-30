@@ -150,7 +150,9 @@ app.Character.prototype.onSelected = function() {};
  * @private
  */
 app.Character.prototype.onSelected_ = function() {
-  this.onSelected(this);
+  if (!this.isFound) {
+    this.onSelected(this);
+  }
 };
 
 /**
