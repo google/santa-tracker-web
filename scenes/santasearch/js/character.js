@@ -71,6 +71,7 @@ app.Character.prototype.initialize = function(characterKeys, mapDimensions) {
   let topOffset = (mapDimensions.height - this.mapElem.height()) / 2;
 
   // Start offset
+  leftOffset -= this.mapElem.offset().left;
   topOffset -= this.mapElem.offset().top;
 
   this.location = {
