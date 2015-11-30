@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Kolumbija"
 	},
+	"codeboogie-block-jump": {
+		"message": "Skok"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Skočite."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Pokažite levo"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Pokažite levo."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Korak levo"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Naredite korak v levo."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Pokažite desno"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Pokažite desno."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Korak desno"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Naredite korak v desno."
+	},
+	"codeboogie-block-shake": {
+		"message": "Stresanje bokov"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Pomigajte z boki."
+	},
+	"codeboogie-block-split": {
+		"message": "Špaga"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Naredite špago."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Zaplešite!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Naslednji ples"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Poskusite s spodnjim koščkom posnemati ples."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Ste vedeli, da lahko ples dokončate samo s tem številom koščkov: {{ideal}}? Uporabite spodnji košček."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Lepo! Odplesali ste popolno."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Uporabljate prave koščke, vendar jih za dokončanje plesa uporabite več."
+	},
+	"codeboogie-success": {
+		"message": "Odlično!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Glejte pozorno!"
+	},
 	"codelab-block-moveeast": {
 		"message": "vzhod"
 	},
@@ -4692,7 +4758,10 @@
 		"message": "Ves december lahko raziskujete, se igrate in učite z Božičkovimi palčki"
 	},
 	"village_get_the_app": {
-		"message": "Prenesite program"
+		"message": "Prenesite aplikacijo"
+	},
+	"village_more": {
+		"message": "Več načinov raziskovanja"
 	},
 	"village_santa_cardboard": {
 		"message": "Božiček v napravi Cardboard"

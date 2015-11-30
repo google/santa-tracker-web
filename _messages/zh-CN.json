@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "哥伦比亚"
 	},
+	"codeboogie-block-jump": {
+		"message": "跳跃"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "跳跃。"
+	},
+	"codeboogie-block-leftarm": {
+		"message": "伸展左臂"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "向左伸展左臂。"
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "迈左脚"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "向左跨出一步。"
+	},
+	"codeboogie-block-rightarm": {
+		"message": "伸展右臂"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "向右伸展右臂。"
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "迈右脚"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "向右跨出一步。"
+	},
+	"codeboogie-block-shake": {
+		"message": "摆臀"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "甩臀。"
+	},
+	"codeboogie-block-split": {
+		"message": "两脚分开"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "两腿分开。"
+	},
+	"codeboogie-get-dancing": {
+		"message": "开始跳舞吧！"
+	},
+	"codeboogie-next-dance": {
+		"message": "下一支舞"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "请按照方块提示跳舞。"
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "知道吗？您只需 {{ideal}} 个方块即能完成这支舞蹈。请尝试使用以下方块。"
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "跳得不错！您已出色完成了这支舞蹈。"
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "您用的方块没错，不过请用更多方块来完成这支舞蹈。"
+	},
+	"codeboogie-success": {
+		"message": "成功！"
+	},
+	"codeboogie-watch-closely": {
+		"message": "请认真观看老师的示范！"
+	},
 	"codelab-block-moveeast": {
 		"message": "东"
 	},
@@ -645,7 +711,7 @@
 		"message": "尼日尔"
 	},
 	"new": {
-		"message": "新发布"
+		"message": "新"
 	},
 	"newtoday": {
 		"message": "今日更新"
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "下载应用"
+	},
+	"village_more": {
+		"message": "更多探索方式"
 	},
 	"village_santa_cardboard": {
 		"message": "使用 Cardboard 寻找圣诞老人"

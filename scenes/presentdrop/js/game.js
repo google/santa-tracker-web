@@ -321,7 +321,7 @@ app.Game.prototype.watchSceneSize_ = function() {
 
   var updateSize = function() {
     var width = win.width();
-    var height = win.height();
+    var height = win.height() - window.santaApp.headerSize;
     var scale = width < 890 ? width / 890 : 1;
     scale = height < 660 ? Math.min(height / 640, scale) : scale;
     this.setScale(scale);

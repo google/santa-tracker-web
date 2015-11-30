@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Hop"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Lav et hop."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Peg til venstre"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Peg til venstre."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Træd til venstre"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Tag et skridt til venstre."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Peg til højre"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Peg til højre."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Træd til højre"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Tag et skridt til højre."
+	},
+	"codeboogie-block-shake": {
+		"message": "Hofteryst"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Ryst med hoften."
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Gå i split."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Start dansen!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Næste dans"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Prøv blokken nedenfor for at lave den samme dans."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Er du klar over, at du kan gennemføre dansen med kun {{ideal}} blokke? Prøv at bruge blokken nedenfor."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Flotte trin! Du gennemførte dansen perfekt."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Du bruger de rigtige blokke, men prøv at bruge flere af dem for at gennemføre dansen."
+	},
+	"codeboogie-success": {
+		"message": "Sådan!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Se godt efter!"
+	},
 	"codelab-block-moveeast": {
 		"message": "øst"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Hent appen"
+	},
+	"village_more": {
+		"message": "Flere metoder til at gå på opdagelse"
 	},
 	"village_santa_cardboard": {
 		"message": "Julemanden på Cardboard"

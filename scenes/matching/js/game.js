@@ -394,7 +394,7 @@ Game.prototype.resetDoors_ = function() {
 Game.prototype.restart = function() {
   this.levelModel.set(1);
   this.startLevel_();
-  window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
+  window.santaApp.fire('sound-trigger', 'music_start_ingame');
   // Reset the scoreboard
   this.scoreboard.reset();
   window.santaApp.fire('analytics-track-game-start', {gameid: 'matching'});

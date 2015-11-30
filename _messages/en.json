@@ -470,6 +470,12 @@
 	"do_country_name": {
 		"message": "Dominican Republic"
 	},
+	"donate_button": {
+		"message": "Donate"
+	},
+	"donate_text": {
+		"message": "Help fund a special needs project on DonorsChoose.org. This December, we're helping to double the impact by matching donations by 50%, until we reach our goal of donating US$1m. Together, we can help to make classrooms more inclusive #ForEveryKid"
+	},
 	"dz_country_name": {
 		"message": "Algeria"
 	},
@@ -543,7 +549,7 @@
 		"message": "Your score:"
 	},
 	"getgooglemaps": {
-		"message": "Get Google Maps"
+		"message": "Search for Santa in Google Maps"
 	},
 	"gh_country_name": {
 		"message": "Ghana"
@@ -952,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Santa Selfie"
+	},
+	"scene_seasonofcaring": {
+		"message": "Season of Caring"
 	},
 	"scene_seasonofgiving": {
 		"message": "Season of Giving"
@@ -4797,7 +4806,7 @@
 		"message": "Explore, play and learn with Santa's Elves all December long"
 	},
 	"village_get_the_app": {
-		"message": "Get the App"
+		"message": "Get the Santa Tracker App for Android"
 	},
 	"village_more": {
 		"message": "More Ways to Explore"
@@ -4807,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "Santa on Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Add the Santa Chrome Extension"
 	},
 	"village_takesoff": {
 		"message": "Santa takes off in"

@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Kolumbija"
 	},
+	"codeboogie-block-jump": {
+		"message": "Lēciens"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Palecieties."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Roka pa kreisi"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Norādiet ar roku pa kreisi."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Solis pa kreisi"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Pasperiet soli pa kreisi."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Roka pa labi"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Norādiet ar roku pa labi."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Solis pa labi"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Pasperiet soli pa labi."
+	},
+	"codeboogie-block-shake": {
+		"message": "Gurnu šūpošana"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Pašūpojiet gurnus."
+	},
+	"codeboogie-block-split": {
+		"message": "Špagats"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Izpildiet špagatu."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Sāciet dejot!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Nākamā deja"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Izmēģiniet tālāk esošo bloku, lai atkārtotu dejas kustības."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Vai zinājāt, ka varat pabeigt deju ar mazāku bloku skaitu? Izmēģiniet tālāk esošo bloku."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Labas kustības! Jūs lieliski pabeidzāt deju."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Jūs izmantojat pareizos blokus, taču mēģiniet izmantot vairāk bloku, lai pabeigtu deju."
+	},
+	"codeboogie-success": {
+		"message": "Gatavs!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Rūpīgi vērojiet!"
+	},
 	"codelab-block-moveeast": {
 		"message": "Austrumi"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Iegūt lietotni"
+	},
+	"village_more": {
+		"message": "Vairāk izpētes veidu"
 	},
 	"village_santa_cardboard": {
 		"message": "Ziemassvētku vecītis pakalpojumā Cardboard"

@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Colombie"
 	},
+	"codeboogie-block-jump": {
+		"message": "Sauter"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Sautez."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Pointer à gauche"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Pointez à gauche."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Pas à gauche"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Faites un pas vers la gauche."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Pointer à droite"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Pointez à droite."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Pas à droite"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Faites un pas vers la droite."
+	},
+	"codeboogie-block-shake": {
+		"message": "Remuer les hanches"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Remuez les hanches."
+	},
+	"codeboogie-block-split": {
+		"message": "Grand écart"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Faites un grand écart."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Dansez !"
+	},
+	"codeboogie-next-dance": {
+		"message": "Danse suivante"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Sélectionnez le bloc ci-dessous correspondant à la danse."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Savez-vous que vous pouvez compléter cette danse avec seulement {{ideal}} blocs ? Essayez le bloc ci-dessous."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Ça swingue ! Vous avez fait un sans-faute."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Vous choisissez les bons blocs, mais essayez d'en utiliser plus pour compléter la danse."
+	},
+	"codeboogie-success": {
+		"message": "Bien joué !"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Faites bien attention !"
+	},
 	"codelab-block-moveeast": {
 		"message": "est"
 	},
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Télécharger l'application"
+	},
+	"village_more": {
+		"message": "D'autres manières de s'amuser"
 	},
 	"village_santa_cardboard": {
 		"message": "Le père Noël sur Cardboard"

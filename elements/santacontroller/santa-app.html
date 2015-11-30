@@ -37,7 +37,13 @@ Santa Tracker app.
   <santa-tracker-router id="router" route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
 
   <!-- Chrome, including toolbar and sidebar -->
-  <santa-chrome id="chrome" mode$="{{mode}}" color="{{_colorForRoute(route, _houses)}}" today-house="{{todayHouse}}">
+  <santa-chrome id="chrome"
+      mode$="{{mode}}"
+      disabled="{{isCastMode(mode)}}"
+      color="{{_colorForRoute(route, _houses)}}"
+      tracker-unlocked="{{postCountdown}}"
+      today-house="{{todayHouse}}"
+      mute="{{userMute}}">
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
@@ -91,6 +97,7 @@ Santa Tracker app.
 
       <commandcentre-scene route="commandcentre" icon="1f5fc"
           path$="scenes/commandcentre/commandcentre-scene_[[language]].html"
+          mode$="{{mode}}"
           loading-bg-color="rgb(129,208,0)"></commandcentre-scene>
 
       <factory-scene route="factory" icon="1f3ed"
@@ -180,6 +187,12 @@ Santa Tracker app.
       <rollercoaster-scene route="rollercoaster" icon="1f3a2"
           path$="scenes/rollercoaster/rollercoaster-scene.html"></rollercoaster-scene>
 
+      <santasearch-scene route="santasearch" icon=""
+          path$="scenes/santasearch/santasearch-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#29B6F6"
+          loading-src="scenes/santasearch/img/loading.svg"></santasearch-scene>
+
       <santaselfie-scene route="santaselfie" icon="1f488"
           path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
           mode$="{{mode}}"
@@ -220,6 +233,7 @@ Santa Tracker app.
 
       <template is="dom-repeat" items="{{videoRoutes}}">
         <video-scene route$="{{item}}"
+            mode$="{{mode}}"
             path$="scenes/videoscene/video-scene_[[language]].html"></video-scene>
       </template>
 
@@ -243,6 +257,7 @@ Santa Tracker app.
     <div msgid="scene-traditions"><i18n-msg msgid="scene_traditions">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-codelab"><i18n-msg msgid="scene_codelab">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-app"><i18n-msg msgid="scene_app">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-briefing"><i18n-msg msgid="scene_briefing">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-seasonofcaring"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-santasback"><i18n-msg msgid="scene_videoscene_santasback">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-santaselfie"><i18n-msg msgid="scene_santaselfie">PLACEHOLDER_i18n</i18n-msg></div>
@@ -260,7 +275,7 @@ Santa Tracker app.
     <div msgid="scene-mercator"><i18n-msg msgid="scene_mercator">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-presentbounce"><i18n-msg msgid="scene_presentbounce">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-codeboogie"><i18n-msg msgid="scene_codeboogie">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-elf-car"><i18n-msg msgid="scene_videoscene_carpool">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-carpool"><i18n-msg msgid="scene_videoscene_carpool">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-citylights"><i18n-msg msgid="scene_citylights">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-commandcentre"><i18n-msg msgid="scene_commandcentre">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-seasonofgiving"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
@@ -284,8 +299,13 @@ var PERMANENT_ROUTES = ['village', 'about', 'press'];
 
 var VIDEO_ROUTES = [
   'trailer', 'carpool', 'liftoff', 'jingle', 'satellite', 'temptation',
-  'office', 'tired', 'com-room', 'reload', 'slacking-off'
+  'office', 'tired', 'com-room', 'reload', 'slacking-off', 'wheressanta'
 ];
+
+// Timing for playing random videos in Cast mode, in ms.
+var VIDEO_RANDOM_MIN = 5 * (60 * 1000);
+var VIDEO_RANDOM_MAX = 12 * (60 * 1000);
+var VIDEO_RANDOM_SAFE = 60 * (60 * 1000);  // don't show videos before countdown ends
 
 // Routes/scenes unlocked with the tracker (including all video routes)
 var TRACKER_ROUTES = ['blimp', 'island', 'undersea', 'icecave', 'runner',
@@ -297,6 +317,15 @@ Polymer({
   hostAttributes: {'tabindex': '0'},
 
   properties: {
+
+    /**
+     * The size of the header, if any. Used by games to adjust their size.
+     */
+    headerSize: {
+      type: Number,
+      readOnly: true,
+      value: 56
+    },
 
     /**
      * The preloader used inside this element. This is provided as a binding
@@ -311,17 +340,19 @@ Polymer({
     },
 
     /**
-     * When Santa's flight is finished, in ms.
+     * The time at which Santa takes off, in ms.
      */
-    countDownEndDate: {
-      type: Number
+    countdownEndAt: {
+      type: Number,
+      readOnly: true
     },
 
     /**
-     * When Santa's flight is finished.
+     * When Santa's flight is finished, in ms.
      */
     flightFinishedAt: {
-      type: Number
+      type: Number,
+      readOnly: true
     },
 
     /**
@@ -339,8 +370,31 @@ Polymer({
      */
     todayHouse: {
       type: String,
-      readOnly: true,
-      value: "santaselfie"  // TODO(samthor): Make this work
+      value: '',
+      notify: true,
+      observer: '_notifyHouses'
+    },
+
+    /**
+     * Whether the sounds are globally muted by the user.
+     */
+    userMute: Boolean,
+
+    /**
+     * Whether the page is in the background.
+     */
+    pageInBackground: {
+      type: Boolean,
+      readOnly: true
+    },
+
+    /**
+     * Computes the global mute state.
+     */
+    _globalMute: {
+      type: Boolean,
+      observer: '_globalMuteChanged',
+      computed: '_computeGlobalMute(userMute, pageInBackground)'
     },
 
     /**
@@ -354,11 +408,11 @@ Polymer({
     },
 
     /**
-     * The current language locale.
+     * The current language locale. This is not modifable after launch; reload the site.
      */
     language: {
       type: String,
-      observer: '_languageChanged',
+      readOnly: true,
       value: document.documentElement.lang || 'en'
     },
 
@@ -412,6 +466,14 @@ Polymer({
     },
 
     /**
+     * If true, whenever the village is loaded, load some random visual experience after a time.
+     */
+    triggerRandom: {
+      type: Boolean,
+      value: false
+    },
+
+    /**
      * True when Santa's schedule has been checked for the first time.
      */
     scheduleChecked: {
@@ -454,10 +516,9 @@ Polymer({
     },
 
     /**
-     * A reference to the streetview house in houses.js, for restoration after
-     * postFlight.
+     * A reference to the fallback house used instead of 'callfromsanta'.
      */
-    _streetviewHouse: {
+    _fallbackHouse: {
       type: Object,
       value: null
     },
@@ -489,7 +550,6 @@ Polymer({
      */
     strings: {
       type: Object,
-      readOnly: true,
       notify: true
     },
 
@@ -498,6 +558,7 @@ Polymer({
   listeners: {
     'scene-progress': 'onSceneProgress',
     'scene-loaded': 'onSceneLoaded',
+    'video-scene-done': 'onVideoSceneDone',
     'iframe-focus-change': 'onIframeFocusChange',
     'analytics-track-event': 'trackEvent',
     'analytics-track-perf': 'trackPerf',
@@ -514,6 +575,144 @@ Polymer({
     // For prod, <i18n-msg> is removed and textContent will already be
     // correct. For dev, listen for i18n updates and update the string map.
     'i18n-language-ready': '_updateStrings',
+  },
+
+  created: function() {
+    // silence the noisy things
+    if (!window.DEV) {
+      console.log = function(){};
+    }
+
+    this.analyticsService = new Analytics();
+    this.visibilityService = new VisibilityManager();
+  },
+
+  attached: function() {
+    // If we're in production mode, then update the string map immediately, as
+    // the translations have been included in source directly.
+    if (!window.DEV) {
+      this._updateStrings();
+    }
+  },
+
+  _updateStrings: function() {
+    if (this.strings) {
+      return;  // don't try again
+    }
+    var strings = {};
+    var all = this.$.msg.children;
+    for (var x, i = 0; x = all[i]; ++i) {
+      var msgid = x.getAttribute('msgid');
+      strings[msgid] = x.textContent;
+    }
+
+    // NOTE: Since santaApp isn't actually bound onto this.$.chrome (just )
+    this.$.chrome.set('santaApp.strings', strings);
+    this.strings = Object.freeze(strings);
+  },
+
+  ready: function() {
+    this._houses = window.HOUSES;
+    this.config = window.SANTA_CONFIG;
+    delete window.HOUSES; // cleanup
+    delete window.SANTA_CONFIG; // cleanup
+
+    this._setCountdownEndAt(this.config.COUNTDOWN_END_DATE);
+    this._setFlightFinishedAt(this.config.FLIGHT_FINISHED);
+
+    var apiClient = getUrlParameter('api_client') || 'web';
+    if (!apiClient.match(/^[a-zA-Z_]*$/)) {
+      apiClient = 'web';
+    }
+
+    var loadSound = true;
+
+    switch (apiClient) {
+      case 'web_chromecast':
+        this.mode = 'cast';
+        this.triggerRandom = true;
+        break;
+      case 'web_embed':
+        this.mode = 'embed';
+        loadSound = false;
+        break;
+      case 'web_portal':
+        apiClient = 'web';
+        this.mode = 'portal';
+        break;
+      default:
+        break;
+    }
+
+    if (loadSound) {
+      var sc = new SoundController(this.soundsLoaded.bind(this));
+      this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
+      this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
+      this.addEventListener('sound-trigger', sc.playSound.bind(sc));
+    }
+
+    // NOTE: There's a race here: 'sound-ambient' is registered above, but setting the initial
+    // background state here still causes audio to start on unfocused tabs. This is probably fine,
+    // and Santa will just make noise before its tab is first focused.
+    this.visibilityService.addOnPauseListener(this._setPageInBackground.bind(this, true));
+    this.visibilityService.addOnResumeListener(this._setPageInBackground.bind(this, false));
+    this._setPageInBackground(this.visibilityService.isPaused());
+
+    var version = document.body.getAttribute('data-version');
+    this.santaService = new SantaService(apiClient, this.language, version);
+    this.santaService.sync(this._checkSchedule.bind(this));
+
+    this.santaService.addListener('destinations_changed', function(destinations) {
+      this.destinations = destinations || [];
+    }.bind(this));
+
+    this.santaService.addListener('timeline_changed', function(timeline) {
+      this.timeline = timeline || [];
+    }.bind(this));
+
+    this.santaService.addListener('kill', function justKillMe() {
+      this.analyticsService.trackEvent('API', 'killed');
+      // redirect after analytics has been processed
+      this.analyticsService.executeFunction(function errorRedirect() {
+        window.location = 'https://santatracker.google.com' +
+            location.pathname.replace(/[^\/]*$/, '') + 'error.html';
+      });
+    }.bind(this));
+
+    var reloadTimeout;
+    this.santaService.addListener('reload', function() {
+      this.analyticsService.trackEvent('API', 'reload');
+
+      if (window.DEV) {
+        console.warn('prod would trigger reload, out of date', document.body.getAttribute('data-version'));
+        return;
+      }
+      if (reloadTimeout) {
+        return;  // already trying to reload
+      }
+
+      // Schedule a reload in the next ~2 hours, but only after the last user
+      // click.
+      var reloader = function(ev) {
+        if (ev && !isRealEvent(ev)) {
+          return;  // ignore fake events, such as simulated clicks
+        }
+        var when = Math.random() * 1000 * 60 * 60 * 2;  // next two hours
+        window.clearTimeout(reloadTimeout);
+        reloadTimeout = window.setTimeout(function() {
+          window.location.reload();
+        }, when);
+      }
+      document.addEventListener('click', reloader);
+      reloader();
+    }.bind(this));
+
+    this._prepareHouses();
+
+    this._checkSchedule();
+    if (!this.route) {
+      this.route = this.defaultRoute;
+    }
   },
 
   /**
@@ -535,105 +734,8 @@ Polymer({
     }
   },
 
-  created: function() {
-    // silence the noisy things
-    if (!window.DEV) {
-      console.log = function(){};
-    }
-
-    this.analyticsService = new Analytics();
-    this.visibilityService = new VisibilityManager(this);
-    this.visibilityService.addOnPauseListener(this.onPause.bind(this));
-    this.visibilityService.addOnResumeListener(this.onResume.bind(this));
-  },
-
-  attached: function() {
-    // If we're in production mode, then update the string map immediately, as
-    // the translations have been included in source directly.
-    if (!window.DEV) {
-      this._updateStrings();
-    }
-  },
-
-  _updateStrings: function() {
-    if (this.strings) {
-      return;  // don't try again
-    }
-    var strings = {};
-    var all = this.$.msg.children;
-    for (var x, i = 0; x = all[i]; ++i) {
-      var msgid = x.getAttribute('msgid');
-      strings[msgid] = x.textContent;
-    }
-    this._setStrings(Object.freeze(strings));
-  },
-
-  ready: function() {
-    this._houses = window.HOUSES;
-    this.config = window.SANTA_CONFIG;
-    delete window.HOUSES; // cleanup
-    delete window.SANTA_CONFIG; // cleanup
-
-    this.countDownEndDate = this.config.COUNTDOWN_END_DATE;
-    this.flightFinishedAt = this.config.flightFinishedAt;
-
-    var apiClient = getUrlParameter('api_client') || 'web';
-    if (!apiClient.match(/^[a-zA-Z_]*$/)) {
-      apiClient = 'web';
-    }
-
-    var loadSound = true;
-
-    switch (apiClient) {
-      case 'web_chromecast':
-        this.mode = 'cast';
-        this.initChromecast();
-        loadSound = false;
-
-        break;
-      case 'web_embed':
-        this.mode = 'embed';
-        loadSound = false;
-        break;
-      case 'web_portal':
-        apiClient = 'web';
-        this.mode = 'portal';
-        break;
-      default:
-        break;
-    }
-
-    if (loadSound) {
-      var sc = new SoundController(this.soundsLoaded.bind(this));
-      this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
-      this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
-      this.addEventListener('sound-trigger', sc.playSound.bind(sc));
-    }
-
-    this.santaService = new SantaService(apiClient, this.language);
-    this.santaService.sync(this._checkSchedule.bind(this));
-
-    this.santaService.addListener('destinations_changed', function(destinations) {
-      this.destinations = destinations || [];
-    }.bind(this));
-
-    this.santaService.addListener('timeline_changed', function(timeline) {
-      this.timeline = timeline || [];
-    }.bind(this));
-
-    this.santaService.addListener('kill', function justKillMe() {
-      this.analyticsService.trackEvent('API', 'killed');
-      // redirect after analytics has been processed
-      this.analyticsService.executeFunction(function errorRedirect() {
-        window.location = 'https://santatracker.google.com' +
-            location.pathname.replace(/[^\/]*$/, '') + 'error.html';
-      });
-    }.bind(this));
-
-    this._prepareHouses();
-
-    this._checkSchedule();
-    if (!this.route) {
+  onVideoSceneDone: function(event) {
+    if (this.mode == 'cast') {
       this.route = this.defaultRoute;
     }
   },
@@ -647,10 +749,6 @@ Polymer({
     var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
     var spanglish = /^e(n|s)/.test(this.language);
 
-    if (castMode) {
-      this._houses = this._houses.slice(0, 3);  // just show the first three
-    }
-
     for (var i = this._houses.length - 1; i >= 0; i--) {
       var house = this._houses[i];
 
@@ -661,18 +759,20 @@ Polymer({
           // Disable Google Play house on iOS devices
           house.disabled = (ios || portalMode || house.disabled);
           break;
-        case 'streetview':
-          // remove streetview where callfromsanta supported (en|en-GB|es|es-419)
-          // Save the object for postFlight (when callfromsanta will be disabled)
-          if (spanglish && !this.postFlight) {
-            this._streetviewHouse = this._houses.splice(i, 1)[0];
-          }
-          break;
         case 'callfromsanta':
-          // remove callfromsanta where not supported (leaving streetview) or
+          // remove callfromsanta where not supported (leaving fallback house) or
           // after Santa's flight has concluded.
           if (!spanglish || this.postFlight) {
             this._houses.splice(i, 1);
+          }
+          break;
+        default:
+          if (house.fallback) {
+            // remove fallback where callfromsanta supported (en|en-GB|es|es-419)
+            // Save the object for postFlight (when callfromsanta will be disabled)
+            if (spanglish && !this.postFlight) {
+              this._fallbackHouse = this._houses.splice(i, 1)[0];
+            }
           }
           break;
       }
@@ -685,47 +785,45 @@ Polymer({
     return this.postCountdown ? TRACKER_ROUTE : DEFAULT_ROUTE;
   },
 
-  initChromecast: function() {
-    // `cast` is added to global scope by chromecast SDK
-    var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
-    var messageBus = castReceiverManager
-        .getCastMessageBus('urn:x-cast:com.google.cast.santatracker');
+  /**
+   * Async holder for _triggerRandom.
+   */
+  _triggerRandomAsync: null,
 
-    castReceiverManager.onReady = function(event) {
-      console.debug('cast_receiver ready', event.data);
-      castReceiverManager.setApplicationState(WINDOW_TITLE);
-    };
-    castReceiverManager.onSenderConnected = function(event) {
-      console.debug('cast_receiver connected', event.data, castReceiverManager.getSender(event.data).userAgent);
-    };
-    castReceiverManager.onSenderDisconnected = function(event) {
-      console.debug('cast_receiver disconnected', event.data);
-      if (!castReceiverManager.getSenders().length &&
-          event.reason === cast.receiver.system.DisconnectReason.REQUESTED_BY_SENDER) {
-        window.close();
-      }
-    };
+  /**
+   * Requests that a random visual scene be loaded. Only runs if `triggerRandom` is true.
+   */
+  _triggerRandom: function() {
+    if (!this.triggerRandom) {
+      return;
+    }
 
-    messageBus.onMessage = function(event) {
-      console.debug('cast_receiver message', event.senderId, event.data);
-    };
+    var when = randomRange(VIDEO_RANDOM_MIN, VIDEO_RANDOM_MAX);
+    var remaining = this.countdownEndAt - this.santaService.now();
+    if (remaining < VIDEO_RANDOM_SAFE) {
+      return;  // give up, no more videos this close to launch
+    }
+    console.debug('triggering random video in', when);
 
-    var appConfig = new cast.receiver.CastReceiverManager.Config();
-    appConfig.maxInactivity = 60 * 60 * 3;  // in seconds, 3 hours default
-    appConfig.statusText = WINDOW_TITLE + '...';  // subtle loading hint
-    castReceiverManager.start(appConfig);
-  },
-
-  _languageChanged: function() {
-    this.santaService && this.santaService.setLang(this.language);
+    this.cancelAsync(this._triggerRandomAsync);
+    this._triggerRandomAsync = this.async(function() {
+      var opts = VIDEO_ROUTES.filter(function(scene) {
+        return this.sceneIsUnlocked(scene);
+      }, this);
+      var choice = randomChoice(opts);
+      console.debug('chose random video', choice, 'from', opts);
+      this.route = choice;
+    }, when);
   },
 
   _selectedSceneChanged: function(newValue, oldValue) {
     this.$.chrome.isFixedToolbar = (newValue != this.$.village);
-    this.$.chrome.closeDrawer();
 
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;
+    }
+    if (newValue == this.$.village) {
+      this._triggerRandom();
     }
 
     // Let the selected scene know about params.
@@ -821,26 +919,35 @@ Polymer({
     if (this.scheduleChecked) {
       var valid = (this.$.lazypages.isValidRoute(this.route) &&
                    this.sceneIsUnlocked(this.route)) ||
-                   (this.postCountdown && this.route == TRACKER_ROUTE);
+                   (this.postCountdown && this.route == TRACKER_ROUTE) ||
+                   (this.mode == 'cast' && VIDEO_ROUTES.indexOf(this.route) != -1);
       if (!valid) {
-        this.route = this.defaultRoute;
+        if (window.DEV) {
+          console.warn('prod would redirect from', this.route, 'to', this.defaultRoute);
+        } else {
+          this.route = this.defaultRoute;
+        }
       }
     }
   },
 
-  onPause: function() {
-    this.fire('sound-ambient', 'global_blur');
-    this.fire('sound-ambient', 'global_pause');
-    if (this.selectedScene && this.selectedScene.fire) {
-      this.selectedScene.fire('scene-pause', true);
-    }
+  _computeGlobalMute: function(userMute, pageInBackground) {
+    return userMute || pageInBackground;
   },
 
-  onResume: function() {
-    this.fire('sound-ambient', 'global_focus');
-    this.fire('sound-ambient', 'global_unpause');
-    if (this.selectedScene && this.selectedScene.fire) {
-      this.selectedScene.fire('scene-pause', false);
+  _globalMuteChanged: function(newValue) {
+    if (newValue)  {
+      this.fire('sound-ambient', 'global_blur');
+      this.fire('sound-ambient', 'global_pause');
+      if (this.selectedScene && this.selectedScene.fire) {
+        this.selectedScene.fire('scene-pause', true);
+      }
+    } else {
+      this.fire('sound-ambient', 'global_focus');
+      this.fire('sound-ambient', 'global_unpause');
+      if (this.selectedScene && this.selectedScene.fire) {
+        this.selectedScene.fire('scene-pause', false);
+      }
     }
   },
 
@@ -911,12 +1018,10 @@ Polymer({
   _postFlightChanged: function() {
     for (var i = 0; i < this._houses.length; i++) {
       // In regions where callfromsanta was supported, replace it with the
-      // streetviewHouse used in other regions
+      // fallbackHouse used in other regions
       if (this._houses[i].module === 'callfromsanta') {
-        if (this._streetviewHouse) {
-          this._houses[i] = this._streetviewHouse;
-        } else {
-          this._houses[i].disabled = true;
+        if (this._fallbackHouse) {
+          this._houses[i] = this._fallbackHouse;
         }
       }
 
@@ -952,8 +1057,6 @@ Polymer({
   unlockAllHouses: function() {
     for (var i = 0, house; house = this._houses[i]; ++i) {
       this.unlockHouse(i);
-      house.today = false;
-      house.tomorrow = false;
     }
   },
 
@@ -961,8 +1064,6 @@ Polymer({
     for (var i = 0, house; house = this._houses[i]; ++i) {
       this.set('_houses.i.')
       house.iced = true;
-      house.today = false;
-      house.tomorrow = false;
     }
     this._notifyHouses();
   },
@@ -983,6 +1084,10 @@ Polymer({
       return true;
     }
 
+    if (this.mode == 'cast' && VIDEO_ROUTES.indexOf(moduleName) != -1) {
+      return true;  // allows non-house (i.e., not part of the scchedule) video scenes on cast
+    }
+
     return false;
   },
 
@@ -996,20 +1101,6 @@ Polymer({
    * @private
    */
   _checkSchedule: function() {
-    if (window.DEV) {
-      console.info('dev, unlocking all houses, random today house');
-      this.unlockAllHouses();
-
-      var todayIndex = Math.floor(Math.random() * this._houses.length);
-      if (todayIndex < this._houses.length) {
-        this._houses[todayIndex].today = true;
-      }
-      if (todayIndex + 1 < this._houses.length) {
-        this._houses[todayIndex + 1].tomorrow = true;
-      }
-
-      return;
-    }
     if (!this.santaService) {
       return;  // ignore, will be called via ready:
     }
@@ -1020,32 +1111,38 @@ Polymer({
 
     // Set post countdown/post flight flags based on current time.
     this.postFlight = todayDate >= this.flightFinishedAt;
-    this.postCountdown = todayDate > this.countDownEndDate && !this.postFlight;
+    this.postCountdown = todayDate > this.countdownEndAt && !this.postFlight;
 
     switch(todayDate.getMonth()) {
       case 11: // DECEMBER
+        var todayHouse = '';
+
         // Update house status based on today's date.
         for (var i = 0; i < this._houses.length; i++) {
           var house = this._houses[i];
 
-          if (house.launchDate <= todayDate) {
-            this.unlockHouse(i);
-            house.today = isSameDay(house.launchDate, todayDate);
-            house.tomorrow = false;
-          } else {
+          if (house.launchDate > todayDate) {
             house.iced = true;
-            house.today = false;
-            house.tomorrow = isSameDay(house.launchDate, tomorrowDate);
+            continue;
+          }
+          this.unlockHouse(i);
+          if (isSameDay(house.launchDate, todayDate)) {
+            todayHouse = house.module;
           }
         }
+
+        this.todayHouse = todayHouse;
         break;
       case 0: // JAN
         // All houses in Jan are unlocked. Full experience baby!
         this.unlockAllHouses();
         break;
       default:
-        // noop
-        this.lockAllHouses();
+        if (window.DEV) {
+          this.unlockAllHouses();
+        } else {
+          this.lockAllHouses();
+        }
     }
     this._notifyHouses();
 
@@ -1085,7 +1182,7 @@ Polymer({
       this._checkSchedule();
       if (this.postCountdown && this.route === DEFAULT_ROUTE) {
         // Act as if the user has clicked a link, and update the hash manually.
-        this.$.router.go(TRACKER_ROUTER);
+        this.$.router.go(TRACKER_ROUTE);
       }
     }
   },
@@ -1105,6 +1202,7 @@ Polymer({
 
       var houses = this._houses.slice();
       this.$.village.houses = houses;
+      this.$.village.todayHouse = this.todayHouse;
 
       // TODO(samthor): This works around Polymer aggressively comparing the
       // inner objects of the array. It decides that since the inner objects
@@ -1130,6 +1228,10 @@ Polymer({
     }
 
     return '';
+  },
+
+  isCastMode: function(mode) {
+    return mode == 'cast';
   },
 
   onTrackerEnd: function(e, detail) {

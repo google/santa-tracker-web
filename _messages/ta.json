@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "கொலம்பியா"
 	},
+	"codeboogie-block-jump": {
+		"message": "குதிக்கவும்"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "குதிக்கவும்."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "இடது கையை வை"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "இடது பக்கம் வைக்கவும்."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "இடது காலை வை"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "இடது பக்கம் காலை வைக்கவும்."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "வலது கையை வை"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "வலது பக்கம் வைக்கவும்."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "வலது காலை வை"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "வலது பக்கம் காலை வைக்கவும்."
+	},
+	"codeboogie-block-shake": {
+		"message": "இடுப்பை ஆட்டு"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "இடுப்பை ஆட்டவும்."
+	},
+	"codeboogie-block-split": {
+		"message": "பிரி"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "பிரிக்கவும்."
+	},
+	"codeboogie-get-dancing": {
+		"message": "நடனமாடுங்கள்!"
+	},
+	"codeboogie-next-dance": {
+		"message": "அடுத்த நடனம்"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "நடனத்தை பொருத்த, கீழேயுள்ள ப்ளாக்கை முயற்சிக்கவும்."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "{{ideal}} ப்ளாக்குகளை மட்டும் பயன்படுத்தி இந்த நடனத்தை முடிக்கலாம் என்று தெரியுமா? கீழேயுள்ள ப்ளாக்குகளைப் பயன்படுத்தி முயற்சிக்கவும்."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "அருமை! சரியாக ஆடி முடித்துவிட்டீர்கள்."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "சரியான ப்ளாக்குகளைப் பயன்படுத்துகிறீர்கள், நடனத்தை முடிக்க அவற்றை அதிகமாகப் பயன்படுத்தவும்."
+	},
+	"codeboogie-success": {
+		"message": "வெற்றி!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "கவனமாகப் பார்க்கவும்!"
+	},
 	"codelab-block-moveeast": {
 		"message": "கிழக்கு"
 	},
@@ -783,7 +849,7 @@
 		"message": "கோ!"
 	},
 	"santasearch_search_for_santa": {
-		"message": "சான்டாவை தேடவும்!"
+		"message": "சான்டாவைத் தேடவும்!"
 	},
 	"santasvillage": {
 		"message": "சான்டாவின் கிராமம்"
@@ -999,7 +1065,7 @@
 		"message": "வழியைக் காட்டு"
 	},
 	"tracker_track": {
-		"message": "சேன்டாவைக் கண்கானி"
+		"message": "சான்டாவைக் கண்கானி"
 	},
 	"tracker_weather": {
 		"message": "வானிலை"
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "பயன்பாட்டைப் பெறுக"
+	},
+	"village_more": {
+		"message": "கண்டறிவதற்கான மேலும் வழிகள்"
 	},
 	"village_santa_cardboard": {
 		"message": "கார்ட்போர்டில் சான்டா"

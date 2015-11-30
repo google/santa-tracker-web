@@ -245,6 +245,72 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Salta"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Salta."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Mano izquierda"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Apunta a la izquierda."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "A la izquierda"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Da un paso a la izquierda."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Mano derecha"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Apunta a la derecha."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "A la derecha"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Da un paso a la derecha."
+	},
+	"codeboogie-block-shake": {
+		"message": "Mueve caderas"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Mueve las caderas."
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Haz un split."
+	},
+	"codeboogie-get-dancing": {
+		"message": "¡A bailar!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Siguiente baile"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Intenta usar los bloques para seguir el baile."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "¿Sabías que puedes terminar el baile con solo {{ideal}} bloques? Prueba usar el bloque de abajo."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "¡Muy bien! Tu baile fue perfecto."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Estás usando los bloques correctos, pero intenta usar más para terminar el baile."
+	},
+	"codeboogie-success": {
+		"message": "¡Éxito!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Presta atención."
+	},
 	"codelab-block-moveeast": {
 		"message": "este"
 	},
@@ -999,7 +1065,7 @@
 		"message": "Ve la ruta."
 	},
 	"tracker_track": {
-		"message": "Seguir a Santa"
+		"message": "Sigue a Santa"
 	},
 	"tracker_weather": {
 		"message": "Clima"
@@ -4693,6 +4759,9 @@
 	},
 	"village_get_the_app": {
 		"message": "Obtén la app"
+	},
+	"village_more": {
+		"message": "Más formas de explorar"
 	},
 	"village_santa_cardboard": {
 		"message": "Santa en Cardboard"

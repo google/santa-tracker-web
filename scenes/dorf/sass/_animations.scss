@@ -1,16 +1,5 @@
 @import "variables";
 
-@keyframes bounce {
-  0%    { transform: translateY(0); }
-  25%   { transform: translateY(-40px * .9); }
-  35%   { transform: translateY(-40px * .95); }
-  50%   { transform: translateY(-40px * 1); }
-  65%   { transform: translateY(-40px * .95); }
-  75%   { transform: translateY(-40px * .9); }
-  100%  { transform: translateY(0); }
-}
-
-
 @keyframes #{$name}-walrus {
   0%, 100% {
     transform: translateY(100%);
@@ -49,76 +38,26 @@
 }
 
 @keyframes #{$name}-skydive {
-  0%, #{$skydive-start} {
+  0% {
     transform: translateY($skydive-start-pos);
-    opacity: 1;
   }
   #{$skydive-fallto} {
     transform: translateY($skydive-fallto-pos);
-    opacity: 1;
-  }
-  #{$skydive-fallto + .1} {
-    transform: translateY($skydive-fallto-pos - 5);
-    opacity: 1;
-  }
-  #{$skydive-land}, #{$skydive-disappear} {
-    transform: translateY($skydive-land-pos);
-    opacity: 1;
   }
   100% {
     transform: translateY($skydive-land-pos);
-    opacity: 0;
   }
 }
 
 @keyframes #{$name}-skydive-tablet {
-  0%, #{$skydive-start} {
+  0% {
     transform: translateY($skydive-start-pos);
-    opacity: 1;
   }
   #{$skydive-fallto} {
     transform: translateY($skydive-fallto-pos);
-    opacity: 1;
-  }
-  #{$skydive-fallto + .1} {
-    transform: translateY($skydive-fallto-pos - 5);
-    opacity: 1;
-  }
-  #{$skydive-land}, #{$skydive-disappear} {
-    transform: translateY($skydive-land-tablet-pos);
-    opacity: 1;
   }
   100% {
     transform: translateY($skydive-land-tablet-pos);
-    opacity: 0;
-  }
-}
-
-@keyframes #{$name}-skydive-pegman-1 {
-  /* Visible from 0-fallto */
-  0% {
-    visibility: visible;
-  }
-  #{$skydive-fallto}, 100% {
-    visibility: hidden;
-  }
-}
-@keyframes #{$name}-skydive-pegman-2 {
-  /* Visible from fallto-land */
-  0%, #{$skydive-fallto}, #{$skydive-land}, 100% {
-    visibility: hidden;
-  }
-  #{(($skydive-fallto + $skydive-land) / 2)} {
-    visibility: visible;
-  }
-}
-@keyframes #{$name}-skydive-pegman-3 {
-  /* Visible from land-100% */
-  0%, #{$skydive-land} {
-    visibility: hidden;
-  }
-  100% {
-    visibility: visible;
   }
 }
 
@@ -134,6 +73,7 @@
 }
 
 @keyframes #{$name}-cloud {
-  0%   { opacity: 1; transform: translate(-20vw); }
-  100% { opacity: 1; transform: translate(+120vw); }
+  0%   { transform: translate(-20vw) scale(0.5); }
+  50%  { transform: translate(50vw) scale(1); }
+  100% { transform: translate(+120vw) scale(0.5); }
 }
