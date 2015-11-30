@@ -28,7 +28,7 @@ var closureCompiler = require('gulp-closure-compiler');
 var mergeStream = require('merge-stream');
 var browserSync = require('browser-sync').create();
 
-var STATIC_VERSION = 80;
+var DEFAULT_STATIC_VERSION = 80;
 
 var argv = require('yargs')
     .help('help')
@@ -54,7 +54,7 @@ var argv = require('yargs')
     })
     .option('build', {
       type: 'string',
-      default: '' + STATIC_VERSION,
+      default: '' + DEFAULT_STATIC_VERSION,
       describe: 'production build tag'
     })
     .option('baseurl', {
@@ -103,6 +103,7 @@ var CLOSURE_SAFE_WARNINGS = CLOSURE_WARNINGS.concat([
 var API_BASE_URL = argv.api_base.replace(/\/*$/, '/');
 var STATIC_BASE_URL = argv.baseurl.replace(/\/*$/, '/');
 var STATIC_URL = argv.pretty ? '' : (STATIC_BASE_URL + argv.build + '/');
+var STATIC_VERSION = argv.build;
 
 var PROD_DIR = 'dist_prod';
 var STATIC_DIR = 'dist_static';
@@ -437,6 +438,8 @@ gulp.task('i18n_index', function() {
     .pipe(argv.pretty ? gutil.noop() : $.replace(/window\.DEV ?= ?true.*/, ''))
     .pipe($.replace('<base href="">',
         '<base href="' + STATIC_URL + '">'))
+    .pipe($.replace('data-version=""',
+        'data-version="' + STATIC_VERSION + '"'))
     .pipe(i18n_replace({
       strict: !!argv.strict,
       path: '_messages',
