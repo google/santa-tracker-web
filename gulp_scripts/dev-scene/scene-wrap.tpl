@@ -67,7 +67,9 @@
 
             // Configure SoundController.
             SoundController.klangSrc_ = '../../' + SoundController.klangSrc_;
-            SoundController.klangConfigSrc_ = '../../' + SoundController.klangConfigSrc_;
+            if (SoundController.klangConfigSrc_.indexOf('http') !== 0) {
+                SoundController.klangConfigSrc_ = '../../' + SoundController.klangConfigSrc_;
+            }
 
             // Create any pending Polymer components.
             __polymerComponents.forEach(function(component) {
