@@ -24,7 +24,9 @@ var changedFlag = require('./gulp_scripts/changed_flag');
 var path = require('path');
 var del = require('del');
 var i18n_replace = require('./gulp_scripts/i18n_replace');
+var devScene = require('./gulp_scripts/dev-scene');
 var closureCompiler = require('gulp-closure-compiler');
+var closureDeps = require('gulp-closure-deps');
 var mergeStream = require('merge-stream');
 var browserSync = require('browser-sync').create();
 
@@ -73,6 +75,11 @@ var argv = require('yargs')
       default: 3000,
       describe: 'port to serve on'
     })
+    .option('devmode', {
+      type: 'boolean',
+      default: false,
+      describe: 'run scenes directly with raw source files and livereload'
+    })
     .argv;
 
 var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
@@ -114,6 +121,11 @@ var DIST_PROD_DIR = argv.pretty ? PRETTY_DIR : PROD_DIR;
 
 // path for static resources
 var DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + argv.build);
+
+// basic build tasks
+var DEFAULT_TASKS = argv.devmode ?
+    ['sass', 'build-scene-deps', 'create-dev-scenes'] :
+    ['sass', 'compile-santa-api-service', 'compile-scenes']
 
 // Broad scene config for Santa Tracker.
 // Note! New scenes must be typeSafe (which is the default, so omit typeSafe:
@@ -205,6 +217,9 @@ var SCENE_CLOSURE_CONFIG = {
     typeSafe: false,
     entryPoint: 'app.Game'
   },
+  santasearch: {
+    entryPoint: 'app.Game'
+  },
   santaselfie: {
     typeSafe: false,
     entryPoint: 'app.Game'
@@ -234,7 +249,7 @@ var SCENE_CLOSURE_CONFIG = {
 
 // List of scene names to compile.
 var SCENE_NAMES = argv.scene ?
-    [argv.scene].concat(SCENE_CLOSURE_CONFIG[argv.scene].dependencies || [] ) :
+    [argv.scene].concat((SCENE_CLOSURE_CONFIG[argv.scene] || {}).dependencies || []) :
     Object.keys(SCENE_CLOSURE_CONFIG);
 // A glob pattern matching scenes to compile.
 var SCENE_GLOB = '*';
@@ -259,6 +274,7 @@ gulp.task('sass', function() {
   return gulp.src(files, {base: '.'})
     .pipe($.sass({outputStyle: 'compressed'}).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+    .pipe($.changed('.', {hasChanged: $.changed.compareSha1Digest}))
     .pipe(gulp.dest('.'));
 });
 
@@ -294,7 +310,7 @@ gulp.task('compile-santa-api-service', function() {
     .pipe(gulp.dest('js/service'));
 });
 
-gulp.task('compile-scenes', ['compile-santa-api-service'], function() {
+gulp.task('compile-scenes', function() {
   // compile each scene, merging them into a single gulp stream as we go
   return SCENE_NAMES.reduce(function(stream, sceneName) {
     var config = SCENE_CLOSURE_CONFIG[sceneName];
@@ -359,6 +375,41 @@ function addCompilerFlagOptions(opts) {
   }
   return opts;
 }
+
+gulp.task('build-scene-deps', function() {
+  // compile each scene, merging them into a single gulp stream as we go
+  return SCENE_NAMES.reduce(function(stream, sceneName) {
+    var config = SCENE_CLOSURE_CONFIG[sceneName];
+    var fileName = sceneName + '-scene.deps.js';
+    var dest = '.devmode/scenes/' + sceneName;
+
+    return stream.add(gulp.src([
+      'scenes/' + sceneName + '/js/**/*.js',
+      'scenes/shared/js/*.js'
+    ])
+        .pipe($.newer(dest + '/' + fileName))
+        .pipe(closureDeps({
+          baseDir: '.',
+          fileName: fileName,
+          prefix: '../../../..'
+        }))
+        .pipe($.changed(dest, {hasChanged: $.changed.compareSha1Digest}))
+        .pipe(gulp.dest(dest)));
+  }, mergeStream());
+});
+
+gulp.task('create-dev-scenes', function() {
+  // compile each scene, merging them into a single gulp stream as we go
+  return SCENE_NAMES.reduce(function(stream, sceneName) {
+    var dest = '.devmode/scenes/' + sceneName;
+    return stream.add(
+        gulp.src('scenes/' + sceneName + '/' + sceneName + '-scene_en.html')
+            .pipe(devScene(sceneName, SCENE_CLOSURE_CONFIG[sceneName]))
+            .pipe($.newer(dest + '/index.html'))
+            .pipe(gulp.dest(dest))
+    );
+  }, mergeStream());
+});
 
 gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() {
   // These are the 'common' elements inlined in elements_en.html. They can be
@@ -475,21 +526,35 @@ gulp.task('dist', ['copy-assets']);
 
 gulp.task('watch', function() {
   gulp.watch(SASS_FILES, ['sass']);
-  gulp.watch(CLOSURE_FILES, ['compile-scenes']);
-  gulp.watch(SERVICE_FILES, ['compile-santa-api-service']);
+
+  if (argv.devmode) {
+    gulp.watch(CLOSURE_FILES, ['build-scene-deps']);
+    gulp.watch('scenes/**/*.html', ['create-dev-scenes']);
+  } else {
+    gulp.watch(CLOSURE_FILES, ['compile-scenes']);
+    gulp.watch(SERVICE_FILES, ['compile-santa-api-service']);
+  }
 });
 
-gulp.task('serve', ['sass', 'compile-scenes', 'watch'], function() {
+gulp.task('serve', ['default', 'watch'], function() {
+  var livereloadFiles = [
+    '**/*.css'
+  ];
+  // Reload on raw js files only in dev mode.
+  if (argv.devmode) {
+    livereloadFiles.push('scenes/**/*.js', '.devmode/**/*.js', '.devmode/**/index.html');
+  } else {
+    livereloadFiles.push('**/*.min.js', '**/*.html');
+  }
+
   browserSync.init({
-    server: '.',
+    files: livereloadFiles,
+    injectChanges: argv.devmode, // Can not inject css into lazy Polymer scenes.
     port: argv.port,
-    ui: {port: argv.port + 1},
-    startPath: argv.scene && '/#' + argv.scene
+    server: ['.', '.devmode'],
+    startPath: argv.scene && (argv.devmode ? '/scenes/' + argv.scene + '/' : '/#' + argv.scene),
+    ui: {port: argv.port + 1}
   });
-
-  gulp.watch('{scenes,elements,sass}/**/*.css').on('change', browserSync.reload);
-  gulp.watch('**/*.min.js').on('change', browserSync.reload);
-  gulp.watch(['scenes/**/*.html', 'elements/**/*.html']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['sass', 'compile-scenes']);
+gulp.task('default', DEFAULT_TASKS);

@@ -1,0 +1,85 @@
+##{$name} {
+  .character {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+
+    &--santa,
+    &--santa-shadow {
+      background: url(img/santa.svg) 0 0 / cover no-repeat;
+      width: 96em;
+      height: 152em;
+      margin-left: -48em;
+      margin-top: -46em;
+    }
+
+    &--santa-shadow {
+      background: url(img/santa-shadow.svg) 0 0 / cover no-repeat;
+    }
+
+    &--penguin,
+    &--penguin-shadow {
+      background: url(img/penguin.svg) 0 0 / cover no-repeat;
+      width: 56em;
+      height: 112em;
+      margin-left: -23em;
+      margin-top: -48em;
+    }
+
+    &--penguin-shadow {
+      background: url(img/penguin-shadow.svg) 0 0 / cover no-repeat;
+    }
+
+    &--gingerbread-man,
+    &--gingerbread-man-shadow {
+      background: url(img/gingerbread-man.svg) 0 0 / cover no-repeat;
+      width: 108em;
+      height: 166em;
+      margin-left: -54em;
+      margin-top: -71em;
+    }
+
+    &--gingerbread-man-shadow {
+      background: url(img/gingerbread-man-shadow.svg) 0 0 / cover no-repeat;
+    }
+
+    &--rudolph,
+    &--rudolph-shadow {
+      background: url(img/rudolph.svg) 0 0 / cover no-repeat;
+      width: 110em;
+      height: 204em;
+      margin-left: -55em;
+      margin-top: -73em;
+    }
+
+    &--rudolph-shadow {
+      background: url(img/rudolph-shadow.svg) 0 0 / cover no-repeat;
+    }
+
+    &--pegman,
+    &--pegman-shadow {
+      background: url(img/pegman.svg) 0 0 / cover no-repeat;
+      width: 64em;
+      height: 136em;
+      margin-left: -32em;
+      margin-top: -67em;
+    }
+
+    &--pegman-shadow {
+      background: url(img/pegman-shadow.svg) 0 0 / cover no-repeat;
+    }
+
+    &--mrs-claus,
+    &--mrs-claus-shadow {
+      background: url(img/mrs-claus.svg) 0 0 / cover no-repeat;
+      width: 80em;
+      height: 152em;
+      margin-left: -40em;
+      margin-top: -50em;
+    }
+
+    &--mrs-claus-shadow {
+      background: url(img/mrs-claus-shadow.svg) 0 0 / cover no-repeat;
+    }
+  }
+}
