@@ -60,6 +60,7 @@ Village scene (2015).
         <div id="header-mobileelves"></div>
       </div>
       <div id="header-content">
+        <div id="ornament"></div>
         <div id="count-down" class$="mode-{{santaApp.mode}}">
           <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
           <countdown-timer id="count"
@@ -195,7 +196,7 @@ Village scene (2015).
     </div>
     <div id="village-footer">
       <p hidden$="{{countdownFinished}}"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-      <div id="village-footer-elves"></div>
+      <img src="{{componentDir}}/img/footer-elves.svg" />
     </div>
   </div><!-- #module-dorf -->
 </template>
