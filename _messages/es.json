@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "En Nochebuena, presentaremos con orgullo una vista previa del panel de control de Papá Noel (la tecnología que impulsa su trineo durante su viaje alrededor del mundo). Hemos recibido esta vista previa especial de uno de los muchos elfos desarrolladores que trabajan muy duro en el Polo Norte ayudando a Papá Noel a prepararse para el gran día. El panel de control de Papá Noel (el cual cuenta con novedades inmejorables en tecnología de Google Maps y en ingeniería de trineos) te permitirá seguir su progreso por todo el mundo y aprender un poco sobre sus paradas a lo largo del viaje."
+		"message": "En Nochebuena, tendremos el honor de presentar el panel de control de Papá Noel, la tecnología que impulsa su trineo durante su viaje por todo el mundo. Hemos recibido esta vista previa tan especial de uno de tantos elfos desarrolladores de Papá Noel, que trabajan duro en el Polo Norte para ayudarle a prepararse para el gran día. El panel de control de Papá Noel, que incluye la tecnología más puntera e innovadora de Google Maps, permitirá seguir su viaje por el mundo y conocer un poco los lugares que visite."
 	},
 	"about-content-three": {
 		"message": "Google ha creado y desarrollado Sigue a Papá Noel de Google Maps con un poco de ayuda de los elfos de Papá Noel. ¿Necesitas ayuda o tienes alguna otra pregunta? Visita el \u003ca href=\"//support.google.com/santatracker\"\u003eCentro de ayuda\u003c/a\u003e."
 	},
 	"about-content-two": {
-		"message": "Nuestros amigos, los elfos, te han invitado a visitar el pueblo de Papá Noel mientras él se prepara para el viaje. Pasa y explora el pueblo; puede que encuentres actividades divertidas y conozcas a elfos muy interesantes."
+		"message": "Nuestros amigos, los elfos, te han invitado a visitar la aldea de Papá Noel mientras él se prepara para el viaje. Pasa y explora el pueblo; puede que encuentres actividades divertidas y conozcas a elfos muy interesantes."
 	},
 	"about-santa": {
 		"message": "Acerca de"
@@ -236,14 +236,80 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Cancelar"
+	"close": {
+		"message": "Cerrar"
 	},
 	"cm_country_name": {
 		"message": "Camerún"
 	},
 	"co_country_name": {
 		"message": "Colombia"
+	},
+	"codeboogie-block-jump": {
+		"message": "Salto"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "¡Da un salto!"
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Señala a la izquierda"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Señala a la izquierda."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Paso a la izquierda"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Da un paso a la izquierda."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Señala a la derecha"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Señala a la derecha."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Paso a la derecha"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Da un paso a la derecha."
+	},
+	"codeboogie-block-shake": {
+		"message": "Meneíto"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "¡Mueve las caderas!"
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "¡Ábrete de piernas!"
+	},
+	"codeboogie-get-dancing": {
+		"message": "¡A bailar!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Siguiente baile"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Prueba con el bloque de abajo e imita el baile."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "¿Sabías que puedes completar el baile con {{ideal}} bloques? Prueba a usar el de abajo."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "¡Llevas el ritmo en las venas! Has bailado a la perfección."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Estás usando los bloques correctos, ¿por qué no pruebas a utilizar más para completar el baile?"
+	},
+	"codeboogie-success": {
+		"message": "¡Bien hecho!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "¡Fíjate bien!"
 	},
 	"codelab-block-moveeast": {
 		"message": "este"
@@ -325,6 +391,21 @@
 	},
 	"copy-me": {
 		"message": "Copia este enlace y comparte tu mensaje"
+	},
+	"countdown_days": {
+		"message": "Días"
+	},
+	"countdown_hours": {
+		"message": "h"
+	},
+	"countdown_minutes": {
+		"message": "min"
+	},
+	"countdown_seconds": {
+		"message": "s"
+	},
+	"countdown_until": {
+		"message": "Papá Noel despegará en"
 	},
 	"countdownlabel": {
 		"message": "Hasta que despegue"
@@ -432,7 +513,7 @@
 		"message": "Francés"
 	},
 	"fr_tradition": {
-		"message": "En Francia, tradicionalmente, los niños ponen sus zapatos junto a la chimenea en previsión de la llegada del Père Noël. Si los niños han sido buenos durante todo el año, el Père Noël llenará los zapatos con regalos."
+		"message": "En Francia, tradicionalmente, los niños ponen sus zapatos junto a la chimenea en previsión de la llegada de Père Noël. Si los niños han sido buenos durante todo el año, Père Noël llenará los zapatos de regalos."
 	},
 	"ga_country_name": {
 		"message": "Gabón"
@@ -471,7 +552,7 @@
 		"message": "Grecia"
 	},
 	"gr_tradition": {
-		"message": "En Grecia, hay unos duendes amistosos, pero molestos, llamados kallikántzari que viven la mayor parte del año en el centro de la Tierra. Sin embargo, en Navidad, les gusta esconderse en casas, dar sustos, hacer bromas o devorar comida de Navidad. Los griegos hacen rituales para alejar a los duendes."
+		"message": "En Grecia, hay unos duendes amistosos, pero molestos, llamados kallikántzari que viven la mayor parte del año en el centro de la Tierra. Sin embargo, en Navidad, les gusta esconderse en casas, dar sustos, hacer bromas o devorar comida navideña. Los griegos hacen rituales para alejar a los duendes."
 	},
 	"gt_country_name": {
 		"message": "Guatemala"
@@ -629,6 +710,9 @@
 	"ne_country_name": {
 		"message": "Níger"
 	},
+	"new": {
+		"message": "Nuevo"
+	},
 	"newtoday": {
 		"message": "Nuevo hoy"
 	},
@@ -667,6 +751,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Oso polar"
+	},
+	"notification": {
+		"message": "Notificaciones"
+	},
+	"notification_notice": {
+		"message": "Los elfos te irán contando qué planes tiene Papá Noel"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -722,6 +812,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Prensa"
+	},
 	"pt_language_name": {
 		"message": "Portugués"
 	},
@@ -743,8 +836,110 @@
 	"sa_country_name": {
 		"message": "Arabia Saudí"
 	},
+	"santasearch_hint": {
+		"message": "Pista"
+	},
+	"santasearch_level_lab": {
+		"message": "En el laboratorio"
+	},
+	"santasearch_level_museum": {
+		"message": "En el museo"
+	},
+	"santasearch_level_select": {
+		"message": "¡Ya!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "¡Busca a Papá Noel!"
+	},
+	"santasvillage": {
+		"message": "Aldea de Papá Noel"
+	},
 	"santatracker": {
 		"message": "Sigue a Papá Noel"
+	},
+	"scene_airport": {
+		"message": "Aeropuerto del Polo Norte"
+	},
+	"scene_app": {
+		"message": "Aplicación para Android"
+	},
+	"scene_boatload": {
+		"message": "Tirachinas de regalos"
+	},
+	"scene_briefing": {
+		"message": "Charla de Mamá Noel"
+	},
+	"scene_callfromsanta": {
+		"message": "Llamada de Papá Noel"
+	},
+	"scene_citylights": {
+		"message": "Luces de la ciudad"
+	},
+	"scene_codeboogie": {
+		"message": "Baile de código"
+	},
+	"scene_codelab": {
+		"message": "Laboratorio de programación"
+	},
+	"scene_commandcentre": {
+		"message": "Control de la misión"
+	},
+	"scene_giftmatch": {
+		"message": "Empareja los regalos"
+	},
+	"scene_gumball": {
+		"message": "Guía la bola"
+	},
+	"scene_jamband": {
+		"message": "Jam session de los elfos"
+	},
+	"scene_jetpack": {
+		"message": "Elf Jetpack"
+	},
+	"scene_matching": {
+		"message": "Encuentra la pareja"
+	},
+	"scene_mercator": {
+		"message": "Concurso de los mapas"
+	},
+	"scene_postcard": {
+		"message": "Las tarjetas de Papá Noel"
+	},
+	"scene_presentbounce": {
+		"message": "¡Que no se caiga el regalo!"
+	},
+	"scene_presentdrop": {
+		"message": "Entrega los regalos"
+	},
+	"scene_racer": {
+		"message": "Carrera de obstáculos de Rudolph"
+	},
+	"scene_santasearch": {
+		"message": "¿Dónde está Papá Noel?"
+	},
+	"scene_santaselfie": {
+		"message": "El selfie de Papá Noel"
+	},
+	"scene_seasonofgiving": {
+		"message": "Tiempo de regalos"
+	},
+	"scene_traditions": {
+		"message": "Tradiciones navideñas"
+	},
+	"scene_translations": {
+		"message": "Traducciones"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Coche de los elfos"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "El despegue de Papá Noel"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Papá Noel ha vuelto"
+	},
+	"scene_windtunnel": {
+		"message": "Túnel de viento"
 	},
 	"score": {
 		"message": "Puntuación"
@@ -819,7 +1014,7 @@
 		"message": "Túnez"
 	},
 	"today_only": {
-		"message": "Sólo hoy"
+		"message": "Solo hoy"
 	},
 	"today_only_1": {
 		"message": "Solo hoy"
@@ -863,14 +1058,23 @@
 	"tracker_santa_update": {
 		"message": "Notificación de Papá Noel"
 	},
+	"tracker_santa_update_1": {
+		"message": "Noticias sobre Papá Noel"
+	},
 	"tracker_see_route": {
 		"message": "Ver la ruta"
+	},
+	"tracker_track": {
+		"message": "Sigue a Papá Noel"
 	},
 	"tracker_weather": {
 		"message": "Tiempo"
 	},
 	"tracker_world_facts": {
 		"message": "¿SABÍAS QUE..."
+	},
+	"tracker_world_facts_1": {
+		"message": "Datos sobre el mundo"
 	},
 	"tracker_your_location": {
 		"message": "Tu ubicación"
@@ -4546,6 +4750,27 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "¡Vuelve en Nochebuena y ayúdanos a seguir a Papá Noel toda la noche!"
+	},
+	"village_explore": {
+		"message": "Explora, juega y aprende con los elfos de Papá Noel durante todo diciembre"
+	},
+	"village_get_the_app": {
+		"message": "Descargar aplicación"
+	},
+	"village_more": {
+		"message": "¿Qué más puedes hacer?"
+	},
+	"village_santa_cardboard": {
+		"message": "Papá Noel en Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Papá Noel en Google Cast"
+	},
+	"village_takesoff": {
+		"message": "Papá Noel despegará en"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

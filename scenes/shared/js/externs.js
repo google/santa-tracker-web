@@ -34,6 +34,17 @@ window.santaApp;
 window.santaApp.fire = function(name, data) {}
 
 /**
+ * @param {string} id of scene/module
+ * @return {boolean} whether scene is unlocked (unknown is always locked)
+ */
+window.santaApp.sceneIsUnlocked = function(id) {}
+
+/**
+ * @type {number} size of header
+ */
+window.santaApp.headerSize;
+
+/**
  * @const
  */
 var Modernizr;

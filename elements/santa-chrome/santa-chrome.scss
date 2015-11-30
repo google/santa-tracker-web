@@ -1,0 +1,244 @@
+$scenes: "village" "tracker"
+    "airport" "traditions" "codelab" "app" "seasonofcaring" "santasback" "santaselfie" "translations" "callfromsanta" "briefing" "presentdrop" "santasearch" "windtunnel" "racer" "jamband" "gumball" "postcard" "jetpack" "boatload" "mercator" "presentbounce" "codeboogie" "elf-car" "citylights" "commandcentre" "seasonofgiving" "matching" "liftoff";
+
+$indent-left: 24px;
+$toolbar-default-color: #00c6ed;
+
+santa-chrome {
+  #drawer {
+    .cards {
+      border-bottom: 4px solid #eee;
+    }
+    .lang {
+      padding-left: $indent-left - 4px;
+      line-height: 32px;
+      select {
+        vertical-align: middle;
+      }
+    }
+    .links {
+      padding: 12px 12px 4px $indent-left;
+      h2 {
+        color: #7bc7e5;
+      }
+      a {
+        color: #64ae69;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    paper-toolbar.close-sidebar {
+      background-color: transparent;
+      padding-left: 8px;
+
+      iron-icon {
+        color: inherit;
+        vertical-align: middle;
+        margin-right: 8px;
+      }
+      a {
+        vertical-align: middle;
+      }
+
+      cursor: pointer;
+      display: block;
+      font-family: 'Lobster';
+      font-size: 2.2em;
+      color: #ccc;
+    }
+
+    .menucard {
+      box-sizing: border-box;
+      height: 150px;
+      background: transparent center right no-repeat;
+      background-size: cover;
+      padding: 12px 12px 12px $indent-left;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+
+      .lock {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url(img/lock.svg) 90% 50% no-repeat;
+        background-color: rgba(87, 214, 147, 0.5);
+        background-size: 42px 42px;
+      }
+    }
+    @each $scene in $scenes {
+      .menucard-#{$scene} {
+        background-image: url(img/menu-#{$scene}.png);
+      }
+    }
+
+    h2 {
+      font-size: 1em;
+      letter-spacing: 1px;
+      font-weight: 600;
+      margin: 6px 0;
+      line-height: 1em;
+      text-transform: uppercase;
+    }
+    h3 {
+      margin: 0;
+      font-size: 2.875em;
+      line-height: 1.25em;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+      font-family: 'Lobster';
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      padding-top: 6px;
+      line-height: 1.2em;
+      font-size: 1.2em;
+      font-weight: 500;
+
+      li {
+        margin: 0;
+        padding: 0.4em 0;
+
+        a {
+          display: block;
+        }
+      }
+    }
+  }
+
+  #toolbar {
+    min-width: 320px;  // force 320px min width, i.e., iPhone 4/5+
+    z-index: 1000;
+    pointer-events: none;  // make sure scroll events pass through toolbar.
+    background-color: transparent;
+
+    paper-icon-button[icon="santa:menu"] {
+      margin-right: 8px !important;
+    }
+
+    .middle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+
+      will-change: opacity;
+      transform: translateZ(0);
+      opacity: 0;
+      transition: opacity 0.125s;
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+
+      background-color: $toolbar-default-color;
+    }
+    &.scrolling .middle {
+      opacity: 1;
+    }
+
+    // Common button reset.
+    button {
+      pointer-events: auto;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    #logo {
+      margin: 4px 8px 0 0;
+      width: 74px;
+      height: 100%;
+      background: url(img/google_logo.svg) center no-repeat;
+      background-size: contain;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: 'Lobster', sans-serif;
+      font-size: 23px;
+      line-height: 64px;
+      font-weight: 300;
+      color: white;
+    }
+
+    .shareicons {
+      padding: 8px 0;
+      height: 100%;
+      box-sizing: border-box;
+      font-size: 0;  // hide spacing between divs
+      pointer-events: auto;  // set these icons to be accessible again
+
+      .box {
+        position: relative;
+        margin-left: 19px;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 6px;
+          left: -10px;
+          bottom: 6px;
+          border-left: 1px solid rgba(0,0,0,0.125);
+        }
+        &:first-child {
+          &:before {
+            border-left: none;
+          }
+        }
+      }
+    }
+    @media (max-width: 600px) {
+      .shareicons {
+        display: none;
+      }
+    }
+
+    #sound {
+      position: absolute;
+      right: 0;
+      top: 64px;
+      background: #00c6ed;
+      height: 45px;
+      width: 40px;
+      border-radius: 50% 0 0 50%;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+
+      button {
+        height: 45px;
+        text-align: center;
+        box-sizing: border-box;
+        padding-left: 7px;
+        outline: 0;
+      }
+
+      i {
+        float: left;
+        width: 31px;
+        height: 30px;
+        background: url(img/sound-on.svg) 50% 50% no-repeat;
+      }
+
+      &.off {
+        i {
+          background: url(img/sound-off.svg) 50% 50% no-repeat;
+        }
+      }
+    }
+  }
+}

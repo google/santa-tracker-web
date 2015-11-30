@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "Na božični večer bomo s ponosom predstavili predogled Božičkove nadzorne plošče – tehnologije, ki napaja te sani med njegovim potovanjem po vsem svetu. Ta posebni predogled nam je omogočil eden od Božičkovih številnih škratjih razvijalcev, ki na Severnem tečaju trdo delajo in pomagajo Božičku pri pripravi na ta dan. Božičkova nadzorna plošča, ki zajema najnovejšo in najzmogljivejšo tehnologijo storitve Google Zemljevidi in inženiring sani, vam bo omogočila spremljanje njegovega potovanja po svetu, hkrati pa boste izvedeli tudi nekaj zanimivosti o nekaterih krajih po svetu, v katerih se bo ustavil."
+		"message": "Na božični večer bomo ponosno predstavili Božičkovo nadzorno ploščo – tehnologijo, ki poganja njegove sani med potovanjem po svetu. Ta posebni predogled smo prejeli od enega od številnih Božičkovih škratov razvijalcev, ki pridno delajo na Severnem tečaju in pomagajo Božičku pri pripravi na njegov veliki dan. Božičkova nadzorna plošča, ki predstavlja najnovejšo in najboljšo tehnologijo Google Zemljevidov in oblikovanja sani, vam omogoča, da ga spremljate po vsem svetu ter izveste tudi kaj novega o nekaterih postojankah na njegovi poti."
 	},
 	"about-content-three": {
 		"message": "Spremljanje Božičkove poti z Google Zemljevidi je ustvaril in razvil Google s pomočjo Božičkovih škratov. Potrebujete pomoč ali imate vprašanja? Obiščite naš \u003ca href=\"//support.google.com/santatracker\"\u003ecenter za pomoč\u003c/a\u003e."
@@ -236,14 +236,80 @@
 	"cl_country_name": {
 		"message": "Čile"
 	},
-	"close-this": {
-		"message": "Prekliči"
+	"close": {
+		"message": "Zapri"
 	},
 	"cm_country_name": {
 		"message": "Kamerun"
 	},
 	"co_country_name": {
 		"message": "Kolumbija"
+	},
+	"codeboogie-block-jump": {
+		"message": "Skok"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Skočite."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Pokažite levo"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Pokažite levo."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Korak levo"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Naredite korak v levo."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Pokažite desno"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Pokažite desno."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Korak desno"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Naredite korak v desno."
+	},
+	"codeboogie-block-shake": {
+		"message": "Stresanje bokov"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Pomigajte z boki."
+	},
+	"codeboogie-block-split": {
+		"message": "Špaga"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Naredite špago."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Zaplešite!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Naslednji ples"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Poskusite s spodnjim koščkom posnemati ples."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Ste vedeli, da lahko ples dokončate samo s tem številom koščkov: {{ideal}}? Uporabite spodnji košček."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Lepo! Odplesali ste popolno."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Uporabljate prave koščke, vendar jih za dokončanje plesa uporabite več."
+	},
+	"codeboogie-success": {
+		"message": "Odlično!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Glejte pozorno!"
 	},
 	"codelab-block-moveeast": {
 		"message": "vzhod"
@@ -326,6 +392,21 @@
 	"copy-me": {
 		"message": "Če želite svoje sporočilo deliti z drugimi, kopirajte to povezavo"
 	},
+	"countdown_days": {
+		"message": "dni"
+	},
+	"countdown_hours": {
+		"message": "h"
+	},
+	"countdown_minutes": {
+		"message": "min"
+	},
+	"countdown_seconds": {
+		"message": "s"
+	},
+	"countdown_until": {
+		"message": "Božiček odleti čez"
+	},
 	"countdownlabel": {
 		"message": "do Božičkovega odhoda"
 	},
@@ -354,7 +435,7 @@
 		"message": "nemščina"
 	},
 	"de_tradition": {
-		"message": "V skoraj vsakem nemškem mestu se na mestnih trgih odvijajo božične tržnice. Meščani se zberejo ter poslušajo pihalne orkestre in uživajo tradicionalne regijske jedi. Jedo srca iz lecta, karamelirane mandlje, slaščice vseh vrst in pijejo kuhano vino ali jabolčnik."
+		"message": "V skoraj vsakem nemškem mestu so na mestnih trgih postavljene božične tržnice. Meščani se zberejo ter poslušajo pihalne orkestre in uživajo tradicionalne regijske jedi. Jedo medenjake, karamelizirane mandlje, slaščice vseh vrst in pijejo kuhano vino (Glühwein) ali jabolčnik."
 	},
 	"deck": {
 		"message": "Okrasitev"
@@ -432,7 +513,7 @@
 		"message": "francoščina"
 	},
 	"fr_tradition": {
-		"message": "V Franciji otroci tradicionalno nastavijo čevlje poleg kamina in čakajo, da bo prišel Père Noël. Če so bili celo leto pridni, Père Noël napolni njihove čevlje z darili."
+		"message": "V Franciji otroci tradicionalno nastavijo čevlje poleg kamina in čakajo, da bo prišel Božiček. Če so bili čez leto pridni, napolni Božiček njihove čevlje z darili."
 	},
 	"ga_country_name": {
 		"message": "Gabon"
@@ -471,7 +552,7 @@
 		"message": "Grčija"
 	},
 	"gr_tradition": {
-		"message": "V Grčiji prijazna, vendar nagajiva bitja, imenovana »kallikántzari«, večino leta preživijo v središču Zemlje. Za Božič pa se rada potikajo po hišah, kjer strašijo ljudi, jim nagajajo ali pojedo božično hrano. Grki izvajajo rituale, s katerimi preganjajo te škrate."
+		"message": "V Grčiji prijazna, vendar nagajiva bitja, imenovana »kalikáncarji«, večino leta preživijo v središču Zemlje. Za Božič pa se rada potikajo po hišah, kjer strašijo ljudi, jim nagajajo ali pojedo božično hrano. Grki preganjajo te škrate z različnimi obredi."
 	},
 	"gt_country_name": {
 		"message": "Gvatemala"
@@ -629,6 +710,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Novo"
+	},
 	"newtoday": {
 		"message": "Novo danes"
 	},
@@ -667,6 +751,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Severni medved"
+	},
+	"notification": {
+		"message": "Obvestila"
+	},
+	"notification_notice": {
+		"message": "Božičkovi palčki vas bodo obveščali o njegovem urniku"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -722,6 +812,9 @@
 	"pr_country_name": {
 		"message": "Portoriko"
 	},
+	"press": {
+		"message": "Mediji"
+	},
 	"pt_language_name": {
 		"message": "portugalščina"
 	},
@@ -743,8 +836,110 @@
 	"sa_country_name": {
 		"message": "Savdska Arabija"
 	},
+	"santasearch_hint": {
+		"message": "Namig"
+	},
+	"santasearch_level_lab": {
+		"message": "V laboratoriju"
+	},
+	"santasearch_level_museum": {
+		"message": "V muzeju"
+	},
+	"santasearch_level_select": {
+		"message": "Pojdi!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Poiščite Božička!"
+	},
+	"santasvillage": {
+		"message": "Božičkova vas"
+	},
 	"santatracker": {
 		"message": "Spremljanje Božičkove poti"
+	},
+	"scene_airport": {
+		"message": "Letališče Severni pol"
+	},
+	"scene_app": {
+		"message": "Aplikacija za Android"
+	},
+	"scene_boatload": {
+		"message": "Frača z darili"
+	},
+	"scene_briefing": {
+		"message": "Navodila gospe Božiček"
+	},
+	"scene_callfromsanta": {
+		"message": "Božičkov klic"
+	},
+	"scene_citylights": {
+		"message": "Mestne luči"
+	},
+	"scene_codeboogie": {
+		"message": "Kodirni ples"
+	},
+	"scene_codelab": {
+		"message": "Laboratorij za kodiranje"
+	},
+	"scene_commandcentre": {
+		"message": "Nadzorni center"
+	},
+	"scene_giftmatch": {
+		"message": "Iskanje pravega darila"
+	},
+	"scene_gumball": {
+		"message": "Vodenje bonbonov"
+	},
+	"scene_jamband": {
+		"message": "Skupina Palčki"
+	},
+	"scene_jetpack": {
+		"message": "Palčkov raketni nahrbtnik"
+	},
+	"scene_matching": {
+		"message": "Spomin"
+	},
+	"scene_mercator": {
+		"message": "Zemljevidni kviz"
+	},
+	"scene_postcard": {
+		"message": "Božičkove kartice"
+	},
+	"scene_presentbounce": {
+		"message": "Poskočna darila"
+	},
+	"scene_presentdrop": {
+		"message": "Spust darila"
+	},
+	"scene_racer": {
+		"message": "Hitri Rudolf"
+	},
+	"scene_santasearch": {
+		"message": "Iskanje Božička"
+	},
+	"scene_santaselfie": {
+		"message": "Božičkov selfi"
+	},
+	"scene_seasonofgiving": {
+		"message": "Čas podarjanja"
+	},
+	"scene_traditions": {
+		"message": "Praznični običaji"
+	},
+	"scene_translations": {
+		"message": "Prevodi"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Palčkov avtomobil"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Božičkovo vzletišče"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Božiček se je vrnil"
+	},
+	"scene_windtunnel": {
+		"message": "Vetrovnik"
 	},
 	"score": {
 		"message": "Rezultat"
@@ -855,7 +1050,7 @@
 		"message": "Ste na naslednji lokaciji:"
 	},
 	"tracker_intro_welcome": {
-		"message": "Pozdravljeni v"
+		"message": "Dobrodošli v"
 	},
 	"tracker_next_stop": {
 		"message": "Naslednji postanek"
@@ -863,14 +1058,23 @@
 	"tracker_santa_update": {
 		"message": "POSODOBITEV BOŽIČKOVEGA STANJA"
 	},
+	"tracker_santa_update_1": {
+		"message": "Posodobitev božičkovega stanja"
+	},
 	"tracker_see_route": {
 		"message": "Ogled poti"
+	},
+	"tracker_track": {
+		"message": "Spremljaj Božička"
 	},
 	"tracker_weather": {
 		"message": "Vreme"
 	},
 	"tracker_world_facts": {
 		"message": "ALI STE VEDELI"
+	},
+	"tracker_world_facts_1": {
+		"message": "Dejstva o svetu"
 	},
 	"tracker_your_location": {
 		"message": "Vaša lokacija"
@@ -4546,6 +4750,27 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Vrnite se 24. in nam pomagajte vso noč slediti Božičku."
+	},
+	"village_explore": {
+		"message": "Ves december lahko raziskujete, se igrate in učite z Božičkovimi palčki"
+	},
+	"village_get_the_app": {
+		"message": "Prenesite aplikacijo"
+	},
+	"village_more": {
+		"message": "Več načinov raziskovanja"
+	},
+	"village_santa_cardboard": {
+		"message": "Božiček v napravi Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Božiček na platformi Google Cast"
+	},
+	"village_takesoff": {
+		"message": "Božiček odleti čez:"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

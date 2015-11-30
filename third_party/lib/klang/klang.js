@@ -589,6 +589,9 @@ var __extends = this.__extends || function (d, b) {
             return this;
         };
         ATAudioSource.prototype.fadeOutAndStop = function (duration, when) {
+            if(this.state != ATAudioSource.STATE_PLAYING) {
+                return;
+            }
             if(this._playTimeout) {
                 clearTimeout(this._playTimeout);
             }
@@ -644,12 +647,14 @@ var __extends = this.__extends || function (d, b) {
     * @extends {Klang.ATAudioSource}
     */
     var ATAudioGroup = (function () {
-        function ATAudioGroup(data) {
+        // private _destination_name: string;
+        // private _destination: ATBus;
+        function ATAudioGroup(data, audioTagHandler) {
             this._data = data;
-            this._destination_name = data.destination_name;
+            // this._destination_name = data.destination_name;
             this._content = [];
             for(var c in this._data.content) {
-                var audio = Klang.audioTagHandler.getObject(this._data.content[c]);
+                var audio = audioTagHandler.getObject(this._data.content[c]);
                 if(audio) {
                     this._content.push(audio);
                 }
@@ -685,19 +690,19 @@ var __extends = this.__extends || function (d, b) {
             configurable: true
         });
         ATAudioGroup.prototype.update = function () {
-            for(var c in this._content) {
-                if(this._content[c]) {
-                    this._content[c].setVolume(this._destination.calcVolume());
-                }
-            }
-        };
+            // for (var c in this._content) {
+            //     if (this._content[c]) {
+            //         this._content[c].setVolume(this._destination.calcVolume());
+            //     }
+            // }
+                    };
         ATAudioGroup.prototype.connect = function (bus) {
-            for(var c in this._content) {
-                if(this._content[c]) {
-                    this._content[c].connect(bus);
-                }
-            }
-        };
+            // for (var c in this._content) {
+            //     if (this._content[c]) {
+            //         this._content[c].connect(bus);
+            //     }
+            // }
+                    };
         return ATAudioGroup;
     })();
     Klang.ATAudioGroup = ATAudioGroup;    
@@ -828,7 +833,11 @@ var __extends = this.__extends || function (d, b) {
         }
         ATProcess.prototype.start = function (args) {
             try  {
-                new Function("Util", "me", "args", this._data.at_action)(Util, this._vars, args);
+                if(typeof this._data.at_action === 'function') {
+                    this._data.at_action(Util, this._vars, args);
+                } else {
+                    new Function("Util", "me", "args", this._data.at_action)(Util, this._vars, args);
+                }
             } catch (ex) {
                 Klang.err("Klang: error in process '" + this._name + "': " + ex.name + ": " + ex.message);
             }
@@ -845,8 +854,9 @@ var __extends = this.__extends || function (d, b) {
     * @extends {Klang.AudioTagHandles}
     */
     var AudioTagHandler = (function () {
-        function AudioTagHandler(config, readyCallback, progressCallback) {
+        function AudioTagHandler(config, readyCallback, progressCallback, configURL) {
             this._loadedFiles = 0;
+            Klang.audioTagHandler = this;
             this._audioFiles = {
             };
             this._limitSounds = Klang.isMobile || Klang.detector.browser['name'] == "Opera";
@@ -856,7 +866,7 @@ var __extends = this.__extends || function (d, b) {
                     url: config
                 }, function (data) {
                     try  {
-                        _this.init(JSON.parse(data), readyCallback, progressCallback, config);
+                        _this.init(JSON.parse(data), readyCallback, progressCallback, configURL);
                     } catch (ex) {
                         Klang.version = "n/a";
                         if(readyCallback) {
@@ -867,7 +877,7 @@ var __extends = this.__extends || function (d, b) {
                     Klang.err(error);
                 });
             } else if(typeof config == "object") {
-                this.init(config);
+                this.init(config, readyCallback, progressCallback, configURL);
             } else {
                 Klang.err("Klang exception: unrecognized config type: " + typeof config);
             }
@@ -932,7 +942,7 @@ var __extends = this.__extends || function (d, b) {
                             //}
                                                     }
                     } else if(audioData.type == "AudioGroup") {
-                        this._audio[a] = new ATAudioGroup(audioData);
+                        this._audio[a] = new ATAudioGroup(audioData, this);
                     }
                 }
             }
@@ -944,7 +954,9 @@ var __extends = this.__extends || function (d, b) {
             }
             // connect audio source with busses
             for(var as in this._audio) {
-                this._audio[as].connect(this._busses[this._audio[as]._destination_name]);
+                if(this._audio[as]._data.type == "AudioSource") {
+                    this._audio[as].connect(this._busses[this._audio[as]._destination_name]);
+                }
             }
             // Create processes
             this._processes = {
@@ -1335,7 +1347,7 @@ var __extends = this.__extends || function (d, b) {
         * @param {Function} readyCallback Function to call when auto-load sounds have loaded.
         * @param {Function} progressCallback Function to call as loading of sounds progresses.
         */
-        function (options, readyCallback, progressCallback) {
+        function (options, readyCallback, progressCallback, url) {
             this._readyCallback = readyCallback;
             this._progressCallback = progressCallback || function () {
             };
@@ -1343,7 +1355,7 @@ var __extends = this.__extends || function (d, b) {
                 Klang.log("Loading config (editor)");
                 var data = this.createConfigNode(options);
                 Core.settings = data.settings;
-                Core.instance.initContent(data);
+                Core.instance.initContent(data, null, url);
                 // Parsa JSON-filen
                 //var data = this.parseConfigJSON(options.config);
                 // Initiera klang
@@ -2039,11 +2051,28 @@ var __extends = this.__extends || function (d, b) {
         } else {
             Klang.version = "audiotag";
             try  {
-                Klang.audioTagHandler = new AudioTagHandler(json, function (success) {
-                    Klang.readyState = Klang.READY_STATE_LOADED;
-                    readyCallback && readyCallback(success);
-                    processEventQue();
-                }, progressCallback);
+                // js vs json
+                if(typeof json === 'string' && json.indexOf('.json') === -1 && json.indexOf('.js') > 1) {
+                    //in case someone decided to use a KLANG_CONFIG global
+                    var oldKLANG_CONFIG = window['KLANGCONFIG'];
+                    Util.loadScriptFile(json, function () {
+                        var config = window['KLANG_CONFIG'];
+                        window['KLANG_CONFIG'] = oldKLANG_CONFIG;
+                        Klang.audioTagHandler = new AudioTagHandler(config, function (success) {
+                            Klang.readyState = Klang.READY_STATE_LOADED;
+                            readyCallback && readyCallback(success);
+                            processEventQue();
+                        }, progressCallback, json);
+                    }, function () {
+                        //error
+                                            });
+                } else {
+                    Klang.audioTagHandler = new AudioTagHandler(json, function (success) {
+                        Klang.readyState = Klang.READY_STATE_LOADED;
+                        readyCallback && readyCallback(success);
+                        processEventQue();
+                    }, progressCallback, json);
+                }
             } catch (ex) {
                 Klang.err("Klang exception: unable to initialize audio tag fallback");
                 Klang.version = "failed audiotag";
@@ -2065,11 +2094,28 @@ var __extends = this.__extends || function (d, b) {
         /*if (Klang.fallback) {
         json = json.substring(0, json.indexOf("config.json"))+Klang.fallback;
         }*/
-        Core.instance.loadJSON(json, function (success) {
-            Klang.readyState = Klang.READY_STATE_LOADED;
-            readyCallback && readyCallback(success);
-            processEventQue();
-        }, progressCallback);
+        // js vs json
+        if(typeof json === 'string' && json.indexOf('.json') === -1 && json.indexOf('.js') > 1) {
+            //in case someone decided to use a KLANG_CONFIG global
+            var oldKLANG_CONFIG = window['KLANG_CONFIG'];
+            Util.loadScriptFile(json, function () {
+                var config = window['KLANG_CONFIG'];
+                window['KLANG_CONFIG'] = oldKLANG_CONFIG;
+                Core.instance.loadJSON(config, function (success) {
+                    Klang.readyState = Klang.READY_STATE_LOADED;
+                    readyCallback && readyCallback(success);
+                    processEventQue();
+                }, progressCallback, json);
+            }, function () {
+                //error
+                            });
+        } else {
+            Core.instance.loadJSON(json, function (success) {
+                Klang.readyState = Klang.READY_STATE_LOADED;
+                readyCallback && readyCallback(success);
+                processEventQue();
+            }, progressCallback, json);
+        }
         return true;
         //   }
         // catch (ex) {
@@ -11612,6 +11658,21 @@ var __extends = this.__extends || function (d, b) {
             return min + (max - min) * Math.random();
         }
         Util.randomFloat = randomFloat;
+        function loadScriptFile(url, success, fail) {
+            var script = document.createElement('script');
+            script.async = true;
+            script.onload = function () {
+                success && success();
+                script.onload = null;
+            };
+            script.onerror = function (e) {
+                fail && fail(e);
+                script.onerror = null;
+            };
+            script.src = url;
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+        Util.loadScriptFile = loadScriptFile;
         /**
         * Eases the change of a numeric value.
         * @param {number} current Current value.
@@ -11747,10 +11808,10 @@ var __extends = this.__extends || function (d, b) {
             var from = from;
             var to = to;
             if(!to) {
-                return;
+                return Util.now();
             }
             if(from === to) {
-                return;
+                return Util.now();
             }
             if(Array.isArray(from)) {
                 var playingLoop;
@@ -11764,7 +11825,7 @@ var __extends = this.__extends || function (d, b) {
             }
             if(!from) {
                 to.play(Util.now(), 0, false);
-                return;
+                return Util.now();
             }
             var bps = 60 / bpm;
             var spb = bpm / 60;
@@ -11783,7 +11844,8 @@ var __extends = this.__extends || function (d, b) {
             }
             var scheduleTime = Util.now() + toNextBarSec;
             to.play(scheduleTime, 0, false);
-            from && from.fadeOutAndStop(fadeOutTime, scheduleTime );
+            from && from.fadeOutAndStop(fadeOutTime, scheduleTime);
+            return scheduleTime;
         }
         Util.transition = transition;
         function getTimeToBeat(from, bpm, sync, offset) {

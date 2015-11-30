@@ -69,7 +69,7 @@ var Game = function(elem) {
 Game.prototype.start = function() {
   this.$targets.on('click', this.onTargetClick_.bind(this));
   this.$targets.on('touchstart', this.onTargetTouch_.bind(this));
-
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
   // Prepare the cards deck
   this.cards.prepare();
 
@@ -394,7 +394,7 @@ Game.prototype.resetDoors_ = function() {
 Game.prototype.restart = function() {
   this.levelModel.set(1);
   this.startLevel_();
-
+  window.santaApp.fire('sound-trigger', 'music_start_ingame');
   // Reset the scoreboard
   this.scoreboard.reset();
   window.santaApp.fire('analytics-track-game-start', {gameid: 'matching'});
@@ -542,6 +542,7 @@ Game.prototype.updateTime_ = function() {
 Game.prototype.gameover = function() {
   this.freezeGame_();
   this.gameoverDialog.show(0, this.levelModel.get());
+  window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'matching',
     score: this.scoreboard.score,

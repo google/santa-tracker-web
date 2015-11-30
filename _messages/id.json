@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "Di Malam Natal, kami dengan bangga akan menampilkan pratinjau Dasbor Sinterklas -- teknologi yang mendorong kereta luncur Sinterklas selama perjalanannya keliling dunia. Kami telah menerima pratinjau khusus ini dari salah satu dari banyak kurcaci pengembang Sinterklas, yang bekerja dengan giat di Kutub Utara untuk membantu Sinterklas mempersiapkan hari keberangkatannya. Dasbor Sinterklas - yang menampilkan teknologi Google Maps dan mesin kereta luncur terbaru dan tercanggih - memungkinkan Anda mengikuti kemajuan perjalanan Sinterklas mengelilingi dunia, serta belajar sedikit tentang hal-hal yang berkaitan dengan tempat pemberhentiannya di sepanjang perjalanan."
+		"message": "Pada Malam Natal nanti, kita akan memamerkan dasbor Sinterklas. Itu adalah teknologi ajaib yang menggerakkan kereta salju Sinterklas untuk berkeliling dunia. Kami mendengar kabar tentang dasbor ini dari salah satu kurcaci Sinterklas yang hobinya main komputer. Sekarang mereka sedang sibuk di Kutub Utara, membantu Sinterklas mempersiapkan hari terpentingnya. Dasbor Sinterklas dibuat dengan teknologi canggih dari Google Maps, agar cocok dengan kereta saljunya. Dengan alat ini, kita dapat mengikuti perjalanan Sinterklas mengelilingi dunia, sambil mempelajari hal-hal menarik tentang tempat yang ia singgahi sepanjang perjalanan."
 	},
 	"about-content-three": {
 		"message": "Pelacak Sinterklas Google Maps dibuat dan dikembangkan oleh Google, dengan sedikit bantuan dari para kurcaci Sinterklas. Butuh bantuan atau ada pertanyaan lain? Kunjungi \u003ca href=\"//support.google.com/santatracker\"\u003ePusat Bantuan\u003c/a\u003e kami."
 	},
 	"about-content-two": {
-		"message": "Para kurcaci yang ramah juga mengundang Anda untuk menjelajahi desa Sinterklas sementara Sinterklas menyiapkan perjalanannya. Jadi, pergilah dan jelajahi desanya. Anda mungkin menemukan beberapa kegiatan yang menyenangkan dan bertemu dengan beberapa kurcaci yang menarik."
+		"message": "Kamu telah diundang oleh para kurcaci untuk menjelajahi desa Sinterklas, sementara Sinterklas menyiapkan perjalanannya. Berkunjunglah ke sana dan jelajahi desanya. Mungkin di sana kamu bisa bermain dan bertemu dengan para kurcaci lucu."
 	},
 	"about-santa": {
 		"message": "Tentang"
@@ -236,14 +236,80 @@
 	"cl_country_name": {
 		"message": "Cile"
 	},
-	"close-this": {
-		"message": "Batal"
+	"close": {
+		"message": "Tutup"
 	},
 	"cm_country_name": {
 		"message": "Kamerun"
 	},
 	"co_country_name": {
 		"message": "Kolombia"
+	},
+	"codeboogie-block-jump": {
+		"message": "Lompat"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Lakukan lompatan."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Arah kiri"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Arahkan ke kiri."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Langkah kiri"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Ambil langkah ke kiri."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Arah kanan"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Arahkan ke kanan."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Langkah kanan"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Ambil langkah ke kanan."
+	},
+	"codeboogie-block-shake": {
+		"message": "Goyang pinggul"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Lakukan goyang pinggul."
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Lakukan split."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Menarilah!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Tarian Berikutnya"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Cobalah blok di bawah untuk menyesuaikan tarian."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Tahukah Anda bahwa Anda dapat menyelesaikan tarian ini hanya dengan {{ideal}} blok? Cobalah menggunakan blok di bawah."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Gerakan yang bagus! Anda telah menyelesaikan tarian dengan sempurna."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Anda menggunakan blok yang benar, tapi coba gunakan yang lain untuk menyelesaikan tarian."
+	},
+	"codeboogie-success": {
+		"message": "Berhasil!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Perhatikan baik-baik!"
 	},
 	"codelab-block-moveeast": {
 		"message": "timur"
@@ -325,6 +391,21 @@
 	},
 	"copy-me": {
 		"message": "Salin tautan ini untuk membagikan pesan"
+	},
+	"countdown_days": {
+		"message": "Hari"
+	},
+	"countdown_hours": {
+		"message": "Jam"
+	},
+	"countdown_minutes": {
+		"message": "Menit"
+	},
+	"countdown_seconds": {
+		"message": "Detik"
+	},
+	"countdown_until": {
+		"message": "Sinterklas Berangkat Dalam"
 	},
 	"countdownlabel": {
 		"message": "Sampai Sinterklas Berangkat"
@@ -629,6 +710,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Baru"
+	},
 	"newtoday": {
 		"message": "Baru"
 	},
@@ -667,6 +751,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Beruang Kutub"
+	},
+	"notification": {
+		"message": "Notifikasi"
+	},
+	"notification_notice": {
+		"message": "Kurcaci Sinterklas akan terus menginformasikan jadwal Sinterklas kepada Anda"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -722,6 +812,9 @@
 	"pr_country_name": {
 		"message": "Puerto Riko"
 	},
+	"press": {
+		"message": "Pers"
+	},
 	"pt_language_name": {
 		"message": "Portugis"
 	},
@@ -743,8 +836,110 @@
 	"sa_country_name": {
 		"message": "Arab Saudi"
 	},
+	"santasearch_hint": {
+		"message": "Petunjuk"
+	},
+	"santasearch_level_lab": {
+		"message": "Di laboratorium"
+	},
+	"santasearch_level_museum": {
+		"message": "Di museum"
+	},
+	"santasearch_level_select": {
+		"message": "Mulai!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Cari Sinterklas!"
+	},
+	"santasvillage": {
+		"message": "Desa Sinterklas"
+	},
 	"santatracker": {
 		"message": "Pelacak Sinterklas"
+	},
+	"scene_airport": {
+		"message": "Bandara Kutub Utara"
+	},
+	"scene_app": {
+		"message": "Aplikasi Android"
+	},
+	"scene_boatload": {
+		"message": "Ketapel Hadiah"
+	},
+	"scene_briefing": {
+		"message": "Arahan Singkat dari Bu Sinterklas"
+	},
+	"scene_callfromsanta": {
+		"message": "Telepon dari Sinterklas"
+	},
+	"scene_citylights": {
+		"message": "Lampu Kota"
+	},
+	"scene_codeboogie": {
+		"message": "Tarian Kode"
+	},
+	"scene_codelab": {
+		"message": "Lab Kode"
+	},
+	"scene_commandcentre": {
+		"message": "Kontrol Misi"
+	},
+	"scene_giftmatch": {
+		"message": "Pencocok Hadiah"
+	},
+	"scene_gumball": {
+		"message": "Miringkan Gumball"
+	},
+	"scene_jamband": {
+		"message": "Kolaborasi Band Kurcaci"
+	},
+	"scene_jetpack": {
+		"message": "Jetpack Kurcaci"
+	},
+	"scene_matching": {
+		"message": "Pencocokan Memori"
+	},
+	"scene_mercator": {
+		"message": "Kuis Peta"
+	},
+	"scene_postcard": {
+		"message": "Kartu Sinterklas"
+	},
+	"scene_presentbounce": {
+		"message": "Pantulan Hadiah"
+	},
+	"scene_presentdrop": {
+		"message": "Jatuhkan Hadiah"
+	},
+	"scene_racer": {
+		"message": "Pembalap Rudolph"
+	},
+	"scene_santasearch": {
+		"message": "Penelusuran Sinterklas"
+	},
+	"scene_santaselfie": {
+		"message": "Sinterklas Narsis"
+	},
+	"scene_seasonofgiving": {
+		"message": "Musim Berbagi"
+	},
+	"scene_traditions": {
+		"message": "Tradisi Liburan"
+	},
+	"scene_translations": {
+		"message": "Terjemahan"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Mobil Kurcaci"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Keberangkatan Sinterklas"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Sinterklas Sudah Pulang"
+	},
+	"scene_windtunnel": {
+		"message": "Terowongan Angin"
 	},
 	"score": {
 		"message": "Skor"
@@ -855,7 +1050,7 @@
 		"message": "Anda berada di"
 	},
 	"tracker_intro_welcome": {
-		"message": "Selamat datang di"
+		"message": "Selamat Datang di"
 	},
 	"tracker_next_stop": {
 		"message": "Perhentian berikutnya"
@@ -863,14 +1058,23 @@
 	"tracker_santa_update": {
 		"message": "PEMBARUAN SINTERKLAS"
 	},
+	"tracker_santa_update_1": {
+		"message": "Pembaruan Sinterklas"
+	},
 	"tracker_see_route": {
 		"message": "Lihat rute"
+	},
+	"tracker_track": {
+		"message": "Lacak Sinterklas"
 	},
 	"tracker_weather": {
 		"message": "Cuaca"
 	},
 	"tracker_world_facts": {
 		"message": "TAHUKAH ANDA"
+	},
+	"tracker_world_facts_1": {
+		"message": "Fakta Dunia"
 	},
 	"tracker_your_location": {
 		"message": "Lokasi Anda"
@@ -4546,6 +4750,27 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Kembali pada tanggal 24 dan bantu kami melacak Sinterklas sepanjang malam!"
+	},
+	"village_explore": {
+		"message": "Menjelajah, bermain, dan belajar dengan para Kurcaci Sinterklas selama bulan Desember"
+	},
+	"village_get_the_app": {
+		"message": "Dapatkan Aplikasi"
+	},
+	"village_more": {
+		"message": "Cara Lain untuk Menjelajahi"
+	},
+	"village_santa_cardboard": {
+		"message": "Sinterklas di Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Sinterklas di Google Cast"
+	},
+	"village_takesoff": {
+		"message": "Sinterklas berangkat dalam"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

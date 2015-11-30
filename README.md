@@ -25,6 +25,22 @@ This will serve from the root directory and recompile JavaScript or CSS on watch
 
 If you'd like to serve another way, then you can build all development dependencies with `gulp`.
 
+## Serve production build
+
+First, build for prod and set a `baseurl` for static assets:
+
+    gulp dist --baseurl="http://localhost:9000/"
+
+Serve prod:
+
+    serve -p 3000 dist_prod/
+
+Separately, serve the static resources:
+
+    serve -p 9000 --cors dist_static/
+
+Open http://localhost:3000/.
+
 ## Release
 
 Use `gulp dist --pretty` to build.

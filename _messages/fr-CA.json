@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "La veille de Noël, c'est avec fierté que nous présenterons un aperçu du tableau de bord du père Noël – la technologie qui propulsera son traîneau durant son parcours autour du monde. C'est l'un des nombreux lutins concepteurs du père Noël qui a partagé avec nous cet aperçu spécial. Les lutins travaillent d'ailleurs d'arrache-pied au pôle Nord en préparation du jour de Noël. Le tableau de bord du père Noël, qui propose la plus récente technologie de Google Maps et les applications techniques les plus évoluées en matière de traîneau, vous permettra de suivre son parcours autour du monde et de découvrir des choses intéressantes au sujet de certains des endroits où le père Noël s'arrêtera."
+		"message": "La veille de Noël, nous présenterons fièrement le tableau de bord du père Noël, la technologie qui propulse son traîneau durant son voyage international. Nous avons reçu cet aperçu de l'un des multiples lutins concepteurs du père Noël, qui sont actuellement très occupés, au pôle Nord, à aider le père Noël à se préparer pour cette importante journée. Le tableau de bord du père Noël, doté de la plus récente technologie Google Maps et de la meilleure ingénierie de traîneau, vous permettra de suivre sa progression autour du monde et d'en apprendre un peu plus sur les endroits qu'il visitera en cours de route."
 	},
 	"about-content-three": {
 		"message": "Le site Sur les traces du père Noël de Google Maps a été créé par Google, avec l'aide des lutins du père Noël. Vous avez besoin d'aide ou vous avez des questions? Visitez notre \u003ca href=\"//support.google.com/santatracker\"\u003eCentre d'aide\u003c/a\u003e."
 	},
 	"about-content-two": {
-		"message": "Nos gentils elfes vous invitent également à découvrir le village du père Noël pendant que ce dernier se prépare pour son grand périple. Alors, allez-y, explorez-le! Vous pourriez y trouver des activités amusantes et y rencontrer des elfes intéressants."
+		"message": "Nos gentils lutins vous invitent également à découvrir le village du père Noël pendant que ce dernier se prépare pour son grand périple. Alors, allez-y, explorez-le! Vous pourriez y trouver des activités amusantes et y rencontrer des lutins intéressants."
 	},
 	"about-santa": {
 		"message": "À propos de"
@@ -236,14 +236,83 @@
 	"cl_country_name": {
 		"message": "Chili"
 	},
-	"close-this": {
-		"message": "Annuler"
+	"close": {
+		"message": "Fermer"
 	},
 	"cm_country_name": {
 		"message": "Cameroun"
 	},
 	"co_country_name": {
 		"message": "Colombie"
+	},
+	"codeboogie-block-jump": {
+		"message": "Sauter"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Faites un saut."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Pointer à gauche"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Pointez vers la gauche."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Pas à gauche"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Faites un pas vers la gauche."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Pointer à droite"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Pointez vers la droite."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Pas à droite"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Faites un pas vers la droite."
+	},
+	"codeboogie-block-shake": {
+		"message": "Hanches"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Bougez les hanches."
+	},
+	"codeboogie-block-split": {
+		"message": "Grand écart"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Faites un grand écart."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Dansez!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Danse suivante"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Essayez le bloc ci-dessous pour reproduire la danse."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Saviez-vous que vous pouviez compléter cette danse avec seulement {{ideal}} blocs? Essayez d'utiliser le bloc ci-dessous."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Beaux mouvements! Vous avez complété la danse à la perfection."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Vous utilisez les bons blocs, mais essayez d'en utiliser davantage pour compléter la danse."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Saviez-vous que vous pouviez compléter cette danse avec seulement {{ideal}} blocs?"
+	},
+	"codeboogie-success": {
+		"message": "Réussite!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Regardez attentivement!"
 	},
 	"codelab-block-moveeast": {
 		"message": "est"
@@ -326,6 +395,21 @@
 	"copy-me": {
 		"message": "Copiez ce lien pour partager votre message."
 	},
+	"countdown_days": {
+		"message": "jours"
+	},
+	"countdown_hours": {
+		"message": "hres"
+	},
+	"countdown_minutes": {
+		"message": "min."
+	},
+	"countdown_seconds": {
+		"message": "sec."
+	},
+	"countdown_until": {
+		"message": "Le père Noël commence sa tournée dans"
+	},
 	"countdownlabel": {
 		"message": "avant le départ du père Noël"
 	},
@@ -354,7 +438,7 @@
 		"message": "Allemand"
 	},
 	"de_tradition": {
-		"message": "Les habitants d'Allemagne se réunissent dans leur marché de Noël afin d'écouter des fanfares et manger des plats typiques de leur région. Ils y mangent des cœurs en pain d'épices, des amandes grillées au sucre et d'autres sucreries et y boivent du vin chaud (Glühwein) ou du cidre de pomme."
+		"message": "Les Allemands se réunissent dans leur marché de Noël afin d'écouter des fanfares et manger des plats typiques de leur région. Ils y mangent des cœurs en pain d'épices, des amandes grillées au sucre et d'autres sucreries et y boivent du vin chaud (Glühwein) ou du cidre de pomme."
 	},
 	"deck": {
 		"message": "Décorer"
@@ -432,7 +516,7 @@
 		"message": "Français"
 	},
 	"fr_tradition": {
-		"message": "En France, les enfants placent leurs souliers près du foyer avant l'arrivée du père Noël. Ce dernier remplira les souliers des enfants de cadeaux s'ils ont été gentils au cours de l'année."
+		"message": "En France, les enfants placent leurs souliers près du foyer en prévision de l'arrivée du père Noël. Ce dernier remplira les souliers des enfants de cadeaux s'ils ont été gentils au cours de l'année."
 	},
 	"ga_country_name": {
 		"message": "Gabon"
@@ -629,6 +713,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Nouveau"
+	},
 	"newtoday": {
 		"message": "Nouveauté du jour"
 	},
@@ -667,6 +754,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Ours polaire"
+	},
+	"notification": {
+		"message": "Avis"
+	},
+	"notification_notice": {
+		"message": "Les lutins du père Noël te tiendront au courant de son horaire"
 	},
 	"np_country_name": {
 		"message": "Népal"
@@ -722,6 +815,9 @@
 	"pr_country_name": {
 		"message": "Porto Rico"
 	},
+	"press": {
+		"message": "Appuyer"
+	},
 	"pt_language_name": {
 		"message": "Portugais"
 	},
@@ -743,8 +839,128 @@
 	"sa_country_name": {
 		"message": "Arabie saoudite"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Bonhomme en pain d'épice"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Mère Noël"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Manchot"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolphe"
+	},
+	"santasearch_character_santa": {
+		"message": "Père Noël"
+	},
+	"santasearch_hint": {
+		"message": "Indice"
+	},
+	"santasearch_level_lab": {
+		"message": "Dans le labo"
+	},
+	"santasearch_level_museum": {
+		"message": "Au musée"
+	},
+	"santasearch_level_select": {
+		"message": "C'est parti!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "À la recherche du père Noël!"
+	},
+	"santasvillage": {
+		"message": "Le village du père Noël"
+	},
 	"santatracker": {
 		"message": "Sur les traces du père Noël"
+	},
+	"scene_airport": {
+		"message": "Aéroport du pôle Nord"
+	},
+	"scene_app": {
+		"message": "Application pour Android"
+	},
+	"scene_boatload": {
+		"message": "Lance-cadeaux"
+	},
+	"scene_briefing": {
+		"message": "Instructions de mère Noël"
+	},
+	"scene_callfromsanta": {
+		"message": "Appel du père Noël"
+	},
+	"scene_citylights": {
+		"message": "Les lumières de la ville"
+	},
+	"scene_codeboogie": {
+		"message": "Boogie du code"
+	},
+	"scene_codelab": {
+		"message": "Labo de code"
+	},
+	"scene_commandcentre": {
+		"message": "Centre de contrôle"
+	},
+	"scene_giftmatch": {
+		"message": "Cadeaux assortis"
+	},
+	"scene_gumball": {
+		"message": "Boule de gomme en mouvement"
+	},
+	"scene_jamband": {
+		"message": "Le jam des lutins"
+	},
+	"scene_jetpack": {
+		"message": "Le lutin réacté"
+	},
+	"scene_matching": {
+		"message": "Jeu de mémoire"
+	},
+	"scene_mercator": {
+		"message": "Quiz géo"
+	},
+	"scene_postcard": {
+		"message": "Cartes postales du père Noël"
+	},
+	"scene_presentbounce": {
+		"message": "Rebond de cadeaux"
+	},
+	"scene_presentdrop": {
+		"message": "Lâcher de cadeaux"
+	},
+	"scene_racer": {
+		"message": "La course avec Rudolphe"
+	},
+	"scene_santasearch": {
+		"message": "À la recherche du père Noël"
+	},
+	"scene_santaselfie": {
+		"message": "Autoportrait du père Noël"
+	},
+	"scene_seasonofgiving": {
+		"message": "La saison pour offrir"
+	},
+	"scene_traditions": {
+		"message": "Traditions des Fêtes"
+	},
+	"scene_translations": {
+		"message": "Traductions"
+	},
+	"scene_videoscene_carpool": {
+		"message": "La voiture des lutins"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Envol du père Noël"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Le père Noël est de retour"
+	},
+	"scene_windtunnel": {
+		"message": "Soufflerie"
 	},
 	"score": {
 		"message": "Pointage"
@@ -818,6 +1034,9 @@
 	"tn_country_name": {
 		"message": "Tunisie"
 	},
+	"today_only": {
+		"message": "Aujourd'hui seulement"
+	},
 	"today_only_1": {
 		"message": "Aujourd'hui seulement"
 	},
@@ -842,6 +1061,12 @@
 	"tracker_distance_from_you": {
 		"message": "Distance depuis votre emplacement"
 	},
+	"tracker_flight_nearby": {
+		"message": "Le père Noël est à proximité, trouvez-le"
+	},
+	"tracker_flight_start": {
+		"message": "Le père Noël a quitté le pôle Nord et vous pouvez maintenant suivre son itinéraire"
+	},
 	"tracker_gifts_delivered": {
 		"message": "Cadeaux distribués"
 	},
@@ -860,14 +1085,23 @@
 	"tracker_santa_update": {
 		"message": "COMPTE RENDU DU PÈRE NOËL"
 	},
+	"tracker_santa_update_1": {
+		"message": "Compte rendu du père Noël"
+	},
 	"tracker_see_route": {
 		"message": "Afficher l'itinéraire"
+	},
+	"tracker_track": {
+		"message": "Suivez le père Noël"
 	},
 	"tracker_weather": {
 		"message": "Météo"
 	},
 	"tracker_world_facts": {
 		"message": "LE SAVIEZ-VOUS?"
+	},
+	"tracker_world_facts_1": {
+		"message": "Faits du monde"
 	},
 	"tracker_your_location": {
 		"message": "Votre position"
@@ -4543,6 +4777,27 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Reviens le 24 et aide-nous à suivre le père Noël toute la nuit!"
+	},
+	"village_explore": {
+		"message": "Découvre, joue et apprends avec les lutins du père Noël durant tout le mois de décembre"
+	},
+	"village_get_the_app": {
+		"message": "Télécharger l'application"
+	},
+	"village_more": {
+		"message": "Autres façons d'explorer"
+	},
+	"village_santa_cardboard": {
+		"message": "Le père Noël sur Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Le père Noël sur Google Cast"
+	},
+	"village_takesoff": {
+		"message": "Le père Noël commence sa tournée dans"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

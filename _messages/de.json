@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "An Heiligabend kannst du einen Blick auf das Dashboard des Weihnachtsmanns werfen, über das er auf seiner Reise um die Welt seinen Schlitten steuert. Einer der vielen Entwicklerelfen des Weihnachtsmanns hat uns diese Vorschau exklusiv vom Nordpol geschickt, wo die Vorbereitungen auf den großen Tag auf Hochtouren laufen. Mit dem Dashboard des Weihnachtsmanns, das das aktuelle Google Maps mit modernster Schlittenbaukunst vereint, kannst du den Weihnachtsmann um die ganze Welt begleiten und lernst unterwegs noch einiges über die Stationen auf dem Weg."
+		"message": "An Heiligabend präsentieren wir das Weihnachtsmann-Dashboard. Mit dieser Technologie wird der Schlitten des Weihnachtsmanns auf seiner Weltreise angetrieben. Wir haben diese spezielle Vorschau von einem der vielen Entwicklerwichtel des Weihnachtsmanns erhalten, die am Nordpol emsig dabei sind, den Weihnachtsmann bei der Vorbereitung auf seinen großen Tag zu unterstützen. Das Weihnachtsmanns-Dashboard stellt die neuesten und besten Errungenschaften bei Google Maps-Technologie und Schlittenkunst vor. Du kannst damit seine Weltreise verfolgen und einiges über seine Zwischenstopps erfahren."
 	},
 	"about-content-three": {
 		"message": "Google hat gemeinsam mit den Wichteln des Weihnachtsmanns \"Auf den Spuren des Weihnachtsmanns\" auf Google Maps gestaltet und entwickelt. Brauchst du Hilfe oder hast du weitere Fragen? \u003ca href=\"//support.google.com/santatracker\"\u003eWeitere Informationen findest du in der Google Maps-Hilfe.\u003c/a\u003e"
@@ -236,14 +236,80 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Abbrechen"
+	"close": {
+		"message": "Schließen"
 	},
 	"cm_country_name": {
 		"message": "Kamerun"
 	},
 	"co_country_name": {
 		"message": "Kolumbien"
+	},
+	"codeboogie-block-jump": {
+		"message": "Sprung"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Spring hoch!"
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Linker Arm"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Zeig nach links!"
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Linker Fuß"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Mach einen Schritt nach links!"
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Rechter Arm"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Zeig nach rechts!"
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Rechter Fuß"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Mach einen Schritt nach rechts!"
+	},
+	"codeboogie-block-shake": {
+		"message": "Hüftschwung"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Schwing die Hüften!"
+	},
+	"codeboogie-block-split": {
+		"message": "Spagat"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Mach einen Spagat!"
+	},
+	"codeboogie-get-dancing": {
+		"message": "Du bist dran!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Nächster Tanz"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Versuch mal den Block unten, um den Tanz hinzubekommen."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Wusstest du, dass der Tanz mit nur {{ideal}} Blöcken beendet werden kann? Versuche es mal mit dem unteren Block."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Hut ab! Du tanzt wie ein Profi!"
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Du benutzt zwar die richtigen Blöcke, sie reichen aber nicht für den kompletten Tanz aus."
+	},
+	"codeboogie-success": {
+		"message": "Geschafft!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Pass genau auf!"
 	},
 	"codelab-block-moveeast": {
 		"message": "Osten"
@@ -326,6 +392,21 @@
 	"copy-me": {
 		"message": "Kopiere diesen Link, um deine Nachricht zu teilen."
 	},
+	"countdown_days": {
+		"message": "Tage"
+	},
+	"countdown_hours": {
+		"message": "Std."
+	},
+	"countdown_minutes": {
+		"message": "Min."
+	},
+	"countdown_seconds": {
+		"message": "Sek."
+	},
+	"countdown_until": {
+		"message": "Der Weihnachtsmann startet in"
+	},
 	"countdownlabel": {
 		"message": "Bis zur Abreise des Weihnachtsmanns"
 	},
@@ -396,7 +477,7 @@
 		"message": "Englisch"
 	},
 	"endofjourneymessage": {
-		"message": "Der Weihnachtsmann hat seine diesjährige Reise beendet. Er und seine Elfen feiern jetzt am Nordpol und machen dann erst einmal Urlaub."
+		"message": "Der Weihnachtsmann hat seine diesjährige Reise beendet. Er und seine Wichtel feiern jetzt am Nordpol und machen dann erst einmal Urlaub."
 	},
 	"er_country_name": {
 		"message": "Eritrea"
@@ -629,6 +710,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Neu"
+	},
 	"newtoday": {
 		"message": "Heute neu"
 	},
@@ -667,6 +751,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polarbär"
+	},
+	"notification": {
+		"message": "Benachrichtigungen"
+	},
+	"notification_notice": {
+		"message": "Lass dir von den Wichteln verraten, was der Weihnachtsmann gerade tut."
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -722,6 +812,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Presseinhalte"
+	},
 	"pt_language_name": {
 		"message": "Portugiesisch"
 	},
@@ -743,8 +836,110 @@
 	"sa_country_name": {
 		"message": "Saudi-Arabien"
 	},
+	"santasearch_hint": {
+		"message": "Hinweis"
+	},
+	"santasearch_level_lab": {
+		"message": "Im Labor"
+	},
+	"santasearch_level_museum": {
+		"message": "Im Museum"
+	},
+	"santasearch_level_select": {
+		"message": "Los"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Such den Weihnachtsmann!"
+	},
+	"santasvillage": {
+		"message": "Dorf des Weihnachtsmanns"
+	},
 	"santatracker": {
 		"message": "Auf den Spuren des Weihnachtsmanns"
+	},
+	"scene_airport": {
+		"message": "Flughafen Nordpol"
+	},
+	"scene_app": {
+		"message": "Android-App"
+	},
+	"scene_boatload": {
+		"message": "Geschenkeschleuder"
+	},
+	"scene_briefing": {
+		"message": "Frau Weihnachtsmann sagt, wie's geht"
+	},
+	"scene_callfromsanta": {
+		"message": "Anruf vom Weihnachtsmann"
+	},
+	"scene_citylights": {
+		"message": "Lichter der Stadt"
+	},
+	"scene_codeboogie": {
+		"message": "Code-Boogie"
+	},
+	"scene_codelab": {
+		"message": "Code-Lab"
+	},
+	"scene_commandcentre": {
+		"message": "Kontrollzentrum"
+	},
+	"scene_giftmatch": {
+		"message": "Geschenkpaare"
+	},
+	"scene_gumball": {
+		"message": "Lolli-Flipper"
+	},
+	"scene_jamband": {
+		"message": "Wichtel-Wunschkonzert"
+	},
+	"scene_jetpack": {
+		"message": "Wichtel-Jetpack"
+	},
+	"scene_matching": {
+		"message": "Memory"
+	},
+	"scene_mercator": {
+		"message": "Kartenquiz"
+	},
+	"scene_postcard": {
+		"message": "Weihnachtskarten"
+	},
+	"scene_presentbounce": {
+		"message": "Geschenkeautomat"
+	},
+	"scene_presentdrop": {
+		"message": "Bescherung"
+	},
+	"scene_racer": {
+		"message": "Rudolfs Rennen"
+	},
+	"scene_santasearch": {
+		"message": "Such den Weihnachtsmann"
+	},
+	"scene_santaselfie": {
+		"message": "Weihnachtsmann-Selfie"
+	},
+	"scene_seasonofgiving": {
+		"message": "Zeit des Gebens"
+	},
+	"scene_traditions": {
+		"message": "Weihnachtstraditionen aus der ganzen Welt"
+	},
+	"scene_translations": {
+		"message": "Übersetzungen"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Der Wichtelwagen"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Abflug des Weihnachtsmanns"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Der Weihnachtsmann ist wieder da"
+	},
+	"scene_windtunnel": {
+		"message": "Im Windkanal"
 	},
 	"score": {
 		"message": "Bewertung"
@@ -795,7 +990,7 @@
 		"message": "Tschad"
 	},
 	"terms-and-privacy": {
-		"message": "Nutzungsbedingungen/Datenschutz"
+		"message": "Nutzungsbed./Datenschutz"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -855,7 +1050,7 @@
 		"message": "Sie befinden sich in"
 	},
 	"tracker_intro_welcome": {
-		"message": "Willkommen bei"
+		"message": "Willkommen in"
 	},
 	"tracker_next_stop": {
 		"message": "Nächster Halt"
@@ -863,14 +1058,23 @@
 	"tracker_santa_update": {
 		"message": "NEUIGKEITEN ZUM WEIHNACHTSMANN"
 	},
+	"tracker_santa_update_1": {
+		"message": "Neuigkeiten zum Weihnachtsmann"
+	},
 	"tracker_see_route": {
 		"message": "Route anzeigen"
+	},
+	"tracker_track": {
+		"message": "Weihnachtsmann orten"
 	},
 	"tracker_weather": {
 		"message": "Wetter"
 	},
 	"tracker_world_facts": {
 		"message": "Schon gewusst?"
+	},
+	"tracker_world_facts_1": {
+		"message": "Nachrichten aus aller Welt"
 	},
 	"tracker_your_location": {
 		"message": "Ihr Standort"
@@ -4546,6 +4750,27 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Komm am 24. wieder und hefte dich gemeinsam mit uns die ganze Nacht an die Fersen des Weihnachtsmanns!"
+	},
+	"village_explore": {
+		"message": "Entdecke, spiele und lerne den ganzen Dezember lang gemeinsam mit den Wichteln des Weihnachtsmanns."
+	},
+	"village_get_the_app": {
+		"message": "App herunterladen"
+	},
+	"village_more": {
+		"message": "Mehr entdecken"
+	},
+	"village_santa_cardboard": {
+		"message": "Mit Google Cardboard den Weihnachtsmann suchen"
+	},
+	"village_santa_cast": {
+		"message": "Mit Google Cast den Weihnachtsmann suchen"
+	},
+	"village_takesoff": {
+		"message": "Der Weihnachtsmann startet in"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"
