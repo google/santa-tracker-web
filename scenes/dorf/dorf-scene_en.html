@@ -450,8 +450,7 @@ Village scene (2015).
      * Calculates the href to load for this house.
      */
     _calculateHref: function(house, iced) {
-      console.info('calculating link for house', house, 'iced', house.iced);
-      if (house.iced || house.disabled) {
+      if (iced || house.disabled) {
         return null;
       }
       return house.link || this.pageUrl + '#' + house.module;
