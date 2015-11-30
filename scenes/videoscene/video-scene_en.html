@@ -75,9 +75,10 @@ Video scene.
 <script>
 (function() {
   var VIDEO_IDS = {
+    'wheressanta': '0qrFL0mn3Uk',
     'trailer': 'IdpQSy4IB_I',
     'carpool': 'h83b1lWPuvQ',
-    'liftoff': 'oCAKV4Ikhec',
+    'liftoff': 'oCAKV4Ikhec',  // 2013: BfF7vfw6Zjw
     'jingle': 'sQnKCU_A0Yc',
     'satellite': 'ZJPL56IPTjw',
     'temptation': '2FtcJJ9vzVQ',
@@ -87,6 +88,8 @@ Video scene.
     'reload': 'vHMeXs36NTE',
     'slacking-off': 'uEl2WIZOVdQ',
   };
+
+  var CAST_VOLUME = 30;  // of 100
 
   Polymer({
     is: 'video-scene',
@@ -179,6 +182,12 @@ Video scene.
      * @param {string} detail.label
      */
 
+    attached: function() {
+      if (this.getAttribute('mode') == 'cast') {
+        this.hidePoster();
+      }
+    },
+
     youtubeReady: function() {
       this.start = true;
 
@@ -191,6 +200,7 @@ Video scene.
       // Autoplay on Cast mode.
       if (this.getAttribute('mode') == 'cast') {
         this.playVideo();
+        this.player.setVolume(CAST_VOLUME);
       }
     },
 

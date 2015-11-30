@@ -37,7 +37,13 @@ Santa Tracker app.
   <santa-tracker-router id="router" route="{{route}}" scene-params="{{sceneParams}}" auto-hash></santa-tracker-router>
 
   <!-- Chrome, including toolbar and sidebar -->
-  <santa-chrome id="chrome" mode$="{{mode}}" disabled="{{isCastMode(mode)}}" color="{{_colorForRoute(route, _houses)}}" today-house="{{todayHouse}}">
+  <santa-chrome id="chrome"
+      mode$="{{mode}}"
+      disabled="{{isCastMode(mode)}}"
+      color="{{_colorForRoute(route, _houses)}}"
+      tracker-unlocked="{{postCountdown}}"
+      today-house="{{todayHouse}}"
+      mute="{{userMute}}">
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
@@ -287,12 +293,12 @@ var PERMANENT_ROUTES = ['village', 'about', 'press'];
 
 var VIDEO_ROUTES = [
   'trailer', 'carpool', 'liftoff', 'jingle', 'satellite', 'temptation',
-  'office', 'tired', 'com-room', 'reload', 'slacking-off'
+  'office', 'tired', 'com-room', 'reload', 'slacking-off', 'wheressanta'
 ];
 
 // Timing for playing random videos in Cast mode, in ms.
-var VIDEO_RANDOM_MIN = 8 * (60 * 1000);
-var VIDEO_RANDOM_MAX = 20 * (60 * 1000);
+var VIDEO_RANDOM_MIN = 5 * (60 * 1000);
+var VIDEO_RANDOM_MAX = 12 * (60 * 1000);
 var VIDEO_RANDOM_SAFE = 60 * (60 * 1000);  // don't show videos before countdown ends
 
 // Routes/scenes unlocked with the tracker (including all video routes)
@@ -358,8 +364,31 @@ Polymer({
      */
     todayHouse: {
       type: String,
+      value: '',
       notify: true,
       observer: '_notifyHouses'
+    },
+
+    /**
+     * Whether the sounds are globally muted by the user.
+     */
+    userMute: Boolean,
+
+    /**
+     * Whether the page is in the background.
+     */
+    pageInBackground: {
+      type: Boolean,
+      readOnly: true
+    },
+
+    /**
+     * Computes the global mute state.
+     */
+    _globalMute: {
+      type: Boolean,
+      observer: '_globalMuteChanged',
+      computed: '_computeGlobalMute(userMute, pageInBackground)'
     },
 
     /**
@@ -549,9 +578,7 @@ Polymer({
     }
 
     this.analyticsService = new Analytics();
-    this.visibilityService = new VisibilityManager(this);
-    this.visibilityService.addOnPauseListener(this.onPause.bind(this));
-    this.visibilityService.addOnResumeListener(this.onResume.bind(this));
+    this.visibilityService = new VisibilityManager();
   },
 
   attached: function() {
@@ -596,7 +623,6 @@ Polymer({
 
     switch (apiClient) {
       case 'web_chromecast':
-        this._initChromecast();
         this.mode = 'cast';
         this.triggerRandom = true;
         break;
@@ -618,6 +644,13 @@ Polymer({
       this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
     }
+
+    // NOTE: There's a race here: 'sound-ambient' is registered above, but setting the initial
+    // background state here still causes audio to start on unfocused tabs. This is probably fine,
+    // and Santa will just make noise before its tab is first focused.
+    this.visibilityService.addOnPauseListener(this._setPageInBackground.bind(this, true));
+    this.visibilityService.addOnResumeListener(this._setPageInBackground.bind(this, false));
+    this._setPageInBackground(this.visibilityService.isPaused());
 
     this.santaService = new SantaService(apiClient, this.language);
     this.santaService.sync(this._checkSchedule.bind(this));
@@ -680,7 +713,6 @@ Polymer({
     var portalMode = this.mode === 'portal';
     var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
     var spanglish = /^e(n|s)/.test(this.language);
-    spanglish = false;
 
     for (var i = this._houses.length - 1; i >= 0; i--) {
       var house = this._houses[i];
@@ -716,37 +748,6 @@ Polymer({
 
   get defaultRoute() {
     return this.postCountdown ? TRACKER_ROUTE : DEFAULT_ROUTE;
-  },
-
-  _initChromecast: function() {
-    // `cast` is added to global scope by chromecast SDK
-    var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
-    var messageBus = castReceiverManager
-        .getCastMessageBus('urn:x-cast:com.google.cast.santatracker');
-
-    castReceiverManager.onReady = function(event) {
-      console.debug('cast_receiver ready', event.data);
-      castReceiverManager.setApplicationState(WINDOW_TITLE);
-    };
-    castReceiverManager.onSenderConnected = function(event) {
-      console.debug('cast_receiver connected', event.data, castReceiverManager.getSender(event.data).userAgent);
-    };
-    castReceiverManager.onSenderDisconnected = function(event) {
-      console.debug('cast_receiver disconnected', event.data);
-      if (!castReceiverManager.getSenders().length &&
-          event.reason === cast.receiver.system.DisconnectReason.REQUESTED_BY_SENDER) {
-        window.close();
-      }
-    };
-
-    messageBus.onMessage = function(event) {
-      console.debug('cast_receiver message', event.senderId, event.data);
-    };
-
-    var appConfig = new cast.receiver.CastReceiverManager.Config();
-    appConfig.maxInactivity = 60 * 60 * 3;  // in seconds, 3 hours default
-    appConfig.statusText = WINDOW_TITLE + '...';  // subtle loading hint
-    castReceiverManager.start(appConfig);
   },
 
   /**
@@ -895,19 +896,23 @@ Polymer({
     }
   },
 
-  onPause: function() {
-    this.fire('sound-ambient', 'global_blur');
-    this.fire('sound-ambient', 'global_pause');
-    if (this.selectedScene && this.selectedScene.fire) {
-      this.selectedScene.fire('scene-pause', true);
-    }
+  _computeGlobalMute: function(userMute, pageInBackground) {
+    return userMute || pageInBackground;
   },
 
-  onResume: function() {
-    this.fire('sound-ambient', 'global_focus');
-    this.fire('sound-ambient', 'global_unpause');
-    if (this.selectedScene && this.selectedScene.fire) {
-      this.selectedScene.fire('scene-pause', false);
+  _globalMuteChanged: function(newValue) {
+    if (newValue)  {
+      this.fire('sound-ambient', 'global_blur');
+      this.fire('sound-ambient', 'global_pause');
+      if (this.selectedScene && this.selectedScene.fire) {
+        this.selectedScene.fire('scene-pause', true);
+      }
+    } else {
+      this.fire('sound-ambient', 'global_focus');
+      this.fire('sound-ambient', 'global_unpause');
+      if (this.selectedScene && this.selectedScene.fire) {
+        this.selectedScene.fire('scene-pause', false);
+      }
     }
   },
 
@@ -997,11 +1002,6 @@ Polymer({
       document.body.classList.add('posttakeoff');
     } else {
       document.body.classList.remove('posttakeoff');
-    }
-
-    // On Cast mode, naturally transition to tracker.
-    if (this.mode == 'cast') {
-      this.route = this.defaultRoute;
     }
   },
 
@@ -1147,7 +1147,7 @@ Polymer({
       this._checkSchedule();
       if (this.postCountdown && this.route === DEFAULT_ROUTE) {
         // Act as if the user has clicked a link, and update the hash manually.
-        this.$.router.go(TRACKER_ROUTER);
+        this.$.router.go(TRACKER_ROUTE);
       }
     }
   },

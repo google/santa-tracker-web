@@ -188,8 +188,8 @@
         "message": "In France, children traditionally put their shoes out next to the fireplace in anticipation of P\u00e8re No\u00ebl's arrival. If children have been good throughout the year, P\u00e8re No\u00ebl will fill the shoes with gifts."
     },
     "getgooglemaps": {
-        "description": "Link text to an external site.",
-        "message": "Get Google Maps"
+        "description": "Describes using the Google Maps product to find Santa.",
+        "message": "Search for Santa in Google Maps"
     },
     "gh_country_name": {
         "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
@@ -6387,15 +6387,15 @@
     },
     "village_get_the_app": {
       "description": "Menu item indicating that a user should get the Santa Android app from the Google Play Store.",
-      "message": "Get the App"
+      "message": "Get the Santa Tracker App for Android"
     },
     "village_santa_cast": {
       "description": "Menu item for finding Santa on the Google Cast platform. Don't translate 'Google Cast'.",
       "message": "Santa on Google Cast"
     },
     "village_santa_crx": {
-      "description": "Menu item for finding Santa as a Google Chrome extension. Don't translate \"Google Chrome\".",
-      "message": "Google Chrome Extension"
+      "description": "Menu item for adding Santa as a Google Chrome extension. Don't translate \"Chrome\".",
+      "message": "Add the Santa Chrome Extension"
     },
     "village_santa_cardboard": {
       "description": "Menu item for finding Santa as part of an app which supports Google Cardboard (Google's Virtual Reality experience). Don't translate 'Cardboard'.",

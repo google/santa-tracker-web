@@ -20,7 +20,7 @@ $toolbar-size: 64px;
     font-weight: 400;
     font-size: 22px;
     line-height: 26px;
-    max-width: 360px;
+    max-width: 480px;
   }
 
   header {
@@ -54,7 +54,7 @@ $toolbar-size: 64px;
       height: 630px;
       overflow: hidden;
 
-      > * {
+      span {
         display: inline-block;
         position: absolute;
       }
@@ -100,15 +100,25 @@ $toolbar-size: 64px;
         animation: #{$name}-plane 75s infinite linear;
       }
       .cloud {
-        opacity: 0;  // this will be overwritten by animation
+        opacity: 0.5;
+        transform: translate(-400px);  // rest off-screen
         position: absolute;
         width: 113px;
         height: 68px;
         margin-left: -(113px/2);
-        background: url(img/cloud-big_2x.png) center no-repeat;
+        background: transparent center no-repeat;
         background-size: contain;
         // this only animates across the screen for <10% of the time
         animation: #{$name}-cloud 25s infinite linear;
+      }
+      .cloud0 {
+        background-image: url(img/cloud1.svg);
+      }
+      .cloud1 {
+        background-image: url(img/cloud2.svg);
+      }
+      .cloud2 {
+        background-image: url(img/cloud3.svg);
       }
       .skydive {
         animation: #{$name}-skydive 40s infinite ease-in;
@@ -185,9 +195,9 @@ $toolbar-size: 64px;
           }
         }
         @media (max-width: ($width-tablet - 1)) {
-          // On mobile, just pin pegman to the left side of the screen.
-          margin-top: 50px;
-          margin-left: 50px;
+          // Land pegman right in the middle of the village, where there's just snow.
+          margin-left: calc(50% - 100px);
+          margin-top: 20px;
         }
       }
     }
@@ -196,7 +206,6 @@ $toolbar-size: 64px;
       z-index: $base-raised-z-index;
       position: absolute;
       width: 100%;
-      height: 630px;
       text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 
       display: flex;
@@ -214,8 +223,11 @@ $toolbar-size: 64px;
         padding: 60px 0 30px 0;
 
         &.mode-cast {
-          padding-bottom: 60px;
-          transform: scale(1.6);
+          padding-top: 70px;
+          padding-bottom: 55px;
+          transform: scale(1.55);
+
+          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125) !important;
         }
       }
 
@@ -232,7 +244,7 @@ $toolbar-size: 64px;
 
       h1 {
         @include will-change();
-        margin: 0;
+        margin: 0 8px;
         font-family: 'Lobster', sans-serif;
         font-size: 62px;
         line-height: 50px;
@@ -241,23 +253,39 @@ $toolbar-size: 64px;
         transform: rotateZ(-3deg);
       }
 
-      /** Make header elements small on mobile */
+      .castlogo {
+        width: 120px;
+        height: 30px;
+        background: url(img/google_logo.svg) no-repeat center;
+        background-size: contain;
+        margin-bottom: 14px;
+      }
+
+      /** Make countdown text smaller on phones */
       @media (max-width: $width-twocol) {
-        h1 {
-          font-size: 44px;
-          line-height: 36px;
-        }
         h2 {
           font-size: 10px;
           line-height: 10px;
         }
-        p {
-          font-size: 16px;
-          max-width: 260px;
-          margin-top: 36px;
-          padding-bottom: 4px;
-        }
       }
+    }
+
+    #header-mobilevillage {
+      background: url(img/mobile-header.svg) center bottom no-repeat;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 80px;
+      display: none;
+    }
+    #header-mobileelves {
+      background: url(img/mobile-header-elves.svg) center left no-repeat;
+      position: absolute;
+      top: 210px + 180px;
+      width: 320px;
+      left: 20px;
+      height: 120px;
+      display: none;
     }
   }
 
@@ -319,6 +347,30 @@ $toolbar-size: 64px;
         position: absolute;
         color: white;
 
+        // disabled cards only
+        .color {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          display: none;
+        }
+
+        .text {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          display: flex;
+          flex-flow: column;
+          align-items: center;
+
+          .img-lock {
+            width: 42px;
+            height: 42px;
+            background: url(img/lock.svg) no-repeat center;
+            background-size: contain;
+          }
+        }
+
         .image {
           width: 100%;
           height: 100%;
@@ -332,6 +384,24 @@ $toolbar-size: 64px;
           line-height: 1.4em;
           padding-top: 0.25em;
           text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .label {
+          position: absolute;
+          bottom: 4%;
+          right: 50%;
+          transform: translate(($height-newcard-mobile * 0.5) + 14px) rotate(12deg);
+          background: url(img/new-today-tag.svg) center no-repeat;
+          background-size: cover;
+          box-sizing: border-box;
+          width: 85px;
+          height: 53px;
+          padding: 0 4px 9px 16px;
+          line-height: 44px;
+          font-size: 14px;
+          font-family: 'Lobster', sans-serif;
+          font-weight: 400;
+          text-align: center;
         }
       }
     }
@@ -382,13 +452,11 @@ $toolbar-size: 64px;
   }  // .house-new-today
 
   #village-footer {
-    // TODO(samthor): Footer needs to be scaled for both tablet and mobile.
-
     z-index: $base-background-z-index;
-    height: 560px;
+    height: 400px;
 
     @media (max-width: ($width-desktop - 1)) {
-      height: 400px;
+      height: 340px;
     }
 
     position: relative;
@@ -415,7 +483,10 @@ $toolbar-size: 64px;
       position: absolute;
       width: 100%;
       height: 100%;
+      left: 50%;
+      transform: translate(-50%);
       bottom: 0;
+      max-width: 900px;
     }
   }
 
@@ -578,14 +649,20 @@ $toolbar-size: 64px;
           height: $hover-card-size !important;
           margin: (-$hs) 0 0 (-$hs);
           @include will-change(transform, opacity);
-          border-radius: 10000px;
-          overflow: hidden;
           transition: transform $duration-out $easing-out, opacity $duration-out $easing-out;
           transform: scale(0);
           opacity: 0.25;
           left: 50%;
           top: 50%;
-          box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
+
+          .label {
+            display: none;  // hide the 'new' label
+          }
+
+          .image {
+            border-radius: 10000px;
+            box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
+          }
 
           .launchdate {
             display: none;
@@ -659,13 +736,24 @@ $toolbar-size: 64px;
     header {
       margin-bottom: -80px;
 
-      p {
-        display: none;  // remove first "Explore, play" etc text
+      #header-content {
+        p, h1 {
+          display: none;
+        }
       }
 
-      #header-skyeffect,
+      #header-skyeffect {
+        margin-top: -180px;
+      }
       #header-background {
         margin-top: -180px;
+        height: 305px + 180px;
+        background-position: center;
+      }
+
+      #header-mobilevillage,
+      #header-mobileelves {
+        display: block;
       }
     }
 
@@ -675,12 +763,15 @@ $toolbar-size: 64px;
         display: block;
         background: #57d693;
         color: white;
-        padding: 18px 24px;
+        padding: 18px 24px 16px;
         border-bottom: 2px solid rgba(0, 0, 0, 0.125);
 
         p {
-          font-size: 16px;
-          font-weight: 400;
+          font-size: 1em;
+          line-height: 1.5em;
+          letter-spacing: 1px;
+          font-weight: 500;
+
           text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125);
           margin: 0 auto;
         }
@@ -696,14 +787,9 @@ $toolbar-size: 64px;
           display: none;  // this is Play/Learn etc below houses
         }
 
-        .card.new-today {
-          background: url(img/new-today-path.svg) center no-repeat;
-          background-size: contain;
-        }
-
         .house {
           width: 50%;
-          height: $height-card-mobile;
+          min-height: $height-card-mobile;
           flex-grow: 1;
 
           &[disabled] {
@@ -714,30 +800,68 @@ $toolbar-size: 64px;
             display: none;
           }
 
-          &.iced {
-            height: auto;
-            min-height: $height-icedcard-mobile;
+          .text {
+            margin-top: 8px;
 
-            .card {
+            .launchdate {
+              margin: 0;
+              margin-top: -8px;
+              line-height: 1.4em;
+              text-shadow: none;
+            }
+            h4 {
+              order: 10;
+              opacity: 0.75;
+            }
+            h4, h3 {
+              letter-spacing: 1px;
+              font-size: 1em;
+              line-height: 1em;
+              font-weight: 500;
+              color: #fff;
+              margin-top: 2px;
+              text-transform: uppercase;
+              font-family: inherit;
+              transform: none;
+              text-shadow: none;
+            }
+          }
+
+          &.iced {
+            .text {
               h3, h4 {
                 display: none;
               }
             }
 
+            .text {
+              margin: 0;
+              justify-content: center;
+              .launchdate {
+                font-size: 5em;
+              }
+            }
+
             // fade out iced cards
-            &::after {
-              z-index: 100;
-              position: absolute;
-              content: "";
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              background: rgba(0, 0, 0, 0.5);
-              pointer-events: none;
+            .color {
+              display: block;
+              opacity: 0.75;
             }
           }
-        }
+
+          &.new-today {
+            height: $height-newcard-mobile;
+
+            .text {
+              margin-top: 24px;
+            }
+
+            .card {
+              // use natural size
+              background: url(img/new-today-path.svg) center no-repeat;
+            }
+          }
+        }  // .house
       }
 
       #ground, #road, .easter-egg {
@@ -747,6 +871,10 @@ $toolbar-size: 64px;
 
     #village-footer {
       margin-top: 32px;
+
+      p {
+        padding: 0 16px;
+      }
     }
   }
 
