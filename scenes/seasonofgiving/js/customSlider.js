@@ -26,6 +26,9 @@ goog.require('goog.ui.Slider');
  * @constructor
  */
 app.CustomSlider = function(elem) {
+  // Hacky, but prevents slider from being totally broken.
+  goog.global.setTimeout = window.setTimeout.bind(window);
+
   this.sizeSliderThumb = elem.find('#Slider-thumb--scale')[0];
   this.sizeMobile = new app.MobileSlider(elem.find('.crayon-size-wrapper'));
   this.strokeSize = 6;
