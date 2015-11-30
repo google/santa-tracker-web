@@ -34,13 +34,13 @@ app.config.Levels = [
       material: app.config.Materials.present,
       style: app.config.Styles.presentBall,
       objectType: app.world.PresentBall,
-      relX: 0.15,
+      relX: 0.35,
       relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
       style: app.config.Styles.dropper,
-      relX: 0.2,
+      relX: 0.4,
       relY: 0.1
     },
     target: {
@@ -100,13 +100,13 @@ app.config.Levels = [
       material: app.config.Materials.present,
       style: app.config.Styles.presentBall,
       objectType: app.world.PresentBall,
-      relX: 0.15,
+      relX: 0.35,
       relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
       style: app.config.Styles.dropper,
-      relX: 0.2,
+      relX: 0.4,
       relY: 0.1
     },
     target: {
@@ -187,13 +187,13 @@ app.config.Levels = [
       material: app.config.Materials.present,
       style: app.config.Styles.presentBall,
       objectType: app.world.PresentBall,
-      relX: 0.15,
+      relX: 0.35,
       relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
       style: app.config.Styles.dropper,
-      relX: 0.2,
+      relX: 0.4,
       relY: 0.1
     },
     target: {
@@ -288,13 +288,13 @@ app.config.Levels = [
       material: app.config.Materials.present,
       style: app.config.Styles.presentBall,
       objectType: app.world.PresentBall,
-      relX: 0.15,
+      relX: 0.35,
       relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
       style: app.config.Styles.dropper,
-      relX: 0.2,
+      relX: 0.4,
       relY: 0.1
     },
     target: {
@@ -389,13 +389,13 @@ app.config.Levels = [
       material: app.config.Materials.present,
       style: app.config.Styles.presentSquare,
       objectType: app.world.PresentSquare,
-      relX: 0.15,
+      relX: 0.35,
       relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
       style: app.config.Styles.dropper,
-      relX: 0.2,
+      relX: 0.4,
       relY: 0.1
     },
     target: {
@@ -490,13 +490,13 @@ app.config.Levels = [
       material: app.config.Materials.present,
       style: app.config.Styles.presentSquare,
       objectType: app.world.PresentSquare,
-      relX: 0.15,
+      relX: 0.35,
       relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
       style: app.config.Styles.dropper,
-      relX: 0.2,
+      relX: 0.4,
       relY: 0.1
     },
     target: {
@@ -591,13 +591,13 @@ app.config.Levels = [
       material: app.config.Materials.present,
       style: app.config.Styles.presentSquare,
       objectType: app.world.PresentSquare,
-      relX: 0.15,
+      relX: 0.35,
       relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
       style: app.config.Styles.dropper,
-      relX: 0.2,
+      relX: 0.4,
       relY: 0.1
     },
     target: {
@@ -692,13 +692,13 @@ app.config.Levels = [
       material: app.config.Materials.present,
       style: app.config.Styles.presentSquare,
       objectType: app.world.PresentSquare,
-      relX: 0.15,
+      relX: 0.35,
       relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
       style: app.config.Styles.dropper,
-      relX: 0.2,
+      relX: 0.4,
       relY: 0.1
     },
     target: {
@@ -793,13 +793,13 @@ app.config.Levels = [
       material: app.config.Materials.present,
       style: app.config.Styles.presentSquare,
       objectType: app.world.PresentSquare,
-      relX: 0.15,
+      relX: 0.35,
       relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
       style: app.config.Styles.dropper,
-      relX: 0.2,
+      relX: 0.4,
       relY: 0.1
     },
     target: {
@@ -894,13 +894,13 @@ app.config.Levels = [
       material: app.config.Materials.present,
       style: app.config.Styles.presentSquare,
       objectType: app.world.PresentSquare,
-      relX: 0.15,
+      relX: 0.35,
       relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
       style: app.config.Styles.dropper,
-      relX: 0.2,
+      relX: 0.4,
       relY: 0.1
     },
     target: {
