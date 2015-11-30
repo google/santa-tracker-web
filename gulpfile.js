@@ -217,7 +217,6 @@ var SCENE_CLOSURE_CONFIG = {
     entryPoint: 'app.Game'
   },
   santasearch: {
-    typeSafe: false,
     entryPoint: 'app.Game'
   },
   santaselfie: {
