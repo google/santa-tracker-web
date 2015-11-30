@@ -32,9 +32,11 @@
 
   &.frozen,
   .js-animation-paused {
-    .belt,
-    .wheel {
-      animation-play-state: paused;
+    .object--conveyorBelt {
+      .belt,
+      .wheel {
+        animation-play-state: paused;
+      }
     }
   }
 

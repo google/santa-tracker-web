@@ -20,7 +20,6 @@ goog.provide('app.config.Levels');
 goog.require('app.config.Materials');
 goog.require('app.config.Styles');
 goog.require('app.world.SnowGlobe');
-goog.require('app.world.CircleBall');
 goog.require('app.world.PresentBall');
 goog.require('app.world.PresentSquare');
 
@@ -33,8 +32,8 @@ app.config.Levels = [
   {
     ball: {
       material: app.config.Materials.present,
-      style: app.config.Styles.presentCircle,
-      objectType: app.world.CircleBall,
+      style: app.config.Styles.presentBall,
+      objectType: app.world.PresentBall,
       relX: 0.15,
       relY: 0.15
     },
@@ -99,8 +98,8 @@ app.config.Levels = [
   {
     ball: {
       material: app.config.Materials.present,
-      style: app.config.Styles.presentCircle,
-      objectType: app.world.CircleBall,
+      style: app.config.Styles.presentBall,
+      objectType: app.world.PresentBall,
       relX: 0.15,
       relY: 0.15
     },
@@ -152,7 +151,7 @@ app.config.Levels = [
         style: app.config.Styles.conveyorBelt,
         relX: 0.27,
         relY: 0.5,
-        rotation: 10,
+        rotation: 0,
         beltDirection: 1
       },
       {
@@ -186,8 +185,8 @@ app.config.Levels = [
   {
     ball: {
       material: app.config.Materials.present,
-      style: app.config.Styles.presentCircle,
-      objectType: app.world.CircleBall,
+      style: app.config.Styles.presentBall,
+      objectType: app.world.PresentBall,
       relX: 0.15,
       relY: 0.15
     },
@@ -287,8 +286,8 @@ app.config.Levels = [
   {
     ball: {
       material: app.config.Materials.present,
-      style: app.config.Styles.presentCircle,
-      objectType: app.world.CircleBall,
+      style: app.config.Styles.presentBall,
+      objectType: app.world.PresentBall,
       relX: 0.15,
       relY: 0.15
     },
@@ -387,7 +386,7 @@ app.config.Levels = [
   // level 5
   {
     ball: {
-      material: app.config.Materials.snowGlobe,
+      material: app.config.Materials.present,
       style: app.config.Styles.presentSquare,
       objectType: app.world.PresentSquare,
       relX: 0.15,
@@ -488,7 +487,7 @@ app.config.Levels = [
   // level 6
   {
     ball: {
-      material: app.config.Materials.snowGlobe,
+      material: app.config.Materials.present,
       style: app.config.Styles.presentSquare,
       objectType: app.world.PresentSquare,
       relX: 0.15,
@@ -589,7 +588,7 @@ app.config.Levels = [
   // level 7
   {
     ball: {
-      material: app.config.Materials.snowGlobe,
+      material: app.config.Materials.present,
       style: app.config.Styles.presentSquare,
       objectType: app.world.PresentSquare,
       relX: 0.15,
@@ -690,7 +689,7 @@ app.config.Levels = [
   // level 8
   {
     ball: {
-      material: app.config.Materials.snowGlobe,
+      material: app.config.Materials.present,
       style: app.config.Styles.presentSquare,
       objectType: app.world.PresentSquare,
       relX: 0.15,
@@ -791,7 +790,7 @@ app.config.Levels = [
   // level 9
   {
     ball: {
-      material: app.config.Materials.snowGlobe,
+      material: app.config.Materials.present,
       style: app.config.Styles.presentSquare,
       objectType: app.world.PresentSquare,
       relX: 0.15,
@@ -892,7 +891,7 @@ app.config.Levels = [
   // level 10
   {
     ball: {
-      material: app.config.Materials.snowGlobe,
+      material: app.config.Materials.present,
       style: app.config.Styles.presentSquare,
       objectType: app.world.PresentSquare,
       relX: 0.15,

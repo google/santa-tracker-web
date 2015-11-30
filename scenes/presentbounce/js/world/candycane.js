@@ -6,7 +6,7 @@
  * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -21,7 +21,7 @@ goog.require('b2');
 goog.require('app.Constants');
 goog.require('app.Unit');
 goog.require('app.world.LevelObject');
-  
+
 
 goog.scope(function () {
   const Constants = app.Constants;
@@ -30,16 +30,21 @@ goog.scope(function () {
 
   /**
    * CandyCane class
-   * Fixed object - either straigt or L-shaped
+   * Fixed object - either straigth or L-shaped
    */
-  class CandyCane extends app.world.LevelObject {  
-    
+  class CandyCane extends app.world.LevelObject {
+
     /**
      * @override
      */
     constructor(...args) {
       super(...args); // super(...arguments) doesn't work in Closure Compiler
       this.body_ = this.buildBody_();
+      this.registerForCollisions(this.onCollision);
+    }
+
+    onCollision() {
+      window.santaApp.fire('sound-trigger', 'pb_wall');
     }
 
     /**
@@ -49,12 +54,12 @@ goog.scope(function () {
       const angleSteps = 90 / (Constants.CORNER_RESOLUTION-1);
       const xOffset = x - radius;
       const yOffset = y + radius;
-      for (let i = Constants.CORNER_RESOLUTION-1; i >= 0; i--) { 
+      for (let i = Constants.CORNER_RESOLUTION-1; i >= 0; i--) {
         const p = this.pointOnCircle_(radius, angleSteps*i*-1, {x: xOffset, y: yOffset});
         vertices.push( new b2.Vec2( Unit.toWorld(p.x), Unit.toWorld(p.y)) );
       }
     }
-    
+
     /**
      * @private
      */
@@ -62,7 +67,7 @@ goog.scope(function () {
       const angleSteps = 90 / (Constants.CORNER_RESOLUTION-1);
       const xOffset = x - radius - stroke/2;
       const yOffset = y + radius + stroke/2;
-      for (let i = 0; i < Constants.CORNER_RESOLUTION; i++) { 
+      for (let i = 0; i < Constants.CORNER_RESOLUTION; i++) {
         const p = this.pointOnCircle_(radius - stroke/2, angleSteps*i*-1, {x: xOffset, y: yOffset});
         vertices.push( new b2.Vec2( Unit.toWorld(p.x), Unit.toWorld(p.y)) );
       }
@@ -92,7 +97,7 @@ goog.scope(function () {
       const height = this.config_.style.height;
       const stroke = this.config_.style.stroke;
       const hasAngle = this.config_.style.hasAngle;
-     
+
       if (hasAngle) {
         // start corner
         this.addCornerVertices_(vertices, -width/2 + stroke, -height/2, stroke/2, -90);
@@ -115,12 +120,12 @@ goog.scope(function () {
         // end corner
         this.addCornerVertices_(vertices, width/2, -height/2, height/2, 90);
       }
-      
+
       return vertices;
     }
-    
+
     /**
-     * @private 
+     * @private
      */
     buildBody_() {
       const vertices = this.buildVertices_();
@@ -131,7 +136,7 @@ goog.scope(function () {
       bodyDef.angle = this.config_.rotation * Math.PI / 180;
 
       const body = this.world_.CreateBody(bodyDef);
-      // SetAsARRAY can only create convex polygons... 
+      // SetAsARRAY can only create convex polygons...
       // fixDef.shape.SetAsArray(vertices, steps);
       // INSTEAD: create Edges from vertices instead of Chain since it doesnt exit
       const numVertices = vertices.length;
@@ -145,7 +150,7 @@ goog.scope(function () {
       }
       return body;
     }
-    
+
     /**
      * @private
      */

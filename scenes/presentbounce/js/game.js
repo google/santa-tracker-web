@@ -165,6 +165,7 @@ app.Game.prototype.onLevelCompleted = function(score) {
 app.Game.prototype.freezeGame = function() {
   this.isPlaying = false;
   this.elem.addClass('frozen');
+  window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
 };
 
 /**
@@ -177,6 +178,7 @@ app.Game.prototype.unfreezeGame = function() {
     this.isPlaying = true;
     this.lastFrame = +new Date() / 1000;
     this.requestId = utils.requestAnimFrame(this.onFrame_);
+    window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_start');
   }
 };
 
@@ -189,7 +191,7 @@ app.Game.prototype.gameover = function() {
   this.gameoverView.show();
   window.santaApp.fire('sound-trigger', 'pb_game_over');
   window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
-  
+
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'presentbounce',
     score: this.scoreboard.score,

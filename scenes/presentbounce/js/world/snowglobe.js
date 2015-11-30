@@ -24,13 +24,13 @@ goog.require('app.world.GravityObject');
 
 goog.scope(function () {
   const Unit = app.Unit;
-  
+
 
   /**
    * SnowGlobe class
    */
   class SnowGlobe extends app.world.GravityObject {
-    
+
     /**
      * @override
      */
@@ -38,16 +38,16 @@ goog.scope(function () {
       super(...args); // super(...arguments) doesn't work in Closure Compiler
       this.body_ = this.buildBody_();
     }
-    
+
     buildBody_() {
       const radius = this.config_.style.width/2;
       const plateWidth = this.config_.style.width*0.4;
       const plateHeight = this.config_.style.height - this.config_.style.width;
-      
+
       const bodyDef = new b2.BodyDef();
       bodyDef.type = b2.BodyDef.b2_dynamicBody;
       bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y);
-      
+
       // create snow globe
       const globeFixDef = new b2.FixtureDef();
       globeFixDef.density = this.config_.material.globeDensity;
@@ -55,7 +55,7 @@ goog.scope(function () {
       globeFixDef.restitution = this.config_.material.restitution;
       globeFixDef.shape = new b2.CircleShape( Unit.toWorld(radius) );
       globeFixDef.shape.SetLocalPosition( new b2.Vec2(0, Unit.toWorld(-plateHeight/2)) );
-      
+
       // create base under globe
       const plateFixDef = new b2.FixtureDef();
       plateFixDef.density = this.config_.material.plateDensity; // heavier than the globe
