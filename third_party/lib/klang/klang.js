@@ -534,10 +534,10 @@ var __extends = this.__extends || function (d, b) {
                 this.state = ATAudioSource.STATE_PLAYING;
                 return;
             } else {
-                if(!keepVolume) {
-                    this.getOutput().setVolume(this.getOutput().getVolume());
-                }
-            }
+                //if (!keepVolume) {
+                this.getOutput().setVolume(this.getOutput().getVolume());
+                //}
+                            }
             this._currentFile.audioElement.currentTime = 0;
             this._currentFile.audioElement.play();
             this._playing = true;
@@ -2754,14 +2754,43 @@ var __extends = this.__extends || function (d, b) {
                         group
                     ];
                 }
+                var groupsToLoad = group.length;
+                var _filesLoadedCallback = function () {
+                    groupsToLoad--;
+                    if(groupsToLoad === 0) {
+                        filesLoadedCallback && filesLoadedCallback.apply(this, arguments);
+                    }
+                };
+                var loadProgression = {
+                };
+                var _progressCallback = function (prog) {
+                    if(progressCallback) {
+                        loadProgression[this.name] = prog;
+                        var cnt = 0;
+                        var totProg = 0;
+                        for(var key in loadProgression) {
+                            if(loadProgression.hasOwnProperty(key)) {
+                                cnt++;
+                                totProg += loadProgression[key];
+                            }
+                        }
+                        totProg /= cnt;
+                        progressCallback(totProg);
+                    }
+                };
+                var _loadFailedCallback = function () {
+                    _filesLoadedCallback();
+                };
                 for(var ix = 0, len = group.length; ix < len; ix++) {
+                    loadProgression[group[ix]] = 0;
                     this._groups[group[ix]] = {
                     };
                     this._groups[group[ix]]._loadedFiles = [];
-                    this._groups[group[ix]].filesLoadedCallback = filesLoadedCallback;
-                    this._groups[group[ix]].progressCallback = progressCallback;
-                    this._groups[group[ix]].loadFailedCallback = loadFailedCallback;
+                    this._groups[group[ix]].filesLoadedCallback = _filesLoadedCallback;
+                    this._groups[group[ix]].progressCallback = _progressCallback.bind(this._groups[group[ix]]);
+                    this._groups[group[ix]].loadFailedCallback = _loadFailedCallback;
                     this._groups[group[ix]].loadInterrupted = false;
+                    this._groups[group[ix]].name = group[ix];
                     this._groups[group[ix]].progress = {
                         totalBytes: 0,
                         loadedBytes: 0,
