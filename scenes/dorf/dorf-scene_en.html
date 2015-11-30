@@ -108,7 +108,7 @@ Village scene (2015).
             </div>
             <template is="dom-if" if="{{!item.disabled}}">
               <div class="action">
-                <a class="link" href="{{_calculateHref(item)}}">
+                <a class="link" href$="{{_calculateHref(item, item.iced)}}">
                   <div class$="card card-{{item.module}}">
                     <div class="image"></div>
                     <div class="color" style$="background: {{item.color}}"></div>
@@ -444,7 +444,10 @@ Village scene (2015).
     /**
      * Calculates the href to load for this house.
      */
-    _calculateHref: function(house) {
+    _calculateHref: function(house, iced) {
+      if (iced || house.disabled) {
+        return null;
+      }
       return house.link || this.pageUrl + '#' + house.module;
     },
 
