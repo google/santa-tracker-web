@@ -261,7 +261,7 @@ app.Game.prototype.restart = function() {
 
   this.controls.reset();
   this.scale_(1);
-  this.map.setMap('museum');
+  this.map.setMap('secretlab');
 
   this.controls.start();
 };

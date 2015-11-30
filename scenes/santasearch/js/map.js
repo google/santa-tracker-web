@@ -74,11 +74,9 @@ app.Map.prototype.setMap = function(mapName) {
  * Initialize characters.
  */
 app.Map.prototype.initializeCharacters_ = function() {
-  let characterKeys = app.Constants.SPAWNS[this.mapName];
-
   app.Constants.CHARACTERS.forEach((name) => {
     let character = this.characters[name];
-    character.initialize(characterKeys[name], this.mapDimensions);
+    character.initialize(this.mapDimensions);
     character.onLostFocus = this.focusNextUnfoundCharacter_;
     character.onSelected = this.changeFocus_.bind(this, character);
   });
@@ -93,7 +91,7 @@ app.Map.prototype.initializeCharacters_ = function() {
  * @returns {jQuery.jqXHR}
  */
 app.Map.prototype.loadMap_ = function() {
-  return $.ajax('img/maps/museum.svg').then((svgMap) => {
+  return $.ajax(`img/maps/${this.mapName}.svg`).then((svgMap) => {
     // Remove existing maps
     this.mapElem.find('.map__svg').remove();
 
