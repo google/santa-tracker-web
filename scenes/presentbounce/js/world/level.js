@@ -47,11 +47,13 @@ goog.scope(function() {
      * @param {!Function} onCompleteCallback Callback function when level is completed
      * @export
      */
-    constructor(game, elem, levelData, onCompleteCallback) {
+    constructor(game, elem, levelData, onCompleteCallback, tutorial) {
       this.game_ = game;
       this.elem = $(elem);
       this.levelData_ = levelData;
       this.onCompleteCallback = onCompleteCallback;
+
+      this.tutorial = tutorial || null;
 
       this.userObjects_ = [];
       this.levelObjects_ = [];
@@ -61,6 +63,7 @@ goog.scope(function() {
       this.target_ = null;
       this.isLevelLoaded_ = false;
       this.debug_ = !!location.search.match(/[?&]debug=true/);
+      this.hasLevelStarted = false;
 
       this.buildWorld_();
 
@@ -116,6 +119,11 @@ goog.scope(function() {
      */
     onPostSolve_(contact, impulse) {}
 
+    /**
+     * Postions the element's container in the screen
+     * given the information we know about the canvas.
+     * @param  {Object} el The object the be positioned
+     */
     positionWrapperElement_(el) {
       el.css({
         position: 'absolute',
@@ -264,6 +272,10 @@ goog.scope(function() {
       for (let object of this.userObjects_) {
         object.draw();
       }
+    }
+
+    onInteraction() {
+      console.log("onInteraction!");
     }
 
     /**
