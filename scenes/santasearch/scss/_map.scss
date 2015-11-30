@@ -1,0 +1,23 @@
+##{$name} {
+  .map {
+    height: 900px;
+    left: 50%;
+    margin-left: -800px;
+    margin-top: -450px;
+    position: absolute;
+    top: 50%;
+    transform: translateZ(0);
+    transition: transform 0s ease-in-out;
+    width: 1600px;
+  }
+
+  #santasearch-characters-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+    transform: translateZ(0);
+  }
+}

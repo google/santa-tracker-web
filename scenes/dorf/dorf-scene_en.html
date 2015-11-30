@@ -73,6 +73,7 @@ Village scene (2015).
             <h3><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h3>
           </countdown-timer>
         </div>
+        <div class="castlogo" hidden$="{{!_equal(santaApp.mode, 'cast')}}"></div>
         <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
         <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
       </div>
@@ -107,7 +108,7 @@ Village scene (2015).
             </div>
             <template is="dom-if" if="{{!item.disabled}}">
               <div class="action">
-                <a class="link" href="{{_calculateHref(item)}}">
+                <a class="link" href$="{{_calculateHref(item, item.iced)}}">
                   <div class$="card card-{{item.module}}">
                     <div class="image"></div>
                     <div class="color" style$="background: {{item.color}}"></div>
@@ -416,7 +417,7 @@ Village scene (2015).
     },
 
     _driveSnowmobile: function(e) {
-      if (this._wasUserClick(e)) {
+      if (isRealEvent(e)) {
         this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'snowmobile'});
       }
       var DRIVE_TIME = 10000;
@@ -429,13 +430,8 @@ Village scene (2015).
       }, DRIVE_TIME + 1);
     },
 
-    _wasUserClick: function(e) {
-      if (e.x == 0 && e.y == 0) return false;
-      return true;
-    },
-
     _flyBalloon: function(e) {
-      if (this._wasUserClick(e)) {
+      if (isRealEvent(e)) {
         this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'balloon'});
       }
 
@@ -458,7 +454,7 @@ Village scene (2015).
     },
 
     _triggerBus: function(e) {
-      if (this._wasUserClick(e)) {
+      if (isRealEvent(e)) {
         this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'bus'});
       }
 
@@ -502,7 +498,10 @@ Village scene (2015).
     /**
      * Calculates the href to load for this house.
      */
-    _calculateHref: function(house) {
+    _calculateHref: function(house, iced) {
+      if (iced || house.disabled) {
+        return null;
+      }
       return house.link || this.pageUrl + '#' + house.module;
     },
 
@@ -630,8 +629,10 @@ Village scene (2015).
         this.$.count.start();
       });
 
-      this._randomEasterEggs();  // stops self if no longer active
-      this._pegmanDive();
+      if (this.santaApp.mode != 'cast') {
+        this._randomEasterEggs();  // stops self if no longer active
+        this._pegmanDive();
+      }
 
       var eh = this.$.effectholder;
       eh.textContent = '';  // clear

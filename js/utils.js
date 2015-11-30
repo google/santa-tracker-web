@@ -77,6 +77,23 @@ function isSameDay(date1, date2) {
 }
 
 /**
+ * Checks whether the passed event is real.
+ * @param {Event} event
+ */
+function isRealEvent(event) {
+  if (!event) {
+    return false;
+  }
+  if (event.isTrusted !== undefined && !event.isTrusted) {
+    return false;
+  }
+  if (event.clientX !== undefined && !event.clientX && !event.clientY) {
+    return false;
+  }
+  return true;  // probably, who knows
+}
+
+/**
  * Checks if the condition evaluates to true if window.DEV is true. If
  * window.DEV is false, assert call is removed by compiler as dead code.
  * @param {*} condition The condition to check.

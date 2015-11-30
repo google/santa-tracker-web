@@ -181,6 +181,12 @@ Santa Tracker app.
       <rollercoaster-scene route="rollercoaster" icon="1f3a2"
           path$="scenes/rollercoaster/rollercoaster-scene.html"></rollercoaster-scene>
 
+      <santasearch-scene route="santasearch" icon=""
+          path$="scenes/santasearch/santasearch-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#29B6F6"
+          loading-src="scenes/santasearch/img/loading.svg"></santasearch-scene>
+
       <santaselfie-scene route="santaselfie" icon="1f488"
           path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
           mode$="{{mode}}"
@@ -646,7 +652,8 @@ Polymer({
     this.visibilityService.addOnResumeListener(this._setPageInBackground.bind(this, false));
     this._setPageInBackground(this.visibilityService.isPaused());
 
-    this.santaService = new SantaService(apiClient, this.language);
+    var version = document.body.getAttribute('data-version');
+    this.santaService = new SantaService(apiClient, this.language, version);
     this.santaService.sync(this._checkSchedule.bind(this));
 
     this.santaService.addListener('destinations_changed', function(destinations) {
@@ -664,6 +671,34 @@ Polymer({
         window.location = 'https://santatracker.google.com' +
             location.pathname.replace(/[^\/]*$/, '') + 'error.html';
       });
+    }.bind(this));
+
+    var reloadTimeout;
+    this.santaService.addListener('reload', function() {
+      this.analyticsService.trackEvent('API', 'reload');
+
+      if (window.DEV) {
+        console.warn('prod would trigger reload, out of date', document.body.getAttribute('data-version'));
+        return;
+      }
+      if (reloadTimeout) {
+        return;  // already trying to reload
+      }
+
+      // Schedule a reload in the next ~2 hours, but only after the last user
+      // click.
+      var reloader = function(ev) {
+        if (ev && !isRealEvent(ev)) {
+          return;  // ignore fake events, such as simulated clicks
+        }
+        var when = Math.random() * 1000 * 60 * 60 * 2;  // next two hours
+        window.clearTimeout(reloadTimeout);
+        reloadTimeout = window.setTimeout(function() {
+          window.location.reload();
+        }, when);
+      }
+      document.addEventListener('click', reloader);
+      reloader();
     }.bind(this));
 
     this._prepareHouses();
@@ -707,7 +742,6 @@ Polymer({
     var portalMode = this.mode === 'portal';
     var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
     var spanglish = /^e(n|s)/.test(this.language);
-    spanglish = false;
 
     for (var i = this._houses.length - 1; i >= 0; i--) {
       var house = this._houses[i];
@@ -778,7 +812,6 @@ Polymer({
 
   _selectedSceneChanged: function(newValue, oldValue) {
     this.$.chrome.isFixedToolbar = (newValue != this.$.village);
-    this.$.chrome.hideToolbar = (this.mode == 'cast' && newValue != this.$.village);
 
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;

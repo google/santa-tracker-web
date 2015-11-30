@@ -24,10 +24,15 @@
  *
  * @param {string} clientId
  * @param {string} lang
+ * @param {string} version
  * @constructor
  */
-function SantaService(clientId, lang) {
+function SantaService(clientId, lang, version) {
+  /** @private {string} */
   this.lang_ = lang;
+
+  /** @const @private {string} */
+  this.version_ = version;
 
   /**
    * All known destinations (including future ones).
@@ -467,6 +472,13 @@ SantaService.prototype.sync = function(opt_callback) {
         this.resuscitate_();
       }
 
+      if (result['upgradeToVersion'] && this.version_) {
+        if (this.version_ < result['upgradeToVersion']) {
+          console.warn('reload: this', this.version_, 'upgrade to', result['upgradeToVersion']);
+          this.scheduleReload_();
+        }
+      }
+
       var fingerprintChanged = result['fingerprint'] != this.fingerprint_;
       this.fingerprint_ = result['fingerprint'];
       this.clientSpecific_ = result['clientSpecific'];
@@ -613,6 +625,16 @@ SantaService.prototype.resuscitate_ = function() {
   this.killed_ = false;
   Events.trigger(this, 'andwereback');
 };
+
+/**
+ * Register to reload the page in a while, after the user has stopped clicking
+ * on it.
+ * @private
+ */
+SantaService.prototype.scheduleReload_ = function() {
+  Events.trigger(this, 'reload');
+};
+
 
 /**
  * @return {number}
