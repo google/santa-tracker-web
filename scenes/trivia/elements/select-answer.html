@@ -12,24 +12,17 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<!--
-Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
 
 <link rel="import" href="../../../components/iron-selector/iron-selector.html">
 <link rel="import" href="../../../components/paper-item/paper-item.html">
 
-<dom-module id="select-answer" attributes="choices">
+<dom-module id="select-answer">
 <template>
-
   <style>
     :host paper-item {
       padding: 0 15px;
+      cursor: pointer;
+      position: relative;
     }
 
     paper-item.iron-selected {
@@ -141,32 +134,61 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding-left: 30px;
       }
     }
-
   </style>
-
-  <div id="choices">
-    <template repeat="{{item in shuffled}}">
-      <div class="{{ { 'is-correct': isCorrect(item) } | tokenList }}">
-        <paper-item disabled?="{{$.selector.notap}}">
+  <iron-selector id="choices" selected="{{_value}}">
+    <template is="dom-repeat" items="{{shuffled}}">
+      <div class$="{{_computeIsCorrectClass(item)}}">
+        <paper-item>
           <span class="check"></span>
           <span class="text">{{item}}</span>
         </paper-item>
       </div>
     </template>
-  </div>
-
-  <iron-selector id="selector" target="{{$.choices}}" selected="{{value}}"></iron-selector>
-
+  </iron-selector>
 </template>
 <script>
   Polymer({
     is: 'select-answer',
 
-    eventDelegates: {
-      'icon-activate': 'onAnswered'
+    properties: {
+
+      /**
+       * An array of strings, the choices displayed in this `select-answer`.
+       * The first answer is always correct.
+       */
+      choices: {
+        type: Array,
+        value: function() {
+          return [];
+        }
+      },
+
+      /**
+       * The user's selection, if any. This is the index inside the
+       * `iron-selector`.
+       */
+      _value: {
+        type: Number,
+        value: null
+      },
+
+      /**
+       * Whether the user is currently correct.
+       */
+      correct: {
+        type: Boolean,
+        value: false,
+        readOnly: true
+      }
+
     },
 
-    shuffled: [],
+    listeners: {
+      'iron-activate': 'onBeforeAnswer',
+      'iron-select': 'onAnswer'
+    },
+
+    shuffled: [],  // replaced in showChoices
 
     showChoices: function() {
       this.shuffled = this.choices.slice(0);
@@ -176,20 +198,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       this.$.choices.classList.remove('is-hidden');
     },
 
-    isCorrect: function (choice) {
-      if (!choice && this.value != null) {
-        choice = this.shuffled[this.value];
+    isCorrect: function(choice) {
+      if (!choice && this._value != null) {
+        choice = this.shuffled[this._value];
       }
-      return choice && choice === this.choices[0];
+      return choice && choice === this.choices[0];  // first answer is right
     },
 
-    onAnswered: function () {
-      this.$.choices.classList.add('is-answered');
-      this.$.selector.notap = true;
-
-      if (this.isCorrect()) {
-        this.correct = true;
+    _computeIsCorrectClass: function(choice) {
+      if (this.isCorrect(choice)) {
+        return 'is-correct';
       }
+      return '';
+    },
+
+    onBeforeAnswer: function(event) {
+      if (this._value != null) {
+        // The user has already given an answer, they can't answer again!
+        event.preventDefault();
+      }
+    },
+
+    onAnswer: function () {
+      this.$.choices.classList.add('is-answered');
+      this._setCorrect(this.isCorrect());
+
       this.fire('answered');
     },
 
@@ -199,9 +232,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     reset: function () {
       this.$.choices.classList.remove('is-answered');
-      this.value = null;
-      this.$.selector.notap = false;
-      this.correct = false;
+      this._value = null;
+      this._setCorrect(false);
     }
   });
 </script>

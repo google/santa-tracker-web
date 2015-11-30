@@ -236,14 +236,80 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Annuller"
+	"close": {
+		"message": "Luk"
 	},
 	"cm_country_name": {
 		"message": "Cameroun"
 	},
 	"co_country_name": {
 		"message": "Colombia"
+	},
+	"codeboogie-block-jump": {
+		"message": "Hop"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Lav et hop."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Peg til venstre"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Peg til venstre."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Træd til venstre"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Tag et skridt til venstre."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Peg til højre"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Peg til højre."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Træd til højre"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Tag et skridt til højre."
+	},
+	"codeboogie-block-shake": {
+		"message": "Hofteryst"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Ryst med hoften."
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Gå i split."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Start dansen!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Næste dans"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Prøv blokken nedenfor for at lave den samme dans."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Er du klar over, at du kan gennemføre dansen med kun {{ideal}} blokke? Prøv at bruge blokken nedenfor."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Flotte trin! Du gennemførte dansen perfekt."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Du bruger de rigtige blokke, men prøv at bruge flere af dem for at gennemføre dansen."
+	},
+	"codeboogie-success": {
+		"message": "Sådan!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Se godt efter!"
 	},
 	"codelab-block-moveeast": {
 		"message": "øst"
@@ -326,6 +392,21 @@
 	"copy-me": {
 		"message": "Kopiér dette link for at dele din besked"
 	},
+	"countdown_days": {
+		"message": "Dage"
+	},
+	"countdown_hours": {
+		"message": "Timer"
+	},
+	"countdown_minutes": {
+		"message": "Min."
+	},
+	"countdown_seconds": {
+		"message": "Sek."
+	},
+	"countdown_until": {
+		"message": "Julemanden tager afsted om"
+	},
 	"countdownlabel": {
 		"message": "Indtil julemanden tager af sted"
 	},
@@ -354,7 +435,7 @@
 		"message": "Tysk"
 	},
 	"de_tradition": {
-		"message": "I næsten alle tyske byer er der julemarkeder på byens pladser. Folk i byen samles for at høre hornorkestre og nyde områdets traditionelle retter. De spiser honninghjerter, sukkerristede mandler og slik, og de drikker Glühwein eller æblecider."
+		"message": "I næsten alle tyske byer er der julemarkeder på byens pladser. Folk i byen samles for at høre hornorkestre og nyde områdets traditionelle retter. De spiser honninghjerter, brændte mandler og slik, og de drikker gløgg (Glühwein) eller æblecider."
 	},
 	"deck": {
 		"message": "Pynt op"
@@ -423,7 +504,7 @@
 		"message": "Finland"
 	},
 	"finished-text": {
-		"message": "Glædelig jul! Julemanden har afsluttet sin rejse rundt i verden og tager sig et velfortjent hvil. Besøg os igen til næste jul!"
+		"message": "Glædelig jul! Julemanden har fuldført sin rejse rundt i verden og tager sig et velfortjent hvil. Besøg os igen til næste jul!"
 	},
 	"fr_country_name": {
 		"message": "Frankrig"
@@ -471,7 +552,7 @@
 		"message": "Grækenland"
 	},
 	"gr_tradition": {
-		"message": "I Grækenland bor der \"kallikántzari\" i Jordens indre – de er nogle rare væsener, men også nogle drillepinde. Til jul elsker de at skjule sig i folks huse, hvor de laver numre, forskrækker folk eller spiser julemaden. Grækerne har nogle bestemte ritualer, der skal holde de små drillenisser væk."
+		"message": "I Grækenland bor der små venlige væsener kaldet \"kallikántzari\" i Jordens indre – men de er nogle drillepinde. Til jul elsker de at skjule sig i folks huse, hvor de laver numre, forskrækker folk eller spiser julemaden. Grækerne udfører nogle bestemte ritualer, der skal holde de små drillenisser væk."
 	},
 	"gt_country_name": {
 		"message": "Guatemala"
@@ -629,6 +710,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Nyt"
+	},
 	"newtoday": {
 		"message": "Ny i dag"
 	},
@@ -667,6 +751,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Isbjørn"
+	},
+	"notification": {
+		"message": "Underretninger"
+	},
+	"notification_notice": {
+		"message": "Julemandens nisser holder dig opdateret omkring julemandens tidsplan"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -722,6 +812,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Medier"
+	},
 	"pt_language_name": {
 		"message": "Portugisisk"
 	},
@@ -743,8 +836,110 @@
 	"sa_country_name": {
 		"message": "Saudi-Arabien"
 	},
+	"santasearch_hint": {
+		"message": "Tip"
+	},
+	"santasearch_level_lab": {
+		"message": "I laboratoriet"
+	},
+	"santasearch_level_museum": {
+		"message": "På museet"
+	},
+	"santasearch_level_select": {
+		"message": "Start!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Led efter julemanden!"
+	},
+	"santasvillage": {
+		"message": "Julemandens landsby"
+	},
 	"santatracker": {
 		"message": "Følg julemanden"
+	},
+	"scene_airport": {
+		"message": "Nordpolens lufthavn"
+	},
+	"scene_app": {
+		"message": "Android-app"
+	},
+	"scene_boatload": {
+		"message": "Slangebøsse med gaver"
+	},
+	"scene_briefing": {
+		"message": "Briefing fra fru julemand"
+	},
+	"scene_callfromsanta": {
+		"message": "Opkald fra julemanden"
+	},
+	"scene_citylights": {
+		"message": "Byens lys"
+	},
+	"scene_codeboogie": {
+		"message": "Kodeboogie"
+	},
+	"scene_codelab": {
+		"message": "Kodelaboratorie"
+	},
+	"scene_commandcentre": {
+		"message": "Kontrolstation"
+	},
+	"scene_giftmatch": {
+		"message": "Gavematcher"
+	},
+	"scene_gumball": {
+		"message": "Rullende tyggegummikugler"
+	},
+	"scene_jamband": {
+		"message": "Nissejamband"
+	},
+	"scene_jetpack": {
+		"message": "Nissejetpack"
+	},
+	"scene_matching": {
+		"message": "Billedlotteri"
+	},
+	"scene_mercator": {
+		"message": "Kortquiz"
+	},
+	"scene_postcard": {
+		"message": "Julemandens kort"
+	},
+	"scene_presentbounce": {
+		"message": "Gaveregn"
+	},
+	"scene_presentdrop": {
+		"message": "Smid gaven"
+	},
+	"scene_racer": {
+		"message": "Racer-Rudolf"
+	},
+	"scene_santasearch": {
+		"message": "Find julemanden"
+	},
+	"scene_santaselfie": {
+		"message": "Julemandsselfie"
+	},
+	"scene_seasonofgiving": {
+		"message": "Årstiden for gaver"
+	},
+	"scene_traditions": {
+		"message": "Juletraditioner"
+	},
+	"scene_translations": {
+		"message": "Oversættelser"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Nissebil"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Julemandens afgang"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Julemanden er tilbage"
+	},
+	"scene_windtunnel": {
+		"message": "Vindtunnel"
 	},
 	"score": {
 		"message": "Resultat"
@@ -795,7 +990,7 @@
 		"message": "Tchad"
 	},
 	"terms-and-privacy": {
-		"message": "Vilkår og privatliv"
+		"message": "Vilkår \u0026 privatliv"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -863,14 +1058,23 @@
 	"tracker_santa_update": {
 		"message": "NYT FRA JULEMANDEN"
 	},
+	"tracker_santa_update_1": {
+		"message": "Nyt fra julemanden"
+	},
 	"tracker_see_route": {
 		"message": "Se ruten"
+	},
+	"tracker_track": {
+		"message": "Følg julemanden"
 	},
 	"tracker_weather": {
 		"message": "Vejret"
 	},
 	"tracker_world_facts": {
 		"message": "VIDSTE DU DET?"
+	},
+	"tracker_world_facts_1": {
+		"message": "Fakta om verden"
 	},
 	"tracker_your_location": {
 		"message": "Din geografiske placering"
@@ -4546,6 +4750,27 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Kom tilbage den 24., og hjælp os med at følge julemanden hele natten!"
+	},
+	"village_explore": {
+		"message": "Gå på opdagelse, spil og leg sammen med julemandens nisser hele december"
+	},
+	"village_get_the_app": {
+		"message": "Hent appen"
+	},
+	"village_more": {
+		"message": "Flere metoder til at gå på opdagelse"
+	},
+	"village_santa_cardboard": {
+		"message": "Julemanden på Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Julemanden på Google Cast"
+	},
+	"village_takesoff": {
+		"message": "Julemanden tager afsted om"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

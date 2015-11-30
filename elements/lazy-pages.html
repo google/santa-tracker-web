@@ -113,9 +113,10 @@ Lazy loads children "pages".
       this._preloaderUpdate();
       this.fire('scene-progress');
 
-      Polymer.Base.importHref([path], function() {
+      Polymer.Base.importHref(path, function() {
         // Great! Nothing else to do.
-      }, function(e) {
+        this.fire('scene-loaded', scene);
+      }.bind(this), function(e) {
         throw new Error('unable to load path: ' + path);
       });
     },

@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "Sa Bisperas ng Pasko, ipinagmamalaki naming ipakita ang preview ng dashboard ni Santa -- ang teknolohiyang nagpapatakbo sa kanyang sleigh habang lumilibot siya sa buong mundo. Natanggap namin ang espesyal na preview na ito mula sa isa sa maraming gumagawang elf ni Santa, na nagtatrabaho nang husto sa North Pole upang matulungan si Santa sa paghahanda para sa pinakahihintay niyang araw. Ang dashboard ni Santa - itinatampok ang pinakabago at pinakamahusay sa teknolohiya ng Google Maps at paggawa ng sleigh - ay magbibigay-daan sa iyong subaybayan ang mga lugar na pinupuntahan niya sa buong mundo, at matuto rin nang kaunti tungkol sa ilang lugar na titigilan niya sa kanyang paglalakbay."
+		"message": "Sa Bisperas ng Pasko, ikinararangal naming itampok ang dashboard ni Santa, ang teknolohiyang ginagamit sa kanyang sleigh kapag naglalakbay siya sa buong mundo. Natanggap namin ang espesyal na preview na ito mula sa isa sa maraming developer na elf ni Santa, na nagpapakapagod sa North Pole upang matulungan si Santa na maghanda para sa napakahalagang araw niya. Magagamit mo ang dashboard ni Santa - na ginamitan ng pinakabago at pinakamahusay na teknolohiya ng Google Maps at sleigh engineering - upang sundan ang kanyang paglalakbay sa buong mundo, at magkaroon din ng kaunting kaalaman tungkol sa mga pinupuntahan niya."
 	},
 	"about-content-three": {
 		"message": "Ginawa at binuo ng Google ang Google Maps Santa Tracker, sa tulong ng mga elf ni Santa. Kailangan mo ba ng tulong o mayroong ka pa bang tanong? Bisitahin ang aming \u003ca href=\"//support.google.com/santatracker\"\u003eHelp Center\u003c/a\u003e."
 	},
 	"about-content-two": {
-		"message": "Inanyayahan ka rin ng aming mga magiliw na elf na mamasyal sa village ni Santa habang naghahanda siya para sa kanyang paglalakbay. Kaya huwag mahiya at mamasyal sa kanyang village at maaaring makakita ka ng ilang masayang gagawin at makakilala ng ilang kawili-wiling elf."
+		"message": "Inanyayahan ka rin ng aming magigiliw na elf na mamasyal sa village ni Santa habang naghahanda si Santa para sa kanyang paglalakbay. Kaya huwag mahiya at mamasyal sa kanyang village, at baka makakita ka ng ilang aktibidad na nakakatuwang gawin at makakilala ng ilang interesanteng elf."
 	},
 	"about-santa": {
 		"message": "Tungkol Dito"
@@ -236,14 +236,80 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Kanselahin"
+	"close": {
+		"message": "Isara"
 	},
 	"cm_country_name": {
 		"message": "Cameroon"
 	},
 	"co_country_name": {
 		"message": "Colombia"
+	},
+	"codeboogie-block-jump": {
+		"message": "Lumundag"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Lumundag."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Tumuro sa kaliwa"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Tumuro pakaliwa."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Humakbang sa kaliwa"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Isang hakbang pakaliwa."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Tumuro sa kanan"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Tumuro pakanan."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Humakbang sa kanan"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Isang hakbang pakanan."
+	},
+	"codeboogie-block-shake": {
+		"message": "Kumembot nang mabilis"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Kumembot nang mabilis."
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Mag-split."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Sayaw na!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Susunod na Sayaw"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Subukan ang bloke sa ibaba upang tumugma sa sayaw."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Alam mo bang kaya mong tapusin ang sayaw na ito sa {{ideal}} (na) bloke lang? Subukang gamitin ang bloke sa ibaba."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Ang galing ng galaw mo! Walang sablay mong natapos ang sayaw."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Tama ang mga blokeng ginagamit mo, ngunit subukang gamitin ang mas marami pa nito upang makumpleto ang sayaw."
+	},
+	"codeboogie-success": {
+		"message": "Tagumpay!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Tingnang mabuti!"
 	},
 	"codelab-block-moveeast": {
 		"message": "silangan"
@@ -326,6 +392,21 @@
 	"copy-me": {
 		"message": "Kopyahin ang link na ito upang ibahagi ang iyong mensahe"
 	},
+	"countdown_days": {
+		"message": "Araw"
+	},
+	"countdown_hours": {
+		"message": "Oras"
+	},
+	"countdown_minutes": {
+		"message": "Min"
+	},
+	"countdown_seconds": {
+		"message": "Seg"
+	},
+	"countdown_until": {
+		"message": "Lilipad na si Santa Pagkalipas ng"
+	},
 	"countdownlabel": {
 		"message": "Hanggang sa Umalis si Santa"
 	},
@@ -354,7 +435,7 @@
 		"message": "German"
 	},
 	"de_tradition": {
-		"message": "Sa halos lahat ng bayan sa Germany, nagbubukas ng mga Christmas market sa mga town square. Nagtitipon ang taumbayan upang makinig sa mga brass band at mag-enjoy ng tradisyunal na kasiyahan ng rehiyon. Kumakain sila ng mga gingerbread na hugis puso, sugar-roasted na almond, lahat ng uri ng matatamis, at umiinom sila ng mulled wine (Glühwein) o apple cider."
+		"message": "Sa halos lahat ng bayan sa Germany, nagkakaroon ng mga Christmas market sa mga town square. Nagtitipon ang taumbayan upang makinig sa mga brass band at kainin ang tradisyunal na pagkain sa rehiyon. Kumakain sila ng mga gingerbread heart, sugar-roasted na almond, iba't ibang uri ng matatamis, at umiinom sila ng mulled wine (Glühwein) o apple cider."
 	},
 	"deck": {
 		"message": "I-deck out"
@@ -432,7 +513,7 @@
 		"message": "French"
 	},
 	"fr_tradition": {
-		"message": "Sa France, tradisyunal na inilalagay ng mga bata ang kanilang mga sapatos sa tabi ng tsimineya sa pag-asang darating si Père Noël. Kung naging mabait ang mga bata sa buong taon, pupunuin ni Père Noël ng mga regalo ang mga sapatos na iyon."
+		"message": "Sa France, nakagawian na ng mga bata na ilagay ang kanilang mga sapatos malapit sa fireplace sa pag-asang darating si Père Noël. Kung naging mabait ang mga bata sa buong taon, pupunuin ni Père Noël ng mga regalo ang mga sapatos."
 	},
 	"ga_country_name": {
 		"message": "Gabon"
@@ -471,7 +552,7 @@
 		"message": "Greece"
 	},
 	"gr_tradition": {
-		"message": "Sa Greece, naninirahan sa pusod ng lupa sa mas malaking bahagi ng taon ang magigiliw ngunit magugulong nilalang na tinatawag na 'kallikántzari'. Gayunpaman, kapag Pasko, mahilig silang magtago sa bahay ng mga tao, manakot, manlinlang o kumain ng pagkain sa Pasko. Nagsasagawa ang mga Greek ng ritwal upang itaboy ang mga lamang-lupa na ito."
+		"message": "Sa Greece, halos buong taong naninirahan sa ilalim ng lupa ang magigiliw ngunit mapanggulong nilalang na tinatawag na 'kallikántzari.' Gayunpaman, kapag Pasko, gustung-gusto nilang magtago sa mga bahay ng ibang tao, manakot ng mga tao, manlinlang o kumain ng mga handa sa Pasko. Nagsasagawa ang mga Greek ng mga ritwal upang maitaboy ang mga nilalang na ito."
 	},
 	"gt_country_name": {
 		"message": "Guatemala"
@@ -629,6 +710,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "Bago"
+	},
 	"newtoday": {
 		"message": "Bago Ngayon"
 	},
@@ -667,6 +751,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polar Bear"
+	},
+	"notification": {
+		"message": "Mga Notification"
+	},
+	"notification_notice": {
+		"message": "Babalitaan ka ng Elves ni Santa tungkol sa schedule ni Santa"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -722,6 +812,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Press"
+	},
 	"pt_language_name": {
 		"message": "Portuguese"
 	},
@@ -743,8 +836,110 @@
 	"sa_country_name": {
 		"message": "Saudi Arabia"
 	},
+	"santasearch_hint": {
+		"message": "Pahiwatig"
+	},
+	"santasearch_level_lab": {
+		"message": "Sa lab"
+	},
+	"santasearch_level_museum": {
+		"message": "Sa museo"
+	},
+	"santasearch_level_select": {
+		"message": "Sige!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Hanapin si Santa!"
+	},
+	"santasvillage": {
+		"message": "Village ni Santa"
+	},
 	"santatracker": {
 		"message": "Santa Tracker"
+	},
+	"scene_airport": {
+		"message": "North Pole Airport"
+	},
+	"scene_app": {
+		"message": "Android App"
+	},
+	"scene_boatload": {
+		"message": "Gift Slingshot"
+	},
+	"scene_briefing": {
+		"message": "Mrs. Claus' Briefing"
+	},
+	"scene_callfromsanta": {
+		"message": "Tawag mula kay Santa"
+	},
+	"scene_citylights": {
+		"message": "City Lights"
+	},
+	"scene_codeboogie": {
+		"message": "Code Boogie"
+	},
+	"scene_codelab": {
+		"message": "Code Lab"
+	},
+	"scene_commandcentre": {
+		"message": "Mission Control"
+	},
+	"scene_giftmatch": {
+		"message": "Gift Matcher"
+	},
+	"scene_gumball": {
+		"message": "Gumball Tilt"
+	},
+	"scene_jamband": {
+		"message": "Elf Jamband"
+	},
+	"scene_jetpack": {
+		"message": "Elf Jetpack"
+	},
+	"scene_matching": {
+		"message": "Memory Match"
+	},
+	"scene_mercator": {
+		"message": "Map Quiz"
+	},
+	"scene_postcard": {
+		"message": "Mga Santa Card"
+	},
+	"scene_presentbounce": {
+		"message": "Present Bounce"
+	},
+	"scene_presentdrop": {
+		"message": "Present Drop"
+	},
+	"scene_racer": {
+		"message": "Rudolph Racer"
+	},
+	"scene_santasearch": {
+		"message": "Santa Search"
+	},
+	"scene_santaselfie": {
+		"message": "Santa Selfie"
+	},
+	"scene_seasonofgiving": {
+		"message": "Panahon ng Bigayan"
+	},
+	"scene_traditions": {
+		"message": "Holiday Traditions"
+	},
+	"scene_translations": {
+		"message": "Mga Pagsasalin"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Elf Car"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Paglipad ni Santa"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Bumalik na si Santa"
+	},
+	"scene_windtunnel": {
+		"message": "Wind Tunnel"
 	},
 	"score": {
 		"message": "Score"
@@ -863,14 +1058,23 @@
 	"tracker_santa_update": {
 		"message": "UPDATE KAY SANTA"
 	},
+	"tracker_santa_update_1": {
+		"message": "Update kay Santa"
+	},
 	"tracker_see_route": {
 		"message": "Tingnan ang ruta"
+	},
+	"tracker_track": {
+		"message": "Sundan si Santa"
 	},
 	"tracker_weather": {
 		"message": "Panahon"
 	},
 	"tracker_world_facts": {
 		"message": "ALAM MO BA"
+	},
+	"tracker_world_facts_1": {
+		"message": "Mga Katotohanan sa Mundo"
 	},
 	"tracker_your_location": {
 		"message": "Iyong lokasyon"
@@ -4546,6 +4750,27 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Bumalik sa ika-24 at tulungan kaming subaybayan si Santa buong gabi!"
+	},
+	"village_explore": {
+		"message": "Mag-explore, maglaro at matuto sa mga Elf ni Santa buong Disyembre"
+	},
+	"village_get_the_app": {
+		"message": "Kunin ang App"
+	},
+	"village_more": {
+		"message": "Mas Marami Pang Paraan para Mag-explore"
+	},
+	"village_santa_cardboard": {
+		"message": "Santa sa Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Santa sa Google Cast"
+	},
+	"village_takesoff": {
+		"message": "Lilipad na si Santa sa loob ng"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

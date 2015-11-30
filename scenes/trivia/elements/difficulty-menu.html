@@ -12,7 +12,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../../../elements/i18n-msg.html">
+<link rel="import" href="../../../components/i18n-msg/i18n-msg.html">
 
 <dom-module id="difficulty-menu">
 <template>
@@ -97,20 +97,20 @@ specific language governing permissions and limitations under the License.
     }
   </style>
 
-  <div class="difficulties" layout center center-justified fit>
-    <button class="button" data-difficulty="beginner" on-tap="{{onTap}}">
+  <div class="difficulties layout center center-justified fit">
+    <button class="button" data-difficulty="beginner" on-tap="onTap">
       <div class="button-figure button-figure--easy"></div>
       <div class="button-text">
         <i18n-msg msgid="easy_difficulty">PLACEHOLDER_i18n</i18n-msg>
       </div>
     </button>
-    <button class="button" data-difficulty="medium" on-tap="{{onTap}}">
+    <button class="button" data-difficulty="medium" on-tap="onTap">
       <div class="button-figure button-figure--medium"></div>
       <div class="button-text">
         <i18n-msg msgid="medium_difficulty">PLACEHOLDER_i18n</i18n-msg>
       </div>
     </button>
-    <button class="button" data-difficulty="hard" on-tap="{{onTap}}">
+    <button class="button" data-difficulty="hard" on-tap="onTap">
       <div class="button-figure button-figure--hard"></div>
       <div class="button-text">
         <i18n-msg msgid="hard_difficulty">PLACEHOLDER_i18n</i18n-msg>
@@ -122,8 +122,8 @@ specific language governing permissions and limitations under the License.
   Polymer({
     is: 'difficulty-menu',
 
-    onTap: function(event, detail, sender) {
-      var elem = event.target;
+    onTap: function(event, detail) {
+      var elem = Polymer.dom(event).localTarget;
       if (elem.tagName !== 'button') {
         elem = elem.parentNode;
       }

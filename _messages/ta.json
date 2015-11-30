@@ -236,14 +236,80 @@
 	"cl_country_name": {
 		"message": "சிலி"
 	},
-	"close-this": {
-		"message": "ரத்துசெய்"
+	"close": {
+		"message": "மூடு"
 	},
 	"cm_country_name": {
 		"message": "கேமரூன்"
 	},
 	"co_country_name": {
 		"message": "கொலம்பியா"
+	},
+	"codeboogie-block-jump": {
+		"message": "குதிக்கவும்"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "குதிக்கவும்."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "இடது கையை வை"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "இடது பக்கம் வைக்கவும்."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "இடது காலை வை"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "இடது பக்கம் காலை வைக்கவும்."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "வலது கையை வை"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "வலது பக்கம் வைக்கவும்."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "வலது காலை வை"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "வலது பக்கம் காலை வைக்கவும்."
+	},
+	"codeboogie-block-shake": {
+		"message": "இடுப்பை ஆட்டு"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "இடுப்பை ஆட்டவும்."
+	},
+	"codeboogie-block-split": {
+		"message": "பிரி"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "பிரிக்கவும்."
+	},
+	"codeboogie-get-dancing": {
+		"message": "நடனமாடுங்கள்!"
+	},
+	"codeboogie-next-dance": {
+		"message": "அடுத்த நடனம்"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "நடனத்தை பொருத்த, கீழேயுள்ள ப்ளாக்கை முயற்சிக்கவும்."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "{{ideal}} ப்ளாக்குகளை மட்டும் பயன்படுத்தி இந்த நடனத்தை முடிக்கலாம் என்று தெரியுமா? கீழேயுள்ள ப்ளாக்குகளைப் பயன்படுத்தி முயற்சிக்கவும்."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "அருமை! சரியாக ஆடி முடித்துவிட்டீர்கள்."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "சரியான ப்ளாக்குகளைப் பயன்படுத்துகிறீர்கள், நடனத்தை முடிக்க அவற்றை அதிகமாகப் பயன்படுத்தவும்."
+	},
+	"codeboogie-success": {
+		"message": "வெற்றி!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "கவனமாகப் பார்க்கவும்!"
 	},
 	"codelab-block-moveeast": {
 		"message": "கிழக்கு"
@@ -325,6 +391,21 @@
 	},
 	"copy-me": {
 		"message": "உங்கள் செய்தியைப் பகிர்ந்து கொள்ள, இந்த இணைப்பை நகலெடுக்கவும்"
+	},
+	"countdown_days": {
+		"message": "நாட்கள்"
+	},
+	"countdown_hours": {
+		"message": "ம"
+	},
+	"countdown_minutes": {
+		"message": "நி"
+	},
+	"countdown_seconds": {
+		"message": "வி"
+	},
+	"countdown_until": {
+		"message": "சான்டா புறப்பட ஆகும் நேரம்"
 	},
 	"countdownlabel": {
 		"message": "சான்டா புறப்படுவார்"
@@ -629,6 +710,9 @@
 	"ne_country_name": {
 		"message": "நைஜர்"
 	},
+	"new": {
+		"message": "புதியது"
+	},
 	"newtoday": {
 		"message": "இன்றைய காட்சி"
 	},
@@ -667,6 +751,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "பனிக்கரடி"
+	},
+	"notification": {
+		"message": "அறிவிப்புகள்"
+	},
+	"notification_notice": {
+		"message": "சான்டாவின் குட்டித் தேவதைகள், சான்டாவின் பயணத் திட்டத்தை சரியாக உங்களுக்குத் தெரிவிப்பார்கள்"
 	},
 	"np_country_name": {
 		"message": "நேபாளம்"
@@ -722,6 +812,9 @@
 	"pr_country_name": {
 		"message": "போர்டோ ரிக்கோ"
 	},
+	"press": {
+		"message": "பத்திரிகை"
+	},
 	"pt_language_name": {
 		"message": "போர்ச்சுகீஸ்"
 	},
@@ -743,8 +836,110 @@
 	"sa_country_name": {
 		"message": "சவுதி அரேபியா"
 	},
+	"santasearch_hint": {
+		"message": "குறிப்பு"
+	},
+	"santasearch_level_lab": {
+		"message": "லேப்பில்"
+	},
+	"santasearch_level_museum": {
+		"message": "அருங்காட்சியகத்தில்"
+	},
+	"santasearch_level_select": {
+		"message": "கோ!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "சான்டாவைத் தேடவும்!"
+	},
+	"santasvillage": {
+		"message": "சான்டாவின் கிராமம்"
+	},
 	"santatracker": {
 		"message": "சான்டா டிராக்கர்"
+	},
+	"scene_airport": {
+		"message": "வட துருவ விமான நிலையம்"
+	},
+	"scene_app": {
+		"message": "Android பயன்பாடு"
+	},
+	"scene_boatload": {
+		"message": "கிஃப்ட் ஸ்லிங்ஷாட்"
+	},
+	"scene_briefing": {
+		"message": "திருமதி. கிளாஸின் அறிக்கை"
+	},
+	"scene_callfromsanta": {
+		"message": "சான்டாவின் அழைப்பு"
+	},
+	"scene_citylights": {
+		"message": "சிட்டி லைட்ஸ்"
+	},
+	"scene_codeboogie": {
+		"message": "கோடு பூகி"
+	},
+	"scene_codelab": {
+		"message": "கோடு லேப்"
+	},
+	"scene_commandcentre": {
+		"message": "மிஷன் கன்ட்ரோல்"
+	},
+	"scene_giftmatch": {
+		"message": "கிஃப்ட் மேட்சர்"
+	},
+	"scene_gumball": {
+		"message": "கம்பால் டில்ட்"
+	},
+	"scene_jamband": {
+		"message": "எல்ஃப் ஜாம்பேண்ட்"
+	},
+	"scene_jetpack": {
+		"message": "எல்ஃப் ஜெட்பேக்"
+	},
+	"scene_matching": {
+		"message": "மெமரி மேட்ச்"
+	},
+	"scene_mercator": {
+		"message": "வரைபட வினாடி வினா"
+	},
+	"scene_postcard": {
+		"message": "சான்டா கார்டுகள்"
+	},
+	"scene_presentbounce": {
+		"message": "பிரசென்ட் பவுன்ஸ்"
+	},
+	"scene_presentdrop": {
+		"message": "பிரசென்ட் டிராப்"
+	},
+	"scene_racer": {
+		"message": "ருடால்ஃப் ரேஸர்"
+	},
+	"scene_santasearch": {
+		"message": "சான்டா தேடல்"
+	},
+	"scene_santaselfie": {
+		"message": "சான்டா செல்ஃபி"
+	},
+	"scene_seasonofgiving": {
+		"message": "கொடுக்கும் பருவம்"
+	},
+	"scene_traditions": {
+		"message": "விடுமுறை வழக்கங்கள்"
+	},
+	"scene_translations": {
+		"message": "டிரான்ஸ்லேஷன்ஸ்"
+	},
+	"scene_videoscene_carpool": {
+		"message": "எல்ஃப் கார்"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "சான்டாவின் புறப்பாடு"
+	},
+	"scene_videoscene_santasback": {
+		"message": "சான்டா திரும்பி வந்துள்ளார்"
+	},
+	"scene_windtunnel": {
+		"message": "வின்ட் டனல்"
 	},
 	"score": {
 		"message": "ஸ்கோர்"
@@ -795,7 +990,7 @@
 		"message": "சாத்"
 	},
 	"terms-and-privacy": {
-		"message": "விதிமுறைகள் \u0026 தனியுரிமை"
+		"message": "விதிமுறைகள் \u0026amp; தனியுரிமை"
 	},
 	"tg_country_name": {
 		"message": "டோகோ"
@@ -863,14 +1058,23 @@
 	"tracker_santa_update": {
 		"message": "சான்டாவின் அறிவிப்பு"
 	},
+	"tracker_santa_update_1": {
+		"message": "சான்டாவின் அறிவிப்பு"
+	},
 	"tracker_see_route": {
 		"message": "வழியைக் காட்டு"
+	},
+	"tracker_track": {
+		"message": "சான்டாவைக் கண்கானி"
 	},
 	"tracker_weather": {
 		"message": "வானிலை"
 	},
 	"tracker_world_facts": {
 		"message": "உங்களுக்குத் தெரியுமா?"
+	},
+	"tracker_world_facts_1": {
+		"message": "உலக உண்மைகள்"
 	},
 	"tracker_your_location": {
 		"message": "உங்கள் இருப்பிடம்"
@@ -1713,7 +1917,7 @@
 		"message": "பால்டிக் கடல்"
 	},
 	"trivia_beginner_070": {
-		"message": "கினியா வளைகுடா எந்தக் கண்டத்தின் எல்லையில் அமைந்துள்ளது?"
+		"message": "கினியா வளைகுடா எந்தக் கண்டத்தின் எல்லையாக அமைந்துள்ளது?"
 	},
 	"trivia_beginner_070_answer0": {
 		"message": "ஆப்பிரிக்கா"
@@ -2205,7 +2409,7 @@
 		"message": "யுனைடெட் கிங்டம்"
 	},
 	"trivia_hard_014": {
-		"message": "கருங்கடலின் எல்லையில் இடம்பெறாத நாடு எது?"
+		"message": "கருங்கடலின் எல்லையாக இல்லாத நாடு எது?"
 	},
 	"trivia_hard_014_answer0": {
 		"message": "அசர்பைஜான்"
@@ -4546,6 +4750,27 @@
 	},
 	"ve_country_name": {
 		"message": "வெனிசுலா"
+	},
+	"village_comeback": {
+		"message": "24 ஆம் தேதி மீண்டும் வந்து, இரவு முழுவதும் சான்டாவைக் கண்காணிக்க உதவவும்!"
+	},
+	"village_explore": {
+		"message": "டிசம்பர் முழுவதும் சான்டாவின் குட்டித் தேவதைகளுடன் உலாவுங்கள், விளையாடுங்கள், கற்றிடுங்கள்"
+	},
+	"village_get_the_app": {
+		"message": "பயன்பாட்டைப் பெறுக"
+	},
+	"village_more": {
+		"message": "கண்டறிவதற்கான மேலும் வழிகள்"
+	},
+	"village_santa_cardboard": {
+		"message": "கார்ட்போர்டில் சான்டா"
+	},
+	"village_santa_cast": {
+		"message": "Google Cast இல் சான்டா"
+	},
+	"village_takesoff": {
+		"message": "சான்டா புறப்பட ஆகும் நேரம்"
 	},
 	"vn_country_name": {
 		"message": "வியட்நாம்"

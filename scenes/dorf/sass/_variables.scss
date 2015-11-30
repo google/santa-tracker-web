@@ -1,25 +1,56 @@
+$base-raised-z-index: 100;     // z-index for raised text, effects (snow etc)
+$base-background-z-index: 90;  // z-index for anything behind that
+
 $width-desktop: 1280px;
+$height-desktop: 2240px;
 $width-tablet: 768px;  // iPad in portrait
+$height-tablet: 2240px * .6;
 $width-twocol: 600px;
+$width-bigheader: $width-twocol;
+$svg-ratio: 0.8;  // svgs to desktop size
+
+$height-card-mobile: 204px;
+$height-newcard-mobile: 286px;
 
 // standard size of house at $width-desktop
-$height-house: 400px;
-$height-link-size: 250px;
+$dim-house: $width-desktop / 4;
 $tablet-desktop-ratio: .6;
 
 // background sizes
-$ground-size-w: 1760px;
-$ground-size-h: 3440px;
-$road-size-w: 4000px;
-$road-size-h: 2930px;
-$road-top: 96px;
+$ground-size-w: 3519px * $svg-ratio;
+$ground-size-h: 3441px * $svg-ratio;
+$ground-top: 185px;
+$road-size-w: 4002px * $svg-ratio;
+$road-size-h: 3057px * $svg-ratio;
+$road-top: 106px;
 
-// nb: none of these %'s should be 0 or 100, and they should be in-order
-// TODO(samthor): Express these in timeframes and calc % based on that.
-$skydive-start: 40%;
+// offset from the text label (play/learn/etc) that the touch area/card hover
+// appears on desktop
+$action-offset-top: 24px;
+
+$hover-card-size: 282px;
+$link-target-size: ($dim-house / 2)+32px;
+
+$village-extra-padding: 80px;  // shift village div virtually up by this amt
+$village-offset-up: 30px;  // how much we start the actual village higher
+
 $skydive-start-pos: -120px;
-$skydive-fallto: 50%;
-$skydive-fallto-pos: 240px;
-$skydive-land: 75%;
-$skydive-land-pos: 540px;
-$skydive-disappear: 95%;
+$skydive-fallto: 75%;
+$skydive-fallto-pos: 270px;
+$skydive-land: 100%;
+$skydive-land-pos: 330px;
+$skydive-land-tablet-pos: 365px;
+
+$house-row-1-z-index: 100;
+$house-row-2-z-index: 200;
+$house-row-3-z-index: 300;
+$house-row-4-z-index: 400;
+$house-row-5-z-index: 500;
+$house-row-6-z-index: 600;
+$house-row-7-z-index: 700;
+
+$house-z-index-front: 1000;
+
+// cutoff easterggs on cast from this pixel - higher than we need for a HDTV, but static chromecast
+// view can also just be loaded on PCs.
+$easteregg-cast-cutoff: 350px;

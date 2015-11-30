@@ -72,7 +72,6 @@ Call from santa scene.
 
     <div class="gui">
       <div class="board board--scene">
-        <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
         <div class="logo"></div>
         <div class="actions" hidden>
           <button type="button" class="restart"></button>
@@ -99,7 +98,7 @@ Call from santa scene.
     onShow: function() {
       this.fire('sound-ambient', 'callfromsanta_start');
       var div = this.$['module-callfromsanta'];
-
+      this.fire('sound-ambient', 'music_start_ingame');
       this.animationHelper = new CSSAnimationHelper(div);
       this.scene = new scenes.callfromsanta.Scene(div);
       this.scene.init();

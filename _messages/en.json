@@ -236,14 +236,95 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
-	"close-this": {
-		"message": "Cancel"
+	"close": {
+		"message": "Close"
 	},
 	"cm_country_name": {
 		"message": "Cameroon"
 	},
 	"co_country_name": {
 		"message": "Colombia"
+	},
+	"codeboogie-block-jump": {
+		"message": "Jump"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Do a jump."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Point left"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Point to the left."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Step left"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Take a step to the left."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Point right"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Point to the right."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Step right"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Take a step to the right."
+	},
+	"codeboogie-block-shake": {
+		"message": "Hip shake"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Do a hip shake."
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Do a split."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Get dancing!"
+	},
+	"codeboogie-lets-dance": {
+		"message": ""
+	},
+	"codeboogie-next-dance": {
+		"message": "Next Dance"
+	},
+	"codeboogie-nice-moves": {
+		"message": ""
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Try the block below to match the dance."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Did you know you can finish this dance with just {{ideal}} blocks? Try using the block below."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Nice moves! You finished the dance perfectly."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "You are using the right blocks, but try using more of them to complete the dance."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Did you know you can finish this dance with just {{ideal}} blocks?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": ""
+	},
+	"codeboogie-result-wrong-move": {
+		"message": ""
+	},
+	"codeboogie-success": {
+		"message": "Success!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Watch closely!"
 	},
 	"codelab-block-moveeast": {
 		"message": "east"
@@ -326,6 +407,21 @@
 	"copy-me": {
 		"message": "Copy this link to share your message"
 	},
+	"countdown_days": {
+		"message": "Days"
+	},
+	"countdown_hours": {
+		"message": "Hrs"
+	},
+	"countdown_minutes": {
+		"message": "Min"
+	},
+	"countdown_seconds": {
+		"message": "Sec"
+	},
+	"countdown_until": {
+		"message": "Santa Takes Off In"
+	},
 	"countdownlabel": {
 		"message": "Until Santa Departs"
 	},
@@ -373,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Dominican Republic"
+	},
+	"donate_button": {
+		"message": "Donate"
+	},
+	"donate_text": {
+		"message": "Help fund a special needs project on DonorsChoose.org. This December, we're helping to double the impact by matching donations by 50%, until we reach our goal of donating US$1m. Together, we can help to make classrooms more inclusive #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Algeria"
@@ -447,7 +549,7 @@
 		"message": "Your score:"
 	},
 	"getgooglemaps": {
-		"message": "Get Google Maps"
+		"message": "Search for Santa in Google Maps"
 	},
 	"gh_country_name": {
 		"message": "Ghana"
@@ -629,6 +731,9 @@
 	"ne_country_name": {
 		"message": "Niger"
 	},
+	"new": {
+		"message": "New"
+	},
 	"newtoday": {
 		"message": "New Today"
 	},
@@ -667,6 +772,12 @@
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polar Bear"
+	},
+	"notification": {
+		"message": "Notifications"
+	},
+	"notification_notice": {
+		"message": "Santa's Elves will keep you up-to-date with Santa's schedule"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -722,6 +833,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"press": {
+		"message": "Press"
+	},
 	"pt_language_name": {
 		"message": "Portuguese"
 	},
@@ -743,8 +857,131 @@
 	"sa_country_name": {
 		"message": "Saudi Arabia"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Gingerbread Man"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Mrs. Claus"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Penguin"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolph"
+	},
+	"santasearch_character_santa": {
+		"message": "Santa Claus"
+	},
+	"santasearch_hint": {
+		"message": "Hint"
+	},
+	"santasearch_level_lab": {
+		"message": "In the lab"
+	},
+	"santasearch_level_museum": {
+		"message": "At the museum"
+	},
+	"santasearch_level_select": {
+		"message": "Go!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Search for Santa!"
+	},
+	"santasvillage": {
+		"message": "Santa's Village"
+	},
 	"santatracker": {
 		"message": "Santa Tracker"
+	},
+	"scene_airport": {
+		"message": "North Pole Airport"
+	},
+	"scene_app": {
+		"message": "Android App"
+	},
+	"scene_boatload": {
+		"message": "Gift Slingshot"
+	},
+	"scene_briefing": {
+		"message": "Mrs. Claus' Briefing"
+	},
+	"scene_callfromsanta": {
+		"message": "Call from Santa"
+	},
+	"scene_citylights": {
+		"message": "City Lights"
+	},
+	"scene_codeboogie": {
+		"message": "Code Boogie"
+	},
+	"scene_codelab": {
+		"message": "Code Lab"
+	},
+	"scene_commandcentre": {
+		"message": "Mission Control"
+	},
+	"scene_giftmatch": {
+		"message": "Gift Matcher"
+	},
+	"scene_gumball": {
+		"message": "Gumball Tilt"
+	},
+	"scene_jamband": {
+		"message": "Elf Jamband"
+	},
+	"scene_jetpack": {
+		"message": "Elf Jetpack"
+	},
+	"scene_matching": {
+		"message": "Memory Match"
+	},
+	"scene_mercator": {
+		"message": "Map Quiz"
+	},
+	"scene_postcard": {
+		"message": "Santa Cards"
+	},
+	"scene_presentbounce": {
+		"message": "Present Bounce"
+	},
+	"scene_presentdrop": {
+		"message": "Present Drop"
+	},
+	"scene_racer": {
+		"message": "Rudolph Racer"
+	},
+	"scene_santasearch": {
+		"message": "Santa Search"
+	},
+	"scene_santaselfie": {
+		"message": "Santa Selfie"
+	},
+	"scene_seasonofcaring": {
+		"message": "Season of Caring"
+	},
+	"scene_seasonofgiving": {
+		"message": "Season of Giving"
+	},
+	"scene_traditions": {
+		"message": "Holiday Traditions"
+	},
+	"scene_translations": {
+		"message": "Translations"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Elf Car"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Santa's Takeoff"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Santa's Back"
+	},
+	"scene_windtunnel": {
+		"message": "Wind Tunnel"
 	},
 	"score": {
 		"message": "Score"
@@ -845,6 +1082,12 @@
 	"tracker_distance_from_you": {
 		"message": "Distance from you"
 	},
+	"tracker_flight_nearby": {
+		"message": "Santa is nearby, find out where"
+	},
+	"tracker_flight_start": {
+		"message": "Santa has departed from the North Pole, and you can now follow his route"
+	},
 	"tracker_gifts_delivered": {
 		"message": "Gifts delivered"
 	},
@@ -868,6 +1111,9 @@
 	},
 	"tracker_see_route": {
 		"message": "See the route"
+	},
+	"tracker_track": {
+		"message": "Track Santa"
 	},
 	"tracker_weather": {
 		"message": "Weather"
@@ -4552,6 +4798,30 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Come back on the 24th and help us track Santa all night!"
+	},
+	"village_explore": {
+		"message": "Explore, play and learn with Santa's Elves all December long"
+	},
+	"village_get_the_app": {
+		"message": "Get the Santa Tracker App for Android"
+	},
+	"village_more": {
+		"message": "More Ways to Explore"
+	},
+	"village_santa_cardboard": {
+		"message": "Santa on Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Santa on Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Add the Santa Chrome Extension"
+	},
+	"village_takesoff": {
+		"message": "Santa takes off in"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

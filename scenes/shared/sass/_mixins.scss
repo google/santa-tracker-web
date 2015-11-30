@@ -19,3 +19,22 @@ $pixel-ratio-hdpi: 1.5 !default;
     @content;
   }
 }
+
+// Strips a px/%/etc from a value.
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// Returns the % of $value in $inside. Assumes both are px values.
+@function percent($value, $inside) {
+  @return #{(strip-unit($value) / strip-unit($inside)) * 100}%;
+  // From "Operators", http://sass-lang.com/guide#topic-8.
+  // @return $value / $inside * 100%;
+}
+
+// Force a layer. Overwrites any previous transform/will-change statements.
+@mixin will-change($reasons...) {
+  transform: translateZ(0);
+  @if $reasons { will-change: $reasons; }
+  @else { will-change: transform; }
+}

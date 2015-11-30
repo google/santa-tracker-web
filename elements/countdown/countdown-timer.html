@@ -48,8 +48,7 @@ Example
 
     <div id="counter" class="layout horizontal">
       <template is="dom-repeat" items="{{titles}}">
-        <div class="counter-box layout vertical center"
-             hidden$="{{_computeHide(index, displayDigits)}}">
+        <div class="counter-box" hidden$="{{_computeHide(index, displayDigits)}}">
           <div class="holder active"></div>
           <div class="holder prev"></div>
           <h2>{{item}}</h2>
@@ -77,9 +76,9 @@ Example
         },
 
         /**
-         * True if the countdown should render a UI.
+         * True if the countdown should animate.
          */
-        render: {
+        animate: {
           type: Boolean,
           value: true
         },
@@ -87,10 +86,10 @@ Example
         /**
          * The end time for this countdown, in milliseconds.
          */
-        countDownEndDate: {
+        countdownEndAt: {
           type: Number,
           value: 1450951200000, // Dec 24, 2015,
-          observer: '_countDownEndDateChanged'
+          observer: '_countdownEndAtChanged'
         },
 
         /**
@@ -110,7 +109,7 @@ Example
         },
 
         /**
-         * True when the countdown has reached `countDownEndDate`.
+         * True when the countdown has reached `countdownEndAt`.
          */
         finished: {
           value: false,
@@ -148,30 +147,20 @@ Example
         }
       },
 
-      _oldNumbers: [],
-
-      listeners: {
-         // For prod, <i18n-msg> is removed and textContent will already be
-         // correct. For dev, listen for i18n updates and update the labels.
-        'i18n-language-ready': 'updateLabels'
-      },
+      _oldNumbers: [],  // replaced in tickTock
+      _tickInterval: null,
 
       ready: function() {
         this._setCurrentTime(this._getCurrentTime());
       },
 
       attached: function() {
-        if (this.render) {
-          this.updateLabels();
-        }
+        this.updateLabels();
 
         this.async(function() {
           // Needs to wait one rAF so titles has populated the template repeat.
-          if (this.render) {
-            this._setHolders(Array.prototype.slice.call(
-                            this.$.counter.querySelectorAll('.counter-box')));
-          }
-
+          this._setHolders(Array.prototype.slice.call(
+                          this.$.counter.querySelectorAll('.counter-box')));
           this.fire('countdown-timer-ready', this);
 
           // Set the initial time but don't start
@@ -186,10 +175,10 @@ Example
         this._setTitles(titles);
       },
 
-      _countDownEndDateChanged: function() {
+      _countdownEndAtChanged: function() {
         // string - number type cohesion works, but let's be explicit when
-        // we get a new countDownEndDate.
-        this.countDownEndDate = parseInt(this.countDownEndDate);
+        // we get a new countdownEndAt.
+        this.countdownEndAt = parseInt(this.countdownEndAt);
       },
 
       /**
@@ -198,7 +187,7 @@ Example
       _getCurrentTime: function() {
         var now = this.santaService ? this.santaService.now() : Date.now();
 
-        var diff = Math.max(0, this.countDownEndDate - now);
+        var diff = Math.max(0, this.countdownEndAt - now);
         var msPerDay = 24 * 60 * 60 * 1000;
 
         var daysX = diff / msPerDay;
@@ -224,10 +213,12 @@ Example
         var mins = this.currentTime.mins;
         var seconds = this.currentTime.seconds;
 
-        if (this.render) {
-          var numbers = [padDigits(days), padDigits(hours), padDigits(mins),
-              padDigits(seconds)];
-          this.displayDigits = (days == 0) ? 6 : 8
+        var numbers = [padDigits(days), padDigits(hours), padDigits(mins),
+            padDigits(seconds)];
+        this.displayDigits = (days == 0) ? 6 : 8
+
+        // Ensure holders exist. Solves inconsistent asyncs.
+        if (this.holders.length) {
           for (var i = 0, holder; holder = this.holders[i]; ++i) {
             this.setValue(holder, this._oldNumbers[i], numbers[i]);
           }
@@ -263,18 +254,21 @@ Example
        * Sets a value for the passed `.counter-box` node.
        */
       setValue: function(node, oldVal, val) {
-        if (oldVal == val) {
+        if (oldVal === val) {
           return;
         }
 
         // NOTE: Assumes child layout.
         node.children[0].textContent = val;
-        node.children[1].textContent = oldVal;
 
-        node.classList.add('anim');
-        this.async(function() {
-          node.classList.remove('anim');
-        }, _TRANSITION_TIME * 2);
+        if (this.animate) {
+          node.children[1].textContent = oldVal;
+
+          node.classList.add('anim');
+          this.async(function() {
+            node.classList.remove('anim');
+          }, _TRANSITION_TIME * 2);
+        }
       },
 
       /**
@@ -315,7 +309,7 @@ Example
        * Stop the countdown
        */
       stop: function() {
-        window.clearInterval(this.tickInterval_);
+        window.clearInterval(this._tickInterval);
         this.active = false;
       },
 
@@ -329,7 +323,7 @@ Example
         this.active = true;
         this.tickTock();
 
-        this.tickInterval_ = window.setInterval(this.tickTock.bind(this), 1000);
+        this._tickInterval = window.setInterval(this.tickTock.bind(this), 1000);
       },
 
       /**

@@ -18,7 +18,7 @@ specific language governing permissions and limitations under the License.
   <meta charset="utf-8">
   <base href="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
 
   <title>Google Santa Tracker</title>
   <meta property="og:title" itemprop="name" content="Google Santa Tracker">
@@ -39,16 +39,19 @@ specific language governing permissions and limitations under the License.
   <meta name="apple-mobile-web-app-status-bar-style" content="#30B443">
   <meta name="theme-color" content="#30B443">
   <meta name="msapplication-TileColor" content="#30B443">
-
   <meta name="msapplication-tap-highlight" content="no">
 
   <!-- icons -->
-  <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/apple-touch-icon-57x57-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72x72-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114x114-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144x144-precomposed.png">
-  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/icon-60.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="images/icon-76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="images/icon-120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="images/icon-152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="images/icon-167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/icon-180.png">
+  <link id="favicon" rel="shortcut icon" href="images/favicon-16.png" sizes="16x16">
+  <link id="favicon" rel="shortcut icon" href="images/favicon-32.png" sizes="32x32">
+  <link id="favicon" rel="shortcut icon" href="images/favicon-64.png" sizes="64x64">
+  <link id="favicon" rel="shortcut icon" href="images/favicon-96.png" sizes="96x96">
 
   <!-- Analytics -->
   <script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
@@ -69,17 +72,41 @@ specific language governing permissions and limitations under the License.
       if (!window.location.search) {
         return;
       }
-      var m = new RegExp(param + '=([^&]*)').exec(
-          window.location.search.substring(1));
+      var m = new RegExp(param + '=([^&]*)').exec(window.location.search.substring(1));
       if (!m) {
         return;
       }
       return decodeURIComponent(m[1]);
     }
 
-    if (getUrlParameter('api_client')) {
+    var apiClient = getUrlParameter('api_client');
+    if (apiClient) {
       ga_.pushCommand(['_setCampSourceKey', 'api_client']);
       ga_.pushCommand(['_setCampMediumKey', 'api_client']);
+
+      (function() {
+        switch (apiClient) {
+        case 'web_chromecast':
+          // Start the Cast Reciever. This needs to happen early, otherwise an
+          // error may be reported to clients.
+          var crm = cast.receiver.CastReceiverManager.getInstance();
+          var messageBus = crm.getCastMessageBus('urn:x-cast:com.google.cast.santatracker');
+
+          crm.onReady = function(event) {
+            crm.setApplicationState('Google Santa Tracker');
+          };
+          crm.onSenderDisconnected = function(event) {
+            if (!crm.getSenders().length &&
+                event.reason === cast.receiver.system.DisconnectReason.REQUESTED_BY_SENDER) {
+              window.close();
+            }
+          };
+          var config = new cast.receiver.CastReceiverManager.Config();
+          config.statusText = 'Google Santa Tracker...';  // subtle loading hint
+          crm.start(config);
+          break;
+        }
+      }());
     }
 
     // Check if browser is supported by web component/Polymer polyfills.
@@ -89,18 +116,18 @@ specific language governing permissions and limitations under the License.
     var ignoreCheck = getUrlParameter('ignore_browser_check') == 'true';
     var supported =  ignoreCheck || (function sniff() {
       var uaString = navigator.userAgent;
-      // no IE < 10
+      // no IE < 11
       var msie = /MSIE +([\d\.]+)/.exec(uaString);
       if (msie && msie[1]) {
         if (msie[1] === '7.0') {
           var tridentVersion = /Trident\/(\d.\d)/.exec(uaString);
           if (tridentVersion && tridentVersion[1]) {
-            return parseInt(tridentVersion[1], 10) >= 6;
+            return parseInt(tridentVersion[1], 10) >= 7;
           } else {
             return false;
           }
         } else {
-          return parseInt(msie[1], 10) >= 10;
+          return parseInt(msie[1], 10) >= 11;
         }
       }
       // no older Android browser
@@ -135,12 +162,12 @@ specific language governing permissions and limitations under the License.
             '' + message]);
       } catch (e){}
     };
-  </script>
 
+  </script>
   <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
   <link rel="import" href="elements/elements_en.html" />
 </head>
-<body class="fullbleed" unresolved>
+<body class="fullbleed" data-version="" unresolved>
 
 <santa-app id="santaApp"></santa-app>
 
@@ -160,6 +187,22 @@ if (inEmbed) {
 }
 
 window.santaApp = document.querySelector('santa-app');
+
+// For Portal mode, filter out clicks that don't match the current domain.
+if (window.santaApp.mode == 'portal') {
+  document.body.addEventListener('click', function clickFilter(event) {
+    if (!event.target || event.target.localName != 'a') {
+      return;
+    }
+
+    var url_check = location.protocol + '//' + document.domain;
+    if (event.target.href.search(url_check)) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+  });
+}
+
 var POLYMER_ANALYTICS_TIMEOUT_ = 60 * 1000;
 
 // log some polymer startup performance numbers

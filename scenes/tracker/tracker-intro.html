@@ -13,7 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
-<link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="../../components/i18n-msg/i18n-msg.html">
 <link rel="import" href="bubble-overlay.html">
 
 <link rel="import" href="../../js/utils.html">
@@ -177,10 +177,11 @@ Intro for the tracker scene.
     },
 
     calculateLayoutValues_: function() {
+      var height = window.innerHeight - window.santaApp.headerSize;
       var isUserBubbleCentered = this.userBubbleCenterX_ === this.winCenterX_;
       this.bubbleOffset = Math.max(Math.floor(window.innerWidth / 8), 90);
       this.winCenterX_ = Math.floor(window.innerWidth / 2);
-      this.winCenterY_ = Math.floor(window.innerHeight / 2);
+      this.winCenterY_ = Math.floor(height / 2);
       this.santaBubbleCenterX_ = this.winCenterX_ + this.bubbleOffset;
       this.userBubbleCenterX_ = isUserBubbleCentered ?
           this.winCenterX_ : this.winCenterX_ - this.bubbleOffset;

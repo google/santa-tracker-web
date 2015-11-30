@@ -14,7 +14,7 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../components/google-youtube/google-youtube.html">
-<link rel="import" href="../../elements/i18n-msg.html">
+<link rel="import" href="../../components/i18n-msg/i18n-msg.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -25,6 +25,12 @@ Video scene.
 -->
 <dom-module id="video-scene">
 <template>
+  <style>
+  :host[mode="cast"] .actions {
+    display: none;
+  }
+  </style>
+
   <iron-a11y-keys keys="enter space"
                   on-keys-pressed="keyHandler"></iron-a11y-keys>
 
@@ -53,13 +59,6 @@ Video scene.
       </template>
 
       <div id="videoboard" class="sceneboard">
-        <a href="{{pageUrl}}#village" class="back" hidden$="{{sourceIsTracker}}">
-          <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
-        </a>
-        <a href="{{pageUrl}}#tracker" class="back" hidden$="{{!sourceIsTracker}}">
-          <i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg>
-        </a>
-        <div class="sceneboard-back"></div>
         <div id="controls" hidden$="{{!controls}}">
           <div class="scrubber">
             <div class="tracker" style$="transform: translateX({{_computeScrubPixels(currentTime, _duration)}}px)">{{_currentTimeFormatted}}</div>
@@ -76,48 +75,21 @@ Video scene.
 <script>
 (function() {
   var VIDEO_IDS = {
-    'trailer': {
-      id: 'IdpQSy4IB_I',
-    },
-    'carpool': {
-      id: 'h83b1lWPuvQ'
-    },
-    'liftoff': {
-      id: 'oCAKV4Ikhec'
-    },
-    'jingle': {
-      id: 'sQnKCU_A0Yc',
-      sourceIsTracker: true
-    },
-    'satellite': {
-      id: 'ZJPL56IPTjw',
-      sourceIsTracker: true
-    },
-    'temptation': {
-      id: '2FtcJJ9vzVQ',
-      sourceIsTracker: true
-    },
-    'office': {
-      id: 'IXmDOu-eSx4',
-      sourceIsTracker: true
-    },
-    'tired': {
-      id: '2UGX3bT9u20',
-      sourceIsTracker: true
-    },
-    'com-room': {
-      id: '_WdYujHlmHA',
-      sourceIsTracker: true
-    },
-    'reload': {
-      id: 'vHMeXs36NTE',
-      sourceIsTracker: true
-    },
-    'slacking-off': {
-      id: 'uEl2WIZOVdQ',
-      sourceIsTracker: true
-    }
+    'wheressanta': '0qrFL0mn3Uk',
+    'trailer': 'IdpQSy4IB_I',
+    'carpool': 'h83b1lWPuvQ',
+    'liftoff': 'oCAKV4Ikhec',  // 2013: BfF7vfw6Zjw
+    'jingle': 'sQnKCU_A0Yc',
+    'satellite': 'ZJPL56IPTjw',
+    'temptation': '2FtcJJ9vzVQ',
+    'office': 'IXmDOu-eSx4',
+    'tired': '2UGX3bT9u20',
+    'com-room': '_WdYujHlmHA',
+    'reload': 'vHMeXs36NTE',
+    'slacking-off': 'uEl2WIZOVdQ',
   };
+
+  var CAST_VOLUME = 30;  // of 100
 
   Polymer({
     is: 'video-scene',
@@ -183,14 +155,6 @@ Video scene.
       },
 
       /**
-       * Whether this video's source is the tracker (true) or village (false).
-       */
-      sourceIsTracker: {
-        type: Boolean,
-        computed: '_computeSourceIsTracker(route)'
-      },
-
-      /**
        * The currentTime of the video. Bound to the `google-youtube` element.
        */
       currentTime: {type: Number},
@@ -218,6 +182,12 @@ Video scene.
      * @param {string} detail.label
      */
 
+    attached: function() {
+      if (this.getAttribute('mode') == 'cast') {
+        this.hidePoster();
+      }
+    },
+
     youtubeReady: function() {
       this.start = true;
 
@@ -226,6 +196,12 @@ Video scene.
       this.player.seekTo(0);
       this.player.pause();
       this.controls = false;
+
+      // Autoplay on Cast mode.
+      if (this.getAttribute('mode') == 'cast') {
+        this.playVideo();
+        this.player.setVolume(CAST_VOLUME);
+      }
     },
 
     hidePoster: function(e, detail) {
@@ -240,6 +216,7 @@ Video scene.
           break;
         case 0: // ended
           this.controls = false;
+          this.fire('video-scene-done');
           break;
         case 1: // playing
           this.paused = false;
@@ -323,13 +300,7 @@ Video scene.
     },
 
     _computeVideoId: function(route) {
-      var o = VIDEO_IDS[route];
-      return o ? o.id : null;
-    },
-
-    _computeSourceIsTracker: function(route) {
-      var o = VIDEO_IDS[route];
-      return !!(o && o.sourceIsTracker);  // default false
+      return VIDEO_IDS[route];
     },
 
     _computeScrubPixels: function(currenttime, duration) {

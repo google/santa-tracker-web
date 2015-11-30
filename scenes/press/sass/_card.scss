@@ -1,0 +1,179 @@
+.press-card {
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 3px 5px #ddd;
+  float: left;
+  margin: 0 15px 30px;
+  opacity: 1;
+  overflow: hidden;
+  text-align: left;
+  transform: translate3d(0, 0, 0);
+  transition: opacity .3s;
+  width: calc(50% - 30px);
+
+  &.fading-out {
+    opacity: 0;
+  }
+
+  &[press-locked] {
+    .press-card-img .press-card-lock {
+      display: block;
+    }
+  }
+
+  .press-card-info {
+    p {
+      color: #607d8b;
+    }
+  }
+
+  .press-card-img {
+    background: url(img/tmb-santas-village.jpg) 50% 50% no-repeat;
+    background-size: cover;    
+    border-radius: 5px 5px 0 0;  
+    color: #fff;
+    height: 265px;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      left: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate3d(0, -50%, 0);
+      width: 100%;
+      z-index: 0;
+    }
+
+    .press-card-lock {
+      background: rgba(0, 172, 193, .8) url(img/ic-lock-32px_2x.png) 50% 55% no-repeat; 
+      background-size: 10% auto;
+      box-sizing: border-box;
+      display: none;
+      height: 100%; 
+      padding-top: 20px;
+      position: relative;
+      text-align: center;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .press-card-unlock {
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .press-card-unlock-day {
+      font-family: 'Lobster', sans-serif;
+      font-weight: normal;
+      font-size: 40px;
+
+      span {
+        font-size: 30px;
+        margin-left: 2px;
+      }
+    }  
+  }
+
+  .press-card-info {
+    color: #546E7A;
+    padding: 25px;
+
+    h2 {
+      margin-bottom: 50px;
+    }
+
+    span {
+      color: #90A4AE;
+    }
+
+    p, span {
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    .press-card-links {
+      @extend .clearfix;
+
+      a {
+        box-sizing: border-box;
+        display: block;
+        font-size: 14px;
+        opacity: 1;
+        padding: 10px 0 8px 35px;
+        position: relative;
+        transition: opacity .3s;
+        width: 100%;
+
+        &:hover {
+          opacity: .7;
+        }
+
+        span {
+          font-size: 10px;
+        }
+      }
+
+      .press-card-dl {
+        &:before {
+          background: url(img/ic-download-18px_2x.png) 50% 50% no-repeat;  
+          background-size: contain;
+          content: '';
+          height: 20px;
+          left: 0;
+          position: absolute;
+          top: 50%;
+          transform: translate3d(0, -50%, 0);
+          width: 20px;
+        }                   
+      }
+
+      .press-card-play {
+        &:before {
+          background: url(img/ic-video-18px_2x.png) 50% 50% no-repeat;
+          background-size: contain;
+          content: '';
+          height: 20px;
+          left: 0;
+          position: absolute;
+          top: 50%;
+          transform: translate3d(0, -55%, 0);
+          width: 20px;
+        }  
+      }
+
+      .press-card-locked {
+        cursor: default;
+        opacity: 1;
+
+        &:before {
+          opacity: .25;
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      .press-card-title {
+        color: #546E7A;
+        font-weight: 600;
+        display: block;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #90A4AE;
+      }
+
+      .press-card-links-half {
+        width: 50%;
+        float: left;
+      }
+
+      .press-card-links-full {
+        width: 100%;
+        float: left;
+      }          
+    }
+  }
+}  
