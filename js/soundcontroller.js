@@ -74,14 +74,15 @@ SoundController.SoundDetail;
  * Klang script source URL.
  * @private {string}
  */
-SoundController.klangSrc_ = 'third_party/lib/klang/klang.js';
+//SoundController.klangSrc_ = 'third_party/lib/klang/klang.js';
+SoundController.klangSrc_ = 'http://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/klang.js';
 
 /**
  * Klang config file URL.
  * @private {string}
  */
 //SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.json';
-SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.js';
+SoundController.klangConfigSrc_ = 'http://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/config.js';
 
 
 /**
@@ -92,6 +93,7 @@ SoundController.prototype.loadKlangConfig_ = function() {
   // load config script
   Klang.init(SoundController.klangConfigSrc_, function(success) {
     if (success) {
+      //Klang.loggingEnabled=true;
       console.log('Klang loaded');
       this.klangLoaded_ = true;
 
