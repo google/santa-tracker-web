@@ -216,7 +216,7 @@ app.Controls.prototype.pinchStart_ = function(event) {
  * @private
  */
 app.Controls.prototype.pinchMove_ = function(event) {
-  let distance = this._calculatePinchDistance(event) /
+  let distance = this.calculatePinchDistance_(event) /
       this.originalPinchDistance;
   this.scalePan_(this.scale, this.originalPinchScale * distance);
 };
