@@ -474,7 +474,7 @@ SantaService.prototype.sync = function(opt_callback) {
 
       if (result['upgradeToVersion'] && this.version_) {
         if (this.version_ < result['upgradeToVersion']) {
-          console.warn('reload: this', this._version_, 'upgrade to', result['upgradeToVersion']);
+          console.warn('reload: this', this.version_, 'upgrade to', result['upgradeToVersion']);
           this.scheduleReload_();
         }
       }
