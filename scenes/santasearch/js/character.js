@@ -142,8 +142,9 @@ app.Character.prototype.onFound_ = function() {
 
 /**
  * Called when the character is selected.
+ * @param {app.Character} character The selected character.
  */
-app.Character.prototype.onSelected = function() {};
+app.Character.prototype.onSelected = function(character) {};
 
 /**
  * Handles the event when a character is selected.

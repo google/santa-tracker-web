@@ -35,9 +35,10 @@ app.Controls = function(elem, mapElem) {
   this.originalPinchDistance = undefined;
   this.originalPinchScale = undefined;
 
+  this.hasLastLocation = false;
   this.lastLocation = {
-    x: undefined,
-    y: undefined,
+    x: 0,
+    y: 0,
   };
 
   this.pan = {
@@ -93,7 +94,7 @@ app.Controls.prototype.updateLocation_ = function(x, y) {
     return;
   }
 
-  if (this.lastLocation.x !== undefined) {
+  if (this.hasLastLocation) {
     this.pan.x += x - this.lastLocation.x;
     this.pan.y += y - this.lastLocation.y;
 
@@ -102,11 +103,12 @@ app.Controls.prototype.updateLocation_ = function(x, y) {
 
   this.lastLocation.x = x;
   this.lastLocation.y = y;
+  this.hasLastLocation = true;
 };
 
 /**
  * Handles the touchstart event.
- * @param {Event} event The event object.
+ * @param {jQuery.Event} event The event object.
  * @private
  */
 app.Controls.prototype.onTouchstart_ = function(event) {
@@ -118,8 +120,8 @@ app.Controls.prototype.onTouchstart_ = function(event) {
 
   if (touchCount === 1) {
     this.selecting = true;
-    var touchX = event.originalEvent.changedTouches[0].clientX;
-    var touchY = event.originalEvent.changedTouches[0].clientY;
+    var touchX = event.originalEvent.changedTouches[0].pageX;
+    var touchY = event.originalEvent.changedTouches[0].pageY;
 
     this.updateLocation_(touchX, touchY);
   } else {
@@ -129,7 +131,7 @@ app.Controls.prototype.onTouchstart_ = function(event) {
 
 /**
  * Handles the touchmove event.
- * @param {Event} event The event object.
+ * @param {jQuery.Event} event The event object.
  * @private
  */
 app.Controls.prototype.onTouchmove_ = function(event) {
@@ -140,8 +142,8 @@ app.Controls.prototype.onTouchmove_ = function(event) {
   }
 
   if (this.selecting && touchCount === 1) {
-    var touchX = event.originalEvent.changedTouches[0].clientX;
-    var touchY = event.originalEvent.changedTouches[0].clientY;
+    var touchX = event.originalEvent.changedTouches[0].pageX;
+    var touchY = event.originalEvent.changedTouches[0].pageY;
 
     this.updateLocation_(touchX, touchY);
   } else if (this.pinching) {
@@ -151,14 +153,14 @@ app.Controls.prototype.onTouchmove_ = function(event) {
 
 /**
  * Handles the touchend event.
- * @param {Event} event The event object.
+ * @param {jQuery.Event} event The event object.
  * @private
  */
 app.Controls.prototype.onTouchend_ = function(event) {
   let touchCount = event.originalEvent.changedTouches.length;
 
-  var touchX = event.originalEvent.changedTouches[0].clientX;
-  var touchY = event.originalEvent.changedTouches[0].clientY;
+  var touchX = event.originalEvent.changedTouches[0].pageX;
+  var touchY = event.originalEvent.changedTouches[0].pageY;
 
   if (event.target === this.mapElem[0]) {
     event.preventDefault();
@@ -168,28 +170,27 @@ app.Controls.prototype.onTouchend_ = function(event) {
     this.updateLocation_(touchX, touchY);
     this.selecting = false;
   } else {
-    this.pinchEnd_(event);
+    this.pinchEnd_();
   }
 
-  this.lastLocation.x = undefined;
-  this.lastLocation.y = undefined;
+  this.hasLastLocation = false;
 };
 
 /**
  * Calculate pinch distance.
- * @param {Event} event The jQuery wrapped touch event.
+ * @param {jQuery.Event} event The jQuery wrapped touch event.
  * @return {number} The pinch distance.
  * @private
  */
 app.Controls.prototype.calculatePinchDistance_ = function(event) {
   let firstTouch = {
-    x: event.originalEvent.touches[0].clientX,
-    y: event.originalEvent.touches[0].clientY,
+    x: event.originalEvent.touches[0].pageX,
+    y: event.originalEvent.touches[0].pageY,
   };
 
   let secondTouch = {
-    x: event.originalEvent.touches[1].clientX,
-    y: event.originalEvent.touches[1].clientY,
+    x: event.originalEvent.touches[1].pageX,
+    y: event.originalEvent.touches[1].pageY,
   };
 
   let xDiff = secondTouch.x - firstTouch.x;
@@ -199,7 +200,7 @@ app.Controls.prototype.calculatePinchDistance_ = function(event) {
 
 /**
  * Handle pinch start.
- * @param {Event} event The touch event.
+ * @param {jQuery.Event} event The touch event.
  * @private
  */
 app.Controls.prototype.pinchStart_ = function(event) {
@@ -212,13 +213,13 @@ app.Controls.prototype.pinchStart_ = function(event) {
 
 /**
  * Handle pinch move.
- * @param {Event} event The touch event.
+ * @param {jQuery.Event} event The touch event.
  * @private
  */
 app.Controls.prototype.pinchMove_ = function(event) {
   let distance = this.calculatePinchDistance_(event) /
       this.originalPinchDistance;
-  this.scalePan_(this.scale, this.originalPinchScale * distance);
+  this.scalePan(this.scale, this.originalPinchScale * distance);
 };
 
 /**
@@ -231,36 +232,35 @@ app.Controls.prototype.pinchEnd_ = function() {
 
 /**
  * Handles the mousedown event.
- * @param {Event} event The mouse event.
+ * @param {jQuery.Event} event The mouse event.
  * @private
  */
 app.Controls.prototype.onMousedown_ = function(event) {
-  this.updateLocation_(event.clientX, event.clientY);
+  this.updateLocation_(event.pageX, event.pageY);
 
   this.selecting = true;
 };
 
 /**
  * Handles the mousemove event.
- * @param {Event} event The mouse event.
+ * @param {jQuery.Event} event The mouse event.
  * @private
  */
 app.Controls.prototype.onMousemove_ = function(event) {
   if (this.selecting) {
-    this.updateLocation_(event.clientX, event.clientY);
+    this.updateLocation_(event.pageX, event.pageY);
   }
 };
 
 /**
  * Handles the mouseup event.
- * @param {Event} event The mouse event.
+ * @param {jQuery.Event} event The mouse event.
  * @private
  */
 app.Controls.prototype.onMouseup_ = function(event) {
-  this.updateLocation_(event.clientX, event.clientY);
+  this.updateLocation_(event.pageX, event.pageY);
 
-  this.lastLocation.x = undefined;
-  this.lastLocation.y = undefined;
+  this.hasLastLocation = false;
 
   this.selecting = false;
 };
@@ -269,9 +269,8 @@ app.Controls.prototype.onMouseup_ = function(event) {
  * Scale and pan.
  * @param {number} from The current zoom level.
  * @param {number} to The new zoom level.
- * @private
  */
-app.Controls.prototype.scalePan_ = function(from, to) {
+app.Controls.prototype.scalePan = function(from, to) {
   let direction = to - from;
   let difference = Math.abs(direction);
 

@@ -31,11 +31,22 @@ app.Map = function(mapElem, drawerElem, mapDimensions) {
   this.drawerElem = drawerElem;
   this.mapDimensions = mapDimensions;
   this.mapName = 'museum';
-  this.characters = {};
+
+  /** @type {{ santa: app.Character, penguin: app.Character,
+      'gingerbread-man': app.Character, rudolph: app.Character,
+      pegman: app.Character, 'mrs-claus': app.Character}} */
+  this.characters = {
+    santa: null,
+    penguin: null,
+    'gingerbread-man': null,
+    rudolph: null,
+    pegman: null,
+    'mrs-claus': null,
+  };
 
   app.Constants.CHARACTERS.forEach((name) => {
     this.characters[name] = new app.Character(name, this.mapElem,
-        this.drawerElem, mapDimensions);
+        this.drawerElem);
   });
 
   this.allFound = false;
