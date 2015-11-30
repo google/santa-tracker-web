@@ -1,5 +1,25 @@
 #!/bin/sh
 
+# Run this script from the folder containing the export from animator.
+# Organize the files into folders of 24 images each
+
+dirs=($(find . -type d))
+
+for dir in "${dirs[@]}"; do
+  for file in $dir/*.png; do
+    filename="${file##*/}"
+    filen="${filename%.*}"
+
+    character=${filename%-*}
+    number=${filename:(-7):3}
+    number=`echo $number|sed 's/^0*//'`
+    target=$((number/24))
+
+    mkdir -p $dir/$target
+    mv $dir/$filename $dir/$target/$filename
+  done
+done
+
 # Calculate the minimum crop and offset for each image seqeunce
 touch info.txt
 find . -depth 2 -type d -exec bash -c "cd '{}' && pwd && convert *.png[1152x648] -trim -layers merge -format '{} %wx%h%X%Y\r\n' info: >> ../../info.txt" \;
