@@ -37,7 +37,6 @@ app.Character = function(name, mapElem, drawerElem) {
 
 /**
  * Initialize a character with location, scale and a click event
- * @param {Array<string>} characterKeys The list of layer names in the svg.
  * @param {{height: number, width: number}} mapDimensions The map dimensions.
  */
 app.Character.prototype.initialize = function(mapDimensions) {
