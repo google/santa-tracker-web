@@ -9,6 +9,25 @@
   }
 }
 
+@keyframes #{$name}-seesaw {
+  0%, 100% {
+    transform: rotateZ(-17deg);
+  }
+  50% {
+    transform: rotateZ(17deg);
+  }
+}
+
+@keyframes #{$name}-slide {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  40%, 100% {
+    transform: translateX(50px) translateY(34px);
+  }
+}
+
+
 @keyframes #{$name}-shimmy {
   10%, 30%, 50%, 70%, 90% {
     transform: translateX(-2em);
