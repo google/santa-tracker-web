@@ -67,7 +67,7 @@ app.Sequencer = class {
     if (!this._playScheduled) return;
 
     Klang.triggerEvent('cb_fallback_start');
-    this.klangUtil.transition(this.getPlayingLoop(), this.tracks[this._track * 2 + this._variant], this._bpm, 0, 2);
+    this.klangUtil.transition(this.getPlayingLoop(), this.tracks[this._track * 2 + this._variant], this._bpm, 0, 1);
 
     this._playScheduled = false;
   }
