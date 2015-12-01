@@ -43,7 +43,8 @@ app.DanceStatus = {
  *   stage: string,
  *   bpm: number,
  *   freestyle: boolean,
- *   requiredBlocks: Array.<string>
+ *   requiredBlocks: Array.<string>,
+ *   fadeTiles: boolean
  * }}
  */
 app.DanceLevelOptions;

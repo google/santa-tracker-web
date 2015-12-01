@@ -113,6 +113,7 @@ app.Scene = class {
    */
   setLevel(level) {
     this.level = level;
+    this.player.moveTiles.setLevel(level);
 
     // Show the scene in portrait, then hide it after 3 seconds.
     this.portraitToggleScene(true);

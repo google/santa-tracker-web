@@ -41,7 +41,8 @@ app.levels.push(
     ],
     requiredBlocks: ['dance_leftArm'],
     toolbox: app.blocks.miniBlockXml('dance_leftArm') +
-             app.blocks.miniBlockXml('dance_rightArm')
+             app.blocks.miniBlockXml('dance_rightArm'),
+    fadeTiles: false
   }),
   new app.DanceLevel({
     bpm: 120,
@@ -58,7 +59,8 @@ app.levels.push(
     toolbox: app.blocks.miniBlockXml('dance_leftArm') +
         app.blocks.miniBlockXml('dance_rightArm') +
         app.blocks.miniBlockXml('dance_leftFoot') +
-        app.blocks.miniBlockXml('dance_rightFoot')
+        app.blocks.miniBlockXml('dance_rightFoot'),
+    fadeTiles: false
   }),
   new app.DanceLevel({
     bpm: 120,
@@ -76,7 +78,8 @@ app.levels.push(
         app.blocks.miniBlockXml('dance_rightArm') +
         app.blocks.miniBlockXml('dance_leftFoot') +
         app.blocks.miniBlockXml('dance_rightFoot') +
-        app.blocks.miniBlockXml('controls_repeat')
+        app.blocks.miniBlockXml('controls_repeat'),
+    fadeTiles: true
   }),
   new app.DanceLevel({
     bpm: 130,
@@ -97,7 +100,8 @@ app.levels.push(
         app.blocks.miniBlockXml('dance_jump') +
         app.blocks.miniBlockXml('dance_split') +
         app.blocks.miniBlockXml('dance_shake') +
-        app.blocks.miniBlockXml('controls_repeat')
+        app.blocks.miniBlockXml('controls_repeat'),
+    fadeTiles: true
   }),
   new app.DanceLevel({
     bpm: 140,
@@ -118,6 +122,7 @@ app.levels.push(
         app.blocks.miniBlockXml('dance_jump') +
         app.blocks.miniBlockXml('dance_split') +
         app.blocks.miniBlockXml('dance_shake') +
-        app.blocks.miniBlockXml('controls_repeat')
+        app.blocks.miniBlockXml('controls_repeat'),
+    fadeTiles: true
   })
 );

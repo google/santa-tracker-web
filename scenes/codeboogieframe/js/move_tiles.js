@@ -26,8 +26,19 @@ const maxTiles = 4;
 app.MoveTiles = class {
   constructor(el) {
     this.el = el;
-    this.el.style.width = `${maxTiles * tilewidth / 10}em`;
-    this.el.style.left = `calc(50% + ${maxTiles / 2 * tilewidth / 10}em)`
+    this.fadeTiles = true;
+  }
+
+  setLevel(level) {
+    this.fadeTiles = level.fadeTiles;
+    this.setLength(level.steps.length)
+  }
+
+  setLength(length) {
+    let tiles = Math.min(length, maxTiles);
+
+    this.el.style.width = `${tiles * tilewidth / 10}em`;
+    this.el.style.left = `calc(50% + ${tiles / 2 * tilewidth / 10}em)`
   }
 
   add(move) {
@@ -39,10 +50,7 @@ app.MoveTiles = class {
     let moveTiles = Array.from(this.el.querySelectorAll('.scene__moves-move'));
     let numTiles = moveTiles.length;
 
-    setTimeout(() => {
-      // move the tiles into the correct places.
-      this.el.style.transform = `translate3d(-${(numTiles * tilewidth) / 10}em, 0, 0)`;
-    }, 100);
+    this.el.style.transform = `translate3d(-${(numTiles * tilewidth) / 10}em, 0, 0)`;
 
     if (numTiles > maxTiles) {
       moveTiles.slice(0, numTiles - maxTiles).forEach(tile => {
@@ -51,7 +59,17 @@ app.MoveTiles = class {
     }
   }
 
+  reset() {
+    this._removeTiles();
+  }
+
   clear() {
+    if (this.fadeTiles) {
+      this._removeTiles();
+    };
+  }
+
+  _removeTiles() {
     let moveTiles = Array.from(this.el.querySelectorAll('.scene__moves-move'));
     moveTiles.forEach(tile => {
       tile.classList.add('fade-out');
