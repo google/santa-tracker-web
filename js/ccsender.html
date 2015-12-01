@@ -2,7 +2,7 @@
 <script>
 (function() {
   var session = null;
-  var applicationID = 'FA3B9AAD';
+  var applicationID = location.hostname == 'santatracker.google.com' ? '76D471B7' : 'FA3B9AAD',
   var namespace = 'urn:x-cast:com.google.cast.santatracker';
 
   function sessionListener(e) {
@@ -12,7 +12,7 @@
       if (!isAlive) {
         session = null;
       }
-    });  
+    });
     session.addMessageListener(namespace, function(namespace, message) {
       console.debug('cast_sender recieved message', namespace, message);
     });
