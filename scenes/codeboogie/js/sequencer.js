@@ -57,7 +57,7 @@ app.Sequencer = class {
 
   start() {
     this.klangUtil = Klang.getUtil();
-    this.tracks = Klang.$('codeboogie_tracks')._content;
+    this.tracks = Klang.version == "webaudio" ? Klang.$('codeboogie_tracks')._content: [];
 
     this.update(0);
     this.play();
@@ -65,7 +65,7 @@ app.Sequencer = class {
 
   play() {
     if (!this._playScheduled) return;
-
+    Klang.triggerEvent('cb_fallback_start');
     this.klangUtil.transition(this.getPlayingLoop(), this.tracks[this._track * 2 + this._variant], this._bpm, 0, 0.2);
     this._playScheduled = false;
   }
@@ -76,7 +76,12 @@ app.Sequencer = class {
 
   update(timestamp) {
     let loop = this.getPlayingLoop();
-    let currPos = loop ? this.getPlayingLoop().position : 0;
+    let currPos;
+    if (Klang.version == "webaudio") {
+      currPos = loop ? this.getPlayingLoop().position : 0;
+    }else {
+      currPos = new Date().getTime()/1000;
+    }
     let beat = Math.floor(currPos / (60 / this._bpm));
 
     if (this.beat !== beat) {
