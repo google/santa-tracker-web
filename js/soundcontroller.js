@@ -85,7 +85,7 @@ SoundController.klangSrc_ = 'third_party/lib/klang/klang.js';
  */
 //SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.json';
 //SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.js';
-SoundController.klangConfigSrc_ = 'https://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/config.json';
+SoundController.klangConfigSrc_ = 'https://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/config.js';
 
 
 /**

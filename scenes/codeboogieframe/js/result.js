@@ -94,7 +94,6 @@ app.Result.prototype = {
     this.el.classList.remove('result--show-code');
     this.el.classList.add('is-visible');
 
-    Klang.triggerEvent(result.levelComplete ? 'computer_success' : 'computer_fail');
   },
 
   hide: function() {
