@@ -39,15 +39,16 @@ app.MoveTiles = class {
     let moveTiles = Array.from(this.el.querySelectorAll('.scene__moves-move'));
     let numTiles = moveTiles.length;
 
-    // move the tiles into the correct places.
     setTimeout(() => {
-      this.el.style.transform = `translate3d(-${(numTiles * tilewidth) / 10}em, 0, 0)`; }, 100);
+      // move the tiles into the correct places.
+      this.el.style.transform = `translate3d(-${(numTiles * tilewidth) / 10}em, 0, 0)`;
+    }, 100);
 
-      if (numTiles > maxTiles) {
-        moveTiles.slice(0, numTiles - maxTiles).forEach(tile => {
-          tile.classList.add('fade-out');
-        });
-      }
+    if (numTiles > maxTiles) {
+      moveTiles.slice(0, numTiles - maxTiles).forEach(tile => {
+        tile.classList.add('fade-out');
+      });
+    }
   }
 
   clear() {

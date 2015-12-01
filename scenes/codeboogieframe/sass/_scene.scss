@@ -208,12 +208,12 @@
   }
 
   .fade-in {
-    animation: 500ms cb_fade_in;
+    animation: 500ms cb_title_appear;
     animation-fill-mode: forwards;
   }
 
   .fade-out {
-    animation: 500ms cb_fade_out;
+    animation: 500ms cb_title_disappear;
     animation-fill-mode: forwards;
   }
 
@@ -309,7 +309,7 @@
   }
 }
 
-@keyframes cb_title_appear{
+@keyframes cb_title_appear {
   from {
     opacity: 0;
     transform: scale(0.8);
