@@ -60,11 +60,6 @@ app.Game = function(elem, componentDir) {
 
   this.onFrame_ = this.onFrame_.bind(this);
   this.startMap_ = this.startMap_.bind(this);
-
-  //TODO: Remove
-  this.elem.find('.zoom__in').on('click', () => {
-    this.restart();
-  });
 };
 
 /**
