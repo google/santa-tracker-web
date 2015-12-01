@@ -430,7 +430,6 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
     'js/jquery.html',
     'js/modernizr.html',
     'js/webanimations.html',
-    'js/ccsender.html',
     'elements/santa-icons.html',
     'components/polymer/polymer.html',
     'scenes/scene-behavior.html',
@@ -520,6 +519,7 @@ gulp.task('copy-assets', ['rm-dist', 'vulcanize', 'i18n_index'], function() {
     'scenes/**/img/**/*.{png,jpg,svg,gif,cur}',
     'elements/**/img/*.{png,jpg,svg,gif}',
     'components/webcomponentsjs/webcomponents-lite.min.js',
+    'js/ccsender.html'
   ], {base: './'})
   .pipe(gulp.dest(DIST_STATIC_DIR));
 
