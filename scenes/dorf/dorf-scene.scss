@@ -13,6 +13,11 @@ $toolbar-size: 64px;
     font-size: 62px !important;
   }
 }
+[lang='en'] ##{$name} {
+  #village-donate {
+    display: block !important;
+  }
+}
 
 ##{$name} {
   background: #f5f2e2;
@@ -327,7 +332,6 @@ $toolbar-size: 64px;
     }
 
     #header-mobilevillage {
-      background: url(img/mobile-header.svg) center bottom no-repeat;
       position: absolute;
       bottom: 0;
       width: 100%;
@@ -335,7 +339,6 @@ $toolbar-size: 64px;
       display: none;
     }
     #header-mobileelves {
-      background: url(img/mobile-header-elves.svg) center left no-repeat;
       position: absolute;
       top: 210px + 180px;
       width: 320px;
@@ -535,19 +538,71 @@ $toolbar-size: 64px;
       margin: 0 auto;
       display: block;
     }
+  }
 
-    #village-footer-elves {
-      background-image: url(img/footer-elves.svg);
-      background-repeat: no-repeat;
-      background-position: 50% 90%;
-      background-size: contain;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 50%;
-      transform: translate(-50%);
-      bottom: 0;
-      max-width: 900px;
+  #village-donate {
+    background: #48d891;
+    color: white;
+    display: none;  // en only
+
+    #wrapper {
+      margin: 0 auto;
+      max-width: 768px;
+      padding: 32px 16px;
+      min-height: 250px;
+      background: url(img/donate-kids.svg) bottom right no-repeat;
+
+      h3 {
+        margin: 0;
+        font-family: 'Lobster', sans-serif;
+        font-size: 2.0em;
+        line-height: 1.0em;
+        padding-bottom: 0.4em;
+        font-size: 200;
+        letter-spacing: 1px;
+      }
+
+      p {
+        margin: 0;
+        text-align: left;
+        font-size: 1.1em;
+        line-height: 1.5em;
+        font-weight: 600;
+      }
+
+      .button {
+        background: url(img/donate-ornament.svg) center no-repeat;
+        background-size: contain;
+        display: inline-block;
+        margin-top: 24px;
+        @include will-change();
+
+        a {
+          display: inline-block;
+          margin: 20px 32px 26px;
+
+          color: #fff;
+          font-family: 'Roboto', sans-serif;
+          font-size: 1em;
+          text-transform: uppercase;
+          font-weight: bold;
+          background-color: #FCC600;
+          bottom: 0px;
+          padding: 12px 24px;
+          letter-spacing: 1px;
+          font-weight: 700;
+          border-radius: 5px;
+          box-shadow: 0 6px 0 #E98D23;
+          text-decoration: none;
+          position: relative;
+          transition: transform 0.1s, box-shadow 0.1s;
+
+          &:active {
+            transform: translateY(8px);
+            box-shadow: none;
+          };
+        }
+      }
     }
   }
 
@@ -699,10 +754,11 @@ $toolbar-size: 64px;
         // ignored anyway.
         @include will-change();
 
-        $duration-in: 0.4s;
-        $easing-in: cubic-bezier(0.380, 0.800, 0.475, 1.285);
+        $duration-in: 0.23s;
+        $easing-in: cubic-bezier(0,1,.33,1.28);
         $duration-out: 0.2s;
-        $easing-out: ease-in;
+        $easing-out: cubic-bezier(.83,.02,1,.01);
+        $easing-rotate-in: ease-out;
 
         .card {
           $hs: $hover-card-size / 2;
@@ -728,6 +784,11 @@ $toolbar-size: 64px;
           .launchdate {
             display: none;
           }
+
+          .image {
+            transform: rotate(10deg);
+            transition: transform .01s ease-out $duration-out;
+          }
         }
 
         // only change state on links with hrefs
@@ -736,6 +797,11 @@ $toolbar-size: 64px;
             transition: transform $duration-in $easing-in, opacity $duration-in $easing-in;
             transform: scale(1);
             opacity: 1;
+
+            .image {
+              transform: rotate(0deg);
+              transition: transform $duration-in $easing-rotate-in .02s;
+            }
           }
         }
       }  // .link
@@ -816,9 +882,13 @@ $toolbar-size: 64px;
         background-position: center;
       }
 
-      #header-mobilevillage,
+      #header-mobilevillage {
+        display: block;
+        background: url(img/mobile-header.svg) center bottom no-repeat;
+      }
       #header-mobileelves {
         display: block;
+        background: url(img/mobile-header-elves.svg) center left no-repeat;
       }
     }
 
@@ -938,6 +1008,11 @@ $toolbar-size: 64px;
       margin-top: 0;
       background-size: 500px;
     }
+    #village-donate {
+      #wrapper {
+        min-height: 350px;
+      }
+    }
   }
 
   /** Mobile village (one col) */
@@ -947,6 +1022,11 @@ $toolbar-size: 64px;
         .house {
           width: 100%;
         }
+      }
+    }
+    #village-donate {
+      #wrapper {
+        min-height: 400px;
       }
     }
   }

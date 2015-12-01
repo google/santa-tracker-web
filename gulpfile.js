@@ -30,7 +30,18 @@ var closureDeps = require('gulp-closure-deps');
 var mergeStream = require('merge-stream');
 var browserSync = require('browser-sync').create();
 
-var DEFAULT_STATIC_VERSION = 80;
+var DEFAULT_STATIC_VERSION = (function() {
+  var pad = function(x) { return x < 10 ? '0' + x : '' + x };
+  var d = new Date();
+  var parts = ['v',
+      d.getUTCFullYear(),
+      pad(d.getUTCMonth() + 1),
+      pad(d.getUTCDate()),
+      pad(d.getUTCHours()),
+      pad(d.getUTCMinutes()),
+  ];
+  return parts.join('');
+}());
 
 var argv = require('yargs')
     .help('help')
@@ -419,7 +430,6 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
     'js/jquery.html',
     'js/modernizr.html',
     'js/webanimations.html',
-    'js/ccsender.html',
     'elements/santa-icons.html',
     'components/polymer/polymer.html',
     'scenes/scene-behavior.html',
@@ -509,6 +519,7 @@ gulp.task('copy-assets', ['rm-dist', 'vulcanize', 'i18n_index'], function() {
     'scenes/**/img/**/*.{png,jpg,svg,gif,cur}',
     'elements/**/img/*.{png,jpg,svg,gif}',
     'components/webcomponentsjs/webcomponents-lite.min.js',
+    'js/ccsender.html'
   ], {base: './'})
   .pipe(gulp.dest(DIST_STATIC_DIR));
 
@@ -522,7 +533,9 @@ gulp.task('copy-assets', ['rm-dist', 'vulcanize', 'i18n_index'], function() {
 });
 
 // alias to build a distribution version
-gulp.task('dist', ['copy-assets']);
+gulp.task('dist', ['copy-assets'], function() {
+  console.log('dist version:', STATIC_VERSION);
+});
 
 gulp.task('watch', function() {
   gulp.watch(SASS_FILES, ['sass']);

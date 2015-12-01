@@ -20,8 +20,6 @@ specific language governing permissions and limitations under the License.
 
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
 
-<script src="dorf-scene.min.js"></script>
-
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="dorf-scene.css" />
 
@@ -41,6 +39,9 @@ Village scene (2015).
     display: none !important;
   }
   :host[mode="cast"] #village-footer {
+    display: none !important;
+  }
+  :host[mode="portal"] .launchdate {
     display: none !important;
   }
   </style>
@@ -87,7 +88,7 @@ Village scene (2015).
       </div>
       <div id="ground"></div>
       <div id="road"></div>
-      <div id="houses">
+      <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
         <div class$="house house-new-today new-today-{{todayHouse}}">
           <template is="dom-if" if="{{_calculateShowTodayHouse(todayHouse, santaApp.mode)}}">
             <a href="{{_calculateNewTodayHref(todayHouse)}}">
@@ -212,7 +213,21 @@ Village scene (2015).
     </div>
     <div id="village-footer">
       <p hidden$="{{countdownFinished}}"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-      <img src="{{componentDir}}/img/footer-elves.svg" />
+      <img src="{{componentDir}}img/footer-elves.svg" />
+    </div>
+    <div id="village-donate">
+      <div id="wrapper">
+        <h3>#ForEveryKid</h3>
+        <p>
+          Help fund a special project on DonorsChoose.org.
+          This December, we're helping to double the impact by matching donations by 50%, until we reach our goal of donating US$1,000,000.
+          Together, we can make classrooms more inclusive #ForEveryKid
+        </p>
+        <div class="button">
+          <a target="_blank" href="
+https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
+        </div>
+      </div>
     </div>
   </div><!-- #module-dorf -->
 </template>
@@ -599,9 +614,22 @@ Village scene (2015).
       return 'https://santadive.withgoogle.com';
     },
 
+    _onHousesOver: function(event) {
+      if (!event.target || event.target.localName != 'a' || !event.target.href) {
+        return;
+      }
+      this.fire('sound-trigger', 'village_bubble_appear');
+    },
+
+    _onHousesOut: function(event) {
+      if (!event.target || !event.target.classList.contains('card')) {
+        return;
+      }
+      this.fire('sound-trigger', 'village_bubble_disappear');
+    },
+
     onPreload: function() {
       this.preloadSounds('village_load_sounds');
-      this.preloadSounds('load_music');
       this.preloadImages([
         'img/road.svg',
         'img/ground.svg',

@@ -86,6 +86,9 @@ specific language governing permissions and limitations under the License.
   :host([mode="cast"]) #sound {
     display: none;
   }
+  :host[mode="portal"] #sound {
+    display: none !important;
+  }
 
   </style>
 
@@ -207,11 +210,6 @@ specific language governing permissions and limitations under the License.
           <paper-icon-button class="box" id="twitter" style="padding: 9px" src="img/share-twitter.svg"></paper-icon-button>
           <paper-icon-button class="box" id="facebook" style="padding: 10px" src="img/share-facebook.svg"></paper-icon-button>
         </div>
-
-        <div id="sound" style$="background-color: {{color}}" class$="{{_calculateMuteClass(mute)}}">
-          <button on-click="_toggleSounds"><i></i></button>
-        </div>
-
         <!-- Used for background and transition effect -->
         <div class="middle" style$="background-color: {{color}}"></div>
       </paper-toolbar>
@@ -219,6 +217,9 @@ specific language governing permissions and limitations under the License.
       </content>
     </paper-header-panel>
   </paper-drawer-panel>
+  <div id="sound" style$="background-color: {{color}}" class$="{{_calculateMuteClass(mute)}}">
+    <button on-click="_toggleSounds"><i></i></button>
+  </div>
 </template>
 <script>
   Polymer({
