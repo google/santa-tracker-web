@@ -55,6 +55,7 @@ goog.scope(function () {
 
     onDropClick() {
       this.level_.dropBall();
+      this.level_.onInteraction();
       window.santaApp.fire('sound-trigger', 'pb_button');
       window.santaApp.fire('sound-trigger', 'pb_present_fall');
     }
