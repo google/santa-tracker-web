@@ -70,6 +70,36 @@
     }
   }
 
+  #easteregg-schoolyard {
+    $w: 434;
+    $h: 160;
+    &::after {
+      content: '';
+      position: absolute;
+      width: percent(58 * $svg-ratio, $w);
+      height: percent(30 * $svg-ratio, $h);
+      left: 181px;
+      top: 83px;
+      background-repeat: no-repeat;
+      background-image: url(img/seesaw.svg);
+      transform-origin: 50% 80%;
+      @include will-change(transform);
+      animation: #{$name}-seesaw 3s ease infinite;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      width: percent(15 * $svg-ratio, $w);
+      height: percent(27 * $svg-ratio, $h);
+      background-repeat: no-repeat;
+      background-image: url(img/slide.svg);
+      top: 58px;
+      left: 276px;
+      @include will-change(transform);
+      animation: #{$name}-slide 4s ease-in infinite;
+    }
+  }
+
   #easteregg-walrus {
     overflow: hidden;
     background: none;
@@ -81,7 +111,7 @@
       height: 100%;
       background-image: url(img/easteregg-walrus.svg);
       @include will-change();
-      animation: #{$name}-walrus 3s ease infinite;
+      animation: #{$name}-seesaw 3s ease infinite;
     }
   }
 
