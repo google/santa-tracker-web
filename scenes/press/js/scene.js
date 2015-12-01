@@ -17,6 +17,7 @@
 goog.provide('app.Scene');
 
 goog.require('app.Models');
+goog.require('app.shared.ShareButtons');
 
 /**
  * Press Scene class
@@ -28,6 +29,8 @@ goog.require('app.Models');
  */
 app.Scene = function(context) {
   this.gallery = $('#press-secondary', context);
+
+  this.shareButtons = new app.shared.ShareButtons(context.querySelector('footer'));
 
   this.cards = Cards;
   this.active = '';
