@@ -97,14 +97,18 @@ app.Player.prototype = {
     this.x = newX;
     this.y = newY;
 
-    var animation = new GroupEffect([
+    // Wrap the outer animation in a SequenceEffect. Without this, the actual
+    // relevant inner KeyframeEffect tends to get nuked by neighbour anims.
+    var animation = new SequenceEffect([
       app.PlayerSound.walk(),
-      this.walkAnimation_(),
-      new KeyframeEffect(this.el, [
-        {transform: this.getTranslation_(oldX, oldY)},
-        {transform: this.getTranslation_(this.x, this.y)}
-      ], {duration: app.Player.MOVE_DURATION, fill: 'forwards'})
-    ], {duration: app.Player.MOVE_DURATION, fill: 'forwards'});
+      new GroupEffect([
+        this.walkAnimation_(),
+        new KeyframeEffect(this.el, [
+          {transform: this.getTranslation_(oldX, oldY)},
+          {transform: this.getTranslation_(this.x, this.y)}
+        ], {duration: app.Player.MOVE_DURATION, fill: 'forwards'})
+      ], {duration: app.Player.MOVE_DURATION})
+    ], {duration: app.Player.MOVE_DURATION});
     return this.maybeRotateAnimation_(animation, oldDirection);
   },
 
@@ -174,12 +178,11 @@ app.Player.prototype = {
   },
 
   walkAnimation_: function() {
-    // TODO(samthor): This is disabled for now, as the Infinity iterations
-    // caused the animation never to end.
+    // Animates the sprite as if the elf is walking. Doesn't move the elf.
     return new KeyframeEffect(this.spriteEl, [
       {transform: 'translateZ(0) translate(0, 0em)'},
       {transform: 'translateZ(0) translate(0, -52.8em)'}
-    ], {duration: app.Player.MOVE_DURATION, easing: 'steps(8, end)', iterations: 0});
+    ], {duration: app.Player.MOVE_DURATION, easing: 'steps(8, end)'});
   },
 
   getTranslation_: function(x, y) {

@@ -9,7 +9,7 @@
   // id width height left top z-index
   $all:
       "tree"            831   616   291   342    ($house-row-3-z-index - 1),
-      "blocks"          360   150   904   646    ($house-row-3-z-index - 1),
+      "blocks"          360   150   904   646    ($house-row-3-z-index - 60),
       "statue"          287   171   858   816    ($house-row-4-z-index - 1),
       "walrus"          22    19    897   1473   ($house-row-6-z-index - 1),
       "penguin-revolt"  174   55    865   1571   ($house-row-6-z-index - 1),
@@ -38,8 +38,9 @@
 
   @for $i from 1 through length($all) {
     $row: nth($all, $i);
+    $id: nth($row, $idx-id);
 
-    #easteregg-#{nth($row, $idx-id)} {
+    #easteregg-#{$id)} {
       z-index: nth($row, $idx-z-index) - 1;
       background-image: url(img/easteregg-#{nth($row, $idx-id)}.svg);
 
@@ -51,6 +52,60 @@
       height: percent(nth($row, $idx-height) * $svg-ratio, $height-desktop);
       left: percent(nth($row, $idx-left), $width-desktop);
       top: percent(nth($row, $idx-top), $height-desktop);
+    }
+  }
+
+  // cast disables
+  &.mode-cast {
+    @for $i from 1 through length($all) {
+      $row: nth($all, $i);
+      $id: nth($row, $idx-id);
+
+      $top: nth($row, $idx-top);
+      @if $top > $easteregg-cast-cutoff {
+        #easteregg-#{$id)} {
+          display: none;
+        }
+      }
+    }
+  }
+
+  #easteregg-schoolyard {
+    $w: 434;
+    $h: 160;
+    &::after {
+      content: '';
+      position: absolute;
+      width: percent(58 * $svg-ratio, $w);
+      height: percent(30 * $svg-ratio, $h);
+      left: 181px;
+      top: 83px;
+      @media (max-width: ($width-desktop - 1)) {
+        left: 109px;
+        top: 50px;
+      }
+
+      background-repeat: no-repeat;
+      background-image: url(img/seesaw.svg);
+      transform-origin: 50% 80%;
+      @include will-change(transform);
+      animation: #{$name}-seesaw 3s ease infinite;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      width: percent(15 * $svg-ratio, $w);
+      height: percent(27 * $svg-ratio, $h);
+      background-repeat: no-repeat;
+      background-image: url(img/slide.svg);
+      top: 58px;
+      left: 276px;
+      @media (max-width: ($width-desktop - 1)) {
+        top: 35px;
+        left: 165px;
+      }
+      @include will-change(transform);
+      animation: #{$name}-slide 4s ease-in infinite;
     }
   }
 
@@ -91,11 +146,11 @@
   }
 
   #easteregg-snowmobile2.drive {
-    z-index: $house-row-3-z-index - 50;
+    z-index: $house-row-3-z-index - 10;
   }
 
   #easteregg-snowmobile3.drive {
-    z-index: $house-row-3-z-index - 1;
+    z-index: $house-row-3-z-index;
     animation-direction: normal;
   }
 
@@ -686,19 +741,19 @@
 
 @keyframes to-bus-stop-1 {
   0% {
-    transform: translateZ(0) translateX(100vw) translateY(-100%) rotateZ(0deg);
+    transform: translateZ(0) translateX(100vw) translateY(-100%);
   }
   75% {
-    transform: translateZ(0) translateX(355px) translateY(-100%) rotateZ(0deg);
+    transform: translateZ(0) translateX(355px) translateY(-100%);
   }
   77% {
-    transform: translateZ(0) translateX(320px) translateY(-50%) rotateZ(-15deg);
+    transform: translateZ(0) translateX(320px) translateY(-50%);
   }
   80% {
-    transform: translateZ(0) translateX(300px) translateY(0%) rotateZ(0deg);
+    transform: translateZ(0) translateX(300px) translateY(0%);
   }
   100% {
-    transform: translateZ(0) translateX(0vw) translateY(0%) rotateZ(0deg);
+    transform: translateZ(0) translateX(0vw) translateY(0%);
   }
 }
 

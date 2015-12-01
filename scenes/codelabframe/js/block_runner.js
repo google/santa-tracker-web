@@ -134,24 +134,16 @@ app.BlockRunner.prototype = {
   },
 
   /**
-   * Upgrades the passed AnimationEffectReadOnly to an GroupEffect.
+   * Merges the passed AnimationEffectReadOnly with another animation.
    * @param {!AnimationEffectReadOnly} animation to upgrade
-   * @param {!Array<!AnimationEffectReadOnly>=} opt_suffix of animations to add
-   * @return {!GroupEffect} group
+   * @param {!AnimationEffectReadOnly=} opt_extra of animation to add
+   * @return {!AnimationEffectReadOnly} merged animation
    */
-  upgradeToGroup_: function(animation, opt_suffix) {
-    var children, group;
-
-    if (animation instanceof GroupEffect) {
-      if (opt_suffix) {
-        children = animation.children.concat(opt_suffix);
-        animation = new GroupEffect(children, animation.timing);
-      }
-      return animation;
+  upgradeToGroup_: function(animation, opt_extra) {
+    if (opt_extra) {
+      return new GroupEffect([opt_extra, new SequenceEffect([animation])]);
     }
-
-    children = [animation].concat(opt_suffix || []);
-    return new GroupEffect(children);
+    return animation;
   },
 
   injectHighlight: function(blockId) {

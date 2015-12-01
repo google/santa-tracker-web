@@ -65,28 +65,6 @@ specific language governing permissions and limitations under the License.
     });
 
     /**
-     * Filters out clicks on links that do not match current domain
-     */
-    function clickFilter(event) {
-      if (event.target === undefined) {
-        return;
-      }
-
-      if (event.target.localName !== 'a') {
-        return;
-      }
-
-      var url_check = location.protocol + "//" + document.domain;
-
-      if (event.target.href.search(url_check)) {
-        event.stopPropagation();
-        event.preventDefault();
-      }
-
-      return;
-    }
-
-    /**
      * @param {string} param URL parameter to look for.
      * @return {string|undefined} undefined if the URL parameter does not exist.
      */
@@ -94,15 +72,15 @@ specific language governing permissions and limitations under the License.
       if (!window.location.search) {
         return;
       }
-      var m = new RegExp(param + '=([^&]*)').exec(
-          window.location.search.substring(1));
+      var m = new RegExp(param + '=([^&]*)').exec(window.location.search.substring(1));
       if (!m) {
         return;
       }
       return decodeURIComponent(m[1]);
     }
 
-    if (getUrlParameter('api_client')) {
+    var apiClient = getUrlParameter('api_client');
+    if (apiClient) {
       ga_.pushCommand(['_setCampSourceKey', 'api_client']);
       ga_.pushCommand(['_setCampMediumKey', 'api_client']);
     }
@@ -161,11 +139,11 @@ specific language governing permissions and limitations under the License.
       } catch (e){}
     };
   </script>
-
-  <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
-  <link rel="import" href="elements/elements_en.html" />
+  <script src="components/webcomponentsjs/webcomponents-lite.min.js" async></script>
+  <link rel="import" href="elements/elements_en.html">
+  <link rel="import" href="js/ccsender.html" async>
 </head>
-<body class="fullbleed" unresolved>
+<body class="fullbleed" data-version="" unresolved>
 
 <santa-app id="santaApp"></santa-app>
 
@@ -186,8 +164,19 @@ if (inEmbed) {
 
 window.santaApp = document.querySelector('santa-app');
 
+// For Portal mode, filter out clicks that don't match the current domain.
 if (window.santaApp.mode == 'portal') {
-  document.body.addEventListener('click', clickFilter);
+  document.body.addEventListener('click', function clickFilter(event) {
+    if (!event.target || event.target.localName != 'a') {
+      return;
+    }
+
+    var url_check = location.protocol + '//' + document.domain;
+    if (event.target.href.search(url_check)) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+  });
 }
 
 var POLYMER_ANALYTICS_TIMEOUT_ = 60 * 1000;

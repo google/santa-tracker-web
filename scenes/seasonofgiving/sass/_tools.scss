@@ -17,7 +17,7 @@
     box-sizing: border-box;
     max-height: 283px;
     min-height: 100px;
-    overflow: auto;
+    overflow: hidden;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -75,7 +75,7 @@
     width: 25%;
     height: 78px;
   }
-  
+
   .Tool-container--third {
     width: 33.3%;
     height: 70px;
@@ -172,7 +172,7 @@
     height: 80px;
     position: relative;
   }
-  
+
   .Tool-sliderContainer {
     background: url('img/tools/slider-size-bg.svg') no-repeat;
     background-size: contain;
@@ -187,7 +187,7 @@
     top: 0;
     width: 182px;
   }
-  
+
   .goog-slider-thumb,
   .Slider-thumb {
     height: 20px;
@@ -203,7 +203,7 @@
   .Tool--selected {
     background-size: contain !important;
     position: fixed;
-    z-index: 3;
+    z-index: 6;
     transform-origin: 4% 100% 0;
   }
 
@@ -236,7 +236,7 @@
       height: 176px;
     }
   }
-  
+
   .Tool-crayon--light-green {
     @include makeCrayon('img/tools/crayon-light-green.svg');
 
@@ -281,7 +281,7 @@
       height: 176px;
     }
   }
-  
+
   .Tool-crayon--violet {
     @include makeCrayon('img/tools/crayon-violet.svg');
 
@@ -414,13 +414,13 @@
       padding-top: 15px;
 
       &:last-child {
-        margin-bottom: 40px;
+        margin-bottom: 35px;
       }
     }
 
     .crayon-size-container {
       background-color: #7bb241;
-      bottom: 38px;
+      bottom: -126px;
       position: absolute;
       width: 100%;
       z-index: -1;
@@ -506,10 +506,6 @@
 // Stack tools on small devices
 @media (max-width: 520px) {
   ##{$name} {
-    .crayon-size-container {
-      bottom: 55px;
-    }
-
     .Tool-container {
       border-bottom: 1px solid #7db249 !important;
     }

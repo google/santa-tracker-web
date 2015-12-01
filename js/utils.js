@@ -52,6 +52,19 @@ function randomRange(min, opt_max) {
 }
 
 /**
+ * Returns a random choice from the given array or array-like.
+ * @param {!IArrayLike} array
+ * @return {*}
+ */
+function randomChoice(array) {
+  if (array.length) {
+    var idx = Math.floor(Math.random() * array.length);
+    return array[idx];
+  }
+  return null;
+}
+
+/**
   * Checks whether the passed dates are the same calendar day.
   * @param {!Date} date1
   * @param {!Date} date2
@@ -61,6 +74,23 @@ function isSameDay(date1, date2) {
   return date1.getMonth() == date2.getMonth() &&
          date1.getDate() == date2.getDate() &&
          date1.getYear() == date2.getYear();
+}
+
+/**
+ * Checks whether the passed event is real.
+ * @param {Event} event
+ */
+function isRealEvent(event) {
+  if (!event) {
+    return false;
+  }
+  if (event.isTrusted !== undefined && !event.isTrusted) {
+    return false;
+  }
+  if (event.clientX !== undefined && !event.clientX && !event.clientY) {
+    return false;
+  }
+  return true;  // probably, who knows
 }
 
 /**
@@ -76,6 +106,21 @@ function assert(condition, opt_message) {
     throw new Error('Assertion failed' +
         (opt_message ? ': ' + opt_message : ''));
   }
+}
+
+/**
+ * @param {string} param URL parameter to look for.
+ * @return {string|undefined} undefined if the URL parameter does not exist.
+ */
+function getUrlParameter(param) {
+  if (!window.location.search) {
+    return;
+  }
+  var m = new RegExp(param + '=([^&]*)').exec(window.location.search.substring(1));
+  if (!m) {
+    return;
+  }
+  return decodeURIComponent(m[1]);
 }
 
 /**

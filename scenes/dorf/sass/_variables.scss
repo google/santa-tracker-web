@@ -9,8 +9,8 @@ $width-twocol: 600px;
 $width-bigheader: $width-twocol;
 $svg-ratio: 0.8;  // svgs to desktop size
 
-$height-card-mobile: 300px;
-$height-icedcard-mobile: 120px;
+$height-card-mobile: 204px;
+$height-newcard-mobile: 286px;
 
 // standard size of house at $width-desktop
 $dim-house: $width-desktop / 4;
@@ -34,16 +34,12 @@ $link-target-size: ($dim-house / 2)+32px;
 $village-extra-padding: 80px;  // shift village div virtually up by this amt
 $village-offset-up: 30px;  // how much we start the actual village higher
 
-// nb: none of these %'s should be 0 or 100, and they should be in-order
-// TODO(samthor): Express these in timeframes and calc % based on that.
-$skydive-start: 40%;
 $skydive-start-pos: -120px;
-$skydive-fallto: 50%;
-$skydive-fallto-pos: 240px;
-$skydive-land: 75%;
-$skydive-land-pos: 370px;
-$skydive-land-tablet-pos: 383px;
-$skydive-disappear: 95%;
+$skydive-fallto: 75%;
+$skydive-fallto-pos: 270px;
+$skydive-land: 100%;
+$skydive-land-pos: 330px;
+$skydive-land-tablet-pos: 365px;
 
 $house-row-1-z-index: 100;
 $house-row-2-z-index: 200;
@@ -54,3 +50,7 @@ $house-row-6-z-index: 600;
 $house-row-7-z-index: 700;
 
 $house-z-index-front: 1000;
+
+// cutoff easterggs on cast from this pixel - higher than we need for a HDTV, but static chromecast
+// view can also just be loaded on PCs.
+$easteregg-cast-cutoff: 350px;

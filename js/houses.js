@@ -42,6 +42,7 @@ window.HOUSES = [{
 }, {
   module: "app",
   iced: true,
+  color: '#fdbe27',
   launchDate: new Date('Dec 1, 2015'),
   hideDate: true,
   category: "play",
@@ -71,7 +72,7 @@ window.HOUSES = [{
   launchDate: new Date('Dec 4, 2015'),
   category: "learn"
 }, {
-  module: "elf-car",
+  module: "carpool",
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 5, 2015'),
@@ -85,6 +86,7 @@ window.HOUSES = [{
 }, {
   module: "santasearch",
   iced: true,
+  color: '#00904a',
   launchDate: new Date('Dec 7, 2015'),
   category: "play"
 }, {
@@ -165,7 +167,7 @@ window.HOUSES = [{
 }, {
   module: "citylights",
   iced: true,
-  color: '#283344',
+  color: '#182a4a',
   launchDate: new Date('Dec 19, 2015'),
   category: "learn"
 }, {

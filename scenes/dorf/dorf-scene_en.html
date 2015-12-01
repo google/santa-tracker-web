@@ -38,29 +38,38 @@ Village scene (2015).
   :host[mode="cast"] .ice {
     display: none !important;
   }
-  :host[mode="cast"] .house-new-today {
+  :host[mode="cast"] #village-footer {
+    display: none !important;
+  }
+  :host[mode="portal"] .launchdate {
     display: none !important;
   }
   </style>
   <div id="module-dorf">
     <header>
-      <div id="header-background"></div>
+      <div id="header-background">
+        <div id="header-mobilevillage"></div>
+      </div>
       <div id="header-skyeffect">
         <span class="sun"></span>
         <span class="plane"></span>
-        <span class="skydive">
+        <span id="village-pegman">
           <span class="pegman-1"></span>
-          <span class="pegman-2"><a href="https://santadive.withgoogle.com/">Santa Dive</a></span>
-          <span class="pegman-3"><a href="https://santadive.withgoogle.com/">Santa Dive</a></span>
+          <span class="pegman-2"><a href="{{_calculateDiveURL(santaApp.mode)}}">Santa Dive</a></span>
+          <span class="pegman-3"><a href="{{_calculateDiveURL(santaApp.mode)}}">Santa Dive</a></span>
         </span>
+        <div id="effectholder">
+        </div>
+        <div id="header-mobileelves"></div>
       </div>
       <div id="header-content">
-        <div id="count-down" class$="{{_calculateModeClass(santaApp.mode)}}">
+        <div id="ornament"></div>
+        <div id="count-down" class$="mode-{{santaApp.mode}}">
           <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
           <countdown-timer id="count"
                            animate="{{!_equal(santaApp.mode, 'cast')}}"
                            santa-service="[[santaService]]"
-                           count-down-end-date="[[countDownEndDate]]"
+                           countdown-end-at="[[countdownEndAt]]"
                            finished="{{countdownFinished}}">
             <h3><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h3>
             <h3><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h3>
@@ -68,16 +77,20 @@ Village scene (2015).
             <h3><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h3>
           </countdown-timer>
         </div>
+        <div class="castlogo" hidden$="{{!_equal(santaApp.mode, 'cast')}}"></div>
         <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
         <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
       </div>
     </header>
     <div id="village-all">
+      <div id="mobiletext">
+        <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
       <div id="ground"></div>
       <div id="road"></div>
-      <div id="houses">
+      <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
         <div class$="house house-new-today new-today-{{todayHouse}}">
-          <template is="dom-if" if="{{todayHouse}}">
+          <template is="dom-if" if="{{_calculateShowTodayHouse(todayHouse, santaApp.mode)}}">
             <a href="{{_calculateNewTodayHref(todayHouse)}}">
               <div class="card">
                 <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -88,7 +101,7 @@ Village scene (2015).
         </div>
         <template id="housesloop" is="dom-repeat" items="{{houses}}" observe="iced disabled">
           <div id$="house-{{item.module}}"
-               class$="house house-{{item.module}} {{_calculateClass(item, item.iced)}}"
+               class$="house house-{{item.module}} {{_calculateClass(item, item.iced, todayHouse)}}"
                disabled$="{{item.disabled}}">
             <div class="assets housez">
               <div class="building"></div>
@@ -99,13 +112,20 @@ Village scene (2015).
             </div>
             <template is="dom-if" if="{{!item.disabled}}">
               <div class="action">
-                <a class="link" href="{{_calculateHref(item)}}">
+                <a class="link" href$="{{_calculateHref(item, item.iced)}}">
                   <div class$="card card-{{item.module}}">
                     <div class="image"></div>
-                    <h4>{{_string('category', item.category, santaApp.strings)}}</h4>
-                    <h3>{{_string('scene', item.module, santaApp.strings)}}</h3>
-                    <template is="dom-if" if="{{!item.hideDate}}">
-                      <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
+                    <div class="color" style$="background: {{item.color}}"></div>
+                    <div class="text">
+                      <div class="launchdate" hidden$="{{item.hideDate}}">{{_calculateDateNo(item.launchDate)}}</div>
+                      <h4>{{_string('category', item.category, santaApp.strings)}}</h4>
+                      <h3>{{_string('scene', item.module, santaApp.strings)}}</h3>
+                      <div class="img-lock" hidden$="{{!item.iced}}"></div>
+                    </div>
+                    <template is="dom-if" if="{{_equals(todayHouse, item.module)}}">
+                      <div class="label">
+                        <i18n-msg msgid="new">PLACEHOLDER_i18n</i18n-msg>
+                      </div>
                     </template>
                   </div>
                 </a>
@@ -117,7 +137,7 @@ Village scene (2015).
 
         <!-- TODO(samthor): This isn't part of the flex layout, but ensures
              that easter eggs have a shared z-index with houses -->
-        <div id="eastereggs">
+        <div id="eastereggs" class$="mode-{{santaApp.mode}}">
           <template is="dom-repeat" items="{{easterEggs}}">
             <div id$="easteregg-{{item}}" class="easter-egg"></div>
           </template>
@@ -178,15 +198,30 @@ Village scene (2015).
       </div>
     </div>
     <div id="village-footer">
-      <p><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-      <div id="village-footer-elves"></div>
+      <p hidden$="{{countdownFinished}}"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
+      <img src="{{componentDir}}img/footer-elves.svg" />
+    </div>
+    <div id="village-donate">
+      <div id="wrapper">
+        <h3>#ForEveryKid</h3>
+        <p>
+          Help fund a special project on DonorsChoose.org.
+          This December, we're helping to double the impact by matching donations by 50%, until we reach our goal of donating US$1,000,000.
+          Together, we can make classrooms more inclusive #ForEveryKid
+        </p>
+        <div class="button">
+          <a target="_blank" href="
+https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
+        </div>
+      </div>
     </div>
   </div><!-- #module-dorf -->
 </template>
 <script>
 (function() {
 
-  var SNOWFLAKE_COUNT = 20;
+  var SNOWFLAKE_COUNT = 25;
+  var CLOUD_COUNT = 6;
 
   var RANDOM_EGG_WAIT_MIN = 5000;
   var RANDOM_EGG_WAIT_MAX = 30000;
@@ -198,10 +233,11 @@ Village scene (2015).
   var SNOWFLAKE_SHIMMY_MAX = 10;
   var SNOWFLAKE_SIZE_MIN = 8;
   var SNOWFLAKE_SIZE_MAX = 16;
-  var CLOUD_TOP_MIN = 160;
-  var CLOUD_TOP_MAX = 300;
-  var CLOUD_SPEED_MIN = 60;
-  var CLOUD_SPEED_MAX = 160;
+  var CLOUD_TOP_MIN = 140;
+  var CLOUD_TOP_MAX = 280;
+  var CLOUD_SPEED_MIN = 50;
+  var CLOUD_SPEED_MAX = 200;
+  var CLOUD_TYPES = 3;
 
   var EASTER_EGGS = ['tree', 'blocks', 'statue', 'penguin-revolt',
       'snowman-reading', 'rosetta-stone', 'white-board', 'schoolyard',
@@ -227,7 +263,8 @@ Village scene (2015).
     var shimmySpeed = randomRange(SNOWFLAKE_SHIMMY_MIN, SNOWFLAKE_SHIMMY_MAX);
     var size = Math.round(randomRange(SNOWFLAKE_SIZE_MIN, SNOWFLAKE_SIZE_MAX));
 
-    elem.style.transform = 'translate(' + pos + 'vw) rotate(' + rotate + 'deg)';
+    elem.style.transform = 'rotate(' + rotate + 'deg)';
+    elem.style.left = pos + '%';
 
     var shimmy = elem.querySelector('.shimmy');
     shimmy.style.animationDuration = shimmySpeed + 's'
@@ -265,6 +302,7 @@ Village scene (2015).
       cloud.style.animationDirection = 'reverse';
     }
     cloud.style.animationDelay = (+delay) + 's';
+    cloud.className = 'cloud cloud' + Math.floor(Math.random() * CLOUD_TYPES);
 
     return elem;
   }
@@ -289,6 +327,8 @@ Village scene (2015).
         readOnly: true,
         value: Object.freeze(EASTER_EGGS)
       },
+      countdownFinished: Boolean,
+
       /**
        * URL to share. If null, shares the current href.
        */
@@ -312,50 +352,6 @@ Village scene (2015).
       'easteregg-snowmobile4.click': '_driveSnowmobile'
     },
 
-    observers: [
-      '_setupEffectHandlers(active)'
-    ],
-
-    created: function() {
-      this._changeEffectCount = this._changeEffectCount.bind(this);
-    },
-
-    attached: function() {
-      var skyeffect = this.$['header-skyeffect'];
-
-      var snowflakes = SNOWFLAKE_COUNT;
-      if (this.getAttribute('mode') == 'cast') {
-        snowflakes /= 2;
-      }
-      for (var i = 0; i < snowflakes; ++i) {
-        // Delay snowflakes by their count+5 sec.
-        var x = snowflakeFactory(null, i + 5);
-        skyeffect.appendChild(x);
-      }
-      for (var i = 0; i < 4; ++i) {
-        // Delay clouds by their count+1 sec, and every second is reverse.
-        var x = cloudFactory(null, i + 1, i % 2);
-        skyeffect.appendChild(x);
-      }
-    },
-
-    _setupEffectHandlers: function(active) {
-      if (!active) {
-        window.removeEventListener('resize', this._changeEffectCount);
-        return;  // TODO(samthor): Remove all current snowflakes
-      }
-
-      this._changeEffectCount();
-      window.addEventListener('resize', this._changeEffectCount);
-    },
-
-    _changeEffectCount: function() {
-      this.debounce('_changeEffectCount', function() {
-        // TODO(samthor): Choose a number of snowflakes based on
-        // `window.innerWidth`. Drift the current number towards that amount.
-      }, 500);
-    },
-
     /**
      * Async task for _randomEasterEggs.
      */
@@ -374,13 +370,72 @@ Village scene (2015).
         }
         var easterEgg = this.$['easteregg-' + easterEggs[
             Math.floor(Math.random() * easterEggs.length)]];
-        easterEgg.click();
+
+        var bounds = easterEgg.getBoundingClientRect();
+        if (bounds.width && bounds.height) {
+          easterEgg.click();  // click on the easter egg only if it's not display: none
+        }
+
         this._randomEasterEggs();
       }, eggTime);
     },
 
+    _pegmanDive: function() {
+      var SKY_DIVE_TIME = 10000;
+      var SKY_DIVE_FALL = .75 * SKY_DIVE_TIME;
+      var SKY_DIVE_LAND = SKY_DIVE_TIME - SKY_DIVE_FALL + 200;
+      var SKY_DIVE_RESTART = SKY_DIVE_LAND + 10000;
+      var PEGMAN_WAIT = 2000;
+
+      this.cancelAsync(this._pegmanTimer);
+
+      if (!this.active) {
+        return; // not active, no point jumping
+      }
+
+      var pegman = this.$['village-pegman'];
+
+      // Make sure we are all good before jumping
+      pegman.classList.remove('skydive', 'stage1', 'stage2', 'stage3', 'hide');
+
+      // Jump!
+      pegman.classList.add('skydive', 'stage1');
+      this._pegmanTimer = this.async(function() {
+        if (!this.active) {
+          return;
+        }
+
+        pegman.classList.remove('stage1');
+        pegman.classList.add('stage2');
+
+        this._pegmanTimer = this.async(function() {
+          if (!this.active) {
+            return;
+          }
+
+          pegman.classList.remove('stage2');
+          pegman.classList.add('stage3');
+
+          this._pegmanTimer = this.async(function() {
+            if (!this.active) {
+              return;
+            }
+
+            pegman.classList.add('hide');
+
+            this._pegmanTimer = this.async(function() {
+              pegman.classList.remove('skydive');
+              this._pegmanTimer = this.async(function() {
+                this._pegmanDive();
+              }, PEGMAN_WAIT);
+            }, PEGMAN_WAIT);
+          }, SKY_DIVE_RESTART);
+        }, SKY_DIVE_LAND);
+      }, SKY_DIVE_FALL);
+    },
+
     _driveSnowmobile: function(e) {
-      if (this._wasUserClick(e)) {
+      if (isRealEvent(e)) {
         this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'snowmobile'});
       }
       var DRIVE_TIME = 10000;
@@ -393,13 +448,8 @@ Village scene (2015).
       }, DRIVE_TIME + 1);
     },
 
-    _wasUserClick: function(e) {
-      if (e.x == 0 && e.y == 0) return false;
-      return true;
-    },
-
     _flyBalloon: function(e) {
-      if (this._wasUserClick(e)) {
+      if (isRealEvent(e)) {
         this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'balloon'});
       }
 
@@ -422,7 +472,7 @@ Village scene (2015).
     },
 
     _triggerBus: function(e) {
-      if (this._wasUserClick(e)) {
+      if (isRealEvent(e)) {
         this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'bus'});
       }
 
@@ -466,15 +516,21 @@ Village scene (2015).
     /**
      * Calculates the href to load for this house.
      */
-    _calculateHref: function(house) {
+    _calculateHref: function(house, iced) {
+      if (iced || house.disabled) {
+        return null;
+      }
       return house.link || this.pageUrl + '#' + house.module;
     },
 
     /**
      * Calculates any optional classes to apply on the `.house` div.
      */
-    _calculateClass: function(house, iced) {
-      return iced ? 'iced' : '';
+    _calculateClass: function(house, iced, todayHouse) {
+      var out = '';
+      if (iced) { out += ' iced'; }
+      if (todayHouse == house.module) { out += ' new-today'; }
+      return out;
     },
 
     /**
@@ -499,7 +555,7 @@ Village scene (2015).
 
     _santaAppChanged: function() {
       this.santaService = this.santaApp.santaService;
-      this.countDownEndDate = this.santaApp.countDownEndDate;
+      this.countdownEndAt = this.santaApp.countdownEndAt;
     },
 
     /**
@@ -519,11 +575,15 @@ Village scene (2015).
       this.toggleClass('scrolling', scroller.scrollTop > 0, this.$.toolbar);
     },
 
-    _calculateModeClass: function(mode) {
+    _calculateShowTodayHouse: function(todayHouse, mode) {
       if (mode == 'cast') {
-        return 'large';
+        return false;
       }
-      return '';
+      return todayHouse != '';
+    },
+
+    _calculateNewTodayClass: function(todayHouse, moduleId) {
+      return todayHouse == moduleId ? 'new-today' : '';
     },
 
     /**
@@ -533,31 +593,97 @@ Village scene (2015).
       return a == b;
     },
 
-    onShow: function() {
-      // Start timer one tick after scene is shown.
+    _calculateDiveURL: function(mode) {
+      if (mode == 'portal') {
+        return '/dive';
+      }
+      return 'https://santadive.withgoogle.com';
+    },
+
+    _onHousesOver: function(event) {
+      if (!event.target || event.target.localName != 'a' || !event.target.href) {
+        return;
+      }
+      this.fire('sound-trigger', 'village_bubble_appear');
+    },
+
+    _onHousesOut: function(event) {
+      if (!event.target || !event.target.classList.contains('card')) {
+        return;
+      }
+      this.fire('sound-trigger', 'village_bubble_disappear');
+    },
+
+    onPreload: function() {
       this.preloadSounds('village_load_sounds');
-      this.preloadSounds('load_music');
+      this.preloadImages([
+        'img/road.svg',
+        'img/ground.svg',
+        'img/sun.svg',
+        'img/cloud1.svg',
+        'img/cloud2.svg',
+        'img/cloud3.svg',
+        'img/header-bg.svg',
+        '../../elements/countdown/img/number-bg.svg',
+      ]);
+
+      if (window.innerWidth < 768) {
+        this.preloadImages([
+          'img/mobile-header.svg',
+          'img/mobile-header-elves.svg',
+        ]);
+      }
+
+      // Preload the first ~7 houses.
+      var houses = this.houses || (this.santaApp && this.santaApp._houses) || [];
+      for (var i = 0; i < 7 && i < houses.length; ++i) {
+        var house = houses[i];
+        var id = house.module;
+        var preload = [
+          'img/building-' + id + '.svg',
+          'img/card-' + id + '_2x.png'
+        ];
+        if (house.iced) {
+          preload.push('img/building-' + id + '-ice.svg')
+        }
+        this.preloadImages(preload);
+      }
+
+    },
+
+    onShow: function() {
       this.fire('sound-ambient', 'music_start_village');
       this.fire('sound-ambient', 'village_start');
+
+      // Start timer one tick after scene is shown.
       this.async(function() {
         this.$.count.start();
       });
 
+      if (this.santaApp.mode != 'cast') {
+        this._randomEasterEggs();  // stops self if no longer active
+        this._pegmanDive();
+      }
 
-      this._randomEasterEggs();  // stops self if no longer active
+      var eh = this.$.effectholder;
+      eh.textContent = '';  // clear
 
-      // Change maps dive link when in Portal mode
-      if (santaApp.mode == 'portal') {
-        var pegmanClasses = [ 'pegman-1', 'pegman-2', 'pegman-3' ];
-        for (var i = 0; i < pegmanClasses.length; i++) {
-          $("span." + pegmanClasses[i] + ">a").attr('href', '/dive');
-        }
+      for (var i = 0; i < SNOWFLAKE_COUNT; ++i) {
+        // Delay snowflakes by their count+5 sec.
+        var x = snowflakeFactory(null, i + 5);
+        eh.appendChild(x);
+      }
+      for (var i = 0; i < CLOUD_COUNT; ++i) {
+        // Delay clouds by their count+1 sec, and every second is reverse.
+        var x = cloudFactory(null, i + 1, i % 2);
+        eh.appendChild(x);
       }
     },
 
     onHide: function() {
       this.fire('sound-ambient', 'village_end');
       this.$.count.stop();
+      this.$.effectholder.textContent = '';
     },
 
     onPause: function() {
