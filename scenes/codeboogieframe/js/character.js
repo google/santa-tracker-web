@@ -45,20 +45,20 @@ app.Character = class {
     let data = app.AnimationData(color);
 
     Object.keys(data).forEach(key => {
-      let img = new Image();
+      let image = new Image();
 
-      img.addEventListener('load', () => {
+      image.addEventListener('load', () => {
         let canvas = document.createElement('canvas');
-        canvas.width = img.width;
-        canvas.height = img.height;
+        canvas.width = image.naturalWidth;
+        canvas.height = image.naturalHeight;
 
         let context = canvas.getContext('2d');
-        context.drawImage(img, 0, 0);
+        context.drawImage(image, 0, 0);
 
         this.images[key] = canvas;
       });
 
-      img.src = `img/steps/${color}/${key}.png`;
+      image.src = `img/steps/${color}/${key}.png`;
     });
   }
 
