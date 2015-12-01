@@ -176,5 +176,9 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     if (normalized === 4) {
       this.onAnimationBar(bpm);
     }
+
+    if (this.currentAnimation && this.currentAnimation.isCountdown) {
+      Klang.triggerEvent(`cb_count_in_${normalized}`);
+    }
   }
 };
