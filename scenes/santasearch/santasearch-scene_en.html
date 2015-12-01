@@ -131,6 +131,7 @@ Santasearch scene.
       this.preloadSounds('santasearch_load_sounds', 30);
       this.preloadImages([
         'img/maps/museum.svg',
+        'img/maps/secretlab.svg',
         'img/check.svg',
         'img/gameover.svg',
         'img/gingerbread-man-shadow.svg',
@@ -152,7 +153,7 @@ Santasearch scene.
     onShow: function() {
       var module = this.$['module-santasearch'];
 
-      this.game = new scenes.santasearch.Game(module);
+      this.game = new scenes.santasearch.Game(module, this.componentDir);
       this.game.start();
       this.fire('sound-ambient', 'santasearch_start');
     },

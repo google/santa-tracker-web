@@ -26,12 +26,13 @@ goog.require('app.shared.utils');
 /**
  * Main game class
  * @param {!Element} elem An DOM element which wraps the game.
+ * @param {string} componentDir A path to the directory for the game.
  * @implements {SharedGame}
  * @constructor
  * @struct
  * @export
  */
-app.Game = function(elem) {
+app.Game = function(elem, componentDir) {
   this.elem = $(elem);
   this.mapElem = this.elem.find('.map');
   this.guiElem = this.elem.find('.gui');
@@ -53,7 +54,7 @@ app.Game = function(elem) {
 
   /** @type {{height: number, width: number}} */
   this.mapDimensions = { height: 0, width: 0 };
-  this.map = new app.Map(this.mapElem, this.drawerElem, this.mapDimensions);
+  this.map = new app.Map(this.mapElem, this.drawerElem, componentDir, this.mapDimensions);
 
   this.onFrame_ = this.onFrame_.bind(this);
 };

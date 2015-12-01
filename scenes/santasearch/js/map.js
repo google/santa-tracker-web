@@ -27,9 +27,10 @@ goog.require('app.Constants');
  * @param {{height: number, width: number}} mapDimensions The map dimensions.
  * @constructor
  */
-app.Map = function(mapElem, drawerElem, mapDimensions) {
+app.Map = function(mapElem, drawerElem, componentDir, mapDimensions) {
   this.mapElem = mapElem;
   this.drawerElem = drawerElem;
+  this.componentDir = componentDir;
   this.mapDimensions = mapDimensions;
 
   /** @type {!Object<app.Character>} */
@@ -91,7 +92,8 @@ app.Map.prototype.initializeCharacters_ = function() {
  * @returns {jQuery.jqXHR}
  */
 app.Map.prototype.loadMap_ = function() {
-  return $.ajax(`img/maps/${this.mapName}.svg`).then((svgMap) => {
+  let mapPath = `${this.componentDir}img/maps/${this.mapName}.svg`;
+  return $.ajax(mapPath).then((svgMap) => {
     // Remove existing maps
     this.mapElem.find('.map__svg').remove();
 
