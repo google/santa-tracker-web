@@ -117,7 +117,7 @@ app.Game.prototype.start = function() {
  */
 app.Game.prototype.restart = function() {
   var match = location.search.match(/[?&]level=(\d+)/) || [];
-  var levelNumber = (+match[1] || 0) - 1;
+  var levelNumber = (+match[1] - 1 || 0) - 1;
   this.levelNumber = levelNumber;
 
   this.scene.reset();
