@@ -916,7 +916,10 @@ Polymer({
   _updateWindowTitle: function() {
     var scene = this.selectedScene;
     var raw = scene && scene.getAttribute('icon');
-    var icon = raw ? String.fromCodePoint(parseInt(raw, 16)) : '';
+    var icon = '';
+    if (raw && String.fromCodePoint) {  // no emoji on IE11
+      icon = String.fromCodePoint(parseInt(raw, 16));
+    }
     document.title = icon + WINDOW_TITLE;
   },
 
