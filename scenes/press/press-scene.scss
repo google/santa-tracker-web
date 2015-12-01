@@ -10,7 +10,8 @@ $name: 'module-press';
   -webkit-font-smoothing: antialiased;
 
   .fit.scroll {
-    height: 100vh;
+    height: 95vh;
+    height: calc(100vh - 56px);
     overflow: auto;
   }
   
