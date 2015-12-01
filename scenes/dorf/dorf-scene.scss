@@ -327,7 +327,6 @@ $toolbar-size: 64px;
     }
 
     #header-mobilevillage {
-      background: url(img/mobile-header.svg) center bottom no-repeat;
       position: absolute;
       bottom: 0;
       width: 100%;
@@ -335,7 +334,6 @@ $toolbar-size: 64px;
       display: none;
     }
     #header-mobileelves {
-      background: url(img/mobile-header-elves.svg) center left no-repeat;
       position: absolute;
       top: 210px + 180px;
       width: 320px;
@@ -816,9 +814,13 @@ $toolbar-size: 64px;
         background-position: center;
       }
 
-      #header-mobilevillage,
+      #header-mobilevillage {
+        display: block;
+        background: url(img/mobile-header.svg) center bottom no-repeat;
+      }
       #header-mobileelves {
         display: block;
+        background: url(img/mobile-header-elves.svg) center left no-repeat;
       }
     }
 
