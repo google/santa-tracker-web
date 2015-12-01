@@ -28,6 +28,7 @@ goog.require('app.shared.utils');
  */
 app.ChooseMap = function(elem) {
   this.elem = elem;
+  this.callback_ = null;
 
   this.elem.on('click', '.choose-map__option', this.setMap_.bind(this));
 
@@ -39,15 +40,15 @@ app.ChooseMap = function(elem) {
  */
 app.ChooseMap.prototype.setMap_ = function(event) {
   let mapName = $(event.currentTarget).data('map');
-  this.callback(mapName);
+  this.callback_(mapName);
   this.overlay.hide();
 };
 
 /**
  * Shows the share screen with an animation.
- * @param {function()=} callback Runs when a map is selected.
+ * @param {function(string)} callback Runs when a map is selected.
  */
 app.ChooseMap.prototype.show = function(callback) {
-  this.callback = callback;
+  this.callback_ = callback;
   this.overlay.show();
 };
