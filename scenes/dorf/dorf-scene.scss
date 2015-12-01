@@ -697,10 +697,11 @@ $toolbar-size: 64px;
         // ignored anyway.
         @include will-change();
 
-        $duration-in: 0.4s;
-        $easing-in: cubic-bezier(0.380, 0.800, 0.475, 1.285);
+        $duration-in: 0.23s;
+        $easing-in: cubic-bezier(0,1,.33,1.28);
         $duration-out: 0.2s;
-        $easing-out: ease-in;
+        $easing-out: cubic-bezier(.83,.02,1,.01);
+        $easing-rotate-in: ease-out;
 
         .card {
           $hs: $hover-card-size / 2;
@@ -726,6 +727,11 @@ $toolbar-size: 64px;
           .launchdate {
             display: none;
           }
+
+          .image {
+            transform: rotate(10deg);
+            transition: transform .01s ease-out $duration-out;
+          }
         }
 
         // only change state on links with hrefs
@@ -734,6 +740,11 @@ $toolbar-size: 64px;
             transition: transform $duration-in $easing-in, opacity $duration-in $easing-in;
             transform: scale(1);
             opacity: 1;
+
+            .image {
+              transform: rotate(0deg);
+              transition: transform $duration-in $easing-rotate-in .02s;
+            }
           }
         }
       }  // .link
