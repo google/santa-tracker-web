@@ -1081,8 +1081,9 @@ Polymer({
   sceneIsUnlocked: function(moduleName) {
     for (var i = 0, house; house = this._houses[i]; ++i) {
       if (house.module === moduleName) {
-        if (santaApp.mode == 'portal')
+        if (santaApp.mode == 'portal') {
           return !house.disabled && (this.santaService.now() > house.portalLaunchDate);
+        }
         return !house.disabled && (this.santaService.now() > house.launchDate);
       }
     }
