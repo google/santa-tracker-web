@@ -158,7 +158,8 @@ var SCENE_CLOSURE_CONFIG = {
     closureLibrary: true,
     typeSafe: true,
     entryPoint: 'app.Game',
-    isFrame: true
+    isFrame: true,
+    libraries: ['third_party/lib/blockly/**/*.js']
   },
   codelab: {
     typeSafe: false,
@@ -169,7 +170,8 @@ var SCENE_CLOSURE_CONFIG = {
     closureLibrary: true,
     typeSafe: false,
     entryPoint: 'app.Game',
-    isFrame: true
+    isFrame: true,
+    libraries: ['third_party/lib/blockly/**/*.js']
   },
   commandcentre: {
     typeSafe: false,
@@ -346,6 +348,13 @@ gulp.task('compile-scenes', function() {
     }
     compilerSrc.push('!' + closureLibraryPath + '/**_test.js');
 
+    // Extra closure compiled libraries required by scene. Unfortunately
+    // closure compiler does not support standard bash glob '**/*.ext'. Only
+    // unstandard '**.ext' which bash/gulp does not support.
+    var libraries = config.libraries || [];
+    libraries = libraries.map(function(lib) { return lib.replace('**/*', '**'); });
+    compilerSrc = compilerSrc.concat(libraries);
+
     return stream.add(gulp.src([
       'scenes/' + sceneName + '/js/**/*.js',
       'scenes/shared/js/*.js',
@@ -393,11 +402,12 @@ gulp.task('build-scene-deps', function() {
     var config = SCENE_CLOSURE_CONFIG[sceneName];
     var fileName = sceneName + '-scene.deps.js';
     var dest = '.devmode/scenes/' + sceneName;
-
-    return stream.add(gulp.src([
+    var scripts = [
       'scenes/' + sceneName + '/js/**/*.js',
       'scenes/shared/js/*.js'
-    ])
+    ].concat(config.libraries || []);
+
+    return stream.add(gulp.src(scripts)
         .pipe($.newer(dest + '/' + fileName))
         .pipe(closureDeps({
           baseDir: '.',
