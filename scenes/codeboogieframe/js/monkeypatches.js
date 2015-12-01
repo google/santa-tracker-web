@@ -18,6 +18,7 @@ goog.provide('app.monkeypatches');
 
 goog.require('goog.dom.vendor');
 
+
 /**
  * Returns the JS vendor prefix used in CSS properties. Different vendors
  * use different methods of changing the case of the property names.
@@ -26,6 +27,7 @@ goog.require('goog.dom.vendor');
  *    must match them by starting lowercase.
  *
  * @return {?string} The JS vendor prefix or null if there is none.
+ * @suppress {duplicate}
  */
 goog.dom.vendor.getVendorJsPrefix = function() {
   if (goog.userAgent.WEBKIT) {

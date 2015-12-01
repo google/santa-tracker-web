@@ -18,8 +18,18 @@
 
 goog.provide('app.Character');
 
+goog.require('app.Animation');
 goog.require('app.Step');
 
+/**
+ * @typedef {{
+ *   name: string,
+ *   frames: number
+ * }}
+ */
+app.AnimationSprite;
+
+/** @type {Object<app.Step, app.AnimationSprite>} */
 let sources = {
   [app.Step.IDLE]: {
     name: 'idle',
@@ -81,9 +91,13 @@ let sources = {
 
 app.Character = class {
   constructor(el, color) {
+    /** @type {app.Animation} */
+    this.animation = null;
     this.color = color;
     this.currentState = null;
     this.el = el;
+    /** @type {?app.AnimationSprite} */
+    this.sprite = null;
 
     // Create canvas
     let canvas = document.createElement('canvas');
@@ -123,7 +137,7 @@ app.Character = class {
       throw new Error(`No sprite found for move ${step}`);
     }
 
-    this.animation = new Animation(this.sprite, this.color, bpm);
+    this.animation = new app.Animation(this.sprite, this.color, bpm);
     this.animation.play();
   }
 };

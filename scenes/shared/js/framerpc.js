@@ -19,8 +19,8 @@ goog.provide('app.shared.FrameRPC');
 /**
  * Simple RPC channel for communicating between frames using postMessage.
  *
- * @param {Element} target frame to send messages to.
- * @param {object} api of methods available to other frame.
+ * @param {Window} target frame to send messages to.
+ * @param {Object} api of methods available to other frame.
  * @constructor
  */
 app.shared.FrameRPC = function(target, api) {
@@ -50,8 +50,11 @@ app.shared.FrameRPC.prototype.dispose = function() {
 
 /**
  * Posts a message to the iframe
+ *
+ * @param {string} methodName rpc method to call.
+ * @param {...*} args parameters for rpc method.
  **/
-app.shared.FrameRPC.prototype.call = function(methodName/*, ...args */) {
+app.shared.FrameRPC.prototype.call = function(methodName, args) {
   var message = {
     method: methodName,
     args: Array.prototype.slice.call(arguments, 1)
@@ -66,6 +69,8 @@ app.shared.FrameRPC.prototype.call = function(methodName/*, ...args */) {
 
 /**
  * Callback for when we have received a message from the iframe.
+ *
+ * @param {Event} event post message event.
  */
 app.shared.FrameRPC.prototype.onReceiveMessage = function(event) {
   // Only process messages from our iframe.

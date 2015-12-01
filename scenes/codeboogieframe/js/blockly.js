@@ -23,7 +23,7 @@ goog.require('app.blocks');
 
 /**
  * A interface for the blockly library and UI.
- * @param {!Element} el dom element to inject Blockly into.
+ * @param {Element} el dom element to inject Blockly into.
  * @param {!app.Game} game instance.
  * @constructor
  */
@@ -43,6 +43,7 @@ app.Blockly.prototype = {
    * @private
    */
   initBlockly_: function() {
+    if (this.el == null) { return; }
     app.blocks.install();
 
     Blockly.SNAP_RADIUS = 60;
@@ -85,7 +86,7 @@ app.Blockly.prototype = {
    * @private
    */
   resetToolboxScroll_: function() {
-    Blockly.mainWorkspace.scrollX = Blockly.mainWorkspace.flyout_.width_;
+    Blockly.mainWorkspace.scrollX = Blockly.mainWorkspace.flyout_.getWidth();
     if (Blockly.RTL) {
       Blockly.mainWorkspace.scrollX *= -1;
     }
@@ -100,7 +101,7 @@ app.Blockly.prototype = {
   },
 
   getToolbarWidth: function() {
-    return Blockly.mainWorkspace.flyout_.width_;
+    return Blockly.mainWorkspace.flyout_.getWidth();
   },
 
   /**
@@ -299,7 +300,7 @@ app.Blockly.prototype = {
    * @return {boolean} true if there is more than one top block.
    */
   hasExtraTopBlocks: function() {
-    var topBlocks = Blockly.mainWorkspace.getTopBlocks();
+    var topBlocks = Blockly.mainWorkspace.getTopBlocks(false);
     for (var i = 0; i < topBlocks.length; i++) {
       // ignore disabled top blocks
       if (topBlocks[i].disabled) {

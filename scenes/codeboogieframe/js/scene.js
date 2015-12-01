@@ -28,7 +28,7 @@ goog.require('goog.style');
  * The main view for the maze game. Manages the gameplay viewport and
  * graphics which appear to the right of the blockly scene.
  *
- * @param {!Element} el root .scene element.
+ * @param {Element} el root .scene element.
  * @param {!app.Game} game instance.
  * @param {!app.Blockly} blockly wrapper.
  * @constructor
@@ -42,11 +42,12 @@ app.Scene = class {
     this.cachedWindowWidth_ = null;
     this.el_ = el;
     this.game = game;
-    /* @type {app.Level} */
+    /** @type {app.Level} */
     this.level = null;
     this.portraitMode_ = false;
     this.scaleRatio_ = 1;
     this.visible_ = false;
+    this.width_ = 0;
 
     // The world stage
     this.underlayEl_ = el.parentNode.querySelector('.scene-underlay');
@@ -56,9 +57,13 @@ app.Scene = class {
     // Portrait draggability
     var dummy = new KeyframeEffect(document.body, [], 0);
     this.dragPlayer_ = document.timeline.play(dummy);
+    /** @type {(Number|null)} */
     this.dragStartTime_ = null;
+    /** @type {(Number|null)} */
     this.dragStartX_ = null;
+    /** @type {(Number|null)} */
     this.dragLastX_ = null;
+    /** @type {(boolean|null)} */
     this.dragDirection_ = null;
 
     // Bind handlers
@@ -103,7 +108,8 @@ app.Scene = class {
 
   /**
    * Changes the current level.
-   * @param {number} level
+   *
+   * @param {app.Level} level
    */
   setLevel(level) {
     this.level = level;
@@ -196,7 +202,8 @@ app.Scene = class {
   /**
    * Mouse/touch down handler for portrait mode. Stores mouse/tap position
    * for other handlers to use.
-   * @param {MouseEvent|TouchEvent} e event object.
+   *
+   * @param {Event} e event object.
    * @private
    */
   onMouseDown_(e) {
@@ -211,7 +218,8 @@ app.Scene = class {
   /**
    * Mouse/touch move handler for portrait mode. Starts moving the scene if
    * dragged far enough.
-   * @param {MouseEvent|TouchEvent} e event object.
+   *
+   * @param {Event} e event object.
    * @private
    */
   onMouseMove_(e) {
@@ -249,7 +257,8 @@ app.Scene = class {
    * Mouse/touch up handler for portrait mode. Makes sure the scene is either
    * visible or hidden. Also checks if the user clicked/tapped to show/hide the
    * scene.
-   * @param {MouseEvent|TouchEvent} e event object.
+   *
+   * @param {Event} e event object.
    * @private
    */
   onMouseUp_(e) {
@@ -263,7 +272,7 @@ app.Scene = class {
 
     var makeVisible = didTap ?
     this.dragPlayer_.currentTime > app.Constants.SCENE_TOGGLE_DURATION / 2 :
-        this.dragDirection_;
+        !!this.dragDirection_;
     var tappingUnderlay = e.target === this.underlayEl_;
     var didTapCorrectSide = didTap && tappingUnderlay === !makeVisible;
 

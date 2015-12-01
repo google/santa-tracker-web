@@ -64,8 +64,8 @@ app.Patterns = (function() {
      * @param {string} imagePath Url of the image
      * @param {number} width Width of the image
      * @param {number} height Height of the image
-     * @param {number|function} offsetX Offset of the image to start pattern
-     * @param {number|function} offsetY Offset of the image to start pattern
+     * @param {number} offsetX Offset of the image to start pattern
+     * @param {number} offsetY Offset of the image to start pattern
      * @return {string} id of the pattern
      */
     addPattern: function(id, imagePath, width, height, offsetX, offsetY) {
@@ -81,8 +81,8 @@ app.Patterns = (function() {
 
       if (!wasCreated_(patternInfo)) {
         // add the pattern
-        x = typeof(offsetX) === 'function' ? -offsetX() : -offsetX;
-        y = typeof(offsetY) === 'function' ? -offsetY() : -offsetY;
+        x = -offsetX;
+        y = -offsetY;
         pattern = Blockly.createSvgElement('pattern', {
           id: id,
           patternUnits: 'userSpaceOnUse',

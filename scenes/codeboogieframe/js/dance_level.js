@@ -39,11 +39,11 @@ app.DanceStatus = {
  *   startBlocks: string,
  *   toolbox: string,
  *   idealBlockCount: number,
- *   steps: app.Step[],
+ *   steps: Array.<app.Step>,
  *   stage: string,
  *   bpm: number,
  *   freestyle: boolean,
- *   requiredBlocks: string[]
+ *   requiredBlocks: Array.<string>
  * }}
  */
 app.DanceLevelOptions;
@@ -99,7 +99,7 @@ app.DanceLevel = class extends app.Level {
   /**
    * Validates a blockly execution and returns a smart hint to user.
    *
-   * @param {app.BlockEvaluation[]} playerSteps
+   * @param {!Array.<app.BlockEvaluation>} playerSteps
    * @param {!app.Blockly} blockly wrapper.
    * @return {!app.DanceLevelResult} a user friendly level result.
    */
@@ -158,7 +158,7 @@ app.DanceLevel = class extends app.Level {
    * should play. Will edit the step array for animation purposes in some
    * cases.
    *
-   * @param {app.BlockEvaluation[]} playerSteps steps taken.
+   * @param {Array.<app.BlockEvaluation>} playerSteps steps taken.
    * @return {app.DanceStatus}
    */
   evaluateStatus(playerSteps) {
@@ -190,9 +190,9 @@ app.DanceLevel = class extends app.Level {
   /**
    * Creates an animation timeline for a provided player steps.
    *
-   * @param {app.BlockEvaluation[]} playerSteps
+   * @param {Array.<app.BlockEvaluation>} playerSteps
    * @param {app.DanceStatus} result
-   * @returns {app.AnimationItem[]}
+   * @returns {Array.<app.AnimationItem>}
    */
   createAnimationQueue(playerSteps, result) {
     let queue = [];
@@ -262,7 +262,7 @@ app.DanceLevel = class extends app.Level {
     return queue;
   }
 
-  /*
+  /**
    * Get a random special move.
    *
    * @returns {app.Step}
@@ -288,6 +288,7 @@ app.DanceLevel = class extends app.Level {
  * @typedef {{
  *   allowRetry: boolean,
  *   code: string,
+ *   freestyle: boolean,
  *   skipAnimation: boolean,
  *   animationQueue: Array.<app.AnimationItem>,
  *   overlayGraphic: string,
@@ -312,6 +313,7 @@ app.DanceLevelResult = class extends app.LevelResult {
     super(levelComplete, message, options);
     this.animationQueue = options.animationQueue || [];
     this.danceStatus = options.danceStatus || app.DanceStatus.NO_STEPS;
+    this.freestyle = options.freestyle || false;
   }
 
   watching() {

@@ -18,7 +18,7 @@ goog.provide('app.SceneTutorial');
 
 /**
  * Manages the display of a tutorial animation for the game.
- * @param {!Element} el the .tutorial element.
+ * @param {Element} el the .tutorial element.
  * @constructor
  */
 app.SceneTutorial = function(el) {

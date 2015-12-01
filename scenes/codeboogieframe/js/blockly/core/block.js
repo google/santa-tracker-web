@@ -1370,7 +1370,7 @@ Blockly.Block.prototype.setTooltip = function(newTip) {
 /**
  * Set whether this block can chain onto the bottom of another block.
  * @param {boolean} newBoolean True if there can be a previous statement.
- * @param {string|Array.<string>|null} opt_check Statement type or list of
+ * @param {(string|Array.<string>|null)=} opt_check Statement type or list of
  *     statement types.  Null or undefined if any type could be connected.
  */
 Blockly.Block.prototype.setPreviousStatement = function(newBoolean, opt_check) {
@@ -1399,7 +1399,7 @@ Blockly.Block.prototype.setPreviousStatement = function(newBoolean, opt_check) {
 /**
  * Set whether another block can chain onto the bottom of this block.
  * @param {boolean} newBoolean True if there can be a next statement.
- * @param {string|Array.<string>|null} opt_check Statement type or list of
+ * @param {(string|Array.<string>|null)=} opt_check Statement type or list of
  *     statement types.  Null or undefined if any type could be connected.
  */
 Blockly.Block.prototype.setNextStatement = function(newBoolean, opt_check) {
@@ -1622,7 +1622,7 @@ Blockly.Block.prototype.appendStatementInput = function(name) {
 
 /**
  * Shortcut for appending a dummy input row.
- * @param {string} opt_name Language-neutral identifier which may used to find
+ * @param {string=} opt_name Language-neutral identifier which may used to find
  *     this input again.  Should be unique to this block.
  * @return {!Blockly.Input} The input object created.
  */
