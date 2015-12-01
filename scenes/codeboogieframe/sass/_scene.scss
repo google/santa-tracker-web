@@ -234,37 +234,41 @@
     }
   }
 
+  $button-background-diameter: 100px;
+  $button-margin: 12px;
+  $button-diameter: $button-background-diameter - $button-margin * 2;
+
   // We need to force this play button on GPU for Safari for some reason so the z-index works.
   // Some browsers also round down the pixel size of the GPU layer which trims the box-shadow,
   // which is why we force this bigger parent on the GPU.
   .scene__play-layer {
     background-color: $worldBackground;
     border-radius: 50%;
-    height: 100px;
+    height: $button-background-diameter;
     position: relative;
     -webkit-transform: translateZ(0);
-    width: 100px;
+    width: $button-background-diameter;
     z-index: 1;
   }
 
   .scene__play {
-    background: #F68C38;
-    border: none;
+    background: #FF8B39;
     border-radius: 50%;
-    box-shadow: 3px 3px #F26739;
+    border: none;
+    box-shadow: 0px $button-margin / 2 #E0702C;
     cursor: pointer;
     font-size: inherit;
-    height: 80px;
-    position: relative;
-    margin: 10px;
+    height: $button-diameter - $button-margin / 2;
+    margin: $button-margin;
     padding: 0;
-    width: 80px;
+    position: relative;
+    width: $button-diameter;
   }
 
   .scene__play:before {
     border-bottom: 18px solid transparent;
-    border-top: 18px solid transparent;
     border-left: 30px solid white;
+    border-top: 18px solid transparent;
     content: '';
     display: block;
     height: 0;
@@ -272,6 +276,18 @@
     position: absolute;
     top: calc(50% - 18px);
     width: 0;
+  }
+
+  .scene__play:after {
+    border-radius: 50%;
+    bottom: 0;
+    box-shadow: 3px 8px 0 3px rgba(0, 0, 0, 0.15);
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
   }
 }
 
