@@ -403,6 +403,14 @@ goog.scope(function() {
     }
 
     /**
+     * Helper to check if game is paused
+     * @public
+     */
+    isGamePaused() {
+      return this.game_.paused;
+    }
+
+    /**
      * Destroy level and all Box2D/DOM resources
      * @public
      */
