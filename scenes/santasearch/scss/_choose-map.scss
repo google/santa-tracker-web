@@ -2,35 +2,34 @@
   color: #fff;
   background: $scene-bg;
 
+  &__title-wrapper {
+    margin: 30px auto;
+    width: 450em;
+  }
+
   &__title {
     font-family: 'Lobster', sans-serif;
     font-size: 100em;
     font-weight: 400;
     letter-spacing: -2px;
     line-height: 0.95;
+    margin: 0;
     text-shadow : 6px 6px 0 rgba(0, 0, 0, 0.15);
     transform: rotateZ(-8deg);
-    margin: 30px auto 20px auto;
-    max-width: 450px;
-  }
-
-  &__grid {
-    justify-content: space-between;
-    display: flex;
-    width: 780em;
   }
 
   &__option {
     cursor: pointer;
-    width: 360em;
+    margin: 0 auto;
+    width: 500em;
   }
 
   &__image {
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;
-    height: 360em;
-    width: 360em;
+    height: 500em;
+    width: 500em;
 
     &--museum {
       background-image: url(img/museum.svg);
@@ -45,7 +44,30 @@
     font-size: 20em;
     letter-spacing: 2px;
     line-height: 1.8;
+    margin-bottom: 20px;
     opacity: 0.6;
     text-transform: uppercase;
+  }
+
+  @media (min-width: 680px) {
+    &__option {
+      width: 360em;
+    }
+
+    &__image {
+      height: 360em;
+      margin: 0;
+      width: 360em;
+    }
+
+    &__text {
+      margin-bottom: 0;
+    }
+
+    &__grid {
+      justify-content: space-between;
+      display: flex;
+      width: 780em;
+    }
   }
 }

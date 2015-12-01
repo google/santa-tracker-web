@@ -256,6 +256,7 @@ app.Game.prototype.updatePan_ = function() {
  * Resets all game entities and restarts the game. Can be called at any time.
  */
 app.Game.prototype.restart = function() {
+  this.onResize_();
   this.chooseMap.show(this.startMap_);
 };
 
@@ -265,7 +266,6 @@ app.Game.prototype.restart = function() {
  * @private
  */
 app.Game.prototype.startMap_ = function(mapName) {
-  this.onResize_();
   this.controls.reset();
   this.scale_(1);
   this.map.setMap(mapName);
