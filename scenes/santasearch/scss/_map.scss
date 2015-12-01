@@ -9,15 +9,14 @@
     transform: translateZ(0);
     transition: transform 0s ease-in-out;
     width: 1600px;
-  }
 
-  #santasearch-characters-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    pointer-events: none;
-    transform: translateZ(0);
+    &__svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      pointer-events: none;
+    }
   }
 }
