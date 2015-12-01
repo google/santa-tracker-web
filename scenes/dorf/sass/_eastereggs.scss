@@ -120,7 +120,7 @@
       height: 100%;
       background-image: url(img/easteregg-walrus.svg);
       @include will-change();
-      animation: #{$name}-seesaw 3s ease infinite;
+      animation: #{$name}-walrus 3s ease infinite;
     }
   }
 
