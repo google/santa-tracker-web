@@ -96,10 +96,25 @@ Santasearch scene.
         <div class="drawer__mobile-hint">
           <button class="hint hint--mobile">?</button>
         </div>
+        <div class="zoom">
+          <button class="zoom__in">Zoom in</button>
+          <button class="zoom__out">Zoom out</button>
+        </div>
       </div>
-      <div class="zoom">
-        <button class="zoom__in">Zoom in</button>
-        <button class="zoom__out">Zoom out</button>
+      <div class="choose-map overlay is-visible">
+        <div class="overlay-dialog">
+          <h2 class="choose-map__title">Search for Santa!</h2>
+          <div class="choose-map__grid">
+            <div class="choose-map__option" data-map="museum">
+              <div class="choose-map__image choose-map__image--museum"></div>
+              <h3 class="choose-map__text">At the museum</h3>
+            </div>
+            <div class="choose-map__option" data-map="secretlab">
+              <div class="choose-map__image choose-map__image--secretlab"></div>
+              <h3 class="choose-map__text">In the lab</h3>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="gameover overlay">
         <div class="gameover-dialog overlay-dialog">

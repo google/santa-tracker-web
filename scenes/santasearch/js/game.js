@@ -17,6 +17,7 @@
 
 goog.provide('app.Game');
 
+goog.require('app.ChooseMap');
 goog.require('app.Constants');
 goog.require('app.Controls');
 goog.require('app.Map');
@@ -40,6 +41,7 @@ app.Game = function(elem, componentDir) {
 
   this.gameoverModal = new app.shared.Gameover(this,
       this.elem.find('.gameover'));
+  this.chooseMap = new app.ChooseMap(this.elem.find('.choose-map'));
 
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
@@ -57,6 +59,12 @@ app.Game = function(elem, componentDir) {
   this.map = new app.Map(this.mapElem, this.drawerElem, componentDir, this.mapDimensions);
 
   this.onFrame_ = this.onFrame_.bind(this);
+  this.startMap_ = this.startMap_.bind(this);
+
+  //TODO: Remove
+  this.elem.find('.zoom__in').on('click', () => {
+    this.restart();
+  });
 };
 
 /**
@@ -253,18 +261,25 @@ app.Game.prototype.updatePan_ = function() {
  * Resets all game entities and restarts the game. Can be called at any time.
  */
 app.Game.prototype.restart = function() {
-  this.paused = false;
-  this.onResize_();
+  this.chooseMap.show(this.startMap_);
+};
 
+/**
+ * Start the map.
+ * @param {string} mapName The name of the map.
+ * @private
+ */
+app.Game.prototype.startMap_ = function(mapName) {
+  this.onResize_();
+  this.controls.reset();
+  this.scale_(1);
+  this.map.setMap(mapName);
+  this.controls.start();
+
+  this.paused = false;
   window.santaApp.fire('analytics-track-game-start', {gameid: 'santasearch'});
   this.gameStartTime = +new Date;
   this.unfreezeGame();
-
-  this.controls.reset();
-  this.scale_(1);
-  this.map.setMap('secretlab');
-
-  this.controls.start();
 };
 
 /**
@@ -278,6 +293,7 @@ app.Game.prototype.update = function(delta) {
 
   if (this.map.allFound) {
     this.gameover();
+    this.isPlaying = false;
     return;
   }
 

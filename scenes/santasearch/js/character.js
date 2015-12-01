@@ -33,33 +33,41 @@ app.Character = function(name, mapElem, drawerElem) {
 
   this.mapElem = mapElem;
   this.drawerElem = drawerElem;
+
+  // Find elements
+  this.elem = this.mapElem.find(`.character-collider--${this.name}`);
+  this.uiElem = this.drawerElem.find(`.drawer__item--${this.name}`);
+
+  // Handle found event
+  this.elem.on('click touchstart', this.onFound_.bind(this));
+  this.uiElem.on('click', this.onSelected_.bind(this));
 };
 
 /**
  * Initialize a character with location, scale and a click event
  * @param {{height: number, width: number}} mapDimensions The map dimensions.
  */
-app.Character.prototype.initialize = function(mapDimensions) {
-  // Find elements
-  this.elem = this.mapElem.find(`.character-collider--${this.name}`);
-  this.uiElem = this.drawerElem.find(`.drawer__item--${this.name}`);
-  this.svgMapElem = this.mapElem.find('.map__svg');
-
-  // Handle found event
-  this.elem.on('click touchstart', this.onFound_.bind(this));
-  this.uiElem.on('click', this.onSelected_.bind(this));
+app.Character.prototype.reset = function(mapDimensions) {
+  let svgMapElem = this.mapElem.find('.map__svg');
 
   this.isFound = false;
-  this.uiElem.removeClass('drawer__item--found');
+  this.uiElem.removeClass('drawer__item--found')
+      .removeClass('drawer__item--focused');
 
   // Hide all spots
   for (var i = 1; i <= app.Constants.SPAWN_COUNT; i++) {
-    this.getLayer_(i).hide();
+    this.getLayer_(svgMapElem, i).hide();
   }
 
   // Show one random spot
   let randomSpot = Math.ceil(Math.random() * app.Constants.SPAWN_COUNT);
-  let characterElem = this.getLayer_(randomSpot).show();
+  let characterElem = this.getLayer_(svgMapElem, randomSpot).show();
+
+  // In case character layers are missing from the SVG
+  if (characterElem.length === 0) {
+    console.error(`Layer ${randomSpot} for ${this.name} not found.`);
+    return;
+  }
 
   let characterBoundaries = characterElem[0].getBoundingClientRect();
 
@@ -83,12 +91,13 @@ app.Character.prototype.initialize = function(mapDimensions) {
 
 /**
  * Get the layer in the SVG for the character.
+ * @param {!jQuery} svgMapElem The SVG map element.
  * @param {number} number The number of the layer.
  * @private
  */
-app.Character.prototype.getLayer_ = function(number) {
+app.Character.prototype.getLayer_ = function(svgMapElem, number) {
   let name = this.name.replace('-', '').toUpperCase();
-  return this.svgMapElem.find(`#${name}-${number}`);
+  return svgMapElem.find(`#${name}-${number}`);
 };
 
 /**

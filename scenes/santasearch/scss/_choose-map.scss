@@ -1,0 +1,51 @@
+##{$name} .choose-map {
+  color: #fff;
+  background: $scene-bg;
+
+  &__title {
+    font-family: 'Lobster', sans-serif;
+    font-size: 100em;
+    font-weight: 400;
+    letter-spacing: -2px;
+    line-height: 0.95;
+    text-shadow : 6px 6px 0 rgba(0, 0, 0, 0.15);
+    transform: rotateZ(-8deg);
+    margin: 30px auto 20px auto;
+    max-width: 450px;
+  }
+
+  &__grid {
+    justify-content: space-between;
+    display: flex;
+    width: 780em;
+  }
+
+  &__option {
+    cursor: pointer;
+    width: 360em;
+  }
+
+  &__image {
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    height: 360em;
+    width: 360em;
+
+    &--museum {
+      background-image: url(img/museum.svg);
+    }
+
+    &--secretlab {
+      background-image: url(img/secretlab.svg);
+    }
+  }
+
+  &__text {
+    font-size: 20em;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    opacity: 0.6;
+    text-transform: uppercase;
+  }
+}

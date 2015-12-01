@@ -43,11 +43,6 @@ app.Map = function(mapElem, drawerElem, componentDir, mapDimensions) {
     'mrs-claus': null,
   };
 
-  app.Constants.CHARACTERS.forEach((name) => {
-    this.characters[name] = new app.Character(name, this.mapElem,
-        this.drawerElem);
-  });
-
   this.allFound = false;
   this.hintTarget = undefined;
 
@@ -55,50 +50,66 @@ app.Map = function(mapElem, drawerElem, componentDir, mapDimensions) {
   this.focusNextUnfoundCharacter_ = this.focusNextUnfoundCharacter_.bind(this);
   this.changeFocus_ = this.changeFocus_.bind(this);
   this.setHintTarget_ = this.setHintTarget_.bind(this);
-  this.initializeCharacters_ = this.initializeCharacters_.bind(this);
+
+  // Initialize characters
+  app.Constants.CHARACTERS.forEach((name) => {
+    let character = new app.Character(name, this.mapElem, this.drawerElem);
+    character.onLostFocus = this.focusNextUnfoundCharacter_;
+    character.onSelected = this.changeFocus_.bind(this, character);
+    this.characters[name] = character;
+  });
 };
 
 /**
  * Initialize the map.
  */
 app.Map.prototype.setMap = function(mapName) {
-  this.mapName = mapName;
   this.allFound = false;
   this.hintTarget = undefined;
 
-  this.loadMap_().then(this.initializeCharacters_);
+  this.loadMap_(mapName);
 
-  this.drawerElem.on('click.santasearch', '.hint', this.setHintTarget_);
+  this.drawerElem.on('click.santasearch', '.hint', this.setHintTarget_).show();
+  this.mapName = mapName;
 };
 
 /**
- * Initialize characters.
+ * Reset characters.
  */
-app.Map.prototype.initializeCharacters_ = function() {
+app.Map.prototype.resetCharacters_ = function() {
   app.Constants.CHARACTERS.forEach((name) => {
     let character = this.characters[name];
-    character.initialize(this.mapDimensions);
-    character.onLostFocus = this.focusNextUnfoundCharacter_;
-    character.onSelected = this.changeFocus_.bind(this, character);
+    character.reset(this.mapDimensions);
   });
 
   this.updateCharacters();
+
+  // Focus on Santa
   this.focusedCharacter = this.characters.santa;
   this.focusedCharacter.focus();
 };
 
 /**
  * Load the map and add it to the dom.
- * @returns {jQuery.jqXHR}
+ * @param {string} mapName The name of the map to load.
+ * @private
  */
-app.Map.prototype.loadMap_ = function() {
-  let mapPath = `${this.componentDir}img/maps/${this.mapName}.svg`;
+app.Map.prototype.loadMap_ = function(mapName) {
+  if (this.mapName === mapName) {
+    this.resetCharacters_();
+    return;
+  }
+
+  let mapPath = `${this.componentDir}img/maps/${mapName}.svg`;
   return $.ajax(mapPath).then((svgMap) => {
     // Remove existing maps
     this.mapElem.find('.map__svg').remove();
 
     // Add the new map into the dom
     this.mapElem.prepend(svgMap.children[0]);
+    this.mapName = mapName;
+
+    this.resetCharacters_();
   });
 };
 
