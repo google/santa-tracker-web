@@ -1065,6 +1065,8 @@ Polymer({
   sceneIsUnlocked: function(moduleName) {
     for (var i = 0, house; house = this._houses[i]; ++i) {
       if (house.module === moduleName) {
+        if (santaApp.mode == 'portal')
+          return !house.disabled && (this.santaService.now() > house.portalLaunchDate);
         return !house.disabled && (this.santaService.now() > house.launchDate);
       }
     }
@@ -1115,12 +1117,18 @@ Polymer({
         for (var i = 0; i < this._houses.length; i++) {
           var house = this._houses[i];
 
-          if (house.launchDate > todayDate) {
+          var launchDate;
+          if (santaApp.mode == 'portal') {
+            launchDate = house.portalLaunchDate;
+          } else {
+            launchDate = house.launchDate;
+          }
+          if (launchDate > todayDate) {
             house.iced = true;
             continue;
           }
           this.unlockHouse(i);
-          if (isSameDay(house.launchDate, todayDate)) {
+          if (isSameDay(launchDate, todayDate)) {
             todayHouse = house.module;
           }
         }
