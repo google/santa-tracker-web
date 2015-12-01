@@ -57,24 +57,24 @@
   }
 
   .scene__character.is-showing {
-    transform: translate(-50%, 0);
+    transform: translate3d(-50%, 0, 0);
     z-index: 1;
   }
 
   .scene__character--player {
-    transform: translateX((-50% - 20%));
+    transform: translate3d((-50% - 20%), 0, 0);
   }
 
   .scene__character--player.is-watching {
-    transform: translate((-50% - 20%), -10%) scale(.86);
+    transform: translate3d((-50% - 20%), -10%, 0) scale(.86);
   }
 
   .scene__character--teacher {
-    transform: translateX((-50% + 20%));
+    transform: translate3d((-50% + 20%), 0, 0);
   }
 
   &.level--freestyle .scene__character--player {
-    transform: translate(-50%, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 
   &.level--freestyle .scene__character--teacher {
@@ -83,15 +83,15 @@
 
   @media (min-width: 1024px) {
     .scene__character--player {
-      transform: translateX((-50% - 25%));
+      transform: translate3d((-50% - 25%), 0, 0);
     }
 
     .scene__character--player.is-watching {
-      transform: translate((-50% - 25%), -10%) scale(.86);
+      transform: translate3d((-50% - 25%), -10%, 0) scale(.86);
     }
 
     .scene__character--teacher {
-      transform: translateX((-50% + 25%));
+      transform: translate3d((-50% + 25%), 0, 0);
     }
   }
 
