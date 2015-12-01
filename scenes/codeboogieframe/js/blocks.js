@@ -24,6 +24,7 @@ goog.require('Blockly.FieldLabel');
 goog.require('Blockly.JavaScript');
 goog.require('app.I18n');
 goog.require('app.Patterns');
+goog.require('app.Step');
 
 /**
  * Utility function to create a mini block e.g. for the toolbar.
@@ -77,40 +78,40 @@ app.blocks.install = function() {
    */
   (function() {
     var STEP_CONFIGS = {
-      leftArm: {
-        letter: app.I18n.getMsg('CB_leftArm'),
+      [app.Step.LEFT_ARM]: {
+        letter: app.I18n.getMsg('CB_pointLeft'),
         image: 'img/block-point-left.svg',
-        tooltip: app.I18n.getMsg('CB_leftArmTooltip')
+        tooltip: app.I18n.getMsg('CB_pointLeftTooltip')
       },
-      rightArm: {
-        letter: app.I18n.getMsg('CB_rightArm'),
+      [app.Step.RIGHT_ARM]: {
+        letter: app.I18n.getMsg('CB_pointRight'),
         image: 'img/block-point-right.svg',
-        tooltip: app.I18n.getMsg('CB_rightArmTooltip')
+        tooltip: app.I18n.getMsg('CB_pointRightTooltip')
       },
-      leftFoot: {
-        letter: app.I18n.getMsg('CB_leftFoot'),
+      [app.Step.LEFT_FOOT]: {
+        letter: app.I18n.getMsg('CB_stepLeft'),
         image: 'img/block-step-left.svg',
-        tooltip: app.I18n.getMsg('CB_leftFootTooltip')
+        tooltip: app.I18n.getMsg('CB_stepLeftTooltip')
       },
-      rightFoot: {
-        letter: app.I18n.getMsg('CB_rightFoot'),
+      [app.Step.RIGHT_FOOT]: {
+        letter: app.I18n.getMsg('CB_stepRight'),
         image: 'img/block-step-right.svg',
-        tooltip: app.I18n.getMsg('CB_rightFootTooltip')
+        tooltip: app.I18n.getMsg('CB_stepRightTooltip')
       },
-      jump: {
+      [app.Step.JUMP]: {
         letter: app.I18n.getMsg('CB_jump'),
         image: 'img/block-jump.svg',
         tooltip: app.I18n.getMsg('CB_jumpTooltip')
       },
-      split: {
-        letter: app.I18n.getMsg('CB_split'),
+      [app.Step.SPLIT]: {
+        letter: app.I18n.getMsg('CB_splits'),
         image: 'img/block-splits.svg',
-        tooltip: app.I18n.getMsg('CB_splitTooltip')
+        tooltip: app.I18n.getMsg('CB_splitsTooltip')
       },
-      shake: {
-        letter: app.I18n.getMsg('CB_shake'),
+      [app.Step.SHAKE]: {
+        letter: app.I18n.getMsg('CB_hip'),
         image: 'img/block-hip-shake.svg',
-        tooltip: app.I18n.getMsg('CB_shakeTooltip')
+        tooltip: app.I18n.getMsg('CB_hipTooltip')
       }
     };
 
@@ -170,13 +171,13 @@ app.blocks.install = function() {
       };
     };
 
-    generateBlocksForStep('leftArm');
-    generateBlocksForStep('rightArm');
-    generateBlocksForStep('leftFoot');
-    generateBlocksForStep('rightFoot');
-    generateBlocksForStep('jump');
-    generateBlocksForStep('split');
-    generateBlocksForStep('shake');
+    generateBlocksForStep(app.Step.LEFT_ARM);
+    generateBlocksForStep(app.Step.RIGHT_ARM);
+    generateBlocksForStep(app.Step.LEFT_FOOT);
+    generateBlocksForStep(app.Step.RIGHT_FOOT);
+    generateBlocksForStep(app.Step.JUMP);
+    generateBlocksForStep(app.Step.SPLIT);
+    generateBlocksForStep(app.Step.SHAKE);
   })();
 
   function optionNumberRange(min, max) {

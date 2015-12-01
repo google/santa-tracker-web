@@ -175,13 +175,13 @@ app.BlockRunner = class {
 
     return {
       api: {
-        leftArm: stepFn(app.Step.LEFT_ARM),
-        rightArm: stepFn(app.Step.RIGHT_ARM),
-        leftFoot: stepFn(app.Step.LEFT_FOOT),
-        rightFoot: stepFn(app.Step.RIGHT_FOOT),
+        pointLeft: stepFn(app.Step.LEFT_ARM),
+        pointRight: stepFn(app.Step.RIGHT_ARM),
+        stepLeft: stepFn(app.Step.LEFT_FOOT),
+        stepRight: stepFn(app.Step.RIGHT_FOOT),
         jump: stepFn(app.Step.JUMP),
-        split: stepFn(app.Step.SPLIT),
-        shake: stepFn(app.Step.SHAKE),
+        splits: stepFn(app.Step.SPLIT),
+        hip: stepFn(app.Step.SHAKE),
         highlightLoop: id => highlightFn(id)
       }
     };
