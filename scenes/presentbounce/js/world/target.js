@@ -46,16 +46,12 @@ goog.scope(function () {
       if (!this.collisionFixture) return;
 
       const hasHitCollisionFixture = (contact.GetFixtureA().ID === this.collisionFixture.ID || contact.GetFixtureB().ID === this.collisionFixture.ID);
-      const hasCallback = (this.level_ && typeof this.level_.onCompleteCallback === 'function');
+      const hasCallback = (this.level_ && typeof this.level_.onLevelCompleted === 'function');
 
       if ( hasHitCollisionFixture && hasCallback) {
         this.unregisterForCollisions();
-        this.level_.onCompleteCallback();
+        this.level_.onLevelCompleted();
       }
-    }
-
-    setCollisionFixture(obj) {
-      this.collisionFixture = obj;
     }
 
     /**
@@ -96,7 +92,7 @@ goog.scope(function () {
       innerBottomFixDef.density = material.globeDensity;
       innerBottomFixDef.friction = material.friction;
       innerBottomFixDef.restitution = material.restitution;
-      innerBottomFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth*0.4, worldHeight/2.5), new b2.Vec2(worldWidth*0.4, worldHeight/2.5));
+      innerBottomFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth*0.3, worldHeight/2.5), new b2.Vec2(worldWidth*0.3, worldHeight/2.5));
 
       const rightFixDef = new b2.FixtureDef();
       rightFixDef.density = material.globeDensity;

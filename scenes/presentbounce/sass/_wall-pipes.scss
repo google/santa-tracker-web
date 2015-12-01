@@ -19,12 +19,16 @@
       width: 362px;
     }
 
-    // &--button-pipes {
-    //   height: 322px:
-    //   top: 0%;
-    //   left: 50%;
-    //   width: 722px;
-    // }
+    &--button-pipes {
+      display: none; // WIP
+      height: 322px;
+      top: 0%;
+      left: 50%;
+      min-width: 722px;
+      width: 100%;
+      margin-left: -500px;
+      margin-top: -55px;
+    }
 
   }
 

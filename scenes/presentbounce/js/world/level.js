@@ -47,13 +47,14 @@ goog.scope(function() {
      * @param {!Function} onCompleteCallback Callback function when level is completed
      * @export
      */
-    constructor(game, elem, levelData, onCompleteCallback, tutorial) {
+    constructor(game, elem, levelData, onCompleteCallback, tutorial, scoreboard) {
       this.game_ = game;
       this.elem = elem;
       this.levelData_ = levelData;
       this.onCompleteCallback = onCompleteCallback;
 
       this.tutorial = tutorial || null;
+      this.scoreboard = scoreboard || null;
 
       this.userObjects_ = [];
       this.levelObjects_ = [];
@@ -64,6 +65,10 @@ goog.scope(function() {
       this.isLevelLoaded_ = false;
       this.debug_ = !!location.search.match(/[?&]debug=true/);
       this.hasInteractionStarted = false;
+
+      // TODO make sure the numUsed objects corresponds 
+      // to the numTotalObjects
+      this.numObjectsAvailable = 0;
 
       this.buildWorld_();
 
@@ -94,6 +99,30 @@ goog.scope(function() {
      */
     removeEventListeners_() {
       this.elem.off("click", this.onInteraction);
+    }
+    
+    /**
+     * Callback for when the level is completed.
+     * Figures out the score and calls the game that this level is completed.
+     */
+    onLevelCompleted() {
+      let score = 0;
+      let currentTime = this.scoreboard.getCountdown();
+      const BASE_POINTS = 5;
+      const TIME_MODIFIDER = 30;
+
+      // Start with some base points
+      score = BASE_POINTS;
+
+      // Points based on speed:
+      // the smaller the currentTime, the bigger the score should be
+      score += Math.max(TIME_MODIFIDER - currentTime, 0);
+
+      // More points if using less tools
+      score += (this.numObjectsAvailable * BASE_POINTS);
+
+      // Calls the game complete callback
+      this.onCompleteCallback( Math.round(score) );
     }
 
     /**

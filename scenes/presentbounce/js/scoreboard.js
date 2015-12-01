@@ -116,6 +116,10 @@ app.Scoreboard.prototype.onFrame = function(delta) {
   }
 };
 
+app.Scoreboard.prototype.getCountdown = function() {
+  return this.countdown;
+};
+
 /**
  * Adds score to the scoreboard.
  * @param {number} score The amount of score to add.

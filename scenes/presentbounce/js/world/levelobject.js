@@ -55,6 +55,10 @@ goog.scope(function () {
       this.body_ = null;
     }
 
+    setCollisionFixture(obj) {
+      this.collisionFixture = obj;
+    }
+
     /**
      * @protected
      */
