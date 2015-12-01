@@ -124,6 +124,129 @@
     }
   }
 
+  #easteregg-tic-tac-toe {
+    $w: 447;
+    $h: 130;
+
+    .elves {
+      position: absolute;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      transition: transform .5s linear;
+      transform: translateX(0) translateY(0);
+      @include will-change(tansform);
+    }
+
+    .elves.red {
+      transform: translateX(0) translateY(0);
+    }
+
+    .elves.blue {
+      transform: translateX(250px) translateY(20px);
+    }
+
+    .elves.draw {
+      width: 91px;
+      height: 72px;
+      margin-top: -30px;
+      margin-left: -35px;
+    }
+
+    .elves.move {
+      width: 90px;
+      height: 49px;
+      margin-left: -40px;
+    }
+
+    .elves.move.red {
+      background-image: url(img/easteregg-tictactoe-move-red.svg);
+    }
+
+    .elves.move.blue {
+      background-image: url(img/easteregg-tictactoe-move-blue.svg);
+    }
+
+    .elves.draw.red {
+      background-image: url(img/easteregg-tictactoe-draw-red.svg);
+    }
+
+    .elves.draw.blue {
+      background-image: url(img/easteregg-tictactoe-draw-blue.svg);
+    }
+
+    .tic-tac {
+      position: absolute;
+    }
+
+    $startTop: 50px;
+    $startLeft: 70px;
+    $gap: 70px;
+
+    @for $i from 1 through 3 {
+      .tic-tac:nth-child(#{$i}) {
+        top: percent($startTop, $h);
+        left: percent($startLeft + ($i - 1) * $gap, $w);
+      }
+
+      elves.to-pos-#{$i} {
+        transform: translateX(percent($startTop, $h)) translateY(percent($startLeft + ($i - 1) * $gap, $w));
+      }
+    }
+
+    $startTop: 80px;
+    $startLeft: 45px;
+    $gap: 80px;
+
+    @for $i from 4 through 6 {
+      .tic-tac:nth-child(#{$i}) {
+        top: percent($startTop, $h);
+        left: percent($startLeft + ($i - 4) * $gap, $w);
+      }
+    }
+
+    $startTop: 110px;
+    $startLeft: 20px;
+    $gap: 90px;
+
+    @for $i from 7 through 9 {
+      .tic-tac:nth-child(#{$i}) {
+        top: percent($startTop, $h);
+        left: percent($startLeft + ($i - 7) * $gap, $w);
+      }
+    }
+
+    .cross {
+      width: percent(54 * $svg-ratio, $w);
+      height: percent(24 * $svg-ratio, $h);
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: contain;
+    }
+
+    .cross.red {
+      background-image: url(img/easteregg-tictactoe-cross-red.svg);
+    }
+
+    .cross.blue {
+      background-image: url(img/easteregg-tictactoe-cross-blue.svg);
+    }
+
+    .naught {
+      width: percent(60 * $svg-ratio, $w);
+      height: percent(18 * $svg-ratio, $h);
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    }
+
+    .naught.red {
+      background-image: url(img/easteregg-tictactoe-naught-red.svg);
+    }
+
+    .naught.blue {
+      background-image: url(img/easteregg-tictactoe-naught-blue.svg);
+    }
+  }
+
   #easteregg-balloon, #easteregg-snowmobile1, #easteregg-snowmobile2,
   #easteregg-snowmobile3, #easteregg-snowmobile4, #easteregg-busstop1,
   #easteregg-busstop2, #easteregg-busstop3 {
