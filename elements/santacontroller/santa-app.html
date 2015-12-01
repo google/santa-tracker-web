@@ -726,7 +726,9 @@ Polymer({
     var scene = this.selectedScene;
     if (scene) {
       this.$.preloader.active = !scene.loaded;
-      this.$.preloader.value = scene.preloadProgress;
+      // Scene may not be upgraded for first scene-progress event.
+      var prog = scene.preloadProgress;
+      this.$.preloader.value = prog != undefined ? prog : 0;
     } else {
       this.$.preloader.active = false;
     }
