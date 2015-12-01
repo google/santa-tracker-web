@@ -44,7 +44,8 @@ app.DanceStatus = {
  *   bpm: number,
  *   freestyle: boolean,
  *   requiredBlocks: Array.<string>,
- *   fadeTiles: boolean
+ *   fadeTiles: boolean,
+ *   specialMove: app.Step
  * }}
  */
 app.DanceLevelOptions;
@@ -71,6 +72,7 @@ app.DanceLevel = class extends app.Level {
     this.idealBlockCount = options.idealBlockCount || Infinity;
     this.requiredBlocks = options.requiredBlocks || [];
     this.fadeTiles = options.fadeTiles;
+    this.specialMove = options.specialMove;
   }
 
   /**
@@ -242,7 +244,7 @@ app.DanceLevel = class extends app.Level {
     }
 
     if (result === app.DanceStatus.SUCCESS) {
-      let specialMove = this.getRandomSpecialMove();
+      let specialMove = this.specialMove || app.Step.CARLTON;
 
       queue.push({
         teacherStep: specialMove,
@@ -262,16 +264,6 @@ app.DanceLevel = class extends app.Level {
     });
 
     return queue;
-  }
-
-  /**
-   * Get a random special move.
-   *
-   * @returns {app.Step}
-   */
-  getRandomSpecialMove() {
-    var specialMoves = [app.Step.CARLTON, app.Step.ELVIS, app.Step.SPONGEBOB, app.Step.THRILLER];
-    return specialMoves[Math.floor(Math.random() * specialMoves.length)];
   }
 
   /**
