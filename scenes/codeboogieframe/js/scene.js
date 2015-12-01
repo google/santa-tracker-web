@@ -28,7 +28,7 @@ goog.require('goog.style');
  * The main view for the maze game. Manages the gameplay viewport and
  * graphics which appear to the right of the blockly scene.
  *
- * @param {!Element} el root .scene element.
+ * @param {Element} el root .scene element.
  * @param {!app.Game} game instance.
  * @param {!app.Blockly} blockly wrapper.
  * @constructor

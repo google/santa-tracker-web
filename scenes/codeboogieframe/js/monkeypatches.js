@@ -27,6 +27,7 @@ goog.require('goog.dom.vendor');
  *    must match them by starting lowercase.
  *
  * @return {?string} The JS vendor prefix or null if there is none.
+ * @suppress {duplicate}
  */
 goog.dom.vendor.getVendorJsPrefix = function() {
   if (goog.userAgent.WEBKIT) {

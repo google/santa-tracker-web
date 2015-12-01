@@ -75,8 +75,9 @@ app.BlockRunner = class {
   }
 
   reset_() {
-    /** @type {app.BlockEvaluation[]} */
+    /** @type {Array<app.BlockEvaluation>} */
     this.stepQueue_ = [];
+    /** @type {app.BlockRunnerState} */
     this.state_ = app.BlockRunnerState.NOT_ANIMATING;
     /** @type {app.LevelResult} */
     this.levelResult = null;
@@ -97,7 +98,6 @@ app.BlockRunner = class {
     try {
       this.evalWith_(code, this.api);
     } catch (e) {
-      this.executeResult = app.ResultType.ERROR;
       console.warn(e);
     }
 
@@ -160,6 +160,8 @@ app.BlockRunner = class {
       args.push(scope[k]);
     }
     params.push(code);
+
+    /** @constructor */
     var Ctor = function() {
       return Function.apply(this, params);
     };

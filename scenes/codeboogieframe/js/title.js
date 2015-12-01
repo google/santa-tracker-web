@@ -29,6 +29,16 @@ app.Title = class {
     this.toRemove = [];
   }
 
+  /**
+   * Updates the text and optionally makes it smaller or starts a count-in.
+   * If count in is specified as a number, will automatically count from that
+   * number on each beat to 4.
+   *
+   * @param {?string=} text to set as title. Passing null or omitting will
+   *     clear the title.
+   * @param {boolean=} smaller make title smaller, used for count-in.
+   * @param {?number=} startCount number to start countin in from.
+   */
   setTitle(text, smaller, startCount) {
     if (startCount > 0) {
       this.currentCount = startCount;
@@ -64,6 +74,9 @@ app.Title = class {
     return el;
   }
 
+  /**
+   * Updates the title on a new beat.
+   */
   onBeat() {
     let el;
     while (el = this.toRemove.pop()) {

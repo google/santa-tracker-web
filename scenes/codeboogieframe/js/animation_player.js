@@ -51,12 +51,16 @@ const originalHeight = 1080 * spriteScaleFactor;
 app.AnimationItem;
 
 /**
- * Plays character animations
- *
- * @param {el} container for characters
- * @constructor
+ * @unrestricted
  */
 app.AnimationPlayer = class extends goog.events.EventTarget {
+  /**
+   * Plays character animations
+   *
+   * @param {Element} el for characters
+   * @constructor
+   * @unrestricted
+   */
   constructor(el) {
     super();
 
@@ -66,9 +70,9 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
         el.querySelector('.scene__character--teacher'), 'green');
     this.title = new app.Title(el.querySelector('.scene__word-title'));
     this.moveTiles = new app.MoveTiles(el.querySelector('.scene__moves'));
-    /** @type {app.AnimationItem[]} */
+    /** @type {Array<app.AnimationItem>} */
     this.animationQueue = [];
-    /** @type {app.AnimationItem} */
+    /** @type {?app.AnimationItem} */
     this.currentAnimation = null;
 
     this.lastUpdateTime = 0;
@@ -164,7 +168,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
       this.teacher.play(animation.teacherStep, bpm);
       this.player.play(animation.playerStep, bpm);
       this.title.setTitle(animation.title, animation.isIntro,
-                          animation.isCountdown && 1);
+                          animation.isCountdown ? 1 : null);
     }
   }
 

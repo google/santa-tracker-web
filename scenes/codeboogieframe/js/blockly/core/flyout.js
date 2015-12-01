@@ -761,3 +761,12 @@ Blockly.Flyout.terminateDrag_ = function() {
 Blockly.Flyout.prototype.setEnabled = function (enabled) {
   this.enabled_ = enabled;
 };
+
+/**
+ * Gets the width of the flyout. Only valid if visible and reflowed.
+ *
+ * @returns {number}
+ */
+Blockly.Flyout.prototype.getWidth = function () {
+  return this.width_;
+}
