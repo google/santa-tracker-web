@@ -188,7 +188,7 @@ specific language governing permissions and limitations under the License.
         });
       }
 
-      if (window.parent.santaApp.mode == 'portal') {
+      if (window.parent && window.parent.santaApp && window.parent.santaApp.mode == 'portal') {
         document.querySelector('.blockly__promo').style.display = 'none';
       }
 
