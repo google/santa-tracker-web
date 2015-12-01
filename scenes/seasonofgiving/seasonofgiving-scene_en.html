@@ -19,7 +19,13 @@ specific language governing permissions and limitations under the License.
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="seasonofgiving-scene.css" />
-
+<style>
+  seasonofgiving-scene[mode="portal"] #module-seasonofgiving .scene-ornament-wrapper .ornament-copy a:not(.Button) {
+    color:white;
+    pointer-events:none;
+    cursor: default;
+  }
+</style>
 <!--
 Season of giving scene.
 -->
