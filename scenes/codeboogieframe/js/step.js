@@ -6,13 +6,13 @@ goog.provide('app.Step');
  * @enum {string}
  */
 app.Step = {
-  LEFT_ARM: 'leftArm',
-  RIGHT_ARM: 'rightArm',
-  LEFT_FOOT: 'leftFoot',
-  RIGHT_FOOT: 'rightFoot',
+  LEFT_ARM: 'pointLeft',
+  RIGHT_ARM: 'pointRight',
+  LEFT_FOOT: 'stepLeft',
+  RIGHT_FOOT: 'stepRight',
   JUMP: 'jump',
-  SPLIT: 'split',
-  SHAKE: 'shake',
+  SPLIT: 'splits',
+  SHAKE: 'hip',
 
   // Special moves
   CARLTON: 'carlton',

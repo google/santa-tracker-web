@@ -22,83 +22,12 @@ goog.require('app.Animation');
 goog.require('app.AnimationData');
 goog.require('app.Step');
 
-/**
- * @typedef {{
- *   name: string,
- *   frames: number
- * }}
- */
-app.AnimationSprite;
-
-/** @type {Object<app.Step, app.AnimationSprite>} */
-let sources = {
-  [app.Step.IDLE]: {
-    name: 'idle',
-    frames: 24
-  },
-  [app.Step.FAIL]: {
-    name: 'fail',
-    frames: 48
-  },
-  [app.Step.WATCH]: {
-    name: 'watch',
-    frames: 48
-  },
-  [app.Step.LEFT_ARM]: {
-    name: 'pointLeft',
-    frames: 48
-  },
-  [app.Step.RIGHT_ARM]: {
-    name: 'pointRight',
-    frames: 48
-  },
-  [app.Step.LEFT_FOOT]: {
-    name: 'stepLeft',
-    frames: 48
-  },
-  [app.Step.RIGHT_FOOT]: {
-    name: 'stepRight',
-    frames: 48
-  },
-  [app.Step.JUMP]: {
-    name: 'jump',
-    frames: 48
-  },
-  [app.Step.SHAKE]: {
-    name: 'hip',
-    frames: 48
-  },
-  [app.Step.SPLIT]: {
-    name: 'splits',
-    frames: 48
-  },
-  [app.Step.CARLTON]: {
-    name: 'carlton',
-    frames: 96
-  },
-  [app.Step.SPONGEBOB]: {
-    name: 'spongebob',
-    frames: 48,
-  },
-  [app.Step.ELVIS]: {
-    name: 'elvis',
-    frames: 48
-  },
-  [app.Step.THRILLER]: {
-    name: 'thriller',
-    frames: 96
-  }
-};
-
 app.Character = class {
   constructor(el, color) {
     /** @type {app.Animation} */
     this.animation = null;
-    this.color = color;
     this.currentState = null;
     this.el = el;
-    /** @type {?app.AnimationSprite} */
-    this.sprite = null;
 
     // Create canvas
     let canvas = document.createElement('canvas');
@@ -108,9 +37,12 @@ app.Character = class {
 
     this.context = canvas.getContext('2d');
 
-    // Prerender sprites
-    let data = app.AnimationData(color);
     this.images = {};
+    this.renderSprites_(color);
+  }
+
+  renderSprites_(color) {
+    let data = app.AnimationData(color);
 
     Object.keys(data).forEach(key => {
       let img = new Image();
@@ -146,21 +78,17 @@ app.Character = class {
     if (state === this.currentState) {
       return;
     }
+
     if (this.currentState) {
       this.el.classList.remove(this.currentState);
     }
+
     this.currentState = state;
     this.el.classList.add(this.currentState);
   }
 
   play(step, bpm) {
-    this.sprite = sources[step];
-
-    if (!this.sprite) {
-      throw new Error(`No sprite found for move ${step}`);
-    }
-
-    this.animation = new app.Animation(this.sprite, bpm);
+    this.animation = new app.Animation(step, bpm);
     this.animation.play();
   }
 };
