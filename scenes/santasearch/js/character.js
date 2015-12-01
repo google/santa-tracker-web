@@ -13,6 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+ 'use strict';
 
 goog.provide('app.Character');
 
@@ -32,38 +33,41 @@ app.Character = function(name, mapElem, drawerElem) {
 
   this.mapElem = mapElem;
   this.drawerElem = drawerElem;
-};
-
-/**
- * Initialize a character with location, scale and a click event
- * @param {Array<string>} characterKeys The list of layer names in the svg.
- * @param {{height: number, width: number}} mapDimensions The map dimensions.
- */
-app.Character.prototype.initialize = function(characterKeys, mapDimensions) {
-  if (!characterKeys) {
-    return;
-  }
 
   // Find elements
   this.elem = this.mapElem.find(`.character-collider--${this.name}`);
   this.uiElem = this.drawerElem.find(`.drawer__item--${this.name}`);
-  this.svgMapElem = this.mapElem.find('#santasearch-characters-svg');
 
   // Handle found event
   this.elem.on('click touchstart', this.onFound_.bind(this));
   this.uiElem.on('click', this.onSelected_.bind(this));
+};
 
-  let randomKey = Math.floor(Math.random() * characterKeys.length);
-  let characterToSpawn = characterKeys[randomKey];
+/**
+ * Initialize a character with location, scale and a click event
+ * @param {{height: number, width: number}} mapDimensions The map dimensions.
+ */
+app.Character.prototype.reset = function(mapDimensions) {
+  let svgMapElem = this.mapElem.find('.map__svg');
 
   this.isFound = false;
-  this.uiElem.removeClass('drawer__item--found');
+  this.uiElem.removeClass('drawer__item--found')
+      .removeClass('drawer__item--focused');
 
-  // Show only one location for each character
-  characterKeys.forEach((characterKey) => {
-    this.svgMapElem.find(`#${characterKey}`).hide();
-  });
-  let characterElem = this.svgMapElem.find(`#${characterToSpawn}`).show();
+  // Hide all spots
+  for (var i = 1; i <= app.Constants.SPAWN_COUNT; i++) {
+    this.getLayer_(svgMapElem, i).hide();
+  }
+
+  // Show one random spot
+  let randomSpot = Math.ceil(Math.random() * app.Constants.SPAWN_COUNT);
+  let characterElem = this.getLayer_(svgMapElem, randomSpot).show();
+
+  // In case character layers are missing from the SVG
+  if (characterElem.length === 0) {
+    console.error(`Layer ${randomSpot} for ${this.name} not found.`);
+    return;
+  }
 
   let characterBoundaries = characterElem[0].getBoundingClientRect();
 
@@ -83,6 +87,17 @@ app.Character.prototype.initialize = function(characterKeys, mapDimensions) {
     width: characterBoundaries.width / mapDimensions.width,
     height: characterBoundaries.height / mapDimensions.height,
   };
+};
+
+/**
+ * Get the layer in the SVG for the character.
+ * @param {!jQuery} svgMapElem The SVG map element.
+ * @param {number} number The number of the layer.
+ * @private
+ */
+app.Character.prototype.getLayer_ = function(svgMapElem, number) {
+  let name = this.name.replace('-', '').toUpperCase();
+  return svgMapElem.find(`#${name}-${number}`);
 };
 
 /**
@@ -129,7 +144,7 @@ app.Character.prototype.onFound_ = function() {
   if (this.isFound) {
     return;
   }
-
+  window.santaApp.fire('sound-trigger', 'ss_character_'+this.name);
   let wasFocused = this.uiElem.hasClass('drawer__item--focused');
   this.isFound = true;
   this.uiElem.removeClass('drawer__item--focused');
