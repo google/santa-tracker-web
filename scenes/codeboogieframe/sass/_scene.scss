@@ -168,29 +168,29 @@
     background-size: 10em 8.5em;
     background-repeat: no-repeat;
 
-    &.move__leftArm {
+    &.move__pointLeft {
       background-image: url(img/icons_point-left-white.svg);
     }
 
-    &.move__rightArm {
+    &.move__pointRight {
       background-image: url(img/icons_point-right-white.svg);
     }
 
-    &.move__leftFoot {
+    &.move__stepLeft {
       background-image: url(img/icons_step-left-white.svg);
     }
 
-    &.move__rightFoot {
+    &.move__stepRight {
       background-image: url(img/icons_step-right-white.svg);
     }
 
     &.move__jump {
       background-image: url(img/icons_jump-white.svg);
     }
-    &.move__split {
+    &.move__splits {
       background-image: url(img/icons_splits-white.svg);
     }
-    &.move__shake {
+    &.move__hip {
       background-image: url(img/icons_shake-white.svg);
     }
   }
