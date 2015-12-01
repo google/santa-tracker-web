@@ -66,7 +66,7 @@ app.Sequencer = class {
   play() {
     if (!this._playScheduled) return;
 
-    this.klangUtil.transition(this.getPlayingLoop(), this.tracks[this._track * 2 + this._variant], this._bpm, 0, 0.2);
+    this.klangUtil.transition(this.getPlayingLoop(), this.tracks[this._track * 2 + this._variant], this._bpm, 0, 2);
     this._playScheduled = false;
   }
 
