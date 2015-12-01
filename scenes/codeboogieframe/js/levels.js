@@ -85,7 +85,7 @@ app.levels.push(
     bpm: 130,
     track: 1,
     idealBlockCount: 3,
-    stage: 'stage1',
+    stage: 'stage2',
     steps: [
       app.Step.LEFT_ARM,
       app.Step.RIGHT_ARM,
@@ -107,7 +107,7 @@ app.levels.push(
     bpm: 140,
     track: 2,
     idealBlockCount: 3,
-    stage: 'stage1',
+    stage: 'stage3',
     steps: [
       app.Step.LEFT_ARM,
       app.Step.RIGHT_ARM,
