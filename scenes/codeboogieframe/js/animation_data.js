@@ -217,7 +217,7 @@ app.AnimationData = (color) => {
     }
   };
 
-  if (color === 'purple') {
+  if (color !== 'green') {
     Object.assign(sharedMoves, purpleMoves);
   }
 

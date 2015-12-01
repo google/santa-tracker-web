@@ -19,6 +19,7 @@
 goog.provide('app.Character');
 
 goog.require('app.Animation');
+goog.require('app.AnimationData');
 goog.require('app.Step');
 
 /**
@@ -106,15 +107,37 @@ app.Character = class {
     el.appendChild(canvas);
 
     this.context = canvas.getContext('2d');
+
+    // Prerender sprites
+    let data = app.AnimationData(color);
+    this.images = {};
+
+    Object.keys(data).forEach(key => {
+      let img = new Image();
+
+      img.addEventListener('load', () => {
+        let canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+
+        let context = canvas.getContext('2d');
+        context.drawImage(img, 0, 0);
+
+        this.images[key] = canvas;
+      });
+
+      img.src = `img/steps/${color}/${key}.png`;
+    });
   }
 
   update(dt) {
     if (!this.animation) return;
 
     let frame = this.animation.update(dt);
+    let image = this.images[frame.sprite];
 
     this.context.canvas.width = this.context.canvas.width;
-    this.context.drawImage(frame.img, frame.x, frame.y,
+    this.context.drawImage(image, frame.x, frame.y,
         frame.width, frame.height, frame.offsetX, frame.offsetY,
         frame.width, frame.height);
   }
@@ -137,7 +160,7 @@ app.Character = class {
       throw new Error(`No sprite found for move ${step}`);
     }
 
-    this.animation = new app.Animation(this.sprite, this.color, bpm);
+    this.animation = new app.Animation(this.sprite, bpm);
     this.animation.play();
   }
 };

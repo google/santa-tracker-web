@@ -29,27 +29,15 @@ const originalWidth = 1920 * spriteScaleFactor;
 const originalHeight = 1080 * spriteScaleFactor;
 
 app.Animation = class {
-  constructor(sprite, color, bpm) {
-    this.name = sprite.name;
+  constructor(spriteData, bpm) {
+    this.name = spriteData.name;
 
     this.frame = 0;
-    this.frameCount = sprite.frames;
+    this.frameCount = spriteData.frames;
     this.frameDuration = 1000 / fps * (60 / bpm * 2);
     this.elapsedTime = 0;
     this.paused = true;
-
-    sprite.duration = sprite.frames / fps;
-
-    this.images = app.AnimationData(color);
-
-    Object.keys(this.images).forEach(key => {
-      let value = this.images[key];
-
-      let image = new Image();
-      image.src = `img/steps/${color}/${key}.png`;
-
-      this.images[key].img = image;
-    });
+    this.data = app.AnimationData();
   }
 
   play() {
@@ -59,10 +47,11 @@ app.Animation = class {
 
   getFrame(name, number) {
     let index = Math.floor(number / framesPerSprite);
-    let data = this.images[`${name}_${index}`];
+    let sprite = `${name}_${index}`;
+    let data = this.data[sprite];
 
-    if(!data) {
-      throw new Error(`Missing data for ${name} index ${index}`)
+    if (!data) {
+      throw new Error(`Missing data for ${sprite}`)
     }
 
     return {
@@ -72,7 +61,7 @@ app.Animation = class {
       height: data.height,
       offsetX: data.offsetX - (originalWidth / 2 - canvasWidth / 2),
       offsetY: data.offsetY - (originalHeight / 2 - canvasHeight / 2),
-      img: data.img
+      sprite
     };
   }
 
