@@ -732,19 +732,19 @@
 
 @keyframes to-bus-stop-1 {
   0% {
-    transform: translateZ(0) translateX(100vw) translateY(-100%) rotateZ(0deg);
+    transform: translateZ(0) translateX(100vw) translateY(-100%);
   }
   75% {
-    transform: translateZ(0) translateX(355px) translateY(-100%) rotateZ(0deg);
+    transform: translateZ(0) translateX(355px) translateY(-100%);
   }
   77% {
-    transform: translateZ(0) translateX(320px) translateY(-50%) rotateZ(-15deg);
+    transform: translateZ(0) translateX(320px) translateY(-50%);
   }
   80% {
-    transform: translateZ(0) translateX(300px) translateY(0%) rotateZ(0deg);
+    transform: translateZ(0) translateX(300px) translateY(0%);
   }
   100% {
-    transform: translateZ(0) translateX(0vw) translateY(0%) rotateZ(0deg);
+    transform: translateZ(0) translateX(0vw) translateY(0%);
   }
 }
 
