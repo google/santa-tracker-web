@@ -105,6 +105,7 @@
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
     top: 3rem;
     width: 100%;
+    z-index: 1;
 
     animation: .15s .35s cb_title_appear backwards;
   }
@@ -114,7 +115,8 @@
   }
 
   .title--sub {
-    margin-top: 1.3em;
+    margin-top: 2rem;
+    font-size: 25em;
   }
 
   .title--destroy {
