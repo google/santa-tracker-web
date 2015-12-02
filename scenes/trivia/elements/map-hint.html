@@ -16,6 +16,11 @@ specific language governing permissions and limitations under the License.
 
 <dom-module id="map-hint">
 <template>
+  <style>
+    .fit {
+      @apply(--layout-fit);
+    }
+  </style>
   <!-- TODO(samthor): Non-standard import, but works in Polymer 1+ -->
   <link rel="import" type="css" href="map-hint.css" />
   <div id="map" class="fit"></div>
