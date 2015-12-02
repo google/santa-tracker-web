@@ -290,8 +290,14 @@
 	"codeboogie-get-dancing": {
 		"message": "Sāciet dejot!"
 	},
+	"codeboogie-lets-dance": {
+		"message": "Padejosim"
+	},
 	"codeboogie-next-dance": {
 		"message": "Nākamā deja"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Labas kustības!"
 	},
 	"codeboogie-result-missing-block-fail": {
 		"message": "Izmēģiniet tālāk esošo bloku, lai atkārtotu dejas kustības."
@@ -304,6 +310,15 @@
 	},
 	"codeboogie-result-too-few-blocks-fail": {
 		"message": "Jūs izmantojat pareizos blokus, taču mēģiniet izmantot vairāk bloku, lai pabeigtu deju."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Vai zinājāt, ka varat pabeigt deju ar mazāku bloku skaitu?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Jūs veicāt pārāk daudz darbību."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Šķiet, veicāt nepareizo darbību. Izmēģiniet tālāk norādīto darbību."
 	},
 	"codeboogie-success": {
 		"message": "Gatavs!"
@@ -454,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Dominikāna"
+	},
+	"donate_button": {
+		"message": "Ziedot"
+	},
+	"donate_text": {
+		"message": "Palīdziet finansēt īpašām vajadzībām paredzētu projektu vietnē DonorsChoose.org. Šajā decembrī mēs palīdzam veikt labus darbus, ziedojot 50% no lietotāju ziedojumiem, līdz sasniegsim mērķi, kas ir 1 miljons ASV dolāru. Kopīgiem spēkiem mēs varam izveidot pilnīgākas klases #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Alžīrija"
@@ -836,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Saūda Arābija"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Piparkūku vīriņš"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Ziemassvētku vecīša kundze"
+	},
+	"santasearch_character_pegman": {
+		"message": "Cilvēciņš"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pingvīns"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Ziemeļbriedis Rūdolfs"
+	},
+	"santasearch_character_santa": {
+		"message": "Ziemassvētku vecītis"
+	},
 	"santasearch_hint": {
 		"message": "Padoms"
 	},
@@ -919,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Ziemassvētku vecīša pašbilde"
+	},
+	"scene_seasonofcaring": {
+		"message": "Labo darbu sezona"
 	},
 	"scene_seasonofgiving": {
 		"message": "Dāvināšanas sezona"
@@ -1039,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Attālums no jūsu atrašanās vietas"
+	},
+	"tracker_flight_nearby": {
+		"message": "Ziemassvētku vecītis ir netālu — noskaidrojiet kur"
+	},
+	"tracker_flight_start": {
+		"message": "Ziemassvētku vecītis ir pametis Ziemeļpolu, un tagad varat sekot viņa ceļojumam"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Piegādātās dāvanas"
@@ -4768,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "Ziemassvētku vecītis platformā Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Google Chrome paplašinājums"
 	},
 	"village_takesoff": {
 		"message": "Ziemassvētku vecītis dosies ceļā pēc"

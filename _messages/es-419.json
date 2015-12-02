@@ -276,10 +276,10 @@
 		"message": "Da un paso a la derecha."
 	},
 	"codeboogie-block-shake": {
-		"message": "Mueve caderas"
+		"message": "Mueve la cadera"
 	},
 	"codeboogie-block-shake-tooltip": {
-		"message": "Mueve las caderas."
+		"message": "Mueve la cadera."
 	},
 	"codeboogie-block-split": {
 		"message": "Split"
@@ -290,14 +290,20 @@
 	"codeboogie-get-dancing": {
 		"message": "¡A bailar!"
 	},
+	"codeboogie-lets-dance": {
+		"message": "Bailemos"
+	},
 	"codeboogie-next-dance": {
 		"message": "Siguiente baile"
+	},
+	"codeboogie-nice-moves": {
+		"message": "¡Muy bien!"
 	},
 	"codeboogie-result-missing-block-fail": {
 		"message": "Intenta usar los bloques para seguir el baile."
 	},
 	"codeboogie-result-missing-block-success": {
-		"message": "¿Sabías que puedes terminar el baile con solo {{ideal}} bloques? Prueba usar el bloque de abajo."
+		"message": "¿Sabías que puedes terminar el baile con solo {{ideal}} bloques? Prueba a usar el bloque de abajo."
 	},
 	"codeboogie-result-perfect-success": {
 		"message": "¡Muy bien! Tu baile fue perfecto."
@@ -305,11 +311,20 @@
 	"codeboogie-result-too-few-blocks-fail": {
 		"message": "Estás usando los bloques correctos, pero intenta usar más para terminar el baile."
 	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "¿Sabías que puedes terminar este nivel con solo {{ideal}} bloques?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Tu baile fue demasiado largo."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Parece que hiciste un movimiento incorrecto. Intenta hacer este:"
+	},
 	"codeboogie-success": {
-		"message": "¡Éxito!"
+		"message": "¡Muy bien!"
 	},
 	"codeboogie-watch-closely": {
-		"message": "Presta atención."
+		"message": "Presta atención"
 	},
 	"codelab-block-moveeast": {
 		"message": "este"
@@ -454,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "República Dominicana"
+	},
+	"donate_button": {
+		"message": "Donar"
+	},
+	"donate_text": {
+		"message": "Ayuda a financiar un proyecto para niños con necesidades especiales en DonorsChoose.org. Este diciembre, ayudaremos a duplicar el impacto mediante un aporte que iguale el 50% de las donaciones hasta que alcancemos nuestro objetivo de donar USD 1,000,000. Juntos podemos ayudar a crear salones de clases más inclusivos #ForEveryKid."
 	},
 	"dz_country_name": {
 		"message": "Argelia"
@@ -836,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Arabia Saudí"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Hombre de jengibre"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Señora Claus"
+	},
+	"santasearch_character_pegman": {
+		"message": "Hombrecito naranja"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pingüino"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolph"
+	},
+	"santasearch_character_santa": {
+		"message": "Santa Claus"
+	},
 	"santasearch_hint": {
 		"message": "Pista"
 	},
@@ -919,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Autofoto con Santa"
+	},
+	"scene_seasonofcaring": {
+		"message": "Navidad solidaria"
 	},
 	"scene_seasonofgiving": {
 		"message": "Época de dar"
@@ -1039,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Distancia desde tu ubicación"
+	},
+	"tracker_flight_nearby": {
+		"message": "Santa está cerca; descubre dónde"
+	},
+	"tracker_flight_start": {
+		"message": "Santa ya salió del Polo Norte y ahora puedes seguir su ruta"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Regalos entregados"
@@ -4768,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "Santa en Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Extensión de Google Chrome"
 	},
 	"village_takesoff": {
 		"message": "Santa despegará en"

@@ -290,11 +290,17 @@
 	"codeboogie-get-dancing": {
 		"message": "Pradėkite šokį!"
 	},
+	"codeboogie-lets-dance": {
+		"message": "Pašokime"
+	},
 	"codeboogie-next-dance": {
 		"message": "Kitas šokis"
 	},
+	"codeboogie-nice-moves": {
+		"message": "Puiku!"
+	},
 	"codeboogie-result-missing-block-fail": {
-		"message": "Išbandykite apačioje esantį bloką, kuris gali būti tinkamas šokiui."
+		"message": "Išbandykite apačioje esantį bloką, kad pakartotumėte šokio judesius."
 	},
 	"codeboogie-result-missing-block-success": {
 		"message": "Ar žinote, kad šį šokį galite baigti naudodami tik {{idealius}} blokus? Išbandykite apačioje esantį bloką."
@@ -304,6 +310,15 @@
 	},
 	"codeboogie-result-too-few-blocks-fail": {
 		"message": "Naudojate tinkamus blokus, bet pabandykite naudoti daugiau blokų, kad baigtumėte šokį."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Ar žinote, kad šį šokį galite baigti naudodami tik {{idealius}} blokus?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Atlikote per daug veiksmų."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Atrodo, atlikote netinkamą veiksmą. Vietoje jo išbandykite šį:"
 	},
 	"codeboogie-success": {
 		"message": "Pavyko!"
@@ -454,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Dominikos Respublika"
+	},
+	"donate_button": {
+		"message": "Paaukoti"
+	},
+	"donate_text": {
+		"message": "Prisidėkite finansuojant projektą, susijusį su specialiaisiais poreikiais, svetainėje DonorsChoose.org. Šį gruodį padėsime padvigubinti projektui paaukotus pinigus, padovanodami iki 50 proc. jų vertės, kol pasieksime tikslą paaukoti US$1m. Mūsų bendromis pastangomis klasės gali tapti patrauklesnės #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Alžyras"
@@ -836,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Saudo Arabija"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Imbierinis žmogeliukas"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Kalėdų Senelė"
+	},
+	"santasearch_character_pegman": {
+		"message": "Žmogiukas"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pingvinas"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolfas"
+	},
+	"santasearch_character_santa": {
+		"message": "Kalėdų Senelis"
+	},
 	"santasearch_hint": {
 		"message": "Užuomina"
 	},
@@ -919,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Kalėdų Senelio asmenukė"
+	},
+	"scene_seasonofcaring": {
+		"message": "Laikas rūpintis"
 	},
 	"scene_seasonofgiving": {
 		"message": "Dovanų laikas"
@@ -1039,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Atstumas nuo jūsų"
+	},
+	"tracker_flight_nearby": {
+		"message": "Kalėdų Senelis kažkur netoli; sužinokite, kur"
+	},
+	"tracker_flight_start": {
+		"message": "Kalėdų Senelis išskrido iš Šiaurės ašigalio ir dabar galite stebėti jo maršrutą"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Pristatytos dovanos"
@@ -4768,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "Kalėdų Senelis platformoje „Google Cast“"
+	},
+	"village_santa_crx": {
+		"message": "„Google Chrome“ plėtinys"
 	},
 	"village_takesoff": {
 		"message": "Kalėdų Senelis išvyksta už"

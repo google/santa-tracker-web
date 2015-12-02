@@ -290,8 +290,14 @@
 	"codeboogie-get-dancing": {
 		"message": "Да танцуваме!"
 	},
+	"codeboogie-lets-dance": {
+		"message": "Да танцуваме"
+	},
 	"codeboogie-next-dance": {
 		"message": "Следващ танц"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Чудни движения!"
 	},
 	"codeboogie-result-missing-block-fail": {
 		"message": "Използвайте блокчетата по-долу, за да изпълните точните движения на танца."
@@ -307,6 +313,12 @@
 	},
 	"codeboogie-result-too-many-blocks-success": {
 		"message": "Знаете ли, че можете да изпълните този танц само с {{ideal}} блокчета?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Направихте твърде много стъпки."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Изглежда, че направихте грешно движение. Вместо това опитайте:"
 	},
 	"codeboogie-success": {
 		"message": "Поздравления!"
@@ -457,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Доминиканска република"
+	},
+	"donate_button": {
+		"message": "Даряване"
+	},
+	"donate_text": {
+		"message": "Помогнете за финансирането на проект за деца със специални нужди в DonorsChoose.org. Този декември ще съдействаме за удвояването на помощта, като предоставим сума, равна на 50% от даренията, за да достигнем крайната ни цел от 1 млн. щ.д. Заедно можем да направим класните стаи по-приобщаващи #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Алжир"
@@ -941,6 +959,9 @@
 	"scene_santaselfie": {
 		"message": "Селфи на Дядо Коледа"
 	},
+	"scene_seasonofcaring": {
+		"message": "Сезонът на милосърдието"
+	},
 	"scene_seasonofgiving": {
 		"message": "Сезонът на щедростта"
 	},
@@ -1062,7 +1083,7 @@
 		"message": "Разстояние от вас"
 	},
 	"tracker_flight_nearby": {
-		"message": "Дядо Коледа е наблизо. Разберете къде"
+		"message": "Дядо Коледа е наблизо. Разберете къде."
 	},
 	"tracker_flight_start": {
 		"message": "Дядо Коледа потегли от Северния полюс и вече можете да следите маршрута му"
@@ -4795,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "Дядо Коледа в Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Разширение за Google Chrome"
 	},
 	"village_takesoff": {
 		"message": "Дядо Коледа потегля след"
