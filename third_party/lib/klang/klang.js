@@ -493,7 +493,8 @@ var __extends = this.__extends || function (d, b) {
                 this._currentFile.currentTime = 0;
                 this._currentFile.audioElement.currentTime = 0;
                 //this._currentFile.audioElement.volume =
-                this.setVolume();
+                this.update();
+                //this.setVolume();
                 this._currentFile.audioElement.play();
                 //otherFile.audioElement.volume = 0;
                 // this._currentFile.audioElement.currentTime = 0;
@@ -534,10 +535,8 @@ var __extends = this.__extends || function (d, b) {
                 this.state = ATAudioSource.STATE_PLAYING;
                 return;
             } else {
-                //if (!keepVolume) {
-                this.getOutput().setVolume(this.getOutput().getVolume());
-                //}
-                            }
+                this.update();
+            }
             this._currentFile.audioElement.currentTime = 0;
             this._currentFile.audioElement.play();
             this._playing = true;
@@ -605,8 +604,8 @@ var __extends = this.__extends || function (d, b) {
             return this;
         };
         ATAudioSource.prototype.setVolume = function (value) {
-            value = value === undefined ? this.getOutput().getVolume() : value;
-            value = Math.max(0, Math.min(1, value * this._destination.calcVolume() * Klang.audioTagHandler.getGlobalVolume() * Klang.audioTagHandler.getFocusBlurVolume()));
+            value = value === undefined ? this.getOutput().getVolume() : value * this.getOutput().getVolume();
+            value = Math.max(0, Math.min(1, value * Klang.audioTagHandler.getGlobalVolume() * Klang.audioTagHandler.getFocusBlurVolume()));
             if(this._currentFile.audioElement && isFinite(value)) {
                 this._currentFile.audioElement.volume = value;
             }
@@ -2080,10 +2079,6 @@ var __extends = this.__extends || function (d, b) {
                 return false;
             }
             return true;
-            Klang.version = "n/a";
-            //"Flash not available"
-            readyCallback(false);
-            return false;
         }
         // try {
         Klang.version = "webaudio";
