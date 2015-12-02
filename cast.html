@@ -43,6 +43,7 @@ specific language governing permissions and limitations under the License.
   };
   var config = new cast.receiver.CastReceiverManager.Config();
   config.statusText = 'Google Santa Tracker...';  // subtle loading hint
+  config.maxInactivity = 60;  // seconds
   crm.start(config);
 }());
   </script>
