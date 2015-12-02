@@ -42,7 +42,6 @@ Santa Tracker app.
       disabled="{{isCastMode(mode)}}"
       color="{{_colorForRoute(route, _houses)}}"
       tracker-unlocked="{{postCountdown}}"
-      press-ready="{{pressReady}}"
       today-house="{{todayHouse}}"
       mute="{{userMute}}">
 
@@ -55,7 +54,7 @@ Santa Tracker app.
         attr-for-selected="route"
         selected-attribute="active">
 
-      <dorf-scene route="village" always-active icon="1f384"
+      <dorf-scene route="village" freeform icon="1f384"
           id="village"
           mode$="{{mode}}"
           path$="scenes/dorf/dorf-scene_[[language]].html"></dorf-scene>
@@ -236,7 +235,7 @@ Santa Tracker app.
           path$="scenes/windtunnel/windtunnel-scene_[[language]].html"
           loading-bg-color="rgb(129,208,0)"></windtunnel-scene>
 
-      <press-scene route="press" icon="1f4f0"
+      <press-scene route="press" freeform icon="1f4f0"
           path$="scenes/press/press-scene.html"></press-scene>
 
     </lazy-pages>
@@ -535,14 +534,6 @@ Polymer({
     },
 
     /**
-     * True if the Press page is unlocked.
-     */
-    pressReady: {
-      type: Boolean,
-      notify: true
-    },
-
-    /**
      * Fixed string map stored on `santa-app`. Used for elements with strings
      * that cannot be inferred at compile-time (e.g., i18n-msg with custom
      * msgids, used in village and sidebar).
@@ -816,7 +807,7 @@ Polymer({
   },
 
   _selectedSceneChanged: function(newValue, oldValue) {
-    this.$.chrome.isFixedToolbar = (newValue != this.$.village);
+    this.$.chrome.isFixedToolbar = newValue && !newValue.hasAttribute('freeform');
 
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;
@@ -839,11 +830,12 @@ Polymer({
     }
 
     // Only remove certain elements from the DOM.
-    var dontRemoveEl = PERMANENT_ROUTES.indexOf(this.prevSelectedRoute) != -1;
-    if (dontRemoveEl) {
+    var isPermanentScene = PERMANENT_ROUTES.indexOf(this.prevSelectedRoute) != -1;
+    if (isPermanentScene) {
       return;
     }
 
+    // Find and remove the previous scene, if any.
     var prevSelectedScene = null;
     for (var i = 0, scene; scene = this.$.lazypages.items[i]; ++i) {
       if (scene.route == this.prevSelectedRoute) {
@@ -851,23 +843,27 @@ Polymer({
         break;
       }
     }
-
-    // Remove previous scene if it shouldn't always be active.
-    if (prevSelectedScene && !prevSelectedScene.alwaysActive) {
-      var dom = Polymer.dom(this.$.lazypages);
-      dom.removeChild(prevSelectedScene);
-
-      // Re-construct removed scene and add it back to lazy-pages. Note that
-      // loading-* isn't copied, since the element is already loaded.
-      var el = document.createElement(prevSelectedScene.localName);
-      el.route = prevSelectedScene.route;
-      el.santaApp = this;
-      el.loaded = true;
-      el.setAttribute('route', el.route);
-      el.setAttribute('mode', this.mode);
-
-      dom.appendChild(el);
+    if (!prevSelectedScene) {
+      return;
     }
+
+    var dom = Polymer.dom(this.$.lazypages);
+    dom.removeChild(prevSelectedScene);
+
+    // Re-construct removed scene and add it back to lazy-pages. Note that
+    // loading-* isn't copied, since the element is already loaded.
+    var el = document.createElement(prevSelectedScene.localName);
+    el.route = prevSelectedScene.route;
+    el.santaApp = this;
+    el.loaded = true;
+
+    ['route', 'mode', 'freeform'].forEach(function(attr) {
+      if (prevSelectedScene.hasAttribute(attr)) {
+        el.setAttribute(attr, prevSelectedScene.getAttribute(attr));
+      }
+    });
+
+    dom.appendChild(el);
   },
 
   _routeChanged: function() {
@@ -1101,9 +1097,6 @@ Polymer({
     // Set post countdown/post flight flags based on current time.
     this.postFlight = todayDate >= this.flightFinishedAt;
     this.postCountdown = todayDate > this.countdownEndAt && !this.postFlight;
-
-    // TODO(samthor): Remove after press approval.
-    this.pressReady = (+new Date('Dec 3, 2015') <= +todayDate);
 
     switch(todayDate.getMonth()) {
       case 11: // DECEMBER

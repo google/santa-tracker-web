@@ -9,12 +9,6 @@ $name: 'module-press';
   background: #F7FCFB;
   -webkit-font-smoothing: antialiased;
 
-  .fit.scroll {
-    height: 95vh;
-    height: calc(100vh - 56px);
-    overflow: auto;
-  }
-  
   .clearfix {
     &:after {
       content: '';
