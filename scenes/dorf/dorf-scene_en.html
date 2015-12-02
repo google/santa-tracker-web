@@ -289,12 +289,12 @@ https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
     elem.style.left = pos + '%';
 
     var shimmy = elem.querySelector('.shimmy');
-    shimmy.style.animationDuration = shimmySpeed + 's'
+    webkitStyle(shimmy, 'animationDuration', shimmySpeed + 's');
     shimmy.style.fontSize = fallSpeed + 'px';  // shimmy width is inverse to speed
 
     var fall = elem.querySelector('.fall');
-    fall.style.animationDuration = fallSpeed + 's';
-    fall.style.animationDelay = (+delay) + 's';
+    webkitStyle(fall, 'animationDuration', fallSpeed + 's');
+    webkitStyle(fall, 'animationDelay', (+delay) + 's');
 
     var snow = elem.querySelector('.snow');
     snow.style.width = size + 'px';
@@ -319,11 +319,11 @@ https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
     elem.style.transform = 'translate(0, ' + pos + 'px)';
 
     var cloud = elem.firstChild;
-    cloud.style.animationDuration = randomRange(CLOUD_SPEED_MIN, CLOUD_SPEED_MAX) + 's';
+    webkitStyle(cloud, 'animationDuration', randomRange(CLOUD_SPEED_MIN, CLOUD_SPEED_MAX) + 's');
     if (reverse) {
-      cloud.style.animationDirection = 'reverse';
+      webkitStyle(cloud, 'animationDirection', 'reverse');
     }
-    cloud.style.animationDelay = (+delay) + 's';
+    webkitStyle(cloud, 'animationDelay', (+delay) + 's');
     cloud.className = 'cloud cloud' + Math.floor(Math.random() * CLOUD_TYPES);
 
     return elem;
