@@ -105,8 +105,7 @@ var SHARED_EXTERNS = [
   'components/web-animations-utils/externs*.js'
 ];
 
-// nb. chrome >=42 for Portal mode in 2015.
-var AUTOPREFIXER_BROWSERS = ['> 2%', 'ios_saf >= 8', 'ie >= 11', 'chrome >= 42'];
+var AUTOPREFIXER_BROWSERS = ['> 2%', 'ios_saf >= 8', 'ie >= 11'];
 
 var CLOSURE_WARNINGS = [
   // https://github.com/google/closure-compiler/wiki/Warnings
