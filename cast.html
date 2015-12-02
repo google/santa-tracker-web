@@ -27,6 +27,15 @@ specific language governing permissions and limitations under the License.
   <script src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
   <script>
 (function() {
+  // For safety, if no scene is available or has loaded within ~2 minutes, then
+  // automatically close this tab.
+  window.setTimeout(function() {
+    var scene = window.santaApp && window.santaApp.selectedScene;
+    if (!scene || !scene.loaded) {
+      window.close();
+    }
+  }, 1000 * 60 * 2);  // 2 minutes
+
   // Start the Cast Reciever. This needs to happen early, otherwise an
   // error may be reported to clients.
   var crm = cast.receiver.CastReceiverManager.getInstance();
