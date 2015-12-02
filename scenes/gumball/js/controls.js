@@ -105,6 +105,7 @@ app.Controls.prototype.onKeyDown_ = function(e) {
     // Let tutorial know if arrow has been pressed
     // and hide tutorial when user presses the button
     this.tutorial.off('keys-leftright');
+    this.tutorial.off('spacenav-leftright');
     this.arrowPressed = true;
   }
 };

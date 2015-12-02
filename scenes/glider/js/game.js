@@ -64,7 +64,7 @@ app.Game = function(elem) {
   this.player = new app.Player(this, this.elem.find('.player'));
   this.scoreboard = new app.shared.Scoreboard(this, this.elem.find('.board'), Constants.TOTAL_LEVELS);
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
-  this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt', 'keys-arrows keys-space');
+  this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt', 'keys-arrows keys-space', 'spacenav-arrows spacenav-space');
   this.controls = new app.Controls(this);
 
   // Pause animation on initial load

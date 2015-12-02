@@ -58,7 +58,7 @@ app.Scene = function(elem) {
   this.picker = new app.Picker(this);
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
   this.tutorial = new app.shared.Tutorial(this.elem, 'touch-updown touch-leftright',
-      'keys-updown keys-leftright');
+      'keys-updown keys-leftright', 'spacenav-updown spacenav-leftright');
   this.controls = new app.Controls(this);
   this.tutorial.start();
 

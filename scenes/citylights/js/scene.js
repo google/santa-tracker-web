@@ -59,7 +59,7 @@ app.Scene = function(div) {
   this.moveLeft = this.moveLeft.bind(this);
   this.moveRight = this.moveRight.bind(this);
 
-  this.tutorial_ = new app.shared.Tutorial(this.$el, 'touch-citylights', 'mouse-citylights');
+  this.tutorial_ = new app.shared.Tutorial(this.$el, 'touch-citylights', 'mouse-citylights', 'touch-citylights');
   this.swiping = false;
 
   this.init_();
