@@ -18,8 +18,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
 
-<script src="dorf-scene.min.js"></script>
-
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="dorf-scene.css" />
 
@@ -91,7 +89,7 @@ Village scene (2015).
       </div>
       <div id="ground"></div>
       <div id="road"></div>
-      <div id="houses">
+      <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
         <div class$="house house-new-today new-today-{{todayHouse}}">
           <template is="dom-if" if="{{_calculateShowTodayHouse(todayHouse, santaApp.mode)}}">
             <a href="{{_calculateNewTodayHref(todayHouse)}}">
