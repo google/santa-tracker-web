@@ -42,6 +42,7 @@ app.DanceStatus = {
  *   steps: Array.<app.Step>,
  *   stage: string,
  *   bpm: number,
+ *   longerIntro: boolean,
  *   freestyle: boolean,
  *   requiredBlocks: Array.<string>,
  *   fadeTiles: boolean,
@@ -68,6 +69,7 @@ app.DanceLevel = class extends app.Level {
     this.steps = options.steps;
     this.track = options.track;
     this.bpm = options.bpm;
+    this.longerIntro = options.longerIntro || false;
     this.stage = options.stage || 'stage0';
     this.idealBlockCount = options.idealBlockCount || Infinity;
     this.requiredBlocks = options.requiredBlocks || [];
@@ -83,9 +85,10 @@ app.DanceLevel = class extends app.Level {
   introAnimation() {
     let danceStatus = app.DanceStatus.NO_STEPS;
     let animation = this.createAnimationQueue([], danceStatus);
+    let introBars = this.longerIntro ? 4 : 2;
 
     // Demo 4 bars of the idle music first. Final bar is countdown.
-    for (var i = 0; i < 3; i++) {
+    for (var i = 1; i < introBars; i++) {
       animation.unshift({
         teacherStep: app.Step.IDLE,
         playerStep: app.Step.IDLE,
