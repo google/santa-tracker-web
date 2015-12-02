@@ -21,28 +21,36 @@ specific language governing permissions and limitations under the License.
 
 <dom-module id="press-scene">
 <template>
+  <style>
+    .fit {
+      @apply(--layout-fit);
+    }
+    .scroll {
+      @apply(--layout-scroll);
+    }
+  </style>
   <div id="module-press" class="fit">
     <div class="scene scroll fit">
       <div id="press-content">
-        
+
         <div id="press-hero">
           <div class="press-header">
             <div class="press-title">
               <h1>Press</h1>
               <h1>Info</h1>
-            </div>  
-            <h3>About Google Santa Tracker</h3> 
-          </div> 
-          <div class="press-description">   
+            </div>
+            <h3>About Google Santa Tracker</h3>
+          </div>
+          <div class="press-description">
             <div class="press-description-left">
               <div class="square"></div>
             </div>
-            <div class="press-description-right">       
-              <p>While millions of people eagerly await Dec 24th, Santa and his elves are keeping busy at the North Pole. This year, they’ve realized it's time to study up on geography and coding to ensure Santa’s  goes on the most efficient path around the world, using only the most advanced sleigh algorithms. It’s his biggest night of the year!</p>
-              <p>Join in the preparations and fun by visiting the village advent calendar on google.com/santatracker starting Dec 1. Each day, a new part of Santa’s Village will unlock so kids of all ages can get Santa ready to say “Happy Holidays” in French (or elvish), get their groove on using coding fundamentals, or just have some fun and jam out with the elves on their study breaks.</p>
-              <p>On Dec 24th, follow Santa as he makes his annual journey around the globe. Search for Santa directly in Google Maps and Google.com. Or, head over to google.com/santatracker to get the latest updates on his location, play games exclusively available on the 24th, dive into Street View of all the cities he’ll visit that night, or watch the elves play office pranks as they wait for Santa to return.  It’s a big job, but somebody’s got to do it!</p>
+            <div class="press-description-right">
+              <p>While millions of people eagerly await Dec 24th, Santa and his elves are keeping busy at the newly redesigned North Pole. This year, they’ve realized it’s time to study up on geography and coding to ensure Santa  goes on the most efficient path around the world, using only the most advanced sleigh algorithms. It’s his biggest night of the year!</p>
+              <p>Join in the preparations and fun by visiting the village advent calendar on <a href="https://google.com/santatracker">google.com/santatracker</a> starting Dec 1. Each day, a new part of Santa’s Village will unlock so kids of all ages can get Santa ready to say “Happy Holidays” in French (or elvish), get their groove on using coding fundamentals, or just have some fun and jam out with the elves on their study breaks.</p>
+              <p>On Dec 24, follow Santa as he makes his annual journey around the globe. Search for Santa directly in <a href="https://maps.google.com">Google Maps</a> and <a href="https://google.com">google.com</a>. Or, head over to <a href="https://google.com/santatracker">google.com/santatracker</a> to get the latest updates on his location, play games exclusively available on the 24th, dive into Street View of all the cities he’ll visit that night, or watch the elves play office pranks as they wait for Santa to return.  It’s a big job, but somebody’s got to do it!</p>
             </div>
-          </div>  
+          </div>
         </div>
 
         <div id="press-intro">
@@ -50,8 +58,8 @@ specific language governing permissions and limitations under the License.
             <div class="press-intro-inner">
               <div class="rect"></div>
               <h2>Educational adventures</h2>
-              <p>From games that introduce basic concepts of coding to geography quizzes, to providing lesson plans to teachers, Google’s Santa Tracker is sneaking in learning experiences between all the fun and games. See our educational games down this page to learn more.</p>      
-            </div>      
+              <p>From games that introduce basic concepts of coding to geography quizzes, to providing lesson plans to teachers, Google’s Santa Tracker is sneaking in learning experiences between all the fun and games. See our educational games down this page to learn more.</p>
+            </div>
           </div>
           <div class="press-intro-col press-intro-right">
             <div class="press-intro-inner">
@@ -59,13 +67,14 @@ specific language governing permissions and limitations under the License.
               <h2>What’s new in 2015</h2>
               <ul>
                 <li><strong>Focus on learning.</strong> The elves added games based on coding, geography, translations, and more.</li>
-                <li><strong>Highlight nonprofits.</strong> We partnered with 10 organizations to get kids excited to change their world and help their friends. </li>
+                <li><strong>Highlight nonprofits.</strong> We worked with Google.org to partner with 10 organizations, like SolarAid and Donor's Choose, to connect people to critical issues this holiday season. </li>
                 <li><strong>Double down on the fun.</strong> From bouncing presents to hiding Santas, the elves are having the time of their lives in the North Pole. See descriptions, images and videos of the new experiences below.</li>
+                <li><strong>Santa on all screens.</strong> We’ve added Santa on Cardboard to complement annual favorites like Android Wear, Chromecast, and a mobile optimized site.</li>
               </ul>
             </div>
           </div>
-        </div> 
-        
+        </div>
+
         <div id="press-primary">
           <div class="press-primary-inner">
             <h2>Santa’s Village and The Tracker</h2>
@@ -76,14 +85,9 @@ specific language governing permissions and limitations under the License.
                 <span>Open all December • Website</span>
                 <p>While millions of people eagerly await Dec 24th, Santa and his elves are keeping busy at the North Pole. This year, they’ve realized it's time to study up on geography and coding to ensure Santa’s sleigh goes on the most efficient path around the world using the most advanced algorithms. It’s his biggest night of the year! </p>
                 <div class="press-card-links">
-                  <span class="press-card-title">Press resources:</span>                
-                  <a href="" class="press-card-dl" target="_blank">Still screenshot <span>(PNG file)</span></a>
-                  <a href="" class="press-card-dl" target="_blank">Animation <span>(GIF file)</span></a>
-                  <a href="" class="press-card-play" target="_blank">Video <span>(YouTube Link)</span></a>            
-                  <a href="" class="press-card-dl" target="_blank">Still screenshot <span>(PNG file)</span></a>
-                  <a href="" class="press-card-dl" target="_blank">Animation <span>(GIF file)</span></a>
-                  <a href="" class="press-card-dl" target="_blank">Video <span>(YouTube Link)</span></a>  
-                </div>               
+                  <span class="press-card-title">Press resources:</span>
+                  <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-village-with-santa.png" class="press-card-dl" target="_blank">Still screenshot <span>(PNG file)</span></a>
+                </div>
               </div>
             </div>
 
@@ -92,35 +96,30 @@ specific language governing permissions and limitations under the License.
               <div class="press-card-info">
                 <h4>The Tracker</h4>
                 <span>Opens December 24 • Experience</span>
-                <p>On his sleigh, arguably the fastest airborne vehicle in the world, Santa whips from city to. Follow him each step of the way by searching for Santa directly in Google Maps and Google.com. Or, head over to <a href="http://google.com/santatracker">google.com/santatracker</a> to get the latest updates on his location, play exclusive games only available on the 24th, or dive into Street View of all the cities he’ll visit that night.  </p>
+                <p>On his sleigh, arguably the fastest airborne vehicle in the world, Santa whips from city to. Follow him each step of the way by searching for Santa directly in <a href="https://maps.google.com">Google Maps</a> and <a href="https://google.com">google.com</a>. Or, head over to <a href="http://google.com/santatracker">google.com/santatracker</a> to get the latest updates on his location, play exclusive games only available on the 24th, or dive into Street View of all the cities he’ll visit that night.  </p>
                 <div class="press-card-links">
-                  <span class="press-card-title">Press resources:</span>                
-                  <a href="" class="press-card-dl" target="_blank">Still screenshot <span>(PNG file)</span></a>
-                  <a href="" class="press-card-dl" target="_blank">Animation <span>(GIF file)</span></a>
-                  <a href="" class="press-card-play" target="_blank">Video <span>(YouTube Link)</span></a>            
-                  <a href="" class="press-card-dl" target="_blank">Still screenshot <span>(PNG file)</span></a>
-                  <a href="" class="press-card-dl" target="_blank">Animation <span>(GIF file)</span></a>
-                  <a href="" class="press-card-dl" target="_blank">Video <span>(YouTube Link)</span></a>  
-                </div>               
+                  <span class="press-card-title">Press resources:</span>
+                  <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-tracker-map.png" class="press-card-dl" target="_blank">Still screenshot <span>(PNG file)</span></a>
+                </div>
               </div>
             </div>
           </div>
-        </div> 
-        
+        </div>
+
         <div id="press-secondary">
-          <div class="press-secondary-inner">          
+          <div class="press-secondary-inner">
             <h2>All the fun and games</h2>
             <div class="press-card-tabs">
               <a class="press-card-button-1" press-filter="">View All</a>
               <a class="press-card-button-2" press-filter="education">Education Focused</a>
-              <a class="press-card-button-3 active" press-filter="new">New in 2015</a>      
+              <a class="press-card-button-3 active" press-filter="new">New in 2015</a>
             </div>
 
             <div class="press-card-container">
               <template is="dom-repeat" items="{{cards}}" as="card">
                 <div class="press-card" press-card$="{{ card.key }}" press-new$="{{ card.new }}" press-education$="{{ card.education }}" press-locked$="{{ card.locked }}">
                   <div class="press-card-img">
-                    <img src="/scenes/shared/img/cards/card-{{ card.key }}_2x.png" />
+                    <img src="scenes/shared/img/cards/card-{{ card.key }}_2x.png" />
                     <div class="press-card-lock">
                       <span class="press-card-unlock">Unlocks December</span>&nbsp;
                       <span class="press-card-unlock-day">
@@ -133,7 +132,7 @@ specific language governing permissions and limitations under the License.
                     <span>Opens December {{ card.opens }} • {{ card.type }}</span>
                     <p>{{ card.description }}</p>
                     <div class="press-card-links">
-                      <span class="press-card-title">Press resources:</span>                
+                      <span class="press-card-title">Press resources:</span>
                       <div class="press-card-links-full">
                         <template is="dom-if" if="{{ !card.locked }}">
                           <template is="dom-repeat" items="{{ card.resources }}">
@@ -147,91 +146,81 @@ specific language governing permissions and limitations under the License.
                             <span>Assets available soon</span>
                           </a>
                         </template>
-                      </div> 
-                    </div>               
+                      </div>
+                    </div>
                   </div>
                 </div>
               </template>
             </div>
-          </div>  
-        </div> 
-        
-        <div id="press-embed">
-          <div class="press-embed-inner">
-            <h3>Embed Santa Tracker on your site!</h3>
-            <p>Want to embed Santa on your site? Our developers elves have created a way for outlets to do just that — reach out to <a href="mailto:press@google.com">press@google.com</a> for opportunities to livestream updates of Santa's location or the game of the day directly in online or broadcast stories.</p>
           </div>
-          <div class="rect"></div>
         </div>
-        
+
         <div id="press-device">
-          <h3>Santa Tracker on your device</h3>
+          <h2>Santa Tracker on your device</h2>
           <p class="press-device-intro">The spirit of the holidays is everywhere, including all your devices!</p>
-          
+
           <div class="press-device-grid">
             <div class="press-device-square">
               <div class="square" id="press-device-1"></div>
               <h4>Chromecast</h4>
               <p>Broadcast the adventure to your TV using Chromecast.</p>
-              <a href="">Learn More</a>
+              <a href="https://chromecast.com">Learn More</a>
             </div>
             <div class="press-device-square">
-              <div class="square" id="press-device-2"></div>              
+              <div class="square" id="press-device-2"></div>
               <h4>Mobile app</h4>
-              <p>Download the Santa Tracker app on the Play Store.</p>
-              <a href="">Learn More</a>
+              <p>Download the Santa Tracker App for Android on the Play Store.</p>
+              <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker&hl=en">Learn More</a>
             </div>
             <div class="press-device-square">
-              <div class="square" id="press-device-3"></div>              
+              <div class="square" id="press-device-3"></div>
               <h4>Android Wear</h4>
               <p>Track Santa from your wrist with Android Wear integration.</p>
-              <a href="">Learn More</a>
+              <a href="https://www.android.com/wear/">Learn More</a>
             </div>
             <div class="press-device-square">
-              <div class="square" id="press-device-4"></div>              
-              <h4>Web optimized</h4>
-              <p>Enjoy the Santa Tracker experience in all your devices.</p>
-              <a href="">Learn More</a>
+              <div class="square" id="press-device-4"></div>
+              <h4>Mobile optimized</h4>
+              <p><a href="https://google.com/santatracker">google.com/santatracker</a> works on laptops, phones, and tablets so you can track Santa on the ho-ho-go.</p>
             </div>
             <div class="press-device-square">
-              <div class="square" id="press-device-5"></div>              
+              <div class="square" id="press-device-5"></div>
               <h4>Google Maps</h4>
-              <p>Google Maps for Mobile (iOS &amp; Android) - try searching for the North Pole today, or Santa on the 24th.</p>
+              <p>Coming this month, try searching for the North Pole or Santa in Google Maps (iOS or Android) for real time updates on Santa’s location.</p>
             </div>
             <div class="press-device-square">
-              <div class="square" id="press-device-6"></div>              
+              <div class="square" id="press-device-6"></div>
               <h4>Google Search</h4>
               <p>Search for "Santa" on <a href="http://google.com">google.com</a> to see a countdown to Santa’s round-the-world journey and a holiday-themed results page.</p>
             </div>
             <div class="press-device-square">
-              <div class="square" id="press-device-7"></div>  
+              <div class="square" id="press-device-7"></div>
               <h4>Cardboard</h4>
               <p>The season’s fun and games, now also in virtual reality.</p>
-              <a href="">Learn More</a>
+              <a href="https://support.google.com/santatracker/answer/4243795?rd=1">Learn More</a>
             </div>
           </div>
-          
+
         </div>
-        
+
         <div id="press-footer">
           <h3>Need something?</h3>
           <p>Elves and Googlers are here to help.</p>
           <a href="mailto:press@google.com">press@google.com</a>
         </div>
-        
+
         <footer>
           <div id="footer-inner">
-            <div id="footer-left"><span>&copy; Google</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="">About Google</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="">Privacy & Terms</a></div>
+            <div id="footer-left"><span>&copy; <a href="https://google.com">Google</a></span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="https://www.google.com/about/">About Google</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="https://www.google.com/policies/">Privacy &amp; Terms</a></div>
             <div id="footer-right">
               <span>Share:</span>
-              <a href="#" class="footer-email"></a>  
-              <a href="#" class="footer-facebook"></a>     
-              <a href="#" class="footer-twitter"></a>                         
-              <a href="#" class="footer-g-plus"></a>                                        
+              <a href="#" class="footer-facebook shareButtons-facebook"></a>
+              <a href="#" class="footer-twitter shareButtons-twitter"></a>
+              <a href="#" class="footer-g-plus shareButtons-google"></a>
             </div>
           </div>
         </footer>
-        
+
       </div>
     </div>
   </div>
@@ -245,9 +234,9 @@ specific language governing permissions and limitations under the License.
 
     onPreload: function() {
       this.preloadImages([
-        'img/tmb_santa-tracker-2015.jpg',
+        'img/tmb_santa-tracker-2015.png',
         'img/tmb-santa-takeoff.jpg',
-        'img/tmb-santas-village.jpg',
+        'img/tmb-santas-village.png',
         'img/bg-press-page-hero.png',
         'img/ic-download-18px_2x.png',
         'img/ic-email_32px_2x.png',

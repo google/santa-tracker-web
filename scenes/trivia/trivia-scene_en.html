@@ -28,8 +28,17 @@ Trivia scene.
 -->
 <dom-module id="trivia-scene">
 <template>
+  <style>
+    .scene {
+      @apply(--layout-vertical);
+      @apply(--layout-fit);
+    }
+    .fit {
+      @apply(--layout-fit);
+    }
+  </style>
   <div id="module-trivia" class="fit">
-    <div class="scene fit vertical layout">
+    <div class="scene">
       <div class="map-hint">
         <map-hint id="hint" santa-app="{{santaApp}}"></map-hint>
       </div>

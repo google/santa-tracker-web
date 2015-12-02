@@ -10,7 +10,8 @@ $name: 'module-press';
   -webkit-font-smoothing: antialiased;
 
   .fit.scroll {
-    height: 100vh;
+    height: 95vh;
+    height: calc(100vh - 56px);
     overflow: auto;
   }
   
@@ -171,7 +172,7 @@ $name: 'module-press';
   
   #press-intro {
     @extend .clearfix;
-    height: 500px;
+    height: 600px;
     width: 100%;
 
     h2, {
@@ -258,6 +259,10 @@ $name: 'module-press';
           background-size: cover;
         }
       }
+    }
+
+    p {
+      min-height: 144px;
     }
 
     .press-card-links {

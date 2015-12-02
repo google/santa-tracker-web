@@ -727,7 +727,9 @@ Polymer({
     var scene = this.selectedScene;
     if (scene) {
       this.$.preloader.active = !scene.loaded;
-      this.$.preloader.value = scene.preloadProgress;
+      // Scene may not be upgraded for first scene-progress event.
+      var prog = scene.preloadProgress;
+      this.$.preloader.value = prog != undefined ? prog : 0;
     } else {
       this.$.preloader.active = false;
     }
@@ -916,7 +918,10 @@ Polymer({
   _updateWindowTitle: function() {
     var scene = this.selectedScene;
     var raw = scene && scene.getAttribute('icon');
-    var icon = raw ? String.fromCodePoint(parseInt(raw, 16)) : '';
+    var icon = '';
+    if (raw && String.fromCodePoint) {  // no emoji on IE11
+      icon = String.fromCodePoint(parseInt(raw, 16));
+    }
     document.title = icon + WINDOW_TITLE;
   },
 
@@ -1076,6 +1081,9 @@ Polymer({
   sceneIsUnlocked: function(moduleName) {
     for (var i = 0, house; house = this._houses[i]; ++i) {
       if (house.module === moduleName) {
+        if (santaApp.mode == 'portal') {
+          return !house.disabled && (this.santaService.now() > house.portalLaunchDate);
+        }
         return !house.disabled && (this.santaService.now() > house.launchDate);
       }
     }
@@ -1129,12 +1137,18 @@ Polymer({
         for (var i = 0; i < this._houses.length; i++) {
           var house = this._houses[i];
 
-          if (house.launchDate > todayDate) {
+          var launchDate;
+          if (santaApp.mode == 'portal') {
+            launchDate = house.portalLaunchDate;
+          } else {
+            launchDate = house.launchDate;
+          }
+          if (launchDate > todayDate) {
             house.iced = true;
             continue;
           }
           this.unlockHouse(i);
-          if (isSameDay(house.launchDate, todayDate)) {
+          if (isSameDay(launchDate, todayDate)) {
             todayHouse = house.module;
           }
         }
