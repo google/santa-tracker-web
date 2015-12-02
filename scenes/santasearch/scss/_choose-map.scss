@@ -72,16 +72,16 @@
       transition: opacity 0.4s ease-in-out;
 
       &--museum {
-        background-image: url(img/museum.svg);
+        background-image: url(img/choose-map/museum.svg);
       }
 
       &--secretlab {
-        background-image: url(img/secretlab.svg);
+        background-image: url(img/choose-map/secretlab.svg);
       }
     }
 
     &__santa {
-      background-image: url(img/scene-selection/santa-wave.svg);
+      background-image: url(img/choose-map/santa.svg);
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -105,7 +105,7 @@
       z-index: 1;
 
       &--left {
-        background-image: url(img/scene-selection/characters-left.svg);
+        background-image: url(img/choose-map/characters-left.svg);
         bottom: 15em;
         height: 150em;
         transform: translate3d(-100%, 0, 0);
@@ -113,7 +113,7 @@
       }
 
       &--right {
-        background-image: url(img/scene-selection/characters-right.svg);
+        background-image: url(img/choose-map/characters-right.svg);
         bottom: -10em;
         height: 180em;
         right: 0;
@@ -125,13 +125,16 @@
     &__magnifier {
       background-repeat: no-repeat;
       background-size: contain;
-      background-image: url(img/scene-selection/magnifying-glass.svg);
+      background-image: url(img/choose-map/magnifying-glass.svg);
       background-position: center;
+      bottom: -20em;
       height: 200em;
+      left: 50%;
+      margin-left: -130em;
       opacity: 0;
       position: absolute;
       transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-      transform: translate3d(26%, 120%, 0);
+      transform: translate3d(0, 120%, 0);
       transition-delay: 0;
       width: 200em;
       z-index: 1;
@@ -168,7 +171,7 @@
 
   &__image:hover .choose-map-overlay__magnifier {
     opacity: 1;
-    transform: translate3d(26%, 85%, 0);
+    transform: translate3d(0, 0, 0);
     transition-delay: 0.5s;
   }
 
