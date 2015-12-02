@@ -73,7 +73,7 @@ app.DanceLevel = class extends app.Level {
     this.stage = options.stage || 'stage0';
     this.idealBlockCount = options.idealBlockCount || Infinity;
     this.requiredBlocks = options.requiredBlocks || [];
-    this.fadeTiles = options.fadeTiles;
+    this.fadeTiles = options.fadeTiles || true;
     this.specialMove = options.specialMove;
   }
 

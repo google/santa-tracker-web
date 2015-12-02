@@ -42,10 +42,11 @@ app.blocks.miniBlockXml = function(type) {
  * @param {string} type of block to create
  * @param {Object.<string>=} attrs map of block attributes
  * @param {Object.<string>=} fields map of field keys to values
- * @param {string=} children blocks to run as DO statement.
+ * @param {string=} child block to run as DO statement.
+ * @param {string=} next block to run after this one.
  * @return {string} XML of block definition
  */
-app.blocks.blockXml = function(type, attrs, fields, children) {
+app.blocks.blockXml = function(type, attrs, fields, child, next) {
   var xml = '<block type="' + type + '"';
   if (attrs) {
     for (var key in attrs) {
@@ -62,8 +63,11 @@ app.blocks.blockXml = function(type, attrs, fields, children) {
       }
     }
   }
-  if (children) {
-    xml += '<statement name="DO">' + children + '</statement>';
+  if (child) {
+    xml += '<statement name="DO">' + child + '</statement>';
+  }
+  if (next) {
+    xml += '<next>' + next + '</next>';
   }
   xml += '</block>';
   return xml;

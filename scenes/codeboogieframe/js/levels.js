@@ -38,9 +38,8 @@ app.levels.push(
     stage: 'stage1',
     steps: [
       app.Step.LEFT_ARM,
-      app.Step.RIGHT_ARM,
+      app.Step.RIGHT_ARM
     ],
-    requiredBlocks: ['dance_pointLeft'],
     toolbox: app.blocks.miniBlockXml('dance_pointLeft') +
              app.blocks.miniBlockXml('dance_pointRight'),
     fadeTiles: false,
@@ -57,7 +56,6 @@ app.levels.push(
       app.Step.LEFT_FOOT,
       app.Step.RIGHT_FOOT
     ],
-    requiredBlocks: ['dance_pointLeft'],
     toolbox: app.blocks.miniBlockXml('dance_pointLeft') +
         app.blocks.miniBlockXml('dance_pointRight') +
         app.blocks.miniBlockXml('dance_stepLeft') +
@@ -74,16 +72,23 @@ app.levels.push(
       app.Step.LEFT_ARM,
       app.Step.RIGHT_ARM,
       app.Step.LEFT_ARM,
+      app.Step.RIGHT_ARM,
+      app.Step.LEFT_ARM,
+      app.Step.RIGHT_ARM,
+      app.Step.LEFT_ARM,
       app.Step.RIGHT_ARM
     ],
-    requiredBlocks: ['dance_pointLeft'],
     toolbox: app.blocks.miniBlockXml('dance_pointLeft') +
         app.blocks.miniBlockXml('dance_pointRight') +
         app.blocks.miniBlockXml('dance_stepLeft') +
         app.blocks.miniBlockXml('dance_stepRight') +
         app.blocks.miniBlockXml('controls_repeat'),
-    fadeTiles: true,
-    specialMove: app.Step.CARLTON
+    specialMove: app.Step.CARLTON,
+    startBlocks: app.blocks.blockXml('controls_repeat', null, {TIMES: '2'},
+        app.blocks.blockXml('dance_pointLeft', null, null, null,
+            app.blocks.blockXml('dance_pointRight')
+        )
+    )
   }),
   new app.DanceLevel({
     bpm: 130,
@@ -106,7 +111,6 @@ app.levels.push(
         app.blocks.miniBlockXml('dance_splits') +
         app.blocks.miniBlockXml('dance_hip') +
         app.blocks.miniBlockXml('controls_repeat'),
-    fadeTiles: true,
     specialMove: app.Step.ELVIS
   }),
   new app.DanceLevel({
@@ -130,7 +134,6 @@ app.levels.push(
         app.blocks.miniBlockXml('dance_splits') +
         app.blocks.miniBlockXml('dance_hip') +
         app.blocks.miniBlockXml('controls_repeat'),
-    fadeTiles: true,
     specialMove: app.Step.SPONGEBOB
   })
 );
