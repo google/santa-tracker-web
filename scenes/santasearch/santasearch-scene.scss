@@ -5,6 +5,7 @@ $gameover-bg: $scene-bg;
 @import "../shared/sass/button";
 @import "../shared/sass/gameover";
 
+@import 'scss/choose-map';
 @import 'scss/map';
 @import 'scss/zoom';
 @import 'scss/character';

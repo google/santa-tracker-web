@@ -29,8 +29,9 @@ app.shared.Tutorial = Tutorial;
  * @param {!Element|!jQuery} moduleElem The module element.
  * @param {string} touchTutorials Tutorials when touch is enabled.
  * @param {string} notouchTutorials Tutorials when touch is disabled.
+ * @param {string} portalTutorials Tutorials when portal mode is activated.
  */
-function Tutorial(moduleElem, touchTutorials, notouchTutorials) {
+function Tutorial(moduleElem, touchTutorials, notouchTutorials, portalTutorials) {
   // Ability to disable tutorial
   this.enabled = true;
   this.first = true;
@@ -40,7 +41,9 @@ function Tutorial(moduleElem, touchTutorials, notouchTutorials) {
   this.elem = $('<div class="tutorial"><div class="tutorial-inner"></div></div>');
   $(moduleElem).append(this.elem);
 
-  if (this.hasTouch) {
+  if (window.santaApp.mode == 'portal') {
+    this.tutorials = portalTutorials.split(' ');
+  } else if (this.hasTouch) {
     this.tutorials = touchTutorials.split(' ');
   } else {
     this.tutorials = notouchTutorials.split(' ');

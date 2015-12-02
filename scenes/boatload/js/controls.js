@@ -101,6 +101,7 @@ Controls.prototype.onKeydown = function(e) {
     // and hide tutorial when user presses the button
     if (!this.spacePressed) {
       this.tutorial.off('keys-space');
+      this.tutorial.off('spacenav-space');
       this.spacePressed = true;
     }
 
@@ -112,6 +113,7 @@ Controls.prototype.onKeydown = function(e) {
     // Let tutorial know if arrow has been pressed
     // and hide tutorial when user presses the button
     this.tutorial.off('keys-updown');
+    this.tutorial.off('spacenav-updown');
     this.arrowPressed = true;
   }
 

@@ -9,11 +9,6 @@ $name: 'module-press';
   background: #F7FCFB;
   -webkit-font-smoothing: antialiased;
 
-  .fit.scroll {
-    height: 100vh;
-    overflow: auto;
-  }
-  
   .clearfix {
     &:after {
       content: '';
@@ -171,7 +166,7 @@ $name: 'module-press';
   
   #press-intro {
     @extend .clearfix;
-    height: 500px;
+    height: 600px;
     width: 100%;
 
     h2, {
@@ -258,6 +253,10 @@ $name: 'module-press';
           background-size: cover;
         }
       }
+    }
+
+    p {
+      min-height: 144px;
     }
 
     .press-card-links {
