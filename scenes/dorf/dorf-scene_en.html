@@ -864,14 +864,6 @@ https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
       this._stopEasterEggs();
     },
 
-    onPause: function() {
-      this.fire('sound-ambient', 'village_end');
-    },
-
-    onResume: function() {
-      this.fire('sound-ambient', 'village_start');
-    },
-
     _startEasterEggs: function() {
       if (this.santaApp.mode != 'cast') {
         this._stopEasterEggs();

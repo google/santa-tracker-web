@@ -228,7 +228,7 @@ Santa Tracker app.
 
       <template is="dom-repeat" items="{{videoRoutes}}">
         <video-scene route$="{{item}}"
-            mode$="{{mode}}"
+            mode$="{{mode}}" mute$="{{userMute}}"
             path$="scenes/videoscene/video-scene_[[language]].html"></video-scene>
       </template>
 
@@ -374,7 +374,11 @@ Polymer({
     /**
      * Whether the sounds are globally muted by the user.
      */
-    userMute: Boolean,
+    userMute: {
+      type: Boolean,
+      notify: true,
+      observer: '_userMuteChanged'
+    },
 
     /**
      * Whether the page is in the background.
@@ -382,15 +386,6 @@ Polymer({
     pageInBackground: {
       type: Boolean,
       readOnly: true
-    },
-
-    /**
-     * Computes the global mute state.
-     */
-    _globalMute: {
-      type: Boolean,
-      observer: '_globalMuteChanged',
-      computed: '_computeGlobalMute(userMute, pageInBackground)'
     },
 
     /**
@@ -650,7 +645,7 @@ Polymer({
     }
 
     if (loadSound) {
-      var sc = new SoundController(this.soundsLoaded.bind(this));
+      var sc = new SoundController(this._soundsLoaded.bind(this));
       this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
       this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
@@ -938,29 +933,13 @@ Polymer({
     }
   },
 
-  _computeGlobalMute: function(userMute, pageInBackground) {
-    return userMute || pageInBackground;
+  _userMuteChanged: function(userMute) {
+    this.fire('sound-ambient', userMute ? 'global_sound_off' : 'global_sound_on');
   },
 
-  _globalMuteChanged: function(newValue) {
-    if (newValue)  {
-      this.fire('sound-ambient', 'global_blur');
-      this.fire('sound-ambient', 'global_pause');
-      if (this.selectedScene && this.selectedScene.fire) {
-        this.selectedScene.fire('scene-pause', true);
-      }
-    } else {
-      this.fire('sound-ambient', 'global_focus');
-      this.fire('sound-ambient', 'global_unpause');
-      if (this.selectedScene && this.selectedScene.fire) {
-        this.selectedScene.fire('scene-pause', false);
-      }
-    }
-  },
-
-  soundsLoaded: function(soundsName) {
-    // TODO(bckenny): selectedScene.fire check may be unecessary as it's not
-    // clear if it's possible for selectedScene to not be upgraded by this point
+  _soundsLoaded: function(soundsName) {
+    // _soundsLoaded is typically invoked after a scene preloads audio, but the
+    // scene may have changed in that time, so check upgraded state again.
     if (this.selectedScene && this.selectedScene.fire) {
       this.selectedScene.fire('sounds-loaded', soundsName);
     }
