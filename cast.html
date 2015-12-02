@@ -27,18 +27,37 @@ specific language governing permissions and limitations under the License.
   <script src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
   <script>
 (function() {
+  var CAST_EXPIRY_MINUTES = 15;
+  var CAST_SAFETY_SECONDS = 120;
+
+  // For safety, if no scene is available or has loaded in the first little
+  // while, then automatically close this window.
+  window.setTimeout(function() {
+    var scene = window.santaApp && window.santaApp.selectedScene;
+    if (!scene || !scene.loaded) {
+      window.close();
+    }
+  }, 1000 * CAST_SAFETY_SECONDS);
+
   // Start the Cast Reciever. This needs to happen early, otherwise an
   // error may be reported to clients.
   var crm = cast.receiver.CastReceiverManager.getInstance();
   var messageBus = crm.getCastMessageBus('urn:x-cast:com.google.cast.santatracker');
 
+  var expiryTime = 1000 * 60 * CAST_EXPIRY_MINUTES;
+  var timeout;
+
   crm.onReady = function(event) {
     crm.setApplicationState('Google Santa Tracker');
   };
+  crm.onSenderConnected = function(event) {
+    window.clearTimeout(timeout);
+  };
   crm.onSenderDisconnected = function(event) {
-    if (!crm.getSenders().length &&
-        event.reason === cast.receiver.system.DisconnectReason.REQUESTED_BY_SENDER) {
-      window.close();
+    if (!crm.getSenders().length) {
+      timeout = window.setTimeout(function() {
+        window.close();
+      }, expiryTime);
     }
   };
   var config = new cast.receiver.CastReceiverManager.Config();
