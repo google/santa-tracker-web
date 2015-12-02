@@ -87,10 +87,6 @@ app.BlockRunner = class {
    * Execute the user's code. Heaven help us...
    */
   execute() {
-    if (this.state_ !== app.BlockRunnerState.NOT_ANIMATING) {
-      return;
-    }
-
     this.reset_();
 
     var code = this.blockly.getCode();
