@@ -27,6 +27,7 @@
     }
 
     &__button {
+      cursor: pointer;
       width: $button-width;
       position: absolute;
       left: 230px;
