@@ -44,6 +44,10 @@ Season of giving scene.
     :host([mode="portal"]) .shareButtons {
       display: none !important;
     }
+    :host([mode="portal"]) #module-seasonofgiving .Tool-bottomContainer {
+      display: none !important;
+    }
+
   </style>
 
   <div id="module-seasonofgiving">
@@ -460,6 +464,9 @@ Season of giving scene.
       var module = this.$['module-seasonofgiving'];
 
       this.game = new scenes.seasonofgiving.Game(module, this.componentDir);
+      if (this.santaApp.mode == 'portal') {
+        this.game.tools.sizeSlider.updateValueTo(3);
+       }
       this.game.start();
     },
     onHide: function() {
