@@ -36,9 +36,6 @@ Village scene (2015).
   :host[mode="cast"] .ice {
     display: none !important;
   }
-  :host[mode="cast"] #village-footer {
-    display: none !important;
-  }
   :host[mode="portal"] .launchdate {
     display: none !important;
   }
@@ -153,11 +150,6 @@ Village scene (2015).
           <div id="easteregg-balloon-ropes" class="easter-egg"></div>
           <div id="easteregg-balloon-flight" class="easter-egg"></div>
 
-          <div id="easteregg-snowmobile1" class="easter-egg"></div>
-          <div id="easteregg-snowmobile2" class="easter-egg"></div>
-          <div id="easteregg-snowmobile3" class="easter-egg"></div>
-          <div id="easteregg-snowmobile4" class="easter-egg"></div>
-
           <div id="easteregg-busstop1" class="easter-egg">
             <div class="elf-stop elf-green"></div>
             <div class="elf-stop elf-orange"></div>
@@ -174,32 +166,39 @@ Village scene (2015).
             </div>
           </div>
 
-          <div id="easteregg-busstop2" class="easter-egg">
-            <div class="elf-stop elf-blue"></div>
-            <div class="elf-stop elf-green"></div>
-            <div class="bus">
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-            </div>
-          </div>
+          <template is="dom-if" if="{{!_equal(santaApp.mode, 'cast')}}">
+            <div id="easteregg-snowmobile1" class="easter-egg"></div>
+            <div id="easteregg-snowmobile2" class="easter-egg"></div>
+            <div id="easteregg-snowmobile3" class="easter-egg"></div>
+            <div id="easteregg-snowmobile4" class="easter-egg"></div>
 
-          <div id="easteregg-busstop3" class="easter-egg">
-            <div class="elf-stop elf-sit-red"></div>
-            <div class="elf-stop elf-blue"></div>
-            <div class="elf-stop elf-green"></div>
-            <div class="bus">
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
+            <div id="easteregg-busstop2" class="easter-egg">
+              <div class="elf-stop elf-blue"></div>
+              <div class="elf-stop elf-green"></div>
+              <div class="bus">
+                <div class="elf-bus"></div>
+                <div class="elf-bus"></div>
+                <div class="elf-bus"></div>
+                <div class="elf-bus"></div>
+                <div class="elf-bus"></div>
+                <div class="elf-bus"></div>
+              </div>
             </div>
-          </div>
+
+            <div id="easteregg-busstop3" class="easter-egg">
+              <div class="elf-stop elf-sit-red"></div>
+              <div class="elf-stop elf-blue"></div>
+              <div class="elf-stop elf-green"></div>
+              <div class="bus">
+                <div class="elf-bus"></div>
+                <div class="elf-bus"></div>
+                <div class="elf-bus"></div>
+                <div class="elf-bus"></div>
+                <div class="elf-bus"></div>
+                <div class="elf-bus"></div>
+              </div>
+            </div>
+          </template>
 
           <div id="easteregg-tic-tac-toe" class="easter-egg">
             <div class="tic-tac empty"></div>
@@ -219,24 +218,26 @@ Village scene (2015).
 
       </div>
     </div>
-    <div id="village-footer">
-      <p hidden$="{{countdownFinished}}"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-      <img src="{{componentDir}}img/footer-elves.svg" />
-    </div>
-    <div id="village-donate">
-      <div id="wrapper">
-        <h3>#ForEveryKid</h3>
-        <p>
-          Help fund a special needs project on DonorsChoose.org.
-          This December, we're helping to double the impact by matching donations by 50%, until we reach our goal of donating US$1,000,000.
-          Together, we can make classrooms more inclusive #ForEveryKid
-        </p>
-        <div class="button donate-button">
-          <a target="_blank" href="
-https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
+
+    <template is="dom-if" if="{{!_equal(santaApp.mode, 'cast')}}">
+      <div id="village-footer">
+        <p hidden$="{{countdownFinished}}"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
+        <img src="{{componentDir}}img/footer-elves.svg" />
+      </div>
+      <div id="village-donate">
+        <div id="wrapper">
+          <h3>#ForEveryKid</h3>
+          <p>
+            Help fund a special needs project on DonorsChoose.org.
+            This December, we're helping to double the impact by matching donations by 50%, until we reach our goal of donating US$1,000,000.
+            Together, we can make classrooms more inclusive #ForEveryKid
+          </p>
+          <div class="button donate-button">
+            <a target="_blank" href="https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
+          </div>
         </div>
       </div>
-    </div>
+    </template>
   </div><!-- #module-dorf -->
 </template>
 <script>
@@ -806,7 +807,8 @@ https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
         '../../elements/countdown/img/number-bg.svg',
       ]);
 
-      if (window.innerWidth < 768) {
+      var isMobile = (window.innerWidth < 768);
+      if (isMobile) {
         this.preloadImages([
           'img/mobile-header.svg',
           'img/mobile-header-elves.svg',
@@ -818,12 +820,17 @@ https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
       for (var i = 0; i < 7 && i < houses.length; ++i) {
         var house = houses[i];
         var id = house.module;
-        var preload = [
-          'img/building-' + id + '.svg',
-          'img/card-' + id + '_2x.png'
-        ];
-        if (house.iced) {
-          preload.push('img/building-' + id + '-ice.svg')
+
+        var preload = [];
+
+        if (!isMobile) {
+          preload.push('img/building-' + id + '.svg');
+        }
+        if (this.santaApp.mode != 'cast') {
+          preload.push('img/card-' + id + '_2x.png');
+          if (house.iced && !isMobile) {
+            preload.push('img/building-' + id + '-ice.svg')
+          }
         }
         this.preloadImages(preload);
       }

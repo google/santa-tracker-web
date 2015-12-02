@@ -110,6 +110,11 @@ specific language governing permissions and limitations under the License.
       if (uaString.indexOf('Chrome') === -1 && uaString.indexOf('Android') !== -1) {
         return !/^Google/.test(navigator.vendor);
       }
+      // no older Chrome (e.g., Samsung browser fork or ancient install)
+      var chromeVersion = /Chrome\/(\d+)/.exec(uaString);
+      if (chromeVersion && chromeVersion[1]) {
+        return parseInt(chromeVersion[1], 10) >= 43;
+      }
       // no Opera < 15
       if (uaString.indexOf('Opera') !== -1) {
         return false;
