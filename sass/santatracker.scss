@@ -16,6 +16,9 @@ html, body {
 
 // Override Polymer's FOUC. Control it ourselves.
 body {
+  margin: 0;
+  height: 100vh;
+
   &[unresolved] {
     opacity: 1 !important;
   }
