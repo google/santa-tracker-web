@@ -45,7 +45,7 @@ app.config.Styles = {
   },
   presentBall: {
     className: 'object--present-circle',
-    innerHTML: '',
+    innerHTML: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49.6 49.6"><circle fill="#DA4737" cx="24.8" cy="24.8" r="24.8"/><path fill="#F0B31D" d="M21.7 28v21.5c1 .1 2.1.2 3.1.2 1.1 0 2.1-.1 3.1-.2L28 28h21.5c.1-1 .2-2.1.2-3.1 0-1.1-.1-2.1-.2-3.1H28V.3c-1-.1-2.1-.2-3.2-.2s-2.1.1-3.2.2v21.5H.1c-.1 1-.2 2.1-.2 3.1 0 1.1.1 2.1.2 3.1h21.6z"/></svg>',
     width: 50,
     height: 50,
     dynamicShadow: true
