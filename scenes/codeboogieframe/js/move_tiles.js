@@ -50,7 +50,10 @@ app.MoveTiles = class {
     let moveTiles = Array.from(this.el.querySelectorAll('.scene__moves-move'));
     let numTiles = moveTiles.length;
 
-    this.el.style.transform = `translate3d(-${(numTiles * tilewidth) / 10}em, 0, 0)`;
+    goog.style.setStyle(this.el, {
+      transform: `translate3d(-${(numTiles * tilewidth) / 10}em, 0, 0)`,
+      transitionDuration: numTiles === 1 ? '0s' : ''
+    });
 
     if (numTiles > maxTiles) {
       moveTiles.slice(0, numTiles - maxTiles).forEach(tile => {
