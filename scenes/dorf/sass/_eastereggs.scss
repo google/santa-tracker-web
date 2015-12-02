@@ -17,7 +17,7 @@
       "rosetta-stone"   117   96    39    904    ($house-row-4-z-index - 1),
       "white-board"     121   62    576   930    ($house-row-3-z-index - 0),
       "schoolyard"      434   160   121   255    ($house-row-1-z-index - 0),
-      "tic-tac-toe"     447   130   853   282    ($house-row-2-z-index - 1),
+      "tic-tac-toe"     447   130   740   240    ($house-row-2-z-index - 1),
       "book-club"       90    97    360   558    ($house-row-2-z-index + 30),
       "balloon"         183   209   200   804    ($house-z-index-front),
       "balloon-ropes"   234   40    180   963    ($house-row-4-z-index - 1),
@@ -133,50 +133,62 @@
       background-repeat: no-repeat;
       background-position: 50% 50%;
       transition: transform .5s linear;
-      transform: translateX(0) translateY(0);
+      transform: translateX(0) translateY(0) translateZ(0);
       @include will-change(tansform);
+      z-index: 2;
     }
 
-    .elves.red {
-      transform: translateX(0) translateY(0);
+    #easteregg-tic-tac-toe-elves-red {
+      transform: translateX(265px) translateY(80px) translateZ(0);
     }
 
-    .elves.blue {
-      transform: translateX(250px) translateY(20px);
+    #easteregg-tic-tac-toe-elves-blue {
+      transform: translateX(250px) translateY(35px) translateZ(0);
     }
 
     .elves.draw {
-      width: 91px;
-      height: 72px;
-      margin-top: -30px;
+      width: percent(91 * $svg-ratio, $w);
+      height: percent(72 * $svg-ratio, $h);
+      margin-top: -15px;
       margin-left: -35px;
     }
 
     .elves.move {
-      width: 90px;
-      height: 49px;
+      width: percent(90 * $svg-ratio, $w);
+      height: percent(49 * $svg-ratio, $h);
       margin-left: -40px;
     }
 
-    .elves.move.red {
+    #easteregg-tic-tac-toe-elves-red.move {
       background-image: url(img/easteregg-tictactoe-move-red.svg);
     }
 
-    .elves.move.blue {
+    #easteregg-tic-tac-toe-elves-blue.move {
       background-image: url(img/easteregg-tictactoe-move-blue.svg);
     }
 
-    .elves.draw.red {
+    #easteregg-tic-tac-toe-elves-red.draw {
       background-image: url(img/easteregg-tictactoe-draw-red.svg);
     }
 
-    .elves.draw.blue {
+    #easteregg-tic-tac-toe-elves-blue.draw {
       background-image: url(img/easteregg-tictactoe-draw-blue.svg);
     }
 
     .tic-tac {
       position: absolute;
+      opacity: 1;
+      transition: opacity .2s ease;
+      @include will-change(opacity);
     }
+
+    .empty {
+      opacity: 0;
+    }
+
+    $startX: 65px;
+    $startY: 21px;
+    $gapX: 55px;
 
     $startTop: 50px;
     $startLeft: 70px;
@@ -188,8 +200,9 @@
         left: percent($startLeft + ($i - 1) * $gap, $w);
       }
 
-      elves.to-pos-#{$i} {
-        transform: translateX(percent($startTop, $h)) translateY(percent($startLeft + ($i - 1) * $gap, $w));
+      #easteregg-tic-tac-toe-elves-red.to-pos-#{$i},
+      #easteregg-tic-tac-toe-elves-blue.to-pos-#{$i} {
+        transform: translateX($startX + ($i - 1) * $gapX) translateY($startY) translateZ(0);
       }
     }
 
@@ -197,10 +210,19 @@
     $startLeft: 45px;
     $gap: 80px;
 
+    $startX: 43px;
+    $startY: 43px;
+    $gapX: 65px;
+
     @for $i from 4 through 6 {
       .tic-tac:nth-child(#{$i}) {
         top: percent($startTop, $h);
         left: percent($startLeft + ($i - 4) * $gap, $w);
+      }
+
+      #easteregg-tic-tac-toe-elves-red.to-pos-#{$i},
+      #easteregg-tic-tac-toe-elves-blue.to-pos-#{$i} {
+        transform: translateX($startX + ($i - 4) * $gapX) translateY($startY) translateZ(0);
       }
     }
 
@@ -208,10 +230,74 @@
     $startLeft: 20px;
     $gap: 90px;
 
+    $startX: 25px;
+    $startY: 67px;
+    $gapX: 70px;
+
     @for $i from 7 through 9 {
       .tic-tac:nth-child(#{$i}) {
         top: percent($startTop, $h);
         left: percent($startLeft + ($i - 7) * $gap, $w);
+      }
+
+      #easteregg-tic-tac-toe-elves-red.to-pos-#{$i},
+      #easteregg-tic-tac-toe-elves-blue.to-pos-#{$i} {
+        transform: translateX($startX + ($i - 7) * $gapX) translateY($startY) translateZ(0);
+      }
+    }
+
+    @media (max-width: ($width-desktop - 1)) {
+      .elves.draw {
+        margin-top: 0;
+        margin-left: 0;
+      }
+
+      .elves.move {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+
+      #easteregg-tic-tac-toe-elves-red {
+        transform: translateX(135px) translateY(35px);
+        z-index: 3;
+      }
+
+      #easteregg-tic-tac-toe-elves-blue {
+        transform: translateX(130px) translateY(25px);
+        z-index: 2;
+      }
+
+      $startX: 16px;
+      $startY: 2px;
+      $gapX: 35px;
+
+      @for $i from 1 through 3 {
+        #easteregg-tic-tac-toe-elves-red.to-pos-#{$i},
+        #easteregg-tic-tac-toe-elves-blue.to-pos-#{$i} {
+          transform: translateX($startX + ($i - 1) * $gapX) translateY($startY) translateZ(0);
+        }
+      }
+
+      $startX: 5px;
+      $startY: 17px;
+      $gapX: 37px;
+
+      @for $i from 4 through 6 {
+        #easteregg-tic-tac-toe-elves-red.to-pos-#{$i},
+        #easteregg-tic-tac-toe-elves-blue.to-pos-#{$i} {
+          transform: translateX($startX + ($i - 4) * $gapX) translateY($startY) translateZ(0);
+        }
+      }
+
+      $startX: -7px;
+      $startY: 32px;
+      $gapX: 42px;
+
+      @for $i from 7 through 9 {
+        #easteregg-tic-tac-toe-elves-red.to-pos-#{$i},
+        #easteregg-tic-tac-toe-elves-blue.to-pos-#{$i} {
+          transform: translateX($startX + ($i - 7) * $gapX) translateY($startY) translateZ(0);
+        }
       }
     }
 
@@ -244,6 +330,96 @@
 
     .naught.blue {
       background-image: url(img/easteregg-tictactoe-naught-blue.svg);
+    }
+
+    #easteregg-tic-tac-toe-win {
+      position: absolute;
+      width: percent(180 * $svg-ratio, $w);
+      height: percent(9 * $svg-ratio, $h);
+      background-position: 50% 50%;
+      background-size: contain;
+      transform-origin: 50% 50%;
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+      @include will-change(transform, opacity);
+
+      transform: translate3d(60px, 67px, 0)  rotateZ(0);
+
+      &.red {
+        opacity: 1;
+        background-image: url(img/easteregg-tictactoe-win-red.svg);
+      }
+
+      &.blue {
+        opacity: 1;
+        background-image: url(img/easteregg-tictactoe-win-blue.svg);
+      }
+
+      &.pos-0 {
+        transform: translate3d(70px, 45px, 0)  rotateZ(0deg);
+      }
+
+      &.pos-1 {
+        transform: translate3d(59px, 68px, 0)  rotateZ(0deg);
+      }
+
+      &.pos-2 {
+        transform: translate3d(53px, 91px, 0)  rotateZ(0deg);
+      }
+
+      &.pos-3 {
+        transform: translate3d(-5px, 71px, 0)  rotateZ(128deg);
+      }
+
+      &.pos-4 {
+        transform: translate3d(55px, 81px, 0)  rotateZ(108deg);
+      }
+
+      &.pos-5 {
+        transform: translate3d(125px, 70px, 0)  rotateZ(96deg);
+      }
+
+      &.pos-6 {
+        transform: translate3d(71px, 70px, 0)  rotateZ(27deg);
+      }
+
+      &.pos-7 {
+        transform: translate3d(60px, 66px, 0)  rotateZ(163deg);
+      }
+
+      @media (max-width: ($width-desktop - 1)) {
+        &.pos-0 {
+          transform: translate3d(42px, 26px, 0)  rotateZ(0deg);
+        }
+
+        &.pos-1 {
+          transform: translate3d(39px, 41px, 0)  rotateZ(0deg);
+        }
+
+        &.pos-2 {
+          transform: translate3d(37px, 53px, 0)  rotateZ(0deg);
+        }
+
+        &.pos-3 {
+          transform: translate3d(-1px, 41px, 0)  rotateZ(128deg);
+        }
+
+        &.pos-4 {
+          transform: translate3d(36px, 41px, 0)  rotateZ(108deg);
+        }
+
+        &.pos-5 {
+          transform: translate3d(75px, 41px, 0)  rotateZ(96deg);
+        }
+
+        &.pos-6 {
+          transform: translate3d(43px, 42px, 0)  rotateZ(27deg);
+        }
+
+        &.pos-7 {
+          transform: translate3d(34px, 40px, 0)  rotateZ(163deg);
+        }
+      }
     }
   }
 
