@@ -21,38 +21,47 @@ goog.provide('app.Drawer');
 app.Drawer = function(elem) {
   this.elem = elem || null;
   this.$elem = $(elem);
-  this.$drawers = {};
-  this.$drawers[Constants.USER_OBJECT_TYPE_SPRING] = this.$elem.find('.js-drawer-spring');
-  this.$drawers[Constants.USER_OBJECT_TYPE_BELT] = this.$elem.find('.js-drawer-belt');
 
+  this.CLASS_DRAWER_SPRING = 'js-drawer-spring';
+  this.CLASS_DRAWER_BELT = 'js-drawer-belt';
   this.CLASS_SPRING = 'js-object-spring';
   this.CLASS_BELT = 'js-object-conveyorBelt';
   this.CLASS_INACTIVE = 'is-inactive';
+  this.CLASS_COUNTER = 'js-drawer-counter';
+
+  this.$drawers = {};
+  this.$drawers[Constants.USER_OBJECT_TYPE_SPRING] = {
+    count: 0,
+    $node: this.$elem.find( '.' + this.CLASS_DRAWER_SPRING )
+  };
+
+  this.$drawers[Constants.USER_OBJECT_TYPE_BELT] = {
+    count: 0,
+    $node: this.$elem.find( '.' + this.CLASS_DRAWER_BELT )
+  };
+
 };
 
 app.Drawer.prototype.add = function(data, type) {
-  this.$drawers[type].append( this.createDOMNode_(data) );
+  const $drawer = this.$drawers[type];
+
+  $drawer
+    .$node
+    .append( this.createDOMNode_(data) )
+    .find('.js-rotate-handle')
+    .remove();
+
+  this.updateDrawerCount( $drawer );
 };
 
 app.Drawer.prototype.createDOMNode_ = function(data) {
-  return
-    $('<div/>')
-      .addClass('object ' + data.style.className)
-      .html(data.style.innerHTML || '')
-      .find('.js-rotate-handle')
-      .remove();
-};
-
-app.Drawer.prototype.addSpring = function($spring) {
-  this.$springsDrawer.append( $spring.addClass( this.CLASS_INACTIVE ) );
-};
-
-app.Drawer.prototype.addBelt = function($belt) {
-  this.$beltsDrawer.append( $belt.addClass( this.CLASS_INACTIVE ) );
+  return $('<div />').addClass('object ' + data.style.className).html(data.style.innerHTML || '');
 };
 
 app.Drawer.prototype.setObjectsVisibility = function () {
 };
 
-app.Drawer.prototype.updateObjectCount = function($drawer) {
+app.Drawer.prototype.updateDrawerCount = function($drawer) {
+  $drawer.count++;
+  $drawer.$node.find('.' + this.CLASS_COUNTER).text($drawer.count);
 };
