@@ -30,6 +30,9 @@ specific language governing permissions and limitations under the License.
       -ms-flex-direction: column;
       -webkit-flex-direction: column;
       flex-direction: column;
+      @apply(--layout-center);
+      @apply(--layout-center-justified);
+      @apply(--layout-fit);
     }
 
     .button {
@@ -97,7 +100,7 @@ specific language governing permissions and limitations under the License.
     }
   </style>
 
-  <div class="difficulties layout center center-justified fit">
+  <div class="difficulties">
     <button class="button" data-difficulty="beginner" on-tap="onTap">
       <div class="button-figure button-figure--easy"></div>
       <div class="button-text">

@@ -60,6 +60,27 @@ City feed view in Tracker
   :host([active]) {
     display: block;
   }
+
+  .divider {
+    @apply(--layout-horizontal);
+    @apply(--layout-end);
+  }
+
+  .horizontal {
+    @apply(--layout-horizontal);
+  }
+
+  .centered {
+    @apply(--layout-center);
+  }
+
+  .start-justified {
+    @apply(--layout-start-justified);
+  }
+
+  .fit {
+    @apply(--layout-fit);
+  }
 </style>
 
 <template id="mini-cards-template">
@@ -124,10 +145,10 @@ City feed view in Tracker
     <iron-list id="feed" data="{{stream}}" selectionEnabled="false"
                height="350" runwayFactor="4" on-scroll="onScroll">
       <template>
-        <div layout$="{{!isMobileSize}}" class="horizontal start justified">
+        <div layout$="{{!isMobileSize}}" class="horizontal start-justified">
           <div class="card card-{{model.type}} {{model.game ? 'card-' + model.game : ''}}"
                flex$="{{modelTypeIs_('city')}}">
-            <div class="divider layout horizontal end">{{model.timestamp | formatTime}}</div>
+            <div class="divider">{{model.timestamp | formatTime}}</div>
 
             <div hidden?="{{model.type != 'city'}}">
               <div class="card-header">
@@ -143,17 +164,17 @@ City feed view in Tracker
                   <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg" on-tap="{{onWikipedia}}" data-name="wikipedia" hidden?="{{!model.stop.details.hasWiki}}">
                 </iron-selector>
                 <div class="stats">
-                  <div class="layout horizontal">
+                  <div class="horizontal">
                     <div>
                       <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
-                      <div class="layout horizontal center">
+                      <div class="horizontal centered">
                         <div class="ico ico-clock"></div>
                         <h2 class="stat-large">{{model.stop.arrival | formatTime}}</h2>
                       </div>
                     </div>
                     <div>
                       <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
-                      <div class="layout horizontal center">
+                      <div class="horizontal centered">
                         <div class="ico ico-weatherchanel"></div>
                         <h2 class="stat-large white">{{model.stop.details.weather.tempC}}&deg;C / {{model.stop.details.weather.tempF}}&deg;F</h2>
                       </div>
@@ -206,7 +227,7 @@ City feed view in Tracker
 
           <template is="dom-if" if="{{model.nextCard}}" bind="{{model.nextCard as model}}">
             <div class="card card-{{model.nextCard.type}} {{model.nextCard.game ? 'card-' + model.nextCard.game : ''}}">
-              <div class="divider layout horizontal end">{{formatTime(model.nextCard.timestamp)}}</div>
+              <div class="divider">{{formatTime(model.nextCard.timestamp)}}</div>
               <template bind ref="mini-cards-template"></template>
             </div>
           </template>
