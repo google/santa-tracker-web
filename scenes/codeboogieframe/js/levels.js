@@ -66,17 +66,17 @@ app.levels.push(
   new app.DanceLevel({
     bpm: 120,
     track: 0,
-    idealBlockCount: 3,
+    idealBlockCount: 6,
     stage: 'stage1',
     steps: [
       app.Step.LEFT_ARM,
       app.Step.RIGHT_ARM,
       app.Step.LEFT_ARM,
       app.Step.RIGHT_ARM,
-      app.Step.LEFT_ARM,
-      app.Step.RIGHT_ARM,
-      app.Step.LEFT_ARM,
-      app.Step.RIGHT_ARM
+      app.Step.LEFT_FOOT,
+      app.Step.RIGHT_FOOT,
+      app.Step.LEFT_FOOT,
+      app.Step.RIGHT_FOOT
     ],
     toolbox: app.blocks.miniBlockXml('dance_pointLeft') +
         app.blocks.miniBlockXml('dance_pointRight') +
