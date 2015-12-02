@@ -20,14 +20,14 @@
         position: absolute;
         top: -100%;
         height: 100%;
-        width: 180px;
+        width: $pipe-width;
         padding-top: 9999px;
-        margin-top: -9999px;
-        margin-left: 10px;
+        margin-top: -9998px;
       }
     }
 
     &__button {
+      cursor: pointer;
       width: $button-width;
       position: absolute;
       left: 230px;

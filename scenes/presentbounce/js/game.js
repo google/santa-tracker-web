@@ -41,6 +41,7 @@ app.Game = function(elem) {
   this.elem = $(elem);
   this.viewElem = this.elem.find('.scene');
   this.levelElem = this.elem.find('.levelboard');
+  this.backgroundElem = this.elem.find('.bg');
 
   this.scoreboard = new app.Scoreboard(this, this.elem.find('.board'), app.Constants.TOTAL_LEVELS);
   this.drawer = new app.Drawer(this.elem);
@@ -57,7 +58,24 @@ app.Game = function(elem) {
   this.onFrame_ = this.onFrame_.bind(this);
   this.loadNextLevel_ = this.loadNextLevel_.bind(this);
   this.onLevelCompleted = this.onLevelCompleted.bind(this);
+
+  // bind events
+  this.addEventListeners_();
 };
+
+/**
+ * Adds event listeners on elements
+ */
+app.Game.prototype.addEventListeners_ = function() {
+  this.backgroundElem.on("click", this.onBackgroundClick.bind(this));
+}
+
+/**
+ * Removes event listeners on elements
+ */
+app.Game.prototype.removeEventListeners_ = function() {
+  this.backgroundElem.off("click", this.onBackgroundClick);
+}
 
 /**
  * Starts the game.
@@ -67,7 +85,7 @@ app.Game.prototype.start = function() {
   // Bind listener to scale scene when window resizes
   this.watchSceneSize_();
   this.restart();
-  // this.tutorial.start();
+  this.tutorial.start();
 };
 
 /**
@@ -113,6 +131,15 @@ app.Game.prototype.onFrame_ = function() {
   this.requestId = utils.requestAnimFrame(this.onFrame_);
 };
 
+/** 
+ * Handles user clicks on the background
+ */
+app.Game.prototype.onBackgroundClick = function() {
+  if (this.currentLevel_) {
+    this.currentLevel_.onInteraction();
+  }
+}
+
 /**
  * Transition to the next level.
  * @private
@@ -139,7 +166,6 @@ app.Game.prototype.loadNextLevel_ = function() {
   }
   this.currentLevel_ = new app.world.Level(this, this.levelElem, levelData, this.onLevelCompleted, this.tutorial, this.scoreboard, this.drawer);
 };
-
 
 /**
  * Callback when current level is successfully completed
@@ -300,6 +326,7 @@ app.Game.prototype.dispose = function() {
   $(window).off('.presentbounce');
   $(document).off('.presentbounce');
 
+  this.removeEventListeners_();
   this.levelUp.dispose();
   this.tutorial.dispose();
 };

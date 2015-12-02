@@ -49,7 +49,7 @@ goog.scope(function() {
      */
     constructor(game, elem, levelData, onCompleteCallback, tutorial, scoreboard, drawer) {
       this.game_ = game;
-      this.elem = $(elem);
+      this.elem = elem;
       this.levelData_ = levelData;
       this.onCompleteCallback = onCompleteCallback;
 
@@ -65,7 +65,7 @@ goog.scope(function() {
       this.target_ = null;
       this.isLevelLoaded_ = false;
       this.debug_ = !!location.search.match(/[?&]debug=true/);
-      this.hasLevelStarted = false;
+      this.hasInteractionStarted = false;
 
       // Total ammount of objects available to be dragged and dropped
       this.numObjectsAvailable = 0;
@@ -81,9 +81,26 @@ goog.scope(function() {
 
       this.world_.SetContactListener(listener);
 
+      // bind events
+      this.addEventListeners_();
+
       this.init_();
     }
 
+    /**
+     * Adds event listeners on elements
+     */
+    addEventListeners_() {
+      this.elem.on("click", this.onInteraction.bind(this));
+    }
+
+    /**
+     * Removes event listeners on elements
+     */
+    removeEventListeners_() {
+      this.elem.off("click", this.onInteraction);
+    }
+    
     /**
      * Callback for when the level is completed.
      * Figures out the score and calls the game that this level is completed.
@@ -315,7 +332,11 @@ goog.scope(function() {
     }
 
     onInteraction() {
-      console.log("onInteraction!");
+      if (!this.hasInteractionStarted) {
+        this.hasInteractionStarted = true;
+        this.tutorial.off('device-tilt');
+        this.tutorial.off('mouse' );
+      }
     }
 
     /**
@@ -393,12 +414,21 @@ goog.scope(function() {
     }
 
     /**
+     * Helper to check if game is paused
+     * @public
+     */
+    isGamePaused() {
+      return this.game_.paused;
+    }
+
+    /**
      * Destroy level and all Box2D/DOM resources
      * @public
      */
     destroy() {
       this.isLevelLoaded_ = false;
       this.destroyBall();
+      this.removeEventListeners_();
 
       for (let object of this.levelObjects_) {
         object.destroy();

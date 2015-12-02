@@ -206,6 +206,7 @@ goog.scope(function () {
     onUserInteractionStart() {
       // disable bouncy surfaces while dragging
       this.setRestitution_(0);
+      this.level_.onInteraction();
     }
 
     /**
