@@ -265,7 +265,7 @@ Santaselfie scene.
     },
 
     sceneParamsChanged: function() {
-      if (this.sceneParams.beard) {
+      if (this.sceneParams && this.sceneParams.beard) {
         this.game.restoreBeard(this.sceneParams.beard);
       }
     }
