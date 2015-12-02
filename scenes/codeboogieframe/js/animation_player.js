@@ -62,6 +62,8 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
         el.querySelector('.scene__character--teacher'), 'green');
     this.title = new app.Title(el.querySelector('.scene__word-title'));
     this.moveTiles = new app.MoveTiles(el.querySelector('.scene__moves'));
+    /** @type {?app.DanceLevelResult} */
+    this.lastResult = null;
     /** @type {Array<app.AnimationItem>} */
     this.animationQueue = [];
     /** @type {?app.AnimationItem} */
@@ -91,6 +93,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
    * @param {app.DanceLevelResult} result from player to animate.
    */
   start(result) {
+    this.lastResult = result;
     this.animationQueue = result.animationQueue;
     this.moveTiles.reset();
     this.title.setTitle(this.animationQueue[0].title, true);
@@ -155,7 +158,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     if (!animation) {
       this.teacher.play(app.Step.IDLE, bpm);
       this.player.play(app.Step.IDLE, bpm);
-      this.title.setTitle();
+      this.title.setTitle(this.lastResult && this.lastResult.endTitle);
     } else {
       this.teacher.play(animation.teacherStep, bpm);
       this.player.play(animation.playerStep, bpm);

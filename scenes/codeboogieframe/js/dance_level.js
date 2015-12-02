@@ -99,7 +99,8 @@ app.DanceLevel = class extends app.Level {
 
     return new app.DanceLevelResult(false, null, {
       animationQueue: animation,
-      danceStatus: danceStatus
+      danceStatus: danceStatus,
+      endTitle: app.I18n.getMsg('CB_yourTurn')
     });
   }
 
@@ -130,6 +131,8 @@ app.DanceLevel = class extends app.Level {
     var code = blockly.getUserCode();
     var missingBlocks = blockly.getMissingBlocks(this.requiredBlocks);
     var numEnabledBlocks = blockly.getCountableBlocks().length;
+    var endTitleMsg = danceStatus === app.DanceStatus.NO_STEPS ? 'CB_yourTurn' :
+        levelComplete ? 'CB_success' : 'CB_tryAgain';
     var allowRetry = true;
     var message = null;
 
@@ -154,6 +157,7 @@ app.DanceLevel = class extends app.Level {
       allowRetry: allowRetry,
       animationQueue: animationQueue,
       code: code,
+      endTitle: app.I18n.getMsg(endTitleMsg),
       danceStatus: danceStatus,
       idealBlockCount: this.idealBlockCount,
       missingBlocks: missingBlocks
@@ -286,6 +290,7 @@ app.DanceLevel = class extends app.Level {
  *   allowRetry: boolean,
  *   code: string,
  *   freestyle: boolean,
+ *   endTitle: string,
  *   skipAnimation: boolean,
  *   animationQueue: Array.<app.AnimationItem>,
  *   overlayGraphic: string,
@@ -311,6 +316,7 @@ app.DanceLevelResult = class extends app.LevelResult {
     this.animationQueue = options.animationQueue || [];
     this.danceStatus = options.danceStatus || app.DanceStatus.NO_STEPS;
     this.freestyle = options.freestyle || false;
+    this.endTitle = options.endTitle;
   }
 
   watching() {
