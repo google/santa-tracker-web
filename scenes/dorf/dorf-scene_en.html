@@ -492,14 +492,14 @@ https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
         this.ticTacToeScore['red'] += this._ticTacToeCellValues[index];
         var w = this._checkTicTacToeWin(this.ticTacToeScore['red']);
         if (w !== false) {
-          this._showTicTacTowWin('red', w);
+          this._showTicTacToeWin('red', w);
           return;
         }
       } else {
         this.ticTacToeScore['blue'] += this._ticTacToeCellValues[index];
         var w = this._checkTicTacToeWin(this.ticTacToeScore['blue']);
         if (w !== false) {
-          this._showTicTacTowWin('blue', w);
+          this._showTicTacToeWin('blue', w);
           return;
         }
       }
@@ -512,7 +512,7 @@ https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
       this._playTicTacToeTimers[0] = this.async(this._playTicTacToe, playAgainTime);
     },
 
-    _showTicTacTowWin: function(player, w) {
+    _showTicTacToeWin: function(player, w) {
       var WIN_LINE_TIME = 2000;
       var RESTART_GAME_TIME = randomRange(20000, 60000);
       this._isPlayingTicTacToe = false;
