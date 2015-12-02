@@ -818,8 +818,8 @@ Polymer({
 
     // Let the selected scene know about params.
     if (newValue) {
-      newValue.sceneParams = this.sceneParams;
-      this.sceneParams = null;  // clear, passed to first scene
+      newValue.sceneParams = this.$.router.sceneParams || {};
+      this.$.router.sceneParams = null;  // clear, passed to first scene
       // TODO(samthor): We should clear the #-params here, since they've been
       // consumed.
     }
