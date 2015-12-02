@@ -78,8 +78,8 @@ app.Controls.prototype.onKeyDown_ = function(e) {
     this.isLeftDown_ = true;
   } else if (e.keyCode === 39) { // Right
     this.isRightDown_ = true;
-  } else if ((e.keyCode === 32 || e.keyCode === 40) && !this.isSpaceDown_) { // Space
-    // Let tutorial know if space has been pressed
+  } else if ((e.keyCode === 32 || e.keyCode === 40) && !this.isSpaceDown_) { // Space (and down)
+    // Let tutorial know if space or down has been pressed
     // and hide tutorial when user presses the button
     if (!this.spacePressed) {
       this.tutorial.off('keys-space');
@@ -112,7 +112,7 @@ app.Controls.prototype.onKeyUp_ = function(e) {
     this.isLeftDown_ = false;
   } else if (e.keyCode === 39) { // Right
     this.isRightDown_ = false;
-  } else if (e.keyCode === 32 || e.keyCode === 40) { // Space
+  } else if (e.keyCode === 32 || e.keyCode === 40) { // Space (and down)
     this.isSpaceDown_ = false;
   }
   this.updatePlayerFromKeyboard();
