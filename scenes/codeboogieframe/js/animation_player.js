@@ -21,10 +21,11 @@ goog.provide('app.AnimationItem');
 
 goog.require('app.Animation');
 goog.require('app.AnimationData');
-goog.require('app.Constants');
 goog.require('app.Character');
+goog.require('app.Constants');
 goog.require('app.DanceStatus');
 goog.require('app.I18n');
+goog.require('app.Lights');
 goog.require('app.MoveTiles');
 goog.require('app.Step');
 goog.require('app.Title');
@@ -64,6 +65,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.moveTiles = new app.MoveTiles(el.querySelector('.scene__moves'));
     /** @type {?app.DanceLevelResult} */
     this.lastResult = null;
+    this.lights = new app.Lights(el.querySelector('.scene__lights'));
     /** @type {Array<app.AnimationItem>} */
     this.animationQueue = [];
     /** @type {?app.AnimationItem} */
@@ -183,5 +185,12 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     if (this.currentAnimation && this.currentAnimation.isCountdown) {
       Klang.triggerEvent(`cb_count_in_${normalized}`);
     }
+
+    this.lights.onBeat(beat, bpm);
+  }
+
+  setLevel(level) {
+    this.moveTiles.setLevel(level);
+    this.lights.setLevel(level);
   }
 };
