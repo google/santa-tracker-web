@@ -53,7 +53,7 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
   /**
    * Serializes an object of key/value URL params into a string.
    *
-   * @param {object} urlParams The key/value URL params.
+   * @param {Object} urlParams The key/value URL params.
    * @return {string} serialized URL params.
    */
   function serializeParams(urlParams) {
@@ -100,10 +100,6 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
        */
       sceneParams: {
         type: Object,
-        readOnly: true,
-        value: function() {
-          return Object.freeze({});
-        },
         notify: true
       }
 
@@ -123,34 +119,21 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
     ready: function() {
       // Catch all URLs.
       this.router.on(/(.*)/, function(route) {
-        this._internalSetRoute(route);
-        // TODO: preserve params when calendar comes up.
-        this._setSceneParams(Object.freeze({}));
+        this.route = route;
+        this.sceneParams = null;
       }.bind(this));
       var route = this.router.getRoute() ? this.router.getRoute().join(this.router.delimiter) : '';
       var pieces = routeToParts(route);
-      this._internalSetRoute(pieces.route);
-      this._setSceneParams(Object.freeze(pieces.params));
+      this.route = pieces.route;
+      this.sceneParams = Object.freeze(pieces.params);
     },
 
     go: function(route) {
       window.location.hash = '#' + route;
     },
 
-    /**
-     * Called for a route change that should not trigger a location refresh.
-     */
-    _internalSetRoute: function(route) {
-      this._changingRoute = true;
-      try {
-        this.route = route;
-      } finally {
-        this._changingRoute = false;
-      }
-    },
-
     _routeChanged: function() {
-      if (!this._changingRoute && this.autoHash && this.route != null) {
+      if (this.sceneParams !== undefined && this.autoHash && this.route != null) {
         // Don't create a history entry when the route changes. This ensures
         // that when the route is changed programatically (usually because
         // a user is at the wrong route) they don't get a history event (that,
