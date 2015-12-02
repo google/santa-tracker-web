@@ -12,6 +12,7 @@ $z-index-above-present: $z-index-present + 10;
 @import "../shared/sass/tutorial";
 
 @import "sass/debug";
+@import "sass/board-custom";
 @import "sass/bg";
 @import "sass/levelobjects";
 @import "sass/object-spring";

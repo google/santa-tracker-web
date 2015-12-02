@@ -11,6 +11,10 @@
     background: rgba(66,66,66,.25);
   }
 
+  .object--inactive {
+    transform: scale(0.6);
+  }
+
   .object--present-rect {
     background: red;
     opacity: 0.5;

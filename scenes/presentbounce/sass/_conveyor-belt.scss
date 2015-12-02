@@ -7,11 +7,13 @@
 
     .belt {
       animation: #{$name}-belt-animation $belt-speed linear infinite;
+      animation-play-state: paused;
     }
 
     .wheel {
       transform-origin: center center;
       animation: #{$name}-wheel-animation $belt-speed/4 linear infinite;
+      animation-play-state: paused;
     }
 
     &.js-animation-reverse .belt,

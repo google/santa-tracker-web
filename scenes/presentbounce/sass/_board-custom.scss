@@ -1,0 +1,104 @@
+##{$name} {
+
+	$board-desktop-breakpoint: 1025px;
+	$border-color: #a52fb7;
+
+	.board {
+		border-radius: 0;
+
+		.score,
+		.time,
+		.level {
+			display: none;
+			@media (min-width: $board-desktop-breakpoint) {
+				display: inline-block;
+			}
+		}
+
+		.actions {
+			display: none;
+
+			@media (min-width: $board-desktop-breakpoint) {
+				display: block;
+			}
+		}
+	}
+
+	.drawer {
+
+		$drawer-mobile-size: 92px;
+
+		height: $drawer-mobile-size;
+		width: $drawer-mobile-size * 2;
+
+		@media (min-width: $board-desktop-breakpoint) {
+			width: 100%;
+			height: 100%;
+		}
+
+		&__holder {
+			box-sizing: border-box;
+			border-left: 1px solid $border-color;
+			cursor: move;
+		    display: block;
+		    float: left;
+		    padding: 15px;
+		    overflow: hidden;
+			height: 100%;
+			width: $drawer-mobile-size;
+
+			@media (min-width: $board-desktop-breakpoint) {
+				border-left: 0;
+				border-top: 1px solid $border-color;
+				float: none;
+				height: 130px;
+				padding: 0;
+				overflow: visible;
+				position: relative;
+				width: 100%;
+			}
+
+			&:first-child {
+				border-top: 0;
+				border-left: 0;
+			}
+
+			.object {
+				display: none;
+				position: static;
+
+				@media (min-width: $board-desktop-breakpoint) {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+				}
+
+				// @TODO temporary
+				&:first-child {
+					display: block;
+				}
+
+				&--spring {
+					@media (min-width: $board-desktop-breakpoint) {
+						width: 57px;
+						height: 63px;
+						margin-left: (57/2) * -1px;
+						margin-top: (63/2) * -1px;
+					}
+				}
+
+				&--conveyorBelt {
+					@media (min-width: $board-desktop-breakpoint) {
+						width: 146px;
+						height: 32px;
+						margin-left: (146/2) * -1px;
+						margin-top: (32/2) * -1px;
+					}
+				}
+			}
+
+		}
+
+	}
+
+}

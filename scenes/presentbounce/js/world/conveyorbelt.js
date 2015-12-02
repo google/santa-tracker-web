@@ -117,6 +117,7 @@ goog.scope(function () {
       const cornerRightFixDef = this.getCornerFixtureDef_(width/2 - height/2);
 
       const body = this.world_.CreateBody(bodyDef);
+      // body.SetActive(false);
       body.CreateFixture(plateFixDef);
       body.CreateFixture(cornerLeftFixDef);
       body.CreateFixture(cornerRightFixDef);
@@ -124,6 +125,9 @@ goog.scope(function () {
     }
 
     onTapEnd() {
+      if (!this.isActiveInTheScene()) {
+        return;
+      }
       this.toggleBeltDirection_();
     }
 

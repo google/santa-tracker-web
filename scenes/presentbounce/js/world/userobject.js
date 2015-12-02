@@ -45,6 +45,7 @@ goog.scope(function () {
       this.$rotateHandle = this.$el_.find('.js-rotate-handle');
 
       this.isInteractive_ = false;
+      this.isActiveInTheScene_ = false;
       this.wasDragged = false;
       this.wasRotated = false;
 
@@ -215,6 +216,14 @@ goog.scope(function () {
     }
 
     /**
+     * isActiveInTheScene
+     * @return {Boolean} [description]
+     */
+    isActiveInTheScene() {
+      return this.isActiveInTheScene_;
+    }
+
+    /**
      * Shared logic to set object in interactive mode
      * (i.e user is interacting with this object)
      * @private
@@ -266,6 +275,10 @@ goog.scope(function () {
      * @private
      */
     onRotateHandleStart_(e) {
+      if (this.isActiveInTheScene()) {
+        return;
+      }
+
       e.stopPropagation();
       e = app.InputEvent.normalize(e);
 

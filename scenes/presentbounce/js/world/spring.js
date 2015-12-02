@@ -43,6 +43,7 @@ goog.scope(function () {
     }
 
     onCollision() {
+      if (!this.isActiveInTheScene()) return;
       utils.animWithClass(this.$el_, 'animate');
       window.santaApp.fire('sound-trigger', 'pb_boing');
     }

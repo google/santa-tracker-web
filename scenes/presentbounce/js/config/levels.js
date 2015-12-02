@@ -62,16 +62,16 @@ app.config.Levels = [
       {
         material: app.config.Materials.conveyorBelt,
         style: app.config.Styles.conveyorBelt,
-        relX: 0.27,
-        relY: 0.5,
+        relX: 0,
+        relY: 0,
         rotation: 10,
         beltDirection: 1
       },
       {
         material: app.config.Materials.conveyorBelt,
         style: app.config.Styles.conveyorBelt,
-        relX: 0.72,
-        relY: 0.5,
+        relX: 0,
+        relY: 0,
         rotation: 0,
         beltDirection: 1
       }
@@ -80,15 +80,15 @@ app.config.Levels = [
       {
         material: app.config.Materials.spring,
         style: app.config.Styles.spring,
-        relX: 0.50,
-        relY: 0.9,
+        relX: 0,
+        relY: 0,
         rotation: 0
       },
       {
         material: app.config.Materials.spring,
         style: app.config.Styles.spring,
-        relX: 0.93,
-        relY: 0.8,
+        relX: 0,
+        relY: 0,
         rotation: -40
       }
     ]

@@ -26,6 +26,7 @@ goog.require('app.Constants');
 goog.require('app.Scoreboard');
 goog.require('app.config.Levels');
 goog.require('app.world.Level');
+goog.require('app.Drawer');
 
 
 
@@ -42,6 +43,7 @@ app.Game = function(elem) {
   this.levelElem = this.elem.find('.levelboard');
 
   this.scoreboard = new app.Scoreboard(this, this.elem.find('.board'), app.Constants.TOTAL_LEVELS);
+  this.drawer = new app.Drawer(this.elem);
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.levelUp = new app.shared.LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
   this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt', 'mouse');
@@ -135,7 +137,7 @@ app.Game.prototype.loadNextLevel_ = function() {
   if (this.currentLevel_) {
     this.currentLevel_.destroy();
   }
-  this.currentLevel_ = new app.world.Level(this, this.levelElem, levelData, this.onLevelCompleted, this.tutorial, this.scoreboard);
+  this.currentLevel_ = new app.world.Level(this, this.levelElem, levelData, this.onLevelCompleted, this.tutorial, this.scoreboard, this.drawer);
 };
 
 

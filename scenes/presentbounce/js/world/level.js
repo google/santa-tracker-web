@@ -47,7 +47,7 @@ goog.scope(function() {
      * @param {!Function} onCompleteCallback Callback function when level is completed
      * @export
      */
-    constructor(game, elem, levelData, onCompleteCallback, tutorial, scoreboard) {
+    constructor(game, elem, levelData, onCompleteCallback, tutorial, scoreboard, drawer) {
       this.game_ = game;
       this.elem = $(elem);
       this.levelData_ = levelData;
@@ -55,6 +55,7 @@ goog.scope(function() {
 
       this.tutorial = tutorial || null;
       this.scoreboard = scoreboard || null;
+      this.drawer = drawer || null;
 
       this.userObjects_ = [];
       this.levelObjects_ = [];
@@ -66,8 +67,7 @@ goog.scope(function() {
       this.debug_ = !!location.search.match(/[?&]debug=true/);
       this.hasLevelStarted = false;
 
-      // TODO make sure the numUsed objects corresponds 
-      // to the numTotalObjects
+      // Total ammount of objects available to be dragged and dropped
       this.numObjectsAvailable = 0;
 
       this.buildWorld_();
@@ -225,14 +225,23 @@ goog.scope(function() {
      */
     buildUserObjects_() {
       for (let beltData of this.levelData_.conveyorBelts) {
-        const belt = new ConveyorBelt(this, this.world_, beltData);
-        this.userObjects_.push(belt);
+        // const belt = new ConveyorBelt(this, this.world_, beltData);
+        // this.userObjects_.push(belt);
+        this.drawer.add(beltData, Constants.USER_OBJECT_TYPE_BELT);
+        this.numObjectsAvailable++;
       }
       for (let springData of this.levelData_.springs) {
-        const spring = new Spring(this, this.world_, springData);
-        this.userObjects_.push(spring);
+        // const spring = new Spring(this, this.world_, springData);
+        // this.userObjects_.push(spring);
+        this.drawer.add(springData, Constants.USER_OBJECT_TYPE_SPRING);
+        this.numObjectsAvailable++;
       }
+      // this.drawer.addAll( this.userObjects_ );
     }
+
+    // get a callback from the drawer to create the object
+    // in the correct place (by offseting the mouse with the drawer)
+    // look at getMouseWorldVector()
 
     /**
      * @public
@@ -299,7 +308,9 @@ goog.scope(function() {
       }
       // loop through user placed objects
       for (let object of this.userObjects_) {
-        object.draw();
+        if (object.isActiveInTheScene()) {
+          object.draw();
+        }
       }
     }
 
