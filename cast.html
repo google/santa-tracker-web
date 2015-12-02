@@ -32,13 +32,20 @@ specific language governing permissions and limitations under the License.
   var crm = cast.receiver.CastReceiverManager.getInstance();
   var messageBus = crm.getCastMessageBus('urn:x-cast:com.google.cast.santatracker');
 
+  var expiryTime = 1000 * 60 * 60 * 4;  // 4 hour timeout
+  var timeout;
+
   crm.onReady = function(event) {
     crm.setApplicationState('Google Santa Tracker');
   };
+  crm.onSenderConnected = function(event) {
+    window.clearTimeout(timeout);
+  };
   crm.onSenderDisconnected = function(event) {
-    if (!crm.getSenders().length &&
-        event.reason === cast.receiver.system.DisconnectReason.REQUESTED_BY_SENDER) {
-      window.close();
+    if (!crm.getSenders().length) {
+      timeout = window.setTimeout(function() {
+        window.close();
+      }, expiryTime);
     }
   };
   var config = new cast.receiver.CastReceiverManager.Config();
