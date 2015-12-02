@@ -699,15 +699,12 @@ Polymer({
       // Schedule a reload in the next ~2 hours, but only after the last user
       // click.
       var reloader = function(ev) {
-        if (ev && !isRealEvent(ev)) {
-          return;  // ignore fake events, such as simulated clicks
-        }
         var when = Math.random() * 1000 * 60 * 60 * 2;  // next two hours
         window.clearTimeout(reloadTimeout);
         reloadTimeout = window.setTimeout(function() {
           window.location.reload();
         }, when);
-      }
+      };
       document.addEventListener('click', reloader);
       reloader();
     }.bind(this));
