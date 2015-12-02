@@ -2627,18 +2627,6 @@ Trivia scene.
       this.$.hint.animate();
     },
 
-    onPause: function() {
-      if (this.game) {
-        this.game.pause();
-      }
-    },
-
-    onResume: function() {
-      if (this.game) {
-        this.game.resume();
-      }
-    },
-
     onGameOver: function() {
       this.questionVisible = false;
       this.$.answer.hide();

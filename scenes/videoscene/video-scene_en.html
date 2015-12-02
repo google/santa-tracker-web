@@ -154,6 +154,16 @@ Video scene.
       },
 
       /**
+       * Whether to mute this video. As this audio is played through an iframe,
+       * and not through Klang, this flag needs to be set on the inner
+       * `google-youtube` element.
+       */
+      mute: {
+        type: Boolean,
+        observer: '_muteChanged'
+      },
+
+      /**
        * The currentTime of the video. Bound to the `google-youtube` element.
        */
       currentTime: Number,
@@ -189,6 +199,8 @@ Video scene.
       this.player.seekTo(0);
       this.player.pause();
       this.controls = false;
+
+      this._muteChanged(this.mute);  // run mute logic for the first time
 
       // Autoplay on Cast mode.
       if (this.getAttribute('mode') == 'cast') {
@@ -259,25 +271,15 @@ Video scene.
     onShow: function() {
       this.showPlayer = true;
 
-      this.fire('sound-ambient', 'global_sound_off');
+      this.fire('sound-ambient', 'videoplayer_start');
     },
 
     onHide: function() {
       this.player.pause();
-      this.fire('sound-ambient', 'global_sound_on');
+      this.fire('sound-ambient', 'videoplayer_end');
 
       this.showPlayer = false;
       this.player = null;
-    },
-
-    onPause: function() {
-      this.player.pause();
-    },
-
-    onResume: function() {
-      if (this.controls) {
-        this.player.play();
-      }
     },
 
     keyHandler: function(e, detail) {
@@ -296,7 +298,17 @@ Video scene.
 
     _computeScrubPixels: function(currenttime, duration) {
       return (currenttime / duration) * 150;  // 150px is a magic constant
-    }
+    },
+
+    _muteChanged: function(newValue) {
+      if (this.player) {
+        if (newValue) {
+          this.player.mute();
+        } else {
+          this.player.unMute();
+        }
+      }
+    },
   });
 })();
 </script>
