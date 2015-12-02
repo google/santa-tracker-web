@@ -290,20 +290,35 @@
 	"codeboogie-get-dancing": {
 		"message": "ഡാൻസിംഗ് സ്വന്തമാക്കുക!"
 	},
+	"codeboogie-lets-dance": {
+		"message": "ഡാൻസ് ചെയ്യാം"
+	},
 	"codeboogie-next-dance": {
 		"message": "അടുത്ത ഡാൻസ്"
+	},
+	"codeboogie-nice-moves": {
+		"message": "നല്ല നീക്കങ്ങൾ!"
 	},
 	"codeboogie-result-missing-block-fail": {
 		"message": "ഡാൻസ് പൊരുത്തപ്പെടുത്താൻ താഴെയുള്ള ബ്ലോക്ക് പരീക്ഷിക്കുക."
 	},
 	"codeboogie-result-missing-block-success": {
-		"message": "വെറും {{ideal}} ബ്ലോക്കുകൾ ഉപയോഗിച്ച് ഈ ഡാൻസ് പൂർത്തിയാക്കാൻ നിങ്ങൾക്കാകുമെന്നത് അറിയാമോ? താഴെയുള്ള ബ്ലോക്ക് ഉപയോഗിച്ച് പരീക്ഷിക്കുക."
+		"message": "വെറും {{ideal}} ബ്ലോക്കുകൾ ഉപയോഗിച്ച് ഈ ഡാൻസ് പൂർത്തിയാക്കാൻ നിങ്ങൾക്കാകുമെന്ന് അറിയാമോ? താഴെയുള്ള ബ്ലോക്ക് ഉപയോഗിച്ച് പരീക്ഷിക്കുക."
 	},
 	"codeboogie-result-perfect-success": {
 		"message": "നല്ല നീക്കങ്ങൾ! നിങ്ങൾ മികച്ചനിലയിൽ ഡാൻസ് പൂർത്തിയാക്കി."
 	},
 	"codeboogie-result-too-few-blocks-fail": {
-		"message": "നിങ്ങൾ ശരിയായ ബ്ലോക്കുകൾ ഉപയോഗിക്കുന്നു, എന്നാൽ ഡാൻസ് പൂർത്തിയാക്കാൻ അവയിൽ കൂടുതൽ ഉപയോഗിച്ച് പരീക്ഷിക്കുക."
+		"message": "നിങ്ങൾ ശരിയായ ബ്ലോക്കുകളാണ് ഉപയോഗിക്കുന്നത്, എന്നാൽ ഡാൻസ് പൂർത്തിയാക്കാൻ അവയിൽ കൂടുതൽ ഉപയോഗിക്കുന്നത് പരീക്ഷിക്കുക."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "വെറും {{ideal}} ബ്ലോക്കുകൾ ഉപയോഗിച്ച് ഈ ഡാൻസ് പൂർത്തിയാക്കാനാകുമെന്ന് അറിയാമോ?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "നിങ്ങൾ നിരവധി സ്റ്റെപ്പുകൾ വച്ചു."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "നിങ്ങൾ തെറ്റായ നീക്കം നടത്തിയതുപോലെ തോന്നുന്നു. പകരം ഇത് പരീക്ഷിക്കുക:"
 	},
 	"codeboogie-success": {
 		"message": "വിജയകരം!"
@@ -454,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "ഡൊമിനിക്കൻ റിപ്പബ്ലിക്"
+	},
+	"donate_button": {
+		"message": "സംഭാവന നൽകുക"
+	},
+	"donate_text": {
+		"message": "പ്രത്യേക ആവശ്യങ്ങൾക്കുള്ള DonorsChoose.org-ലെ പ്രോജക്റ്റിന് ഫണ്ട് കണ്ടെത്താൻ സഹായിക്കുന്നു. ഈ ഡിസംബറിൽ, US$1m സംഭാവന ചെയ്യുക എന്ന ലക്ഷ്യത്തിൽ എത്തുന്നത് വരെ സംഭാവനകൾക്കൊപ്പം അതിന്റെ 50% കൂടി കൂട്ടിച്ചേർത്തുകൊണ്ട് വർദ്ധിച്ച തുകയുടെ നേട്ടത്തിന് ഞങ്ങൾ സഹായിക്കുന്നു. ഒന്നിച്ച്, ക്ലാസ്മുറികളെ നമുക്ക് കൂടുതൽ മികവുറ്റതാക്കാം #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "അൾജീരിയ"
@@ -836,6 +857,24 @@
 	"sa_country_name": {
 		"message": "സൗദി അറേബ്യ"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "ജിഞ്ചർബ്രെഡ് മാൻ"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "മിസിസ് ക്ലോസ്"
+	},
+	"santasearch_character_pegman": {
+		"message": "പെഗ്‌മാൻ"
+	},
+	"santasearch_character_penguin": {
+		"message": "പെൻഗ്വിൻ"
+	},
+	"santasearch_character_rudolph": {
+		"message": "റുഡോൾഫ്"
+	},
+	"santasearch_character_santa": {
+		"message": "സാന്താ ക്ലോസ്"
+	},
 	"santasearch_hint": {
 		"message": "സൂചന"
 	},
@@ -919,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "സാന്തയുടെ സെൽഫി"
+	},
+	"scene_seasonofcaring": {
+		"message": "കരുതലിന്റെ കാലം"
 	},
 	"scene_seasonofgiving": {
 		"message": "ദാനധർമ്മങ്ങളുടെ കാലം"
@@ -1039,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "നിങ്ങളിൽ നിന്നുള്ള ദൂരം"
+	},
+	"tracker_flight_nearby": {
+		"message": "സാന്ത സമീപത്തുണ്ട്, എവിടെയെന്ന് കണ്ടെത്തൂ"
+	},
+	"tracker_flight_start": {
+		"message": "സാന്ത ഉത്തരദ്രുവത്തിൽ നിന്നും പുറപ്പെട്ടു, നിങ്ങൾക്ക് ഇപ്പോൾ അദ്ദേഹത്തിന്റെ വഴി പിന്തുടരാം"
 	},
 	"tracker_gifts_delivered": {
 		"message": "വിതരണം ചെയ്ത സമ്മാനങ്ങൾ"
@@ -4768,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "Google Cast-ലെ സാന്ത"
+	},
+	"village_santa_crx": {
+		"message": "Google Chrome വിപുലീകരണം"
 	},
 	"village_takesoff": {
 		"message": "സാന്ത യാത്ര തുടങ്ങുന്നത്"

@@ -290,8 +290,14 @@
 	"codeboogie-get-dancing": {
 		"message": "Start dansen!"
 	},
+	"codeboogie-lets-dance": {
+		"message": "Start dansen"
+	},
 	"codeboogie-next-dance": {
 		"message": "Næste dans"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Flotte trin!"
 	},
 	"codeboogie-result-missing-block-fail": {
 		"message": "Prøv blokken nedenfor for at lave den samme dans."
@@ -304,6 +310,15 @@
 	},
 	"codeboogie-result-too-few-blocks-fail": {
 		"message": "Du bruger de rigtige blokke, men prøv at bruge flere af dem for at gennemføre dansen."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Er du klar over, at du kan gennemføre dansen med kun {{ideal}} blokke?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Du dansede for længe."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Det lader til, at du udførte det forkerte trin. Prøv i stedet dette:"
 	},
 	"codeboogie-success": {
 		"message": "Sådan!"
@@ -454,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Den Dominikanske Republik"
+	},
+	"donate_button": {
+		"message": "Giv donation"
+	},
+	"donate_text": {
+		"message": "Hjælp med at finansiere et projekt, der fokuserer på særlige behov, på DonorsChoose.org. I december hjælper vi med at fordoble indflydelsen ved at matche 50 % af alle donationer, indtil vi når målet om at donere 1 mio. USD. Sammen kan vi gøre klasseværelset til et godt sted for alle. #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Algeriet"
@@ -836,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Saudi-Arabien"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Honningkagemand"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Fru julemand"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pingvin"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolf"
+	},
+	"santasearch_character_santa": {
+		"message": "Julemanden"
+	},
 	"santasearch_hint": {
 		"message": "Tip"
 	},
@@ -919,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Julemandsselfie"
+	},
+	"scene_seasonofcaring": {
+		"message": "Årstiden, hvor man kommer hinanden ved"
 	},
 	"scene_seasonofgiving": {
 		"message": "Årstiden for gaver"
@@ -1039,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Afstand fra dig"
+	},
+	"tracker_flight_nearby": {
+		"message": "Julemanden er i nærheden, find ud af hvor"
+	},
+	"tracker_flight_start": {
+		"message": "Julemanden har forladt Nordpolen, og du kan nu følge hans rute"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Antal leverede gaver"
@@ -4768,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "Julemanden på Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Google Chrome-udvidelse"
 	},
 	"village_takesoff": {
 		"message": "Julemanden tager afsted om"

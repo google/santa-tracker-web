@@ -290,8 +290,14 @@
 	"codeboogie-get-dancing": {
 		"message": "Du bist dran!"
 	},
+	"codeboogie-lets-dance": {
+		"message": "Lass uns tanzen"
+	},
 	"codeboogie-next-dance": {
 		"message": "Nächster Tanz"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Gut gemacht!"
 	},
 	"codeboogie-result-missing-block-fail": {
 		"message": "Versuch mal den Block unten, um den Tanz hinzubekommen."
@@ -304,6 +310,15 @@
 	},
 	"codeboogie-result-too-few-blocks-fail": {
 		"message": "Du benutzt zwar die richtigen Blöcke, sie reichen aber nicht für den kompletten Tanz aus."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Wusstest du, dass der Tanz mit nur {{ideal}} Blöcken beendet werden kann?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Das waren zu viele Tanzschritte."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Dieser Tanzschritt hat wohl nicht ganz gepasst. Probier es mal mit diesem hier:"
 	},
 	"codeboogie-success": {
 		"message": "Geschafft!"
@@ -454,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Dominikanische Republik"
+	},
+	"donate_button": {
+		"message": "Spenden"
+	},
+	"donate_text": {
+		"message": "Helfen Sie mit bei der Finanzierung eines Förderprogramms auf DonorsChoose.org. Diesen Dezember ergänzen wir jede eingegangene Spende um 50 %, bis wir unser Ziel von 1 Million $ erreicht haben. Lassen Sie uns gemeinsam dafür sorgen, dass Klassenzimmer tatsächlich #ForEveryKid, also für alle Kinder, zugänglich sind."
 	},
 	"dz_country_name": {
 		"message": "Algerien"
@@ -836,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Saudi-Arabien"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Lebkuchenmann"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Frau Weihnachtsmann"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pinguin"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolf"
+	},
+	"santasearch_character_santa": {
+		"message": "Weihnachtsmann"
+	},
 	"santasearch_hint": {
 		"message": "Hinweis"
 	},
@@ -919,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Weihnachtsmann-Selfie"
+	},
+	"scene_seasonofcaring": {
+		"message": "Das Fest der Liebe"
 	},
 	"scene_seasonofgiving": {
 		"message": "Zeit des Gebens"
@@ -1039,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Entfernung zu Ihnen"
+	},
+	"tracker_flight_nearby": {
+		"message": "Der Weihnachtsmann ist ganz in der Nähe. Finde heraus, wo genau."
+	},
+	"tracker_flight_start": {
+		"message": "Der Weihnachtsmann hat sich auf den Weg gemacht und den Nordpol verlassen. Du kannst ihn nun auf seiner Route verfolgen."
 	},
 	"tracker_gifts_delivered": {
 		"message": "Erhaltene Geschenke"
@@ -4768,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "Mit Google Cast den Weihnachtsmann suchen"
+	},
+	"village_santa_crx": {
+		"message": "Google Chrome-Erweiterung"
 	},
 	"village_takesoff": {
 		"message": "Der Weihnachtsmann startet in"

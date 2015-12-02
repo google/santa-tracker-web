@@ -228,11 +228,13 @@ app.Controls.prototype.onKeydown = function(e) {
   if (!this.arrowPressed_ && (this.keys['left'] || this.keys['right'] ||
                                  this.keys['up'] || this.keys['down'])) {
     this.game.tutorial.off('keys-arrows');
+    this.game.tutorial.off('spacenav-arrows');
     this.arrowPressed_ = true;
   }
 
   if (!this.spacePressed_ && this.keys['space']) {
     this.game.tutorial.off('keys-space');
+    this.game.tutorial.off('spacenav-space');
     this.spacePressed_ = true;
   }
 };
