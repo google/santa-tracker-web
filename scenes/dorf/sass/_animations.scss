@@ -18,6 +18,22 @@
   }
 }
 
+
+@keyframes #{$name}-swing {
+  0%, 20%, 40%, 60%, 100% {
+    transform: rotateZ(0);
+  }
+  10%, 30%, 50%, 70% {
+    transform: rotateZ(100deg);
+  }
+  99% {
+    transform: rotateZ(-360deg);
+  }
+  99.001% {
+    transform: rotateZ(0);
+  }
+}
+
 @keyframes #{$name}-slide {
   0% {
     transform: translateX(0) translateY(0);
