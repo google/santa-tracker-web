@@ -96,7 +96,7 @@ Controls.prototype.onKeydown = function(e) {
     this.isUpDown_ = true;
   } else if (e.keyCode === 40) { // Down
     this.isDownDown_ = true;
-  } else if (e.keyCode === 32 && !this.isSpaceDown_) { // Space
+  } else if ((e.keyCode === 32 || e.keyCode === 39) && !this.isSpaceDown_) { // Space
     // Let tutorial know if space has been pressed
     // and hide tutorial when user presses the button
     if (!this.spacePressed) {
@@ -127,7 +127,7 @@ Controls.prototype.onKeyup = function(e) {
     this.isUpDown_ = false;
   } else if (e.keyCode === 40) { // Down
     this.isDownDown_ = false;
-  } else if (e.keyCode === 32) { // Space
+  } else if (e.keyCode === 32 || e.keyCode === 39) { // Space
     this.isSpaceDown_ = false;
     this.player.dropPresent();
   }
