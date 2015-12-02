@@ -155,7 +155,11 @@
     left: 50%;
     position: absolute;
     box-sizing: border-box;
-    bottom: 5%;
+    bottom: 70%;
+
+    @media (min-width: 1025px) {
+      bottom: 5%;
+    }
   }
 
   .scene__moves-move {
