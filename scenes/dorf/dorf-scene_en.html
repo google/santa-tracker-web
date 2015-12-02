@@ -504,7 +504,12 @@ https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
         }
       }
 
-     this._playTicTacToeTimers[0] = this.async(this._playTicTacToe, playAgainTime);
+      if (this._ticTacToeCells.length == 0) {
+        // Draw
+        this.fire('analytics-track-event', {category: 'village', action: 'tic-tac', label: 'draw'});
+      }
+
+      this._playTicTacToeTimers[0] = this.async(this._playTicTacToe, playAgainTime);
     },
 
     _showTicTacTowWin: function(player, w) {
@@ -513,7 +518,7 @@ https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
       this._isPlayingTicTacToe = false;
       var c = 'pos-' + w;
 
-      this.fire('analytics-track-event', {category: 'village', action: 'tic-tac-win', label: player});
+      this.fire('analytics-track-event', {category: 'village', action: 'tic-tac', label: player});
       this._playTicTacToeTimers[0] = this.async(function() {
         this.$['easteregg-tic-tac-toe-win'].classList.add(player, c);
       }, WIN_LINE_TIME);
