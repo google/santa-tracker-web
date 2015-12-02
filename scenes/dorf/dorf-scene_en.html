@@ -512,6 +512,8 @@ https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
       var RESTART_GAME_TIME = randomRange(20000, 60000);
       this._isPlayingTicTacToe = false;
       var c = 'pos-' + w;
+
+      this.fire('analytics-track-event', {category: 'village', action: 'tic-tac-win', label: player});
       this._playTicTacToeTimers[0] = this.async(function() {
         this.$['easteregg-tic-tac-toe-win'].classList.add(player, c);
       }, WIN_LINE_TIME);
@@ -758,6 +760,20 @@ https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
         return '/dive';
       }
       return 'https://santadive.withgoogle.com';
+    },
+
+    _onHousesOver: function(event) {
+      if (!event.target || event.target.localName != 'a' || !event.target.href) {
+        return;
+      }
+      this.fire('sound-trigger', 'village_bubble_appear');
+    },
+
+    _onHousesOut: function(event) {
+      if (!event.target || !event.target.classList.contains('card')) {
+        return;
+      }
+      this.fire('sound-trigger', 'village_bubble_disappear');
     },
 
     onPreload: function() {
