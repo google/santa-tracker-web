@@ -249,61 +249,76 @@
 		"message": "跳一下"
 	},
 	"codeboogie-block-jump-tooltip": {
-		"message": "跳一下。"
+		"message": "請跳一下。"
 	},
 	"codeboogie-block-leftarm": {
-		"message": "左手指向左側"
+		"message": "左手向左指"
 	},
 	"codeboogie-block-leftarm-tooltip": {
 		"message": "舉起左手臂，指向左側。"
 	},
 	"codeboogie-block-leftfoot": {
-		"message": "左腳往左移一步"
+		"message": "左踏一步"
 	},
 	"codeboogie-block-leftfoot-tooltip": {
-		"message": "提起左腳，往左跨一步。"
+		"message": "左腳往左跨一步。"
 	},
 	"codeboogie-block-rightarm": {
-		"message": "右手指向右側"
+		"message": "右手向右指"
 	},
 	"codeboogie-block-rightarm-tooltip": {
 		"message": "舉起右手臂，指向右側。"
 	},
 	"codeboogie-block-rightfoot": {
-		"message": "右腳往右移一步"
+		"message": "右踏一步"
 	},
 	"codeboogie-block-rightfoot-tooltip": {
-		"message": "提起右腳，往右跨一步。"
+		"message": "右腳往右跨一步。"
 	},
 	"codeboogie-block-shake": {
 		"message": "扭屁股"
 	},
 	"codeboogie-block-shake-tooltip": {
-		"message": "扭屁股。"
+		"message": "扭一下屁股。"
 	},
 	"codeboogie-block-split": {
 		"message": "劈腿"
 	},
 	"codeboogie-block-split-tooltip": {
-		"message": "劈腿。"
+		"message": "做個劈腿動作。"
 	},
 	"codeboogie-get-dancing": {
 		"message": "來跳舞吧！"
 	},
+	"codeboogie-lets-dance": {
+		"message": "來跳舞吧"
+	},
 	"codeboogie-next-dance": {
 		"message": "下一支舞"
 	},
+	"codeboogie-nice-moves": {
+		"message": "強者！"
+	},
 	"codeboogie-result-missing-block-fail": {
-		"message": "請按照方塊提示跳舞。"
+		"message": "請使用下方的方塊，依照示範舞步跳完整支舞。"
 	},
 	"codeboogie-result-missing-block-success": {
-		"message": "你知道跳完這支舞只需要用到 {{ideal}} 個方塊嗎？試試看用下方的方塊跳舞。"
+		"message": "你知道跳完這支舞只需用到 {{ideal}} 個方塊嗎？快用下方的方塊跳跳看。"
 	},
 	"codeboogie-result-perfect-success": {
 		"message": "厲害！所有舞步完全正確，恭喜你跳完整支舞。"
 	},
 	"codeboogie-result-too-few-blocks-fail": {
 		"message": "你使用的方塊雖然正確，但還需要用到更多正確的方塊，才能順利過關。"
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "你知道跳完這支舞只需用到 {{ideal}} 個方塊嗎？"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "舞步數太多。"
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "你的舞步出錯囉，試著用下面的方塊："
 	},
 	"codeboogie-success": {
 		"message": "成功！"
@@ -454,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "多明尼加共和國"
+	},
+	"donate_button": {
+		"message": "捐贈"
+	},
+	"donate_text": {
+		"message": "DonorsChoose.org 有一項特殊需求慈善活動需要您的支持！今年 12 月，只要捐款贊助這項慈善活動，Google 就會提撥您捐款金額的 50%，和您一起攜手做公益，目標是募得一百萬美元。懇請您伸出援手，幫助更多孩童穩定就學 #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "阿爾及利亞"
@@ -836,6 +857,24 @@
 	"sa_country_name": {
 		"message": "沙烏地阿拉伯"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "薑餅人"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "聖誕老婆婆"
+	},
+	"santasearch_character_pegman": {
+		"message": "衣夾人"
+	},
+	"santasearch_character_penguin": {
+		"message": "企鵝"
+	},
+	"santasearch_character_rudolph": {
+		"message": "紅鼻子馴鹿"
+	},
+	"santasearch_character_santa": {
+		"message": "聖誕老公公"
+	},
 	"santasearch_hint": {
 		"message": "提示"
 	},
@@ -919,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "聖誕老人自拍照"
+	},
+	"scene_seasonofcaring": {
+		"message": "關懷的季節"
 	},
 	"scene_seasonofgiving": {
 		"message": "溫馨分享季"
@@ -1039,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "與您相距多遠"
+	},
+	"tracker_flight_nearby": {
+		"message": "聖誕老人就在附近，快來找找看！"
+	},
+	"tracker_flight_start": {
+		"message": "聖誕老人從北極出發了，現在你可以跟著他環遊世界"
 	},
 	"tracker_gifts_delivered": {
 		"message": "已遞送的禮物數量"
@@ -4768,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "在 Google Cast 上尋找聖誕老人"
+	},
+	"village_santa_crx": {
+		"message": "Google Chrome 擴充功能"
 	},
 	"village_takesoff": {
 		"message": "距離聖誕老人出發時間還有"

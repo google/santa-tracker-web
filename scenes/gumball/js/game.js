@@ -52,7 +52,7 @@ app.Game = function(elem) {
   this.levelUp = new app.shared.LevelUp(this,
       this.elem.find('.levelup'), this.elem.find('.levelup--number'));
 
-  this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt', 'keys-leftright');
+  this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt', 'keys-leftright', 'spacenav-leftright');
   this.controls = new app.Controls(this);
   this.spheres = [];
   this.isPlaying = false;

@@ -290,8 +290,14 @@
 	"codeboogie-get-dancing": {
 		"message": "Comece a dançar"
 	},
+	"codeboogie-lets-dance": {
+		"message": "Vamos dançar"
+	},
 	"codeboogie-next-dance": {
 		"message": "Próxima dança"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Muito bem!"
 	},
 	"codeboogie-result-missing-block-fail": {
 		"message": "Tente usar o bloco abaixo para combinar com a dança."
@@ -304,6 +310,15 @@
 	},
 	"codeboogie-result-too-few-blocks-fail": {
 		"message": "Você está usando os blocos certos, mas tente usar mais deles para terminar a dança."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Você sabia que pode terminar esta dança com apenas {{ideal}} blocos?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Você deu passos demais."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Parece que algo deu errado. Em vez disso, tente este passo:"
 	},
 	"codeboogie-success": {
 		"message": "Sucesso!"
@@ -454,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "República Dominicana"
+	},
+	"donate_button": {
+		"message": "Doar"
+	},
+	"donate_text": {
+		"message": "Ajude a financiar um projeto para pessoas com necessidades especiais, em DonorsChoose.org. No mês de dezembro, ajudaremos a duplicar o impacto cobrindo o valor das doações em 50%, até alcançarmos nossa meta de doar R$ 1 mi. Juntos podemos tornar as salas de aula mais inclusivas #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Argélia"
@@ -836,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Arábia Saudita"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Boneco de gengibre"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Mamãe Noel"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pinguim"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rodolfo"
+	},
+	"santasearch_character_santa": {
+		"message": "Papai Noel"
+	},
 	"santasearch_hint": {
 		"message": "Dica"
 	},
@@ -912,13 +951,16 @@
 		"message": "Entrega de presentes"
 	},
 	"scene_racer": {
-		"message": "Corrida do Rudolph"
+		"message": "Corrida do Rodolfo"
 	},
 	"scene_santasearch": {
 		"message": "Onde está o Papai Noel?"
 	},
 	"scene_santaselfie": {
 		"message": "Selfie do Papai Noel"
+	},
+	"scene_seasonofcaring": {
+		"message": "Tempo de ajudar"
 	},
 	"scene_seasonofgiving": {
 		"message": "Tempo de generosidade"
@@ -1039,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Distância de onde você está"
+	},
+	"tracker_flight_nearby": {
+		"message": "O Papai Noel está perto, descubra onde"
+	},
+	"tracker_flight_start": {
+		"message": "O Papai Noel partiu do Polo Norte, e você pode seguir a rota dele"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Presentes entregues"
@@ -4768,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "Papai Noel no Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Extensão do Google Chrome"
 	},
 	"village_takesoff": {
 		"message": "O Papai Noel decola em"

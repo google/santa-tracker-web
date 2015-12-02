@@ -18,7 +18,7 @@ specific language governing permissions and limitations under the License.
 
 <!-- Elements used by scenes -->
 <link rel="import" href="../components/i18n-msg/i18n-msg.html" />
-<link rel="import" href="../components/iron-flex-layout/classes/iron-flex-layout.html" />
+<link rel="import" href="../components/iron-flex-layout/iron-flex-layout.html" />
 
 <script>
 (function() {
@@ -67,16 +67,6 @@ specific language governing permissions and limitations under the License.
         type: Boolean,
         reflectToAttribute: true,
         observer: '_activeChanged'
-      },
-
-      /**
-       * If `true`, the scene is always visible and `hidden` won't be applied
-       * when the page's `onHide()` is called.
-       */
-      alwaysActive: {
-        type: Boolean,
-        value: false,
-        reflectToAttribute: true
       },
 
       /**
