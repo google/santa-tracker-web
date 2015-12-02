@@ -774,7 +774,7 @@ https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
 
     _calculateDiveURL: function(mode) {
       if (mode == 'portal') {
-        return '/dive';
+        return (location.pathname + 'dive');
       }
       return 'https://santadive.withgoogle.com';
     },
