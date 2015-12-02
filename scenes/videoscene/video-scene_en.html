@@ -29,6 +29,9 @@ Video scene.
   :host[mode="cast"] .actions {
     display: none;
   }
+  :host[mode="cast"] #poster {
+    display: none;
+  }
   .fit {
     @apply(--layout-fit);
   }
@@ -40,7 +43,7 @@ Video scene.
   <div id="module-video" class="fit">
     <div class="scene" class="fit">
 
-      <div id="poster" class$="{{_computeTernary(poster, '', 'faded')}}"
+      <div id="poster" class$="{{_computeTernary(paused, '', 'faded')}}"
           on-transitionend="hidePoster"
           style$="background-image: url({{componentDir}}img/{{route}}-poster.jpg)">
         <div id="start" hidden$="{{!start}}">
@@ -110,14 +113,6 @@ Video scene.
       },
 
       /**
-       * True if the poster image should show.
-       */
-      poster: {
-        type: Boolean,
-        value: true
-      },
-
-      /**
        * True if the start button should show.
        */
       start: {
@@ -161,19 +156,19 @@ Video scene.
       /**
        * The currentTime of the video. Bound to the `google-youtube` element.
        */
-      currentTime: {type: Number},
+      currentTime: Number,
 
       /**
        * The formtted currentTime of the video. Bound to `google-youtube`,
        * where the property is readOnly.
        */
-      _currentTimeFormatted: {type: String},
+      _currentTimeFormatted: String,
 
       /**
        * The duration of the video. Bound to `google-youtube`, where the
        * property is readOnly.
        */
-      _duration: {type: Number},
+      _duration: Number,
     },
 
     /**
@@ -185,12 +180,6 @@ Video scene.
      * @param {string} detail.action
      * @param {string} detail.label
      */
-
-    attached: function() {
-      if (this.getAttribute('mode') == 'cast') {
-        this.hidePoster();
-      }
-    },
 
     youtubeReady: function() {
       this.start = true;
@@ -241,7 +230,6 @@ Video scene.
 
     togglePause: function() {
       this.paused = !this.paused;
-      this.poster = false;
       this.start = false;
 
       if (this.paused) {
@@ -252,7 +240,6 @@ Video scene.
     },
 
     playVideo: function() {
-      this.poster = false;
       this.start = false;
       this.player.play();
     },
