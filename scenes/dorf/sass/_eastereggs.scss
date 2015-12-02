@@ -73,8 +73,8 @@
   #easteregg-schoolyard {
     $w: 434;
     $h: 160;
-    &::after {
-      content: '';
+
+    .seesaw {
       position: absolute;
       width: percent(58 * $svg-ratio, $w);
       height: percent(30 * $svg-ratio, $h);
@@ -91,8 +91,8 @@
       @include will-change(transform);
       animation: #{$name}-seesaw 3s ease infinite;
     }
-    &::before {
-      content: '';
+
+    .slide {
       position: absolute;
       width: percent(15 * $svg-ratio, $w);
       height: percent(27 * $svg-ratio, $h);
@@ -105,7 +105,24 @@
         left: 165px;
       }
       @include will-change(transform);
-      animation: #{$name}-slide 4s ease-in infinite;
+      animation: #{$name}-slide 4s ease infinite;
+    }
+
+    .swing {
+      position: absolute;
+      width: percent(27 * $svg-ratio, $w);
+      height: percent(29 * $svg-ratio, $h);
+      transform-origin: 0 0;
+      left: 239px;
+      top: 51px;
+      @media (max-width: ($width-desktop - 1)) {
+        left: 144px;
+        top: 32px;
+      }
+      background-repeat: no-repeat;
+      background-image: url(img/swing.svg);
+      @include will-change(transform);
+      animation: #{$name}-swing 10s ease-in-out infinite;
     }
   }
 

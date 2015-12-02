@@ -81,6 +81,10 @@ City feed view in Tracker
   .fit {
     @apply(--layout-fit);
   }
+
+  .flex {
+    @apply(--layout-flex);
+  }
 </style>
 
 <template id="mini-cards-template">
@@ -146,6 +150,8 @@ City feed view in Tracker
                height="350" runwayFactor="4" on-scroll="onScroll">
       <template>
         <div layout$="{{!isMobileSize}}" class="horizontal start-justified">
+          <!-- TODO: When this is fully ported, it should use the flex
+            class, not attribute -->
           <div class="card card-{{model.type}} {{model.game ? 'card-' + model.game : ''}}"
                flex$="{{modelTypeIs_('city')}}">
             <div class="divider">{{model.timestamp | formatTime}}</div>
