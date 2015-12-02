@@ -13,6 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../../components/i18n-msg/i18n-msg.html">
+<link rel="import" href="../../../components/iron-flex-layout/iron-flex-layout.html" />
 
 <dom-module id="difficulty-menu">
 <template>
@@ -24,12 +25,7 @@ specific language governing permissions and limitations under the License.
     }
 
     .difficulties {
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -ms-flex-direction: column;
-      -webkit-flex-direction: column;
-      flex-direction: column;
+      @apply(--layout-vertical);
       @apply(--layout-center);
       @apply(--layout-center-justified);
       @apply(--layout-fit);
@@ -77,9 +73,7 @@ specific language governing permissions and limitations under the License.
 
     @media (min-width: 661px) {
       .difficulties {
-        -ms-flex-direction: row;
-        -webkit-flex-direction: row;
-        flex-direction: row;
+        @apply(--layout-horizontal);
       }
 
       .button {
