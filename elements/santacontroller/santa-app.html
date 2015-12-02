@@ -54,7 +54,7 @@ Santa Tracker app.
         attr-for-selected="route"
         selected-attribute="active">
 
-      <dorf-scene route="village" always-active freeform icon="1f384"
+      <dorf-scene route="village" freeform icon="1f384"
           id="village"
           mode$="{{mode}}"
           path$="scenes/dorf/dorf-scene_[[language]].html"></dorf-scene>
@@ -835,11 +835,12 @@ Polymer({
     }
 
     // Only remove certain elements from the DOM.
-    var dontRemoveEl = PERMANENT_ROUTES.indexOf(this.prevSelectedRoute) != -1;
-    if (dontRemoveEl) {
+    var isPermanentScene = PERMANENT_ROUTES.indexOf(this.prevSelectedRoute) != -1;
+    if (isPermanentScene) {
       return;
     }
 
+    // Find and remove the previous scene, if any.
     var prevSelectedScene = null;
     for (var i = 0, scene; scene = this.$.lazypages.items[i]; ++i) {
       if (scene.route == this.prevSelectedRoute) {
@@ -847,24 +848,27 @@ Polymer({
         break;
       }
     }
-
-    // Remove previous scene if it shouldn't always be active.
-    if (prevSelectedScene && !prevSelectedScene.alwaysActive) {
-      var dom = Polymer.dom(this.$.lazypages);
-      dom.removeChild(prevSelectedScene);
-
-      // Re-construct removed scene and add it back to lazy-pages. Note that
-      // loading-* isn't copied, since the element is already loaded.
-      var el = document.createElement(prevSelectedScene.localName);
-      el.route = prevSelectedScene.route;
-      el.santaApp = this;
-      el.loaded = true;
-      el.setAttribute('route', el.route);
-      el.setAttribute('mode', this.mode);
-      el.setAttribute('mode', el.getAttribute('freeform'));   // TODO: clone all
-
-      dom.appendChild(el);
+    if (!prevSelectedScene) {
+      return;
     }
+
+    var dom = Polymer.dom(this.$.lazypages);
+    dom.removeChild(prevSelectedScene);
+
+    // Re-construct removed scene and add it back to lazy-pages. Note that
+    // loading-* isn't copied, since the element is already loaded.
+    var el = document.createElement(prevSelectedScene.localName);
+    el.route = prevSelectedScene.route;
+    el.santaApp = this;
+    el.loaded = true;
+
+    ['route', 'mode', 'freeform'].forEach(function(attr) {
+      if (prevSelectedScene.hasAttribute(attr)) {
+        el.setAttribute(attr, prevSelectedScene.getAttribute(attr));
+      }
+    });
+
+    dom.appendChild(el);
   },
 
   _routeChanged: function() {
