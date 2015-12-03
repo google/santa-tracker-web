@@ -906,8 +906,8 @@ app.config.Levels = [
     target: {
       material: app.config.Materials.target,
       style: app.config.Styles.target,
-      relX: 0.75,
-      relY: 0.9
+      relX: 0.5,
+      relY: 0.6
     },
     fixedObjects: [
       {
