@@ -18,5 +18,44 @@
       right: 0;
       pointer-events: none;
     }
+
+    &__character {
+      opacity: 1;
+      //transition: transform 400ms ease-in-out, opacity 200ms 150ms;
+
+      &--found {
+        animation: #{$name}-map-character-found 1000ms forwards
+        //opacity: 0;
+      }
+
+      // Some character positions shouldn't be moved
+      // secretlab: SANTA-6
+      &--still {
+        transform: none;
+      }
+    }
+  }
+}
+
+@keyframes #{$name}-map-character-found {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-20%);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(-20%);
+  }
+  80% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50%);
   }
 }
