@@ -8,7 +8,6 @@
 	.drawer {
 
 		height: $drawer-mobile-size;
-		width: $drawer-mobile-size * 2;
 
 		@media (min-width: $board-desktop-breakpoint) {
 			width: 100%;

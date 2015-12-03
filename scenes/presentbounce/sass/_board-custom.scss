@@ -3,11 +3,6 @@
 	.board {
 		border-radius: 0;
 		bottom: 0;
-		margin-bottom: -24px;
-
-		@media (min-width: $board-mobile-breakpoint) {
-			margin-bottom: 0;
-		}
 
 		@media (min-width: $board-desktop-breakpoint) {
 			bottom: auto;
