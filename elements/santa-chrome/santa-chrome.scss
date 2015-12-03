@@ -138,6 +138,8 @@ santa-chrome {
       bottom: 0;
       z-index: -1;
 
+      pointer-events: none;  // make sure scroll events pass through toolbar.
+      
       will-change: opacity;
       transform: translateZ(0);
       opacity: 0;
