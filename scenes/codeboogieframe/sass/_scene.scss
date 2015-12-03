@@ -59,6 +59,7 @@
     position: absolute;
     right: 0;
     top: 0;
+    transform: translate3d(0, 0, 0);
   }
 
   .ceilingLight {
@@ -92,6 +93,7 @@
     background-image: url(img/lights/ceiling-light.svg);
     opacity: 0;
     transition: opacity 100ms;
+    transform: translate3d(0, 0, 0);
 
     &--white {
       background-image: url(img/lights/ceiling-light.svg);
