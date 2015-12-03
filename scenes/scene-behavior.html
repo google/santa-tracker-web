@@ -122,10 +122,7 @@ specific language governing permissions and limitations under the License.
        */
       sceneParams: {
         type: Object,
-        notify: true,
-        value: function() {
-          return {};
-        }
+        observer: 'sceneParamsChanged'
       },
 
       /**
@@ -277,6 +274,10 @@ specific language governing permissions and limitations under the License.
      */
     _computeTernary: function(arg, pve, nve) {
       return arg ? pve : nve;
+    },
+
+    sceneParamsChanged: function() {
+      // Noop. Subclasses can define this observer to know about changes.
     },
 
   };

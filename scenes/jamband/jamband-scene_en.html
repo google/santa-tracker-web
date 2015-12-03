@@ -338,7 +338,7 @@ Jamband scene.
     },
 
     sceneParamsChanged: function() {
-      if (this.sceneParams.band && this.bandStarted) {
+      if (this.sceneParams && this.sceneParams.band && this.bandStarted) {
         this.game.restoreBand(this.sceneParams.band);
       }
     },

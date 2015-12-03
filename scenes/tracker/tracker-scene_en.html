@@ -765,7 +765,7 @@ Tracker scene.
     },
 
     sceneParamsChanged: function() {
-      if (this.sceneParams.timestamp) {
+      if (this.sceneParams && this.sceneParams.timestamp) {
         this.openStraightToFeed();
         this.$.feed.scrollToTime(this.sceneParams.timestamp);
       }

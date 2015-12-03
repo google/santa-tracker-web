@@ -710,9 +710,7 @@ Polymer({
     var scene = this.selectedScene;
     if (scene) {
       this.$.preloader.active = !scene.loaded;
-      // Scene may not be upgraded for first scene-progress event.
-      var prog = scene.preloadProgress;
-      this.$.preloader.value = prog != undefined ? prog : 0;
+      this.$.preloader.value = scene.preloadProgress || 0;  // prevent undefined
     } else {
       this.$.preloader.active = false;
     }
@@ -722,6 +720,11 @@ Polymer({
     if (scene == this.$.village) {
       this._notifyHouses();
     }
+
+    scene.sceneParams = this.$.router.sceneParams || {};
+    this.$.router.sceneParams = null;  // clear, passed to first scene
+    // TODO(samthor): We should clear the #-params here, since they've been
+    // consumed.
   },
 
   onVideoSceneDone: function(event) {
@@ -816,11 +819,6 @@ Polymer({
       this._triggerRandom();
     }
 
-    // Let the selected scene know about params.
-    // TODO(samthor): How does this interact with two-way binding?
-    if (this.selectedScene) {
-      this.selectedScene.sceneParams = this.sceneParams;
-    }
     this._updateWindowTitle();
   },
 

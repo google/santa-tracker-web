@@ -35,11 +35,7 @@ app.shared.ShareOverlay = function(elem) {
   this.closeElem = this.elem.querySelector('.shareOverlay-close');
   this.urlElem = this.elem.querySelector('.shareOverlay-url');
 
-  if (window.gapi && window.gapi.client) {
-    this.urlShortener = window.gapi.client.load('urlshortener', 'v1');
-  }
-
-  var hideFn = this.hide.bind(this);
+  var hideFn = this.hide.bind(this, null);
   var selectFn = function() {
     // Use various approaches to select the text. Delay by a frame to work
     // around an apparent IE10 bug.
@@ -89,29 +85,18 @@ app.shared.ShareOverlay.prototype.show = function(url, shorten) {
  * @private
  */
 app.shared.ShareOverlay.prototype.shorten_ = function(url, callback) {
-  if (!window.gapi || !window.gapi.client) {
-    callback(url);
-    return;
-  }
-
-  if (!this.urlShortener) {
-    this.urlShortener = window.gapi.client.load('urlshortener', 'v1');
-  }
-
-  this.urlShortener.then(function() {
-    window.gapi.client.urlshortener.url.insert({
-      resource: {
-        longUrl: url
-      }
-    }).execute(function(response) {
-      if (!response.id) {
-        console.debug('URL shortener service failed, using raw URL');
-        callback(url);
-      } else {
-        callback(response.id);
-      }
-    });
-  });
+  var x = new XMLHttpRequest();
+  x.open('POST', 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyA4LaOn5d1YRsJIOTlhrm7ONbuJ4fn7AuE')
+  x.onload = function() {
+    var shortUrl = null;
+    try {
+      var json = JSON.parse(x.responseText);
+      shortUrl = json['id'];
+    } catch (e) {}
+    callback(shortUrl || url);
+  };
+  x.setRequestHeader('Content-Type', 'application/json');
+  x.send(JSON.stringify({longUrl: url}));
 };
 
 /**
