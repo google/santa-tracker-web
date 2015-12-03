@@ -21,11 +21,12 @@ goog.provide('app.Draggable');
  * @param {!Element} root to use to find droppable targets
  * @constructor
  */
-app.Draggable = function(elem, root, onDropCallback, testDropCallback) {
+app.Draggable = function(elem, root, onDropCallback, testDropCallback, drawer) {
   this.el = $(elem);
   this.rootEl = root;
   this.onDropCallback = onDropCallback;
   this.testDropCallback = testDropCallback;
+  this.drawer = drawer || null;
 
   this.container = $(elem).parent();
   this.el.data('container', this.container);
@@ -45,6 +46,7 @@ app.Draggable.prototype.dragStart_ = function(startX, startY) {
   this.startX = startX;
   this.startY = startY;
   this.el.addClass('dragging');
+  this.drawer.onDrag(this.el);
 };
 
 /**
@@ -82,7 +84,8 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
   if (dropZoneEl.length) {
     this.onDropCallback(x, y, (error) => {
       // callback only called if overlap was detected
-      console.log('DROP ERROR DETECTED', error);
+      // console.log('DROP ERROR DETECTED', error);
+      // this.drawer()
     });
   }
 

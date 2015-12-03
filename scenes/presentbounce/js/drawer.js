@@ -27,6 +27,7 @@ app.Drawer = function(elem) {
 
   this.CLASS_DRAWER_SPRING = 'js-drawer-spring';
   this.CLASS_DRAWER_BELT = 'js-drawer-belt';
+  this.CLASS_DRAWER_HOLDER = 'js-drawer-holder';
   this.CLASS_SPRING = 'js-object-spring';
   this.CLASS_BELT = 'js-object-conveyorBelt';
   this.CLASS_INACTIVE = 'is-inactive';
@@ -36,6 +37,8 @@ app.Drawer = function(elem) {
   this.CLASS_COUNT_VISIBLE = 'drawer__counter--visible';
   this.CLASS_OBJECT_VISIBLE = 'object--visible';
   this.CLASS_ANIMATE = 'animate';
+
+  this.onDrag = this.onDrag.bind(this);
 
   this.$drawers = {};
   this.$drawers[Constants.USER_OBJECT_TYPE_SPRING] = {
@@ -47,6 +50,9 @@ app.Drawer = function(elem) {
     count: 0,
     $node: this.$elem.find( '.' + this.CLASS_DRAWER_BELT )
   };
+
+  this.$drawers[Constants.USER_OBJECT_TYPE_BELT].$node.data('type', Constants.USER_OBJECT_TYPE_BELT);
+  this.$drawers[Constants.USER_OBJECT_TYPE_SPRING].$node.data('type', Constants.USER_OBJECT_TYPE_SPRING);
 
 };
 
@@ -60,44 +66,67 @@ app.Drawer.prototype.add = function(data, type, onDropCallback, onTestCallback) 
     .find('.js-rotate-handle')
     .remove();
 
-  this.updateCount( $drawer );
+  this.incrementCount( $drawer );
 
   new app.Draggable(
-    $node, 
-    this.elem, 
+    $node,
+    this.elem,
     (x, y, errorCallback) => {
       onDropCallback(data, type, {x, y}, errorCallback);
     },
     (x, y, validCallback) => {
       onTestCallback(data, type, {x, y}, validCallback);
-    }
+    },
+    this
   );
 
+};
+
+app.Drawer.prototype.getDrawerTypeFromEl = function($el) {
+  return $el.closest('.' + this.CLASS_DRAWER_HOLDER).data('type');
+};
+
+app.Drawer.prototype.onDrag = function($el) {
+  var drawerType = this.getDrawerTypeFromEl($el);
+  this.decrementCount( this.$drawers[drawerType] );
+};
+
+app.Drawer.prototype.onDropError = function($el) {
+  var drawerType = this.getDrawerTypeFromEl($el);
+  this.incrementCount( this.$drawers[drawerType] );
 };
 
 app.Drawer.prototype.showDrawer = function($el) {
   $el.addClass( this.CLASS_HOLDER_VISIBLE );
   setTimeout(function() {
-    this.showObject($el.find( '.' + this.CLASS_DRAGGABLE ).first());
-    this.showCounter($el.find( '.' + this.CLASS_COUNTER ));
+    this.showObject( this.getDraggableEl( $el ));
+    this.showCounter( this.getCounterEl( $el ) );
   }.bind(this), 200);
+};
+
+app.Drawer.prototype.getCounterEl = function($el) {
+  return $el.find( '.' + this.CLASS_COUNTER );
+};
+
+app.Drawer.prototype.getDraggableEl = function($el) {
+  return $el.find( '.' + this.CLASS_DRAGGABLE );
 };
 
 app.Drawer.prototype.showObject = function($el) {
   $el.addClass( this.CLASS_OBJECT_VISIBLE );
-}
+};
 
 app.Drawer.prototype.hideObject = function($el) {
   $el.removeClass( this.CLASS_OBJECT_VISIBLE );
-}
+};
 
 app.Drawer.prototype.showCounter = function($el) {
   $el.addClass( this.CLASS_COUNT_VISIBLE );
-}
+};
 
 app.Drawer.prototype.hideCounter = function($el) {
   $el.removeClass( this.CLASS_COUNT_VISIBLE );
-}
+};
 
 app.Drawer.prototype.hide = function($el) {
   $el
@@ -121,22 +150,28 @@ app.Drawer.prototype.updateVisibility = function () {
   }
 };
 
-app.Drawer.prototype.updateCount = function($drawer) {
+app.Drawer.prototype.incrementCount = function($drawer) {
   $drawer.count++;
+  this.updateCountText($drawer);
+};
 
-  $drawer
-    .$node
+app.Drawer.prototype.decrementCount = function($drawer) {
+  $drawer.count = Math.max($drawer.count-1, 0);
+  if ($drawer.count === 0) {
+    this.hideCounter( this.getCounterEl($drawer.$node) );
+  }
+  this.updateCountText($drawer);
+};
+
+app.Drawer.prototype.updateCountText = function($drawer) {
+  var $node = $drawer.$node;
+  $node
     .find('.' + this.CLASS_COUNTER)
     .text($drawer.count);
 
-}
-
-app.Drawer.prototype.animateCount = function($el) {
-  utils.animWithClass($el.find('.' + this.CLASS_COUNTER), this.CLASS_ANIMATE);
+  this.animateCount($node);
 };
 
-// @TODO
-// - Make sure it works with zero items for both drawers
-// - Animate them in on desktop
-// - Animate them in on mobile
-// - Animate number count when dropping it
+app.Drawer.prototype.animateCount = function($node) {
+  utils.animWithClass($node.find('.' + this.CLASS_COUNTER), this.CLASS_ANIMATE);
+};
