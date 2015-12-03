@@ -50,7 +50,7 @@ app.Drawer = function(elem) {
 
 };
 
-app.Drawer.prototype.add = function(data, type) {
+app.Drawer.prototype.add = function(data, type, onDropCallback, onTestCallback) {
   var $drawer = this.$drawers[type];
   var $node = this.createDOMNode_(data);
 
