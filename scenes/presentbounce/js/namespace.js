@@ -30,6 +30,7 @@ goog.require('Box2D.Dynamics.Joints.b2MouseJointDef');
 /**
  * "shortcuts" to used Box2D classes.
  */
+b2.AABB = Box2D.Collision.b2AABB;
 b2.Vec2 = Box2D.Common.Math.b2Vec2;
 b2.BodyDef = Box2D.Dynamics.b2BodyDef;
 b2.Body = Box2D.Dynamics.b2Body;

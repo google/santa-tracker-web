@@ -82,6 +82,8 @@ goog.scope(function() {
       this.world_.SetContactListener(listener);
 
       // bind events
+      this.onUserObjectDropped_ = this.onUserObjectDropped_.bind(this);
+      this.onTestDropObject_ = this.onTestDropObject_.bind(this);
       this.addEventListeners_();
 
       this.init_();
@@ -242,22 +244,65 @@ goog.scope(function() {
      */
     buildUserObjects_() {
       for (let beltData of this.levelData_.conveyorBelts) {
-        // const belt = new ConveyorBelt(this, this.world_, beltData);
-        // this.userObjects_.push(belt);
-        this.drawer.add(beltData, Constants.USER_OBJECT_TYPE_BELT);
+        this.drawer.add(beltData, Constants.USER_OBJECT_TYPE_BELT, this.onUserObjectDropped_, this.onTestDropObject_);
         this.numObjectsAvailable++;
       }
       for (let springData of this.levelData_.springs) {
-        // const spring = new Spring(this, this.world_, springData);
-        // this.userObjects_.push(spring);
-        this.drawer.add(springData, Constants.USER_OBJECT_TYPE_SPRING);
+        this.drawer.add(springData, Constants.USER_OBJECT_TYPE_SPRING, this.onUserObjectDropped_, this.onTestDropObject_);
         this.numObjectsAvailable++;
+      }
+
+      this.drawer.updateVisibility();
+    }
+
+    /**
+     * Callback from the drawer to create the World object when dropped inside the level
+     * @private
+     */
+    onUserObjectDropped_(objectData, objectType, position, callback) {
+      objectData.mouseX = position.x;
+      objectData.mouseY = position.y;
+      if (objectType === Constants.USER_OBJECT_TYPE_BELT) {
+        const belt = new ConveyorBelt(this, this.world_, objectData); 
+        if (belt.isBoundingBoxOverlappingOtherObject()) {
+          belt.destroy();
+          callback('OVERLAP ERROR');
+        }
+        else {
+          this.userObjects_.push(belt);
+        }
+      }
+      else if (objectType === Constants.USER_OBJECT_TYPE_SPRING) {
+        const spring = new Spring(this, this.world_, objectData);
+        if (spring.isBoundingBoxOverlappingOtherObject()) {
+          spring.destroy();
+          callback('OVERLAP ERROR');
+        }
+        else {
+          this.userObjects_.push(spring);
+        }
       }
     }
 
-    // get a callback from the drawer to create the object
-    // in the correct place (by offseting the mouse with the drawer)
-    // look at getMouseWorldVector()
+    /**
+     * Callback from the drawer to test dropping an object
+     * Temporarily create object, test for overlap, and then destroy the object
+     * @private
+     */
+    onTestDropObject_(objectData, objectType, position, validCallback) {
+      objectData.mouseX = position.x;
+      objectData.mouseY = position.y;
+      if (objectType === Constants.USER_OBJECT_TYPE_BELT) {
+        const belt = new ConveyorBelt(this, this.world_, objectData);
+        validCallback( !belt.isBoundingBoxOverlappingOtherObject() );
+        belt.destroy();
+      }
+      else if (objectType === Constants.USER_OBJECT_TYPE_SPRING) {
+        const spring = new Spring(this, this.world_, objectData);
+        validCallback( !spring.isBoundingBoxOverlappingOtherObject() );
+        spring.destroy();
+      }
+    }
 
     /**
      * @public
@@ -324,9 +369,7 @@ goog.scope(function() {
       }
       // loop through user placed objects
       for (let object of this.userObjects_) {
-        if (object.isActiveInTheScene()) {
-          object.draw();
-        }
+        object.draw();
       }
     }
 

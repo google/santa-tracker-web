@@ -45,7 +45,6 @@ goog.scope(function () {
       this.$rotateHandle = this.$el_.find('.js-rotate-handle');
 
       this.isInteractive_ = false;
-      this.isActiveInTheScene_ = false;
       this.wasDragged = false;
       this.wasRotated = false;
 
@@ -98,6 +97,46 @@ goog.scope(function () {
     }
 
     /**
+     * Checks for "collision" with other object
+     * @protected
+     */
+    isBoundingBoxOverlappingOtherObject() {
+      let isOverlapping = false;
+      let aabb = null;
+      
+      // GET BOUNDING BOX
+      let node = this.body_.GetFixtureList().GetFirstNode();
+      while (node)
+      {
+          if (aabb) {
+            aabb = b2.AABB.Combine(aabb, node.fixture.GetAABB());
+          }
+          else {
+            aabb = node.fixture.GetAABB();
+          }
+          node = node.GetNextNode();
+      }
+
+      // QUERY BOUNDING BOX FOR HITS IN WORLD
+      this.world_.QueryAABB( (match) => {
+        // make sure this fixture doesn't belong to this body
+        let node = this.body_.GetFixtureList().GetFirstNode();
+        while (node)
+        {
+          if (match === node.fixture) {
+            // matching self - move to next ,atch
+            return true;
+          }
+          node = node.GetNextNode();
+        }
+        isOverlapping = true;
+        return false; // stop checking
+      }, aabb);
+
+      return isOverlapping;
+    }
+
+    /**
      * Converts current mouse position to position inside Level element.
      *  - Offsets difference between Level container and window width
      *  - Scales x value based on overall scene scale
@@ -105,8 +144,8 @@ goog.scope(function () {
      */
     getMouseWorldVector(mouseX, mouseY) {
       const viewport = this.level_.getViewport();
-      const windowWidth = viewport.windowWidth;
-      const windowHeight = viewport.windowHeight;
+      const windowWidth = viewport.viewportWidth;
+      const windowHeight = viewport.viewportHeight;
       const scale = viewport.scale;
 
       const offsetX = viewport.sceneOffset.left + (windowWidth - Constants.CANVAS_WIDTH*scale) / 2;
@@ -216,14 +255,6 @@ goog.scope(function () {
     }
 
     /**
-     * isActiveInTheScene
-     * @return {Boolean} [description]
-     */
-    isActiveInTheScene() {
-      return this.isActiveInTheScene_;
-    }
-
-    /**
      * Shared logic to set object in interactive mode
      * (i.e user is interacting with this object)
      * @private
@@ -275,10 +306,6 @@ goog.scope(function () {
      * @private
      */
     onRotateHandleStart_(e) {
-      if (this.isActiveInTheScene()) {
-        return;
-      }
-
       e.stopPropagation();
       e = app.InputEvent.normalize(e);
 
@@ -297,6 +324,9 @@ goog.scope(function () {
      * @private
      */
     onRotateHandleMove_(e) {
+      // don't scroll, we're moving (could happen on touch)
+      e.preventDefault();
+
       this.moveAngle_ = this.getHandleRadianAngle_(e);
       if (this.moveAngle_ !== null) {
         this.setRotation_();
@@ -338,8 +368,12 @@ goog.scope(function () {
      * @private
      */
     onDragMove_(e) {
+      // don't scroll, we're swiping
+      e.preventDefault();
+
       this.moveAngle_ = this.getTouchRadianAngle_(e);
       e = app.InputEvent.normalize(e);
+      
       // check if we should rotate
       if (this.moveAngle_ !== null) {
         this.setRotation_();

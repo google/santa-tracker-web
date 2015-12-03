@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="-220 308.5 170 177.5" style="enable-background:new -220 308.5 170 177.5;" xml:space="preserve">
+	 viewBox="0 0 178 50" enable-background="new 0 0 178 50" xml:space="preserve">
 <g>
-	<g style="opacity:0.1;">
-		<path style="fill:#010101;" d="M-62.5,293.2h-130c-11,0-20-9-20-20h170C-42.5,284.2-51.5,293.2-62.5,293.2z M-161.6,293.2h68.1
-			v217.3h-68.1V293.2z"/>
-		<path style="fill:#010101;" d="M-103.4,293.2h10v217.3h-10V293.2z"/>
+	<polyline opacity="0.25" fill="#434343" points="58.3,-1 58.3,51 126.8,51 126.8,-1 	"/>
+	<g>
+		<rect x="51.2" y="-1" fill="#D4D4D6" width="68.5" height="52"/>
+		<rect x="109.7" y="-1" fill="#989898" width="10" height="52"/>
 	</g>
-	<path style="fill:#333333;" d="M-70,285.7h-130c-11,0-20-9-20-20h170C-50,276.7-59,285.7-70,285.7z"/>
-	<path style="fill:#D4D4D6;" d="M-169.1,285.7h68.1V503h-68.1V285.7z"/>
-	<path style="fill:#989898;" d="M-110.9,285.7h10V503h-10V285.7z"/>
 </g>
 </svg>

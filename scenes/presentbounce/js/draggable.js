@@ -21,14 +21,19 @@ goog.provide('app.Draggable');
  * @param {!Element} root to use to find droppable targets
  * @constructor
  */
-app.Draggable = function(elem, root) {
+app.Draggable = function(elem, root, onDropCallback, testDropCallback) {
   this.el = $(elem);
   this.rootEl = root;
+  this.onDropCallback = onDropCallback;
+  this.testDropCallback = testDropCallback;
+
   this.container = $(elem).parent();
   this.el.data('container', this.container);
 
   this.el.on('mousedown.presentbounce', this.mousedown_.bind(this));
   this.el.on('touchstart.presentbounce', this.touchstart_.bind(this));
+
+  this.el.addClass('draggable');
 };
 
 /**
@@ -39,11 +44,7 @@ app.Draggable = function(elem, root) {
 app.Draggable.prototype.dragStart_ = function(startX, startY) {
   this.startX = startX;
   this.startY = startY;
-
   this.el.addClass('dragging');
-  // this.el.trigger('dragging');
-
-  // this.rootEl.find('.droppable:not(:has(.draggable))').addClass('dropTarget');
 };
 
 /**
@@ -51,10 +52,14 @@ app.Draggable.prototype.dragStart_ = function(startX, startY) {
  * @param {number} top position
  * @private
  */
-app.Draggable.prototype.dragMove_ = function(left, top) {
+app.Draggable.prototype.dragMove_ = function(left, top, x, y) {
   this.el.css({
     position: 'absolute',
     transform: 'translate3d(' + left + 'px, ' + top + 'px, 0px)'
+  });
+
+  this.testDropCallback(x, y, (valid) => {
+    this.el.toggleClass('no-drop', !valid);
   });
 };
 
@@ -72,59 +77,29 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
         y < (rect.top + rect.height);
   };
 
-  // var droppable = this.rootEl.find('.droppable').filter(isDragOver).first();
-
-  // if (droppable.length) {
-    // var currentDraggable = droppable.find('.draggable');
-
-    // if (currentDraggable.length && !currentDraggable.is(this.el)) {
-    //   // If there's already a draggable in the droppable, swap them or return
-    //   if (this.el.parent().hasClass('droppable')) {
-    //     currentDraggable.appendTo(this.el.parent());
-    //     currentDraggable.trigger('dropped', this.el.parent().data());
-    //   } else {
-    //     currentDraggable.appendTo(currentDraggable.data('container'));
-    //     currentDraggable.trigger('dragging');
-    //     currentDraggable.trigger('returned');
-    //   }
-    // }
-
-    // this.el.appendTo(droppable);
-    // this.el.trigger('dropped', droppable.data());
-  // } else {
-    // this.el.appendTo(this.container);
-    // this.el.trigger('returned');
-  // }
+  // check if dropped in zone
+  var dropZoneEl = this.rootEl.find('.js-drop-target').filter(isDragOver).first();
+  if (dropZoneEl.length) {
+    this.onDropCallback(x, y, (error) => {
+      // callback only called if overlap was detected
+      console.log('DROP ERROR DETECTED', error);
+    });
+  }
 
   this.el.css({
     position: '',
     transform: ''
   });
   this.el.removeClass('dragging');
-  // this.rootEl.find('.droppable').removeClass('dropTarget');
 };
 
-/**
- * @param {!Element} e to find left offset
- * @return {number} combined scrollLeft
- * @private
- */
-app.Draggable.prototype.getScrollOffsetLeft_ = function(e) {
-  var scrollLeft = 0;
-
-  $(e.target).parents().each(function(index, element) {
-    scrollLeft += element.scrollLeft;
-  });
-
-  return scrollLeft;
-};
 
 /**
  * @param {!Event} e mouse event
  * @private
  */
 app.Draggable.prototype.mousedown_ = function(e) {
-  var startX = e.clientX + this.getScrollOffsetLeft_(e);
+  var startX = e.clientX;
   var startY = e.clientY;
 
   this.dragStart_(startX, startY);
@@ -140,10 +115,11 @@ app.Draggable.prototype.mousedown_ = function(e) {
  * @private
  */
 app.Draggable.prototype.touchstart_ = function(e) {
-  var startX = e.originalEvent.touches[0].clientX + this.getScrollOffsetLeft_(e);
+  var startX = e.originalEvent.touches[0].clientX;
   var startY = e.originalEvent.touches[0].clientY;
 
   this.dragStart_(startX, startY);
+
 
   $(window).on('touchmove.presentbounce', this.touchmove_.bind(this));
   $(window).on('touchend.presentbounce', this.touchend_.bind(this));
@@ -159,7 +135,7 @@ app.Draggable.prototype.mousemove_ = function(e) {
   var left = e.clientX - this.startX;
   var top = e.clientY - this.startY;
 
-  this.dragMove_(left, top);
+  this.dragMove_(left, top, e.clientX, e.clientY);
   e.preventDefault();
 };
 
@@ -171,12 +147,13 @@ app.Draggable.prototype.touchmove_ = function(e) {
   var left = e.originalEvent.touches[0].clientX - this.startX;
   var top = e.originalEvent.touches[0].clientY - this.startY;
 
-  this.dragMove_(left, top);
-  e.preventDefault();
-
   // Store the last known position because touchend doesn't
   this.x = e.originalEvent.touches[0].clientX;
   this.y = e.originalEvent.touches[0].clientY;
+
+  this.dragMove_(left, top, this.x, this.y);
+  e.preventDefault();
+
 };
 
 /**

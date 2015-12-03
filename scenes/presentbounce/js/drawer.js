@@ -32,6 +32,9 @@ app.Drawer = function(elem) {
   this.CLASS_INACTIVE = 'is-inactive';
   this.CLASS_COUNTER = 'js-drawer-counter';
   this.CLASS_DRAGGABLE = 'js-draggable';
+  this.CLASS_HOLDER_VISIBLE = 'drawer__holder--visible';
+  this.CLASS_COUNT_VISIBLE = 'drawer__counter--visible';
+  this.CLASS_OBJECT_VISIBLE = 'object--visible';
   this.CLASS_ANIMATE = 'animate';
 
   this.$drawers = {};
@@ -47,9 +50,9 @@ app.Drawer = function(elem) {
 
 };
 
-app.Drawer.prototype.add = function(data, type) {
-  const $drawer = this.$drawers[type];
-  const $node = this.createDOMNode_(data);
+app.Drawer.prototype.add = function(data, type, onDropCallback, onTestCallback) {
+  var $drawer = this.$drawers[type];
+  var $node = this.createDOMNode_(data);
 
   $drawer
     .$node
@@ -57,36 +60,83 @@ app.Drawer.prototype.add = function(data, type) {
     .find('.js-rotate-handle')
     .remove();
 
-  new app.Draggable( $node );
-
   this.updateCount( $drawer );
+
+  new app.Draggable(
+    $node, 
+    this.elem, 
+    (x, y, errorCallback) => {
+      onDropCallback(data, type, {x, y}, errorCallback);
+    },
+    (x, y, validCallback) => {
+      onTestCallback(data, type, {x, y}, validCallback);
+    }
+  );
+
 };
 
-app.Drawer.prototype.show = function($drawer) {
-  // $drawer.css('height', 0);
-  $drawer.addClass('drawer__holder--visible');
+app.Drawer.prototype.showDrawer = function($el) {
+  $el.addClass( this.CLASS_HOLDER_VISIBLE );
+  setTimeout(function() {
+    this.showObject($el.find( '.' + this.CLASS_DRAGGABLE ).first());
+    this.showCounter($el.find( '.' + this.CLASS_COUNTER ));
+  }.bind(this), 200);
 };
 
-app.Drawer.prototype.hide = function($drawer) {
-  // $drawer.css('height', 0);
-  $drawer.addClass('drawer__holder--hidden');
+app.Drawer.prototype.showObject = function($el) {
+  $el.addClass( this.CLASS_OBJECT_VISIBLE );
+}
+
+app.Drawer.prototype.hideObject = function($el) {
+  $el.removeClass( this.CLASS_OBJECT_VISIBLE );
+}
+
+app.Drawer.prototype.showCounter = function($el) {
+  $el.addClass( this.CLASS_COUNT_VISIBLE );
+}
+
+app.Drawer.prototype.hideCounter = function($el) {
+  $el.removeClass( this.CLASS_COUNT_VISIBLE );
+}
+
+app.Drawer.prototype.hide = function($el) {
+  $el
+    .removeClass( this.CLASS_HOLDER_VISIBLE )
+    .find( '.' + this.CLASS_COUNTER )
+    .removeClass( this.CLASS_COUNT_VISIBLE );
 };
 
 app.Drawer.prototype.createDOMNode_ = function(data) {
-  const classes = [this.CLASS_DRAGGABLE, 'object ' + data.style.className];
+  var classes = [this.CLASS_DRAGGABLE, 'object ' + data.style.className];
   return $('<div />').addClass(classes.join(' ')).html(data.style.innerHTML || '');
 };
 
 app.Drawer.prototype.updateVisibility = function () {
+  var $drawer = null;
+  for (var prop in this.$drawers) {
+    if (this.$drawers.hasOwnProperty(prop)) {
+      $drawer = this.$drawers[prop];
+      ($drawer.count > 0) ? this.showDrawer($drawer.$node) : this.hide($drawer.$node);
+    }
+  }
 };
 
 app.Drawer.prototype.updateCount = function($drawer) {
   $drawer.count++;
-  $drawer.$node.find('.' + this.CLASS_COUNTER).text($drawer.count);
-  // utils.animWithClass(this.$el_, this.CLASS_ANIMATE);
+
+  $drawer
+    .$node
+    .find('.' + this.CLASS_COUNTER)
+    .text($drawer.count);
+
+}
+
+app.Drawer.prototype.animateCount = function($el) {
+  utils.animWithClass($el.find('.' + this.CLASS_COUNTER), this.CLASS_ANIMATE);
 };
 
 // @TODO
 // - Make sure it works with zero items for both drawers
-// - Animate them in
+// - Animate them in on desktop
+// - Animate them in on mobile
 // - Animate number count when dropping it

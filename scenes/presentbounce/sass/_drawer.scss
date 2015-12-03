@@ -1,15 +1,13 @@
 ##{$name} {
-
-	$board-desktop-breakpoint: 1025px;
-	$border-color: #a52fb7;
 	$shadow-color: rgba(66,66,66,.2);
+	$transition-duration: 500ms;
+	$drawer-mobile-size: 92px;
+	// $drawer-mobile-size: 184px;
+	$drawer-desktop-height: 130px;
 
 	.drawer {
 
-		$drawer-mobile-size: 92px;
-
 		height: $drawer-mobile-size;
-		width: $drawer-mobile-size * 2;
 
 		@media (min-width: $board-desktop-breakpoint) {
 			width: 100%;
@@ -21,43 +19,52 @@
 			cursor: move;
 			display: block;
 			float: left;
-			padding: 15px;
 			overflow: hidden;
 			height: 100%;
-			width: $drawer-mobile-size;
-			transition-property: max-height;
-			transition-duration: 900ms;
-			transition-timing-function: $easeInOutExpo;
+			width: 0;
+			transition-property: transform;
+			transition-duration: 500ms;
+			transition-timing-function: $easeOutExpo;
+			transform: translateY(100%);
 
 			@media (min-width: $board-desktop-breakpoint) {
-				border-left: 0;
-				border-top: 1px solid $border-color;
 				float: none;
-				height: 130px;
-				padding: 0;
-				// overflow: visible;
 				position: relative;
+				height: 0;
 				width: 100%;
-			}
-
-			&:first-child {
-				border-top: 0;
-				border-left: 0;
+				border-bottom: 0;
+				transform: none;
+				transition-property: height;
 			}
 
 			&--visible {
 				border-left: 1px solid $border-color;
-				max-height: 100%;
-			}
+				overflow: visible;
+				padding: 15px;
+				width: $drawer-mobile-size * 1.45; // compensate the scaling
+				height: $drawer-mobile-size * 1.45; // compensate the scaling
+				transform: translateY(0%);
 
-			&--hidden {
-				max-height: 0;
-				border-top: 0;
+				@media (min-width: $board-mobile-breakpoint) {
+					width: $drawer-mobile-size;
+					height: $drawer-mobile-size;
+				}
+
+				@media (min-width: $board-desktop-breakpoint) {
+					border-left: 0;
+					border-bottom: 1px solid $border-color;
+					padding: 0;
+					width: 100%;
+					height: $drawer-desktop-height;
+				}
 			}
 
 			.object {
-				display: none;
 				position: static;
+				opacity: 0;
+				transition-property: opacity;
+				transition-duration: 600ms;
+				transition-timing-function: $easeOutExpo;
 
 				@media (min-width: $board-desktop-breakpoint) {
 					display: block;
@@ -66,21 +73,32 @@
 					top: 50%;
 				}
 
+				&--visible {
+					opacity: 1;
+				}
+
 				&--spring {
+					transform: rotate(45deg) scale(0.6);
 					@media (min-width: $board-desktop-breakpoint) {
 						width: 57px;
 						height: 63px;
 						margin-left: (57/2) * -1px;
 						margin-top: (63/2) * -1px;
+						transform: none;
 					}
 				}
 
 				&--conveyorBelt {
+					transform: rotate(-45deg) translateY(30px) translateX(-30px);
+					@media (min-width: $board-mobile-breakpoint) {
+						transform: rotate(-45deg) translateY(20px) translateX(-20px);
+					}
 					@media (min-width: $board-desktop-breakpoint) {
 						width: 146px;
 						height: 32px;
 						margin-left: (146/2) * -1px;
 						margin-top: (32/2) * -1px;
+						transform: none;
 					}
 				}
 			}
@@ -101,7 +119,32 @@
 			top: 25px;
 			left: 30px;
 			z-index: 20;
+			opacity: 0;
+			transform: scale(0.6);
+			transition-property: transform, opacity;
+			transition-duration: 800ms;
+			transition-timing-function: $easeOutExpo;
+
+			&--visible {
+				opacity: 1;
+				transform: scale(1);
+			}
+
+			&--animate {
+				animation-name: #{$name}-counter-bounce;
+				animation-duration: 700ms;
+				animation-timing-function: $easeOutBack;
+			}
 		}
 	}
 
+}
+
+@keyframe #{$name}-counter-bounce {
+	0% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(2);
+	}
 }

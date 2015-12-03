@@ -3,6 +3,10 @@ $gameover-bg: #29b6f6;
 $rotate-bg: $gameover-bg;
 $z-index-present: 10;
 $z-index-above-present: $z-index-present + 10;
+$board-mobile-breakpoint: 668px;
+$board-desktop-breakpoint: 1025px;
+$border-color: #a52fb7;
+
 
 @import "../shared/sass/levelup";
 @import "../shared/sass/gameover";
@@ -15,6 +19,7 @@ $z-index-above-present: $z-index-present + 10;
 @import "sass/debug";
 @import "sass/board-custom";
 @import "sass/drawer";
+@import "sass/draggable";
 @import "sass/bg";
 @import "sass/levelobjects";
 @import "sass/object-spring";
@@ -31,6 +36,28 @@ $z-index-above-present: $z-index-present + 10;
   right: 0;
   bottom: 0;
   left: 0;
+
+  .presentbounce-scene-viewport {
+    position: absolute;
+    
+    // Mobile viewport
+    top: 0px;
+    bottom: 40px;
+    right: 0;
+    left: 0;
+
+     // Tablet UI
+    @media (min-width: 661px) {
+      top: 0;
+      bottom: 50px;
+    }
+
+    // Desktop UI
+    @media (min-width: 1025px) {
+      left: 225px;
+      bottom: 0;
+    }
+  }
 
   .scene {
     position: absolute;
