@@ -47,16 +47,17 @@ app.Character = class {
     Object.keys(data).forEach(key => {
       let image = new Image();
 
-      image.addEventListener('load', () => {
-        let canvas = document.createElement('canvas');
-        canvas.width = image.naturalWidth;
-        canvas.height = image.naturalHeight;
+      image.onload = () => {
+        //let canvas = document.createElement('canvas');
+        //canvas.width = image.width;
+        //canvas.height = image.height;
+        //
+        //let context = canvas.getContext('2d');
+        //context.drawImage(image, 0, 0);
+        //this.images[key] = canvas;
 
-        let context = canvas.getContext('2d');
-        context.drawImage(image, 0, 0);
-
-        this.images[key] = canvas;
-      });
+        this.images[key] = image;
+      };
 
       image.src = `img/steps/${color}/${key}.png`;
     });

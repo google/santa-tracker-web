@@ -69,7 +69,7 @@ app.Animation = class {
     let data = this.data[sprite];
 
     if (!data) {
-      throw new Error(`Missing data for ${sprite}`)
+      throw new Error(`Missing data for ${sprite}`);
     }
 
     return {

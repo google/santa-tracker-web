@@ -80,7 +80,7 @@ app.Title = class {
   onBeat() {
     let el;
     while (el = this.toRemove.pop()) {
-      el.remove();
+      this.titleEl.removeChild(el);
     }
 
     if (this.currentCount > 0) {

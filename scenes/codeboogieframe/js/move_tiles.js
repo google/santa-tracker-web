@@ -31,14 +31,14 @@ app.MoveTiles = class {
 
   setLevel(level) {
     this.fadeTiles = level.fadeTiles;
-    this.setLength(level.steps.length)
+    this.setLength(level.steps.length);
   }
 
   setLength(length) {
     let tiles = Math.min(length, maxTiles);
 
     this.el.style.width = `${tiles * tilewidth / 10}em`;
-    this.el.style.left = `calc(50% + ${tiles / 2 * tilewidth / 10}em)`
+    this.el.style.left = `calc(50% + ${tiles / 2 * tilewidth / 10}em)`;
   }
 
   add(move) {
@@ -47,7 +47,7 @@ app.MoveTiles = class {
 
     this.el.appendChild(tile);
 
-    let moveTiles = Array.from(this.el.querySelectorAll('.scene__moves-move'));
+    let moveTiles = this.el.querySelectorAll('.scene__moves-move');
     let numTiles = moveTiles.length;
 
     goog.style.setStyle(this.el, {
@@ -56,7 +56,7 @@ app.MoveTiles = class {
     });
 
     if (numTiles > maxTiles) {
-      moveTiles.slice(0, numTiles - maxTiles).forEach(tile => {
+      goog.array.slice(moveTiles, 0, numTiles - maxTiles).forEach(tile => {
         tile.classList.add('fade-out');
       });
     }
@@ -69,12 +69,12 @@ app.MoveTiles = class {
   clear() {
     if (this.fadeTiles) {
       this._removeTiles();
-    };
+    }
   }
 
   _removeTiles() {
-    let moveTiles = Array.from(this.el.querySelectorAll('.scene__moves-move'));
-    moveTiles.forEach(tile => {
+    let moveTiles = this.el.querySelectorAll('.scene__moves-move');
+    goog.array.forEach(moveTiles, tile => {
       tile.classList.add('fade-out');
     });
 
@@ -84,4 +84,4 @@ app.MoveTiles = class {
       }
     }, 200);
   }
-}
+};

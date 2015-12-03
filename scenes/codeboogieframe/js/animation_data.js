@@ -218,7 +218,7 @@ app.AnimationData = (color) => {
   };
 
   if (color !== 'green') {
-    Object.assign(sharedMoves, purpleMoves);
+    goog.object.extend(sharedMoves, purpleMoves);
   }
 
   return sharedMoves;
