@@ -82,7 +82,6 @@ app.Drawer.prototype.updateVisibility = function () {
     if (this.$drawers.hasOwnProperty(prop)) {
       $drawer = this.$drawers[prop];
       ($drawer.count > 0) ? this.show($drawer) : this.hide($drawer);
-      }
     }
   }
 };
