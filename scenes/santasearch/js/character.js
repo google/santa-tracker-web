@@ -144,7 +144,8 @@ app.Character.prototype.onFound_ = function() {
   if (this.isFound) {
     return;
   }
-  window.santaApp.fire('sound-trigger', 'ss_character_'+this.name);
+
+  window.santaApp.fire('sound-trigger', `ss_character_${this.name}`);
   let wasFocused = this.uiElem.hasClass('drawer__item--focused');
   this.isFound = true;
   this.uiElem.removeClass('drawer__item--focused');
