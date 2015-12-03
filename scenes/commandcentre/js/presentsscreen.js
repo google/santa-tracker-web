@@ -52,8 +52,10 @@ app.PresentsScreen.prototype = {
    */
   onInactive: function() {
     this.isActive = false;
-    this.leftBelt.destroy();
-    this.rightBelt.destroy();
+    if (this.leftBelt && this.rightBelt) {
+      this.leftBelt.destroy();
+      this.rightBelt.destroy();
+    }
 
     window.santaApp.fire('sound-trigger', 'command_conveyor_stop');
   }
