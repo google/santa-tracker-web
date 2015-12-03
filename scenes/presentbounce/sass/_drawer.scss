@@ -90,6 +90,9 @@
 
 				&--conveyorBelt {
 					transform: rotate(-45deg) translateY(30px) translateX(-30px);
+					@media (min-width: $board-mobile-breakpoint) {
+						transform: rotate(-45deg) translateY(20px) translateX(-20px);
+					}
 					@media (min-width: $board-desktop-breakpoint) {
 						width: 146px;
 						height: 32px;
