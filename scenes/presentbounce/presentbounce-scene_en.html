@@ -14,8 +14,102 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 
+
+
+<!--script src="../shared/js/startbutton.js"></script-->
+<!--script src="presentbounce-scene.min.js"></script-->
+
+
+
+
+
+<!-- ///////////////////////////////////////////////////////////-->
+<!-- // DEV LOADER BEGIN - INCLUDE STATIC FILES AND OTHER MAGIC -->
+<!-- ///////////////////////////////////////////////////////////-->
+<style>
+    html, body {
+        font-family: Roboto, sans-serif;
+        font-size: 12px;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #3ec4f0;
+        position: absolute;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+</style>
+<script src="../../components/jquery/dist/jquery.min.js"></script>
+<script src="../../third_party/lib/modernizr/modernizr.min.js"></script>
+<script src="../../components/closure-library/closure/goog/base.js"></script>
 <script src="../shared/js/startbutton.js"></script>
-<script src="presentbounce-scene.min.js"></script>
+<script src="js/constants.js"></script>
+<script src="../shared/js/utils.js"></script>
+<script src="../shared/js/coordinator.js"></script>
+<script src="../shared/js/pools.js"></script>
+<script src="../shared/js/imagepreloader.js"></script>
+<script src="../shared/js/overlay.js"></script>
+<script src="../shared/js/share-buttons.js"></script>
+<script src="../shared/js/shared-gameover.js"></script>
+<script src="../shared/js/scoreboard.js"></script>
+<script src="../shared/js/shared-game.js"></script>
+<script src="../shared/js/gameover.js"></script>
+<script src="../shared/js/tutorial.js"></script>
+<script src="../shared/js/levelup.js"></script>
+<script src="../shared/js/inputevent.js"></script>
+<script src="https://rawgithub.com/illandril/box2dweb-closure/master/box2dweb-closure.compiled.js"></script>
+<script src="js/namespace.js"></script>
+<script src="js/scoreboard.js"></script>
+<script src="js/drawer.js"></script>
+<script src="js/draggable.js"></script>
+<script src="js/unit.js"></script>
+<script src="js/world/levelobject.js"></script>
+<script src="js/world/gravityobject.js"></script>
+<script src="js/world/userobject.js"></script>
+<script src="js/world/dropper.js"></script>
+<script src="js/world/target.js"></script>
+<script src="js/world/candycane.js"></script>
+<script src="js/world/conveyorbelt.js"></script>
+<script src="js/world/presentball.js"></script>
+<script src="js/world/presentsquare.js"></script>
+<script src="js/world/snowglobe.js"></script>
+<script src="js/world/spring.js"></script>
+<script src="js/world/level.js"></script>
+<script src="js/config/materials.js"></script>
+<script src="js/config/styles.js"></script>
+<script src="js/config/levels.js"></script>
+<script src="js/game.js"></script>
+
+<script>
+    window.scenes = {presentbounce: app};
+    window.DEV = true;
+    window.I18nMsg.messagesPath = '../../_messages/';
+    window.santaApp = {
+        fire: function() {}
+    };
+</script>
+<script>
+    'use strict';
+    (function() {
+        Polymer({
+            is: 'dev-santa-app',
+            ready: function() {
+                let scene = this.children[0];
+                setTimeout(function() {
+                    scene.active = true;
+                }, 0);
+            }
+        });
+    })();
+</script>
+<!-- ///////////////////////////////////////////////////////////-->
+<!-- // DEV LOADER END -->
+<!-- ///////////////////////////////////////////////////////////-->
+
+
+
+
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="presentbounce-scene.css" />
@@ -30,10 +124,10 @@ presentbounce scene.
       <div class="scene">
         <div class="bg">
           <div class="wall-decoration wall-decoration--horizontal">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 292.5"><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M1600 24.4H856.8c-2.8 0-5 2.2-5 5v106.3"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M1600 15H856.4c-7.7 0-14 6.3-14 14v106.7"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M1600 5.6H856.1c-12.7 0-23 10.3-23 23l-.1 107.1"/><path fill="#34AAE1" d="M827.4 49.1h30v8h-30zM881.4 0h8v30h-8z"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M0 268.1h828c2.8 0 5-2.2 5-5V135.7"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M0 277.5h828.4c7.7 0 14-6.3 14-14V135.7"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M0 286.9h828.6c12.7 0 23-10.3 23-23l.1-128.2"/><path fill="#34AAE1" d="M827.4 235.4h30v8h-30zM795.3 262.5h8v30h-8z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 292.5"><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M2000 24.4h-943.2c-2.8 0-5 2.2-5 5v106.3"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M2000 15h-943.6c-7.7 0-14 6.3-14 14v106.7"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M2000 5.6h-943.9c-12.7 0-23 10.3-23 23l-.1 107.2"/><path fill="#34AAE1" d="M1027.4 49.1h30v8h-30zM1081.4 0h8v30h-8zM1341.7 0h8v30h-8zM1601.9 0h8v30h-8zM1862.1 0h8v30h-8z"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M0 268.1h1028c2.8 0 5-2.2 5-5V135.7"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M0 277.5h1028.4c7.7 0 14-6.3 14-14V135.7"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M0 286.9h1028.6c12.7 0 23-10.3 23-23l.1-128.2"/><path fill="#34AAE1" d="M1027.4 235.4h30v8h-30zM995.3 262.5h8v30h-8zM740.2 262.5h8v30h-8zM485.1 262.5h8v30h-8zM229.9 262.5h8v30h-8z"/></svg>
           </div>
-          <div class="wall-decoration wall-decoration--panel">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 362.5 222.6"><g fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10"><path d="M101.8 74.4V0M111.2 74.4V0M120.6 74.4V0"/></g><path fill="#34AAE1" d="M96.2 37.2h30v8h-30z"/><g fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10"><path d="M222.4 131.5h140.1M222.4 140.9h140.1M222.4 150.3h140.1"/></g><path fill="#34AAE1" d="M251.6 125.9h8v30h-8zM326.6 125.9h8v30h-8z"/><g><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M32.3 118.2s14-12.1 34.4 0"/><path fill="#34AAE1" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M28.8 131.5c4.3 7.2 12.2 12.1 21.2 12.1s16.9-4.9 21.2-12.1H28.8z"/><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M38.9 106.3L50 136M93.6 118.2s14-12.1 34.4 0"/><path fill="#34AAE1" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M90 131.5c4.3 7.2 12.2 12.1 21.2 12.1s16.9-4.9 21.2-12.1H90z"/><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M115.2 105.1l-5.2 31.3M154.8 118.2s14-12.1 34.4 0"/><path fill="#34AAE1" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M151.2 131.5c4.3 7.2 12.2 12.1 21.2 12.1s16.9-4.9 21.2-12.1h-42.4z"/><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M177.5 105.3l-6.4 31.1M32.3 177.7s14-12.1 34.4 0"/><path fill="#34AAE1" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M28.8 191.1c4.3 7.2 12.2 12.1 21.2 12.1s16.9-4.9 21.2-12.1H28.8z"/><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M60.3 165.8l-11 29.8M93.6 177.7s14-12.1 34.4 0"/><path fill="#34AAE1" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M90 191.1c4.3 7.2 12.2 12.1 21.2 12.1s16.9-4.9 21.2-12.1H90z"/><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M107.6 164.1l3.4 31.6"/><path fill="#34AAE1" d="M0 74.9v147.7h222.4V74.9H0zm16.2 137.7c-3.4 0-6.2-2.8-6.2-6.2 0-3.4 2.8-6.2 6.2-6.2s6.2 2.8 6.2 6.2c0 3.5-2.8 6.2-6.2 6.2zm0-115.4c-3.4 0-6.2-2.8-6.2-6.2 0-3.4 2.8-6.2 6.2-6.2s6.2 2.8 6.2 6.2c0 3.5-2.8 6.2-6.2 6.2zm33.8 106c-13.6 0-24.7-11-24.7-24.7 0-13.6 11-24.7 24.7-24.7s24.7 11 24.7 24.7c-.1 13.6-11.1 24.7-24.7 24.7zm0-59.5c-13.6 0-24.7-11-24.7-24.7 0-13.6 11-24.7 24.7-24.7s24.7 11 24.7 24.7c-.1 13.6-11.1 24.7-24.7 24.7zm61.2 59.5c-13.6 0-24.7-11-24.7-24.7 0-13.6 11-24.7 24.7-24.7 13.6 0 24.7 11 24.7 24.7 0 13.6-11.1 24.7-24.7 24.7zm0-59.5c-13.6 0-24.7-11-24.7-24.7 0-13.6 11-24.7 24.7-24.7 13.6 0 24.7 11 24.7 24.7 0 13.6-11.1 24.7-24.7 24.7zm61.2 59.5c-13.6 0-24.7-11-24.7-24.7 0-13.6 11-24.7 24.7-24.7 13.6 0 24.7 11 24.7 24.7 0 13.6-11.1 24.7-24.7 24.7zm0-59.5c-13.6 0-24.7-11-24.7-24.7 0-13.6 11-24.7 24.7-24.7 13.6 0 24.7 11 24.7 24.7 0 13.6-11.1 24.7-24.7 24.7zm33.8 68.9c-3.4 0-6.2-2.8-6.2-6.2 0-3.4 2.8-6.2 6.2-6.2 3.4 0 6.2 2.8 6.2 6.2 0 3.5-2.8 6.2-6.2 6.2zm0-115.4c-3.4 0-6.2-2.8-6.2-6.2 0-3.4 2.8-6.2 6.2-6.2 3.4 0 6.2 2.8 6.2 6.2 0 3.5-2.8 6.2-6.2 6.2z"/><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M154.8 177.7s14-12.1 34.4 0"/><path fill="#34AAE1" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M151.2 191.1c4.3 7.2 12.2 12.1 21.2 12.1s16.9-4.9 21.2-12.1h-42.4z"/><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M171.5 164.1l.1 31.7"/></g></svg>
+          <div class="wall-decoration wall-decoration--top">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 622.9"><g fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10"><path d="M1539.3 374.4V0M1548.7 374.4V0M1558.1 374.4V0"/></g><path fill="#34AAE1" d="M1533.7 337.2h30v8h-30zM1533.7 179.2h30v8h-30z"/><g fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10"><path d="M1659.9 431.5H2000M1659.9 440.9H2000M1659.9 450.3H2000"/></g><path fill="#34AAE1" d="M1689.1 425.9h8v30h-8zM1839.1 425.9h8v30h-8z"/><g><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M898.7 0v406.7c0 2.8-2.2 5-5 5h-69.4"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M908.1 0v407.1c0 7.7-6.3 14-14 14h-69.8"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M917.5 0v407.4c0 12.7-10.3 23-23 23l-70.3.1"/><path fill="#34AAE1" d="M866 406.1h8v30h-8zM893.1 374.1h30v8h-30zM893.1 216.1h30v8h-30zM893.1 58.1h30v8h-30z"/><g><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M782.8 486.7v-51.2c0-2.8 2.2-5 5-5h36.5"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M773.4 486.7v-51.6c0-7.7 6.3-14 14-14h36.9"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M764 486.7v-51.9c0-12.7 10.3-23 23-23l37.3-.1"/><path fill="#34AAE1" d="M807.5 406.1h8v30h-8zM758.4 459.1h30v8h-30z"/></g><g><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M764 486.7v106.7c0 2.8-2.2 5-5 5H0"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M773.4 486.7v107.1c0 7.7-6.3 14-14 14H0"/><path fill="none" stroke="#34AAE1" stroke-width="5" stroke-miterlimit="10" d="M782.8 486.7v107.4c0 12.7-10.3 23-23 23L0 617.3"/><path fill="#34AAE1" d="M731.3 592.9h8v30h-8zM221 592.9h8v30h-8zM476.1 592.9h8v30h-8zM758.4 560.8h30v8h-30z"/></g></g><g><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M1469.8 418.2s14-12.1 34.4 0"/><path fill="#34AAE1" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M1466.3 431.5c4.3 7.2 12.2 12.1 21.2 12.1s16.9-4.9 21.2-12.1h-42.4z"/><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M1476.4 406.3l11.1 29.7M1531 418.2s14-12.1 34.4 0"/><path fill="#34AAE1" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M1527.5 431.5c4.3 7.2 12.2 12.1 21.2 12.1s16.9-4.9 21.2-12.1h-42.4z"/><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M1552.6 405.1l-5.2 31.3M1592.2 418.2s14-12.1 34.4 0"/><path fill="#34AAE1" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M1588.7 431.5c4.3 7.2 12.2 12.1 21.2 12.1s16.9-4.9 21.2-12.1h-42.4z"/><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M1615 405.3l-6.4 31.1M1469.8 477.7s14-12.1 34.4 0"/><path fill="#34AAE1" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M1466.3 491.1c4.3 7.2 12.2 12.1 21.2 12.1s16.9-4.9 21.2-12.1h-42.4z"/><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M1497.7 465.8l-10.9 29.8M1531 477.7s14-12.1 34.4 0"/><path fill="#34AAE1" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M1527.5 491.1c4.3 7.2 12.2 12.1 21.2 12.1s16.9-4.9 21.2-12.1h-42.4z"/><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M1545.1 464.1l3.3 31.6"/><path fill="#34AAE1" d="M1437.5 374.9v147.7h222.4V374.9h-222.4zm16.2 137.7c-3.4 0-6.2-2.8-6.2-6.2 0-3.4 2.8-6.2 6.2-6.2s6.2 2.8 6.2 6.2c-.1 3.5-2.8 6.2-6.2 6.2zm0-115.4c-3.4 0-6.2-2.8-6.2-6.2 0-3.4 2.8-6.2 6.2-6.2s6.2 2.8 6.2 6.2c-.1 3.5-2.8 6.2-6.2 6.2zm33.8 106c-13.6 0-24.7-11-24.7-24.7 0-13.6 11-24.7 24.7-24.7s24.7 11 24.7 24.7c-.1 13.6-11.1 24.7-24.7 24.7zm0-59.5c-13.6 0-24.7-11-24.7-24.7 0-13.6 11-24.7 24.7-24.7s24.7 11 24.7 24.7c-.1 13.6-11.1 24.7-24.7 24.7zm61.2 59.5c-13.6 0-24.7-11-24.7-24.7 0-13.6 11-24.7 24.7-24.7 13.6 0 24.7 11 24.7 24.7-.1 13.6-11.1 24.7-24.7 24.7zm0-59.5c-13.6 0-24.7-11-24.7-24.7 0-13.6 11-24.7 24.7-24.7 13.6 0 24.7 11 24.7 24.7-.1 13.6-11.1 24.7-24.7 24.7zm61.2 59.5c-13.6 0-24.7-11-24.7-24.7 0-13.6 11-24.7 24.7-24.7 13.6 0 24.7 11 24.7 24.7-.1 13.6-11.1 24.7-24.7 24.7zm0-59.5c-13.6 0-24.7-11-24.7-24.7 0-13.6 11-24.7 24.7-24.7 13.6 0 24.7 11 24.7 24.7-.1 13.6-11.1 24.7-24.7 24.7zm33.8 68.9c-3.4 0-6.2-2.8-6.2-6.2 0-3.4 2.8-6.2 6.2-6.2s6.2 2.8 6.2 6.2c0 3.5-2.8 6.2-6.2 6.2zm0-115.4c-3.4 0-6.2-2.8-6.2-6.2 0-3.4 2.8-6.2 6.2-6.2s6.2 2.8 6.2 6.2c0 3.5-2.8 6.2-6.2 6.2z"/><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M1592.2 477.7s14-12.1 34.4 0"/><path fill="#34AAE1" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M1588.7 491.1c4.3 7.2 12.2 12.1 21.2 12.1s16.9-4.9 21.2-12.1h-42.4z"/><path fill="none" stroke="#34AAE1" stroke-width="2.55" stroke-miterlimit="10" d="M1609 464.1l.1 31.7"/></g></svg>
           </div>
         </div>
         <div class="levelboard"></div>
@@ -41,11 +135,13 @@ presentbounce scene.
       <div class="gui">
         <div class="board board--game">
           <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
-          <div class="logo">
-            <!---->
-          </div>
-          <div>
-          ADD TOOLS HERE
+          <div class="js-drawer drawer">
+            <div class="js-drawer-spring drawer__holder drawer__holder--hidden drawer__holder--spring">
+              <div class="js-drawer-counter drawer__counter">0</div>
+            </div>
+            <div class="js-drawer-belt drawer__holder drawer__holder--hidden drawer__holder--belt">
+              <div class="js-drawer-counter drawer__counter">0</div>
+            </div>
           </div>
           <div class="score">
             <div class="label"><i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg></div>
