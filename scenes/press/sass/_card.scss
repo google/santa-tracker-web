@@ -17,7 +17,7 @@
 
   &[press-locked] {
     .press-card-img .press-card-lock {
-      display: block;
+      opacity: 1;
     }
   }
 
@@ -29,8 +29,8 @@
 
   .press-card-img {
     background: url(img/tmb-santas-village.png) 50% 50% no-repeat;
-    background-size: cover;    
-    border-radius: 5px 5px 0 0;  
+    background-size: cover;
+    border-radius: 5px 5px 0 0;
     color: #fff;
     height: 265px;
     overflow: hidden;
@@ -46,15 +46,17 @@
     }
 
     .press-card-lock {
-      background: rgba(0, 172, 193, .8) url(img/ic-lock-32px_2x.png) 50% 55% no-repeat; 
+      background: rgba(0, 172, 193, .8) url(img/ic-lock-32px_2x.png) 50% 55% no-repeat;
       background-size: 10% auto;
       box-sizing: border-box;
-      display: none;
-      height: 100%; 
+      display: block;
+      height: 100%;
+      opacity: 0;
       padding-top: 20px;
       position: relative;
       text-align: center;
       width: 100%;
+      will-change: opacity;
       z-index: 1;
     }
 
@@ -73,7 +75,7 @@
         font-size: 30px;
         margin-left: 2px;
       }
-    }  
+    }
   }
 
   .press-card-info {
@@ -117,7 +119,7 @@
 
       .press-card-dl {
         &:before {
-          background: url(img/ic-download-18px_2x.png) 50% 50% no-repeat;  
+          background: url(img/ic-download-18px_2x.png) 50% 50% no-repeat;
           background-size: contain;
           content: '';
           height: 20px;
@@ -126,7 +128,7 @@
           top: 50%;
           transform: translate3d(0, -50%, 0);
           width: 20px;
-        }                   
+        }
       }
 
       .press-card-play {
@@ -140,7 +142,7 @@
           top: 50%;
           transform: translate3d(0, -55%, 0);
           width: 20px;
-        }  
+        }
       }
 
       .press-card-locked {
@@ -173,7 +175,7 @@
       .press-card-links-full {
         width: 100%;
         float: left;
-      }          
+      }
     }
   }
-}  
+}

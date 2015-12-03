@@ -24,7 +24,7 @@ goog.provide('app.Constants');
  */
 app.Constants = {
   ZOOM_MAX: 4,
-  ZOOM_STEP_SIZE: 0.5,
+  ZOOM_STEP_SIZE: 1,
   PRESCALE_TIME: 0.3, // seconds
   HINT_ZOOM: 2,
   HINT_BUTTON_PAN_TIME: 0.6, // seconds
