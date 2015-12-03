@@ -167,7 +167,7 @@ app.Scene = class {
 
     this.portraitMode_ = portraitMode;
     this.width_ = sceneWidth;
-    this.scaleRatio_ = sceneHeight / app.Scene.CONTENT_HEIGHT;
+    this.scaleRatio_ = Math.min(sceneWidth / 540, sceneHeight / app.Scene.CONTENT_HEIGHT);
 
     // Apply width and scaling in DOM.
     this.el_.style.fontSize = this.scaleRatio_ * 10 + 'px';
@@ -382,7 +382,7 @@ app.Scene = class {
     this.el_.style.display = visible ? 'block' : 'none';
     this.underlayEl_.style.display = visible ? 'block' : 'none';
   }
-}
+};
 
 /**
  * Base height of scene contents. Characters will be scaled when smaller.
