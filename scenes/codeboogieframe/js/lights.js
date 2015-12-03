@@ -23,39 +23,40 @@ app.Lights = class {
     const numberOfTiles = 9;
     const numberOfLights = 4;
 
-    this.tiles = Array.from({length: numberOfTiles}, (k, v) => v + 1);
-
-    this.lights = Array.from({length: numberOfLights}).map(() => {
+    this.active = false;
+    this.lights = [];
+    for (let i = 0; i < numberOfTiles; i++) {
       let light = document.createElement('div');
       light.classList.add('scene__light');
-      return light;
-    })
-
-    this.lights.forEach(light => el.appendChild(light));
-    this.active = false;
+      light.style.backgroundImage =
+          `url(img/stages/disco_${i + 1}.svg)`;
+      light.style.display = 'none';
+      el.appendChild(light);
+      this.lights.push(light);
+    }
   }
 
   setLevel(level) {
     this.active = level.stage === 'stage2';
   }
 
-  onBeat(beat, bpm) {
-    if (!this.active) return;
+  onBeat() {
+    if (!this.active) { return; }
 
-    this.shuffle_(this.tiles);
+    this.shuffle_(this.lights);
 
     this.lights.forEach((light, index) => {
-      light.style.backgroundImage = `url(img/stages/disco_${this.tiles[index]}.svg)`;
+      lights.style.display = index < numberOfLights ? 'block' : 'none';
     });
   }
 
   shuffle_(array) {
     for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
     }
     return array;
   }
-}
+};
