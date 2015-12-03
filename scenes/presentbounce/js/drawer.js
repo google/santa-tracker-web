@@ -32,6 +32,7 @@ app.Drawer = function(elem) {
   this.CLASS_INACTIVE = 'is-inactive';
   this.CLASS_COUNTER = 'js-drawer-counter';
   this.CLASS_DRAGGABLE = 'js-draggable';
+  this.CLASS_DRAGGER_HOLDER_VISIBLE = 'drawer__holder--visible';
   this.CLASS_ANIMATE = 'animate';
 
   this.$drawers = {};
@@ -63,13 +64,11 @@ app.Drawer.prototype.add = function(data, type) {
 };
 
 app.Drawer.prototype.show = function($drawer) {
-  // $drawer.css('height', 0);
-  $drawer.addClass('drawer__holder--visible');
+  $drawer.addClass( this.this.CLASS_DRAGGER_HOLDER_VISIBLE );
 };
 
 app.Drawer.prototype.hide = function($drawer) {
-  // $drawer.css('height', 0);
-  $drawer.addClass('drawer__holder--hidden');
+  $drawer.removeClass( this.CLASS_DRAGGER_HOLDER_VISIBLE );
 };
 
 app.Drawer.prototype.createDOMNode_ = function(data) {
@@ -78,15 +77,27 @@ app.Drawer.prototype.createDOMNode_ = function(data) {
 };
 
 app.Drawer.prototype.updateVisibility = function () {
+  let $drawer = null;
+  for (var prop in this.$drawers) {
+    if (this.$drawers.hasOwnProperty(prop)) {
+      $drawer = this.$drawers[prop];
+      ($drawer.count > 0) ? this.show($drawer) : this.hide($drawer);
+      }
+    }
+  }
 };
 
 app.Drawer.prototype.updateCount = function($drawer) {
   $drawer.count++;
   $drawer.$node.find('.' + this.CLASS_COUNTER).text($drawer.count);
-  // utils.animWithClass(this.$el_, this.CLASS_ANIMATE);
+};
+
+app.Drawer.prototype.animateCount = function($drawer) {
+  utils.animWithClass($drawer.$node.find('.' + this.CLASS_COUNTER), this.CLASS_ANIMATE);
 };
 
 // @TODO
 // - Make sure it works with zero items for both drawers
-// - Animate them in
+// - Animate them in on desktop
+// - Animate them in on mobile
 // - Animate number count when dropping it
