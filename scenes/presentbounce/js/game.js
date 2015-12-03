@@ -262,8 +262,8 @@ app.Game.prototype.resume = function() {
  */
 app.Game.prototype.setScale = function(scale, width, height) {
   this.scale = scale;
-  this.windowWidth = width;
-  this.windowHeight = height;
+  this.viewportWidth = width;
+  this.viewportHeight = height;
   this.viewElem.css({
     transform: 'scale(' + scale + ')',
     width: width / scale + 'px',
@@ -275,10 +275,10 @@ app.Game.prototype.getViewport = function () {
   return {
     sceneOffset: this.sceneOffset,
     scale: this.scale,
-    width: this.windowWidth / this.scale,
-    height: this.windowHeight / this.scale,
-    windowWidth: this.windowWidth,
-    windowHeight: this.windowHeight
+    width: this.viewportWidth / this.scale,
+    height: this.viewportHeight / this.scale,
+    viewportWidth: this.viewportWidth,
+    viewportHeight: this.viewportHeight
   };
 };
 
@@ -287,13 +287,13 @@ app.Game.prototype.getViewport = function () {
  * @private
  */
 app.Game.prototype.watchSceneSize_ = function() {
-  var bgElem = this.bgElem,
+  var sceneElem = this.elem,
       game = this;
 
   var updateSize = function() {
-    var width = window.innerWidth,
-      height = window.innerHeight,
-      scale = width < app.Constants.VIEWPORT_MIN_WIDTH ?
+    var width = sceneElem.width(), // window.innerWidth,
+        height = sceneElem.height(), //window.innerHeight,
+        scale = width < app.Constants.VIEWPORT_MIN_WIDTH ?
           width / app.Constants.VIEWPORT_MIN_WIDTH :
           1;
 
@@ -302,7 +302,7 @@ app.Game.prototype.watchSceneSize_ = function() {
         scale;
 
     game.setScale(scale, width, height);
-    game.sceneOffset = game.elem.offset();
+    game.sceneOffset = sceneElem.offset();
   };
 
   updateSize();
