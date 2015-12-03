@@ -1,7 +1,7 @@
 node_modules
 bower_components
 components
-*.ds_store
+*.DS_Store
 .sass-cache
 dist_prod
 dist_pretty

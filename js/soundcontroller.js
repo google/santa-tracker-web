@@ -16,9 +16,6 @@
 
 /* global Klang */
 
-/* use klang from plan8 servers */
-var loadKlangRemotly = true
-
 /**
  * @constructor
  * @struct
@@ -28,7 +25,7 @@ var loadKlangRemotly = true
 function SoundController(loadCallback) {
   // load Klang
   var klangScript = document.createElement('script');
-  klangScript.src = loadKlangRemotly ? 'https://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/klang.js' : SoundController.klangSrc_;
+  klangScript.src = SoundController.klangSrc_;
 
   klangScript.addEventListener('load', this.loadKlangConfig_.bind(this));
   document.head.appendChild(klangScript);
@@ -135,7 +132,7 @@ SoundController.prototype.loadSounds = function(loadEvent) {
     this.loadQueue_.push(this.loadingSounds_);
     return;
   }
-
+  
   this.triggerSoundsLoad_(this.loadingSounds_);
 };
 
