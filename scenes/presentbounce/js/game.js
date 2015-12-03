@@ -67,14 +67,16 @@ app.Game = function(elem) {
  * Adds event listeners on elements
  */
 app.Game.prototype.addEventListeners_ = function() {
-  this.backgroundElem.on("click", this.onBackgroundClick.bind(this));
+  this.backgroundElem.on('click', this.onInteraction.bind(this));
+  this.elem.on('click', '.tutorial', this.onInteraction.bind(this));
 }
 
 /**
  * Removes event listeners on elements
  */
 app.Game.prototype.removeEventListeners_ = function() {
-  this.backgroundElem.off("click", this.onBackgroundClick);
+  this.backgroundElem.off("click", this.onInteraction);
+  this.elem.off('click', '.tutorial', this.onInteraction);
 }
 
 /**
@@ -134,7 +136,7 @@ app.Game.prototype.onFrame_ = function() {
 /** 
  * Handles user clicks on the background
  */
-app.Game.prototype.onBackgroundClick = function() {
+app.Game.prototype.onInteraction = function() {
   if (this.currentLevel_) {
     this.currentLevel_.onInteraction();
   }
