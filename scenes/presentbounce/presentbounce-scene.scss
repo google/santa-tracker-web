@@ -10,9 +10,11 @@ $z-index-above-present: $z-index-present + 10;
 @import "../shared/sass/startbutton";
 @import "../shared/sass/rotate";
 @import "../shared/sass/tutorial";
+@import "../shared/sass/_penner-easing";
 
 @import "sass/debug";
 @import "sass/board-custom";
+@import "sass/drawer";
 @import "sass/bg";
 @import "sass/levelobjects";
 @import "sass/object-spring";
