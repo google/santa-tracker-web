@@ -62,7 +62,16 @@ app.Drawer.prototype.add = function(data, type) {
 
   this.updateCount( $drawer );
 
-  new app.Draggable( $node );
+  new app.Draggable(
+    $node, 
+    this.elem, 
+    (x, y, errorCallback) => {
+      onDropCallback(data, type, {x, y}, errorCallback);
+    },
+    (x, y, validCallback) => {
+      onTestCallback(data, type, {x, y}, validCallback);
+    }
+  );
 
 };
 

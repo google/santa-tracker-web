@@ -34,13 +34,13 @@ app.config.Levels = [
       material: app.config.Materials.present,
       style: app.config.Styles.presentBall,
       objectType: app.world.PresentBall,
-      relX: 0.35,
+      relX: 0.25,
       relY: 0
     },
     dropper: {
       material: app.config.Materials.fixedObject,
       style: app.config.Styles.dropper,
-      relX: 0.4,
+      relX: 0.3,
       relY: 0.07
     },
     target: {
@@ -60,7 +60,7 @@ app.config.Levels = [
       {
         material: app.config.Materials.fixedObject,
         style: app.config.Styles.straightBeam,
-        relX: 0.5,
+        relX: 0.4,
         relY: 0.8,
         rotation: 90
       }
@@ -68,11 +68,7 @@ app.config.Levels = [
     conveyorBelts: [
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0,
-        relY: 0.5,
-        rotation: 0,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       }
     ],
     springs: []
@@ -84,13 +80,13 @@ app.config.Levels = [
       material: app.config.Materials.present,
       style: app.config.Styles.presentBall,
       objectType: app.world.PresentBall,
-      relX: 0.35,
+      relX: 0.25,
       relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
       style: app.config.Styles.dropper,
-      relX: 0.4,
+      relX: 0.3,
       relY: 0.1
     },
     target: {
@@ -132,35 +128,21 @@ app.config.Levels = [
     conveyorBelts: [
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.27,
-        relY: 0.5,
-        rotation: 0,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       },
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.72,
-        relY: 0.5,
-        rotation: 0,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       }
     ],
     springs: [
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.50,
-        relY: 0.9,
-        rotation: 0
+        style: app.config.Styles.spring
       },
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.93,
-        relY: 0.8,
-        rotation: -40
+        style: app.config.Styles.spring
       }
     ]
   },
@@ -233,35 +215,21 @@ app.config.Levels = [
     conveyorBelts: [
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.27,
-        relY: 0.5,
-        rotation: 10,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       },
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.72,
-        relY: 0.5,
-        rotation: 0,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       }
     ],
     springs: [
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.50,
-        relY: 0.9,
-        rotation: 0
+        style: app.config.Styles.spring
       },
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.93,
-        relY: 0.8,
-        rotation: -40
+        style: app.config.Styles.spring
       }
     ]
   },
@@ -334,35 +302,21 @@ app.config.Levels = [
     conveyorBelts: [
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.27,
-        relY: 0.5,
-        rotation: 10,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       },
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.72,
-        relY: 0.5,
-        rotation: 0,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       }
     ],
     springs: [
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.50,
-        relY: 0.9,
-        rotation: 0
+        style: app.config.Styles.spring
       },
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.93,
-        relY: 0.8,
-        rotation: -40
+        style: app.config.Styles.spring
       }
     ]
   },
@@ -435,35 +389,21 @@ app.config.Levels = [
     conveyorBelts: [
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.27,
-        relY: 0.5,
-        rotation: 10,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       },
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.72,
-        relY: 0.5,
-        rotation: 0,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       }
     ],
     springs: [
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.50,
-        relY: 0.9,
-        rotation: 0
+        style: app.config.Styles.spring
       },
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.93,
-        relY: 0.8,
-        rotation: -40
+        style: app.config.Styles.spring
       }
     ]
   },
@@ -536,35 +476,21 @@ app.config.Levels = [
     conveyorBelts: [
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.27,
-        relY: 0.5,
-        rotation: 10,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       },
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.72,
-        relY: 0.5,
-        rotation: 0,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       }
     ],
     springs: [
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.50,
-        relY: 0.9,
-        rotation: 0
+        style: app.config.Styles.spring
       },
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.93,
-        relY: 0.8,
-        rotation: -40
+        style: app.config.Styles.spring
       }
     ]
   },
@@ -637,35 +563,21 @@ app.config.Levels = [
     conveyorBelts: [
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.27,
-        relY: 0.5,
-        rotation: 10,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       },
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.72,
-        relY: 0.5,
-        rotation: 0,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       }
     ],
     springs: [
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.50,
-        relY: 0.9,
-        rotation: 0
+        style: app.config.Styles.spring
       },
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.93,
-        relY: 0.8,
-        rotation: -40
+        style: app.config.Styles.spring
       }
     ]
   },
@@ -738,35 +650,21 @@ app.config.Levels = [
     conveyorBelts: [
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.27,
-        relY: 0.5,
-        rotation: 10,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       },
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.72,
-        relY: 0.5,
-        rotation: 0,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       }
     ],
     springs: [
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.50,
-        relY: 0.9,
-        rotation: 0
+        style: app.config.Styles.spring
       },
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.93,
-        relY: 0.8,
-        rotation: -40
+        style: app.config.Styles.spring
       }
     ]
   },
@@ -839,35 +737,21 @@ app.config.Levels = [
     conveyorBelts: [
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.27,
-        relY: 0.5,
-        rotation: 10,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       },
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.72,
-        relY: 0.5,
-        rotation: 0,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       }
     ],
     springs: [
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.50,
-        relY: 0.9,
-        rotation: 0
+        style: app.config.Styles.spring
       },
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.93,
-        relY: 0.8,
-        rotation: -40
+        style: app.config.Styles.spring
       }
     ]
   },
@@ -940,35 +824,21 @@ app.config.Levels = [
     conveyorBelts: [
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.27,
-        relY: 0.5,
-        rotation: 10,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       },
       {
         material: app.config.Materials.conveyorBelt,
-        style: app.config.Styles.conveyorBelt,
-        relX: 0.72,
-        relY: 0.5,
-        rotation: 0,
-        beltDirection: 1
+        style: app.config.Styles.conveyorBelt
       }
     ],
     springs: [
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.50,
-        relY: 0.9,
-        rotation: 0
+        style: app.config.Styles.spring
       },
       {
         material: app.config.Materials.spring,
-        style: app.config.Styles.spring,
-        relX: 0.93,
-        relY: 0.8,
-        rotation: -40
+        style: app.config.Styles.spring
       }
     ]
   }

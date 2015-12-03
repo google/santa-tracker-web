@@ -43,7 +43,6 @@ goog.scope(function () {
     }
 
     onCollision() {
-      if (!this.isActiveInTheScene()) return;
       utils.animWithClass(this.$el_, 'animate');
       window.santaApp.fire('sound-trigger', 'pb_boing');
     }
@@ -54,8 +53,10 @@ goog.scope(function () {
     buildBody_() {
       const bodyDef = new b2.BodyDef();
       bodyDef.type = b2.BodyDef.b2_staticBody;
-      bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y);
-      bodyDef.angle = this.config_.rotation * Math.PI / 180;
+
+      // Set start position based on mouse position in scene
+      const mousePos = this.getMouseWorldVector(this.config_.mouseX, this.config_.mouseY);
+      bodyDef.position.Set(mousePos.x, mousePos.y);
 
       const fixDef = new b2.FixtureDef();
       const width = this.config_.style.width;
