@@ -36,18 +36,20 @@ presentbounce scene.
         </div>
       </div>
       <div class="presentbounce-scene-viewport js-viewport">
-        <div class="scene">
+        <div class="scene js-drop-target">
           <div class="levelboard"></div>
         </div>
       </div>
       <div class="gui">
         <div class="board board--game">
           <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
-          <div class="logo">
-            <!---->
-          </div>
-          <div>
-          ADD TOOLS HERE
+          <div class="js-drawer drawer">
+            <div class="js-drawer-spring drawer__holder drawer__holder--hidden drawer__holder--spring">
+              <div class="js-drawer-counter drawer__counter">0</div>
+            </div>
+            <div class="js-drawer-belt drawer__holder drawer__holder--hidden drawer__holder--belt">
+              <div class="js-drawer-counter drawer__counter">0</div>
+            </div>
           </div>
           <div class="score">
             <div class="label"><i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg></div>
