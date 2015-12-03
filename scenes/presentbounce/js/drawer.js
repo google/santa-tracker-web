@@ -18,6 +18,9 @@
 
 goog.provide('app.Drawer');
 
+goog.require('app.Draggable');
+goog.require('app.shared.utils');
+
 app.Drawer = function(elem) {
   this.elem = elem || null;
   this.$elem = $(elem);
@@ -28,6 +31,8 @@ app.Drawer = function(elem) {
   this.CLASS_BELT = 'js-object-conveyorBelt';
   this.CLASS_INACTIVE = 'is-inactive';
   this.CLASS_COUNTER = 'js-drawer-counter';
+  this.CLASS_DRAGGABLE = 'js-draggable';
+  this.CLASS_ANIMATE = 'animate';
 
   this.$drawers = {};
   this.$drawers[Constants.USER_OBJECT_TYPE_SPRING] = {
@@ -44,24 +49,44 @@ app.Drawer = function(elem) {
 
 app.Drawer.prototype.add = function(data, type) {
   const $drawer = this.$drawers[type];
+  const $node = this.createDOMNode_(data);
 
   $drawer
     .$node
-    .append( this.createDOMNode_(data) )
+    .append( $node )
     .find('.js-rotate-handle')
     .remove();
 
-  this.updateDrawerCount( $drawer );
+  new app.Draggable( $node );
+
+  this.updateCount( $drawer );
+};
+
+app.Drawer.prototype.show = function($drawer) {
+  // $drawer.css('height', 0);
+  $drawer.addClass('drawer__holder--visible');
+};
+
+app.Drawer.prototype.hide = function($drawer) {
+  // $drawer.css('height', 0);
+  $drawer.addClass('drawer__holder--hidden');
 };
 
 app.Drawer.prototype.createDOMNode_ = function(data) {
-  return $('<div />').addClass('object ' + data.style.className).html(data.style.innerHTML || '');
+  const classes = [this.CLASS_DRAGGABLE, 'object ' + data.style.className];
+  return $('<div />').addClass(classes.join(' ')).html(data.style.innerHTML || '');
 };
 
-app.Drawer.prototype.setObjectsVisibility = function () {
+app.Drawer.prototype.updateVisibility = function () {
 };
 
-app.Drawer.prototype.updateDrawerCount = function($drawer) {
+app.Drawer.prototype.updateCount = function($drawer) {
   $drawer.count++;
   $drawer.$node.find('.' + this.CLASS_COUNTER).text($drawer.count);
+  // utils.animWithClass(this.$el_, this.CLASS_ANIMATE);
 };
+
+// @TODO
+// - Make sure it works with zero items for both drawers
+// - Animate them in
+// - Animate number count when dropping it
