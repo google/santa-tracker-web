@@ -56,7 +56,7 @@ app.Character.prototype.reset = function(mapDimensions) {
       .removeClass('drawer__item--focused');
 
   // Hide all spots
-  for (var i = 1; i <= app.Constants.SPAWN_COUNT; i++) {
+  for (let i = 1; i <= app.Constants.SPAWN_COUNT; i++) {
     this.getLayer_(svgMapElem, i).hide();
   }
 
