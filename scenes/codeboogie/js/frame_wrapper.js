@@ -48,7 +48,7 @@ app.FrameWrapper = function(el, staticDir) {
   });
 
   this.sequencer = new app.Sequencer();
-  this.sequencer.onBeat = (beat, bpm, isPlaying) => this.iframeChannel.call('beat', beat, bpm, isPlaying);
+  this.sequencer.onBeat = (beat, bpm) => this.iframeChannel.call('beat', beat, bpm);
 
   // internal level number for analytics
   this.level_ = 1;

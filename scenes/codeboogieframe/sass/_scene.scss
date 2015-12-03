@@ -90,8 +90,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url(img/lights/ceiling-light.svg);
-    transition: opacity 100ms;
     opacity: 0;
+    transition: opacity 100ms;
 
     &--white {
       background-image: url(img/lights/ceiling-light.svg);
