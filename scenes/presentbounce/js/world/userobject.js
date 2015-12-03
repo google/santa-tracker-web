@@ -284,6 +284,9 @@ goog.scope(function () {
      * @private
      */
     onRotateHandleMove_(e) {
+      // don't scroll, we're moving (could happen on touch)
+      e.preventDefault();
+
       this.moveAngle_ = this.getHandleRadianAngle_(e);
       if (this.moveAngle_ !== null) {
         this.setRotation_();

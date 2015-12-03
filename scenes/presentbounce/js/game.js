@@ -38,7 +38,8 @@ goog.require('app.world.Level');
  */
 app.Game = function(elem) {
   this.elem = $(elem);
-  this.viewElem = this.elem.find('.scene');
+  this.viewportElem = this.elem.find('.js-viewport');
+  this.sceneElem = this.elem.find('.scene');
   this.levelElem = this.elem.find('.levelboard');
   this.backgroundElem = this.elem.find('.bg');
 
@@ -264,7 +265,7 @@ app.Game.prototype.setScale = function(scale, width, height) {
   this.scale = scale;
   this.viewportWidth = width;
   this.viewportHeight = height;
-  this.viewElem.css({
+  this.sceneElem.css({
     transform: 'scale(' + scale + ')',
     width: width / scale + 'px',
     height: height / scale + 'px'
@@ -287,12 +288,12 @@ app.Game.prototype.getViewport = function () {
  * @private
  */
 app.Game.prototype.watchSceneSize_ = function() {
-  var sceneElem = this.elem,
+  var viewportElem = this.viewportElem,
       game = this;
 
   var updateSize = function() {
-    var width = sceneElem.width(), // window.innerWidth,
-        height = sceneElem.height(), //window.innerHeight,
+    var width = viewportElem.width(), // window.innerWidth,
+        height = viewportElem.height(), //window.innerHeight,
         scale = width < app.Constants.VIEWPORT_MIN_WIDTH ?
           width / app.Constants.VIEWPORT_MIN_WIDTH :
           1;
@@ -302,7 +303,7 @@ app.Game.prototype.watchSceneSize_ = function() {
         scale;
 
     game.setScale(scale, width, height);
-    game.sceneOffset = sceneElem.offset();
+    game.sceneOffset = viewportElem.offset();
   };
 
   updateSize();
