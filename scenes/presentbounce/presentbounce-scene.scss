@@ -3,6 +3,10 @@ $gameover-bg: #29b6f6;
 $rotate-bg: $gameover-bg;
 $z-index-present: 10;
 $z-index-above-present: $z-index-present + 10;
+$board-mobile-breakpoint: 668px;
+$board-desktop-breakpoint: 1025px;
+$border-color: #a52fb7;
+
 
 @import "../shared/sass/levelup";
 @import "../shared/sass/gameover";

@@ -253,6 +253,8 @@ goog.scope(function() {
         this.drawer.add(springData, Constants.USER_OBJECT_TYPE_SPRING);
         this.numObjectsAvailable++;
       }
+
+      this.drawer.updateVisibility();
     }
 
     // get a callback from the drawer to create the object

@@ -1,10 +1,8 @@
 ##{$name} {
-
-	$board-desktop-breakpoint: 1025px;
-	$border-color: #a52fb7;
 	$shadow-color: rgba(66,66,66,.2);
 	$transition-duration: 500ms;
 	$drawer-mobile-size: 92px;
+	// $drawer-mobile-size: 184px;
 	$drawer-desktop-height: 130px;
 
 	.drawer {
@@ -25,31 +23,37 @@
 			overflow: hidden;
 			height: 100%;
 			width: 0;
-			transition-property: height;
+			transition-property: transform;
 			transition-duration: 500ms;
 			transition-timing-function: $easeOutExpo;
+			transform: translateY(100%);
 
 			@media (min-width: $board-desktop-breakpoint) {
 				float: none;
 				position: relative;
 				height: 0;
 				width: 100%;
-			}
-
-			&:first-child {
-				border-top: 0;
-				border-left: 0;
+				border-bottom: 0;
+				transform: none;
+				transition-property: height;
 			}
 
 			&--visible {
 				border-left: 1px solid $border-color;
 				overflow: visible;
 				padding: 15px;
-				width: $drawer-mobile-size;
+				width: $drawer-mobile-size * 1.45; // compensate the scaling
+				height: $drawer-mobile-size * 1.45; // compensate the scaling
+				transform: translateY(0%);
+
+				@media (min-width: $board-mobile-breakpoint) {
+					width: $drawer-mobile-size;
+					height: $drawer-mobile-size;
+				}
 
 				@media (min-width: $board-desktop-breakpoint) {
 					border-left: 0;
-					border-top: 1px solid $border-color;
+					border-bottom: 1px solid $border-color;
 					padding: 0;
 					width: 100%;
 					height: $drawer-desktop-height;
@@ -62,8 +66,10 @@
 				transition-property: opacity;
 				transition-duration: 600ms;
 				transition-timing-function: $easeOutExpo;
+				transform: rotate(-45deg) translateY(30px) translateX(-30px);
 
 				@media (min-width: $board-desktop-breakpoint) {
+					transform: none;
 					display: block;
 					position: absolute;
 					left: 50%;
