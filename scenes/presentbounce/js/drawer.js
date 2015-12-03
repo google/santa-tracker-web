@@ -78,7 +78,7 @@ app.Drawer.prototype.add = function(data, type, onDropCallback, onTestCallback) 
 app.Drawer.prototype.showDrawer = function($el) {
   $el.addClass( this.CLASS_HOLDER_VISIBLE );
   setTimeout(function() {
-    this.showObject($el.find( '.' + this.CLASS_DRAGGABLE ).first());
+    this.showObject($el.find( '.' + this.CLASS_DRAGGABLE ));
     this.showCounter($el.find( '.' + this.CLASS_COUNTER ));
   }.bind(this), 200);
 };
