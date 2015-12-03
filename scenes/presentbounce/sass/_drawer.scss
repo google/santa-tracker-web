@@ -77,7 +77,7 @@
 					opacity: 1;
 				}
 
-				&--spring {			
+				&--spring {
 					transform: translateY(-50%) rotate(-45deg);
 					transform-origin: center center;
 					top: 50%;
@@ -91,6 +91,7 @@
 						height: 63px;
 						margin-left: (57/2) * -1px;
 						margin-top: (63/2) * -1px;
+						left: 50%;
 						transform: none;
 					}
 				}
@@ -103,12 +104,13 @@
 
 					left: 10%;
 					width: 80%; // use width to size the tool according to the drawer
-					
+
 					@media (min-width: $board-desktop-breakpoint) {
 						width: 146px;
 						height: 32px;
 						margin-left: (146/2) * -1px;
 						margin-top: (32/2) * -1px;
+						left: 50%;
 						transform: none;
 					}
 				}
