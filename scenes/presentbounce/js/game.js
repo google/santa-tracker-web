@@ -38,7 +38,8 @@ goog.require('app.world.Level');
  */
 app.Game = function(elem) {
   this.elem = $(elem);
-  this.viewElem = this.elem.find('.scene');
+  this.viewportElem = this.elem.find('.js-viewport');
+  this.sceneElem = this.elem.find('.scene');
   this.levelElem = this.elem.find('.levelboard');
   this.backgroundElem = this.elem.find('.bg');
 
@@ -262,9 +263,9 @@ app.Game.prototype.resume = function() {
  */
 app.Game.prototype.setScale = function(scale, width, height) {
   this.scale = scale;
-  this.windowWidth = width;
-  this.windowHeight = height;
-  this.viewElem.css({
+  this.viewportWidth = width;
+  this.viewportHeight = height;
+  this.sceneElem.css({
     transform: 'scale(' + scale + ')',
     width: width / scale + 'px',
     height: height / scale + 'px'
@@ -275,10 +276,10 @@ app.Game.prototype.getViewport = function () {
   return {
     sceneOffset: this.sceneOffset,
     scale: this.scale,
-    width: this.windowWidth / this.scale,
-    height: this.windowHeight / this.scale,
-    windowWidth: this.windowWidth,
-    windowHeight: this.windowHeight
+    width: this.viewportWidth / this.scale,
+    height: this.viewportHeight / this.scale,
+    viewportWidth: this.viewportWidth,
+    viewportHeight: this.viewportHeight
   };
 };
 
@@ -287,13 +288,13 @@ app.Game.prototype.getViewport = function () {
  * @private
  */
 app.Game.prototype.watchSceneSize_ = function() {
-  var bgElem = this.bgElem,
+  var viewportElem = this.viewportElem,
       game = this;
 
   var updateSize = function() {
-    var width = window.innerWidth,
-      height = window.innerHeight,
-      scale = width < app.Constants.VIEWPORT_MIN_WIDTH ?
+    var width = viewportElem.width(), // window.innerWidth,
+        height = viewportElem.height(), //window.innerHeight,
+        scale = width < app.Constants.VIEWPORT_MIN_WIDTH ?
           width / app.Constants.VIEWPORT_MIN_WIDTH :
           1;
 
@@ -302,7 +303,7 @@ app.Game.prototype.watchSceneSize_ = function() {
         scale;
 
     game.setScale(scale, width, height);
-    game.sceneOffset = game.elem.offset();
+    game.sceneOffset = viewportElem.offset();
   };
 
   updateSize();
