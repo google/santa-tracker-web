@@ -119,6 +119,7 @@ app.blocks.install = function() {
          * @this {Blockly.Block}
          */
         init: function() {
+          this.contextMenu = false;
           this.setHSV(296, 0.491, 0.624);
           this.appendDummyInput()
               .appendField(new Blockly.FieldImage(directionConfig.image, 23, 32))
@@ -139,6 +140,7 @@ app.blocks.install = function() {
          * @this {Blockly.Block}
          */
         init: function() {
+          this.contextMenu = false;
           this.setHSV(296, 0.491, 0.624);
           this.appendDummyInput()
               .appendField(new Blockly.FieldImage(directionConfig.image, 23, 32));
@@ -176,6 +178,7 @@ app.blocks.install = function() {
      * @this {Blockly.Block}
      */
     init: function() {
+      this.contextMenu = false;
       this.setHSV(26, 0.77, 0.96);
       this.appendDummyInput()
           .appendField(app.I18n.getMsg('CL_whenRun'));
@@ -192,6 +195,7 @@ app.blocks.install = function() {
      * @this {Blockly.Block}
      */
     init: function() {
+      this.contextMenu = false;
       this.setHSV(187, 1, 0.753);
       this.appendDummyInput()
           .appendField(new Blockly.FieldImage('img/block-repeat.svg', 28, 32))
@@ -209,6 +213,7 @@ app.blocks.install = function() {
      * @this {Blockly.Block}
      */
     init: function() {
+      this.contextMenu = false;
       this.setHSV(187, 1, 0.753);
       this.appendDummyInput()
           .appendField(new Blockly.FieldImage('img/block-repeat.svg', 23, 32));
@@ -275,6 +280,7 @@ app.blocks.install = function() {
          * @this {Blockly.Block}
          */
         init: function() {
+          this.contextMenu = false;
           this.setHSV.apply(this, HSV);
           this.appendDummyInput()
             .appendField(new Blockly.FieldImage('img/blank.png', titleWidth, titleHeight));

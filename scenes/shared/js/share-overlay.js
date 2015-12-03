@@ -35,7 +35,7 @@ app.shared.ShareOverlay = function(elem) {
   this.closeElem = this.elem.querySelector('.shareOverlay-close');
   this.urlElem = this.elem.querySelector('.shareOverlay-url');
 
-  var hideFn = this.hide.bind(this);
+  var hideFn = this.hide.bind(this, null);
   var selectFn = function() {
     // Use various approaches to select the text. Delay by a frame to work
     // around an apparent IE10 bug.
@@ -88,10 +88,10 @@ app.shared.ShareOverlay.prototype.shorten_ = function(url, callback) {
   var x = new XMLHttpRequest();
   x.open('POST', 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyA4LaOn5d1YRsJIOTlhrm7ONbuJ4fn7AuE')
   x.onload = function() {
-    console.info(x.response, x.responseText);
     var shortUrl = null;
     try {
-      shortUrl = x.response.id;
+      var json = JSON.parse(x.responseText);
+      shortUrl = json['id'];
     } catch (e) {}
     callback(shortUrl || url);
   };

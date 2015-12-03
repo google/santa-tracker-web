@@ -67,6 +67,7 @@ app.Controls.prototype.start = function() {
 
   this.elem.find('.zoom__in').on('click', this.zoomIn_.bind(this));
   this.elem.find('.zoom__out').on('click', this.zoomOut_.bind(this));
+  this.elem.on('dblclick.santasearch', this.nextZoomLevel_.bind(this));
 
   this.enabled = true;
 };
@@ -329,5 +330,22 @@ app.Controls.prototype.zoomOut_ = function() {
     this.scaleTarget = scaleTarget;
   } else {
     this.scaleTarget = 1;
+  }
+};
+
+/**
+ * Zoom in until the maximum zoom has been reached and then zoom out.
+ * @private
+ */
+app.Controls.prototype.nextZoomLevel_ = function(event) {
+  let x = (window.innerWidth / 2) - event.pageX;
+  let y = (window.innerHeight / 2) - event.pageY;
+  this.pan.x += x / this.scale;
+  this.pan.y += y / this.scale;
+
+  if (this.scale === app.Constants.ZOOM_MAX) {
+    this.scaleTarget = 1;
+  } else {
+    this.zoomIn_();
   }
 };
