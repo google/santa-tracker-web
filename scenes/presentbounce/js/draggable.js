@@ -96,27 +96,13 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
   this.el.removeClass('dragging');
 };
 
-/**
- * @param {!Element} e to find left offset
- * @return {number} combined scrollLeft
- * @private
- */
-app.Draggable.prototype.getScrollOffsetLeft_ = function(e) {
-  var scrollLeft = 0;
-
-  $(e.target).parents().each(function(index, element) {
-    scrollLeft += element.scrollLeft;
-  });
-
-  return scrollLeft;
-};
 
 /**
  * @param {!Event} e mouse event
  * @private
  */
 app.Draggable.prototype.mousedown_ = function(e) {
-  var startX = e.clientX + this.getScrollOffsetLeft_(e);
+  var startX = e.clientX;
   var startY = e.clientY;
 
   this.dragStart_(startX, startY);
@@ -132,10 +118,11 @@ app.Draggable.prototype.mousedown_ = function(e) {
  * @private
  */
 app.Draggable.prototype.touchstart_ = function(e) {
-  var startX = e.originalEvent.touches[0].clientX + this.getScrollOffsetLeft_(e);
+  var startX = e.originalEvent.touches[0].clientX;
   var startY = e.originalEvent.touches[0].clientY;
 
   this.dragStart_(startX, startY);
+
 
   $(window).on('touchmove.presentbounce', this.touchmove_.bind(this));
   $(window).on('touchend.presentbounce', this.touchend_.bind(this));
@@ -167,7 +154,7 @@ app.Draggable.prototype.touchmove_ = function(e) {
   this.x = e.originalEvent.touches[0].clientX;
   this.y = e.originalEvent.touches[0].clientY;
 
-  this.dragMove_(left, top, x, y);
+  this.dragMove_(left, top, this.x, this.y);
   e.preventDefault();
 
 };

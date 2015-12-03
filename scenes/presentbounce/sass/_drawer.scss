@@ -1,8 +1,8 @@
 ##{$name} {
 	$shadow-color: rgba(66,66,66,.2);
 	$transition-duration: 500ms;
-	$drawer-mobile-size: 92px;
-	// $drawer-mobile-size: 184px;
+	$drawer-mobile-size: 50px;
+	$drawer-tablet-size: 92px;
 	$drawer-desktop-height: 130px;
 
 	.drawer {
@@ -77,8 +77,15 @@
 					opacity: 1;
 				}
 
-				&--spring {
-					transform: rotate(45deg) scale(0.6);
+				&--spring {			
+					transform: translateY(-50%) rotate(-45deg);
+					transform-origin: center center;
+					top: 50%;
+					position: absolute;
+
+					left: 25%;
+					width: 50%; // use width to size the tool according to the drawer
+
 					@media (min-width: $board-desktop-breakpoint) {
 						width: 57px;
 						height: 63px;
@@ -89,10 +96,14 @@
 				}
 
 				&--conveyorBelt {
-					transform: rotate(-45deg) translateY(30px) translateX(-30px);
-					@media (min-width: $board-mobile-breakpoint) {
-						transform: rotate(-45deg) translateY(20px) translateX(-20px);
-					}
+					transform: translateY(-50%)  rotate(-45deg);
+					transform-origin: center center;
+					top: 50%;
+					position: absolute;
+
+					left: 10%;
+					width: 80%; // use width to size the tool according to the drawer
+					
 					@media (min-width: $board-desktop-breakpoint) {
 						width: 146px;
 						height: 32px;
@@ -106,6 +117,7 @@
 		}
 
 		&__counter {
+			pointer-events: none;
 			box-shadow: 4px 4px 0px 0px $shadow-color;
 			background-color: red;
 			border-radius: 50%;

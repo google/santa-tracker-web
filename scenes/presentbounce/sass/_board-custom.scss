@@ -4,6 +4,8 @@
 		border-radius: 0;
 		bottom: 0;
 
+		transform: none; // no downscale - messes up dragNdrop
+
 		@media (min-width: $board-desktop-breakpoint) {
 			bottom: auto;
 		}
