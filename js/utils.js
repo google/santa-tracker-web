@@ -77,23 +77,6 @@ function isSameDay(date1, date2) {
 }
 
 /**
- * Checks whether the passed event is real.
- * @param {Event} event
- */
-function isRealEvent(event) {
-  if (!event) {
-    return false;
-  }
-  if (event.isTrusted !== undefined && !event.isTrusted) {
-    return false;
-  }
-  if (event.clientX !== undefined && !event.clientX && !event.clientY) {
-    return false;
-  }
-  return true;  // probably, who knows
-}
-
-/**
  * Checks if the condition evaluates to true if window.DEV is true. If
  * window.DEV is false, assert call is removed by compiler as dead code.
  * @param {*} condition The condition to check.
@@ -106,6 +89,36 @@ function assert(condition, opt_message) {
     throw new Error('Assertion failed' +
         (opt_message ? ': ' + opt_message : ''));
   }
+}
+
+/**
+ * @param {string} param URL parameter to look for.
+ * @return {string|undefined} undefined if the URL parameter does not exist.
+ */
+function getUrlParameter(param) {
+  if (!window.location.search) {
+    return;
+  }
+  var m = new RegExp(param + '=([^&]*)').exec(window.location.search.substring(1));
+  if (!m) {
+    return;
+  }
+  return decodeURIComponent(m[1]);
+}
+
+/**
+ * Sets the prefixed CSS property safely for webkit.
+ * @param {!Element} el to apply property to
+ * @param {string} prop to set
+ * @param {string} value to set
+ */
+function webkitStyle(el, prop, value) {
+  if (!prop.length) {
+    return;
+  }
+  var prefixVersion = 'webkit' + prop.substr(0, 1).toUpperCase() + prop.substr(1);
+  el.style[prefixVersion] = value;
+  el.style[prop] = value;
 }
 
 /**

@@ -21,6 +21,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../../components/iron-icon/iron-icon.html">
+<link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html" />
 <link rel="import" href="../santa-icons.html">
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -86,6 +87,21 @@ specific language governing permissions and limitations under the License.
   :host([mode="cast"]) #sound {
     display: none;
   }
+  :host([mode="portal"]) .links.santa-chrome {
+    display: none !important;
+  }
+  :host([mode="portal"]) .lang.santa-chrome {
+    display: none !important;
+  }
+  :host[mode="portal"] #sound {
+    display: none !important;
+  }
+  .scroll {
+    @apply(--layout-scroll);
+  }
+  .flex {
+    @apply(--layout-flex);
+  }
 
   </style>
 
@@ -143,7 +159,7 @@ specific language governing permissions and limitations under the License.
               <i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
             <li><a target="_blank" href="https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb">
-              <i18n-msg msgid="deckdescription">PLACEHOLDER_i18n</i18n-msg>
+              <i18n-msg msgid="village_santa_crx">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
             <li><a target="_blank" href="https://www.google.com/policies/">
               <i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg>
@@ -178,7 +194,7 @@ specific language governing permissions and limitations under the License.
             <option value="pl">Polski</option>
             <option value="pt-BR">Português (Brasil)</option>
             <option value="pt-PR">Português (Portugal)</option>
-            <option value="ro">Român</option>
+            <option value="ro">Română</option>
             <option value="sl">Slovenija</option>
             <option value="sv">Svenska</option>
             <option value="tl">Tagalog</option>
@@ -197,21 +213,16 @@ specific language governing permissions and limitations under the License.
         on-content-scroll="_onContentScroll"
         class$="{{_calculateFixedClass(isFixedToolbar, disabled)}}">
       <paper-toolbar id="toolbar" class$="{{_calculateScrollingClass(scrolledToolbar)}}" hidden$="{{disabled}}">
-        <paper-icon-button icon="santa:menu" hidden$="{{disabled}}" paper-drawer-toggle></paper-icon-button>
+        <paper-icon-button icon="santa:menu" paper-drawer-toggle></paper-icon-button>
         <div id="logo" title="Google logo"></div>
         <h1 class="title flex">
           <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
         </h1>
-        <div class="shareicons" hidden$="{{disabled}}">
-          <paper-icon-button class="box" id="gplus" style="padding: 4px" src="img/share-gplus.svg"></paper-icon-button>
-          <paper-icon-button class="box" id="twitter" style="padding: 9px" src="img/share-twitter.svg"></paper-icon-button>
-          <paper-icon-button class="box" id="facebook" style="padding: 10px" src="img/share-facebook.svg"></paper-icon-button>
+        <div class="shareicons" on-tap="_onShare">
+          <paper-icon-button class="share box" id="gplus" style="padding: 4px" src="img/share-gplus.svg"></paper-icon-button>
+          <paper-icon-button class="share box" id="twitter" style="padding: 9px" src="img/share-twitter.svg"></paper-icon-button>
+          <paper-icon-button class="share box" id="facebook" style="padding: 10px" src="img/share-facebook.svg"></paper-icon-button>
         </div>
-
-        <div id="sound" style$="background-color: {{color}}" class$="{{_calculateMuteClass(mute)}}">
-          <button on-click="_toggleSounds"><i></i></button>
-        </div>
-
         <!-- Used for background and transition effect -->
         <div class="middle" style$="background-color: {{color}}"></div>
       </paper-toolbar>
@@ -219,8 +230,30 @@ specific language governing permissions and limitations under the License.
       </content>
     </paper-header-panel>
   </paper-drawer-panel>
+  <div id="sound" style$="background-color: {{color}}" class$="{{_calculateMuteClass(mute)}}">
+    <button on-click="_toggleSounds"><i></i></button>
+  </div>
 </template>
 <script>
+(function() {
+  var SHARING_OPTIONS = Object.freeze({
+    'gplus': {
+      width: 800,
+      height: 600,
+      prefix: 'https://plus.google.com/share?url=',
+    },
+    'twitter': {
+      width: 600,
+      height: 253,
+      prefix: 'https://twitter.com/share?hashtags=santatracker&url=',
+    },
+    'facebook': {
+      width: 600,
+      height: 229,
+      prefix: 'https://www.facebook.com/sharer.php?p[url]=',
+    },
+  });
+
   Polymer({
     is: 'santa-chrome',
 
@@ -239,6 +272,14 @@ specific language governing permissions and limitations under the License.
        * The ID of today's released house. Used for the New Today card in the sidebar.
        */
       todayHouse: String,
+
+      /**
+       * Whether the press page is unlocked.
+       */
+      pressReady: {
+        type: Boolean,
+        value: false
+      },
 
       /**
        * Whether the tracker is unlocked.
@@ -301,24 +342,30 @@ specific language governing permissions and limitations under the License.
     },
 
     attached: function() {
-      // TODO(samthor): Use `listeners` to register these instead.
-      this._attach('gplus', 348, 512, function(u) {
-        return 'https://plus.google.com/share?url=' + u;
-      });
-      this._attach('twitter', 600, 253, function(u) {
-        return 'https://twitter.com/share?hashtags=santatracker&url=' + u;
-      });
-      this._attach('facebook', 600, 229, function(u) {
-        return 'https://www.facebook.com/sharer.php?p[url]=' + u + '&u=' + u;
-      });
-
       // Set the initial value for _atTop before on-content-scroll fired. This
       // is done here and in _onContentScroll becaues paper-header-toolbar
       // doesn't notify `atTop` so it needs to be managed manually.
       this._atTop = this.$.main.atTop;
     },
 
-    _toggleSounds: function() {
+    _onShare: function(ev) {
+      var target = ev.target;
+      while (target && !target.classList.contains('share')) {
+        target = target.parentNode;
+      }
+      var opt = SHARING_OPTIONS[target && target.id];
+      if (!opt) {
+        return;
+      }
+      ev.preventDefault();
+
+      var urlToShare = this.shareURL || ('' + window.location.href);
+      var options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=' + opt.height + ',width=' + opt.width;
+      window.open(opt.prefix +  window.encodeURIComponent(urlToShare), '', options);
+    },
+
+    _toggleSounds: function(ev) {
+      ev.stopPropagation();
       this.mute = !this.mute;
     },
 
@@ -369,7 +416,7 @@ specific language governing permissions and limitations under the License.
       // event is triggered.
       this.async(function() {
         var suffix = (window.location.href.indexOf('appspot') != -1 ? '_ALL/index.html' : '/');
-        window.location = '/intl/' + lang + suffix + location.search + location.hash;
+        window.location = window.location.origin + '/intl/' + lang + suffix + location.search + location.hash;
       }, null, 100);
     },
 
@@ -399,18 +446,7 @@ specific language governing permissions and limitations under the License.
       return smallScreen ? '100%' : '400px';
     },
 
-    _attach: function(name, w, h, converter) {
-      this.$[name].addEventListener('click', function(event) {
-        event.preventDefault();
-
-        var urlToShare = window.encodeURIComponent(
-            this.shareURL || ('' + window.location.href));
-        var urlToOpen = converter(urlToShare);
-        var options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=' + h + ',width=' + w;
-        window.open(urlToOpen, '', options);
-      }.bind(this));
-    },
-
   });
+}());
 </script>
 </template>

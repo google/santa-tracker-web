@@ -77,7 +77,7 @@ module.exports = function replaceMessages(opts) {
         // Note that this always writes a new HTML file, even if the content
         // is the same (perhaps a scene uses no i18n-msg elements).
 
-        if (!file.path.match(/(index|error|upgrade|_en)\.html$/)) {
+        if (!file.path.match(/(index|cast|error|upgrade|_en)\.html$/)) {
           if (replaced == src) {
             // ... unless the filename doesn't end with _en.html, in which case
             // someone has accepted that it won't be translated anyway.

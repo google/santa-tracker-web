@@ -56,11 +56,11 @@ $digitLineHeight: 53px;
   // NOTE: This is $width-twocol from village
   @media (max-width: 600px) {
     .counter-box {
-      width: 50px;
-      height: 50px;
+      width: 65px;
+      height: 65px;
       .holder {
-        line-height: 50px;
-        font-size: 22px;
+        line-height: 65px;
+        font-size: 28px;
       }
     }
   }
