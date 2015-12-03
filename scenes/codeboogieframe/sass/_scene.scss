@@ -79,6 +79,10 @@
     }
   }
 
+  &.level--stage1 .ceilingLight {
+    display: none;
+  }
+
   .ceilingLight__beam {
     content: '';
     position: absolute;
