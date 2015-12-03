@@ -25,12 +25,12 @@ app.Constants = {
   TOTAL_LEVELS: 10,
 
   // initial size of levelboard wrapper
-  CANVAS_WIDTH: 1600, //1100;
-  CANVAS_HEIGHT: 900, //620;
+  CANVAS_WIDTH: 1600,
+  CANVAS_HEIGHT: 900,
 
   // When do we start scaling down?
-  VIEWPORT_MIN_WIDTH: 1440,
-  VIEWPORT_MIN_HEIGHT: 810,
+  VIEWPORT_MIN_WIDTH: 1600,
+  VIEWPORT_MIN_HEIGHT: 900,
 
   SHADOW_OFFSET_PX: 10, // distance to ball shadow
   CONVEYOR_BELT_SPEED: 4, // make sure belt animation is matching

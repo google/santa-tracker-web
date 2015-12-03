@@ -105,8 +105,8 @@ goog.scope(function () {
      */
     getMouseWorldVector(mouseX, mouseY) {
       const viewport = this.level_.getViewport();
-      const windowWidth = viewport.windowWidth;
-      const windowHeight = viewport.windowHeight;
+      const windowWidth = viewport.viewportWidth;
+      const windowHeight = viewport.viewportHeight;
       const scale = viewport.scale;
 
       const offsetX = viewport.sceneOffset.left + (windowWidth - Constants.CANVAS_WIDTH*scale) / 2;
@@ -297,6 +297,9 @@ goog.scope(function () {
      * @private
      */
     onRotateHandleMove_(e) {
+      // don't scroll, we're moving (could happen on touch)
+      e.preventDefault();
+
       this.moveAngle_ = this.getHandleRadianAngle_(e);
       if (this.moveAngle_ !== null) {
         this.setRotation_();
@@ -338,8 +341,12 @@ goog.scope(function () {
      * @private
      */
     onDragMove_(e) {
+      // don't scroll, we're swiping
+      e.preventDefault();
+
       this.moveAngle_ = this.getTouchRadianAngle_(e);
       e = app.InputEvent.normalize(e);
+      
       // check if we should rotate
       if (this.moveAngle_ !== null) {
         this.setRotation_();
