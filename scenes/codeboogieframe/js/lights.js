@@ -25,6 +25,7 @@ app.Lights = class {
   constructor(el) {
     this.active = false;
 
+<<<<<<< ours
     this.whiteBeams = goog.array.toArray(
       el.querySelectorAll('.ceilingLight__beam--white'));
     this.redBeams = goog.array.toArray(
@@ -33,9 +34,20 @@ app.Lights = class {
       el.querySelectorAll('.ceilingLight__beam--green'));
 
     this.tiles = [];
+=======
+    this.tiles = goog.array.toArray({length: numberOfTiles})
+                  .map((value, i) => i + 1);
+
+    this.lights = goog.array.toArray({length: numberOfLights}).map(() => {
+      let light = document.createElement('div');
+      light.classList.add('scene__light');
+      return light;
+    })
+>>>>>>> theirs
 
     let tileEl = el.querySelector('.scene__tiles');
 
+<<<<<<< ours
     for (let i = 0; i < numberOfTiles; i++) {
       let light = document.createElement('div');
       light.classList.add('scene__light');
@@ -45,6 +57,11 @@ app.Lights = class {
       tileEl.appendChild(light);
       this.tiles.push(light);
     }
+=======
+    this.whiteBeams = goog.array.toArray(el.querySelectorAll('.ceilingLight__beam--white'));
+    this.redBeams = goog.array.toArray(el.querySelectorAll('.ceilingLight__beam--red'));
+    this.greenBeams = goog.array.toArray(el.querySelectorAll('.ceilingLight__beam--green'));
+>>>>>>> theirs
   }
 
   setLevel(level) {
