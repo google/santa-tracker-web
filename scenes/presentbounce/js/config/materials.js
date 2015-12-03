@@ -41,7 +41,7 @@ app.config.Materials = {
   fixedObject: {
     density: 1,
     friction: 0.4,
-    restitution: 0.2
+    restitution: 0.3
   },
   conveyorBelt: {
     density: 1,
@@ -51,6 +51,6 @@ app.config.Materials = {
   spring: {
     density: 1,
     friction: 1, // dont slide on spring
-    restitution: 1.2
+    restitution: 0.9
   }
 };

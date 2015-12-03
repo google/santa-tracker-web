@@ -48,7 +48,7 @@ app.Drawer = function(elem) {
 
 };
 
-app.Drawer.prototype.add = function(data, type) {
+app.Drawer.prototype.add = function(data, type, onDropCallback, onTestCallback) {
   const $drawer = this.$drawers[type];
   const $node = this.createDOMNode_(data);
 
@@ -58,7 +58,16 @@ app.Drawer.prototype.add = function(data, type) {
     .find('.js-rotate-handle')
     .remove();
 
-  new app.Draggable( $node );
+  new app.Draggable(
+    $node, 
+    this.elem, 
+    (x, y, errorCallback) => {
+      onDropCallback(data, type, {x, y}, errorCallback);
+    },
+    (x, y, validCallback) => {
+      onTestCallback(data, type, {x, y}, validCallback);
+    }
+  );
 
   this.updateCount( $drawer );
 };

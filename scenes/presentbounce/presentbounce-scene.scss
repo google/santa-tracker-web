@@ -15,6 +15,7 @@ $z-index-above-present: $z-index-present + 10;
 @import "sass/debug";
 @import "sass/board-custom";
 @import "sass/drawer";
+@import "sass/draggable";
 @import "sass/bg";
 @import "sass/levelobjects";
 @import "sass/object-spring";

@@ -45,7 +45,6 @@ goog.scope(function () {
       this.$rotateHandle = this.$el_.find('.js-rotate-handle');
 
       this.isInteractive_ = false;
-      this.isActiveInTheScene_ = false;
       this.wasDragged = false;
       this.wasRotated = false;
 
@@ -95,6 +94,46 @@ goog.scope(function () {
       bodyDef.type = b2.BodyDef.b2_staticBody;
       bodyDef.position.Set(0, 0); // place outside of canvas
       this.ground_ = this.world_.CreateBody( bodyDef );
+    }
+
+    /**
+     * Checks for "collision" with other object
+     * @protected
+     */
+    isBoundingBoxOverlappingOtherObject() {
+      let isOverlapping = false;
+      let aabb = null;
+      
+      // GET BOUNDING BOX
+      let node = this.body_.GetFixtureList().GetFirstNode();
+      while (node)
+      {
+          if (aabb) {
+            aabb = b2.AABB.Combine(aabb, node.fixture.GetAABB());
+          }
+          else {
+            aabb = node.fixture.GetAABB();
+          }
+          node = node.GetNextNode();
+      }
+
+      // QUERY BOUNDING BOX FOR HITS IN WORLD
+      this.world_.QueryAABB( (match) => {
+        // make sure this fixture doesn't belong to this body
+        let node = this.body_.GetFixtureList().GetFirstNode();
+        while (node)
+        {
+          if (match === node.fixture) {
+            // matching self - move to next ,atch
+            return true;
+          }
+          node = node.GetNextNode();
+        }
+        isOverlapping = true;
+        return false; // stop checking
+      }, aabb);
+
+      return isOverlapping;
     }
 
     /**
@@ -216,14 +255,6 @@ goog.scope(function () {
     }
 
     /**
-     * isActiveInTheScene
-     * @return {Boolean} [description]
-     */
-    isActiveInTheScene() {
-      return this.isActiveInTheScene_;
-    }
-
-    /**
      * Shared logic to set object in interactive mode
      * (i.e user is interacting with this object)
      * @private
@@ -275,10 +306,6 @@ goog.scope(function () {
      * @private
      */
     onRotateHandleStart_(e) {
-      if (this.isActiveInTheScene()) {
-        return;
-      }
-
       e.stopPropagation();
       e = app.InputEvent.normalize(e);
 
