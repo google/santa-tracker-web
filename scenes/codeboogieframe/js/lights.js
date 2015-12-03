@@ -23,7 +23,8 @@ const numberOfLights = 4;
 
 app.Lights = class {
   constructor(el) {
-    this.active = false;
+    this.ceilingActive = false;
+    this.floorActive = false;
 
     this.whiteBeams = goog.array.toArray(
       el.querySelectorAll('.ceilingLight__beam--white'));
@@ -48,32 +49,35 @@ app.Lights = class {
   }
 
   setLevel(level) {
-    this.active = level.stage === 'stage2';
+    this.ceilingActive = level.stage === 'stage2' || level.stage === 'stage3';
+    this.floorActive = level.stage === 'stage3';
   }
 
   onBeat(beat, bpm, isPlaying) {
-    if (!this.active) { return; }
+    if (this.floorActive) {
+      this.shuffle_(this.tiles);
 
-    this.shuffle_(this.tiles);
+      this.tiles.forEach((light, index) => {
+        light.style.opacity = index < numberOfLights ? 1 : 0;
+      });
+    }
 
-    this.tiles.forEach((light, index) => {
-      light.style.opacity = index < numberOfLights ? 1 : 0;
-    });
+    if (this.ceilingActive) {
+      this.whiteBeams.forEach((beam, index) => {
+        beam.style.opacity = !isPlaying ? 1 : 0;
+      });
 
-    this.whiteBeams.forEach((beam, index) => {
-      beam.style.opacity = !isPlaying ? 1 : 0
-    })
+      let lightOrder = [
+        this.redBeams[0],
+        this.greenBeams[1],
+        this.greenBeams[0],
+        this.redBeams[1]
+      ];
 
-    let lightOrder = [
-      this.redBeams[0],
-      this.greenBeams[1],
-      this.greenBeams[0],
-      this.redBeams[1]
-    ];
-
-    lightOrder.forEach((beam, index) => {
-      beam.style.opacity = isPlaying && beat % 4 === index ? 1 : 0;
-    });
+      lightOrder.forEach((beam, index) => {
+        beam.style.opacity = isPlaying && beat % 4 === index ? 1 : 0;
+      });
+    }
   }
 
   shuffle_(array) {
