@@ -62,18 +62,6 @@ app.AnimationData = (color) => {
       "offsetX": 478,
       "offsetY": 145
     },
-    "fail_0": {
-      "width": 317,
-      "height": 354,
-      "offsetX": 400,
-      "offsetY": 156
-    },
-    "fail_1": {
-      "width": 234,
-      "height": 358,
-      "offsetX": 480,
-      "offsetY": 152
-    },
     "hip_0": {
       "width": 219,
       "height": 360,
@@ -203,6 +191,18 @@ app.AnimationData = (color) => {
   };
 
   let purpleMoves = {
+    "fail_0": {
+      "width": 317,
+      "height": 354,
+      "offsetX": 400,
+      "offsetY": 156
+    },
+    "fail_1": {
+      "width": 234,
+      "height": 358,
+      "offsetX": 480,
+      "offsetY": 152
+    },
     "watch_0": {
       "width": 183,
       "height": 358,
