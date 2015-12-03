@@ -18,21 +18,32 @@
 
 goog.provide('app.Lights');
 
+const numberOfTiles = 9;
+const numberOfLights = 4;
+
 app.Lights = class {
   constructor(el) {
-    const numberOfTiles = 9;
-    const numberOfLights = 4;
-
     this.active = false;
-    this.lights = [];
+
+    this.whiteBeams = goog.array.toArray(
+      el.querySelectorAll('.ceilingLight__beam--white'));
+    this.redBeams = goog.array.toArray(
+      el.querySelectorAll('.ceilingLight__beam--red'));
+    this.greenBeams = goog.array.toArray(
+      el.querySelectorAll('.ceilingLight__beam--green'));
+
+    this.tiles = [];
+
+    let tileEl = el.querySelector('.scene__tiles');
+
     for (let i = 0; i < numberOfTiles; i++) {
       let light = document.createElement('div');
       light.classList.add('scene__light');
       light.style.backgroundImage =
-          `url(img/stages/disco_${i + 1}.svg)`;
-      light.style.display = 'none';
-      el.appendChild(light);
-      this.lights.push(light);
+          `url(img/lights/disco_${i + 1}.svg)`;
+      light.style.opacity = 0;
+      tileEl.appendChild(light);
+      this.tiles.push(light);
     }
   }
 
@@ -40,13 +51,28 @@ app.Lights = class {
     this.active = level.stage === 'stage2';
   }
 
-  onBeat() {
+  onBeat(beat, bpm, isPlaying) {
     if (!this.active) { return; }
 
-    this.shuffle_(this.lights);
+    this.shuffle_(this.tiles);
 
-    this.lights.forEach((light, index) => {
-      lights.style.display = index < numberOfLights ? 'block' : 'none';
+    this.tiles.forEach((light, index) => {
+      light.style.opacity = index < numberOfLights ? 1 : 0;
+    });
+
+    this.whiteBeams.forEach((beam, index) => {
+      beam.style.opacity = !isPlaying ? 1 : 0
+    })
+
+    let lightOrder = [
+      this.redBeams[0],
+      this.greenBeams[1],
+      this.greenBeams[0],
+      this.redBeams[1]
+    ];
+
+    lightOrder.forEach((beam, index) => {
+      beam.style.opacity = isPlaying && beat % 4 === index ? 1 : 0;
     });
   }
 

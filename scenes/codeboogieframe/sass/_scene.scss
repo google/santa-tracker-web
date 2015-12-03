@@ -16,7 +16,7 @@
   }
 
   &.level--stage2 .scene {
-    background-color: black;
+    //background-color: black;
     background-image: url(img/stages/stage2.svg);
   }
 
@@ -47,6 +47,7 @@
     position: absolute;
     right: 0;
     top: 0;
+    overflow: hidden;
   }
 
   .scene__light {
@@ -58,6 +59,51 @@
     position: absolute;
     right: 0;
     top: 0;
+  }
+
+  .ceilingLight {
+    position: absolute;
+    width: 105.3em;
+    height: 59.1em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 105.3em 59.1em;
+    background-image: url(img/lights/ceiling.svg);
+
+    &--left {
+      left: calc(50% - 75em);
+    }
+
+    &--right {
+      right: calc(50% - 75em);
+    }
+  }
+
+  .ceilingLight__beam {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(img/lights/ceiling-light.svg);
+    transition: opacity 100ms;
+    opacity: 0;
+
+    &--white {
+      background-image: url(img/lights/ceiling-light.svg);
+    }
+
+    &--red {
+      background-image: url(img/lights/ceiling-light--red.svg);
+    }
+
+    &--green {
+      background-image: url(img/lights/ceiling-light--green.svg);
+    }
   }
 
   .scene__characters {

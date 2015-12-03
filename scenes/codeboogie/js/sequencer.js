@@ -90,7 +90,7 @@ app.Sequencer = class {
 
     if (this.beat !== beat) {
       this.beat = beat;
-      this.onBeat(this.beat, this._bpm);
+      this.onBeat(this.beat, this._bpm, this._variant === 1);
 
       this.play();
     }

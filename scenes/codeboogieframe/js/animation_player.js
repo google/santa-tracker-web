@@ -169,7 +169,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     }
   }
 
-  onBeat(beat, bpm) {
+  onBeat(beat, bpm, isPlaying) {
     let normalized = beat % 4 + 1;
     this.title.onBeat();
 
@@ -186,7 +186,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
       Klang.triggerEvent(`cb_count_in_${normalized}`);
     }
 
-    this.lights.onBeat(beat, bpm);
+    this.lights.onBeat(beat, bpm, isPlaying);
   }
 
   setLevel(level) {
