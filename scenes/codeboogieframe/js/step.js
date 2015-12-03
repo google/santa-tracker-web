@@ -18,7 +18,7 @@ app.Step = {
   CARLTON: 'carlton',
   SPONGEBOB: 'spongebob',
   ELVIS: 'elvis',
-  THRILLER: 'thiller',
+  THRILLER: 'thriller',
 
   // Non blockly moves
   IDLE: 'idle',
