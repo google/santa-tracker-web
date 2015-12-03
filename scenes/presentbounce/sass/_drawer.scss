@@ -66,10 +66,8 @@
 				transition-property: opacity;
 				transition-duration: 600ms;
 				transition-timing-function: $easeOutExpo;
-				transform: rotate(-45deg) translateY(30px) translateX(-30px);
 
 				@media (min-width: $board-desktop-breakpoint) {
-					transform: none;
 					display: block;
 					position: absolute;
 					left: 50%;
@@ -81,20 +79,24 @@
 				}
 
 				&--spring {
+					transform: rotate(45deg) scale(0.6);
 					@media (min-width: $board-desktop-breakpoint) {
 						width: 57px;
 						height: 63px;
 						margin-left: (57/2) * -1px;
 						margin-top: (63/2) * -1px;
+						transform: none;
 					}
 				}
 
 				&--conveyorBelt {
+					transform: rotate(-45deg) translateY(30px) translateX(-30px);
 					@media (min-width: $board-desktop-breakpoint) {
 						width: 146px;
 						height: 32px;
 						margin-left: (146/2) * -1px;
 						margin-top: (32/2) * -1px;
+						transform: none;
 					}
 				}
 			}
