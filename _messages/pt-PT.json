@@ -290,8 +290,14 @@
 	"codeboogie-get-dancing": {
 		"message": "Toca a dançar!"
 	},
+	"codeboogie-lets-dance": {
+		"message": "Vamos dançar"
+	},
 	"codeboogie-next-dance": {
 		"message": "Dança seguinte"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Mexe-se bem!"
 	},
 	"codeboogie-result-missing-block-fail": {
 		"message": "Experimente sincronizar a dança com o bloco abaixo."
@@ -304,6 +310,15 @@
 	},
 	"codeboogie-result-too-few-blocks-fail": {
 		"message": "Está a utilizar os blocos certos, mas tente utilizar mais para concluir a dança."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Sabia que pode terminar esta dança com apenas {{ideal}} blocos?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Deu demasiados passos."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Esse movimento não parece ser o correto. Experimente este:"
 	},
 	"codeboogie-success": {
 		"message": "Muito bem!"
@@ -454,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "República Dominicana"
+	},
+	"donate_button": {
+		"message": "Doar"
+	},
+	"donate_text": {
+		"message": "Ajude a financiar um projeto de ajuda a pessoas com necessidades especiais em DonorsChoose.org. Durante o mês de dezembro, queremos duplicar o efeito solidário: acrescentamos 50% a todas as doações até chegarmos ao objetivo total de 1 milhão de USD. Juntos, queremos tornar as salas de aula mais inclusivas para todas as crianças. #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Argélia"
@@ -836,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Arábia Saudita"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Homem-biscoito"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Mãe Natal"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pinguim"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rodolfo"
+	},
+	"santasearch_character_santa": {
+		"message": "Pai Natal"
+	},
 	"santasearch_hint": {
 		"message": "Sugestão"
 	},
@@ -919,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Selfie do Pai Natal"
+	},
+	"scene_seasonofcaring": {
+		"message": "Tempo de Solidariedade"
 	},
 	"scene_seasonofgiving": {
 		"message": "Tempo de Dar"
@@ -1039,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Distância da sua localização"
+	},
+	"tracker_flight_nearby": {
+		"message": "O Pai Natal anda por perto; saiba onde"
+	},
+	"tracker_flight_start": {
+		"message": "O Pai Natal já partiu do Polo Norte; já pode acompanhar o trajeto"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Presentes entregues"
@@ -4768,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "O Pai Natal no Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Extensão para o Google Chrome"
 	},
 	"village_takesoff": {
 		"message": "O Pai Natal levanta voo daqui a"

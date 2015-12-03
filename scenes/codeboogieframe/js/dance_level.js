@@ -42,8 +42,11 @@ app.DanceStatus = {
  *   steps: Array.<app.Step>,
  *   stage: string,
  *   bpm: number,
+ *   longerIntro: boolean,
  *   freestyle: boolean,
- *   requiredBlocks: Array.<string>
+ *   requiredBlocks: Array.<string>,
+ *   fadeTiles: boolean,
+ *   specialMove: app.Step
  * }}
  */
 app.DanceLevelOptions;
@@ -66,9 +69,12 @@ app.DanceLevel = class extends app.Level {
     this.steps = options.steps;
     this.track = options.track;
     this.bpm = options.bpm;
+    this.longerIntro = options.longerIntro || false;
     this.stage = options.stage || 'stage0';
     this.idealBlockCount = options.idealBlockCount || Infinity;
     this.requiredBlocks = options.requiredBlocks || [];
+    this.fadeTiles = options.fadeTiles == null ? true : options.fadeTiles;
+    this.specialMove = options.specialMove;
   }
 
   /**
@@ -79,9 +85,10 @@ app.DanceLevel = class extends app.Level {
   introAnimation() {
     let danceStatus = app.DanceStatus.NO_STEPS;
     let animation = this.createAnimationQueue([], danceStatus);
+    let introBars = this.longerIntro ? 4 : 2;
 
     // Demo 4 bars of the idle music first. Final bar is countdown.
-    for (var i = 0; i < 3; i++) {
+    for (var i = 1; i < introBars; i++) {
       animation.unshift({
         teacherStep: app.Step.IDLE,
         playerStep: app.Step.IDLE,
@@ -92,7 +99,8 @@ app.DanceLevel = class extends app.Level {
 
     return new app.DanceLevelResult(false, null, {
       animationQueue: animation,
-      danceStatus: danceStatus
+      danceStatus: danceStatus,
+      endTitle: app.I18n.getMsg('CB_yourTurn')
     });
   }
 
@@ -123,6 +131,8 @@ app.DanceLevel = class extends app.Level {
     var code = blockly.getUserCode();
     var missingBlocks = blockly.getMissingBlocks(this.requiredBlocks);
     var numEnabledBlocks = blockly.getCountableBlocks().length;
+    var endTitleMsg = danceStatus === app.DanceStatus.NO_STEPS ? 'CB_yourTurn' :
+        levelComplete ? 'CB_success' : 'CB_tryAgain';
     var allowRetry = true;
     var message = null;
 
@@ -147,6 +157,7 @@ app.DanceLevel = class extends app.Level {
       allowRetry: allowRetry,
       animationQueue: animationQueue,
       code: code,
+      endTitle: app.I18n.getMsg(endTitleMsg),
       danceStatus: danceStatus,
       idealBlockCount: this.idealBlockCount,
       missingBlocks: missingBlocks
@@ -240,7 +251,7 @@ app.DanceLevel = class extends app.Level {
     }
 
     if (result === app.DanceStatus.SUCCESS) {
-      let specialMove = this.getRandomSpecialMove();
+      let specialMove = this.specialMove || app.Step.CARLTON;
 
       queue.push({
         teacherStep: specialMove,
@@ -263,16 +274,6 @@ app.DanceLevel = class extends app.Level {
   }
 
   /**
-   * Get a random special move.
-   *
-   * @returns {app.Step}
-   */
-  getRandomSpecialMove() {
-    var specialMoves = [app.Step.CARLTON, app.Step.ELVIS, app.Step.SPONGEBOB, app.Step.THRILLER];
-    return specialMoves[Math.floor(Math.random() * specialMoves.length)];
-  }
-
-  /**
    * Specifies css class names to apply when running this level.
    *
    * @returns {string}
@@ -289,6 +290,7 @@ app.DanceLevel = class extends app.Level {
  *   allowRetry: boolean,
  *   code: string,
  *   freestyle: boolean,
+ *   endTitle: string,
  *   skipAnimation: boolean,
  *   animationQueue: Array.<app.AnimationItem>,
  *   overlayGraphic: string,
@@ -314,6 +316,7 @@ app.DanceLevelResult = class extends app.LevelResult {
     this.animationQueue = options.animationQueue || [];
     this.danceStatus = options.danceStatus || app.DanceStatus.NO_STEPS;
     this.freestyle = options.freestyle || false;
+    this.endTitle = options.endTitle;
   }
 
   watching() {

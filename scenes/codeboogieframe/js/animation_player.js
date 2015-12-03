@@ -21,10 +21,11 @@ goog.provide('app.AnimationItem');
 
 goog.require('app.Animation');
 goog.require('app.AnimationData');
-goog.require('app.Constants');
 goog.require('app.Character');
+goog.require('app.Constants');
 goog.require('app.DanceStatus');
 goog.require('app.I18n');
+goog.require('app.Lights');
 goog.require('app.MoveTiles');
 goog.require('app.Step');
 goog.require('app.Title');
@@ -62,6 +63,9 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
         el.querySelector('.scene__character--teacher'), 'green');
     this.title = new app.Title(el.querySelector('.scene__word-title'));
     this.moveTiles = new app.MoveTiles(el.querySelector('.scene__moves'));
+    /** @type {?app.DanceLevelResult} */
+    this.lastResult = null;
+    this.lights = new app.Lights(el.querySelector('.scene__lights'));
     /** @type {Array<app.AnimationItem>} */
     this.animationQueue = [];
     /** @type {?app.AnimationItem} */
@@ -91,8 +95,9 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
    * @param {app.DanceLevelResult} result from player to animate.
    */
   start(result) {
+    this.lastResult = result;
     this.animationQueue = result.animationQueue;
-    this.moveTiles.clear();
+    this.moveTiles.reset();
     this.title.setTitle(this.animationQueue[0].title, true);
 
     if (result.watching()) {
@@ -155,7 +160,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     if (!animation) {
       this.teacher.play(app.Step.IDLE, bpm);
       this.player.play(app.Step.IDLE, bpm);
-      this.title.setTitle();
+      this.title.setTitle(this.lastResult && this.lastResult.endTitle);
     } else {
       this.teacher.play(animation.teacherStep, bpm);
       this.player.play(animation.playerStep, bpm);
@@ -176,5 +181,20 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     if (normalized === 4) {
       this.onAnimationBar(bpm);
     }
+
+    if (this.currentAnimation && this.currentAnimation.isCountdown) {
+      Klang.triggerEvent(`cb_count_in_${normalized}`);
+    }
+
+    let isPlaying = this.isPlaying &&
+                    this.currentAnimation &&
+                    !this.currentAnimation.isCountdown;
+
+    this.lights.onBeat(beat, bpm, isPlaying);
+  }
+
+  setLevel(level) {
+    this.moveTiles.setLevel(level);
+    this.lights.setLevel(level);
   }
 };

@@ -23,6 +23,7 @@ window.HOUSES = [{
   iced: true,
   color: '#fdbe27',
   launchDate: new Date('Dec 1, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   hideDate: true,
   category: "play"
 }, {
@@ -30,6 +31,7 @@ window.HOUSES = [{
   iced: true,
   color: '#fdbe27',
   launchDate: new Date('Dec 1, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   hideDate: true,
   category: "learn"
 }, {
@@ -37,6 +39,7 @@ window.HOUSES = [{
   iced: true,
   color: '#9a519f',
   launchDate: new Date('Dec 1, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   hideDate: true,
   category: "learn"
 }, {
@@ -44,6 +47,7 @@ window.HOUSES = [{
   iced: true,
   color: '#fdbe27',
   launchDate: new Date('Dec 1, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   hideDate: true,
   category: "play",
   link: 'https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker'
@@ -52,102 +56,119 @@ window.HOUSES = [{
   iced: true,
   color: '#9dca3b',
   launchDate: new Date('Dec 1, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "learn"
 }, {
   module: "santasback",
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 2, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "watch"
 }, {
   module: "santaselfie",
   iced: true,
   color: '#4172e8',
   launchDate: new Date('Dec 3, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   module: "translations",
   iced: true,
   color: '#558b2f',
   launchDate: new Date('Dec 4, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "learn"
 }, {
   module: "carpool",
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 5, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "watch"
 }, {
   module: "presentdrop",
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 6, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   module: "santasearch",
   iced: true,
   color: '#00904a',
   launchDate: new Date('Dec 7, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   module: "windtunnel",
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 8, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   module: "racer",
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 9, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   module: "jamband",
   iced: true,
   color: '#fdbe27',
   launchDate: new Date('Dec 10, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   module: "gumball",
   iced: true,
   color: '#fdbe27',
   launchDate: new Date('Dec 11, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   module: "postcard",
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 12, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   module: "jetpack",
   iced: true,
   color: '#9a519f',
   launchDate: new Date('Dec 13, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   module: "boatload",
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 14, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   module: "mercator",
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 15, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   module: "presentbounce",
   iced: true,
   color: '#4172e8',
   launchDate: new Date('Dec 16, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   module: "codeboogie",
   iced: true,
   color: '#9a519f',
   launchDate: new Date('Dec 17, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   // optionally used instead of "briefing" in some regions
@@ -155,6 +176,7 @@ window.HOUSES = [{
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 18, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   // optionally used instead of "callfromsanta" in some regions
@@ -163,35 +185,41 @@ window.HOUSES = [{
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 18, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   module: "citylights",
   iced: true,
   color: '#182a4a',
   launchDate: new Date('Dec 19, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "learn"
 }, {
   module: "commandcentre",
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 20, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "watch"
 }, {
   module: "seasonofcaring",
   iced: true,
   color: '#9dca3b',
   launchDate: new Date('Dec 21, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "learn"
 }, {
   module: "matching",
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 22, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
   module: "liftoff",
   iced: true,
   color: '#00c6ed',
   launchDate: new Date('Dec 23, 2015'),
+  portalLaunchDate: new Date('Dec 1, 2015'),
   category: "watch"
 }];

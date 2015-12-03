@@ -28,8 +28,17 @@ Trivia scene.
 -->
 <dom-module id="trivia-scene">
 <template>
+  <style>
+    .scene {
+      @apply(--layout-vertical);
+      @apply(--layout-fit);
+    }
+    .fit {
+      @apply(--layout-fit);
+    }
+  </style>
   <div id="module-trivia" class="fit">
-    <div class="scene fit vertical layout">
+    <div class="scene">
       <div class="map-hint">
         <map-hint id="hint" santa-app="{{santaApp}}"></map-hint>
       </div>
@@ -2616,18 +2625,6 @@ Trivia scene.
       this.game.startCountdown();
       this.$.answer.showChoices();
       this.$.hint.animate();
-    },
-
-    onPause: function() {
-      if (this.game) {
-        this.game.pause();
-      }
-    },
-
-    onResume: function() {
-      if (this.game) {
-        this.game.resume();
-      }
     },
 
     onGameOver: function() {

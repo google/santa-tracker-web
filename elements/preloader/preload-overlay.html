@@ -53,7 +53,7 @@ Candy cane progress bar.
       <div class="preload">
         <img src="{{src}}" />
         <div class="preload-bar">
-          <div class="preload-progress" style$="{{_computeStyle(value)}}"></div>
+          <div class="preload-progress" style$="width:{{value}}%"></div>
         </div>
       </div>
     </div>
@@ -72,6 +72,13 @@ Candy cane progress bar.
     behaviors: [Polymer.IronRangeBehavior],
 
     properties: {
+
+      /**
+       * The amount preloaded, from 0-100.
+       */
+      value: {
+        type: Number
+      },
 
       /**
        * If `true`, the preloader displays itself.
@@ -127,10 +134,6 @@ Candy cane progress bar.
       e.stopPropagation();
       Polymer.dom(this).classList.remove('fading');
     },
-
-    _computeStyle: function(value) {
-      return 'width:' + value + '%;';
-    }
   });
 
 })();

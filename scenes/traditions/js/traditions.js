@@ -99,7 +99,7 @@ Traditions.prototype.onShow = function() {
 
   this.markerBounds_ = new google.maps.LatLngBounds()
   this.addCountryMarkers_();
-
+  window.santaApp.fire('sound-ambient', 'music_start_scene');
   $(window).on('resize.traditions', this.handleResize_.bind(this));
 };
 

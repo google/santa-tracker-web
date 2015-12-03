@@ -110,7 +110,8 @@ app.BlocklyLayout = class {
   }
 
   layoutToolboxCardinal_(blocks) {
-    var cursorY = app.BlocklyLayout.TOOLBOX_MD_TOP;
+    var cursorY = this.windowHeight >= 600 ? app.BlocklyLayout.TOOLBOX_MD_TOP :
+        app.BlocklyLayout.TOOLBOX_MD_SHORT_TOP;
     var margin = app.BlocklyLayout.TOOLBOX_MD_MARGIN;
     var gap = app.BlocklyLayout.TOOLBOX_MD_GAP;
     var blockSize = blocks[0].getHeightWidth();
@@ -210,7 +211,12 @@ app.BlocklyLayout.TOOLBOX_SM_TOP = 24;
  * Whitespace to top on desktop.
  * @type {number}
  */
-app.BlocklyLayout.TOOLBOX_MD_TOP = 210;
+app.BlocklyLayout.TOOLBOX_MD_TOP = 160;
+/**
+ * Whitespace to top on short desktop.
+ * @type {number}
+ */
+app.BlocklyLayout.TOOLBOX_MD_SHORT_TOP = 90;
 
 /**
  * Top position of when run block on mobile.

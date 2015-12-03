@@ -40,6 +40,77 @@
     overflow: hidden;
   }
 
+  .scene__lights {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+  }
+
+  .scene__light {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .ceilingLight {
+    position: absolute;
+    width: 105.3em;
+    height: 59.1em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 105.3em 59.1em;
+    background-image: url(img/lights/ceiling.svg);
+
+    &--left {
+      left: calc(50% - 75em);
+    }
+
+    &--right {
+      right: calc(50% - 75em);
+    }
+  }
+
+  &.level--stage1 .ceilingLight {
+    display: none;
+  }
+
+  .ceilingLight__beam {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(img/lights/ceiling-light.svg);
+    opacity: 0;
+    transition: opacity 100ms;
+    transform: translate3d(0, 0, 0);
+
+    &--white {
+      background-image: url(img/lights/ceiling-light.svg);
+    }
+
+    &--red {
+      background-image: url(img/lights/ceiling-light--red.svg);
+    }
+
+    &--green {
+      background-image: url(img/lights/ceiling-light--green.svg);
+    }
+  }
+
   .scene__characters {
     bottom: 22%;
     height: 480px;
@@ -57,24 +128,24 @@
   }
 
   .scene__character.is-showing {
-    transform: translate(-50%, 0);
+    transform: translate3d(-50%, 0, 0);
     z-index: 1;
   }
 
   .scene__character--player {
-    transform: translateX((-50% - 20%));
+    transform: translate3d((-50% - 20%), 0, 0);
   }
 
   .scene__character--player.is-watching {
-    transform: translate((-50% - 20%), -10%) scale(.86);
+    transform: translate3d((-50% - 20%), -10%, 0) scale(.86);
   }
 
   .scene__character--teacher {
-    transform: translateX((-50% + 20%));
+    transform: translate3d((-50% + 20%), 0, 0);
   }
 
   &.level--freestyle .scene__character--player {
-    transform: translate(-50%, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 
   &.level--freestyle .scene__character--teacher {
@@ -83,15 +154,15 @@
 
   @media (min-width: 1024px) {
     .scene__character--player {
-      transform: translateX((-50% - 25%));
+      transform: translate3d((-50% - 25%), 0, 0);
     }
 
     .scene__character--player.is-watching {
-      transform: translate((-50% - 25%), -10%) scale(.86);
+      transform: translate3d((-50% - 25%), -10%, 0) scale(.86);
     }
 
     .scene__character--teacher {
-      transform: translateX((-50% + 25%));
+      transform: translate3d((-50% + 25%), 0, 0);
     }
   }
 
@@ -105,6 +176,7 @@
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
     top: 3rem;
     width: 100%;
+    z-index: 1;
 
     animation: .15s .35s cb_title_appear backwards;
   }
@@ -114,7 +186,8 @@
   }
 
   .title--sub {
-    margin-top: 1.3em;
+    margin-top: 2rem;
+    font-size: 25em;
   }
 
   .title--destroy {
@@ -153,7 +226,11 @@
     left: 50%;
     position: absolute;
     box-sizing: border-box;
-    bottom: 5%;
+    bottom: 70%;
+
+    @media (min-width: 1025px) {
+      bottom: 5%;
+    }
   }
 
   .scene__moves-move {
@@ -168,30 +245,30 @@
     background-size: 10em 8.5em;
     background-repeat: no-repeat;
 
-    &.move__leftArm {
+    &.move__pointLeft {
       background-image: url(img/icons_point-left-white.svg);
     }
 
-    &.move__rightArm {
+    &.move__pointRight {
       background-image: url(img/icons_point-right-white.svg);
     }
 
-    &.move__leftFoot {
+    &.move__stepLeft {
       background-image: url(img/icons_step-left-white.svg);
     }
 
-    &.move__rightFoot {
+    &.move__stepRight {
       background-image: url(img/icons_step-right-white.svg);
     }
 
     &.move__jump {
       background-image: url(img/icons_jump-white.svg);
     }
-    &.move__split {
+    &.move__splits {
       background-image: url(img/icons_splits-white.svg);
     }
-    &.move__shake {
-      background-image: url(img/icons_shake-white.svg);
+    &.move__hip {
+      background-image: url(img/icons_hip-shake-white.svg);
     }
   }
 
@@ -208,12 +285,12 @@
   }
 
   .fade-in {
-    animation: 500ms cb_fade_in;
+    animation: 500ms cb_title_appear;
     animation-fill-mode: forwards;
   }
 
   .fade-out {
-    animation: 500ms cb_fade_out;
+    animation: 500ms cb_title_disappear;
     animation-fill-mode: forwards;
   }
 
@@ -234,37 +311,44 @@
     }
   }
 
+  $button-background-diameter: 100px;
+  $button-margin: 12px;
+  $button-diameter: $button-background-diameter - $button-margin * 2;
+  $button-color: #FF8B39;
+
   // We need to force this play button on GPU for Safari for some reason so the z-index works.
   // Some browsers also round down the pixel size of the GPU layer which trims the box-shadow,
   // which is why we force this bigger parent on the GPU.
   .scene__play-layer {
     background-color: $worldBackground;
     border-radius: 50%;
-    height: 100px;
+    height: $button-background-diameter;
     position: relative;
     -webkit-transform: translateZ(0);
-    width: 100px;
+    width: $button-background-diameter;
     z-index: 1;
   }
 
   .scene__play {
-    background: #F68C38;
-    border: none;
+    background: $button-color;
     border-radius: 50%;
-    box-shadow: 3px 3px #F26739;
+    border: none;
+    box-shadow: 0px $button-margin / 2 darken($button-color, 5%);
     cursor: pointer;
     font-size: inherit;
-    height: 80px;
-    position: relative;
-    margin: 10px;
+    height: $button-diameter - $button-margin / 2;
+    margin: $button-margin;
     padding: 0;
-    width: 80px;
+    position: relative;
+    width: $button-diameter;
+    transition: box-shadow 100ms, transform 100ms;
+    z-index: 1;
   }
 
   .scene__play:before {
     border-bottom: 18px solid transparent;
-    border-top: 18px solid transparent;
     border-left: 30px solid white;
+    border-top: 18px solid transparent;
     content: '';
     display: block;
     height: 0;
@@ -273,9 +357,36 @@
     top: calc(50% - 18px);
     width: 0;
   }
+
+  .scene__play:after {
+    border-radius: 50%;
+    bottom: 0;
+    box-shadow: 3px 8px 0 3px rgba(0, 0, 0, 0.15);
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    transition: box-shadow 100ms;
+  }
+
+  .scene__play:focus {
+    outline: 0;
+  }
+
+  .scene__play:active {
+    outline: 0;
+    transform: translate3d(0, 6px, 0);
+    box-shadow: 0px 0px darken($button-color, 5%);
+
+    &:after {
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15);
+    }
+  }
 }
 
-@keyframes cb_title_appear{
+@keyframes cb_title_appear {
   from {
     opacity: 0;
     transform: scale(0.8);

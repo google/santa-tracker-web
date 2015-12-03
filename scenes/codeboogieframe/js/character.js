@@ -19,85 +19,15 @@
 goog.provide('app.Character');
 
 goog.require('app.Animation');
+goog.require('app.AnimationData');
 goog.require('app.Step');
-
-/**
- * @typedef {{
- *   name: string,
- *   frames: number
- * }}
- */
-app.AnimationSprite;
-
-/** @type {Object<app.Step, app.AnimationSprite>} */
-let sources = {
-  [app.Step.IDLE]: {
-    name: 'idle',
-    frames: 24
-  },
-  [app.Step.FAIL]: {
-    name: 'fail',
-    frames: 48
-  },
-  [app.Step.WATCH]: {
-    name: 'watch',
-    frames: 48
-  },
-  [app.Step.LEFT_ARM]: {
-    name: 'pointLeft',
-    frames: 48
-  },
-  [app.Step.RIGHT_ARM]: {
-    name: 'pointRight',
-    frames: 48
-  },
-  [app.Step.LEFT_FOOT]: {
-    name: 'stepLeft',
-    frames: 48
-  },
-  [app.Step.RIGHT_FOOT]: {
-    name: 'stepRight',
-    frames: 48
-  },
-  [app.Step.JUMP]: {
-    name: 'jump',
-    frames: 48
-  },
-  [app.Step.SHAKE]: {
-    name: 'hip',
-    frames: 48
-  },
-  [app.Step.SPLIT]: {
-    name: 'splits',
-    frames: 48
-  },
-  [app.Step.CARLTON]: {
-    name: 'carlton',
-    frames: 96
-  },
-  [app.Step.SPONGEBOB]: {
-    name: 'spongebob',
-    frames: 48,
-  },
-  [app.Step.ELVIS]: {
-    name: 'elvis',
-    frames: 48
-  },
-  [app.Step.THRILLER]: {
-    name: 'thriller',
-    frames: 96
-  }
-};
 
 app.Character = class {
   constructor(el, color) {
     /** @type {app.Animation} */
     this.animation = null;
-    this.color = color;
     this.currentState = null;
     this.el = el;
-    /** @type {?app.AnimationSprite} */
-    this.sprite = null;
 
     // Create canvas
     let canvas = document.createElement('canvas');
@@ -106,15 +36,41 @@ app.Character = class {
     el.appendChild(canvas);
 
     this.context = canvas.getContext('2d');
+
+    this.images = {};
+    this.renderSprites_(color);
+  }
+
+  renderSprites_(color) {
+    let data = app.AnimationData(color);
+
+    Object.keys(data).forEach(key => {
+      let image = new Image();
+
+      image.onload = () => {
+        //let canvas = document.createElement('canvas');
+        //canvas.width = image.width;
+        //canvas.height = image.height;
+        //
+        //let context = canvas.getContext('2d');
+        //context.drawImage(image, 0, 0);
+        //this.images[key] = canvas;
+
+        this.images[key] = image;
+      };
+
+      image.src = `img/steps/${color}/${key}.png`;
+    });
   }
 
   update(dt) {
     if (!this.animation) return;
 
     let frame = this.animation.update(dt);
+    let image = this.images[frame.sprite];
 
     this.context.canvas.width = this.context.canvas.width;
-    this.context.drawImage(frame.img, frame.x, frame.y,
+    this.context.drawImage(image, frame.x, frame.y,
         frame.width, frame.height, frame.offsetX, frame.offsetY,
         frame.width, frame.height);
   }
@@ -123,21 +79,17 @@ app.Character = class {
     if (state === this.currentState) {
       return;
     }
+
     if (this.currentState) {
       this.el.classList.remove(this.currentState);
     }
+
     this.currentState = state;
     this.el.classList.add(this.currentState);
   }
 
   play(step, bpm) {
-    this.sprite = sources[step];
-
-    if (!this.sprite) {
-      throw new Error(`No sprite found for move ${step}`);
-    }
-
-    this.animation = new app.Animation(this.sprite, this.color, bpm);
+    this.animation = new app.Animation(step, bpm);
     this.animation.play();
   }
 };

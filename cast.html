@@ -1,0 +1,115 @@
+<!--
+Copyright 2015 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<!DOCTYPE html>
+<html lang="en" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <base href="">
+
+  <title>Google Santa Tracker</title>
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
+  <link rel="stylesheet" href="sass/santatracker.css">
+
+  <!-- Cast -->
+  <script src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
+  <script>
+(function() {
+  var CAST_EXPIRY_MINUTES = 15;
+  var CAST_SAFETY_SECONDS = 180;
+
+  // For safety, if no scene is available or has loaded in the first little
+  // while, then automatically close this window.
+  window.setTimeout(function() {
+    var scene = window.santaApp && window.santaApp.selectedScene;
+    if (!scene || !scene.loaded) {
+      window.close();
+    }
+  }, 1000 * CAST_SAFETY_SECONDS);
+
+  // Start the Cast Reciever. This needs to happen early, otherwise an
+  // error may be reported to clients.
+  var crm = cast.receiver.CastReceiverManager.getInstance();
+  var messageBus = crm.getCastMessageBus('urn:x-cast:com.google.cast.santatracker');
+
+  var expiryTime = 1000 * 60 * CAST_EXPIRY_MINUTES;
+  var timeout;
+
+  crm.onReady = function(event) {
+    crm.setApplicationState('Google Santa Tracker');
+  };
+  crm.onSenderConnected = function(event) {
+    window.clearTimeout(timeout);
+  };
+  crm.onSenderDisconnected = function(event) {
+    if (!crm.getSenders().length) {
+      timeout = window.setTimeout(function() {
+        window.close();
+      }, expiryTime);
+    }
+  };
+  var config = new cast.receiver.CastReceiverManager.Config();
+  config.statusText = 'Google Santa Tracker...';  // subtle loading hint
+  config.maxInactivity = 60;  // seconds
+  crm.start(config);
+}());
+  </script>
+
+  <!-- Analytics -->
+  <script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
+  <script>
+    window.DEV = true; // NOTE: replaced by string - do not change formatting.
+
+    window.ga_ = new gweb.analytics.AutoTrack({
+      'profile': location.hostname == 'santatracker.google.com' ? 'UA-37048309-1' : 'UA-37048309-2'
+    });
+
+    // Track and log any errors to analytics
+    window.onerror = function(message, file, lineNumber) {
+      // We don't want to trigger any errors inside window.onerror otherwise
+      // things will get real bad, real quick.
+      try {
+        window.ga_.pushCommand(['_trackEvent', 'error', file + ':' + lineNumber,
+            '' + message]);
+      } catch (e){}
+    };
+  </script>
+  <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="elements/elements_en.html" />
+</head>
+<body data-version="" unresolved>
+
+<santa-app id="santaApp"></santa-app>
+
+<div id="preload_placeholder"></div>
+
+<script>
+(function() {
+
+window.santaApp = document.querySelector('santa-app');
+
+if (window.DEV) {
+  // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
+  // Set locale for entire site (e.g. i18n-msg elements).
+  document.addEventListener('HTMLImportsLoaded', function() {
+    I18nMsg.lang = document.documentElement.lang || 'en';
+    I18nMsg.url = '_messages';
+  });
+}
+
+})();
+</script>
+</body>
+</html>

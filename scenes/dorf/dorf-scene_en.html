@@ -16,8 +16,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../../components/iron-flex-layout/classes/iron-flex-layout.html">
-
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -38,7 +36,10 @@ Village scene (2015).
   :host[mode="cast"] .ice {
     display: none !important;
   }
-  :host[mode="cast"] #village-footer {
+  :host[mode="portal"] .launchdate {
+    display: none !important;
+  }
+  :host[mode="portal"] .donate-button {
     display: none !important;
   }
   </style>
@@ -60,6 +61,7 @@ Village scene (2015).
         <div id="header-mobileelves"></div>
       </div>
       <div id="header-content">
+        <div id="ornament"></div>
         <div id="count-down" class$="mode-{{santaApp.mode}}">
           <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
           <countdown-timer id="count"
@@ -84,7 +86,7 @@ Village scene (2015).
       </div>
       <div id="ground"></div>
       <div id="road"></div>
-      <div id="houses">
+      <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
         <div class$="house house-new-today new-today-{{todayHouse}}">
           <template is="dom-if" if="{{_calculateShowTodayHouse(todayHouse, santaApp.mode)}}">
             <a href="{{_calculateNewTodayHref(todayHouse)}}">
@@ -138,6 +140,12 @@ Village scene (2015).
             <div id$="easteregg-{{item}}" class="easter-egg"></div>
           </template>
 
+          <div id="easteregg-schoolyard" class="easter-egg">
+            <div class="slide"></div>
+            <div class="seesaw"></div>
+            <div class="swing"></div>
+          </div>
+
           <div id="easteregg-balloon" class="easter-egg"></div>
           <div id="easteregg-balloon-ropes" class="easter-egg"></div>
           <div id="easteregg-balloon-flight" class="easter-egg"></div>
@@ -189,14 +197,45 @@ Village scene (2015).
               <div class="elf-bus"></div>
             </div>
           </div>
+
+          <div id="easteregg-tic-tac-toe" class="easter-egg">
+            <div class="tic-tac empty"></div>
+            <div class="tic-tac empty"></div>
+            <div class="tic-tac empty"></div>
+            <div class="tic-tac empty"></div>
+            <div class="tic-tac empty"></div>
+            <div class="tic-tac empty"></div>
+            <div class="tic-tac empty"></div>
+            <div class="tic-tac empty"></div>
+            <div class="tic-tac empty"></div>
+            <div id="easteregg-tic-tac-toe-elves-red" class="elves move"></div>
+            <div id="easteregg-tic-tac-toe-elves-blue" class="elves move"></div>
+            <div id="easteregg-tic-tac-toe-win"></div>
+          </div>
         </div><!-- #eastereggs -->
 
       </div>
     </div>
-    <div id="village-footer">
-      <p hidden$="{{countdownFinished}}"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-      <div id="village-footer-elves"></div>
-    </div>
+
+    <template is="dom-if" if="{{!_equal(santaApp.mode, 'cast')}}">
+      <div id="village-footer">
+        <p hidden$="{{countdownFinished}}"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
+        <img src="{{componentDir}}img/footer-elves.svg" />
+      </div>
+      <div id="village-donate">
+        <div id="wrapper">
+          <h3>#ForEveryKid</h3>
+          <p>
+            Help fund a special needs project on DonorsChoose.org.
+            This December, we're helping to double the impact by matching donations by 50%, until we reach our goal of donating US$1,000,000.
+            Together, we can make classrooms more inclusive #ForEveryKid
+          </p>
+          <div class="button donate-button">
+            <a target="_blank" href="https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
+          </div>
+        </div>
+      </div>
+    </template>
   </div><!-- #module-dorf -->
 </template>
 <script>
@@ -222,8 +261,8 @@ Village scene (2015).
   var CLOUD_TYPES = 3;
 
   var EASTER_EGGS = ['tree', 'blocks', 'statue', 'penguin-revolt',
-      'snowman-reading', 'rosetta-stone', 'white-board', 'schoolyard',
-      'tic-tac-toe', 'book-club', 'unicycle', 'walrus'];
+      'snowman-reading', 'rosetta-stone', 'white-board',
+      'book-club', 'unicycle', 'walrus'];
 
   /**
    * Builds and returns a random snowflake. If a previous snowflake was passed,
@@ -249,12 +288,12 @@ Village scene (2015).
     elem.style.left = pos + '%';
 
     var shimmy = elem.querySelector('.shimmy');
-    shimmy.style.animationDuration = shimmySpeed + 's'
+    webkitStyle(shimmy, 'animationDuration', shimmySpeed + 's');
     shimmy.style.fontSize = fallSpeed + 'px';  // shimmy width is inverse to speed
 
     var fall = elem.querySelector('.fall');
-    fall.style.animationDuration = fallSpeed + 's';
-    fall.style.animationDelay = (+delay) + 's';
+    webkitStyle(fall, 'animationDuration', fallSpeed + 's');
+    webkitStyle(fall, 'animationDelay', (+delay) + 's');
 
     var snow = elem.querySelector('.snow');
     snow.style.width = size + 'px';
@@ -279,11 +318,11 @@ Village scene (2015).
     elem.style.transform = 'translate(0, ' + pos + 'px)';
 
     var cloud = elem.firstChild;
-    cloud.style.animationDuration = randomRange(CLOUD_SPEED_MIN, CLOUD_SPEED_MAX) + 's';
+    webkitStyle(cloud, 'animationDuration', randomRange(CLOUD_SPEED_MIN, CLOUD_SPEED_MAX) + 's');
     if (reverse) {
-      cloud.style.animationDirection = 'reverse';
+      webkitStyle(cloud, 'animationDirection', 'reverse');
     }
-    cloud.style.animationDelay = (+delay) + 's';
+    webkitStyle(cloud, 'animationDelay', (+delay) + 's');
     cloud.className = 'cloud cloud' + Math.floor(Math.random() * CLOUD_TYPES);
 
     return elem;
@@ -350,26 +389,185 @@ Village scene (2015).
         if (!this.active) {
           return;  // give up, not active
         }
-        var easterEgg = this.$['easteregg-' + easterEggs[
-            Math.floor(Math.random() * easterEggs.length)]];
-
+        var eggName = 'easteregg-' +
+            easterEggs[Math.floor(Math.random() * easterEggs.length)];
+        var easterEgg = this.$[eggName];
         var bounds = easterEgg.getBoundingClientRect();
+
+        // trigger the easter egg only if it's not display: none
         if (bounds.width && bounds.height) {
-          easterEgg.click();  // click on the easter egg only if it's not display: none
+          var eggTrigger = this.listeners[eggName + '.click'];
+          this[eggTrigger]({
+            fakeEvent: true,
+            currentTarget: easterEgg
+          });
         }
 
         this._randomEasterEggs();
       }, eggTime);
     },
 
+    /**
+     * If the game is being played or not
+     */
+    _isPlayingTicTacToe: false,
+    /**
+     * Which players turn, only 2 players so a bool is fine
+     */
+    _ticTacToeTurn: true,
+    /**
+     * Game cell
+     */
+    _ticTacToeCells: [],
+    _ticTacToeMove: 1,
+    _ticTacToeScore: {'red': 0, 'blue': 0},
+    _ticTacToeCellValues: [1, 2, 4, 8, 16, 32, 64, 128, 256],
+    _ticTacToeWins: [7, 56, 448, 73, 146, 292, 273, 84],
+    _playTicTacToeTimers: [],
+
+    _playTicTacToe: function() {
+      if (!this.active) {
+        return;
+      }
+
+      var ticTacGameBoard = this.$['easteregg-tic-tac-toe'];
+      var redTeam = this.$['easteregg-tic-tac-toe-elves-red'];
+      var blueTeam = this.$['easteregg-tic-tac-toe-elves-blue'];
+
+      if (!this._isPlayingTicTacToe || this._ticTacToeCells.length == 0) {
+        this._isPlayingTicTacToe = true;
+
+        // Setup a new game
+        this.ticTacToeScore = {'red': 0, 'blue': 0};
+
+        this._ticTacToeCells = [].slice.call(ticTacGameBoard.querySelectorAll('.tic-tac'));
+        this._ticTacToeCells.forEach(function(cell) {
+          cell.classList.remove('cross', 'naught', 'red', 'blue');
+          cell.classList.add('empty');
+        });
+
+        redTeam.classList.remove('draw');
+        redTeam.classList.add('move');
+        blueTeam.classList.remove('draw');
+        blueTeam.classList.add('move');
+      }
+
+      // Random is the best AI....
+      var rnd = Math.floor(Math.random() * this._ticTacToeCells.length);
+      var cell = this._ticTacToeCells.splice(rnd, 1).pop();
+      var index = Array.prototype.indexOf.call(ticTacGameBoard.children, cell);
+      var player = this._ticTacToeTurn ? blueTeam : redTeam;
+      this._playTicTacToeCell(player, cell, index);
+    },
+
+    _playTicTacToeCell: function(player, cell, index) {
+      var moveTime = 500;
+      var drawTime = moveTime + 200;
+      var doneDrawTime = drawTime + 500;
+      var moveBackTime = doneDrawTime + 500;
+      var playAgainTime = moveBackTime + 1000;
+      var posClass = 'to-pos-' + (index + 1);
+      player.classList.add(posClass);
+      this._ticTacToeTurn = !this._ticTacToeTurn;
+      var turn = this._ticTacToeTurn;
+
+      var move = function() {
+        player.classList.remove('move');
+        player.classList.add('draw');
+      };
+
+      var draw = function() {
+        if (turn) {
+          cell.classList.add('cross', 'red');
+        } else {
+          cell.classList.add('naught', 'blue');
+        }
+        cell.classList.remove('empty');
+      };
+
+      var doneDraw = function() {
+        player.classList.remove('draw');
+        player.classList.add('move');
+      };
+
+      var moveBack = function() {
+        player.classList.remove(posClass);
+      };
+
+      this._playTicTacToeTimers[1] = this.async(move.bind(this), moveTime);
+      this._playTicTacToeTimers[2] = this.async(draw.bind(this), drawTime);
+      this._playTicTacToeTimers[3] = this.async(doneDraw.bind(this), doneDrawTime);
+      this._playTicTacToeTimers[4] = this.async(moveBack.bind(this), moveBackTime);
+
+      if (turn) {
+        this.ticTacToeScore['red'] += this._ticTacToeCellValues[index];
+        var w = this._checkTicTacToeWin(this.ticTacToeScore['red']);
+        if (w !== false) {
+          this._showTicTacToeWin('red', w);
+          return;
+        }
+      } else {
+        this.ticTacToeScore['blue'] += this._ticTacToeCellValues[index];
+        var w = this._checkTicTacToeWin(this.ticTacToeScore['blue']);
+        if (w !== false) {
+          this._showTicTacToeWin('blue', w);
+          return;
+        }
+      }
+
+      if (this._ticTacToeCells.length == 0) {
+        // Draw
+        this.fire('analytics-track-event', {category: 'village', action: 'tic-tac', label: 'draw'});
+      }
+
+      this._playTicTacToeTimers[0] = this.async(this._playTicTacToe, playAgainTime);
+    },
+
+    _showTicTacToeWin: function(player, w) {
+      var WIN_LINE_TIME = 2000;
+      var RESTART_GAME_TIME = randomRange(20000, 60000);
+      this._isPlayingTicTacToe = false;
+      var c = 'pos-' + w;
+
+      this.fire('analytics-track-event', {category: 'village', action: 'tic-tac', label: player});
+      this._playTicTacToeTimers[0] = this.async(function() {
+        this.$['easteregg-tic-tac-toe-win'].classList.add(player, c);
+      }, WIN_LINE_TIME);
+
+      this._playTicTacToeTimers[1] = this.async(function() {
+        this.$['easteregg-tic-tac-toe-win'].classList.remove(player, c);
+        this._playTicTacToe();
+      }, RESTART_GAME_TIME);
+    },
+
+    _checkTicTacToeWin: function(score) {
+      for (var i = 0; i < this._ticTacToeWins.length; i++) {
+        if ((this._ticTacToeWins[i] & score) === this._ticTacToeWins[i]) {
+          return i;
+        }
+      }
+      return false;
+    },
+
+    _pegmanTimers: [],
+
+    _resetPegmanDive: function() {
+      for (var i = 0; i < this._pegmanTimers.length; i++) {
+        this.cancelAsync(this._pegmanTimers[i]);
+      }
+      this._pegmanTimers = [];
+    },
+
     _pegmanDive: function() {
       var SKY_DIVE_TIME = 10000;
       var SKY_DIVE_FALL = .75 * SKY_DIVE_TIME;
-      var SKY_DIVE_LAND = SKY_DIVE_TIME - SKY_DIVE_FALL + 200;
-      var SKY_DIVE_RESTART = SKY_DIVE_LAND + 10000;
-      var PEGMAN_WAIT = 2000;
+      var SKY_DIVE_LAND = SKY_DIVE_TIME + 200;
+      var SKY_DIVE_FADE = SKY_DIVE_LAND + 10000;
+      var SKY_DIVE_RESTART = SKY_DIVE_FADE + 2000;
+      var PEGMAN_WAIT = SKY_DIVE_RESTART + 2000;
 
-      this.cancelAsync(this._pegmanTimer);
+      var pegman = this.$['village-pegman'];
+      pegman.classList.remove('skydive', 'stage1', 'stage2', 'stage3', 'hide');
 
       if (!this.active) {
         return; // not active, no point jumping
@@ -377,47 +575,45 @@ Village scene (2015).
 
       var pegman = this.$['village-pegman'];
 
-      // Make sure we are all good before jumping
-      pegman.classList.remove('skydive', 'stage1', 'stage2', 'stage3', 'hide');
-
       // Jump!
       pegman.classList.add('skydive', 'stage1');
-      this._pegmanTimer = this.async(function() {
+      this._pegmanTimers[0] = this.async(function() {
         if (!this.active) {
           return;
         }
 
         pegman.classList.remove('stage1');
         pegman.classList.add('stage2');
-
-        this._pegmanTimer = this.async(function() {
-          if (!this.active) {
-            return;
-          }
-
-          pegman.classList.remove('stage2');
-          pegman.classList.add('stage3');
-
-          this._pegmanTimer = this.async(function() {
-            if (!this.active) {
-              return;
-            }
-
-            pegman.classList.add('hide');
-
-            this._pegmanTimer = this.async(function() {
-              pegman.classList.remove('skydive');
-              this._pegmanTimer = this.async(function() {
-                this._pegmanDive();
-              }, PEGMAN_WAIT);
-            }, PEGMAN_WAIT);
-          }, SKY_DIVE_RESTART);
-        }, SKY_DIVE_LAND);
       }, SKY_DIVE_FALL);
+
+      this._pegmanTimers[1] = this.async(function() {
+        if (!this.active) {
+          return;
+        }
+
+        pegman.classList.remove('stage2');
+        pegman.classList.add('stage3');
+      }, SKY_DIVE_LAND);
+
+      this._pegmanTimers[2] = this.async(function() {
+        if (!this.active) {
+          return;
+        }
+
+        pegman.classList.add('hide');
+      }, SKY_DIVE_FADE);
+
+      this._pegmanTimers[3] = this.async(function() {
+        pegman.classList.remove('skydive');
+      }, SKY_DIVE_RESTART);
+
+      this._pegmanTimers[4] = this.async(function() {
+        this._pegmanDive();
+      }, PEGMAN_WAIT);
     },
 
     _driveSnowmobile: function(e) {
-      if (isRealEvent(e)) {
+      if (!e.fakeEvent) {
         this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'snowmobile'});
       }
       var DRIVE_TIME = 10000;
@@ -425,13 +621,13 @@ Village scene (2015).
       if (snowmobile.classList.contains('drive')) return;
 
       snowmobile.classList.add('drive');
-      window.setTimeout(function() {
+      this.async(function() {
         snowmobile.classList.remove('drive');
       }, DRIVE_TIME + 1);
     },
 
     _flyBalloon: function(e) {
-      if (isRealEvent(e)) {
+      if (!e.fakeEvent) {
         this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'balloon'});
       }
 
@@ -446,7 +642,7 @@ Village scene (2015).
       balloon.classList.add('flying');
       balloonRopes.classList.add('flying');
       balloonFlight.classList.add('flying');
-      window.setTimeout(function() {
+      this.async(function() {
         balloon.classList.remove('flying');
         balloonRopes.classList.remove('flying');
         balloonFlight.classList.remove('flying');
@@ -454,7 +650,7 @@ Village scene (2015).
     },
 
     _triggerBus: function(e) {
-      if (isRealEvent(e)) {
+      if (!e.fakeEvent) {
         this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'bus'});
       }
 
@@ -467,17 +663,17 @@ Village scene (2015).
       }
 
       busStop.classList.add('to-stop');
-      window.setTimeout(function() {
+      this.async(function() {
         if (busStop.classList.contains('bus-load')) {
           busStop.classList.remove('bus-load');
         } else {
           busStop.classList.add('bus-load');
         }
-        window.setTimeout(function() {
+        this.async(function() {
           busStop.classList.remove('to-stop');
           busStop.classList.add('from-stop');
 
-          window.setTimeout(function() {
+          this.async(function() {
             busStop.classList.remove('from-stop');
           }, BUS_DRIVE_ANIMATION + 1);
         }, BUS_LOAD_ANIMATION + 1);
@@ -582,9 +778,22 @@ Village scene (2015).
       return 'https://santadive.withgoogle.com';
     },
 
+    _onHousesOver: function(event) {
+      if (!event.target || event.target.localName != 'a' || !event.target.href) {
+        return;
+      }
+      this.fire('sound-trigger', 'village_bubble_appear');
+    },
+
+    _onHousesOut: function(event) {
+      if (!event.target || !event.target.classList.contains('card')) {
+        return;
+      }
+      this.fire('sound-trigger', 'village_bubble_disappear');
+    },
+
     onPreload: function() {
       this.preloadSounds('village_load_sounds');
-      this.preloadSounds('load_music');
       this.preloadImages([
         'img/road.svg',
         'img/ground.svg',
@@ -596,7 +805,8 @@ Village scene (2015).
         '../../elements/countdown/img/number-bg.svg',
       ]);
 
-      if (window.innerWidth < 768) {
+      var isMobile = (window.innerWidth < 768);
+      if (isMobile) {
         this.preloadImages([
           'img/mobile-header.svg',
           'img/mobile-header-elves.svg',
@@ -608,12 +818,17 @@ Village scene (2015).
       for (var i = 0; i < 7 && i < houses.length; ++i) {
         var house = houses[i];
         var id = house.module;
-        var preload = [
-          'img/building-' + id + '.svg',
-          'img/card-' + id + '_2x.png'
-        ];
-        if (house.iced) {
-          preload.push('img/building-' + id + '-ice.svg')
+
+        var preload = [];
+
+        if (!isMobile) {
+          preload.push('img/building-' + id + '.svg');
+        }
+        if (this.santaApp.mode != 'cast') {
+          preload.push('img/card-' + id + '_2x.png');
+          if (house.iced && !isMobile) {
+            preload.push('img/building-' + id + '-ice.svg')
+          }
         }
         this.preloadImages(preload);
       }
@@ -629,10 +844,7 @@ Village scene (2015).
         this.$.count.start();
       });
 
-      if (this.santaApp.mode != 'cast') {
-        this._randomEasterEggs();  // stops self if no longer active
-        this._pegmanDive();
-      }
+      this._startEasterEggs();
 
       var eh = this.$.effectholder;
       eh.textContent = '';  // clear
@@ -653,18 +865,28 @@ Village scene (2015).
       this.fire('sound-ambient', 'village_end');
       this.$.count.stop();
       this.$.effectholder.textContent = '';
+      this._stopEasterEggs();
     },
 
-    onPause: function() {
-      this.fire('sound-ambient', 'village_end');
+    _startEasterEggs: function() {
+      if (this.santaApp.mode != 'cast') {
+        this._stopEasterEggs();
+        this._randomEasterEggs();  // stops self if no longer active
+        this._pegmanDive();
+        this._playTicTacToe();
+      }
     },
 
-    onResume: function() {
-      this.fire('sound-ambient', 'village_start');
+    _stopEasterEggs: function() {
+      for (var i = 0; i < this._playTicTacToeTimers.length; i++) {
+        this.cancelAsync(this._playTicTacToeTimers[i]);
+      }
+      this._playTicTacToeTimers = [];
+
+      this._resetPegmanDive();
+      this.cancelAsync(this._eggTimer);
     }
-
   });
-
 })();
 </script>
 </template>

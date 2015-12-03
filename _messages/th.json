@@ -290,8 +290,14 @@
 	"codeboogie-get-dancing": {
 		"message": "ไปเต้นกันเถอะ!"
 	},
+	"codeboogie-lets-dance": {
+		"message": "เริ่มเต้นกันเลย"
+	},
 	"codeboogie-next-dance": {
 		"message": "เต้นกันต่อเลย"
+	},
+	"codeboogie-nice-moves": {
+		"message": "สุดยอดเท้าไฟ!"
 	},
 	"codeboogie-result-missing-block-fail": {
 		"message": "ลองใช้บล็อกด้านล่างเพื่อจับคู่กับการเต้น"
@@ -304,6 +310,15 @@
 	},
 	"codeboogie-result-too-few-blocks-fail": {
 		"message": "คุณกำลังใช้บล็อกที่ถูกต้อง แต่ลองใช้ให้มากขึ้นเพื่อเต้นจนครบทุกท่า"
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "ทราบหรือไม่ว่าคุณสามารถจบการเต้นนี้ได้ใน {{ideal}} บล็อกเท่านั้น"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "คุณเต้นมากเกินไป"
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "ดูเหมือนว่าคุณจะเต้นผิดจังหวะ ลองแบบนี้แทน:"
 	},
 	"codeboogie-success": {
 		"message": "สำเร็จแล้ว"
@@ -454,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "สาธารณรัฐโดมินิกัน"
+	},
+	"donate_button": {
+		"message": "บริจาค"
+	},
+	"donate_text": {
+		"message": "ร่วมสมทบทุนให้กับโครงการที่มีความต้องการพิเศษที่ DonorsChoose.org ในเดือนธันวาคมนี้ เราจะช่วยเพิ่มยอดบริจาคให้มากขึ้นเป็นทวีคูณด้วยการสมทบทุนอีก 50% สำหรับทุกการบริจาคของคุณ จนกว่ายอดเงินบริจาคทั้งหมดจะบรรลุเป้าหมาย 1 ล้านดอลลาร์สหรัฐฯ ตามที่เราตั้งไว้ ด้วยพลังจากน้ำใจของพวกเราทุกคน เราสามารถช่วยสร้างห้องเรียนที่เด็กๆ ทุกคนสามารถเรียนร่วมกันได้มากขึ้น #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "แอลจีเรีย"
@@ -836,6 +857,24 @@
 	"sa_country_name": {
 		"message": "ซาอุดีอาระเบีย"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "มนุษย์ขนมปังขิง"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "นางซานตาคลอส"
+	},
+	"santasearch_character_pegman": {
+		"message": "เพ็กแมน"
+	},
+	"santasearch_character_penguin": {
+		"message": "เพนกวิน"
+	},
+	"santasearch_character_rudolph": {
+		"message": "รูดอล์ฟ"
+	},
+	"santasearch_character_santa": {
+		"message": "ซานตาคลอส"
+	},
 	"santasearch_hint": {
 		"message": "คำใบ้"
 	},
@@ -919,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "ซานต้าเซลฟี"
+	},
+	"scene_seasonofcaring": {
+		"message": "เทศกาลแห่งการแสดงน้ำใจ"
 	},
 	"scene_seasonofgiving": {
 		"message": "เทศกาลแห่งการให้"
@@ -1039,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "ระยะทางจากตำแหน่งของคุณ"
+	},
+	"tracker_flight_nearby": {
+		"message": "ซานต้าอยู่ใกล้ๆ นี่เอง ค้นหาว่าเขาอยู่ที่ไหน"
+	},
+	"tracker_flight_start": {
+		"message": "ซานต้าออกเดินทางจากขั้วโลกเหนือแล้ว และคุณสามารถติดตามเส้นทางของเขาได้"
 	},
 	"tracker_gifts_delivered": {
 		"message": "ของขวัญที่ส่งแล้ว"
@@ -4768,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "ซานต้าบน Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "ส่วนขยายของ Google Chrome"
 	},
 	"village_takesoff": {
 		"message": "ซานต้าจะออกเดินทางใน"

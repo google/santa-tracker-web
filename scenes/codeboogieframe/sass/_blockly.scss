@@ -30,7 +30,6 @@
     }
 
     @media (min-width: 1025px) {
-      bottom: (96px + 8px);
       left: (244px - 48px) / 2;
       width: 48px;
     }
@@ -70,7 +69,7 @@
     }
   }
 
-  &.level--maze .blockly__promo {
+  &.level--dance .blockly__promo {
     left: 80px;
     right: 60px;
 

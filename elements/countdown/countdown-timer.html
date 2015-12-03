@@ -13,7 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
-<link rel="import" href="../../components/iron-flex-layout/classes/iron-flex-layout.html">
+<link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../js/utils.html">
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -40,13 +40,17 @@ Example
         will-change: transform;
         transform: translateZ(0);
       }
+
+      #counter {
+        @apply(--layout-horizontal);
+      }
     </style>
 
     <div hidden>
       <content id="content" select="*"></content>
     </div>
 
-    <div id="counter" class="layout horizontal">
+    <div id="counter">
       <template is="dom-repeat" items="{{titles}}">
         <div class="counter-box" hidden$="{{_computeHide(index, displayDigits)}}">
           <div class="holder active"></div>

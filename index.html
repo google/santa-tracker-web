@@ -36,8 +36,8 @@ specific language governing permissions and limitations under the License.
   <meta name="mobile-web-app-capable" content="yes"> <!-- fallback -->
 
   <!-- app status bar themes -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="#30B443">
-  <meta name="theme-color" content="#30B443">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#00c6ed">
+  <meta name="theme-color" content="#00c6ed">
   <meta name="msapplication-TileColor" content="#30B443">
   <meta name="msapplication-tap-highlight" content="no">
 
@@ -83,30 +83,6 @@ specific language governing permissions and limitations under the License.
     if (apiClient) {
       ga_.pushCommand(['_setCampSourceKey', 'api_client']);
       ga_.pushCommand(['_setCampMediumKey', 'api_client']);
-
-      (function() {
-        switch (apiClient) {
-        case 'web_chromecast':
-          // Start the Cast Reciever. This needs to happen early, otherwise an
-          // error may be reported to clients.
-          var crm = cast.receiver.CastReceiverManager.getInstance();
-          var messageBus = crm.getCastMessageBus('urn:x-cast:com.google.cast.santatracker');
-
-          crm.onReady = function(event) {
-            crm.setApplicationState('Google Santa Tracker');
-          };
-          crm.onSenderDisconnected = function(event) {
-            if (!crm.getSenders().length &&
-                event.reason === cast.receiver.system.DisconnectReason.REQUESTED_BY_SENDER) {
-              window.close();
-            }
-          };
-          var config = new cast.receiver.CastReceiverManager.Config();
-          config.statusText = 'Google Santa Tracker...';  // subtle loading hint
-          crm.start(config);
-          break;
-        }
-      }());
     }
 
     // Check if browser is supported by web component/Polymer polyfills.
@@ -133,6 +109,11 @@ specific language governing permissions and limitations under the License.
       // no older Android browser
       if (uaString.indexOf('Chrome') === -1 && uaString.indexOf('Android') !== -1) {
         return !/^Google/.test(navigator.vendor);
+      }
+      // no older Chrome (e.g., Samsung browser fork or ancient install)
+      var chromeVersion = /Chrome\/(\d+)/.exec(uaString);
+      if (chromeVersion && chromeVersion[1]) {
+        return parseInt(chromeVersion[1], 10) >= 43;
       }
       // no Opera < 15
       if (uaString.indexOf('Opera') !== -1) {
@@ -162,12 +143,12 @@ specific language governing permissions and limitations under the License.
             '' + message]);
       } catch (e){}
     };
-
   </script>
-  <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
-  <link rel="import" href="elements/elements_en.html" />
+  <script src="components/webcomponentsjs/webcomponents-lite.min.js" async></script>
+  <link rel="import" href="elements/elements_en.html">
+  <link rel="import" href="js/ccsender.html" async>
 </head>
-<body class="fullbleed" data-version="" unresolved>
+<body data-version="" unresolved>
 
 <santa-app id="santaApp"></santa-app>
 
@@ -247,6 +228,15 @@ if (window.matchMedia && window.matchMedia('(min-width: 1000px)').matches) {
   });
 }
 })();
+</script>
+<script>
+    if (santaApp.mode == 'portal') {
+      /* add spacenav libraries and call spacenav initializer */
+      /* the weird scr + ipt is to avoid issues in html */
+      document.write('<scr' + 'ipt type="text/javascript" src="./third_party/lib/eventemitter2/eventemitter2.min.js"></scr' + 'ipt>');
+      document.write('<scr' + 'ipt type="text/javascript" src="./third_party/lib/roslibjs/roslib.min.js"></scr' + 'ipt>');
+      document.write('<scr' + 'ipt type="text/javascript" src="./third_party/lib/spacenav/spacenav.js"></scr' + 'ipt>');
+    }
 </script>
 </body>
 </html>

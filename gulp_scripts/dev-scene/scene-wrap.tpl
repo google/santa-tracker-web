@@ -3,6 +3,7 @@
 <head>
     <title>Scene: %(sceneName)s</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
     <style>
         html, body {
             font-family: Roboto, sans-serif;

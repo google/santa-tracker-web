@@ -47,7 +47,7 @@ app.MobileSlider.prototype.expand = function() {
 
   this.animation && this.animation.cancel();
   this.animation = this.sizeContainer.animate([
-      {transform: 'translate3d(0, 220px, 0)'},
+      {transform: 'translate3d(0, 0, 0)'},
       {transform: 'translate3d(0, ' + (this.expandOffset - 20) + 'px, 0)'},
       {transform: 'translate3d(0, ' + (this.expandOffset + 10) + 'px, 0)'},
       {transform: 'translate3d(0, ' + (this.expandOffset - 5) + 'px, 0)'},
@@ -59,6 +59,10 @@ app.MobileSlider.prototype.expand = function() {
     }
   );
 
+  this.styleTimeout && clearTimeout(this.styleTimeout);
+  this.styleTimeout = setTimeout(function() {
+    $(this.sizeContainer).css('transform', 'translate3d(0, ' + this.expandOffset + 'px, 0)');
+  }.bind(this), 550);
   this.isExpanded = true;
 };
 
@@ -75,7 +79,7 @@ app.MobileSlider.prototype.collapse = function(time) {
   this.animation = this.sizeContainer.animate([
       {transform: 'translate3d(0, ' + this.expandOffset + 'px, 0)'},
       {transform: 'translate3d(0, ' + (this.expandOffset - 20) + 'px, 0)'},
-      {transform: 'translate3d(0, 220px, 0)'}
+      {transform: 'translate3d(0, 0, 0)'}
     ], {
       fill: 'forwards',
       delay: 200,
@@ -83,6 +87,12 @@ app.MobileSlider.prototype.collapse = function(time) {
       easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)'
     }
   );
+
+  this.styleTimeout && clearTimeout(this.styleTimeout);
+  this.styleTimeout = setTimeout(function() {
+    $(this.sizeContainer).css('transform', 'translate3d(0, 0, 0)');
+  }.bind(this), 500);
+
   this.isExpanded = false;
 };
 
@@ -151,9 +161,7 @@ app.MobileSlider.prototype.changeActiveSize = function(size, maxSize) {
  * @param {number} cols Current columns
  */
 app.MobileSlider.prototype.updateExpandOffset = function(toolSize, cols) {
-  this.expandOffset = -15 + (1 - (toolSize - 35) / 40) * 35;
+  this.expandOffset = -toolSize - 106;
 
-  if (cols < 14) {
-    this.expandOffset += 25;
-  }
+  this.collapse();
 };

@@ -276,10 +276,10 @@
 		"message": "Faites un pas vers la droite."
 	},
 	"codeboogie-block-shake": {
-		"message": "Remuer les hanches"
+		"message": "Balancer les hanches"
 	},
 	"codeboogie-block-shake-tooltip": {
-		"message": "Remuez les hanches."
+		"message": "Balancez les hanches."
 	},
 	"codeboogie-block-split": {
 		"message": "Grand écart"
@@ -290,8 +290,14 @@
 	"codeboogie-get-dancing": {
 		"message": "Dansez !"
 	},
+	"codeboogie-lets-dance": {
+		"message": "On danse !"
+	},
 	"codeboogie-next-dance": {
 		"message": "Danse suivante"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Bravo !"
 	},
 	"codeboogie-result-missing-block-fail": {
 		"message": "Sélectionnez le bloc ci-dessous correspondant à la danse."
@@ -300,10 +306,19 @@
 		"message": "Savez-vous que vous pouvez compléter cette danse avec seulement {{ideal}} blocs ? Essayez le bloc ci-dessous."
 	},
 	"codeboogie-result-perfect-success": {
-		"message": "Ça swingue ! Vous avez fait un sans-faute."
+		"message": "Joli ! Vous avez fait un sans-faute."
 	},
 	"codeboogie-result-too-few-blocks-fail": {
 		"message": "Vous choisissez les bons blocs, mais essayez d'en utiliser plus pour compléter la danse."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Savez-vous que vous pouvez compléter cette danse avec seulement {{ideal}} blocs ?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Vous avez fait trop de pas."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Vous n'avez pas fait le bon pas. Essayez plutôt celui-là :"
 	},
 	"codeboogie-success": {
 		"message": "Bien joué !"
@@ -454,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "République dominicaine"
+	},
+	"donate_button": {
+		"message": "Faire un don"
+	},
+	"donate_text": {
+		"message": "Aidez à financer un projet destiné aux enfants handicapés sur DonorsChoose.org. En décembre, nous en doublons l'impact en contribuant à hauteur de 50 % des dons, jusqu'à atteindre notre objectif d'un million de dollars. Ensemble, nous pouvons promouvoir la diversité dans les salles de classe #ForEveryKid."
 	},
 	"dz_country_name": {
 		"message": "Algérie"
@@ -836,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Arabie saoudite"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Bonhomme de pain d'épices"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Mère Noël"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pingouin"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolphe"
+	},
+	"santasearch_character_santa": {
+		"message": "Père Noël"
+	},
 	"santasearch_hint": {
 		"message": "Indice"
 	},
@@ -919,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Le selfie du père Noël"
+	},
+	"scene_seasonofcaring": {
+		"message": "La saison de la générosité"
 	},
 	"scene_seasonofgiving": {
 		"message": "La saison des fêtes"
@@ -1039,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Distance par rapport à vous"
+	},
+	"tracker_flight_nearby": {
+		"message": "Le père Noël est près de chez vous ! Découvrez où il se trouve."
+	},
+	"tracker_flight_start": {
+		"message": "Le père Noël a quitté le pôle Nord. Vous pouvez désormais suivre son itinéraire."
 	},
 	"tracker_gifts_delivered": {
 		"message": "Cadeaux distribués"
@@ -4768,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "Le père Noël sur Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Extension Google Chrome"
 	},
 	"village_takesoff": {
 		"message": "Le père Noël s'envolera dans"

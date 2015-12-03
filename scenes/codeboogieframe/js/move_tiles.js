@@ -26,8 +26,19 @@ const maxTiles = 4;
 app.MoveTiles = class {
   constructor(el) {
     this.el = el;
-    this.el.style.width = `${maxTiles * tilewidth / 10}em`;
-    this.el.style.left = `calc(50% + ${maxTiles / 2 * tilewidth / 10}em)`
+    this.fadeTiles = true;
+  }
+
+  setLevel(level) {
+    this.fadeTiles = level.fadeTiles;
+    this.setLength(level.steps.length);
+  }
+
+  setLength(length) {
+    let tiles = Math.min(length, maxTiles);
+
+    this.el.style.width = `${tiles * tilewidth / 10}em`;
+    this.el.style.left = `calc(50% + ${tiles / 2 * tilewidth / 10}em)`;
   }
 
   add(move) {
@@ -36,23 +47,34 @@ app.MoveTiles = class {
 
     this.el.appendChild(tile);
 
-    let moveTiles = Array.from(this.el.querySelectorAll('.scene__moves-move'));
+    let moveTiles = this.el.querySelectorAll('.scene__moves-move');
     let numTiles = moveTiles.length;
 
-    // move the tiles into the correct places.
-    setTimeout(() => {
-      this.el.style.transform = `translate3d(-${(numTiles * tilewidth) / 10}em, 0, 0)`; }, 100);
+    goog.style.setStyle(this.el, {
+      transform: `translate3d(-${(numTiles * tilewidth) / 10}em, 0, 0)`,
+      transitionDuration: numTiles === 1 ? '0s' : ''
+    });
 
-      if (numTiles > maxTiles) {
-        moveTiles.slice(0, numTiles - maxTiles).forEach(tile => {
-          tile.classList.add('fade-out');
-        });
-      }
+    if (numTiles > maxTiles) {
+      goog.array.slice(moveTiles, 0, numTiles - maxTiles).forEach(tile => {
+        tile.classList.add('fade-out');
+      });
+    }
+  }
+
+  reset() {
+    this._removeTiles();
   }
 
   clear() {
-    let moveTiles = Array.from(this.el.querySelectorAll('.scene__moves-move'));
-    moveTiles.forEach(tile => {
+    if (this.fadeTiles) {
+      this._removeTiles();
+    }
+  }
+
+  _removeTiles() {
+    let moveTiles = this.el.querySelectorAll('.scene__moves-move');
+    goog.array.forEach(moveTiles, tile => {
       tile.classList.add('fade-out');
     });
 
@@ -62,4 +84,4 @@ app.MoveTiles = class {
       }
     }, 200);
   }
-}
+};

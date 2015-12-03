@@ -290,8 +290,14 @@
 	"codeboogie-get-dancing": {
 		"message": "Balla!"
 	},
+	"codeboogie-lets-dance": {
+		"message": "Si balla!"
+	},
 	"codeboogie-next-dance": {
 		"message": "Prossimo ballo"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Belle mosse!"
 	},
 	"codeboogie-result-missing-block-fail": {
 		"message": "Prova il blocco qui sotto per indovinare i passi di danza."
@@ -304,6 +310,15 @@
 	},
 	"codeboogie-result-too-few-blocks-fail": {
 		"message": "Stai usando i blocchi giusti, ma prova a usarne altri per completare il ballo."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Sai che avresti potuto completare questo ballo con solo {{ideal}} blocchi?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Hai fatto troppi passi."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Sembra che tu abbia fatto la mossa sbagliata. Prova questa:"
 	},
 	"codeboogie-success": {
 		"message": "Ce l'hai fatta!"
@@ -454,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Repubblica Dominicana"
+	},
+	"donate_button": {
+		"message": "Dona"
+	},
+	"donate_text": {
+		"message": "Contribuisci a sostenere un progetto per bambini in difficoltà su DonorsChoose.org. Questo dicembre, raddoppiamo il nostro sostegno aumentando del 50% ogni donazione, fino a raggiungere il nostro obiettivo di $ 1 milione. Insieme, possiamo rendere le classi più partecipative per tutti i bambini #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Algeria"
@@ -836,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Arabia Saudita"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Omino di Pan di Zenzero"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "La moglie di Babbo Natale"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pinguino"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolph"
+	},
+	"santasearch_character_santa": {
+		"message": "Babbo Natale"
+	},
 	"santasearch_hint": {
 		"message": "Suggerimento"
 	},
@@ -919,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Selfie con Babbo Natale"
+	},
+	"scene_seasonofcaring": {
+		"message": "La stagione della generosità"
 	},
 	"scene_seasonofgiving": {
 		"message": "La stagione dei regali"
@@ -1039,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Distanza da te"
+	},
+	"tracker_flight_nearby": {
+		"message": "Babbo Natale si sta avvicinando, scopri dove si trova"
+	},
+	"tracker_flight_start": {
+		"message": "Babbo Natale è partito dal Polo Nord e ora puoi seguire i suoi spostamenti"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Regali consegnati"
@@ -4768,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "Babbo Natale su Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Estensione di Google Chrome"
 	},
 	"village_takesoff": {
 		"message": "Babbo Natale decolla tra"

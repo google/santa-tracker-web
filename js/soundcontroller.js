@@ -78,14 +78,14 @@ SoundController.SoundDetail;
  * @private {string}
  */
 SoundController.klangSrc_ = 'third_party/lib/klang/klang.js';
+//SoundController.klangSrc_ = 'http://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/klang.js';
 
 /**
  * Klang config file URL.
  * @private {string}
  */
-//SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.json';
-//SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.js';
-SoundController.klangConfigSrc_ = 'https://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/config.js';
+SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.js';
+//SoundController.klangConfigSrc_ = 'http://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/config.js';
 
 
 /**
@@ -96,8 +96,16 @@ SoundController.prototype.loadKlangConfig_ = function() {
   // load config script
   Klang.init(SoundController.klangConfigSrc_, function(success) {
     if (success) {
+      //Klang.loggingEnabled=true;
       console.log('Klang loaded');
       this.klangLoaded_ = true;
+
+      document.addEventListener('touchend',function startIOS () {
+        Klang.initIOS();
+        console.log('initIOS');
+        document.removeEventListener('touchend', startIOS);
+
+      })
 
       // Run any queued loads of sound sets. Usually only one set of sounds has
       // been queued, but prioritize the most recent in case of more.

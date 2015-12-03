@@ -18,6 +18,7 @@
 
 goog.provide('app.Animation');
 
+goog.require('app.Step');
 goog.require('app.AnimationData');
 
 const canvasWidth = 622;
@@ -28,28 +29,33 @@ const spriteScaleFactor = 0.6;
 const originalWidth = 1920 * spriteScaleFactor;
 const originalHeight = 1080 * spriteScaleFactor;
 
+const frameCounts = {
+  [app.Step.IDLE]: 24,
+  [app.Step.FAIL]: 48,
+  [app.Step.WATCH]: 48,
+  [app.Step.LEFT_ARM]: 48,
+  [app.Step.RIGHT_ARM]: 48,
+  [app.Step.LEFT_FOOT]: 48,
+  [app.Step.RIGHT_FOOT]: 48,
+  [app.Step.JUMP]: 48,
+  [app.Step.SHAKE]: 48,
+  [app.Step.SPLIT]: 48,
+  [app.Step.CARLTON]: 96,
+  [app.Step.SPONGEBOB]: 48,
+  [app.Step.ELVIS]: 48,
+  [app.Step.THRILLER]: 96
+};
+
 app.Animation = class {
-  constructor(sprite, color, bpm) {
-    this.name = sprite.name;
+  constructor(name, bpm) {
+    this.name = name;
 
     this.frame = 0;
-    this.frameCount = sprite.frames;
+    this.frameCount = frameCounts[name];
     this.frameDuration = 1000 / fps * (60 / bpm * 2);
     this.elapsedTime = 0;
     this.paused = true;
-
-    sprite.duration = sprite.frames / fps;
-
-    this.images = app.AnimationData(color);
-
-    Object.keys(this.images).forEach(key => {
-      let value = this.images[key];
-
-      let image = new Image();
-      image.src = `img/steps/${color}/${key}.png`;
-
-      this.images[key].img = image;
-    });
+    this.data = app.AnimationData();
   }
 
   play() {
@@ -59,10 +65,11 @@ app.Animation = class {
 
   getFrame(name, number) {
     let index = Math.floor(number / framesPerSprite);
-    let data = this.images[`${name}_${index}`];
+    let sprite = `${name}_${index}`;
+    let data = this.data[sprite];
 
-    if(!data) {
-      throw new Error(`Missing data for ${name} index ${index}`)
+    if (!data) {
+      throw new Error(`Missing data for ${sprite}`);
     }
 
     return {
@@ -72,7 +79,7 @@ app.Animation = class {
       height: data.height,
       offsetX: data.offsetX - (originalWidth / 2 - canvasWidth / 2),
       offsetY: data.offsetY - (originalHeight / 2 - canvasHeight / 2),
-      img: data.img
+      sprite
     };
   }
 

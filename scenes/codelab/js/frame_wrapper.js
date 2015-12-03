@@ -60,7 +60,7 @@ app.FrameWrapper = function(el, staticDir) {
  */
 app.FrameWrapper.prototype.restart = function() {
   this.isPlaying = true;
-
+  window.santaApp.fire('sound-ambient', 'music_start_scene');
   this.iframeChannel.call('restart');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'codelab'});
 };
