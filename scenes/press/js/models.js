@@ -470,6 +470,7 @@ var Cards = [
     'ordinal': 'th',
     'type': 'Play',
     'new': true,
+    'education': true,
     'description': 'The elves are back to coding practice, but mixing in their dancing skills. Use code to choreograph the elves dances - but watch out, as you get better, the dances get harder!',
     'resources': [
       {
@@ -560,6 +561,7 @@ var Cards = [
     'ordinal': 'st',
     'type': 'Play',
     'new': true,
+    'education': true,
     'description': 'This holiday season, we partnered with Google.org to showcase how certain organizations are helping kids with special needs.',
     'resources': [
     ]
