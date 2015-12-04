@@ -31,7 +31,12 @@
       // Some character positions shouldn't be moved
       // secretlab: SANTA-6
       &--still {
-        transform: none;
+        transition: opacity 200ms 100ms;
+
+        &.map__character--found {
+          animation: none;
+          opacity: 0;
+        }
       }
     }
   }
